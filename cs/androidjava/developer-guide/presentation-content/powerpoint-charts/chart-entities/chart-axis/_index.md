@@ -1,235 +1,349 @@
 ---
-title: "Přizpůsobení os grafu v prezentacích na Androidu"
-linktitle: "Osa grafu"
+title: Přizpůsobení os grafu v prezentacích na Androidu
+linktitle: Osa grafu
 type: docs
 url: /cs/androidjava/chart-axis/
 keywords:
-  - "osa grafu"
-  - "svislá osa"
-  - "vodorovná osa"
-  - "přizpůsobení osy"
-  - "manipulace s osou"
-  - "správa osy"
-  - "vlastnosti osy"
-  - "maximální hodnota"
-  - "minimální hodnota"
-  - "čára osy"
-  - "formát data"
-  - "název osy"
-  - "pozice osy"
-  - "PowerPoint"
-  - "prezentace"
-  - "Android"
-  - "Java"
-  - "Aspose.Slides"
-description: "Objevte, jak pomocí Aspose.Slides pro Android přes Java přizpůsobit osy grafu v prezentacích PowerPoint pro zprávy a vizualizace."
+- osa grafu
+- svislá osa
+- vodorovná osa
+- přizpůsobit osu
+- manipulovat s osou
+- správa osy
+- vlastnosti osy
+- maximální hodnota
+- minimální hodnota
+- čára osy
+- formát data
+- název osy
+- umístění osy
+- PowerPoint
+- prezentace
+- Android
+- Java
+- Aspose.Slides
+description: "Objevte, jak pomocí Aspose.Slides pro Android přes Java přizpůsobit osy grafu v PowerPoint prezentacích pro zprávy a vizualizace."
 ---
 ## **Přehled**
 
-Tento článek vysvětluje, jak přizpůsobit osy grafu v Aspose.Slides. Ukazuje, jak získat skutečné hodnoty osy, prohodit data mezi osami, skrýt svislou nebo vodorovnou osu u spojnicových grafů, změnit typ osy kategorií, nastavit formát data pro hodnoty osy kategorií, otočit nadpis osy, nastavit polohu osy a zobrazit štítek jednotky na hodnotové ose.
+Tento článek vysvětluje, jak přizpůsobit osy grafu pomocí Aspose.Slides pro Android přes Java. Popisuje vypočítané hodnoty os, přepínání řádků a sloupců grafu, viditelnost os, intervaly popisků kategorií a značek os, datumové kategorie a formátování, otáčení názvu, umístění os a jednotky zobrazení.
 
-## **Získání maximálních hodnot na svislé ose grafů**
-Aspose.Slides pro Android přes Java umožňuje získat minimální a maximální hodnoty na svislé ose. Proveďte následující kroky:
+## **Získání maximálních hodnot na svislé ose v grafech**
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/Presentation).
-1. Přistupte k první snímku.
-1. Přidejte graf s výchozími daty.
-1. Získejte skutečnou maximální hodnotu na ose.
-1. Získejte skutečnou minimální hodnotu na ose.
-1. Získejte skutečnou hlavní jednotku osy.
-1. Získejte skutečnou vedlejší jednotku osy.
-1. Získejte skutečnou měřítko hlavní jednotky osy.
-1. Získejte skutečnou měřítko vedlejší jednotky osy.
+Vytvořte [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) a přidejte plošný graf s výchozími daty. Zavolejte [validateChartLayout](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chart/#validateChartLayout--) před čtením vypočítaných hodnot os, aby byl rozvržení grafu aktuální.
 
-Tento ukázkový kód – implementace výše uvedených kroků – ukazuje, jak získat požadované hodnoty v Javě:
+Přečtěte [getActualMaxValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#getActualMaxValue--) a [getActualMinValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#getActualMinValue--) pro limity osy a [getActualMajorUnit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#getActualMajorUnit--) a [getActualMinorUnit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#getActualMinorUnit--) pro intervaly značek. [getActualMajorUnitScale](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#getActualMajorUnitScale--) a [getActualMinorUnitScale](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#getActualMinorUnitScale--) poskytují časové jednotky, které jsou relevantní pro datumové osy. Příklad uloží tyto hodnoty do místních proměnných a uloží graf.
 
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-	Chart chart = (Chart)pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Area, 100, 100, 500, 350);
-	chart.validateChartLayout();
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-	double maxValue = chart.getAxes().getVerticalAxis().getActualMaxValue();
-	double minValue = chart.getAxes().getVerticalAxis().getActualMinValue();
+    IChart chart = slide.getShapes().addChart(ChartType.Area, 100, 100, 500, 350);
+    chart.validateChartLayout();
 
-	double majorUnit = chart.getAxes().getHorizontalAxis().getActualMajorUnit();
-	double minorUnit = chart.getAxes().getHorizontalAxis().getActualMinorUnit();
+    double maxValue = chart.getAxes().getVerticalAxis().getActualMaxValue();
+    double minValue = chart.getAxes().getVerticalAxis().getActualMinValue();
 
-	// Uloží prezentaci
-	pres.save("MaxValuesVerticalAxis_out.pptx", SaveFormat.Pptx);
+    double majorUnit = chart.getAxes().getVerticalAxis().getActualMajorUnit();
+    double minorUnit = chart.getAxes().getVerticalAxis().getActualMinorUnit();
+
+    int majorUnitScale = chart.getAxes().getVerticalAxis().getActualMajorUnitScale();
+    int minorUnitScale = chart.getAxes().getVerticalAxis().getActualMinorUnitScale();
+
+    presentation.save("AxisValues_out.pptx", SaveFormat.Pptx);
 } finally {
-	if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
 ## **Prohození dat mezi osami**
-Aspose.Slides umožňuje rychle prohodit data mezi osami – data zobrazená na svislé ose (y‑osa) se přesunou na vodorovnou osu (x‑osa) a naopak.
 
-Tento Java kód ukazuje, jak provést výměnu dat mezi osami v grafu:
+Použijte [switchRowColumn](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartdata/#switchRowColumn--) k výměně rolí sérií a kategorií v datech grafu. Každá bývalá kategorie se stane sérií a každá bývalá série se stane kategorií. Tím se změní způsob seskupení dat; neproběhne výměna vodorovné a svislé osy. Příklad používá [setRange](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartdata/#setRange-java.lang.String-) k navázání výchozích dat na `Sheet1!A1:D5`, včetně řádku záhlaví a sloupce kategorií, před výměnou řádků a sloupců. Uloží graf se čtyřmi sériemi a třemi kategoriemi.
 
 ```java
-Presentation pres = new Presentation();
-try {
-	IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 100, 100, 400, 300);
+import com.aspose.slides.*;
 
-	// Přepne řádky a sloupce
-	// Uloží prezentaci
-	pres.save("SwitchChartRowColumns_out.pptx", SaveFormat.Pptx);
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 100, 100, 400, 300);
+    chart.getChartData().setRange("Sheet1!A1:D5");
+    chart.getChartData().switchRowColumn();
+
+    presentation.save("SwitchChartRowColumns_out.pptx", SaveFormat.Pptx);
 } finally {
-	if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Zakázání svislé osy u spojnicových grafů**
+## **Zakázání svislé osy pro čárové grafy**
 
-Tento Java kód ukazuje, jak skrýt svislou osu u spojnicového grafu:
+Zavolejte [setVisible](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setVisible-boolean-) s hodnotou `false` na svislé ose, aby byla skryta. Příklad vytvoří čárový graf s výchozími daty a uloží jej se skrytou svislou osou.
 
 ```java
-Presentation pres = new Presentation();
-try {
-	IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Line, 100, 100, 400, 300);
-	chart.getAxes().getVerticalAxis().setVisible(false);
+import com.aspose.slides.*;
 
-	pres.save("chart.pptx", SaveFormat.Pptx);
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.Line, 100, 100, 400, 300);
+    chart.getAxes().getVerticalAxis().setVisible(false);
+
+    presentation.save("HiddenVerticalAxis.pptx", SaveFormat.Pptx);
 } finally {
-	if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Zakázání vodorovné osy u spojnicových grafů**
+## **Zakázání vodorovné osy pro čárové grafy**
 
-Tento kód ukazuje, jak skrýt vodorovnou osu u spojnicového grafu:
+Zavolejte [setVisible](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setVisible-boolean-) s hodnotou `false` na vodorovné ose, aby byla skryta. Příklad vytvoří čárový graf s výchozími daty a uloží jej se skrytou vodorovnou osou.
 
 ```java
-Presentation pres = new Presentation();
-try {
-	IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Line, 100, 100, 400, 300);
-	chart.getAxes().getHorizontalAxis().setVisible(false);
+import com.aspose.slides.*;
 
-	pres.save("chart.pptx", SaveFormat.Pptx);
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.Line, 100, 100, 400, 300);
+    chart.getAxes().getHorizontalAxis().setVisible(false);
+
+    presentation.save("HiddenHorizontalAxis.pptx", SaveFormat.Pptx);
 } finally {
-	if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
 ## **Změna osy kategorií**
 
-Pomocí vlastnosti **CategoryAxisType** můžete určit požadovaný typ osy kategorií (**date** nebo **text**). Tento Java kód demonstruje operaci:
+Použijte [setCategoryAxisType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setCategoryAxisType-int-) k výběru datumové nebo textové osy kategorií. Tento příklad vyžaduje soubor `ExistingChart.pptx`, kde je graf jako první tvar na první snímku a buňky kategorií obsahují číselné hodnoty datumů Excelu. Změní vodorovnou osu na datumovou osu. Voláním [setAutomaticMajorUnit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setAutomaticMajorUnit-boolean-) s hodnotou `false`, [setMajorUnit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setMajorUnit-double-) s hodnotou `1` a [setMajorUnitScale](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setMajorUnitScale-int-) s `TimeUnitType.Months` umístí hlavní značky v měsíčních intervalech.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("ExistingChart.pptx");
 try {
-	IChart chart = (IChart)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
-	chart.getAxes().getHorizontalAxis().setCategoryAxisType(CategoryAxisType.Date);
-	chart.getAxes().getHorizontalAxis().setAutomaticMajorUnit(false);
-	chart.getAxes().getHorizontalAxis().setMajorUnit(1);
-	chart.getAxes().getHorizontalAxis().setMajorUnitScale(TimeUnitType.Months);
-	presentation.save("ChangeChartCategoryAxis_out.pptx", SaveFormat.Pptx);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = (IChart) slide.getShapes().get_Item(0);
+    chart.getAxes().getHorizontalAxis().setCategoryAxisType(CategoryAxisType.Date);
+    chart.getAxes().getHorizontalAxis().setAutomaticMajorUnit(false);
+    chart.getAxes().getHorizontalAxis().setMajorUnit(1);
+    chart.getAxes().getHorizontalAxis().setMajorUnitScale(TimeUnitType.Months);
+
+    presentation.save("ChangeChartCategoryAxis_out.pptx", SaveFormat.Pptx);
 } finally {
-	if (presentation != null) presentation.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Nastavení formátu data pro hodnoty osy kategorií**
-Aspose.Slides pro Android přes Java umožňuje nastavit formát data pro hodnotu osy kategorií. Operace je demonstrována v tomto Java kódu:
+## **Řízení intervalů popisků osy kategorií**
+
+Když má graf mnoho kategorií, můžete snížit počet viditelných popisků osy, aniž byste odstraňovali kategorie nebo datové body. Zavolejte [setAutomaticTickLabelSpacing](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setAutomaticTickLabelSpacing-boolean-) s hodnotou `false` a poté předávejte požadovaný interval kategorií do [setTickLabelSpacing](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setTickLabelSpacing-int-). Pro textové kategorie v jejich normálním pořadí se číslování začíná od první kategorie:
+
+| Interval | Popisky zobrazené v příkladu |
+| --- | --- |
+| `1` | Kategorie 1, Kategorie 2, Kategorie 3, ... Kategorie 24 |
+| `2` | Kategorie 1, Kategorie 3, Kategorie 5, ... Kategorie 23 |
+| `3` | Kategorie 1, Kategorie 4, Kategorie 7, ... Kategorie 22 |
+
+Interval `3` zobrazí každý třetí popisek a mezi zobrazenými popisky skryje dva popisky. Neodstraní odpovídající sloupce. Automatické rozestupy vybírají interval na základě dostupného prostoru; nezobrazí nutně každý popisek.
+
+Značky os mají samostatná nastavení. Zavolejte [setAutomaticTickMarksSpacing](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setAutomaticTickMarksSpacing-boolean-) s hodnotou `false` a použijte [setTickMarksSpacing](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setTickMarksSpacing-int-) k nastavení jejich intervalu. Například `1` ponechá značku na každém intervalu kategorie, zatímco popisky se zobrazí jen každou třetí kategorii. Použijte [setMajorTickMark](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setMajorTickMark-int-) s viditelným stylem, abyste mohli výsledek vidět. Volání jakéhokoli nastavení automatického rozestupu s hodnotou `true` znovu umožní grafu vybrat tento interval.
+
+Následující samostatný příklad vytvoří 24 kategorií a jednu sérii, poté uloží tři snímky v souboru `CategoryAxisIntervals.pptx`: automatické rozestupy, ruční rozestupy popisků s nezávislými značkami a obnovené automatické rozestupy. Obě kopie zachovají původní data grafu. Vstupní prezentace není vyžadována. Text popisků vodorovných usnadní vnímat rozdíl v hustotě.
 
 ```java
-Presentation pres = new Presentation();
-try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Area, 50, 50, 450, 300);
+import com.aspose.slides.*;
 
-    IChartDataWorkbook wb = chart.getChartData().getChartDataWorkbook();
-    wb.clear(0);
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 30, 40, 660, 320);
+
+    chart.setLegend(false);
+    chart.getChartData().getCategories().clear();
+    chart.getChartData().getSeries().clear();
+
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.clear(0);
+
+    IChartSeries series = chart.getChartData().getSeries().add(ChartType.ClusteredColumn);
+    for (int i = 0; i < 24; i++) {
+        IChartDataCell categoryCell = workbook.getCell(0, i + 1, 0, "Category " + (i + 1));
+        chart.getChartData().getCategories().add(categoryCell);
+        IChartDataCell valueCell = workbook.getCell(0, i + 1, 1, 10 + i % 6 * 5);
+        series.getDataPoints().addDataPointForBarSeries(valueCell);
+    }
+
+    IAxis axis = chart.getAxes().getHorizontalAxis();
+    axis.setCategoryAxisType(CategoryAxisType.Text);
+    axis.getTextFormat().getTextBlockFormat().setRotationAngle(0);
+    axis.getTextFormat().getPortionFormat().setFontHeight(12);
+    axis.setMajorTickMark(TickMarkType.Outside);
+    axis.setAutomaticTickLabelSpacing(true);
+    axis.setAutomaticTickMarksSpacing(true);
+
+    // Snímek 2: zobrazit každý třetí popisek, ale zachovat značku pro každou kategorii.
+    ISlide manualSlide = presentation.getSlides().addClone(slide);
+    IChart manualChart = (IChart)manualSlide.getShapes().get_Item(0);
+    IAxis manualAxis = manualChart.getAxes().getHorizontalAxis();
+    manualAxis.setAutomaticTickLabelSpacing(false);
+    manualAxis.setTickLabelSpacing(3);
+    manualAxis.setAutomaticTickMarksSpacing(false);
+    manualAxis.setTickMarksSpacing(1);
+
+    // Snímek 3: nechat graf znovu zvolit oba intervaly.
+    ISlide restoredSlide = presentation.getSlides().addClone(manualSlide);
+    IChart restoredChart = (IChart)restoredSlide.getShapes().get_Item(0);
+    restoredChart.getAxes().getHorizontalAxis().setAutomaticTickLabelSpacing(true);
+    restoredChart.getAxes().getHorizontalAxis().setAutomaticTickMarksSpacing(true);
+
+    presentation.save("CategoryAxisIntervals.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+**Automatické rozestupy (snímek 1):** V tomto vykreslení je zobrazen každý druhý popisek kategorie a přeteče do dvou řádků. Automatický výsledek se může lišit podle velikosti grafu, fontů a renderování.
+
+![Automatické rozestupy popisků kategorií se všemi 24 sloupci viditelnými](category-axis-automatic.png)
+
+**Manuální rozestupy (snímek 2):** Každý třetí popisek je zobrazen na jednom řádku, zatímco značky zůstávají na každém intervalu kategorie. Všech 24 sloupců, včetně těch bez popisků, zůstává viditelných se stejnými hodnotami. Snímek 3 obnoví automatický vzhled uvedený výše.
+
+![Manuální interval popisků kategorií po třech se všemi 24 sloupci viditelnými](category-axis-manual.png)
+
+### **Vyberte správnou osu a interval**
+
+Použijte tento interval počtu kategorií pro textovou osu kategorií, například osu kategorií sloupcového, čárového, plošného nebo pruhového grafu. Ve sloupcovém grafu je to vodorovná osa. Ve vodorovném pruhovém grafu je osa kategorií svislá, takže použijte tato nastavení na osu vrácenou metodou [getVerticalAxis](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxesmanager/#getVerticalAxis--). Rozestup značek se také vztahuje na osu sérií v grafech, které ji mají.
+
+Nepoužívejte rozestup popisků k nastavení číselné stupnice hodnotové osy. Na hodnotové ose [setMajorUnit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setMajorUnit-double-) určuje rozdíl v hodnotách: například hlavní jednotka `10` vytvoří značky při 0, 10, 20 atd., když osa začíná nulou. Interval popisků kategorií `3` počítá pozice kategorií bez ohledu na jejich hodnoty. Bodové a bublinové grafy používají hodnotové osy místo textové osy kategorií. Pro datumovou osu použijte časové hlavní jednotky a stupnice popsané v části [Změna osy kategorií](#změna-osy-kategorií).
+
+## **Nastavení formátu data pro hodnoty osy kategorií**
+
+Příklad nahradí výchozí data grafu čtyřmi ročními hodnotami. Data jsou uložena jako sériová čísla OLE Automation v první pracovní tabulce (index `0`), což představuje počet dnů od 30. prosince 1899. Obě kalendáře používají UTC a jsou vymazány před nastavením dat, aby na výpočet nevlivnil letní čas ani aktuální čas dne. Použijte [setCategoryAxisType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setCategoryAxisType-int-) s `CategoryAxisType.Date`, zavolejte [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setNumberFormatLinkedToSource-boolean-) s `false` a předáte `yyyy` metodě [setNumberFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setNumberFormat-java.lang.String-), aby popisky kategorií zobrazovaly čtyřciferné roky nezávisle na formátování buněk.
+
+```java
+import com.aspose.slides.*;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+import java.util.TimeZone;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.Line, 50, 50, 450, 300);
 
     chart.getChartData().getCategories().clear();
     chart.getChartData().getSeries().clear();
-    chart.getChartData().getCategories().add(wb.getCell(0, "A2", convertToOADate(new GregorianCalendar(2015, 1, 1))));
-    chart.getChartData().getCategories().add(wb.getCell(0, "A3", convertToOADate(new GregorianCalendar(2016, 1, 1))));
-    chart.getChartData().getCategories().add(wb.getCell(0, "A4", convertToOADate(new GregorianCalendar(2017, 1, 1))));
-    chart.getChartData().getCategories().add(wb.getCell(0, "A5", convertToOADate(new GregorianCalendar(2018, 1, 1))));
+
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.clear(0);
+
+    TimeZone timeZone = TimeZone.getTimeZone("UTC");
+    Calendar baseDate = new GregorianCalendar(timeZone);
+    baseDate.clear();
+    baseDate.set(1899, Calendar.DECEMBER, 30);
 
     IChartSeries series = chart.getChartData().getSeries().add(ChartType.Line);
-    series.getDataPoints().addDataPointForLineSeries(wb.getCell(0, "B2", 1));
-    series.getDataPoints().addDataPointForLineSeries(wb.getCell(0, "B3", 2));
-    series.getDataPoints().addDataPointForLineSeries(wb.getCell(0, "B4", 3));
-    series.getDataPoints().addDataPointForLineSeries(wb.getCell(0, "B5", 4));
+    for (int i = 0; i < 4; i++) {
+        Calendar date = new GregorianCalendar(timeZone);
+        date.clear();
+        date.set(2015 + i, Calendar.JANUARY, 1);
+        double serialDate = (date.getTimeInMillis() - baseDate.getTimeInMillis()) / 86400000.0;
+        IChartDataCell categoryCell = workbook.getCell(0, i + 1, 0, serialDate);
+        chart.getChartData().getCategories().add(categoryCell);
+
+        IChartDataCell valueCell = workbook.getCell(0, i + 1, 1, i + 1);
+        series.getDataPoints().addDataPointForLineSeries(valueCell);
+    }
+
     chart.getAxes().getHorizontalAxis().setCategoryAxisType(CategoryAxisType.Date);
     chart.getAxes().getHorizontalAxis().setNumberFormatLinkedToSource(false);
     chart.getAxes().getHorizontalAxis().setNumberFormat("yyyy");
-	
-    pres.save("output.pptx", SaveFormat.Pptx);
+
+    presentation.save("DateAxisFormat.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
-}
-```
-```java
-public static String convertToOADate(GregorianCalendar date) throws ParseException
-{
-    double oaDate;
-    SimpleDateFormat myFormat = new SimpleDateFormat("dd MM yyyy");
-    java.util.Date baseDate = myFormat.parse("30 12 1899");
-    Long days = TimeUnit.DAYS.convert(date.getTimeInMillis() - baseDate.getTime(), TimeUnit.MILLISECONDS);
-    oaDate = (double) days + ((double) date.get(Calendar.HOUR_OF_DAY) / 24) + ((double) date.get(Calendar.MINUTE) / (60 * 24)) + ((double) date.get(Calendar.SECOND) / (60 * 24 * 60));
-    return String.valueOf(oaDate);
+    presentation.dispose();
 }
 ```
 
-## **Nastavení úhlu otáčení nadpisu osy grafu**
-Aspose.Slides pro Android přes Java umožňuje nastavit úhel otáčení nadpisu osy grafu. Tento Java kód demonstruje operaci:
+## **Nastavení úhlu natočení názvu osy grafu**
+
+Zavolejte [setTitle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setTitle-boolean-) s hodnotou `true` na svislé ose, uveďte text názvu a použijte [setRotationAngle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icharttextblockformat/#setRotationAngle-float-) k otočení názvu. Úhel se měří ve stupních; tento příklad uloží sloupcový graf s názvem hodnotové osy natočeným o 90 stupňů.
 
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 450, 300);
-    
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 450, 300);
     chart.getAxes().getVerticalAxis().setTitle(true);
+    chart.getAxes().getVerticalAxis().getTitle().addTextFrameForOverriding("Value");
     chart.getAxes().getVerticalAxis().getTitle().getTextFormat().getTextBlockFormat().setRotationAngle(90);
 
-    pres.save("output.pptx", SaveFormat.Pptx);
+    presentation.save("RotatedAxisTitle.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
-
 ```
 
-## **Nastavení polohy osy na ose kategorií nebo hodnoty**
-Aspose.Slides pro Android přes Java umožňuje nastavit polohu osy v ose kategorií nebo hodnoty. Tento Java kód ukazuje, jak provést úkol:
+## **Nastavení polohy osy na ose kategorií nebo hodnot**
+
+Použijte [setAxisBetweenCategories](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setAxisBetweenCategories-boolean-) k ovládání, zda hodnotová osa protíná osu kategorií mezi kategoriemi nebo na značkách kategorií. Toto nastavení platí pro osy kategorií. Příklad nastaví tuto hodnotu na `true` na vodorovné ose kategorií sloupcového grafu a uloží výsledek.
 
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 450, 300);
-    
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 450, 300);
     chart.getAxes().getHorizontalAxis().setAxisBetweenCategories(true);
 
-    pres.save("output.pptx", SaveFormat.Pptx);
+    presentation.save("AxisBetweenCategories.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Povolení zobrazování štítku jednotky na hodnotové ose grafu**
-Aspose.Slides pro Android přes Java umožňuje nakonfigurovat graf tak, aby zobrazoval štítek jednotky na své hodnotové ose. Tento Java kód demonstruje operaci:
+## **Nastavení jednotky zobrazení na hodnotové ose grafu**
+
+Použijte [setDisplayUnit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setDisplayUnit-int-) k měřítku popisků na hodnotové ose, aniž byste měnili podkladová data. Při nastavení [DisplayUnitType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/displayunittype/) na `Millions` se hodnota 60 000 000 zobrazí jako 60. Příklad vytvoří sloupcový graf a použije jednotku zobrazení milionů na jeho svislé ose.
 
 ```java
-Presentation pres = new Presentation();
-try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 450, 300);
+import com.aspose.slides.*;
 
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 450, 300);
     chart.getAxes().getVerticalAxis().setDisplayUnit(DisplayUnitType.Millions);
-    
-    pres.save("output.pptx", SaveFormat.Pptx);
+
+    presentation.save("Result.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
 ## **Často kladené otázky**
 
-**Jak nastavit hodnotu, při které se jedna osa protíná s druhou (průsečík osy)?**
+**Jak nastavit hodnotu, na které se jedna osa protíná s druhou (průsečík osy)?**
 
-Osy poskytují [crossing setting](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/axis/#setCrossType-int-): můžete zvolit průsečík v nule, na maximální kategorii/hodnotě nebo na konkrétní číselné hodnotě. To je užitečné pro posunutí osy X nahoru nebo dolů nebo pro zdůraznění referenční čáry.
+Použijte [setCrossType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setCrossType-int-) k výběru chování průsečíku. Pro zadání číselné hodnoty průsečíku použijte [setCrossAt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setCrossAt-float-). Tato nastavení vám umožní posunout průsečík osy na vhodnou základní linii.
 
-**Jak mohu umístit popisky značek vzhledem k ose (vedle, venku, uvnitř)?**
+**Jak mohu umístit popisky značek relativně k ose?**
 
-Nastavte [label position](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/axis/#setMajorTickMark-int-) na „cross“, „outside“ nebo „inside“. Toto ovlivňuje čitelnost a pomáhá šetřit místo, zejména u malých grafů.
+Zavolejte [setTickLabelPosition](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setTickLabelPosition-int-) s použitím [TickLabelPositionType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ticklabelpositiontype/): `Low`, `High`, `NextTo` nebo `None`. Pro řízení samotných značek použijte [setMajorTickMark](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setMajorTickMark-int-) nebo [setMinorTickMark](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setMinorTickMark-int-); jsou to samostatná nastavení od umístění popisků.

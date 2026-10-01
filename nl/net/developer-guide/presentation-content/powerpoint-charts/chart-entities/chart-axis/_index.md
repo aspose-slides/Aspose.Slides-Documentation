@@ -10,192 +10,314 @@ keywords:
 - as aanpassen
 - as manipuleren
 - as beheren
-- as‑eigenschappen
+- as-eigenschappen
 - maximale waarde
 - minimale waarde
-- as‑lijn
-- datumformaat
-- as‑titel
-- as‑positie
+- aslijn
+- datumnotatie
+- as-titel
+- aspositie
 - PowerPoint
 - presentatie
 - .NET
 - C#
 - Aspose.Slides
-description: "Ontdek hoe u Aspose.Slides voor .NET kunt gebruiken om grafiekassen aan te passen in PowerPoint‑presentaties voor rapporten en visualisaties."
+description: "Ontdek hoe u Aspose.Slides voor .NET kunt gebruiken om grafiekassen aan te passen in PowerPoint-presentaties voor rapporten en visualisaties."
 ---
 ## **Overzicht**
 
-Dit artikel legt uit hoe u de assen van een diagram kunt aanpassen in Aspose.Slides. Het laat zien hoe u de werkelijke aswaarden kunt verkrijgen, gegevens tussen assen kunt verwisselen, de verticale of horizontale as voor lijndiagrammen kunt verbergen, het type categorie-as kunt wijzigen, het datumformaat voor categorie-aswaarden kunt instellen, een as‑titel kunt roteren, de as‑positie kunt instellen en een eenheids‑label op de waardenas kunt weergeven.
+Dit artikel legt uit hoe u de assen van een diagram kunt aanpassen met Aspose.Slides for .NET. Het behandelt berekende aswaarden, het omwisselen van diagramrijen en -kolommen, aszichtbaarheid, intervallen voor categorie‑labels en tick‑marks, datumcategorieën en -opmaak, rotatie van titels, aspositionering en weergave‑eenheden.
 
-## **De maximale waarden op de verticale as van diagrammen ophalen**
-Aspose.Slides for .NET stelt u in staat de minimum‑ en maximumwaarden op een verticale as te verkrijgen. Volg deze stappen:
+## **Maximale waarden op de verticale as van diagrammen ophalen**
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation)‑klasse.
-2. Open de eerste dia.
-3. Voeg een diagram toe met standaardgegevens.
-4. Haal de werkelijke maximale waarde van de as op.
-5. Haal de werkelijke minimumwaarde van de as op.
-6. Haal de werkelijke hoofd‑eenheid van de as op.
-7. Haal de werkelijke sub‑eenheid van de as op.
-8. Haal de werkelijke schaal van de hoofd‑eenheid van de as op.
-9. Haal de werkelijke schaal van de sub‑eenheid van de as op.
+Maak een [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) en voeg een gebiedsdiagram toe met standaardgegevens. Roep [ValidateChartLayout](https://reference.aspose.com/slides/net/aspose.slides.charts/chart/validatechartlayout/) aan voordat u berekende aswaarden uitleest, zodat de diagramindeling up-to-date is.
 
-Deze voorbeeldcode—een implementatie van de bovenstaande stappen—laat zien hoe u de vereiste waarden in C# kunt ophalen:
+Lees [ActualMaxValue](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/actualmaxvalue/) en [ActualMinValue](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/actualminvalue/) voor de aslimieten, en [ActualMajorUnit](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/actualmajorunit/) en [ActualMinorUnit](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/actualminorunit/) voor de tick‑intervallen. [ActualMajorUnitScale](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/actualmajorunitscale/) en [ActualMinorUnitScale](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/actualminorunitscale/) bieden tijd‑eenheidsschaal, die relevant zijn voor datumassen. Het voorbeeld slaat deze waarden op in lokale variabelen en slaat het diagram op.
 
-```c#
-using (Presentation pres = new Presentation())
-{
-	Chart chart = (Chart)pres.Slides[0].Shapes.AddChart(ChartType.Area, 100, 100, 500, 350);
-	chart.ValidateChartLayout();
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-	double maxValue = chart.Axes.VerticalAxis.ActualMaxValue;
-	double minValue = chart.Axes.VerticalAxis.ActualMinValue;
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-	double majorUnit = chart.Axes.HorizontalAxis.ActualMajorUnit;
-	double minorUnit = chart.Axes.HorizontalAxis.ActualMinorUnit;
-	
-	// Slaat de presentatie op
-	presentation.Save("ErrorBars_out.pptx", SaveFormat.Pptx);
-}
+var chart = slide.Shapes.AddChart(ChartType.Area, 100, 100, 500, 350);
+chart.ValidateChartLayout();
+
+var maxValue = chart.Axes.VerticalAxis.ActualMaxValue;
+var minValue = chart.Axes.VerticalAxis.ActualMinValue;
+
+var majorUnit = chart.Axes.VerticalAxis.ActualMajorUnit;
+var minorUnit = chart.Axes.VerticalAxis.ActualMinorUnit;
+
+var majorUnitScale = chart.Axes.VerticalAxis.ActualMajorUnitScale;
+var minorUnitScale = chart.Axes.VerticalAxis.ActualMinorUnitScale;
+
+presentation.Save("AxisValues_out.pptx", SaveFormat.Pptx);
 ```
 
-## **Gegevens tussen assen verwisselen**
-Aspose.Slides maakt het mogelijk om snel de gegevens tussen assen te verwisselen—de gegevens die op de verticale as (y‑as) staan, worden verplaatst naar de horizontale as (x‑as) en omgekeerd.
+## **Gegevens tussen assen omwisselen**
 
-Deze C#‑code laat zien hoe u de gegevenswissel‑taak tussen assen in een diagram kunt uitvoeren:
+Gebruik [SwitchRowColumn](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdata/switchrowcolumn/) om de rollen van series en categorieën in diagramgegevens uit te wisselen. Elke voormalige categorie wordt een serie, en elke voormalige serie wordt een categorie. Dit verandert hoe de gegevens worden gegroepeerd; het wisselt niet de horizontale en verticale assen uit. Het voorbeeld gebruikt [SetRange](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdata/setrange/) om de standaardgegevens te koppelen aan `Sheet1!A1:D5`, inclusief de koprij en categoriekolom, voordat rijen en kolommen worden omgewisseld. Het slaat een diagram op met vier series en drie categorieën.
 
-```c#
-// Maakt lege presentatie
-using (Presentation pres = new Presentation())
-{
-	IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 100, 100, 400, 300);
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-	//Verwisselt rijen en kolommen
-	chart.ChartData.SwitchRowColumn();
-		   
-	// Slaat presentatie op
-	 pres.Save("SwitchChartRowColumns_out.pptx", SaveFormat.Pptx);
- }
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 100, 100, 400, 300);
+
+chart.ChartData.SetRange("Sheet1!A1:D5");
+chart.ChartData.SwitchRowColumn();
+
+presentation.Save("SwitchChartRowColumns_out.pptx", SaveFormat.Pptx);
 ```
 
-## **De verticale as voor lijndiagrammen uitschakelen**
-Deze C#‑code laat zien hoe u de verticale as voor een lijndiagram kunt verbergen:
+## **Verticale as uitschakelen voor lijndiagrammen**
 
-```c#
-using (Presentation pres = new Presentation())
-{
-    IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Line, 100, 100, 400, 300);
-    chart.Axes.VerticalAxis.IsVisible = false; 
-    
-    pres.Save("chart.pptx", SaveFormat.Pptx);
-}
+Stel [IsVisible](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isvisible/) in op `false` voor de verticale as om deze te verbergen. Het voorbeeld maakt een lijndiagram met standaardgegevens en slaat het op met de verticale as verborgen.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.Line, 100, 100, 400, 300);
+chart.Axes.VerticalAxis.IsVisible = false;
+
+presentation.Save("HiddenVerticalAxis.pptx", SaveFormat.Pptx);
 ```
 
-## **De horizontale as voor lijndiagrammen uitschakelen**
-Deze code laat zien hoe u de horizontale as voor een lijndiagram kunt verbergen:
+## **Horizontale as uitschakelen voor lijndiagrammen**
 
-```c#
-using (Presentation pres = new Presentation())
-{
-    IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Line, 100, 100, 400, 300);
-    chart.Axes.HorizontalAxis.IsVisible = false; 
-    
-    pres.Save("chart.pptx", SaveFormat.Pptx);
-}
+Stel [IsVisible](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isvisible/) in op `false` voor de horizontale as om deze te verbergen. Het voorbeeld maakt een lijndiagram met standaardgegevens en slaat het op met de horizontale as verborgen.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.Line, 100, 100, 400, 300);
+chart.Axes.HorizontalAxis.IsVisible = false;
+
+presentation.Save("HiddenHorizontalAxis.pptx", SaveFormat.Pptx);
 ```
 
-## **Een categorie‑as wijzigen**
-Met behulp van de eigenschap **CategoryAxisType** kunt u het gewenste type categorie‑as opgeven (**date** of **text**). Deze C#‑code demonstreert de bewerking:
+## **Categorie‑as wijzigen**
 
-```c#
-using (Presentation presentation = new Presentation("ExistingChart.pptx"))
-{
-    IChart chart = presentation.Slides[0].Shapes[0] as IChart;
-    chart.Axes.HorizontalAxis.CategoryAxisType = CategoryAxisType.Date;
-    chart.Axes.HorizontalAxis.IsAutomaticMajorUnit = false;
-    chart.Axes.HorizontalAxis.MajorUnit = 1;
-    chart.Axes.HorizontalAxis.MajorUnitScale = TimeUnitType.Months;
-    presentation.Save("ChangeChartCategoryAxis_out.pptx", SaveFormat.Pptx);
-}
+Stel [CategoryAxisType](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/categoryaxistype/) in om een datum‑ of tekst‑categorie‑as te kiezen. Dit voorbeeld vereist `ExistingChart.pptx`, met een diagram als de eerste vorm op de eerste dia en categoriecellen die numerieke Excel‑datumnummers bevatten. Het wijzigt de horizontale as naar een datum‑as. Door [IsAutomaticMajorUnit](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isautomaticmajorunit/) op `false` te zetten, [MajorUnit](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/majorunit/) op `1` en [MajorUnitScale](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/majorunitscale/) op maanden, worden de grote ticks op een‑maand‑intervallen geplaatst.
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("ExistingChart.pptx");
+var slide = presentation.Slides[0];
+
+var chart = (IChart) slide.Shapes[0];
+chart.Axes.HorizontalAxis.CategoryAxisType = CategoryAxisType.Date;
+chart.Axes.HorizontalAxis.IsAutomaticMajorUnit = false;
+chart.Axes.HorizontalAxis.MajorUnit = 1;
+chart.Axes.HorizontalAxis.MajorUnitScale = TimeUnitType.Months;
+
+presentation.Save("ChangeChartCategoryAxis_out.pptx", SaveFormat.Pptx);
 ```
 
-## **Het datumformaat voor categorie‑aswaarden instellen**
-Aspose.Slides for .NET maakt het mogelijk om het datumformaat voor een categorie‑aswaarde in te stellen. De bewerking wordt gedemonstreerd in deze C#‑code:
+## **Intervallen voor categorie‑as‑labels beheren**
 
-```c#
-using (Presentation pres = new Presentation())
+Wanneer een diagram veel categorieën heeft, kunt u het aantal zichtbare aslabels verminderen zonder categorieën of gegevenspunten te verwijderen. Stel [IsAutomaticTickLabelSpacing](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/isautomaticticklabelspacing/) in op `false`, en stel vervolgens [TickLabelSpacing](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/ticklabelspacing/) in op de gewenste categorie‑interval. Voor tekstdcategorieën in hun normale volgorde, begint de telling bij de eerste categorie:
+
+| Interval | Labels die in het voorbeeld worden weergegeven |
+| --- | --- |
+| `1` | Category 1, Category 2, Category 3, ... Category 24 |
+| `2` | Category 1, Category 3, Category 5, ... Category 23 |
+| `3` | Category 1, Category 4, Category 7, ... Category 22 |
+
+Een interval van `3` toont elk derde label, waarbij twee labels tussen de weergegeven labels verborgen blijven. Het verwijdert de overeenkomstige kolommen niet. Automatische spatiëring kiest een interval op basis van de beschikbare ruimte; het toont niet noodzakelijk elk label.
+
+Tick‑marks hebben afzonderlijke instellingen. Stel [IsAutomaticTickMarksSpacing](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/isautomatictickmarksspacing/) in op `false` en gebruik [TickMarksSpacing](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/tickmarksspacing/) om hun interval in te stellen. Bijvoorbeeld, `1` behoudt een tick‑mark bij elke categorie‑interval terwijl labels alleen elke derde categorie verschijnen. Stel [MajorTickMark](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/majortickmark/) in op een zichtbaar stijl zodat u het resultaat kunt zien. Het terugzetten van een van de automatische‑spatiërings‑eigenschappen naar `true` laat het diagram dat interval opnieuw kiezen.
+
+Het onderstaande zelfstandige voorbeeld maakt 24 categorieën en één serie, en slaat vervolgens drie dia's op in `CategoryAxisIntervals.pptx`: automatische spatiëring, handmatige labelspatiëring met onafhankelijke tick‑marks, en herstelde automatische spatiëring. De twee kopieën behouden de oorspronkelijke diagramgegevens. Er is geen input‑presentatie vereist. Horizontale labeltekst maakt het verschil in dichtheid gemakkelijk zichtbaar.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 30, 40, 660, 320);
+
+chart.HasLegend = false;
+chart.ChartData.Categories.Clear();
+chart.ChartData.Series.Clear();
+
+var workbook = chart.ChartData.ChartDataWorkbook;
+workbook.Clear(0);
+
+var series = chart.ChartData.Series.Add(ChartType.ClusteredColumn);
+for (var i = 0; i < 24; i++)
 {
-	IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Area, 50, 50, 450, 300);
-
-	IChartDataWorkbook wb = chart.ChartData.ChartDataWorkbook;
-
-	wb.Clear(0);
-
-	chart.ChartData.Categories.Clear();
-	chart.ChartData.Series.Clear();
-	chart.ChartData.Categories.Add(wb.GetCell(0, "A2", new DateTime(2015, 1, 1).ToOADate()));
-	chart.ChartData.Categories.Add(wb.GetCell(0, "A3", new DateTime(2016, 1, 1).ToOADate()));
-	chart.ChartData.Categories.Add(wb.GetCell(0, "A4", new DateTime(2017, 1, 1).ToOADate()));
-	chart.ChartData.Categories.Add(wb.GetCell(0, "A5", new DateTime(2018, 1, 1).ToOADate()));
-
-	IChartSeries series = chart.ChartData.Series.Add(ChartType.Line);
-	series.DataPoints.AddDataPointForLineSeries(wb.GetCell(0, "B2", 1));
-	series.DataPoints.AddDataPointForLineSeries(wb.GetCell(0, "B3", 2));
-	series.DataPoints.AddDataPointForLineSeries(wb.GetCell(0, "B4", 3));
-	series.DataPoints.AddDataPointForLineSeries(wb.GetCell(0, "B5", 4));
-	chart.Axes.HorizontalAxis.CategoryAxisType = CategoryAxisType.Date;
-	chart.Axes.HorizontalAxis.IsNumberFormatLinkedToSource = false;
-	chart.Axes.HorizontalAxis.NumberFormat = "yyyy";
-	pres.Save("test.pptx", SaveFormat.Pptx);
+    var categoryCell = workbook.GetCell(0, i + 1, 0, $"Category {i + 1}");
+    chart.ChartData.Categories.Add(categoryCell);
+    var valueCell = workbook.GetCell(0, i + 1, 1, 10 + i % 6 * 5);
+    series.DataPoints.AddDataPointForBarSeries(valueCell);
 }
+
+var axis = chart.Axes.HorizontalAxis;
+axis.CategoryAxisType = CategoryAxisType.Text;
+axis.TextFormat.TextBlockFormat.RotationAngle = 0;
+axis.TextFormat.PortionFormat.FontHeight = 12;
+axis.MajorTickMark = TickMarkType.Outside;
+axis.IsAutomaticTickLabelSpacing = true;
+axis.IsAutomaticTickMarksSpacing = true;
+
+// Dia 2: toon elk derde label, maar behoud een tick-mark voor elke categorie.
+var manualSlide = presentation.Slides.AddClone(slide);
+var manualChart = (IChart)manualSlide.Shapes[0];
+var manualAxis = manualChart.Axes.HorizontalAxis;
+manualAxis.IsAutomaticTickLabelSpacing = false;
+manualAxis.TickLabelSpacing = 3;
+manualAxis.IsAutomaticTickMarksSpacing = false;
+manualAxis.TickMarksSpacing = 1;
+
+// Dia 3: laat het diagram beide intervallen opnieuw kiezen.
+var restoredSlide = presentation.Slides.AddClone(manualSlide);
+var restoredChart = (IChart)restoredSlide.Shapes[0];
+restoredChart.Axes.HorizontalAxis.IsAutomaticTickLabelSpacing = true;
+restoredChart.Axes.HorizontalAxis.IsAutomaticTickMarksSpacing = true;
+
+presentation.Save("CategoryAxisIntervals.pptx", SaveFormat.Pptx);
 ```
 
-## **Een rotatie‑hoek voor een diagram‑as‑titel instellen**
-Aspose.Slides for .NET maakt het mogelijk om de rotatie‑hoek voor een diagram‑as‑titel in te stellen. Deze C#‑code demonstreert de bewerking:
+**Automatische spatiëring (dia 1):** In deze weergave wordt elk tweede categorielabel weergegeven en wordt het op twee regels afgebroken. Het automatische resultaat kan variëren met diagramgrootte, lettertypen en de renderer.
 
-```c#
-using (Presentation pres = new Presentation())
+![Automatische categorie‑labelspatiëring met alle 24 kolommen zichtbaar](category-axis-automatic.png)
+
+**Handmatige spatiëring (dia 2):** Elk derde label wordt op één regel weergegeven, terwijl tick‑marks behouden blijven bij elke categorie‑interval. Alle 24 kolommen, inclusief die zonder labels, blijven zichtbaar met dezelfde waarden. Dia 3 herstelt de automatische weergave zoals hierboven.
+
+![Handmatige categorie‑labelinterval van drie met alle 24 kolommen zichtbaar](category-axis-manual.png)
+
+### **Kies de juiste as en interval**
+
+Gebruik dit categorie‑aantal‑interval voor een tekst‑categorie‑as, zoals de categorie‑as van een kolom‑, lijn‑, gebied‑ of staafdiagram. In een kolomdiagram is dit de horizontale as. In een horizontaal staafdiagram is de categorie‑as verticaal, dus pas deze instellingen toe op [VerticalAxis](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxesmanager/verticalaxis/). De spatiëring van tick‑marks geldt ook voor een series‑as in diagrammen die er één hebben.
+
+Gebruik geen categorie‑labelspatiëring om de numerieke schaal van een waardenas in te stellen. Op een waardenas specificeert [MajorUnit](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/majorunit/) een verschil in waarden: bijvoorbeeld, een major‑unit van `10` levert ticks op 0, 10, 20, enzovoort wanneer de as bij nul begint. Een categorie‑labelinterval van `3` telt in plaats daarvan positie‑indices, ongeacht hun gegevenswaarden. Spreidings‑ en bubbeldiagrammen gebruiken waardenas in plaats van een tekst‑categorie‑as. Voor een datum‑as gebruikt u tijd‑gebaseerde major‑units en schalen zoals beschreven in [Categorie‑as wijzigen](#categorie‑as-wijzigen).
+
+## **Datumnotatie voor categorie‑aswaarden instellen**
+
+Het voorbeeld vervangt de standaarddiagramgegevens door vier jaarswaarden. Datums worden opgeslagen als OLE Automation‑serienummers in het eerste werkblad (index `0`). Stel [CategoryAxisType](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/categoryaxistype/) in op een datum‑as, schakel [IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isnumberformatlinkedtosource/) uit, en ken `yyyy` toe aan [NumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/numberformat/) zodat de categorie‑labels viercijferige jaartallen weergeven, onafhankelijk van de celopmaak.
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.Line, 50, 50, 450, 300);
+
+chart.ChartData.Categories.Clear();
+chart.ChartData.Series.Clear();
+
+var workbook = chart.ChartData.ChartDataWorkbook;
+workbook.Clear(0);
+
+var series = chart.ChartData.Series.Add(ChartType.Line);
+for (var i = 0; i < 4; i++)
 {
-	IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 450, 300);
-	chart.Axes.VerticalAxis.HasTitle = true;
-             chart.Axes.VerticalAxis.Title.TextFormat.TextBlockFormat.RotationAngle = 90;
+    var date = new DateTime(2015 + i, 1, 1);
+    var categoryCell = workbook.GetCell(0, i + 1, 0, date.ToOADate());
+    chart.ChartData.Categories.Add(categoryCell);
 
-	pres.Save("test.pptx", SaveFormat.Pptx);
+    var valueCell = workbook.GetCell(0, i + 1, 1, i + 1);
+    series.DataPoints.AddDataPointForLineSeries(valueCell);
 }
+
+chart.Axes.HorizontalAxis.CategoryAxisType = CategoryAxisType.Date;
+chart.Axes.HorizontalAxis.IsNumberFormatLinkedToSource = false;
+chart.Axes.HorizontalAxis.NumberFormat = "yyyy";
+
+presentation.Save("DateAxisFormat.pptx", SaveFormat.Pptx);
 ```
 
-## **De as‑positie op een categorie‑ of waardenas instellen**
-Aspose.Slides for .NET maakt het mogelijk om de positie van de as in een categorie‑ of waardenas in te stellen. Deze C#‑code laat zien hoe u deze taak kunt uitvoeren:
+## **Rotatie‑hoek voor een diagram‑as‑titel instellen**
 
-```c#
-using (Presentation pres = new Presentation())
-{
-	IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 450, 300);
-	chart.Axes.HorizontalAxis.AxisBetweenCategories = true;
+Schakel [HasTitle](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/hastitle/) in op de verticale as, geef titeltekst op, en stel [RotationAngle](https://reference.aspose.com/slides/net/aspose.slides.charts/icharttextblockformat/rotationangle/) in om de titel te roteren. De hoek wordt gemeten in graden; dit voorbeeld slaat een kolomdiagram op met zijn waardenas‑titel geroteerd naar 90 graden.
 
-	pres.Save("AsposeScatterChart.pptx", SaveFormat.Pptx);
-}
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 450, 300);
+chart.Axes.VerticalAxis.HasTitle = true;
+chart.Axes.VerticalAxis.Title.AddTextFrameForOverriding("Value");
+chart.Axes.VerticalAxis.Title.TextFormat.TextBlockFormat.RotationAngle = 90;
+
+presentation.Save("RotatedAxisTitle.pptx", SaveFormat.Pptx);
 ```
 
-## **Het weergave‑eenheidslabel op de waardenas van een diagram inschakelen**
-Aspose.Slides for .NET maakt het mogelijk om een diagram zo te configureren dat een eenheids‑label op de waardenas wordt weergegeven. Deze C#‑code demonstreert de bewerking:
+## **Aspositie instellen op een categorie‑ of waardenas**
 
-```c#
-using (Presentation pres = new Presentation(dataDir+"Test.pptx"))
-{
-	IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 450, 300);
-	chart.Axes.VerticalAxis.DisplayUnit = DisplayUnitType.Millions;
-	pres.Save("Result.pptx", SaveFormat.Pptx);
-}
+Gebruik [AxisBetweenCategories](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/axisbetweencategories/) om te bepalen of de waardenas de categorie‑as kruist tussen categorieën of op categorietick‑marks. Deze eigenschap geldt voor categorie‑assen. Het voorbeeld stelt dit in op `true` voor de horizontale categorie‑as van een kolomdiagram en slaat het resultaat op.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 450, 300);
+chart.Axes.HorizontalAxis.AxisBetweenCategories = true;
+
+presentation.Save("AxisBetweenCategories.pptx", SaveFormat.Pptx);
+```
+
+## **Weergave‑eenheid op een diagram‑waardenas instellen**
+
+Stel [DisplayUnit](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/displayunit/) in om de labels op een waardenas te schalen zonder de onderliggende gegevens te wijzigen. Met [DisplayUnitType](https://reference.aspose.com/slides/net/aspose.slides.charts/displayunittype/) ingesteld op `Millions` wordt een waarde van 60.000.000 weergegeven als 60. Het voorbeeld maakt een kolomdiagram en past de miljoenen‑weergave‑eenheid toe op de verticale as.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 450, 300);
+chart.Axes.VerticalAxis.DisplayUnit = DisplayUnitType.Millions;
+
+presentation.Save("Result.pptx", SaveFormat.Pptx);
 ```
 
 ## **FAQ**
 
 **Hoe stel ik de waarde in waarop één as de andere kruist (as‑kruising)?**
 
-Assen bieden een [crossing‑instelling](https://reference.aspose.com/slides/nl/net/aspose.slides.charts/axis/crosstype/): u kunt kiezen om te kruisen bij nul, bij de maximale categorie/waarde, of bij een specifiek numeriek getal. Dit is handig om de X‑as omhoog of omlaag te verplaatsen of om een basislijn te benadrukken.
+Gebruik [CrossType](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/crosstype/) om het kruisinggedrag te selecteren. Om een numerieke kruisingwaarde op te geven, stel [CrossAt](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/crossat/) in. Deze instellingen laten u de askruising naar een geschikte basislijn verplaatsen.
 
-**Hoe kan ik tick‑labels ten opzichte van de as positioneren (naast, buiten, binnen)?**
+**Hoe kan ik tick‑labels positioneren ten opzichte van de as?**
 
-Stel de [label‑positie](https://reference.aspose.com/slides/nl/net/aspose.slides.charts/axis/majortickmark/) in op "cross", "outside" of "inside". Dit beïnvloedt de leesbaarheid en helpt ruimte te besparen, vooral bij kleine diagrammen.
+Stel [TickLabelPosition](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/ticklabelposition/) in via [TickLabelPositionType](https://reference.aspose.com/slides/net/aspose.slides.charts/ticklabelpositiontype/): `Low`, `High`, `NextTo` of `None`. Om de tick‑marks zelf te regelen, gebruik [MajorTickMark](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/majortickmark/) of [MinorTickMark](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/minortickmark/); deze staan los van de labelpositionering.

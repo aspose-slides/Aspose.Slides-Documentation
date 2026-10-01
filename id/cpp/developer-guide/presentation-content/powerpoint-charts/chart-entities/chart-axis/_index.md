@@ -1,5 +1,5 @@
 ---
-title: Sesuaikan Sumbu Diagram dalam Presentasi Menggunakan С++
+title: Sesuaikan Sumbu Diagram dalam Presentasi Menggunakan C++
 linktitle: Sumbu Diagram
 type: docs
 url: /id/cpp/chart-axis/
@@ -19,186 +19,425 @@ keywords:
 - posisi sumbu
 - PowerPoint
 - presentasi
-- С++
+- C++
 - Aspose.Slides
-description: "Temukan cara menggunakan Aspose.Slides untuk С++ untuk menyesuaikan sumbu diagram dalam presentasi PowerPoint untuk laporan dan visualisasi."
+description: "Temukan cara menggunakan Aspose.Slides untuk C++ dalam menyesuaikan sumbu diagram pada presentasi PowerPoint untuk laporan dan visualisasi."
 ---
-## **Ringkasan**
+## **Gambaran Umum**
 
-Artikel ini menjelaskan cara menyesuaikan sumbu diagram dalam Aspose.Slides. Ini menunjukkan cara mendapatkan nilai sumbu sebenarnya, menukar data antara sumbu, menyembunyikan sumbu vertikal atau horizontal untuk diagram garis, mengubah tipe sumbu kategori, mengatur format tanggal untuk nilai sumbu kategori, memutar judul sumbu, mengatur posisi sumbu, dan menampilkan label satuan pada sumbu nilai.
+Artikel ini menjelaskan cara menyesuaikan sumbu diagram dengan Aspose.Slides untuk C++. Ini mencakup nilai sumbu yang dihitung, menukar baris dan kolom diagram, visibilitas sumbu, interval label kategori dan tanda centang, kategori tanggal dan pemformatannya, rotasi judul, penempatan sumbu, serta unit tampilan.
 
-## **Dapatkan Nilai Maksimum pada Sumbu Vertikal**
-Aspose.Slides untuk C++ memungkinkan Anda memperoleh nilai minimum dan maksimum pada sumbu vertikal. Ikuti langkah‑langkah berikut:
+## **Dapatkan Nilai Maksimum pada Sumbu Vertikal pada Diagram**
 
-1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.presentation).
-2. Akses slide pertama.
-3. Tambahkan diagram dengan data default.
-4. Dapatkan nilai maksimum aktual pada sumbu.
-5. Dapatkan nilai minimum aktual pada sumbu.
-6. Dapatkan satuan utama aktual pada sumbu.
-7. Dapatkan satuan minor aktual pada sumbu.
-8. Dapatkan skala satuan utama aktual pada sumbu.
-9. Dapatkan skala satuan minor aktual pada sumbu.
+Buat sebuah [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) dan tambahkan diagram area dengan data default. Panggil [ValidateChartLayout](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chart/validatechartlayout/) sebelum membaca nilai sumbu yang dihitung sehingga tata letak diagram terbaru.
 
-Kode contoh—implementasi langkah‑langkah di atas—menunjukkan cara mendapatkan nilai yang diperlukan dalam C++:
+Baca [get_ActualMaxValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/get_actualmaxvalue/) dan [get_ActualMinValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/get_actualminvalue/) untuk batas sumbu, serta [get_ActualMajorUnit](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/get_actualmajorunit/) dan [get_ActualMinorUnit](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/get_actualminorunit/) untuk interval tanda centang. [get_ActualMajorUnitScale](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/get_actualmajorunitscale/) dan [get_ActualMinorUnitScale](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/get_actualminorunitscale/) menyediakan skala unit waktu, yang relevan untuk sumbu tanggal. Contoh menyimpan nilai-nilai ini dalam variabel lokal dan menyimpan diagram.
 
-``` cpp
-auto pres = System::MakeObject<Presentation>();
-auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
-auto chart = System::ExplicitCast<Chart>(shapes->AddChart(ChartType::Area, 100.0f, 100.0f, 500.0f, 350.0f));
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IAxesManager.h>
+#include <DOM/Chart/IAxis.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto chart = slide->get_Shapes()->AddChart(ChartType::Area, 100, 100, 500, 350);
 chart->ValidateChartLayout();
 
-auto axes = chart->get_Axes();
+auto maxValue = chart->get_Axes()->get_VerticalAxis()->get_ActualMaxValue();
+auto minValue = chart->get_Axes()->get_VerticalAxis()->get_ActualMinValue();
 
-double maxValue = axes->get_VerticalAxis()->get_ActualMaxValue();
-double minValue = axes->get_VerticalAxis()->get_ActualMinValue();
+auto majorUnit = chart->get_Axes()->get_VerticalAxis()->get_ActualMajorUnit();
+auto minorUnit = chart->get_Axes()->get_VerticalAxis()->get_ActualMinorUnit();
 
-double majorUnit = axes->get_HorizontalAxis()->get_ActualMajorUnit();
-double minorUnit = axes->get_HorizontalAxis()->get_ActualMinorUnit();
+auto majorUnitScale = chart->get_Axes()->get_VerticalAxis()->get_ActualMajorUnitScale();
+auto minorUnitScale = chart->get_Axes()->get_VerticalAxis()->get_ActualMinorUnitScale();
 
-// Menyimpan presentasi
-pres->Save(u"ErrorBars_out.pptx", SaveFormat::Pptx);
+presentation->Save(u"AxisValues_out.pptx", SaveFormat::Pptx);
 ```
 
 ## **Tukar Data antara Sumbu**
-Aspose.Slides memungkinkan Anda dengan cepat menukar data antara sumbu—data yang ditampilkan pada sumbu vertikal (y‑axis) dipindahkan ke sumbu horizontal (x‑axis) dan sebaliknya.
 
-Kode C++ berikut menunjukkan cara melakukan penukaran data antara sumbu pada diagram:
+Gunakan [SwitchRowColumn](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdata/switchrowcolumn/) untuk menukar peran seri dan kategori dalam data diagram. Setiap kategori sebelumnya menjadi seri, dan setiap seri sebelumnya menjadi kategori. Ini mengubah cara data dikelompokkan; tidak menukar sumbu horizontal dan vertikal. Contoh menggunakan [SetRange](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdata/setrange/) untuk mengikat data default ke `Sheet1!A1:D5`, termasuk baris header dan kolom kategori, sebelum menukar baris dan kolom. Diagram disimpan dengan empat seri dan tiga kategori.
 
-``` cpp
-// Membuat presentasi kosong
-auto pres = System::MakeObject<Presentation>();
-auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
-auto chart = shapes->AddChart(ChartType::ClusteredColumn, 100.0f, 100.0f, 400.0f, 300.0f);
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IAxesManager.h>
+#include <DOM/Chart/IAxis.h>
+#include <Export/SaveFormat.h>
+#include <DOM/Chart/IChartData.h>
 
-// Menukar baris dan kolom
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 100, 100, 400, 300);
+
+chart->get_ChartData()->SetRange(u"Sheet1!A1:D5");
 chart->get_ChartData()->SwitchRowColumn();
 
-// Menyimpan presentasi
-pres->Save(u"SwitchChartRowColumns_out.pptx", SaveFormat::Pptx);
+presentation->Save(u"SwitchChartRowColumns_out.pptx", SaveFormat::Pptx);
 ```
 
 ## **Nonaktifkan Sumbu Vertikal untuk Diagram Garis**
 
-Kode C++ berikut menunjukkan cara menyembunyikan sumbu vertikal untuk diagram garis:
+Gunakan [set_IsVisible](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_isvisible/) dengan `false` pada sumbu vertikal untuk menyembunyikannya. Contoh membuat diagram garis dengan data default dan menyimpannya dengan sumbu vertikal tersembunyi.
 
-``` cpp
-auto pres = System::MakeObject<Presentation>();
-auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
-auto chart = shapes->AddChart(ChartType::Line, 100.0f, 100.0f, 400.0f, 300.0f);
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IAxesManager.h>
+#include <DOM/Chart/IAxis.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto chart = slide->get_Shapes()->AddChart(ChartType::Line, 100, 100, 400, 300);
 chart->get_Axes()->get_VerticalAxis()->set_IsVisible(false);
 
-pres->Save(u"chart.pptx", SaveFormat::Pptx);
+presentation->Save(u"HiddenVerticalAxis.pptx", SaveFormat::Pptx);
 ```
 
 ## **Nonaktifkan Sumbu Horizontal untuk Diagram Garis**
 
-Kode ini menunjukkan cara menyembunyikan sumbu horizontal untuk diagram garis:
+Gunakan [set_IsVisible](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_isvisible/) dengan `false` pada sumbu horizontal untuk menyembunyikannya. Contoh membuat diagram garis dengan data default dan menyimpannya dengan sumbu horizontal tersembunyi.
 
-``` cpp
-auto pres = System::MakeObject<Presentation>();
-auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
-auto chart = shapes->AddChart(ChartType::Line, 100.0f, 100.0f, 400.0f, 300.0f);
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IAxesManager.h>
+#include <DOM/Chart/IAxis.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto chart = slide->get_Shapes()->AddChart(ChartType::Line, 100, 100, 400, 300);
 chart->get_Axes()->get_HorizontalAxis()->set_IsVisible(false);
 
-pres->Save(u"chart.pptx", SaveFormat::Pptx);
+presentation->Save(u"HiddenHorizontalAxis.pptx", SaveFormat::Pptx);
 ```
 
 ## **Ubah Sumbu Kategori**
 
-Dengan metode **set_CategoryAxisType()**, Anda dapat menentukan tipe sumbu kategori yang diinginkan (**date** atau **text**). Kode C++ berikut mendemonstrasikan operasinya:
+Gunakan [set_CategoryAxisType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_categoryaxistype/) untuk memilih sumbu kategori tanggal atau teks. Contoh ini memerlukan `ExistingChart.pptx`, dengan diagram sebagai bentuk pertama pada slide pertama dan sel kategori berisi nilai tanggal Excel numerik. Ini mengubah sumbu horizontal menjadi sumbu tanggal. Memanggil [set_IsAutomaticMajorUnit](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_isautomaticmajorunit/) dengan `false`, [set_MajorUnit](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_majorunit/) dengan `1`, dan [set_MajorUnitScale](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_majorunitscale/) dengan bulan menempatkan tanda centang utama pada interval satu bulan.
 
-``` cpp
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IAxesManager.h>
+#include <DOM/Chart/IAxis.h>
+#include <Export/SaveFormat.h>
+#include <DOM/Chart/CategoryAxisType.h>
+#include <DOM/Chart/TimeUnitType.h>
+#include <system/object_ext.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+
 auto presentation = System::MakeObject<Presentation>(u"ExistingChart.pptx");
-auto chart = System::AsCast<IChart>(presentation->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0));
-auto horizontalAxis = chart->get_Axes()->get_HorizontalAxis();
+auto slide = presentation->get_Slide(0);
 
-horizontalAxis->set_CategoryAxisType(CategoryAxisType::Date);
-horizontalAxis->set_IsAutomaticMajorUnit(false);
-horizontalAxis->set_MajorUnit(1);
-horizontalAxis->set_MajorUnitScale(TimeUnitType::Months);
+auto chart = System::ExplicitCast<IChart>(slide->get_Shape(0));
+chart->get_Axes()->get_HorizontalAxis()->set_CategoryAxisType(CategoryAxisType::Date);
+chart->get_Axes()->get_HorizontalAxis()->set_IsAutomaticMajorUnit(false);
+chart->get_Axes()->get_HorizontalAxis()->set_MajorUnit(1);
+chart->get_Axes()->get_HorizontalAxis()->set_MajorUnitScale(TimeUnitType::Months);
 
 presentation->Save(u"ChangeChartCategoryAxis_out.pptx", SaveFormat::Pptx);
 ```
 
-## **Atur Format Tanggal untuk Nilai Sumbu Kategori**
-Aspose.Slides untuk C++ memungkinkan Anda mengatur format tanggal untuk nilai sumbu kategori. Operasi ini ditunjukkan dalam kode C++ berikut:
+## **Kontrol Interval Label Sumbu Kategori**
 
-``` cpp
-auto pres = System::MakeObject<Presentation>();
-auto chart = pres->get_Slides()->idx_get(0)->get_Shapes()->AddChart(ChartType::Area, 50.0f, 50.0f, 450.0f, 300.0f);
+Ketika sebuah diagram memiliki banyak kategori, kurangi jumlah label sumbu yang terlihat tanpa menghapus kategori atau titik data. Gunakan [set_IsAutomaticTickLabelSpacing](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isautomaticticklabelspacing/) dengan `false`, lalu gunakan [set_TickLabelSpacing](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_ticklabelspacing/) dengan interval kategori yang diinginkan. Untuk kategori teks dalam urutan normal, penghitung dimulai dari kategori pertama:
 
-auto wb = chart->get_ChartData()->get_ChartDataWorkbook();
+| Interval | Label yang ditampilkan dalam contoh |
+| --- | --- |
+| `1` | Kategori 1, Kategori 2, Kategori 3, ... Kategori 24 |
+| `2` | Kategori 1, Kategori 3, Kategori 5, ... Kategori 23 |
+| `3` | Kategori 1, Kategori 4, Kategori 7, ... Kategori 22 |
 
-wb->Clear(0);
+Interval `3` menampilkan setiap label ketiga, menyisakan dua label tersembunyi di antara label yang ditampilkan. Ini tidak menghapus kolom yang bersangkutan. Penjarakan otomatis memilih interval berdasarkan ruang yang tersedia; tidak selalu menampilkan setiap label.
 
+Tanda centang memiliki kontrol terpisah. Gunakan [set_IsAutomaticTickMarksSpacing](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isautomatictickmarksspacing/) dengan `false` dan gunakan [set_TickMarksSpacing](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_tickmarksspacing/) untuk mengatur intervalnya. Misalnya, `1` menjaga tanda centang pada setiap interval kategori sementara label muncul hanya setiap kategori ketiga. Gunakan [set_MajorTickMark](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_majortickmark/) dengan gaya yang terlihat sehingga Anda dapat melihat hasilnya. Mengatur kembali properti penjarakan otomatis ke `true` memungkinkan diagram memilih interval itu lagi.
+
+Contoh mandiri berikut membuat 24 kategori dan satu seri, lalu menyimpan tiga slide dalam `CategoryAxisIntervals.pptx`: penjarakan otomatis, penjarakan label manual dengan tanda centang independen, dan penjarakan otomatis yang dipulihkan. Kedua salinan mempertahankan data diagram asli. Tidak diperlukan presentasi masukan. Teks label horizontal memudahkan melihat perbedaan kepadatan.
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IAxesManager.h>
+#include <DOM/Chart/IAxis.h>
+#include <Export/SaveFormat.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/CategoryAxisType.h>
+#include <DOM/Chart/TickMarkType.h>
+#include <DOM/Chart/IChartTextFormat.h>
+#include <DOM/Chart/IChartTextBlockFormat.h>
+#include <DOM/Chart/IChartPortionFormat.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartDataCell.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <system/object_ext.h>
+#include <DOM/ISlideCollection.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 30, 40, 660, 320);
+
+chart->set_HasLegend(false);
+chart->get_ChartData()->get_Categories()->Clear();
 chart->get_ChartData()->get_Series()->Clear();
-auto areaCategories = chart->get_ChartData()->get_Categories();
-areaCategories->Clear();
-areaCategories->Add(wb->GetCell(0, u"A2", ObjectExt::Box<double>(DateTime(2015, 1, 1).ToOADate())));
-areaCategories->Add(wb->GetCell(0, u"A3", ObjectExt::Box<double>(DateTime(2016, 1, 1).ToOADate())));
-areaCategories->Add(wb->GetCell(0, u"A4", ObjectExt::Box<double>(DateTime(2017, 1, 1).ToOADate())));
-areaCategories->Add(wb->GetCell(0, u"A5", ObjectExt::Box<double>(DateTime(2018, 1, 1).ToOADate())));
 
-auto series = chart->get_ChartData()->get_Series()->Add(ChartType::Line);
-auto dataPoints = series->get_DataPoints();
-dataPoints->AddDataPointForLineSeries(wb->GetCell(0, u"B2", ObjectExt::Box<int32_t>(1)));
-dataPoints->AddDataPointForLineSeries(wb->GetCell(0, u"B3", ObjectExt::Box<int32_t>(2)));
-dataPoints->AddDataPointForLineSeries(wb->GetCell(0, u"B4", ObjectExt::Box<int32_t>(3)));
-dataPoints->AddDataPointForLineSeries(wb->GetCell(0, u"B5", ObjectExt::Box<int32_t>(4)));
+auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
+workbook->Clear(0);
 
-auto horizontalAxis = chart->get_Axes()->get_HorizontalAxis();
-horizontalAxis->set_CategoryAxisType(CategoryAxisType::Date);
-horizontalAxis->set_IsNumberFormatLinkedToSource(false);
-horizontalAxis->set_NumberFormat(u"yyyy");
+auto series = chart->get_ChartData()->get_Series()->Add(ChartType::ClusteredColumn);
+for (auto i = 0; i < 24; i++)
+{
+    auto categoryName = System::String::Format(u"Category {0}", i + 1);
+    auto categoryCell = workbook->GetCell(0, i + 1, 0, System::ObjectExt::Box(categoryName));
+    chart->get_ChartData()->get_Categories()->Add(categoryCell);
+    auto valueCell = workbook->GetCell(0, i + 1, 1, System::ObjectExt::Box(10 + i % 6 * 5));
+    series->get_DataPoints()->AddDataPointForBarSeries(valueCell);
+}
 
-pres->Save(u"test.pptx", SaveFormat::Pptx);
+auto axis = chart->get_Axes()->get_HorizontalAxis();
+axis->set_CategoryAxisType(CategoryAxisType::Text);
+axis->get_TextFormat()->get_TextBlockFormat()->set_RotationAngle(0);
+axis->get_TextFormat()->get_PortionFormat()->set_FontHeight(12);
+axis->set_MajorTickMark(TickMarkType::Outside);
+axis->set_IsAutomaticTickLabelSpacing(true);
+axis->set_IsAutomaticTickMarksSpacing(true);
+
+// Slide 2: tampilkan setiap label ketiga, tetapi tetap pertahankan tanda centang untuk setiap kategori.
+auto manualSlide = presentation->get_Slides()->AddClone(slide);
+auto manualChart = System::ExplicitCast<IChart>(manualSlide->get_Shape(0));
+auto manualAxis = manualChart->get_Axes()->get_HorizontalAxis();
+manualAxis->set_IsAutomaticTickLabelSpacing(false);
+manualAxis->set_TickLabelSpacing(3);
+manualAxis->set_IsAutomaticTickMarksSpacing(false);
+manualAxis->set_TickMarksSpacing(1);
+
+// Slide 3: biarkan diagram memilih kedua interval lagi.
+auto restoredSlide = presentation->get_Slides()->AddClone(manualSlide);
+auto restoredChart = System::ExplicitCast<IChart>(restoredSlide->get_Shape(0));
+restoredChart->get_Axes()->get_HorizontalAxis()->set_IsAutomaticTickLabelSpacing(true);
+restoredChart->get_Axes()->get_HorizontalAxis()->set_IsAutomaticTickMarksSpacing(true);
+
+presentation->Save(u"CategoryAxisIntervals.pptx", SaveFormat::Pptx);
 ```
 
-## **Atur Sudut Rotasi untuk Judul Sumbu**
-Aspose.Slides untuk C++ memungkinkan Anda mengatur sudut rotasi untuk judul sumbu diagram. Kode C++ berikut mendemonstrasikan operasinya:
+**Automatic spacing (slide 1):** Dalam rendering ini, setiap label kategori kedua ditampilkan dan dibungkus menjadi dua baris. Hasil otomatis dapat bervariasi tergantung pada ukuran diagram, font, dan renderer.
 
-``` cpp
-auto pres = System::MakeObject<Presentation>();
-auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
-auto chart = shapes->AddChart(ChartType::ClusteredColumn, 50.0f, 50.0f, 450.0f, 300.0f);
-auto verticalAxis = chart->get_Axes()->get_VerticalAxis();
-verticalAxis->set_HasTitle(true);
-verticalAxis->get_Title()->get_TextFormat()->get_TextBlockFormat()->set_RotationAngle(90.0f);
+![Penjarakan label kategori otomatis dengan semua 24 kolom terlihat](category-axis-automatic.png)
 
-pres->Save(u"test.pptx", SaveFormat::Pptx);
+**Manual spacing (slide 2):** Setiap label ketiga ditampilkan pada satu baris, sementara tanda centang tetap pada setiap interval kategori. Semua 24 kolom, termasuk yang tanpa label, tetap terlihat dengan nilai yang sama. Slide 3 memulihkan tampilan otomatis yang ditunjukkan di atas.
+
+![Interval label kategori manual tiga dengan semua 24 kolom terlihat](category-axis-manual.png)
+
+### **Pilih Sumbu dan Interval yang Tepat**
+
+Gunakan interval hitungan kategori ini untuk sumbu kategori teks, seperti sumbu kategori pada diagram kolom, garis, area, atau batang. Pada diagram kolom, itu adalah sumbu horizontal. Pada diagram batang horizontal, sumbu kategori berada secara vertikal, sehingga terapkan pengaturan ini ke [get_VerticalAxis](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxesmanager/get_verticalaxis/). Penjarakan tanda centang juga berlaku untuk sumbu seri pada diagram yang memilikinya.
+
+Jangan gunakan penjarakan label kategori untuk mengatur skala numerik pada sumbu nilai. Pada sumbu nilai, [set_MajorUnit](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_majorunit/) menentukan selisih nilai: misalnya, unit utama `10` menghasilkan tanda centang pada 0, 10, 20, dan seterusnya saat sumbu dimulai dari nol. Interval label kategori `3` menghitung posisi kategori, terlepas dari nilai data mereka. Diagram pencar dan gelembung menggunakan sumbu nilai alih-alih sumbu kategori teks. Untuk sumbu tanggal, gunakan unit utama berbasis waktu dan skala seperti yang dijelaskan di [Ubah Sumbu Kategori](#change-a-category-axis).
+
+## **Atur Format Tanggal untuk Nilai Sumbu Kategori**
+
+Contoh ini menggantikan data diagram default dengan empat nilai tahunan. Tanggal disimpan sebagai nomor seri OLE Automation pada lembar kerja pertama (indeks `0`). Gunakan [set_CategoryAxisType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_categoryaxistype/) untuk memilih sumbu tanggal, nonaktifkan pemformatan yang terhubung ke sumber dengan [set_IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_isnumberformatlinkedtosource/), dan tetapkan `yyyy` dengan [set_NumberFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_numberformat/) sehingga label kategori menampilkan tahun empat digit secara independen dari pemformatan sel.
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IAxesManager.h>
+#include <DOM/Chart/IAxis.h>
+#include <Export/SaveFormat.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/CategoryAxisType.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartDataCell.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <system/object_ext.h>
+#include <system/date_time.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto chart = slide->get_Shapes()->AddChart(ChartType::Line, 50, 50, 450, 300);
+
+chart->get_ChartData()->get_Categories()->Clear();
+chart->get_ChartData()->get_Series()->Clear();
+
+auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
+workbook->Clear(0);
+
+auto series = chart->get_ChartData()->get_Series()->Add(ChartType::Line);
+for (auto i = 0; i < 4; i++)
+{
+    auto date = System::DateTime(2015 + i, 1, 1);
+    auto categoryCell = workbook->GetCell(0, i + 1, 0, System::ObjectExt::Box(date.ToOADate()));
+    chart->get_ChartData()->get_Categories()->Add(categoryCell);
+
+    auto valueCell = workbook->GetCell(0, i + 1, 1, System::ObjectExt::Box(i + 1));
+    series->get_DataPoints()->AddDataPointForLineSeries(valueCell);
+}
+
+chart->get_Axes()->get_HorizontalAxis()->set_CategoryAxisType(CategoryAxisType::Date);
+chart->get_Axes()->get_HorizontalAxis()->set_IsNumberFormatLinkedToSource(false);
+chart->get_Axes()->get_HorizontalAxis()->set_NumberFormat(u"yyyy");
+
+presentation->Save(u"DateAxisFormat.pptx", SaveFormat::Pptx);
+```
+
+## **Atur Sudut Rotasi untuk Judul Sumbu Diagram**
+
+Aktifkan judul sumbu vertikal dengan [set_HasTitle](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_hastitle/), berikan teks judul, dan gunakan [set_RotationAngle](https://reference.aspose.com/slides/cpp/aspose.slides.charts/icharttextblockformat/set_rotationangle/) untuk memutar judul. Sudut diukur dalam derajat; contoh ini menyimpan diagram kolom dengan judul sumbu nilai diputar 90 derajat.
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IAxesManager.h>
+#include <DOM/Chart/IAxis.h>
+#include <Export/SaveFormat.h>
+#include <DOM/Chart/IChartTextFormat.h>
+#include <DOM/Chart/IChartTextBlockFormat.h>
+#include <DOM/Chart/IChartTitle.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 50, 50, 450, 300);
+chart->get_Axes()->get_VerticalAxis()->set_HasTitle(true);
+chart->get_Axes()->get_VerticalAxis()->get_Title()->AddTextFrameForOverriding(u"Value");
+chart->get_Axes()->get_VerticalAxis()->get_Title()->get_TextFormat()->get_TextBlockFormat()->set_RotationAngle(90);
+
+presentation->Save(u"RotatedAxisTitle.pptx", SaveFormat::Pptx);
 ```
 
 ## **Atur Posisi Sumbu pada Sumbu Kategori atau Nilai**
-Aspose.Slides untuk C++ memungkinkan Anda mengatur posisi sumbu pada sumbu kategori atau nilai. Kode C++ berikut menunjukkan cara melakukan tugas tersebut:
 
-``` cpp
-auto pres = System::MakeObject<Presentation>();
-auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
-auto chart = shapes->AddChart(ChartType::ClusteredColumn, 50.0f, 50.0f, 450.0f, 300.0f);
+Gunakan [set_AxisBetweenCategories](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_axisbetweencategories/) untuk mengontrol apakah sumbu nilai melintasi sumbu kategori di antara kategori atau pada tanda centang kategori. Properti ini berlaku pada sumbu kategori. Contoh mengaturnya ke `true` pada sumbu kategori horizontal diagram kolom dan menyimpan hasilnya.
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IAxesManager.h>
+#include <DOM/Chart/IAxis.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 50, 50, 450, 300);
 chart->get_Axes()->get_HorizontalAxis()->set_AxisBetweenCategories(true);
 
-pres->Save(u"AsposeScatterChart.pptx", SaveFormat::Pptx);
+presentation->Save(u"AxisBetweenCategories.pptx", SaveFormat::Pptx);
 ```
 
-## **Aktifkan Label Satuan pada Sumbu Nilai Diagram**
-Aspose.Slides untuk C++ memungkinkan Anda mengonfigurasi diagram agar menampilkan label satuan pada sumbu nilai diagram. Kode C++ berikut mendemonstrasikan operasinya:
+## **Atur Unit Tampilan pada Sumbu Nilai Diagram**
 
-``` cpp
-auto pres = System::MakeObject<Presentation>(u"Test.pptx");
-auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
-auto chart = shapes->AddChart(ChartType::ClusteredColumn, 50.0f, 50.0f, 450.0f, 300.0f);
+Gunakan [set_DisplayUnit](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_displayunit/) untuk menskala label pada sumbu nilai tanpa mengubah data yang mendasarinya. Dengan [DisplayUnitType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/displayunittype/) diatur ke `Millions`, nilai 60.000.000 ditampilkan sebagai 60. Contoh membuat diagram kolom dan menerapkan unit tampilan jutaan pada sumbu vertikalnya.
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IAxesManager.h>
+#include <DOM/Chart/IAxis.h>
+#include <Export/SaveFormat.h>
+#include <DOM/Chart/DisplayUnitType.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 50, 50, 450, 300);
 chart->get_Axes()->get_VerticalAxis()->set_DisplayUnit(DisplayUnitType::Millions);
 
-pres->Save(u"Result.pptx", SaveFormat::Pptx);
+presentation->Save(u"Result.pptx", SaveFormat::Pptx);
 ```
 
 ## **FAQ**
 
-**Bagaimana cara mengatur nilai di mana satu sumbu memotong sumbu lainnya (axis crossing)?**
+**Bagaimana cara saya mengatur nilai di mana satu sumbu memotong sumbu lainnya (persilangan sumbu)?**
 
-Sumbu menyediakan [crossing setting](https://reference.aspose.com/slides/id/cpp/aspose.slides.charts/axis/set_crosstype/): Anda dapat memilih untuk memotong pada nol, pada kategori/nilai maksimum, atau pada nilai numerik tertentu. Ini berguna untuk menggeser sumbu X ke atas atau ke bawah atau untuk menekankan garis dasar.
+Gunakan [set_CrossType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_crosstype/) untuk memilih perilaku persilangan. Untuk menentukan nilai persilangan numerik, gunakan [set_CrossAt](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_crossat/). Pengaturan ini memungkinkan Anda memindahkan persilangan sumbu ke garis dasar yang sesuai.
 
-**Bagaimana saya dapat memposisikan label tick relatif terhadap sumbu (di samping, di luar, di dalam)?**
+**Bagaimana saya dapat menempatkan label tanda centang relatif terhadap sumbu?**
 
-Atur [label position](https://reference.aspose.com/slides/id/cpp/aspose.slides.charts/axis/set_majortickmark/) menjadi "cross", "outside", atau "inside". Ini memengaruhi keterbacaan dan membantu menghemat ruang, terutama pada diagram kecil.
+Gunakan [set_TickLabelPosition](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_ticklabelposition/) dengan nilai dari [TickLabelPositionType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ticklabelpositiontype/): `Low`, `High`, `NextTo`, atau `None`. Untuk mengontrol tanda centang itu sendiri, gunakan [set_MajorTickMark](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_majortickmark/) atau [set_MinorTickMark](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_minortickmark/); ini terpisah dari penempatan label.

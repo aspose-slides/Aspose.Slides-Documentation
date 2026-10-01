@@ -22,182 +22,302 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Scopri come utilizzare Aspose.Slides per .NET per personalizzare gli assi dei grafici nelle presentazioni PowerPoint per report e visualizzazioni."
+description: "Scopri come usare Aspose.Slides per .NET per personalizzare gli assi dei grafici nelle presentazioni PowerPoint per report e visualizzazioni."
 ---
 ## **Panoramica**
 
-Questo articolo spiega come personalizzare gli assi di un grafico in Aspose.Slides. Mostra come ottenere i valori effettivi degli assi, scambiare i dati tra gli assi, nascondere l'asse verticale o orizzontale per i grafici a linee, modificare il tipo di asse di categoria, impostare il formato data per i valori dell'asse di categoria, ruotare il titolo di un asse, impostare la posizione dell'asse e visualizzare un'etichetta di unità sull'asse dei valori.
+Questo articolo spiega come personalizzare gli assi dei grafici con Aspose.Slides per .NET. Copre i valori dell'asse calcolati, lo scambio di righe e colonne del grafico, la visibilità dell'asse, gli intervalli delle etichette di categoria e dei segni di graduazione, le categorie di data e la formattazione, la rotazione del titolo, il posizionamento dell'asse e le unità di visualizzazione.
 
 ## **Ottieni i valori massimi sull'asse verticale nei grafici**
-Aspose.Slides per .NET consente di ottenere i valori minimo e massimo su un asse verticale. Segui questi passaggi:
 
-1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/net/aspose.slides/presentation).
-1. Accedi alla prima diapositiva.
-1. Aggiungi un grafico con dati predefiniti.
-1. Ottieni il valore massimo effettivo sull'asse.
-1. Ottieni il valore minimo effettivo sull'asse.
-1. Ottieni l'unità principale effettiva dell'asse.
-1. Ottieni l'unità secondaria effettiva dell'asse.
-1. Ottieni la scala dell'unità principale effettiva dell'asse.
-1. Ottieni la scala dell'unità secondaria effettiva dell'asse.
+Crea una [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) e aggiungi un grafico a area con dati predefiniti. Chiama [ValidateChartLayout](https://reference.aspose.com/slides/net/aspose.slides.charts/chart/validatechartlayout/) prima di leggere i valori dell'asse calcolati in modo che il layout del grafico sia aggiornato.
 
-Questo codice di esempio—un'implementazione dei passaggi sopra—mostra come ottenere i valori richiesti in C#:
+Leggi [ActualMaxValue](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/actualmaxvalue/) e [ActualMinValue](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/actualminvalue/) per i limiti dell'asse, e [ActualMajorUnit](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/actualmajorunit/) e [ActualMinorUnit](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/actualminorunit/) per gli intervalli dei segni di graduazione. [ActualMajorUnitScale](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/actualmajorunitscale/) e [ActualMinorUnitScale](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/actualminorunitscale/) forniscono scale di unità temporali, rilevanti per gli assi di data. L'esempio memorizza questi valori in variabili locali e salva il grafico.
 
-```c#
-using (Presentation pres = new Presentation())
-{
-	Chart chart = (Chart)pres.Slides[0].Shapes.AddChart(ChartType.Area, 100, 100, 500, 350);
-	chart.ValidateChartLayout();
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-	double maxValue = chart.Axes.VerticalAxis.ActualMaxValue;
-	double minValue = chart.Axes.VerticalAxis.ActualMinValue;
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-	double majorUnit = chart.Axes.HorizontalAxis.ActualMajorUnit;
-	double minorUnit = chart.Axes.HorizontalAxis.ActualMinorUnit;
-	
-	// Salva la presentazione
-	presentation.Save("ErrorBars_out.pptx", SaveFormat.Pptx);
-}
+var chart = slide.Shapes.AddChart(ChartType.Area, 100, 100, 500, 350);
+chart.ValidateChartLayout();
+
+var maxValue = chart.Axes.VerticalAxis.ActualMaxValue;
+var minValue = chart.Axes.VerticalAxis.ActualMinValue;
+
+var majorUnit = chart.Axes.VerticalAxis.ActualMajorUnit;
+var minorUnit = chart.Axes.VerticalAxis.ActualMinorUnit;
+
+var majorUnitScale = chart.Axes.VerticalAxis.ActualMajorUnitScale;
+var minorUnitScale = chart.Axes.VerticalAxis.ActualMinorUnitScale;
+
+presentation.Save("AxisValues_out.pptx", SaveFormat.Pptx);
 ```
 
 ## **Scambia i dati tra gli assi**
-Aspose.Slides consente di scambiare rapidamente i dati tra gli assi: i dati rappresentati sull'asse verticale (asse y) vengono spostati sull'asse orizzontale (asse x) e viceversa. 
 
-Questo codice C# mostra come eseguire lo scambio di dati tra gli assi in un grafico:
+Usa [SwitchRowColumn](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdata/switchrowcolumn/) per scambiare i ruoli di serie e categorie nei dati del grafico. Ogni ex‑categoria diventa una serie e ogni ex‑serie diventa una categoria. Questo cambia il modo in cui i dati sono raggruppati; non scambia gli assi orizzontale e verticale. L'esempio utilizza [SetRange](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdata/setrange/) per collegare i dati predefiniti a `Sheet1!A1:D5`, includendo la riga di intestazione e la colonna delle categorie, prima di scambiare righe e colonne. Salva un grafico con quattro serie e tre categorie.
 
-```c#
-// Crea presentazione vuota
-using (Presentation pres = new Presentation())
-{
-	IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 100, 100, 400, 300);
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-	//Scambia righe e colonne
-		   
-	// Salva presentazione
-	 pres.Save("SwitchChartRowColumns_out.pptx", SaveFormat.Pptx);
- }
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 100, 100, 400, 300);
+
+chart.ChartData.SetRange("Sheet1!A1:D5");
+chart.ChartData.SwitchRowColumn();
+
+presentation.Save("SwitchChartRowColumns_out.pptx", SaveFormat.Pptx);
 ```
 
 ## **Disabilita l'asse verticale per i grafici a linee**
 
-Questo codice C# mostra come nascondere l'asse verticale in un grafico a linee:
+Imposta [IsVisible](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isvisible/) su `false` sull'asse verticale per nasconderlo. L'esempio crea un grafico a linee con dati predefiniti e lo salva con l'asse verticale nascosto.
 
-```c#
-using (Presentation pres = new Presentation())
-{
-    IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Line, 100, 100, 400, 300);
-    chart.Axes.VerticalAxis.IsVisible = false; 
-    
-    pres.Save("chart.pptx", SaveFormat.Pptx);
-}
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.Line, 100, 100, 400, 300);
+chart.Axes.VerticalAxis.IsVisible = false;
+
+presentation.Save("HiddenVerticalAxis.pptx", SaveFormat.Pptx);
 ```
 
 ## **Disabilita l'asse orizzontale per i grafici a linee**
 
-Questo codice mostra come nascondere l'asse orizzontale in un grafico a linee:
+Imposta [IsVisible](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isvisible/) su `false` sull'asse orizzontale per nasconderlo. L'esempio crea un grafico a linee con dati predefiniti e lo salva con l'asse orizzontale nascosto.
 
-```c#
-using (Presentation pres = new Presentation())
-{
-    IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Line, 100, 100, 400, 300);
-    chart.Axes.HorizontalAxis.IsVisible = false; 
-    
-    pres.Save("chart.pptx", SaveFormat.Pptx);
-}
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.Line, 100, 100, 400, 300);
+chart.Axes.HorizontalAxis.IsVisible = false;
+
+presentation.Save("HiddenHorizontalAxis.pptx", SaveFormat.Pptx);
 ```
 
 ## **Modifica un asse di categoria**
 
-Utilizzando la proprietà **CategoryAxisType**, è possibile specificare il tipo di asse di categoria preferito (**date** o **text**). Questo codice in C# dimostra l'operazione: 
+Imposta [CategoryAxisType](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/categoryaxistype/) per scegliere un asse di categoria data o di testo. Questo esempio richiede `ExistingChart.pptx`, con un grafico come prima forma nella prima diapositiva e celle di categoria contenenti valori di data Excel numerici. Cambia l'asse orizzontale in un asse di data. Impostando [IsAutomaticMajorUnit](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isautomaticmajorunit/) su `false`, [MajorUnit](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/majorunit/) su `1` e [MajorUnitScale](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/majorunitscale/) su mesi, posiziona i segni maggiori a intervalli di un mese.
 
-```c#
-using (Presentation presentation = new Presentation("ExistingChart.pptx"))
-{
-    IChart chart = presentation.Slides[0].Shapes[0] as IChart;
-    chart.Axes.HorizontalAxis.CategoryAxisType = CategoryAxisType.Date;
-    chart.Axes.HorizontalAxis.IsAutomaticMajorUnit = false;
-    chart.Axes.HorizontalAxis.MajorUnit = 1;
-    chart.Axes.HorizontalAxis.MajorUnitScale = TimeUnitType.Months;
-    presentation.Save("ChangeChartCategoryAxis_out.pptx", SaveFormat.Pptx);
-}
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("ExistingChart.pptx");
+var slide = presentation.Slides[0];
+
+var chart = (IChart) slide.Shapes[0];
+chart.Axes.HorizontalAxis.CategoryAxisType = CategoryAxisType.Date;
+chart.Axes.HorizontalAxis.IsAutomaticMajorUnit = false;
+chart.Axes.HorizontalAxis.MajorUnit = 1;
+chart.Axes.HorizontalAxis.MajorUnitScale = TimeUnitType.Months;
+
+presentation.Save("ChangeChartCategoryAxis_out.pptx", SaveFormat.Pptx);
 ```
 
-## **Imposta il formato data per i valori dell'asse di categoria**
-Aspose.Slides per .NET consente di impostare il formato data per un valore dell'asse di categoria. L'operazione è dimostrata in questo codice C#:
+## **Controlla gli intervalli delle etichette dell'asse di categoria**
 
-```c#
-using (Presentation pres = new Presentation())
+Quando un grafico ha molte categorie, riduci il numero di etichette dell'asse visibili senza rimuovere categorie o punti dati. Imposta [IsAutomaticTickLabelSpacing](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/isautomaticticklabelspacing/) su `false`, quindi imposta [TickLabelSpacing](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/ticklabelspacing/) sull'intervallo di categoria desiderato. Per le categorie di testo nel loro ordine normale, il conteggio parte dalla prima categoria:
+
+| Intervallo | Etichette visualizzate nell'esempio |
+| --- | --- |
+| `1` | Categoria 1, Categoria 2, Categoria 3, ... Categoria 24 |
+| `2` | Categoria 1, Categoria 3, Categoria 5, ... Categoria 23 |
+| `3` | Categoria 1, Categoria 4, Categoria 7, ... Categoria 22 |
+
+Un intervallo di `3` visualizza ogni terza etichetta, lasciando nascoste due etichette tra quelle visualizzate. Non rimuove le colonne corrispondenti. La spaziatura automatica sceglie un intervallo in base allo spazio disponibile; non mostra necessariamente tutte le etichette.
+
+I segni di graduazione hanno controlli separati. Imposta [IsAutomaticTickMarksSpacing](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/isautomatictickmarksspacing/) su `false` e usa [TickMarksSpacing](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/tickmarksspacing/) per impostare il loro intervallo. Ad esempio, `1` mantiene un segno a ogni intervallo di categoria mentre le etichette appaiono solo ogni terza categoria. Imposta [MajorTickMark](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/majortickmark/) su uno stile visibile così da poter vedere il risultato. Reimpostare una delle proprietà di spaziatura automatica a `true` fa sì che il grafico scelga nuovamente quell'intervallo.
+
+L'esempio autonomo seguente crea 24 categorie e una serie, quindi salva tre diapositive in `CategoryAxisIntervals.pptx`: spaziatura automatica, spaziatura manuale delle etichette con segni di graduazione indipendenti e spaziatura automatica ripristinata. Le due copie mantengono i dati originali del grafico. Non è necessaria una presentazione di input. Il testo dell'etichetta orizzontale rende evidente la differenza di densità.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 30, 40, 660, 320);
+
+chart.HasLegend = false;
+chart.ChartData.Categories.Clear();
+chart.ChartData.Series.Clear();
+
+var workbook = chart.ChartData.ChartDataWorkbook;
+workbook.Clear(0);
+
+var series = chart.ChartData.Series.Add(ChartType.ClusteredColumn);
+for (var i = 0; i < 24; i++)
 {
-	IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Area, 50, 50, 450, 300);
-
-	IChartDataWorkbook wb = chart.ChartData.ChartDataWorkbook;
-
-	wb.Clear(0);
-
-	chart.ChartData.Categories.Clear();
-	chart.ChartData.Series.Clear();
-	chart.ChartData.Categories.Add(wb.GetCell(0, "A2", new DateTime(2015, 1, 1).ToOADate()));
-	chart.ChartData.Categories.Add(wb.GetCell(0, "A3", new DateTime(2016, 1, 1).ToOADate()));
-	chart.ChartData.Categories.Add(wb.GetCell(0, "A4", new DateTime(2017, 1, 1).ToOADate()));
-	chart.ChartData.Categories.Add(wb.GetCell(0, "A5", new DateTime(2018, 1, 1).ToOADate()));
-
-	IChartSeries series = chart.ChartData.Series.Add(ChartType.Line);
-	series.DataPoints.AddDataPointForLineSeries(wb.GetCell(0, "B2", 1));
-	series.DataPoints.AddDataPointForLineSeries(wb.GetCell(0, "B3", 2));
-	series.DataPoints.AddDataPointForLineSeries(wb.GetCell(0, "B4", 3));
-	series.DataPoints.AddDataPointForLineSeries(wb.GetCell(0, "B5", 4));
-	chart.Axes.HorizontalAxis.CategoryAxisType = CategoryAxisType.Date;
-	chart.Axes.HorizontalAxis.IsNumberFormatLinkedToSource = false;
-	chart.Axes.HorizontalAxis.NumberFormat = "yyyy";
-	pres.Save("test.pptx", SaveFormat.Pptx);
+    var categoryCell = workbook.GetCell(0, i + 1, 0, $"Category {i + 1}");
+    chart.ChartData.Categories.Add(categoryCell);
+    var valueCell = workbook.GetCell(0, i + 1, 1, 10 + i % 6 * 5);
+    series.DataPoints.AddDataPointForBarSeries(valueCell);
 }
+
+var axis = chart.Axes.HorizontalAxis;
+axis.CategoryAxisType = CategoryAxisType.Text;
+axis.TextFormat.TextBlockFormat.RotationAngle = 0;
+axis.TextFormat.PortionFormat.FontHeight = 12;
+axis.MajorTickMark = TickMarkType.Outside;
+axis.IsAutomaticTickLabelSpacing = true;
+axis.IsAutomaticTickMarksSpacing = true;
+
+// Slide 2: mostra ogni terza etichetta, ma mantieni un segno di graduazione per ogni categoria.
+var manualSlide = presentation.Slides.AddClone(slide);
+var manualChart = (IChart)manualSlide.Shapes[0];
+var manualAxis = manualChart.Axes.HorizontalAxis;
+manualAxis.IsAutomaticTickLabelSpacing = false;
+manualAxis.TickLabelSpacing = 3;
+manualAxis.IsAutomaticTickMarksSpacing = false;
+manualAxis.TickMarksSpacing = 1;
+
+// Slide 3: lascia che il grafico scelga nuovamente entrambi gli intervalli.
+var restoredSlide = presentation.Slides.AddClone(manualSlide);
+var restoredChart = (IChart)restoredSlide.Shapes[0];
+restoredChart.Axes.HorizontalAxis.IsAutomaticTickLabelSpacing = true;
+restoredChart.Axes.HorizontalAxis.IsAutomaticTickMarksSpacing = true;
+
+presentation.Save("CategoryAxisIntervals.pptx", SaveFormat.Pptx);
 ```
 
-## **Imposta un angolo di rotazione per il titolo di un asse del grafico**
-Aspose.Slides per .NET consente di impostare l'angolo di rotazione per il titolo di un asse del grafico. Questo codice C# dimostra l'operazione:
+**Spaziatura automatica (diapositiva 1):** In questo rendering, ogni seconda etichetta di categoria è visualizzata e avvolta su due righe. Il risultato automatico può variare in base alle dimensioni del grafico, ai caratteri e al renderer.
 
-```c#
-using (Presentation pres = new Presentation())
+![Spaziatura automatica delle etichette di categoria con tutte le 24 colonne visibili](category-axis-automatic.png)
+
+**Spaziatura manuale (diapositiva 2):** Ogni terza etichetta è visualizzata su una sola riga, mentre i segni di graduazione rimangono a ogni intervallo di categoria. Tutte le 24 colonne, incluse quelle senza etichette, rimangono visibili con gli stessi valori. La diapositiva 3 ripristina l'aspetto automatico mostrato sopra.
+
+![Intervallo manuale delle etichette di categoria di tre con tutte le 24 colonne visibili](category-axis-manual.png)
+
+### **Scegli l'asse e l'intervallo corretti**
+
+Usa questo intervallo di conteggio delle categorie per un asse di categoria testuale, come l'asse di categoria di un grafico a colonne, a linee, ad area o a barre. In un grafico a colonne è l'asse orizzontale. In un grafico a barre orizzontali, l'asse di categoria è verticale, quindi applica queste impostazioni a [VerticalAxis](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxesmanager/verticalaxis/). La spaziatura dei segni di graduazione si applica anche a un asse di serie nei grafici che ne hanno uno.
+
+Non usare la spaziatura delle etichette di categoria per impostare la scala numerica di un asse di valore. Su un asse di valore, [MajorUnit](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/majorunit/) specifica una differenza di valori: ad esempio, un'unità maggiore di `10` produce segni a 0, 10, 20 e così via quando l'asse parte da zero. Un intervallo di etichette di categoria di `3` conta invece le posizioni di categoria, indipendentemente dai loro valori. I grafici a dispersione e a bolle usano assi di valore anziché un asse di categoria testuale. Per un asse di data, utilizza unità maggiori e scale basate sul tempo come descritto in [Modifica un asse di categoria](#modifica-un-asse-di-categoria).
+
+## **Imposta il formato della data per i valori dell'asse di categoria**
+
+L'esempio sostituisce i dati predefiniti del grafico con quattro valori annuali. Le date sono archiviate come numeri seriali OLE Automation nel primo foglio di lavoro (indice `0`). Imposta [CategoryAxisType](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/categoryaxistype/) su un asse di data, disabilita [IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isnumberformatlinkedtosource/) e assegna `yyyy` a [NumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/numberformat/) affinché le etichette di categoria mostrino gli anni a quattro cifre indipendentemente dalla formattazione delle celle.
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.Line, 50, 50, 450, 300);
+
+chart.ChartData.Categories.Clear();
+chart.ChartData.Series.Clear();
+
+var workbook = chart.ChartData.ChartDataWorkbook;
+workbook.Clear(0);
+
+var series = chart.ChartData.Series.Add(ChartType.Line);
+for (var i = 0; i < 4; i++)
 {
-	IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 450, 300);
-	chart.Axes.VerticalAxis.HasTitle = true;
-	         chart.Axes.VerticalAxis.Title.TextFormat.TextBlockFormat.RotationAngle = 90;
+    var date = new DateTime(2015 + i, 1, 1);
+    var categoryCell = workbook.GetCell(0, i + 1, 0, date.ToOADate());
+    chart.ChartData.Categories.Add(categoryCell);
 
-	pres.Save("test.pptx", SaveFormat.Pptx);
+    var valueCell = workbook.GetCell(0, i + 1, 1, i + 1);
+    series.DataPoints.AddDataPointForLineSeries(valueCell);
 }
+
+chart.Axes.HorizontalAxis.CategoryAxisType = CategoryAxisType.Date;
+chart.Axes.HorizontalAxis.IsNumberFormatLinkedToSource = false;
+chart.Axes.HorizontalAxis.NumberFormat = "yyyy";
+
+presentation.Save("DateAxisFormat.pptx", SaveFormat.Pptx);
+```
+
+## **Imposta un angolo di rotazione per il titolo dell'asse del grafico**
+
+Abilita [HasTitle](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/hastitle/) sull'asse verticale, fornisci il testo del titolo e imposta [RotationAngle](https://reference.aspose.com/slides/net/aspose.slides.charts/icharttextblockformat/rotationangle/) per ruotare il titolo. L'angolo è misurato in gradi; questo esempio salva un grafico a colonne con il titolo dell'asse dei valori ruotato di 90 gradi.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 450, 300);
+chart.Axes.VerticalAxis.HasTitle = true;
+chart.Axes.VerticalAxis.Title.AddTextFrameForOverriding("Value");
+chart.Axes.VerticalAxis.Title.TextFormat.TextBlockFormat.RotationAngle = 90;
+
+presentation.Save("RotatedAxisTitle.pptx", SaveFormat.Pptx);
 ```
 
 ## **Imposta la posizione dell'asse su un asse di categoria o di valore**
-Aspose.Slides per .NET consente di impostare la posizione dell'asse in un asse di categoria o di valore. Questo codice C# mostra come eseguire l'operazione:
 
-```c#
-using (Presentation pres = new Presentation())
-{
-	IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 450, 300);
-	chart.Axes.HorizontalAxis.AxisBetweenCategories = true;
+Usa [AxisBetweenCategories](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/axisbetweencategories/) per controllare se l'asse di valore incrocia l'asse di categoria tra le categorie o sui segni di categoria. Questa proprietà si applica agli assi di categoria. L'esempio la imposta su `true` sull'asse di categoria orizzontale di un grafico a colonne e salva il risultato.
 
-	pres.Save("AsposeScatterChart.pptx", SaveFormat.Pptx);
-}
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 450, 300);
+chart.Axes.HorizontalAxis.AxisBetweenCategories = true;
+
+presentation.Save("AxisBetweenCategories.pptx", SaveFormat.Pptx);
 ```
 
-## **Abilita l'etichetta di unità di visualizzazione sull'asse valori del grafico**
-Aspose.Slides per .NET consente di configurare un grafico per mostrare un'etichetta di unità sul suo asse dei valori. Questo codice C# dimostra l'operazione:
+## **Imposta l'unità di visualizzazione su un asse di valore del grafico**
 
-```c#
-using (Presentation pres = new Presentation(dataDir+"Test.pptx"))
-{
-	IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 450, 300);
-	chart.Axes.VerticalAxis.DisplayUnit = DisplayUnitType.Millions;
-	pres.Save("Result.pptx", SaveFormat.Pptx);
-}
+Imposta [DisplayUnit](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/displayunit/) per scalare le etichette su un asse di valore senza modificare i dati sottostanti. Con [DisplayUnitType](https://reference.aspose.com/slides/net/aspose.slides.charts/displayunittype/) impostato su `Millions`, un valore di 60 000 000 viene visualizzato come 60. L'esempio crea un grafico a colonne e applica l'unità di visualizzazione milioni al suo asse verticale.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 450, 300);
+chart.Axes.VerticalAxis.DisplayUnit = DisplayUnitType.Millions;
+
+presentation.Save("Result.pptx", SaveFormat.Pptx);
 ```
 
 ## **FAQ**
 
-**Come imposto il valore in cui un asse incrocia l'altro (incrocio degli assi)?**
+**Come impostare il valore al quale un asse incrocia l'altro (incrocio degli assi)?**
 
-Gli assi offrono un'impostazione di [incrocio](https://reference.aspose.com/slides/it/net/aspose.slides.charts/axis/crosstype/): è possibile scegliere di incrociare a zero, al valore massimo di categoria/valore o a un valore numerico specifico. Questo è utile per spostare l'asse X verso l'alto o verso il basso o per evidenziare una linea di base.
+Utilizza [CrossType](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/crosstype/) per selezionare il comportamento di incrocio. Per specificare un valore numerico di incrocio, imposta [CrossAt](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/crossat/). Queste impostazioni consentono di spostare l'incrocio dell'asse a una linea di base adeguata.
 
-**Come posso posizionare le etichette dei tick rispetto all'asse (affianco, esterno, interno)?**
+**Come posso posizionare le etichette dei segni di graduazione rispetto all'asse?**
 
-Imposta la [posizione dell'etichetta](https://reference.aspose.com/slides/it/net/aspose.slides.charts/axis/majortickmark/) su "cross", "outside" o "inside". Questo influisce sulla leggibilità e aiuta a risparmiare spazio, specialmente nei grafici ridotti.
+Imposta [TickLabelPosition](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/ticklabelposition/) usando [TickLabelPositionType](https://reference.aspose.com/slides/net/aspose.slides.charts/ticklabelpositiontype/): `Low`, `High`, `NextTo` o `None`. Per controllare i segni di graduazione stessi, usa [MajorTickMark](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/majortickmark/) o [MinorTickMark](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/minortickmark/); questi sono separati dal posizionamento delle etichette.

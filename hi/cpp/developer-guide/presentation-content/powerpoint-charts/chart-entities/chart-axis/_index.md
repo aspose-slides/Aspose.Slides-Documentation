@@ -1,204 +1,441 @@
 ---
-title: C++ का उपयोग करके प्रस्तुतीकरण में चार्ट एक्सिस को अनुकूलित करें
-linktitle: चार्ट एक्सिस
+title: C++ का उपयोग करके प्रस्तुतियों में चार्ट अक्षों को अनुकूलित करें
+linktitle: चार्ट अक्ष
 type: docs
 url: /hi/cpp/chart-axis/
 keywords:
-- चार्ट एक्सिस
-- ऊर्ध्वाधर एक्सिस
-- क्षैतिज एक्सिस
-- एक्सिस को अनुकूलित करें
-- एक्सिस को नियंत्रित करें
-- एक्सिस प्रबंधन
-- एक्सिस गुण
+- चार्ट अक्ष
+- ऊर्ध्वाधर अक्ष
+- क्षैतिज अक्ष
+- अक्ष को अनुकूलित करें
+- अक्ष को संशोधित करें
+- अक्ष का प्रबंधन करें
+- अक्ष गुण
 - अधिकतम मान
 - न्यूनतम मान
-- एक्सिस लाइन
-- तिथि प्रारूप
-- एक्सिस शीर्षक
-- एक्सिस स्थिति
+- अक्ष रेखा
+- तिथि स्वरूप
+- अक्ष शीर्षक
+- अक्ष स्थिति
 - PowerPoint
 - प्रस्तुति
 - C++
 - Aspose.Slides
-description: "रिपोर्ट और विज़ुअलाइज़ेशन के लिए PowerPoint प्रस्तुतियों में चार्ट एक्सिस को अनुकूलित करने हेतु Aspose.Slides for C++ का उपयोग कैसे करें, जानें।"
+description: "रिपोर्ट और विज़ुअलाइज़ेशन के लिए PowerPoint प्रस्तुतियों में चार्ट अक्षों को अनुकूलित करने हेतु Aspose.Slides for C++ का उपयोग कैसे करें, जानें।"
 ---
-## **अवलोकन**
+## **परिचय**
 
-यह लेख Aspose.Slides में चार्ट एक्सिस को अनुकूलित करने के तरीकों को समझाता है। यह वास्तविक एक्सिस मान प्राप्त करना, एक्सिस के बीच डेटा बदलना, लाइन चार्ट के लिए ऊर्ध्वाधर या क्षैतिज एक्सिस छुपाना, श्रेणी एक्सिस प्रकार बदलना, श्रेणी एक्सिस मानों के लिए तिथि प्रारूप निर्धारित करना, एक्सिस शीर्षक को घुमाना, एक्सिस की स्थिति सेट करना, और मान एक्सिस पर यूनिट लेबल दिखाना दर्शाता है।
+यह लेख Aspose.Slides for C++ के साथ चार्ट अक्षों को अनुकूलित करने के तरीके को समझाता है। यह गणना किए गए अक्ष मानों, चार्ट पंक्तियों और स्तंभों को बदलने, अक्ष की दृश्यता, श्रेणी लेबल और टिक‑मार्क अंतराल, तिथि श्रेणियों और स्वरूपण, शीर्षक घूर्णन, अक्ष की स्थिति, और प्रदर्शन इकाइयों को कवर करता है।
 
-## **ऊर्ध्वाधर एक्सिस पर अधिकतम मान प्राप्त करें**
-Aspose.Slides for C++ आपको ऊर्ध्वाधर एक्सिस पर न्यूनतम और अधिकतम मान प्राप्त करने की सुविधा देता है। इन चरणों का पालन करें:
+## **चार्ट्स में लंबवत अक्ष पर अधिकतम मान प्राप्त करें**
 
-1. [Presentation](https://reference.aspose.com/slides/hi/cpp/class/aspose.slides.presentation) क्लास का एक उदाहरण बनाएं।
-2. पहली स्लाइड तक पहुंचें।
-3. डिफ़ॉल्ट डेटा के साथ एक चार्ट जोड़ें।
-4. एक्सिस पर वास्तविक अधिकतम मान प्राप्त करें।
-5. एक्सिस पर वास्तविक न्यूनतम मान प्राप्त करें।
-6. एक्सिस की वास्तविक प्रमुख इकाई प्राप्त करें।
-7. एक्सिस की वास्तविक लघु इकाई प्राप्त करें।
-8. एक्सिस के वास्तविक प्रमुख इकाई स्केल प्राप्त करें।
-9. एक्सिस के वास्तविक लघु इकाई स्केल प्राप्त करें।
+एक [प्रस्तुति](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) बनाएं और डिफ़ॉल्ट डेटा के साथ एक एरिया चार्ट जोड़ें। गणना किए गए अक्ष मान पढ़ने से पहले [ValidateChartLayout](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chart/validatechartlayout/) को कॉल करें ताकि चार्ट लेआउट अद्यतन हो।
 
-यह नमूना कोड—उपरोक्त चरणों का कार्यान्वयन—आपको C++ में आवश्यक मान प्राप्त करने का तरीका दिखाता है:
+अक्ष सीमाओं के लिए [get_ActualMaxValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/get_actualmaxvalue/) और [get_ActualMinValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/get_actualminvalue/) पढ़ें, और टिक अंतराल के लिए [get_ActualMajorUnit](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/get_actualmajorunit/) और [get_ActualMinorUnit](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/get_actualminorunit/) पढ़ें। [get_ActualMajorUnitScale](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/get_actualmajorunitscale/) और [get_ActualMinorUnitScale](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/get_actualminorunitscale/) समय‑इकाई स्केल प्रदान करते हैं, जो तिथि अक्षों के लिए प्रासंगिक हैं। उदाहरण इन मानों को स्थानीय वेरिएबल्स में संग्रहीत करता है और चार्ट सहेजता है।
 
-``` cpp
-auto pres = System::MakeObject<Presentation>();
-auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
-auto chart = System::ExplicitCast<Chart>(shapes->AddChart(ChartType::Area, 100.0f, 100.0f, 500.0f, 350.0f));
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IAxesManager.h>
+#include <DOM/Chart/IAxis.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto chart = slide->get_Shapes()->AddChart(ChartType::Area, 100, 100, 500, 350);
 chart->ValidateChartLayout();
 
-auto axes = chart->get_Axes();
+auto maxValue = chart->get_Axes()->get_VerticalAxis()->get_ActualMaxValue();
+auto minValue = chart->get_Axes()->get_VerticalAxis()->get_ActualMinValue();
 
-double maxValue = axes->get_VerticalAxis()->get_ActualMaxValue();
-double minValue = axes->get_VerticalAxis()->get_ActualMinValue();
+auto majorUnit = chart->get_Axes()->get_VerticalAxis()->get_ActualMajorUnit();
+auto minorUnit = chart->get_Axes()->get_VerticalAxis()->get_ActualMinorUnit();
 
-double majorUnit = axes->get_HorizontalAxis()->get_ActualMajorUnit();
-double minorUnit = axes->get_HorizontalAxis()->get_ActualMinorUnit();
+auto majorUnitScale = chart->get_Axes()->get_VerticalAxis()->get_ActualMajorUnitScale();
+auto minorUnitScale = chart->get_Axes()->get_VerticalAxis()->get_ActualMinorUnitScale();
 
-// प्रस्तुति को सहेजें
-pres->Save(u"ErrorBars_out.pptx", SaveFormat::Pptx);
+presentation->Save(u"AxisValues_out.pptx", SaveFormat::Pptx);
 ```
 
-## **एक्सिस के बीच डेटा बदलें**
-Aspose.Slides आपको जल्दी से एक्सिस के बीच डेटा बदलने की अनुमति देता है—ऊर्ध्वाधर एक्सिस (y‑axis) पर प्रदर्शित डेटा क्षैतिज एक्सिस (x‑axis) पर चला जाता है और इसके विपरीत।
+## **अक्षों के बीच डेटा बदलें**
 
-यह C++ कोड आपको चार्ट में एक्सिस के बीच डेटा स्वैप करने का तरीका दिखाता है:
+श्रृंखला और श्रेणियों की भूमिकाओं को बदलने के लिए [SwitchRowColumn](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdata/switchrowcolumn/) का उपयोग करें। प्रत्येक पूर्व श्रेणी एक श्रृंखला बन जाती है, और प्रत्येक पूर्व श्रृंखला एक श्रेणी बनती है। यह डेटा समूहबद्ध करने के तरीके को बदलता है; यह क्षैतिज और लंबवत अक्षों का अदला‑बदली नहीं करता। उदाहरण पंक्तियों और स्तंभों को बदलने से पहले डिफ़ॉल्ट डेटा को `Sheet1!A1:D5` से बाइंड करने के लिए [SetRange](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdata/setrange/) का उपयोग करता है, जिसमें हेडर पंक्ति और श्रेणी स्तंभ शामिल हैं। यह चार श्रृंखलाओं और तीन श्रेणियों वाला चार्ट सहेजता है।
 
-``` cpp
-// खाली प्रस्तुति बनाता है
-auto pres = System::MakeObject<Presentation>();
-auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
-auto chart = shapes->AddChart(ChartType::ClusteredColumn, 100.0f, 100.0f, 400.0f, 300.0f);
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IAxesManager.h>
+#include <DOM/Chart/IAxis.h>
+#include <Export/SaveFormat.h>
+#include <DOM/Chart/IChartData.h>
 
-// पंक्तियों और स्तंभों को बदलता है
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 100, 100, 400, 300);
+
+chart->get_ChartData()->SetRange(u"Sheet1!A1:D5");
 chart->get_ChartData()->SwitchRowColumn();
 
-// प्रस्तुति को सहेजता है
-pres->Save(u"SwitchChartRowColumns_out.pptx", SaveFormat::Pptx);
+presentation->Save(u"SwitchChartRowColumns_out.pptx", SaveFormat::Pptx);
 ```
 
-## **लाइन चार्ट्स के लिए ऊर्ध्वाधर एक्सिस अक्षम करें**
+## **लाइन चार्ट्स के लिए लंबवत अक्ष को अक्षम करें**
 
-यह C++ कोड आपको लाइन चार्ट के लिए ऊर्ध्वाधर एक्सिस को छुपाने का तरीका दिखाता है:
+लंबवत अक्ष को छिपाने के लिए उस पर `false` के साथ [set_IsVisible](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_isvisible/) का उपयोग करें। उदाहरण डिफ़ॉल्ट डेटा के साथ एक लाइन चार्ट बनाता है और इसे लंबवत अक्ष छिपा कर सहेजता है।
 
-``` cpp
-auto pres = System::MakeObject<Presentation>();
-auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
-auto chart = shapes->AddChart(ChartType::Line, 100.0f, 100.0f, 400.0f, 300.0f);
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IAxesManager.h>
+#include <DOM/Chart/IAxis.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto chart = slide->get_Shapes()->AddChart(ChartType::Line, 100, 100, 400, 300);
 chart->get_Axes()->get_VerticalAxis()->set_IsVisible(false);
 
-pres->Save(u"chart.pptx", SaveFormat::Pptx);
+presentation->Save(u"HiddenVerticalAxis.pptx", SaveFormat::Pptx);
 ```
 
-## **लाइन चार्ट्स के लिए क्षैतिज एक्सिस अक्षम करें**
+## **लाइन चार्ट्स के लिए क्षैतिज अक्ष को अक्षम करें**
 
-यह कोड आपको लाइन चार्ट के लिए क्षैतिज एक्सिस को छुपाने का तरीका दिखाता है:
+क्षैतिज अक्ष को छिपाने के लिए उस पर `false` के साथ [set_IsVisible](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_isvisible/) का उपयोग करें। उदाहरण डिफ़ॉल्ट डेटा के साथ एक लाइन चार्ट बनाता है और इसे क्षैतिज अक्ष छिपा कर सहेजता है।
 
-``` cpp
-auto pres = System::MakeObject<Presentation>();
-auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
-auto chart = shapes->AddChart(ChartType::Line, 100.0f, 100.0f, 400.0f, 300.0f);
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IAxesManager.h>
+#include <DOM/Chart/IAxis.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto chart = slide->get_Shapes()->AddChart(ChartType::Line, 100, 100, 400, 300);
 chart->get_Axes()->get_HorizontalAxis()->set_IsVisible(false);
 
-pres->Save(u"chart.pptx", SaveFormat::Pptx);
+presentation->Save(u"HiddenHorizontalAxis.pptx", SaveFormat::Pptx);
 ```
 
-## **एक श्रेणी एक्सिस बदलें**
+## **श्रेणी अक्ष बदलें**
 
-**set_CategoryAxisType()** मेथड का उपयोग करके आप अपनी वांछित श्रेणी एक्सिस प्रकार (**date** या **text**) निर्दिष्ट कर सकते हैं। यह C++ कोड इस कार्य को प्रदर्शित करता है:
+[set_CategoryAxisType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_categoryaxistype/) का उपयोग करके तिथि या टेक्स्ट श्रेणी अक्ष चुनें। इस उदाहरण के लिए `ExistingChart.pptx` आवश्यक है, जिसमें पहला स्लाइड पहला आकृति के रूप में चार्ट रखता है और श्रेणी कोशिकाओं में संख्यात्मक Excel तिथि मान होते हैं। यह क्षैतिज अक्ष को एक तिथि अक्ष में बदलता है। `false` के साथ [set_IsAutomaticMajorUnit](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_isautomaticmajorunit/), `1` के साथ [set_MajorUnit](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_majorunit/) और महीनों के साथ [set_MajorUnitScale](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_majorunitscale/) को कॉल करने से प्रमुख टिक एक‑महीने के अंतराल पर स्थापित होते हैं।
 
-``` cpp
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IAxesManager.h>
+#include <DOM/Chart/IAxis.h>
+#include <Export/SaveFormat.h>
+#include <DOM/Chart/CategoryAxisType.h>
+#include <DOM/Chart/TimeUnitType.h>
+#include <system/object_ext.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+
 auto presentation = System::MakeObject<Presentation>(u"ExistingChart.pptx");
-auto chart = System::AsCast<IChart>(presentation->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0));
-auto horizontalAxis = chart->get_Axes()->get_HorizontalAxis();
+auto slide = presentation->get_Slide(0);
 
-horizontalAxis->set_CategoryAxisType(CategoryAxisType::Date);
-horizontalAxis->set_IsAutomaticMajorUnit(false);
-horizontalAxis->set_MajorUnit(1);
-horizontalAxis->set_MajorUnitScale(TimeUnitType::Months);
+auto chart = System::ExplicitCast<IChart>(slide->get_Shape(0));
+chart->get_Axes()->get_HorizontalAxis()->set_CategoryAxisType(CategoryAxisType::Date);
+chart->get_Axes()->get_HorizontalAxis()->set_IsAutomaticMajorUnit(false);
+chart->get_Axes()->get_HorizontalAxis()->set_MajorUnit(1);
+chart->get_Axes()->get_HorizontalAxis()->set_MajorUnitScale(TimeUnitType::Months);
 
 presentation->Save(u"ChangeChartCategoryAxis_out.pptx", SaveFormat::Pptx);
 ```
 
-## **श्रेणी एक्सिस मानों के लिए तिथि प्रारूप निर्धारित करें**
-Aspose.Slides for C++ आपको श्रेणी एक्सिस मान के लिए तिथि प्रारूप सेट करने की अनुमति देता है। यह C++ कोड इस ऑपरेशन को दर्शाता है:
+## **श्रेणी अक्ष लेबल अंतराल को नियंत्रित करें**
 
-``` cpp
-auto pres = System::MakeObject<Presentation>();
-auto chart = pres->get_Slides()->idx_get(0)->get_Shapes()->AddChart(ChartType::Area, 50.0f, 50.0f, 450.0f, 300.0f);
+जब चार्ट में कई श्रेणियाँ हों, तो श्रेणियों या डेटा बिंदुओं को हटाए बिना दृश्य अक्ष लेबलों की संख्या को घटाएँ। [set_IsAutomaticTickLabelSpacing](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isautomaticticklabelspacing/) को `false` सेट करें, फिर वांछित श्रेणी अंतराल के साथ [set_TickLabelSpacing](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_ticklabelspacing/) उपयोग करें। सामान्य क्रम में टेक्स्ट श्रेणियों के लिए, गिनती पहली श्रेणी से शुरू होती है:
 
-auto wb = chart->get_ChartData()->get_ChartDataWorkbook();
+| अन्तराल | उदाहरण में प्रदर्शित लेबल |
+| --- | --- |
+| `1` | Category 1, Category 2, Category 3, ... Category 24 |
+| `2` | Category 1, Category 3, Category 5, ... Category 23 |
+| `3` | Category 1, Category 4, Category 7, ... Category 22 |
 
-wb->Clear(0);
+`3` का अंतराल प्रत्येक तीसरे लेबल को दिखाता है, प्रदर्शित लेबलों के बीच दो लेबल छिपे रहते हैं। यह संबंधित स्तम्भों को नहीं हटाता। स्वतः स्पेसिंग उपलब्ध स्थान के आधार पर एक अंतराल चुनती है; यह आवश्यक नहीं कि हर लेबल दिखाए।
 
+टिक‑मार्क के लिए अलग नियंत्रण होते हैं। [set_IsAutomaticTickMarksSpacing](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isautomatictickmarksspacing/) को `false` करें और उनके अंतराल को सेट करने के लिए [set_TickMarksSpacing](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_tickmarksspacing/) उपयोग करें। उदाहरण के लिए, `1` प्रत्येक श्रेणी अंतराल पर एक टिक‑मार्क रखता है जबकि लेबल केवल प्रत्येक तीसरी श्रेणी पर दिखाई देते हैं। एक दृश्य शैली के साथ [set_MajorTickMark](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_majortickmark/) सेट करें ताकि परिणाम देखा जा सके। किसी भी ऑटो‑स्पेसिंग गुण को फिर से `true` करने से चार्ट को वह अंतराल फिर से चुनने देता है।
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IAxesManager.h>
+#include <DOM/Chart/IAxis.h>
+#include <Export/SaveFormat.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/CategoryAxisType.h>
+#include <DOM/Chart/TickMarkType.h>
+#include <DOM/Chart/IChartTextFormat.h>
+#include <DOM/Chart/IChartTextBlockFormat.h>
+#include <DOM/Chart/IChartPortionFormat.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartDataCell.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <system/object_ext.h>
+#include <DOM/ISlideCollection.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 30, 40, 660, 320);
+
+chart->set_HasLegend(false);
+chart->get_ChartData()->get_Categories()->Clear();
 chart->get_ChartData()->get_Series()->Clear();
-auto areaCategories = chart->get_ChartData()->get_Categories();
-areaCategories->Clear();
-areaCategories->Add(wb->GetCell(0, u"A2", ObjectExt::Box<double>(DateTime(2015, 1, 1).ToOADate())));
-areaCategories->Add(wb->GetCell(0, u"A3", ObjectExt::Box<double>(DateTime(2016, 1, 1).ToOADate())));
-areaCategories->Add(wb->GetCell(0, u"A4", ObjectExt::Box<double>(DateTime(2017, 1, 1).ToOADate())));
-areaCategories->Add(wb->GetCell(0, u"A5", ObjectExt::Box<double>(DateTime(2018, 1, 1).ToOADate())));
+
+auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
+workbook->Clear(0);
+
+auto series = chart->get_ChartData()->get_Series()->Add(ChartType::ClusteredColumn);
+for (auto i = 0; i < 24; i++)
+{
+    auto categoryName = System::String::Format(u"Category {0}", i + 1);
+    auto categoryCell = workbook->GetCell(0, i + 1, 0, System::ObjectExt::Box(categoryName));
+    chart->get_ChartData()->get_Categories()->Add(categoryCell);
+    auto valueCell = workbook->GetCell(0, i + 1, 1, System::ObjectExt::Box(10 + i % 6 * 5));
+    series->get_DataPoints()->AddDataPointForBarSeries(valueCell);
+}
+
+auto axis = chart->get_Axes()->get_HorizontalAxis();
+axis->set_CategoryAxisType(CategoryAxisType::Text);
+axis->get_TextFormat()->get_TextBlockFormat()->set_RotationAngle(0);
+axis->get_TextFormat()->get_PortionFormat()->set_FontHeight(12);
+axis->set_MajorTickMark(TickMarkType::Outside);
+axis->set_IsAutomaticTickLabelSpacing(true);
+axis->set_IsAutomaticTickMarksSpacing(true);
+
+// Slide 2: हर तीसरे लेबल को दिखाएँ, लेकिन प्रत्येक श्रेणी के लिए एक टिक-मार्क रखें.
+auto manualSlide = presentation->get_Slides()->AddClone(slide);
+auto manualChart = System::ExplicitCast<IChart>(manualSlide->get_Shape(0));
+auto manualAxis = manualChart->get_Axes()->get_HorizontalAxis();
+manualAxis->set_IsAutomaticTickLabelSpacing(false);
+manualAxis->set_TickLabelSpacing(3);
+manualAxis->set_IsAutomaticTickMarksSpacing(false);
+manualAxis->set_TickMarksSpacing(1);
+
+// Slide 3: चार्ट को दोनों अंतराल को फिर से चुनने दें.
+auto restoredSlide = presentation->get_Slides()->AddClone(manualSlide);
+auto restoredChart = System::ExplicitCast<IChart>(restoredSlide->get_Shape(0));
+restoredChart->get_Axes()->get_HorizontalAxis()->set_IsAutomaticTickLabelSpacing(true);
+restoredChart->get_Axes()->get_HorizontalAxis()->set_IsAutomaticTickMarksSpacing(true);
+
+presentation->Save(u"CategoryAxisIntervals.pptx", SaveFormat::Pptx);
+```
+
+**ऑटोमेटिक स्पेसिंग (स्लाइड 1):** इस रेंडरिंग में प्रत्येक दूसरी श्रेणी लेबल प्रदर्शित होता है और दो पंक्तियों में लिपटा होता है। ऑटोमेटिक परिणाम चार्ट के आकार, फ़ॉन्ट और रेंडरर के अनुसार बदल सकता है।
+
+![ऑटोमेटिक श्रेणी लेबल स्पेसिंग जिसमें सभी 24 स्तम्भ दृश्य हैं](category-axis-automatic.png)
+
+**मैन्युअल स्पेसिंग (स्लाइड 2):** प्रत्येक तीसरा लेबल एक पंक्ति पर दिखता है, जबकि टिक‑मार्क प्रत्येक श्रेणी अंतराल पर बने रहते हैं। सभी 24 स्तम्भ, जिसमें लेबल न होने वाले शामिल हैं, समान मानों के साथ दृश्यमान रहते हैं। स्लाइड 3 ऊपर दिखाए गए ऑटोमेटिक स्वरूप को पुनर्स्थापित करता है।
+
+![तीन के मैन्युअल श्रेणी लेबल अंतराल जिसमें सभी 24 स्तम्भ दृश्य हैं](category-axis-manual.png)
+
+### **सही अक्ष और अंतराल चुनें**
+
+टेक्स्ट श्रेणी अक्ष के लिए इस श्रेणी‑गणना अंतराल का उपयोग करें, जैसे कि कॉलम, लाइन, एरिया या बार चार्ट का श्रेणी अक्ष। कॉलम चार्ट में यह क्षैतिज अक्ष होता है। क्षैतिज बार चार्ट में श्रेणी अक्ष लंबवत होता है, इसलिए इसे [get_VerticalAxis](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxesmanager/get_verticalaxis/) पर लागू करें। टिक‑मार्क स्पेसिंग श्रृंखला अक्ष पर भी लागू होती है जब चार्ट में वह मौजूद हो।
+
+श्रेणी लेबल स्पेसिंग का उपयोग मान अक्ष की संख्यात्मक स्केल सेट करने के लिए न करें। मान अक्ष पर, [set_MajorUnit](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_majorunit/) मानों के अंतर को निर्दिष्ट करता है: उदाहरण के लिए, `10` का प्रमुख इकाई 0, 10, 20 आदि पर टिक बनाता है जब अक्ष शून्य से शुरू होता है। `3` का श्रेणी लेबल अंतराल केवल श्रेणी स्थितियों को गिनता है, उनके डेटा मानों की परवाह किए बिना। स्कैटर और बबल चार्ट मान अक्षों का उपयोग करते हैं, न कि टेक्स्ट श्रेणी अक्ष का। तिथि अक्ष के लिए, [Change a Category Axis](#change-a-category-axis) में वर्णित समय‑आधारित प्रमुख इकाई और स्केल का प्रयोग करें।
+
+## **श्रेणी अक्ष मानों के लिए तिथि स्वरूप सेट करें**
+
+उदाहरण डिफ़ॉल्ट चार्ट डेटा को चार वार्षिक मानों से बदलता है। तिथियाँ पहले कार्यपत्रक (सूचकांक `0`) में OLE Automation क्रमिक संख्याओं के रूप में संग्रहीत होती हैं। तिथि अक्ष चयन करने के लिए [set_CategoryAxisType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_categoryaxistype/) का उपयोग करें, स्रोत‑लिंक्ड स्वरूपण को [set_IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_isnumberformatlinkedtosource/) से अक्षम करें, और श्रेणी लेबल को `yyyy` के साथ दिखाने के लिए [set_NumberFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_numberformat/) असाइन करें, जिससे सेल स्वरूपण के बावजूद चार अंकों के वर्ष प्रदर्शित हों।
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IAxesManager.h>
+#include <DOM/Chart/IAxis.h>
+#include <Export/SaveFormat.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/CategoryAxisType.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartDataCell.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <system/object_ext.h>
+#include <system/date_time.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto chart = slide->get_Shapes()->AddChart(ChartType::Line, 50, 50, 450, 300);
+
+chart->get_ChartData()->get_Categories()->Clear();
+chart->get_ChartData()->get_Series()->Clear();
+
+auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
+workbook->Clear(0);
 
 auto series = chart->get_ChartData()->get_Series()->Add(ChartType::Line);
-auto dataPoints = series->get_DataPoints();
-dataPoints->AddDataPointForLineSeries(wb->GetCell(0, u"B2", ObjectExt::Box<int32_t>(1)));
-dataPoints->AddDataPointForLineSeries(wb->GetCell(0, u"B3", ObjectExt::Box<int32_t>(2)));
-dataPoints->AddDataPointForLineSeries(wb->GetCell(0, u"B4", ObjectExt::Box<int32_t>(3)));
-dataPoints->AddDataPointForLineSeries(wb->GetCell(0, u"B5", ObjectExt::Box<int32_t>(4)));
+for (auto i = 0; i < 4; i++)
+{
+    auto date = System::DateTime(2015 + i, 1, 1);
+    auto categoryCell = workbook->GetCell(0, i + 1, 0, System::ObjectExt::Box(date.ToOADate()));
+    chart->get_ChartData()->get_Categories()->Add(categoryCell);
 
-auto horizontalAxis = chart->get_Axes()->get_HorizontalAxis();
-horizontalAxis->set_CategoryAxisType(CategoryAxisType::Date);
-horizontalAxis->set_IsNumberFormatLinkedToSource(false);
-horizontalAxis->set_NumberFormat(u"yyyy");
+    auto valueCell = workbook->GetCell(0, i + 1, 1, System::ObjectExt::Box(i + 1));
+    series->get_DataPoints()->AddDataPointForLineSeries(valueCell);
+}
 
-pres->Save(u"test.pptx", SaveFormat::Pptx);
+chart->get_Axes()->get_HorizontalAxis()->set_CategoryAxisType(CategoryAxisType::Date);
+chart->get_Axes()->get_HorizontalAxis()->set_IsNumberFormatLinkedToSource(false);
+chart->get_Axes()->get_HorizontalAxis()->set_NumberFormat(u"yyyy");
+
+presentation->Save(u"DateAxisFormat.pptx", SaveFormat::Pptx);
 ```
 
-## **एक्सिस शीर्षक के लिए घूर्णन कोण सेट करें**
-Aspose.Slides for C++ आपको चार्ट एक्सिस शीर्षक के लिए घूर्णन कोण सेट करने देता है। यह C++ कोड इस ऑपरेशन को दर्शाता है:
+## **चार्ट अक्ष शीर्षक के लिए घूर्णन कोण सेट करें**
 
-``` cpp
-auto pres = System::MakeObject<Presentation>();
-auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
-auto chart = shapes->AddChart(ChartType::ClusteredColumn, 50.0f, 50.0f, 450.0f, 300.0f);
-auto verticalAxis = chart->get_Axes()->get_VerticalAxis();
-verticalAxis->set_HasTitle(true);
-verticalAxis->get_Title()->get_TextFormat()->get_TextBlockFormat()->set_RotationAngle(90.0f);
+[lset_HasTitle](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_hastitle/) के साथ लंबवत‑अक्ष शीर्षक को सक्षम करें, शीर्षक पाठ प्रदान करें, और [set_RotationAngle](https://reference.aspose.com/slides/cpp/aspose.slides.charts/icharttextblockformat/set_rotationangle/) का उपयोग करके शीर्षक को घुमाएँ। कोण डिग्री में मापा जाता है; यह उदाहरण वैल्यू‑अक्ष शीर्षक को 90 डिग्री घुमाकर एक कॉलम चार्ट सहेजता है।
 
-pres->Save(u"test.pptx", SaveFormat::Pptx);
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IAxesManager.h>
+#include <DOM/Chart/IAxis.h>
+#include <Export/SaveFormat.h>
+#include <DOM/Chart/IChartTextFormat.h>
+#include <DOM/Chart/IChartTextBlockFormat.h>
+#include <DOM/Chart/IChartTitle.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 50, 50, 450, 300);
+chart->get_Axes()->get_VerticalAxis()->set_HasTitle(true);
+chart->get_Axes()->get_VerticalAxis()->get_Title()->AddTextFrameForOverriding(u"Value");
+chart->get_Axes()->get_VerticalAxis()->get_Title()->get_TextFormat()->get_TextBlockFormat()->set_RotationAngle(90);
+
+presentation->Save(u"RotatedAxisTitle.pptx", SaveFormat::Pptx);
 ```
 
-## **श्रेणी या मान एक्सिस पर एक्सिस की स्थिति निर्धारित करें**
-Aspose.Slides for C++ आपको श्रेणी या मान एक्सिस पर एक्सिस की स्थिति सेट करने देता है। यह C++ कोड कार्य को कैसे पूरा करें दिखाता है:
+## **श्रेणी या मान अक्ष पर अक्ष की स्थिति सेट करें**
 
-``` cpp
-auto pres = System::MakeObject<Presentation>();
-auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
-auto chart = shapes->AddChart(ChartType::ClusteredColumn, 50.0f, 50.0f, 450.0f, 300.0f);
+[set_AxisBetweenCategories](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_axisbetweencategories/) का उपयोग करके निर्धारित करें कि मान अक्ष श्रेणी अक्ष को श्रेणियों के बीच या श्रेणी टिक‑मार्क पर पार करे। यह गुण केवल श्रेणी अक्षों पर लागू होता है। उदाहरण इसे कॉलम चार्ट के क्षैतिज श्रेणी अक्ष पर `true` सेट करता है और परिणाम सहेजता है।
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IAxesManager.h>
+#include <DOM/Chart/IAxis.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 50, 50, 450, 300);
 chart->get_Axes()->get_HorizontalAxis()->set_AxisBetweenCategories(true);
 
-pres->Save(u"AsposeScatterChart.pptx", SaveFormat::Pptx);
+presentation->Save(u"AxisBetweenCategories.pptx", SaveFormat::Pptx);
 ```
 
-## **चार्ट मान एक्सिस पर डिस्प्ले यूनिट लेबल सक्षम करें**
-Aspose.Slides for C++ आपको चार्ट को ऐसे कॉन्फ़िगर करने देता है कि वह अपने मान एक्सिस पर यूनिट लेबल दिखाए। यह C++ कोड इस ऑपरेशन को दर्शाता है:
+## **चार्ट मान अक्ष पर प्रदर्शन इकाई सेट करें**
 
-``` cpp
-auto pres = System::MakeObject<Presentation>(u"Test.pptx");
-auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
-auto chart = shapes->AddChart(ChartType::ClusteredColumn, 50.0f, 50.0f, 450.0f, 300.0f);
+[set_DisplayUnit](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_displayunit/) का उपयोग करके मान अक्ष पर लेबल स्केल करें बिना मूल डेटा बदले। जब [DisplayUnitType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/displayunittype/) `Millions` पर सेट हो, तो 60,000,000 का मान 60 के रूप में दिखाया जाता है। उदाहरण एक कॉलम चार्ट बनाता है और उसकी लंबवत अक्ष पर मिलियन डिस्प्ले यूनिट लागू करता है।
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IAxesManager.h>
+#include <DOM/Chart/IAxis.h>
+#include <Export/SaveFormat.h>
+#include <DOM/Chart/DisplayUnitType.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 50, 50, 450, 300);
 chart->get_Axes()->get_VerticalAxis()->set_DisplayUnit(DisplayUnitType::Millions);
 
-pres->Save(u"Result.pptx", SaveFormat::Pptx);
+presentation->Save(u"Result.pptx", SaveFormat::Pptx);
 ```
 
 ## **FAQ**
 
-**एक्सिस के एक दूसरे को कहाँ काटना है (axis crossing) का मान कैसे सेट करूँ?**
+**एक अक्ष दूसरे के पार कहाँ क्रॉस करता है (अक्ष क्रॉसिंग) उसे कैसे सेट करें?**
 
-Axes एक [crossing setting](https://reference.aspose.com/slides/hi/cpp/aspose.slides.charts/axis/set_crosstype/) प्रदान करते हैं: आप शून्य पर, अधिकतम श्रेणी/मान पर, या किसी विशिष्ट संख्यात्मक मान पर क्रॉस करना चुन सकते हैं। यह X‑axis को ऊपर या नीचे शिफ्ट करने या बेसलाइन को ज़ोर देने में उपयोगी है।
+[set_CrossType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_crosstype/) का उपयोग करके क्रॉसिंग व्यवहार चुनें। संख्यात्मक क्रॉसिंग मान निर्दिष्ट करने के लिए [set_CrossAt](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_crossat/) का प्रयोग करें। ये सेटिंग्स आपको अक्ष क्रॉसिंग को उपयुक्त बेसलाइन पर ले जाने देती हैं।
 
-**टिक लेबल को एक्सिस के सापेक्ष (साथ में, बाहर, अंदर) कैसे स्थित करूँ?**
+**टिक लेबल को अक्ष के सापेक्ष कैसे स्थित करें?**
 
-[label position](https://reference.aspose.com/slides/hi/cpp/aspose.slides.charts/axis/set_majortickmark/) को "cross", "outside", या "inside" पर सेट करें। यह पठनीयता को प्रभावित करता है और विशेष रूप से छोटे चार्ट्स में जगह बचाने में मदद करता है।
+[TickLabelPositionType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ticklabelpositiontype/) में से किसी मान के साथ [set_TickLabelPosition](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_ticklabelposition/) का उपयोग करें: `Low`, `High`, `NextTo`, या `None`। टिक‑मार्क स्वयं को नियंत्रित करने के लिए, [set_MajorTickMark](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_majortickmark/) या [set_MinorTickMark](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_minortickmark/) का प्रयोग करें; ये लेबल स्थिति से अलग होते हैं।

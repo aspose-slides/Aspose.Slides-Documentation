@@ -11,8 +11,8 @@ keywords:
 - Achse manipulieren
 - Achse verwalten
 - Achseneigenschaften
-- Maximalwert
-- Minimalwert
+- maximaler Wert
+- minimaler Wert
 - Achsenlinie
 - Datumsformat
 - Achsentitel
@@ -22,208 +22,328 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Entdecken Sie, wie Sie Aspose.Slides für Android via Java verwenden, um Diagrammachsen in PowerPoint-Präsentationen für Berichte und Visualisierungen anzupassen."
+description: "Erfahren Sie, wie Sie Aspose.Slides für Android via Java verwenden, um Diagrammachsen in PowerPoint-Präsentationen für Berichte und Visualisierungen anzupassen."
 ---
+## **Übersicht**
 
-## **Ermitteln Sie die Maximalwerte auf der vertikalen Achse in Diagrammen**
-Aspose.Slides für Android via Java ermöglicht das Ermitteln der minimalen und maximalen Werte auf einer vertikalen Achse. Führen Sie die folgenden Schritte aus:
+Dieser Artikel erklärt, wie Diagrammachsen mit Aspose.Slides für Android via Java angepasst werden können. Er behandelt berechnete Achsenwerte, das Vertauschen von Diagrammzeilen und -spalten, Achsensichtbarkeit, Intervall von Kategorienbezeichnungen und Tick‑Markierungen, Datums‑Kategorien und -formatierung, Titelrotation, Achsenpositionierung und Anzeige­einheiten.
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) Klasse.
-2. Greifen Sie auf die erste Folie zu.
-3. Fügen Sie ein Diagramm mit Standarddaten hinzu.
-4. Ermitteln Sie den tatsächlichen Maximalwert der Achse.
-5. Ermitteln Sie den tatsächlichen Minimalwert der Achse.
-6. Ermitteln Sie die tatsächliche Haupteinheit der Achse.
-7. Ermitteln Sie die tatsächliche Untereinheit der Achse.
-8. Ermitteln Sie die tatsächliche Skala der Haupteinheit der Achse.
-9. Ermitteln Sie die tatsächliche Skala der Untereinheit der Achse.
+## **Maximale Werte auf der vertikalen Achse von Diagrammen erhalten**
 
-Dieser Beispielcode - eine Umsetzung der oben genannten Schritte - zeigt, wie Sie die erforderlichen Werte in Java erhalten:
+Erstellen Sie eine [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) und fügen Sie ein Flächendiagramm mit Standarddaten hinzu. Rufen Sie [validateChartLayout](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chart/#validateChartLayout--) auf, bevor Sie berechnete Achsenwerte lesen, damit das Diagrammlayout aktuell ist.
+
+Lesen Sie [getActualMaxValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#getActualMaxValue--) und [getActualMinValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#getActualMinValue--) für die Achsenlimits und [getActualMajorUnit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#getActualMajorUnit--) und [getActualMinorUnit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#getActualMinorUnit--) für die Tick‑Intervalle. [getActualMajorUnitScale](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#getActualMajorUnitScale--) und [getActualMinorUnitScale](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#getActualMinorUnitScale--) liefern Zeit‑Einheitsskalen, die für Datumsachsen relevant sind. Das Beispiel speichert diese Werte in lokalen Variablen und speichert das Diagramm.
+
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-	Chart chart = (Chart)pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Area, 100, 100, 500, 350);
-	chart.validateChartLayout();
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-	double maxValue = chart.getAxes().getVerticalAxis().getActualMaxValue();
-	double minValue = chart.getAxes().getVerticalAxis().getActualMinValue();
+    IChart chart = slide.getShapes().addChart(ChartType.Area, 100, 100, 500, 350);
+    chart.validateChartLayout();
 
-	double majorUnit = chart.getAxes().getHorizontalAxis().getActualMajorUnit();
-	double minorUnit = chart.getAxes().getHorizontalAxis().getActualMinorUnit();
+    double maxValue = chart.getAxes().getVerticalAxis().getActualMaxValue();
+    double minValue = chart.getAxes().getVerticalAxis().getActualMinValue();
 
-	// Speichert die Präsentation
-	pres.save("MaxValuesVerticalAxis_out.pptx", SaveFormat.Pptx);
+    double majorUnit = chart.getAxes().getVerticalAxis().getActualMajorUnit();
+    double minorUnit = chart.getAxes().getVerticalAxis().getActualMinorUnit();
+
+    int majorUnitScale = chart.getAxes().getVerticalAxis().getActualMajorUnitScale();
+    int minorUnitScale = chart.getAxes().getVerticalAxis().getActualMinorUnitScale();
+
+    presentation.save("AxisValues_out.pptx", SaveFormat.Pptx);
 } finally {
-	if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
-
 
 ## **Daten zwischen Achsen austauschen**
-Aspose.Slides ermöglicht es Ihnen, Daten zwischen Achsen schnell zu vertauschen – die auf der vertikalen Achse (y-Achse) dargestellten Daten werden auf die horizontale Achse (x-Achse) verschoben und umgekehrt. 
 
-Dieser Java‑Code zeigt, wie Sie den Datenaustausch zwischen Achsen in einem Diagramm durchführen:
+Verwenden Sie [switchRowColumn](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartdata/#switchRowColumn--) , um die Rollen von Reihen und Kategorien in den Diagrammdaten zu vertauschen. Jede ehemalige Kategorie wird zu einer Serie und jede ehemalige Serie zu einer Kategorie. Dies ändert die Gruppierung der Daten; es vertauscht nicht die horizontale und vertikale Achse. Das Beispiel verwendet [setRange](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartdata/#setRange-java.lang.String-) , um die Standarddaten an `Sheet1!A1:D5` zu binden, einschließlich der Kopfzeile und der Kategoriespalte, bevor Zeilen und Spalten getauscht werden. Es speichert ein Diagramm mit vier Serien und drei Kategorien.
+
 ```java
-Presentation pres = new Presentation();
-try {
-	IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 100, 100, 400, 300);
+import com.aspose.slides.*;
 
-	// Wechselt Zeilen und Spalten
-	// Speichert die Präsentation
-	pres.save("SwitchChartRowColumns_out.pptx", SaveFormat.Pptx);
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 100, 100, 400, 300);
+    chart.getChartData().setRange("Sheet1!A1:D5");
+    chart.getChartData().switchRowColumn();
+
+    presentation.save("SwitchChartRowColumns_out.pptx", SaveFormat.Pptx);
 } finally {
-	if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
-
 
 ## **Vertikale Achse für Liniendiagramme deaktivieren**
-Dieser Java‑Code zeigt, wie Sie die vertikale Achse für ein Liniendiagramm ausblenden:
-```java
-Presentation pres = new Presentation();
-try {
-	IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Line, 100, 100, 400, 300);
-	chart.getAxes().getVerticalAxis().setVisible(false);
 
-	pres.save("chart.pptx", SaveFormat.Pptx);
+Rufen Sie [setVisible](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setVisible-boolean-) mit `false` für die vertikale Achse auf, um sie auszublenden. Das Beispiel erstellt ein Liniendiagramm mit Standarddaten und speichert es mit ausgeblendeter vertikaler Achse.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.Line, 100, 100, 400, 300);
+    chart.getAxes().getVerticalAxis().setVisible(false);
+
+    presentation.save("HiddenVerticalAxis.pptx", SaveFormat.Pptx);
 } finally {
-	if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
-
 
 ## **Horizontale Achse für Liniendiagramme deaktivieren**
-Dieser Code zeigt, wie Sie die horizontale Achse für ein Liniendiagramm ausblenden:
-```java
-Presentation pres = new Presentation();
-try {
-	IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Line, 100, 100, 400, 300);
-	chart.getAxes().getHorizontalAxis().setVisible(false);
 
-	pres.save("chart.pptx", SaveFormat.Pptx);
+Rufen Sie [setVisible](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setVisible-boolean-) mit `false` für die horizontale Achse auf, um sie auszublenden. Das Beispiel erstellt ein Liniendiagramm mit Standarddaten und speichert es mit ausgeblendeter horizontaler Achse.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.Line, 100, 100, 400, 300);
+    chart.getAxes().getHorizontalAxis().setVisible(false);
+
+    presentation.save("HiddenHorizontalAxis.pptx", SaveFormat.Pptx);
 } finally {
-	if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+## **Eine Kategorienachse ändern**
 
-## **Kategorie‑Achse ändern**
-Mit der Eigenschaft **CategoryAxisType** können Sie den gewünschten Typ der Kategorie‑Achse (**date** oder **text**) festlegen. Dieser Java‑Code demonstriert die Vorgehensweise: 
+Verwenden Sie [setCategoryAxisType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setCategoryAxisType-int-) , um eine Datums‑ oder Text‑Kategorienachse auszuwählen. Dieses Beispiel erfordert `ExistingChart.pptx`, wobei das Diagramm die erste Form auf der ersten Folie ist und die Kategoriezellen numerische Excel‑Datumswerte enthalten. Es ändert die horizontale Achse zu einer Datumsachse. Der Aufruf von [setAutomaticMajorUnit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setAutomaticMajorUnit-boolean-) mit `false`, [setMajorUnit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setMajorUnit-double-) mit `1` und [setMajorUnitScale](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setMajorUnitScale-int-) mit `TimeUnitType.Months` platziert Hauptticks im Abstand von einem Monat.
+
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("ExistingChart.pptx");
 try {
-	IChart chart = (IChart)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
-	chart.getAxes().getHorizontalAxis().setCategoryAxisType(CategoryAxisType.Date);
-	chart.getAxes().getHorizontalAxis().setAutomaticMajorUnit(false);
-	chart.getAxes().getHorizontalAxis().setMajorUnit(1);
-	chart.getAxes().getHorizontalAxis().setMajorUnitScale(TimeUnitType.Months);
-	presentation.save("ChangeChartCategoryAxis_out.pptx", SaveFormat.Pptx);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = (IChart) slide.getShapes().get_Item(0);
+    chart.getAxes().getHorizontalAxis().setCategoryAxisType(CategoryAxisType.Date);
+    chart.getAxes().getHorizontalAxis().setAutomaticMajorUnit(false);
+    chart.getAxes().getHorizontalAxis().setMajorUnit(1);
+    chart.getAxes().getHorizontalAxis().setMajorUnitScale(TimeUnitType.Months);
+
+    presentation.save("ChangeChartCategoryAxis_out.pptx", SaveFormat.Pptx);
 } finally {
-	if (presentation != null) presentation.dispose();
+    presentation.dispose();
 }
 ```
 
+## **Intervall der Kategorienachsenbeschriftungen steuern**
 
-## **Datumsformat für Kategorie‑Achsenwerte festlegen**
-Aspose.Slides für Android via Java ermöglicht das Festlegen des Datumsformats für einen Kategorie‑Achsenwert. Der Vorgang wird in diesem Java‑Code demonstriert:
+Wenn ein Diagramm viele Kategorien hat, reduzieren Sie die Anzahl sichtbarer Achsenbeschriftungen, ohne Kategorien oder Datenpunkte zu entfernen. Rufen Sie [setAutomaticTickLabelSpacing](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setAutomaticTickLabelSpacing-boolean-) mit `false` auf und übergeben Sie dann das gewünschte Kategorienintervall an [setTickLabelSpacing](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setTickLabelSpacing-int-). Für Textkategorien in ihrer normalen Reihenfolge beginnt die Zählung bei der ersten Kategorie:
+
+| Intervall | Im Beispiel angezeigte Beschriftungen |
+| --- | --- |
+| `1` | Kategorie 1, Kategorie 2, Kategorie 3, ... Kategorie 24 |
+| `2` | Kategorie 1, Kategorie 3, Kategorie 5, ... Kategorie 23 |
+| `3` | Kategorie 1, Kategorie 4, Kategorie 7, ... Kategorie 22 |
+
+Ein Intervall von `3` zeigt jede dritte Beschriftung an und lässt zwischen den angezeigten Beschriftungen zwei Beschriftungen verborgen. Es entfernt die entsprechenden Spalten nicht. Automatischer Abstand wählt ein Intervall basierend auf dem verfügbaren Platz; er zeigt nicht zwingend jede Beschriftung an.
+
+Tick‑Marks haben separate Steuerungen. Rufen Sie [setAutomaticTickMarksSpacing](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setAutomaticTickMarksSpacing-boolean-) mit `false` auf und verwenden Sie [setTickMarksSpacing](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setTickMarksSpacing-int-) , um ihr Intervall festzulegen. Zum Beispiel hält `1` ein Tick‑Mark bei jedem Kategorienintervall, während Beschriftungen nur bei jeder dritten Kategorie erscheinen. Verwenden Sie [setMajorTickMark](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setMajorTickMark-int-) mit einem sichtbaren Stil, damit Sie das Ergebnis sehen können. Wenn Sie einen der automatischen Abstand‑Setter erneut mit `true` aufrufen, lässt das Diagramm das Intervall wieder automatisch wählen.
+
+Das folgende eigenständige Beispiel erstellt 24 Kategorien und eine Serie und speichert dann drei Folien in `CategoryAxisIntervals.pptx`: automatischer Abstand, manueller Beschriftungsabstand mit unabhängigen Tick‑Marks und wiederhergestellter automatischer Abstand. Die beiden Kopien behalten die ursprünglichen Diagrammdaten bei. Keine Eingabepräsentation ist erforderlich. Der horizontale Beschriftungstext macht den Unterschied in der Dichte leicht erkennbar.
+
 ```java
-Presentation pres = new Presentation();
-try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Area, 50, 50, 450, 300);
+import com.aspose.slides.*;
 
-    IChartDataWorkbook wb = chart.getChartData().getChartDataWorkbook();
-    wb.clear(0);
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 30, 40, 660, 320);
+
+    chart.setLegend(false);
+    chart.getChartData().getCategories().clear();
+    chart.getChartData().getSeries().clear();
+
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.clear(0);
+
+    IChartSeries series = chart.getChartData().getSeries().add(ChartType.ClusteredColumn);
+    for (int i = 0; i < 24; i++) {
+        IChartDataCell categoryCell = workbook.getCell(0, i + 1, 0, "Category " + (i + 1));
+        chart.getChartData().getCategories().add(categoryCell);
+        IChartDataCell valueCell = workbook.getCell(0, i + 1, 1, 10 + i % 6 * 5);
+        series.getDataPoints().addDataPointForBarSeries(valueCell);
+    }
+
+    IAxis axis = chart.getAxes().getHorizontalAxis();
+    axis.setCategoryAxisType(CategoryAxisType.Text);
+    axis.getTextFormat().getTextBlockFormat().setRotationAngle(0);
+    axis.getTextFormat().getPortionFormat().setFontHeight(12);
+    axis.setMajorTickMark(TickMarkType.Outside);
+    axis.setAutomaticTickLabelSpacing(true);
+    axis.setAutomaticTickMarksSpacing(true);
+
+    // Folie 2: jede dritte Beschriftung anzeigen, aber für jede Kategorie ein Tick-Mark beibehalten.
+    ISlide manualSlide = presentation.getSlides().addClone(slide);
+    IChart manualChart = (IChart)manualSlide.getShapes().get_Item(0);
+    IAxis manualAxis = manualChart.getAxes().getHorizontalAxis();
+    manualAxis.setAutomaticTickLabelSpacing(false);
+    manualAxis.setTickLabelSpacing(3);
+    manualAxis.setAutomaticTickMarksSpacing(false);
+    manualAxis.setTickMarksSpacing(1);
+
+    // Folie 3: das Diagramm die beiden Intervalle erneut auswählen lassen.
+    ISlide restoredSlide = presentation.getSlides().addClone(manualSlide);
+    IChart restoredChart = (IChart)restoredSlide.getShapes().get_Item(0);
+    restoredChart.getAxes().getHorizontalAxis().setAutomaticTickLabelSpacing(true);
+    restoredChart.getAxes().getHorizontalAxis().setAutomaticTickMarksSpacing(true);
+
+    presentation.save("CategoryAxisIntervals.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+**Automatischer Abstand (Folie 1):** In dieser Darstellung wird jede zweite Kategorienbeschriftung angezeigt und auf zwei Zeilen umbrochen. Das automatische Ergebnis kann je nach Diagrammgröße, Schriftarten und Renderer variieren.
+
+![Automatischer Kategorienbeschriftungsabstand mit allen 24 Spalten sichtbar](category-axis-automatic.png)
+
+**Manueller Abstand (Folie 2):** Jede dritte Beschriftung wird in einer Zeile angezeigt, während Tick‑Marks bei jedem Kategorienintervall bleiben. Alle 24 Spalten, einschließlich derjenigen ohne Beschriftungen, bleiben mit denselben Werten sichtbar. Folie 3 stellt das oben gezeigte automatische Erscheinungsbild wieder her.
+
+![Manuelles Kategorienbeschriftungsintervall von drei mit allen 24 Spalten sichtbar](category-axis-manual.png)
+
+### **Den korrekten Achsentyp und das Intervall auswählen**
+
+Verwenden Sie dieses Kategorien‑Zähl‑Intervall für eine Text‑Kategorienachse, z. B. die Kategorienachse eines Säulen‑, Linien‑, Flächen‑ oder Balkendiagramms. In einem Säulendiagramm ist es die horizontale Achse. In einem horizontalen Balkendiagramm ist die Kategorienachse vertikal, sodass Sie diese Einstellungen auf die Achse anwenden, die von [getVerticalAxis](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxesmanager/#getVerticalAxis--) zurückgegeben wird. Die Tick‑Mark‑Abstände gelten ebenfalls für die Serienachse in Diagrammen, die eine solche besitzen.
+
+Verwenden Sie die Kategorienbeschriftungsabstände nicht, um die numerische Skala einer Werteachse festzulegen. Auf einer Werteachse gibt [setMajorUnit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setMajorUnit-double-) einen Unterschied in den Werten an: Ein Haupteinheit von `10` erzeugt Ticks bei 0, 10, 20 usw., wenn die Achse bei Null beginnt. Ein Kategorienbeschriftungsintervall von `3` zählt stattdessen Kategorienpositionen, unabhängig von deren Datenwerten. Scatter‑ und Bubble‑Diagramme verwenden Werteachsen statt einer Text‑Kategorienachse. Für eine Datumsachse verwenden Sie zeitbasierte Haupteinheiten und Skalen, wie in [Eine Kategorienachse ändern](#change-a-category-axis) beschrieben.
+
+## **Datumsformat für Kategorienachsenwerte festlegen**
+
+Das Beispiel ersetzt die Standarddaten des Diagramms durch vier Jahreswerte. Daten werden als OLE‑Automation‑Seriennummern im ersten Arbeitsblatt (Index `0`) gespeichert, berechnet als die Anzahl der Tage seit dem 30. Dezember 1899 für diese Daten. Beide Kalender verwenden UTC und werden vor dem Setzen der Daten gelöscht, sodass Sommerzeit und die aktuelle Tageszeit die Berechnung nicht beeinflussen. Verwenden Sie [setCategoryAxisType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setCategoryAxisType-int-) mit `CategoryAxisType.Date`, rufen Sie [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setNumberFormatLinkedToSource-boolean-) mit `false` auf und übergeben Sie `yyyy` an [setNumberFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setNumberFormat-java.lang.String-) , damit die Kategorienbeschriftungen vierstellige Jahreszahlen unabhängig von der Zellenformatierung anzeigen.
+
+```java
+import com.aspose.slides.*;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+import java.util.TimeZone;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.Line, 50, 50, 450, 300);
 
     chart.getChartData().getCategories().clear();
     chart.getChartData().getSeries().clear();
-    chart.getChartData().getCategories().add(wb.getCell(0, "A2", convertToOADate(new GregorianCalendar(2015, 1, 1))));
-    chart.getChartData().getCategories().add(wb.getCell(0, "A3", convertToOADate(new GregorianCalendar(2016, 1, 1))));
-    chart.getChartData().getCategories().add(wb.getCell(0, "A4", convertToOADate(new GregorianCalendar(2017, 1, 1))));
-    chart.getChartData().getCategories().add(wb.getCell(0, "A5", convertToOADate(new GregorianCalendar(2018, 1, 1))));
+
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.clear(0);
+
+    TimeZone timeZone = TimeZone.getTimeZone("UTC");
+    Calendar baseDate = new GregorianCalendar(timeZone);
+    baseDate.clear();
+    baseDate.set(1899, Calendar.DECEMBER, 30);
 
     IChartSeries series = chart.getChartData().getSeries().add(ChartType.Line);
-    series.getDataPoints().addDataPointForLineSeries(wb.getCell(0, "B2", 1));
-    series.getDataPoints().addDataPointForLineSeries(wb.getCell(0, "B3", 2));
-    series.getDataPoints().addDataPointForLineSeries(wb.getCell(0, "B4", 3));
-    series.getDataPoints().addDataPointForLineSeries(wb.getCell(0, "B5", 4));
+    for (int i = 0; i < 4; i++) {
+        Calendar date = new GregorianCalendar(timeZone);
+        date.clear();
+        date.set(2015 + i, Calendar.JANUARY, 1);
+        double serialDate = (date.getTimeInMillis() - baseDate.getTimeInMillis()) / 86400000.0;
+        IChartDataCell categoryCell = workbook.getCell(0, i + 1, 0, serialDate);
+        chart.getChartData().getCategories().add(categoryCell);
+
+        IChartDataCell valueCell = workbook.getCell(0, i + 1, 1, i + 1);
+        series.getDataPoints().addDataPointForLineSeries(valueCell);
+    }
+
     chart.getAxes().getHorizontalAxis().setCategoryAxisType(CategoryAxisType.Date);
     chart.getAxes().getHorizontalAxis().setNumberFormatLinkedToSource(false);
     chart.getAxes().getHorizontalAxis().setNumberFormat("yyyy");
-	
-    pres.save("output.pptx", SaveFormat.Pptx);
+
+    presentation.save("DateAxisFormat.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-```java
-public static String convertToOADate(GregorianCalendar date) throws ParseException
-{
-    double oaDate;
-    SimpleDateFormat myFormat = new SimpleDateFormat("dd MM yyyy");
-    java.util.Date baseDate = myFormat.parse("30 12 1899");
-    Long days = TimeUnit.DAYS.convert(date.getTimeInMillis() - baseDate.getTime(), TimeUnit.MILLISECONDS);
-    oaDate = (double) days + ((double) date.get(Calendar.HOUR_OF_DAY) / 24) + ((double) date.get(Calendar.MINUTE) / (60 * 24)) + ((double) date.get(Calendar.SECOND) / (60 * 24 * 60));
-    return String.valueOf(oaDate);
-}
-```
+## **Drehwinkel für einen Diagrammachsentitel festlegen**
 
+Rufen Sie [setTitle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setTitle-boolean-) mit `true` für die vertikale Achse auf, geben Sie den Titeltext an und verwenden Sie [setRotationAngle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icharttextblockformat/#setRotationAngle-float-) , um den Titel zu drehen. Der Winkel wird in Grad gemessen; dieses Beispiel speichert ein Säulendiagramm mit einem um 90 Grad gedrehten Werteachsentitel.
 
-## **Rotationswinkel für den Diagrammachsentitel festlegen**
-Aspose.Slides für Android via Java ermöglicht das Festlegen des Rotationswinkels für einen Diagrammachsentitel. Dieser Java‑Code demonstriert den Vorgang:
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 450, 300);
-    
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 450, 300);
     chart.getAxes().getVerticalAxis().setTitle(true);
+    chart.getAxes().getVerticalAxis().getTitle().addTextFrameForOverriding("Value");
     chart.getAxes().getVerticalAxis().getTitle().getTextFormat().getTextBlockFormat().setRotationAngle(90);
 
-    pres.save("output.pptx", SaveFormat.Pptx);
+    presentation.save("RotatedAxisTitle.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+## **Achsenposition bei einer Kategorien‑ oder Werteachse festlegen**
 
-## **Achsenposition auf einer Kategorie‑ oder Werte‑Achse festlegen**
-Aspose.Slides für Android via Java ermöglicht das Festlegen der Achsenposition in einer Kategorie‑ oder Werte‑Achse. Dieser Java‑Code zeigt, wie Sie die Aufgabe ausführen:
+Verwenden Sie [setAxisBetweenCategories](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setAxisBetweenCategories-boolean-) , um zu steuern, ob die Werteachse die Kategorienachse zwischen den Kategorien oder an den Kategorien‑Tick‑Marks schneidet. Diese Einstellung gilt für Kategorienachsen. Das Beispiel setzt sie auf `true` bei der horizontalen Kategorienachse eines Säulendiagramms und speichert das Ergebnis.
+
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 450, 300);
-    
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 450, 300);
     chart.getAxes().getHorizontalAxis().setAxisBetweenCategories(true);
 
-    pres.save("output.pptx", SaveFormat.Pptx);
+    presentation.save("AxisBetweenCategories.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+## **Anzeigeeinheit einer Werteachse des Diagramms festlegen**
 
-## **Anzeigeeinheitsbeschriftung auf der Werte‑Achse des Diagramms aktivieren**
-Aspose.Slides für Android via Java ermöglicht die Konfiguration eines Diagramms, sodass eine Einheit‑Beschriftung auf der Werte‑Achse angezeigt wird. Dieser Java‑Code demonstriert den Vorgang:
+Verwenden Sie [setDisplayUnit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setDisplayUnit-int-) , um die Beschriftungen einer Werteachse zu skalieren, ohne die zugrunde liegenden Daten zu ändern. Mit [DisplayUnitType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/displayunittype/) auf `Millions` gesetzt wird ein Wert von 60 000 000 als 60 angezeigt. Das Beispiel erstellt ein Säulendiagramm und wendet die Anzeigeeinheit „Millions“ auf seine vertikale Achse an.
+
 ```java
-Presentation pres = new Presentation();
-try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 450, 300);
+import com.aspose.slides.*;
 
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 450, 300);
     chart.getAxes().getVerticalAxis().setDisplayUnit(DisplayUnitType.Millions);
-    
-    pres.save("output.pptx", SaveFormat.Pptx);
+
+    presentation.save("Result.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
-
 
 ## **FAQ**
 
 **Wie lege ich den Wert fest, an dem eine Achse die andere schneidet (Achsenkreuzung)?**
 
-Achsen bieten eine [Kreuzungseinstellung](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setCrossType-int-): Sie können wählen, ob die Achse bei Null, beim maximalen Kategorie‑/Wert‑Punkt oder bei einem bestimmten numerischen Wert kreuzt. Dies ist nützlich, um die X‑Achse nach oben oder unten zu verschieben oder um eine Grundlinie hervorzuheben.
+Verwenden Sie [setCrossType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setCrossType-int-) , um das Kreuzungsverhalten auszuwählen. Um einen numerischen Kreuzungswert anzugeben, verwenden Sie [setCrossAt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setCrossAt-float-) . Diese Einstellungen ermöglichen es, die Achsenkreuzung an eine geeignete Grundlinie zu verschieben.
 
-**Wie kann ich die Tick‑Beschriftungen relativ zur Achse positionieren (nebeneinander, außen, innen)?**
+**Wie kann ich Tick‑Beschriftungen relativ zur Achse positionieren?**
 
-Setzen Sie die [Beschriftungsposition](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setMajorTickMark-int-) auf "cross", "outside" oder "inside". Dies wirkt sich auf die Lesbarkeit aus und hilft, Platz zu sparen, insbesondere bei kleinen Diagrammen.
+Rufen Sie [setTickLabelPosition](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setTickLabelPosition-int-) mit [TickLabelPositionType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ticklabelpositiontype/) : `Low`, `High`, `NextTo` oder `None` auf. Um die Tick‑Marks selbst zu steuern, verwenden Sie [setMajorTickMark](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setMajorTickMark-int-) oder [setMinorTickMark](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setMinorTickMark-int-) ; diese sind von der Beschriftungspositionierung getrennt.

@@ -1,210 +1,443 @@
 ---
-title: "Grafiekassen aanpassen in presentaties met С++"
+title: "Pas grafiekassen aan in presentaties met C++"
 linktitle: "Grafiekas"
 type: docs
 url: /nl/cpp/chart-axis/
 keywords:
-- grafiekas
-- verticale as
-- horizontale as
-- as aanpassen
-- as manipuleren
-- as beheren
-- as eigenschappen
-- maximale waarde
-- minimale waarde
-- aslijn
-- datumnotatie
-- as titel
-- aspositie
-- PowerPoint
-- presentatie
-- С++
-- Aspose.Slides
-description: "Ontdek hoe u Aspose.Slides voor С++ kunt gebruiken om grafiekassen aan te passen in PowerPoint‑presentaties voor rapporten en visualisaties."
+- "grafiekas"
+- "verticale as"
+- "horizontale as"
+- "as aanpassen"
+- "as manipuleren"
+- "as beheren"
+- "as‑eigenschappen"
+- "maximale waarde"
+- "minimale waarde"
+- "aslijn"
+- "datumnotatie"
+- "as‑titel"
+- "aspositie"
+- "PowerPoint"
+- "presentatie"
+- "C++"
+- "Aspose.Slides"
+description: "Ontdek hoe u Aspose.Slides voor C++ kunt gebruiken om grafiekassen aan te passen in PowerPoint‑presentaties voor rapporten en visualisaties."
 ---
 ## **Overzicht**
 
-Dit artikel legt uit hoe u de assen van een diagram in Aspose.Slides kunt aanpassen. Het laat zien hoe u de werkelijke aswaarden kunt ophalen, gegevens tussen assen kunt verwisselen, de verticale of horizontale as voor lijndiagrammen kunt verbergen, het type categoriasse kunt wijzigen, het datumformaat voor categoriasse‑waarden kunt instellen, een as‑titel kunt roteren, de aspositie kunt instellen en een eenheidsetiket op de waardenas kunt weergeven.
+Dit artikel legt uit hoe u grafiekassen kunt aanpassen met Aspose.Slides voor C++. Het behandelt berekende aswaarden, het verwisselen van rijen en kolommen in grafieken, aszichtbaarheid, interval voor categorie‑labels en tick‑markeringen, datumcategorieën en -opmaak, titelrotatie, as‑positionering en weergave‑eenheden.
 
-## **Haal de maximale waarden op de verticale as**
+## **Haal de maximale waarden op de verticale as op grafieken**
 
-Aspose.Slides voor C++ stelt u in staat om de minimum- en maximumwaarden op een verticale as te verkrijgen. Doorloop de volgende stappen:
+Maak een [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) en voeg een gebiedgrafiek met standaardgegevens toe. Roep [ValidateChartLayout](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chart/validatechartlayout/) aan voordat u berekende aswaarden uitleest, zodat de grafiekindeling actueel is.
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/cpp/class/aspose.slides.presentation) klasse.
-2. Open de eerste dia.
-3. Voeg een diagram toe met standaardgegevens.
-4. Haal de werkelijke maximumwaarde op de as op.
-5. Haal de werkelijke minimumwaarde op de as op.
-6. Haal de werkelijke hoofdeenheid van de as op.
-7. Haal de werkelijke subeenheid van de as op.
-8. Haal de werkelijke schaal van de hoofdeenheid van de as op.
-9. Haal de werkelijke schaal van de subeenheid van de as op.
+Lees [get_ActualMaxValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/get_actualmaxvalue/) en [get_ActualMinValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/get_actualminvalue/) voor de aslimieten, en [get_ActualMajorUnit](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/get_actualmajorunit/) en [get_ActualMinorUnit](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/get_actualminorunit/) voor de tick‑intervallen. [get_ActualMajorUnitScale](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/get_actualmajorunitscale/) en [get_ActualMinorUnitScale](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/get_actualminorunitscale/) bieden tijdseenheidschalen, die relevant zijn voor datumassen. Het voorbeeld slaat deze waarden op in lokale variabelen en bewaart de grafiek.
 
-Deze voorbeeldcode—een implementatie van de bovenstaande stappen—laat zien hoe u de benodigde waarden in C++ kunt verkrijgen:
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IAxesManager.h>
+#include <DOM/Chart/IAxis.h>
+#include <Export/SaveFormat.h>
 
-``` cpp
-auto pres = System::MakeObject<Presentation>();
-auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
-auto chart = System::ExplicitCast<Chart>(shapes->AddChart(ChartType::Area, 100.0f, 100.0f, 500.0f, 350.0f));
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto chart = slide->get_Shapes()->AddChart(ChartType::Area, 100, 100, 500, 350);
 chart->ValidateChartLayout();
 
-auto axes = chart->get_Axes();
+auto maxValue = chart->get_Axes()->get_VerticalAxis()->get_ActualMaxValue();
+auto minValue = chart->get_Axes()->get_VerticalAxis()->get_ActualMinValue();
 
-double maxValue = axes->get_VerticalAxis()->get_ActualMaxValue();
-double minValue = axes->get_VerticalAxis()->get_ActualMinValue();
+auto majorUnit = chart->get_Axes()->get_VerticalAxis()->get_ActualMajorUnit();
+auto minorUnit = chart->get_Axes()->get_VerticalAxis()->get_ActualMinorUnit();
 
-double majorUnit = axes->get_HorizontalAxis()->get_ActualMajorUnit();
-double minorUnit = axes->get_HorizontalAxis()->get_ActualMinorUnit();
+auto majorUnitScale = chart->get_Axes()->get_VerticalAxis()->get_ActualMajorUnitScale();
+auto minorUnitScale = chart->get_Axes()->get_VerticalAxis()->get_ActualMinorUnitScale();
 
-// Slaat de presentatie op
-pres->Save(u"ErrorBars_out.pptx", SaveFormat::Pptx);
+presentation->Save(u"AxisValues_out.pptx", SaveFormat::Pptx);
 ```
 
-## **Gegevens tussen assen verwisselen**
+## **Wissel de gegevens tussen assen**
 
-Aspose.Slides stelt u in staat om snel de gegevens tussen assen te verwisselen—de gegevens die op de verticale as (y-as) staan, worden verplaatst naar de horizontale as (x-as) en omgekeerd.
+Gebruik [SwitchRowColumn](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdata/switchrowcolumn/) om de rollen van reeksen en categorieën in grafiekgegevens om te wisselen. Elke voormalige categorie wordt een reeks, en elke voormalige reeks wordt een categorie. Dit verandert de groepering van de gegevens; het verwisselt niet de horizontale en verticale assen. Het voorbeeld gebruikt [SetRange](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdata/setrange/) om de standaardgegevens te koppelen aan `Sheet1!A1:D5`, inclusief de koprij en categoriekolom, vóór het wisselen van rijen en kolommen. Het slaat een grafiek op met vier reeksen en drie categorieën.
 
-Deze C++-code laat zien hoe u de gegevensverwisseling tussen assen op een diagram kunt uitvoeren:
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IAxesManager.h>
+#include <DOM/Chart/IAxis.h>
+#include <Export/SaveFormat.h>
+#include <DOM/Chart/IChartData.h>
 
-``` cpp
-// Maakt lege presentatie
-auto pres = System::MakeObject<Presentation>();
-auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
-auto chart = shapes->AddChart(ChartType::ClusteredColumn, 100.0f, 100.0f, 400.0f, 300.0f);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
 
-// Wisselt rijen en kolommen
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 100, 100, 400, 300);
+
+chart->get_ChartData()->SetRange(u"Sheet1!A1:D5");
 chart->get_ChartData()->SwitchRowColumn();
 
-// Slaat presentatie op
-pres->Save(u"SwitchChartRowColumns_out.pptx", SaveFormat::Pptx);
+presentation->Save(u"SwitchChartRowColumns_out.pptx", SaveFormat::Pptx);
 ```
 
-## **Verticale as uitschakelen voor lijndiagrammen**
+## **Schakel de verticale as uit voor lijngrafieken**
 
-Deze C++-code laat zien hoe u de verticale as voor een lijndiagram kunt verbergen:
+Gebruik [set_IsVisible](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_isvisible/) met `false` op de verticale as om deze te verbergen. Het voorbeeld maakt een lijngrafiek met standaardgegevens en slaat deze op met de verticale as verborgen.
 
-``` cpp
-auto pres = System::MakeObject<Presentation>();
-auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
-auto chart = shapes->AddChart(ChartType::Line, 100.0f, 100.0f, 400.0f, 300.0f);
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IAxesManager.h>
+#include <DOM/Chart/IAxis.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto chart = slide->get_Shapes()->AddChart(ChartType::Line, 100, 100, 400, 300);
 chart->get_Axes()->get_VerticalAxis()->set_IsVisible(false);
 
-pres->Save(u"chart.pptx", SaveFormat::Pptx);
+presentation->Save(u"HiddenVerticalAxis.pptx", SaveFormat::Pptx);
 ```
 
-## **Horizontale as uitschakelen voor lijndiagrammen**
+## **Schakel de horizontale as uit voor lijngrafieken**
 
-Deze code laat zien hoe u de horizontale as voor een lijndiagram kunt verbergen:
+Gebruik [set_IsVisible](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_isvisible/) met `false` op de horizontale as om deze te verbergen. Het voorbeeld maakt een lijngrafiek met standaardgegevens en slaat deze op met de horizontale as verborgen.
 
-``` cpp
-auto pres = System::MakeObject<Presentation>();
-auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
-auto chart = shapes->AddChart(ChartType::Line, 100.0f, 100.0f, 400.0f, 300.0f);
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IAxesManager.h>
+#include <DOM/Chart/IAxis.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto chart = slide->get_Shapes()->AddChart(ChartType::Line, 100, 100, 400, 300);
 chart->get_Axes()->get_HorizontalAxis()->set_IsVisible(false);
 
-pres->Save(u"chart.pptx", SaveFormat::Pptx);
+presentation->Save(u"HiddenHorizontalAxis.pptx", SaveFormat::Pptx);
 ```
 
-## **Een categoriasse wijzigen**
+## **Wijzig een categorie‑as**
 
-Met de **set_CategoryAxisType()**‑methode kunt u uw gewenste categoriasstype (**date** of **text**) opgeven. Deze C++‑code toont de bewerking: 
+Gebruik [set_CategoryAxisType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_categoryaxistype/) om een datum‑ of tekst‑categorisatieas te kiezen. Dit voorbeeld vereist `ExistingChart.pptx`, met een grafiek als eerste vorm op de eerste dia en categoriecellen met numerieke Excel‑datumnummers. Het verandert de horizontale as naar een datumas. Het aanroepen van [set_IsAutomaticMajorUnit](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_isautomaticmajorunit/) met `false`, [set_MajorUnit](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_majorunit/) met `1`, en [set_MajorUnitScale](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_majorunitscale/) met maanden plaatst hoofd‑ticks op een‑maand‑intervallen.
 
-``` cpp
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IAxesManager.h>
+#include <DOM/Chart/IAxis.h>
+#include <Export/SaveFormat.h>
+#include <DOM/Chart/CategoryAxisType.h>
+#include <DOM/Chart/TimeUnitType.h>
+#include <system/object_ext.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+
 auto presentation = System::MakeObject<Presentation>(u"ExistingChart.pptx");
-auto chart = System::AsCast<IChart>(presentation->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0));
-auto horizontalAxis = chart->get_Axes()->get_HorizontalAxis();
+auto slide = presentation->get_Slide(0);
 
-horizontalAxis->set_CategoryAxisType(CategoryAxisType::Date);
-horizontalAxis->set_IsAutomaticMajorUnit(false);
-horizontalAxis->set_MajorUnit(1);
-horizontalAxis->set_MajorUnitScale(TimeUnitType::Months);
+auto chart = System::ExplicitCast<IChart>(slide->get_Shape(0));
+chart->get_Axes()->get_HorizontalAxis()->set_CategoryAxisType(CategoryAxisType::Date);
+chart->get_Axes()->get_HorizontalAxis()->set_IsAutomaticMajorUnit(false);
+chart->get_Axes()->get_HorizontalAxis()->set_MajorUnit(1);
+chart->get_Axes()->get_HorizontalAxis()->set_MajorUnitScale(TimeUnitType::Months);
 
 presentation->Save(u"ChangeChartCategoryAxis_out.pptx", SaveFormat::Pptx);
 ```
 
-## **Datumformaat instellen voor categoriasse‑waarden**
+## **Regel de labelintervallen van de categorie‑as**
 
-Aspose.Slides voor C++ stelt u in staat om het datumformaat voor een categoriasse‑waarde in te stellen. De bewerking wordt gedemonstreerd in deze C++‑code:
+Wanneer een grafiek veel categorieën heeft, kunt u het aantal zichtbare as‑labels verminderen zonder categorieën of datapunten te verwijderen. Gebruik [set_IsAutomaticTickLabelSpacing](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isautomaticticklabelspacing/) met `false`, en vervolgens [set_TickLabelSpacing](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_ticklabelspacing/) met het gewenste categorie‑interval. Voor tekst‑categorieën in hun normale volgorde begint de telling bij de eerste categorie:
 
-``` cpp
-auto pres = System::MakeObject<Presentation>();
-auto chart = pres->get_Slides()->idx_get(0)->get_Shapes()->AddChart(ChartType::Area, 50.0f, 50.0f, 450.0f, 300.0f);
+| Interval | Labels weergegeven in het voorbeeld |
+| --- | --- |
+| `1` | Categorie 1, Categorie 2, Categorie 3, ... Categorie 24 |
+| `2` | Categorie 1, Categorie 3, Categorie 5, ... Categorie 23 |
+| `3` | Categorie 1, Categorie 4, Categorie 7, ... Categorie 22 |
 
-auto wb = chart->get_ChartData()->get_ChartDataWorkbook();
+Een interval van `3` toont elk derde label, waardoor twee labels verborgen blijven tussen de getoonde labels. Het verwijdert de bijbehorende kolommen niet. Automatische spatiëring kiest een interval op basis van de beschikbare ruimte; het toont niet noodzakelijk elk label.
 
-wb->Clear(0);
+Tick‑marks hebben aparte instellingen. Gebruik [set_IsAutomaticTickMarksSpacing](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isautomatictickmarksspacing/) met `false` en gebruik [set_TickMarksSpacing](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_tickmarksspacing/) om hun interval in te stellen. Bijvoorbeeld, `1` houdt een tick‑mark op elk categorie‑interval terwijl labels alleen elke derde categorie verschijnen. Gebruik [set_MajorTickMark](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_majortickmark/) met een zichtbaar stijl zodat u het resultaat kunt zien. Het terugzetten van een van de automatische‑spatiërings‑eigenschappen naar `true` laat de grafiek dat interval opnieuw kiezen.
 
+Het volgende voorbeeld zonder externe bronnen maakt 24 categorieën en één reeks, en slaat drie dia’s op in `CategoryAxisIntervals.pptx`: automatische spatiëring, handmatige labelspatiëring met onafhankelijke tick‑marks, en herstelde automatische spatiëring. De twee kopieën behouden de oorspronkelijke grafiekgegevens. Er is geen invoer‑presentatie vereist. Horizontale labeltekst maakt het verschil in dichtheid gemakkelijk te zien.
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IAxesManager.h>
+#include <DOM/Chart/IAxis.h>
+#include <Export/SaveFormat.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/CategoryAxisType.h>
+#include <DOM/Chart/TickMarkType.h>
+#include <DOM/Chart/IChartTextFormat.h>
+#include <DOM/Chart/IChartTextBlockFormat.h>
+#include <DOM/Chart/IChartPortionFormat.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartDataCell.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <system/object_ext.h>
+#include <DOM/ISlideCollection.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 30, 40, 660, 320);
+
+chart->set_HasLegend(false);
+chart->get_ChartData()->get_Categories()->Clear();
 chart->get_ChartData()->get_Series()->Clear();
-auto areaCategories = chart->get_ChartData()->get_Categories();
-areaCategories->Clear();
-areaCategories->Add(wb->GetCell(0, u"A2", ObjectExt::Box<double>(DateTime(2015, 1, 1).ToOADate())));
-areaCategories->Add(wb->GetCell(0, u"A3", ObjectExt::Box<double>(DateTime(2016, 1, 1).ToOADate())));
-areaCategories->Add(wb->GetCell(0, u"A4", ObjectExt::Box<double>(DateTime(2017, 1, 1).ToOADate())));
-areaCategories->Add(wb->GetCell(0, u"A5", ObjectExt::Box<double>(DateTime(2018, 1, 1).ToOADate())));
+
+auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
+workbook->Clear(0);
+
+auto series = chart->get_ChartData()->get_Series()->Add(ChartType::ClusteredColumn);
+for (auto i = 0; i < 24; i++)
+{
+    auto categoryName = System::String::Format(u"Category {0}", i + 1);
+    auto categoryCell = workbook->GetCell(0, i + 1, 0, System::ObjectExt::Box(categoryName));
+    chart->get_ChartData()->get_Categories()->Add(categoryCell);
+    auto valueCell = workbook->GetCell(0, i + 1, 1, System::ObjectExt::Box(10 + i % 6 * 5));
+    series->get_DataPoints()->AddDataPointForBarSeries(valueCell);
+}
+
+auto axis = chart->get_Axes()->get_HorizontalAxis();
+axis->set_CategoryAxisType(CategoryAxisType::Text);
+axis->get_TextFormat()->get_TextBlockFormat()->set_RotationAngle(0);
+axis->get_TextFormat()->get_PortionFormat()->set_FontHeight(12);
+axis->set_MajorTickMark(TickMarkType::Outside);
+axis->set_IsAutomaticTickLabelSpacing(true);
+axis->set_IsAutomaticTickMarksSpacing(true);
+
+// Dia 2: toon elk derde label, maar behoud een tick‑mark voor elke categorie.
+auto manualSlide = presentation->get_Slides()->AddClone(slide);
+auto manualChart = System::ExplicitCast<IChart>(manualSlide->get_Shape(0));
+auto manualAxis = manualChart->get_Axes()->get_HorizontalAxis();
+manualAxis->set_IsAutomaticTickLabelSpacing(false);
+manualAxis->set_TickLabelSpacing(3);
+manualAxis->set_IsAutomaticTickMarksSpacing(false);
+manualAxis->set_TickMarksSpacing(1);
+
+// Dia 3: laat de grafiek beide intervallen opnieuw kiezen.
+auto restoredSlide = presentation->get_Slides()->AddClone(manualSlide);
+auto restoredChart = System::ExplicitCast<IChart>(restoredSlide->get_Shape(0));
+restoredChart->get_Axes()->get_HorizontalAxis()->set_IsAutomaticTickLabelSpacing(true);
+restoredChart->get_Axes()->get_HorizontalAxis()->set_IsAutomaticTickMarksSpacing(true);
+
+presentation->Save(u"CategoryAxisIntervals.pptx", SaveFormat::Pptx);
+```
+
+**Automatische spatiëring (dia 1):** In deze weergave wordt elk tweede categorie‑label weergegeven en wordt op twee regels afgebroken. Het automatische resultaat kan variëren met grafiekgrootte, lettertypen en de renderer.
+
+![Automatische categorie‑labelspatiëring met alle 24 kolommen zichtbaar](category-axis-automatic.png)
+
+**Handmatige spatiëring (dia 2):** Elke derde label wordt op één regel weergegeven, terwijl tick‑marks op elk categorie‑interval blijven staan. Alle 24 kolommen, inclusief die zonder labels, blijven zichtbaar met dezelfde waarden. Dia 3 herstelt de automatische weergave zoals hierboven.
+
+![Handmatig categorie‑labelinterval van drie met alle 24 kolommen zichtbaar](category-axis-manual.png)
+
+### **Kies de juiste as en het interval**
+
+Gebruik dit categorie‑aantal‑interval voor een tekst‑categorie‑as, zoals de categorisatieas van een kolom‑, lijn‑, gebied‑ of staafgrafiek. In een kolomgrafiek is dit de horizontale as. In een horizontale staafgrafiek is de categorisatieas verticaal, dus pas deze instellingen toe op [get_VerticalAxis](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxesmanager/get_verticalaxis/). Tick‑markspatiëring is ook van toepassing op een reeks‑as in grafieken die er een hebben.
+
+Gebruik geen categorie‑labelspatiëring om de numerieke schaal van een waardenas in te stellen. Op een waardenas geeft [set_MajorUnit](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_majorunit/) een verschil in waarden aan: bijvoorbeeld een hoofd‑eenheid van `10` produceert ticks op 0, 10, 20, enzovoort wanneer de as op nul begint. Een categorie‑labelinterval van `3` telt in plaats daarvan de categorische posities, ongeacht hun gegevenswaarden. Spreidings‑ en bubbelgrafieken gebruiken waardenassen in plaats van een tekst‑categorie‑as. Voor een datum‑as gebruikt u tijd‑gebaseerde hoofd‑eenheden en schalen zoals beschreven in [Wijzig een categorie‑as](#change-a-category-axis).
+
+## **Stel het datumformaat in voor categorie‑aswaarden**
+
+Het voorbeeld vervangt de standaardgrafiekgegevens door vier jaarlijkse waarden. Datums worden opgeslagen als OLE‑Automation‑serienummers in het eerste werkblad (index `0`). Gebruik [set_CategoryAxisType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_categoryaxistype/) om een datum‑as te selecteren, schakel bron‑gekoppelde opmaak uit met [set_IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_isnumberformatlinkedtosource/), en wijs `yyyy` toe met [set_NumberFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_numberformat/) zodat de categorie‑labels viercijferige jaren tonen, onafhankelijk van de celopmaak.
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IAxesManager.h>
+#include <DOM/Chart/IAxis.h>
+#include <Export/SaveFormat.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/CategoryAxisType.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartDataCell.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <system/object_ext.h>
+#include <system/date_time.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto chart = slide->get_Shapes()->AddChart(ChartType::Line, 50, 50, 450, 300);
+
+chart->get_ChartData()->get_Categories()->Clear();
+chart->get_ChartData()->get_Series()->Clear();
+
+auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
+workbook->Clear(0);
 
 auto series = chart->get_ChartData()->get_Series()->Add(ChartType::Line);
-auto dataPoints = series->get_DataPoints();
-dataPoints->AddDataPointForLineSeries(wb->GetCell(0, u"B2", ObjectExt::Box<int32_t>(1)));
-dataPoints->AddDataPointForLineSeries(wb->GetCell(0, u"B3", ObjectExt::Box<int32_t>(2)));
-dataPoints->AddDataPointForLineSeries(wb->GetCell(0, u"B4", ObjectExt::Box<int32_t>(3)));
-dataPoints->AddDataPointForLineSeries(wb->GetCell(0, u"B5", ObjectExt::Box<int32_t>(4)));
+for (auto i = 0; i < 4; i++)
+{
+    auto date = System::DateTime(2015 + i, 1, 1);
+    auto categoryCell = workbook->GetCell(0, i + 1, 0, System::ObjectExt::Box(date.ToOADate()));
+    chart->get_ChartData()->get_Categories()->Add(categoryCell);
 
-auto horizontalAxis = chart->get_Axes()->get_HorizontalAxis();
-horizontalAxis->set_CategoryAxisType(CategoryAxisType::Date);
-horizontalAxis->set_IsNumberFormatLinkedToSource(false);
-horizontalAxis->set_NumberFormat(u"yyyy");
+    auto valueCell = workbook->GetCell(0, i + 1, 1, System::ObjectExt::Box(i + 1));
+    series->get_DataPoints()->AddDataPointForLineSeries(valueCell);
+}
 
-pres->Save(u"test.pptx", SaveFormat::Pptx);
+chart->get_Axes()->get_HorizontalAxis()->set_CategoryAxisType(CategoryAxisType::Date);
+chart->get_Axes()->get_HorizontalAxis()->set_IsNumberFormatLinkedToSource(false);
+chart->get_Axes()->get_HorizontalAxis()->set_NumberFormat(u"yyyy");
+
+presentation->Save(u"DateAxisFormat.pptx", SaveFormat::Pptx);
 ```
 
-## **Draaihoek instellen voor een as‑titel**
+## **Stel een rotatiehoek in voor een grafiekas‑titel**
 
-Aspose.Slides voor C++ stelt u in staat om de draaihoek voor een diagramas‑titel in te stellen. Deze C++‑code demonstreert de bewerking:
+Schakel de verticale‑as‑titel in met [set_HasTitle](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_hastitle/), geef titeltekst op, en gebruik [set_RotationAngle](https://reference.aspose.com/slides/cpp/aspose.slides.charts/icharttextblockformat/set_rotationangle/) om de titel te roteren. De hoek wordt gemeten in graden; dit voorbeeld slaat een kolomgrafiek op met zijn waardenas‑titel geroteerd met 90 graden.
 
-``` cpp
-auto pres = System::MakeObject<Presentation>();
-auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
-auto chart = shapes->AddChart(ChartType::ClusteredColumn, 50.0f, 50.0f, 450.0f, 300.0f);
-auto verticalAxis = chart->get_Axes()->get_VerticalAxis();
-verticalAxis->set_HasTitle(true);
-verticalAxis->get_Title()->get_TextFormat()->get_TextBlockFormat()->set_RotationAngle(90.0f);
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IAxesManager.h>
+#include <DOM/Chart/IAxis.h>
+#include <Export/SaveFormat.h>
+#include <DOM/Chart/IChartTextFormat.h>
+#include <DOM/Chart/IChartTextBlockFormat.h>
+#include <DOM/Chart/IChartTitle.h>
 
-pres->Save(u"test.pptx", SaveFormat::Pptx);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 50, 50, 450, 300);
+chart->get_Axes()->get_VerticalAxis()->set_HasTitle(true);
+chart->get_Axes()->get_VerticalAxis()->get_Title()->AddTextFrameForOverriding(u"Value");
+chart->get_Axes()->get_VerticalAxis()->get_Title()->get_TextFormat()->get_TextBlockFormat()->set_RotationAngle(90);
+
+presentation->Save(u"RotatedAxisTitle.pptx", SaveFormat::Pptx);
 ```
 
-## **Aspositie instellen op een categoriasse of waardenas**
+## **Stel de aspositie in op een categorie‑ of waardenas**
 
-Aspose.Slides voor C++ stelt u in staat om de aspositie in een categoriasse of waardenas in te stellen. Deze C++‑code laat zien hoe u de taak kunt uitvoeren:
+Gebruik [set_AxisBetweenCategories](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_axisbetweencategories/) om te bepalen of de waardenas de categorisatieas tussen de categorieën of op de tick‑marks van de categorieën kruist. Deze eigenschap geldt voor categorisatieassen. Het voorbeeld zet deze op `true` op de horizontale categorisatieas van een kolomgrafiek en slaat het resultaat op.
 
-``` cpp
-auto pres = System::MakeObject<Presentation>();
-auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
-auto chart = shapes->AddChart(ChartType::ClusteredColumn, 50.0f, 50.0f, 450.0f, 300.0f);
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IAxesManager.h>
+#include <DOM/Chart/IAxis.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 50, 50, 450, 300);
 chart->get_Axes()->get_HorizontalAxis()->set_AxisBetweenCategories(true);
 
-pres->Save(u"AsposeScatterChart.pptx", SaveFormat::Pptx);
+presentation->Save(u"AxisBetweenCategories.pptx", SaveFormat::Pptx);
 ```
 
-## **Eenheidsetiket weergeven op een diagram‑waardenas inschakelen**
+## **Stel de weergave‑eenheid in op een grafiekwaardenas**
 
-Aspose.Slides voor C++ stelt u in staat om een diagram zo te configureren dat er een eenheidsetiket op de waardenas wordt weergegeven. Deze C++‑code demonstreert de bewerking:
+Gebruik [set_DisplayUnit](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_displayunit/) om de labels op een waardenas te schalen zonder de onderliggende gegevens te wijzigen. Met [DisplayUnitType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/displayunittype/) ingesteld op `Millions` wordt een waarde van 60 000 000 weergegeven als 60. Het voorbeeld maakt een kolomgrafiek en past de miljoenen‑weergave‑eenheid toe op de verticale as.
 
-``` cpp
-auto pres = System::MakeObject<Presentation>(u"Test.pptx");
-auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
-auto chart = shapes->AddChart(ChartType::ClusteredColumn, 50.0f, 50.0f, 450.0f, 300.0f);
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IAxesManager.h>
+#include <DOM/Chart/IAxis.h>
+#include <Export/SaveFormat.h>
+#include <DOM/Chart/DisplayUnitType.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 50, 50, 450, 300);
 chart->get_Axes()->get_VerticalAxis()->set_DisplayUnit(DisplayUnitType::Millions);
 
-pres->Save(u"Result.pptx", SaveFormat::Pptx);
+presentation->Save(u"Result.pptx", SaveFormat::Pptx);
 ```
 
 ## **FAQ**
 
-**Hoe stel ik de waarde in waarop de ene as de andere kruist (as‑kruising)?**
+**Hoe stel ik de waarde in waarop één as de andere (as‑kruising) kruist?**
 
-Assen bieden een [crossing setting](https://reference.aspose.com/slides/nl/cpp/aspose.slides.charts/axis/set_crosstype/): u kunt kiezen om te kruisen op nul, op de maximale categorie/waarde, of op een specifieke numerieke waarde. Dit is handig om de X-as omhoog of omlaag te verplaatsen of om een basislijn te accentueren.
+Gebruik [set_CrossType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_crosstype/) om het kruisk gedrag te selecteren. Om een numerieke kruiswaarde op te geven, gebruik [set_CrossAt](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_crossat/). Deze instellingen laten u de as‑kruising naar een geschikt referentie‑niveau verplaatsen.
 
-**Hoe kan ik tick‑labels ten opzichte van de as positioneren (naast, buiten, binnen)?**
+**Hoe kan ik de tick‑labels ten opzichte van de as positioneren?**
 
-Stel de [label position](https://reference.aspose.com/slides/nl/cpp/aspose.slides.charts/axis/set_majortickmark/) in op "cross", "outside" of "inside". Dit beïnvloedt de leesbaarheid en helpt ruimte te besparen, vooral bij kleine diagrammen.
+Gebruik [set_TickLabelPosition](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_ticklabelposition/) met een waarde uit [TickLabelPositionType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ticklabelpositiontype/): `Low`, `High`, `NextTo` of `None`. Om de tick‑marks zelf te regelen, gebruik [set_MajorTickMark](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_majortickmark/) of [set_MinorTickMark](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_minortickmark/); deze staan los van de label‑positionering.

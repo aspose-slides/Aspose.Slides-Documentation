@@ -5,8 +5,8 @@ type: docs
 url: /cs/cpp/chart-axis/
 keywords:
 - osa grafu
-- svislá osa
-- vodorovná osa
+- vertikální osa
+- horizontální osa
 - přizpůsobit osu
 - manipulovat osou
 - spravovat osu
@@ -21,179 +21,423 @@ keywords:
 - prezentace
 - C++
 - Aspose.Slides
-description: "Objevte, jak pomocí Aspose.Slides pro C++ přizpůsobit osy grafu v prezentacích PowerPointu pro zprávy a vizualizace."
+description: "Objevte, jak použít Aspose.Slides pro C++ k přizpůsobení os grafu v prezentacích PowerPointu pro zprávy a vizualizace."
 ---
 ## **Přehled**
 
-Tento článek vysvětluje, jak přizpůsobit osy grafu v Aspose.Slides. Ukazuje, jak získat skutečné hodnoty os, vyměnit data mezi osami, skrýt svislou nebo vodorovnou osu u čárových grafů, změnit typ osy kategorií, nastavit formát data pro hodnoty osy kategorií, otočit název osy, nastavit polohu osy a zobrazit popisek jednotky na hodnotové ose.
+Tento článek vysvětluje, jak přizpůsobit osy grafu pomocí Aspose.Slides pro C++. Pokrývá vypočítané hodnoty osy, přepínání řádků a sloupců grafu, viditelnost os, intervaly popisků kategorií a značek os, datumové kategorie a formátování, otočení názvu, umístění os a jednotky zobrazení.
 
-## **Získání maximálních hodnot na svislé ose**
-Aspose.Slides pro C++ vám umožňuje získat minimální a maximální hodnoty na svislé ose. Proveďte následující kroky:
+## **Získání maximálních hodnot na vertikální ose grafů**
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.presentation).
-1. Přistupte k prvnímu snímku.
-1. Přidejte graf s výchozími daty.
-1. Získejte skutečnou maximální hodnotu na ose.
-1. Získejte skutečnou minimální hodnotu na ose.
-1. Získejte skutečnou hlavní jednotku osy.
-1. Získejte skutečnou vedlejší jednotku osy.
-1. Získejte skutečnou stupnici hlavní jednotky osy.
-1. Získejte skutečnou stupnici vedlejší jednotky osy.
+Vytvořte [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) a přidejte plošný graf s výchozími daty. Před načtením vypočítaných hodnot osy zavolejte [ValidateChartLayout](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chart/validatechartlayout/), aby byl rozvržení grafu aktuální.
 
-``` cpp
-auto pres = System::MakeObject<Presentation>();
-auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
-auto chart = System::ExplicitCast<Chart>(shapes->AddChart(ChartType::Area, 100.0f, 100.0f, 500.0f, 350.0f));
+Načtěte [get_ActualMaxValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/get_actualmaxvalue/) a [get_ActualMinValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/get_actualminvalue/) pro limity osy a [get_ActualMajorUnit](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/get_actualmajorunit/) a [get_ActualMinorUnit](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/get_actualminorunit/) pro intervaly značek. [get_ActualMajorUnitScale](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/get_actualmajorunitscale/) a [get_ActualMinorUnitScale](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/get_actualminorunitscale/) poskytují časové jednotky, které jsou relevantní pro datumové osy. Příklad uloží tyto hodnoty do lokálních proměnných a uloží graf.
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IAxesManager.h>
+#include <DOM/Chart/IAxis.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto chart = slide->get_Shapes()->AddChart(ChartType::Area, 100, 100, 500, 350);
 chart->ValidateChartLayout();
 
-auto axes = chart->get_Axes();
+auto maxValue = chart->get_Axes()->get_VerticalAxis()->get_ActualMaxValue();
+auto minValue = chart->get_Axes()->get_VerticalAxis()->get_ActualMinValue();
 
-double maxValue = axes->get_VerticalAxis()->get_ActualMaxValue();
-double minValue = axes->get_VerticalAxis()->get_ActualMinValue();
+auto majorUnit = chart->get_Axes()->get_VerticalAxis()->get_ActualMajorUnit();
+auto minorUnit = chart->get_Axes()->get_VerticalAxis()->get_ActualMinorUnit();
 
-double majorUnit = axes->get_HorizontalAxis()->get_ActualMajorUnit();
-double minorUnit = axes->get_HorizontalAxis()->get_ActualMinorUnit();
+auto majorUnitScale = chart->get_Axes()->get_VerticalAxis()->get_ActualMajorUnitScale();
+auto minorUnitScale = chart->get_Axes()->get_VerticalAxis()->get_ActualMinorUnitScale();
 
-// Uloží prezentaci
-pres->Save(u"ErrorBars_out.pptx", SaveFormat::Pptx);
+presentation->Save(u"AxisValues_out.pptx", SaveFormat::Pptx);
 ```
 
-## **Výměna dat mezi osami**
-Aspose.Slides vám umožňuje rychle vyměnit data mezi osami – data zobrazená na svislé ose (y-osa) se přesunou na vodorovnou osu (x-osa) a naopak.
+## **Prohození dat mezi osami**
 
-Tento C++ kód ukazuje, jak provést úkol výměny dat mezi osami v grafu:
+Použijte [SwitchRowColumn](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdata/switchrowcolumn/) k výměně rolí řad a kategorií v datech grafu. Každá bývalá kategorie se stane řadou a každá bývalá řada se stane kategorií. Tím se změní způsob seskupování dat; neprohodí se vodorovná a svislá osa. Příklad používá [SetRange](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdata/setrange/) k navázání výchozích dat na `Sheet1!A1:D5`, včetně řádku záhlaví a sloupce kategorií, před přepnutím řádků a sloupců. Uloží graf se čtyřmi řadami a třemi kategoriemi.
 
-``` cpp
-// Vytvoří prázdnou prezentaci
-auto pres = System::MakeObject<Presentation>();
-auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
-auto chart = shapes->AddChart(ChartType::ClusteredColumn, 100.0f, 100.0f, 400.0f, 300.0f);
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IAxesManager.h>
+#include <DOM/Chart/IAxis.h>
+#include <Export/SaveFormat.h>
+#include <DOM/Chart/IChartData.h>
 
-// Přepíná řádky a sloupce
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 100, 100, 400, 300);
+
+chart->get_ChartData()->SetRange(u"Sheet1!A1:D5");
 chart->get_ChartData()->SwitchRowColumn();
 
-// Uloží prezentaci
-pres->Save(u"SwitchChartRowColumns_out.pptx", SaveFormat::Pptx);
+presentation->Save(u"SwitchChartRowColumns_out.pptx", SaveFormat::Pptx);
 ```
 
-## **Zakázání svislé osy u čárových grafů**
-Tento C++ kód ukazuje, jak skrýt svislou osu u čárového grafu:
+## **Zakázání vertikální osy pro čárové grafy**
 
-``` cpp
-auto pres = System::MakeObject<Presentation>();
-auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
-auto chart = shapes->AddChart(ChartType::Line, 100.0f, 100.0f, 400.0f, 300.0f);
+Použijte [set_IsVisible](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_isvisible/) s hodnotou `false` na svislé ose, aby se skryla. Příklad vytvoří čárový graf s výchozími daty a uloží jej se skrytou svislou osou.
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IAxesManager.h>
+#include <DOM/Chart/IAxis.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto chart = slide->get_Shapes()->AddChart(ChartType::Line, 100, 100, 400, 300);
 chart->get_Axes()->get_VerticalAxis()->set_IsVisible(false);
 
-pres->Save(u"chart.pptx", SaveFormat::Pptx);
+presentation->Save(u"HiddenVerticalAxis.pptx", SaveFormat::Pptx);
 ```
 
-## **Zakázání vodorovné osy u čárových grafů**
-Tento kód ukazuje, jak skrýt vodorovnou osu u čárového grafu:
+## **Zakázání horizontální osy pro čárové grafy**
 
-``` cpp
-auto pres = System::MakeObject<Presentation>();
-auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
-auto chart = shapes->AddChart(ChartType::Line, 100.0f, 100.0f, 400.0f, 300.0f);
+Použijte [set_IsVisible](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_isvisible/) s hodnotou `false` na vodorovné ose, aby se skryla. Příklad vytvoří čárový graf s výchozími daty a uloží jej se skrytou vodorovnou osou.
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IAxesManager.h>
+#include <DOM/Chart/IAxis.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto chart = slide->get_Shapes()->AddChart(ChartType::Line, 100, 100, 400, 300);
 chart->get_Axes()->get_HorizontalAxis()->set_IsVisible(false);
 
-pres->Save(u"chart.pptx", SaveFormat::Pptx);
+presentation->Save(u"HiddenHorizontalAxis.pptx", SaveFormat::Pptx);
 ```
 
-## **Změna osy kategorie**
-Pomocí metody **set_CategoryAxisType()** můžete zadat požadovaný typ osy kategorie (**date** nebo **text**). Tento C++ kód demonstruje operaci:
+## **Změna osy kategorií**
 
-``` cpp
+Použijte [set_CategoryAxisType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_categoryaxistype/) k výběru datumové nebo textové osy kategorií. Tento příklad vyžaduje `ExistingChart.pptx`, kde je graf jako první tvar na první snímku a buňky kategorií obsahují číselné datumové hodnoty Excelu. Změní vodorovnou osu na datumovou osu. Volání [set_IsAutomaticMajorUnit](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_isautomaticmajorunit/) s hodnotou `false`, [set_MajorUnit](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_majorunit/) s hodnotou `1` a [set_MajorUnitScale](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_majorunitscale/) s měsíci umístí hlavní značky v intervalech jednoho měsíce.
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IAxesManager.h>
+#include <DOM/Chart/IAxis.h>
+#include <Export/SaveFormat.h>
+#include <DOM/Chart/CategoryAxisType.h>
+#include <DOM/Chart/TimeUnitType.h>
+#include <system/object_ext.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+
 auto presentation = System::MakeObject<Presentation>(u"ExistingChart.pptx");
-auto chart = System::AsCast<IChart>(presentation->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0));
-auto horizontalAxis = chart->get_Axes()->get_HorizontalAxis();
+auto slide = presentation->get_Slide(0);
 
-horizontalAxis->set_CategoryAxisType(CategoryAxisType::Date);
-horizontalAxis->set_IsAutomaticMajorUnit(false);
-horizontalAxis->set_MajorUnit(1);
-horizontalAxis->set_MajorUnitScale(TimeUnitType::Months);
+auto chart = System::ExplicitCast<IChart>(slide->get_Shape(0));
+chart->get_Axes()->get_HorizontalAxis()->set_CategoryAxisType(CategoryAxisType::Date);
+chart->get_Axes()->get_HorizontalAxis()->set_IsAutomaticMajorUnit(false);
+chart->get_Axes()->get_HorizontalAxis()->set_MajorUnit(1);
+chart->get_Axes()->get_HorizontalAxis()->set_MajorUnitScale(TimeUnitType::Months);
 
 presentation->Save(u"ChangeChartCategoryAxis_out.pptx", SaveFormat::Pptx);
 ```
 
-## **Nastavení formátu data pro hodnoty osy kategorie**
-Aspose.Slides pro C++ vám umožňuje nastavit formát data pro hodnotu osy kategorie. Operace je ukázána v tomto C++ kódu:
+## **Řízení intervalů popisků osy kategorií**
 
-``` cpp
-auto pres = System::MakeObject<Presentation>();
-auto chart = pres->get_Slides()->idx_get(0)->get_Shapes()->AddChart(ChartType::Area, 50.0f, 50.0f, 450.0f, 300.0f);
+Když má graf mnoho kategorií, můžete snížit počet viditelných popisků osy, aniž byste odstraňovali kategorie nebo datové body. Použijte [set_IsAutomaticTickLabelSpacing](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isautomaticticklabelspacing/) s hodnotou `false`, poté použijte [set_TickLabelSpacing](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_ticklabelspacing/) s požadovaným intervalem kategorií. Pro textové kategorie v jejich normálním pořadí se počítá od první kategorie:
 
-auto wb = chart->get_ChartData()->get_ChartDataWorkbook();
+| Interval | Zobrazované popisky v příkladu |
+| --- | --- |
+| `1` | Kategorie 1, Kategorie 2, Kategorie 3, ... Kategorie 24 |
+| `2` | Kategorie 1, Kategorie 3, Kategorie 5, ... Kategorie 23 |
+| `3` | Kategorie 1, Kategorie 4, Kategorie 7, ... Kategorie 22 |
 
-wb->Clear(0);
+Interval `3` zobrazí každý třetí popisek a mezi zobrazenými popisky skryje dva popisky. Neodstraňuje odpovídající sloupce. Automatické rozestupy zvolí interval na základě dostupného prostoru; nemusí zobrazit každý popisek.
 
+Značky os mají samostatné ovládání. Použijte [set_IsAutomaticTickMarksSpacing](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isautomatictickmarksspacing/) s hodnotou `false` a [set_TickMarksSpacing](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_tickmarksspacing/) k nastavení jejich intervalu. Například `1` ponechá značku na každém intervalu kategorie, zatímco popisky se zobrazují jen každé třetí kategorie. Použijte [set_MajorTickMark](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_majortickmark/) s viditelným stylem, abyste viděli výsledek. Nastavením jakékoli automatické vlastnosti zpět na `true` necháte graf znovu zvolit interval.
+
+Následující samostatný příklad vytvoří 24 kategorií a jednu řadu, poté uloží tři snímky do `CategoryAxisIntervals.pptx`: automatické rozestupy, ruční rozestupy popisků s nezávislými značkami a obnovené automatické rozestupy. Obě kopie zachovají původní data grafu. Vstupní prezentace není vyžadována. Vodorovný text popisků usnadňuje rozeznání rozdílu v hustotě.
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IAxesManager.h>
+#include <DOM/Chart/IAxis.h>
+#include <Export/SaveFormat.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/CategoryAxisType.h>
+#include <DOM/Chart/TickMarkType.h>
+#include <DOM/Chart/IChartTextFormat.h>
+#include <DOM/Chart/IChartTextBlockFormat.h>
+#include <DOM/Chart/IChartPortionFormat.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartDataCell.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <system/object_ext.h>
+#include <DOM/ISlideCollection.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 30, 40, 660, 320);
+
+chart->set_HasLegend(false);
+chart->get_ChartData()->get_Categories()->Clear();
 chart->get_ChartData()->get_Series()->Clear();
-auto areaCategories = chart->get_ChartData()->get_Categories();
-areaCategories->Clear();
-areaCategories->Add(wb->GetCell(0, u"A2", ObjectExt::Box<double>(DateTime(2015, 1, 1).ToOADate())));
-areaCategories->Add(wb->GetCell(0, u"A3", ObjectExt::Box<double>(DateTime(2016, 1, 1).ToOADate())));
-areaCategories->Add(wb->GetCell(0, u"A4", ObjectExt::Box<double>(DateTime(2017, 1, 1).ToOADate())));
-areaCategories->Add(wb->GetCell(0, u"A5", ObjectExt::Box<double>(DateTime(2018, 1, 1).ToOADate())));
+
+auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
+workbook->Clear(0);
+
+auto series = chart->get_ChartData()->get_Series()->Add(ChartType::ClusteredColumn);
+for (auto i = 0; i < 24; i++)
+{
+    auto categoryName = System::String::Format(u"Category {0}", i + 1);
+    auto categoryCell = workbook->GetCell(0, i + 1, 0, System::ObjectExt::Box(categoryName));
+    chart->get_ChartData()->get_Categories()->Add(categoryCell);
+    auto valueCell = workbook->GetCell(0, i + 1, 1, System::ObjectExt::Box(10 + i % 6 * 5));
+    series->get_DataPoints()->AddDataPointForBarSeries(valueCell);
+}
+
+auto axis = chart->get_Axes()->get_HorizontalAxis();
+axis->set_CategoryAxisType(CategoryAxisType::Text);
+axis->get_TextFormat()->get_TextBlockFormat()->set_RotationAngle(0);
+axis->get_TextFormat()->get_PortionFormat()->set_FontHeight(12);
+axis->set_MajorTickMark(TickMarkType::Outside);
+axis->set_IsAutomaticTickLabelSpacing(true);
+axis->set_IsAutomaticTickMarksSpacing(true);
+
+// Snímek 2: zobrazit každý třetí popisek, ale ponechat značku pro každou kategorii.
+auto manualSlide = presentation->get_Slides()->AddClone(slide);
+auto manualChart = System::ExplicitCast<IChart>(manualSlide->get_Shape(0));
+auto manualAxis = manualChart->get_Axes()->get_HorizontalAxis();
+manualAxis->set_IsAutomaticTickLabelSpacing(false);
+manualAxis->set_TickLabelSpacing(3);
+manualAxis->set_IsAutomaticTickMarksSpacing(false);
+manualAxis->set_TickMarksSpacing(1);
+
+// Snímek 3: nechat graf znovu zvolit oba intervaly.
+auto restoredSlide = presentation->get_Slides()->AddClone(manualSlide);
+auto restoredChart = System::ExplicitCast<IChart>(restoredSlide->get_Shape(0));
+restoredChart->get_Axes()->get_HorizontalAxis()->set_IsAutomaticTickLabelSpacing(true);
+restoredChart->get_Axes()->get_HorizontalAxis()->set_IsAutomaticTickMarksSpacing(true);
+
+presentation->Save(u"CategoryAxisIntervals.pptx", SaveFormat::Pptx);
+```
+
+**Automatické rozestupy (snímek 1):** V tomto vykreslení je zobrazen každý druhý popisek kategorie a zalamuje se do dvou řádků. Automatický výsledek se může lišit podle velikosti grafu, fontů a rendereru.
+
+![Automatické rozestupy popisků kategorií se všemi 24 sloupci viditelnými](category-axis-automatic.png)
+
+**Ruční rozestupy (snímek 2):** Každý třetí popisek je zobrazen na jednom řádku, zatímco značky zůstávají na každém intervalu kategorie. Všech 24 sloupců, včetně těch bez popisků, zůstává viditelných se stejnými hodnotami. Snímek 3 obnoví automatický vzhled zobrazený výše.
+
+![Manuální interval popisků kategorií tři se všemi 24 sloupci viditelnými](category-axis-manual.png)
+
+### **Vyberte správnou osu a interval**
+
+Použijte tento interval počtu kategorií pro textovou osu kategorií, například osu kategorií sloupcového, čárového, plošného nebo pruhového grafu. V sloupcovém grafu je to vodorovná osa. V horizontálním pruhovém grafu je osa kategorií vertikální, takže tato nastavení aplikujte na [get_VerticalAxis](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxesmanager/get_verticalaxis/). Rozestup značek se také vztahuje na osu řady v grafech, které ji mají.
+
+Nepoužívejte rozestupy popisků kategorií k nastavení číselné stupnice hodnotové osy. Na hodnotové ose [set_MajorUnit](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_majorunit/) specifikuje rozdíl v hodnotách: například hlavní jednotka `10` vytvoří značky při 0, 10, 20 atd., pokud osa začíná nulou. Interval popisků kategorií `3` počítá pozice kategorií bez ohledu na jejich hodnoty. Rozptylové a bublinové grafy používají hodnotové osy místo textové osy kategorií. Pro datumovou osu použijte časové hlavní jednotky a stupnice, jak je popsáno v [Change a Category Axis](#change-a-category-axis).
+
+## **Nastavení formátu data pro hodnoty osy kategorií**
+
+Příklad nahradí výchozí data grafu čtyřmi ročními hodnotami. Data jsou uložena jako sériová čísla OLE Automation v první listu (index `0`). Použijte [set_CategoryAxisType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_categoryaxistype/) k výběru datumové osy, zakážte formátování propojené se zdrojem pomocí [set_IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_isnumberformatlinkedtosource/), a přiřaďte `yyyy` pomocí [set_NumberFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_numberformat/), aby popisky kategorií zobrazovaly čtyřciferné roky nezávisle na formátování buňky.
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IAxesManager.h>
+#include <DOM/Chart/IAxis.h>
+#include <Export/SaveFormat.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/CategoryAxisType.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartDataCell.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <system/object_ext.h>
+#include <system/date_time.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto chart = slide->get_Shapes()->AddChart(ChartType::Line, 50, 50, 450, 300);
+
+chart->get_ChartData()->get_Categories()->Clear();
+chart->get_ChartData()->get_Series()->Clear();
+
+auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
+workbook->Clear(0);
 
 auto series = chart->get_ChartData()->get_Series()->Add(ChartType::Line);
-auto dataPoints = series->get_DataPoints();
-dataPoints->AddDataPointForLineSeries(wb->GetCell(0, u"B2", ObjectExt::Box<int32_t>(1)));
-dataPoints->AddDataPointForLineSeries(wb->GetCell(0, u"B3", ObjectExt::Box<int32_t>(2)));
-dataPoints->AddDataPointForLineSeries(wb->GetCell(0, u"B4", ObjectExt::Box<int32_t>(3)));
-dataPoints->AddDataPointForLineSeries(wb->GetCell(0, u"B5", ObjectExt::Box<int32_t>(4)));
+for (auto i = 0; i < 4; i++)
+{
+    auto date = System::DateTime(2015 + i, 1, 1);
+    auto categoryCell = workbook->GetCell(0, i + 1, 0, System::ObjectExt::Box(date.ToOADate()));
+    chart->get_ChartData()->get_Categories()->Add(categoryCell);
 
-auto horizontalAxis = chart->get_Axes()->get_HorizontalAxis();
-horizontalAxis->set_CategoryAxisType(CategoryAxisType::Date);
-horizontalAxis->set_IsNumberFormatLinkedToSource(false);
-horizontalAxis->set_NumberFormat(u"yyyy");
+    auto valueCell = workbook->GetCell(0, i + 1, 1, System::ObjectExt::Box(i + 1));
+    series->get_DataPoints()->AddDataPointForLineSeries(valueCell);
+}
 
-pres->Save(u"test.pptx", SaveFormat::Pptx);
+chart->get_Axes()->get_HorizontalAxis()->set_CategoryAxisType(CategoryAxisType::Date);
+chart->get_Axes()->get_HorizontalAxis()->set_IsNumberFormatLinkedToSource(false);
+chart->get_Axes()->get_HorizontalAxis()->set_NumberFormat(u"yyyy");
+
+presentation->Save(u"DateAxisFormat.pptx", SaveFormat::Pptx);
 ```
 
-## **Nastavení úhlu otočení názvu osy**
-Aspose.Slides pro C++ vám umožňuje nastavit úhel otočení názvu osy grafu. Tento C++ kód demonstruje operaci:
+## **Nastavení úhlu otočení názvu osy grafu**
 
-``` cpp
-auto pres = System::MakeObject<Presentation>();
-auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
-auto chart = shapes->AddChart(ChartType::ClusteredColumn, 50.0f, 50.0f, 450.0f, 300.0f);
-auto verticalAxis = chart->get_Axes()->get_VerticalAxis();
-verticalAxis->set_HasTitle(true);
-verticalAxis->get_Title()->get_TextFormat()->get_TextBlockFormat()->set_RotationAngle(90.0f);
+Povolte název svislé osy pomocí [set_HasTitle](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_hastitle/), zadejte text názvu a použijte [set_RotationAngle](https://reference.aspose.com/slides/cpp/aspose.slides.charts/icharttextblockformat/set_rotationangle/), aby se název otočil. Úhel se měří ve stupních; tento příklad uloží sloupcový graf s názvem hodnotové osy otočeným o 90 stupňů.
 
-pres->Save(u"test.pptx", SaveFormat::Pptx);
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IAxesManager.h>
+#include <DOM/Chart/IAxis.h>
+#include <Export/SaveFormat.h>
+#include <DOM/Chart/IChartTextFormat.h>
+#include <DOM/Chart/IChartTextBlockFormat.h>
+#include <DOM/Chart/IChartTitle.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 50, 50, 450, 300);
+chart->get_Axes()->get_VerticalAxis()->set_HasTitle(true);
+chart->get_Axes()->get_VerticalAxis()->get_Title()->AddTextFrameForOverriding(u"Value");
+chart->get_Axes()->get_VerticalAxis()->get_Title()->get_TextFormat()->get_TextBlockFormat()->set_RotationAngle(90);
+
+presentation->Save(u"RotatedAxisTitle.pptx", SaveFormat::Pptx);
 ```
 
-## **Nastavení polohy osy na ose kategorie nebo hodnotové ose**
-Aspose.Slides pro C++ vám umožňuje nastavit pozici osy v ose kategorie nebo hodnotové ose. Tento C++ kód ukazuje, jak úkol provést:
+## **Nastavení polohy osy na ose kategorií nebo hodnot**
 
-``` cpp
-auto pres = System::MakeObject<Presentation>();
-auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
-auto chart = shapes->AddChart(ChartType::ClusteredColumn, 50.0f, 50.0f, 450.0f, 300.0f);
+Použijte [set_AxisBetweenCategories](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_axisbetweencategories/) k určení, zda hodnotová osa protíná osu kategorií mezi kategoriemi nebo na značkách kategorií. Tato vlastnost se vztahuje na osy kategorií. Příklad nastaví tuto hodnotu na `true` na vodorovné ose kategorií sloupcového grafu a výsledek uloží.
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IAxesManager.h>
+#include <DOM/Chart/IAxis.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 50, 50, 450, 300);
 chart->get_Axes()->get_HorizontalAxis()->set_AxisBetweenCategories(true);
 
-pres->Save(u"AsposeScatterChart.pptx", SaveFormat::Pptx);
+presentation->Save(u"AxisBetweenCategories.pptx", SaveFormat::Pptx);
 ```
 
-## **Povolení zobrazení popisku jednotky na hodnotové ose grafu**
-Aspose.Slides pro C++ vám umožňuje nastavit graf tak, aby zobrazoval popisek jednotky na své hodnotové ose grafu. Tento C++ kód demonstruje operaci:
+## **Nastavení zobrazovací jednotky na hodnotové ose grafu**
 
-``` cpp
-auto pres = System::MakeObject<Presentation>(u"Test.pptx");
-auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
-auto chart = shapes->AddChart(ChartType::ClusteredColumn, 50.0f, 50.0f, 450.0f, 300.0f);
+Použijte [set_DisplayUnit](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_displayunit/) aby se štítky na hodnotové ose změkly, aniž by se měnila podkladová data. S [DisplayUnitType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/displayunittype/) nastaveným na `Millions` se hodnota 60 000 000 zobrazí jako 60. Příklad vytvoří sloupcový graf a použije jednotku milionů na jeho svislé ose.
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IAxesManager.h>
+#include <DOM/Chart/IAxis.h>
+#include <Export/SaveFormat.h>
+#include <DOM/Chart/DisplayUnitType.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 50, 50, 450, 300);
 chart->get_Axes()->get_VerticalAxis()->set_DisplayUnit(DisplayUnitType::Millions);
 
-pres->Save(u"Result.pptx", SaveFormat::Pptx);
+presentation->Save(u"Result.pptx", SaveFormat::Pptx);
 ```
 
-## **Často kladené otázky**
+## **FAQ**
 
-**Jak nastavit hodnotu, při které se jedna osa protíná s druhou (průsečík os)?**
+**Jak nastavit hodnotu, při které jedna osa protíná druhou (průsečík osy)?**
 
-Osy poskytují [nastavení průsečíku](https://reference.aspose.com/slides/cs/cpp/aspose.slides.charts/axis/set_crosstype/): můžete zvolit průsečík na nule, na maximální kategorii/hodnotě nebo na konkrétní číselné hodnotě. To je užitečné pro posunutí osy X nahoru nebo dolů nebo pro zdůraznění základní linie.
+Použijte [set_CrossType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_crosstype/) k výběru chování průsečíku. Pro specifikaci číselné hodnoty průsečíku použijte [set_CrossAt](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_crossat/). Tato nastavení vám umožní posunout průsečík osy na vhodnou základnu.
 
-**Jak mohu umístit popisky značek relativně k ose (vedle, vně, uvnitř)?**
+**Jak mohu umístit popisky značek relativně k ose?**
 
-Nastavte [polohu popisku](https://reference.aspose.com/slides/cs/cpp/aspose.slides.charts/axis/set_majortickmark/) na "cross", "outside" nebo "inside". To ovlivňuje čitelnost a pomáhá šetřit místo, zejména u malých grafů.
+Použijte [set_TickLabelPosition](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_ticklabelposition/) s hodnotou z [TickLabelPositionType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ticklabelpositiontype/): `Low`, `High`, `NextTo` nebo `None`. Pro ovládání samotných značek použijte [set_MajorTickMark](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_majortickmark/) nebo [set_MinorTickMark](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_minortickmark/); ty jsou oddělené od umístění popisků.
