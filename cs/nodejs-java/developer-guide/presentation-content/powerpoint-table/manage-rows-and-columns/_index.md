@@ -14,13 +14,7 @@ keywords:
 - kopírovat řádek
 - kopírovat sloupec
 - odstranit řádek
-- odst
-
-r
-
-it
-
-sloupec
+- odstranit sloupec
 - formátování textu řádku
 - formátování textu sloupce
 - styl tabulky
