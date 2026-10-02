@@ -163,6 +163,103 @@ The result:
 
 ![The aligned paragraph](aligned_paragraph.png)
 
+## **Align Fonts Within a Line**
+
+Use [IParagraphFormat::set_FontAlignment](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_fontalignment/) to vertically align text portions of different font sizes within a line. This setting applies to the entire paragraph and controls alignment within each of its lines.
+
+The following self-contained example creates four labeled text boxes on one slide. Each paragraph contains the same text at 18, 36, and 54 points, with a different font alignment. It uses Arial, disables autofit and wrapping, and keeps the text frames large enough for a single line.
+
+```cpp
+#include <DOM/FontAlignment.h>
+#include <DOM/Fonts/FontData.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/ITextFrameFormat.h>
+#include <DOM/FillType.h>
+#include <DOM/NullableBool.h>
+#include <DOM/Paragraph.h>
+#include <DOM/Portion.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <DOM/TextAlignment.h>
+#include <DOM/TextAnchorType.h>
+#include <DOM/TextAutofitType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+FontAlignment alignments[] = { FontAlignment::Baseline, FontAlignment::Top, FontAlignment::Center, FontAlignment::Bottom };
+String labels[] = { u"Baseline", u"Top", u"Center", u"Bottom" };
+float fontSizes[] = { 18.0f, 36.0f, 54.0f };
+auto font = MakeObject<FontData>(u"Arial");
+
+for (auto i = 0; i < 4; i++)
+{
+    auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 30, 20 + i * 130, 660, 120);
+    shape->get_FillFormat()->set_FillType(FillType::NoFill);
+    shape->get_LineFormat()->get_FillFormat()->set_FillType(FillType::NoFill);
+
+    auto textFrame = shape->get_TextFrame();
+    textFrame->get_TextFrameFormat()->set_AnchoringType(TextAnchorType::Top);
+    textFrame->get_TextFrameFormat()->set_AutofitType(TextAutofitType::None);
+    textFrame->get_TextFrameFormat()->set_WrapText(NullableBool::False);
+
+    auto label = textFrame->get_Paragraph(0);
+    label->set_Text(labels[i]);
+    label->get_ParagraphFormat()->set_Alignment(TextAlignment::Left);
+    auto labelFormat = label->get_ParagraphFormat()->get_DefaultPortionFormat();
+    labelFormat->set_FontHeight(14);
+    labelFormat->set_LatinFont(font);
+    labelFormat->get_FillFormat()->set_FillType(FillType::Solid);
+    labelFormat->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Gray());
+
+    auto paragraph = MakeObject<Paragraph>();
+    paragraph->get_ParagraphFormat()->set_FontAlignment(alignments[i]);
+    paragraph->get_ParagraphFormat()->set_Alignment(TextAlignment::Left);
+    auto portionFormat = paragraph->get_ParagraphFormat()->get_DefaultPortionFormat();
+    portionFormat->set_LatinFont(font);
+    portionFormat->get_FillFormat()->set_FillType(FillType::Solid);
+    portionFormat->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Black());
+
+    for (auto fontSize : fontSizes)
+    {
+        auto portion = MakeObject<Portion>(u"Ag ");
+        portion->get_PortionFormat()->set_FontHeight(fontSize);
+        paragraph->get_Portions()->Add(portion);
+    }
+
+    textFrame->get_Paragraphs()->Add(paragraph);
+}
+
+presentation->Save(u"font_alignment.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+The result:
+
+![Comparison of Baseline, Top, Center, and Bottom font alignment with mixed font sizes](font_alignment.png)
+
+Font alignment uses font metrics, so the visible edges of individual letters do not necessarily line up exactly. The example includes both an uppercase letter and a descender to help show the difference between baseline and bottom alignment. Font availability and substitution, the characters used, and the difference in font sizes affect the result. Frame dimensions, margins, line spacing, wrapping, and autofit also affect layout; use the same fonts and layout settings when comparing modes.
+
+This setting differs from [IParagraphFormat::set_Alignment](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_alignment/), which controls horizontal paragraph alignment, and [ITextFrameFormat::set_AnchoringType](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_anchoringtype/), which positions the text block vertically within its shape. Superscript and subscript formatting through [IBasePortionFormat::set_Escapement](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/set_escapement/) shifts individual portions relative to the baseline instead of setting font alignment for the paragraph's lines.
+
 ## **Set Transparency for Text**
 
 Text transparency is controlled through the alpha component of the color assigned through [IBasePortionFormat::get_FillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/get_fillformat/). In the examples below, `alpha = 50` is an ARGB alpha-channel value on the 0–255 scale, not a transparency percentage.
@@ -731,7 +828,7 @@ presentation->Save(u"hanging_punctuation.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Not every punctuation mark can hang. The visible result depends on the font and layout: changing the font, available width, margins, or autofit settings can remove the visible difference.
+Not every punctuation mark can hang. The [font and layout conditions described above](#control-line-breaking) also apply to this comparison: changing the font, available width, margins, or autofit settings can remove the visible difference.
 
 ## **Set Autofit Type for Text Frames**
 

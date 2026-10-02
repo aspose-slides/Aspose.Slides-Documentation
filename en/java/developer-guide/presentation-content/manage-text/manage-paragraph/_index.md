@@ -761,6 +761,8 @@ Use [IParagraph.getRect](https://reference.aspose.com/slides/java/com.aspose.sli
 
 [IParagraphFormat.setAlignment](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setAlignment-int-) is a paragraph-level setting and applies to the whole paragraph regardless of individual portion formatting.
 
+To vertically align portions of different font sizes within each line, see [Align Fonts Within a Line](/slides/java/text-formatting/#align-fonts-within-a-line).
+
 **Can I set the proofing language for part of a paragraph?**
 
 Yes. Set [IBasePortionFormat.setLanguageId](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseportionformat/#setLanguageId-java.lang.String-) for individual portions, so one paragraph can contain text in multiple languages.

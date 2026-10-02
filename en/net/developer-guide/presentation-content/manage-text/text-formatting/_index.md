@@ -121,6 +121,70 @@ The result:
 
 ![The aligned paragraph](aligned_paragraph.png)
 
+## **Align Fonts Within a Line**
+
+Use [IParagraphFormat.FontAlignment](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/fontalignment/) to vertically align text portions of different font sizes within a line. This setting applies to the entire paragraph and controls alignment within each of its lines.
+
+The following self-contained example creates four labeled text boxes on one slide. Each paragraph contains the same text at 18, 36, and 54 points, with a different font alignment. It uses Arial, disables autofit and wrapping, and keeps the text frames large enough for a single line.
+
+```cs
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var alignments = new[] { FontAlignment.Baseline, FontAlignment.Top, FontAlignment.Center, FontAlignment.Bottom };
+var fontSizes = new[] { 18f, 36f, 54f };
+
+for (var i = 0; i < alignments.Length; i++)
+{
+    var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 30, 20 + i * 130, 660, 120);
+    shape.FillFormat.FillType = FillType.NoFill;
+    shape.LineFormat.FillFormat.FillType = FillType.NoFill;
+
+    var textFrame = shape.TextFrame;
+    textFrame.TextFrameFormat.AnchoringType = TextAnchorType.Top;
+    textFrame.TextFrameFormat.AutofitType = TextAutofitType.None;
+    textFrame.TextFrameFormat.WrapText = NullableBool.False;
+
+    var label = textFrame.Paragraphs[0];
+    label.Text = alignments[i].ToString();
+    label.ParagraphFormat.Alignment = TextAlignment.Left;
+    label.ParagraphFormat.DefaultPortionFormat.FontHeight = 14;
+    label.ParagraphFormat.DefaultPortionFormat.LatinFont = new FontData("Arial");
+    label.ParagraphFormat.DefaultPortionFormat.FillFormat.FillType = FillType.Solid;
+    label.ParagraphFormat.DefaultPortionFormat.FillFormat.SolidFillColor.Color = Color.Gray;
+
+    var paragraph = new Paragraph();
+    paragraph.ParagraphFormat.FontAlignment = alignments[i];
+    paragraph.ParagraphFormat.Alignment = TextAlignment.Left;
+    paragraph.ParagraphFormat.DefaultPortionFormat.LatinFont = new FontData("Arial");
+    paragraph.ParagraphFormat.DefaultPortionFormat.FillFormat.FillType = FillType.Solid;
+    paragraph.ParagraphFormat.DefaultPortionFormat.FillFormat.SolidFillColor.Color = Color.Black;
+
+    foreach (var fontSize in fontSizes)
+    {
+        var portion = new Portion("Ag ");
+        portion.PortionFormat.FontHeight = fontSize;
+        paragraph.Portions.Add(portion);
+    }
+
+    textFrame.Paragraphs.Add(paragraph);
+}
+
+presentation.Save("font_alignment.pptx", SaveFormat.Pptx);
+```
+
+The result:
+
+![Comparison of Baseline, Top, Center, and Bottom font alignment with mixed font sizes](font_alignment.png)
+
+Font alignment uses font metrics, so the visible edges of individual letters do not necessarily line up exactly. The example includes both an uppercase letter and a descender to help show the difference between baseline and bottom alignment. Font availability and substitution, the characters used, and the difference in font sizes affect the result. Frame dimensions, margins, line spacing, wrapping, and autofit also affect layout; use the same fonts and layout settings when comparing modes.
+
+This setting differs from [IParagraphFormat.Alignment](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/alignment/), which controls horizontal paragraph alignment, and [ITextFrameFormat.AnchoringType](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/anchoringtype/), which positions the text block vertically within its shape. Superscript and subscript formatting through [IBasePortionFormat.Escapement](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/escapement/) shifts individual portions relative to the baseline instead of setting font alignment for the paragraph's lines.
+
 ## **Set Transparency for Text**
 
 Text transparency is controlled through the alpha component of the color assigned to [IBasePortionFormat.FillFormat](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/fillformat/). In the examples below, `alpha = 50` is an ARGB alpha-channel value on the 0–255 scale, not a transparency percentage.
@@ -492,7 +556,7 @@ format.HangingPunctuation = NullableBool.True;
 presentation.Save("hanging_punctuation.pptx", SaveFormat.Pptx);
 ```
 
-Not every punctuation mark can hang. The [font and layout conditions described above](#conditions-and-limitations) also apply to this comparison: changing the font, available width, margins, or autofit settings can remove the visible difference.
+Not every punctuation mark can hang. The [font and layout conditions described above](#control-line-breaking) also apply to this comparison: changing the font, available width, margins, or autofit settings can remove the visible difference.
 
 ## **Set Autofit Type for Text Frames**
 

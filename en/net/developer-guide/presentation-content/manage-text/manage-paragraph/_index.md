@@ -686,6 +686,8 @@ Use [IParagraph.GetRect](https://reference.aspose.com/slides/net/aspose.slides/i
 
 [IParagraphFormat.Alignment](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/alignment/) is a paragraph-level setting and applies to the whole paragraph regardless of individual portion formatting.
 
+To vertically align portions of different font sizes within each line, see [Align Fonts Within a Line](/slides/net/text-formatting/#align-fonts-within-a-line).
+
 **Can I set the proofing language for part of a paragraph?**
 
 Yes. Set [IBasePortionFormat.LanguageId](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/languageid/) for individual portions, so one paragraph can contain text in multiple languages.
