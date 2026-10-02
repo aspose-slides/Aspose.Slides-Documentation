@@ -857,6 +857,8 @@ Use [IParagraph::GetRect](https://reference.aspose.com/slides/cpp/aspose.slides/
 
 [IParagraphFormat::set_Alignment](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_alignment/) is a paragraph-level setting and applies to the whole paragraph regardless of individual portion formatting.
 
+To vertically align portions of different font sizes within each line, see [Align Fonts Within a Line](/slides/cpp/text-formatting/#align-fonts-within-a-line).
+
 **Can I set the proofing language for part of a paragraph?**
 
 Yes. Use [IBasePortionFormat::set_LanguageId](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/set_languageid/) for individual portions, so one paragraph can contain text in multiple languages.

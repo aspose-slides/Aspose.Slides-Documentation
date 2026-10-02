@@ -654,6 +654,8 @@ Use [Paragraph.get_rect](https://reference.aspose.com/slides/python-net/aspose.s
 
 [ParagraphFormat.alignment](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/alignment/) is a paragraph-level setting and applies to the whole paragraph regardless of individual portion formatting.
 
+To vertically align portions of different font sizes within each line, see [Align Fonts Within a Line](/slides/python-net/text-formatting/#align-fonts-within-a-line).
+
 **Can I set the proofing language for part of a paragraph?**
 
 Yes. Set [PortionFormat.language_id](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/language_id/) for individual portions, so one paragraph can contain text in multiple languages.

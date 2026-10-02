@@ -779,6 +779,8 @@ Use [Paragraph.getRect](https://reference.aspose.com/slides/nodejs-java/aspose.s
 
 [ParagraphFormat.setAlignment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setalignment/) is a paragraph-level setting and applies to the whole paragraph regardless of individual portion formatting.
 
+To vertically align portions of different font sizes within each line, see [Align Fonts Within a Line](/slides/nodejs-java/text-formatting/#align-fonts-within-a-line).
+
 **Can I set the proofing language for part of a paragraph?**
 
 Yes. Set [BasePortionFormat.setLanguageId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setLanguageId) for individual portions, so one paragraph can contain text in multiple languages.

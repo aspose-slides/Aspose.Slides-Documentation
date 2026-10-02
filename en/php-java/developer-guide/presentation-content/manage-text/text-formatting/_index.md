@@ -133,6 +133,85 @@ The result:
 
 ![The aligned paragraph](aligned_paragraph.png)
 
+## **Align Fonts Within a Line**
+
+Use [ParagraphFormat::setFontAlignment](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setFontAlignment) to vertically align text portions of different font sizes within a line. This setting applies to the entire paragraph and controls alignment within each of its lines.
+
+The following self-contained example creates four labeled text boxes on one slide. Each paragraph contains the same text at 18, 36, and 54 points, with a different font alignment. It uses Arial, disables autofit and wrapping, and keeps the text frames large enough for a single line.
+
+```php
+use aspose\slides\FillType;
+use aspose\slides\FontAlignment;
+use aspose\slides\FontData;
+use aspose\slides\NullableBool;
+use aspose\slides\Paragraph;
+use aspose\slides\Portion;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+use aspose\slides\TextAlignment;
+use aspose\slides\TextAnchorType;
+use aspose\slides\TextAutofitType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $alignments = [FontAlignment::Baseline, FontAlignment::Top, FontAlignment::Center, FontAlignment::Bottom];
+    $alignmentNames = ["Baseline", "Top", "Center", "Bottom"];
+    $fontSizes = [18, 36, 54];
+    $font = new FontData("Arial");
+    $gray = java("java.awt.Color")->GRAY;
+    $black = java("java.awt.Color")->BLACK;
+
+    for ($i = 0; $i < count($alignments); $i++) {
+        $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 30, 20 + $i * 130, 660, 120);
+        $shape->getFillFormat()->setFillType(FillType::NoFill);
+        $shape->getLineFormat()->getFillFormat()->setFillType(FillType::NoFill);
+
+        $textFrame = $shape->getTextFrame();
+        $textFrame->getTextFrameFormat()->setAnchoringType(TextAnchorType::Top);
+        $textFrame->getTextFrameFormat()->setAutofitType(TextAutofitType::None);
+        $textFrame->getTextFrameFormat()->setWrapText(NullableBool::False);
+
+        $label = $textFrame->getParagraphs()->get_Item(0);
+        $label->setText($alignmentNames[$i]);
+        $label->getParagraphFormat()->setAlignment(TextAlignment::Left);
+        $label->getParagraphFormat()->getDefaultPortionFormat()->setFontHeight(14);
+        $label->getParagraphFormat()->getDefaultPortionFormat()->setLatinFont($font);
+        $label->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
+        $label->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->getSolidFillColor()->setColor($gray);
+
+        $paragraph = new Paragraph();
+        $paragraph->getParagraphFormat()->setFontAlignment($alignments[$i]);
+        $paragraph->getParagraphFormat()->setAlignment(TextAlignment::Left);
+        $paragraph->getParagraphFormat()->getDefaultPortionFormat()->setLatinFont($font);
+        $paragraph->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
+        $paragraph->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->getSolidFillColor()->setColor($black);
+
+        foreach ($fontSizes as $fontSize) {
+            $portion = new Portion("Ag ");
+            $portion->getPortionFormat()->setFontHeight($fontSize);
+            $paragraph->getPortions()->add($portion);
+        }
+
+        $textFrame->getParagraphs()->add($paragraph);
+    }
+
+    $presentation->save("font_alignment.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+The result:
+
+![Comparison of Baseline, Top, Center, and Bottom font alignment with mixed font sizes](font_alignment.png)
+
+Font alignment uses font metrics, so the visible edges of individual letters do not necessarily line up exactly. The example includes both an uppercase letter and a descender to help show the difference between baseline and bottom alignment. Font availability and substitution, the characters used, and the difference in font sizes affect the result. Frame dimensions, margins, line spacing, wrapping, and autofit also affect layout; use the same fonts and layout settings when comparing modes.
+
+This setting differs from [ParagraphFormat::setAlignment](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setAlignment), which controls horizontal paragraph alignment, and [TextFrameFormat::setAnchoringType](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setAnchoringType), which positions the text block vertically within its shape. Superscript and subscript formatting through [BasePortionFormat::setEscapement](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setEscapement) shifts individual portions relative to the baseline instead of setting font alignment for the paragraph's lines.
+
 ## **Set Transparency for Text**
 
 Text transparency is controlled through the alpha component of the color assigned to [BasePortionFormat::getFillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#getFillFormat). In the examples below, `alpha = 50` is an ARGB alpha-channel value on the 0–255 scale, not a transparency percentage.
@@ -422,7 +501,7 @@ The result:
 
 ## **Set Custom Rotation for Text Frames**
 
-Use [TextFrameFormat::setRotationAngle](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setRotationAngle) to set a custom rotation angle for an [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/).
+Use [TextFrameFormat::setRotationAngle](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setRotationAngle) to set a custom rotation angle for a [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/).
 
 The code example below rotates the text frame by 3 degrees clockwise within the shape:
 
@@ -583,7 +662,7 @@ try {
 }
 ```
 
-Not every punctuation mark can hang. The visible result depends on font availability and layout: changing the font, available width, margins, or autofit settings can remove the visible difference.
+Not every punctuation mark can hang. The [font and layout conditions described above](#control-line-breaking) also apply to this comparison: changing the font, available width, margins, or autofit settings can remove the visible difference.
 
 ## **Set Autofit Type for Text Frames**
 
