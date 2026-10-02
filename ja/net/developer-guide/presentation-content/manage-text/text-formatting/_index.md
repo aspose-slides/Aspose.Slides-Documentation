@@ -1,48 +1,48 @@
 ---
-title: .NET でプレゼンテーションテキストをフォーマット
+title: PowerPoint と OpenDocument プレゼンテーションのテキストを .NET で書式設定
 linktitle: テキスト書式設定
 type: docs
 weight: 50
 url: /ja/net/text-formatting/
 keywords:
 - 段落の配置
-- テキストスタイル
-- テキスト背景
-- テキストの透明度
+- テキスト スタイル
+- テキスト 背景
+- テキスト 透過性
 - 文字間隔
-- フォントプロパティ
-- フォントファミリ
-- テキスト回転
+- フォント プロパティ
+- フォント ファミリ
+- テキスト 回転
 - 回転角度
-- テキストフレーム
-- 行間
-- オートフィットプロパティ
-- テキストフレームアンカー
-- テキストタブ設定
-- 既定言語
+- テキスト フレーム
+- 行間隔
+- オートフィット プロパティ
+- テキスト フレーム アンカー
+- テキスト タブ設定
+- デフォルト言語
 - PowerPoint
 - OpenDocument
 - プレゼンテーション
 - .NET
 - C#
 - Aspose.Slides
-description: Aspose.Slides for .NET を使用して、PowerPoint および OpenDocument プレゼンテーションのテキストをフォーマットおよびスタイル設定します。フォント、カラー、配置などをカスタマイズできます。
+description: "Aspose.Slides for .NET を使用して、PowerPoint と OpenDocument のプレゼンテーションのテキストをフォーマットおよびスタイル設定します。フォント、色、配置などをカスタマイズできます。"
 ---
 ## **概要**
 
-この記事では、Aspose.Slides for .NET を使用して PowerPoint および OpenDocument プレゼンテーション内のテキストの書式設定方法を示します。背景色、透明度、文字間隔、フォントプロパティ、回転、段落間隔、オートフィットの動作、テキストのアンカリング、タブストップ、言語設定について解説します。
+この記事では、Aspose.Slides for .NET を使用して PowerPoint および OpenDocument プレゼンテーションのテキストを書式設定する方法を示します。背景色、透過、文字間隔、フォント プロパティ、回転、段落間隔、オートフィット動作、テキストのアンカリング、タブ位置、言語設定について取り上げます。
 
-特に指定がない限り、例では [sample.pptx](sample.pptx) を使用します。最初のスライドの最初のシェイプはテキスト ボックスで、最初の段落に以下のテキストが含まれています。スライドおよびシェイプのインデックスは 0 ベースです。太字部分を選択する例は、継承された太字書式設定を含む有効な書式設定を使用します。
+特に記載がない限り、例では [sample.pptx](sample.pptx) を使用します。最初のスライドの最初のシェイプはテキスト ボックスで、最初の段落には以下に示すテキストが含まれています。スライドおよびシェイプのインデックスは 0 から始まります。太字部分を選択する例は、継承された太字書式を含む実効書式を使用します。
 
 ![サンプルテキスト](sample_text.png)
 
-リテラルテキストや正規表現の一致箇所を検索・ハイライトする方法については、[テキストの検索と置換](/slides/ja/net/search-and-replace-text/) を参照してください。
+リテラル テキストまたは正規表現マッチを検索してハイライトする方法については、[テキストの検索と置換](/slides/ja/net/search-and-replace-text/) を参照してください。
 
-## **テキストの背景色の設定**
+## **テキストの背景色を設定**
 
-段落の既定のハイライト色を設定するには [IParagraphFormat.DefaultPortionFormat](https://reference.aspose.com/slides/ja/net/aspose.slides/iparagraphformat/defaultportionformat/) を使用し、個々のテキスト部分のハイライト色を設定するには [IBasePortionFormat.HighlightColor](https://reference.aspose.com/slides/ja/net/aspose.slides/ibaseportionformat/highlightcolor/) を使用します。
+段落のデフォルトハイライト色を設定するには [IParagraphFormat.DefaultPortionFormat](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/defaultportionformat/) を使用し、個々のテキスト部分のハイライト色を設定するには [IBasePortionFormat.HighlightColor](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/highlightcolor/) を使用します。
 
-以下の例は、最初の段落の既定ハイライトとして薄い灰色を設定します。個々の部分で明示的に指定したハイライト色は、この既定より優先されます。
+以下の例は、最初の段落のデフォルトとして薄いグレーのハイライトを設定します。個別部分の明示的なハイライト色はこのデフォルトより優先されます。
 
 ```cs
 using System.Drawing;
@@ -63,9 +63,9 @@ presentation.Save("gray_paragraph.pptx", SaveFormat.Pptx);
 
 結果:
 
-![灰色の段落](gray_paragraph.png)
+![グレーの段落](gray_paragraph.png)
 
-次のコード例は **太字フォントのテキスト部分** の背景色を設定する方法を示します。
+次のコード例は、**太字フォント** のテキスト部分の背景色を設定する方法を示します。
 
 ```cs
 using System.Drawing;
@@ -92,13 +92,13 @@ presentation.Save("gray_text_portions.pptx", SaveFormat.Pptx);
 
 結果:
 
-![灰色のテキスト部分](gray_text_portions.png)
+![グレーのテキスト部分](gray_text_portions.png)
 
-## **テキスト段落の配置**
+## **段落のテキストを配置**
 
-テキスト フレーム内の段落配置を設定するには [IParagraphFormat.Alignment](https://reference.aspose.com/slides/ja/net/aspose.slides/iparagraphformat/alignment/) を使用します。値は中央揃え、左揃え、右揃え、両端揃えなどが指定できます。
+テキスト フレーム内の段落配置を設定するには [IParagraphFormat.Alignment](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/alignment/) を使用します。値は中央揃え、左揃え、右揃え、両端揃えなどがあります。
 
-以下のコード例は段落を **中央** に配置する方法を示します。
+次のコード例は、段落を **中央** に配置する方法を示します。
 
 ```cs
 using Aspose.Slides;
@@ -120,11 +120,75 @@ presentation.Save("aligned_paragraph.pptx", SaveFormat.Pptx);
 
 ![配置された段落](aligned_paragraph.png)
 
-## **テキストの透明度の設定**
+## **行内のフォントを揃える**
 
-テキストの透明度は [IBasePortionFormat.FillFormat](https://reference.aspose.com/slides/ja/net/aspose.slides/ibaseportionformat/fillformat/) に割り当てた色のアルファ成分で制御します。以下の例では `alpha = 50` は 0〜255 のスケールでの ARGB アルファ値であり、透明度のパーセンテージではありません。
+行内で異なるフォント サイズのテキスト部分を垂直に揃えるには [IParagraphFormat.FontAlignment](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/fontalignment/) を使用します。この設定は段落全体に適用され、各行内の揃え方を制御します。
 
-次のコード例は **段落全体** に透明度を適用する方法を示します。
+次の自己完結型例は、1 つのスライドに 4 つのラベル付きテキスト ボックスを作成します。各段落は 18、36、54 ポイントの同じテキストを含み、フォント揃えが異なります。Arial を使用し、オートフィットと折り返しを無効にし、テキストフレームを 1 行分だけ大きく保ちます。
+
+```cs
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var alignments = new[] { FontAlignment.Baseline, FontAlignment.Top, FontAlignment.Center, FontAlignment.Bottom };
+var fontSizes = new[] { 18f, 36f, 54f };
+
+for (var i = 0; i < alignments.Length; i++)
+{
+    var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 30, 20 + i * 130, 660, 120);
+    shape.FillFormat.FillType = FillType.NoFill;
+    shape.LineFormat.FillFormat.FillType = FillType.NoFill;
+
+    var textFrame = shape.TextFrame;
+    textFrame.TextFrameFormat.AnchoringType = TextAnchorType.Top;
+    textFrame.TextFrameFormat.AutofitType = TextAutofitType.None;
+    textFrame.TextFrameFormat.WrapText = NullableBool.False;
+
+    var label = textFrame.Paragraphs[0];
+    label.Text = alignments[i].ToString();
+    label.ParagraphFormat.Alignment = TextAlignment.Left;
+    label.ParagraphFormat.DefaultPortionFormat.FontHeight = 14;
+    label.ParagraphFormat.DefaultPortionFormat.LatinFont = new FontData("Arial");
+    label.ParagraphFormat.DefaultPortionFormat.FillFormat.FillType = FillType.Solid;
+    label.ParagraphFormat.DefaultPortionFormat.FillFormat.SolidFillColor.Color = Color.Gray;
+
+    var paragraph = new Paragraph();
+    paragraph.ParagraphFormat.FontAlignment = alignments[i];
+    paragraph.ParagraphFormat.Alignment = TextAlignment.Left;
+    paragraph.ParagraphFormat.DefaultPortionFormat.LatinFont = new FontData("Arial");
+    paragraph.ParagraphFormat.DefaultPortionFormat.FillFormat.FillType = FillType.Solid;
+    paragraph.ParagraphFormat.DefaultPortionFormat.FillFormat.SolidFillColor.Color = Color.Black;
+
+    foreach (var fontSize in fontSizes)
+    {
+        var portion = new Portion("Ag ");
+        portion.PortionFormat.FontHeight = fontSize;
+        paragraph.Portions.Add(portion);
+    }
+
+    textFrame.Paragraphs.Add(paragraph);
+}
+
+presentation.Save("font_alignment.pptx", SaveFormat.Pptx);
+```
+
+結果:
+
+![ベースライン、上部、中央、下部のフォント揃えの比較 (混在フォントサイズ)](font_alignment.png)
+
+フォント揃えはフォント メトリックに基づくため、個々の文字の可視エッジが正確に一致するとは限りません。例では大文字とディセンダーの両方を含め、ベースラインと下部揃えの違いを示しています。フォントの可用性と置換、使用文字、フォント サイズの違いが結果に影響します。フレームのサイズ、余白、行間、折り返し、オートフィットもレイアウトに影響するため、モードを比較するときは同じフォントとレイアウト設定を使用してください。
+
+この設定は、水平段落揃えを制御する [IParagraphFormat.Alignment](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/alignment/) や、シェイプ内でテキスト ブロックを垂直に配置する [ITextFrameFormat.AnchoringType](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/anchoringtype/) とは異なります。[IBasePortionFormat.Escapement](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/escapement/) による上付き・下付き書式は、段落の行に対してフォント揃えを設定するのではなく、ベースラインに対して個々の部分をシフトさせます。
+
+## **テキストの透過性を設定**
+
+テキストの透過性は [IBasePortionFormat.FillFormat](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/fillformat/) に割り当てられた色のアルファ成分で制御します。以下の例では `alpha = 50` は 0〜255 の範囲の ARGB アルファ チャネル値であり、透過率ではありません。
+
+次のコード例は、**段落全体** に透過性を適用する方法を示します。
 
 ```cs
 using System.Drawing;
@@ -139,7 +203,7 @@ var slide = presentation.Slides[0];
 var autoShape = (IAutoShape)slide.Shapes[0];
 var paragraph = autoShape.TextFrame.Paragraphs[0];
 
-// テキストに半透明の黒塗りつぶしを設定します。
+// テキストに半透明の黒塗りを設定します。
 paragraph.ParagraphFormat.DefaultPortionFormat.FillFormat.FillType = FillType.Solid;
 paragraph.ParagraphFormat.DefaultPortionFormat.FillFormat.SolidFillColor.Color = Color.FromArgb(alpha, Color.Black);
 
@@ -148,9 +212,9 @@ presentation.Save("transparent_paragraph.pptx", SaveFormat.Pptx);
 
 結果:
 
-![透明な段落](transparent_paragraph.png)
+![透過段落](transparent_paragraph.png)
 
-以下のコード例は **太字フォントのテキスト部分** に透明度を適用する方法を示します。
+次のコード例は、**太字フォント** のテキスト部分に透過性を適用する方法を示します。
 
 ```cs
 using System.Drawing;
@@ -169,7 +233,7 @@ foreach (var portion in paragraph.Portions)
 {
     if (portion.PortionFormat.GetEffective().FontBold)
     {
-        // テキスト部分の透明度を設定します。
+        // テキスト部分の透過性を設定します。
         portion.PortionFormat.FillFormat.FillType = FillType.Solid;
         portion.PortionFormat.FillFormat.SolidFillColor.Color = Color.FromArgb(alpha, Color.Black);
     }
@@ -180,13 +244,13 @@ presentation.Save("transparent_text_portions.pptx", SaveFormat.Pptx);
 
 結果:
 
-![透明なテキスト部分](transparent_text_portions.png)
+![透過テキスト部分](transparent_text_portions.png)
 
-## **テキストの文字間隔の設定**
+## **テキストの文字間隔を設定**
 
-テキスト ボックス内の文字間隔を拡大または縮小するには [IBasePortionFormat.Spacing](https://reference.aspose.com/slides/ja/net/aspose.slides/ibaseportionformat/spacing/) を使用します。以下の例は 3 ポイントの間隔を追加します。負の値を指定すると文字が縮まります。
+テキスト ボックス内の文字間隔を拡大または縮小するには [IBasePortionFormat.Spacing](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/spacing/) を使用します。例では 3 ポイントの間隔を追加しています。負の値は文字間を縮めます。
 
-次の C# コードは **段落全体** の文字間隔を拡大する方法を示します。
+次の C# コードは、**段落全体** の文字間隔を拡大する方法を示します。
 
 ```cs
 using Aspose.Slides;
@@ -208,7 +272,7 @@ presentation.Save("character_spacing_in_paragraph.pptx", SaveFormat.Pptx);
 
 ![段落内の文字間隔](character_spacing_in_paragraph.png)
 
-以下のコード例は **太字フォントのテキスト部分** の文字間隔を拡大する方法を示します。
+次のコード例は、**太字フォント** のテキスト部分の文字間隔を拡大する方法を示します。
 
 ```cs
 using Aspose.Slides;
@@ -236,11 +300,11 @@ presentation.Save("character_spacing_in_text_portions.pptx", SaveFormat.Pptx);
 
 ![テキスト部分の文字間隔](character_spacing_in_text_portions.png)
 
-### **特定フォントのカーニング無効化**
+### **特定フォントのカーニングを無効にする**
 
-場合によっては、Aspose.Slides がレンダリングしたテキストが PowerPoint の表示と比べてやや詰まって見えることがあります。これは PowerPoint が特定フォントのカーニング情報を無視するためです（フォントに有効なカーニング情報が含まれていても、PowerPoint の設定でカーニングが有効になっていても）。
+場合によっては、Aspose.Slides で描画されたテキストが PowerPoint で表示されるテキストよりもわずかに詰まって見えることがあります。これは、PowerPoint が特定フォントのカーニング データを無視するために起こります（フォントに有効なカーニング情報があり、PowerPoint の設定でカーニングが有効になっている場合でも）。
 
-このようなケースでは、影響を受けるフォントを使用するテキスト部分のカーニングを無効化できます。`[IBasePortionFormat.KerningMinimalSize](https://reference.aspose.com/slides/ja/net/aspose.slides/ibaseportionformat/kerningminimalsize/)` に実際のフォントサイズより大きい値を設定します。この例は、最初のスライドの最初のシェイプがテキスト ボックスである「presentation.pptx」を使用します。効果的なフォント名（継承フォントを含む）をチェックし、Roboto を使用する部分に対して 100 ポイントを閾値として設定します。これにより、100 ポイント未満のフォントサイズの該当部分のカーニングが無効化されます。
+このようなケースで PowerPoint に近い出力にするには、該当フォントを使用するテキスト部分のカーニングを無効にします。実際のフォント サイズより大きい値を [IBasePortionFormat.KerningMinimalSize](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/kerningminimalsize/) に設定します。この例では、最初のスライドの最初のシェイプがテキスト ボックスである "presentation.pptx" を前提とし、継承フォントを含む実効フォント名を確認し、Roboto を使用する部分に 100 ポイントの閾値を設定します。これにより、100 ポイント未満のサイズで Robo​to を使用する該当部分のカーニングが無効になります。
 
 ```cs
 using Aspose.Slides;
@@ -272,13 +336,13 @@ foreach (var paragraph in autoShape.TextFrame.Paragraphs)
 presentation.Save("output.pptx", SaveFormat.Pptx);
 ```
 
-閾値以下の該当テキストに対して、この設定はカーニングを防止し、PowerPoint 固有の動作の影響を受けるフォントの表示結果を Aspose.Slides のレンダリングとより一致させるのに役立ちます。
+閾値未満のマッチング テキストに対しては、この設定がカーニングを抑制し、PowerPoint 特有の動作で影響を受けるフォントの視覚的出力を Aspose.Slides と合わせるのに役立ちます。
 
-## **テキスト フォント プロパティの管理**
+## **テキスト フォント プロパティを管理**
 
-フォント プロパティは、段落レベルでは [IParagraphFormat.DefaultPortionFormat](https://reference.aspose.com/slides/ja/net/aspose.slides/iparagraphformat/defaultportionformat/) を介して、個々の部分では [IPortionFormat](https://reference.aspose.com/slides/ja/net/aspose.slides/iportionformat/) を介して設定できます。
+フォント プロパティは、[IParagraphFormat.DefaultPortionFormat](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/defaultportionformat/) を使用して段落レベルで設定するか、[IPortionFormat](https://reference.aspose.com/slides/net/aspose.slides/iportionformat/) を使用して個々の部分で設定できます。
 
-次の例は、最初の段落の既定フォントを 12 ポイントの Times New Roman に設定し、太字、斜体、点線下線を適用します。個々の部分での明示的な書式設定は、これらの既定よりも優先されます。
+次の例は、最初の段落のデフォルト フォントを 12 ポイントの Times New Roman に設定し、太字、斜体、点線下線を書式設定します。個々の部分の明示的な書式はこれらのデフォルトより優先されます。
 
 ```cs
 using Aspose.Slides;
@@ -290,7 +354,7 @@ var slide = presentation.Slides[0];
 var autoShape = (IAutoShape)slide.Shapes[0];
 var paragraph = autoShape.TextFrame.Paragraphs[0];
 
-// 段落のフォントプロパティを設定します。
+// 段落のフォント プロパティを設定します。
 var portionFormat = paragraph.ParagraphFormat.DefaultPortionFormat;
 portionFormat.FontHeight = 12;
 portionFormat.FontBold = NullableBool.True;
@@ -305,7 +369,7 @@ presentation.Save("font_properties_for_paragraph.pptx", SaveFormat.Pptx);
 
 ![段落のフォント プロパティ](font_properties_for_paragraph.png)
 
-次の例は、効果的な書式が太字である部分に対して 13 ポイントの Times New Roman、斜体、点線下線を適用します。
+次の例は、実効書式が太字である部分に対して、13 ポイントの Times New Roman、斜体、点線下線を適用します。
 
 ```cs
 using Aspose.Slides;
@@ -321,7 +385,7 @@ foreach (var portion in paragraph.Portions)
 {
     if (portion.PortionFormat.GetEffective().FontBold)
     {
-        // テキスト部分のフォントプロパティを設定します。
+        // テキスト部分のフォント プロパティを設定します。
         portion.PortionFormat.FontHeight = 13;
         portion.PortionFormat.FontItalic = NullableBool.True;
         portion.PortionFormat.FontUnderline = TextUnderlineType.Dotted;
@@ -336,11 +400,11 @@ presentation.Save("font_properties_for_text_portions.pptx", SaveFormat.Pptx);
 
 ![テキスト部分のフォント プロパティ](font_properties_for_text_portions.png)
 
-## **テキストの回転設定**
+## **テキストの回転を設定**
 
-シェイプ内のテキストの向きを事前定義されたものに設定するには [ITextFrameFormat.TextVerticalType](https://reference.aspose.com/slides/ja/net/aspose.slides/itextframeformat/textverticaltype/) を使用します。
+テキストの向きをシェイプ内で事前定義された方式で設定するには [ITextFrameFormat.TextVerticalType](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/textverticaltype/) を使用します。
 
-次のコード例は、シェイプ内のテキスト向きを [TextVerticalType.Vertical270](https://reference.aspose.com/slides/ja/net/aspose.slides/textverticaltype/) に設定し、テキストを **反時計回りに 90 度** 回転させます。
+次のコード例は、シェイプ内のテキスト向きを [TextVerticalType.Vertical270](https://reference.aspose.com/slides/net/aspose.slides/textverticaltype/) に設定し、テキストを **時計回りに 90 度** 回転させます。
 
 ```cs
 using Aspose.Slides;
@@ -359,9 +423,9 @@ presentation.Save("text_rotation.pptx", SaveFormat.Pptx);
 
 ![テキストの回転](text_rotation.png)
 
-## **テキスト フレームのカスタム回転設定**
+## **テキスト フレームのカスタム回転を設定**
 
-[ITextFrameFormat.RotationAngle](https://reference.aspose.com/slides/ja/net/aspose.slides/itextframeformat/rotationangle/) を使用して、[ITextFrame](https://reference.aspose.com/slides/ja/net/aspose.slides/itextframe/) のカスタム回転角度を設定できます。
+[ITextFrameFormat.RotationAngle](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/rotationangle/) を使用して、[ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/) のカスタム回転角度を設定します。
 
 次のコード例は、シェイプ内のテキスト フレームを時計回りに 3 度回転させます。
 
@@ -380,16 +444,16 @@ presentation.Save("custom_text_rotation.pptx", SaveFormat.Pptx);
 
 結果:
 
-![カスタムテキスト回転](custom_text_rotation.png)
+![カスタム テキスト回転](custom_text_rotation.png)
 
-## **段落の行間設定**
+## **段落の行間隔を設定**
 
-Aspose.Slides は [IParagraphFormat.SpaceAfter](https://reference.aspose.com/slides/ja/net/aspose.slides/iparagraphformat/spaceafter/)、[IParagraphFormat.SpaceBefore](https://reference.aspose.com/slides/ja/net/aspose.slides/iparagraphformat/spacebefore/)、[IParagraphFormat.SpaceWithin](https://reference.aspose.com/slides/ja/net/aspose.slides/iparagraphformat/spacewithin/) を提供し、段落の行間を制御します。使用例は次のとおりです。
+Aspose.Slides は [IParagraphFormat.SpaceAfter](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/spaceafter/)、[IParagraphFormat.SpaceBefore](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/spacebefore/)、[IParagraphFormat.SpaceWithin](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/spacewithin/) を提供し、段落間隔を制御します。これらのプロパティは次のように使用します。
 
-* 正の値は行の高さのパーセンテージとして行間を指定します。
-* 負の値はポイント単位で行間を指定します。
+* 正の値は行の高さのパーセンテージとして行間隔を指定します。  
+* 負の値はポイント単位で行間隔を指定します。
 
-次の例は、最初の段落の行間を行高さの 200%（二倍）に設定します。
+次の例は、最初の段落の行間隔を行の高さの 200%（2 倍行間）に設定します。
 
 ```cs
 using Aspose.Slides;
@@ -408,18 +472,18 @@ presentation.Save("line_spacing.pptx", SaveFormat.Pptx);
 
 結果:
 
-![段落内の行間](line_spacing.png)
+![段落内の行間隔](line_spacing.png)
 
 ## **改行の制御**
 
-段落の改行規則は、狭いテキスト領域やラテン文字と東アジア文字が混在するプレゼンテーションで便利です。これらのプロパティは [IParagraphFormat](https://reference.aspose.com/slides/ja/net/aspose.slides/iparagraphformat/) に属し、段落全体に適用されます。
+段落の改行規則は、狭いテキスト ブロックやラテン文字と東アジア文字が混在するプレゼンテーションで有用です。これらのプロパティは [IParagraphFormat](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/) に属し、段落全体に適用されます。
 
-- [LatinLineBreak](https://reference.aspose.com/slides/ja/net/aspose.slides/iparagraphformat/latinlinebreak/) はラテン文字の改行規則を制御します。混在テキストでは、隣接する東アジア文字や句読点の折り返し位置にも影響します。
-- [EastAsianLineBreak](https://reference.aspose.com/slides/ja/net/aspose.slides/iparagraphformat/eastasianlinebreak/) は東アジア文字の改行規則を制御し、行頭・行末の文字制限などを含みます。
+- [LatinLineBreak](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/latinlinebreak/) はラテン文字の改行規則を制御します。混在テキストの場合、これを変更すると隣接する東アジア文字や句読点の折り返し位置も変わることがあります。  
+- [EastAsianLineBreak](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/eastasianlinebreak/) は東アジア文字の改行規則を制御し、行頭・行末の文字に対する制限を含みます。
 
-これらの規則は [ITextFrameFormat.WrapText](https://reference.aspose.com/slides/ja/net/aspose.slides/itextframeformat/wraptext/) の代替ではなく、テキスト フレーム内で自動折り返しが有効になる際のレイアウトに影響します。行ブレーク文字を挿入するわけではありません。明示的な改行は、利用可能な幅に関係なく段落内に新しい行を強制します。
+これらの規則は [ITextFrameFormat.WrapText](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/wraptext/)（テキスト フレーム内の自動折り返し）を置き換えるものではなく、折り返しが発生したときのレイアウトに影響します。改行文字を挿入するわけではありません。明示的な改行は、利用可能幅に関係なく段落内で新しい行を強制します。
 
-次のセルフコンテインド例は、中国語とラテン文字を含む狭いテキスト ブロックを作成し、両方の改行プロパティを明示的に設定して「line_breaking.pptx」として保存します。どちらか一方の規則を試すには、もう一方を固定したままそのプロパティの値を変更してください。例では 24 ポイントの Arial と SimSun、フレーム幅 160 ポイント、水平余白 0 を使用します。[ITextFrameFormat.AutofitType](https://reference.aspose.com/slides/ja/net/aspose.slides/itextframeformat/autofittype/) は [TextAutofitType.None](https://reference.aspose.com/slides/ja/net/aspose.slides/textautofittype/) に設定し、テキスト サイズとフレーム寸法を固定しています。
+次の自己完結型例は、中文とラテン文字を含む狭いテキスト ブロックを作成し、両方の改行プロパティを明示的に設定して "line_breaking.pptx" として保存します。どちらか一方の規則を試す場合は、もう一方の設定を固定したままプロパティの値を変更してください。例では 24 ポイント Arial と SimSun を使用し、フレーム幅 160 ポイント、水平余白 0 に設定しています。[ITextFrameFormat.AutofitType](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/autofittype/) は [TextAutofitType.None](https://reference.aspose.com/slides/net/aspose.slides/textautofittype/) に設定し、テキストサイズとフレーム寸法を固定しています。
 
 ```cs
 using System.Drawing;
@@ -454,11 +518,11 @@ format.EastAsianLineBreak = NullableBool.True;
 presentation.Save("line_breaking.pptx", SaveFormat.Pptx);
 ```
 
-## **行末句読点の制御**
+## **句読点のぶら下げを制御**
 
-[IParagraphFormat.HangingPunctuation](https://reference.aspose.com/slides/ja/net/aspose.slides/iparagraphformat/hangingpunctuation/) を使用すると、対象となる句読点がテキスト行の右端をはみ出して表示され、次の行を占有しません。段落全体に適用され、ハンギング インデントとは別の機能です。
+[IParagraphFormat.HangingPunctuation](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/hangingpunctuation/) を使用すると、対象となる句読点がテキスト 行の右端を超えて表示され、次の行に入らないようにできます。段落全体に適用され、ハング インデントとは異なります。
 
-次のセルフコンテインド例は、幅 100 ポイントのテキスト フレームでハンギング句読点を有効にし、「hanging_punctuation.pptx」として保存します。24 ポイントの Arial と水平余白 0 の設定で、最後の句点は「sentence」の後に残り、右端をはみ出します。比較のためにプロパティを [NullableBool.False](https://reference.aspose.com/slides/ja/net/aspose.slides/nullablebool/) に設定すると、句点が別行に表示されます。折り返しは有効、オートフィットは無効にして幅を固定しています。
+次の自己完結型例は、幅 100 ポイントのテキスト フレームで句読点のぶら下げを有効にし、"hanging_punctuation.pptx" として保存します。24 ポイント Arial と水平余白 0 の条件下で、最後の句点は "sentence" の後に残り、右端を超えて表示されます。比較のためにプロパティを [NullableBool.False](https://reference.aspose.com/slides/net/aspose.slides/nullablebool/) に設定すると、句点が別行に配置されます。折り返しは有効で、オートフィットは無効にして利用可能幅を固定しています。
 
 ```cs
 using System.Drawing;
@@ -491,11 +555,11 @@ format.HangingPunctuation = NullableBool.True;
 presentation.Save("hanging_punctuation.pptx", SaveFormat.Pptx);
 ```
 
-すべての句読点がハンギングできるわけではありません。上記の [フォントとレイアウトの条件](#conditions-and-limitations) も同様に適用されます。フォント、利用可能幅、余白、オートフィット設定を変更すると、視覚的な違いがなくなることがあります。
+すべての句読点がぶら下げ可能というわけではありません。上記の [フォントとレイアウト条件](#control-line-breaking) も比較に影響します。フォント、利用可能幅、余白、オートフィット設定を変更すると、見た目の違いが消えることがあります。
 
-## **テキスト フレームのオートフィット タイプの設定**
+## **テキスト フレームのオートフィット タイプを設定**
 
-[ITextFrameFormat.AutofitType](https://reference.aspose.com/slides/ja/net/aspose.slides/itextframeformat/autofittype/) は、テキストがコンテナの境界を超えたときの動作を決定します。テキストを縮小、オーバーフロー、またはシェイプを自動的にリサイズするかを制御できます。次の例はシェイプをテキストに合わせてリサイズし、結果を「autofit_type.pptx」として保存します。
+[ITextFrameFormat.AutofitType](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/autofittype/) は、テキストがコンテナの境界を超えたときの動作を決定します。テキストを縮小するか、はみ出すか、シェイプを自動的にリサイズするかを制御できます。次の例は、シェイプがテキストに合わせてリサイズするように設定し、結果を "autofit_type.pptx" として保存します。
 
 ```cs
 using Aspose.Slides;
@@ -510,11 +574,11 @@ autoShape.TextFrame.TextFrameFormat.AutofitType = TextAutofitType.Shape;
 presentation.Save("autofit_type.pptx", SaveFormat.Pptx);
 ```
 
-自動折り返し後の行数やテキスト／シェイプ幅の変化を確認したい場合は、[レンダリングされた行数のカウント](/slides/ja/net/manage-paragraph/) を参照してください。行数だけではテキストがコンテナをはみ出しているかどうかは判断できません。
+自動折り返し後の行数を確認したり、テキストやシェイプの幅が結果に与える影響を見るには、[レンダリングされた行のカウント](/slides/ja/net/manage-paragraph/) を参照してください。行数だけではテキストがコンテナをはみ出しているかどうかは判断できません。
 
-## **テキスト フレームのアンカー設定**
+## **テキスト フレームのアンカーを設定**
 
-[ITextFrameFormat.AnchoringType](https://reference.aspose.com/slides/ja/net/aspose.slides/itextframeformat/anchoringtype/) は、シェイプ内でテキストを縦方向に配置する方法（上部、中央、下部など）を定義します。次の例は最初のシェイプのテキストを下部に固定し、結果を「text_anchor.pptx」として保存します。
+[ITextFrameFormat.AnchoringType](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/anchoringtype/) は、シェイプ内でテキストが垂直方向にどの位置に配置されるか（上部、中央、下部など）を定義します。次の例は、テキストを最初のシェイプの下部に固定し、結果を "text_anchor.pptx" として保存します。
 
 ```cs
 using Aspose.Slides;
@@ -531,7 +595,7 @@ presentation.Save("text_anchor.pptx", SaveFormat.Pptx);
 
 ## **テキストのタブ設定**
 
-段落内のタブストップは、[IParagraphFormat.DefaultTabSize](https://reference.aspose.com/slides/ja/net/aspose.slides/iparagraphformat/defaulttabsize/) と [IParagraphFormat.Tabs](https://reference.aspose.com/slides/ja/net/aspose.slides/iparagraphformat/tabs/) で構成できます。次の例はデフォルトタブ幅を 100 ポイントに設定し、30 ポイント位置に左揃えタブストップを追加します。これらの設定はタブ文字を含むテキストに影響します。
+段落内のタブ位置を構成するには、[IParagraphFormat.DefaultTabSize](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/defaulttabsize/) と [IParagraphFormat.Tabs](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/tabs/) を使用します。次の例は、デフォルトのタブ間隔を 100 ポイントに設定し、30 ポイント位置に左揃えのタブ位置を追加します。これらの設定はタブ文字を含むテキストに影響します。
 
 ```cs
 using Aspose.Slides;
@@ -552,11 +616,11 @@ presentation.Save("paragraph_tabs.pptx", SaveFormat.Pptx);
 
 ![段落のタブ](paragraph_tabs.png)
 
-## **校正言語の設定**
+## **校閲言語を設定**
 
-Aspose.Slides は [IBasePortionFormat.LanguageId](https://reference.aspose.com/slides/ja/net/aspose.slides/ibaseportionformat/languageid/) を提供し、テキスト部分の校正言語を設定できます。校正言語は PowerPoint でのスペルチェックおよび文法チェックに使用される言語です。
+Aspose.Slides は [IBasePortionFormat.LanguageId](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/languageid/) を提供し、テキスト部分の校閲言語を設定できます。校閲言語は PowerPoint のスペルチェックや文法チェックで使用される言語を決定します。
 
-次の例は「presentation.pptx」（最初のスライドの最初のシェイプがテキスト ボックスで、少なくとも1つの段落がある）を使用します。最初の段落の内容を「1。」に置き換え、フォントを SimSun に設定し、校正言語を簡体字中国語 (`zh-CN`) に割り当てます。結果は「proofing_language.pptx」として保存されます。
+次の例は、最初のスライドの最初のシェイプがテキスト ボックスである "presentation.pptx" を前提とし、最初の段落の内容を "1。" に置き換え、フォントを SimSun に設定し、簡体字中国語 (`zh-CN`) の校閲言語を割り当てます。結果は "proofing_language.pptx" として保存されます。
 
 ```cs
 using Aspose.Slides;
@@ -576,7 +640,7 @@ textPortion.PortionFormat.ComplexScriptFont = font;
 textPortion.PortionFormat.EastAsianFont = font;
 textPortion.PortionFormat.LatinFont = font;
 
-// 校正言語を簡体字中国語に設定します。
+// 校閲言語を簡体字中国語に設定します。
 textPortion.PortionFormat.LanguageId = "zh-CN";
 
 textPortion.Text = "1。";
@@ -585,9 +649,9 @@ paragraph.Portions.Add(textPortion);
 presentation.Save("proofing_language.pptx", SaveFormat.Pptx);
 ```
 
-## **既定言語の設定**
+## **デフォルト言語を設定**
 
-[LoadOptions.DefaultTextLanguage](https://reference.aspose.com/slides/ja/net/aspose.slides/loadoptions/defaulttextlanguage/) を使用して、プレゼンテーションの読み込みまたは作成時に作成されるテキストの既定言語を定義できます。次の例は既定テキスト言語を米国英語に設定したプレゼンテーションを作成し、テキスト ボックスを追加して最初のテキスト部分の言語コード `en-US` を出力します。
+[LoadOptions.DefaultTextLanguage](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/defaulttextlanguage/) を使用して、プレゼンテーションの読み込みまたは作成時に作成されるテキストのデフォルト言語を定義します。次の例は、デフォルトテキスト言語を米国英語に設定したプレゼンテーションを作成し、テキスト ボックスを追加して最初のテキスト部分の言語コードとして `en-US` を出力します。
 
 ```cs
 using System;
@@ -599,7 +663,7 @@ loadOptions.DefaultTextLanguage = "en-US";
 using var presentation = new Presentation(loadOptions);
 var slide = presentation.Slides[0];
 
-// 新しい矩形シェイプをテキスト付きで追加します。
+// 新しい矩形シェイプにテキストを追加します。
 var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 150, 50);
 shape.TextFrame.Text = "Sample text";
 
@@ -608,11 +672,11 @@ var portion = shape.TextFrame.Paragraphs[0].Portions[0];
 Console.WriteLine(portion.PortionFormat.LanguageId);
 ```
 
-## **既定テキスト スタイルの設定**
+## **デフォルト テキスト スタイルを設定**
 
-プレゼンテーション全体の既定テキスト書式を適用するには [IPresentation.DefaultTextStyle](https://reference.aspose.com/slides/ja/net/aspose.slides/ipresentation/defaulttextstyle/) を使用します。
+プレゼンテーション レベルでデフォルトのテキスト書式設定を適用するには、[IPresentation.DefaultTextStyle](https://reference.aspose.com/slides/net/aspose.slides/ipresentation/defaulttextstyle/) を使用します。
 
-次の例は新しいプレゼンテーションのトップレベル段落の既定フォントを 14 ポイントの太字に設定し、結果を「default_text_style.pptx」として保存します。テキストは、より具体的な書式設定が上書きしない限り、これらの既定を継承できます。
+次の例は、新規プレゼンテーションの最上位段落のデフォルトとして 14 ポイントの太字フォントを設定し、"default_text_style.pptx" として保存します。テキストはこれらのデフォルトを継承できますが、より具体的な書式設定が上書きします。
 
 ```cs
 using Aspose.Slides;
@@ -631,15 +695,15 @@ if (paragraphFormat != null)
 presentation.Save("default_text_style.pptx", SaveFormat.Pptx);
 ```
 
-## **全角文字効果（All Caps）でテキストを抽出**
+## **全大文字効果でテキストを抽出**
 
-PowerPoint では、**All Caps** フォント効果を適用すると、スライド上では大文字で表示されますが、実際の文字列は元の小文字のままです。Aspose.Slides でそのテキスト部分を取得すると、入力されたままの文字列が返されます。表示されたテキストと一致させるには、[TextCapType](https://reference.aspose.com/slides/ja/net/aspose.slides/textcaptype/) を確認し、値が `All` の場合は取得文字列を大文字に変換します。
+PowerPoint では、**All Caps** フォント効果を適用すると、元が小文字でもスライド上で大文字で表示されます。Aspose.Slides でそのテキスト部分を取得すると、入力時の文字列がそのまま返されます。表示されたテキストと合わせるには、[TextCapType](https://reference.aspose.com/slides/net/aspose.slides/textcaptype/) を確認し、値が `All` の場合は返された文字列を大文字に変換します。
 
-この例は「sample2.pptx」（最初のスライドの最初のシェイプがテキスト ボックス）を使用します。最初の段落の最初の部分に **All Caps** 効果が適用された「Hello, Aspose!」が含まれています（下図参照）。
+この例は、最初のスライドの最初のシェイプがテキスト ボックスである "sample2.pptx" を前提とし、最初の段落の最初の部分に **All Caps** 効果が適用された "Hello, Aspose!" が含まれています。
 
-![All Caps 効果](all_caps_effect.png)
+![全大文字効果](all_caps_effect.png)
 
-次のコード例は **All Caps** 効果が適用されたテキストを抽出する方法を示します。
+次のコード例は、**All Caps** 効果が適用されたテキストを抽出する方法を示します。
 
 ```cs
 using System;
@@ -672,8 +736,8 @@ All-Caps effect: HELLO, ASPOSE!
 
 **スライド上のテーブルのテキストを変更するにはどうすればよいですか？**
 
-テーブルのテキストを変更するには [ITable](https://reference.aspose.com/slides/ja/net/aspose.slides/itable/) を使用します。セルを走査し、各セルを [ICell.TextFrame](https://reference.aspose.com/slides/ja/net/aspose.slides/icell/textframe/) で更新し、段落書式は [IParagraph.ParagraphFormat](https://reference.aspose.com/slides/ja/net/aspose.slides/iparagraph/paragraphformat/) を通じて設定します。
+テーブルのテキストを変更するには [ITable](https://reference.aspose.com/slides/net/aspose.slides/itable/) を使用します。セルを列挙し、各セルを [ICell.TextFrame](https://reference.aspose.com/slides/net/aspose.slides/icell/textframe/) で更新し、段落書式は [IParagraph.ParagraphFormat](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/paragraphformat/) で設定します。
 
-**PowerPoint スライド上のテキストにグラデーションカラーを適用するにはどうすればよいですか？**
+**PowerPoint のスライド上のテキストにグラデーション カラーを適用するには？**
 
-グラデーションカラーを適用するには [IBasePortionFormat.FillFormat](https://reference.aspose.com/slides/ja/net/aspose.slides/ibaseportionformat/fillformat/) を使用します。[IFillFormat.FillType](https://reference.aspose.com/slides/ja/net/aspose.slides/ifillformat/filltype/) を [FillType.Gradient](https://reference.aspose.com/slides/ja/net/aspose.slides/filltype/) に設定し、グラデーション ストップ、方向、透明度を構成します。
+テキストにグラデーション カラーを適用するには [IBasePortionFormat.FillFormat](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/fillformat/) を使用します。[IFillFormat.FillType](https://reference.aspose.com/slides/net/aspose.slides/ifillformat/filltype/) を [FillType.Gradient](https://reference.aspose.com/slides/net/aspose.slides/filltype/) に設定し、グラデーション ストップ、方向、透過性を構成します。

@@ -7,7 +7,7 @@ url: /el/androidjava/text-formatting/
 keywords:
 - στοίχιση παραγράφου
 - στυλ κειμένου
-- φόντο κειμένου
+- υπόβαθρο κειμένου
 - διαφάνεια κειμένου
 - απόσταση χαρακτήρων
 - ιδιότητες γραμματοσειράς
@@ -15,9 +15,9 @@ keywords:
 - περιστροφή κειμένου
 - γωνία περιστροφής
 - πλαίσιο κειμένου
-- διάστιχο
+- απόσταση γραμμών
 - ιδιότητα autofit
-- άγκυρο πλαισίου κειμένου
+- άγκυρα πλαισίου κειμένου
 - στηλοθέτηση κειμένου
 - προεπιλεγμένη γλώσσα
 - PowerPoint
@@ -26,23 +26,23 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Μορφοποιήστε και σχεδιάστε κείμενο σε παρουσιάσεις PowerPoint και OpenDocument χρησιμοποιώντας το Aspose.Slides για Android μέσω Java. Προσαρμόστε γραμματοσειρές, χρώματα, στοίχιση και άλλα."
+description: "Μορφοποίηση και στυλιζάρισμα κειμένου σε παρουσιάσεις PowerPoint και OpenDocument χρησιμοποιώντας το Aspose.Slides για Android μέσω Java. Προσαρμόστε γραμματοσειρές, χρώματα, στοίχιση και άλλα."
 ---
 ## **Επισκόπηση**
 
-Αυτό το άρθρο δείχνει πώς να μορφοποιήσετε κείμενο σε παρουσιάσεις PowerPoint και OpenDocument χρησιμοποιώντας το Aspose.Slides για Android μέσω Java. Καλύπτει χρώματα φόντου, διαφάνεια, απόσταση χαρακτήρων, ιδιότητες γραμματοσειράς, περιστροφή, διάστημα παραγράφων, συμπεριφορά autofit, αγκύρωση κειμένου, σημεία διαστημάτων και ρυθμίσεις γλώσσας.
+Αυτό το άρθρο δείχνει πώς να μορφοποιήσετε το κείμενο σε παρουσιάσεις PowerPoint και OpenDocument χρησιμοποιώντας το Aspose.Slides για Android μέσω Java. Καλύπτει χρώματα υποβάθρου, διαφάνεια, απόσταση χαρακτήρων, ιδιότητες γραμματοσειράς, περιστροφή, απόσταση παραγράφων, συμπεριφορά autofit, αγκύρωση κειμένου, διακοσμητές στηλοθέτη και ρυθμίσεις γλώσσας.
 
-Εκτός εάν αναφέρεται διαφορετικά, τα παραδείγματα χρησιμοποιούν το [sample.pptx](sample.pptx). Το πρώτο σχήμα στην πρώτη διαφάνεια είναι ένα πλαίσιο κειμένου και η πρώτη παράγραφος του περιέχει το κείμενο που φαίνεται παρακάτω. Οι δείκτες διαφανειών και σχημάτων είναι μηδενικής βάσης. Τα παραδείγματα που επιλέγουν έντονες (bold) ενότητες χρησιμοποιούν αποτελεσματική μορφοποίηση, συμπεριλαμβανομένης της κληρονομημένης έντονης μορφοποίησης:
+Εκτός αν αναφέρεται διαφορετικά, τα παραδείγματα χρησιμοποιούν το [sample.pptx](sample.pptx). Το πρώτο σχήμα στην πρώτη διαφάνειά του είναι ένα πλαίσιο κειμένου, και η πρώτη παράγραφος του περιέχει το κείμενο που φαίνεται παρακάτω. Και οι δείκτες διαφάνειας και σχήματος είναι μηδενικής βάσης. Παραδείγματα που επιλέγουν έντονα τμήματα χρησιμοποιούν αποτελεσματική μορφοποίηση, συμπεριλαμβανομένης της κληρονομημένης έντονης μορφοποίησης:
 
-![Sample text](sample_text.png)
+![Δείγμα κειμένου](sample_text.png)
 
-Για να βρείτε και να επισημάνετε κυριολεκτικό κείμενο ή ταιριάσματα κανονικής έκφρασης, δείτε [Αναζήτηση και Αντικατάσταση Κειμένου](/slides/el/androidjava/search-and-replace-text/).
+Για να βρείτε και να επισημάνετε κυριολεκτικό κείμενο ή αντιστοιχίες κανονικής έκφρασης, δείτε [Αναζήτηση και Αντικατάσταση Κειμένου](/slides/el/androidjava/search-and-replace-text/).
 
-## **Ορισμός Χρώματος Φόντου Κειμένου**
+## **Ορισμός Χρώματος Υποβάθρου Κειμένου**
 
-Χρησιμοποιήστε [IParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/iparagraphformat/#getDefaultPortionFormat--) για να ορίσετε το προεπιλεγμένο χρώμα επισήμανσης για μια παράγραφο, ή χρησιμοποιήστε [IBasePortionFormat.getHighlightColor](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ibaseportionformat/#getHighlightColor--) για μεμονωμένες ενότητες κειμένου.
+Χρησιμοποιήστε [IParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#getDefaultPortionFormat--) για να ορίσετε το προεπιλεγμένο χρώμα επισήμανσης για μια παράγραφο, ή χρησιμοποιήστε [IBasePortionFormat.getHighlightColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformat/#getHighlightColor--) για μεμονωμένα τμήματα κειμένου.
 
-Το παρακάτω παράδειγμα ορίζει ελαφρύ γκρι χρώμα επισήμανσης ως προεπιλογή για την πρώτη παράγραφο. Τα ρητά χρώματα επισήμανσης σε μεμονωμένες ενότητες υπερισχύουν αυτής της προεπιλογής:
+Το παρακάτω παράδειγμα ορίζει μια ανοιχτόγκρι επισήμανση ως προεπιλογή για την πρώτη παράγραφο. Τα ρητά χρώματα επισήμανσης στα μεμονωμένα τμήματα έχουν προτεραιότητα απέναντι σε αυτήν την προεπιλογή:
 
 ```java
 import com.aspose.slides.*;
@@ -66,9 +66,9 @@ try {
 
 Το αποτέλεσμα:
 
-![The gray paragraph](gray_paragraph.png)
+![Η γκρίζα παράγραφος](gray_paragraph.png)
 
-Το παρακάτω παράδειγμα κώδικα παρουσιάζει πώς να ορίσετε το χρώμα φόντου για **ενότητες κειμένου με έντονη γραμματοσειρά**:
+Το παρακάτω παράδειγμα κώδικα δείχνει πώς να ορίσετε το χρώμα υποβάθρου για **τμήματα κειμένου με έντονη γραμματοσειρά**:
 
 ```java
 import com.aspose.slides.*;
@@ -83,7 +83,7 @@ try {
 
     for (IPortion portion : paragraph.getPortions()) {
         if (portion.getPortionFormat().getEffective().getFontBold()) {
-            // Ορίστε το χρώμα επισήμανσης για την ενότητα κειμένου.
+            // Ορίστε το χρώμα επισήμανσης για το τμήμα κειμένου.
             portion.getPortionFormat().getHighlightColor().setColor(Color.LTGRAY);
         }
     }
@@ -96,13 +96,13 @@ try {
 
 Το αποτέλεσμα:
 
-![The gray text portions](gray_text_portions.png)
+![Τα γκρι τμήματα κειμένου](gray_text_portions.png)
 
 ## **Στοίχιση Παραγράφων Κειμένου**
 
-Χρησιμοποιήστε [IParagraphFormat.setAlignment](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/iparagraphformat/#setAlignment-int-) για να ορίσετε την στοίχιση παραγράφου εντός ενός πλαισίου κειμένου. Η τιμή μπορεί να είναι κεντραρισμένη, αριστερή, δεξιά, με στοίχιση σε στήλες (justified) κλπ.
+Χρησιμοποιήστε [IParagraphFormat.setAlignment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setAlignment-int-) για να ορίσετε την ευθυγράμμιση παραγράφου μέσα σε ένα πλαίσιο κειμένου. Η τιμή μπορεί να είναι κεντραρισμένη, αριστερά, δεξιά, με στοίχιση πλήρους ευρυότητας κ.ά.
 
-Το παρακάτω παράδειγμα κώδικα δείχνει πώς να στοιχίσετε την παράγραφο στο **κέντρο**:
+Το παρακάτω παράδειγμα κώδικα δείχνει πώς να ευθυγραμμίσετε την παράγραφο στο **κέντρο**:
 
 ```java
 import com.aspose.slides.*;
@@ -114,7 +114,7 @@ try {
     IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
-    // Ορίστε τη στοίχιση της παραγράφου στο κέντρο.
+    // Ορίστε την ευθυγράμμιση της παραγράφου στο κέντρο.
     paragraph.getParagraphFormat().setAlignment(TextAlignment.Center);
 
     presentation.save("aligned_paragraph.pptx", SaveFormat.Pptx);
@@ -125,13 +125,79 @@ try {
 
 Το αποτέλεσμα:
 
-![The aligned paragraph](aligned_paragraph.png)
+![Η ευθυγραμμισμένη παράγραφος](aligned_paragraph.png)
+
+## **Στοίχιση Γραμματοσειρών Μέσα σε Μία Γραμμή**
+
+Χρησιμοποιήστε [IParagraphFormat.setFontAlignment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setFontAlignment-int-) για να στοίχειτε κατακόρυφα τμήματα κειμένου διαφορετικών μεγεθών γραμματοσειράς μέσα σε μια γραμμή. Αυτή η ρύθμιση εφαρμόζεται σε ολόκληρη την παράγραφο και ελέγχει τη στοίχιση σε κάθε της γραμμή.
+
+Το παρακάτω αυτόνομο παράδειγμα δημιουργεί τέσσερα ετικετοποιημένα πλαίσια κειμένου σε μια διαφάνεια. Κάθε παράγραφος περιέχει το ίδιο κείμενο σε 18, 36 και 54 σημεία, με διαφορετική στοίχιση γραμματοσειράς. Χρησιμοποιεί Arial, απενεργοποιεί το autofit και τη συσπείρωση, και διατηρεί τα πλαίσια κειμένου αρκετά μεγάλα για μία γραμμή.
+
+```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    int[] alignments = { FontAlignment.Baseline, FontAlignment.Top, FontAlignment.Center, FontAlignment.Bottom };
+    String[] alignmentNames = { "Baseline", "Top", "Center", "Bottom" };
+    float[] fontSizes = { 18f, 36f, 54f };
+
+    for (int i = 0; i < alignments.length; i++) {
+        IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 30, 20 + i * 130, 660, 120);
+        shape.getFillFormat().setFillType(FillType.NoFill);
+        shape.getLineFormat().getFillFormat().setFillType(FillType.NoFill);
+
+        ITextFrame textFrame = shape.getTextFrame();
+        textFrame.getTextFrameFormat().setAnchoringType(TextAnchorType.Top);
+        textFrame.getTextFrameFormat().setAutofitType(TextAutofitType.None);
+        textFrame.getTextFrameFormat().setWrapText(NullableBool.False);
+
+        IParagraph label = textFrame.getParagraphs().get_Item(0);
+        label.setText(alignmentNames[i]);
+        label.getParagraphFormat().setAlignment(TextAlignment.Left);
+        label.getParagraphFormat().getDefaultPortionFormat().setFontHeight(14);
+        label.getParagraphFormat().getDefaultPortionFormat().setLatinFont(new FontData("Arial"));
+        label.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
+        label.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY);
+
+        Paragraph paragraph = new Paragraph();
+        paragraph.getParagraphFormat().setFontAlignment(alignments[i]);
+        paragraph.getParagraphFormat().setAlignment(TextAlignment.Left);
+        paragraph.getParagraphFormat().getDefaultPortionFormat().setLatinFont(new FontData("Arial"));
+        paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
+        paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
+
+        for (float fontSize : fontSizes) {
+            Portion portion = new Portion("Ag ");
+            portion.getPortionFormat().setFontHeight(fontSize);
+            paragraph.getPortions().add(portion);
+        }
+
+        textFrame.getParagraphs().add(paragraph);
+    }
+
+    presentation.save("font_alignment.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Το αποτέλεσμα:
+
+![Σύγκριση Στοίχισης Baseline, Top, Center, Bottom με μικτά μεγέθη γραμματοσειράς](font_alignment.png)
+
+Η στοίχιση γραμματοσειράς χρησιμοποιεί μετρικές γραμματοσειράς, έτσι ώστε οι ορατές άκρες των ατομικών χαρακτήρων να μην ευθυγραμμίζονται ακριβώς. Το παράδειγμα περιλαμβάνει τόσο ένα κεφαλαίο γράμμα όσο και ένα φθίνουσες χαρακτήρες για να δείξει τη διαφορά μεταξύ στοίχισης baseline και bottom. Η διαθεσιμότητα και η αντικατάσταση γραμματοσειρών, οι χαρακτήρες που χρησιμοποιούνται και η διαφορά στο μέγεθος των γραμματοσειρών επηρεάζουν το αποτέλεσμα. Διαστάσεις πλαισίου, περιθώρια, απόσταση γραμμής, συσπείρωση και autofit επηρεάζουν επίσης τη διάταξη· χρησιμοποιήστε τις ίδιες γραμματοσειρές και ρυθμίσεις διάταξης όταν συγκρίνετε τις λειτουργίες.
+
+Αυτή η ρύθμιση διαφέρει από [IParagraphFormat.setAlignment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setAlignment-int-), η οποία ελέγχει την οριζόντια στοίχιση παραγράφου, και από [ITextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframeformat/#setAnchoringType-byte-), η οποία τοποθετεί το μπλοκ κειμένου κατακόρυφα μέσα στο σχήμα του. Η μορφοποίηση υπερ- και υπο-δείκτη μέσω [IBasePortionFormat.setEscapement](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformat/#setEscapement-float-) μετατοπίζει ατομικά τμήματα σχετικά με τη baseline αντί να ορίζει τη στοίχιση γραμματοσειράς για τις γραμμές της παραγράφου.
 
 ## **Ορισμός Διαφάνειας για Κείμενο**
 
-Η διαφάνεια του κειμένου ελέγχεται μέσω του συνιστώσας άλφα του χρώματος που έχει οριστεί στο [IBasePortionFormat.getFillFormat](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ibaseportionformat/#getFillFormat--). Στα παραδείγματα παρακάτω, `alpha = 50` είναι τιμή καναλιού άλφα ARGB στην κλίμακα 0–255, όχι ποσοστό διαφάνειας.
+Η διαφάνεια του κειμένου ελέγχεται μέσω του άλφα στοιχείου του χρώματος που έχει εκχωρηθεί σε [IBasePortionFormat.getFillFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformat/#getFillFormat--). Στα παρακάτω παραδείγματα, `alpha = 50` είναι μια τιμή καναλιού ARGB αλφα στην κλίμακα 0‑255, όχι ποσοστό διαφάνειας.
 
-Το παρακάτω παράδειγμα κώδικα δείχνει πώς να εφαρμόσετε διαφάνεια σε **ολόκληρη την παράγραφο**:
+Το παρακάτω παράδειγμα κώδικα δείχνει πώς να εφαρμόσετε διαφάνεια στην **ολόκληρη την παράγραφο**:
 
 ```java
 import com.aspose.slides.*;
@@ -158,9 +224,9 @@ try {
 
 Το αποτέλεσμα:
 
-![The transparent paragraph](transparent_paragraph.png)
+![Η διαφανής παράγραφος](transparent_paragraph.png)
 
-Το παρακάτω παράδειγμα κώδικα δείχνει πώς να εφαρμόσετε διαφάνεια σε **ενότητες κειμένου με έντονη γραμματοσειρά**:
+Το παρακάτω παράδειγμα κώδικα δείχνει πώς να εφαρμόσετε διαφάνεια σε **τμήματα κειμένου με έντονη γραμματοσειρά**:
 
 ```java
 import com.aspose.slides.*;
@@ -177,7 +243,7 @@ try {
 
     for (IPortion portion : paragraph.getPortions()) {
         if (portion.getPortionFormat().getEffective().getFontBold()) {
-            // Ορίστε τη διαφάνεια της ενότητας κειμένου.
+            // Ορίστε τη διαφάνεια του τμήματος κειμένου.
             portion.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
             portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.argb(alpha, 0, 0, 0));
         }
@@ -191,11 +257,11 @@ try {
 
 Το αποτέλεσμα:
 
-![The transparent text portions](transparent_text_portions.png)
+![Τα διαφανή τμήματα κειμένου](transparent_text_portions.png)
 
 ## **Ορισμός Απόστασης Χαρακτήρων για Κείμενο**
 
-Χρησιμοποιήστε [IBasePortionFormat.setSpacing](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ibaseportionformat/#setSpacing-float-) για να αυξήσετε ή να μειώσετε την απόσταση μεταξύ χαρακτήρων σε ένα πλαίσιο κειμένου. Τα παραδείγματα προσθέτουν 3 σημεία απόστασης· οι αρνητικές τιμές μειώνουν το κείμενο.
+Χρησιμοποιήστε [IBasePortionFormat.setSpacing](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformat/#setSpacing-float-) για να αυξήσετε ή να μειώσετε την απόσταση μεταξύ χαρακτήρων σε ένα πλαίσιο κειμένου. Τα παραδείγματα προσθέτουν 3 σημεία απόσταση· αρνητικές τιμές μειώνουν την απόσταση.
 
 Ο ακόλουθος κώδικας Java δείχνει πώς να αυξήσετε την απόσταση χαρακτήρων στην **ολόκληρη την παράγραφο**:
 
@@ -209,8 +275,8 @@ try {
     IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
-    // Σημείωση: Χρησιμοποιήστε αρνητικές τιμές για να συμπιέσετε την απόσταση χαρακτήρων.
-    paragraph.getParagraphFormat().getDefaultPortionFormat().setSpacing(3); // Επεκτείνετε την απόσταση χαρακτήρων.
+    // Σημείωση: Χρησιμοποιήστε αρνητικές τιμές για συμπίεση της απόστασης χαρακτήρων.
+    paragraph.getParagraphFormat().getDefaultPortionFormat().setSpacing(3); // Επέκταση απόστασης χαρακτήρων.
 
     presentation.save("character_spacing_in_paragraph.pptx", SaveFormat.Pptx);
 } finally {
@@ -220,9 +286,9 @@ try {
 
 Το αποτέλεσμα:
 
-![The character spacing in the paragraph](character_spacing_in_paragraph.png)
+![Η απόσταση χαρακτήρων στην παράγραφο](character_spacing_in_paragraph.png)
 
-Το παρακάτω παράδειγμα κώδικα δείχνει πώς να αυξήσετε την απόσταση χαρακτήρων σε **ενότητες κειμένου με έντονη γραμματοσειρά**:
+Το παρακάτω παράδειγμα κώδικα δείχνει πώς να αυξήσετε την απόσταση χαρακτήρων σε **τμήματα κειμένου με έντονη γραμματοσειρά**:
 
 ```java
 import com.aspose.slides.*;
@@ -236,8 +302,8 @@ try {
 
     for (IPortion portion : paragraph.getPortions()) {
         if (portion.getPortionFormat().getEffective().getFontBold()) {
-            // Σημείωση: Χρησιμοποιήστε αρνητικές τιμές για να συμπιέσετε την απόσταση χαρακτήρων.
-            portion.getPortionFormat().setSpacing(3); // Επεκτείνετε την απόσταση χαρακτήρων.
+            // Σημείωση: Χρησιμοποιήστε αρνητικές τιμές για συμπίεση της απόστασης χαρακτήρων.
+            portion.getPortionFormat().setSpacing(3); // Επέκταση απόστασης χαρακτήρων.
         }
     }
 
@@ -249,13 +315,13 @@ try {
 
 Το αποτέλεσμα:
 
-![The character spacing in the text portions](character_spacing_in_text_portions.png)
+![Η απόσταση χαρακτήρων στα τμήματα κειμένου](character_spacing_in_text_portions.png)
 
-### **Απενεργοποίηση Kerning για Συγκεκριμένες Γραμματοσείρες**
+### **Απενεργοποίηση Kerning για Συγκεκριμένες Γραμματοσειρές**
 
-Σε ορισμένες περιπτώσεις, το κείμενο που αποδίδεται από το Aspose.Slides μπορεί να φαίνεται ελαφρώς πιο πυκνό από το ίδιο κείμενο στο PowerPoint. Αυτό μπορεί να συμβεί επειδή το PowerPoint μπορεί να αγνοήσει τα δεδομένα kerning για ορισμένες γραμματοσειρές, ακόμα και όταν η γραμματοσειρά περιέχει έγκυρες πληροφορίες kerning και το kerning είναι ενεργό στις ρυθμίσεις του PowerPoint.
+Σε ορισμένες περιπτώσεις, το κείμενο που αποδίδει το Aspose.Slides μπορεί να φαίνεται ελαφρώς πιο πυκνό από το ίδιο κείμενο που εμφανίζεται στο PowerPoint. Αυτό μπορεί να συμβαίνει επειδή το PowerPoint μπορεί να αγνοεί τα δεδομένα kerning για ορισμένες γραμματοσειρές, ακόμη και όταν η γραμματοσειρά περιέχει έγκυρες πληροφορίες kerning και το kerning είναι ενεργοποιημένο στις ρυθμίσεις του PowerPoint.
 
-Για να φέρετε το αποτέλεσμα πιο κοντά στο PowerPoint, μπορείτε να απενεργοποιήσετε το kerning για ενότητες κειμένου που χρησιμοποιούν τη συγκεκριμένη γραμματοσειρά. Ορίστε [IBasePortionFormat.setKerningMinimalSize](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ibaseportionformat/#setKerningMinimalSize-float-) σε τιμή μεγαλύτερη από το πραγματικό μέγεθος γραμματοσειράς. Αυτό το παράδειγμα απαιτεί το "presentation.pptx" με ένα πλαίσιο κειμένου ως πρώτο σχήμα στην πρώτη διαφάνεια. Ελέγχει τα αποτελεσματικά ονόματα γραμματοσειράς, συμπεριλαμβανομένων των κληρονομημένων, και θέτει κατώφλι 100 σημείων για ενότητες που χρησιμοποιούν Roboto. Αυτό απενεργοποιεί το kerning για τις αντίστοιχες ενότητες με μέγεθος γραμματοσειράς κάτω από 100 σημεία:
+Για να φέρετε την απόδοση πιο κοντά στο PowerPoint σε τέτοιες περιπτώσεις, μπορείτε να απενεργοποιήσετε το kerning για τμήματα κειμένου που χρησιμοποιούν τη γραμματοσειρά που επηρεάζεται. Ορίστε [IBasePortionFormat.setKerningMinimalSize](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformat/#setKerningMinimalSize-float-) σε τιμή μεγαλύτερη από το πραγματικό μέγεθος γραμματοσειράς. Αυτό το παράδειγμα απαιτεί το "presentation.pptx" με ένα πλαίσιο κειμένου ως πρώτο σχήμα στην πρώτη διαφάνεια. Ελέγχει τα αποτελεσματικά ονόματα γραμματοσειρών, συμπεριλαμβανομένων των κληρονομημένων, και θέτει ένα όριο 100 σημείων για τμήματα που χρησιμοποιούν το Roboto. Αυτό απενεργοποιεί το kerning για τα τμήματα που έχουν μέγεθος γραμματοσειράς κάτω από 100 σημεία:
 
 ```java
 import com.aspose.slides.*;
@@ -288,13 +354,13 @@ try {
 }
 ```
 
-Για κείμενο που ταιριάζει κάτω από το κατώφλι, αυτή η ρύθμιση αποτρέπει το kerning και μπορεί να βοηθήσει το rendering του Aspose.Slides να ταιριάζει με το οπτικό αποτέλεσμα του PowerPoint για γραμματοσείρες που επηρεάζονται από αυτή τη συμπεριφορά του PowerPoint.
+Για κείμενο που ταιριάζει κάτω από το όριο, αυτή η ρύθμιση αποτρέπει το kerning και μπορεί να βοηθήσει στο να ταιριάζει η απόδοση του Aspose.Slides με το οπτικό αποτέλεσμα του PowerPoint για τις γραμματοσειρές που επηρεάζονται από αυτήν τη συμπεριφορά ειδική του PowerPoint.
 
 ## **Διαχείριση Ιδιοτήτων Γραμματοσειράς Κειμένου**
 
-Οι ιδιότητες γραμματοσειράς μπορούν να οριστούν στο επίπεδο παραγράφου μέσω [IParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/iparagraphformat/#getDefaultPortionFormat--) ή σε μεμονωμένες ενότητες μέσω [IPortionFormat](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/iportionformat/).
+Οι ιδιότητες γραμματοσειράς μπορούν να οριστούν στο επίπεδο παραγράφου μέσω [IParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#getDefaultPortionFormat--) ή σε μεμονωμένα τμήματα μέσω [IPortionFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iportionformat/).
 
-Το παρακάτω παράδειγμα ορίζει την προεπιλεγμένη γραμματοσειρά της πρώτης παραγράφου σε Times New Roman 12 σημείο με έντονη, πλάγια και υπογράμμιση με κουκίδες. Η ρητή μορφοποίηση σε μεμονωμένες ενότητες υπερισχύει αυτών των προεπιλογών:
+Το παρακάτω παράδειγμα ορίζει τη προεπιλεγμένη γραμματοσειρά της πρώτης παραγράφου σε Times New Roman 12 σημείων με έντονη, πλάγια και υπογραμμισμένη με τελείες μορφοποίηση. Η ρητή μορφοποίηση σε μεμονωμένα τμήματα έχει προτεραιότητα επί των προεπιλογών.
 
 ```java
 import com.aspose.slides.*;
@@ -321,9 +387,9 @@ try {
 
 Το αποτέλεσμα:
 
-![The font properties for the paragraph](font_properties_for_paragraph.png)
+![Οι ιδιότητες γραμματοσειράς για την παράγραφο](font_properties_for_paragraph.png)
 
-Το παρακάτω παράδειγμα εφαρμόζει Times New Roman 13 σημείο, πλάγια μορφοποίηση και υπογράμμιση με κουκίδες σε ενότητες των οποίων η αποτελεσματική μορφοποίηση είναι έντονη:
+Το παρακάτω παράδειγμα εφαρμόζει Times New Roman 13 σημείων, πλάγια μορφοποίηση και υπογράμμιση με τελείες σε τμήματα των οποίων η αποτελεσματική μορφοποίηση είναι έντονη:
 
 ```java
 import com.aspose.slides.*;
@@ -337,7 +403,7 @@ try {
 
     for (IPortion portion : paragraph.getPortions()) {
         if (portion.getPortionFormat().getEffective().getFontBold()) {
-            // Ορίστε τις ιδιότητες γραμματοσειράς για την ενότητα κειμένου.
+            // Ορίστε τις ιδιότητες γραμματοσειράς για το τμήμα κειμένου.
             portion.getPortionFormat().setFontHeight(13);
             portion.getPortionFormat().setFontItalic(NullableBool.True);
             portion.getPortionFormat().setFontUnderline(TextUnderlineType.Dotted);
@@ -353,13 +419,13 @@ try {
 
 Το αποτέλεσμα:
 
-![The font properties for text portions](font_properties_for_text_portions.png)
+![Οι ιδιότητες γραμματοσειράς για τα τμήματα κειμένου](font_properties_for_text_portions.png)
 
 ## **Ορισμός Περιστροφής Κειμένου**
 
-Χρησιμοποιήστε [ITextFrameFormat.setTextVerticalType](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/itextframeformat/#setTextVerticalType-byte-) για να ορίσετε προεπιλεγμένη προσανατολισμό κειμένου μέσα σε σχήμα.
+Χρησιμοποιήστε [ITextFrameFormat.setTextVerticalType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframeformat/#setTextVerticalType-byte-) για να ορίσετε μια προκαθορισμένη προσανατολισμό κειμένου μέσα σε ένα σχήμα.
 
-Το παρακάτω παράδειγμα κώδικα ορίζει τον προσανατολισμό κειμένου στο σχήμα σε [TextVerticalType.Vertical270](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/textverticaltype/), που περιστρέφει το κείμενο **90 μοίρες αριστερά**:
+Το παρακάτω παράδειγμα κώδικα ορίζει τον προσανατολισμό κειμένου στο σχήμα σε [TextVerticalType.Vertical270](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textverticaltype/), που περιστρέφει το κείμενο **90 μοίρες αριστερόστροφα**:
 
 ```java
 import com.aspose.slides.*;
@@ -379,13 +445,13 @@ try {
 
 Το αποτέλεσμα:
 
-![The text rotation](text_rotation.png)
+![Η περιστροφή κειμένου](text_rotation.png)
 
 ## **Ορισμός Προσαρμοσμένης Περιστροφής για Πλαίσια Κειμένου**
 
-Χρησιμοποιήστε [ITextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/itextframeformat/#setRotationAngle-float-) για να ορίσετε προσαρμοσμένη γωνία περιστροφής για ένα [ITextFrame](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/itextframe/).
+Χρησιμοποιήστε [ITextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframeformat/#setRotationAngle-float-) για να ορίσετε μια προσαρμοσμένη γωνία περιστροφής για ένα [ITextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/).
 
-Ο παρακάτω κώδικας περιστρέφει το πλαίσιο κειμένου κατά 3 μοίρες δεξιόστροφα μέσα στο σχήμα:
+Το παρακάτω παράδειγμα κώδικα περιστρέφει το πλαίσιο κειμένου κατά 3 μοίρες δεξιόστροφα μέσα στο σχήμα:
 
 ```java
 import com.aspose.slides.*;
@@ -405,16 +471,16 @@ try {
 
 Το αποτέλεσμα:
 
-![The custom text rotation](custom_text_rotation.png)
+![Η προσαρμοσμένη περιστροφή κειμένου](custom_text_rotation.png)
 
-## **Ορισμός Διάστιχου Παραγράφων**
+## **Ορισμός Απόστασης Γραμμών για Παραγράφους**
 
-Το Aspose.Slides παρέχει [IParagraphFormat.setSpaceAfter](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/iparagraphformat/#setSpaceAfter-float-), [IParagraphFormat.setSpaceBefore](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/iparagraphformat/#setSpaceBefore-float-) και [IParagraphFormat.setSpaceWithin](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/iparagraphformat/#setSpaceWithin-float-) για τον έλεγχο του διαστήματος παραγράφων. Αυτές οι ιδιότητες χρησιμοποιούνται ως εξής:
+Το Aspose.Slides παρέχει [IParagraphFormat.setSpaceAfter](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setSpaceAfter-float-), [IParagraphFormat.setSpaceBefore](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setSpaceBefore-float-), και [IParagraphFormat.setSpaceWithin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setSpaceWithin-float-) για τον έλεγχο της απόστασης παραγράφων. Αυτές οι ιδιότητες χρησιμοποιούνται ως εξής:
 
-* Χρησιμοποιήστε θετική τιμή για να ορίσετε το διάστιχο ως ποσοστό του ύψους γραμμής.
-* Χρησιμοποιήστε αρνητική τιμή για να ορίσετε το διάστιχο σε σημεία.
+* Χρησιμοποιήστε θετική τιμή για να ορίσετε την απόσταση γραμμής ως ποσοστό του ύψους γραμμής.
+* Χρησιμοποιήστε αρνητική τιμή για να ορίσετε την απόσταση γραμμής σε σημεία.
 
-Το παρακάτω παράδειγμα ορίζει το διάστιχο εντός της πρώτης παραγράφου στο 200 % του ύψους γραμμής (διπλό διάστιχο):
+Το παρακάτω παράδειγμα ορίζει την απόσταση εντός της πρώτης παραγράφου στο 200 % του ύψους γραμμής (διπλή απόσταση):
 
 ```java
 import com.aspose.slides.*;
@@ -436,18 +502,18 @@ try {
 
 Το αποτέλεσμα:
 
-![The line spacing within the paragraph](line_spacing.png)
+![Η απόσταση γραμμής μέσα στην παράγραφο](line_spacing.png)
 
-## **Έλεγχος Διακοπής Γραμμής**
+## **Έλεγχος Σπασίματος Γραμμής**
 
-Οι κανόνες διακοπής γραμμής παραγράφων είναι χρήσιμοι σε στενά μπλοκ κειμένου και παρουσιάσεις που συνδυάζουν λατινικό και ασιατικό κείμενο. Οι ακόλουθες μέθοδοι ανήκουν στο [IParagraphFormat](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/iparagraphformat/), επομένως εφαρμόζονται σε ολόκληρη την παράγραφο:
+Οι κανόνες σπασίματος γραμμής παραγράφου είναι χρήσιμοι σε στενούς οίκο κειμένου και παρουσιάσεις που συνδυάζουν Λατινικό και Ανατολικοασιατικό κείμενο. Οι παρακάτω μέθοδοι ανήκουν στο [IParagraphFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/), οπότε εφαρμόζονται σε ολόκληρη την παράγραφο:
 
-- [setLatinLineBreak](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/iparagraphformat/#setLatinLineBreak-byte-) ελέγχει τους κανόνες διακοπής για λατινικό κείμενο. Σε μεικτό κείμενο, η αλλαγή του μπορεί επίσης να αλλάξει το σημείο όπου το γειτονικό ασιατικό κείμενο και η στίξη σβήνουν.
-- [setEastAsianLineBreak](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/iparagraphformat/#setEastAsianLineBreak-byte-) ελέγχει τους κανόνες διακοπής για ασιατικό κείμενο, συμπεριλαμβανομένων των περιορισμών χαρακτήρων στην αρχή και το τέλος μιας γραμμής.
+- [setLatinLineBreak](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setLatinLineBreak-byte-) ελέγχει τους κανόνες σπασίματος Λατινικού κειμένου. Σε μεικτό κείμενο, η αλλαγή του μπορεί επίσης να αλλάξει το σημείο όπου το διπλανό Ανατολικοασιατικό κείμενο και η στίξη θα περιτυλίγονται.
+- [setEastAsianLineBreak](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setEastAsianLineBreak-byte-) ελέγχει τους κανόνες σπασίματος Ανατολικοασιατικού κειμένου, συμπεριλαμβανομένων των περιορισμών στους χαρακτήρες στην αρχή ή στο τέλος μιας γραμμής.
 
-Αυτοί οι κανόνες δεν αντικαθιστούν το [ITextFrameFormat.setWrapText](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/itextframeformat/#setWrapText-byte-), το οποίο ενεργοποιεί την αυτόματη αναδίπλωση εντός ενός πλαισίου κειμένου. Επηρεάζουν τη διάταξη όταν γίνεται αναδίπλωση· δεν εισάγουν χαρακτήρες αλλαγής γραμμής. Μια ρητή αλλαγή γραμμής αναγκάζει νέα γραμμή μέσα στην παράγραφο ανεξάρτητα από το διαθέσιμο πλάτος.
+Αυτοί οι κανόνες δεν αντικαθιστούν το [ITextFrameFormat.setWrapText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframeformat/#setWrapText-byte-), το οποίο ενεργοποιεί την αυτόματη περιτύλιξη μέσα σε ένα πλαίσιο κειμένου. Επηρεάζουν τη διάταξη όταν γίνεται η περιτύλιξη· δεν εισάγουν χαρακτήρες αλλαγής γραμμής. Μια ρητή αλλαγή γραμμής αναγκάζει νέα γραμμή μέσα στην παράγραφο ανεξάρτητα από το διαθέσιμο πλάτος.
 
-Το παρακάτω αυτόνομο παράδειγμα δημιουργεί ένα στενό μπλοκ κειμένου που περιέχει κινέζικο και λατινικό κείμενο. Ορίζει και τις δύο επιλογές διακοπής γραμμής ρητά και αποθηκεύει το «line_breaking.pptx». Για να πειραματιστείτε με κάθε κανόνα, αλλάξτε την αντίστοιχη τιμή διατηρώντας τις άλλες ρυθμίσεις αμετάβλητες. Το παράδειγμα χρησιμοποιεί Arial 24 σημείο και SimSun με πλάτος πλαισίου 160 σημείο και μηδενικά οριζόντια περιθώρια πλαισίου κειμένου. Το [ITextFrameFormat.setAutofitType](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/itextframeformat/#setAutofitType-byte-) καλείται με [TextAutofitType.None](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/textautofittype/) ώστε το μέγεθος κειμένου και οι διαστάσεις πλαισίου να παραμείνουν σταθερά.
+Το παρακάτω αυτόνομο παράδειγμα δημιουργεί ένα στενό μπλοκ κειμένου που περιέχει Κινέζικο και Λατινικό κείμενο. Ορίζει ρητά και τις δύο επιλογές σπασίματος και αποθηκεύει το «line_breaking.pptx». Για να πειραματιστείτε με κάποιον κανόνα, αλλάξτε την αντίστοιχη τιμή διατηρώντας τις άλλες ρυθμίσεις σταθερές. Το παράδειγμα χρησιμοποιεί Arial 24 σημείων και SimSun με πλάτος πλαισίου 160 σημείων και μηδενικά οριζόντια περιθώρια πλαισίου κειμένου. Το [ITextFrameFormat.setAutofitType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframeformat/#setAutofitType-byte-) καλείται με [TextAutofitType.None](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textautofittype/) ώστε το μέγεθος του κειμένου και οι διαστάσεις του πλαισίου να παραμείνουν σταθερές.
 
 ```java
 import com.aspose.slides.*;
@@ -487,11 +553,11 @@ try {
 }
 ```
 
-## **Έλεγχος Κρεμαστών Στίγματων**
+## **Έλεγχος Κρεμαστής Στίξης**
 
-[IParagraphFormat.setHangingPunctuation](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/iparagraphformat/#setHangingPunctuation-byte-) επιτρέπει σε επιλέξιμη στίγμα να εκτείνεται πέρα από το δεξιό άκρο της γραμμής αντί να καταλαμβάνει την επόμενη γραμμή. Εφαρμόζεται σε ολόκληρη την παράγραφο και διαφέρει από το κρεμαστό εσοχή.
+[IParagraphFormat.setHangingPunctuation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setHangingPunctuation-byte-) επιτρέπει σε επιλέξιμη στίξη να εκτείνεται πέρα από τη δεξιά άκρη της γραμμής κειμένου αντί να καταλαμβάνει την επόμενη γραμμή. Εφαρμόζεται σε ολόκληρη την παράγραφο και διαφέρει από μια κρεμαστή εσοχή.
 
-Το παρακάτω αυτόνομο παράδειγμα ενεργοποιεί κρεμαστά στίγματα σε πλαίσιο κειμένου πλάτους 100 σημείο και αποθηκεύει το «hanging_punctuation.pptx». Με Arial 24 σημείο και μηδενικά οριζόντια περιθώρια, η τελική τελεία παραμένει μετά τη λέξη «sentence» και εκτείνεται πέρα από το δεξιό άκρο του κειμένου. Ορίστε την ιδιότητα σε [NullableBool.False](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/nullablebool/) για σύγκριση: με αυτές τις ρυθμίσεις, η τελεία καταλαμβάνει ξεχωριστή γραμμή. Η αναδίπλωση είναι ενεργή και το autofit είναι απενεργοποιημένο για να διατηρηθεί το διαθέσιμο πλάτος σταθερό.
+Το παρακάτω αυτόνομο παράδειγμα ενεργοποιεί την κρεμαστή στίξη σε πλαίσιο κειμένου πλάτους 100 σημεία και αποθηκεύει το «hanging_punctuation.pptx». Με Arial 24 σημεία και μηδενικά οριζόντια περιθώρια πλαισίου κειμένου, το τελικό τελεία παραμένει μετά τη λέξη «sentence» και εκτείνεται πέρα από την άκρη του κειμένου. Ορίστε την ιδιότητα σε [NullableBool.False](https://reference.aspose.com/slides/androidjava/com.aspose.slides/nullablebool/) για σύγκριση: με αυτές τις ρυθμίσεις, η τελεία καταλαμβάνει ξεχωριστή γραμμή. Η περιτύλιξη είναι ενεργοποιημένη και το autofit είναι απενεργοποιημένο για να παραμείνει το διαθέσιμο πλάτος σταθερό.
 
 ```java
 import com.aspose.slides.*;
@@ -528,11 +594,11 @@ try {
 }
 ```
 
-Δεν μπορεί να κρεμαστεί κάθε στίγμα. Το ορατό αποτέλεσμα εξαρτάται από τη διαθεσιμότητα της γραμματοσειράς και τη διάταξη: η αλλαγή της γραμματοσειράς, του διαθέσιμου πλάτους, των περιθωρίων ή των ρυθμίσεων autofit μπορεί να αφαιρέσει τη διακριτή διαφορά.
+Δεν μπορεί να κρεμαστεί κάθε στίξη. Οι [συνθήκες γραμματοσειράς και διάταξης που περιγράφονται παραπάνω](#control-line-breaking) ισχύουν επίσης για αυτή τη σύγκριση: η αλλαγή της γραμματοσειράς, του διαθέσιμου πλάτους, των περιθωρίων ή των ρυθμίσεων autofit μπορεί να αφαιρέσει τη διακριτή διαφορά.
 
 ## **Ορισμός Τύπου Autofit για Πλαίσια Κειμένου**
 
-[ITextFrameFormat.setAutofitType](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/itextframeformat/#setAutofitType-byte-) καθορίζει πώς συμπεριφέρεται το κείμενο όταν ξεπερνά τα όρια του περιέκτη του. Χρησιμοποιήστε το για να ελέγξετε αν το κείμενο μειώνεται, υπερχειλίζεται ή το σχήμα προσαρμόζεται αυτόματα. Το παρακάτω παράδειγμα διαμορφώνει το σχήμα ώστε να αλλάζει μέγεθος για να χωρά το κείμενό του και αποθηκεύει το αποτέλεσμα σε «autofit_type.pptx».
+[ITextFrameFormat.setAutofitType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframeformat/#setAutofitType-byte-) καθορίζει πώς συμπεριφέρεται το κείμενο όταν υπερβαίνει τα όρια του περιέκτη του. Χρησιμοποιήστε το για να ελέγξετε αν το κείμενο θα συρρικνωθεί, θα κατακλύσει ή θα αλλάξει μέγεθος του σχήματος αυτόματα. Το παρακάτω παράδειγμα ρυθμίζει το σχήμα ώστε να αλλάζει μέγεθος ώστε να ταιριάζει με το κείμενο και αποθηκεύει το αποτέλεσμα στο «autofit_type.pptx».
 
 ```java
 import com.aspose.slides.*;
@@ -550,11 +616,11 @@ try {
 }
 ```
 
-Για να μετρήσετε τις γραμμές μετά την αυτόματη αναδίπλωση και να δείτε πώς η αλλαγή του πλάτους κειμένου ή σχήματος επηρεάζει το αποτέλεσμα, δείτε [Count Rendered Lines](/slides/el/androidjava/manage-paragraph/). Ο μόνος ο αριθμός γραμμών δεν υποδεικνύει αν το κείμενο υπερχειλίζει το περιέκτη του.
+Για να μετρήσετε τις γραμμές μετά την αυτόματη περιτύλιξη και να δείτε πώς η αλλαγή του μεγέθους κειμένου ή σχήματος επηρεάζει το αποτέλεσμα, δείτε [Count Rendered Lines](/slides/el/androidjava/manage-paragraph/). Ο μόνος ο αριθμός γραμμών δεν υποδεικνύει αν το κείμενο υπερβαίνει το περιέκτη του.
 
 ## **Ορισμός Άγκυρας Πλαισίων Κειμένου**
 
-[ITextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/itextframeformat/#setAnchoringType-byte-) ορίζει πώς τοποθετείται το κείμενο κάθετα μέσα σε σχήμα, π.χ. στην κορυφή, στο κέντρο ή στο κάτω μέρος. Το παρακάτω παράδειγμα αγκυροβολεί το κείμενο στο κάτω μέρος του πρώτου σχήματος και αποθηκεύει το αποτέλεσμα σε «text_anchor.pptx».
+[ITextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframeformat/#setAnchoringType-byte-) ορίζει πώς τοποθετείται το κείμενο κατακόρυφα μέσα σε ένα σχήμα, π.χ. στο επάνω, στο μέσο ή στο κάτω μέρος. Το παρακάτω παράδειγμα αγκυροβολεί το κείμενο στο κάτω μέρος του πρώτου σχήματος και αποθηκεύει το αποτέλεσμα στο «text_anchor.pptx».
 
 ```java
 import com.aspose.slides.*;
@@ -572,9 +638,9 @@ try {
 }
 ```
 
-## **Ορισμός Στηλοθεσίας Κειμένου**
+## **Ορισμός Στηλοθετησης Κειμένου**
 
-Χρησιμοποιήστε [IParagraphFormat.setDefaultTabSize](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/iparagraphformat/#setDefaultTabSize-float-) και [IParagraphFormat.getTabs](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/iparagraphformat/#getTabs--) για να ρυθμίσετε σημεία διαστήματος (tab stops) σε μια παράγραφο. Το παρακάτω παράδειγμα θέτει το προεπιλεγμένο διάστημα tab στα 100 σημεία και προσθέτει αριστερά στολισμένο tab στα 30 σημεία. Αυτές οι ρυθμίσεις επηρεάζουν κείμενο που περιέχει χαρακτήρες tab.
+Χρησιμοποιήστε [IParagraphFormat.setDefaultTabSize](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setDefaultTabSize-float-) και [IParagraphFormat.getTabs](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#getTabs--) για να διαμορφώσετε διακοσμητές στηλοθέτη σε μια παράγραφο. Το παρακάτω παράδειγμα ορίζει το προεπιλεγμένο διάστημα στηλοθέτη σε 100 σημεία και προσθέτει έναν αριστερά στοιχισμένο διακοσμητή στηλοθέτη στα 30 σημεία. Αυτές οι ρυθμίσεις επηρεάζουν κείμενο που περιέχει χαρακτήρες στηλοθέτη.
 
 ```java
 import com.aspose.slides.*;
@@ -597,13 +663,13 @@ try {
 
 Το αποτέλεσμα:
 
-![The paragraph tabs](paragraph_tabs.png)
+![Οι στηλοθετήσεις της παραγράφου](paragraph_tabs.png)
 
 ## **Ορισμός Γλώσσας Ελέγχου**
 
-Το Aspose.Slides παρέχει [IBasePortionFormat.setLanguageId](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ibaseportionformat/#setLanguageId-java.lang.String-), το οποίο επιτρέπει τον ορισμό της γλώσσας ελέγχου για μια ενότητα κειμένου. Η γλώσσα ελέγχου καθορίζει τη γλώσσα που χρησιμοποιείται για ορθογραφικό και γραμματικό έλεγχο στο PowerPoint.
+Το Aspose.Slides παρέχει [IBasePortionFormat.setLanguageId](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformat/#setLanguageId-java.lang.String-), που σας επιτρέπει να ορίσετε τη γλώσσα ελέγχου για ένα τμήμα κειμένου. Η γλώσσα ελέγχου καθορίζει τη γλώσσα που χρησιμοποιείται για ορθογραφικό και γραμματικό έλεγχο στο PowerPoint.
 
-Το παρακάτω παράδειγμα απαιτεί το «presentation.pptx» με ένα πλαίσιο κειμένου ως πρώτο σχήμα στην πρώτη διαφάνεια και τουλάχιστον μία παράγραφο. Αντικαθιστά το περιεχόμενο της πρώτης παραγράφου με «1。», θέτει το SimSun ως γραμματοσειρά της και αντιστοιχίζει τη γλώσσα ελέγχου απλούκινγκ (**Simplified Chinese**) (`zh-CN`). Αποθηκεύει το αποτέλεσμα σε «proofing_language.pptx»:
+Το παρακάτω παράδειγμα απαιτεί το «presentation.pptx» με ένα πλαίσιο κειμένου ως πρώτο σχήμα στην πρώτη διαφάνεια και τουλάχιστον μία παράγραφο. Αντικαθιστά τα περιεχόμενα της πρώτης παραγράφου με «1。», ορίζει το SimSun ως γραμματοσειρά της και αντιστοιχεί τη γλώσσα ελέγχου απλοποιημένων Κινέζικων (`zh-CN`). Αποθηκεύει το αποτέλεσμα στο «proofing_language.pptx»:
 
 ```java
 import com.aspose.slides.*;
@@ -624,7 +690,7 @@ try {
     textPortion.getPortionFormat().setEastAsianFont(font);
     textPortion.getPortionFormat().setLatinFont(font);
 
-    // Ορίστε το Id της γλώσσας ελέγχου.
+    // Ορίστε το Id μιας γλώσσας ελέγχου.
     textPortion.getPortionFormat().setLanguageId("zh-CN");
 
     textPortion.setText("1。");
@@ -638,7 +704,7 @@ try {
 
 ## **Ορισμός Προεπιλεγμένης Γλώσσας**
 
-Χρησιμοποιήστε [LoadOptions.setDefaultTextLanguage](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/loadoptions/#setDefaultTextLanguage-java.lang.String-) για να ορίσετε την προεπιλεγμένη γλώσσα για κείμενο που δημιουργείται κατά τη φόρτωση ή δημιουργία παρουσίασης. Το παρακάτω παράδειγμα δημιουργεί μια παρουσίαση με τις ΗΠΑ Αγγλικά ως προεπιλεγμένη γλώσσα κειμένου, προσθέτει ένα πλαίσιο κειμένου και εκτυπώνει `en-US` για την πρώτη ενότητα κειμένου.
+Χρησιμοποιήστε [LoadOptions.setDefaultTextLanguage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/loadoptions/#setDefaultTextLanguage-java.lang.String-) για να ορίσετε τη προεπιλεγμένη γλώσσα για κείμενο που δημιουργείται κατά τη φόρτωση ή τη δημιουργία μιας παρουσίασης. Το παρακάτω παράδειγμα δημιουργεί μια παρουσίαση με Αμερικανική αγγλική ως προεπιλεγμένη γλώσσα κειμένου, προσθέτει ένα πλαίσιο κειμένου και εκτυπώνει `en-US` για το πρώτο τμήμα κειμένου.
 
 ```java
 import com.aspose.slides.*;
@@ -654,7 +720,7 @@ try {
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 150, 50);
     shape.getTextFrame().setText("Sample text");
 
-    // Ελέγξτε τη γλώσσα της πρώτης ενότητας.
+    // Ελέγξτε τη γλώσσα του πρώτου τμήματος.
     IPortion portion = shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
     System.out.println(portion.getPortionFormat().getLanguageId());
 } finally {
@@ -664,16 +730,16 @@ try {
 
 ## **Ορισμός Προεπιλεγμένου Στυλ Κειμένου**
 
-Για να εφαρμόσετε προεπιλεγμένη μορφοποίηση κειμένου σε επίπεδο παρουσίασης, χρησιμοποιήστε [IPresentation.getDefaultTextStyle](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ipresentation/#getDefaultTextStyle--).
+Για να εφαρμόσετε προεπιλεγμένη μορφοποίηση κειμένου σε επίπεδο παρουσίασης, χρησιμοποιήστε [IPresentation.getDefaultTextStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipresentation/#getDefaultTextStyle--).
 
-Το παρακάτω παράδειγμα ορίζει γραμματοσειρά 14 σημείο, έντονη, ως προεπιλογή για παραγράφους κορυφαίου επιπέδου σε νέα παρουσίαση και αποθηκεύει το αρχείο σε «default_text_style.pptx». Το κείμενο μπορεί να κληρονομήσει αυτές τις προεπιλογές εκτός εάν πιο συγκεκριμένη μορφοποίηση τις παρακάμπτει.
+Το παρακάτω παράδειγμα ορίζει μια γραμματοσειρά 14 σημείων με έντονη μορφή ως προεπιλογή για τις παραγράφους πρώτου επιπέδου σε μια νέα παρουσίαση και το αποθηκεύει στο «default_text_style.pptx». Το κείμενο μπορεί να κληρονομήσει αυτές τις προεπιλογές εκτός εάν πιο συγκεκριμένη μορφοποίηση τις υπερχειρίζεται.
 
 ```java
 import com.aspose.slides.*;
 
 Presentation presentation = new Presentation();
 try {
-    // Λάβετε τη μορφοποίηση παραγράφου κορυφαίου επιπέδου.
+    // Πάρτε τη μορφοποίηση παραγράφου του πρώτου επιπέδου.
     IParagraphFormat paragraphFormat = presentation.getDefaultTextStyle().getLevel(0);
 
     if (paragraphFormat != null) {
@@ -689,13 +755,13 @@ try {
 
 ## **Εξαγωγή Κειμένου με το Εφέ Όλων Κεφαλαίων**
 
-Στο PowerPoint, η εφαρμογή του εφέ **All Caps** σε γραμματοσειρά κάνει το κείμενο να εμφανίζεται σε κεφαλαία στην διαφάνεια ακόμη και όταν αρχικά είχε πληκτρολογηθεί με πεζά. Όταν ανακτάτε μια τέτοια ενότητα κειμένου με το Aspose.Slides, η βιβλιοθήκη επιστρέφει το κείμενο ακριβώς όπως εισήχθη. Για να ταιριάξετε το εμφανιζόμενο κείμενο, ελέγξτε το [TextCapType](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/textcaptype/) και μετατρέψτε το επιστρεφόμενο string σε κεφαλαία όταν η τιμή είναι `All`.
+Στο PowerPoint, η εφαρμογή του **All Caps** εφέ γραμματοσειράς κάνει το κείμενο να εμφανίζεται με κεφαλαία γράμματα στη διαφάνεια ακόμη και αν αρχικά πληκτρολογήθηκε με πεζά. Όταν ανακτάτε ένα τέτοιο τμήμα κειμένου με το Aspose.Slides, η βιβλιοθήκη επιστρέφει το κείμενο ακριβώς όπως εισήχθη. Για να ταιριάξει το εμφανιζόμενο κείμενο, ελέγξτε το [TextCapType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textcaptype/) και μετατρέψτε την επιστρεφόμενη συμβολοσειρά σε κεφαλαία όταν η τιμή είναι `All`.
 
-Το παράδειγμα απαιτεί το «sample2.pptx» με ένα πλαίσιο κειμένου ως πρώτο σχήμα στην πρώτη διαφάνεια. Η πρώτη παράγραφος της πρώτης ενότητας περιέχει το «Hello, Aspose!» με το εφέ All Caps εφαρμόσμένο, όπως φαίνεται παρακάτω.
+Το παράδειγμα απαιτεί το «sample2.pptx» με ένα πλαίσιο κειμένου ως πρώτο σχήμα στην πρώτη διαφάνεια. Το πρώτο τμήμα της πρώτης παραγράφου του περιέχει το «Hello, Aspose!» με το εφέ All Caps εφαρμοσμένο, όπως φαίνεται παρακάτω.
 
-![The All Caps effect](all_caps_effect.png)
+![Το εφέ Όλων Κεφαλαίων](all_caps_effect.png)
 
-Το παρακάτω παράδειγμα κώδικα δείχνει πώς να εξάγετε το κείμενο με το εφέ **All Caps** εφαρμοσμένο:
+Το παρακάτω παράδειγμα κώδικα δείχνει πώς να εξάγετε το κείμενο με το **All Caps** εφέ εφαρμοσμένο:
 
 ```java
 import com.aspose.slides.*;
@@ -719,19 +785,19 @@ try {
 }
 ```
 
-Output:
+Έξοδος:
 
 ```text
 Original text: Hello, Aspose!
 All-Caps effect: HELLO, ASPOSE!
 ```
 
-## **FAQ**
+## **ΣΥΧΝΕΣ ΕΡΩΤΗΣΕΙΣ**
 
-**Πώς τροποποιώ το κείμενο σε έναν πίνακα σε μια διαφάνεια;**
+**Πώς μπορώ να τροποποιήσω το κείμενο σε έναν πίνακα σε μια διαφάνεια;**
 
-Για να τροποποιήσετε το κείμενο σε έναν πίνακα σε μια διαφάνεια, χρησιμοποιήστε [ITable](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/itable/). Διασχίστε τα κελιά και ενημερώστε κάθε κελί μέσω του [ICell.getTextFrame](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/icell/#getTextFrame--) και μορφοποίησης παραγράφων μέσω του [IParagraph.getParagraphFormat](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/iparagraph/#getParagraphFormat--).
+Για να τροποποιήσετε το κείμενο σε έναν πίνακα σε μια διαφάνεια, χρησιμοποιήστε [ITable](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itable/). Επανάληψη μέσω των κελιών και ενημέρωση κάθε κελιού μέσω του [ICell.getTextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#getTextFrame--) και μορφοποίηση παραγράφων μέσω του [IParagraph.getParagraphFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph/#getParagraphFormat--).
 
-**Πώς εφαρμόζω ένα διαβαθμισμένο χρώμα σε κείμενο σε μια διαφάνεια PowerPoint;**
+**Πώς μπορώ να εφαρμόσω διαβαθμισμένο χρώμα σε κείμενο σε μια διαφάνεια PowerPoint;**
 
-Για να εφαρμόσετε διαβαθμισμένο χρώμα σε κείμενο, χρησιμοποιήστε [IBasePortionFormat.getFillFormat](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ibaseportionformat/#getFillFormat--). Ορίστε το [IFillFormat.setFillType](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ifillformat/#setFillType-byte-) σε [FillType.Gradient](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/filltype/) και ρυθμίστε τα σημεία διαβάθμισης, την κατεύθυνση και τη διαφάνεια.
+Για να εφαρμόσετε διαβαθμισμένο χρώμα σε κείμενο, χρησιμοποιήστε [IBasePortionFormat.getFillFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformat/#getFillFormat--). Ορίστε το [IFillFormat.setFillType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifillformat/#setFillType-byte-) σε [FillType.Gradient](https://reference.aspose.com/slides/androidjava/com.aspose.slides/filltype/) και διαμορφώστε τις διαβάσεις, την κατεύθυνση και τη διαφάνεια.

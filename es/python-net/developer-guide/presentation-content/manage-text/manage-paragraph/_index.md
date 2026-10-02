@@ -1,6 +1,6 @@
 ---
-title: Administrar párrafos de texto de PowerPoint en Python
-linktitle: Administrar párrafo
+title: Gestionar párrafos de texto de PowerPoint en Python
+linktitle: Gestionar párrafo
 type: docs
 weight: 40
 url: /es/python-net/manage-paragraph/
@@ -8,53 +8,53 @@ aliases:
   - /python-net/paragraph/
   - /python-net/portion/
 keywords:
-- añadir texto
-- añadir párrafo
-- gestionar texto
-- gestionar párrafo
-- gestionar viñeta
-- sangría de párrafo
-- sangría colgante
-- viñeta de párrafo
-- lista numerada
-- lista con viñetas
-- propiedades del párrafo
-- importar HTML
-- texto a HTML
-- párrafo a HTML
-- párrafo a imagen
-- texto a imagen
-- exportar párrafo
-- PowerPoint
-- presentación
-- Python
-- Aspose.Slides
-description: "Aprenda a crear y formatear párrafos, fragmentos, viñetas, listas numeradas, sangrías, contenido HTML y imágenes de párrafos con Aspose.Slides para Python vía .NET."
+  - añadir texto
+  - añadir párrafo
+  - gestionar texto
+  - gestionar párrafo
+  - gestionar viñeta
+  - sangría de párrafo
+  - sangría colgante
+  - viñeta de párrafo
+  - lista numerada
+  - lista con viñetas
+  - propiedades del párrafo
+  - importar HTML
+  - texto a HTML
+  - párrafo a HTML
+  - párrafo a imagen
+  - texto a imagen
+  - exportar párrafo
+  - PowerPoint
+  - presentación
+  - Python
+  - Aspose.Slides
+description: "Aprenda a crear y dar formato a párrafos, porciones, viñetas, listas numeradas, sangrías, contenido HTML y imágenes de párrafos con Aspose.Slides para Python mediante .NET."
 ---
 ## **Visión general**
 
-Aspose.Slides for Python via .NET representa el texto como una jerarquía de marcos de texto, párrafos y fragmentos:
+Aspose.Slides for Python via .NET representa el texto como una jerarquía de marcos de texto, párrafos y porciones:
 
-* [TextFrame](https://reference.aspose.com/slides/es/python-net/aspose.slides/textframe/) representa el contenedor de texto en una forma y proporciona acceso a su colección de párrafos.
-* [Paragraph](https://reference.aspose.com/slides/es/python-net/aspose.slides/paragraph/) representa un párrafo en un marco de texto y proporciona acceso a sus fragmentos y a la formatación a nivel de párrafo.
-* [Portion](https://reference.aspose.com/slides/es/python-net/aspose.slides/portion/) representa una ejecución de texto dentro de un párrafo. Cada fragmento puede tener su propio texto y formatación a nivel de carácter.
+* [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) representa el contenedor de texto en una forma y proporciona acceso a su colección de párrafos.
+* [Paragraph](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/) representa un párrafo en un marco de texto y proporciona acceso a sus porciones y al formato a nivel de párrafo.
+* [Portion](https://reference.aspose.com/slides/python-net/aspose.slides/portion/) representa una ejecución de texto dentro de un párrafo. Cada porción puede tener su propio texto y formato a nivel de carácter.
 
-Por lo tanto, un párrafo puede contener texto con diferentes fuentes, colores, tamaños y demás formataciones mediante el uso de varios fragmentos.
+Por lo tanto, un párrafo puede contener texto con diferentes fuentes, colores, tamaños y demás formatos mediante el uso de varias porciones.
 
 ## **Crear y formatear párrafos**
 
-### **Crear párrafos con varios fragmentos**
+### **Crear párrafos con múltiples porciones**
 
-Los pasos siguientes crean un marco de texto con tres párrafos, cada uno con tres fragmentos:
+Los pasos siguientes crean un marco de texto con tres párrafos, cada uno con tres porciones:
 
-1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/es/python-net/aspose.slides/presentation/).
+1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
 2. Acceder a la diapositiva correspondiente mediante su índice.
-3. Añadir una [AutoShape](https://reference.aspose.com/slides/es/python-net/aspose.slides/autoshape/) rectangular a la diapositiva.
-4. Acceder al [TextFrame](https://reference.aspose.com/slides/es/python-net/aspose.slides/textframe/) de la forma.
-5. Utilizar el párrafo predeterminado y añadir dos objetos [Paragraph](https://reference.aspose.com/slides/es/python-net/aspose.slides/paragraph/) más al marco de texto.
-6. Añadir suficientes objetos [Portion](https://reference.aspose.com/slides/es/python-net/aspose.slides/portion/) para que cada párrafo contenga tres fragmentos. El párrafo predeterminado ya contiene un fragmento vacío.
-7. Establecer el texto de cada fragmento.
-8. Aplicar formatación a nivel de carácter mediante [Portion.portion_format](https://reference.aspose.com/slides/es/python-net/aspose.slides/portion/portion_format/).
+3. Añadir una [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) rectangular a la diapositiva.
+4. Acceder al [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) de la forma.
+5. Utilizar el párrafo predeterminado y añadir dos objetos [Paragraph](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/) más al marco de texto.
+6. Añadir suficientes objetos [Portion](https://reference.aspose.com/slides/python-net/aspose.slides/portion/) para que cada párrafo contenga tres porciones. El párrafo predeterminado ya contiene una porción vacía.
+7. Establecer el texto de cada porción.
+8. Aplicar formato a nivel de carácter mediante [Portion.portion_format](https://reference.aspose.com/slides/python-net/aspose.slides/portion/portion_format/).
 9. Guardar la presentación modificada.
 
 Este ejemplo en Python implementa los pasos:
@@ -108,18 +108,18 @@ with slides.Presentation() as presentation:
 
 ### **Crear una lista con viñetas o numerada**
 
-Las viñetas y la numeración facilitan la lectura de elementos relacionados. En Aspose.Slides, la configuración de listas se define mediante [BulletFormat](https://reference.aspose.com/slides/es/python-net/aspose.slides/bulletformat/).
+Las viñetas y la numeración facilitan la lectura de elementos relacionados. En Aspose.Slides, la configuración de la lista se define mediante [BulletFormat](https://reference.aspose.com/slides/python-net/aspose.slides/bulletformat/).
 
-1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/es/python-net/aspose.slides/presentation/).
+1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
 2. Acceder a la diapositiva correspondiente mediante su índice.
-3. Añadir una [AutoShape](https://reference.aspose.com/slides/es/python-net/aspose.slides/autoshape/) a la diapositiva seleccionada.
-4. Acceder al [TextFrame](https://reference.aspose.com/slides/es/python-net/aspose.slides/textframe/) de la forma.
+3. Añadir una [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) a la diapositiva seleccionada.
+4. Acceder al [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) de la forma.
 5. Eliminar el párrafo predeterminado del marco de texto.
-6. Crear un [Paragraph](https://reference.aspose.com/slides/es/python-net/aspose.slides/paragraph/) para una viñeta de símbolo.
-7. Establecer [BulletFormat.type](https://reference.aspose.com/slides/es/python-net/aspose.slides/bulletformat/type/) a [BulletType.SYMBOL](https://reference.aspose.com/slides/es/python-net/aspose.slides/bullettype/) y especificar el carácter de la viñeta.
+6. Crear un [Paragraph](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/) para una viñeta de símbolo.
+7. Establecer [BulletFormat.type](https://reference.aspose.com/slides/python-net/aspose.slides/bulletformat/type/) a [BulletType.SYMBOL](https://reference.aspose.com/slides/python-net/aspose.slides/bullettype/) y especificar el carácter de la viñeta.
 8. Definir el texto del párrafo, la sangría, el color de la viñeta y la altura de la viñeta.
 9. Añadir el párrafo al marco de texto.
-10. Crear un segundo párrafo y establecer [BulletFormat.type](https://reference.aspose.com/slides/es/python-net/aspose.slides/bulletformat/type/) a [BulletType.NUMBERED](https://reference.aspose.com/slides/es/python-net/aspose.slides/bullettype/).
+10. Crear un segundo párrafo y establecer [BulletFormat.type](https://reference.aspose.com/slides/python-net/aspose.slides/bulletformat/type/) a [BulletType.NUMBERED](https://reference.aspose.com/slides/python-net/aspose.slides/bullettype/).
 11. Configurar el estilo de la viñeta numerada y añadir el párrafo al marco de texto.
 12. Guardar la presentación.
 
@@ -160,22 +160,22 @@ with slides.Presentation() as presentation:
     presentation.save("bulleted_and_numbered_list.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **Usar viñetas de imagen**
+### **Usar viñetas con imágenes**
 
-Las viñetas de imagen permiten utilizar una imagen personalizada en lugar de un símbolo o número.
+Las viñetas con imágenes le permiten utilizar una imagen personalizada en lugar de un símbolo o número.
 
-1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/es/python-net/aspose.slides/presentation/).
+1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
 2. Acceder a la diapositiva correspondiente mediante su índice.
-3. Añadir una [AutoShape](https://reference.aspose.com/slides/es/python-net/aspose.slides/autoshape/) y acceder a su [TextFrame](https://reference.aspose.com/slides/es/python-net/aspose.slides/textframe/).
+3. Añadir una [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) y acceder a su [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/).
 4. Eliminar el párrafo predeterminado del marco de texto.
-5. Cargar la imagen de la viñeta y añadirla a la colección de imágenes de la presentación como un [PPImage](https://reference.aspose.com/slides/es/python-net/aspose.slides/ppimage/).
-6. Crear un [Paragraph](https://reference.aspose.com/slides/es/python-net/aspose.slides/paragraph/) y establecer su texto.
-7. Establecer [BulletFormat.type](https://reference.aspose.com/slides/es/python-net/aspose.slides/bulletformat/type/) a [BulletType.PICTURE](https://reference.aspose.com/slides/es/python-net/aspose.slides/bullettype/).
-8. Asignar la imagen mediante [BulletFormat.picture](https://reference.aspose.com/slides/es/python-net/aspose.slides/bulletformat/picture/) y definir la altura de la viñeta.
+5. Cargar la imagen de la viñeta y añadirla a la colección de imágenes de la presentación como [PPImage](https://reference.aspose.com/slides/python-net/aspose.slides/ppimage/).
+6. Crear un [Paragraph](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/) y establecer su texto.
+7. Establecer [BulletFormat.type](https://reference.aspose.com/slides/python-net/aspose.slides/bulletformat/type/) a [BulletType.PICTURE](https://reference.aspose.com/slides/python-net/aspose.slides/bullettype/).
+8. Asignar la imagen mediante [BulletFormat.picture](https://reference.aspose.com/slides/python-net/aspose.slides/bulletformat/picture/) y definir la altura de la viñeta.
 9. Añadir el párrafo al marco de texto.
 10. Guardar la presentación modificada.
 
-Este ejemplo en Python crea una viñeta de imagen:
+Este ejemplo en Python crea una viñeta con imagen:
 
 ```python
 import aspose.slides as slides
@@ -203,12 +203,12 @@ with slides.Presentation() as presentation:
 
 ### **Crear una lista multinivel**
 
-Establecer [ParagraphFormat.depth](https://reference.aspose.com/slides/es/python-net/aspose.slides/paragraphformat/depth/) para situar los párrafos en diferentes niveles de una lista. El nivel superior tiene una profundidad de `0`.
+Establezca [ParagraphFormat.depth](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/depth/) para colocar los párrafos en diferentes niveles de una lista. El nivel superior tiene una profundidad de `0`.
 
-1. Crear una [Presentation](https://reference.aspose.com/slides/es/python-net/aspose.slides/presentation/) y acceder a una diapositiva.
-2. Añadir una [AutoShape](https://reference.aspose.com/slides/es/python-net/aspose.slides/autoshape/) y eliminar el párrafo predeterminado de su marco de texto.
+1. Crear una [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) y acceder a una diapositiva.
+2. Añadir una [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) y borrar el párrafo predeterminado de su marco de texto.
 3. Crear cuatro párrafos y configurar sus símbolos de viñeta.
-4. Establecer sus valores de [ParagraphFormat.depth](https://reference.aspose.com/slides/es/python-net/aspose.slides/paragraphformat/depth/) a `0`, `1`, `2` y `3`.
+4. Establecer sus valores de [ParagraphFormat.depth](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/depth/) a `0`, `1`, `2` y `3`.
 5. Añadir los párrafos al marco de texto y guardar la presentación.
 
 Este ejemplo en Python crea una lista con viñetas de cuatro niveles:
@@ -263,17 +263,17 @@ with slides.Presentation() as presentation:
     presentation.save("multilevel_list.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **Iniciar los elementos numerados de una lista con valores personalizados**
+### **Iniciar los ítems numerados en valores personalizados**
 
-Utilizar [BulletFormat.numbered_bullet_start_with](https://reference.aspose.com/slides/es/python-net/aspose.slides/bulletformat/numbered_bullet_start_with/) para establecer el número inicial que se muestra en un párrafo numerado.
+Utilice [BulletFormat.numbered_bullet_start_with](https://reference.aspose.com/slides/python-net/aspose.slides/bulletformat/numbered_bullet_start_with/) para definir el número inicial que se muestra en un párrafo numerado.
 
-1. Crear una [Presentation](https://reference.aspose.com/slides/es/python-net/aspose.slides/presentation/) y añadir una [AutoShape](https://reference.aspose.com/slides/es/python-net/aspose.slides/autoshape/) a una diapositiva.
-2. Eliminar el párrafo predeterminado del marco de texto de la forma.
+1. Crear una [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) y añadir una [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) a una diapositiva.
+2. Borrar el párrafo predeterminado del marco de texto de la forma.
 3. Crear tres párrafos numerados.
-4. Establecer [BulletFormat.numbered_bullet_start_with](https://reference.aspose.com/slides/es/python-net/aspose.slides/bulletformat/numbered_bullet_start_with/) a `2`, `3` y `7` respectivamente.
+4. Establecer [BulletFormat.numbered_bullet_start_with](https://reference.aspose.com/slides/python-net/aspose.slides/bulletformat/numbered_bullet_start_with/) a `2`, `3` y `7` para los párrafos correspondientes.
 5. Añadir los párrafos al marco de texto y guardar la presentación.
 
-Este ejemplo en Python asigna un número inicial personalizado a cada párrafo:
+Este ejemplo en Python asigna un número de inicio personalizado a cada párrafo:
 
 ```python
 import aspose.slides as slides
@@ -305,25 +305,25 @@ with slides.Presentation() as presentation:
     presentation.save("custom_numbered_list.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Controlar la disposición del párrafo y sus propiedades finales**
+## **Controlar la disposición y propiedades finales del párrafo**
 
 ### **Establecer una sangría de primera línea**
 
-Utilizar la propiedad [ParagraphFormat.indent](https://reference.aspose.com/slides/es/python-net/aspose.slides/paragraphformat/indent/) para controlar la sangría de la primera línea de un párrafo. Esta propiedad sólo desplaza la primera línea respecto al margen izquierdo del párrafo. Un valor positivo desplaza la primera línea a la derecha, mientras que las líneas restantes permanecen alineadas con el cuerpo del párrafo.
+Utilice la propiedad [ParagraphFormat.indent](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/indent/) para controlar la sangría de la primera línea de un párrafo. Esta propiedad desplaza solo la primera línea respecto del margen izquierdo del párrafo. Un valor positivo desplaza la primera línea a la derecha, mientras que el resto de líneas permanece alineado con el cuerpo del párrafo.
 
-Utilice [ParagraphFormat.margin_left](https://reference.aspose.com/slides/es/python-net/aspose.slides/paragraphformat/margin_left/) cuando necesite mover todo el párrafo. Utilice [ParagraphFormat.indent](https://reference.aspose.com/slides/es/python-net/aspose.slides/paragraphformat/indent/) cuando solo necesite mover la primera línea.
+Use [ParagraphFormat.margin_left](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/margin_left/) cuando necesite mover todo el párrafo. Use [ParagraphFormat.indent](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/indent/) cuando solo quiera mover la primera línea.
 
-El ejemplo a continuación crea varios párrafos y aplica diferentes valores de [ParagraphFormat.indent](https://reference.aspose.com/slides/es/python-net/aspose.slides/paragraphformat/indent/) para demostrar cómo la sangría de primera línea afecta la disposición del párrafo.
+El ejemplo a continuación crea varios párrafos y aplica distintos valores de [ParagraphFormat.indent](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/indent/) para demostrar cómo la sangría de primera línea afecta la disposición del párrafo.
 
-1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/es/python-net/aspose.slides/presentation/).
+1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
 2. Acceder a la diapositiva objetivo.
-3. Añadir una [AutoShape](https://reference.aspose.com/slides/es/python-net/aspose.slides/autoshape/) rectangular a la diapositiva.
-4. Acceder al [TextFrame](https://reference.aspose.com/slides/es/python-net/aspose.slides/textframe/) de la forma y eliminar el párrafo predeterminado.
-5. Crear varios párrafos y establecer diferentes valores de [ParagraphFormat.indent](https://reference.aspose.com/slides/es/python-net/aspose.slides/paragraphformat/indent/) para ellos.
+3. Añadir una [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) rectangular a la diapositiva.
+4. Acceder al [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) de la forma y eliminar el párrafo predeterminado.
+5. Crear varios párrafos y establecer diferentes valores de [ParagraphFormat.indent](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/indent/) para ellos.
 6. Añadir los párrafos al marco de texto.
 7. Guardar la presentación modificada.
 
-Este código muestra cómo establecer una sangría de párrafo:
+Este código muestra cómo establecer la sangría de un párrafo:
 
 ```python
 import aspose.pydrawing as draw
@@ -370,22 +370,22 @@ with slides.Presentation() as presentation:
 
 El resultado:
 
-![El sangrado de primera línea de los párrafos](first_line_indent.png)
+![La sangría de primera línea de los párrafos](first_line_indent.png)
 
 ### **Establecer una sangría colgante**
 
-Una sangría colgante es una disposición en la que la primera línea comienza a la izquierda de las líneas restantes. En Aspose.Slides, se crea este efecto con la propiedad [ParagraphFormat.indent](https://reference.aspose.com/slides/es/python-net/aspose.slides/paragraphformat/indent/). Establezca `indent` a un valor negativo para mover la primera línea a la izquierda respecto al cuerpo del párrafo.
+Una sangría colgante es una disposición de párrafo en la que la primera línea comienza a la izquierda del resto de líneas. En Aspose.Slides, crea este efecto con la propiedad [ParagraphFormat.indent](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/indent/). Establezca `indent` a un valor negativo para mover la primera línea a la izquierda respecto del cuerpo del párrafo.
 
-En la práctica, [ParagraphFormat.margin_left](https://reference.aspose.com/slides/es/python-net/aspose.slides/paragraphformat/margin_left/) define la posición izquierda del cuerpo del párrafo, y [ParagraphFormat.indent](https://reference.aspose.com/slides/es/python-net/aspose.slides/paragraphformat/indent/) define la posición de la primera línea respecto a ese margen. Para crear una sangría colgante, establezca un valor positivo de `margin_left` y un valor negativo de `indent`.
+En la práctica, [ParagraphFormat.margin_left](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/margin_left/) define la posición izquierda del cuerpo del párrafo, y [ParagraphFormat.indent](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/indent/) define la posición de la primera línea respecto a ese margen. Para crear una sangría colgante, establezca un valor positivo en `margin_left` y un valor negativo en `indent`.
 
-Esta formatación es útil para bibliografías, referencias, entradas de glosario y otros párrafos donde las líneas envueltas deben alinearse bajo el cuerpo del párrafo y no bajo el primer carácter de la primera línea.
+Este formato es útil para bibliografías, referencias, entradas de glosario y otros párrafos donde las líneas envueltas deben alinearse bajo el cuerpo del párrafo y no bajo el primer carácter de la primera línea.
 
-1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/es/python-net/aspose.slides/presentation/).
+1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
 2. Acceder a la diapositiva objetivo.
-3. Añadir una [AutoShape](https://reference.aspose.com/slides/es/python-net/aspose.slides/autoshape/) rectangular a la diapositiva.
-4. Acceder al [TextFrame](https://reference.aspose.com/slides/es/python-net/aspose.slides/textframe/) de la forma y eliminar el párrafo predeterminado.
-5. Crear párrafos y establecer un valor positivo de [ParagraphFormat.margin_left](https://reference.aspose.com/slides/es/python-net/aspose.slides/paragraphformat/margin_left/) para cada uno.
-6. Establecer un valor negativo de [ParagraphFormat.indent](https://reference.aspose.com/slides/es/python-net/aspose.slides/paragraphformat/indent/) para crear el efecto de sangría colgante.
+3. Añadir una [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) rectangular a la diapositiva.
+4. Acceder al [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) de la forma y eliminar el párrafo predeterminado.
+5. Crear párrafos y establecer un valor positivo de [ParagraphFormat.margin_left](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/margin_left/) para cada párrafo.
+6. Establecer un valor negativo de [ParagraphFormat.indent](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/indent/) para crear el efecto de sangría colgante.
 7. Añadir los párrafos al marco de texto.
 8. Guardar la presentación modificada.
 
@@ -430,16 +430,16 @@ El resultado:
 
 ![La sangría colgante de los párrafos](hanging_indent.png)
 
-### **Establecer propiedades de ejecución al final del párrafo**
+### **Establecer propiedades de ejecución del final del párrafo**
 
-La propiedad [Paragraph.end_paragraph_portion_format](https://reference.aspose.com/slides/es/python-net/aspose.slides/paragraph/end_paragraph_portion_format/) controla la formatación del signo de fin de párrafo. El siguiente ejemplo asigna un tamaño de fuente y una fuente latina al signo de fin del segundo párrafo:
+La propiedad [Paragraph.end_paragraph_portion_format](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/end_paragraph_portion_format/) controla el formato del marcador de fin de párrafo. El siguiente ejemplo asigna un tamaño de fuente y una fuente latina al marcador de fin del segundo párrafo:
 
-1. Cargar una [Presentation](https://reference.aspose.com/slides/es/python-net/aspose.slides/presentation/) y acceder a una diapositiva.
-2. Añadir una [AutoShape](https://reference.aspose.com/slides/es/python-net/aspose.slides/autoshape/) y eliminar su párrafo predeterminado.
-3. Crear dos párrafos y añadir fragmentos de texto a cada uno.
-4. Crear un [PortionFormat](https://reference.aspose.com/slides/es/python-net/aspose.slides/portionformat/) para el signo de fin del segundo párrafo.
-5. Establecer [PortionFormat.font_height](https://reference.aspose.com/slides/es/python-net/aspose.slides/portionformat/font_height/) y [PortionFormat.latin_font](https://reference.aspose.com/slides/es/python-net/aspose.slides/portionformat/latin_font/).
-6. Asignar el formato a [Paragraph.end_paragraph_portion_format](https://reference.aspose.com/slides/es/python-net/aspose.slides/paragraph/end_paragraph_portion_format/) y guardar la presentación.
+1. Cargar una [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) y acceder a una diapositiva.
+2. Añadir una [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) y borrar su párrafo predeterminado.
+3. Crear dos párrafos y añadirles porciones de texto.
+4. Crear un [PortionFormat](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/) para el marcador de fin del segundo párrafo.
+5. Establecer [PortionFormat.font_height](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/font_height/) y [PortionFormat.latin_font](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/latin_font/).
+6. Asignar el formato a [Paragraph.end_paragraph_portion_format](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/end_paragraph_portion_format/) y guardar la presentación.
 
 ```python
 import aspose.slides as slides
@@ -469,13 +469,13 @@ with slides.Presentation("Test.pptx") as presentation:
 
 ## **Contar líneas renderizadas**
 
-Para las reglas de párrafo que afectan el ajuste automático y la puntuación al final de línea, consulte [Controlar la ruptura de línea](/slides/es/python-net/text-formatting/#control-line-breaking) y [Controlar la puntuación colgante](/slides/es/python-net/text-formatting/#control-hanging-punctuation).
+Para reglas de párrafo que afectan el ajuste automático y la puntuación al final de línea, consulte [Control Line Breaking](/slides/es/python-net/text-formatting/#control-line-breaking) y [Control Hanging Punctuation](/slides/es/python-net/text-formatting/#control-hanging-punctuation).
 
-Utilice [Paragraph.get_lines_count](https://reference.aspose.com/slides/es/python-net/aspose.slides/paragraph/get_lines_count/) para contar las líneas que ocupa un párrafo después del diseño del texto, incluido el ajuste automático. Esto es útil al comprobar la longitud y disposición del texto en plantillas de presentaciones.
+Utilice [Paragraph.get_lines_count](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/get_lines_count/) para contar las líneas que ocupa un párrafo tras el diseño del texto, incluido el ajuste automático. Esto es útil al comprobar la longitud del texto y el diseño en plantillas de presentación.
 
-Un párrafo es un elemento de [TextFrame.paragraphs](https://reference.aspose.com/slides/es/python-net/aspose.slides/textframe/paragraphs/), y puede ocupar varias líneas renderizadas. Un salto de línea explícito dentro de un párrafo fuerza una nueva línea sin crear otro párrafo. El ajuste automático genera líneas según el ancho disponible sin insertar saltos de línea explícitos en el texto. Por lo tanto, contar párrafos o caracteres de salto de línea no proporciona el recuento de líneas renderizadas.
+Un párrafo es un elemento de [TextFrame.paragraphs](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/paragraphs/), y puede ocupar varias líneas renderizadas. Un salto de línea explícito dentro de un párrafo obliga a una nueva línea sin crear otro párrafo. El ajuste automático crea líneas según el ancho disponible sin insertar saltos de línea explícitos en el texto. Por lo tanto, contar párrafos o caracteres de salto de línea no proporciona el recuento de líneas renderizadas.
 
-El ejemplo siguiente crea una forma de texto, cuenta sus líneas, reduce el ancho de la forma y luego sustituye el texto por una cadena más corta. El ajuste está habilitado y el autofit desactivado para que el ancho de la forma controle el ajuste sin reducir automáticamente el texto ni el tamaño de la forma. Las dimensiones de la forma están en puntos. Finalmente, el ejemplo añade otro párrafo y suma los recuentos de líneas en todo el marco de texto.
+El ejemplo siguiente crea una forma de texto, cuenta sus líneas, estrecha la forma y luego sustituye el texto por una cadena más corta. El ajuste está habilitado y el autofit está desactivado, de modo que el ancho de la forma controla el ajuste sin reducir automáticamente el texto ni redimensionar la forma. Las dimensiones de la forma están en puntos. Finalmente, el ejemplo añade otro párrafo y suma los recuentos de líneas en todo el marco de texto.
 
 ```python
 import aspose.slides as slides
@@ -510,24 +510,24 @@ with slides.Presentation() as presentation:
     print(f"Total lines in the text frame: {total_line_count}")
 ```
 
-Con este texto y estas dimensiones, estrechar la forma aumenta el número de líneas, mientras que sustituir el texto por la cadena corta lo reduce. Los recuentos exactos pueden variar según la disponibilidad de fuentes y sustituciones, el tamaño de fuente, los márgenes, la sangría, el ajuste y la configuración de autofit. Use las fuentes y la configuración de disposición previstas para el entorno de destino al comprobar una plantilla.
+Con este texto y estas dimensiones, estrechar la forma aumenta el recuento de líneas, mientras que sustituir el texto por la cadena corta lo reduce. Los recuentos exactos pueden variar según la disponibilidad y sustitución de fuentes, el tamaño de fuente, los márgenes, la sangría, el ajuste y la configuración de autofit. Utilice las fuentes y la configuración de diseño previstas para el entorno de destino al comprobar una plantilla.
 
-El número de líneas por sí solo no determina si el texto se desborda del contenedor. La altura disponible, la altura de línea, el espaciado entre párrafos y líneas, y el comportamiento de autofit también influyen; incluso una única línea puede superar el ancho disponible cuando el ajuste está desactivado.
+El número de líneas por sí solo no determina si el texto se desborda de su contenedor. También influyen la altura disponible, la altura de línea, el espaciado de párrafos y líneas, y el comportamiento de autofit; incluso una sola línea puede exceder el ancho disponible cuando el ajuste está desactivado.
 
 ## **Importar y exportar contenido de párrafos**
 
 ### **Importar texto HTML en párrafos**
 
-Utilice [ParagraphCollection.add_from_html](https://reference.aspose.com/slides/es/python-net/aspose.slides/paragraphcollection/add_from_html/) para convertir marcado HTML en párrafos y fragmentos dentro de un marco de texto.
+Utilice [ParagraphCollection.add_from_html](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphcollection/add_from_html/) para convertir marcado HTML en párrafos y porciones dentro de un marco de texto.
 
-1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/es/python-net/aspose.slides/presentation/).
-2. Acceder a una diapositiva y añadir una [AutoShape](https://reference.aspose.com/slides/es/python-net/aspose.slides/autoshape/).
-3. Acceder al [TextFrame](https://reference.aspose.com/slides/es/python-net/aspose.slides/textframe/) de la forma y eliminar su párrafo predeterminado.
-4. Leer el archivo HTML fuente.
-5. Pasar la cadena HTML a [ParagraphCollection.add_from_html](https://reference.aspose.com/slides/es/python-net/aspose.slides/paragraphcollection/add_from_html/).
+1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+2. Acceder a una diapositiva y añadir una [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/).
+3. Acceder al [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) de la forma y borrar su párrafo predeterminado.
+4. Leer el archivo HTML origen.
+5. Pasar la cadena HTML a [ParagraphCollection.add_from_html](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphcollection/add_from_html/).
 6. Guardar la presentación modificada.
 
-Este ejemplo en Python importa HTML a un marco de texto:
+Este ejemplo en Python importa HTML en un marco de texto:
 
 ```python
 import aspose.slides as slides
@@ -549,12 +549,12 @@ with slides.Presentation() as presentation:
 
 ### **Exportar texto de párrafo a HTML**
 
-Utilice [ParagraphCollection.export_to_html](https://reference.aspose.com/slides/es/python-net/aspose.slides/paragraphcollection/export_to_html/) para exportar un rango seleccionado de párrafos como HTML.
+Utilice [ParagraphCollection.export_to_html](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphcollection/export_to_html/) para exportar un rango seleccionado de párrafos como HTML.
 
-1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/es/python-net/aspose.slides/presentation/) y cargar la presentación deseada.
-2. Acceder a la diapositiva y localizar la [AutoShape](https://reference.aspose.com/slides/es/python-net/aspose.slides/autoshape/) que contiene el texto.
-3. Acceder al [TextFrame](https://reference.aspose.com/slides/es/python-net/aspose.slides/textframe/) de la forma.
-4. Llamar a [ParagraphCollection.export_to_html](https://reference.aspose.com/slides/es/python-net/aspose.slides/paragraphcollection/export_to_html/) indicando el índice del párrafo inicial y el número de párrafos a exportar.
+1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) y cargar la presentación deseada.
+2. Acceder a la diapositiva y localizar la [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) que contiene el texto.
+3. Acceder al [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) de la forma.
+4. Llamar a [ParagraphCollection.export_to_html](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphcollection/export_to_html/) indicando el índice del párrafo inicial y el número de párrafos a exportar.
 5. Escribir la cadena HTML devuelta en un archivo.
 
 Este ejemplo en Python exporta todos los párrafos del primer cuadro de texto:
@@ -576,17 +576,17 @@ with slides.Presentation("ExportingHTMLText.pptx") as presentation:
 
 ### **Renderizar un párrafo como imagen**
 
-[Paragraph](https://reference.aspose.com/slides/es/python-net/aspose.slides/paragraph/) proporciona el método `get_image` para renderizar directamente un párrafo individual. El método devuelve un [IImage](https://reference.aspose.com/slides/es/python-net/aspose.slides/iimage/) que puede guardarse en un archivo o flujo con [IImage.save](https://reference.aspose.com/slides/es/python-net/aspose.slides/iimage/save/). No es necesario renderizar la forma contenedora ni recortar manualmente un mapa de bits.
+[Paragraph](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/) proporciona el método `get_image` para renderizar directamente un párrafo individual. El método devuelve un [IImage](https://reference.aspose.com/slides/python-net/aspose.slides/iimage/) que puede guardarse en un archivo o flujo con [IImage.save](https://reference.aspose.com/slides/python-net/aspose.slides/iimage/save/). No es necesario renderizar la forma contenedora ni recortar un mapa de bits manualmente.
 
-El método `get_image` puede devolver `None` si el párrafo no se encuentra en su colección padre, no tiene límites de renderizado válidos o no puede renderizarse. Compruebe el resultado antes de guardarlo y utilice la imagen devuelta como gestor de contexto para liberar sus recursos.
+El método `get_image` puede devolver `None` si el párrafo no se encuentra en su colección padre, no tiene límites de renderizado válidos o no puede renderizarse. Verifique el resultado antes de guardarlo y utilice la imagen devuelta como gestor de contexto para liberar sus recursos.
 
 #### **Renderizar un párrafo a escala predeterminada**
 
-Supongamos que disponemos de un archivo de presentación llamado sample.pptx con una diapositiva, donde la primera forma es un cuadro de texto que contiene tres párrafos.
+Supongamos que tenemos un archivo de presentación llamado sample.pptx con una diapositiva, donde la primera forma es un cuadro de texto que contiene tres párrafos.
 
 ![El cuadro de texto con tres párrafos](paragraph_to_image_input.png)
 
-El siguiente ejemplo renderiza el segundo párrafo en una forma de texto normal a escala predeterminada y guarda la imagen devuelta en formato PNG:
+El siguiente ejemplo renderiza el segundo párrafo en una forma de texto normal a escala predeterminada y guarda la imagen resultante en formato PNG:
 
 ```python
 import aspose.slides as slides
@@ -611,9 +611,9 @@ El resultado:
 
 ![La imagen del párrafo](paragraph_to_image_output.png)
 
-#### **Renderizar un párrafo en una celda de tabla con escalado**
+#### **Renderizar un párrafo en una celda de tabla con escala**
 
-Passe factores de escala horizontal y vertical a `get_image` para controlar el tamaño del párrafo renderizado. El siguiente ejemplo crea una tabla, renderiza el párrafo en su primera celda al doble de su ancho y altura predeterminados, y guarda el resultado como una imagen PNG:
+Pase factores de escala horizontal y vertical a `get_image` para controlar el tamaño del párrafo renderizado. El siguiente ejemplo crea una tabla, renderiza el párrafo en su primera celda al doble de su ancho y altura predeterminados, y guarda el resultado como imagen PNG:
 
 ```python
 import aspose.slides as slides
@@ -635,24 +635,26 @@ with slides.Presentation() as presentation:
         print("The paragraph could not be rendered.")
 ```
 
-Un factor de escala de `1` mantiene ese eje en su tamaño de píxel predeterminado. Por ejemplo, `2` para ambos factores produce una imagen cuya anchura y altura son aproximadamente el doble de las dimensiones predeterminadas, lo que genera cuatro veces más píxeles. Factores mayores suelen producir texto más nítido para ampliaciones o salidas de alta resolución, pero también aumentan el uso de memoria y el tamaño del archivo. Factores menores que `1` generan imágenes más pequeñas con menos detalle. Use factores iguales para conservar la proporción del párrafo; factores horizontales y verticales diferentes estiran la salida de forma independiente.
+Un factor de escala de `1` mantiene ese eje en su tamaño de píxel predeterminado. Por ejemplo, `2` en ambos factores produce una imagen cuya anchura y altura son aproximadamente el doble de las dimensiones originales, lo que genera cuatro veces más píxeles. Factores mayores suelen producir texto más nítido para ampliaciones o salidas de alta resolución, pero también incrementan el uso de memoria y el tamaño del archivo. Factores inferiores a `1` generan imágenes más pequeñas con menos detalle. Use factores iguales para conservar la relación de aspecto del párrafo; factores diferentes en horizontal y vertical estiran la salida de forma independiente.
 
-Renderizar una forma completa con [Shape.get_image](https://reference.aspose.com/slides/es/python-net/aspose.slides/shape/get_image/) sigue siendo útil cuando la salida debe incluir el relleno, borde u otro contexto visual de la forma. Para una imagen únicamente del párrafo, use `Paragraph.get_image`.
+Renderizar una forma completa con [Shape.get_image](https://reference.aspose.com/slides/python-net/aspose.slides/shape/get_image/) sigue siendo útil cuando la salida debe incluir el relleno, el borde u otro contexto visual de la forma. Para una imagen únicamente del párrafo, use `Paragraph.get_image`.
 
 ## **Preguntas frecuentes**
 
-**¿Puedo desactivar completamente el ajuste de líneas dentro de un marco de texto?**
+**¿Puedo desactivar completamente el ajuste de línea dentro de un marco de texto?**
 
-Sí. Establezca [TextFrameFormat.wrap_text](https://reference.aspose.com/slides/es/python-net/aspose.slides/textframeformat/wrap_text/) para desactivar el ajuste y que las líneas no se rompan en los bordes del marco de texto.
+Sí. Establezca [TextFrameFormat.wrap_text](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/wrap_text/) para desactivar el ajuste y que las líneas no se quiebren en los bordes del marco de texto.
 
-**¿Cómo puedo obtener los límites exactos en la diapositiva de un párrafo específico?**
+**¿Cómo puedo obtener los límites exactos en la diapositiva de un párrafo concreto?**
 
-Utilice [Paragraph.get_rect](https://reference.aspose.com/slides/es/python-net/aspose.slides/paragraph/get_rect/) para obtener el rectángulo delimitador del párrafo. [Portion.get_rect](https://reference.aspose.com/slides/es/python-net/aspose.slides/portion/get_rect/) proporciona los límites de un fragmento individual.
+Utilice [Paragraph.get_rect](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/get_rect/) para obtener el rectángulo delimitador del párrafo. [Portion.get_rect](https://reference.aspose.com/slides/python-net/aspose.slides/portion/get_rect/) proporciona los límites de una porción individual.
 
 **¿Dónde se controla la alineación del párrafo (izquierda, derecha, centrado o justificado)?**
 
-[ParagraphFormat.alignment](https://reference.aspose.com/slides/es/python-net/aspose.slides/paragraphformat/alignment/) es una configuración a nivel de párrafo y se aplica a todo el párrafo independientemente de la formatación de fragmentos individuales.
+[ParagraphFormat.alignment](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/alignment/) es una configuración a nivel de párrafo y se aplica a todo el párrafo independientemente del formato de las porciones individuales.
 
-**¿Puedo establecer el idioma de revisión para una parte del párrafo?**
+Para alinear verticalmente porciones de diferentes tamaños de fuente dentro de cada línea, consulte [Align Fonts Within a Line](/slides/es/python-net/text-formatting/#align-fonts-within-a-line).
 
-Sí. Establezca [PortionFormat.language_id](https://reference.aspose.com/slides/es/python-net/aspose.slides/portionformat/language_id/) para fragmentos individuales, de modo que un párrafo pueda contener texto en varios idiomas.
+**¿Puedo establecer el idioma de revisión para parte de un párrafo?**
+
+Sí. Establezca [PortionFormat.language_id](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/language_id/) para porciones individuales, de modo que un párrafo pueda contener texto en varios idiomas.

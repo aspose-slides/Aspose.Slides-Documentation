@@ -1,6 +1,6 @@
 ---
-title: Διαχείριση Παραγράφων Κειμένου PowerPoint σε JavaScript
-linktitle: Διαχείριση Παραγράφου
+title: Διαχείριση παραγράφων κειμένου PowerPoint σε JavaScript
+linktitle: Διαχείριση παραγράφου
 type: docs
 weight: 40
 url: /el/nodejs-java/manage-paragraph/
@@ -8,55 +8,55 @@ aliases:
   - /nodejs-java/paragraph/
   - /nodejs-java/portion/
 keywords:
-- προσθήκη κειμένου
-- προσθήκη παραγράφου
-- διαχείριση κειμένου
-- διαχείριση παραγράφου
-- διαχείριση κουκίδας
-- εσοχή παραγράφου
-- κρεματή εσοχή
-- κουκίδα παραγράφου
-- αριθμημένη λίστα
-- λίστα με κουκίδες
-- ιδιότητες παραγράφου
-- εισαγωγή HTML
-- κείμενο σε HTML
-- παράγραφος σε HTML
-- παράγραφος σε εικόνα
-- κείμενο σε εικόνα
-- εξαγωγή παραγράφου
-- PowerPoint
-- παρουσίαση
-- Node.js
-- JavaScript
-- Aspose.Slides
-description: "Μάθετε πώς να δημιουργείτε και να μορφοποιείτε παραγράφους, τμήματα, κουκίδες, αριθμημένες λίστες, εσοχές, περιεχόμενο HTML και εικόνες παραγράφων με το Aspose.Slides για Node.js μέσω Java."
+  - πρόσθεση κειμένου
+  - πρόσθεση παραγράφου
+  - διαχείριση κειμένου
+  - διαχείριση παραγράφου
+  - διαχείριση κουκκίδας
+  - εσοχή παραγράφου
+  - κρεμαστή εσοχή
+  - κουκκίδα παραγράφου
+  - αριθμημένη λίστα
+  - λίστα με κουκκίδες
+  - ιδιότητες παραγράφου
+  - εισαγωγή HTML
+  - κείμενο σε HTML
+  - παράγραφος σε HTML
+  - παράγραφος σε εικόνα
+  - κείμενο σε εικόνα
+  - εξαγωγή παραγράφου
+  - PowerPoint
+  - παρουσίαση
+  - Node.js
+  - JavaScript
+  - Aspose.Slides
+description: "Μάθετε πώς να δημιουργείτε και να μορφοποιείτε παραγράφους, τμήματα, κουκκίδες, αριθμημένες λίστες, εσοχές, περιεχόμενο HTML και εικόνες παραγράφων με το Aspose.Slides για Node.js μέσω Java."
 ---
 ## **Επισκόπηση**
 
-Το Aspose.Slides για Node.js μέσω Java αντιπροσωπεύει το κείμενο ως ιεραρχία πλαισίων κειμένου, παραγράφων και τμημάτων:
+Το Aspose.Slides for Node.js via Java αντιπροσωπεύει το κείμενο ως ιεραρχία πλαισίων κειμένου, παραγράφων και τμημάτων:
 
-* [TextFrame](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/textframe/) αντιπροσωπεύει το δοχείο κειμένου σε ένα σχήμα και παρέχει πρόσβαση στη συλλογή παραγράφων του.
-* [Paragraph](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/paragraph/) αντιπροσωπεύει μια παράγραφο σε ένα πλαίσιο κειμένου και παρέχει πρόσβαση στα τμήματά της και στη διαμόρφωση επιπέδου παραγράφου.
-* [Portion](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/portion/) αντιπροσωπεύει μια εκτέλεση κειμένου μέσα σε μια παράγραφο. Κάθε τμήμα μπορεί να έχει το δικό του κείμενο και διαμόρφωση σε επίπεδο χαρακτήρων.
+* [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/) αντιπροσωπεύει το κοντέινερ κειμένου σε ένα σχήμα και παρέχει πρόσβαση στη συλλογή παραγράφων του.
+* [Paragraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/) αντιπροσωπεύει μία παράγραφο σε ένα πλαίσιο κειμένου και παρέχει πρόσβαση στα τμήματα και στη μορφοποίηση επιπέδου παραγράφου.
+* [Portion](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portion/) αντιπροσωπεύει ένα τμήμα κειμένου μέσα σε μια παράγραφο. Κάθε τμήμα μπορεί να έχει τη δική του μορφοποίηση χαρακτήρων.
 
-Άρα μια παράγραφος μπορεί να περιέχει κείμενο με διαφορετικές γραμματοσειρές, χρώματα, μεγέθη και άλλες διαμορφώσεις χρησιμοποιώντας πολλαπλά τμήματα.
+Μια παράγραφος μπορεί έτσι να περιέχει κείμενο με διαφορετικές γραμματοσειρές, χρώματα, μεγέθη και άλλες μορφοποιήσεις χρησιμοποιώντας πολλαπλά τμήματα.
 
-## **Δημιουργία και Διαμόρφωση Παραγράφων**
+## **Δημιουργία και Μορφοποίηση Παραγράφων**
 
 ### **Δημιουργία Παραγράφων με Πολλαπλά Τμήματα**
 
-Τα παρακάτω βήματα δημιουργούν ένα πλαίσιο κειμένου με τρεις παραγράφους, η κάθε μία να περιέχει τρία τμήματα:
+Τα παρακάτω βήματα δημιουργούν ένα πλαίσιο κειμένου με τρεις παραγράφο, καθεμία με τρία τμήματα:
 
-1. Δημιουργήστε μια νέα παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/presentation/).
+1. Δημιουργήστε ένα αντικείμενο της κλάσης [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/).
 2. Προσπελάστε τη σχετική διαφάνεια μέσω του δείκτη της.
-3. Προσθέστε ένα ορθογώνιο [AutoShape](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/autoshape/) στη διαφάνεια.
-4. Προσπελάστε το [TextFrame](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/textframe/) του σχήματος.
-5. Χρησιμοποιήστε την προεπιλεγμένη παράγραφο και προσθέστε δύο ακόμη αντικείμενα [Paragraph](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/paragraph/) στο πλαίσιο κειμένου.
-6. Προσθέστε επαρκή αντικείμενα [Portion](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/portion/) για κάθε παράγραφο ώστε να περιέχουν τρία τμήματα. Η προεπιλεγμένη παράγραφος περιέχει ήδη ένα κενό τμήμα.
-7. Ορίστε το κείμενο του κάθε τμήματος.
-8. Εφαρμόστε διαμόρφωση σε επίπεδο χαρακτήρων μέσω του [Portion.getPortionFormat](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/portion/getportionformat/).
-9. Αποθηκεύστε την τροποποιημένη παρουσία.
+3. Προσθέστε ένα ορθογώνιο [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) στη διαφάνεια.
+4. Αποκτήστε το [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/) του σχήματος.
+5. Χρησιμοποιήστε την προεπιλεγμένη παράγραφο και προσθέστε δύο ακόμη αντικείμενα [Paragraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/) στο πλαίσιο κειμένου.
+6. Προσθέστε αρκετά αντικείμενα [Portion](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portion/) ώστε κάθε παράγραφος να περιέχει τρία τμήματα. Η προεπιλεγμένη παράγραφος περιέχει ήδη ένα κενό τμήμα.
+7. Ορίστε το κείμενο για κάθε τμήμα.
+8. Εφαρμόστε μορφοποίηση επιπέδου χαρακτήρων μέσω του [Portion.getPortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portion/getportionformat/).
+9. Αποθηκεύστε την τροποποιημένη παρουσίαση.
 
 Αυτό το παράδειγμα JavaScript υλοποιεί τα βήματα:
 
@@ -115,26 +115,26 @@ try {
 }
 ```
 
-## **Δημιουργία Λιστών με Κουκίδες και Αρίθμηση**
+## **Δημιουργία Λιστών με Κουκκίδες και Αρίθμηση**
 
-### **Δημιουργία Λίστας με Κουκίδες ή Αριθμούς**
+### **Δημιουργία Λίστας με Κουκκίδες ή Αρίθμηση**
 
-Οι κουκίδες και η αρίθμηση διευκολύνουν την ανάγνωση σχετικών στοιχείων. Στο Aspose.Slides, οι ρυθμίσεις λίστας ορίζονται μέσω του [BulletFormat](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/bulletformat/).
+Οι κουκκίδες και η αρίθμηση κάνουν πιο εύκολη την ανάγνωση σχετικών στοιχείων. Στο Aspose.Slides, οι ρυθμίσεις λίστας ορίζονται μέσω του [BulletFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/).
 
-1. Δημιουργήστε μια νέα παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/presentation/).
+1. Δημιουργήστε ένα αντικείμενο της κλάσης [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/).
 2. Προσπελάστε τη σχετική διαφάνεια μέσω του δείκτη της.
-3. Προσθέστε ένα [AutoShape](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/autoshape/) στη διαφάνεια.
-4. Προσπελάστε το [TextFrame](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/textframe/) του σχήματος.
+3. Προσθέστε ένα [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) στην επιλεγμένη διαφάνεια.
+4. Αποκτήστε το [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/) του σχήματος.
 5. Αφαιρέστε την προεπιλεγμένη παράγραφο από το πλαίσιο κειμένου.
-6. Δημιουργήστε ένα [Paragraph](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/paragraph/) για μια κουκίδα συμβόλου.
-7. Ορίστε το [BulletFormat.setType](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/bulletformat/settype/) σε [BulletType.Symbol](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/bullettype/) και καθορίστε το χαρακτήρα της κουκίδας.
-8. Ορίστε το κείμενο της παραγράφου, την εσοχή, χρώμα κουκίδας και ύψος κουκίδας.
+6. Δημιουργήστε ένα [Paragraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/) για μια κουκκίδα συμβόλου.
+7. Ορίστε το [BulletFormat.setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/settype/) σε [BulletType.Symbol](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bullettype/) και καθορίστε το χαρακτήρα της κουκκίδας.
+8. Ορίστε το κείμενο της παραγράφου, την εσοχή, το χρώμα και το ύψος της κουκκίδας.
 9. Προσθέστε την παράγραφο στο πλαίσιο κειμένου.
-10. Δημιουργήστε δεύτερη παράγραφο και ορίστε το [BulletFormat.setType](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/bulletformat/settype/) σε [BulletType.Numbered](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/bullettype/).
-11. Διαμορφώστε το στυλ αριθμημένης κουκίδας και προσθέστε την παράγραφο στο πλαίσιο κειμένου.
-12. Αποθηκεύστε την παρουσία.
+10. Δημιουργήστε μια δεύτερη παράγραφο και ορίστε το [BulletFormat.setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/settype/) σε [BulletType.Numbered](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bullettype/).
+11. Διαμορφώστε το στυλ της αρίθμησης και προσθέστε την παράγραφο στο πλαίσιο κειμένου.
+12. Αποθηκεύστε την παρουσίαση.
 
-Αυτό το παράδειγμα JavaScript δημιουργεί μια κουκίδα συμβόλου και μια αριθμημένη κουκίδα:
+Αυτό το παράδειγμα JavaScript δημιουργεί μια κουκκίδα συμβόλου και μια αρίθμηση:
 
 ```javascript
 var aspose = aspose || {};
@@ -176,22 +176,22 @@ try {
 }
 ```
 
-### **Χρήση Εικόνας ως Κουκίδας**
+### **Χρήση Κουκκίδων Εικόνας**
 
-Οι εικόνες-κουκίδες σάς επιτρέπουν να χρησιμοποιήσετε μια προσαρμοσμένη εικόνα αντί για σύμβολο ή αριθμό.
+Οι κουκκίδες εικόνας επιτρέπουν την χρήση προσαρμοσμένης εικόνας αντί για σύμβολο ή αριθμό.
 
-1. Δημιουργήστε μια νέα παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/presentation/).
+1. Δημιουργήστε ένα αντικείμενο της κλάσης [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/).
 2. Προσπελάστε τη σχετική διαφάνεια μέσω του δείκτη της.
-3. Προσθέστε ένα [AutoShape](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/autoshape/) και προσπελάστε το [TextFrame](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/textframe/).
+3. Προσθέστε ένα [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) και αποκτήστε το [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/).
 4. Αφαιρέστε την προεπιλεγμένη παράγραφο από το πλαίσιο κειμένου.
-5. Φορτώστε την εικόνα της κουκίδας και προσθέστε τη στη συλλογή εικόνων της παρουσίασης ως [PPImage](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/ppimage/).
-6. Δημιουργήστε ένα [Paragraph](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/paragraph/) και ορίστε το κείμενό του.
-7. Ορίστε το [BulletFormat.setType](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/bulletformat/settype/) σε [BulletType.Picture](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/bullettype/).
-8. Αντιστοιχίστε την εικόνα μέσω του [BulletFormat.getPicture](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/bulletformat/getpicture/) και ορίστε το ύψος της κουκίδας.
+5. Φορτώστε την εικόνα της κουκκίδας και προσθέστε την στη συλλογή εικόνων της παρουσίασης ως [PPImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ppimage/).
+6. Δημιουργήστε ένα [Paragraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/) και ορίστε το κείμενό του.
+7. Ορίστε το [BulletFormat.setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/settype/) σε [BulletType.Picture](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bullettype/).
+8. Αναθέστε την εικόνα μέσω του [BulletFormat.getPicture](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/getpicture/) και ορίστε το ύψος της κουκκίδας.
 9. Προσθέστε την παράγραφο στο πλαίσιο κειμένου.
-10. Αποθηκεύστε την τροποποιημένη παρουσία.
+10. Αποθηκεύστε την τροποποιημένη παρουσίαση.
 
-Αυτό το παράδειγμα JavaScript δημιουργεί μια κουκίδα εικόνας:
+Αυτό το παράδειγμα JavaScript δημιουργεί μια κουκκίδα εικόνας:
 
 ```javascript
 var aspose = aspose || {};
@@ -228,17 +228,17 @@ try {
 }
 ```
 
-### **Δημιουργία Πολυεπίπεδης Λίστας**
+### **Δημιουργία Πολλαπλών Επιπέδων Λίστας**
 
-Ορίστε το [ParagraphFormat.setDepth](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/paragraphformat/setdepth/) για να τοποθετήσετε τις παραγράφους σε διαφορετικά επίπεδα λίστας. Το ανώτερο επίπεδο έχει βάθος `0`.
+Ορίστε το [ParagraphFormat.setDepth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setdepth/) για να τοποθετήσετε τις παραγράφους σε διαφορετικά επίπεδα λίστας. Το ανώτερο επίπεδο έχει βάθος `0`.
 
-1. Δημιουργήστε μια [Presentation](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/presentation/) και προσπελάστε μια διαφάνεια.
-2. Προσθέστε ένα [AutoShape](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/autoshape/) και αφαιρέστε την προεπιλεγμένη παράγραφο από το πλαίσιο κειμένου του.
-3. Δημιουργήστε τέσσερις παραγράφους και διαμορφώστε τα σύμβολα των κουκίδων τους.
-4. Ορίστε τις τιμές του [ParagraphFormat.setDepth](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/paragraphformat/setdepth/) σε `0`, `1`, `2` και `3`.
-5. Προσθέστε τις παραγράφους στο πλαίσιο κειμένου και αποθηκεύστε την παρουσία.
+1. Δημιουργήστε ένα [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) και προσπελάστε μια διαφάνεια.
+2. Προσθέστε ένα [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) και αφαιρέστε την προεπιλεγμένη παράγραφο από το πλαίσιο κειμένου του.
+3. Δημιουργήστε τέσσερις παραγράφους και ρυθμίστε τα σύμβολα κουκκίδας τους.
+4. Ορίστε τις τιμές του [ParagraphFormat.setDepth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setdepth/) σε `0`, `1`, `2` και `3`.
+5. Προσθέστε τις παραγράφους στο πλαίσιο κειμένου και αποθηκεύστε την παρουσίαση.
 
-Αυτό το παράδειγμα JavaScript δημιουργεί μια λίστα με τέσσερα επίπεδα κουκίδων:
+Αυτό το παράδειγμα JavaScript δημιουργεί μια λίστα με τέσσερα επίπεδα κουκκίδων:
 
 ```javascript
 var aspose = aspose || {};
@@ -297,15 +297,15 @@ try {
 
 ### **Έναρξη Αριθμημένων Στοιχείων Λίστας με Προσαρμοσμένες Τιμές**
 
-Χρησιμοποιήστε το [BulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/bulletformat/setnumberedbulletstartwith/) για να ορίσετε τον αρχικό αριθμό που εμφανίζεται για μια αριθμημένη παράγραφο.
+Χρησιμοποιήστε το [BulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/setnumberedbulletstartwith/) για να ορίσετε τον αρχικό αριθμό που εμφανίζεται για μια αριθμημένη παράγραφο.
 
-1. Δημιουργήστε μια [Presentation](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/presentation/) και προσθέστε ένα [AutoShape](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/autoshape/) σε μια διαφάνεια.
+1. Δημιουργήστε ένα [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) και προσθέστε ένα [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) σε μια διαφάνεια.
 2. Αφαιρέστε την προεπιλεγμένη παράγραφο από το πλαίσιο κειμένου του σχήματος.
 3. Δημιουργήστε τρεις αριθμημένες παραγράφους.
-4. Ορίστε το [BulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/bulletformat/setnumberedbulletstartwith/) σε `2`, `3` και `7` για τις αντίστοιχες παραγράφους.
-5. Προσθέστε τις παραγράφους στο πλαίσιο κειμένου και αποθηκεύστε την παρουσία.
+4. Ορίστε το [BulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/setnumberedbulletstartwith/) σε `2`, `3` και `7` για τις αντίστοιχες παραγράφους.
+5. Προσθέστε τις παραγράφους στο πλαίσιο κειμένου και αποθηκεύστε την παρουσίαση.
 
-Αυτό το παράδειγμα JavaScript ορίζει ένα προσαρμοσμένο αρχικό αριθμό για κάθε παράγραφο:
+Αυτό το παράδειγμα JavaScript αναθέτει έναν προσαρμοσμένο αρχικό αριθμό σε κάθε παράγραφο:
 
 ```javascript
 var aspose = aspose || {};
@@ -347,19 +347,19 @@ try {
 
 ### **Ορισμός Εσοχής Πρώτης Γραμμής**
 
-Χρησιμοποιήστε το [ParagraphFormat.setIndent](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/paragraphformat/setindent/) για να ελέγξετε την εσοχή της πρώτης γραμμής μιας παραγράφου. Αυτή η μέθοδος μετακινεί μόνο την πρώτη γραμμή σε σχέση με το αριστερό περιθώριο της παραγράφου. Μία θετική τιμή μετατοπίζει την πρώτη γραμμή προς τα δεξιά, ενώ οι υπόλοιπες γραμμές παραμένουν ευθυγραμμισμένες στο σώμα της παραγράφου.
+Χρησιμοποιήστε το [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/) για να ελέγξετε την εσοχή της πρώτης γραμμής μιας παραγράφου. Αυτή η μέθοδος μετακινεί μόνο την πρώτη γραμμή σε σχέση με το αριστερό περιθώριο της παραγράφου. Μία θετική τιμή μετατοπίζει την πρώτη γραμμή προς τα δεξιά, ενώ οι υπόλοιπες γραμμές παραμένουν ευθυγραμμισμένες με το σώμα της παραγράφου.
 
-Χρησιμοποιήστε το [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/paragraphformat/setmarginleft/) όταν χρειάζεται να μετακινήσετε ολόκληρη την παράγραφο. Χρησιμοποιήστε το [ParagraphFormat.setIndent](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/paragraphformat/setindent/) όταν θέλετε να μετακινήσετε μόνο την πρώτη γραμμή.
+Χρησιμοποιήστε το [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setmarginleft/) όταν θέλετε να μετακινήσετε ολόκληρη την παράγραφο. Χρησιμοποιήστε το [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/) όταν θέλετε να μετακινήσετε μόνο την πρώτη γραμμή.
 
-Το παρακάτω παράδειγμα δημιουργεί πολλές παραγράφους και εφαρμόζει διαφορετικές τιμές [ParagraphFormat.setIndent](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/paragraphformat/setindent/) για να δείξει πώς η εσοχή πρώτης γραμμής επηρεάζει τη διάταξη της παραγράφου.
+Το παρακάτω παράδειγμα δημιουργεί πολλές παραγράφους και εφαρμόζει διαφορετικές τιμές [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/) για να δείξει πώς η εσοχή πρώτης γραμμής επηρεάζει τη διάταξη της παραγράφου.
 
-1. Δημιουργήστε μια νέα παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/presentation/).
-2. Προσπελάστε τη διαφάνεια‑στόχο.
-3. Προσθέστε ένα ορθογώνιο [AutoShape](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/autoshape/) στη διαφάνεια.
-4. Προσπελάστε το [TextFrame](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/textframe/) του σχήματος και αφαιρέστε την προεπιλεγμένη παράγραφο.
-5. Δημιουργήστε πολλές παραγράφους και ορίστε διαφορετικές τιμές [ParagraphFormat.setIndent](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/paragraphformat/setindent/) για καθεμία.
+1. Δημιουργήστε ένα αντικείμενο της κλάσης [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/).
+2. Προσπελάστε τη στοχευόμενη διαφάνεια.
+3. Προσθέστε ένα ορθογώνιο [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) στη διαφάνεια.
+4. Αποκτήστε το [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/) του σχήματος και αφαιρέστε την προεπιλεγμένη παράγραφο.
+5. Δημιουργήστε πολλές παραγράφους και ορίστε διαφορετικές τιμές [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/) για καθεμία.
 6. Προσθέστε τις παραγράφους στο πλαίσιο κειμένου.
-7. Αποθηκεύστε την τροποποιημένη παρουσία.
+7. Αποθηκεύστε την τροποποιημένη παρουσίαση.
 
 Αυτός ο κώδικας δείχνει πώς να ορίσετε εσοχή παραγράφου:
 
@@ -414,26 +414,26 @@ try {
 
 Το αποτέλεσμα:
 
-![Η εσοχή πρώτης γραμμής των παραγράφων](first_line_indent.png)
+![The first-line indent of the paragraphs](first_line_indent.png)
 
-### **Ορισμός Κρεματής Εσοχής**
+### **Ορισμός Κρεμαστής Εσοχής**
 
-Η κρεματή εσοχή είναι διάταξη παραγράφου στην οποία η πρώτη γραμμή ξεκινά αριστερά των υπολοίπων γραμμών. Στο Aspose.Slides, δημιουργείτε αυτό το εφέ με το [ParagraphFormat.setIndent](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/paragraphformat/setindent/). Περνέστε μια αρνητική τιμή για να μετακινήσετε την πρώτη γραμμή αριστερά σε σχέση με το σώμα της παραγράφου.
+Η κρεμαστή εσοχή είναι διάταξη παραγράφου όπου η πρώτη γραμμή αρχίζει πιο αριστερά από τις υπόλοιπες γραμμές. Στο Aspose.Slides, δημιουργείτε αυτό το αποτέλεσμα με το [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/). Δώστε μια αρνητική τιμή για να μετακινήσετε την πρώτη γραμμή προς τα αριστερά σε σχέση με το σώμα της παραγράφου.
 
-Στην πράξη, το [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/paragraphformat/setmarginleft/) καθορίζει τη θέση αριστερά του σώματος της παραγράφου, ενώ το [ParagraphFormat.setIndent](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/paragraphformat/setindent/) ορίζει τη θέση της πρώτης γραμμής σε σχέση με αυτό το περιθώριο. Για να δημιουργήσετε κρεματή εσοχή, δώστε μια θετική τιμή στο `setMarginLeft` και μια αρνητική τιμή στο `setIndent`.
+Στην πράξη, το [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setmarginleft/) ορίζει τη θέση αριστερά του σώματος της παραγράφου, ενώ το [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/) ορίζει τη θέση της πρώτης γραμμής σε σχέση με αυτό το περιθώριο. Για να δημιουργήσετε κρεμαστή εσοχή, δώστε μια θετική τιμή στο `setMarginLeft` και μια αρνητική τιμή στο `setIndent`.
 
-Αυτή η διαμόρφωση είναι χρήσιμη για βιβλιογραφίες, παραπομπές, όρους γλωσσολογικού λεξικού και άλλες παραγράφους όπου οι αναδιπλωμένες γραμμές πρέπει να ευθυγραμμίζονται κάτω από το σώμα της παραγράφου αντί κάτω από τον πρώτο χαρακτήρα της πρώτης γραμμής.
+Αυτή η μορφοποίηση είναι χρήσιμη για βιβλιογραφίες, παραπομπές, όρους γλωσσολογικού λεξιλογίου και άλλες παραγράφους όπου οι αναδιπλωμένες γραμμές πρέπει να ευθυγραμμίζονται κάτω από το σώμα της παραγράφου αντί κάτω από τον πρώτο χαρακτήρα της πρώτης γραμμής.
 
-1. Δημιουργήστε μια νέα παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/presentation/).
-2. Προσπελάστε τη διαφάνεια‑στόχο.
-3. Προσθέστε ένα ορθογώνιο [AutoShape](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/autoshape/) στη διαφάνεια.
-4. Προσπελάστε το [TextFrame](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/textframe/) του σχήματος και αφαιρέστε την προεπιλεγμένη παράγραφο.
-5. Δημιουργήστε παραγράφους και δώστε μια θετική τιμή στο [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/paragraphformat/setmarginleft/) για κάθε παράγραφο.
-6. Δώστε μια αρνητική τιμή στο [ParagraphFormat.setIndent](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/paragraphformat/setindent/) για να δημιουργήσετε το εφέ κρεματής εσοχής.
+1. Δημιουργήστε ένα αντικείμενο της κλάσης [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/).
+2. Προσπελάστε τη στοχευόμενη διαφάνεια.
+3. Προσθέστε ένα ορθογώνιο [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) στη διαφάνεια.
+4. Αποκτήστε το [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/) του σχήματος και αφαιρέστε την προεπιλεγμένη παράγραφο.
+5. Δημιουργήστε παραγράφους και δώστε μια θετική τιμή στο [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setmarginleft/) για κάθε μια.
+6. Δώστε μια αρνητική τιμή στο [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/) για να δημιουργήσετε το εφέ κρεμαστής εσοχής.
 7. Προσθέστε τις παραγράφους στο πλαίσιο κειμένου.
-8. Αποθηκεύστε την τροποποιημένη παρουσία.
+8. Αποθηκεύστε την τροποποιημένη παρουσίαση.
 
-Αυτός ο κώδικας δείχνει πώς να ορίσετε κρεματή εσοχή για μια παράγραφο:
+Αυτός ο κώδικας δείχνει πώς να ορίσετε κρεμαστή εσοχή για μια παράγραφο:
 
 ```javascript
 var aspose = aspose || {};
@@ -478,18 +478,18 @@ try {
 
 Το αποτέλεσμα:
 
-![Η κρεματή εσοχή των παραγράφων](hanging_indent.png)
+![The hanging indent of the paragraphs](hanging_indent.png)
 
-### **Ορισμός Ιδιοτήτων Τέλους Παραγράφου**
+### **Ορισμός Ιδιοτήτων Τέλους Παράγραφου**
 
-Η μέθοδος [Paragraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/paragraph/setendparagraphportionformat/) ελέγχει τη μορφοποίηση του σημείου τέλους παραγράφου. Το παρακάτω παράδειγμα αναθέτει μέγεθος γραμματοσειράς και λατινική γραμματοσειρά στο σημείο τέλους της δεύτερης παραγράφου:
+[Paragraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/setendparagraphportionformat/) ελέγχει τη μορφοποίηση του σημείου τέλους της παραγράφου. Το παρακάτω παράδειγμα αντιστοιχίζει μέγεθος γραμματοσειράς και λατινική γραμματοσειρά στο σημείο τέλους της δεύτερης παραγράφου:
 
-1. Δημιουργήστε ή φορτώστε μια [Presentation](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/presentation/) και προσπελάστε μια διαφάνεια.
-2. Προσθέστε ένα [AutoShape](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/autoshape/) και αφαιρέστε την προεπιλεγμένη παράγραφο.
-3. Δημιουργήστε δύο παραγράφους και προσθέστε τμήματα κειμένου σε κάθε μία.
-4. Δημιουργήστε ένα [PortionFormat](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/portionformat/) για το σημείο τέλους της δεύτερης παραγράφου.
-5. Ορίστε το [BasePortionFormat.setFontHeight](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/baseportionformat/#setFontHeight) και το [BasePortionFormat.setLatinFont](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/baseportionformat/#setLatinFont).
-6. Αναθέστε τη μορφοποίηση με το [Paragraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/paragraph/setendparagraphportionformat/) και αποθηκεύστε την παρουσία.
+1. Δημιουργήστε ή φορτώστε μια [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) και προσπελάστε μια διαφάνεια.
+2. Προσθέστε ένα [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) και αφαιρέστε την προεπιλεγμένη του παράγραφο.
+3. Δημιουργήστε δύο παραγράφους και προσθέστε σε κάθε μία τμήματα κειμένου.
+4. Δημιουργήστε ένα [PortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portionformat/) για το σημείο τέλους της δεύτερης παραγράφου.
+5. Ορίστε [BasePortionFormat.setFontHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setFontHeight) και [BasePortionFormat.setLatinFont](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setLatinFont).
+6. Αναθέστε τη μορφοποίηση με το [Paragraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/setendparagraphportionformat/) και αποθηκεύστε την παρουσίαση.
 
 ```javascript
 var aspose = aspose || {};
@@ -522,15 +522,15 @@ try {
 }
 ```
 
-## **Καταμέτρηση Σχεδιασμένων Γραμμών**
+## **Καταμέτρηση Σχεδόν Οπτικών Γραμμών**
 
-Για κανόνες παραγράφων που επηρεάζουν την αυτόματη αναδίπλωση και την στίξη στα άκρα γραμμών, δείτε το [Control Line Breaking](/slides/el/nodejs-java/text-formatting/#control-line-breaking) και το [Control Hanging Punctuation](/slides/el/nodejs-java/text-formatting/#control-hanging-punctuation).
+Για κανόνες παραγράφου που επηρεάζουν την αυτόματη αναδίπλωση και την στίξη στα τέλη γραμμών, δείτε το [Control Line Breaking](/slides/el/nodejs-java/text-formatting/#control-line-breaking) και το [Control Hanging Punctuation](/slides/el/nodejs-java/text-formatting/#control-hanging-punctuation).
 
-Χρησιμοποιήστε το [Paragraph.getLinesCount](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/paragraph/#getLinesCount) για να μετρήσετε τις γραμμές που καταλαμβάνει μια παράγραφος μετά τη διάταξη του κειμένου, συμπεριλαμβανομένης της αυτόματης αναδίπλωσης. Αυτό είναι χρήσιμο όταν ελέγχετε το μήκος κειμένου και τη διάταξη σε πρότυπα παρουσιάσεων.
+Χρησιμοποιήστε το [Paragraph.getLinesCount](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getLinesCount) για να μετρήσετε τις γραμμές που καταλαμβάνει μια παράγραφος μετά τη διάταξη του κειμένου, συμπεριλαμβανομένης της αυτόματης αναδίπλωσης. Αυτό είναι χρήσιμο κατά τον έλεγχο του μήκους κειμένου και της διάταξης σε πρότυπα παρουσιάσεων.
 
-Μια παράγραφος είναι ένα αντικείμενο στη [TextFrame.getParagraphs](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/textframe/#getParagraphs) και μπορεί να καταλάβει πολλές σχεδιασμένες γραμμές. Μια ρητή αλλαγή γραμμής μέσα σε μια παράγραφο αναγκάζει νέα γραμμή χωρίς να δημιουργήσει άλλη παράγραφο. Η αυτόματη αναδίπλωση δημιουργεί γραμμές βάσει του διαθέσιμου πλάτους χωρίς να εισάγει ρητές αλλαγές γραμμής στο κείμενο. Συνεπώς ο απλός υπολογισμός παραγράφων ή χαρακτήρων αλλαγής γραμμής δεν δίνει το αριθμό των σχεδιασμένων γραμμών.
+Μια παράγραφος είναι ένα στοιχείο στην [TextFrame.getParagraphs](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/#getParagraphs) και μπορεί να καταλάβει πολλές εμφανιζόμενες γραμμές. Μία ρητή αλλαγή γραμμής εντός μιας παραγράφου αναγκάζει τη δημιουργία νέας γραμμής χωρίς δημιουργία νέας παραγράφου. Η αυτόματη αναδίπλωση δημιουργεί γραμμές βάσει του διαθέσιμου πλάτους χωρίς εισαγωγή ρητών αλλαγών γραμμής στο κείμενο. Συνεπώς, η καταμέτρηση παραγράφων ή χαρακτήρων αλλαγής γραμμής δεν δίνει τον αριθμό των εμφανιζόμενων γραμμών.
 
-Το παρακάτω παράδειγμα δημιουργεί ένα σχήμα κειμένου, μετρά τις γραμμές του, στενεύει το σχήμα και στη συνέχεια αντικαθιστά το κείμενο με μια πιο σύντομη συμβολοσειρά. Η αναδίπλωση είναι ενεργοποιημένη και η προσαρμογή αυτόματης προσαρμογής (autofit) είναι απενεργοποιημένη ώστε το πλάτος του σχήματος να ελέγχει την αναδίπλωση χωρίς να σμικρύνεται αυτόματα το κείμενο ή το σχήμα. Οι διαστάσεις του σχήματος δίνονται σε points. Τέλος, το παράδειγμα προσθέτει μια ακόμη παράγραφο και αθροίζει τις μετρήσεις γραμμών σε όλο το πλαίσιο κειμένου.
+Το παρακάτω παράδειγμα δημιουργεί ένα σχήμα κειμένου, μετρά τις γραμμές του, στενεύει το σχήμα και στη συνέχεια αντικαθιστά το κείμενο με μια πιο σύντομη συμβολοσειρά. Η αναδίπλωση είναι ενεργοποιημένη και το autofit είναι απενεργοποιημένο ώστε το πλάτος του σχήματος να ελέγχει την αναδίπλωση χωρίς αυτόματη σμίκρυνση του κειμένου ή του σχήματος. Οι διαστάσεις του σχήματος είναι σε points. Τέλος, το παράδειγμα προσθέτει μια άλλη παράγραφο και αθροίζει τους μετρητές γραμμών σε όλο το πλαίσιο κειμένου.
 
 ```javascript
 var aspose = aspose || {};
@@ -573,22 +573,22 @@ try {
 }
 ```
 
-Με αυτό το κείμενο και αυτές τις διαστάσεις, η στενότητα του σχήματος αυξάνει τον αριθμό των γραμμών, ενώ η αντικατάσταση του κειμένου με τη σύντομη συμβολοσειρά τον μειώνει. Οι ακριβείς μετρήσεις μπορούν να διαφέρουν ανάλογα με τη διαθεσιμότητα γραμματοσειρών και αντικαταστάσεις, το μέγεθος γραμματοσειράς, τα περιθώρια, τις εσοχές, την αναδίπλωση και τις ρυθμίσεις autofit. Χρησιμοποιήστε τις γραμματοσειρές και τις ρυθμίσεις διάταξης που προορίζονται για το περιβάλλον προορισμού όταν ελέγχετε ένα πρότυπο.
+Με αυτό το κείμενο και αυτές τις διαστάσεις, η στένωση του σχήματος αυξάνει τον αριθμό γραμμών, ενώ η αντικατάσταση του κειμένου με τη σύντομη συμβολοσειρά τον μειώνει. Οι ακριβείς μετρήσεις μπορεί να διαφέρουν ανάλογα με τη διαθεσιμότητα γραμματοσειρών και τις αντικαταστάσεις, το μέγεθος γραμματοσειράς, τα περιθώρια, την εσοχή, την αναδίπλωση και τις ρυθμίσεις autofit. Χρησιμοποιήστε τις γραμματοσειρές και τις ρυθμίσεις διάταξης που προορίζονται για το περιβάλλον στόχο κατά τον έλεγχο ενός προτύπου.
 
-Ο μόνος αριθμός γραμμών δεν καθορίζει αν το κείμενο υπερβαίνει το δοχείο του. Το διαθέσιμο ύψος, τα ύψη γραμμών, η απόσταση παραγράφων και γραμμών, καθώς και η συμπεριφορά autofit, παίζουν επίσης ρόλο· ακόμη και μία γραμμή μπορεί να ξεπεράσει το διαθέσιμο πλάτος όταν η αναδίπλωση είναι απενεργοποιημένη.
+Ο μόνος αριθμός γραμμών δεν καθορίζει αν το κείμενο ξεπέρασε το κοντέινερ του. Το διαθέσιμο ύψος, το ύψος γραμμών, η απόσταση παραγράφων και γραμμών, καθώς και η συμπεριφορά autofit, παίζουν επίσης ρόλο· ακόμη και μία μόνο γραμμή μπορεί να υπερβεί το διαθέσιμο πλάτος όταν η αναδίπλωση είναι απενεργοποιημένη.
 
 ## **Εισαγωγή και Εξαγωγή Περιεχομένου Παραγράφων**
 
 ### **Εισαγωγή HTML Κειμένου σε Παραγράφους**
 
-Χρησιμοποιήστε το [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/paragraphcollection/addfromhtml/) για να μετατρέψετε σήμανση HTML σε παραγράφους και τμήματα σε ένα πλαίσιο κειμένου.
+Χρησιμοποιήστε το [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphcollection/addfromhtml/) για να μετατρέψετε HTML markup σε παραγράφους και τμήματα σε ένα πλαίσιο κειμένου.
 
-1. Δημιουργήστε μια νέα παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/presentation/).
-2. Προσπελάστε μια διαφάνεια και προσθέστε ένα [AutoShape](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/autoshape/).
-3. Προσπελάστε το [TextFrame](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/textframe/) του σχήματος και αφαιρέστε την προεπιλεγμένη παράγραφο.
-4. Ορίστε ή διαβάστε το πηγαίο string HTML.
-5. Περνώστε το string HTML στο [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/paragraphcollection/addfromhtml/).
-6. Αποθηκεύστε την τροποποιημένη παρουσία.
+1. Δημιουργήστε ένα αντικείμενο της κλάσης [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/).
+2. Προσπελάστε μια διαφάνεια και προσθέστε ένα [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/).
+3. Αποκτήστε το [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/) του σχήματος και αφαιρέστε την προεπιλεγμένη του παράγραφο.
+4. Ορίστε ή διαβάστε τη συμβολοσειρά HTML πηγής.
+5. Μεταβιβάστε τη συμβολοσειρά HTML στο [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphcollection/addfromhtml/).
+6. Αποθηκεύστε την τροποποιημένη παρουσίαση.
 
 Αυτό το παράδειγμα JavaScript εισάγει HTML σε ένα πλαίσιο κειμένου:
 
@@ -616,15 +616,15 @@ try {
 
 ### **Εξαγωγή Κειμένου Παραγράφου σε HTML**
 
-Χρησιμοποιήστε το [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/paragraphcollection/exporttohtml/) για να εξάγετε μια επιλεγμένη σειρά παραγράφων ως HTML.
+Χρησιμοποιήστε το [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphcollection/exporttohtml/) για να εξάγετε ένα επιλεγμένο εύρος παραγράφων ως HTML.
 
-1. Δημιουργήστε ή φορτώστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/presentation/).
-2. Προσπελάστε τη διαφάνεια και εντοπίστε το [AutoShape](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/autoshape/) που περιέχει το κείμενο.
-3. Προσπελάστε το [TextFrame](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/textframe/) του σχήματος.
-4. Καλέστε το [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/paragraphcollection/exporttohtml/) με τον δείκτη της αρχικής παραγράφου και τον αριθμό των παραγράφων προς εξαγωγή.
-5. Γράψτε το επιστρεφόμενο string HTML σε αρχείο.
+1. Δημιουργήστε ή φορτώστε ένα αντικείμενο της κλάσης [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/).
+2. Προσπελάστε τη διαφάνεια και βρείτε το [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) που περιέχει το κείμενο.
+3. Αποκτήστε το [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/) του σχήματος.
+4. Καλείτε το [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphcollection/exporttohtml/) με τον δείκτη έναρξης παραγράφου και τον αριθμό παραγράφων προς εξαγωγή.
+5. Γράψτε τη ληφθείσα HTML συμβολοσειρά σε αρχείο.
 
-Αυτό το αυτό-συνεχές παράδειγμα JavaScript δημιουργεί ένα σχήμα κειμένου και εξάγει όλες τις παραγράφους του:
+Αυτό το αυτόνομο παράδειγμα JavaScript δημιουργεί ένα σχήμα κειμένου και εξάγει όλες τις παραγράφους του:
 
 ```javascript
 var aspose = aspose || {};
@@ -664,17 +664,17 @@ try {
 
 ### **Απόδοση Παραγράφου ως Εικόνα**
 
-Το [Paragraph.getImage](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/paragraph/#getImage) αποδίδει απευθείας μια μεμονωμένη παράγραφο και επιστρέφει ένα αντικείμενο [IImage](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/iimage/). Αποθηκεύστε το αποτέλεσμα σε αρχείο με τη μέθοδο [IImage.save](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/iimage/#save). Δεν χρειάζεται να αποδώσετε το περιβάλλον σχήμα ή να περικόψετε bitmap χειροκίνητα.
+[Paragraph.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getImage) αποδίδει άμεσα μία μεμονωμένη παράγραφο και επιστρέφει ένα αντικείμενο [IImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/iimage/). Αποθηκεύστε το αποτέλεσμα σε αρχείο με το [IImage.save](https://reference.aspose.com/slides/nodejs-java/aspose.slides/iimage/#save). Δεν χρειάζεται να αποδώσετε το σχήμα-γονέα ή να περικόψετε το bitmap χειροκίνητα.
 
-Το [Paragraph.getImage](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/paragraph/#getImage) μπορεί να επιστρέψει `null` εάν η παράγραφος δεν βρεθεί στη γονική της συλλογή, δεν έχει έγκυρα όρια απόδοσης ή δεν μπορεί να αποδοθεί. Ελέγξτε το αποτέλεσμα πριν το αποθηκεύσετε και διαγράψτε την εικόνα μετά τη χρήση.
+[Paragraph.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getImage) μπορεί να επιστρέψει `null` εάν η παράγραφος δεν βρεθεί στη συλλογή γονέων, δεν έχει έγκυρα όρια απόδοσης ή δεν είναι δυνατόν να αποδοθεί. Ελέγξτε το αποτέλεσμα πριν το αποθηκεύσετε και απελευθερώστε την εικόνα μετά τη χρήση.
 
 #### **Απόδοση Παραγράφου στην Προεπιλεγμένη Κλίμακα**
 
 Το παρακάτω πλαίσιο κειμένου περιέχει τρεις παραγράφους:
 
-![Το πλαίσιο κειμένου με τρεις παραγράφους](paragraph_to_image_input.png)
+![The text box with three paragraphs](paragraph_to_image_input.png)
 
-Το παρακάτω παράδειγμα αποδίδει τη δεύτερη παράγραφο σε ένα κανονικό σχήμα κειμένου στην προεπιλεγμένη κλίμακα και αποθηκεύει την επιστρεφόμενη εικόνα σε μορφή PNG. Το μπλοκ `finally` εξασφαλίζει ότι η εικόνα διαγράφεται σωστά.
+Το παρακάτω παράδειγμα αποδίδει τη δεύτερη παράγραφο σε ένα κανονικό σχήμα κειμένου στην προεπιλεγμένη κλίμακα και αποθηκεύει την εικόνα σε μορφή PNG. Το τμήμα `finally` διασφαλίζει ότι η εικόνα απελευθερώνεται σωστά.
 
 ```javascript
 var aspose = aspose || {};
@@ -722,11 +722,11 @@ try {
 
 Το αποτέλεσμα:
 
-![Η εικόνα της παραγράφου](paragraph_to_image_output.png)
+![The paragraph image](paragraph_to_image_output.png)
 
 #### **Απόδοση Παραγράφου σε Κελί Πίνακα με Κλιμάκωση**
 
-Χρησιμοποιήστε την υπερφόρτωση του [Paragraph.getImage](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/paragraph/#getImage) που δέχεται τις παραμέτρους `scaleX` και `scaleY` για να ορίσετε τους οριζόντιους και κάθετους συντελεστές κλίμακας. Το παρακάτω παράδειγμα δημιουργεί έναν πίνακα, αποδίδει την παράγραφο στο πρώτο του κελί με διπλάσιο πλάτος και ύψος από το προεπιλεγμένο και αποθηκεύει το αποτέλεσμα ως εικόνα PNG.
+Χρησιμοποιήστε την υπερφόρτωση του [Paragraph.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getImage) που δέχεται τις παραμέτρους `scaleX` και `scaleY` για να ορίσετε παράγοντες οριζόντιας και κάθετης κλιμάκωσης. Το παρακάτω παράδειγμα δημιουργεί έναν πίνακα, αποδίδει την παράγραφο στο πρώτο κελί του με διπλάσιο πλάτος και ύψος από το προεπιλεγμένο και αποθηκεύει το αποτέλεσμα ως εικόνα PNG.
 
 ```javascript
 var aspose = aspose || {};
@@ -760,24 +760,26 @@ try {
 }
 ```
 
-Ένας συντελεστής κλίμακας `1` διατηρεί το αντίστοιχο άξονα στο προεπιλεγμένο μέγεθος pixel. Για παράδειγμα, `2` και για τους δύο συντελεστές παράγει μια εικόνα του οποίου το πλάτος και το ύψος είναι περίπου το διπλάσιο των προεπιλεγμένων διαστάσεων, με αποτέλεσμα τέσσερις φορές περισσότερα pixel. Μεγαλύτεροι συντελεστές συνήθως παράγουν πιο καθαρό κείμενο για ζουμ ή εξαγωγή υψηλής ανάλυσης, αλλά αυξάνουν και τη χρήση μνήμης και το μέγεθος του αρχείου. Συντελεστές κάτω από `1` παράγουν μικρότερες εικόνες με λιγότερες λεπτομέρειες. Χρησιμοποιήστε ίσους συντελεστές για να διατηρήσετε την αναλογία διαστάσεων της παραγράφου· διαφορετικοί οριζόντιοι και κατακόρυφοι συντελεστές τεντώνουν την έξοδο ανεξάρτητα.
+Ένας παράγοντας κλίμακας `1` διατηρεί τον άξονα στο προεπιλεγμένο μέγεθος pixel. Για παράδειγμα, `2` και για τους δύο παράγοντες παράγει εικόνα του πλάτους και του ύψους περίπου διπλάσιο από τις προεπιλεγμένες διαστάσεις, με αποτέλεσμα τέσσερις φορές περισσότερα pixel. Μεγαλύτεροι παράγοντες συνήθως παράγουν πιο καθαρό κείμενο για μεγέθυνση ή έξοδο υψηλής ανάλυσης, αλλά αυξάνουν και τη χρήση μνήμης και το μέγεθος αρχείου. Παράγοντες μικρότεροι του `1` παράγουν μικρότερες εικόνες με λιγότερη λεπτομέρεια. Χρησιμοποιήστε ίσους παράγοντες για να διατηρήσετε την αναλογία διαστάσεων της παραγράφου· διαφορετικοί οριζόντιοι και κάθετοι παράγοντες τεντώνουν το αποτέλεσμα ανεξάρτητα.
 
-Η απόδοση ενός ολόκληρου σχήματος με το [Shape.getImage](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/shape/#getImage) παραμένει χρήσιμη όταν η έξοδος πρέπει να περιλαμβάνει το γέμισμα, το περίγραμμα ή άλλον οπτικό περιεχόμενο του σχήματος. Για εικόνα μόνο παραγράφου, χρησιμοποιήστε το [Paragraph.getImage](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/paragraph/#getImage).
+Η απόδοση ολόκληρου σχήματος με το [Shape.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getImage) παραμένει χρήσιμη όταν το αποτέλεσμα πρέπει να περιλαμβάνει το γέμισμα, το περιγράμμα ή άλλο οπτικό περιεχόμενο του σχήματος. Για εικόνα μόνο παραγράφου, χρησιμοποιήστε το [Paragraph.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getImage).
 
-## **ΣΥΒΑΤΕΣ**
+## **Συχνές Ερωτήσεις**
 
-**Μπορώ να απενεργοποιήσω εντελώς την αναδίπλωση γραμμών μέσα σε ένα πλαίσιο κειμένου;**
+**Μπορώ να απενεργοποιήσω πλήρως την αναδίπλωση γραμμών μέσα σε ένα πλαίσιο κειμένου;**
 
-Ναι. Ορίστε το [TextFrameFormat.setWrapText](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/textframeformat/setwraptext/) για να απενεργοποιήσετε την αναδίπλωση ώστε οι γραμμές να μην κόβονται στις άκρες του πλαισίου κειμένου.
+Ναι. Ορίστε το [TextFrameFormat.setWrapText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/setwraptext/) ώστε να απενεργοποιήσετε την αναδίπλωση, έτσι οι γραμμές δεν θα σπάζουν στις άκρες του πλαισίου κειμένου.
 
-**Πώς μπορώ να λάβω τις ακριβείς διαστάσεις εντός διαφάνειας ενός συγκεκριμένου παραγράφου;**
+**Πώς μπορώ να λάβω τα ακριβή όρια στο slide για μια συγκεκριμένη παράγραφο;**
 
-Χρησιμοποιήστε το [Paragraph.getRect](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/paragraph/getrect/) για να ανακτήσετε το ορθογώνιο που περικλείει την παράγραφο. Το [Portion.getRect](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/portion/#getRect) παρέχει τα όρια ενός μεμονωμένου τμήματος.
+Χρησιμοποιήστε το [Paragraph.getRect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/getrect/) για να ανακτήσετε το ορθογώνιο σύνορο της παραγράφου. Το [Portion.getRect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portion/#getRect) παρέχει τα όρια ενός μεμονωμένου τμήματος.
 
-**Πού ελέγχεται η στοίχιση παραγράφου (αριστερά, δεξιά, κέντρο ή πλήρης διάταξη);**
+**Πού ελέγχεται η στοίχιση παραγράφου (αριστερά, δεξιά, κέντρο ή πλήρης ευθυγράμμιση);**
 
-Η [ParagraphFormat.setAlignment](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/paragraphformat/setalignment/) είναι ρύθμιση επιπέδου παραγράφου και εφαρμόζεται σε ολόκληρη την παράγραφο ανεξάρτητα από τη μορφοποίηση μεμονωμένων τμημάτων.
+Το [ParagraphFormat.setAlignment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setalignment/) είναι ρύθμιση επιπέδου παραγράφου και εφαρμόζεται σε ολόκληρη την παράγραφο, ανεξάρτητα από τη μορφοποίηση των μεμονωμένων τμημάτων.
 
-**Μπορώ να ορίσω τη γλώσσα επιμέλειας για μέρος μιας παραγράφου;**
+Για κάθετη στοίχιση τμημάτων διαφορετικών μεγεθών γραμματοσειράς σε κάθε γραμμή, δείτε το [Align Fonts Within a Line](/slides/el/nodejs-java/text-formatting/#align-fonts-within-a-line).
 
-Ναι. Ορίστε το [BasePortionFormat.setLanguageId](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/baseportionformat/#setLanguageId) για μεμονωμένα τμήματα, ώστε μια παράγραφος να μπορεί να περιέχει κείμενο σε πολλαπλές γλώσσες.
+**Μπορώ να ορίσω τη γλώσσα απόδοσης για μέρος μιας παραγράφου;**
+
+Ναι. Ορίστε το [BasePortionFormat.setLanguageId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setLanguageId) για μεμονωμένα τμήματα, ώστε μια παράγραφος να μπορεί να περιέχει κείμενο σε πολλές γλώσσες.

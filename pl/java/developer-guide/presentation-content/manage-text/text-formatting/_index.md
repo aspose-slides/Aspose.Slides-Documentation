@@ -5,43 +5,43 @@ type: docs
 weight: 50
 url: /pl/java/text-formatting/
 keywords:
-- wyrównanie akapitu
+- wyrównaj akapit
 - styl tekstu
 - tło tekstu
 - przezroczystość tekstu
-- odstęp między znakami
+- odstępy znaków
 - właściwości czcionki
 - rodzina czcionek
 - obrót tekstu
 - kąt obrotu
 - ramka tekstowa
 - odstęp między wierszami
-- właściwość autofit
-- zakotwienie ramki tekstowej
+- właściwość autofitu
+- kotwica ramki tekstowej
 - tabulacja tekstu
-- język domyślny
+- domyślny język
 - PowerPoint
 - OpenDocument
 - prezentacja
 - Java
 - Aspose.Slides
-description: "Formatowanie i stylizowanie tekstu w prezentacjach PowerPoint i OpenDocument przy użyciu Aspose.Slides dla Javy. Dostosuj czcionki, kolory, wyrównanie i więcej."
+description: "Formatuj i stylizuj tekst w prezentacjach PowerPoint i OpenDocument przy użyciu Aspose.Slides for Java. Dostosuj czcionki, kolory, wyrównanie i inne."
 ---
 ## **Przegląd**
 
-Ten artykuł pokazuje, jak formatować tekst w prezentacjach PowerPoint i OpenDocument przy użyciu Aspose.Slides dla języka Java. Omówiono kolory tła, przezroczystość, odstępy między znakami, właściwości czcionek, obrót, odstępy akapitów, zachowanie autofit, zakotwienie tekstu, tabulatory i ustawienia języka.
+Ten artykuł pokazuje, jak formatować tekst w prezentacjach PowerPoint i OpenDocument przy użyciu Aspose.Slides for Java. Omówiono kolory tła, przezroczystość, odstępy między znakami, właściwości czcionek, obrót, odstępy akapitów, zachowanie autofitu, kotwiczenie tekstu, tabulatory i ustawienia języka.
 
-Jeśli nie zaznaczono inaczej, przykłady używają [sample.pptx](sample.pptx). Pierwszy obiekt na pierwszym slajdzie to pole tekstowe, a jego pierwszy akapit zawiera tekst pokazany poniżej. Indeksy slajdów i obiektów są zerowe. Przykłady wybierające pogrubione fragmenty korzystają z efektywnego formatowania, w tym dziedziczonego formatowania pogrubienia:
+Jeśli nie podano inaczej, przykłady używają [sample.pptx](sample.pptx). Pierwszy kształt na pierwszym slajdzie to pole tekstowe, a jego pierwszy akapit zawiera tekst pokazany poniżej. Indeksy slajdów i kształtów są zerowe. Przykłady zaznaczające pogrubione fragmenty używają efektywnego formatowania, w tym dziedziczonego pogrubienia:
 
 ![Przykładowy tekst](sample_text.png)
 
-Aby znaleźć i podświetlić tekst dosłowny lub dopasowania wyrażeń regularnych, zobacz [Search and Replace Text](/slides/pl/java/search-and-replace-text/).
+Aby znaleźć i podświetlić dosłowny tekst lub dopasowania wyrażenia regularnego, zobacz [Wyszukiwanie i zamiana tekstu](/slides/pl/java/search-and-replace-text/).
 
 ## **Ustaw kolor tła tekstu**
 
-Użyj [IParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iparagraphformat/#getDefaultPortionFormat--) aby ustawić domyślny kolor podświetlenia dla akapitu lub użyj [IBasePortionFormat.getHighlightColor](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ibaseportionformat/#getHighlightColor--) dla poszczególnych fragmentów tekstu.
+Użyj [IParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#getDefaultPortionFormat--) aby ustawić domyślny kolor podświetlenia dla akapitu lub użyj [IBasePortionFormat.getHighlightColor](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseportionformat/#getHighlightColor--) dla poszczególnych fragmentów tekstu.
 
-Poniższy przykład ustawia jasnoszare podświetlenie jako domyślne dla pierwszego akapitu. Jawne kolory podświetlenia w poszczególnych fragmentach mają pierwszeństwo przed tym domyślnym:
+Następujący przykład ustawia jasnoszare podświetlenie jako domyślne dla pierwszego akapitu. Bezpośrednie kolory podświetlenia w poszczególnych fragmentach mają pierwszeństwo przed tym domyślnym:
 
 ```java
 import com.aspose.slides.*;
@@ -63,9 +63,11 @@ try {
 }
 ```
 
+Wynik:
+
 ![Szary akapit](gray_paragraph.png)
 
-Poniższy przykład kodu pokazuje, jak ustawić kolor tła dla **fragmentów tekstu z pogrubioną czcionką**:
+Przykład kodu poniżej pokazuje, jak ustawić kolor tła dla **fragmentów tekstu z pogrubioną czcionką**:
 
 ```java
 import com.aspose.slides.*;
@@ -91,11 +93,13 @@ try {
 }
 ```
 
+Wynik:
+
 ![Szare fragmenty tekstu](gray_text_portions.png)
 
 ## **Wyrównaj akapity tekstu**
 
-Użyj [IParagraphFormat.setAlignment](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iparagraphformat/#setAlignment-int-) , aby ustawić wyrównanie akapitu w ramce tekstowej. Wartość może być wyśrodkowana, wyrównana do lewej, do prawej, justowana i tak dalej.
+Użyj [IParagraphFormat.setAlignment](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setAlignment-int-) aby ustawić wyrównanie akapitu w ramce tekstowej. Wartość może być wyśrodkowana, wyrównana do lewej, do prawej, wyjustowana itp.
 
 Poniższy przykład kodu pokazuje, jak wyrównać akapit do **środka**:
 
@@ -118,11 +122,79 @@ try {
 }
 ```
 
+Wynik:
+
 ![Wyrównany akapit](aligned_paragraph.png)
+
+## **Wyrównaj czcionki w linii**
+
+Użyj [IParagraphFormat.setFontAlignment](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setFontAlignment-int-) aby pionowo wyrównać fragmenty tekstu o różnych rozmiarach czcionki w jednej linii. To ustawienie ma zastosowanie do całego akapitu i kontroluje wyrównanie w każdej jego linii.
+
+Poniższy samodzielny przykład tworzy cztery oznaczone pola tekstowe na jednym slajdzie. Każdy akapit zawiera ten sam tekst w rozmiarach 18, 36 i 54 punktów, z innym wyrównaniem czcionki. Używa czcionki Arial, wyłącza autofit i zawijanie oraz utrzymuje ramki tekstowe na tyle duże, aby pomieściły jedną linię.
+
+```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    int[] alignments = { FontAlignment.Baseline, FontAlignment.Top, FontAlignment.Center, FontAlignment.Bottom };
+    String[] alignmentNames = { "Baseline", "Top", "Center", "Bottom" };
+    float[] fontSizes = { 18f, 36f, 54f };
+
+    for (int i = 0; i < alignments.length; i++) {
+        IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 30, 20 + i * 130, 660, 120);
+        shape.getFillFormat().setFillType(FillType.NoFill);
+        shape.getLineFormat().getFillFormat().setFillType(FillType.NoFill);
+
+        ITextFrame textFrame = shape.getTextFrame();
+        textFrame.getTextFrameFormat().setAnchoringType(TextAnchorType.Top);
+        textFrame.getTextFrameFormat().setAutofitType(TextAutofitType.None);
+        textFrame.getTextFrameFormat().setWrapText(NullableBool.False);
+
+        IParagraph label = textFrame.getParagraphs().get_Item(0);
+        label.setText(alignmentNames[i]);
+        label.getParagraphFormat().setAlignment(TextAlignment.Left);
+        label.getParagraphFormat().getDefaultPortionFormat().setFontHeight(14);
+        label.getParagraphFormat().getDefaultPortionFormat().setLatinFont(new FontData("Arial"));
+        label.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
+        label.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY);
+
+        Paragraph paragraph = new Paragraph();
+        paragraph.getParagraphFormat().setFontAlignment(alignments[i]);
+        paragraph.getParagraphFormat().setAlignment(TextAlignment.Left);
+        paragraph.getParagraphFormat().getDefaultPortionFormat().setLatinFont(new FontData("Arial"));
+        paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
+        paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
+
+        for (float fontSize : fontSizes) {
+            Portion portion = new Portion("Ag ");
+            portion.getPortionFormat().setFontHeight(fontSize);
+            paragraph.getPortions().add(portion);
+        }
+
+        textFrame.getParagraphs().add(paragraph);
+    }
+
+    presentation.save("font_alignment.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Wynik:
+
+![Porównanie wyrównania czcionki podstawy, góry, środka i dołu przy mieszanych rozmiarach czcionek](font_alignment.png)
+
+Wyrównanie czcionki używa metryk czcionki, więc widoczne krawędzie poszczególnych liter nie muszą dokładnie pokrywać się. Przykład zawiera zarówno wielką literę, jak i znak z obniżeniem, aby pokazać różnicę między wyrównaniem do podstawy a do dołu. Dostępność czcionek i ich zamienniki, użyte znaki oraz różnica w rozmiarach czcionek wpływają na rezultat. Rozmiary ramki, marginesy, odstępy między wierszami, zawijanie i autofit także wpływają na układ; używaj tych samych czcionek i ustawień układu przy porównywaniu trybów.
+
+To ustawienie różni się od [IParagraphFormat.setAlignment](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setAlignment-int-), które kontroluje poziome wyrównanie akapitu, oraz od [ITextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/java/com.aspose.slides/itextframeformat/#setAnchoringType-byte-), które pozycjonuje blok tekstu pionowo w obrębie kształtu. Formatowanie indeksu górnego i dolnego za pomocą [IBasePortionFormat.setEscapement](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseportionformat/#setEscapement-float-) przesuwa poszczególne fragmenty względem podstawy zamiast ustawiać wyrównanie czcionki dla linii akapitu.
 
 ## **Ustaw przezroczystość tekstu**
 
-Przezroczystość tekstu jest kontrolowana za pomocą komponentu alfa koloru przypisanego do [IBasePortionFormat.getFillFormat](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ibaseportionformat/#getFillFormat--). W poniższych przykładach `alpha = 50` oznacza wartość kanału alfa ARGB w skali 0–255, a nie procent przezroczystości.
+Przezroczystość tekstu jest kontrolowana przez komponent alfa koloru przypisanego do [IBasePortionFormat.getFillFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseportionformat/#getFillFormat--). W poniższych przykładach `alpha = 50` jest wartością kanału alfa ARGB w skali 0–255, a nie procentem przezroczystości.
 
 Poniższy przykład kodu pokazuje, jak zastosować przezroczystość do **całego akapitu**:
 
@@ -139,7 +211,7 @@ try {
     IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
-    // Ustaw kolor wypełnienia tekstu na kolor przezroczysty.
+    // Ustaw kolor wypełnienia tekstu na przezroczysty kolor.
     paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
     paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(new Color(0, 0, 0, alpha));
 
@@ -148,6 +220,8 @@ try {
     presentation.dispose();
 }
 ```
+
+Wynik:
 
 ![Przezroczysty akapit](transparent_paragraph.png)
 
@@ -180,13 +254,15 @@ try {
 }
 ```
 
+Wynik:
+
 ![Przezroczyste fragmenty tekstu](transparent_text_portions.png)
 
-## **Ustaw odstęp między znakami w tekście**
+## **Ustaw odstępy między znakami w tekście**
 
-Użyj [IBasePortionFormat.setSpacing](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ibaseportionformat/#setSpacing-float-) , aby rozszerzyć lub skurczyć odstęp między znakami w polu tekstowym. Przykłady dodają 3 punkty odstępu; wartości ujemne kurczą tekst.
+Użyj [IBasePortionFormat.setSpacing](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseportionformat/#setSpacing-float-) aby zwiększyć lub zmniejszyć odstępy między znakami w polu tekstowym. Przykłady dodają 3 punkty odstępu; wartości ujemne zagęszczają tekst.
 
-Poniższy kod Java pokazuje, jak zwiększyć odstęp między znakami w **całym akapicie**:
+Poniższy kod Java pokazuje, jak rozszerzyć odstępy znaków w **całym akapicie**:
 
 ```java
 import com.aspose.slides.*;
@@ -198,8 +274,8 @@ try {
     IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
-    // Uwaga: użyj wartości ujemnych, aby skompresować odstęp między znakami.
-    paragraph.getParagraphFormat().getDefaultPortionFormat().setSpacing(3); // Rozszerz odstęp między znakami.
+    // Uwaga: użyj ujemnych wartości, aby skompresować odstępy między znakami.
+    paragraph.getParagraphFormat().getDefaultPortionFormat().setSpacing(3); // Rozszerz odstępy między znakami.
 
     presentation.save("character_spacing_in_paragraph.pptx", SaveFormat.Pptx);
 } finally {
@@ -207,9 +283,11 @@ try {
 }
 ```
 
-![Odstęp między znakami w akapicie](character_spacing_in_paragraph.png)
+Wynik:
 
-Poniższy przykład kodu pokazuje, jak zwiększyć odstęp między znakami w **fragmentach tekstu z pogrubioną czcionką**:
+![Odstępy znaków w akapicie](character_spacing_in_paragraph.png)
+
+Poniższy przykład kodu pokazuje, jak rozszerzyć odstępy znaków w **fragmentach tekstu z pogrubioną czcionką**:
 
 ```java
 import com.aspose.slides.*;
@@ -223,8 +301,8 @@ try {
 
     for (IPortion portion : paragraph.getPortions()) {
         if (portion.getPortionFormat().getEffective().getFontBold()) {
-            // Uwaga: użyj wartości ujemnych, aby skompresować odstęp między znakami.
-            portion.getPortionFormat().setSpacing(3); // Rozszerz odstęp między znakami.
+            // Uwaga: użyj ujemnych wartości, aby skompresować odstępy między znakami.
+            portion.getPortionFormat().setSpacing(3); // Rozszerz odstępy między znakami.
         }
     }
 
@@ -234,13 +312,15 @@ try {
 }
 ```
 
-![Odstęp między znakami w fragmentach tekstu](character_spacing_in_text_portions.png)
+Wynik:
+
+![Odstępy znaków w fragmentach tekstu](character_spacing_in_text_portions.png)
 
 ### **Wyłącz kerning dla konkretnych czcionek**
 
-W niektórych przypadkach tekst renderowany przez Aspose.Slides może wyglądać nieco ściślej niż ten sam tekst wyświetlany w programie PowerPoint. Może się tak stać, ponieważ PowerPoint może ignorować dane kerningu dla niektórych czcionek, nawet gdy czcionka zawiera prawidłowe informacje o kerningu i kerning jest włączony w ustawieniach PowerPoint.
+W niektórych przypadkach tekst renderowany przez Aspose.Slides może wyglądać nieco ściślej niż ten sam tekst wyświetlany w PowerPoint. Może się tak stać, ponieważ PowerPoint może ignorować dane kerningu dla niektórych czcionek, nawet gdy czcionka zawiera prawidłowe informacje o kerningu i kerning jest włączony w ustawieniach PowerPoint.
 
-Aby uzyskać wynik renderowania bliższy PowerPoint w takich przypadkach, można wyłączyć kerning dla fragmentów tekstu używających dotkniętej czcionki. Ustaw [IBasePortionFormat.setKerningMinimalSize](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ibaseportionformat/#setKerningMinimalSize-float-) na wartość większą niż rzeczywisty rozmiar czcionki. Ten przykład wymaga pliku "presentation.pptx" z polem tekstowym jako pierwszym obiektem na pierwszym slajdzie. Sprawdza efektywne nazwy czcionek, w tym dziedziczone, i ustawia próg 100 punktów dla fragmentów używających czcionki Roboto. To wyłącza kerning dla pasujących fragmentów o rozmiarze czcionki poniżej 100 punktów:
+Aby uzyskać wynik bardziej zbliżony do PowerPoint w takich sytuacjach, możesz wyłączyć kerning dla fragmentów tekstu używających dotkniętej czcionki. Ustaw [IBasePortionFormat.setKerningMinimalSize](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseportionformat/#setKerningMinimalSize-float-) na wartość większą niż rzeczywisty rozmiar czcionki. Ten przykład wymaga pliku "presentation.pptx" z polem tekstowym jako pierwszym kształtem na pierwszym slajdzie. Sprawdza efektywne nazwy czcionek, w tym dziedziczone czcionki, i ustawia próg 100 punktów dla fragmentów używających czcionki Roboto. To wyłącza kerning dla pasujących fragmentów o rozmiarze czcionki poniżej 100 punktów:
 
 ```java
 import com.aspose.slides.*;
@@ -273,13 +353,13 @@ try {
 }
 ```
 
-Dla dopasowanego tekstu poniżej progu, to ustawienie zapobiega kerningowi i może pomóc wyrównać renderowanie Aspose.Slides z wizualnym wynikiem PowerPoint dla czcionek, na które wpływa to specyficzne zachowanie PowerPoint.
+Dla pasującego tekstu poniżej progu to ustawienie zapobiega kerningowi i może pomóc wyrównać renderowanie Aspose.Slides z wizualnym wynikiem PowerPoint dla czcionek dotkniętych tym specyficznym zachowaniem PowerPoint.
 
 ## **Zarządzaj właściwościami czcionki tekstu**
 
-Właściwości czcionki można ustawić na poziomie akapitu za pomocą [IParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iparagraphformat/#getDefaultPortionFormat--) , lub na poszczególnych fragmentach za pomocą [IPortionFormat](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iportionformat/).
+Właściwości czcionki można ustawić na poziomie akapitu za pomocą [IParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#getDefaultPortionFormat--) lub na poszczególnych fragmentach za pomocą [IPortionFormat](https://reference.aspose.com/slides/java/com.aspose.slides/iportionformat/).
 
-Poniższy przykład ustawia domyślną czcionkę pierwszego akapitu na 12‑punktowy Times New Roman z pogrubieniem, kursywą i przerywaną podkreśleniem. Jawne formatowanie poszczególnych fragmentów ma pierwszeństwo przed tymi wartościami domyślnymi:
+Poniższy przykład ustawia domyślną czcionkę pierwszego akapitu na 12‑punktowy Times New Roman z pogrubieniem, kursywą i kropkowanym podkreśleniem. Bezpośrednie formatowanie poszczególnych fragmentów ma pierwszeństwo przed tymi domyślnymi.
 
 ```java
 import com.aspose.slides.*;
@@ -304,9 +384,11 @@ try {
 }
 ```
 
+Wynik:
+
 ![Właściwości czcionki dla akapitu](font_properties_for_paragraph.png)
 
-Poniższy przykład stosuje 13‑punktowy Times New Roman, formatowanie kursywą i przerywaną podkreślenie do fragmentów, których efektywne formatowanie jest pogrubione:
+Poniższy przykład stosuje 13‑punktowy Times New Roman, kursywę i kropkowane podkreślenie do fragmentów, których efektywne formatowanie jest pogrubione:
 
 ```java
 import com.aspose.slides.*;
@@ -334,13 +416,15 @@ try {
 }
 ```
 
+Wynik:
+
 ![Właściwości czcionki dla fragmentów tekstu](font_properties_for_text_portions.png)
 
 ## **Ustaw obrót tekstu**
 
-Użyj [ITextFrameFormat.setTextVerticalType](https://reference.aspose.com/slides/pl/java/com.aspose.slides/itextframeformat/#setTextVerticalType-byte-) , aby ustawić predefiniowaną orientację tekstu w obiekcie.
+Użyj [ITextFrameFormat.setTextVerticalType](https://reference.aspose.com/slides/java/com.aspose.slides/itextframeformat/#setTextVerticalType-byte-) aby ustawić predefiniowaną orientację tekstu w obrębie kształtu.
 
-Poniższy przykład kodu ustawia orientację tekstu w obiekcie na [TextVerticalType.Vertical270](https://reference.aspose.com/slides/pl/java/com.aspose.slides/textverticaltype/), co obraca tekst **o 90 stopni przeciwnie do ruchu wskazówek zegara**:
+Poniższy przykład kodu ustawia orientację tekstu w kształcie na [TextVerticalType.Vertical270](https://reference.aspose.com/slides/java/com.aspose.slides/textverticaltype/), co obraca tekst **o 90 stopni przeciwnie do ruchu wskazówek zegara**:
 
 ```java
 import com.aspose.slides.*;
@@ -358,13 +442,15 @@ try {
 }
 ```
 
+Wynik:
+
 ![Obrót tekstu](text_rotation.png)
 
-## **Ustaw niestandardowy obrót dla ramek tekstowych**
+## **Ustaw własny obrót ramki tekstowej**
 
-Użyj [ITextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/pl/java/com.aspose.slides/itextframeformat/#setRotationAngle-float-) , aby ustawić niestandardowy kąt obrotu dla [ITextFrame](https://reference.aspose.com/slides/pl/java/com.aspose.slides/itextframe/).
+Użyj [ITextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/java/com.aspose.slides/itextframeformat/#setRotationAngle-float-) aby ustawić własny kąt obrotu dla [ITextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/).
 
-Poniższy przykład kodu obraca ramkę tekstową o 3 stopnie zgodnie z ruchem wskazówek zegara w obrębie obiektu:
+Poniższy przykład kodu obraca ramkę tekstową o 3 stopnie zgodnie z ruchem wskazówek zegara w obrębie kształtu:
 
 ```java
 import com.aspose.slides.*;
@@ -382,14 +468,16 @@ try {
 }
 ```
 
-![Niestandardowy obrót tekstu](custom_text_rotation.png)
+Wynik:
 
-## **Ustaw odstęp wierszy w akapitach**
+![Własny obrót tekstu](custom_text_rotation.png)
 
-Aspose.Slides provides [IParagraphFormat.setSpaceAfter](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iparagraphformat/#setSpaceAfter-float-), [IParagraphFormat.setSpaceBefore](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iparagraphformat/#setSpaceBefore-float-), and [IParagraphFormat.setSpaceWithin](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iparagraphformat/#setSpaceWithin-float-) to control paragraph spacing. These properties are used as follows:
+## **Ustaw odstępy wierszy w akapitach**
 
-* Use a positive value to specify line spacing as a percentage of the line height. → * Użyj dodatniej wartości, aby określić odstęp wierszy jako procent wysokości wiersza.
-* Use a negative value to specify line spacing in points. → * Użyj ujemnej wartości, aby określić odstęp wierszy w punktach.
+Aspose.Slides udostępnia [IParagraphFormat.setSpaceAfter](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setSpaceAfter-float-), [IParagraphFormat.setSpaceBefore](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setSpaceBefore-float-) i [IParagraphFormat.setSpaceWithin](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setSpaceWithin-float-) do kontrolowania odstępów akapitowych. Właściwości te stosuje się w następujący sposób:
+
+* Użyj wartości dodatniej, aby określić odstęp wierszy jako procent wysokości wiersza.
+* Użyj wartości ujemnej, aby określić odstęp w punktach.
 
 Poniższy przykład ustawia odstęp wewnątrz pierwszego akapitu na 200 % wysokości wiersza (podwójny odstęp):
 
@@ -411,18 +499,20 @@ try {
 }
 ```
 
+Wynik:
+
 ![Odstęp wierszy w akapicie](line_spacing.png)
 
-## **Kontroluj łamanie linii**
+## **Kontroluj dzielenie wierszy**
 
-Reguły łamania linii w akapicie są przydatne w wąskich blokach tekstu i prezentacjach, które mieszają tekst łaciński i wschodnioazjatycki. Poniższe metody należą do [IParagraphFormat](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iparagraphformat/), więc mają zastosowanie do całego akapitu:
+Reguły dzielenia wierszy w akapicie są przydatne w wąskich blokach tekstu oraz w prezentacjach mieszających tekst łaciński i wschodnioazjatycki. Następujące metody należą do [IParagraphFormat](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/), więc mają zastosowanie do całego akapitu:
 
-- [setLatinLineBreak](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iparagraphformat/#setLatinLineBreak-byte-) controls Latin line-breaking rules. In mixed text, changing it can also change where adjacent East Asian text and punctuation wrap. → - [setLatinLineBreak](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iparagraphformat/#setLatinLineBreak-byte-) kontroluje zasady łamania linii w tekście łacińskim. W mieszanym tekście zmiana może również wpłynąć na miejsce, w którym są zawijane sąsiadujące znaki wschodnioazjatyckie i interpunkcja.
-- [setEastAsianLineBreak](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iparagraphformat/#setEastAsianLineBreak-byte-) controls East Asian line-breaking rules, including restrictions on characters at the beginning and end of a line. → - [setEastAsianLineBreak](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iparagraphformat/#setEastAsianLineBreak-byte-) kontroluje zasady łamania linii w tekście wschodnioazjatyckim, w tym ograniczenia dotyczące znaków na początku i końcu wiersza.
+- [setLatinLineBreak](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setLatinLineBreak-byte-) kontroluje reguły dzielenia wierszy dla tekstu łacińskiego. W mieszanym tekście zmiana tej opcji może także zmienić miejsce, w którym otaczający tekst wschodnioazjatycki i interpunkcja się zawijają.
+- [setEastAsianLineBreak](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setEastAsianLineBreak-byte-) kontroluje reguły dzielenia wierszy dla tekstu wschodnioazjatyckiego, w tym ograniczenia dotyczące znaków na początku i końcu wiersza.
 
-These rules do not replace [ITextFrameFormat.setWrapText](https://reference.aspose.com/slides/pl/java/com.aspose.slides/itextframeformat/#setWrapText-byte-), which enables automatic wrapping within a text frame. They influence the layout when wrapping occurs; they do not insert line-break characters. An explicit line break forces a new line within the paragraph independently of the available width. → Te reguły nie zastępują [ITextFrameFormat.setWrapText](https://reference.aspose.com/slides/pl/java/com.aspose.slides/itextframeformat/#setWrapText-byte-), które włącza automatyczne zawijanie w obrębie ramki tekstowej. Wpływają na układ, gdy zawijanie zachodzi; nie wstawiają znaków łamania linii. Jawne złamanie linii wymusza nowy wiersz w akapicie niezależnie od dostępnej szerokości.
+Te reguły nie zastępują [ITextFrameFormat.setWrapText](https://reference.aspose.com/slides/java/com.aspose.slides/itextframeformat/#setWrapText-byte-), które włącza automatyczne zawijanie w ramce tekstowej. Wpływają na układ, gdy zachodzi zawijanie; nie wstawiają znaków podziału wiersza. Jawny podział wiersza wymusza nową linię w akapicie niezależnie od dostępnej szerokości.
 
-Poniższy samodzielny przykład tworzy wąski blok tekstowy zawierający chiński i łaciński tekst. Ustawia oba opcje łamania linii explicite i zapisuje „line_breaking.pptx”. Aby eksperymentować z dowolną regułą, zmień odpowiadającą wartość, pozostawiając drugie ustawienie niezmienione. Przykład używa 24‑punktowego Arial i SimSun przy szerokości ramki 160 punktów oraz zerowych poziomych marginesów ramki tekstowej. [ITextFrameFormat.setAutofitType](https://reference.aspose.com/slides/pl/java/com.aspose.slides/itextframeformat/#setAutofitType-byte-) jest wywoływany z [TextAutofitType.None](https://reference.aspose.com/slides/pl/java/com.aspose.slides/textautofittype/) , aby rozmiar tekstu i wymiary ramki pozostały stałe.
+Poniższy samodzielny przykład tworzy wąski blok tekstu zawierający chiński i łaciński tekst. Ustawia oba opcje dzielenia wierszy explicite i zapisuje „line_breaking.pptx”. Aby eksperymentować z którejkolwiek reguły, zmień odpowiednią wartość, pozostawiając drugie ustawienia niezmienione. Przykład używa 24‑punktowej czcionki Arial i SimSun przy szerokości ramki 160 punktów oraz zerowych poziomych marginesów ramki tekstowej. [ITextFrameFormat.setAutofitType](https://reference.aspose.com/slides/java/com.aspose.slides/itextframeformat/#setAutofitType-byte-) jest wywoływane z [TextAutofitType.None](https://reference.aspose.com/slides/java/com.aspose.slides/textautofittype/) tak, aby rozmiar tekstu i wymiary ramki pozostały stałe.
 
 ```java
 import com.aspose.slides.*;
@@ -462,11 +552,11 @@ try {
 }
 ```
 
-## **Kontroluj zawieszanie interpunkcji**
+## **Kontroluj wiszące znaki interpunkcyjne**
 
-[IParagraphFormat.setHangingPunctuation](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iparagraphformat/#setHangingPunctuation-byte-) pozwala kwalifikowanej interpunkcji wystawać poza prawą krawędź linii tekstu zamiast zajmować następną linię. Dotyczy całego akapitu i różni się od wcięcia wiszącego.
+[IParagraphFormat.setHangingPunctuation](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setHangingPunctuation-byte-) umożliwia dopuszczenie wybranej interpunkcji do wyjścia poza prawą krawędź linii tekstu zamiast zajęcia kolejnej linii. Ma zastosowanie do całego akapitu i różni się od wcięcia wiszącego.
 
-Poniższy samodzielny przykład włącza zawieszanie interpunkcji w ramce tekstowej o szerokości 100 punktów i zapisuje „hanging_punctuation.pptx”. Przy 24‑punktowym Arial i zerowych poziomych marginesach ramki tekstowej, końcowa kropka pozostaje po słowie „sentence” i wystaje poza prawą krawędź tekstu. Ustaw właściwość na [NullableBool.False](https://reference.aspose.com/slides/pl/java/com.aspose.slides/nullablebool/) , aby porównać: przy tych ustawieniach kropka zajmuje oddzielną linię. Zawijanie jest włączone, a autofit wyłączony, aby zachować stałą dostępną szerokość.
+Poniższy samodzielny przykład włącza wiszącą interpunkcję w ramce tekstowej o szerokości 100 punktów i zapisuje „hanging_punctuation.pptx”. Przy czcionce Arial 24‑punktowej i zerowych poziomych marginesach ramki, ostateczna kropka pozostaje po słowie „sentence” i wystaje poza prawą krawędź tekstu. Ustaw właściwość na [NullableBool.False](https://reference.aspose.com/slides/java/com.aspose.slides/nullablebool/), aby porównać: przy tych ustawieniach kropka zajmuje oddzielną linię. Zawijanie jest włączone, a autofit wyłączony, aby zachować stałą dostępną szerokość.
 
 ```java
 import com.aspose.slides.*;
@@ -503,11 +593,11 @@ try {
 }
 ```
 
-Nie każda znak interpunkcyjny może się zawiesić. Widoczny rezultat zależy od dostępności czcionki i układu: zmiana czcionki, dostępnej szerokości, marginesów lub ustawień autofit może usunąć widoczną różnicę.
+Nie każdy znak interpunkcyjny może wisieć. [Warunki czcionki i układu opisane powyżej](#control-line-breaking) mają również zastosowanie do tego porównania: zmiana czcionki, dostępnej szerokości, marginesów lub ustawień autofitu może usunąć widoczną różnicę.
 
 ## **Ustaw typ autofitu dla ramek tekstowych**
 
-[ITextFrameFormat.setAutofitType](https://reference.aspose.com/slides/pl/java/com.aspose.slides/itextframeformat/#setAutofitType-byte-) określa, jak tekst zachowuje się, gdy przekracza granice swojego kontenera. Użyj go, aby kontrolować, czy tekst ma się kurczyć, wypływać poza obszar, czy automatycznie zmieniać rozmiar obiektu. Poniższy przykład konfiguruje obiekt tak, aby zmieniał rozmiar, dopasowując się do tekstu i zapisuje wynik jako „autofit_type.pptx”.
+[ITextFrameFormat.setAutofitType](https://reference.aspose.com/slides/java/com.aspose.slides/itextframeformat/#setAutofitType-byte-) określa, jak tekst zachowuje się, gdy przekracza granice swojego kontenera. Użyj go, aby kontrolować, czy tekst się zmniejsza, wypływa poza kształt lub automatycznie zmienia rozmiar kształtu. Poniższy przykład konfiguruje kształt, aby zmieniał rozmiar w celu dopasowania do tekstu i zapisuje wynik jako „autofit_type.pptx”.
 
 ```java
 import com.aspose.slides.*;
@@ -525,11 +615,11 @@ try {
 }
 ```
 
-Aby policzyć linie po automatycznym zawijaniu i zobaczyć, jak zmiana szerokości tekstu lub obiektu wpływa na wynik, zobacz [Count Rendered Lines](/slides/pl/java/manage-paragraph/). Liczba linii sama w sobie nie wskazuje, czy tekst wypływa poza swój kontener.
+Aby policzyć linie po automatycznym zawijaniu i zobaczyć, jak zmiany szerokości tekstu lub kształtu wpływają na rezultat, zobacz [Count Rendered Lines](/slides/pl/java/manage-paragraph/). Same liczenie linii nie wskazuje, czy tekst wypływa poza kontener.
 
-## **Ustaw zakotwienie ramek tekstowych**
+## **Ustaw kotwicę ramek tekstowych**
 
-[ITextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/pl/java/com.aspose.slides/itextframeformat/#setAnchoringType-byte-) definiuje, jak tekst jest pozycjonowany pionowo wewnątrz obiektu, np. na górze, w środku lub na dole. Poniższy przykład zakotwicza tekst na dole pierwszego obiektu i zapisuje wynik jako „text_anchor.pptx”.
+[ITextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/java/com.aspose.slides/itextframeformat/#setAnchoringType-byte-) definiuje, jak tekst jest pozycjonowany pionowo w obrębie kształtu, np. na górze, w środku lub na dole. Poniższy przykład kotwiczy tekst na dole pierwszego kształtu i zapisuje wynik jako „text_anchor.pptx”.
 
 ```java
 import com.aspose.slides.*;
@@ -547,9 +637,9 @@ try {
 }
 ```
 
-## **Ustaw tabulację tekstu**
+## **Ustaw tabulacje tekstu**
 
-Użyj [IParagraphFormat.setDefaultTabSize](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iparagraphformat/#setDefaultTabSize-float-) i [IParagraphFormat.getTabs](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iparagraphformat/#getTabs--) , aby skonfigurować tabulatory w akapicie. Poniższy przykład ustawia domyślny odstęp tabulacji na 100 punktów i dodaje tabulację wyrównaną do lewej na 30 punktach. Ustawienia te wpływają na tekst zawierający znaki tabulacji.
+Użyj [IParagraphFormat.setDefaultTabSize](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setDefaultTabSize-float-) i [IParagraphFormat.getTabs](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#getTabs--) aby skonfigurować tabulatory w akapicie. Poniższy przykład ustawia domyślny odstęp tabulatora na 100 punktów i dodaje lewostronny tabulator w 30 punktach. Te ustawienia wpływają na tekst zawierający znaki tabulacji.
 
 ```java
 import com.aspose.slides.*;
@@ -570,13 +660,15 @@ try {
 }
 ```
 
+Wynik:
+
 ![Tabulatory w akapicie](paragraph_tabs.png)
 
 ## **Ustaw język korekty**
 
-Aspose.Slides udostępnia [IBasePortionFormat.setLanguageId](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ibaseportionformat/#setLanguageId-java.lang.String-) , które pozwala ustawić język korekty dla fragmentu tekstu. Język korekty określa język używany do sprawdzania pisowni i gramatyki w programie PowerPoint.
+Aspose.Slides udostępnia [IBasePortionFormat.setLanguageId](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseportionformat/#setLanguageId-java.lang.String-), który pozwala ustawić język korekty dla fragmentu tekstu. Język korekty określa, jakiego języka używać przy sprawdzaniu pisowni i gramatyki w PowerPoint.
 
-Poniższy przykład wymaga pliku "presentation.pptx" z polem tekstowym jako pierwszym obiektem na pierwszym slajdzie i przynajmniej jednym akapitem. Zastępuje zawartość pierwszego akapitu ciągiem "1。", ustawia SimSun jako czcionkę i przypisuje język korekty chiński uproszczony (`zh-CN`). Zapisuje wynik jako „proofing_language.pptx”:
+Poniższy przykład wymaga pliku „presentation.pptx” z polem tekstowym jako pierwszym kształtem na pierwszym slajdzie i co najmniej jednym akapicie. Zastępuje zawartość pierwszego akapitu tekstem „1。”, ustawia czcionkę SimSun i przypisuje język korekty chiński uproszczony (`zh-CN`). Zapisuje wynik jako „proofing_language.pptx”:
 
 ```java
 import com.aspose.slides.*;
@@ -610,7 +702,7 @@ try {
 
 ## **Ustaw domyślny język**
 
-Użyj [LoadOptions.setDefaultTextLanguage](https://reference.aspose.com/slides/pl/java/com.aspose.slides/loadoptions/#setDefaultTextLanguage-java.lang.String-) , aby określić domyślny język dla tekstu tworzonego podczas ładowania lub tworzenia prezentacji. Poniższy przykład tworzy prezentację z amerykańskim angielskim jako domyślnym językiem tekstu, dodaje pole tekstowe i wypisuje `en-US` dla pierwszego fragmentu tekstu.
+Użyj [LoadOptions.setDefaultTextLanguage](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/#setDefaultTextLanguage-java.lang.String-) aby określić domyślny język dla tekstu tworzonego podczas ładowania lub tworzenia prezentacji. Poniższy przykład tworzy prezentację z językiem tekstu ustawionym na amerykański angielski, dodaje pole tekstowe i wypisuje `en-US` dla jego pierwszego fragmentu tekstu.
 
 ```java
 import com.aspose.slides.*;
@@ -636,7 +728,9 @@ try {
 
 ## **Ustaw domyślny styl tekstu**
 
-Aby zastosować domyślne formatowanie tekstu na poziomie prezentacji, użyj [IPresentation.getDefaultTextStyle](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ipresentation/#getDefaultTextStyle--). Poniższy przykład ustawia 14‑punktową pogrubioną czcionkę jako domyślną dla akapitów najwyższego poziomu w nowej prezentacji i zapisuje ją jako „default_text_style.pptx”. Tekst może dziedziczyć te domyślne wartości, chyba że bardziej szczegółowe formatowanie je nadpisze.
+Aby zastosować domyślne formatowanie tekstu na poziomie prezentacji, użyj [IPresentation.getDefaultTextStyle](https://reference.aspose.com/slides/java/com.aspose.slides/ipresentation/#getDefaultTextStyle--).
+
+Poniższy przykład ustawia czcionkę 14‑punktową pogrubioną jako domyślną dla akapitów najwyższego poziomu w nowej prezentacji i zapisuje ją jako „default_text_style.pptx”. Tekst może dziedziczyć te domyślne ustawienia, chyba że bardziej szczegółowe formatowanie je nadpisze.
 
 ```java
 import com.aspose.slides.*;
@@ -659,9 +753,9 @@ try {
 
 ## **Wyodrębnij tekst z efektem wielkich liter**
 
-W programie PowerPoint zastosowanie efektu czcionki **All Caps** powoduje, że tekst wyświetlany jest wielkimi literami na slajdzie, nawet jeśli pierwotnie został wpisany małymi literami. Gdy pobierasz taki fragment tekstu za pomocą Aspose.Slides, biblioteka zwraca tekst dokładnie taki, jaki został wprowadzony. Aby dopasować wyświetlany tekst, sprawdź [TextCapType](https://reference.aspose.com/slides/pl/java/com.aspose.slides/textcaptype/) i przekształć zwrócony ciąg na wielkie litery, gdy wartość to `All`.
+W PowerPoint zastosowanie efektu **All Caps** powoduje, że tekst wyświetlany jest wielkimi literami na slajdzie, nawet jeśli został pierwotnie wpisany małymi. Gdy pobierasz taki fragment tekstu za pomocą Aspose.Slides, biblioteka zwraca tekst dokładnie tak, jak został wprowadzony. Aby dopasować go do wyświetlanego tekstu, sprawdź [TextCapType](https://reference.aspose.com/slides/java/com.aspose.slides/textcaptype/) i zamień zwrócony ciąg na wielkie litery, gdy wartość to `All`.
 
-Ten przykład wymaga pliku "sample2.pptx" z polem tekstowym jako pierwszym obiektem na pierwszym slajdzie. Pierwszy fragment pierwszego akapitu zawiera "Hello, Aspose!" z zastosowanym efektem All Caps, jak pokazano poniżej.
+Ten przykład wymaga pliku „sample2.pptx” z polem tekstowym jako pierwszym kształtem na pierwszym slajdzie. Jego pierwszy akapit zawiera pierwszą część „Hello, Aspose!” z zastosowanym efektem All Caps, jak pokazano poniżej.
 
 ![Efekt All Caps](all_caps_effect.png)
 
@@ -700,8 +794,8 @@ All-Caps effect: HELLO, ASPOSE!
 
 **Jak zmodyfikować tekst w tabeli na slajdzie?**
 
-Aby zmodyfikować tekst w tabeli na slajdzie, użyj [ITable](https://reference.aspose.com/slides/pl/java/com.aspose.slides/itable/). Przeglądaj komórki i aktualizuj każdą komórkę za pomocą [ICell.getTextFrame](https://reference.aspose.com/slides/pl/java/com.aspose.slides/icell/#getTextFrame--) oraz formatowanie akapitu za pomocą [IParagraph.getParagraphFormat](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iparagraph/#getParagraphFormat--).
+Aby zmodyfikować tekst w tabeli na slajdzie, użyj [ITable](https://reference.aspose.com/slides/java/com.aspose.slides/itable/). Przejdź przez komórki i zaktualizuj każdą komórkę za pomocą [ICell.getTextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#getTextFrame--) oraz formatowanie akapitu za pomocą [IParagraph.getParagraphFormat](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getParagraphFormat--).
 
 **Jak zastosować gradientowy kolor do tekstu na slajdzie PowerPoint?**
 
-Aby zastosować gradientowy kolor do tekstu, użyj [IBasePortionFormat.getFillFormat](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ibaseportionformat/#getFillFormat--). Ustaw [IFillFormat.setFillType](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ifillformat/#setFillType-byte-) na [FillType.Gradient](https://reference.aspose.com/slides/pl/java/com.aspose.slides/filltype/) i skonfiguruj przystanki gradientu, kierunek oraz przezroczystość.
+Aby zastosować gradientowy kolor do tekstu, użyj [IBasePortionFormat.getFillFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseportionformat/#getFillFormat--). Ustaw [IFillFormat.setFillType](https://reference.aspose.com/slides/java/com.aspose.slides/ifillformat/#setFillType-byte-) na [FillType.Gradient](https://reference.aspose.com/slides/java/com.aspose.slides/filltype/) i skonfiguruj przystanki gradientu, kierunek oraz przezroczystość.

@@ -18,7 +18,7 @@ keywords:
 - styckepunkt
 - numrerad lista
 - punktlista
-- styckegenskaper
+- styckeegenskaper
 - importera HTML
 - text till HTML
 - stycke till HTML
@@ -30,33 +30,33 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Lär dig hur du skapar och formaterar stycken, portioner, punkter, numrerade listor, indrag, HTML‑innehåll och styckebilder med Aspose.Slides för Node.js via Java."
+description: "Lär dig hur du skapar och formaterar stycken, delar, punkter, numrerade listor, indrag, HTML-innehåll och styckebilder med Aspose.Slides för Node.js via Java."
 ---
 ## **Översikt**
 
-Aspose.Slides for Node.js via Java representerar text som en hierarki av textramar, stycken och portioner:
+Aspose.Slides för Node.js via Java representerar text som en hierarki av textramar, stycken och delar:
 
-* [TextFrame](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/textframe/) representerar textbehållaren i en form och ger åtkomst till dess styckesamling.
-* [Paragraph](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/paragraph/) representerar ett stycke i en textram och ger åtkomst till dess portioner och formatering på styckenivå.
-* [Portion](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/portion/) representerar ett textavsnitt inom ett stycke. Varje portion kan ha egen text och tecken‑nivå‑formatering.
+* [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/) representerar textbehållaren i en form och ger åtkomst till dess styckesamling.
+* [Paragraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/) representerar ett stycke i en textram och ger åtkomst till dess delar samt styckesnivåformatering.
+* [Portion](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portion/) representerar ett textsegment inom ett stycke. Varje del kan ha sin egen text och teckennivåformatering.
 
-Ett stycke kan därför innehålla text med olika teckensnitt, färger, storlekar och annan formatering genom att använda flera portioner.
+Ett stycke kan därför innehålla text med olika teckensnitt, färger, storlekar och annan formatering genom att använda flera delar.
 
-## **Skapa och Formatera Stycken**
+## **Skapa och formatera stycken**
 
-### **Skapa Stycken med Flera Portioner**
+### **Skapa stycken med flera delar**
 
-Följande steg skapar en textram med tre stycken, där varje stycke innehåller tre portioner:
+Följande steg skapar en textram med tre stycken, varav varje innehåller tre delar:
 
-1. Skapa en instans av [Presentation](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/presentation/)‑klassen.
+1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/).
 2. Åtkomst till den relevanta bilden via dess index.
-3. Lägg till en rektangulär [AutoShape](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/autoshape/) på bilden.
-4. Åtkomst till formens [TextFrame](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/textframe/).
-5. Använd standardstycket och lägg till två ytterligare [Paragraph](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/paragraph/)‑objekt i textramen.
-6. Lägg till tillräckligt med [Portion](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/portion/)‑objekt så att varje stycke innehåller tre portioner. Standardstycket innehåller redan en tom portion.
-7. Ange texten för varje portion.
-8. Applicera tecken‑nivå‑formatering via [Portion.getPortionFormat](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/portion/getportionformat/).
-9. Spara den ändrade presentationen.
+3. Lägg till en rektangulär [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) på bilden.
+4. Åtkomst till formens [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/).
+5. Använd standardstycket och lägg till två ytterligare [Paragraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/)‑objekt till textramen.
+6. Lägg till tillräckligt många [Portion](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portion/)‑objekt så att varje stycke innehåller tre delar. Standardstycket innehåller redan en tom del.
+7. Ställ in texten för varje del.
+8. Tillämpa teckennivåformatering via [Portion.getPortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portion/getportionformat/).
+9. Spara den modifierade presentationen.
 
 Detta JavaScript‑exempel implementerar stegen:
 
@@ -115,22 +115,22 @@ try {
 }
 ```
 
-## **Skapa Punktlistor och Numrerade Listor**
+## **Skapa punkt- och numrerade listor**
 
-### **Skapa en Punkt‑ eller Numrerad Lista**
+### **Skapa en punkt- eller numrerad lista**
 
-Punkter och numrering gör relaterade objekt enklare att skanna. I Aspose.Slides definieras listinställningar via [BulletFormat](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/bulletformat/).
+Punkter och numrering gör relaterade objekt enklare att skanna. I Aspose.Slides definieras listinställningar via [BulletFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/).
 
-1. Skapa en instans av [Presentation](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/presentation/)‑klassen.
+1. Skapa en instans av [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/).
 2. Åtkomst till den relevanta bilden via dess index.
-3. Lägg till en [AutoShape](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/autoshape/) på den valda bilden.
-4. Åtkomst till formens [TextFrame](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/textframe/).
+3. Lägg till en [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) på den valda bilden.
+4. Åtkomst till formens [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/).
 5. Ta bort standardstycket från textramen.
-6. Skapa ett [Paragraph](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/paragraph/) för en symbolpunkt.
-7. Ange [BulletFormat.setType](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/bulletformat/settype/) till [BulletType.Symbol](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/bullettype/) och specificera punkttecknet.
-8. Ange styckestext, indrag, punktfärg och punktens höjd.
+6. Skapa ett [Paragraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/) för en symbolpunkt.
+7. Ställ in [BulletFormat.setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/settype/) till [BulletType.Symbol](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bullettype/) och ange punkttecknet.
+8. Ställ in stycketext, indrag, punktfärg och punktens höjd.
 9. Lägg till stycket i textramen.
-10. Skapa ett andra stycke och ange [BulletFormat.setType](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/bulletformat/settype/) till [BulletType.Numbered](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/bullettype/).
+10. Skapa ett andra stycke och ställ in [BulletFormat.setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/settype/) till [BulletType.Numbered](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bullettype/).
 11. Konfigurera den numrerade punktstilen och lägg till stycket i textramen.
 12. Spara presentationen.
 
@@ -176,20 +176,20 @@ try {
 }
 ```
 
-### **Använd Bildpunkter**
+### **Använd bildpunkter**
 
-Bildpunkter låter dig använda en egen bild istället för en symbol eller ett nummer.
+Bildpunkter låter dig använda en anpassad bild istället för en symbol eller siffra.
 
-1. Skapa en instans av [Presentation](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/presentation/)‑klassen.
+1. Skapa en instans av [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/).
 2. Åtkomst till den relevanta bilden via dess index.
-3. Lägg till en [AutoShape](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/autoshape/) och åtkomst till dess [TextFrame](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/textframe/).
+3. Lägg till en [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) och åtkomst till dess [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/).
 4. Ta bort standardstycket från textramen.
-5. Läs in bildpunkten och lägg till den i presentationens bildsamling som en [PPImage](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/ppimage/).
-6. Skapa ett [Paragraph](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/paragraph/) och ange dess text.
-7. Ange [BulletFormat.setType](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/bulletformat/settype/) till [BulletType.Picture](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/bullettype/).
-8. Tilldela bilden via [BulletFormat.getPicture](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/bulletformat/getpicture/) och ange punktens höjd.
+5. Läs in punktbilden och lägg till den i presentationens bildsamling som en [PPImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ppimage/).
+6. Skapa ett [Paragraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/) och ange dess text.
+7. Ställ in [BulletFormat.setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/settype/) till [BulletType.Picture](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bullettype/).
+8. Tilldela bilden via [BulletFormat.getPicture](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/getpicture/) och ange punktens höjd.
 9. Lägg till stycket i textramen.
-10. Spara den ändrade presentationen.
+10. Spara den modifierade presentationen.
 
 Detta JavaScript‑exempel skapar en bildpunkt:
 
@@ -230,15 +230,15 @@ try {
 
 ### **Skapa en flernivålista**
 
-Ange [ParagraphFormat.setDepth](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/paragraphformat/setdepth/) för att placera stycken på olika nivåer i en lista. Toppnivån har ett djup på `0`.
+Ställ in [ParagraphFormat.setDepth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setdepth/) för att placera stycken på olika nivåer i en lista. Toppnivån har djupet `0`.
 
-1. Skapa en [Presentation](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/presentation/) och åtkomst till en bild.
-2. Lägg till en [AutoShape](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/autoshape/) och rensa standardstycket från dess textram.
-3. Skapa fyra stycken och konfigurera deras punkt‑symboler.
-4. Ange deras [ParagraphFormat.setDepth](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/paragraphformat/setdepth/)‑värden till `0`, `1`, `2` och `3`.
+1. Skapa en [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) och åtkomst till en bild.
+2. Lägg till en [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) och rensa standardstycket från dess textram.
+3. Skapa fyra stycken och konfigurera deras punkttecken.
+4. Ställ in deras [ParagraphFormat.setDepth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setdepth/)‑värden till `0`, `1`, `2` och `3`.
 5. Lägg till styckena i textramen och spara presentationen.
 
-Detta JavaScript‑exempel skapar en fyranivåspunklista:
+Detta JavaScript‑exempel skapar en fyranivåpunktlista:
 
 ```javascript
 var aspose = aspose || {};
@@ -295,14 +295,14 @@ try {
 }
 ```
 
-### **Starta numrerade listobjekt med anpassade värden**
+### **Starta numrerade listobjekt med egna värden**
 
-Använd [BulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/bulletformat/setnumberedbulletstartwith/) för att ange det initiala numret som visas för ett numrerat stycke.
+Använd [BulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/setnumberedbulletstartwith/) för att ange startnumret för ett numrerat stycke.
 
-1. Skapa en [Presentation](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/presentation/) och lägg till en [AutoShape](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/autoshape/) på en bild.
+1. Skapa en [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) och lägg till en [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) på en bild.
 2. Rensa standardstycket från formens textram.
 3. Skapa tre numrerade stycken.
-4. Ange [BulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/bulletformat/setnumberedbulletstartwith/) till `2`, `3` respektive `7` för de aktuella styckena.
+4. Ställ in [BulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/setnumberedbulletstartwith/) till `2`, `3` respektive `7` för de aktuella styckena.
 5. Lägg till styckena i textramen och spara presentationen.
 
 Detta JavaScript‑exempel tilldelar ett eget startnummer till varje stycke:
@@ -343,25 +343,25 @@ try {
 }
 ```
 
-## **Styr stycke layout och slutegenskaper**
+## **Styr stycke‑layout och avslutningsegenskaper**
 
-### **Ange ett förstalinjeindrag**
+### **Ange indrag för första raden**
 
-Använd [ParagraphFormat.setIndent](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/paragraphformat/setindent/) för att kontrollera förstalinjeindraget för ett stycke. Denna metod flyttar endast den första raden i förhållande till styckets vänstra marginal. Ett positivt värde flyttar den första raden åt höger, medan de återstående raderna förblir justerade med stycke­kroppen.
+Använd [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/) för att styra indraget för den första raden i ett stycke. Metoden flyttar endast den första raden relativt styckets vänstra marginal. Ett positivt värde flyttar den första raden åt höger, medan de återstående raderna förblir justerade med styckets brödtext.
 
-Använd [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/paragraphformat/setmarginleft/) när du behöver flytta hela stycket. Använd [ParagraphFormat.setIndent](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/paragraphformat/setindent/) när du bara vill flytta den första raden.
+Använd [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setmarginleft/) när du vill flytta hela stycket. Använd [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/) när du bara vill flytta den första raden.
 
-Exemplet nedan skapar flera stycken och applicerar olika [ParagraphFormat.setIndent](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/paragraphformat/setindent/)-värden för att demonstrera hur förstalinjeindraget påverkar stycke­layouten.
+Exemplet nedan skapar flera stycken och tillämpar olika [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/)‑värden för att demonstrera hur första‑radens indrag påverkar stycke‑layouten.
 
-1. Skapa en instans av [Presentation](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/presentation/)‑klassen.
-2. Åtkomst till mål‑bilden.
-3. Lägg till en rektangulär [AutoShape](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/autoshape/) på bilden.
-4. Åtkomst till formens [TextFrame](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/textframe/) och ta bort standardstycket.
-5. Skapa flera stycken och ange olika [ParagraphFormat.setIndent](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/paragraphformat/setindent/)-värden för dem.
+1. Skapa en instans av [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/).
+2. Åtkomst till målbilden.
+3. Lägg till en rektangulär [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) på bilden.
+4. Åtkomst till formens [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/) och ta bort standardstycket.
+5. Skapa flera stycken och ställ in olika [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/)‑värden för dem.
 6. Lägg till styckena i textramen.
-7. Spara den ändrade presentationen.
+7. Spara den modifierade presentationen.
 
-Den här koden visar hur du anger ett styckeindrag:
+Denna kod visar hur du anger ett stycke‑indrag:
 
 ```javascript
 var aspose = aspose || {};
@@ -414,26 +414,26 @@ try {
 
 Resultatet:
 
-![Förstalinjeindraget för styckena](first_line_indent.png)
+![Det första radindraget i styckena](first_line_indent.png)
 
-### **Ange ett hängande indrag**
+### **Ange hängande indrag**
 
-Ett hängande indrag är en stycke‑layout där den första raden börjar till vänster om de återstående raderna. I Aspose.Slides skapar du denna effekt med [ParagraphFormat.setIndent](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/paragraphformat/setindent/). Skicka ett negativt värde för att flytta den första raden åt vänster i förhållande till stycke­kroppen.
+Ett hängande indrag är en stycke‑layout där den första raden startar åt vänster om de återstående raderna. I Aspose.Slides skapar du denna effekt med [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/). Ange ett negativt värde för att flytta den första raden åt vänster relativt styckets brödtext.
 
-I praktiken definierar [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/paragraphformat/setmarginleft/) den vänstra positionen för stycke­kroppen, och [ParagraphFormat.setIndent](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/paragraphformat/setindent/) bestämmer positionen för den första raden relativt den marginalen. För att skapa ett hängande indrag, skicka ett positivt värde till `setMarginLeft` och ett negativt värde till `setIndent`.
+I praktiken definierar [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setmarginleft/) den vänstra positionen för styckets brödtext, och [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/) definierar positionen för den första raden relativt den marginalen. För att skapa ett hängande indrag, ge ett positivt värde till `setMarginLeft` och ett negativt värde till `setIndent`.
 
-Denna formatering är användbar för bibliografier, referenser, förklarande poster och andra stycken där radbrytningar måste justeras under stycke­kroppen snarare än under den första tecknet i den första raden.
+Denna formatering är användbar för bibliografier, referenser, förklaringsord och andra stycken där radbrytningar ska ligga under styckets brödtext snarare än under första tecknet i den första raden.
 
-1. Skapa en instans av [Presentation](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/presentation/)‑klassen.
-2. Åtkomst till mål‑bilden.
-3. Lägg till en rektangulär [AutoShape](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/autoshape/) på bilden.
-4. Åtkomst till formens [TextFrame](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/textframe/) och ta bort standardstycket.
-5. Skapa stycken och skicka ett positivt värde till [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/paragraphformat/setmarginleft/) för varje stycke.
-6. Skicka ett negativt värde till [ParagraphFormat.setIndent](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/paragraphformat/setindent/) för att skapa hängande indrag.
+1. Skapa en instans av [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/).
+2. Åtkomst till målbilden.
+3. Lägg till en rektangulär [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) på bilden.
+4. Åtkomst till formens [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/) och ta bort standardstycket.
+5. Skapa stycken och ge ett positivt värde till [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setmarginleft/) för varje stycke.
+6. Ange ett negativt värde till [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/) för att skapa hängande indrag.
 7. Lägg till styckena i textramen.
-8. Spara den ändrade presentationen.
+8. Spara den modifierade presentationen.
 
-Den här koden visar hur du anger ett hängande indrag för ett stycke:
+Denna kod visar hur du anger ett hängande indrag för ett stycke:
 
 ```javascript
 var aspose = aspose || {};
@@ -478,18 +478,18 @@ try {
 
 Resultatet:
 
-![Det hängande indraget för styckena](hanging_indent.png)
+![Det hängande indraget i styckena](hanging_indent.png)
 
-### **Ange slutstycke‑körnings‑egenskaper**
+### **Ange slut‑stycke‑egenskaper**
 
-[Paragraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/paragraph/setendparagraphportionformat/) styr formateringen av styckeslutstecknet. Följande exempel tilldelar en teckenstorlek och ett latinskt teckensnitt till slutstecknet för det andra stycket:
+[Paragraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/setendparagraphportionformat/) styr formateringen av styckets sluttecken. Följande exempel tilldelar en teckenstorlek och ett latinskt teckensnitt till sluttecknet i det andra stycket:
 
-1. Skapa eller läs in en [Presentation](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/presentation/) och åtkomst till en bild.
-2. Lägg till en [AutoShape](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/autoshape/) och rensa dess standardstycke.
-3. Skapa två stycken och lägg till textportioner i dem.
-4. Skapa ett [PortionFormat](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/portionformat/) för det andra styckets sluttecken.
-5. Ange [BasePortionFormat.setFontHeight](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/baseportionformat/#setFontHeight) och [BasePortionFormat.setLatinFont](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/baseportionformat/#setLatinFont).
-6. Tilldela formatet med [Paragraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/paragraph/setendparagraphportionformat/) och spara presentationen.
+1. Skapa eller läs in en [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) och åtkomst till en bild.
+2. Lägg till en [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) och rensa dess standardstycke.
+3. Skapa två stycken och lägg till textdelar i dem.
+4. Skapa ett [PortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portionformat/) för det andra styckets sluttecken.
+5. Ställ in [BasePortionFormat.setFontHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setFontHeight) och [BasePortionFormat.setLatinFont](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setLatinFont).
+6. Tilldela formatet med [Paragraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/setendparagraphportionformat/) och spara presentationen.
 
 ```javascript
 var aspose = aspose || {};
@@ -522,15 +522,15 @@ try {
 }
 ```
 
-## **Räkna Renderade Rader**
+## **Räkna renderade rader**
 
 För styckeregler som påverkar automatisk radbrytning och interpunktion vid radslut, se [Control Line Breaking](/slides/sv/nodejs-java/text-formatting/#control-line-breaking) och [Control Hanging Punctuation](/slides/sv/nodejs-java/text-formatting/#control-hanging-punctuation).
 
-Använd [Paragraph.getLinesCount](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/paragraph/#getLinesCount) för att räkna antalet rader som ett stycke upptar efter textlayout, inklusive automatisk radbrytning. Detta är användbart när du kontrollerar textlängd och layout i presentationsmallar.
+Använd [Paragraph.getLinesCount](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getLinesCount) för att räkna antalet rader som ett stycke upptar efter textlayout, inklusive automatisk radbrytning. Detta är användbart när du kontrollerar textlängd och layout i presentationsmallar.
 
-Ett stycke är ett objekt i [TextFrame.getParagraphs](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/textframe/#getParagraphs), och det kan uppta flera renderade rader. Ett explicit radbrytningstecken inom ett stycke tvingar en ny rad utan att skapa ett nytt stycke. Automatisk radbrytning skapar rader baserat på den tillgängliga bredden utan att infoga explicita radbrytningstecken i texten. Att räkna stycken eller radbrytningstecken ger därför inte det renderade radantalet.
+Ett stycke är ett objekt i [TextFrame.getParagraphs](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/#getParagraphs) och kan uppta flera renderade rader. Ett explicit radbrytningstecken i ett stycke tvingar en ny rad utan att skapa ett nytt stycke. Automatisk radbrytning skapar rader baserat på tillgänglig bredd utan att infoga explicita radbrytningstecken i texten. Att räkna stycken eller radbrytningstecken ger därför inte det renderade radantalet.
 
-Följande exempel skapar en textruta, räknar dess rader, smalnar av formen och ersätter därefter texten med en kortare sträng. Radbrytning är aktiverad och autofit är inaktiverat så att formens bredd styr radbrytning utan att automatiskt krympa texten eller ändra formens storlek. Formens dimensioner är i punkter. Slutligen lägger exemplet till ett ytterligare stycke och summerar radantalet över hela textramen.
+Följande exempel skapar en textruta, räknar dess rader, smalnar av rutan och ersätter sedan texten med en kortare sträng. Radbrytning är aktiverad och autofit är inaktiverad så att ruttens bredd styr radbrytning utan att automatiskt krympa texten eller ändra ruttens storlek. Ruttens dimensioner är i punkter. Slutligen lägger exemplet till ett ytterligare stycke och summerar radantalet över textramen.
 
 ```javascript
 var aspose = aspose || {};
@@ -573,22 +573,22 @@ try {
 }
 ```
 
-Med denna text och dessa dimensioner ökar radantalet när formen smalnar av, medan ersättningen med den korta strängen minskar det. Exakta tal kan variera beroende på tillgängliga teckensnitt och ersättning, teckenstorlek, marginaler, indrag, radbrytning och autofit‑inställningar. Använd de teckensnitt och layoutinställningar som är avsedda för målmiljön när du kontrollerar en mall.
+Med denna text och dessa dimensioner ökar radantalet när rutan smalnas, medan ersättning av texten med den korta strängen minskar det. Exakta siffror kan variera beroende på tillgängliga teckensnitt och ersättning, teckenstorlek, marginaler, indrag, radbrytning och autofit‑inställningar. Använd de teckensnitt och layout‑inställningar som är avsedda för målmiljön när du kontrollerar en mall.
 
-Radantalet ensam avgör inte om texten överskrider sin behållare. Tillgänglig höjd, radhöjder, stycke‑ och rads­intervall samt autofit‑beteende spelar också in; även en enda rad kan överstiga tillgänglig bredd när radbrytning är inaktiverad.
+Radantalet i sig avgör inte om texten överflödar sin behållare. Tillgänglig höjd, radhöjder, stycke‑ och radavstånd samt autofit‑beteende spelar också roll; även en enda rad kan överskrida den tillgängliga bredden när radbrytning är inaktiverad.
 
-## **Importera och Exportera Styckeinnehåll**
+## **Importera och exportera styckeinnehåll**
 
-### **Importera HTML‑text i Stycken**
+### **Importera HTML‑text till stycken**
 
-Använd [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/paragraphcollection/addfromhtml/) för att konvertera HTML‑markup till stycken och portioner i en textram.
+Använd [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphcollection/addfromhtml/) för att konvertera HTML‑markup till stycken och delar i en textram.
 
-1. Skapa en instans av [Presentation](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/presentation/)‑klassen.
-2. Åtkomst till en bild och lägg till en [AutoShape](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/autoshape/).
-3. Åtkomst till formens [TextFrame](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/textframe/) och rensa dess standardstycke.
+1. Skapa en instans av [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/).
+2. Åtkomst till en bild och lägg till en [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/).
+3. Åtkomst till formens [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/) och rensa dess standardstycke.
 4. Definiera eller läs in käll‑HTML‑strängen.
-5. Skicka HTML‑strängen till [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/paragraphcollection/addfromhtml/).
-6. Spara den ändrade presentationen.
+5. Skicka HTML‑strängen till [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphcollection/addfromhtml/).
+6. Spara den modifierade presentationen.
 
 Detta JavaScript‑exempel importerar HTML till en textram:
 
@@ -616,15 +616,15 @@ try {
 
 ### **Exportera stycketext till HTML**
 
-Använd [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/paragraphcollection/exporttohtml/) för att exportera ett valt intervall av stycken som HTML.
+Använd [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphcollection/exporttohtml/) för att exportera ett valt område av stycken som HTML.
 
-1. Skapa eller läs in en instans av [Presentation](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/presentation/)‑klassen.
-2. Åtkomst till bilden och hitta den [AutoShape](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/autoshape/) som innehåller texten.
-3. Åtkomst till formens [TextFrame](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/textframe/).
-4. Anropa [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/paragraphcollection/exporttohtml/) med startindex för stycket och antalet stycken som ska exporteras.
+1. Skapa eller läs in en instans av [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/).
+2. Åtkomst till bilden och hitta den [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) som innehåller texten.
+3. Åtkomst till formens [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/).
+4. Anropa [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphcollection/exporttohtml/) med startindex för stycket och antalet stycken som ska exporteras.
 5. Skriv den returnerade HTML‑strängen till en fil.
 
-Detta fristående JavaScript‑exempel skapar en textruta och exporterar alla dess stycken:
+Det här fristående JavaScript‑exemplet skapar en textruta och exporterar alla dess stycken:
 
 ```javascript
 var aspose = aspose || {};
@@ -662,19 +662,19 @@ try {
 }
 ```
 
-### **Rendera ett Stycke som en Bild**
+### **Rendera ett stycke som en bild**
 
-[Paragraph.getImage](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/paragraph/#getImage) renderar ett enskilt stycke direkt och returnerar en [IImage](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/iimage/). Spara resultatet till en fil med [IImage.save](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/iimage/#save). Du behöver inte rendera den omgivande formen eller beskära en bitmap manuellt.
+[Paragraph.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getImage) renderar ett enskilt stycke direkt och returnerar ett [IImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/iimage/). Spara resultatet till en fil med [IImage.save](https://reference.aspose.com/slides/nodejs-java/aspose.slides/iimage/#save). Du behöver inte rendera den omgivande formen eller beskära en bitmap manuellt.
 
-[Paragraph.getImage](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/paragraph/#getImage) kan returnera `null` om stycket inte kan hittas i sin föräldrasamling, saknar giltiga renderingsgränser eller inte kan renderas. Kontrollera resultatet innan du sparar det och frigör den returnerade bilden efter användning.
+[Paragraph.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getImage) kan returnera `null` om stycket inte kan hittas i sin föräldersamling, saknar giltiga renderingsgränser eller inte kan renderas. Kontrollera resultatet innan du sparar det och frigör den returnerade bilden efter användning.
 
-#### **Rendera ett Stycke i Standard Skala**
+#### **Rendera ett stycke i standardskala**
 
 Följande textruta innehåller tre stycken:
 
 ![Textrutan med tre stycken](paragraph_to_image_input.png)
 
-Följande exempel renderar det andra stycket i en vanlig textruta i standard skala och sparar den returnerade bilden i PNG‑format. `finally`‑blocket säkerställer att bilden frigörs korrekt.
+Följande exempel renderar det andra stycket i en vanlig textram i standardskala och sparar den returnerade bilden i PNG‑format. `finally`‑blocket säkerställer att bilden avallokeras korrekt.
 
 ```javascript
 var aspose = aspose || {};
@@ -722,11 +722,11 @@ try {
 
 Resultatet:
 
-![Stycket‑bilden](paragraph_to_image_output.png)
+![Bilden av stycket](paragraph_to_image_output.png)
 
-#### **Rendera ett Stycke i en Tabellcell med Skalning**
+#### **Rendera ett stycke i en tabellcell med skalning**
 
-Använd [Paragraph.getImage](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/paragraph/#getImage)-overload som accepterar `scaleX` och `scaleY`‑parametrar för att ange horisontella och vertikala skalningsfaktorer. Följande exempel skapar en tabell, renderar stycket i dess första cell med dubbelt så stor bredd och höjd som standard, och sparar resultatet som en PNG‑bild.
+Använd [Paragraph.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getImage)-överladdningen som tar emot parametrarna `scaleX` och `scaleY` för att ange horisontella och vertikala skalningsfaktorer. Följande exempel skapar en tabell, renderar stycket i den första cellen med dubbla bredden och höjden jämfört med standard, och sparar resultatet som en PNG‑bild.
 
 ```javascript
 var aspose = aspose || {};
@@ -760,24 +760,26 @@ try {
 }
 ```
 
-En skalningsfaktor på `1` behåller den axeln i sin standard‑pixelstorlek. Till exempel ger `2` för båda faktorerna en bild vars bredd och höjd är ungefär dubbelt så stora som standardmåtten, vilket resulterar i fyra gånger så många pixlar. Större faktorer ger generellt skarpare text för zoomning eller högupplöst utskrift, men de ökar också minnesanvändning och filstorlek. Faktorer under `1` ger mindre bilder med mindre detaljrikedom. Använd lika faktorer för att bevara styckets bildförhållande; olika horisontella och vertikala faktorer sträcker ut resultatet oberoende av varandra.
+En skalningsfaktor på `1` behåller den axeln i standardpixelstorlek. Till exempel ger `2` för båda faktorerna en bild vars bredd och höjd är ungefär dubbelt så stora som standardmåtten, vilket resulterar i fyra gånger så många pixlar. Större faktorer ger i allmänhet skarpare text för zoomning eller högupplöst output, men de ökar också minnesanvändning och filstorlek. Faktorer under `1` ger mindre bilder med mindre detalj. Använd lika faktorer för att bevara styckets bildförhållande; olika horisontella och vertikala faktorer sträcker ut outputen oberoende.
 
-Att rendera en hel form med [Shape.getImage](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/shape/#getImage) är fortfarande användbart när utdata måste inkludera formens fyllning, kantlinje eller annan visuell kontext. För enbart en stycke‑bild, använd [Paragraph.getImage](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/paragraph/#getImage).
+Att rendera en hel form med [Shape.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getImage) är fortfarande användbart när outputen måste inkludera formens fyllning, kant eller annan visuell kontext. För enbart bild av ett stycke, använd [Paragraph.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getImage).
 
-## **FAQ**
+## **Vanliga frågor**
 
 **Kan jag helt inaktivera radbrytning i en textram?**
 
-Ja. Ange [TextFrameFormat.setWrapText](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/textframeformat/setwraptext/) för att inaktivera radbrytning så att raderna inte bryts vid textramens kanter.
+Ja. Ställ in [TextFrameFormat.setWrapText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/setwraptext/) för att inaktivera radbrytning så att rader inte bryts vid textramens kanter.
 
 **Hur kan jag få de exakta gränserna på bilden för ett specifikt stycke?**
 
-Använd [Paragraph.getRect](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/paragraph/getrect/) för att hämta styckets omgivande rektangel. [Portion.getRect](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/portion/#getRect) ger gränserna för en enskild portion.
+Använd [Paragraph.getRect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/getrect/) för att hämta styckets omgivande rektangel. [Portion.getRect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portion/#getRect) ger gränserna för en enskild del.
 
-**Var styrs styckejustering (vänster, höger, centrerad eller justerad)?**
+**Var styrs styckejustering (vänster, höger, centrerad eller fyllning)?**
 
-[ParagraphFormat.setAlignment](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/paragraphformat/setalignment/) är en inställning på styckesnivå och tillämpas på hela stycket oavsett individuell portionsformatering.
+[ParagraphFormat.setAlignment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setalignment/) är en styckenivåinställning och tillämpas på hela stycket oavsett formatering av enskilda delar.
 
-**Kan jag ange korrekturspråk för en del av ett stycke?**
+För att vertikalt justera delar med olika teckensnittsstorlekar inom varje rad, se [Align Fonts Within a Line](/slides/sv/nodejs-java/text-formatting/#align-fonts-within-a-line).
 
-Ja. Ange [BasePortionFormat.setLanguageId](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/baseportionformat/#setLanguageId) för enskilda portioner, så kan ett stycke innehålla text på flera språk.
+**Kan jag ange språkgranskning för en del av ett stycke?**
+
+Ja. Ställ in [BasePortionFormat.setLanguageId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setLanguageId) för enskilda delar, så att ett stycke kan innehålla text på flera språk.

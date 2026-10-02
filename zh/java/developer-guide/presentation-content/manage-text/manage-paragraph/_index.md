@@ -35,26 +35,26 @@ description: "了解如何使用 Aspose.Slides for Java 创建和格式化段落
 
 Aspose.Slides for Java 将文本表示为文本框、段落和部分的层次结构：
 
-* [ITextFrame](https://reference.aspose.com/slides/zh/java/com.aspose.slides/itextframe/) 表示形状中的文本容器，并提供对其段落集合的访问。
-* [IParagraph](https://reference.aspose.com/slides/zh/java/com.aspose.slides/iparagraph/) 表示文本框中的一个段落，并提供对其部分和段落级别格式的访问。
-* [IPortion](https://reference.aspose.com/slides/zh/java/com.aspose.slides/iportion/) 表示段落中的一次文字运行。每个部分可以拥有自己的文本和字符级别格式。
+* [ITextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/) 表示形状中的文本容器，并提供对其段落集合的访问。
+* [IParagraph](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/) 表示文本框中的一个段落，并提供对其部分和段落级别格式的访问。
+* [IPortion](https://reference.aspose.com/slides/java/com.aspose.slides/iportion/) 表示段落中的一次文本运行。每个部分可以拥有各自的文本和字符级别格式。
 
-因此，一个段落可以通过使用多个部分来包含具有不同字体、颜色、大小和其他格式的文本。
+因此，一个段落可以通过使用多个部分来包含不同字体、颜色、大小和其他格式的文本。
 
 ## **创建和格式化段落**
 
-### **使用多个部分创建段落**
+### **创建包含多个部分的段落**
 
 以下步骤创建一个包含三个段落、每个段落包含三个部分的文本框：
 
-1. 创建 [Presentation](https://reference.aspose.com/slides/zh/java/com.aspose.slides/presentation/) 类的实例。
+1. 创建一个 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) 类的实例。
 2. 通过索引访问相应的幻灯片。
-3. 向幻灯片添加一个矩形 [IAutoShape](https://reference.aspose.com/slides/zh/java/com.aspose.slides/iautoshape/)。
-4. 访问形状的 [ITextFrame](https://reference.aspose.com/slides/zh/java/com.aspose.slides/itextframe/)。
-5. 使用默认段落并向文本框添加另外两个 [IParagraph](https://reference.aspose.com/slides/zh/java/com.aspose.slides/iparagraph/) 对象。
-6. 为每个段落添加足够的 [IPortion](https://reference.aspose.com/slides/zh/java/com.aspose.slides/iportion/) 对象，使其包含三个部分。默认段落已包含一个空的部分。
+3. 向幻灯片添加一个矩形的 [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/)。
+4. 访问形状的 [ITextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/)。
+5. 使用默认段落并向文本框中再添加两个 [IParagraph](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/) 对象。
+6. 为每个段落添加足够的 [IPortion](https://reference.aspose.com/slides/java/com.aspose.slides/iportion/) 对象以容纳三个部分。默认段落已经包含一个空的部分。
 7. 设置每个部分的文本。
-8. 通过 [IPortion.getPortionFormat](https://reference.aspose.com/slides/zh/java/com.aspose.slides/iportion/#getPortionFormat--) 应用字符级别的格式设置。
+8. 通过 [IPortion.getPortionFormat](https://reference.aspose.com/slides/java/com.aspose.slides/iportion/#getPortionFormat--) 应用字符级别的格式。
 9. 保存修改后的演示文稿。
 
 此 Java 示例实现了上述步骤：
@@ -117,22 +117,22 @@ try {
 
 ### **创建项目符号或编号列表**
 
-项目符号和编号使相关项目更易于浏览。在 Aspose.Slides 中，列表设置通过 [IBulletFormat](https://reference.aspose.com/slides/zh/java/com.aspose.slides/ibulletformat/) 定义。
+项目符号和编号可以使相关条目更易于浏览。在 Aspose.Slides 中，列表设置通过 [IBulletFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/) 定义。
 
-1. 创建 [Presentation](https://reference.aspose.com/slides/zh/java/com.aspose.slides/presentation/) 类的实例。
+1. 创建一个 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) 类的实例。
 2. 通过索引访问相应的幻灯片。
-3. 向选定的幻灯片添加一个 [IAutoShape](https://reference.aspose.com/slides/zh/java/com.aspose.slides/iautoshape/)。
-4. 访问形状的 [ITextFrame](https://reference.aspose.com/slides/zh/java/com.aspose.slides/itextframe/)。
+3. 向选定的幻灯片添加一个 [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/)。
+4. 访问形状的 [ITextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/)。
 5. 从文本框中移除默认段落。
-6. 为符号项目符号创建一个 [Paragraph](https://reference.aspose.com/slides/zh/java/com.aspose.slides/paragraph/)。
-7. 将 [IBulletFormat.setType](https://reference.aspose.com/slides/zh/java/com.aspose.slides/ibulletformat/#setType-int-) 设置为 [BulletType.Symbol](https://reference.aspose.com/slides/zh/java/com.aspose.slides/bullettype/) 并指定项目符号字符。
+6. 为符号项目符号创建一个 [Paragraph](https://reference.aspose.com/slides/java/com.aspose.slides/paragraph/)。
+7. 将 [IBulletFormat.setType](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setType-int-) 设置为 [BulletType.Symbol](https://reference.aspose.com/slides/java/com.aspose.slides/bullettype/) 并指定项目符号字符。
 8. 设置段落文本、缩进、项目符号颜色和项目符号高度。
 9. 将段落添加到文本框。
-10. 创建第二个段落并将 [IBulletFormat.setType](https://reference.aspose.com/slides/zh/java/com.aspose.slides/ibulletformat/#setType-int-) 设置为 [BulletType.Numbered](https://reference.aspose.com/slides/zh/java/com.aspose.slides/bullettype/)。
+10. 创建第二个段落，并将 [IBulletFormat.setType](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setType-int-) 设置为 [BulletType.Numbered](https://reference.aspose.com/slides/java/com.aspose.slides/bullettype/)。
 11. 配置编号项目符号样式并将段落添加到文本框。
 12. 保存演示文稿。
 
-此 Java 示例创建了一个符号项目符号和一个编号项目符号：
+此 Java 示例创建了符号项目符号和编号项目符号：
 
 ```java
 import com.aspose.slides.*;
@@ -177,14 +177,14 @@ try {
 
 图片项目符号允许使用自定义图像代替符号或数字。
 
-1. 创建 [Presentation](https://reference.aspose.com/slides/zh/java/com.aspose.slides/presentation/) 类的实例。
+1. 创建一个 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) 类的实例。
 2. 通过索引访问相应的幻灯片。
-3. 添加一个 [IAutoShape](https://reference.aspose.com/slides/zh/java/com.aspose.slides/iautoshape/) 并访问其 [ITextFrame](https://reference.aspose.com/slides/zh/java/com.aspose.slides/itextframe/)。
+3. 添加一个 [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) 并访问其 [ITextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/)。
 4. 从文本框中移除默认段落。
-5. 加载项目符号图像并将其作为 [IPPImage](https://reference.aspose.com/slides/zh/java/com.aspose.slides/ippimage/) 添加到演示文稿的图像集合中。
-6. 创建一个 [Paragraph](https://reference.aspose.com/slides/zh/java/com.aspose.slides/paragraph/) 并设置其文本。
-7. 将 [IBulletFormat.setType](https://reference.aspose.com/slides/zh/java/com.aspose.slides/ibulletformat/#setType-int-) 设置为 [BulletType.Picture](https://reference.aspose.com/slides/zh/java/com.aspose.slides/bullettype/)。
-8. 通过 [IBulletFormat.getPicture](https://reference.aspose.com/slides/zh/java/com.aspose.slides/ibulletformat/#getPicture--) 分配图像并设置项目符号高度。
+5. 加载项目符号图片并将其作为 [IPPImage](https://reference.aspose.com/slides/java/com.aspose.slides/ippimage/) 添加到演示文稿的图像集合中。
+6. 创建一个 [Paragraph](https://reference.aspose.com/slides/java/com.aspose.slides/paragraph/) 并设置其文本。
+7. 将 [IBulletFormat.setType](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setType-int-) 设置为 [BulletType.Picture](https://reference.aspose.com/slides/java/com.aspose.slides/bullettype/)。
+8. 通过 [IBulletFormat.getPicture](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#getPicture--) 指定图片并设置项目符号高度。
 9. 将段落添加到文本框。
 10. 保存修改后的演示文稿。
 
@@ -225,15 +225,15 @@ try {
 
 ### **创建多级列表**
 
-将 [IParagraphFormat.setDepth](https://reference.aspose.com/slides/zh/java/com.aspose.slides/iparagraphformat/#setDepth-short-) 设置为不同的值，以将段落放置在列表的不同层级。顶层的深度为 `0`。
+将 [IParagraphFormat.setDepth](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setDepth-short-) 设置为不同的深度，以在列表中放置不同层级的段落。顶层的深度为 `0`。
 
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/zh/java/com.aspose.slides/presentation/) 并访问一张幻灯片。
-2. 添加一个 [IAutoShape](https://reference.aspose.com/slides/zh/java/com.aspose.slides/iautoshape/) 并从其文本框中清除默认段落。
+1. 创建一个 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) 并访问一张幻灯片。
+2. 添加一个 [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) 并清除其文本框中的默认段落。
 3. 创建四个段落并配置它们的项目符号符号。
-4. 将它们的 [IParagraphFormat.setDepth](https://reference.aspose.com/slides/zh/java/com.aspose.slides/iparagraphformat/#setDepth-short-) 值分别设置为 `0`、`1`、`2` 和 `3`。
+4. 将它们的 [IParagraphFormat.setDepth](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setDepth-short-) 分别设置为 `0`、`1`、`2`、`3`。
 5. 将段落添加到文本框并保存演示文稿。
 
-此 Java 示例创建了一个四级项目符号列表：
+此 Java 示例创建了四级项目符号列表：
 
 ```java
 import com.aspose.slides.*;
@@ -289,17 +289,17 @@ try {
 }
 ```
 
-### **自定义编号列表起始值**
+### **为编号列表项设置自定义起始值**
 
-使用 [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/zh/java/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) 为编号段落设置初始显示数字。
+使用 [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) 可为编号段落设置初始显示数字。
 
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/zh/java/com.aspose.slides/presentation/) 并向幻灯片添加一个 [IAutoShape](https://reference.aspose.com/slides/zh/java/com.aspose.slides/iautoshape/)。
+1. 创建一个 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) 并向幻灯片添加一个 [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/)。
 2. 清除形状文本框中的默认段落。
 3. 创建三个编号段落。
-4. 将 [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/zh/java/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) 分别设置为 `2`、`3` 和 `7`。
+4. 将 [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) 分别设置为 `2`、`3`、`7`。
 5. 将段落添加到文本框并保存演示文稿。
 
-此 Java 示例为每个段落分配了自定义起始编号：
+此 Java 示例为每个段落分配了自定义的起始编号：
 
 ```java
 import com.aspose.slides.*;
@@ -339,21 +339,21 @@ try {
 
 ### **设置首行缩进**
 
-使用 [IParagraphFormat.setIndent](https://reference.aspose.com/slides/zh/java/com.aspose.slides/iparagraphformat/#setIndent-float-) 控制段落的首行缩进。此方法仅移动首行相对于段落左边距的距离。正值会将首行向右移动，而其余行保持与段落正文对齐。
+使用 [IParagraphFormat.setIndent](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setIndent-float-) 可控制段落的首行缩进。该方法仅移动首行相对于段落左边距的距离。正值将首行向右移动，剩余行保持与段落正文对齐。
 
-需要整体移动段落时使用 [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/zh/java/com.aspose.slides/iparagraphformat/#setMarginLeft-float-)。仅需移动首行时使用 [IParagraphFormat.setIndent](https://reference.aspose.com/slides/zh/java/com.aspose.slides/iparagraphformat/#setIndent-float-)。
+当需要整体移动段落时，请使用 [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setMarginLeft-float-)。仅需移动首行时，请使用 [IParagraphFormat.setIndent](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setIndent-float-)。
 
-下面的示例创建了多个段落，并对不同的 [IParagraphFormat.setIndent](https://reference.aspose.com/slides/zh/java/com.aspose.slides/iparagraphformat/#setIndent-float-) 值进行演示，以展示首行缩进对段落布局的影响。
+下面的示例创建了多个段落，并对不同的 [IParagraphFormat.setIndent](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setIndent-float-) 值进行演示，以展示首行缩进对段落布局的影响。
 
-1. 创建 [Presentation](https://reference.aspose.com/slides/zh/java/com.aspose.slides/presentation/) 类的实例。
+1. 创建一个 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) 类的实例。
 2. 访问目标幻灯片。
-3. 向幻灯片添加一个矩形 [IAutoShape](https://reference.aspose.com/slides/zh/java/com.aspose.slides/iautoshape/)。
-4. 访问形状的 [ITextFrame](https://reference.aspose.com/slides/zh/java/com.aspose.slides/itextframe/) 并移除默认段落。
-5. 创建多个段落并为它们设置不同的 [IParagraphFormat.setIndent](https://reference.aspose.com/slides/zh/java/com.aspose.slides/iparagraphformat/#setIndent-float-) 值。
+3. 向幻灯片添加一个矩形的 [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/)。
+4. 访问形状的 [ITextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/) 并移除默认段落。
+5. 创建多个段落，并为它们设置不同的 [IParagraphFormat.setIndent](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setIndent-float-) 值。
 6. 将段落添加到文本框。
 7. 保存修改后的演示文稿。
 
-此代码演示了如何设置段落缩进：
+此代码展示了如何设置段落缩进：
 
 ```java
 import com.aspose.slides.*;
@@ -409,22 +409,22 @@ try {
 
 ### **设置悬挂缩进**
 
-悬挂缩进是一种段落布局，首行位于其余行的左侧。在 Aspose.Slides 中，可通过 [IParagraphFormat.setIndent](https://reference.aspose.com/slides/zh/java/com.aspose.slides/iparagraphformat/#setIndent-float-) 实现。传入负值即可使首行相对于段落正文向左移动。
+悬挂缩进是一种段落布局，其首行位于其余行的左侧。在 Aspose.Slides 中，可通过 [IParagraphFormat.setIndent](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setIndent-float-) 实现。传入负值即可将首行相对于段落正文向左移动。
 
-实际使用中，[IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/zh/java/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) 定义段落正文的左侧位置，而 [IParagraphFormat.setIndent](https://reference.aspose.com/slides/zh/java/com.aspose.slides/iparagraphformat/#setIndent-float-) 定义首行相对于该左侧的位置。要创建悬挂缩进，向 `setMarginLeft` 传入正值，向 `setIndent` 传入负值。
+实际使用时，[IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) 定义段落正文的左侧位置，而 [IParagraphFormat.setIndent](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setIndent-float-) 定义首行相对于该左侧的位置。要创建悬挂缩进，需对 `setMarginLeft` 传入正值，对 `setIndent` 传入负值。
 
-此类格式常用于参考文献、词条、术语表等需要换行后对齐到段落正文的场景。
+此格式在参考文献、文献列表、词汇表条目等需要换行对齐于正文而非首行字符的段落中非常有用。
 
-1. 创建 [Presentation](https://reference.aspose.com/slides/zh/java/com.aspose.slides/presentation/) 类的实例。
+1. 创建一个 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) 类的实例。
 2. 访问目标幻灯片。
-3. 向幻灯片添加一个矩形 [IAutoShape](https://reference.aspose.com/slides/zh/java/com.aspose.slides/iautoshape/)。
-4. 访问形状的 [ITextFrame](https://reference.aspose.com/slides/zh/java/com.aspose.slides/itextframe/) 并移除默认段落。
-5. 为每个段落调用 [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/zh/java/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) 传入正值。
-6. 调用 [IParagraphFormat.setIndent](https://reference.aspose.com/slides/zh/java/com.aspose.slides/iparagraphformat/#setIndent-float-) 传入负值以产生悬挂缩进效果。
+3. 向幻灯片添加一个矩形的 [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/)。
+4. 访问形状的 [ITextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/) 并移除默认段落。
+5. 为每个段落调用 [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) 并传入正值。
+6. 对 [IParagraphFormat.setIndent](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setIndent-float-) 传入负值，以实现悬挂缩进效果。
 7. 将段落添加到文本框。
 8. 保存修改后的演示文稿。
 
-此代码演示了如何为段落设置悬挂缩进：
+此代码展示了如何为段落设置悬挂缩进：
 
 ```java
 import com.aspose.slides.*;
@@ -470,16 +470,16 @@ try {
 
 ![段落的悬挂缩进](hanging_indent.png)
 
-### **设置段落结束属性**
+### **设置段落结束运行属性**
 
-[IParagraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/zh/java/com.aspose.slides/iparagraph/#setEndParagraphPortionFormat-com.aspose.slides.IPortionFormat-) 控制段落结束标记的格式。以下示例为第二段落的结束标记分配字体大小和拉丁字体：
+[IParagraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#setEndParagraphPortionFormat-com.aspose.slides.IPortionFormat-) 控制段落结束标记的格式。以下示例为第二段落的结束标记分配字体大小和拉丁字体：
 
-1. 加载一个 [Presentation](https://reference.aspose.com/slides/zh/java/com.aspose.slides/presentation/) 并访问一张幻灯片。
-2. 添加一个 [IAutoShape](https://reference.aspose.com/slides/zh/java/com.aspose.slides/iautoshape/) 并清除其默认段落。
-3. 创建两个段落并向其中添加文本部分。
-4. 为第二段落的结束标记创建一个 [PortionFormat](https://reference.aspose.com/slides/zh/java/com.aspose.slides/portionformat/)。
-5. 设置 [IBasePortionFormat.setFontHeight](https://reference.aspose.com/slides/zh/java/com.aspose.slides/ibaseportionformat/#setFontHeight-float-) 和 [IBasePortionFormat.setLatinFont](https://reference.aspose.com/slides/zh/java/com.aspose.slides/ibaseportionformat/#setLatinFont-com.aspose.slides.IFontData-)。
-6. 使用 [IParagraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/zh/java/com.aspose.slides/iparagraph/#setEndParagraphPortionFormat-com.aspose.slides.IPortionFormat-) 应用格式并保存演示文稿。
+1. 加载一个 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) 并访问一张幻灯片。
+2. 添加一个 [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) 并清除其默认段落。
+3. 创建两个段落并向其添加文本部分。
+4. 为第二段落的结束标记创建一个 [PortionFormat](https://reference.aspose.com/slides/java/com.aspose.slides/portionformat/)。
+5. 设置 [IBasePortionFormat.setFontHeight](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseportionformat/#setFontHeight-float-) 和 [IBasePortionFormat.setLatinFont](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseportionformat/#setLatinFont-com.aspose.slides.IFontData-)。
+6. 使用 [IParagraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#setEndParagraphPortionFormat-com.aspose.slides.IPortionFormat-) 赋予格式并保存演示文稿。
 
 ```java
 import com.aspose.slides.*;
@@ -511,15 +511,15 @@ try {
 }
 ```
 
-## **统计已渲染的行数**
+## **统计渲染行数**
 
-有关影响自动换行和行尾标点的段落规则，请参阅 [Control Line Breaking](/slides/zh/java/text-formatting/#control-line-breaking) 和 [Control Hanging Punctuation](/slides/zh/java/text-formatting/#control-hanging-punctuation)。
+有关影响自动换行和行尾标点的段落规则，请参阅 [控制换行](/slides/zh/java/text-formatting/#control-line-breaking) 和 [控制悬挂标点](/slides/zh/java/text-formatting/#control-hanging-punctuation)。
 
-使用 [IParagraph.getLinesCount](https://reference.aspose.com/slides/zh/java/com.aspose.slides/iparagraph/#getLinesCount--) 可以统计段落在文本布局后的占用行数，包括自动换行。这在检查演示文稿模板中的文本长度和布局时非常有用。
+使用 [IParagraph.getLinesCount](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getLinesCount--) 可以统计段落在文本布局后占用的行数，包括自动换行。这在检查演示文稿模板的文本长度和布局时非常有用。
 
-段落是 [ITextFrame.getParagraphs](https://reference.aspose.com/slides/zh/java/com.aspose.slides/itextframe/#getParagraphs--) 的一个项目，可能占据多行渲染的空间。段落内部的显式换行会强制换行而不产生新段落。自动换行根据可用宽度生成行，而不会在文本中插入显式换行符。因此，仅统计段落或换行字符并不能得到渲染行数。
+段落是 [ITextFrame.getParagraphs](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/#getParagraphs--) 中的一个项目，并且可能占据多行渲染的行。段落内部的显式换行符会强制另起一行但不会创建新段落。自动换行根据可用宽度生成行，而不在文本中插入显式换行符。因此，仅统计段落或换行字符并不能得到渲染的行数。
 
-下面的示例创建一个文本形状，统计其行数，缩窄形状后再次统计，然后用更短的字符串替换文本。启用了换行并禁用了自动适应，以便形状宽度控制换行而不会自动缩小文本或调整形状大小。形状尺寸使用点表示。最后，示例在文本框中添加另一个段落并汇总所有段落的行数。
+此示例创建一个文本形状，统计其行数，缩窄形状后再次统计，随后用更短的字符串替换文本。已启用换行并禁用自动适应，以便形状宽度控制换行而不会自动缩小文本或调整形状大小。形状尺寸以点为单位。最后，示例向文本框再添加一个段落并汇总所有行数。
 
 ```java
 import com.aspose.slides.*;
@@ -559,21 +559,21 @@ try {
 }
 ```
 
-使用该文本和这些尺寸时，缩窄形状会增加行数，而用短字符串替换文本会减少行数。确切的计数会因字体可用性、替代字体、字体大小、边距、缩进、换行和自动适应设置而异。检查模板时请使用目标环境的字体和布局设置。
+在上述文字和尺寸下，缩窄形状会增加行数，而使用短字符串则会减少行数。具体计数会因字体可用性、替换、字号、边距、缩进、换行和自动适应设置而异；请使用目标环境的字体和布局设置进行模板检查。
 
-仅凭行数不能判断文本是否溢出其容器。可用高度、行高、段落和行间距以及自动适应行为同样重要；即使是一行文本，在禁用换行时也可能超过可用宽度。
+仅凭行数并不能判断文本是否溢出容器。可用高度、行高、段落和行间距以及自动适应行为也会影响结果；即使是一行文本，在关闭换行时也可能超过可用宽度。
 
 ## **导入和导出段落内容**
 
 ### **将 HTML 文本导入段落**
 
-使用 [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/zh/java/com.aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-) 将 HTML 标记转换为文本框中的段落和部分。
+使用 [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/java/com.aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-) 可以将 HTML 标记转换为文本框中的段落和部分。
 
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/zh/java/com.aspose.slides/presentation/) 类的实例。
-2. 访问一张幻灯片并添加一个 [IAutoShape](https://reference.aspose.com/slides/zh/java/com.aspose.slides/iautoshape/)。
-3. 访问形状的 [ITextFrame](https://reference.aspose.com/slides/zh/java/com.aspose.slides/itextframe/) 并清除默认段落。
+1. 创建一个 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) 类的实例。
+2. 访问一张幻灯片并添加一个 [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/)。
+3. 访问形状的 [ITextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/) 并清除默认段落。
 4. 读取源 HTML 文件。
-5. 将 HTML 字符串传递给 [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/zh/java/com.aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-)。
+5. 将 HTML 字符串传递给 [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/java/com.aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-)。
 6. 保存修改后的演示文稿。
 
 此 Java 示例将 HTML 导入文本框：
@@ -609,15 +609,15 @@ try {
 
 ### **将段落文本导出为 HTML**
 
-使用 [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/zh/java/com.aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-) 将选定范围的段落导出为 HTML。
+使用 [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/java/com.aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-) 可以将选定范围的段落导出为 HTML。
 
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/zh/java/com.aspose.slides/presentation/) 类的实例并加载所需的演示文稿。
-2. 访问幻灯片并找到包含文本的 [IAutoShape](https://reference.aspose.com/slides/zh/java/com.aspose.slides/iautoshape/)。
-3. 访问形状的 [ITextFrame](https://reference.aspose.com/slides/zh/java/com.aspose.slides/itextframe/)。
-4. 调用 [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/zh/java/com.aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-)，并提供起始段落索引和要导出的段落数。
+1. 创建一个 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) 类的实例并加载所需的演示文稿。
+2. 访问幻灯片并找到包含文本的 [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/)。
+3. 访问形状的 [ITextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/)。
+4. 调用 [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/java/com.aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-) 并传入起始段落索引和要导出的段落数。
 5. 将返回的 HTML 字符串写入文件。
 
-此 Java 示例导出第一个文本形状中的所有段落：
+此 Java 示例导出第一个文本形状的所有段落：
 
 ```java
 import com.aspose.slides.*;
@@ -654,17 +654,17 @@ try {
 
 ### **将段落渲染为图像**
 
-[IParagraph.getImage](https://reference.aspose.com/slides/zh/java/com.aspose.slides/iparagraph/#getImage--) 直接渲染单个段落并返回 [IImage](https://reference.aspose.com/slides/zh/java/com.aspose.slides/iimage/)。使用 [IImage.save](https://reference.aspose.com/slides/zh/java/com.aspose.slides/iimage/#save-java.lang.String-int-) 将结果保存到文件或流中，无需渲染包含的形状或手动裁剪位图。
+[IParagraph.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getImage--) 可直接渲染单个段落并返回一个 [IImage](https://reference.aspose.com/slides/java/com.aspose.slides/iimage/)。使用 [IImage.save](https://reference.aspose.com/slides/java/com.aspose.slides/iimage/#save-java.lang.String-int-) 将结果保存为文件或流。无需渲染包含的形状或手动裁剪位图。
 
-如果段落在其父集合中找不到、没有有效的渲染边界或无法渲染，[IParagraph.getImage](https://reference.aspose.com/slides/zh/java/com.aspose.slides/iparagraph/#getImage--) 可能返回 `null`。在保存之前检查返回值，并在使用完毕后释放返回的图像。
+如果段落在其父集合中找不到、没有有效的渲染边界，或无法渲染，[IParagraph.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getImage--) 可能返回 `null`。在保存之前请检查返回值，并在使用后释放图像。
 
 #### **以默认比例渲染段落**
 
-假设我们有一个名为 sample.pptx 的演示文稿，包含一张幻灯片，第一形状是包含三个段落的文本框。
+假设我们有一个名为 sample.pptx 的演示文稿，包含一张幻灯片，第一张形状是包含三个段落的文本框。
 
 ![包含三个段落的文本框](paragraph_to_image_input.png)
 
-以下示例在默认比例下渲染第二段落并将返回的图像以 PNG 格式保存。`finally` 块确保图像被正确释放。
+下面的示例在默认比例下渲染普通文本形状中的第二段落，并将返回的图像以 PNG 格式保存。`finally` 块确保图像得到正确释放。
 
 ```java
 import com.aspose.slides.*;
@@ -704,9 +704,9 @@ try {
 
 ![段落图像](paragraph_to_image_output.png)
 
-#### **在表格单元格中渲染段落并缩放**
+#### **在表格单元格中渲染段落并进行缩放**
 
-使用接受 `float scaleX` 和 `float scaleY` 参数的 [IParagraph.getImage](https://reference.aspose.com/slides/zh/java/com.aspose.slides/iparagraph/#getImage-float-float-) 重载来设置水平和垂直缩放因子。以下示例创建一个表格，在其第一个单元格中以默认宽高的两倍渲染段落，并将结果保存为 PNG 图像。
+使用接受 `float scaleX` 和 `float scaleY` 参数的 [IParagraph.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getImage-float-float-) 重载，可设置水平和垂直缩放因子。下面的示例创建一个表格，在其第一个单元格中以两倍默认宽高渲染段落，并将结果保存为 PNG 图像。
 
 ```java
 import com.aspose.slides.*;
@@ -736,24 +736,26 @@ try {
 }
 ```
 
-缩放因子为 `1` 时保持该轴的默认像素尺寸。例如，两个因子均为 `2` 时，生成的图像宽高约为默认尺寸的两倍，像素数约为四倍。较大的因子通常可在放大或高分辨率输出时获得更锐利的文字，但也会增加内存占用和文件大小。小于 `1` 的因子会生成更小、细节更少的图像。使用相等的因子可保持段落的宽高比；不同的水平和垂直因子会分别拉伸输出。
+缩放因子 `1` 保持该轴的默认像素尺寸。例如，两个因子均为 `2` 时，生成的图像宽高约为默认尺寸的两倍，像素数量约为四倍。更大的因子通常可为放大或高分辨率输出提供更清晰的文字，但也会增加内存占用和文件大小。因子小于 `1` 则生成更小、细节更少的图像。使用相等的因子可保持段落的宽高比；不同的水平和垂直因子会独立拉伸输出。
 
-在需要包括形状填充、边框或其他视觉上下文的情况下，使用 [IShape.getImage](https://reference.aspose.com/slides/zh/java/com.aspose.slides/ishape/#getImage--) 渲染整个形状仍然有用。若仅需段落图像，请使用 [IParagraph.getImage](https://reference.aspose.com/slides/zh/java/com.aspose.slides/iparagraph/#getImage--)。
+在需要包含形状填充、边框或其他视觉上下文的情况下，仍然可以使用 [IShape.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#getImage--) 渲染整个形状。若仅需段落图像，请使用 [IParagraph.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getImage--)。
 
 ## **常见问题解答**
 
-**我能完全禁用文本框内的换行吗？**
+**我可以完全禁用文本框内的自动换行吗？**
 
-可以。将 [ITextFrameFormat.setWrapText](https://reference.aspose.com/slides/zh/java/com.aspose.slides/itextframeformat/#setWrapText-byte-) 设置为禁用换行，以便行不会在文本框边缘断开。
+可以。将 [ITextFrameFormat.setWrapText](https://reference.aspose.com/slides/java/com.aspose.slides/itextframeformat/#setWrapText-byte-) 设置为禁用换行，从而使行不在文本框边缘断开。
 
 **如何获取特定段落在幻灯片上的精确边界？**
 
-使用 [IParagraph.getRect](https://reference.aspose.com/slides/zh/java/com.aspose.slides/iparagraph/#getRect--) 获取段落的边界矩形。 [IPortion.getRect](https://reference.aspose.com/slides/zh/java/com.aspose.slides/iportion/#getRect--) 提供单个部分的边界。
+使用 [IParagraph.getRect](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getRect--) 可获取段落的边界矩形。单个部分的边界可通过 [IPortion.getRect](https://reference.aspose.com/slides/java/com.aspose.slides/iportion/#getRect--) 获得。
 
-**段落对齐（左、右、居中或两端对齐）在哪儿控制？**
+**段落的对齐方式（左、右、居中或两端对齐）在哪里控制？**
 
-[IParagraphFormat.setAlignment](https://reference.aspose.com/slides/zh/java/com.aspose.slides/iparagraphformat/#setAlignment-int-) 是段落级别的设置，适用于整个段落，而不受单独部分格式的影响。
+[IParagraphFormat.setAlignment](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setAlignment-int-) 是段落级别的设置，适用于整个段落，无论各部分的单独格式如何。
 
-**我能为段落的一部分设置校对语言吗？**
+若需在每行内部对不同字号的部分进行垂直对齐，请参阅 [对齐行内字体](/slides/zh/java/text-formatting/#align-fonts-within-a-line)。
 
-可以。为单独的部分设置 [IBasePortionFormat.setLanguageId](https://reference.aspose.com/slides/zh/java/com.aspose.slides/ibaseportionformat/#setLanguageId-java.lang.String-)，这样同一段落中可以包含多种语言的文本。
+**我可以为段落的部分设置校对语言吗？**
+
+可以。对各部分使用 [IBasePortionFormat.setLanguageId](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseportionformat/#setLanguageId-java.lang.String-)，即可让同一段落包含多种语言的文本。

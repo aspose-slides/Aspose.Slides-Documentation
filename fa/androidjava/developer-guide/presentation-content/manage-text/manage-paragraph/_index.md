@@ -1,5 +1,5 @@
 ---
-title: مدیریت پاراگراف‌های متن پاورپوینت در اندروید
+title: مدیریت پاراگراف‌های متن PowerPoint در Android
 linktitle: مدیریت پاراگراف
 type: docs
 weight: 40
@@ -8,57 +8,57 @@ aliases:
   - /androidjava/paragraph/
   - /androidjava/portion/
 keywords:
-  - افزودن متن
-  - افزودن پاراگراف
-  - مدیریت متن
-  - مدیریت پاراگراف
-  - مدیریت گلوله
-  - تورفتگی پاراگراف
-  - تورفتگی معلق
-  - گلوله پاراگراف
-  - فهرست عددی
-  - فهرست نقطه‌دار
-  - خصوصیات پاراگراف
-  - واردات HTML
-  - متن به HTML
-  - پاراگراف به HTML
-  - پاراگراف به تصویر
-  - متن به تصویر
-  - صادرات پاراگراف
-  - پاورپوینت
-  - ارائه
-  - اندروید
-  - جاوا
-  - Aspose.Slides
-description: "یاد بگیرید چگونه پاراگراف‌ها، بخش‌ها، گلوله‌ها، فهرست‌های عددی، تورفتگی‌ها، محتوای HTML و تصاویر پاراگراف را با Aspose.Slides برای اندروید از طریق جاوا ایجاد و قالب‌بندی کنید."
+- اضافه کردن متن
+- اضافه کردن پاراگراف
+- مدیریت متن
+- مدیریت پاراگراف
+- مدیریت نقطه‌گذاری
+- تورفتگی پاراگراف
+- تورفتگی معلق
+- نقطه‌گذاری پاراگراف
+- لیست عددی
+- لیست نقطه‌دار
+- ویژگی‌های پاراگراف
+- واردات HTML
+- متن به HTML
+- پاراگراف به HTML
+- پاراگراف به تصویر
+- متن به تصویر
+- صادرات پاراگراف
+- PowerPoint
+- ارائه
+- Android
+- Java
+- Aspose.Slides
+description: "یاد بگیرید چگونه پاراگراف‌ها، بخش‌ها، نقطه‌گذاری‌ها، فهرست‌های عددی، تورفتگی‌ها، محتوای HTML و تصاویر پاراگراف را با Aspose.Slides برای Android از طریق Java ایجاد و قالب‌بندی کنید."
 ---
-## **نمای کلی**
+## **مرور کلی**
 
-Aspose.Slides for Android via Java متن را به صورت یک سلسله مراتب از قاب‌های متن، پاراگراف‌ها و بخش‌ها (Portions) نمایش می‌دهد:
+Aspose.Slides برای Android از طریق Java متن را به عنوان سلسله‌مراتبی از فریم‌های متن، پاراگراف‌ها و بخش‌ها (Portion) نمایش می‌دهد:
 
-* [ITextFrame](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/itextframe/) نمایانگر محفظه متن در یک شکل است و دسترسی به مجموعه پاراگراف‌های آن را فراهم می‌کند.
-* [IParagraph](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/iparagraph/) نمایانگر یک پاراگراف در یک قاب متن است و دسترسی به بخش‌ها و قالب‌بندی سطح پاراگراف را فراهم می‌کند.
-* [IPortion](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/iportion/) نمایانگر یک بخش متن (run) درون یک پاراگراف است. هر بخش می‌تواند متن و قالب‌بندی سطح کاراکتر خود را داشته باشد.
+* [ITextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/) نمایانگر محفظهٔ متن در یک شکل است و دسترسی به مجموعهٔ پاراگراف‌های آن را فراهم می‌کند.
+* [IParagraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph/) نمایانگر یک پاراگراف در فریم متن است و دسترسی به بخش‌ها و قالب‌بندی سطح پاراگراف را فراهم می‌کند.
+* [IPortion](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iportion/) نمایانگر یک بخش متن درون یک پاراگراف است. هر بخش می‌تواند متن و قالب‌بندی سطح کاراکتر مخصوص به خود را داشته باشد.
 
-به این ترتیب یک پاراگراف می‌تواند متن با قلم‌ها، رنگ‌ها، اندازه‌ها و سایر قالب‌بندی‌های متفاوت را با استفاده از چندین بخش داشته باشد.
+بنابراین یک پاراگراف می‌تواند متن با فونت‌ها، رنگ‌ها، اندازه‌ها و قالب‌بندی‌های مختلف را با استفاده از چندین بخش (Portion) شامل شود.
 
 ## **ایجاد و قالب‌بندی پاراگراف‌ها**
 
-### **ایجاد پاراگراف‌ها با چندین بخش**
+### **ایجاد پاراگراف‌ها با بخش‌های چندگانه**
 
-مراحل زیر یک قاب متن با سه پاراگراف ایجاد می‌کند که هر کدام شامل سه بخش هستند:
+مراحل زیر یک فریم متنی با سه پاراگراف ایجاد می‌کند که هر یک شامل سه بخش هستند:
 
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/presentation/) ایجاد کنید.
-2. اسلاید مورد نظر را از طریق ایندکس آن دریافت کنید.
-3. یک [IAutoShape](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/iautoshape/) مستطیلی به اسلاید اضافه کنید.
-4. به [ITextFrame](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/itextframe/) شکل دسترسی پیدا کنید.
-5. از پاراگراف پیش‌فرض استفاده کنید و دو شیء دیگر [IParagraph](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/iparagraph/) را به قاب متن اضافه کنید.
-6. برای هر پاراگراف به اندازه کافی شیء [IPortion](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/iportion/) اضافه کنید تا سه بخش داشته باشد. پاراگراف پیش‌فرض قبلاً یک بخش خالی دارد.
+1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) ایجاد کنید.
+2. از طریق شاخص، اسلاید مربوطه را دسترسی پیدا کنید.
+3. یک [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) مستطیلی به اسلاید اضافه کنید.
+4. به [ITextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/) شکل دسترسی پیدا کنید.
+5. از پاراگراف پیش‌فرض استفاده کنید و دو شیء دیگر از نوع [IParagraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph/) را به فریم متن اضافه کنید.
+6. به اندازه کافی شیء [IPortion](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iportion/) برای هر پاراگراف اضافه کنید تا شامل سه بخش باشد. پاراگراف پیش‌فرض قبلاً یک بخش خالی دارد.
 7. متن هر بخش را تنظیم کنید.
-8. قالب‌بندی سطح کاراکتر را از طریق [IPortion.getPortionFormat](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/iportion/#getPortionFormat--) اعمال کنید.
-9. ارائه (presentation) تغییر یافته را ذخیره کنید.
+8. قالب‌بندی سطح کاراکتر را از طریق [IPortion.getPortionFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iportion/#getPortionFormat--) اعمال کنید.
+9. ارائه اصلاح‌شده را ذخیره کنید.
 
-این مثال Android via Java مراحل فوق را پیاده‌سازی می‌کند:
+این مثال Android از طریق Java مراحل را اجرا می‌کند:
 
 ```java
 import com.aspose.slides.*;
@@ -114,27 +114,26 @@ try {
 }
 ```
 
-
 ## **ایجاد فهرست‌های نقطه‌دار و عددی**
 
-### **ایجاد فهرست نقطه‌دار یا عددی**
+### **ایجاد یک فهرست نقطه‌دار یا عددی**
 
-نقطه‌گذاری و شماره‌گذاری موارد مرتبط را برای اسکن راحت‌تر می‌کند. در Aspose.Slides تنظیمات فهرست از طریق [IBulletFormat](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ibulletformat/) تعریف می‌شود.
+نقطه‌ها و شماره‌گذاری موارد مرتبط را برای مرور راحت‌تر می‌کند. در Aspose.Slides، تنظیمات فهرست از طریق [IBulletFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibulletformat/) تعریف می‌شوند.
 
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/presentation/) ایجاد کنید.
-2. اسلاید مورد نظر را از طریق ایندکس آن دریافت کنید.
-3. یک [IAutoShape](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/iautoshape/) به اسلاید انتخاب شده اضافه کنید.
-4. به [ITextFrame](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/itextframe/) شکل دسترسی پیدا کنید.
-5. پاراگراف پیش‌فرض را از قاب متن حذف کنید.
-6. یک [Paragraph](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/paragraph/) برای یک نقطه نمادین ایجاد کنید.
-7. [IBulletFormat.setType](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ibulletformat/#setType-int-) را به [BulletType.Symbol](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/bullettype/) تنظیم کنید و کاراکتر نقطه را مشخص کنید.
+1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) ایجاد کنید.
+2. از طریق شاخص، اسلاید مربوطه را دسترسی پیدا کنید.
+3. یک [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) به اسلاید انتخاب شده اضافه کنید.
+4. به [ITextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/) شکل دسترسی پیدا کنید.
+5. پاراگراف پیش‌فرض را از فریم متن حذف کنید.
+6. یک [Paragraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/paragraph/) برای یک نقطه نمادین ایجاد کنید.
+7. [IBulletFormat.setType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibulletformat/#setType-int-) را به [BulletType.Symbol](https://reference.aspose.com/slides/androidjava/com.aspose.slides/bullettype/) تنظیم کنید و کاراکتر نقطه را مشخص کنید.
 8. متن پاراگراف، تورفتگی، رنگ نقطه و ارتفاع نقطه را تنظیم کنید.
-9. پاراگراف را به قاب متن اضافه کنید.
-10. یک پاراگراف دوم ایجاد کنید و [IBulletFormat.setType](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ibulletformat/#setType-int-) را به [BulletType.Numbered](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/bullettype/) تنظیم کنید.
-11. سبک نقطه عددی را پیکربندی کنید و پاراگراف را به قاب متن اضافه کنید.
+9. پاراگراف را به فریم متن اضافه کنید.
+10. یک پاراگراف دوم ایجاد کنید و [IBulletFormat.setType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibulletformat/#setType-int-) را به [BulletType.Numbered](https://reference.aspose.com/slides/androidjava/com.aspose.slides/bullettype/) تنظیم کنید.
+11. سبک نقطه عددی را پیکربندی کنید و پاراگراف را به فریم متن اضافه کنید.
 12. ارائه را ذخیره کنید.
 
-این مثال Android via Java یک نقطه نمادین و یک نقطه عددی ایجاد می‌کند:
+این مثال Android از طریق Java یک نقطه نمادین و یک نقطه عددی ایجاد می‌کند:
 
 ```java
 import com.aspose.slides.*;
@@ -175,23 +174,22 @@ try {
 }
 ```
 
-
 ### **استفاده از نقطه‌های تصویری**
 
-نقطه‌های تصویری به شما اجازه می‌دهد به جای نماد یا عدد از یک تصویر سفارشی استفاده کنید.
+نقطه‌های تصویری به شما امکان می‌دهند به‌جای نماد یا عدد، تصویر سفارشی استفاده کنید.
 
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/presentation/) ایجاد کنید.
-2. اسلاید مورد نظر را از طریق ایندکس آن دریافت کنید.
-3. یک [IAutoShape](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/iautoshape/) اضافه کنید و به [ITextFrame](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/itextframe/) آن دسترسی پیدا کنید.
-4. پاراگراف پیش‌فرض را از قاب متن حذف کنید.
-5. تصویر نقطه را بارگذاری کنید و به مجموعه تصاویر ارائه به عنوان یک [IPPImage](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ippimage/) اضافه کنید.
-6. یک [Paragraph](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/paragraph/) ایجاد کرده و متن آن را تنظیم کنید.
-7. [IBulletFormat.setType](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ibulletformat/#setType-int-) را به [BulletType.Picture](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/bullettype/) تنظیم کنید.
-8. تصویر را از طریق [IBulletFormat.getPicture](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ibulletformat/#getPicture--) اختصاص دهید و ارتفاع نقطه را تنظیم کنید.
-9. پاراگراف را به قاب متن اضافه کنید.
-10. ارائه تغییر یافته را ذخیره کنید.
+1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) ایجاد کنید.
+2. از طریق شاخص، اسلاید مربوطه را دسترسی پیدا کنید.
+3. یک [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) اضافه کنید و به [ITextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/) آن دسترسی پیدا کنید.
+4. پاراگراف پیش‌فرض را از فریم متن حذف کنید.
+5. تصویر نقطه را بارگیری کنید و به مجموعهٔ تصاویر ارائه به عنوان یک [IPPImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ippimage/) اضافه کنید.
+6. یک [Paragraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/paragraph/) ایجاد کنید و متن آن را تنظیم کنید.
+7. [IBulletFormat.setType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibulletformat/#setType-int-) را به [BulletType.Picture](https://reference.aspose.com/slides/androidjava/com.aspose.slides/bullettype/) تنظیم کنید.
+8. تصویر را از طریق [IBulletFormat.getPicture](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibulletformat/#getPicture--) اختصاص دهید و ارتفاع نقطه را تنظیم کنید.
+9. پاراگراف را به فریم متن اضافه کنید.
+10. ارائه اصلاح‌شده را ذخیره کنید.
 
-این مثال Android via Java یک نقطه تصویری ایجاد می‌کند:
+این مثال Android از طریق Java یک نقطه تصویری ایجاد می‌کند:
 
 ```java
 import com.aspose.slides.*;
@@ -226,18 +224,17 @@ try {
 }
 ```
 
-
 ### **ایجاد فهرست چندسطحی**
 
-[اینتی‌ن یا] [IParagraphFormat.setDepth](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/iparagraphformat/#setDepth-short-) را تنظیم کنید تا پاراگراف‌ها در سطوح مختلف فهرست قرار گیرند. سطح بالایی دارای عمق `0` است.
+[ IParagraphFormat.setDepth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setDepth-short-) را تنظیم کنید تا پاراگراف‌ها در سطوح مختلف فهرست قرار گیرند. سطح بالایی عمق `0` دارد.
 
-1. یک [Presentation](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/presentation/) ایجاد کنید و به یک اسلاید دسترسی پیدا کنید.
-2. یک [IAutoShape](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/iautoshape/) اضافه کنید و پاراگراف پیش‌فرض را از قاب متن آن پاک کنید.
-3. چهار پاراگراف ایجاد کنید و نمادهای نقطه آن‌ها را پیکربندی کنید.
-4. مقدارهای [IParagraphFormat.setDepth](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/iparagraphformat/#setDepth-short-) آن‌ها را به ترتیب `0`، `1`، `2` و `3` تنظیم کنید.
-5. پاراگراف‌ها را به قاب متن اضافه کنید و ارائه را ذخیره کنید.
+1. یک [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) ایجاد کنید و به یک اسلاید دسترسی پیدا کنید.
+2. یک [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) اضافه کنید و پاراگراف پیش‌فرض را از فریم متن آن پاک کنید.
+3. چهار پاراگراف ایجاد کنید و نمادهای نقطهٔ آن‌ها را پیکربندی کنید.
+4. مقادیر [IParagraphFormat.setDepth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setDepth-short-) آن‌ها را به ترتیب `0`، `1`، `2` و `3` تنظیم کنید.
+5. پاراگراف‌ها را به فریم متن اضافه کنید و ارائه را ذخیره کنید.
 
-این مثال Android via Java یک فهرست نقطه‌دار چهارسطحی ایجاد می‌کند:
+این مثال Android از طریق Java یک فهرست نقطه‌دار چهار سطحی ایجاد می‌کند:
 
 ```java
 import com.aspose.slides.*;
@@ -293,18 +290,17 @@ try {
 }
 ```
 
+### **شروع آیتم‌های فهرست عددی با مقادیر دلخواه**
 
-### **شروع شماره‌گذاری آیتم‌های فهرست با مقادیر دلخواه**
+از [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) استفاده کنید تا عدد اولیه نمایش داده‌شده برای یک پاراگراف عددی تنظیم شود.
 
-از [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) برای تنظیم عدد اولیه نمایش داده شده برای یک پاراگراف عددی استفاده کنید.
-
-1. یک [Presentation](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/presentation/) ایجاد کنید و یک [IAutoShape](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/iautoshape/) به اسلاید اضافه کنید.
-2. پاراگراف پیش‌فرض را از قاب متن شکل حذف کنید.
+1. یک [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) ایجاد کنید و یک [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) به یک اسلاید اضافه کنید.
+2. پاراگراف پیش‌فرض را از فریم متن شکل پاک کنید.
 3. سه پاراگراف عددی ایجاد کنید.
-4. برای پاراگراف‌های مربوطه، [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) را به ترتیب به `2`، `3` و `7` تنظیم کنید.
-5. پاراگراف‌ها را به قاب متن اضافه کنید و ارائه را ذخیره کنید.
+4. برای پاراگراف‌های مربوطه، [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) را به ترتیب به `2`، `3` و `7` تنظیم کنید.
+5. پاراگراف‌ها را به فریم متن اضافه کنید و ارائه را ذخیره کنید.
 
-این مثال Android via Java عدد شروع سفارشی را به هر پاراگراف اختصاص می‌دهد:
+این مثال Android از طریق Java عدد شروع دلخواه را به هر پاراگراف اختصاص می‌دهد:
 
 ```java
 import com.aspose.slides.*;
@@ -340,23 +336,23 @@ try {
 }
 ```
 
-## **کنترل چینش پاراگراف و ویژگی‌های پایانی**
+## **کنترل چیدمان پاراگراف و خصوصیات انتها**
 
 ### **تنظیم تورفتگی خط اول**
 
-از [IParagraphFormat.setIndent](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) برای کنترل تورفتگی خط اول یک پاراگراف استفاده کنید. این متد فقط خط اول را نسبت به حاشیه چپ پاراگراف جابه‌جا می‌کند. مقدار مثبت خط اول را به سمت راست منتقل می‌کند، در حالی که خطوط دیگر به بدنه پاراگراف متصل می‌مانند.
+از [IParagraphFormat.setIndent](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) برای کنترل تورفتگی خط اول یک پاراگراف استفاده کنید. این متد فقط خط اول را نسبت به حاشیهٔ چپ پاراگراف جابه‌جا می‌کند. مقدار مثبت خط اول را به سمت راست می‌کشد، در حالی که خطوط باقی‌مانده به بدنهٔ پاراگراف تراز می‌مانند.
 
-زمانی که نیاز به جابه‌جایی کل پاراگراف دارید از [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) استفاده کنید. برای جابه‌جایی فقط خط اول از [IParagraphFormat.setIndent](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) استفاده کنید.
+زمانی که نیاز به جابه‌جایی کل پاراگراف دارید از [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) استفاده کنید. زمانی که فقط خط اول را می‌خواهید جابه‌جا کنید از [IParagraphFormat.setIndent](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) استفاده کنید.
 
-مثال زیر چندین پاراگراف ایجاد کرده و مقادیر مختلف [IParagraphFormat.setIndent](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) را برای نشان دادن تأثیر تورفتگی خط اول بر چینش پاراگراف اعمال می‌کند.
+مثال زیر چند پاراگراف ایجاد می‌کند و مقادیر مختلف [IParagraphFormat.setIndent](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) را برای نشان دادن اثر تورفتگی خط اول بر چیدمان پاراگراف اعمال می‌کند.
 
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/presentation/) ایجاد کنید.
-2. اسلاید هدف را دریافت کنید.
-3. یک [IAutoShape](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/iautoshape/) مستطیلی به اسلاید اضافه کنید.
-4. به [ITextFrame](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/itextframe/) شکل دسترسی پیدا کنید و پاراگراف پیش‌فرض را حذف کنید.
-5. چندین پاراگراف ایجاد کنید و برای هر یک مقادیر مختلف [IParagraphFormat.setIndent](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) تنظیم کنید.
-6. پاراگراف‌ها را به قاب متن اضافه کنید.
-7. ارائه تغییر یافته را ذخیره کنید.
+1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) ایجاد کنید.
+2. اسلاید هدف را دسترسی پیدا کنید.
+3. یک [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) مستطیلی به اسلاید اضافه کنید.
+4. به [ITextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/) شکل دسترسی پیدا کنید و پاراگراف پیش‌فرض را حذف کنید.
+5. چند پاراگراف ایجاد کنید و مقادیر مختلف [IParagraphFormat.setIndent](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) را برای آن‌ها تنظیم کنید.
+6. پاراگراف‌ها را به فریم متن اضافه کنید.
+7. ارائه اصلاح‌شده را ذخیره کنید.
 
 این کد نشان می‌دهد چگونه تورفتگی پاراگراف تنظیم شود:
 
@@ -414,20 +410,20 @@ try {
 
 ### **تنظیم تورفتگی معلق**
 
-تورفتگی معلق یک چینش پاراگراف است که در آن خط اولین به سمت چپ خطوط باقی‌مانده شروع می‌شود. در Aspose.Slides این اثر را با [IParagraphFormat.setIndent](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) ایجاد می‌کنید. مقدار منفی برای جابه‌جایی خط اول به چپ نسبت به بدنه پاراگراف استفاده می‌شود.
+تورفتگی معلق یک چیدمان پاراگراف است که در آن خط اول نسبت به بقیه خطوط به سمت چپ می‌آید. در Aspose.Slides این اثر را با [IParagraphFormat.setIndent](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) ایجاد می‌کنید. مقدار منفی به خط اول اجازه می‌دهد نسبت به بدنهٔ پاراگراف به سمت چپ حرکت کند.
 
-در عمل، [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) موقعیت چپ بدنه پاراگراف را تعیین می‌کند و [IParagraphFormat.setIndent](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) موقعیت خط اول را نسبت به آن حاشیه مشخص می‌کند. برای ایجاد تورفتگی معلق، مقدار مثبت به `setMarginLeft` و مقدار منفی به `setIndent` بدهید.
+در عمل، [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) موقعیت چپ بدنهٔ پاراگراف را تعیین می‌کند و [IParagraphFormat.setIndent](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) موقعیت خط اول نسبت به آن حاشیه را. برای ایجاد تورفتگی معلق، مقدار مثبت را به `setMarginLeft` و مقدار منفی را به `setIndent` بدهید.
 
-این قالب‌بندی برای کتاب‌شناسی‌ها، مراجع، واژه‌نامه‌ها و دیگر پاراگراف‌هایی که خطوط بسته‌بندی شده باید زیر بدنه پاراگراف align شوند مفید است.
+این قالب‌بندی برای کتاب‌شناسی‌ها، مراجع، واژه‌نامه‌ها و سایر پاراگراف‌هایی که خطوط بسته‌شده باید زیر بدنهٔ پاراگراف تراز شوند مفید است.
 
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/presentation/) ایجاد کنید.
-2. اسلاید هدف را دریافت کنید.
-3. یک [IAutoShape](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/iautoshape/) مستطیلی به اسلاید اضافه کنید.
-4. به [ITextFrame](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/itextframe/) شکل دسترسی پیدا کنید و پاراگراف پیش‌فرض را حذف کنید.
-5. برای هر پاراگراف مقدار مثبت به [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) بدهید.
-6. مقدار منفی به [IParagraphFormat.setIndent](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) بدهید تا اثر تورفتگی معلق ایجاد شود.
-7. پاراگراف‌ها را به قاب متن اضافه کنید.
-8. ارائه تغییر یافته را ذخیره کنید.
+1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) ایجاد کنید.
+2. اسلاید هدف را دسترسی پیدا کنید.
+3. یک [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) مستطیلی به اسلاید اضافه کنید.
+4. به [ITextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/) شکل دسترسی پیدا کنید و پاراگراف پیش‌فرض را حذف کنید.
+5. برای هر پاراگراف مقدار مثبت به [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) بدهید.
+6. مقدار منفی به [IParagraphFormat.setIndent](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) بدهید تا اثر تورفتگی معلق ایجاد شود.
+7. پاراگراف‌ها را به فریم متن اضافه کنید.
+8. ارائه اصلاح‌شده را ذخیره کنید.
 
 این کد نشان می‌دهد چگونه تورفتگی معلق برای یک پاراگراف تنظیم شود:
 
@@ -475,16 +471,16 @@ try {
 
 ![تورفتگی معلق پاراگراف‌ها](hanging_indent.png)
 
-### **تنظیم ویژگی‌های انتهای پاراگراف**
+### **تنظیم خصوصیات انتهای پاراگراف**
 
-[IParagraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/iparagraph/#setEndParagraphPortionFormat-com.aspose.slides.IPortionFormat-) قالب‌بندی علامت پایان پاراگراف را کنترل می‌کند. مثال زیر اندازه قلم و قلم لاتین را برای علامت پایان پاراگراف دوم تنظیم می‌کند:
+[IParagraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph/#setEndParagraphPortionFormat-com.aspose.slides.IPortionFormat-) کنترل قالب‌بندی علامت انتهای پاراگراف را بر عهده دارد. مثال زیر اندازهٔ قلم و قلم لاتین را به علامت انتهای پاراگراف دوم اختصاص می‌دهد:
 
-1. یک [Presentation](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/presentation/) بارگذاری کنید و به یک اسلاید دسترسی پیدا کنید.
-2. یک [IAutoShape](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/iautoshape/) اضافه کنید و پاراگراف پیش‌فرض آن را پاک کنید.
+1. یک [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) بارگیری کنید و به یک اسلاید دسترسی پیدا کنید.
+2. یک [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) اضافه کنید و پاراگراف پیش‌فرض آن را پاک کنید.
 3. دو پاراگراف ایجاد کنید و به آن‌ها بخش‌های متنی اضافه کنید.
-4. برای علامت پایان پاراگراف دوم یک [PortionFormat](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/portionformat/) ایجاد کنید.
-5. [IBasePortionFormat.setFontHeight](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ibaseportionformat/#setFontHeight-float-) و [IBasePortionFormat.setLatinFont](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ibaseportionformat/#setLatinFont-com.aspose.slides.IFontData-) را تنظیم کنید.
-6. قالب را با [IParagraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/iparagraph/#setEndParagraphPortionFormat-com.aspose.slides.IPortionFormat-) اختصاص داده و ارائه را ذخیره کنید.
+4. یک [PortionFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/portionformat/) برای علامت انتهای پاراگراف دوم ایجاد کنید.
+5. [IBasePortionFormat.setFontHeight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformat/#setFontHeight-float-) و [IBasePortionFormat.setLatinFont](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformat/#setLatinFont-com.aspose.slides.IFontData-) را تنظیم کنید.
+6. قالب را با [IParagraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph/#setEndParagraphPortionFormat-com.aspose.slides.IPortionFormat-) اعمال کنید و ارائه را ذخیره کنید.
 
 ```java
 import com.aspose.slides.*;
@@ -516,16 +512,15 @@ try {
 }
 ```
 
+## **تعداد خطوط رندر شده**
 
-## **شمارش خطوط رندر شده**
+برای قوانین پاراگراف که بر بسته‌شدن خودکار و نقطه‌گذاری در انتهای خطوط تاثیر می‌گذارند، به [کنترل شکستن خط](/slides/fa/androidjava/text-formatting/#control-line-breaking) و [کنترل نقطه‌گذاری معلق](/slides/fa/androidjava/text-formatting/#control-hanging-punctuation) مراجعه کنید.
 
-برای قوانین پاراگرافی که بر بسته‌بندی خودکار و نقطه‌گذاری در انتهای خطوط تأثیر می‌گذارند، به بخش‌های [Control Line Breaking](/slides/fa/androidjava/text-formatting/#control-line-breaking) و [Control Hanging Punctuation](/slides/fa/androidjava/text-formatting/#control-hanging-punctuation) مراجعه کنید.
+از [IParagraph.getLinesCount](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph/#getLinesCount--) برای شمارش خطوط اشغال‌شده توسط یک پاراگراف پس از چیدمان متن استفاده کنید؛ این شامل بسته‌شدن خودکار می‌شود. این کار برای بررسی طول متن و چیدمان در قالب‌های ارائه مفید است.
 
-از [IParagraph.getLinesCount](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/iparagraph/#getLinesCount--) برای شمارش خطوطی که پس از چینش متن یک پاراگراف اشغال می‌کند (شامل بسته‌بندی خودکار) استفاده کنید. این روش برای بررسی طول متن و چینش در الگوهای ارائه مفید است.
+یک پاراگراف یک مورد در [ITextFrame.getParagraphs](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/#getParagraphs--) است و می‌تواند چندین خط رندر شده اشغال کند. شکست خط صریح داخل پاراگراف باعث ایجاد خط جدید می‌شود بدون اینکه پاراگراف دیگری ایجاد شود. بسته‌شدن خودکار خطوط را بر اساس عرض موجود ایجاد می‌کند بدون اینکه شکست‌های خط صریح به متن افزوده شود. بنابراین شمارش پاراگراف‌ها یا کاراکترهای شکست خط، تعداد خطوط رندر شده را نمی‌دهد.
 
-یک پاراگراف یک مورد در [ITextFrame.getParagraphs](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/itextframe/#getParagraphs--) است و می‌تواند چندین خط رندر شده را اشغال کند. شکست خط صریح درون پاراگراف یک خط جدید ایجاد می‌کند بدون اینکه پاراگراف جدیدی ساخته شود. بسته‌بندی خودکار بر پایه عرض موجود خطوط را ایجاد می‌کند بدون این‌که نشانه‌های شکست خط صریح را در متن وارد کند. بنابراین شمارش پاراگراف‌ها یا کاراکترهای شکست خط، شمارش خطوط رندر شده را نمی‌دهد.
-
-مثال زیر یک شکل متنی ایجاد می‌کند، خطوط آن را می‌شمارد، شکل را باریک می‌کند و سپس متن را با یک رشته کوتاه‌تر جایگزین می‌کند. بسته‌بندی فعال است و AutoFit غیرفعال است تا عرض شکل کنترل بسته‌بندی را بدون کوچک شدن خودکار متن یا تغییر اندازه شکل انجام دهد. ابعاد شکل بر حسب پونت هستند. در نهایت، مثال یک پاراگراف دیگر اضافه می‌کند و مجموع شمارش خطوط را در سراسر قاب متن محاسبه می‌کند.
+مثال زیر یک شکل متنی ایجاد می‌کند، خطوط آن را می‌شمارد، شکل را باریک می‌کند و سپس متن را با رشته‌ای کوتاه‌تر جایگزین می‌کند. بسته‌شدن فعال است و خودکار‑تناسب غیرفعال شده تا عرض شکل کنترل بسته‌شدن را بدون کوچک‌سازی خودکار متن یا تغییر اندازه شکل انجام دهد. ابعاد شکل بر حسب پوینت است. در نهایت مثال یک پاراگراف دیگر اضافه می‌کند و مجموع تعداد خطوط را در فریم متن محاسبه می‌کند.
 
 ```java
 import com.aspose.slides.*;
@@ -565,24 +560,24 @@ try {
 }
 ```
 
-با این متن و این ابعاد، باریک شدن شکل تعداد خطوط را افزایش می‌دهد، در حالی که جایگزینی متن با رشته کوتاه شمارش را کاهش می‌دهد. شمارش‌های دقیق می‌توانند بسته به در دسترس بودن قلم، جایگزینی، اندازه قلم، حاشیه‌ها، تورفتگی، بسته‌بندی و تنظیمات AutoFit متفاوت باشند. هنگام بررسی یک الگو، از قلم‌ها و تنظیمات چینش موردنظر برای محیط هدف استفاده کنید.
+با این متن و این ابعاد، باریک‌کردن شکل تعداد خطوط را افزایش می‌دهد، در حالی که جایگزینی متن با رشتهٔ کوتاه‌تر آن را کاهش می‌دهد. شمارش دقیق می‌تواند بسته به در دسترس بودن قلم، جایگزینی، اندازه قلم، حاشیه‌ها، تورفتگی، بسته‌شدن و تنظیمات خودکار‑تناسب متفاوت باشد. هنگام بررسی قالب، از قلم‌ها و تنظیمات چیدمانی که برای محیط هدف در نظر گرفته شده‌اند استفاده کنید.
 
-تنها شمارش خطوط تعیین‌کنندهٔ overflow متن در محفظه نیست. ارتفاع موجود، ارتفاع خطوط، فاصله‌های پاراگراف و خط، و رفتار AutoFit نیز مهم‌اند؛ حتی یک خط می‌تواند عرض موجود را وقتی بسته‌بندی غیرفعال باشد تجاوز کند.
+تنها شمارش خطوط تصمیم‌گیری دربارهٔ سرریز متن در محفظه را انجام نمی‌دهد. ارتفاع موجود، ارتفاع خطوط، فاصله پاراگراف و خط، و رفتار خودکار‑تناسب نیز مهم هستند؛ حتی یک خط می‌تواند عرض موجود را هنگام غیرفعال بودن بسته‌شدن تجاوز کند.
 
 ## **واردات و صادرات محتوای پاراگراف**
 
 ### **وارد کردن متن HTML به پاراگراف‌ها**
 
-از [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-) برای تبدیل نشانه‌گذاری HTML به پاراگراف‌ها و بخش‌ها در یک قاب متن استفاده کنید.
+از [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/androidjava/com.aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-) برای تبدیل مارکاپ HTML به پاراگراف‌ها و بخش‌ها در یک فریم متنی استفاده کنید.
 
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/presentation/) ایجاد کنید.
-2. به یک اسلاید دسترسی پیدا کنید و یک [IAutoShape](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/iautoshape/) اضافه کنید.
-3. به [ITextFrame](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/itextframe/) شکل دسترسی پیدا کنید و پاراگراف پیش‌فرض را پاک کنید.
+1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) ایجاد کنید.
+2. به یک اسلاید دسترسی پیدا کنید و یک [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) اضافه کنید.
+3. به [ITextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/) شکل دسترسی پیدا کنید و پاراگراف پیش‌فرض را پاک کنید.
 4. فایل HTML منبع را بخوانید.
-5. رشته HTML را به [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-) پاس دهید.
-6. ارائه تغییر یافته را ذخیره کنید.
+5. رشتهٔ HTML را به [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/androidjava/com.aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-) پاس دهید.
+6. ارائه اصلاح‌شده را ذخیره کنید.
 
-این مثال Android via Java HTML را به یک قاب متن وارد می‌کند:
+این مثال Android از طریق Java HTML را به فریم متن وارد می‌کند:
 
 ```java
 import com.aspose.slides.*;
@@ -613,18 +608,17 @@ try {
 }
 ```
 
+### **صادرات متن پاراگراف به HTML**
 
-### **صادر کردن متن پاراگراف به HTML**
+از [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/androidjava/com.aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-) برای صادرات یک بازهٔ انتخاب‌شده از پاراگراف‌ها به HTML استفاده کنید.
 
-از [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-) برای استخراج یک بازهٔ منتخب از پاراگراف‌ها به صورت HTML استفاده کنید.
+1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) ایجاد کنید و ارائه مورد نظر را بارگیری کنید.
+2. به اسلاید دسترسی پیدا کنید و [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) حاوی متن را پیدا کنید.
+3. به [ITextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/) شکل دسترسی پیدا کنید.
+4. با استفاده از [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/androidjava/com.aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-) ایندکس پاراگراف شروع و تعداد پاراگراف‌های مورد نظر برای صادرات را مشخص کنید.
+5. رشتهٔ HTML بازگشتی را در یک فایل بنویسید.
 
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/presentation/) ایجاد کنید و ارائه موردنظر را بارگذاری کنید.
-2. به اسلاید دسترسی پیدا کنید و [IAutoShape](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/iautoshape/) حاوی متن را پیدا کنید.
-3. به [ITextFrame](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/itextframe/) شکل دسترسی پیدا کنید.
-4. با مشخص کردن ایندکس پاراگراف شروع و تعداد پاراگراف‌های موردنظر، [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-) را فراخوانی کنید.
-5. رشته HTML برگردانده شده را در یک فایل بنویسید.
-
-این مثال Android via Java تمام پاراگراف‌های اولین شکل متنی را صادر می‌کند:
+این مثال Android از طریق Java تمام پاراگراف‌ها را از اولین فریم متنی صادر می‌کند:
 
 ```java
 import com.aspose.slides.*;
@@ -661,17 +655,17 @@ try {
 
 ### **رندر یک پاراگراف به عنوان تصویر**
 
-[IParagraph.getImage](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/iparagraph/#getImage--) یک پاراگراف منفرد را مستقیماً رندر کرده و یک [IImage](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/iimage/) بر می‌گرداند. نتیجه را با [IImage.save](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/iimage/#save-java.lang.String-int-) در فایل یا جریان ذخیره کنید. نیازی به رندر شکل حاوی آن یا برش دستی bitmap نیست.
+[IParagraph.getImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph/#getImage--) یک پاراگراف منفرد را مستقیماً رندر می‌کند و یک [IImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimage/) بر می‌گرداند. نتیجه را با [IImage.save](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimage/#save-java.lang.String-int-) در فایل یا جریان ذخیره کنید. نیازی به رندر کل شکل حاوی آن یا برش دستی bitmap ندارید.
 
-[IParagraph.getImage](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/iparagraph/#getImage--) می‌تواند `null` برگرداند اگر پاراگراف در مجموعه والد یافت نشود، مرزهای رندر معتبر نداشته باشد یا قابل رندر نباشد. قبل از ذخیره‌سازی نتیجه را بررسی کنید و پس از استفاده تصویر بازگشتی را آزاد کنید.
+[IParagraph.getImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph/#getImage--) می‌تواند `null` برگرداند اگر پاراگراف در مجموعهٔ والد خود پیدا نشود، ابعاد رندر معتبری نداشته باشد یا قابل رندر نباشد. قبل از ذخیره‌سازی نتیجه را بررسی کنید و پس از استفاده تصویر بازگردانده‌شده را آزاد کنید.
 
-#### **رندر یک پاراگراف با مقیاس پیش‌فرض**
+#### **رندر پاراگراف با مقیاس پیش‌فرض**
 
-فرض کنید فایلی به نام sample.pptx با یک اسلاید داریم که اولین شکل آن یک کادر متن شامل سه پاراگراف است.
+فرض کنید فایلی به نام sample.pptx داریم که یک اسلاید دارد و اولین شکل آن یک جعبه متن حاوی سه پاراگراف است.
 
-![کادر متن با سه پاراگراف](paragraph_to_image_input.png)
+![جعبه متن با سه پاراگراف](paragraph_to_image_input.png)
 
-مثال زیر پاراگراف دوم را در یک شکل متنی عادی با مقیاس پیش‌فرض رندر می‌کند و تصویر برگشتی را در قالب PNG ذخیره می‌نماید. بلوک `finally` اطمینان می‌دهد که تصویر به‌درستی آزاد می‌شود.
+مثال زیر پاراگراف دوم را در یک شکل متن عادی با مقیاس پیش‌فرض رندر می‌کند و تصویر حاصل را در قالب PNG ذخیره می‌گیرد. بلوک `finally` تضمین می‌کند تصویر به‌درستی آزاد شود.
 
 ```java
 import com.aspose.slides.*;
@@ -711,9 +705,9 @@ try {
 
 ![تصویر پاراگراف](paragraph_to_image_output.png)
 
-#### **رندر یک پاراگراف در یک سلول جدول با مقیاس دهی**
+#### **رندر پاراگراف در یک سلول جدول با مقیاس‌دهی**
 
-از overload [IParagraph.getImage](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/iparagraph/#getImage-float-float-) که پارامترهای `float scaleX` و `float scaleY` را می‌پذیرد برای تنظیم مقادیر مقیاس افقی و عمودی استفاده کنید. مثال زیر یک جدول می‌سازد، پاراگراف را در اولین سلول آن با دو برابر عرض و ارتفاع پیش‌فرض رندر می‌کند و نتیجه را به صورت تصویر PNG ذخیره می‌نماید.
+از overload متد [IParagraph.getImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph/#getImage-float-float-) که پارامترهای `float scaleX` و `float scaleY` را می‌پذیرد استفاده کنید تا عوامل مقیاس افقی و عمودی را تنظیم کنید. مثال زیر یک جدول می‌سازد، پاراگراف را در اولین سلول آن با دو برابر عرض و ارتفاع پیش‌فرض رندر می‌کند و نتیجه را به صورت تصویر PNG ذخیره می‌گیرد.
 
 ```java
 import com.aspose.slides.*;
@@ -743,24 +737,26 @@ try {
 }
 ```
 
-مقدار مقیاس `1` محور مربوطه را در اندازه پیش‌فرض پیکسل نگه می‌دارد. برای مثال، `2` برای هر دو عامل تصویری تولید می‌کند که عرض و ارتفاع تقریباً دو برابر ابعاد پیش‌فرض هستند، که چهار برابر پیکسل تولید می‌کند. عوامل بزرگ‌تر معمولاً متن واضح‌تری برای زوم یا خروجی با وضوح بالا می‌آورند، اما مصرف حافظه و اندازه فایل را نیز افزایش می‌دهند. عوامل زیر `1` تصاویر کوچکتری با جزئیات کمتر می‌سازند. برای حفظ نسبت عرض به ارتفاع پاراگراف از عوامل برابر استفاده کنید؛ عوامل متفاوت افقی و عمودی خروجی را به‌طور مستقل می‌کشند.
+عامل مقیاس `1` آن محور را در اندازهٔ پیش‌فرض پیکسل نگه می‌دارد. برای مثال `2` برای هر دو عامل تصویری تولید می‌کند که عرض و ارتفاع آن تقریباً دو برابر ابعاد پیش‌فرض است و به این ترتیب چهار برابر پیکسل دارد. عوامل بزرگتر معمولاً متن واضح‌تری برای بزرگ‌نمایی یا خروجی با وضوح بالا تولید می‌کنند، اما مصرف حافظه و حجم فایل را نیز افزایش می‌دهند. عوامل زیر `1` تصاویر کوچکتری با جزئیات کمتر تولید می‌کنند. برای حفظ نسبت طول و عرض پاراگراف از عوامل مساوی استفاده کنید؛ عوامل افقی و عمودی متفاوت تصویر را به‌صورت مستقل کشیده می‌کنند.
 
-رندر کل یک شکل با [IShape.getImage](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ishape/#getImage--) زمانی مفید است که خروجی نیاز به شامل پرکن، حاشیه یا سایر زمینه‌های بصری شکل داشته باشد. برای تصویر فقط پاراگراف، از [IParagraph.getImage](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/iparagraph/#getImage--) استفاده کنید.
+رندر کل شکل با استفاده از [IShape.getImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#getImage--) زمانی مفید است که خروجی نیاز به شامل پرکردن، حاشیه یا سایر زمینه‌های تصویری شکل داشته باشد. برای تصویر فقط پاراگراف، از [IParagraph.getImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph/#getImage--) استفاده کنید.
 
 ## **سوالات متداول**
 
-**آیا می‌توانم بسته‌بندی خطوط داخل یک قاب متن را به‌طور کامل غیرفعال کنم؟**
+**آیا می‌توانم بسته شدن خط داخل یک فریم متن را کاملاً غیرفعال کنم؟**
 
-بله. برای غیرفعال‌سازی بسته‌بندی و جلوگیری از شکست خطوط در لبه‌های قاب متن، [ITextFrameFormat.setWrapText](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/itextframeformat/#setWrapText-byte-) را تنظیم کنید.
+بله. با تنظیم [ITextFrameFormat.setWrapText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframeformat/#setWrapText-byte-) بسته شدن را غیرفعال کنید تا خطوط در لبه‌های فریم متن شکسته نشوند.
 
-**چگونه می‌توانم محدوده دقیق روی اسلاید یک پاراگراف خاص را به‌دست آورم؟**
+**چگونه می‌توانم مرز دقیق روی اسلاید یک پاراگراف خاص را به‌دست آورم؟**
 
-از [IParagraph.getRect](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/iparagraph/#getRect--) برای دریافت مستطیل محدوده پاراگراف استفاده کنید. [IPortion.getRect](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/iportion/#getRect--) محدوده یک بخش منفرد را فراهم می‌کند.
+از [IParagraph.getRect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph/#getRect--) برای دریافت مستطیل محاطی پاراگراف استفاده کنید. [IPortion.getRect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iportion/#getRect--) مرزهای یک بخش منفرد را فراهم می‌کند.
 
-**کنترل تراز پاراگراف (چپ، راست، مرکز یا توجیه) در کجا انجام می‌شود؟**
+**محل تنظیم تراز پاراگراف (چپ، راست، وسط یا توجیه) کجا کنترل می‌شود؟**
 
-[IParagraphFormat.setAlignment](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/iparagraphformat/#setAlignment-int-) یک تنظیم در سطح پاراگراف است و بر کل پاراگراف اعمال می‌شود، بدون توجه به قالب‌بندی بخش‌های منفرد.
+[IParagraphFormat.setAlignment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setAlignment-int-) یک تنظیم سطح پاراگراف است و روی تمام پاراگراف اعمال می‌شود، صرف‌نظر از قالب‌بندی جداگانهٔ بخش‌ها.
 
-**آیا می‌توانم زبان تصحیح برای بخشی از یک پاراگراف تنظیم کنم؟**
+برای تراز عمودی بخش‌های با اندازهٔ قلم متفاوت در هر خط، به [Align Fonts Within a Line](/slides/fa/androidjava/text-formatting/#align-fonts-within-a-line) مراجعه کنید.
 
-بله. برای بخش‌های منفرد [IBasePortionFormat.setLanguageId](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ibaseportionformat/#setLanguageId-java.lang.String-) را تنظیم کنید، به‌طوری‌که یک پاراگراف بتواند متن‌های چند زبانه داشته باشد.
+**آیا می‌توانم زبان بازبینی را برای بخشی از یک پاراگراف تنظیم کنم؟**
+
+بله. برای بخش‌های منفرد [IBasePortionFormat.setLanguageId](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformat/#setLanguageId-java.lang.String-) را تنظیم کنید تا یک پاراگراف بتواند متنی با زبان‌های متعدد داشته باشد.

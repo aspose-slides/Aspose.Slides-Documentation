@@ -1,6 +1,6 @@
 ---
-title: Gerenciar Parágrafos de Texto do PowerPoint no Android
-linktitle: Gerenciar Parágrafo
+title: Gerenciar parágrafos de texto do PowerPoint no Android
+linktitle: Gerenciar parágrafo
 type: docs
 weight: 40
 url: /pt/androidjava/manage-paragraph/
@@ -30,35 +30,35 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Aprenda a criar e formatar parágrafos, trechos, marcadores, listas numeradas, recuos, conteúdo HTML e imagens de parágrafo com Aspose.Slides para Android via Java."
+description: "Aprenda como criar e formatar parágrafos, porções, marcadores, listas numeradas, recuos, conteúdo HTML e imagens de parágrafos com Aspose.Slides para Android via Java."
 ---
 ## **Visão geral**
 
-Aspose.Slides for Android via Java representa o texto como uma hierarquia de quadros de texto, parágrafos e trechos:
+Aspose.Slides for Android via Java representa o texto como uma hierarquia de quadros de texto, parágrafos e porções:
 
-* [ITextFrame](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/itextframe/) representa o contêiner de texto em uma forma e fornece acesso à sua coleção de parágrafos.
-* [IParagraph](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/iparagraph/) representa um parágrafo em um quadro de texto e fornece acesso aos seus trechos e à formatação em nível de parágrafo.
-* [IPortion](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/iportion/) representa uma execução de texto dentro de um parágrafo. Cada trecho pode ter seu próprio texto e formatação em nível de caractere.
+* [ITextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/) representa o contêiner de texto em uma forma e fornece acesso à sua coleção de parágrafos.
+* [IParagraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph/) representa um parágrafo em um quadro de texto e fornece acesso às suas porções e à formatação ao nível do parágrafo.
+* [IPortion](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iportion/) representa uma sequência de texto dentro de um parágrafo. Cada porção pode ter seu próprio texto e formatação ao nível de caractere.
 
-Um parágrafo pode, portanto, conter texto com diferentes fontes, cores, tamanhos e outras formatações usando vários trechos.
+Um parágrafo pode, portanto, conter texto com diferentes fontes, cores, tamanhos e outras formatações usando várias porções.
 
 ## **Criar e formatar parágrafos**
 
-### **Criar parágrafos com vários trechos**
+### **Criar parágrafos com várias porções**
 
-As etapas a seguir criam um quadro de texto com três parágrafos, cada um contendo três trechos:
+Os passos a seguir criam um quadro de texto com três parágrafos, cada um contendo três porções:
 
-1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/presentation/).
-2. Acesse o slide relevante por meio de seu índice.
-3. Adicione um [IAutoShape](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/iautoshape/) retangular ao slide.
-4. Acesse o [ITextFrame](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/itextframe/) da forma.
-5. Use o parágrafo padrão e adicione mais dois objetos [IParagraph](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/iparagraph/) ao quadro de texto.
-6. Adicione objetos [IPortion](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/iportion/) suficientes para que cada parágrafo contenha três trechos. O parágrafo padrão já contém um trecho vazio.
-7. Defina o texto de cada trecho.
-8. Aplique formatação em nível de caractere por meio de [IPortion.getPortionFormat](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/iportion/#getPortionFormat--).
+1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/).
+2. Acesse o slide relevante pelo seu índice.
+3. Adicione uma [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) retangular ao slide.
+4. Acesse o [ITextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/) da forma.
+5. Use o parágrafo padrão e adicione mais dois objetos [IParagraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph/) ao quadro de texto.
+6. Adicione objetos [IPortion](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iportion/) suficientes para que cada parágrafo contenha três porções. O parágrafo padrão já contém uma porção vazia.
+7. Defina o texto de cada porção.
+8. Aplique formatação ao nível de caractere através de [IPortion.getPortionFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iportion/#getPortionFormat--).
 9. Salve a apresentação modificada.
 
-Este exemplo Android via Java implementa as etapas:
+Este exemplo Android via Java implementa os passos:
 
 ```java
 import com.aspose.slides.*;
@@ -118,19 +118,19 @@ try {
 
 ### **Criar uma lista com marcadores ou numerada**
 
-Marcadores e numeração facilitam a visualização de itens relacionados. No Aspose.Slides, as configurações de lista são definidas através de [IBulletFormat](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/ibulletformat/).
+Marcadores e numeração facilitam a visualização de itens relacionados. No Aspose.Slides, as configurações de lista são definidas através de [IBulletFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibulletformat/).
 
-1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/presentation/).
-2. Acesse o slide relevante por meio de seu índice.
-3. Adicione um [IAutoShape](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/iautoshape/) ao slide selecionado.
-4. Acesse o [ITextFrame](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/itextframe/) da forma.
+1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/).
+2. Acesse o slide relevante pelo seu índice.
+3. Adicione um [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) ao slide selecionado.
+4. Acesse o [ITextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/) da forma.
 5. Remova o parágrafo padrão do quadro de texto.
-6. Crie um [Paragraph](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/paragraph/) para um marcador de símbolo.
-7. Defina [IBulletFormat.setType](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/ibulletformat/#setType-int-) para [BulletType.Symbol](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/bullettype/) e especifique o caractere do marcador.
+6. Crie um [Paragraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/paragraph/) para um marcador de símbolo.
+7. Defina [IBulletFormat.setType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibulletformat/#setType-int-) para [BulletType.Symbol](https://reference.aspose.com/slides/androidjava/com.aspose.slides/bullettype/) e especifique o caractere do marcador.
 8. Defina o texto do parágrafo, recuo, cor do marcador e altura do marcador.
 9. Adicione o parágrafo ao quadro de texto.
-10. Crie um segundo parágrafo e defina [IBulletFormat.setType](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/ibulletformat/#setType-int-) para [BulletType.Numbered](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/bullettype/).
-11. Configure o estilo do marcador numerado e adicione o parágrafo ao quadro de texto.
+10. Crie um segundo parágrafo e defina [IBulletFormat.setType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibulletformat/#setType-int-) para [BulletType.Numbered](https://reference.aspose.com/slides/androidjava/com.aspose.slides/bullettype/).
+11. Configure o estilo de marcador numerado e adicione o parágrafo ao quadro de texto.
 12. Salve a apresentação.
 
 Este exemplo Android via Java cria um marcador de símbolo e um marcador numerado:
@@ -178,14 +178,14 @@ try {
 
 Marcadores de imagem permitem usar uma imagem personalizada em vez de um símbolo ou número.
 
-1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/presentation/).
-2. Acesse o slide relevante por meio de seu índice.
-3. Adicione um [IAutoShape](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/iautoshape/) e acesse seu [ITextFrame](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/itextframe/).
+1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/).
+2. Acesse o slide relevante pelo seu índice.
+3. Adicione um [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) e acesse seu [ITextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/).
 4. Remova o parágrafo padrão do quadro de texto.
-5. Carregue a imagem do marcador e adicione-a à coleção de imagens da apresentação como um [IPPImage](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/ippimage/).
-6. Crie um [Paragraph](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/paragraph/) e defina seu texto.
-7. Defina [IBulletFormat.setType](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/ibulletformat/#setType-int-) para [BulletType.Picture](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/bullettype/).
-8. Atribua a imagem através de [IBulletFormat.getPicture](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/ibulletformat/#getPicture--) e defina a altura do marcador.
+5. Carregue a imagem do marcador e adicione-a à coleção de imagens da apresentação como um [IPPImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ippimage/).
+6. Crie um [Paragraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/paragraph/) e defina seu texto.
+7. Defina [IBulletFormat.setType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibulletformat/#setType-int-) para [BulletType.Picture](https://reference.aspose.com/slides/androidjava/com.aspose.slides/bullettype/).
+8. Atribua a imagem através de [IBulletFormat.getPicture](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibulletformat/#getPicture--) e defina a altura do marcador.
 9. Adicione o parágrafo ao quadro de texto.
 10. Salve a apresentação modificada.
 
@@ -226,12 +226,12 @@ try {
 
 ### **Criar uma lista multinível**
 
-Defina [IParagraphFormat.setDepth](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/iparagraphformat/#setDepth-short-) para posicionar parágrafos em diferentes níveis de uma lista. O nível superior tem profundidade `0`.
+Defina [IParagraphFormat.setDepth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setDepth-short-) para posicionar parágrafos em diferentes níveis de uma lista. O nível superior tem profundidade `0`.
 
-1. Crie uma [Presentation](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/presentation/) e acesse um slide.
-2. Adicione um [IAutoShape](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/iautoshape/) e limpe o parágrafo padrão de seu quadro de texto.
+1. Crie uma [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) e acesse um slide.
+2. Adicione um [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) e limpe o parágrafo padrão de seu quadro de texto.
 3. Crie quatro parágrafos e configure seus símbolos de marcador.
-4. Defina seus valores [IParagraphFormat.setDepth](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/iparagraphformat/#setDepth-short-) para `0`, `1`, `2` e `3`.
+4. Defina seus valores [IParagraphFormat.setDepth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setDepth-short-) para `0`, `1`, `2` e `3`.
 5. Adicione os parágrafos ao quadro de texto e salve a apresentação.
 
 Este exemplo Android via Java cria uma lista com marcadores de quatro níveis:
@@ -292,12 +292,12 @@ try {
 
 ### **Iniciar itens de lista numerada com valores personalizados**
 
-Use [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) para definir o número inicial exibido para um parágrafo numerado.
+Use [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) para definir o número inicial exibido para um parágrafo numerado.
 
-1. Crie uma [Presentation](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/presentation/) e adicione um [IAutoShape](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/iautoshape/) a um slide.
+1. Crie uma [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) e adicione um [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) a um slide.
 2. Limpe o parágrafo padrão do quadro de texto da forma.
 3. Crie três parágrafos numerados.
-4. Defina [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) para `2`, `3` e `7` nos respectivos parágrafos.
+4. Defina [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) para `2`, `3` e `7` nos respectivos parágrafos.
 5. Adicione os parágrafos ao quadro de texto e salve a apresentação.
 
 Este exemplo Android via Java atribui um número inicial personalizado a cada parágrafo:
@@ -336,21 +336,21 @@ try {
 }
 ```
 
-## **Controlar layout e propriedades de término do parágrafo**
+## **Controlar layout de parágrafos e propriedades de finalização**
 
 ### **Definir recuo da primeira linha**
 
-Use [IParagraphFormat.setIndent](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) para controlar o recuo da primeira linha de um parágrafo. Este método move apenas a primeira linha em relação à margem esquerda do parágrafo. Um valor positivo desloca a primeira linha para a direita, enquanto as linhas restantes permanecem alinhadas ao corpo do parágrafo.
+Use [IParagraphFormat.setIndent](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) para controlar o recuo da primeira linha de um parágrafo. Este método move apenas a primeira linha em relação à margem esquerda do parágrafo. Um valor positivo desloca a primeira linha para a direita, enquanto as linhas restantes permanecem alinhadas ao corpo do parágrafo.
 
-Use [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) quando precisar mover o parágrafo inteiro. Use [IParagraphFormat.setIndent](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) quando precisar mover apenas a primeira linha.
+Use [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) quando precisar mover todo o parágrafo. Use [IParagraphFormat.setIndent](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) quando precisar mover apenas a primeira linha.
 
-O exemplo abaixo cria vários parágrafos e aplica diferentes valores de [IParagraphFormat.setIndent] para demonstrar como o recuo da primeira linha afeta o layout do parágrafo.
+O exemplo abaixo cria vários parágrafos e aplica diferentes valores de [IParagraphFormat.setIndent](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) para demonstrar como o recuo da primeira linha afeta o layout do parágrafo.
 
-1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/presentation/).
-2. Acesse o slide de destino.
-3. Adicione um [IAutoShape](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/iautoshape/) retangular ao slide.
-4. Acesse o [ITextFrame](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/itextframe/) da forma e remova o parágrafo padrão.
-5. Crie vários parágrafos e defina diferentes valores de [IParagraphFormat.setIndent] para eles.
+1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/).
+2. Acesse o slide alvo.
+3. Adicione um [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) retangular ao slide.
+4. Acesse o [ITextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/) da forma e remova o parágrafo padrão.
+5. Crie vários parágrafos e defina diferentes valores de [IParagraphFormat.setIndent](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) para eles.
 6. Adicione os parágrafos ao quadro de texto.
 7. Salve a apresentação modificada.
 
@@ -406,22 +406,22 @@ try {
 
 O resultado:
 
-![Recuo da primeira linha dos parágrafos](first_line_indent.png)
+![The first-line indent of the paragraphs](first_line_indent.png)
 
 ### **Definir recuo suspenso**
 
-Um recuo suspenso é um layout de parágrafo em que a primeira linha começa à esquerda das linhas restantes. No Aspose.Slides, você cria esse efeito com [IParagraphFormat.setIndent]. Passe um valor negativo para mover a primeira linha para a esquerda em relação ao corpo do parágrafo.
+Um recuo suspenso é um layout de parágrafo em que a primeira linha começa à esquerda das linhas restantes. No Aspose.Slides, você cria esse efeito com [IParagraphFormat.setIndent](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-). Passe um valor negativo para mover a primeira linha para a esquerda em relação ao corpo do parágrafo.
 
-Na prática, [IParagraphFormat.setMarginLeft] define a posição esquerda do corpo do parágrafo, e [IParagraphFormat.setIndent] define a posição da primeira linha em relação a essa margem. Para criar um recuo suspenso, passe um valor positivo para `setMarginLeft` e um valor negativo para `setIndent`.
+Na prática, [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) define a posição esquerda do corpo do parágrafo, e [IParagraphFormat.setIndent](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) define a posição da primeira linha em relação a essa margem. Para criar um recuo suspenso, passe um valor positivo para `setMarginLeft` e um valor negativo para `setIndent`.
 
-Essa formatação é útil para bibliografias, referências, entradas de glossário e outros parágrafos onde as linhas envolvidas devem alinhar-se sob o corpo do parágrafo em vez de sob o primeiro caractere da primeira linha.
+Essa formatação é útil para bibliografias, referências, entradas de glossário e outros parágrafos onde as linhas enroladas devem alinhar-se sob o corpo do parágrafo e não sob o primeiro caractere da primeira linha.
 
-1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/presentation/).
-2. Acesse o slide de destino.
-3. Adicione um [IAutoShape](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/iautoshape/) retangular ao slide.
-4. Acesse o [ITextFrame](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/itextframe/) da forma e remova o parágrafo padrão.
-5. Crie parágrafos e passe um valor positivo para [IParagraphFormat.setMarginLeft] em cada parágrafo.
-6. Passe um valor negativo para [IParagraphFormat.setIndent] para criar o efeito de recuo suspenso.
+1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/).
+2. Acesse o slide alvo.
+3. Adicione um [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) retangular ao slide.
+4. Acesse o [ITextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/) da forma e remova o parágrafo padrão.
+5. Crie parágrafos e passe um valor positivo para [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) em cada parágrafo.
+6. Passe um valor negativo para [IParagraphFormat.setIndent](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) para criar o efeito de recuo suspenso.
 7. Adicione os parágrafos ao quadro de texto.
 8. Salve a apresentação modificada.
 
@@ -469,18 +469,18 @@ try {
 
 O resultado:
 
-![Recuo suspenso dos parágrafos](hanging_indent.png)
+![The hanging indent of the paragraphs](hanging_indent.png)
 
 ### **Definir propriedades de execução do final do parágrafo**
 
-[IParagraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/iparagraph/#setEndParagraphPortionFormat-com.aspose.slides.IPortionFormat-) controla a formatação da marca de final do parágrafo. O exemplo a seguir atribui um tamanho de fonte e fonte latina à marca de final do segundo parágrafo:
+[IParagraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph/#setEndParagraphPortionFormat-com.aspose.slides.IPortionFormat-) controla a formatação da marca de fim de parágrafo. O exemplo a seguir atribui um tamanho de fonte e uma fonte latina à marca de fim do segundo parágrafo:
 
-1. Carregue uma [Presentation](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/presentation/) e acesse um slide.
-2. Adicione um [IAutoShape](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/iautoshape/) e limpe seu parágrafo padrão.
-3. Crie dois parágrafos e adicione trechos de texto a eles.
-4. Crie um [PortionFormat](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/portionformat/) para a marca de final do segundo parágrafo.
-5. Defina [IBasePortionFormat.setFontHeight](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/ibaseportionformat/#setFontHeight-float-) e [IBasePortionFormat.setLatinFont](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/ibaseportionformat/#setLatinFont-com.aspose.slides.IFontData-).
-6. Atribua o formato com [IParagraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/iparagraph/#setEndParagraphPortionFormat-com.aspose.slides.IPortionFormat-) e salve a apresentação.
+1. Carregue uma [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) e acesse um slide.
+2. Adicione um [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) e limpe seu parágrafo padrão.
+3. Crie dois parágrafos e adicione porções de texto a eles.
+4. Crie um [PortionFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/portionformat/) para a marca de fim do segundo parágrafo.
+5. Defina [IBasePortionFormat.setFontHeight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformat/#setFontHeight-float-) e [IBasePortionFormat.setLatinFont](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformat/#setLatinFont-com.aspose.slides.IFontData-).
+6. Atribua o formato com [IParagraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph/#setEndParagraphPortionFormat-com.aspose.slides.IPortionFormat-) e salve a apresentação.
 
 ```java
 import com.aspose.slides.*;
@@ -514,13 +514,13 @@ try {
 
 ## **Contar linhas renderizadas**
 
-Para regras de parágrafo que afetam a quebra automática de linha e pontuação no final das linhas, veja [Control Line Breaking](/slides/pt/androidjava/text-formatting/#control-line-breaking) e [Control Hanging Punctuation](/slides/pt/androidjava/text-formatting/#control-hanging-punctuation).
+Para regras de parágrafo que afetam a quebra automática e pontuação no final das linhas, consulte [Control Line Breaking](/slides/pt/androidjava/text-formatting/#control-line-breaking) e [Control Hanging Punctuation](/slides/pt/androidjava/text-formatting/#control-hanging-punctuation).
 
-Use [IParagraph.getLinesCount](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/iparagraph/#getLinesCount--) para contar as linhas ocupadas por um parágrafo após o layout do texto, incluindo a quebra automática. Isso é útil ao verificar o comprimento do texto e o layout em modelos de apresentação.
+Use [IParagraph.getLinesCount](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph/#getLinesCount--) para contar as linhas ocupadas por um parágrafo após o layout de texto, incluindo a quebra automática. Isso é útil ao verificar o comprimento do texto e o layout em modelos de apresentação.
 
-Um parágrafo é um item em [ITextFrame.getParagraphs](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/itextframe/#getParagraphs--), e pode ocupar várias linhas renderizadas. Uma quebra de linha explícita dentro de um parágrafo força uma nova linha sem criar outro parágrafo. A quebra automática cria linhas com base na largura disponível sem inserir quebras explícitas no texto. Portanto, contar parágrafos ou caracteres de quebra de linha não fornece a contagem de linhas renderizadas.
+Um parágrafo é um item em [ITextFrame.getParagraphs](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/#getParagraphs--) e pode ocupar várias linhas renderizadas. Uma quebra de linha explícita dentro de um parágrafo força uma nova linha sem criar outro parágrafo. A quebra automática cria linhas com base na largura disponível sem inserir quebras de linha explícitas no texto. Contar parágrafos ou caracteres de quebra de linha, portanto, não fornece a contagem de linhas renderizadas.
 
-O exemplo a seguir cria uma forma de texto, conta suas linhas, estreita a forma e então substitui o texto por uma cadeia mais curta. A quebra automática está habilitada e o ajuste automático está desabilitado para que a largura da forma controle a quebra sem reduzir automaticamente o texto ou redimensionar a forma. As dimensões da forma estão em pontos. Finalmente, o exemplo adiciona outro parágrafo e soma as contagens de linhas em todo o quadro de texto.
+O exemplo a seguir cria uma forma de texto, conta suas linhas, estreita a forma e então substitui o texto por uma string mais curta. A quebra automática está habilitada e o ajuste automático está desativado para que a largura da forma controle a quebra sem reduzir automaticamente o texto ou redimensionar a forma. As dimensões da forma são em pontos. Por fim, o exemplo adiciona outro parágrafo e soma as contagens de linhas em todo o quadro de texto.
 
 ```java
 import com.aspose.slides.*;
@@ -560,21 +560,21 @@ try {
 }
 ```
 
-Com esse texto e essas dimensões, estreitar a forma aumenta a contagem de linhas, enquanto substituir o texto pela cadeia curta a reduz. Contagens exatas podem variar com a disponibilidade de fontes e substituição, tamanho da fonte, margens, recuos, quebra e configurações de ajuste automático. Use as fontes e configurações de layout pretendidas para o ambiente alvo ao verificar um modelo.
+Com este texto e estas dimensões, estreitar a forma aumenta a contagem de linhas, enquanto substituir o texto pela string curta a reduz. Contagens exatas podem variar com a disponibilidade de fontes e substituição, tamanho da fonte, margens, recuos, quebra automática e configurações de ajuste automático. Use as fontes e configurações de layout destinadas ao ambiente de destino ao verificar um modelo.
 
-A contagem de linhas por si só não determina se o texto excede seu contêiner. A altura disponível, alturas de linha, espaçamento entre parágrafos e linhas, e o comportamento de ajuste automático também são importantes; até uma única linha pode ultrapassar a largura disponível quando a quebra automática está desativada.
+A contagem de linhas por si só não determina se o texto transborda seu contêiner. A altura disponível, alturas de linha, espaçamento entre parágrafos e linhas e o comportamento de ajuste automático também importam; até uma única linha pode exceder a largura disponível quando a quebra automática está desativada.
 
-## **Importar e exportar conteúdo de parágrafo**
+## **Importar e exportar conteúdo de parágrafos**
 
-### **Importar texto HTML para parágrafos**
+### **Importar texto HTML em parágrafos**
 
-Use [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-) para converter marcação HTML em parágrafos e trechos em um quadro de texto.
+Use [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/androidjava/com.aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-) para converter marcação HTML em parágrafos e porções em um quadro de texto.
 
-1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/presentation/).
-2. Acesse um slide e adicione um [IAutoShape](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/iautoshape/).
-3. Acesse o [ITextFrame](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/itextframe/) da forma e limpe o parágrafo padrão.
+1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/).
+2. Acesse um slide e adicione um [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/).
+3. Acesse o [ITextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/) da forma e limpe seu parágrafo padrão.
 4. Leia o arquivo HTML de origem.
-5. Passe a string HTML para [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-).
+5. Passe a string HTML para [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/androidjava/com.aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-).
 6. Salve a apresentação modificada.
 
 Este exemplo Android via Java importa HTML em um quadro de texto:
@@ -608,14 +608,14 @@ try {
 }
 ```
 
-### **Exportar texto de parágrafo para HTML**
+### **Exportar texto do parágrafo para HTML**
 
-Use [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-) para exportar um intervalo selecionado de parágrafos como HTML.
+Use [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/androidjava/com.aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-) para exportar um intervalo selecionado de parágrafos como HTML.
 
-1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/presentation/) e carregue a apresentação desejada.
-2. Acesse o slide e encontre o [IAutoShape](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/iautoshape/) que contém o texto.
-3. Acesse o [ITextFrame](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/itextframe/).
-4. Chame [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-) com o índice do parágrafo de início e o número de parágrafos a exportar.
+1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) e carregue a apresentação desejada.
+2. Acesse o slide e encontre o [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) que contém o texto.
+3. Acesse o [ITextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/).
+4. Chame [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/androidjava/com.aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-) com o índice do parágrafo inicial e o número de parágrafos a exportar.
 5. Grave a string HTML retornada em um arquivo.
 
 Este exemplo Android via Java exporta todos os parágrafos do primeiro quadro de texto:
@@ -655,17 +655,17 @@ try {
 
 ### **Renderizar um parágrafo como imagem**
 
-[IParagraph.getImage](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/iparagraph/#getImage--) renderiza diretamente um parágrafo individual e devolve um [IImage](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/iimage/). Salve o resultado em um arquivo ou fluxo com [IImage.save](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/iimage/#save-java.lang.String-int-). Não é necessário renderizar a forma que contém o parágrafo nem recortar manualmente um bitmap.
+[IParagraph.getImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph/#getImage--) renderiza individualmente um parágrafo e devolve um [IImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimage/). Salve o resultado em um arquivo ou fluxo com [IImage.save](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimage/#save-java.lang.String-int-). Não é necessário renderizar a forma contenedora ou recortar um bitmap manualmente.
 
-[IParagraph.getImage](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/iparagraph/#getImage--) pode retornar `null` se o parágrafo não for encontrado em sua coleção pai, não possuir limites de renderização válidos ou não puder ser renderizado. Verifique o resultado antes de salvá‑lo e descarte a imagem retornada após o uso.
+[IParagraph.getImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph/#getImage--) pode retornar `null` se o parágrafo não for encontrado em sua coleção pai, não tiver limites de renderização válidos ou não puder ser renderizado. Verifique o resultado antes de salvá‑lo e descarte a imagem retornada após o uso.
 
 #### **Renderizar um parágrafo na escala padrão**
 
-Suponha que temos um arquivo de apresentação chamado sample.pptx com um slide, onde a primeira forma é uma caixa de texto contendo três parágrafos.
+Vamos supor que temos um arquivo de apresentação chamado sample.pptx com um slide, onde a primeira forma é uma caixa de texto contendo três parágrafos.
 
 ![The text box with three paragraphs](paragraph_to_image_input.png)
 
-O exemplo a seguir renderiza o segundo parágrafo em uma forma de texto regular na escala padrão e salva a imagem retornada em formato PNG. O bloco `finally` garante que a imagem seja descartada corretamente.
+O exemplo a seguir renderiza o segundo parágrafo em uma forma de texto regular na escala padrão e salva a imagem retornada no formato PNG. O bloco `finally` garante que a imagem seja descartada corretamente.
 
 ```java
 import com.aspose.slides.*;
@@ -703,11 +703,11 @@ try {
 
 O resultado:
 
-![Imagem do parágrafo](paragraph_to_image_output.png)
+![The paragraph image](paragraph_to_image_output.png)
 
 #### **Renderizar um parágrafo em célula de tabela com dimensionamento**
 
-Use a sobrecarga [IParagraph.getImage](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/iparagraph/#getImage-float-float-) que aceita os parâmetros `float scaleX` e `float scaleY` para definir os fatores de escala horizontal e vertical. O exemplo a seguir cria uma tabela, renderiza o parágrafo em sua primeira célula com o dobro da largura e altura padrão e salva o resultado como imagem PNG.
+Use a sobrecarga de [IParagraph.getImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph/#getImage-float-float-) que aceita os parâmetros `float scaleX` e `float scaleY` para definir os fatores de escala horizontal e vertical. O exemplo a seguir cria uma tabela, renderiza o parágrafo em sua primeira célula com o dobro da largura e altura padrão e salva o resultado como imagem PNG.
 
 ```java
 import com.aspose.slides.*;
@@ -737,24 +737,26 @@ try {
 }
 ```
 
-Um fator de escala de `1` mantém esse eixo no tamanho de pixel padrão. Por exemplo, `2` para ambos os fatores produz uma imagem cuja largura e altura são aproximadamente o dobro das dimensões padrão, resultando em quatro vezes mais pixels. Fatores maiores geralmente produzem texto mais nítido para zoom ou saída de alta resolução, mas também aumentam o uso de memória e o tamanho do arquivo. Fatores abaixo de `1` produzem imagens menores com menos detalhes. Use fatores iguais para preservar a proporção do parágrafo; fatores diferentes horizontal e vertical esticam a saída independentemente.
+Um fator de escala `1` mantém esse eixo no tamanho de pixel padrão. Por exemplo, `2` para ambos os fatores produz uma imagem cuja largura e altura são aproximadamente o dobro das dimensões padrão, resultando em quatro vezes mais pixels. Fatores maiores geralmente produzem texto mais nítido para zoom ou saída de alta resolução, mas também aumentam o uso de memória e o tamanho do arquivo. Fatores abaixo de `1` produzem imagens menores com menos detalhes. Use fatores iguais para preservar a proporção do parágrafo; fatores horizontais e verticais diferentes esticam a saída independentemente.
 
-Renderizar uma forma inteira com [IShape.getImage](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/ishape/#getImage--) continua útil quando a saída deve incluir o preenchimento, a borda ou outro contexto visual da forma. Para uma imagem apenas do parágrafo, use [IParagraph.getImage](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/iparagraph/#getImage--).
+Renderizar uma forma inteira com [IShape.getImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#getImage--) continua útil quando a saída deve incluir o preenchimento, a borda ou outro contexto visual da forma. Para uma imagem apenas do parágrafo, use [IParagraph.getImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph/#getImage--).
 
-## **Perguntas frequentes**
+## **FAQ**
 
 **Posso desativar completamente a quebra de linha dentro de um quadro de texto?**
 
-Sim. Defina [ITextFrameFormat.setWrapText](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/itextframeformat/#setWrapText-byte-) para desativar a quebra, de modo que as linhas não se interrompam nas bordas do quadro de texto.
+Sim. Defina [ITextFrameFormat.setWrapText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframeformat/#setWrapText-byte-) para desativar a quebra de modo que as linhas não se fragmentem nas bordas do quadro de texto.
 
 **Como posso obter os limites exatos na lâmina de um parágrafo específico?**
 
-Use [IParagraph.getRect](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/iparagraph/#getRect--) para recuperar o retângulo delimitador do parágrafo. [IPortion.getRect](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/iportion/#getRect--) fornece os limites de um trecho individual.
+Use [IParagraph.getRect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph/#getRect--) para recuperar o retângulo delimitador do parágrafo. [IPortion.getRect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iportion/#getRect--) fornece os limites de uma porção individual.
 
-**Onde é controlado o alinhamento de parágrafo (esquerda, direita, centro ou justificado)?**
+**Onde a alinhamento de parágrafos (esquerda, direita, centralizado ou justificado) é controlado?**
 
-[IParagraphFormat.setAlignment](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/iparagraphformat/#setAlignment-int-) é uma configuração em nível de parágrafo e se aplica ao parágrafo inteiro, independentemente da formatação de trechos individuais.
+[IParagraphFormat.setAlignment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setAlignment-int-) é uma configuração ao nível do parágrafo e se aplica a todo o parágrafo independentemente da formatação de porções individuais.
+
+Para alinhar verticalmente porções de diferentes tamanhos de fonte dentro de cada linha, consulte [Align Fonts Within a Line](/slides/pt/androidjava/text-formatting/#align-fonts-within-a-line).
 
 **Posso definir o idioma de revisão para parte de um parágrafo?**
 
-Sim. Defina [IBasePortionFormat.setLanguageId](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/ibaseportionformat/#setLanguageId-java.lang.String-) para trechos individuais, de modo que um parágrafo possa conter texto em vários idiomas.
+Sim. Defina [IBasePortionFormat.setLanguageId](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformat/#setLanguageId-java.lang.String-) para porções individuais, de modo que um parágrafo possa conter texto em vários idiomas.

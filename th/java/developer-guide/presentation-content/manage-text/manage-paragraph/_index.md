@@ -1,5 +1,5 @@
 ---
-title: จัดการย่อหน้าข้อความ PowerPoint ด้วย Java
+title: จัดการย่อหน้าข้อความ PowerPoint ใน Java
 linktitle: จัดการย่อหน้า
 type: docs
 weight: 40
@@ -8,56 +8,56 @@ aliases:
   - /java/paragraph/
   - /java/portion/
 keywords:
-- เพิ่มข้อความ
-- เพิ่มย่อหน้า
-- จัดการข้อความ
-- จัดการย่อหน้า
-- จัดการจุดสัญลักษณ์
-- การเยื้องย่อหน้า
-- การเยื้องแบบห้อย
-- จุดสัญลักษณ์ย่อหน้า
-- รายการลำดับเลข
-- รายการจุดสัญลักษณ์
-- คุณสมบัติย่อหน้า
-- นำเข้า HTML
-- ข้อความเป็น HTML
-- ย่อหน้าเป็น HTML
-- ย่อหน้าเป็นภาพ
-- ข้อความเป็นภาพ
-- ส่งออกย่อหน้า
-- PowerPoint
-- การนำเสนอ
-- Java
-- Aspose.Slides
-description: เรียนรู้วิธีสร้างและจัดรูปแบบย่อหน้า ส่วนข้อความ จุดสัญลักษณ์ รายการลำดับเลข การเยื้อง เนื้อหา HTML และภาพย่อหน้าด้วย Aspose.Slides สำหรับ Java.
+  - เพิ่มข้อความ
+  - เพิ่มย่อหน้า
+  - จัดการข้อความ
+  - จัดการย่อหน้า
+  - จัดการหัวข้อ
+  - เยื้องย่อหน้า
+  - เยื้องลอย
+  - หัวข้อย่อหน้า
+  - รายการลำดับเลข
+  - รายการหัวข้อย่อย
+  - คุณสมบัติย่อหน้า
+  - นำเข้า HTML
+  - ข้อความเป็น HTML
+  - ย่อหน้าเป็น HTML
+  - ย่อหน้าเป็นภาพ
+  - ข้อความเป็นภาพ
+  - ส่งออกย่อหน้า
+  - PowerPoint
+  - การนำเสนอ
+  - Java
+  - Aspose.Slides
+description: "เรียนรู้วิธีสร้างและจัดรูปแบบย่อหน้า, ส่วนย่อย, จุดหัวข้อ, รายการลำดับเลข, การเยื้อง, เนื้อหา HTML, และภาพย่อหน้าด้วย Aspose.Slides สำหรับ Java."
 ---
 ## **ภาพรวม**
 
-Aspose.Slides for Java แสดงข้อความเป็นลำดับชั้นของกรอบข้อความ, ย่อหน้า, และส่วนข้อความ:
+Aspose.Slides for Java แสดงข้อความเป็นลำดับชั้นของกรอบข้อความ, ย่อหน้า, และส่วนย่อย:
 
-* [ITextFrame](https://reference.aspose.com/slides/th/java/com.aspose.slides/itextframe/) แสดงคอนเทนเนอร์ข้อความในรูปทรงและให้เข้าถึงคอลเลกชันย่อหน้า.
-* [IParagraph](https://reference.aspose.com/slides/th/java/com.aspose.slides/iparagraph/) แสดงย่อหน้าเดียวในกรอบข้อความและให้เข้าถึงส่วนข้อความและการจัดรูปแบบระดับย่อหน้า.
-* [IPortion](https://reference.aspose.com/slides/th/java/com.aspose.slides/iportion/) แสดงการรันข้อความภายในย่อหน้า. แต่ละส่วนสามารถมีข้อความและการจัดรูปแบบระดับอักขระของตนเอง.
+* [ITextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/) เป็นคอนเทนเนอร์ข้อความในรูปร่างและให้การเข้าถึงคอลเลกชันย่อหน้า
+* [IParagraph](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/) แสดงย่อหน้าเดียวในกรอบข้อความและให้การเข้าถึงส่วนย่อยและการจัดรูปแบบระดับย่อหน้า
+* [IPortion](https://reference.aspose.com/slides/java/com.aspose.slides/iportion/) เป็นส่วนย่อยของข้อความภายในย่อหน้า แต่ละส่วนย่อยสามารถมีข้อความและการจัดรูปแบบระดับอักขระของตนเองได้
 
-ดังนั้น ย่อหน้าจึงสามารถมีข้อความที่มีแบบอักษร, สี, ขนาด, และการจัดรูปแบบอื่น ๆ แตกต่างกันโดยใช้หลายส่วน.
+ดังนั้น ย่อหน้าจึงสามารถบรรจุข้อความที่มีฟอนท์, สี, ขนาด, และการจัดรูปแบบอื่น ๆ แตกต่างกันได้โดยใช้หลายส่วนย่อย
 
 ## **สร้างและจัดรูปแบบย่อหน้า**
 
-### **สร้างย่อหน้าด้วยหลายส่วน**
+### **สร้างย่อหน้าด้วยหลายส่วนย่อย**
 
-ขั้นตอนต่อไปนี้สร้างกรอบข้อความที่มีสามย่อหน้า, แต่ละย่อหน้ามีสามส่วน:
+ขั้นตอนต่อไปนี้จะสร้างกรอบข้อความที่มีสามย่อหน้า, แต่ละย่อหน้ามีสามส่วนย่อย:
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/java/com.aspose.slides/presentation/).
-2. เข้าถึงสไลด์ที่เกี่ยวข้องผ่านดัชนีของมัน.
-3. เพิ่ม [IAutoShape](https://reference.aspose.com/slides/th/java/com.aspose.slides/iautoshape/) รูปร่างสี่เหลี่ยมลงในสไลด์.
-4. เข้าถึง [ITextFrame](https://reference.aspose.com/slides/th/java/com.aspose.slides/itextframe/) ของรูปทรงนั้น.
-5. ใช้ย่อหน้าเริ่มต้นและเพิ่ม [IParagraph](https://reference.aspose.com/slides/th/java/com.aspose.slides/iparagraph/) อีกสองอ็อบเจ็กต์ลงในกรอบข้อความ.
-6. เพิ่มอ็อบเจ็กต์ [IPortion](https://reference.aspose.com/slides/th/java/com.aspose.slides/iportion/) จำนวนเพียงพอให้แต่ละย่อหน้ามีสามส่วน. ย่อหน้าเริ่มต้นมีส่วนว่างเปล่าอยู่แล้วหนึ่งส่วน.
-7. กำหนดข้อความของแต่ละส่วน.
-8. ใช้การจัดรูปแบบระดับอักขระผ่าน [IPortion.getPortionFormat](https://reference.aspose.com/slides/th/java/com.aspose.slides/iportion/#getPortionFormat--).
-9. บันทึกการพรีเซนเทชันที่แก้ไขแล้ว.
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/)
+2. เข้าถึงสไลด์ที่เกี่ยวข้องผ่านดัชนีของมัน
+3. เพิ่ม [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) แบบสี่เหลี่ยมมุมฉากไปยังสไลด์
+4. เข้าถึง [ITextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/) ของรูปร่าง
+5. ใช้ย่อหน้าเริ่มต้นและเพิ่มวัตถุ [IParagraph](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/) อีกสองอันไปยังกรอบข้อความ
+6. เพิ่มวัตถุ [IPortion](https://reference.aspose.com/slides/java/com.aspose.slides/iportion/) เพียงพอสำหรับแต่ละย่อหน้าให้มีสามส่วนย่อย ย่อหน้าเริ่มต้นมีส่วนย่อยว่างหนึ่งส่วนอยู่แล้ว
+7. ตั้งค่าข้อความของแต่ละส่วนย่อย
+8. ใช้การจัดรูปแบบระดับอักขระผ่าน [IPortion.getPortionFormat](https://reference.aspose.com/slides/java/com.aspose.slides/iportion/#getPortionFormat--)
+9. บันทึกการนำเสนอที่แก้ไขแล้ว
 
-ตัวอย่าง Java ด้านล่างทำตามขั้นตอนเหล่านี้:
+ตัวอย่าง Java นี้ดำเนินตามขั้นตอนดังกล่าว:
 
 ```java
 import com.aspose.slides.*;
@@ -113,26 +113,26 @@ try {
 }
 ```
 
-## **สร้างรายการแบบมีจุดและแบบเป็นลำดับเลข**
+## **สร้างรายการแบบหัวข้อย่อยและลำดับเลข**
 
-### **สร้างรายการแบบมีจุดหรือแบบเป็นลำดับเลข**
+### **สร้างรายการแบบหัวข้อย่อยหรือแบบลำดับเลข**
 
-จุดและการจัดลำดับเลขทำให้รายการที่เกี่ยวข้องอ่านง่ายขึ้น. ใน Aspose.Slides, การตั้งค่ารายการถูกกำหนดผ่าน [IBulletFormat](https://reference.aspose.com/slides/th/java/com.aspose.slides/ibulletformat/).
+หัวข้อย่อยและการนับเลขทำให้การสแกนรายการที่เกี่ยวข้องง่ายขึ้น ใน Aspose.Slides การตั้งค่ารายการจะกำหนดผ่าน [IBulletFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/)
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/java/com.aspose.slides/presentation/).
-2. เข้าถึงสไลด์ที่เกี่ยวข้องผ่านดัชนีของมัน.
-3. เพิ่ม [IAutoShape](https://reference.aspose.com/slides/th/java/com.aspose.slides/iautoshape/) ลงในสไลด์ที่เลือก.
-4. เข้าถึง [ITextFrame](https://reference.aspose.com/slides/th/java/com.aspose.slides/itextframe/) ของรูปทรงนั้น.
-5. ลบย่อหน้าเริ่มต้นออกจากกรอบข้อความ.
-6. สร้าง [Paragraph](https://reference.aspose.com/slides/th/java/com.aspose.slides/paragraph/) สำหรับจุดสัญลักษณ์.
-7. ตั้งค่า [IBulletFormat.setType](https://reference.aspose.com/slides/th/java/com.aspose.slides/ibulletformat/#setType-int-) เป็น [BulletType.Symbol](https://reference.aspose.com/slides/th/java/com.aspose.slides/bullettype/) และระบุอักขระจุด.
-8. ตั้งค่าข้อความย่อหน้า, ระยะเยื้อง, สีจุด, และความสูงจุด.
-9. เพิ่มย่อหน้าไปยังกรอบข้อความ.
-10. สร้างย่อหน้าที่สองและตั้งค่า [IBulletFormat.setType](https://reference.aspose.com/slides/th/java/com.aspose.slides/ibulletformat/#setType-int-) เป็น [BulletType.Numbered](https://reference.aspose.com/slides/th/java/com.aspose.slides/bullettype/).
-11. กำหนดสไตล์จุดแบบลำดับเลขและเพิ่มย่อหน้าไปยังกรอบข้อความ.
-12. บันทึกพรีเซนเทชัน.
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/)
+2. เข้าถึงสไลด์ที่เกี่ยวข้องผ่านดัชนีของมัน
+3. เพิ่ม [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) ไปยังสไลด์ที่เลือก
+4. เข้าถึง [ITextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/) ของรูปร่าง
+5. ลบย่อหน้าเริ่มต้นออกจากกรอบข้อความ
+6. สร้าง [Paragraph](https://reference.aspose.com/slides/java/com.aspose.slides/paragraph/) สำหรับหัวข้อสัญลักษณ์
+7. ตั้งค่า [IBulletFormat.setType](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setType-int-) เป็น [BulletType.Symbol](https://reference.aspose.com/slides/java/com.aspose.slides/bullettype/) และระบุอักขระหัวข้อ
+8. ตั้งค่าข้อความย่อหน้า, ระยะเยื้อง, สีหัวข้อ, และความสูงหัวข้อ
+9. เพิ่มย่อหน้าไปยังกรอบข้อความ
+10. สร้างย่อหน้าที่สองและตั้งค่า [IBulletFormat.setType](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setType-int-) เป็น [BulletType.Numbered](https://reference.aspose.com/slides/java/com.aspose.slides/bullettype/)
+11. กำหนดรูปแบบหัวข้อเลขลำดับและเพิ่มย่อหน้าไปยังกรอบข้อความ
+12. บันทึกการนำเสนอ
 
-ตัวอย่าง Java ด้านล่างสร้างจุดสัญลักษณ์และจุดลำดับเลข:
+ตัวอย่าง Java นี้สร้างหัวข้อสัญลักษณ์และหัวข้อเลขลำดับ:
 
 ```java
 import com.aspose.slides.*;
@@ -173,22 +173,22 @@ try {
 }
 ```
 
-### **ใช้จุดแบบรูปภาพ**
+### **ใช้หัวข้อภาพ**
 
-จุดแบบรูปภาพให้คุณใช้รูปภาพที่กำหนดเองแทนสัญลักษณ์หรือหมายเลข.
+หัวข้อภาพให้คุณใช้ภาพกำหนดเองแทนสัญลักษณ์หรือเลข
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/java/com.aspose.slides/presentation/).
-2. เข้าถึงสไลด์ที่เกี่ยวข้องผ่านดัชนีของมัน.
-3. เพิ่ม [IAutoShape](https://reference.aspose.com/slides/th/java/com.aspose.slides/iautoshape/) และเข้าถึง [ITextFrame](https://reference.aspose.com/slides/th/java/com.aspose.slides/itextframe/) ของมัน.
-4. ลบย่อหน้าเริ่มต้นออกจากกรอบข้อความ.
-5. โหลดรูปภาพจุดและเพิ่มลงในคอลเลกชันภาพของพรีเซนเทชันเป็น [IPPImage](https://reference.aspose.com/slides/th/java/com.aspose.slides/ippimage/).
-6. สร้าง [Paragraph](https://reference.aspose.com/slides/th/java/com.aspose.slides/paragraph/) และกำหนดข้อความของมัน.
-7. ตั้งค่า [IBulletFormat.setType](https://reference.aspose.com/slides/th/java/com.aspose.slides/ibulletformat/#setType-int-) เป็น [BulletType.Picture](https://reference.aspose.com/slides/th/java/com.aspose.slides/bullettype/).
-8. กำหนดภาพผ่าน [IBulletFormat.getPicture](https://reference.aspose.com/slides/th/java/com.aspose.slides/ibulletformat/#getPicture--) และตั้งค่าความสูงจุด.
-9. เพิ่มย่อหน้าไปยังกรอบข้อความ.
-10. บันทึกพรีเซนเทชันที่แก้ไขแล้ว.
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/)
+2. เข้าถึงสไลด์ที่เกี่ยวข้องผ่านดัชนีของมัน
+3. เพิ่ม [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) และเข้าถึง [ITextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/)
+4. ลบย่อหน้าเริ่มต้นออกจากกรอบข้อความ
+5. โหลดภาพหัวข้อและเพิ่มไปยังคอลเลกชันภาพของการนำเสนอเป็น [IPPImage](https://reference.aspose.com/slides/java/com.aspose.slides/ippimage/)
+6. สร้าง [Paragraph](https://reference.aspose.com/slides/java/com.aspose.slides/paragraph/) และตั้งค่าข้อความของมัน
+7. ตั้งค่า [IBulletFormat.setType](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setType-int-) เป็น [BulletType.Picture](https://reference.aspose.com/slides/java/com.aspose.slides/bullettype/)
+8. กำหนดภาพผ่าน [IBulletFormat.getPicture](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#getPicture--) และตั้งค่าความสูงหัวข้อ
+9. เพิ่มย่อหน้าไปยังกรอบข้อความ
+10. บันทึกการนำเสนอที่แก้ไขแล้ว
 
-ตัวอย่าง Java ด้านล่างสร้างจุดแบบรูปภาพ:
+ตัวอย่าง Java นี้สร้างหัวข้อภาพ:
 
 ```java
 import com.aspose.slides.*;
@@ -225,15 +225,15 @@ try {
 
 ### **สร้างรายการหลายระดับ**
 
-ตั้งค่า [IParagraphFormat.setDepth](https://reference.aspose.com/slides/th/java/com.aspose.slides/iparagraphformat/#setDepth-short-) เพื่อวางย่อหน้าในระดับต่าง ๆ ของรายการ. ระดับบนสุดมีความลึกเป็น `0`.
+ตั้งค่า [IParagraphFormat.setDepth](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setDepth-short-) เพื่อวางย่อหน้าในระดับต่าง ๆ ของรายการ ระดับบนสุดมีความลึกเป็น `0`
 
-1. สร้าง [Presentation](https://reference.aspose.com/slides/th/java/com.aspose.slides/presentation/) และเข้าถึงสไลด์หนึ่ง.
-2. เพิ่ม [IAutoShape](https://reference.aspose.com/slides/th/java/com.aspose.slides/iautoshape/) และลบย่อหน้าเริ่มต้นจากกรอบข้อความของมัน.
-3. สร้างสี่ย่อหน้าและกำหนดสัญลักษณ์จุดสำหรับแต่ละย่อหน้า.
-4. ตั้งค่าค่าความลึกของ [IParagraphFormat.setDepth](https://reference.aspose.com/slides/th/java/com.aspose.slides/iparagraphformat/#setDepth-short-) เป็น `0`, `1`, `2`, และ `3`.
-5. เพิ่มย่อหน้าไปยังกรอบข้อความและบันทึกพรีเซนเทชัน.
+1. สร้าง [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) และเข้าถึงสไลด์
+2. เพิ่ม [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) แล้วลบย่อหน้าเริ่มต้นออกจากกรอบข้อความของมัน
+3. สร้างสี่ย่อหน้าและกำหนดสัญลักษณ์หัวข้อให้แต่ละอัน
+4. ตั้งค่าความลึกของพวกมันด้วย [IParagraphFormat.setDepth](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setDepth-short-) เป็น `0`, `1`, `2`, และ `3`
+5. เพิ่มย่อหน้าไปยังกรอบข้อความและบันทึกการนำเสนอ
 
-ตัวอย่าง Java ด้านล่างสร้างรายการที่มีจุดสี่ระดับ:
+ตัวอย่าง Java นี้สร้างรายการหัวข้อย่อยสี่ระดับ:
 
 ```java
 import com.aspose.slides.*;
@@ -289,17 +289,17 @@ try {
 }
 ```
 
-### **กำหนดค่าเริ่มต้นของรายการลำดับเลขให้เป็นค่าที่กำหนดเอง**
+### **กำหนดค่าตัวเลขเริ่มต้นของรายการลำดับเลข**
 
-ใช้ [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/th/java/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) เพื่อกำหนดหมายเลขเริ่มต้นที่แสดงสำหรับย่อหน้าลำดับเลข.
+ใช้ [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) เพื่อกำหนดเลขเริ่มต้นที่แสดงสำหรับย่อหน้าลำดับเลข
 
-1. สร้าง [Presentation](https://reference.aspose.com/slides/th/java/com.aspose.slides/presentation/) และเพิ่ม [IAutoShape](https://reference.aspose.com/slides/th/java/com.aspose.slides/iautoshape/) ลงในสไลด์.
-2. ลบย่อหน้าเริ่มต้นออกจากกรอบข้อความของรูปทรง.
-3. สร้างย่อหน้าลำดับเลขสามรายการ.
-4. ตั้งค่า [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/th/java/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) เป็น `2`, `3`, และ `7` สำหรับย่อหน้าแต่ละรายการ.
-5. เพิ่มย่อหน้าไปยังกรอบข้อความและบันทึกพรีเซนเทชัน.
+1. สร้าง [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) และเพิ่ม [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) ไปยังสไลด์
+2. ลบย่อหน้าเริ่มต้นออกจากกรอบข้อความของรูปร่าง
+3. สร้างย่อหน้าลำดับเลขสามอัน
+4. ตั้งค่า [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) เป็น `2`, `3`, และ `7` สำหรับย่อหน้าแต่ละอัน
+5. เพิ่มย่อหน้าไปยังกรอบข้อความและบันทึกการนำเสนอ
 
-ตัวอย่าง Java ด้านล่างกำหนดหมายเลขเริ่มต้นที่กำหนดเองให้กับย่อหน้าแต่ละรายการ:
+ตัวอย่าง Java นี้กำหนดเลขเริ่มต้นแบบกำหนดเองให้แต่ละย่อหน้า:
 
 ```java
 import com.aspose.slides.*;
@@ -335,25 +335,25 @@ try {
 }
 ```
 
-## **ควบคุมการจัดวางและคุณสมบัติส่วนท้ายของย่อหน้า**
+## **ควบคุมการจัดวางและคุณสมบัติของย่อหน้าที่จบ**
 
-### **ตั้งค่าการเยื้องบรรทัดแรก**
+### **ตั้งค่าเยื้องบรรทัดแรก**
 
-ใช้ [IParagraphFormat.setIndent](https://reference.aspose.com/slides/th/java/com.aspose.slides/iparagraphformat/#setIndent-float-) เพื่อควบคุมการเยื้องบรรทัดแรกของย่อหน้า. วิธีนี้จะย้ายเฉพาะบรรทัดแรกเทียบกับขอบซ้ายของย่อหน้า. ค่าบวกจะเลื่อนบรรทัดแรกไปทางขวา, ส่วนบรรทัดที่เหลือยังคงจัดตำแหน่งตามเนื้อหาย่อหน้า.
+ใช้ [IParagraphFormat.setIndent](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setIndent-float-) เพื่อควบคุมการเยื้องบรรทัดแรกของย่อหน้า วิธีนี้จะย้ายเฉพาะบรรทัดแรกโดยอิงตามขอบซ้ายของย่อหน้า ค่าเป็นบวกจะเลื่อนบรรทัดแรกไปทางขวา ส่วนบรรทัดที่เหลือจะคงแนวตามเนื้อหาย่อหน้า
 
-ใช้ [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/th/java/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) เมื่อคุณต้องการย้ายย่อหน้า 전체. ใช้ [IParagraphFormat.setIndent](https://reference.aspose.com/slides/th/java/com.aspose.slides/iparagraphformat/#setIndent-float-) เมื่อคุณต้องการย้ายเฉพาะบรรทัดแรก.
+ใช้ [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) เมื่อคุณต้องการย้ายทั้งย่อหน้า ใช้ [IParagraphFormat.setIndent](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setIndent-float-) เมื่อต้องการย้ายเฉพาะบรรทัดแรกเท่านั้น
 
-ตัวอย่างด้านล่างสร้างย่อหน้าหลายรายการและกำหนดค่าต่าง ๆ ของ [IParagraphFormat.setIndent](https://reference.aspose.com/slides/th/java/com.aspose.slides/iparagraphformat/#setIndent-float-) เพื่อแสดงผลว่าการเยื้องบรรทัดแรกส่งผลต่อการจัดวางอย่างไร.
+ตัวอย่างด้านล่างสร้างหลายย่อหน้าและใช้ค่า [IParagraphFormat.setIndent](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setIndent-float-) ที่แตกต่างกันเพื่อแสดงว่าการเยื้องบรรทัดแรกส่งผลต่อการจัดวางอย่างไร
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/java/com.aspose.slides/presentation/).
-2. เข้าถึงสไลด์เป้าหมาย.
-3. เพิ่ม [IAutoShape](https://reference.aspose.com/slides/th/java/com.aspose.slides/iautoshape/) สี่เหลี่ยมรูปแบบลงในสไลด์.
-4. เข้าถึง [ITextFrame](https://reference.aspose.com/slides/th/java/com.aspose.slides/itextframe/) ของรูปทรงและลบย่อหน้าเริ่มต้น.
-5. สร้างย่อหน้าหลายรายการและกำหนดค่าต่าง ๆ ของ [IParagraphFormat.setIndent](https://reference.aspose.com/slides/th/java/com.aspose.slides/iparagraphformat/#setIndent-float-) ให้กับพวกมัน.
-6. เพิ่มย่อหน้าเหล่านั้นไปยังกรอบข้อความ.
-7. บันทึกพรีเซนเทชันที่แก้ไขแล้ว.
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/)
+2. เข้าถึงสไลด์เป้าหมาย
+3. เพิ่ม [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) แบบสี่เหลี่ยมมุมฉากไปยังสไลด์
+4. เข้าถึง [ITextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/) ของรูปร่างและลบย่อหน้าเริ่มต้น
+5. สร้างหลายย่อหน้าและตั้งค่าค่า [IParagraphFormat.setIndent](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setIndent-float-) ที่แตกต่างกันสำหรับแต่ละย่อหน้า
+6. เพิ่มย่อหน้าไปยังกรอบข้อความ
+7. บันทึกการนำเสนอที่แก้ไขแล้ว
 
-โค้ดนี้แสดงวิธีตั้งค่าการเยื้องย่อหน้า:
+โค้ดนี้แสดงวิธีตั้งค่าเยื้องย่อหน้า:
 
 ```java
 import com.aspose.slides.*;
@@ -407,24 +407,24 @@ try {
 
 ![การเยื้องบรรทัดแรกของย่อหน้า](first_line_indent.png)
 
-### **ตั้งค่าการเยื้องแบบห้อย**
+### **ตั้งค่าเยื้องลอย**
 
-การเยื้องแบบห้อยคือการจัดวางย่อหน้าที่บรรทัดแรกเริ่มอยู่ทางซ้ายของบรรทัดที่เหลือ. ใน Aspose.Slides, คุณสร้างเอฟเฟกต์นี้ด้วย [IParagraphFormat.setIndent](https://reference.aspose.com/slides/th/java/com.aspose.slides/iparagraphformat/#setIndent-float-). ส่งค่าลบเพื่อย้ายบรรทัดแรกไปทางซ้ายเทียบกับเนื้อหาย่อหน้า.
+เยื้องลอยเป็นการจัดวางย่อหน้าโดยบรรทัดแรกเริ่มอยู่ทางซ้ายของบรรทัดที่เหลือ ใน Aspose.Slides คุณสร้างเอฟเฟกต์นี้ด้วย [IParagraphFormat.setIndent](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setIndent-float-) โดยกำหนดค่าติดลบเพื่อย้ายบรรทัดแรกไปทางซ้ายเมื่อเทียบกับตัวเนื้อหาย่อหน้า
 
-โดยปฏิบัติ, [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/th/java/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) กำหนดตำแหน่งด้านซ้ายของเนื้อหาย่อหน้า, และ [IParagraphFormat.setIndent](https://reference.aspose.com/slides/th/java/com.aspose.slides/iparagraphformat/#setIndent-float-) กำหนดตำแหน่งของบรรทัดแรกเทียบกับระยะห่างนั้น. เพื่อสร้างการเยื้องแบบห้อย, ให้ค่า `setMarginLeft` เป็นบวกและ `setIndent` เป็นลบ.
+โดยปฏิบัติ, [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) กำหนดตำแหน่งซ้ายของเนื้อหาย่อหน้า, ส่วน [IParagraphFormat.setIndent](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setIndent-float-) กำหนดตำแหน่งของบรรทัดแรกเมื่อเทียบกับระยะซ้ายนั้น เพื่อสร้างเยื้องลอย ให้กำหนดค่าบวกให้กับ `setMarginLeft` และค่าลบให้กับ `setIndent`
 
-การจัดรูปแบบนี้มีประโยชน์สำหรับบรรณานุกรม, การอ้างอิง, รายการพจนานุกรม, และย่อหน้าอื่น ๆ ที่บรรทัดที่พับต้องจัดตำแหน่งภายใต้เนื้อหาย่อหน้าแทนที่จะอยู่ใต้ตัวอักษรแรกของบรรทัดแรก.
+การจัดรูปแบบนี้มีประโยชน์สำหรับบรรณานุกรม, การอ้างอิง, รายการอภิธานศัพท์, และย่อหน้าอื่น ๆ ที่บรรทัดที่พับต้องจัดแนวใต้เนื้อหาย่อหน้าแทนที่จะอยู่ใต้ตัวอักษรแรกของบรรทัดแรก
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/java/com.aspose.slides/presentation/).
-2. เข้าถึงสไลด์เป้าหมาย.
-3. เพิ่ม [IAutoShape](https://reference.aspose.com/slides/th/java/com.aspose.slides/iautoshape/) สี่เหลี่ยมรูปแบบลงในสไลด์.
-4. เข้าถึง [ITextFrame](https://reference.aspose.com/slides/th/java/com.aspose.slides/itextframe/) ของรูปทรงและลบย่อหน้าเริ่มต้น.
-5. สร้างย่อหน้าและส่งค่าบวกให้กับ [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/th/java/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) สำหรับแต่ละย่อหน้า.
-6. ส่งค่าลบให้กับ [IParagraphFormat.setIndent](https://reference.aspose.com/slides/th/java/com.aspose.slides/iparagraphformat/#setIndent-float-) เพื่อสร้างเอฟเฟกต์การเยื้องแบบห้อย.
-7. เพิ่มย่อหน้าเหล่านั้นไปยังกรอบข้อความ.
-8. บันทึกพรีเซนเทชันที่แก้ไขแล้ว.
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/)
+2. เข้าถึงสไลด์เป้าหมาย
+3. เพิ่ม [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) แบบสี่เหลี่ยมมุมฉากไปยังสไลด์
+4. เข้าถึง [ITextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/) ของรูปร่างและลบย่อหน้าเริ่มต้น
+5. สร้างย่อหน้าและกำหนดค่าบวกให้กับ [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) สำหรับแต่ละย่อหน้า
+6. กำหนดค่าลบให้กับ [IParagraphFormat.setIndent](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setIndent-float-) เพื่อสร้างเอฟเฟกต์เยื้องลอย
+7. เพิ่มย่อหน้าไปยังกรอบข้อความ
+8. บันทึกการนำเสนอที่แก้ไขแล้ว
 
-โค้ดนี้แสดงวิธีตั้งค่าการเยื้องแบบห้อยสำหรับย่อหน้า:
+โค้ดนี้แสดงวิธีตั้งค่าเยื้องลอยสำหรับย่อหน้า:
 
 ```java
 import com.aspose.slides.*;
@@ -468,18 +468,18 @@ try {
 
 ผลลัพธ์:
 
-![การเยื้องแบบห้อยของย่อหน้า](hanging_indent.png)
+![การเยื้องลอยของย่อหน้า](hanging_indent.png)
 
-### **ตั้งค่าคุณสมบัติส่วนท้ายของย่อหน้า**
+### **ตั้งค่าคุณสมบัติการทำงานของส่วนย่อยตอนจบย่อหน้า**
 
-[IParagraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/th/java/com.aspose.slides/iparagraph/#setEndParagraphPortionFormat-com.aspose.slides.IPortionFormat-) ควบคุมการจัดรูปแบบของเครื่องหมายสิ้นสุดย่อหน้า. ตัวอย่างต่อไปนี้กำหนดขนาดฟอนต์และฟอนต์ละตินให้กับเครื่องหมายสิ้นสุดของย่อหน้าที่สอง:
+[IParagraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#setEndParagraphPortionFormat-com.aspose.slides.IPortionFormat-) ควบคุมการจัดรูปแบบของสัญลักษณ์จบย่อหน้า ตัวอย่างต่อไปนี้กำหนดขนาดฟอนท์และฟอนท์ละตินให้กับสัญลักษณ์จบของย่อหน้าที่สอง:
 
-1. โหลด [Presentation](https://reference.aspose.com/slides/th/java/com.aspose.slides/presentation/) และเข้าถึงสไลด์.
-2. เพิ่ม [IAutoShape](https://reference.aspose.com/slides/th/java/com.aspose.slides/iautoshape/) แล้วลบย่อหน้าเริ่มต้น.
-3. สร้างย่อหน้าสองรายการและเพิ่มส่วนข้อความให้กับพวกมัน.
-4. สร้าง [PortionFormat](https://reference.aspose.com/slides/th/java/com.aspose.slides/portionformat/) สำหรับเครื่องหมายส่วนท้ายของย่อหน้าที่สอง.
-5. ตั้งค่า [IBasePortionFormat.setFontHeight](https://reference.aspose.com/slides/th/java/com.aspose.slides/ibaseportionformat/#setFontHeight-float-) และ [IBasePortionFormat.setLatinFont](https://reference.aspose.com/slides/th/java/com.aspose.slides/ibaseportionformat/#setLatinFont-com.aspose.slides.IFontData-).
-6. กำหนดรูปแบบด้วย [IParagraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/th/java/com.aspose.slides/iparagraph/#setEndParagraphPortionFormat-com.aspose.slides.IPortionFormat-) แล้วบันทึกพรีเซนเทชัน.
+1. โหลด [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) และเข้าถึงสไลด์
+2. เพิ่ม [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) แล้วลบย่อหน้าเริ่มต้นของมัน
+3. สร้างสองย่อหน้าและเพิ่มส่วนย่อยของข้อความลงไป
+4. สร้าง [PortionFormat](https://reference.aspose.com/slides/java/com.aspose.slides/portionformat/) สำหรับสัญลักษณ์จบของย่อหน้าที่สอง
+5. ตั้งค่า [IBasePortionFormat.setFontHeight](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseportionformat/#setFontHeight-float-) และ [IBasePortionFormat.setLatinFont](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseportionformat/#setLatinFont-com.aspose.slides.IFontData-)
+6. กำหนดรูปแบบโดยใช้ [IParagraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#setEndParagraphPortionFormat-com.aspose.slides.IPortionFormat-) แล้วบันทึกการนำเสนอ
 
 ```java
 import com.aspose.slides.*;
@@ -511,15 +511,15 @@ try {
 }
 ```
 
-## **นับจำนวนบรรทัดที่แสดงผล**
+## **นับจำนวนบรรทัดที่เรนเดอร์**
 
-สำหรับกฎย่อหน้าที่มีผลต่อการตัดบรรทัดอัตโนมัติและเครื่องหมายวรรคตอนที่จบบรรทัด, ดูที่ [Control Line Breaking](/slides/th/java/text-formatting/#control-line-breaking) และ [Control Hanging Punctuation](/slides/th/java/text-formatting/#control-hanging-punctuation).
+สำหรับกฎของย่อหน้าที่ส่งผลต่อการบรรจบอัตโนมัติและเครื่องหมายวรรคตอนที่ปลายบรรทัด, ดูที่ [Control Line Breaking](/slides/th/java/text-formatting/#control-line-breaking) และ [Control Hanging Punctuation](/slides/th/java/text-formatting/#control-hanging-punctuation)
 
-ใช้ [IParagraph.getLinesCount](https://reference.aspose.com/slides/th/java/com.aspose.slides/iparagraph/#getLinesCount--) เพื่อนับจำนวนบรรทัดที่ย่อหน้าใช้หลังจากการจัดวางข้อความ, รวมถึงการตัดบรรทัดอัตโนมัติ. สิ่งนี้มีประโยชน์เมื่อใช้ตรวจสอบความยาวของข้อความและการจัดวางในเทมเพลตพรีเซนเทชัน.
+ใช้ [IParagraph.getLinesCount](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getLinesCount--) เพื่อให้นับจำนวนบรรทัดที่ย่อหน้าครอบครองหลังจากการจัดวางข้อความ, รวมถึงการบรรจบอัตโนมัติ ซึ่งมีประโยชน์เมื่อเช็คความยาวของข้อความและการจัดวางในแม่แบบการนำเสนอ
 
-ย่อหน้าเป็นรายการหนึ่งใน [ITextFrame.getParagraphs](https://reference.aspose.com/slides/th/java/com.aspose.slides/itextframe/#getParagraphs--) และอาจครอบคลุมหลายบรรทัดที่แสดงผล. การใส่การตัดบรรทัดโดยชัดเจนภายในย่อหน้าจะบังคับให้สร้างบรรทัดใหม่โดยไม่ต้องสร้างย่อหน้าใหม่. การตัดบรรทัดอัตโนมัติเกิดจากความกว้างที่มีอยู่โดยไม่ต้องใส่ตัวอักษรตัดบรรทัดลงในข้อความ. ดังนั้นการนับย่อหน้าหรืออักขระการตัดบรรทัดจึงไม่ให้จำนวนบรรทัดที่แสดงผลได้.
+ย่อหน้าเป็นรายการหนึ่งใน [ITextFrame.getParagraphs](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/#getParagraphs--) และอาจครอบคลุมหลายบรรทัดที่เรนเดอร์ การใส่การขึ้นบรรทัดใหม่อย่างชัดเจนภายในย่อหน้าจะบังคับให้เกิดบรรทัดใหม่โดยไม่ต้องสร้างย่อหน้าใหม่ การบรรจบอัตโนมัติสร้างบรรทัดตามความกว้างที่มีอยู่โดยไม่แทรกการขึ้นบรรทัดใหม่ในข้อความ ดังนั้นการนับย่อหน้าหรืออักขระการขึ้นบรรทัดจึงไม่ได้ให้จำนวนบรรทัดที่เรนเดอร์
 
-ตัวอย่างต่อไปนี้สร้างรูปร่างข้อความ, นับบรรทัด, ทำให้รูปร่างแคบลง, แล้วแทนที่ข้อความด้วยสตริงสั้นกว่า. การตัดบรรทัดเปิดใช้งานและการปรับขนาดอัตโนมัติปิดทำให้ความกว้างของรูปร่างควบคุมการตัดบรรทัดโดยไม่ย่อข้อความหรือปรับขนาดรูปร่างโดยอัตโนมัติ. มิติของรูปร่างเป็นหน่วยพิกเซล. สุดท้าย ตัวอย่างเพิ่มย่อหน้าอีกหนึ่งรายการและรวมจำนวนบรรทัดจากกรอบข้อความทั้งหมด.
+ตัวอย่างต่อไปนี้สร้างรูปร่างข้อความ, นับบรรทัดของมัน, ทำให้รูปร่างแคบลง, แล้วแทนที่ข้อความด้วยสตริงสั้นลง การบรรจบเปิดและการปรับขนาดอัตโนมัติปิดเพื่อให้ความกว้างของรูปร่างควบคุมการบรรจบโดยไม่ย่อข้อความหรือปรับขนาดรูปร่างโดยอัตโนมัติ มาตรฐานเป็นจุดสุดท้าย ตัวอย่างสุดท้ายเพิ่มย่อหน้าอีกหนึ่งอันและรวมจำนวนบรรทัดทั้งหมดในกรอบข้อความ
 
 ```java
 import com.aspose.slides.*;
@@ -559,24 +559,24 @@ try {
 }
 ```
 
-ด้วยข้อความและมิติเหล่านี้, การทำให้รูปร่างแคบลงจะเพิ่มจำนวนบรรทัด, ในขณะที่การแทนที่ข้อความด้วยสตริงสั้นจะลดจำนวนบรรทัด. จำนวนที่แม่นยำอาจแตกต่างตามการใช้ฟอนต์และการทดแทน, ขนาดฟอนต์, ระยะขอบ, การเยื้อง, การตัดบรรทัด, และการตั้งค่าการปรับขนาดอัตโนมัติ. ใช้ฟอนต์และการตั้งค่าการจัดวางที่กำหนดไว้สำหรับสภาพแวดล้อมเป้าหมายเมื่อทำการตรวจสอบเทมเพลต.
+ด้วยข้อความและขนาดเหล่านี้, การทำให้รูปร่างแคบลงจะเพิ่มจำนวนบรรทัด, ในขณะที่การแทนที่ข้อความด้วยสตริงสั้นจะลดจำนวนบรรทัด จำนวนที่แน่นอนอาจแตกต่างตามฟอนท์ที่มีและการทดแทน, ขนาดฟอนท์, ระยะขอบ, ระยะเยื้อง, การบรรจบ, และการตั้งค่า autofit ใช้ฟอนท์และการตั้งค่าการจัดวางที่ตั้งใจสำหรับสภาพแวดล้อมเป้าหมายเมื่อทำการตรวจสอบแม่แบบ
 
-จำนวนบรรทัดอย่างเดียวไม่สามารถบอกได้ว่าข้อความล้นจากคอนเทนเนอร์หรือไม่. ความสูงที่มี, ความสูงบรรทัด, ระยะห่างย่อหน้าและบรรทัด, และพฤติกรรมการปรับขนาดอัตโนมัติก็มีผลด้วย; แม้แต่บรรทัดเดียวอาจเกินความกว้างที่มีเมื่อการตัดบรรทัดปิดอยู่.
+จำนวนบรรทัดเพียงอย่างเดียวไม่ได้กำหนดว่าข้อความจะล้นที่เก็บหรือไม่ ความสูงที่มี, ความสูงของบรรทัด, การเว้นระยะของย่อหน้าและบรรทัด, รวมถึงพฤติกรรม autofit ก็มีผลด้วย; แม้บรรทัดเดียวอาจเกินความกว้างที่มีเมื่อปิดการบรรจบ
 
 ## **นำเข้าและส่งออกเนื้อหาย่อหน้า**
 
-### **นำเข้า HTML ลงในย่อหน้า**
+### **นำเข้า HTML เข้าสู่ย่อหน้า**
 
-ใช้ [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/th/java/com.aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-) เพื่อแปลงมาร์กอัพ HTML ไปเป็นย่อหน้าและส่วนข้อความในกรอบข้อความ.
+ใช้ [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/java/com.aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-) เพื่อแปลงมาร์กอัป HTML เป็นย่อหน้าและส่วนย่อยในกรอบข้อความ
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/java/com.aspose.slides/presentation/).
-2. เข้าถึงสไลด์และเพิ่ม [IAutoShape](https://reference.aspose.com/slides/th/java/com.aspose.slides/iautoshape/).
-3. เข้าไปที่ [ITextFrame](https://reference.aspose.com/slides/th/java/com.aspose.slides/itextframe/) ของรูปทรงและลบย่อหน้าเริ่มต้น.
-4. อ่านไฟล์ HTML ต้นฉบับ.
-5. ส่งสตริง HTML ไปยัง [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/th/java/com.aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-).
-6. บันทึกพรีเซนเทชันที่แก้ไขแล้ว.
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/)
+2. เข้าถึงสไลด์และเพิ่ม [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/)
+3. เข้าถึง [ITextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/) ของรูปร่างและลบย่อหน้าเริ่มต้น
+4. อ่านไฟล์ HTML แหล่งที่มา
+5. ส่งสตริง HTML ไปยัง [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/java/com.aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-)
+6. บันทึกการนำเสนอที่แก้ไขแล้ว
 
-ตัวอย่าง Java ด้านล่างนำเข้า HTML ลงในกรอบข้อความ:
+ตัวอย่าง Java นี้นำเข้า HTML ไปยังกรอบข้อความ:
 
 ```java
 import com.aspose.slides.*;
@@ -609,15 +609,15 @@ try {
 
 ### **ส่งออกข้อความย่อหน้าเป็น HTML**
 
-ใช้ [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/th/java/com.aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-) เพื่อส่งออกช่วงย่อหน้าที่เลือกเป็น HTML.
+ใช้ [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/java/com.aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-) เพื่อส่งออกช่วงย่อหน้าที่เลือกเป็น HTML
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/java/com.aspose.slides/presentation/) และโหลดพรีเซนเทชันที่ต้องการ.
-2. เข้าถึงสไลด์และค้นหา [IAutoShape](https://reference.aspose.com/slides/th/java/com.aspose.slides/iautoshape/) ที่มีข้อความ.
-3. เข้าถึง [ITextFrame](https://reference.aspose.com/slides/th/java/com.aspose.slides/itextframe/) ของรูปทรงนั้น.
-4. เรียก [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/th/java/com.aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-) พร้อมดัชนีย่อหน้าเริ่มต้นและจำนวนย่อหน้าที่ต้องการส่งออก.
-5. เขียนสตริง HTML ที่คืนค่ามาไปยังไฟล์.
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) และโหลดการนำเสนอที่ต้องการ
+2. เข้าถึงสไลด์และค้นหา [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) ที่มีข้อความ
+3. เข้าถึง [ITextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/)
+4. เรียก [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/java/com.aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-) พร้อมดัชนีย่อหน้าเริ่มต้นและจำนวนย่อหน้าที่ต้องการส่งออก
+5. เขียนสตริง HTML ที่คืนค่าลงไฟล์
 
-ตัวอย่าง Java ด้านล่างส่งออกย่อหน้าทั้งหมดจากรูปร่างข้อความแรก:
+ตัวอย่าง Java นี้ส่งออกย่อหน้าทั้งหมดจากรูปข้อความแรก:
 
 ```java
 import com.aspose.slides.*;
@@ -654,17 +654,17 @@ try {
 
 ### **เรนเดอร์ย่อหน้าเป็นภาพ**
 
-[IParagraph.getImage](https://reference.aspose.com/slides/th/java/com.aspose.slides/iparagraph/#getImage--) เรนเดอร์ย่อหน้าเดี่ยวโดยตรงและคืนค่าเป็น [IImage](https://reference.aspose.com/slides/th/java/com.aspose.slides/iimage/). ให้บันทึกผลลัพธ์ไปยังไฟล์หรือสตรีมด้วย [IImage.save](https://reference.aspose.com/slides/th/java/com.aspose.slides/iimage/#save-java.lang.String-int-). คุณไม่จำเป็นต้องเรนเดอร์รูปร่างที่บรรจุหรือครอปบิตแมพด้วยตนเอง.
+[IParagraph.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getImage--) เรนเดอร์ย่อหน้าเดี่ยวโดยตรงและคืนค่าเป็น [IImage](https://reference.aspose.com/slides/java/com.aspose.slides/iimage/) บันทึกผลลัพธ์เป็นไฟล์หรือสตรีมด้วย [IImage.save](https://reference.aspose.com/slides/java/com.aspose.slides/iimage/#save-java.lang.String-int-) คุณไม่จำเป็นต้องเรนเดอร์รูปร่างที่บรรจุหรือครอบตัดบิตแมพด้วยตนเอง
 
-[IParagraph.getImage](https://reference.aspose.com/slides/th/java/com.aspose.slides/iparagraph/#getImage--) อาจคืนค่า `null` หากไม่พบย่อหน้าในคอลเลกชันแม่, ไม่มีขอบเขตการเรนเดอร์ที่ถูกต้อง, หรือไม่สามารถเรนเดอร์ได้. ตรวจสอบผลลัพธ์ก่อนบันทึกและทำลายภาพที่คืนค่าเมื่อใช้เสร็จ.
+[IParagraph.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getImage--) อาจคืนค่า `null` หากย่อหาไม่พบในคอลเลกชันแม่, ไม่มีขอบเขตการเรนเดอร์ที่ถูกต้อง, หรือไม่สามารถเรนเดอร์ได้ ตรวจสอบผลลัพธ์ก่อนบันทึกและทำลายภาพที่คืนค่าหลังการใช้งาน
 
 #### **เรนเดอร์ย่อหน้าที่สเกลเริ่มต้น**
 
-สมมติว่าเรามีพรีเซนเทชันไฟล์ชื่อ sample.pptx มีหนึ่งสไลด์, โดยรูปร่างแรกเป็นกล่องข้อความที่มีสามย่อหน้า.
+สมมติว่าเรามีไฟล์การนำเสนอชื่อ sample.pptx ที่มีสไลด์หนึ่งใบ โดยรูปร่างแรกเป็นกล่องข้อความที่มีสามย่อหน้า
 
 ![กล่องข้อความที่มีสามย่อหน้า](paragraph_to_image_input.png)
 
-ตัวอย่างต่อไปนี้เรนเดอร์ย่อหน้าที่สองในกล่องข้อความปกติที่สเกลเริ่มต้นและบันทึกภาพที่ได้เป็นรูป PNG. บล็อก `finally` รับประกันว่าภาพจะถูกทำลายอย่างถูกต้อง.
+ตัวอย่างต่อไปนี้เรนเดอร์ย่อหน้าที่สองในรูปร่างข้อความปกติที่สเกลเริ่มต้นและบันทึกภาพที่คืนค่าเป็น PNG บล็อก `finally` ทำให้แน่ใจว่าภาพถูกทำลายอย่างถูกต้อง
 
 ```java
 import com.aspose.slides.*;
@@ -704,9 +704,9 @@ try {
 
 ![ภาพย่อหน้า](paragraph_to_image_output.png)
 
-#### **เรนเดอร์ย่อหน้าในเซลล์ตารางพร้อมการสเกล**
+#### **เรนเดอร์ย่อหน้าในเซลล์ตารางพร้อมสเกล**
 
-ใช้การโอเวอร์โหลด [IParagraph.getImage](https://reference.aspose.com/slides/th/java/com.aspose.slides/iparagraph/#getImage-float-float-) ที่รับพารามิเตอร์ `float scaleX` และ `float scaleY` เพื่อกำหนดอัตราส่วนสเกลแนวนอนและแนวตั้ง. ตัวอย่างต่อไปนี้สร้างตาราง, เรนเดอร์ย่อหน้าในเซลล์แรกโดยขยายกว้างและสูงเป็นสองเท่าของค่าเริ่มต้น, แล้วบันทึกผลเป็นรูป PNG.
+ใช้ overload ของ [IParagraph.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getImage-float-float-) ที่รับพารามิเตอร์ `float scaleX` และ `float scaleY` เพื่อกำหนดปัจจัยสเกลแนวนอนและแนวตั้ง ตัวอย่างต่อไปนี้สร้างตาราง, เรนเดอร์ย่อหน้าในเซลล์แรกที่กว้างและสูงเป็นสองเท่าของค่าปกติ, แล้วบันทึกผลเป็นภาพ PNG
 
 ```java
 import com.aspose.slides.*;
@@ -736,24 +736,26 @@ try {
 }
 ```
 
-อัตราส่วนสเกล `1` จะคงแกนนั้นไว้ที่ขนาดพิกเซลเริ่มต้น. ตัวอย่างเช่น, `2` สำหรับทั้งสองแกนจะให้ภาพที่กว้างและสูงประมาณสองเท่าของมิติเริ่มต้น, ทำให้มีพิกเซลสี่เท่า. อัตราส่วนที่สูงกว่าจะให้ข้อความคมชัดมากขึ้นสำหรับการซูมหรือเอาต์พุตความละเอียดสูง, แต่ก็เพิ่มการใช้หน่วยความจำและขนาดไฟล์. อัตราส่วนต่ำกว่า `1` จะให้ภาพขนาดเล็กลงและรายละเอียดน้อยลง. ใช้อัตราส่วนเท่ากันเพื่อรักษาอัตราส่วนภาพของย่อหน้า; การใช้ค่าแนวนอนและแนวตั้งต่างกันจะทำให้ผลลัพธ์ยืดตามแกนนั้น ๆ.
+ปัจจัยสเกล `1` ทำให้แกนนั้นคงขนาดพิกเซลเริ่มต้น ตัวอย่างเช่น `2` สำหรับทั้งสองแกนจะสร้างภาพที่กว้างและสูงประมาณสองเท่าของมิติเริ่มต้น, ทำให้จำนวนพิกเซลเพิ่มเป็นสี่เท่า ปัจจัยที่ใหญ่กว่าจะให้ข้อความคมชัดสำหรับการซูมหรือเอาท์พุตความละเอียดสูง, แต่ก็เพิ่มการใช้หน่วยความจำและขนาดไฟล์ ปัจจัยที่ต่ำกว่า `1` จะทำให้ภาพเล็กลงและรายละเอียดน้อยลง ใช้ปัจจัยเท่ากันเพื่อคงอัตราส่วนของย่อหน้า; ปัจจัยแนวนอนและแนวตั้งต่างกันจะยืดผลลัพธ์แยกกัน
 
-การเรนเดอร์รูปร่างทั้งหมดด้วย [IShape.getImage](https://reference.aspose.com/slides/th/java/com.aspose.slides/ishape/#getImage--) ยังมีประโยชน์เมื่อผลลัพธ์ต้องรวมการเติม, ขอบ, หรือบริบทภาพอื่นของรูปร่าง. สำหรับภาพที่มีเฉพาะย่อหน้า, ใช้ [IParagraph.getImage](https://reference.aspose.com/slides/th/java/com.aspose.slides/iparagraph/#getImage--).
+การเรนเดอร์รูปแบบเต็มของรูปร่างด้วย [IShape.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#getImage--) ยังคงเป็นประโยชน์เมื่อผลลัพธ์ต้องรวมการเติมสี, ขอบ, หรือบริบทภาพอื่นของรูปร่าง สำหรับภาพที่มีแค่ย่อหน้าเดียว ให้ใช้ [IParagraph.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getImage--)
 
 ## **คำถามที่พบบ่อย**
 
-**ฉันสามารถปิดการตัดบรรทัดอัตโนมัติในกรอบข้อความได้หรือไม่?**
+**ฉันสามารถปิดการบรรจบบรรทัดภายในกรอบข้อความได้โดยสมบูรณ์หรือไม่?**
 
-ได้. ตั้งค่า [ITextFrameFormat.setWrapText](https://reference.aspose.com/slides/th/java/com.aspose.slides/itextframeformat/#setWrapText-byte-) เพื่อปิดการตัดบรรทัด, ทำให้บรรทัดไม่ตัดที่ขอบของกรอบข้อความ.
+ได้. ตั้งค่า [ITextFrameFormat.setWrapText](https://reference.aspose.com/slides/java/com.aspose.slides/itextframeformat/#setWrapText-byte-) เพื่อปิดการบรรจบ ทำให้บรรทัดไม่แตกที่ขอบของกรอบข้อความ
 
-**ฉันจะรับค่าขอบเขตบนสไลด์ของย่อหน้าเฉพาะได้อย่างไร?**
+**ฉันจะรับค่าขอบเขตบนสไลด์ของย่อหน้าที่ระบุได้อย่างแม่นยำอย่างไร?**
 
-ใช้ [IParagraph.getRect](https://reference.aspose.com/slides/th/java/com.aspose.slides/iparagraph/#getRect--) เพื่อดึงสี่เหลี่ยมขอบของย่อหน้า. [IPortion.getRect](https://reference.aspose.com/slides/th/java/com.aspose.slides/iportion/#getRect--) ให้ขอบเขตของส่วนข้อความเดี่ยว.
+ใช้ [IParagraph.getRect](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getRect--) เพื่อดึงสี่เหลี่ยมขอบของย่อหน้า [IPortion.getRect](https://reference.aspose.com/slides/java/com.aspose.slides/iportion/#getRect--) ให้ขอบเขตของส่วนย่อยแต่ละส่วน
 
-**การจัดตำแหน่งย่อหน้า (ซ้าย, ขวา, กลาง, หรือจัดแนวเต็ม) ถูกควบคุมที่ไหน?**
+**การจัดแนวของย่อหน้า (ซ้าย, ขวา, กลาง, หรือจัดเต็ม) ถูกควบคุมที่ไหน?**
 
-[IParagraphFormat.setAlignment](https://reference.aspose.com/slides/th/java/com.aspose.slides/iparagraphformat/#setAlignment-int-) เป็นการตั้งค่าระดับย่อหน้าและใช้กับย่อหน้าเต็ม regardless ของการจัดรูปแบบส่วนข้อความแต่ละส่วน.
+[IParagraphFormat.setAlignment](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setAlignment-int-) เป็นการตั้งค่าระดับย่อหน้าและจะนำไปใช้กับย่อหน้าทั้งหมดโดยไม่คำนึงถึงการจัดรูปแบบของส่วนย่อยแต่ละส่วน
+
+เพื่อจัดแนวฟอนท์ที่มีขนาดต่างกันในแต่ละบรรทัด, ดูที่ [Align Fonts Within a Line](/slides/th/java/text-formatting/#align-fonts-within-a-line)
 
 **ฉันสามารถตั้งค่าภาษา proofing สำหรับส่วนหนึ่งของย่อหน้าได้หรือไม่?**
 
-ได้. ตั้งค่า [IBasePortionFormat.setLanguageId](https://reference.aspose.com/slides/th/java/com.aspose.slides/ibaseportionformat/#setLanguageId-java.lang.String-) สำหรับส่วนข้อความแต่ละส่วน, ทำให้ย่อหน้าเดียวสามารถมีข้อความหลายภาษา.
+ได้. ตั้งค่า [IBasePortionFormat.setLanguageId](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseportionformat/#setLanguageId-java.lang.String-) สำหรับส่วนย่อยแต่ละส่วน, เพื่อให้ย่อหน้าหนึ่งสามารถมีข้อความหลายภาษาได้.

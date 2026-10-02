@@ -1,5 +1,5 @@
 ---
-title: Python में PowerPoint टेक्स्ट पैराग्राफ प्रबंधित करें
+title: पाइथन में PowerPoint टेक्स्ट पैराग्राफ प्रबंधित करें
 linktitle: पैराग्राफ प्रबंधित करें
 type: docs
 weight: 40
@@ -8,54 +8,54 @@ aliases:
   - /python-net/paragraph/
   - /python-net/portion/
 keywords:
-- टेक्स्ट जोड़ें
-- पैराग्राफ जोड़ें
-- टेक्स्ट प्रबंधित करें
-- पैराग्राफ प्रबंधित करें
-- बुलेट प्रबंधित करें
-- पैराग्राफ इन्डेंट
-- हैंगिंग इन्डेंट
-- पैराग्राफ बुलेट
-- क्रमांकित सूची
-- बुलेटेड सूची
-- पैराग्राफ गुण
-- HTML आयात करें
-- टेक्स्ट से HTML
-- पैराग्राफ से HTML
-- पैराग्राफ से इमेज
-- टेक्स्ट से इमेज
-- पैराग्राफ निर्यात करें
-- PowerPoint
-- प्रेजेंटेशन
-- Python
-- Aspose.Slides
-description: "Aspose.Slides for Python via .NET के साथ पैराग्राफ, पोर्शन, बुलेट, क्रमांकित सूचियां, इन्डेंट, HTML सामग्री, और पैराग्राफ इमेज कैसे बनाएं और फ़ॉर्मेट करें, सीखें।"
+  - टेक्स्ट जोड़ें
+  - पैराग्राफ जोड़ें
+  - टेक्स्ट प्रबंधित करें
+  - पैराग्राफ प्रबंधित करें
+  - बुलेट प्रबंधित करें
+  - पैराग्राफ इंडेंट
+  - हेंगिंग इंडेंट
+  - पैराग्राफ बुलेट
+  - नंबरयुक्त सूची
+  - बुलेटेड सूची
+  - पैराग्राफ प्रॉपर्टीज़
+  - HTML आयात करें
+  - टेक्स्ट को HTML में
+  - पैराग्राफ को HTML में
+  - पैराग्राफ को इमेज में
+  - टेक्स्ट को इमेज में
+  - पैराग्राफ निर्यात करें
+  - PowerPoint
+  - प्रेजेंटेशन
+  - Python
+  - Aspose.Slides
+description: "Aspose.Slides for Python via .NET के साथ पैराग्राफ, पोर्शन, बुलेट, नंबरयुक्त सूचियाँ, इंडेंट, HTML सामग्री और पैराग्राफ इमेज कैसे बनाएं और फ़ॉर्मेट करें, यह सीखें।"
 ---
-## **अवलोकन**
+## **परिचय**
 
-Aspose.Slides for Python via .NET पाठ को टेक्स्ट फ्रेम, पैराग्राफ और पोर्शन की पदानुक्रम में दर्शाता है:
+Aspose.Slides for Python via .NET पाठ को टेक्स्ट फ्रेम, पैराग्राफ और पोर्शन के पदानुक्रम के रूप में प्रतिनिधित्व करता है:
 
-* [TextFrame](https://reference.aspose.com/slides/hi/python-net/aspose.slides/textframe/) आकार में टेक्स्ट कंटेनर को दर्शाता है और इसके पैराग्राफ संग्रह तक पहुँच प्रदान करता है।
-* [Paragraph](https://reference.aspose.com/slides/hi/python-net/aspose.slides/paragraph/) टेक्स्ट फ्रेम में एक पैराग्राफ का प्रतिनिधित्व करता है और इसके पोर्शन तथा पैराग्राफ‑स्तर फ़ॉर्मेटिंग तक पहुँच प्रदान करता है।
-* [Portion](https://reference.aspose.com/slides/hi/python-net/aspose.slides/portion/) पैराग्राफ के भीतर एक टेक्स्ट रन का प्रतिनिधित्व करता है। प्रत्येक पोर्शन का अपना टेक्स्ट और कैरेक्टर‑स्तर फ़ॉर्मेटिंग हो सकता है।
+* [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) आकृति में पाठ कंटेनर का प्रतिनिधित्व करता है और इसके पैराग्राफ संग्रह तक पहुँच प्रदान करता है।
+* [Paragraph](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/) एक टेक्स्ट फ्रेम में एक पैराग्राफ का प्रतिनिधित्व करता है और इसके पोर्शन और पैराग्राफ‑स्तर फ़ॉर्मेटिंग तक पहुँच प्रदान करता है।
+* [Portion](https://reference.aspose.com/slides/python-net/aspose.slides/portion/) पैराग्राफ के भीतर एक टेक्स्ट रन का प्रतिनिधित्व करता है। प्रत्येक पोर्शन का अपना टेक्स्ट और कैरेक्टर‑स्तर फ़ॉर्मेटिंग हो सकता है।
 
-इस प्रकार एक पैराग्राफ कई पोर्शन का उपयोग करके विभिन्न फ़ॉन्ट, रंग, आकार और अन्य फ़ॉर्मेटिंग वाले टेक्स्ट को सम्मिलित कर सकता है।
+इसलिए एक पैराग्राफ कई पोर्शन का उपयोग करके विभिन्न फ़ॉन्ट, रंग, आकार और अन्य फ़ॉर्मेटिंग वाले पाठ को समाहित कर सकता है।
 
-## **पैराग्राफ बनाएं और फ़ॉर्मेट करें**
+## **पैराग्राफ बनाएँ और फ़ॉर्मेट करें**
 
-### **एकाधिक पोर्शन के साथ पैराग्राफ बनाएं**
+### **कई पोर्शन वाले पैराग्राफ बनाएँ**
 
-निम्नलिखित चरण तीन पैराग्राफ वाले टेक्स्ट फ्रेम को बनाते हैं, प्रत्येक में तीन पोर्शन होते हैं:
+निम्नलिखित चरण तीन पैराग्राफ के साथ एक टेक्स्ट फ्रेम बनाते हैं, प्रत्येक में तीन पोर्शन होते हैं:
 
-1. [Presentation](https://reference.aspose.com/slides/hi/python-net/aspose.slides/presentation/) क्लास का एक उदाहरण बनाएं।
-2. उसकी इंडेक्स के द्वारा संबंधित स्लाइड तक पहुँचें।
-3. स्लाइड में एक आयताकार [AutoShape](https://reference.aspose.com/slides/hi/python-net/aspose.slides/autoshape/) जोड़ें।
-4. आकार के [TextFrame](https://reference.aspose.com/slides/hi/python-net/aspose.slides/textframe/) तक पहुँचें।
-5. डिफ़ॉल्ट पैराग्राफ का उपयोग करके दो और [Paragraph](https://reference.aspose.com/slides/hi/python-net/aspose.slides/paragraph/) ऑब्जेक्ट टेक्स्ट फ्रेम में जोड़ें।
-6. प्रत्येक पैराग्राफ में तीन पोर्शन रखे जाने हेतु पर्याप्त [Portion](https://reference.aspose.com/slides/hi/python-net/aspose.slides/portion/) ऑब्जेक्ट जोड़ें। डिफ़ॉल्ट पैराग्राफ में पहले से ही एक खाली पोर्शन होता है।
+1. [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) क्लास का एक उदाहरण बनाएँ।
+2. इंडेक्स के माध्यम से संबंधित स्लाइड तक पहुँचें।
+3. स्लाइड में एक आयताकार [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) जोड़ें।
+4. शैप के [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) तक पहुँचें।
+5. डिफ़ॉल्ट पैराग्राफ का उपयोग करके दो अतिरिक्त [Paragraph](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/) ऑब्जेक्ट टेक्स्ट फ्रेम में जोड़ें।
+6. प्रत्येक पैराग्राफ के लिए पर्याप्त [Portion](https://reference.aspose.com/slides/python-net/aspose.slides/portion/) ऑब्जेक्ट जोड़ें ताकि तीन पोर्शन हो सकें। डिफ़ॉल्ट पैराग्राफ में पहले से ही एक खाली पोर्शन होता है।
 7. प्रत्येक पोर्शन का टेक्स्ट सेट करें।
-8. [Portion.portion_format](https://reference.aspose.com/slides/hi/python-net/aspose.slides/portion/portion_format/) के माध्यम से कैरेक्टर‑स्तर फ़ॉर्मेटिंग लागू करें।
-9. संशोधित प्रस्तुति को सहेजें।
+8. [Portion.portion_format](https://reference.aspose.com/slides/python-net/aspose.slides/portion/portion_format/) के माध्यम से कैरेक्टर‑स्तर फ़ॉर्मेटिंग लागू करें।
+9. संशोधित प्रस्तुति सहेजें।
 
 यह Python उदाहरण इन चरणों को लागू करता है:
 
@@ -104,26 +104,26 @@ with slides.Presentation() as presentation:
     presentation.save("paragraphs_with_portions.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **बुलेटेड और क्रमांकित सूचियां बनाएं**
+## **बुलेटेड और नंबर्ड सूचियाँ बनाएँ**
 
-### **बुलेटेड या क्रमांकित सूची बनाएं**
+### **बुलेटेड या नंबर्ड सूची बनाएँ**
 
-बुलेट और क्रमांकन संबंधित आइटम्स को तेज़ी से स्कैन करने में मदद करते हैं। Aspose.Slides में सूची सेटिंग्स [BulletFormat](https://reference.aspose.com/slides/hi/python-net/aspose.slides/bulletformat/) द्वारा परिभाषित होती हैं।
+बुलेट और नंबरिंग संबंधित आइटम को स्कैन करना आसान बनाते हैं। Aspose.Slides में, सूची सेटिंग्स [BulletFormat](https://reference.aspose.com/slides/python-net/aspose.slides/bulletformat/) के माध्यम से परिभाषित की जाती हैं।
 
-1. [Presentation](https://reference.aspose.com/slides/hi/python-net/aspose.slides/presentation/) क्लास का एक उदाहरण बनाएं।
-2. उसकी इंडेक्स के द्वारा संबंधित स्लाइड तक पहुँचें।
-3. चयनित स्लाइड में एक [AutoShape](https://reference.aspose.com/slides/hi/python-net/aspose.slides/autoshape/) जोड़ें।
-4. आकार के [TextFrame](https://reference.aspose.com/slides/hi/python-net/aspose.slides/textframe/) तक पहुँचें।
+1. [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) क्लास का एक उदाहरण बनाएँ।
+2. इंडेक्स के माध्यम से संबंधित स्लाइड तक पहुँचें।
+3. चयनित स्लाइड में एक [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) जोड़ें।
+4. शैप के [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) तक पहुँचें।
 5. टेक्स्ट फ्रेम से डिफ़ॉल्ट पैराग्राफ हटाएँ।
-6. एक प्रतीक बुलेट के लिए एक [Paragraph](https://reference.aspose.com/slides/hi/python-net/aspose.slides/paragraph/) बनाएं।
-7. [BulletFormat.type](https://reference.aspose.com/slides/hi/python-net/aspose.slides/bulletformat/type/) को [BulletType.SYMBOL](https://reference.aspose.com/slides/hi/python-net/aspose.slides/bullettype/) पर सेट करें और बुलेट कैरेक्टर निर्दिष्ट करें।
-8. पैराग्राफ का टेक्स्ट, इन्डेंट, बुलेट रंग और बुलेट ऊँचाई सेट करें।
+6. एक सिम्बॉल बुलेट के लिए एक [Paragraph](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/) बनाएँ।
+7. [BulletFormat.type](https://reference.aspose.com/slides/python-net/aspose.slides/bulletformat/type/) को [BulletType.SYMBOL](https://reference.aspose.com/slides/python-net/aspose.slides/bullettype/) सेट करें और बुलेट कैरेक्टर निर्दिष्ट करें।
+8. पैराग्राफ का टेक्स्ट, इंडेंट, बुलेट रंग और बुलेट ऊँचाई सेट करें।
 9. पैराग्राफ को टेक्स्ट फ्रेम में जोड़ें।
-10. दूसरा पैराग्राफ बनाएं और [BulletFormat.type](https://reference.aspose.com/slides/hi/python-net/aspose.slides/bulletformat/type/) को [BulletType.NUMBERED](https://reference.aspose.com/slides/hi/python-net/aspose.slides/bullettype/) पर सेट करें।
-11. क्रमांकित बुलेट शैली कॉन्फ़िगर करें और पैराग्राफ को टेक्स्ट फ्रेम में जोड़ें।
-12. प्रस्तुति को सहेजें।
+10. दूसरा पैराग्राफ बनाएँ और [BulletFormat.type](https://reference.aspose.com/slides/python-net/aspose.slides/bulletformat/type/) को [BulletType.NUMBERED](https://reference.aspose.com/slides/python-net/aspose.slides/bullettype/) सेट करें।
+11. नंबर्ड बुलेट शैली को कॉन्फ़िगर करें और पैराग्राफ को टेक्स्ट फ्रेम में जोड़ें।
+12. प्रस्तुति सहेजें।
 
-यह Python उदाहरण एक प्रतीक बुलेट और एक क्रमांकित बुलेट बनाता है:
+यह Python उदाहरण सिम्बॉल बुलेट और नंबर्ड बुलेट बनाता है:
 
 ```python
 import aspose.pydrawing as draw
@@ -160,22 +160,22 @@ with slides.Presentation() as presentation:
     presentation.save("bulleted_and_numbered_list.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **चित्र बुलेट का उपयोग करें**
+### **पिक्चर बुलेट्स उपयोग करें**
 
-चित्र बुलेट आपको प्रतीक या संख्या के बजाय कस्टम इमेज उपयोग करने की सुविधा देता है।
+पिक्चर बुलेट आपको सिम्बॉल या संख्या के बजाय एक कस्टम इमेज उपयोग करने की अनुमति देता है।
 
-1. [Presentation](https://reference.aspose.com/slides/hi/python-net/aspose.slides/presentation/) क्लास का एक उदाहरण बनाएं।
-2. उसकी इंडेक्स के द्वारा संबंधित स्लाइड तक पहुँचें।
-3. एक [AutoShape](https://reference.aspose.com/slides/hi/python-net/aspose.slides/autoshape/) जोड़ें और उसके [TextFrame](https://reference.aspose.com/slides/hi/python-net/aspose.slides/textframe/) तक पहुँचें।
+1. [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) क्लास का एक उदाहरण बनाएँ।
+2. इंडेक्स के माध्यम से संबंधित स्लाइड तक पहुँचें।
+3. एक [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) जोड़ें और उसके [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) तक पहुँचें।
 4. टेक्स्ट फ्रेम से डिफ़ॉल्ट पैराग्राफ हटाएँ।
-5. बुलेट इमेज लोड करें और उसे प्रस्तुति की इमेज कलेक्शन में एक [PPImage](https://reference.aspose.com/slides/hi/python-net/aspose.slides/ppimage/) के रूप में जोड़ें।
-6. एक [Paragraph](https://reference.aspose.com/slides/hi/python-net/aspose.slides/paragraph/) बनाएं और उसका टेक्स्ट सेट करें।
-7. [BulletFormat.type](https://reference.aspose.com/slides/hi/python-net/aspose.slides/bulletformat/type/) को [BulletType.PICTURE](https://reference.aspose.com/slides/hi/python-net/aspose.slides/bullettype/) पर सेट करें।
-8. [BulletFormat.picture](https://reference.aspose.com/slides/hi/python-net/aspose.slides/bulletformat/picture/) के माध्यम से इमेज असाइन करें और बुलेट ऊँचाई सेट करें।
+5. बुलेट इमेज लोड करें और उसे प्रस्तुति की इमेज कलेक्शन में एक [PPImage](https://reference.aspose.com/slides/python-net/aspose.slides/ppimage/) के रूप में जोड़ें।
+6. एक [Paragraph](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/) बनाएँ और उसका टेक्स्ट सेट करें।
+7. [BulletFormat.type](https://reference.aspose.com/slides/python-net/aspose.slides/bulletformat/type/) को [BulletType.PICTURE](https://reference.aspose.com/slides/python-net/aspose.slides/bullettype/) सेट करें।
+8. [BulletFormat.picture](https://reference.aspose.com/slides/python-net/aspose.slides/bulletformat/picture/) के माध्यम से इमेज असाइन करें और बुलेट ऊँचाई सेट करें।
 9. पैराग्राफ को टेक्स्ट फ्रेम में जोड़ें।
-10. संशोधित प्रस्तुति को सहेजें।
+10. संशोधित प्रस्तुति सहेजें।
 
-यह Python उदाहरण एक चित्र बुलेट बनाता है:
+यह Python उदाहरण पिक्चर बुलेट बनाता है:
 
 ```python
 import aspose.slides as slides
@@ -201,17 +201,17 @@ with slides.Presentation() as presentation:
     presentation.save("picture_bullet.ppt", slides.export.SaveFormat.PPT)
 ```
 
-### **बहु-स्तरीय सूची बनाएं**
+### **मल्टीलेवल सूची बनाएँ**
 
-[ParagraphFormat.depth](https://reference.aspose.com/slides/hi/python-net/aspose.slides/paragraphformat/depth/) सेट करके पैराग्राफ को सूची के विभिन्न स्तरों पर रखें। शीर्ष स्तर की गहराई `0` होती है।
+[ParagraphFormat.depth](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/depth/) सेट करके पैराग्राफ को सूची के विभिन्न स्तरों पर रखा जाता है। शीर्ष स्तर की depth `0` होती है।
 
-1. एक [Presentation](https://reference.aspose.com/slides/hi/python-net/aspose.slides/presentation/) बनाएं और एक स्लाइड तक पहुँचें।
-2. एक [AutoShape](https://reference.aspose.com/slides/hi/python-net/aspose.slides/autoshape/) जोड़ें और उसके टेक्स्ट फ्रेम से डिफ़ॉल्ट पैराग्राफ साफ़ करें।
-3. चार पैराग्राफ बनाएं और उनके बुलेट प्रतीकों को कॉन्फ़िगर करें।
-4. उनके [ParagraphFormat.depth](https://reference.aspose.com/slides/hi/python-net/aspose.slides/paragraphformat/depth/) मान को क्रमशः `0`, `1`, `2`, `3` सेट करें।
-5. पैराग्राफ को टेक्स्ट फ्रेम में जोड़ें और प्रस्तुति को सहेजें।
+1. एक [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) बनाएँ और एक स्लाइड तक पहुँचें।
+2. एक [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) जोड़ें और उसके टेक्स्ट फ्रेम से डिफ़ॉल्ट पैराग्राफ को साफ़ करें।
+3. चार पैराग्राफ बनाएँ और उनके बुलेट सिम्बॉल कॉन्फ़िगर करें।
+4. उनके [ParagraphFormat.depth](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/depth/) मानों को क्रमशः `0`, `1`, `2`, और `3` सेट करें।
+5. पैराग्राफ को टेक्स्ट फ्रेम में जोड़ें और प्रस्तुति सहेजें।
 
-यह Python उदाहरण चार‑स्तरीय बुलेटेड सूची बनाता है:
+यह Python उदाहरण चार‑स्तर की बुलेटेड सूची बनाता है:
 
 ```python
 import aspose.pydrawing as draw
@@ -263,17 +263,17 @@ with slides.Presentation() as presentation:
     presentation.save("multilevel_list.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **कस्टम मानों के साथ क्रमांकित सूची आइटम शुरू करें**
+### **नंबर्ड सूची आइटम्स को कस्टम मानों से शुरू करें**
 
-[BulletFormat.numbered_bullet_start_with](https://reference.aspose.com/slides/hi/python-net/aspose.slides/bulletformat/numbered_bullet_start_with/) का उपयोग करके क्रमांकित पैराग्राफ के लिए प्रारंभिक संख्या निर्धारित करें।
+[BulletFormat.numbered_bullet_start_with](https://reference.aspose.com/slides/python-net/aspose.slides/bulletformat/numbered_bullet_start_with/) का उपयोग करके नंबर्ड पैराग्राफ के लिए प्रारंभिक संख्या सेट करें।
 
-1. एक [Presentation](https://reference.aspose.com/slides/hi/python-net/aspose.slides/presentation/) बनाएं और एक [AutoShape](https://reference.aspose.com/slides/hi/python-net/aspose.slides/autoshape/) स्लाइड में जोड़ें।
-2. आकार के टेक्स्ट फ्रेम से डिफ़ॉल्ट पैराग्राफ साफ़ करें।
-3. तीन क्रमांकित पैराग्राफ बनाएं।
-4. संबंधित पैराग्राफों के लिए [BulletFormat.numbered_bullet_start_with](https://reference.aspose.com/slides/hi/python-net/aspose.slides/bulletformat/numbered_bullet_start_with/) को क्रमशः `2`, `3` और `7` सेट करें।
-5. पैराग्राफ को टेक्स्ट फ्रेम में जोड़ें और प्रस्तुति को सहेजें।
+1. एक [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) बनाएँ और एक [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) स्लाइड में जोड़ें।
+2. शैप के टेक्स्ट फ्रेम से डिफ़ॉल्ट पैराग्राफ साफ़ करें।
+3. तीन नंबर्ड पैराग्राफ बनाएँ।
+4. प्रत्येक पैराग्राफ के लिए [BulletFormat.numbered_bullet_start_with](https://reference.aspose.com/slides/python-net/aspose.slides/bulletformat/numbered_bullet_start_with/) को क्रमशः `2`, `3`, और `7` सेट करें।
+5. पैराग्राफ को टेक्स्ट फ्रेम में जोड़ें और प्रस्तुति सहेजें।
 
-यह Python उदाहरण प्रत्येक पैराग्राफ के लिए कस्टम प्रारंभिक संख्या निर्धारित करता है:
+यह Python उदाहरण प्रत्येक पैराग्राफ के लिए कस्टम प्रारंभिक संख्या असाइन करता है:
 
 ```python
 import aspose.slides as slides
@@ -305,25 +305,25 @@ with slides.Presentation() as presentation:
     presentation.save("custom_numbered_list.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **पैराग्राफ लेआउट और एन्ड प्रॉपर्टीज़ नियंत्रित करें**
+## **पैराग्राफ लेआउट और एंड प्रॉपर्टीज़ नियंत्रित करें**
 
-### **पहली पंक्ति का इन्डेंट सेट करें**
+### **पहली पंक्ति का इंडेंट सेट करें**
 
-[ParagraphFormat.indent](https://reference.aspose.com/slides/hi/python-net/aspose.slides/paragraphformat/indent/) प्रॉपर्टी का उपयोग करके पैराग्राफ की पहली पंक्ति का इन्डेंट नियंत्रित करें। यह प्रॉपर्टी केवल पहली पंक्ति को पैराग्राफ के बाएँ मार्जिन के सापेक्ष स्थानांतरित करती है। सकारात्मक मान पहली पंक्ति को दाईं ओर शिफ्ट करता है, जबकि बाकी पंक्तियाँ पैराग्राफ बॉडी के साथ संरेखित रहती हैं।
+[ParagraphFormat.indent](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/indent/) प्रॉपर्टी का उपयोग करके पैराग्राफ की पहली पंक्ति का इंडेंट नियंत्रित किया जाता है। यह प्रॉपर्टी केवल पहली पंक्ति को पैराग्राफ के बाएँ मार्जिन के सापेक्ष लेती है। सकारात्मक मान पहली पंक्ति को दाएँ शिफ्ट करता है, जबकि बाकी पंक्तियाँ पैराग्राफ बॉडी के साथ संरेखित रहती हैं।
 
-यदि आपको पूरे पैराग्राफ को स्थानांतरित करना हो तो [ParagraphFormat.margin_left](https://reference.aspose.com/slides/hi/python-net/aspose.slides/paragraphformat/margin_left/) उपयोग करें। केवल पहली पंक्ति को स्थानांतरित करने के लिए [ParagraphFormat.indent](https://reference.aspose.com/slides/hi/python-net/aspose.slides/paragraphformat/indent/) प्रयोग करें।
+पूरे पैराग्राफ को ले जाने के लिए आप [ParagraphFormat.margin_left](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/margin_left/) प्रयोग कर सकते हैं। केवल पहली पंक्ति को ले जाने के लिए [ParagraphFormat.indent](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/indent/) उपयोग करें।
 
-निम्न उदाहरण कई पैराग्राफ बनाता है और विभिन्न [ParagraphFormat.indent](https://reference.aspose.com/slides/hi/python-net/aspose.slides/paragraphformat/indent/) मूल्यों को लागू करके दर्शाता है कि पहली पंक्ति का इन्डेंट पैराग्राफ लेआउट को कैसे प्रभावित करता है।
+नीचे दिया गया उदाहरण कई पैराग्राफ बनाता है और विभिन्न [ParagraphFormat.indent](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/indent/) मान लागू करता है ताकि दिखाया जा सके कि पहली पंक्ति का इंडेंट पैराग्राफ लेआउट को कैसे प्रभावित करता है।
 
-1. एक [Presentation](https://reference.aspose.com/slides/hi/python-net/aspose.slides/presentation/) क्लास का उदाहरण बनाएं।
+1. एक [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) क्लास का उदाहरण बनाएँ।
 2. लक्ष्य स्लाइड तक पहुँचें।
-3. स्लाइड में एक आयताकार [AutoShape](https://reference.aspose.com/slides/hi/python-net/aspose.slides/autoshape/) जोड़ें।
-4. आकार के [TextFrame](https://reference.aspose.com/slides/hi/python-net/aspose.slides/textframe/) तक पहुँचें और डिफ़ॉल्ट पैराग्राफ हटाएँ।
-5. कई पैराग्राफ बनाएं और उनके लिए विभिन्न [ParagraphFormat.indent](https://reference.aspose.com/slides/hi/python-net/aspose.slides/paragraphformat/indent/) मान सेट करें।
+3. स्लाइड में एक आयताकार [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) जोड़ें।
+4. शैप के [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) तक पहुँचें और डिफ़ॉल्ट पैराग्राफ हटाएँ।
+5. कई पैराग्राफ बनाएँ और उनके लिए विभिन्न [ParagraphFormat.indent](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/indent/) मान सेट करें।
 6. पैराग्राफ को टेक्स्ट फ्रेम में जोड़ें।
-7. संशोधित प्रस्तुति को सहेजें।
+7. संशोधित प्रस्तुति सहेजें।
 
-यह कोड पैराग्राफ इन्डेंट सेट करने का तरीका दर्शाता है:
+यह कोड दिखाता है कि पैराग्राफ इंडेंट कैसे सेट करें:
 
 ```python
 import aspose.pydrawing as draw
@@ -370,26 +370,26 @@ with slides.Presentation() as presentation:
 
 परिणाम:
 
-![पैराग्राफ की पहली पंक्ति का इन्डेंट](first_line_indent.png)
+![पैराग्राफों की पहली पंक्ति का इंडेंट](first_line_indent.png)
 
-### **हैंगिंग इन्डेंट सेट करें**
+### **हेंगिंग इंडेंट सेट करें**
 
-हैंगिंग इन्डेंट वह पैराग्राफ लेआउट है जिसमें पहली पंक्ति बाकी पंक्तियों से बाईं ओर शुरू होती है। Aspose.Slides में आप यह प्रभाव [ParagraphFormat.indent](https://reference.aspose.com/slides/hi/python-net/aspose.slides/paragraphformat/indent/) प्रॉपर्टी से बनाते हैं। `indent` को नकारात्मक मान पर सेट करके पहली पंक्ति को पैराग्राफ बॉडी के सापेक्ष बाएँ ले जाएँ।
+हेंगिंग इंडेंट वह पैराग्राफ लेआउट है जिसमें पहली पंक्ति बाकी पंक्तियों से बाएं शुरू होती है। Aspose.Slides में आप इस प्रभाव को [ParagraphFormat.indent](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/indent/) प्रॉपर्टी से बनाते हैं। `indent` को नकारात्मक मान सेट करके पहली पंक्ति को पैराग्राफ बॉडी के सापेक्ष बाएँ ले जाएँ।
 
-व्यावहारिक रूप से, [ParagraphFormat.margin_left](https://reference.aspose.com/slides/hi/python-net/aspose.slides/paragraphformat/margin_left/) पैराग्राफ बॉडी की बायीं स्थिति निर्धारित करता है, और [ParagraphFormat.indent](https://reference.aspose.com/slides/hi/python-net/aspose.slides/paragraphformat/indent/) पहली पंक्ति की स्थिति को उस मार्जिन के सापेक्ष परिभाषित करता है। हैंगिंग इन्डेंट बनाने के लिए, `margin_left` को सकारात्मक मान और `indent` को नकारात्मक मान सेट करें।
+व्यवहार में, [ParagraphFormat.margin_left](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/margin_left/) पैराग्राफ बॉडी की बायाँ स्थिति निर्धारित करता है, और [ParagraphFormat.indent](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/indent/) पहली पंक्ति की स्थिति इसे मार्जिन के सापेक्ष तय करती है। हेंगिंग इंडेंट बनाने के लिए, सकारात्मक `margin_left` मान और नकारात्मक `indent` मान सेट करें।
 
-यह फ़ॉर्मेटिंग बिब्लियोग्राफी, रेफ़रेंसेस, शब्दकोश प्रविष्टियों आदि में उपयोगी है जहाँ लपेटी हुई पंक्तियों को पैराग्राफ बॉडी के नीचे संरेखित होना चाहिए, न कि पहली पंक्ति के पहले अक्षर के नीचे।
+यह फ़ॉर्मेटिंग बिब्लियोग्राफी, रेफ़रेंसेस, शब्दकोश प्रविष्टियों आदि के लिए उपयोगी है जहाँ रैप्ड लाइनों को पैराग्राफ बॉडी के नीचे संरेखित करना आवश्यक होता है।
 
-1. एक [Presentation](https://reference.aspose.com/slides/hi/python-net/aspose.slides/presentation/) क्लास का उदाहरण बनाएं।
+1. एक [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) क्लास का उदाहरण बनाएँ।
 2. लक्ष्य स्लाइड तक पहुँचें।
-3. स्लाइड में एक आयताकार [AutoShape](https://reference.aspose.com/slides/hi/python-net/aspose.slides/autoshape/) जोड़ें।
-4. आकार के [TextFrame](https://reference.aspose.com/slides/hi/python-net/aspose.slides/textframe/) तक पहुँचें और डिफ़ॉल्ट पैराग्राफ हटाएँ।
-5. पैराग्राफ बनाएं और प्रत्येक पैराग्राफ के लिए सकारात्मक [ParagraphFormat.margin_left](https://reference.aspose.com/slides/hi/python-net/aspose.slides/paragraphformat/margin_left/) मान सेट करें।
-6. हैंगिंग इन्डेंट प्रभाव बनाने के लिए नकारात्मक [ParagraphFormat.indent](https://reference.aspose.com/slides/hi/python-net/aspose.slides/paragraphformat/indent/) मान सेट करें।
+3. स्लाइड में एक आयताकार [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) जोड़ें।
+4. शैप के [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) तक पहुँचें और डिफ़ॉल्ट पैराग्राफ हटाएँ।
+5. प्रत्येक पैराग्राफ के लिए सकारात्मक [ParagraphFormat.margin_left](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/margin_left/) मान सेट करके पैराग्राफ बनाएँ।
+6. हेंगिंग इंडेंट प्रभाव बनाने के लिए नकारात्मक [ParagraphFormat.indent](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/indent/) मान सेट करें।
 7. पैराग्राफ को टेक्स्ट फ्रेम में जोड़ें।
-8. संशोधित प्रस्तुति को सहेजें।
+8. संशोधित प्रस्तुति सहेजें।
 
-यह कोड एक पैराग्राफ के लिए हैंगिंग इन्डेंट सेट करने का तरीका दर्शाता है:
+यह कोड दिखाता है कि पैराग्राफ पर हेंगिंग इंडेंट कैसे सेट करें:
 
 ```python
 import aspose.pydrawing as draw
@@ -428,18 +428,18 @@ with slides.Presentation() as presentation:
 
 परिणाम:
 
-![पैराग्राफ की हैंगिंग इन्डेंट](hanging_indent.png)
+![पैराग्राफों का हैंगिंग इंडेंट](hanging_indent.png)
 
 ### **एंड पैराग्राफ रन प्रॉपर्टीज़ सेट करें**
 
-[Paragraph.end_paragraph_portion_format](https://reference.aspose.com/slides/hi/python-net/aspose.slides/paragraph/end_paragraph_portion_format/) प्रॉपर्टी पैराग्राफ अंत चिह्न की फ़ॉर्मेटिंग को नियंत्रित करती है। नीचे दिया गया उदाहरण दूसरे पैराग्राफ के अंत चिह्न को फ़ॉन्ट आकार और लैटिन फ़ॉन्ट असाइन करता है:
+[Paragraph.end_paragraph_portion_format](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/end_paragraph_portion_format/) प्रॉपर्टी पैराग्राफ एंड मार्क की फ़ॉर्मेटिंग नियंत्रित करती है। निम्न उदाहरण दूसरे पैराग्राफ के एंड मार्क को फ़ॉन्ट साइज और लैटिन फ़ॉन्ट असाइन करता है:
 
-1. एक [Presentation](https://reference.aspose.com/slides/hi/python-net/aspose.slides/presentation/) लोड करें और एक स्लाइड तक पहुँचें।
-2. एक [AutoShape](https://reference.aspose.com/slides/hi/python-net/aspose.slides/autoshape/) जोड़ें और उसका डिफ़ॉल्ट पैराग्राफ साफ़ करें।
-3. दो पैराग्राफ बनाएं और उनमें टेक्स्ट पोर्शन जोड़ें।
-4. दूसरे पैराग्राफ के अंत चिह्न के लिए एक [PortionFormat](https://reference.aspose.com/slides/hi/python-net/aspose.slides/portionformat/) बनाएं।
-5. [PortionFormat.font_height](https://reference.aspose.com/slides/hi/python-net/aspose.slides/portionformat/font_height/) और [PortionFormat.latin_font](https://reference.aspose.com/slides/hi/python-net/aspose.slides/portionformat/latin_font/) सेट करें।
-6. इस फ़ॉर्मेट को [Paragraph.end_paragraph_portion_format](https://reference.aspose.com/slides/hi/python-net/aspose.slides/paragraph/end_paragraph_portion_format/) पर असाइन करें और प्रस्तुति को सहेजें।
+1. एक [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) लोड करें और एक स्लाइड तक पहुँचें।
+2. एक [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) जोड़ें और उसका डिफ़ॉल्ट पैराग्राफ साफ़ करें।
+3. दो पैराग्राफ बनाएँ और उनमें टेक्स्ट पोर्शन जोड़ें।
+4. दूसरे पैराग्राफ के एंड मार्क के लिए एक [PortionFormat](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/) बनाएँ।
+5. [PortionFormat.font_height](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/font_height/) और [PortionFormat.latin_font](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/latin_font/) सेट करें।
+6. फॉर्मेट को [Paragraph.end_paragraph_portion_format](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/end_paragraph_portion_format/) को असाइन करें और प्रस्तुति सहेजें।
 
 ```python
 import aspose.slides as slides
@@ -467,15 +467,15 @@ with slides.Presentation("Test.pptx") as presentation:
     presentation.save("end_paragraph_format.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **रेंडर की गई पंक्तियों की गिनती**
+## **रेंडर की गई लाइनों को गिनें**
 
-पैराग्राफ नियम जो स्वचालित रैपिंग एवं लाइन समाप्ति पर विराम चिह्न को प्रभावित करते हैं, उनके लिए देखें [Control Line Breaking](/slides/hi/python-net/text-formatting/#control-line-breaking) और [Control Hanging Punctuation](/slides/hi/python-net/text-formatting/#control-hanging-punctuation)।
+लाइन ब्रेकिंग और लाइनों के अंत में विराम चिह्न को नियंत्रित करने वाले पैराग्राफ नियमों के लिए देखें [Control Line Breaking](/slides/hi/python-net/text-formatting/#control-line-breaking) और [Control Hanging Punctuation](/slides/hi/python-net/text-formatting/#control-hanging-punctuation)।
 
-[Paragraph.get_lines_count](https://reference.aspose.com/slides/hi/python-net/aspose.slides/paragraph/get_lines_count/) का उपयोग करके आप टेक्स्ट लेआउट के बाद पैराग्राफ द्वारा घेरित पंक्तियों की संख्या गिन सकते हैं, जिसमें स्वचालित रैपिंग भी शामिल है। यह प्रस्तुति टेम्पलेट में टेक्स्ट लंबाई और लेआउट की जाँच के लिए उपयोगी है।
+[Paragraph.get_lines_count](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/get_lines_count/) का उपयोग करके आप टेक्स्ट लेआउट के बाद पैराग्राफ द्वारा ली गई लाइनों की संख्या गिन सकते हैं, जिसमें स्वचालित रैपिंग शामिल है। यह प्रस्तुति टेम्प्लेट में टेक्स्ट लंबाई और लेआउट जाँचने के लिए उपयोगी है।
 
-एक पैराग्राफ [TextFrame.paragraphs](https://reference.aspose.com/slides/hi/python-net/aspose.slides/textframe/paragraphs/) में एक आइटम है, और यह कई रेंडर की गई पंक्तियों को घेर सकता है। पैराग्राफ के भीतर स्पष्ट लाइन ब्रेक नई पंक्ति बनाता है बिना नया पैराग्राफ उत्पन्न किए। स्वचालित रैपिंग उपलब्ध चौड़ाई के आधार पर पंक्तियाँ बनाता है, जबकि स्पष्ट लाइन‑ब्रेक वर्णों की गिनती रेंडर पंक्तियों को नहीं दर्शाती।
+एक पैराग्राफ [TextFrame.paragraphs](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/paragraphs/) में एक आइटम है, और यह कई रेंडर की गई लाइनों को कवर कर सकता है। पैराग्राफ के भीतर स्पष्ट लाइन ब्रेक नई लाइन बनाता है बिना नया पैराग्राफ बनाए। स्वचालित रैपिंग उपलब्ध चौड़ाई के आधार पर लाइनों का निर्माण करता है बिना टेक्स्ट में स्पष्ट लाइन ब्रेक डाले। इसलिए पैराग्राफ या लाइन‑ब्रेक कैरेक्टर्स को गिनना रेंडर की गई लाइन काउंट नहीं देता।
 
-नीचे दिया गया उदाहरण एक टेक्स्ट शेप बनाता है, उसकी पंक्तियों की गिनती करता है, शेप को संकरी करता है, फिर टेक्स्ट को छोटी स्ट्रिंग से बदलता है। रैपिंग सक्षम है और ऑटो‑फ़िट बंद है ताकि शेप की चौड़ाई रैपिंग को नियंत्रित करे, बिना टेक्स्ट को स्वचालित रूप से छोटा किए या शेप को पुनः आकार दिए। शेप का आकार पॉइंट्स में है। अंत में, उदाहरण एक और पैराग्राफ जोड़ता है और टेक्स्ट फ्रेम में सभी पंक्तियों की गिनती जोड़ता है।
+निम्न उदाहरण एक टेक्स्ट शैप बनाता है, उसकी लाइनों की गिनती करता है, शैप को संकरा करता है, और फिर टेक्स्ट को छोटे स्ट्रिंग से बदलता है। रैपिंग सक्षम है और ऑटोफ़िट बंद है ताकि शैप की चौड़ाई रैपिंग को नियंत्रित करे बिना टेक्स्ट को स्वतः घटाए या शैप को रिसाइज़ किए। शैप आयाम पॉइंट में हैं। अंत में, उदाहरण एक और पैराग्राफ जोड़ता है और टेक्स्ट फ्रेम में सभी लाइन काउंट जोड़ता है।
 
 ```python
 import aspose.slides as slides
@@ -510,22 +510,22 @@ with slides.Presentation() as presentation:
     print(f"Total lines in the text frame: {total_line_count}")
 ```
 
-इन टेक्स्ट और आयामों के साथ, शेप को संकरी करने पर पंक्तियों की संख्या बढ़ती है, जबकि छोटे टेक्स्ट से बदलने पर घटती है। फ़ॉन्ट उपलब्धता, प्रतिस्थापन, फ़ॉन्ट आकार, मार्जिन, इन्डेंट, रैपिंग और ऑटो‑फ़िट सेटिंग्स के अनुसार सटीक गिनती बदल सकती है। टेम्पलेट की जाँच करते समय लक्ष्य वातावरण के लिए नियत फ़ॉन्ट और लेआउट सेटिंग्स उपयोग करें।
+इन टेक्स्ट और आयामों के साथ, शैप को संकुचित करने से लाइन काउंट बढ़ता है, जबकि छोटे स्ट्रिंग से बदलने से कम होता है। फ़ॉन्ट उपलब्धता और प्रतिस्थापन, फ़ॉन्ट आकार, मार्जिन, इंडेंटेशन, रैपिंग और ऑटोफ़िट सेटिंग्स के आधार पर सटीक काउंट बदल सकते हैं। टेम्प्लेट जाँचते समय लक्ष्य वातावरण के लिए इच्छित फ़ॉन्ट और लेआउट सेटिंग्स का उपयोग करें।
 
-पंक्तियों की गिनती अकेले यह निर्धारित नहीं करती कि टेक्स्ट कंटेनर को ओवरफ़्लो करता है या नहीं। उपलब्ध ऊँचाई, पंक्ति‑ऊँचाई, पैराग्राफ एवं लाइन स्पेसिंग, और ऑटो‑फ़िट व्यवहार भी महत्वपूर्ण हैं; यहाँ तक कि एक ही पंक्ति भी उपलब्ध चौड़ाई से अधिक हो सकती है जब रैपिंग बंद हो।
+केवल लाइन काउंट यह निर्धारित नहीं करता कि टेक्स्ट कंटेनर से बाहर निकल रहा है या नहीं। उपलब्ध ऊँचाई, लाइन ऊँचाइयाँ, पैराग्राफ और लाइन स्पेसिंग, और ऑटोफ़िट व्यवहार भी महत्वपूर्ण हैं; रैपिंग निष्क्रिय होने पर एक ही लाइन उपलब्ध चौड़ाई से अधिक हो सकती है।
 
-## **पैराग्राफ कंटेंट आयात और निर्यात**
+## **पैराग्राफ सामग्री आयात और निर्यात करें**
 
 ### **HTML टेक्स्ट को पैराग्राफ में आयात करें**
 
-[ParagraphCollection.add_from_html](https://reference.aspose.com/slides/hi/python-net/aspose.slides/paragraphcollection/add_from_html/) का उपयोग करके आप HTML मार्कअप को टेक्स्ट फ्रेम में पैराग्राफ और पोर्शन में परिवर्तित कर सकते हैं।
+[ParagraphCollection.add_from_html](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphcollection/add_from_html/) का उपयोग करके HTML मार्कअप को टेक्स्ट फ्रेम में पैराग्राफ और पोर्शन में परिवर्तित करें।
 
-1. एक [Presentation](https://reference.aspose.com/slides/hi/python-net/aspose.slides/presentation/) क्लास का उदाहरण बनाएं।
-2. एक स्लाइड तक पहुँचें और एक [AutoShape](https://reference.aspose.com/slides/hi/python-net/aspose.slides/autoshape/) जोड़ें।
-3. आकार के [TextFrame](https://reference.aspose.com/slides/hi/python-net/aspose.slides/textframe/) तक पहुँचें और उसका डिफ़ॉल्ट पैराग्राफ साफ़ करें।
+1. एक [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) क्लास का उदाहरण बनाएँ।
+2. एक स्लाइड तक पहुँचें और एक [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) जोड़ें।
+3. शैप के [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) तक पहुँचें और डिफ़ॉल्ट पैराग्राफ साफ़ करें।
 4. स्रोत HTML फ़ाइल पढ़ें।
-5. HTML स्ट्रिंग को [ParagraphCollection.add_from_html](https://reference.aspose.com/slides/hi/python-net/aspose.slides/paragraphcollection/add_from_html/) को पास करें।
-6. संशोधित प्रस्तुति को सहेजें।
+5. HTML स्ट्रिंग को [ParagraphCollection.add_from_html](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphcollection/add_from_html/) को पास करें।
+6. संशोधित प्रस्तुति सहेजें।
 
 यह Python उदाहरण HTML को टेक्स्ट फ्रेम में आयात करता है:
 
@@ -549,15 +549,15 @@ with slides.Presentation() as presentation:
 
 ### **पैराग्राफ टेक्स्ट को HTML में निर्यात करें**
 
-[ParagraphCollection.export_to_html](https://reference.aspose.com/slides/hi/python-net/aspose.slides/paragraphcollection/export_to_html/) का उपयोग करके आप चयनित पैराग्राफ रेंज को HTML के रूप में निर्यात कर सकते हैं।
+[ParagraphCollection.export_to_html](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphcollection/export_to_html/) का उपयोग करके चयनित पैराग्राफ रेंज को HTML के रूप में निर्यात करें।
 
-1. एक [Presentation](https://reference.aspose.com/slides/hi/python-net/aspose.slides/presentation/) का उदाहरण बनाएं और वांछित प्रस्तुति लोड करें।
-2. स्लाइड तक पहुँचें और वह [AutoShape](https://reference.aspose.com/slides/hi/python-net/aspose.slides/autoshape/) खोजें जिसमें टेक्स्ट है।
-3. आकार के [TextFrame](https://reference.aspose.com/slides/hi/python-net/aspose.slides/textframe/) तक पहुँचें।
-4. प्रारंभिक पैराग्राफ इंडेक्स और निर्यात करने वाले पैराग्राफों की संख्या के साथ [ParagraphCollection.export_to_html](https://reference.aspose.com/slides/hi/python-net/aspose.slides/paragraphcollection/export_to_html/) को कॉल करें।
-5. प्राप्त HTML स्ट्रिंग को फ़ाइल में लिखें।
+1. एक [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) क्लास का उदाहरण बनाएँ और वांछित प्रस्तुति लोड करें।
+2. स्लाइड तक पहुँचें और वह [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) खोजें जो टेक्स्ट रखता है।
+3. शैप के [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) तक पहुँचें।
+4. शुरुआती पैराग्राफ इंडेक्स और निर्यात करने वाले पैराग्राफों की संख्या के साथ [ParagraphCollection.export_to_html](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphcollection/export_to_html/) को कॉल करें।
+5. वापस मिली HTML स्ट्रिंग को फ़ाइल में लिखें।
 
-यह Python उदाहरण पहले टेक्स्ट शेप से सभी पैराग्राफ निर्यात करता है:
+यह Python उदाहरण पहले टेक्स्ट शैप से सभी पैराग्राफ निर्यात करता है:
 
 ```python
 import aspose.slides as slides
@@ -574,19 +574,19 @@ with slides.Presentation("ExportingHTMLText.pptx") as presentation:
         print("The first shape is not a text shape.")
 ```
 
-### **पैराग्राफ को इमेज के रूप में रेंडर करें**
+### **पैराग्राफ को छवि के रूप में रेंडर करें**
 
-[Paragraph](https://reference.aspose.com/slides/hi/python-net/aspose.slides/paragraph/) `get_image` मेथड प्रदान करता है जिससे आप व्यक्तिगत पैराग्राफ को सीधे रेंडर कर सकते हैं। यह मेथड एक [IImage](https://reference.aspose.com/slides/hi/python-net/aspose.slides/iimage/) लौटाता है जिसे आप [IImage.save](https://reference.aspose.com/slides/hi/python-net/aspose.slides/iimage/save/) के साथ फ़ाइल या स्ट्रीम में सहेज सकते हैं। आपको समग्र शेप को रेंडर करने या बिटमैप को मैन्युअल रूप से क्रॉप करने की आवश्यकता नहीं है।
+[Paragraph](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/) `get_image` मेथड प्रदान करता है जिससे किसी व्यक्तिगत पैराग्राफ को सीधे रेंडर किया जा सकता है। यह मेथड एक [IImage](https://reference.aspose.com/slides/python-net/aspose.slides/iimage/) लौटाता है जिसे आप फ़ाइल या स्ट्रीम में [IImage.save](https://reference.aspose.com/slides/python-net/aspose.slides/iimage/save/) के साथ सहेज सकते हैं। आपको कंटेनिंग शैप को रेंडर करने या बिटर को मैन्युअली क्रॉप करने की आवश्यकता नहीं है।
 
-यदि पैराग्राफ उसके पैरेंट कलेक्शन में नहीं मिला, वैध रेंडरिंग बाउंड नहीं हैं, या रेंडर नहीं किया जा सका तो `get_image` `None` लौटा सकता है। सहेजने से पहले परिणाम जाँचें और इमेज को कॉन्टेक्स्ट मैनेजर के रूप में उपयोग करके संसाधनों को रिलीज़ करें।
+यदि पैराग्राफ को उसके पैरेंट कलेक्शन में नहीं पाया जाता, वैध रेंडरिंग बॉउंड्स नहीं होते, या रेंडर नहीं किया जा सकता तो `get_image` `None` लौटाता है। सहेजने से पहले परिणाम जाँचें और इमेज को कॉन्टेक्स्ट मैनेजर के रूप में उपयोग करके संसाधनों को मुक्त करें।
 
 #### **डिफ़ॉल्ट स्केल पर पैराग्राफ रेंडर करें**
 
-मान लीजिए हमारे पास `sample.pptx` नामक प्रस्तुति फ़ाइल है जिसमें एक स्लाइड है, जहाँ पहला शेप तीन पैराग्राफ वाला टेक्स्ट बॉक्स है।
+मान लीजिए हमारे पास `sample.pptx` नामक प्रस्तुति फ़ाइल है जिसमें एक स्लाइड है, जहाँ पहला शैप तीन पैराग्राफ वाला टेक्स्ट बॉक्स है।
 
 ![तीन पैराग्राफ वाला टेक्स्ट बॉक्स](paragraph_to_image_input.png)
 
-निम्न उदाहरण डिफ़ॉल्ट स्केल पर एक सामान्य टेक्स्ट शेप में दूसरे पैराग्राफ को रेंडर करता है और लौटाई गई इमेज को PNG फ़ॉर्मेट में सहेजता है:
+निम्न उदाहरण दूसरे पैराग्राफ को नियमित टेक्स्ट शैप में डिफ़ॉल्ट स्केल पर रेंडर करता है और PNG फ़ॉर्मेट में लौटाई गई इमेज सहेजता है:
 
 ```python
 import aspose.slides as slides
@@ -609,11 +609,11 @@ with slides.Presentation("sample.pptx") as presentation:
 
 परिणाम:
 
-![पैराग्राफ इमेज](paragraph_to_image_output.png)
+![पैराग्राफ छवि](paragraph_to_image_output.png)
 
 #### **टेबल सेल में स्केलिंग के साथ पैराग्राफ रेंडर करें**
 
-`get_image` को क्षैतिज और लंबवत स्केल फ़ैक्टर पास करके आप रेंडर किए गए पैराग्राफ के आकार को नियंत्रित कर सकते हैं। नीचे दिया गया उदाहरण एक टेबल बनाता है, उसके पहले सेल में पैराग्राफ को डिफ़ॉल्ट चौड़ाई और ऊँचाई से दो गुना स्केल करता है, और परिणाम को PNG इमेज के रूप में सहेजता है:
+`get_image` में क्षैतिज और ऊर्ध्वाधर स्केल फ़ैक्टर पास करके रेंडर किए गए पैराग्राफ का आकार नियंत्रित किया जा सकता है। निम्न उदाहरण एक टेबल बनाता है, पहले सेल में पैराग्राफ को डिफ़ॉल्ट चौड़ाई और ऊँचाई के दो गुना पर रेंडर करता है, और परिणाम को PNG इमेज के रूप में सहेजता है:
 
 ```python
 import aspose.slides as slides
@@ -635,24 +635,26 @@ with slides.Presentation() as presentation:
         print("The paragraph could not be rendered.")
 ```
 
-`1` का स्केल फ़ैक्टर उस अक्ष को उसकी डिफ़ॉल्ट पिक्सेल साइज़ पर रखता है। उदाहरण के लिये, दोनों फ़ैक्टर को `2` करने से इमेज की चौड़ाई और ऊँचाई लगभग दोगुनी हो जाती है, जिससे पिक्सेल चार गुना हो जाते हैं। बड़े फ़ैक्टर जूम या हाई‑रिज़ॉल्यूशन आउटपुट के लिये तेज़ टेक्स्ट देते हैं, लेकिन मेमोरी उपयोग और फ़ाइल आकार भी बढ़ाते हैं। `1` से नीचे के फ़ैक्टर छोटे इमेज बनाते हैं जिनमें कम विवरण होता है। पैराग्राफ का अनुपात बरकरार रखने के लिये समान फ़ैक्टर उपयोग करें; अलग‑अलग क्षैतिज और लंबवत फ़ैक्टर आउटपुट को स्वतंत्र रूप से स्ट्रेच करते हैं।
+`1` का स्केल फ़ैक्टर उस अक्ष को डिफ़ॉल्ट पिक्सेल आकार पर रखता है। उदाहरण के लिए, दोनों फ़ैक्टर `2` होने पर इमेज की चौड़ाई और ऊँचाई लगभग दो गुना हो जाती है, जिससे कुल चार गुना पिक्सेल मिलते हैं। बड़े फ़ैक्टर ज़ूम या हाई‑रेज़ॉल्यूशन आउटपुट के लिए टेक्स्ट को तेज़ बनाते हैं, लेकिन मेमोरी उपयोग और फ़ाइल आकार भी बढ़ाते हैं। `1` से नीचे के फ़ैक्टर छोटे इमेज बनाते हैं जिनमें कम विवरण होता है। समान फ़ैक्टर उपयोग करने से पैराग्राफ का अस्पेक्ट रेशियो बना रहता है; अलग-अलग क्षैतिज और ऊर्ध्वाधर फ़ैक्टर आउटपुट को स्वतंत्र रूप से खींचते हैं।
 
-यदि आपको शेप के फ़िल, बॉर्डर या अन्य दृश्य संदर्भ सहित आउटपुट चाहिए तो [Shape.get_image](https://reference.aspose.com/slides/hi/python-net/aspose.slides/shape/get_image/) उपयोगी रहता है। केवल पैराग्राफ‑इमेज के लिये `Paragraph.get_image` प्रयोग करें।
+पूरा शैप रेंडर करने के लिए [Shape.get_image](https://reference.aspose.com/slides/python-net/aspose.slides/shape/get_image/) उपयोगी रहता है जब आउटपुट में शैप की फ़िल, बॉर्डर या अन्य विज़ुअल कॉन्टेक्स्ट शामिल होना चाहिए। केवल पैराग्राफ इमेज के लिए `Paragraph.get_image` उपयोग करें।
 
 ## **अक्सर पूछे जाने वाले प्रश्न**
 
-**क्या मैं टेक्स्ट फ्रेम के भीतर लाइन रैपिंग को पूरी तरह बंद कर सकता हूँ?**
+**क्या मैं टेक्स्ट फ्रेम के भीतर लाइन रैपिंग को पूरी तरह निष्क्रिय कर सकता हूँ?**
 
-हाँ। [TextFrameFormat.wrap_text](https://reference.aspose.com/slides/hi/python-net/aspose.slides/textframeformat/wrap_text/) को `False` सेट करके रैपिंग बंद करें ताकि लाइनें टेक्स्ट फ्रेम की किनारी पर न टूटें।
+हां। रैपिंग को निष्क्रिय करने के लिए [TextFrameFormat.wrap_text](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/wrap_text/) सेट करें ताकि लाइनों का टूटना टेक्स्ट फ्रेम के किनारों पर न हो।
 
-**मैं किसी विशिष्ट पैराग्राफ की स्लाइड पर सटीक सीमाएँ कैसे प्राप्त करूँ?**
+**मैं किसी विशेष पैराग्राफ की स्लाइड पर सटीक सीमा कैसे प्राप्त करूँ?**
 
-[Paragraph.get_rect](https://reference.aspose.com/slides/hi/python-net/aspose.slides/paragraph/get_rect/) का उपयोग करके पैराग्राफ की बाउंडिंग रेक्टैंगल प्राप्त करें। व्यक्तिगत पोर्शन की सीमाओं के लिये [Portion.get_rect](https://reference.aspose.com/slides/hi/python-net/aspose.slides/portion/get_rect/) उपयोग करें।
+[Paragraph.get_rect](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/get_rect/) का उपयोग करके पैराग्राफ का बाउंडिंग रेक्टैंगल प्राप्त करें। व्यक्तिगत पोर्शन की सीमाएँ प्राप्त करने के लिए [Portion.get_rect](https://reference.aspose.com/slides/python-net/aspose.slides/portion/get_rect/) प्रयोग करें।
 
-**पैराग्राफ संरेखण (बायाँ, दायाँ, केंद्र या जस्टिफ़ाइज़) कहाँ नियंत्रित होता है?**
+**पैराग्राफ संरेखण (बाएं, दाएं, केंद्र या जस्टिफाई) कहाँ नियंत्रित होता है?**
 
-[ParagraphFormat.alignment](https://reference.aspose.com/slides/hi/python-net/aspose.slides/paragraphformat/alignment/) पैराग्राफ‑स्तर की सेटिंग है और यह पूरे पैराग्राफ पर लागू होती है, चाहे व्यक्तिगत पोर्शन का फ़ॉर्मेटिंग कुछ भी हो।
+[ParagraphFormat.alignment](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/alignment/) पैराग्राफ‑स्तर की सेटिंग है और यह पूरे पैराग्राफ पर लागू होती है, चाहे व्यक्तिगत पोर्शन का फ़ॉर्मेटिंग कुछ भी हो।
 
-**क्या मैं पैराग्राफ के किसी भाग के लिये प्रूफ़िंग भाषा सेट कर सकता हूँ?**
+हर लाइन में विभिन्न फ़ॉन्ट आकार वाले पोर्शन को वर्टिकली एलाइन करने के लिए देखें [Align Fonts Within a Line](/slides/hi/python-net/text-formatting/#align-fonts-within-a-line)।
 
-हाँ। व्यक्तिगत पोर्शन के लिये [PortionFormat.language_id](https://reference.aspose.com/slides/hi/python-net/aspose.slides/portionformat/language_id/) सेट करें, जिससे एक पैराग्राफ में कई भाषाओं का टेक्स्ट हो सकता है।
+**क्या मैं पैराग्राफ के भाग के लिए प्रूफ़िंग भाषा सेट कर सकता हूँ?**
+
+हां। व्यक्तिगत पोर्शन के लिए [PortionFormat.language_id](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/language_id/) सेट करें, जिससे एक पैराग्राफ कई भाषाओं में टेक्स्ट रख सकता है।

@@ -1,6 +1,6 @@
 ---
-title: Formattare il testo della presentazione su Android
-linktitle: Formattazione del testo
+title: Formattare il Testo della Presentazione su Android
+linktitle: Formattazione del Testo
 type: docs
 weight: 50
 url: /it/androidjava/text-formatting/
@@ -11,13 +11,13 @@ keywords:
 - trasparenza del testo
 - spaziatura dei caratteri
 - proprietà del font
-- famiglia di font
+- famiglia del font
 - rotazione del testo
 - angolo di rotazione
-- riquadro di testo
+- frame di testo
 - interlinea
 - proprietà autofit
-- ancora del riquadro di testo
+- ancora del frame di testo
 - tabulazione del testo
 - lingua predefinita
 - PowerPoint
@@ -26,23 +26,23 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: Formattare e stilizzare il testo in presentazioni PowerPoint e OpenDocument utilizzando Aspose.Slides per Android via Java. Personalizza font, colori, allineamento e altro.
+description: "Formatta e stila il testo in presentazioni PowerPoint e OpenDocument usando Aspose.Slides per Android via Java. Personalizza i font, i colori, l'allineamento e altro."
 ---
 ## **Panoramica**
 
-Questo articolo mostra come formattare il testo in presentazioni PowerPoint e OpenDocument utilizzando Aspose.Slides per Android via Java. Copre i colori di sfondo, la trasparenza, la spaziatura dei caratteri, le proprietà dei caratteri, la rotazione, la spaziatura dei paragrafi, il comportamento di adattamento automatico, l'ancoraggio del testo, le tabulazioni e le impostazioni della lingua.
+Questo articolo mostra come formattare il testo in presentazioni PowerPoint e OpenDocument utilizzando Aspose.Slides per Android tramite Java. Copre i colori di sfondo, la trasparenza, la spaziatura dei caratteri, le proprietà del carattere, la rotazione, la spaziatura dei paragrafi, il comportamento di autofit, l'ancoraggio del testo, le tabulazioni e le impostazioni della lingua.
 
-A meno che non sia indicato diversamente, gli esempi utilizzano [sample.pptx](sample.pptx). La prima forma nella sua prima slide è una casella di testo, e il suo primo paragrafo contiene il testo mostrato di seguito. Sia gli indici delle slide che delle forme sono basati su zero. Gli esempi che selezionano porzioni in grassetto usano la formattazione effettiva, inclusa la formattazione in grassetto ereditata:
+A meno che non sia indicato diversamente, gli esempi utilizzano [sample.pptx](sample.pptx). La prima forma nella sua prima diapositiva è una casella di testo e il suo primo paragrafo contiene il testo mostrato di seguito. Gli indici di diapositiva e di forma sono basati su zero. Gli esempi che selezionano parti in grassetto usano la formattazione effettiva, inclusa la formattazione in grassetto ereditata:
 
 ![Testo di esempio](sample_text.png)
 
-Per trovare e evidenziare testi letterali o corrispondenze di espressioni regolari, vedere [Cerca e Sostituisci Testo](/slides/it/androidjava/search-and-replace-text/).
+Per trovare e evidenziare testo letterale o corrispondenze di espressioni regolari, vedere [Cerca e Sostituisci Testo](/slides/it/androidjava/search-and-replace-text/).
 
-## **Imposta Colore di Sfondo del Testo**
+## **Imposta il Colore di Sfondo del Testo**
 
-Usa [IParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/iparagraphformat/#getDefaultPortionFormat--) per impostare il colore di evidenziazione predefinito per un paragrafo, o usa [IBasePortionFormat.getHighlightColor](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/ibaseportionformat/#getHighlightColor--) per porzioni di testo individuali.
+Usa [IParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#getDefaultPortionFormat--) per impostare il colore di evidenziazione predefinito per un paragrafo, oppure usa [IBasePortionFormat.getHighlightColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformat/#getHighlightColor--) per porzioni di testo individuali.
 
-Il seguente esempio imposta un'evidenziazione grigio chiaro come predefinita per il primo paragrafo. I colori di evidenziazione espliciti sulle singole porzioni hanno la precedenza su questo valore predefinito:
+L'esempio seguente imposta un'evidenziazione grigio chiaro come predefinita per il primo paragrafo. I colori di evidenziazione espliciti sulle singole porzioni hanno la precedenza su questa impostazione predefinita:
 
 ```java
 import com.aspose.slides.*;
@@ -96,13 +96,13 @@ try {
 
 Il risultato:
 
-![Le porzioni di testo grigio](gray_text_portions.png)
+![Le porzioni di testo grigie](gray_text_portions.png)
 
 ## **Allinea i Paragrafi di Testo**
 
-Usa [IParagraphFormat.setAlignment](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/iparagraphformat/#setAlignment-int-) per impostare l'allineamento del paragrafo all'interno di un riquadro di testo. Il valore può essere centrato, allineato a sinistra, allineato a destra, giustificato, ecc.
+Usa [IParagraphFormat.setAlignment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setAlignment-int-) per impostare l'allineamento del paragrafo all'interno di una casella di testo. Il valore può essere centrato, allineato a sinistra, allineato a destra, giustificato, ecc.
 
-Il seguente esempio di codice mostra come allineare il paragrafo al **centro**:
+L'esempio di codice seguente mostra come allineare il paragrafo al **centro**:
 
 ```java
 import com.aspose.slides.*;
@@ -127,11 +127,77 @@ Il risultato:
 
 ![Il paragrafo allineato](aligned_paragraph.png)
 
+## **Allinea i Fonts All'interno di una Linea**
+
+Usa [IParagraphFormat.setFontAlignment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setFontAlignment-int-) per allineare verticalmente le porzioni di testo di diverse dimensioni di carattere all'interno di una linea. Questa impostazione si applica all'intero paragrafo e controlla l'allineamento all'interno di ciascuna delle sue linee.
+
+L'esempio autonomo seguente crea quattro caselle di testo etichettate su una diapositiva. Ogni paragrafo contiene lo stesso testo a 18, 36 e 54 punti, con un diverso allineamento del font. Usa Arial, disabilita l'autofit e il wrapping, e mantiene le caselle di testo sufficientemente grandi per una sola riga.
+
+```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    int[] alignments = { FontAlignment.Baseline, FontAlignment.Top, FontAlignment.Center, FontAlignment.Bottom };
+    String[] alignmentNames = { "Baseline", "Top", "Center", "Bottom" };
+    float[] fontSizes = { 18f, 36f, 54f };
+
+    for (int i = 0; i < alignments.length; i++) {
+        IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 30, 20 + i * 130, 660, 120);
+        shape.getFillFormat().setFillType(FillType.NoFill);
+        shape.getLineFormat().getFillFormat().setFillType(FillType.NoFill);
+
+        ITextFrame textFrame = shape.getTextFrame();
+        textFrame.getTextFrameFormat().setAnchoringType(TextAnchorType.Top);
+        textFrame.getTextFrameFormat().setAutofitType(TextAutofitType.None);
+        textFrame.getTextFrameFormat().setWrapText(NullableBool.False);
+
+        IParagraph label = textFrame.getParagraphs().get_Item(0);
+        label.setText(alignmentNames[i]);
+        label.getParagraphFormat().setAlignment(TextAlignment.Left);
+        label.getParagraphFormat().getDefaultPortionFormat().setFontHeight(14);
+        label.getParagraphFormat().getDefaultPortionFormat().setLatinFont(new FontData("Arial"));
+        label.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
+        label.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY);
+
+        Paragraph paragraph = new Paragraph();
+        paragraph.getParagraphFormat().setFontAlignment(alignments[i]);
+        paragraph.getParagraphFormat().setAlignment(TextAlignment.Left);
+        paragraph.getParagraphFormat().getDefaultPortionFormat().setLatinFont(new FontData("Arial"));
+        paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
+        paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
+
+        for (float fontSize : fontSizes) {
+            Portion portion = new Portion("Ag ");
+            portion.getPortionFormat().setFontHeight(fontSize);
+            paragraph.getPortions().add(portion);
+        }
+
+        textFrame.getParagraphs().add(paragraph);
+    }
+
+    presentation.save("font_alignment.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Il risultato:
+
+![Confronto di allineamento baseline, top, center e bottom con font di dimensioni miste](font_alignment.png)
+
+L'allineamento dei font utilizza le metriche del carattere, quindi i bordi visibili delle singole lettere non sempre coincidono esattamente. L'esempio include sia una lettera maiuscola sia un discendente per evidenziare la differenza tra l'allineamento baseline e bottom. La disponibilità e sostituzione dei font, i caratteri usati e la differenza nelle dimensioni dei font influenzano il risultato. Dimensioni della cornice, margini, interlinea, wrapping e autofit influiscono anch'essi sul layout; utilizzare gli stessi font e le stesse impostazioni di layout quando si confrontano le modalità.
+
+Questa impostazione differisce da [IParagraphFormat.setAlignment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setAlignment-int-), che controlla l'allineamento orizzontale del paragrafo, e da [ITextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframeformat/#setAnchoringType-byte-), che posiziona il blocco di testo verticalmente all'interno della sua forma. La formattazione in apice e pedice tramite [IBasePortionFormat.setEscapement](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformat/#setEscapement-float-) sposta le singole porzioni rispetto alla baseline invece di impostare l'allineamento del font per le linee del paragrafo.
+
 ## **Imposta la Trasparenza del Testo**
 
-La trasparenza del testo è controllata tramite il componente alfa del colore assegnato a [IBasePortionFormat.getFillFormat](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/ibaseportionformat/#getFillFormat--). Nei seguenti esempi, `alpha = 50` è un valore alfa ARGB su scala 0–255, non una percentuale di trasparenza.
+La trasparenza del testo è controllata tramite la componente alfa del colore assegnato a [IBasePortionFormat.getFillFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformat/#getFillFormat--). Negli esempi seguenti, `alpha = 50` è un valore alfa del canale ARGB nella scala 0–255, non una percentuale di trasparenza.
 
-L'esempio di codice seguente mostra come applicare la trasparenza all'**intero paragrafo**:
+L'esempio di codice seguente mostra come applicare la trasparenza al **intero paragrafo**:
 
 ```java
 import com.aspose.slides.*;
@@ -146,7 +212,7 @@ try {
     IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
-    // Imposta il colore di riempimento del testo su colore trasparente.
+    // Imposta il colore di riempimento del testo a colore trasparente.
     paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
     paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.argb(alpha, 0, 0, 0));
 
@@ -195,9 +261,9 @@ Il risultato:
 
 ## **Imposta la Spaziatura dei Caratteri per il Testo**
 
-Usa [IBasePortionFormat.setSpacing](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/ibaseportionformat/#setSpacing-float-) per aumentare o diminuire la spaziatura tra i caratteri in una casella di testo. Gli esempi aggiungono 3 punti di spaziatura; i valori negativi comprimono il testo.
+Usa [IBasePortionFormat.setSpacing](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformat/#setSpacing-float-) per aumentare o ridurre la spaziatura tra i caratteri in una casella di testo. Gli esempi aggiungono 3 punti di spaziatura; valori negativi comprimono il testo.
 
-Il seguente codice Java mostra come espandere la spaziatura dei caratteri nell'**intero paragrafo**:
+Il seguente codice Java mostra come espandere la spaziatura dei caratteri nel **intero paragrafo**:
 
 ```java
 import com.aspose.slides.*;
@@ -209,7 +275,7 @@ try {
     IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
-    // Nota: usa valori negativi per comprimere la spaziatura dei caratteri.
+    // Nota: Usa valori negativi per comprimere la spaziatura dei caratteri.
     paragraph.getParagraphFormat().getDefaultPortionFormat().setSpacing(3); // Espandi la spaziatura dei caratteri.
 
     presentation.save("character_spacing_in_paragraph.pptx", SaveFormat.Pptx);
@@ -236,7 +302,7 @@ try {
 
     for (IPortion portion : paragraph.getPortions()) {
         if (portion.getPortionFormat().getEffective().getFontBold()) {
-            // Nota: usa valori negativi per comprimere la spaziatura dei caratteri.
+            // Nota: Usa valori negativi per comprimere la spaziatura dei caratteri.
             portion.getPortionFormat().setSpacing(3); // Espandi la spaziatura dei caratteri.
         }
     }
@@ -253,9 +319,9 @@ Il risultato:
 
 ### **Disabilita il Kerning per Font Specifici**
 
-In alcuni casi, il testo renderizzato da Aspose.Slides può apparire leggermente più stretto rispetto allo stesso testo visualizzato in PowerPoint. Ciò può accadere perché PowerPoint può ignorare i dati di kerning per alcuni font, anche quando il font contiene informazioni di kerning valide e il kerning è abilitato nelle impostazioni di PowerPoint.
+In alcuni casi, il testo renderizzato da Aspose.Slides può apparire leggermente più stretto rispetto allo stesso testo visualizzato in PowerPoint. Questo può accadere perché PowerPoint può ignorare i dati di kerning per determinati font, anche quando il font contiene informazioni di kerning valide e il kerning è abilitato nelle impostazioni di PowerPoint.
 
-Per rendere l'output renderizzato più vicino a PowerPoint in tali casi, è possibile disabilitare il kerning per le porzioni di testo che utilizzano il font interessato. Imposta [IBasePortionFormat.setKerningMinimalSize](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/ibaseportionformat/#setKerningMinimalSize-float-) a un valore più grande della dimensione effettiva del font. Questo esempio richiede "presentation.pptx" con una casella di testo come prima forma nella prima slide. Controlla i nomi dei font effettivi, inclusi i font ereditati, e imposta una soglia di 100 punti per le porzioni che utilizzano Roboto. Questo disabilita il kerning per le porzioni corrispondenti con una dimensione del font inferiore a 100 punti:
+Per avvicinare l'output renderizzato a PowerPoint in tali casi, è possibile disabilitare il kerning per le porzioni di testo che utilizzano il font interessato. Imposta [IBasePortionFormat.setKerningMinimalSize](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformat/#setKerningMinimalSize-float-) a un valore superiore alla dimensione effettiva del font. Questo esempio richiede "presentation.pptx" con una casella di testo come prima forma nella prima diapositiva. Controlla i nomi dei font effettivi, inclusi i font ereditati, e imposta una soglia di 100 punti per le porzioni che usano Roboto. Ciò disabilita il kerning per le porzioni corrispondenti con una dimensione del font inferiore a 100 punti:
 
 ```java
 import com.aspose.slides.*;
@@ -288,13 +354,13 @@ try {
 }
 ```
 
-Per il testo corrispondente al di sotto della soglia, questa impostazione impedisce il kerning e può aiutare ad allineare il rendering di Aspose.Slides all'output visivo di PowerPoint per i font colpiti da questo comportamento specifico di PowerPoint.
+Per il testo corrispondente al di sotto della soglia, questa impostazione impedisce il kerning e può aiutare ad avvicinare il rendering di Aspose.Slides all'output visivo di PowerPoint per i font interessati da questo comportamento specifico di PowerPoint.
 
-## **Gestisci le Proprietà dei Font del Testo**
+## **Gestisci le Proprietà del Font del Testo**
 
-Le proprietà del font possono essere impostate a livello di paragrafo tramite [IParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/iparagraphformat/#getDefaultPortionFormat--) o su singole porzioni tramite [IPortionFormat](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/iportionformat/).
+Le proprietà del font possono essere impostate a livello di paragrafo tramite [IParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#getDefaultPortionFormat--) o su singole porzioni tramite [IPortionFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iportionformat/).
 
-Il seguente esempio imposta il font predefinito del primo paragrafo a Times New Roman 12 punti con formattazione grassetto, corsivo e sottolineatura puntata. La formattazione esplicita sulle singole porzioni ha la precedenza su questi valori predefiniti:
+L'esempio seguente imposta il font predefinito del primo paragrafo a Times New Roman 12 punti con formattazione grassetto, corsivo e sottolineatura puntinata. La formattazione esplicita su singole porzioni ha precedenza su questi valori predefiniti:
 
 ```java
 import com.aspose.slides.*;
@@ -323,7 +389,7 @@ Il risultato:
 
 ![Le proprietà del font per il paragrafo](font_properties_for_paragraph.png)
 
-Il seguente esempio applica Times New Roman 13 punti, formattazione corsiva e una sottolineatura puntata alle porzioni la cui formattazione effettiva è in grassetto:
+Il seguente esempio applica Times New Roman 13 punti, formattazione corsiva e una sottolineatura puntinata alle porzioni la cui formattazione effettiva è grassetto:
 
 ```java
 import com.aspose.slides.*;
@@ -357,9 +423,9 @@ Il risultato:
 
 ## **Imposta la Rotazione del Testo**
 
-Usa [ITextFrameFormat.setTextVerticalType](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/itextframeformat/#setTextVerticalType-byte-) per impostare un orientamento del testo predefinito all'interno di una forma.
+Usa [ITextFrameFormat.setTextVerticalType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframeformat/#setTextVerticalType-byte-) per impostare un orientamento di testo predefinito all'interno di una forma.
 
-Il seguente esempio di codice imposta l'orientamento del testo nella forma a [TextVerticalType.Vertical270](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/textverticaltype/), che ruota il testo **di 90 gradi in senso antiorario**:
+Il seguente esempio di codice imposta l'orientamento del testo nella forma su [TextVerticalType.Vertical270](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textverticaltype/), che ruota il testo **90 gradi in senso antiorario**:
 
 ```java
 import com.aspose.slides.*;
@@ -383,9 +449,9 @@ Il risultato:
 
 ## **Imposta Rotazione Personalizzata per i Riquadri di Testo**
 
-Usa [ITextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/itextframeformat/#setRotationAngle-float-) per impostare un angolo di rotazione personalizzato per un [ITextFrame](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/itextframe/).
+Usa [ITextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframeformat/#setRotationAngle-float-) per impostare un angolo di rotazione personalizzato per un [ITextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/).
 
-L'esempio di codice seguente ruota il riquadro di testo di 3 gradi in senso orario all'interno della forma:
+Il codice seguente ruota il riquadro di testo di 3 gradi in senso orario all'interno della forma:
 
 ```java
 import com.aspose.slides.*;
@@ -407,14 +473,14 @@ Il risultato:
 
 ![La rotazione personalizzata del testo](custom_text_rotation.png)
 
-## **Imposta Interlinea dei Paragrafi**
+## **Imposta la Spaziatura delle Linee dei Paragraphi**
 
-Aspose.Slides fornisce [IParagraphFormat.setSpaceAfter](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/iparagraphformat/#setSpaceAfter-float-), [IParagraphFormat.setSpaceBefore](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/iparagraphformat/#setSpaceBefore-float-) e [IParagraphFormat.setSpaceWithin](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/iparagraphformat/#setSpaceWithin-float-) per controllare la spaziatura dei paragrafi. Queste proprietà vengono utilizzate come segue:
+Aspose.Slides fornisce [IParagraphFormat.setSpaceAfter](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setSpaceAfter-float-), [IParagraphFormat.setSpaceBefore](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setSpaceBefore-float-) e [IParagraphFormat.setSpaceWithin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setSpaceWithin-float-) per controllare la spaziatura dei paragrafi. Queste proprietà vengono usate come segue:
 
-* Usa un valore positivo per specificare l'interlinea come percentuale dell'altezza della linea.
-* Usa un valore negativo per specificare l'interlinea in punti.
+* Usa un valore positivo per specificare la spaziatura della linea come percentuale dell'altezza della linea.
+* Usa un valore negativo per specificare la spaziatura della linea in punti.
 
-Il seguente esempio imposta la spaziatura all'interno del primo paragrafo al 200% dell'altezza della linea (interlinea doppia):
+L'esempio seguente imposta la spaziatura all'interno del primo paragrafo al 200 % dell'altezza della linea (doppia spaziatura):
 
 ```java
 import com.aspose.slides.*;
@@ -436,18 +502,18 @@ try {
 
 Il risultato:
 
-![L'interlinea all'interno del paragrafo](line_spacing.png)
+![La spaziatura della linea nel paragrafo](line_spacing.png)
 
-## **Controlla Interruzione di Linea**
+## **Controlla l'Interruzione di Linea**
 
-Le regole di interruzione di linea dei paragrafi sono utili in blocchi di testo stretti e presentazioni che mescolano testo latino e asiatico orientale. I seguenti metodi appartengono a [IParagraphFormat](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/iparagraphformat/), quindi si applicano a un intero paragrafo:
+Le regole di interruzione di linea dei paragrafi sono utili in blocchi di testo stretti e in presentazioni che mescolano testo latino e asiatico orientale. I metodi seguenti appartengono a [IParagraphFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/), quindi si applicano a un intero paragrafo:
 
-- [setLatinLineBreak](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/iparagraphformat/#setLatinLineBreak-byte-) controlla le regole di interruzione di linea per il latino. In testo misto, modificarlo può anche cambiare dove il testo e la punteggiatura asiatici orientali adiacenti vanno a capo.
-- [setEastAsianLineBreak](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/iparagraphformat/#setEastAsianLineBreak-byte-) controlla le regole di interruzione di linea per l'asiatico orientale, includendo restrizioni sui caratteri all'inizio e alla fine di una linea.
+- [setLatinLineBreak](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setLatinLineBreak-byte-) controlla le regole di interruzione di linea per il latino. In testo misto, modificarlo può anche cambiare il punto in cui il testo e la punteggiatura asiatica orientale adiacenti vanno a capo.
+- [setEastAsianLineBreak](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setEastAsianLineBreak-byte-) controlla le regole di interruzione di linea per l'asiatico orientale, incluse le restrizioni sui caratteri all'inizio e alla fine di una linea.
 
-Queste regole non sostituiscono [ITextFrameFormat.setWrapText](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/itextframeformat/#setWrapText-byte-), che abilita l'andare a capo automatico all'interno di un riquadro di testo. Influenzano il layout quando avviene l'andare a capo; non inseriscono caratteri di interruzione di linea. Un'interruzione di linea esplicita forza una nuova riga all'interno del paragrafo indipendentemente dalla larghezza disponibile.
+Queste regole non sostituiscono [ITextFrameFormat.setWrapText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframeformat/#setWrapText-byte-), che abilita il wrapping automatico all'interno di un riquadro di testo. Influenzano il layout quando avviene il wrapping; non inseriscono caratteri di interruzione di linea. Un'interruzione di linea esplicita forza una nuova linea all'interno del paragrafo indipendentemente dalla larghezza disponibile.
 
-Il seguente esempio autonomo crea un blocco di testo stretto contenente testo cinese e latino. Imposta esplicitamente entrambe le opzioni di interruzione di linea e salva "line_breaking.pptx". Per sperimentare con una delle regole, cambia il valore corrispondente mantenendo fissi gli altri parametri. L'esempio utilizza Arial 24 punti e SimSun con larghezza del riquadro di 160 punti e margini orizzontali del riquadro pari a zero. [ITextFrameFormat.setAutofitType](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/itextframeformat/#setAutofitType-byte-) è chiamato con [TextAutofitType.None](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/textautofittype/) in modo che la dimensione del testo e le dimensioni del riquadro rimangano fisse.
+L'esempio autonomo seguente crea un blocco di testo stretto contenente cinese e latino. Imposta esplicitamente entrambe le opzioni di interruzione di linea e salva "line_breaking.pptx". Per sperimentare con una delle regole, modifica il valore corrispondente mantenendo fisse le altre impostazioni. L'esempio utilizza Arial 24 pt e SimSun con una larghezza della cornice di 160 pt e margini orizzontali del riquadro di testo pari a zero. [ITextFrameFormat.setAutofitType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframeformat/#setAutofitType-byte-) è chiamato con [TextAutofitType.None](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textautofittype/) in modo che dimensione del testo e dimensioni della cornice rimangano fisse.
 
 ```java
 import com.aspose.slides.*;
@@ -487,11 +553,11 @@ try {
 }
 ```
 
-## **Controlla la Punteggiatura sospesa**
+## **Controlla la Punteggiatura Sospesa**
 
-[IParagraphFormat.setHangingPunctuation](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/iparagraphformat/#setHangingPunctuation-byte-) consente alla punteggiatura ammissibile di estendersi oltre il bordo destro della linea di testo invece di occupare la linea successiva. Si applica all'intero paragrafo ed è diversa da un rientro sospeso.
+[IParagraphFormat.setHangingPunctuation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setHangingPunctuation-byte-) consente alla punteggiatura ammissibile di estendersi oltre il bordo destro della linea di testo invece di occupare la linea successiva. Si applica all'intero paragrafo ed è diverso da un rientro sospeso.
 
-Il seguente esempio autonomo abilita la punteggiatura sospesa in un riquadro di testo largo 100 punti e salva "hanging_punctuation.pptx". Con Arial 24 punti e margini orizzontali del riquadro pari a zero, il punto finale rimane dopo "sentence" e si estende oltre il bordo destro del testo. Imposta la proprietà a [NullableBool.False](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/nullablebool/) per confrontare: con queste impostazioni, il punto occupa una linea separata. L'andare a capo è abilitato e l'autofit è disabilitato per mantenere fissa la larghezza disponibile.
+L'esempio autonomo seguente abilita la punteggiatura sospesa in un riquadro di testo largo 100 pt e salva "hanging_punctuation.pptx". Con Arial 24 pt e margini orizzontali del riquadro pari a zero, il punto finale rimane dopo "sentence" e si estende oltre il bordo destro del testo. Imposta la proprietà su [NullableBool.False](https://reference.aspose.com/slides/androidjava/com.aspose.slides/nullablebool/) per confrontare: con queste impostazioni, il punto occupa una linea separata. Il wrapping è abilitato e l'autofit è disabilitato per mantenere fissa la larghezza disponibile.
 
 ```java
 import com.aspose.slides.*;
@@ -528,11 +594,11 @@ try {
 }
 ```
 
-Non tutti i segni di punteggiatura possono sospendersi. Il risultato visibile dipende dalla disponibilità del font e dal layout: cambiare il font, la larghezza disponibile, i margini o le impostazioni di autofit può eliminare la differenza visibile.
+Non tutti i segni di punteggiatura possono essere sospesi. Le [condizioni di font e layout descritte sopra](#control-line-breaking) si applicano anche a questo confronto: cambiare font, larghezza disponibile, margini o impostazioni di autofit può eliminare la differenza visibile.
 
 ## **Imposta il Tipo di Autofit per i Riquadri di Testo**
 
-[ITextFrameFormat.setAutofitType](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/itextframeformat/#setAutofitType-byte-) determina come si comporta il testo quando supera i limiti del suo contenitore. Usalo per controllare se il testo si riduce, trabocca o ridimensiona automaticamente la forma. Il seguente esempio configura la forma per ridimensionarsi per adattarsi al testo e salva il risultato in "autofit_type.pptx".
+[ITextFrameFormat.setAutofitType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframeformat/#setAutofitType-byte-) determina come il testo si comporta quando supera i confini del suo contenitore. Usalo per controllare se il testo si riduce, trabocca o ridimensiona automaticamente la forma. L'esempio seguente configura la forma per ridimensionarsi al fine di adattarsi al testo e salva il risultato in "autofit_type.pptx".
 
 ```java
 import com.aspose.slides.*;
@@ -550,11 +616,11 @@ try {
 }
 ```
 
-Per contare le linee dopo l'andare a capo automatico e vedere come la larghezza del testo o della forma modifica il risultato, vedere [Count Rendered Lines](/slides/it/androidjava/manage-paragraph/). Il semplice conteggio delle linee non indica se il testo supera il suo contenitore.
+Per contare le linee dopo il wrapping automatico e vedere come la larghezza del testo o della forma modifica il risultato, vedere [Conta le Linee Renderizzate](/slides/it/androidjava/manage-paragraph/). Il conteggio delle linee da solo non indica se il testo trabocca il contenitore.
 
 ## **Imposta l'Ancora dei Riquadri di Testo**
 
-[ITextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/itextframeformat/#setAnchoringType-byte-) definisce come il testo è posizionato verticalmente all'interno di una forma, ad esempio, in alto, al centro o in basso. Il seguente esempio ancora il testo al fondo della prima forma e salva il risultato in "text_anchor.pptx".
+[ITextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframeformat/#setAnchoringType-byte-) definisce come il testo è posizionato verticalmente all'interno di una forma, ad esempio in alto, al centro o in basso. L'esempio seguente ancora il testo al fondo della prima forma e salva il risultato in "text_anchor.pptx".
 
 ```java
 import com.aspose.slides.*;
@@ -574,7 +640,7 @@ try {
 
 ## **Imposta la Tabulazione del Testo**
 
-Usa [IParagraphFormat.setDefaultTabSize](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/iparagraphformat/#setDefaultTabSize-float-) e [IParagraphFormat.getTabs](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/iparagraphformat/#getTabs--) per configurare le tabulazioni in un paragrafo. Il seguente esempio imposta l'intervallo di tabulazione predefinito a 100 punti e aggiunge una tabulazione allineata a sinistra a 30 punti. Queste impostazioni influenzano il testo contenente caratteri di tabulazione.
+Usa [IParagraphFormat.setDefaultTabSize](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setDefaultTabSize-float-) e [IParagraphFormat.getTabs](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#getTabs--) per configurare le tabulazioni in un paragrafo. L'esempio seguente imposta l'intervallo di tabulazione predefinito a 100 punti e aggiunge una tabulazione allineata a sinistra a 30 punti. Queste impostazioni influenzano il testo contenente caratteri di tabulazione.
 
 ```java
 import com.aspose.slides.*;
@@ -599,11 +665,11 @@ Il risultato:
 
 ![Le tabulazioni del paragrafo](paragraph_tabs.png)
 
-## **Imposta la Lingua di Controllo Ortografico**
+## **Imposta la Lingua di Correzione**
 
-Aspose.Slides fornisce [IBasePortionFormat.setLanguageId](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/ibaseportionformat/#setLanguageId-java.lang.String-), che consente di impostare la lingua di controllo ortografico per una porzione di testo. La lingua di controllo ortografico determina la lingua utilizzata per i controlli ortografici e grammaticali in PowerPoint.
+Aspose.Slides fornisce [IBasePortionFormat.setLanguageId](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformat/#setLanguageId-java.lang.String-), che consente di impostare la lingua di correzione per una porzione di testo. La lingua di correzione determina la lingua usata per il controllo ortografico e grammaticale in PowerPoint.
 
-L'esempio seguente richiede "presentation.pptx" con una casella di testo come prima forma nella prima slide e almeno un paragrafo. Sostituisce il contenuto del primo paragrafo con "1。", imposta SimSun come font e assegna la lingua di controllo ortografico cinese semplificata (`zh-CN`). Salva il risultato in "proofing_language.pptx":
+L'esempio seguente richiede "presentation.pptx" con una casella di testo come prima forma nella prima diapositiva e almeno un paragrafo. Sostituisce il contenuto del primo paragrafo con "1。", imposta SimSun come font e assegna la lingua di correzione cinese semplificata (`zh-CN`). Salva il risultato in "proofing_language.pptx":
 
 ```java
 import com.aspose.slides.*;
@@ -624,7 +690,7 @@ try {
     textPortion.getPortionFormat().setEastAsianFont(font);
     textPortion.getPortionFormat().setLatinFont(font);
 
-    // Imposta l'ID della lingua di correzione ortografica.
+    // Imposta l'Id di una lingua di correzione.
     textPortion.getPortionFormat().setLanguageId("zh-CN");
 
     textPortion.setText("1。");
@@ -638,7 +704,7 @@ try {
 
 ## **Imposta la Lingua Predefinita**
 
-Usa [LoadOptions.setDefaultTextLanguage](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/loadoptions/#setDefaultTextLanguage-java.lang.String-) per definire la lingua predefinita per il testo creato durante il caricamento o la creazione di una presentazione. Il seguente esempio crea una presentazione con l'inglese US come lingua predefinita del testo, aggiunge una casella di testo e stampa `en-US` per la sua prima porzione di testo.
+Usa [LoadOptions.setDefaultTextLanguage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/loadoptions/#setDefaultTextLanguage-java.lang.String-) per definire la lingua predefinita per il testo creato durante il caricamento o la creazione di una presentazione. L'esempio seguente crea una presentazione con l'inglese americano come lingua predefinita del testo, aggiunge una casella di testo e stampa `en-US` per la sua prima porzione di testo.
 
 ```java
 import com.aspose.slides.*;
@@ -654,7 +720,7 @@ try {
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 150, 50);
     shape.getTextFrame().setText("Sample text");
 
-    // Verifica la lingua della prima porzione.
+    // Controlla la lingua della prima porzione.
     IPortion portion = shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
     System.out.println(portion.getPortionFormat().getLanguageId());
 } finally {
@@ -664,16 +730,16 @@ try {
 
 ## **Imposta lo Stile di Testo Predefinito**
 
-Per applicare la formattazione di testo predefinita a livello di presentazione, usa [IPresentation.getDefaultTextStyle](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/ipresentation/#getDefaultTextStyle--).
+Per applicare la formattazione di testo predefinita a livello di presentazione, usa [IPresentation.getDefaultTextStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipresentation/#getDefaultTextStyle--).
 
-Il seguente esempio imposta un font grassetto 14 punti come predefinito per i paragrafi di livello superiore in una nuova presentazione e lo salva in "default_text_style.pptx". Il testo può ereditare questi valori predefiniti a meno che una formattazione più specifica non li sovrascriva.
+L'esempio seguente imposta un font grassetto da 14 punti come predefinito per i paragrafi di livello superiore in una nuova presentazione e lo salva in "default_text_style.pptx". Il testo può ereditare questi valori predefiniti a meno che una formattazione più specifica non li sovrascriva.
 
 ```java
 import com.aspose.slides.*;
 
 Presentation presentation = new Presentation();
 try {
-    // Recupera il formato del paragrafo di livello superiore.
+    // Ottieni il formato del paragrafo di livello superiore.
     IParagraphFormat paragraphFormat = presentation.getDefaultTextStyle().getLevel(0);
 
     if (paragraphFormat != null) {
@@ -687,15 +753,15 @@ try {
 }
 ```
 
-## **Estrai il Testo con l'Effetto Tutte Maiuscole**
+## **Estrai Testo con l'Effetto Tutte Maiuscole**
 
-In PowerPoint, applicare l'effetto font **All Caps** fa apparire il testo in maiuscolo nella diapositiva anche se originariamente è stato digitato in minuscolo. Quando si recupera una tale porzione di testo con Aspose.Slides, la libreria restituisce il testo esattamente come è stato inserito. Per corrispondere al testo visualizzato, controlla [TextCapType](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/textcaptype/) e converte la stringa restituita in maiuscolo quando il valore è `All`.
+In PowerPoint, l'applicazione dell'effetto **All Caps** al font fa apparire il testo in maiuscolo sulla diapositiva anche se originariamente è stato digitato in minuscolo. Quando si recupera una tale porzione di testo con Aspose.Slides, la libreria restituisce il testo esattamente come inserito. Per far corrispondere il testo visualizzato, verifica [TextCapType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textcaptype/) e converte la stringa restituita in maiuscolo quando il valore è `All`.
 
-Questo esempio richiede "sample2.pptx" con una casella di testo come prima forma nella prima slide. La prima porzione del primo paragrafo contiene "Hello, Aspose!" con l'effetto All Caps applicato, come mostrato di seguito.
+Questo esempio richiede "sample2.pptx" con una casella di testo come prima forma nella prima diapositiva. La prima porzione del primo paragrafo contiene "Hello, Aspose!" con l'effetto All Caps applicato, come mostrato sotto.
 
-![L'effetto All Caps](all_caps_effect.png)
+![L'effetto Tutte Maiuscole](all_caps_effect.png)
 
-L'esempio di codice seguente mostra come estrarre il testo con l'effetto **All Caps** applicato:
+Il codice seguente mostra come estrarre il testo con l'effetto **All Caps** applicato:
 
 ```java
 import com.aspose.slides.*;
@@ -728,10 +794,10 @@ All-Caps effect: HELLO, ASPOSE!
 
 ## **FAQ**
 
-**Come modifico il testo in una tabella su una slide?**
+**Come modificare il testo in una tabella su una diapositiva?**
 
-Per modificare il testo in una tabella su una slide, usa [ITable](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/itable/). Itera attraverso le celle e aggiorna ciascuna cella tramite [ICell.getTextFrame](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/icell/#getTextFrame--) e la formattazione dei paragrafi tramite [IParagraph.getParagraphFormat](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/iparagraph/#getParagraphFormat--).
+Per modificare il testo in una tabella su una diapositiva, usa [ITable](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itable/). Scorri le celle e aggiorna ciascuna cella tramite [ICell.getTextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#getTextFrame--) e la formattazione del paragrafo tramite [IParagraph.getParagraphFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph/#getParagraphFormat--).
 
-**Come applico un colore sfumato al testo su una slide PowerPoint?**
+**Come applicare un colore gradiente al testo su una diapositiva PowerPoint?**
 
-Per applicare un colore sfumato al testo, usa [IBasePortionFormat.getFillFormat](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/ibaseportionformat/#getFillFormat--). Imposta [IFillFormat.setFillType](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/ifillformat/#setFillType-byte-) a [FillType.Gradient](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/filltype/) e configura le fermate del gradiente, la direzione e la trasparenza.
+Per applicare un colore gradiente al testo, usa [IBasePortionFormat.getFillFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformat/#getFillFormat--). Imposta [IFillFormat.setFillType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifillformat/#setFillType-byte-) su [FillType.Gradient](https://reference.aspose.com/slides/androidjava/com.aspose.slides/filltype/) e configura le fermate del gradiente, la direzione e la trasparenza.

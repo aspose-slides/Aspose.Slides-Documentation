@@ -1,10 +1,12 @@
 ---
-title: Διαχείριση Παραγράφων Κειμένου PowerPoint στο .NET
+title: Διαχειριστείτε τις Παραγράφους Κειμένου PowerPoint σε .NET
 linktitle: Διαχείριση Παραγράφου
 type: docs
 weight: 40
 url: /el/net/manage-paragraph/
 aliases:
+  - /net/paragraph/
+  - /net/portion/
   - /net/παράγραφος/
   - /net/τμήμα/
 keywords:
@@ -14,8 +16,8 @@ keywords:
 - διαχείριση παραγράφου
 - διαχείριση κουκκίδας
 - εσοχή παραγράφου
-- κρεμαστή εσοχή
-- κουκκίδα παραagraphου
+- εξαρτημένη εσοχή
+- κουκκίδα παραγράφου
 - αριθμημένη λίστα
 - λίστα με κουκκίδες
 - ιδιότητες παραγράφου
@@ -34,29 +36,29 @@ description: "Μάθετε πώς να δημιουργείτε και να μο
 ---
 ## **Επισκόπηση**
 
-Το Aspose.Slides για .NET αντιπροσωπεύει το κείμενο ως ιεραρχία πλαισίων κειμένου, παραγράφων και τμημάτων:
+Το Aspose.Slides for .NET αντιπροσωπεύει το κείμενο ως ιεραρχία πλαισίων κειμένου, παραγράφων και τμημάτων:
 
-* [ITextFrame](https://reference.aspose.com/slides/el/net/aspose.slides/itextframe/) αναπαριστά το χωρητήριο κειμένου σε ένα σχήμα και παρέχει πρόσβαση στη συλλογή των παραγράφων του.
-* [IParagraph](https://reference.aspose.com/slides/el/net/aspose.slides/iparagraph/) αναπαριστά μία παράγραφο σε ένα πλαίσιο κειμένου και παρέχει πρόσβαση στα τμήματα και στη μορφοποίηση επιπέδου παραγράφου.
-* [IPortion](https://reference.aspose.com/slides/el/net/aspose.slides/iportion/) αντιπροσωπεύει μια σειρά κειμένου μέσα σε μια παράγραφο. Κάθε τμήμα μπορεί να έχει δικό του κείμενο και μορφοποίηση επιπέδου χαρακτήρα.
+* [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/) αντιπροσωπεύει το περιέκτη κειμένου σε ένα σχήμα και παρέχει πρόσβαση στη συλλογή παραγράφων του.
+* [IParagraph](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/) αντιπροσωπεύει μία παράγραφο σε ένα πλαίσιο κειμένου και παρέχει πρόσβαση στα τμήματα και στη μορφοποίηση σε επίπεδο παραγράφου.
+* [IPortion](https://reference.aspose.com/slides/net/aspose.slides/iportion/) αντιπροσωπεύει μια ακολουθία κειμένου μέσα σε μια παράγραφο. Κάθε τμήμα μπορεί να έχει το δικό του κείμενο και μορφοποίηση χαρακτήρων.
 
-Συνεπώς, μια παράγραφος μπορεί να περιέχει κείμενο με διαφορετικές γραμματοσειρές, χρώματα, μεγέθη και άλλες μορφοποιήσεις χρησιμοποιώντας πολλαπλά τμήματα.
+Μια παράγραφος μπορεί έτσι να περιέχει κείμενο με διαφορετικές γραμματοσειρές, χρώματα, μεγέθη και άλλη μορφοποίηση, χρησιμοποιώντας πολλαπλά τμήματα.
 
 ## **Δημιουργία και Μορφοποίηση Παραγράφων**
 
-### **Δημιουργία Παραγράφων με Πολλά Τμήματα**
+### **Δημιουργία Παραγράφων με Πολλαπλά Τμήματα**
 
-Τα παρακάτω βήματα δημιουργούν ένα πλαίσιο κειμένου με τρεις παραγράφους, η καθεμία από τις οποίες περιέχει τρία τμήματα:
+Τα παρακάτω βήματα δημιουργούν ένα πλαίσιο κειμένου με τρεις παραγράφους, καθεμία από τις οποίες περιέχει τρία τμήματα:
 
-1. Δημιουργήστε ένα αντικείμενο της κλάσης [Presentation](https://reference.aspose.com/slides/el/net/aspose.slides/presentation).
+1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
 2. Προσπελάστε την αναφορά της σχετικής διαφάνειας μέσω του δείκτη της.
-3. Προσθέστε ένα ορθογώνιο [IAutoShape](https://reference.aspose.com/slides/el/net/aspose.slides/iautoshape/) στη διαφάνεια.
-4. Προσπελάστε το [ITextFrame](https://reference.aspose.com/slides/el/net/aspose.slides/itextframe/) του σχήματος.
-5. Χρησιμοποιήστε την προεπιλεγμένη παράγραφο και προσθέστε δύο ακόμη αντικείμενα [IParagraph](https://reference.aspose.com/slides/el/net/aspose.slides/iparagraph/) στο πλαίσιο κειμένου.
-6. Προσθέστε επαρκή αντικείμενα [IPortion](https://reference.aspose.com/slides/el/net/aspose.slides/iportion/) ώστε κάθε παράγραφος να περιέχει τρία τμήματα. Η προεπιλεγμένη παράγραφος περιέχει ήδη ένα κενό τμήμα.
+3. Προσθέστε ένα ορθογώνιο [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) στη διαφάνεια.
+4. Προσπελάστε το [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/) του σχήματος.
+5. Χρησιμοποιήστε την προεπιλεγμένη παράγραφο και προσθέστε δύο ακόμη αντικείμενα [IParagraph](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/) στο πλαίσιο κειμένου.
+6. Προσθέστε αρκετά αντικείμενα [IPortion](https://reference.aspose.com/slides/net/aspose.slides/iportion/) ώστε κάθε παράγραφος να περιέχει τρία τμήματα. Η προεπιλεγμένη παράγραφος περιέχει ήδη ένα κενό τμήμα.
 7. Ορίστε το κείμενο κάθε τμήματος.
-8. Εφαρμόστε μορφοποίηση επιπέδου χαρακτήρα μέσω του [IPortion.PortionFormat](https://reference.aspose.com/slides/el/net/aspose.slides/iportion/portionformat/).
-9. Αποθηκεύστε την τροποποιημένη παρουσίαση.
+8. Εφαρμόστε μορφοποίηση χαρακτήρων μέσω του [IPortion.PortionFormat](https://reference.aspose.com/slides/net/aspose.slides/iportion/portionformat/).
+9. Αποθηκεύστε την τροποποιημένη παρουσία.
 
 Αυτό το παράδειγμα C# υλοποιεί τα βήματα:
 
@@ -120,20 +122,20 @@ presentation.Save("paragraphs_with_portions.pptx", SaveFormat.Pptx);
 
 ### **Δημιουργία Λίστας με Κουκκίδες ή Αρίθμηση**
 
-Οι κουκκίδες και η αρίθμηση κάνουν ευκολότερη την ανάγνωση σχετικών στοιχείων. Στο Aspose.Slides, οι ρυθμίσεις λίστας ορίζονται μέσω του [IBulletFormat](https://reference.aspose.com/slides/el/net/aspose.slides/ibulletformat/).
+Οι κουκκίδες και η αρίθμηση κάνουν τα σχετικά στοιχεία πιο εύκολα στην ανάγνωση. Στο Aspose.Slides, οι ρυθμίσεις λίστας ορίζονται μέσω του [IBulletFormat](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/).
 
-1. Δημιουργήστε ένα αντικείμενο της κλάσης [Presentation](https://reference.aspose.com/slides/el/net/aspose.slides/presentation).
+1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
 2. Προσπελάστε την αναφορά της σχετικής διαφάνειας μέσω του δείκτη της.
-3. Προσθέστε ένα [IAutoShape](https://reference.aspose.com/slides/el/net/aspose.slides/iautoshape/) στη επιλεγμένη διαφάνεια.
-4. Προσπελάστε το [ITextFrame](https://reference.aspose.com/slides/el/net/aspose.slides/itextframe/) του σχήματος.
+3. Προσθέστε ένα [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) στη διαφάνεια που έχετε επιλέξει.
+4. Προσπελάστε το [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/) του σχήματος.
 5. Αφαιρέστε την προεπιλεγμένη παράγραφο από το πλαίσιο κειμένου.
-6. Δημιουργήστε ένα [Paragraph](https://reference.aspose.com/slides/el/net/aspose.slides/paragraph/) για μια κουκκίδα συμβόλου.
-7. Ορίστε το [IBulletFormat.Type](https://reference.aspose.com/slides/el/net/aspose.slides/ibulletformat/type/) σε [BulletType.Symbol](https://reference.aspose.com/slides/el/net/aspose.slides/bullettype/) και καθορίστε το χαρακτήρα της κουκκίδας.
-8. Ορίστε το κείμενο της παραγράφου, την εσοχή, το χρώμα και το ύψος της κουκκίδας.
+6. Δημιουργήστε ένα [Paragraph](https://reference.aspose.com/slides/net/aspose.slides/paragraph/) για μια κουκκίδα συμβόλου.
+7. Ορίστε το [IBulletFormat.Type](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/type/) σε [BulletType.Symbol](https://reference.aspose.com/slides/net/aspose.slides/bullettype/) και καθορίστε το χαρακτήρα της κουκκίδας.
+8. Ορίστε το κείμενο της παραγράφου, την εσοχή, το χρώμα της κουκκίδας και το ύψος της κουκκίδας.
 9. Προσθέστε την παράγραφο στο πλαίσιο κειμένου.
-10. Δημιουργήστε μια δεύτερη παράγραφο και ορίστε το [IBulletFormat.Type](https://reference.aspose.com/slides/el/net/aspose.slides/ibulletformat/type/) σε [BulletType.Numbered](https://reference.aspose.com/slides/el/net/aspose.slides/bullettype/).
+10. Δημιουργήστε μια δεύτερη παράγραφο και ορίστε το [IBulletFormat.Type](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/type/) σε [BulletType.Numbered](https://reference.aspose.com/slides/net/aspose.slides/bullettype/).
 11. Διαμορφώστε το στυλ της αριθμημένης κουκκίδας και προσθέστε την παράγραφο στο πλαίσιο κειμένου.
-12. Αποθηκεύστε την παρουσίαση.
+12. Αποθηκεύστε την παρουσία.
 
 Αυτό το παράδειγμα C# δημιουργεί μια κουκκίδα συμβόλου και μια αριθμημένη κουκκίδα:
 
@@ -172,22 +174,22 @@ textFrame.Paragraphs.Add(numberedParagraph);
 presentation.Save("bulleted_and_numbered_list.pptx", SaveFormat.Pptx);
 ```
 
-### **Χρήση Εικόνας ως Κουκκίδα**
+### **Χρήση Κουκκίδων Εικόνας**
 
-Οι εικόνες-κουκκίδες σας επιτρέπουν να χρησιμοποιήσετε μια προσαρμοσμένη εικόνα αντί για σύμβολο ή αριθμό.
+Οι κουκκίδες εικόνας επιτρέπουν τη χρήση μιας προσαρμοσμένης εικόνας αντί για σύμβολο ή αριθμό.
 
-1. Δημιουργήστε ένα αντικείμενο της κλάσης [Presentation](https://reference.aspose.com/slides/el/net/aspose.slides/presentation).
+1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
 2. Προσπελάστε την αναφορά της σχετικής διαφάνειας μέσω του δείκτη της.
-3. Προσθέστε ένα [IAutoShape](https://reference.aspose.com/slides/el/net/aspose.slides/iautoshape/) και προσπελάστε το [ITextFrame](https://reference.aspose.com/slides/el/net/aspose.slides/itextframe/).
+3. Προσθέστε ένα [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) και προσπελάστε το [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/).
 4. Αφαιρέστε την προεπιλεγμένη παράγραφο από το πλαίσιο κειμένου.
-5. Φορτώστε την εικόνα της κουκκίδας και προσθέστε τη στη συλλογή εικόνων της παρουσίασης ως [IPPImage](https://reference.aspose.com/slides/el/net/aspose.slides/ippimage/).
-6. Δημιουργήστε ένα [Paragraph](https://reference.aspose.com/slides/el/net/aspose.slides/paragraph/) και ορίστε το κείμενό του.
-7. Ορίστε το [IBulletFormat.Type](https://reference.aspose.com/slides/el/net/aspose.slides/ibulletformat/type/) σε [BulletType.Picture](https://reference.aspose.com/slides/el/net/aspose.slides/bullettype/).
-8. Αντιστοιχίστε την εικόνα μέσω του [IBulletFormat.Picture](https://reference.aspose.com/slides/el/net/aspose.slides/ibulletformat/picture/) και ορίστε το ύψος της κουκκίδας.
+5. Φορτώστε την εικόνα της κουκκίδας και προσθέστε την στη συλλογή εικόνων της παρουσίασης ως [IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage/).
+6. Δημιουργήστε ένα [Paragraph](https://reference.aspose.com/slides/net/aspose.slides/paragraph/) και ορίστε το κείμενό του.
+7. Ορίστε το [IBulletFormat.Type](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/type/) σε [BulletType.Picture](https://reference.aspose.com/slides/net/aspose.slides/bullettype/).
+8. Εκχωρήστε την εικόνα μέσω του [IBulletFormat.Picture](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/picture/) και ορίστε το ύψος της κουκκίδας.
 9. Προσθέστε την παράγραφο στο πλαίσιο κειμένου.
-10. Αποθηκεύστε την τροποποιημένη παρουσίαση.
+10. Αποθηκεύστε την τροποποιημένη παρουσία.
 
-Αυτό το παράδειγμα C# δημιουργεί μια εικόνα-κουκκίδα:
+Αυτό το παράδειγμα C# δημιουργεί μια κουκκίδα εικόνας:
 
 ```csharp
 using Aspose.Slides;
@@ -213,17 +215,17 @@ presentation.Save("picture_bullet.pptx", SaveFormat.Pptx);
 presentation.Save("picture_bullet.ppt", SaveFormat.Ppt);
 ```
 
-### **Δημιουργία Πολλών Επιπέδων Λίστας**
+### **Δημιουργία Πολυεπίπεδης Λίστας**
 
-Ορίστε το [IParagraphFormat.Depth](https://reference.aspose.com/slides/el/net/aspose.slides/iparagraphformat/depth/) για να τοποθετήσετε παραγράφους σε διαφορετικά επίπεδα λίστας. Το υψηλότερο επίπεδο έχει βάθος `0`.
+Ορίστε το [IParagraphFormat.Depth](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/depth/) για να τοποθετήσετε τις παραγράφους σε διαφορετικά επίπεδα λίστας. Το ανώτερο επίπεδο έχει βάθος `0`.
 
-1. Δημιουργήστε ένα [Presentation](https://reference.aspose.com/slides/el/net/aspose.slides/presentation/) και προσπελάστε μια διαφάνεια.
-2. Προσθέστε ένα [IAutoShape](https://reference.aspose.com/slides/el/net/aspose.slides/iautoshape/) και αφαιρέστε την προεπιλεγμένη παράγραφο από το πλαίσιο κειμένου του.
+1. Δημιουργήστε μια [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) και προσπελάστε μια διαφάνεια.
+2. Προσθέστε ένα [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) και αφαιρέστε την προεπιλεγμένη παράγραφο από το πλαίσιο κειμένου του.
 3. Δημιουργήστε τέσσερις παραγράφους και διαμορφώστε τα σύμβολα των κουκκίδων τους.
-4. Ορίστε τις τιμές του [IParagraphFormat.Depth](https://reference.aspose.com/slides/el/net/aspose.slides/iparagraphformat/depth/) σε `0`, `1`, `2` και `3`.
-5. Προσθέστε τις παραγράφους στο πλαίσιο κειμένου και αποθηκεύστε την παρουσίαση.
+4. Ορίστε τις τιμές [IParagraphFormat.Depth](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/depth/) σε `0`, `1`, `2` και `3`.
+5. Προσθέστε τις παραγράφους στο πλαίσιο κειμένου και αποθηκεύστε την παρουσία.
 
-Αυτό το παράδειγμα C# δημιουργεί μια λίστα με τέσσερα επίπεδα κουκκίδων:
+Αυτό το παράδειγμα C# δημιουργεί μια τετραεπίπεδη λίστα με κουκκίδες:
 
 ```csharp
 using System;
@@ -273,17 +275,17 @@ textFrame.Paragraphs.Add(fourthParagraph);
 presentation.Save("multilevel_list.pptx", SaveFormat.Pptx);
 ```
 
-### **Έναρξη Αριθμημένων Στοιχείων Λίστας από Προσαρμοσμένες Τιμές**
+### **Έναρξη Αριθμημένων Στοιχείων Λίστας με Προσαρμοσμένες Τιμές**
 
-Χρησιμοποιήστε το [IBulletFormat.NumberedBulletStartWith](https://reference.aspose.com/slides/el/net/aspose.slides/ibulletformat/numberedbulletstartwith/) για να καθορίσετε τον αρχικό αριθμό που εμφανίζεται σε μια αριθμημένη παράγραφο.
+Χρησιμοποιήστε το [IBulletFormat.NumberedBulletStartWith](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/numberedbulletstartwith/) για να ορίσετε τον αρχικό αριθμό που εμφανίζεται για μια αριθμημένη παράγραφο.
 
-1. Δημιουργήστε ένα [Presentation](https://reference.aspose.com/slides/el/net/aspose.slides/presentation/) και προσθέστε ένα [IAutoShape](https://reference.aspose.com/slides/el/net/aspose.slides/iautoshape/) σε μια διαφάνεια.
+1. Δημιουργήστε μια [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) και προσθέστε ένα [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) σε μια διαφάνεια.
 2. Αφαιρέστε την προεπιλεγμένη παράγραφο από το πλαίσιο κειμένου του σχήματος.
 3. Δημιουργήστε τρεις αριθμημένες παραγράφους.
-4. Ορίστε το [IBulletFormat.NumberedBulletStartWith](https://reference.aspose.com/slides/el/net/aspose.slides/ibulletformat/numberedbulletstartwith/) στις τιμές `2`, `3` και `7` για τις αντίστοιχες παραγράφους.
-5. Προσθέστε τις παραγράφους στο πλαίσιο κειμένου και αποθηκεύστε την παρουσίαση.
+4. Ορίστε το [IBulletFormat.NumberedBulletStartWith](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/numberedbulletstartwith/) σε `2`, `3` και `7` για τις αντίστοιχες παραγράφους.
+5. Προσθέστε τις παραγράφους στο πλαίσιο κειμένου και αποθηκεύστε την παρουσία.
 
-Αυτό το παράδειγμα C# αντιστοιχίζει προσαρμοσμένο αρχικό αριθμό σε κάθε παράγραφο:
+Αυτό το παράδειγμα C# αναθέτει έναν προσαρμοσμένο αριθμό έναρξης σε κάθε παράγραφο:
 
 ```csharp
 using Aspose.Slides;
@@ -313,25 +315,25 @@ textFrame.Paragraphs.Add(thirdParagraph);
 presentation.Save("custom_numbered_list.pptx", SaveFormat.Pptx);
 ```
 
-## **Έλεγχος Διάταξης Παραγράφου και Ιδιοτήτων Τέλους**
+## **Έλεγχος Διάταξης Παραγράφου και Ιδιοτήτων Τερματισμού**
 
 ### **Ορισμός Εσοχής Πρώτης Γραμμής**
 
-Χρησιμοποιήστε την ιδιότητα [IParagraphFormat.Indent](https://reference.aspose.com/slides/el/net/aspose.slides/iparagraphformat/indent/) για να ελέγξετε την εσοχή της πρώτης γραμμής μιας παραγράφου. Αυτή η ιδιότητα μετακινεί μόνο την πρώτη γραμμή σε σχέση με το αριστερό περιθώριο της παραγράφου. Μια θετική τιμή μετατοπίζει την πρώτη γραμμή προς τα δεξιά, ενώ οι υπόλοιπες γραμμές παραμένουν ευθυγραμμισμένες με το σώμα της παραγράφου.
+Χρησιμοποιήστε την ιδιότητα [IParagraphFormat.Indent](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/indent/) για να ελέγξετε την εσοχή της πρώτης γραμμής μιας παραγράφου. Η ιδιότητα αυτή μετακινεί μόνο την πρώτη γραμμή σε σχέση με το αριστερό περιθώριο της παραγράφου. Μια θετική τιμή μετατοπίζει την πρώτη γραμμή προς τα δεξιά, ενώ οι υπόλοιπες γραμμές παραμένουν ευθυγραμμισμένες με το σώμα της παραγράφου.
 
-Χρησιμοποιήστε το [IParagraphFormat.MarginLeft](https://reference.aspose.com/slides/el/net/aspose.slides/iparagraphformat/marginleft/) όταν χρειάζεται να μετακινήσετε ολόκληρη την παράγραφο. Χρησιμοποιήστε το [IParagraphFormat.Indent](https://reference.aspose.com/slides/el/net/aspose.slides/iparagraphformat/indent/) όταν θέλετε να μετακινήσετε μόνο την πρώτη γραμμή.
+Χρησιμοποιήστε το [IParagraphFormat.MarginLeft](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/marginleft/) όταν χρειάζεται να μετακινήσετε ολόκληρη την παράγραφο. Χρησιμοποιήστε το [IParagraphFormat.Indent](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/indent/) όταν θέλετε να μετακινήσετε μόνο την πρώτη γραμμή.
 
-Το παρακάτω παράδειγμα δημιουργεί πολλές παραγράφους και εφαρμόζει διαφορετικές τιμές του [IParagraphFormat.Indent](https://reference.aspose.com/slides/el/net/aspose.slides/iparagraphformat/indent/) για να δείξει πώς η εσοχή της πρώτης γραμμής επηρεάζει τη διάταξη της παραγράφου.
+Το παρακάτω παράδειγμα δημιουργεί διάφορες παραγράφους και εφαρμόζει διαφορετικές τιμές [IParagraphFormat.Indent](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/indent/) για να δείξει πώς η εσοχή της πρώτης γραμμής επηρεάζει τη διάταξη της παραγράφου.
 
-1. Δημιουργήστε ένα αντικείμενο της κλάσης [Presentation](https://reference.aspose.com/slides/el/net/aspose.slides/presentation/).
-2. Προσπελάστε τη στόχο διαφάνεια.
-3. Προσθέστε ένα ορθογώνιο [IAutoShape](https://reference.aspose.com/slides/el/net/aspose.slides/iautoshape/) στη διαφάνεια.
-4. Προσπελάστε το [ITextFrame](https://reference.aspose.com/slides/el/net/aspose.slides/itextframe/) του σχήματος και αφαιρέστε την προεπιλεγμένη παράγραφο.
-5. Δημιουργήστε πολλές παραγράφους και ορίστε διαφορετικές τιμές του [Indent](https://reference.aspose.com/slides/el/net/aspose.slides/iparagraphformat/indent/) για καθένα.
+1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/).
+2. Προσπελάστε τη διαφάνεια-στόχο.
+3. Προσθέστε ένα ορθογώνιο [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) στη διαφάνεια.
+4. Προσπελάστε το [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/) του σχήματος και αφαιρέστε την προεπιλεγμένη παράγραφο.
+5. Δημιουργήστε διάφορες παραγράφους και ορίστε διαφορετικές τιμές [Indent](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/indent/) για αυτές.
 6. Προσθέστε τις παραγράφους στο πλαίσιο κειμένου.
-7. Αποθηκεύστε την τροποποιημένη παρουσίαση.
+7. Αποθηκεύστε την τροποποιημένη παρουσία.
 
-Αυτός ο κώδικας δείχνει πώς να ορίσετε μια εσοχή παραγράφου:
+Αυτός ο κώδικας δείχνει πώς να ορίσετε εσοχή παραγράφου:
 
 ```csharp
 using System.Drawing;
@@ -376,26 +378,26 @@ presentation.Save("paragraph_indent.pptx", SaveFormat.Pptx);
 
 Το αποτέλεσμα:
 
-![The first-line indent of the paragraphs](first_line_indent.png)
+![Η εσοχή της πρώτης γραμμής των παραγράφων](first_line_indent.png)
 
-### **Ορισμός Κρεμαστής Εσοχής**
+### **Ορισμός Εξαρτημένης Εσοχής**
 
-Η κρεμαστή εσοχή είναι διάταξη παραγράφου στην οποία η πρώτη γραμμή ξεκινά αριστερά των υπολοίπων γραμμών. Στο Aspose.Slides, δημιουργείτε αυτό το εφέ με την ιδιότητα [IParagraphFormat.Indent](https://reference.aspose.com/slides/el/net/aspose.slides/iparagraphformat/indent/). Ορίστε το `Indent` σε αρνητική τιμή για να μετακινήσετε την πρώτη γραμμή αριστερά σε σχέση με το σώμα της παραγράφου.
+Μια εξαρτημένη εσοχή είναι μια διάταξη παραγράφου όπου η πρώτη γραμμή αρχίζει αριστερά των υπολοίπων γραμμών. Στο Aspose.Slides, δημιουργείτε αυτό το εφέ με την ιδιότητα [IParagraphFormat.Indent](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/indent/). Ορίστε το `Indent` σε αρνητική τιμή για να μετακινήσετε την πρώτη γραμμή αριστερά σε σχέση με το σώμα της παραγράφου.
 
-Στην πράξη, το [IParagraphFormat.MarginLeft](https://reference.aspose.com/slides/el/net/aspose.slides/iparagraphformat/marginleft/) ορίζει τη θέση του αριστερού περιθωρίου του σώματος της παραγράφου, ενώ το [IParagraphFormat.Indent](https://reference.aspose.com/slides/el/net/aspose.slides/iparagraphformat/indent/) ορίζει τη θέση της πρώτης γραμμής σε σχέση με αυτό το περιθώριο. Για να δημιουργήσετε κρεμαστή εσοχή, ορίστε μια θετική τιμή στο `MarginLeft` και μια αρνητική τιμή στο `Indent`.
+Στην πράξη, το [IParagraphFormat.MarginLeft](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/marginleft/) καθορίζει τη θέση του αριστερού περιθωρίου του σώματος της παραγράφου, και το [IParagraphFormat.Indent](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/indent/) καθορίζει τη θέση της πρώτης γραμμής ως προς αυτό το περιθώριο. Για να δημιουργήσετε εξαρτημένη εσοχή, ορίστε μια θετική τιμή στο `MarginLeft` και μια αρνητική τιμή στο `Indent`.
 
-Αυτή η μορφοποίηση είναι χρήσιμη για βιβλιογραφίες, αναφορές, εγγραφές γλωσσολογικών λεξικών και άλλες παραγράφους στις οποίες οι συρρόμενες γραμμές πρέπει να ευθυγραμμίζονται κάτω από το σώμα της παραγράφου και όχι κάτω από τον πρώτο χαρακτήρα της πρώτης γραμμής.
+Αυτή η μορφοποίηση είναι χρήσιμη για βιβλιογραφίες, παραπομπές, καταχωρίσεις γλωσσολογικών λεξικών και άλλες παραγράφους όπου οι τυλιγμένες γραμμές πρέπει να ευθυγραμμίζονται κάτω από το σώμα της παραγράφου αντί για τον πρώτο χαρακτήρα της πρώτης γραμμής.
 
-1. Δημιουργήστε ένα αντικείμενο της κλάσης [Presentation](https://reference.aspose.com/slides/el/net/aspose.slides/presentation/).
-2. Προσπελάστε τη στόχο διαφάνεια.
-3. Προσθέστε ένα ορθογώνιο [IAutoShape](https://reference.aspose.com/slides/el/net/aspose.slides/iautoshape/) στη διαφάνεια.
-4. Προσπελάστε το [ITextFrame](https://reference.aspose.com/slides/el/net/aspose.slides/itextframe/) του σχήματος και αφαιρέστε την προεπιλεγμένη παράγραφο.
-5. Δημιουργήστε παραγράφους και ορίστε μια θετική τιμή του [MarginLeft](https://reference.aspose.com/slides/el/net/aspose.slides/iparagraphformat/marginleft/) για κάθε παράγραφο.
-6. Ορίστε μια αρνητική τιμή του [Indent](https://reference.aspose.com/slides/el/net/aspose.slides/iparagraphformat/indent/) για να δημιουργήσετε το εφέ κρεμαστής εσοχής.
+1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/).
+2. Προσπελάστε τη διαφάνεια-στόχο.
+3. Προσθέστε ένα ορθογώνιο [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) στη διαφάνεια.
+4. Προσπελάστε το [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/) του σχήματος και αφαιρέστε την προεπιλεγμένη παράγραφο.
+5. Δημιουργήστε παραγράφους και ορίστε μια θετική τιμή [MarginLeft](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/marginleft/) για κάθε παράγραφο.
+6. Ορίστε μια αρνητική τιμή [Indent](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/indent/) για να δημιουργήσετε το εφέ της εξαρτημένης εσοχής.
 7. Προσθέστε τις παραγράφους στο πλαίσιο κειμένου.
-8. Αποθηκεύστε την τροποποιημένη παρουσίαση.
+8. Αποθηκεύστε την τροποποιημένη παρουσία.
 
-Αυτός ο κώδικας δείχνει πώς να ορίσετε κρεμαστή εσοχή για μια παράγραφο:
+Αυτός ο κώδικας δείχνει πώς να ορίσετε εξαρτημένη εσοχή για μια παράγραφο:
 
 ```csharp
 using System.Drawing;
@@ -433,18 +435,18 @@ presentation.Save("hanging_indent.pptx", SaveFormat.Pptx);
 
 Το αποτέλεσμα:
 
-![The hanging indent of the paragraphs](hanging_indent.png)
+![Η εξαρτημένη εσοχή των παραγράφων](hanging_indent.png)
 
-### **Ορισμός Ιδιοτήτων Τέλους Παραγράφου**
+### **Ορισμός Ιδιοτήτων Τερματισμού Παραγράφου**
 
-Η ιδιότητα [IParagraph.EndParagraphPortionFormat](https://reference.aspose.com/slides/el/net/aspose.slides/iparagraph/endparagraphportionformat/) ελέγχει τη μορφοποίηση του σημείου λήξης της παραγράφου. Το ακόλουθο παράδειγμα αντιστοιχεί μέγεθος γραμματοσειράς και λατινική γραμματοσειρά στο σημείο λήξης της δεύτερης παραγράφου:
+Η ιδιότητα [IParagraph.EndParagraphPortionFormat](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/endparagraphportionformat/) ελέγχει τη μορφοποίηση του σημείου λήξης της παραγράφου. Στο παρακάτω παράδειγμα ανατίθεται ένα μέγεθος γραμματοσειράς και μια λατινική γραμματοσειρά στο σημείο λήξης της δεύτερης παραγράφου:
 
-1. Φορτώστε ένα [Presentation](https://reference.aspose.com/slides/el/net/aspose.slides/presentation/) και προσπελάστε μια διαφάνεια.
-2. Προσθέστε ένα [IAutoShape](https://reference.aspose.com/slides/el/net/aspose.slides/iautoshape/) και αφαιρέστε την προεπιλεγμένη παράγραφο.
-3. Δημιουργήστε δύο παραγράφους και προσθέστε σε αυτές τμήματα κειμένου.
-4. Δημιουργήστε ένα [PortionFormat](https://reference.aspose.com/slides/el/net/aspose.slides/portionformat/) για το σημείο λήξης της δεύτερης παραγράφου.
-5. Ορίστε το [IBasePortionFormat.FontHeight](https://reference.aspose.com/slides/el/net/aspose.slides/ibaseportionformat/fontheight/) και το [IBasePortionFormat.LatinFont](https://reference.aspose.com/slides/el/net/aspose.slides/ibaseportionformat/latinfont/).
-6. Εκχωρήστε τη μορφοποίηση στο [IParagraph.EndParagraphPortionFormat](https://reference.aspose.com/slides/el/net/aspose.slides/iparagraph/endparagraphportionformat/) και αποθηκεύστε την παρουσίαση.
+1. Φορτώστε μια [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) και προσπελάστε μια διαφάνεια.
+2. Προσθέστε ένα [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) και αφαιρέστε την προεπιλεγμένη παράγραφο.
+3. Δημιουργήστε δύο παραγράφους και προσθέστε τμήματα κειμένου σε αυτές.
+4. Δημιουργήστε ένα [PortionFormat](https://reference.aspose.com/slides/net/aspose.slides/portionformat/) για το σημείο λήξης της δεύτερης παραγράφου.
+5. Ορίστε το [IBasePortionFormat.FontHeight](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/fontheight/) και το [IBasePortionFormat.LatinFont](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/latinfont/).
+6. Αναθέστε τη μορφοποίηση στο [IParagraph.EndParagraphPortionFormat](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/endparagraphportionformat/) και αποθηκεύστε την παρουσία.
 
 ```csharp
 using Aspose.Slides;
@@ -475,13 +477,13 @@ presentation.Save("end_paragraph_format.pptx", SaveFormat.Pptx);
 
 ## **Καταμέτρηση Σχεδιασμένων Γραμμών**
 
-Για κανόνες παραγράφου που επηρεάζουν την αυτόματη αναδίπλωση και την στίξη στα τέλη των γραμμών, δείτε το [Control Line Breaking](/slides/el/net/text-formatting/#control-line-breaking) και το [Control Hanging Punctuation](/slides/el/net/text-formatting/#control-hanging-punctuation).
+Για τους κανόνες παραγράφων που επηρεάζουν την αυτόματη αναδίπλωση και την στίξη στο τέλος των γραμμών, δείτε [Control Line Breaking](/slides/el/net/text-formatting/#control-line-breaking) και [Control Hanging Punctuation](/slides/el/net/text-formatting/#control-hanging-punctuation).
 
-Χρησιμοποιήστε το [IParagraph.GetLinesCount](https://reference.aspose.com/slides/el/net/aspose.slides/iparagraph/getlinescount/) για να μετρήσετε τις γραμμές που καταλαμβάνει μια παράγραφος μετά τη διάταξη του κειμένου, συμπεριλαμβανομένης της αυτόματης αναδίπλωσης. Αυτό είναι χρήσιμο όταν ελέγχετε το μήκος και τη διάταξη του κειμένου σε πρότυπα παρουσιάσεων.
+Χρησιμοποιήστε το [IParagraph.GetLinesCount](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/getlinescount/) για να μετρήσετε τις γραμμές που καταλαμβάνει μια παράγραφος μετά τη διάταξη του κειμένου, συμπεριλαμβανομένης της αυτόματης αναδίπλωσης. Αυτό είναι χρήσιμο όταν ελέγχετε το μήκος του κειμένου και τη διάταξη σε πρότυπα παρουσιάσεων.
 
-Μια παράγραφος είναι ένα στοιχείο στην [ITextFrame.Paragraphs](https://reference.aspose.com/slides/el/net/aspose.slides/itextframe/paragraphs/), και μπορεί να καταλαμβάνει πολλές σχεδιασμένες γραμμές. Ένα ρητό αλλαγή γραμμής μέσα σε μια παράγραφο προκαλεί νέα γραμμή χωρίς να δημιουργεί άλλη παράγραφο. Η αυτόματη αναδίπλωση δημιουργεί γραμμές βάσει του διαθέσιμου πλάτους χωρίς να εισάγει ρητές αλλαγές γραμμής στο κείμενο. Επομένως, η καταμέτρηση παραγράφων ή χαρακτήρων αλλαγής γραμμής δεν δίνει τον αριθμό των σχεδιασμένων γραμμών.
+Μια παράγραφος είναι ένα στοιχείο στο [ITextFrame.Paragraphs](https://reference.aspose.com/slides/net/aspose.slides/itextframe/paragraphs/), και μπορεί να καταλαμβάνει πολλές σχεδιασμένες γραμμές. Μια ρητή αλλαγή γραμμής μέσα σε μια παράγραφο αναγκάζει νέα γραμμή χωρίς δημιουργία νέας παραγράφου. Η αυτόματη αναδίπλωση δημιουργεί γραμμές βάσει του διαθέσιμου πλάτους χωρίς να εισάγει ρητές αλλαγές γραμμής στο κείμενο. Συνεπώς, η καταμέτρηση παραγράφων ή χαρακτήρων αλλαγής γραμμής δεν δίνει τον αριθμό των σχεδιασμένων γραμμών.
 
-Το παρακάτω παράδειγμα δημιουργεί ένα σχήμα κειμένου, μετρά τις γραμμές του, στενεύει το σχήμα και στη συνέχεια αντικαθιστά το κείμενο με ένα πιο σύντομο. Η αναδίπλωση είναι ενεργοποιημένη και η αυτόματη προσαρμογή είναι απενεργοποιημένη ώστε το πλάτος του σχήματος να ελέγχει την αναδίπλωση χωρίς να μειώνει αυτόματα το κείμενο ή το μέγεθος του σχήματος. Οι διαστάσεις του σχήματος δίνονται σε πόντους. Τέλος, το παράδειγμα προσθέτει άλλη μια παράγραφο και αθροίζει τις μετρήσεις γραμμών σε όλο το πλαίσιο κειμένου.
+Το παρακάτω παράδειγμα δημιουργεί ένα σχήμα κειμένου, μετρά τις γραμμές του, στένωση του σχήματος, και στη συνέχεια αντικαθιστά το κείμενο με μια πιο σύντομη συμβολοσειρά. Η αναδίπλωση είναι ενεργοποιημένη και το autofit είναι απενεργοποιημένο ώστε το πλάτος του σχήματος να ελέγχει την αναδίπλωση χωρίς αυτόματη μείωση του κειμένου ή του σχήματος. Οι διαστάσεις του σχήματος είναι σε points. Τελικά, το παράδειγμα προσθέτει μια ακόμη παράγραφο και αθροίζει τους μετρητές γραμμών σε όλο το πλαίσιο κειμένου.
 
 ```csharp
 using System;
@@ -518,22 +520,22 @@ foreach (var currentParagraph in textFrame.Paragraphs)
 Console.WriteLine($"Total lines in the text frame: {totalLineCount}");
 ```
 
-Με αυτό το κείμενο και αυτές τις διαστάσεις, η στένωση του σχήματος αυξάνει τον αριθμό γραμμών, ενώ η αντικατάσταση του κειμένου με το σύντομο μειώνει. Οι ακριβείς μετρήσεις μπορεί να διαφέρουν ανάλογα με τη διαθεσιμότητα και την αντικατάσταση γραμματοσειρών, το μέγεθος γραμματοσειράς, τα περιθώρια, την εσοχή, την αναδίπλωση και τις ρυθμίσεις αυτόματης προσαρμογής. Χρησιμοποιήστε τις γραμματοσειρές και τις ρυθμίσεις διάταξης που προορίζονται για το περιβάλλον στόχο όταν ελέγχετε ένα πρότυπο.
+Με αυτό το κείμενο και αυτές τις διαστάσεις, η στένωση του σχήματος αυξάνει τον αριθμό γραμμών, ενώ η αντικατάσταση του κειμένου με τη σύντομη συμβολοσειρά τον μειώνει. Οι ακριβείς μετρήσεις μπορεί να διαφέρουν ανάλογα με τη διαθεσιμότητα γραμματοσειρών και την αντικατάστασή τους, το μέγεθος γραμματοσειράς, τα περιθώρια, την εσοχή, την αναδίπλωση και τις ρυθμίσεις autofit. Χρησιμοποιήστε τις γραμματοσειρές και τις ρυθμίσεις διάταξης που προορίζονται για το στόχο περιβάλλοντος όταν ελέγχετε ένα πρότυπο.
 
-Ο μόνος αριθμός γραμμών δεν καθορίζει αν το κείμενο ξεπερνά το δοχείο του. Σημαντικό είναι επίσης το διαθέσιμο ύψος, το ύψος των γραμμών, η απόσταση μεταξύ παραγράφων και γραμμών, καθώς και η συμπεριφορά της αυτόματης προσαρμογής· ακόμα και μια γραμμή μπορεί να υπερβαίνει το διαθέσιμο πλάτος όταν η αναδίπλωση είναι απενεργοποιημένη.
+Ο μόνος αριθμός γραμμών δεν καθορίζει εάν το κείμενο ξεπερνά το δοχείο του. Το διαθέσιμο ύψος, το ύψος γραμμών, η απόσταση παραγράφου και γραμμής, και η συμπεριφορά autofit επίσης παίζουν ρόλο· ακόμη και μια μόνο γραμμή μπορεί να ξεπεράσει το διαθέσιμο πλάτος όταν η αναδίπλωση είναι απενεργοποιημένη.
 
 ## **Εισαγωγή και Εξαγωγή Περιεχομένου Παραγράφων**
 
 ### **Εισαγωγή HTML Κειμένου σε Παραγράφους**
 
-Χρησιμοποιήστε το [ParagraphCollection.AddFromHtml](https://reference.aspose.com/slides/el/net/aspose.slides/paragraphcollection/addfromhtml/) για να μετατρέψετε σήμανση HTML σε παραγράφους και τμήματα σε ένα πλαίσιο κειμένου.
+Χρησιμοποιήστε το [ParagraphCollection.AddFromHtml](https://reference.aspose.com/slides/net/aspose.slides/paragraphcollection/addfromhtml/) για να μετατρέψετε HTML markup σε παραγράφους και τμήματα σε ένα πλαίσιο κειμένου.
 
-1. Δημιουργήστε ένα αντικείμενο της κλάσης [Presentation](https://reference.aspose.com/slides/el/net/aspose.slides/presentation).
-2. Προσπελάστε μια διαφάνεια και προσθέστε ένα [IAutoShape](https://reference.aspose.com/slides/el/net/aspose.slides/iautoshape/).
-3. Προσπελάστε το [ITextFrame](https://reference.aspose.com/slides/el/net/aspose.slides/itextframe/) του σχήματος και αφαιρέστε την προεπιλεγμένη παράγραφο.
-4. Διαβάστε το πηγαίο αρχείο HTML.
-5. Περάστε το κείμενο HTML στη μέθοδο [ParagraphCollection.AddFromHtml](https://reference.aspose.com/slides/el/net/aspose.slides/paragraphcollection/addfromhtml/).
-6. Αποθηκεύστε την τροποποιημένη παρουσίαση.
+1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
+2. Προσπελάστε μια διαφάνεια και προσθέστε ένα [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/).
+3. Προσπελάστε το [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/) του σχήματος και αφαιρέστε την προεπιλεγμένη παράγραφο.
+4. Διαβάστε το αρχείο HTML πηγής.
+5. Περνάτε τη συμβολοσειρά HTML στο [ParagraphCollection.AddFromHtml](https://reference.aspose.com/slides/net/aspose.slides/paragraphcollection/addfromhtml/).
+6. Αποθηκεύστε την τροποποιημένη παρουσία.
 
 Αυτό το παράδειγμα C# εισάγει HTML σε ένα πλαίσιο κειμένου:
 
@@ -557,15 +559,15 @@ shape.TextFrame.Paragraphs.AddFromHtml(html);
 presentation.Save("html_text.pptx", SaveFormat.Pptx);
 ```
 
-### **Εξαγωγή Κειμένου Παραγράφου σε HTML**
+### **Εξαγωγή Κειμένου Παραγράφων σε HTML**
 
-Χρησιμοποιήστε το [ParagraphCollection.ExportToHtml](https://reference.aspose.com/slides/el/net/aspose.slides/paragraphcollection/exporttohtml/) για να εξάγετε ένα επιλεγμένο εύρος παραγράφων ως HTML.
+Χρησιμοποιήστε το [ParagraphCollection.ExportToHtml](https://reference.aspose.com/slides/net/aspose.slides/paragraphcollection/exporttohtml/) για να εξάγετε μια επιλεγμένη σειρά παραγράφων ως HTML.
 
-1. Δημιουργήστε ένα αντικείμενο της κλάσης [Presentation](https://reference.aspose.com/slides/el/net/aspose.slides/presentation) και φορτώστε την επιθυμητή παρουσίαση.
-2. Προσπελάστε τη διαφάνεια και βρείτε το [IAutoShape](https://reference.aspose.com/slides/el/net/aspose.slides/iautoshape/) που περιέχει το κείμενο.
-3. Προσπελάστε το [ITextFrame](https://reference.aspose.com/slides/el/net/aspose.slides/itextframe/) του σχήματος.
-4. Καλέστε το [ParagraphCollection.ExportToHtml](https://reference.aspose.com/slides/el/net/aspose.slides/paragraphcollection/exporttohtml/) με τον δείκτη της αρχικής παραγράφου και τον αριθμό των παραγράφων που θα εξαχθούν.
-5. Γράψτε το επιστρεφόμενο κείμενο HTML σε ένα αρχείο.
+1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) και φορτώστε την επιθυμητή παρουσία.
+2. Προσπελάστε τη διαφάνεια και βρείτε το [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) που περιέχει το κείμενο.
+3. Προσπελάστε το [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/) του σχήματος.
+4. Καλέστε το [ParagraphCollection.ExportToHtml](https://reference.aspose.com/slides/net/aspose.slides/paragraphcollection/exporttohtml/) με το αρχικό δείκτη παραγράφου και τον αριθμό παραγράφων προς εξαγωγή.
+5. Γράψτε τη ληφθείσα συμβολοσειρά HTML σε αρχείο.
 
 Αυτό το παράδειγμα C# εξάγει όλες τις παραγράφους από το πρώτο σχήμα κειμένου:
 
@@ -593,17 +595,17 @@ else
 
 ### **Απόδοση Παραγράφου ως Εικόνας**
 
-Η μέθοδος [IParagraph.GetImage](https://reference.aspose.com/slides/el/net/aspose.slides/iparagraph/getimage/) αποδίδει άμεσα μια μεμονωμένη παράγραφο και επιστρέφει ένα αντικείμενο [IImage](https://reference.aspose.com/slides/el/net/aspose.slides/iimage/). Αποθηκεύστε το αποτέλεσμα σε αρχείο ή ροή με τη μέθοδο [IImage.Save](https://reference.aspose.com/slides/el/net/aspose.slides/iimage/save/). Δεν χρειάζεται να αποδώσετε το σχήμα που το περιέχει ή να περικόψετε το bitmap χειροκίνητα.
+Η μέθοδος [IParagraph.GetImage](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/getimage/) αποδίδει άμεσα μια μεμονωμένη παράγραφο και επιστρέφει ένα [IImage](https://reference.aspose.com/slides/net/aspose.slides/iimage/). Αποθηκεύστε το αποτέλεσμα σε αρχείο ή ροή με τη μέθοδο [IImage.Save](https://reference.aspose.com/slides/net/aspose.slides/iimage/save/). Δεν χρειάζεται να αποδράσετε το σχήμα που το περιέχει ή να περικόψετε μια bitmap χειροκίνητα.
 
-Η μέθοδος [IParagraph.GetImage](https://reference.aspose.com/slides/el/net/aspose.slides/iparagraph/getimage/) μπορεί να επιστρέψει `null` αν η παράγραφος δεν βρεθεί στη γονική συλλογή, δεν έχει έγκυρα όρια απόδοσης ή δεν μπορεί να αποδοθεί. Ελέγξτε το αποτέλεσμα πριν το αποθηκεύσετε και απελευθερώστε την εικόνα μετά τη χρήση.
+Το [IParagraph.GetImage](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/getimage/) μπορεί να επιστρέψει `null` εάν η παράγραφος δεν βρεθεί στη γονική συλλογή, δεν έχει έγκυρα όρια απόδοσης ή δεν μπορεί να αποδοθεί. Ελέγξτε το αποτέλεσμα πριν το αποθηκεύσετε και απελευθερώστε την επιστρεφόμενη εικόνα μετά τη χρήση.
 
 #### **Απόδοση Παραγράφου στην Προεπιλεγμένη Κλίμακα**
 
-Ας υποθέσουμε ότι έχουμε ένα αρχείο παρουσίασης με όνομα sample.pptx με μία διαφάνεια, όπου το πρώτο σχήμα είναι ένα πλαίσιο κειμένου που περιέχει τρεις παραγράφους.
+Ας υποθέσουμε ότι έχουμε ένα αρχείο παρουσίασης με όνομα sample.pptx με μία διαφάνεια, στην οποία το πρώτο σχήμα είναι ένα πλαίσιο κειμένου που περιέχει τρεις παραγράφους.
 
-![The text box with three paragraphs](paragraph_to_image_input.png)
+![Το πλαίσιο κειμένου με τρεις παραγράφους](paragraph_to_image_input.png)
 
-Το παρακάτω παράδειγμα αποδίδει τη δεύτερη παράγραφο σε ένα κανονικό σχήμα κειμένου στην προεπιλεγμένη κλίμακα και αποθηκεύει την επιστρεφόμενη εικόνα σε μορφή PNG. Η δήλωση `using` εξασφαλίζει ότι η εικόνα απελευθερώνεται σωστά.
+Το παρακάτω παράδειγμα αποδίδει τη δεύτερη παράγραφο σε ένα κανονικό πλαίσιο κειμένου στην προεπιλεγμένη κλίμακα και αποθηκεύει την επιστρεφόμενη εικόνα σε μορφή PNG. Η δήλωση `using` διασφαλίζει ότι η εικόνα απελευθερώνεται σωστά.
 
 ```csharp
 using System;
@@ -636,11 +638,11 @@ else
 
 Το αποτέλεσμα:
 
-![The paragraph image](paragraph_to_image_output.png)
+![Η εικόνα της παραγράφου](paragraph_to_image_output.png)
 
 #### **Απόδοση Παραγράφου σε Κελί Πίνακα με Κλιμάκωση**
 
-Χρησιμοποιήστε την υπερφόρτωση της [IParagraph.GetImage](https://reference.aspose.com/slides/el/net/aspose.slides/iparagraph/getimage/) που δέχεται παραμέτρους `float scaleX` και `float scaleY` για να ορίσετε τους οριζόντιους και κάθετους συντελεστές κλιμάκωσης. Το παρακάτω παράδειγμα δημιουργεί έναν πίνακα, αποδίδει την παράγραφο στο πρώτο του κελί σε διπλάσιο πλάτος και ύψος από το προεπιλεγμένο και αποθηκεύει το αποτέλεσμα ως εικόνα PNG.
+Χρησιμοποιήστε την υπερφόρτωση της [IParagraph.GetImage](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/getimage/) που δέχεται παραμέτρους `float scaleX` και `float scaleY` για να ορίσετε τους οριζόντιους και κάθετους συντελεστές κλίμακας. Το παρακάτω παράδειγμα δημιουργεί έναν πίνακα, αποδίδει την παράγραφο στο πρώτο του κελί με διπλάσιο πλάτος και ύψος από το προεπιλεγμένο και αποθηκεύει το αποτέλεσμα ως εικόνα PNG.
 
 ```csharp
 using System;
@@ -666,24 +668,26 @@ else
 }
 ```
 
-Ένας συντελεστής κλιμάκωσης `1` διατηρεί τον άξονα στο προεπιλεγμένο μέγεθος pixel. Για παράδειγμα, `2` και για τους δύο συντελεστές παράγει μια εικόνα του οποίου το πλάτος και το ύψος είναι περίπου διπλά από τις προεπιλεγμένες διαστάσεις, με αποτέλεσμα τέσσερις φορές περισσότερα pixel. Μεγαλύτεροι συντελεστές συνήθως προσφέρουν πιο οξεία γραφή για ζουμ ή εξαγωγή υψηλής ανάλυσης, αλλά αυξάνουν και τη μνήμη και το μέγεθος αρχείου. Συντελεστές κάτω από `1` παράγουν μικρότερες εικόνες με λιγότερες λεπτομέρειες. Χρησιμοποιήστε ίσες τιμές για να διατηρήσετε το λόγο διαστάσεων της παραγράφου· διαφορετικοί οριζόντιοι και κάθετοι συντελεστές τεντώνουν το αποτέλεσμα ανεξάρτητα.
+Ένας συντελεστής κλίμακας `1` διατηρεί αυτόν τον άξονα στο προεπιλεγμένο μέγεθος εικονοστοιχείου. Για παράδειγμα, `2` για και τους δύο συντελεστές δημιουργεί μια εικόνα του οποίου το πλάτος και το ύψος είναι περίπου διπλάσιο των προεπιλεγμένων διαστάσεων, με αποτέλεσμα τέσσερις φορές περισσότερα εικονοστοιχεία. Μεγαλύτεροι συντελεστές παράγουν συνήθως πιο οξεία γραφή για μεγέθυνση ή έξοδο υψηλής ανάλυσης, αλλά αυξάνουν επίσης τη χρήση μνήμης και το μέγεθος του αρχείου. Συντελεστές κάτω από `1` παράγουν μικρότερες εικόνες με λιγότερες λεπτομέρειες. Χρησιμοποιήστε ίδιους συντελεστές για να διατηρήσετε την αναλογία διαστάσεων της παραγράφου· διαφορετικοί οριζόντιοι και κάθετοι συντελεστές τεντώνουν το αποτέλεσμα ανεξάρτητα.
 
-Η απόδοση ολόκληρου σχήματος με τη μέθοδο [IShape.GetImage](https://reference.aspose.com/slides/el/net/aspose.slides/ishape/getimage/) παραμένει χρήσιμη όταν το αποτέλεσμα πρέπει να περιλαμβάνει το γέμισμα, το περίγραμμα ή άλλο οπτικό περιβάλλον του σχήματος. Για εικόνα μόνο της παραγράφου, χρησιμοποιήστε την [IParagraph.GetImage](https://reference.aspose.com/slides/el/net/aspose.slides/iparagraph/getimage/).
+Η απόδοση ολόκληρου σχήματος με τη [IShape.GetImage](https://reference.aspose.com/slides/net/aspose.slides/ishape/getimage/) παραμένει χρήσιμη όταν η έξοδος πρέπει να περιλαμβάνει το γέμισμα, το περίγραμμα ή άλλο οπτικό περιεχόμενο του σχήματος. Για μια εικόνα μόνο της παραγράφου, χρησιμοποιήστε τη [IParagraph.GetImage](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/getimage/).
 
-## **Συχνές Ερωτήσεις**
+## **ΣΥΧΝΕΣ ΕΡΩΤΗΣΕΙΣ**
 
-**Μπορώ να απενεργοποιήσω πλήρως την αναδίπλωση γραμμών μέσα σε ένα πλαίσιο κειμένου;**
+**Μπορώ να απενεργοποιήσω εντελώς την αναδίπλωση γραμμής μέσα σε ένα πλαίσιο κειμένου;**
 
-Ναι. Ορίστε το [ITextFrameFormat.WrapText](https://reference.aspose.com/slides/el/net/aspose.slides/itextframeformat/wraptext/) ώστε να απενεργοποιήσετε την αναδίπλωση ώστε οι γραμμές να μην διακόπτονται στις άκρες του πλαισίου κειμένου.
+Ναι. Ορίστε το [ITextFrameFormat.WrapText](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/wraptext/) για να απενεργοποιήσετε την αναδίπλωση ώστε οι γραμμές να μην σπάζουν στα άκρα του πλαισίου κειμένου.
 
-**Πώς μπορώ να λάβω τα ακριβή όρια εντός της διαφάνειας μιας συγκεκριμένης παραγράφου;**
+**Πώς μπορώ να λάβω το ακριβές όριο εντός της διαφάνειας για μια συγκεκριμένη παράγραφο;**
 
-Χρησιμοποιήστε το [IParagraph.GetRect](https://reference.aspose.com/slides/el/net/aspose.slides/iparagraph/getrect/) για να ανακτήσετε το ορθογώνιο που περιβάλλει την παράγραφο. Το [IPortion.GetRect](https://reference.aspose.com/slides/el/net/aspose.slides/iportion/getrect/) παρέχει τα όρια ενός μεμονωμένου τμήματος.
+Χρησιμοποιήστε το [IParagraph.GetRect](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/getrect/) για να αποκτήσετε το ορθογώνιο που περιορίζει την παράγραφο. Το [IPortion.GetRect](https://reference.aspose.com/slides/net/aspose.slides/iportion/getrect/) παρέχει τα όρια ενός μεμονωμένου τμήματος.
 
-**Πού ελέγχεται η στοίχιση παραγράφου (αριστερά, δεξιά, κεντραρισμένη ή πλήρης στοίχιση);**
+**Πού ελέγχεται η στοίχιση της παραγράφου (αριστερά, δεξιά, κέντρο ή στοίχιση πλήρους πλάτους);**
 
-Η ιδιότητα [IParagraphFormat.Alignment](https://reference.aspose.com/slides/el/net/aspose.slides/iparagraphformat/alignment/) είναι ρύθμιση επιπέδου παραγράφου και εφαρμόζεται σε ολόκληρη την παράγραφο ανεξάρτητα από τη μορφοποίηση των επιμέρους τμημάτων.
+Το [IParagraphFormat.Alignment](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/alignment/) είναι μια ρύθμιση σε επίπεδο παραγράφου και εφαρμόζεται σε ολόκληρη την παράγραφο ανεξαρτήτως μορφοποίησης επιμέρους τμημάτων.
 
-**Μπορώ να ορίσω τη γλώσσα διόρθωσης για μέρος μιας παραγράφου;**
+Για κατακόρυφη στοίχιση τμημάτων με διαφορετικά μεγέθη γραμματοσειράς μέσα σε κάθε γραμμή, δείτε το [Align Fonts Within a Line](/slides/el/net/text-formatting/#align-fonts-within-a-line).
 
-Ναι. Ορίστε το [IBasePortionFormat.LanguageId](https://reference.aspose.com/slides/el/net/aspose.slides/ibaseportionformat/languageid/) για μεμονωμένα τμήματα, ώστε μια παράγραφος να μπορεί να περιέχει κείμενο σε πολλές γλώσσες.
+**Μπορώ να ορίσω τη γλώσσα απόδειξης για μέρος μιας παραγράφου;**
+
+Ναι. Ορίστε το [IBasePortionFormat.LanguageId](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/languageid/) για μεμονωμένα τμήματα, ώστε μια παράγραφος να μπορεί να περιέχει κείμενο σε πολλές γλώσσες.

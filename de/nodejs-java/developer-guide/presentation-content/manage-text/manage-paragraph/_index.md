@@ -1,5 +1,5 @@
 ---
-title: PowerPoint-Textabsätze in JavaScript verwalten
+title: Verwalten von PowerPoint-Textabsätzen in JavaScript
 linktitle: Absatz verwalten
 type: docs
 weight: 40
@@ -13,12 +13,12 @@ keywords:
 - Text verwalten
 - Absatz verwalten
 - Aufzählungszeichen verwalten
-- Absatz-Einzug
-- hängender Einzug
+- Absatzeinzug
+- Hängender Einzug
 - Absatz-Aufzählungszeichen
-- nummerierte Liste
+- Nummerierte Liste
 - Aufzählungsliste
-- Absatz-Eigenschaften
+- Absatzeigenschaften
 - HTML importieren
 - Text zu HTML
 - Absatz zu HTML
@@ -30,33 +30,33 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Erfahren Sie, wie Sie mit Aspose.Slides für Node.js über Java Absätze, Portionen, Aufzählungszeichen, nummerierte Listen, Einzüge, HTML‑Inhalte und Absatz‑Bilder erstellen und formatieren."
+description: "Erfahren Sie, wie Sie mit Aspose.Slides für Node.js über Java Absätze, Portionen, Aufzählungszeichen, nummerierte Listen, Einzüge, HTML-Inhalte und Absatz-Bilder erstellen und formatieren."
 ---
 ## **Übersicht**
 
-Aspose.Slides für Node.js über Java stellt Text als Hierarchie von Textfeldern, Absätzen und Portionen dar:
+Aspose.Slides for Node.js via Java stellt Text als eine Hierarchie aus TextFrames, Paragraphen und Portionen dar:
 
-* [TextFrame](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/textframe/) stellt den Textcontainer in einer Form dar und bietet Zugriff auf ihre Absatzsammlung.
-* [Paragraph](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/paragraph/) repräsentiert einen Absatz in einem Textfeld und bietet Zugriff auf seine Portionen und die Absatzformatierung.
-* [Portion](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/portion/) stellt einen Textlauf innerhalb eines Absatzes dar. Jede Portion kann ihren eigenen Text und Zeichenformatierungen besitzen.
+* [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/) repräsentiert den Textcontainer in einer Form und bietet Zugriff auf die zugehörige Paragraphensammlung.
+* [Paragraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/) repräsentiert einen Absatz in einem TextFrame und ermöglicht den Zugriff auf seine Portionen sowie die Absatzformatierung.
+* [Portion](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portion/) repräsentiert einen Textlauf innerhalb eines Absatzes. Jede Portion kann eigenen Text und Zeichenformatierungen besitzen.
 
-Ein Absatz kann deshalb Text mit unterschiedlichen Schriftarten, Farben, Größen und sonstiger Formatierung enthalten, indem mehrere Portionen verwendet werden.
+Ein Absatz kann daher Text mit unterschiedlichen Schriften, Farben, Größen und weiterer Formatierung enthalten, indem mehrere Portionen verwendet werden.
 
 ## **Absätze erstellen und formatieren**
 
 ### **Absätze mit mehreren Portionen erstellen**
 
-Die folgenden Schritte erzeugen ein Textfeld mit drei Absätzen, die jeweils drei Portionen enthalten:
+Die folgenden Schritte erzeugen ein TextFrame mit drei Absätzen, die jeweils drei Portionen enthalten:
 
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/presentation/).
-2. Greifen Sie über den Index auf die entsprechende Folie zu.
-3. Fügen Sie der Folie eine rechteckige [AutoShape](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/autoshape/) hinzu.
-4. Greifen Sie auf das [TextFrame](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/textframe/) der Form zu.
-5. Verwenden Sie den Standardabsatz und fügen Sie dem Textfeld zwei weitere [Paragraph](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/paragraph/)‑Objekte hinzu.
-6. Fügen Sie ausreichend [Portion](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/portion/)‑Objekte hinzu, sodass jeder Absatz drei Portionen enthält. Der Standardabsatz enthält bereits eine leere Portion.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/)‑Klasse.
+2. Greifen Sie über den Index auf die gewünschte Folie zu.
+3. Fügen Sie der Folie ein rechteckiges [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) hinzu.
+4. Greifen Sie auf das [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/) der Form zu.
+5. Verwenden Sie den Standard‑Paragraph und fügen Sie dem TextFrame zwei weitere [Paragraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/)‑Objekte hinzu.
+6. Fügen Sie für jeden Absatz genügend [Portion](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portion/)‑Objekte hinzu, damit er drei Portionen enthält. Der Standard‑Paragraph enthält bereits eine leere Portion.
 7. Setzen Sie den Text jeder Portion.
-8. Wenden Sie Zeichenformatierung über [Portion.getPortionFormat](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/portion/getportionformat/) an.
-9. Speichern Sie die modifizierte Präsentation.
+8. Wenden Sie Zeichenformatierung über [Portion.getPortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portion/getportionformat/) an.
+9. Speichern Sie die geänderte Präsentation.
 
 Dieses JavaScript‑Beispiel implementiert die Schritte:
 
@@ -115,26 +115,26 @@ try {
 }
 ```
 
-## **Aufzählungen und nummerierte Listen erstellen**
+## **Aufzählungs‑ und Nummerierungslisten erstellen**
 
-### **Eine Aufzählung oder nummerierte Liste erstellen**
+### **Aufzählungs‑ oder nummerierte Liste erstellen**
 
-Aufzählungszeichen und Nummerierung erleichtern das Scannen zusammengehöriger Elemente. In Aspose.Slides werden Listeneinstellungen über [BulletFormat](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/bulletformat/) definiert.
+Aufzählungszeichen und Nummerierungen erleichtern das Scannen zusammenhängender Punkte. In Aspose.Slides werden Listeneinstellungen über [BulletFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/) definiert.
 
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/presentation/).
-2. Greifen Sie über den Index auf die entsprechende Folie zu.
-3. Fügen Sie der ausgewählten Folie ein [AutoShape](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/autoshape/) hinzu.
-4. Greifen Sie auf das [TextFrame](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/textframe/) der Form zu.
-5. Entfernen Sie den Standardabsatz aus dem Textfeld.
-6. Erstellen Sie einen [Paragraph](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/paragraph/) für ein Symbol‑Aufzählungszeichen.
-7. Setzen Sie [BulletFormat.setType](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/bulletformat/settype/) auf [BulletType.Symbol](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/bullettype/) und geben Sie das Aufzählungszeichenzeichen an.
-8. Legen Sie den Absatztext, den Einzug, die Aufzählungsfarbe und die Aufzählungsgröße fest.
-9. Fügen Sie den Absatz dem Textfeld hinzu.
-10. Erstellen Sie einen zweiten Absatz und setzen Sie [BulletFormat.setType](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/bulletformat/settype/) auf [BulletType.Numbered](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/bullettype/).
-11. Konfigurieren Sie den nummerierten Aufzählungsstil und fügen Sie den Absatz dem Textfeld hinzu.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/)‑Klasse.
+2. Greifen Sie über den Index auf die gewünschte Folie zu.
+3. Fügen Sie der ausgewählten Folie ein [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) hinzu.
+4. Greifen Sie auf das [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/) der Form zu.
+5. Entfernen Sie den Standard‑Paragraph aus dem TextFrame.
+6. Erstellen Sie einen [Paragraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/) für ein Symbol‑Aufzählungszeichen.
+7. Setzen Sie [BulletFormat.setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/settype/) auf [BulletType.Symbol](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bullettype/) und geben Sie das Aufzählungszeichen‑Symbol an.
+8. Setzen Sie den Paragraph‑Text, den Einzug, die Aufzählungszeichen‑Farbe und die Aufzählungszeichen‑Höhe.
+9. Fügen Sie den Paragraph dem TextFrame hinzu.
+10. Erstellen Sie einen zweiten Paragraph und setzen Sie [BulletFormat.setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/settype/) auf [BulletType.Numbered](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bullettype/).
+11. Konfigurieren Sie den nummerierten Aufzählungsstil und fügen Sie den Paragraph dem TextFrame hinzu.
 12. Speichern Sie die Präsentation.
 
-Dieses JavaScript‑Beispiel erstellt ein Symbol‑Aufzählungszeichen und ein nummeriertes Aufzählungszeichen:
+Dieses JavaScript‑Beispiel erzeugt ein Symbol‑Aufzählungszeichen und ein nummeriertes Aufzählungszeichen:
 
 ```javascript
 var aspose = aspose || {};
@@ -176,22 +176,22 @@ try {
 }
 ```
 
-### **Bildaufzählungszeichen verwenden**
+### **Bild‑Aufzählungszeichen verwenden**
 
-Bildaufzählungszeichen ermöglichen es, ein benutzerdefiniertes Bild anstelle eines Symbols oder einer Zahl zu nutzen.
+Bild‑Aufzählungszeichen ermöglichen die Verwendung eines benutzerdefinierten Bildes anstelle eines Symbols oder einer Zahl.
 
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/presentation/).
-2. Greifen Sie über den Index auf die entsprechende Folie zu.
-3. Fügen Sie ein [AutoShape](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/autoshape/) hinzu und greifen Sie auf sein [TextFrame](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/textframe/) zu.
-4. Entfernen Sie den Standardabsatz aus dem Textfeld.
-5. Laden Sie das Aufzählungsbild und fügen Sie es der Bildsammlung der Präsentation als [PPImage](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/ppimage/) hinzu.
-6. Erstellen Sie einen [Paragraph](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/paragraph/) und setzen Sie dessen Text.
-7. Setzen Sie [BulletFormat.setType](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/bulletformat/settype/) auf [BulletType.Picture](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/bullettype/).
-8. Ordnen Sie das Bild über [BulletFormat.getPicture](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/bulletformat/getpicture/) zu und setzen Sie die Aufzählungsgröße.
-9. Fügen Sie den Absatz dem Textfeld hinzu.
-10. Speichern Sie die modifizierte Präsentation.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/)‑Klasse.
+2. Greifen Sie über den Index auf die gewünschte Folie zu.
+3. Fügen Sie ein [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) hinzu und greifen Sie auf dessen [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/) zu.
+4. Entfernen Sie den Standard‑Paragraph aus dem TextFrame.
+5. Laden Sie das Aufzählungszeichen‑Bild und fügen Sie es der Bildsammlung der Präsentation als [PPImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ppimage/) hinzu.
+6. Erstellen Sie einen [Paragraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/) und setzen Sie dessen Text.
+7. Setzen Sie [BulletFormat.setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/settype/) auf [BulletType.Picture](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bullettype/).
+8. Ordnen Sie das Bild über [BulletFormat.getPicture](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/getpicture/) zu und setzen Sie die Aufzählungszeichen‑Höhe.
+9. Fügen Sie den Paragraph dem TextFrame hinzu.
+10. Speichern Sie die geänderte Präsentation.
 
-Dieses JavaScript‑Beispiel erstellt ein Bildaufzählungszeichen:
+Dieses JavaScript‑Beispiel erzeugt ein Bild‑Aufzählungszeichen:
 
 ```javascript
 var aspose = aspose || {};
@@ -228,17 +228,17 @@ try {
 }
 ```
 
-### **Eine mehrstufige Liste erstellen**
+### **Mehrstufige Liste erstellen**
 
-Setzen Sie [ParagraphFormat.setDepth](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/paragraphformat/setdepth/), um Absätze auf verschiedenen Ebenen einer Liste zu platzieren. Die oberste Ebene hat eine Tiefe von `0`.
+Setzen Sie [ParagraphFormat.setDepth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setdepth/), um Paragraphen auf verschiedenen Ebenen einer Liste zu platzieren. Die oberste Ebene hat die Tiefe `0`.
 
-1. Erstellen Sie eine [Presentation](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/presentation/) und greifen Sie auf eine Folie zu.
-2. Fügen Sie ein [AutoShape](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/autoshape/) hinzu und entfernen Sie den Standardabsatz aus dessen Textfeld.
-3. Erstellen Sie vier Absätze und konfigurieren Sie deren Aufzählungssymbole.
-4. Setzen Sie deren [ParagraphFormat.setDepth](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/paragraphformat/setdepth/)‑Werte auf `0`, `1`, `2` und `3`.
-5. Fügen Sie die Absätze dem Textfeld hinzu und speichern Sie die Präsentation.
+1. Erstellen Sie eine [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) und greifen Sie eine Folie ab.
+2. Fügen Sie ein [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) hinzu und entfernen Sie den Standard‑Paragraph aus dessen TextFrame.
+3. Erstellen Sie vier Paragraphen und konfigurieren Sie deren Aufzählungssymbole.
+4. Setzen Sie deren [ParagraphFormat.setDepth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setdepth/)‑Werte auf `0`, `1`, `2` und `3`.
+5. Fügen Sie die Paragraphen dem TextFrame hinzu und speichern Sie die Präsentation.
 
-Dieses JavaScript‑Beispiel erstellt eine vierstufige Aufzählungsliste:
+Dieses JavaScript‑Beispiel erzeugt eine vierstufige Aufzählungsliste:
 
 ```javascript
 var aspose = aspose || {};
@@ -295,17 +295,17 @@ try {
 }
 ```
 
-### **Nummerierte Listeneinträge bei benutzerdefinierten Werten starten**
+### **Nummerierte Listeneinträge bei benutzerdefinierten Werten beginnen lassen**
 
-Verwenden Sie [BulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/bulletformat/setnumberedbulletstartwith/), um die Anfangszahl eines nummerierten Absatzes festzulegen.
+Verwenden Sie [BulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/setnumberedbulletstartwith/), um die Anfangs‑Nummer eines nummerierten Paragraphen festzulegen.
 
-1. Erstellen Sie eine [Presentation](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/presentation/) und fügen Sie einer Folie ein [AutoShape](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/autoshape/) hinzu.
-2. Entfernen Sie den Standardabsatz aus dem Textfeld der Form.
-3. Erstellen Sie drei nummerierte Absätze.
-4. Setzen Sie [BulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/bulletformat/setnumberedbulletstartwith/) für die jeweiligen Absätze auf `2`, `3` bzw. `7`.
-5. Fügen Sie die Absätze dem Textfeld hinzu und speichern Sie die Präsentation.
+1. Erstellen Sie eine [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) und fügen Sie einer Folie ein [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) hinzu.
+2. Entfernen Sie den Standard‑Paragraph aus dem TextFrame der Form.
+3. Erstellen Sie drei nummerierte Paragraphen.
+4. Setzen Sie [BulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/setnumberedbulletstartwith/) auf `2`, `3` bzw. `7` für die jeweiligen Paragraphen.
+5. Fügen Sie die Paragraphen dem TextFrame hinzu und speichern Sie die Präsentation.
 
-Dieses JavaScript‑Beispiel weist jedem Absatz eine eigene Startzahl zu:
+Dieses JavaScript‑Beispiel weist jedem Paragraphen eine benutzerdefinierte Start‑Nummer zu:
 
 ```javascript
 var aspose = aspose || {};
@@ -345,23 +345,23 @@ try {
 
 ## **Absatzlayout und End‑Eigenschaften steuern**
 
-### **Erstzeileneinzug festlegen**
+### **Ersten Zeileneinzug festlegen**
 
-Verwenden Sie [ParagraphFormat.setIndent](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/paragraphformat/setindent/), um den Erstzeileneinzug eines Absatzes zu steuern. Diese Methode verschiebt nur die erste Zeile relativ zum linken Rand des Absatzes. Ein positiver Wert verschiebt die erste Zeile nach rechts, während die übrigen Zeilen am Absatzkörper ausgerichtet bleiben.
+Verwenden Sie [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/), um den Erstzeileneinzug eines Paragraphen zu steuern. Diese Methode verschiebt nur die erste Zeile relativ zum linken Rand des Paragraphen. Ein positiver Wert verschiebt die erste Zeile nach rechts, während die übrigen Zeilen am Paragraphenkörper ausgerichtet bleiben.
 
-Verwenden Sie [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/paragraphformat/setmarginleft/), wenn Sie den gesamten Absatz verschieben möchten. Verwenden Sie [ParagraphFormat.setIndent](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/paragraphformat/setindent/), wenn Sie nur die erste Zeile verschieben wollen.
+Verwenden Sie [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setmarginleft/), wenn Sie den gesamten Paragraphen verschieben möchten. Verwenden Sie [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/), wenn Sie nur die erste Zeile verschieben wollen.
 
-Das nachfolgende Beispiel erstellt mehrere Absätze und wendet unterschiedliche [ParagraphFormat.setIndent](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/paragraphformat/setindent/)-Werte an, um zu zeigen, wie der Erstzeileneinzug das Layout beeinflusst.
+Das nachfolgende Beispiel erzeugt mehrere Paragraphen und wendet unterschiedliche [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/)‑Werte an, um zu zeigen, wie sich der Erstzeileneinzug auf das Layout auswirkt.
 
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/presentation/).
-2. Greifen Sie auf die Ziel‑Folie zu.
-3. Fügen Sie der Folie ein rechteckiges [AutoShape](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/autoshape/) hinzu.
-4. Greifen Sie auf das [TextFrame](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/textframe/) der Form zu und entfernen Sie den Standardabsatz.
-5. Erstellen Sie mehrere Absätze und setzen Sie für sie unterschiedliche [ParagraphFormat.setIndent](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/paragraphformat/setindent/)-Werte.
-6. Fügen Sie die Absätze dem Textfeld hinzu.
-7. Speichern Sie die modifizierte Präsentation.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/)‑Klasse.
+2. Greifen Sie die Ziel‑Folie ab.
+3. Fügen Sie der Folie ein rechteckiges [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) hinzu.
+4. Greifen Sie auf das [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/) der Form zu und entfernen Sie den Standard‑Paragraph.
+5. Erstellen Sie mehrere Paragraphen und setzen Sie verschiedene [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/)‑Werte für sie.
+6. Fügen Sie die Paragraphen dem TextFrame hinzu.
+7. Speichern Sie die geänderte Präsentation.
 
-Dieser Code zeigt, wie ein Absatz‑Einzug gesetzt wird:
+Dieser Code zeigt, wie ein Paragraph‑Einzug gesetzt wird:
 
 ```javascript
 var aspose = aspose || {};
@@ -414,26 +414,26 @@ try {
 
 Das Ergebnis:
 
-![Der Erstzeileneinzug der Absätze](first_line_indent.png)
+![Der Erstzeileneinzug der Paragraphen](first_line_indent.png)
 
 ### **Hängenden Einzug festlegen**
 
-Ein hängender Einzug ist ein Absatzlayout, bei dem die erste Zeile links von den übrigen Zeilen beginnt. In Aspose.Slides erzeugen Sie diesen Effekt mit [ParagraphFormat.setIndent](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/paragraphformat/setindent/). Übergeben Sie einen negativen Wert, um die erste Zeile nach links zu verschieben.
+Ein hängender Einzug ist ein Absatzlayout, bei dem die erste Zeile links von den übrigen Zeilen beginnt. In Aspose.Slides erzeugen Sie diesen Effekt mit [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/). Übergeben Sie einen negativen Wert, um die erste Zeile nach links zu verschieben.
 
-In der Praxis definiert [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/paragraphformat/setmarginleft/) die linke Position des Absatzkörpers, und [ParagraphFormat.setIndent](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/paragraphformat/setindent/) bestimmt die Position der ersten Zeile relativ zu diesem Rand. Um einen hängenden Einzug zu erzeugen, übergeben Sie einen positiven Wert an `setMarginLeft` und einen negativen Wert an `setIndent`.
+In der Praxis definiert [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setmarginleft/) die linke Position des Paragraphenkörpers, und [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/) bestimmt die Position der ersten Zeile relativ zu diesem Rand. Für einen hängenden Einzug übergeben Sie einen positiven Wert an `setMarginLeft` und einen negativen Wert an `setIndent`.
 
-Diese Formatierung ist nützlich für Literaturverzeichnisse, Verweise, Glossareinträge und andere Absätze, bei denen umgebrochene Zeilen unter dem Absatzkörper und nicht unter dem ersten Zeichen der ersten Zeile ausgerichtet sein müssen.
+Diese Formatierung ist nützlich für Bibliographien, Verweise, Glossareinträge und andere Paragraphen, bei denen umgebrochene Zeilen unter dem Paragraphenkörper und nicht unter dem ersten Zeichen der ersten Zeile ausgerichtet sein müssen.
 
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/presentation/).
-2. Greifen Sie auf die Ziel‑Folie zu.
-3. Fügen Sie der Folie ein rechteckiges [AutoShape](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/autoshape/) hinzu.
-4. Greifen Sie auf das [TextFrame](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/textframe/) der Form zu und entfernen Sie den Standardabsatz.
-5. Erstellen Sie Absätze und übergeben Sie für jeden einen positiven Wert an [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/paragraphformat/setmarginleft/).
-6. Übergeben Sie einen negativen Wert an [ParagraphFormat.setIndent](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/paragraphformat/setindent/), um den hängenden Einzug zu erzeugen.
-7. Fügen Sie die Absätze dem Textfeld hinzu.
-8. Speichern Sie die modifizierte Präsentation.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/)‑Klasse.
+2. Greifen Sie die Ziel‑Folie ab.
+3. Fügen Sie der Folie ein rechteckiges [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) hinzu.
+4. Greifen Sie auf das [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/) der Form zu und entfernen Sie den Standard‑Paragraph.
+5. Erstellen Sie Paragraphen und übergeben Sie für jeden einen positiven Wert an [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setmarginleft/).
+6. Übergeben Sie einen negativen Wert an [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/), um den hängenden Einzug zu erzeugen.
+7. Fügen Sie die Paragraphen dem TextFrame hinzu.
+8. Speichern Sie die geänderte Präsentation.
 
-Dieser Code zeigt, wie ein hängender Einzug für einen Absatz gesetzt wird:
+Dieser Code zeigt, wie ein hängender Einzug für einen Paragraph gesetzt wird:
 
 ```javascript
 var aspose = aspose || {};
@@ -478,18 +478,18 @@ try {
 
 Das Ergebnis:
 
-![Der hängende Einzug der Absätze](hanging_indent.png)
+![Der hängende Einzug der Paragraphen](hanging_indent.png)
 
-### **Endabsatzlauf‑Eigenschaften festlegen**
+### **End‑Paragraph‑Lauf‑Eigenschaften festlegen**
 
-[Paragraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/paragraph/setendparagraphportionformat/) steuert die Formatierung des Absatzendzeichens. Das folgende Beispiel weist dem Endzeichen des zweiten Absatzes eine Schriftgröße und eine lateinische Schrift zu:
+[Paragraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/setendparagraphportionformat/) steuert die Formatierung des Absatzendzeichens. Das folgende Beispiel weist dem Endzeichen des zweiten Paragraphen eine Schriftgröße und eine Latin‑Schrift zu:
 
-1. Erstellen oder laden Sie eine [Presentation](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/presentation/) und greifen Sie auf eine Folie zu.
-2. Fügen Sie ein [AutoShape](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/autoshape/) hinzu und entfernen Sie dessen Standardabsatz.
-3. Erstellen Sie zwei Absätze und fügen Sie ihnen Textportionen hinzu.
-4. Erstellen Sie für das Endzeichen des zweiten Absatzes ein [PortionFormat](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/portionformat/).
-5. Setzen Sie [BasePortionFormat.setFontHeight](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/baseportionformat/#setFontHeight) und [BasePortionFormat.setLatinFont](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/baseportionformat/#setLatinFont).
-6. Ordnen Sie das Format mit [Paragraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/paragraph/setendparagraphportionformat/) zu und speichern Sie die Präsentation.
+1. Erzeugen oder laden Sie eine [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) und greifen Sie eine Folie ab.
+2. Fügen Sie ein [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) hinzu und löschen Sie dessen Standard‑Paragraph.
+3. Erstellen Sie zwei Paragraphen und fügen Sie ihnen Textportionen hinzu.
+4. Erzeugen Sie ein [PortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portionformat/) für das Endzeichen des zweiten Paragraphen.
+5. Setzen Sie [BasePortionFormat.setFontHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setFontHeight) und [BasePortionFormat.setLatinFont](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setLatinFont).
+6. Weisen Sie das Format mit [Paragraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/setendparagraphportionformat/) zu und speichern Sie die Präsentation.
 
 ```javascript
 var aspose = aspose || {};
@@ -522,15 +522,15 @@ try {
 }
 ```
 
-## **Gerenderte Zeilen zählen**
+## **Anzahl gerenderter Zeilen zählen**
 
-Für Absatzregeln, die automatisches Umbrechen und Interpunktion am Zeilenende beeinflussen, siehe [Zeilenumbruch steuern](/slides/de/nodejs-java/text-formatting/#control-line-breaking) und [Hängende Interpunktion steuern](/slides/de/nodejs-java/text-formatting/#control-hanging-punctuation).
+Für Absatzregeln, die automatisches Umbrechen und Interpunktion am Zeilenende betreffen, siehe [Control Line Breaking](/slides/de/nodejs-java/text-formatting/#control-line-breaking) und [Control Hanging Punctuation](/slides/de/nodejs-java/text-formatting/#control-hanging-punctuation).
 
-Verwenden Sie [Paragraph.getLinesCount](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/paragraph/#getLinesCount), um die nach Textlayout belegten Zeilen eines Absatzes zu zählen, einschließlich automatischem Umbrechen. Das ist nützlich, um Textlänge und Layout in Vorlagen zu prüfen.
+Verwenden Sie [Paragraph.getLinesCount](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getLinesCount), um die nach Textlayout belegten Zeilen eines Paragraphen zu zählen, einschließlich automatischem Umbrechen. Das ist nützlich, um Textlänge und Layout in Präsentationsvorlagen zu prüfen.
 
-Ein Absatz ist ein Element in [TextFrame.getParagraphs](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/textframe/#getParagraphs) und kann mehrere gerenderte Zeilen belegen. Ein expliziter Zeilenumbruch innerhalb eines Absatzes erzwingt eine neue Zeile, ohne einen weiteren Absatz zu erzeugen. Automatisches Umbrechen erzeugt Zeilen basierend auf der verfügbaren Breite, ohne explizite Zeilenumbruch‑Zeichen in den Text einzufügen. Daher liefert das Zählen von Absätzen oder Zeilenumbruch‑Zeichen nicht die gerenderte Zeilenzahl.
+Ein Paragraph ist ein Element von [TextFrame.getParagraphs](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/#getParagraphs) und kann mehrere gerenderte Zeilen belegen. Ein expliziter Zeilenumbruch innerhalb eines Paragraphen erzwingt eine neue Zeile, ohne einen weiteren Paragraphen zu erzeugen. Automatisches Umbrechen erzeugt Zeilen basierend auf der verfügbaren Breite, ohne explizite Zeilenumbrüche in den Text einzufügen. Daher liefert das Zählen von Paragraphen oder Zeilenumbruch‑Zeichen nicht die gerenderte Zeilenzahl.
 
-Das folgende Beispiel erstellt eine Textform, zählt ihre Zeilen, verkleinert die Form und ersetzt anschließend den Text durch einen kürzeren String. Das Umbrechen ist aktiviert und AutoFit ist deaktiviert, so dass die Formbreite das Umbrechen steuert, ohne den Text automatisch zu verkleinern oder die Form zu skalieren. Die Formabmessungen sind in Punkt angegeben. Abschließend fügt das Beispiel einen weiteren Absatz hinzu und summiert die Zeilenzahlen über das gesamte Textfeld.
+Das folgende Beispiel erstellt ein Text‑Shape, zählt dessen Zeilen, verkleinert das Shape und ersetzt anschließend den Text durch einen kürzeren String. Umbrechen ist aktiviert und Autofit deaktiviert, sodass die Shape‑Breite das Umbrechen steuert, ohne den Text automatisch zu verkleinern oder das Shape zu skalieren. Shape‑Abmessungen werden in Punkten angegeben. Abschließend fügt das Beispiel einen weiteren Paragraphen hinzu und addiert die Zeilenzahlen über das TextFrame hinweg.
 
 ```javascript
 var aspose = aspose || {};
@@ -573,24 +573,24 @@ try {
 }
 ```
 
-Bei diesem Text und diesen Abmessungen erhöht das Verengen der Form die Zeilenzahl, während das Ersetzen des Textes durch den kurzen String sie reduziert. Exakte Zahlen können je nach Schriftverfügbarkeit und -ersatz, Schriftgröße, Rändern, Einzügen, Umbrechen und AutoFit‑Einstellungen variieren. Verwenden Sie die für die Zielumgebung vorgesehenen Schriften und Layout‑Einstellungen, wenn Sie eine Vorlage prüfen.
+Mit diesem Text und diesen Abmessungen erhöht das Verengen des Shapes die Zeilenzahl, während das Ersetzen des Textes durch den kurzen String sie reduziert. Exakte Zahlen können je nach verfügbaren Schriften, Schriftgröße, Rändern, Einzügen, Umbrechen und Autofit‑Einstellungen variieren. Verwenden Sie die für die Zielumgebung vorgesehenen Schriften und Layout‑Einstellungen beim Prüfen einer Vorlage.
 
-Die reine Zeilenzahl bestimmt nicht, ob der Text über den Container hinausläuft. Auch die verfügbare Höhe, Zeilenhöhen, Absatz‑ und Zeilenabstände sowie das AutoFit‑Verhalten spielen eine Rolle; bereits eine einzelne Zeile kann die verfügbare Breite überschreiten, wenn das Umbrechen deaktiviert ist.
+Die Zeilenzahl allein bestimmt nicht, ob Text über das Container‑Volumen hinausläuft. Auch die verfügbare Höhe, Zeilenhöhen, Absatz‑ und Zeilenabstände sowie das Verhalten von Autofit sind relevant; bereits eine Zeile kann die verfügbare Breite überschreiten, wenn Umbrechen deaktiviert ist.
 
 ## **Absatzinhalt importieren und exportieren**
 
-### **HTML-Text in Absätze importieren**
+### **HTML‑Text in Paragraphen importieren**
 
-Verwenden Sie [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/paragraphcollection/addfromhtml/), um HTML‑Markup in Absätze und Portionen eines Textfeldes zu konvertieren.
+Verwenden Sie [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphcollection/addfromhtml/), um HTML‑Markup in Paragraphen und Portionen eines TextFrames zu konvertieren.
 
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/presentation/).
-2. Greifen Sie auf eine Folie zu und fügen Sie ein [AutoShape](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/autoshape/) hinzu.
-3. Greifen Sie auf das [TextFrame](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/textframe/) der Form zu und entfernen Sie den Standardabsatz.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/)‑Klasse.
+2. Greifen Sie eine Folie ab und fügen Sie ein [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) hinzu.
+3. Greifen Sie auf das [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/) der Form zu und löschen Sie den Standard‑Paragraph.
 4. Definieren oder lesen Sie den Quell‑HTML‑String.
-5. Übergeben Sie den HTML‑String an [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/paragraphcollection/addfromhtml/).
-6. Speichern Sie die modifizierte Präsentation.
+5. Übergaben Sie den HTML‑String an [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphcollection/addfromhtml/).
+6. Speichern Sie die geänderte Präsentation.
 
-Dieses JavaScript‑Beispiel importiert HTML in ein Textfeld:
+Dieses JavaScript‑Beispiel importiert HTML in ein TextFrame:
 
 ```javascript
 var aspose = aspose || {};
@@ -614,17 +614,17 @@ try {
 }
 ```
 
-### **Absatztext nach HTML exportieren**
+### **Paragraphentext nach HTML exportieren**
 
-Verwenden Sie [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/paragraphcollection/exporttohtml/), um einen ausgewählten Bereich von Absätzen als HTML zu exportieren.
+Verwenden Sie [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphcollection/exporttohtml/), um einen ausgewählten Paragraphen‑Bereich als HTML zu exportieren.
 
-1. Erstellen oder laden Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/presentation/).
-2. Greifen Sie auf die Folie zu und finden Sie das [AutoShape](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/autoshape/), das den Text enthält.
-3. Greifen Sie auf das [TextFrame](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/textframe/) der Form zu.
-4. Rufen Sie [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/paragraphcollection/exporttohtml/) mit dem Start‑Absatz‑Index und der Anzahl zu exportierender Absätze auf.
+1. Erzeugen oder laden Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/)‑Klasse.
+2. Greifen Sie die Folie ab und finden Sie das [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/), das den Text enthält.
+3. Greifen Sie auf das [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/) der Form zu.
+4. Rufen Sie [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphcollection/exporttohtml/) mit dem Start‑Paragraph‑Index und der Anzahl zu exportierender Paragraphen auf.
 5. Schreiben Sie den zurückgegebenen HTML‑String in eine Datei.
 
-Dieses eigenständige JavaScript‑Beispiel erstellt ein Textfeld und exportiert alle seine Absätze:
+Dieses eigenständige JavaScript‑Beispiel erstellt ein Text‑Shape und exportiert alle seine Paragraphen:
 
 ```javascript
 var aspose = aspose || {};
@@ -662,19 +662,19 @@ try {
 }
 ```
 
-### **Einen Absatz als Bild rendern**
+### **Einen Paragraphen als Bild rendern**
 
-[Paragraph.getImage](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/paragraph/#getImage) rendert einen einzelnen Absatz direkt und gibt ein [IImage](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/iimage/) zurück. Speichern Sie das Ergebnis mit [IImage.save](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/iimage/#save) in einer Datei. Sie müssen nicht die umgebende Form rendern oder ein Bitmap manuell zuschneiden.
+[Paragraph.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getImage) rendert einen einzelnen Paragraphen direkt und gibt ein [IImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/iimage/) zurück. Speichern Sie das Ergebnis mit [IImage.save](https://reference.aspose.com/slides/nodejs-java/aspose.slides/iimage/#save) in einer Datei. Sie müssen nicht das umgebende Shape rendern oder ein Bitmap manuell zuschneiden.
 
-[Paragraph.getImage](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/paragraph/#getImage) kann `null` zurückgeben, wenn der Absatz nicht in seiner übergeordneten Sammlung gefunden wird, keine gültigen Render‑Grenzen hat oder nicht gerendert werden kann. Prüfen Sie das Ergebnis vor dem Speichern und geben Sie das erhaltene Bild nach Gebrauch frei.
+[Paragraph.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getImage) kann `null` zurückgeben, wenn der Paragraph nicht in seiner übergeordneten Sammlung gefunden wird, keine gültigen Render‑Grenzen hat oder nicht gerendert werden kann. Prüfen Sie das Ergebnis vor dem Speichern und geben Sie das zurückgegebene Bild nach der Verwendung frei.
 
-#### **Einen Absatz im Standardmaßstab rendern**
+#### **Paragraphen mit Standardskala rendern**
 
-Das nachfolgende Textfeld enthält drei Absätze:
+Die folgende Textbox enthält drei Paragraphen:
 
-![Das Textfeld mit drei Absätzen](paragraph_to_image_input.png)
+![Die Textbox mit drei Paragraphen](paragraph_to_image_input.png)
 
-Das folgende Beispiel rendert den zweiten Absatz in einer normalen Textform im Standardmaßstab und speichert das zurückgegebene Bild im PNG‑Format. Der `finally`‑Block sorgt dafür, dass das Bild korrekt freigegeben wird.
+Das nachstehende Beispiel rendert den zweiten Paragraphen in einem regulären Text‑Shape mit Standardskala und speichert das zurückgegebene Bild im PNG‑Format. Der `finally`‑Block stellt sicher, dass das Bild korrekt freigegeben wird.
 
 ```javascript
 var aspose = aspose || {};
@@ -722,11 +722,11 @@ try {
 
 Das Ergebnis:
 
-![Das Absatzbild](paragraph_to_image_output.png)
+![Das Paragraph‑Bild](paragraph_to_image_output.png)
 
-#### **Einen Absatz in einer Tabellenzelle mit Skalierung rendern**
+#### **Paragraphen in einer Tabellenzelle mit Skalierung rendern**
 
-Verwenden Sie die [Paragraph.getImage](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/paragraph/#getImage)-Überladung, die die Parameter `scaleX` und `scaleY` akzeptiert, um die horizontalen und vertikalen Skalierungsfaktoren festzulegen. Das folgende Beispiel erstellt eine Tabelle, rendert den Absatz in der ersten Zelle bei doppelter Breite und Höhe und speichert das Ergebnis als PNG‑Bild.
+Verwenden Sie die Überladung von [Paragraph.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getImage), die `scaleX`‑ und `scaleY`‑Parameter akzeptiert, um die horizontalen und vertikalen Skalierungsfaktoren festzulegen. Das folgende Beispiel erstellt eine Tabelle, rendert den Paragraphen in der ersten Zelle mit dem doppelten Standard‑Breiten‑ und Höhenwert und speichert das Ergebnis als PNG‑Bild.
 
 ```javascript
 var aspose = aspose || {};
@@ -760,24 +760,26 @@ try {
 }
 ```
 
-Ein Skalierungsfaktor von `1` lässt die jeweilige Achse bei ihrer Standard‑Pixelgröße bleiben. Beispielsweise erzeugt `2` für beide Faktoren ein Bild, dessen Breite und Höhe etwa doppelt so groß sind wie die Standardmaße, was zu viermal so vielen Pixeln führt. Größere Faktoren produzieren im Allgemeinen schärferen Text für Zoom‑ oder Hochauflösungs‑Ausgaben, erhöhen aber auch den Speicherverbrauch und die Dateigröße. Faktoren unter `1` erzeugen kleinere Bilder mit weniger Details. Verwenden Sie gleiche Faktoren, um das Seitenverhältnis des Absatzes zu bewahren; unterschiedliche horizontale und vertikale Faktoren strecken die Ausgabe unabhängig voneinander.
+Ein Skalierungsfaktor von `1` behält die Standard‑Pixelgröße der jeweiligen Achse bei. Beispielsweise erzeugt `2` für beide Faktoren ein Bild, dessen Breite und Höhe etwa das Doppelte der Standardmaße betragen, also viermal so viele Pixel. Größere Faktoren liefern im Allgemeinen schärferen Text für Vergrößerungen oder hochauflösende Ausgaben, erhöhen jedoch Speicherverbrauch und Dateigröße. Faktoren unter `1` erzeugen kleinere Bilder mit weniger Details. Verwenden Sie gleiche Faktoren, um das Seitenverhältnis des Paragraphen zu bewahren; unterschiedliche horizontale und vertikale Faktoren strecken das Ergebnis unabhängig voneinander.
 
-Das Rendern einer gesamten Form mit [Shape.getImage](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/shape/#getImage) bleibt sinnvoll, wenn das Ergebnis die Füllung, den Rand oder andere visuelle Kontexte der Form enthalten muss. Für ein Bild, das ausschließlich den Absatz zeigt, verwenden Sie [Paragraph.getImage](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/paragraph/#getImage).
+Das Rendern eines gesamten Shapes mit [Shape.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getImage) bleibt sinnvoll, wenn das Ergebnis das Füll‑, Rand‑ oder andere visuelle Kontext‑Informationen des Shapes enthalten muss. Für ein reines Paragraph‑Bild verwenden Sie [Paragraph.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getImage).
 
 ## **FAQ**
 
-**Kann ich das Zeilenumbruch in einem Textfeld vollständig deaktivieren?**
+**Kann ich das Zeilen‑Umbrechen innerhalb eines TextFrames vollständig deaktivieren?**
 
-Ja. Setzen Sie [TextFrameFormat.setWrapText](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/textframeformat/setwraptext/) auf deaktiviert, damit Zeilen nicht an den Rändern des Textfeldes umbrochen werden.
+Ja. Setzen Sie [TextFrameFormat.setWrapText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/setwraptext/) auf deaktiviert, damit Zeilen nicht an den Rändern des TextFrames umbrechen.
 
-**Wie kann ich die genauen On‑Slide‑Grenzen eines bestimmten Absatzes erhalten?**
+**Wie erhalte ich die genauen On‑Slide‑Grenzen eines bestimmten Paragraphen?**
 
-Verwenden Sie [Paragraph.getRect](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/paragraph/getrect/), um das Begrenzungsrechteck des Absatzes abzurufen. [Portion.getRect](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/portion/#getRect) liefert die Grenzen einer einzelnen Portion.
+Verwenden Sie [Paragraph.getRect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/getrect/), um das Begrenzungsrechteck des Paragraphen abzurufen. [Portion.getRect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portion/#getRect) liefert die Grenzen einer einzelnen Portion.
 
 **Wo wird die Absatz‑Ausrichtung (links, rechts, zentriert oder Blocksatz) gesteuert?**
 
-[ParagraphFormat.setAlignment](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/paragraphformat/setalignment/) ist eine Absatz‑Ebene‑Einstellung und gilt für den gesamten Absatz, unabhängig von der Formatierung einzelner Portionen.
+[ParagraphFormat.setAlignment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setalignment/) ist eine Absatz‑Ebene‑Einstellung und gilt für den gesamten Paragraphen, unabhängig von der Formatierung einzelner Portionen.
 
-**Kann ich die Korrektur‑Sprache für einen Teil eines Absatzes festlegen?**
+Um Portionen unterschiedlicher Schriftgrößen innerhalb einer Zeile vertikal auszurichten, siehe [Align Fonts Within a Line](/slides/de/nodejs-java/text-formatting/#align-fonts-within-a-line).
 
-Ja. Setzen Sie [BasePortionFormat.setLanguageId](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/baseportionformat/#setLanguageId) für einzelne Portionen, sodass ein Absatz Text in mehreren Sprachen enthalten kann.
+**Kann ich die Korrektursprache für einen Teil eines Paragraphen festlegen?**
+
+Ja. Setzen Sie [BasePortionFormat.setLanguageId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setLanguageId) für einzelne Portionen, sodass ein Paragraph Text in mehreren Sprachen enthalten kann.

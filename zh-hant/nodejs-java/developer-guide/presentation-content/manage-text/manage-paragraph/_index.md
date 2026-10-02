@@ -8,55 +8,55 @@ aliases:
   - /nodejs-java/paragraph/
   - /nodejs-java/portion/
 keywords:
-- 新增文字
-- 新增段落
-- 管理文字
-- 管理段落
-- 管理項目符號
-- 段落縮排
-- 懸掛縮排
-- 段落項目符號
-- 編號清單
-- 項目符號清單
-- 段落屬性
-- 匯入 HTML
-- 文字轉 HTML
-- 段落轉 HTML
-- 段落轉影像
-- 文字轉影像
-- 匯出段落
-- PowerPoint
-- 簡報
-- Node.js
-- JavaScript
-- Aspose.Slides
-description: "了解如何使用 Aspose.Slides for Node.js via Java 在 JavaScript 中建立與格式化段落、片段、項目符號、編號清單、縮排、HTML 內容以及段落影像。"
+  - 新增文字
+  - 新增段落
+  - 管理文字
+  - 管理段落
+  - 管理項目符號
+  - 段落縮排
+  - 懸掛縮排
+  - 段落項目符號
+  - 編號清單
+  - 項目符號清單
+  - 段落屬性
+  - 匯入 HTML
+  - 文字轉 HTML
+  - 段落轉 HTML
+  - 段落轉影像
+  - 文字轉影像
+  - 匯出段落
+  - PowerPoint
+  - 簡報
+  - Node.js
+  - JavaScript
+  - Aspose.Slides
+description: "了解如何使用 Aspose.Slides for Node.js via Java 建立與格式化段落、文字區塊、項目符號、編號清單、縮排、HTML 內容以及段落影像。"
 ---
-## **概述**
+## **概觀**
 
-Aspose.Slides for Node.js via Java 將文字表示為文字框、段落與片段的層次結構：
+Aspose.Slides for Node.js via Java 以文字框、段落與文字區塊的階層來表示文字：
 
-* [TextFrame](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/textframe/) 代表形狀中的文字容器，並提供對其段落集合的存取。
-* [Paragraph](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/paragraph/) 代表文字框中的一個段落，並提供對其片段與段落層級格式設定的存取。
-* [Portion](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/portion/) 代表段落內的文字執行單元。每個片段都可以有自己的文字與字元層級格式設定。
+* [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/) 表示形狀中的文字容器，並提供對其段落集合的存取。
+* [Paragraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/) 表示文字框中的一個段落，並提供對其文字區塊與段落層級格式的存取。
+* [Portion](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portion/) 表示段落中的一段文字。每個文字區塊可以擁有自己的文字與字元層級格式。
 
-因此，一個段落可以透過多個片段來包含不同字型、顏色、大小及其他格式的文字。
+因此，一個段落可以透過多個文字區塊來包含不同字型、顏色、大小與其他格式的文字。
 
 ## **建立與格式化段落**
 
-### **建立含多個片段的段落**
+### **使用多個文字區塊建立段落**
 
-以下步驟會建立一個文字框，內含三個段落，每個段落都有三個片段：
+以下步驟會建立一個文字框，內含三個段落，每個段落包含三個文字區塊：
 
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/presentation/) 類別的實例。
-2. 依索引存取目標投影片。
-3. 在投影片上新增一個矩形 [AutoShape](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/autoshape/)。
-4. 取得該圖形的 [TextFrame](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/textframe/)。
-5. 使用預設段落，並再向文字框中加入兩個 [Paragraph](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/paragraph/) 物件。
-6. 為每個段落加入足夠的 [Portion](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/portion/) 物件，使其包含三個片段。預設段落已包含一個空的片段。
-7. 設定每個片段的文字。
-8. 透過 [Portion.getPortionFormat](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/portion/getportionformat/) 套用字元層級格式設定。
-9. 儲存修改後的簡報。
+1. 建立 [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) 類別的實例。
+2. 依索引取得目標投影片。
+3. 在投影片上加入矩形 [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/)。
+4. 取得形狀的 [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/)。
+5. 使用預設段落，並再向文字框加入兩個 [Paragraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/) 物件。
+6. 為每個段落加入足夠的 [Portion](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portion/) 物件，使其包含三個文字區塊。預設段落已包含一個空的文字區塊。
+7. 設定每個文字區塊的文字內容。
+8. 透過 [Portion.getPortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portion/getportionformat/) 套用字元層級的格式。
+9. 保存已修改的簡報。
 
 以下 JavaScript 範例實作上述步驟：
 
@@ -119,22 +119,22 @@ try {
 
 ### **建立項目符號或編號清單**
 
-項目符號與編號讓相關項目更易於瀏覽。在 Aspose.Slides 中，清單設定是透過 [BulletFormat](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/bulletformat/) 來定義的。
+項目符號與編號能讓相關項目更易於掃描。在 Aspose.Slides 中，清單設定是透過 [BulletFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/) 來定義的。
 
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/presentation/) 類別的實例。
-2. 依索引存取目標投影片。
-3. 在選取的投影片上新增 [AutoShape](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/autoshape/)。
-4. 取得該圖形的 [TextFrame](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/textframe/)。
+1. 建立 [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) 類別的實例。
+2. 依索引取得目標投影片。
+3. 在選取的投影片上加入 [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/)。
+4. 取得形狀的 [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/)。
 5. 從文字框中移除預設段落。
-6. 為符號項目符號建立一個 [Paragraph](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/paragraph/)。
-7. 將 [BulletFormat.setType](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/bulletformat/settype/) 設為 [BulletType.Symbol](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/bullettype/)，並指定符號字元。
+6. 為符號項目符號建立一個 [Paragraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/)。
+7. 將 [BulletFormat.setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/settype/) 設為 [BulletType.Symbol](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bullettype/) 並指定項目符號字元。
 8. 設定段落文字、縮排、項目符號顏色與項目符號高度。
 9. 將段落加入文字框。
-10. 建立第二個段落，並將 [BulletFormat.setType](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/bulletformat/settype/) 設為 [BulletType.Numbered](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/bullettype/)。
-11. 配置編號項目符號樣式，並將段落加入文字框。
-12. 儲存簡報。
+10. 建立第二個段落，將 [BulletFormat.setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/settype/) 設為 [BulletType.Numbered](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bullettype/)。
+11. 設定編號項目符號樣式，並將段落加入文字框。
+12. 保存簡報。
 
-以下 JavaScript 範例建立符號項目符號與編號項目符號：
+以下 JavaScript 範例會建立符號項目符號與編號項目符號：
 
 ```javascript
 var aspose = aspose || {};
@@ -180,18 +180,18 @@ try {
 
 圖片項目符號允許您使用自訂圖像取代符號或編號。
 
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/presentation/) 類別的實例。
-2. 依索引存取目標投影片。
-3. 新增 [AutoShape](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/autoshape/) 並取得其 [TextFrame](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/textframe/)。
+1. 建立 [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) 類別的實例。
+2. 依索引取得目標投影片。
+3. 加入 [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) 並取得其 [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/)。
 4. 從文字框中移除預設段落。
-5. 載入項目符號圖像，並以 [PPImage](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/ppimage/) 加入簡報的影像集合。
-6. 建立一個 [Paragraph](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/paragraph/)，並設定其文字。
-7. 將 [BulletFormat.setType](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/bulletformat/settype/) 設為 [BulletType.Picture](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/bullettype/)。
-8. 透過 [BulletFormat.getPicture](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/bulletformat/getpicture/) 指定圖像，並設定項目符號高度。
+5. 載入項目符號圖像，並以 [PPImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ppimage/) 加入簡報的影像集合。
+6. 建立一個 [Paragraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/) 並設定其文字。
+7. 將 [BulletFormat.setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/settype/) 設為 [BulletType.Picture](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bullettype/)。
+8. 透過 [BulletFormat.getPicture](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/getpicture/) 指定圖像，並設定項目符號高度。
 9. 將段落加入文字框。
-10. 儲存修改後的簡報。
+10. 保存已修改的簡報。
 
-以下 JavaScript 範例建立圖片項目符號：
+以下 JavaScript 範例會建立圖片項目符號：
 
 ```javascript
 var aspose = aspose || {};
@@ -230,15 +230,15 @@ try {
 
 ### **建立多層次清單**
 
-將 [ParagraphFormat.setDepth](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/paragraphformat/setdepth/) 設為不同值，即可將段落放置於清單的不同層級。最高層的深度為 `0`。
+將 [ParagraphFormat.setDepth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setdepth/) 設為不同值，即可將段落放置於清單的不同層級。最高層的深度為 `0`。
 
-1. 建立一個 [Presentation](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/presentation/)，並存取一張投影片。
-2. 新增 [AutoShape](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/autoshape/)，並清除其文字框中的預設段落。
-3. 建立四個段落，並設定其項目符號符號。
-4. 將它們的 [ParagraphFormat.setDepth](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/paragraphformat/setdepth/) 分別設為 `0`、`1`、`2`、`3`。
-5. 將段落加入文字框，並儲存簡報。
+1. 建立 [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) 並取得投影片。
+2. 加入 [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) 並清除其文字框中的預設段落。
+3. 建立四個段落，並設定其項目符號字元。
+4. 將它們的 [ParagraphFormat.setDepth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setdepth/) 分別設為 `0`、`1`、`2`、`3`。
+5. 將段落加入文字框，並保存簡報。
 
-以下 JavaScript 範例建立四層級的項目符號清單：
+以下 JavaScript 範例會建立四層階層的項目符號清單：
 
 ```javascript
 var aspose = aspose || {};
@@ -297,15 +297,15 @@ try {
 
 ### **自訂編號清單的起始值**
 
-使用 [BulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/bulletformat/setnumberedbulletstartwith/) 可為編號段落設定起始數字。
+使用 [BulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/setnumberedbulletstartwith/) 可設定編號段落的起始號碼。
 
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/presentation/)，並在投影片上新增 [AutoShape](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/autoshape/)。
-2. 清除圖形文字框中的預設段落。
+1. 建立 [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) 並在投影片上加入 [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/)。
+2. 清除形狀文字框中的預設段落。
 3. 建立三個編號段落。
-4. 為相應段落將 [BulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/bulletformat/setnumberedbulletstartwith/) 設為 `2`、`3`、`7`。
-5. 將段落加入文字框，並儲存簡報。
+4. 分別將 [BulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/setnumberedbulletstartwith/) 設為 `2`、`3`、`7`。
+5. 將段落加入文字框，並保存簡報。
 
-以下 JavaScript 範例為每個段落指定自訂起始編號：
+以下 JavaScript 範例會為每個段落指派自訂的起始編號：
 
 ```javascript
 var aspose = aspose || {};
@@ -347,19 +347,19 @@ try {
 
 ### **設定首行縮排**
 
-使用 [ParagraphFormat.setIndent](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/paragraphformat/setindent/) 可控制段落的首行縮排。此方法僅移動第一行相對於段落左邊距的距離；正值會將首行向右移動，剩餘行仍與段落主體對齊。
+使用 [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/) 來控制段落的首行縮排。此方法僅移動第一行相對於段落左邊界的距離，正值會將首行向右移動，其他行則保持與段落正文對齊。
 
-若需要整段移動，請使用 [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/paragraphformat/setmarginleft/)；若只需移動首行，則使用 [ParagraphFormat.setIndent](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/paragraphformat/setindent/)。
+若需要整段移動，請使用 [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setmarginleft/)。僅需移動首行時，請使用 [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/)。
 
-下例建立多個段落，並套用不同的 [ParagraphFormat.setIndent](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/paragraphformat/setindent/) 值，以示範首行縮排對段落版面的影響。
+以下範例建立多個段落，並對它們套用不同的 [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/) 值，以示範首行縮排對段落版面的影響。
 
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/presentation/) 類別的實例。
+1. 建立 [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) 類別的實例。
 2. 取得目標投影片。
-3. 在投影片上新增矩形 [AutoShape](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/autoshape/)。
-4. 取得圖形的 [TextFrame](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/textframe/)，並移除預設段落。
-5. 建立數個段落，為它們設定不同的 [ParagraphFormat.setIndent](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/paragraphformat/setindent/) 值。
+3. 在投影片上加入矩形 [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/)。
+4. 取得形狀的 [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/) 並移除預設段落。
+5. 建立多個段落，為它們設定不同的 [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/) 值。
 6. 將段落加入文字框。
-7. 儲存修改後的簡報。
+7. 保存已修改的簡報。
 
 以下程式碼示範如何設定段落縮排：
 
@@ -418,20 +418,20 @@ try {
 
 ### **設定懸掛縮排**
 
-懸掛縮排指的是首行比其餘行向左的段落版面配置。可透過在 Aspose.Slides 中使用 [ParagraphFormat.setIndent](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/paragraphformat/setindent/)，傳入負值即可將首行向左移動。
+懸掛縮排是指第一行位於其餘行左側的段落版面。於 Aspose.Slides 中，可使用 [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/)，將負值傳入，即可讓第一行相對於段落正文左移。
 
-實務上，[ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/paragraphformat/setmarginleft/) 定義段落主體的左側位置，而 [ParagraphFormat.setIndent](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/paragraphformat/setindent/) 定義首行相對於該左側位置的偏移。若要產生懸掛縮排，請將 `setMarginLeft` 設為正值，`setIndent` 設為負值。
+實務上，[ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setmarginleft/) 定義段落正文的左側位置，而 [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/) 定義第一行相對於此左側的位移。要產生懸掛縮排，請將正值傳給 `setMarginLeft`，並將負值傳給 `setIndent`。
 
-此格式在參考文獻、書目、詞彙表等需要換行文字與段落主體左對齊的場合相當有用。
+此設定常用於書目、參考文獻、詞彙表條目等情況，讓換行後的行對齊於段落正文而非第一行的首字元。
 
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/presentation/) 類別的實例。
+1. 建立 [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) 類別的實例。
 2. 取得目標投影片。
-3. 在投影片上新增矩形 [AutoShape](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/autoshape/)。
-4. 取得圖形的 [TextFrame](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/textframe/)，並移除預設段落。
-5. 為每個段落於 [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/paragraphformat/setmarginleft/) 設定正值。
-6. 於 [ParagraphFormat.setIndent](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/paragraphformat/setindent/) 傳入負值以產生懸掛縮排效果。
+3. 在投影片上加入矩形 [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/)。
+4. 取得形狀的 [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/) 並移除預設段落。
+5. 為每個段落傳入正值給 [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setmarginleft/)。
+6. 傳入負值給 [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/) 以產生懸掛縮排效果。
 7. 將段落加入文字框。
-8. 儲存修改後的簡報。
+8. 保存已修改的簡報。
 
 以下程式碼示範如何為段落設定懸掛縮排：
 
@@ -482,14 +482,14 @@ try {
 
 ### **設定段落結尾執行屬性**
 
-[Paragraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/paragraph/setendparagraphportionformat/) 控制段落結尾標記的格式。以下範例將字型大小與拉丁字型套用至第二段落的結尾標記：
+[Paragraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/setendparagraphportionformat/) 控制段落結尾標記的格式。以下範例為第二個段落的結尾標記指定字型大小與拉丁字型：
 
-1. 建立或載入一個 [Presentation](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/presentation/)，並取得投影片。
-2. 新增 [AutoShape](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/autoshape/)，並清除其預設段落。
-3. 建立兩個段落，並為它們加入文字片段。
-4. 為第二段落的結尾標記建立一個 [PortionFormat](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/portionformat/)。
-5. 設定 [BasePortionFormat.setFontHeight](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/baseportionformat/#setFontHeight) 與 [BasePortionFormat.setLatinFont](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/baseportionformat/#setLatinFont)。
-6. 透過 [Paragraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/paragraph/setendparagraphportionformat/) 套用格式，並儲存簡報。
+1. 建立或載入一個 [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) 並取得投影片。
+2. 加入 [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) 並清除其預設段落。
+3. 建立兩個段落，並為它們加入文字區塊。
+4. 為第二個段落的結尾標記建立 [PortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portionformat/)。
+5. 設定 [BasePortionFormat.setFontHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setFontHeight) 與 [BasePortionFormat.setLatinFont](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setLatinFont)。
+6. 透過 [Paragraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/setendparagraphportionformat/) 套用格式，並保存簡報。
 
 ```javascript
 var aspose = aspose || {};
@@ -522,15 +522,15 @@ try {
 }
 ```
 
-## **計算已渲染的行數**
+## **計算已呈現的行數**
 
-有關會影響自動換行與行尾標點的段落規則，請參閱 [Control Line Breaking](/slides/zh-hant/nodejs-java/text-formatting/#control-line-breaking) 與 [Control Hanging Punctuation](/slides/zh-hant/nodejs-java/text-formatting/#control-hanging-punctuation)。
+有關影響自動換行與行尾標點的段落規則，請參閱 [Control Line Breaking](/slides/zh-hant/nodejs-java/text-formatting/#control-line-breaking) 與 [Control Hanging Punctuation](/slides/zh-hant/nodejs-java/text-formatting/#control-hanging-punctuation)。
 
-使用 [Paragraph.getLinesCount](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/paragraph/#getLinesCount) 可取得段落在文字佈局後佔用的行數（含自動換行）。此功能在檢查簡報範本的文字長度與版面時相當有用。
+使用 [Paragraph.getLinesCount](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getLinesCount) 可取得段落經文字排版後佔用的行數，包含自動換行。此功能在檢查簡報範本的文字長度與版面時非常有用。
 
-段落是 [TextFrame.getParagraphs](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/textframe/#getParagraphs) 中的一個項目，可能佔用多行已渲染的行。段落內的顯式換行會強制產生新行，但不會建立新段落。自動換行則根據可用寬度產生行，而不在文字中插入顯式換行字元。因此，僅計算段落或換行字元並不能得到已渲染的行數。
+段落是 [TextFrame.getParagraphs](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/#getParagraphs) 中的一個項目，可能會佔用多行已呈現的行數。段落內的顯式換行符會強制換行但不會產生新段落。自動換行則根據可用寬度產生行，且不會在文字中插入顯式換行符。因此，僅計算段落或換行字元無法得到已呈現的行數。
 
-以下範例建立一個文字圖形，計算其行數，縮小圖形，然後以較短的字串取代文字。示例開啟換行且關閉自動縮放，以確保圖形寬度控制換行而不會自動縮小文字或調整圖形大小。圖形尺寸以點為單位。最後，範例再加入一個段落，並將文字框內所有段落的行數相加。
+以下範例會建立一個文字形狀、計算其行數、縮窄形狀，接著以較短的字串取代文字。啟用了換行且停用了自動調整大小，以使形狀寬度控制換行而不會自動縮小文字或調整形狀大小。形狀尺寸單位為點。最後，範例會再加入一個段落，並將文字框中所有段落的行數相加。
 
 ```javascript
 var aspose = aspose || {};
@@ -573,24 +573,24 @@ try {
 }
 ```
 
-依照此文字與這些尺寸，縮小圖形會增加行數，將文字換成短字串則會減少行數。實際計數會因字型可用性與替代、字型大小、邊距、縮排、換行與自動縮放設定而有所差異。檢查範本時請使用目標環境的字型與版面設定。
+使用此文字與尺寸時，縮窄形狀會增加行數，而以短字串取代文字則會減少行數。實際行數可能因字型可用性與替代、字型大小、邊距、縮排、換行與自動調整設定而異；請在檢查範本時使用目標環境的字型與版面設定。
 
-僅憑行數並不能判斷文字是否超出容器。可用高度、行高、段落與行距、以及自動縮放行為同樣重要；即使是一行文字，當關閉換行時也可能超出可用寬度。
+僅憑行數並不能判斷文字是否超出容器。可用高度、行高、段落與行間距以及自動調整行為同樣重要；即使只有單行，若關閉換行功能，也可能超出可用寬度。
 
 ## **匯入與匯出段落內容**
 
 ### **將 HTML 文字匯入段落**
 
-使用 [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/paragraphcollection/addfromhtml/) 可將 HTML 標記轉換為文字框內的段落與片段。
+使用 [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphcollection/addfromhtml/) 可將 HTML 標記轉換為文字框中的段落與文字區塊。
 
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/presentation/) 類別的實例。
-2. 取得投影片並新增 [AutoShape](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/autoshape/)。
-3. 取得圖形的 [TextFrame](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/textframe/) 並清除預設段落。
+1. 建立 [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) 類別的實例。
+2. 取得投影片並加入 [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/)。
+3. 取得形狀的 [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/) 並清除其預設段落。
 4. 定義或讀取來源 HTML 字串。
-5. 將 HTML 字串傳遞給 [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/paragraphcollection/addfromhtml/)。
-6. 儲存修改後的簡報。
+5. 將 HTML 字串傳入 [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphcollection/addfromhtml/)。
+6. 保存已修改的簡報。
 
-以下 JavaScript 範例將 HTML 匯入文字框：
+以下 JavaScript 範例會將 HTML 匯入文字框：
 
 ```javascript
 var aspose = aspose || {};
@@ -616,15 +616,15 @@ try {
 
 ### **將段落文字匯出為 HTML**
 
-使用 [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/paragraphcollection/exporttohtml/) 可將選取的段落範圍匯出為 HTML。
+使用 [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphcollection/exporttohtml/) 可將選取的段落範圍匯出為 HTML。
 
-1. 建立或載入一個 [Presentation](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/presentation/) 實例。
-2. 取得投影片，並找到包含文字的 [AutoShape](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/autoshape/)。
-3. 取得圖形的 [TextFrame](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/textframe/)。
-4. 呼叫 [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/paragraphcollection/exporttohtml/) 並提供起始段落索引與要匯出的段落數量。
+1. 建立或載入一個 [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) 實例。
+2. 取得投影片並找到包含文字的 [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/)。
+3. 取得形狀的 [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/)。
+4. 呼叫 [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphcollection/exporttohtml/) 並傳入起始段落索引與要匯出的段落數量。
 5. 將回傳的 HTML 字串寫入檔案。
 
-以下自包含的 JavaScript 範例建立文字圖形並匯出所有段落：
+以下自包含的 JavaScript 範例會建立文字形狀並匯出其所有段落：
 
 ```javascript
 var aspose = aspose || {};
@@ -664,9 +664,9 @@ try {
 
 ### **將段落渲染為影像**
 
-[Paragraph.getImage](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/paragraph/#getImage) 可直接渲染單一段落，並回傳一個 [IImage](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/iimage/)。使用 [IImage.save](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/iimage/#save) 將結果存檔即可，無需自行渲染整個圖形或裁切位圖。
+[Paragraph.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getImage) 直接渲染單一段落，並回傳一個 [IImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/iimage/)。使用 [IImage.save](https://reference.aspose.com/slides/nodejs-java/aspose.slides/iimage/#save) 將結果存成檔案。您不必先渲染整個形狀或手動裁剪位圖。
 
-當段落在其父集合中找不到、沒有有效的渲染邊界，或無法渲染時，[Paragraph.getImage](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/paragraph/#getImage) 會回傳 `null`。請在儲存前檢查結果，使用完畢後釋放返回的影像。
+若段落在其父集合中找不到、沒有有效的渲染邊界，或無法渲染，[Paragraph.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getImage) 可能會回傳 `null`。請在保存之前檢查結果，並在使用完畢後釋放返回的影像。
 
 #### **以預設比例渲染段落**
 
@@ -674,7 +674,7 @@ try {
 
 ![包含三個段落的文字方塊](paragraph_to_image_input.png)
 
-以下範例在預設比例下渲染第二段落，並以 PNG 格式儲存返回的影像。`finally` 區塊確保影像得到正確釋放。
+下面的範例會在預設比例下渲染第二個段落，並以 PNG 格式保存返回的影像。`finally` 區塊確保影像正確釋放。
 
 ```javascript
 var aspose = aspose || {};
@@ -724,9 +724,9 @@ try {
 
 ![段落影像](paragraph_to_image_output.png)
 
-#### **在表格儲存格中以縮放比例渲染段落**
+#### **在表格儲存格中以比例渲染段落**
 
-使用接受 `scaleX` 與 `scaleY` 參數的 [Paragraph.getImage](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/paragraph/#getImage) 重載，可設定水平與垂直縮放比例。以下範例建立一個表格，於第一個儲存格中以兩倍寬高渲染段落，並將結果存為 PNG 影像。
+使用接受 `scaleX` 與 `scaleY` 參數的 [Paragraph.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getImage) 重載，以設定水平與垂直比例因子。以下範例會建立表格，並在第一個儲存格中以兩倍寬度與高度渲染段落，最後以 PNG 影像保存結果。
 
 ```javascript
 var aspose = aspose || {};
@@ -760,24 +760,26 @@ try {
 }
 ```
 
-縮放因子 `1` 保持該方向的預設像素大小。例如，兩個因子皆為 `2` 時，產生的影像寬度與高度大約是預設的兩倍，像素數量約為四倍。較大的因子一般能提供更銳利的文字，以供放大或高解析度輸出，但同時會增加記憶體使用與檔案大小。小於 `1` 的因子會產生較小且細節較少的影像。使用相同的因子可保持段落的長寬比；不同的水平與垂直因子則會分別拉伸輸出。
+比例因子 `1` 代表保持該軸的預設像素大小。例如，同時設定 `2` 會產生寬度與高度約為預設的兩倍的影像，總像素數量約為四倍。較大的比例因子通常能在縮放或高解析度輸出時提供更銳利的文字，但也會增加記憶體使用與檔案大小。低於 `1` 的比例會產生較小且細節較少的影像。若要保持段落的長寬比，請使用相等的比例因子；不同的水平與垂直比例會獨立拉伸輸出。
 
-在需要包含圖形填充、邊框或其他視覺上下文時，仍可使用 [Shape.getImage](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/shape/#getImage) 來渲染整個圖形。若僅需段落影像，請使用 [Paragraph.getImage](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/paragraph/#getImage)。
+若需要包含形狀填色、邊框或其他視覺上下文的完整形狀影像，仍可使用 [Shape.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getImage)。若僅需段落的影像，請使用 [Paragraph.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getImage)。
 
-## **常見問題**
+## **常見問與答**
 
-**我可以完全停用文字框內的換行嗎？**
+**我可以完全停用文字框內的自動換行嗎？**
 
-可以。將 [TextFrameFormat.setWrapText](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/textframeformat/setwraptext/) 設為關閉，即可停用換行，使行不會在文字框邊緣斷開。
+可以。將 [TextFrameFormat.setWrapText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/setwraptext/) 設為停用，即可讓行不會在文字框邊緣換行。
 
-**如何取得特定段落在投影片上的精確邊界？**
+**我要如何取得特定段落在投影片上的精確邊界？**
 
-使用 [Paragraph.getRect](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/paragraph/getrect/) 取得段落的外接矩形。[Portion.getRect](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/portion/#getRect) 則提供單一片段的邊界。
+使用 [Paragraph.getRect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/getrect/) 取得段落的外接矩形。[Portion.getRect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portion/#getRect) 可取得單一文字區塊的邊界。
 
-**段落對齊（左、右、居中、兩端對齊）在哪裡設定？**
+**段落的對齊方式（左、右、置中或兩端對齊）是哪裡控制的？**
 
-[ParagraphFormat.setAlignment](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/paragraphformat/setalignment/) 為段落層級設定，會套用於整個段落，與個別片段的格式無關。
+[ParagraphFormat.setAlignment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setalignment/) 為段落層級的設定，會套用於整個段落，與各文字區塊的單獨格式無關。
 
-**我可以為段落的部分文字設定校對語言嗎？**
+若要在每行內垂直對齊不同字型大小的文字區塊，請參閱 [Align Fonts Within a Line](/slides/zh-hant/nodejs-java/text-formatting/#align-fonts-within-a-line)。
 
-可以。將 [BasePortionFormat.setLanguageId](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/baseportionformat/#setLanguageId) 設定於個別片段，即可讓同一段落內包含多種語言的文字。
+**我可以為段落的一部分設定校對語言嗎？**
+
+可以。為個別文字區塊設定 [BasePortionFormat.setLanguageId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setLanguageId)，即可讓同一段落包含多種語言的文字。

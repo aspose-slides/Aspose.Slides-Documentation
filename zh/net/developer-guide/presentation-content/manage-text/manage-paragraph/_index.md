@@ -1,5 +1,5 @@
 ---
-title: 在 .NET 中管理 PowerPoint 文本段落
+title: 管理 .NET 中的 PowerPoint 文本段落
 linktitle: 管理段落
 type: docs
 weight: 40
@@ -36,29 +36,29 @@ description: "了解如何使用 Aspose.Slides for .NET 创建和格式化段落
 
 Aspose.Slides for .NET 将文本表示为文本框、段落和部分的层次结构：
 
-* [ITextFrame](https://reference.aspose.com/slides/zh/net/aspose.slides/itextframe/) 表示形状中的文本容器，并提供对其段落集合的访问。
-* [IParagraph](https://reference.aspose.com/slides/zh/net/aspose.slides/iparagraph/) 表示文本框中的一个段落，并提供对其部分和段落级格式的访问。
-* [IPortion](https://reference.aspose.com/slides/zh/net/aspose.slides/iportion/) 表示段落中的一个文本运行。每个部分可以拥有自己的文本和字符级格式。
+* [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/) 表示形状中的文本容器，并提供对其段落集合的访问。
+* [IParagraph](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/) 表示文本框中的一个段落，并提供对其部分及段落级格式的访问。
+* [IPortion](https://reference.aspose.com/slides/net/aspose.slides/iportion/) 表示段落中的一个文本运行。每个部分可以拥有自己的文本和字符级格式。
 
-因此，一个段落可以通过使用多个部分来包含具有不同字体、颜色、大小和其他格式的文本。
+因此，一个段落可以通过使用多个部分来包含具有不同字体、颜色、大小及其他格式的文本。
 
 ## **创建和格式化段落**
 
-### **创建包含多个部分的段落**
+### **创建带有多个部分的段落**
 
 以下步骤创建一个包含三个段落、每个段落包含三个部分的文本框：
 
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/zh/net/aspose.slides/presentation) 类的实例。
-2. 通过索引获取相应幻灯片的引用。
-3. 向幻灯片添加一个矩形的 [IAutoShape](https://reference.aspose.com/slides/zh/net/aspose.slides/iautoshape/)。
-4. 获取形状的 [ITextFrame](https://reference.aspose.com/slides/zh/net/aspose.slides/itextframe/)。
-5. 使用默认段落并向文本框再添加两个 [IParagraph](https://reference.aspose.com/slides/zh/net/aspose.slides/iparagraph/) 对象。
-6. 为每个段落添加足够的 [IPortion](https://reference.aspose.com/slides/zh/net/aspose.slides/iportion/) 对象以包含三个部分。默认段落已经包含一个空部分。
+1. 创建 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) 类的实例。
+2. 通过索引访问相应幻灯片的引用。
+3. 向幻灯片添加一个矩形 [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/)。
+4. 访问形状的 [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/)。
+5. 使用默认段落并向文本框再添加两个 [IParagraph](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/) 对象。
+6. 为每个段落添加足够的 [IPortion](https://reference.aspose.com/slides/net/aspose.slides/iportion/) 对象以包含三个部分。默认段落已包含一个空部分。
 7. 设置每个部分的文本。
-8. 通过 [IPortion.PortionFormat](https://reference.aspose.com/slides/zh/net/aspose.slides/iportion/portionformat/) 应用字符级格式。
+8. 通过 [IPortion.PortionFormat](https://reference.aspose.com/slides/net/aspose.slides/iportion/portionformat/) 应用字符级格式。
 9. 保存修改后的演示文稿。
 
-此 C# 示例实现了上述步骤：
+下面的 C# 示例实现了上述步骤：
 
 ```csharp
 using System.Drawing;
@@ -120,22 +120,22 @@ presentation.Save("paragraphs_with_portions.pptx", SaveFormat.Pptx);
 
 ### **创建项目符号或编号列表**
 
-项目符号和编号使相关项目更易于浏览。 在 Aspose.Slides 中，列表设置通过 [IBulletFormat](https://reference.aspose.com/slides/zh/net/aspose.slides/ibulletformat/) 定义。
+项目符号和编号可以使相关项目更易于浏览。在 Aspose.Slides 中，列表设置通过 [IBulletFormat](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/) 定义。
 
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/zh/net/aspose.slides/presentation) 类的实例。
-2. 通过索引获取相应幻灯片的引用。
-3. 向所选幻灯片添加一个 [IAutoShape](https://reference.aspose.com/slides/zh/net/aspose.slides/iautoshape/)。
-4. 获取形状的 [ITextFrame](https://reference.aspose.com/slides/zh/net/aspose.slides/itextframe/)。
-5. 从文本框中移除默认段落。
-6. 为符号项目符号创建一个 [Paragraph](https://reference.aspose.com/slides/zh/net/aspose.slides/paragraph/)。
-7. 将 [IBulletFormat.Type](https://reference.aspose.com/slides/zh/net/aspose.slides/ibulletformat/type/) 设置为 [BulletType.Symbol](https://reference.aspose.com/slides/zh/net/aspose.slides/bullettype/) 并指定项目符号字符。
+1. 创建 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) 类的实例。
+2. 通过索引访问相应幻灯片的引用。
+3. 向选定的幻灯片添加一个 [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/)。
+4. 访问形状的 [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/)。
+5. 从文本框中删除默认段落。
+6. 为符号项目符号创建一个 [Paragraph](https://reference.aspose.com/slides/net/aspose.slides/paragraph/)。
+7. 将 [IBulletFormat.Type](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/type/) 设置为 [BulletType.Symbol](https://reference.aspose.com/slides/net/aspose.slides/bullettype/) 并指定项目符号字符。
 8. 设置段落文本、缩进、项目符号颜色和项目符号高度。
 9. 将段落添加到文本框。
-10. 创建第二个段落并将 [IBulletFormat.Type](https://reference.aspose.com/slides/zh/net/aspose.slides/ibulletformat/type/) 设置为 [BulletType.Numbered](https://reference.aspose.com/slides/zh/net/aspose.slides/bullettype/)。
+10. 创建第二个段落并将 [IBulletFormat.Type](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/type/) 设置为 [BulletType.Numbered](https://reference.aspose.com/slides/net/aspose.slides/bullettype/)。
 11. 配置编号项目符号样式并将段落添加到文本框。
 12. 保存演示文稿。
 
-此 C# 示例创建了符号项目符号和编号项目符号：
+下面的 C# 示例创建了一个符号项目符号和一个编号项目符号：
 
 ```csharp
 using System;
@@ -174,20 +174,20 @@ presentation.Save("bulleted_and_numbered_list.pptx", SaveFormat.Pptx);
 
 ### **使用图片项目符号**
 
-图片项目符号允许使用自定义图像替代符号或数字。
+图片项目符号允许使用自定义图像代替符号或数字。
 
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/zh/net/aspose.slides/presentation) 类的实例。
-2. 通过索引获取相应幻灯片的引用。
-3. 添加一个 [IAutoShape](https://reference.aspose.com/slides/zh/net/aspose.slides/iautoshape/) 并获取其 [ITextFrame](https://reference.aspose.com/slides/zh/net/aspose.slides/itextframe/)。
-4. 从文本框中移除默认段落。
-5. 加载项目符号图像并将其作为 [IPPImage](https://reference.aspose.com/slides/zh/net/aspose.slides/ippimage/) 添加到演示文稿的图像集合中。
-6. 创建一个 [Paragraph](https://reference.aspose.com/slides/zh/net/aspose.slides/paragraph/) 并设置其文本。
-7. 将 [IBulletFormat.Type](https://reference.aspose.com/slides/zh/net/aspose.slides/ibulletformat/type/) 设置为 [BulletType.Picture](https://reference.aspose.com/slides/zh/net/aspose.slides/bullettype/)。
-8. 通过 [IBulletFormat.Picture](https://reference.aspose.com/slides/zh/net/aspose.slides/ibulletformat/picture/) 指定图像并设置项目符号高度。
+1. 创建 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) 类的实例。
+2. 通过索引访问相应幻灯片的引用。
+3. 添加一个 [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) 并访问其 [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/)。
+4. 从文本框中删除默认段落。
+5. 加载项目符号图像并将其作为 [IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage/) 添加到演示文稿的图像集合中。
+6. 创建一个 [Paragraph](https://reference.aspose.com/slides/net/aspose.slides/paragraph/) 并设置其文本。
+7. 将 [IBulletFormat.Type](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/type/) 设置为 [BulletType.Picture](https://reference.aspose.com/slides/net/aspose.slides/bullettype/)。
+8. 通过 [IBulletFormat.Picture](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/picture/) 指定图像并设置项目符号高度。
 9. 将段落添加到文本框。
 10. 保存修改后的演示文稿。
 
-此 C# 示例创建了图片项目符号：
+下面的 C# 示例创建了一个图片项目符号：
 
 ```csharp
 using Aspose.Slides;
@@ -215,15 +215,15 @@ presentation.Save("picture_bullet.ppt", SaveFormat.Ppt);
 
 ### **创建多级列表**
 
-将 [IParagraphFormat.Depth](https://reference.aspose.com/slides/zh/net/aspose.slides/iparagraphformat/depth/) 设置为不同值，以在列表中放置不同层级的段落。最高层级的深度为 `0`。
+将 [IParagraphFormat.Depth](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/depth/) 设置为不同的深度即可在列表中放置不同层级的段落。顶层的深度为 `0`。
 
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/zh/net/aspose.slides/presentation/) 并获取一张幻灯片。
-2. 添加一个 [IAutoShape](https://reference.aspose.com/slides/zh/net/aspose.slides/iautoshape/) 并清除其文本框中的默认段落。
-3. 创建四个段落并配置它们的项目符号符号。
-4. 将它们的 [IParagraphFormat.Depth](https://reference.aspose.com/slides/zh/net/aspose.slides/iparagraphformat/depth/) 分别设置为 `0`、`1`、`2`、`3`。
+1. 创建一个 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) 并访问一个幻灯片。
+2. 添加一个 [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) 并清除其文本框中的默认段落。
+3. 创建四个段落并配置其项目符号符号。
+4. 将它们的 [IParagraphFormat.Depth](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/depth/) 值分别设为 `0`、`1`、`2` 和 `3`。
 5. 将段落添加到文本框并保存演示文稿。
 
-此 C# 示例创建了四层级的项目符号列表：
+下面的 C# 示例创建了一个四级项目符号列表：
 
 ```csharp
 using System;
@@ -273,17 +273,17 @@ textFrame.Paragraphs.Add(fourthParagraph);
 presentation.Save("multilevel_list.pptx", SaveFormat.Pptx);
 ```
 
-### **为编号列表项设置自定义起始值**
+### **自定义编号列表的起始值**
 
-使用 [IBulletFormat.NumberedBulletStartWith](https://reference.aspose.com/slides/zh/net/aspose.slides/ibulletformat/numberedbulletstartwith/) 为编号段落设置初始显示数字。
+使用 [IBulletFormat.NumberedBulletStartWith](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/numberedbulletstartwith/) 可以为编号段落设置初始显示数字。
 
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/zh/net/aspose.slides/presentation/) 并向幻灯片添加一个 [IAutoShape](https://reference.aspose.com/slides/zh/net/aspose.slides/iautoshape/)。
-2. 清除形状文本框中的默认段落。
+1. 创建一个 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) 并向幻灯片添加一个 [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/)。
+2. 清除形状的文本框中的默认段落。
 3. 创建三个编号段落。
-4. 将 [IBulletFormat.NumberedBulletStartWith](https://reference.aspose.com/slides/zh/net/aspose.slides/ibulletformat/numberedbulletstartwith/) 分别设置为 `2`、`3`、`7`。
+4. 将 [IBulletFormat.NumberedBulletStartWith](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/numberedbulletstartwith/) 分别设置为 `2`、`3` 和 `7`。
 5. 将段落添加到文本框并保存演示文稿。
 
-此 C# 示例为每个段落分配了自定义起始编号：
+下面的 C# 示例为每个段落分配自定义起始编号：
 
 ```csharp
 using Aspose.Slides;
@@ -317,21 +317,21 @@ presentation.Save("custom_numbered_list.pptx", SaveFormat.Pptx);
 
 ### **设置首行缩进**
 
-使用 [IParagraphFormat.Indent](https://reference.aspose.com/slides/zh/net/aspose.slides/iparagraphformat/indent/) 属性控制段落的首行缩进。此属性仅移动首行相对于段落左侧边距的位置。正值会将首行向右移动，而其余行保持与段落主体对齐。
+使用 [IParagraphFormat.Indent](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/indent/) 属性来控制段落的首行缩进。该属性仅移动第一行相对于段落左边距的位置。正值将首行向右移动，而其余行保持与段落正文对齐。
 
-需要整体移动段落时使用 [IParagraphFormat.MarginLeft](https://reference.aspose.com/slides/zh/net/aspose.slides/iparagraphformat/marginleft/)；仅移动首行时使用 [IParagraphFormat.Indent](https://reference.aspose.com/slides/zh/net/aspose.slides/iparagraphformat/indent/)。
+当需要整体移动段落时使用 [IParagraphFormat.MarginLeft](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/marginleft/)。仅移动第一行时使用 [IParagraphFormat.Indent](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/indent/)。
 
-下面的示例创建了多个段落，并对不同的 [IParagraphFormat.Indent](https://reference.aspose.com/slides/zh/net/aspose.slides/iparagraphformat/indent/) 值进行演示，以展示首行缩进对段落布局的影响。
+下面的示例创建了多个段落，并对不同的 [IParagraphFormat.Indent](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/indent/) 值进行设置，以演示首行缩进对段落布局的影响。
 
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/zh/net/aspose.slides/presentation/) 类的实例。
-2. 获取目标幻灯片。
-3. 向幻灯片添加一个矩形的 [IAutoShape](https://reference.aspose.com/slides/zh/net/aspose.slides/iautoshape/)。
-4. 获取形状的 [ITextFrame](https://reference.aspose.com/slides/zh/net/aspose.slides/itextframe/) 并移除默认段落。
-5. 创建多个段落并为它们设置不同的 [Indent](https://reference.aspose.com/slides/zh/net/aspose.slides/iparagraphformat/indent/) 值。
+1. 创建 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) 类的实例。
+2. 访问目标幻灯片。
+3. 向幻灯片添加一个矩形 [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/)。
+4. 访问形状的 [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/) 并删除默认段落。
+5. 创建若干段落并为它们设置不同的 [Indent](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/indent/) 值。
 6. 将段落添加到文本框。
 7. 保存修改后的演示文稿。
 
-此代码演示了如何设置段落缩进：
+下面的代码演示了如何设置段落缩进：
 
 ```csharp
 using System.Drawing;
@@ -380,22 +380,22 @@ presentation.Save("paragraph_indent.pptx", SaveFormat.Pptx);
 
 ### **设置悬挂缩进**
 
-悬挂缩进是指首行位于其余行左侧的段落布局。 在 Aspose.Slides 中，可以使用 [IParagraphFormat.Indent](https://reference.aspose.com/slides/zh/net/aspose.slides/iparagraphformat/indent/) 属性实现此效果。 将 `Indent` 设置为负值即可使首行相对于段落主体左移。
+悬挂缩进是一种段落布局，第一行相对于其余行向左开始。在 Aspose.Slides 中，可使用 [IParagraphFormat.Indent](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/indent/) 属性实现此效果。将 `Indent` 设置为负值即可使第一行相对于段落正文向左移动。
 
-实际使用中， [IParagraphFormat.MarginLeft](https://reference.aspose.com/slides/zh/net/aspose.slides/iparagraphformat/marginleft/) 定义段落主体的左侧位置， [IParagraphFormat.Indent](https://reference.aspose.com/slides/zh/net/aspose.slides/iparagraphformat/indent/) 定义首行相对于该左侧的偏移。 要创建悬挂缩进，需要将 `MarginLeft` 设置为正值，同时将 `Indent` 设置为负值。
+在实际使用中，[IParagraphFormat.MarginLeft](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/marginleft/) 定义段落正文的左侧位置，而 [IParagraphFormat.Indent](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/indent/) 定义第一行相对于该左侧的偏移。要创建悬挂缩进，请将正值的 `MarginLeft` 与负值的 `Indent` 组合使用。
 
-此格式在参考文献、书目、词汇表条目等需要换行对齐到段落主体而非首字符的场景中非常有用。
+此格式常用于参考文献、书目、词汇表条目等，需要让换行后的行在段落正文下对齐，而不是在首行第一个字符下对齐的段落。
 
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/zh/net/aspose.slides/presentation/) 类的实例。
-2. 获取目标幻灯片。
-3. 向幻灯片添加一个矩形的 [IAutoShape](https://reference.aspose.com/slides/zh/net/aspose.slides/iautoshape/)。
-4. 获取形状的 [ITextFrame](https://reference.aspose.com/slides/zh/net/aspose.slides/itextframe/) 并移除默认段落。
-5. 创建段落并为每个段落设置一个正的 [MarginLeft](https://reference.aspose.com/slides/zh/net/aspose.slides/iparagraphformat/marginleft/) 值。
-6. 将负的 [Indent](https://reference.aspose.com/slides/zh/net/aspose.slides/iparagraphformat/indent/) 值用于创建悬挂缩进效果。
+1. 创建 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) 类的实例。
+2. 访问目标幻灯片。
+3. 向幻灯片添加一个矩形 [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/)。
+4. 访问形状的 [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/) 并删除默认段落。
+5. 创建段落并为每个段落设置正的 [MarginLeft](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/marginleft/) 值。
+6. 将负的 [Indent](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/indent/) 值用于实现悬挂缩进效果。
 7. 将段落添加到文本框。
 8. 保存修改后的演示文稿。
 
-此代码演示了如何为段落设置悬挂缩进：
+下面的代码演示了如何为段落设置悬挂缩进：
 
 ```csharp
 using System.Drawing;
@@ -437,14 +437,14 @@ presentation.Save("hanging_indent.pptx", SaveFormat.Pptx);
 
 ### **设置段落结束运行属性**
 
-[IParagraph.EndParagraphPortionFormat](https://reference.aspose.com/slides/zh/net/aspose.slides/iparagraph/endparagraphportionformat/) 属性控制段落结束标记的格式。下面的示例为第二段落的结束标记分配字体大小和拉丁字体：
+[IParagraph.EndParagraphPortionFormat](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/endparagraphportionformat/) 属性控制段落结束标记的格式。以下示例为第二段落的结束标记分配字体大小和拉丁字体：
 
-1. 加载一个 [Presentation](https://reference.aspose.com/slides/zh/net/aspose.slides/presentation) 并获取一张幻灯片。
-2. 添加一个 [IAutoShape](https://reference.aspose.com/slides/zh/net/aspose.slides/iautoshape/) 并清除其默认段落。
+1. 加载一个 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) 并访问一个幻灯片。
+2. 添加一个 [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) 并清除其默认段落。
 3. 创建两个段落并向它们添加文本部分。
-4. 为第二段落的结束标记创建一个 [PortionFormat](https://reference.aspose.com/slides/zh/net/aspose.slides/portionformat/)。
-5. 设置 [IBasePortionFormat.FontHeight](https://reference.aspose.com/slides/zh/net/aspose.slides/ibaseportionformat/fontheight/) 和 [IBasePortionFormat.LatinFont](https://reference.aspose.com/slides/zh/net/aspose.slides/ibaseportionformat/latinfont/)。
-6. 将该格式分配给 [IParagraph.EndParagraphPortionFormat](https://reference.aspose.com/slides/zh/net/aspose.slides/iparagraph/endparagraphportionformat/) 并保存演示文稿。
+4. 为第二段落的结束标记创建一个 [PortionFormat](https://reference.aspose.com/slides/net/aspose.slides/portionformat/)。
+5. 设置 [IBasePortionFormat.FontHeight](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/fontheight/) 和 [IBasePortionFormat.LatinFont](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/latinfont/)。
+6. 将该格式分配给 [IParagraph.EndParagraphPortionFormat](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/endparagraphportionformat/) 并保存演示文稿。
 
 ```csharp
 using Aspose.Slides;
@@ -473,15 +473,15 @@ textFrame.Paragraphs.Add(secondParagraph);
 presentation.Save("end_paragraph_format.pptx", SaveFormat.Pptx);
 ```
 
-## **计数已呈现的行数**
+## **计数渲染行数**
 
 有关影响自动换行和行尾标点的段落规则，请参阅 [Control Line Breaking](/slides/zh/net/text-formatting/#control-line-breaking) 和 [Control Hanging Punctuation](/slides/zh/net/text-formatting/#control-hanging-punctuation)。
 
-使用 [IParagraph.GetLinesCount](https://reference.aspose.com/slides/zh/net/aspose.slides/iparagraph/getlinescount/) 可统计段落在文本布局后占用的行数，包括自动换行。这在检查演示模板中的文字长度和布局时非常有用。
+使用 [IParagraph.GetLinesCount](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/getlinescount/) 可统计段落在文本布局后占用的行数（包括自动换行）。在检查演示文稿模板的文字长度和布局时，这非常有用。
 
-段落是 [ITextFrame.Paragraphs](https://reference.aspose.com/slides/zh/net/aspose.slides/itextframe/paragraphs/) 中的一个项目，它可能占用多行已渲染的文本。段落内的显式换行符会强制换行但不会创建新段落。自动换行根据可用宽度生成行，而不会在文本中插入显式换行符。因此，仅统计段落数量或换行字符无法得到已渲染的行数。
+段落是 [ITextFrame.Paragraphs](https://reference.aspose.com/slides/net/aspose.slides/itextframe/paragraphs/) 中的一个项目，它可以占用多行渲染的行。段落内部的显式换行符会强制换行但不会创建新段落。自动换行则根据可用宽度生成行，而不会在文本中插入显式换行符。因此，仅计数段落或换行字符并不能得到渲染行数。
 
-下面的示例创建一个文本形状，统计其行数，缩窄形状，然后用较短的字符串替换文本。启用换行并禁用自动适应，以便形状宽度控制换行而不自动缩小文本或调整形状大小。形状尺寸使用点 (pt) 为单位。最后，示例再添加一个段落并累计整个文本框的行数。
+下面的示例创建一个文本形状，统计其行数，缩窄形状，然后用较短的字符串替换文本。已启用换行且禁用自动适应，以便形状宽度控制换行，而不会自动缩小文本或调整形状大小。形状尺寸以磅为单位。最后，示例再添加一个段落并汇总整个文本框的行数。
 
 ```csharp
 using System;
@@ -518,24 +518,24 @@ foreach (var currentParagraph in textFrame.Paragraphs)
 Console.WriteLine($"Total lines in the text frame: {totalLineCount}");
 ```
 
-使用这些文本和尺寸时，缩窄形状会增加行数，而用短字符串替换文本会减少行数。具体计数可能会因字体可用性、替代、字体大小、边距、缩进、换行和自动适应设置而有所不同。检查模板时，请使用目标环境所需的字体和布局设置。
+使用上述文本和尺寸，缩窄形状会增加行数，而用短字符串替换文本会减少行数。确切的计数可能会因字体可用性及其替代、字体大小、边距、缩进、换行和自动适应设置而有所不同；请在检查模板时使用目标环境的字体和布局设置。
 
-仅凭行数并不能判断文字是否溢出容器。可用高度、行高、段落和行间距以及自动适应行为也会影响；即使是一行文字，在禁用换行时也可能超过可用宽度。
+仅凭行数并不能判断文本是否溢出其容器。可用高度、行高、段落和行间距以及自动适应行为同样重要；即使是一行文本，在禁用换行时也可能超出可用宽度。
 
 ## **导入和导出段落内容**
 
 ### **将 HTML 文本导入段落**
 
-使用 [ParagraphCollection.AddFromHtml](https://reference.aspose.com/slides/zh/net/aspose.slides/paragraphcollection/addfromhtml/) 将 HTML 标记转换为文本框中的段落和部分。
+使用 [ParagraphCollection.AddFromHtml](https://reference.aspose.com/slides/net/aspose.slides/paragraphcollection/addfromhtml/) 可以将 HTML 标记转换为文本框中的段落和部分。
 
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/zh/net/aspose.slides/presentation) 类的实例。
-2. 获取一张幻灯片并添加一个 [IAutoShape](https://reference.aspose.com/slides/zh/net/aspose.slides/iautoshape/)。
-3. 获取形状的 [ITextFrame](https://reference.aspose.com/slides/zh/net/aspose.slides/itextframe/) 并清除默认段落。
+1. 创建一个 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) 类的实例。
+2. 访问一个幻灯片并添加一个 [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/)。
+3. 访问形状的 [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/) 并清除默认段落。
 4. 读取源 HTML 文件。
-5. 将 HTML 字符串传递给 [ParagraphCollection.AddFromHtml](https://reference.aspose.com/slides/zh/net/aspose.slides/paragraphcollection/addfromhtml/)。
+5. 将 HTML 字符串传递给 [ParagraphCollection.AddFromHtml](https://reference.aspose.com/slides/net/aspose.slides/paragraphcollection/addfromhtml/)。
 6. 保存修改后的演示文稿。
 
-此 C# 示例将 HTML 导入文本框：
+下面的 C# 示例将 HTML 导入文本框：
 
 ```csharp
 using System.IO;
@@ -559,15 +559,15 @@ presentation.Save("html_text.pptx", SaveFormat.Pptx);
 
 ### **将段落文本导出为 HTML**
 
-使用 [ParagraphCollection.ExportToHtml](https://reference.aspose.com/slides/zh/net/aspose.slides/paragraphcollection/exporttohtml/) 将选定范围的段落导出为 HTML。
+使用 [ParagraphCollection.ExportToHtml](https://reference.aspose.com/slides/net/aspose.slides/paragraphcollection/exporttohtml/) 可以将选定范围的段落导出为 HTML。
 
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/zh/net/aspose.slides/presentation) 类的实例并加载所需的演示文稿。
-2. 获取幻灯片并找到包含文本的 [IAutoShape](https://reference.aspose.com/slides/zh/net/aspose.slides/iautoshape/)。
-3. 获取形状的 [ITextFrame](https://reference.aspose.com/slides/zh/net/aspose.slides/itextframe/)。
-4. 调用 [ParagraphCollection.ExportToHtml](https://reference.aspose.com/slides/zh/net/aspose.slides/paragraphcollection/exporttohtml/) 并提供起始段落索引和要导出的段落数量。
+1. 创建一个 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) 类的实例并加载所需的演示文稿。
+2. 访问幻灯片并找到包含文本的 [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/)。
+3. 访问形状的 [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/)。
+4. 调用 [ParagraphCollection.ExportToHtml](https://reference.aspose.com/slides/net/aspose.slides/paragraphcollection/exporttohtml/) 并提供起始段落索引和要导出的段落数。
 5. 将返回的 HTML 字符串写入文件。
 
-此 C# 示例导出第一个文本形状中的所有段落：
+下面的 C# 示例导出第一个文本形状中的所有段落：
 
 ```csharp
 using System;
@@ -593,17 +593,17 @@ else
 
 ### **将段落渲染为图像**
 
-[IParagraph.GetImage](https://reference.aspose.com/slides/zh/net/aspose.slides/iparagraph/getimage/) 可直接渲染单个段落并返回一个 [IImage](https://reference.aspose.com/slides/zh/net/aspose.slides/iimage/)。使用 [IImage.Save](https://reference.aspose.com/slides/zh/net/aspose.slides/iimage/save/) 将结果保存为文件或流。无需渲染整个形状或手动裁剪位图。
+[IParagraph.GetImage](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/getimage/) 可直接渲染单个段落并返回 [IImage](https://reference.aspose.com/slides/net/aspose.slides/iimage/)。使用 [IImage.Save](https://reference.aspose.com/slides/net/aspose.slides/iimage/save/) 将结果保存为文件或流。无需渲染包含的形状或手动裁剪位图。
 
-如果段落在其父集合中未找到、没有有效的渲染边界或无法渲染， [IParagraph.GetImage](https://reference.aspose.com/slides/zh/net/aspose.slides/iparagraph/getimage/) 可能返回 `null`。在保存之前请检查返回值，并在使用后释放图像。
+如果段落在其父集合中找不到、没有有效的渲染边界或无法渲染，[IParagraph.GetImage](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/getimage/) 可能返回 `null`。保存前请检查返回值，并在使用后释放返回的图像。
 
-#### **以默认比例渲染段落**
+#### **按默认比例渲染段落**
 
-假设我们有一个名为 sample.pptx 的演示文件，包含一张幻灯片，第一形状是一个包含三个段落的文本框。
+假设我们有一个名为 sample.pptx 的演示文稿，其中只有一张幻灯片，第一形状是包含三个段落的文本框。
 
 ![包含三个段落的文本框](paragraph_to_image_input.png)
 
-下面的示例在默认比例下渲染第二段落并以 PNG 格式保存返回的图像。`using` 声明确保图像得到正确释放。
+下面的示例在默认比例下渲染第二段落，并以 PNG 格式保存返回的图像。`using` 声明确保图像能够正确释放。
 
 ```csharp
 using System;
@@ -638,9 +638,9 @@ else
 
 ![段落图像](paragraph_to_image_output.png)
 
-#### **在表格单元格中渲染段落并缩放**
+#### **在表格单元格中渲染段落并进行缩放**
 
-使用接受 `float scaleX` 和 `float scaleY` 参数的 [IParagraph.GetImage](https://reference.aspose.com/slides/zh/net/aspose.slides/iparagraph/getimage/) 重载来设置水平和垂直缩放系数。下面的示例创建一个表格，在其第一个单元格中以两倍默认宽高渲染段落，并将结果保存为 PNG 图像。
+使用接受 `float scaleX` 和 `float scaleY` 参数的 [IParagraph.GetImage](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/getimage/) 重载，可设置水平和垂直缩放因子。下面的示例创建一个表格，在其第一个单元格中以两倍默认宽高渲染段落，并将结果保存为 PNG 图像。
 
 ```csharp
 using System;
@@ -666,24 +666,26 @@ else
 }
 ```
 
-缩放系数 `1` 表示保持该轴的默认像素大小。例如，两个系数均为 `2` 时，生成的图像宽高约为默认尺寸的两倍，像素数量约为四倍。较大系数通常能为缩放或高分辨率输出提供更清晰的文字，但也会增加内存使用和文件大小。系数小于 `1` 会生成更小且细节较少的图像。使用相同的系数可以保持段落的宽高比；不同的水平和垂直系数会分别拉伸输出。
+缩放因子为 `1` 时保持该轴的默认像素大小。例如，两个因子均为 `2` 时，生成的图像宽高约为默认尺寸的两倍，像素数约为四倍。较大的因子通常可在放大或高分辨率输出时获得更清晰的文字，但也会增加内存占用和文件大小。因子小于 `1` 会生成更小且细节更少的图像。使用相等的因子可保持段落的宽高比；不同的水平和垂直因子会独立拉伸输出。
 
-在需要包含形状填充、边框或其他视觉上下文的情况下，使用 [IShape.GetImage](https://reference.aspose.com/slides/zh/net/aspose.slides/ishape/getimage/) 渲染整个形状仍然有用。若只需段落图像，请使用 [IParagraph.GetImage](https://reference.aspose.com/slides/zh/net/aspose.slides/iparagraph/getimage/)。
+使用 [IShape.GetImage](https://reference.aspose.com/slides/net/aspose.slides/ishape/getimage/) 渲染整个形状仍在需要包含形状填充、边框或其他视觉上下文时有用。若仅需段落图像，请使用 [IParagraph.GetImage](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/getimage/)。
 
 ## **常见问题解答**
 
 **我可以完全禁用文本框内的换行吗？**
 
-可以。将 [ITextFrameFormat.WrapText](https://reference.aspose.com/slides/zh/net/aspose.slides/itextframeformat/wraptext/) 设置为关闭换行，以便行不会在文本框边缘断开。
+可以。将 [ITextFrameFormat.WrapText](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/wraptext/) 设置为禁用换行，从而使行不会在文本框边缘断开。
 
 **如何获取特定段落在幻灯片上的精确边界？**
 
-使用 [IParagraph.GetRect](https://reference.aspose.com/slides/zh/net/aspose.slides/iparagraph/getrect/) 可获取段落的边界矩形。 [IPortion.GetRect](https://reference.aspose.com/slides/zh/net/aspose.slides/iportion/getrect/) 提供单个部分的边界。
+使用 [IParagraph.GetRect](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/getrect/) 获取段落的边界矩形。[IPortion.GetRect](https://reference.aspose.com/slides/net/aspose.slides/iportion/getrect/) 提供单个部分的边界。
 
-**段落对齐（左、右、居中或两端对齐）在哪里控制？**
+**段落对齐方式（左、右、居中或两端对齐）在哪里控制？**
 
-[IParagraphFormat.Alignment](https://reference.aspose.com/slides/zh/net/aspose.slides/iparagraphformat/alignment/) 是段落级设置，适用于整个段落，无论各部分的格式如何。
+[IParagraphFormat.Alignment](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/alignment/) 是段落级设置，适用于整个段落，不受单独部分格式的影响。
+
+要在每行中垂直对齐不同字体大小的部分，请参阅 [Align Fonts Within a Line](/slides/zh/net/text-formatting/#align-fonts-within-a-line)。
 
 **我可以为段落的部分设置校对语言吗？**
 
-可以。为单独的部分设置 [IBasePortionFormat.LanguageId](https://reference.aspose.com/slides/zh/net/aspose.slides/ibaseportionformat/languageid/)，这样一个段落可以包含多种语言的文本。
+可以。为各部分设置 [IBasePortionFormat.LanguageId](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/languageid/)，即可在同一段落中包含多种语言的文本。

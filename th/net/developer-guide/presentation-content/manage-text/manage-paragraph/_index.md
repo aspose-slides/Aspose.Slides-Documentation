@@ -1,5 +1,5 @@
 ---
-title: จัดการย่อหน้าข้อความ PowerPoint ใน .NET
+title: จัดการข้อความย่อหน้า PowerPoint ใน .NET
 linktitle: จัดการย่อหน้า
 type: docs
 weight: 40
@@ -12,12 +12,12 @@ keywords:
 - เพิ่มย่อหน้า
 - จัดการข้อความ
 - จัดการย่อหน้า
-- จัดการ bullet
-- ย่อหน้าการเยื่อง
-- เยื้องห้อย
-- bullet ย่อหน้า
-- รายการหมายเลข
-- รายการหัวข้อ
+- จัดการสัญลักษณ์หัวข้อ
+- การเยื้องย่อหน้า
+- การเยื้องห้อย
+- สัญลักษณ์หัวข้อย่อหน้า
+- รายการลำดับเลข
+- รายการมีสัญลักษณ์หัวข้อ
 - คุณสมบัติย่อหน้า
 - นำเข้า HTML
 - ข้อความเป็น HTML
@@ -26,39 +26,39 @@ keywords:
 - ข้อความเป็นภาพ
 - ส่งออกย่อหน้า
 - PowerPoint
-- การนำเสนอ
+- งานนำเสนอ
 - .NET
 - C#
 - Aspose.Slides
-description: "เรียนรู้วิธีสร้างและจัดรูปแบบย่อหน้า, ส่วนข้อความ, bullet, รายการหมายเลข, การเยื้อง, เนื้อหา HTML, และภาพย่อหน้าด้วย Aspose.Slides สำหรับ .NET."
+description: "เรียนรู้วิธีสร้างและจัดรูปแบบย่อหน้า, ส่วนย่อย, สัญลักษณ์หัวข้อ, รายการลำดับเลข, การเยื้อง, เนื้อหา HTML, และภาพย่อหน้าด้วย Aspose.Slides สำหรับ .NET."
 ---
 ## **ภาพรวม**
 
-Aspose.Slides for .NET แสดงข้อความเป็นโครงสร้างลำดับชั้นของ text frames, paragraphs, และ portions:
+Aspose.Slides for .NET แสดงข้อความเป็นลำดับขั้นของกรอบข้อความ (text frames), ย่อหน้า (paragraphs) และส่วนย่อย (portions):
 
-* [ITextFrame](https://reference.aspose.com/slides/th/net/aspose.slides/itextframe/) เป็นตัวบรรจุข้อความใน shape และให้การเข้าถึงคอลเลกชันของ paragraph
-* [IParagraph](https://reference.aspose.com/slides/th/net/aspose.slides/iparagraph/) แทนหนึ่ง paragraph ใน text frame และให้การเข้าถึง portions และการจัดรูปแบบระดับ paragraph
-* [IPortion](https://reference.aspose.com/slides/th/net/aspose.slides/iportion/) แทนชุดข้อความภายใน paragraph แต่ละ portion สามารถมีข้อความและการจัดรูปแบบระดับอักขระของตนเองได้
+* [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/) แสดงคอนเทนเนอร์ของข้อความในรูปร่างและให้การเข้าถึงคอลเลกชันของย่อหน้า
+* [IParagraph](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/) แสดงย่อหน้าหนึ่งในกรอบข้อความและให้การเข้าถึงส่วนย่อยและการจัดรูปแบบระดับย่อหน้า
+* [IPortion](https://reference.aspose.com/slides/net/aspose.slides/iportion/) แสดงรันของข้อความภายในย่อหน้า แต่ละส่วนย่อยสามารถมีข้อความและการจัดรูปแบบระดับอักขระของตนเองได้
 
-ดังนั้น paragraph สามารถบรรจุข้อความที่มีฟอนท์ สี ขนาด และการจัดรูปแบบอื่น ๆ แตกต่างกันโดยใช้หลาย portion
+ดังนั้น ย่อหน้าจึงสามารถบรรจุข้อความที่มีฟอนต์, สี, ขนาดและการจัดรูปแบบอื่น ๆ ที่แตกต่างกันโดยใช้หลายส่วนย่อย
 
 ## **สร้างและจัดรูปแบบย่อหน้า**
 
-### **สร้างย่อหน้าด้วยหลาย Portion**
+### **สร้างย่อหน้าด้วยหลายส่วนย่อย**
 
-ขั้นตอนต่อไปนี้สร้าง text frame ที่มีสาม paragraph โดยแต่ละ paragraph มีสาม portion:
+ขั้นตอนต่อไปนี้จะสร้างกรอบข้อความที่มีย่อหน้า 3 ย่อหน้า แต่ละย่อหน้ามีส่วนย่อย 3 ส่วน:
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/net/aspose.slides/presentation)
-2. เข้าถึงสไลด์ที่ต้องการโดยอ้างอิงจากดัชนีของมัน
-3. เพิ่ม [IAutoShape](https://reference.aspose.com/slides/th/net/aspose.slides/iautoshape/) แบบสี่เหลี่ยมลงในสไลด์
-4. เข้าถึง [ITextFrame](https://reference.aspose.com/slides/th/net/aspose.slides/itextframe/) ของ shape
-5. ใช้ paragraph เริ่มต้นและเพิ่มอีกสองอ็อบเจกต์ [IParagraph](https://reference.aspose.com/slides/th/net/aspose.slides/iparagraph/) ลงใน text frame
-6. เพิ่มอ็อบเจกต์ [IPortion](https://reference.aspose.com/slides/th/net/aspose.slides/iportion/) ให้พอเพียงสำหรับแต่ละ paragraph เพื่อให้มีสาม portion แต่ละอัน paragraph เริ่มต้นมีหนึ่ง portion ว่างอยู่แล้ว
-7. ตั้งค่าข้อความของแต่ละ portion
-8. ใช้การจัดรูปแบบระดับอักขระผ่าน [IPortion.PortionFormat](https://reference.aspose.com/slides/th/net/aspose.slides/iportion/portionformat/)
-9. บันทึก presentation ที่แก้ไขแล้ว
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)  
+2. เข้าถึงสไลด์ที่ต้องการผ่านดัชนีของมัน  
+3. เพิ่มรูปทรงสี่เหลี่ยม [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) ลงในสไลด์  
+4. เข้าถึง [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/) ของรูปทรง  
+5. ใช้ย่อหน้าเริ่มต้นและเพิ่ม [IParagraph](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/) อีกสองอันลงในกรอบข้อความ  
+6. เพิ่ม [IPortion](https://reference.aspose.com/slides/net/aspose.slides/iportion/) ให้เพียงพอสำหรับแต่ละย่อหน้าที่ต้องการสามส่วนย่อย ย่อหน้าเริ่มต้นมีส่วนย่อยเปล่าอยู่แล้วหนึ่งส่วน  
+7. ตั้งค่าข้อความของแต่ละส่วนย่อย  
+8. ใช้การจัดรูปแบบระดับอักขระผ่าน [IPortion.PortionFormat](https://reference.aspose.com/slides/net/aspose.slides/iportion/portionformat/)  
+9. บันทึกงานนำเสนอที่แก้ไขแล้ว  
 
-ตัวอย่าง C# นี้ดำเนินตามขั้นตอนดังกล่าว:
+ตัวอย่าง C# ด้านล่างแสดงการทำตามขั้นตอนเหล่านี้:
 
 ```csharp
 using System.Drawing;
@@ -116,26 +116,26 @@ for (var paragraphIndex = 0; paragraphIndex < paragraphCount; paragraphIndex++)
 presentation.Save("paragraphs_with_portions.pptx", SaveFormat.Pptx);
 ```
 
-## **สร้างรายการแบบหัวข้อแบบ Bullet และ Numbered**
+## **สร้างรายการแบบมีสัญลักษณ์และลำดับเลข**
 
-### **สร้างรายการแบบ Bullet หรือ Numbered**
+### **สร้างรายการแบบมีสัญลักษณ์หรือแบบลำดับเลข**
 
-Bullet และ numbering ทำให้รายการที่เกี่ยวข้องอ่านง่ายขึ้น ใน Aspose.Slides การตั้งค่ารายการกำหนดโดยใช้ [IBulletFormat](https://reference.aspose.com/slides/th/net/aspose.slides/ibulletformat/)
+สัญลักษณ์และการจัดลำดับทำให้รายการที่เกี่ยวข้องอ่านง่ายขึ้น ใน Aspose.Slides การตั้งค่ารายการกำหนดผ่าน [IBulletFormat](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/)  
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/net/aspose.slides/presentation)
-2. เข้าถึงสไลด์ที่ต้องการโดยอ้างอิงจากดัชนีของมัน
-3. เพิ่ม [IAutoShape](https://reference.aspose.com/slides/th/net/aspose.slides/iautoshape/) ลงในสไลด์ที่เลือก
-4. เข้าถึง [ITextFrame](https://reference.aspose.com/slides/th/net/aspose.slides/itextframe/) ของ shape
-5. ลบ paragraph เริ่มต้นออกจาก text frame
-6. สร้าง [Paragraph](https://reference.aspose.com/slides/th/net/aspose.slides/paragraph/) สำหรับ bullet แบบสัญลักษณ์
-7. ตั้งค่า [IBulletFormat.Type](https://reference.aspose.com/slides/th/net/aspose.slides/ibulletformat/type/) เป็น [BulletType.Symbol](https://reference.aspose.com/slides/th/net/aspose.slides/bullettype/) และระบุอักขระ bullet
-8. ตั้งค่าข้อความของ paragraph, ระยะเยื้อง, สี bullet, และความสูงของ bullet
-9. เพิ่ม paragraph ลงใน text frame
-10. สร้าง paragraph ที่สองและตั้งค่า [IBulletFormat.Type](https://reference.aspose.com/slides/th/net/aspose.slides/ibulletformat/type/) เป็น [BulletType.Numbered](https://reference.aspose.com/slides/th/net/aspose.slides/bullettype/)
-11. กำหนดสไตล์ bullet แบบหมายเลขและเพิ่ม paragraph ลงใน text frame
-12. บันทึก presentation
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)  
+2. เข้าถึงสไลด์ที่ต้องการผ่านดัชนีของมัน  
+3. เพิ่ม [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) ลงในสไลด์ที่เลือก  
+4. เข้าถึง [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/) ของรูปทรง  
+5. ลบย่อหน้าเริ่มต้นออกจากกรอบข้อความ  
+6. สร้าง [Paragraph](https://reference.aspose.com/slides/net/aspose.slides/paragraph/) สำหรับสัญลักษณ์สัญลักษณ์ (symbol bullet)  
+7. ตั้งค่า [IBulletFormat.Type](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/type/) เป็น [BulletType.Symbol](https://reference.aspose.com/slides/net/aspose.slides/bullettype/) และระบุอักขระสัญลักษณ์  
+8. ตั้งค่าข้อความของย่อหน้า, การเยื้อง, สีของสัญลักษณ์และความสูงของสัญลักษณ์  
+9. เพิ่มย่อหน้าลงในกรอบข้อความ  
+10. สร้างย่อหน้าที่สองและตั้งค่า [IBulletFormat.Type](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/type/) เป็น [BulletType.Numbered](https://reference.aspose.com/slides/net/aspose.slides/bullettype/)  
+11. กำหนดสไตล์สัญลักษณ์ลำดับเลขและเพิ่มย่อหน้าลงในกรอบข้อความ  
+12. บันทึกงานนำเสนอ  
 
-ตัวอย่าง C# นี้สร้าง bullet สัญลักษณ์และ bullet แบบหมายเลข:
+ตัวอย่าง C# ด้านล่างสร้างสัญลักษณ์สัญลักษณ์และสัญลักษณ์ลำดับเลข:
 
 ```csharp
 using System;
@@ -172,22 +172,22 @@ textFrame.Paragraphs.Add(numberedParagraph);
 presentation.Save("bulleted_and_numbered_list.pptx", SaveFormat.Pptx);
 ```
 
-### **ใช้ Picture Bullets**
+### **ใช้สัญลักษณ์เป็นรูปภาพ**
 
-Picture bullets ให้คุณใช้รูปภาพที่กำหนดเองแทนสัญลักษณ์หรือหมายเลข
+สัญลักษณ์แบบรูปภาพให้คุณใช้รูปภาพกำหนดเองแทนสัญลักษณ์หรือเลข
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/net/aspose.slides/presentation)
-2. เข้าถึงสไลด์ที่ต้องการโดยอ้างอิงจากดัชนีของมัน
-3. เพิ่ม [IAutoShape](https://reference.aspose.com/slides/th/net/aspose.slides/iautoshape/) แล้วเข้าถึง [ITextFrame](https://reference.aspose.com/slides/th/net/aspose.slides/itextframe/) ของมัน
-4. ลบ paragraph เริ่มต้นออกจาก text frame
-5. โหลดรูปภาพ bullet แล้วเพิ่มเข้าไปในคอลเลกชันรูปภาพของ presentation เป็น [IPPImage](https://reference.aspose.com/slides/th/net/aspose.slides/ippimage/)
-6. สร้าง [Paragraph](https://reference.aspose.com/slides/th/net/aspose.slides/paragraph/) แล้วตั้งค่าข้อความของมัน
-7. ตั้งค่า [IBulletFormat.Type](https://reference.aspose.com/slides/th/net/aspose.slides/ibulletformat/type/) เป็น [BulletType.Picture](https://reference.aspose.com/slides/th/net/aspose.slides/bullettype/)
-8. กำหนดรูปภาพผ่าน [IBulletFormat.Picture](https://reference.aspose.com/slides/th/net/aspose.slides/ibulletformat/picture/) แล้วตั้งค่าความสูงของ bullet
-9. เพิ่ม paragraph ลงใน text frame
-10. บันทึก presentation ที่แก้ไขแล้ว
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)  
+2. เข้าถึงสไลด์ที่ต้องการผ่านดัชนีของมัน  
+3. เพิ่ม [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) แล้วเข้าถึง [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/) ของมัน  
+4. ลบย่อหน้าเริ่มต้นออกจากกรอบข้อความ  
+5. โหลดรูปภาพสัญลักษณ์และเพิ่มลงในคอลเลกชันรูปภาพของงานนำเสนอเป็น [IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage/)  
+6. สร้าง [Paragraph](https://reference.aspose.com/slides/net/aspose.slides/paragraph/) แล้วตั้งค่าข้อความของมัน  
+7. ตั้งค่า [IBulletFormat.Type](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/type/) เป็น [BulletType.Picture](https://reference.aspose.com/slides/net/aspose.slides/bullettype/)  
+8. กำหนดรูปภาพผ่าน [IBulletFormat.Picture](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/picture/) แล้วตั้งค่าความสูงของสัญลักษณ์  
+9. เพิ่มย่อหน้าลงในกรอบข้อความ  
+10. บันทึกงานนำเสนอที่แก้ไขแล้ว  
 
-ตัวอย่าง C# นี้สร้าง picture bullet:
+ตัวอย่าง C# ด้านล่างสร้างสัญลักษณ์รูปภาพ:
 
 ```csharp
 using Aspose.Slides;
@@ -213,17 +213,17 @@ presentation.Save("picture_bullet.pptx", SaveFormat.Pptx);
 presentation.Save("picture_bullet.ppt", SaveFormat.Ppt);
 ```
 
-### **สร้าง Multilevel List**
+### **สร้างรายการหลายระดับ**
 
-ตั้งค่า [IParagraphFormat.Depth](https://reference.aspose.com/slides/th/net/aspose.slides/iparagraphformat/depth/) เพื่อกำหนดระดับของ paragraph ในรายการ ระดับบนสุดมีค่า depth เป็น `0`
+ตั้งค่า [IParagraphFormat.Depth](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/depth/) เพื่อวางย่อหน้าในระดับต่าง ๆ ของรายการ ระดับบนสุดมีความลึกเป็น `0`
 
-1. สร้าง [Presentation](https://reference.aspose.com/slides/th/net/aspose.slides/presentation/) แล้วเข้าถึงสไลด์หนึ่ง
-2. เพิ่ม [IAutoShape](https://reference.aspose.com/slides/th/net/aspose.slides/iautoshape/) แล้วล้าง paragraph เริ่มต้นออกจาก text frame ของมัน
-3. สร้างสี่ paragraph และกำหนดสัญลักษณ์ bullet ให้แต่ละรายการ
-4. ตั้งค่าค่า [IParagraphFormat.Depth](https://reference.aspose.com/slides/th/net/aspose.slides/iparagraphformat/depth/) เป็น `0`, `1`, `2`, และ `3`
-5. เพิ่ม paragraph ทั้งหมดลงใน text frame แล้วบันทึก presentation
+1. สร้าง [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) แล้วเข้าถึงสไลด์หนึ่งสไลด์  
+2. เพิ่ม [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) แล้วลบย่อหน้าเริ่มต้นออกจากกรอบข้อความของมัน  
+3. สร้างย่อสี่ย่อหน้าและกำหนดสัญลักษณ์สัญลักษณ์ของแต่ละย่อหน้า  
+4. ตั้งค่า [IParagraphFormat.Depth](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/depth/) ของพวกเขาเป็น `0`, `1`, `2` และ `3`  
+5. เพิ่มย่อหน้าเหล่านั้นลงในกรอบข้อความและบันทึกงานนำเสนอ  
 
-ตัวอย่าง C# นี้สร้างรายการ bullet สี่ระดับ:
+ตัวอย่าง C# ด้านล่างสร้างรายการแบบมีสัญลักษณ์สี่ระดับ:
 
 ```csharp
 using System;
@@ -273,17 +273,17 @@ textFrame.Paragraphs.Add(fourthParagraph);
 presentation.Save("multilevel_list.pptx", SaveFormat.Pptx);
 ```
 
-### **กำหนดจุดเริ่มต้นของ Numbered List ให้เป็นค่า Customized**
+### **เริ่มรายการลำดับเลขที่ค่าที่กำหนดเอง**
 
-ใช้ [IBulletFormat.NumberedBulletStartWith](https://reference.aspose.com/slides/th/net/aspose.slides/ibulletformat/numberedbulletstartwith/) เพื่อกำหนดหมายเลขเริ่มต้นที่แสดงสำหรับ paragraph ที่เป็น numbered
+ใช้ [IBulletFormat.NumberedBulletStartWith](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/numberedbulletstartwith/) เพื่อตั้งค่าตัวเลขเริ่มต้นของย่อหน้าที่เป็นลำดับเลข
 
-1. สร้าง [Presentation](https://reference.aspose.com/slides/th/net/aspose.slides/presentation/) แล้วเพิ่ม [IAutoShape](https://reference.aspose.com/slides/th/net/aspose.slides/iautoshape/) ลงในสไลด์
-2. ลบ paragraph เริ่มต้นออกจาก text frame ของ shape
-3. สร้าง paragraph numbered สามรายการ
-4. ตั้งค่า [IBulletFormat.NumberedBulletStartWith](https://reference.aspose.com/slides/th/net/aspose.slides/ibulletformat/numberedbulletstartwith/) เป็น `2`, `3`, และ `7` สำหรับแต่ละ paragraph ที่เกี่ยวข้อง
-5. เพิ่ม paragraph เหล่านั้นลงใน text frame แล้วบันทึก presentation
+1. สร้าง [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) แล้วเพิ่ม [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) ลงในสไลด์หนึ่ง  
+2. ลบย่อหน้าเริ่มต้นออกจากกรอบข้อความของรูปทรง  
+3. สร้างย่อหน้าเลขสามย่อหน้า  
+4. ตั้งค่า [IBulletFormat.NumberedBulletStartWith](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/numberedbulletstartwith/) เป็น `2`, `3` และ `7` สำหรับย่อหน้าที่เกี่ยวข้องแต่ละอัน  
+5. เพิ่มย่อหน้าเหล่านั้นลงในกรอบข้อความและบันทึกงานนำเสนอ  
 
-ตัวอย่าง C# นี้กำหนดหมายเลขเริ่มต้นแบบกำหนดเองให้กับแต่ละ paragraph:
+ตัวอย่าง C# ด้านล่างกำหนดเลขเริ่มต้นแบบกำหนดเองให้กับแต่ละย่อหน้า:
 
 ```csharp
 using Aspose.Slides;
@@ -313,25 +313,25 @@ textFrame.Paragraphs.Add(thirdParagraph);
 presentation.Save("custom_numbered_list.pptx", SaveFormat.Pptx);
 ```
 
-## **ควบคุมการจัดวางและคุณสมบัติ End ของ Paragraph**
+## **ควบคุมการจัดเรียงและคุณสมบัติส่วนท้ายของย่อหน้า**
 
-### **ตั้งค่า First-Line Indent**
+### **ตั้งค่าการเยื้องบรรทัดแรก**
 
-ใช้คุณสมบัติ [IParagraphFormat.Indent](https://reference.aspose.com/slides/th/net/aspose.slides/iparagraphformat/indent/) เพื่อควบคุมการเยื้องบรรทัดแรกของ paragraph ค่าติดลบหรือบวกจะย้ายบรรทัดแรกเทียบกับขอบซ้ายของ paragraph เท่านั้น ค่าบวกจะทำให้บรรทัดแรกเลื่อนไปขวา ส่วนบรรทัดที่เหลือคงที่
+ใช้คุณสมบัติ [IParagraphFormat.Indent](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/indent/) เพื่อควบคุมการเยื้องบรรทัดแรกของย่อหน้า คุณสมบัตินี้จะย้ายบรรทัดแรกเท่านั้นเทียบกับขอบซ้ายของย่อหน้า ค่าบวกจะเลื่อนบรรทัดแรกไปทางขวา ส่วนบรรทัดที่เหลือคงอยู่ตรงกับเนื้อย่อหน้า  
 
-ใช้ [IParagraphFormat.MarginLeft](https://reference.aspose.com/slides/th/net/aspose.slides/iparagraphformat/marginleft/) เมื่อคุณต้องการย้ายทั้ง paragraph ใช้ [IParagraphFormat.Indent](https://reference.aspose.com/slides/th/net/aspose.slides/iparagraphformat/indent/) หากต้องการย้ายเฉพาะบรรทัดแรก
+ใช้ [IParagraphFormat.MarginLeft](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/marginleft/) เมื่อคุณต้องการย้ายย่อหน้าเต็มบรรทัด ใช้ [IParagraphFormat.Indent](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/indent/) เมื่อต้องการย้ายเฉพาะบรรทัดแรก  
 
-ตัวอย่างด้านล่างสร้างหลาย paragraph และใช้ค่า [IParagraphFormat.Indent](https://reference.aspose.com/slides/th/net/aspose.slides/iparagraphformat/indent/) ที่ต่างกันเพื่อแสดงผลของการเยื้องบรรทัดแรกต่อการจัดวางของ paragraph
+ตัวอย่างต่อไปนี้สร้างย่อหน้าหลายย่อหน้าและกำหนดค่าต่าง ๆ ของ [IParagraphFormat.Indent](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/indent/) เพื่อแสดงผลว่า การเยื้องบรรทัดแรกส่งผลต่อการจัดเรียงอย่างไร  
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/net/aspose.slides/presentation/)
-2. เข้าถึงสไลด์เป้าหมาย
-3. เพิ่ม [IAutoShape](https://reference.aspose.com/slides/th/net/aspose.slides/iautoshape/) แบบสี่เหลี่ยมลงในสไลด์
-4. เข้าถึง [ITextFrame](https://reference.aspose.com/slides/th/net/aspose.slides/itextframe/) ของ shape แล้วลบ paragraph เริ่มต้น
-5. สร้างหลาย paragraph แล้วตั้งค่า [Indent](https://reference.aspose.com/slides/th/net/aspose.slides/iparagraphformat/indent/) ที่ต่างกันสำหรับแต่ละอัน
-6. เพิ่ม paragraph เหล่านั้นลงใน text frame
-7. บันทึก presentation ที่แก้ไขแล้ว
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/)  
+2. เข้าถึงสไลด์เป้าหมาย  
+3. เพิ่ม [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) สี่เหลี่ยมลงในสไลด์  
+4. เข้าถึง [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/) ของรูปทรงและลบย่อหน้าเริ่มต้น  
+5. สร้างย่อหน้าต่าง ๆ แล้วกำหนดค่า [Indent](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/indent/) ที่แตกต่างกันให้กับแต่ละย่อหน้า  
+6. เพิ่มย่อหน้าเหล่านั้นลงในกรอบข้อความ  
+7. บันทึกงานนำเสนอที่แก้ไขแล้ว  
 
-โค้ดนี้แสดงวิธีตั้งค่าเยื้องของ paragraph:
+โค้ดนี้แสดงวิธีตั้งค่าการเยื้องย่อหน้า:
 
 ```csharp
 using System.Drawing;
@@ -376,26 +376,26 @@ presentation.Save("paragraph_indent.pptx", SaveFormat.Pptx);
 
 ผลลัพธ์:
 
-![การเยื้องบรรทัดแรกของ paragraph](first_line_indent.png)
+![การเยื้องบรรทัดแรกของย่อหน้า](first_line_indent.png)
 
-### **ตั้งค่า Hanging Indent**
+### **ตั้งค่าการเยื้องห้อย**
 
-Hanging indent คือการจัดวาง paragraph ที่บรรทัดแรกเริ่มอยู่ทางซ้ายของบรรทัดที่เหลือ ใน Aspose.Slides คุณสร้างเอฟเฟกต์นี้ด้วยคุณสมบัติ [IParagraphFormat.Indent](https://reference.aspose.com/slides/th/net/aspose.slides/iparagraphformat/indent/) ตั้งค่า `Indent` เป็นค่าลบเพื่อย้ายบรรทัดแรกไปซ้ายเมื่อเทียบกับเนื้อหา paragraph
+การเยื้องห้อยเป็นการจัดเรียงย่อหน้าที่บรรทัดแรกเริ่มอยู่ทางซ้ายของบรรทัดที่เหลือ ใน Aspose.Slides คุณสร้างเอฟเฟกต์นี้ด้วยคุณสมบัติ [IParagraphFormat.Indent](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/indent/) ตั้งค่า `Indent` ให้เป็นค่าลบเพื่อย้ายบรรทัดแรกไปทางซ้ายเมื่อเทียบกับเนื้อย่อหน้า  
 
-โดยปกติ [IParagraphFormat.MarginLeft](https://reference.aspose.com/slides/th/net/aspose.slides/iparagraphformat/marginleft/) กำหนดตำแหน่งซ้ายของเนื้อหา paragraph ส่วน [IParagraphFormat.Indent](https://reference.aspose.com/slides/th/net/aspose.slides/iparagraphformat/indent/) กำหนดตำแหน่งของบรรทัดแรกเทียบกับ margin นั้น การสร้าง hanging indent ทำได้โดยตั้งค่า `MarginLeft` เป็นค่าบวกและ `Indent` เป็นค่าลบ
+โดยทั่วไป [IParagraphFormat.MarginLeft](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/marginleft/) กำหนดตำแหน่งซ้ายของเนื้อย่อหน้า และ [IParagraphFormat.Indent](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/indent/) กำหนดตำแหน่งของบรรทัดแรกสัมพันธ์กับขอบซ้ายนั้น เพื่อสร้างการเยืณ์ห้อยให้ตั้งค่า `MarginLeft` เป็นค่าบวกและ `Indent` เป็นค่าลบ  
 
-การจัดรูปแบบนี้มีประโยชน์สำหรับบรรณานุกรม, การอ้างอิง, รายการอภิธานศัพท์, และ paragraph อื่น ๆ ที่บรรทัดพับต้องจัดแนวใต้เนื้อหา paragraph แทนที่จะอยู่ใต้ตัวอักษรแรกของบรรทัดแรก
+การจัดรูปแบบนี้มีประโยชน์สำหรับบรรณานุกรม, การอ้างอิง, บทสารานุกรม และย่อหน้าอื่น ๆ ที่ต้องการให้บรรทัดที่ต่อเนื่องอยู่ใต้เนื้อย่อหน้าแทนใต้ตัวอักษรแรกของบรรทัดแรก  
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/net/aspose.slides/presentation/)
-2. เข้าถึงสไลด์เป้าหมาย
-3. เพิ่ม [IAutoShape](https://reference.aspose.com/slides/th/net/aspose.slides/iautoshape/) แบบสี่เหลี่ยมลงในสไลด์
-4. เข้าถึง [ITextFrame](https://reference.aspose.com/slides/th/net/aspose.slides/itextframe/) ของ shape แล้วลบ paragraph เริ่มต้น
-5. สร้าง paragraph และตั้งค่า [MarginLeft](https://reference.aspose.com/slides/th/net/aspose.slides/iparagraphformat/marginleft/) เป็นค่าบวกสำหรับแต่ละ paragraph
-6. ตั้งค่า [Indent](https://reference.aspose.com/slides/th/net/aspose.slides/iparagraphformat/indent/) เป็นค่าลบเพื่อสร้างเอฟเฟกต์ hanging indent
-7. เพิ่ม paragraph เหล่านั้นลงใน text frame
-8. บันทึก presentation ที่แก้ไขแล้ว
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/)  
+2. เข้าถึงสไลด์เป้าหมาย  
+3. เพิ่ม [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) สี่เหลี่ยมลงในสไลด์  
+4. เข้าถึง [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/) ของรูปทรงและลบย่อหน้าเริ่มต้น  
+5. สร้างย่อหน้าและตั้งค่า [MarginLeft](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/marginleft/) เป็นค่าบวกสำหรับแต่ละย่อหน้า  
+6. ตั้งค่า [Indent](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/indent/) เป็นค่าลบเพื่อสร้างเอฟเฟกต์เยื้องห้อย  
+7. เพิ่มย่อหน้าเหล่านั้นลงในกรอบข้อความ  
+8. บันทึกงานนำเสนอที่แก้ไขแล้ว  
 
-โค้ดนี้แสดงวิธีตั้งค่า hanging indent สำหรับ paragraph:
+โค้ดนี้แสดงวิธีตั้งค่าการเยื้องห้อยสำหรับย่อหน้า:
 
 ```csharp
 using System.Drawing;
@@ -433,18 +433,18 @@ presentation.Save("hanging_indent.pptx", SaveFormat.Pptx);
 
 ผลลัพธ์:
 
-![การเยื้องแบบ hanging ของ paragraph](hanging_indent.png)
+![การเยื้องห้อยของย่อหน้า](hanging_indent.png)
 
-### **ตั้งค่า End Paragraph Run Properties**
+### **ตั้งค่าคุณสมบัติส่วนท้ายของย่อหน้า**
 
-คุณสมบัติ [IParagraph.EndParagraphPortionFormat](https://reference.aspose.com/slides/th/net/aspose.slides/iparagraph/endparagraphportionformat/) ควบคุมการจัดรูปแบบของสัญลักษณ์จบ paragraph ตัวอย่างต่อไปนี้กำหนดขนาดฟอนท์และฟอนท์ Latin ให้กับสัญลักษณ์จบของ paragraph ที่สอง:
+คุณสมบัติ [IParagraph.EndParagraphPortionFormat](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/endparagraphportionformat/) ควบคุมการจัดรูปแบบของสัญลับจบย่อหน้า ตัวอย่างต่อไปนี้กำหนดขนาดฟอนต์และฟอนต์ละตินให้กับสัญลับจบของย่อหน้าที่สอง:
 
-1. โหลด [Presentation](https://reference.aspose.com/slides/th/net/aspose.slides/presentation/) แล้วเข้าถึงสไลด์หนึ่ง
-2. เพิ่ม [IAutoShape](https://reference.aspose.com/slides/th/net/aspose.slides/iautoshape/) แล้วลบ paragraph เริ่มต้น
-3. สร้างสอง paragraph แล้วเพิ่ม portion ของข้อความลงไป
-4. สร้าง [PortionFormat](https://reference.aspose.com/slides/th/net/aspose.slides/portionformat/) สำหรับสัญลักษณ์จบของ paragraph ที่สอง
-5. ตั้งค่า [IBasePortionFormat.FontHeight](https://reference.aspose.com/slides/th/net/aspose.slides/ibaseportionformat/fontheight/) และ [IBasePortionFormat.LatinFont](https://reference.aspose.com/slides/th/net/aspose.slides/ibaseportionformat/latinfont/)
-6. กำหนดรูปแบบให้กับ [IParagraph.EndParagraphPortionFormat](https://reference.aspose.com/slides/th/net/aspose.slides/iparagraph/endparagraphportionformat/) แล้วบันทึก presentation
+1. โหลด [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) และเข้าถึงสไลด์หนึ่ง  
+2. เพิ่ม [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) แล้วลบย่อหน้าเริ่มต้นของมัน  
+3. สร้างสองย่อหน้าและเพิ่มส่วนข้อความลงในแต่ละย่อหน้า  
+4. สร้าง [PortionFormat](https://reference.aspose.com/slides/net/aspose.slides/portionformat/) สำหรับสัญลับจบของย่อหน้าที่สอง  
+5. ตั้งค่า [IBasePortionFormat.FontHeight](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/fontheight/) และ [IBasePortionFormat.LatinFont](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/latinfont/)  
+6. กำหนดฟอร์แมตให้กับ [IParagraph.EndParagraphPortionFormat](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/endparagraphportionformat/) แล้วบันทึกงานนำเสนอ  
 
 ```csharp
 using Aspose.Slides;
@@ -475,13 +475,13 @@ presentation.Save("end_paragraph_format.pptx", SaveFormat.Pptx);
 
 ## **นับจำนวนบรรทัดที่แสดงผล**
 
-สำหรับกฎของ paragraph ที่ส่งผลต่อการตัดบรรทัดอัตโนมัติและเครื่องหมายวรรคตอนที่ปลายบรรทัด โปรดดู [Control Line Breaking](/slides/th/net/text-formatting/#control-line-breaking) และ [Control Hanging Punctuation](/slides/th/net/text-formatting/#control-hanging-punctuation)
+สำหรับกฎของย่อหน้าที่มีผลต่อการตัดบรรทัดอัตโนมัติและเครื่องหมายวรรคตอนที่ปลายบรรทัด ดูที่ [Control Line Breaking](/slides/th/net/text-formatting/#control-line-breaking) และ [Control Hanging Punctuation](/slides/th/net/text-formatting/#control-hanging-punctuation)
 
-ใช้ [IParagraph.GetLinesCount](https://reference.aspose.com/slides/th/net/aspose.slides/iparagraph/getlinescount/) เพื่อให้นับจำนวนบรรทัดที่ paragraph ใช้หลังจากการจัด layout ของข้อความ รวมถึงการตัดบรรทัดอัตโนมัติ ซึ่งมีประโยชน์เมื่อทำการตรวจสอบความยาวของข้อความและการจัด layout ในเทมเพลต presentation
+ใช้ [IParagraph.GetLinesCount](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/getlinescount/) เพื่อให้นับจำนวนบรรทัดที่ย่อหน้าใช้หลังจากการจัดรูปแบบข้อความ รวมถึงการตัดบรรทัดอัตโนมัติ ซึ่งมีประโยชน์เมื่อตรวจสอบความยาวและการจัดรูปแบบของข้อความในเทมเพลตงานนำเสนอ  
 
-paragraph คือรายการหนึ่งใน [ITextFrame.Paragraphs](https://reference.aspose.com/slides/th/net/aspose.slides/itextframe/paragraphs/) และอาจใช้หลายบรรทัดที่แสดงผล การใส่ line break แบบชัดเจนภายใน paragraph จะสร้างบรรทัดใหม่โดยไม่ต้องสร้าง paragraph เพิ่มเติม การตัดบรรทัดอัตโนมัติสร้างบรรทัดตามความกว้างที่มีอยู่โดยไม่แทรก line break ลงในข้อความ ดังนั้นการนับ paragraph หรือตัวอักษร line‑break จะไม่ให้จำนวนบรรทัดที่แสดงผลได้
+ย่อหน้าเป็นรายการหนึ่งใน [ITextFrame.Paragraphs](https://reference.aspose.com/slides/net/aspose.slides/itextframe/paragraphs/) และอาจครอบคลุมหลายบรรทัดที่แสดงผล การขึ้นบรรทัดใหม่แบบชัดเจนภายในย่อหน้าจะบังคับให้ขึ้นบรรทัดใหม่โดยไม่สร้างย่อหน้าใหม่ การตัดบรรทัดอัตโนมัติจะสร้างบรรทัดตามความกว้างที่มีอยู่โดยไม่แทรกอักขระขึ้นบรรทัดใหม่ลงในข้อความ ดังนั้นการนับย่อหน้าหรืออักขระขึ้นบรรทัดใหม่โดยตรงจะไม่ให้จำนวนบรรทัดที่แสดงผลที่แท้จริง  
 
-ตัวอย่างต่อไปนี้สร้างรูปทรงข้อความ, นับบรรทัด, ลดความกว้างของรูปทรง, แล้วเปลี่ยนข้อความเป็นสตริงสั้นกว่า เปิดการตัดบรรทัดและปิด autofit เพื่อให้ความกว้างของรูปทรงควบคุมการตัดบรรทัดโดยไม่ปรับขนาดข้อความหรือรูปทรงโดยอัตโนมัติ ขนาดของรูปทรงกำหนดเป็นพอยต์ สุดท้ายตัวอย่างเพิ่ม paragraph อีกหนึ่งรายการและรวมจำนวนบรรทัดทั้งหมดใน text frame
+ตัวอย่างต่อไปนี้สร้างรูปทรงข้อความ, นับบรรทัด, ลดความกว้างของรูปทรง, แล้วแทนที่ข้อความด้วยสตริงที่สั้นลง การตัดบรรทัดเปิดใช้งานและการปรับขนาดอัตโนมัติปิดเพื่อให้ความกว้างของรูปทรงเป็นตัวควบคุมการตัดบรรทัดโดยไม่ย่อข้อความหรือปรับขนาดรูปทรงเอง มิติของรูปทรงเป็นหน่วยพอยท์ สุดท้ายตัวอย่างเพิ่มย่อหน้าอีกหนึ่งย่อหน้าและรวมจำนวนบรรทัดทั้งหมดในกรอบข้อความ
 
 ```csharp
 using System;
@@ -518,24 +518,24 @@ foreach (var currentParagraph in textFrame.Paragraphs)
 Console.WriteLine($"Total lines in the text frame: {totalLineCount}");
 ```
 
-ด้วยข้อความและขนาดเหล่านี้ การทำให้รูปทรงแคบลงจะเพิ่มจำนวนบรรทัด ส่วนการเปลี่ยนข้อความเป็นสตริงสั้นจะลดจำนวนบรรทัด จำนวนที่แน่นอนอาจแตกต่างตามฟอนท์ที่มีอยู่และการแทนที่, ขนาดฟอนท์, margin, การเยื้อง, การตัดบรรทัด, และการตั้งค่า autofit ใช้ฟอนท์และการตั้งค่า layout ที่ตั้งใจสำหรับสภาพแวดล้อมเป้าหมายเมื่อทำการตรวจสอบเทมเพลต
+ด้วยข้อความและมิตินี้ การลดความกว้างของรูปทรงจะเพิ่มจำนวนบรรทัด ในขณะที่การแทนที่ข้อความด้วยสตริงสั้นจะลดจำนวนบรรทัด จำนวนที่แน่นอนอาจแตกต่างกันตามการมีฟอนต์และการทดแทน, ขนาดฟอนต์, ระยะขอบ, การเยื้อง, การตัดบรรทัดและการตั้งค่าการปรับขนาดอัตโนมัติ ใช้ฟอนต์และการตั้งค่าการจัดรูปแบบที่ตั้งใจสำหรับสภาพแวดล้อมเป้าหมายเมื่อตรวจสอบเทมเพลต  
 
-จำนวนบรรทัดเพียงอย่างเดียวไม่บ่งบอกว่าข้อความล้นพื้นที่ของคอนเทนเนอร์หรือไม่ ความสูงที่มีอยู่, ความสูงของบรรทัด, ระยะห่างของ paragraph และบรรทัด, และพฤติกรรม autofit ยังมีส่วนสำคัญ; แม้บรรทัดเดียวก็อาจเกินความกว้างที่มีอยู่เมื่อปิดการตัดบรรทัด
+จำนวนบรรทัดเพียงอย่างเดียวไม่สามารถบ่งบอกได้ว่าข้อความล้นจากคอนเทนเนอร์หรือไม่ ความสูงที่มี, ความสูงของบรรทัด, ระยะห่างระหว่างย่อหน้าและบรรทัด, และพฤติกรรมการปรับขนาดอัตโนมัติก็มีผลเช่นกัน; แม้แต่บรรทัดเดียวอาจเกินความกว้างที่มีได้เมื่อปิดการตัดบรรทัด
 
-## **นำเข้าและส่งออกเนื้อหา Paragraph**
+## **นำเข้าและส่งออกเนื้อหาย่อหน้า**
 
-### **นำเข้า HTML Text ไปยัง Paragraphs**
+### **นำเข้า HTML เข้าในย่อหน้า**
 
-ใช้ [ParagraphCollection.AddFromHtml](https://reference.aspose.com/slides/th/net/aspose.slides/paragraphcollection/addfromhtml/) เพื่อแปลง markup HTML เป็น paragraph และ portion ภายใน text frame
+ใช้ [ParagraphCollection.AddFromHtml](https://reference.aspose.com/slides/net/aspose.slides/paragraphcollection/addfromhtml/) เพื่อแปลงมาร์กอัป HTML ให้เป็นย่อหน้าและส่วนย่อยในกรอบข้อความ  
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/net/aspose.slides/presentation)
-2. เข้าถึงสไลด์และเพิ่ม [IAutoShape](https://reference.aspose.com/slides/th/net/aspose.slides/iautoshape/)
-3. เข้าถึง [ITextFrame](https://reference.aspose.com/slides/th/net/aspose.slides/itextframe/) ของ shape แล้วลบ paragraph เริ่มต้น
-4. อ่านไฟล์ HTML ต้นทาง
-5. ส่งสตริง HTML ไปยัง [ParagraphCollection.AddFromHtml](https://reference.aspose.com/slides/th/net/aspose.slides/paragraphcollection/addfromhtml/)
-6. บันทึก presentation ที่แก้ไขแล้ว
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)  
+2. เข้าถึงสไลด์และเพิ่ม [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/)  
+3. เข้าถึง [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/) ของรูปทรงและลบย่อหน้าเริ่มต้น  
+4. อ่านไฟล์ HTML ต้นฉบับ  
+5. ส่งสตริง HTML ให้กับ [ParagraphCollection.AddFromHtml](https://reference.aspose.com/slides/net/aspose.slides/paragraphcollection/addfromhtml/)  
+6. บันทึกงานนำเสนอที่แก้ไขแล้ว  
 
-ตัวอย่าง C# นี้นำเข้า HTML ไปยัง text frame:
+ตัวอย่าง C# ด้านล่างนำเข้า HTML ลงในกรอบข้อความ:
 
 ```csharp
 using System.IO;
@@ -557,17 +557,17 @@ shape.TextFrame.Paragraphs.AddFromHtml(html);
 presentation.Save("html_text.pptx", SaveFormat.Pptx);
 ```
 
-### **ส่งออกข้อความ Paragraph เป็น HTML**
+### **ส่งออกข้อความย่อหน้าเป็น HTML**
 
-ใช้ [ParagraphCollection.ExportToHtml](https://reference.aspose.com/slides/th/net/aspose.slides/paragraphcollection/exporttohtml/) เพื่อส่งออกช่วงของ paragraph ที่เลือกเป็น HTML
+ใช้ [ParagraphCollection.ExportToHtml](https://reference.aspose.com/slides/net/aspose.slides/paragraphcollection/exporttohtml/) เพื่อส่งออกช่วงย่อหน้าที่เลือกเป็น HTML  
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/net/aspose.slides/presentation) แล้วโหลด presentation ที่ต้องการ
-2. เข้าถึงสไลด์และค้นหา [IAutoShape](https://reference.aspose.com/slides/th/net/aspose.slides/iautoshape/) ที่มีข้อความอยู่
-3. เข้าถึง [ITextFrame](https://reference.aspose.com/slides/th/net/aspose.slides/itextframe/) ของ shape
-4. เรียก [ParagraphCollection.ExportToHtml](https://reference.aspose.com/slides/th/net/aspose.slides/paragraphcollection/exporttohtml/) พร้อมกับดัชนี paragraph เริ่มต้นและจำนวน paragraph ที่ต้องการส่งออก
-5. เขียนสตริง HTML ที่ได้ไปยังไฟล์
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) และโหลดงานนำเสนอที่ต้องการ  
+2. เข้าถึงสไลด์และค้นหา [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) ที่มีข้อความอยู่  
+3. เข้าถึง [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/) ของรูปทรงนั้น  
+4. เรียก [ParagraphCollection.ExportToHtml](https://reference.aspose.com/slides/net/aspose.slides/paragraphcollection/exporttohtml/) พร้อมกับดัชนีย่อหน้าเริ่มต้นและจำนวนย่อหน้าที่ต้องการส่งออก  
+5. เขียนสตริง HTML ที่คืนค่ามาไปยังไฟล์  
 
-ตัวอย่าง C# นี้ส่งออก paragraph ทั้งหมดจาก shape ข้อความแรก:
+ตัวอย่าง C# ด้านล่างส่งออกย่อหน้าทั้งหมดจากรูปทรงข้อความแรก:
 
 ```csharp
 using System;
@@ -591,19 +591,19 @@ else
 }
 ```
 
-### **เรนเดอร์ Paragraph ให้เป็นภาพ**
+### **แสดงย่อหน้าเป็นภาพ**
 
-[IParagraph.GetImage](https://reference.aspose.com/slides/th/net/aspose.slides/iparagraph/getimage/) เรนเดอร์ paragraph แยกแต่ละอันโดยตรงและคืนค่า [IImage](https://reference.aspose.com/slides/th/net/aspose.slides/iimage/) คุณสามารถบันทึกผลลัพธ์เป็นไฟล์หรือสตรีมด้วย [IImage.Save](https://reference.aspose.com/slides/th/net/aspose.slides/iimage/save/) ไม่จำเป็นต้องเรนเดอร์ shape ที่บรรจุหรือครอภาพด้วยตนเอง
+[IParagraph.GetImage](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/getimage/) ทำการเรนเดอร์ย่อหน้าเดี่ยวโดยตรงและคืนค่าเป็น [IImage](https://reference.aspose.com/slides/net/aspose.slides/iimage/) บันทึกผลลัพธ์เป็นไฟล์หรือสตรีมด้วย [IImage.Save](https://reference.aspose.com/slides/net/aspose.slides/iimage/save/) คุณไม่จำเป็นต้องเรนเดอร์รูปทรงทั้งหมดหรือครอปบิทแมพด้วยตนเอง  
 
-[IParagraph.GetImage](https://reference.aspose.com/slides/th/net/aspose.slides/iparagraph/getimage/) อาจคืนค่า `null` หากไม่พบ paragraph ในคอลเลกชันแม่, ไม่มีขอบเขตการเรนเดอร์ที่ถูกต้อง, หรือไม่สามารถเรนเดอร์ได้ ตรวจสอบผลลัพธ์ก่อนบันทึกและทำลายภาพที่คืนค่าหลังใช้
+[IParagraph.GetImage](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/getimage/) อาจคืนค่า `null` หากย่อหน้าไม่พบในคอลเลกชันแม่, ไม่มีขอบเขตการเรนเดอร์ที่ถูกต้อง, หรือไม่สามารถเรนเดอร์ได้ ตรวจสอบผลลัพธ์ก่อนบันทึกและทำลายภาพที่คืนค่าหลังการใช้  
 
-#### **เรนเดอร์ Paragraph ที่สเกลเริ่มต้น**
+#### **เรนเดอร์ย่อหน้าที่ระดับสเกลค่าเริ่มต้น**
 
-สมมติว่าเรามีไฟล์ presentation ชื่อ sample.pptx มีหนึ่งสไลด์ ซึ่ง shape แรกเป็น text box ที่มีสาม paragraph
+สมมติว่ามีไฟล์งานนำเสนอชื่อ `sample.pptx` ที่มีสไลด์เดียว ซึ่งรูปทรงแรกคือกล่องข้อความที่มีย่อหน้า 3 ย่อหน้า  
 
-![Text box ที่มีสาม paragraph](paragraph_to_image_input.png)
+![กล่องข้อความที่มีสามย่อหน้า](paragraph_to_image_input.png)
 
-ตัวอย่างต่อไปนี้เรนเดอร์ paragraph ที่สองใน text shape ปกติที่สเกลเริ่มต้นและบันทึกภาพที่ได้เป็น PNG การใช้ `using` ทำให้แน่ใจว่าภาพถูกทำลายอย่างถูกต้อง
+ตัวอย่างต่อไปนี้เรนเดอร์ย่อหน้าที่สองในรูปทรงข้อความทั่วไปที่ระดับสเกลค่าเริ่มต้นและบันทึกภาพที่ได้เป็นรูปแบบ PNG คำสั่ง `using` ทำให้แน่ใจว่าภาพถูกทำลายอย่างถูกต้อง  
 
 ```csharp
 using System;
@@ -636,11 +636,11 @@ else
 
 ผลลัพธ์:
 
-![ภาพของ paragraph](paragraph_to_image_output.png)
+![ภาพย่อหน้า](paragraph_to_image_output.png)
 
-#### **เรนเดอร์ Paragraph ในเซลล์ตารางพร้อมสเกล**
+#### **เรนเดอร์ย่อหน้าในเซลล์ตารางพร้อมสเกล**
 
-ใช้การโอเวอร์โหลดของ [IParagraph.GetImage](https://reference.aspose.com/slides/th/net/aspose.slides/iparagraph/getimage/) ที่รับพารามิเตอร์ `float scaleX` และ `float scaleY` เพื่อตั้งค่าปัจจัยสเกลแนวนอนและแนวตั้ง ตัวอย่างต่อไปนี้สร้างตาราง, เรนเดอร์ paragraph ในเซลล์แรกโดยขยายความกว้างและความสูงเป็นสองเท่าของค่ามาตรฐาน, แล้วบันทึกผลเป็นภาพ PNG
+ใช้ overload ของ [IParagraph.GetImage](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/getimage/) ที่รับพารามิเตอร์ `float scaleX` และ `float scaleY` เพื่อกำหนดตัวคูณสเกลแนวนอนและแนวตั้ง ตัวอย่างต่อไปนี้สร้างตาราง, เรนเดอร์ย่อหน้าในเซลล์แรกที่กว้างและสูงเป็นสองเท่าของค่าเริ่มต้น, แล้วบันทึกผลเป็นภาพ PNG  
 
 ```csharp
 using System;
@@ -666,24 +666,26 @@ else
 }
 ```
 
-ปัจจัยสเกล `1` รักษาขนาดพิกเซลเริ่มต้น ตัวอย่างเช่น `2` สำหรับทั้งสองปัจจัยจะให้ภาพที่กว้างและสูงประมาณสองเท่าของขนาดมาตรฐาน ทำให้จำนวนพิกเซลเพิ่มเป็นสี่เท่า ปัจจัยที่สูงกว่าให้ข้อความคมชัดมากขึ้นสำหรับการซูมหรือการส่งออกความละเอียดสูง แต่ก็เพิ่มการใช้หน่วยความจำและขนาดไฟล์ ปัจจัยที่ต่ำกว่า `1` ให้ภาพเล็กลงและรายละเอียดน้อยลง ใช้ปัจจัยเท่ากันเพื่อรักษาอัตราส่วนของ paragraph; ปัจจัยแนวนอนและแนวตั้งที่แตกต่างกันจะยืดผลลัพธ์อย่างอิสระ
+ค่าคูณสเกล `1` ทำให้แกนนั้นคงขนาดพิกเซลเริ่มต้น ตัวอย่างเช่น `2` สำหรับทั้งสองแกนจะทำให้ความกว้างและความสูงของภาพประมาณสองเท่าของขนาดเริ่มต้น ส่งผลให้มีพิกเซลมากขึ้นสี่เท่า ตัวคูณที่ใหญ่กว่ามักทำให้ข้อความคมชัดขึ้นสำหรับการซูมหรือเอาต์พุตความละเอียดสูง แต่ก็เพิ่มการใช้หน่วยความจำและขนาดไฟล์ ตัวคูณต่ำกว่า `1` จะทำให้ภาพเล็กลงและรายละเอียดน้อยลง ใช้ตัวคูณเท่ากันเพื่อคงอัตราส่วนของย่อหน้า; ตัวคูณแนวนอนและแนวตั้งที่ต่างกันจะยืดภาพออกตามอิสระ  
 
-การเรนเดอร์ shape ทั้งหมดด้วย [IShape.GetImage](https://reference.aspose.com/slides/th/net/aspose.slides/ishape/getimage/) ยังคงมีประโยชน์เมื่อผลลัพธ์ต้องรวมการเติมสี, เส้นขอบ หรือบริบทภาพอื่นของ shape สำหรับภาพที่มีเฉพาะ paragraph ให้ใช้ [IParagraph.GetImage](https://reference.aspose.com/slides/th/net/aspose.slides/iparagraph/getimage/)
+การเรนเดอร์รูปทรงทั้งหมดด้วย [IShape.GetImage](https://reference.aspose.com/slides/net/aspose.slides/ishape/getimage/) ยังมีประโยชน์เมื่อเอาต์พุตต้องรวมการเติมสี, เส้นขอบ หรือบริบทภาพอื่น ๆ ของรูปทรง สำหรับภาพที่มีแค่ย่อหน้าเท่านั้นให้ใช้ [IParagraph.GetImage](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/getimage/)
 
-## **FAQ**
+## **คำถามที่พบบ่อย**
 
-**ฉันสามารถปิดการตัดบรรทัดอัตโนมัติภายใน text frame ได้ทั้งหมดหรือไม่?**
+**ฉันสามารถปิดการตัดบรรทัดอัตโนมัติในกรอบข้อความได้หรือไม่?**
 
-ได้. ตั้งค่า [ITextFrameFormat.WrapText](https://reference.aspose.com/slides/th/net/aspose.slides/itextframeformat/wraptext/) เพื่อปิดการตัดบรรทัด ทำให้บรรทัดไม่แตกที่ขอบของ text frame
+ได้เลย ตั้งค่า [ITextFrameFormat.WrapText](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/wraptext/) เพื่อปิดการตัดบรรทัด ทำให้บรรทัดไม่แตกที่ขอบของกรอบข้อความ
 
-**ฉันจะดึงค่าขอบเขตบนสไลด์ของ paragraph เฉพาะได้อย่างไร?**
+**ฉันจะได้ขอบเขตบนสไลด์ที่แม่นยำของย่อหน้าใดย่อหน้าหนึ่งอย่างไร?**
 
-ใช้ [IParagraph.GetRect](https://reference.aspose.com/slides/th/net/aspose.slides/iparagraph/getrect/) เพื่อรับสี่เหลี่ยมขอบของ paragraph. [IPortion.GetRect](https://reference.aspose.com/slides/th/net/aspose.slides/iportion/getrect/) ให้ขอบเขตของ portion แต่ละอัน
+ใช้ [IParagraph.GetRect](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/getrect/) เพื่อดึงสี่เหลี่ยมขอบของย่อหน้า [IPortion.GetRect](https://reference.aspose.com/slides/net/aspose.slides/iportion/getrect/) จะให้ขอบเขตของส่วนย่อยแต่ละส่วน
 
-**การจัดแนวของ paragraph (ซ้าย, ขวา, กลาง, หรือจัดเต็ม) ถูกควบคุมที่ไหน?**
+**การจัดแนวของย่อหน้า (ซ้าย, ขวา, กลาง หรือ ชิดขอบ) ถูกควบคุมที่ไหน?**
 
-[IParagraphFormat.Alignment](https://reference.aspose.com/slides/th/net/aspose.slides/iparagraphformat/alignment/) เป็นการตั้งค่าระดับ paragraph และใช้กับทั้ง paragraph โดยไม่คำนึงถึงการจัดรูปแบบของ portion แยกต่างหาก
+[IParagraphFormat.Alignment](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/alignment/) เป็นการตั้งค่าระดับย่อหน้าและใช้กับย่อหน้าทั้งหมดโดยไม่คำนึงถึงการจัดรูปแบบของส่วนย่อยแต่ละส่วน  
 
-**ฉันสามารถตั้งค่าภาษาตรวจสอบของส่วนหนึ่งของ paragraph ได้หรือไม่?**
+หากต้องการจัดแนวฟอนต์ที่มีขนาดต่างกันภายในแต่ละบรรทัด ดูที่ [Align Fonts Within a Line](/slides/th/net/text-formatting/#align-fonts-within-a-line)
 
-ได้. ตั้งค่า [IBasePortionFormat.LanguageId](https://reference.aspose.com/slides/th/net/aspose.slides/ibaseportionformat/languageid/) สำหรับ portion แต่ละอัน ทำให้ paragraph หนึ่งสามารถมีข้อความหลายภาษาได้
+**ฉันสามารถตั้งค่าภาษา proofing สำหรับส่วนหนึ่งของย่อหน้าได้หรือไม่?**
+
+ได้ ตั้งค่า [IBasePortionFormat.LanguageId](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/languageid/) สำหรับส่วนย่อยแต่ละส่วน เพื่อให้ย่อหน้าหนึ่งสามารถมีข้อความหลายภาษาได้.

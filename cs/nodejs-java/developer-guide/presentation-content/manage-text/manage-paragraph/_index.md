@@ -1,5 +1,5 @@
 ---
-title: Spravovat odstavce textu PowerPointu v JavaScriptu
+title: Správa odstavců textu PowerPoint v JavaScriptu
 linktitle: Spravovat odstavec
 type: docs
 weight: 40
@@ -22,43 +22,43 @@ keywords:
   - importovat HTML
   - text do HTML
   - odstavec do HTML
-  - odstavec na obrázek
-  - text na obrázek
+  - odstavec do obrázku
+  - text do obrázku
   - exportovat odstavec
   - PowerPoint
   - prezentace
   - Node.js
   - JavaScript
   - Aspose.Slides
-description: "Naučte se, jak vytvářet a formátovat odstavce, části, odrážky, číslované seznamy, odsazení, obsah HTML a obrázky odstavců pomocí Aspose.Slides pro Node.js prostřednictvím Javy."
+description: "Naučte se, jak vytvářet a formátovat odstavce, části, odrážky, číslované seznamy, odsazení, HTML obsah a obrázky odstavců pomocí Aspose.Slides pro Node.js přes Java."
 ---
 ## **Přehled**
 
-Aspose.Slides pro Node.js prostřednictvím Javy představuje text jako hierarchii textových rámců, odstavců a částí:
+Aspose.Slides pro Node.js přes Java představuje text jako hierarchii textových rámců, odstavců a částí:
 
-* [TextFrame](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/textframe/) reprezentuje kontejner textu ve tvaru a poskytuje přístup k jeho kolekci odstavců.
-* [Paragraph](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/paragraph/) reprezentuje jeden odstavec v textovém rámci a poskytuje přístup k jeho částem a formátování na úrovni odstavce.
-* [Portion](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/portion/) reprezentuje běh textu v odstavci. Každá část může mít vlastní text a formátování na úrovni znaků.
+* [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/) představuje kontejner textu ve tvaru a poskytuje přístup k jeho kolekci odstavců.
+* [Paragraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/) představuje jeden odstavec v textovém rámci a poskytuje přístup k jeho částem a formátování na úrovni odstavce.
+* [Portion](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portion/) představuje úsek textu v odstavci. Každá část může mít svůj vlastní text a formátování na úrovni znaků.
 
-Odstavec tak může obsahovat text s různými písmy, barvami, velikostmi a jiným formátováním pomocí více částí.
+Proto může odstavec obsahovat text s různými fonty, barvami, velikostmi a dalším formátováním pomocí více částí.
 
 ## **Vytváření a formátování odstavců**
 
 ### **Vytvoření odstavců s více částmi**
 
-Následující kroky vytvoří textový rámec se třemi odstavci, přičemž každý obsahuje tři části:
+Následující kroky vytvoří textový rámec se třemi odstavci, z nichž každý obsahuje tři části:
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/presentation/).
+1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/).
 2. Získejte příslušný snímek pomocí jeho indexu.
-3. Přidejte obdélníkový [AutoShape](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/autoshape/) na snímek.
-4. Získejte [TextFrame](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/textframe/) tvaru.
-5. Použijte výchozí odstavec a přidejte dva další objekty [Paragraph](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/paragraph/) do textového rámce.
-6. Přidejte dostatek objektů [Portion](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/portion/) tak, aby každý odstavec obsahoval tři části. Výchozí odstavec již obsahuje jednu prázdnou část.
+3. Přidejte obdélníkový [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) na snímek.
+4. Získejte [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/) tvaru.
+5. Použijte výchozí odstavec a přidejte dva další objekty [Paragraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/) do textového rámce.
+6. Přidejte dostatek objektů [Portion](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portion/) tak, aby každý odstavec obsahoval tři části. Výchozí odstavec již obsahuje jednu prázdnou část.
 7. Nastavte text každé části.
-8. Použijte formátování na úrovni znaků pomocí [Portion.getPortionFormat](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/portion/getportionformat/).
+8. Použijte formátování na úrovni znaků pomocí [Portion.getPortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portion/getportionformat/).
 9. Uložte upravenou prezentaci.
 
-Tento JavaScript příklad implementuje kroky:
+Tento příklad v JavaScriptu implementuje kroky:
 
 ```javascript
 var aspose = aspose || {};
@@ -115,26 +115,26 @@ try {
 }
 ```
 
-## **Vytvoření odrážkových a číslovaných seznamů**
+## **Vytváření odrážkových a číslovaných seznamů**
 
 ### **Vytvoření odrážkového nebo číslovaného seznamu**
 
-Odrážky a číslování usnadňují procházení souvisejících položek. V Aspose.Slides jsou nastavení seznamu definována pomocí [BulletFormat](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/bulletformat/).
+Odrážky a číslování usnadňují přehled souvisejících položek. V Aspose.Slides jsou nastavení seznamu definována pomocí [BulletFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/).
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/presentation/).
+1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/).
 2. Získejte příslušný snímek pomocí jeho indexu.
-3. Přidejte [AutoShape](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/autoshape/) na vybraný snímek.
-4. Získejte [TextFrame](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/textframe/) tvaru.
+3. Přidejte [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) na vybraný snímek.
+4. Získejte [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/) tvaru.
 5. Odstraňte výchozí odstavec z textového rámce.
-6. Vytvořte [Paragraph](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/paragraph/) pro symbolickou odrážku.
-7. Nastavte [BulletFormat.setType](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/bulletformat/settype/) na [BulletType.Symbol](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/bullettype/) a určete znak odrážky.
+6. Vytvořte [Paragraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/) pro odrážku se symbolem.
+7. Nastavte [BulletFormat.setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/settype/) na [BulletType.Symbol](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bullettype/) a určete znak odrážky.
 8. Nastavte text odstavce, odsazení, barvu odrážky a výšku odrážky.
 9. Přidejte odstavec do textového rámce.
-10. Vytvořte druhý odstavec a nastavte [BulletFormat.setType](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/bulletformat/settype/) na [BulletType.Numbered](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/bullettype/).
-11. Nastavte styl číslované odrážky a přidejte odstavec do textového rámce.
+10. Vytvořte druhý odstavec a nastavte [BulletFormat.setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/settype/) na [BulletType.Numbered](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bullettype/).
+11. Nakonfigurujte styl číslované odrážky a přidejte odstavec do textového rámce.
 12. Uložte prezentaci.
 
-Tento JavaScript příklad vytvoří symbolickou odrážku a číslovanou odrážku:
+Tento příklad v JavaScriptu vytváří odrážku se symbolem a číslovanou odrážku:
 
 ```javascript
 var aspose = aspose || {};
@@ -178,20 +178,20 @@ try {
 
 ### **Použití obrázkových odrážek**
 
-Ob obrázkové odrážky vám umožní použít vlastní obrázek místo symbolu nebo čísla.
+Obrázkové odrážky umožňují použít vlastní obrázek místo symbolu nebo čísla.
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/presentation/).
+1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/).
 2. Získejte příslušný snímek pomocí jeho indexu.
-3. Přidejte [AutoShape](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/autoshape/) a získejte jeho [TextFrame](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/textframe/).
+3. Přidejte [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) a získejte jeho [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/).
 4. Odstraňte výchozí odstavec z textového rámce.
-5. Načtěte obrázek odrážky a přidejte jej do kolekce obrázků prezentace jako [PPImage](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/ppimage/).
-6. Vytvořte [Paragraph](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/paragraph/) a nastavte jeho text.
-7. Nastavte [BulletFormat.setType](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/bulletformat/settype/) na [BulletType.Picture](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/bullettype/).
-8. Přiřaďte obrázek pomocí [BulletFormat.getPicture](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/bulletformat/getpicture/) a nastavte výšku odrážky.
+5. Nahrajte obrázek odrážky a přidejte jej do kolekce obrázků prezentace jako [PPImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ppimage/).
+6. Vytvořte [Paragraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/) a nastavte jeho text.
+7. Nastavte [BulletFormat.setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/settype/) na [BulletType.Picture](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bullettype/).
+8. Přiřaďte obrázek pomocí [BulletFormat.getPicture](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/getpicture/) a nastavte výšku odrážky.
 9. Přidejte odstavec do textového rámce.
 10. Uložte upravenou prezentaci.
 
-Tento JavaScript příklad vytvoří obrázkovou odrážku:
+Tento příklad v JavaScriptu vytváří obrázkovou odrážku:
 
 ```javascript
 var aspose = aspose || {};
@@ -230,15 +230,15 @@ try {
 
 ### **Vytvoření vícestupňového seznamu**
 
-Nastavte [ParagraphFormat.setDepth](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/paragraphformat/setdepth/) pro umístění odstavců na různé úrovně seznamu. Nejvyšší úroveň má hloubku `0`.
+Nastavte [ParagraphFormat.setDepth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setdepth/) pro umístění odstavců na různé úrovně seznamu. Nejvyšší úroveň má hloubku `0`.
 
-1. Vytvořte [Presentation](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/presentation/) a získejte snímek.
-2. Přidejte [AutoShape](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/autoshape/) a vymažte výchozí odstavec z jeho textového rámce.
-3. Vytvořte čtyři odstavce a nastavte jejich symboly odrážek.
-4. Nastavte jejich hodnoty [ParagraphFormat.setDepth](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/paragraphformat/setdepth/) na `0`, `1`, `2` a `3`.
+1. Vytvořte [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) a získejte snímek.
+2. Přidejte [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) a vymažte výchozí odstavec z jeho textového rámce.
+3. Vytvořte čtyři odstavce a nakonfigurujte jejich symboly odrážek.
+4. Nastavte jejich hodnoty [ParagraphFormat.setDepth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setdepth/) na `0`, `1`, `2` a `3`.
 5. Přidejte odstavce do textového rámce a uložte prezentaci.
 
-Tento JavaScript příklad vytvoří čtyřúrovňový odrážkový seznam:
+Tento příklad v JavaScriptu vytváří čtyřúrovňový odrážkový seznam:
 
 ```javascript
 var aspose = aspose || {};
@@ -295,17 +295,17 @@ try {
 }
 ```
 
-### **Spuštění číslovaných položek seznamu s vlastními hodnotami**
+### **Zahájení číslovaných položek seznamu vlastními hodnotami**
 
-Použijte [BulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/bulletformat/setnumberedbulletstartwith/) k nastavení počátečního čísla zobrazovaného u číslovaného odstavce.
+Použijte [BulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/setnumberedbulletstartwith/) pro nastavení počátečního čísla zobrazeného pro číslovaný odstavec.
 
-1. Vytvořte [Presentation](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/presentation/) a přidejte [AutoShape](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/autoshape/) na snímek.
+1. Vytvořte [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) a přidejte [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) na snímek.
 2. Vymažte výchozí odstavec z textového rámce tvaru.
 3. Vytvořte tři číslované odstavce.
-4. Nastavte [BulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/bulletformat/setnumberedbulletstartwith/) na `2`, `3` a `7` pro odpovídající odstavce.
+4. Nastavte [BulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/setnumberedbulletstartwith/) na `2`, `3` a `7` pro příslušné odstavce.
 5. Přidejte odstavce do textového rámce a uložte prezentaci.
 
-Tento JavaScript příklad přiřadí vlastní počáteční číslo každému odstavci:
+Tento příklad v JavaScriptu přiřazuje vlastní počáteční číslo každému odstavci:
 
 ```javascript
 var aspose = aspose || {};
@@ -343,21 +343,21 @@ try {
 }
 ```
 
-## **Řízení rozvržení odstavce a koncových vlastností**
+## **Řízení rozložení odstavců a koncových vlastností**
 
 ### **Nastavení odsazení první řádky**
 
-Použijte [ParagraphFormat.setIndent](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/paragraphformat/setindent/) k řízení odsazení první řádky odstavce. Tato metoda posouvá jen první řádek vůči levému okraji odstavce. Kladná hodnota posune první řádek doprava, zatímco zbylé řádky zůstanou zarovnány k tělu odstavce.
+Použijte [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/) pro řízení odsazení první řádky odstavce. Tato metoda posouvá jen první řádek vzhledem k levému okraji odstavce. Kladná hodnota posouvá první řádek doprava, zatímco zbylé řádky zůstávají zarovnány k tělu odstavce.
 
-Použijte [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/paragraphformat/setmarginleft/) když potřebujete posunout celý odstavec. Použijte [ParagraphFormat.setIndent](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/paragraphformat/setindent/) když potřebujete posunout pouze první řádek.
+Použijte [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setmarginleft/) když potřebujete posunout celý odstavec. Použijte [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/) když potřebujete posunout jen první řádek.
 
-Následující příklad vytvoří několik odstavců a aplikuje různé hodnoty [ParagraphFormat.setIndent] k ukázání, jak odsazení první řádky ovlivňuje rozvržení odstavce.
+Níže uvedený příklad vytváří několik odstavců a aplikuje různé hodnoty [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/) pro demonstraci, jak odsazení první řádky ovlivňuje rozložení odstavce.
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/presentation/).
+1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/).
 2. Získejte cílový snímek.
-3. Přidejte obdélníkový [AutoShape](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/autoshape/) na snímek.
-4. Získejte [TextFrame](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/textframe/) tvaru a odstraňte výchozí odstavec.
-5. Vytvořte několik odstavců a nastavte pro ně různé hodnoty [ParagraphFormat.setIndent].
+3. Přidejte obdélníkový [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) na snímek.
+4. Získejte [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/) tvaru a odstraňte výchozí odstavec.
+5. Vytvořte několik odstavců a nastavte pro ně různé hodnoty [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/).
 6. Přidejte odstavce do textového rámce.
 7. Uložte upravenou prezentaci.
 
@@ -414,26 +414,26 @@ try {
 
 Výsledek:
 
-![The first-line indent of the paragraphs](first_line_indent.png)
+![První řádek odsazení odstavců](first_line_indent.png)
 
 ### **Nastavení zavěšeného odsazení**
 
-Zavěšené odsazení je rozvržení odstavce, kde první řádek začíná vlevo od zbylých řádků. V Aspose.Slides tento efekt vytvoříte pomocí [ParagraphFormat.setIndent]. Zadejte zápornou hodnotu pro posunutí prvního řádku doleva vůči tělu odstavce.
+Zavěšené odsazení je rozložení odstavce, ve kterém první řádek začíná vlevo od zbylých řádků. V Aspose.Slides tuto efekty vytvoříte pomocí [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/). Předejte zápornou hodnotu pro posunutí první řádky doleva vzhledem k tělu odstavce.
 
-V praxi [ParagraphFormat.setMarginLeft] určuje levou pozici těla odstavce a [ParagraphFormat.setIndent] určuje pozici prvního řádku vzhledem k tomuto okraji. Pro vytvoření zavěšeného odsazení zadejte kladnou hodnotu do `setMarginLeft` a zápornou hodnotu do `setIndent`.
+V praxi [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setmarginleft/) určuje levý okraj těla odstavce a [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/) určuje pozici první řádky vzhledem k tomuto okraji. Pro vytvoření zavěšeného odsazení nastavte kladnou hodnotu pro `setMarginLeft` a zápornou hodnotu pro `setIndent`.
 
-Toto formátování je užitečné pro bibliografie, odkazy, položky glosáře a další odstavce, kde zalomené řádky musí být zarovnány pod tělo odstavce místo pod první znak první řádky.
+Toto formátování je užitečné pro bibliografie, odkazy, položky glosáře a další odstavce, kde musí být zalomené řádky zarovnány pod tělo odstavce místo pod první znak první řádky.
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/presentation/).
+1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/).
 2. Získejte cílový snímek.
-3. Přidejte obdélníkový [AutoShape](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/autoshape/) na snímek.
-4. Získejte [TextFrame](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/textframe/) tvaru a odstraňte výchozí odstavec.
-5. Vytvořte odstavce a pro každý z nich zadejte kladnou hodnotu do [ParagraphFormat.setMarginLeft].
-6. Zadejte zápornou hodnotu do [ParagraphFormat.setIndent] pro vytvoření efektu zavěšeného odsazení.
+3. Přidejte obdélníkový [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) na snímek.
+4. Získejte [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/) tvaru a odstraňte výchozí odstavec.
+5. Vytvořte odstavce a předejte pro každý kladnou hodnotu [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setmarginleft/).
+6. Předejte zápornou hodnotu [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/) pro vytvoření efektu zavěšeného odsazení.
 7. Přidejte odstavce do textového rámce.
 8. Uložte upravenou prezentaci.
 
-Tento kód ukazuje, jak nastavit zavěšené odsazení pro odstavec:
+Tento kód ukazuje, jak nastavit zavěšené odsazení odstavce:
 
 ```javascript
 var aspose = aspose || {};
@@ -478,18 +478,18 @@ try {
 
 Výsledek:
 
-![The hanging indent of the paragraphs](hanging_indent.png)
+![Zavěšené odsazení odstavců](hanging_indent.png)
 
-### **Nastavení vlastností koncové běhu odstavce**
+### **Nastavení koncových vlastností běhu odstavce**
 
-[Paragraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/paragraph/setendparagraphportionformat/) řídí formátování koncového znaku odstavce. Následující příklad přiřadí velikost písma a latinské písmo ke koncovému znaku druhého odstavce:
+[Paragraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/setendparagraphportionformat/) řídí formátování koncového znaku odstavce. Následující příklad přiřazuje velikost fontu a latinský font ke koncovému znaku druhého odstavce:
 
-1. Vytvořte nebo načtěte [Presentation](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/presentation/) a získejte snímek.
-2. Přidejte [AutoShape](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/autoshape/) a vymažte jeho výchozí odstavec.
+1. Vytvořte nebo načtěte [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) a získejte snímek.
+2. Přidejte [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) a vymažte jeho výchozí odstavec.
 3. Vytvořte dva odstavce a přidejte k nim textové části.
-4. Vytvořte [PortionFormat](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/portionformat/) pro koncový znak druhého odstavce.
-5. Nastavte [BasePortionFormat.setFontHeight](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/baseportionformat/#setFontHeight) a [BasePortionFormat.setLatinFont](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/baseportionformat/#setLatinFont).
-6. Přiřaďte formát pomocí [Paragraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/paragraph/setendparagraphportionformat/) a uložte prezentaci.
+4. Vytvořte [PortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portionformat/) pro koncový znak druhého odstavce.
+5. Nastavte [BasePortionFormat.setFontHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setFontHeight) a [BasePortionFormat.setLatinFont](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setLatinFont).
+6. Přiřaďte formát pomocí [Paragraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/setendparagraphportionformat/) a uložte prezentaci.
 
 ```javascript
 var aspose = aspose || {};
@@ -524,13 +524,13 @@ try {
 
 ## **Počítání vykreslených řádků**
 
-Pro pravidla odstavců, která ovlivňují automatické zalamování a interpunkci na koncích řádků, viz [Control Line Breaking](/slides/cs/nodejs-java/text-formatting/#control-line-breaking) a [Control Hanging Punctuation](/slides/cs/nodejs-java/text-formatting/#control-hanging-punctuation).
+Pro pravidla odstavců, která ovlivňují automatické zalamování a interpunkci na konci řádků, viz [Control Line Breaking](/slides/cs/nodejs-java/text-formatting/#control-line-breaking) a [Control Hanging Punctuation](/slides/cs/nodejs-java/text-formatting/#control-hanging-punctuation).
 
-Použijte [Paragraph.getLinesCount](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/paragraph/#getLinesCount) k spočítání řádků obsazených odstavcem po uspořádání textu, včetně automatického zalamování. To je užitečné při kontrole délky textu a rozvržení v šablonách prezentací.
+Použijte [Paragraph.getLinesCount](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getLinesCount) pro spočítání řádků zabraných odstavcem po rozložení textu, včetně automatického zalamování. To je užitečné při kontrole délky textu a rozložení v šablonách prezentací.
 
-Odstavec je jednou položkou v [TextFrame.getParagraphs](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/textframe/#getParagraphs), a může obsadit několik vykreslených řádků. Výslovný zalomení řádku v odstavci vynutí nový řádek, aniž by vytvořil další odstavec. Automatické zalamování vytváří řádky na základě dostupné šířky, aniž by do textu vkládalo explicitní znaky konce řádku. Počítání odstavců nebo znaků konce řádku tedy nedává počet vykreslených řádků.
+Odstavec je jednou položkou v [TextFrame.getParagraphs](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/#getParagraphs) a může zabírat několik vykreslených řádků. Explicitní zalomení řádku v odstavci vynutí nový řádek, aniž by vytvořil další odstavec. Automatické zalamování vytváří řádky na základě dostupné šířky bez vkládání explicitních zalomení řádků do textu. Počítání odstavců nebo znaků zalomení řádku proto nedává počet vykreslených řádků.
 
-Následující příklad vytvoří textový tvar, spočítá jeho řádky, zúží tvar a poté nahradí text kratším řetězcem. Zalamování je povoleno a automatické přizpůsobení je zakázáno, takže šířka tvaru řídí zalamování bez automatického zmenšování textu nebo změny velikosti tvaru. Rozměry tvaru jsou v bodech. Nakonec příklad přidá další odstavec a sečte počet řádků napříč textovým rámcem.
+Následující příklad vytvoří textový tvar, spočítá jeho řádky, zužuje tvar a poté nahradí text kratším řetězcem. Zalamování je povoleno a automatické přizpůsobení je zakázáno, aby šířka tvaru kontrolovala zalamování bez automatického zmenšování textu nebo změny velikosti tvaru. Rozměry tvaru jsou v bodech. Nakonec příklad přidá další odstavec a sečte počty řádků napříč textovým rámcem.
 
 ```javascript
 var aspose = aspose || {};
@@ -573,24 +573,24 @@ try {
 }
 ```
 
-Při tomto textu a těchto rozměrech zúžení tvaru zvýší počet řádků, zatímco nahrazení textu krátkým řetězcem jej sníží. Přesné počty se mohou lišit podle dostupnosti a nahrazení písem, velikosti písma, okrajů, odsazení, zalamování a nastavení automatického přizpůsobení. Používejte písma a nastavení rozvržení určené pro cílové prostředí při kontrole šablony.
+S tímto textem a těmito rozměry zvyšuje zužování tvaru počet řádků, zatímco nahrazení textu krátkým řetězcem jej snižuje. Přesné počty se mohou lišit podle dostupnosti a substituce fontů, velikosti fontu, okrajů, odsazení, zalamování a nastavení automatického přizpůsobení. Použijte fonty a nastavení rozložení určená pro cílové prostředí při kontrole šablony.
 
-Počet řádků sám o sobě neurčuje, zda text přesahuje svůj kontejner. Důležité jsou také dostupná výška, výšky řádků, mezery mezi odstavci a řádky a chování automatického přizpůsobení; i jediný řádek může překročit dostupnou šířku, když je zalamování zakázáno.
+Pouze počet řádků neurčuje, zda text přeteče svůj kontejner. Dostupná výška, výšky řádků, mezery mezi odstavci a řádky a chování automatického přizpůsobení také hrají roli; i jediný řádek může přesáhnout dostupnou šířku, když je zalamování zakázáno.
 
 ## **Import a export obsahu odstavců**
 
 ### **Import HTML textu do odstavců**
 
-Použijte [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/paragraphcollection/addfromhtml/) k převodu HTML značek na odstavce a části v textovém rámci.
+Použijte [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphcollection/addfromhtml/) pro konverzi HTML značek na odstavce a části v textovém rámci.
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/presentation/).
-2. Získejte snímek a přidejte [AutoShape](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/autoshape/).
-3. Získejte [TextFrame](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/textframe/) tvaru a vymažte výchozí odstavec.
+1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/).
+2. Získejte snímek a přidejte [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/).
+3. Získejte [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/) tvaru a vymažte jeho výchozí odstavec.
 4. Definujte nebo načtěte zdrojový HTML řetězec.
-5. Předávejte HTML řetězec funkci [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/paragraphcollection/addfromhtml/).
+5. Předávejte HTML řetězec metodě [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphcollection/addfromhtml/).
 6. Uložte upravenou prezentaci.
 
-Tento JavaScript příklad importuje HTML do textového rámce:
+Tento příklad v JavaScriptu importuje HTML do textového rámce:
 
 ```javascript
 var aspose = aspose || {};
@@ -614,17 +614,17 @@ try {
 }
 ```
 
-### **Export text odstavce do HTML**
+### **Export textu odstavce do HTML**
 
-Použijte [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/paragraphcollection/exporttohtml/) k exportu vybraného rozsahu odstavců jako HTML.
+Použijte [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphcollection/exporttohtml/) pro export vybraného rozsahu odstavců jako HTML.
 
-1. Vytvořte nebo načtěte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/presentation/).
-2. Získejte snímek a najděte [AutoShape], který obsahuje text.
-3. Získejte [TextFrame](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/textframe/).
-4. Zavolejte [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/paragraphcollection/exporttohtml/) s počátečním indexem odstavce a počtem odstavců k exportu.
+1. Vytvořte nebo načtěte instanci třídy [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/).
+2. Získejte snímek a najděte [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) obsahující text.
+3. Získejte [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/) tvaru.
+4. Zavolejte [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphcollection/exporttohtml/) s počátečním indexem odstavce a počtem odstavců k exportu.
 5. Zapište vrácený HTML řetězec do souboru.
 
-Tento samostatný příklad v JavaScriptu vytvoří textový tvar a exportuje všechny jeho odstavce:
+Tento samostatný příklad v JavaScriptu vytváří textový tvar a exportuje všechny jeho odstavce:
 
 ```javascript
 var aspose = aspose || {};
@@ -664,17 +664,17 @@ try {
 
 ### **Vykreslení odstavce jako obrázku**
 
-[Paragraph.getImage](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/paragraph/#getImage) vykreslí jednotlivý odstavec přímo a vrátí [IImage]. Výsledek uložte do souboru pomocí [IImage.save](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/iimage/#save). Nemusíte vykreslovat obsahující tvar ani ručně ořezávat bitmapu.
+[Paragraph.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getImage) vykreslí jednotlivý odstavec přímo a vrátí [IImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/iimage/). Výsledek uložte do souboru pomocí [IImage.save](https://reference.aspose.com/slides/nodejs-java/aspose.slides/iimage/#save). Nemusíte renderovat celý tvar nebo ručně ořezávat bitmapu.
 
-[Paragraph.getImage] může vrátit `null`, pokud odstavec nelze najít v nadřazené kolekci, nemá platné hranice vykreslení nebo jej nelze vykreslit. Zkontrolujte výsledek před uložením a po použití uvolněte vrácený obrázek.
+[Paragraph.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getImage) může vrátit `null`, pokud odstavec nelze najít v nadřazené kolekci, nemá platné renderovací ohraničení nebo nelze vykreslit. Zkontrolujte výsledek před uložením a po použití uvolněte vrácený obrázek.
 
-#### **Vykreslení odstavce ve výchozím měřítku**
+#### **Renderování odstavce ve výchozím měřítku**
 
 Následující textové pole obsahuje tři odstavce:
 
-![The text box with three paragraphs](paragraph_to_image_input.png)
+![Textové pole se třemi odstavci](paragraph_to_image_input.png)
 
-Následující příklad vykreslí druhý odstavec v běžném textovém tvaru ve výchozím měřítku a uloží vrácený obrázek ve formátu PNG. Blok `finally` zajišťuje, že obrázek bude správně uvolněn.
+Následující příklad vykreslí druhý odstavec v běžném textovém tvaru ve výchozím měřítku a uloží vrácený obrázek ve formátu PNG. Blok `finally` zajistí správné uvolnění obrázku.
 
 ```javascript
 var aspose = aspose || {};
@@ -722,11 +722,11 @@ try {
 
 Výsledek:
 
-![The paragraph image](paragraph_to_image_output.png)
+![Obrázek odstavce](paragraph_to_image_output.png)
 
-#### **Vykreslení odstavce v buňce tabulky se škálováním**
+#### **Renderování odstavce v buňce tabulky se škálováním**
 
-Použijte přetíženou verzi [Paragraph.getImage], která přijímá parametry `scaleX` a `scaleY` k nastavení horizontálního a vertikálního měřítka. Následující příklad vytvoří tabulku, vykreslí odstavec v její první buňce dvojnásobně oproti výchozí šířce a výšce a uloží výsledek jako PNG obrázek.
+Použijte přetížení [Paragraph.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getImage), které přijímá parametry `scaleX` a `scaleY` pro nastavení horizontálního a vertikálního škálovacího faktoru. Následující příklad vytvoří tabulku, vykreslí odstavec v první buňce dvakrát ve výchozí šířce i výšce a uloží výsledek jako PNG obrázek.
 
 ```javascript
 var aspose = aspose || {};
@@ -760,24 +760,26 @@ try {
 }
 ```
 
-Faktor měřítka `1` zachová tuto osu v její výchozí velikosti v pixelech. Například `2` pro oba faktory vytvoří obrázek, jehož šířka a výška jsou přibližně dvojnásobek výchozích rozměrů, což vede k čtyřnásobku pixelů. Větší faktory obecně produkují ostřejší text pro přiblížení nebo výstup ve vysokém rozlišení, ale zároveň zvyšují spotřebu paměti a velikost souboru. Faktory pod `1` vytvářejí menší obrázky s menšími detaily. Použijte stejné faktory pro zachování poměru stran odstavce; různé horizontální a vertikální faktory roztahují výstup nezávisle.
+Škálovací faktor `1` zachová danou osu ve výchozí pixelové velikosti. Například `2` pro oba faktory vytvoří obrázek, jehož šířka i výška jsou přibližně dvojnásobkem výchozích rozměrů, což vede ke čtyřnásobku pixelů. Větší faktory obecně poskytují ostřejší text pro zvětšení nebo výstup ve vysokém rozlišení, ale také zvyšují paměťovou náročnost a velikost souboru. Faktory pod `1` produkují menší obrázky s méně detailů. Použijte stejné faktory pro zachování poměru stran odstavce; odlišné horizontální a vertikální faktory roztaží výstup nezávisle.
 
-Vykreslení celého tvaru pomocí [Shape.getImage] zůstává užitečné, když výstup musí zahrnovat výplň, okraj nebo jiný vizuální kontext tvaru. Pro obrázek jen s odstavcem použijte [Paragraph.getImage].
+Renderování celého tvaru pomocí [Shape.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getImage) zůstává užitečné, když výstup musí zahrnovat výplň, okraj nebo další vizuální kontext tvaru. Pro obrázek jen s odstavcem použijte [Paragraph.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getImage).
 
 ## **Často kladené otázky**
 
 **Mohu úplně zakázat zalamování řádků uvnitř textového rámce?**
 
-Ano. Nastavte [TextFrameFormat.setWrapText](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/textframeformat/setwraptext/) pro zakázání zalamování, aby se řádky nepřerušovaly na okrajích textového rámce.
+Ano. Nastavte [TextFrameFormat.setWrapText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/setwraptext/) pro zakázání zalamování, aby řádky nebyly přerušovány na okrajích textového rámce.
 
-**Jak mohu získat přesné ohraničení konkrétního odstavce na snímku?**
+**Jak mohu získat přesné souřadnice konkrétního odstavce na snímku?**
 
-Použijte [Paragraph.getRect](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/paragraph/getrect/) k získání ohraničujícího obdélníku odstavce. [Portion.getRect](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/portion/#getRect) poskytuje hranice jednotlivé části.
+Použijte [Paragraph.getRect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/getrect/) pro získání ohraničujícího obdélníku odstavce. [Portion.getRect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portion/#getRect) poskytuje souřadnice jednotlivé části.
 
 **Kde se řídí zarovnání odstavce (vlevo, vpravo, na střed nebo do bloku)?**
 
-[ParagraphFormat.setAlignment](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/paragraphformat/setalignment/) je nastavení na úrovni odstavce a platí pro celý odstavec bez ohledu na formátování jednotlivých částí.
+[ParagraphFormat.setAlignment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setalignment/) je nastavení na úrovni odstavce a aplikuje se na celý odstavec bez ohledu na formátování jednotlivých částí.
 
-**Mohu nastavit jazyk kontroly pravopisu pro část odstavce?**
+Pro vertikální zarovnání částí s různými velikostmi fontu v každém řádku viz [Align Fonts Within a Line](/slides/cs/nodejs-java/text-formatting/#align-fonts-within-a-line).
 
-Ano. Nastavte [BasePortionFormat.setLanguageId](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/baseportionformat/#setLanguageId) pro jednotlivé části, aby jeden odstavec mohl obsahovat text v několika jazycích.
+**Mohu nastavit jazyk korektury jen pro část odstavce?**
+
+Ano. Nastavte [BasePortionFormat.setLanguageId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setLanguageId) pro jednotlivé části, takže jeden odstavec může obsahovat text v několika jazycích.
