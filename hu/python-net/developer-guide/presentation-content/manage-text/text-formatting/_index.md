@@ -1,6 +1,6 @@
 ---
-title: Formázza a prezentáció szövegét Pythonban
-linktitle: Szöveg formázása
+title: Prezentáció szövegének formázása Pythonban
+linktitle: Szövegformázás
 type: docs
 weight: 50
 url: /hu/python-net/text-formatting/
@@ -8,16 +8,16 @@ keywords:
 - bekezdés igazítása
 - szövegstílus
 - szöveg háttér
-- szöveg átlátszóság
-- karakterköz
-- betűtípus tulajdonságok
-- betűtípus család
-- szöveg forgatás
+- szöveg átlátszósága
+- karakterközelet
+- betűtulajdonságok
+- betűcsalád
+- szöveg forgatása
 - forgatási szög
-- szövegkeret
-- sorköz
+- szövegdoboz
+- sortávolság
 - automatikus méretezés tulajdonság
-- szövegkeret rögzítése
+- szövegdoboz rögzítése
 - szöveg tabuláció
 - alapértelmezett nyelv
 - PowerPoint
@@ -25,23 +25,23 @@ keywords:
 - prezentáció
 - Python
 - Aspose.Slides
-description: "Formázza és stílusozza a szöveget PowerPoint és OpenDocument prezentációkban az Aspose.Slides for Python via .NET használatával. Testreszabhatja a betűtípusokat, színeket, igazítást és sok mást."
+description: "Formázza és stílusozza a szöveget PowerPoint és OpenDocument prezentációkban az Aspose.Slides for Python via .NET segítségével. Testreszabhatja a betűtípusokat, színeket, igazítást és sok mást."
 ---
 ## **Áttekintés**
 
-Ez a cikk bemutatja, hogyan lehet formázni a szöveget PowerPoint és OpenDocument prezentációkban az Aspose.Slides for Python via .NET használatával. Lefedi a háttérszíneket, átlátszóságot, karakterközöket, betűtípus‑tulajdonságokat, forgatást, bekezdés‑közöket, automatikus méretezés viselkedését, szöveg‑rögzítést, tabulátor‑állomásokat és nyelvi beállításokat.
+Ez a cikk bemutatja, hogyan formázhatja a szöveget PowerPoint és OpenDocument prezentációkban az Aspose.Slides for Python via .NET segítségével. Tárgyalja a háttérszíneket, átlátszóságot, karakterközeletet, betűtulajdonságokat, forgatást, bekezdésközeletet, automatikus méretezést, szöveg rögzítését, tabulátorállásokat és nyelvi beállításokat.
 
-Kivéve ha másként szerepel, a példák a [sample.pptx](sample.pptx) fájlt használják. Az első dia első alakja egy szövegdoboz, és az első bekezdése a alább látható szöveget tartalmazza. Mind a dia, mind az alak indexelése nulláról indul. A félkövér részeket kiválasztó példák hatékony formázást használnak, beleértve az örökölt félkövér formázást:
+Hacsak másként nincs megjelölve, a példák a [sample.pptx](sample.pptx) fájlt használják. Az első diáján az első alakzat egy szövegdoboz, és az első bekezdése a lent bemutatott szöveget tartalmazza. A diák és az alakzat indexei nullától indulnak. A félkövér szakaszokat kiválasztó példák a hatékony formázást használják, beleértve az örökölt félkövér formázást:
 
-![Sample text](sample_text.png)
+![Minta szöveg](sample_text.png)
 
-A literális szöveg vagy reguláris kifejezés egyezéseinek megtalálásához és kiemeléséhez lásd a [Keresés és csere szöveg](/slides/hu/python-net/search-and-replace-text/) oldalt.
+A szó szerinti szöveg vagy reguláris kifejezés találatok megtalálásához és kiemeléséhez lásd a [Keresés és szövegcsere](/slides/hu/python-net/search-and-replace-text/) oldalt.
 
 ## **Szöveg háttérszín beállítása**
 
-Használd a [ParagraphFormat.default_portion_format](https://reference.aspose.com/slides/hu/python-net/aspose.slides/paragraphformat/default_portion_format/)‑t, hogy beállítsd egy bekezdés alapértelmezett kiemelési színét, vagy a [BasePortionFormat.highlight_color](https://reference.aspose.com/slides/hu/python-net/aspose.slides/baseportionformat/highlight_color/)‑t egyedi szövegrészekhez.
+Használja a [ParagraphFormat.default_portion_format](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/default_portion_format/) metódust a bekezdés alapértelmezett kiemelési színének beállításához, vagy a [BasePortionFormat.highlight_color](https://reference.aspose.com/slides/python-net/aspose.slides/baseportionformat/highlight_color/) metódust az egyes szövegrészekhez.
 
-A következő példa világosszürke kiemelést állít be alapértelmezettként az első bekezdéshez. Az egyedi részeken megadott kiemelési színek felülírják ezt az alapértelmezést:
+Az alábbi példa a első bekezdés alapértelmezett kiemelését világosszürkére állítja. Az egyes részekre kifejezett kiemelési színek felülbírálják ezt az alapértelmezettet:
 
 ```python
 import aspose.pydrawing as draw
@@ -53,7 +53,7 @@ with slides.Presentation("sample.pptx") as presentation:
     auto_shape = slide.shapes[0]
     paragraph = auto_shape.text_frame.paragraphs[0]
 
-    # Állítsa be a kiemelési színt a teljes bekezdéshez.
+    # Állítsa be a teljes bekezdés kiemelésének színét.
     paragraph.paragraph_format.default_portion_format.highlight_color.color = draw.Color.light_gray
 
     presentation.save("gray_paragraph.pptx", slides.export.SaveFormat.PPTX)
@@ -61,9 +61,9 @@ with slides.Presentation("sample.pptx") as presentation:
 
 Az eredmény:
 
-![The gray paragraph](gray_paragraph.png)
+![A szürke bekezdés](gray_paragraph.png)
 
-Az alábbi kódrészlet bemutatja, hogyan állítsd be a háttérszínt **félkövér betűtípussal rendelkező szövegrészek** számára:
+Az alábbi kódrészlet bemutatja, hogyan állítható be a háttérszín **félkövér betűtípusú szövegrészek** számára:
 
 ```python
 import aspose.pydrawing as draw
@@ -77,7 +77,7 @@ with slides.Presentation("sample.pptx") as presentation:
 
     for portion in paragraph.portions:
         if portion.portion_format.get_effective().font_bold:
-            # Állítsa be a kiemelési színt a szövegrészhez.
+            # Állítsa be a szövegrész kiemelésének színét.
             portion.portion_format.highlight_color.color = draw.Color.light_gray
 
     presentation.save("gray_text_portions.pptx", slides.export.SaveFormat.PPTX)
@@ -85,13 +85,13 @@ with slides.Presentation("sample.pptx") as presentation:
 
 Az eredmény:
 
-![The gray text portions](gray_text_portions.png)
+![A szürke szövegrészek](gray_text_portions.png)
 
-## **Szöveg bekezdések igazítása**
+## **Bekezdés szöveg igazítása**
 
-Használd a [ParagraphFormat.alignment](https://reference.aspose.com/slides/hu/python-net/aspose.slides/paragraphformat/alignment/)‑t, hogy beállítsd a bekezdés igazítását egy szövegkeretben. Az érték lehet középre, balra, jobbra igazított, sorkizárt stb.
+Használja a [ParagraphFormat.alignment](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/alignment/) tulajdonságot a bekezdés igazításának beállításához egy szövegdobozon belül. Az érték lehet középre, balra, jobbra, sorkizárás stb.
 
-A következő kódrészlet mutatja, hogyan igazítsd a bekezdést **középre**:
+Az alábbi kódrészlet a bekezdést **középre** igazítja:
 
 ```python
 import aspose.slides as slides
@@ -110,13 +110,72 @@ with slides.Presentation("sample.pptx") as presentation:
 
 Az eredmény:
 
-![The aligned paragraph](aligned_paragraph.png)
+![A rendezett bekezdés](aligned_paragraph.png)
 
-## **Szöveg átlátszóság beállítása**
+## **Betűk igazítása egy soron belül**
 
-A szöveg átlátszósága a [BasePortionFormat.fill_format](https://reference.aspose.com/slides/hu/python-net/aspose.slides/baseportionformat/fill_format/)‑hez rendelt szín alfa komponensén keresztül szabályozható. Az alábbi példákban az `alpha = 50` egy ARGB alfa‑csatorna érték 0‑255 skálán, nem átlátszósági százalék.
+Használja a [ParagraphFormat.font_alignment](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/font_alignment/) tulajdonságot a különböző betűméretű szövegrészek függőleges igazításához egy soron belül. Ez a beállítás az egész bekezdésre vonatkozik, és a sorokban végzi az igazítást.
 
-Az alábbi kódrészlet megmutatja, hogyan alkalmazz átlátszóságot a **teljes bekezdésre**:
+Az alábbi önálló példa négy címkézett szövegdobozt hoz létre egy dián. Minden bekezdés ugyanazt a szöveget tartalmazza 18, 36 és 54 pontos mérettel, különböző betűigazítással. Arial betűtípust használ, letiltja az automatikus méretezést és a sortörést, és a szövegdobozok elég nagyok egy sor megjelenítéséhez.
+
+```python
+import aspose.pydrawing as draw
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    alignments = [slides.FontAlignment.BASELINE, slides.FontAlignment.TOP, slides.FontAlignment.CENTER, slides.FontAlignment.BOTTOM]
+    font_sizes = [18, 36, 54]
+
+    for i, alignment in enumerate(alignments):
+        shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 30, 20 + i * 130, 660, 120)
+        shape.fill_format.fill_type = slides.FillType.NO_FILL
+        shape.line_format.fill_format.fill_type = slides.FillType.NO_FILL
+
+        text_frame = shape.text_frame
+        text_frame.text_frame_format.anchoring_type = slides.TextAnchorType.TOP
+        text_frame.text_frame_format.autofit_type = slides.TextAutofitType.NONE
+        text_frame.text_frame_format.wrap_text = slides.NullableBool.FALSE
+
+        label = text_frame.paragraphs[0]
+        label.text = alignment.name.title()
+        label.paragraph_format.alignment = slides.TextAlignment.LEFT
+        label.paragraph_format.default_portion_format.font_height = 14
+        label.paragraph_format.default_portion_format.latin_font = slides.FontData("Arial")
+        label.paragraph_format.default_portion_format.fill_format.fill_type = slides.FillType.SOLID
+        label.paragraph_format.default_portion_format.fill_format.solid_fill_color.color = draw.Color.gray
+
+        paragraph = slides.Paragraph()
+        paragraph.paragraph_format.font_alignment = alignment
+        paragraph.paragraph_format.alignment = slides.TextAlignment.LEFT
+        paragraph.paragraph_format.default_portion_format.latin_font = slides.FontData("Arial")
+        paragraph.paragraph_format.default_portion_format.fill_format.fill_type = slides.FillType.SOLID
+        paragraph.paragraph_format.default_portion_format.fill_format.solid_fill_color.color = draw.Color.black
+
+        for font_size in font_sizes:
+            portion = slides.Portion("Ag ")
+            portion.portion_format.font_height = font_size
+            paragraph.portions.add(portion)
+
+        text_frame.paragraphs.add(paragraph)
+
+    presentation.save("font_alignment.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Az eredmény:
+
+![Baseline, felső, középső és alsó betűigazítás összehasonlítása vegyes betűméretekkel](font_alignment.png)
+
+A betűigazítás betűmetrikákon alapul, ezért az egyes betűk látható szélei nem feltétlenül esnek pontosan egy vonalra. A példa tartalmaz nagybetűt és egy lejjebb nyúló (descender) karaktert, hogy bemutassa a baseline és az alsó igazítás közti különbséget. A betűtípus elérhetősége, helyettesítése, a használt karakterek és a betűméretek közötti különbség mind hatással van az eredményre. A keret méretei, margók, sortávolság, sortörés és az automatikus méretezés szintén befolyásolják a megjelenést; a módok összehasonlításakor használjon ugyanazokat a betűket és elrendezési beállításokat.
+
+Ez a beállítás eltér a [ParagraphFormat.alignment](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/alignment/)‑tól, amely a vízszintes bekezdésigazítást szabályozza, valamint a [TextFrameFormat.anchoring_type](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/anchoring_type/)‑tól, amely a szövegblokk függőleges pozícióját állítja be az alakzatban. A [BasePortionFormat.escapement](https://reference.aspose.com/slides/python-net/aspose.slides/baseportionformat/escapement/) segítségével a fel‑ és alsó indexelés egyedi részeket helyez el a baseline-hez képest, ahelyett, hogy a bekezdés soraira vonatkozó betűigazítást állítaná be.
+
+## **Szöveg átlátszóságának beállítása**
+
+A szöveg átlátszóságát a [BasePortionFormat.fill_format](https://reference.aspose.com/slides/python-net/aspose.slides/baseportionformat/fill_format/) színének alfa komponense szabályozza. Az alábbi példákban az `alpha = 50` egy 0–255 skálájú ARGB alfa-érték, nem átlátszósági százalék.
+
+Az alábbi kódrészlet a **teljes bekezdés** átlátszóságát állítja be:
 
 ```python
 import aspose.pydrawing as draw
@@ -130,7 +189,7 @@ with slides.Presentation("sample.pptx") as presentation:
     auto_shape = slide.shapes[0]
     paragraph = auto_shape.text_frame.paragraphs[0]
 
-    # Állítson be félátlátszó fekete kitöltést a szövegnek.
+    # Állítsa be a szöveg félig átlátszó fekete kitöltését.
     paragraph.paragraph_format.default_portion_format.fill_format.fill_type = slides.FillType.SOLID
     paragraph.paragraph_format.default_portion_format.fill_format.solid_fill_color.color = draw.Color.from_argb(alpha, draw.Color.black)
 
@@ -139,9 +198,9 @@ with slides.Presentation("sample.pptx") as presentation:
 
 Az eredmény:
 
-![The transparent paragraph](transparent_paragraph.png)
+![Az átlátszó bekezdés](transparent_paragraph.png)
 
-Az alábbi kódrészlet megmutatja, hogyan alkalmazz átlátszóságot **félkövér betűtípussal rendelkező szövegrészekre**:
+A következő kódrészlet a **félkövér betűtípusú szövegrészek** átlátszóságát állítja be:
 
 ```python
 import aspose.pydrawing as draw
@@ -166,13 +225,13 @@ with slides.Presentation("sample.pptx") as presentation:
 
 Az eredmény:
 
-![The transparent text portions](transparent_text_portions.png)
+![Az átlátszó szövegrészek](transparent_text_portions.png)
 
-## **Karakterköz beállítása szöveghez**
+## **Karakterközelet beállítása szöveghez**
 
-Használd a [BasePortionFormat.spacing](https://reference.aspose.com/slides/hu/python-net/aspose.slides/baseportionformat/spacing/)‑t, hogy növeld vagy szűkítsd a karakterek közti távolságot egy szövegdobozban. A példák 3 pont távolságot adnak hozzá; a negatív értékek összenyomják a szöveget.
+Használja a [BasePortionFormat.spacing](https://reference.aspose.com/slides/python-net/aspose.slides/baseportionformat/spacing/) tulajdonságot a karakterek közötti távolság növelésére vagy csökkentésére egy szövegdobozban. A példák 3 pont távolságot adnak hozzá; a negatív értékek a szöveget tömörítik.
 
-Az alábbi Python kód megmutatja, hogyan növeld a karakterközt a **teljes bekezdésben**:
+Az alábbi Python kód a **teljes bekezdés** karakterközeletét növeli:
 
 ```python
 import aspose.slides as slides
@@ -183,17 +242,17 @@ with slides.Presentation("sample.pptx") as presentation:
     auto_shape = slide.shapes[0]
     paragraph = auto_shape.text_frame.paragraphs[0]
 
-    # Megjegyzés: Negatív értékek használata a karakterköz összenyomásához.
-    paragraph.paragraph_format.default_portion_format.spacing = 3  # Karakterköz növelése.
+    # Megjegyzés: Negatív értékekkel lehet összenyomni a karakterközeletet.
+    paragraph.paragraph_format.default_portion_format.spacing = 3  # Bővítse a karakterközeletet.
 
     presentation.save("character_spacing_in_paragraph.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 Az eredmény:
 
-![The character spacing in the paragraph](character_spacing_in_paragraph.png)
+![A bekezdés karakterközelete](character_spacing_in_paragraph.png)
 
-Az alábbi kódrészlet megmutatja, hogyan növeld a karakterközt **félkövér betűtípussal rendelkező szövegrészekben**:
+Az alábbi kódrészlet a **félkövér betűtípusú szövegrészek** karakterközeletét növeli:
 
 ```python
 import aspose.slides as slides
@@ -206,21 +265,21 @@ with slides.Presentation("sample.pptx") as presentation:
 
     for portion in paragraph.portions:
         if portion.portion_format.get_effective().font_bold:
-            # Megjegyzés: Negatív értékeket használjon a karakterköz összenyomásához.
-            portion.portion_format.spacing = 3  # Karakterköz növelése.
+            # Megjegyzés: Negatív értékekkel lehet összenyomni a karakterközeletet.
+            portion.portion_format.spacing = 3  # Bővítse a karakterközeletet.
 
     presentation.save("character_spacing_in_text_portions.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 Az eredmény:
 
-![The character spacing in the text portions](character_spacing_in_text_portions.png)
+![A szövegrészek karakterközelete](character_spacing_in_text_portions.png)
 
-### **Kerning letiltása bizonyos betűtípusoknál**
+### **Kerning letiltása adott betűtípusokra**
 
-Bizonyos esetekben az Aspose.Slides által renderelt szöveg valamivel szorosabbnak tűnhet, mint a PowerPointban megjelenített ugyanaz a szöveg. Ez azért fordulhat elő, mert a PowerPoint bizonyos betűtípusoknál figyelmen kívül hagyhatja a kerning adatokat, még akkor is, ha a betűtípus tartalmaz érvényes kerning információt és a PowerPoint beállításaiban engedélyezve van a kerning.
+Bizonyos esetekben az Aspose.Slides által renderelt szöveg kissé szorosabb lehet, mint a PowerPointban megjelenített szöveg. Ez előfordulhat, ha a PowerPoint bizonyos betűtípusok esetén figyelmen kívül hagyja a kerning adatokat, még akkor is, ha a betűtípus rendelkezik érvényes kerning információval, és a PowerPoint beállításaiban engedélyezve van a kerning.
 
-Az ilyen esetekben a renderelt kimenet PowerPoint-hoz közeli megjelenéséhez letilthatod a kerninget az érintett betűtípust használó szövegrészeknél. Állítsd a [BasePortionFormat.kerning_minimal_size](https://reference.aspose.com/slides/hu/python-net/aspose.slides/baseportionformat/kerning_minimal_size/) értékét nagyobbra, mint a tényleges betűméret. Ez a példa a "presentation.pptx" fájlt igényli, ahol az első dia első alakja egy szövegdoboz. Ellenőrzi a hatékony betűtípusneveket, beleértve az örökölt betűtípusokat, és 100 pontos küszöböt állít be azoknál a részeknél, amelyek a Roboto-t használják. Ez letiltja a kerninget a 100 pont alatti betűmérettel rendelkező egyező részeknél:
+Az ilyen esetekben a szövegrészeknél, amelyek az érintett betűtípust használják, letilthatja a kerninget. Állítsa a [BasePortionFormat.kerning_minimal_size](https://reference.aspose.com/slides/python-net/aspose.slides/baseportionformat/kerning_minimal_size/) értékét a tényleges betűmérettől nagyobbra. Ez a példa a „presentation.pptx” fájlt igényli, amelynek első alakzata egy szövegdoboz az első dián. A hatékony betűneveket, beleértve az örökölt betűtípusokat, ellenőrzi, és 100 pontos küszöböt állít be a Roboto betűtípust használó részekre. Ez letiltja a kerninget a 100 pont alatti méretű részeknél:
 
 ```python
 import aspose.slides as slides
@@ -243,13 +302,13 @@ with slides.Presentation("presentation.pptx") as presentation:
     presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Az alatti küszöbön lévő egyező szövegnél ez a beállítás megakadályozza a kerninget, és segíthet az Aspose.Slides renderelését a PowerPoint vizuális kimenetéhez igazítani az ilyen PowerPoint-specifikus viselkedés által érintett betűtípusok esetén.
+Az alacsonyabb küszöb alatti egyező szöveg esetén ez a beállítás megakadályozza a kerninget, és segíthet az Aspose.Slides renderelésének összhangba hozásában a PowerPoint vizuális megjelenésével az érintett betűtípusok esetén.
 
-## **Szöveg betűtípus tulajdonságok kezelése**
+## **Szöveg betűtulajdonságainak kezelése**
 
-A betűtípus tulajdonságokat be lehet állítani bekezdés szinten a [ParagraphFormat.default_portion_format](https://reference.aspose.com/slides/hu/python-net/aspose.slides/paragraphformat/default_portion_format/)‑n keresztül, vagy egyedi részeknél a [PortionFormat](https://reference.aspose.com/slides/hu/python-net/aspose.slides/portionformat/)‑en keresztül.
+A betűtulajdonságok beállíthatók bekezdés szinten a [ParagraphFormat.default_portion_format](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/default_portion_format/) vagy egyes részeknél a [PortionFormat](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/) segítségével.
 
-A következő példa beállítja az első bekezdés alapértelmezett betűtípusát 12 pontos Times New Roman-ra, félkövér, dőlt és pontozott aláhúzással. Az egyedi részeken megadott formázás felülírja ezeket az alapértelmezéseket:
+Az alábbi példa az első bekezdés alapértelmezett betűtípusát 12 pontos Times New Romanra állítja be, félkövér, dőlt és pontozott aláhúzással. Az egyes részekre kifejezett formázás felülbírálja ezeket az alapértelmezéseket:
 
 ```python
 import aspose.slides as slides
@@ -260,7 +319,7 @@ with slides.Presentation("sample.pptx") as presentation:
     auto_shape = slide.shapes[0]
     paragraph = auto_shape.text_frame.paragraphs[0]
 
-    # Állítsa be a betűtípus tulajdonságait a bekezdéshez.
+    # Állítsa be a bekezdés betűtulajdonságait.
     portion_format = paragraph.paragraph_format.default_portion_format
     portion_format.font_height = 12
     portion_format.font_bold = slides.NullableBool.TRUE
@@ -273,9 +332,9 @@ with slides.Presentation("sample.pptx") as presentation:
 
 Az eredmény:
 
-![The font properties for the paragraph](font_properties_for_paragraph.png)
+![A bekezdés betűtulajdonságai](font_properties_for_paragraph.png)
 
-Az alábbi példa 13 puntos Times New Roman-t, dőlt formátumot és pontozott aláhúzást alkalmaz a részekre, amelyek hatékony formázása félkövér:
+Az alábbi példa 13 pontos Times New Roman, dőlt formázás és pontozott aláhúzás alkalmazását mutatja a **félkövér** hatékony formázású részekre:
 
 ```python
 import aspose.slides as slides
@@ -288,7 +347,7 @@ with slides.Presentation("sample.pptx") as presentation:
 
     for portion in paragraph.portions:
         if portion.portion_format.get_effective().font_bold:
-            # Állítsa be a betűtípus tulajdonságait a szövegrészhez.
+            # Állítsa be a szövegrész betűtulajdonságait.
             portion.portion_format.font_height = 13
             portion.portion_format.font_italic = slides.NullableBool.TRUE
             portion.portion_format.font_underline = slides.TextUnderlineType.DOTTED
@@ -299,13 +358,13 @@ with slides.Presentation("sample.pptx") as presentation:
 
 Az eredmény:
 
-![The font properties for text portions](font_properties_for_text_portions.png)
+![A szövegrészek betűtulajdonságai](font_properties_for_text_portions.png)
 
-## **Szöveg forgatás beállítása**
+## **Szöveg forgatása**
 
-Használd a [TextFrameFormat.text_vertical_type](https://reference.aspose.com/slides/hu/python-net/aspose.slides/textframeformat/text_vertical_type/)‑t, hogy előre definiált szövegorientációt állíts be egy alakzatban.
+Használja a [TextFrameFormat.text_vertical_type](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/text_vertical_type/) tulajdonságot egy előre definiált szövegtorientáció beállításához egy alakzaton belül.
 
-Az alábbi kódrészlet a szövegorientációt a alakzatban a [TextVerticalType.VERTICAL270](https://reference.aspose.com/slides/hu/python-net/aspose.slides/textverticaltype/) értékre állítja, amely **90 fokkal balra** forgatja a szöveget:
+Az alábbi kódrészlet a szövegorientációt a [TextVerticalType.VERTICAL270](https://reference.aspose.com/slides/python-net/aspose.slides/textverticaltype/) értékre állítja, amely a szöveget **90 fokkal óramutató járásával ellentétesen** forgatja:
 
 ```python
 import aspose.slides as slides
@@ -322,13 +381,13 @@ with slides.Presentation("sample.pptx") as presentation:
 
 Az eredmény:
 
-![The text rotation](text_rotation.png)
+![A szöveg forgatása](text_rotation.png)
 
-## **Egyéni forgatás beállítása szövegkeretekhez**
+## **Egyéni forgatás beállítása szövegdobozokhoz**
 
-Használd a [TextFrameFormat.rotation_angle](https://reference.aspose.com/slides/hu/python-net/aspose.slides/textframeformat/rotation_angle/)‑t, hogy egyedi forgatási szöget állíts be egy [TextFrame](https://reference.aspose.com/slides/hu/python-net/aspose.slides/textframe/) számára.
+Használja a [TextFrameFormat.rotation_angle](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/rotation_angle/) tulajdonságot egy egyéni forgatási szög beállításához egy [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) számára.
 
-Az alábbi kódrészlet 3 fokkal az óramutató járásával megegyező irányban forgatja a szövegkeretet az alakzatban:
+Az alábbi kódrészlet a szövegdobozt 3 fokkal óramutató járásával megegyező irányban forgatja az alakzaton belül:
 
 ```python
 import aspose.slides as slides
@@ -345,16 +404,16 @@ with slides.Presentation("sample.pptx") as presentation:
 
 Az eredmény:
 
-![The custom text rotation](custom_text_rotation.png)
+![Az egyéni szöveg forgatása](custom_text_rotation.png)
 
-## **Bekezdések sortávolságának beállítása**
+## **Bekezdés sorhúzása beállítása**
 
-Az Aspose.Slides a [ParagraphFormat.space_after](https://reference.aspose.com/slides/hu/python-net/aspose.slides/paragraphformat/space_after/), [ParagraphFormat.space_before](https://reference.aspose.com/slides/hu/python-net/aspose.slides/paragraphformat/space_before/) és [ParagraphFormat.space_within](https://reference.aspose.com/slides/hu/python-net/aspose.slides/paragraphformat/space_within/) segítségével szabályozza a bekezdés távolságait. Ezeket a tulajdonságokat a következőképpen használják:
+Az Aspose.Slides a [ParagraphFormat.space_after](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/space_after/), [ParagraphFormat.space_before](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/space_before/) és [ParagraphFormat.space_within](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/space_within/) tulajdonságokkal szabályozza a bekezdésközt. Ezeket a következő módon használhatja:
 
-* Pozitív érték használatával a sortávolságot a sor magasságának százalékában adhatod meg.
-* Negatív érték használatával a sortávolságot pontban adhatod meg.
+* Pozitív érték meghatározza a sorhúzást a sor magasságának százalékában.
+* Negatív érték meghatározza a sorhúzást pontban.
 
-Az alábbi példa a első bekezdésen belüli távolságot 200 %-ra állítja a sor magasságához képest (dupla sortávolság):
+Az alábbi példa a bekezdés sorhúzását a sormagasság 200%-ára (dupla sorhúzás) állítja:
 
 ```python
 import aspose.slides as slides
@@ -372,18 +431,18 @@ with slides.Presentation("sample.pptx") as presentation:
 
 Az eredmény:
 
-![The line spacing within the paragraph](line_spacing.png)
+![A bekezdés sorhúzása](line_spacing.png)
 
-## **Sortörés vezérlése**
+## **Sortörés szabályainak vezérlése**
 
-Az bekezdés sortörési szabályai szűk szövegtömbökben és olyan prezentációkban hasznosak, amelyek keverik a latin és kelet-ázsiai szöveget. A következő tulajdonságok a [ParagraphFormat](https://reference.aspose.com/slides/hu/python-net/aspose.slides/paragraphformat/)‑hez tartoznak, ezért egy teljes bekezdésre vonatkoznak:
+A bekezdés sortörési szabályai szűk szövegtömbökben és olyan prezentációkban hasznosak, ahol latin és kelet-ázsiai szöveg keveredik. Az alábbi tulajdonságok a [ParagraphFormat](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/) részei, így egy egész bekezdésre vonatkoznak:
 
-- [latin_line_break](https://reference.aspose.com/slides/hu/python-net/aspose.slides/paragraphformat/latin_line_break/) szabályozza a latin sortörési szabályokat. Vegyes szöveg esetén a módosítása megváltoztathatja a szomszédos kelet-ázsiai szöveg és írásjel tördelési helyét.
-- [east_asian_line_break](https://reference.aspose.com/slides/hu/python-net/aspose.slides/paragraphformat/east_asian_line_break/) szabályozza a kelet-ázsiai sortörési szabályokat, beleértve a sor elején és végén lévő karakterek korlátozását.
+- [latin_line_break](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/latin_line_break/) szabályozza a latin sortörési szabályokat. Vegyes szöveg esetén ennek módosítása megváltoztathatja a kelet-ázsiai szöveg és írásjel tördelésének helyét is.
+- [east_asian_line_break](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/east_asian_line_break/) szabályozza a kelet-ázsiai sortörési szabályokat, beleértve a sor elején és végén megengedett karaktereket.
 
-Ezek a szabályok nem helyettesítik a [TextFrameFormat.wrap_text](https://reference.aspose.com/slides/hu/python-net/aspose.slides/textframeformat/wrap_text/) funkciót, amely automatikus tördelést tesz lehetővé egy szövegkereten belül. A tördelés során befolyásolják a layoutot, de nem szúrnak be sortörés karaktert. Egy explicit sortörés új sort er force-oz a bekezdésben a rendelkezésre álló szélességtől függetlenül.
+Ezek a szabályok nem helyettesítik a [TextFrameFormat.wrap_text](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/wrap_text/) beállítást, amely a szövegdobozon belüli automatikus sortörést engedélyezi. A szabályok a csomagoláskor befolyásolják az elrendezést; nem helyettesítik a sortörő karaktereket. Egy explicit sortörés új sort hoz létre a bekezdésen belül, függetlenül a rendelkezésre álló szélességtől.
 
-Az alábbi önálló példa szűk szövegtömböt hoz létre, amely kínai és latin szöveget tartalmaz. Mindkét sortörési tulajdonságot explicit módon állítja be, és elmenti a "line_breaking.pptx" fájlt. Az egyes szabályok kísérletezéséhez módosítsd az adott tulajdonság értékét, miközben a többi beállítást változatlanul hagyod. A példa 24 pontos Arial és SimSun betűket használ 160 pontos keretszélességgel és nulla horizontális szövegkeret margóval. A [TextFrameFormat.autofit_type](https://reference.aspose.com/slides/hu/python-net/aspose.slides/textframeformat/autofit_type/) értéke [TextAutofitType.NONE](https://reference.aspose.com/slides/hu/python-net/aspose.slides/textautofittype/) , hogy a szövegméret és a keret méretei rögzítve maradjanak.
+Az alábbi önálló példa egy keskeny szövegtömböt hoz létre, amely kínai és latin szöveget tartalmaz. Mindkét sortörési tulajdonságot explicit módon beállítja, és a „line_breaking.pptx” fájlt menti. A szabályok kipróbálásához változtassa meg az adott tulajdonság értékét, miközben a másik beállítást változatlanul hagyja. A példa 24 pontos Arial és SimSun betűket, 160 pontos keretszélességet és nulla vízszintes szövegdoboz-margót használ. A [TextFrameFormat.autofit_type](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/autofit_type/) értéke [TextAutofitType.NONE](https://reference.aspose.com/slides/python-net/aspose.slides/textautofittype/), így a szövegméret és a keretméretek rögzítve maradnak:
 
 ```python
 import aspose.pydrawing as draw
@@ -417,11 +476,11 @@ with slides.Presentation() as presentation:
     presentation.save("line_breaking.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Függő írásjelek vezérlése**
+## **Függőleges írásjelek kezelése**
 
-A [ParagraphFormat.hanging_punctuation](https://reference.aspose.com/slides/hu/python-net/aspose.slides/paragraphformat/hanging_punctuation/) lehetővé teszi, hogy a megfelelő írásjelek a szövegsor jobb szélén túlnyúljanak, ahelyett, hogy a következő sorba kerülnének. A teljes bekezdésre vonatkozik, és különbözik a függő behúzástól.
+A [ParagraphFormat.hanging_punctuation](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/hanging_punctuation/) lehetővé teszi, hogy a jogosult írásjelek a sor jobb szélén túlnyúljanak ahelyett, hogy a következő sorra kerülnek. Ez az egész bekezdésre vonatkozik, és különbözik a függőleges behúzástól.
 
-Az alábbi önálló példa engedélyezi a függő írásjeleket egy 100 pontos széles szövegkeretben, és elmenti a "hanging_punctuation.pptx" fájlt. 24 pontos Arial és nulla horizontális szövegkeret margó esetén a végpont a "sentence" után marad, és túlnyúlik a jobb szövegszélén. Állítsd a tulajdonságot [NullableBool.FALSE](https://reference.aspose.com/slides/hu/python-net/aspose.slides/nullablebool/) értékre összehasonlításként: ezekkel a beállításokkal a pont külön sorban jelenik meg. A tördelés engedélyezett, az automatikus méretezés letiltott, hogy a rendelkezésre álló szélesség rögzítve maradjon.
+Az alábbi önálló példa 100 pontos széles szövegdobozban engedélyezi a függőleges írásjeleket, és a „hanging_punctuation.pptx” fájlt menti. 24 pontos Arial és nulla vízszintes szövegdoboz-margó mellett a végpont a „sentence” után marad, és túlnyúlik a jobb szövegszegmensen. A tulajdonság beállítása [NullableBool.FALSE](https://reference.aspose.com/slides/python-net/aspose.slides/nullablebool/) értékre összehasonlításhoz: e beállítás esetén a pont külön sorban jelenik meg. A sortörés engedélyezett, az automatikus méretezés letiltott a szélesség rögzítése érdekében.
 
 ```python
 import aspose.pydrawing as draw
@@ -453,11 +512,11 @@ with slides.Presentation() as presentation:
     presentation.save("hanging_punctuation.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Nem minden írásjel függő lehet. A látható eredmény a betűtípustól és az elrendezési feltételektől függ: a betűtípus, a rendelkezésre álló szélesség, a margók vagy az autofit beállítások módosítása eltüntetheti a látható különbséget.
+Nem minden írásjel tud függőlegesen nyúlni. A látható eredmény a [betűtípus és elrendezési feltételektől](#control-line-breaking) függ: a betűtípus, a rendelkezésre álló szélesség, a margók vagy az automatikus méretezés módosítása eltüntetheti a látható különbséget.
 
-## **Autofit típus beállítása szövegkeretekhez**
+## **Automatikus méretezés típusa szövegdobozokhoz**
 
-A [TextFrameFormat.autofit_type](https://reference.aspose.com/slides/hu/python-net/aspose.slides/textframeformat/autofit_type/) meghatározza, hogyan viselkedik a szöveg, ha meghaladja a tároló határait. Használd, hogy szabályozd, a szöveg kicsinyüljön, túlnyúljon vagy automatikusan átméretezze az alakzatot. Az alábbi példa úgy konfigurálja az alakzatot, hogy átméretezze magát a szöveghez, és elmenti az eredményt a "autofit_type.pptx" fájlba.
+A [TextFrameFormat.autofit_type](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/autofit_type/) határozza meg, hogyan viselkedik a szöveg, ha túllépi a tárolójának határait. Használja a szöveg zsugorodásának, átfedésének vagy az alakzat automatikus átméretezésének vezérlésére. Az alábbi példa úgy konfigurálja a alakzatot, hogy a szöveghez igazodjon, és a „autofit_type.pptx” fájlba menti az eredményt:
 
 ```python
 import aspose.slides as slides
@@ -472,11 +531,11 @@ with slides.Presentation("sample.pptx") as presentation:
     presentation.save("autofit_type.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Az automatikus tördelés utáni sorok számolásához és a szöveg vagy alakzat szélességének változásához lásd a [Count Rendered Lines](/slides/hu/python-net/manage-paragraph/) oldalt. A sorok száma önmagában nem mutatja, hogy a szöveg túlnyúlik-e a tárolóján.
+Az automatikus sortörés utáni sorok számlálásához és a szöveg vagy alakzat szélességének változásának megtekintéséhez lásd a [Renderelt sorok számlálása](/slides/hu/python-net/manage-paragraph/). A sorok száma önmagában nem mutatja, hogy a szöveg túlcsordul-e a tárolóban.
 
-## **Szövegkeretek rögzítési pontjának beállítása**
+## **Szövegdoboz rögzítésének beállítása**
 
-A [TextFrameFormat.anchoring_type](https://reference.aspose.com/slides/hu/python-net/aspose.slides/textframeformat/anchoring_type/) meghatározza, hogyan helyezkedik el a szöveg függőlegesen egy alakzatban, például felül, középen vagy alul. Az alábbi példa a szöveget az első alakzat aljához rögzíti, és elmenti az eredményt a "text_anchor.pptx" fájlba.
+A [TextFrameFormat.anchoring_type](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/anchoring_type/) meghatározza, hogyan helyezkedik el a szöveg függőlegesen egy alakzaton belül, például a tetején, közepén vagy alján. Az alábbi példa a szöveget az első alakzat aljához rögzíti, és a „text_anchor.pptx” fájlba menti az eredményt:
 
 ```python
 import aspose.slides as slides
@@ -493,7 +552,7 @@ with slides.Presentation("sample.pptx") as presentation:
 
 ## **Szöveg tabuláció beállítása**
 
-Használd a [ParagraphFormat.default_tab_size](https://reference.aspose.com/slides/hu/python-net/aspose.slides/paragraphformat/default_tab_size/) és a [ParagraphFormat.tabs](https://reference.aspose.com/slides/hu/python-net/aspose.slides/paragraphformat/tabs/)‑t, hogy beállítsd a tabulátorok állását egy bekezdésben. Az alábbi példa a alapértelmezett tabulátortávolságot 100 pontra állítja, és 30 pontnál balra igazított tabulátort állít be. Ezek a beállítások a tabulátor karaktereket tartalmazó szöveget érintik.
+Használja a [ParagraphFormat.default_tab_size](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/default_tab_size/) és a [ParagraphFormat.tabs](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/tabs/) beállításokat a bekezdés tabulátorpontjainak konfigurálásához. Az alábbi példa az alapértelmezett tabulátorintervallumot 100 pontra állítja, és balra igazított tabot ad hozzá 30 pontnál. Ezek a beállítások a tabulátor karaktert tartalmazó szövegre hatnak.
 
 ```python
 import aspose.slides as slides
@@ -512,13 +571,13 @@ with slides.Presentation("sample.pptx") as presentation:
 
 Az eredmény:
 
-![The paragraph tabs](paragraph_tabs.png)
+![A bekezdés tabulátorai](paragraph_tabs.png)
 
 ## **Helyesírási nyelv beállítása**
 
-Az Aspose.Slides a [BasePortionFormat.language_id](https://reference.aspose.com/slides/hu/python-net/aspose.slides/baseportionformat/language_id/)‑t biztosítja, amely lehetővé teszi, hogy beállítsd egy szövegrész helyesírási nyelvét. A helyesírási nyelv meghatározza a PowerPointban a helyesírás- és nyelvtan-ellenőrzéshez használt nyelvet.
+Az Aspose.Slides a [BasePortionFormat.language_id](https://reference.aspose.com/slides/python-net/aspose.slides/baseportionformat/language_id/) tulajdonsággal lehetővé teszi a szövegrész helyesírási nyelvének beállítását. A helyesírási nyelv határozza meg a PowerPointban a helyesírás- és nyelvtani ellenőrzés nyelvét.
 
-Az alábbi példa a "presentation.pptx" fájlt igényli, amelynek első diájának első alakja egy szövegdoboz, és legalább egy bekezdése van. Lecseréli az első bekezdés tartalmát "1。"‑re, a betűtípust SimSun-ra állítja, és a Simplified Chinese (`zh-CN`) helyesírási nyelvet rendeli hozzá. Az eredményt a "proofing_language.pptx" fájlba menti:
+Az alábbi példa a „presentation.pptx” fájlt igényli, amelynek első alakzata egy szövegdoboz az első dián, és legalább egy bekezdést tartalmaz. Az első bekezdés tartalmát „1。”‑re cseréli, a betűtípust SimSunra állítja, és a leegyszerűsített kínai helyesírási nyelvet (`zh-CN`) rendeli hozzá. Az eredményt a „proofing_language.pptx” fájlba menti:
 
 ```python
 import aspose.slides as slides
@@ -538,7 +597,7 @@ with slides.Presentation("presentation.pptx") as presentation:
     text_portion.portion_format.east_asian_font = font
     text_portion.portion_format.latin_font = font
 
-    # Állítsa be a helyesírási nyelvet egyszerű kínaira.
+    # Állítsa be a helyesírási nyelvet leegyszerűsített kínaira.
     text_portion.portion_format.language_id = "zh-CN"
 
     text_portion.text = "1。"
@@ -549,7 +608,7 @@ with slides.Presentation("presentation.pptx") as presentation:
 
 ## **Alapértelmezett nyelv beállítása**
 
-Használd a [LoadOptions.default_text_language](https://reference.aspose.com/slides/hu/python-net/aspose.slides/loadoptions/default_text_language/)‑t, hogy meghatározd az alapértelmezett nyelvet olyan szövegekhez, amelyeket prezentáció betöltése vagy létrehozása során hozunk létre. Az alábbi példa egy prezentációt hoz létre az amerikai angol alapértelmezett szövegnyelvvel, hozzáad egy szövegdobozt, és kiírja az első szövegrésznek az `en-US` értéket.
+Használja a [LoadOptions.default_text_language](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/default_text_language/) beállítást a prezentáció betöltése vagy létrehozása során létrehozott szöveg alapértelmezett nyelvének meghatározásához. Az alábbi példa egy prezentációt hoz létre, amelynek alapértelmezett szövegnyelvének az amerikai angol van beállítva, egy szövegdobozt ad hozzá, és az első szövegrész nyelvének `en-US` értéket ír ki.
 
 ```python
 import aspose.slides as slides
@@ -564,22 +623,22 @@ with slides.Presentation(load_options) as presentation:
     shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 20, 20, 150, 50)
     shape.text_frame.text = "Sample text"
 
-    # Ellenőrizze az első szövegrész nyelvét.
+    # Ellenőrizze az első rész nyelvét.
     portion = shape.text_frame.paragraphs[0].portions[0]
     print(portion.portion_format.language_id)
 ```
 
 ## **Alapértelmezett szövegstílus beállítása**
 
-Az alapértelmezett szövegformázás prezentáció szintű alkalmazásához használd a [Presentation.default_text_style](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentation/default_text_style/)‑t.
+A prezentáció szintjén alapértelmezett szövegformázás alkalmazásához használja a [Presentation.default_text_style](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/default_text_style/) tulajdonságot.
 
-Az alábbi példa egy 14 pontos félkövér betűtípust állít be alapértelmezettként a felső szintű bekezdésekhez egy új prezentációban, és elmenti a "default_text_style.pptx" fájlt. A szöveg örökölheti ezeket az alapértelmezéseket, hacsak egy konkrétabb formázás nem írja felül őket.
+Az alábbi példa egy 14 pontos félkövér betűtípust állít be alapértelmezettként a felső szintű bekezdésekhez egy új prezentációban, és a „default_text_style.pptx” fájlba menti. A szöveg örökölheti ezeket az alapértelmezéseket, hacsak egy specifikusabb formázás felül nem írja őket.
 
 ```python
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
-    # Szerezze be a felső szintű bekezdés formátumát.
+    # Szerezze meg a felső szintű bekezdés formátumát.
     paragraph_format = presentation.default_text_style.get_level(0)
 
     if paragraph_format is not None:
@@ -589,15 +648,15 @@ with slides.Presentation() as presentation:
     presentation.save("default_text_style.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Szöveg kinyerése a Nagybetűs hatással**
+## **Szöveg kinyerése All-Caps effektussal**
 
-A PowerPointban a **All Caps** betűhatás alkalmazása a szöveget nagybetűvel jeleníti meg a dián, még akkor is, ha eredetileg kisbetűvel lett beírva. Ha ilyen szövegrészt kérsz le az Aspose.Slides segítségével, a könyvtár pontosan úgy adja vissza a szöveget, ahogy beírták. A megjelenített szöveghez való illesztéshez ellenőrizd a [TextCapType](https://reference.aspose.com/slides/hu/python-net/aspose.slides/textcaptype/)‑t, és konvertáld a visszakapott karakterláncot nagybetűssé, ha az érték `ALL`.
+PowerPointban az **All Caps** betűhatás alkalmazása a szöveget nagybetűs formában jeleníti meg a dián, még akkor is, ha eredetileg kisbetűvel lett beírása. Amikor az Aspose.Slides ezzel a szövegrészlettel dolgozik, a könyvtár pontosan úgy adja vissza a szöveget, ahogyan azt beírták. A megjelenített szöveghez illeszkedéshez ellenőrizze a [TextCapType](https://reference.aspose.com/slides/python-net/aspose.slides/textcaptype/) értékét, és a visszaadott karakterláncot nagybetűssé konvertálja, ha az érték `ALL`.
 
-Ez a példa a "sample2.pptx" fájlt igényli, amelynek első diájának első alakja egy szövegdoboz. Az első bekezdés első része tartalmazza a "Hello, Aspose!" szöveget All Caps hatással, ahogy alább látható.
+Ez a példa a „sample2.pptx” fájlt igényli, amelynek első alakzata egy szövegdoboz az első dián. Első bekezdésének első része a „Hello, Aspose!” szöveget tartalmazza All Caps effektussal, az alábbi módon:
 
-![The All Caps effect](all_caps_effect.png)
+![All Caps effektus](all_caps_effect.png)
 
-Az alábbi kódrészlet megmutatja, hogyan nyerjük ki a szöveget a **All Caps** hatás alkalmazásával:
+Az alábbi kódrészlet megmutatja, hogyan nyerhető ki a **All Caps** effektussal ellátott szöveg:
 
 ```python
 import aspose.slides as slides
@@ -625,10 +684,10 @@ All-Caps effect: HELLO, ASPOSE!
 
 ## **GYIK**
 
-**Hogyan módosíthatom a táblázat szövegét egy dián?**
+**Hogyan módosíthatom a táblázatban lévő szöveget egy dián?**
 
-A táblázat szövegének módosításához egy dián használd a [Table](https://reference.aspose.com/slides/hu/python-net/aspose.slides/table/). Iterálj a cellákon, és frissítsd minden cellát a [Cell.text_frame](https://reference.aspose.com/slides/hu/python-net/aspose.slides/cell/text_frame/)‑en keresztül, valamint a bekezdés formázását a [Paragraph.paragraph_format](https://reference.aspose.com/slides/hu/python-net/aspose.slides/paragraph/paragraph_format/)‑en keresztül.
+A táblázat szövegének módosításához használja a [Table](https://reference.aspose.com/slides/python-net/aspose.slides/table/) osztályt. Iteráljon a cellákon, és frissítse a cellát a [Cell.text_frame](https://reference.aspose.com/slides/python-net/aspose.slides/cell/text_frame/) segítségével, valamint a bekezdés formázását a [Paragraph.paragraph_format](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/paragraph_format/) segítségével.
 
-**Hogyan alkalmazzak színátmenetes színt a szövegre egy PowerPoint dián?**
+**Hogyan alkalmazhatok színátmenetet a szövegre egy PowerPoint dián?**
 
-A szövegre színátmenetes szín alkalmazásához használd a [BasePortionFormat.fill_format](https://reference.aspose.com/slides/hu/python-net/aspose.slides/baseportionformat/fill_format/). Állítsd a [FillFormat.fill_type](https://reference.aspose.com/slides/hu/python-net/aspose.slides/fillformat/fill_type/) értékét [FillType.GRADIENT](https://reference.aspose.com/slides/hu/python-net/aspose.slides/filltype/)‑ra, és konfiguráld a színátmenet állomásait, irányát és átlátszóságát.
+A színátmenet alkalmazásához a szövegre használja a [BasePortionFormat.fill_format](https://reference.aspose.com/slides/python-net/aspose.slides/baseportionformat/fill_format/) tulajdonságot. Állítsa a [FillFormat.fill_type](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/fill_type/) értékét [FillType.GRADIENT](https://reference.aspose.com/slides/python-net/aspose.slides/filltype/)-ra, és konfigurálja a színátmeneti állomásokat, az irányt és az átlátszóságot.

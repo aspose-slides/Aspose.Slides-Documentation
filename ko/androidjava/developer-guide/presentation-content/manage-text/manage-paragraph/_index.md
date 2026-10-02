@@ -14,7 +14,7 @@ keywords:
 - 단락 관리
 - 글머리표 관리
 - 단락 들여쓰기
-- 걸어 내린 들여쓰기
+- 내어쓰기
 - 단락 글머리표
 - 번호 매기기 목록
 - 글머리표 목록
@@ -30,15 +30,15 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Android via Java를 사용하여 단락, 구절, 글머리표, 번호 매기기 목록, 들여쓰기, HTML 콘텐츠 및 단락 이미지를 만들고 서식 지정하는 방법을 배웁니다."
+description: "Aspose.Slides for Android via Java를 사용하여 단락, 구절, 글머리표, 번호 매기기 목록, 들여쓰기, HTML 콘텐츠 및 단락 이미지를 생성하고 서식 지정하는 방법을 배웁니다."
 ---
 ## **개요**
 
-Aspose.Slides for Android via Java는 텍스트를 텍스트 프레임, 단락 및 구절의 계층 구조로 나타냅니다:
+Aspose.Slides for Android via Java는 텍스트를 텍스트 프레임, 단락 및 구절의 계층 구조로 표현합니다:
 
-* [ITextFrame](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/itextframe/) 은 도형 내 텍스트 컨테이너를 나타내며 단락 컬렉션에 대한 액세스를 제공합니다.
-* [IParagraph](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/iparagraph/) 은 텍스트 프레임의 단일 단락을 나타내며 구절 및 단락 수준 서식에 대한 액세스를 제공합니다.
-* [IPortion](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/iportion/) 은 단락 내 텍스트 실행을 나타냅니다. 각 구절은 자체 텍스트와 문자 수준 서식을 가질 수 있습니다.
+* [ITextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/) 모양 내의 텍스트 컨테이너를 나타내며 해당 단락 컬렉션에 대한 접근을 제공합니다.
+* [IParagraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph/) 텍스트 프레임 내의 하나의 단락을 나타내며 해당 구절 및 단락 수준 서식에 대한 접근을 제공합니다.
+* [IPortion](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iportion/) 단락 내의 텍스트 실행을 나타냅니다. 각 구절은 자체 텍스트와 문자 수준 서식을 가질 수 있습니다.
 
 따라서 단락은 여러 구절을 사용하여 서로 다른 글꼴, 색상, 크기 및 기타 서식을 가진 텍스트를 포함할 수 있습니다.
 
@@ -46,16 +46,16 @@ Aspose.Slides for Android via Java는 텍스트를 텍스트 프레임, 단락 �
 
 ### **여러 구절이 있는 단락 만들기**
 
-다음 단계는 세 개의 단락을 가진 텍스트 프레임을 만들고, 각 단락에 세 개의 구절을 포함합니다:
+다음 단계는 각각 세 개의 구절을 포함하는 세 개의 단락이 있는 텍스트 프레임을 생성합니다:
 
-1. [Presentation](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/presentation/) 클래스의 인스턴스를 생성합니다.
+1. [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) 클래스의 인스턴스를 생성합니다.
 2. 인덱스를 통해 해당 슬라이드에 접근합니다.
-3. 슬라이드에 사각형 [IAutoShape](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/iautoshape/) 를 추가합니다.
-4. 도형의 [ITextFrame](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/itextframe/) 에 접근합니다.
-5. 기본 단락을 사용하고 텍스트 프레임에 두 개의 추가 [IParagraph](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/iparagraph/) 객체를 추가합니다.
-6. 각 단락에 세 개의 구절을 포함하도록 충분한 [IPortion](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/iportion/) 객체를 추가합니다. 기본 단락에는 이미 빈 구절이 하나 포함되어 있습니다.
+3. 슬라이드에 사각형 [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/)을 추가합니다.
+4. 해당 도형의 [ITextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/)에 접근합니다.
+5. 기본 단락을 사용하고 텍스트 프레임에 두 개의 추가 [IParagraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph/) 개체를 추가합니다.
+6. 각 단락에 세 개의 구절이 들어가도록 충분한 [IPortion](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iportion/) 개체를 추가합니다. 기본 단락에는 이미 빈 구절 하나가 포함되어 있습니다.
 7. 각 구절의 텍스트를 설정합니다.
-8. [IPortion.getPortionFormat](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/iportion/#getPortionFormat--) 을 통해 문자 수준 서식을 적용합니다.
+8. [IPortion.getPortionFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iportion/#getPortionFormat--)을 통해 문자 수준 서식을 적용합니다.
 9. 수정된 프레젠테이션을 저장합니다.
 
 이 Android via Java 예제는 위 단계들을 구현합니다:
@@ -114,26 +114,27 @@ try {
 }
 ```
 
+
 ## **글머리표 및 번호 매기기 목록 만들기**
 
 ### **글머리표 또는 번호 매기기 목록 만들기**
 
-글머리표와 번호 매기기는 관련 항목을 쉽게 스캔할 수 있게 합니다. Aspose.Slides에서는 목록 설정을 [IBulletFormat](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/ibulletformat/) 을 통해 정의합니다.
+글머리표와 번호 매기기는 관련 항목을 보다 쉽게 스캔할 수 있게 합니다. Aspose.Slides에서는 목록 설정을 [IBulletFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibulletformat/)을 통해 정의합니다.
 
-1. [Presentation](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/presentation/) 클래스의 인스턴스를 생성합니다.
+1. [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) 클래스의 인스턴스를 생성합니다.
 2. 인덱스를 통해 해당 슬라이드에 접근합니다.
-3. 선택한 슬라이드에 [IAutoShape](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/iautoshape/) 를 추가합니다.
-4. 도형의 [ITextFrame](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/itextframe/) 에 접근합니다.
+3. 선택한 슬라이드에 [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/)을 추가합니다.
+4. 도형의 [ITextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/)에 접근합니다.
 5. 텍스트 프레임에서 기본 단락을 제거합니다.
-6. 기호 글머리표용 [Paragraph](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/paragraph/) 을 생성합니다.
-7. [IBulletFormat.setType](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/ibulletformat/#setType-int-) 을 [BulletType.Symbol](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/bullettype/) 로 설정하고 글머리표 문자를 지정합니다.
-8. 단락 텍스트, 들여쓰기, 글머리표 색상 및 글머리표 높이를 설정합니다.
+6. 기호 글머리표용 [Paragraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/paragraph/)을 생성합니다.
+7. [IBulletFormat.setType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibulletformat/#setType-int-)을 [BulletType.Symbol](https://reference.aspose.com/slides/androidjava/com.aspose.slides/bullettype/)으로 설정하고 글머리 기호 문자를 지정합니다.
+8. 단락 텍스트, 들여쓰기, 글머리 색상 및 글머리 높이를 설정합니다.
 9. 단락을 텍스트 프레임에 추가합니다.
-10. 두 번째 단락을 생성하고 [IBulletFormat.setType](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/ibulletformat/#setType-int-) 을 [BulletType.Numbered](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/bullettype/) 로 설정합니다.
-11. 번호 매기기 글머리표 스타일을 구성하고 단락을 텍스트 프레임에 추가합니다.
+10. 두 번째 단락을 생성하고 [IBulletFormat.setType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibulletformat/#setType-int-)을 [BulletType.Numbered](https://reference.aspose.com/slides/androidjava/com.aspose.slides/bullettype/)으로 설정합니다.
+11. 번호 매기기 글머리 스타일을 구성하고 단락을 텍스트 프레임에 추가합니다.
 12. 프레젠테이션을 저장합니다.
 
-이 Android via Java 예제는 기호 글머리표와 번호 매기기 글머리표를 만듭니다:
+이 Android via Java 예제는 기호 글머리표와 번호 매기기 글머리표를 생성합니다:
 
 ```java
 import com.aspose.slides.*;
@@ -174,22 +175,23 @@ try {
 }
 ```
 
+
 ### **그림 글머리표 사용**
 
-그림 글머리표를 사용하면 기호 또는 숫자 대신 사용자 지정 이미지를 사용할 수 있습니다.
+그림 글머리표를 사용하면 기호나 번호 대신 사용자 정의 이미지를 사용할 수 있습니다.
 
-1. [Presentation](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/presentation/) 클래스의 인스턴스를 생성합니다.
+1. [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) 클래스의 인스턴스를 생성합니다.
 2. 인덱스를 통해 해당 슬라이드에 접근합니다.
-3. [IAutoShape](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/iautoshape/) 를 추가하고 해당 [ITextFrame](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/itextframe/) 에 접근합니다.
+3. [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/)을 추가하고 해당 [ITextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/)에 접근합니다.
 4. 텍스트 프레임에서 기본 단락을 제거합니다.
-5. 글머리표 이미지를 로드하고 프레젠테이션의 이미지 컬렉션에 [IPPImage](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/ippimage/) 로 추가합니다.
-6. [Paragraph](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/paragraph/) 을 생성하고 텍스트를 설정합니다.
-7. [IBulletFormat.setType](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/ibulletformat/#setType-int-) 을 [BulletType.Picture](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/bullettype/) 로 설정합니다.
-8. [IBulletFormat.getPicture](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/ibulletformat/#getPicture--) 를 통해 이미지를 지정하고 글머리표 높이를 설정합니다.
+5. 글머리 이미지를 로드하고 프레젠테이션의 이미지 컬렉션에 [IPPImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ippimage/)으로 추가합니다.
+6. [Paragraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/paragraph/)을 생성하고 텍스트를 설정합니다.
+7. [IBulletFormat.setType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibulletformat/#setType-int-)을 [BulletType.Picture](https://reference.aspose.com/slides/androidjava/com.aspose.slides/bullettype/)으로 설정합니다.
+8. [IBulletFormat.getPicture](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibulletformat/#getPicture--)을 통해 이미지를 지정하고 글머리 높이를 설정합니다.
 9. 단락을 텍스트 프레임에 추가합니다.
 10. 수정된 프레젠테이션을 저장합니다.
 
-이 Android via Java 예제는 그림 글머리표를 만듭니다:
+이 Android via Java 예제는 그림 글머리표를 생성합니다:
 
 ```java
 import com.aspose.slides.*;
@@ -224,17 +226,18 @@ try {
 }
 ```
 
+
 ### **다단계 목록 만들기**
 
-[IParagraphFormat.setDepth](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/iparagraphformat/#setDepth-short-) 를 설정하여 단락을 목록의 서로 다른 수준에 배치합니다. 최상위 수준은 깊이가 `0` 입니다.
+[IParagraphFormat.setDepth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setDepth-short-)을 설정하여 목록의 서로 다른 수준에 단락을 배치합니다. 최상위 수준은 `0` 깊이를 가집니다.
 
-1. [Presentation](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/presentation/) 을 생성하고 슬라이드에 접근합니다.
-2. [IAutoShape](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/iautoshape/) 를 추가하고 해당 텍스트 프레임에서 기본 단락을 삭제합니다.
-3. 네 개의 단락을 만들고 글머리표 기호를 구성합니다.
-4. 각 단락의 [IParagraphFormat.setDepth](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/iparagraphformat/#setDepth-short-) 값을 `0`, `1`, `2`, `3` 으로 설정합니다.
-5. 단락을 텍스트 프레임에 추가하고 프레젠테이션을 저장합니다.
+1. [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/)을 생성하고 슬라이드에 접근합니다.
+2. [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/)을 추가하고 해당 텍스트 프레임에서 기본 단락을 지웁니다.
+3. 네 개의 단락을 만들고 글머리 기호를 구성합니다.
+4. 각 단락의 [IParagraphFormat.setDepth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setDepth-short-) 값을 `0`, `1`, `2`, `3`으로 설정합니다.
+5. 단락들을 텍스트 프레임에 추가하고 프레젠테이션을 저장합니다.
 
-이 Android via Java 예제는 네 수준의 글머리표 목록을 만듭니다:
+이 Android via Java 예제는 네 단계의 글머리 목록을 생성합니다:
 
 ```java
 import com.aspose.slides.*;
@@ -290,17 +293,18 @@ try {
 }
 ```
 
-### **번호 매기기 목록 항목을 사용자 지정 값으로 시작**
 
-[IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) 를 사용하여 번호 매기기 단락에 표시되는 시작 번호를 설정합니다.
+### **번호 매기기 목록 항목을 사용자 정의 값으로 시작**
 
-1. [Presentation](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/presentation/) 을 생성하고 슬라이드에 [IAutoShape](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/iautoshape/) 를 추가합니다.
-2. 도형의 텍스트 프레임에서 기본 단락을 삭제합니다.
+[IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-)을 사용하여 번호 매기기 단락의 초기 번호를 설정합니다.
+
+1. [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/)을 생성하고 [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/)을 슬라이드에 추가합니다.
+2. 도형의 텍스트 프레임에서 기본 단락을 제거합니다.
 3. 세 개의 번호 매기기 단락을 생성합니다.
-4. 해당 단락에 대해 [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) 를 각각 `2`, `3`, `7` 로 설정합니다.
-5. 단락을 텍스트 프레임에 추가하고 프레젠테이션을 저장합니다.
+4. 각각의 단락에 대해 [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-)을 `2`, `3`, `7`로 설정합니다.
+5. 단락들을 텍스트 프레임에 추가하고 프레젠테이션을 저장합니다.
 
-이 Android via Java 예제는 각 단락에 사용자 지정 시작 번호를 할당합니다:
+이 Android via Java 예제는 각 단락에 사용자 정의 시작 번호를 할당합니다:
 
 ```java
 import com.aspose.slides.*;
@@ -336,22 +340,22 @@ try {
 }
 ```
 
-## **단락 레이아웃 및 끝 속성 제어**
+## **단락 레이아웃 및 종료 속성 제어**
 
 ### **첫 줄 들여쓰기 설정**
 
-[IParagraphFormat.setIndent](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) 을 사용하여 단락의 첫 줄 들여쓰기를 제어합니다. 이 메서드는 단락의 왼쪽 여백에 상대적으로 첫 줄만 이동합니다. 양수 값은 첫 줄을 오른쪽으로 이동시키고, 나머지 줄은 단락 본문에 맞춰 정렬됩니다.
+[IParagraphFormat.setIndent](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-)을 사용하여 단락의 첫 줄 들여쓰기를 제어합니다. 이 메서드는 단락의 왼쪽 여백에 상대적으로 첫 줄만 이동시킵니다. 양수 값은 첫 줄을 오른쪽으로 이동시키고, 나머지 줄은 단락 본문에 맞추어집니다.
 
-전체 단락을 이동해야 할 경우에는 [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) 를 사용합니다. 첫 줄만 이동하려면 [IParagraphFormat.setIndent](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) 를 사용합니다.
+전체 단락을 이동하려면 [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setMarginLeft-float-)를 사용하고, 첫 줄만 이동하려면 [IParagraphFormat.setIndent](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-)를 사용합니다.
 
-아래 예제는 여러 단락을 만들고 서로 다른 [IParagraphFormat.setIndent](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) 값을 적용하여 첫 줄 들여쓰기가 단락 레이아웃에 어떻게 영향을 주는지 보여줍니다.
+아래 예제는 여러 단락을 만들고 서로 다른 [IParagraphFormat.setIndent](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) 값을 적용하여 첫 줄 들여쓰기가 단락 레이아웃에 어떤 영향을 주는지 보여줍니다.
 
-1. [Presentation](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/presentation/) 클래스의 인스턴스를 생성합니다.
+1. [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) 클래스의 인스턴스를 생성합니다.
 2. 대상 슬라이드에 접근합니다.
-3. 슬라이드에 사각형 [IAutoShape](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/iautoshape/) 를 추가합니다.
-4. 도형의 [ITextFrame](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/itextframe/) 에 접근하고 기본 단락을 제거합니다.
-5. 여러 단락을 만들고 각각 다른 [IParagraphFormat.setIndent](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) 값을 설정합니다.
-6. 단락을 텍스트 프레임에 추가합니다.
+3. 슬라이드에 사각형 [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/)을 추가합니다.
+4. 도형의 [ITextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/)에 접근하고 기본 단락을 제거합니다.
+5. 여러 단락을 만들고 각기 다른 [IParagraphFormat.setIndent](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) 값을 설정합니다.
+6. 단락들을 텍스트 프레임에 추가합니다.
 7. 수정된 프레젠테이션을 저장합니다.
 
 이 코드는 단락 들여쓰기를 설정하는 방법을 보여줍니다:
@@ -408,24 +412,24 @@ try {
 
 ![단락의 첫 줄 들여쓰기](first_line_indent.png)
 
-### **걸어 내린 들여쓰기 설정**
+### **내어쓰기( hanging indent) 설정**
 
-걸어 내린 들여쓰기는 첫 줄이 나머지 줄보다 왼쪽에 시작되는 단락 레이아웃입니다. Aspose.Slides에서는 [IParagraphFormat.setIndent](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) 에 음수 값을 전달하여 첫 줄을 단락 본문에 대해 왼쪽으로 이동시켜 구현합니다.
+내어쓰기는 첫 줄이 나머지 줄보다 왼쪽에 시작되는 단락 레이아웃입니다. Aspose.Slides에서는 [IParagraphFormat.setIndent](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-)에 음수 값을 전달하여 첫 줄을 단락 본문에 상대적으로 왼쪽으로 이동시켜 구현합니다.
 
-실제로 [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) 은 단락 본문의 왼쪽 위치를 정의하고, [IParagraphFormat.setIndent](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) 은 해당 여백에 대한 첫 줄의 위치를 정의합니다. 걸어 내린 들여쓰기를 만들려면 `setMarginLeft` 에 양수 값을, `setIndent` 에 음수 값을 전달합니다.
+실제로는 [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setMarginLeft-float-)가 단락 본문의 왼쪽 위치를 정의하고, [IParagraphFormat.setIndent](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-)가 그 여백에 대해 첫 줄의 위치를 정의합니다. 내어쓰기를 만들려면 `setMarginLeft`에 양수 값을, `setIndent`에 음수 값을 전달합니다.
 
-이 서식은 참고문헌, 인용문, 용어집 항목 및 랩된 줄이 첫 줄 첫 문자 아래가 아니라 단락 본문 아래에 정렬되어야 하는 기타 단락에 유용합니다.
+이 서식은 참고문헌, 인용, 용어집 항목 등 줄이 단락 본문 아래에 맞춰야 하는 경우에 유용합니다.
 
-1. [Presentation](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/presentation/) 클래스의 인스턴스를 생성합니다.
+1. [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) 클래스의 인스턴스를 생성합니다.
 2. 대상 슬라이드에 접근합니다.
-3. 슬라이드에 사각형 [IAutoShape](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/iautoshape/) 를 추가합니다.
-4. 도형의 [ITextFrame](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/itextframe/) 에 접근하고 기본 단락을 제거합니다.
-5. 각 단락에 대해 [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) 에 양수 값을 전달하여 단락을 생성합니다.
-6. 걸어 내린 들여쓰기 효과를 만들기 위해 [IParagraphFormat.setIndent](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) 에 음수 값을 전달합니다.
-7. 단락을 텍스트 프레임에 추가합니다.
+3. 슬라이드에 사각형 [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/)을 추가합니다.
+4. 도형의 [ITextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/)에 접근하고 기본 단락을 제거합니다.
+5. 각 단락에 대해 [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setMarginLeft-float-)에 양수 값을 전달하여 생성합니다.
+6. [IParagraphFormat.setIndent](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-)에 음수 값을 전달하여 내어쓰기 효과를 만듭니다.
+7. 단락들을 텍스트 프레임에 추가합니다.
 8. 수정된 프레젠테이션을 저장합니다.
 
-이 코드는 단락에 걸어 내린 들여쓰기를 설정하는 방법을 보여줍니다:
+이 코드는 단락에 대한 내어쓰기 설정 방법을 보여줍니다:
 
 ```java
 import com.aspose.slides.*;
@@ -469,18 +473,18 @@ try {
 
 결과:
 
-![단락의 걸어 내린 들여쓰기](hanging_indent.png)
+![단락의 내어쓰기](hanging_indent.png)
 
-### **끝 단락 실행 속성 설정**
+### **단락 종료 구절 속성 설정**
 
-[IParagraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/iparagraph/#setEndParagraphPortionFormat-com.aspose.slides.IPortionFormat-) 은 단락 끝 표시의 서식을 제어합니다. 다음 예제는 두 번째 단락의 끝 표시에 글꼴 크기와 라틴 글꼴을 할당합니다:
+[IParagraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph/#setEndParagraphPortionFormat-com.aspose.slides.IPortionFormat-)은 단락 종료 표시의 서식을 제어합니다. 다음 예제에서는 두 번째 단락의 종료 표시에 글꼴 크기와 라틴 글꼴을 지정합니다:
 
-1. [Presentation](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/presentation/) 을 로드하고 슬라이드에 접근합니다.
-2. [IAutoShape](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/iautoshape/) 를 추가하고 기본 단락을 삭제합니다.
+1. [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/)을 로드하고 슬라이드에 접근합니다.
+2. [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/)을 추가하고 기본 단락을 지웁니다.
 3. 두 개의 단락을 만들고 텍스트 구절을 추가합니다.
-4. 두 번째 단락 끝 표시용 [PortionFormat](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/portionformat/) 을 생성합니다.
-5. [IBasePortionFormat.setFontHeight](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/ibaseportionformat/#setFontHeight-float-) 와 [IBasePortionFormat.setLatinFont](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/ibaseportionformat/#setLatinFont-com.aspose.slides.IFontData-) 를 설정합니다.
-6. [IParagraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/iparagraph/#setEndParagraphPortionFormat-com.aspose.slides.IPortionFormat-) 로 형식을 할당하고 프레젠테이션을 저장합니다.
+4. 두 번째 단락의 종료 표시용 [PortionFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/portionformat/)을 생성합니다.
+5. [IBasePortionFormat.setFontHeight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformat/#setFontHeight-float-)과 [IBasePortionFormat.setLatinFont](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformat/#setLatinFont-com.aspose.slides.IFontData-)을 설정합니다.
+6. [IParagraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph/#setEndParagraphPortionFormat-com.aspose.slides.IPortionFormat-)을 사용하여 형식을 할당하고 프레젠테이션을 저장합니다.
 
 ```java
 import com.aspose.slides.*;
@@ -512,15 +516,16 @@ try {
 }
 ```
 
-## **렌더링된 줄 수 세기**
 
-줄 바꿈 및 줄 끝 구두점에 영향을 주는 단락 규칙에 대해서는 [Control Line Breaking](/slides/ko/androidjava/text-formatting/#control-line-breaking) 및 [Control Hanging Punctuation](/slides/ko/androidjava/text-formatting/#control-hanging-punctuation) 을 참조하십시오.
+## **렌더링된 라인 수 세기**
 
-[IParagraph.getLinesCount](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/iparagraph/#getLinesCount--) 를 사용하여 텍스트 레이아웃 후 단락이 차지하는 줄 수를 셀 수 있습니다. 이 기능은 프레젠테이션 템플릿에서 텍스트 길이와 레이아웃을 확인할 때 유용합니다.
+줄 바꿈 및 줄 끝 구두점에 영향을 주는 단락 규칙에 대해서는 [줄 바꿈 제어](/slides/ko/androidjava/text-formatting/#control-line-breaking) 및 [걸림 구두점 제어](/slides/ko/androidjava/text-formatting/#control-hanging-punctuation)를 참고하십시오.
 
-단락은 [ITextFrame.getParagraphs](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/itextframe/#getParagraphs--) 에 있는 항목 중 하나이며 여러 개의 렌더링된 줄을 차지할 수 있습니다. 단락 내 명시적 줄 바꿈은 새 줄을 강제로 만들지만 다른 단락을 생성하지는 않습니다. 자동 줄 바꿈은 명시적인 줄 바꿈 문자를 삽입하지 않고 가용 너비에 따라 줄을 생성합니다. 따라서 단락 수나 줄 바꿈 문자만으로는 렌더링된 줄 수를 알 수 없습니다.
+[IParagraph.getLinesCount](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph/#getLinesCount--)을 사용하면 텍스트 레이아웃 후 단락이 차지하는 라인 수를 셀 수 있습니다. 이는 프레젠테이션 템플릿에서 텍스트 길이와 레이아웃을 확인할 때 유용합니다.
 
-다음 예제는 텍스트 도형을 만들고, 줄 수를 계산한 다음, 도형을 좁히고, 짧은 문자열로 텍스트를 교체합니다. 줄 바꿈이 활성화되고 자동 맞춤이 비활성화되어 도형 너비가 줄 바꿈을 제어하고 텍스트나 도형이 자동으로 축소되지 않게 합니다. 도형 치수는 포인트 단위입니다. 마지막으로 예제는 또 다른 단락을 추가하고 텍스트 프레임 전체의 줄 수를 합산합니다.
+단락은 [ITextFrame.getParagraphs](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/#getParagraphs--)의 항목 중 하나이며 여러 렌더링 라인을 차지할 수 있습니다. 명시적인 줄 바꿈은 새로운 라인을 강제로 만들지만 별도의 단락은 생성하지 않습니다. 자동 줄 바꿈은 텍스트에 명시적인 줄 바꿈 문자를 삽입하지 않고 가용 너비에 따라 라인을 생성합니다. 따라서 단락 수나 줄 바꿈 문자만으로는 실제 렌더링 라인 수를 알 수 없습니다.
+
+다음 예제는 텍스트 도형을 만들고 라인 수를 센 뒤 도형을 좁히고 텍스트를 짧은 문자열로 교체합니다. 래핑이 활성화되고 자동 맞춤이 비활성화되어 도형 너비가 래핑을 제어하도록 합니다. 도형 크기는 포인트 단위입니다. 마지막으로 예제는 또 다른 단락을 추가하고 텍스트 프레임 전체의 라인 수를 합산합니다.
 
 ```java
 import com.aspose.slides.*;
@@ -560,24 +565,24 @@ try {
 }
 ```
 
-이 텍스트와 치수로 도형을 좁히면 줄 수가 증가하고, 짧은 문자열로 교체하면 줄 수가 감소합니다. 정확한 개수는 글꼴 가용성 및 대체, 글꼴 크기, 여백, 들여쓰기, 줄 바꿈 및 자동 맞춤 설정에 따라 다를 수 있습니다. 템플릿을 확인할 때 대상 환경에 맞는 글꼴 및 레이아웃 설정을 사용하십시오.
+위 텍스트와 차원에서는 도형을 좁히면 라인 수가 증가하고, 짧은 문자열로 교체하면 라인 수가 감소합니다. 정확한 라인 수는 글꼴 가용성 및 대체, 글꼴 크기, 여백, 들여쓰기, 래핑 및 자동 맞춤 설정에 따라 달라질 수 있습니다. 템플릿을 확인할 때 목표 환경에 맞는 글꼴 및 레이아웃 설정을 사용하십시오.
 
-줄 수만으로 텍스트가 컨테이너를 초과하는지 여부를 판단할 수 없습니다. 사용 가능한 높이, 줄 높이, 단락 및 줄 간격, 자동 맞춤 동작도 중요합니다. 자동 맞춤이 비활성화된 경우 단일 줄이라도 가용 너비를 초과할 수 있습니다.
+라인 수만으로 텍스트가 컨테이너를 초과하는지 판단할 수 없습니다. 사용 가능한 높이, 라인 높이, 단락 및 라인 간격, 자동 맞춤 동작도 영향을 미치며, 래핑이 비활성화된 경우 단일 라인이라도 가용 너비를 초과할 수 있습니다.
 
 ## **단락 내용 가져오기 및 내보내기**
 
 ### **HTML 텍스트를 단락으로 가져오기**
 
-[ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-) 을 사용하여 HTML 마크업을 텍스트 프레임의 단락 및 구절로 변환합니다.
+[ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/androidjava/com.aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-)을 사용하면 HTML 마크업을 텍스트 프레임의 단락 및 구절로 변환할 수 있습니다.
 
-1. [Presentation](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/presentation/) 클래스의 인스턴스를 생성합니다.
-2. 슬라이드에 접근하고 [IAutoShape](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/iautoshape/) 를 추가합니다.
-3. 도형의 [ITextFrame](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/itextframe/) 에 접근하고 기본 단락을 삭제합니다.
-4. 소스 HTML 파일을 읽습니다.
-5. HTML 문자열을 [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-) 에 전달합니다.
+1. [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) 클래스의 인스턴스를 생성합니다.
+2. 슬라이드에 접근하고 [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/)를 추가합니다.
+3. 도형의 [ITextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/)에 접근하고 기본 단락을 지웁니다.
+4. 원본 HTML 파일을 읽습니다.
+5. HTML 문자열을 [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/androidjava/com.aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-)에 전달합니다.
 6. 수정된 프레젠테이션을 저장합니다.
 
-이 Android via Java 예제는 HTML을 텍스트 프레임에 가져옵니다:
+이 Android via Java 예제는 HTML을 텍스트 프레임으로 가져옵니다:
 
 ```java
 import com.aspose.slides.*;
@@ -608,14 +613,15 @@ try {
 }
 ```
 
+
 ### **단락 텍스트를 HTML로 내보내기**
 
-[ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-) 을 사용하여 선택한 단락 범위를 HTML로 내보냅니다.
+[ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/androidjava/com.aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-)을 사용하면 선택한 단락 범위를 HTML로 내보낼 수 있습니다.
 
-1. [Presentation](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/presentation/) 클래스의 인스턴스를 생성하고 원하는 프레젠테이션을 로드합니다.
-2. 슬라이드에 접근하고 텍스트를 포함한 [IAutoShape](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/iautoshape/) 를 찾습니다.
-3. 도형의 [ITextFrame](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/itextframe/) 에 접근합니다.
-4. 시작 단락 인덱스와 내보낼 단락 수를 지정하여 [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-) 를 호출합니다.
+1. [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) 클래스의 인스턴스를 생성하고 원하는 프레젠테이션을 로드합니다.
+2. 슬라이드에 접근하고 텍스트를 포함하는 [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/)를 찾습니다.
+3. 도형의 [ITextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/)에 접근합니다.
+4. 시작 단락 인덱스와 내보낼 단락 수를 지정하여 [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/androidjava/com.aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-)을 호출합니다.
 5. 반환된 HTML 문자열을 파일에 씁니다.
 
 이 Android via Java 예제는 첫 번째 텍스트 도형의 모든 단락을 내보냅니다:
@@ -655,17 +661,17 @@ try {
 
 ### **단락을 이미지로 렌더링**
 
-[IParagraph.getImage](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/iparagraph/#getImage--) 은 개별 단락을 직접 렌더링하고 [IImage](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/iimage/) 를 반환합니다. 반환된 이미지를 [IImage.save](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/iimage/#save-java.lang.String-int-) 로 파일이나 스트림에 저장하십시오. 도형 전체를 렌더링하거나 비트맵을 수동으로 자를 필요가 없습니다.
+[IParagraph.getImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph/#getImage--)은 개별 단락을 직접 렌더링하고 [IImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimage/)를 반환합니다. 반환된 이미지는 [IImage.save](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimage/#save-java.lang.String-int-)을 사용해 파일이나 스트림에 저장할 수 있습니다. 포함된 도형을 렌더링하거나 비트맵을 직접 자를 필요가 없습니다.
 
-[IParagraph.getImage](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/iparagraph/#getImage--) 은 단락이 상위 컬렉션에 없거나 유효한 렌더링 경계가 없거나 렌더링할 수 없는 경우 `null` 을 반환할 수 있습니다. 저장하기 전에 결과를 확인하고 사용 후 반환된 이미지를 해제하십시오.
+[IParagraph.getImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph/#getImage--)은 단락이 상위 컬렉션에 없거나 유효한 렌더링 경계가 없거나 렌더링할 수 없는 경우 `null`을 반환할 수 있습니다. 저장하기 전에 결과를 확인하고 사용 후 반환된 이미지를 반드시 해제하십시오.
 
-#### **기본 스케일로 단락 렌더링**
+#### **기본 배율로 단락 렌더링**
 
-sample.pptx 라는 파일에 하나의 슬라이드가 있고, 첫 번째 도형이 세 개의 단락을 포함하는 텍스트 상자라고 가정합니다.
+sample.pptx라는 프레젠테이션 파일에 하나의 슬라이드가 있으며, 첫 번째 도형이 세 개의 단락을 포함한 텍스트 상자라고 가정합니다.
 
-![텍스트 상자와 세 개의 단락](paragraph_to_image_input.png)
+![세 개의 단락이 있는 텍스트 상자](paragraph_to_image_input.png)
 
-다음 예제는 일반 텍스트 도형의 두 번째 단락을 기본 스케일로 렌더링하고 PNG 형식으로 반환된 이미지를 저장합니다. `finally` 블록은 이미지가 올바르게 해제되는 것을 보장합니다.
+다음 예제는 일반 텍스트 도형에서 두 번째 단락을 기본 배율로 렌더링하고 PNG 형식으로 저장합니다. `finally` 블록은 이미지가 올바르게 해제되도록 합니다.
 
 ```java
 import com.aspose.slides.*;
@@ -705,9 +711,9 @@ try {
 
 ![단락 이미지](paragraph_to_image_output.png)
 
-#### **테이블 셀에서 스케일링을 적용해 단락 렌더링**
+#### **표 셀에서 배율을 적용해 단락 렌더링**
 
-`float` 타입의 `scaleX` 와 `float` 타입의 `scaleY` 매개변수를 받아들이는 [IParagraph.getImage](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/iparagraph/#getImage-float-float-) 오버로드를 사용합니다. 아래 예제는 표를 만들고 첫 번째 셀의 단락을 기본 너비와 높이의 두 배로 렌더링한 후 PNG 이미지로 저장합니다.
+`float scaleX`와 `float scaleY` 매개변수를 받는 [IParagraph.getImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph/#getImage-float-float-) 오버로드를 사용해 가로·세로 배율을 설정합니다. 다음 예제는 표를 만들고 첫 번째 셀의 단락을 기본 너비와 높이의 두 배로 렌더링한 뒤 PNG 이미지로 저장합니다.
 
 ```java
 import com.aspose.slides.*;
@@ -737,24 +743,26 @@ try {
 }
 ```
 
-`1` 은 해당 축을 기본 픽셀 크기로 유지합니다. 예를 들어 `2` 를 두 축에 적용하면 너비와 높이가 기본 크기의 약 두 배가 되어 네 배의 픽셀 수가 됩니다. 큰 규모는 확대나 고해상도 출력에 더 선명한 텍스트를 제공하지만 메모리 사용량과 파일 크기가 증가합니다. `1` 미만의 계수는 세부 정보가 적은 작은 이미지를 만듭니다. 비율을 유지하려면 동일한 계수를 사용하고, 가로와 세로 계수를 다르게 하면 출력이 독립적으로 늘어나거나 줄어듭니다.
+배율 `1`은 해당 축을 기본 픽셀 크기로 유지합니다. 예를 들어 두 축 모두 `2`이면 이미지의 너비와 높이가 기본 크기의 약 두 배가 되어 픽셀 수는 네 배가 됩니다. 큰 배율은 확대하거나 고해상도 출력 시 텍스트를 더 선명하게 하지만 메모리 사용량과 파일 크기가 증가합니다. `1` 이하의 배율은 세부 정보가 적은 작은 이미지를 생성합니다. 가로·세로 배율을 동일하게 유지하면 단락의 종횡비가 보존되고, 서로 다르게 설정하면 출력이 각각 늘어납니다.
 
-전체 도형을 [IShape.getImage] 로 렌더링하는 것은 출력에 도형의 채우기, 테두리 또는 다른 시각적 컨텍스트가 포함되어야 할 때 여전히 유용합니다. 단락만의 이미지는 [IParagraph.getImage] 를 사용하십시오.
+[IShape.getImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#getImage--)을 사용해 전체 도형을 렌더링하면 도형의 채우기, 테두리 또는 기타 시각적 컨텍스트를 포함할 수 있어 유용합니다. 단락 전용 이미지는 [IParagraph.getImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph/#getImage--)을 사용하십시오.
 
 ## **FAQ**
 
 **텍스트 프레임 내부에서 줄 바꿈을 완전히 비활성화할 수 있나요?**
 
-예. [ITextFrameFormat.setWrapText](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/itextframeformat/#setWrapText-byte-) 를 설정하여 줄 바꿈을 비활성화하면 텍스트 프레임 가장자리에서 줄이 끊기지 않습니다.
+예. [ITextFrameFormat.setWrapText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframeformat/#setWrapText-byte-)을 설정하면 줄 바꿈이 비활성화되어 텍스트 프레임 가장자리에 라인이 끊기지 않습니다.
 
-**특정 단락의 슬라이드상의 정확한 경계를 얻으려면 어떻게 해야 하나요?**
+**특정 단락의 슬라이드 상 정확한 경계는 어떻게 얻나요?**
 
-[IParagraph.getRect](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/iparagraph/#getRect--) 을 사용하면 단락의 경계 사각형을 가져올 수 있습니다. 개별 구절의 경계는 [IPortion.getRect](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/iportion/#getRect--) 로 확인합니다.
+[IParagraph.getRect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph/#getRect--)을 사용하면 단락의 경계 사각형을 가져올 수 있습니다. [IPortion.getRect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iportion/#getRect--)은 개별 구절의 경계를 제공합니다.
 
-**단락 정렬(왼쪽, 오른쪽, 가운데, 양쪽 맞춤)은 어디서 제어하나요?**
+**단락 정렬(왼쪽, 오른쪽, 가운데, 양쪽 맞춤)은 어디에서 제어되나요?**
 
-[IParagraphFormat.setAlignment](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/iparagraphformat/#setAlignment-int-) 은 단락 수준 설정이며 개별 구절 서식과 무관하게 전체 단락에 적용됩니다.
+[IParagraphFormat.setAlignment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setAlignment-int-)은 단락 수준 설정이며 개별 구절 서식에 관계없이 전체 단락에 적용됩니다.
+
+줄당 서로 다른 글꼴 크기의 구절을 수직 정렬하려면 [줄 내 글꼴 정렬](/slides/ko/androidjava/text-formatting/#align-fonts-within-a-line)을 참고하십시오.
 
 **단락의 일부에 교정 언어를 설정할 수 있나요?**
 
-예. 개별 구절에 대해 [IBasePortionFormat.setLanguageId](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/ibaseportionformat/#setLanguageId-java.lang.String-) 을 설정하면 하나의 단락에 여러 언어의 텍스트를 포함할 수 있습니다.
+예. [IBasePortionFormat.setLanguageId](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformat/#setLanguageId-java.lang.String-)을 개별 구절에 설정하면 하나의 단락에 여러 언어의 텍스트를 포함할 수 있습니다.

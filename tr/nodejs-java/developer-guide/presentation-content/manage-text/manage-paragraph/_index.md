@@ -1,5 +1,5 @@
 ---
-title: JavaScript ile PowerPoint Metin Paragraflarını Yönetme
+title: JavaScript'te PowerPoint Metin Paragraflarını Yönet
 linktitle: Paragrafı Yönet
 type: docs
 weight: 40
@@ -14,49 +14,49 @@ keywords:
 - paragrafı yönet
 - madde işaretini yönet
 - paragraf girintisi
-- askıda girinti
+- askıya alınmış girinti
 - paragraf madde işareti
 - numaralı liste
 - madde işaretli liste
 - paragraf özellikleri
 - HTML içe aktar
-- metni HTML'ye dönüştür
-- paragrafı HTML'ye dönüştür
-- paragrafı görüntüye dönüştür
-- metni görüntüye dönüştür
+- metni HTML'ye
+- paragrafları HTML'ye
+- paragrafı görsele
+- metni görsele
 - paragrafı dışa aktar
 - PowerPoint
 - sunum
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Aspose.Slides for Node.js via Java ile paragraflar, bölümler, madde işaretleri, numaralı listeler, girintiler, HTML içeriği ve paragraf görüntüleri oluşturmayı ve biçimlendirmeyi öğrenin."
+description: "Aspose.Slides for Node.js via Java ile paragraflar, bölümler, madde işaretleri, numaralı listeler, girintiler, HTML içeriği ve paragraf görselleri oluşturmayı ve biçimlendirmeyi öğrenin."
 ---
 ## **Genel Bakış**
 
 Aspose.Slides for Node.js via Java, metni metin çerçeveleri, paragraflar ve bölümler hiyerarşisi olarak temsil eder:
 
-* [TextFrame](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/textframe/) bir şeklin içindeki metin konteynerini temsil eder ve paragraf koleksiyonuna erişim sağlar.
-* [Paragraph](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/paragraph/) bir metin çerçevesindeki tek bir paragrafı temsil eder ve bölümlerine ve paragraf düzeyinde biçimlendirmeye erişim sağlar.
-* [Portion](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/portion/) bir paragraftaki metin koşusunu temsil eder. Her bölüm kendi metnine ve karakter düzeyinde biçimlendirmeye sahip olabilir.
+* [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/) bir şeklin içindeki metin kapsayıcısını temsil eder ve paragraf koleksiyonuna erişim sağlar.
+* [Paragraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/) bir metin çerçevesindeki bir paragrafı temsil eder ve bölümlerine ve paragraf düzeyinde biçimlendirmesine erişim sağlar.
+* [Portion](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portion/) bir paragraftaki metin çalıştırmasını temsil eder. Her bölüm kendi metnine ve karakter düzeyinde biçimlendirmeye sahip olabilir.
 
-Bu nedenle bir paragraf, birden fazla bölüm kullanarak farklı yazı tipleri, renkler, boyutlar ve diğer biçimlendirmelere sahip metin içerebilir.
+Bu nedenle bir paragraf, birden çok bölüm kullanarak farklı yazı tipleri, renkler, boyutlar ve diğer biçimlendirmeler içeren metin içerebilir.
 
 ## **Paragraflar Oluşturma ve Biçimlendirme**
 
-### **Birden Çok Bölüm ile Paragraflar Oluşturma**
+### **Birden Çok Bölüm İçeren Paragraflar Oluşturma**
 
 Aşağıdaki adımlar, her biri üç bölüm içeren üç paragrafla bir metin çerçevesi oluşturur:
 
-1. [Presentation](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
-2. İlgili slayta diziniyle erişin.
-3. Slayta dikdörtgen bir [AutoShape](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/autoshape/) ekleyin.
-4. Şeklin [TextFrame](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/textframe/) öğesine erişin.
-5. Varsayılan paragrafı kullanın ve metin çerçevesine iki adet daha [Paragraph](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/paragraph/) nesnesi ekleyin.
-6. Her paragrafın üç bölüm içermesi için yeterli sayıda [Portion](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/portion/) nesnesi ekleyin. Varsayılan paragraf zaten bir boş bölüm içerir.
+1. [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
+2. İlgili slayta indeks aracılığıyla erişin.
+3. Slayta dikdörtgen bir [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) ekleyin.
+4. Şeklin [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/) öğesine erişin.
+5. Varsayılan paragrafı kullanın ve metin çerçevesine iki tane daha [Paragraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/) nesnesi ekleyin.
+6. Her paragrafın üç bölüm içerebilmesi için yeterli sayıda [Portion](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portion/) nesnesi ekleyin. Varsayılan paragraf zaten bir boş bölüm içerir.
 7. Her bölümün metnini ayarlayın.
-8. [Portion.getPortionFormat](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/portion/getportionformat/) aracılığıyla karakter düzeyinde biçimlendirme uygulayın.
-9. Değiştirilen sunumu kaydedin.
+8. Karakter düzeyinde biçimlendirmeyi [Portion.getPortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portion/getportionformat/) aracılığıyla uygulayın.
+9. Değiştirilmiş sunumu kaydedin.
 
 Bu JavaScript örneği adımları uygular:
 
@@ -117,20 +117,20 @@ try {
 
 ## **Madde İşaretli ve Numaralı Listeler Oluşturma**
 
-### **Madde İşaretli veya Numaralı Liste Oluşturma**
+### **Madde İşaretli veya Numaralı Bir Liste Oluşturma**
 
-Madde işaretleri ve numaralar ilgili öğelerin taranmasını kolaylaştırır. Aspose.Slides içinde, liste ayarları [BulletFormat](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/bulletformat/) aracılığıyla tanımlanır.
+Madde işaretleri ve numaralandırma, ilgili öğelerin taranmasını kolaylaştırır. Aspose.Slides içinde, liste ayarları [BulletFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/) aracılığıyla tanımlanır.
 
-1. [Presentation](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
-2. İlgili slayta diziniyle erişin.
-3. Seçilen slayta bir [AutoShape](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/autoshape/) ekleyin.
-4. Şeklin [TextFrame](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/textframe/) öğesine erişin.
+1. [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
+2. İlgili slayta indeks aracılığıyla erişin.
+3. Seçili slayta bir [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) ekleyin.
+4. Şeklin [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/) öğesine erişin.
 5. Metin çerçevesinden varsayılan paragrafı kaldırın.
-6. Sembol madde işareti için bir [Paragraph](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/paragraph/) oluşturun.
-7. [BulletFormat.setType](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/bulletformat/settype/) değerini [BulletType.Symbol](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/bullettype/) olarak ayarlayın ve madde işareti karakterini belirleyin.
-8. Paragraf metnini, girintiyi, madde işareti rengini ve yüksekliğini ayarlayın.
+6. Sembol madde işareti için bir [Paragraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/) oluşturun.
+7. [BulletFormat.setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/settype/) değerini [BulletType.Symbol](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bullettype/) olarak ayarlayın ve madde işareti karakterini belirtin.
+8. Paragraf metnini, girintiyi, madde işareti rengini ve madde işareti yüksekliğini ayarlayın.
 9. Paragrafı metin çerçevesine ekleyin.
-10. İkinci bir paragraf oluşturun ve [BulletFormat.setType](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/bulletformat/settype/) değerini [BulletType.Numbered](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/bullettype/) olarak ayarlayın.
+10. İkinci bir paragraf oluşturun ve [BulletFormat.setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/settype/) değerini [BulletType.Numbered](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bullettype/) olarak ayarlayın.
 11. Numaralı madde işareti stilini yapılandırın ve paragrafı metin çerçevesine ekleyin.
 12. Sunumu kaydedin.
 
@@ -180,16 +180,16 @@ try {
 
 Resim madde işaretleri, bir sembol veya sayı yerine özel bir görüntü kullanmanıza olanak tanır.
 
-1. [Presentation](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
-2. İlgili slayta diziniyle erişin.
-3. Bir [AutoShape](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/autoshape/) ekleyin ve onun [TextFrame](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/textframe/) öğesine erişin.
+1. [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
+2. İlgili slayta indeks aracılığıyla erişin.
+3. Bir [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) ekleyin ve onun [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/) öğesine erişin.
 4. Metin çerçevesinden varsayılan paragrafı kaldırın.
-5. Madde işareti görüntüsünü yükleyin ve sunumun görüntü koleksiyonuna bir [PPImage](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/ppimage/) olarak ekleyin.
-6. Bir [Paragraph](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/paragraph/) oluşturun ve metnini ayarlayın.
-7. [BulletFormat.setType](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/bulletformat/settype/) değerini [BulletType.Picture](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/bullettype/) olarak ayarlayın.
-8. Görüntüyü [BulletFormat.getPicture](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/bulletformat/getpicture/) ile atayın ve madde işareti yüksekliğini ayarlayın.
+5. Madde işareti görüntüsünü yükleyin ve sunumun görüntü koleksiyonuna [PPImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ppimage/) olarak ekleyin.
+6. Bir [Paragraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/) oluşturun ve metnini ayarlayın.
+7. [BulletFormat.setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/settype/) değerini [BulletType.Picture](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bullettype/) olarak ayarlayın.
+8. Görüntüyü [BulletFormat.getPicture](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/getpicture/) aracılığıyla atayın ve madde işareti yüksekliğini ayarlayın.
 9. Paragrafı metin çerçevesine ekleyin.
-10. Değiştirilen sunumu kaydedin.
+10. Değiştirilmiş sunumu kaydedin.
 
 Bu JavaScript örneği bir resim madde işareti oluşturur:
 
@@ -228,14 +228,14 @@ try {
 }
 ```
 
-### **Çok Düzeyli Liste Oluşturma**
+### **Çok Seviyeli Bir Liste Oluşturma**
 
-[ParagraphFormat.setDepth](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/paragraphformat/setdepth/) ayarını, paragrafları bir listenin farklı seviyelerine yerleştirmek için kullanın. En üst seviye `0` derinliğe sahiptir.
+[ParagraphFormat.setDepth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setdepth/) ayarlayarak paragrafları bir listenin farklı seviyelerine yerleştirebilirsiniz. En üst seviye `0` derinliğe sahiptir.
 
-1. Bir [Presentation](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/presentation/) oluşturun ve bir slayta erişin.
-2. Bir [AutoShape](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/autoshape/) ekleyin ve metin çerçevesindeki varsayılan paragrafı temizleyin.
-3. Dört paragraf oluşturun ve madde işareti sembollerini yapılandırın.
-4. Bunların [ParagraphFormat.setDepth](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/paragraphformat/setdepth/) değerlerini `0`, `1`, `2` ve `3` olarak ayarlayın.
+1. Bir [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) oluşturun ve bir slayta erişin.
+2. Bir [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) ekleyin ve metin çerçevesindeki varsayılan paragrafı temizleyin.
+3. Dört paragraf oluşturun ve madde işareti simgelerini yapılandırın.
+4. Bu paragrafların [ParagraphFormat.setDepth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setdepth/) değerlerini `0`, `1`, `2` ve `3` olarak ayarlayın.
 5. Paragrafları metin çerçevesine ekleyin ve sunumu kaydedin.
 
 Bu JavaScript örneği dört seviyeli bir madde işaretli liste oluşturur:
@@ -297,12 +297,12 @@ try {
 
 ### **Numaralı Liste Öğelerini Özel Değerlerle Başlatma**
 
-Numaralı bir paragrafta gösterilecek ilk numarayı ayarlamak için [BulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/bulletformat/setnumberedbulletstartwith/) kullanın.
+Numaralı bir paragraf için görüntülenecek ilk numarayı ayarlamak üzere [BulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/setnumberedbulletstartwith/) kullanın.
 
-1. [Presentation](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/presentation/) sınıfının bir örneğini oluşturun ve bir slayta ekleyin.
+1. Bir [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) oluşturun ve bir slayta bir [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) ekleyin.
 2. Şeklin metin çerçevesindeki varsayılan paragrafı temizleyin.
 3. Üç numaralı paragraf oluşturun.
-4. İlgili paragraflar için [BulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/bulletformat/setnumberedbulletstartwith/) değerini sırasıyla `2`, `3` ve `7` olarak ayarlayın.
+4. İlgili paragraflar için [BulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/setnumberedbulletstartwith/) değerini sırasıyla `2`, `3` ve `7` olarak ayarlayın.
 5. Paragrafları metin çerçevesine ekleyin ve sunumu kaydedin.
 
 Bu JavaScript örneği her paragraf için özel bir başlangıç numarası atar:
@@ -343,25 +343,25 @@ try {
 }
 ```
 
-## **Paragraf Düzeni ve Son Özelliklerini Kontrol Etme**
+## **Paragraf Düzeni ve Bitiş Özelliklerini Kontrol Etme**
 
 ### **İlk Satır Girintisi Ayarlama**
 
-[ParagraphFormat.setIndent](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/paragraphformat/setindent/) kullanarak bir paragrafın ilk satır girintisini kontrol edin. Bu yöntem yalnızca ilk satırı paragrafın sol kenar boşluğuna göre hareket ettirir. Pozitif bir değer ilk satırı sağa kaydırırken, kalan satırlar paragraf gövdesine hizalı kalır.
+[ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/) kullanarak bir paragrafın ilk satır girintisini kontrol edebilirsiniz. Bu yöntem yalnızca ilk satırı paragrafın sol kenar boşluğuna göre hareket ettirir. Pozitif bir değer ilk satırı sağa kaydırır, kalan satırlar ise paragraf gövdesine hizalı kalır.
 
-Tüm paragrafı taşımak istediğinizde [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/paragraphformat/setmarginleft/) kullanın. Sadece ilk satırı taşımak istediğinizde [ParagraphFormat.setIndent](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/paragraphformat/setindent/) kullanın.
+Tüm paragrafı taşımak gerektiğinde [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setmarginleft/) kullanın. Yalnızca ilk satırı taşımak gerektiğinde ise [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/) kullanın.
 
-Aşağıdaki örnek birkaç paragraf oluşturur ve farklı [ParagraphFormat.setIndent](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/paragraphformat/setindent/) değerlerini uygulayarak ilk satır girintisinin paragraf düzenini nasıl etkilediğini gösterir.
+Aşağıdaki örnek, birkaç paragraf oluşturur ve ilk satır girintisinin paragraf düzenini nasıl etkilediğini göstermek için farklı [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/) değerleri uygular.
 
-1. [Presentation](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
+1. [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
 2. Hedef slayta erişin.
-3. Slayta dikdörtgen bir [AutoShape](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/autoshape/) ekleyin.
-4. Şeklin [TextFrame](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/textframe/) öğesine erişin ve varsayılan paragrafı kaldırın.
-5. Birkaç paragraf oluşturun ve onlara farklı [ParagraphFormat.setIndent](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/paragraphformat/setindent/) değerleri ayarlayın.
+3. Slayta dikdörtgen bir [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) ekleyin.
+4. Şeklin [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/) öğesine erişin ve varsayılan paragrafı kaldırın.
+5. Birkaç paragraf oluşturun ve her biri için farklı [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/) değerleri ayarlayın.
 6. Paragrafları metin çerçevesine ekleyin.
-7. Değiştirilen sunumu kaydedin.
+7. Değiştirilmiş sunumu kaydedin.
 
-Bu kod bir paragraf girintisinin nasıl ayarlanacağını gösterir:
+Bu kod, bir paragraf girintisinin nasıl ayarlanacağını gösterir:
 
 ```javascript
 var aspose = aspose || {};
@@ -414,26 +414,26 @@ try {
 
 Sonuç:
 
-![Paragrafların ilk satır girintisi](first_line_indent.png)
+![The first-line indent of the paragraphs](first_line_indent.png)
 
-### **Askıda Girinti Ayarlama**
+### **Askıya Alınmış Girinti Ayarlama**
 
-Askıda girinti, ilk satırın kalan satırların solunda başladığı bir paragraf düzenidir. Aspose.Slides içinde bu etkiyi [ParagraphFormat.setIndent](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/paragraphformat/setindent/) ile oluşturursunuz. İlk satırı paragraf gövdesine göre sola taşımak için negatif bir değer gönderin.
+Askıya alınmış girinti, ilk satırın kalan satırların solunda başladığı bir paragraf düzenidir. Aspose.Slides içinde bu etkiyi [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/) ile oluşturursunuz. İlk satırı paragraf gövdesine göre sola kaydırmak için negatif bir değer verin.
 
-Uygulamada, [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/paragraphformat/setmarginleft/) paragraf gövdesinin sol konumunu, [ParagraphFormat.setIndent](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/paragraphformat/setindent/) ise ilk satırın bu kenar boşluğuna göre konumunu tanımlar. Askıda bir girinti oluşturmak için `setMarginLeft` a pozitif bir değer, `setIndent` e ise negatif bir değer gönderin.
+Uygulamada, [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setmarginleft/) paragraf gövdesinin sol konumunu tanımlar ve [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/) ilk satırın bu kenar boşluğuna göre konumunu tanımlar. Askıya alınmış bir girinti oluşturmak için `setMarginLeft`'a pozitif bir değer, `setIndent`'e negatif bir değer verin.
 
-Bu biçimlendirme, bibliyografyalar, referanslar, sözlük girişleri ve satırların paragraf gövdesi altında hizalanması gereken diğer paragraflar için kullanışlıdır.
+Bu biçimlendirme, biblioğraflar, referanslar, sözlük girişleri ve satırların paragraf gövdesinin altında hizalanması gereken diğer paragraflar için faydalıdır.
 
-1. [Presentation](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
+1. [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
 2. Hedef slayta erişin.
-3. Slayta dikdörtgen bir [AutoShape](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/autoshape/) ekleyin.
-4. Şeklin [TextFrame](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/textframe/) öğesine erişin ve varsayılan paragrafı kaldırın.
-5. Paragraflar oluşturun ve her biri için [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/paragraphformat/setmarginleft/) değerine pozitif bir değer gönderin.
-6. Askıda girinti etkisini oluşturmak için [ParagraphFormat.setIndent](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/paragraphformat/setindent/) değerine negatif bir değer gönderin.
+3. Slayta dikdörtgen bir [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) ekleyin.
+4. Şeklin [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/) öğesine erişin ve varsayılan paragrafı kaldırın.
+5. Paragraflar oluşturun ve her paragraf için [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setmarginleft/) değerine pozitif bir değer geçirin.
+6. Askıya alınmış girinti etkisini oluşturmak için [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/) değerine negatif bir değer geçirin.
 7. Paragrafları metin çerçevesine ekleyin.
-8. Değiştirilen sunumu kaydedin.
+8. Değiştirilmiş sunumu kaydedin.
 
-Bu kod bir paragraf için askıda girintinin nasıl ayarlanacağını gösterir:
+Bu kod, bir paragraf için askıya alınmış girintinin nasıl ayarlanacağını gösterir:
 
 ```javascript
 var aspose = aspose || {};
@@ -478,18 +478,18 @@ try {
 
 Sonuç:
 
-![Paragrafların askıda girintisi](hanging_indent.png)
+![The hanging indent of the paragraphs](hanging_indent.png)
 
 ### **Paragraf Sonu Çalıştırma Özelliklerini Ayarlama**
 
-[Paragraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/paragraph/setendparagraphportionformat/) paragraf son işaretinin biçimlendirmesini kontrol eder. Aşağıdaki örnek, ikinci paragrafın son işaretine bir yazı tipi boyutu ve Latin yazı tipi atar:
+[Paragraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/setendparagraphportionformat/) paragraf son işaretinin biçimlendirmesini kontrol eder. Aşağıdaki örnek, ikinci paragrafın son işaretine bir yazı tipi boyutu ve Latin yazı tipi atar:
 
-1. Bir [Presentation](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/presentation/) oluşturun veya yükleyin ve bir slayta erişin.
-2. Bir [AutoShape](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/autoshape/) ekleyin ve varsayılan paragrafını temizleyin.
+1. Bir [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) oluşturun veya yükleyin ve bir slayta erişin.
+2. Bir [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) ekleyin ve varsayılan paragrafını temizleyin.
 3. İki paragraf oluşturun ve onlara metin bölümleri ekleyin.
-4. İkinci paragrafın son işareti için bir [PortionFormat](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/portionformat/) oluşturun.
-5. [BasePortionFormat.setFontHeight](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/baseportionformat/#setFontHeight) ve [BasePortionFormat.setLatinFont](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/baseportionformat/#setLatinFont) ayarlarını yapın.
-6. Formatı [Paragraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/paragraph/setendparagraphportionformat/) ile atayın ve sunumu kaydedin.
+4. İkinci paragrafın son işareti için bir [PortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portionformat/) oluşturun.
+5. [BasePortionFormat.setFontHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setFontHeight) ve [BasePortionFormat.setLatinFont](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setLatinFont) ayarlarını yapın.
+6. Biçimi [Paragraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/setendparagraphportionformat/) ile atayın ve sunumu kaydedin.
 
 ```javascript
 var aspose = aspose || {};
@@ -524,13 +524,13 @@ try {
 
 ## **Render Edilen Satırları Sayma**
 
-Otomatik satır bölme ve satır sonlarındaki noktalama işaretlerini etkileyen paragraf kuralları için [Control Line Breaking](/slides/tr/nodejs-java/text-formatting/#control-line-breaking) ve [Control Hanging Punctuation](/slides/tr/nodejs-java/text-formatting/#control-hanging-punctuation) bölümlerine bakın.
+Otomatik satır kaydırma ve satır sonlarındaki noktalama işaretlerini etkileyen paragraf kuralları için bakınız: [Control Line Breaking](/slides/tr/nodejs-java/text-formatting/#control-line-breaking) ve [Control Hanging Punctuation](/slides/tr/nodejs-java/text-formatting/#control-hanging-punctuation).
 
-[Paragraph.getLinesCount](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/paragraph/#getLinesCount) kullanarak bir paragrafın metin yerleşiminden sonra kapladığı satırları, otomatik satır bölmeyi de içerecek şekilde sayabilirsiniz. Bu, sunum şablonlarında metin uzunluğunu ve düzenini kontrol ederken faydalıdır.
+Bir paragrafın metin düzenlemeden sonra kapladığı satır sayısını, otomatik satır kaydırma dahil olmak üzere saymak için [Paragraph.getLinesCount](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getLinesCount) kullanın. Bu, sunum şablonlarında metin uzunluğunu ve düzenlemeyi kontrol ederken kullanışlıdır.
 
-Bir paragraf, [TextFrame.getParagraphs](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/textframe/#getParagraphs) içinde bir öğedir ve birkaç render edilen satır kaplayabilir. Paragraf içinde açık bir satır sonu karakteri yeni bir satır oluşturur ancak yeni bir paragraf yaratmaz. Otomatik satır bölme, metne açık satır sonu eklemeden kullanılabilir genişliğe göre satırlar oluşturur. Bu nedenle, paragrafları ya da satır sonu karakterlerini saymak render edilen satır sayısını vermez.
+Bir paragraf, [TextFrame.getParagraphs](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/#getParagraphs) içinde bir öğedir ve birkaç render edilmiş satır kaplayabilir. Paragraftaki açık bir satır sonu, başka bir paragraf oluşturulmadan yeni bir satır zorlar. Otomatik kaydırma, metne açık satır sonları eklemeden kullanılabilir genişliğe göre satırlar oluşturur. Bu nedenle, paragraf veya satır sonu karakterlerini saymak render edilmiş satır sayısını vermez.
 
-Aşağıdaki örnek bir metin şekli oluşturur, satırlarını sayar, şekli daraltır ve ardından metni daha kısa bir dizeyle değiştirir. Sarma etkinleştirilmiş ve otomatik sığdırma devre dışı bırakılmıştır; böylece şeklin genişliği sarma kontrol eder, metin otomatik olarak küçültülmez veya şekil yeniden boyutlandırılmaz. Şekil boyutları puan cinsindendir. Son olarak, örnek başka bir paragraf ekleyerek metin çerçevesindeki satır sayılarını toplar.
+Aşağıdaki örnek bir metin şekli oluşturur, satırlarını sayar, şekli daraltır ve ardından metni daha kısa bir dizeyle değiştirir. Kaydırma etkinleştirilir ve otomatik sığdırma devre dışı bırakılır, böylece şekil genişliği kaydırmayı kontrol eder ve metin otomatik olarak küçülmez veya şekil yeniden boyutlandırılmaz. Şekil boyutları puan cinsindendir. Son olarak, örnek bir paragraf daha ekler ve metin çerçevesi boyunca satır sayılarını toplar.
 
 ```javascript
 var aspose = aspose || {};
@@ -573,24 +573,24 @@ try {
 }
 ```
 
-Bu metin ve bu boyutlarla, şekli daraltmak satır sayısını artırırken, metni kısa dizeyle değiştirmek azaltır. Kesin sayılar, yazı tipi bulunabilirliği ve ikamesi, yazı tipi boyutu, kenar boşlukları, girinti, sarma ve otomatik sığdırma ayarları gibi faktörlere göre değişebilir. Bir şablonu incelerken hedef ortam için tasarlanmış yazı tiplerini ve düzen ayarlarını kullanın.
+Bu metin ve bu boyutlarla, şekli daraltmak satır sayısını artırır, metni kısa dizeyle değiştirmek ise azaltır. Kesin sayılar, yazı tipi kullanılabilirliği ve ikamesi, yazı tipi boyutu, kenar boşlukları, girinti, kaydırma ve otomatik sığdırma ayarlarıyla değişebilir. Bir şablonu kontrol ederken hedef ortam için amaçlanan yazı tiplerini ve düzen ayarlarını kullanın.
 
-Satır sayısı tek başına metnin kapsayıcısını aşmayacağını belirlemez. Kullanılabilir yükseklik, satır yükseklikleri, paragraf ve satır aralığı ve otomatik sığdırma davranışı da önemlidir; sarma devre dışıysa tek bir satır bile kullanılabilir genişliği aşabilir.
+Satır sayısı tek başına metnin kapsayıcısını aşmayacağını belirlemez. Kullanılabilir yükseklik, satır yükseklikleri, paragraf ve satır aralığı ve otomatik sığdırma davranışı da önemlidir; kaydırma devre dışı bırakıldığında tek bir satır bile mevcut genişliği aşabilir.
 
-## **Paragraf İçeriğini İçeri ve Dışarı Aktarma**
+## **Paragraf İçeriğini İçe Aktarma ve Dışa Aktarma**
 
 ### **HTML Metnini Paragraflara İçe Aktarma**
 
-[ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/paragraphcollection/addfromhtml/) kullanarak HTML işaretlemesini bir metin çerçevesindeki paragraflara ve bölümlere dönüştürebilirsiniz.
+HTML işaretlemesini bir metin çerçevesinde paragraflara ve bölümlere dönüştürmek için [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphcollection/addfromhtml/) kullanın.
 
-1. [Presentation](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
-2. Bir slayta erişin ve bir [AutoShape](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/autoshape/) ekleyin.
-3. Şeklin [TextFrame](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/textframe/) öğesine erişin ve varsayılan paragrafı kaldırın.
-4. Kaynak HTML dizesini belirleyin veya okuyun.
-5. HTML dizesini [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/paragraphcollection/addfromhtml/) yöntemine gönderin.
-6. Değiştirilen sunumu kaydedin.
+1. [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
+2. Bir slayta erişin ve bir [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) ekleyin.
+3. Şeklin [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/) öğesine erişin ve varsayılan paragrafı temizleyin.
+4. Kaynak HTML dizesini tanımlayın veya okuyun.
+5. HTML dizesini [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphcollection/addfromhtml/) içine geçirin.
+6. Değiştirilmiş sunumu kaydedin.
 
-Bu JavaScript örneği HTML'yi bir metin çerçevesine içe aktarır:
+Bu JavaScript örneği HTML'i bir metin çerçevesine aktarır:
 
 ```javascript
 var aspose = aspose || {};
@@ -614,14 +614,14 @@ try {
 }
 ```
 
-### **Paragraf Metnini HTML Olarak Dışa Aktarma**
+### **Paragraf Metnini HTML'ye Dışa Aktarma**
 
-[ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/paragraphcollection/exporttohtml/) kullanarak seçili bir paragraf aralığını HTML olarak dışa aktarabilirsiniz.
+Seçili bir paragraf aralığını HTML olarak dışa aktarmak için [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphcollection/exporttohtml/) kullanın.
 
-1. Bir [Presentation](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/presentation/) sınıfının örneğini oluşturun veya yükleyin.
-2. Slayta erişin ve metni içeren [AutoShape](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/autoshape/) öğesini bulun.
-3. Şeklin [TextFrame](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/textframe/) öğesine erişin.
-4. [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/paragraphcollection/exporttohtml/) yöntemini, başlama paragraf dizini ve dışa aktarılacak paragraf sayısı ile çağırın.
+1. [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) sınıfının bir örneğini oluşturun veya yükleyin.
+2. Slayta erişin ve metni içeren [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) öğesini bulun.
+3. Şeklin [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/) öğesine erişin.
+4. Başlangıç paragraf indeksi ve dışa aktarılacak paragraf sayısı ile [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphcollection/exporttohtml/) metodunu çağırın.
 5. Dönen HTML dizesini bir dosyaya yazın.
 
 Bu bağımsız JavaScript örneği bir metin şekli oluşturur ve tüm paragraflarını dışa aktarır:
@@ -662,17 +662,17 @@ try {
 }
 ```
 
-### **Bir Paragrafı Görüntü Olarak İşleme**
+### **Bir Paragrafı Görüntü Olarak Oluşturma**
 
-[Paragraph.getImage](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/paragraph/#getImage), tek bir paragrafı doğrudan render eder ve bir [IImage](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/iimage/) döndürür. Sonucu [IImage.save](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/iimage/#save) ile bir dosyaya kaydedin. İçeren şekli render etmenize veya bitmap'i manuel olarak kırpmanıza gerek yoktur.
+[Paragraph.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getImage), tek bir paragrafı doğrudan render eder ve bir [IImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/iimage/) döndürür. Sonucu bir dosyaya [IImage.save](https://reference.aspose.com/slides/nodejs-java/aspose.slides/iimage/#save) ile kaydedin. İçeren şekli render etmenize veya bitmap'i elle kırpmanıza gerek yoktur.
 
-[Paragraph.getImage](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/paragraph/#getImage) paragraf, üst koleksiyonunda bulunamazsa, geçerli bir renderleme sınırı yoksa veya render edilemezse `null` döndürebilir. Sonucu kaydetmeden önce kontrol edin ve kullanılan görüntüyü işiniz bittiğinde serbest bırakın.
+[Paragraph.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getImage), paragraf ebeveyn koleksiyonda bulunamazsa, geçerli bir renderleme sınırı yoksa veya render edilemezse `null` dönebilir. Kaydetmeden önce sonucu kontrol edin ve kullanım sonrası dönen görüntüyü serbest bırakın.
 
-#### **Paragrafı Varsayılan Ölçekte Render Etme**
+#### **Varsayılan Ölçekte Bir Paragrafı Render Etme**
 
 Aşağıdaki metin kutusu üç paragraf içerir:
 
-![Üç paragraf içeren metin kutusu](paragraph_to_image_input.png)
+![The text box with three paragraphs](paragraph_to_image_input.png)
 
 Aşağıdaki örnek, ikinci paragrafı normal bir metin şekli içinde varsayılan ölçekte render eder ve dönen görüntüyü PNG formatında kaydeder. `finally` bloğu, görüntünün doğru şekilde serbest bırakılmasını sağlar.
 
@@ -722,11 +722,11 @@ try {
 
 Sonuç:
 
-![Paragraf görüntüsü](paragraph_to_image_output.png)
+![The paragraph image](paragraph_to_image_output.png)
 
-#### **Tablo Hücresinde Ölçeklendirme ile Paragraf Render Etme**
+#### **Bir Tablo Hücresinde Ölçekli Paragraf Render Etme**
 
-[Paragraph.getImage](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/paragraph/#getImage) metodunun `scaleX` ve `scaleY` parametrelerini kabul eden aşırı yüklemesini kullanarak yatay ve dikey ölçek faktörlerini ayarlayın. Aşağıdaki örnek bir tablo oluşturur, paragrafı ilk hücresinde varsayılan genişlik ve yüksekliğinin iki katı ölçekte render eder ve sonucu bir PNG görüntüsü olarak kaydeder.
+`scaleX` ve `scaleY` parametrelerini kabul eden [Paragraph.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getImage) aşırı yüklemesini kullanarak yatay ve dikey ölçek faktörlerini ayarlayın. Aşağıdaki örnek bir tablo oluşturur, paragrafı ilk hücresinde varsayılan genişlik ve yüksekliğinin iki katı ölçekte render eder ve sonucu PNG görüntüsü olarak kaydeder.
 
 ```javascript
 var aspose = aspose || {};
@@ -760,20 +760,21 @@ try {
 }
 ```
 
-`1` ölçek faktörü, ekseni varsayılan piksel boyutunda tutar. Örneğin, her iki faktör için `2` ayarlandığında, görüntünün genişliği ve yüksekliği yaklaşık olarak varsayılan boyutların iki katı olur ve piksel sayısı dört katına çıkar. Daha büyük faktörler, yakınlaştırma veya yüksek çözünürlüklü çıktı için metni daha keskin yapar, ancak bellek kullanımını ve dosya boyutunu da artırır. `1`'in altındaki faktörler daha az detaylı, daha küçük görüntüler üretir. En‑boy oranını korumak için eşit faktörler kullanın; farklı yatay ve dikey faktörler çıktıyı bağımsız olarak uzatır.
+`1` ölçek faktörü, ilgili ekseni varsayılan piksel boyutunda tutar. Örneğin, her iki faktör için `2` kullanmak, genişliği ve yüksekliği yaklaşık olarak varsayılan ölçünün iki katı olan bir görüntü üretir ve bu da piksel sayısının dört katı olur. Daha büyük faktörler, genellikle yakınlaştırma veya yüksek çözünürlüklü çıktı için daha keskin metin üretir, ancak bellek kullanımı ve dosya boyutunu da artırır. `1`'in altındaki faktörler, daha az ayrıntıya sahip daha küçük görüntüler üretir. Paragrafın en/boy oranını korumak için eşit faktörler kullanın; farklı yatay ve dikey faktörler çıktıyı bağımsız olarak uzatır.
 
-Çıktının şeklin dolgusunu, kenarlığını veya diğer görsel bağlamını içermesi gerektiğinde, tüm şekli [Shape.getImage](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/shape/#getImage) ile render etmek hâlâ faydalıdır. Sadece paragraf görüntüsü için [Paragraph.getImage](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/paragraph/#getImage) kullanın.
+Çıktının şeklin doldurmasını, kenarlığını veya diğer görsel bağlamını içermesi gerektiğinde, [Shape.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getImage) ile bir bütün şekli render etmek yararlıdır. Yalnızca paragraf görüntüsü için [Paragraph.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getImage) kullanın.
 
 ## **SSS**
 
-**Metin çerçevesi içinde satır sarma tamamen devre dışı bırakılabilir mi?**  
-Evet. Satırların metin çerçevesinin kenarlarında kırılmasını önlemek için sarma özelliğini devre dışı bırakmak amacıyla [TextFrameFormat.setWrapText](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/textframeformat/setwraptext/) ayarlayın.
+**Metin çerçevesi içinde satır kaydırmayı tamamen devre dışı bırakabilir miyim?**  
+Evet. Satırların metin çerçevesinin kenarlarında kırılmaması için kaydırmayı devre dışı bırakmak amacıyla [TextFrameFormat.setWrapText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/setwraptext/) ayarlayın.
 
-**Belirli bir paragrafın slayt üzerindeki tam sınırlamalarını nasıl alabilirim?**  
-[Paragraph.getRect](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/paragraph/getrect/) kullanarak paragrafın sınırlayıcı dikdörtgenini alabilirsiniz. [Portion.getRect](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/portion/#getRect) ise tek bir bölümün sınırlamalarını sağlar.
+**Belirli bir paragrafın slayt üzerindeki kesin sınırlarını nasıl alabilirim?**  
+[Paragraph.getRect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/getrect/) kullanarak paragrafın sınırlayıcı dikdörtgenini elde edin. [Portion.getRect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portion/#getRect) ise tek bir bölümün sınırlarını sağlar.
 
-**Paragraf hizalaması (sol, sağ, ortalanmış veya iki yana yaslı) nerede kontrol edilir?**  
-[ParagraphFormat.setAlignment](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/paragraphformat/setalignment/) paragraf düzeyinde bir ayardır ve tek tek bölüm biçimlendirmesinden bağımsız olarak tüm paragrafa uygulanır.
+**Paragraf hizalaması (sol, sağ, ortalanmış veya iki kenara yaslanmış) nerede kontrol edilir?**  
+[ParagraphFormat.setAlignment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setalignment/) paragraf düzeyinde bir ayardır ve tek tek bölümlerin biçimlendirmesinden bağımsız olarak tüm paragraf üzerine uygulanır.  
+Her satır içinde farklı yazı tipi boyutlarına sahip bölümleri dikey olarak hizalamak için bakınız: [Align Fonts Within a Line](/slides/tr/nodejs-java/text-formatting/#align-fonts-within-a-line).
 
-**Paragrafın bir kısmı için denetim dilini ayarlayabilir miyim?**  
-Evet. Tek tek bölümler için [BasePortionFormat.setLanguageId](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/baseportionformat/#setLanguageId) ayarlayarak bir paragrafta birden çok dilde metin bulunmasını sağlayabilirsiniz.
+**Paragrafın bir kısmı için denetleme dilini ayarlayabilir miyim?**  
+Evet. Tek tek bölümler için [BasePortionFormat.setLanguageId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setLanguageId) ayarlayarak bir paragrafın birden çok dilde metin içermesini sağlayabilirsiniz.

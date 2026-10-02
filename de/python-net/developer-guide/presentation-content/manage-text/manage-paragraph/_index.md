@@ -1,5 +1,5 @@
 ---
-title: Verwalten von PowerPoint-Textabsätzen in Python
+title: PowerPoint-Textabsätze in Python verwalten
 linktitle: Absatz verwalten
 type: docs
 weight: 40
@@ -29,32 +29,32 @@ keywords:
 - Präsentation
 - Python
 - Aspose.Slides
-description: "Erfahren Sie, wie Sie mit Aspose.Slides für Python via .NET Absätze, Portionen, Aufzählungszeichen, nummerierte Listen, Einzüge, HTML-Inhalte und Absatz-Bilder erstellen und formatieren."
+description: "Erfahren Sie, wie Sie mit Aspose.Slides für Python über .NET Absätze, Portionen, Aufzählungszeichen, nummerierte Listen, Einzüge, HTML-Inhalte und Absatzbilder erstellen und formatieren."
 ---
 ## **Übersicht**
 
-Aspose.Slides für Python via .NET stellt Text als Hierarchie von TextFrames, Paragraphs und Portions dar:
+Aspose.Slides für Python über .NET stellt Text als eine Hierarchie von Textfeldern, Absätzen und Portionen dar:
 
-* [TextFrame](https://reference.aspose.com/slides/de/python-net/aspose.slides/textframe/) stellt den Textbehälter in einer Form dar und bietet Zugriff auf die zugehörige Absatzsammlung.
-* [Paragraph](https://reference.aspose.com/slides/de/python-net/aspose.slides/paragraph/) repräsentiert einen Absatz in einem TextFrame und ermöglicht Zugriff auf seine Portions sowie auf Absatz‑Formatierungen.
-* [Portion](https://reference.aspose.com/slides/de/python-net/aspose.slides/portion/) stellt einen Textlauf innerhalb eines Absatzes dar. Jede Portion kann eigenen Text und Zeichen‑Formatierungen besitzen.
+* [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) repräsentiert den Textcontainer in einer Form und bietet Zugriff auf ihre Absatzsammlung.
+* [Paragraph](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/) repräsentiert einen Absatz in einem Textfeld und bietet Zugriff auf seine Portionen und Absatzformatierung.
+* [Portion](https://reference.aspose.com/slides/python-net/aspose.slides/portion/) repräsentiert einen Textlauf innerhalb eines Absatzes. Jede Portion kann eigenen Text und Zeichenformatierungen besitzen.
 
-Ein Absatz kann daher Text mit unterschiedlichen Schriftarten, Farben, Größen und anderer Formatierung enthalten, indem mehrere Portions verwendet werden.
+Ein Absatz kann daher Text mit unterschiedlichen Schriftarten, Farben, Größen und anderen Formatierungen enthalten, indem mehrere Portionen verwendet werden.
 
 ## **Absätze erstellen und formatieren**
 
 ### **Absätze mit mehreren Portionen erstellen**
 
-Die folgenden Schritte erzeugen ein TextFrame mit drei Absätzen, die jeweils drei Portionen enthalten:
+Die folgenden Schritte erstellen ein Textfeld mit drei Absätzen, die jeweils drei Portionen enthalten:
 
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/de/python-net/aspose.slides/presentation/).
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)‑Klasse.
 2. Greifen Sie über den Index auf die gewünschte Folie zu.
-3. Fügen Sie der Folie ein rechteckiges [AutoShape](https://reference.aspose.com/slides/de/python-net/aspose.slides/autoshape/) hinzu.
-4. Greifen Sie auf das [TextFrame](https://reference.aspose.com/slides/de/python-net/aspose.slides/textframe/) der Form zu.
-5. Verwenden Sie den Standardabsatz und fügen Sie dem TextFrame zwei weitere [Paragraph](https://reference.aspose.com/slides/de/python-net/aspose.slides/paragraph/)‑Objekte hinzu.
-6. Fügen Sie genügend [Portion](https://reference.aspose.com/slides/de/python-net/aspose.slides/portion/)‑Objekte hinzu, sodass jeder Absatz drei Portionen enthält. Der Standardabsatz enthält bereits eine leere Portion.
+3. Fügen Sie der Folie ein rechteckiges [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) hinzu.
+4. Greifen Sie auf das [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) der Form zu.
+5. Verwenden Sie den Standardabsatz und fügen Sie dem Textfeld zwei weitere [Paragraph](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/)‑Objekte hinzu.
+6. Fügen Sie genügend [Portion](https://reference.aspose.com/slides/python-net/aspose.slides/portion/)‑Objekte hinzu, damit jeder Absatz drei Portionen enthält. Der Standardabsatz enthält bereits eine leere Portion.
 7. Setzen Sie den Text jeder Portion.
-8. Wenden Sie Zeichen‑Formatierungen über [Portion.portion_format](https://reference.aspose.com/slides/de/python-net/aspose.slides/portion/portion_format/) an.
+8. Wenden Sie Zeichenformatierung über [Portion.portion_format](https://reference.aspose.com/slides/python-net/aspose.slides/portion/portion_format/) an.
 9. Speichern Sie die geänderte Präsentation.
 
 Dieses Python‑Beispiel implementiert die Schritte:
@@ -108,19 +108,19 @@ with slides.Presentation() as presentation:
 
 ### **Eine Aufzählungs‑ oder nummerierte Liste erstellen**
 
-Aufzählungszeichen und Nummerierungen erleichtern das Scannen zusammengehöriger Elemente. In Aspose.Slides werden Listeneinstellungen über [BulletFormat](https://reference.aspose.com/slides/de/python-net/aspose.slides/bulletformat/) definiert.
+Aufzählungszeichen und Nummerierungen erleichtern das Scannen zusammengehöriger Elemente. In Aspose.Slides werden Listeneinstellungen über [BulletFormat](https://reference.aspose.com/slides/python-net/aspose.slides/bulletformat/) definiert.
 
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/de/python-net/aspose.slides/presentation/).
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)‑Klasse.
 2. Greifen Sie über den Index auf die gewünschte Folie zu.
-3. Fügen Sie der ausgewählten Folie ein [AutoShape](https://reference.aspose.com/slides/de/python-net/aspose.slides/autoshape/) hinzu.
-4. Greifen Sie auf das [TextFrame](https://reference.aspose.com/slides/de/python-net/aspose.slides/textframe/) der Form zu.
-5. Entfernen Sie den Standardabsatz aus dem TextFrame.
-6. Erstellen Sie einen [Paragraph](https://reference.aspose.com/slides/de/python-net/aspose.slides/paragraph/) für ein Symbol‑Aufzählungszeichen.
-7. Setzen Sie [BulletFormat.type](https://reference.aspose.com/slides/de/python-net/aspose.slides/bulletformat/type/) auf [BulletType.SYMBOL](https://reference.aspose.com/slides/de/python-net/aspose.slides/bullettype/) und geben Sie das Aufzählungszeichen‑Zeichen an.
-8. Setzen Sie den Absatztext, Einzug, Aufzählungszeichen‑Farbe und Aufzählungszeichen‑Höhe.
-9. Fügen Sie den Absatz dem TextFrame hinzu.
-10. Erstellen Sie einen zweiten Absatz und setzen Sie [BulletFormat.type](https://reference.aspose.com/slides/de/python-net/aspose.slides/bulletformat/type/) auf [BulletType.NUMBERED](https://reference.aspose.com/slides/de/python-net/aspose.slides/bullettype/).
-11. Konfigurieren Sie den nummerierten Aufzählungsstil und fügen Sie den Absatz dem TextFrame hinzu.
+3. Fügen Sie der ausgewählten Folie ein [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) hinzu.
+4. Greifen Sie auf das [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) der Form zu.
+5. Entfernen Sie den Standardabsatz aus dem Textfeld.
+6. Erstellen Sie einen [Paragraph](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/) für ein Symbol‑Aufzählungszeichen.
+7. Setzen Sie [BulletFormat.type](https://reference.aspose.com/slides/python-net/aspose.slides/bulletformat/type/) auf [BulletType.SYMBOL](https://reference.aspose.com/slides/python-net/aspose.slides/bullettype/) und geben Sie das Aufzählungszeichen‑Zeichen an.
+8. Setzen Sie den Absatztext, Einzug, Aufzählungszeichenfarbe und Aufzählungszeichenhöhe.
+9. Fügen Sie den Absatz dem Textfeld hinzu.
+10. Erstellen Sie einen zweiten Absatz und setzen Sie [BulletFormat.type](https://reference.aspose.com/slides/python-net/aspose.slides/bulletformat/type/) auf [BulletType.NUMBERED](https://reference.aspose.com/slides/python-net/aspose.slides/bullettype/).
+11. Konfigurieren Sie den Stil des nummerierten Aufzählungszeichens und fügen Sie den Absatz dem Textfeld hinzu.
 12. Speichern Sie die Präsentation.
 
 Dieses Python‑Beispiel erstellt ein Symbol‑Aufzählungszeichen und ein nummeriertes Aufzählungszeichen:
@@ -160,19 +160,19 @@ with slides.Presentation() as presentation:
     presentation.save("bulleted_and_numbered_list.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **Bildaufzählungszeichen verwenden**
+### **Bild‑Aufzählungszeichen verwenden**
 
-Bildaufzählungszeichen ermöglichen die Verwendung eines benutzerdefinierten Bildes anstelle eines Symbols oder einer Nummer.
+Bild‑Aufzählungszeichen ermöglichen die Verwendung eines benutzerdefinierten Bildes anstelle eines Symbols oder einer Zahl.
 
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/de/python-net/aspose.slides/presentation/).
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)‑Klasse.
 2. Greifen Sie über den Index auf die gewünschte Folie zu.
-3. Fügen Sie ein [AutoShape](https://reference.aspose.com/slides/de/python-net/aspose.slides/autoshape/) hinzu und greifen Sie auf dessen [TextFrame](https://reference.aspose.com/slides/de/python-net/aspose.slides/textframe/) zu.
-4. Entfernen Sie den Standardabsatz aus dem TextFrame.
-5. Laden Sie das Aufzählungs‑Bild und fügen Sie es der Bildsammlung der Präsentation als [PPImage](https://reference.aspose.com/slides/de/python-net/aspose.slides/ppimage/) hinzu.
-6. Erstellen Sie einen [Paragraph](https://reference.aspose.com/slides/de/python-net/aspose.slides/paragraph/) und setzen Sie dessen Text.
-7. Setzen Sie [BulletFormat.type](https://reference.aspose.com/slides/de/python-net/aspose.slides/bulletformat/type/) auf [BulletType.PICTURE](https://reference.aspose.com/slides/de/python-net/aspose.slides/bullettype/).
-8. Weisen Sie das Bild über [BulletFormat.picture](https://reference.aspose.com/slides/de/python-net/aspose.slides/bulletformat/picture/) zu und setzen Sie die Aufzählungszeichen‑Höhe.
-9. Fügen Sie den Absatz dem TextFrame hinzu.
+3. Fügen Sie ein [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) hinzu und greifen Sie auf dessen [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) zu.
+4. Entfernen Sie den Standardabsatz aus dem Textfeld.
+5. Laden Sie das Aufzählungsbild und fügen Sie es der Bildsammlung der Präsentation als [PPImage](https://reference.aspose.com/slides/python-net/aspose.slides/ppimage/) hinzu.
+6. Erstellen Sie einen [Paragraph](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/) und setzen Sie dessen Text.
+7. Setzen Sie [BulletFormat.type](https://reference.aspose.com/slides/python-net/aspose.slides/bulletformat/type/) auf [BulletType.PICTURE](https://reference.aspose.com/slides/python-net/aspose.slides/bullettype/).
+8. Weisen Sie das Bild über [BulletFormat.picture](https://reference.aspose.com/slides/python-net/aspose.slides/bulletformat/picture/) zu und setzen Sie die Aufzählungszeichenhöhe.
+9. Fügen Sie den Absatz dem Textfeld hinzu.
 10. Speichern Sie die geänderte Präsentation.
 
 Dieses Python‑Beispiel erstellt ein Bild‑Aufzählungszeichen:
@@ -203,13 +203,13 @@ with slides.Presentation() as presentation:
 
 ### **Mehrstufige Liste erstellen**
 
-Setzen Sie [ParagraphFormat.depth](https://reference.aspose.com/slides/de/python-net/aspose.slides/paragraphformat/depth/) um Absätze auf verschiedenen Ebenen einer Liste zu platzieren. Die oberste Ebene hat die Tiefe `0`.
+Setzen Sie [ParagraphFormat.depth](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/depth/) um Absätze auf verschiedenen Ebenen einer Liste zu platzieren. Die oberste Ebene hat eine Tiefe von `0`.
 
-1. Erstellen Sie ein [Presentation](https://reference.aspose.com/slides/de/python-net/aspose.slides/presentation/) und greifen Sie auf eine Folie zu.
-2. Fügen Sie ein [AutoShape](https://reference.aspose.com/slides/de/python-net/aspose.slides/autoshape/) hinzu und entfernen Sie den Standardabsatz aus dessen TextFrame.
+1. Erstellen Sie eine [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) und greifen Sie auf eine Folie zu.
+2. Fügen Sie ein [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) hinzu und leeren Sie den Standardabsatz aus dessen Textfeld.
 3. Erstellen Sie vier Absätze und konfigurieren Sie deren Aufzählungszeichen‑Symbole.
-4. Setzen Sie deren [ParagraphFormat.depth](https://reference.aspose.com/slides/de/python-net/aspose.slides/paragraphformat/depth/)‑Werte auf `0`, `1`, `2` und `3`.
-5. Fügen Sie die Absätze dem TextFrame hinzu und speichern Sie die Präsentation.
+4. Setzen Sie deren [ParagraphFormat.depth](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/depth/)‑Werte auf `0`, `1`, `2` bzw. `3`.
+5. Fügen Sie die Absätze dem Textfeld hinzu und speichern Sie die Präsentation.
 
 Dieses Python‑Beispiel erstellt eine vierstufige Aufzählungsliste:
 
@@ -263,17 +263,17 @@ with slides.Presentation() as presentation:
     presentation.save("multilevel_list.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **Nummerierte Listenelemente bei benutzerdefinierten Werten starten**
+### **Nummerierte Listenelemente mit benutzerdefinierten Werten starten**
 
-Verwenden Sie [BulletFormat.numbered_bullet_start_with](https://reference.aspose.com/slides/de/python-net/aspose.slides/bulletformat/numbered_bullet_start_with/), um die anfängliche Nummer für einen nummerierten Absatz festzulegen.
+Verwenden Sie [BulletFormat.numbered_bullet_start_with](https://reference.aspose.com/slides/python-net/aspose.slides/bulletformat/numbered_bullet_start_with/), um die Anfangszahl für ein nummeriertes Absatz‑Element festzulegen.
 
-1. Erstellen Sie ein [Presentation](https://reference.aspose.com/slides/de/python-net/aspose.slides/presentation/) und fügen Sie einer Folie ein [AutoShape](https://reference.aspose.com/slides/de/python-net/aspose.slides/autoshape/) hinzu.
-2. Entfernen Sie den Standardabsatz aus dem TextFrame der Form.
+1. Erstellen Sie eine [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) und fügen Sie einer Folie ein [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) hinzu.
+2. Entfernen Sie den Standardabsatz aus dem Textfeld der Form.
 3. Erstellen Sie drei nummerierte Absätze.
-4. Setzen Sie [BulletFormat.numbered_bullet_start_with](https://reference.aspose.com/slides/de/python-net/aspose.slides/bulletformat/numbered_bullet_start_with/) für die jeweiligen Absätze auf `2`, `3` bzw. `7`.
-5. Fügen Sie die Absätze dem TextFrame hinzu und speichern Sie die Präsentation.
+4. Setzen Sie [BulletFormat.numbered_bullet_start_with](https://reference.aspose.com/slides/python-net/aspose.slides/bulletformat/numbered_bullet_start_with/) für die jeweiligen Absätze auf `2`, `3` bzw. `7`.
+5. Fügen Sie die Absätze dem Textfeld hinzu und speichern Sie die Präsentation.
 
-Dieses Python‑Beispiel weist jedem Absatz einen eigenen Startwert zu:
+Dieses Python‑Beispiel weist jedem Absatz eine benutzerdefinierte Startzahl zu:
 
 ```python
 import aspose.slides as slides
@@ -309,21 +309,21 @@ with slides.Presentation() as presentation:
 
 ### **Erste‑Zeilen‑Einzug festlegen**
 
-Verwenden Sie die Eigenschaft [ParagraphFormat.indent](https://reference.aspose.com/slides/de/python-net/aspose.slides/paragraphformat/indent/), um den ersten Zeileneinzug eines Absatzes zu steuern. Diese Eigenschaft verschiebt nur die erste Zeile relativ zum linken Rand des Absatzes. Ein positiver Wert verschiebt die erste Zeile nach rechts, während die übrigen Zeilen am Absatzkörper ausgerichtet bleiben.
+Verwenden Sie die Eigenschaft [ParagraphFormat.indent](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/indent/), um den Einzug der ersten Zeile eines Absatzes zu steuern. Diese Eigenschaft verschiebt nur die erste Zeile relativ zum linken Rand des Absatzes. Ein positiver Wert verschiebt die erste Zeile nach rechts, während die übrigen Zeilen am Absatzkörper ausgerichtet bleiben.
 
-Verwenden Sie [ParagraphFormat.margin_left](https://reference.aspose.com/slides/de/python-net/aspose.slides/paragraphformat/margin_left/), wenn Sie den gesamten Absatz verschieben möchten. Verwenden Sie [ParagraphFormat.indent](https://reference.aspose.com/slides/de/python-net/aspose.slides/paragraphformat/indent/), wenn Sie nur die erste Zeile verschieben wollen.
+Verwenden Sie [ParagraphFormat.margin_left](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/margin_left/), wenn Sie den gesamten Absatz verschieben müssen. Verwenden Sie [ParagraphFormat.indent](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/indent/), wenn Sie nur die erste Zeile verschieben möchten.
 
-Das folgende Beispiel erstellt mehrere Absätze und wendet unterschiedliche [ParagraphFormat.indent](https://reference.aspose.com/slides/de/python-net/aspose.slides/paragraphformat/indent/)‑Werte an, um die Auswirkung des ersten Zeileneinzugs zu demonstrieren.
+Das folgende Beispiel erstellt mehrere Absätze und wendet unterschiedliche [ParagraphFormat.indent](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/indent/)‑Werte an, um zu zeigen, wie der Erste‑Zeilen‑Einzug das Absatzlayout beeinflusst.
 
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/de/python-net/aspose.slides/presentation/).
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)‑Klasse.
 2. Greifen Sie auf die Ziel‑Folie zu.
-3. Fügen Sie der Folie ein rechteckiges [AutoShape](https://reference.aspose.com/slides/de/python-net/aspose.slides/autoshape/) hinzu.
-4. Greifen Sie auf das [TextFrame](https://reference.aspose.com/slides/de/python-net/aspose.slides/textframe/) der Form zu und entfernen Sie den Standardabsatz.
-5. Erstellen Sie mehrere Absätze und setzen Sie für jeden unterschiedliche [ParagraphFormat.indent](https://reference.aspose.com/slides/de/python-net/aspose.slides/paragraphformat/indent/)‑Werte.
-6. Fügen Sie die Absätze dem TextFrame hinzu.
+3. Fügen Sie der Folie ein rechteckiges [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) hinzu.
+4. Greifen Sie auf das [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) der Form zu und entfernen Sie den Standardabsatz.
+5. Erstellen Sie mehrere Absätze und setzen Sie unterschiedliche [ParagraphFormat.indent](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/indent/)‑Werte für sie.
+6. Fügen Sie die Absätze dem Textfeld hinzu.
 7. Speichern Sie die geänderte Präsentation.
 
-Dieses Beispiel zeigt, wie ein Absatz‑Einzug gesetzt wird:
+Dieser Code zeigt, wie ein Absatz‑Einzug festgelegt wird:
 
 ```python
 import aspose.pydrawing as draw
@@ -374,22 +374,22 @@ Das Ergebnis:
 
 ### **Hängenden Einzug festlegen**
 
-Ein hängender Einzug ist ein Absatzlayout, bei dem die erste Zeile links von den übrigen Zeilen beginnt. In Aspose.Slides erzeugen Sie diesen Effekt über die Eigenschaft [ParagraphFormat.indent](https://reference.aspose.com/slides/de/python-net/aspose.slides/paragraphformat/indent/). Setzen Sie `indent` auf einen negativen Wert, um die erste Zeile nach links zu verschieben.
+Ein hängender Einzug ist ein Absatzlayout, bei dem die erste Zeile links von den restlichen Zeilen beginnt. In Aspose.Slides erzeugen Sie diesen Effekt mit der Eigenschaft [ParagraphFormat.indent](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/indent/). Setzen Sie `indent` auf einen negativen Wert, um die erste Zeile nach links zu verschieben.
 
-In der Praxis definiert [ParagraphFormat.margin_left](https://reference.aspose.com/slides/de/python-net/aspose.slides/paragraphformat/margin_left/) die linke Position des Absatzkörpers, und [ParagraphFormat.indent](https://reference.aspose.com/slides/de/python-net/aspose.slides/paragraphformat/indent/) definiert die Position der ersten Zeile relativ zu diesem Rand. Um einen hängenden Einzug zu erzeugen, setzen Sie einen positiven `margin_left`‑Wert und einen negativen `indent`‑Wert.
+In der Praxis definiert [ParagraphFormat.margin_left](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/margin_left/) die linke Position des Absatzkörpers, und [ParagraphFormat.indent](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/indent/) definiert die Position der ersten Zeile relativ zu diesem Rand. Um einen hängenden Einzug zu erzeugen, setzen Sie einen positiven `margin_left`‑Wert und einen negativen `indent`‑Wert.
 
-Diese Formatierung ist nützlich für Bibliographien, Referenzen, Glossareinträge und andere Absätze, bei denen umgebrochene Zeilen unter dem Absatzkörper und nicht unter dem ersten Zeichen der ersten Zeile ausgerichtet werden sollen.
+Dieses Format ist nützlich für Literaturverzeichnisse, Verweise, Glossareinträge und andere Absätze, bei denen umgebrochene Zeilen unter dem Absatzkörper ausgerichtet werden sollen und nicht unter dem ersten Zeichen der ersten Zeile.
 
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/de/python-net/aspose.slides/presentation/).
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)‑Klasse.
 2. Greifen Sie auf die Ziel‑Folie zu.
-3. Fügen Sie der Folie ein rechteckiges [AutoShape](https://reference.aspose.com/slides/de/python-net/aspose.slides/autoshape/) hinzu.
-4. Greifen Sie auf das [TextFrame](https://reference.aspose.com/slides/de/python-net/aspose.slides/textframe/) der Form zu und entfernen Sie den Standardabsatz.
-5. Erstellen Sie Absätze und setzen Sie für jeden einen positiven [ParagraphFormat.margin_left](https://reference.aspose.com/slides/de/python-net/aspose.slides/paragraphformat/margin_left/)‑Wert.
-6. Setzen Sie einen negativen [ParagraphFormat.indent](https://reference.aspose.com/slides/de/python-net/aspose.slides/paragraphformat/indent/)‑Wert, um den hängenden Einzug zu erzeugen.
-7. Fügen Sie die Absätze dem TextFrame hinzu.
+3. Fügen Sie der Folie ein rechteckiges [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) hinzu.
+4. Greifen Sie auf das [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) der Form zu und entfernen Sie den Standardabsatz.
+5. Erstellen Sie Absätze und setzen Sie für jeden Absatz einen positiven [ParagraphFormat.margin_left](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/margin_left/)‑Wert.
+6. Setzen Sie einen negativen [ParagraphFormat.indent](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/indent/)‑Wert, um den hängenden Einzug zu erzeugen.
+7. Fügen Sie die Absätze dem Textfeld hinzu.
 8. Speichern Sie die geänderte Präsentation.
 
-Dieses Beispiel zeigt, wie ein hängender Einzug für einen Absatz gesetzt wird:
+Dieser Code zeigt, wie ein hängender Einzug für einen Absatz festgelegt wird:
 
 ```python
 import aspose.pydrawing as draw
@@ -430,16 +430,16 @@ Das Ergebnis:
 
 ![Der hängende Einzug der Absätze](hanging_indent.png)
 
-### **End‑Absatz‑Run‑Eigenschaften festlegen**
+### **End‑Absatz‑Portion‑Eigenschaften festlegen**
 
-Die Eigenschaft [Paragraph.end_paragraph_portion_format](https://reference.aspose.com/slides/de/python-net/aspose.slides/paragraph/end_paragraph_portion_format/) steuert die Formatierung des Absatzendzeichens. Im folgenden Beispiel wird dem Endzeichen des zweiten Absatzes eine Schriftgröße sowie eine lateinische Schriftart zugewiesen:
+Die Eigenschaft [Paragraph.end_paragraph_portion_format](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/end_paragraph_portion_format/) steuert die Formatierung des Absatzende‑Zeichens. Das folgende Beispiel weist dem Endzeichen des zweiten Absatzes eine Schriftgröße und eine lateinische Schriftart zu:
 
-1. Laden Sie ein [Presentation](https://reference.aspose.com/slides/de/python-net/aspose.slides/presentation/) und greifen Sie auf eine Folie zu.
-2. Fügen Sie ein [AutoShape](https://reference.aspose.com/slides/de/python-net/aspose.slides/autoshape/) hinzu und entfernen Sie dessen Standardabsatz.
-3. Erstellen Sie zwei Absätze und fügen Sie Text‑Portions hinzu.
-4. Erzeugen Sie ein [PortionFormat](https://reference.aspose.com/slides/de/python-net/aspose.slides/portionformat/) für das Endzeichen des zweiten Absatzes.
-5. Setzen Sie [PortionFormat.font_height](https://reference.aspose.com/slides/de/python-net/aspose.slides/portionformat/font_height/) und [PortionFormat.latin_font](https://reference.aspose.com/slides/de/python-net/aspose.slides/portionformat/latin_font/).
-6. Weisen Sie das Format [Paragraph.end_paragraph_portion_format](https://reference.aspose.com/slides/de/python-net/aspose.slides/paragraph/end_paragraph_portion_format/) zu und speichern Sie die Präsentation.
+1. Laden Sie eine [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) und greifen Sie auf eine Folie zu.
+2. Fügen Sie ein [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) hinzu und entfernen Sie dessen Standardabsatz.
+3. Erstellen Sie zwei Absätze und fügen Sie ihnen Textportionen hinzu.
+4. Erstellen Sie ein [PortionFormat](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/) für das Endzeichen des zweiten Absatzes.
+5. Setzen Sie [PortionFormat.font_height](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/font_height/) und [PortionFormat.latin_font](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/latin_font/).
+6. Ordnen Sie das Format [Paragraph.end_paragraph_portion_format](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/end_paragraph_portion_format/) zu und speichern Sie die Präsentation.
 
 ```python
 import aspose.slides as slides
@@ -469,13 +469,13 @@ with slides.Presentation("Test.pptx") as presentation:
 
 ## **Gerenderte Zeilen zählen**
 
-Für Absatzregeln, die automatisches Umbrechen und Interpunktion am Zeilenende beeinflussen, siehe [Control Line Breaking](/slides/de/python-net/text-formatting/#control-line-breaking) und [Control Hanging Punctuation](/slides/de/python-net/text-formatting/#control-hanging-punctuation).
+Für Absatzregeln, die automatisches Umbrechen und Satzzeichen am Zeilenende beeinflussen, siehe [Control Line Breaking](/slides/de/python-net/text-formatting/#control-line-breaking) und [Control Hanging Punctuation](/slides/de/python-net/text-formatting/#control-hanging-punctuation).
 
-Verwenden Sie [Paragraph.get_lines_count](https://reference.aspose.com/slides/de/python-net/aspose.slides/paragraph/get_lines_count/), um die nach dem Text‑Layout von einem Absatz belegten Zeilen zu zählen, einschließlich automatischem Umbrechen. Dies ist nützlich, um Textlänge und Layout in Präsentationsvorlagen zu prüfen.
+Verwenden Sie [Paragraph.get_lines_count](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/get_lines_count/), um die nach der Textlayout‑Berechnung von einem Absatz belegten Zeilen zu zählen, einschließlich automatischer Zeilenumbrüche. Dies ist nützlich, wenn die Textlänge und das Layout in Präsentations‑Templates überprüft werden sollen.
 
-Ein Absatz ist ein Element in [TextFrame.paragraphs](https://reference.aspose.com/slides/de/python-net/aspose.slides/textframe/paragraphs/) und kann mehrere gerenderte Zeilen belegen. Ein expliziter Zeilenumbruch innerhalb eines Absatzes erzwingt eine neue Zeile, ohne einen weiteren Absatz zu erzeugen. Automatisches Umbrechen erstellt Zeilen basierend auf der verfügbaren Breite, ohne explizite Zeilenumbruch‑Zeichen in den Text einzufügen. Das Zählen von Absätzen oder Zeilenumbruch‑Zeichen liefert daher nicht die gerenderte Zeilenzahl.
+Ein Absatz ist ein Element in [TextFrame.paragraphs](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/paragraphs/), und er kann mehrere gerenderte Zeilen belegen. Ein expliziter Zeilenumbruch innerhalb eines Absatzes erzwingt eine neue Zeile, ohne einen weiteren Absatz zu erzeugen. Automatisches Umbrechen erzeugt Zeilen basierend auf der verfügbaren Breite, ohne explizite Zeilenumbruch‑Zeichen in den Text einzufügen. Daher liefert das Zählen von Absätzen oder Zeilenumbruch‑Zeichen nicht die gerenderte Zeilenzahl.
 
-Das folgende Beispiel erstellt eine Textform, zählt deren Zeilen, verengt die Form und ersetzt anschließend den Text durch einen kürzeren String. Umbrechen ist aktiviert und Autofit deaktiviert, sodass die Formbreite das Umbrechen steuert, ohne den Text automatisch zu verkleinern oder die Form zu skalieren. Die Formabmessungen werden in Punkten angegeben. Abschließend fügt das Beispiel einen weiteren Absatz hinzu und summiert die Zeilenzahlen über das gesamte TextFrame.
+Das folgende Beispiel erstellt eine Textform, zählt deren Zeilen, verengt die Form und ersetzt anschließend den Text durch eine kürzere Zeichenkette. Umbrechen ist aktiviert und Autofit deaktiviert, sodass die Formbreite das Umbrechen steuert, ohne den Text automatisch zu verkleinern oder die Form zu skalieren. Formabmessungen sind in Punkten angegeben. Abschließend fügt das Beispiel einen weiteren Absatz hinzu und summiert die Zeilenzahlen über das Textfeld hinweg.
 
 ```python
 import aspose.slides as slides
@@ -510,24 +510,24 @@ with slides.Presentation() as presentation:
     print(f"Total lines in the text frame: {total_line_count}")
 ```
 
-Mit diesem Text und diesen Abmessungen erhöht das Verengen der Form die Zeilenzahl, während das Ersetzen des Textes durch den kurzen String sie reduziert. Exakte Zahlen können je nach Schriftverfügbarkeit, -substitution, Schriftgröße, Rändern, Einzügen, Umbrechen und Autofit‑Einstellungen variieren. Verwenden Sie die für die Zielumgebung vorgesehenen Schriften und Layout‑Einstellungen, wenn Sie eine Vorlage prüfen.
+Bei diesem Text und diesen Abmessungen erhöht das Verengen der Form die Zeilenzahl, während das Ersetzen des Textes durch die kurze Zeichenkette sie reduziert. Exakte Zahlen können je nach Schriftartverfügbarkeit und -ersetzung, Schriftgröße, Rand, Einzügen, Umbrechen und Autofit‑Einstellungen variieren. Verwenden Sie die für die Zielumgebung vorgesehenen Schriften und Layout‑Einstellungen, wenn Sie ein Template prüfen.
 
-Die Zeilenzahl allein bestimmt nicht, ob Text aus seinem Container herausfließt. Die verfügbare Höhe, Zeilenhöhen, Absatz‑ und Zeilenabstände sowie das Autofit‑Verhalten spielen ebenfalls eine Rolle; selbst eine einzelne Zeile kann die verfügbare Breite überschreiten, wenn das Umbrechen deaktiviert ist.
+Die Zeilenzahl allein bestimmt nicht, ob Text seinen Container überläuft. Auch die verfügbare Höhe, Zeilenhöhen, Absatz‑ und Zeilenabstände sowie das Autofit‑Verhalten spielen eine Rolle; selbst eine einzelne Zeile kann die verfügbare Breite überschreiten, wenn Umbrechen deaktiviert ist.
 
 ## **Absatzinhalt importieren und exportieren**
 
 ### **HTML‑Text in Absätze importieren**
 
-Verwenden Sie [ParagraphCollection.add_from_html](https://reference.aspose.com/slides/de/python-net/aspose.slides/paragraphcollection/add_from_html/), um HTML‑Markup in Absätze und Portionen eines TextFrames zu konvertieren.
+Verwenden Sie [ParagraphCollection.add_from_html](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphcollection/add_from_html/), um HTML‑Markup in Absätze und Portionen eines Textfeldes zu konvertieren.
 
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/de/python-net/aspose.slides/presentation/).
-2. Greifen Sie auf eine Folie zu und fügen Sie ein [AutoShape](https://reference.aspose.com/slides/de/python-net/aspose.slides/autoshape/) hinzu.
-3. Greifen Sie auf das [TextFrame](https://reference.aspose.com/slides/de/python-net/aspose.slides/textframe/) der Form zu und entfernen Sie den Standardabsatz.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)‑Klasse.
+2. Greifen Sie auf eine Folie zu und fügen Sie ein [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) hinzu.
+3. Greifen Sie auf das [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) der Form zu und leeren Sie dessen Standardabsatz.
 4. Lesen Sie die Quell‑HTML‑Datei.
-5. Übergeben Sie den HTML‑String an [ParagraphCollection.add_from_html](https://reference.aspose.com/slides/de/python-net/aspose.slides/paragraphcollection/add_from_html/).
+5. Übergeben Sie den HTML‑String an [ParagraphCollection.add_from_html](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphcollection/add_from_html/).
 6. Speichern Sie die geänderte Präsentation.
 
-Dieses Python‑Beispiel importiert HTML in ein TextFrame:
+Dieses Python‑Beispiel importiert HTML in ein Textfeld:
 
 ```python
 import aspose.slides as slides
@@ -547,17 +547,17 @@ with slides.Presentation() as presentation:
     presentation.save("html_text.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **Absatztext nach HTML exportieren**
+### **Absatz‑Text nach HTML exportieren**
 
-Verwenden Sie [ParagraphCollection.export_to_html](https://reference.aspose.com/slides/de/python-net/aspose.slides/paragraphcollection/export_to_html/), um einen ausgewählten Bereich von Absätzen als HTML zu exportieren.
+Verwenden Sie [ParagraphCollection.export_to_html](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphcollection/export_to_html/), um einen ausgewählten Absatzbereich als HTML zu exportieren.
 
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/de/python-net/aspose.slides/presentation/) und laden Sie die gewünschte Präsentation.
-2. Greifen Sie auf die Folie zu und finden Sie das [AutoShape](https://reference.aspose.com/slides/de/python-net/aspose.slides/autoshape/), das den Text enthält.
-3. Greifen Sie auf das [TextFrame](https://reference.aspose.com/slides/de/python-net/aspose.slides/textframe/) der Form zu.
-4. Rufen Sie [ParagraphCollection.export_to_html](https://reference.aspose.com/slides/de/python-net/aspose.slides/paragraphcollection/export_to_html/) mit dem Start‑Absatz‑Index und der Anzahl zu exportierender Absätze auf.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)‑Klasse und laden Sie die gewünschte Präsentation.
+2. Greifen Sie auf die Folie zu und finden Sie das [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/), das den Text enthält.
+3. Greifen Sie auf das [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) der Form zu.
+4. Rufen Sie [ParagraphCollection.export_to_html](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphcollection/export_to_html/) mit dem Start‑Absatz‑Index und der Anzahl der zu exportierenden Absätze auf.
 5. Schreiben Sie den zurückgegebenen HTML‑String in eine Datei.
 
-Dieses Python‑Beispiel exportiert alle Absätze aus dem ersten TextShape:
+Dieses Python‑Beispiel exportiert alle Absätze aus der ersten Textform:
 
 ```python
 import aspose.slides as slides
@@ -576,17 +576,17 @@ with slides.Presentation("ExportingHTMLText.pptx") as presentation:
 
 ### **Einen Absatz als Bild rendern**
 
-[Paragraph](https://reference.aspose.com/slides/de/python-net/aspose.slides/paragraph/) bietet die Methode `get_image` zum direkten Rendern eines einzelnen Absatzes. Die Methode gibt ein [IImage](https://reference.aspose.com/slides/de/python-net/aspose.slides/iimage/) zurück, das Sie mit [IImage.save](https://reference.aspose.com/slides/de/python-net/aspose.slides/iimage/save/) in einer Datei oder einem Stream speichern können. Sie müssen nicht die enthaltende Form rendern oder ein Bitmap manuell zuschneiden.
+[Paragraph](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/) stellt die Methode `get_image` zum direkten Rendern eines einzelnen Absatzes bereit. Die Methode gibt ein [IImage](https://reference.aspose.com/slides/python-net/aspose.slides/iimage/) zurück, das Sie mit [IImage.save](https://reference.aspose.com/slides/python-net/aspose.slides/iimage/save/) in einer Datei oder einem Stream speichern können. Sie müssen nicht die enthaltende Form rendern oder ein Bitmap manuell zuschneiden.
 
-Die Methode `get_image` kann `None` zurückgeben, wenn der Absatz nicht in seiner übergeordneten Sammlung gefunden wird, keine gültigen Render‑Grenzen hat oder nicht gerendert werden kann. Prüfen Sie das Ergebnis, bevor Sie es speichern, und verwenden Sie das zurückgegebene Bild als Kontext‑Manager, um Ressourcen freizugeben.
+Die Methode `get_image` kann `None` zurückgeben, wenn der Absatz nicht in seiner übergeordneten Sammlung gefunden wird, keine gültigen Render‑Grenzen hat oder nicht renderbar ist. Prüfen Sie das Ergebnis, bevor Sie es speichern, und verwenden Sie das zurückgegebene Bild als Kontext‑Manager, um dessen Ressourcen freizugeben.
 
-#### **Absatz im Standardskala rendern**
+#### **Absatz in Standard‑Skalierung rendern**
 
-Angenommen, wir haben eine Präsentationsdatei namens sample.pptx mit einer Folie, wobei die erste Form ein Textfeld mit drei Absätzen ist.
+Angenommen, wir haben eine Präsentationsdatei namens *sample.pptx* mit einer Folie, wobei die erste Form ein Textfeld mit drei Absätzen ist.
 
 ![Das Textfeld mit drei Absätzen](paragraph_to_image_input.png)
 
-Das folgende Beispiel rendert den zweiten Absatz in einer regulären Textform im Standardskala und speichert das zurückgegebene Bild im PNG‑Format:
+Das folgende Beispiel rendert den zweiten Absatz in einer normalen Textform in Standard‑Skalierung und speichert das zurückgegebene Bild im PNG‑Format:
 
 ```python
 import aspose.slides as slides
@@ -609,11 +609,11 @@ with slides.Presentation("sample.pptx") as presentation:
 
 Das Ergebnis:
 
-![Das Absatzbild](paragraph_to_image_output.png)
+![Das Absatz‑Bild](paragraph_to_image_output.png)
 
 #### **Absatz in einer Tabellenzelle mit Skalierung rendern**
 
-Übergeben Sie horizontale und vertikale Skalierungsfaktoren an `get_image`, um die Größe des gerenderten Absatzes zu steuern. Das folgende Beispiel erstellt eine Tabelle, rendert den Absatz in ihrer ersten Zelle bei doppelter Breite und Höhe und speichert das Ergebnis als PNG‑Bild:
+Geben Sie horizontale und vertikale Skalierungsfaktoren an `get_image` weiter, um die Größe des gerenderten Absatzes zu steuern. Das folgende Beispiel erstellt eine Tabelle, rendert den Absatz in der ersten Zelle bei doppelter Standardbreite und -höhe und speichert das Ergebnis als PNG‑Bild:
 
 ```python
 import aspose.slides as slides
@@ -635,24 +635,26 @@ with slides.Presentation() as presentation:
         print("The paragraph could not be rendered.")
 ```
 
-Ein Skalierungsfaktor von `1` behält die Standard‑Pixelgröße entlang dieser Achse bei. Beispielsweise erzeugt `2` für beide Faktoren ein Bild, dessen Breite und Höhe etwa doppelt so groß sind wie die Standardmaße, was zu viermal so vielen Pixeln führt. Größere Faktoren erzeugen im Allgemeinen schärferen Text für Zoom‑ oder Hochauflösungs‑Ausgaben, erhöhen jedoch Speicher‑ und Dateigröße. Faktoren unter `1` erzeugen kleinere Bilder mit weniger Details. Verwenden Sie gleiche Faktoren, um das Seitenverhältnis des Absatzes zu erhalten; unterschiedliche horizontale und vertikale Faktoren dehnen die Ausgabe unabhängig voneinander.
+Ein Skalierungsfaktor von `1` behält die Standard‑Pixelgröße bei. Beispielsweise erzeugt `2` für beide Faktoren ein Bild, dessen Breite und Höhe etwa das Doppelte der Standardabmessungen betragen, was zu viermal so vielen Pixeln führt. Größere Faktoren erzeugen im Allgemeinen schärferen Text für Zoom‑ oder hochauflösende Ausgaben, erhöhen jedoch Speicherverbrauch und Dateigröße. Faktoren unter `1` erzeugen kleinere Bilder mit weniger Details. Verwenden Sie gleiche Faktoren, um das Seitenverhältnis des Absatzes zu erhalten; unterschiedliche horizontale und vertikale Faktoren strecken die Ausgabe jeweils separat.
 
-Das Rendern einer gesamten Form mit [Shape.get_image](https://reference.aspose.com/slides/de/python-net/aspose.slides/shape/get_image/) bleibt nützlich, wenn das Ergebnis die Füllung, den Rand oder anderen visuellen Kontext der Form enthalten muss. Für ein reines Absatz‑Bild verwenden Sie `Paragraph.get_image`.
+Das Rendern einer gesamten Form mit [Shape.get_image](https://reference.aspose.com/slides/python-net/aspose.slides/shape/get_image/) bleibt nützlich, wenn die Ausgabe die Füllung, den Rand oder andere visuelle Kontextinformationen der Form enthalten soll. Für ein Bild, das nur den Absatz enthält, verwenden Sie `Paragraph.get_image`.
 
 ## **FAQ**
 
-**Kann ich das Zeilen‑Umbrechen in einem TextFrame vollständig deaktivieren?**
+**Kann ich das Zeilen‑Umbrechen in einem Textfeld vollständig deaktivieren?**
 
-Ja. Setzen Sie [TextFrameFormat.wrap_text](https://reference.aspose.com/slides/de/python-net/aspose.slides/textframeformat/wrap_text/) auf, um das Umbrechen zu deaktivieren, sodass Zeilen nicht an den Rändern des TextFrames umbrochen werden.
+Ja. Setzen Sie [TextFrameFormat.wrap_text](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/wrap_text/) auf *false*, um das Umbrechen zu deaktivieren, sodass Zeilen nicht an den Rändern des Textfeldes umbrechen.
 
 **Wie erhalte ich die genauen On‑Slide‑Grenzen eines bestimmten Absatzes?**
 
-Verwenden Sie [Paragraph.get_rect](https://reference.aspose.com/slides/de/python-net/aspose.slides/paragraph/get_rect/), um das Begrenzungsrechteck des Absatzes abzurufen. [Portion.get_rect](https://reference.aspose.com/slides/de/python-net/aspose.slides/portion/get_rect/) liefert die Grenzen einer einzelnen Portion.
+Verwenden Sie [Paragraph.get_rect](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/get_rect/), um das Begrenzungsrechteck des Absatzes zu erhalten. [Portion.get_rect](https://reference.aspose.com/slides/python-net/aspose.slides/portion/get_rect/) liefert die Grenzen einer einzelnen Portion.
 
-**Wo wird die Absatz­ausrichtung (links, rechts, zentriert oder Blocksatz) gesteuert?**
+**Wo wird die Absatz‑Ausrichtung (links, rechts, zentriert oder Block‑satz) gesteuert?**
 
-[ParagraphFormat.alignment](https://reference.aspose.com/slides/de/python-net/aspose.slides/paragraphformat/alignment/) ist eine Absatz‑Ebene‑Einstellung und gilt für den gesamten Absatz, unabhängig von der Formatierung einzelner Portionen.
+[ParagraphFormat.alignment](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/alignment/) ist eine Absatzeinstellung und gilt für den gesamten Absatz, unabhängig von einzelner Portion‑Formatierung.
 
-**Kann ich die Korrektursprache für einen Teil eines Absatzes festlegen?**
+Um Portionen unterschiedlicher Schriftgrößen innerhalb jeder Zeile vertikal auszurichten, siehe [Align Fonts Within a Line](/slides/de/python-net/text-formatting/#align-fonts-within-a-line).
 
-Ja. Setzen Sie [PortionFormat.language_id](https://reference.aspose.com/slides/de/python-net/aspose.slides/portionformat/language_id/) für einzelne Portionen, sodass ein Absatz Text in mehreren Sprachen enthalten kann.
+**Kann ich die Rechtschreib‑Sprache für einen Teil eines Absatzes festlegen?**
+
+Ja. Setzen Sie [PortionFormat.language_id](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/language_id/) für einzelne Portionen, sodass ein Absatz Text in mehreren Sprachen enthalten kann.

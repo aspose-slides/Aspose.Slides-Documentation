@@ -1,5 +1,5 @@
 ---
-title: Python'da Sunum Metnini Biçimlendir
+title: Python ile Sunum Metnini Biçimlendirme
 linktitle: Metin Biçimlendirme
 type: docs
 weight: 50
@@ -12,36 +12,36 @@ keywords:
 - karakter aralığı
 - yazı tipi özellikleri
 - yazı tipi ailesi
-- metin döndürmesi
+- metin döndürme
 - döndürme açısı
 - metin çerçevesi
 - satır aralığı
 - otomatik sığdırma özelliği
-- metin çerçevesi sabitleme noktası
-- metin sekmeleri
+- metin çerçevesi çapası
+- metin sekleme
 - varsayılan dil
 - PowerPoint
 - OpenDocument
 - sunum
 - Python
 - Aspose.Slides
-description: "Aspose.Slides for Python via .NET kullanarak PowerPoint ve OpenDocument sunumlarındaki metni biçimlendirin ve stil verin. Yazı tiplerini, renkleri, hizalamayı ve daha fazlasını özelleştirin."
+description: "PowerPoint ve OpenDocument sunumlarında Aspose.Slides for Python via .NET kullanarak metni biçimlendirin ve stil verin. Yazı tiplerini, renkleri, hizalamayı ve daha fazlasını özelleştirin."
 ---
 ## **Genel Bakış**
 
-Bu makale, Aspose.Slides for Python via .NET kullanarak PowerPoint ve OpenDocument sunumlarında metni nasıl biçimlendireceğinizi gösterir. Arka plan renkleri, şeffaflık, karakter aralığı, yazı tipi özellikleri, döndürme, paragraf aralığı, otomatik sığdırma davranışı, metin sabitleme, sek durakları ve dil ayarlarını kapsar.
+Bu makale, Aspose.Slides for Python via .NET kullanarak PowerPoint ve OpenDocument sunumlarında metni nasıl biçimlendireceğinizi gösterir. Arka plan renkleri, saydamlık, karakter aralığı, yazı tipi özellikleri, döndürme, paragraf aralığı, otomatik sığdırma davranışı, metin yerleştirme, sek durakları ve dil ayarları gibi konuları kapsar.
 
-Aksi belirtilmedikçe, örnekler [sample.pptx](sample.pptx) dosyasını kullanır. İlk slaytındaki ilk şekil bir metin kutusudur ve ilk paragrafı aşağıda gösterilen metni içerir. Slayt ve şekil indeksleri sıfır tabanlıdır. Kalın bölümleri seçen örnekler, kalıtılan kalın biçimlendirme dahil, etkili biçimlendirme kullanır:
+Aksi belirtilmedikçe, örnekler [sample.pptx](sample.pptx) dosyasını kullanır. İlk slaydının ilk şekli bir metin kutusudur ve ilk paragrafı aşağıda gösterilen metni içerir. Slayt ve şekil indeksleri sıfır-tabanlıdır. Kalın bölümleri seçen örnekler, kalıtılan kalın biçimlendirme dahil olmak üzere etkili biçimlendirmeyi kullanır:
 
 ![Örnek metin](sample_text.png)
 
-Metin arama ve değiştirme örneklerini görmek için [Metin Arama ve Değiştirme](/slides/tr/python-net/search-and-replace-text/) sayfasına bakın.
+Metin ve düzenli ifade eşleşmelerini bulmak ve vurgulamak için, [Metin Arama ve Değiştirme](/slides/tr/python-net/search-and-replace-text/) sayfasına bakın.
 
 ## **Metin Arka Plan Rengini Ayarla**
 
-Bir paragraf için varsayılan vurgulama rengini ayarlamak için [ParagraphFormat.default_portion_format](https://reference.aspose.com/slides/tr/python-net/aspose.slides/paragraphformat/default_portion_format/) kullanın veya bireysel metin bölümleri için [BasePortionFormat.highlight_color](https://reference.aspose.com/slides/tr/python-net/aspose.slides/baseportionformat/highlight_color/) kullanın.
+Bir paragraf için varsayılan vurgulama rengini ayarlamak için [ParagraphFormat.default_portion_format](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/default_portion_format/) kullanın, ya da tek tek metin bölümleri için [BasePortionFormat.highlight_color](https://reference.aspose.com/slides/python-net/aspose.slides/baseportionformat/highlight_color/) kullanın.
 
-Aşağıdaki örnek, ilk paragraf için varsayılan olarak açık gri bir vurgulama ayarlar. Bireysel bölümlerdeki açık vurgulama renkleri bu varsayılanın üzerine yazar:
+Aşağıdaki örnek, ilk paragraf için varsayılan olarak açık gri bir vurgulama ayarlar. Tek tek bölümlerde belirtilen vurgulama renkleri bu varsayılanın üzerine geçer:
 
 ```python
 import aspose.pydrawing as draw
@@ -53,7 +53,7 @@ with slides.Presentation("sample.pptx") as presentation:
     auto_shape = slide.shapes[0]
     paragraph = auto_shape.text_frame.paragraphs[0]
 
-    # Paragrafın tamamı için vurgulama rengini ayarla.
+    # Tüm paragraf için vurgulama rengini ayarla.
     paragraph.paragraph_format.default_portion_format.highlight_color.color = draw.Color.light_gray
 
     presentation.save("gray_paragraph.pptx", slides.export.SaveFormat.PPTX)
@@ -63,7 +63,7 @@ Sonuç:
 
 ![Gri paragraf](gray_paragraph.png)
 
-Aşağıdaki kod örneği, **kalın bir yazı tipine sahip metin bölümleri** için arka plan rengini nasıl ayarlayacağını gösterir:
+Aşağıdaki kod örneği, **kalın yazı tipine sahip metin bölümleri** için arka plan rengini nasıl ayarlayacağını gösterir:
 
 ```python
 import aspose.pydrawing as draw
@@ -77,7 +77,7 @@ with slides.Presentation("sample.pptx") as presentation:
 
     for portion in paragraph.portions:
         if portion.portion_format.get_effective().font_bold:
-            # Metin bölümünün vurgulama rengini ayarla.
+            # Metin bölümü için vurgulama rengini ayarla.
             portion.portion_format.highlight_color.color = draw.Color.light_gray
 
     presentation.save("gray_text_portions.pptx", slides.export.SaveFormat.PPTX)
@@ -89,9 +89,9 @@ Sonuç:
 
 ## **Metin Paragraflarını Hizala**
 
-Bir metin çerçevesi içinde paragraf hizalamasını ayarlamak için [ParagraphFormat.alignment](https://reference.aspose.com/slides/tr/python-net/aspose.slides/paragraphformat/alignment/) kullanın. Değerler ortalanmış, sola hizalı, sağa hizalı, iki yana yaslanmış vb. olabilir.
+[ParagraphFormat.alignment](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/alignment/) kullanarak bir metin çerçevesindeki paragraf hizalamasını ayarlayın. Değerler ortalanmış, sola hizalı, sağa hizalı, iki yana yaslanmış vb. olabilir.
 
-Aşağıdaki kod örneği, paragrafı **ortaya** hizalamayı gösterir:
+Aşağıdaki kod örneği paragrafı **ortaya** hizalamayı gösterir:
 
 ```python
 import aspose.slides as slides
@@ -112,11 +112,70 @@ Sonuç:
 
 ![Hizalanmış paragraf](aligned_paragraph.png)
 
+## **Satır İçinde Yazı Tiplerini Hizala**
+
+[ParagraphFormat.font_alignment](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/font_alignment/) kullanarak aynı satırda farklı yazı tipi boyutlarına sahip metin bölümlerini dikey olarak hizalayabilirsiniz. Bu ayar bütün paragrafı etkiler ve satırlarının içindeki hizalamayı kontrol eder.
+
+Aşağıdaki bağımsız örnek, tek bir slaytta dört etiketli metin kutusu oluşturur. Her paragraf, 18, 36 ve 54 punto aynı metni, farklı bir yazı tipi hizalamasıyla içerir. Arial kullanır, otomatik sığdırma ve kaydırmayı devre dışı bırakır ve metin çerçevelerini tek satır için yeterince büyük tutar.
+
+```python
+import aspose.pydrawing as draw
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    alignments = [slides.FontAlignment.BASELINE, slides.FontAlignment.TOP, slides.FontAlignment.CENTER, slides.FontAlignment.BOTTOM]
+    font_sizes = [18, 36, 54]
+
+    for i, alignment in enumerate(alignments):
+        shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 30, 20 + i * 130, 660, 120)
+        shape.fill_format.fill_type = slides.FillType.NO_FILL
+        shape.line_format.fill_format.fill_type = slides.FillType.NO_FILL
+
+        text_frame = shape.text_frame
+        text_frame.text_frame_format.anchoring_type = slides.TextAnchorType.TOP
+        text_frame.text_frame_format.autofit_type = slides.TextAutofitType.NONE
+        text_frame.text_frame_format.wrap_text = slides.NullableBool.FALSE
+
+        label = text_frame.paragraphs[0]
+        label.text = alignment.name.title()
+        label.paragraph_format.alignment = slides.TextAlignment.LEFT
+        label.paragraph_format.default_portion_format.font_height = 14
+        label.paragraph_format.default_portion_format.latin_font = slides.FontData("Arial")
+        label.paragraph_format.default_portion_format.fill_format.fill_type = slides.FillType.SOLID
+        label.paragraph_format.default_portion_format.fill_format.solid_fill_color.color = draw.Color.gray
+
+        paragraph = slides.Paragraph()
+        paragraph.paragraph_format.font_alignment = alignment
+        paragraph.paragraph_format.alignment = slides.TextAlignment.LEFT
+        paragraph.paragraph_format.default_portion_format.latin_font = slides.FontData("Arial")
+        paragraph.paragraph_format.default_portion_format.fill_format.fill_type = slides.FillType.SOLID
+        paragraph.paragraph_format.default_portion_format.fill_format.solid_fill_color.color = draw.Color.black
+
+        for font_size in font_sizes:
+            portion = slides.Portion("Ag ")
+            portion.portion_format.font_height = font_size
+            paragraph.portions.add(portion)
+
+        text_frame.paragraphs.add(paragraph)
+
+    presentation.save("font_alignment.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Sonuç:
+
+![Alt Çizgi, Üst, Orta ve Alt hizalamaların karışık yazı tipi boyutlarıyla karşılaştırması](font_alignment.png)
+
+Yazı tipi hizalaması yazı tipi metriklerine dayandığından, bireysel harflerin görünen kenarları mutlaka tam hizalanmaz. Örnek, bir büyük harf ve bir alt karakter içerir; bu, alt çizgi ve alt hizalama arasındaki farkı göstermeye yardımcı olur. Yazı tipi bulunabilirliği ve ikamesi, kullanılan karakterler ve yazı tipi boyutlarındaki fark sonuçları etkiler. Çerçeve boyutları, kenar boşlukları, satır aralığı, kaydırma ve otomatik sığdırma da düzeni etkiler; modları karşılaştırırken aynı yazı tiplerini ve düzen ayarlarını kullanın.
+
+Bu ayar, yatay paragraf hizalamasını kontrol eden [ParagraphFormat.alignment](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/alignment/), ve şekil içinde metin bloğunu dikey konumlandıran [TextFrameFormat.anchoring_type](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/anchoring_type/) ayarlarından farklıdır. [BasePortionFormat.escapement](https://reference.aspose.com/slides/python-net/aspose.slides/baseportionformat/escapement/) aracılığıyla üst ve alt simge biçimlendirmesi, paragraf satırlarının yazı tipi hizalamasını ayarlamak yerine, bireysel bölümleri alt çizgiye göre kaydırır.
+
 ## **Metin İçin Şeffaflığı Ayarla**
 
-Metin şeffaflığı, [BasePortionFormat.fill_format](https://reference.aspose.com/slides/tr/python-net/aspose.slides/baseportionformat/fill_format/) üzerinden atanan rengin alfa bileşeniyle kontrol edilir. Aşağıdaki örneklerde `alpha = 50` 0–255 ölçeğinde bir ARGB alfa kanalı değeridir, yüzde olarak şeffaflık değildir.
+Metin şeffaflığı, [BasePortionFormat.fill_format](https://reference.aspose.com/slides/python-net/aspose.slides/baseportionformat/fill_format/)’a atanan rengin alfa bileşeni üzerinden kontrol edilir. Aşağıdaki örneklerde `alpha = 50`, %0‑255 ölçeğinde bir ARGB alfa kanalı değeridir, şeffaflık yüzdesi değildir.
 
-Aşağıdaki kod örneği, **tüm paragraf** için şeffaflık uygulamayı gösterir:
+Aşağıdaki kod örneği, **tüm paragraf** için şeffaflığın nasıl uygulanacağını gösterir:
 
 ```python
 import aspose.pydrawing as draw
@@ -141,7 +200,7 @@ Sonuç:
 
 ![Şeffaf paragraf](transparent_paragraph.png)
 
-Aşağıdaki kod örneği, **kalın bir yazı tipine sahip metin bölümleri** için şeffaflık uygulamayı gösterir:
+Aşağıdaki kod örneği, **kalın yazı tipine sahip metin bölümleri** için şeffaflığın nasıl uygulanacağını gösterir:
 
 ```python
 import aspose.pydrawing as draw
@@ -170,9 +229,9 @@ Sonuç:
 
 ## **Metin İçin Karakter Aralığını Ayarla**
 
-Karakterler arasındaki boşluğu genişletmek veya sıkıştırmak için [BasePortionFormat.spacing](https://reference.aspose.com/slides/tr/python-net/aspose.slides/baseportionformat/spacing/) kullanın. Örnekler 3 puan boşluk ekler; negatif değerler metni sıkıştırır.
+[BasePortionFormat.spacing](https://reference.aspose.com/slides/python-net/aspose.slides/baseportionformat/spacing/) kullanarak bir metin kutusundaki karakterler arasındaki boşluğu artırabilir veya azaltabilirsiniz. Örneklerde 3 puan eklenir; negatif değerler metni sıkıştırır.
 
-Aşağıdaki Python kodu, **tüm paragraf** içinde karakter aralığını nasıl genişleteceğini gösterir:
+Aşağıdaki Python kodu, **tüm paragrafta** karakter aralığını nasıl genişleteceğinizi gösterir:
 
 ```python
 import aspose.slides as slides
@@ -193,7 +252,7 @@ Sonuç:
 
 ![Paragraftaki karakter aralığı](character_spacing_in_paragraph.png)
 
-Aşağıdaki kod örneği, **kalın bir yazı tipine sahip metin bölümleri** içinde karakter aralığını nasıl genişleteceğini gösterir:
+Aşağıdaki kod örneği, **kalın yazı tipine sahip metin bölümlerinde** karakter aralığını nasıl artıracağınızı gösterir:
 
 ```python
 import aspose.slides as slides
@@ -218,9 +277,9 @@ Sonuç:
 
 ### **Belirli Yazı Tipleri İçin Kerning'i Devre Dışı Bırak**
 
-Bazı durumlarda, Aspose.Slides tarafından oluşturulan metin, PowerPoint'te gösterilen aynı metinden biraz daha sıkı görünebilir. Bu, PowerPoint'in bazı yazı tipleri için kerning verilerini görmezden gelmesinden kaynaklanabilir; hatta yazı tipi geçerli kerning bilgisine sahipse ve PowerPoint ayarlarında kerning etkin olsa bile.
+Bazı durumlarda, Aspose.Slides tarafından işlenen metin, PowerPoint'te görüntülenen aynı metinden biraz daha sıkı görünebilir. Bu, PowerPoint'in bazı yazı tipleri için kerning verilerini görmezden gelmesi nedeniyle olabilir; yazı tipinde geçerli kerning bilgisi bulunup PowerPoint ayarlarında kerning etkin olsa bile.
 
-Bu durumlarda çıktıyı PowerPoint'e daha yakın hale getirmek için, etkilenen yazı tipini kullanan metin bölümleri için kerning'i devre dışı bırakabilirsiniz. [BasePortionFormat.kerning_minimal_size](https://reference.aspose.com/slides/tr/python-net/aspose.slides/baseportionformat/kerning_minimal_size/) değerini gerçek yazı tipi boyutundan büyük bir değerle ayarlayın. Bu örnek, ilk slayttaki ilk şekil olarak bir metin kutusu içeren \"presentation.pptx\" gerektirir. Etkili yazı tipi adlarını, kalıtılan yazı tipleri dahil, kontrol eder ve Roboto kullanan bölümler için 100 puan eşik değeri ayarlar. Bu, 100 puanın altındaki yazı boyutuna sahip eşleşen bölümler için kerning'i devre dışı bırakır:
+Böyle durumlarda işlenen çıktıyı PowerPoint'e yakınlaştırmak için, etkilenen yazı tipini kullanan metin bölümleri için kerning'i devre dışı bırakabilirsiniz. [BasePortionFormat.kerning_minimal_size](https://reference.aspose.com/slides/python-net/aspose.slides/baseportionformat/kerning_minimal_size/) ayarını gerçek yazı tipi boyutundan daha büyük bir değere ayarlayın. Bu örnek, ilk slaydın ilk şekli olarak bir metin kutusu içeren "presentation.pptx" dosyasını gerektirir. Etkili (kalıtılan) yazı tipi adlarını kontrol eder ve Roboto kullanan bölümler için 100 puanlık bir eşik belirler. Bu, 100 puandan küçük yazı tipi boyutuna sahip eşleşen bölümler için kerning'i devre dışı bırakır:
 
 ```python
 import aspose.slides as slides
@@ -243,13 +302,13 @@ with slides.Presentation("presentation.pptx") as presentation:
     presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Bu eşik altındaki eşleşen metinler için ayar, kerning'i önler ve bu PowerPoint'e özgü davranıştan etkilenen yazı tipleri için Aspose.Slides Rendering'i PowerPoint'in görsel çıktısıyla hizalamaya yardımcı olabilir.
+Eşik altındaki eşleşen metinler için bu ayar kerning'i önler ve bu PowerPoint'e özgü davranıştan etkilenen yazı tiplerinin Aspose.Slides render'ının PowerPoint’in görsel çıktısına daha yakın olmasını sağlayabilir.
 
 ## **Metin Yazı Tipi Özelliklerini Yönet**
 
-Yazı tipi özellikleri, [ParagraphFormat.default_portion_format](https://reference.aspose.com/slides/tr/python-net/aspose.slides/paragraphformat/default_portion_format/) aracılığıyla paragraf seviyesinde veya bireysel bölümlerde [PortionFormat](https://reference.aspose.com/slides/tr/python-net/aspose.slides/portionformat/) aracılığıyla ayarlanabilir.
+Yazı tipi özellikleri, paragraf seviyesinde [ParagraphFormat.default_portion_format](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/default_portion_format/) aracılığıyla ya da tek tek bölümler için [PortionFormat](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/) kullanılarak ayarlanabilir.
 
-Aşağıdaki örnek, ilk paragrafın varsayılan yazı tipini 12 puan Times New Roman, kalın, italik ve noktalı alt çizgi biçimlendirmesiyle ayarlar. Bireysel bölümlerdeki açık biçimlendirme bu varsayılanların üzerine yazar:
+Aşağıdaki örnek, ilk paragrafın varsayılan yazı tipini 12 punto Times New Roman olarak, kalın, italik ve noktalı alt çizgi formatıyla ayarlar. Tek tek bölümlerde belirtilen açık biçimlendirme bu varsayılanların üzerine yazar:
 
 ```python
 import aspose.slides as slides
@@ -275,7 +334,7 @@ Sonuç:
 
 ![Paragraf için yazı tipi özellikleri](font_properties_for_paragraph.png)
 
-Aşağıdaki örnek, etkili biçimlendirmesi kalın olan bölümlere 13 puan Times New Roman, italik biçimlendirme ve noktalı alt çizgi uygular:
+Aşağıdaki örnek, etkili biçimlendirmesi kalın olan bölümlere 13 punto Times New Roman, italik format ve noktalı alt çizgi uygular:
 
 ```python
 import aspose.slides as slides
@@ -303,9 +362,9 @@ Sonuç:
 
 ## **Metin Döndürmesini Ayarla**
 
-Metin yönelimini şekil içinde önceden tanımlı bir konuma ayarlamak için [TextFrameFormat.text_vertical_type](https://reference.aspose.com/slides/tr/python-net/aspose.slides/textframeformat/text_vertical_type/) kullanın.
+Bir şekil içinde önceden tanımlı metin yönünü ayarlamak için [TextFrameFormat.text_vertical_type](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/text_vertical_type/) kullanın.
 
-Aşağıdaki kod örneği, şekildeki metin yönelimini [TextVerticalType.VERTICAL270](https://reference.aspose.com/slides/tr/python-net/aspose.slides/textverticaltype/) olarak ayarlar; bu, metni **90 derece saat yönünün tersine** döndürür:
+Aşağıdaki kod örneği, şeklin içinde metin yönünü [TextVerticalType.VERTICAL270](https://reference.aspose.com/slides/python-net/aspose.slides/textverticaltype/) olarak ayarlar; bu, metni **90 derece saat yönünün tersine** döndürür:
 
 ```python
 import aspose.slides as slides
@@ -326,9 +385,9 @@ Sonuç:
 
 ## **Metin Çerçeveleri İçin Özel Döndürmeyi Ayarla**
 
-[TextFrameFormat.rotation_angle](https://reference.aspose.com/slides/tr/python-net/aspose.slides/textframeformat/rotation_angle/) kullanarak bir [TextFrame](https://reference.aspose.com/slides/tr/python-net/aspose.slides/textframe/) için özel bir döndürme açısı ayarlayabilirsiniz.
+Bir [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) için özel bir döndürme açısı ayarlamak amacıyla [TextFrameFormat.rotation_angle](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/rotation_angle/) kullanın.
 
-Aşağıdaki kod örneği, şekil içinde metin çerçevesini **3 derece saat yönünde** döndürür:
+Aşağıdaki kod örneği, şeklin içinde metin çerçevesini 3 derece saat yönünde döndürür:
 
 ```python
 import aspose.slides as slides
@@ -349,12 +408,11 @@ Sonuç:
 
 ## **Paragrafların Satır Aralığını Ayarla**
 
-Aspose.Slides, paragraf aralığını kontrol etmek için [ParagraphFormat.space_after](https://reference.aspose.com/slides/tr/python-net/aspose.slides/paragraphformat/space_after/), [ParagraphFormat.space_before](https://reference.aspose.com/slides/tr/python-net/aspose.slides/paragraphformat/space_before/) ve [ParagraphFormat.space_within](https://reference.aspose.com/slides/tr/python-net/aspose.slides/paragraphformat/space_within/) sağlar. Bu özellikler şu şekilde kullanılır:
+Aspose.Slides, paragraf aralığını kontrol etmek için [ParagraphFormat.space_after](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/space_after/), [ParagraphFormat.space_before](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/space_before/) ve [ParagraphFormat.space_within](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/space_within/) sağlar. Bu özellikler şu şekilde kullanılır:
+* Pozitif bir değer kullanarak satır aralığını satır yüksekliğinin yüzde olarak belirtin.
+* Negatif bir değer kullanarak satır aralığını puan cinsinden belirtin.
 
-* Pozitif bir değer, satır yüksekliğinin yüzde olarak satır aralığını belirtir.
-* Negatif bir değer, satır aralığını puan cinsinden belirtir.
-
-Aşağıdaki örnek, ilk paragraftaki aralığı satır yüksekliğinin %200'ü (çift satır aralığı) olarak ayarlar:
+Aşağıdaki örnek, ilk paragraftaki satır aralığını satır yüksekliğinin %200'ü (çift satır aralığı) olarak ayarlar:
 
 ```python
 import aspose.slides as slides
@@ -374,16 +432,15 @@ Sonuç:
 
 ![Paragraftaki satır aralığı](line_spacing.png)
 
-## **Satır Kesilmesini Kontrol Et**
+## **Satır Kesintisini Kontrol Et**
 
-Paragraf satır kesme kuralları, dar metin bloklarında ve Latin ile Doğu Asya metinlerinin karıştığı sunumlarda faydalıdır. Aşağıdaki özellikler [ParagraphFormat](https://reference.aspose.com/slides/tr/python-net/aspose.slides/paragraphformat/) aittir, bu yüzden bütün paragrafı etkiler:
+Paragraf satır kesme kuralları, dar metin bloklarında ve Latin ile Doğu Asya metninin karıştığı sunumlarda faydalıdır. Aşağıdaki özellikler [ParagraphFormat](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/) içinde bulunduğu için tüm paragrafı etkiler:
+- [latin_line_break](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/latin_line_break/) Latin satır kesme kurallarını kontrol eder. Karma metinde değiştirilmesi, komşu Doğu Asya metni ve noktalama işaretlerinin kaydırılma yerini de etkileyebilir.
+- [east_asian_line_break](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/east_asian_line_break/) Doğu Asya satır kesme kurallarını kontrol eder; bu, bir satırın başındaki ve sonundaki karakterler üzerindeki kısıtlamaları içerir.
 
-- [latin_line_break](https://reference.aspose.com/slides/tr/python-net/aspose.slides/paragraphformat/latin_line_break/) Latin satır kesme kurallarını kontrol eder. Karışık metinde değiştirmek, bitişik Doğu Asya metin ve noktalama işaretlerinin nerede sarılacağını da etkileyebilir.
-- [east_asian_line_break](https://reference.aspose.com/slides/tr/python-net/aspose.slides/paragraphformat/east_asian_line_break/) Doğu Asya satır kesme kurallarını kontrol eder; bir satırın başı ve sonundaki karakterlerle ilgili kısıtlamaları içerir.
+Bu kurallar, [TextFrameFormat.wrap_text](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/wrap_text/) özelliğinin yerini almaz; bu özellik bir metin çerçevesinde otomatik kaydırmayı etkinleştirir. Bu kurallar, kaydırma gerçekleştiğinde düzeni etkiler; satır sonu karakterleri eklemezler. Açık bir satır sonu, mevcut genişliğe bakılmaksızın paragrafta yeni bir satır oluşturur.
 
-Bu kurallar, bir metin çerçevesi içinde otomatik sarma sağlayan [TextFrameFormat.wrap_text](https://reference.aspose.com/slides/tr/python-net/aspose.slides/textframeformat/wrap_text/) işlevinin yerine geçmez. Sarma gerçekleştiğinde düzeni etkiler; satır sonu karakteri eklemezler. Açık bir satır sonu, paragraf içinde mevcut genişliğe bakılmaksızın yeni bir satır başlatır.
-
-Aşağıdaki bağımsız örnek, Çince ve Latin metin içeren dar bir metin bloğu oluşturur. İki satır kesme özelliğini açıkça ayarlar ve \"line_breaking.pptx\" olarak kaydeder. Her iki kuralı da denemek için, diğer ayarları sabit tutarak ilgili özelliğin değerini değiştirin. Örnek, 24 puan Arial ve SimSun, 160 puan çerçeve genişliği ve sıfır yatay metin çerçevesi kenar boşluğu kullanır. [TextFrameFormat.autofit_type](https://reference.aspose.com/slides/tr/python-net/aspose.slides/textframeformat/autofit_type/) [TextAutofitType.NONE](https://reference.aspose.com/slides/tr/python-net/aspose.slides/textautofittype/) olarak ayarlanmıştır; böylece metin boyutu ve çerçeve ölçüleri sabit kalır.
+Aşağıdaki bağımsız örnek, Çince ve Latin metin içeren dar bir metin bloğu oluşturur. Her iki satır kesme özelliğini de açıkça ayarlar ve "line_breaking.pptx" olarak kaydeder. Herhangi bir kuralla deneme yapmak için, diğer ayarları sabit tutarak ilgili özelliğin değerini değiştirin. Örnek, 24 punto Arial ve SimSun kullanır, 160 punto çerçeve genişliği ve sıfır yatay metin çerçevesi kenar boşluğu ayarlar. [TextFrameFormat.autofit_type](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/autofit_type/) özelliği, metin boyutu ve çerçeve boyutlarının sabit kalmasını sağlamak için [TextAutofitType.NONE](https://reference.aspose.com/slides/python-net/aspose.slides/textautofittype/) olarak ayarlanmıştır.
 
 ```python
 import aspose.pydrawing as draw
@@ -417,11 +474,11 @@ with slides.Presentation() as presentation:
     presentation.save("line_breaking.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Sarkan Noktalama İşaretlerini Kontrol Et**
+## **Asılı Noktalama İşaretlerini Kontrol Et**
 
-[ParagraphFormat.hanging_punctuation](https://reference.aspose.com/slides/tr/python-net/aspose.slides/paragraphformat/hanging_punctuation/) uygun noktalama işaretlerinin sonraki satıra yerleşmek yerine metin satırının sağ kenarının dışına uzanmasına izin verir. Tüm paragrafı etkiler ve sarkan girintiden farklıdır.
+[ParagraphFormat.hanging_punctuation](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/hanging_punctuation/) uygun noktalama işaretlerinin, bir sonraki satırı doldurmak yerine, metin satırının sağ kenarını aşmasına izin verir. Bu ayar tüm paragrafı etkiler ve asılı girintiden farklıdır.
 
-Aşağıdaki bağımsız örnek, 100 puan genişliğinde bir metin çerçevesinde sarkan noktalama işaretlerini etkinleştirir ve \"hanging_punctuation.pptx\" olarak kaydeder. 24 puan Arial ve sıfır yatay metin çerçevesi kenar boşluğu ile son nokta \"sentence\" kelimesinin ardından kalır ve sağ metin kenarının dışına uzanır. Karşılaştırma için özelliği [NullableBool.FALSE](https://reference.aspose.com/slides/tr/python-net/aspose.slides/nullablebool/) olarak ayarlayın: bu ayarlarla nokta ayrı bir satır alır. Sarma açıktır ve otomatik sığdırma devre dışı bırakılmıştır; böylece kullanılabilir genişlik sabit kalır.
+Aşağıdaki bağımsız örnek, 100 punto genişliğinde bir metin çerçevesinde asılı noktalama işaretlerini etkinleştirir ve "hanging_punctuation.pptx" olarak kaydeder. 24 punto Arial ve sıfır yatay metin çerçevesi kenar boşluğu ile, son nokta "sentence" kelimesinden sonra kalır ve sağ metin kenarını aşar. Özelliği [NullableBool.FALSE](https://reference.aspose.com/slides/python-net/aspose.slides/nullablebool/) olarak ayarlayarak karşılaştırabilirsiniz: bu ayarla nokta ayrı bir satırda yer alır. Kaydırma etkin ve otomatik sığdırma devre dışı bırakılmıştır, böylece mevcut genişlik sabit kalır.
 
 ```python
 import aspose.pydrawing as draw
@@ -453,11 +510,11 @@ with slides.Presentation() as presentation:
     presentation.save("hanging_punctuation.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Her noktalama işareti sarkan olarak ayarlanamaz. Görülen sonuç, yazı tipi ve düzen koşullarına bağlıdır: yazı tipini, kullanılabilir genişliği, kenar boşluklarını veya otomatik sığdırma ayarlarını değiştirmek görünür farkı ortadan kaldırabilir.
+Her noktalama işareti asılı olamaz. Görünür sonuç, [font ve düzen koşullarına](#control-line-breaking) bağlıdır; yazı tipini, kullanılabilir genişliği, kenar boşluklarını veya otomatik sığdırma ayarlarını değiştirerek görünür fark ortadan kalkabilir.
 
 ## **Metin Çerçeveleri İçin Otomatik Sığdırma Türünü Ayarla**
 
-[TextFrameFormat.autofit_type](https://reference.aspose.com/slides/tr/python-net/aspose.slides/textframeformat/autofit_type/) bir metin kapsayıcısının sınırlarını aştığında metnin nasıl davranacağını belirler. Metnin küçülüp küçülmeyeceğini, taşma yapıp yapmayacağını veya şeklin otomatik olarak yeniden boyutlandırılıp boyutlandırılmayacağını kontrol etmek için kullanın. Aşağıdaki örnek, şekli metnine göre yeniden boyutlandıracak şekilde yapılandırır ve sonucu \"autofit_type.pptx\" olarak kaydeder.
+[TextFrameFormat.autofit_type](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/autofit_type/) metin, kapsayıcısının sınırlarını aştığında nasıl davranacağını belirler. Metnin küçülüp küçülmeyeceğini, taşma yapıp yapmayacağını veya şeklin otomatik olarak yeniden boyutlandırılıp boyutlandırılmayacağını kontrol etmek için kullanın. Aşağıdaki örnek, şekli metnine uyacak şekilde yeniden boyutlandırır ve sonucu "autofit_type.pptx" olarak kaydeder.
 
 ```python
 import aspose.slides as slides
@@ -472,11 +529,11 @@ with slides.Presentation("sample.pptx") as presentation:
     presentation.save("autofit_type.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Otomatik sarma sonrasında satırları saymak ve metin ya da şekil genişliğinin sonucu nasıl etkilediğini görmek için [İşlenen Satırları Say](/slides/tr/python-net/manage-paragraph/) sayfasına bakın. Satır sayısı yalnız başına, metnin kapsayıcısının dışına taşması durumunu göstermez.
+Otomatik kaydırmadan sonra satırları saymak ve metin ya da şekil genişliğinin sonucu nasıl etkilediğini görmek için, [Count Rendered Lines](/slides/tr/python-net/manage-paragraph/) sayfasına bakın. Satır sayısı yalnızca metnin kapsayıcısını aşmadığını göstermez.
 
-## **Metin Çerçevelerinin Sabitleme Noktasını Ayarla**
+## **Metin Çerçevelerinin Sabitlemesini Ayarla**
 
-[TextFrameFormat.anchoring_type](https://reference.aspose.com/slides/tr/python-net/aspose.slides/textframeformat/anchoring_type/) bir metnin bir şekil içinde düşey olarak nasıl konumlandırılacağını tanımlar; örneğin üst, orta veya alt. Aşağıdaki örnek, metni ilk şeklin alt kısmına sabitler ve sonucu \"text_anchor.pptx\" olarak kaydeder.
+[TextFrameFormat.anchoring_type](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/anchoring_type/) bir şeklin içinde metnin dikey konumunu, örneğin üst, orta veya alt gibi, tanımlar. Aşağıdaki örnek, metni ilk şeklin altına sabitler ve sonucu "text_anchor.pptx" olarak kaydeder.
 
 ```python
 import aspose.slides as slides
@@ -493,7 +550,7 @@ with slides.Presentation("sample.pptx") as presentation:
 
 ## **Metin Sekmelerini Ayarla**
 
-Paragrafta sek duraklarını yapılandırmak için [ParagraphFormat.default_tab_size](https://reference.aspose.com/slides/tr/python-net/aspose.slides/paragraphformat/default_tab_size/) ve [ParagraphFormat.tabs](https://reference.aspose.com/slides/tr/python-net/aspose.slides/paragraphformat/tabs/) kullanın. Aşağıdaki örnek, varsayılan sek aralığını 100 puan olarak ayarlar ve 30 puanda sola hizalı bir sek durak ekler. Bu ayarlar, sek karakteri içeren metni etkiler.
+[ParagraphFormat.default_tab_size](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/default_tab_size/) ve [ParagraphFormat.tabs](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/tabs/) kullanarak bir paragraftaki sek duraklarını yapılandırabilirsiniz. Aşağıdaki örnek varsayılan sek aralığını 100 punto olarak ayarlar ve 30 punto konumunda sola hizalı bir sek durak ekler. Bu ayarlar, sek karakteri içeren metni etkiler.
 
 ```python
 import aspose.slides as slides
@@ -516,9 +573,9 @@ Sonuç:
 
 ## **Denetleme Dilini Ayarla**
 
-Aspose.Slides, bir metin bölümü için denetleme dilini ayarlamanızı sağlayan [BasePortionFormat.language_id](https://reference.aspose.com/slides/tr/python-net/aspose.slides/baseportionformat/language_id/) sunar. Denetleme dili, PowerPoint'te yazım ve dilbilgisi denetimi için kullanılan dili belirler.
+Aspose.Slides, bir metin bölümü için denetleme dilini ayarlamanızı sağlayan [BasePortionFormat.language_id](https://reference.aspose.com/slides/python-net/aspose.slides/baseportionformat/language_id/) sunar. Denetleme dili, PowerPoint'teki yazım ve dilbilgisi denetimlerinde kullanılan dili belirler.
 
-Aşağıdaki örnek, ilk slayttaki ilk şekil olarak bir metin kutusu ve en az bir paragraf içeren \"presentation.pptx\" gerektirir. İlk paragrafın içeriğini \"1。\" ile değiştirir, SimSun'u yazı tipi olarak ayarlar ve basitleştirilmiş Çince denetleme dilini (`zh-CN`) atar. Sonucu \"proofing_language.pptx\" olarak kaydeder:
+Aşağıdaki örnek, "presentation.pptx" içinde ilk slaydın ilk şekli olarak bir metin kutusu ve en az bir paragraf gerektirir. İlk paragrafın içeriğini "1。" ile değiştirir, SimSun yazı tipini ayarlar ve Basitleştirilmiş Çince denetleme dilini (`zh-CN`) atar. Sonucu "proofing_language.pptx" olarak kaydeder:
 
 ```python
 import aspose.slides as slides
@@ -538,7 +595,7 @@ with slides.Presentation("presentation.pptx") as presentation:
     text_portion.portion_format.east_asian_font = font
     text_portion.portion_format.latin_font = font
 
-    # Doğrulama dilini Basitleştirilmiş Çince olarak ayarla.
+    # Denetim dilini Basitleştirilmiş Çince olarak ayarla.
     text_portion.portion_format.language_id = "zh-CN"
 
     text_portion.text = "1。"
@@ -549,7 +606,7 @@ with slides.Presentation("presentation.pptx") as presentation:
 
 ## **Varsayılan Dili Ayarla**
 
-[LoadOptions.default_text_language](https://reference.aspose.com/slides/tr/python-net/aspose.slides/loadoptions/default_text_language/) kullanarak bir sunum yüklenirken ya da oluşturulurken oluşturulan metin için varsayılan dili tanımlayabilirsiniz. Aşağıdaki örnek, varsayılan metin dili olarak ABD İngilizcesi ayarlanmış bir sunum oluşturur, bir metin kutusu ekler ve ilk metin bölümünün dilini `en-US` olarak yazdırır.
+[LoadOptions.default_text_language](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/default_text_language/) kullanarak bir sunum yüklenirken veya oluşturulurken oluşturulan metinlerin varsayılan dilini tanımlayabilirsiniz. Aşağıdaki örnek, varsayılan metin dili olarak ABD İngilizcesi kullanan bir sunum oluşturur, bir metin kutusu ekler ve ilk metin bölümünün dilini `en-US` olarak yazdırır.
 
 ```python
 import aspose.slides as slides
@@ -560,7 +617,7 @@ load_options.default_text_language = "en-US"
 with slides.Presentation(load_options) as presentation:
     slide = presentation.slides[0]
 
-    # Metin içeren yeni bir dikdörtgen şekil ekle.
+    # Yeni bir dikdörtgen şekil ekle ve metin ekle.
     shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 20, 20, 150, 50)
     shape.text_frame.text = "Sample text"
 
@@ -571,15 +628,15 @@ with slides.Presentation(load_options) as presentation:
 
 ## **Varsayılan Metin Stilini Ayarla**
 
-Sunum düzeyinde varsayılan metin biçimlendirmesi uygulamak için [Presentation.default_text_style](https://reference.aspose.com/slides/tr/python-net/aspose.slides/presentation/default_text_style/) kullanın.
+Sunum düzeyinde varsayılan metin biçimlendirmesini uygulamak için [Presentation.default_text_style](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/default_text_style/) kullanın.
 
-Aşağıdaki örnek, yeni bir sunumda üst düzey paragraflar için varsayılan olarak 14 puan kalın bir yazı tipi ayarlar ve \"default_text_style.pptx\" olarak kaydeder. Metin, daha belirgin biçimlendirme tarafından geçersiz kılınmadıkça bu varsayılanları devralabilir.
+Aşağıdaki örnek, yeni bir sunumda üst‑seviye paragraflar için varsayılan olarak 14 punto kalın bir yazı tipi ayarlar ve "default_text_style.pptx" olarak kaydeder. Metin, daha spesifik bir biçimlendirme üzerine yazılmadıkça bu varsayılanları miras alabilir.
 
 ```python
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
-    # Üst düzey paragraf biçimini al.
+    # Üst seviye paragraf biçimini al.
     paragraph_format = presentation.default_text_style.get_level(0)
 
     if paragraph_format is not None:
@@ -589,15 +646,15 @@ with slides.Presentation() as presentation:
     presentation.save("default_text_style.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Tüm Büyük Harf Efektiyle Metni Çıkar**
+## **All-Caps (Tam Büyük Harf) Etkisiyle Metni Çıkar**
 
-PowerPoint'te **Tüm Büyük Harf** yazı tipi efekti uygulamak, metni slaytta büyük harfle gösterir; metin aslında düşük harflerle yazılmış olsa bile. Aspose.Slides ile böyle bir metin bölümü alındığında, kütüphane metni girildiği gibi döndürür. Görünen metinle eşleşmesi için [TextCapType](https://reference.aspose.com/slides/tr/python-net/aspose.slides/textcaptype/) kontrol edip, değer `ALL` ise döndürülen dizeyi büyük harfe çevirebilirsiniz.
+PowerPoint'te **All Caps** (Tam Büyük Harf) yazı tipi etkisini uygulamak, metnin slaytta büyük harf olarak görünmesini sağlar; orijinal olarak küçük harfle yazılmış olsa bile. Aspose.Slides ile bu tür bir metin bölümü alındığında, kütüphane metni tam olarak girildiği gibi döndürür. Görüntülenen metni eşleştirmek için [TextCapType](https://reference.aspose.com/slides/python-net/aspose.slides/textcaptype/) kontrol edin ve değer `ALL` olduğunda dönen dizeyi büyük harfe dönüştürün.
 
-Bu örnek, ilk slayttaki ilk şekil olarak bir metin kutusu içeren \"sample2.pptx\" gerektirir. İlk paragrafın ilk bölümü, aşağıda gösterildiği gibi **Tüm Büyük Harf** etkisi uygulanmış \"Hello, Aspose!\" içerir.
+Bu örnek, ilk slaydın ilk şekli olarak bir metin kutusu içeren "sample2.pptx" dosyasını gerektirir. İlk paragrafın ilk bölümü, aşağıda gösterildiği gibi All Caps etkisi uygulanmış "Hello, Aspose!" içerir.
 
-![Tüm Büyük Harf etkisi](all_caps_effect.png)
+![All Caps etkisi](all_caps_effect.png)
 
-Aşağıdaki kod örneği, **Tüm Büyük Harf** etkisi uygulanmış metni nasıl çıkaracağını gösterir:
+Aşağıdaki kod örneği, **All Caps** etkisi uygulanmış metni nasıl çıkaracağınızı gösterir:
 
 ```python
 import aspose.slides as slides
@@ -625,10 +682,10 @@ All-Caps effect: HELLO, ASPOSE!
 
 ## **SSS**
 
-**Bir slayttaki tablo içinde metni nasıl değiştirebilirim?**
+**Bir slayttaki tablo içinde metni nasıl değiştiririm?**
 
-Bir slayttaki tablo içinde metni değiştirmek için [Table](https://reference.aspose.com/slides/tr/python-net/aspose.slides/table/) kullanın. Hücreleri dolaşın ve her hücreyi [Cell.text_frame](https://reference.aspose.com/slides/tr/python-net/aspose.slides/cell/text_frame/) üzerinden güncelleyin; paragraf biçimlendirmesini ise [Paragraph.paragraph_format](https://reference.aspose.com/slides/tr/python-net/aspose.slides/paragraph/paragraph_format/) aracılığıyla ayarlayın.
+Bir slayttaki tablodaki metni değiştirmek için [Table](https://reference.aspose.com/slides/python-net/aspose.slides/table/) kullanın. Hücreler üzerinden döngü yapın ve her hücreyi [Cell.text_frame](https://reference.aspose.com/slides/python-net/aspose.slides/cell/text_frame/) aracılığıyla güncelleyin; ayrıca paragraf biçimlendirmesini [Paragraph.paragraph_format](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/paragraph_format/) ile ayarlayın.
 
-**PowerPoint slaytında metne degrade renk nasıl uygulayabilirim?**
+**PowerPoint slaydındaki metne bir degrade (gradient) renk nasıl uygularım?**
 
-Metne degrade renk uygulamak için [BasePortionFormat.fill_format](https://reference.aspose.com/slides/tr/python-net/aspose.slides/baseportionformat/fill_format/) kullanın. [FillFormat.fill_type](https://reference.aspose.com/slides/tr/python-net/aspose.slides/fillformat/fill_type/) değerini [FillType.GRADIENT](https://reference.aspose.com/slides/tr/python-net/aspose.slides/filltype/) olarak ayarlayın ve degrade duraklarını, yönünü ve şeffaflığını yapılandırın.
+Metne degrade renk uygulamak için [BasePortionFormat.fill_format](https://reference.aspose.com/slides/python-net/aspose.slides/baseportionformat/fill_format/) kullanın. [FillFormat.fill_type](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/fill_type/) özelliğini [FillType.GRADIENT](https://reference.aspose.com/slides/python-net/aspose.slides/filltype/) olarak ayarlayın ve ardından degrade duraklarını, yönünü ve şeffaflığını yapılandırın.

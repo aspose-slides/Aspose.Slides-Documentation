@@ -1,6 +1,6 @@
 ---
-title: Μορφοποίηση κειμένου παρουσίασης σε .NET
-linktitle: Μορφοποίηση κειμένου
+title: Μορφοποίηση Κειμένου Παρουσίασης σε .NET
+linktitle: Διαμόρφωση Κειμένου
 type: docs
 weight: 50
 url: /el/net/text-formatting/
@@ -18,7 +18,7 @@ keywords:
 - διάστημα γραμμών
 - ιδιότητα αυτόματης προσαρμογής
 - άγκυρα πλαισίου κειμένου
-- στηλοθέτηση κειμένου
+- καρτέλες κειμένου
 - προεπιλεγμένη γλώσσα
 - PowerPoint
 - OpenDocument
@@ -26,23 +26,23 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Μορφοποίηση και στυλιζάρισμα κειμένου σε παρουσιάσεις PowerPoint και OpenDocument χρησιμοποιώντας το Aspose.Slides για .NET. Προσαρμόστε γραμματοσειρές, χρώματα, στοίχιση και άλλα."
+description: "Μορφοποιήστε και διαμορφώστε κείμενο σε παρουσιάσεις PowerPoint και OpenDocument χρησιμοποιώντας το Aspose.Slides για .NET. Προσαρμόστε γραμματοσειρές, χρώματα, στοίχιση και άλλα."
 ---
 ## **Επισκόπηση**
 
-Αυτό το άρθρο δείχνει πώς να μορφοποιήσετε κείμενο σε παρουσιάσεις PowerPoint και OpenDocument χρησιμοποιώντας το Aspose.Slides για .NET. Καλύπτει τα χρώματα φόντου, τη διαφάνεια, το διάστημα χαρακτήρων, τις ιδιότητες γραμματοσειράς, την περιστροφή, το διάστημα παραγράφων, τη συμπεριφορά αυτόματης προσαρμογής, την αγκύρωση κειμένου, τις θέσεις στηλοθέτη και τις ρυθμίσεις γλώσσας.
+Αυτό το άρθρο δείχνει πώς να μορφοποιήσετε κείμενο σε παρουσιάσεις PowerPoint και OpenDocument χρησιμοποιώντας το Aspose.Slides για .NET. Καλύπτει τα χρώματα φόντου, τη διαφάνεια, το διάστημα χαρακτήρων, τις ιδιότητες γραμματοσειράς, την περιστροφή, το διάστημα παραγράφων, τη συμπεριφορά αυτόματης προσαρμογής, την αγκύρωση κειμένου, τις στάσεις καρτέλας και τις ρυθμίσεις γλώσσας.
 
-Εκτός αν αναφερθεί διαφορετικά, τα παραδείγματα χρησιμοποιούν το [sample.pptx](sample.pptx). Το πρώτο σχήμα στην πρώτη διαφάνεια είναι ένα πλαίσιο κειμένου και η πρώτη του παράγραφος περιέχει το κείμενο που φαίνεται παρακάτω. Οι δείκτες των διαφανειών και των σχημάτων είναι μηδενικής βάσης. Τα παραδείγματα που επιλέγουν έντονες περιοχές χρησιμοποιούν αποτελεσματική μορφοποίηση, συμπεριλαμβανομένης της κληρονομημένης έντονης μορφοποίησης:
+Unless stated otherwise, the examples use [sample.pptx](sample.pptx). The first shape on its first slide is a text box, and its first paragraph contains the text shown below. Both slide and shape indices are zero-based. Examples that select bold portions use effective formatting, including inherited bold formatting:
 
-![Δείγμα κειμένου](sample_text.png)
+![Δειγματικό κείμενο](sample_text.png)
 
-Για να βρείτε και να επισήμαντε κυριολεκτικό κείμενο ή αντιστοιχίες κανονικής έκφρασης, δείτε [Αναζήτηση και Αντικατάσταση Κειμένου](/slides/el/net/search-and-replace-text/).
+To find and highlight literal text or regular-expression matches, see [Αναζήτηση και Αντικατάσταση Κειμένου](/slides/el/net/search-and-replace-text/).
 
 ## **Ορισμός Χρώματος Φόντου Κειμένου**
 
-Χρησιμοποιήστε το [IParagraphFormat.DefaultPortionFormat](https://reference.aspose.com/slides/el/net/aspose.slides/iparagraphformat/defaultportionformat/) για να ορίσετε το προεπιλεγμένο χρώμα επισήμανσης για μια παράγραφο, ή χρησιμοποιήστε το [IBasePortionFormat.HighlightColor](https://reference.aspose.com/slides/el/net/aspose.slides/ibaseportionformat/highlightcolor/) για επιμέρους τμήματα κειμένου.
+Use [IParagraphFormat.DefaultPortionFormat](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/defaultportionformat/) to set the default highlight color for a paragraph, or use [IBasePortionFormat.HighlightColor](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/highlightcolor/) for individual text portions.
 
-Το παρακάτω παράδειγμα ορίζει μια ανοιχτό-γκρι επισήμανση ως προεπιλεγμένη για την πρώτη παράγραφο. Τα ρητά χρώματα επισήμανσης στα επιμέρους τμήματα έχουν προτεραιότητα έναντι αυτής της προεπιλογής:
+The following example sets a light gray highlight as the default for the first paragraph. Explicit highlight colors on individual portions take precedence over this default:
 
 ```cs
 using System.Drawing;
@@ -65,7 +65,7 @@ presentation.Save("gray_paragraph.pptx", SaveFormat.Pptx);
 
 ![Η γκρι παράγραφος](gray_paragraph.png)
 
-Το παρακάτω παράδειγμα κώδικα δείχνει πώς να ορίσετε το χρώμα φόντου για **τμήματα κειμένου με έντονη γραμματοσειρά**:
+The code example below demonstrates how to set the background color for **text portions with a bold font**:
 
 ```cs
 using System.Drawing;
@@ -96,9 +96,9 @@ presentation.Save("gray_text_portions.pptx", SaveFormat.Pptx);
 
 ## **Στοίχιση Παραγράφων Κειμένου**
 
-Χρησιμοποιήστε το [IParagraphFormat.Alignment](https://reference.aspose.com/slides/el/net/aspose.slides/iparagraphformat/alignment/) για να ορίσετε την στοίχιση παραγράφου μέσα σε ένα πλαίσιο κειμένου. Η τιμή μπορεί να είναι κεντραρισμένη, αριστερά στοιχισμένη, δεξιά στοιχισμένη, ευθυγραμμισμένη και ούτω καθεξής.
+Use [IParagraphFormat.Alignment](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/alignment/) to set paragraph alignment within a text frame. The value can be centered, left-aligned, right-aligned, justified, and so on.
 
-Το παρακάτω παράδειγμα κώδικα δείχνει πώς να στοιχίσετε την παράγραφο στο **κέντρο**:
+The following code example shows how to align the paragraph to the **center**:
 
 ```cs
 using Aspose.Slides;
@@ -118,13 +118,77 @@ presentation.Save("aligned_paragraph.pptx", SaveFormat.Pptx);
 
 Το αποτέλεσμα:
 
-![Η ευθυγραμμισμένη παράγραφος](aligned_paragraph.png)
+![Η στοιχισμένη παράγραφος](aligned_paragraph.png)
+
+## **Στοίχιση Γραμματοσειρών Εντός Γραμμής**
+
+Use [IParagraphFormat.FontAlignment](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/fontalignment/) to vertically align text portions of different font sizes within a line. This setting applies to the entire paragraph and controls alignment within each of its lines.
+
+The following self-contained example creates four labeled text boxes on one slide. Each paragraph contains the same text at 18, 36, and 54 points, with a different font alignment. It uses Arial, disables autofit and wrapping, and keeps the text frames large enough for a single line.
+
+```cs
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var alignments = new[] { FontAlignment.Baseline, FontAlignment.Top, FontAlignment.Center, FontAlignment.Bottom };
+var fontSizes = new[] { 18f, 36f, 54f };
+
+for (var i = 0; i < alignments.Length; i++)
+{
+    var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 30, 20 + i * 130, 660, 120);
+    shape.FillFormat.FillType = FillType.NoFill;
+    shape.LineFormat.FillFormat.FillType = FillType.NoFill;
+
+    var textFrame = shape.TextFrame;
+    textFrame.TextFrameFormat.AnchoringType = TextAnchorType.Top;
+    textFrame.TextFrameFormat.AutofitType = TextAutofitType.None;
+    textFrame.TextFrameFormat.WrapText = NullableBool.False;
+
+    var label = textFrame.Paragraphs[0];
+    label.Text = alignments[i].ToString();
+    label.ParagraphFormat.Alignment = TextAlignment.Left;
+    label.ParagraphFormat.DefaultPortionFormat.FontHeight = 14;
+    label.ParagraphFormat.DefaultPortionFormat.LatinFont = new FontData("Arial");
+    label.ParagraphFormat.DefaultPortionFormat.FillFormat.FillType = FillType.Solid;
+    label.ParagraphFormat.DefaultPortionFormat.FillFormat.SolidFillColor.Color = Color.Gray;
+
+    var paragraph = new Paragraph();
+    paragraph.ParagraphFormat.FontAlignment = alignments[i];
+    paragraph.ParagraphFormat.Alignment = TextAlignment.Left;
+    paragraph.ParagraphFormat.DefaultPortionFormat.LatinFont = new FontData("Arial");
+    paragraph.ParagraphFormat.DefaultPortionFormat.FillFormat.FillType = FillType.Solid;
+    paragraph.ParagraphFormat.DefaultPortionFormat.FillFormat.SolidFillColor.Color = Color.Black;
+
+    foreach (var fontSize in fontSizes)
+    {
+        var portion = new Portion("Ag ");
+        portion.PortionFormat.FontHeight = fontSize;
+        paragraph.Portions.Add(portion);
+    }
+
+    textFrame.Paragraphs.Add(paragraph);
+}
+
+presentation.Save("font_alignment.pptx", SaveFormat.Pptx);
+```
+
+Το αποτέλεσμα:
+
+![Σύγκριση στοίχισης γραμματοσειρών Βάσης, Πάνω, Κέντρο και Κάτω με μικτά μεγέθη γραμματοσειρών](font_alignment.png)
+
+Font alignment uses font metrics, so the visible edges of individual letters do not necessarily line up exactly. The example includes both an uppercase letter and a descender to help show the difference between baseline and bottom alignment. Font availability and substitution, the characters used, and the difference in font sizes affect the result. Frame dimensions, margins, line spacing, wrapping, and autofit also affect layout; use the same fonts and layout settings when comparing modes.
+
+This setting differs from [IParagraphFormat.Alignment](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/alignment/), which controls horizontal paragraph alignment, and [ITextFrameFormat.AnchoringType](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/anchoringtype/), which positions the text block vertically within its shape. Superscript and subscript formatting through [IBasePortionFormat.Escapement](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/escapement/) shifts individual portions relative to the baseline instead of setting font alignment for the paragraph's lines.
 
 ## **Ορισμός Διαφάνειας για Κείμενο**
 
-Η διαφάνεια κειμένου ελέγχεται μέσω του άλφα συστατικού του χρώματος που έχει οριστεί στο [IBasePortionFormat.FillFormat](https://reference.aspose.com/slides/el/net/aspose.slides/ibaseportionformat/fillformat/). Στα παρακάτω παραδείγματα, `alpha = 50` είναι μια τιμή του καναλιού άλφα ARGB στην κλίμακα 0–255, όχι ποσοστό διαφάνειας.
+Text transparency is controlled through the alpha component of the color assigned to [IBasePortionFormat.FillFormat](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/fillformat/). In the examples below, `alpha = 50` is an ARGB alpha-channel value on the 0–255 scale, not a transparency percentage.
 
-Το παρακάτω παράδειγμα κώδικα δείχνει πώς να εφαρμόσετε διαφάνεια σε **ολόκληρη την παράγραφο**:
+The code example below shows how to apply transparency to the **entire paragraph**:
 
 ```cs
 using System.Drawing;
@@ -139,7 +203,7 @@ var slide = presentation.Slides[0];
 var autoShape = (IAutoShape)slide.Shapes[0];
 var paragraph = autoShape.TextFrame.Paragraphs[0];
 
-// Ορίστε ημιδιαφανές μαύρο γέμισμα για το κείμενο.
+// Ορίστε μισοδιαφανές μαύρο γέμισμα για το κείμενο.
 paragraph.ParagraphFormat.DefaultPortionFormat.FillFormat.FillType = FillType.Solid;
 paragraph.ParagraphFormat.DefaultPortionFormat.FillFormat.SolidFillColor.Color = Color.FromArgb(alpha, Color.Black);
 
@@ -150,7 +214,7 @@ presentation.Save("transparent_paragraph.pptx", SaveFormat.Pptx);
 
 ![Η διαφανής παράγραφος](transparent_paragraph.png)
 
-Το παρακάτω παράδειγμα κώδικα δείχνει πώς να εφαρμόσετε διαφάνεια σε **τμήματα κειμένου με έντονη γραμματοσειρά**:
+The following code example shows how to apply transparency to **text portions with a bold font**:
 
 ```cs
 using System.Drawing;
@@ -184,9 +248,9 @@ presentation.Save("transparent_text_portions.pptx", SaveFormat.Pptx);
 
 ## **Ορισμός Διαστήματος Χαρακτήρων για Κείμενο**
 
-Χρησιμοποιήστε το [IBasePortionFormat.Spacing](https://reference.aspose.com/slides/el/net/aspose.slides/ibaseportionformat/spacing/) για να αυξήσετε ή να περιορίσετε το διάστημα μεταξύ των χαρακτήρων σε ένα πλαίσιο κειμένου. Τα παραδείγματα προσθέτουν 3 μονάδες διάστημα· οι αρνητικές τιμές περιορίζουν το κείμενο.
+Use [IBasePortionFormat.Spacing](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/spacing/) to expand or condense spacing between characters in a text box. The examples add 3 points of spacing; negative values condense the text.
 
-Ο παρακάτω κώδικας C# δείχνει πώς να αυξήσετε το διάστημα χαρακτήρων στην **ολόκληρη την παράγραφο**:
+The following C# code shows how to expand the character spacing in the **entire paragraph**:
 
 ```cs
 using Aspose.Slides;
@@ -199,7 +263,7 @@ var autoShape = (IAutoShape)slide.Shapes[0];
 var paragraph = autoShape.TextFrame.Paragraphs[0];
 
 // Σημείωση: Χρησιμοποιήστε αρνητικές τιμές για να συμπιέσετε το διάστημα χαρακτήρων.
-paragraph.ParagraphFormat.DefaultPortionFormat.Spacing = 3;  // Αυξήστε το διάστημα χαρακτήρων.
+paragraph.ParagraphFormat.DefaultPortionFormat.Spacing = 3;  // Επέκταση διαστήματος χαρακτήρων.
 
 presentation.Save("character_spacing_in_paragraph.pptx", SaveFormat.Pptx);
 ```
@@ -208,7 +272,7 @@ presentation.Save("character_spacing_in_paragraph.pptx", SaveFormat.Pptx);
 
 ![Το διάστημα χαρακτήρων στην παράγραφο](character_spacing_in_paragraph.png)
 
-Το παρακάτω παράδειγμα κώδικα δείχνει πώς να αυξήσετε το διάστημα χαρακτήρων σε **τμήματα κειμένου με έντονη γραμματοσειρά**:
+The code example below shows how to expand the character spacing in **text portions with a bold font**:
 
 ```cs
 using Aspose.Slides;
@@ -225,7 +289,7 @@ foreach (var portion in paragraph.Portions)
     if (portion.PortionFormat.GetEffective().FontBold)
     {
         // Σημείωση: Χρησιμοποιήστε αρνητικές τιμές για να συμπιέσετε το διάστημα χαρακτήρων.
-        portion.PortionFormat.Spacing = 3;  // Αυξήστε το διάστημα χαρακτήρων.
+        portion.PortionFormat.Spacing = 3;  // Επέκταση διαστήματος χαρακτήρων.
     }
 }
 
@@ -238,9 +302,9 @@ presentation.Save("character_spacing_in_text_portions.pptx", SaveFormat.Pptx);
 
 ### **Απενεργοποίηση Kerning για Συγκεκριμένες Γραμματοσειρές**
 
-Σε ορισμένες περιπτώσεις, το κείμενο που αποδίδεται από το Aspose.Slides μπορεί να φαίνεται ελαφρώς πιο πυκνό από το ίδιο κείμενο που εμφανίζεται στο PowerPoint. Αυτό μπορεί να συμβαίνει επειδή το PowerPoint μπορεί να αγνοεί τα δεδομένα kerning για ορισμένες γραμματοσειρές, ακόμη και όταν η γραμματοσειρά περιέχει έγκυρες πληροφορίες kerning και το kerning είναι ενεργοποιημένο στις ρυθμίσεις του PowerPoint.
+In some cases, text rendered by Aspose.Slides may look slightly tighter than the same text displayed in PowerPoint. This can happen because PowerPoint may ignore kerning data for certain fonts, even when the font contains valid kerning information and kerning is enabled in PowerPoint settings.
 
-Για να φέρετε το παραγόμενο αποτέλεσμα πιο κοντά στο PowerPoint σε τέτοιες περιπτώσεις, μπορείτε να απενεργοποιήσετε το kerning για τμήματα κειμένου που χρησιμοποιούν τη συσχετιζόμενη γραμματοσειρά. Ορίστε το [IBasePortionFormat.KerningMinimalSize](https://reference.aspose.com/slides/el/net/aspose.slides/ibaseportionformat/kerningminimalsize/) σε μια τιμή μεγαλύτερη από το πραγματικό μέγεθος γραμματοσωμής. Το παράδειγμα απαιτεί το "presentation.pptx" με ένα πλαίσιο κειμένου ως πρώτο σχήμα στην πρώτη διαφάνεια. Ελέγχει τα αποτελεσματικά ονόματα γραμματοσειρών, συμπεριλαμβανομένων των κληρονομημένων, και θέτει ένα όριο 100 σημείων για τμήματα που χρησιμοποιούν το Roboto. Αυτό απενεργοποιεί το kerning για τμήματα που ταιριάζουν με μέγεθος γραμματοσειράς κάτω των 100 σημείων:
+To make the rendered output closer to PowerPoint in such cases, you can disable kerning for text portions that use the affected font. Set [IBasePortionFormat.KerningMinimalSize](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/kerningminimalsize/) to a value larger than the actual font size. This example requires "presentation.pptx" with a text box as the first shape on the first slide. It checks effective font names, including inherited fonts, and sets a 100-point threshold for portions that use Roboto. This disables kerning for matching portions with a font size below 100 points:
 
 ```cs
 using Aspose.Slides;
@@ -272,13 +336,13 @@ foreach (var paragraph in autoShape.TextFrame.Paragraphs)
 presentation.Save("output.pptx", SaveFormat.Pptx);
 ```
 
-Για κείμενο που ταιριάζει κάτω από το όριο, αυτή η ρύθμιση αποτρέπει το kerning και μπορεί να βοηθήσει στην ευθυγράμμιση της απόδοσης του Aspose.Slides με το οπτικό αποτέλεσμα του PowerPoint για γραμματοσειρές που επηρεάζονται από αυτή τη συμπεριφορά ειδική του PowerPoint.
+For matching text below the threshold, this setting prevents kerning and can help align Aspose.Slides rendering with PowerPoint’s visual output for fonts affected by this PowerPoint-specific behavior.
 
 ## **Διαχείριση Ιδιοτήτων Γραμματοσειράς Κειμένου**
 
-Οι ιδιότητες της γραμματοσειράς μπορούν να ορισθούν σε επίπεδο παραγράφου μέσω του [IParagraphFormat.DefaultPortionFormat](https://reference.aspose.com/slides/el/net/aspose.slides/iparagraphformat/defaultportionformat/) ή σε μεμονωμένα τμήματα μέσω του [IPortionFormat](https://reference.aspose.com/slides/el/net/aspose.slides/iportionformat/).
+Font properties can be set at the paragraph level through [IParagraphFormat.DefaultPortionFormat](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/defaultportionformat/) or on individual portions through [IPortionFormat](https://reference.aspose.com/slides/net/aspose.slides/iportionformat/).
 
-Το παρακάτω παράδειγμα ορίζει τη προεπιλεγμένη γραμματοσειρά της πρώτης παραγράφου σε Times New Roman 12 σημείων με έντονη, πλάγια και υπογράμμιση με τελείες. Η ρητή μορφοποίηση στα επιμέρους τμήματα έχει προτεραιότητα έναντι αυτών των προεπιλογών:
+The following example sets the first paragraph’s default font to 12-point Times New Roman with bold, italic, and dotted underline formatting. Explicit formatting on individual portions takes precedence over these defaults.
 
 ```cs
 using Aspose.Slides;
@@ -305,7 +369,7 @@ presentation.Save("font_properties_for_paragraph.pptx", SaveFormat.Pptx);
 
 ![Οι ιδιότητες γραμματοσειράς για την παράγραφο](font_properties_for_paragraph.png)
 
-Το παρακάτω παράδειγμα εφαρμόζει Times New Roman 13 σημείων, πλάγια μορφοποίηση και υπογράμμιση με τελείες σε τμήματα των οποίων η αποτελεσματική μορφοποίηση είναι έντονη:
+The following example applies 13-point Times New Roman, italic formatting, and a dotted underline to portions whose effective formatting is bold:
 
 ```cs
 using Aspose.Slides;
@@ -338,9 +402,9 @@ presentation.Save("font_properties_for_text_portions.pptx", SaveFormat.Pptx);
 
 ## **Ορισμός Περιστροφής Κειμένου**
 
-Χρησιμοποιήστε το [ITextFrameFormat.TextVerticalType](https://reference.aspose.com/slides/el/net/aspose.slides/itextframeformat/textverticaltype/) για να ορίσετε μια προ-καθορισμένη προσανατολισμό κειμένου μέσα σε ένα σχήμα.
+Use [ITextFrameFormat.TextVerticalType](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/textverticaltype/) to set a predefined text orientation within a shape.
 
-Το παρακάτω παράδειγμα κώδικα ορίζει τον προσανατολισμό κειμένου στο σχήμα σε [TextVerticalType.Vertical270](https://reference.aspose.com/slides/el/net/aspose.slides/textverticaltype/), που περιστρέφει το κείμενο **90 μοίρες αριστερά**:
+The following code example sets the text orientation in the shape to [TextVerticalType.Vertical270](https://reference.aspose.com/slides/net/aspose.slides/textverticaltype/), which rotates the text **90 degrees counterclockwise**:
 
 ```cs
 using Aspose.Slides;
@@ -357,13 +421,13 @@ presentation.Save("text_rotation.pptx", SaveFormat.Pptx);
 
 Το αποτέλεσμα:
 
-![Η περιστροφή κειμένου](text_rotation.png)
+![Η περιστροφή του κειμένου](text_rotation.png)
 
 ## **Ορισμός Προσαρμοσμένης Περιστροφής για Πλαίσια Κειμένου**
 
-Χρησιμοποιήστε το [ITextFrameFormat.RotationAngle](https://reference.aspose.com/slides/el/net/aspose.slides/itextframeformat/rotationangle/) για να ορίσετε μια προσαρμοσμένη γωνία περιστροφής για ένα [ITextFrame](https://reference.aspose.com/slides/el/net/aspose.slides/itextframe/).
+Use [ITextFrameFormat.RotationAngle](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/rotationangle/) to set a custom rotation angle for an [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/).
 
-Το παρακάτω παράδειγμα κώδικα περιστρέφει το πλαίσιο κειμένου κατά 3 μοίρες δεξιώς μέσα στο σχήμα:
+The code example below rotates the text frame by 3 degrees clockwise within the shape:
 
 ```cs
 using Aspose.Slides;
@@ -382,14 +446,14 @@ presentation.Save("custom_text_rotation.pptx", SaveFormat.Pptx);
 
 ![Η προσαρμοσμένη περιστροφή κειμένου](custom_text_rotation.png)
 
-## **Ορισμός Διαστήματος Γραμμών για Παραγράφους**
+## **Ορισμός Διαστήματος Γραμμών Παραγράφων**
 
-Το Aspose.Slides παρέχει τα [IParagraphFormat.SpaceAfter](https://reference.aspose.com/slides/el/net/aspose.slides/iparagraphformat/spaceafter/), [IParagraphFormat.SpaceBefore](https://reference.aspose.com/slides/el/net/aspose.slides/iparagraphformat/spacebefore/) και [IParagraphFormat.SpaceWithin](https://reference.aspose.com/slides/el/net/aspose.slides/iparagraphformat/spacewithin/) για τον έλεγχο του διαστήματος παραγράφων. Αυτές οι ιδιότητες χρησιμοποιούνται ως εξής:
+Aspose.Slides provides [IParagraphFormat.SpaceAfter](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/spaceafter/), [IParagraphFormat.SpaceBefore](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/spacebefore/), and [IParagraphFormat.SpaceWithin](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/spacewithin/) to control paragraph spacing. These properties are used as follows:
 
-* Χρησιμοποιήστε θετική τιμή για να ορίσετε το διάστημα γραμμής ως ποσοστό του ύψους γραμμής.
-* Χρησιμοποιήστε αρνητική τιμή για να ορίσετε το διάστημα γραμμής σε μονάδες.
+* Use a positive value to specify line spacing as a percentage of the line height.
+* Use a negative value to specify line spacing in points.
 
-Το παρακάτω παράδειγμα ορίζει το εσωτερικό διάστημα στην πρώτη παράγραφο στο 200% του ύψους γραμμής (διπλό διάστημα):
+The following example sets spacing within the first paragraph to 200% of the line height (double spacing):
 
 ```cs
 using Aspose.Slides;
@@ -408,18 +472,18 @@ presentation.Save("line_spacing.pptx", SaveFormat.Pptx);
 
 Το αποτέλεσμα:
 
-![Το διάστημα γραμμής μέσα στην παράγραφο](line_spacing.png)
+![Το διάστημα γραμμών μέσα στην παράγραφο](line_spacing.png)
 
-## **Έλεγχος Αλλαγής Γραμμής**
+## **Έλεγχος Σπασίματος Γραμμής**
 
-Οι κανόνες αλλαγής γραμμής παραγράφου είναι χρήσιμοι σε στενά μπλοκ κειμένου και παρουσιάσεις που συνδυάζουν Λατινικό και Ανατολικοασιατικό κείμενο. Οι παρακάτω ιδιότητες ανήκουν στο [IParagraphFormat](https://reference.aspose.com/slides/el/net/aspose.slides/iparagraphformat/), οπότε εφαρμόζονται σε ολόκληρη την παράγραφο:
+Paragraph line-breaking rules are useful in narrow text blocks and presentations that mix Latin and East Asian text. The following properties belong to [IParagraphFormat](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/), so they apply to an entire paragraph:
 
-- Το [LatinLineBreak](https://reference.aspose.com/slides/el/net/aspose.slides/iparagraphformat/latinlinebreak/) ελέγχει τους κανόνες αλλαγής γραμμής για το Λατινικό κείμενο. Σε μεικτό κείμενο, η αλλαγή του μπορεί επίσης να αλλάξει πού τυλίγονται τα γειτονικά Ανατολικοασιατικά κείμενα και σημεία στίξης.
-- Το [EastAsianLineBreak](https://reference.aspose.com/slides/el/net/aspose.slides/iparagraphformat/eastasianlinebreak/) ελέγχει τους κανόνες αλλαγής γραμμής για το Ανατολικοασιατικό κείμενο, συμπεριλαμβανομένων των περιορισμών στους χαρακτήρες στην αρχή και το τέλος μιας γραμμής.
+- [LatinLineBreak](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/latinlinebreak/) controls Latin line-breaking rules. In mixed text, changing it can also change where adjacent East Asian text and punctuation wrap.
+- [EastAsianLineBreak](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/eastasianlinebreak/) controls East Asian line-breaking rules, including restrictions on characters at the beginning and end of a line.
 
-Αυτοί οι κανόνες δεν αντικαθιστούν το [ITextFrameFormat.WrapText](https://reference.aspose.com/slides/el/net/aspose.slides/itextframeformat/wraptext/), που ενεργοποιεί την αυτόματη αναδίπλωση μέσα σε ένα πλαίσιο κειμένου. Επηρεάζουν τη διάταξη όταν γίνεται αναδίπλωση· δεν εισάγουν χαρακτήρες αλλαγής γραμμής. Μία ρητή αλλαγή γραμμής εξαναγκάζει νέα γραμμή μέσα στην παράγραφο ανεξάρτητα από το διαθέσιμο πλάτος.
+These rules do not replace [ITextFrameFormat.WrapText](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/wraptext/), which enables automatic wrapping within a text frame. They influence the layout when wrapping occurs; they do not insert line-break characters. An explicit line break forces a new line within the paragraph independently of the available width.
 
-Το παρακάτω αυτόνομο παράδειγμα δημιουργεί ένα στενό μπλοκ κειμένου που περιέχει Κινέζικο και Λατινικό κείμενο. Ορίζει και τις δύο ιδιότητες αλλαγής γραμμής ρητά και αποθηκεύει το "line_breaking.pptx". Για να πειραματιστείτε με κάποιον κανόνα, αλλάξτε την τιμή αυτής της ιδιότητας κρατώντας τις άλλες ρυθμίσεις σταθερές. Το παράδειγμα χρησιμοποιεί Arial 24 σημείων και SimSun με πλάτος πλαισίου 160 σημείων και μηδενικά οριζόντια περιθώρια πλαισίου κειμένου. Το [ITextFrameFormat.AutofitType](https://reference.aspose.com/slides/el/net/aspose.slides/itextframeformat/autofittype/) ορίζεται σε [TextAutofitType.None](https://reference.aspose.com/slides/el/net/aspose.slides/textautofittype/) ώστε το μέγεθος κειμένου και διαστάσεις πλαισίου να παραμείνουν σταθερά.
+The following self-contained example creates a narrow text block containing Chinese and Latin text. It sets both line-breaking properties explicitly and saves "line_breaking.pptx". To experiment with either rule, change that property's value while keeping the other settings fixed. The example uses 24-point Arial and SimSun with a 160-point frame width and zero horizontal text-frame margins. [ITextFrameFormat.AutofitType](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/autofittype/) is set to [TextAutofitType.None](https://reference.aspose.com/slides/net/aspose.slides/textautofittype/) so that text size and frame dimensions remain fixed.
 
 ```cs
 using System.Drawing;
@@ -454,11 +518,11 @@ format.EastAsianLineBreak = NullableBool.True;
 presentation.Save("line_breaking.pptx", SaveFormat.Pptx);
 ```
 
-## **Έλεγχος Κρεμαστού Στίγματος**
+## **Έλεγχος Κρεμαπούσας Στίξης**
 
-Το [IParagraphFormat.HangingPunctuation](https://reference.aspose.com/slides/el/net/aspose.slides/iparagraphformat/hangingpunctuation/) επιτρέπει σε επιλέξιμα σημεία στίξης να εκτεινόμενοι πέρα από τη δεξιά άκρη της γραμμής κειμένου αντί να καταλαμβάνουν την επόμενη γραμμή. Εφαρμόζεται σε ολόκληρη την παράγραφο και διαφέρει από ένα κρεμαστό εσοχή.
+[IParagraphFormat.HangingPunctuation](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/hangingpunctuation/) allows eligible punctuation to extend beyond the text line's right edge instead of occupying the next line. It applies to the entire paragraph and is different from a hanging indent.
 
-Το παρακάτω αυτόνομο παράδειγμα ενεργοποιεί το κρεμαστό στίγμα σε ένα πλαίσιο κειμένου πλάτους 100 σημείων και αποθηκεύει το "hanging_punctuation.pptx". Με Arial 24 σημείων και μηδενικά οριζόντια περιθώρια πλαισίου κειμένου, η τελική τελεία παραμένει μετά τη λέξη "sentence" και εκτείνεται πέρα από τη δεξιά άκρη του κειμένου. Ορίστε την ιδιότητα σε [NullableBool.False](https://reference.aspose.com/slides/el/net/aspose.slides/nullablebool/) για σύγκριση: με αυτές τις ρυθμίσεις, η τελεία καταλαμβάνει ξεχωριστή γραμμή. Η αναδίπλωση είναι ενεργοποιημένη και η αυτόματη προσαρμογή είναι απενεργοποιημένη ώστε το διαθέσιμο πλάτος να παραμείνει σταθερό.
+The following self-contained example enables hanging punctuation in a 100-point-wide text frame and saves "hanging_punctuation.pptx". With 24-point Arial and zero horizontal text-frame margins, the final period stays after "sentence" and extends beyond the right text edge. Set the property to [NullableBool.False](https://reference.aspose.com/slides/net/aspose.slides/nullablebool/) to compare: with these settings, the period occupies a separate line. Wrapping is enabled and autofit is disabled to keep the available width fixed.
 
 ```cs
 using System.Drawing;
@@ -491,11 +555,11 @@ format.HangingPunctuation = NullableBool.True;
 presentation.Save("hanging_punctuation.pptx", SaveFormat.Pptx);
 ```
 
-Δεν μπορεί να κρεμάσει κάθε σημείο στίξης. Οι [συνθήκες γραμματοσειράς και διάταξης που περιγράφησαν παραπάνω](#conditions-and-limitations) ισχύουν επίσης για αυτή τη σύγκριση: η αλλαγή της γραμματοσειράς, του διαθέσιμου πλάτους, των περιθωρίων ή των ρυθμίσεων αυτόματης προσαρμογής μπορεί να αφαιρέσει τη οπτική διαφορά.
+Not every punctuation mark can hang. The [font and layout conditions described above](#control-line-breaking) also apply to this comparison: changing the font, available width, margins, or autofit settings can remove the visible difference.
 
-## **Ορισμός Τύπου Αυτόματης Προσαρμογής για Πλαίσια Κειμένου**
+## **Ορισμός Τύπου Αυτοπροσαρμογής για Πλαίσια Κειμένου**
 
-Το [ITextFrameFormat.AutofitType](https://reference.aspose.com/slides/el/net/aspose.slides/itextframeformat/autofittype/) καθορίζει πώς συμπεριφέρεται το κείμενο όταν υπερβαίνει τα όρια του περιέκτη του. Χρησιμοποιήστε το για να ελέγξετε αν το κείμενο θα μειώνεται, θα υπερέχει ή θα αλλάζει αυτόματα το μέγεθος του σχήματος. Το παρακάτω παράδειγμα διαμορφώνει το σχήμα ώστε να αλλάζει μέγεθος ώστε να ταιριάζει στο κείμενό του και αποθηκεύει το αποτέλεσμα στο "autofit_type.pptx".
+[ITextFrameFormat.AutofitType](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/autofittype/) determines how text behaves when it exceeds the boundaries of its container. Use it to control whether the text shrinks, overflows, or resizes the shape automatically. The following example configures the shape to resize to fit its text and saves the result to "autofit_type.pptx".
 
 ```cs
 using Aspose.Slides;
@@ -510,11 +574,11 @@ autoShape.TextFrame.TextFrameFormat.AutofitType = TextAutofitType.Shape;
 presentation.Save("autofit_type.pptx", SaveFormat.Pptx);
 ```
 
-Για να μετρήσετε τις γραμμές μετά την αυτόματη αναδίπλωση και να δείτε πώς το κείμενο ή το πλάτος του σχήματος αλλάζει το αποτέλεσμα, δείτε το [Count Rendered Lines](/slides/el/net/manage-paragraph/). Ο μόνος ο αριθμός γραμμών δεν δείχνει εάν το κείμενο υπερβαίνει το περιεχόμενό του.
+To count lines after automatic wrapping and see how text or shape width changes the result, see [Count Rendered Lines](/slides/el/net/manage-paragraph/). Line count alone does not indicate whether text overflows its container.
 
-## **Ορισμός Άγκωνας Πλαισίων Κειμένου**
+## **Ορισμός Άγκυρας Πλαισίων Κειμένου**
 
-Το [ITextFrameFormat.AnchoringType](https://reference.aspose.com/slides/el/net/aspose.slides/itextframeformat/anchoringtype/) ορίζει πώς τοποθετείται κάθετα το κείμενο μέσα σε ένα σχήμα, π.χ. στην κορυφή, στη μέση ή στο κάτω μέρος. Το παρακάτω παράδειγμα αγκυροβολεί το κείμενο στο κάτω μέρος του πρώτου σχήματος και αποθηκεύει το αποτέλεσμα στο "text_anchor.pptx".
+[ITextFrameFormat.AnchoringType](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/anchoringtype/) defines how text is positioned vertically inside a shape, for example, at the top, middle, or bottom. The following example anchors the text to the bottom of the first shape and saves the result to "text_anchor.pptx".
 
 ```cs
 using Aspose.Slides;
@@ -529,9 +593,9 @@ autoShape.TextFrame.TextFrameFormat.AnchoringType = TextAnchorType.Bottom;
 presentation.Save("text_anchor.pptx", SaveFormat.Pptx);
 ```
 
-## **Ορισμός Στηλοθέτησης Κειμένου**
+## **Ορισμός Καρτέλας Κειμένου**
 
-Χρησιμοποιήστε τα [IParagraphFormat.DefaultTabSize](https://reference.aspose.com/slides/el/net/aspose.slides/iparagraphformat/defaulttabsize/) και [IParagraphFormat.Tabs](https://reference.aspose.com/slides/el/net/aspose.slides/iparagraphformat/tabs/) για να ρυθμίσετε τα μέσα στήλης σε μια παράγραφο. Το παρακάτω παράδειγμα ορίζει το προεπιλεγμένο διάστημα στηλοθέτη στα 100 σημεία και προσθέτει μια αριστερά στοιχισμένη θέση στηλοθέτη στα 30 σημεία. Αυτές οι ρυθμίσεις επηρεάζουν το κείμενο που περιέχει χαρακτήρες στηλοθέτη.
+Use [IParagraphFormat.DefaultTabSize](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/defaulttabsize/) and [IParagraphFormat.Tabs](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/tabs/) to configure tab stops in a paragraph. The following example sets the default tab interval to 100 points and adds a left-aligned tab stop at 30 points. These settings affect text containing tab characters.
 
 ```cs
 using Aspose.Slides;
@@ -550,13 +614,13 @@ presentation.Save("paragraph_tabs.pptx", SaveFormat.Pptx);
 
 Το αποτέλεσμα:
 
-![Τα στηλοθέτες της παραγράφου](paragraph_tabs.png)
+![Οι καρτέλες της παραγράφου](paragraph_tabs.png)
 
 ## **Ορισμός Γλώσσας Ελέγχου Ορθογραφίας**
 
-Το Aspose.Slides παρέχει το [IBasePortionFormat.LanguageId](https://reference.aspose.com/slides/el/net/aspose.slides/ibaseportionformat/languageid/), που σας επιτρέπει να ορίσετε τη γλώσσα ελέγχου ορθογραφίας για ένα τμήμα κειμένου. Η γλώσσα ελέγχου ορθογραφίας καθορίζει τη γλώσσα που χρησιμοποιείται για ορθογραφικούς και γραμματικούς ελέγχους στο PowerPoint.
+Aspose.Slides provides [IBasePortionFormat.LanguageId](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/languageid/), which allows you to set the proofing language for a text portion. The proofing language determines the language used for spelling and grammar checks in PowerPoint.
 
-Το παρακάτω παράδειγμα απαιτεί το "presentation.pptx" με ένα πλαίσιο κειμένου ως πρώτο σχήμα στην πρώτη διαφάνεια και τουλάχιστον μία παράγραφο. Αντικαθιστά το περιεχόμενο της πρώτης παραγράφου με "1。", ορίζει το SimSun ως γραμματοσειρά της και ορίζει τη γλώσσα ελέγχου ορθογραφίας Απλοποιημένου κινέζου (`zh-CN`). Αποθηκεύει το αποτέλεσμα στο "proofing_language.pptx":
+The following example requires "presentation.pptx" with a text box as the first shape on the first slide and at least one paragraph. It replaces the first paragraph’s contents with "1。", sets SimSun as its font, and assigns the Simplified Chinese proofing language (`zh-CN`). It saves the result to "proofing_language.pptx":
 
 ```cs
 using Aspose.Slides;
@@ -587,7 +651,7 @@ presentation.Save("proofing_language.pptx", SaveFormat.Pptx);
 
 ## **Ορισμός Προεπιλεγμένης Γλώσσας**
 
-Χρησιμοποιήστε το [LoadOptions.DefaultTextLanguage](https://reference.aspose.com/slides/el/net/aspose.slides/loadoptions/defaulttextlanguage/) για να ορίσετε τη προεπιλεγμένη γλώσσα για κείμενο που δημιουργείται κατά τη φόρτωση ή τη δημιουργία μιας παρουσίασης. Το παρακάτω παράδειγμα δημιουργεί μια παρουσίαση με αγγλικά ΗΠΑ ως προεπιλεγμένη γλώσσα κειμένου, προσθέτει ένα πλαίσιο κειμένου και εμφανίζει `en-US` για το πρώτο τμήμα κειμένου.
+Use [LoadOptions.DefaultTextLanguage](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/defaulttextlanguage/) to define the default language for text created while loading or creating a presentation. The following example creates a presentation with US English as the default text language, adds a text box, and prints `en-US` for its first text portion.
 
 ```cs
 using System;
@@ -599,7 +663,7 @@ loadOptions.DefaultTextLanguage = "en-US";
 using var presentation = new Presentation(loadOptions);
 var slide = presentation.Slides[0];
 
-// Προσθέστε ένα νέο ορθογώνιο σχήμα με κείμενο.
+// Προσθέστε ένα νέο σχήμα ορθογωνίου με κείμενο.
 var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 150, 50);
 shape.TextFrame.Text = "Sample text";
 
@@ -610,16 +674,16 @@ Console.WriteLine(portion.PortionFormat.LanguageId);
 
 ## **Ορισμός Προεπιλεγμένου Στυλ Κειμένου**
 
-Για να εφαρμόσετε προεπιλεγμένη μορφοποίηση κειμένου σε επίπεδο παρουσίασης, χρησιμοποιήστε το [IPresentation.DefaultTextStyle](https://reference.aspose.com/slides/el/net/aspose.slides/ipresentation/defaulttextstyle/).
+To apply default text formatting at the presentation level, use [IPresentation.DefaultTextStyle](https://reference.aspose.com/slides/net/aspose.slides/ipresentation/defaulttextstyle/).
 
-Το παρακάτω παράδειγμα ορίζει μια έντονη γραμματοσειρά 14 σημείων ως προεπιλογή για παραγράφους ανώτερου επιπέδου σε μια νέα παρουσίαση και το αποθηκεύει στο "default_text_style.pptx". Το κείμενο μπορεί να κληρονομήσει αυτές τις προεπιλογές εκτός εάν κάποια πιο συγκεκριμένη μορφοποίηση τις αντικαταστήσει.
+The following example sets a 14-point bold font as the default for top-level paragraphs in a new presentation and saves it to "default_text_style.pptx". Text can inherit these defaults unless more specific formatting overrides them.
 
 ```cs
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
 using var presentation = new Presentation();
-// Λάβετε τη μορφοποίηση παραγράφου του ανώτερου επιπέδου.
+// Ανάκτηση της μορφοποίησης παραγράφου υψηλότερου επιπέδου.
 var paragraphFormat = presentation.DefaultTextStyle.GetLevel(0);
 
 if (paragraphFormat != null)
@@ -631,15 +695,15 @@ if (paragraphFormat != null)
 presentation.Save("default_text_style.pptx", SaveFormat.Pptx);
 ```
 
-## **Εξαγωγή Κειμένου με το Εφέ Όλων Σε Κεφαλαία**
+## **Ανάκτηση Κειμένου με το Εφέ Όλων-Κεφαλαίων**
 
-Στο PowerPoint, η εφαρμογή του εφέ **All Caps** στην γραμματοσειρά κάνει το κείμενο να εμφανίζεται με κεφαλαία γράμματα στη διαφάνεια ακόμη και αν αρχικά πληκτρολογήθηκε με πεζά. Όταν εξάγετε ένα τέτοιο τμήμα κειμένου με το Aspose.Slides, η βιβλιοθήκη επιστρέφει το κείμενο ακριβώς όπως εισήχθη. Για να ταιριάξετε το εμφανιζόμενο κείμενο, ελέγξτε το [TextCapType](https://reference.aspose.com/slides/el/net/aspose.slides/textcaptype/) και μετατρέψτε το επιστρεφόμενο string σε κεφαλαία όταν η τιμή είναι `All`.
+In PowerPoint, applying the **All Caps** font effect makes text appear in uppercase on the slide even when it was originally typed in lowercase. When you retrieve such a text portion with Aspose.Slides, the library returns the text exactly as it was entered. To match the displayed text, check [TextCapType](https://reference.aspose.com/slides/net/aspose.slides/textcaptype/) and convert the returned string to uppercase when the value is `All`.
 
-Το παράδειγμα απαιτεί το "sample2.pptx" με ένα πλαίσιο κειμένου ως πρώτο σχήμα στην πρώτη διαφάνεια. Το πρώτο τμήμα της πρώτης παραγράφου περιέχει το "Hello, Aspose!" με το εφέ All Caps εφαρμόσμένο, όπως φαίνεται παρακάτω.
+This example requires "sample2.pptx" with a text box as the first shape on the first slide. Its first paragraph’s first portion contains "Hello, Aspose!" with the All Caps effect applied, as shown below.
 
-![Το εφέ All Caps](all_caps_effect.png)
+![Το εφέ Όλων-Κεφαλαίων](all_caps_effect.png)
 
-Το παρακάτω παράδειγμα κώδικα δείχνει πώς να εξάγετε το κείμενο με το εφέ **All Caps** εφαρμοσμένο:
+The code example below shows how to extract the text with the **All Caps** effect applied:
 
 ```cs
 using System;
@@ -661,19 +725,19 @@ if (textFormat.TextCapType == TextCapType.All)
 }
 ```
 
-Αποτέλεσμα:
+Output:
 
 ```text
 Original text: Hello, Aspose!
 All-Caps effect: HELLO, ASPOSE!
 ```
 
-## **FAQ**
+## **Συχνές Ερωτήσεις**
 
-**Πώς μπορώ να τροποποιήσω κείμενο σε πίνακα σε μια διαφάνεια;**
+**How do I modify text in a table on a slide?**
 
-Για να τροποποιήσετε κείμενο σε πίνακα σε μια διαφάνεια, χρησιμοποιήστε το [ITable](https://reference.aspose.com/slides/el/net/aspose.slides/itable/). Διατρέξτε τα κελιά και ενημερώστε κάθε κελί μέσω του [ICell.TextFrame](https://reference.aspose.com/slides/el/net/aspose.slides/icell/textframe/) και τη μορφοποίηση παραγράφων μέσω του [IParagraph.ParagraphFormat](https://reference.aspose.com/slides/el/net/aspose.slides/iparagraph/paragraphformat/).
+To modify text in a table on a slide, use [ITable](https://reference.aspose.com/slides/net/aspose.slides/itable/). Iterate through the cells and update each cell through [ICell.TextFrame](https://reference.aspose.com/slides/net/aspose.slides/icell/textframe/) and paragraph formatting through [IParagraph.ParagraphFormat](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/paragraphformat/).
 
-**Πώς μπορώ να εφαρμόσω διαβάθμιση χρώματος σε κείμενο σε μια διαφάνεια PowerPoint;**
+**How do I apply a gradient color to text on a PowerPoint slide?**
 
-Για να εφαρμόσετε χρώμα διαβάθμισης σε κείμενο, χρησιμοποιήστε το [IBasePortionFormat.FillFormat](https://reference.aspose.com/slides/el/net/aspose.slides/ibaseportionformat/fillformat/). Ορίστε το [IFillFormat.FillType](https://reference.aspose.com/slides/el/net/aspose.slides/ifillformat/filltype/) σε [FillType.Gradient](https://reference.aspose.com/slides/el/net/aspose.slides/filltype/) και διαμορφώστε τα σημεία διαβάθμισης, την κατεύθυνση και τη διαφάνεια.
+To apply a gradient color to text, use [IBasePortionFormat.FillFormat](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/fillformat/). Set [IFillFormat.FillType](https://reference.aspose.com/slides/net/aspose.slides/ifillformat/filltype/) to [FillType.Gradient](https://reference.aspose.com/slides/net/aspose.slides/filltype/) and configure the gradient stops, direction, and transparency.

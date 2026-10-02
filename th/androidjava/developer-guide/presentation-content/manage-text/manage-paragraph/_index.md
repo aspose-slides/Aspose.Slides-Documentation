@@ -1,5 +1,5 @@
 ---
-title: จัดการย่อความข้อความ PowerPoint บน Android
+title: จัดการย่อหน้าข้อความ PowerPoint บน Android
 linktitle: จัดการย่อหน้า
 type: docs
 weight: 40
@@ -12,53 +12,53 @@ keywords:
 - เพิ่มย่อหน้า
 - จัดการข้อความ
 - จัดการย่อหน้า
-- จัดการสัญลักษณ์
-- ย่อหน้าเยื้องบรรทัดแรก
-- ย่อหน้าเยื้องแบบห้อย
-- สัญลักษณ์ย่อหน้า
+- จัดการสัญลักษณ์หัวข้อย่อย
+- การเยื้องย่อหน้า
+- การเยื้องแบบห้อยลง
+- สัญลักษณ์หัวข้อย่อยของย่อหน้า
 - รายการลำดับเลข
-- รายการสัญลักษณ์
-- คุณสมบัตย่อหน้า
+- รายการแบบสัญลักษณ์หัวข้อย่อย
+- คุณสมบัติของย่อหน้า
 - นำเข้า HTML
 - ข้อความเป็น HTML
 - ย่อหน้าเป็น HTML
-- ย่อหน้าเป็นรูปภาพ
-- ข้อความเป็นรูปภาพ
+- ย่อหน้าเป็นภาพ
+- ข้อความเป็นภาพ
 - ส่งออกย่อหน้า
 - PowerPoint
-- การนำเสนอ
+- งานนำเสนอ
 - Android
 - Java
 - Aspose.Slides
-description: "เรียนรู้วิธีสร้างและจัดรูปแบบย่อหน้า ส่วนข้อความ สัญลักษณ์ รายการลำดับเลข ย่อหน้าเยื้อง เนื้อหา HTML และภาพย่อหน้าด้วย Aspose.Slides สำหรับ Android ผ่าน Java."
+description: "เรียนรู้วิธีสร้างและจัดรูปแบบย่อหน้า ส่วนย่อย สัญลักษณ์หัวข้อย่อย รายการลำดับเลข การเยื้อง เนื้อหา HTML และรูปภาพย่อหน้า ด้วย Aspose.Slides สำหรับ Android ผ่าน Java."
 ---
 ## **ภาพรวม**
 
-Aspose.Slides สำหรับ Android ผ่าน Java แสดงข้อความเป็นโครงสร้างขั้นบันไดของกรอบข้อความ ย่อหน้า และส่วนข้อความ:
+Aspose.Slides สำหรับ Android ผ่าน Java แสดงข้อความเป็นโครงสร้างของเฟรมข้อความ ย่อหน้า และส่วนย่อย:
 
-* [ITextFrame](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/itextframe/) เป็นคอนเทนเนอร์ของข้อความในรูปร่างและให้การเข้าถึงคอลเลกชันของย่อหน้า
-* [IParagraph](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iparagraph/) เป็นย่อหน้าหนึ่งในกรอบข้อความและให้การเข้าถึงส่วนข้อความและการจัดรูปแบบระดับย่อหน้า
-* [IPortion](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iportion/) เป็นการทำงานของข้อความภายในย่อหน้า แต่ละส่วนข้อความสามารถมีข้อความและการจัดรูปแบบระดับอักขระของตนเอง
+* [ITextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/) แสดงตัวคอนเทนเนอร์ข้อความในรูปร่างและให้การเข้าถึงคอลเลกชันของย่อหน้า
+* [IParagraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph/) แสดงย่อหน้าเดียวในเฟรมข้อความและให้การเข้าถึงส่วนย่อยและการจัดรูปแบบระดับย่อหน้า
+* [IPortion](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iportion/) แสดงช่วงข้อความภายในย่อหน้า แต่ละส่วนย่อยสามารถมีข้อความและการจัดรูปแบบระดับอักขระของตนเองได้
 
-ดังนั้น ย่อหน้าจึงสามารถมีข้อความที่ใช้แบบอักษร สี ขนาด และการจัดรูปแบบอื่นๆ ที่แตกต่างกันได้โดยใช้หลายส่วนข้อความ
+ดังนั้น ย่อหน้าจึงสามารถมีข้อความที่มีแบบอักษร สี ขนาด และการจัดรูปแบบอื่น ๆ ที่แตกต่างกันได้โดยใช้หลายส่วนย่อย
 
 ## **สร้างและจัดรูปแบบย่อหน้า**
 
-### **สร้างย่อหน้าด้วยหลายส่วนข้อความ**
+### **สร้างย่อหน้าด้วยหลายส่วนย่อย**
 
-ขั้นตอนต่อไปนี้สร้างกรอบข้อความที่มีย่อหน้า 3 ย่อหน้า โดยแต่ละย่อหน้ามีส่วนข้อความ 3 ส่วน:
+ขั้นตอนต่อไปนี้สร้างเฟรมข้อความที่มีสามย่อหน้า แต่ละย่อหน้ามีสามส่วนย่อย:
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/presentation/)
-2. เข้าถึงสไลด์ที่เกี่ยวข้องโดยใช้ดัชนีของมัน
-3. เพิ่ม [IAutoShape](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iautoshape/) รูปสี่เหลี่ยมผืนผ้าไปยังสไลด์
-4. เข้าถึง [ITextFrame] ของรูปร่าง
-5. ใช้ย่อหน้าเริ่มต้นและเพิ่มวัตถุ [IParagraph] อีกสองรายการไปยังกรอบข้อความ
-6. เพิ่มวัตถุ [IPortion] จำนวนที่เพียงพอให้แต่ละย่อหน้ามีสามส่วนข้อความ ย่อหน้าเริ่มต้นมีส่วนข้อความว่างหนึ่งส่วนอยู่แล้ว
-7. ตั้งข้อความของแต่ละส่วนข้อความ
-8. ใช้การจัดรูปแบบระดับอักขระผ่าน [IPortion.getPortionFormat](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iportion/#getPortionFormat--)
-9. บันทึกการนำเสนอที่แก้ไขแล้ว
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/)  
+2. เข้าถึงสไลด์ที่ต้องการผ่านดัชนีของมัน  
+3. เพิ่ม [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) สี่เหลี่ยมผืนผ้าไปยังสไลด์  
+4. เข้าถึง [ITextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/) ของรูปทราบ  
+5. ใช้ย่อหน้าเริ่มต้นและเพิ่มอ็อบเจกต์ [IParagraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph/) อีกสองอ็อบเจกต์ไปยังเฟรมข้อความ  
+6. เพิ่มอ็อบเจกต์ [IPortion](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iportion/) ให้พอเพียงสำหรับแต่ละย่อหน้าเพื่อให้มีสามส่วนย่อย ย่อหน้าเริ่มต้นมีส่วนย่อยว่างเปล่าอยู่แล้วหนึ่งส่วน  
+7. ตั้งค่าข้อความของแต่ละส่วนย่อย  
+8. ใช้การจัดรูปแบบระดับอักขระผ่าน [IPortion.getPortionFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iportion/#getPortionFormat--)  
+9. บันทึกการนำเสนอที่แก้ไขแล้ว  
 
-ตัวอย่าง Android ผ่าน Java นี้แสดงการทำตามขั้นตอน:
+ตัวอย่าง Android ผ่าน Java นี้ทำตามขั้นตอนเหล่านั้น:
 
 ```java
 import com.aspose.slides.*;
@@ -116,24 +116,24 @@ try {
 
 ## **สร้างรายการแบบสัญลักษณ์และลำดับเลข**
 
-### **สร้างรายการแบบสัญลักษณ์หรือเลขลำดับ**
+### **สร้างรายการแบบสัญลักษณ์หรือหมายเลขลำดับ**
 
-สัญลักษณ์และการลำดับทำให้รายการที่เกี่ยวข้องอ่านง่ายขึ้น ใน Aspose.Slides การตั้งค่ารายการกำหนดโดยใช้ [IBulletFormat](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ibulletformat/)
+สัญลักษณ์และการนับเลขทำให้รายการที่เกี่ยวข้องอ่านง่ายขึ้น ใน Aspose.Slides การตั้งค่ารายการจะกำหนดผ่าน [IBulletFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibulletformat/)  
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/presentation/)
-2. เข้าถึงสไลด์ที่เกี่ยวข้องโดยใช้ดัชนีของมัน
-3. เพิ่ม [IAutoShape](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iautoshape/) ไปยังสไลด์ที่เลือก
-4. เข้าถึง [ITextFrame] ของรูปร่าง
-5. ลบย่อหน้าเริ่มต้นออกจากกรอบข้อความ
-6. สร้าง [Paragraph](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/paragraph/) สำหรับสัญลักษณ์สัญลักษณ์จุด
-7. ตั้งค่า [IBulletFormat.setType](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ibulletformat/#setType-int-) เป็น [BulletType.Symbol](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/bullettype/) และระบุอักขระสัญลักษณ์
-8. ตั้งค่าข้อความย่อหน้า ระยะเยื้อง สีสัญลักษณ์และความสูงของสัญลักษณ์
-9. เพิ่มย่อหน้าลงในกรอบข้อความ
-10. สร้างย่อหน้าที่สองและตั้งค่า [IBulletFormat.setType](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ibulletformat/#setType-int-) เป็น [BulletType.Numbered](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/bullettype/)
-11. กำหนดสไตล์ของสัญลักษณ์เลขลำดับและเพิ่มย่อหน้าลงในกรอบข้อความ
-12. บันทึกการนำเสนอ
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/)  
+2. เข้าถึงสไลด์ที่ต้องการผ่านดัชนีของมัน  
+3. เพิ่ม [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) ไปยังสไลด์ที่เลือก  
+4. เข้าถึง [ITextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/) ของรูปทราบ  
+5. ลบย่อหน้าเริ่มต้นออกจากเฟรมข้อความ  
+6. สร้าง [Paragraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/paragraph/) สำหรับสัญลักษณ์หัวข้อย่อย  
+7. ตั้งค่า [IBulletFormat.setType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibulletformat/#setType-int-) เป็น [BulletType.Symbol](https://reference.aspose.com/slides/androidjava/com.aspose.slides/bullettype/) และระบุตัวอักษรสัญลักษณ์  
+8. ตั้งค่าข้อความย่อหน้า ระยะย่อหน้า สีสัญลักษณ์และความสูงสัญลักษณ์  
+9. เพิ่มย่อหน้าลงในเฟรมข้อความ  
+10. สร้างย่อหน้าที่สองและตั้งค่า [IBulletFormat.setType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibulletformat/#setType-int-) เป็น [BulletType.Numbered](https://reference.aspose.com/slides/androidjava/com.aspose.slides/bullettype/)  
+11. กำหนดสไตล์สัญลักษณ์ลำดับเลขและเพิ่มย่อหน้าลงในเฟรมข้อความ  
+12. บันทึกการนำเสนอ  
 
-ตัวอย่าง Android ผ่าน Java นี้สร้างสัญลักษณ์จุดและสัญลักษณ์แบบลำดับเลข:
+ตัวอย่าง Android ผ่าน Java นี้สร้างสัญลักษณ์หัวข้อย่อยและสัญลักษณ์ลำดับเลข:
 
 ```java
 import com.aspose.slides.*;
@@ -174,22 +174,22 @@ try {
 }
 ```
 
-### **ใช้สัญลักษณ์รูปภาพ**
+### **ใช้สัญลักษณ์หัวข้อย่อยเป็นรูปภาพ**
 
-สัญลักษณ์รูปภาพให้คุณใช้รูปภาพกำหนดเองแทนสัญลักษณ์หรือเลข
+สัญลักษณ์หัวข้อย่อยแบบรูปภาพช่วยให้คุณใช้ภาพกำหนดเองแทนสัญลักษณ์หรือเลข  
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/presentation/)
-2. เข้าถึงสไลด์ที่เกี่ยวข้องโดยใช้ดัชนีของมัน
-3. เพิ่ม [IAutoShape](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iautoshape/) และเข้าถึง [ITextFrame] ของมัน
-4. ลบย่อหน้าเริ่มต้นออกจากกรอบข้อความ
-5. โหลดรูปภาพสัญลักษณ์และเพิ่มไปยังคอลเลกชันรูปภาพของการนำเสนอเป็น [IPPImage](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ippimage/)
-6. สร้าง [Paragraph](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/paragraph/) และตั้งค่าข้อความของมัน
-7. ตั้งค่า [IBulletFormat.setType](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ibulletformat/#setType-int-) เป็น [BulletType.Picture](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/bullettype/)
-8. กำหนดรูปภาพผ่าน [IBulletFormat.getPicture](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ibulletformat/#getPicture--) และตั้งค่าความสูงของสัญลักษณ์
-9. เพิ่มย่อหน้าลงในกรอบข้อความ
-10. บันทึกการนำเสนอที่แก้ไขแล้ว
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/)  
+2. เข้าถึงสไลด์ที่ต้องการผ่านดัชนีของมัน  
+3. เพิ่ม [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) และเข้าถึง [ITextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/) ของมัน  
+4. ลบย่อหน้าเริ่มต้นออกจากเฟรมข้อความ  
+5. โหลดภาพสัญลักษณ์และเพิ่มลงในคอลเลกชันภาพของการนำเสนอเป็น [IPPImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ippimage/)  
+6. สร้าง [Paragraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/paragraph/) และตั้งค่าข้อความของมัน  
+7. ตั้งค่า [IBulletFormat.setType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibulletformat/#setType-int-) เป็น [BulletType.Picture](https://reference.aspose.com/slides/androidjava/com.aspose.slides/bullettype/)  
+8. กำหนดภาพผ่าน [IBulletFormat.getPicture](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibulletformat/#getPicture--) และตั้งค่าความสูงสัญลักษณ์  
+9. เพิ่มย่อหน้าลงในเฟรมข้อความ  
+10. บันทึกการนำเสนอที่แก้ไขแล้ว  
 
-ตัวอย่าง Android ผ่าน Java นี้สร้างสัญลักษณ์รูปภาพ:
+ตัวอย่าง Android ผ่าน Java นี้สร้างสัญลักษณ์หัวข้อย่อยแบบรูปภาพ:
 
 ```java
 import com.aspose.slides.*;
@@ -226,15 +226,15 @@ try {
 
 ### **สร้างรายการหลายระดับ**
 
-ตั้งค่า [IParagraphFormat.setDepth](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iparagraphformat/#setDepth-short-) เพื่อวางย่อหน้าในระดับต่าง ๆ ของรายการ ระดับบนสุดมีความลึกเป็น `0`
+ตั้งค่า [IParagraphFormat.setDepth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setDepth-short-) เพื่อวางย่อหน้าในระดับต่าง ๆ ของรายการ ระดับบนสุดมีความลึกเป็น `0`  
 
-1. สร้าง [Presentation](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/presentation/) และเข้าถึงสไลด์
-2. เพิ่ม [IAutoShape](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iautoshape/) และลบย่อหน้าเริ่มต้นออกจากกรอบข้อความของมัน
-3. สร้างสี่ย่อหน้าและกำหนดสัญลักษณ์สัญลักษณ์ของพวกมัน
-4. ตั้งค่า [IParagraphFormat.setDepth](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iparagraphformat/#setDepth-short-) ของพวกมันเป็น `0` `1` `2` และ `3`
-5. เพิ่มย่อหน้าลงในกรอบข้อความและบันทึกการนำเสนอ
+1. สร้าง [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) และเข้าถึงสไลด์หนึ่งสไลด์  
+2. เพิ่ม [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) และเคลียร์ย่อหน้าเริ่มต้นออกจากเฟรมข้อความของมัน  
+3. สร้างสี่ย่อหน้าและกำหนดสัญลักษณ์หัวข้อย่อยให้แต่ละอัน  
+4. ตั้งค่าความลึกผ่าน [IParagraphFormat.setDepth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setDepth-short-) เป็น `0`, `1`, `2` และ `3` ตามลำดับ  
+5. เพิ่มย่อหน้าเหล่านั้นลงในเฟรมข้อความและบันทึกการนำเสนอ  
 
-ตัวอย่าง Android ผ่าน Java นี้สร้างรายการสัญลักษณ์ระดับสี่:
+ตัวอย่าง Android ผ่าน Java นี้สร้างรายการสัญลักษณ์สี่ระดับ:
 
 ```java
 import com.aspose.slides.*;
@@ -290,15 +290,15 @@ try {
 }
 ```
 
-### **เริ่มรายการเลขลำดับด้วยค่าที่กำหนดเอง**
+### **เริ่มรายการลำดับเลขจากค่ากำหนดเอง**
 
-ใช้ [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) เพื่อตั้งหมายเลขเริ่มต้นของย่อหน้าแบบลำดับเลข
+ใช้ [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) เพื่อกำหนดหมายเลขเริ่มต้นสำหรับย่อหน้าที่เป็นลำดับเลข  
 
-1. สร้าง [Presentation](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/presentation/) และเพิ่ม [IAutoShape](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iautoshape/) ไปยังสไลด์
-2. ลบย่อหน้าเริ่มต้นออกจากกรอบข้อความของรูปร่าง
-3. สร้างย่อหน้าเลขลำดับสามย่อหน้า
-4. ตั้งค่า [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) เป็น `2` `3` และ `7` สำหรับย่อหน้าแต่ละรายการ
-5. เพิ่มย่อหน้าลงในกรอบข้อความและบันทึกการนำเสนอ
+1. สร้าง [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) และเพิ่ม [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) ไปยังสไลด์หนึ่งสไลด์  
+2. เคลียร์ย่อหน้าเริ่มต้นออกจากเฟรมข้อความของรูปทราบ  
+3. สร้างย่อหน้าลำดับเลขสามย่อหน้า  
+4. ตั้งค่า [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) เป็น `2`, `3` และ `7` สำหรับย่อหน้าแต่ละอันตามลำดับ  
+5. เพิ่มย่อหน้าเหล่านั้นลงในเฟรมข้อความและบันทึกการนำเสนอ  
 
 ตัวอย่าง Android ผ่าน Java นี้กำหนดหมายเลขเริ่มต้นที่กำหนดเองให้กับแต่ละย่อหน้า:
 
@@ -336,25 +336,25 @@ try {
 }
 ```
 
-## **ควบคุมการจัดวางย่อหน้าและคุณสมบัติสิ้นสุด**
+## **ควบคุมการจัดแ Layout ของย่อหน้าและคุณสมบัติสุดท้าย**
 
-### **ตั้งค่าเยื้องบรรทัดแรก**
+### **ตั้งค่าการเยื้องบรรทัดแรก**
 
-ใช้ [IParagraphFormat.setIndent](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) เพื่อควบคุมการเยื้องบรรทัดแรกของย่อหน้า วิธีนี้จะเลื่อนบรรทัดแรกเท่านั้นโดยอิงตามขอบซ้ายของย่อหน้า ค่าบวกจะเลื่อนบรรทัดแรกไปทางขวา ส่วนบรรทัดที่เหลือจะคงสอดคล้องกับเนื้อหาย่อหน้า
+ใช้ [IParagraphFormat.setIndent](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) เพื่อควบคุมการเยื้องบรรทัดแรกของย่อหน้า วิธีนี้จะย้ายเฉพาะบรรทัดแรกเทียบกับระยะขอบซ้ายของย่อหน้า ค่าเป็นบวกจะเลื่อนบรรทัดแรกไปทางขวา ส่วนบรรทัดที่เหลือคงอยู่ในแนวกับเนื้อหาย่อหน้า  
 
-ใช้ [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) เมื่อคุณต้องการย้ายย่อหน้าทั้งหมด ใช้ [IParagraphFormat.setIndent](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) เมื่อคุณต้องการย้ายเฉพาะบรรทัดแรก
+ใช้ [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) เมื่อคุณต้องการย้ายย่อหน้าทั้งหมด ใช้ [IParagraphFormat.setIndent](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) เมื่อคุณต้องการย้ายเฉพาะบรรทัดแรก  
 
-ตัวอย่างต่อไปนี้สร้างหลายย่อหน้าและกำหนดค่า [IParagraphFormat.setIndent](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) ต่าง ๆ เพื่อแสดงว่าการเยื้องบรรทัดแรกส่งผลต่อการจัดวางอย่างไร
+ตัวอย่างด้านล่างสร้างหลายย่อหน้าและกำหนดค่า [IParagraphFormat.setIndent](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) ที่ต่างกันเพื่อสาธิตว่าการเยื้องบรรทัดแรกส่งผลต่อการจัด Layout อย่างไร  
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/presentation/)
-2. เข้าถึงสไลด์เป้าหมาย
-3. เพิ่ม [IAutoShape](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iautoshape/) รูปสี่เหลี่ยมผืนผ้าไปยังสไลด์
-4. เข้าถึง [ITextFrame] ของรูปร่างและลบย่อหน้าเริ่มต้นออก
-5. สร้างหลายย่อหน้าและตั้งค่า [IParagraphFormat.setIndent](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) ที่แตกต่างกันสำหรับแต่ละย่อหน้า
-6. เพิ่มย่อหน้าลงในกรอบข้อความ
-7. บันทึกการนำเสนอที่แก้ไขแล้ว
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/)  
+2. เข้าถึงสไลด์เป้าหมาย  
+3. เพิ่ม [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) สี่เหลี่ยมผืนผ้าไปยังสไลด์  
+4. เข้าถึง [ITextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/) ของรูปทราบและลบย่อหน้าเริ่มต้นออก  
+5. สร้างหลายย่อหน้าและตั้งค่าค่า [IParagraphFormat.setIndent](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) ที่แตกต่างกันสำหรับแต่ละย่อหน้า  
+6. เพิ่มย่อหน้าเหล่านั้นลงในเฟรมข้อความ  
+7. บันทึกการนำเสนอที่แก้ไขแล้ว  
 
-โค้ดนี้แสดงวิธีตั้งค่าเยื้องย่อหน้า:
+โค้ดนี้แสดงวิธีตั้งค่าการเยื้องย่อหน้า:
 
 ```java
 import com.aspose.slides.*;
@@ -408,24 +408,24 @@ try {
 
 ![การเยื้องบรรทัดแรกของย่อหน้า](first_line_indent.png)
 
-### **ตั้งค่าเยื้องแบบห้อย**
+### **ตั้งค่าการเยื้องแบบห้อยลง**
 
-การเยื้องแบบห้อยคือการจัดวางย่อหน้าโดยบรรทัดแรกเริ่มที่ด้านซ้ายของบรรทัดที่เหลือ ใน Aspose.Slides คุณสร้างเอฟเฟกต์นี้ด้วย [IParagraphFormat.setIndent](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) ให้ค่าเป็นลบเพื่อย้ายบรรทัดแรกไปทางซ้ายเมื่อเทียบกับเนื้อหาย่อหน้า
+การเยื้องแบบห้อยลงคือการจัด Layout ของย่อหน้าที่บรรทัดแรกเริ่มอยู่ทางซ้ายของบรรทัดที่เหลือ ใน Aspose.Slides คุณสร้างเอฟเฟกต์นี้ด้วย [IParagraphFormat.setIndent](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) โดยใส่ค่าลบเพื่อย้ายบรรทัดแรกไปทางซ้ายเทียบกับเนื้อหาย่อหน้า  
 
-โดยปฏิบัติ [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) กำหนดตำแหน่งซ้ายของเนื้อหาย่อหน้า และ [IParagraphFormat.setIndent](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) กำหนดตำแหน่งของบรรทัดแรกเมื่อเทียบกับขอบซ้ายนั้น เพื่อสร้างการเยื้องแบบห้อย ให้กำหนดค่าบวกให้กับ `setMarginLeft` และค่าลบให้กับ `setIndent`
+โดยปฏิบัติ [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) กำหนดตำแหน่งซ้ายของเนื้อหาย่อหน้าและ [IParagraphFormat.setIndent](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) กำหนดตำแหน่งของบรรทัดแรกเทียบกับระยะขอบนั้น เพื่อสร้างการเยื้องแบบห้อยลง ให้ใส่ค่าบวกให้กับ `setMarginLeft` และค่าลบให้กับ `setIndent`  
 
-การจัดรูปแบบนี้มีประโยชน์สำหรับบรรณานุกรม การอ้างอิง รายการอภิธานศัพท์ และย่อหน้าอื่น ๆ ที่บรรทัดที่ต่อเนื่องต้องสอดคล้องกับเนื้อหาย่อหน้าแทนที่จะสอดคล้องกับอักขระแรกของบรรทัดแรก
+การจัดรูปแบบนี้มีประโยชน์สำหรับบรรณานุกรม การอ้างอิง รายการสารานุกรม และย่อหน้าอื่น ๆ ที่ต้องการให้บรรทัดต่อเนื่องจัดแนวภายใต้เนื้อหาย่อหน้าแทนจะจัดแนวใต้ตัวอักษรแรกของบรรทัดแรก  
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/presentation/)
-2. เข้าถึงสไลด์เป้าหมาย
-3. เพิ่ม [IAutoShape](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iautoshape/) รูปสี่เหลี่ยมผืนผ้าไปยังสไลด์
-4. เข้าถึง [ITextFrame] ของรูปร่างและลบย่อหน้าเริ่มต้นออก
-5. สร้างย่อหน้าและกำหนดค่าบวกให้กับ [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) สำหรับแต่ละย่อหน้า
-6. กำหนดค่าลบให้กับ [IParagraphFormat.setIndent](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) เพื่อสร้างเอฟเฟกต์เยื้องแบบห้อย
-7. เพิ่มย่อหน้าลงในกรอบข้อความ
-8. บันทึกการนำเสนอที่แก้ไขแล้ว
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/)  
+2. เข้าถึงสไลด์เป้าหมาย  
+3. เพิ่ม [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) สี่เหลี่ยมผืนผ้าไปยังสไลด์  
+4. เข้าถึง [ITextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/) ของรูปทราบและลบย่อหน้าเริ่มต้นออก  
+5. สร้างย่อหน้าและใส่ค่าบวกให้กับ [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) สำหรับแต่ละย่อหน้า  
+6. ใส่ค่าลบให้กับ [IParagraphFormat.setIndent](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) เพื่อสร้างเอฟเฟกต์การเยื้องแบบห้อยลง  
+7. เพิ่มย่อหน้าเหล่านั้นลงในเฟรมข้อความ  
+8. บันทึกการนำเสนอที่แก้ไขแล้ว  
 
-โค้ดนี้แสดงวิธีตั้งค่าเยื้องแบบห้อยสำหรับย่อหน้า:
+โค้ดนี้แสดงวิธีตั้งค่าการเยื้องแบบห้อยลงสำหรับย่อหน้า:
 
 ```java
 import com.aspose.slides.*;
@@ -469,18 +469,18 @@ try {
 
 ผลลัพธ์:
 
-![การเยื้องแบบห้อยของย่อหน้า](hanging_indent.png)
+![การเยื้องแบบห้อยลงของย่อหน้า](hanging_indent.png)
 
-### **ตั้งค่าคุณสมบัติส่วนสิ้นสุดของย่อหน้า**
+### **ตั้งค่าคุณสมบัติการทำงานของส่วนย่อยท้ายย่อหน้า**
 
-[IParagraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iparagraph/#setEndParagraphPortionFormat-com.aspose.slides.IPortionFormat-) ควบคุมการจัดรูปแบบของสัญลักษณ์สิ้นสุดย่อหน้า ตัวอย่างต่อไปนี้กำหนดขนาดฟอนต์และฟอนต์ละตินให้กับสัญลักษณ์สิ้นสุดของย่อหน้าที่สอง:
+[IParagraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph/#setEndParagraphPortionFormat-com.aspose.slides.IPortionFormat-) ควบคุมการจัดรูปแบบของเครื่องหมายสิ้นสุดย่อหน้า ตัวอย่างต่อไปนี้กำหนดขนาดตัวอักษรและแบบอักษร Latin ให้กับเครื่องหมายสิ้นสุดของย่อหน้าที่สอง:
 
-1. โหลด [Presentation](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/presentation/) และเข้าถึงสไลด์
-2. เพิ่ม [IAutoShape](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iautoshape/) และลบย่อหน้าเริ่มต้นของมัน
-3. สร้างย่อหน้าสองรายการและเพิ่มส่วนข้อความลงในแต่ละรายการ
-4. สร้าง [PortionFormat](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/portionformat/) สำหรับสัญลักษณ์สิ้นสุดของย่อหน้าที่สอง
-5. ตั้งค่า [IBasePortionFormat.setFontHeight](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ibaseportionformat/#setFontHeight-float-) และ [IBasePortionFormat.setLatinFont](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ibaseportionformat/#setLatinFont-com.aspose.slides.IFontData-)
-6. กำหนดรูปแบบด้วย [IParagraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iparagraph/#setEndParagraphPortionFormat-com.aspose.slides.IPortionFormat-) และบันทึกการนำเสนอ
+1. โหลด [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) แล้วเข้าถึงสไลด์หนึ่งสไลด์  
+2. เพิ่ม [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) แล้วลบย่อหน้าเริ่มต้นของมันออก  
+3. สร้างสองย่อหน้าและเพิ่มส่วนย่อยข้อความลงในแต่ละย่อหน้า  
+4. สร้าง [PortionFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/portionformat/) สำหรับเครื่องหมายสิ้นสุดของย่อหน้าที่สอง  
+5. ตั้งค่า [IBasePortionFormat.setFontHeight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformat/#setFontHeight-float-) และ [IBasePortionFormat.setLatinFont](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformat/#setLatinFont-com.aspose.slides.IFontData-)  
+6. ใส่ฟอร์แมตนี้ด้วย [IParagraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph/#setEndParagraphPortionFormat-com.aspose.slides.IPortionFormat-) แล้วบันทึกการนำเสนอ  
 
 ```java
 import com.aspose.slides.*;
@@ -514,13 +514,13 @@ try {
 
 ## **นับจำนวนบรรทัดที่แสดงผล**
 
-สำหรับกฎของย่อหน้าที่ส่งผลต่อการตัดบรรทัดอัตโนมัติและเครื่องหมายวรรคตอนที่จบบรรทัด ดูที่ [Control Line Breaking](/slides/th/androidjava/text-formatting/#control-line-breaking) และ [Control Hanging Punctuation](/slides/th/androidjava/text-formatting/#control-hanging-punctuation)
+สำหรับกฎของย่อหน้าที่มีผลต่อการตัดบรรทัดอัตโนมัติและเครื่องหมายวรรคตอนที่ส่วนท้ายบรรทัด ดูที่ [Control Line Breaking](/slides/th/androidjava/text-formatting/#control-line-breaking) และ [Control Hanging Punctuation](/slides/th/androidjava/text-formatting/#control-hanging-punctuation)
 
-ใช้ [IParagraph.getLinesCount](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iparagraph/#getLinesCount--) เพื่อนับบรรทัดที่ย่อหน้าครอบครองหลังจากการจัดวางข้อความ รวมถึงการตัดบรรทัดอัตโนมัติ สิ่งนี้มีประโยชน์เมื่อทำการตรวจสอบความยาวและการจัดวางของข้อความในเทมเพลตการนำเสนอ
+ใช้ [IParagraph.getLinesCount](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph/#getLinesCount--) เพื่อคำนวณจำนวนบรรทัดที่ย่อหน้าครอบครองหลังจากการจัด Layout ของข้อความรวมถึงการตัดบรรทัดอัตโนมัติ ซึ่งเป็นประโยชน์เมื่อทำการตรวจสอบความยาวข้อความและ Layout ในเทมเพลตการนำเสนอ  
 
-ย่อหน้าเป็นรายการใน [ITextFrame.getParagraphs](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/itextframe/#getParagraphs--) และอาจครอบคลุมหลายบรรทัดที่แสดงผล การใส่การตัดบรรทัดอย่างชัดเจนภายในย่อหน้าจะบังคับให้มีบรรทัดใหม่โดยไม่ต้องสร้างย่อหน้าใหม่ การตัดบรรทัดอัตโนมัติจะสร้างบรรทัดตามความกว้างที่มีอยู่โดยไม่แทรกการตัดบรรทัดแบบชัดเจนลงในข้อความ ดังนั้นการนับย่อหน้าหรืออักขระการตัดบรรทัดจะไม่ให้จำนวนบรรทัดที่แสดงผลได้
+ย่อหน้าเป็นรายการหนึ่งใน [ITextFrame.getParagraphs](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/#getParagraphs--) และอาจครอบคลุมหลายบรรทัดที่แสดงผล การตัดบรรทัดโดยตรงภายในย่อหน้าจะบังคับให้เกิดบรรทัดใหม่โดยไม่ต้องสร้างย่อหน้าใหม่ การตัดบรรทัดอัตโนมัติก็สร้างบรรทัดตามความกว้างที่มีอยู่โดยไม่ใส่ตัวตัดบรรทัดลงในข้อความ ดังนั้นการนับย่อหน้าหรืออักขระตัดบรรทัดจึงไม่ได้ให้จำนวนบรรทัดที่แสดงผล  
 
-ตัวอย่างต่อไปนี้สร้างรูปร่างข้อความ นับบรรทัดของมัน ลดความกว้างของรูปร่าง แล้วแทนที่ข้อความด้วยสตริงสั้นกว่า การตัดบรรทัดเปิดใช้งานและการปรับอัตโนมัติปิดเพื่อให้ความกว้างของรูปร่างควบคุมการตัดบรรทัดโดยไม่ย่อขนาดข้อความหรือปรับขนาดรูปร่าง มิติของรูปร่างเป็นจุด ในที่สุด ตัวอย่างเพิ่มย่อหน้าอีกหนึ่งรายการและรวมจำนวนบรรทัดจากกรอบข้อความทั้งหมด
+ตัวอย่างต่อไปนี้สร้างรูปร่างข้อความ คำนวณจำนวนบรรทัดของมัน ทำให้รูปร่างแคบลง แล้วแทนที่ข้อความด้วยสตริงสั้นลง การตัดบรรทัดเปิดอยู่และการปรับขนาดอัตโนมัติปิดอยู่เพื่อให้ความกว้างของรูปร่างควบคุมการตัดบรรทัดโดยไม่ทำให้ข้อความหดหรือรูปร่างเปลี่ยนขนาด มิติของรูปร่างเป็นจุด ในที่สุดตัวอย่างจะเพิ่มย่อหน้าอีกหนึ่งอันและรวมจำนวนบรรทัดจากทุกเฟรมข้อความ  
 
 ```java
 import com.aspose.slides.*;
@@ -560,24 +560,24 @@ try {
 }
 ```
 
-ด้วยข้อความและมิตินี้ การลดความกว้างของรูปร่างจะเพิ่มจำนวนบรรทัด ในขณะที่การแทนที่ข้อความด้วยสตริงสั้นจะลดจำนวนบรรทัด จำนวนที่แน่นอนอาจแตกต่างตามการใช้งานฟอนต์และการแทนที่ ขนาดฟอนต์, ขอบ, ระยะเยื้อง, การตัดบรรทัดและการตั้งค่า autofit ใช้ฟอนต์และการตั้งค่าการจัดวางที่กำหนดสำหรับสภาพแวดล้อมเป้าหมายเมื่อทำการตรวจสอบเทมเพลต
+ด้วยข้อความและมิติเหล่านี้ การทำให้รูปร่างแคบลงจะเพิ่มจำนวนบรรทัด ในขณะที่การแทนที่ข้อความด้วยสตริงสั้นจะลดจำนวนบรรทัด จำนวนที่แน่นอนอาจแตกต่างกันขึ้นกับการใช้งานแบบอักษร การทดแทน ขนาดแบบอักษร ระยะขอบ การเยื้อง การตัดบรรทัดและการตั้งค่า autofit ใช้แบบอักษรและการตั้งค่า Layout ที่ตั้งใจสำหรับสภาพแวดล้อมเป้าหมายเมื่อทำการตรวจสอบเทมเพลต  
 
-จำนวนบรรทัดอย่างเดียวไม่กำหนดว่าข้อความล้นออกจากคอนเทนเนอร์หรือไม่ ความสูงที่ใช้ได้, ความสูงของบรรทัด, ระยะห่างระหว่างย่อหน้าและบรรทัด, และพฤติกรรม autofit ก็สำคัญ; แม้แต่บรรทัดเดียวก็อาจเกินความกว้างที่ใช้ได้เมื่อปิดการตัดบรรทัด
+จำนวนบรรทัดเดียวไม่บ่งบอกว่าข้อความล้นพื้นที่หรือไม่ ความสูงที่มีให้, ความสูงของบรรทัด, ระยะห่างของย่อหน้าและบรรทัด, และพฤติกรรม autofit ล้วนมีผล แม้บรรทัดเดียวก็อาจเกินความกว้างที่มีให้เมื่อปิดการตัดบรรทัด
 
 ## **นำเข้าและส่งออกเนื้อหาย่อหน้า**
 
-### **นำเข้า HTML ลงในย่อหน้า**
+### **นำเข้า HTML ไปยังย่อหน้า**
 
-ใช้ [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-) เพื่อแปลง markup HTML เป็นย่อหน้าและส่วนข้อความในกรอบข้อความ
+ใช้ [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/androidjava/com.aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-) เพื่อแปลงเครื่องหมาย HTML ให้เป็นย่อหน้าและส่วนย่อยในเฟรมข้อความ  
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/presentation/)
-2. เข้าถึงสไลด์และเพิ่ม [IAutoShape](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iautoshape/)
-3. เข้าถึง [ITextFrame] ของรูปร่างและลบย่อหน้าเริ่มต้นออก
-4. อ่านไฟล์ HTML ต้นทาง
-5. ส่งสตริง HTML ไปยัง [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-)
-6. บันทึกการนำเสนอที่แก้ไขแล้ว
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/)  
+2. เข้าถึงสไลด์และเพิ่ม [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/)  
+3. เข้าถึง [ITextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/) ของรูปทราบและลบย่อหน้าเริ่มต้นออก  
+4. อ่านไฟล์ HTML ต้นฉบับ  
+5. ส่งสตริง HTML ไปที่ [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/androidjava/com.aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-)  
+6. บันทึกการนำเสนอที่แก้ไขแล้ว  
 
-ตัวอย่าง Android ผ่าน Java นี้นำเข้า HTML ไปยังกรอบข้อความ:
+ตัวอย่าง Android ผ่าน Java นี้นำเข้า HTML ไปยังเฟรมข้อความ:
 
 ```java
 import com.aspose.slides.*;
@@ -610,15 +610,15 @@ try {
 
 ### **ส่งออกข้อความย่อหน้าเป็น HTML**
 
-ใช้ [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-) เพื่อส่งออกช่วงย่อหน้าที่เลือกเป็น HTML
+ใช้ [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/androidjava/com.aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-) เพื่อส่งออกช่วงย่อหน้าที่เลือกเป็น HTML  
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/presentation/) และโหลดการนำเสนอที่ต้องการ
-2. เข้าถึงสไลด์และค้นหา [IAutoShape](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iautoshape/) ที่มีข้อความ
-3. เข้าถึง [ITextFrame] ของรูปร่าง
-4. เรียกใช้ [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-) พร้อมดัชนีย่อหน้าเริ่มต้นและจำนวนย่อหน้าที่ต้องการส่งออก
-5. เขียนสตริง HTML ที่ส่งคืนไปยังไฟล์
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) และโหลดการนำเสนอที่ต้องการ  
+2. เข้าถึงสไลด์และค้นหา [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) ที่มีข้อความ  
+3. เข้าถึง [ITextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/) ของรูปทราบ  
+4. เรียก [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/androidjava/com.aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-) โดยระบุดัชนีย่อหน้าเริ่มต้นและจำนวนย่อหน้าที่ต้องการส่งออก  
+5. เขียนสตริง HTML ที่ได้ลงไฟล์  
 
-ตัวอย่าง Android ผ่าน Java นี้ส่งออกย่อหน้าทั้งหมดจากกรอบข้อความแรก:
+ตัวอย่าง Android ผ่าน Java นี้ส่งออกรายการย่อหน้าทั้งหมดจากเฟรมข้อความแรก:
 
 ```java
 import com.aspose.slides.*;
@@ -653,19 +653,19 @@ try {
 }
 ```
 
-### **แปลงย่อหน้าเป็นภาพ**
+### **เรนเดอร์ย่อหน้าเป็นภาพ**
 
-[IParagraph.getImage](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iparagraph/#getImage--) แสดงย่อหน้าเดี่ยวโดยตรงและคืนค่า [IImage](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iimage/) บันทึกผลลัพธ์เป็นไฟล์หรือสตรีมด้วย [IImage.save](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iimage/#save-java.lang.String-int-) คุณไม่จำเป็นต้องแสดงรูปแบบของรูปร่างที่บรรจุหรือครอบตัดบิทแมพด้วยตนเอง
+[IParagraph.getImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph/#getImage--) เรนเดอร์ย่อหน้าเดี่ยวโดยตรงและคืนค่า [IImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimage/) บันทึกผลลัพธ์เป็นไฟล์หรือสตรีมด้วย [IImage.save](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimage/#save-java.lang.String-int-) คุณไม่จำเป็นต้องเรนเดอร์รูปทราบทั้งหมดหรือครอบตัดบิตแมพด้วยตนเอง  
 
-[IParagraph.getImage](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iparagraph/#getImage--) อาจคืนค่า `null` หากไม่พบย่อหน้าในคอลเลกชันแม่ ไม่มีขอบเขตการแสดงผลที่ถูกต้อง หรือไม่สามารถแสดงผลได้ ตรวจสอบผลลัพธ์ก่อนบันทึกและทำลายภาพที่ส่งคืนหลังการใช้งาน
+[IParagraph.getImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph/#getImage--) อาจคืนค่า `null` หากไม่พบย่อหน้าในคอลเลกชันแม่ มีขอบเขตการเรนเดอร์ที่ไม่ถูกต้อง หรือไม่สามารถเรนเดอร์ได้ ตรวจสอบผลลัพธ์ก่อนบันทึกและทำลายภาพที่คืนค่าหลังใช้งาน  
 
-#### **แปลงย่อหน้าโดยใช้สเกลเริ่มต้น**
+#### **เรนเดอร์ย่อหน้าที่สเกลเริ่มต้น**
 
-สมมติว่าเรามีไฟล์ presentation ชื่อ sample.pptx ที่มีสไลด์หนึ่งสไลด์ โดยรูปร่างแรกเป็นกล่องข้อความที่มีย่อหน้า 3 ย่อหน้า
+สมมติว่ามีไฟล์การนำเสนอชื่อ sample.pptx มีสไลด์เดียวโดยรูปทราบแรกเป็นกล่องข้อความที่มีสามย่อหน้า  
 
-![The text box with three paragraphs](paragraph_to_image_input.png)
+![กล่องข้อความที่มีสามย่อหน้า](paragraph_to_image_input.png)
 
-ตัวอย่างต่อไปนี้แสดงย่อหน้าที่สองในรูปร่างข้อความธรรมดาที่สเกลเริ่มต้นและบันทึกภาพที่คืนค่าเป็น PNG บล็อก `finally` จะทำให้มั่นใจว่าภาพถูกทำลายอย่างถูกต้อง
+ตัวอย่างต่อไปนี้เรนเดอร์ย่อหน้าที่สองในรูปทราบข้อความทั่วไปที่สเกลเริ่มต้นและบันทึกภาพที่ได้เป็น PNG บล็อก `finally` จะทำให้แน่ใจว่าภาพถูกทำลายอย่างถูกต้อง  
 
 ```java
 import com.aspose.slides.*;
@@ -703,11 +703,11 @@ try {
 
 ผลลัพธ์:
 
-![The paragraph image](paragraph_to_image_output.png)
+![ภาพย่อหน้า](paragraph_to_image_output.png)
 
-#### **แปลงย่อหน้าในเซลล์ตารางพร้อมสเกล**
+#### **เรนเดอร์ย่อหน้าในเซลล์ตารางพร้อมสเกล**
 
-ใช้การโหลดฟังก์ชัน [IParagraph.getImage](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iparagraph/#getImage-float-float-) ที่รับพารามิเตอร์ `float scaleX` และ `float scaleY` เพื่อกำหนดค่าตามแนวนอนและแนวตั้ง ตัวอย่างต่อไปนี้สร้างตาราง แสดงย่อหน้าในเซลล์แรกที่ความกว้างและความสูงเป็นสองเท่าของค่าเริ่มต้น และบันทึกผลเป็นภาพ PNG
+ใช้การโอเวอร์โหลดของ [IParagraph.getImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph/#getImage-float-float-) ที่รับพารามิเตอร์ `float scaleX` และ `float scaleY` เพื่อกำหนดค่าอัตราส่วนแนวนอนและแนวตั้ง ตัวอย่างต่อไปนี้สร้างตาราง เรนเดอร์ย่อหน้าในเซลล์แรกด้วยความกว้างและความสูงเป็นสองเท่าของสเกลเริ่มต้นและบันทึกผลเป็นภาพ PNG  
 
 ```java
 import com.aspose.slides.*;
@@ -737,24 +737,26 @@ try {
 }
 ```
 
-ค่าสเกล `1` คงแกนนั้นไว้ที่ขนาดพิกเซลเริ่มต้น ตัวอย่างเช่น `2` สำหรับทั้งสองแกนจะให้ภาพที่กว้างและสูงประมาณสองเท่าของมิติเริ่มต้น ทำให้จำนวนพิกเซลเพิ่มเป็นสี่เท่า สเกลที่สูงกว่าจะให้ข้อความคมชัดมากขึ้นสำหรับการซูมหรือเอาต์พุตความละเอียดสูง แต่ก็เพิ่มการใช้หน่วยความจำและขนาดไฟล์ สเกลต่ำกว่า `1` จะสร้างภาพที่เล็กลงและรายละเอียดลดลง ใช้สเกลเท่ากันเพื่อรักษาอัตราส่วนของย่อหน้า; สเกลแนวนอนและแนวตั้งที่ต่างกันจะบิดการแสดงผลแยกกัน
+ค่าอัตราส่วน `1` จะคงแกนนั้นไว้ที่ขนาดพิกเซลเริ่มต้น ตัวอย่างเช่น `2` สำหรับทั้งสองค่า จะทำให้ภาพที่ได้มีความกว้างและความสูงประมาณสองเท่าของขนาดเริ่มต้น ส่งผลให้จำนวนพิกเซลมากกว่าสี่เท่า อัตราส่วนที่ใหญ่กว่าจะทำให้ข้อความคมชัดขึ้นสำหรับการซูมหรือเอาต์พุตความละเอียดสูง แต่ก็เพิ่มการใช้หน่วยความจำและขนาดไฟล์ อัตราส่วนต่ำกว่า `1` จะสร้างภาพที่เล็กลงและรายละเอียดน้อยลง ใช้อัตราส่วนเท่ากันเพื่อรักษาอัตราส่วนภาพของย่อหน้า; อัตราส่วนแนวนอนและแนวตั้งที่ต่างกันจะยืดขนาดเอาต์พุตแยกจากกัน  
 
-การแสดงผลรูปร่างทั้งหมดด้วย [IShape.getImage](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ishape/#getImage--) ยังคงมีประโยชน์เมื่อเอาต์พุตต้องรวมการเติมสีของรูปร่าง ขอบ หรือบริบทภาพอื่น ๆ สำหรับภาพที่มีเพียงย่อหน้า ให้ใช้ [IParagraph.getImage](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iparagraph/#getImage--)
+การเรนเดอร์รูปทราบทั้งหมดด้วย [IShape.getImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#getImage--) ยังมีประโยชน์เมื่อเอาต์พุตต้องรวมการเติมสี เส้นขอบ หรือบริบทภาพอื่น ๆ สำหรับภาพที่มีเพียงย่อหน้า ให้ใช้ [IParagraph.getImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph/#getImage--)  
 
 ## **คำถามที่พบบ่อย**
 
-**ฉันสามารถปิดการตัดบรรทัดอัตโนมัติภายในกรอบข้อความได้หรือไม่?**
+**ฉันสามารถปิดการตัดบรรทัดอัตโนมัติภายในเฟรมข้อความได้หรือไม่?**
 
-ใช่ ตั้งค่า [ITextFrameFormat.setWrapText](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/itextframeformat/#setWrapText-byte-) เพื่อปิดการตัดบรรทัดเพื่อให้บรรทัดไม่ตัดที่ขอบของกรอบข้อความ
+ได้. ตั้งค่า [ITextFrameFormat.setWrapText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframeformat/#setWrapText-byte-) เพื่อปิดการตัดบรรทัดเพื่อให้บรรทัดไม่แตกที่ขอบของเฟรมข้อความ
 
-**ฉันจะรับขอบเขตบนสไลด์ของย่อหน้าเฉพาะได้อย่างไร?**
+**ฉันจะรับพิกัดขอบของย่อหน้าที่ระบุบนสไลด์ได้อย่างแม่นยำอย่างไร?**
 
-ใช้ [IParagraph.getRect](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iparagraph/#getRect--) เพื่อดึงสี่เหลี่ยมขอบเขตของย่อหน้า [IPortion.getRect](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iportion/#getRect--) ให้ขอบเขตของส่วนข้อความแต่ละส่วน
+ใช้ [IParagraph.getRect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph/#getRect--) เพื่อดึงสี่เหลี่ยมขอบของย่อหน้า [IPortion.getRect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iportion/#getRect--) ให้ขอบเขตของส่วนย่อยแต่ละส่วน
 
-**การจัดตำแหน่งย่อหน้า (ซ้าย ขวา กลาง หรือจัดเต็ม) ถูกควบคุมที่ไหน?**
+**การจัดแนวของย่อหน้า (ซ้าย, ขวา, กลาง หรือจัดเต็ม) ถูกควบคุมที่ใด?**
 
-[IParagraphFormat.setAlignment](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iparagraphformat/#setAlignment-int-) เป็นการตั้งค่าระดับย่อหน้าและจะใช้กับย่อหน้าทั้งหมดโดยไม่คำนึงถึงการจัดรูปแบบของส่วนย่อย
+[IParagraphFormat.setAlignment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setAlignment-int-) เป็นการตั้งค่าระดับย่อหน้าและใช้กับย่อหน้าทั้งหมดไม่ว่าจะมีการจัดรูปแบบส่วนย่อยแยกต่างหาก  
 
-**ฉันสามารถตั้งค่าภาษา proofing สำหรับบางส่วนของย่อหน้าได้หรือไม่?**
+เพื่อจัดแนวแนวตั้งของส่วนย่อยที่มีขนาดแบบอักษรต่างกันภายในแต่ละบรรทัด ดูที่ [Align Fonts Within a Line](/slides/th/androidjava/text-formatting/#align-fonts-within-a-line)
 
-ใช่ ตั้งค่า [IBasePortionFormat.setLanguageId](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ibaseportionformat/#setLanguageId-java.lang.String-) สำหรับส่วนย่อยแต่ละส่วน เพื่อให้ย่อหน้าเดียวสามารถมีข้อความหลายภาษาได้
+**ฉันสามารถตั้งค่าภาษา proofing สำหรับส่วนของย่อหน้าได้หรือไม่?**
+
+ได้. ตั้งค่า [IBasePortionFormat.setLanguageId](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformat/#setLanguageId-java.lang.String-) สำหรับส่วนย่อยแต่ละส่วน เพื่อให้ย่อหน้าเดียวสามารถมีข้อความหลายภาษาได้

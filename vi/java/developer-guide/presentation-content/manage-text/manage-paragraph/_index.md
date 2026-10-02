@@ -1,6 +1,6 @@
 ---
-title: Quản lý các đoạn văn bản PowerPoint trong Java
-linktitle: Quản lý Đoạn văn
+title: Quản lý Đoạn Văn bản PowerPoint trong Java
+linktitle: Quản lý Đoạn
 type: docs
 weight: 40
 url: /vi/java/manage-paragraph/
@@ -12,12 +12,12 @@ keywords:
 - thêm đoạn
 - quản lý văn bản
 - quản lý đoạn
-- quản lý dấu đầu dòng
+- quản lý dấu đầu
 - thụt đoạn
 - thụt dòng treo
-- dấu đầu dòng đoạn
+- dấu đầu đoạn
 - danh sách đánh số
-- danh sách dấu đầu dòng
+- danh sách có dấu đầu
 - thuộc tính đoạn
 - nhập HTML
 - văn bản sang HTML
@@ -29,35 +29,35 @@ keywords:
 - bản trình chiếu
 - Java
 - Aspose.Slides
-description: "Tìm hiểu cách tạo và định dạng các đoạn, phần, dấu đầu dòng, danh sách đánh số, thụt lề, nội dung HTML và hình ảnh đoạn với Aspose.Slides cho Java."
+description: "Tìm hiểu cách tạo và định dạng đoạn, phần, dấu đầu, danh sách đánh số, thụt lề, nội dung HTML và hình ảnh đoạn với Aspose.Slides cho Java."
 ---
 ## **Tổng quan**
 
-Aspose.Slides for Java biểu thị văn bản như một cấu trúc phân cấp của các khung văn bản, đoạn văn và phần:
+Aspose.Slides for Java biểu diễn văn bản dưới dạng một cấu trúc phân cấp của khung văn bản, đoạn và phần:
 
-* [ITextFrame](https://reference.aspose.com/slides/vi/java/com.aspose.slides/itextframe/) đại diện cho vùng chứa văn bản trong một hình dạng và cung cấp quyền truy cập vào bộ sưu tập đoạn văn của nó.
-* [IParagraph](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iparagraph/) đại diện cho một đoạn văn trong khung văn bản và cung cấp quyền truy cập vào các phần và định dạng ở mức đoạn.
-* [IPortion](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iportion/) đại diện cho một đoạn chạy văn bản trong một đoạn văn. Mỗi phần có thể có văn bản và định dạng ký tự riêng.
+* [ITextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/) đại diện cho vùng chứa văn bản trong một shape và cung cấp quyền truy cập vào bộ sưu tập đoạn của nó.
+* [IParagraph](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/) đại diện cho một đoạn trong một khung văn bản và cung cấp quyền truy cập vào các phần và định dạng cấp độ đoạn.
+* [IPortion](https://reference.aspose.com/slides/java/com.aspose.slides/iportion/) đại diện cho một dãy văn bản trong một đoạn. Mỗi phần có thể có văn bản và định dạng ký tự riêng.
 
-Do đó, một đoạn văn có thể chứa văn bản với các phông chữ, màu sắc, kích thước và định dạng khác nhau bằng cách sử dụng nhiều phần.
+Do đó một đoạn có thể chứa văn bản với các phông chữ, màu sắc, kích thước và các định dạng khác nhau bằng cách sử dụng nhiều phần.
 
-## **Tạo và Định dạng Đoạn văn**
+## **Tạo và Định dạng Đoạn**
 
-### **Tạo Đoạn văn với Nhiều Phần**
+### **Tạo Đoạn với Nhiều Phần**
 
-Các bước sau tạo một khung văn bản với ba đoạn văn, mỗi đoạn chứa ba phần:
+Các bước sau tạo một khung văn bản với ba đoạn, mỗi đoạn chứa ba phần:
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentation/).
-2. Truy cập slide liên quan bằng chỉ mục của nó.
-3. Thêm một [IAutoShape](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iautoshape/) hình chữ nhật vào slide.
-4. Truy cập [ITextFrame](https://reference.aspose.com/slides/vi/java/com.aspose.slides/itextframe/) của hình dạng.
-5. Sử dụng đoạn văn mặc định và thêm hai đối tượng [IParagraph](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iparagraph/) nữa vào khung văn bản.
-6. Thêm đủ đối tượng [IPortion](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iportion/) cho mỗi đoạn để chứa ba phần. Đoạn mặc định đã chứa một phần trống.
+1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/).
+2. Truy cập slide liên quan qua chỉ mục của nó.
+3. Thêm một [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) hình chữ nhật vào slide.
+4. Truy cập [ITextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/) của shape.
+5. Sử dụng đoạn mặc định và thêm hai đối tượng [IParagraph](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/) nữa vào khung văn bản.
+6. Thêm đủ đối tượng [IPortion](https://reference.aspose.com/slides/java/com.aspose.slides/iportion/) cho mỗi đoạn để chứa ba phần. Đoạn mặc định đã chứa một phần rỗng.
 7. Đặt văn bản cho mỗi phần.
-8. Áp dụng định dạng ký tự thông qua [IPortion.getPortionFormat](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iportion/#getPortionFormat--).
+8. Áp dụng định dạng cấp ký tự qua [IPortion.getPortionFormat](https://reference.aspose.com/slides/java/com.aspose.slides/iportion/#getPortionFormat--).
 9. Lưu bản trình chiếu đã chỉnh sửa.
 
-Ví dụ Java thực hiện các bước trên:
+Ví dụ Java thực hiện các bước này:
 
 ```java
 import com.aspose.slides.*;
@@ -113,26 +113,27 @@ try {
 }
 ```
 
-## **Tạo Danh sách Đánh dấu và Đánh số**
 
-### **Tạo Danh sách Đánh dấu hoặc Đánh số**
+## **Tạo Danh sách Có Dấu Đầu và Đánh số**
 
-Các dấu đầu dòng và đánh số giúp người đọc dễ dàng quét các mục liên quan. Trong Aspose.Slides, cài đặt danh sách được định nghĩa thông qua [IBulletFormat](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ibulletformat/).
+### **Tạo Danh sách Dấu Đầu hoặc Đánh số**
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentation/).
-2. Truy cập slide liên quan bằng chỉ mục của nó.
-3. Thêm một [IAutoShape](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iautoshape/) vào slide đã chọn.
-4. Truy cập [ITextFrame](https://reference.aspose.com/slides/vi/java/com.aspose.slides/itextframe/) của hình dạng.
-5. Xóa đoạn văn mặc định khỏi khung văn bản.
-6. Tạo một [Paragraph](https://reference.aspose.com/slides/vi/java/com.aspose.slides/paragraph/) cho dấu đầu dòng ký hiệu.
-7. Đặt [IBulletFormat.setType](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ibulletformat/#setType-int-) thành [BulletType.Symbol](https://reference.aspose.com/slides/vi/java/com.aspose.slides/bullettype/) và chỉ định ký tự dấu đầu dòng.
-8. Đặt văn bản đoạn, thụt lề, màu dấu đầu dòng và chiều cao dấu đầu dòng.
+Dấu đầu và đánh số giúp người đọc dễ dàng quét các mục liên quan. Trong Aspose.Slides, các thiết lập danh sách được định nghĩa qua [IBulletFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/).
+
+1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/).
+2. Truy cập slide liên quan qua chỉ mục của nó.
+3. Thêm một [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) vào slide đã chọn.
+4. Truy cập [ITextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/) của shape.
+5. Xóa đoạn mặc định khỏi khung văn bản.
+6. Tạo một [Paragraph](https://reference.aspose.com/slides/java/com.aspose.slides/paragraph/) cho dấu đầu biểu tượng.
+7. Đặt [IBulletFormat.setType](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setType-int-) thành [BulletType.Symbol](https://reference.aspose.com/slides/java/com.aspose.slides/bullettype/) và chỉ định ký tự dấu đầu.
+8. Đặt văn bản đoạn, thụt lề, màu dấu đầu và chiều cao dấu đầu.
 9. Thêm đoạn vào khung văn bản.
-10. Tạo một đoạn thứ hai và đặt [IBulletFormat.setType](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ibulletformat/#setType-int-) thành [BulletType.Numbered](https://reference.aspose.com/slides/vi/java/com.aspose.slides/bullettype/).
-11. Cấu hình kiểu dấu đầu dòng đánh số và thêm đoạn vào khung văn bản.
+10. Tạo đoạn thứ hai và đặt [IBulletFormat.setType](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setType-int-) thành [BulletType.Numbered](https://reference.aspose.com/slides/java/com.aspose.slides/bullettype/).
+11. Cấu hình kiểu dấu đầu đánh số và thêm đoạn vào khung văn bản.
 12. Lưu bản trình chiếu.
 
-Ví dụ Java tạo một dấu đầu dòng ký hiệu và một dấu đầu dòng đánh số:
+Ví dụ Java tạo một dấu đầu biểu tượng và một dấu đầu đánh số:
 
 ```java
 import com.aspose.slides.*;
@@ -173,22 +174,23 @@ try {
 }
 ```
 
-### **Sử dụng Dấu đầu dòng Hình ảnh**
 
-Dấu đầu dòng hình ảnh cho phép bạn sử dụng hình ảnh tùy chỉnh thay cho ký hiệu hoặc số.
+### **Sử dụng Dấu Đầu Hình Ảnh**
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentation/).
-2. Truy cập slide liên quan bằng chỉ mục của nó.
-3. Thêm một [IAutoShape](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iautoshape/) và truy cập [ITextFrame](https://reference.aspose.com/slides/vi/java/com.aspose.slides/itextframe/) của nó.
-4. Xóa đoạn văn mặc định khỏi khung văn bản.
-5. Tải hình ảnh dấu đầu dòng và thêm nó vào bộ sưu tập hình ảnh của bản trình chiếu dưới dạng [IPPImage](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ippimage/).
-6. Tạo một [Paragraph](https://reference.aspose.com/slides/vi/java/com.aspose.slides/paragraph/) và đặt văn bản cho nó.
-7. Đặt [IBulletFormat.setType](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ibulletformat/#setType-int-) thành [BulletType.Picture](https://reference.aspose.com/slides/vi/java/com.aspose.slides/bullettype/).
-8. Gán hình ảnh qua [IBulletFormat.getPicture](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ibulletformat/#getPicture--) và đặt chiều cao dấu đầu dòng.
+Dấu đầu hình ảnh cho phép bạn sử dụng hình tùy chỉnh thay vì biểu tượng hoặc số.
+
+1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/).
+2. Truy cập slide liên quan qua chỉ mục của nó.
+3. Thêm một [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) và truy cập [ITextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/) của nó.
+4. Xóa đoạn mặc định khỏi khung văn bản.
+5. Tải hình ảnh dấu đầu và thêm nó vào bộ sưu tập ảnh của bản trình chiếu dưới dạng [IPPImage](https://reference.aspose.com/slides/java/com.aspose.slides/ippimage/).
+6. Tạo một [Paragraph](https://reference.aspose.com/slides/java/com.aspose.slides/paragraph/) và đặt văn bản cho nó.
+7. Đặt [IBulletFormat.setType](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setType-int-) thành [BulletType.Picture](https://reference.aspose.com/slides/java/com.aspose.slides/bullettype/).
+8. Gán hình ảnh qua [IBulletFormat.getPicture](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#getPicture--) và đặt chiều cao dấu đầu.
 9. Thêm đoạn vào khung văn bản.
 10. Lưu bản trình chiếu đã chỉnh sửa.
 
-Ví dụ Java tạo một dấu đầu dòng hình ảnh:
+Ví dụ Java tạo một dấu đầu hình ảnh:
 
 ```java
 import com.aspose.slides.*;
@@ -223,17 +225,18 @@ try {
 }
 ```
 
+
 ### **Tạo Danh sách Đa cấp**
 
-Đặt [IParagraphFormat.setDepth](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iparagraphformat/#setDepth-short-) để đặt các đoạn ở các cấp độ khác nhau của danh sách. Cấp cao nhất có độ sâu `0`.
+Đặt [IParagraphFormat.setDepth](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setDepth-short-) để đặt các đoạn ở các mức độ khác nhau của danh sách. Mức cao nhất có độ sâu `0`.
 
-1. Tạo một [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentation/) và truy cập một slide.
-2. Thêm một [IAutoShape](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iautoshape/) và xóa đoạn mặc định khỏi khung văn bản của nó.
-3. Tạo bốn đoạn và cấu hình ký hiệu dấu đầu dòng cho chúng.
-4. Đặt giá trị [IParagraphFormat.setDepth](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iparagraphformat/#setDepth-short-) thành `0`, `1`, `2` và `3`.
+1. Tạo một [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) và truy cập một slide.
+2. Thêm một [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) và xóa đoạn mặc định khỏi khung văn bản của nó.
+3. Tạo bốn đoạn và cấu hình ký hiệu dấu đầu của chúng.
+4. Đặt giá trị [IParagraphFormat.setDepth](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setDepth-short-) cho chúng là `0`, `1`, `2` và `3`.
 5. Thêm các đoạn vào khung văn bản và lưu bản trình chiếu.
 
-Ví dụ Java tạo một danh sách dấu đầu dòng bốn cấp:
+Ví dụ Java tạo một danh sách dấu đầu bốn cấp:
 
 ```java
 import com.aspose.slides.*;
@@ -289,14 +292,15 @@ try {
 }
 ```
 
-### **Bắt đầu Các Mục Danh sách Đánh số với Giá trị Tùy chỉnh**
 
-Sử dụng [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) để đặt số ban đầu hiển thị cho một đoạn đánh số.
+### **Bắt đầu Các mục Đánh số ở Giá trị Tùy chỉnh**
 
-1. Tạo một [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentation/) và thêm một [IAutoShape](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iautoshape/) vào một slide.
-2. Xóa đoạn mặc định khỏi khung văn bản của hình dạng.
+Sử dụng [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) để đặt số ban đầu hiển thị cho một đoạn đánh số.
+
+1. Tạo một [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) và thêm một [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) vào một slide.
+2. Xóa đoạn mặc định khỏi khung văn bản của shape.
 3. Tạo ba đoạn đánh số.
-4. Đặt [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) thành `2`, `3` và `7` cho các đoạn tương ứng.
+4. Đặt [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) thành `2`, `3` và `7` cho các đoạn tương ứng.
 5. Thêm các đoạn vào khung văn bản và lưu bản trình chiếu.
 
 Ví dụ Java gán số bắt đầu tùy chỉnh cho mỗi đoạn:
@@ -337,23 +341,23 @@ try {
 
 ## **Kiểm soát Bố cục Đoạn và Thuộc tính Kết thúc**
 
-### **Đặt Thụt dòng Đầu dòng**
+### **Đặt Thụt Đầu Dòng**
 
-Sử dụng [IParagraphFormat.setIndent](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iparagraphformat/#setIndent-float-) để kiểm soát thụt dòng đầu của một đoạn. Phương pháp này chỉ di chuyển dòng đầu tiên so với lề trái của đoạn. Giá trị dương đẩy dòng đầu sang phải, trong khi các dòng còn lại vẫn căn chỉnh với thân đoạn.
+Sử dụng [IParagraphFormat.setIndent](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setIndent-float-) để kiểm soát thụt đầu dòng của một đoạn. Phương thức này chỉ di chuyển dòng đầu tiên so với lề trái của đoạn. Giá trị dương dịch dòng đầu tiên sang phải, trong khi các dòng còn lại vẫn căn chỉnh với phần thân đoạn.
 
-Sử dụng [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) khi bạn cần di chuyển toàn bộ đoạn. Sử dụng [IParagraphFormat.setIndent](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iparagraphformat/#setIndent-float-) khi bạn chỉ muốn di chuyển dòng đầu.
+Sử dụng [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) khi bạn cần di chuyển toàn bộ đoạn. Dùng [IParagraphFormat.setIndent](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setIndent-float-) khi chỉ cần di chuyển dòng đầu tiên.
 
-Ví dụ dưới tạo một số đoạn và áp dụng các giá trị [IParagraphFormat.setIndent](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iparagraphformat/#setIndent-float-) khác nhau để minh họa cách thụt dòng đầu ảnh hưởng đến bố cục đoạn.
+Ví dụ dưới tạo một số đoạn và áp dụng các giá trị [IParagraphFormat.setIndent](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setIndent-float-) khác nhau để minh họa cách thụt đầu dòng ảnh hưởng đến bố cục đoạn.
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentation/).
+1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/).
 2. Truy cập slide mục tiêu.
-3. Thêm một [IAutoShape](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iautoshape/) hình chữ nhật vào slide.
-4. Truy cập [ITextFrame](https://reference.aspose.com/slides/vi/java/com.aspose.slides/itextframe/) của hình dạng và xóa đoạn mặc định.
-5. Tạo một số đoạn và đặt các giá trị [IParagraphFormat.setIndent](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iparagraphformat/#setIndent-float-) khác nhau cho chúng.
+3. Thêm một [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) hình chữ nhật vào slide.
+4. Truy cập [ITextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/) của shape và xóa đoạn mặc định.
+5. Tạo một số đoạn và đặt các giá trị [IParagraphFormat.setIndent](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setIndent-float-) khác nhau cho chúng.
 6. Thêm các đoạn vào khung văn bản.
 7. Lưu bản trình chiếu đã chỉnh sửa.
 
-Mã này cho bạn thấy cách đặt thụt dòng cho một đoạn:
+Mã này cho bạn biết cách đặt thụt đầu dòng cho đoạn:
 
 ```java
 import com.aspose.slides.*;
@@ -405,26 +409,26 @@ try {
 
 Kết quả:
 
-![Khoảng thụt dòng đầu của các đoạn văn](first_line_indent.png)
+![Độ thụt đầu dòng của các đoạn](first_line_indent.png)
 
-### **Đặt Thụt dòng Treo**
+### **Đặt Thụt Dòng Treo**
 
-Thụt dòng treo là bố cục đoạn trong đó dòng đầu bắt đầu bên trái các dòng còn lại. Trong Aspose.Slides, bạn tạo hiệu ứng này bằng [IParagraphFormat.setIndent](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iparagraphformat/#setIndent-float-). Đưa vào một giá trị âm để di chuyển dòng đầu sang trái so với thân đoạn.
+Thụt dòng treo là bố cục đoạn trong đó dòng đầu tiên bắt đầu phía trái hơn các dòng còn lại. Trong Aspose.Slides, bạn tạo hiệu ứng này bằng [IParagraphFormat.setIndent](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setIndent-float-). Đưa vào một giá trị âm để di chuyển dòng đầu tiên sang trái so với phần thân đoạn.
 
-Thực tế, [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) xác định vị trí bên trái của thân đoạn, và [IParagraphFormat.setIndent](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iparagraphformat/#setIndent-float-) xác định vị trí của dòng đầu so với lề này. Để tạo thụt dòng treo, đặt giá trị dương cho `setMarginLeft` và giá trị âm cho `setIndent`.
+Trong thực tế, [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) xác định vị trí bên trái của phần thân đoạn, và [IParagraphFormat.setIndent](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setIndent-float-) xác định vị trí của dòng đầu tiên so với lề này. Để tạo thụt dòng treo, đưa một giá trị dương vào `setMarginLeft` và một giá trị âm vào `setIndent`.
 
-Định dạng này hữu ích cho thư mục, tài liệu tham khảo, mục từ điển và các đoạn khác nơi các dòng gộp phải căn dưới thân đoạn thay vì dưới ký tự đầu tiên của dòng đầu.
+Định dạng này hữu ích cho thư mục, tài liệu tham khảo, mục từ điển và các đoạn khác nơi các dòng bị gói phải căn dưới phần thân đoạn chứ không phải dưới ký tự đầu tiên của dòng đầu.
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentation/).
+1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/).
 2. Truy cập slide mục tiêu.
-3. Thêm một [IAutoShape](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iautoshape/) hình chữ nhật vào slide.
-4. Truy cập [ITextFrame](https://reference.aspose.com/slides/vi/java/com.aspose.slides/itextframe/) của hình dạng và xóa đoạn mặc định.
-5. Tạo các đoạn và đưa giá trị dương vào [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) cho mỗi đoạn.
-6. Đưa giá trị âm vào [IParagraphFormat.setIndent](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iparagraphformat/#setIndent-float-) để tạo hiệu ứng thụt dòng treo.
+3. Thêm một [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) hình chữ nhật vào slide.
+4. Truy cập [ITextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/) của shape và xóa đoạn mặc định.
+5. Tạo các đoạn và đưa một giá trị dương vào [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) cho mỗi đoạn.
+6. Đưa một giá trị âm vào [IParagraphFormat.setIndent](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setIndent-float-) để tạo hiệu ứng thụt dòng treo.
 7. Thêm các đoạn vào khung văn bản.
 8. Lưu bản trình chiếu đã chỉnh sửa.
 
-Mã này cho bạn thấy cách đặt thụt dòng treo cho một đoạn:
+Mã này cho bạn biết cách đặt thụt dòng treo cho đoạn:
 
 ```java
 import com.aspose.slides.*;
@@ -468,18 +472,18 @@ try {
 
 Kết quả:
 
-![Thụt dòng treo của các đoạn văn](hanging_indent.png)
+![Thụt dòng treo của các đoạn](hanging_indent.png)
 
 ### **Đặt Thuộc tính Kết thúc Đoạn**
 
-[IParagraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iparagraph/#setEndParagraphPortionFormat-com.aspose.slides.IPortionFormat-) kiểm soát định dạng của ký tự kết thúc đoạn. Ví dụ sau gán kích thước phông chữ và phông Latin cho ký tự kết thúc của đoạn thứ hai:
+[IParagraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#setEndParagraphPortionFormat-com.aspose.slides.IPortionFormat-) kiểm soát định dạng của ký tự kết thúc đoạn. Ví dụ sau gán kích thước phông chữ và phông Latin cho ký tự kết thúc của đoạn thứ hai:
 
-1. Tải một [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentation/) và truy cập một slide.
-2. Thêm một [IAutoShape](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iautoshape/) và xóa đoạn mặc định của nó.
+1. Tải một [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) và truy cập một slide.
+2. Thêm một [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) và xóa đoạn mặc định của nó.
 3. Tạo hai đoạn và thêm các phần văn bản vào chúng.
-4. Tạo một [PortionFormat](https://reference.aspose.com/slides/vi/java/com.aspose.slides/portionformat/) cho ký tự kết thúc của đoạn thứ hai.
-5. Đặt [IBasePortionFormat.setFontHeight](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ibaseportionformat/#setFontHeight-float-) và [IBasePortionFormat.setLatinFont](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ibaseportionformat/#setLatinFont-com.aspose.slides.IFontData-).
-6. Gán định dạng bằng [IParagraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iparagraph/#setEndParagraphPortionFormat-com.aspose.slides.IPortionFormat-) và lưu bản trình chiếu.
+4. Tạo một [PortionFormat](https://reference.aspose.com/slides/java/com.aspose.slides/portionformat/) cho ký tự kết thúc của đoạn thứ hai.
+5. Đặt [IBasePortionFormat.setFontHeight](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseportionformat/#setFontHeight-float-) và [IBasePortionFormat.setLatinFont](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseportionformat/#setLatinFont-com.aspose.slides.IFontData-).
+6. Gán định dạng bằng [IParagraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#setEndParagraphPortionFormat-com.aspose.slides.IPortionFormat-) và lưu bản trình chiếu.
 
 ```java
 import com.aspose.slides.*;
@@ -511,15 +515,16 @@ try {
 }
 ```
 
-## **Đếm Dòng Được Kết xuất**
 
-Đối với các quy tắc đoạn ảnh hưởng đến việc tự động gói và dấu câu ở cuối dòng, xem [Control Line Breaking](/slides/vi/java/text-formatting/#control-line-breaking) và [Control Hanging Punctuation](/slides/vi/java/text-formatting/#control-hanging-punctuation).
+## **Đếm Số Dòng Được hiển thị**
 
-Sử dụng [IParagraph.getLinesCount](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iparagraph/#getLinesCount--) để đếm số dòng mà một đoạn chiếm sau khi bố trí văn bản, bao gồm việc gói tự động. Điều này hữu ích khi kiểm tra độ dài và bố cục văn bản trong các mẫu bản trình chiếu.
+Đối với các quy tắc đoạn ảnh hưởng đến việc tự động gói và dấu câu ở cuối dòng, xem mục [Control Line Breaking](/slides/vi/java/text-formatting/#control-line-breaking) và [Control Hanging Punctuation](/slides/vi/java/text-formatting/#control-hanging-punctuation).
 
-Một đoạn là một mục trong [ITextFrame.getParagraphs](https://reference.aspose.com/slides/vi/java/com.aspose.slides/itextframe/#getParagraphs--), và nó có thể chiếm nhiều dòng đã kết xuất. Một ngắt dòng rõ ràng trong đoạn buộc tạo một dòng mới mà không tạo đoạn mới. Việc gói tự động tạo các dòng dựa trên chiều rộng khả dụng mà không chèn ký tự ngắt dòng vào văn bản. Do đó, đếm số đoạn hoặc ký tự ngắt dòng không cho biết số dòng đã kết xuất.
+Sử dụng [IParagraph.getLinesCount](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getLinesCount--) để đếm số dòng mà một đoạn chiếm sau khi bố trí văn bản, bao gồm việc gói tự động. Điều này hữu ích khi kiểm tra độ dài và bố cục văn bản trong các mẫu bản trình chiếu.
 
-Ví dụ dưới tạo một hình dạng văn bản, đếm các dòng của nó, thu hẹp hình dạng, rồi thay thế văn bản bằng một chuỗi ngắn hơn. Việc gói được bật và tự động điều chỉnh (autofit) bị tắt để chiều rộng hình dạng kiểm soát việc gói mà không tự động thu nhỏ văn bản hoặc thay đổi kích thước hình dạng. Kích thước hình dạng tính bằng điểm. Cuối cùng, ví dụ thêm một đoạn nữa và tổng hợp số dòng trên toàn bộ khung văn bản.
+Một đoạn là một mục trong [ITextFrame.getParagraphs](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/#getParagraphs--), và nó có thể chiếm nhiều dòng đã hiển thị. Một ngắt dòng rõ ràng trong đoạn buộc tạo một dòng mới mà không tạo đoạn mới. Việc gói tự động tạo các dòng dựa trên chiều rộng khả dụng mà không chèn ký tự ngắt dòng vào văn bản. Vì vậy việc đếm số đoạn hoặc ký tự ngắt dòng không cho biết số dòng đã hiển thị.
+
+Ví dụ dưới tạo một hình dạng văn bản, đếm số dòng của nó, thu hẹp hình dạng, rồi thay thế văn bản bằng một chuỗi ngắn hơn. Việc gói được bật và tự động thu phóng bị tắt để chiều rộng hình dạng kiểm soát việc gói mà không tự động thu nhỏ văn bản hoặc thay đổi kích thước hình dạng. Kích thước hình dạng tính bằng điểm. Cuối cùng, ví dụ thêm một đoạn khác và cộng tổng số dòng trong khung văn bản.
 
 ```java
 import com.aspose.slides.*;
@@ -559,21 +564,21 @@ try {
 }
 ```
 
-Với văn bản và kích thước này, việc thu hẹp hình dạng làm tăng số dòng, trong khi thay thế bằng chuỗi ngắn làm giảm số dòng. Các số đếm chính xác có thể thay đổi tùy vào phông chữ có sẵn và thay thế, kích thước phông chữ, lề, thụt lề, việc gói và cài đặt autofit. Hãy sử dụng các phông và cài đặt bố cục dự kiến cho môi trường mục tiêu khi kiểm tra mẫu.
+Với văn bản và các kích thước này, thu hẹp hình dạng làm tăng số dòng, trong khi thay thế bằng chuỗi ngắn hơn làm giảm số dòng. Số đếm chính xác có thể thay đổi tùy thuộc vào phông chữ khả dụng và thay thế, kích thước phông, lề, thụt, gói và cài đặt tự động thu phóng. Hãy sử dụng phông và cài đặt bố cục dự định cho môi trường đích khi kiểm tra mẫu.
 
-Số dòng một mình không quyết định liệu văn bản có tràn ra khỏi vùng chứa hay không. Chiều cao khả dụng, chiều cao dòng, khoảng cách đoạn và dòng, và hành vi autofit cũng quan trọng; ngay cả một dòng duy nhất cũng có thể vượt quá chiều rộng khi tắt gói.
+Chỉ số dòng không quyết định liệu văn bản có tràn khỏi vùng chứa hay không. Chiều cao khả dụng, chiều cao dòng, khoảng cách đoạn và dòng, và hành vi tự động thu phóng cũng quan trọng; ngay cả một dòng duy nhất cũng có thể vượt quá chiều rộng khả dụng khi tắt chế độ gói.
 
 ## **Nhập và Xuất Nội dung Đoạn**
 
 ### **Nhập Văn bản HTML vào Đoạn**
 
-Sử dụng [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/vi/java/com.aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-) để chuyển đổi markup HTML thành các đoạn và phần trong một khung văn bản.
+Sử dụng [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/java/com.aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-) để chuyển đổi markup HTML thành các đoạn và phần trong một khung văn bản.
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentation/).
-2. Truy cập một slide và thêm một [IAutoShape](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iautoshape/).
-3. Truy cập [ITextFrame](https://reference.aspose.com/slides/vi/java/com.aspose.slides/itextframe/) của hình dạng và xóa đoạn mặc định.
+1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/).
+2. Truy cập một slide và thêm một [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/).
+3. Truy cập [ITextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/) của shape và xóa đoạn mặc định.
 4. Đọc tệp HTML nguồn.
-5. Đưa chuỗi HTML vào [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/vi/java/com.aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-).
+5. Đưa chuỗi HTML vào [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/java/com.aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-).
 6. Lưu bản trình chiếu đã chỉnh sửa.
 
 Ví dụ Java nhập HTML vào một khung văn bản:
@@ -607,17 +612,18 @@ try {
 }
 ```
 
-### **Xuất Văn bản Đoạn ra HTML**
 
-Sử dụng [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/vi/java/com.aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-) để xuất một phạm vi đã chọn của các đoạn dưới dạng HTML.
+### **Xuất Văn bản Đoạn sang HTML**
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentation/) và tải bản trình chiếu mong muốn.
-2. Truy cập slide và tìm [IAutoShape](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iautoshape/) chứa văn bản.
-3. Truy cập [ITextFrame](https://reference.aspose.com/slides/vi/java/com.aspose.slides/itextframe/) của hình dạng.
-4. Gọi [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/vi/java/com.aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-) với chỉ mục đoạn bắt đầu và số lượng đoạn cần xuất.
+Sử dụng [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/java/com.aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-) để xuất một phạm vi đoạn đã chọn dưới dạng HTML.
+
+1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) và tải bản trình chiếu mong muốn.
+2. Truy cập slide và tìm [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) chứa văn bản.
+3. Truy cập [ITextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/) của shape.
+4. Gọi [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/java/com.aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-) với chỉ mục đoạn bắt đầu và số lượng đoạn cần xuất.
 5. Ghi chuỗi HTML trả về vào tệp.
 
-Ví dụ Java xuất tất cả các đoạn từ khung văn bản đầu tiên:
+Ví dụ Java xuất tất cả các đoạn từ hình dạng văn bản đầu tiên:
 
 ```java
 import com.aspose.slides.*;
@@ -654,17 +660,17 @@ try {
 
 ### **Kết xuất Đoạn dưới dạng Hình ảnh**
 
-[IParagraph.getImage](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iparagraph/#getImage--) kết xuất trực tiếp một đoạn và trả về một [IImage](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iimage/). Lưu kết quả vào tệp hoặc luồng bằng [IImage.save](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iimage/#save-java.lang.String-int-). Bạn không cần phải kết xuất hình dạng chứa hoặc cắt ảnh bitmap thủ công.
+[IParagraph.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getImage--) kết xuất một đoạn riêng lẻ và trả về một [IImage](https://reference.aspose.com/slides/java/com.aspose.slides/iimage/). Lưu kết quả vào tệp hoặc luồng bằng [IImage.save](https://reference.aspose.com/slides/java/com.aspose.slides/iimage/#save-java.lang.String-int-). Bạn không cần phải kết xuất shape chứa hoặc cắt ảnh bitmap thủ công.
 
-[IParagraph.getImage](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iparagraph/#getImage--) có thể trả về `null` nếu không tìm thấy đoạn trong bộ sưu tập cha, không có giới hạn kết xuất hợp lệ, hoặc không thể kết xuất. Hãy kiểm tra kết quả trước khi lưu và giải phóng hình ảnh đã trả về sau khi sử dụng.
+[IParagraph.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getImage--) có thể trả về `null` nếu đoạn không thể tìm thấy trong bộ sưu tập cha, không có giới hạn kết xuất hợp lệ, hoặc không thể kết xuất. Kiểm tra kết quả trước khi lưu và giải phóng ảnh đã trả về sau khi sử dụng.
 
 #### **Kết xuất Đoạn ở Tỷ lệ Mặc định**
 
-Giả sử chúng ta có một tệp bản trình chiếu có tên sample.pptx với một slide, trong đó hình dạng đầu tiên là một hộp văn bản chứa ba đoạn.
+Giả sử chúng ta có một tệp bản trình chiếu có tên sample.pptx với một slide, trong đó shape đầu tiên là một hộp văn bản chứa ba đoạn.
 
 ![Hộp văn bản với ba đoạn](paragraph_to_image_input.png)
 
-Ví dụ sau kết xuất đoạn thứ hai trong một hình dạng văn bản thông thường ở tỷ lệ mặc định và lưu ảnh trả về ở định dạng PNG. Khối `finally` đảm bảo hình ảnh được giải phóng đúng cách.
+Ví dụ dưới kết xuất đoạn thứ hai trong một shape văn bản thường ở tỷ lệ mặc định và lưu ảnh trả về ở định dạng PNG. Khối `finally` đảm bảo giải phóng ảnh đúng cách.
 
 ```java
 import com.aspose.slides.*;
@@ -702,11 +708,11 @@ try {
 
 Kết quả:
 
-![Ảnh đoạn văn](paragraph_to_image_output.png)
+![Ảnh đoạn](paragraph_to_image_output.png)
 
 #### **Kết xuất Đoạn trong Ô Bảng với Tỷ lệ Phóng to**
 
-Sử dụng phương thức [IParagraph.getImage](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iparagraph/#getImage-float-float-) có các tham số `float scaleX` và `float scaleY` để thiết lập hệ số phóng to chiều ngang và chiều dọc. Ví dụ dưới tạo một bảng, kết xuất đoạn trong ô đầu tiên với chiều rộng và chiều cao gấp đôi so với mặc định, và lưu kết quả dưới dạng PNG.
+Sử dụng phương thức [IParagraph.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getImage-float-float-) có tham số `float scaleX` và `float scaleY` để đặt hệ số phóng to ngang và dọc. Ví dụ dưới tạo một bảng, kết xuất đoạn trong ô đầu tiên với độ rộng và chiều cao gấp đôi kích thước mặc định, và lưu kết quả dưới dạng PNG.
 
 ```java
 import com.aspose.slides.*;
@@ -736,24 +742,26 @@ try {
 }
 ```
 
-Hệ số `1` giữ kích thước pixel mặc định cho trục tương ứng. Ví dụ, `2` cho cả hai hệ số tạo ra một ảnh có chiều rộng và chiều cao khoảng gấp đôi kích thước mặc định, tương đương với bốn lần số pixel. Các hệ số lớn hơn thường cho văn bản sắc nét hơn khi phóng to hoặc xuất ảnh độ phân giải cao, nhưng cũng làm tăng bộ nhớ và kích thước tệp. Các hệ số dưới `1` tạo ảnh nhỏ hơn với ít chi tiết hơn. Sử dụng các hệ số bằng nhau để giữ tỷ lệ khung hình của đoạn; các hệ số ngang và dọc khác nhau sẽ kéo dài đầu ra một cách độc lập.
+Hệ số `1` giữ trục ở kích thước pixel mặc định. Ví dụ, `2` cho cả hai hệ số tạo ra ảnh có chiều rộng và chiều cao khoảng gấp đôi kích thước mặc định, tương đương với bốn lần số pixel. Các hệ số lớn hơn thường tạo ra văn bản sắc nét hơn cho việc phóng to hoặc đầu ra độ phân giải cao, nhưng chúng cũng làm tăng bộ nhớ và kích thước tệp. Hệ số dưới `1` tạo ảnh nhỏ hơn với ít chi tiết hơn. Sử dụng các hệ số bằng nhau để giữ tỷ lệ khung hình của đoạn; các hệ số ngang và dọc khác nhau sẽ kéo giãn đầu ra độc lập.
 
-Kết xuất toàn bộ hình dạng bằng [IShape.getImage](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ishape/#getImage--) vẫn hữu ích khi đầu ra phải bao gồm nền, viền hoặc ngữ cảnh hình ảnh khác của hình dạng. Đối với ảnh chỉ chứa đoạn, hãy dùng [IParagraph.getImage](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iparagraph/#getImage--).
+Kết xuất một shape toàn bộ bằng [IShape.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#getImage--) vẫn hữu ích khi đầu ra cần bao gồm nền, viền hoặc ngữ cảnh trực quan khác của shape. Đối với ảnh chỉ chứa đoạn, hãy sử dụng [IParagraph.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getImage--).
 
-## **Câu hỏi thường gặp**
+## **Câu hỏi Thường gặp**
 
 **Tôi có thể tắt hoàn toàn việc gói dòng trong khung văn bản không?**
 
-Có. Đặt [ITextFrameFormat.setWrapText](https://reference.aspose.com/slides/vi/java/com.aspose.slides/itextframeformat/#setWrapText-byte-) để tắt gói, khiến các dòng không ngắt tại cạnh khung văn bản.
+Có. Đặt [ITextFrameFormat.setWrapText](https://reference.aspose.com/slides/java/com.aspose.slides/itextframeformat/#setWrapText-byte-) để tắt gói, vì vậy các dòng sẽ không ngắt ở cạnh khung văn bản.
 
-**Làm sao tôi có thể lấy giới hạn trên slide chính xác của một đoạn cụ thể?**
+**Làm sao tôi có thể lấy giới hạn trên slide của một đoạn cụ thể?**
 
-Sử dụng [IParagraph.getRect](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iparagraph/#getRect--) để lấy hình chữ nhật bao quanh đoạn. [IPortion.getRect](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iportion/#getRect--) cung cấp giới hạn của một phần riêng lẻ.
+Sử dụng [IParagraph.getRect](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getRect--) để lấy hình chữ nhật bao quanh đoạn. [IPortion.getRect](https://reference.aspose.com/slides/java/com.aspose.slides/iportion/#getRect--) cung cấp giới hạn của một phần riêng lẻ.
 
-**Nơi nào trong tài liệu được điều khiển việc căn chỉnh đoạn (trái, phải, giữa hoặc căn đều)?**
+**Nơi nào điều khiển căn chỉnh đoạn (trái, phải, trung tâm hoặc canh đều)?**
 
-[IParagraphFormat.setAlignment](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iparagraphformat/#setAlignment-int-) là cài đặt cấp độ đoạn và áp dụng cho toàn bộ đoạn bất kể định dạng riêng của các phần.
+[IParagraphFormat.setAlignment](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setAlignment-int-) là cài đặt cấp đoạn và áp dụng cho toàn bộ đoạn bất kể định dạng phần riêng lẻ.
 
-**Tôi có thể đặt ngôn ngữ kiểm tra cho một phần của đoạn không?**
+Để căn dọc các phần có kích thước phông khác nhau trong mỗi dòng, xem mục [Align Fonts Within a Line](/slides/vi/java/text-formatting/#align-fonts-within-a-line).
 
-Có. Đặt [IBasePortionFormat.setLanguageId](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ibaseportionformat/#setLanguageId-java.lang.String-) cho các phần riêng lẻ, vì vậy một đoạn có thể chứa văn bản bằng nhiều ngôn ngữ.
+**Tôi có thể đặt ngôn ngữ kiểm tra chính tả cho một phần của đoạn không?**
+
+Có. Đặt [IBasePortionFormat.setLanguageId](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseportionformat/#setLanguageId-java.lang.String-) cho các phần riêng lẻ, vì vậy một đoạn có thể chứa văn bản bằng nhiều ngôn ngữ.

@@ -1,11 +1,11 @@
 ---
-title: Java でプレゼンテーションテキストをフォーマットする
-linktitle: テキスト書式設定
+title: Javaでプレゼンテーションテキストをフォーマット
+linktitle: テキストフォーマット
 type: docs
 weight: 50
 url: /ja/java/text-formatting/
 keywords:
-- 段落の整列
+- 段落の配置
 - テキストスタイル
 - テキスト背景
 - テキストの透明度
@@ -15,7 +15,7 @@ keywords:
 - テキスト回転
 - 回転角度
 - テキストフレーム
-- 行間
+- 行間隔
 - オートフィットプロパティ
 - テキストフレームアンカー
 - テキストタブ設定
@@ -25,23 +25,23 @@ keywords:
 - プレゼンテーション
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Java を使用して PowerPoint および OpenDocument プレゼンテーションのテキストをフォーマットおよびスタイル設定します。フォント、色、配置などをカスタマイズできます。"
+description: "Aspose.Slides for Java を使用して、PowerPoint および OpenDocument プレゼンテーションのテキストをフォーマットおよびスタイル設定します。フォント、色、配置などをカスタマイズできます。"
 ---
 ## **概要**
 
-この記事では、Aspose.Slides for Java を使用して PowerPoint および OpenDocument プレゼンテーションのテキストをフォーマットする方法を示します。背景色、透明度、文字間隔、フォントプロパティ、回転、段落間隔、オートフィットの動作、テキストのアンカリング、タブストップ、言語設定について説明します。
+この記事では、Aspose.Slides for Java を使用して PowerPoint および OpenDocument プレゼンテーションのテキストをフォーマットする方法を示します。背景色、透明度、文字間隔、フォントプロパティ、回転、段落間隔、オートフィット 動作、テキストのアンカリング、タブストップ、言語設定をカバーしています。
 
-特に記載がない限り、例では [sample.pptx](sample.pptx) を使用します。最初のスライドの最初のシェイプはテキストボックスで、最初の段落に以下のテキストが含まれています。スライドとシェイプのインデックスは 0 ベースです。太字部分を選択する例は、継承された太字フォーマットを含む有効なフォーマットを使用します:
+特に記載がない限り、例では [sample.pptx](sample.pptx) を使用します。最初のスライドの最初のシェイプはテキスト ボックスで、最初の段落には以下に示すテキストが含まれます。スライドとシェイプのインデックスはゼロベースです。太字部分を選択する例は、継承された太字書式を含む有効な書式を使用します。
 
-![サンプルテキスト](sample_text.png)
+![Sample text](sample_text.png)
 
-リテラルテキストや正規表現の一致を検索してハイライトする方法については、[Search and Replace Text](/slides/ja/java/search-and-replace-text/) を参照してください。
+文字列や正規表現の一致箇所を検索してハイライトするには、[テキストの検索と置換](/slides/ja/java/search-and-replace-text/) を参照してください。
 
 ## **テキストの背景色の設定**
 
-段落のデフォルトハイライト色を設定するには [IParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/ja/java/com.aspose.slides/iparagraphformat/#getDefaultPortionFormat--) を使用し、個々のテキスト部分のハイライト色を設定するには [IBasePortionFormat.getHighlightColor](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ibaseportionformat/#getHighlightColor--) を使用します。
+段落のデフォルトのハイライト色を設定するには [IParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#getDefaultPortionFormat--) を使用し、個々のテキスト部分のハイライト色を設定するには [IBasePortionFormat.getHighlightColor](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseportionformat/#getHighlightColor--) を使用します。
 
-次の例は、最初の段落のデフォルトとして薄いグレーのハイライトを設定します。個々の部分に対する明示的なハイライト色はこのデフォルトより優先されます:
+以下の例は、最初の段落のデフォルトとして薄いグレーのハイライトを設定します。個々の部分で明示的に設定されたハイライト色はこのデフォルトより優先されます。
 
 ```java
 import com.aspose.slides.*;
@@ -63,11 +63,11 @@ try {
 }
 ```
 
-結果：
+結果:
 
-![灰色の段落](gray_paragraph.png)
+![The gray paragraph](gray_paragraph.png)
 
-以下のコード例は、**太字フォントのテキスト部分**の背景色を設定する方法を示します:
+以下のコード例は、**太字フォントのテキスト部分**の背景色を設定する方法を示しています。
 
 ```java
 import com.aspose.slides.*;
@@ -93,15 +93,15 @@ try {
 }
 ```
 
-結果：
+結果:
 
-![灰色のテキスト部分](gray_text_portions.png)
+![The gray text portions](gray_text_portions.png)
 
 ## **テキスト段落の配置**
 
-テキストフレーム内の段落配置を設定するには [IParagraphFormat.setAlignment](https://reference.aspose.com/slides/ja/java/com.aspose.slides/iparagraphformat/#setAlignment-int-) を使用します。値には中央揃え、左揃え、右揃え、両端揃えなどがあります。
+テキスト フレーム内の段落の配置を設定するには [IParagraphFormat.setAlignment](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setAlignment-int-) を使用します。値は中央揃え、左揃え、右揃え、両端揃えなどが指定できます。
 
-次のコード例は、段落を**中央揃え**にする方法を示します:
+以下のコード例は、段落を **中心** に揃える方法を示しています。
 
 ```java
 import com.aspose.slides.*;
@@ -122,15 +122,81 @@ try {
 }
 ```
 
-結果：
+結果:
 
-![揃えた段落](aligned_paragraph.png)
+![The aligned paragraph](aligned_paragraph.png)
+
+## **行内のフォントの配置**
+
+行内の異なるフォントサイズのテキスト部分を垂直に揃えるには [IParagraphFormat.setFontAlignment](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setFontAlignment-int-) を使用します。この設定は段落全体に適用され、各行内の揃え方を制御します。
+
+以下の自己完結型例は、1枚のスライドに 4 つのラベル付きテキスト ボックスを作成します。各段落は 18、36、54 ポイントの同じテキストを含み、フォント配置が異なります。Arial を使用し、オートフィットと折り返しを無効にし、テキスト フレームは単一行が収まるサイズにしています。
+
+```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    int[] alignments = { FontAlignment.Baseline, FontAlignment.Top, FontAlignment.Center, FontAlignment.Bottom };
+    String[] alignmentNames = { "Baseline", "Top", "Center", "Bottom" };
+    float[] fontSizes = { 18f, 36f, 54f };
+
+    for (int i = 0; i < alignments.length; i++) {
+        IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 30, 20 + i * 130, 660, 120);
+        shape.getFillFormat().setFillType(FillType.NoFill);
+        shape.getLineFormat().getFillFormat().setFillType(FillType.NoFill);
+
+        ITextFrame textFrame = shape.getTextFrame();
+        textFrame.getTextFrameFormat().setAnchoringType(TextAnchorType.Top);
+        textFrame.getTextFrameFormat().setAutofitType(TextAutofitType.None);
+        textFrame.getTextFrameFormat().setWrapText(NullableBool.False);
+
+        IParagraph label = textFrame.getParagraphs().get_Item(0);
+        label.setText(alignmentNames[i]);
+        label.getParagraphFormat().setAlignment(TextAlignment.Left);
+        label.getParagraphFormat().getDefaultPortionFormat().setFontHeight(14);
+        label.getParagraphFormat().getDefaultPortionFormat().setLatinFont(new FontData("Arial"));
+        label.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
+        label.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY);
+
+        Paragraph paragraph = new Paragraph();
+        paragraph.getParagraphFormat().setFontAlignment(alignments[i]);
+        paragraph.getParagraphFormat().setAlignment(TextAlignment.Left);
+        paragraph.getParagraphFormat().getDefaultPortionFormat().setLatinFont(new FontData("Arial"));
+        paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
+        paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
+
+        for (float fontSize : fontSizes) {
+            Portion portion = new Portion("Ag ");
+            portion.getPortionFormat().setFontHeight(fontSize);
+            paragraph.getPortions().add(portion);
+        }
+
+        textFrame.getParagraphs().add(paragraph);
+    }
+
+    presentation.save("font_alignment.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+結果:
+
+![Comparison of Baseline, Top, Center, and Bottom font alignment with mixed font sizes](font_alignment.png)
+
+フォント配置はフォントメトリクスに基づくため、個々の文字の見える端が必ずしも正確に揃うわけではありません。例では大文字とディセンダを含め、ベースラインと底部配置の違いを示しています。使用可能なフォントや置換、文字種、フォントサイズの違いが結果に影響します。フレームのサイズ、余白、行間、折り返し、オートフィットもレイアウトに影響するため、モードを比較する際は同じフォントとレイアウト設定を使用してください。
+
+この設定は、水平段落配置を制御する [IParagraphFormat.setAlignment](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setAlignment-int-) や、シェイプ内でテキストブロックを垂直に配置する [ITextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/java/com.aspose.slides/itextframeformat/#setAnchoringType-byte-) とは異なります。上付き・下付きの書式は [IBasePortionFormat.setEscapement](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseportionformat/#setEscapement-float-) によってベースラインに対して個々の部分をシフトさせるもので、段落行のフォント配置を設定するものではありません。
 
 ## **テキストの透明度の設定**
 
-テキストの透明度は [IBasePortionFormat.getFillFormat](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ibaseportionformat/#getFillFormat--) に割り当てられた色のアルファ成分で制御されます。以下の例では `alpha = 50` は 0〜255 のスケールの ARGB アルファチャンネル値であり、透明度のパーセンテージではありません。
+テキストの透明度は、[IBasePortionFormat.getFillFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseportionformat/#getFillFormat--) に割り当てられた色のアルファ成分で制御します。以下の例では `alpha = 50` は 0〜255 のスケールでの ARGB アルファチャネル値であり、透明度のパーセンテージではありません。
 
-以下のコード例は、**段落全体**に透明度を適用する方法を示します:
+以下のコード例は、**段落全体** に透明度を適用する方法を示しています。
 
 ```java
 import com.aspose.slides.*;
@@ -155,11 +221,11 @@ try {
 }
 ```
 
-結果：
+結果:
 
-![透明な段落](transparent_paragraph.png)
+![The transparent paragraph](transparent_paragraph.png)
 
-次のコード例は、**太字フォントのテキスト部分**に透明度を適用する方法を示します:
+以下のコード例は、**太字フォントのテキスト部分** に透明度を適用する方法を示しています。
 
 ```java
 import com.aspose.slides.*;
@@ -188,15 +254,15 @@ try {
 }
 ```
 
-結果：
+結果:
 
-![透明なテキスト部分](transparent_text_portions.png)
+![The transparent text portions](transparent_text_portions.png)
 
 ## **テキストの文字間隔の設定**
 
-テキストボックス内の文字間隔を拡張または縮小するには [IBasePortionFormat.setSpacing](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ibaseportionformat/#setSpacing-float-) を使用します。例では 3 ポイントの間隔を追加しています。負の値はテキストを縮めます。
+テキスト ボックス内の文字間隔を拡大または縮小するには [IBasePortionFormat.setSpacing](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseportionformat/#setSpacing-float-) を使用します。例では 3 ポイントの間隔を追加しています。負の値を指定するとテキストが縮まります。
 
-次の Java コードは、**段落全体**の文字間隔を拡張する方法を示します:
+以下の Java コードは、**段落全体** の文字間隔を拡大する方法を示しています。
 
 ```java
 import com.aspose.slides.*;
@@ -208,8 +274,8 @@ try {
     IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
-    // 注: 文字間隔を圧縮するには負の値を使用します。
-    paragraph.getParagraphFormat().getDefaultPortionFormat().setSpacing(3); // 文字間隔を拡張します。
+    // 注: 文字間隔を縮めるには負の値を使用します。
+    paragraph.getParagraphFormat().getDefaultPortionFormat().setSpacing(3); // 文字間隔を拡大します。
 
     presentation.save("character_spacing_in_paragraph.pptx", SaveFormat.Pptx);
 } finally {
@@ -217,11 +283,11 @@ try {
 }
 ```
 
-結果：
+結果:
 
-![段落内の文字間隔](character_spacing_in_paragraph.png)
+![The character spacing in the paragraph](character_spacing_in_paragraph.png)
 
-以下のコード例は、**太字フォントのテキスト部分**の文字間隔を拡張する方法を示します:
+以下のコード例は、**太字フォントのテキスト部分** の文字間隔を拡大する方法を示しています。
 
 ```java
 import com.aspose.slides.*;
@@ -235,8 +301,8 @@ try {
 
     for (IPortion portion : paragraph.getPortions()) {
         if (portion.getPortionFormat().getEffective().getFontBold()) {
-            // 注: 文字間隔を圧縮するには負の値を使用します。
-            portion.getPortionFormat().setSpacing(3); // 文字間隔を拡張します。
+            // 注: 文字間隔を縮めるには負の値を使用します。
+            portion.getPortionFormat().setSpacing(3); // 文字間隔を拡大します。
         }
     }
 
@@ -246,15 +312,15 @@ try {
 }
 ```
 
-結果：
+結果:
 
-![テキスト部分の文字間隔](character_spacing_in_text_portions.png)
+![The character spacing in the text portions](character_spacing_in_text_portions.png)
 
 ### **特定フォントのカーニングを無効にする**
 
-場合によっては、Aspose.Slides がレンダリングしたテキストが PowerPoint で表示される同じテキストよりもやや詰まって見えることがあります。これは、フォントに有効なカーニング情報が含まれていて PowerPoint の設定でカーニングが有効になっていても、PowerPoint が特定のフォントのカーニングデータを無視するために起こります。
+場合によっては、Aspose.Slides がレンダリングしたテキストが PowerPoint の同じテキストよりもやや詰まって見えることがあります。これは、PowerPoint が特定のフォントに対してカーニング情報を無視することが原因です（フォントに有効なカーニング情報があり、PowerPoint の設定でカーニングが有効になっていても）。
 
-このようなケースでレンダリング結果を PowerPoint に近づけるには、該当フォントを使用するテキスト部分のカーニングを無効にできます。[IBasePortionFormat.setKerningMinimalSize](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ibaseportionformat/#setKerningMinimalSize-float-) に実際のフォントサイズより大きな値を設定します。この例は、最初のスライドの最初のシェイプがテキストボックスである "presentation.pptx" が必要です。継承されたフォントを含む有効なフォント名を確認し、Roboto を使用する部分に対して 100 ポイントの閾値を設定します。これにより、フォントサイズが 100 ポイント未満の該当部分のカーニングが無効になります:
+このようなケースで PowerPoint に近い出力を得るには、影響を受けたフォントを使用するテキスト部分のカーニングを無効にします。[IBasePortionFormat.setKerningMinimalSize](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseportionformat/#setKerningMinimalSize-float-) に、実際のフォントサイズより大きい値を設定します。この例では、最初のスライドの最初のシェイプがテキスト ボックスである "presentation.pptx" が必要です。継承フォントを含む有効なフォント名をチェックし、Roboto を使用する部分に対して 100 ポイントのしきい値を設定します。これにより、100 ポイント未満のフォントサイズの該当部分のカーニングが無効になります。
 
 ```java
 import com.aspose.slides.*;
@@ -287,13 +353,13 @@ try {
 }
 ```
 
-閾値以下の該当テキストに対して、この設定はカーニングを防止し、PowerPoint 固有の動作の影響を受けるフォントの視覚的出力を Aspose.Slides のレンダリングと合わせるのに役立ちます。
+しきい値未満の該当テキストに対しては、この設定によりカーニングが抑制され、PowerPoint 固有の挙動の影響を受けるフォントで Aspose.Slides のレンダリングを PowerPoint の視覚出力に近づけられます。
 
 ## **テキストフォントプロパティの管理**
 
-フォントプロパティは、段落レベルでは [IParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/ja/java/com.aspose.slides/iparagraphformat/#getDefaultPortionFormat--) を使用し、個々の部分では [IPortionFormat](https://reference.aspose.com/slides/ja/java/com.aspose.slides/iportionformat/) を使用して設定できます。
+フォントプロパティは、段落レベルで [IParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#getDefaultPortionFormat--) を使用するか、個々の部分で [IPortionFormat](https://reference.aspose.com/slides/java/com.aspose.slides/iportionformat/) を使用して設定できます。
 
-次の例は、最初の段落のデフォルトフォントを 12 ポイントの Times New Roman に設定し、太字、斜体、点線の下線フォーマットを適用します。個々の部分の明示的なフォーマットはこれらのデフォルトより優先されます。
+以下の例は、最初の段落のデフォルトフォントを 12 ポイントの Times New Roman に設定し、太字、イタリック、点線下線を適用します。個々の部分で明示的に設定された書式はこれらのデフォルトより優先されます。
 
 ```java
 import com.aspose.slides.*;
@@ -318,11 +384,11 @@ try {
 }
 ```
 
-結果：
+結果:
 
-![段落のフォントプロパティ](font_properties_for_paragraph.png)
+![The font properties for the paragraph](font_properties_for_paragraph.png)
 
-次の例は、実際のフォーマットが太字である部分に対して、13 ポイントの Times New Roman、斜体フォーマット、点線の下線を適用します。
+以下の例は、実効書式が太字である部分に対して 13 ポイントの Times New Roman、イタリック、点線下線を適用します。
 
 ```java
 import com.aspose.slides.*;
@@ -350,15 +416,15 @@ try {
 }
 ```
 
-結果：
+結果:
 
-![テキスト部分のフォントプロパティ](font_properties_for_text_portions.png)
+![The font properties for text portions](font_properties_for_text_portions.png)
 
-## **テキスト回転の設定**
+## **テキストの回転の設定**
 
-シェイプ内の事前定義されたテキスト方向を設定するには [ITextFrameFormat.setTextVerticalType](https://reference.aspose.com/slides/ja/java/com.aspose.slides/itextframeformat/#setTextVerticalType-byte-) を使用します。
+テキストの向きをシェイプ内で事前定義された方向に設定するには [ITextFrameFormat.setTextVerticalType](https://reference.aspose.com/slides/java/com.aspose.slides/itextframeformat/#setTextVerticalType-byte-) を使用します。
 
-次のコード例は、シェイプ内のテキスト方向を [TextVerticalType.Vertical270](https://reference.aspose.com/slides/ja/java/com.aspose.slides/textverticaltype/) に設定し、テキストを **90 度反時計回り** に回転させます:
+以下のコード例は、シェイプ内のテキスト方向を [TextVerticalType.Vertical270](https://reference.aspose.com/slides/java/com.aspose.slides/textverticaltype/) に設定します。これによりテキストは **90 degrees counterclockwise** 回転します。
 
 ```java
 import com.aspose.slides.*;
@@ -376,15 +442,15 @@ try {
 }
 ```
 
-結果：
+結果:
 
-![テキスト回転](text_rotation.png)
+![The text rotation](text_rotation.png)
 
 ## **テキストフレームのカスタム回転の設定**
 
-[ITextFrame](https://reference.aspose.com/slides/ja/java/com.aspose.slides/itextframe/) のカスタム回転角度を設定するには [ITextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/ja/java/com.aspose.slides/itextframeformat/#setRotationAngle-float-) を使用します。
+[ITextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/java/com.aspose.slides/itextframeformat/#setRotationAngle-float-) を使用して、[ITextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/) のカスタム回転角度を設定します。
 
-以下のコード例は、シェイプ内でテキストフレームを時計回りに 3 度回転させます:
+以下のコード例は、シェイプ内でテキスト フレームを時計回りに 3 度回転させます。
 
 ```java
 import com.aspose.slides.*;
@@ -402,18 +468,18 @@ try {
 }
 ```
 
-結果：
+結果:
 
-![カスタムテキスト回転](custom_text_rotation.png)
+![The custom text rotation](custom_text_rotation.png)
 
-## **段落の行間設定**
+## **段落の行間隔の設定**
 
-Aspose.Slides は、段落間隔を制御するために [IParagraphFormat.setSpaceAfter](https://reference.aspose.com/slides/ja/java/com.aspose.slides/iparagraphformat/#setSpaceAfter-float-)、[IParagraphFormat.setSpaceBefore](https://reference.aspose.com/slides/ja/java/com.aspose.slides/iparagraphformat/#setSpaceBefore-float-)、および [IParagraphFormat.setSpaceWithin](https://reference.aspose.com/slides/ja/java/com.aspose.slides/iparagraphformat/#setSpaceWithin-float-) を提供します。これらのプロパティは次のように使用します:
+Aspose.Slides は、段落間隔を制御するために [IParagraphFormat.setSpaceAfter](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setSpaceAfter-float-)、[IParagraphFormat.setSpaceBefore](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setSpaceBefore-float-)、[IParagraphFormat.setSpaceWithin](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setSpaceWithin-float-) を提供します。これらのプロパティは次のように使用します。
 
-* 正の値を使用すると、行間を行の高さのパーセンテージで指定します。
+* 正の値を使用すると、行間を行の高さのパーセンテージで指定します。  
 * 負の値を使用すると、行間をポイントで指定します。
 
-次の例は、最初の段落の内部間隔を行の高さの 200%（二倍の行間）に設定します:
+以下の例は、最初の段落の内部間隔を行の高さの 200%（二重行間）に設定します。
 
 ```java
 import com.aspose.slides.*;
@@ -433,20 +499,20 @@ try {
 }
 ```
 
-結果：
+結果:
 
-![段落内の行間隔](line_spacing.png)
+![The line spacing within the paragraph](line_spacing.png)
 
-## **改行制御**
+## **改行の制御**
 
-段落の改行ルールは、狭いテキストブロックやラテン文字と東アジア文字が混在するプレゼンテーションで便利です。以下のメソッドは [IParagraphFormat](https://reference.aspose.com/slides/ja/java/com.aspose.slides/iparagraphformat/) に属し、段落全体に適用されます:
+段落の改行規則は、狭いテキストブロックやラテン文字と東アジア文字が混在するプレゼンテーションで有用です。これらのメソッドはすべて [IParagraphFormat](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/) に属し、段落全体に適用されます。
 
-* [setLatinLineBreak](https://reference.aspose.com/slides/ja/java/com.aspose.slides/iparagraphformat/#setLatinLineBreak-byte-) はラテン文字の改行ルールを制御します。混在テキストでは、これを変更すると隣接する東アジア文字や句読点の折り返し位置も変わります。
-* [setEastAsianLineBreak](https://reference.aspose.com/slides/ja/java/com.aspose.slides/iparagraphformat/#setEastAsianLineBreak-byte-) は東アジア文字の改行ルールを制御し、行頭・行末の文字に関する制限を含みます。
+- [setLatinLineBreak](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setLatinLineBreak-byte-) はラテン文字の改行規則を制御します。混在テキストでは、これを変更すると隣接する東アジア文字や句読点の折り返し位置も変わることがあります。  
+- [setEastAsianLineBreak](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setEastAsianLineBreak-byte-) は東アジア文字の改行規則を制御し、行頭・行末文字の制限を含みます。
 
-これらのルールは、テキストフレーム内で自動折り返しを有効にする [ITextFrameFormat.setWrapText](https://reference.aspose.com/slides/ja/java/com.aspose.slides/itextframeformat/#setWrapText-byte-) の代わりになるものではありません。折り返しが発生したときのレイアウトに影響を与えますが、改行文字を挿入するわけではありません。明示的な改行は、利用可能な幅に関係なく段落内に新しい行を強制します。
+これらの規則は、テキストフレーム内で自動折り返しを有効にする [ITextFrameFormat.setWrapText](https://reference.aspose.com/slides/java/com.aspose.slides/itextframeformat/#setWrapText-byte-) の代わりになるものではありません。折り返しが発生したときのレイアウトに影響しますが、改行文字を挿入するわけではありません。明示的な改行は、利用可能幅に関係なく段落内で新しい行を強制します。
 
-次の自己完結型の例は、中国語とラテン文字を含む狭いテキストブロックを作成します。両方の改行オプションを明示的に設定し、"line_breaking.pptx" として保存します。どちらかのルールを試すには、もう一方の設定を固定したまま対応する値を変更します。例では 24 ポイントの Arial と SimSun を使用し、フレーム幅 160 ポイント、水平テキストフレーム余白 0 に設定しています。[ITextFrameFormat.setAutofitType](https://reference.aspose.com/slides/ja/java/com.aspose.slides/itextframeformat/#setAutofitType-byte-) を [TextAutofitType.None](https://reference.aspose.com/slides/ja/java/com.aspose.slides/textautofittype/) に設定し、テキストサイズとフレームサイズを固定しています。
+以下の自己完結型例は、中国語とラテン文字を含む狭いテキストブロックを作成し、2 つの改行オプションを明示的に設定して "line_breaking.pptx" として保存します。任意の規則を試すには、もう一方の設定を固定したまま対応する値を変更してください。例では 24 ポイントの Arial と SimSun を使用し、フレーム幅 160 ポイント、水平テキストフレーム余白 0 に設定しています。[ITextFrameFormat.setAutofitType](https://reference.aspose.com/slides/java/com.aspose.slides/itextframeformat/#setAutofitType-byte-) は [TextAutofitType.None](https://reference.aspose.com/slides/java/com.aspose.slides/textautofittype/) で呼び出し、テキストサイズとフレーム寸法を固定しています。
 
 ```java
 import com.aspose.slides.*;
@@ -488,9 +554,9 @@ try {
 
 ## **ハンギング句読点の制御**
 
-[IParagraphFormat.setHangingPunctuation](https://reference.aspose.com/slides/ja/java/com.aspose.slides/iparagraphformat/#setHangingPunctuation-byte-) は、対象となる句読点が次の行に入り込む代わりにテキスト行の右端を超えて伸びることを許可します。段落全体に適用され、ハンギングインデントとは異なります。
+[IParagraphFormat.setHangingPunctuation](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setHangingPunctuation-byte-) は、対象となる句読点がテキスト行の右端を超えて伸びることを可能にし、次の行に占有させません。段落全体に適用され、ハンギングインデントとは異なります。
 
-次の自己完結型の例は、幅 100 ポイントのテキストフレームでハンギング句読点を有効にし、"hanging_punctuation.pptx" として保存します。24 ポイント Arial と水平テキストフレーム余白 0 の設定で、最後のピリオドは "sentence" の後に残り、右端を超えて表示されます。比較のためにプロパティを [NullableBool.False](https://reference.aspose.com/slides/ja/java/com.aspose.slides/nullablebool/) に設定すると、ピリオドは別の行に配置されます。折り返しは有効で、オートフィットは無効にして利用可能幅を固定しています。
+以下の自己完結型例は、幅 100 ポイントのテキストフレームでハンギング句読点を有効にし、"hanging_punctuation.pptx" として保存します。24 ポイントの Arial と水平余白 0 の設定で、最後の句点は "sentence" の後に残り、右テキスト端を超えて表示されます。比較のためにプロパティを [NullableBool.False](https://reference.aspose.com/slides/java/com.aspose.slides/nullablebool/) に設定すると、句点が別行に配置されます。折り返しは有効でオートフィットは無効にし、利用可能幅を固定しています。
 
 ```java
 import com.aspose.slides.*;
@@ -527,11 +593,11 @@ try {
 }
 ```
 
-すべての句読点がハンギングできるわけではありません。見た目はフォントの可用性やレイアウトに依存します。フォント、利用可能幅、余白、またはオートフィット設定を変更すると、見た目の差がなくなることがあります。
+すべての句読点がハンギングできるわけではありません。上記の[フォントとレイアウト条件](#control-line-breaking)もこの比較に適用されます。フォント、利用可能幅、余白、オートフィット設定を変更すると、可視的な差が消えることがあります。
 
-## **テキストフレームのオートフィットタイプ設定**
+## **テキストフレームのオートフィットタイプの設定**
 
-[ITextFrameFormat.setAutofitType](https://reference.aspose.com/slides/ja/java/com.aspose.slides/itextframeformat/#setAutofitType-byte-) はテキストがコンテナの境界を超えたときの動作を決定します。テキストを縮小するか、はみ出すか、シェイプを自動的にサイズ変更するかを制御できます。次の例は、シェイプをテキストに合わせてサイズ変更するように設定し、結果を "autofit_type.pptx" として保存します。
+[ITextFrameFormat.setAutofitType](https://reference.aspose.com/slides/java/com.aspose.slides/itextframeformat/#setAutofitType-byte-) は、テキストがコンテナの境界を超えたときの動作を決定します。テキストを縮小するか、はみ出すか、シェイプを自動でリサイズするかを制御できます。以下の例は、シェイプをテキストに合わせてリサイズするよう構成し、結果を "autofit_type.pptx" として保存します。
 
 ```java
 import com.aspose.slides.*;
@@ -549,11 +615,11 @@ try {
 }
 ```
 
-自動折り返し後の行数をカウントし、テキストまたはシェイプの幅が結果にどのように影響するかを確認するには、[Count Rendered Lines](/slides/ja/java/manage-paragraph/) を参照してください。行数だけではテキストがコンテナからはみ出しているかどうかは判断できません。
+自動折り返し後の行数をカウントし、テキストまたはシェイプ幅の変化が結果に与える影響を確認するには、[描画された行の数](/slides/ja/java/manage-paragraph/) を参照してください。行数だけではテキストがコンテナをはみ出しているかどうかは判断できません。
 
 ## **テキストフレームのアンカー設定**
 
-[ITextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/ja/java/com.aspose.slides/itextframeformat/#setAnchoringType-byte-) はシェイプ内でテキストを垂直に配置する方法（上部、中央、下部など）を定義します。次の例は、最初のシェイプのテキストを下部にアンカーし、結果を "text_anchor.pptx" として保存します。
+[ITextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/java/com.aspose.slides/itextframeformat/#setAnchoringType-byte-) は、テキストをシェイプ内で垂直方向に配置する方法（上部、中央、下部など）を定義します。以下の例は、テキストを最初のシェイプの下部にアンカーし、結果を "text_anchor.pptx" として保存します。
 
 ```java
 import com.aspose.slides.*;
@@ -573,7 +639,7 @@ try {
 
 ## **テキストのタブ設定**
 
-[IParagraphFormat.setDefaultTabSize](https://reference.aspose.com/slides/ja/java/com.aspose.slides/iparagraphformat/#setDefaultTabSize-float-) と [IParagraphFormat.getTabs](https://reference.aspose.com/slides/ja/java/com.aspose.slides/iparagraphformat/#getTabs--) を使用して段落のタブストップを設定します。次の例は、デフォルトのタブ間隔を 100 ポイントに設定し、30 ポイントに左揃えのタブストップを追加します。これらの設定はタブ文字を含むテキストに影響します。
+段落内のタブストップを構成するには [IParagraphFormat.setDefaultTabSize](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setDefaultTabSize-float-) と [IParagraphFormat.getTabs](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#getTabs--) を使用します。以下の例は、デフォルトタブ間隔を 100 ポイントに設定し、30 ポイントに左揃えタブストップを追加します。これらの設定はタブ文字を含むテキストに影響します。
 
 ```java
 import com.aspose.slides.*;
@@ -594,15 +660,15 @@ try {
 }
 ```
 
-結果：
+結果:
 
-![段落のタブ](paragraph_tabs.png)
+![The paragraph tabs](paragraph_tabs.png)
 
 ## **校正言語の設定**
 
-Aspose.Slides は [IBasePortionFormat.setLanguageId](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ibaseportionformat/#setLanguageId-java.lang.String-) を提供し、テキスト部分の校正言語を設定できます。校正言語は PowerPoint のスペルチェックと文法チェックに使用される言語を決定します。
+Aspose.Slides は、テキスト部分の校正言語を設定できる [IBasePortionFormat.setLanguageId](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseportionformat/#setLanguageId-java.lang.String-) を提供します。校正言語は PowerPoint におけるスペルチェックと文法チェックに使用される言語を決定します。
 
-次の例は、最初のスライドの最初のシェイプがテキストボックスで、少なくとも1つの段落がある "presentation.pptx" が必要です。最初の段落の内容を "1。" に置き換え、フォントを SimSun に設定し、簡体字中国語の校正言語 (`zh-CN`) を割り当てます。結果は "proofing_language.pptx" として保存されます:
+以下の例は、最初のスライドの最初のシェイプがテキスト ボックスである "presentation.pptx" が必要です。最初の段落の内容を "1。" に置き換え、フォントを SimSun に設定し、簡体字中国語の校正言語 (`zh-CN`) を割り当てます。結果は "proofing_language.pptx" として保存されます。
 
 ```java
 import com.aspose.slides.*;
@@ -622,7 +688,7 @@ try {
     textPortion.getPortionFormat().setEastAsianFont(font);
     textPortion.getPortionFormat().setLatinFont(font);
 
-    // 校正言語の Id を設定します。
+    // 校正言語の ID を設定します。
     textPortion.getPortionFormat().setLanguageId("zh-CN");
 
     textPortion.setText("1。");
@@ -636,7 +702,7 @@ try {
 
 ## **デフォルト言語の設定**
 
-[LoadOptions.setDefaultTextLanguage](https://reference.aspose.com/slides/ja/java/com.aspose.slides/loadoptions/#setDefaultTextLanguage-java.lang.String-) を使用して、プレゼンテーションの読み込みまたは作成時に作成されるテキストのデフォルト言語を定義します。次の例は、デフォルトテキスト言語を米国英語に設定したプレゼンテーションを作成し、テキストボックスを追加し、最初のテキスト部分に対して `en-US` を出力します。
+[LoadOptions.setDefaultTextLanguage](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/#setDefaultTextLanguage-java.lang.String-) を使用して、プレゼンテーションの読み込みまたは作成時に作成されるテキストのデフォルト言語を定義します。以下の例は、デフォルトテキスト言語を米国英語に設定したプレゼンテーションを作成し、テキスト ボックスを追加して、最初のテキスト部分の言語コードとして `en-US` を出力します。
 
 ```java
 import com.aspose.slides.*;
@@ -648,7 +714,7 @@ Presentation presentation = new Presentation(loadOptions);
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // テキスト付きの新しい矩形シェイプを追加します。
+    // 新しい矩形シェイプをテキスト付きで追加します。
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 150, 50);
     shape.getTextFrame().setText("Sample text");
 
@@ -662,16 +728,16 @@ try {
 
 ## **デフォルトテキストスタイルの設定**
 
-プレゼンテーションレベルでデフォルトのテキスト書式を適用するには、[IPresentation.getDefaultTextStyle](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ipresentation/#getDefaultTextStyle--) を使用します。
+プレゼンテーション レベルでデフォルトのテキスト書式を適用するには [IPresentation.getDefaultTextStyle](https://reference.aspose.com/slides/java/com.aspose.slides/ipresentation/#getDefaultTextStyle--) を使用します。
 
-次の例は、新しいプレゼンテーションの最上位段落のデフォルトとして 14 ポイントの太字フォントを設定し、"default_text_style.pptx" として保存します。テキストは、より具体的な書式設定が上書きしない限り、これらのデフォルトを継承できます。
+以下の例は、新しいプレゼンテーションのトップレベル段落のデフォルトとして 14 ポイントの太字フォントを設定し、結果を "default_text_style.pptx" として保存します。テキストは、より具体的な書式設定が上書きしない限り、これらのデフォルトを継承できます。
 
 ```java
 import com.aspose.slides.*;
 
 Presentation presentation = new Presentation();
 try {
-    // トップレベルの段落フォーマットを取得します。
+    // トップレベルの段落書式を取得します。
     IParagraphFormat paragraphFormat = presentation.getDefaultTextStyle().getLevel(0);
 
     if (paragraphFormat != null) {
@@ -685,15 +751,15 @@ try {
 }
 ```
 
-## **All-Caps 効果でテキストを抽出する**
+## **All-Caps 効果でテキストを抽出**
 
-PowerPoint では、**All Caps** フォント効果を適用すると、元が小文字で入力されていてもスライド上で大文字として表示されます。Aspose.Slides でそのようなテキスト部分を取得すると、ライブラリは入力されたままのテキストを返します。表示されたテキストと一致させるには、[TextCapType](https://reference.aspose.com/slides/ja/java/com.aspose.slides/textcaptype/) を確認し、値が `All` の場合は返された文字列を大文字に変換します。
+PowerPoint では、**All Caps** フォント効果を適用すると、スライド上では大文字で表示されますが、元の入力は小文字のままです。Aspose.Slides でそのようなテキスト部分を取得すると、ライブラリは入力されたままのテキストを返します。表示されているテキストと一致させるには、[TextCapType](https://reference.aspose.com/slides/java/com.aspose.slides/textcaptype/) をチェックし、値が `All` の場合は取得文字列を大文字に変換します。
 
-この例は、最初のスライドの最初のシェイプがテキストボックスである "sample2.pptx" が必要です。最初の段落の最初の部分に All Caps 効果が適用された "Hello, Aspose!" が含まれています（下記参照）。
+この例は、最初のスライドの最初のシェイプがテキスト ボックスである "sample2.pptx" が必要です。最初の段落の最初の部分に **All Caps** 効果が適用された "Hello, Aspose!" が含まれています（下図参照）。
 
-![All Caps 効果](all_caps_effect.png)
+![The All Caps effect](all_caps_effect.png)
 
-以下のコード例は、**All Caps** 効果が適用されたテキストを抽出する方法を示します:
+以下のコード例は、**All Caps** 効果が適用されたテキストを抽出する方法を示しています。
 
 ```java
 import com.aspose.slides.*;
@@ -717,7 +783,7 @@ try {
 }
 ```
 
-出力：
+出力:
 
 ```text
 Original text: Hello, Aspose!
@@ -728,8 +794,8 @@ All-Caps effect: HELLO, ASPOSE!
 
 **スライド上のテーブルのテキストを変更するにはどうすればよいですか？**
 
-スライド上のテーブルのテキストを変更するには、[ITable](https://reference.aspose.com/slides/ja/java/com.aspose.slides/itable/) を使用します。セルを反復処理し、[ICell.getTextFrame](https://reference.aspose.com/slides/ja/java/com.aspose.slides/icell/#getTextFrame--) で各セルを更新し、[IParagraph.getParagraphFormat](https://reference.aspose.com/slides/ja/java/com.aspose.slides/iparagraph/#getParagraphFormat--) で段落の書式設定を行います。
+スライド上のテーブルのテキストを変更するには [ITable](https://reference.aspose.com/slides/java/com.aspose.slides/itable/) を使用します。セルを反復処理し、各セルを [ICell.getTextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#getTextFrame--) で取得し、段落書式を [IParagraph.getParagraphFormat](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getParagraphFormat--) で更新します。
 
 **PowerPoint スライドのテキストにグラデーションカラーを適用するにはどうすればよいですか？**
 
-テキストにグラデーションカラーを適用するには、[IBasePortionFormat.getFillFormat](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ibaseportionformat/#getFillFormat--) を使用します。[IFillFormat.setFillType](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ifillformat/#setFillType-byte-) に [FillType.Gradient](https://reference.aspose.com/slides/ja/java/com.aspose.slides/filltype/) を設定し、グラデーションストップ、方向、透明度を構成します。
+テキストにグラデーションカラーを適用するには [IBasePortionFormat.getFillFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseportionformat/#getFillFormat--) を使用します。[IFillFormat.setFillType](https://reference.aspose.com/slides/java/com.aspose.slides/ifillformat/#setFillType-byte-) を [FillType.Gradient](https://reference.aspose.com/slides/java/com.aspose.slides/filltype/) に設定し、グラデーション ストップ、方向、透明度を構成します。

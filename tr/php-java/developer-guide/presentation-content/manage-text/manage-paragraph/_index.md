@@ -8,53 +8,53 @@ aliases:
   - /php-java/paragraph/
   - /php-java/portion/
 keywords:
-  - metin ekle
-  - paragraf ekle
-  - metni yönet
-  - paragrafı yönet
-  - madde işaretini yönet
-  - paragraf girintisi
-  - sarkıtılmış girinti
-  - paragraf madde işareti
-  - numaralı liste
-  - madde işaretli liste
-  - paragraf özellikleri
-  - HTML içe aktar
-  - metni HTML'e
-  - paragrafı HTML'e
-  - paragrafı görüntüye
-  - metni görüntüye
-  - paragrafı dışa aktar
-  - PowerPoint
-  - sunum
-  - PHP
-  - Aspose.Slides
+- metin ekle
+- paragraf ekle
+- metni yönet
+- paragrafı yönet
+- madde işaretini yönet
+- paragraf girintisi
+- sarke girinti
+- paragraf madde işareti
+- numaralı liste
+- madde işaretli liste
+- paragraf özellikleri
+- HTML içe aktar
+- metni HTML'ye
+- paragrafı HTML'ye
+- paragrafı görüntüye
+- metni görüntüye
+- paragrafı dışa aktar
+- PowerPoint
+- sunum
+- PHP
+- Aspose.Slides
 description: "Aspose.Slides for PHP via Java ile paragraflar, bölümler, madde işaretleri, numaralı listeler, girintiler, HTML içeriği ve paragraf görüntüleri oluşturmayı ve biçimlendirmeyi öğrenin."
 ---
 ## **Genel Bakış**
 
 Aspose.Slides for PHP via Java, metni metin çerçeveleri, paragraflar ve bölümler hiyerarşisi olarak temsil eder:
 
-* [TextFrame](https://reference.aspose.com/slides/tr/php-java/aspose.slides/textframe/) bir şeklin içindeki metin konteynerini temsil eder ve paragraf koleksiyonuna erişim sağlar.
-* [Paragraph](https://reference.aspose.com/slides/tr/php-java/aspose.slides/paragraph/) bir metin çerçevesindeki tek bir paragrafı temsil eder ve bölümlere ve paragraf düzeyindeki biçimlendirmeye erişim sağlar.
-* [Portion](https://reference.aspose.com/slides/tr/php-java/aspose.slides/portion/) bir paragraftaki metin koşusunu temsil eder. Her bölüm kendi metnine ve karakter düzeyindeki biçimlendirmeye sahip olabilir.
+* [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/) bir şeklin içindeki metin kapsayıcısını temsil eder ve paragraf koleksiyonuna erişim sağlar.
+* [Paragraph](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/) bir metin çerçevesindeki bir paragrafı temsil eder ve bölümlerine ve paragraf‑seviyesindeki biçimlendirmeye erişim sağlar.
+* [Portion](https://reference.aspose.com/slides/php-java/aspose.slides/portion/) bir paragraftaki metin çalışmasını temsil eder. Her bölüm kendi metnine ve karakter‑seviyesindeki biçimlendirmeye sahip olabilir.
 
-Bir paragraf, birden fazla bölüm kullanılarak farklı yazı tipleri, renkler, boyutlar ve diğer biçimlendirmeler içerebilir.
+Bu nedenle bir paragraf, birden fazla bölüm kullanarak farklı yazı tipleri, renkler, boyutlar ve diğer biçimlendirmelerle metin içerebilir.
 
 ## **Paragrafları Oluşturma ve Biçimlendirme**
 
 ### **Birden Çok Bölüm İçeren Paragraflar Oluşturma**
 
-Aşağıdaki adımlar, her biri üç bölüm içeren üç paragrafla bir metin çerçevesi oluşturur:
+Aşağıdaki adımlar üç paragraf ve her biri üç bölüm içeren bir metin çerçevesi oluşturur:
 
-1. [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
+1. [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
 2. İlgili slayta indeks üzerinden erişin.
-3. Slayta dikdörtgen bir [AutoShape](https://reference.aspose.com/slides/tr/php-java/aspose.slides/autoshape/) ekleyin.
-4. Şeklin [TextFrame](https://reference.aspose.com/slides/tr/php-java/aspose.slides/textframe/) özelliğine erişin.
-5. Varsayılan paragrafı kullanın ve metin çerçevesine iki tane daha [Paragraph](https://reference.aspose.com/slides/tr/php-java/aspose.slides/paragraph/) nesnesi ekleyin.
-6. Her paragrafın üç bölüm içerebilmesi için yeterli sayıda [Portion](https://reference.aspose.com/slides/tr/php-java/aspose.slides/portion/) nesnesi ekleyin. Varsayılan paragraf zaten bir boş bölüm içerir.
+3. Slayta dikdörtgen bir [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) ekleyin.
+4. Şeklin [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/) öğesine erişin.
+5. Varsayılan paragrafı kullanın ve metin çerçevesine iki adet daha [Paragraph](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/) nesnesi ekleyin.
+6. Her paragrafın üç bölüm içermesi için yeterli sayıda [Portion](https://reference.aspose.com/slides/php-java/aspose.slides/portion/) nesnesi ekleyin. Varsayılan paragraf zaten bir boş bölüm içerir.
 7. Her bölümün metnini ayarlayın.
-8. [Portion::getPortionFormat](https://reference.aspose.com/slides/tr/php-java/aspose.slides/portion/#getPortionFormat--) aracılığıyla karakter düzeyinde biçimlendirme uygulayın.
+8. Karakter‑seviyesindeki biçimlendirmeyi [Portion::getPortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/portion/#getPortionFormat--) ile uygulayın.
 9. Değiştirilmiş sunumu kaydedin.
 
 Bu PHP örneği adımları uygular:
@@ -118,22 +118,22 @@ try {
 }
 ```
 
-## **Numaralı ve Madde İşaretli Listeler Oluşturma**
+## **Madde İşaretli ve Numaralı Listeler Oluşturma**
 
 ### **Madde İşaretli veya Numaralı Liste Oluşturma**
 
-Madde işaretleri ve numaralandırma, ilgili öğelerin daha kolay taranmasını sağlar. Aspose.Slides’ta liste ayarları [BulletFormat](https://reference.aspose.com/slides/tr/php-java/aspose.slides/bulletformat/) aracılığıyla tanımlanır.
+Madde işaretleri ve numaralar ilgili öğelerin taranmasını kolaylaştırır. Aspose.Slides içinde liste ayarları [BulletFormat](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/) ile tanımlanır.
 
-1. [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
+1. [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
 2. İlgili slayta indeks üzerinden erişin.
-3. Seçilen slayta bir [AutoShape](https://reference.aspose.com/slides/tr/php-java/aspose.slides/autoshape/) ekleyin.
-4. Şeklin [TextFrame](https://reference.aspose.com/slides/tr/php-java/aspose.slides/textframe/) özelliğine erişin.
+3. Seçilen slayta bir [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) ekleyin.
+4. Şeklin [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/) öğesine erişin.
 5. Metin çerçevesinden varsayılan paragrafı kaldırın.
-6. Sembol madde işareti için bir [Paragraph](https://reference.aspose.com/slides/tr/php-java/aspose.slides/paragraph/) oluşturun.
-7. [BulletFormat::setType](https://reference.aspose.com/slides/tr/php-java/aspose.slides/bulletformat/#setType-int-) özelliğini [BulletType::Symbol](https://reference.aspose.com/slides/tr/php-java/aspose.slides/bullettype/) olarak ayarlayın ve madde işareti karakterini belirtin.
-8. Paragraf metnini, girinti, madde işareti rengini ve madde işareti yüksekliğini ayarlayın.
+6. Sembol madde işareti için bir [Paragraph](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/) oluşturun.
+7. [BulletFormat::setType](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setType-int-) metodunu [BulletType::Symbol](https://reference.aspose.com/slides/php-java/aspose.slides/bullettype/) olarak ayarlayın ve madde işareti karakterini belirtin.
+8. Paragraf metnini, girintiyi, madde işareti rengini ve yüksekliğini ayarlayın.
 9. Paragrafı metin çerçevesine ekleyin.
-10. İkinci bir paragraf oluşturun ve [BulletFormat::setType](https://reference.aspose.com/slides/tr/php-java/aspose.slides/bulletformat/#setType-int-) özelliğini [BulletType::Numbered](https://reference.aspose.com/slides/tr/php-java/aspose.slides/bullettype/) olarak ayarlayın.
+10. İkinci bir paragraf oluşturun ve [BulletFormat::setType](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setType-int-) metodunu [BulletType::Numbered](https://reference.aspose.com/slides/php-java/aspose.slides/bullettype/) olarak ayarlayın.
 11. Numaralı madde işareti stilini yapılandırın ve paragrafı metin çerçevesine ekleyin.
 12. Sunumu kaydedin.
 
@@ -186,16 +186,16 @@ try {
 
 ### **Resim Madde İşaretleri Kullanma**
 
-Resim madde işaretleri, bir sembol veya sayı yerine özel bir görüntü kullanmanıza olanak tanır.
+Resim madde işaretleri, bir sembol veya sayı yerine özelleştirilmiş bir görüntü kullanmanıza olanak tanır.
 
-1. [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
+1. [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
 2. İlgili slayta indeks üzerinden erişin.
-3. Bir [AutoShape](https://reference.aspose.com/slides/tr/php-java/aspose.slides/autoshape/) ekleyin ve onun [TextFrame](https://reference.aspose.com/slides/tr/php-java/aspose.slides/textframe/) özelliğine erişin.
+3. Bir [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) ekleyin ve onun [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/) öğesine erişin.
 4. Metin çerçevesinden varsayılan paragrafı kaldırın.
-5. Madde işareti görüntüsünü yükleyin ve sunumun görüntü koleksiyonuna bir [PPImage](https://reference.aspose.com/slides/tr/php-java/aspose.slides/ppimage/) olarak ekleyin.
-6. Bir [Paragraph](https://reference.aspose.com/slides/tr/php-java/aspose.slides/paragraph/) oluşturun ve metnini ayarlayın.
-7. [BulletFormat::setType](https://reference.aspose.com/slides/tr/php-java/aspose.slides/bulletformat/#setType-int-) özelliğini [BulletType::Picture](https://reference.aspose.com/slides/tr/php-java/aspose.slides/bullettype/) olarak ayarlayın.
-8. Görüntüyü [BulletFormat::getPicture](https://reference.aspose.com/slides/tr/php-java/aspose.slides/bulletformat/#getPicture--) aracılığıyla atayın ve madde işareti yüksekliğini ayarlayın.
+5. Madde işareti resmini yükleyin ve sunumun görüntü koleksiyonuna bir [PPImage](https://reference.aspose.com/slides/php-java/aspose.slides/ppimage/) olarak ekleyin.
+6. Bir [Paragraph](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/) oluşturun ve metnini ayarlayın.
+7. [BulletFormat::setType](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setType-int-) metodunu [BulletType::Picture](https://reference.aspose.com/slides/php-java/aspose.slides/bullettype/) olarak ayarlayın.
+8. Görüntüyü [BulletFormat::getPicture](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#getPicture--) ile belirleyin ve madde işareti yüksekliğini ayarlayın.
 9. Paragrafı metin çerçevesine ekleyin.
 10. Değiştirilmiş sunumu kaydedin.
 
@@ -238,14 +238,14 @@ try {
 }
 ```
 
-### **Çok Düzeyli Liste Oluşturma**
+### **Çok Katmanlı Liste Oluşturma**
 
-[ParagraphFormat::setDepth](https://reference.aspose.com/slides/tr/php-java/aspose.slides/paragraphformat/#setDepth-short-) özelliğini ayarlayarak paragrafları bir listenin farklı seviyelerine yerleştirebilirsiniz. En üst düzeyin derinliği `0` dır.
+[ParagraphFormat::setDepth](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setDepth-short-) metodunu ayarlayarak paragrafları bir listenin farklı seviyelerinde konumlandırabilirsiniz. Üst seviye derinliği `0` dır.
 
-1. Bir [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/) oluşturun ve bir slayta erişin.
-2. Bir [AutoShape](https://reference.aspose.com/slides/tr/php-java/aspose.slides/autoshape/) ekleyin ve varsayılan paragrafı metin çerçevesinden temizleyin.
+1. Bir [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) oluşturun ve bir slayta erişin.
+2. Bir [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) ekleyin ve varsayılan paragrafı metin çerçevesinden temizleyin.
 3. Dört paragraf oluşturun ve madde işareti sembollerini yapılandırın.
-4. [ParagraphFormat::setDepth](https://reference.aspose.com/slides/tr/php-java/aspose.slides/paragraphformat/#setDepth-short-) değerlerini sırasıyla `0`, `1`, `2` ve `3` olarak ayarlayın.
+4. Her birinin [ParagraphFormat::setDepth](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setDepth-short-) değerlerini sırasıyla `0`, `1`, `2` ve `3` olarak ayarlayın.
 5. Paragrafları metin çerçevesine ekleyin ve sunumu kaydedin.
 
 Bu PHP örneği dört seviyeli bir madde işaretli liste oluşturur:
@@ -310,12 +310,12 @@ try {
 
 ### **Numaralı Liste Öğelerini Özel Değerlerle Başlatma**
 
-[BulletFormat::setNumberedBulletStartWith](https://reference.aspose.com/slides/tr/php-java/aspose.slides/bulletformat/#setNumberedBulletStartWith-short-) özelliğini kullanarak bir numaralı paragrafın başlangıç numarasını belirleyebilirsiniz.
+[BulletFormat::setNumberedBulletStartWith](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setNumberedBulletStartWith-short-) metodunu kullanarak numaralı bir paragraf için gösterilecek başlangıç sayısını ayarlayabilirsiniz.
 
-1. Bir [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/) oluşturun ve bir slayta [AutoShape](https://reference.aspose.com/slides/tr/php-java/aspose.slides/autoshape/) ekleyin.
+1. Bir [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) oluşturun ve bir [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) ekleyin.
 2. Şeklin metin çerçevesinden varsayılan paragrafı temizleyin.
 3. Üç numaralı paragraf oluşturun.
-4. İlgili paragraflar için [BulletFormat::setNumberedBulletStartWith](https://reference.aspose.com/slides/tr/php-java/aspose.slides/bulletformat/#setNumberedBulletStartWith-short-) değerlerini sırasıyla `2`, `3` ve `7` olarak ayarlayın.
+4. İlgili paragraflar için [BulletFormat::setNumberedBulletStartWith](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setNumberedBulletStartWith-short-) metodunu sırasıyla `2`, `3` ve `7` olarak ayarlayın.
 5. Paragrafları metin çerçevesine ekleyin ve sunumu kaydedin.
 
 Bu PHP örneği her paragraf için özel bir başlangıç numarası atar:
@@ -361,17 +361,17 @@ try {
 
 ### **İlk Satır Girintisi Ayarlama**
 
-[ParagraphFormat::setIndent](https://reference.aspose.com/slides/tr/php-java/aspose.slides/paragraphformat/#setIndent-float-) metodunu kullanarak bir paragrafın ilk satır girintisini kontrol edebilirsiniz. Bu yöntem yalnızca paragrafın sol kenar boşluğuna göre ilk satırı hareket ettirir. Pozitif bir değer ilk satırı sağa kaydırırken, kalan satırlar paragraf gövdesine hizalı kalır.
+[ParagraphFormat::setIndent](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setIndent-float-) metodunu kullanarak bir paragrafın ilk satır girintisini kontrol edebilirsiniz. Bu yöntem sadece ilk satırı paragrafın sol kenar boşluğuna göre kaydırır. Pozitif bir değer ilk satırı sağa doğru kaydırırken, kalan satırlar paragraf gövdesiyle hizalanmış kalır.
 
-Tüm paragrafı taşımak istediğinizde [ParagraphFormat::setMarginLeft](https://reference.aspose.com/slides/tr/php-java/aspose.slides/paragraphformat/#setMarginLeft-float-) kullanın. Yalnızca ilk satırı taşımak istediğinizde ise [ParagraphFormat::setIndent](https://reference.aspose.com/slides/tr/php-java/aspose.slides/paragraphformat/#setIndent-float-) kullanın.
+Tüm paragrafı hareket ettirmeniz gerektiğinde [ParagraphFormat::setMarginLeft](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setMarginLeft-float-) kullanın. Yalnızca ilk satırı hareket ettirmeniz gerektiğinde ise [ParagraphFormat::setIndent](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setIndent-float-) kullanın.
 
-Aşağıdaki örnek birkaç paragraf oluşturur ve farklı [ParagraphFormat::setIndent](https://reference.aspose.com/slides/tr/php-java/aspose.slides/paragraphformat/#setIndent-float-) değerleri uygulayarak ilk satır girintisinin paragraf düzenine etkisini gösterir.
+Aşağıdaki örnek birkaç paragraf oluşturur ve farklı [ParagraphFormat::setIndent](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setIndent-float-) değerleri uygulayarak ilk satır girintisinin paragraf düzenini nasıl etkilediğini gösterir.
 
-1. [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
+1. [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
 2. Hedef slayta erişin.
-3. Slayta dikdörtgen bir [AutoShape](https://reference.aspose.com/slides/tr/php-java/aspose.slides/autoshape/) ekleyin.
-4. Şeklin [TextFrame](https://reference.aspose.com/slides/tr/php-java/aspose.slides/textframe/) özelliğine erişin ve varsayılan paragrafı kaldırın.
-5. Çeşitli paragraflar oluşturun ve bunlara farklı [ParagraphFormat::setIndent](https://reference.aspose.com/slides/tr/php-java/aspose.slides/paragraphformat/#setIndent-float-) değerleri atayın.
+3. Slayta dikdörtgen bir [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) ekleyin.
+4. Şeklin [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/) öğesine erişin ve varsayılan paragrafı kaldırın.
+5. Birkaç paragraf oluşturun ve her biri için farklı [ParagraphFormat::setIndent](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setIndent-float-) değerleri ayarlayın.
 6. Paragrafları metin çerçevesine ekleyin.
 7. Değiştirilmiş sunumu kaydedin.
 
@@ -431,26 +431,26 @@ try {
 
 Sonuç:
 
-![Paragrafların ilk satır girintisi](first_line_indent.png)
+![Paragrafların birinci satır girintisi](first_line_indent.png)
 
-### **Sarkıtılmış Girinti Ayarlama**
+### **Sarke Girinti Ayarlama**
 
-Sarkıtılmış girinti, ilk satırın kalan satırların solunda başladığı bir paragraf düzenidir. Aspose.Slides’ta bu etkiyi [ParagraphFormat::setIndent](https://reference.aspose.com/slides/tr/php-java/aspose.slides/paragraphformat/#setIndent-float-) ile oluşturursunuz. İlk satırı paragraf gövdesine göre sola hareket ettirmek için negatif bir değer verin.
+Sarke girinti, ilk satırın kalan satırların solunda başladığı bir paragraf düzenidir. Aspose.Slides içinde bu etkiyi [ParagraphFormat::setIndent](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setIndent-float-) metodu ile elde edersiniz. İlk satırı paragraf gövdesine göre sola kaydırmak için negatif bir değer verin.
 
-Uygulamada, [ParagraphFormat::setMarginLeft](https://reference.aspose.com/slides/tr/php-java/aspose.slides/paragraphformat/#setMarginLeft-float-) paragraf gövdesinin sol konumunu, [ParagraphFormat::setIndent](https://reference.aspose.com/slides/tr/php-java/aspose.slides/paragraphformat/#setIndent-float-) ise ilk satırın bu kenar boşluğuna göre konumunu tanımlar. Sarkıtılmış girinti oluşturmak için `setMarginLeft`’a pozitif bir değer, `setIndent`’e negatif bir değer verin.
+Pratikte, [ParagraphFormat::setMarginLeft](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setMarginLeft-float-) paragraf gövdesinin sol konumunu tanımlar ve [ParagraphFormat::setIndent](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setIndent-float-) ilk satırın bu kenar boşluğuna göre konumunu belirler. Sarke girinti oluşturmak için `setMarginLeft`a pozitif bir değer, `setIndent`e negatif bir değer verin.
 
-Bu biçimlendirme bibliyografyalar, referanslar, sözlük girişleri ve satırların paragraf gövdesi altında hizalanması gereken diğer paragraflar için yararlıdır.
+Bu biçimlendirme, bibliyografiler, referanslar, sözlük girişleri ve sarılmış satırların paragraf gövdesi altında hizalanması gereken diğer paragraflar için faydalıdır.
 
-1. [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
+1. [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
 2. Hedef slayta erişin.
-3. Slayta dikdörtgen bir [AutoShape](https://reference.aspose.com/slides/tr/php-java/aspose.slides/autoshape/) ekleyin.
-4. Şeklin [TextFrame](https://reference.aspose.com/slides/tr/php-java/aspose.slides/textframe/) özelliğine erişin ve varsayılan paragrafı kaldırın.
-5. Her paragraf için [ParagraphFormat::setMarginLeft](https://reference.aspose.com/slides/tr/php-java/aspose.slides/paragraphformat/#setMarginLeft-float-) özelliğine pozitif bir değer atayın.
-6. Sarkıtılmış girinti etkisini yaratmak için [ParagraphFormat::setIndent](https://reference.aspose.com/slides/tr/php-java/aspose.slides/paragraphformat/#setIndent-float-) özelliğine negatif bir değer verin.
+3. Slayta dikdörtgen bir [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) ekleyin.
+4. Şeklin [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/) öğesine erişin ve varsayılan paragrafı kaldırın.
+5. Paragraflar oluşturun ve her biri için [ParagraphFormat::setMarginLeft](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setMarginLeft-float-) metoduna pozitif bir değer verin.
+6. [ParagraphFormat::setIndent](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setIndent-float-) metoduna negatif bir değer vererek sarke girinti etkisini oluşturun.
 7. Paragrafları metin çerçevesine ekleyin.
 8. Değiştirilmiş sunumu kaydedin.
 
-Bu PHP kodu bir paragraf için sarkıtılmış girintinin nasıl ayarlanacağını gösterir:
+Bu PHP kodu bir paragraf için sarke girintinin nasıl ayarlanacağını gösterir:
 
 ```php
 use aspose\slides\FillType;
@@ -498,18 +498,18 @@ try {
 
 Sonuç:
 
-![Paragrafların sarkıtılmış girintisi](hanging_indent.png)
+![Paragrafların sarke girintisi](hanging_indent.png)
 
 ### **Paragraf Sonu Çalışma Özelliklerini Ayarlama**
 
-[Paragraph::setEndParagraphPortionFormat](https://reference.aspose.com/slides/tr/php-java/aspose.slides/paragraph/#setEndParagraphPortionFormat-com.aspose.slides.PortionFormat-) paragraf son işaretinin biçimlendirmesini kontrol eder. Aşağıdaki PHP örneği ikinci paragrafın son işaretine bir yazı tipi boyutu ve Latin yazı tipi atar:
+[Paragraph::setEndParagraphPortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#setEndParagraphPortionFormat-com.aspose.slides.PortionFormat-) paragraf son işaretinin biçimlendirmesini kontrol eder. Aşağıdaki PHP örneği ikinci paragrafın son işaretine bir yazı tipi boyutu ve Latin yazı tipi atar:
 
-1. Bir [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/) yükleyin ve bir slayta erişin.
-2. Bir [AutoShape](https://reference.aspose.com/slides/tr/php-java/aspose.slides/autoshape/) ekleyin ve varsayılan paragrafını temizleyin.
-3. İki paragraf oluşturun ve onlara metin bölümleri ekleyin.
-4. İkinci paragrafın son işareti için bir [PortionFormat](https://reference.aspose.com/slides/tr/php-java/aspose.slides/portionformat/) oluşturun.
-5. [BasePortionFormat::setFontHeight](https://reference.aspose.com/slides/tr/php-java/aspose.slides/baseportionformat/#setFontHeight-float-) ve [BasePortionFormat::setLatinFont](https://reference.aspose.com/slides/tr/php-java/aspose.slides/baseportionformat/#setLatinFont-com.aspose.slides.IFontData-) ayarlarını yapın.
-6. Formatı [Paragraph::setEndParagraphPortionFormat](https://reference.aspose.com/slides/tr/php-java/aspose.slides/paragraph/#setEndParagraphPortionFormat-com.aspose.slides.PortionFormat-) ile atayın ve sunumu kaydedin.
+1. Bir [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) yükleyin ve bir slayta erişin.
+2. Bir [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) ekleyin ve varsayılan paragrafı temizleyin.
+3. İki paragraf oluşturun ve metin bölümleri ekleyin.
+4. İkinci paragrafın son işareti için bir [PortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/portionformat/) oluşturun.
+5. [BasePortionFormat::setFontHeight](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setFontHeight-float-) ve [BasePortionFormat::setLatinFont](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setLatinFont-com.aspose.slides.IFontData-) ayarlarını yapın.
+6. Formatı [Paragraph::setEndParagraphPortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#setEndParagraphPortionFormat-com.aspose.slides.PortionFormat-) ile atayın ve sunumu kaydedin.
 
 ```php
 use aspose\slides\FontData;
@@ -547,15 +547,15 @@ try {
 }
 ```
 
-## **Çizilen Satırları Sayma**
+## **Renderlanan Satırları Sayma**
 
-Satır sonlarındaki otomatik kaydırma ve noktalama kurallarını görmek için [Control Line Breaking](/slides/tr/php-java/text-formatting/#control-line-breaking) ve [Control Hanging Punctuation](/slides/tr/php-java/text-formatting/#control-hanging-punctuation) bölümlerine bakın.
+Satır sonlarındaki otomatik kaydırma ve noktalama işaretlerini etkileyen paragraf kuralları için [Control Line Breaking](/slides/tr/php-java/text-formatting/#control-line-breaking) ve [Control Hanging Punctuation](/slides/tr/php-java/text-formatting/#control-hanging-punctuation) bölümlerine bakın.
 
-Bir paragrafın metin yerleşiminden sonra kapladığı satır sayısını saymak için [Paragraph::getLinesCount](https://reference.aspose.com/slides/tr/php-java/aspose.slides/paragraph/#getLinesCount--) metodunu kullanın. Bu, otomatik kaydırma dahil olmak üzere metin uzunluğunu ve düzenini kontrol ederken faydalıdır.
+[Paragraph::getLinesCount](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getLinesCount--) metodunu kullanarak bir paragrafın metin yerleşimi sonrasında kapladığı satır sayısını elde edebilirsiniz; bu, otomatik kaydırma dahil olmak üzere hesaplanır. Şablonlarda metin uzunluğunu ve yerleşimini kontrol ederken faydalıdır.
 
-Bir paragraf, [TextFrame::getParagraphs](https://reference.aspose.com/slides/tr/php-java/aspose.slides/textframe/#getParagraphs--) içinde bir öğedir ve birkaç çizilen satır kaplayabilir. Paragraf içinde açık bir satır sonu karakteri yeni bir satır oluşturur ancak yeni bir paragraf yaratmaz. Otomatik kaydırma, mevcut genişliğe göre satırlar üretir ve metne açık bir satır sonu eklemez. Bu nedenle paragrafları ya da satır sonu karakterlerini saymak, gerçek çizilen satır sayısını vermez.
+Bir paragraf, [TextFrame::getParagraphs](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/#getParagraphs--) içinde bir öğedir ve birkaç render satırı kaplayabilir. Paragraf içinde açık bir satır sonu karakteri, yeni bir paragraf oluşturmadan yeni bir satır başlatır. Otomatik kaydırma, metnin içine açık satır sonu eklemeden mevcut genişliğe göre satırlar oluşturur. Dolayısıyla paragraf sayısını ya da satır sonu karakterlerini saymak, render satır sayısını vermez.
 
-Aşağıdaki örnek bir metin şekli oluşturur, satırlarını sayar, şeklin genişliğini daraltır ve ardından metni daha kısa bir dizeyle değiştirir. Kaydırma aktiftir ve otomatik sığdırma kapalıdır; böylece şekil genişliği kaydırmayı kontrol eder ve metin otomatik olarak küçülmez veya şekil yeniden boyutlandırılmaz. Şekil boyutları puan cinsindendir. Son olarak örnek başka bir paragraf ekler ve metin çerçevesi genelinde satır sayılarını toplar.
+Aşağıdaki örnek bir metin şekli oluşturur, satırlarını sayar, şekli daraltır ve ardından metni daha kısa bir dizeyle değiştirir. Kaydırma açıktır ve otomatik sığdırma kapalıdır; böylece şekil genişliği, otomatik olarak metni küçültmeden kaydırmayı kontrol eder. Şekil boyutları puan cinsindendir. Son olarak örnek başka bir paragraf ekler ve metin çerçevesi genelinde satır sayılarını toplar.
 
 ```php
 use aspose\slides\NullableBool;
@@ -600,24 +600,24 @@ try {
 }
 ```
 
-Bu metin ve boyutlarla, şekli daraltmak satır sayısını artırırken, metni kısa dizeyle değiştirmek azaltır. Kesin sayılar yazı tipi bulunabilirliği, yedekleme, yazı tipi boyutu, kenar boşlukları, girinti, kaydırma ve otomatik sığdırma ayarlarına göre değişebilir. Şablon kontrolü yaparken hedef ortam için kullanılan yazı tipleri ve yerleşim ayarlarını kullanın.
+Bu metin ve bu boyutlarla şekli daraltmak satır sayısını artırırken, kısa dizeyle değiştirmek azaltır. Kesin sayılar, yazı tipi bulunabilirliği ve ikamesi, yazı tipi boyutu, kenar boşlukları, girinti, kaydırma ve otomatik sığdırma ayarlarına göre değişebilir. Bir şablonu kontrol ederken hedef ortam için kullanılan yazı tipleri ve yerleşim ayarlarını kullanın.
 
-Satır sayısı tek başına metnin kapsayıcı içinde taşma yapıp yapmayacağını belirlemez. Kullanılabilir yükseklik, satır yükseklikleri, paragraf ve satır aralığı ve otomatik sığdırma davranışı da önemlidir; kaydırma devre dışı bırakıldığında tek bir satır bile mevcut genişliği aşabilir.
+Satır sayısı yalnız başına metnin konteyneri aşıp aşmadığını belirlemez. Kullanılabilir yükseklik, satır yükseklikleri, paragraf ve satır aralıkları ve otomatik sığdırma davranışı da önem taşır; kaydırma kapalıyken tek bir satır bile mevcut genişliği aşabilir.
 
 ## **Paragraf İçeriğini İçe/Dışa Aktarma**
 
 ### **HTML Metnini Paragraflara İçe Aktarma**
 
-[ParagraphCollection::addFromHtml](https://reference.aspose.com/slides/tr/php-java/aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-) metodunu kullanarak HTML işaretlemesini bir metin çerçevesindeki paragraf ve bölümlere dönüştürebilirsiniz.
+[ParagraphCollection::addFromHtml](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-) metodunu kullanarak HTML işaretlemesini bir metin çerçevesindeki paragraflara ve bölümlere dönüştürebilirsiniz.
 
-1. [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
-2. Bir slayta erişin ve bir [AutoShape](https://reference.aspose.com/slides/tr/php-java/aspose.slides/autoshape/) ekleyin.
-3. Şeklin [TextFrame](https://reference.aspose.com/slides/tr/php-java/aspose.slides/textframe/) özelliğine erişin ve varsayılan paragrafı temizleyin.
+1. Bir [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) sınıfının örneğini oluşturun.
+2. Bir slayta erişin ve bir [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) ekleyin.
+3. Şeklin [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/) öğesine erişin ve varsayılan paragrafı temizleyin.
 4. Kaynak HTML dosyasını okuyun.
-5. HTML dizesini [ParagraphCollection::addFromHtml](https://reference.aspose.com/slides/tr/php-java/aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-) metoduna gönderin.
+5. HTML dizesini [ParagraphCollection::addFromHtml](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-) metoduna iletin.
 6. Değiştirilmiş sunumu kaydedin.
 
-Bu PHP örneği HTML’i bir metin çerçevesine içe aktarır:
+Bu PHP örneği HTML'yi bir metin çerçevesine içe aktarır:
 
 ```php
 use aspose\slides\FillType;
@@ -646,14 +646,14 @@ try {
 }
 ```
 
-### **Paragraf Metnini HTML Olarak Dışa Aktarma**
+### **Paragraf Metnini HTML'ye Dışa Aktarma**
 
-[ParagraphCollection::exportToHtml](https://reference.aspose.com/slides/tr/php-java/aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-) metodunu kullanarak seçilen paragraf aralığını HTML olarak dışa aktarabilirsiniz.
+[ParagraphCollection::exportToHtml](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-) metodunu kullanarak seçili paragraf aralığını HTML olarak dışa aktarabilirsiniz.
 
-1. [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/) sınıfının bir örneğini oluşturun ve istenen sunumu yükleyin.
-2. Slayta erişin ve metni içeren [AutoShape](https://reference.aspose.com/slides/tr/php-java/aspose.slides/autoshape/) bulun.
-3. Şeklin [TextFrame](https://reference.aspose.com/slides/tr/php-java/aspose.slides/textframe/) özelliğine erişin.
-4. Başlangıç paragraf indeksi ve dışa aktarılacak paragraf sayısını belirterek [ParagraphCollection::exportToHtml](https://reference.aspose.com/slides/tr/php-java/aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-) metodunu çağırın.
+1. Bir [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) sınıfının örneğini oluşturun ve istenen sunumu yükleyin.
+2. Slayta erişin ve metni içeren [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) öğesini bulun.
+3. Şeklin [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/) öğesine erişin.
+4. Başlangıç paragraf indeksi ve dışa aktarılacak paragraf sayısı ile [ParagraphCollection::exportToHtml](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-) metodunu çağırın.
 5. Dönen HTML dizesini bir dosyaya yazın.
 
 Bu PHP örneği ilk metin şeklinin tüm paragraflarını dışa aktarır:
@@ -684,19 +684,19 @@ try {
 }
 ```
 
-### **Paragrafı Görüntü Olarak Oluşturma**
+### **Paragrafı Görüntü Olarak Renderleme**
 
-[Paragraph::getImage](https://reference.aspose.com/slides/tr/php-java/aspose.slides/paragraph/#getImage--) tek bir paragrafı doğrudan görselleştirir ve bir [IImage](https://reference.aspose.com/slides/tr/php-java/aspose.slides/iimage/) döndürür. Sonucu [IImage::save](https://reference.aspose.com/slides/tr/php-java/aspose.slides/iimage/#save-java.lang.String-int-) ile bir dosyaya veya akışa kaydedebilirsiniz. İçeren şekli ayrı olarak oluşturmanıza veya bitmap’i elle kırpmanıza gerek yoktur.
+[Paragraph::getImage](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getImage--) bireysel bir paragrafı doğrudan render eder ve bir [IImage](https://reference.aspose.com/slides/php-java/aspose.slides/iimage/) döndürür. Sonucu [IImage::save](https://reference.aspose.com/slides/php-java/aspose.slides/iimage/#save-java.lang.String-int-) ile dosyaya veya akışa kaydedebilirsiniz. İçeren şekli render etmenize ya da bitmap'i manuel olarak kırpmanıza gerek yoktur.
 
-[Paragraph::getImage](https://reference.aspose.com/slides/tr/php-java/aspose.slides/paragraph/#getImage--) paragraf ana koleksiyonda bulunamazsa, geçerli bir çizim sınırı yoksa veya çizilemezse `null` dönebilir. Kaydetmeden önce sonucu kontrol edin ve kullanımdan sonra döndürülen görüntüyü serbest bırakın.
+[Paragraph::getImage](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getImage--) paragraf ana koleksiyonunda bulunamazsa, geçerli bir render sınırı yoksa ya da render edilemezse `null` döndürebilir. Kaydetmeden önce sonucu kontrol edin ve kullanımdan sonra döndürülen görüntüyü serbest bırakın.
 
-#### **Varsayılan Ölçekte Paragraf Oluşturma**
+#### **Varsayılan Ölçekte Paragraf Renderleme**
 
-sample.pptx adlı bir sunum dosyamız olduğunu ve bir slayt içinde ilk şeklin üç paragraf içeren bir metin kutusu olduğunu varsayalım.
+sample.pptx adlı bir sunum dosyamızın bir slaytı ve ilk şeklinin üç paragraf içeren bir metin kutusu olduğunu varsayalım.
 
 ![Üç paragraf içeren metin kutusu](paragraph_to_image_input.png)
 
-Aşağıdaki PHP örneği ikinci paragrafı normal bir metin şekli içinde varsayılan ölçekte oluşturur ve PNG formatında kaydeder. `finally` bloğu görüntünün doğru şekilde serbest bırakılmasını sağlar.
+Aşağıdaki PHP örneği ikinci paragrafı normal bir metin şekli içinde varsayılan ölçekle render eder ve PNG formatında kaydeder. `finally` bloğu görüntünün doğru şekilde serbest bırakılmasını sağlar.
 
 ```php
 use aspose\slides\ImageFormat;
@@ -734,11 +734,11 @@ try {
 
 Sonuç:
 
-![Paragraf resmi](paragraph_to_image_output.png)
+![Paragraf görüntüsü](paragraph_to_image_output.png)
 
-#### **Tablo Hücresinde Ölçekli Paragraf Oluşturma**
+#### **Tablo Hücresinde Ölçekli Paragraf Renderleme**
 
-Yatay ve dikey ölçek faktörlerini ayarlamak için `$scaleX` ve `$scaleY` parametrelerini kabul eden [Paragraph::getImage](https://reference.aspose.com/slides/tr/php-java/aspose.slides/paragraph/#getImage-float-float-) aşırı yüklemesini kullanabilirsiniz. Aşağıdaki PHP örneği bir tablo oluşturur, paragrafı ilk hücresinde varsayılan genişliğinin ve yüksekliğinin iki katı kadar ölçeklendirir ve sonucu PNG görüntüsü olarak kaydeder.
+Yatay ve dikey ölçek faktörlerini ayarlamak için `$scaleX` ve `$scaleY` parametrelerini kabul eden [Paragraph::getImage](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getImage-float-float-) aşırı yüklemesini kullanın. Aşağıdaki PHP örneği bir tablo oluşturur, paragrafı ilk hücresinde varsayılan genişlik ve yüksekliğin iki katı olacak şekilde render eder ve sonucu PNG olarak kaydeder.
 
 ```php
 use aspose\slides\ImageFormat;
@@ -769,24 +769,26 @@ try {
 }
 ```
 
-`1` ölçek faktörü ekseni varsayılan piksel boyutunda tutar. Örneğin, her iki faktör için `2` değerini verirseniz, genişlik ve yükseklik yaklaşık olarak iki katına çıkar ve piksel sayısı dört katına yükselir. Daha büyük faktörler yakınlaştırma veya yüksek çözünürlüklü çıktı için metni daha net yapar, ancak hafıza tüketimini ve dosya boyutunu artırır. `1`’in altındaki faktörler daha az ayrıntılı, daha küçük görüntüler üretir. En-boy oranını korumak için faktörleri eşit tutun; farklı yatay ve dikey faktörler çıktıyı bağımsız olarak uzatır.
+`1` ölçek faktörü ekseni varsayılan piksel boyutunda tutar. Örneğin, hem yatay hem de dikeyde `2` faktör, genişliği ve yüksekliği yaklaşık iki katına çıkararak dört kat piksel üretir. Daha büyük faktörler yakınlaştırma ya da yüksek çözünürlük çıkışı için daha keskin metin sağlar, ancak bellek ve dosya boyutunu artırır. `1`in altındaki faktörler daha az detaylı, daha küçük görüntüler üretir. Paragrafın en-boy oranını korumak için eşit faktörler kullanın; farklı yatay ve dikey faktörler çıktıyı bağımsız olarak uzatır.
 
-[Shape::getImage](https://reference.aspose.com/slides/tr/php-java/aspose.slides/shape/#getImage--) ile tüm şekli oluşturmak, çıktının şeklin doldurulmasını, kenarlığını veya diğer görsel bağlamını içermesi gerektiğinde hâlâ yararlıdır. Yalnızca paragraf görüntüsü için [Paragraph::getImage](https://reference.aspose.com/slides/tr/php-java/aspose.slides/paragraph/#getImage--) kullanın.
+[Shape::getImage](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getImage--) ile tüm şekli render etmek, çıktının şeklin doldurması, kenarlığı veya diğer görsel bağlamını içermesi gerektiğinde faydalıdır. Sadece paragraf görüntüsü için [Paragraph::getImage](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getImage--) kullanın.
 
 ## **SSS**
 
-**Bir metin çerçevesindeki satır kaydırmayı tamamen devre dışı bırakabilir miyim?**
+**Bir metin çerçevesi içinde satır kaydırmayı tamamen devre dışı bırakabilir miyim?**
 
-Evet. [TextFrameFormat::setWrapText](https://reference.aspose.com/slides/tr/php-java/aspose.slides/textframeformat/#setWrapText-byte-) metodunu ayarlayarak kaydırmayı devre dışı bırakabilir ve satırların metin çerçevesinin kenarlarında kırılmasını önleyebilirsiniz.
+Evet. [TextFrameFormat::setWrapText](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setWrapText-byte-) metodunu ayarlayarak satır kaydırmayı devre dışı bırakabilir, satırların metin çerçevesinin kenarlarında kırılmasını engelleyebilirsiniz.
 
-**Belirli bir paragrafın slayt üzerindeki kesin sınırlarını nasıl alabilirim?**
+**Belirli bir paragrafın slayt üzerindeki kesin kenarlarını nasıl alabilirim?**
 
-[Paragraph::getRect](https://reference.aspose.com/slides/tr/php-java/aspose.slides/paragraph/#getRect--) metodunu kullanarak paragrafın sınırlayıcı dikdörtgenini alabilirsiniz. [Portion::getRect](https://reference.aspose.com/slides/tr/php-java/aspose.slides/portion/#getRect--) ise tek bir bölümün sınırlarını verir.
+[Paragraph::getRect](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getRect--) metodunu kullanarak paragrafın sınırlayıcı dikdörtgenini alabilirsiniz. [Portion::getRect](https://reference.aspose.com/slides/php-java/aspose.slides/portion/#getRect--) ise tek bir bölümün sınırlarını verir.
 
-**Paragraf hizalaması (sol, sağ, orta veya iki yana yaslama) nerede kontrol edilir?**
+**Paragraf hizalaması (sol, sağ, merkez veya iki yana yaslama) nerede kontrol edilir?**
 
-[ParagraphFormat::setAlignment](https://reference.aspose.com/slides/tr/php-java/aspose.slides/paragraphformat/#setAlignment-int-) bir paragraf düzeyi ayardır ve bireysel bölüm biçimlendirmesinden bağımsız olarak tüm paragrafı etkiler.
+[ParagraphFormat::setAlignment](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setAlignment-int-) bir paragraf‑seviyesi ayarıdır ve bireysel bölüm biçimlendirmesinden bağımsız olarak tüm paragrafı etkiler.
+
+Her satır içinde farklı yazı tipi boyutlarını dikey olarak hizalamak için [Align Fonts Within a Line](/slides/tr/php-java/text-formatting/#align-fonts-within-a-line) bölümüne bakın.
 
 **Paragrafın bir kısmı için denetleme dili ayarlayabilir miyim?**
 
-Evet. Bireysel bölümler için [BasePortionFormat::setLanguageId](https://reference.aspose.com/slides/tr/php-java/aspose.slides/baseportionformat/#setLanguageId-java.lang.String-) ayarlayarak bir paragrafta birden çok dilde metin bulunmasını sağlayabilirsiniz.
+Evet. [BasePortionFormat::setLanguageId](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setLanguageId-java.lang.String-) metodunu tek tek bölümler için ayarlayarak bir paragrafın içinde birden fazla dilde metin bulunmasını sağlayabilirsiniz.

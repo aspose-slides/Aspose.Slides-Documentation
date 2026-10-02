@@ -1,5 +1,5 @@
 ---
-title: مدیریت پاراگراف‌های متن پاورپوینت در پایتون از طریق جاوا
+title: مدیریت پاراگراف‌های متن PowerPoint در Python از طریق Java
 linktitle: مدیریت پاراگراف
 type: docs
 weight: 40
@@ -16,9 +16,9 @@ keywords:
 - تورفتگی پاراگراف
 - تورفتگی معلق
 - نقطه پاراگراف
-- فهرست شماره‌دار
+- فهرست عددی
 - فهرست نقطه‌ای
-- خواص پاراگراف
+- ویژگی‌های پاراگراف
 - وارد کردن HTML
 - متن به HTML
 - پاراگراف به HTML
@@ -30,36 +30,35 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "یاد بگیرید چگونه پاراگراف‌ها، بخش‌ها، نقطه‌ها، فهرست‌های شماره‌دار، تورفتگی‌ها، محتوای HTML و تصاویر پاراگراف را با Aspose.Slides برای پایتون از طریق جاوا ایجاد و قالب‌بندی کنید."
+description: "یاد بگیرید چگونه پاراگراف‌ها، بخش‌ها، نقطه‌ها، فهرست‌های عددی، تورفتگی‌ها، محتوای HTML و تصاویر پاراگراف را با Aspose.Slides برای Python از طریق Java ایجاد و قالب‌بندی کنید."
 ---
-## **بررسی کلی**
+## **نمای کلی**
 
-Aspose.Slides for Python via Java متن را به صورت سلسله‌مراتبی از فریم‌های متنی، پاراگراف‌ها و بخش‌ها نشان می‌دهد:
+Aspose.Slides برای Python از طریق Java متن را به عنوان یک سلسله مراتب از فریم‌های متنی، پاراگراف‌ها و بخش‌ها نشان می‌دهد:
 
-* [TextFrame](https://reference.aspose.com/slides/fa/python-java/aspose.slides/textframe/) یک مخزن متن در یک شکل را نشان می‌دهد و دسترسی به مجموعه پاراگراف‌های آن را فراهم می‌کند.
-* [Paragraph](https://reference.aspose.com/slides/fa/python-java/aspose.slides/paragraph/) یک پاراگراف در یک فریم متنی را نشان می‌دهد و دسترسی به بخش‌ها و قالب‌بندی سطح پاراگراف را فراهم می‌کند.
-* [Portion](https://reference.aspose.com/slides/fa/python-java/aspose.slides/portion/) یک بخش متنی درون یک پاراگراف را نشان می‌دهد. هر بخش می‌تواند متن و قالب‌بندی سطح کاراکتری خود را داشته باشد.
+* [TextFrame](https://reference.aspose.com/slides/python-java/aspose.slides/textframe/) نمایانگر مخزن متن در یک شکل است و دسترسی به مجموعه پاراگراف‌های آن را فراهم می‌کند.
+* [Paragraph](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/) نمایانگر یک پاراگراف در فریم متن است و دسترسی به بخش‌ها و قالب‌بندی سطح پاراگراف را فراهم می‌کند.
+* [Portion](https://reference.aspose.com/slides/python-java/aspose.slides/portion/) نمایانگر یک بخش متن داخل یک پاراگراف است. هر بخش می‌تواند متن و قالب‌بندی سطح کاراکتر خود را داشته باشد.
 
-در نتیجه یک پاراگراف می‌تواند متنی با فونت‌ها، رنگ‌ها، اندازه‌ها و قالب‌بندی‌های مختلف داشته باشد با استفاده از بخش‌های متعدد.
+بنابراین یک پاراگراف می‌تواند متن با قلم‌ها، رنگ‌ها، اندازه‌ها و سایر قالب‌بندی‌های مختلف را با استفاده از چندین بخش داشته باشد.
 
 ## **ایجاد و قالب‌بندی پاراگراف‌ها**
 
-### **ایجاد پاراگراف‌ها با بخش‌های متعدد**
+### **ایجاد پاراگراف‌ها با چندین بخش**
 
-مراحل زیر یک فریم متن با سه پاراگراف ایجاد می‌کند که هر کدام شامل سه بخش هستند:
+مراحل زیر یک فریم متن با سه پاراگراف ایجاد می‌کند که هر یک شامل سه بخش هستند:
 
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/python-java/aspose.slides/presentation/) ایجاد کنید.
-2. اسلاید مرتبط را با استفاده از ایندکس آن دسترسی پیدا کنید.
-3. یک [AutoShape](https://reference.aspose.com/slides/fa/python-java/aspose.slides/autoshape/) مستطیلی به اسلاید اضافه کنید.
-4. به [TextFrame](https://reference.aspose.com/slides/fa/python-java/aspose.slides/textframe/) شکل دسترسی پیدا کنید.
-5. از پاراگراف پیش‌فرض استفاده کنید و دو شیء [Paragraph](https://reference.aspose.com/slides/fa/python-java/aspose.slides/paragraph/) دیگر به فریم متن اضافه کنید.
-6. برای هر پاراگراف به اندازه کافی شیء [Portion](https://reference.aspose.com/slides/fa/python-java/aspose.slides/portion/) اضافه کنید تا شامل سه بخش شود. پاراگراف پیش‌فرض از قبل یک بخش خالی دارد.
+1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) ایجاد کنید.
+2. اسلاید مربوطه را از طریق شاخص آن دسترسی پیدا کنید.
+3. یک [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) مستطیلی به اسلاید اضافه کنید.
+4. به [TextFrame](https://reference.aspose.com/slides/python-java/aspose.slides/textframe/) شکل دسترسی پیدا کنید.
+5. از پاراگراف پیش‌فرض استفاده کنید و دو شیء دیگر [Paragraph](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/) را به فریم متن اضافه کنید.
+6. به اندازه کافی شیء [Portion](https://reference.aspose.com/slides/python-java/aspose.slides/portion/) برای هر پاراگراف اضافه کنید تا شامل سه بخش باشد. پاراگراف پیش‌فرض قبلاً یک بخش خالی دارد.
 7. متن هر بخش را تنظیم کنید.
-8. قالب‌بندی سطح کاراکتری را توسط [Portion.getPortionFormat](https://reference.aspose.com/slides/fa/python-java/aspose.slides/portion/#getPortionFormat) اعمال کنید.
-9. ارائه‌ی اصلاح‌شده را ذخیره کنید.
+8. قالب‌بندی سطح کاراکتر را از طریق [Portion.getPortionFormat](https://reference.aspose.com/slides/python-java/aspose.slides/portion/#getPortionFormat) اعمال کنید.
+9. ارائه تغییر یافته را ذخیره کنید.
 
 این مثال پایتون مراحل را پیاده‌سازی می‌کند:
-
 ```python
 import jpype
 import asposeslides
@@ -110,28 +109,26 @@ finally:
     presentation.dispose()
 ```
 
-
 ## **ایجاد فهرست‌های نقطه‌ای و عددی**
 
 ### **ایجاد فهرست نقطه‌ای یا عددی**
 
-نقطه‌ها و شماره‌گذاری موارد مرتبط را برای مرور سریع‌تر آسان می‌کنند. در Aspose.Slides تنظیمات فهرست از طریق [BulletFormat](https://reference.aspose.com/slides/fa/python-java/aspose.slides/bulletformat/) تعریف می‌شود.
+نقطه‌ها و شماره‌گذاری موارد مرتبط را برای اسکن آسان‌تر می‌کنند. در Aspose.Slides، تنظیمات فهرست از طریق [BulletFormat](https://reference.aspose.com/slides/python-java/aspose.slides/bulletformat/) تعریف می‌شوند.
 
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/python-java/aspose.slides/presentation/) ایجاد کنید.
-2. اسلاید مرتبط را با استفاده از ایندکس آن دسترسی پیدا کنید.
-3. یک [AutoShape](https://reference.aspose.com/slides/fa/python-java/aspose.slides/autoshape/) به اسلاید انتخاب‌شده اضافه کنید.
-4. به [TextFrame](https://reference.aspose.com/slides/fa/python-java/aspose.slides/textframe/) شکل دسترسی پیدا کنید.
+1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) ایجاد کنید.
+2. اسلاید مربوطه را از طریق شاخص آن دسترسی پیدا کنید.
+3. یک [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) به اسلاید انتخاب‌شده اضافه کنید.
+4. به [TextFrame](https://reference.aspose.com/slides/python-java/aspose.slides/textframe/) شکل دسترسی پیدا کنید.
 5. پاراگراف پیش‌فرض را از فریم متن حذف کنید.
-6. یک [Paragraph](https://reference.aspose.com/slides/fa/python-java/aspose.slides/paragraph/) برای یک نقطه نمادین ایجاد کنید.
-7. [BulletFormat.setType](https://reference.aspose.com/slides/fa/python-java/aspose.slides/bulletformat/#setType) را روی [BulletType.Symbol](https://reference.aspose.com/slides/fa/python-java/aspose.slides/bullettype/#Symbol) تنظیم کنید و کاراکتر نقطه را مشخص کنید.
+6. یک [Paragraph](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/) برای یک نقطه نماد ایجاد کنید.
+7. متد [BulletFormat.setType](https://reference.aspose.com/slides/python-java/aspose.slides/bulletformat/#setType) را به [BulletType.Symbol](https://reference.aspose.com/slides/python-java/aspose.slides/bullettype/#Symbol) تنظیم کنید و کاراکتر نماد نقطه را مشخص کنید.
 8. متن پاراگراف، تورفتگی، رنگ نقطه و ارتفاع نقطه را تنظیم کنید.
 9. پاراگراف را به فریم متن اضافه کنید.
-10. یک پاراگراف دوم ایجاد کنید و [BulletFormat.setType](https://reference.aspose.com/slides/fa/python-java/aspose.slides/bulletformat/#setType) را روی [BulletType.Numbered](https://reference.aspose.com/slides/fa/python-java/aspose.slides/bullettype/#Numbered) تنظیم کنید.
+10. پاراگراف دوم را ایجاد کنید و متد [BulletFormat.setType](https://reference.aspose.com/slides/python-java/aspose.slides/bulletformat/#setType) را به [BulletType.Numbered](https://reference.aspose.com/slides/python-java/aspose.slides/bullettype/#Numbered) تنظیم کنید.
 11. سبک نقطه عددی را پیکربندی کنید و پاراگراف را به فریم متن اضافه کنید.
 12. ارائه را ذخیره کنید.
 
-این مثال پایتون یک نقطه نمادین و یک نقطه عددی ایجاد می‌کند:
-
+این مثال پایتون یک نقطه نماد و یک نقطه عددی ایجاد می‌کند:
 ```python
 import jpype
 import asposeslides
@@ -173,26 +170,24 @@ finally:
     presentation.dispose()
 ```
 
+### **استفاده از نقطه‌های تصویری**
 
-### **استفاده از بولت‌های تصویر**
+نقطه‌های تصویری به شما امکان می‌دهند به جای نماد یا عدد از یک تصویر دلخواه استفاده کنید.
 
-بولت‌های تصویر به شما اجازه می‌دهند به جای نماد یا عدد، از یک تصویر سفارشی استفاده کنید.
-
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/python-java/aspose.slides/presentation/) ایجاد کنید.
-2. اسلاید مرتبط را با استفاده از ایندکس آن دسترسی پیدا کنید.
-3. یک [AutoShape](https://reference.aspose.com/slides/fa/python-java/aspose.slides/autoshape/) اضافه کنید و به [TextFrame](https://reference.aspose.com/slides/fa/python-java/aspose.slides/textframe/) آن دسترسی پیدا کنید.
+1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) ایجاد کنید.
+2. اسلاید مربوطه را از طریق شاخص آن دسترسی پیدا کنید.
+3. یک [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) اضافه کنید و به [TextFrame](https://reference.aspose.com/slides/python-java/aspose.slides/textframe/) آن دسترسی پیدا کنید.
 4. پاراگراف پیش‌فرض را از فریم متن حذف کنید.
-5. تصویر بولت را بارگذاری کنید و به‌عنوان یک [PPImage](https://reference.aspose.com/slides/fa/python-java/aspose.slides/ppimage/) به مجموعه تصاویر ارائه اضافه کنید.
-6. یک [Paragraph](https://reference.aspose.com/slides/fa/python-java/aspose.slides/paragraph/) ایجاد کنید و متن آن را تنظیم کنید.
-7. [BulletFormat.setType](https://reference.aspose.com/slides/fa/python-java/aspose.slides/bulletformat/#setType) را روی [BulletType.Picture](https://reference.aspose.com/slides/fa/python-java/aspose.slides/bullettype/#Picture) تنظیم کنید.
-8. تصویر را از طریق [BulletFormat.getPicture](https://reference.aspose.com/slides/fa/python-java/aspose.slides/bulletformat/#getPicture) اختصاص دهید و ارتفاع نقطه را تنظیم کنید.
+5. تصویر نقطه را بارگذاری کنید و به مجموعه تصاویر ارائه به عنوان یک [PPImage](https://reference.aspose.com/slides/python-java/aspose.slides/ppimage/) اضافه کنید.
+6. یک [Paragraph](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/) ایجاد کنید و متن آن را تنظیم کنید.
+7. متد [BulletFormat.setType](https://reference.aspose.com/slides/python-java/aspose.slides/bulletformat/#setType) را به [BulletType.Picture](https://reference.aspose.com/slides/python-java/aspose.slides/bullettype/#Picture) تنظیم کنید.
+8. تصویر را از طریق [BulletFormat.getPicture](https://reference.aspose.com/slides/python-java/aspose.slides/bulletformat/#getPicture) اختصاص دهید و ارتفاع نقطه را تنظیم کنید.
 9. پاراگراف را به فریم متن اضافه کنید.
-10. ارائه‌ی اصلاح‌شده را ذخیره کنید.
+10. ارائه تغییر یافته را ذخیره کنید.
 
-این مثال پایتون یک بولت تصویر ایجاد می‌کند:
-
+این مثال پایتون یک نقطه تصویری ایجاد می‌کند:
 ```python
-import jpime
+import jpype
 import asposeslides
 
 if not jpype.isJVMStarted():
@@ -223,19 +218,17 @@ finally:
     presentation.dispose()
 ```
 
-
 ### **ایجاد فهرست چندسطحی**
 
-با تنظیم [ParagraphFormat.setDepth] می‌توانید پاراگراف‌ها را در سطوح مختلف یک فهرست قرار دهید. سطح بالایی دارای عمق `0` است.
+متد [ParagraphFormat.setDepth](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setDepth) را تنظیم کنید تا پاراگراف‌ها در سطوح مختلف یک فهرست قرار گیرند. سطح بالایی عمق `0` دارد.
 
-1. یک [Presentation] ایجاد کنید و به یک اسلاید دسترسی پیدا کنید.
-2. یک [AutoShape] اضافه کنید و پاراگراف پیش‌فرض را از فریم متن آن پاک کنید.
-3. چهار پاراگراف ایجاد کنید و نمادهای نقطه آن‌ها را پیکربندی کنید.
-4. مقدارهای [ParagraphFormat.setDepth] آن‌ها را به `0`، `1`، `2` و `3` تنظیم کنید.
+1. یک [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) ایجاد کنید و به یک اسلاید دسترسی پیدا کنید.
+2. یک [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) اضافه کنید و پاراگراف پیش‌فرض را از فریم متن آن پاک کنید.
+3. چهار پاراگراف ایجاد کنید و نمادهای نقطه آنها را پیکربندی کنید.
+4. مقدارهای [ParagraphFormat.setDepth](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setDepth) آنها را به `0`، `1`، `2` و `3` تنظیم کنید.
 5. پاراگراف‌ها را به فریم متن اضافه کنید و ارائه را ذخیره کنید.
 
-این مثال پایتون یک فهرست نقطه‌ای چهار سطحی ایجاد می‌کند:
-
+این مثال پایتون یک فهرست نقطه‌ای چهارسطحی ایجاد می‌کند:
 ```python
 import jpype
 import asposeslides
@@ -289,19 +282,17 @@ finally:
     presentation.dispose()
 ```
 
+### **شروع موارد فهرست عددی با مقادیر سفارشی**
 
-### **شروع آیتم‌های فهرست عددی با مقادیر دلخواه**
+از [BulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/python-java/aspose.slides/bulletformat/#setNumberedBulletStartWith) برای تنظیم عدد اولیه نمایش داده شده برای یک پاراگراف عددی استفاده کنید.
 
-از [BulletFormat.setNumberedBulletStartWith] برای تنظیم عدد اولیه نمایش‌داده‌شده برای یک پاراگراف عددی استفاده کنید.
-
-1. یک [Presentation] ایجاد کنید و یک [AutoShape] به اسلاید اضافه کنید.
+1. یک [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) ایجاد کنید و یک [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) به اسلاید اضافه کنید.
 2. پاراگراف پیش‌فرض را از فریم متن شکل پاک کنید.
 3. سه پاراگراف عددی ایجاد کنید.
-4. برای پاراگراف‌های مربوطه، [BulletFormat.setNumberedBulletStartWith] را به ترتیب به `2`، `3` و `7` تنظیم کنید.
+4. برای پاراگراف‌های مربوطه، [BulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/python-java/aspose.slides/bulletformat/#setNumberedBulletStartWith) را به `2`، `3` و `7` تنظیم کنید.
 5. پاراگراف‌ها را به فریم متن اضافه کنید و ارائه را ذخیره کنید.
 
 این مثال پایتون عدد شروع سفارشی را به هر پاراگراف اختصاص می‌دهد:
-
 ```python
 import jpype
 import asposeslides
@@ -337,26 +328,25 @@ finally:
     presentation.dispose()
 ```
 
-## **کنترل چیدمان پاراگراف و ویژگی‌های انتهایی**
+## **کنترل قالب‌بندی پاراگراف و ویژگی‌های انتهایی**
 
 ### **تنظیم تورفتگی خط اول**
 
-از [ParagraphFormat.setIndent] برای کنترل تورفتگی خط اول یک پاراگراف استفاده کنید. این روش فقط خط اول را نسبت به حاشیه چپ پاراگراف جابه‌جا می‌کند. مقدار مثبت خط اول را به راست می‌برد، در حالی که خطوط باقی‌مانده به بدن پاراگراف هم‌راستا می‌مانند.
+از [ParagraphFormat.setIndent](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setIndent) برای کنترل تورفتگی خط اول یک پاراگراف استفاده کنید. این متد فقط خط اول را نسبت به حاشیه چپ پاراگراف جابجا می‌کند. مقدار مثبت خط اول را به سمت راست می‌برد، در حالی که خطوط باقی‌مانده به بدنه پاراگراف تراز می‌مانند.
 
-زمانی که نیاز به جابه‌جایی تمام پاراگراف دارید از [ParagraphFormat.setMarginLeft] استفاده کنید. زمانی که فقط خط اول را می‌خواهید جابه‌جا کنید از [ParagraphFormat.setIndent] استفاده کنید.
+هنگامی که نیاز به جابجایی کل پاراگراف دارید از [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setMarginLeft) استفاده کنید. وقتی فقط خط اول را می‌خواهید جابجا کنید از [ParagraphFormat.setIndent](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setIndent) استفاده نمایید.
 
-مثال زیر چند پاراگراف ایجاد می‌کند و مقادیر متفاوتی از [ParagraphFormat.setIndent] را برای نشان دادن تأثیر تورفتگی خط اول بر چیدمان پاراگراف اعمال می‌کند.
+مثال زیر چندین پاراگراف ایجاد می‌کند و مقادیر مختلف [ParagraphFormat.setIndent](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setIndent) را اعمال می‌کند تا نشان دهد تورفتگی خط اول چطور بر چیدمان پاراگراف‌ها تأثیر می‌گذارد.
 
-1. یک نمونه از کلاس [Presentation] ایجاد کنید.
-2. به اسلاید هدف دسترسی پیدا کنید.
-3. یک [AutoShape] مستطیلی به اسلاید اضافه کنید.
-4. به [TextFrame] شکل دسترسی پیدا کنید و پاراگراف پیش‌فرض را حذف کنید.
-5. چند پاراگراف ایجاد کنید و مقادیر متفاوتی از [ParagraphFormat.setIndent] برای آن‌ها تنظیم کنید.
+1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) ایجاد کنید.
+2. اسلاید هدف را دسترسی پیدا کنید.
+3. یک [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) مستطیلی به اسلاید اضافه کنید.
+4. به [TextFrame](https://reference.aspose.com/slides/python-java/aspose.slides/textframe/) شکل دسترسی پیدا کنید و پاراگراف پیش‌فرض را حذف کنید.
+5. چندین پاراگراف ایجاد کنید و مقادیر مختلف [ParagraphFormat.setIndent](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setIndent) را برای آنها تنظیم کنید.
 6. پاراگراف‌ها را به فریم متن اضافه کنید.
-7. ارائه‌ی اصلاح‌شده را ذخیره کنید.
+7. ارائه تغییر یافته را ذخیره کنید.
 
-این کد نشان می‌دهد چگونه تورفتگی پاراگراف تنظیم می‌شود:
-
+این کد نشان می‌دهد چگونه تورفتگی یک پاراگراف را تنظیم کنید:
 ```python
 import jpype
 import asposeslides
@@ -385,13 +375,13 @@ try:
     first_paragraph.getParagraphFormat().setIndent(0.0)
     second_paragraph = Paragraph()
     second_paragraph.setText("First-line indent of 20 points. The first line moves to the right, while wrapped lines remain aligned to the paragraph body.")
-    second_paragraph.getParagraphFormat().getDefaultPortionFormat().setFillType(FillType.Solid)
+    second_paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid)
     second_paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK)
     second_paragraph.getParagraphFormat().setMarginLeft(20.0)
     second_paragraph.getParagraphFormat().setIndent(20.0)
     third_paragraph = Paragraph()
     third_paragraph.setText("First-line indent of 40 points. This paragraph shows a larger first-line offset to make the effect easier to see.")
-    third_paragraph.getParagraphFormat().getDefaultPortionFormat().setFillType(FillType.Solid)
+    third_paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid)
     third_paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK)
     third_paragraph.getParagraphFormat().setMarginLeft(20.0)
     third_paragraph.getParagraphFormat().setIndent(40.0)
@@ -404,28 +394,26 @@ finally:
 ```
 
 نتیجه:
-
 ![تورفتگی خط اول پاراگراف‌ها](first_line_indent.png)
 
 ### **تنظیم تورفتگی معلق**
 
-تورفتگی معلق یک چیدمان پاراگراف است که در آن خط اول به سمت چپ خطوط باقی‌مانده شروع می‌شود. در Aspose.Slides این اثر را با [ParagraphFormat.setIndent] ایجاد می‌کنید. مقدار منفی به خط اول جابه‌جایی به سمت چپ نسبت به بدن پاراگراف می‌دهد.
+تورفتگی معلق یک قالب‌بندی پاراگراف است که در آن خط اول نسبت به خطوط باقی‌مانده به سمت چپ شروع می‌شود. در Aspose.Slides، این اثر را با [ParagraphFormat.setIndent](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setIndent) ایجاد می‌کنید. برای جابجایی خط اول به سمت چپ نسبت به بدنه پاراگراف، مقدار منفی وارد کنید.
 
-در عمل، [ParagraphFormat.setMarginLeft] موقعیت چپ بدن پاراگراف را تعیین می‌کند و [ParagraphFormat.setIndent] موقعیت خط اول نسبت به آن حاشیه را تعریف می‌کند. برای ایجاد تورفتگی معلق مقدار مثبت به [ParagraphFormat.setMarginLeft] و مقدار منفی به [ParagraphFormat.setIndent] پاس می‌دهید.
+در عمل، [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setMarginLeft) موقعیت چپ بدنه پاراگراف را تعریف می‌کند و [ParagraphFormat.setIndent](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setIndent) موقعیت خط اول را نسبت به آن حاشیه تعریف می‌کند. برای ایجاد تورفتگی معلق، مقدار مثبت به [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setMarginLeft) و مقدار منفی به [ParagraphFormat.setIndent](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setIndent) بدهید.
 
-این قالب‌بندی برای کتابشناسی‌ها، مراجع، واژه‌نامه‌ها و سایر پاراگراف‌هایی که خطوط پیچیده باید زیر بدنه پاراگراف هم‌راستا شوند مفید است.
+این قالب‌بندی برای کتابشناسی‌ها، مراجع، ورودی‌های واژه‌نامه و سایر پاراگراف‌ها مفید است که خطوط بسته‌بندی شده باید زیر بدنه پاراگراف تراز شوند نه زیر اولین کاراکتر خط اول.
 
-1. یک نمونه از کلاس [Presentation] ایجاد کنید.
-2. به اسلاید هدف دسترسی پیدا کنید.
-3. یک [AutoShape] مستطیلی به اسلاید اضافه کنید.
-4. به [TextFrame] شکل دسترسی پیدا کنید و پاراگراف پیش‌فرض را حذف کنید.
-5. برای هر پاراگراف مقدار مثبت به [ParagraphFormat.setMarginLeft] بدهید.
-6. مقدار منفی به [ParagraphFormat.setIndent] بدهید تا اثر تورفتگی معلق ایجاد شود.
+1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) ایجاد کنید.
+2. اسلاید هدف را دسترسی پیدا کنید.
+3. یک [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) مستطیلی به اسلاید اضافه کنید.
+4. به [TextFrame](https://reference.aspose.com/slides/python-java/aspose.slides/textframe/) شکل دسترسی پیدا کنید و پاراگراف پیش‌فرض را حذف کنید.
+5. پاراگراف‌ها را ایجاد کنید و مقدار مثبت به [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setMarginLeft) برای هر پاراگراف بدهید.
+6. مقدار منفی به [ParagraphFormat.setIndent](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setIndent) بدهید تا اثر تورفتگی معلق ایجاد شود.
 7. پاراگراف‌ها را به فریم متن اضافه کنید.
-8. ارائه‌ی اصلاح‌شده را ذخیره کنید.
+8. ارائه تغییر یافته را ذخیره کنید.
 
-این کد نشان می‌دهد چگونه تورفتگی معلق برای یک پاراگراف تنظیم می‌شود:
-
+این کد نشان می‌دهد چگونه تورفتگی معلق یک پاراگراف را تنظیم کنید:
 ```python
 import jpype
 import asposeslides
@@ -466,19 +454,18 @@ finally:
 ```
 
 نتیجه:
-
 ![تورفتگی معلق پاراگراف‌ها](hanging_indent.png)
 
 ### **تنظیم ویژگی‌های انتهای پاراگراف**
 
-[Paragraph.setEndParagraphPortionFormat] قالب‌بندی علامت انتهای پاراگراف را کنترل می‌کند. مثال زیر اندازه فونت و فونت لاتین را برای علامت انتهای پاراگراف دوم تنظیم می‌کند:
+[Paragraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/#setEndParagraphPortionFormat) قالب‌بندی علامت انتهای پاراگراف را کنترل می‌کند. مثال زیر اندازه قلم و قلم لاتین را به علامت انتهای پاراگراف دوم اختصاص می‌دهد:
 
-1. یک [Presentation] بارگذاری کنید و به یک اسلاید دسترسی پیدا کنید.
-2. یک [AutoShape] اضافه کنید و پاراگراف پیش‌فرض آن را پاک کنید.
-3. دو پاراگراف ایجاد کنید و به آن‌ها بخش‌های متنی اضافه کنید.
-4. یک [PortionFormat] برای علامت انتهای پاراگراف دوم ایجاد کنید.
-5. [BasePortionFormat.setFontHeight] و [BasePortionFormat.setLatinFont] را تنظیم کنید.
-6. قالب را با [Paragraph.setEndParagraphPortionFormat] اختصاص دهید و ارائه را ذخیره کنید.
+1. یک [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) بارگذاری کنید و به اسلایدی دسترسی پیدا کنید.
+2. یک [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) اضافه کنید و پاراگراف پیش‌فرض آن را پاک کنید.
+3. دو پاراگراف ایجاد کنید و به آنها بخش‌های متنی اضافه کنید.
+4. یک [PortionFormat](https://reference.aspose.com/slides/python-java/aspose.slides/portionformat/) برای علامت انتهای پاراگراف دوم ایجاد کنید.
+5. [BasePortionFormat.setFontHeight](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#setFontHeight) و [BasePortionFormat.setLatinFont](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#setLatinFont) را تنظیم کنید.
+6. قالب را با [Paragraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/#setEndParagraphPortionFormat) اختصاص داده و ارائه را ذخیره کنید.
 
 ```python
 import jpype
@@ -513,16 +500,15 @@ finally:
     presentation.dispose()
 ```
 
+## **شمارش خطوط رندر شده**
 
-## **شماردن خطوط رندر شده**
+برای قوانین پاراگراف که بر بسته‌بندی خودکار و نقطه‌گذاری در انتهای خطوط تأثیر می‌گذارد، به [Control Line Breaking](/slides/fa/python-java/text-formatting/#control-line-breaking) و [Control Hanging Punctuation](/slides/fa/python-java/text-formatting/#control-hanging-punctuation) مراجعه کنید.
 
-برای قوانین پاراگراف که بر بسته‌بندی خودکار و نقطه‌گذاری در انتهای خطوط تأثیر می‌گذارند، به [Control Line Breaking](/slides/fa/python-java/text-formatting/#control-line-breaking) و [Control Hanging Punctuation](/slides/fa/python-java/text-formatting/#control-hanging-punctuation) مراجعه کنید.
+از [Paragraph.getLinesCount](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/#getLinesCount) برای شمارش خطوطی که یک پاراگراف پس از چینش متن اشغال می‌کند، شامل بسته‌بندی خودکار، استفاده کنید. این برای بررسی طول متن و چینش در قالب‌های ارائه مفید است.
 
-از [Paragraph.getLinesCount] برای شمارش خطوط اشغال‌شده توسط یک پاراگراف پس از چیدمان متن استفاده کنید، از جمله بسته‌بندی خودکار. این برای بررسی طول متن و چیدمان در قالب‌های ارائه مفید است.
+یک پاراگراف یک مورد در [TextFrame.getParagraphs](https://reference.aspose.com/slides/python-java/aspose.slides/textframe/#getParagraphs) است و می‌تواند چندین خط رندر شده را اشغال کند. یک شکست خط صریح درون پاراگراف یک خط جدید ایجاد می‌کند بدون اینکه پاراگراف دیگری ساخته شود. بسته‌بندی خودکار خطوط را بر اساس عرض موجود ایجاد می‌کند بدون درج شکست‌های خط صریح در متن. بنابراین شمارش پاراگراف‌ها یا کاراکترهای شکست خط، تعداد خطوط رندر شده را نمی‌دهد.
 
-یک پاراگراف یک مورد در [TextFrame.getParagraphs] است و می‌تواند چندین خط رندر شده اشغال کند. شکست خط صریح داخل پاراگراف یک خط جدید ایجاد می‌کند بدون اینکه پاراگراف دیگری ساخته شود. بسته‌بندی خودکار خطوط را بر اساس عرض موجود ایجاد می‌کند بدون آن‌که شکست‌های صریح به متن اضافه شود. بنابراین شمارش پاراگراف‌ها یا کاراکترهای شکست خط، شمارش خطوط رندر شده را نمی‌دهد.
-
-مثال زیر یک شکل متنی ایجاد می‌کند، خطوط آن را می‌شمارد، شکل را باریک می‌کند و سپس متن را با رشته‌ای کوتاه‌تر جایگزین می‌کند. بسته‌بندی فعال است و AutoFit غیرفعال شده تا عرض شکل بسته‌بندی را کنترل کند بدون اینکه متن به‌صورت خودکار کوچک یا شکل تغییر اندازه دهد. ابعاد شکل بر حسب پوینت است. در نهایت مثال یک پاراگراف دیگر اضافه می‌کند و مجموع شمارش خطوط را در فریم متن جمع می‌کند.
+مثال زیر یک شکل متن ایجاد می‌کند، خطوط آن را می‌شمارد، شکل را باریک می‌کند و سپس متن را با رشته‌ای کوتاه‌تر جایگزین می‌نماید. بسته‌بندی فعال و خودسازگاری غیرفعال است تا عرض شکل بسته‌بندی را کنترل کند بدون اینکه به‌صورت خودکار متن یا اندازه شکل تغییر کند. ابعاد شکل به نقطه است. در نهایت، مثال یک پاراگراف دیگر اضافه می‌کند و تعداد خطوط را در فریم متن جمع می‌زند.
 
 ```python
 import jpype
@@ -566,25 +552,24 @@ finally:
     presentation.dispose()
 ```
 
-با این متن و این ابعاد، باریک کردن شکل تعداد خطوط را افزایش می‌دهد، در حالی که جایگزینی متن با رشته کوتاه‌تر آن را کاهش می‌دهد. شمارش دقیق می‌تواند با در دسترس بودن فونت و جایگزینی، اندازهٔ فونت، حاشیه‌ها، تورفتگی، بسته‌بندی و تنظیمات AutoFit متفاوت باشد. هنگام بررسی یک قالب، از فونت‌ها و تنظیمات چیدمان مورد نظر برای محیط هدف استفاده کنید.
+با این متن و این ابعاد، باریک کردن شکل تعداد خطوط را افزایش می‌دهد، در حالی که جایگزینی متن با رشته کوتاه تعداد را کاهش می‌دهد. شمارش دقیق می‌تواند بسته به در دسترس بودن و جایگزینی قلم‌ها، اندازه قلم، حاشیه‌ها، تورفتگی، بسته‌بندی و تنظیمات خودسازگاری متفاوت باشد. هنگام بررسی یک قالب، از قلم‌ها و تنظیمات چیدمانی که برای محیط هدف در نظر گرفته شده‌اند، استفاده کنید.
 
-تنها شمارش خطوط تعیین‌کنندهٔ سرریز شدن متن از مخزن نیست. ارتفاع موجود، ارتفاع خطوط، فاصله‌های پاراگراف و خط، و رفتار AutoFit نیز مهم‌اند؛ حتی یک خط واحد می‌تواند عرض موجود را هنگام غیرفعال بودن بسته‌بندی تجاوز کند.
+تعداد خطوط به تنهایی تعیین نمی‌کند که آیا متن از محفظه‌اش بیش از حد حد می‌رود یا نه. ارتفاع موجود، ارتفاع خطوط، فاصله‌بندی پاراگراف و خطوط، و رفتار خودسازگاری نیز مهم هستند؛ حتی یک خط واحد می‌تواند عرض موجود را در صورت غیرفعال بودن بسته‌بندی تجاوز کند.
 
 ## **واردات و صادرات محتوای پاراگراف**
 
 ### **وارد کردن متن HTML به پاراگراف‌ها**
 
-از [ParagraphCollection.addFromHtml] برای تبدیل نشانه‌گذاری HTML به پاراگراف‌ها و بخش‌ها در یک فریم متنی استفاده کنید.
+از [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphcollection/#addFromHtml) برای تبدیل نشانه‌گذاری HTML به پاراگراف‌ها و بخش‌ها در یک فریم متن استفاده کنید.
 
-1. یک نمونه از کلاس [Presentation] ایجاد کنید.
-2. به یک اسلاید دسترسی پیدا کنید و یک [AutoShape] اضافه کنید.
-3. به [TextFrame] شکل دسترسی پیدا کنید و پاراگراف پیش‌فرض را پاک کنید.
+1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) ایجاد کنید.
+2. به یک اسلاید دسترسی پیدا کنید و یک [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) اضافه کنید.
+3. به [TextFrame](https://reference.aspose.com/slides/python-java/aspose.slides/textframe/) شکل دسترسی پیدا کنید و پاراگراف پیش‌فرض را پاک کنید.
 4. فایل HTML منبع را بخوانید.
-5. رشته HTML را به [ParagraphCollection.addFromHtml] پاس دهید.
-6. ارائه‌ی اصلاح‌شده را ذخیره کنید.
+5. رشته HTML را به [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphcollection/#addFromHtml) بدهید.
+6. ارائه تغییر یافته را ذخیره کنید.
 
-این مثال پایتون HTML را به یک فریم متنی وارد می‌کند:
-
+این مثال پایتون HTML را به یک فریم متن وارد می‌کند:
 ```python
 import jpype
 import asposeslides
@@ -613,19 +598,17 @@ finally:
     presentation.dispose()
 ```
 
-
 ### **صادرات متن پاراگراف به HTML**
 
-از [ParagraphCollection.exportToHtml] برای صادرات یک بازهٔ انتخابی از پاراگراف‌ها به صورت HTML استفاده کنید.
+از [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphcollection/#exportToHtml) برای صادرات یک بازه انتخابی از پاراگراف‌ها به شکل HTML استفاده کنید.
 
-1. یک نمونه از کلاس [Presentation] ایجاد کنید و ارائهٔ مورد نظر را بارگذاری کنید.
-2. به اسلاید دسترسی پیدا کنید و [AutoShape]ی حاوی متن را پیدا کنید.
-3. به [TextFrame] شکل دسترسی پیدا کنید.
-4. [ParagraphCollection.exportToHtml] را با اندیس پاراگراف شروع و تعداد پاراگراف‌های مورد نظر برای صادرات فراخوانی کنید.
-5. رشته HTML برگردانده‌شده را در فایلی بنویسید.
+1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) ایجاد کنید و ارائه موردنظر را بارگذاری کنید.
+2. به اسلاید دسترسی پیدا کنید و [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) حاوی متن را پیدا کنید.
+3. به [TextFrame](https://reference.aspose.com/slides/python-java/aspose.slides/textframe/) شکل دسترسی پیدا کنید.
+4. متد [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphcollection/#exportToHtml) را با ایندکس پاراگراف شروع و تعداد پاراگراف‌های موردنظر فراخوانی کنید.
+5. رشته HTML بازگشتی را در فایلی بنویسید.
 
 این مثال پایتون تمام پاراگراف‌ها را از اولین شکل متنی صادر می‌کند:
-
 ```python
 import jpype
 import asposeslides
@@ -657,19 +640,19 @@ finally:
     presentation.dispose()
 ```
 
-### **رندر یک پاراگراف به عنوان تصویر**
+### **رندر کردن پاراگراف به عنوان تصویر**
 
-[Paragraph.getImage] یک پاراگراف منفرد را مستقیماً رندر می‌کند و یک شیء تصویر برمی‌گرداند. نتیجه را با متد `save` در یک فایل یا جریان ذخیره کنید. نیازی به رندر کل شکل یا برش دستی بیت‌مپ نیست.
+[Paragraph.getImage](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/) یک پاراگراف جداگانه را مستقیماً رندر می‌کند و یک شیء تصویر باز می‌گرداند. نتیجه را با متد `save` آن در یک فایل یا جریان ذخیره کنید. نیازی به رندر کردن شکل حاوی یا بریدن دستی بیت‌مپ نیست.
 
-[Paragraph.getImage] می‌تواند `None` برگرداند اگر پاراگراف در مجموعه والد خود یافت نشود، مرزهای رندر معتبری نداشته باشد یا رندر نشود. پیش از ذخیره‌کردن نتیجه را بررسی کنید و پس از استفاده تصویر برگردانده‌شده را آزاد کنید.
+[Paragraph.getImage](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/) می‌تواند `None` برگرداند اگر پاراگراف در مجموعه والد یافت نشود، حدهای رندر معتبری نداشته باشد یا قابل رندر نباشد. قبل از ذخیره‌سازی نتیجه را بررسی کنید و پس از استفاده تصویر بازگشتی را آزاد کنید.
 
-#### **رندر پاراگراف با مقیاس پیش‌فرض**
+#### **رندر کردن پاراگراف در مقیاس پیش‌فرض**
 
-فرض کنید فایلی به نام sample.pptx داریم که یک اسلاید دارد و اولین شکل آن یک جعبه متنی حاوی سه پاراگراف است.
+فرض کنیم فایلی به نام sample.pptx داریم که یک اسلاید دارد و اولین شکل آن یک جعبه متن شامل سه پاراگراف است.
 
 ![جعبه متن با سه پاراگراف](paragraph_to_image_input.png)
 
-مثال زیر پاراگراف دوم را در یک شکل متنی معمولی با مقیاس پیش‌فرض رندر می‌کند و تصویر برگردانده‌شده را در فرمت PNG ذخیره می‌کند. بلوک `finally` اطمینان می‌دهد که تصویر به‌درستی آزاد شود.
+مثال زیر پاراگراف دوم را در یک شکل متنی معمولی در مقیاس پیش‌فرض رندر می‌کند و تصویر بازگشتی را در قالب PNG ذخیره می‌نماید. بلوک `finally` تضمین می‌کند که تصویر به‌درستی آزاد شود.
 
 ```python
 import jpype
@@ -705,12 +688,11 @@ finally:
 ```
 
 نتیجه:
-
 ![تصویر پاراگراف](paragraph_to_image_output.png)
 
-#### **رندر پاراگراف در سلول جدول با مقیاس‌بندی**
+#### **رندر کردن پاراگراف در یک سلول جدول با مقیاس‌بندی**
 
-از overload [Paragraph.getImage] که پارامترهای `scale_x` و `scale_y` را می‌پذیرد برای تنظیم عوامل مقیاس افقی و عمودی استفاده کنید. مثال زیر یک جدول ایجاد می‌کند، پاراگراف را در اولین سلول آن با دو برابر عرض و ارتفاع پیش‌فرض رندر می‌کند و نتیجه را به‌عنوان تصویر PNG ذخیره می‌کند.
+از overload [Paragraph.getImage](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/) که پارامترهای `scale_x` و `scale_y` را می‌پذیرد برای تنظیم عوامل مقیاس افقی و عمودی استفاده کنید. مثال زیر یک جدول ایجاد می‌کند، پاراگراف را در اولین سلول آن با دو برابر عرض و ارتفاع پیش‌فرض رندر می‌کند و نتیجه را به صورت تصویر PNG ذخیره می‌کند.
 
 ```python
 import jpype
@@ -741,24 +723,26 @@ finally:
     presentation.dispose()
 ```
 
-عامل مقیاس `1` آن محور را در اندازه پیش‌فرض پیکسل نگه می‌دارد. برای مثال، `2` برای هر دو عامل تصویری با عرض و ارتفاع تقریباً دو برابر اندازه پیش‌فرض تولید می‌کند که چهار برابر پیکسل بیشتری دارد. عوامل بزرگ‌تر معمولاً متن واضح‌تری برای بزرگ‌نمایی یا خروجی با وضوح بالا تولید می‌کنند، اما حافظه و حجم فایل را نیز افزایش می‌دهند. عوامل زیر `1` تصاویر کوچکتر با جزئیات کمتر تولید می‌کنند. برای حفظ نسبت تصویر پاراگراف از عوامل برابر استفاده کنید؛ عوامل افقی و عمودی متفاوت خروجی را به‌صورت مستقلی کشیده می‌کنند.
+یک عامل مقیاس `1` آن محور را در اندازه پیش‌فرض پیکسل حفظ می‌کند. برای مثال، `2` برای هر دو عامل تصویری تولید می‌کند که عرض و ارتفاع آن تقریباً دو برابر ابعاد پیش‌فرض است و به‌همین دلیل چهار برابر پیکسل دارد. عوامل بزرگتر معمولاً متن واضح‌تری برای بزرگ‌نمایی یا خروجی با وضوح بالا تولید می‌کنند، اما همچنین مصرف حافظه و حجم فایل را افزایش می‌دهند. عوامل زیر `1` تصاویر کوچکتری با جزئیات کمتر ایجاد می‌کنند. برای حفظ نسبت تصویر پاراگراف از عوامل مساوی استفاده کنید؛ عوامل افقی و عمودی متفاوت خروجی را به‌صورت مستقل کش می‌دهند.
 
-رندر کل شکل با [Shape.getImage] زمانی مفید است که خروجی نیاز به شامل پر، حاشیه یا زمینهٔ بصری شکل داشته باشد. برای تصویر فقط پاراگراف، از [Paragraph.getImage] استفاده کنید.
+رندر کردن یک شکل کامل با [Shape.getImage](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getImage) مفید است وقتی خروجی باید شامل پر، حاشیه یا سایر زمینه‌های بصری شکل باشد. برای یک تصویر فقط پاراگراف، از [Paragraph.getImage](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/) استفاده کنید.
 
-## **سؤالات متداول**
+## **سوالات متداول**
 
-**آیا می‌توانم به‌طور کامل پیچش خطوط درون یک فریم متنی را غیرفعال کنم؟**
+**آیا می‌توانم بسته‌بندی خطوط را داخل یک فریم متن به‌طور کامل غیرفعال کنم؟**
 
-بله. [TextFrameFormat.setWrapText] را تنظیم کنید تا بسته‌بندی غیرفعال شود و خطوط در لبه‌های فریم متنی شکست نخورد.
+بله. با تنظیم [TextFrameFormat.setWrapText](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#setWrapText) بسته‌بندی را غیرفعال کنید تا خطوط در لبه‌های فریم متن شکسته نشوند.
 
-**چگونه می‌توانم مرزهای دقیق یک پاراگراف خاص روی اسلاید را بدست آورم؟**
+**چگونه می‌توانم حد دقیق پاراگراف خاصی روی اسلاید را به‌دست آورم؟**
 
-از [Paragraph.getRect] برای دریافت مستطیل مرزی پاراگراف استفاده کنید. [Portion.getRect] مرزهای یک بخش منفرد را فراهم می‌کند.
+از [Paragraph.getRect](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/#getRect) برای دریافت مستطیل محدود کننده پاراگراف استفاده کنید. [Portion.getRect](https://reference.aspose.com/slides/python-java/aspose.slides/portion/#getRect) مرزهای یک بخش جداگانه را فراهم می‌آورد.
 
-**محل کنترل تراز پاراگراف (چپ، راست، وسط یا توزیع) کجاست؟**
+**کنترل تنظیم تراز پاراگراف (چپ، راست، وسط یا توجیه) کجا انجام می‌شود؟**
 
-[ParagraphFormat.setAlignment] یک تنظیم سطح پاراگراف است و بر تمام پاراگراف صرف‌نظر از قالب‌بندی بخش‌های منفرد اعمال می‌شود.
+[ParagraphFormat.setAlignment](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setAlignment) یک تنظیم سطح پاراگراف است و بر تمام پاراگراف اعمال می‌شود بدون توجه به قالب‌بندی قسمت‌های جداگانه.
 
-**آیا می‌توانم زبان اصلاح برای بخشی از یک پاراگراف تنظیم کنم؟**
+برای تراز عمودی بخش‌هایی با اندازه قلم‌های متفاوت در هر خط، به [Align Fonts Within a Line](/slides/fa/python-java/text-formatting/#align-fonts-within-a-line) مراجعه کنید.
 
-بله. برای بخش‌های منفرد [BasePortionFormat.setLanguageId] را تنظیم کنید تا یک پاراگراف بتواند متن‌های چند زبانه داشته باشد.
+**آیا می‌توانم زبان تصحیح متن را برای بخشی از یک پاراگراف تنظیم کنم؟**
+
+بله. برای بخش‌های جداگانه [BasePortionFormat.setLanguageId](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#setLanguageId) را تنظیم کنید تا یک پاراگراف شامل متنی به چند زبان باشد.

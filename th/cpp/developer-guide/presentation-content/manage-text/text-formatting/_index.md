@@ -1,47 +1,47 @@
 ---
-title: การจัดรูปแบบข้อความงานนำเสนอใน C++
+title: จัดรูปแบบข้อความการนำเสนอใน C++
 linktitle: การจัดรูปแบบข้อความ
 type: docs
 weight: 50
 url: /th/cpp/text-formatting/
 keywords:
-- จัดย่อหน้า
-- สไตล์ข้อความ
+- จัดแนวย่อหน้า
+- รูปแบบข้อความ
 - พื้นหลังข้อความ
 - ความโปร่งใสของข้อความ
-- ระยะห่างอักขระ
-- คุณสมบัติฟอนต์
-- ตระกูลฟอนต์
+- ระยะห่างระหว่างอักขระ
+- คุณสมบัติแบบอักษร
+- ตระกูลแบบอักษร
 - การหมุนข้อความ
 - มุมการหมุน
 - กรอบข้อความ
 - ระยะห่างบรรทัด
-- คุณสมบัติ autofit
-- ตำแหน่งยึดกรอบข้อความ
-- การทำแท็บของข้อความ
-- ภาษาเริ่มต้น
+- คุณสมบัติการปรับอัตโนมัติ
+- จุดยึดกรอบข้อความ
+- การตั้งค่าตารางแท็บของข้อความ
+- ภาษาดีฟอลต์
 - PowerPoint
 - OpenDocument
 - งานนำเสนอ
 - C++
 - Aspose.Slides
-description: "จัดรูปแบบและสไตล์ข้อความในงานนำเสนอ PowerPoint และ OpenDocument ด้วย Aspose.Slides สำหรับ C++. ปรับแต่งฟอนต์, สี, การจัดแนว และอื่น ๆ อีกมากมาย."
+description: "จัดรูปแบบและตกแต่งข้อความในงานนำเสนอ PowerPoint และ OpenDocument ด้วย Aspose.Slides สำหรับ C++. ปรับแต่งแบบอักษร สี การจัดแนว และอื่น ๆ อีกมากมาย."
 ---
 ## **ภาพรวม**
 
-บทความนี้แสดงวิธีการจัดรูปแบบข้อความในงานนำเสนอ PowerPoint และ OpenDocument ด้วย Aspose.Slides for C++. รวมถึงสีพื้นหลัง, ความโปร่งใส, ระยะห่างระหว่างอักขระ, คุณสมบัติของฟอนต์, การหมุน, ระยะห่างระหว่างย่อหน้า, พฤติกรรม autofit, การกำหนดตำแหน่งข้อความ, การตั้งค่าตำแหน่งแท็บ, และการตั้งค่าภาษา.
+บทความนี้แสดงวิธีจัดรูปแบบข้อความในงานนำเสนอ PowerPoint และ OpenDocument ด้วย Aspose.Slides สำหรับ C++. ครอบคลุมสีพื้นหลัง, ความโปร่งใส, ระยะห่างระหว่างอักขระ, คุณสมบัติของแบบอักษร, การหมุน, ระยะห่างระหว่างย่อหน้า, พฤติกรรมการปรับอัตโนมัติ, การยึดข้อความ, การตั้งค่าตำแหน่งแท็บ, และการตั้งค่าภาษา.
 
-หากไม่ได้ระบุเป็นพิเศษ ตัวอย่างจะใช้ไฟล์ [sample.pptx](sample.pptx) รูปทรงแรกบนสไลด์แรกเป็นกล่องข้อความ และย่อหน้าแรกของมันมีข้อความตามที่แสดงด้านล่าง ดัชนีของสไลด์และรูปทรงเริ่มนับจากศูนย์ ตัวอย่างที่เลือกส่วนตัวหนาใช้การจัดรูปแบบที่มีผลรวมถึงการจัดรูปแบบที่สืบทอดจากพ่อแม่:
+ยกเว้นที่ระบุไว้เป็นอย่างอื่น ตัวอย่างจะใช้ [sample.pptx](sample.pptx). รูปทรงแรกบนสไลด์แรกเป็นกล่องข้อความ และย่อยแรกของมันมีข้อความดังแสดงด้านล่าง ทั้งดัชนีสไลด์และรูปทรงเริ่มจากศูนย์ ตัวอย่างที่เลือกส่วนที่เป็นตัวหนาจะใช้การจัดรูปแบบที่มีผลรวมถึงการจัดรูปแบบตัวหนาที่สืบทอดมา:
 
 ![ข้อความตัวอย่าง](sample_text.png)
 
-เพื่อค้นหาและไฮไลต์ข้อความตามตัวอักษรหรือการจับคู่แบบ regular-expression ดูที่ [ค้นหาและแทนที่ข้อความ](/slides/th/cpp/search-and-replace-text/).
+เพื่อค้นหาและเน้นข้อความตามตัวอักษรหรือผลการจับคู่แบบ regular-expression, ดูที่ [ค้นหาและแทนที่ข้อความ](/slides/th/cpp/search-and-replace-text/).
 
-## **ตั้งค่าสีพื้นหลังของข้อความ**
+## **กำหนดสีพื้นหลังของข้อความ**
 
-ใช้ [IParagraphFormat::get_DefaultPortionFormat](https://reference.aspose.com/slides/th/cpp/aspose.slides/iparagraphformat/get_defaultportionformat/) เพื่อกำหนดสีไฮไลต์เริ่มต้นสำหรับย่อหน้า หรือใช้ [IBasePortionFormat::get_HighlightColor](https://reference.aspose.com/slides/th/cpp/aspose.slides/ibaseportionformat/get_highlightcolor/) สำหรับส่วนข้อความแต่ละส่วน
+ใช้ [IParagraphFormat::get_DefaultPortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/get_defaultportionformat/) เพื่อกำหนดสีเน้นเริ่มต้นสำหรับย่อหน้า, หรือใช้ [IBasePortionFormat::get_HighlightColor](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/get_highlightcolor/) สำหรับส่วนข้อความแต่ละส่วน.
 
-ตัวอย่างต่อไปนี้ตั้งค่าสีไฮไลต์สีเทาอ่อนเป็นค่าเริ่มต้นสำหรับย่อหน้าแรก สีไฮไลต์ที่กำหนดโดยตรงบนส่วนข้อความแต่ละส่วนจะมีลำดับความสำคัญเหนือค่าเริ่มต้นนี้:
+ตัวอย่างต่อไปนี้กำหนดสีเน้นสีเทาอ่อนเป็นค่าเริ่มต้นสำหรับย่อหน้าแรก. สีเน้นที่ระบุอย่างชัดเจนบนส่วนข้อความแต่ละส่วนจะมีลำดับความสำคัญเหนือค่าเริ่มต้นนี้:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -67,7 +67,7 @@ auto paragraph = autoShape->get_TextFrame()->get_Paragraph(0);
 auto defaultPortionFormat = paragraph->get_ParagraphFormat()->get_DefaultPortionFormat();
 auto highlightColor = System::Drawing::Color::get_LightGray();
 
-// Set the highlight color for the entire paragraph.
+// ตั้งค่าสีไฮไลท์สำหรับย่อหน้าทั้งหมด.
 defaultPortionFormat->get_HighlightColor()->set_Color(highlightColor);
 
 presentation->Save(u"gray_paragraph.pptx", SaveFormat::Pptx);
@@ -76,9 +76,9 @@ presentation->Dispose();
 
 ผลลัพธ์:
 
-![ย่อหน้าเทา](gray_paragraph.png)
+![ย่อหน้าสีเทา](gray_paragraph.png)
 
-ตัวอย่างโค้ดด้านล่างแสดงวิธีตั้งค่าสีพื้นหลังสำหรับ **ส่วนข้อความที่มีฟอนต์หนา**:
+ตัวอย่างโค้ดด้านล่างแสดงวิธีกำหนดสีพื้นหลังสำหรับ **ส่วนข้อความที่ใช้แบบอักษรตัวหนา**:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -113,7 +113,7 @@ for (int portionIndex = 0; portionIndex < portionCount; portionIndex++)
     auto portionFormat = portion->get_PortionFormat();
     if (portionFormat->GetEffective()->get_FontBold())
     {
-        // ตั้งค่าสีไฮไลต์สำหรับส่วนข้อความ.
+        // ตั้งค่าสีไฮไลท์สำหรับส่วนข้อความ.
         portionFormat->get_HighlightColor()->set_Color(highlightColor);
     }
 }
@@ -128,9 +128,9 @@ presentation->Dispose();
 
 ## **จัดตำแหน่งย่อหน้าข้อความ**
 
-ใช้ [IParagraphFormat::set_Alignment](https://reference.aspose.com/slides/th/cpp/aspose.slides/iparagraphformat/set_alignment/) เพื่อกำหนดการจัดแนวนิ้วย่อหน้าในกรอบข้อความ ค่าอาจเป็นกึ่งกลาง, จัดชิดซ้าย, จัดชิดขวา, ตรงตามบรรทัด, เป็นต้น
+ใช้ [IParagraphFormat::set_Alignment](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_alignment/) เพื่อกำหนดการจัดตำแหน่งย่อหน้าภายในกรอบข้อความ ค่าอาจเป็นการจัดกึ่งกลาง, จัดซ้าย, จัดขวา, จัดชิดขอบ, ฯลฯ
 
-ตัวอย่างโค้ดต่อไปนี้แสดงวิธีจัดตำแหน่งย่อหน้าให้ **กึ่งกลาง**:
+ตัวอย่างโค้ดต่อไปนี้แสดงวิธีจัดตำแหน่งย่อหน้าให้อยู่ **กึ่งกลาง**:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -159,13 +159,110 @@ presentation->Dispose();
 
 ผลลัพธ์:
 
-![ย่อหน้าที่จัดแนวกึ่งกลาง](aligned_paragraph.png)
+![ย่อหน้าได้รับการจัดตำแหน่ง](aligned_paragraph.png)
 
-## **ตั้งค่าความโปร่งใสสำหรับข้อความ**
+## **จัดตำแหน่งแบบอักษรภายในบรรทัด**
 
-ความโปร่งใสของข้อความถูกควบคุมผ่านส่วนประกอบอัลฟาของสีที่กำหนดโดย [IBasePortionFormat::get_FillFormat](https://reference.aspose.com/slides/th/cpp/aspose.slides/ibaseportionformat/get_fillformat/). ในตัวอย่างต่อไปนี้ `alpha = 50` คือค่าช่องอัลฟา ARGB ในสเกล 0–255 ไม่ใช่เปอร์เซ็นต์ความโปร่งใส.
+ใช้ [IParagraphFormat::set_FontAlignment](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_fontalignment/) เพื่อจัดตำแหน่งแนวตั้งของส่วนข้อความที่มีขนาดแบบอักษรต่างกันภายในบรรทัด การตั้งค่านี้ใช้กับย่อหน้าทั้งหมดและควบคุมการจัดตำแหน่งภายในแต่ละบรรทัดของมัน.
 
-ตัวอย่างโค้ดด้านล่างแสดงวิธีใช้ความโปร่งใสกับ **ย่อหน้าเต็ม**:
+ตัวอย่างอิสระต่อไปนี้สร้างกล่องข้อความที่มีป้ายกำกับสี่กล่องบนสไลด์หนึ่ง แต่ละย่อหน้ามีข้อความเดียวกันที่ขนาด 18, 36, และ 54 จุด พร้อมการจัดตำแหน่งแบบอักษรที่ต่างกัน ใช้แบบอักษร Arial, ปิดการปรับอัตโนมัติและการห่อข้อความ, และทำให้กรอบข้อความใหญ่พอสำหรับบรรทัดเดียว.
+
+```cpp
+#include <DOM/FontAlignment.h>
+#include <DOM/Fonts/FontData.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/ITextFrameFormat.h>
+#include <DOM/FillType.h>
+#include <DOM/NullableBool.h>
+#include <DOM/Paragraph.h>
+#include <DOM/Portion.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <DOM/TextAlignment.h>
+#include <DOM/TextAnchorType.h>
+#include <DOM/TextAutofitType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+FontAlignment alignments[] = { FontAlignment::Baseline, FontAlignment::Top, FontAlignment::Center, FontAlignment::Bottom };
+String labels[] = { u"Baseline", u"Top", u"Center", u"Bottom" };
+float fontSizes[] = { 18.0f, 36.0f, 54.0f };
+auto font = MakeObject<FontData>(u"Arial");
+
+for (auto i = 0; i < 4; i++)
+{
+    auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 30, 20 + i * 130, 660, 120);
+    shape->get_FillFormat()->set_FillType(FillType::NoFill);
+    shape->get_LineFormat()->get_FillFormat()->set_FillType(FillType::NoFill);
+
+    auto textFrame = shape->get_TextFrame();
+    textFrame->get_TextFrameFormat()->set_AnchoringType(TextAnchorType::Top);
+    textFrame->get_TextFrameFormat()->set_AutofitType(TextAutofitType::None);
+    textFrame->get_TextFrameFormat()->set_WrapText(NullableBool::False);
+
+    auto label = textFrame->get_Paragraph(0);
+    label->set_Text(labels[i]);
+    label->get_ParagraphFormat()->set_Alignment(TextAlignment::Left);
+    auto labelFormat = label->get_ParagraphFormat()->get_DefaultPortionFormat();
+    labelFormat->set_FontHeight(14);
+    labelFormat->set_LatinFont(font);
+    labelFormat->get_FillFormat()->set_FillType(FillType::Solid);
+    labelFormat->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Gray());
+
+    auto paragraph = MakeObject<Paragraph>();
+    paragraph->get_ParagraphFormat()->set_FontAlignment(alignments[i]);
+    paragraph->get_ParagraphFormat()->set_Alignment(TextAlignment::Left);
+    auto portionFormat = paragraph->get_ParagraphFormat()->get_DefaultPortionFormat();
+    portionFormat->set_LatinFont(font);
+    portionFormat->get_FillFormat()->set_FillType(FillType::Solid);
+    portionFormat->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Black());
+
+    for (auto fontSize : fontSizes)
+    {
+        auto portion = MakeObject<Portion>(u"Ag ");
+        portion->get_PortionFormat()->set_FontHeight(fontSize);
+        paragraph->get_Portions()->Add(portion);
+    }
+
+    textFrame->get_Paragraphs()->Add(paragraph);
+}
+
+presentation->Save(u"font_alignment.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+ผลลัพธ์:
+
+![เปรียบเทียบการจัดตำแหน่งแบบอักษร Baseline, Top, Center, และ Bottom พร้อมขนาดแบบอักษรที่ผสมกัน](font_alignment.png)
+
+การจัดตำแหน่งแบบอักษรใช้เมตริกของแบบอักษร ดังนั้นขอบที่มองเห็นของตัวอักษรแต่ละตัวอาจไม่ตรงกันอย่างสมบูรณ์ ตัวอย่างนี้รวมทั้งตัวอักษรพิมพ์ใหญ่และตัวลงมือเพื่อช่วยแสดงความแตกต่างระหว่างการจัดตำแหน่ง baseline และ bottom ความพร้อมใช้งานและการแทนที่ของแบบอักษร, ตัวอักษรที่ใช้, และความแตกต่างของขนาดแบบอักษรมีผลต่อผลลัพธ์ มิติของกรอบ, ระยะขอบ, ระยะห่างระหว่างบรรทัด, การห่อ, และการปรับอัตโนมัติก็มีผลต่อการจัดวาง; ใช้แบบอักษรและการตั้งค่าการจัดวางเดียวกันเมื่อเปรียบเทียบโหมดต่าง ๆ.
+
+การตั้งค่านี้แตกต่างจาก [IParagraphFormat::set_Alignment](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_alignment/), ซึ่งควบคุมการจัดตำแหน่งแนวนอนของย่อหน้า, และ [ITextFrameFormat::set_AnchoringType](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_anchoringtype/), ซึ่งกำหนดตำแหน่งบล็อกข้อความแนวตั้งภายในรูปร่าง การจัดรูปแบบเชิงบนและเชิงล่างผ่าน [IBasePortionFormat::set_Escapement](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/set_escapement/) จะเลื่อนส่วนข้อความแต่ละส่วนสัมพันธ์กับ baseline แทนการกำหนดการจัดตำแหน่งแบบอักษรสำหรับบรรทัดของย่อหน้า.
+
+## **กำหนดความโปร่งใสสำหรับข้อความ**
+
+ความโปร่งใสของข้อความถูกควบคุมผ่านส่วนประกอบอัลฟาของสีที่กำหนดผ่าน [IBasePortionFormat::get_FillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/get_fillformat/). ในตัวอย่างด้านล่าง, `alpha = 50` เป็นค่าช่องอัลฟา ARGB ระดับ 0–255, ไม่ใช่เปอร์เซ็นต์ความโปร่งใส.
+
+ตัวอย่างโค้ดด้านล่างแสดงวิธีใช้ความโปร่งใสกับ **ย่อหน้าทั้งหมด**:
 
 ```cpp
 #include <DOM/FillType.h>
@@ -208,7 +305,7 @@ presentation->Dispose();
 
 ![ย่อหน้าที่โปร่งใส](transparent_paragraph.png)
 
-ตัวอย่างโค้ดต่อไปนี้แสดงวิธีใช้ความโปร่งใสกับ **ส่วนข้อความที่มีฟอนต์หนา**:
+ตัวอย่างโค้ดต่อไปนี้แสดงวิธีใช้ความโปร่งใสกับ **ส่วนข้อความที่ใช้แบบอักษรตัวหนา**:
 
 ```cpp
 #include <DOM/FillType.h>
@@ -262,11 +359,11 @@ presentation->Dispose();
 
 ![ส่วนข้อความที่โปร่งใส](transparent_text_portions.png)
 
-## **ตั้งค่าระยะห่างตัวอักษรสำหรับข้อความ**
+## **กำหนดระยะห่างระหว่างอักขระสำหรับข้อความ**
 
-ใช้ [IBasePortionFormat::set_Spacing](https://reference.aspose.com/slides/th/cpp/aspose.slides/ibaseportionformat/set_spacing/) เพื่อขยายหรือย่อระยะห่างระหว่างตัวอักษรในกล่องข้อความ ตัวอย่างเพิ่มระยะห่าง 3 จุด; ค่าลบจะทำให้ข้อความย่อเก่า
+ใช้ [IBasePortionFormat::set_Spacing](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/set_spacing/) เพื่อขยายหรือบีบอัดระยะห่างระหว่างอักขระในกล่องข้อความ ตัวอย่างเพิ่มระยะห่าง 3 จุด; ค่าลบจะบีบอัดข้อความ.
 
-โค้ด C++ ต่อไปนี้แสดงวิธีขยายระยะห่างตัวอักษรใน **ย่อหน้าเต็ม**:
+โค้ด C++ ต่อไปนี้แสดงวิธีขยายระยะห่างอักขระใน **ย่อหน้าทั้งหมด**:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -286,9 +383,8 @@ auto firstShape = presentation->get_Slide(0)->get_Shape(0);
 
 auto autoShape = System::ExplicitCast<IAutoShape>(firstShape);
 auto paragraph = autoShape->get_TextFrame()->get_Paragraph(0);
-
-// หมายเหตุ: ใช้ค่าติดลบเพื่อบีบอักขระห่างกัน.
-paragraph->get_ParagraphFormat()->get_DefaultPortionFormat()->set_Spacing(3.0f); // ขยายระยะห่างอักขระ.
+// หมายเหตุ: ใช้ค่าลบเพื่อบีบระยะห่างระหว่างอักขระ.
+paragraph->get_ParagraphFormat()->get_DefaultPortionFormat()->set_Spacing(3.0f); // ขยายระยะห่างระหว่างอักขระ.
 
 presentation->Save(u"character_spacing_in_paragraph.pptx", SaveFormat::Pptx);
 presentation->Dispose();
@@ -296,9 +392,9 @@ presentation->Dispose();
 
 ผลลัพธ์:
 
-![ระยะห่างตัวอักษรในย่อหน้า](character_spacing_in_paragraph.png)
+![ระยะห่างอักขระในย่อหน้า](character_spacing_in_paragraph.png)
 
-ตัวอย่างโค้ดด้านล่างแสดงวิธีขยายระยะห่างตัวอักษรใน **ส่วนข้อความที่มีฟอนต์หนา**:
+ตัวอย่างโค้ดด้านล่างแสดงวิธีขยายระยะห่างอักขระใน **ส่วนข้อความที่ใช้แบบอักษรตัวหนา**:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -330,8 +426,8 @@ for (int portionIndex = 0; portionIndex < portionCount; portionIndex++)
     auto portionFormat = portion->get_PortionFormat();
     if (portionFormat->GetEffective()->get_FontBold())
     {
-        // หมายเหตุ: ใช้ค่าติดลบเพื่อบีบอักขระห่างกัน.
-        portionFormat->set_Spacing(3.0f); // ขยายระยะห่างอักขระ.
+        // หมายเหตุ: ใช้ค่าติดลบเพื่อบีบระยะห่างระหว่างอักขระ.
+        portionFormat->set_Spacing(3.0f); // ขยายระยะห่างระหว่างอักขระ.
     }
 }
 
@@ -341,13 +437,13 @@ presentation->Dispose();
 
 ผลลัพธ์:
 
-![ระยะห่างตัวอักษรในส่วนข้อความ](character_spacing_in_text_portions.png)
+![ระยะห่างอักขระในส่วนข้อความ](character_spacing_in_text_portions.png)
 
-### **ปิดการทำ Kerning สำหรับฟอนต์เฉพาะ**
+### **ปิดการใช้งาน Kerning สำหรับแบบอักษรเฉพาะ**
 
-ในบางกรณี ข้อความที่เรนเดอร์โดย Aspose.Slides อาจดูบีบอัดเล็กน้อยเมื่อเทียบกับข้อความเดียวกันที่แสดงใน PowerPoint นี้อาจเกิดจาก PowerPoint เพิกเฉยต่อข้อมูล kerning ของฟอนต์บางตัว แม้ว่าฟอนต์นั้นจะมีข้อมูล kerning ที่ถูกต้องและตั้งค่า kerning ไว้ใน PowerPoint
+ในบางกรณี ข้อความที่แสดงโดย Aspose.Slides อาจดูแน่นกว่าข้อความเดียวกันที่แสดงใน PowerPoint สิ่งนี้อาจเกิดจาก PowerPoint เพิกเฉยต่อข้อมูล kerning ของแบบอักษรบางตัว แม้ว่าจะมีข้อมูล kerning ที่ถูกต้องและเปิดใช้งาน kerning ในการตั้งค่า PowerPoint ก็ตาม.
 
-เพื่อให้ผลลัพธ์ที่เรนเดอร์ใกล้เคียงกับ PowerPoint มากขึ้นในกรณีดังกล่าว คุณสามารถปิดการทำ kerning สำหรับส่วนข้อความที่ใช้ฟอนต์ที่ได้รับผลกระทบได้ ใช้ [IBasePortionFormat::set_KerningMinimalSize](https://reference.aspose.com/slides/th/cpp/aspose.slides/ibaseportionformat/set_kerningminimalsize/) เพื่อตั้งค่าที่มากกว่าขนาดฟอนต์จริง ตัวอย่างนี้ต้องมีไฟล์ "presentation.pptx" ที่มีกล่องข้อความเป็นรูปทรงแรกบนสไลด์แรก มันตรวจสอบชื่อฟอนต์ที่มีผลรวมถึงฟอนต์ที่สืบทอด และตั้งค่าขั้นต่ำ 100 จุดสำหรับส่วนที่ใช้ Roboto ซึ่งจะปิดการทำ kerning สำหรับส่วนที่มีขนาดฟอนต์ต่ำกว่า 100 จุด:
+เพื่อให้ผลลัพธ์ที่แสดงใกล้เคียงกับ PowerPoint มากขึ้นในกรณีเช่นนี้ คุณสามารถปิดการใช้งาน kerning สำหรับส่วนข้อความที่ใช้แบบอักษรที่ได้รับผลกระทบ ใช้ [IBasePortionFormat::set_KerningMinimalSize](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/set_kerningminimalsize/) เพื่อตั้งค่าที่ใหญ่กว่าขนาดแบบอักษรจริง ตัวอย่างนี้ต้องใช้ไฟล์ "presentation.pptx" ที่มีกล่องข้อความเป็นรูปทรงแรกบนสไลด์แรก ตรวจสอบชื่อแบบอักษรที่มีผลรวมถึงแบบอักษรที่สืบทอด และตั้งค่าเกณฑ์ 100 จุดสำหรับส่วนที่ใช้ Roboto ซึ่งจะปิดการใช้งาน kerning สำหรับส่วนที่มีขนาดแบบอักษรต่ำกว่า 100 จุด:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -405,13 +501,13 @@ presentation->Save(u"output.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-สำหรับข้อความที่ตรงกับเกณฑ์และมีขนาดต่ำกว่าขั้นต่ำ การตั้งค่านี้จะป้องกันการทำ kerning และช่วยให้การเรนเดอร์ของ Aspose.Slides สอดคล้องกับผลลัพธ์ภาพของ PowerPoint สำหรับฟอนต์ที่ได้รับผลกระทบจากพฤติกรรมเฉพาะของ PowerPoint นี้
+สำหรับข้อความที่ตรงกับเกณฑ์ด้านล่าง การตั้งค่านี้จะป้องกัน kerning และช่วยให้การแสดงผลของ Aspose.Slides สอดคล้องกับผลลัพธ์ภาพของ PowerPoint สำหรับแบบอักษรที่ได้รับผลกระทบจากพฤติกรรมเฉพาะของ PowerPoint นี้.
 
-## **จัดการคุณสมบัติฟอนต์ของข้อความ**
+## **จัดการคุณสมบัติแบบอักษรของข้อความ**
 
-คุณสมบัติของฟอนต์สามารถตั้งค่าที่ระดับย่อหน้าผ่าน [IParagraphFormat::get_DefaultPortionFormat](https://reference.aspose.com/slides/th/cpp/aspose.slides/iparagraphformat/get_defaultportionformat/) หรือที่ส่วนข้อความแต่ละส่วนผ่าน [IPortionFormat](https://reference.aspose.com/slides/th/cpp/aspose.slides/iportionformat/).
+คุณสมบัติแบบอักษรสามารถตั้งค่าที่ระดับย่อหน้าผ่าน [IParagraphFormat::get_DefaultPortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/get_defaultportionformat/) หรือบนส่วนแต่ละส่วนผ่าน [IPortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/iportionformat/).
 
-ตัวอย่างต่อไปนี้ตั้งค่าฟอนต์เริ่มต้นของย่อหน้าแรกเป็น Times New Roman ขนาด 12 จุด พร้อมรูปแบบตัวหนา, ตัวเอียง, และขีดเส้นใต้แบบจุด จุด การจัดรูปแบบที่กำหนดโดยตรงบนส่วนข้อความแต่ละส่วนจะมีลำดับความสำคัญเหนือค่าเริ่มต้นเหล่านี้.
+ตัวอย่างต่อไปนี้กำหนดแบบอักษรเริ่มต้นของย่อหน้าแรกเป็น Times New Roman ขนาด 12 จุด พร้อมตัวหนา, ตัวเอียง, และขีดเส้นประ. การจัดรูปแบบอย่างชัดเจนบนส่วนแต่ละส่วนจะมีลำดับความสำคัญเหนือค่าเริ่มต้นเหล่านี้:
 
 ```cpp
 #include <DOM/Fonts/FontData.h>
@@ -436,7 +532,7 @@ auto autoShape = System::ExplicitCast<IAutoShape>(firstShape);
 auto paragraph = autoShape->get_TextFrame()->get_Paragraph(0);
 auto defaultPortionFormat = paragraph->get_ParagraphFormat()->get_DefaultPortionFormat();
 
-// ตั้งค่าคุณสมบัติฟอนต์สำหรับย่อหน้า.
+// ตั้งค่าคุณสมบัติแบบอักษรสำหรับย่อหน้า.
 defaultPortionFormat->set_FontHeight(12.0f);
 defaultPortionFormat->set_FontBold(NullableBool::True);
 defaultPortionFormat->set_FontItalic(NullableBool::True);
@@ -450,9 +546,9 @@ presentation->Dispose();
 
 ผลลัพธ์:
 
-![คุณสมบัติฟอนต์ของย่อหน้า](font_properties_for_paragraph.png)
+![คุณสมบัติแบบอักษรสำหรับย่อหน้า](font_properties_for_paragraph.png)
 
-ตัวอย่างต่อไปนี้ใช้ Times New Roman ขนาด 13 จุด, รูปแบบตัวเอียง, และขีดเส้นใต้แบบจุดสำหรับส่วนที่มีการจัดรูปแบบที่มีผลเป็นตัวหนา:
+ตัวอย่างต่อไปนี้ใช้ Times New Roman ขนาด 13 จุด, การจัดรูปแบบตัวเอียง, และขีดเส้นประกับส่วนที่การจัดรูปแบบมีผลรวมเป็นตัวหนา:
 
 ```cpp
 #include <DOM/Fonts/FontData.h>
@@ -487,7 +583,7 @@ for (int portionIndex = 0; portionIndex < portionCount; portionIndex++)
     auto portionFormat = portion->get_PortionFormat();
     if (portionFormat->GetEffective()->get_FontBold())
     {
-        // ตั้งค่าคุณสมบัติฟอนต์สำหรับส่วนข้อความ.
+        // ตั้งค่าคุณสมบัติแบบอักษรสำหรับส่วนข้อความ.
         portionFormat->set_FontHeight(13.0f);
         portionFormat->set_FontItalic(NullableBool::True);
         portionFormat->set_FontUnderline(TextUnderlineType::Dotted);
@@ -501,13 +597,13 @@ presentation->Dispose();
 
 ผลลัพธ์:
 
-![คุณสมบัติฟอนต์ของส่วนข้อความ](font_properties_for_text_portions.png)
+![คุณสมบัติแบบอักษรสำหรับส่วนข้อความ](font_properties_for_text_portions.png)
 
-## **ตั้งค่าการหมุนข้อความ**
+## **กำหนดการหมุนข้อความ**
 
-ใช้ [ITextFrameFormat::set_TextVerticalType](https://reference.aspose.com/slides/th/cpp/aspose.slides/itextframeformat/set_textverticaltype/) เพื่อกำหนดทิศทางข้อความที่กำหนดล่วงหน้าในรูปทรง.
+ใช้ [ITextFrameFormat::set_TextVerticalType](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_textverticaltype/) เพื่อกำหนดการกำหนดทิศทางข้อความที่กำหนดไว้ล่วงหน้าในรูปร่าง.
 
-ตัวอย่างโค้ดต่อไปนี้ตั้งค่าการวางแนวข้อความในรูปทรงเป็น [TextVerticalType::Vertical270](https://reference.aspose.com/slides/th/cpp/aspose.slides/textverticaltype/), ซึ่งหมุนข้อความ **90 องศาตามเข็มนาฬิกาตรงกันข้าม**:
+ตัวอย่างโค้ดต่อไปนี้กำหนดการกำหนดทิศทางข้อความในรูปร่างเป็น [TextVerticalType::Vertical270](https://reference.aspose.com/slides/cpp/aspose.slides/textverticaltype/), ซึ่งหมุนข้อความ **90 องศาตรงกันข้ามเข็มนาฬิกา**:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -535,11 +631,11 @@ presentation->Dispose();
 
 ![การหมุนข้อความ](text_rotation.png)
 
-## **ตั้งค่าการหมุนแบบกำหนดเองสำหรับกรอบข้อความ**
+## **กำหนดการหมุนแบบกำหนดเองสำหรับกรอบข้อความ**
 
-ใช้ [ITextFrameFormat::set_RotationAngle](https://reference.aspose.com/slides/th/cpp/aspose.slides/itextframeformat/set_rotationangle/) เพื่อกำหนดมุมการหมุนแบบกำหนดเองสำหรับ [ITextFrame](https://reference.aspose.com/slides/th/cpp/aspose.slides/itextframe/).
+ใช้ [ITextFrameFormat::set_RotationAngle](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_rotationangle/) เพื่อกำหนดมุมการหมุนแบบกำหนดเองสำหรับ [ITextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/).
 
-ตัวอย่างโค้ดด้านล่างหมุนกรอบข้อความเป็น 3 องศาตามเข็มนาฬิกาภายในรูปทรง:
+โค้ดตัวอย่างด้านล่างหมุนกรอบข้อความ 3 องศาตามเข็มนาฬิกาในรูปร่าง:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -566,14 +662,14 @@ presentation->Dispose();
 
 ![การหมุนข้อความแบบกำหนดเอง](custom_text_rotation.png)
 
-## **ตั้งค่าระยะห่างบรรทัดของย่อหน้า**
+## **กำหนดระยะห่างบรรทัดของย่อหน้า**
 
-Aspose.Slides มีเมธอด [IParagraphFormat::set_SpaceAfter](https://reference.aspose.com/slides/th/cpp/aspose.slides/iparagraphformat/set_spaceafter/), [IParagraphFormat::set_SpaceBefore](https://reference.aspose.com/slides/th/cpp/aspose.slides/iparagraphformat/set_spacebefore/), และ [IParagraphFormat::set_SpaceWithin](https://reference.aspose.com/slides/th/cpp/aspose.slides/iparagraphformat/set_spacewithin/) เพื่อควบคุมระยะห่างของย่อหน้า วิธีการใช้ดังนี้:
+Aspose.Slides มีวิธี [IParagraphFormat::set_SpaceAfter](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_spaceafter/), [IParagraphFormat::set_SpaceBefore](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_spacebefore/), และ [IParagraphFormat::set_SpaceWithin](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_spacewithin/) เพื่อควบคุมระยะห่างของย่อหน้า วิธีเหล่านี้ใช้ได้ดังนี้:
 
-* ใช้ค่าบวกเพื่อระบุระยะห่างบรรทัดเป็นเปอร์เซ็นต์ของความสูงบรรทัด
-* ใช้ค่าลบเพื่อระบุระยะห่างบรรทัดเป็นจุด
+* ใช้ค่าบวกเพื่อระบุระยะห่างบรรทัดเป็นเปอร์เซ็นต์ของความสูงบรรทัด.
+* ใช้ค่าลบเพื่อระบุระยะห่างบรรทัดเป็นจุด.
 
-ตัวอย่างต่อไปนี้ตั้งค่าระยะห่างภายในย่อหน้าแรกเป็น 200% ของความสูงบรรทัด (ระยะห่างสองเท่า):
+ตัวอย่างต่อไปนี้กำหนดระยะห่างภายในย่อหน้าแรกเป็น 200% ของความสูงบรรทัด (ระยะห่างสองเท่า):
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -605,14 +701,14 @@ presentation->Dispose();
 
 ## **ควบคุมการตัดบรรทัด**
 
-กฎการตัดบรรทัดของย่อมีประโยชน์ในบล็อกข้อความแคบและการนำเสนอที่ผสมข้อความละตินและเอเชียตะวันออก วิธีต่อไปนี้เป็นของ [IParagraphFormat](https://reference.aspose.com/slides/th/cpp/aspose.slides/iparagraphformat/), ดังนั้นจะนำไปใช้กับย่อหน้าเต็ม:
+กฎการตัดบรรทัดของย่อหน้าเป็นประโยชน์ในบล็อกข้อความแคบและการนำเสนอที่ผสมข้อความละตินและเอเชียตะวันออก ตัวอย่างวิธีเหล่านี้เป็นของ [IParagraphFormat](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/), ดังนั้นจึงใช้กับย่อหน้าทั้งหมด:
 
-- [IParagraphFormat::set_LatinLineBreak](https://reference.aspose.com/slides/th/cpp/aspose.slides/iparagraphformat/set_latinlinebreak/) ควบคุมกฎการตัดบรรทัดของข้อความละติน ในข้อความผสม การเปลี่ยนแปลงนี้อาจทำให้ตำแหน่งการตัดของข้อความและเครื่องหมายวรรคตอนเอเชียตะวันออกที่อยู่ใกล้เคียงเปลี่ยนไป
-- [IParagraphFormat::set_EastAsianLineBreak](https://reference.aspose.com/slides/th/cpp/aspose.slides/iparagraphformat/set_eastasianlinebreak/) ควบคุมกฎการตัดบรรทัดของข้อความเอเชียตะวันออก รวมถึงข้อจำกัดของอักขระที่ตำแหน่งเริ่มต้นและสิ้นสุดของบรรทัด
+- [IParagraphFormat::set_LatinLineBreak](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_latinlinebreak/) ควบคุมกฎการตัดบรรทัดของละติน. ในข้อความผสม การเปลี่ยนค่านี้อาจทำให้ตำแหน่งการตัดของข้อความเอเชียตะวันออกและเครื่องหมายวรรคตอนที่อยู่ใกล้เคียงเปลี่ยนไป.
+- [IParagraphFormat::set_EastAsianLineBreak](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_eastasianlinebreak/) ควบคุมกฎการตัดบรรทัดของเอเชียตะวันออก, รวมถึงการจำกัดอักขระที่ตำแหน่งเริ่มต้นและท้ายบรรทัด.
 
-กฎเหล่านี้ไม่แทนที่ [ITextFrameFormat::set_WrapText](https://reference.aspose.com/slides/th/cpp/aspose.slides/itextframeformat/set_wraptext/), ซึ่งเปิดใช้งานการตัดคำอัตโนมัติภายในกรอบข้อความ พวกมันมีผลต่อการจัดวางเมื่อการตัดคำเกิดขึ้น; ไม่ได้แทรกอักขระการตัดบรรทัด การตัดบรรทัดโดยเจตนาจะบังคับให้ขึ้นบรรทัดใหม่ภายในย่อหน้าโดยไม่คำนึงถึงความกว้างที่มีอยู่
+กฎเหล่านี้ไม่แทนที่ [ITextFrameFormat::set_WrapText](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_wraptext/), ซึ่งเปิดใช้งานการห่ออัตโนมัติภายในกรอบข้อความ. พวกมันมีผลต่อการจัดวางเมื่อการห่อเกิดขึ้น; พวกมันไม่ได้แทรกอักขระการตัดบรรทัด. การตัดบรรทัดอย่างชัดเจนบังคับให้เกิดบรรทัดใหม่ภายในย่อหน้าโดยไม่คำนึงถึงความกว้างที่ใช้ได้.
 
-ตัวอย่างอิสระต่อไปนี้สร้างบล็อกข้อความแคบที่มีภาษาจีนและละติน พร้อมตั้งค่ากฎการตัดบรรทัดทั้งสองอย่างชัดเจนและบันทึกเป็น "line_breaking.pptx" เพื่อทดลองแต่ละกฎให้เปลี่ยนค่าที่ส่งให้กับเมธอดตั้งค่าโดยคงการตั้งค่าอื่นไว้ ตัวอย่างใช้ Arial และ SimSun ขนาด 24 จุด พร้อมความกว้างกรอบ 160 จุด และไม่มีระยะขอบแนวนอนของกรอบข้อความ [ITextFrameFormat::set_AutofitType](https://reference.aspose.com/slides/th/cpp/aspose.slides/itextframeformat/set_autofittype/) ถูกเรียกด้วย [TextAutofitType::None](https://reference.aspose.com/slides/th/cpp/aspose.slides/textautofittype/) เพื่อให้ขนาดข้อความและมิติของกรอบคงที่
+ตัวอย่างอิสระต่อไปนี้สร้างบล็อกข้อความแคบที่มีทั้งข้อความจีนและละติน. มันกำหนดกฎการตัดบรรทัดทั้งสองอย่างชัดเจนและบันทึกเป็น "line_breaking.pptx". เพื่อทดลองกับกฎใดกฎหนึ่ง ให้เปลี่ยนค่าที่ส่งให้กับเมธ็อดนั้นในขณะที่คงการตั้งค่าอื่นไว้คงเดิม. ตัวอย่างใช้ Arial ขนาด 24 จุดและ SimSun พร้อมความกว้างกรอบ 160 จุดและระยะขอบแนวนอนเป็นศูนย์. [ITextFrameFormat::set_AutofitType](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_autofittype/) ถูกเรียกด้วย [TextAutofitType::None](https://reference.aspose.com/slides/cpp/aspose.slides/textautofittype/) เพื่อให้ขนาดข้อความและมิติของกรอบคงที่.
 
 ```cpp
 #include <DOM/Fonts/FontData.h>
@@ -670,11 +766,11 @@ presentation->Save(u"line_breaking.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **ควบคุมการหยุดเครื่องหมายจุลภาคแบบลอย**
+## **ควบคุมเครื่องหมายวรรคตอนห้อย**
 
-[IParagraphFormat::set_HangingPunctuation](https://reference.aspose.com/slides/th/cpp/aspose.slides/iparagraphformat/set_hangingpunctuation/) ทำให้เครื่องหมายวรรคตอนที่สามารถลอยได้ต่อออกไปเหนือขอบขวาของบรรทัดข้อความแทนที่จะอยู่ในบรรทัดถัดไป ใช้กับย่อหน้าเต็มและแตกต่างจากการเยื้องแบบลอย
+[IParagraphFormat::set_HangingPunctuation](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_hangingpunctuation/) ทำให้เครื่องหมายวรรคตอนที่มีคุณสมบัติเหมาะสมต่อเติมออกไปเหนือขอบขวาของบรรทัดข้อความแทนที่จะอยู่ในบรรทัดต่อไป. มันใช้กับย่อหน้าทั้งหมดและแตกต่างจากการย่อหน้าแบบห้อย.
 
-ตัวอย่างอิสระต่อไปนี้เปิดใช้งานการลอยเครื่องหมายวรรคตอนในกรอบข้อความกว้าง 100 จุดและบันทึกเป็น "hanging_punctuation.pptx" ด้วย Arial ขนาด 24 จุดและไม่มีระยะขอบแนวนอนของกรอบข้อความ จุดจบประโยคสุดท้ายจะอยู่หลัง "sentence" และต่อออกไปเหนือขอบขวาของข้อความ ใช้ [NullableBool::False](https://reference.aspose.com/slides/th/cpp/aspose.slides/nullablebool/) ส่งให้กับเมธอดตั้งค่าเพื่อเปรียบเทียบ: ด้วยการตั้งค่านี้ จุดจบจะอยู่ในบรรทัดแยก การตัดคำเปิดใช้งานและ autofit ปิดเพื่อคงความกว้างที่มี
+ตัวอย่างอิสระต่อไปนี้เปิดใช้งานเครื่องหมายวรรคตอนห้อยในกรอบข้อความกว้าง 100 จุดและบันทึกเป็น "hanging_punctuation.pptx". ด้วย Arial ขนาด 24 จุดและระยะขอบแนวนอนศูนย์ จุดเต็มสุดท้ายจะอยู่หลังคำ "sentence" และต่อออกไปเหนือขอบขวาของข้อความ. ส่งค่า [NullableBool::False](https://reference.aspose.com/slides/cpp/aspose.slides/nullablebool/) ไปยังเมธ็อดเพื่อเปรียบเทียบ: กับการตั้งค่านี้ จุดเต็มจะอยู่ในบรรทัดแยกต่างหาก. การห่อเปิดใช้งานและการปรับอัตโนมัติปิดเพื่อให้ความกว้างที่ใช้ได้คงที่.
 
 ```cpp
 #include <DOM/Fonts/FontData.h>
@@ -729,11 +825,11 @@ presentation->Save(u"hanging_punctuation.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-ไม่ใช่เครื่องหมายวรรคตอนทุกตัวจะสามารถลอยได้ ผลลัพธ์ที่มองเห็นขึ้นอยู่กับฟอนต์และการจัดวาง: การเปลี่ยนฟอนต์, ความกว้างที่ใช้ได้, ระยะขอบ, หรือการตั้งค่า autofit สามารถทำให้ความแตกต่างที่มองเห็นหายไป
+ไม่ใช่ทุกเครื่องหมายวรรคตอนจะสามารถห้อยได้. เงื่อนไขของแบบอักษรและการจัดวางที่อธิบายไว้ข้างต้น ([#control-line-breaking](#control-line-breaking)) ยังใช้กับการเปรียบเทียบนี้: การเปลี่ยนแบบอักษร, ความกว้างที่ใช้ได้, ระยะขอบ, หรือการตั้งค่า Autofit สามารถทำให้ความแตกต่างที่มองเห็นหายไปได้.
 
-## **ตั้งค่าชนิด Autofit สำหรับกรอบข้อความ**
+## **กำหนดประเภท Autofit สำหรับกรอบข้อความ**
 
-[ITextFrameFormat::set_AutofitType](https://reference.aspose.com/slides/th/cpp/aspose.slides/itextframeformat/set_autofittype/) กำหนดว่าข้อความทำงานอย่างไรเมื่อเกินขอบเขตของคอนเทนเนอร์ ใช้เพื่อควบคุมว่าข้อความจะหด, ล้น, หรือปรับขนาดรูปทรงโดยอัตโนมัติ ตัวอย่างต่อไปนี้กำหนดรูปทรงให้ปรับขนาดเพื่อให้พอดีกับข้อความและบันทึกผลลัพธ์เป็น "autofit_type.pptx".
+[ITextFrameFormat::set_AutofitType](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_autofittype/) กำหนดว่าข้อความทำงานอย่างไรเมื่อเกินขอบเขตของคอนเทนเนอร์ ใช้มันเพื่อควบคุมว่าข้อความจะหด, ล้น, หรือปรับขนาดรูปร่างโดยอัตโนมัติ ตัวอย่างต่อไปนี้ตั้งค่ารูปร่างให้ปรับขนาดเพื่อพอดีกับข้อความและบันทึกผลลัพธ์เป็น "autofit_type.pptx".
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -757,11 +853,11 @@ presentation->Save(u"autofit_type.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-เพื่อคำนวณจำนวนบรรทัดหลังจากการตัดคำอัตโนมัติและดูว่าขนาดข้อความหรือความกว้างของรูปทรงมีผลต่อผลลัพธ์อย่างไร ดูที่ [Count Rendered Lines](/slides/th/cpp/manage-paragraph/). จำนวนบรรทัดอย่างเดียวไม่บ่งบอกว่าข้อความล้นคอนเทนเนอร์หรือไม่.
+เพื่อจำนวนบรรทัดหลังจากการห่ออัตโนมัติและดูว่าขนาดข้อความหรือรูปร่างเปลี่ยนผลลัพธ์อย่างไร, ดูที่ [Count Rendered Lines](/slides/th/cpp/manage-paragraph/). จำนวนบรรทัดเพียงอย่างเดียวไม่ได้บ่งบอกว่าข้อความล้นจากคอนเทนเนอร์หรือไม่.
 
-## **ตั้งค่าตำแหน่งยึดของกรอบข้อความ**
+## **กำหนดจุดยึดของกรอบข้อความ**
 
-[ITextFrameFormat::set_AnchoringType](https://reference.aspose.com/slides/th/cpp/aspose.slides/itextframeformat/set_anchoringtype/) กำหนดว่าข้อความวางแนวตั้งภายในรูปทรงอย่างไร เช่น ที่ด้านบน, กลาง, หรือด้านล่าง ตัวอย่างต่อไปนี้ยึดข้อความไว้ที่ด้านล่างของรูปทรงแรกและบันทึกผลลัพธ์เป็น "text_anchor.pptx".
+[ITextFrameFormat::set_AnchoringType](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_anchoringtype/) กำหนดว่าข้อความถูกจัดตำแหน่งแนวตั้งภายในรูปร่างอย่างไร, เช่น ด้านบน, กลาง, หรือด้านล่าง. ตัวอย่างต่อไปนี้ยึดข้อความไว้ที่ด้านล่างของรูปทรงแรกและบันทึกผลลัพธ์เป็น "text_anchor.pptx".
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -785,9 +881,9 @@ presentation->Save(u"text_anchor.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **ตั้งค่าการทำแท็บของข้อความ**
+## **กำหนดการตั้งค่าตารางแท็บของข้อความ**
 
-ใช้ [IParagraphFormat::set_DefaultTabSize](https://reference.aspose.com/slides/th/cpp/aspose.slides/iparagraphformat/set_defaulttabsize/) และ [IParagraphFormat::get_Tabs](https://reference.aspose.com/slides/th/cpp/aspose.slides/iparagraphformat/get_tabs/) เพื่อกำหนดตำแหน่งหยุดแท็บในย่อหน้า ตัวอย่างต่อไปนี้ตั้งค่าช่วงเว้นแท็บเริ่มต้นเป็น 100 จุดและเพิ่มตำแหน่งหยุดแท็บจัดชิดซ้ายที่ 30 จุด การตั้งค่าเหล่านี้มีผลต่อข้อความที่มีอักขระแท็บ
+ใช้ [IParagraphFormat::set_DefaultTabSize](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_defaulttabsize/) และ [IParagraphFormat::get_Tabs](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/get_tabs/) เพื่อกำหนดตำแหน่งแท็บในย่อหน้า. ตัวอย่างต่อไปนี้ตั้งค่าช่วงแท็บเริ่มต้นเป็น 100 จุดและเพิ่มตำแหน่งแท็บซ้ายที่ 30 จุด. การตั้งค่าเหล่านี้มีผลต่อข้อความที่มีอักขระแท็บ.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -820,11 +916,11 @@ presentation->Dispose();
 
 ![แท็บของย่อหน้า](paragraph_tabs.png)
 
-## **ตั้งค่าภาษาการตรวจสอบ**
+## **กำหนดภาษาการตรวจสอบการพิมพ์**
 
-Aspose.Slides มี [IBasePortionFormat::set_LanguageId](https://reference.aspose.com/slides/th/cpp/aspose.slides/ibaseportionformat/set_languageid/), ที่ให้คุณตั้งค่าภาษาการตรวจสอบสำหรับส่วนข้อความ ภาษาการตรวจสอบกำหนดภาษาที่ใช้สำหรับการตรวจสอบการสะกดและไวยากรณ์ใน PowerPoint.
+Aspose.Slides มี [IBasePortionFormat::set_LanguageId](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/set_languageid/), ซึ่งให้คุณกำหนดภาษาการตรวจสอบการพิมพ์สำหรับส่วนข้อความ. ภาษาการตรวจสอบการพิมพ์กำหนดภาษาที่ใช้สำหรับการตรวจสอบการสะกดและไวยากรณ์ใน PowerPoint.
 
-ตัวอย่างต่อไปนี้ต้องมีไฟล์ "presentation.pptx" ที่มีกล่องข้อความเป็นรูปทรงแรกบนสไลด์แรกและมีอย่างน้อยหนึ่งย่อหน้า มันจะแทนที่เนื้อหาของย่อหน้าแรกด้วย "1。", ตั้งฟอนต์เป็น SimSun, และกำหนดภาษาการตรวจสอบเป็นภาษาจีนแบบประยุกต์ (`zh-CN`). จากนั้นบันทึกผลลัพธ์เป็น "proofing_language.pptx":
+ตัวอย่างต่อไปนี้ต้องใช้ไฟล์ "presentation.pptx" ที่มีกล่องข้อความเป็นรูปทรงแรกบนสไลด์แรกและอย่างน้อยหนึ่งย่อหน้า. มันแทนที่เนื้อหาของย่อหน้าแรกด้วย "1。", ตั้งแบบอักษรเป็น SimSun, และกำหนดภาษาการตรวจสอบการพิมพ์เป็นภาษาจีนแบบง่าย (`zh-CN`). บันทึกผลลัพธ์เป็น "proofing_language.pptx":
 
 ```cpp
 #include <DOM/Fonts/FontData.h>
@@ -857,7 +953,7 @@ portionFormat->set_ComplexScriptFont(font);
 portionFormat->set_EastAsianFont(font);
 portionFormat->set_LatinFont(font);
 
-// ตั้งค่าภาษาการตรวจสอบเป็นจีนแบบประยุกต์.
+// ตั้งค่าภาษาการตรวจสอบเป็นภาษาจีนแบบง่าย.
 portionFormat->set_LanguageId(u"zh-CN");
 
 textPortion->set_Text(u"1。");
@@ -867,9 +963,9 @@ presentation->Save(u"proofing_language.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **ตั้งค่าภาษาเริ่มต้น**
+## **กำหนดภาษาดีฟอลต์**
 
-ใช้ [LoadOptions::set_DefaultTextLanguage](https://reference.aspose.com/slides/th/cpp/aspose.slides/loadoptions/set_defaulttextlanguage/) เพื่อกำหนดภาษาดีฟอลต์สำหรับข้อความที่สร้างระหว่างการโหลดหรือสร้างงานนำเสนอ ตัวอย่างต่อไปนี้สร้างงานนำเสนอโดยตั้งค่าภาษาอังกฤษสหรัฐเป็นภาษาข้อความเริ่มต้น, เพิ่มกล่องข้อความ, และพิมพ์ `en-US` สำหรับส่วนข้อความแรกของมัน.
+ใช้ [LoadOptions::set_DefaultTextLanguage](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_defaulttextlanguage/) เพื่อกำหนดภาษาดีฟอลต์สำหรับข้อความที่สร้างขณะโหลดหรือสร้างงานนำเสนอ. ตัวอย่างต่อไปนี้สร้างงานนำเสนอที่ใช้ภาษาอังกฤษสหรัฐเป็นภาษาข้อความดีฟอลต์, เพิ่มกล่องข้อความ, และพิมพ์ `en-US` สำหรับส่วนข้อความแรกของมัน.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -904,11 +1000,11 @@ System::Console::WriteLine(languageId);
 presentation->Dispose();
 ```
 
-## **ตั้งค่าสไตล์ข้อความเริ่มต้น**
+## **กำหนดสไตล์ข้อความดีฟอลต์**
 
-เพื่อใช้การจัดรูปแบบข้อความเริ่มต้นในระดับงานนำเสนอ, ใช้ [IPresentation::get_DefaultTextStyle](https://reference.aspose.com/slides/th/cpp/aspose.slides/ipresentation/get_defaulttextstyle/).
+เพื่อใช้การจัดรูปแบบข้อความดีฟอลต์ในระดับงานนำเสนอ, ใช้ [IPresentation::get_DefaultTextStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentation/get_defaulttextstyle/).
 
-ตัวอย่างต่อไปนี้ตั้งค่าฟอนต์หนาขนาด 14 จุดเป็นค่าเริ่มต้นสำหรับย่อหน้าในระดับบนสุดของงานนำเสนอใหม่และบันทึกเป็น "default_text_style.pptx". ข้อความจะสืบทอดค่าเริ่มต้นเหล่านี้ เว้นแต่จะมีการจัดรูปแบบที่เฉพาะเจาะจงกว่ามาแทนที่
+ตัวอย่างต่อไปนี้ตั้งแบบอักษรตัวหนาขนาด 14 จุดเป็นค่าเริ่มต้นสำหรับย่อหน้าในระดับบนของงานนำเสนอใหม่และบันทึกเป็น "default_text_style.pptx". ข้อความสามารถสืบทอดค่าเริ่มต้นเหล่านี้ได้ เว้นแต่การจัดรูปแบบที่เจาะจงมากกว่าจะทับซ้อน.
 
 ```cpp
 #include <DOM/IParagraphFormat.h>
@@ -923,7 +1019,7 @@ using namespace Aspose::Slides::Export;
 
 auto presentation = System::MakeObject<Presentation>();
 
-// รับฟอร์แมตย่อหน้าในระดับบนสุด.
+// ดึงรูปแบบย่อหน้าระดับบน.
 auto paragraphFormat = presentation->get_DefaultTextStyle()->GetLevel(0);
 
 if (paragraphFormat != nullptr)
@@ -937,15 +1033,15 @@ presentation->Save(u"default_text_style.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **ดึงข้อความด้วยผล All-Caps**
+## **สกัดข้อความด้วยเอฟเฟกต์ตัวพิมพ์ใหญ่ทั้งหมด**
 
-ใน PowerPoint การใช้เอฟเฟกต์ฟอนต์ **All Caps** ทำให้ข้อความปรากฏเป็นตัวพิมพ์ใหญ่บนสไลด์แม้ว่าจะพิมพ์เป็นตัวพิมพ์เล็กเดิม เมื่อคุณดึงส่วนข้อความดังกล่าวด้วย Aspose.Slides ไลบรารีจะส่งคืนข้อความตามที่ป้อนไว้ เพื่อให้ตรงกับข้อความที่แสดง ให้ตรวจสอบ [TextCapType](https://reference.aspose.com/slides/th/cpp/aspose.slides/textcaptype/) และแปลงสตริงที่ส่งคืนเป็นตัวพิมพ์ใหญ่เมื่อค่าคือ [TextCapType::All](https://reference.aspose.com/slides/th/cpp/aspose.slides/textcaptype/).
+ใน PowerPoint, การใช้เอฟเฟกต์แบบอักษร **All Caps** ทำให้ข้อความปรากฏเป็นพิมพ์ใหญ่บนสไลด์แม้ว่าจะพิมพ์เป็นพิมพ์เล็กเดิม. เมื่อคุณดึงส่วนข้อความเช่นนี้ด้วย Aspose.Slides, ไลบรารีจะคืนค่าข้อความตามที่ป้อนจริง. เพื่อให้ตรงกับข้อความที่แสดง, ตรวจสอบ [TextCapType](https://reference.aspose.com/slides/cpp/aspose.slides/textcaptype/) และแปลงสตริงที่คืนค่าเป็นพิมพ์ใหญ่เมื่อค่าคือ [TextCapType::All](https://reference.aspose.com/slides/cpp/aspose.slides/textcaptype/).
 
-ตัวอย่างนี้ต้องมีไฟล์ "sample2.pptx" ที่มีกล่องข้อความเป็นรูปทรงแรกบนสไลด์แรก ส่วนแรกของย่อหน้าแรกมีข้อความ "Hello, Aspose!" ที่มีผล All Caps ตามที่แสดงด้านล่าง.
+ตัวอย่างนี้ต้องใช้ไฟล์ "sample2.pptx" ที่มีกล่องข้อความเป็นรูปทรงแรกบนสไลด์แรก. ส่วนแรกของย่อหน้าแรกมีข้อความ "Hello, Aspose!" พร้อมเอฟเฟกต์ All Caps, ดังที่แสดงด้านล่าง.
 
-![ผล All Caps](all_caps_effect.png)
+![เอฟเฟกต์ตัวพิมพ์ใหญ่ทั้งหมด](all_caps_effect.png)
 
-ตัวอย่างโค้ดด้านล่างแสดงวิธีดึงข้อความที่มีผล **All Caps** ที่ถูกนำไปใช้:
+ตัวอย่างโค้ดด้านล่างแสดงวิธีสกัดข้อความโดยมีเอฟเฟกต์ **All Caps** ถูกใช้:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -989,10 +1085,10 @@ All-Caps effect: HELLO, ASPOSE!
 
 ## **คำถามที่พบบ่อย**
 
-**ฉันจะแก้ไขข้อความในตารางบนสไลด์อย่างไร?**
+**ฉันจะแก้ไขข้อความในตารางบนสไลด์ได้อย่างไร?**
 
-เพื่อแก้ไขข้อความในตารางบนสไลด์ ให้ใช้ [ITable](https://reference.aspose.com/slides/th/cpp/aspose.slides/itable/). วนลูปผ่านเซลล์และอัปเดตแต่ละเซลล์โดยใช้ [ICell::get_TextFrame](https://reference.aspose.com/slides/th/cpp/aspose.slides/icell/get_textframe/) และการจัดรูปแบบย่อหน้าผ่าน [IParagraph::get_ParagraphFormat](https://reference.aspose.com/slides/th/cpp/aspose.slides/iparagraph/get_paragraphformat/).
+เพื่อแก้ไขข้อความในตารางบนสไลด์, ใช้ [ITable](https://reference.aspose.com/slides/cpp/aspose.slides/itable/). เคลียร์ผ่านเซลล์และอัปเดตแต่ละเซลล์ผ่าน [ICell::get_TextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_textframe/) และการจัดรูปแบบย่อหน้าผ่าน [IParagraph::get_ParagraphFormat](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/get_paragraphformat/).
 
-**ฉันจะใช้สีไล่ระดับสีให้กับข้อความบนสไลด์ PowerPoint อย่างไร?**
+**ฉันจะใช้สีไล่ระดับบนข้อความในสไลด์ PowerPoint อย่างไร?**
 
-เพื่อใช้สีไล่ระดับบนข้อความ ให้ใช้ [IBasePortionFormat::get_FillFormat](https://reference.aspose.com/slides/th/cpp/aspose.slides/ibaseportionformat/get_fillformat/). ตั้งค่า [IFillFormat::set_FillType](https://reference.aspose.com/slides/th/cpp/aspose.slides/ifillformat/set_filltype/) เป็น [FillType::Gradient](https://reference.aspose.com/slides/th/cpp/aspose.slides/filltype/) และกำหนดจุดหยุดไล่ระดับ, ทิศทาง, และความโปร่งใส.
+เพื่อใช้สีไล่ระดับบนข้อความ, ใช้ [IBasePortionFormat::get_FillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/get_fillformat/). ตั้งค่า [IFillFormat::set_FillType](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/set_filltype/) เป็น [FillType::Gradient](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/) และกำหนดจุดไล่ระดับ, ทิศทาง, และความโปร่งใส.

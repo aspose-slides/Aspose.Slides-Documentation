@@ -1,47 +1,47 @@
 ---
-title: C++ में प्रस्तुति टेक्स्ट को फ़ॉर्मेट करें
-linktitle: टेक्स्ट फ़ॉर्मेटिंग
+title: C++ में प्रस्तुति पाठ को स्वरूपित करें
+linktitle: पाठ स्वरूपण
 type: docs
 weight: 50
 url: /hi/cpp/text-formatting/
 keywords:
-- पैराग्राफ संरेखित करें
-- टेक्स्ट शैली
-- टेक्स्ट पृष्ठभूमि
-- टेक्स्ट पारदर्शिता
+- अनुच्छेद संरेखित करें
+- पाठ शैली
+- पाठ पृष्ठभूमि
+- पाठ पारदर्शिता
 - अक्षर अंतराल
 - फ़ॉन्ट गुण
 - फ़ॉन्ट परिवार
-- टेक्स्ट घुमाव
+- पाठ घुमाव
 - घुमाव कोण
-- टेक्स्ट फ़्रेम
+- पाठ फ्रेम
 - लाइन स्पेसिंग
-- ऑटोफ़िट प्रॉपर्टी
-- टेक्स्ट फ़्रेम एंकर
-- टेक्स्ट टैबुलेशन
+- ऑटोफ़िट गुण
+- पाठ फ्रेम एंकर
+- पाठ टैबुलेशन
 - डिफ़ॉल्ट भाषा
 - PowerPoint
 - OpenDocument
 - प्रस्तुति
 - C++
 - Aspose.Slides
-description: "Aspose.Slides for C++ का उपयोग करके PowerPoint और OpenDocument प्रस्तुतियों में टेक्स्ट को फ़ॉर्मेट और शैलीबद्ध करें। फ़ॉन्ट, रंग, संरेखण और अधिक को कस्टमाइज़ करें।"
+description: "Aspose.Slides for C++ का उपयोग करके PowerPoint और OpenDocument प्रस्तुतियों में पाठ को स्वरूपित और शैलीबद्ध करें। फ़ॉन्ट, रंग, संरेखण और अधिक को कस्टमाइज़ करें।"
 ---
-## **सारांश**
+## **अवलोकन**
 
-यह लेख दिखाता है कि Aspose.Slides for C++ का उपयोग करके PowerPoint और OpenDocument प्रस्तुतियों में टेक्स्ट को कैसे फ़ॉर्मेट किया जाए। इसमें पृष्ठभूमि रंग, पारदर्शिता, अक्षर अंतराल, फ़ॉन्ट गुण, घुमाव, पैराग्राफ अंतराल, ऑटोफ़िट व्यवहार, टेक्स्ट एंकरिंग, टैब स्टॉप और भाषा सेटिंग्स शामिल हैं।
+यह लेख Aspose.Slides for C++ का उपयोग करके PowerPoint और OpenDocument प्रस्तुतीकरण में पाठ को स्वरूपित करने के तरीके को दिखाता है। यह पृष्ठभूमि रंग, पारदर्शिता, अक्षर स्पेसिंग, फ़ॉन्ट गुण, घुमाव, अनुच्छेद स्पेसिंग, ऑटोफ़िट व्यवहार, पाठ एंकरिंग, टैब स्टॉप, और भाषा सेटिंग्स को कवर करता है।
 
-जब तक अन्यथा न कहा गया हो, उदाहरणों में [sample.pptx](sample.pptx) का उपयोग किया गया है। उसकी पहली स्लाइड पर पहला आकार एक टेक्स्ट बॉक्स है, और उसका पहला पैराग्राफ नीचे दिखाए गए टेक्स्ट को शामिल करता है। स्लाइड और आकार दोनों के संकेतक शून्य‑आधारित हैं। बोल्ड भागों को चुनने वाले उदाहरण प्रभावी फ़ॉर्मेटिंग का उपयोग करते हैं, जिसमें विरासत में मिली बोल्ड फ़ॉर्मेटिंग भी शामिल है:
+जब तक अन्यथा नहीं कहा गया हो, उदाहरण [sample.pptx](sample.pptx) का उपयोग करते हैं। इसकी पहली स्लाइड पर पहला आकार एक टेक्स्ट बॉक्स है, और उसके पहले अनुच्छेद में नीचे दिखाया गया पाठ होता है। स्लाइड और आकार दोनों के सूचकांक शून्य-आधारित हैं। जो उदाहरण मोटे भागों को चुनते हैं वे प्रभावी स्वरूपण का उपयोग करते हैं, जिसमें विरासत में मिला मोटा स्वरूपण शामिल है:
 
-![उदाहरण टेक्स्ट](sample_text.png)
+![नमूना पाठ](sample_text.png)
 
-शाब्दिक टेक्स्ट या रेगुलर‑एक्सप्रेशन मेल को खोजने और हाइलाइट करने के बारे में जानने के लिए देखें [Search and Replace Text](/slides/hi/cpp/search-and-replace-text/)।
+पाठ खोजें और बदलें: [Search and Replace Text](/slides/hi/cpp/search-and-replace-text/).
 
-## **टेक्स्ट पृष्ठभूमि रंग सेट करें**
+## **पाठ पृष्ठभूमि रंग सेट करें**
 
-पैराग्राफ के लिए डिफ़ॉल्ट हाइलाइट रंग सेट करने के लिए [IParagraphFormat::get_DefaultPortionFormat](https://reference.aspose.com/slides/hi/cpp/aspose.slides/iparagraphformat/get_defaultportionformat/) का उपयोग करें, या व्यक्तिगत टेक्स्ट भागों के लिए [IBasePortionFormat::get_HighlightColor](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ibaseportionformat/get_highlightcolor/) का उपयोग करें।
+एक अनुच्छेद के लिए डिफ़ॉल्ट हाइलाइट रंग सेट करने हेतु [IParagraphFormat::get_DefaultPortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/get_defaultportionformat/) का उपयोग करें, या व्यक्तिगत पाठ भागों के लिए [IBasePortionFormat::get_HighlightColor](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/get_highlightcolor/) का उपयोग करें।
 
-निम्न उदाहरण पहला पैराग्राफ के लिए डिफ़ॉल्ट रूप में हल्के ग्रे हाइलाइट को सेट करता है। व्यक्तिगत भागों पर स्पष्ट हाइलाइट रंग इस डिफ़ॉल्ट से अधिक प्राथमिकता लेते हैं:
+निम्नलिखित उदाहरण पहले अनुच्छेद के लिए डिफ़ॉल्ट रूप में हल्का धूसर हाइलाइट सेट करता है। व्यक्तिगत भागों पर स्पष्ट हाइलाइट रंग इस डिफ़ॉल्ट पर प्राथमिकता लेते हैं:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -67,7 +67,7 @@ auto paragraph = autoShape->get_TextFrame()->get_Paragraph(0);
 auto defaultPortionFormat = paragraph->get_ParagraphFormat()->get_DefaultPortionFormat();
 auto highlightColor = System::Drawing::Color::get_LightGray();
 
-// पूरे पैराग्राफ के लिए हाइलाइट रंग सेट करें।
+// पूरे अनुच्छेद के लिए हाइलाइट रंग सेट करें।
 defaultPortionFormat->get_HighlightColor()->set_Color(highlightColor);
 
 presentation->Save(u"gray_paragraph.pptx", SaveFormat::Pptx);
@@ -76,9 +76,9 @@ presentation->Dispose();
 
 परिणाम:
 
-![ग्रे पैराग्राफ](gray_paragraph.png)
+![धूसर अनुच्छेद](gray_paragraph.png)
 
-नीचे दिया गया कोड उदाहरण **बोल्ड फ़ॉन्ट** वाले **टेक्स्ट भागों** के लिए पृष्ठभूमि रंग कैसे सेट करें, दर्शाता है:
+नीचे दिया गया कोड उदाहरण दिखाता है कि **मोटे फ़ॉन्ट वाले पाठ भागों** के लिए पृष्ठभूमि रंग कैसे सेट किया जाता है:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -124,13 +124,13 @@ presentation->Dispose();
 
 परिणाम:
 
-![ग्रे टेक्स्ट भाग](gray_text_portions.png)
+![धूसर पाठ भाग](gray_text_portions.png)
 
-## **पैराग्राफ टेक्स्ट को संरेखित करें**
+## **पाठ अनुच्छेद संरेखित करें**
 
-टेक्स्ट फ़्रेम के भीतर पैराग्राफ संरेखण सेट करने के लिए [IParagraphFormat::set_Alignment](https://reference.aspose.com/slides/hi/cpp/aspose.slides/iparagraphformat/set_alignment/) का उपयोग करें। मान केंद्रित, बाएँ‑संरेखित, दाएँ‑संरेखित, जस्टिफ़ाइड आदि हो सकता है।
+[IParagraphFormat::set_Alignment](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_alignment/) का उपयोग करके टेक्स्ट फ़्रेम के भीतर अनुच्छेद संरेखण सेट करें। मान केंद्रित, बाएँ-संरेखित, दाएँ-संरेखित, न्यायसंगत आदि हो सकता है।
 
-निम्न कोड उदाहरण पैराग्राफ को **केन्द्र** में संरेखित करने का तरीका दिखाता है:
+निम्नलिखित कोड उदाहरण दिखाता है कि **केंद्र** में अनुच्छेद कैसे संरेखित किया जाए:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -150,7 +150,8 @@ auto firstShape = presentation->get_Slide(0)->get_Shape(0);
 
 auto autoShape = System::ExplicitCast<IAutoShape>(firstShape);
 auto paragraph = autoShape->get_TextFrame()->get_Paragraph(0);
-// पैराग्राफ का संरेखण केंद्र में सेट करें।
+
+// अनुच्छेद का संरेखण केंद्र में सेट करें।
 paragraph->get_ParagraphFormat()->set_Alignment(TextAlignment::Center);
 
 presentation->Save(u"aligned_paragraph.pptx", SaveFormat::Pptx);
@@ -159,13 +160,110 @@ presentation->Dispose();
 
 परिणाम:
 
-![संरेखित पैराग्राफ](aligned_paragraph.png)
+![संरेखित अनुच्छेद](aligned_paragraph.png)
 
-## **टेक्स्ट की पारदर्शिता सेट करें**
+## **पंक्ति के भीतर फ़ॉन्ट संरेखित करें**
 
-टेक्स्ट की पारदर्शिता को [IBasePortionFormat::get_FillFormat](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ibaseportionformat/get_fillformat/) के माध्यम से असाइन किए गए रंग के अल्फा घटक से नियंत्रित किया जाता है। नीचे के उदाहरणों में `alpha = 50` 0‑255 स्केल पर ARGB अल्फा‑चैनल मान है, न कि प्रतिशत।
+[IParagraphFormat::set_FontAlignment](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_fontalignment/) का उपयोग करके पंक्ति में विभिन्न फ़ॉन्ट आकारों के पाठ भागों को उर्ध्वाधर रूप से संरेखित करें। यह सेटिंग पूरे अनुच्छेद पर लागू होती है और प्रत्येक पंक्ति में संरेखण को नियंत्रित करती है।
 
-नीचे दिया गया कोड उदाहरण **पूरे पैराग्राफ** पर पारदर्शिता कैसे लागू करें, दिखाता है:
+निम्नलिखित स्व-निहित उदाहरण एक स्लाइड पर चार लेबल वाले टेक्स्ट बॉक्स बनाता है। प्रत्येक अनुच्छेद में 18, 36, और 54 पॉइंट के समान पाठ होते हैं, विभिन्न फ़ॉन्ट संरेखण के साथ। यह Arial का उपयोग करता है, ऑटोफ़िट और रैपिंग को निष्क्रिय करता है, और टेक्स्ट फ्रेम को एक पंक्ति के लिए पर्याप्त बड़ा रखता है।
+
+```cpp
+#include <DOM/FontAlignment.h>
+#include <DOM/Fonts/FontData.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/ITextFrameFormat.h>
+#include <DOM/FillType.h>
+#include <DOM/NullableBool.h>
+#include <DOM/Paragraph.h>
+#include <DOM/Portion.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <DOM/TextAlignment.h>
+#include <DOM/TextAnchorType.h>
+#include <DOM/TextAutofitType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+FontAlignment alignments[] = { FontAlignment::Baseline, FontAlignment::Top, FontAlignment::Center, FontAlignment::Bottom };
+String labels[] = { u"Baseline", u"Top", u"Center", u"Bottom" };
+float fontSizes[] = { 18.0f, 36.0f, 54.0f };
+auto font = MakeObject<FontData>(u"Arial");
+
+for (auto i = 0; i < 4; i++)
+{
+    auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 30, 20 + i * 130, 660, 120);
+    shape->get_FillFormat()->set_FillType(FillType::NoFill);
+    shape->get_LineFormat()->get_FillFormat()->set_FillType(FillType::NoFill);
+
+    auto textFrame = shape->get_TextFrame();
+    textFrame->get_TextFrameFormat()->set_AnchoringType(TextAnchorType::Top);
+    textFrame->get_TextFrameFormat()->set_AutofitType(TextAutofitType::None);
+    textFrame->get_TextFrameFormat()->set_WrapText(NullableBool::False);
+
+    auto label = textFrame->get_Paragraph(0);
+    label->set_Text(labels[i]);
+    label->get_ParagraphFormat()->set_Alignment(TextAlignment::Left);
+    auto labelFormat = label->get_ParagraphFormat()->get_DefaultPortionFormat();
+    labelFormat->set_FontHeight(14);
+    labelFormat->set_LatinFont(font);
+    labelFormat->get_FillFormat()->set_FillType(FillType::Solid);
+    labelFormat->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Gray());
+
+    auto paragraph = MakeObject<Paragraph>();
+    paragraph->get_ParagraphFormat()->set_FontAlignment(alignments[i]);
+    paragraph->get_ParagraphFormat()->set_Alignment(TextAlignment::Left);
+    auto portionFormat = paragraph->get_ParagraphFormat()->get_DefaultPortionFormat();
+    portionFormat->set_LatinFont(font);
+    portionFormat->get_FillFormat()->set_FillType(FillType::Solid);
+    portionFormat->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Black());
+
+    for (auto fontSize : fontSizes)
+    {
+        auto portion = MakeObject<Portion>(u"Ag ");
+        portion->get_PortionFormat()->set_FontHeight(fontSize);
+        paragraph->get_Portions()->Add(portion);
+    }
+
+    textFrame->get_Paragraphs()->Add(paragraph);
+}
+
+presentation->Save(u"font_alignment.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+परिणाम:
+
+![बेसलाइन, टॉप, सेंटर और बॉटम फ़ॉन्ट संरेखण की तुलना (मिश्रित फ़ॉन्ट आकार)](font_alignment.png)
+
+फ़ॉन्ट संरेखण फ़ॉन्ट मीट्रिक का उपयोग करता है, इसलिए व्यक्तिगत अक्षरों के दृश्य किनारे जरूरी नहीं कि बिल्कुल मिलें। उदाहरण में बड़े अक्षर और नीचे की ओर जाने वाला भाग दोनों शामिल हैं ताकि बेसलाइन और बॉटम संरेखण के अंतर को दिखाया जा सके। फ़ॉन्ट उपलब्धता और प्रतिस्थापन, उपयोग किए गए अक्षर, और फ़ॉन्ट आकारों में अंतर परिणाम को प्रभावित करते हैं। फ्रेम आयाम, मार्जिन, लाइन स्पेसिंग, रैपिंग और ऑटोफ़िट भी लेआउट को प्रभावित करते हैं; मोड की तुलना करते समय समान फ़ॉन्ट और लेआउट सेटिंग्स का उपयोग करें।
+
+यह सेटिंग [IParagraphFormat::set_Alignment](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_alignment/) से अलग है, जो क्षैतिज अनुच्छेद संरेखण को नियंत्रित करता है, और [ITextFrameFormat::set_AnchoringType](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_anchoringtype/) से भी अलग है, जो आकार के भीतर पाठ ब्लॉक को ऊर्ध्वाधर रूप से स्थित करता है। सुपरस्क्रिप्ट और सबस्क्रिप्ट स्वरूपण [IBasePortionFormat::set_Escapement](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/set_escapement/) के माध्यम से व्यक्तिगत भागों को बेसलाइन के सापेक्ष शिफ्ट करता है, बजाय पैराग्राफ की पंक्तियों के लिए फ़ॉन्ट संरेखण सेट करने के।
+
+## **पाठ की पारदर्शिता सेट करें**
+
+पाठ पारदर्शिता को उस रंग के अल्फा घटक के माध्यम से नियंत्रित किया जाता है जो [IBasePortionFormat::get_FillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/get_fillformat/) के द्वारा असाइन किया गया है। नीचे दिखाए गए उदाहरणों में `alpha = 50` 0–255 स्केल पर एक ARGB अल्फा-चैनल मान है, न कि प्रतिशत रूप में पारदर्शिता।
+
+नीचे दिया गया कोड उदाहरण दिखाता है कि **पूरे अनुच्छेद** पर पारदर्शिता कैसे लागू की जाए:
 
 ```cpp
 #include <DOM/FillType.h>
@@ -194,7 +292,7 @@ auto autoShape = System::ExplicitCast<IAutoShape>(firstShape);
 auto paragraph = autoShape->get_TextFrame()->get_Paragraph(0);
 auto defaultPortionFormat = paragraph->get_ParagraphFormat()->get_DefaultPortionFormat();
 
-// टेक्स्ट का भरने वाला रंग पारदर्शी रंग पर सेट करें।
+// टेक्स्ट का भराव रंग पारदर्शी रंग में सेट करें।
 defaultPortionFormat->get_FillFormat()->set_FillType(FillType::Solid);
 auto baseColor = System::Drawing::Color::get_Black();
 auto transparentColor = System::Drawing::Color::FromArgb(alpha, baseColor);
@@ -206,9 +304,9 @@ presentation->Dispose();
 
 परिणाम:
 
-![पारदर्शी पैराग्राफ](transparent_paragraph.png)
+![पारदर्शी अनुच्छेद](transparent_paragraph.png)
 
-निम्न कोड उदाहरण **बोल्ड फ़ॉन्ट** वाले **टेक्स्ट भागों** पर पारदर्शिता कैसे लागू करें, दर्शाता है:
+निम्नलिखित कोड उदाहरण दिखाता है कि **मोटे फ़ॉन्ट वाले पाठ भागों** पर पारदर्शिता कैसे लागू की जाए:
 
 ```cpp
 #include <DOM/FillType.h>
@@ -246,7 +344,7 @@ for (int portionIndex = 0; portionIndex < portionCount; portionIndex++)
     auto portionFormat = portion->get_PortionFormat();
     if (portionFormat->GetEffective()->get_FontBold())
     {
-        // टेक्स्ट भाग की पारदर्शिता सेट करें.
+        // टेक्स्ट भाग की पारदर्शिता सेट करें।
         portionFormat->get_FillFormat()->set_FillType(FillType::Solid);
         auto baseColor = System::Drawing::Color::get_Black();
         auto transparentColor = System::Drawing::Color::FromArgb(alpha, baseColor);
@@ -260,13 +358,13 @@ presentation->Dispose();
 
 परिणाम:
 
-![पारदर्शी टेक्स्ट भाग](transparent_text_portions.png)
+![पारदर्शी पाठ भाग](transparent_text_portions.png)
 
-## **टेक्स्ट के लिए अक्षर अंतराल सेट करें**
+## **पाठ के लिए अक्षर स्पेसिंग सेट करें**
 
-टेक्स्ट बॉक्स में अक्षरों के बीच अंतराल को विस्तारित या संकुचित करने के लिए [IBasePortionFormat::set_Spacing](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ibaseportionformat/set_spacing/) का उपयोग करें। उदाहरण 3 पॉइंट का अंतराल जोड़ते हैं; नकारात्मक मान टेक्स्ट को संकुचित करते हैं।
+[IBasePortionFormat::set_Spacing](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/set_spacing/) का उपयोग करके टेक्स्ट बॉक्स में अक्षरों के बीच स्पेसिंग को बढ़ाया या घटाया जा सकता है। उदाहरण 3 पॉइंट की स्पेसिंग जोड़ते हैं; नकारात्मक मान टेक्स्ट को घटाते हैं।
 
-निम्न C++ कोड **पूरे पैराग्राफ** में अक्षर अंतराल को विस्तारित करने का तरीका दिखाता है:
+निम्नलिखित C++ कोड दिखाता है कि **पूरे अनुच्छेद** में अक्षर स्पेसिंग कैसे बढ़ाई जाए:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -286,9 +384,8 @@ auto firstShape = presentation->get_Slide(0)->get_Shape(0);
 
 auto autoShape = System::ExplicitCast<IAutoShape>(firstShape);
 auto paragraph = autoShape->get_TextFrame()->get_Paragraph(0);
-
-// नोट: अक्षर अंतराल को संपीड़ित करने के लिए नकारात्मक मान उपयोग करें।
-paragraph->get_ParagraphFormat()->get_DefaultPortionFormat()->set_Spacing(3.0f); // अक्षर अंतराल बढ़ाएँ।
+// ध्यान दें: अक्षर स्पेसिंग को संकुचित करने के लिये नकारात्मक मानों का उपयोग करें।
+paragraph->get_ParagraphFormat()->get_DefaultPortionFormat()->set_Spacing(3.0f); // अक्षर स्पेसिंग बढ़ाएँ।
 
 presentation->Save(u"character_spacing_in_paragraph.pptx", SaveFormat::Pptx);
 presentation->Dispose();
@@ -296,9 +393,9 @@ presentation->Dispose();
 
 परिणाम:
 
-![पैराग्राफ में अक्षर अंतराल](character_spacing_in_paragraph.png)
+![अनुच्छेद में अक्षर स्पेसिंग](character_spacing_in_paragraph.png)
 
-नीचे दिया गया कोड उदाहरण **बोल्ड फ़ॉन्ट** वाले **टेक्स्ट भागों** में अक्षर अंतराल को विस्तारित करने का तरीका दिखाता है:
+नीचे दिया गया कोड उदाहरण दिखाता है कि **मोटे फ़ॉन्ट वाले पाठ भागों** में अक्षर स्पेसिंग कैसे बढ़ाई जाए:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -330,8 +427,8 @@ for (int portionIndex = 0; portionIndex < portionCount; portionIndex++)
     auto portionFormat = portion->get_PortionFormat();
     if (portionFormat->GetEffective()->get_FontBold())
     {
-        // नोट: अक्षर अंतराल को संपीड़ित करने के लिए नकारात्मक मान उपयोग करें.
-        portionFormat->set_Spacing(3.0f); // अक्षर अंतराल बढ़ाएँ.
+        // ध्यान दें: अक्षर स्पेसिंग को संकुचित करने के लिए नकारात्मक मानों का उपयोग करें।
+        portionFormat->set_Spacing(3.0f); // अक्षर स्पेसिंग बढ़ाएँ।
     }
 }
 
@@ -341,13 +438,13 @@ presentation->Dispose();
 
 परिणाम:
 
-![टेक्स्ट भागों में अक्षर अंतराल](character_spacing_in_text_portions.png)
+![पाठ भागों में अक्षर स्पेसिंग](character_spacing_in_text_portions.png)
 
-### **विशिष्ट फ़ॉन्ट के लिए केरनिंग अक्षम करें**
+### **विशिष्ट फ़ॉन्ट्स के लिए कर्निंग अक्षम करें**
 
-कुछ मामलों में Aspose.Slides द्वारा रेंडर किया गया टेक्स्ट PowerPoint में दिखने वाले टेक्स्ट से थोड़ा अधिक कसकर लग सकता है। यह इसलिए हो सकता है क्योंकि PowerPoint कुछ फ़ॉन्टों के लिए केरनिंग डेटा को अनदेखा कर सकता है, भले ही फ़ॉन्ट में वैध केरनिंग जानकारी हो और PowerPoint सेटिंग्स में केरनिंग सक्षम हो।
+कुछ मामलों में, Aspose.Slides द्वारा रेंडर किया गया पाठ PowerPoint में दिखाए गए समान पाठ से थोड़ा अधिक कसकर दिखाई दे सकता है। यह इसलिए हो सकता है क्योंकि PowerPoint कुछ फ़ॉन्ट्स के लिए कर्निंग डेटा को अनदेखा कर सकता है, भले ही फ़ॉन्ट में वैध कर्निंग जानकारी हो और PowerPoint सेटिंग्स में कर्निंग सक्षम हो।
 
-ऐसे मामलों में आप प्रभावित फ़ॉन्ट वाले टेक्स्ट भागों के लिए केरनिंग अक्षम कर सकते हैं। इसके लिए [IBasePortionFormat::set_KerningMinimalSize](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ibaseportionformat/set_kerningminimalsize/) का उपयोग करके वास्तविक फ़ॉन्ट आकार से बड़ा मान सेट करें। यह उदाहरण पहली स्लाइड के पहले आकार में एक टेक्स्ट बॉक्स वाले "presentation.pptx" की आवश्यकता रखता है। यह प्रभावी फ़ॉन्ट नामों (विरासत में मिले फ़ॉन्ट सहित) की जाँच करता है और रोबोटो का उपयोग करने वाले भागों के लिए 100‑पॉइंट थ्रेशोल्ड सेट करता है। यह 100 पॉइंट से नीचे के फ़ॉन्ट आकार वाले मिलते भागों के लिए केरनिंग अक्षम करता है:
+ऐसे मामलों में आउटपुट को PowerPoint के करीब लाने के लिए, आप प्रभावित फ़ॉन्ट का उपयोग करने वाले पाठ भागों के लिए कर्निंग अक्षम कर सकते हैं। [IBasePortionFormat::set_KerningMinimalSize](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/set_kerningminimalsize/) का उपयोग करके वास्तविक फ़ॉन्ट आकार से बड़ा मान सेट करें। यह उदाहरण "presentation.pptx" को आवश्यकता करता है जिसमें पहली स्लाइड पर पहला आकार एक टेक्स्ट बॉक्स हो। यह प्रभावी फ़ॉन्ट नामों की जाँच करता है, जिसमें विरासत में मिला फ़ॉन्ट भी शामिल है, और Roboto का उपयोग करने वाले भागों के लिए 100‑पॉइंट थ्रेशोल्ड निर्धारित करता है। यह 100 पॉइंट से नीचे के फ़ॉन्ट आकार वाले मिलते भागों के लिए कर्निंग को अक्षम करता है:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -405,13 +502,13 @@ presentation->Save(u"output.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-थ्रेशोल्ड से नीचे के मिलते टेक्स्ट के लिए यह सेटिंग केरनिंग को रोकती है और PowerPoint‑विशिष्ट व्यवहार से प्रभावित फ़ॉन्टों के लिए Aspose.Slides रेंडरिंग को PowerPoint की दृश्य आउटपुट के साथ मिलाने में मदद करती है।
+थ्रेशोल्ड से नीचे के मिलते पाठ के लिए, यह सेटिंग कर्निंग को रोकती है और Aspose.Slides की रेंडरिंग को PowerPoint के दृश्य आउटपुट के साथ संरेखित करने में मदद कर सकती है।
 
-## **टेक्स्ट फ़ॉन्ट गुण प्रबंधित करें**
+## **पाठ फ़ॉन्ट गुण प्रबंधित करें**
 
-फ़ॉन्ट गुण पैराग्राफ स्तर पर [IParagraphFormat::get_DefaultPortionFormat](https://reference.aspose.com/slides/hi/cpp/aspose.slides/iparagraphformat/get_defaultportionformat/) के माध्यम से या व्यक्तिगत भागों पर [IPortionFormat](https://reference.aspose.com/slides/hi/cpp/aspose.slides/iportionformat/) के माध्यम से सेट किए जा सकते हैं।
+फ़ॉन्ट गुण अनुच्छेद स्तर पर [IParagraphFormat::get_DefaultPortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/get_defaultportionformat/) के द्वारा या व्यक्तिगत भागों पर [IPortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/iportionformat/) के द्वारा सेट किए जा सकते हैं।
 
-निम्न उदाहरण पहली पैराग्राफ का डिफ़ॉल्ट फ़ॉन्ट 12‑पॉइंट Times New Roman, बोल्ड, इटैलिक और डॉटेड अंडरलाइन के साथ सेट करता है। व्यक्तिगत भागों पर स्पष्ट फ़ॉर्मेटिंग इन डिफ़ॉल्ट्स पर प्राथमिकता लेती है:
+निम्नलिखित उदाहरण पहले अनुच्छेद की डिफ़ॉल्ट फ़ॉन्ट को 12‑पॉइंट Times New Roman, मोटा, इटैलिक और बिंदीदार रेखा वाले अंडरलाइन के साथ सेट करता है। व्यक्तिगत भागों पर स्पष्ट स्वरूपण इन डिफ़ॉल्ट्स से प्राथमिकता लेता है:
 
 ```cpp
 #include <DOM/Fonts/FontData.h>
@@ -436,7 +533,7 @@ auto autoShape = System::ExplicitCast<IAutoShape>(firstShape);
 auto paragraph = autoShape->get_TextFrame()->get_Paragraph(0);
 auto defaultPortionFormat = paragraph->get_ParagraphFormat()->get_DefaultPortionFormat();
 
-// पैराग्राफ के लिए फ़ॉन्ट गुण सेट करें।
+// अनुच्छेद के लिए फ़ॉन्ट गुण सेट करें।
 defaultPortionFormat->set_FontHeight(12.0f);
 defaultPortionFormat->set_FontBold(NullableBool::True);
 defaultPortionFormat->set_FontItalic(NullableBool::True);
@@ -450,9 +547,9 @@ presentation->Dispose();
 
 परिणाम:
 
-![पैराग्राफ के लिए फ़ॉन्ट गुण](font_properties_for_paragraph.png)
+![अनुच्छेद के फ़ॉन्ट गुण](font_properties_for_paragraph.png)
 
-निम्न उदाहरण उन भागों पर 13‑पॉइंट Times New Roman, इटैलिक फ़ॉर्मेटिंग और डॉटेड अंडरलाइन लागू करता है जिनकी प्रभावी फ़ॉर्मेटिंग बोल्ड है:
+निम्नलिखित उदाहरण 13‑पॉइंट Times New Roman, इटैलिक स्वरूपण और बिंदीदार अंडरलाइन को उन भागों पर लागू करता है जिनका प्रभावी स्वरूपण मोटा है:
 
 ```cpp
 #include <DOM/Fonts/FontData.h>
@@ -487,7 +584,7 @@ for (int portionIndex = 0; portionIndex < portionCount; portionIndex++)
     auto portionFormat = portion->get_PortionFormat();
     if (portionFormat->GetEffective()->get_FontBold())
     {
-        // टेक्स्ट भाग के लिए फ़ॉन्ट गुण सेट करें.
+        // पाठ भाग के लिए फ़ॉन्ट गुण सेट करें।
         portionFormat->set_FontHeight(13.0f);
         portionFormat->set_FontItalic(NullableBool::True);
         portionFormat->set_FontUnderline(TextUnderlineType::Dotted);
@@ -501,13 +598,13 @@ presentation->Dispose();
 
 परिणाम:
 
-![टेक्स्ट भागों के लिए फ़ॉन्ट गुण](font_properties_for_text_portions.png)
+![पाठ भागों के फ़ॉन्ट गुण](font_properties_for_text_portions.png)
 
-## **टेक्स्ट घुमाव सेट करें**
+## **पाठ घुमाव सेट करें**
 
-[ ITextFrameFormat::set_TextVerticalType](https://reference.aspose.com/slides/hi/cpp/aspose.slides/itextframeformat/set_textverticaltype/) का उपयोग करके आकार के भीतर पूर्वनिर्धारित टेक्स्ट अभिविन्यास सेट करें।
+[ITextFrameFormat::set_TextVerticalType](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_textverticaltype/) का उपयोग करके आकार के भीतर पूर्वनिर्धारित पाठ अभिविन्यास सेट किया जा सकता है।
 
-निम्न कोड उदाहरण टेक्स्ट अभिविन्यास को [TextVerticalType::Vertical270](https://reference.aspose.com/slides/hi/cpp/aspose.slides/textverticaltype/) पर सेट करता है, जो टेक्स्ट को **90 डिग्री प्रतिकूल दिशा** में घुमाता है:
+निम्नलिखित कोड उदाहरण टेक्स्ट अभिविन्यास को [TextVerticalType::Vertical270](https://reference.aspose.com/slides/cpp/aspose.slides/textverticaltype/) पर सेट करता है, जो पाठ को **90 डिग्री वामावर्त** घुमा देता है:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -533,13 +630,13 @@ presentation->Dispose();
 
 परिणाम:
 
-![टेक्स्ट घुमाव](text_rotation.png)
+![पाठ घुमाव](text_rotation.png)
 
-## **टेक्स्ट फ़्रेम के लिए कस्टम घुमाव सेट करें**
+## **पाठ फ्रेम के लिए कस्टम घुमाव सेट करें**
 
-[ITextFrameFormat::set_RotationAngle](https://reference.aspose.com/slides/hi/cpp/aspose.slides/itextframeformat/set_rotationangle/) का उपयोग करके [ITextFrame](https://reference.aspose.com/slides/hi/cpp/aspose.slides/itextframe/) के लिए कस्टम घुमाव कोण सेट करें।
+[ITextFrameFormat::set_RotationAngle](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_rotationangle/) का उपयोग करके [ITextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/) के लिए कस्टम घुमाव कोण सेट किया जा सकता है।
 
-नीचे दिया गया कोड उदाहरण आकार के भीतर टेक्स्ट फ़्रेम को 3 डिग्री क्लॉकवाइज़ घुमाता है:
+निचले कोड उदाहरण आकार के भीतर पाठ फ्रेम को 3 डिग्री घड़ी की दिशा में घुमा देता है:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -564,16 +661,16 @@ presentation->Dispose();
 
 परिणाम:
 
-![कस्टम टेक्स्ट घुमाव](custom_text_rotation.png)
+![कस्टम पाठ घुमाव](custom_text_rotation.png)
 
-## **पैराग्राफ की लाइन स्पेसिंग सेट करें**
+## **अनुच्छेदों की लाइन स्पेसिंग सेट करें**
 
-Aspose.Slides निम्न विधियों के माध्यम से पैराग्राफ स्पेसिंग को नियंत्रित करता है: [IParagraphFormat::set_SpaceAfter](https://reference.aspose.com/slides/hi/cpp/aspose.slides/iparagraphformat/set_spaceafter/), [IParagraphFormat::set_SpaceBefore](https://reference.aspose.com/slides/hi/cpp/aspose.slides/iparagraphformat/set_spacebefore/), और [IParagraphFormat::set_SpaceWithin](https://reference.aspose.com/slides/hi/cpp/aspose.slides/iparagraphformat/set_spacewithin/)। इनका उपयोग इस प्रकार होता है:
+Aspose.Slides [IParagraphFormat::set_SpaceAfter](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_spaceafter/), [IParagraphFormat::set_SpaceBefore](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_spacebefore/), और [IParagraphFormat::set_SpaceWithin](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_spacewithin/) प्रदान करता है ताकि अनुच्छेद स्पेसिंग को नियंत्रित किया जा सके। इन विधियों का प्रयोग इस प्रकार किया जाता है:
 
-* लाइन स्पेसिंग को लाइन ऊँचाई के प्रतिशत के रूप में निर्दिष्ट करने के लिए सकारात्मक मान उपयोग करें।
-* लाइन स्पेसिंग को पॉइंट में निर्दिष्ट करने के लिए नकारात्मक मान उपयोग करें।
+* लाइन स्पेसिंग को लाइन की ऊँचाई के प्रतिशत के रूप में निर्दिष्ट करने के लिये सकारात्मक मान का प्रयोग करें।
+* लाइन स्पेसिंग को पॉइंट में निर्दिष्ट करने के लिये नकारात्मक मान का प्रयोग करें।
 
-निम्न उदाहरण पहली पैराग्राफ में अंतराल को लाइन ऊँचाई के 200 % (डबल स्पेसिंग) पर सेट करता है:
+निम्नलिखित उदाहरण पहली अनुच्छेद के भीतर स्पेसिंग को लाइन की ऊँचाई के 200 % (डबल स्पेसिंग) पर सेट करता है:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -601,18 +698,18 @@ presentation->Dispose();
 
 परिणाम:
 
-![पैराग्राफ के भीतर लाइन स्पेसिंग](line_spacing.png)
+![अनुच्छेद के भीतर लाइन स्पेसिंग](line_spacing.png)
 
 ## **लाइन ब्रेकिंग नियंत्रित करें**
 
-पैराग्राफ लाइन‑ब्रेकिंग नियम संकरी टेक्स्ट ब्लॉकों और लैटिन व ईस्ट एशियाई टेक्स्ट मिश्रित प्रस्तुतियों में उपयोगी हैं। नीचे दी गई विधियां [IParagraphFormat](https://reference.aspose.com/slides/hi/cpp/aspose.slides/iparagraphformat/) से संबंधित हैं, इसलिए वे पूरे पैराग्राफ पर लागू होती हैं:
+अनुच्छेद लाइन‑ब्रेकिंग नियम संकीर्ण टेक्स्ट ब्लॉकों और मिश्रित लैटिन एवं ईस्ट एशियन पाठ वाले प्रस्तुतियों में उपयोगी होते हैं। निम्नलिखित विधियां [IParagraphFormat](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/) से संबंधित हैं, इसलिए वे पूरे अनुच्छेद पर लागू होती हैं:
 
-- [IParagraphFormat::set_LatinLineBreak](https://reference.aspose.com/slides/hi/cpp/aspose.slides/iparagraphformat/set_latinlinebreak/) लैटिन लाइन‑ब्रेकिंग नियम नियंत्रित करता है। मिश्रित टेक्स्ट में इसे बदलने से ईस्ट एशियाई टेक्स्ट और विराम चिह्नों की रैपिंग भी बदल सकती है।
-- [IParagraphFormat::set_EastAsianLineBreak](https://reference.aspose.com/slides/hi/cpp/aspose.slides/iparagraphformat/set_eastasianlinebreak/) ईस्ट एशियाई लाइन‑ब्रेकिंग नियम नियंत्रित करता है, जिसमें लाइन की शुरुआत और अंत में अक्षरों पर प्रतिबंध शामिल हैं।
+- [IParagraphFormat::set_LatinLineBreak](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_latinlinebreak/) लैटिन लाइन‑ब्रेकिंग नियमों को नियंत्रित करता है। मिश्रित पाठ में इसे बदलने से आस-पास के ईस्ट एशियन पाठ और विराम चिह्नों की रैपिंग भी बदल सकती है।
+- [IParagraphFormat::set_EastAsianLineBreak](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_eastasianlinebreak/) ईस्ट एशियन लाइन‑ब्रेकिंग नियमों को नियंत्रित करता है, जिसमें लाइन की शुरुआत और अंत में अक्षर प्रतिबंध शामिल हैं।
 
-ये नियम [ITextFrameFormat::set_WrapText](https://reference.aspose.com/slides/hi/cpp/aspose.slides/itextframeformat/set_wraptext/) को प्रतिस्थापित नहीं करते, जो टेक्स्ट फ़्रेम के भीतर स्वचालित रैपिंग सक्षम करता है। वे रैपिंग होने पर लेआउट को प्रभावित करते हैं; वे लाइन‑ब्रेक कैरेक्टर नहीं डालते। स्पष्ट लाइन‑ब्रेक उपलब्ध चौड़ाई से स्वतंत्र रूप से पैराग्राफ के भीतर नई लाइन बनाता है।
+ये नियम [ITextFrameFormat::set_WrapText](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_wraptext/) को प्रतिस्थापित नहीं करते, जो टेक्स्ट फ्रेम के भीतर स्वचालित रैपिंग को सक्षम करता है। ये रैपिंग होने पर लेआउट को प्रभावित करते हैं; वे लाइन‑ब्रेक अक्षर सम्मिलित नहीं करते। स्पष्ट लाइन‑ब्रेक उपलब्ध चौड़ाई से स्वतंत्र रूप से अनुच्छेद के भीतर नई पंक्ति बनाता है।
 
-निम्न स्वतंत्र उदाहरण एक संकरी टेक्स्ट ब्लॉक बनाता है जिसमें चीनी और लैटिन टेक्स्ट सम्मिलित है। यह दोनों लाइन‑ब्रेकिंग नियमों को स्पष्ट रूप से सेट करता है और "line_breaking.pptx" सहेजता है। किसी भी नियम का प्रयोग करने के लिए, उसके सेट्टर को बदलें जबकि अन्य सेटिंग्स को अपरिवर्तित रखें। यह उदाहरण 24‑पॉइंट Arial और SimSun, 160‑पॉइंट फ़्रेम चौड़ाई और शून्य क्षैतिज टेक्स्ट‑फ़्रेम मार्जिन का उपयोग करता है। [ITextFrameFormat::set_AutofitType](https://reference.aspose.com/slides/hi/cpp/aspose.slides/itextframeformat/set_autofittype/) को [TextAutofitType::None](https://reference.aspose.com/slides/hi/cpp/aspose.slides/textautofittype/) के साथ कॉल किया गया है ताकि टेक्स्ट आकार और फ़्रेम आयाम स्थिर रहें:
+निम्नलिखित स्व-निहित उदाहरण एक संकीर्ण टेक्स्ट ब्लॉक बनाता है जिसमें चीनी और लैटिन पाठ है। यह दोनों लाइन‑ब्रेकिंग नियमों को स्पष्ट रूप से सेट करता है और "line_breaking.pptx" सहेजता है। किसी भी नियम के साथ प्रयोग करने के लिये, अन्य सेटिंग्स को स्थिर रखकर उसके सेटर को पास किया गया मान बदलें। उदाहरण 24‑पॉइंट Arial और SimSun को 160‑पॉइंट फ्रेम चौड़ाई और शून्य क्षैतिज टेक्स्ट‑फ़्रेम मार्जिन के साथ उपयोग करता है। [ITextFrameFormat::set_AutofitType](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_autofittype/) को [TextAutofitType::None](https://reference.aspose.com/slides/cpp/aspose.slides/textautofittype/) के साथ बुलाया गया है ताकि पाठ आकार और फ्रेम आयाम स्थिर रहें।
 
 ```cpp
 #include <DOM/Fonts/FontData.h>
@@ -670,11 +767,11 @@ presentation->Save(u"line_breaking.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **हैंगिंग पंक्चुएशन नियंत्रित करें**
+## **हैंगिंग विराम चिह्न नियंत्रित करें**
 
-[IParagraphFormat::set_HangingPunctuation](https://reference.aspose.com/slides/hi/cpp/aspose.slides/iparagraphformat/set_hangingpunctuation/) योग्य पंक्चुएशन को टेक्स्ट लाइन के दाएँ किनारे से बाहर तक विस्तारित करने की अनुमति देता है, बजाय अगले लाइन में जाने के। यह पूरे पैराग्राफ पर लागू होता है और हैंगिंग इन्डेंट से अलग है।
+[IParagraphFormat::set_HangingPunctuation](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_hangingpunctuation/) पात्र विराम चिह्न को पाठ पंक्ति के दाएँ किनारे से बाहर तक विस्तारित होने की अनुमति देता है, बजाय अगले पंक्ति में ले जाने के। यह पूरे अनुच्छेद पर लागू होता है और हैंगिंग इंडेंट से अलग है।
 
-निम्न स्वतंत्र उदाहरण 100‑पॉइंट‑व्यापी टेक्स्ट फ़्रेम में हैंगिंग पंक्चुएशन सक्षम करता है और "hanging_punctuation.pptx" सहेजता है। 24‑पॉइंट Arial और शून्य क्षैतिज टेक्स्ट‑फ़्रेम मार्जिन के साथ, अंतिम बिंदु "sentence" के बाद रहता है और दाएँ टेक्स्ट किनारे से बाहर तक विस्तारित होता है। तुलना के लिए सेट्टर को [NullableBool::False](https://reference.aspose.com/slides/hi/cpp/aspose.slides/nullablebool/) पास करें: इन सेटिंग्स के साथ बिंदु अलग लाइन लेता है। रैपिंग सक्षम है और ऑटोफ़िट अक्षम है ताकि उपलब्ध चौड़ाई स्थिर रहे।
+निम्नलिखित स्व-निहित उदाहरण 100‑पॉइंट‑व्यापी टेक्स्ट फ्रेम में हैंगिंग विराम चिह्न को सक्षम करता है और "hanging_punctuation.pptx" सहेजता है। 24‑पॉइंट Arial और शून्य क्षैतिज टेक्स्ट‑फ़्रेम मार्जिन के साथ, अंतिम पूर्ण विराम "sentence" के बाद रहता है और दाएँ टेक्स्ट किनारे से बाहर तक विस्तारित होता है। तुलना के लिये [NullableBool::False](https://reference.aspose.com/slides/cpp/aspose.slides/nullablebool/) को सेटर में पास करें: इन सेटिंग्स के साथ, पूर्ण विराम अलग पंक्ति में स्थित होता है। रैपिंग सक्षम है और ऑटोफ़िट निष्क्रिय है ताकि उपलब्ध चौड़ाई स्थिर रहे।
 
 ```cpp
 #include <DOM/Fonts/FontData.h>
@@ -729,11 +826,11 @@ presentation->Save(u"hanging_punctuation.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-हर पंक्चुएशन मार्क हैंग नहीं हो सकता। दिखाया गया परिणाम फ़ॉन्ट और लेआउट पर निर्भर करता है: फ़ॉन्ट, उपलब्ध चौड़ाई, मार्जिन या ऑटोफ़िट सेटिंग्स बदलने से दृश्य अंतर हट सकता है।
+हर विराम चिह्न हैंग नहीं कर सकता। ऊपर वर्णित [फ़ॉन्ट और लेआउट स्थितियाँ](#control-line-breaking) इस तुलना पर भी लागू होती हैं: फ़ॉन्ट, उपलब्ध चौड़ाई, मार्जिन, या ऑटोफ़िट सेटिंग्स बदलने से दृश्य अंतर हट सकता है।
 
-## **टेक्स्ट फ़्रेम के लिए ऑटोफ़िट प्रकार सेट करें**
+## **पाठ फ्रेम के लिए ऑटोफ़िट प्रकार सेट करें**
 
-[ITextFrameFormat::set_AutofitType](https://reference.aspose.com/slides/hi/cpp/aspose.slides/itextframeformat/set_autofittype/) निर्धारित करता है कि टेक्स्ट कंटेनर की सीमाओं से अधिक होने पर कैसे व्यवहार करता है। इसका उपयोग करके आप तय कर सकते हैं कि टेक्स्ट सिकुड़े, ओवरफ़्लो हो या आकार को स्वयं स्वचालित रूप से रिसाइज़ करे। नीचे दिया गया उदाहरण आकार को उसके टेक्स्ट के अनुसार रिसाइज़ करने के लिए कॉन्फ़िगर करता है और परिणाम को "autofit_type.pptx" में सहेजता है:
+[ITextFrameFormat::set_AutofitType](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_autofittype/) निर्धारित करता है कि जब पाठ कंटेनर की सीमाओं से बाहर हो तो वह कैसे व्यवहार करता है। इसका उपयोग यह नियंत्रित करने के लिये करें कि पाठ छोटा हो, ओवरफ़्लो हो, या आकार स्वचालित रूप से रिसाइज़ हो। निम्नलिखित उदाहरण आकार को उसके पाठ के अनुसार रिसाइज़ करने के लिये कॉन्फ़िगर करता है और परिणाम को "autofit_type.pptx" में सहेजता है।
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -757,11 +854,11 @@ presentation->Save(u"autofit_type.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-स्वचालित रैपिंग के बाद लाइनों की गिनती करने और यह देखने के लिए कि टेक्स्ट या आकार की चौड़ाई परिवर्तन परिणाम को कैसे प्रभावित करती है, देखें [Count Rendered Lines](/slides/hi/cpp/manage-paragraph/)। केवल लाइन गिनती यह संकेत नहीं देती कि टेक्स्ट कंटेनर से बाहर ले जाता है या नहीं।
+ऑटोरैपिंग के बाद पंक्तियों की गिनती और यह देखने के लिये कि पाठ या आकार की चौड़ाई बदलने से परिणाम कैसे बदलता है, देखें [Count Rendered Lines](/slides/hi/cpp/manage-paragraph/)। केवल पंक्तियों की गिनती यह संकेत नहीं देती कि पाठ कंटेनर से बाहर निकल रहा है या नहीं।
 
-## **टेक्स्ट फ़्रेम का एंकर सेट करें**
+## **पाठ फ्रेम का एंकर सेट करें**
 
-[ITextFrameFormat::set_AnchoringType](https://reference.aspose.com/slides/hi/cpp/aspose.slides/itextframeformat/set_anchoringtype/) परिभाषित करता है कि टेक्स्ट आकार के अंदर वर्टिकली कैसे स्थित हो, उदाहरण के लिये शीर्ष, मध्य या निचला। नीचे दिया गया उदाहरण टेक्स्ट को पहली आकार के नीचे एंकर करता है और परिणाम को "text_anchor.pptx" में सहेजता है:
+[ITextFrameFormat::set_AnchoringType](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_anchoringtype/) निर्धारित करता है कि आकार के भीतर पाठ को ऊर्ध्वाधर रूप से कैसे स्थित किया जाए, उदाहरण के लिये शीर्ष, मध्य या निचला भाग। निम्नलिखित उदाहरण पहले आकार के नीचे पाठ को एंकर करता है और परिणाम को "text_anchor.pptx" में सहेजता है।
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -785,9 +882,9 @@ presentation->Save(u"text_anchor.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **टेक्स्ट टैबुलेशन सेट करें**
+## **पाठ टैबुलेशन सेट करें**
 
-पैराग्राफ में टैब स्टॉप कॉन्फ़िगर करने के लिए [IParagraphFormat::set_DefaultTabSize](https://reference.aspose.com/slides/hi/cpp/aspose.slides/iparagraphformat/set_defaulttabsize/) और [IParagraphFormat::get_Tabs](https://reference.aspose.com/slides/hi/cpp/aspose.slides/iparagraphformat/get_tabs/) का उपयोग करें। नीचे दिया गया उदाहरण डिफ़ॉल्ट टैब अंतराल को 100 पॉइंट पर सेट करता है और 30 पॉइंट पर एक बाएँ‑संरेखित टैब स्टॉप जोड़ता है। ये सेटिंग्स टैब कैरेक्टर वाले टेक्स्ट को प्रभावित करती हैं:
+[IParagraphFormat::set_DefaultTabSize](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_defaulttabsize/) और [IParagraphFormat::get_Tabs](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/get_tabs/) का उपयोग करके अनुच्छेद में टैब स्टॉप कॉन्फ़िगर करें। निम्नलिखित उदाहरण डिफ़ॉल्ट टैब अंतराल को 100 पॉइंट पर सेट करता है और 30 पॉइंट पर बाएँ‑संरेखित टैब स्टॉप जोड़ता है। ये सेटिंग्स टैब अक्षर वाले पाठ को प्रभावित करती हैं।
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -818,13 +915,13 @@ presentation->Dispose();
 
 परिणाम:
 
-![पैराग्राफ टैब्स](paragraph_tabs.png)
+![अनुच्छेद टैब](paragraph_tabs.png)
 
-## **प्रूफ़िंग भाषा सेट करें**
+## **प्रूफिंग भाषा सेट करें**
 
-Aspose.Slides [IBasePortionFormat::set_LanguageId](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ibaseportionformat/set_languageid/) प्रदान करता है, जिससे आप टेक्स्ट भाग के लिए प्रूफ़िंग भाषा सेट कर सकते हैं। प्रूफ़िंग भाषा PowerPoint में वर्तनी और व्याकरण जांच के लिए उपयोग की जाने वाली भाषा निर्धारित करती है।
+Aspose.Slides [IBasePortionFormat::set_LanguageId](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/set_languageid/) प्रदान करता है, जिससे आप किसी पाठ भाग की प्रूफिंग भाषा सेट कर सकते हैं। प्रूफिंग भाषा PowerPoint में वर्तनी और व्याकरण जांच के लिये उपयोग की जाने वाली भाषा निर्धारित करती है।
 
-निम्न उदाहरण में "presentation.pptx" चाहिए, जिसमें पहली स्लाइड पर पहला आकार एक टेक्स्ट बॉक्स हो और कम से कम एक पैराग्राफ हो। यह पहले पैराग्राफ की सामग्री को "1。" से बदलता है, फ़ॉन्ट को SimSun सेट करता है और प्रमाणित भाषा को सरलित चीनी (`zh-CN`) असाइन करता है। परिणाम को "proofing_language.pptx" में सहेजता है:
+निम्नलिखित उदाहरण को "presentation.pptx" की आवश्यकता है जिसमें पहली स्लाइड पर पहला आकार एक टेक्स्ट बॉक्स हो और कम से कम एक अनुच्छेद हो। यह पहले अनुच्छेद की सामग्री को "1。" से बदलता है, फ़ॉन्ट को SimSun सेट करता है, और सरलित चीनी प्रूफिंग भाषा (`zh-CN`) असाइन करता है। परिणाम को "proofing_language.pptx" में सहेजता है:
 
 ```cpp
 #include <DOM/Fonts/FontData.h>
@@ -857,7 +954,7 @@ portionFormat->set_ComplexScriptFont(font);
 portionFormat->set_EastAsianFont(font);
 portionFormat->set_LatinFont(font);
 
-// प्रमाणन भाषा को सरलित चीनी पर सेट करें.
+// प्रूफ़िंग भाषा को सरलित चीनी में सेट करें।
 portionFormat->set_LanguageId(u"zh-CN");
 
 textPortion->set_Text(u"1。");
@@ -869,7 +966,7 @@ presentation->Dispose();
 
 ## **डिफ़ॉल्ट भाषा सेट करें**
 
-[LoadOptions::set_DefaultTextLanguage](https://reference.aspose.com/slides/hi/cpp/aspose.slides/loadoptions/set_defaulttextlanguage/) का उपयोग करके प्रस्तुति लोड या बनाते समय निर्मित टेक्स्ट के लिए डिफ़ॉल्ट भाषा निर्धारित करें। नीचे दिया गया उदाहरण US English को डिफ़ॉल्ट टेक्स्ट भाषा के रूप में सेट करता है, एक टेक्स्ट बॉक्स जोड़ता है, और उसकी पहली टेक्स्ट भाग के लिए `en-US` प्रिंट करता है:
+[LoadOptions::set_DefaultTextLanguage](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_defaulttextlanguage/) का उपयोग करके प्रस्तुतीकरण लोड या बनाने के समय बनाए गए पाठ की डिफ़ॉल्ट भाषा निर्धारित करें। निम्नलिखित उदाहरण US English को डिफ़ॉल्ट टेक्स्ट भाषा के रूप में सेट करके एक प्रस्तुतीकरण बनाता है, टेक्स्ट बॉक्स जोड़ता है, और उसके पहले टेक्स्ट भाग के लिये `en-US` प्रिंट करता है।
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -892,7 +989,7 @@ loadOptions->set_DefaultTextLanguage(u"en-US");
 auto presentation = System::MakeObject<Presentation>(loadOptions);
 auto slide = presentation->get_Slide(0);
 
-// एक नया आयताकार आकार टेक्स्ट के साथ जोड़ें।
+// एक नया आयताकार आकार पाठ के साथ जोड़ें।
 auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20.0f, 20.0f, 150.0f, 50.0f);
 shape->get_TextFrame()->set_Text(u"Sample text");
 
@@ -904,11 +1001,11 @@ System::Console::WriteLine(languageId);
 presentation->Dispose();
 ```
 
-## **डिफ़ॉल्ट टेक्स्ट शैली सेट करें**
+## **डिफ़ॉल्ट टेक्स्ट स्टाइल सेट करें**
 
-प्रस्तुति स्तर पर डिफ़ॉल्ट टेक्स्ट फ़ॉर्मेटिंग लागू करने के लिए [IPresentation::get_DefaultTextStyle](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ipresentation/get_defaulttextstyle/) का उपयोग करें।
+प्रस्तुतीकरण स्तर पर डिफ़ॉल्ट टेक्स्ट स्वरूपण लागू करने के लिये, [IPresentation::get_DefaultTextStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentation/get_defaulttextstyle/) का उपयोग करें।
 
-नीचे दिया गया उदाहरण नई प्रस्तुति में शीर्ष‑स्तर के पैराग्राफ के लिए 14‑पॉइंट बोल्ड फ़ॉन्ट को डिफ़ॉल्ट के रूप में सेट करता है और इसे "default_text_style.pptx" में सहेजता है। टेक्स्ट इन डिफ़ॉल्ट्स को विरासत में ले सकता है, जब तक कि अधिक विशिष्ट फ़ॉर्मेटिंग उन्हें ओवरराइड न करे।
+निम्नलिखित उदाहरण नई प्रस्तुतीकरण में शीर्ष‑स्तर के अनुच्छेदों के लिये डिफ़ॉल्ट रूप में 14‑पॉइंट मोटा फ़ॉन्ट सेट करता है और इसे "default_text_style.pptx" में सहेजता है। टेक्स्ट इन डिफ़ॉल्ट्स को विरासत में ले सकता है जब तक कि अधिक विशिष्ट स्वरूपण उन्हें ओवरराइड न करे।
 
 ```cpp
 #include <DOM/IParagraphFormat.h>
@@ -923,7 +1020,7 @@ using namespace Aspose::Slides::Export;
 
 auto presentation = System::MakeObject<Presentation>();
 
-// शीर्ष स्तर के पैराग्राफ फ़ॉर्मेट प्राप्त करें.
+// शीर्ष स्तर का पैराग्राफ फ़ॉर्मेट प्राप्त करें।
 auto paragraphFormat = presentation->get_DefaultTextStyle()->GetLevel(0);
 
 if (paragraphFormat != nullptr)
@@ -939,13 +1036,13 @@ presentation->Dispose();
 
 ## **ऑल‑कैप्स प्रभाव के साथ टेक्स्ट निकालें**
 
-PowerPoint में **All Caps** फ़ॉन्ट प्रभाव लगाने से स्लाइड पर टेक्स्ट बड़ा (uppercase) दिखता है, भले ही मूल रूप से लोअरकेस में टाइप किया गया हो। जब आप Aspose.Slides के साथ ऐसा टेक्स्ट भाग प्राप्त करते हैं, तो लाइब्रेरी टेक्स्ट को ठीक उसी रूप में लौटाती है जैसा वह दर्ज किया गया था। प्रदर्शित टेक्स्ट से मेल खाने के लिए, [TextCapType](https://reference.aspose.com/slides/hi/cpp/aspose.slides/textcaptype/) की जाँच करें और जब मान [TextCapType::All](https://reference.aspose.com/slides/hi/cpp/aspose.slides/textcaptype/) हो तो लौटाए गए स्ट्रिंग को अपरकेस में परिवर्तित करें।
+PowerPoint में **All Caps** फ़ॉन्ट प्रभाव लागू करने से पाठ स्लाइड पर सभी बड़े अक्षरों में दिखता है, भले ही मूल रूप से छोटा लिखा गया हो। जब आप Aspose.Slides के साथ ऐसा भाग प्राप्त करते हैं, तो लाइब्रेरी पाठ को वही रूप में लौटाती है जैसा वह दर्ज किया गया था। दिखाए गए पाठ से मेल खाने के लिये, [TextCapType](https://reference.aspose.com/slides/cpp/aspose.slides/textcaptype/) की जाँच करें और जब मान [TextCapType::All](https://reference.aspose.com/slides/cpp/aspose.slides/textcaptype/) हो तो लौटाए गए स्ट्रिंग को बड़े अक्षरों में परिवर्तित करें।
 
-यह उदाहरण "sample2.pptx" की आवश्यकता रखता है, जिसमें पहली स्लाइड पर पहला आकार एक टेक्स्ट बॉक्स है। उसका पहला पैराग्राफ का पहला भाग "Hello, Aspose!" को All Caps प्रभाव के साथ रखता है, जैसा कि नीचे दिखाया गया है।
+यह उदाहरण "sample2.pptx" की आवश्यकता रखता है जिसमें पहली स्लाइड पर पहला आकार एक टेक्स्ट बॉक्स हो। उसके पहले अनुच्छेद के पहले भाग में "Hello, Aspose!" है, जिस पर All Caps प्रभाव लागू है, जैसा कि नीचे दिखाया गया है।
 
 ![ऑल कैप्स प्रभाव](all_caps_effect.png)
 
-नीचे दिया गया कोड उदाहरण **All Caps** प्रभाव लागू होने के साथ टेक्स्ट निकालने का तरीका दिखाता है:
+निम्नलिखित कोड उदाहरण दिखाता है कि **All Caps** प्रभाव लागू किए हुए पाठ को कैसे निकालें:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -989,10 +1086,10 @@ All-Caps effect: HELLO, ASPOSE!
 
 ## **अक्सर पूछे जाने वाले प्रश्न**
 
-**मैं स्लाइड में तालिका के टेक्स्ट को कैसे संशोधित करूँ?**
+**मैं स्लाइड पर तालिका में टेक्स्ट कैसे संशोधित करूँ?**
 
-स्लाइड में तालिका के टेक्स्ट को संशोधित करने के लिए [ITable](https://reference.aspose.com/slides/hi/cpp/aspose.slides/itable/) का उपयोग करें। कोशिकाओं के माध्यम से इटररेट करें और प्रत्येक कोशिका को [ICell::get_TextFrame](https://reference.aspose.com/slides/hi/cpp/aspose.slides/icell/get_textframe/) तथा पैराग्राफ फ़ॉर्मेटिंग को [IParagraph::get_ParagraphFormat](https://reference.aspose.com/slides/hi/cpp/aspose.slides/iparagraph/get_paragraphformat/) के माध्यम से अपडेट करें।
+तालिका में टेक्स्ट संशोधित करने के लिये [ITable](https://reference.aspose.com/slides/cpp/aspose.slides/itable/) का उपयोग करें। कोशिकाओं पर इटररेट करके प्रत्येक को [ICell::get_TextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_textframe/) के माध्यम से अपडेट करें और पैराग्राफ स्वरूपण को [IParagraph::get_ParagraphFormat](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/get_paragraphformat/) के द्वारा बदलें।
 
-**मैं PowerPoint स्लाइड पर टेक्स्ट पर ग्रेडिएंट रंग कैसे लागू करूँ?**
+**मैं PowerPoint स्लाइड पर टेक्स्ट में ग्रेडिएंट रंग कैसे लागू करूँ?**
 
-टेक्स्ट पर ग्रेडिएंट रंग लागू करने के लिए [IBasePortionFormat::get_FillFormat](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ibaseportionformat/get_fillformat/) का उपयोग करें। [IFillFormat::set_FillType](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ifillformat/set_filltype/) को [FillType::Gradient](https://reference.aspose.com/slides/hi/cpp/aspose.slides/filltype/) पर सेट करें और ग्रेडिएंट स्टॉप, दिशा और पारदर्शिता को कॉन्फ़िगर करें।
+ग्रेडिएंट रंग लागू करने के लिये [IBasePortionFormat::get_FillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/get_fillformat/) का उपयोग करें। [IFillFormat::set_FillType](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/set_filltype/) को [FillType::Gradient](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/) पर सेट करें और ग्रेडिएंट स्टॉप, दिशा और पारदर्शिता को कॉन्फ़िगर करें।

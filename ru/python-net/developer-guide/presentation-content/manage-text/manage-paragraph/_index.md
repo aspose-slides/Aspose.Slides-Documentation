@@ -1,5 +1,5 @@
 ---
-title: Управление абзацами текста PowerPoint в Python
+title: Управление текстовыми абзацами PowerPoint в Python
 linktitle: Управление абзацем
 type: docs
 weight: 40
@@ -8,56 +8,56 @@ aliases:
   - /python-net/paragraph/
   - /python-net/portion/
 keywords:
-- добавить текст
-- добавить абзац
-- управлять текстом
-- управлять абзацем
-- управлять маркером
-- отступ абзаца
-- висячий отступ
-- маркер абзаца
-- нумерованный список
-- маркированный список
-- свойства абзаца
-- импорт HTML
-- текст в HTML
-- абзац в HTML
-- абзац в изображение
-- текст в изображение
-- экспортировать абзац
-- PowerPoint
-- презентация
-- Python
-- Aspose.Slides
-description: "Узнайте, как создавать и форматировать абзацы, фрагменты, маркеры, нумерованные списки, отступы, HTML‑контент и изображения абзацев с помощью Aspose.Slides for Python via .NET."
+  - добавить текст
+  - добавить абзац
+  - управление текстом
+  - управление абзацем
+  - управление маркером
+  - отступ абзаца
+  - висячий отступ
+  - маркер абзаца
+  - нумерованный список
+  - маркированный список
+  - свойства абзаца
+  - импорт HTML
+  - текст в HTML
+  - абзац в HTML
+  - абзац в изображение
+  - текст в изображение
+  - экспорт абзаца
+  - PowerPoint
+  - презентация
+  - Python
+  - Aspose.Slides
+description: "Узнайте, как создавать и форматировать абзацы, части текста, маркеры, нумерованные списки, отступы, HTML-содержимое и изображения абзацев с помощью Aspose.Slides для Python через .NET."
 ---
 ## **Обзор**
 
-Aspose.Slides for Python via .NET представляет текст как иерархию текстовых рамок, абзацев и фрагментов:
+Aspose.Slides for Python via .NET представляет текст как иерархию TextFrame, Paragraph и Portion:
 
-* [TextFrame](https://reference.aspose.com/slides/ru/python-net/aspose.slides/textframe/) представляет контейнер текста в фигуре и предоставляет доступ к коллекции её абзацев.
-* [Paragraph](https://reference.aspose.com/slides/ru/python-net/aspose.slides/paragraph/) представляет один абзац в текстовой рамке и предоставляет доступ к её фрагментам и форматированию уровня абзаца.
-* [Portion](https://reference.aspose.com/slides/ru/python-net/aspose.slides/portion/) представляет текстовый фрагмент внутри абзаца. Каждый фрагмент может иметь собственный текст и форматирование уровня символов.
+* [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) представляет контейнер текста в фигуре и предоставляет доступ к её коллекции абзацев.
+* [Paragraph](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/) представляет один абзац в TextFrame и предоставляет доступ к его Portion и форматированию уровня абзаца.
+* [Portion](https://reference.aspose.com/slides/python-net/aspose.slides/portion/) представляет набор текста внутри Paragraph. Каждый Portion может иметь собственный текст и форматирование уровня символов.
 
-Таким образом, абзац может содержать текст с разными шрифтами, цветами, размерами и другим форматированием, используя несколько фрагментов.
+Таким образом, абзац может содержать текст с разными шрифтами, цветами, размерами и другим форматированием, используя несколько Portion.
 
 ## **Создание и форматирование абзацев**
 
-### **Создание абзацев с несколькими фрагментами**
+### **Создание абзацев с несколькими Portion**
 
-Следующие шаги создают текстовую рамку с тремя абзацами, каждый из которых содержит три фрагмента:
+Следующие шаги создают TextFrame с тремя абзацами, каждый из которых содержит три Portion:
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/python-net/aspose.slides/presentation/).
-2. Получите доступ к нужному слайду через его индекс.
-3. Добавьте прямоугольный [AutoShape](https://reference.aspose.com/slides/ru/python-net/aspose.slides/autoshape/) на слайд.
-4. Получите доступ к [TextFrame](https://reference.aspose.com/slides/ru/python-net/aspose.slides/textframe/) фигуры.
-5. Используйте абзац по умолчанию и добавьте два дополнительных объекта [Paragraph](https://reference.aspose.com/slides/ru/python-net/aspose.slides/paragraph/) в текстовую рамку.
-6. Добавьте достаточное количество объектов [Portion](https://reference.aspose.com/slides/ru/python-net/aspose.slides/portion/) для каждого абзаца, чтобы они содержали по три фрагмента. Абзац по умолчанию уже содержит один пустой фрагмент.
-7. Установите текст каждого фрагмента.
-8. Примените форматирование уровня символов через [Portion.portion_format](https://reference.aspose.com/slides/ru/python-net/aspose.slides/portion/portion_format/).
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+2. Получите доступ к нужному слайду по его индексу.
+3. Добавьте прямоугольный [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) на слайд.
+4. Получите доступ к [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) формы.
+5. Используйте абзац по умолчанию и добавьте еще два объекта [Paragraph](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/) в TextFrame.
+6. Добавьте достаточное количество объектов [Portion](https://reference.aspose.com/slides/python-net/aspose.slides/portion/) для каждого абзаца, чтобы в нем было три Portion. Абзац по умолчанию уже содержит один пустой Portion.
+7. Установите текст для каждого Portion.
+8. Примените форматирование уровня символов через [Portion.portion_format](https://reference.aspose.com/slides/python-net/aspose.slides/portion/portion_format/).
 9. Сохраните изменённую презентацию.
 
-Этот пример на Python реализует указанные шаги:
+Этот пример на Python реализует шаги:
 
 ```python
 import aspose.pydrawing as draw
@@ -108,22 +108,22 @@ with slides.Presentation() as presentation:
 
 ### **Создание маркированного или нумерованного списка**
 
-Маркеры и нумерация упрощают восприятие связанных элементов. В Aspose.Slides параметры списка задаются через [BulletFormat](https://reference.aspose.com/slides/ru/python-net/aspose.slides/bulletformat/).
+Маркировка и нумерация упрощают просмотр связанных элементов. В Aspose.Slides параметры списка определяются с помощью [BulletFormat](https://reference.aspose.com/slides/python-net/aspose.slides/bulletformat/).
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/python-net/aspose.slides/presentation/).
-2. Получите доступ к нужному слайду через его индекс.
-3. Добавьте [AutoShape](https://reference.aspose.com/slides/ru/python-net/aspose.slides/autoshape/) на выбранный слайд.
-4. Получите доступ к [TextFrame](https://reference.aspose.com/slides/ru/python-net/aspose.slides/textframe/) фигуры.
-5. Удалите абзац по умолчанию из текстовой рамки.
-6. Создайте [Paragraph](https://reference.aspose.com/slides/ru/python-net/aspose.slides/paragraph/) для символного маркера.
-7. Установите [BulletFormat.type](https://reference.aspose.com/slides/ru/python-net/aspose.slides/bulletformat/type/) в значение [BulletType.SYMBOL](https://reference.aspose.com/slides/ru/python-net/aspose.slides/bullettype/) и укажите символ маркера.
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+2. Получите доступ к нужному слайду по его индексу.
+3. Добавьте [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) на выбранный слайд.
+4. Получите доступ к [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) формы.
+5. Удалите абзац по умолчанию из TextFrame.
+6. Создайте [Paragraph](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/) для символного маркера.
+7. Установите [BulletFormat.type](https://reference.aspose.com/slides/python-net/aspose.slides/bulletformat/type/) в значение [BulletType.SYMBOL](https://reference.aspose.com/slides/python-net/aspose.slides/bullettype/) и укажите символ маркера.
 8. Установите текст абзаца, отступ, цвет маркера и высоту маркера.
-9. Добавьте абзац в текстовую рамку.
-10. Создайте второй абзац и установите [BulletFormat.type](https://reference.aspose.com/slides/ru/python-net/aspose.slides/bulletformat/type/) в значение [BulletType.NUMBERED](https://reference.aspose.com/slides/ru/python-net/aspose.slides/bullettype/).
-11. Настройте стиль нумерованного маркера и добавьте абзац в текстовую рамку.
+9. Добавьте абзац в TextFrame.
+10. Создайте второй абзац и установите [BulletFormat.type](https://reference.aspose.com/slides/python-net/aspose.slides/bulletformat/type/) в значение [BulletType.NUMBERED](https://reference.aspose.com/slides/python-net/aspose.slides/bullettype/).
+11. Настройте стиль нумерованного маркера и добавьте абзац в TextFrame.
 12. Сохраните презентацию.
 
-Этот пример на Python создаёт символный маркер и нумерованный маркер:
+Этот пример на Python создает символный и нумерованный маркер:
 
 ```python
 import aspose.pydrawing as draw
@@ -160,22 +160,22 @@ with slides.Presentation() as presentation:
     presentation.save("bulleted_and_numbered_list.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **Использование рисунков в качестве маркеров**
+### **Использование изображений в качестве маркеров**
 
-Рисунковые маркеры позволяют использовать пользовательское изображение вместо символа или числа.
+Изображения в маркерах позволяют использовать пользовательское изображение вместо символа или цифры.
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/python-net/aspose.slides/presentation/).
-2. Получите доступ к нужному слайду через его индекс.
-3. Добавьте [AutoShape](https://reference.aspose.com/slides/ru/python-net/aspose.slides/autoshape/) и получите доступ к его [TextFrame](https://reference.aspose.com/slides/ru/python-net/aspose.slides/textframe/).
-4. Удалите абзац по умолчанию из текстовой рамки.
-5. Загрузите изображение маркера и добавьте его в коллекцию изображений презентации как [PPImage](https://reference.aspose.com/slides/ru/python-net/aspose.slides/ppimage/).
-6. Создайте [Paragraph](https://reference.aspose.com/slides/ru/python-net/aspose.slides/paragraph/) и задайте его текст.
-7. Установите [BulletFormat.type](https://reference.aspose.com/slides/ru/python-net/aspose.slides/bulletformat/type/) в значение [BulletType.PICTURE](https://reference.aspose.com/slides/ru/python-net/aspose.slides/bullettype/).
-8. Назначьте изображение через [BulletFormat.picture](https://reference.aspose.com/slides/ru/python-net/aspose.slides/bulletformat/picture/) и установите высоту маркера.
-9. Добавьте абзац в текстовую рамку.
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+2. Получите доступ к нужному слайду по его индексу.
+3. Добавьте [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) и получите его [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/).
+4. Удалите абзац по умолчанию из TextFrame.
+5. Загрузите изображение маркера и добавьте его в коллекцию изображений презентации как [PPImage](https://reference.aspose.com/slides/python-net/aspose.slides/ppimage/).
+6. Создайте [Paragraph](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/) и задайте его текст.
+7. Установите [BulletFormat.type](https://reference.aspose.com/slides/python-net/aspose.slides/bulletformat/type/) в значение [BulletType.PICTURE](https://reference.aspose.com/slides/python-net/aspose.slides/bullettype/).
+8. Присвойте изображение через [BulletFormat.picture](https://reference.aspose.com/slides/python-net/aspose.slides/bulletformat/picture/) и задайте высоту маркера.
+9. Добавьте абзац в TextFrame.
 10. Сохраните изменённую презентацию.
 
-Этот пример на Python создаёт рисунковый маркер:
+Этот пример на Python создаёт изображение в маркере:
 
 ```python
 import aspose.slides as slides
@@ -203,13 +203,13 @@ with slides.Presentation() as presentation:
 
 ### **Создание многоуровневого списка**
 
-Установите [ParagraphFormat.depth](https://reference.aspose.com/slides/ru/python-net/aspose.slides/paragraphformat/depth/) для размещения абзацев на разных уровнях списка. Верхний уровень имеет глубину `0`.
+Установите [ParagraphFormat.depth](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/depth/) , чтобы разместить абзацы на разных уровнях списка. Уровень верхнего уровня имеет глубину `0`.
 
-1. Создайте [Presentation](https://reference.aspose.com/slides/ru/python-net/aspose.slides/presentation/) и получите доступ к слайду.
-2. Добавьте [AutoShape](https://reference.aspose.com/slides/ru/python-net/aspose.slides/autoshape/) и очистите абзац по умолчанию из его текстовой рамки.
+1. Создайте [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) и получите слайд.
+2. Добавьте [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) и очистите абзац по умолчанию из его TextFrame.
 3. Создайте четыре абзаца и настройте их символы маркеров.
-4. Установите их значения [ParagraphFormat.depth](https://reference.aspose.com/slides/ru/python-net/aspose.slides/paragraphformat/depth/) в `0`, `1`, `2` и `3`.
-5. Добавьте абзацы в текстовую рамку и сохраните презентацию.
+4. Установите их значения [ParagraphFormat.depth](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/depth/) в `0`, `1`, `2` и `3`.
+5. Добавьте абзацы в TextFrame и сохраните презентацию.
 
 Этот пример на Python создаёт четырёхуровневый маркированный список:
 
@@ -263,17 +263,17 @@ with slides.Presentation() as presentation:
     presentation.save("multilevel_list.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **Начало нумерации пунктов списка со пользовательских значений**
+### **Начало нумерованных пунктов списка с пользовательских значений**
 
-Используйте [BulletFormat.numbered_bullet_start_with](https://reference.aspose.com/slides/ru/python-net/aspose.slides/bulletformat/numbered_bullet_start_with/) для задания начального номера, отображаемого для нумерованного абзаца.
+Используйте [BulletFormat.numbered_bullet_start_with](https://reference.aspose.com/slides/python-net/aspose.slides/bulletformat/numbered_bullet_start_with/) , чтобы задать начальное число, отображаемое для нумерованного абзаца.
 
-1. Создайте [Presentation](https://reference.aspose.com/slides/ru/python-net/aspose.slides/presentation/) и добавьте [AutoShape](https://reference.aspose.com/slides/ru/python-net/aspose.slides/autoshape/) на слайд.
-2. Очистите абзац по умолчанию из текстовой рамки фигуры.
+1. Создайте [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) и добавьте [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) на слайд.
+2. Очистите абзац по умолчанию из TextFrame формы.
 3. Создайте три нумерованных абзаца.
-4. Установите [BulletFormat.numbered_bullet_start_with](https://reference.aspose.com/slides/ru/python-net/aspose.slides/bulletformat/numbered_bullet_start_with/) в `2`, `3` и `7` для соответствующих абзацев.
-5. Добавьте абзацы в текстовую рамку и сохраните презентацию.
+4. Установите [BulletFormat.numbered_bullet_start_with](https://reference.aspose.com/slides/python-net/aspose.slides/bulletformat/numbered_bullet_start_with/) в `2`, `3` и `7` для соответствующих абзацев.
+5. Добавьте абзацы в TextFrame и сохраните презентацию.
 
-Этот пример на Python задаёт пользовательский начальный номер для каждого абзаца:
+Этот пример на Python присваивает каждому абзацу пользовательское начальное число:
 
 ```python
 import aspose.slides as slides
@@ -305,25 +305,25 @@ with slides.Presentation() as presentation:
     presentation.save("custom_numbered_list.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Управление разметкой абзаца и свойствами окончания**
+## **Управление макетом абзаца и свойствами конца**
 
 ### **Установка отступа первой строки**
 
-Используйте свойство [ParagraphFormat.indent](https://reference.aspose.com/slides/ru/python-net/aspose.slides/paragraphformat/indent/) для управления отступом первой строки абзаца. Это свойство смещает только первую строку относительно левого поля абзаца. Положительное значение сдвигает первую строку вправо, остальные строки остаются выровненными по телу абзаца.
+Используйте свойство [ParagraphFormat.indent](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/indent/) для управления отступом первой строки абзаца. Это свойство перемещает только первую строку относительно левого поля абзаца. Положительное значение смещает первую строку вправо, а остальные строки остаются выровненными по телу абзаца.
 
-Используйте [ParagraphFormat.margin_left](https://reference.aspose.com/slides/ru/python-net/aspose.slides/paragraphformat/margin_left/) когда нужно переместить весь абзац. Используйте [ParagraphFormat.indent](https://reference.aspose.com/slides/ru/python-net/aspose.slides/paragraphformat/indent/) когда нужно переместить только первую строку.
+Используйте [ParagraphFormat.margin_left](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/margin_left/) когда нужно переместить весь абзац. Используйте [ParagraphFormat.indent](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/indent/) когда нужно переместить только первую строку.
 
-Ниже приведён пример, создающий несколько абзацев и применяющий разные значения [ParagraphFormat.indent](https://reference.aspose.com/slides/ru/python-net/aspose.slides/paragraphformat/indent/) для демонстрации влияния отступа первой строки на разметку абзаца.
+Пример ниже создаёт несколько абзацев и применяет разные значения [ParagraphFormat.indent](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/indent/) чтобы показать, как отступ первой строки влияет на макет абзаца.
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/python-net/aspose.slides/presentation/).
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
 2. Получите целевой слайд.
-3. Добавьте прямоугольный [AutoShape](https://reference.aspose.com/slides/ru/python-net/aspose.slides/autoshape/) на слайд.
-4. Получите доступ к [TextFrame](https://reference.aspose.com/slides/ru/python-net/aspose.slides/textframe/) фигуры и удалите абзац по умолчанию.
-5. Создайте несколько абзацев и задайте им разные значения [ParagraphFormat.indent](https://reference.aspose.com/slides/ru/python-net/aspose.slides/paragraphformat/indent/).
-6. Добавьте абзацы в текстовую рамку.
+3. Добавьте прямоугольный [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) на слайд.
+4. Получите [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) формы и удалите абзац по умолчанию.
+5. Создайте несколько абзацев и задайте им разные значения [ParagraphFormat.indent](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/indent/).
+6. Добавьте абзацы в TextFrame.
 7. Сохраните изменённую презентацию.
 
-Этот код демонстрирует, как установить отступ абзаца:
+Этот код показывает, как установить отступ абзаца:
 
 ```python
 import aspose.pydrawing as draw
@@ -374,22 +374,22 @@ with slides.Presentation() as presentation:
 
 ### **Установка висячего отступа**
 
-Висячий отступ — это разметка, при которой первая строка начинается левее остальных строк. В Aspose.Slides этот эффект создаётся с помощью свойства [ParagraphFormat.indent](https://reference.aspose.com/slides/ru/python-net/aspose.slides/paragraphformat/indent/). Установите `indent` в отрицательное значение, чтобы переместить первую строку влево относительно тела абзаца.
+Висячий отступ — это макет абзаца, при котором первая строка начинается левее остальных строк. В Aspose.Slides такой эффект создаётся с помощью свойства [ParagraphFormat.indent](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/indent/). Установите `indent` в отрицательное значение, чтобы переместить первую строку влево относительно тела абзаца.
 
-На практике [ParagraphFormat.margin_left](https://reference.aspose.com/slides/ru/python-net/aspose.slides/paragraphformat/margin_left/) определяет левую позицию тела абзаца, а [ParagraphFormat.indent](https://reference.aspose.com/slides/ru/python-net/aspose.slides/paragraphformat/indent/) — позицию первой строки относительно этого поля. Для создания висячего отступа задайте положительное значение `margin_left` и отрицательное значение `indent`.
+На практике [ParagraphFormat.margin_left](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/margin_left/) определяет левую позицию тела абзаца, а [ParagraphFormat.indent](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/indent/) определяет позицию первой строки относительно этого поля. Чтобы создать висячий отступ, задайте положительное значение `margin_left` и отрицательное значение `indent`.
 
-Это форматирование полезно для библиографий, ссылок, словарных статей и других абзацев, где переносы строк должны выравниваться под телом абзаца, а не под первым символом первой строки.
+Такое форматирование полезно для библиографий, ссылок, глоссариев и других абзацев, где переносимые строки должны выравниваться под телом абзаца, а не под первым символом первой строки.
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/python-net/aspose.slides/presentation/).
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
 2. Получите целевой слайд.
-3. Добавьте прямоугольный [AutoShape](https://reference.aspose.com/slides/ru/python-net/aspose.slides/autoshape/) на слайд.
-4. Получите доступ к [TextFrame](https://reference.aspose.com/slides/ru/python-net/aspose.slides/textframe/) фигуры и удалите абзац по умолчанию.
-5. Создайте абзацы и задайте каждому положительное значение [ParagraphFormat.margin_left](https://reference.aspose.com/slides/ru/python-net/aspose.slides/paragraphformat/margin_left/).
-6. Установите отрицательное значение [ParagraphFormat.indent](https://reference.aspose.com/slides/ru/python-net/aspose.slides/paragraphformat/indent/) для создания эффекта висячего отступа.
-7. Добавьте абзацы в текстовую рамку.
+3. Добавьте прямоугольный [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) на слайд.
+4. Получите [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) формы и удалите абзац по умолчанию.
+5. Создайте абзацы и задайте каждому положительное значение [ParagraphFormat.margin_left](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/margin_left/).
+6. Установите отрицательное значение [ParagraphFormat.indent](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/indent/) для создания эффекта висячего отступа.
+7. Добавьте абзацы в TextFrame.
 8. Сохраните изменённую презентацию.
 
-Этот код показывает, как задать висячий отступ для абзаца:
+Этот код показывает, как установить висячий отступ для абзаца:
 
 ```python
 import aspose.pydrawing as draw
@@ -430,16 +430,16 @@ with slides.Presentation() as presentation:
 
 ![Висячий отступ абзацев](hanging_indent.png)
 
-### **Установка свойств завершающего фрагмента абзаца**
+### **Установка свойств конечного фрагмента абзаца**
 
-Свойство [Paragraph.end_paragraph_portion_format](https://reference.aspose.com/slides/ru/python-net/aspose.slides/paragraph/end_paragraph_portion_format/) управляет форматированием символа окончания абзаца. В следующем примере задаётся размер шрифта и латинский шрифт для символа окончания второго абзаца:
+Свойство [Paragraph.end_paragraph_portion_format](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/end_paragraph_portion_format/) управляет форматированием завершающего символа абзаца. В следующем примере задаётся размер шрифта и латинский шрифт для завершающего символа второго абзаца:
 
-1. Загрузите [Presentation](https://reference.aspose.com/slides/ru/python-net/aspose.slides/presentation/) и получите доступ к слайду.
-2. Добавьте [AutoShape](https://reference.aspose.com/slides/ru/python-net/aspose.slides/autoshape/) и очистите его абзац по умолчанию.
-3. Создайте два абзаца и добавьте к ним текстовые фрагменты.
-4. Создайте [PortionFormat](https://reference.aspose.com/slides/ru/python-net/aspose.slides/portionformat/) для символа окончания второго абзаца.
-5. Установите [PortionFormat.font_height](https://reference.aspose.com/slides/ru/python-net/aspose.slides/portionformat/font_height/) и [PortionFormat.latin_font](https://reference.aspose.com/slides/ru/python-net/aspose.slides/portionformat/latin_font/).
-6. Присвойте формат свойству [Paragraph.end_paragraph_portion_format](https://reference.aspose.com/slides/ru/python-net/aspose.slides/paragraph/end_paragraph_portion_format/) и сохраните презентацию.
+1. Загрузите [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) и получите слайд.
+2. Добавьте [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) и очистите его абзац по умолчанию.
+3. Создайте два абзаца и добавьте в них части текста.
+4. Создайте [PortionFormat](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/) для завершающего символа второго абзаца.
+5. Установите [PortionFormat.font_height](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/font_height/) и [PortionFormat.latin_font](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/latin_font/).
+6. Присвойте формат [Paragraph.end_paragraph_portion_format](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/end_paragraph_portion_format/) и сохраните презентацию.
 
 ```python
 import aspose.slides as slides
@@ -467,15 +467,15 @@ with slides.Presentation("Test.pptx") as presentation:
     presentation.save("end_paragraph_format.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Подсчёт отображаемых строк**
+## **Подсчет отрисованных строк**
 
 Для правил абзаца, влияющих на автоматический перенос и пунктуацию в конце строк, см. [Control Line Breaking](/slides/ru/python-net/text-formatting/#control-line-breaking) и [Control Hanging Punctuation](/slides/ru/python-net/text-formatting/#control-hanging-punctuation).
 
-Используйте [Paragraph.get_lines_count](https://reference.aspose.com/slides/ru/python-net/aspose.slides/paragraph/get_lines_count/) для подсчёта строк, занимаемых абзацем после размещения текста, включая автоматический перенос. Это полезно при проверке длины текста и разметки в шаблонах презентаций.
+Используйте [Paragraph.get_lines_count](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/get_lines_count/) для подсчёта строк, занимаемых абзацем после размещения текста, включая автоматический перенос. Это полезно при проверке длины текста и макета в шаблонах презентаций.
 
-Абзац — это один элемент в [TextFrame.paragraphs](https://reference.aspose.com/slides/ru/python-net/aspose.slides/textframe/paragraphs/), и он может занимать несколько отображаемых строк. Явный разрыв строки внутри абзаца приводит к новой строке без создания отдельного абзаца. Автоматический перенос создаёт строки на основе доступной ширины, не вставляя явные разрывы в текст. Поэтому подсчёт абзацев или символов разрыва строки не даёт количества отображаемых строк.
+Абзац является одним элементом в [TextFrame.paragraphs](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/paragraphs/) и может занимать несколько отрисованных строк. Явный перенос строки внутри абзаца заставляет начать новую строку без создания отдельного абзаца. Автоматический перенос создаёт строки в соответствии с доступной шириной, не вставляя явные переносы в текст. Поэтому подсчёт абзацев или символов переноса не даёт количества отрисованных строк.
 
-Следующий пример создаёт текстовую фигуру, считает её строки, сужает фигуру, а затем заменяет текст более короткой строкой. Перенос включён, а автоподгонка отключена, чтобы ширина фигуры контролировала перенос без автоматического уменьшения текста или изменения размеров фигуры. Размеры фигуры указаны в пунктах. Затем пример добавляет ещё один абзац и суммирует количество строк по всей текстовой рамке.
+Следующий пример создаёт текстовую фигуру, считает её строки, сужает форму, а затем заменяет текст более короткой строкой. Перенос включён, а автоподбор отключён, чтобы ширина формы определяла перенос без автоматического уменьшения текста или изменения размеров фигуры. Размеры указываются в пунктах. Затем пример добавляет ещё один абзац и суммирует количество строк во всём TextFrame.
 
 ```python
 import aspose.slides as slides
@@ -510,24 +510,24 @@ with slides.Presentation() as presentation:
     print(f"Total lines in the text frame: {total_line_count}")
 ```
 
-С этими текстом и размерами сужение фигуры увеличивает количество строк, а замена текста на короткую строку уменьшает его. Точные подсчёты могут различаться в зависимости от доступных шрифтов и их замены, размера шрифта, полей, отступов, переноса и настроек автоподгонки. Используйте шрифты и параметры разметки, предназначенные для целевой среды, при проверке шаблона.
+С этим текстом и этими размерами сужение формы увеличивает количество строк, а замена текста короткой строкой уменьшает его. Точные подсчёты могут различаться в зависимости от доступных шрифтов и их замен, размера шрифта, полей, отступов, переноса и настроек автоподбора. Используйте шрифты и параметры макета, предназначенные для целевой среды, при проверке шаблона.
 
-Само количество строк не определяет, выходит ли текст за пределы контейнера. Важны доступная высота, высота строк, межстрочный и абзацный интервал, а также поведение автоподгонки; даже одна строка может превышать доступную ширину при отключённом переносе.
+Только количество строк не определяет, выходит ли текст за пределы контейнера. Также важны доступная высота, высота строк, межабзацный и межстрочный интервал и поведение автоподбора; даже одна строка может превышать доступную ширину, если перенос отключён.
 
 ## **Импорт и экспорт содержимого абзацев**
 
-### **Импорт HTML‑текста в абзацы**
+### **Импорт HTML-текста в абзацы**
 
-Используйте [ParagraphCollection.add_from_html](https://reference.aspose.com/slides/ru/python-net/aspose.slides/paragraphcollection/add_from_html/) для преобразования разметки HTML в абзацы и фрагменты в текстовой рамке.
+Используйте [ParagraphCollection.add_from_html](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphcollection/add_from_html/) для преобразования HTML‑разметки в абзацы и Portion в TextFrame.
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/python-net/aspose.slides/presentation/).
-2. Получите доступ к слайду и добавьте [AutoShape](https://reference.aspose.com/slides/ru/python-net/aspose.slides/autoshape/).
-3. Получите доступ к [TextFrame](https://reference.aspose.com/slides/ru/python-net/aspose.slides/textframe/) фигуры и очистите её абзац по умолчанию.
-4. Прочитайте исходный файл HTML.
-5. Передайте строку HTML в метод [ParagraphCollection.add_from_html](https://reference.aspose.com/slides/ru/python-net/aspose.slides/paragraphcollection/add_from_html/).
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+2. Получите слайд и добавьте [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/).
+3. Получите [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) формы и очистите её абзац по умолчанию.
+4. Считайте исходный HTML‑файл.
+5. Передайте строку HTML в [ParagraphCollection.add_from_html](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphcollection/add_from_html/).
 6. Сохраните изменённую презентацию.
 
-Этот пример на Python импортирует HTML в текстовую рамку:
+Этот пример на Python импортирует HTML в TextFrame:
 
 ```python
 import aspose.slides as slides
@@ -549,12 +549,12 @@ with slides.Presentation() as presentation:
 
 ### **Экспорт текста абзаца в HTML**
 
-Используйте [ParagraphCollection.export_to_html](https://reference.aspose.com/slides/ru/python-net/aspose.slides/paragraphcollection/export_to_html/) для экспорта выбранного диапазона абзацев в виде HTML.
+Используйте [ParagraphCollection.export_to_html](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphcollection/export_to_html/) для экспорта выбранного диапазона абзацев в HTML.
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/python-net/aspose.slides/presentation/) и загрузите нужную презентацию.
-2. Получите доступ к слайду и найдите [AutoShape](https://reference.aspose.com/slides/ru/python-net/aspose.slides/autoshape/), содержащий текст.
-3. Получите доступ к [TextFrame](https://reference.aspose.com/slides/ru/python-net/aspose.slides/textframe/) фигуры.
-4. Вызовите [ParagraphCollection.export_to_html](https://reference.aspose.com/slides/ru/python-net/aspose.slides/paragraphcollection/export_to_html/) с указанием индекса начального абзаца и количества экспортируемых абзацев.
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) и загрузите нужную презентацию.
+2. Получите слайд и найдите [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) содержащий текст.
+3. Получите [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) формы.
+4. Вызовите [ParagraphCollection.export_to_html](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphcollection/export_to_html/) с индексом начального абзаца и количеством абзацев для экспорта.
 5. Запишите полученную строку HTML в файл.
 
 Этот пример на Python экспортирует все абзацы из первой текстовой фигуры:
@@ -576,9 +576,9 @@ with slides.Presentation("ExportingHTMLText.pptx") as presentation:
 
 ### **Отрисовка абзаца как изображения**
 
-[Paragraph](https://reference.aspose.com/slides/ru/python-net/aspose.slides/paragraph/) предоставляет метод `get_image` для прямой отрисовки отдельного абзаца. Метод возвращает объект [IImage](https://reference.aspose.com/slides/ru/python-net/aspose.slides/iimage/), который можно сохранить в файл или поток с помощью [IImage.save](https://reference.aspose.com/slides/ru/python-net/aspose.slides/iimage/save/). Нет необходимости отрисовывать содержащую фигуру или вручную обрезать bitmap.
+[Paragraph](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/) предоставляет метод `get_image` для непосредственной отрисовки отдельного абзаца. Метод возвращает объект [IImage](https://reference.aspose.com/slides/python-net/aspose.slides/iimage/), который можно сохранить в файл или поток с помощью [IImage.save](https://reference.aspose.com/slides/python-net/aspose.slides/iimage/save/). Нет необходимости отрисовывать содержащую фигуру или вручную обрезать bitmap.
 
-Метод `get_image` может вернуть `None`, если абзац не найден в родительской коллекции, у него нет действительных границ для рендеринга или он не может быть отрисован. Проверьте результат перед сохранением и используйте полученное изображение как контекстный менеджер для освобождения ресурсов.
+Метод `get_image` может вернуть `None`, если абзац не найден в родительской коллекции, не имеет действительных границ отрисовки или не может быть отрисован. Проверьте результат перед сохранением и используйте возвращённое изображение как менеджер контекста для освобождения ресурсов.
 
 #### **Отрисовка абзаца в масштабе по умолчанию**
 
@@ -613,7 +613,7 @@ with slides.Presentation("sample.pptx") as presentation:
 
 #### **Отрисовка абзаца в ячейке таблицы с масштабированием**
 
-Передайте горизонтальный и вертикальный коэффициенты масштаба в `get_image`, чтобы управлять размером отрисованного абзаца. В следующем примере создаётся таблица, абзац в её первой ячейке отрисовывается в два раза шире и выше, чем по умолчанию, и результат сохраняется как PNG‑изображение:
+Передайте горизонтальные и вертикальные коэффициенты масштабирования в `get_image`, чтобы управлять размером отрисованного абзаца. Следующий пример создаёт таблицу, отрисовывает абзац в её первой ячейке с двойной шириной и высотой по сравнению с масштабом по умолчанию и сохраняет результат в PNG‑изображение:
 
 ```python
 import aspose.slides as slides
@@ -635,24 +635,26 @@ with slides.Presentation() as presentation:
         print("The paragraph could not be rendered.")
 ```
 
-Коэффициент масштаба `1` сохраняет соответствующую ось в её стандартном пиксельном размере. Например, `2` для обеих осей даёт изображение, ширина и высота которого примерно вдвое больше стандартных размеров, а значит, в четыре раза больше пикселей. Большие коэффициенты, как правило, дают более чёткий текст для увеличения или вывода в высоком разрешении, но также увеличивают потребление памяти и размер файла. Коэффициенты ниже `1` дают более небольшие изображения с меньшей детализацией. Используйте одинаковые коэффициенты, чтобы сохранить соотношение сторон абзаца; разные горизонтальный и вертикальный коэффициенты растягивают вывод независимо.
+Коэффициент масштабирования `1` сохраняет соответствующую ось в её исходном пиксельном размере. Например, `2` для обеих осей создаёт изображение, ширина и высота которого примерно вдвое больше стандартных размеров, то есть в четыре раза больше пикселей. Более высокие коэффициенты обычно дают более чёткий текст при увеличении или выводе в высоком разрешении, но также увеличивают расход памяти и размер файла. Коэффициенты ниже `1` создают меньшие изображения с меньшим детализацией. Используйте одинаковые коэффициенты, чтобы сохранить пропорции абзаца; разные горизонтальный и вертикальный коэффициенты растягивают изображение независимо.
 
-Отрисовка всей фигуры с помощью [Shape.get_image](https://reference.aspose.com/slides/ru/python-net/aspose.slides/shape/get_image/) остаётся полезной, когда вывод должен включать заливку, границу или другой визуальный контекст фигуры. Для изображения только абзаца используйте `Paragraph.get_image`.
+Отрисовка полной фигуры с помощью [Shape.get_image](https://reference.aspose.com/slides/python-net/aspose.slides/shape/get_image/) остаётся полезной, когда необходимо включить заливку, границу или другой визуальный контекст фигуры. Для изображения только абзаца используйте `Paragraph.get_image`.
 
-## **Вопросы и ответы**
+## **Часто задаваемые вопросы**
 
-**Могу ли я полностью отключить перенос строк внутри текстовой рамки?**
+**Могу ли я полностью отключить перенос строк внутри TextFrame?**
 
-Да. Установите [TextFrameFormat.wrap_text](https://reference.aspose.com/slides/ru/python-net/aspose.slides/textframeformat/wrap_text/) в значение, отключающее перенос, чтобы строки не разрывались у краёв текстовой рамки.
+Да. Установите [TextFrameFormat.wrap_text](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/wrap_text/) чтобы отключить перенос, и строки не будут разрываться у краёв TextFrame.
 
 **Как получить точные границы конкретного абзаца на слайде?**
 
-Используйте [Paragraph.get_rect](https://reference.aspose.com/slides/ru/python-net/aspose.slides/paragraph/get_rect/) для получения прямоугольника, ограничивающего абзац. [Portion.get_rect](https://reference.aspose.com/slides/ru/python-net/aspose.slides/portion/get_rect/) предоставляет границы отдельного фрагмента.
+Используйте [Paragraph.get_rect](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/get_rect/) для получения ограничивающего прямоугольника абзаца. [Portion.get_rect](https://reference.aspose.com/slides/python-net/aspose.slides/portion/get_rect/) предоставляет границы отдельной Portion.
 
-**Где задаётся выравнивание абзаца (по левому, правому краю, по центру или по ширине)?**
+**Где контролируется выравнивание абзаца (по левому, правому краю, по центру или по ширине)?**
 
-[ParagraphFormat.alignment](https://reference.aspose.com/slides/ru/python-net/aspose.slides/paragraphformat/alignment/) — это настройка уровня абзаца и применяется ко всему абзацу независимо от форматирования отдельных фрагментов.
+[ParagraphFormat.alignment](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/alignment/) — это настройка уровня абзаца и применяется ко всему абзацу независимо от форматирования отдельных Portion.
 
-**Можно ли установить язык проверки орфографии только для части абзаца?**
+Чтобы вертикально выровнять Portion разного размера шрифта в каждой строке, см. [Align Fonts Within a Line](/slides/ru/python-net/text-formatting/#align-fonts-within-a-line).
 
-Да. Установите [PortionFormat.language_id](https://reference.aspose.com/slides/ru/python-net/aspose.slides/portionformat/language_id/) для отдельных фрагментов, чтобы один абзац мог содержать текст на нескольких языках.
+**Могу ли я задать язык проверки орфографии для части абзаца?**
+
+Да. Установите [PortionFormat.language_id](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/language_id/) для отдельных Portion, так один абзац может содержать текст на нескольких языках.
