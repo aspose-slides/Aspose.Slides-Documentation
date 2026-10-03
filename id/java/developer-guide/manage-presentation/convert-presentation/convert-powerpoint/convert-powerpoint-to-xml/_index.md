@@ -1,39 +1,39 @@
 ---
-title: Mengonversi Presentasi PowerPoint ke XML dalam Java
+title: Konversi Presentasi PowerPoint ke XML di Java
 linktitle: PowerPoint ke XML
 type: docs
 weight: 145
 url: /id/java/convert-powerpoint-to-xml/
 keywords:
-- mengonversi PowerPoint ke XML
-- mengonversi presentasi ke XML
+- konversi PowerPoint ke XML
+- konversi presentasi ke XML
 - PPT ke XML
 - PPTX ke XML
 - ODP ke XML
 - Presentasi XML PowerPoint
 - SaveFormat.Xml
-- menyimpan presentasi sebagai XML
-- mengekspor presentasi ke XML
+- simpan presentasi sebagai XML
+- ekspor presentasi ke XML
 - stream XML
 - Java
 - Aspose.Slides
-description: "Mengonversi presentasi PowerPoint dan OpenDocument ke file atau stream XML PowerPoint dalam Java dengan Aspose.Slides untuk Java."
+description: "Konversi presentasi PowerPoint dan OpenDocument menjadi berkas atau stream XML PowerPoint di Java dengan Aspose.Slides for Java."
 ---
-## **Gambaran Umum**
+## **Ikhtisar**
 
-Aspose.Slides for Java dapat mengonversi presentasi PowerPoint ke format PowerPoint XML Presentation. Output XML berguna ketika Anda memerlukan representasi berbasis teks untuk memeriksa struktur presentasi, memecahkan masalah dokumen yang dihasilkan, membandingkan output dalam pengujian otomatis, atau mengintegrasikan dengan alur kerja yang mengonsumsi XML alih‑alih paket presentasi.
+Aspose.Slides for Java dapat mengonversi presentasi PowerPoint ke format PowerPoint XML Presentation. Output XML berguna ketika Anda memerlukan representasi berbasis teks untuk memeriksa struktur presentasi, memecahkan masalah dokumen yang dihasilkan, membandingkan output dalam pengujian otomatis, atau mengintegrasikan dengan alur kerja yang menggunakan XML alih-alih paket presentasi.
 
-Gunakan metode [Presentation.save](https://reference.aspose.com/slides/id/java/com.aspose.slides/presentation/#save-java.lang.String-int-) dengan nilai `Xml` dari kelas [SaveFormat](https://reference.aspose.com/slides/id/java/com.aspose.slides/saveformat/). Anda dapat menulis hasilnya langsung ke file atau ke stream.
+Gunakan metode [Presentation.save](https://reference.aspose.com/slides/id/java/com.aspose.slides/presentation/#save-java.lang.String-int-) dengan nilai `Xml` dari kelas [SaveFormat](https://reference.aspose.com/slides/id/java/com.aspose.slides/saveformat/). Anda dapat menulis hasilnya langsung ke berkas atau ke stream.
 
 {{% alert color="info" title="Note" %}}
-`SaveFormat.Xml` membuat PowerPoint XML Presentation. Ini tidak mengekstrak bagian‑bagian Office Open XML individual yang disimpan di dalam paket PPTX. Jika Anda memerlukan bagian‑bagian paket PPTX yang tepat, seperti `ppt/presentation.xml` atau file XML slide individual, periksa paket PPTX itu sendiri.
+`SaveFormat.Xml` membuat PowerPoint XML Presentation. Ini tidak mengekstrak bagian Office Open XML individu yang disimpan di dalam paket PPTX. Jika Anda memerlukan bagian paket PPTX yang tepat, seperti `ppt/presentation.xml` atau berkas XML slide individu, periksa paket PPTX itu sendiri.
 {{% /alert %}}
 
-## **Konversi Presentasi ke File XML**
+## **Mengonversi Presentasi ke Berkas XML**
 
-Muat presentasi sumber dengan kelas [Presentation](https://reference.aspose.com/slides/id/java/com.aspose.slides/presentation/), lalu berikan jalur output dan `SaveFormat.Xml` ke [Presentation.save](https://reference.aspose.com/slides/id/java/com.aspose.slides/presentation/#save-java.lang.String-int-). Sumber dapat berupa format presentasi apa pun yang didukung untuk pemuatan, seperti PPT, PPTX, atau ODP.
+Muat presentasi sumber dengan kelas [Presentation](https://reference.aspose.com/slides/id/java/com.aspose.slides/presentation/) dan kemudian berikan jalur keluaran serta `SaveFormat.Xml` ke [Presentation.save](https://reference.aspose.com/slides/id/java/com.aspose.slides/presentation/#save-java.lang.String-int-). Sumber dapat berupa format presentasi apa pun yang didukung untuk dimuat, seperti PPT, PPTX, atau ODP.
 
-Contoh berikut mengonversi presentasi PPTX ke file XML:
+Contoh berikut mengonversi presentasi PPTX ke berkas XML:
 
 ```java
 import com.aspose.slides.Presentation;
@@ -49,7 +49,7 @@ try {
 
 ## **Menulis Output XML ke Stream**
 
-Gunakan overload stream dari [Presentation.save](https://reference.aspose.com/slides/id/java/com.aspose.slides/presentation/#save-java.io.OutputStream-int-) ketika XML harus tetap berada di memori atau diteruskan ke komponen lain, seperti layanan web, penyedia penyimpanan, atau pipeline pemrosesan XML. Contoh berikut menulis hasil ke [ByteArrayOutputStream](https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/io/ByteArrayOutputStream.html) dan memperoleh XML yang dihasilkan sebagai array byte:
+Gunakan overload stream dari [Presentation.save](https://reference.aspose.com/slides/id/java/com.aspose.slides/presentation/#save-java.io.OutputStream-int-) ketika XML harus tetap dalam memori atau diteruskan ke komponen lain, seperti layanan web, penyedia penyimpanan, atau pipeline pemrosesan XML. Contoh berikut menulis hasil ke [ByteArrayOutputStream](https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/io/ByteArrayOutputStream.html) dan memperoleh XML hasil sebagai array byte:
 
 ```java
 import com.aspose.slides.Presentation;
@@ -61,7 +61,7 @@ try (ByteArrayOutputStream xmlStream = new ByteArrayOutputStream()) {
     presentation.save(xmlStream, SaveFormat.Xml);
     byte[] xmlData = xmlStream.toByteArray();
 
-    // Kirim xmlData ke komponen berikutnya dalam alur kerja.
+    // Berikan xmlData ke komponen berikutnya dalam alur kerja.
 } finally {
     presentation.dispose();
 }
@@ -69,33 +69,33 @@ try (ByteArrayOutputStream xmlStream = new ByteArrayOutputStream()) {
 
 ## **Bandingkan XML dengan Format Presentasi dan Ekspor**
 
-Pilih format output sesuai dengan cara hasil akan digunakan:
+Pilih format output sesuai cara penggunaan hasil:
 
-| Format | Output | Penggunaan Umum |
+| Format | Output | Penggunaan umum |
 | --- | --- | --- |
 | PowerPoint XML (`.xml`) | Presentasi PowerPoint XML | Memeriksa struktur, memecahkan masalah, membandingkan output yang dihasilkan, dan integrasi berbasis XML |
-| PPT (`.ppt`) | File presentasi biner legacy | Kompatibilitas dengan alur kerja PowerPoint yang lebih lama |
-| PPTX (`.pptx`) | Paket Office Open XML yang berisi banyak bagian | Penyuntingan PowerPoint reguler dan pertukaran presentasi |
-| PDF atau TIFF | Halaman berlayout tetap atau gambar multi‑halaman | Penayangan, pencetakan, dan pengarsipan |
-| PNG, JPEG, atau SVG | Representasi render dari satu slide | Thumbnail, pratinjau, dan aset gambar |
-| HTML atau HTML5 | Output presentasi berorientasi web | Penayangan di browser dan penerbitan web |
+| PPT (`.ppt`) | Berkas presentasi biner lama | Kompatibilitas dengan alur kerja PowerPoint yang lebih lama |
+| PPTX (`.pptx`) | Paket Office Open XML yang berisi beberapa bagian | Penyuntingan PowerPoint reguler dan pertukaran presentasi |
+| PDF atau TIFF | Halaman berlayout tetap atau gambar multi-halaman | Penampilan, pencetakan, dan pengarsipan |
+| PNG, JPEG, atau SVG | Representasi hasil render dari slide individu | Gambar mini, pratinjau, dan aset gambar |
+| HTML atau HTML5 | Output presentasi berorientasi web | Penampilan di peramban dan publikasi web |
 
-Berbeda dengan PPT dan PPTX, output XML terutama ditujukan untuk inspeksi dan alur kerja berorientasi data. Berbeda dengan PDF, TIFF, HTML, dan format gambar slide, XML merepresentasikan data presentasi bukan render slide sebagai halaman atau aset visual. Tabel [format file yang didukung](/slides/id/java/supported-file-formats/) mencantumkan PowerPoint XML Presentation sebagai format hanya‑simpan, jadi jangan gunakan ketika alur kerja harus memuat kembali file yang diekspor ke Aspose.Slides untuk penyuntingan lanjutan.
+Berbeda dengan PPT dan PPTX, output XML terutama ditujukan untuk inspeksi dan alur kerja berbasis data. Berbeda dengan PDF, TIFF, HTML, dan format gambar slide, XML mewakili data presentasi bukan merender slide sebagai halaman atau aset visual. Tabel [supported file formats](/slides/id/java/supported-file-formats/) mencantumkan semua format yang dapat dimuat, diimpor, disimpan, atau dirender oleh Aspose.Slides.
 
 ## **FAQ**
 
-**Apakah `SaveFormat.Xml` sama dengan menyimpan file PPTX?**
+**Apakah `SaveFormat.Xml` sama dengan menyimpan berkas PPTX?**
 
-Tidak. PPTX adalah paket yang berisi banyak bagian Office Open XML, sedangkan `SaveFormat.Xml` menghasilkan file PowerPoint XML Presentation.
+Tidak. PPTX adalah paket yang berisi beberapa bagian Office Open XML, sedangkan `SaveFormat.Xml` membuat berkas PowerPoint XML Presentation.
 
-**Apakah saya dapat menyimpan output XML tanpa membuat file di disk?**
+**Apakah saya dapat menyimpan output XML tanpa membuat berkas di disk?**
 
-Ya. Berikan stream yang dapat ditulis ke [Presentation.save](https://reference.aspose.com/slides/id/java/com.aspose.slides/presentation/#save-java.io.OutputStream-int-). Misalnya, gunakan [ByteArrayOutputStream](https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/io/ByteArrayOutputStream.html) untuk pemrosesan dalam memori.
+Ya. Berikan stream yang dapat ditulisi ke [Presentation.save](https://reference.aspose.com/slides/id/java/com.aspose.slides/presentation/#save-java.io.OutputStream-int-). Misalnya, gunakan [ByteArrayOutputStream](https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/io/ByteArrayOutputStream.html) untuk pemrosesan dalam memori.
 
-**Apakah Aspose.Slides dapat memuat kembali file XML yang diekspor?**
+**Apakah Aspose.Slides dapat memuat kembali berkas XML yang diekspor?**
 
-Tidak. PowerPoint XML Presentation saat ini hanya didukung untuk penyimpanan, bukan pemuatan. Gunakan PPTX atau format presentasi lain yang didukung ketika diperlukan penyuntingan bolak‑balik.
+Ya. Berikan berkas XML atau stream ke konstruktor [Presentation](https://reference.aspose.com/slides/id/java/com.aspose.slides/presentation/#Presentation-java.lang.String-). [Presentation.getSourceFormat](https://reference.aspose.com/slides/id/java/com.aspose.slides/presentation/#getSourceFormat--) kemudian mengembalikan `SourceFormat.Xml`. [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/id/java/com.aspose.slides/presentationfactory/#getPresentationInfo-java.lang.String-) melaporkan `LoadFormat.Unknown` untuk format ini, jadi jangan gunakan untuk memutuskan apakah berkas XML dapat dibuka.
 
 **Apakah konversi XML merender setiap slide sebagai halaman atau gambar?**
 
-Tidak. Konversi XML menulis data presentasi yang terstruktur. Gunakan PDF atau TIFF untuk output berorientasi halaman, atau PNG, JPEG, dan SVG untuk gambar slide individual.
+Tidak. Konversi XML menulis data presentasi terstruktur. Gunakan PDF atau TIFF untuk output berorientasi halaman, atau PNG, JPEG, dan SVG untuk gambar slide individu.

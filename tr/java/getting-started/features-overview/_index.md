@@ -1,111 +1,94 @@
 ---
-title: Özellikler Genel Bakış
+title: Özellikler Genel Bakışı
 type: docs
-weight: 10
+weight: 104
 url: /tr/java/features-overview/
 keywords:
 - özellikler
 - desteklenen platformlar
-- dosya formatı
+- dosya biçimleri
 - dönüşüm
 - renderleme
-- biçimlendirme
+- sunum içeriği
 - PowerPoint
 - OpenDocument
 - sunum
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Java keşfedin: PowerPoint ve OpenDocument sunumlarını verimli bir şekilde oluşturmak, düzenlemek, otomatikleştirmek ve dönüştürmek için güçlü bir API."
+description: "Aspose.Slides for Java'in neler kapsadığını değerlendirmeden önce inceleyin: desteklenen platformlar, dosya biçimleri, slayt renderleme ve oluşturabileceğiniz ve düzenleyebileceğiniz içerik."
 ---
-## **Desteklenen Platformlar**
-Aspose.Slides for Java, en popüler geliştirme ve dağıtım platformlarını destekler.
+## **Genel Bakış**
 
-|**Özellik**|**Açıklama**|
-| :- | :- |
-|Masaüstü Uygulamaları|Aspose.Slides for Java, Windows Forms uygulamaları geliştirmek için kullanılabilir.|
-|Kurumsal Web Uygulamaları|Aspose.Slides for Java kullanarak Web uygulamaları oluşturmak kolaylaşır. Aspose.Slides for Java'nın PHP ile kullanılmasına da destek sağlanır.|
-|Linux/Unix|Aspose.Slides for Java, platform bağımsız bir API'dir ve Linux ve Unix ortamlarında çalışabilir.|
+Aspose.Slides for Java, PowerPoint ve OpenDocument sunumlarını oluşturmak, okumak, düzenlemek, dönüştürmek ve renderlemek için bir sınıf kitaplığıdır. Kendi kullanıcı arayüzüne sahip değildir ve Microsoft PowerPoint ya da Microsoft Office gerektirmez. Bu makale, kitaplığın kapsadığı konuları özetler ve her alanı açıklayan makalelere bağlantılar sağlar.
+
+## **Desteklenen Platformlar**
+
+Aspose.Slides for Java, `jdk16` sınıflandırıcısıyla Aspose'un Maven deposunda yayınlanan tek bir JAR dosyasıdır. Saf Java ile yazılmıştır: JAR içinde yerel kütüphane bulunmaz ve başka paketlere bağımlı değildir.
+
+- **Java:** Java 8 veya sonrası. Aspose.Slides for Java 26.9 ve önceki sürümler Java 6 ve 7'de de çalışır, ancak 26.10 sürümü artık bunu desteklemez; bkz. [26.9 sürüm notları](https://releases.aspose.com/slides/tr/java/release-notes/2026/aspose-slides-for-java-26-9-release-notes/).
+- **İşletim sistemleri:** Java çalıştırıcısı bulunan herhangi bir işletim sistemi, örneğin Windows, Linux ve macOS. Linux'ta fontconfig kütüphanesi ve en az bir font yüklü olmalıdır.
+
+[Kurulum](/slides/tr/java/installation/) kütüphaneyi bir projeye ekleme ve Linux önkoşullarını listeler. [Sistem Gereksinimleri](/slides/tr/java/system-requirements/) desteklenen platformları ayrıntılı olarak listeler.
 
 ## **Dosya Biçimleri ve Dönüşümler**
-Aspose.Slides for Java, Microsoft PowerPoint belge biçimlerinin çoğunu destekler ve bunları kuruluşlar tarafından yaygın olarak kullanılan popüler biçimlere dışa aktarır.
+
+Aspose.Slides, PPT, PPTX, PPS, POT, PPSX, POTX, PPTM, PPSM, POTM, ODP, OTP, FODP ve PowerPoint XML sunumlarını açar ve kaydeder. PDF ve HTML içeriğini slaytlara içe aktarır ve sunumları PDF, XPS, HTML, HTML5, TIFF, animasyonlu GIF, SWF, Markdown ve XAML olarak kaydeder. [Desteklenen Dosya Biçimleri](/slides/tr/java/supported-file-formats/) her formatı okuyup yazan API ile listeler.
 
 |**Özellik**|**Açıklama**|
 | :- | :- |
-|[Microsoft PowerPoint (PPT)](/slides/tr/java/microsoft-powerpoint-ppt/)|Aspose.Slides for Java, bu sunum belge biçimi için en hızlı işleme sağlar.|
-|[PresentationML (PPTX, XML)](/slides/tr/java/presentationml-pptx-xml/)|Aspose.Slides for Java, OOXML sunum biçimini (PresentationML ya da PPTX olarak da bilinir) işlemeyi destekler.|
-|[PPT to PPTX conversion](/slides/tr/java/ppt-to-pptx-conversion/)|Aspose.Slides for Java, PPT'den PPTX'e dönüşümü destekler.|
-|[Portable Document Format (PDF)](/slides/tr/java/developer-guide/)|Desteklenen dosya biçimleri, tek bir yöntemle Adobe Portable Document Format (PDF) belgelerine dışa aktarılabilir.|
-|[XML Parser Specification (XPS)](/slides/tr/java/xml-parser-specification-xps/)|Desteklenen tüm dosya biçimleri, tek bir yöntemle XML Parser Specification (XPS) belgelerine dışa aktarılabilir.|
-|[Tagged Image File Format (TIFF)](https://docs.aspose.com/slides/tr/java/convert-powerpoint-to-tiff/)|Aspose.Slides for Java tarafından desteklenen sunum dosya biçimleri, Tagged Image File Format (TIFF) formatına da dışa aktarılabilir.|
-|[ODP to PPTX Conversion](https://docs.aspose.com/slides/tr/java/convert-odp-to-pptx/)|Aspose.Slides for Java, OpenDocument Presentation (ODP) dosyalarını yüklemeyi ve PPTX'e dönüştürmeyi destekler.|
-|[Presentation To HTML Conversion](https://docs.aspose.com/slides/tr/java/convert-powerpoint-to-html/)|Aspose.Slides for Java, PresentationEx'in HTML formatına dönüştürülmesini destekler.|
+|[PPT ve PPTX](/slides/tr/java/ppt-vs-pptx/)|İkili PowerPoint 97-2003 formatı ve Office Open XML formatını okuyup yazın.|
+|[PPT'den PPTX'e dönüştürme](/slides/tr/java/convert-ppt-to-pptx/)|Eski PPT sunumlarını PPTX'e dönüştürün.|
+|[ODP'den PPTX'e dönüştürme](/slides/tr/java/convert-odp-to-pptx/)|ODP, OTP ve FODP sunumlarını açın ve kaydedin, ODP sunumlarını PPTX'e dönüştürün.|
+|[Taşınabilir Belge Biçimi (PDF)](/slides/tr/java/convert-powerpoint-to-pdf/)|Sunumları PDF'ye dışa aktarın, PDF/A ve PDF/UA belgeleri dahil.|
+|[XML Kağıt Spesifikasyonu (XPS)](/slides/tr/java/convert-powerpoint-to-xps/)|Sunumları XPS belgelerine dışa aktarın.|
+|[Etiketli Görüntü Dosyası Biçimi (TIFF)](/slides/tr/java/convert-powerpoint-to-tiff/)|Sunumları çok sayfalı TIFF görüntülerine dışa aktarın, her slayt bir sayfa.|
+|[HTML](/slides/tr/java/convert-powerpoint-to-html/)|Sunumları HTML ve HTML5'e dışa aktarın.|
+|[PDF ve HTML içe aktarımı](/slides/tr/java/import-presentation/)|PDF sayfalarından ve HTML içeriğinden slaytlar oluşturun.|
 
-## **Sunum Oluşturma**
-Aspose.Slides for Java, sunumlardaki slaytların yüksek doğrulukta çeşitli grafik biçimlerine render edilmesini destekler:
+## **Sunum Renderleme**
 
-|**Özellik**|**Açıklama**|
-| :- | :- |
-|Desteklenen Görüntü Biçimleri|Aspose.Slides for Java kullanarak yalnızca sunum slaytlarını değil, aynı zamanda slaytlardaki görüntüleri de TIFF, PNG, BMP, JPEG, GIF ve metafile gibi popüler desteklenen grafik biçimlerine render edebilirsiniz.|
-|SVG Biçimi|Aspose.Slides for Java, sunum slaytlarını Scalable Vector Graphics (SVG) biçimine dışa aktarmak için yerleşik bir yöntem sunar.|
+Aspose.Slides, slaytları ve tek tek şekilleri PNG, JPEG, BMP, GIF, TIFF ve SVG görüntüleri olarak, slaytları ise EMF metafileleri olarak renderlar. Bakınız [Sunum Slaytlarını Görsellere Dönüştür](/slides/tr/java/convert-slide/), [Sunum Slaytlarını SVG Görselleri Olarak Renderla](/slides/tr/java/render-a-slide-as-an-svg-image/), ve [Sunum Şekillerinin Küçük Resimlerini Oluştur](/slides/tr/java/create-shape-thumbnails/).
 
 ## **İçerik Özellikleri**
-Aspose.Slides for Java, sunumların neredeyse tüm içeriklerine erişmenizi, değiştirmenizi veya oluşturmanızı sağlar.
 
-|**Özellik**|**Açıklama**|
+Aspose.Slides, bir sunumun neredeyse tüm içeriğini oluşturmanıza, okumanıza ve değiştirmenize olanak tanır:
+
+|**Alan**|**Yapabilecekleriniz**|
 | :- | :- |
-|Ana Slaytlar|Ana slaytlar, normal slaytların düzenini tanımlar. Aspose.Slides for Java, bir sunumun ana slaytlarına erişmenizi ve bunları değiştirebilmenizi sağlar.|
-|Normal Slaytlar|Aspose.Slides for Java kullanarak sadece farklı türlerde yeni slaytlar oluşturmakla kalmaz, aynı zamanda mevcut slaytlara erişebilir ve onları değiştirebilirsiniz.|
-|Slaytları Klonlama / Kopyalama|Aspose.Slides for Java, mevcut slaytları yalnızca aynı sunum içinde değil, bir sunumdan diğerine klonlama veya kopyalama yöntemleri sunar. Bir slayt, düzenini ana slayttan miras aldığı için, yerleşik klonlama yöntemleri klonlama sırasında otomatik olarak ana slaytı da kopyalar.|
-|Slayt Bölümlerini Yönetme|Sunum içinde slaytları farklı bölümlerde organize etme imkanı.|
-|Yer Tutucular ve Metin Tutucular|Bir slayttaki yer tutuculara ve metin tutuculara erişebilirsiniz. Ayrıca, uygun yöntemi kullanarak sıfırdan metin tutucularıyla bir slayt oluşturabilirsiniz.|
-|Üstbilgi ve Altbilgi|Aspose.Slides for Java, slaytlardaki üstbilgi/altbilgi yönetimini de kolaylaştırır.|
-|Slaytlardaki Notlar|Aspose.Slides for Java ile bir slayta ilişkili notlara yalnızca erişip değiştirebilir, aynı zamanda not ekleyebilirsiniz.|
-|Şekil Bulma|Şekille ilişkili alternatif metni kullanarak bir slayttaki belirli bir şekli bulabilirsiniz.|
-|Arka Planlar|Aspose.Slides for Java, bir ana slayt veya normal slayt ile ilişkili arka planla çalışmanızı sağlar.|
-|Metin Kutuları|Metin kutuları sıfırdan oluşturulabilir. Mevcut metin kutularına erişilebilir ve metinleri, orijinal metin biçimini kaybetmeden değiştirilebilir.|
-|Dikdörtgen Şekiller|Dikdörtgen şekiller, Aspose.Slides for Java tarafından oluşturulabilir veya değiştirilebilir.|
-|Poli Çizgi Şekilleri|Poli çizgi şekilleri de Aspose.Slides for Java tarafından oluşturulabilir veya değiştirilebilir.|
-|Elips Şekilleri|Elips şekilleri de Aspose.Slides for Java tarafından oluşturulabilir veya değiştirilebilir.|
-|Grup Şekilleri|Aspose.Slides for Java, grup şekilleri destekler.|
-|Otomatik Şekiller|Otomatik şekiller de Aspose.Slides for Java tarafından desteklenir.|
-|SmartArt|MS PowerPoint'te mevcut SmartArt şekilleri desteği.|
-|Grafikler|PowerPoint tarafından desteklenen MSO grafiklerine destek.|
-|Resim Çerçeveleri|Resimler, Aspose.Slides for Java kullanılarak resim çerçevelerinde yönetilir.|
-|Ses Çerçeveleri|Ses dosyaları, Aspose.Slides for Java tarafından ses çerçevelerinde slaytlara bağlanabilir veya gömülebilir.|
-|Video Çerçeveleri|Video dosyaları, Aspose.Slides for Java aracılığıyla video çerçevelerinde işlenir. Bağlantılı ve gömülü video desteği mevcuttur.|
-|OLE Çerçevesi|OLE nesneleri, Aspose.Slides for Java tarafından OLE çerçevelerinde yönetilir.|
-|ActiveX Kontrolleri|ActiveX kontrolleri için destek mevcuttur.|
-|VBA Makroları|Sunum içinde VBA makrolarını yönetme desteği.|
-|Tablolar|Slaytlardaki tablolar da Aspose.Slides for Java tarafından desteklenir.|
-|Metin Çerçevesi|Herhangi bir şekille ilişkili metin, o şeklin metin çerçevesi aracılığıyla erişilebilir.|
-|Metin Tarama|Sunumdaki metin, yerleşik tarama yöntemleriyle sunum veya slayt seviyesinde taranabilir.|
-|Animasyonlar|Animasyonlar, şekillere uygulanabilir.|
-|Slayt Gösterileri|Slayt gösterileri ve slayt geçişleri desteklenir.|
-
-## **Biçimlendirme Özellikleri**
-Aspose.Slides for Java kullanarak bir sunum belgesindeki slaytlardaki metin ve şekilleri biçimlendirmek mümkündür.
-
-|**Özellik**|**Açıklama**|
-| :- | :- |
-|Metin Biçimlendirme|<p>Aspose.Slides for Java'da, metin şekillere bağlı metin çerçeveleri aracılığıyla yönetilir. Bu nedenle, metin, metin çerçevelerine bağlı paragraflar ve bölümler kullanılarak biçimlendirilir. Aşağıdaki metin öğeleri biçimlendirilebilir.</p><p>- Yazı tipi.</p><p>- Yazı boyutu.</p><p>- Yazı rengi.</p><p>- Yazı tonları.</p><p>- Paragraf hizalaması.</p><p>- Paragraf madde işaretleri.</p><p>- Paragraf yönlendirmesi.</p>|
-|Şekil Biçimlendirme|<p>Aspose.Slides for Java'da, bir slaytın temel öğesi şekildir. Aşağıdaki Şekil öğeleri Aspose.Slides for Java kullanılarak biçimlendirilebilir:</p><p>- Konum</p><p>- Boyut</p><p>- Çizgi</p><p>- Dolgu (desen, degrade ve katı dahil).</p><p>- Metin</p><p>- Görsel</p>|
+|[Slaytlar](/slides/tr/java/presentation-slide/)|Slayt ekleyin, klonlayın, yeniden sıralayın ve kaldırın; düzenler ve ana masterları uygulayın; slaytları bölümlere organize edin; slayt boyutunu değiştirin.|
+|[Tasarım](/slides/tr/java/presentation-design/)|Arka planlar, tema renkleri, üstbilgi ve altbilgi ve yazı tiplerini ayarlayın.|
+|[Metin](/slides/tr/java/manage-text/)|Metin çerçeveleri, paragraflar ve bölümler oluşturun ve düzenleyin; yazı tipleri, renkler, madde işaretleri ve hizalama ayarlayın; metin bulun ve değiştirin.|
+|[Şekiller](/slides/tr/java/powerpoint-shapes/)|AutoShape'ler, çizgiler, bağlayıcılar, grup şekilleri ve resim çerçeveleri oluşturun; konum, boyut, çizgi ve katı, degrade veya desen dolgu ayarlayın; alternatif metniyle bir şekil bulun.|
+|[Tablolar](/slides/tr/java/powerpoint-table/), [çizelgeler](/slides/tr/java/powerpoint-charts/), ve [SmartArt](/slides/tr/java/powerpoint-smartart/)|Tablolar, Microsoft Office çizelgeleri ve SmartArt şemalarını oluşturun ve düzenleyin.|
+|[Medya](/slides/tr/java/manage-media-files/), [OLE nesneleri](/slides/tr/java/manage-ole/), ve [ActiveX denetimleri](/slides/tr/java/activex/)|Gömülü ya da bağlantılı ses ve video çerçeveleri ekleyin, OLE nesnelerini gömün ve ActiveX denetimlerini ekleyin, değiştirin veya kaldırın.|
+|[Notlar](/slides/tr/java/presentation-notes/) ve [yorumlar](/slides/tr/java/presentation-comments/)|Konuşmacı notlarını ve inceleme yorumlarını ekleyin, okuyun ve düzenleyin.|
+|[Animasyon](/slides/tr/java/powerpoint-animation/) ve [geçişler](/slides/tr/java/slide-transition/)|Şekillere animasyon efektleri uygulayın, slayt geçişlerini ayarlayın ve slayt gösterisi ayarlarını yapılandırın.|
+|[Güvenlik](/slides/tr/java/presentation-security/)|Sunumları şifreyle şifreleyin, yazma koruması ayarlayın ve [dijital imzalar](/slides/tr/java/digital-signature-in-powerpoint/) ile çalışın.|
+|[VBA makroları](/slides/tr/java/presentation-via-vba/)|Makro etkin sunumlarda VBA modüllerini ekleyin, çıkarın ve kaldırın.|
+|[Özellikler](/slides/tr/java/presentation-properties/)|Belge özelliklerini okuyun ve düzenleyin.|
 
 ## **SSS**
 
-### Kütüphanenin çalışması için sunucu/PC'ye Microsoft PowerPoint yüklemem gerekiyor mu?
-Hayır. PowerPoint gerekmez; Aspose.Slides, sunumları oluşturmak, düzenlemek, dönüştürmek ve render almak için bağımsız bir motor sağlar.
+**Kitaplığın çalışması için sunucu ya da PC'de Microsoft PowerPoint kurmam gerekir mi?**
 
-### Çok iş parçacığı nasıl çalışır? İşleme paralelleştirilebilir mi?
-Farklı belgeleri farklı iş parçacıklarında işlemek güvenlidir; aynı [presentation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/) nesnesi aynı anda [multiple threads](/slides/tr/java/multithreading/) tarafından kullanılmamalıdır.
+Hayır. PowerPoint gerekli değildir; Aspose.Slides, sunumları oluşturmak, düzenlemek, dönüştürmek ve renderlemek için bağımsız bir motor sağlar.
 
-### Dosya şifreleri ve şifreleme destekleniyor mu?
-Evet. [You can](/slides/tr/java/password-protected-presentation/) şifreli sunumları açabilir, açma ve yazma şifresi belirleyebilir veya kaldırabilir ve koruma durumunu kontrol edebilirsiniz.
+**Çoklu iş parçacığı nasıl çalışır? İşlem paralelleştirilebilir mi?**
 
-### Linux konteynerlerinde yazı tipi paketlerine dikkat etmem gerekiyor mu?
-Evet. Beklenmedik değişiklikleri önlemek için yaygın yazı tipi paketlerini kurmanız ve/veya uygulamanızda açıkça [specify font directories](/slides/tr/java/custom-font/) belirtmeniz önerilir.
+Farklı belgeleri farklı iş parçacıklarında işlemek güvenlidir; aynı [Presentation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/) nesnesi aynı anda [birçok iş parçacığı](/slides/tr/java/multithreading/) tarafından kullanılmamalıdır.
 
-### Değerlendirme sürümünde sınırlamalar var mı?
-[evaluation mode](/slides/tr/java/licensing/) içinde, çıktı üzerine bir filigran eklenir ve belirli sınırlamalar geçerlidir; tam özellikli test için bir [30-day temporary license](https://purchase.aspose.com/temporary-license/) mevcuttur.
+**Dosya şifreleri ve şifreleme destekleniyor mu?**
 
-### Harici formatların (PDF/HTML → PPTX) bir sunuma aktarılması destekleniyor mu?
-Evet. Sunuma [PDF pages and HTML content](/slides/tr/java/import-presentation/) ekleyebilir, bunları slaytlara dönüştürebilirsiniz.
+Evet. [Şifre korumalı sunumları](/slides/tr/java/password-protected-presentation/) açabilir, açma ve yazma şifresi belirleyebilir veya kaldırabilir ve koruma durumunu kontrol edebilirsiniz.
+
+**Linux konteynerlerindeki fontlarla ilgilenmem gerekir mi?**
+
+Evet. Linux'ta fontconfig kütüphanesi ve en az bir font yüklü olmalıdır; sunumlarınızda kullanılan fontlar veya uygun alternatifler de metnin doğru renderlanması için yüklü olmalıdır. Ayrıca uygulamanızda [font dizinlerini belirt](/slides/tr/java/custom-font/) edebilirsiniz. Bkz. [Kurulum](/slides/tr/java/installation/#linux).
+
+**Değerlendirme sürümünde sınırlamalar var mı?**
+
+Evet. Bir [lisans](/slides/tr/java/licensing/) olmadan Aspose.Slides, kaydettiği her slayta bir değerlendirme filigranı ekler ve API üzerinden okuyan kodunuzun metinlerini keser. Tam özellikli test için bir [30 günlük geçici lisans](https://purchase.aspose.com/temporary-license/) mevcuttur.
+
+**Harici formatların (PDF veya HTML'den PPTX'e) bir sunuma içe aktarılması destekleniyor mu?**
+
+Evet. Bir sunuma [PDF sayfaları ve HTML içeriği](/slides/tr/java/import-presentation/) ekleyebilir, bunları slaytlara dönüştürebilirsiniz.

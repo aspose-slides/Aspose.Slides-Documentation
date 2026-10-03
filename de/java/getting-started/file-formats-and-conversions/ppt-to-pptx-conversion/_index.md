@@ -1,39 +1,48 @@
 ---
-title: PPT zu PPTX-Konvertierung
+title: PPT zu PPTX Konvertierung (Historisch)
 type: docs
 weight: 30
 url: /de/java/ppt-to-pptx-conversion/
+keywords:
+- PPT zu PPTX
+- Konvertierung
+- historisch
+- Java
+- Aspose.Slides
+description: "Historisch: ein älterer Überblick über die PPT zu PPTX Konvertierung in Aspose.Slides für Java, der für bestehende Links erhalten bleibt. Der aktuelle Leitfaden ist PPT zu PPTX konvertieren."
 ---
+{{% alert color="info" title="Hinweis" %}}
+Dies ist eine historische Seite, die für bestehende Links erhalten bleibt. Sie beschreibt nicht die aktuelle Version von Aspose.Slides for Java. Für die Formate, die Aspose.Slides for Java lädt, importiert, speichert und rendert, sowie die API für jedes einzelne, siehe [Unterstützte Dateiformate](/slides/de/java/supported-file-formats/). Für den aktuellen Konvertierungsleitfaden siehe [PPT in PPTX konvertieren](/slides/de/java/convert-ppt-to-pptx/).
+{{% /alert %}}
 
-{{% alert color="primary" %}} 
+{{% alert color="info" title="Hinweis" %}}
+Die Konvertierung von PPT zu PPTX wird von Aspose.Slides for Java unterstützt. Die meisten Präsentationsfunktionen – Masterfolien, Struktur usw. – bleiben bei der Umwandlung vom einen Format zum anderen erhalten, jedoch gibt es einige Einschränkungen.
+{{% /alert %}}
 
-Die PPT zu PPTX-Konvertierung wird von Aspose.Slides für Java unterstützt. Die meisten Präsentationsfunktionen - Masterfolien, Struktur usw. - bleiben bei der Konvertierung von einem Format in ein anderes erhalten, aber es gibt [einige Einschränkungen](/slides/de/java/ppt-to-pptx-conversion/).
-
-{{% /alert %}} 
 ## **Unterstützte Funktionen bei der Konvertierung**
-Aspose.Slides für Java bietet teilweise Unterstützung für die Konvertierung des PPT-Dateiformats in PPTX. Die Unterstützung für die Konvertierung wurde gerade in Aspose.Slides für Java eingeführt, sodass es einige Einschränkungen gibt und es am besten für einfache Präsentationen funktioniert. Der Hauptvorteil, den Aspose.Slides für Java bei der Konvertierung von PPT in PPTX bietet, ist die Benutzerfreundlichkeit der API. Um Beispiele für den Code zu sehen, lesen Sie über [Konvertieren von PPT in PPTX](). Unten finden Sie Listen, die erklären, welche Funktionen unterstützt werden und welche nicht für die PPT zu PPTX-Konvertierung.
+Aspose.Slides for Java bietet teilweise Unterstützung für die Konvertierung des PPT‑Dateiformats in PPTX. Die Unterstützung für die Konvertierung wurde gerade erst in Aspose.Slides for Java eingeführt, daher gibt es einige Einschränkungen und sie funktioniert am besten bei einfachen Präsentationen. Der größte Vorteil, den Aspose.Slides for Java bei der Konvertierung von PPT nach PPTX bietet, ist die einfache Handhabung der API. Um Code‑Beispiele zu sehen, siehe [PPT in PPTX konvertieren](/slides/de/java/convert-ppt-to-pptx/). Die nachstehende Liste zeigt, welche Funktionen für die PPT‑zu‑PPTX‑Konvertierung unterstützt werden.
 
 **Quell-PPT-Präsentation**
 
-![todo:image_alt_text](ppt-to-pptx-conversion_1.png)
+![Die Quell-PPT-Präsentation](ppt-to-pptx-conversion_1.png)
 
 **Nach der Konvertierung zu PPTX**
 
-![todo:image_alt_text](ppt-to-pptx-conversion_2.png)
+![Die Präsentation nach der Konvertierung zu PPTX](ppt-to-pptx-conversion_2.png)
 
 ## **Unterstützte Funktionen**
 Die folgenden Funktionen werden für die Konvertierung unterstützt:
 
 - Konvertierung der Struktur von Masterfolien, Layouts und Folien.
 - Konvertierung von Diagrammen.
-- Gruppieren von Formen.
-- Konvertierung von Autoshapes, einschließlich Rechtecken und Ellipsen.
+- Gruppierte Formen.
+- Konvertierung von Autoformen, einschließlich Rechtecken und Ellipsen.
 - Formen mit benutzerdefinierter Geometrie.
-- Texturen und Bilder als Füllstile für Autoshapes.
+- Textur- und Bildfüllstile für Autoformen.
 - Konvertierung von Platzhaltern.
 - Konvertierung von Linien und Polylinien.
-- Linien- und Füllformate.
-- Verlauffüllstile.
-- OLE-Rahmen, Tabellen, Video- und Audio-Rahmen usw.
-- Animations- und Diashow-Eigenschaften.
+- Linien‑ und Füllformate.
+- Verlaufsfüllstile.
+- OLE‑Frames, Tabellen, Video‑ und Audio‑Frames usw.
+- Animations‑ und Diashow‑Eigenschaften.
 - Konvertierung von Text in Textfeldern und Textcontainern.

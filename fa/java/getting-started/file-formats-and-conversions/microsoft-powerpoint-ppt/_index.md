@@ -1,42 +1,44 @@
 ---
-title: مایکروسافت پاورپوینت (PPT)
+title: Microsoft PowerPoint (PPT) (تاریخی)
 type: docs
 weight: 10
 url: /fa/java/microsoft-powerpoint-ppt/
+keywords:
+- PPT
+- PowerPoint 97-2003
+- تاریخی
+- جاوا
+- Aspose.Slides
+description: "تاریخی: مروری قدیمی بر فرمت PPT در Aspose.Slides برای جاوا، نگه‌داشته‌شده برای لینک‌های موجود. فهرست فعلی فرمت‌های پشتیبانی‌شده در Supported File Formats قرار دارد."
 ---
-{{% alert color="primary" %}} 
-
-[PPT](https://en.wikipedia.org/wiki/Microsoft_PowerPoint) فرمت فایل سند ارائه است که می‌تواند توسط نسخه‌های مختلف مایکروسافت پاورپینت ایجاد، خوانده، دستکاری و نوشته شود. این یک فرمت باینری برای اسناد ارائه است که توسط مایکروسافت توسعه یافته است.
-
-{{% /alert %}} 
-
-## **PPT در Aspose.Slides برای Java**
-Aspose.Slides برای Java می‌تواند فایل‌های PPT ایجاد شده توسط نرم‌افزارهای زیر را بخواند.
+{{% alert color="info" title="Note" %}}
+این یک صفحه تاریخی است که برای لینک‌های موجود حفظ شده است. این نسخه فعلی Aspose.Slides for Java را توصیف نمی‌کند. برای قالب‌هایی که Aspose.Slides for Java بارگذاری، واردات، ذخیره و رندر می‌کند و API هر کدام، به [فرمت‌های فایل پشتیبانی‌شده](/slides/fa/java/supported-file-formats/) مراجعه کنید. برای مقایسه PPT با PPTX، به [درک تفاوت: PPT در مقابل PPTX](/slides/fa/java/ppt-vs-pptx/) نگاه کنید.
+{{% /alert %}}
+{{% alert color="info" title="Note" %}}
+[PPT](https://en.wikipedia.org/wiki/Microsoft_PowerPoint) یک فرمت فایل سند ارائه است که می‌تواند توسط نسخه‌های مختلف Microsoft PowerPoint ساخته، خوانده، دستکاری و نوشته شود. این فرمت باینری برای اسناد ارائه توسط مایکروسافت توسعه یافته است.
+{{% /alert %}}
+## **PPT در Aspose.Slides for Java**
+Aspose.Slides for Java می‌تواند فایل‌های PPT ایجاد شده توسط نرم‌افزارهای زیر را بخواند.
 
 - Microsoft PowerPoint 97
 - Microsoft PowerPoint 2000
 - Microsoft PowerPoint XP
 - Microsoft PowerPoint 2003
 
-به‌طور مشابه، فایل‌های PPT ایجاد شده توسط Aspose.Slides برای Java می‌توانند توسط نرم‌افزارهای فوق خوانده شوند.
-
+به طور مشابه، فایل‌های PPT ایجاد شده توسط Aspose.Slides for Java می‌توانند توسط مجموعه نرم‌افزارهای فوق خوانده شوند.
 ## **پشتیبانی جامع برای PPT**
-Aspose.Slides برای Java پشتیبانی تقریباً تمام ویژگی‌های پشتیبانی‌شده توسط فرمت فایل سند PPT را فراهم می‌کند. این کتابخانه نه تنها ویژگی‌های پایه و پیشرفته‌ای که توسط نسخه‌های مختلف Microsoft PowerPoint برای دستکاری اسناد PPT ارائه می‌شود را پوشش می‌دهد، بلکه ویژگی‌هایی که حتی توسط Microsoft PowerPoint پشتیبانی نمی‌شوند را نیز شامل می‌شود. مزیت اصلی استفاده از کتابخانه Aspose.Slides برای Java، سهولت استفاده برای مدیریت چنین ویژگی‌هایی است.
-
-علاوه بر وظایف پایه مربوط به ایجاد، خواندن و نوشتن فایل‌های سند PPT، چندین ویژگی دیگر توسط Aspose.Slides برای Java ارائه می‌شود:
-
-- وارد کردن سایر فرمت‌های فایل Microsoft Office به‌عنوان [قابلیت OLE در اسناد PPT]().
-- [صدور اسناد PPT به PDF](/slides/fa/java/convert-powerpoint-ppt-and-pptx-to-pdf/).
-- صدور اسلایدهای موجود در اسناد PPT به فرمت‌های SVG.
-- رندر اسلایدها به هر فرمت تصویری که توسط چارچوب Java پشتیبانی می‌شود.
+Aspose.Slides for Java پشتیبانی تقریباً از تمام ویژگی‌های قابل پشتیبانی توسط فرمت فایل سند PPT را فراهم می‌کند. این کتابخانه نه تنها ویژگی‌های پایه و پیشرفته ارائه‌شده توسط نسخه‌های مختلف Microsoft PowerPoint برای دستکاری اسناد PPT را شامل می‌شود، بلکه ویژگی‌هایی را نیز پوشش می‌دهد که حتی توسط Microsoft PowerPoint پشتیبانی نمی‌شوند. اصلی‌ترین مزیت استفاده از کتابخانه API Aspose.Slides for Java سهولت استفاده برای مدیریت چنین ویژگی‌هایی است.
+علاوه بر وظایف پایه مرتبط با ایجاد، خواندن و نوشتن فایل‌های سند PPT، ویژگی‌های متعددی توسط Aspose.Slides for Java ارائه می‌شود:
+- وارد کردن سایر قالب‌های فایل Microsoft Office به‌عنوان [اشیای OLE در اسناد PPT](/slides/fa/java/manage-ole/).
+- [صادر کردن اسناد PPT به PDF](/slides/fa/java/convert-powerpoint-to-pdf/).
+- خروجی گرفتن اسلایدها در اسناد PPT به فرمت‌های SVG.
+- رندر کردن اسلایدها به هر فرمت تصویری که توسط چارچوب Java پشتیبانی می‌شود.
 - تنظیم اندازه اسلایدها در اسناد PPT.
-- مدیریت انیمیشن‌ها بر روی اشکال.
+- مدیریت انیمیشن‌ها روی اشکال.
 - مدیریت نمایش اسلایدها.
-- [قالب‌بندی متن در اسلایدها]().
+- [قالب‌بندی متن روی اسلایدها](/slides/fa/java/text-formatting/).
 - استخراج متن از اسناد PPT.
-- [دست‌کاری جدول‌ها در اسلایدها]().
-- کپی خودکار مسترها با استفاده از [قابلیت کلونینگ]().
- 
-**فایلی PPT تولید شده توسط Aspose.Slides برای Java و باز شده در Microsoft PowerPoint** 
-
-![todo:image_alt_text](microsoft-powerpoint-ppt_1.png)
+- [مدیریت جداول روی اسلایدها](/slides/fa/java/powerpoint-table/).
+- کپی خودکار مسترها با استفاده از [ویژگی کلونینگ](/slides/fa/java/clone-slides/).
+**فایل PPT ایجاد شده توسط Aspose.Slides for Java و باز شده در Microsoft PowerPoint**
+![فایل PPT ایجاد شده توسط Aspose.Slides for Java و باز شده در Microsoft PowerPoint](microsoft-powerpoint-ppt_1.png)

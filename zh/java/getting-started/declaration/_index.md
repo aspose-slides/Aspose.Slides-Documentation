@@ -1,27 +1,45 @@
 ---
-title: 声明
+title: 安全管理器要求
 type: docs
-weight: 60
+weight: 190
 url: /zh/java/declaration/
+keywords:
+- 安全管理器
+- 安全策略
+- AllPermission
+- 权限
+- 沙箱
+- JDK 24
+- PowerPoint
+- OpenDocument
+- 演示文稿
+- Java
+- Aspose.Slides
+description: "在 Java 23 及更早版本中，Aspose.Slides for Java 以及调用它的代码需要哪些安全管理器权限，以及为何在 Java 24 及以后无需进行任何配置。"
 ---
+## **概述**
 
-{{% alert color="primary" %}} 
+Java 安全管理器根据安全策略限制代码的行为。Java 17 已将其标记为过时以便移除（[JEP 411](https://openjdk.org/jeps/411)），而 Java 24 已永久禁用它（[JEP 486](https://openjdk.org/jeps/486)）。本文说明当应用程序仍在使用安全管理器时 Aspose.Slides for Java 需要哪些设置。如果您的应用程序未启用安全管理器（默认情况），则无需进行任何配置。
 
-所有 Aspose Java 组件都需要完全信任权限集。原因是，Aspose Java 组件需要访问注册表设置、系统文件，除了虚拟目录之外的某些操作，比如解析字体等。此外，Aspose Java 组件基于核心 Java 系统类，在许多情况下也需要完全信任权限集。 
+## **Java 23 及更早版本**
 
-{{% /alert %}} 
+当启用安全管理器时，安全策略必须将以下权限授予 Aspose.Slides JAR 文件以及调用它的应用程序代码：
 
-托管来自不同公司多个应用程序的互联网服务提供商大多强制执行中等信任安全级别： 
+- `java.util.PropertyPermission "*", "read"`: Aspose.Slides 读取系统属性。
+- `java.io.FilePermission "<<ALL FILES>>", "read"`: Aspose.Slides 读取字体文件和其他文件。
+- `java.io.FilePermission "<<ALL FILES>>", "execute"`: Aspose.Slides 启动操作系统程序，例如 Windows 上的 `reg` 和 Linux 上的 `fc-match`。
+- 对应用程序保存文件的文件夹，使用 `java.io.FilePermission` 并指定 `write` 动作。
 
-- OleDbPermission 不可用。这意味着您无法使用 ADO.NET 管理的 OLE DB 数据提供程序访问数据库。
-- EventLogPermission 不可用。这意味着您无法访问 Windows 事件日志。
-- ReflectionPermission 不可用。这意味着您无法使用反射。
-- RegistryPermission 不可用。这意味着您无法访问注册表。
-- WebPermission 被限制。这意味着您的应用程序只能与您在 <trust> 元素中定义的地址或地址范围进行通信。
-- FileIOPermission 被限制。这意味着您只能访问应用程序的虚拟目录层次结构中的文件。
+仅为 JAR 文件授予这些权限还不够：调用 Aspose.Slides 的代码也需要这些权限。为两者都授予 `java.security.AllPermission` 也可行。
 
-{{% alert color="primary" %}} 
+如果没有读取系统属性或启动程序的权限，Aspose.Slides 在首次使用时会失败：创建 [Presentation](https://reference.aspose.com/slides/zh/java/com.aspose.slides/presentation/) 对象时会抛出 `ExceptionInInitializerError`。如果没有读取字体文件的权限，将演示文稿保存为 PDF 时会出现错误 “Cannot find any fonts installed on the system”。
 
-由于上述原因，Aspose Java 组件无法在授予除完全信任以外的权限集的服务器上使用。 
+## **Java 24 及以后版本**
 
-{{% /alert %}}
+在 Java 24 及以后版本，无法启用安全管理器，因此无需授予权限。Aspose.Slides 以运行您应用程序的账户权限执行。若需限制应用程序的访问范围，OpenJDK 项目建议使用 JDK 之外的技术，如容器、hypervisor 和操作系统沙箱功能。参见 [JEP 486](https://openjdk.org/jeps/486)。
+
+## **常见问题**
+
+**我可以在使用受限安全管理器策略运行应用程序的环境中使用 Aspose.Slides 吗？**
+
+仅当策略同时授予上述权限给 Aspose.Slides 以及调用它的代码时才可以。这些权限包括读取所有文件和启动任何程序。

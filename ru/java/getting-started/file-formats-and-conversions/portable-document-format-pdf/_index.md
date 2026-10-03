@@ -1,36 +1,48 @@
 ---
-title: Портативный формат документа (PDF)
+title: Портативный формат документа (PDF) (Исторический)
 type: docs
 weight: 40
 url: /ru/java/portable-document-format-pdf/
+keywords:
+- PDF
+- экспорт PDF
+- исторический
+- Java
+- Aspose.Slides
+description: "Исторический: более старый обзор экспорта PDF в Aspose.Slides for Java, сохранённый для существующих ссылок. Текущее руководство — Convert PPT and PPTX to PDF."
 ---
+{{% alert color="info" title="Примечание" %}}
 
-{{% alert color="primary" %}} 
+Это историческая страница, сохранённая для существующих ссылок. Она не описывает текущую версию Aspose.Slides for Java. Для форматов, которые Aspose.Slides for Java загружает, импортирует, сохраняет и отображает, а также для API каждого из них, см. [Supported File Formats](/slides/ru/java/supported-file-formats/). Для текущего руководства по конвертации в PDF см. [Convert PPT and PPTX to PDF](/slides/ru/java/convert-powerpoint-to-pdf/).
 
-[Портативный формат документа](https://ru.wikipedia.org/wiki/PDF) — это формат файла, созданный компанией Adobe Systems для обмена документами между организациями. Цель формата заключалась в том, чтобы сохранить содержание и макет одинаковыми, независимо от платформы, на которой он был просмотрен. Aspose.Slides для Java позволяет вам конвертировать презентационные файлы в PDF.
+{{% /alert %}}
 
-{{% /alert %}} 
+{{% alert color="info" title="Примечание" %}}
 
-## **PDF в Aspose.Slides для Java**
-Любая презентация, которую можно загрузить в Aspose.Slides для Java, может быть конвертирована в PDF, соответствующий [PDF 1.5](https://ru.wikipedia.org/wiki/PDF/A), [PDF/A-1a](https://ru.wikipedia.org/wiki/PDF/A), [PDF/A-1b](https://ru.wikipedia.org/wiki/PDF/A) или [PDF/UA](https://ru.wikipedia.org/wiki/PDF/UA) в зависимости от вашего выбора. Aspose.Slides для Java экспортирует презентации в PDF, и в большинстве случаев выходной PDF выглядит точно так же, как и оригинальная презентация.
+[Portable Document Format](https://en.wikipedia.org/wiki/PDF) — файловый формат, созданный компанией Adobe Systems для обмена документами между организациями. Цель формата — сохранить содержание и макет неизменными независимо от платформы, на которой их просматривают. Aspose.Slides for Java позволяет конвертировать файлы презентаций в PDF.
 
-Aspose.Slides поддерживает следующие функции презентации при конвертации в PDF:
+{{% /alert %}}
 
-- Изображения, текстовые поля и другие фигуры.
+## **PDF в Aspose.Slides for Java**
+Любую презентацию, которую можно загрузить в Aspose.Slides for Java, можно преобразовать в PDF, соответствующий [PDF 1.5](https://en.wikipedia.org/wiki/PDF), [PDF/A-1a](https://en.wikipedia.org/wiki/PDF/A), [PDF/A-1b](https://en.wikipedia.org/wiki/PDF/A) или [PDF/UA](https://en.wikipedia.org/wiki/PDF/UA) в зависимости от вашего выбора. Aspose.Slides for Java экспортирует презентации в PDF, и в большинстве случаев полученный PDF выглядит точно так же, как оригинальная презентация.
+
+Aspose.Slides поддерживает следующие элементы презентации при конвертации в PDF:
+
+- Изображения, текстовые поля и другие формы.
 - Текст и форматирование.
-- Параграфы и форматирование.
+- Абзацы и форматирование.
 - Гиперссылки.
-- Заголовки и колонтитулы.
+- Колонтитулы.
 - Маркеры.
 - Таблицы.
 
-Вы можете напрямую экспортировать презентации в PDF с использованием Aspose.Slides для Java: вам не нужен никакой другой компонент. Более того, вы можете настроить экспорт презентации в PDF с различными параметрами, как объясняется в [Конвертация в PDF](/slides/ru/java/converting-a-presentation/).
+Вы можете экспортировать презентации в PDF напрямую с помощью Aspose.Slides for Java: никаких дополнительных компонентов не требуется. Кроме того, вы можете настроить экспорт презентации в PDF с помощью различных параметров, как объясняется в [Convert PPT and PPTX to PDF](/slides/ru/java/convert-powerpoint-to-pdf/).
 
-**Входная презентация** 
+**Входная презентация**
 
-![todo:image_alt_text](portable-document-format-pdf_1.png)
+![Входная презентация](portable-document-format-pdf_1.png)
 
 
-**Презентация, сконвертированная в PDF с использованием Aspose.Slides для Java** 
+**Презентация, конвертированная в PDF с помощью Aspose.Slides for Java**
 
-![todo:image_alt_text](portable-document-format-pdf_2.png)
+![Презентация, конвертированная в PDF](portable-document-format-pdf_2.png)

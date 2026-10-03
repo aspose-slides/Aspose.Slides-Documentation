@@ -1,26 +1,30 @@
 ---
-title: Kända problem i Aspose.Slides för Java 14.4.0
+title: Kända problem i Aspose.Slides för Java 14.4.0 (historisk)
 type: docs
 weight: 30
 url: /sv/java/known-issues-in-aspose-slides-for-java-14-4-0/
 keywords:
-- kända problem
+- känt problem
+- historisk
+- version 14.4.0
 - PowerPoint
 - OpenDocument
 - presentation
 - Java
 - Aspose.Slides
-description: "Granska kända problem i Aspose.Slides för Java 14.4.0 för att säkerställa korrekt arbete med PowerPoint- och OpenDocument-filer och undvika överraskningar i dina presentationer."
+description: "Historisk: begränsningarna och kända problem som publicerats med Aspose.Slides för Java 14.4.0, sparade för referens. Det är inte en lista över problem i den aktuella versionen."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" title="Note" %}}
 
-Aspose.Slides for Java 14.4.0 erbjuder nya beslut för behandling av PowerPoint-dokument. Det finns vissa begränsningar och kända problem som kommer att tas bort i kommande versioner:
-
-- Vissa former har fel geometri i serialiserade PPT-dokument (båge, cirkulär pil, pratbubblor).
-- Inte alla PPTX-textformateringsfunktioner stöds i PPT-serialisering (tabbning, indrag och begränsningar i styckeformatering).
-- Information om textspråk och stavningsinställningar finns inte i serialiserade PPT-dokument.
-- Inte alla PPTX-temafunktioner stöds i PPT-serialisering (endast serialisering av fyllningsformat, linjeformat och typsnitt).
-- Det finns kända problem i OLE/ActiveX PPT-serialisering till PPT.
-- WordArt-serialisering och renderning stöds inte.
+Det här är en historisk sida. Den listar begränsningarna och kända problem som publicerats med Aspose.Slides for Java 14.4.0 och beskriver inte den aktuella versionen. För förändringarna i varje version, se [versionsanteckningarna](https://releases.aspose.com/slides/sv/java/release-notes/).
 
 {{% /alert %}}
+
+Aspose.Slides for Java 14.4.0 ger nya möjligheter för bearbetning av PowerPoint‑dokument. Det finns vissa begränsningar och kända problem som kommer att tas bort i kommande utgåvor:
+
+- Vissa former har fel geometri i serialiserade PPT‑dokument (båge, cirkulär pil, pratbubblor).
+- Inte alla PPTX‑textformateringsfunktioner stöds vid PPT‑serialisering (tabbning, indrag och begränsningar i styckeformatering).
+- Information om textspråk och stavningsinställningar finns inte i serialiserade PPT‑dokument.
+- Inte alla PPTX‑temafunktioner stöds vid PPT‑serialisering (endast serialisering av fyllningsformat, linjeformat och teckensnitt).
+- Det finns kända problem i OLE/ActiveX PPT‑serialisering till PPT.
+- WordArt‑serialisering och rendering stöds inte.

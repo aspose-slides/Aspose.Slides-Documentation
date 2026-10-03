@@ -1,6 +1,6 @@
 ---
-title: Aspose.Slides برای جاوا
-second_title: Aspose.Slides برای جاوا
+title: Aspose.Slides برای Java
+second_title: Aspose.Slides برای Java
 type: docs
 weight: 20
 url: /fa/java/
@@ -12,14 +12,14 @@ keywords:
 - OpenDocument
 - Java
 - Aspose.Slides
-description: "از اینجا شروع کنید: نصب Aspose.Slides برای Java، ایجاد اولین ارائه، و پیدا کردن راهنماها برای کارهای معمول، مرجع API و پشتیبانی."
+description: "از اینجا شروع کنید: Aspose.Slides برای Java را نصب کنید، اولین ارائه را ایجاد کنید، و راهنماهای مربوط به کارهای معمول، استقرار و مرجع API را بیابید."
 is_root: true
 ---
-<img src="home_1.png" alt="Aspose.Slides for Java" align="left" style="width:110px; margin: 0 30px 20px 0"/>
+<img src="home_1.png" alt="Aspose.Slides برای Java" align="left" style="width:110px; margin: 0 30px 20px 0"/>
 
-Aspose.Slides for Java یک کتابخانهٔ کلاس برای ایجاد، خواندن، ویرایش و تبدیل ارائه‌های PowerPoint و OpenDocument در برنامه‌های Java است، بدون نیاز به Microsoft PowerPoint.
+Aspose.Slides برای Java یک کتابخانهٔ کلاس برای ایجاد، خواندن، ویرایش و تبدیل ارائه‌های PowerPoint و OpenDocument در برنامه‌های Java است، بدون نیاز به Microsoft PowerPoint.
 
-این کتابخانه می‌تواند فایل‌های PPT، PPTX، PPS، POT و ODP را بارگذاری و ذخیره کند، از جمله نسخه‌های دارای ماکرو و قالب، و به فرمت‌های PDF، XPS، HTML، SVG، TIFF، Markdown و تصاویر صادر شود.
+این کتابخانه‌ PPT، PPTX، PPS، POT و ODP را بارگذاری و ذخیره می‌کند، شامل نسخه‌های ماکرو فعال و قالب، و به PDF، XPS، HTML، SVG، TIFF، Markdown و تصاویر خروجی می‌دهد.
 
 <div style="clear:both"></div>
 
@@ -27,17 +27,19 @@ Aspose.Slides for Java یک کتابخانهٔ کلاس برای ایجاد، خ
 
 <div class="row">
 <div class="col-md-4">
-<p><b>شروع کنید</b></p>
+<p><b>شروع کار</b></p>
 <hr>
-<p>شروع کار</p>
+<p>GETTING STARTED</p>
 <ul>
 <li><a href="/slides/fa/java/installation/">نصب</a></li>
-<li><a href="/slides/fa/java/create-presentation/">ایجاد اولین ارائهٔ خود</a></li>
+<li><a href="/slides/fa/java/create-presentation/">ایجاد اولین ارائه</a></li>
+<li><a href="/slides/fa/java/system-requirements/">نیازمندی‌های سیستم</a></li>
 <li><a href="/slides/fa/java/getting-started/">راهنمای شروع کار</a></li>
 </ul>
-<p>ارزیابی</p>
+<p>EVALUATE</p>
 <ul>
 <li><a href="/slides/fa/java/supported-file-formats/">فرمت‌های فایل پشتیبانی‌شده</a></li>
+<li><a href="/slides/fa/java/features-overview/">بررسی ویژگی‌ها</a></li>
 <li><a href="/slides/fa/java/evaluate-aspose-slides/">محدودیت‌های نسخه آزمایشی</a></li>
 <li><a href="/slides/fa/java/licensing/">مجوزدهی</a></li>
 </ul>
@@ -45,15 +47,15 @@ Aspose.Slides for Java یک کتابخانهٔ کلاس برای ایجاد، خ
 <div class="col-md-4">
 <p><b>ساخت با Slides</b></p>
 <hr>
-<p>کارهای معمول</p>
+<p>COMMON TASKS</p>
 <ul>
 <li><a href="/slides/fa/java/open-presentation/">باز کردن یک ارائه</a></li>
-<li><a href="/slides/fa/java/save-presentation/">ذخیره یک ارائه</a></li>
+<li><a href="/slides/fa/java/save-presentation/">ذخیرهٔ ارائه</a></li>
 <li><a href="/slides/fa/java/convert-powerpoint-to-pdf/">تبدیل به PDF</a></li>
-<li><a href="/slides/fa/java/convert-slide/">رندر اسلایدها به‌صورت تصویر</a></li>
-<li><a href="/slides/fa/java/manage-text/">ویرایش متن و اشکال</a></li>
+<li><a href="/slides/fa/java/convert-slide/">رندر اسلایدها به عنوان تصویر</a></li>
+<li><a href="/slides/fa/java/manage-text/">ویرایش متن و شکل‌ها</a></li>
 </ul>
-<p>جریان کارهای Slides</p>
+<p>SLIDES WORKFLOWS</p>
 <ul>
 <li><a href="/slides/fa/java/powerpoint-charts/">نمودارها</a></li>
 <li><a href="/slides/fa/java/powerpoint-animation/">انیمیشن‌ها</a></li>
@@ -61,35 +63,45 @@ Aspose.Slides for Java یک کتابخانهٔ کلاس برای ایجاد، خ
 <li><a href="/slides/fa/java/presentation-design/">طراحی اسلاید</a></li>
 <li><a href="/slides/fa/java/merge-presentation/">ادغام ارائه‌ها</a></li>
 </ul>
-<p>نمونه‌ها</p>
+<p>EXAMPLES</p>
 <ul>
-<li><a href="/slides/fa/java/examples/">نمونه‌ها بر پایه عنصر اسلاید</a></li>
-<li><a href="https://github.com/aspose-slides/Aspose.Slides-for-Java">نمونه‌ها در گیت‌هاب</a></li>
+<li><a href="/slides/fa/java/examples/">نمونه‌ها بر اساس عنصر اسلاید</a></li>
+<li><a href="https://github.com/aspose-slides/Aspose.Slides-for-Java">نمونه‌ها در GitHub</a></li>
 </ul>
 </div>
 <div class="col-md-4">
-<p><b>مرجع و پشتیبانی</b></p>
+<p><b>استقرار و پشتیبانی</b></p>
 <hr>
-<p>مرجع</p>
+<p>DEPLOY</p>
 <ul>
-<li><a href="https://reference.aspose.com/slides/java/">مرجع API</a></li>
-<li><a href="https://releases.aspose.com/slides/java/release-notes/">یادداشت‌های انتشار</a></li>
-<li><a href="/slides/fa/java/known-issues/">مشکلات شناخته‌شده</a></li>
-<li><a href="https://releases.aspose.com/slides/java/">بارگیری</a></li>
+<li><a href="/slides/fa/java/system-requirements/#linux">پیش‌نیازهای Linux</a></li>
+<li><a href="/slides/fa/java/how-to-run-aspose-slides-in-docker/">اجرای Docker</a></li>
+<li><a href="/slides/fa/java/deploy-fonts/">فونت‌ها</a></li>
+<li><a href="/slides/fa/java/security/">امنیت</a></li>
 </ul>
-<p>پشتیبانی</p>
+<p>REFERENCE</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/11">تالار گفت‌وگوی پشتیبانی رایگان</a></li>
-<li><a href="https://helpdesk.aspose.com/">پشتیبانی با هزینه</a></li>
+<li><a href="https://reference.aspose.com/slides/fa/java/">مرجع API</a></li>
+<li><a href="https://releases.aspose.com/slides/fa/java/release-notes/">یادداشت‌های انتشار</a></li>
+<li><a href="/slides/fa/java/known-issues/">مشکلات شناخته‌شده</a></li>
+<li><a href="/slides/fa/java/api-limitations/">محدودیت‌های متاداده خروجی</a></li>
+<li><a href="https://releases.aspose.com/slides/fa/java/">دانلود</a></li>
+</ul>
+<p>SUPPORT</p>
+<ul>
+<li><a href="https://forum.aspose.com/c/slides/fa/11">انجمن پشتیبانی رایگان</a></li>
+<li><a href="https://helpdesk.aspose.com/">پشتیبانی تجاری</a></li>
 </ul>
 </div>
 </div>
 
 ------
 
+<a name="your-first-presentation"></a>
+
 ## **اولین ارائهٔ شما**
 
-Aspose.Slides برای Java در مخزن Maven اختصاصی Aspose منتشر می‌شود، نه در Maven Central. یک پوشه برای پروژه Maven ایجاد کنید و این *pom.xml* را در آن ذخیره کنید. این فایل مخزن را اعلام می‌کند، کتابخانه را اضافه می‌کند و نام کلاسی که باید اجرا شود را مشخص می‌نماید:
+Aspose.Slides برای Java در مخزن Maven اختصاصی Aspose منتشر می‌شود، نه در Maven Central. یک پوشه برای پروژه Maven ایجاد کنید و این *pom.xml* را در آن ذخیره کنید. این فایل مخزن را اعلام می‌کند، کتابخانه را اضافه می‌کند و نام کلاس اجرا شونده را مشخص می‌نماید:
 
 ```xml
 <project xmlns="http://maven.apache.org/POM/4.0.0">
@@ -133,24 +145,24 @@ Aspose.Slides برای Java در مخزن Maven اختصاصی Aspose منتشر
 </project>
 ```
 
-این کد را به‌عنوان *src/main/java/HelloSlides.java* ذخیره کنید:
+این کد را به عنوان *src/main/java/HelloSlides.java* ذخیره کنید:
 
 ```java
 import com.aspose.slides.*;
 
 public class HelloSlides {
     public static void main(String[] args) {
-        // یک ارائه ایجاد کنید. این ارائه از پیش یک اسلاید خالی دارد.
+        // یک ارائه ایجاد کنید. این ارائه از قبل شامل یک اسلاید خالی است.
         Presentation presentation = new Presentation();
         try {
-            // دریافت اولین اسلاید.
+            // دریافت اسلاید اول.
             ISlide slide = presentation.getSlides().get_Item(0);
 
-            // یک شکل ابر اضافه کنید و متن داخل آن قرار دهید.
+            // افزودن یک شکل ابر و قرار دادن متن در آن.
             IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Cloud, 20, 20, 200, 80);
             autoShape.getTextFrame().setText("Hello, Aspose!");
 
-            // ارائه را به‌عنوان فایل PPTX ذخیره کنید.
+            // ذخیرهٔ ارائه به‌عنوان یک فایل PPTX.
             presentation.save("new_presentation.pptx", SaveFormat.Pptx);
         } finally {
             presentation.dispose();
@@ -159,10 +171,10 @@ public class HelloSlides {
 }
 ```
 
-سپس، با نصب JDK 11 یا بالاتر و Apache Maven، این فرمان را در پوشهٔ پروژه اجرا کنید:
+سپس، با JDK 11 یا بالاتر و Apache Maven نصب‌شده، این دستور را در پوشهٔ پروژه اجرا کنید:
 
 ```bash
 mvn compile exec:java
 ```
 
-این برنامه *new_presentation.pptx* را در پوشهٔ پروژه ذخیره می‌کند، که شامل یک اسلاید با شکل ابر و متن است. در لینوکس، fontconfig و حداقل یک قلم باید نصب شده باشند؛ ببینید [نصب](/slides/fa/java/installation/#linux). بدون مجوز، فایل ذخیره‌شده یک واترمارک ارزیابی دارد — ببینید [مجوزدهی](/slides/fa/java/licensing/). برای روش‌های بیشتر جهت ایجاد و پر کردن یک ارائه، ببینید [ایجاد ارائه‌ها](/slides/fa/java/create-presentation/).
+این برنامه *new_presentation.pptx* را در پوشهٔ پروژه ذخیره می‌کند، که شامل یک اسلاید با شکل ابر و متن است. در Linux، باید fontconfig و حداقل یک فونت نصب شوند؛ برای جزئیات به [Installation](/slides/fa/java/installation/#linux) مراجعه کنید. بدون داشتن مجوز، فایل ذخیره‌شده یک واترمارک ارزیابی دارد — برای اطلاعات بیشتر به [Licensing](/slides/fa/java/licensing/) نگاه کنید. برای روش‌های بیشتر برای ایجاد و پر کردن یک ارائه، به [Create Presentations](/slides/fa/java/create-presentation/) مراجعه کنید.

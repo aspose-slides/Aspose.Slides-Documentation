@@ -1,7 +1,7 @@
 ---
 title: Dlaczego nie automatyzacja
 type: docs
-weight: 50
+weight: 170
 url: /pl/java/why-not-automation/
 keywords:
 - automatyzacja
@@ -20,7 +20,7 @@ description: "Odkryj, dlaczego automatyzacja Office jest ryzykowna dla serwerów
 ---
 ## **Wprowadzenie**
 
-Istnieje kilka powodów, dla których komponenty Aspose są lepszą alternatywą niż automatyzacja. Niektóre z kluczowych powodów to:
+Istnieje kilka powodów, dla których komponenty Aspose są lepszą alternatywą dla automatyzacji. Niektóre z kluczowych powodów to:
 
 - Bezpieczeństwo
 - Stabilność
@@ -28,64 +28,56 @@ Istnieje kilka powodów, dla których komponenty Aspose są lepszą alternatywą
 - Cena
 - Funkcje
 
-Poniżej znajduje się bardziej szczegółowe wyjaśnienie każdego z kluczowych punktów.
+Poniżej znajduje się bardziej szczegółowe wyjaśnienie każdego kluczowego punktu.
 
 ## **Ważne pytania**
 
 Są dwa pytania, które często słyszymy w Aspose:
 
-- Czy Wasze produkty wymagają zainstalowanego Microsoft Office, aby działały?
+- Czy Wasze produkty wymagają zainstalowanego Microsoft Office, aby działać?
 
 Krótka, prosta odpowiedź to **NIE**.
 
-Komponenty Aspose są całkowicie niezależne i nie są powiązane, autoryzowane, sponsorowane ani w żaden sposób zatwierdzone przez Microsoft Corporation.
+Komponenty Aspose są całkowicie niezależne i nie są powiązane, autoryzowane, sponsorowane ani w żaden inny sposób zatwierdzone przez Microsoft Corporation.
 
-- Dlaczego mielibyśmy używać produktów Aspose zamiast Microsoft Office Automation?
+- Dlaczego powinniśmy używać produktów Aspose zamiast automatyzacji Microsoft Office?
 
-Po pierwsze, istnieje wiele [korzyści, które zyskujesz używając Aspose.Slides](/slides/pl/java/product-overview/).
+Po pierwsze, istnieje wiele [korzyści, które zyskujesz, używając Aspose.Slides](/slides/pl/java/product-overview/).
 
-Po drugie, sam Microsoft zdecydowanie **odradza** używanie Office Automation w rozwiązaniach programowych.
+Po drugie, Microsoft sam silnie **odradza** używanie automatyzacji Office w rozwiązaniach programowych.
 
 ## **Bezpieczeństwo**
+Poniżej znajduje się bezpośredni cytat z artykułu Microsoft:
 
-Poniżej bezpośredni cytat z artykułu Microsoftu:
+*"Aplikacje Office nigdy nie były przeznaczone do użycia po stronie serwera, a więc nie uwzględniają problemów bezpieczeństwa, z którymi borykają się komponenty rozproszone. Office nie uwierzytelnia przychodzących żądań i nie chroni przed nieumyślnym uruchamianiem makr ani przed uruchamianiem innego serwera, który może uruchamiać makra, z kodu po stronie serwera. Nie otwieraj plików przesłanych na serwer z anonimowej sieci! W zależności od ostatnich ustawień bezpieczeństwa serwer może uruchamiać makra w kontekście Administratora lub Systemu z pełnymi uprawnieniami i zagrozić Twojej sieci! Dodatkowo Office używa wielu komponentów po stronie klienta (takich jak Simple MAPI, WinInet, MSDAIPP), które mogą buforować informacje uwierzytelniające klienta w celu przyspieszenia przetwarzania. Jeśli Office jest automatyzowany po stronie serwera, jedna instancja może obsługiwać więcej niż jednego klienta i ponieważ informacje uwierzytelniające zostały zbuforowane dla tej sesji, istnieje możliwość, że jeden klient może używać buforowanych danych uwierzytelniających innego klienta, uzyskując w ten sposób nieprzyznane uprawnienia dostępu poprzez podszywanie się pod innych użytkowników."*
 
-*"Office Applications were never intended for use server-side, and therefore do not take into consideration the security problems that are faced by distributed components. Office does not authenticate incoming requests, and does not protect you from unintentionally running macros, or starting another server that might run macros, from your server-side code. Do not open files that are uploaded to the server from an anonymous Web! Based on the security settings that were last set, the server can run macros under an Administrator or System context with full privileges and compromise your network! In addition, Office uses many client-side components (such as Simple MAPI, WinInet, MSDAIPP) that can cache client authentication information in order to speed up processing. If Office is being automated server-side, one instance may service more than one client, and because authentication information has been cached for that session, it is possible that one client can use the cached credentials of another client, and thereby gain non-granted access permissions by impersonating other users."*
-
-
-Produkty Aspose są bardzo bezpieczne. Komponenty Aspose nie stanowią potencjalnego ryzyka dla krytycznych zasobów systemu. Co więcej, gdy dokument jest otwierany przez komponent Aspose, makra nie są uruchamiane automatycznie. Komponenty Aspose zostały stworzone z myślą o umożliwieniu programistom tworzenia, modyfikowania i zapisywania plików Office. Żadne z ryzyk związanych z pakietem Microsoft Office nie jest wbudowane w komponenty Aspose.
+Aspose produkty są bardzo bezpieczne. Komponenty Aspose nie stanowią potencjalnego ryzyka dla kluczowych zasobów systemu. Ponadto, gdy dokument jest otwierany przez komponent Aspose, makra nie są uruchamiane automatycznie. Komponenty Aspose zostały stworzone w celu umożliwienia programistom tworzenia, modyfikowania i zapisywania plików Office. Żadne z ryzyk związanych z pakietem Microsoft Office nie jest wrodzone komponentom Aspose.
 
 ## **Stabilność**
-Poniżej bezpośredni cytat z artykułu Microsoftu:
+Poniżej znajduje się bezpośredni cytat z artykułu Microsoft:
 
-*"Office 2000, Office XP and Office 2003 use Microsoft Windows Installer (MSI) technology to make installation and self-repair easier for an end user. MSI introduces the concept of "install on first use", which allows features to be dynamically installed or configured at runtime (for the system, or more often for a particular user). In a server-side environment this both slows down performance and increases the likelihood that a dialog box may appear that asks for the user to approve the install or provide an appropriate install disk. Although it is designed to increase the resiliency of Office as an end-user product, Office's implementation of MSI capabilities is counterproductive in a server-side environment. Furthermore, the stability of Office in general cannot be assured when run server-side because it has not been designed or tested for this type of use. Using Office as a service component on a network server may reduce the stability of that machine and as a consequence your network as a whole. If you plan to automate Office server-side, attempt to isolate the program to a dedicated computer that cannot affect critical functions, and that can be restarted as needed."*
+*"Office 2000, Office XP i Office 2003 wykorzystują technologię Microsoft Windows Installer (MSI), aby ułatwić instalację i naprawę samodzielną dla użytkownika końcowego. MSI wprowadza koncepcję „instalacji przy pierwszym użyciu”, co pozwala dynamicznie instalować lub konfigurować funkcje w czasie działania (dla systemu lub częściej dla konkretnego użytkownika). W środowisku po stronie serwera spowalnia to wydajność i zwiększa prawdopodobieństwo wyświetlenia okna dialogowego, które prosi użytkownika o zatwierdzenie instalacji lub podanie odpowiedniego dysku instalacyjnego. Chociaż ma to na celu zwiększenie odporności Office jako produktu dla użytkownika końcowego, implementacja możliwości MSI w Office jest nieproduktywna w środowisku po stronie serwera. Ponadto stabilność Office ogólnie nie może być zapewniona przy uruchamianiu po stronie serwera, ponieważ nie została zaprojektowana ani przetestowana pod tym kątem. Używanie Office jako komponentu usługowego na serwerze sieciowym może zmniejszyć stabilność tej maszyny, a w konsekwencji całej sieci. Jeśli planujesz automatyzację Office po stronie serwera, postaraj się odizolować program na dedykowanym komputerze, który nie może wpływać na krytyczne funkcje i który można w razie potrzeby zrestartować."*
 
-
-Komponenty Aspose zostały dokładnie przetestowane i są niezwykle stabilne. Komponenty Aspose są wykorzystywane przez [Companies](https://about.aspose.com/customers) takie jak: **IBM**, **Hilton**, **Reader's Digest**, **Bank of America** i wiele, wiele innych.
+Komponenty Aspose zostały gruntownie przetestowane i są niezwykle stabilne. Komponenty Aspose są używane przez [firmy](https://about.aspose.com/customers/) takie jak **Bank of America** i wiele innych.
 
 ## **Skalowalność/Szybkość**
-Poniżej bezpośredni cytat z artykułu Microsoftu:
+Poniżej znajduje się bezpośredni cytat z artykułu Microsoft:
 
-*"Server-side components need to be highly reentrant, multi-threaded COM components with minimum overhead and high throughput for multiple clients. Office Applications are in almost all respects the exact opposite. They are non-reentrant, STA-based Automation servers that are designed to provide diverse but resource-intensive functionality for a single client. They offer little scalability as a server-side solution, and have fixed limits to important elements, such as memory, which cannot be changed through configuration. More importantly, they use global resources (such as memory mapped files, global add-ins or templates, and shared Automation servers), which can limit the number of instances that can run concurrently and lead to race conditions if they are configured in a multi-client environment. Developers who plan to run more than one instance of any Office Application at the same time need to consider* ***Pooling*** *or* ***Serializing Access*** *to the Office Application for avoiding potential* ***Deadlocks*** *or* ***Data Corruption*** *.* 
+*"Komponenty po stronie serwera muszą być wysoce reentrantne, wielowątkowe komponenty COM o minimalnym narzucie i wysokiej przepustowości dla wielu klientów. Aplikacje Office są pod każdym względem dokładnym przeciwieństwem. Są to serwery automatyzacji oparte na STA, nie‑reentrantne, zaprojektowane do zapewniania różnorodnej, ale zasobo‑intensywnej funkcjonalności dla jednego klienta. Oferują niewielką skalowalność jako rozwiązanie po stronie serwera i mają stałe limity ważnych elementów, takich jak pamięć, które nie mogą być zmienione poprzez konfigurację. Co ważniejsze, używają globalnych zasobów (takich jak pamięciowo mapowane pliki, globalne dodatki lub szablony oraz współdzielone serwery automatyzacji), co może ograniczać liczbę jednocześnie działających instancji i prowadzić do warunków wyścigu, jeśli są skonfigurowane w środowisku wieloklientowym. Programiści planujący uruchomienie więcej niż jednej instancji dowolnej aplikacji Office jednocześnie muszą rozważyć* ***Pooling*** *lub* ***Serializing Access*** *do aplikacji Office, aby uniknąć potencjalnych* ***Deadlocks*** *lub* ***Data Corruption*** *.*"
 
-
-Komponenty Aspose są wysoce skalowalne i błyskawicznie szybkie. Aplikacje Office nie zostały zaprojektowane do jednoczesnego użycia przez setki czy tysiące użytkowników. Natomiast komponenty Aspose zostały stworzone właśnie z myślą o takim scenariuszu. Nasze komponenty działają bezbłędnie zarówno na pojedynczym serwerze, obsługując jedną aplikację, jak i w środowisku zrównoważonym obciążeniowo, obsługując aplikację na poziomie całego przedsiębiorstwa.
+Komponenty Aspose są wysoce skalowalne i błyskawicznie szybkie. Aplikacje Office nie zostały zaprojektowane do jednoczesnego użycia przez setki i tysiące użytkowników. Jednak komponenty Aspose są właśnie do tego stworzone. Nasze komponenty działają bez zarzutu zarówno na pojedynczym serwerze, obsługując jedną aplikację, jak i w zrównoważonej farmie serwerów webowych obsługującej aplikację na skalę całego przedsiębiorstwa.
 
 ## **Cena**
-Kiedy aplikacja wykorzystuje Microsoft Office Automation, licencja na Microsoft Office musi być zakupiona dla każdej maszyny, na której aplikacja jest uruchamiana. Często zdarza się, że aplikacja musi tworzyć lub modyfikować plik Office, ale nie wymaga od użytkownika posiadania Microsoft Office. Aspose oferuje bardzo [Cost Effective](https://purchase.aspose.com/) i wolną od opłat licencję redistribucyjną, która pozwala na wdrożenie do nieograniczonej liczby użytkowników bez problemów licencyjnych.
+Kiedy aplikacja wykorzystuje Microsoft Office Automation, kopia Microsoft Office musi być zakupiona dla każdego komputera, na którym aplikacja działa. Często zdarza się, że aplikacja musi tworzyć lub modyfikować plik Office, ale nie wymaga, aby użytkownik posiadał Microsoft Office. Aspose oferuje bardzo [opłacalną](https://purchase.aspose.com/) i wolną od opłat licencyjnych licencję na redystrybucję, która pozwala na wdrożenie do nieograniczonej liczby użytkowników bez obaw o licencjonowanie.
 
-
-Tworząc aplikacje webowe, należy pamiętać, że komponenty Microsoft Office Automation nie są wyceniane ani licencjonowane do rozwiązań po stronie serwera; w związku z tym nie istnieje dobre rozwiązanie licencyjne dla wdrażania aplikacji webowych wykorzystujących komponenty Microsoft Office. Aspose oferuje bardzo kosztowo efektywne rozwiązanie również dla aplikacji serwerowych.
+Tworząc aplikacje internetowe, ważne jest, aby wiedzieć, że komponenty Microsoft Office Automation nie są wyceniane ani licencjonowane dla rozwiązań po stronie serwera; w związku z tym nie ma dobrego rozwiązania licencyjnego dla wdrażania aplikacji webowych wykorzystujących komponenty Microsoft Office. Aspose oferuje również bardzo opłacalne rozwiązanie dla aplikacji serwerowych.
 
 ## **Funkcje**
-Komponenty Aspose zapewniają wszystko, co potrzebne do zarządzania plikami Office, a nawet więcej. Zostały zaprojektowane według filozofii umożliwiającej programistom osiągnięcie największych rezultatów przy minimalnym nakładzie pracy. W przeciwieństwie do Office Automation, komponenty Aspose oferują wiele potężnych i oszczędzających czas funkcji. Na przykład, [Aspose.Cells](https://products.aspose.com/cells/java/) daje programistom możliwość importowania danych z **DataTable** lub **DataView** bezpośrednio do pliku Excel. [Aspose.Words](https://products.aspose.com/words/java/) oferuje podobną funkcję, pozwalającą programistom wypełnić dokument Word (czyli Mail Merge). [Every Component](https://products.aspose.com/total/java/) z rodziny Aspose posiada własny zestaw unikalnych i potężnych funkcji.
+Komponenty Aspose zapewniają wszystko, co potrzebne do zarządzania plikami Office oraz znacznie więcej. Są zaprojektowane według filozofii umożliwiającej programistom osiągnięcie jak najlepszych rezultatów przy minimalnym nakładzie pracy. W przeciwieństwie do Office Automation, komponenty Aspose oferują wiele potężnych i oszczędzających czas funkcji. Na przykład, [Aspose.Cells](https://products.aspose.com/cells/java/) daje programistom możliwość importu danych z **DataTable** lub **DataView** bezpośrednio do pliku Excel. [Aspose.Words](https://products.aspose.com/words/java/) oferuje podobną funkcję, która pozwala programistom wypełnić dokument Word (czyli Mail Merge). [Every Component](https://products.aspose.com/total/java/) w rodzinie Aspose oferuje własny zestaw unikalnych i potężnych funkcji.
 
-
-Najlepszą częścią zakupu komponentu Aspose (lub zestawów komponentów, takich jak [Aspose.Total](https://products.aspose.com/total/java/)) jest dostęp do naszych zespołów deweloperskich. Nasze zespoły rozumieją, że jeśli jakaś funkcja jest potrzebna Twojej firmie, najprawdopodobniej będzie ona potrzebna także innym firmom. Chociaż nie każda prośba o funkcję może zostać zrealizowana, nasze zespoły starają się być bardzo otwarte i elastyczne, pomagając w miarę możliwości. To podejście pomogło komponentom Aspose stać się tak potężnymi, jakimi są. Jeśli potrzebujesz dodatkowych funkcji, które oferują obiekty Office Automation, Twoje szanse na ich dodanie są bardzo, bardzo niskie.
+Najlepszą częścią zakupu komponentu Aspose (lub zestawu komponentów, takiego jak [Aspose.Total](https://products.aspose.com/total/java/) ) jest dostęp do naszych zespołów deweloperskich. Nasze zespoły zdają sobie sprawę, że jeśli istnieje funkcja, której potrzebuje Twoja firma, prawdopodobnie potrzebują ją również inne firmy. Choć nie każda prośba o funkcję może zostać zrealizowana, nasze zespoły starają się być bardzo otwarte i elastyczne w udzielaniu wsparcia. To podejście pomogło komponentom Aspose stać się tak potężnymi, jakimi są. Jeśli potrzebujesz dodatkowych funkcji z obiektów Office Automation, Twoje szanse na ich dodanie są bardzo, bardzo niskie.
 
 ## **Podsumowanie**
-{{% alert color="primary" %}} 
-
-Chociaż ten artykuł omówił wiele kluczowych powodów, dla których komponenty Aspose są lepszym wyborem niż Office Automation, istnieje znacznie więcej argumentów. Artykuł ten skupia się jedynie na najważniejszych punktach. Wszystkie różne komponenty Aspose oferują bezpłatną, bez zobowiązań [Evaluation Version](https://downloads.aspose.com/slides/pl/java). Zachęcamy do skorzystania z tej wersji próbnej, aby lepiej zobaczyć, co Aspose może zrobić dla Twoich aplikacji. 
-
+{{% alert color="info" title="Note" %}}
+Chociaż ten artykuł omawia wiele kluczowych powodów, dla których komponenty Aspose są lepszym wyborem niż Office Automation, istnieje jeszcze wiele, wiele innych. Ten artykuł koncentruje się głównie na najważniejszych punktach. Wszystkie różne komponenty Aspose oferują bezpłatną, bez zobowiązań [Wersję Ewaluacyjną](https://releases.aspose.com/slides/pl/java/). Zachęcamy do skorzystania z tej wersji ewaluacyjnej, aby lepiej zobaczyć, co Aspose może zrobić dla Twoich aplikacji.
 {{% /alert %}}

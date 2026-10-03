@@ -1,31 +1,37 @@
 ---
-title: API の制限
+title: 出力メタデータの制限
 type: docs
 weight: 320
 url: /ja/java/api-limitations/
 keywords:
-- API の制限
-- エクスポート形式
-- アプリケーション
-- プロデューサー
-- ドキュメント プロパティ
-- メタデータ
-- PowerPoint
-- OpenDocument
-- プレゼンテーション
-- Java
-- Aspose.Slides
-description: "Aspose.Slides for Java の制限を把握しましょう：エクスポート時に PPT、PPTX、ODP、PDF で固定された Application/Producer メタデータが設定されます。これにより、予期せぬ問題なく統合を計画できます。"
+  - API の制限
+  - エクスポート形式
+  - アプリケーション
+  - プロデューサー
+  - 文書プロパティ
+  - メタデータ
+  - ジェネレーター
+  - PowerPoint
+  - OpenDocument
+  - プレゼンテーション
+  - Java
+  - Aspose.Slides
+description: "Aspose.Slides for Java は、設定したアプリケーション名にかかわらず、保存された PPTX、PDF、ODP ファイルに固定された application、creator、producer メタデータを書き込みます。"
 ---
+## **概要**
 
-## **Application and Producer**
+Aspose.Slides でプレゼンテーションを作成またはエクスポートすると、特定の技術メタデータが出力ファイルに書き込まれます。本記事では、PPTX、PDF、ODP ファイルの `Application`、`Creator`、`Producer`、および generator メタデータ フィールドに関連する制限について説明します。
 
-Aspose.Slides for Java を使用してプレゼンテーションを作成またはエクスポートすると、ファイルにいくつかの技術的メタデータが書き込まれます。2 つのフィールドはしばしば質問の対象となります。
+## **Application と Producer**
 
-**Application** は、**PPTX** プレゼンテーションを作成または最後に保存したプログラムを識別します。Aspose.Slides for Java では、この値は固定されており、アプリ名ではなくライブラリのベンダーが表示されます。たとえ[DocumentProperties.setNameOfApplication](https://reference.aspose.com/slides/java/com.aspose.slides/documentproperties/#setNameOfApplication-java.lang.String-)を使用しても同様です。
+Aspose.Slides for Java でプレゼンテーションを作成またはエクスポートすると、いくつかの技術メタデータがファイルに書き込まれます。2 つのフィールドはしばしば質問を呼びます。
 
-**Producer** は、エクスポート時に最終ファイルを生成したレンダリングエンジンを識別します。**PDF** エクスポートでは、メタデータは **Creator** と **Producer** フィールドを使用します。Aspose.Slides for Java では、これらはどちらも固定されており、ライブラリとそのバージョンを示します。
+**Application** は、**PPTX** プレゼンテーションを作成または最後に保存したプログラムを識別します。Aspose.Slides for Java では、この値は固定されており、[DocumentProperties.setNameOfApplication](https://reference.aspose.com/slides/ja/java/com.aspose.slides/documentproperties/#setNameOfApplication-java.lang.String-) を使用した場合でもアプリ名ではなくライブラリ名が表示されます。
 
-**What’s restricted**
+**Producer** は、エクスポート時に最終ファイルを生成したレンダリング エンジンを識別します。**PDF** エクスポートでは、メタデータは **Creator** と **Producer** フィールドを使用します。Aspose.Slides for Java では、これらの両方が固定されており、ライブラリとそのバージョンを示します。
 
-上記の形式に対しては、API を通じてこれらのフィールドを上書きすることはできません。**PPTX** の場合、Application プロパティは「Aspose.Slides for Java」として書き込まれます。**PDF** の場合、Creator および Producer プロパティは「Aspose.Slides for Java x.x.x.」として書き込まれます。この動作は設計上のもので、ファイルの読み込みや保存方法にかかわらず、また[DocumentProperties.setNameOfApplication](https://reference.aspose.com/slides/java/com.aspose.slides/documentproperties/#setNameOfApplication-java.lang.String-)で設定した値に関係なく適用されます。
+## **制限事項**
+
+上記の形式では、API を介してこれらのフィールドを上書きすることはできません。**PPTX** の場合、Application プロパティは「Aspose.Slides for Java」として書き込まれます。**PDF** の場合、Creator および Producer プロパティは「Aspose.Slides for Java」にライブラリ バージョンが続く形で書き込まれます。**ODP** の場合、generator フィールドは「Aspose.Slides for Java」にライブラリ バージョンが続く形で書き込まれます。この動作は設計上のものであり、ファイルの読み込みや保存方法にかかわらず、[DocumentProperties.setNameOfApplication](https://reference.aspose.com/slides/ja/java/com.aspose.slides/documentproperties/#setNameOfApplication-java.lang.String-) で設定した値にかかわらず適用されます。
+
+この制限は **PPT** ファイルには適用されません。PPT ファイルでは、[DocumentProperties.setNameOfApplication](https://reference.aspose.com/slides/ja/java/com.aspose.slides/documentproperties/#setNameOfApplication-java.lang.String-) で設定したアプリケーション名が保存されます。

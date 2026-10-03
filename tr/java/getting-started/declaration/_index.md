@@ -1,38 +1,45 @@
 ---
-title: Deklarasyon
+title: Güvenlik Yöneticisi Gereksinimleri
 type: docs
-weight: 60
+weight: 190
 url: /tr/java/declaration/
 keywords:
-- deklarasyon
-- bileşenler
-- Full Trust izni
-- kayıt defteri ayarları
-- sistem dosyaları
+- Güvenlik Yöneticisi
+- güvenlik politikası
+- AllPermission
+- izinler
+- sandbox
+- JDK 24
 - PowerPoint
 - OpenDocument
 - sunum
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Java güven gereksinimleri, izinler ve barındırma sınırlamaları hakkında bilgi edinin, böylece PPT, PPTX ve ODP işleyen uygulamaları sunucularda güvenle dağıtabilirsiniz."
+description: "Java 23 ve öncesinde Aspose.Slides for Java ile onu çağıran kodun ihtiyaç duyduğu Güvenlik Yöneticisi izinleri nelerdir ve Java 24 ve sonrasında yapılandırılacak bir şeyin olmamasının nedeni nedir."
 ---
-{{% alert color="primary" %}} 
+## **Genel Bakış**
 
-Tüm Aspose Java bileşenleri Full Trust izin kümesini gerektirir. Bunun nedeni, Aspose Java bileşenlerinin yazı tipi ayrıştırma gibi belirli işlemler için sanal dizin dışındaki kayıt defteri ayarlarına ve sistem dosyalarına erişmesi gerekir. Ayrıca, Aspose Java Bileşenleri, birçok durumda Full Trust izin kümesini gerektiren temel Java sistem sınıflarına dayanır. 
+Java Güvenlik Yöneticisi, güvenlik politikasına göre kodun ne yapabileceğini sınırlar. Java 17, kaldırılması için kullanım dışı bıraktı ([JEP 411](https://openjdk.org/jeps/411)), ve Java 24 kalıcı olarak devre dışı bıraktı ([JEP 486](https://openjdk.org/jeps/486)). Bu makale, bir uygulama hâlâ Güvenlik Yöneticisi ile çalıştığında Aspose.Slides for Java'ın neye ihtiyaç duyduğunu açıklar. Uygulamanız birini etkinleştirmiyorsa (varsayılan budur), yapılandırılacak bir şey yoktur.
 
-{{% /alert %}} 
+## **Java 23 ve Öncesi**
 
-Internet Service Providers hosting multiple applications from different companies mostly enforce Medium Trust security level: 
+Bir Güvenlik Yöneticisi etkinleştirildiğinde, güvenlik politikasının bu izinleri Aspose.Slides JAR dosyasına ve onu çağıran uygulama koduna vermesi gerekir:
 
-- OleDbPermission mevcut değil. Bu, veritabanlarına erişmek için ADO.NET yönetilen OLE DB veri sağlayıcısını kullanamayacağınız anlamına gelir.
-- EventLogPermission mevcut değil. Bu, Windows olay günlüğüne erişemeyeceğiniz anlamına gelir.
-- ReflectionPermission mevcut değil. Bu, yansıma kullanamayacağınız anlamına gelir.
-- RegistryPermission mevcut değil. Bu, kayıt defterine erişemeyeceğiniz anlamına gelir.
-- WebPermission kısıtlanmıştır. Bu, uygulamanızın yalnızca <trust> öğesinde tanımladığınız bir adres veya adres aralığıyla iletişim kurabileceği anlamına gelir.
-- FileIOPermission kısıtlanmıştır. Bu, yalnızca uygulamanızın sanal dizin hiyerarşisindeki dosyalara erişebileceğiniz anlamına gelir.
+- `java.util.PropertyPermission "*", "read"`: Aspose.Slides sistem özelliklerini okur.
+- `java.io.FilePermission "<<ALL FILES>>", "read"`: Aspose.Slides yazı tipi dosyalarını ve diğer dosyaları okur.
+- `java.io.FilePermission "<<ALL FILES>>", "execute"`: Aspose.Slides işletim sistemi programlarını başlatır, örneğin Windows'ta `reg` ve Linux'ta `fc-match`.
+- `java.io.FilePermission` ile `write` eylemi, uygulamanızın dosyaları kaydettiği klasörler için.
 
-{{% alert color="primary" %}} 
+İzinleri sadece JAR dosyasına vermek yeterli değildir: Aspose.Slides'ı çağıran kod da bu izinlere ihtiyaç duyar. Her ikisine de `java.security.AllPermission` vermek de çalışır.
 
-Yukarıda belirtilen nedenlerden dolayı, Aspose Java bileşenleri Full Trust dışındaki izin kümesini sağlayan sunucularda kullanılamaz. 
+Sistem özelliklerini okuma veya program başlatma izni olmadan, Aspose.Slides ilk kullanımda başarısız olur: bir [Presentation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/) nesnesi oluşturmak `ExceptionInInitializerError` hatası fırlatır. Yazı tipi dosyalarına okuma erişimi olmadan, bir sunumu PDF olarak kaydetmek “Cannot find any fonts installed on the system” hatasıyla başarısız olur.
 
-{{% /alert %}}
+## **Java 24 ve Sonrası**
+
+Java 24 ve sonrasında Güvenlik Yöneticisi etkinleştirilemez, bu nedenle verilecek izin yoktur. Aspose.Slides, uygulamanızı çalıştıran hesabın izinleriyle çalışır. Bir uygulamanın neye erişebileceğini kısıtlamak için OpenJDK projesi, JDK dışındaki teknolojileri, örneğin konteynerler, hipervizörler ve işletim sistemi sandbox özelliklerini önerir. Bakınız [JEP 486](https://openjdk.org/jeps/486).
+
+## **SSS**
+
+**Kısıtlayıcı bir Güvenlik Yöneticisi politikasına sahip bir ortamda Aspose.Slides'ı kullanabilir miyim?**
+
+Yalnızca politika, yukarıda listelenen izinleri hem Aspose.Slides'a hem de onu çağıran koda verdiği takdirde. Bu izinler, tüm dosyaları okuma ve herhangi bir programı başlatma iznini içerir.

@@ -1,245 +1,269 @@
 ---
-title: Cách chạy Aspose.Slides cho Java trong Docker
+title: Chạy Aspose.Slides cho Java trong Docker
+linktitle: Docker
 type: docs
-weight: 75
+weight: 150
 url: /vi/java/how-to-run-aspose-slides-in-docker/
 keywords:
-- tải xuống Aspose.Slides
-- cài đặt Aspose.Slides
-- cài đặt Aspose.Slides
 - Docker
-- Windows
-- macOS
+- Dockerfile
+- container Docker
+- xây dựng đa giai đoạn
+- image container
+- Eclipse Temurin
+- Maven
 - Linux
-- khả năng tương thích đa nền tảng
-- cô lập phụ thuộc
-- triển khai đơn giản
-- cài đặt dự án
+- Ubuntu
+- Alpine
+- Debian
+- fontconfig
+- phông chữ
+- chuyển đổi PDF
 - PowerPoint
-- OpenDocument
 - bản trình bày
 - Java
 - Aspose.Slides
-description: "Chạy Aspose.Slides trong các container Docker: cấu hình hình ảnh, phụ thuộc, phông chữ và giấy phép để xây dựng các dịch vụ mở rộng quy mô xử lý PowerPoint và OpenDocument."
+description: "Xây dựng và chạy một ứng dụng Aspose.Slides cho Java trong Docker: Dockerfile đa giai đoạn trên các image chính thức của Maven và Eclipse Temurin, các thư viện Linux và phông chữ mà Aspose.Slides yêu cầu, và cách sao chép các tệp đã tạo về máy của bạn."
 ---
-## **Giới thiệu**
+## **Tổng quan**
 
-Hướng dẫn này giải thích cách đóng gói một ứng dụng Java bằng Aspose Slides với Docker. Các lợi ích chính bao gồm:
+Bài viết này chỉ cách chạy Aspose.Slides for Java trong một container Docker. Bạn sẽ xây dựng một dự án Maven nhỏ tạo một bản trình bày có hộp văn bản và chuyển đổi nó sang PDF, đóng gói bằng Dockerfile đa giai đoạn trên các hình ảnh chính thức của Maven và Eclipse Temurin, chạy nó, và sao chép các tệp đã tạo về máy của bạn. Bài viết cũng giải thích Aspose.Slides cần gì trong một image Linux ngoài Java, và kết thúc bằng các biến thể cho Alpine Linux và cho các image cài Java từ các gói của bản phân phối.
 
-- **Khả năng tương thích đa nền tảng** - Chạy trên Windows, macOS và Linux
-- **Cách ly phụ thuộc** - Không cần cài đặt trên toàn hệ thống
-- **Triển khai đơn giản** - Dễ dàng chia sẻ và thực thi
+Bạn chỉ cần Docker trên máy. JDK và Maven đã có trong image xây dựng, vì vậy bạn không phải cài chúng. Để cài Docker, xem [Lấy Docker](https://docs.docker.com/get-started/get-docker/).
 
-## **1. Cài đặt Docker**
+## **Chọn hình ảnh cơ sở**
 
-### **Windows**
+Dockerfile trong bài này sử dụng hai image chính thức từ Docker Hub:
 
-**Yêu cầu:**
+- [maven](https://hub.docker.com/_/maven) với thẻ `3.9-eclipse-temurin-21` để biên dịch ứng dụng. Nó chứa Apache Maven 3.9 và Eclipse Temurin JDK 21.
+- [eclipse-temurin](https://hub.docker.com/_/eclipse-temurin) với thẻ `21-jre` để chạy ứng dụng. Nó chứa runtime Eclipse Temurin Java 21 trên Ubuntu, không có JDK và Maven.
 
-- Windows 10/11 Pro/Enterprise/Education (64-bit) với WSL 2 được bật
-- Đối với bản Home: Cần cài đặt WSL 2 thủ công
+Aspose.Slides for Java vẽ văn bản bằng hỗ trợ phông chữ của Java, trên Linux cần các thư viện fontconfig và FreeType và ít nhất một phông chữ được cài đặt. Các image Eclipse Temurin đã có sẵn fontconfig, FreeType và các phông DejaVu, vì vậy Dockerfile trong bài này không cài thêm gói nào. Trong một image không có phông nào, việc lưu bản trình bày sẽ dừng với lỗi “Fontconfig head is null, check your fonts or fonts configuration”. Nếu bạn xây dựng trên một base image khác, xem [Sử dụng hình ảnh cơ sở khác](#use-another-base-image).
 
-**Các bước:**
+## **Tạo dự án**
 
-1. Tải xuống [Docker Desktop for Windows](https://www.docker.com/products/docker-desktop/)
-2. Chạy trình cài đặt và làm theo hướng dẫn cài đặt
-3. Khởi động lại máy tính khi được yêu cầu
-4. Xác minh cài đặt:
-   ```powershell
-   docker --version
-   ```
+Tạo một thư mục có tên *hello-slides-docker* và thêm các tệp sau vào đó.
 
-### **macOS**
+*pom.xml* khai báo kho Maven của Aspose và phụ thuộc Aspose.Slides for Java, như mô tả trong [Cài đặt](/slides/vi/java/installation/); Aspose.Slides for Java không được công bố trên Maven Central, vì vậy mục kho là bắt buộc. Thành phần `finalName` đặt tên tệp JAR của ứng dụng thành *hello-slides.jar*, và [maven-dependency-plugin](https://maven.apache.org/plugins/maven-dependency-plugin/) sao chép các phụ thuộc của ứng dụng vào *target/lib* khi Maven đóng gói. Đặt phiên bản Aspose.Slides thành phiên bản mới nhất được liệt kê trong [kho](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/).
 
-**Yêu cầu:**
+```xml
+<project xmlns="http://maven.apache.org/POM/4.0.0">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.example</groupId>
+    <artifactId>hello-slides</artifactId>
+    <version>1.0</version>
 
-- macOS 10.15 (Catalina) trở lên
-- Bộ xử lý Apple Silicon hoặc Intel
+    <properties>
+        <maven.compiler.release>11</maven.compiler.release>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
 
-**Các bước:**
+    <repositories>
+        <repository>
+            <id>AsposeJavaAPI</id>
+            <name>Aspose Java API</name>
+            <url>https://releases.aspose.com/java/repo/</url>
+        </repository>
+    </repositories>
 
-1. Tải xuống [Docker Desktop for Mac](https://www.docker.com/products/docker-desktop/)
-2. Kéo ứng dụng vào thư mục `Applications` của bạn
-3. Khởi động Docker và chờ quá trình khởi tạo
-4. Xác minh cài đặt:
-   ```bash
-   docker --version
-   ```
+    <dependencies>
+        <dependency>
+            <groupId>com.aspose</groupId>
+            <artifactId>aspose-slides</artifactId>
+            <version>26.9</version>
+            <classifier>jdk16</classifier>
+        </dependency>
+    </dependencies>
 
-### **Linux (Ubuntu/Debian)**
-
-**Cài đặt:**
-
-```bash
-# Cập nhật danh sách gói
-sudo apt update && sudo apt upgrade -y
-
-# Cài đặt các gói cần thiết
-sudo apt install -y \
-    apt-transport-https \
-    ca-certificates \
-    curl \
-    software-properties-common
-
-# Thêm khóa GPG chính thức của Docker
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
-
-# Thêm một kho lưu trữ ổn định
-echo "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-
-# Cài đặt Docker Engine
-sudo apt update
-sudo apt install -y docker-ce docker-ce-cli containerd.io
-
-# Cho phép người dùng hiện tại chạy các lệnh Docker
-sudo usermod -aG docker $USER
-newgrp docker
-
-# Xác minh cài đặt
-docker --version
+    <build>
+        <finalName>hello-slides</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.15.0</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <version>3.11.0</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>copy-dependencies</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${project.build.directory}/lib</outputDirectory>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>
 ```
 
-## **2. Cấu hình Dockerfile**
+*src/main/java/HelloSlides.java* tạo một [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentation/), thêm một hình chữ nhật chứa văn bản vào slide đầu tiên, và lưu bản trình bày hai lần bằng phương thức [save](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentation/#save-java.lang.String-int-): dưới dạng PPTX và PDF. Cả hai tệp đều được lưu vào thư mục *output* trong thư mục làm việc. Chương trình sau đó liệt kê các phông chữ mà Aspose.Slides thay thế khi render bản trình bày, bằng cách gọi [IFontsManager.getSubstitutions](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ifontsmanager/#getSubstitutions--), để bạn có thể thấy container có những phông nào mà bản trình bày sử dụng.
 
-### **Ảnh nền**
-
-```dockerfile
-FROM ubuntu:24.04
-```
-> **Lưu ý**: Sử dụng [ảnh Ubuntu chính thức](https://hub.docker.com/_/ubuntu) từ Docker Hub.
-
-### **Phụ thuộc**
-
-```dockerfile
-RUN apt-get install -y openjdk-11-jdk wget fontconfig ttf-mscorefonts-installer
-```
-- **OpenJDK 11**: Môi trường chạy Java
-- **Gói phông chữ**: Bao gồm Microsoft Core Fonts
-
-### **Cài đặt Aspose.Slides**
-
-```dockerfile
-ENV ASPOSE_VERSION=25.3
-
-ENV ASPOSE_JAR=aspose-slides-${ASPOSE_VERSION}-jdk16.jar
-ENV ASPOSE_URL=https://releases.aspose.com/java/repo/com/aspose/aspose-slides/${ASPOSE_VERSION}/${ASPOSE_JAR}
-```
-- Tải xuống thư viện Aspose Slides với phiên bản cố định
-
-## **3. Cài đặt dự án**
-
-### **Cấu trúc tệp**
-
-```
-aspose-docker/
-├── Dockerfile          # Cấu hình container
-├── TestAspose.java     # Mã ứng dụng
-└── output/             # Thư mục chứa các PDF được tạo (tự động tạo)
-```
-
-### **Dockerfile**
-
-Tạo một tệp có tên `Dockerfile` với nội dung:
-```dockerfile
-FROM ubuntu:24.04
-
-# Đặt các biến môi trường
-ENV JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
-ENV PATH=$JAVA_HOME/bin:$PATH
-ENV APP_DIR=/tmp
-ENV ASPOSE_VERSION=25.3
-ENV ASPOSE_JAR=aspose-slides-${ASPOSE_VERSION}-jdk16.jar
-ENV ASPOSE_URL=https://releases.aspose.com/java/repo/com/aspose/aspose-slides/${ASPOSE_VERSION}/${ASPOSE_JAR}
-
-# Tạo thư mục làm việc
-RUN mkdir -p ${APP_DIR}
-WORKDIR ${APP_DIR}
-
-# Cài đặt các phụ thuộc
-RUN apt-get update && \
-    apt-get install -y --no-install-recommends \
-    openjdk-11-jdk \
-    wget \
-    fontconfig \
-    ttf-mscorefonts-installer && \
-    rm -rf /var/lib/apt/lists/*
-
-# Cấu hình phông chữ
-RUN echo "ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true" | debconf-set-selections && \
-    apt-get update && \
-    apt-get install -y --no-install-recommends ttf-mscorefonts-installer && \
-    fc-cache -f -v
-
-# Tải Aspose.Slides về /tmp
-RUN wget ${ASPOSE_URL} -O ${APP_DIR}/${ASPOSE_JAR}
-
-# Sao chép mã nguồn
-COPY TestAspose.java ${APP_DIR}/
-
-# Tạo script chạy
-RUN echo '#!/bin/bash' > ${APP_DIR}/run.sh && \
-    echo 'java --add-opens=java.desktop/sun.java2d=ALL-UNNAMED \' >> ${APP_DIR}/run.sh && \
-    echo '     --add-opens=java.desktop/sun.awt.image=ALL-UNNAMED \' >> ${APP_DIR}/run.sh && \
-    echo '     --add-opens=java.desktop/sun.font=ALL-UNNAMED \' >> ${APP_DIR}/run.sh && \
-    echo '     -cp ".:'"${ASPOSE_JAR}"'" TestAspose' >> ${APP_DIR}/run.sh && \
-    chmod +x ${APP_DIR}/run.sh
-
-# Cấp quyền thực thi cho script một cách rõ ràng
-RUN chmod 755 ${APP_DIR}/run.sh
-
-# Biên dịch mã Java
-RUN javac -cp "${APP_DIR}/${ASPOSE_JAR}" ${APP_DIR}/TestAspose.java
-
-# Đặt thư mục làm việc
-WORKDIR /tmp
-
-CMD ["sh", "-c", "/tmp/run.sh && cp /tmp/output/output.pdf /output"]
-```
-
-### **Ứng dụng Java**
-
-Tạo `TestAspose.java` với nội dung:
 ```java
 import com.aspose.slides.*;
+import java.io.File;
 
-public class TestAspose {
-    public static void main(String[] args) throws Exception {
-        System.out.println("Creating presentation...");
-        
+public class HelloSlides {
+    public static void main(String[] args) {
+        File outputFolder = new File("output");
+        outputFolder.mkdirs();
+
         Presentation presentation = new Presentation();
         try {
             ISlide slide = presentation.getSlides().get_Item(0);
-            
-            IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 190, 300, 25);
-            autoShape.getTextFrame().setText("Greetings from Docker!");
-            
-            presentation.save("/tmp/output/output.pdf", SaveFormat.Pdf);
+            IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 400, 100);
+            shape.getTextFrame().setText("Hello from a Docker container!");
+
+            String pptxPath = new File(outputFolder, "hello.pptx").getPath();
+            String pdfPath = new File(outputFolder, "hello.pdf").getPath();
+            presentation.save(pptxPath, SaveFormat.Pptx);
+            presentation.save(pdfPath, SaveFormat.Pdf);
+
+            for (FontSubstitutionInfo substitution : presentation.getFontsManager().getSubstitutions()) {
+                System.out.println("Font substitution: " + substitution.getOriginalFontName() + " -> " + substitution.getSubstitutedFontName());
+            }
+
+            System.out.println("Saved " + pptxPath + " and " + pdfPath);
         } finally {
-            if (presentation != null) presentation.dispose();
+            presentation.dispose();
         }
-        System.out.println("Presentation saved as output.pdf");
     }
 }
 ```
 
-## **4. Xây dựng và Chạy**
+*.dockerignore* giữ thư mục *target* của bản dựng cục bộ và các đầu ra của các lần chạy trước, tránh chúng xuất hiện trong ngữ cảnh xây dựng Docker, vì vậy image chỉ được xây dựng từ các tệp nguồn.
 
-### **Xây dựng Image**
+```text
+target/
+output/
+```
 
-   Chạy lệnh sau trong thư mục chứa Dockerfile của bạn để xây dựng image Docker:
-   ```powershell
-   docker build -t aspose-test .
-   ```
-   
-- `-t` đặt tên cho image là "aspose-test"
-- `.` sử dụng Dockerfile trong thư mục hiện tại
+## **Viết Dockerfile**
 
-### **Chạy Container**
+Thêm một tệp có tên *Dockerfile* vào thư mục *hello-slides-docker*:
 
-   Chạy lệnh sau trong thư mục chứa Dockerfile của bạn để chạy container Docker:
-   ```powershell
-   docker run -v "$(pwd)/output:/output" aspose-test
-   ```
-   
-- `-v` gắn thư mục đầu ra
-- Tạo `output.pdf` trong thư mục `output` cục bộ của bạn
+```dockerfile
+FROM maven:3.9-eclipse-temurin-21 AS build
+WORKDIR /src
+COPY pom.xml .
+RUN mvn -B dependency:go-offline
+COPY src ./src
+RUN mvn -B package
+
+FROM eclipse-temurin:21-jre
+WORKDIR /app
+COPY --from=build /src/target/hello-slides.jar .
+COPY --from=build /src/target/lib ./lib
+RUN mkdir output && chown ubuntu output
+USER ubuntu
+ENTRYPOINT ["java", "-cp", "hello-slides.jar:lib/*", "HelloSlides"]
+```
+
+Tệp có hai giai đoạn:
+
+- **Giai đoạn xây dựng** bắt đầu từ image Maven. Nó sao chép *pom.xml* trước và chạy `mvn dependency:go-offline`, tải về Aspose.Slides for Java và các plugin Maven, vì vậy Docker sẽ tái sử dụng lớp này miễn là *pom.xml* không thay đổi. Sau đó sao chép mã nguồn và chạy `mvn package`, biên dịch chương trình thành *target/hello-slides.jar* và sao chép tệp JAR Aspose.Slides vào *target/lib*. Tuỳ chọn `-B` chạy Maven ở chế độ không tương tác (batch).
+- **Giai đoạn runtime** bắt đầu từ image runtime Java nhỏ hơn và chỉ sao chép tệp JAR của ứng dụng và thư mục *lib*. Nó tạo thư mục *output*, cấp quyền cho người dùng `ubuntu` (người dùng không phải root mà image dựa trên Ubuntu định nghĩa), và chạy ứng dụng dưới người dùng đó. Đường classpath `hello-slides.jar:lib/*` chứa ứng dụng và mọi tệp JAR trong *lib*; Java tự mở rộng `*`.
+
+Dự án được biên dịch cho Java 11 (thuộc tính `maven.compiler.release`), vì vậy giai đoạn runtime có thể dùng một phiên bản Java mới hơn. Ví dụ, để chạy ứng dụng trên Java 25, thay đổi image của giai đoạn runtime thành `eclipse-temurin:25-jre`.
+
+## **Xây dựng và chạy container**
+
+Mở terminal trong thư mục *hello-slides-docker*. Xây dựng image, sau đó chạy một container từ nó:
+
+```bash
+docker build -t hello-slides .
+docker run --name hello-slides-run hello-slides
+```
+
+Lần xây dựng đầu tiên tải các image cơ sở, các plugin Maven và Aspose.Slides for Java, vì vậy mất vài phút; các lần sau tái sử dụng chúng. Container chạy ứng dụng và dừng lại. Nó in ra:
+
+```text
+Font substitution: Calibri -> DejaVu Sans
+Saved output/hello.pptx and output/hello.pdf
+```
+
+Dòng đầu tiên cho thấy văn bản sử dụng phông Calibri, phông mặc định của một bản trình bày mới, và Calibri không được cài trong image, vì vậy Aspose.Slides đã vẽ văn bản bằng DejaVu Sans. Văn bản trong PDF là chữ thực, có thể chọn được với phông đó. Nếu không có giấy phép, Aspose.Slides cũng sẽ thêm một watermark đánh giá vào mọi slide được lưu; xem [Cấp phép](/slides/vi/java/licensing/).
+
+## **Sao chép đầu ra về máy của bạn**
+
+Các tệp nằm trong thư mục */app/output* của container đã dừng. Sao chép chúng vào một thư mục *output* trên máy của bạn, sau đó xóa container:
+
+```bash
+docker cp hello-slides-run:/app/output/. ./output
+docker rm hello-slides-run
+```
+
+Hai lệnh này hoạt động tương tự trong Bash, PowerShell và Windows Command Prompt.
+
+Trên Linux, bạn có thể gắn một thư mục trên máy vào container, để ứng dụng ghi trực tiếp vào đó:
+
+```bash
+mkdir -p output
+docker run --rm --user "$(id -u):$(id -g)" -v "$(pwd)/output:/app/output" hello-slides
+```
+
+Tuỳ chọn `--user` chạy ứng dụng với UID và GID của bạn, vì vậy nó có thể ghi vào thư mục bạn tạo và các tệp sẽ thuộc về bạn. `--rm` xóa container khi nó dừng.
+
+## **Chạy trên Alpine Linux**
+
+Eclipse Temurin cũng có sẵn dưới dạng image dựa trên Alpine Linux, nhẹ hơn. Nó cũng chứa fontconfig, FreeType và các phông DejaVu, vì vậy ứng dụng không cần gói bổ sung nào ở đây. Để sử dụng, thay thế giai đoạn runtime trong *Dockerfile* (từ dòng `FROM` thứ hai trở đi) bằng:
+
+```dockerfile
+FROM eclipse-temurin:21-jre-alpine
+WORKDIR /app
+COPY --from=build /src/target/hello-slides.jar .
+COPY --from=build /src/target/lib ./lib
+RUN adduser -D app && mkdir output && chown app output
+USER app
+ENTRYPOINT ["java", "-cp", "hello-slides.jar:lib/*", "HelloSlides"]
+```
+
+Image Alpine không có người dùng `ubuntu`, vì vậy giai đoạn này tạo người dùng `app` bằng `adduser` và chạy ứng dụng dưới người dùng đó. Xây dựng, chạy và sao chép đầu ra bằng các lệnh như trên. Ứng dụng in ra hai dòng giống nhau.
+
+## **Sử dụng hình ảnh cơ sở khác**
+
+Nếu image của bạn cài Java từ các gói của bản phân phối Linux, hãy cài thêm các thư viện phông chữ của Java và một phông chữ. Trên Debian và Ubuntu, gói `openjdk-21-jre-headless` liệt kê fontconfig, FreeType và HarfBuzz chỉ là các gói đề nghị, vì vậy `apt-get install --no-install-recommends` sẽ bỏ chúng, và ứng dụng dừng với `UnsatisfiedLinkError` cho `libfontmanager.so`. Giai đoạn runtime này cài Java 21, các thư viện và phông DejaVu trên Debian 13, và tạo người dùng không root tên `app`:
+
+```dockerfile
+FROM debian:trixie
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends openjdk-21-jre-headless libfontconfig1 libfreetype6 libharfbuzz0b fonts-dejavu-core \
+    && rm -rf /var/lib/apt/lists/*
+WORKDIR /app
+COPY --from=build /src/target/hello-slides.jar .
+COPY --from=build /src/target/lib ./lib
+RUN useradd --create-home app && mkdir output && chown app output
+USER app
+ENTRYPOINT ["java", "-cp", "hello-slides.jar:lib/*", "HelloSlides"]
+```
+
+Cùng giai đoạn này cũng hoạt động trên Ubuntu 26.04 với `FROM ubuntu:26.04`.
+
+## **Câu hỏi thường gặp**
+
+**Lưu bản trình bày dừng lại với “Fontconfig head is null, check your fonts or fonts configuration”. Thiếu gì?**
+
+Thiếu phông chữ. Hỗ trợ phông chữ của Java không tìm thấy phông nào được cài trong image. Cài một gói phông, ví dụ `fonts-dejavu-core` trên Debian và Ubuntu, như trong [Sử dụng hình ảnh cơ sở khác](#use-another-base-image). [Triển khai phông](/slides/vi/java/deploy-fonts/) liệt kê các gói phông khác.
+
+**Ứng dụng dừng với UnsatisfiedLinkError cho libfontmanager.so. Thiếu gì?**
+
+Thiếu thư viện gốc của hỗ trợ phông chữ Java; thông báo chỉ ra tệp không thể tải, ví dụ `libharfbuzz.so.0`. Điều này xảy ra khi Java được cài từ các gói của bản phân phối mà không có các gói đề nghị. Cài các thư viện được liệt kê trong [Sử dụng hình ảnh cơ sở khác](#use-another-base-image).
+
+**Tại sao văn bản trong PDF có phông khác với PowerPoint?**
+
+Các phông chữ mà bản trình bày sử dụng không được cài trong image, vì vậy Aspose.Slides vẽ chúng bằng phông thay thế. Đầu ra của ứng dụng liệt kê mỗi phông đã được thay thế. [Triển khai phông](/slides/vi/java/deploy-fonts/) giải thích cách cài phông trong image hoặc tải chúng từ thư mục ứng dụng.
+
+**Ứng dụng có thể dùng bao nhiêu bộ nhớ trong container?**
+
+Mặc định, Java giới hạn heap ở một phần tư bộ nhớ của container, ví dụ khoảng 250 MB khi bạn khởi chạy container với `docker run -m 1g`. Để xử lý các bản trình bày lớn, tăng tỷ lệ chia sẻ bằng tuỳ chọn `MaxRAMPercentage`, ví dụ `docker run --rm -m 1g -e JAVA_TOOL_OPTIONS=-XX:MaxRAMPercentage=75 hello-slides`. Java sẽ in dòng “Picked up JAVA_TOOL_OPTIONS” trước khi hiển thị đầu ra của ứng dụng.
+
+**Tôi có cần JDK hoặc Maven trên máy không?**
+
+Không. Giai đoạn build biên dịch ứng dụng trong image Maven. Bạn chỉ cần JDK và Maven nếu muốn xây dựng và chạy ứng dụng ngoài Docker; xem [Cài đặt](/slides/vi/java/installation/).

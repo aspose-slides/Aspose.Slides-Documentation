@@ -1,29 +1,33 @@
 ---
-title: Bug de Licenciamento
+title: Bug de Licenciamento nas Versões 23.2 a 23.7 (Histórico)
+linktitle: Bug de Licenciamento 23.2-23.7 (Histórico)
 type: docs
-weight: 95
+weight: 200
 url: /pt/java/licensing-bug/
 keywords:
 - bug de licenciamento
 - licença perpétua
+- histórico
+- versão 23.2
+- versão 23.7
 - Java
 - Aspose.Slides
-description: "Saiba como um bug de licenciamento no Aspose.Slides for Java 23.2–23.7 afeta chaves perpétuas e como corrigi-lo para continuar funcionando com PPT, PPTX e ODP."
+description: "Histórico: um bug de licenciamento no Aspose.Slides for Java 23.2 a 23.7 que mudou licenças perpétuas para modo de avaliação após o término da assinatura, e as versões corrigidas 23.2.1 a 23.7.1."
 ---
-## **Visão geral**
+{{% alert color="info" title="Note" %}}
+Esta é uma página histórica. Ela descreve um bug no Aspose.Slides for Java nas versões 23.2 a 23.7, que foram lançadas em 2023, e as versões que o corrigiram. Ela não descreve a versão atual. Para licenciamento na versão atual, veja [Licenciamento](/slides/pt/java/licensing/).
+{{% /alert %}}
 
-Este artigo descreve um bug de licenciamento encontrado nas versões 23.2, 23.3, 23.4, 23.5, 23.6 e 23.7 do Aspose.Slides for Java. Esse bug fez com que licenças perpétuas ficassem temporariamente inutilizáveis após a expiração da assinatura.
+## **Visão geral**
+Este artigo descreve um bug de licenciamento encontrado nas versões do Aspose.Slides for Java 23.2, 23.3, 23.4, 23.5, 23.6 e 23.7. Esse bug fez com que licenças perpétuas ficassem temporariamente inutilizáveis após o término de sua assinatura.
 
 ## **Sintomas**
-
-Após a expiração da assinatura da sua licença perpétua, as versões 23.2 - 23.7 do Aspose.Slides for Java podem relatar a licença como expirada, colocando todas as funções em modo de avaliação.  
-Esse comportamento está incorreto e não afeta versões anteriores à 23.2 nem posteriores à 23.7.
+Após o término da assinatura da sua licença perpétua, as versões 23.2 - 23.7 do Aspose.Slides for Java podem relatar a licença como expirada, alterando todas as funções para o modo de avaliação. Esse comportamento está incorreto e não afeta versões anteriores a 23.2 nem posteriores a 23.7.
 
 ## **Resolução**
+O Aspose.Slides for Java tratou desse problema e lançou versões atualizadas (23.2.1, 23.3.1, 23.4.1, 23.5.1, 23.6.1, 23.7.1) com a correção.
 
-O Aspose.Slides for Java resolveu esse problema e lançou versões atualizadas (23.2.1, 23.3.1, 23.4.1, 23.5.1, 23.6.1, 23.7.1) com a correção.  
-
-Se você estiver usando uma das versões afetadas do Aspose.Slides for Java em seu projeto, altere para a versão corrigida.
+Se você estiver usando uma das versões afetadas do Aspose.Slides for Java em seu projeto, por favor altere para a versão corrigida.
 
 Lista de versões com a correção:
 
@@ -38,10 +42,9 @@ Lista de versões com a correção:
 
 Se você encontrar quaisquer problemas de licenciamento com o Aspose.Slides for Java:
 
-- Verifique a versão que está usando e certifique-se de que não está afetada pelo bug descrito acima.
-- Consulte a [documentação da Aspose](https://docs.aspose.com/slides/pt/java/getting-started/) para etapas de solução de problemas e problemas de licenciamento conhecidos.
-- Entre em contato com o [suporte da Aspose](https://forum.aspose.com/) para obter mais assistência.
+- Verifique a versão que está usando e certifique‑se de que não está afetada pelo bug descrito acima.
+- Consulte [Licenciamento](/slides/pt/java/licensing/) para saber como aplicar e validar uma licença.
+- Entre em contato com [Suporte da Aspose](https://forum.aspose.com/c/slides/pt/11) para mais assistência.
 
 ## **Produtos e versões afetados**
-
-Observe que esse bug afeta apenas as versões 23.2 a 23.7 do Aspose.Slides for Java. **Outros produtos Aspose e outras versões do Aspose.Slides não são afetados**.
+Observe que este bug afeta apenas as versões 23.2 a 23.7 do Aspose.Slides for Java. **Outros produtos Aspose e outras versões do Aspose.Slides não são afetados**.

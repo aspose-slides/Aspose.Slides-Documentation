@@ -1,53 +1,55 @@
 ---
-title: Problém s náhledem objektu při přidání OleObjectFrame
-linktitle: Problém s OLE objektem
+title: Zástupná značka náhledu objektu při přidání OleObjectFrame
+linktitle: Zástupná značka náhledu OLE
 type: docs
 weight: 10
 url: /cs/java/object-preview-issue-when-adding-oleobjectframe/
 keywords:
 - OLE
 - problém s náhledem
+- zástupná značka náhledu
+- záměrně
 - vložený objekt
 - vložený soubor
-- změněný objekt
+- objekt změněn
 - náhled objektu
 - PowerPoint
 - prezentace
 - Java
 - Aspose.Slides
-description: "Zjistěte, proč se při přidání OleObjectFrame v Aspose.Slides pro Java zobrazuje zpráva EMBEDDED OLE OBJECT a jak opravit problémy s náhledem v prezentacích PPT, PPTX a ODP."
+description: "Proč OLE objekt přidaný pomocí Aspose.Slides for Java zobrazuje zástupnou značku EMBEDDED OLE OBJECT, dokud není jeho náhled aktualizován, a jak nastavit vlastní obrázek náhledu."
 ---
 ## **Úvod**
 
-Při používání Aspose.Slides pro Java, když přidáte [OleObjectFrame](https://reference.aspose.com/slides/cs/java/com.aspose.slides/oleobjectframe/) do snímku, zobrazí se na výstupním snímku zpráva „EMBEDDED OLE OBJECT“. Tato zpráva je úmyslná a NEJDE o chybu.
+Pomocí Aspose.Slides for Java, když přidáte [OleObjectFrame](https://reference.aspose.com/slides/cs/java/com.aspose.slides/oleobjectframe/) na snímek, zobrazí se na výstupním snímku zpráva "EMBEDDED OLE OBJECT". Tato zpráva je úmyslná a NOT a bug.
 
-Další informace o práci s OLE objekty najdete v článku [Manage OLE](/slides/cs/java/manage-ole/).
+Další informace o práci s OLE objekty najdete v [Manage OLE](/slides/cs/java/manage-ole/).
 
 ## **Vysvětlení a řešení**
 
-Aspose.Slides zobrazuje zprávu „EMBEDDED OLE OBJECT“, aby vás upozornil, že OLE objekt byl změněn a náhledový obrázek je třeba aktualizovat.  
+Aspose.Slides zobrazuje zprávu "EMBEDDED OLE OBJECT", aby vás upozornil, že OLE objekt byl změněn a náhledový obrázek je třeba aktualizovat.
 
-Například pokud přidáte do snímku Microsoft Excel graf jako [OleObjectFrame](https://reference.aspose.com/slides/cs/java/com.aspose.slides/oleobjectframe/) (pro podrobnosti viz článek „Manage OLE“) a poté otevřete prezentaci v Microsoft PowerPoint, na snímku uvidíte tento obrázek:
+Například pokud přidáte graf Microsoft Excel jako [OleObjectFrame](https://reference.aspose.com/slides/cs/java/com.aspose.slides/oleobjectframe/) na snímek (pro podrobnosti viz článek "Manage OLE") a poté otevřete prezentaci v Microsoft PowerPoint, uvidíte na snímku tento obrázek:
 
-![Zpráva OLE objektu](OLE_object_message.png)
+![OLE object message](OLE_object_message.png)
 
-Pokud chcete zkontrolovat a potvrdit, že byl OLE objekt přidán na snímek, musíte dvakrát kliknout na zprávu „EMBEDDED OLE OBJECT“, nebo na ni můžete kliknout pravým tlačítkem a zvolit možnost **Object > Edit**.
+Pokud chcete zkontrolovat a potvrdit, že byl Váš OLE objekt přidán na snímek, musíte dvakrát kliknout na zprávu "EMBEDDED OLE OBJECT", nebo na ni kliknout pravým tlačítkem a zvolit možnost **Object > Edit**.
 
-![OLE objekt > Upravit](OLE_object_edit.png)
+![OLE object > Edit](OLE_object_edit.png)
 
-PowerPoint pak otevře vložený OLE objekt.
+PowerPoint poté otevře vložený OLE objekt.
 
-![Data OLE objektu](OLE_object_data.png)
+![OLE object data](OLE_object_data.png)
 
-Snímek může zachovat zprávu „EMBEDDED OLE OBJECT“. Jakmile na OLE objekt kliknete, náhled snímku se aktualizuje a zpráva „EMBEDDED OLE OBJECT“ se nahradí skutečným obrázkem OLE objektu.
+Snímek může nadále zobrazovat zprávu "EMBEDDED OLE OBJECT". Jakmile kliknete na OLE objekt, náhled snímku se aktualizuje a zpráva "EMBEDDED OLE OBJECT" je nahrazena skutečným obrázkem OLE objektu.
 
-![Náhled OLE objektu](OLE_object_preview.png)
+![OLE object preview](OLE_object_preview.png)
 
-Nyní možná budete chtít uložit prezentaci, aby se obrázek OLE objektu správně aktualizoval. Tímto způsobem, po uložení prezentace, při jejím opětovném otevření už nebudete vidět zprávu „EMBEDDED OLE OBJECT“.
+Nyní možná budete chtít uložit prezentaci, aby se obrázek OLE objektu správně aktualizoval. Tímto způsobem, po uložení prezentace, když ji znovu otevřete, nebudete vidět zprávu "EMBEDDED OLE OBJECT".
 
 ## **Další řešení**
 
-Pokud nechcete odstranit zprávu „EMBEDDED OLE OBJECT“ otevřením prezentace v PowerPointu a jejím následným uložením, můžete zprávu nahradit preferovaným náhledovým obrázkem. Následující řádky kódu ukazují, jak postupovat:
+Pokud nechcete odstranit zprávu "EMBEDDED OLE OBJECT" otevřením prezentace v PowerPointu a jejím uložením, můžete zprávu nahradit preferovaným náhledovým obrázkem. Následující řádky kódu demonstrují tento proces. Předpokládají, že první tvar na prvním snímku souboru *embeddedOLE.pptx* je rámec OLE objektu a že *myImage.png* obsahuje obrázek k zobrazení, a výsledek uloží jako *embeddedOLE-newImage.pptx*:
 
 ```java
 import com.aspose.slides.*;
@@ -60,18 +62,18 @@ try {
     // Přidejte obrázek do zdrojů prezentace.
     IImage image = Images.fromFile("myImage.png");
     IPPImage oleImage = presentation.getImages().addImage(image);
+    image.dispose();
 
-    // Nastavte název a obrázek pro náhled OLE objektu.
-    oleFrame.setSubstitutePictureTitle("My title");
+    // Nastavte obrázek pro náhled OLE objektu.
     oleFrame.getSubstitutePictureFormat().getPicture().setImage(oleImage);
     oleFrame.setObjectIcon(false);
 
     presentation.save("embeddedOLE-newImage.pptx", SaveFormat.Pptx);
 } finally {
-    if (presentation != null) presentation.dispose();    
+    presentation.dispose();
 }
 ```
 
-Snímek obsahující `OleObjectFrame` se pak změní na tento:
+Snímek obsahující `OleObjectFrame` se poté změní na tento:
 
-![Nový obrázek OLE objektu](OLE_object_new_image.png)
+![New OLE object image](OLE_object_new_image.png)

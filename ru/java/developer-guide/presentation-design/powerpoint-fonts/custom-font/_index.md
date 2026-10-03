@@ -1,48 +1,51 @@
 ---
-title: Настройка шрифтов PowerPoint в Java
-linktitle: Пользовательский шрифт
+title: "Настройка шрифтов PowerPoint в Java"
+linktitle: "Пользовательский шрифт"
 type: docs
 weight: 20
 url: /ru/java/custom-font/
 keywords:
-- шрифт
-- пользовательский шрифт
-- внешний шрифт
-- загрузка шрифта
-- управление шрифтами
-- папка шрифтов
-- PowerPoint
-- OpenDocument
-- презентация
-- Java
-- Aspose.Slides
-description: "Настройте шрифты в слайдах PowerPoint с помощью Aspose.Slides для Java, чтобы ваши презентации были чёткими и согласованными на любом устройстве."
+  - "шрифт"
+  - "пользовательский шрифт"
+  - "внешний шрифт"
+  - "загрузка шрифта"
+  - "управление шрифтами"
+  - "папка шрифтов"
+  - "PowerPoint"
+  - "OpenDocument"
+  - "презентация"
+  - "Java"
+  - "Aspose.Slides"
+description: "Настройте шрифты в слайдах PowerPoint с помощью Aspose.Slides для Java, чтобы ваши презентации оставались чёткими и одинаковыми на любом устройстве."
 ---
 ## **Обзор**
 
-Aspose.Slides позволяет использовать пользовательские шрифты в презентациях без их установки в операционной системе. Вы можете загружать шрифты из пользовательских папок, предоставлять шрифты для конкретной презентации через источники шрифтов уровня документа, или загружать внешние шрифты напрямую из бинарных данных.
+Aspose.Slides позволяет использовать пользовательские шрифты в презентациях без их установки в операционной системе. Вы можете загружать шрифты из пользовательских папок, предоставлять шрифты для конкретной презентации через источники шрифтов уровня документа или загружать внешние шрифты напрямую из двоичных данных.
 
-Загруженные шрифты используются при рендеринге или экспорте презентации, например в PDF, изображения и другие поддерживаемые форматы. Это помогает поддерживать консистентность вывода презентации в разных средах. В статье также объясняется, как проверить папки шрифтов, используемые Aspose.Slides, и как очистить кэш шрифтов после работы с внешними шрифтами.
+Загруженные шрифты используются при рендеринге презентации или экспорте, например в PDF, изображения и другие поддерживаемые форматы. Это помогает сохранять согласованность вывода презентации в разных средах. Статья также объясняет, как просматривать папки шрифтов, используемые Aspose.Slides, и как очистить кеш шрифтов после работы с внешними шрифтами.
 
 Регистрация пользовательских шрифтов для рендеринга отличается от встраивания шрифтов в файл PPTX. Если шрифт должен быть сохранён внутри самой презентации, используйте функции встраивания шрифтов явно.
 
-Тема презентации может ссылаться на разные семейства шрифтов для отдельных систем письма. Эти сопоставления хранят имена шрифтов, но не устанавливают и не загружают файлы шрифтов. Смотрите [Шрифты темы, специфичные для сценария](/slides/ru/java/script-specific-font-mappings/) чтобы управлять сопоставлениями и используйте параметры загрузки ниже, чтобы сделать указанные шрифты доступными для согласованного рендеринга.
+Тема презентации может ссылаться на разные семейства шрифтов для отдельных систем письма. Эти сопоставления хранят имена шрифтов, но не устанавливают и не загружают файлы шрифтов. См. [Script-Specific Theme Fonts](/slides/ru/java/script-specific-font-mappings/) для управления сопоставлениями и используйте параметры загрузки ниже, чтобы сделать указанные шрифты доступными для согласованного рендеринга.
 
 {{% alert color="info" title="Note" %}}
+
 Aspose Slides позволяет загружать эти шрифты с помощью метода [loadExternalFonts](https://reference.aspose.com/slides/ru/java/com.aspose.slides/fontsloader/#loadExternalFonts-java.lang.String---):
 
 * TrueType (.ttf) и TrueType Collection (.ttc) шрифты. См. [TrueType](https://en.wikipedia.org/wiki/TrueType).
+
 * OpenType (.otf) шрифты. См. [OpenType](https://en.wikipedia.org/wiki/OpenType).
+
 {{% /alert %}}
 
 ## **Загрузка пользовательских шрифтов**
 
-Aspose.Slides позволяет загружать шрифты, используемые в презентации, без их установки в системе. Это влияет на вывод экспорта — такой как PDF, изображения и другие поддерживаемые форматы — поэтому полученные документы выглядят одинаково в разных средах. Шрифты загружаются из пользовательских каталогов.
+Aspose.Slides позволяет загружать шрифты, используемые в презентации, без их установки в системе. Это влияет на вывод при экспорте — например PDF, изображения и другие поддерживаемые форматы — так что полученные документы выглядят одинаково в разных средах. Шрифты загружаются из пользовательских каталогов.
 
 1. Укажите одну или несколько папок, содержащих файлы шрифтов.
 2. Вызовите статический метод [FontsLoader.loadExternalFonts](https://reference.aspose.com/slides/ru/java/com.aspose.slides/fontsloader/#loadExternalFonts-java.lang.String---) для загрузки шрифтов из этих папок.
 3. Загрузите и отрендерите/экспортируйте презентацию.
-4. Вызовите [FontsLoader.clearCache](https://reference.aspose.com/slides/ru/java/com.aspose.slides/FontsLoader#clearCache--) для очистки кэша шрифтов.
+4. Вызовите [FontsLoader.clearCache](https://reference.aspose.com/slides/ru/java/com.aspose.slides/fontsloader/#clearCache--) для очистки кеша шрифтов.
 
 Следующий пример кода демонстрирует процесс загрузки шрифтов:
 
@@ -59,28 +62,30 @@ Presentation presentation = null;
 try {
     presentation = new Presentation("sample.pptx");
 
-    // Рендеринг/экспорт презентации (например, в PDF, изображения или другие форматы) с использованием загруженных шрифтов.
+    // Отрендерьте/экспортируйте презентацию (например, в PDF, изображения или другие форматы), используя загруженные шрифты.
     presentation.save("output.pdf", SaveFormat.Pdf);
 } finally {
     if (presentation != null) presentation.dispose();
 
-    // Очистите кэш шрифтов после завершения работы.
+    // Очистите кеш шрифтов после завершения работы.
     FontsLoader.clearCache();
 }
 ```
 
 {{% alert color="info" title="Note" %}}
-[FontsLoader.loadExternalFonts](https://reference.aspose.com/slides/ru/java/com.aspose.slides/fontsloader/#loadExternalFonts-java.lang.String---) добавляет дополнительные папки в пути поиска шрифтов, но не изменяет порядок инициализации шрифтов.
+
+[FontsLoader.loadExternalFonts](https://reference.aspose.com/slides/ru/java/com.aspose.slides/fontsloader/#loadExternalFonts-java.lang.String---) добавляет дополнительные папки в пути поиска шрифтов, но не меняет порядок инициализации шрифтов.
 Шрифты инициализируются в следующем порядке:
 
-1. Путь шрифтов операционной системы по умолчанию.
+1. Путь к шрифтам по умолчанию операционной системы.
 1. Пути, загруженные через [FontsLoader](https://reference.aspose.com/slides/ru/java/com.aspose.slides/fontsloader/).
+
 {{%/alert %}}
 
-## **Получить пользовательские папки шрифтов**
-Aspose.Slides предоставляет метод [getFontFolders](https://reference.aspose.com/slides/ru/java/com.aspose.slides/fontsloader/#getFontFolders--) позволяющий находить папки шрифтов. Этот метод возвращает папки, добавленные через метод `LoadExternalFonts`, и системные папки шрифтов.
+## **Получение пользовательских папок шрифтов**
+Aspose.Slides предоставляет метод [getFontFolders](https://reference.aspose.com/slides/ru/java/com.aspose.slides/fontsloader/#getFontFolders--) для поиска папок шрифтов. Этот метод возвращает папки, добавленные через метод `LoadExternalFonts`, а также системные папки шрифтов.
 
-Этот Java‑код показывает, как использовать [getFontFolders](https://reference.aspose.com/slides/ru/java/com.aspose.slides/fontsloader/#getFontFolders--):
+Этот код на Java показывает, как использовать [getFontFolders](https://reference.aspose.com/slides/ru/java/com.aspose.slides/fontsloader/#getFontFolders--):
 
 ```java
 import com.aspose.slides.*;
@@ -91,9 +96,9 @@ String[] fontFolders = FontsLoader.getFontFolders();
 ```
 
 ## **Указание пользовательских шрифтов, используемых в презентации**
-Aspose.Slides предоставляет свойство [setDocumentLevelFontSources](https://reference.aspose.com/slides/ru/java/com.aspose.slides/iloadoptions/#setDocumentLevelFontSources-com.aspose.slides.IFontSources-) позволяющее указать внешние шрифты, которые будут использоваться с презентацией. 
+Aspose.Slides предоставляет свойство [setDocumentLevelFontSources](https://reference.aspose.com/slides/ru/java/com.aspose.slides/iloadoptions/#setDocumentLevelFontSources-com.aspose.slides.IFontSources-) для указания внешних шрифтов, которые будут использоваться с презентацией.
 
-Этот Java‑код показывает, как использовать свойство [setDocumentLevelFontSources](https://reference.aspose.com/slides/ru/java/com.aspose.slides/iloadoptions/#setDocumentLevelFontSources-com.aspose.slides.IFontSources-):
+Этот код на Java показывает, как использовать свойство [setDocumentLevelFontSources](https://reference.aspose.com/slides/ru/java/com.aspose.slides/iloadoptions/#setDocumentLevelFontSources-com.aspose.slides.IFontSources-):
 
 ```java
 import com.aspose.slides.*;
@@ -109,18 +114,18 @@ loadOptions.getDocumentLevelFontSources().setMemoryFonts(new byte[][] { memoryFo
 
 Presentation pres = new Presentation("MyPresentation.pptx", loadOptions);
 try {
-    // Работа с презентацией
-    // CustomFont1, CustomFont2 и шрифты из папок assets\fonts & global\fonts и их подпапок доступны в презентации
+    // Работайте с презентацией
+    // CustomFont1, CustomFont2 и шрифты из папок assets\fonts & global\fonts и их подпапок доступны для презентации
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-## **Управление шрифтами извне**
+## **Внешнее управление шрифтами**
 
-Aspose.Slides предоставляет метод [loadExternalFont](https://reference.aspose.com/slides/ru/java/com.aspose.slides/fontsloader/#loadExternalFont-byte---)(byte[] data) позволяющий загружать внешние шрифты из бинарных данных.
+Aspose.Slides предоставляет метод [loadExternalFont](https://reference.aspose.com/slides/ru/java/com.aspose.slides/fontsloader/#loadExternalFont-byte---)(byte[] data) для загрузки внешних шрифтов из бинарных данных.
 
-Этот Java‑код демонстрирует процесс загрузки шрифта из массива байтов:
+Этот код на Java демонстрирует процесс загрузки шрифта из массива байтов:
 
 ```java
 import com.aspose.slides.*;
@@ -135,7 +140,7 @@ try
 {
     Presentation pres = new Presentation("");
     try {
-        // внешний шрифт загружен во время жизни презентации
+        // внешний шрифт загружен в течение жизни презентации
     } finally {
         
     }
@@ -146,24 +151,24 @@ finally
 }
 ```
 
-## **Часто задаваемые вопросы**
+## **FAQ**
 
 ### Влияют ли пользовательские шрифты на экспорт во все форматы (PDF, PNG, SVG, HTML)?
 
-Да. Подключенные шрифты используются рендерером во всех форматах экспорта.
+Да. Связанные шрифты используются рендерером во всех форматах экспорта.
 
-### Автоматически ли пользовательские шрифты встраиваются в полученный PPTX?
+### Автоматически ли пользовательские шрифты встраиваются в получающийся PPTX?
 
-Нет. Регистрация шрифта для рендеринга не то же самое, что его встраивание в PPTX. Если нужен шрифт внутри файла презентации, необходимо использовать явные [возможности встраивания](/slides/ru/java/embedded-font/).
+Нет. Регистрация шрифта для рендеринга не то же самое, что встраивание его в PPTX. Если нужен шрифт внутри файла презентации, необходимо использовать явные [встроенные функции](/slides/ru/java/embedded-font/).
 
-### Могу ли я контролировать поведение при отсутствии некоторых глифов в пользовательском шрифте?
+### Можно ли управлять поведением fallback, когда у пользовательского шрифта отсутствуют некоторые глифы?
 
-Да. Настройте [замена шрифтов](/slides/ru/java/font-substitution/), [правила замены](/slides/ru/java/font-replacement/), и [наборы запасных шрифтов](/slides/ru/java/fallback-font/) чтобы точно определить, какой шрифт использовать, когда запрашиваемый глиф отсутствует.
+Да. Настройте [font substitution](/slides/ru/java/font-substitution/), [replacement rules](/slides/ru/java/font-replacement/) и [fallback sets](/slides/ru/java/fallback-font/), чтобы точно определить, какой шрифт использовать, когда запрашиваемый глиф отсутствует.
 
-### Могу ли я использовать шрифты в контейнерах Linux/Docker без их установки в системе?
+### Можно ли использовать шрифты в контейнерах Linux/Docker без их установки во всей системе?
 
-Да. Укажите собственные папки шрифтов или загружайте шрифты из массивов байтов. Это устраняет любую зависимость от системных каталогов шрифтов в образе контейнера.
+Отчасти. Aspose.Slides может использовать шрифты из ваших папок или из массивов байтов без их установки, но поддержка шрифтов Java всё равно требует хотя бы один установленный шрифт в образе. Без него загрузка завершается ошибкой «Fontconfig head is null, check your fonts or fonts configuration». См. [Deploy Fonts](/slides/ru/java/deploy-fonts/).
 
-### Что насчёт лицензирования — могу ли я встраивать любой пользовательский шрифт без ограничений?
+### Что касается лицензирования — можно ли встраивать любой пользовательский шрифт без ограничений?
 
 Вы отвечаете за соблюдение лицензий шрифтов. Условия различаются; некоторые лицензии запрещают встраивание или коммерческое использование. Всегда проверяйте EULA шрифта перед распространением результатов.

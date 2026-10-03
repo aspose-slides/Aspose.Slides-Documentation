@@ -1,23 +1,35 @@
 ---
-title: ข้อกำหนด XML Parser (XPS)
+title: สเปคกระดาษ XML (XPS) (ประวัติศาสตร์)
 type: docs
 weight: 50
 url: /th/java/xml-parser-specification-xps/
+keywords:
+- XPS
+- สเปคกระดาษ XML
+- ประวัติศาสตร์
+- Java
+- Aspose.Slides
+description: "ประวัติศาสตร์: ภาพรวมเก่าของการส่งออก XPS ใน Aspose.Slides for Java ที่เก็บไว้สำหรับลิงก์เดิม คู่มือปัจจุบันคือ Convert PowerPoint Presentations to XPS."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" title="Note" %}}
 
-The [สเปคไวยากรณ์ XML Parser](https://en.wikipedia.org/wiki/Open_XML_Paper_Specification) เป็นภาษาอธิบายหน้ากระดาษและรูปแบบเอกสารแบบคงที่ที่พัฒนาขึ้นโดย Microsoft ดั้งเดิม เช่นเดียวกับ PDF, XPS ถูกออกแบบให้รักษาความแม่นยำของเอกสารและให้ลักษณะเอกสารที่ไม่ขึ้นกับอุปกรณ์. 
+นี่เป็นหน้าประวัติศาสตร์ที่เก็บไว้สำหรับลิงก์เดิม ไม่ได้อธิบายเวอร์ชันปัจจุบันของ Aspose.Slides for Java สำหรับรูปแบบไฟล์ที่ Aspose.Slides for Java โหลด นำเข้า บันทึก และเรนเดอร์ รวมถึง API ของแต่ละรูปแบบ โปรดดูที่ [Supported File Formats](/slides/th/java/supported-file-formats/). สำหรับคู่มือการแปลง XPS ปัจจุบัน โปรดดูที่ [Convert PowerPoint Presentations to XPS](/slides/th/java/convert-powerpoint-to-xps/).
 
-{{% /alert %}} 
+{{% /alert %}}
+
+{{% alert color="info" title="Note" %}}
+
+[XML Paper Specification](https://en.wikipedia.org/wiki/Open_XML_Paper_Specification) เป็นภาษาการบรรยายหน้าและรูปแบบเอกสารคงที่ที่พัฒนาโดย Microsoft เช่นเดียวกับ PDF, XPS ถูกออกแบบให้รักษาความเที่ยงตรงของเอกสารและให้ลักษณะการแสดงผลที่ไม่ขึ้นกับอุปกรณ์
+
+{{% /alert %}}
 
 ## **XPS ใน Aspose.Slides for Java**
-Any presentation document that can be loaded by Aspose.Slides for Java can be converted to XPS format. Aspose.Slides for Java uses the high-fidelity page layout and rendering engine to produce output in fixed-layout XPS document format.
-You can learn about exporting the presentation documents to XPS documents through Aspose.Slides for Java in [การแปลงเป็น XPS](https://docs.aspose.com/slides/th/java/convert-powerpoint-to-xps/).
+เอกสารงานนำเสนอใด ๆ ที่สามารถโหลดโดย Aspose.Slides for Java สามารถแปลงเป็นรูปแบบ XPS ได้ Aspose.Slides for Java ใช้เอนจินการจัดหน้าและเรนเดอร์ที่มีความแม่นยำสูงเพื่อสร้างผลลัพธ์ในรูปแบบเอกสาร XPS แบบคงที่ คุณสามารถเรียนรู้เกี่ยวกับการส่งออกเอกสารงานนำเสนอเป็นเอกสาร XPS ผ่าน Aspose.Slides for Java ได้ที่ [Convert PowerPoint Presentations to XPS](/slides/th/java/convert-powerpoint-to-xps/).
 
-**พรีเซนเทชันต้นฉบับ** 
+**การนำเสนอต้นฉบับ**
 
-![todo:image_alt_text](xml-parser-specification-xps_1.png)
+![การนำเสนอต้นฉบับ](xml-parser-specification-xps_1.png)
 
-**พรีเซนเทชันที่แปลงเป็น XPS** 
+**การนำเสนอที่แปลงเป็น XPS**
 
-![todo:image_alt_text](xml-parser-specification-xps_2.png)
+![การนำเสนอที่แปลงเป็น XPS](xml-parser-specification-xps_2.png)

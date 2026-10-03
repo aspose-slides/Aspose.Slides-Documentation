@@ -1,14 +1,14 @@
 ---
-title: Ewaluacja Aspose.Slides
+title: Ocena Aspose.Slides
 type: docs
-weight: 130
+weight: 85
 url: /pl/java/evaluate-aspose-slides/
 keywords:
 - ocena Aspose.Slides
-- ewaluacja Aspose.Slides
-- wersja ewaluacyjna
+- Ocena Aspose.Slides
+- wersja oceny
 - pełna funkcjonalność
-- znak wodny wersji ewaluacyjnej
+- znakowanie wodne oceny
 - zakup Aspose.Slides
 - ograniczenie
 - PowerPoint
@@ -16,36 +16,34 @@ keywords:
 - prezentacja
 - Java
 - Aspose.Slides
-description: "Ewaluuj Aspose.Slides dla Javy i zapoznaj się z funkcjami API dla prezentacji PowerPoint (PPT, PPTX) oraz OpenDocument (ODP) — rozpocznij bezpłatny okres próbny."
+description: "Ocena Aspose.Slides dla Java i poznaj funkcje API dla prezentacji PowerPoint (PPT, PPTX) oraz OpenDocument (ODP) — rozpocznij darmowy okres próbny."
 ---
-## **Aspose.Slides Evaluation**
+## **Ocena Aspose.Slides**
 
-Możesz pobrać Aspose.Slides do oceny. Pobranie w wersji ewaluacyjnej jest takie samo jak pobranie zakupione; zostaje licencjonowane po dodaniu kilku wierszy kodu w celu zastosowania licencji.
+Możesz pobrać Aspose.Slides do oceny. Pobranie ewaluacyjne jest takie samo jak pobranie zakupione; staje się licencjonowane po dodaniu kilku linii kodu, aby zastosować licencję.
 
-Bez licencji Aspose.Slides udostępnia pełną funkcjonalność w trybie ewaluacyjnym, z dwoma ograniczeniami: do każdego slajdu każdej zapisywanej prezentacji dodaje pole tekstowe z znakiem wodnym wersji ewaluacyjnej, a tekst odczytywany przez API, w tym tekst właśnie ustawiony, jest przycinany do kilku pierwszych znaków, po których pojawia się informacja o ograniczeniu wersji ewaluacyjnej. Tekst zapisywany przez Twój kod jest zachowywany w całości. Metoda [getPresentationText](https://reference.aspose.com/slides/java/com.aspose.slides/presentationfactory/#getPresentationText-java.lang.String-int-) wyodrębnia tekst bez ładowania całej prezentacji i zwraca tylko powiadomienia o ewaluacji, bez tekstu slajdów.
+Bez licencji Aspose.Slides udostępnia pełną funkcjonalność w trybie oceny, z dwoma ograniczeniami: dodaje ramkę znakowania wodnego oceny do każdego slajdu każdej prezentacji, którą zapisuje, a tekst odczytywany przez Twój kod za pomocą API, włączając tekst, który właśnie ustawił, jest przycinany do kilku pierwszych znaków, po których następuje informacja o ograniczeniu wersji oceny. Tekst zapisywany przez Twój kod jest zachowywany w pełni. Metoda [getPresentationText](https://reference.aspose.com/slides/pl/java/com.aspose.slides/presentationfactory/#getPresentationText-java.lang.String-int-) , która wyodrębnia tekst bez ładowania całej prezentacji, zwraca tylko informacje o ocenie i nie zwraca tekstu slajdów.
 
-![A slide with the evaluation watermark](evaluate-aspose-slides_1.png)
+![Slajd z znakowaniem wodnym oceny](evaluate-aspose-slides_1.png)
 
-{{% alert color="info" title="Note" %}}
-
-Jeśli chcesz przetestować Aspose.Slides bez ograniczeń wersji ewaluacyjnej, możesz również zażądać 30-dniowej tymczasowej licencji. Zapoznaj się z [Jak uzyskać tymczasową licencję?](https://purchase.aspose.com/temporary-license)
-
+{{% alert color="info" title="Uwaga" %}}
+Jeśli chcesz przetestować Aspose.Slides bez ograniczeń wersji oceny, możesz również zwrócić się o 30‑dniową tymczasową licencję. Zobacz [Jak uzyskać tymczasową licencję?](https://purchase.aspose.com/temporary-license)
 {{% /alert %}}
 
 ## **FAQ**
 
-### Czy mogę testować wiele prezentacji równocześnie w różnych wątkach w trybie ewaluacyjnym?
+### Czy mogę testować wiele prezentacji równolegle w różnych wątkach w trybie oceny?
 
-Tak. Możesz przetwarzać różne dokumenty równolegle; nie powinieneś udostępniać tego samego obiektu prezentacji [między wątkami](/slides/pl/java/multithreading/). Tryb ewaluacji nie ma na to wpływu.
+Tak. Możesz przetwarzać różne dokumenty równolegle; nie powinieneś współdzielić tego samego obiektu prezentacji [przez wątki](/slides/pl/java/multithreading/). Tryb oceny nie ma na to wpływu.
 
-### Czy muszę zainstalować Microsoft PowerPoint, aby ocenić bibliotekę na serwerze lub w CI?
+### Czy muszę instalować Microsoft PowerPoint, aby ocenić bibliotekę na serwerze lub w CI?
 
-Nie. Aspose.Slides jest samodzielnym silnikiem i nie wymaga zainstalowanego PowerPointa zarówno w trybie ewaluacyjnym, jak i w produkcji.
+Nie. Aspose.Slides jest samodzielnym silnikiem i nie wymaga zainstalowanego PowerPointa ani w trybie oceny, ani w produkcji.
 
-### Czy mogę w pełni testować konwersję PPT/PPTX do PDF i obrazów w trybie ewaluacyjnym?
+### Czy mogę w pełni testować konwersję PPT/PPTX do PDF i obrazów w trybie oceny?
 
-Tak. [converters](/slides/pl/java/convert-presentation/) działają; wynik będzie zawierał znak wodny.
+Tak. [KONWERTERY](/slides/pl/java/convert-presentation/) działają; wynik będzie zawierał znakowanie wodne.
 
-### Czy mogę użyć tymczasowej licencji do testów obciążeniowych bez znaku wodnego?
+### Czy mogę użyć tymczasowej licencji do testów obciążeniowych bez znakowania wodnego?
 
-Tak. 30-dniowa tymczasowa licencja usuwa ograniczenia trybu ewaluacyjnego i umożliwia testowanie bez znaku wodnego.
+Tak. 30‑dniowa tymczasowa licencja usuwa ograniczenia trybu oceny i pozwala testować bez znakowania wodnego.

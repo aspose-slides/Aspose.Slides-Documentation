@@ -1,38 +1,45 @@
 ---
-title: Deklarace
+title: Požadavky Správce zabezpečení
 type: docs
-weight: 60
+weight: 190
 url: /cs/java/declaration/
 keywords:
-- deklarace
-- komponenty
-- Full Trust oprávnění
-- nastavení registru
-- systémové soubory
+- Správce zabezpečení
+- bezpečnostní politika
+- AllPermission
+- oprávnění
+- sandbox
+- JDK 24
 - PowerPoint
 - OpenDocument
 - prezentace
 - Java
 - Aspose.Slides
-description: "Zjistěte více o požadavcích na důvěru, oprávněních a omezeních hostování Aspose.Slides pro Java, abyste mohli bezpečně nasadit aplikace zpracovávající PPT, PPTX a ODP na serverech."
+description: "Jaká oprávnění Správce zabezpečení potřebuje Aspose.Slides pro Java a kód, který jej volá, na Java 23 a starších, a proč není třeba nic konfigurovat na Java 24 a novějších."
 ---
-{{% alert color="primary" %}} 
+## **Přehled**
 
-Všechny komponenty Aspose Java vyžadují nastavení oprávnění Full Trust. Důvodem je, že komponenty Aspose Java potřebují přístup k nastavením registru, systémovým souborům mimo virtuální adresář pro určité operace, jako je parsování fontů atd. Navíc jsou komponenty Aspose Java založeny na základních třídách systému Java, které v mnoha případech také vyžadují nastavení oprávnění Full Trust. 
+Správce zabezpečení Java omezuje, co může kód dělat podle bezpečnostní politiky. Java 17 jej označila za zastaralý s úmyslem odebrat ([JEP 411](https://openjdk.org/jeps/411)), a Java 24 jej trvale vypnula ([JEP 486](https://openjdk.org/jeps/486)). Tento článek vysvětluje, co potřebuje Aspose.Slides pro Java, když aplikace stále běží se Správcem zabezpečení. Pokud vaše aplikace Správce zabezpečení nepovolí, což je výchozí nastavení, není co konfigurovat.
 
-{{% /alert %}} 
+## **Java 23 a starší**
 
-Poskytovatelé internetových služeb hostující více aplikací od různých společností většinou uplatňují úroveň zabezpečení Medium Trust: 
+Když je Správce zabezpečení povolen, bezpečnostní politika musí udělit tyto oprávnění souboru JAR Aspose.Slides a aplikačnímu kódu, který jej volá:
 
-- OleDbPermission není k dispozici. To znamená, že nemůžete použít spravovaný poskytovatel dat ADO.NET OLE DB k přístupu k databázím.
-- EventLogPermission není k dispozici. To znamená, že nemůžete přistupovat k Windows Event Log.
-- ReflectionPermission není k dispozici. To znamená, že nemůžete použít reflexi.
-- RegistryPermission není k dispozici. To znamená, že nemůžete přistupovat k registru.
-- WebPermission je omezeno. To znamená, že vaše aplikace může komunikovat jen s adresou nebo rozsahem adres, které definujete v elementu <trust>.
-- FileIOPermission je omezeno. To znamená, že můžete přistupovat jen k souborům ve virtuální adresářové hierarchii vaší aplikace.
+- `java.util.PropertyPermission "*", "read"`: Aspose.Slides čte systémové vlastnosti.
+- `java.io.FilePermission "<<ALL FILES>>", "read"`: Aspose.Slides čte soubory písem a další soubory.
+- `java.io.FilePermission "<<ALL FILES>>", "execute"`: Aspose.Slides spouští programy operačního systému, například `reg` ve Windows a `fc-match` v Linuxu.
+- `java.io.FilePermission` s akcí `write` pro složky, kam vaše aplikace ukládá soubory.
 
-{{% alert color="primary" %}} 
+Udělení oprávnění pouze souboru JAR není dostačující: kód, který volá Aspose.Slides, je také potřebuje. Udělení `java.security.AllPermission` oběma také funguje.
 
-Z důvodů uvedených výše nelze komponenty Aspose Java používat na serverech, které poskytují nastavení oprávnění jiná než Full Trust. 
+Bez oprávnění číst systémové vlastnosti nebo spouštět programy Aspose.Slides selže při prvním použití: vytvoření objektu [Prezentace](https://reference.aspose.com/slides/cs/java/com.aspose.slides/presentation/) vyvolá `ExceptionInInitializerError`. Bez přístupu ke čtení souborů písem selže ukládání prezentace jako PDF s chybou "Nelze najít žádná písma nainstalovaná v systému".
 
-{{% /alert %}}
+## **Java 24 a novější**
+
+Správce zabezpečení nelze na Java 24 a novějších povolit, takže není co udělovat. Aspose.Slides běží s oprávněními účtu, který spouští vaši aplikaci. Pro omezení toho, k čemu může aplikace přistupovat, projekt OpenJDK doporučuje technologie mimo JDK, jako jsou kontejnery, hypervisory a funkce sandboxingu operačního systému. Viz [JEP 486](https://openjdk.org/jeps/486).
+
+## **Často kladené otázky**
+
+**Mohu používat Aspose.Slides v prostředí, kde jsou aplikace spuštěny pod restriktivní politikou Správce zabezpečení?**
+
+Pouze pokud politika udělí výše uvedená oprávnění jak Aspose.Slides, tak kódu, který jej volá. Patří mezi ně čtení všech souborů a spouštění jakéhokoli programu.

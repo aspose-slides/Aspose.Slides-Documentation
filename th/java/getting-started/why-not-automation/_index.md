@@ -1,7 +1,7 @@
 ---
-title: ทำไมไม่ใช้อัตโนมัติ
+title: ทำไมไม่ใช้ Automation
 type: docs
-weight: 50
+weight: 170
 url: /th/java/why-not-automation/
 keywords:
 - การทำงานอัตโนมัติ
@@ -10,84 +10,88 @@ keywords:
 - ความปลอดภัย
 - ความเสถียร
 - ความสามารถขยายตัว
-- คุณลักษณะ
+- คุณสมบัติ
 - PowerPoint
 - OpenDocument
 - การนำเสนอ
 - Java
 - Aspose.Slides
-description: "ค้นพบเหตุผลว่าทำไมการทำงานอัตโนมัติของ Office ถึงเสี่ยงต่อเซิร์ฟเวอร์และบริการ รวมถึงดูว่า Aspose.Slides ให้การประมวลผลการนำเสนอสำหรับ PowerPoint และ OpenDocument ที่ปลอดภัยและเร็วกว่าอย่างไร"
+description: "ค้นพบเหตุผลที่การทำงานอัตโนมัติของ Office มีความเสี่ยงต่อเซิร์ฟเวอร์และบริการ, และดูว่า Aspose.Slides ให้การประมวลผลการนำเสนอที่ปลอดภัยและเร็วกว่า สำหรับ PowerPoint และ OpenDocument."
 ---
 ## **บทนำ**
 
-มีหลายเหตุผลที่ส่วนประกอบของ Aspose เป็นทางเลือกที่ดีกว่าในการทำอัตโนมัติ เหตุผลหลักบางประการได้แก่:
+มีหลายเหตุผลที่ส่วนประกอบของ Aspose เป็นทางเลือกที่ดีกว่าการอัตโนมัติ เหตุผลสำคัญบางประการได้แก่:
 
 - ความปลอดภัย
 - ความเสถียร
 - ความสามารถขยายตัว/ความเร็ว
 - ราคา
-- คุณลักษณะ
+- คุณสมบัติ
 
-ด้านล่างเป็นคำอธิบายที่ละเอียดขึ้นของแต่ละประเด็นสำคัญ
+ด้านล่างนี้เป็นคำอธิบายโดยละเอียดของแต่ละประเด็นสำคัญ
 
 ## **คำถามสำคัญ**
 
-มีสองคำถามที่เรามักได้ยินจาก Aspose:
+เรามักได้ยินคำถามสองข้อที่ Aspose รับบ่อย:
 
-- ผลิตภัณฑ์ของคุณต้องการให้ติดตั้ง Microsoft Office เพื่อทำงานหรือไม่?
+- ผลิตภัณฑ์ของคุณต้องการให้ Microsoft Office ถูกติดตั้งเพื่อทำงานหรือไม่?
 
-คำตอบสั้น ๆ ง่าย ๆ คือ **ไม่มี**.
+คำตอบสั้นและง่ายคือ **ไม่**.
 
-ส่วนประกอบของ Aspose เป็นอิสระโดยสิ้นเชิงและไม่ได้เชื่อมโยงกับ, ได้รับอนุญาตจาก, ได้รับการสนับสนุนโดย, หรือได้รับการยอมรับใด ๆ จาก Microsoft Corporation
+ส่วนประกอบของ Aspose เป็นอิสระอย่างสมบูรณ์และไม่ได้เชื่อมโยงกับ, ได้รับอนุญาตจาก, ได้รับการสนับสนุนโดย, หรือได้รับการอนุมัติใด ๆ จาก Microsoft Corporation.
 
 - ทำไมเราต้องใช้ผลิตภัณฑ์ของ Aspose แทน Microsoft Office Automation?
 
-ก่อนอื่น มีหลาย [ประโยชน์ที่คุณจะได้รับเมื่อใช้ Aspose.Slides](/slides/th/java/product-overview/).
+[ประโยชน์มากมายที่คุณได้รับเมื่อใช้ Aspose.Slides](/slides/th/java/product-overview/)
 
-ประการที่สอง Microsoft เอง **แนะนำให้หลีกเลี่ยง** การใช้ Office Automation จากโซลูชันซอฟต์แวร์
+ประการที่สอง, Microsoft เองให้คำแนะนำอย่างชัดเจนว่า **ไม่ควร** ใช้ Office Automation จากโซลูชันซอฟต์แวร์
 
 ## **ความปลอดภัย**
 
-ดังต่อไปนี้เป็นคำพูดโดยตรงจากบทความของ Microsoft: 
+The following is a direct quote from a Microsoft Article:
 
-*"Office Applications were never intended for use server-side, and therefore do not take into consideration the security problems that are faced by distributed components. Office does not authenticate incoming requests, and does not protect you from unintentionally running macros, or starting another server that might run macros, from your server-side code. Do not open files that are uploaded to the server from an anonymous Web! Based on the security settings that were last set, the server can run macros under an Administrator or System context with full privileges and compromise your network! In addition, Office uses many client-side components (such as Simple MAPI, WinInet, MSDAIPP) that can cache client authentication information in order to speed up processing. If Office is being automated server-side, one instance may service more than one client, and because authentication information has been cached for that session, it is possible that one client can use the cached credentials of another client, and thereby gain non-granted access permissions by impersonating other users."* 
+*"แอปพลิเคชัน Office ไม่เคยถูกออกแบบมาเพื่อใช้งานบนเซิร์ฟเวอร์ และดังนั้นจึงไม่ได้คำนึงถึงปัญหาด้านความปลอดภัยที่ส่วนประกอบแบบกระจายเผชิญ Office ไม่ได้ทำการตรวจสอบความถูกต้องของคำขอที่เข้ามาและไม่ป้องกันคุณจากการเรียกใช้มาโครโดยไม่ได้ตั้งใจ หรือการเปิดเซิร์ฟเวอร์อื่นที่อาจเรียกใช้มาโครจากโค้ดฝั่งเซิร์ฟเวอร์ของคุณ อย่าเปิดไฟล์ที่อัพโหลดไปยังเซิร์ฟเวอร์จากเว็บแบบไม่ระบุตัวตน! ตามการตั้งค่าความปลอดภัยที่ตั้งครั้งล่าสุด เซิร์ฟเวอร์อาจเรียกใช้มาโครภายใต้บริบทของผู้ดูแลระบบหรือระบบโดยมีสิทธิเต็มที่และทำให้เครือข่ายของคุณถูกละเมิด! นอกจากนี้ Office ยังใช้ส่วนประกอบฝั่งไคลเอ็นต์หลายตัว (เช่น Simple MAPI, WinInet, MSDAIPP) ซึ่งอาจเก็บข้อมูลการตรวจสอบสิทธิของไคลเอ็นต์ไว้เพื่อเร่งการประมวลผล หาก Office ถูกอัตโนมัติบนเซิร์ฟเวอร์ หนึ่งอินสแตนซ์อาจให้บริการหลายไคลเอ็นต์ และเนื่องจากข้อมูลการตรวจสอบสิทธิได้ถูกแคชไว้สำหรับเซสชันนั้น เป็นไปได้ว่าไคลเอ็นต์หนึ่งจะใช้ข้อมูลประจำตัวที่แคชของไคลเอ็นต์อื่นและได้สิทธิการเข้าถึงที่ไม่ได้รับอนุมัติโดยการแสร้งทำเป็นผู้ใช้รายอื่น"*
 
 
-ผลิตภัณฑ์ของ Aspose มีความปลอดภัยสูง ส่วนประกอบของ Aspose ไม่เป็นความเสี่ยงต่อทรัพยากรระบบที่สำคัญ นอกจากนี้เมื่อเอกสารถูกเปิดโดยส่วนประกอบของ Aspose แมคโครจะไม่ทำงานโดยอัตโนมัติ ส่วนประกอบของ Aspose ถูกออกแบบมาเพื่อให้ผู้พัฒนาสร้าง, แก้ไขและบันทึกไฟล์ Office ได้อย่างปลอดภัย ไม่ได้มีความเสี่ยงใด ๆ ที่มาพร้อมกับชุด Microsoft Office
+ผลิตภัณฑ์ของ Aspose มีความปลอดภัยสูง ส่วนประกอบของ Aspose ไม่ก่อให้เกิดความเสี่ยงต่อทรัพยากรระบบที่สำคัญ นอกจากนี้เมื่อเอกสารถูกเปิดโดยส่วนประกอบของ Aspose มาโครจะไม่ถูกเรียกใช้โดยอัตโนมัติ ส่วนประกอบของ Aspose ถูกสร้างขึ้นด้วยเป้าหมายเพื่อให้ผู้พัฒนาสามารถสร้าง, แก้ไข และบันทึกไฟล์ Office ได้ ความเสี่ยงใด ๆ ที่เกี่ยวข้องกับแพคเกจ Microsoft Office ไม่ได้ฝังอยู่ในส่วนประกอบของ Aspose
 
 ## **ความเสถียร**
-ดังต่อไปนี้เป็นคำพูดโดยตรงจากบทความของ Microsoft: 
+The following is a direct quote from a Microsoft Article:
+
+*"Office 2000, Office XP และ Office 2003 ใช้เทคโนโลยี Microsoft Windows Installer (MSI) เพื่อทำให้การติดตั้งและการซ่อมแซมอัตโนมัติเป็นเรื่องง่ายสำหรับผู้ใช้สุดท้าย MSI แนะนำแนวคิด “ติดตั้งเมือใช้งานครั้งแรก” ซึ่งทำให้ฟีเจอร์สามารถติดตั้งหรือกำหนดค่าได้อย่างไดนามิกขณะทำงาน (สำหรับระบบ หรือบ่อยครั้งสำหรับผู้ใช้เฉพาะ) ในสภาพแวดล้อมฝั่งเซิร์ฟเวอร์ สิ่งนี้ทำให้ประสิทธิภาพช้าลงและเพิ่มความเป็นไปได้ที่กล่องโต้ตอบจะปรากฏขึ้นเพื่อขอให้ผู้ใช้อนุมัติการติดตั้งหรือให้แผ่นดิสก์ติดตั้งที่เหมาะสม แม้ว่ามันถูกออกแบบมาเพื่อเพิ่มความทนทานของ Office ในฐานะผลิตภัณฑ์ผู้ใช้สุดท้าย การใช้งาน MSI ของ Office ก็ยังทำให้ผลเสียในสภาพแวดล้อมฝั่งเซิร์ฟเวอร์ นอกจากนี้ ความเสถียรของ Office โดยทั่วไปไม่สามารถรับประกันได้เมื่อทำงานบนเซิร์ฟเวอร์เพราะมันไม่ได้ถูกออกแบบหรือทดสอบสำหรับการใช้แบบนี้ การใช้ Office เป็นส่วนประกอบบริการบนเซิร์ฟเวอร์เครือข่ายอาจลดความเสถียรของเครื่องนั้นและส่งผลต่อเครือข่ายโดยรวม หากคุณตั้งใจจะทำอัตโนมัติ Office บนเซิร์ฟเวอร์ ควรพยายามแยกโปรแกรมไปยังคอมพิวเตอร์ที่dedicatedซึ่งไม่สามารถส่งผลต่อฟังก์ชันสำคัญและสามารถรีสตาร์ทได้ตามต้องการ"*
 
 
-*"Office 2000, Office XP and Office 2003 use Microsoft Windows Installer (MSI) technology to make installation and self-repair easier for an end user. MSI introduces the concept of "install on first use", which allows features to be dynamically installed or configured at runtime (for the system, or more often for a particular user). In a server-side environment this both slows down performance and increases the likelihood that a dialog box may appear that asks for the user to approve the install or provide an appropriate install disk. Although it is designed to increase the resiliency of Office as an end-user product, Office's implementation of MSI capabilities is counterproductive in a server-side environment. Furthermore, the stability of Office in general cannot be assured when run server-side because it has not been designed or tested for this type of use. Using Office as a service component on a network server may reduce the stability of that machine and as a consequence your network as a whole. If you plan to automate Office server-side, attempt to isolate the program to a dedicated computer that cannot affect critical functions, and that can be restarted as needed."* 
-
-
-ส่วนประกอบของ Aspose ได้รับการทดสอบอย่างละเอียดและมีความเสถียรเป็นอย่างมาก ส่วนประกอบของ Aspose ถูกใช้งานโดย [บริษัท](https://about.aspose.com/customers) เช่น **IBM** , **Hilton** , **Reader's Digest** , **Bank of America** และอื่น ๆ อีกมากมาย 
+ส่วนประกอบของ Aspose ได้รับการทดสอบอย่างละเอียดและมีความเสถียรอย่างยิ่ง ส่วนประกอบของ Aspose ถูกใช้โดย [บริษัท](https://about.aspose.com/customers/) เช่น **Bank of America** และอื่น ๆ อีกมากมาย
 
 ## **ความสามารถขยายตัว/ความเร็ว**
-ดังต่อไปนี้เป็นคำพูดโดยตรงจากบทความของ Microsoft: 
+The following is a direct quote from a Microsoft Article:
+
+*"ส่วนประกอบฝั่งเซิร์ฟเวอร์ต้องเป็น COM ที่สามารถทำซ้ำได้สูง, รองรับหลายเธรด พร้อมค่าสำรองและอัตราการผ่านข้อมูลสูงสำหรับหลายไคลเอ็นต์ แอปพลิเคชัน Office ในหลายแง่มุมเป็นตรงกันข้ามอย่างสิ้นเชิง พวกมันเป็นเซิร์ฟเวอร์ Automation แบบ STA ที่ไม่สามารถทำซ้ำได้, ถูกออกแบบมาเพื่อให้ฟังก์ชันที่หลากหลายแต่ใช้ทรัพยากรสูงสำหรับไคลเอ็นต์เดียว พวกมันมีความสามารถขยายตัวต่ำในฐานะโซลูชันฝั่งเซิร์ฟเวอร์ และมีข้อจำกัดคงที่ในองค์ประกอบสำคัญ เช่น หน่วยความจำ ซึ่งไม่สามารถเปลี่ยนแปลงได้ผ่านการกำหนดค่า ที่สำคัญยิ่งกว่านั้น พวกมันใช้ทรัพยากรระดับ global (เช่น ไฟล์ที่แม็พหน่วยความจำ, add‑ins หรือเทมเพลตระดับ global, และ Automation server ที่แชร์) ซึ่งอาจจำกัดจำนวนอินสแตนซ์ที่สามารถทำงานพร้อมกันและทำให้เกิด race condition หากกำหนดค่าในสภาพแวดล้อมหลายไคลเอ็นต์ นักพัฒนาที่วางแผนจะรันหลายอินสแตนซ์ของแอปพลิเคชัน Office พร้อมกันต้องพิจารณา ***Pooling*** หรือ ***Serializing Access*** ไปยังแอปพลิเคชัน Office เพื่อหลีกเลี่ยง ***Deadlocks*** หรือ ***Data Corruption***.*
 
 
-*"Server-side components need to be highly reentrant, multi-threaded COM components with minimum overhead and high throughput for multiple clients. Office Applications are in almost all respects the exact opposite. They are non-reentrant, STA-based Automation servers that are designed to provide diverse but resource-intensive functionality for a single client. They offer little scalability as a server-side solution, and have fixed limits to important elements, such as memory, which cannot be changed through configuration. More importantly, they use global resources (such as memory mapped files, global add-ins or templates, and shared Automation servers), which can limit the number of instances that can run concurrently and lead to race conditions if they are configured in a multi-client environment. Developers who plan to run more than one instance of any Office Application at the same time need to consider* ***Pooling*** *or* ***Serializing Access*** *to the Office Application for avoiding potential* ***Deadlocks*** *or* ***Data Corruption*** *.* 
-
-
-ส่วนประกอบของ Aspose มีความสามารถขยายตัวสูงและเร็วเป็นแสงิด ไฟล์ Office ไม่ได้ถูกออกแบบให้ผู้ใช้หลายร้อยหรือหลายพันคนใช้งานพร้อมกัน อย่างไรก็ตามส่วนประกอบของ Aspose ถูกออกแบบมาสำหรับสถานการณ์นั้นโดยเฉพาะ ส่วนประกอบของเราให้ผลลัพธ์ที่แม่นยำไม่ว่าจะทำงานบนเซิร์ฟเวอร์เครื่องเดียว, รองรับแอปพลิเคชันเดียวหรืออยู่บน Web Form ที่ทำงานแบบ load‑balanced เพื่อให้บริการแอปพลิเคชันระดับองค์กร 
+ส่วนประกอบของ Aspose มีความสามารถขยายตัวสูงและเร็วเป็นแสงแอปพลิเคชัน Office ไม่ได้ถูกออกแบบมาให้ใช้โดยผู้ใช้หลายร้อยหรือหลายพันคนพร้อมกัน อย่างไรก็ตาม ส่วนประกอบของ Aspose ถูกออกแบบมาเพื่อจุดประสงค์นั้นโดยเฉพาะ ส่วนประกอบของเราทำงานได้อย่างไร้ข้อผิดพลาดไม่ว่าจะบนเซิร์ฟเวอร์เดียว, ให้พลังกับแอปพลิเคชันเดียวหรือบนฟาร์มเซิร์ฟเวอร์เว็บที่ทำ load‑balancing ให้บริการแอปพลิเคชันระดับองค์กร
 
 ## **ราคา**
-เมื่อแอปพลิเคชันใช้ Microsoft Office Automation จำเป็นต้องซื้อสำเนา Microsoft Office สำหรับแต่ละเครื่องที่รันแอปพลิเคชันนั้น มีหลายกรณีที่แอปพลิเคชันอาจต้องสร้างหรือแก้ไขไฟล์ Office แต่ไม่ได้ต้องการให้ผู้ใช้มี Microsoft Office Aspose มีไลเซนส์ [Cost Effective](https://purchase.aspose.com/) ที่ไม่มีค่าลิขสิทธิ์ต่อผู้ใช้ ทำให้สามารถปรับใช้ได้ไม่จำกัดจำนวนผู้ใช้โดยไม่ต้องกังวลเรื่องไลเซนส์ 
+When an application utilizes Microsoft Office Automation, a copy of Microsoft Office must be purchased for each machine that runs the application. There are many times that an application may need to create or manipulate an office file but does not require the user to have Microsoft Office. Aspose offers a very [Cost Effective](https://purchase.aspose.com/) and royalty free redistribution license that will allow deployment to an unlimited number of users with no licensing worries.
+
+เมื่อแอปพลิเคชันใช้ Microsoft Office Automation จำเป็นต้องซื้อสำเนา Microsoft Office สำหรับแต่ละเครื่องที่รันแอปพลิเคชันนั้น มีหลายกรณีที่แอปพลิเคชันอาจต้องสร้างหรือจัดการไฟล์ Office แต่ไม่ได้ต้องการให้ผู้ใช้มี Microsoft Office Aspose มีใบอนุญาตการกระจายที่ [คุ้มค่า](https://purchase.aspose.com/) และไม่มีค่าลิขสิทธิ์ ซึ่งจะอนุญาตการปรับใช้ให้กับผู้ใช้จำนวนไม่จำกัดโดยไม่มีความกังวลเรื่องลิขสิทธิ์
 
 
-เมื่อสร้างแอปพลิเคชันแบบเว็บ จำเป็นต้องทราบว่า Microsoft Office Automation ไม่ได้มีการตั้งราคาและไลเซนส์สำหรับโซลูชันฝั่งเซิร์ฟเวอร์ ดังนั้นจึงไม่มีวิธีลิขสิทธิ์ที่เหมาะสมสำหรับการเปิดใช้เว็บแอปที่ใช้ส่วนประกอบของ Microsoft Office Aspose มีโซลูชันที่คุ้มค่าและเหมาะกับแอปพลิเคชันฝั่งเซิร์ฟเวอร์เช่นกัน 
+When creating web based applications it is important to know that Microsoft Office Automation components are not priced nor licensed for server side solutions; therefore, there is no good, licensing solution for deploying web applications that utilize the Microsoft Office components. Aspose offers a very Cost Effective solution for server based applications as well.
 
-## **คุณลักษณะ**
-ส่วนประกอบของ Aspose ให้ทุกอย่างที่จำเป็นสำหรับการจัดการไฟล์ Office และยังมากกว่านั้น พวกมันถูกออกแบบด้วยปรัชญาที่ทำให้ผู้พัฒนาบรรลุผลลัพธ์ที่ดีที่สุดด้วยความพยายามที่น้อยที่สุด ไม่เหมือน Office Automation ส่วนประกอบของ Aspose มีฟังก์ชันที่ทรงพลังและช่วยประหยัดเวลามากมาย ตัวอย่างเช่น [Aspose.Cells](https://products.aspose.com/cells/java/) ให้ผู้พัฒนานำเข้าข้อมูลจาก **DataTable** หรือ **DataView** ไปยังไฟล์ Excel โดยตรง [Aspose.Words](https://products.aspose.com/words/java/) มีฟีเจอร์คล้ายกันที่ช่วยให้ผู้พัฒนาสร้างเอกสาร Word (Mail Merge) ได้ [ทุกส่วนประกอบ](https://products.aspose.com/total/java/) ในตระกูล Aspose มีชุดคุณลักษณะเฉพาะที่ทรงพลังของตนเอง 
+เมื่อสร้างแอปพลิเคชันบนเว็บ สิ่งสำคัญคือต้องรู้ว่า Microsoft Office Automation ไม่ได้มีการกำหนดราคาและไม่ได้รับใบอนุญาตสำหรับโซลูชันฝั่งเซิร์ฟเวอร์ ดังนั้นจึงไม่มีวิธีการลิขสิทธิ์ที่เหมาะสมสำหรับการปรับใช้แอปพลิเคชันเว็บที่ใช้ส่วนประกอบของ Microsoft Office Aspose มีโซลูชันที่คุ้มค่าสำหรับแอปพลิเคชันบนเซิร์ฟเวอร์เช่นกัน
+
+## **คุณสมบัติ**
+Aspose components provide everything needed for managing Office files plus much more. They are designed with the philosophy of allowing developers to accomplish the greatest results with the least amount of work. Unlike Office Automation, Aspose components provide many powerful and time saving functions. For instance, [Aspose.Cells](https://products.aspose.com/cells/java/) offers developers the ability to import data from a **DataTable** or **DataView** directly into an Excel file. [Aspose.Words](https://products.aspose.com/words/java/) offers a similar feature that allows developers to populate a Word (that is Mail Merge) document. [Every Component](https://products.aspose.com/total/java/) in the Aspose family offers their own set of unique and powerful features.
+
+ส่วนประกอบของ Aspose ให้ทุกอย่างที่จำเป็นสำหรับการจัดการไฟล์ Office และมากกว่านั้น พวกมันถูกออกแบบด้วยปรัชญาที่ให้ผู้พัฒนาสามารถทำผลลัพธ์ที่ดีที่สุดด้วยการทำงานน้อยที่สุด ไม่เหมือน Office Automation, ส่วนประกอบของ Aspose มีฟังก์ชันที่ทรงพลังและประหยัดเวลา ตัวอย่างเช่น, [Aspose.Cells](https://products.aspose.com/cells/java/) ให้ผู้พัฒนาสามารถนำเข้าข้อมูลจาก **DataTable** หรือ **DataView** ลงในไฟล์ Excel โดยตรง. [Aspose.Words](https://products.aspose.com/words/java/) มีฟีเจอร์คล้ายกันที่ช่วยให้นักพัฒนาสร้างเอกสาร Word (ที่เป็น Mail Merge). [Every Component](https://products.aspose.com/total/java/) ในตระกูล Aspose มีชุดคุณลักษณะเฉพาะและทรงพลังของตนเอง.
 
 
-ส่วนที่ดีที่สุดของการซื้อส่วนประกอบของ Aspose (หรือชุดส่วนประกอบเช่น [Aspose.Total](https://products.aspose.com/total/java/)) คือการเข้าถึงทีมพัฒนาของเรา ทีมของเราตระหนักว่าหากมีคุณลักษณะที่บริษัทของคุณต้องการ มีโอกาสที่บริษัทอื่น ๆ จะต้องการเช่นกัน แม้ว่าไม่ใช่ทุกคำขอจะสามารถเพิ่มได้ ทีมของเราพยายามเปิดกว้างและยืดหยุ่นเมื่อให้ความช่วยเหลือ ความคิดนี้ทำให้ส่วนประกอบของ Aspose มีความทรงพลังเช่นนี้ หากคุณต้องการคุณลักษณะเพิ่มเติมจากวัตถุ Office Automation โอกาสที่เราจะทำการเพิ่มนั้นค่อนข้างต่ำมาก 
+The best part of purchasing an Aspose component (or component suites like [Aspose.Total](https://products.aspose.com/total/java/) ) is having access to our development teams. Our development teams realize that if there is a feature that your company needs, more than likely other companies will need it as well. While not every feature request can be added, our teams try to be very open-minded and flexible when providing assistance. That mindset is what has helped Aspose components to become as powerful as they are. If there are additional features that you need from Office Automation objects, your chances of having them added are very, very low.
+
+ส่วนที่ดีที่สุดของการซื้อส่วนประกอบของ Aspose (หรือชุดส่วนประกอบเช่น [Aspose.Total](https://products.aspose.com/total/java/) ) คือการได้เข้าถึงทีมพัฒนาของเรา ทีมพัฒนาของเราตระหนักว่าถ้ามีฟีเจอร์ที่บริษัทของคุณต้องการ มีแนวโน้มว่าบริษัทอื่น ๆ จะต้องการเช่นกัน แม้ว่าจะไม่ใช่ทุกคำขอฟีเจอร์จะถูกเพิ่มเข้ามา ทีมของเราพยายามเปิดใจและยืดหยุ่นเมื่อให้ความช่วยเหลือ แนวคิดนั้นคือสิ่งที่ทำให้ส่วนประกอบของ Aspose มีความทรงพลัง หากมีฟีเจอร์เพิ่มเติมที่คุณต้องการจากวัตถุ Office Automation โอกาสที่มันจะถูกเพิ่มเข้ามานั้นจะต่ำมาก
 
 ## **สรุป**
-{{% alert color="primary" %}} 
-
-แม้ว่าบทความนี้จะครอบคลุมประเด็นสำคัญหลายประการว่าทำไมส่วนประกอบของ Aspose จึงเป็นตัวเลือกที่ดีกว่า Office Automation แต่ยังมีอีกหลาย ๆ จุด อีกทั้งบทความนี้มุ่งเน้นที่ประเด็นสำคัญที่สุดเท่านั้น ส่วนประกอบของ Aspose ทุกตัวมาพร้อมกับรุ่น [Evaluation Version](https://downloads.aspose.com/slides/th/java) ที่ไม่มีความเสี่ยงและไม่มีข้อผูกมัด เราขอแนะนำให้คุณใช้รุ่น Evaluation นี้เพื่อดูว่า Aspose สามารถทำอะไรให้กับแอปพลิเคชันของคุณได้บ้าง 
-
+{{% alert color="info" title="Note" %}}
+ในขณะที่บทความนี้ได้ครอบคลุมประเด็นสำคัญหลายประการว่าทำไมส่วนประกอบของ Aspose ถึงเป็นตัวเลือกที่ดีกว่าการใช้ Office Automation ยังมีอีกหลาย ๆ ประเด็น บทความนี้เน้นเฉพาะประเด็นสำคัญที่สุดเท่านั้น ส่วนประกอบต่าง ๆ ของ Aspose ให้บริการ [รุ่นทดลอง](https://releases.aspose.com/slides/th/java/) ที่ไม่มีความเสี่ยงและไม่มีข้อผูกมัด เราแนะนำให้คุณใช้รุ่นทดลองนี้เพื่อดูว่าการทำงานของ Aspose สามารถช่วยแอปพลิเคชันของคุณได้อย่างไร
 {{% /alert %}}

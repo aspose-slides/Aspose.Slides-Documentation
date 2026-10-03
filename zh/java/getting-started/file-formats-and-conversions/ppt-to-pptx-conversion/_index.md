@@ -1,40 +1,47 @@
 ---
-title: PPT 到 PPTX 转换
+title: PPT 转 PPTX 转换（历史）
 type: docs
 weight: 30
 url: /zh/java/ppt-to-pptx-conversion/
+keywords:
+- PPT 转 PPTX
+- 转换
+- 历史
+- Java
+- Aspose.Slides
+description: "历史：Aspose.Slides for Java 中较早的 PPT 到 PPTX 转换概述，保留供现有链接使用。当前指南为 Convert PPT to PPTX。"
 ---
+{{% alert color="info" title="Note" %}}
 
-{{% alert color="primary" %}} 
+这是一个历史页面，保留供现有链接使用。它未描述 Aspose.Slides for Java 的当前版本。有关 Aspose.Slides for Java 加载、导入、保存、渲染的格式以及每种格式的 API，请参阅[Supported File Formats](/slides/zh/java/supported-file-formats/)。有关当前的转换指南，请参阅[Convert PPT to PPTX](/slides/zh/java/convert-ppt-to-pptx/)。
 
-从 Aspose.Slides for Java 支持 PPT 到 PPTX 的转换。在从一种格式转换为另一种格式时，大多数演示文稿特性——母版幻灯片、结构等——都得到了保留，但存在 [一些限制](/slides/zh/java/ppt-to-pptx-conversion/)。
+{{% /alert %}}
 
-{{% /alert %}} 
-## **转换中支持的功能**
-Aspose.Slides for Java 提供对 PPT 文件格式转换为 PPTX 的部分支持。转换支持刚刚引入 Aspose.Slides for Java，因此存在一些限制，并且对于简单的演示文稿效果最好。Aspose.Slides for Java 在将 PPT 转换为 PPTX 时所提供的主要优势是 API 的易用性。有关代码示例，请阅读 [转换 PPT 到 PPTX]()。下面的列表说明了哪些功能在 PPT 到 PPTX 转换中得到支持，哪些不支持。
+{{% alert color="info" title="Note" %}}
 
+Aspose.Slides for Java 支持 PPT 到 PPTX 的转换。大多数演示文稿功能——母版幻灯片、结构等——在从一种格式转换为另一种格式时都会保留，但仍有一些限制。
 
-**源 PPT 演示文稿**
+{{% /alert %}}
+## **Features Supported in Conversion**
+Aspose.Slides for Java 为将 PPT 文件格式转换为 PPTX 提供部分支持。转换功能刚刚在 Aspose.Slides for Java 中引入，因此存在一些限制，最适合处理简单的演示文稿。Aspose.Slides for Java 在 PPT 转换为 PPTX 时的主要优势是 API 使用非常简便。要查看代码示例，请参阅[Convert PPT to PPTX](/slides/zh/java/convert-ppt-to-pptx/)。下面的列表显示了 PPT 到 PPTX 转换支持的功能。
 
-![todo:image_alt_text](ppt-to-pptx-conversion_1.png)
+**Source PPT presentation**
 
+![The source PPT presentation](ppt-to-pptx-conversion_1.png)
 
+**After conversion to PPTX**
 
-**转换为 PPTX 后**
+![The presentation after conversion to PPTX](ppt-to-pptx-conversion_2.png)
 
-![todo:image_alt_text](ppt-to-pptx-conversion_2.png)
-
-
-
-## **支持的功能**
-以下功能在转换中得到支持：
+## **Supported Features**
+以下功能在转换中受支持：
 
 - 转换母版、布局和幻灯片的结构。
 - 转换图表。
-- 组形状。
-- 转换包括矩形和椭圆在内的自选图形。
-- 带自定义几何图形的形状。
-- 自选图形的纹理和图片填充样式。
+- 组合形状。
+- 转换包括矩形和椭圆在内的自动形状。
+- 具有自定义几何形状的形状。
+- 自动形状的纹理和图片填充样式。
 - 转换占位符。
 - 转换线条和折线。
 - 线条和填充格式。

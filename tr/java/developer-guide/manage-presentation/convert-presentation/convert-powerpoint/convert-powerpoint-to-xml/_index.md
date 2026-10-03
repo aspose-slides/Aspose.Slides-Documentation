@@ -1,5 +1,5 @@
 ---
-title: Java'da PowerPoint Sunumlarını XML'e Dönüştür
+title: PowerPoint Sunumlarını Java'da XML'e Dönüştür
 linktitle: PowerPoint'ten XML'e
 type: docs
 weight: 145
@@ -17,21 +17,23 @@ keywords:
 - XML akışı
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Java ile Java'da PowerPoint ve OpenDocument sunumlarını PowerPoint XML dosyalarına veya akışlarına dönüştürün."
+description: "Aspose.Slides for Java kullanarak PowerPoint ve OpenDocument sunumlarını Java'da PowerPoint XML dosyalarına veya akışlarına dönüştürün."
 ---
 ## **Genel Bakış**
 
-Aspose.Slides for Java, PowerPoint sunumlarını PowerPoint XML Sunum formatına dönüştürebilir. XML çıktısı, sunum yapısını incelemek, oluşturulan belgelerde sorun gidermek, otomatik testlerde çıktıyı karşılaştırmak veya XML tüketen bir iş akışıyla bütünleştirmek istediğinizde metin tabanlı bir temsil sağlamada yararlıdır.
+Aspose.Slides for Java, PowerPoint sunumlarını PowerPoint XML Sunumu formatına dönüştürebilir. XML çıktısı, sunum yapısını incelemek, oluşturulan belgelerde sorun gidermek, otomatik testlerde çıktıyı karşılaştırmak veya XML tüketen bir iş akışıyla bütünleştirmek istediğinizde metin tabanlı bir temsil sağlar.
 
-Presentation.save metodunu, [SaveFormat](https://reference.aspose.com/slides/tr/java/com.aspose.slides/saveformat/) sınıfındaki `Xml` değeriyle birlikte kullanın. Sonucu doğrudan bir dosyaya veya bir akıma yazabilirsiniz.
+`Xml` değeriyle birlikte [Presentation.save](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/#save-java.lang.String-int-) metodunu [SaveFormat](https://reference.aspose.com/slides/tr/java/com.aspose.slides/saveformat/) sınıfından kullanın. Sonucu doğrudan bir dosyaya ya da akıma yazabilirsiniz.
 
 {{% alert color="info" title="Note" %}}
-`SaveFormat.Xml` bir PowerPoint XML Sunumu oluşturur. PPTX paketinin içinde depolanan ayrı Office Open XML bölümlerini çıkarmaz. Eğer `ppt/presentation.xml` gibi tam PPTX paket bölümlerine veya tek tek slayt XML dosyalarına ihtiyacınız varsa, PPTX paketini doğrudan inceleyin.
+
+`SaveFormat.Xml` bir PowerPoint XML Sunumu oluşturur. PPTX paketinin içinde saklanan ayrı Office Open XML bölümlerini dışa çıkarmaz. Eğer `ppt/presentation.xml` gibi tam PPTX paket bölümlerine veya tek tek slayt XML dosyalarına ihtiyacınız varsa PPTX paketini inceleyin.
+
 {{% /alert %}}
 
-## **Sunumu XML Dosyasına Dönüştürme**
+## **Sunumu XML Dosyasına Dönüştür**
 
-Kaynak bir sunumu [Presentation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/) sınıfı ile yükleyin ve ardından çıktı yolunu ve `SaveFormat.Xml` değerini [Presentation.save](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/#save-java.lang.String-int-) metoduna aktarın. Kaynak, PPT, PPTX veya ODP gibi yükleme için desteklenen herhangi bir sunum formatı olabilir.
+[Presentation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/) sınıfı ile bir kaynak sunum yükleyin ve çıkış yolunu ve `SaveFormat.Xml` değerini [Presentation.save](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/#save-java.lang.String-int-) metoduna aktarın. Kaynak, PPT, PPTX veya ODP gibi yükleme için desteklenen herhangi bir sunum formatı olabilir.
 
 Aşağıdaki örnek bir PPTX sunumunu XML dosyasına dönüştürür:
 
@@ -47,9 +49,9 @@ try {
 }
 ```
 
-## **XML Çıktısını Bir Akıma Yazma**
+## **XML Çıktısını Akıma Yaz**
 
-XML bellekte kalmalı veya bir web servisi, depolama sağlayıcı veya XML işleme hattı gibi başka bir bileşene geçirilmeliyse, [Presentation.save](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/#save-java.io.OutputStream-int-) metodunun akım aşırı yüklemesini kullanın. Aşağıdaki örnek sonucu bir [ByteArrayOutputStream](https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/io/ByteArrayOutputStream.html) ile yazar ve oluşan XML'i bir bayt dizisi olarak elde eder:
+XML bellekte kalmalı veya bir web hizmeti, depolama sağlayıcısı veya XML işleme hattı gibi başka bir bileşene aktarılacaksa [Presentation.save](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/#save-java.io.OutputStream-int-) metodunun akış aşırı yüklemesini kullanın. Aşağıdaki örnek sonucu bir [ByteArrayOutputStream](https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/io/ByteArrayOutputStream.html)ʼa yazar ve elde edilen XML’i bayt dizisi olarak alır:
 
 ```java
 import com.aspose.slides.Presentation;
@@ -67,35 +69,35 @@ try (ByteArrayOutputStream xmlStream = new ByteArrayOutputStream()) {
 }
 ```
 
-## **XML'yi Sunum ve Dışa Aktarım Biçimleriyle Karşılaştırma**
+## **XML'i Sunum ve Dışa Aktarım Biçimleriyle Karşılaştır**
 
-Sonucun nasıl kullanılacağına göre çıktı biçimini seçin:
+Sonucun nasıl kullanılacağına göre çıkış biçimini seçin:
 
 | Biçim | Çıktı | Tipik kullanım |
 | --- | --- | --- |
-| PowerPoint XML (`.xml`) | PowerPoint XML Sunumu | Yapıyı inceleme, sorun giderme, oluşturulan çıktıyı karşılaştırma ve XML‑tabanlı entegrasyon |
-| PPT (`.ppt`) | Eski ikili bir sunum dosyası | Eski PowerPoint iş akışlarıyla uyumluluk |
-| PPTX (`.pptx`) | Birden fazla bölüm içeren Office Open XML paketi | Normal PowerPoint düzenleme ve sunum alışverişi |
-| PDF or TIFF | Sabit düzenli sayfalar veya çok sayfalı bir resim | Görüntüleme, baskı ve arşivleme |
-| PNG, JPEG, or SVG | Tek bir slaytın render edilmiş temsili | Küçük resimler, ön izlemeler ve görsel varlıklar |
-| HTML or HTML5 | Web‑odaklı sunum çıktısı | Tarayıcıda görüntüleme ve web yayıncılığı |
+| PowerPoint XML (`.xml`) | PowerPoint XML Sunumu | Yapıyı inceleme, sorun giderme, oluşturulan çıktıyı karşılaştırma ve XML tabanlı entegrasyon |
+| PPT (`.ppt`) | Eski ikili sunum dosyası | Eski PowerPoint iş akışlarıyla uyumluluk |
+| PPTX (`.pptx`) | Birden çok bölüm içeren Office Open XML paketi | Normal PowerPoint düzenleme ve sunum değişimi |
+| PDF veya TIFF | Sabit düzenli sayfalar veya çok sayfalı görüntü | Görüntüleme, yazdırma ve arşivleme |
+| PNG, JPEG veya SVG | Tek bir slaytın işlenmiş temsili | Küçük resimler, ön izlemeler ve görsel varlıklar |
+| HTML veya HTML5 | Web odaklı sunum çıktısı | Tarayıcıda görüntüleme ve web yayınlama |
 
-PPT ve PPTX'ye kıyasla, XML çıktısı öncelikle inceleme ve veri‑odaklı iş akışları için tasarlanmıştır. PDF, TIFF, HTML ve slayt görüntü formatlarından farklı olarak, slaytları sayfalar ya da görsel varlıklar olarak render etmek yerine sunum verilerini temsil eder. [supported file formats](/slides/tr/java/supported-file-formats/) tablosu, PowerPoint XML Sunumu'nu yalnızca kaydetme formatı olarak listeler; bu nedenle, bir iş akışının dışa aktarılan dosyayı Aspose.Slides'e tekrar yükleyip düzenleme yapması gerektiğinde kullanmayın.
+PPT ve PPTX’ten farklı olarak XML çıktısı öncelikle inceleme ve veri odaklı iş akışları için tasarlanmıştır. PDF, TIFF, HTML ve slayt görüntü biçimlerinden farklı olarak, slaytları sayfa veya görsel varlık olarak render etmek yerine sunum verisini temsil eder. [Desteklenen dosya formatları](/slides/tr/java/supported-file-formats/) tablosu, Aspose.Slides’ın yükleyebileceği, içe aktarabileceği, kaydedebileceği veya render edebileceği tüm formatları listeler.
 
 ## **SSS**
 
-**`SaveFormat.Xml`, PPTX dosyası kaydetmekle aynı şey mi?**
+**`SaveFormat.Xml` bir PPTX dosyası kaydetmekle aynı mı?**
 
-Hayır. PPTX, birden fazla Office Open XML bölümünü içeren bir paket iken, `SaveFormat.Xml` bir PowerPoint XML Sunumu dosyası oluşturur.
+Hayır. PPTX birden çok Office Open XML parçası içeren bir paket iken, `SaveFormat.Xml` bir PowerPoint XML Sunumu dosyası oluşturur.
 
 **XML çıktısını diskte dosya oluşturmadan kaydedebilir miyim?**
 
-Evet. Yazılabilir bir akımı [Presentation.save](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/#save-java.io.OutputStream-int-) metoduna aktarın. Örneğin, hafıza içi işleme için bir [ByteArrayOutputStream](https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/io/ByteArrayOutputStream.html) kullanın.
+Evet. Yazılabilir bir akışı [Presentation.save](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/#save-java.io.OutputStream-int-) metoduna aktarın. Örneğin, bellekte işleme için bir [ByteArrayOutputStream](https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/io/ByteArrayOutputStream.html) kullanabilirsiniz.
 
 **Aspose.Slides dışa aktarılan XML dosyasını tekrar yükleyebilir mi?**
 
-Hayır. PowerPoint XML Sunumu şu anda yalnızca kaydetme için desteklenir, yükleme için desteklenmez. Çift yönlü düzenleme gerektiğinde PPTX veya başka bir desteklenen sunum formatını kullanın.
+Evet. XML dosyasını veya bir akışı [Presentation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/#Presentation-java.lang.String-) yapıcısına aktarın. [Presentation.getSourceFormat](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/#getSourceFormat--) daha sonra `SourceFormat.Xml` değerini döndürür. [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentationfactory/#getPresentationInfo-java.lang.String-) bu format için `LoadFormat.Unknown` raporlar, bu nedenle bir XML dosyasının açılıp açılamayacağını karar vermek için kullanmayın.
 
-**XML dönüşümü her slaytı bir sayfa veya resim olarak render eder mi?**
+**XML dönüşümü her slaytı sayfa veya görüntü olarak render eder mi?**
 
-Hayır. XML dönüşümü yapılandırılmış sunum verilerini yazar. Sayfa‑odaklı çıktı için PDF veya TIFF, tek slayt görselleri için ise PNG, JPEG ve SVG kullanın.
+Hayır. XML dönüşümü yapılandırılmış sunum verisi yazar. Sayfa odaklı çıkış için PDF veya TIFF, tek slayt görüntüleri için ise PNG, JPEG ve SVG kullanın.

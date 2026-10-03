@@ -1,46 +1,56 @@
 ---
-title: 授權錯誤
+title: 授權錯誤於 23.2 至 23.7 版本（歷史）
+linktitle: 授權錯誤 23.2-23.7（歷史）
 type: docs
-weight: 95
+weight: 200
 url: /zh-hant/java/licensing-bug/
 keywords:
 - 授權錯誤
 - 永久授權
+- 歷史
+- 版本 23.2
+- 版本 23.7
 - Java
 - Aspose.Slides
-description: "了解 Aspose.Slides for Java 23.2–23.7 中的授權錯誤如何影響永久金鑰，以及如何修復它以持續支援 PPT、PPTX 和 ODP。"
+description: "歷史：Aspose.Slides for Java 23.2 至 23.7 中的授權錯誤，導致永久授權在訂閱到期後切換為評估模式，已在 23.2.1 至 23.7.1 版本中修復。"
 ---
+{{% alert color="info" title="注意" %}}
+
+這是一個歷史頁面。它說明了在 2023 年發布的 Aspose.Slides for Java 23.2 至 23.7 版本中出現的授權錯誤，以及修復此問題的版本。它不描述目前的版本。關於目前版本的授權，請參閱[Licensing](/slides/zh-hant/java/licensing/)。
+
+{{% /alert %}}
+
 ## **概述**
 
-本文說明在 Aspose.Slides for Java 版本 23.2、23.3、23.4、23.5、23.6 與 23.7 中發生的授權錯誤。此錯誤會導致永久授權在訂閱到期後暫時無法使用。
+本文說明了在 Aspose.Slides for Java 23.2、23.3、23.4、23.5、23.6 與 23.7 版本中遇到的授權錯誤。此錯誤導致永久授權在訂閱到期後暫時無法使用。
 
 ## **徵兆**
 
-在永久授權訂閱到期後，Aspose.Slides for Java 23.2‑23.7 版可能會顯示授權已過期，將所有功能切換至評估模式。此行為不正確，且不影響 23.2 之前或 23.7 之後的版本。
+當您的永久授權訂閱到期後，Aspose.Slides for Java 23.2 - 23.7 可能會報告授權已過期，並將所有功能切換到評估模式。此行為不正確，且不影響 23.2 之前與 23.7 之後的版本。
 
 ## **解決方案**
 
-Aspose.Slides for Java 已修復此問題，並以更新版本 (23.2.1、23.3.1、23.4.1、23.5.1、23.6.1、23.7.1) 發佈。
+Aspose.Slides for Java 已處理此問題，並發布了含修正的更新版 (23.2.1、23.3.1、23.4.1、23.5.1、23.6.1、23.7.1)。
 
 如果您的專案使用受影響的 Aspose.Slides for Java 版本，請改用已修正的版本。
 
-包含修復的版本列表：
+含修正的版本清單：
 
-| 儲存庫連結 | 發佈說明連結 |
+| Repository link | Release notes link |
 | :- | :- |
-|[23.2.1](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/23.2.1/)|[Aspose.Slides for Java 23.2.1 發佈說明](https://releases.aspose.com/slides/zh-hant/java/release-notes/2023/aspose-slides-for-java-23-2-1-release-notes/)|
-|[23.3.1](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/23.3.1/)|[Aspose.Slides for Java 23.3.1 發佈說明](https://releases.aspose.com/slides/zh-hant/java/release-notes/2023/aspose-slides-for-java-23-3-1-release-notes/)|
-|[23.4.1](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/23.4.1/)|[Aspose.Slides for Java 23.4.1 發佈說明](https://releases.aspose.com/slides/zh-hant/java/release-notes/2023/aspose-slides-for-java-23-4-1-release-notes/)|
-|[23.5.1](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/23.5.1/)|[Aspose.Slides for Java 23.5.1 發佈說明](https://releases.aspose.com/slides/zh-hant/java/release-notes/2023/aspose-slides-for-java-23-5-1-release-notes/)|
-|[23.6.1](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/23.6.1/)|[Aspose.Slides for Java 23.6.1 發佈說明](https://releases.aspose.com/slides/zh-hant/java/release-notes/2023/aspose-slides-for-java-23-6-1-release-notes/)|
-|[23.7.1](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/23.7.1/)|[Aspose.Slides for Java 23.7.1 發佈說明](https://releases.aspose.com/slides/zh-hant/java/release-notes/2023/aspose-slides-for-java-23-7-1-release-notes/)|
+|[23.2.1](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/23.2.1/) | [Release notes Aspose.Slides for Java 23.2.1](https://releases.aspose.com/slides/zh-hant/java/release-notes/2023/aspose-slides-for-java-23-2-1-release-notes/)|
+|[23.3.1](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/23.3.1/) | [Release notes Aspose.Slides for Java 23.3.1](https://releases.aspose.com/slides/zh-hant/java/release-notes/2023/aspose-slides-for-java-23-3-1-release-notes/)|
+|[23.4.1](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/23.4.1/) | [Release notes Aspose.Slides for Java 23.4.1](https://releases.aspose.com/slides/zh-hant/java/release-notes/2023/aspose-slides-for-java-23-4-1-release-notes/)|
+|[23.5.1](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/23.5.1/) | [Release notes Aspose.Slides for Java 23.5.1](https://releases.aspose.com/slides/zh-hant/java/release-notes/2023/aspose-slides-for-java-23-5-1-release-notes/)|
+|[23.6.1](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/23.6.1/) | [Release notes Aspose.Slides for Java 23.6.1](https://releases.aspose.com/slides/zh-hant/java/release-notes/2023/aspose-slides-for-java-23-6-1-release-notes/)|
+|[23.7.1](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/23.7.1/) | [Release notes Aspose.Slides for Java 23.7.1](https://releases.aspose.com/slides/zh-hant/java/release-notes/2023/aspose-slides-for-java-23-7-1-release-notes/)|
 
-如果您遇到任何 Aspose.Slides for Java 授權問題：
+如果您在 Aspose.Slides for Java 中遇到任何授權問題：
 
-- 檢查您使用的版本，確保它不受上述錯誤影響。
-- 請參考 [Aspose 文件](https://docs.aspose.com/slides/zh-hant/java/getting-started/) 以獲得故障排除步驟和已知授權問題。
-- 聯繫 [Aspose 支援](https://forum.aspose.com/) 以獲得進一步協助。
+- 檢查您使用的版本，確保未受上述錯誤影響。
+- 參考[Licensing](/slides/zh-hant/java/licensing/)了解如何套用與驗證授權。
+- 聯繫[Aspose support](https://forum.aspose.com/c/slides/zh-hant/11)以取得進一步協助。
 
-## **受影響的產品和版本**
+## **受影響的產品與版本**
 
-請注意，此錯誤僅影響 Aspose.Slides for Java 版本 23.2 到 23.7。**其他 Aspose 產品及其他版本的 Aspose.Slides 不受影響**。
+請注意，此錯誤僅影響 Aspose.Slides for Java 23.2 至 23.7 版本。**其他 Aspose 產品及其他版本的 Aspose.Slides 均不受影響**。

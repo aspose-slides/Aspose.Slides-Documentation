@@ -1,27 +1,30 @@
 ---
-title: Bekannte Probleme in Aspose.Slides für Java 14.4.0
+title: Bekannte Probleme in Aspose.Slides for Java 14.4.0 (historisch)
 type: docs
 weight: 30
 url: /de/java/known-issues-in-aspose-slides-for-java-14-4-0/
 keywords:
 - bekanntes Problem
+- historisch
+- Version 14.4.0
 - PowerPoint
 - OpenDocument
 - Präsentation
 - Java
 - Aspose.Slides
-description: "Überprüfen Sie bekannte Probleme in Aspose.Slides für Java 14.4.0, um eine genaue Arbeit mit PowerPoint- und OpenDocument-Dateien zu gewährleisten und Überraschungen in Ihren Präsentationen zu vermeiden."
+description: "Historisch: die mit Aspose.Slides for Java 14.4.0 veröffentlichten Einschränkungen und bekannten Probleme, zur Referenz aufbewahrt. Es ist keine Liste von Problemen in der aktuellen Version."
 ---
+{{% alert color="info" title="Note" %}}
 
-{{% alert color="primary" %}} 
-
-Aspose.Slides für Java 14.4.0 bietet eine neue Entscheidung für die Verarbeitung von PowerPoint-Dokumenten. Es gibt einige Einschränkungen und bekannte Probleme, die in kommenden Releases entfernt werden:
-
-- Einige Formen haben falsche Geometrie in serialisierten PPT-Dokumenten (Bogen, kreisförmiger Pfeil, Beschriftungen).
-- Nicht alle Textformatierungsfunktionen von PPTX werden bei der PPT-Serialisierung unterstützt (Tabulatoren, Einrückungen und Einschränkungen bei der Absatzformatierung).
-- Informationen zur Textsprache und Rechtschreibereinstellungen sind in serialisierten PPT-Dokumenten nicht vorhanden.
-- Nicht alle PPTX-Themenfunktionen werden bei der PPT-Serialisierung unterstützt (nur die Serialisierung von Füllformaten, Linienformaten und Schriftarten).
-- Bekannte Probleme bei der OLE/ActiveX-PPT-Serialisierung zu PPT sind bekannt.
-- Die Serialisierung und das Rendern von WordArt werden nicht unterstützt.
+Dies ist eine historische Seite. Sie listet die mit Aspose.Slides for Java 14.4.0 veröffentlichten Einschränkungen und bekannten Probleme auf und beschreibt nicht die aktuelle Version. Für die Änderungen in jeder Version siehe die [Versionshinweise](https://releases.aspose.com/slides/de/java/release-notes/).
 
 {{% /alert %}}
+
+Aspose.Slides for Java 14.4.0 bietet neue Möglichkeiten für die Verarbeitung von PowerPoint‑Dokumenten. Es gibt einige Einschränkungen und bekannte Probleme, die in kommenden Versionen entfernt werden:
+
+- Einige Formen haben falsche Geometrie in serialisierten PPT‑Dokumenten (Bogen, kreisförmiger Pfeil, Hinweiskästen).
+- Nicht alle PPTX‑Textformatierungsfunktionen werden bei der PPT‑Serialisierung unterstützt (Tabulatoren, Einrückungen und Absatzformatierungsbeschränkungen).
+- Informationen zur Textsprache und zu Rechtschreiboptionen sind in serialisierten PPT‑Dokumenten nicht vorhanden.
+- Nicht alle PPTX‑Theme‑Funktionen werden bei der PPT‑Serialisierung unterstützt (nur Serialisierung von Füllformaten, Linienformaten und Schriftarten).
+- Es gibt bekannte Probleme bei der OLE/ActiveX‑Serialisierung von PPT zu PPT.
+- Die Serialisierung und das Rendern von WordArt werden nicht unterstützt.

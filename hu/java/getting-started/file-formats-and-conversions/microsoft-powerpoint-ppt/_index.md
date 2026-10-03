@@ -1,42 +1,55 @@
 ---
-title: Microsoft PowerPoint (PPT)
+title: Microsoft PowerPoint (PPT) (Történeti)
 type: docs
 weight: 10
 url: /hu/java/microsoft-powerpoint-ppt/
+keywords:
+- PPT
+- PowerPoint 97-2003
+- történeti
+- Java
+- Aspose.Slides
+description: "Történeti: egy régebbi áttekintés a PPT formátumról az Aspose.Slides for Java-ban, a meglévő hivatkozások miatt megtartva. A támogatott formátumok aktuális listája a Supported File Formats-ben található."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" title="Megjegyzés" %}}
 
-A PPT a prezentációs dokumentum fájlformátum, amelyet a Microsoft PowerPoint különböző verziói hozhatnak létre, olvashatnak, módosíthatnak és írhatnak. Ez a Microsoft által kifejlesztett bináris formátum a prezentációs dokumentumokhoz.
+Ez egy történeti oldal, amely a meglévő hivatkozások miatt megtartott. Nem írja le az Aspose.Slides for Java aktuális verzióját. Azokról a formátumokról, amelyeket az Aspose.Slides for Java betölt, importál, ment és megjelenít, valamint az egyes API-król lásd a [Támogatott fájlformátumok](/slides/hu/java/supported-file-formats/). A PPT és PPTX összehasonlításához lásd a [A különbség megértése: PPT vs PPTX](/slides/hu/java/ppt-vs-pptx/).
 
-{{% /alert %}} 
+{{% /alert %}}
+
+{{% alert color="info" title="Megjegyzés" %}}
+
+[PPT](https://en.wikipedia.org/wiki/Microsoft_PowerPoint) egy prezentációs dokumentum fájlformátum, amelyet a Microsoft PowerPoint különböző verziói hozhatnak létre, olvashatnak, módosíthatnak és írhatnak. Ez a Microsoft által fejlesztett a prezentációs dokumentumok bináris formátuma.
+
+{{% /alert %}}
 
 ## **PPT az Aspose.Slides for Java-ban**
-Az Aspose.Slides for Java képes olvasni az alább felsorolt szoftverekkel létrehozott PPT fájlokat.
+Az Aspose.Slides for Java képes olvasni az alább felsorolt szoftverek által létrehozott PPT fájlokat.
 
 - Microsoft PowerPoint 97
 - Microsoft PowerPoint 2000
 - Microsoft PowerPoint XP
 - Microsoft PowerPoint 2003
 
-Hasonló módon, az Aspose.Slides for Java által létrehozott PPT fájlok is olvashatók a fenti szoftverekkel.
+Hasonlóképpen, az Aspose.Slides for Java által létrehozott PPT fájlok olvashatók a fenti szoftverekkel.
 
 ## **Átfogó támogatás a PPT-hez**
-Az Aspose.Slides for Java szinte az összes, a PPT dokumentum fájlformátum által támogatott funkciót biztosítja. Nemcsak a különböző Microsoft PowerPoint verziók által nyújtott alap- és haladó funkciókat fedi le a PPT dokumentumok kezelésében, hanem olyan funkciókat is, amelyeket a Microsoft PowerPoint nem támogat. Az Aspose.Slides for Java API könyvtár fő előnye a könnyű használhatóság az ilyen funkciók kezelésében.
+Az Aspose.Slides for Java szinte az összes, a PPT dokumentumformátum által támogatott funkcióra kínál megoldást. Nemcsak a Microsoft PowerPoint különböző verziói által nyújtott alap- és haladó funkciókat fedi le a PPT dokumentumok manipulálásához, hanem olyan funkciókat is, amelyeket a Microsoft PowerPoint egyáltalán nem támogat. Az Aspose.Slides for Java API könyvtár használatának fő előnye a könnyű kezelhetőség ilyen funkciók esetén.
 
-A PPT dokumentum fájlok létrehozásával, olvasásával és írásával kapcsolatos alapfeladatokon túl az Aspose.Slides for Java számos további funkciót kínál:
+A PPT dokumentumok létrehozásával, olvasásával és írásával kapcsolatos alapfeladatokon túl számos, az Aspose.Slides for Java által biztosított funkció áll rendelkezésre:
 
-- Más Microsoft Office fájlformátumok importálása [OLE objektumokként a PPT dokumentumokba]().
-- [PPT dokumentumok exportálása PDF-be](/slides/hu/java/convert-powerpoint-ppt-and-pptx-to-pdf/).
-- Diák exportálása a PPT dokumentumokból SVG formátumba.
-- Diák renderelése a Java keretrendszer által támogatott bármely képformátumba.
-- Diák méretének beállítása a PPT dokumentumokban.
-- Animációk kezelése alakzatokon.
-- Diavetítések kezelése.
-- [Szöveg formázása a diákon]().
+- Más Microsoft Office fájlformátumok importálása [OLE objektumok a PPT dokumentumokba](/slides/hu/java/manage-ole/).
+- [PPT dokumentumok exportálása PDF-be](/slides/hu/java/convert-powerpoint-to-pdf/).
+- A PPT dokumentumok diáinak exportálása SVG formátumba.
+- Diák renderelése bármely, a Java keretrendszer által támogatott képformátumba.
+- A diák méretének beállítása a PPT dokumentumokban.
+- Animációk kezelése az alakzatokon.
+- Dia előadások kezelése.
+- [Szöveg formázása a diákon](/slides/hu/java/text-formatting/).
 - Szöveg kinyerése PPT dokumentumokból.
-- [Táblázatok kezelése a diákon]().
-- Mesteroldalak automatikus másolása a [klónozási funkció]() segítségével.
+- [Táblázat kezelése a diákon](/slides/hu/java/powerpoint-table/).
+- Mesterek automatikus másolása a [klónozási funkció] segítségével.
 
-**Egy Aspose.Slides for Java által generált PPT fájl, amelyet a Microsoft PowerPoint megnyit** 
+**Az Aspose.Slides for Java által generált PPT fájl, amelyet a Microsoft PowerPoint megnyit**
 
-![todo:image_alt_text](microsoft-powerpoint-ppt_1.png)
+![Az Aspose.Slides for Java által generált PPT fájl, amelyet a Microsoft PowerPoint megnyit](microsoft-powerpoint-ppt_1.png)

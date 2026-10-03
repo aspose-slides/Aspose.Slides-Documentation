@@ -1,38 +1,45 @@
 ---
-title: Deklaráció
+title: Biztonsági Kezelő követelmények
 type: docs
-weight: 60
+weight: 190
 url: /hu/java/declaration/
 keywords:
-- deklaráció
-- komponensek
-- Full Trust engedély
-- regisztrációs beállítások
-- rendszerfájlok
+- Biztonsági Kezelő
+- biztonsági szabályzat
+- AllPermission
+- jogosultságok
+- sandbox
+- JDK 24
 - PowerPoint
 - OpenDocument
 - prezentáció
 - Java
 - Aspose.Slides
-description: "Ismerje meg az Aspose.Slides for Java megbízhatósági követelményeit, engedélyeit és hostingkorlátozásait, hogy biztonságosan telepíthessen olyan alkalmazásokat, amelyek PPT, PPTX és ODP fájlokat dolgoznak fel a szervereken."
+description: "Milyen Security Manager jogosultságokra van szüksége az Aspose.Slides for Java-nak és a kódnak, amely azt meghívja, a Java 23 és korábbi verziókban, és miért nincs mit konfigurálni a Java 24 és újabb verziókban."
 ---
-{{% alert color="primary" %}} 
+## **Áttekintés**
 
-Az összes Aspose Java komponens Full Trust jogosultságkészletet igényel. Ennek oka, hogy az Aspose Java komponenseknek hozzá kell férniük a regisztrációs beállításokhoz, a virtuális könyvtáron kívüli rendszerfájlokhoz bizonyos műveletekhez, például betűtípusok feldolgozásához stb. Emellett az Aspose Java komponensek a Java alaprendszer osztályaira épülnek, amelyek számos esetben szintén Full Trust jogosultságkészletet igényelnek. 
+A Java Biztonsági Kezelő korlátozza, hogy a kód mit tehet egy biztonsági szabályzat szerint. A Java 17 elavulttá tette annak eltávolítása céljából ([JEP 411](https://openjdk.org/jeps/411)), a Java 24 pedig végleg letiltotta ([JEP 486](https://openjdk.org/jeps/486)). Ez a cikk elmagyarázza, hogy az Aspose.Slides for Java-nek mire van szüksége, amikor egy alkalmazás még a Biztonsági Kezelővel fut. Ha az alkalmazásod nem engedélyezi azt, ami az alapértelmezett, akkor nincs mit konfigurálni.
 
-{{% /alert %}} 
+## **Java 23 és korábbiak**
 
-Az internetszolgáltatók, amelyek több, különböző vállalatok alkalmazásait üzemeltetik, általában Medium Trust biztonsági szintet alkalmaznak: 
+Amikor egy Security Manager engedélyezve van, a biztonsági szabályzatnak meg kell adnia ezeket a jogokat az Aspose.Slides JAR fájlnak és az azt meghívó alkalmazáskódnak:
 
-- OleDbPermission nem érhető el. Ez azt jelenti, hogy nem használhatja az ADO.NET kezelt OLE DB adatforrást adatbázisok elérésére.
-- EventLogPermission nem érhető el. Ez azt jelenti, hogy nem férhet hozzá a Windows eseménynaplóhoz.
-- ReflectionPermission nem érhető el. Ez azt jelenti, hogy nem használhat reflexiót.
-- RegistryPermission nem érhető el. Ez azt jelenti, hogy nem férhet hozzá a regisztrációs adatbázishoz.
-- WebPermission korlátozott. Ez azt jelenti, hogy az alkalmazása csak olyan címekkel vagy címek tartományával kommunikálhat, amelyet a <trust> elemben határoz meg.
-- FileIOPermission korlátozott. Ez azt jelenti, hogy csak az alkalmazása virtuális könyvtárhierarchiájában lévő fájlokhoz férhet hozzá.
+- `java.util.PropertyPermission "*", "read"`: Az Aspose.Slides rendszer tulajdonságokat olvas.
+- `java.io.FilePermission "<<ALL FILES>>", "read"`: Az Aspose.Slides betűtípusfájlokat és egyéb fájlokat olvas.
+- `java.io.FilePermission "<<ALL FILES>>", "execute"`: Az Aspose.Slides operációs rendszer programokat indít, például a Windows‑on a `reg`‑et és a Linuxon a `fc-match`‑et.
+- `java.io.FilePermission` a `write` művelettel azokhoz a mappákhoz, ahová az alkalmazásod fájlokat ment.
 
-{{% alert color="primary" %}} 
+A jogosultságok csak a JAR fájlnak a megadása nem elegendő: a kódnak, amely az Aspose.Slides‑t hívja, szintén szüksége van rájuk. A `java.security.AllPermission` mindkettőnek a megadása is működik.
 
-A fentiekben felsorolt okok miatt az Aspose Java komponensek nem használhatók olyan szervereken, ahol a jogosultságkészlet nem Full Trust. 
+A rendszer tulajdonságok olvasásához vagy programok indításához szükséges engedély hiányában az Aspose.Slides már az első használatkor hibázik: egy [Presentation](https://reference.aspose.com/slides/hu/java/com.aspose.slides/presentation/) objektum létrehozása `ExceptionInInitializerError`‑t dob. A betűtípusfájlok olvasásához szükséges hozzáférés hiányában a prezentáció PDF‑ként való mentése a „Cannot find any fonts installed on the system” hibaüzenettel sikertelen.
 
-{{% /alert %}}
+## **Java 24 és újabb**
+
+Java 24‑en és újabb verziókon a Biztonsági Kezelő nem engedélyezhető, így nincs mit megadni jogosultságként. Az Aspose.Slides az a fiók jogosultságaival fut, amely az alkalmazásodat futtatja. Az alkalmazás hozzáférésének korlátozásához az OpenJDK projekt a JDK‑n kívüli technológiákat ajánlja, például konténereket, hipervizorokat és operációs rendszer sandbox funkciókat. Lásd [JEP 486](https://openjdk.org/jeps/486).
+
+## **FAQ**
+
+**Használhatom az Aspose.Slides‑t olyan környezetben, ahol az alkalmazások szigorú Security Manager szabályzat alatt futnak?**
+
+Csak akkor, ha a szabályzat az előbb felsorolt jogosultságokat mind az Aspose.Slides‑nek, mind a hívó kódnak megadja. Ezek magukban foglalják az összes fájl olvasását és bármely program indítását.

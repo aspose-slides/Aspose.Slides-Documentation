@@ -1,38 +1,45 @@
 ---
-title: Deklarasi
+title: Persyaratan Security Manager
 type: docs
-weight: 60
+weight: 190
 url: /id/java/declaration/
 keywords:
-- deklarasi
-- komponen
-- izin Full Trust
-- pengaturan registri
-- file sistem
+- Manajer Keamanan
+- kebijakan keamanan
+- AllPermission
+- izin
+- sandbox
+- JDK 24
 - PowerPoint
 - OpenDocument
 - presentasi
 - Java
 - Aspose.Slides
-description: "Pelajari persyaratan kepercayaan, izin, dan batasan hosting Aspose.Slides untuk Java sehingga Anda dapat dengan aman menyebarkan aplikasi yang memproses PPT, PPTX, dan ODP di server."
+description: "Izin Security Manager apa yang dibutuhkan Aspose.Slides untuk Java dan kode yang memanggilnya pada Java 23 dan sebelumnya, serta mengapa tidak ada yang perlu dikonfigurasi pada Java 24 dan setelahnya."
 ---
-{{% alert color="primary" %}} 
+## **Gambaran Umum**
 
-Semua komponen Aspose Java memerlukan set izin Full Trust. Alasannya, komponen Aspose Java perlu mengakses pengaturan registri, file sistem selain direktori virtual untuk operasi tertentu seperti mem-parsing font, dll. Selain itu, komponen Aspose Java didasarkan pada kelas sistem inti Java yang juga memerlukan set izin Full Trust dalam banyak kasus. 
+Java Security Manager membatasi apa yang dapat dilakukan kode menurut kebijakan keamanan. Java 17 menandainya sebagai usang untuk dihapus ([JEP 411](https://openjdk.org/jeps/411)), dan Java 24 menonaktifkannya secara permanen ([JEP 486](https://openjdk.org/jeps/486)). Artikel ini menjelaskan apa yang dibutuhkan Aspose.Slides for Java ketika sebuah aplikasi masih berjalan dengan Security Manager. Jika aplikasi Anda tidak mengaktifkannya, yang merupakan default, tidak ada yang perlu dikonfigurasi.
 
-{{% /alert %}} 
+## **Java 23 dan Sebelumnya**
 
-Internet Service Providers yang menghosting banyak aplikasi dari perusahaan berbeda biasanya menerapkan tingkat keamanan Medium Trust: 
+Saat Security Manager diaktifkan, kebijakan keamanan harus memberikan izin berikut kepada file JAR Aspose.Slides dan kepada kode aplikasi yang memanggilnya:
 
-- OleDbPermission tidak tersedia. Ini berarti Anda tidak dapat menggunakan penyedia data OLE DB yang dikelola ADO.NET untuk mengakses basis data.
-- EventLogPermission tidak tersedia. Ini berarti Anda tidak dapat mengakses log peristiwa Windows.
-- ReflectionPermission tidak tersedia. Ini berarti Anda tidak dapat menggunakan refleksi.
-- RegistryPermission tidak tersedia. Ini berarti Anda tidak dapat mengakses registri.
-- WebPermission dibatasi. Ini berarti aplikasi Anda hanya dapat berkomunikasi dengan alamat atau rentang alamat yang Anda definisikan dalam elemen <trust>.
-- FileIOPermission dibatasi. Ini berarti Anda hanya dapat mengakses file dalam hierarki direktori virtual aplikasi Anda.
+- `java.util.PropertyPermission "*", "read"`: Aspose.Slides membaca properti sistem.
+- `java.io.FilePermission "<<ALL FILES>>", "read"`: Aspose.Slides membaca file font dan file lainnya.
+- `java.io.FilePermission "<<ALL FILES>>", "execute"`: Aspose.Slides memulai program sistem operasi, misalnya `reg` pada Windows dan `fc-match` pada Linux.
+- `java.io.FilePermission` dengan aksi `write` untuk folder tempat aplikasi Anda menyimpan file.
 
-{{% alert color="primary" %}} 
+Memberikan izin ke file JAR saja tidak cukup: kode yang memanggil Aspose.Slides juga memerlukan izin tersebut. Memberikan `java.security.AllPermission` ke keduanya juga berfungsi.
 
-Karena alasan yang disebutkan di atas, komponen Aspose Java tidak dapat digunakan pada server yang memberikan set izin selain Full Trust. 
+Tanpa izin membaca properti sistem atau memulai program, Aspose.Slides gagal pada penggunaan pertama: membuat objek [Presentation](https://reference.aspose.com/slides/id/java/com.aspose.slides/presentation/) melempar `ExceptionInInitializerError`. Tanpa akses membaca ke file font, menyimpan presentasi sebagai PDF gagal dengan error "Cannot find any fonts installed on the system".
 
-{{% /alert %}}
+## **Java 24 dan Selanjutnya**
+
+Security Manager tidak dapat diaktifkan pada Java 24 dan versi berikutnya, sehingga tidak ada izin yang perlu diberikan. Aspose.Slides berjalan dengan izin akun yang menjalankan aplikasi Anda. Untuk membatasi apa yang dapat diakses aplikasi, proyek OpenJDK merekomendasikan teknologi di luar JDK, seperti kontainer, hypervisor, dan fitur sandboxing sistem operasi. Lihat [JEP 486](https://openjdk.org/jeps/486).
+
+## **FAQ**
+
+**Apakah saya dapat menggunakan Aspose.Slides di lingkungan yang menjalankan aplikasi dengan kebijakan Security Manager yang restriktif?**
+
+Hanya jika kebijakan tersebut memberikan izin yang tercantum di atas baik kepada Aspose.Slides maupun ke kode yang memanggilnya. Izin tersebut mencakup membaca semua file dan memulai program apa pun.
