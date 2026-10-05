@@ -1,6 +1,6 @@
 ---
 title: 在 Android 上將簡報轉換為 HTML5
-linktitle: 簡報轉換成 HTML5
+linktitle: 簡報轉換為 HTML5
 type: docs
 weight: 40
 url: /zh-hant/androidjava/export-to-html5/
@@ -13,66 +13,74 @@ keywords:
 - PPTX 轉 HTML5
 - ODP 轉 HTML5
 - 將 PPT 儲存為 HTML5
-- 將 PPTX 儲存為 HTML5
-- 將 ODP 儲存為 HTML5
+- 将 PPTX 儲存為 HTML5
+- 将 ODP 儲存為 HTML5
 - 匯出 PPT 為 HTML5
 - 匯出 PPTX 為 HTML5
 - 匯出 ODP 為 HTML5
 - Android
 - Java
 - Aspose.Slides
-description: "使用 Aspose.Slides for Android 透過 Java，將 PowerPoint 與 OpenDocument 簡報匯出為具回應式的 HTML5。保留格式、動畫與互動性。"
+description: "使用 Aspose.Slides for Android via Java 將 PowerPoint 與 OpenDocument 簡報匯出為響應式 HTML5。保留格式、動畫與互動性。"
 ---
-## **概述**
+## **概覽**
 
-本文說明如何使用 Aspose.Slides 將 PowerPoint 簡報轉換為 HTML5。它涵蓋不含 Web 擴充功能或額外依賴的基本 HTML5 匯出，以及控制形狀動畫和投影片過渡的選項。本文還展示標準的 PowerPoint 轉 HTML 匯出流程，說明如何在投影片檢視模式下產生 HTML5 輸出，並示範透過設定版面配置將註解納入匯出文件中。
+本文說明如何使用 Aspose.Slides for Android via Java 將 PowerPoint 簡報轉換為 HTML5。內容涵蓋基本匯出、形狀動畫與投影片過場的控制，以及註解版面配置。同時也比較了 HTML5 輸出與標準 HTML 匯出所使用的 SVG 基礎輸出的差異。
 
-## **匯出 PowerPoint 為 HTML5**
+## **將 PowerPoint 匯出為 HTML5**
 
-以下 Java 程式碼示範如何將簡報匯出為不含 Web 擴充功能與依賴的 HTML5：
+以下範例從工作目錄載入簡報，並以 HTML5 格式儲存。它使用預設的匯出設定；下一個範例說明如何明確控制動畫播放。請將輸入路徑替換為您的簡報路徑。
 
 ```java
-Presentation pres = new Presentation("pres.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("pres.pptx");
 try {
-    pres.save("pres.html", SaveFormat.Html5);
+    presentation.save("pres.html", SaveFormat.Html5);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-{{% alert color="primary" %}} 
-在此情況下，您會得到乾淨的 HTML。 
+{{% alert color="info" title="Note" %}}
+
+除了 HTML 文件外，匯出還會寫入支援的 CSS 和 JavaScript 檔案，用於投影片樣式、動畫、效果與導覽。將這些檔案與 HTML 文件一起搬移或發佈。產生的頁面還會從公共 CDN 載入 jQuery 和 Anime.js；若缺少它們，投影片導覽和動畫將無法執行。
+
 {{% /alert %}}
 
-您可以這樣指定形狀動畫與投影片過渡的設定：
+若要在匯出時不播放形狀動畫或投影片過場，請在 [Html5Options](https://reference.aspose.com/slides/androidjava/com.aspose.slides/html5options/) 中將 `false` 傳遞給 [setAnimateShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/html5options/#setAnimateShapes-boolean-) 和 [setAnimateTransitions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/html5options/#setAnimateTransitions-boolean-)。這兩個設定是獨立的，您可以開啟其中一個而關閉另一個。以下範例在產生的頁面中同時停用兩種動畫。
 
 ```java
-Presentation pres = new Presentation("pres.pptx");
+import com.aspose.slides.*;
+
+Html5Options html5Options = new Html5Options();
+html5Options.setAnimateShapes(false);
+html5Options.setAnimateTransitions(false);
+
+Presentation presentation = new Presentation("pres.pptx");
 try {
-    Html5Options html5Options = new Html5Options();
-    html5Options.setAnimateShapes(false);
-    html5Options.setAnimateTransitions(false);
-    
-    pres.save("pres5.html", SaveFormat.Html5, html5Options);
+    presentation.save("pres5.html", SaveFormat.Html5, html5Options);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **匯出 PowerPoint 為 HTML**
+## **將 PowerPoint 匯出為 HTML**
 
-以下 Java 程式碼示範標準的 PowerPoint 轉 HTML 流程：
+標準的 HTML 匯出使用不同的渲染方式：投影片內容以 SVG 形式嵌入 HTML 頁面。以下範例示範如何使用此渲染方式將簡報轉換為 HTML 文件。
 
 ```java
-Presentation pres = new Presentation("pres.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("pres.pptx");
 try {
-    pres.save("pres.html", SaveFormat.Html);
+    presentation.save("pres.html", SaveFormat.Html);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-在此情況下，簡報內容會透過 SVG 以以下形式呈現：
+下面的簡化標記說明了產生頁面的結構。SVG 元素包含已渲染的投影片內容；佔位文字僅代表該內容，並非實際的匯出輸出。
 
 ```html
 <body>
@@ -84,64 +92,98 @@ try {
 </body>
 ```
 
-{{% alert title="Note" color="warning" %}} 
-當您使用此方法將 PowerPoint 匯出為 HTML 時，由於採用 SVG 呈現，將無法套用樣式或對特定元素進行動畫。 
+{{% alert title="Warning" color="warning" %}}
+
+基於 SVG 的匯出不會將 PowerPoint 形狀暴露為個別的 HTML 元素。若需要本文示範的形狀動畫與投影片過場選項，請使用 HTML5 匯出。
+
 {{% /alert %}}
 
-## **匯出 PowerPoint 為 HTML5 投影片檢視**
+## **將 PowerPoint 匯出為 HTML5 投影片檢視**
 
-**Aspose.Slides** 可讓您將 PowerPoint 簡報轉換為 HTML5 文件，並以投影片檢視模式呈現投影片。這樣，當您在瀏覽器中開啟產生的 HTML5 檔案時，即可在網頁上以投影片檢視模式觀看簡報。
+HTML5 匯出會產生可在瀏覽器中檢視並導覽簡報投影片的頁面。此範例同時啟用 [setAnimateShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/html5options/#setAnimateShapes-boolean-) 與 [setAnimateTransitions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/html5options/#setAnimateTransitions-boolean-)，使匯出的投影片檢視能播放來源簡報的效果。
 
-以下 Java 程式碼示範 PowerPoint 轉 HTML5 投影片檢視的匯出流程：
+請使用已包含形狀動畫和投影片過場的簡報，以觀察這些設定的效果。啟用它們不會為沒有動畫的投影片新增效果。匯出後，於瀏覽器開啟產生的 HTML5 文件，並確保支援檔案可用。
 
 ```java
-Presentation pres = new Presentation("pres.pptx");
-try {
-    Html5Options html5Options = new Html5Options();
-    html5Options.setAnimateShapes(true);
-    html5Options.setAnimateTransitions(true);
+import com.aspose.slides.*;
 
-    pres.save("HTML5-slide-view.html", SaveFormat.Html5, html5Options);
+Html5Options html5Options = new Html5Options();
+html5Options.setAnimateShapes(true);
+html5Options.setAnimateTransitions(true);
+
+Presentation presentation = new Presentation("pres.pptx");
+try {
+    presentation.save("HTML5-slide-view.html", SaveFormat.Html5, html5Options);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **將簡報轉換為含註解的 HTML5 文件**
+## **將簡報轉換為含有註解的 HTML5 文件**
 
-PowerPoint 中的註解是一種讓使用者在簡報投影片上留下備註或回饋的工具。它在協同專案中特別有用，因為多位使用者可以對特定投影片元素提出建議或意見，而不會改動主要內容。每則註解都會顯示作者名稱，方便追蹤是誰留下的意見。
+您可以在 HTML5 輸出中加入現有的投影片註解，讓讀者在投影片內容旁看到回饋。以下範例假設來源簡報已包含註解，如下圖所示。它會匯出這些註解，而不會創建新註解。
 
-假設我們有以下儲存在「sample.pptx」檔案中的 PowerPoint 簡報。
+![Two comments on the presentation slide](two_comments_pptx.png)
 
-![簡報投影片上的兩則註解](two_comments_pptx.png)
+將 [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/notescommentslayoutingoptions/) 物件傳遞給 [Html5Options](https://reference.aspose.com/slides/androidjava/com.aspose.slides/html5options/) 的 [setSlidesLayoutOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/html5options/#setSlidesLayoutOptions-com.aspose.slides.ISlidesLayoutOptions-) 方法。使用 [setCommentsPosition](https://reference.aspose.com/slides/androidjava/com.aspose.slides/notescommentslayoutingoptions/#setCommentsPosition-int-) 並從 [CommentsPositions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/commentspositions/) 列舉中選擇 `Right`，即可將註解放置於每張投影片的右側。
 
-將 PowerPoint 簡報轉換為 HTML5 文件時，您可以輕鬆指定是否在輸出文件中包含簡報的註解。為此，您需要在 [Html5Options](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/html5options/) 類別的 `getNotesCommentsLayouting` 方法中設定註解的顯示參數。
-
-以下程式碼範例將簡報轉換為 HTML5 文件，並將註解顯示在投影片的右側。
+以下範例將簡報匯出為具備此註解版面的 HTML5 文件。沒有註解的簡報將不會顯示任何註解文字。
 
 ```java
+import com.aspose.slides.*;
+
+NotesCommentsLayoutingOptions layoutOptions = new NotesCommentsLayoutingOptions();
+layoutOptions.setCommentsPosition(CommentsPositions.Right);
+
 Html5Options html5Options = new Html5Options();
-html5Options.getNotesCommentsLayouting().setCommentsPosition(CommentsPositions.Right);
+html5Options.setSlidesLayoutOptions(layoutOptions);
 
 Presentation presentation = new Presentation("sample.pptx");
-presentation.save("output.html", SaveFormat.Html5, html5Options);
-presentation.dispose();
+try {
+    presentation.save("output.html", SaveFormat.Html5, html5Options);
+} finally {
+    presentation.dispose();
+}
 ```
 
-下圖顯示了 "output.html" 文件的樣子。
+下圖顯示了匯出的 HTML5 文件，註解顯示在投影片旁邊。
 
-![輸出 HTML5 文件中的註解](two_comments_html5.png)
+![The comments in the output HTML5 document](two_comments_html5.png)
+
+## **匯出時排除 JavaScript 超連結**
+
+假設 `hyperlinks.pptx` 包含目標為 `javascript:alert('Hello')` 的連結文字，以及普通的 `https://example.com/` 連結。若要在匯出時排除 JavaScript 超連結，請將 `true` 傳遞給 [SaveOptions.setSkipJavaScriptLinks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/saveoptions/#setSkipJavaScriptLinks-boolean-)。預設為 `false`，因此除非啟用此選項，否則不會過濾這類連結。
+
+以下範例從工作目錄載入簡報，並使用 [Html5Options](https://reference.aspose.com/slides/androidjava/com.aspose.slides/html5options/) 匯出：
+
+```java
+import com.aspose.slides.*;
+
+Html5Options html5Options = new Html5Options();
+html5Options.setSkipJavaScriptLinks(true);
+
+Presentation presentation = new Presentation("hyperlinks.pptx");
+try {
+    presentation.save("filtered-html5.html", SaveFormat.Html5, html5Options);
+} finally {
+    presentation.dispose();
+}
+```
+
+匯出的檔案會省略 JavaScript 超連結，同時保留其文字以及普通的 HTTPS 連結。來源簡報保持不變。
+
+此選項僅過濾 JavaScript 超連結；不會移除所有腳本或其他主動內容，也不保證符合 CSP。舉例而言，HTML5 輸出仍會包含用於投影片導覽與動畫的腳本。
 
 ## **常見問題**
 
-**我能控制物件動畫與投影片過渡在 HTML5 中是否播放嗎？**
+**我可以控制 HTML5 中的物件動畫與投影片過場是否播放嗎？**
 
-是的，HTML5 提供了獨立的選項，可啟用或停用 [shape animations](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/html5options/#setAnimateShapes-boolean-) 與 [slide transitions](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/html5options/#setAnimateTransitions-boolean-)。
+是的，HTML5 匯出提供獨立的選項，可啟用或停用 [shape animations](https://reference.aspose.com/slides/androidjava/com.aspose.slides/html5options/#setAnimateShapes-boolean-) 與 [slide transitions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/html5options/#setAnimateTransitions-boolean-)。
 
-**是否支援註解的輸出，且可以相對於投影片放置於何處？**
+**是否支援註解，且可以將它們放置在投影片的哪個位置？**
 
-是的，註解可以在 HTML5 中加入，並可透過針對註解與備註的 [layout settings](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/html5options/#setSlidesLayoutOptions-com.aspose.slides.ISlidesLayoutOptions-)（例如放在投影片右側）進行位置設定。
+是的，現有的註解可包含在 HTML5 輸出中，並可透過 [layout settings](https://reference.aspose.com/slides/androidjava/com.aspose.slides/html5options/#setSlidesLayoutOptions-com.aspose.slides.ISlidesLayoutOptions-)（例如放在投影片右側）進行定位。
 
-**我可以為了安全性或 CSP 原因跳過呼叫 JavaScript 的連結嗎？**
+**我可以因安全或 CSP 考量而跳過執行 JavaScript 的連結嗎？**
 
-可以，有一個 [setting](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/saveoptions/#setSkipJavaScriptLinks-boolean-) 可在儲存時跳過包含 JavaScript 呼叫的超連結。這有助於遵守嚴格的安全政策。
+是的，[setSkipJavaScriptLinks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/saveoptions/#setSkipJavaScriptLinks-boolean-) 設定允許在儲存時跳過含有 JavaScript 呼叫的超連結。預設為 `false`。請參考[在匯出期間排除 JavaScript 超連結](/slides/zh-hant/androidjava/export-to-html5/#exclude-javascript-hyperlinks-during-export) 取得 HTML5 匯出範例與過濾範圍說明。此設定不會移除 HTML5 檢視器用於導覽與動畫的 JavaScript。

@@ -7,8 +7,8 @@ url: /ar/cpp/export-to-html5/
 keywords:
 - PowerPoint إلى HTML5
 - OpenDocument إلى HTML5
-- العرض التقديمي إلى HTML5
-- الشريحة إلى HTML5
+- عرض تقديمي إلى HTML5
+- شريحة إلى HTML5
 - PPT إلى HTML5
 - PPTX إلى HTML5
 - ODP إلى HTML5
@@ -20,61 +20,72 @@ keywords:
 - تصدير ODP إلى HTML5
 - C++
 - Aspose.Slides
-description: "تصدير عروض PowerPoint و OpenDocument إلى HTML5 مستجيب باستخدام Aspose.Slides للـ C++. الحفاظ على التنسيق، والرسوم المتحركة، والتفاعلية."
+description: "تصدير عروض PowerPoint و OpenDocument إلى HTML5 متجاوب باستخدام Aspose.Slides للغة C++. الحفاظ على التنسيق والرسوم المتحركة والتفاعل."
 ---
+## **نظرة عامة**
 
-{{% alert title="Info" color="info" %}}
+تشرح هذه المقالة كيفية تحويل عروض PowerPoint إلى HTML5 باستخدام Aspose.Slides للغة C++. تغطي العملية التصدير الأساسي والتحكم في رسومات التحريك والانتقالات بين الشرائح، وتنسيق التعليقات. كما تقارن ناتج HTML5 مع ناتج SVG المستند إلى تصدير HTML القياسي.
 
-في [Aspose.Slides 21.9](/slides/ar/cpp/aspose-slides-for-cpp-21-9-release-notes/)، قمنا بتنفيذ دعم تصدير HTML5.
+## **تصدير PowerPoint إلى HTML5**
 
-{{% /alert %}} 
+يحمّل المثال التالي عرضاً تقديميًا من الدليل العامل ويحفظه بتنسيق HTML5. يستخدم الإعدادات الافتراضية للتصدير؛ يوضح المثال التالي كيفية التحكم في تشغيل الرسوم المتحركة بشكل صريح. استبدل مسار الإدخال بالمسار إلى عرضك التقديمي.
 
-تسمح لك عملية التصدير إلى HTML5 هنا بتحويل PowerPoint إلى HTML. بهذه الطريقة، باستخدام القوالب الخاصة بك، يمكنك تطبيق خيارات مرنة جداً تحدد عملية التصدير وملف HTML وCSS وJavaScript وخصائص الرسوم المتحركة الناتجة. 
-
-## **Export PowerPoint to HTML5**
-
-هذا المثال بلغة C++ يوضح طريقة تصدير عرض تقديمي إلى HTML5.
 ```cpp
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
-        
-auto pres = System::MakeObject<Presentation>(u"pres.pptx");
-pres->Save(u"pres.html", SaveFormat::Html5);
+
+auto presentation = System::MakeObject<Presentation>(u"pres.pptx");
+presentation->Save(u"pres.html", SaveFormat::Html5);
+presentation->Dispose();
 ```
 
-
-{{% alert color="primary" %}} 
-
-في هذه الحالة ستحصل على HTML نظيف. 
-
+{{% alert color="info" title="Note" %}}
+بالإضافة إلى مستند HTML، يكتب التصدير ملفات CSS وJavaScript داعمة لتنسيق الشرائح، الرسوم المتحركة، المؤثرات، والتنقل. احفظ هذه الملفات مع مستند HTML عند نقل أو نشر النتيجة. كما يقوم الصفحة المُولّدة بتحميل jQuery وAnime.js من CDNs عامة؛ دونهما لا تعمل تنقلات الشرائح والرسوم المتحركة.
 {{% /alert %}}
 
-يمكنك تحديد إعدادات للرسوم المتحركة للأشكال وانتقالات الشرائح بهذه الطريقة:
+لتصدير دون تشغيل رسومات التحريك أو الانتقالات، مرّر `false` إلى [set_AnimateShapes](https://reference.aspose.com/slides/cpp/aspose.slides.export/html5options/set_animateshapes/) و[set_AnimateTransitions](https://reference.aspose.com/slides/cpp/aspose.slides.export/html5options/set_animatetransitions/) في [Html5Options](https://reference.aspose.com/slides/cpp/aspose.slides.export/html5options/). هذه الإعدادات مستقلة، لذا يمكنك تمكين أحدهما مع تعطيل الآخر. المثال يُصدّر العرض مع تعطيل كلا النوعين من الرسوم المتحركة في الصفحة المُولّدة.
+
 ```cpp
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+#include <Export/Html5Options.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 
-auto pres = System::MakeObject<Presentation>(u"pres.pptx");
-auto options = System::MakeObject<Html5Options>();
-options->set_AnimateShapes(true);
-options->set_AnimateTransitions(true);
-pres->Save(u"pres.html", SaveFormat::Html5, options);
+auto html5Options = System::MakeObject<Html5Options>();
+html5Options->set_AnimateShapes(false);
+html5Options->set_AnimateTransitions(false);
+
+auto presentation = System::MakeObject<Presentation>(u"pres.pptx");
+presentation->Save(u"pres5.html", SaveFormat::Html5, html5Options);
+presentation->Dispose();
 ```
 
+## **تصدير PowerPoint إلى HTML**
 
-## **Export PowerPoint to HTML**
+يستخدم تصدير HTML القياسي نهج رسم مختلف: محتوى الشريحة يُمثَّل بـ SVG داخل صفحة HTML. يوضح المثال التالي تحويل عرض تقديمي إلى مستند HTML باستخدام هذا النهج.
 
-هذا المثال بلغة C++ يوضح عملية التحويل القياسية من PowerPoint إلى HTML:
 ```cpp
-using namespace Aspise::Slides;
-using namespace Aspise::Slides::Export;
-        
-auto pres = System::MakeObject<Presentation>(u"pres.pptx");
-pres->Save(u"pres.html", SaveFormat::Html);
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto presentation = System::MakeObject<Presentation>(u"pres.pptx");
+presentation->Save(u"pres.html", SaveFormat::Html);
+presentation->Dispose();
 ```
 
+الترميز المبسط أدناه يوضح بنية الصفحة المُولّدة. عنصر SVG يحتوي على محتوى الشريحة المرسوم؛ النص النائب يمثل هذا المحتوى وليس ناتج التصدير الحرفي.
 
-في هذه الحالة يتم عرض محتوى العرض التقديمي عبر SVG على الشكل التالي:
 ```html
 <body>
 <div class="slide" name="slide" id="slideslideIface1">
@@ -85,62 +96,107 @@ pres->Save(u"pres.html", SaveFormat::Html);
 </body>
 ```
 
-
-{{% alert title="Note" color="warning" %}} 
-
-عند استخدام هذه الطريقة لتصدير PowerPoint إلى HTML، بسبب عرض SVG، لن تكون قادرًا على تطبيق الأنماط أو تحريك عناصر معينة. 
-
+{{% alert title="Warning" color="warning" %}}
+تصدير SVG لا يكشف عن أشكال PowerPoint كعناصر HTML منفصلة. استخدم تصدير HTML5 عندما تحتاج إلى خيارات الرسوم المتحركة لل shapes وانتقالات الشرائح الموضحة في هذه المقالة.
 {{% /alert %}}
 
-## **Export PowerPoint to HTML5 Slide View**
+## **تصدير PowerPoint إلى عرض شرائح HTML5**
 
-**Aspose.Slides** يتيح لك تحويل عرض تقديمي PowerPoint إلى مستند HTML5 تُعرض فيه الشرائح في وضع عرض الشرائح. في هذه الحالة، عند فتح ملف HTML5 الناتج في المتصفح، ستظهر العرض التقديمي في وضع عرض الشرائح على صفحة الويب. 
+يُنتج تصدير HTML5 صفحة لعرض وتنقل شرائح العرض في المتصفح. يمرّر هذا المثال `true` إلى كل من [set_AnimateShapes](https://reference.aspose.com/slides/cpp/aspose.slides.export/html5options/set_animateshapes/) و[set_AnimateTransitions](https://reference.aspose.com/slides/cpp/aspose.slides.export/html5options/set_animatetransitions/) بحيث يمكن لعرض الشرائح المُصدَّر تشغيل المؤثرات من العرض الأصلي.
 
-هذا المثال بلغة C++ يوضح عملية تصدير PowerPoint إلى وضع عرض الشرائح HTML5:
-```c++
-auto pres = System::MakeObject<Presentation>(u"pres.pptx");
+استخدم عرضًا تقديميًا يحتوي مسبقًا على رسومات تحريك وأنتقالات لتلاحظ تأثير هذه الإعدادات. تمكينها لا يضيف مؤثرات جديدة إلى الشرائح التي لا تحتوي على أي منها. بعد التصدير، افتح مستند HTML5 المُولَّد في متصفح مع ملفات الدعم متاحة.
+
+```cpp
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+#include <Export/Html5Options.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto html5Options = System::MakeObject<Html5Options>();
 html5Options->set_AnimateShapes(true);
 html5Options->set_AnimateTransitions(true);
-pres->Save(u"HTML5-slide-view.html", SaveFormat::Html5, html5Options);
+
+auto presentation = System::MakeObject<Presentation>(u"pres.pptx");
+presentation->Save(u"HTML5-slide-view.html", SaveFormat::Html5, html5Options);
+presentation->Dispose();
 ```
 
+## **تحويل عرض تقديمي إلى مستند HTML5 مع التعليقات**
 
-## **Convert a Presentation to an HTML5 Document with Comments**
+يمكنك تضمين التعليقات الموجودة على الشرائح في ناتج HTML5 بحيث يرى القارئ الملاحظات بجانب محتوى الشريحة. يتوقع المثال في هذا القسم أن يحتوي العرض الأصلي على تعليقات، كما هو موضح أدناه. يصدر تلك التعليقات؛ ولا ينشئ تعليقات جديدة.
 
-التعليقات في PowerPoint أداة تسمح للمستخدمين بترك ملاحظات أو ملاحظات على شرائح العرض. وهي مفيدة بشكل خاص في المشاريع التعاونية، حيث يمكن لعدة أشخاص إضافة اقتراحاتهم أو ملاحظاتهم إلى عناصر معينة في الشريحة دون تعديل المحتوى الرئيسي. كل تعليق يُظهر اسم المؤلف، مما يسهل تتبع من ترك الملاحظة.
+![تعليقان على شريحة العرض التقديمي](two_comments_pptx.png)
 
-لنفترض أن لدينا عرض تقديمي PowerPoint محفوظ في الملف **"sample.pptx"**.
+مرّر كائن [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/notescommentslayoutingoptions/) إلى طريقة [set_SlidesLayoutOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/html5options/set_slideslayoutoptions/) في [Html5Options](https://reference.aspose.com/slides/cpp/aspose.slides.export/html5options/). استدعِ [set_CommentsPosition](https://reference.aspose.com/slides/cpp/aspose.slides.export/notescommentslayoutingoptions/set_commentsposition/) مع `CommentsPositions::Right` من تعداد [CommentsPositions](https://reference.aspose.com/slides/cpp/aspose.slides.export/commentspositions/) لتضع التعليقات إلى يمين كل شريحة.
 
-![Two comments on the presentation slide](two_comments_pptx.png)
+المثال التالي يصدر العرض إلى HTML5 مع تنسيق التعليقات هذا. العرض الذي لا يحتوي على تعليقات لن يظهر أي نص تعليق.
 
-عند تحويل عرض تقديمي PowerPoint إلى مستند HTML5، يمكنك بسهولة تحديد ما إذا كنت تريد تضمين التعليقات التي في العرض في المستند الناتج. للقيام بذلك، يجب تحديد معلمات عرض التعليقات في طريقة `get_NotesCommentsLayouting` من فئة [Html5Options](https://reference.aspose.com/slides/cpp/aspose.slides.export/html5options/). 
-
-يوضح المثال التالي كيفية تحويل عرض تقديمي إلى مستند HTML5 مع عرض التعليقات إلى يمين الشرائح.
 ```cpp
-auto html5Options = MakeObject<Html5Options>();
-html5Options->get_NotesCommentsLayouting()->set_CommentsPosition(CommentsPositions::Right);
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+#include <Export/Html5Options.h>
+#include <Export/NotesCommentsLayoutingOptions.h>
+#include <Export/CommentsPositions.h>
 
-auto presentation = MakeObject<Presentation>(u"sample.pptx");
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto layoutOptions = System::MakeObject<NotesCommentsLayoutingOptions>();
+layoutOptions->set_CommentsPosition(CommentsPositions::Right);
+
+auto html5Options = System::MakeObject<Html5Options>();
+html5Options->set_SlidesLayoutOptions(layoutOptions);
+
+auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
 presentation->Save(u"output.html", SaveFormat::Html5, html5Options);
 presentation->Dispose();
 ```
 
+الصورة أدناه توضح مستند HTML5 المُصدَّر مع عرض التعليقات بجانب الشريحة.
 
-المستند **"output.html"** موضح في الصورة أدناه.
+![التعليقات في مستند HTML5 الناتج](two_comments_html5.png)
 
-![The comments in the output HTML5 document](two_comments_html5.png)
+## **استبعاد روابط JavaScript أثناء التصدير**
 
-## **FAQ**
+افترض أن الملف `hyperlinks.pptx` يحتوي نصًا مرتبطًا بوجهة `javascript:alert('Hello')` ورابطًا عاديًا `https://example.com/`. لاستبعاد رابط JavaScript أثناء التصدير، استدعِ [SaveOptions::set_SkipJavaScriptLinks](https://reference.aspose.com/slides/cpp/aspose.slides.export/saveoptions/set_skipjavascriptlinks/) مع `true`. القيمة الافتراضية هي `false`، لذا لا تُفلتر هذه الروابط إلا إذا فعّلت الخيار.
 
-**هل يمكنني التحكم في تشغيل رسومات الكائنات وانتقالات الشرائح في HTML5؟**
+المثال التالي يحمّل العرض من الدليل العامل ويصدّره باستخدام [Html5Options](https://reference.aspose.com/slides/cpp/aspose.slides.export/html5options/):
 
-نعم، يوفر HTML5 خيارات منفصلة لتمكين أو تعطيل [shape animations](https://reference.aspose.com/slides/cpp/aspose.slides.export/html5options/set_animateshapes/) و[slide transitions](https://reference.aspose.com/slides/cpp/aspose.slides.export/html5options/set_animatetransitions/).
+```cpp
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+#include <Export/Html5Options.h>
 
-**هل يدعم إخراج التعليقات، وأين يمكن وضعها بالنسبة للشرائح؟**
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
 
-نعم، يمكن إضافة التعليقات في HTML5 وتحديد موقعها (مثلاً إلى يمين الشريحة) من خلال إعدادات التخطيط للملاحظات والتعليقات.
+auto html5Options = System::MakeObject<Html5Options>();
+html5Options->set_SkipJavaScriptLinks(true);
 
-**هل يمكنني تخطي الروابط التي تستدعي JavaScript لأسباب أمنية أو سياسات CSP؟**
+auto presentation = System::MakeObject<Presentation>(u"hyperlinks.pptx");
+presentation->Save(u"filtered-html5.html", SaveFormat::Html5, html5Options);
+presentation->Dispose();
+```
 
-نعم، هناك [setting](https://reference.aspose.com/slides/cpp/aspose.slides.export/saveoptions/set_skipjavascriptlinks/) يسمح لك بتخطي الروابط التي تستدعي JavaScript أثناء الحفظ. يساعد ذلك في الامتثال لسياسات الأمان الصارمة.
+الملف المُصدَّر يحذف رابط JavaScript مع الإبقاء على نصه والرابط HTTPS العادي. يبقى العرض الأصلي دون تغيير.
+
+هذا الخيار يفلتر روابط JavaScript؛ لا يزيل جميع النصوص البرمجية أو المحتوى النشط الآخر، ولا يضمن التوافق مع CSP. على سبيل المثال، لا يزال ناتج HTML5 يتضمن نصوصًا من أجل تنقل الشرائح والرسوم المتحركة.
+
+## **الأسئلة الشائعة**
+
+**هل يمكنني التحكم فيما إذا كانت رسومات التحريك والانتقالات ستُشغل في HTML5؟**
+
+نعم، يوفّر تصدير HTML5 خيارات منفصلة لتمكين أو تعطيل [shape animations](https://reference.aspose.com/slides/cpp/aspose.slides.export/html5options/set_animateshapes/) و[slide transitions](https://reference.aspose.com/slides/cpp/aspose.slides.export/html5options/set_animatetransitions/).
+
+**هل التعليقات مدعومة، وأين يمكن وضعها بالنسبة إلى الشريحة؟**
+
+نعم، يمكن تضمين التعليقات الموجودة في ناتج HTML5 وتحديد موقعها (على سبيل المثال إلى يمين الشريحة) عبر [layout settings](https://reference.aspose.com/slides/cpp/aspose.slides.export/html5options/set_slideslayoutoptions/) للملاحظات والتعليقات.
+
+**هل يمكنني تخطي الروابط التي تستدعي JavaScript لأسباب أمنية أو تتعلق بـ CSP؟**
+
+نعم، تسمح طريقة [set_SkipJavaScriptLinks](https://reference.aspose.com/slides/cpp/aspose.slides.export/saveoptions/set_skipjavascriptlinks/) بتخطي الروابط التي تحتوي على استدعاءات JavaScript أثناء الحفظ. القيمة الافتراضية هي `false`. راجع [استبعاد روابط JavaScript أثناء التصدير](/slides/ar/cpp/export-to-html5/#exclude-javascript-hyperlinks-during-export) للحصول على مثال لتصدير HTML5 ونطاق الفلتر. هذا الإعداد لا يزيل JavaScript المستخدم من قبل عارض HTML5 للتنقل والرسوم المتحركة.

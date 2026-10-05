@@ -1,17 +1,17 @@
 ---
-title: プレゼンテーションを Python (Java 経由) で HTML5 に変換
+title: Python via Java でプレゼンテーションを HTML5 に変換
 linktitle: プレゼンテーションを HTML5 に
 type: docs
 weight: 40
 url: /ja/python-java/export-to-html5/
 keywords:
-- PowerPoint を HTML5 に変換
-- OpenDocument を HTML5 に変換
-- プレゼンテーションを HTML5 に変換
-- スライドを HTML5 に変換
-- PPT を HTML5 に変換
-- PPTX を HTML5 に変換
-- ODP を HTML5 に変換
+- PowerPoint を HTML5 に
+- OpenDocument を HTML5 に
+- プレゼンテーション を HTML5 に
+- スライド を HTML5 に
+- PPT を HTML5 に
+- PPTX を HTML5 に
+- ODP を HTML5 に
 - PPT を HTML5 として保存
 - PPTX を HTML5 として保存
 - ODP を HTML5 として保存
@@ -25,13 +25,13 @@ description: "Aspose.Slides for Python via Java を使用して、PowerPoint お
 ---
 ## **概要**
 
-このガイドでは、Aspose.Slides を使用して PowerPoint プレゼンテーションを HTML5 に変換する方法を説明します。追加の Web 拡張機能を使用しない基本的な HTML5 エクスポートと、図形アニメーションやスライド遷移を制御するオプションについて解説します。また、標準的な PowerPoint から HTML へのエクスポート手順、スライドビュー モードでの HTML5 出力の生成方法、レイアウトを設定してエクスポート ドキュメントにコメントを含める方法も紹介します。
+この記事では、Aspose.Slides for Python via Java を使用して PowerPoint プレゼンテーションを HTML5 に変換する方法を説明します。基本的なエクスポート、図形アニメーションとスライド遷移の制御、コメントレイアウトについてカバーしています。また、HTML5 の出力を標準 HTML エクスポートの SVG ベースの出力と比較します。
 
-例を実行するには、Python 用 Aspose.Slides for Java と対応する Java ランタイムが必要です。`pres.pptx`（コメントの例の場合は `sample.pptx`）を現在の作業ディレクトリに配置してください。各例は、JVM が起動していない場合にのみ起動します。
+例では Aspose.Slides for Python via Java と互換性のある Java ランタイムが必要です。入力プレゼンテーションは現在の作業ディレクトリに配置してください。各例は、JVM がまだ起動していない場合にのみ起動します。
 
 ## **PowerPoint を HTML5 にエクスポート**
 
-[Presentation.save](https://reference.aspose.com/slides/ja/python-java/aspose.slides/presentation/#save) と [SaveFormat.Html5](https://reference.aspose.com/slides/ja/python-java/aspose.slides/saveformat/#Html5) を使用して、追加の Web 拡張機能なしでプレゼンテーションをエクスポートします。
+以下の例は、作業ディレクトリからプレゼンテーションを読み込み、HTML5 形式で保存します。デフォルトのエクスポート設定を使用します。次の例ではアニメーションの再生を明示的に制御する方法を示します。入力パスをプレゼンテーションのパスに置き換えてください。
 
 ```python
 import jpype
@@ -49,11 +49,11 @@ finally:
     presentation.dispose()
 ```
 
-{{% alert color="info" title="注意" %}} 
-HTML5 エクスポーターは、ブラウザーで表示できる HTML コンテンツを生成します。 
+{{% alert color="info" title="Note" %}}
+HTML ドキュメントに加えて、エクスポートはスライドのスタイリング、アニメーション、エフェクト、ナビゲーション用の CSS および JavaScript ファイルを出力します。出力を移動または公開する際は、これらのファイルを HTML ドキュメントと一緒に保管してください。生成されたページは jQuery と Anime.js をパブリック CDN から読み込みます。これらがないと、スライドのナビゲーションやアニメーションは動作しません。
 {{% /alert %}}
 
-[Html5Options](https://reference.aspose.com/slides/ja/python-java/aspose.slides/html5options/) を使用してエクスポートを構成します。`False` を指定して [setAnimateShapes](https://reference.aspose.com/slides/ja/python-java/aspose.slides/html5options/#setAnimateShapes) と [setAnimateTransitions](https://reference.aspose.com/slides/ja/python-java/aspose.slides/html5options/#setAnimateTransitions) を呼び出すと、図形アニメーションとスライド遷移が無効になります。
+`False` を渡して [setAnimateShapes](https://reference.aspose.com/slides/python-java/aspose.slides/html5options/#setAnimateShapes) および [setAnimateTransitions](https://reference.aspose.com/slides/python-java/aspose.slides/html5options/#setAnimateTransitions) を [Html5Options](https://reference.aspose.com/slides/python-java/aspose.slides/html5options/) に設定します。これらの設定は独立しているため、一方を有効にし、他方を無効にすることができます。この例では、生成されたページで両方のアニメーションタイプを無効にした状態でプレゼンテーションをエクスポートしています。
 
 ```python
 import jpype
@@ -64,12 +64,12 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import Html5Options, Presentation, SaveFormat
 
+html5_options = Html5Options()
+html5_options.setAnimateShapes(False)
+html5_options.setAnimateTransitions(False)
+
 presentation = Presentation("pres.pptx")
 try:
-    html5_options = Html5Options()
-    html5_options.setAnimateShapes(False)
-    html5_options.setAnimateTransitions(False)
-
     presentation.save("pres5.html", SaveFormat.Html5, html5_options)
 finally:
     presentation.dispose()
@@ -77,7 +77,7 @@ finally:
 
 ## **PowerPoint を HTML にエクスポート**
 
-標準的な HTML エクスポートには [SaveFormat.Html](https://reference.aspose.com/slides/ja/python-java/aspose.slides/saveformat/#Html) を使用します。詳細なオプションは [Convert PowerPoint to HTML](/slides/ja/python-java/convert-powerpoint-to-html/) を参照してください。
+標準の HTML エクスポートは異なるレンダリング手法を使用します。スライドの内容は HTML ページ内の SVG として表現されます。以下の例は、このレンダリング手法を用いてプレゼンテーションを HTML ドキュメントに変換します。
 
 ```python
 import jpype
@@ -95,7 +95,7 @@ finally:
     presentation.dispose()
 ```
 
-この場合、プレゼンテーションのコンテンツは SVG を使用して以下のように描画されます。
+以下の簡易マークアップは生成されたページの構造を示しています。SVG 要素はレンダリングされたスライドコンテンツを含み、プレースホルダーのテキストはそのコンテンツを示すもので、実際のエクスポート出力ではありません。
 
 ```html
 <body>
@@ -107,15 +107,15 @@ finally:
 </body>
 ```
 
-{{% alert title="警告" color="warning" %}} 
-標準 HTML エクスポートは SVG を介してスライドコンテンツを描画し、HTML5 の図形アニメーションおよびスライド遷移オプションは提供されません。 
+{{% alert title="Warning" color="warning" %}}
+SVG ベースのエクスポートでは、PowerPoint の図形を個別の HTML 要素として公開しません。本記事で示した図形アニメーションやスライド遷移のオプションが必要な場合は、HTML5 エクスポートを使用してください。
 {{% /alert %}}
 
 ## **PowerPoint を HTML5 スライドビューにエクスポート**
 
-**Aspose.Slides** を使用すると、PowerPoint プレゼンテーションを HTML5 ドキュメントに変換し、スライドをスライドビュー モードで表示できます。この場合、生成された HTML5 ファイルをブラウザーで開くと、Web ページ上でスライドビュー モードのプレゼンテーションが表示されます。
+HTML5 エクスポートは、ブラウザーでプレゼンテーションスライドを閲覧およびナビゲートするためのページを生成します。この例では、[setAnimateShapes](https://reference.aspose.com/slides/python-java/aspose.slides/html5options/#setAnimateShapes) と [setAnimateTransitions](https://reference.aspose.com/slides/python-java/aspose.slides/html5options/#setAnimateTransitions) の両方を有効にし、エクスポートされたスライドビューで元のプレゼンテーションのエフェクトを再生できるようにします。
 
-この Python コードは、PowerPoint を HTML5 スライドビューにエクスポートする手順を示しています。
+図形アニメーションとスライド遷移が既に含まれているプレゼンテーションを使用すると、これらの設定の効果を確認できます。これらを有効にしても、アニメーションがないスライドに新しいエフェクトが追加されるわけではありません。エクスポート後、サポートファイルが揃っている状態でブラウザーで生成された HTML5 ドキュメントを開いてください。
 
 ```python
 import jpype
@@ -126,28 +126,26 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import Html5Options, Presentation, SaveFormat
 
+html5_options = Html5Options()
+html5_options.setAnimateShapes(True)
+html5_options.setAnimateTransitions(True)
+
 presentation = Presentation("pres.pptx")
 try:
-    html5_options = Html5Options()
-    html5_options.setAnimateShapes(True)
-    html5_options.setAnimateTransitions(True)
-
     presentation.save("HTML5-slide-view.html", SaveFormat.Html5, html5_options)
 finally:
     presentation.dispose()
 ```
 
-## **コメント付きの HTML5 ドキュメントへプレゼンテーションを変換**
+## **プレゼンテーションをコメント付き HTML5 ドキュメントに変換**
 
-PowerPoint のコメントは、スライド上の特定の要素に対してユーザーがメモやフィードバックを残すためのツールです。共同作業プロジェクトで特に有用で、複数のメンバーが主コンテンツを変更せずに提案や指摘を追加できます。各コメントには作成者の名前が表示されるため、誰がコメントしたかを簡単に把握できます。
+既存のスライドコメントを HTML5 出力に含めることができ、読者はスライドコンテンツと一緒にフィードバックを確認できます。このセクションの例は、以下のようにコメントが含まれたソースプレゼンテーションを前提としています。コメントはエクスポートされますが、新しいコメントは作成されません。
 
-以下の例は、"sample.pptx" ファイルに保存された PowerPoint プレゼンテーションです。
+![Two comments on the presentation slide](two_comments_pptx.png)
 
-![プレゼンテーションスライド上の 2 つのコメント](two_comments_pptx.png)
+`[NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/python-java/aspose.slides/notescommentslayoutingoptions/)` オブジェクトを `[Html5Options](https://reference.aspose.com/slides/python-java/aspose.slides/html5options/)` の `[setSlidesLayoutOptions](https://reference.aspose.com/slides/python-java/aspose.slides/html5options/#setSlidesLayoutOptions)` メソッドに渡します。`[setCommentsPosition](https://reference.aspose.com/slides/python-java/aspose.slides/notescommentslayoutingoptions/#setCommentsPosition)` を使用して、`[CommentsPositions](https://reference.aspose.com/slides/python-java/aspose.slides/commentspositions/)` 列挙から `Right` を選択し、各スライドの右側にコメントを配置します。
 
-PowerPoint プレゼンテーションを HTML5 ドキュメントに変換する際、出力ドキュメントにプレゼンテーションのコメントを含めるかどうかを簡単に指定できます。そのためには、[Html5Options](https://reference.aspose.com/slides/ja/python-java/aspose.slides/html5options/) クラスの [setSlidesLayoutOptions](https://reference.aspose.com/slides/ja/python-java/aspose.slides/html5options/#setSlidesLayoutOptions) メソッドにコメント表示パラメータを渡します。
-
-[NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/ja/python-java/aspose.slides/notescommentslayoutingoptions/) と [setCommentsPosition](https://reference.aspose.com/slides/ja/python-java/aspose.slides/notescommentslayoutingoptions/#setCommentsPosition) を使用し、[CommentsPositions.Right](https://reference.aspose.com/slides/ja/python-java/aspose.slides/commentspositions/#Right) を指定します。次のコード例は、スライドの右側にコメントを表示した HTML5 ドキュメントへプレゼンテーションを変換します。
+以下の例は、このコメントレイアウトでプレゼンテーションを HTML5 にエクスポートします。コメントがないプレゼンテーションでは、表示するコメントテキストはありません。
 
 ```python
 import jpype
@@ -156,35 +154,62 @@ import asposeslides
 if not jpype.isJVMStarted():
     jpype.startJVM()
 
-from asposeslides.api import CommentsPositions, NotesCommentsLayoutingOptions, Html5Options, Presentation, SaveFormat
+from asposeslides.api import CommentsPositions, Html5Options, NotesCommentsLayoutingOptions, Presentation, SaveFormat
+
+layout_options = NotesCommentsLayoutingOptions()
+layout_options.setCommentsPosition(CommentsPositions.Right)
+
+html5_options = Html5Options()
+html5_options.setSlidesLayoutOptions(layout_options)
 
 presentation = Presentation("sample.pptx")
 try:
-    layout_options = NotesCommentsLayoutingOptions()
-    layout_options.setCommentsPosition(CommentsPositions.Right)
-
-    html5_options = Html5Options()
-    html5_options.setSlidesLayoutOptions(layout_options)
-
     presentation.save("output.html", SaveFormat.Html5, html5_options)
 finally:
     presentation.dispose()
 ```
 
-以下の画像は、出力された "output.html" ドキュメントの様子を示しています。
+![The comments in the output HTML5 document](two_comments_html5.png)
 
-![出力 HTML5 ドキュメント内のコメント](two_comments_html5.png)
+## **エクスポート時に JavaScript ハイパーリンクを除外**
 
-## **FAQ**
+`hyperlinks.pptx` に `javascript:alert('Hello')` ターゲットのリンクテキストと普通の `https://example.com/` リンクが含まれているとします。エクスポート時に JavaScript ハイパーリンクを除外するには、[SaveOptions.setSkipJavaScriptLinks](https://reference.aspose.com/slides/python-java/aspose.slides/saveoptions/#setSkipJavaScriptLinks) に `True` を渡します。デフォルトは `False` で、オプションを有効にしない限りこれらのリンクはフィルタリングされません。
 
-**HTML5 で図形アニメーションやスライド遷移の再生を制御できますか？**
+以下の例は、作業ディレクトリからプレゼンテーションを読み込み、[Html5Options](https://reference.aspose.com/slides/python-java/aspose.slides/html5options/) を使用してエクスポートします：
 
-はい、HTML5 では [shape animations](https://reference.aspose.com/slides/ja/python-java/aspose.slides/html5options/#setAnimateShapes) と [slide transitions](https://reference.aspose.com/slides/ja/python-java/aspose.slides/html5options/#setAnimateTransitions) を個別に有効または無効にするオプションが用意されています。
+```python
+import jpype
+import asposeslides
 
-**コメントをエクスポートできますか？また、スライドに対してどこに配置できますか？**
+if not jpype.isJVMStarted():
+    jpype.startJVM()
 
-はい、HTML5 にコメントを追加でき、[layout settings](https://reference.aspose.com/slides/ja/python-java/aspose.slides/html5options/#setSlidesLayoutOptions) を使用してスライドの右側など任意の位置に配置できます。
+from asposeslides.api import Html5Options, Presentation, SaveFormat
 
-**セキュリティや CSP の観点から JavaScript 呼び出しを行うリンクを除外できますか？**
+html5_options = Html5Options()
+html5_options.setSkipJavaScriptLinks(True)
 
-はい、[setting](https://reference.aspose.com/slides/ja/python-java/aspose.slides/saveoptions/#setSkipJavaScriptLinks) により、保存時に JavaScript 呼び出しを含むハイパーリンクをスキップできます。この設定はハイパーリンクを除去しますが、生成された HTML5 スクリプトがサイトのコンテンツセキュリティポリシーを満たすことを自動的に保証するものではありません。
+presentation = Presentation("hyperlinks.pptx")
+try:
+    presentation.save("filtered-html5.html", SaveFormat.Html5, html5_options)
+finally:
+    presentation.dispose()
+```
+
+エクスポートされたファイルは、テキストと通常の HTTPS リンクは保持しつつ、JavaScript ハイパーリンクを除外します。ソースのプレゼンテーションは変更されません。
+
+このオプションは JavaScript ハイパーリンクをフィルタリングしますが、すべてのスクリプトや他のアクティブコンテンツを削除するわけではなく、CSP 準拠も保証しません。たとえば、HTML5 の出力にはスライドのナビゲーションやアニメーション用のスクリプトが依然として含まれます。
+
+## **よくある質問**
+
+**HTML5 でオブジェクトのアニメーションやスライド遷移の再生を制御できますか？**
+
+はい、HTML5 エクスポートでは、[shape animations](https://reference.aspose.com/slides/python-java/aspose.slides/html5options/#setAnimateShapes) と [slide transitions](https://reference.aspose.com/slides/python-java/aspose.slides/html5options/#setAnimateTransitions) を個別に有効または無効にするオプションが提供されています。
+
+**コメントはサポートされますか？ また、スライドに対してどこに配置できますか？**
+
+はい、既存のコメントは HTML5 出力に含めることができ、ノートやコメントの [layout settings](https://reference.aspose.com/slides/python-java/aspose.slides/html5options/#setSlidesLayoutOptions) を使用して（例としてスライドの右側に）配置できます。
+
+**セキュリティや CSP の理由で JavaScript を呼び出すリンクをスキップできますか？**
+
+はい、[setSkipJavaScriptLinks](https://reference.aspose.com/slides/python-java/aspose.slides/saveoptions/#setSkipJavaScriptLinks) 設定により、保存時に JavaScript 呼び出しを含むハイパーリンクをスキップできます。デフォルトは `False` です。[Exclude JavaScript Hyperlinks During Export](/slides/ja/python-java/export-to-html5/#exclude-javascript-hyperlinks-during-export) を参照すると、HTML5 エクスポートの例とフィルタの適用範囲がわかります。この設定は、HTML5 ビューアがナビゲーションやアニメーションに使用する JavaScript を削除するものではありません。

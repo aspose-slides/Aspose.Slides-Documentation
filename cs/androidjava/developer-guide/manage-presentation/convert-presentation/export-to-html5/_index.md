@@ -25,54 +25,60 @@ description: "Exportujte prezentace PowerPoint a OpenDocument do responzivního 
 ---
 ## **Přehled**
 
-Tento článek vysvětluje, jak pomocí Aspose.Slides převést prezentace PowerPoint do HTML5. Pokrývá základní export do HTML5 bez webových rozšíření nebo dalších závislostí, stejně jako možnosti řízení animací tvarů a přechodů mezi snímky. Článek také ukazuje standardní proces exportu PowerPointu do HTML, vysvětluje, jak vygenerovat výstup HTML5 v režimu zobrazení snímků, a demonstruje, jak zahrnout komentáře do exportovaného dokumentu nastavením jejich rozvržení.
+Tento článek vysvětluje, jak převést prezentace PowerPoint do formátu HTML5 pomocí Aspose.Slides pro Android prostřednictvím Javy. Popisuje základní export, ovládání animací tvarů a přechodů snímků a rozložení komentářů. Také porovnává výstup HTML5 s výstupem založeným na SVG při standardním exportu HTML.
 
-## **Export PowerPointu do HTML5**
+## **Export PowerPoint do HTML5**
 
-Tento Java kód ukazuje, jak exportovat prezentaci do HTML5 bez webových rozšíření a závislostí:
+Následující příklad načte prezentaci z pracovního adresáře a uloží ji ve formátu HTML5. Používá výchozí nastavení exportu; další příklad ukazuje, jak explicitně ovládat přehrávání animací. Nahraďte vstupní cestu cestou k vaší prezentaci.
 
 ```java
-Presentation pres = new Presentation("pres.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("pres.pptx");
 try {
-    pres.save("pres.html", SaveFormat.Html5);
+    presentation.save("pres.html", SaveFormat.Html5);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-{{% alert color="primary" %}} 
-V tomto případě získáte čisté HTML. 
+{{% alert color="info" title="Poznámka" %}}
+Kromě HTML dokumentu export zapisuje také podporující soubory CSS a JavaScript pro stylování snímků, animace, efekty a navigaci. Uchovávejte tyto soubory spolu s HTML dokumentem při přesunu nebo publikaci výstupu. Generovaná stránka také načítá jQuery a Anime.js z veřejných CDN; bez nich nefunguje navigace mezi snímky ani animace.
 {{% /alert %}}
 
-Můžete chtít tímto způsobem zadat nastavení pro animace tvarů a přechody snímků:
+Pro export bez přehrávání animací tvarů nebo přechodů snímků předávejte `false` metodě [setAnimateShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/html5options/#setAnimateShapes-boolean-) a [setAnimateTransitions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/html5options/#setAnimateTransitions-boolean-) v [Html5Options](https://reference.aspose.com/slides/androidjava/com.aspose.slides/html5options/). Tato nastavení jsou nezávislá, takže můžete povolit jedno a zakázat druhé. Příklad exportuje prezentaci s oběma typy animací zakázanými v generované stránce.
 
 ```java
-Presentation pres = new Presentation("pres.pptx");
+import com.aspose.slides.*;
+
+Html5Options html5Options = new Html5Options();
+html5Options.setAnimateShapes(false);
+html5Options.setAnimateTransitions(false);
+
+Presentation presentation = new Presentation("pres.pptx");
 try {
-    Html5Options html5Options = new Html5Options();
-    html5Options.setAnimateShapes(false);
-    html5Options.setAnimateTransitions(false);
-    
-    pres.save("pres5.html", SaveFormat.Html5, html5Options);
+    presentation.save("pres5.html", SaveFormat.Html5, html5Options);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Export PowerPointu do HTML**
+## **Export PowerPoint do HTML**
 
-Tento Java kód demonstruje standardní proces převodu PowerPointu do HTML:
+Standardní export do HTML používá odlišný renderovací přístup: obsah snímku je reprezentován jako SVG uvnitř HTML stránky. Následující příklad převádí prezentaci do HTML dokumentu pomocí tohoto renderovacího přístupu.
 
 ```java
-Presentation pres = new Presentation("pres.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("pres.pptx");
 try {
-    pres.save("pres.html", SaveFormat.Html);
+    presentation.save("pres.html", SaveFormat.Html);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-V tomto případě je obsah prezentace vykreslen pomocí SVG v podobě jako níže:
+Níže uvedený zjednodušený značkovací kód ilustruje strukturu vygenerované stránky. Prvek SVG obsahuje vykreslený obsah snímku; text zástupného symbolu představuje tento obsah a není doslovným výstupem exportu.
 
 ```html
 <body>
@@ -84,63 +90,94 @@ V tomto případě je obsah prezentace vykreslen pomocí SVG v podobě jako ní�
 </body>
 ```
 
-{{% alert title="Note" color="warning" %}} 
-Když použijete tuto metodu pro export PowerPointu do HTML, kvůli renderování SVG nebudete moci aplikovat styly ani animovat konkrétní prvky. 
+{{% alert title="Varování" color="warning" %}}
+Export založený na SVG neexponuje tvary PowerPoint jako jednotlivé HTML elementy. Použijte export do HTML5, pokud potřebujete možnosti animace tvarů a přechodů snímků, které jsou v tomto článku předvedeny.
 {{% /alert %}}
 
-## **Export PowerPointu do HTML5 v režimu snímku**
+## **Export PowerPoint do HTML5 zobrazení snímků**
 
-**Aspose.Slides** vám umožňuje převést prezentaci PowerPoint do dokumentu HTML5, ve kterém jsou snímky zobrazeny v režimu zobrazení snímků. V takovém případě, když otevřete výsledný soubor HTML5 v prohlížeči, uvidíte prezentaci v režimu zobrazení snímků na webové stránce. 
+Export do HTML5 vytvoří stránku pro prohlížení a navigaci snímky prezentace v prohlížeči. Tento příklad povoluje jak [setAnimateShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/html5options/#setAnimateShapes-boolean-), tak [setAnimateTransitions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/html5options/#setAnimateTransitions-boolean-), aby exportované zobrazení snímků mohlo přehrávat efekty ze zdrojové prezentace.
 
-Tento Java kód demonstruje proces exportu PowerPointu do HTML5 v režimu snímku:
+Použijte prezentaci, která již obsahuje animace tvarů a přechody snímků, abyste viděli účinek těchto nastavení. Povolení nepřidá nové efekty ke snímkům, které žádné nemají. Po exportu otevřete vygenerovaný HTML5 dokument v prohlížeči s dostupnými podporujícími soubory.
 
 ```java
-Presentation pres = new Presentation("pres.pptx");
-try {
-    Html5Options html5Options = new Html5Options();
-    html5Options.setAnimateShapes(true);
-    html5Options.setAnimateTransitions(true);
+import com.aspose.slides.*;
 
-    pres.save("HTML5-slide-view.html", SaveFormat.Html5, html5Options);
+Html5Options html5Options = new Html5Options();
+html5Options.setAnimateShapes(true);
+html5Options.setAnimateTransitions(true);
+
+Presentation presentation = new Presentation("pres.pptx");
+try {
+    presentation.save("HTML5-slide-view.html", SaveFormat.Html5, html5Options);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Převod prezentace do dokumentu HTML5 s komentáři**
+## **Převod prezentace do HTML5 dokumentu s komentáři**
 
-Komentáře v PowerPointu jsou nástrojem, který uživatelům umožňuje zanechat poznámky nebo zpětnou vazbu k snímkům prezentace. Jsou zvláště užitečné v kolaborativních projektech, kde může více lidí přidávat své návrhy nebo připomínky k jednotlivým prvkům snímku, aniž by měnili hlavní obsah. Každý komentář zobrazuje jméno autora, což usnadňuje sledovat, kdo připomínku zanechal.
+Můžete zahrnout existující komentáře ke snímkům do výstupu HTML5, aby čtenáři viděli zpětnou vazbu vedle obsahu snímku. Příklad v této sekci očekává, že zdrojová prezentace obsahuje komentáře, jak je znázorněno níže. Exportuje tyto komentáře; nevytváří žádné nové.
 
-Předpokládejme, že máme následující prezentaci PowerPoint uloženou v souboru "sample.pptx".
+![Dva komentáře na snímku prezentace](two_comments_pptx.png)
 
-![Two comments on the presentation slide](two_comments_pptx.png)
+Přeneste objekt [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/notescommentslayoutingoptions/) do metody [setSlidesLayoutOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/html5options/#setSlidesLayoutOptions-com.aspose.slides.ISlidesLayoutOptions-) třídy [Html5Options](https://reference.aspose.com/slides/androidjava/com.aspose.slides/html5options/). Použijte [setCommentsPosition](https://reference.aspose.com/slides/androidjava/com.aspose.slides/notescommentslayoutingoptions/#setCommentsPosition-int-) pro výběr `Right` z výčtu [CommentsPositions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/commentspositions/), aby se komentáře umístily napravo od každého snímku.
 
-Když převádíte prezentaci PowerPoint do dokumentu HTML5, můžete snadno určit, zda zahrnout komentáře z prezentace do výstupního dokumentu. K tomu je nutné nastavit parametry zobrazení komentářů v metodě `getNotesCommentsLayouting` třídy [Html5Options](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/html5options/).
+Následující příklad exportuje prezentaci do HTML5 s tímto rozložením komentářů. Prezentace bez komentářů nebude mít žádný text komentáře k zobrazení.
 
-Následující ukázkový kód převádí prezentaci do dokumentu HTML5 s komentáři zobrazenými vpravo od snímků.
 ```java
+import com.aspose.slides.*;
+
+NotesCommentsLayoutingOptions layoutOptions = new NotesCommentsLayoutingOptions();
+layoutOptions.setCommentsPosition(CommentsPositions.Right);
+
 Html5Options html5Options = new Html5Options();
-html5Options.getNotesCommentsLayouting().setCommentsPosition(CommentsPositions.Right);
+html5Options.setSlidesLayoutOptions(layoutOptions);
 
 Presentation presentation = new Presentation("sample.pptx");
-presentation.save("output.html", SaveFormat.Html5, html5Options);
-presentation.dispose();
+try {
+    presentation.save("output.html", SaveFormat.Html5, html5Options);
+} finally {
+    presentation.dispose();
+}
 ```
 
-Dokument "output.html" je zobrazen na obrázku níže.
+![Komentáře ve výstupním HTML5 dokumentu](two_comments_html5.png)
 
-![The comments in the output HTML5 document](two_comments_html5.png)
+## **Vyloučení JavaScript odkazů během exportu**
+
+Předpokládejme, že `hyperlinks.pptx` obsahuje propojený text s cílem `javascript:alert('Hello')` a běžný odkaz `https://example.com/`. Pro vyloučení JavaScript odkazu během exportu předávejte `true` metodě [SaveOptions.setSkipJavaScriptLinks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/saveoptions/#setSkipJavaScriptLinks-boolean-). Výchozí hodnota je `false`, takže tyto odkazy nejsou filtrovány, pokud možnost nepovolíte.
+
+Následující příklad načte prezentaci z pracovního adresáře a exportuje ji pomocí [Html5Options](https://reference.aspose.com/slides/androidjava/com.aspose.slides/html5options/):
+
+```java
+import com.aspose.slides.*;
+
+Html5Options html5Options = new Html5Options();
+html5Options.setSkipJavaScriptLinks(true);
+
+Presentation presentation = new Presentation("hyperlinks.pptx");
+try {
+    presentation.save("filtered-html5.html", SaveFormat.Html5, html5Options);
+} finally {
+    presentation.dispose();
+}
+```
+
+Exportovaný soubor vynechává JavaScript odkaz, přičemž zachovává jeho text a běžný HTTPS odkaz. Zdrojová prezentace zůstává beze změny.
+
+Tato možnost filtruje JavaScript odkazy; neodstraňuje všechny skripty ani jiný aktivní obsah a také nezaručuje shodu s CSP. Například výstup HTML5 stále obsahuje skripty pro navigaci snímky a animace.
 
 ## **Často kladené otázky**
 
-**Mohu kontrolovat, zda se animace objektů a přechody snímků v HTML5 přehrávají?**
+**Mohu ovládat, zda se animace objektů a přechody snímků přehrávají v HTML5?**
 
-Ano, HTML5 poskytuje samostatné možnosti pro povolení nebo zakázání [animací tvarů](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/html5options/#setAnimateShapes-boolean-) a [přechodů snímků](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/html5options/#setAnimateTransitions-boolean-).
+Ano, export do HTML5 poskytuje samostatné možnosti pro povolení nebo zakázání [animace tvarů](https://reference.aspose.com/slides/androidjava/com.aspose.slides/html5options/#setAnimateShapes-boolean-) a [přechody snímků](https://reference.aspose.com/slides/androidjava/com.aspose.slides/html5options/#setAnimateTransitions-boolean-).
 
-**Je podpora výstupu komentářů zahrnuta a kde mohou být umístěny vzhledem ke snímku?**
+**Jsou komentáře podporovány a kde mohou být umístěny vzhledem ke snímku?**
 
-Ano, komentáře lze v HTML5 přidat a umístit (například vpravo od snímku) pomocí [nastavení rozvržení](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/html5options/#setSlidesLayoutOptions-com.aspose.slides.ISlidesLayoutOptions-) pro poznámky a komentáře.
+Ano, existující komentáře mohou být zahrnuty do výstupu HTML5 a umístěny (například napravo od snímku) pomocí [nastavení rozložení](https://reference.aspose.com/slides/androidjava/com.aspose.slides/html5options/#setSlidesLayoutOptions-com.aspose.slides.ISlidesLayoutOptions-) pro poznámky a komentáře.
 
-**Mohu přeskočit odkazy, které volají JavaScript, z bezpečnostních nebo CSP důvodů?**
+**Mohu vynechat odkazy, které spouštějí JavaScript z bezpečnostních nebo CSP důvodů?**
 
-Ano, existuje [nastavení](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/saveoptions/#setSkipJavaScriptLinks-boolean-), které umožňuje během ukládání přeskočit hypertextové odkazy s voláním JavaScriptu. To pomáhá splnit přísné bezpečnostní politiky.
+Ano, nastavení [setSkipJavaScriptLinks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/saveoptions/#setSkipJavaScriptLinks-boolean-) vám umožňuje během ukládání vynechat hypertextové odkazy s voláním JavaScriptu. Výchozí hodnota je `false`. Viz [Vyloučení JavaScript odkazů během exportu](/slides/cs/androidjava/export-to-html5/#exclude-javascript-hyperlinks-during-export) pro příklad exportu do HTML5 a rozsah filtru. Toto nastavení neodstraňuje JavaScript používaný HTML5 prohlížečem pro navigaci a animace.

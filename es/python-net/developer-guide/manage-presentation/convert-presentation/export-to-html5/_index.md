@@ -1,6 +1,6 @@
 ---
 title: Convertir presentaciones a HTML5 en Python
-linktitle: Exportar a HTML5
+linktitle: Presentación a HTML5
 type: docs
 weight: 40
 url: /es/python-net/export-to-html5/
@@ -12,67 +12,61 @@ keywords:
 - PPT a HTML5
 - PPTX a HTML5
 - ODP a HTML5
-- convertir PowerPoint
-- convertir OpenDocument
-- convertir presentación
-- convertir diapositiva
-- exportación HTML5
-- exportar presentación
-- exportar diapositiva
-- PowerPoint
-- OpenDocument
-- presentación
+- guardar PPT como HTML5
+- guardar PPTX como HTML5
+- guardar ODP como HTML5
+- exportar PPT a HTML5
+- exportar PPTX a HTML5
+- exportar ODP a HTML5
 - Python
 - Aspose.Slides
-description: "Exporta presentaciones de PowerPoint y OpenDocument a HTML5 responsivo con Aspose.Slides para Python vía .NET. Conserva el formato, las animaciones y la interactividad."
+description: "Exportar presentaciones PowerPoint y OpenDocument a HTML5 responsivo con Aspose.Slides para Python mediante .NET. Conservar el formato, animaciones e interactividad."
 ---
+## **Visión general**
 
-{{% alert title="Info" color="info" %}}
-En **Aspose.Slides 21.9**, implementamos soporte para la exportación a HTML5. Sin embargo, si prefieres exportar tu PowerPoint a HTML usando WebExtensions, consulta [este artículo](/slides/es/net/web-extensions/) en su lugar. 
-{{% /alert %}} 
-
-El proceso de exportación a HTML5 aquí te permite convertir PowerPoint a HTML sin extensiones web ni dependencias. De esta forma, usando tus propias plantillas, puedes aplicar opciones muy flexibles que definen el proceso de exportación y el HTML, CSS, JavaScript y atributos de animación resultantes. 
+Este artículo explica cómo convertir presentaciones de PowerPoint a HTML5 usando Aspose.Slides para Python mediante .NET. Cubre la exportación básica, el control de animaciones de formas y transiciones de diapositivas, y el diseño de comentarios. Además, compara la salida HTML5 con la salida basada en SVG de la exportación HTML estándar.
 
 ## **Exportar PowerPoint a HTML5**
 
-Este código Python muestra cómo exportar una presentación a HTML5 sin extensiones web ni dependencias:
-```py
+El siguiente ejemplo carga una presentación desde el directorio de trabajo y la guarda en formato HTML5. Utiliza la configuración de exportación predeterminada; el siguiente ejemplo muestra cómo controlar la reproducción de animaciones de forma explícita. Reemplace la ruta de entrada con la ruta a su presentación.
+
+```python
 import aspose.slides as slides
 
 with slides.Presentation("pres.pptx") as presentation:
-    presentation.save("index.html", slides.export.SaveFormat.HTML5)
+    presentation.save("pres.html", slides.export.SaveFormat.HTML5)
 ```
 
-
-{{% alert color="primary" %}} 
-En este caso, obtienes HTML limpio. 
+{{% alert color="info" title="Note" %}}
+Además del documento HTML, la exportación escribe archivos CSS y JavaScript de soporte para el estilo de diapositivas, animaciones, efectos y navegación. Mantenga estos archivos junto al documento HTML al mover o publicar la salida. La página generada también carga jQuery y Anime.js desde CDNs públicos; sin ellos, la navegación de diapositivas y las animaciones no se ejecutan.
 {{% /alert %}}
 
-Es posible que desees especificar la configuración para animaciones de formas y transiciones de diapositivas de esta manera:
-```py
+Para exportar sin reproducir animaciones de formas o transiciones de diapositivas, establezca [animate_shapes](https://reference.aspose.com/slides/python-net/aspose.slides.export/html5options/animate_shapes/) y [animate_transitions](https://reference.aspose.com/slides/python-net/aspose.slides.export/html5options/animate_transitions/) en `False` en [Html5Options](https://reference.aspose.com/slides/python-net/aspose.slides.export/html5options/). Estas configuraciones son independientes, por lo que puede habilitar una mientras deshabilita la otra. El ejemplo exporta la presentación con ambos tipos de animación desactivados en la página generada.
+
+```python
 import aspose.slides as slides
 
+html5_options = slides.export.Html5Options()
+html5_options.animate_shapes = False
+html5_options.animate_transitions = False
+
 with slides.Presentation("pres.pptx") as presentation:
-    options = slides.export.Html5Options()
-    options.animate_shapes = False
-    options.animate_transitions = False
-
-    presentation.save("index.html", slides.export.SaveFormat.HTML5, options)
+    presentation.save("pres5.html", slides.export.SaveFormat.HTML5, html5_options)
 ```
-
 
 ## **Exportar PowerPoint a HTML**
 
-Este código Python demuestra el proceso estándar de exportación de PowerPoint a HTML:
-```py
+La exportación estándar a HTML utiliza un enfoque de renderizado diferente: el contenido de la diapositiva se representa mediante SVG dentro de una página HTML. El siguiente ejemplo convierte una presentación a un documento HTML usando este enfoque de renderizado.
+
+```python
 import aspose.slides as slides
 
 with slides.Presentation("pres.pptx") as presentation:
-    presentation.save("index.html", slides.export.SaveFormat.HTML)
+    presentation.save("pres.html", slides.export.SaveFormat.HTML)
 ```
 
+El marcado simplificado a continuación ilustra la estructura de la página generada. El elemento SVG contiene el contenido de la diapositiva renderizado; el texto de marcador de posición representa ese contenido y no es la salida literal de la exportación.
 
-En este caso, el contenido de la presentación se renderiza mediante SVG en una forma como esta:
 ```html
 <body>
 <div class="slide" name="slide" id="slideslideIface1">
@@ -83,64 +77,84 @@ En este caso, el contenido de la presentación se renderiza mediante SVG en una 
 </body>
 ```
 
-
-{{% alert title="Note" color="warning" %}} 
-Cuando utilizas este método para exportar PowerPoint a HTML, debido a la renderización con SVG, no podrás aplicar estilos ni animar elementos específicos. 
+{{% alert title="Warning" color="warning" %}}
+La exportación basada en SVG no expone las formas de PowerPoint como elementos HTML individuales. Utilice la exportación a HTML5 cuando necesite las opciones de animación de formas y transición de diapositivas demostradas en este artículo.
 {{% /alert %}}
 
-## **Exportar PowerPoint a Vista de Diapositivas HTML5**
+## **Exportar PowerPoint a Vista de diapositivas HTML5**
 
-**Aspose.Slides** permite convertir una presentación de PowerPoint a un documento HTML5 en el que las diapositivas se presentan en modo vista de diapositiva. En este caso, al abrir el archivo HTML5 resultante en un navegador, verás la presentación en modo vista de diapositiva en una página web. 
+La exportación a HTML5 genera una página para visualizar y navegar por las diapositivas de la presentación en un navegador. Este ejemplo habilita tanto [animate_shapes](https://reference.aspose.com/slides/python-net/aspose.slides.export/html5options/animate_shapes/) como [animate_transitions](https://reference.aspose.com/slides/python-net/aspose.slides.export/html5options/animate_transitions/) para que la vista de diapositivas exportada pueda reproducir los efectos de la presentación original.
 
-Este código Python demuestra el proceso de exportación de PowerPoint a Vista de Diapositivas HTML5:
+Utilice una presentación que ya contenga animaciones de formas y transiciones de diapositivas para ver el efecto de estas configuraciones. Habilitarlas no añade nuevos efectos a diapositivas que no los tengan. Después de la exportación, abra el documento HTML5 generado en un navegador con sus archivos de soporte disponibles.
+
 ```python
 import aspose.slides as slides
 
-with slides.Presentation("pres.pptx") as pres:
-    # Exportar una presentación que contiene transiciones de diapositivas, animaciones y animaciones de formas a HTML5
-    options = slides.export.Html5Options()
-    options.animate_shapes = True
-    options.animate_transitions = True
+html5_options = slides.export.Html5Options()
+html5_options.animate_shapes = True
+html5_options.animate_transitions = True
 
-    # Guardar presentación
-    pres.save("HTML5-slide-view.html", slides.export.SaveFormat.HTML5, options)
+with slides.Presentation("pres.pptx") as presentation:
+    presentation.save("HTML5-slide-view.html", slides.export.SaveFormat.HTML5, html5_options)
 ```
 
+## **Convertir una presentación a un documento HTML5 con comentarios**
 
-## **Convertir una Presentación a un Documento HTML5 con Comentarios**
-
-Los comentarios en PowerPoint son una herramienta que permite a los usuarios dejar notas o comentarios en las diapositivas de la presentación. Son especialmente útiles en proyectos colaborativos, donde varias personas pueden agregar sus sugerencias o observaciones a elementos específicos de la diapositiva sin modificar el contenido principal. Cada comentario muestra el nombre del autor, lo que facilita rastrear quién dejó la observación.
-
-Supongamos que tenemos la siguiente presentación de PowerPoint guardada en el archivo "sample.pptx".
+Puede incluir los comentarios de diapositiva existentes en la salida HTML5 para que los lectores vean la retroalimentación junto al contenido de la diapositiva. El ejemplo en esta sección asume que la presentación de origen contiene comentarios, como se muestra a continuación. Exporta esos comentarios; no crea nuevos.
 
 ![Dos comentarios en la diapositiva de la presentación](two_comments_pptx.png)
 
-Al convertir una presentación de PowerPoint a un documento HTML5, puedes especificar fácilmente si incluir los comentarios de la presentación en el documento de salida. Para ello, debes especificar los parámetros de visualización de los comentarios en la propiedad `notes_comments_layouting` de la clase [Html5Options](https://reference.aspose.com/slides/python-net/aspose.slides.export/html5options/).
+Asigne un objeto [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/python-net/aspose.slides.export/notescommentslayoutingoptions/) a la propiedad [slides_layout_options](https://reference.aspose.com/slides/python-net/aspose.slides.export/html5options/slides_layout_options/) de [Html5Options](https://reference.aspose.com/slides/python-net/aspose.slides.export/html5options/). Establezca [comments_position](https://reference.aspose.com/slides/python-net/aspose.slides.export/notescommentslayoutingoptions/comments_position/) en `RIGHT` de la enumeración [CommentsPositions](https://reference.aspose.com/slides/python-net/aspose.slides.export/commentspositions/) para colocar los comentarios a la derecha de cada diapositiva.
 
-El siguiente ejemplo de código convierte una presentación a un documento HTML5 con los comentarios mostrados a la derecha de las diapositivas.
-```py
-html5_options = Html5Options()
-html5_options.notes_comments_layouting.comments_position = CommentsPositions.RIGHT
+```python
+import aspose.slides as slides
 
-with Presentation("sample.pptx") as presentation:
-    presentation.save("output.html", SaveFormat.HTML5, html5_options)
+layout_options = slides.export.NotesCommentsLayoutingOptions()
+layout_options.comments_position = slides.export.CommentsPositions.RIGHT
+
+html5_options = slides.export.Html5Options()
+html5_options.slides_layout_options = layout_options
+
+with slides.Presentation("sample.pptx") as presentation:
+    presentation.save("output.html", slides.export.SaveFormat.HTML5, html5_options)
 ```
 
+El siguiente ejemplo exporta la presentación a HTML5 con este diseño de comentarios. Una presentación sin comentarios no tendrá texto de comentario para mostrar.
 
-El documento "output.html" se muestra en la imagen a continuación.
+La imagen a continuación muestra el documento HTML5 exportado con los comentarios mostrados junto a la diapositiva.
 
 ![Los comentarios en el documento HTML5 de salida](two_comments_html5.png)
+
+## **Excluir hipervínculos JavaScript durante la exportación**
+
+Suponga que `hyperlinks.pptx` contiene texto enlazado con un objetivo `javascript:alert('Hello')` y un enlace ordinario `https://example.com/`. Para excluir el hipervínculo JavaScript durante la exportación, establezca [Html5Options.skip_java_script_links](https://reference.aspose.com/slides/python-net/aspose.slides.export/html5options/skip_java_script_links/) en `True`. El valor predeterminado es `False`, por lo que estos enlaces no se filtran a menos que habilite la opción.
+
+El siguiente ejemplo carga la presentación desde el directorio de trabajo y la exporta usando [Html5Options](https://reference.aspose.com/slides/python-net/aspose.slides.export/html5options/):
+
+```python
+import aspose.slides as slides
+
+html5_options = slides.export.Html5Options()
+html5_options.skip_java_script_links = True
+
+with slides.Presentation("hyperlinks.pptx") as presentation:
+    presentation.save("filtered-html5.html", slides.export.SaveFormat.HTML5, html5_options)
+```
+
+El archivo exportado omite el hipervínculo JavaScript mientras conserva su texto y el enlace HTTPS ordinario. La presentación de origen permanece sin cambios.
+
+Esta opción filtra los hipervínculos JavaScript; no elimina todos los scripts u otro contenido activo, ni garantiza el cumplimiento de CSP. Por ejemplo, la salida HTML5 sigue incluyendo scripts para la navegación de diapositivas y animaciones.
 
 ## **Preguntas frecuentes**
 
 **¿Puedo controlar si las animaciones de objetos y las transiciones de diapositivas se reproducirán en HTML5?**
 
-Sí, HTML5 ofrece opciones separadas para habilitar o deshabilitar [animaciones de formas](https://reference.aspose.com/slides/python-net/aspose.slides.export/html5options/animate_shapes/) y [transiciones de diapositivas](https://reference.aspose.com/slides/python-net/aspose.slides.export/html5options/animate_transitions/).
+Sí, la exportación a HTML5 proporciona opciones independientes para habilitar o deshabilitar [shape animations](https://reference.aspose.com/slides/python-net/aspose.slides.export/html5options/animate_shapes/) y [slide transitions](https://reference.aspose.com/slides/python-net/aspose.slides.export/html5options/animate_transitions/).
 
-**¿Se admite la salida de comentarios, y dónde pueden ubicarse respecto a la diapositiva?**
+**¿Se admiten los comentarios y dónde pueden ubicarse respecto a la diapositiva?**
 
-Sí, los comentarios pueden agregarse en HTML5 y posicionarse (por ejemplo, a la derecha de la diapositiva) mediante [configuraciones de diseño](https://reference.aspose.com/slides/python-net/aspose.slides.export/html5options/notes_comments_layouting/) para notas y comentarios.
+Sí, los comentarios existentes pueden incluirse en la salida HTML5 y posicionarse (por ejemplo, a la derecha de la diapositiva) mediante [layout settings](https://reference.aspose.com/slides/python-net/aspose.slides.export/html5options/slides_layout_options/) para notas y comentarios.
 
-**¿Puedo omitir enlaces que invoquen JavaScript por razones de seguridad o CSP?**
+**¿Puedo omitir enlaces que invocan JavaScript por motivos de seguridad o CSP?**
 
-Sí, existe una [configuración](https://reference.aspose.com/slides/python-net/aspose.slides.export/html5options/skip_java_script_links/) que permite omitir hipervínculos con llamadas a JavaScript al guardar. Esto ayuda a cumplir con políticas de seguridad estrictas.
+Sí, la configuración [skip_java_script_links](https://reference.aspose.com/slides/python-net/aspose.slides.export/html5options/skip_java_script_links/) permite omitir los hipervínculos con llamadas a JavaScript durante el guardado. El valor predeterminado es `False`. Consulte [Exclude JavaScript Hyperlinks During Export](/slides/es/python-net/export-to-html5/#exclude-javascript-hyperlinks-during-export) para un ejemplo de exportación a HTML5 y el alcance del filtro. Esta configuración no elimina el JavaScript usado por el visor HTML5 para la navegación y las animaciones.

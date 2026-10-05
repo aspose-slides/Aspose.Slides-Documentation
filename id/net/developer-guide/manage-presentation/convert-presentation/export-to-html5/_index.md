@@ -25,48 +25,53 @@ description: "Ekspor presentasi PowerPoint & OpenDocument ke HTML5 responsif den
 ---
 ## **Ikhtisar**
 
-Artikel ini menjelaskan cara mengonversi presentasi PowerPoint ke HTML5 menggunakan Aspose.Slides. Artikel ini mencakup ekspor HTML5 dasar tanpa ekstensi web atau ketergantungan tambahan, serta opsi untuk mengontrol animasi bentuk dan transisi slide. Artikel ini juga menunjukkan proses ekspor standar dari PowerPoint ke HTML, menjelaskan cara menghasilkan output HTML5 dalam mode tampilan slide, dan mendemonstrasikan cara menyertakan komentar dalam dokumen yang diekspor dengan mengonfigurasi tata letaknya.
+Artikel ini menjelaskan cara mengonversi presentasi PowerPoint ke HTML5 menggunakan Aspose.Slides untuk .NET. Artikel ini mencakup ekspor dasar, kontrol animasi bentuk dan transisi slide, serta tata letak komentar. Artikel ini juga membandingkan output HTML5 dengan output berbasis SVG dari ekspor HTML standar.
 
 ## **Ekspor PowerPoint ke HTML5**
 
-Kode C# ini menunjukkan cara mengekspor presentasi ke HTML5 tanpa ekstensi web dan ketergantungan:
+Contoh berikut memuat presentasi dari direktori kerja dan menyimpannya dalam format HTML5. Contoh ini menggunakan pengaturan ekspor default; contoh berikutnya menunjukkan cara mengendalikan pemutaran animasi secara eksplisit. Ganti jalur masukan dengan jalur ke presentasi Anda.
 
-```c#
-using (Presentation pres = new Presentation("pres.pptx"))
-{
-   pres.Save("pres.html", SaveFormat.Html5);
-}
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("pres.pptx");
+presentation.Save("pres.html", SaveFormat.Html5);
 ```
 
-{{% alert color="primary" %}} 
-Dalam kasus ini, Anda mendapatkan HTML yang bersih. 
+{{% alert color="info" title="Catatan" %}}
+Selain dokumen HTML, ekspor menulis file CSS dan JavaScript pendukung untuk gaya slide, animasi, efek, dan navigasi. Simpan file-file ini bersama dokumen HTML saat memindahkan atau memublikasikan output. Halaman yang dihasilkan juga memuat jQuery dan Anime.js dari CDN publik; tanpa mereka, navigasi slide dan animasi tidak akan berjalan.
 {{% /alert %}}
 
-Anda mungkin ingin menentukan pengaturan untuk animasi bentuk dan transisi slide dengan cara berikut:
+Untuk mengekspor tanpa memutar animasi bentuk atau transisi slide, atur [AnimateShapes](https://reference.aspose.com/slides/net/aspose.slides.export/html5options/animateshapes/) dan [AnimateTransitions](https://reference.aspose.com/slides/net/aspose.slides.export/html5options/animatetransitions/) ke `false` dalam [Html5Options](https://reference.aspose.com/slides/net/aspose.slides.export/html5options/). Pengaturan ini bersifat independen, sehingga Anda dapat mengaktifkan satu sementara menonaktifkan yang lain. Contoh ini mengekspor presentasi dengan kedua jenis animasi dinonaktifkan pada halaman yang dihasilkan.
 
-```c#
-using (Presentation pres = new Presentation("pres.pptx"))
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+var html5Options = new Html5Options
 {
-   pres.Save("pres5.html", SaveFormat.Html5, new Html5Options
-   {
-       AnimateShapes = false,
-       AnimateTransitions = false
-   });
-}
+    AnimateShapes = false,
+    AnimateTransitions = false
+};
+
+using var presentation = new Presentation("pres.pptx");
+presentation.Save("pres5.html", SaveFormat.Html5, html5Options);
 ```
 
 ## **Ekspor PowerPoint ke HTML**
 
-Kode C# ini memperlihatkan proses standar dari PowerPoint ke HTML:
+Ekspor HTML standar menggunakan pendekatan rendering yang berbeda: konten slide direpresentasikan sebagai SVG di dalam halaman HTML. Contoh berikut mengonversi presentasi menjadi dokumen HTML menggunakan pendekatan rendering ini.
 
-```c#
-using (Presentation pres = new Presentation("pres.pptx"))
-{
-   pres.Save("pres.html", SaveFormat.Html);
-}
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("pres.pptx");
+presentation.Save("pres.html", SaveFormat.Html);
 ```
 
-Dalam kasus ini, konten presentasi dirender melalui SVG dalam bentuk seperti ini:
+Markup sederhana di bawah ini menggambarkan struktur halaman yang dihasilkan. Elemen SVG berisi konten slide yang dirender; teks placeholder mewakili konten tersebut dan bukan output ekspor yang sesungguhnya.
 
 ```html
 <body>
@@ -78,66 +83,92 @@ Dalam kasus ini, konten presentasi dirender melalui SVG dalam bentuk seperti ini
 </body>
 ```
 
-{{% alert title="Note" color="warning" %}} 
-Saat Anda menggunakan metode ini untuk mengekspor PowerPoint ke HTML, karena rendering SVG, Anda tidak dapat menerapkan gaya atau menganimasikan elemen tertentu. 
+{{% alert title="Peringatan" color="warning" %}}
+Ekspor berbasis SVG tidak menampilkan bentuk PowerPoint sebagai elemen HTML terpisah. Gunakan ekspor HTML5 ketika Anda membutuhkan opsi animasi bentuk dan transisi slide yang dijelaskan dalam artikel ini.
 {{% /alert %}}
 
 ## **Ekspor PowerPoint ke Tampilan Slide HTML5**
 
-**Aspose.Slides** memungkinkan Anda mengonversi presentasi PowerPoint ke dokumen HTML5 di mana slide disajikan dalam mode tampilan slide. Dalam hal ini, ketika Anda membuka file HTML5 hasil di peramban, Anda akan melihat presentasi dalam mode tampilan slide pada halaman web. 
+Ekspor HTML5 menghasilkan halaman untuk melihat dan menavigasi slide presentasi di peramban. Contoh ini mengaktifkan baik [AnimateShapes](https://reference.aspose.com/slides/net/aspose.slides.export/html5options/animateshapes/) maupun [AnimateTransitions](https://reference.aspose.com/slides/net/aspose.slides.export/html5options/animatetransitions/) sehingga tampilan slide yang diekspor dapat memutar efek dari presentasi sumber.
 
-Kode C# ini memperlihatkan proses ekspor PowerPoint ke Tampilan Slide HTML5:
-
-```c#
-using (Presentation pres = new Presentation("pres.pptx"))
-{
-   pres.Save("HTML5-slide-view.html", SaveFormat.Html5, new Html5Options
-   {
-       AnimateShapes = true,
-       AnimateTransitions = true
-   });
-}
-```
-
-## **Mengonversi Presentasi ke Dokumen HTML5 dengan Komentar**
-
-Komentar di PowerPoint adalah alat yang memungkinkan pengguna meninggalkan catatan atau umpan balik pada slide presentasi. Mereka sangat berguna dalam proyek kolaboratif, di mana banyak orang dapat menambahkan saran atau catatan pada elemen slide tertentu tanpa mengubah konten utama. Setiap komentar menampilkan nama penulis, sehingga mudah melacak siapa yang memberikan catatan.
-
-Misalkan kita memiliki presentasi PowerPoint berikut yang disimpan dalam file "sample.pptx".
-
-![Two comments on the presentation slide](two_comments_pptx.png)
-
-Saat Anda mengonversi presentasi PowerPoint ke dokumen HTML5, Anda dapat dengan mudah menentukan apakah akan menyertakan komentar dari presentasi dalam dokumen output. Untuk melakukannya, Anda perlu menentukan parameter tampilan untuk komentar pada properti `NotesCommentsLayouting` dari kelas [Html5Options](https://reference.aspose.com/slides/id/net/aspose.slides.export/html5options/).
-
-Contoh kode berikut mengonversi presentasi ke dokumen HTML5 dengan komentar yang ditampilkan di sebelah kanan slide.
+Gunakan presentasi yang sudah berisi animasi bentuk dan transisi slide untuk melihat efek dari pengaturan ini. Mengaktifkannya tidak menambahkan efek baru pada slide yang tidak memilikinya. Setelah ekspor, buka dokumen HTML5 yang dihasilkan di peramban dengan file pendukungnya tersedia.
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 var html5Options = new Html5Options
 {
-    NotesCommentsLayouting =
-    {
-        CommentsPosition = CommentsPositions.Right
-    }
+    AnimateShapes = true,
+    AnimateTransitions = true
+};
+
+using var presentation = new Presentation("pres.pptx");
+presentation.Save("HTML5-slide-view.html", SaveFormat.Html5, html5Options);
+```
+
+## **Konversi Presentasi ke Dokumen HTML5 dengan Komentar**
+
+Anda dapat menyertakan komentar slide yang ada dalam output HTML5 sehingga pembaca dapat melihat umpan balik bersamaan dengan konten slide. Contoh dalam bagian ini mengharapkan presentasi sumber berisi komentar, seperti yang diilustrasikan di bawah. Contoh ini mengekspor komentar tersebut; tidak membuat komentar baru.
+
+![Dua komentar pada slide presentasi](two_comments_pptx.png)
+
+Tetapkan objek [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/net/aspose.slides.export/notescommentslayoutingoptions/) ke properti [SlidesLayoutOptions](https://reference.aspose.com/slides/net/aspose.slides.export/html5options/slideslayoutoptions/) dari [Html5Options](https://reference.aspose.com/slides/net/aspose.slides.export/html5options/). Atur [CommentsPosition](https://reference.aspose.com/slides/net/aspose.slides.export/notescommentslayoutingoptions/commentsposition/) ke `Right` dari enumerasi [CommentsPositions](https://reference.aspose.com/slides/net/aspose.slides.export/commentspositions/) untuk menempatkan komentar di sebelah kanan setiap slide.
+
+Contoh berikut mengekspor presentasi ke HTML5 dengan tata letak komentar ini. Presentasi tanpa komentar tidak akan memiliki teks komentar untuk ditampilkan.
+
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+var layoutOptions = new NotesCommentsLayoutingOptions
+{
+    CommentsPosition = CommentsPositions.Right
+};
+
+var html5Options = new Html5Options
+{
+    SlidesLayoutOptions = layoutOptions
 };
 
 using var presentation = new Presentation("sample.pptx");
 presentation.Save("output.html", SaveFormat.Html5, html5Options);
 ```
 
-Dokumen "output.html" ditampilkan pada gambar di bawah ini.
+Gambar di bawah ini menunjukkan dokumen HTML5 yang diekspor dengan komentar ditampilkan di samping slide.
 
-![The comments in the output HTML5 document](two_comments_html5.png)
+![Komentar dalam dokumen HTML5 output](two_comments_html5.png)
+
+## **Kecualikan Tautan JavaScript Saat Ekspor**
+
+Misalkan `hyperlinks.pptx` berisi teks yang ditautkan dengan target `javascript:alert('Hello')` dan tautan biasa `https://example.com/`. Untuk mengecualikan tautan JavaScript saat ekspor, atur [SaveOptions.SkipJavaScriptLinks](https://reference.aspose.com/slides/net/aspose.slides.export/saveoptions/skipjavascriptlinks/) ke `true`. Nilai default adalah `false`, sehingga tautan ini tidak difilter kecuali Anda mengaktifkan opsi tersebut.
+
+Contoh berikut memuat presentasi dari direktori kerja dan mengekspornya menggunakan [Html5Options](https://reference.aspose.com/slides/net/aspose.slides.export/html5options/):
+
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+var html5Options = new Html5Options { SkipJavaScriptLinks = true };
+
+using var presentation = new Presentation("hyperlinks.pptx");
+presentation.Save("filtered-html5.html", SaveFormat.Html5, html5Options);
+```
+
+File yang diekspor menghilangkan tautan JavaScript sambil mempertahankan teksnya dan tautan HTTPS biasa. Presentasi sumber tidak berubah.
+
+Opsi ini memfilter tautan JavaScript; tidak menghapus semua skrip atau konten aktif lainnya, juga tidak menjamin kepatuhan CSP. Misalnya, output HTML5 masih menyertakan skrip untuk navigasi slide dan animasi.
 
 ## **FAQ**
 
 **Apakah saya dapat mengontrol apakah animasi objek dan transisi slide akan diputar di HTML5?**
 
-Ya, HTML5 menyediakan opsi terpisah untuk mengaktifkan atau menonaktifkan [shape animations](https://reference.aspose.com/slides/id/net/aspose.slides.export/html5options/animateshapes/) dan [slide transitions](https://reference.aspose.com/slides/id/net/aspose.slides.export/html5options/animatetransitions/).
+Ya, ekspor HTML5 menyediakan opsi terpisah untuk mengaktifkan atau menonaktifkan [animasi bentuk](https://reference.aspose.com/slides/net/aspose.slides.export/html5options/animateshapes/) dan [transisi slide](https://reference.aspose.com/slides/net/aspose.slides.export/html5options/animatetransitions/).
 
-**Apakah output komentar didukung, dan di mana komentar dapat ditempatkan relatif terhadap slide?**
+**Apakah komentar didukung, dan di mana dapat ditempatkan relatif terhadap slide?**
 
-Ya, komentar dapat ditambahkan dalam HTML5 dan diposisikan (misalnya, di sebelah kanan slide) melalui [layout settings](https://reference.aspose.com/slides/id/net/aspose.slides.export/html5options/notescommentslayouting/) untuk catatan dan komentar.
+Ya, komentar yang ada dapat disertakan dalam output HTML5 dan diposisikan (misalnya, di sebelah kanan slide) melalui [pengaturan tata letak](https://reference.aspose.com/slides/net/aspose.slides.export/html5options/slideslayoutoptions/) untuk catatan dan komentar.
 
 **Apakah saya dapat melewatkan tautan yang memanggil JavaScript demi keamanan atau alasan CSP?**
 
-Ya, ada [setting](https://reference.aspose.com/slides/id/net/aspose.slides.export/saveoptions/skipjavascriptlinks/) yang memungkinkan Anda melewatkan hyperlink dengan panggilan JavaScript saat menyimpan. Ini membantu mematuhi kebijakan keamanan yang ketat.
+Ya, pengaturan [SkipJavaScriptLinks](https://reference.aspose.com/slides/net/aspose.slides.export/saveoptions/skipjavascriptlinks/) memungkinkan Anda melewatkan tautan hypertext dengan pemanggilan JavaScript saat menyimpan. Nilai default adalah `false`. Lihat [Kecualikan Tautan JavaScript Saat Ekspor](/slides/id/net/export-to-html5/#exclude-javascript-hyperlinks-during-export) untuk contoh sederhana ekspor HTML, HTML5, dan PDF serta ruang lingkup filter tersebut. Pengaturan ini tidak menghapus JavaScript yang digunakan oleh penampil HTML5 untuk navigasi dan animasi.

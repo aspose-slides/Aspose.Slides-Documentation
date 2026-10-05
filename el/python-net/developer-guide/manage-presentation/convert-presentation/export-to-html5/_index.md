@@ -1,6 +1,6 @@
 ---
-title: Μετατροπή παρουσιάσεων σε HTML5 με Python
-linktitle: Εξαγωγή σε HTML5
+title: Μετατροπή Παρουσιάσεων σε HTML5 σε Python
+linktitle: Παρουσίαση σε HTML5
 type: docs
 weight: 40
 url: /el/python-net/export-to-html5/
@@ -12,64 +12,60 @@ keywords:
 - PPT σε HTML5
 - PPTX σε HTML5
 - ODP σε HTML5
-- μετατροπή PowerPoint
-- μετατροπή OpenDocument
-- μετατροπή παρουσίασης
-- μετατροπή διαφάνειας
-- εξαγωγή HTML5
-- εξαγωγή παρουσίασης
-- εξαγωγή διαφάνειας
-- PowerPoint
-- OpenDocument
-- παρουσίαση
+- αποθήκευση PPT ως HTML5
+- αποθήκευση PPTX ως HTML5
+- αποθήκευση ODP ως HTML5
+- εξαγωγή PPT σε HTML5
+- εξαγωγή PPTX σε HTML5
+- εξαγωγή ODP σε HTML5
 - Python
 - Aspose.Slides
-description: "Εξαγωγή παρουσιάσεων PowerPoint & OpenDocument σε ανταποκρίσιμο HTML5 με Aspose.Slides για Python μέσω .NET. Διατήρηση μορφοποίησης, αναπαραστάσεων και αλληλεπιδραστικότητας."
+description: "Εξαγωγή παρουσιάσεων PowerPoint & OpenDocument σε ανταποκρίσιμο HTML5 με το Aspose.Slides για Python μέσω .NET. Διατηρεί τη μορφοποίηση, τις κινήσεις και την αλληλεπίδραση."
 ---
 ## **Επισκόπηση**
 
-Αυτό το άρθρο εξηγεί πώς να μετατρέψετε παρουσιάσεις PowerPoint σε HTML5 χρησιμοποιώντας το Aspose.Slides. Καλύπτει τη βασική εξαγωγή σε HTML5 χωρίς επεκτάσεις ιστού ή πρόσθετες εξαρτήσεις, καθώς και επιλογές για τον έλεγχο των αναπαραστάσεων σχήματος και των μεταβάσεων διαφάνειας. Το άρθρο δείχνει επίσης τη standard διαδικασία εξαγωγής PowerPoint‑σε‑HTML, εξηγεί πώς να δημιουργήσετε έξοδο HTML5 σε λειτουργία προβολής διαφάνειας και δείχνει πώς να συμπεριλάβετε σχόλια στο εξαγόμενο έγγραφο διαμορφώνοντάς τα.
+Αυτό το άρθρο εξηγεί πώς να μετατρέψετε παρουσιάσεις PowerPoint σε HTML5 χρησιμοποιώντας το Aspose.Slides για Python μέσω .NET. Καλύπτει τη βασική εξαγωγή, τον έλεγχο των κινήσεων σχήματος και των μεταβάσεων διαφάνειας, καθώς και τη διάταξη σχολίων. Επιπλέον, συγκρίνει την έξοδο HTML5 με την έξοδο βασισμένη σε SVG της τυπικής εξαγωγής HTML.
 
 ## **Εξαγωγή PowerPoint σε HTML5**
 
-Αυτός ο κώδικας Python δείχνει πώς να εξάγετε μια παρουσίαση σε HTML5 χωρίς επεκτάσεις ιστού και εξαρτήσεις:
+Το παρακάτω παράδειγμα φορτώνει μια παρουσίαση από τον τρέχοντα φάκελο και την αποθηκεύει σε μορφή HTML5. Χρησιμοποιεί τις προεπιλεγμένες ρυθμίσεις εξαγωγής· το επόμενο παράδειγμα δείχνει πώς να ελέγξετε ρητά την αναπαραγωγή των κινήσεων. Αντικαταστήστε τη διαδρομή εισόδου με τη διαδρομή της παρουσίασής σας.
 
-```py
+```python
 import aspose.slides as slides
 
 with slides.Presentation("pres.pptx") as presentation:
-    presentation.save("index.html", slides.export.SaveFormat.HTML5)
+    presentation.save("pres.html", slides.export.SaveFormat.HTML5)
 ```
 
-{{% alert color="primary" %}} 
-Σε αυτήν την περίπτωση, θα λάβετε καθαρό HTML. 
+{{% alert color="info" title="Σημείωση" %}}
+Εκτός από το έγγραφο HTML, η εξαγωγή γράφει υποστηρικτικά αρχεία CSS και JavaScript για το στυλ των διαφανειών, τις κινήσεις, τα εφέ και την πλοήγηση. Διατηρήστε αυτά τα αρχεία μαζί με το έγγραφο HTML όταν μετακινείτε ή δημοσιεύετε το αποτέλεσμα. Η παραγόμενη σελίδα φορτώνει επίσης το jQuery και το Anime.js από δημόσια CDNs· χωρίς αυτά, η πλοήγηση των διαφανειών και οι κινήσεις δεν λειτουργούν.
 {{% /alert %}}
 
-Μπορείτε να καθορίσετε τις ρυθμίσεις για τις αναπαραστάσεις σχήματος και τις μεταβάσεις διαφάνειας με αυτόν τον τρόπο:
+Για να εξαγάγετε χωρίς την αναπαραγωγή κινήσεων σχήματος ή μεταβάσεων διαφάνειας, ορίστε [animate_shapes](https://reference.aspose.com/slides/python-net/aspose.slides.export/html5options/animate_shapes/) και [animate_transitions](https://reference.aspose.com/slides/python-net/aspose.slides.export/html5options/animate_transitions/) σε `False` στο [Html5Options](https://reference.aspose.com/slides/python-net/aspose.slides.export/html5options/). Αυτές οι ρυθμίσεις είναι ανεξάρτητες, έτσι μπορείτε να ενεργοποιήσετε τη μία ενώ απενεργοποιείτε την άλλη. Το παράδειγμα εξάγει την παρουσίαση με και τους δύο τύπους κινήσεων απενεργοποιημένους στη δημιουργημένη σελίδα.
 
-```py
+```python
 import aspose.slides as slides
 
-with slides.Presentation("pres.pptx") as presentation:
-    options = slides.export.Html5Options()
-    options.animate_shapes = False
-    options.animate_transitions = False
+html5_options = slides.export.Html5Options()
+html5_options.animate_shapes = False
+html5_options.animate_transitions = False
 
-    presentation.save("index.html", slides.export.SaveFormat.HTML5, options)
+with slides.Presentation("pres.pptx") as presentation:
+    presentation.save("pres5.html", slides.export.SaveFormat.HTML5, html5_options)
 ```
 
 ## **Εξαγωγή PowerPoint σε HTML**
 
-Αυτός ο κώδικας Python επιδεικνύει τη standard διαδικασία εξαγωγής PowerPoint σε HTML:
+Η τυπική εξαγωγή HTML χρησιμοποιεί διαφορετική προσέγγιση απόδοσης: το περιεχόμενο της διαφάνειας απεικονίζεται ως SVG μέσα σε μια σελίδα HTML. Το παρακάτω παράδειγμα μετατρέπει μια παρουσίαση σε έγγραφο HTML χρησιμοποιώντας αυτήν την προσέγγιση απόδοσης.
 
-```py
+```python
 import aspose.slides as slides
 
 with slides.Presentation("pres.pptx") as presentation:
-    presentation.save("index.html", slides.export.SaveFormat.HTML)
+    presentation.save("pres.html", slides.export.SaveFormat.HTML)
 ```
 
-Σε αυτήν την περίπτωση, το περιεχόμενο της παρουσίασης αποδίδεται μέσω SVG με τη μορφή:
+Η απλοποιημένη σήμανση παρακάτω απεικονίζει τη δομή της δημιουργημένης σελίδας. Το στοιχείο SVG περιέχει το αποδιδόμενο περιεχόμενο της διαφάνειας· το κείμενο αντικατάστασης αντιπροσωπεύει αυτό το περιεχόμενο και δεν αποτελεί κυριολεκτική έξοδο εξαγωγής.
 
 ```html
 <body>
@@ -81,62 +77,82 @@ with slides.Presentation("pres.pptx") as presentation:
 </body>
 ```
 
-{{% alert title="Σημείωση" color="warning" %}} 
-Όταν χρησιμοποιείτε αυτή τη μέθοδο για εξαγωγή PowerPoint σε HTML, λόγω της απόδοσης SVG, δεν θα μπορείτε να εφαρμόσετε στυλ ή να αναπαράγετε συγκεκριμένα στοιχεία. 
+{{% alert title="Προειδοποίηση" color="warning" %}}
+Η εξαγωγή βασισμένη σε SVG δεν εκθέτει τα σχήματα PowerPoint ως ξεχωριστά στοιχεία HTML. Χρησιμοποιήστε την εξαγωγή HTML5 όταν χρειάζεστε τις επιλογές κίνησης σχήματος και μετάβασης διαφάνειας που παρουσιάζονται σε αυτό το άρθρο.
 {{% /alert %}}
 
-## **Εξαγωγή PowerPoint σε HTML5 Προβολή Διαφάνειας**
+## **Εξαγωγή PowerPoint σε Προβολή Διαφάνειας HTML5**
 
-**Aspose.Slides** σας επιτρέπει να μετατρέψετε μια παρουσίαση PowerPoint σε έγγραφο HTML5 στο οποίο οι διαφάνειες παρουσιάζονται σε λειτουργία προβολής διαφάνειας. Σε αυτήν την περίπτωση, όταν ανοίγετε το παραγόμενο αρχείο HTML5 σε ένα πρόγραμμα περιήγησης, βλέπετε την παρουσίαση σε λειτουργία προβολής διαφάνειας σε μια ιστοσελίδα. 
+Η εξαγωγή HTML5 παράγει μια σελίδα για προβολή και πλοήγηση των διαφανειών της παρουσίασης σε έναν περιηγητή. Αυτό το παράδειγμα ενεργοποιεί και τα [animate_shapes](https://reference.aspose.com/slides/python-net/aspose.slides.export/html5options/animate_shapes/) και [animate_transitions](https://reference.aspose.com/slides/python-net/aspose.slides.export/html5options/animate_transitions/) ώστε η εξαγόμενη προβολή διαφάνειας να μπορεί να αναπαράγει τα εφέ από την πηγαία παρουσίαση.
 
-Αυτός ο κώδικας Python επιδεικνύει τη διαδικασία εξαγωγής PowerPoint σε HTML5 Προβολή Διαφάνειας:
+Χρησιμοποιήστε μια παρουσίαση που ήδη περιέχει κινήσεις σχήματος και μεταβάσεις διαφάνειας για να δείτε το αποτέλεσμα αυτών των ρυθμίσεων. Η ενεργοποίηση τους δεν προσθέτει νέα εφέ σε διαφάνειες που δεν έχουν. Μετά την εξαγωγή, ανοίξτε το δημιουργημένο έγγραφο HTML5 σε έναν περιηγητή με διαθέσιμα τα υποστηρικτικά αρχεία.
 
 ```python
 import aspose.slides as slides
 
-with slides.Presentation("pres.pptx") as pres:
-    # Εξαγωγή παρουσίασης που περιέχει μεταβάσεις διαφανειών, αναπαραστάσεις και αναπαραστάσεις σχημάτων σε HTML5
-    options = slides.export.Html5Options()
-    options.animate_shapes = True
-    options.animate_transitions = True
+html5_options = slides.export.Html5Options()
+html5_options.animate_shapes = True
+html5_options.animate_transitions = True
 
-    # Αποθήκευση παρουσίασης
-    pres.save("HTML5-slide-view.html", slides.export.SaveFormat.HTML5, options)
+with slides.Presentation("pres.pptx") as presentation:
+    presentation.save("HTML5-slide-view.html", slides.export.SaveFormat.HTML5, html5_options)
 ```
 
 ## **Μετατροπή Παρουσίασης σε Έγγραφο HTML5 με Σχόλια**
 
-Τα σχόλια στο PowerPoint είναι ένα εργαλείο που επιτρέπει στους χρήστες να αφήνουν σημειώσεις ή σχόλια στις διαφάνειες της παρουσίασης. Είναι ιδιαίτερα χρήσιμα σε συνεργατικά έργα, όπου πολλοί άνθρωποι μπορούν να προσθέσουν προτάσεις ή παρατηρήσεις σε συγκεκριμένα στοιχεία της διαφάνειας χωρίς να αλλάξουν το κύριο περιεχόμενο. Κάθε σχόλιο εμφανίζει το όνομα του δημιουργού, διευκολύνοντας την ανίχνευση του ποιος άφησε την παρατήρηση.
+Μπορείτε να συμπεριλάβετε υπάρχοντα σχόλια διαφάνειας στην έξοδο HTML5 ώστε οι αναγνώστες να βλέπουν σχόλια μαζί με το περιεχόμενο της διαφάνειας. Το παράδειγμα σε αυτήν την ενότητα υποθέτει ότι η πηγαία παρουσίαση περιέχει σχόλια, όπως φαίνεται παρακάτω. Εξάγει αυτά τα σχόλια· δεν δημιουργεί νέα.
 
-Ας υποθέσουμε ότι έχουμε την ακόλουθη παρουσίαση PowerPoint αποθηκευμένη στο αρχείο "sample.pptx".
+![Δύο σχόλια στη διαφάνεια παρουσίασης](two_comments_pptx.png)
 
-![Δύο σχόλια στη διαφάνεια της παρουσίασης](two_comments_pptx.png)
+Αντιστοιχίστε ένα αντικείμενο [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/python-net/aspose.slides.export/notescommentslayoutingoptions/) στην ιδιότητα [slides_layout_options](https://reference.aspose.com/slides/python-net/aspose.slides.export/html5options/slides_layout_options/) του [Html5Options](https://reference.aspose.com/slides/python-net/aspose.slides.export/html5options/). Ορίστε το [comments_position](https://reference.aspose.com/slides/python-net/aspose.slides.export/notescommentslayoutingoptions/comments_position/) σε `RIGHT` από την απαρίθμηση [CommentsPositions](https://reference.aspose.com/slides/python-net/aspose.slides.export/commentspositions/) για να τοποθετήσετε τα σχόλια στα δεξιά κάθε διαφάνειας.
 
-Κατά τη μετατροπή μιας παρουσίασης PowerPoint σε έγγραφο HTML5, μπορείτε εύκολα να καθορίσετε εάν θα συμπεριλάβετε τα σχόλια από την παρουσίαση στο τελικό έγγραφο. Για να το κάνετε αυτό, πρέπει να ορίσετε τις παραμέτρους εμφάνισης των σχολίων στην ιδιότητα `notes_comments_layouting` της κλάσης [Html5Options](https://reference.aspose.com/slides/el/python-net/aspose.slides.export/html5options/) .
+Το παρακάτω παράδειγμα εξάγει την παρουσίαση σε HTML5 με αυτήν τη διάταξη σχολίων. Μια παρουσίαση χωρίς σχόλια δεν θα έχει κείμενο σχολίου για εμφάνιση.
 
-Το παρακάτω παράδειγμα κώδικα μετατρέπει μια παρουσίαση σε έγγραφο HTML5 με τα σχόλια να εμφανίζονται δεξιά των διαφανειών.
-```py
-html5_options = Html5Options()
-html5_options.notes_comments_layouting.comments_position = CommentsPositions.RIGHT
+```python
+import aspose.slides as slides
 
-with Presentation("sample.pptx") as presentation:
-    presentation.save("output.html", SaveFormat.HTML5, html5_options)
+layout_options = slides.export.NotesCommentsLayoutingOptions()
+layout_options.comments_position = slides.export.CommentsPositions.RIGHT
+
+html5_options = slides.export.Html5Options()
+html5_options.slides_layout_options = layout_options
+
+with slides.Presentation("sample.pptx") as presentation:
+    presentation.save("output.html", slides.export.SaveFormat.HTML5, html5_options)
 ```
 
-Το έγγραφο "output.html" φαίνεται στην παρακάτω εικόνα.
+![Τα σχόλια στο παραγόμενο έγγραφο HTML5](two_comments_html5.png)
 
-![Τα σχόλια στο εξαγόμενο έγγραφο HTML5](two_comments_html5.png)
+## **Απόκρυψη Συνδέσμων JavaScript κατά την Εξαγωγή**
+
+Έστω ότι το `hyperlinks.pptx` περιέχει κείμενο με σύνδεσμο `javascript:alert('Hello')` και έναν κανονικό σύνδεσμο `https://example.com/`. Για να αποκρύψετε τον σύνδεσμο JavaScript κατά την εξαγωγή, ορίστε το [Html5Options.skip_java_script_links](https://reference.aspose.com/slides/python-net/aspose.slides.export/html5options/skip_java_script_links/) σε `True`. Η προεπιλογή είναι `False`, έτσι αυτοί οι σύνδεσμοι δεν φιλτράρονται εκτός αν ενεργοποιήσετε την επιλογή.
+
+Το παρακάτω παράδειγμα φορτώνει την παρουσίαση από τον τρέχοντα φάκελο και την εξάγει χρησιμοποιώντας το [Html5Options](https://reference.aspose.com/slides/python-net/aspose.slides.export/html5options/):
+
+```python
+import aspose.slides as slides
+
+html5_options = slides.export.Html5Options()
+html5_options.skip_java_script_links = True
+
+with slides.Presentation("hyperlinks.pptx") as presentation:
+    presentation.save("filtered-html5.html", slides.export.SaveFormat.HTML5, html5_options)
+```
+
+Το εξαγόμενο αρχείο παραλείπει τον σύνδεσμο JavaScript ενώ διατηρεί το κείμενό του και τον κανονικό σύνδεσμο HTTPS. Η πηγαία παρουσίαση παραμένει αμετάβλητη.
+
+Αυτή η επιλογή φιλτράρει συνδέσμους JavaScript· δεν αφαιρεί όλα τα σενάρια ή άλλο ενεργό περιεχόμενο, ούτε εγγυάται τη συμμόρφωση με CSP. Για παράδειγμα, η έξοδος HTML5 εξακολουθεί να περιλαμβάνει σενάρια για την πλοήγηση των διαφανών και τις κινήσεις.
 
 ## **Συχνές Ερωτήσεις**
 
-**Μπορώ να ελέγξω αν οι αναπαραστάσεις αντικειμένων και οι μεταβάσεις διαφάνειας θα αναπαραχθούν σε HTML5;**
+**Μπορώ να ελέγξω αν οι κινήσεις αντικειμένων και οι μεταβάσεις διαφάνειας θα αναπαράγονται σε HTML5;**
 
-Ναι, το HTML5 παρέχει ξεχωριστές επιλογές για την ενεργοποίηση ή απενεργοποίηση των [shape animations](https://reference.aspose.com/slides/el/python-net/aspose.slides.export/html5options/animate_shapes/) και [slide transitions](https://reference.aspose.com/slides/el/python-net/aspose.slides.export/html5options/animate_transitions/).
+Ναι, η εξαγωγή HTML5 παρέχει ξεχωριστές επιλογές για την ενεργοποίηση ή απενεργοποίηση των [shape animations](https://reference.aspose.com/slides/python-net/aspose.slides.export/html5options/animate_shapes/) και των [slide transitions](https://reference.aspose.com/slides/python-net/aspose.slides.export/html5options/animate_transitions/).
 
-**Υποστηρίζεται η εξαγωγή σχολίων, και πού μπορούν να τοποθετηθούν σε σχέση με τη διαφάνεια;**
+**Υποστηρίζονται τα σχόλια, και που μπορούν να τοποθετηθούν σε σχέση με τη διαφάνεια;**
 
-Ναι, τα σχόλια μπορούν να προστεθούν σε HTML5 και να τοποθετηθούν (π.χ., δεξιά της διαφάνειας) μέσω των [layout settings](https://reference.aspose.com/slides/el/python-net/aspose.slides.export/html5options/notes_comments_layouting/) για σημειώσεις και σχόλια.
+Ναι, τα υπάρχοντα σχόλια μπορούν να συμπεριληφθούν στην έξοδο HTML5 και να τοποθετηθούν (π.χ. στα δεξιά της διαφάνειας) μέσω των [layout settings](https://reference.aspose.com/slides/python-net/aspose.slides.export/html5options/slides_layout_options/) για σημειώσεις και σχόλια.
 
-**Μπορώ να παραλείψω συνδέσμους που καλούν JavaScript για λόγους ασφαλείας ή CSP;**
+**Μπορώ να παραλείψω συνδέσμους που εκτελούν JavaScript για λόγους ασφαλείας ή CSP;**
 
-Ναι, υπάρχει μια [ρύθμιση](https://reference.aspose.com/slides/el/python-net/aspose.slides.export/html5options/skip_java_script_links/) που επιτρέπει να παραλείψετε υπερσυνδέσμους με κλήσεις JavaScript κατά τη διάρκεια της αποθήκευσης. Αυτό βοηθά στην τήρηση αυστηρών πολιτικών ασφαλείας.
+Ναι, η ρύθμιση [skip_java_script_links](https://reference.aspose.com/slides/python-net/aspose.slides.export/html5options/skip_java_script_links/) σας επιτρέπει να παραλείψετε συνδέσμους με κλήσεις JavaScript κατά την αποθήκευση. Η προεπιλογή είναι `False`. Δείτε το [Exclude JavaScript Hyperlinks During Export](/slides/el/python-net/export-to-html5/#exclude-javascript-hyperlinks-during-export) για ένα παράδειγμα εξαγωγής HTML5 και το εύρος του φίλτρου. Αυτή η ρύθμιση δεν αφαιρεί το JavaScript που χρησιμοποιεί ο προβολέας HTML5 για πλοήγηση και κινήσεις.

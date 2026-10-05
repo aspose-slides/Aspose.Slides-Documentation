@@ -12,71 +12,76 @@ keywords:
 - PPT به HTML5
 - PPTX به HTML5
 - ODP به HTML5
-- ذخیره PPT به‌عنوان HTML5
-- ذخیره PPTX به‌عنوان HTML5
-- ذخیره ODP به‌عنوان HTML5
-- صدور PPT به HTML5
-- صدور PPTX به HTML5
-- صدور ODP به HTML5
+- ذخیره PPT به عنوان HTML5
+- ذخیره PPTX به عنوان HTML5
+- ذخیره ODP به عنوان HTML5
+- صادر کردن PPT به HTML5
+- صادر کردن PPTX به HTML5
+- صادر کردن ODP به HTML5
 - PHP
 - Aspose.Slides
-description: "صادر کردن ارائه‌های PowerPoint و OpenDocument به HTML5 واکنش‌گرا با Aspose.Slides برای PHP از طریق Java. حفظ قالب‌بندی، انیمیشن‌ها و تعامل."
+description: "صادرات ارائه‌های PowerPoint و OpenDocument به HTML5 واکنش‌گرا با Aspose.Slides برای PHP از طریق Java. حفظ قالب‌بندی، انیمیشن‌ها و تعامل."
 ---
-## **مروری کلی**
+## **بررسی کلی**
 
-این مقاله نحوه تبدیل ارائه‌های PowerPoint به HTML5 با استفاده از Aspose.Slides را توضیح می‌دهد. این مقاله صادرات پایه HTML5 را بدون افزونه‌های وب یا وابستگی‌های اضافه پوشش می‌دهد و همچنین گزینه‌هایی برای کنترل انیمیشن‌های شکل و انتقال‌های اسلاید ارائه می‌کند. مقاله همچنین فرآیند استاندارد صادرات PowerPoint به HTML را نشان می‌دهد، نحوه تولید خروجی HTML5 در حالت نمای اسلاید را توضیح می‌دهد و نشان می‌دهد چگونه می‌توان با پیکربندی چیدمان، نظرات را در سند صادرشده گنجاند.
+این مقاله توضیح می‌دهد که چگونه ارائه‌های پاورپوینت را به HTML5 تبدیل کنید با استفاده از Aspose.Slides برای PHP از طریق Java. این مقاله به صادرات پایه، کنترل انیمیشن‌های اشکال و انتقال اسلایدها، و چیدمان نظرات می‌پردازد. همچنین خروجی HTML5 را با خروجی مبتنی بر SVG صادرات استاندارد HTML مقایسه می‌کند.
 
-## **صادرات پاورپوینت به HTML5**
+## **صدور PowerPoint به HTML5**
 
-این کد PHP نشان می‌دهد چگونه یک ارائه را بدون افزونه‌های وب و وابستگی‌ها به HTML5 صادر کنید:
+مثال زیر یک ارائه را از پوشه کاری بارگذاری می‌کند و آن را در قالب HTML5 ذخیره می‌سازد. این مثال از تنظیمات پیش‌فرض صادرات استفاده می‌کند؛ مثال بعدی نشان می‌دهد که چگونه پخش انیمیشن‌ها را به صورت صریح کنترل کنید. مسیر ورودی را با مسیر ارائه‌تان جایگزین کنید.
 
 ```php
-  $pres = new Presentation("pres.pptx");
-  try {
-    $pres->save("pres.html", SaveFormat::Html5);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("pres.pptx");
+try {
+    $presentation->save("pres.html", SaveFormat::Html5);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-{{% alert color="primary" %}}
-در این حالت، HTML تمیز دریافت می‌کنید.
+{{% alert color="info" title="Note" %}}
+علاوه بر سند HTML، صادرات فایل‌های CSS و JavaScript پشتیبانی‌کننده برای استایل اسلایدها، انیمیشن‌ها، افکت‌ها و ناوبری می‌نویسد. هنگام جابجایی یا انتشار خروجی این فایل‌ها را همراه سند HTML نگه دارید. صفحه تولید شده همچنین jQuery و Anime.js را از CDNهای عمومی بارگذاری می‌کند؛ بدون اینها ناوبری اسلایدها و انیمیشن‌ها اجرا نمی‌شوند.
 {{% /alert %}}
 
-ممکن است بخواهید تنظیمات انیمیشن‌های شکل و انتقال‌های اسلاید را به این صورت مشخص کنید:
+برای صادرات بدون پخش انیمیشن اشکال یا انتقال اسلایدها، مقدار `false` را به [setAnimateShapes](https://reference.aspose.com/slides/php-java/aspose.slides/html5options/#setAnimateShapes) و [setAnimateTransitions](https://reference.aspose.com/slides/php-java/aspose.slides/html5options/#setAnimateTransitions) در [Html5Options](https://reference.aspose.com/slides/php-java/aspose.slides/html5options/) پاس دهید. این تنظیمات مستقل هستند، بنابراین می‌توانید یکی را فعال کنید و دیگری را غیرفعال. مثال ارائه را با هر دو نوع انیمیشن غیرفعال شده در صفحه تولید شده صادر می‌کند.
 
 ```php
-  $pres = new Presentation("pres.pptx");
-  try {
-    $html5Options = new Html5Options();
-    $html5Options->setAnimateShapes(false);
-    $html5Options->setAnimateTransitions(false);
-    $pres->save("pres5.html", SaveFormat::Html5, $html5Options);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+use aspose\slides\Html5Options;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$html5Options = new Html5Options();
+$html5Options->setAnimateShapes(false);
+$html5Options->setAnimateTransitions(false);
+
+$presentation = new Presentation("pres.pptx");
+try {
+    $presentation->save("pres5.html", SaveFormat::Html5, $html5Options);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **صادرات پاورپوینت به HTML**
+## **صدور PowerPoint به HTML**
 
-این مثال Java فرآیند استاندارد صادرات PowerPoint به HTML را نشان می‌دهد:
+صدور استاندارد HTML از روش رندرینگ متفاوتی استفاده می‌کند: محتوای اسلاید با SVG داخل یک صفحه HTML نشان داده می‌شود. مثال زیر یک ارائه را به سند HTML تبدیل می‌کند با استفاده از این روش رندرینگ.
 
 ```php
-  $pres = new Presentation("pres.pptx");
-  try {
-    $pres->save("pres.html", SaveFormat::Html);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("pres.pptx");
+try {
+    $presentation->save("pres.html", SaveFormat::Html);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-در این حالت، محتویات ارائه از طریق SVG به شکل زیر رندر می‌شود:
+نشانه‌گذاری ساده‌سازی‌شده زیر ساختار صفحه تولید شده را نشان می‌دهد. عنصر SVG شامل محتوای رندر شده اسلاید است؛ متن جایگزین نشان‌دهنده آن محتوا است و خروجی واقعی صادرات نیست.
 
 ```html
 <body>
@@ -86,69 +91,104 @@ description: "صادر کردن ارائه‌های PowerPoint و OpenDocument �
      </svg>
 </div>
 </body>
-```php
-
 ```
 
-{{% alert title="Note" color="warning" %}} 
-
-When you use this method to export PowerPoint to HTML, due to the SVG rendering, you will not be to apply styles or animate specific elements. 
-
+{{% alert title="Warning" color="warning" %}}
+صادرات مبتنی بر SVG اشکال PowerPoint را به عنوان عناصر جداگانه HTML نمایش نمی‌دهد. زمانی که به گزینه‌های انیمیشن اشکال و انتقال اسلاید که در این مقاله نشان داده شده‌اند نیاز دارید، از صادرات HTML5 استفاده کنید.
 {{% /alert %}}
 
-## **Export PowerPoint to HTML5 Slide View**
+## **صدور PowerPoint به نمای اسلاید HTML5**
 
-**Aspose.Slides** allows you to convert a PowerPoint presentation to an HTML5 document in which the slides are presented in a slide view mode. In this case, when you open the resulting HTML5 file in a browser, you see the presentation in slide view mode on a web page. 
+صادرات HTML5 صفحه‌ای برای مشاهده و ناوبری اسلایدهای ارائه در مرورگر تولید می‌کند. این مثال هم [setAnimateShapes](https://reference.aspose.com/slides/php-java/aspose.slides/html5options/#setAnimateShapes) و هم [setAnimateTransitions](https://reference.aspose.com/slides/php-java/aspose.slides/html5options/#setAnimateTransitions) را فعال می‌سازد تا نمای اسلاید صادر شده بتواند افکت‌های ارائه منبع را پخش کند.
 
-This PHP code demonstrates the PowerPoint to HTML5 Slide View export process:
+از ارائه‌ای استفاده کنید که قبلاً شامل انیمیشن‌های اشکال و انتقال اسلاید باشد تا اثر این تنظیمات را ببینید. فعال کردن آن‌ها افکت جدیدی به اسلایدهایی که هیچ افکتی ندارند اضافه نمی‌کند. پس از صادرات، سند HTML5 تولید شده را در مرورگری که فایل‌های پشتیبانی‌اش در دسترس است باز کنید.
 
 ```php
-  $pres = new Presentation("pres.pptx");
-  try {
-    $html5Options = new Html5Options();
-    $html5Options->setAnimateShapes(true);
-    $html5Options->setAnimateTransitions(true);
-    $pres->save("HTML5-slide-view.html", SaveFormat::Html5, $html5Options);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+use aspose\slides\Html5Options;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$html5Options = new Html5Options();
+$html5Options->setAnimateShapes(true);
+$html5Options->setAnimateTransitions(true);
+
+$presentation = new Presentation("pres.pptx");
+try {
+    $presentation->save("HTML5-slide-view.html", SaveFormat::Html5, $html5Options);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **Convert Presentations to HTML5 Documents with Comments**
+## **تبدیل یک ارائه به سند HTML5 با نظرات**
 
-Comments in PowerPoint are a tool that allows users to leave notes or feedback on presentation slides. They are especially useful in collaborative projects, where multiple people can add their suggestions or remarks to specific slide elements without altering the main content. Each comment shows the author's name, making it easy to track who left the remark.
+می‌توانید نظرات موجود اسلایدها را در خروجی HTML5 گنجانید تا خوانندگان بازخورد را در کنار محتوای اسلاید ببینند. مثال در این بخش انتظار دارد ارائه منبع شامل نظرات باشد، همان‌طور که در زیر نشان داده شده است. این مثال نظرات را صادر می‌کند؛ نظرات جدیدی ایجاد نمی‌کند.
 
-Let's say we have the following PowerPoint presentation saved in the "sample.pptx" file.
+![دو نظر بر روی اسلاید ارائه](two_comments_pptx.png)
 
-![Two comments on the presentation slide](two_comments_pptx.png)
+یک شیء [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/php-java/aspose.slides/notescommentslayoutingoptions/) را به متد [setSlidesLayoutOptions](https://reference.aspose.com/slides/php-java/aspose.slides/html5options/#setSlidesLayoutOptions) از [Html5Options](https://reference.aspose.com/slides/php-java/aspose.slides/html5options/) پاس دهید. با استفاده از [setCommentsPosition](https://reference.aspose.com/slides/php-java/aspose.slides/notescommentslayoutingoptions/#setCommentsPosition)، مقدار `Right` را از شمارنده [CommentsPositions](https://reference.aspose.com/slides/php-java/aspose.slides/commentspositions/) انتخاب کنید تا نظرات را در سمت راست هر اسلاید قرار دهید.
 
-When you convert a PowerPoint presentation to an HTML5 document, you can easily specify whether to include comments from the presentation in the output document. To do this, you need to specify the display parameters for comments in the `getNotesCommentsLayouting` method of the `Html5Options` class.
+مثال زیر ارائه را با این چیدمان نظرات به HTML5 صادر می‌کند. ارائه‌ای بدون نظرات متن نظری برای نمایش نخواهد داشت.
 
-The following code example converts a presentation to an HTML5 document with comments displayed to the right of the slides.
 ```php
+use aspose\slides\CommentsPositions;
+use aspose\slides\Html5Options;
+use aspose\slides\NotesCommentsLayoutingOptions;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$layoutOptions = new NotesCommentsLayoutingOptions();
+$layoutOptions->setCommentsPosition(CommentsPositions::Right);
+
 $html5Options = new Html5Options();
-$html5Options->getNotesCommentsLayouting()->setCommentsPosition(CommentsPositions::Right);
+$html5Options->setSlidesLayoutOptions($layoutOptions);
 
 $presentation = new Presentation("sample.pptx");
-$presentation->save("output.html", SaveFormat::Html5, $html5Options);
-$presentation->dispose();
-
-سند «output.html» در تصویر زیر نشان داده شده است.
+try {
+    $presentation->save("output.html", SaveFormat::Html5, $html5Options);
+} finally {
+    $presentation->dispose();
+}
+```
 
 ![نظرات در سند خروجی HTML5](two_comments_html5.png)
 
+## **حذف پیوندهای JavaScript هنگام صادرات**
+
+فرض کنید `hyperlinks.pptx` متنی لینک‌دار با هدف `javascript:alert('Hello')` و یک پیوند عادی `https://example.com/` داشته باشد. برای حذف پیوند JavaScript هنگام صادرات، مقدار `true` را به [SaveOptions::setSkipJavaScriptLinks](https://reference.aspose.com/slides/php-java/aspose.slides/saveoptions/#setSkipJavaScriptLinks) پاس دهید. مقدار پیش‌فرض `false` است، بنابراین این پیوندها فیلتر نمی‌شوند مگر آنکه گزینه را فعال کنید.
+
+مثال زیر ارائه را از پوشه کاری بارگذاری می‌کند و با استفاده از [Html5Options](https://reference.aspose.com/slides/php-java/aspose.slides/html5options/) صادر می‌نماید:
+
+```php
+use aspose\slides\Html5Options;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$html5Options = new Html5Options();
+$html5Options->setSkipJavaScriptLinks(true);
+
+$presentation = new Presentation("hyperlinks.pptx");
+try {
+    $presentation->save("filtered-html5.html", SaveFormat::Html5, $html5Options);
+} finally {
+    $presentation->dispose();
+}
+```
+
+فایل صادر شده پیوند JavaScript را حذف می‌کند در حالی که متن آن و پیوند HTTPS عادی را حفظ می‌کند. ارائه منبع بدون تغییر باقی می‌ماند.
+
+این گزینه پیوندهای JavaScript را فیلتر می‌کند؛ تمام اسکریپت‌ها یا سایر محتوای فعال را حذف نمی‌کند و رعایت CSP را نیز تضمین نمی‌کند. به عنوان مثال، خروجی HTML5 همچنان اسکریپت‌های مورد نیاز برای ناوبری اسلایدها و انیمیشن‌ها را شامل می‌شود.
+
 ## **سوالات متداول**
 
-**آیا می‌توانم کنترل کنم که انیمیشن‌های اشیاء و انتقال‌های اسلاید در HTML5 اجرا شوند؟**
+**آیا می‌توانم کنترل کنم آیا انیمیشن‌های اشیاء و انتقال اسلایدها در HTML5 اجرا شوند؟**
 
-بله، HTML5 گزینه‌های جداگانه‌ای برای فعال یا غیرفعال کردن [shape animations](https://reference.aspose.com/slides/fa/php-java/aspose.slides/html5options/setanimateshapes/) و [slide transitions](https://reference.aspose.com/slides/fa/php-java/aspose.slides/html5options/setanimatetransitions/) فراهم می‌کند.
+بله، صادرات HTML5 گزینه‌های جداگانه‌ای برای فعال یا غیرفعال کردن [shape animations](https://reference.aspose.com/slides/php-java/aspose.slides/html5options/#setAnimateShapes) و [slide transitions](https://reference.aspose.com/slides/php-java/aspose.slides/html5options/#setAnimateTransitions) فراهم می‌کند.
 
-**آیا خروجی نظرات پشتیبانی می‌شود و می‌توان آنها را نسبت به اسلاید کجا قرار داد؟**
+**آیا نظرات پشتیبانی می‌شوند و می‌توان آن‌ها را نسبت به اسلاید کجا قرار داد؟**
 
-بله، می‌توان نظرات را در HTML5 اضافه کرد و از طریق [layout settings](https://reference.aspose.com/slides/fa/php-java/aspose.slides/html5options/#setSlidesLayoutOptions) برای یادداشت‌ها و نظرات، موقعیت آنها (به‌عنوان مثال، سمت راست اسلاید) تنظیم کرد.
+بله، نظرات موجود می‌توانند در خروجی HTML5 گنجانده شوند و از طریق [layout settings](https://reference.aspose.com/slides/php-java/aspose.slides/html5options/#setSlidesLayoutOptions) قابل موقعیت‌یابی هستند (به عنوان مثال، در سمت راست اسلاید).
 
-**آیا می‌توانم لینک‌هایی که جاوااسکریپت را فراخوانی می‌کنند برای دلایل امنیتی یا CSP حذف کنم؟**
+**آیا می‌توانم پیوندهایی که JavaScript را فراخوانی می‌کنند برای دلایل امنیتی یا CSP حذف کنم؟**
 
-بله، یک [setting](https://reference.aspose.com/slides/fa/php-java/aspose.slides/saveoptions/#setSkipJavaScriptLinks) وجود دارد که اجازه می‌دهد هنگام ذخیره‌سازی، پیوندهای حاوی فراخوانی‌های JavaScript نادیده گرفته شوند. این به رعایت سیاست‌های امنیتی سخت کمک می‌کند.
+بله، تنظیم [setSkipJavaScriptLinks](https://reference.aspose.com/slides/php-java/aspose.slides/saveoptions/#setSkipJavaScriptLinks) به شما امکان می‌دهد تا پیوندهای حاوی فراخوانی‌های JavaScript را در زمان ذخیره‌سازی نادیده بگیرید. مقدار پیش‌فرض `false` است. برای مثال صادرات HTML5 و حوزه فیلتر به [حذف پیوندهای JavaScript هنگام صادرات](/slides/fa/php-java/export-to-html5/#exclude-javascript-hyperlinks-during-export) مراجعه کنید. این تنظیم JavaScript مورد استفاده توسط نمایشگر HTML5 برای ناوبری و انیمیشن‌ها را حذف نمی‌کند.

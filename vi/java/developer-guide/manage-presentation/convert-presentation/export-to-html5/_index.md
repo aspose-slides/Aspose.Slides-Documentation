@@ -1,13 +1,13 @@
 ---
-title: Chuyển đổi Bản trình bày sang HTML5 trong Java
-linktitle: Bản trình bày sang HTML5
+title: Chuyển Đổi Bản Trình Chiếu sang HTML5 trong Java
+linktitle: Bản Trình Chiếu sang HTML5
 type: docs
 weight: 40
 url: /vi/java/export-to-html5/
 keywords:
 - PowerPoint sang HTML5
 - OpenDocument sang HTML5
-- bản trình bày sang HTML5
+- bản trình chiếu sang HTML5
 - slide sang HTML5
 - PPT sang HTML5
 - PPTX sang HTML5
@@ -20,58 +20,64 @@ keywords:
 - xuất ODP sang HTML5
 - Java
 - Aspose.Slides
-description: "Xuất bản trình bày PowerPoint & OpenDocument sang HTML5 đáp ứng với Aspose.Slides cho Java. Bảo lưu định dạng, hoạt ảnh và tính tương tác."
+description: "Xuất bản trình chiếu PowerPoint & OpenDocument sang HTML5 đáp ứng với Aspose.Slides cho Java. Bảo tồn định dạng, hoạt ảnh và tính tương tác."
 ---
 ## **Tổng quan**
 
-Bài viết này giải thích cách chuyển đổi bản trình bày PowerPoint sang HTML5 bằng Aspose.Slides. Nó bao gồm xuất HTML5 cơ bản mà không có phần mở rộng web hay phụ thuộc bổ sung, cũng như các tùy chọn để kiểm soát hoạt ảnh hình dạng và chuyển đổi slide. Bài viết cũng cho thấy quy trình xuất chuẩn PowerPoint‑to‑HTML, giải thích cách tạo đầu ra HTML5 ở chế độ xem slide, và minh họa cách bao gồm chú thích trong tài liệu đã xuất bằng cách cấu hình bố cục của chúng.
+Bài viết này giải thích cách chuyển đổi bản trình chiếu PowerPoint sang HTML5 bằng Aspose.Slides for Java. Nó bao gồm việc xuất cơ bản, kiểm soát hoạt ảnh hình dạng và chuyển đổi trang chiếu, cũng như bố cục bình luận. Ngoài ra, nó so sánh đầu ra HTML5 với đầu ra dựa trên SVG của việc xuất HTML chuẩn.
 
 ## **Xuất PowerPoint sang HTML5**
 
-Đoạn mã Java này cho thấy cách xuất bản trình bày sang HTML5 mà không có phần mở rộng web và phụ thuộc:
+Ví dụ sau tải một bản trình chiếu từ thư mục làm việc và lưu nó ở định dạng HTML5. Nó sử dụng các cài đặt xuất mặc định; ví dụ tiếp theo cho thấy cách kiểm soát phát hoạt ảnh một cách cụ thể. Thay thế đường dẫn nhập bằng đường dẫn tới bản trình chiếu của bạn.
 
 ```java
-Presentation pres = new Presentation("pres.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("pres.pptx");
 try {
-    pres.save("pres.html", SaveFormat.Html5);
+    presentation.save("pres.html", SaveFormat.Html5);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-{{% alert color="primary" %}} 
-Trong trường hợp này, bạn sẽ nhận được HTML sạch. 
+{{% alert color="info" title="Note" %}}
+Ngoài tài liệu HTML, quá trình xuất còn ghi các tệp CSS và JavaScript hỗ trợ cho việc tạo kiểu slide, hoạt ảnh, hiệu ứng và điều hướng. Giữ các tệp này cùng với tài liệu HTML khi di chuyển hoặc công bố kết quả. Trang được tạo cũng tải jQuery và Anime.js từ các CDN công cộng; nếu không có chúng, việc điều hướng slide và hoạt ảnh sẽ không chạy.
 {{% /alert %}}
 
-Bạn có thể muốn chỉ định cài đặt cho hoạt ảnh hình dạng và chuyển đổi slide như sau:
+Để xuất mà không phát hoạt ảnh hình dạng hoặc chuyển đổi slide, truyền `false` cho [setAnimateShapes](https://reference.aspose.com/slides/java/com.aspose.slides/html5options/#setAnimateShapes-boolean-) và [setAnimateTransitions](https://reference.aspose.com/slides/java/com.aspose.slides/html5options/#setAnimateTransitions-boolean-) trong [Html5Options](https://reference.aspose.com/slides/java/com.aspose.slides/html5options/). Các cài đặt này độc lập, vì vậy bạn có thể bật một trong khi tắt cái còn lại. Ví dụ xuất bản trình chiếu với cả hai loại hoạt ảnh bị tắt trong trang được tạo.
 
 ```java
-Presentation pres = new Presentation("pres.pptx");
+import com.aspose.slides.*;
+
+Html5Options html5Options = new Html5Options();
+html5Options.setAnimateShapes(false);
+html5Options.setAnimateTransitions(false);
+
+Presentation presentation = new Presentation("pres.pptx");
 try {
-    Html5Options html5Options = new Html5Options();
-    html5Options.setAnimateShapes(false);
-    html5Options.setAnimateTransitions(false);
-    
-    pres.save("pres5.html", SaveFormat.Html5, html5Options);
+    presentation.save("pres5.html", SaveFormat.Html5, html5Options);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
 ## **Xuất PowerPoint sang HTML**
 
-Đoạn Java này trình bày quy trình chuẩn PowerPoint sang HTML:
+Việc xuất HTML chuẩn sử dụng một cách tiếp cận render khác: nội dung slide được biểu diễn bằng SVG bên trong một trang HTML. Ví dụ sau chuyển đổi một bản trình chiếu sang tài liệu HTML bằng cách tiếp cận render này.
 
 ```java
-Presentation pres = new Presentation("pres.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("pres.pptx");
 try {
-    pres.save("pres.html", SaveFormat.Html);
+    presentation.save("pres.html", SaveFormat.Html);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-Trong trường hợp này, nội dung bản trình bày được hiển thị qua SVG dưới dạng:
+Markup đơn giản dưới đây minh họa cấu trúc của trang được tạo. Phần tử SVG chứa nội dung slide đã render; văn bản placeholder đại diện cho nội dung đó và không phải là đầu ra xuất thực tế.
 
 ```html
 <body>
@@ -83,63 +89,94 @@ Trong trường hợp này, nội dung bản trình bày được hiển thị q
 </body>
 ```
 
-{{% alert title="Lưu ý" color="warning" %}} 
-Khi bạn sử dụng phương pháp này để xuất PowerPoint sang HTML, do việc render bằng SVG, bạn sẽ không thể áp dụng kiểu dáng hoặc tạo hoạt ảnh cho các phần tử cụ thể. 
+{{% alert title="Warning" color="warning" %}}
+Việc xuất dựa trên SVG không hiển thị các hình dạng PowerPoint dưới dạng các phần tử HTML riêng lẻ. Sử dụng xuất HTML5 khi bạn cần các tùy chọn hoạt ảnh hình dạng và chuyển đổi slide được trình bày trong bài viết này.
 {{% /alert %}}
 
-## **Xuất PowerPoint sang HTML5 ở chế độ Xem Slide**
+## **Xuất PowerPoint sang chế độ xem Slide HTML5**
 
-**Aspose.Slides** cho phép bạn chuyển đổi bản trình bày PowerPoint sang tài liệu HTML5 trong đó các slide được trình bày ở chế độ xem slide. Khi mở tệp HTML5 kết quả trong trình duyệt, bạn sẽ thấy bản trình bày ở chế độ xem slide trên trang web. 
+Xuất HTML5 tạo ra một trang để xem và điều hướng các slide của bản trình chiếu trong trình duyệt. Ví dụ này bật cả [setAnimateShapes](https://reference.aspose.com/slides/java/com.aspose.slides/html5options/#setAnimateShapes-boolean-) và [setAnimateTransitions](https://reference.aspose.com/slides/java/com.aspose.slides/html5options/#setAnimateTransitions-boolean-) để chế độ xem slide đã xuất có thể phát các hiệu ứng từ bản trình chiếu nguồn.
 
-Đoạn mã Java này minh họa quy trình xuất PowerPoint sang HTML5 ở chế độ Xem Slide:
+Sử dụng một bản trình chiếu đã chứa hoạt ảnh hình dạng và chuyển đổi slide để thấy hiệu quả của các cài đặt này. Bật chúng không thêm hiệu ứng mới vào các slide không có hiệu ứng. Sau khi xuất, mở tài liệu HTML5 đã tạo trong trình duyệt với các tệp hỗ trợ có sẵn.
 
 ```java
-Presentation pres = new Presentation("pres.pptx");
-try {
-    Html5Options html5Options = new Html5Options();
-    html5Options.setAnimateShapes(true);
-    html5Options.setAnimateTransitions(true);
+import com.aspose.slides.*;
 
-    pres.save("HTML5-slide-view.html", SaveFormat.Html5, html5Options);
+Html5Options html5Options = new Html5Options();
+html5Options.setAnimateShapes(true);
+html5Options.setAnimateTransitions(true);
+
+Presentation presentation = new Presentation("pres.pptx");
+try {
+    presentation.save("HTML5-slide-view.html", SaveFormat.Html5, html5Options);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Chuyển đổi bản trình bày sang tài liệu HTML5 có chú thích**
+## **Chuyển đổi một bản trình chiếu sang tài liệu HTML5 có bình luận**
 
-Chú thích trong PowerPoint là công cụ cho phép người dùng để lại ghi chú hoặc phản hồi trên các slide. Chúng đặc biệt hữu ích trong các dự án hợp tác, nơi nhiều người có thể thêm đề xuất hoặc nhận xét vào các yếu tố slide cụ thể mà không thay đổi nội dung chính. Mỗi chú thích hiển thị tên người viết, giúp dễ dàng theo dõi ai đã để lại nhận xét.
+Bạn có thể bao gồm các bình luận slide hiện có trong đầu ra HTML5 để người đọc có thể thấy phản hồi cạnh nội dung slide. Ví dụ trong phần này giả định bản trình chiếu nguồn chứa các bình luận, như minh họa bên dưới. Nó xuất các bình luận đó; không tạo bình luận mới.
 
-Giả sử chúng ta có bản trình bày PowerPoint sau được lưu trong tệp "sample.pptx".
+![Hai bình luận trên slide bản trình chiếu](two_comments_pptx.png)
 
-![Hai chú thích trên slide bản trình bày](two_comments_pptx.png)
+Truyền một đối tượng [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/java/com.aspose.slides/notescommentslayoutingoptions/) cho phương thức [setSlidesLayoutOptions](https://reference.aspose.com/slides/java/com.aspose.slides/html5options/#setSlidesLayoutOptions-com.aspose.slides.ISlidesLayoutOptions-) của [Html5Options](https://reference.aspose.com/slides/java/com.aspose.slides/html5options/). Sử dụng [setCommentsPosition](https://reference.aspose.com/slides/java/com.aspose.slides/notescommentslayoutingoptions/#setCommentsPosition-int-) để chọn `Right` từ liệt kê [CommentsPositions](https://reference.aspose.com/slides/java/com.aspose.slides/commentspositions/) nhằm đặt các bình luận ở phía bên phải mỗi slide.
 
-Khi bạn chuyển đổi bản trình bày PowerPoint sang tài liệu HTML5, bạn có thể dễ dàng chỉ định việc bao gồm chú thích từ bản trình bày trong tài liệu đầu ra. Để làm điều này, bạn cần chỉ định các tham số hiển thị cho chú thích trong phương thức `getNotesCommentsLayouting` của lớp [Html5Options](https://reference.aspose.com/slides/vi/java/com.aspose.slides/html5options/).
+Ví dụ sau xuất bản trình chiếu sang HTML5 với bố cục bình luận này. Một bản trình chiếu không có bình luận sẽ không có văn bản bình luận để hiển thị.
 
-Đoạn mã sau đây chuyển đổi bản trình bày sang tài liệu HTML5 với chú thích được hiển thị ở phía bên phải của các slide.
 ```java
+import com.aspose.slides.*;
+
+NotesCommentsLayoutingOptions layoutOptions = new NotesCommentsLayoutingOptions();
+layoutOptions.setCommentsPosition(CommentsPositions.Right);
+
 Html5Options html5Options = new Html5Options();
-html5Options.getNotesCommentsLayouting().setCommentsPosition(CommentsPositions.Right);
+html5Options.setSlidesLayoutOptions(layoutOptions);
 
 Presentation presentation = new Presentation("sample.pptx");
-presentation.save("output.html", SaveFormat.Html5, html5Options);
-presentation.dispose();
+try {
+    presentation.save("output.html", SaveFormat.Html5, html5Options);
+} finally {
+    presentation.dispose();
+}
 ```
 
-Tài liệu "output.html" được hiển thị trong hình dưới đây.
+![Các bình luận trong tài liệu HTML5 đầu ra](two_comments_html5.png)
 
-![Các chú thích trong tài liệu HTML5 đầu ra](two_comments_html5.png)
+## **Loại trừ siêu liên kết JavaScript khi xuất**
+
+Giả sử `hyperlinks.pptx` chứa văn bản liên kết với mục tiêu `javascript:alert('Hello')` và một liên kết thông thường `https://example.com/`. Để loại trừ siêu liên kết JavaScript khi xuất, truyền `true` cho [SaveOptions.setSkipJavaScriptLinks](https://reference.aspose.com/slides/java/com.aspose.slides/saveoptions/#setSkipJavaScriptLinks-boolean-). Mặc định là `false`, vì vậy các liên kết này sẽ không được lọc trừ khi bạn bật tùy chọn.
+
+Ví dụ dưới đây tải bản trình chiếu từ thư mục làm việc và xuất nó bằng [Html5Options](https://reference.aspose.com/slides/java/com.aspose.slides/html5options/):
+
+```java
+import com.aspose.slides.*;
+
+Html5Options html5Options = new Html5Options();
+html5Options.setSkipJavaScriptLinks(true);
+
+Presentation presentation = new Presentation("hyperlinks.pptx");
+try {
+    presentation.save("filtered-html5.html", SaveFormat.Html5, html5Options);
+} finally {
+    presentation.dispose();
+}
+```
+
+Tệp đã xuất bỏ qua siêu liên kết JavaScript trong khi vẫn giữ lại văn bản của nó và liên kết HTTPS thông thường. Bản trình chiếu nguồn không thay đổi.
+
+Tùy chọn này lọc các siêu liên kết JavaScript; nó không loại bỏ tất cả các script hoặc nội dung hoạt động khác, cũng như không đảm bảo tuân thủ CSP. Ví dụ, đầu ra HTML5 vẫn bao gồm các script cho việc điều hướng slide và hoạt ảnh.
 
 ## **Câu hỏi thường gặp**
 
-**Tôi có thể kiểm soát việc các hoạt ảnh đối tượng và chuyển đổi slide có được phát trong HTML5 hay không?**
+**Tôi có thể kiểm soát việc các hoạt ảnh đối tượng và chuyển đổi slide có được phát trong HTML5 không?**
 
-Có, HTML5 cung cấp các tùy chọn riêng để bật hoặc tắt [shape animations](https://reference.aspose.com/slides/vi/java/com.aspose.slides/html5options/#setAnimateShapes-boolean-) và [slide transitions](https://reference.aspose.com/slides/vi/java/com.aspose.slides/html5options/#setAnimateTransitions-boolean-).
+Có, xuất HTML5 cung cấp các tùy chọn riêng biệt để bật hoặc tắt [shape animations](https://reference.aspose.com/slides/java/com.aspose.slides/html5options/#setAnimateShapes-boolean-) và [slide transitions](https://reference.aspose.com/slides/java/com.aspose.slides/html5options/#setAnimateTransitions-boolean-).
 
-**Việc xuất chú thích có được hỗ trợ không, và chúng có thể được đặt ở vị trí nào so với slide?**
+**Các bình luận có được hỗ trợ không, và chúng có thể được đặt ở vị trí nào so với slide?**
 
-Có, chú thích có thể được thêm vào HTML5 và định vị (ví dụ, ở bên phải slide) thông qua [layout settings](https://reference.aspose.com/slides/vi/java/com.aspose.slides/html5options/#setSlidesLayoutOptions-com.aspose.slides.ISlidesLayoutOptions-) cho ghi chú và chú thích.
+Có, các bình luận hiện có có thể được bao gồm trong đầu ra HTML5 và vị trí (ví dụ, phía bên phải slide) có thể được đặt thông qua [layout settings](https://reference.aspose.com/slides/java/com.aspose.slides/html5options/#setSlidesLayoutOptions-com.aspose.slides.ISlidesLayoutOptions-) cho ghi chú và bình luận.
 
 **Tôi có thể bỏ qua các liên kết gọi JavaScript vì lý do bảo mật hoặc CSP không?**
 
-Có, có một [setting](https://reference.aspose.com/slides/vi/java/com.aspose.slides/saveoptions/#setSkipJavaScriptLinks-boolean-) cho phép bạn bỏ qua các siêu liên kết có lời gọi JavaScript khi lưu. Điều này giúp tuân thủ các chính sách bảo mật nghiêm ngặt.
+Có, cài đặt [setSkipJavaScriptLinks](https://reference.aspose.com/slides/java/com.aspose.slides/saveoptions/#setSkipJavaScriptLinks-boolean-) cho phép bạn bỏ qua các siêu liên kết có lời gọi JavaScript khi lưu. Mặc định là `false`. Xem [Loại trừ Siêu liên kết JavaScript khi xuất](/slides/vi/java/export-to-html5/#exclude-javascript-hyperlinks-during-export) để xem ví dụ xuất HTML5 và phạm vi của bộ lọc. Cài đặt này không loại bỏ JavaScript được sử dụng bởi trình xem HTML5 cho việc điều hướng và hoạt ảnh.
