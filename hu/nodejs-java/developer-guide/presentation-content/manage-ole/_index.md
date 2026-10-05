@@ -6,7 +6,7 @@ weight: 40
 url: /hu/nodejs-java/manage-ole/
 keywords:
 - OLE objektum
-- Objektum összekapcsolás és beágyazás
+- Objektumok összekapcsolása és beágyazása
 - OLE hozzáadása
 - OLE beágyazása
 - objektum hozzáadása
@@ -26,47 +26,50 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Optimalizálja az OLE objektumok kezelését PowerPoint és OpenDocument fájlokban az Aspose.Slides for Node.js via Java segítségével. Az OLE tartalmak beágyazása, frissítése és exportálása zökkenőmentesen."
+description: "Optimalizálja az OLE objektumkezelést PowerPoint és OpenDocument fájlokban az Aspose.Slides for Node.js via Java segítségével. Beágyazza, frissítse és exportálja az OLE tartalmat zökkenőmentesen."
 ---
 ## **Bevezetés**
 
-{{% alert color="primary" %}} 
+{{% alert color="info" title="Note" %}}
 
-Az OLE (Object Linking & Embedding) egy Microsoft technológia, amely lehetővé teszi, hogy egy alkalmazásban létrehozott adatokat és objektumokat egy másik alkalmazásban linkeléssel vagy beágyazással helyezzünk el. 
+Az OLE (Object Linking & Embedding) egy Microsoft technológia, amely lehetővé teszi, hogy egy alkalmazásban létrehozott adatokat és objektumokat egy másik alkalmazásba helyezzük hivatkozás vagy beágyazás segítségével. 
 
 {{% /alert %}} 
 
-Tekintsünk egy az MS Excelben létrehozott diagramot. A diagramot ezután egy PowerPoint‑diára helyezzük. Ez az Excel‑diagram OLE objektumnak tekinthető. 
+Tekintsünk egy MS Excel-ben létrehozott diagramra. A diagramot ezután egy PowerPoint diára helyezzük. Ez az Excel-diagram OLE objektumnak tekinthető. 
 
-- Egy OLE objektum ikonként jelenhet meg. Ebben az esetben, ha duplán kattintunk az ikonra, a diagram a kapcsolódó alkalmazásban (Excel) nyílik meg, vagy a felhasználó felkeresi a megnyitáshoz vagy szerkesztéshez megfelelő alkalmazást. 
-- Egy OLE objektum megjelenítheti tényleges tartalmát, például egy diagram adatait. Ebben az esetben a diagram aktiválódik a PowerPointben, a diagram felülete betöltődik, és a diagram adatait közvetlenül a PowerPointen belül módosíthatjuk.
+- Egy OLE objektum megjelenhet ikonként. Ebben az esetben, ha duplán kattint az ikonra, a diagram megnyílik a kapcsolódó alkalmazásban (Excel), vagy felkérik, hogy válasszon egy alkalmazást az objektum megnyitásához vagy szerkesztéséhez.
+- Egy OLE objektum megjelenítheti a tényleges tartalmát, például egy diagram tartalmát. Ebben az esetben a diagram aktiválódik a PowerPointban, a diagram felülete betöltődik, és módosíthatja a diagram adatait a PowerPointon belül.
 
-[Aspose.Slides Node.js-hez Java-n keresztül](https://products.aspose.com/slides/hu/nodejs-java/) lehetővé teszi OLE objektumok beillesztését a diákba OLE objektumkeretként ([OleObjectFrame](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/OleObjectFrame)).
+Az [Aspose.Slides for Node.js via Java](https://products.aspose.com/slides/nodejs-java/) lehetővé teszi, hogy OLE objektumokat szúrjon be diákba OLE objektumkeretként ([OleObjectFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/OleObjectFrame)).
 
 ## **OLE objektumkeretek hozzáadása a diákhoz**
 
-Tegyük fel, hogy már létrehozott egy diagramot a Microsoft Excelben, és azt OLE objektumkeretként szeretné beágyazni egy diára az Aspose.Slides Node.js-hez Java-n keresztül, ezt a módot követve:
+Feltételezve, hogy már létrehozott egy diagramot a Microsoft Excelben, és be szeretné ágyazni azt egy diára OLE objektumkeretként az Aspose.Slides for Node.js via Java használatával, ezt a módot követheti:
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/Presentation) osztályból.  
-1. Szerezze meg a dia hivatkozását az indexe alapján.  
-1. Olvassa be az Excel‑fájlt bájt‑tömbként.  
-1. Adja hozzá az [OleObjectFrame](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/OleObjectFrame) keretet a diához, amely a bájt‑tömböt és az OLE objektum egyéb adatait tartalmazza.  
-1. Írja ki a módosított prezentációt PPTX fájlként.  
+1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) osztályból.
+1. Szerezze meg a diára hivatkozást az indexe alapján.
+1. Olvassa be az Excel-fájlt bájt tömbként.
+1. Adja hozzá az [OleObjectFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/OleObjectFrame) elemet a diára, amely tartalmazza a bájt tömböt és egyéb információkat az OLE objektumról.
+1. Írja a módosított prezentációt PPTX fájlként.
 
-Az alábbi példában egy Excel‑fájlból származó diagramot adtunk hozzá a diához OLE objektumkeretként az Aspose.Slides Node.js-hez Java-n keresztül.  
-**Megjegyzés** hogy az [OleEmbeddedDataInfo](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/OleEmbeddedDataInfo) konstruktor második paraméterként egy beágyazható objektum kiterjesztést vár. Ez a kiterjesztés lehetővé teszi a PowerPoint számára, hogy helyesen értelmezze a fájltípust, és a megfelelő alkalmazást válassza az OLE objektum megnyitásához.
+Az alábbi példában egy Excel-fájlból származó diagramot adtunk hozzá a diához OLE objektumkeretként az Aspose.Slides for Node.js via Java használatával. **Megjegyzés**, hogy az [OleEmbeddedDataInfo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/OleEmbeddedDataInfo) konstruktor második paraméterként egy beágyazható objektum kiterjesztést vár. Ez a kiterjesztés lehetővé teszi, hogy a PowerPoint helyesen értelmezze a fájltípust és a megfelelő alkalmazást válassza az OLE objektum megnyitásához.
 
 ```javascript
+const asposeSlides = require("aspose.slides.via.java");
+const fs = require("fs");
+const java = require("java");
+
 var presentation = new asposeSlides.Presentation();
 var slideSize = presentation.getSlideSize().getSize();
 var slide = presentation.getSlides().get_Item(0);
 
-// Készítse elő az OLE objektum adatait.
+// Prepare data for the OLE object.
 var oleStream = fs.readFileSync("book.xlsx");
 var fileData = Array.from(oleStream);
 var dataInfo = new asposeSlides.OleEmbeddedDataInfo(java.newArray("byte", fileData), "xlsx");
 
-// Adja hozzá az OLE objektumkeretet a diához.
+// Add the OLE object frame to the slide.
 slide.getShapes().addOleObjectFrame(0, 0, slideSize.getWidth(), slideSize.getHeight(), dataInfo);
 
 presentation.save("output.pptx", asposeSlides.SaveFormat.Pptx);
@@ -75,15 +78,17 @@ presentation.dispose();
 
 ### **Linkelt OLE objektumkeretek hozzáadása**
 
-Az Aspose.Slides Node.js-hez Java-n keresztül lehetővé teszi egy [OleObjectFrame](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/OleObjectFrame) hozzáadását anélkül, hogy az adatot beágyazná, csak a fájlra mutató hivatkozással.
+Az Aspose.Slides for Node.js via Java lehetővé teszi, hogy egy [OleObjectFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/OleObjectFrame) elemet adjon hozzá adat beágyazása nélkül, csak a fájlra mutató hivatkozással.
 
-Az alábbi JavaScript‑kód bemutatja, hogyan adhat hozzá egy [OleObjectFrame](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/OleObjectFrame) keretet egy linkelt Excel‑fájllal a diára:
+Ez a JavaScript kód megmutatja, hogyan adjon egy [OleObjectFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/OleObjectFrame) elemet egy linkelt Excel fájllal a diához:
 
 ```javascript
+const asposeSlides = require("aspose.slides.via.java");
+
 var presentation = new asposeSlides.Presentation();
 var slide = presentation.getSlides().get_Item(0);
 
-// OLE objektumkeret hozzáadása egy linkelt Excel-fájllal.
+// OLE objektumkeret hozzáadása egy linkelt Excel fájlhoz.
 slide.getShapes().addOleObjectFrame(20, 20, 200, 150, "Excel.Sheet.12", "book.xlsx");
 
 presentation.save("output.pptx", asposeSlides.SaveFormat.Pptx);
@@ -94,14 +99,17 @@ presentation.dispose();
 
 Ha egy OLE objektum már be van ágyazva egy diára, egyszerűen megtalálhatja vagy elérheti a következő módon:
 
-1. Töltsön be egy prezentációt, amely tartalmazza a beágyazott OLE objektumot, a [Presentation](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/Presentation) osztály példányosításával.  
-2. Szerezze meg a dia hivatkozását az indexe alapján.  
-3. Érje el az [OleObjectFrame](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/OleObjectFrame) alakzatot. Példánkban az előzőleg létrehozott PPTX‑et használtuk, amelyen az első dián csak egy alakzat van.  
-4. Miután elérte az OLE objektumkeretet, tetszőleges műveletet végrehajthat rajta.  
+1. Töltsön be egy prezentációt a beágyazott OLE objektummal, úgy, hogy létrehoz egy példányt a [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) osztályból.
+2. Szerezze meg a dia hivatkozását az indexének használatával.
+3. Érje el az [OleObjectFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/OleObjectFrame) alakzatot. A példánkban a korábban létrehozott PPTX-et használtuk, amelynek az első dián csak egy alakzata van.
+4. Miután az OLE objektumkeret elérhető, bármilyen műveletet végrehajthat rajta.
 
-Az alábbi példában egy OLE objektumkeretet (egy diára beágyazott Excel‑diagramot) és annak fájladatait érjük el.
+Az alábbi példában egy OLE objektumkeret (egy diára beágyazott Excel diagram) és a hozzá tartozó fájladatok elérhetők.
 
 ```javascript
+const asposeSlides = require("aspose.slides.via.java");
+const java = require("java");
+
 var presentation = new asposeSlides.Presentation("sample.pptx");
 var slide = presentation.getSlides().get_Item(0);
 var shape = slide.getShapes().get_Item(0);
@@ -109,8 +117,12 @@ var shape = slide.getShapes().get_Item(0);
 if (java.instanceOf(shape, "com.aspose.slides.OleObjectFrame")) {
     var oleFrame = shape;
     
-    // Szerezze meg a beágyazott fájl adatait.
-    // Szerezze meg a beágyazott fájl kiterjesztését.
+    // A beágyazott fájl adatainak lekérése.
+    var fileData = oleFrame.getEmbeddedData().getEmbeddedFileData();
+
+    // A beágyazott fájl kiterjesztésének lekérése.
+    var fileExtension = oleFrame.getEmbeddedData().getEmbeddedFileExtension();
+
     // ...
 }
 ```
@@ -119,9 +131,12 @@ if (java.instanceOf(shape, "com.aspose.slides.OleObjectFrame")) {
 
 Az Aspose.Slides lehetővé teszi a linkelt OLE objektumkeret tulajdonságainak elérését.
 
-Az alábbi JavaScript‑kód megmutatja, hogyan ellenőrizhető, hogy egy OLE objektum linkelt-e, és hogyan kérhető le a linkelt fájl elérési útja:
+Ez a JavaScript kód megmutatja, hogyan ellenőrizze, hogy egy OLE objektum linkelt-e, és hogyan szerezze meg a linkelt fájl útvonalát:
 
 ```javascript
+const asposeSlides = require("aspose.slides.via.java");
+const java = require("java");
+
 var presentation = new asposeSlides.Presentation("sample.ppt");
 var slide = presentation.getSlides().get_Item(0);
 var shape = slide.getShapes().get_Item(0);
@@ -131,10 +146,10 @@ if (java.instanceOf(shape, "com.aspose.slides.OleObjectFrame")) {
 
     // Ellenőrizze, hogy az OLE objektum linkelt-e.
     if (oleFrame.isObjectLink()) {
-        // Írja ki a linkelt fájl teljes útvonalát.
+        // Kiírja a linkelt fájl teljes útvonalát.
         console.log("OLE object frame is linked to:", oleFrame.getLinkPathLong());
 
-        // Írja ki a linkelt fájl relatív útvonalát, ha létezik.
+        // Kiírja a linkelt fájl relatív útvonalát, ha létezik.
         // Csak a PPT prezentációk tartalmazhatják a relatív útvonalat.
         if (oleFrame.getLinkPathRelative() != null && oleFrame.getLinkPathRelative() != "") {
             console.log("OLE object frame relative path:", oleFrame.getLinkPathRelative());
@@ -147,26 +162,29 @@ presentation.dispose();
 
 ## **OLE objektum adatainak módosítása**
 
-{{% alert color="primary" %}} 
+{{% alert color="info" title="Note" %}}
 
-Ebben a részben az alábbi kódpélda a [Aspose.Cells for Java](/cells/java/) használatát mutatja be. 
+Ebben a szakaszban az alábbi kódrészlet a [Aspose.Cells for Java](https://docs.aspose.com/cells/java/) használatát mutatja be.
 
 {{% /alert %}}
 
-Ha egy OLE objektum már be van ágyazva egy diára, egyszerűen elérheti azt, és a következő lépésekkel módosíthatja az adatokat:
+Ha egy OLE objektum már be van ágyazva egy diára, egyszerűen elérheti az objektumot és módosíthatja az adatait a következő módon:
 
-1. Töltsön be egy prezentációt, amely tartalmazza a beágyazott OLE objektumot, a [Presentation](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/Presentation) osztály példányosításával.  
-2. Szerezze meg a dia hivatkozását az indexe alapján.  
-3. Érje el az OLE objektumkeret alakzatot. Példánkban az előzőleg létrehozott PPTX‑et használtuk, amelyen az első dián egy alakzat van.  
-4. Miután elérte az OLE objektumkeretet, tetszőleges műveletet végrehajthat rajta.  
-5. Hozzon létre egy `Workbook` példányt, és érje el az OLE adatokat.  
-6. Nyissa meg a kívánt `Worksheet`‑et, és módosítsa az adatokat.  
-7. Mentse a frissített `Workbook`‑ot egy áramlatba.  
-8. Cserélje ki az OLE objektum adatait az áramlatból.  
+1. Töltsön be egy prezentációt a beágyazott OLE objektummal, úgy, hogy létrehoz egy példányt a [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) osztályból.
+2. Szerezze meg a dia hivatkozását az indexe alapján. 
+3. Érje el az OLE objektumkeret alakzatát. A példánkban a korábban létrehozott PPTX-et használtuk, amelynek az első dián egy alakzata van.
+4. Miután az OLE objektumkeret elérhető, bármilyen műveletet végrehajthat rajta.
+5. Hozzon létre egy `Workbook` objektumot és érje el az OLE adatot.
+6. Érje el a kívánt `Worksheet`-et és módosítsa az adatot.
+7. Mentse a frissített `Workbook`-ot egy adatfolyamba.
+8. Módosítsa az OLE objektum adatát az adatfolyamból.
 
-Az alábbi példában egy OLE objektumkeretet (egy diára beágyazott Excel‑diagramot) érünk el, és módosítjuk a fájladatait, hogy a diagram adatai frissüljenek.
+Az alábbi példában egy OLE objektumkeret (egy diára beágyazott Excel diagram) érhető el, és a fájladatai módosulnak a diagram adatainak frissítése érdekében.
 
 ```javascript
+const asposeSlides = require("aspose.slides.via.java");
+const java = require("java");
+
 var presentation = new asposeSlides.Presentation("sample.pptx");
 var slide = presentation.getSlides().get_Item(0);
 var shape = slide.getShapes().get_Item(0);
@@ -174,24 +192,26 @@ var shape = slide.getShapes().get_Item(0);
 if (java.instanceOf(shape, "com.aspose.slides.OleObjectFrame")) {
     var oleFrame = shape;
 
-    var oleStream = java.newInstanceSync("java.io.ByteArrayInputStream", oleFrame.getEmbeddedData().getEmbeddedFileData());
+    var embeddedData = Array.from(oleFrame.getEmbeddedData().getEmbeddedFileData());
+    var oleStream = java.newInstanceSync("java.io.ByteArrayInputStream", java.newArray("byte", embeddedData));
 
     // Olvassa be az OLE objektum adatát Workbook objektumként.
-    var workbook = java.newInstanceSync("Workbook", oleStream);
+    var workbook = java.newInstanceSync("com.aspose.cells.Workbook", oleStream);
 
     var newOleStream = java.newInstanceSync("java.io.ByteArrayOutputStream");
 
-    // Módosítsa a munkafüzet adatait.
+    // Módosítsa a workbook adatokat.
     workbook.getWorksheets().get(0).getCells().get(0, 4).putValue("E");
     workbook.getWorksheets().get(0).getCells().get(1, 4).putValue(12);
     workbook.getWorksheets().get(0).getCells().get(2, 4).putValue(14);
     workbook.getWorksheets().get(0).getCells().get(3, 4).putValue(15);
 
-    var fileOptions = java.newInstanceSync("OoxmlSaveOptions", java.getStaticFieldValue("com.aspose.cells.SaveFormat", "XLSX"));
+    var fileOptions = java.newInstanceSync("com.aspose.cells.OoxmlSaveOptions", java.getStaticFieldValue("com.aspose.cells.SaveFormat", "XLSX"));
     workbook.save(newOleStream, fileOptions);
 
-    // Módosítsa az OLE keret objektum adatait.
-    var newData = new asposeSlides.OleEmbeddedDataInfo(newOleStream.toByteArray(), oleFrame.getEmbeddedData().getEmbeddedFileExtension());
+    // Az OLE keret objektum adatainak módosítása.
+    var newFileData = java.newArray("byte", Array.from(newOleStream.toByteArray()));
+    var newData = new asposeSlides.OleEmbeddedDataInfo(newFileData, oleFrame.getEmbeddedData().getEmbeddedFileExtension());
     oleFrame.setEmbeddedData(newData);
 
     newOleStream.close();
@@ -202,13 +222,17 @@ presentation.save("output.pptx", asposeSlides.SaveFormat.Pptx);
 presentation.dispose();
 ```
 
-## **Más fájltípusok beágyazása a diákba**
+## **Más fájltípusok beágyazása diákba**
 
-Az Excel‑diagramokon túl az Aspose.Slides Node.js-hez Java-n keresztül lehetővé teszi más fájltípusok beágyazását is. Például HTML, PDF és ZIP fájlokat szúrhat be objektumként. Amikor a felhasználó duplán kattint a beillesztett objektumra, az automatikusan megnyílik a megfelelő programban, vagy a felhasználó felkeresi a megfelelő programot a megnyitáshoz.
+Az Excel diagramokon kívül az Aspose.Slides for Node.js via Java lehetővé teszi más típusú fájlok diákba ágyazását is. Például HTML, PDF és ZIP fájlokat szúrhat be objektumként. Amikor egy felhasználó duplán kattint a beszúrt objektumra, az automatikusan megnyílik a megfelelő programban, vagy a felhasználót felkérik, hogy válasszon egy megfelelő programot a megnyitáshoz.
 
-Az alábbi JavaScript‑kód bemutatja, hogyan ágyazhat be HTML‑t és ZIP‑et egy diára:
+Ez a JavaScript kód megmutatja, hogyan ágyazzon be HTML-t és ZIP-et egy diára:
 
 ```javascript
+const asposeSlides = require("aspose.slides.via.java");
+const fs = require("fs");
+const java = require("java");
+
 var presentation = new asposeSlides.Presentation();
 var slide = presentation.getSlides().get_Item(0);
 
@@ -230,11 +254,14 @@ presentation.dispose();
 
 ## **Beágyazott objektumok fájltípusának beállítása**
 
-Prezentációk kezelésekor előfordulhat, hogy régi OLE objektumokat újakkal kell helyettesíteni, vagy egy nem támogatott OLE objektumot támogatottal kell cserélni. Az Aspose.Slides Node.js-hez Java-n keresztül beállíthatja a beágyazott objektum fájltípusát, így frissítheti az OLE keret adatait vagy annak kiterjesztését.
+Prezentációk szerkesztésekor előfordulhat, hogy régi OLE objektumokat újakkal kell helyettesíteni, vagy egy nem támogatott OLE objektumot egy támogatottal. Az Aspose.Slides for Node.js via Java lehetővé teszi egy beágyazott objektum fájltípusának beállítását, így frissítheti az OLE keret adatát vagy kiterjesztését.
 
-Az alábbi JavaScript‑kód megmutatja, hogyan állítható be a beágyazott OLE objektum fájltípusa `zip`‑re:
+Ez a JavaScript kód megmutatja, hogyan állíthatja be egy beágyazott OLE objektum fájltípusát `zip`-re:
 
 ```javascript
+const asposeSlides = require("aspose.slides.via.java");
+const java = require("java");
+
 var presentation = new asposeSlides.Presentation("sample.pptx");
 var slide = presentation.getSlides().get_Item(0);
 var oleFrame = slide.getShapes().get_Item(0);
@@ -244,7 +271,7 @@ var oleFileData = oleFrame.getEmbeddedData().getEmbeddedFileData();
 
 console.log("Current embedded file extension is:", fileExtension);
 
-// Change the file type to ZIP.
+// A fájltípus módosítása ZIP-re.
 var fileData = java.newArray("byte", Array.from(oleFileData));
 oleFrame.setEmbeddedData(new asposeSlides.OleEmbeddedDataInfo(fileData, "zip"));
 
@@ -254,11 +281,13 @@ presentation.dispose();
 
 ## **Ikonképek és címek beállítása beágyazott objektumokhoz**
 
-Egy OLE objektum beágyazása után automatikusan hozzáadódik egy előnézet, amely egy ikonképet tartalmaz. Ez az előnézet jelenik meg a felhasználók számára, mielőtt elérnék vagy megnyitnák az OLE objektumot. Ha egy konkrét képet és szöveget szeretne használni az előnézetben, akkor beállíthatja az ikonképet és a címet az Aspose.Slides Node.js-hez Java-n keresztül.
+Egy OLE objektum beágyazása után egy előnézet jelenik meg automatikusan, amely egy ikonképből áll. Ez az előnézet az, amit a felhasználók látnak az OLE objektum elérése vagy megnyitása előtt. Ha egy adott képet és szöveget szeretne használni az előnézet elemeként, beállíthatja az ikonképet és a címet az Aspose.Slides for Node.js via Java segítségével.
 
-Az alábbi JavaScript‑kód megmutatja, hogyan állítható be az ikonkép és a cím egy beágyazott objektumhoz:
+Ez a JavaScript kód megmutatja, hogyan állíthatja be az ikonképet és a címet egy beágyazott objektumhoz:
 
 ```javascript
+const asposeSlides = require("aspose.slides.via.java");
+
 var presentation = new asposeSlides.Presentation("sample.pptx");
 var slide = presentation.getSlides().get_Item(0);
 var oleFrame = slide.getShapes().get_Item(0);
@@ -268,7 +297,7 @@ var image = asposeSlides.Images.fromFile("image.png");
 var oleImage = presentation.getImages().addImage(image);
 image.dispose();
 
-// Állítson be címet és képet az OLE előnézethez.
+// Set a title and the image for the OLE preview.
 oleFrame.setSubstitutePictureTitle("My title");
 oleFrame.getSubstitutePictureFormat().getPicture().setImage(oleImage);
 oleFrame.setObjectIcon(true);
@@ -277,25 +306,38 @@ presentation.save("output.pptx", asposeSlides.SaveFormat.Pptx);
 presentation.dispose();
 ```
 
-## **Az OLE objektumkeret átméretezésének és áthelyezésének megakadályozása**
+## **Megakadályozza, hogy egy OLE objektumkeret méreteződjön vagy áthelyeződjön**
 
-Miután egy linkelt OLE objektumot hozzáadott egy prezentációs diahoz, a PowerPoint megnyitásakor megjelenhet egy üzenet, amely a hivatkozások frissítését kéri. Az „Update Links” gombra kattintva a PowerPoint frissíti a linkelt OLE objektum adatait, ami a keret méretének és pozíciójának változását eredményezheti. Annak érdekében, hogy a PowerPoint ne kérje az objektum adatainak frissítését, használja az [OleObjectFrame](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/oleobjectframe/) osztály `setUpdateAutomatic` metódusát `false` értékkel:
+Miután egy linkelt OLE objektumot hozzáad egy prezentációs diához, a PowerPointban történő megnyitáskor megjelenhet egy üzenet, amely arra kéri, hogy frissítse a hivatkozásokat. Az „Update Links” (Hivatkozások frissítése) gombra kattintás módosíthatja az OLE objektumkeret méretét és pozícióját, mivel a PowerPoint frissíti az adatokat a linkelt OLE objektumból, és frissíti az objektum előnézetét. Annak elkerülése érdekében, hogy a PowerPoint felkérje a objektum adatainak frissítésére, hívja meg a [setUpdateAutomatic](https://reference.aspose.com/slides/nodejs-java/aspose.slides/oleobjectframe/#setUpdateAutomatic) metódust az [OleObjectFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/oleobjectframe/) osztályon `false` argumentummal:
 
 ```javascript
+const asposeSlides = require("aspose.slides.via.java");
+
+var presentation = new asposeSlides.Presentation("sample.pptx");
+var slide = presentation.getSlides().get_Item(0);
+var oleFrame = slide.getShapes().get_Item(0);
+
 oleFrame.setUpdateAutomatic(false);
+
+presentation.save("output.pptx", asposeSlides.SaveFormat.Pptx);
+presentation.dispose();
 ```
 
 ## **Beágyazott fájlok kinyerése**
 
-Az Aspose.Slides Node.js-hez Java-n keresztül a következő módon nyerheti ki a diákba beágyazott OLE objektumként tárolt fájlokat:
+Az Aspose.Slides for Node.js via Java lehetővé teszi, hogy a diákba beágyazott fájlokat OLE objektumokként a következő módon nyerje ki:
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/Presentation) osztályból, amely a kinyerni kívánt OLE objektumokat tartalmazza.  
-2. Iteráljon végig a prezentáció összes alakzatán, és érje el az [OleObjectFrame](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/oleobjectframe) alakzatokat.  
-3. Olvassa ki a beágyazott fájlok adatait az OLE objektumkeretekből, és írja őket lemezre.  
+1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) osztályból, amely tartalmazza azokat az OLE objektumokat, amelyeket ki szeretne nyerni.
+2. Iteráljon végig a prezentáció összes alakzataján, és érje el a [OLEObjectFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/oleobjectframe) alakzatokat.
+3. Érje el a beágyazott fájlok adatait az OLE objektumkeretekből, és írja őket lemezre.
 
-Az alábbi JavaScript‑kód megmutatja, hogyan nyerhet ki fájlokat, amelyeket egy dia OLE objektumként tartalmaz:
+Ez a JavaScript kód megmutatja, hogyan nyerjen ki egy dián beágyazott fájlokat OLE objektumként:
 
 ```javascript
+const asposeSlides = require("aspose.slides.via.java");
+const fs = require("fs");
+const java = require("java");
+
 var presentation = new asposeSlides.Presentation("sample.pptx");
 var slide = presentation.getSlides().get_Item(0);
 
@@ -316,16 +358,17 @@ for (var index = 0; index < slide.getShapes().size(); index++) {
 presentation.dispose();
 ```
 
-## **GYIK**
+## **FAQ**
 
-**Megjelenik-e az OLE tartalom, ha a diákat PDF‑re/képre exportáljuk?**
+**A OLE tartalom renderelődik a diák PDF/képek formátumba exportálásakor?**
 
-A dián látható elemek (az ikon vagy helyettesítő kép) kerülnek renderelésre. A „valódi” OLE tartalom nem fut le a renderelés során. Szükség esetén állítson be saját előnézeti képet, hogy a várt megjelenés megjelenjen az exportált PDF‑ben.
+A dián látható tartalom kerül renderelésre – az ikon/helyettesítő kép (előnézet). Az „élő” OLE tartalmat nem hajtja végre a renderelés során. Szükség esetén állítson be saját előnézeti képet, hogy a várt megjelenést biztosítsa az exportált PDF-ben.  
+A beágyazott fájl PDF mellékletként való megőrzéséhez hívja meg a [setIncludeOleData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfoptions/#setIncludeOleData) metódust `true` értékkel. Ez az opció alapértelmezésben le van tiltva. Példáért és az ellenőrzés módjáért lásd a [Preserve Embedded OLE Files as PDF Attachments](/slides/hu/nodejs-java/convert-powerpoint-to-pdf/#preserve-embedded-ole-files-as-pdf-attachments) oldalt.
 
-**Hogyan lehet zárolni egy OLE objektumot a dián, hogy a felhasználók ne mozgassák vagy szerkesszék PowerPointban?**
+**Hogyan zárhatok le egy OLE objektumot a dián, hogy a felhasználók ne mozgathassák/szerkeszthessék PowerPointban?**
 
-Zárolja az alakzatot: az Aspose.Slides alakzatszintű zárolásokat biztosít. Ez nem titkosítás, de hatékonyan megakadályozza a véletlen szerkesztéseket és áthelyezéseket.
+Zárja le az alakzatot: az Aspose.Slides alakzatszintű zárolásokat biztosít. Ez nem titkosítás, de hatékonyan megakadályozza a véletlen szerkesztéseket és mozgatást.
 
-**Megmaradnak-e a relatív elérési utak a linkelt OLE objektumoknál a PPTX formátumban?**
+**Megmaradnak a linkelt OLE objektumok relatív útvonalai a PPTX formátumban?**
 
-A PPTX‑ben nincs „relatív útvonal” információ – csak a teljes útvonal tárolódik. A relatív utak a régebbi PPT formátumban találhatók. Az áthelyezhetőség érdekében részesítsen előnyben megbízható abszolút útvonalakat vagy elérhető URI‑kat, vagy használja a beágyazást.
+A PPTX-ben a „relatív útvonal” információ nem érhető el – csak a teljes útvonal. A relatív útvonalak a régebbi PPT formátumban találhatók. A hordozhatóság érdekében részesítse előnyben a megbízható abszolút útvonalakat/elérhető URI-kat vagy a beágyazást.

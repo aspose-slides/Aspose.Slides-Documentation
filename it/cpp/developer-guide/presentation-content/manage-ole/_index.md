@@ -1,11 +1,11 @@
 ---
-title: Gestire OLE nelle presentazioni usando C++
-linktitle: Gestire OLE
+title: Gestisci OLE nelle presentazioni usando C++
+linktitle: Gestisci OLE
 type: docs
 weight: 40
 url: /it/cpp/manage-ole/
 keywords:
-- oggetto OLE
+- Oggetto OLE
 - Collegamento e incorporamento di oggetti
 - aggiungi OLE
 - incorpora OLE
@@ -25,79 +25,112 @@ keywords:
 - presentazione
 - C++
 - Aspose.Slides
-description: "Ottimizza la gestione degli oggetti OLE in PowerPoint e nei file OpenDocument con Aspose.Slides per C++. Incorpora, aggiorna ed esporta il contenuto OLE senza interruzioni."
+description: "Ottimizza la gestione degli oggetti OLE in PowerPoint e nei file OpenDocument con Aspose.Slides per C++. Incorpora, aggiorna ed esporta i contenuti OLE senza problemi."
 ---
 ## **Introduzione**
 
-{{% alert title="Info" color="info" %}}
-OLE (Object Linking & Embedding) è una tecnologia Microsoft che consente di inserire dati e oggetti creati in un'applicazione in un'altra applicazione tramite collegamento o incorporamento. 
+{{% alert color="info" title="Note" %}}
+
+OLE (Object Linking & Embedding) è una tecnologia Microsoft che consente ai dati e agli oggetti creati in un'applicazione di essere inseriti in un'altra applicazione tramite collegamento o incorporamento. 
+
 {{% /alert %}} 
 
-Considera un grafico creato in MS Excel. Il grafico viene quindi inserito in una diapositiva di PowerPoint. Quel grafico di Excel è considerato un oggetto OLE. 
+Considera un grafico creato in MS Excel. Il grafico viene poi inserito all'interno di una diapositiva PowerPoint. Quel grafico Excel è considerato un oggetto OLE. 
 
-- Un oggetto OLE può apparire come un'icona. In questo caso, facendo doppio clic sull'icona, il grafico si apre nell'applicazione associata (Excel), oppure ti viene chiesto di selezionare un'applicazione per aprire o modificare l'oggetto. 
-- Un oggetto OLE può visualizzare il suo contenuto reale, ad esempio il contenuto di un grafico. In questo caso, il grafico viene attivato in PowerPoint, l'interfaccia del grafico si carica e puoi modificare i dati del grafico all'interno di PowerPoint.
+- Un oggetto OLE può apparire come icona. In questo caso, quando fai doppio clic sull'icona, il grafico viene aperto nella sua applicazione associata (Excel), oppure ti viene chiesto di selezionare un'applicazione per l'apertura o la modifica dell'oggetto. 
+- Un oggetto OLE può visualizzare il suo contenuto reale, come il contenuto di un grafico. In questo caso, il grafico viene attivato in PowerPoint, si carica l'interfaccia del grafico e puoi modificare i dati del grafico all'interno di PowerPoint.
 
-[Aspose.Slides for C++](https://products.aspose.com/slides/it/cpp/) consente di inserire OLE Objects nelle diapositive come riquadri di oggetti OLE ([OleObjectFrame](https://reference.aspose.com/slides/it/cpp/aspose.slides/oleobjectframe/)).
+[Aspose.Slides for C++](https://products.aspose.com/slides/cpp/) permette di inserire oggetti OLE nelle diapositive come frame di oggetti OLE ([OleObjectFrame](https://reference.aspose.com/slides/cpp/aspose.slides/oleobjectframe/)).
 
-## **Aggiungi riquadri di oggetti OLE alle diapositive**
+## **Aggiungi frame di oggetti OLE alle diapositive**
 
-Supponendo di aver già creato un grafico in Microsoft Excel e di volerlo incorporare in una diapositiva come riquadro di oggetto OLE utilizzando Aspose.Slides for C++, puoi farlo in questo modo:
+Supponendo di aver già creato un grafico in Microsoft Excel e di volerlo incorporare in una diapositiva come frame di oggetto OLE usando Aspose.Slides per C++, è possibile farlo in questo modo:
 
-1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/cpp/class/aspose.slides.presentation).
-2. Ottieni il riferimento a una diapositiva tramite il suo indice.
+1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) .
+2. Ottieni il riferimento di una diapositiva tramite il suo indice.
 3. Leggi il file Excel come array di byte.
-4. Aggiungi il [OleObjectFrame](https://reference.aspose.com/slides/it/cpp/aspose.slides/oleobjectframe/) alla diapositiva contenente l'array di byte e altre informazioni sull'oggetto OLE.
+4. Aggiungi il [OleObjectFrame](https://reference.aspose.com/slides/cpp/aspose.slides/oleobjectframe/) alla diapositiva contenente l'array di byte e altre informazioni sull'oggetto OLE.
 5. Scrivi la presentazione modificata come file PPTX.
 
-Nell'esempio seguente, abbiamo aggiunto un grafico da un file Excel a una diapositiva come [OleObjectFrame](https://reference.aspose.com/slides/it/cpp/aspose.slides/oleobjectframe/) usando Aspose.Slides for C++.  
-**Nota** che il costruttore [OleEmbeddedDataInfo](https://reference.aspose.com/slides/it/cpp/aspose.slides.dom.ole/oleembeddeddatainfo/) accetta un'estensione di oggetto incorporabile come secondo parametro. Questa estensione consente a PowerPoint di interpretare correttamente il tipo di file e di scegliere l'applicazione appropriata per aprire questo oggetto OLE.
+Nell'esempio seguente, abbiamo aggiunto un grafico da un file Excel a una diapositiva come [OleObjectFrame](https://reference.aspose.com/slides/cpp/aspose.slides/oleobjectframe/) utilizzando Aspose.Slides per C++. **Nota** che il costruttore [OleEmbeddedDataInfo](https://reference.aspose.com/slides/cpp/aspose.slides.dom.ole/oleembeddeddatainfo/) accetta un'estensione di oggetto incorporabile come secondo parametro. Questa estensione consente a PowerPoint di interpretare correttamente il tipo di file e di scegliere l'applicazione giusta per aprire questo oggetto OLE.
 
 ``` cpp
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideSize.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <Ole/OleEmbeddedDataInfo.h>
+#include <drawing/size_f.h>
+#include <system/io/file.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::DOM::Ole;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
+
 auto presentation = MakeObject<Presentation>();
 auto slideSize = presentation->get_SlideSize()->get_Size();
 auto slide = presentation->get_Slide(0);
 
-// Prepara i dati per l'oggetto OLE.
+// Prepare data for the OLE object.
 auto fileData = File::ReadAllBytes(u"book.xlsx");
 auto dataInfo = MakeObject<OleEmbeddedDataInfo>(fileData, u"xlsx");
 
-// Aggiungi il riquadro dell'oggetto OLE alla diapositiva.
+// Add the OLE object frame to the slide.
 slide->get_Shapes()->AddOleObjectFrame(0, 0, slideSize.get_Width(), slideSize.get_Height(), dataInfo);
 
 presentation->Save(u"output.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-### **Aggiungi riquadri di oggetti OLE collegati**
+### **Aggiungi frame di oggetti OLE collegati**
 
-Aspose.Slides for C++ consente di aggiungere un [OleObjectFrame](https://reference.aspose.com/slides/it/cpp/aspose.slides/oleobjectframe/) senza incorporare i dati ma solo con un collegamento al file.
+Aspose.Slides for C++ consente di aggiungere un [OleObjectFrame](https://reference.aspose.com/slides/cpp/aspose.slides/oleobjectframe/) senza incorporare dati ma solo con un collegamento al file.
 
-Questo codice C++ mostra come aggiungere un [OleObjectFrame](https://reference.aspose.com/slides/it/cpp/aspose.slides/oleobjectframe/) con un file Excel collegato a una diapositiva:
+Questo codice C++ mostra come aggiungere un [OleObjectFrame](https://reference.aspose.com/slides/cpp/aspose.slides/oleobjectframe/) con un file Excel collegato a una diapositiva:
 
 ```cpp
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
 
-// Aggiungi un riquadro di oggetto OLE con un file Excel collegato.
+// Aggiungi un frame di oggetto OLE con un file Excel collegato.
 slide->get_Shapes()->AddOleObjectFrame(20, 20, 200, 150, u"Excel.Sheet.12", u"book.xlsx");
 
 presentation->Save(u"output.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Accedi ai riquadri di oggetti OLE**
+## **Accedi ai frame di oggetti OLE**
 
-Se un oggetto OLE è già incorporato in una diapositiva, puoi trovarlo o accedervi facilmente in questo modo:
+Se un oggetto OLE è già incorporato in una diapositiva, è possibile trovarlo o accedervi facilmente in questo modo:
 
-1. Carica una presentazione con l'oggetto OLE incorporato creando un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/cpp/class/aspose.slides.presentation).
+1. Carica una presentazione con l'oggetto OLE incorporato creando un'istanza della classe [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) .
 2. Ottieni il riferimento della diapositiva usando il suo indice. 
-3. Accedi alla forma [OleObjectFrame](https://reference.aspose.com/slides/it/cpp/aspose.slides/oleobjectframe/). Nel nostro esempio, abbiamo usato il PPTX precedentemente creato che ha una sola forma nella prima diapositiva. Quindi abbiamo *convertito* quell'oggetto in un [IOleObjectFrame](https://reference.aspose.com/slides/it/cpp/aspose.slides/ioleobjectframe/). Questo era il riquadro di oggetto OLE desiderato da accedere.
-4. Una volta che il riquadro dell'oggetto OLE è stato accesso, puoi eseguire qualsiasi operazione su di esso.
+3. Accedi alla forma [OleObjectFrame](https://reference.aspose.com/slides/cpp/aspose.slides/oleobjectframe/) . Nel nostro esempio, abbiamo usato il PPTX precedentemente creato che contiene una sola forma sulla prima diapositiva. Abbiamo quindi *castato* quell'oggetto come [IOleObjectFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ioleobjectframe/). Questo era il frame di oggetto OLE desiderato da accedere.
+4. Una volta acceduto al frame dell'oggetto OLE, è possibile eseguire qualsiasi operazione su di esso.
 
-Nell'esempio seguente, un riquadro di oggetto OLE (un oggetto grafico Excel incorporato in una diapositiva) e i suoi dati file vengono acceduti.
+Nell'esempio seguente, viene accessato un frame di oggetto OLE (un oggetto grafico Excel incorporato in una diapositiva) e i suoi dati di file sono accessati.
 
 ``` cpp
+#include <DOM/IOleEmbeddedDataInfo.h>
+#include <DOM/IOleObjectFrame.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <system/object_ext.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 auto presentation = MakeObject<Presentation>(u"sample.pptx");
 auto slide = presentation->get_Slide(0);
 auto shape = slide->get_Shape(0);
@@ -107,22 +140,26 @@ if (ObjectExt::Is<IOleObjectFrame>(shape))
     auto oleFrame = ExplicitCast<IOleObjectFrame>(shape);
 
     // Ottieni i dati del file incorporato.
-    auto fileData = oleFrame->get_EmbeddedData()->get_EmbeddedFileData();
-
     // Ottieni l'estensione del file incorporato.
-    auto fileExtension = oleFrame->get_EmbeddedData()->get_EmbeddedFileExtension();
-
     // ...
 }
 ```
 
-### **Accedi alle proprietà del riquadro di oggetto OLE collegato**
+### **Accedi alle proprietà del frame di oggetto OLE collegato**
 
-Aspose.Slides consente di accedere alle proprietà dei riquadri di oggetti OLE collegati.
+Aspose.Slides consente di accedere alle proprietà del frame di oggetto OLE collegato.
 
-Questo codice C++ mostra come verificare se un oggetto OLE è collegato e quindi ottenere il percorso del file collegato:
+Questo codice C++ mostra come verificare se un oggetto OLE è collegato e poi ottenere il percorso del file collegato:
 
 ```cpp
+#include <DOM/IOleObjectFrame.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <system/object_ext.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 auto presentation = MakeObject<Presentation>(u"sample.ppt");
 auto slide = presentation->get_Slide(0);
 auto shape = slide->get_Shape(0);
@@ -137,7 +174,7 @@ if (ObjectExt::Is<IOleObjectFrame>(shape))
         // Stampa il percorso completo del file collegato.
         std::wcout << L"OLE object frame is linked to: " << oleFrame->get_LinkPathLong() << std::endl;
 
-        // Stampa il percorso relativo del file collegato, se presente.
+        // Stampa il percorso relativo del file collegato se presente.
         // Solo le presentazioni PPT possono contenere il percorso relativo.
         if (!String::IsNullOrEmpty(oleFrame->get_LinkPathRelative()))
         {
@@ -149,28 +186,56 @@ if (ObjectExt::Is<IOleObjectFrame>(shape))
 
 ## **Modifica i dati dell'oggetto OLE**
 
-{{% alert color="primary" %}} 
-In questa sezione, l'esempio di codice qui sotto utilizza [Aspose.Cells for C++](/cells/cpp/). 
+{{% alert color="info" title="Note" %}}
+
+In questa sezione, l'esempio di codice seguente utilizza [Aspose.Cells for C++](https://docs.aspose.com/cells/cpp/).
+
 {{% /alert %}}
 
-Se un oggetto OLE è già incorporato in una diapositiva, puoi accedervi e modificarne i dati in questo modo:
+Se un oggetto OLE è già incorporato in una diapositiva, è possibile accedere facilmente a quell'oggetto e modificarne i dati in questo modo:
 
-1. Carica una presentazione con l'oggetto OLE incorporato creando un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/cpp/class/aspose.slides.presentation).
-2. Ottieni il riferimento della diapositiva tramite il suo indice. 
-3. Accedi alla forma [OLEObjectFrame](https://reference.aspose.com/slides/it/cpp/aspose.slides/oleobjectframe/). Nel nostro esempio, abbiamo usato il PPTX precedentemente creato che ha una forma nella prima diapositiva. Quindi abbiamo *convertito* quell'oggetto in un [IOleObjectFrame](https://reference.aspose.com/slides/it/cpp/aspose.slides/ioleobjectframe/). Questo era il riquadro di oggetto OLE desiderato da accedere.
-4. Una volta che il riquadro dell'oggetto OLE è stato accesso, puoi eseguire qualsiasi operazione su di esso.
+1. Carica una presentazione con l'oggetto OLE incorporato creando un'istanza della classe [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) .
+2. Ottieni il riferimento della diapositiva tramite il suo indice.
+3. Accedi alla forma [OLEObjectFrame](https://reference.aspose.com/slides/cpp/aspose.slides/oleobjectframe/) . Nel nostro esempio, abbiamo usato il PPTX precedentemente creato che ha una forma sulla prima diapositiva. Abbiamo quindi *castato* quell'oggetto come [IOleObjectFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ioleobjectframe/). Questo era il frame di oggetto OLE desiderato da accedere.
+4. Una volta acceduto al frame dell'oggetto OLE, è possibile eseguire qualsiasi operazione su di esso.
 5. Crea un oggetto `Workbook` e accedi ai dati OLE.
 6. Accedi al `Worksheet` desiderato e modifica i dati.
 7. Salva il `Workbook` aggiornato in uno stream.
-8. Modifica i dati dell'oggetto OLE dallo stream.
+8. Cambia i dati dell'oggetto OLE dallo stream.
 
-Nell'esempio seguente, un riquadro di oggetto OLE (un oggetto grafico Excel incorporato in una diapositiva) viene accesso e i suoi dati file vengono modificati per aggiornare i dati del grafico.
+Nell'esempio seguente, viene accessato un frame di oggetto OLE (un oggetto grafico Excel incorporato in una diapositiva) e i suoi dati di file vengono modificati per aggiornare i dati del grafico.
 
 ``` cpp
+#include <DOM/IOleObjectFrame.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <Ole/OleEmbeddedDataInfo.h>
+#include <system/io/memory_stream.h>
+#include <system/smart_ptr.h>
+#include "Aspose.Cells/Cell.h"
+#include "Aspose.Cells/Cells.h"
+#include "Aspose.Cells/Initializer.h"
+#include "Aspose.Cells/OoxmlSaveOptions.h"
+#include "Aspose.Cells/SaveFormat.h"
+#include "Aspose.Cells/U16String.h"
+#include "Aspose.Cells/Vector.h"
+#include "Aspose.Cells/Workbook.h"
+#include "Aspose.Cells/Worksheet.h"
+#include "Aspose.Cells/WorksheetCollection.h"
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::DOM::Ole;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
+
+// Aspose.Cells per C++ deve essere avviato prima di utilizzare qualsiasi suo tipo.
+Aspose::Cells::Startup();
+
 auto presentation = MakeObject<Presentation>(u"sample.pptx");
 auto slide = presentation->get_Slide(0);
 
-// Ottieni la prima forma come riquadro di oggetto OLE.
+// Get the first shape as an OLE object frame.
 auto oleFrame = AsCast<IOleObjectFrame>(slide->get_Shape(0));
 
 if (oleFrame != nullptr)
@@ -182,7 +247,7 @@ if (oleFrame != nullptr)
     std::vector<uint8_t> workbookData(oleArray->data().begin(), oleArray->data().end());
     Aspose::Cells::Workbook workbook(Aspose::Cells::Vector<uint8_t>(workbookData.data(), workbookData.size()));
 
-    // Modifica i dati del workbook.
+    // Modify the workbook data.
     auto worksheet = workbook.GetWorksheets().Get(0);
     worksheet.GetCells().Get(0, 4).PutValue(Aspose::Cells::U16String("E"));
     worksheet.GetCells().Get(1, 4).PutValue(12);
@@ -197,21 +262,37 @@ if (oleFrame != nullptr)
         MakeArray<uint8_t>(std::vector<uint8_t>(newWorkbookData.GetData(), newWorkbookData.GetData() + newWorkbookData.GetLength())),
         0, newWorkbookData.GetLength());
 
-    // Cambia i dati dell'oggetto del riquadro OLE.
+    // Modifica i dati dell'oggetto frame OLE.
     auto newData = MakeObject<OleEmbeddedDataInfo>(newOleStream->ToArray(), oleFrame->get_EmbeddedData()->get_EmbeddedFileExtension());
     oleFrame->SetEmbeddedData(newData);
 }
 
 presentation->Save(u"output.pptx", SaveFormat::Pptx);
+
+Aspose::Cells::Cleanup();
 ```
 
 ## **Incorpora altri tipi di file nelle diapositive**
 
-Oltre ai grafici Excel, Aspose.Slides for C++ consente di incorporare altri tipi di file nelle diapositive. Ad esempio, è possibile inserire file HTML, PDF e ZIP come oggetti. Quando un utente fa doppio clic sull'oggetto inserito, questo si apre automaticamente nel programma pertinente, oppure all'utente viene chiesto di selezionare un programma adeguato per aprirlo.
+Oltre ai grafici Excel, Aspose.Slides per C++ consente di incorporare altri tipi di file nelle diapositive. Ad esempio, è possibile inserire file HTML, PDF e ZIP come oggetti. Quando un utente fa doppio clic sull'oggetto inserito, questo si apre automaticamente nel programma pertinente, oppure viene chiesto all'utente di selezionare un programma appropriato per aprirlo.
 
 Questo codice C++ mostra come incorporare HTML e ZIP in una diapositiva:
 
 ``` cpp
+#include <DOM/IOleObjectFrame.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <Ole/OleEmbeddedDataInfo.h>
+#include <system/io/file.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::DOM::Ole;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
+
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
 
@@ -231,11 +312,22 @@ presentation->Dispose();
 
 ## **Imposta i tipi di file per gli oggetti incorporati**
 
-Durante la gestione delle presentazioni, potresti dover sostituire vecchi oggetti OLE con nuovi o sostituire un oggetto OLE non supportato con uno supportato. Aspose.Slides for C++ consente di impostare il tipo di file per un oggetto incorporato, permettendo di aggiornare i dati del riquadro OLE o la sua estensione.
+Durante la gestione delle presentazioni, potresti dover sostituire vecchi oggetti OLE con nuovi o sostituire un oggetto OLE non supportato con uno supportato. Aspose.Slides per C++ consente di impostare il tipo di file per un oggetto incorporato, permettendo di aggiornare i dati del frame OLE o la sua estensione.
 
 Questo codice C++ mostra come impostare il tipo di file per un oggetto OLE incorporato a `zip`:
 
 ``` cpp
+#include <DOM/IOleObjectFrame.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <Ole/OleEmbeddedDataInfo.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::DOM::Ole;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 auto presentation = MakeObject<Presentation>(u"sample.pptx");
 auto slide = presentation->get_Slide(0);
 auto oleFrame = ExplicitCast<IOleObjectFrame>(slide->get_Shape(0));
@@ -254,20 +346,34 @@ presentation->Dispose();
 
 ## **Imposta immagini icona e titoli per gli oggetti incorporati**
 
-Dopo aver incorporato un oggetto OLE, viene aggiunta automaticamente un'anteprima costituita da un'immagine icona. Questa anteprima è ciò che gli utenti vedono prima di accedere o aprire l'oggetto OLE. Se desideri utilizzare un'immagine e un testo specifici come elementi nell'anteprima, puoi impostare l'immagine icona e il titolo con Aspose.Slides for C++.
+Dopo aver incorporato un oggetto OLE, viene aggiunta automaticamente un'anteprima composta da un'immagine icona. Questa anteprima è ciò che gli utenti vedono prima di accedere o aprire l'oggetto OLE. Se desideri utilizzare un'immagine e un testo specifici come elementi dell'anteprima, puoi impostare l'immagine icona e il titolo usando Aspose.Slides per C++.
 
 Questo codice C++ mostra come impostare l'immagine icona e il titolo per un oggetto incorporato: 
 
 ``` cpp
+#include <DOM/IImageCollection.h>
+#include <DOM/IOleObjectFrame.h>
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlidesPicture.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
+
 auto presentation = MakeObject<Presentation>(u"sample.pptx");
 auto slide = presentation->get_Slide(0);
 auto oleFrame = ExplicitCast<IOleObjectFrame>(slide->get_Shape(0));
 
-// Aggiungi un'immagine alle risorse della presentazione.
+// Add an image to the presentation resources.
 auto imageData = File::ReadAllBytes(u"image.png");
 auto oleImage = presentation->get_Images()->AddImage(imageData);
 
-// Imposta un titolo e l'immagine per l'anteprima OLE.
+// Set a title and the image for the OLE preview.
 oleFrame->set_SubstitutePictureTitle(u"My title");
 oleFrame->get_SubstitutePictureFormat()->get_Picture()->set_Image(oleImage);
 oleFrame->set_IsObjectIcon(true);
@@ -276,25 +382,48 @@ presentation->Save(u"output.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Previeni il ridimensionamento e il riposizionamento del riquadro di oggetto OLE**
+## **Impedisci il ridimensionamento e lo spostamento di un frame di oggetto OLE**
 
-Dopo aver aggiunto un oggetto OLE collegato a una diapositiva della presentazione, quando apri la presentazione in PowerPoint, potresti visualizzare un messaggio che ti chiede di aggiornare i collegamenti. Cliccando sul pulsante "Update Links" (Aggiorna collegamenti) la dimensione e la posizione del riquadro dell'oggetto OLE potrebbe cambiare perché PowerPoint aggiorna i dati dall'oggetto OLE collegato e rinfresca l'anteprima dell'oggetto. Per impedire a PowerPoint di chiedere l'aggiornamento dei dati dell'oggetto, imposta il metodo `set_UpdateAutomatic` dell'interfaccia [IOleObjectFrame](https://reference.aspose.com/slides/it/cpp/aspose.slides/ioleobjectframe/) su `false`:
+After aver aggiunto un oggetto OLE collegato a una diapositiva della presentazione, quando apri la presentazione in PowerPoint, potresti vedere un messaggio che ti chiede di aggiornare i collegamenti. Cliccando sul pulsante "Update Links" la dimensione e la posizione del frame dell'oggetto OLE possono cambiare perché PowerPoint aggiorna i dati dall'oggetto OLE collegato e rinfresca l'anteprima dell'oggetto. Per impedire a PowerPoint di chiedere l'aggiornamento dei dati dell'oggetto, chiama il metodo [set_UpdateAutomatic](https://reference.aspose.com/slides/cpp/aspose.slides/ioleobjectframe/set_updateautomatic/) dell'interfaccia [IOleObjectFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ioleobjectframe/) con `false`:
 
 ```cpp
+#include <DOM/IOleObjectFrame.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"sample.pptx");
+auto slide = presentation->get_Slide(0);
+auto oleFrame = ExplicitCast<IOleObjectFrame>(slide->get_Shape(0));
+
 oleFrame->set_UpdateAutomatic(false);
 ```
 
 ## **Estrai i file incorporati**
 
-Aspose.Slides for C++ consente di estrarre i file incorporati in diapositive come oggetti OLE in questo modo:
+Aspose.Slides per C++ consente di estrarre i file incorporati nelle diapositive come oggetti OLE in questo modo:
 
-1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/cpp/class/aspose.slides.presentation) contenente gli oggetti OLE che intendi estrarre.
-2. Scorri tutti gli oggetti forma nella presentazione e accedi alle forme [OLEObjectFrame](https://reference.aspose.com/slides/it/cpp/aspose.slides/oleobjectframe/).
-3. Accedi ai dati dei file incorporati dai riquadri OLE Object e scrivili su disco.
+1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) contenente gli oggetti OLE che desideri estrarre.
+2. Scorri tutte le forme nella presentazione e accedi alle forme [OLEObjectFrame](https://reference.aspose.com/slides/cpp/aspose.slides/oleobjectframe/) .
+3. Accedi ai dati dei file incorporati dai frame OLE e scrivili su disco.
 
 Questo codice C++ mostra come estrarre i file incorporati in una diapositiva come oggetti OLE:
 
 ``` cpp
+#include <DOM/IOleEmbeddedDataInfo.h>
+#include <DOM/IOleObjectFrame.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <system/io/file.h>
+#include <system/object_ext.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::IO;
+
 auto presentation = MakeObject<Presentation>(u"sample.pptx");
 auto slide = presentation->get_Slide(0);
 
@@ -321,16 +450,18 @@ presentation->Dispose();
 
 **Il contenuto OLE verrà renderizzato quando si esportano le diapositive in PDF/immagini?**
 
-Viene renderizzata solo la parte visibile della diapositiva: l'icona/immagine di sostituzione (anteprima). Il contenuto OLE "live" non viene eseguito durante il rendering. Se necessario, imposta un'immagine di anteprima personalizzata per garantire l'aspetto desiderato nel PDF esportato.
+Ciò che è visibile sulla diapositiva viene renderizzato—l'icona/immagine sostitutiva (anteprima). Il contenuto OLE "live" non viene eseguito durante il rendering. Se necessario, imposta la tua immagine di anteprima per garantire l'aspetto previsto nel PDF esportato.
 
-**Come posso bloccare un oggetto OLE su una diapositiva in modo che gli utenti non possano spostarlo/modificarlo in PowerPoint?**
+Per preservare anche il file incorporato come allegato PDF, chiama [PdfOptions::set_IncludeOleData](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/set_includeoledata/) con `true`. Questa opzione è disabilitata per impostazione predefinita. Per un esempio e istruzioni su come verificare l'allegato, vedi [Preserve Embedded OLE Files as PDF Attachments](/slides/it/cpp/convert-powerpoint-to-pdf/#preserve-embedded-ole-files-as-pdf-attachments).
 
-Blocca la forma: Aspose.Slides fornisce [blocchi a livello di forma](/slides/it/cpp/applying-protection-to-presentation/). Non si tratta di crittografia, ma impedisce efficacemente modifiche accidentali e spostamenti.
+**Come posso bloccare un oggetto OLE su una diapositiva affinché gli utenti non possano spostarlo/modificarlo in PowerPoint?**
+
+Blocca la forma: Aspose.Slides fornisce [shape-level locks](/slides/it/cpp/applying-protection-to-presentation/). Non si tratta di crittografia, ma impedisce efficacemente modifiche accidentali e spostamenti.
 
 **Perché un oggetto Excel collegato "salta" o cambia dimensione quando apro la presentazione?**
 
-PowerPoint potrebbe aggiornare l'anteprima dell'OLE collegato. Per un aspetto stabile, segui le pratiche della [Soluzione operativa per il ridimensionamento del foglio di lavoro](/slides/it/cpp/working-solution-for-worksheet-resizing/): adatta il riquadro all'intervallo, oppure scala l'intervallo a un riquadro fisso e imposta un'immagine sostitutiva appropriata.
+PowerPoint potrebbe aggiornare l'anteprima dell'OLE collegato. Per un aspetto stabile, segui le pratiche della [Working Solution for Worksheet Resizing](/slides/it/cpp/working-solution-for-worksheet-resizing/)—adatta il frame all'intervallo, o scala l'intervallo a un frame fisso e imposta un'immagine sostitutiva appropriata.
 
 **I percorsi relativi per gli oggetti OLE collegati saranno conservati nel formato PPTX?**
 
-Nel PPTX le informazioni sui "percorsi relativi" non sono disponibili: è presente solo il percorso completo. I percorsi relativi sono presenti nel formato PPT più vecchio. Per la portabilità, è consigliabile utilizzare percorsi assoluti affidabili/URI accessibili o l'incorporamento.
+Nel PPTX le informazioni sul "percorso relativo" non sono disponibili—solo il percorso completo. I percorsi relativi sono presenti nel formato PPT più vecchio. Per la portabilità, preferisci percorsi assoluti affidabili/URI accessibili o l'incorporamento.

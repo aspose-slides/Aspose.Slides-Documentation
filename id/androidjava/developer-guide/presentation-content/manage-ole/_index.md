@@ -6,13 +6,13 @@ weight: 40
 url: /id/androidjava/manage-ole/
 keywords:
 - objek OLE
-- Penghubungan & Penyematan Objek
+- Penautan & Penyematan Objek
 - tambahkan OLE
-- semat OLE
+- sematkan OLE
 - tambahkan objek
-- semat objek
+- sematkan objek
 - tambahkan file
-- semat file
+- sematkan file
 - objek tertaut
 - file tertaut
 - ubah OLE
@@ -21,47 +21,52 @@ keywords:
 - ekstrak OLE
 - ekstrak objek
 - ekstrak file
-- PowerPoint 
+- PowerPoint
 - presentasi
 - Android
 - Java
 - Aspose.Slides
-description: "Optimalkan manajemen objek OLE dalam file PowerPoint dan OpenDocument dengan Aspose.Slides untuk Android via Java. Sematkan, perbarui, dan ekspor konten OLE secara mulus."
+description: "Optimalkan manajemen objek OLE dalam file PowerPoint dan OpenDocument dengan Aspose.Slides untuk Android via Java. Sematkan, perbarui, dan ekspor konten OLE dengan mulus."
 ---
-## **Introduction**
+## **Pendahuluan**
 
-{{% alert color="primary" %}} 
-
+{{% alert color="info" title="Note" %}}
 OLE (Object Linking & Embedding) adalah teknologi Microsoft yang memungkinkan data dan objek yang dibuat di satu aplikasi ditempatkan di aplikasi lain melalui penautan atau penyematan. 
-
 {{% /alert %}} 
 
-Pertimbangkan sebuah diagram yang dibuat di MS Excel. Diagram tersebut kemudian ditempatkan di dalam slide PowerPoint. Diagram Excel itu dianggap sebagai objek OLE. 
+Pertimbangkan sebuah diagram yang dibuat di MS Excel. Diagram tersebut kemudian ditempatkan di dalam sebuah slide PowerPoint. Diagram Excel itu dianggap sebagai objek OLE. 
 
-- Sebuah objek OLE dapat muncul sebagai ikon. Dalam kasus ini, ketika Anda mengklik ganda ikon, diagram akan dibuka di aplikasi terkait (Excel), atau Anda akan diminta memilih aplikasi untuk membuka atau menyunting objek. 
-- Sebuah objek OLE dapat menampilkan isi sebenarnya, seperti isi sebuah diagram. Dalam kasus ini, diagram diaktifkan di PowerPoint, antarmuka diagram dimuat, dan Anda dapat memodifikasi data diagram di dalam PowerPoint.
+- Sebuah objek OLE dapat muncul sebagai ikon. Dalam kasus ini, ketika Anda mengklik ganda ikon, diagram akan dibuka di aplikasi terkait (Excel), atau Anda diminta memilih aplikasi untuk membuka atau menyunting objek tersebut.
+- Sebuah objek OLE dapat menampilkan kontennya yang sebenarnya, seperti isi diagram. Dalam kasus ini, diagram diaktifkan di PowerPoint, antarmuka diagram dimuat, dan Anda dapat mengubah data diagram di dalam PowerPoint.
 
-[Aspose.Slides for Android via Java](https://products.aspose.com/slides/id/androidjava/) memungkinkan Anda menyisipkan OLE Objects ke dalam slide sebagai bingkai objek OLE ([OleObjectFrame](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/OleObjectFrame)).
+[Aspose.Slides untuk Android via Java](https://products.aspose.com/slides/androidjava/) memungkinkan Anda menyisipkan OLE Objects ke dalam slide sebagai bingkai objek OLE ([OleObjectFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/OleObjectFrame)).
 
-## **Add OLE Object Frames to Slides**
+## **Menambahkan Bingkai Objek OLE ke Slide**
 
-Misalkan Anda sudah membuat sebuah diagram di Microsoft Excel dan ingin menyematkannya dalam slide sebagai bingkai objek OLE menggunakan Aspose.Slides for Android via Java, Anda dapat melakukannya dengan cara berikut:
+Andaikan Anda sudah membuat diagram di Microsoft Excel dan ingin menyematkannya ke dalam slide sebagai bingkai objek OLE menggunakan Aspose.Slides untuk Android via Java, Anda dapat melakukannya dengan cara berikut:
 
-1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/Presentation) .
+1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) .
 1. Dapatkan referensi slide melalui indeksnya.
 1. Baca file Excel sebagai array byte.
-1. Tambahkan [OleObjectFrame](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/OleObjectFrame) ke slide yang berisi array byte dan informasi lain tentang objek OLE.
-1. Tulis presentasi yang telah dimodifikasi sebagai file PPTX.
+1. Tambahkan [OleObjectFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/OleObjectFrame) ke slide dengan menyertakan array byte dan informasi lainnya tentang objek OLE.
+1. Tuliskan presentasi yang telah dimodifikasi sebagai file PPTX.
 
-Pada contoh di bawah, kami menambahkan diagram dari file Excel ke slide sebagai bingkai objek OLE menggunakan Aspose.Slides for Android via Java.  
-**Note** bahwa konstruktor [OleEmbeddedDataInfo](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/OleEmbeddedDataInfo) menerima ekstensi objek yang dapat disematkan sebagai parameter kedua. Ekstensi ini memungkinkan PowerPoint menginterpretasikan tipe file dengan benar dan memilih aplikasi yang tepat untuk membuka objek OLE ini.
+Dalam contoh di bawah, kami menambahkan diagram dari file Excel ke slide sebagai bingkai objek OLE menggunakan Aspose.Slides untuk Android via Java.
+**Catatan** bahwa konstruktor [OleEmbeddedDataInfo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/OleEmbeddedDataInfo) menerima ekstensi objek yang dapat disematkan sebagai parameter kedua. Ekstensi ini memungkinkan PowerPoint untuk menginterpretasikan tipe file dengan benar dan memilih aplikasi yang tepat untuk membuka objek OLE ini.
 
-```java
+```java 
+import com.aspose.slides.*;
+import java.io.BufferedInputStream;
+import java.io.DataInputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.awt.geom.Dimension2D;
+
 Presentation presentation = new Presentation();
-SizeF slideSize = presentation.getSlideSize().getSize();
+Dimension2D slideSize = presentation.getSlideSize().getSize();
 ISlide slide = presentation.getSlides().get_Item(0);
 
-// Siapkan data untuk objek OLE.
+// Prepare data for the OLE object.
 File file = new File("book.xlsx");
 byte fileData[] = new byte[(int) file.length()];
 BufferedInputStream bis = new BufferedInputStream(new FileInputStream(file));
@@ -71,42 +76,45 @@ dis.readFully(fileData);
 IOleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(fileData, "xlsx");
 
 // Add the OLE object frame to the slide.
-slide.getShapes().addOleObjectFrame(0, 0, slideSize.getWidth(), slideSize.getHeight(), dataInfo);
+slide.getShapes().addOleObjectFrame(0, 0, (float) slideSize.getWidth(), (float) slideSize.getHeight(), dataInfo);
 
 presentation.save("output.pptx", SaveFormat.Pptx);
 presentation.dispose();
 ```
 
-### **Add Linked OLE Object Frames**
+### **Menambahkan Bingkai Objek OLE Tertaut**
 
-Aspose.Slides for Android via Java memungkinkan Anda menambahkan sebuah [OleObjectFrame](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/OleObjectFrame) tanpa menyematkan data, melainkan hanya dengan tautan ke file.
+Aspose.Slides untuk Android via Java memungkinkan Anda menambahkan sebuah [OleObjectFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/OleObjectFrame) tanpa menyematkan data tetapi hanya dengan tautan ke file.
 
-Kode Java ini menunjukkan cara menambahkan [OleObjectFrame](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/OleObjectFrame) dengan file Excel yang ditautkan ke sebuah slide:
+Kode Java ini menunjukkan cara menambahkan sebuah [OleObjectFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/OleObjectFrame) dengan file Excel yang tertaut ke sebuah slide:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 ISlide slide = presentation.getSlides().get_Item(0);
 
-// Tambahkan bingkai objek OLE dengan file Excel yang ditautkan.
+// Tambahkan bingkai objek OLE dengan file Excel yang tertaut.
 slide.getShapes().addOleObjectFrame(20, 20, 200, 150, "Excel.Sheet.12", "book.xlsx");
 
 presentation.save("output.pptx", SaveFormat.Pptx);
 presentation.dispose();
 ```
 
-## **Access OLE Object Frames**
+## **Mengakses Bingkai Objek OLE**
 
-Jika sebuah objek OLE sudah disematkan dalam slide, Anda dapat dengan mudah menemukan atau mengaksesnya dengan cara berikut:
+Jika sebuah objek OLE sudah disematkan dalam slide, Anda dapat dengan mudah menemukannya atau mengaksesnya dengan cara berikut:
 
-1. Muat sebuah presentasi yang berisi objek OLE yang disematkan dengan membuat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/Presentation) .
+1. Muat sebuah presentasi dengan objek OLE yang disematkan dengan membuat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) .
 2. Dapatkan referensi slide dengan menggunakan indeksnya.
-3. Akses shape [OleObjectFrame](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/OleObjectFrame).  
-   Pada contoh kami, kami menggunakan PPTX yang sebelumnya dibuat yang hanya memiliki satu shape pada slide pertama. Kami kemudian *cast* objek tersebut sebagai [IOleObjectFrame](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ioleobjectframe/). Ini adalah bingkai objek OLE yang ingin diakses.
+3. Akses shape [OleObjectFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/OleObjectFrame) . Dalam contoh kami, kami menggunakan PPTX yang telah dibuat sebelumnya yang hanya memiliki satu shape pada slide pertama. Kami kemudian *cast* objek tersebut sebagai [IOleObjectFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ioleobjectframe/) . Ini adalah bingkai objek OLE yang diinginkan untuk diakses.
 4. Setelah bingkai objek OLE diakses, Anda dapat melakukan operasi apa pun padanya.
 
-Pada contoh di bawah, sebuah bingkai objek OLE (objek diagram Excel yang disematkan dalam slide) dan data file-nya diakses.
+Dalam contoh di bawah, sebuah bingkai objek OLE (objek diagram Excel yang disematkan dalam slide) dan data file-nya diakses.
 
 ```java 
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 ISlide slide = presentation.getSlides().get_Item(0);
 IShape shape = slide.getShapes().get_Item(0);
@@ -124,13 +132,15 @@ if (shape instanceof IOleObjectFrame) {
 }
 ```
 
-### **Access Linked OLE Object Frame Properties**
+### **Mengakses Properti Bingkai Objek OLE Tertaut**
 
-Aspose.Slides memungkinkan Anda mengakses properti bingkai objek OLE yang ditautkan.
+Aspose.Slides memungkinkan Anda mengakses properti bingkai objek OLE yang tertaut.
 
-Kode Java ini menunjukkan cara memeriksa apakah sebuah objek OLE ditautkan dan kemudian memperoleh jalur ke file yang ditautkan:
+Kode Java ini menunjukkan cara memeriksa apakah sebuah objek OLE tertaut dan kemudian memperoleh jalur ke file yang tertaut:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.ppt");
 ISlide slide = presentation.getSlides().get_Item(0);
 IShape shape = slide.getShapes().get_Item(0);
@@ -154,29 +164,32 @@ if (shape instanceof IOleObjectFrame) {
 presentation.dispose();
 ```
 
-## **Change OLE Object Data**
+## **Mengubah Data Objek OLE**
 
-{{% alert color="primary" %}} 
-
-Pada bagian ini, contoh kode di bawah menggunakan [Aspose.Cells for Android via Java](/cells/androidjava/).
-
+{{% alert color="info" title="Note" %}}
+Pada bagian ini, contoh kode di bawah menggunakan [Aspose.Cells untuk Android via Java](https://docs.aspose.com/cells/androidjava/) .
 {{% /alert %}}
 
-Jika sebuah objek OLE sudah disematkan dalam slide, Anda dapat dengan mudah mengakses objek tersebut dan memodifikasi datanya dengan cara berikut:
+Jika sebuah objek OLE sudah disematkan dalam slide, Anda dapat dengan mudah mengakses objek itu dan memodifikasi datanya dengan cara berikut:
 
-1. Muat sebuah presentasi yang berisi objek OLE yang disematkan dengan membuat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/Presentation) .
+1. Muat sebuah presentasi dengan objek OLE yang disematkan dengan membuat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) .
 2. Dapatkan referensi slide melalui indeksnya. 
-3. Akses shape bingkai objek OLE.  
-   Pada contoh kami, kami menggunakan PPTX yang sebelumnya dibuat yang memiliki satu shape pada slide pertama. Kami kemudian *cast* objek tersebut sebagai [IOleObjectFrame](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ioleobjectframe/). Ini adalah bingkai objek OLE yang ingin diakses.
+3. Akses shape bingkai objek OLE. Dalam contoh kami, kami menggunakan PPTX yang telah dibuat sebelumnya yang memiliki satu shape pada slide pertama. Kami kemudian *cast* objek tersebut sebagai [IOleObjectFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ioleobjectframe/) . Ini adalah bingkai objek OLE yang diinginkan untuk diakses.
 4. Setelah bingkai objek OLE diakses, Anda dapat melakukan operasi apa pun padanya.
 5. Buat objek `Workbook` dan akses data OLE.
 6. Akses `Worksheet` yang diinginkan dan ubah data.
-7. Simpan `Workbook` yang diperbarui ke dalam stream.
-8. Ganti data objek OLE dari stream.
+7. Simpan `Workbook` yang telah diperbarui ke dalam stream.
+8. Ubah data objek OLE dari stream.
 
-Pada contoh di bawah, sebuah bingkai objek OLE (objek diagram Excel yang disematkan dalam slide) diakses, dan data file-nya dimodifikasi untuk memperbarui data diagram.
+Dalam contoh di bawah, sebuah bingkai objek OLE (objek diagram Excel yang disematkan dalam slide) diakses, dan data file-nya dimodifikasi untuk memperbarui data diagram.
 
 ```java 
+import com.aspose.slides.*;
+import com.aspose.cells.Workbook;
+import com.aspose.cells.OoxmlSaveOptions;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+
 Presentation presentation = new Presentation("sample.pptx");
 ISlide slide = presentation.getSlides().get_Item(0);
 IShape shape = slide.getShapes().get_Item(0);
@@ -209,13 +222,19 @@ presentation.save("output.pptx", SaveFormat.Pptx);
 presentation.dispose();
 ```
 
-## **Embed Other File Types in Slides**
+## **Menyematkan Jenis File Lain ke dalam Slide**
 
-Selain diagram Excel, Aspose.Slides for Android via Java memungkinkan Anda menyematkan tipe file lain ke dalam slide. Misalnya, Anda dapat menyisipkan file HTML, PDF, dan ZIP sebagai objek. Ketika pengguna mengklik ganda objek yang disisipkan, ia secara otomatis terbuka di program yang relevan, atau pengguna akan diminta memilih program yang sesuai untuk membukanya.
+Selain diagram Excel, Aspose.Slides untuk Android via Java memungkinkan Anda menyematkan jenis file lain ke dalam slide. Misalnya, Anda dapat menyisipkan file HTML, PDF, dan ZIP sebagai objek. Ketika pengguna mengklik ganda objek yang disisipkan, objek tersebut secara otomatis terbuka di program yang relevan, atau pengguna akan diminta memilih program yang sesuai untuk membukanya.
 
 Kode Java ini menunjukkan cara menyematkan HTML dan ZIP ke dalam slide:
 
 ```java
+import com.aspose.slides.*;
+import java.io.BufferedInputStream;
+import java.io.DataInputStream;
+import java.io.File;
+import java.io.FileInputStream;
+
 Presentation presentation = new Presentation();
 ISlide slide = presentation.getSlides().get_Item(0);
 
@@ -241,13 +260,15 @@ presentation.save("output.pptx", SaveFormat.Pptx);
 presentation.dispose();
 ```
 
-## **Set File Types for Embedded Objects**
+## **Menetapkan Jenis File untuk Objek yang Disematkan**
 
-Saat bekerja dengan presentasi, Anda mungkin perlu mengganti objek OLE lama dengan yang baru atau mengganti objek OLE yang tidak didukung dengan yang didukung. Aspose.Slides for Android via Java memungkinkan Anda mengatur tipe file untuk objek yang disematkan, sehingga Anda dapat memperbarui data bingkai OLE atau ekstensi filenya.
+Saat bekerja dengan presentasi, Anda mungkin perlu mengganti objek OLE lama dengan yang baru atau mengganti objek OLE yang tidak didukung dengan yang didukung. Aspose.Slides untuk Android via Java memungkinkan Anda menetapkan jenis file untuk objek yang disematkan, sehingga Anda dapat memperbarui data bingkai OLE atau ekstensi filenya.
 
-Kode Java ini menunjukkan cara mengatur tipe file untuk objek OLE yang disematkan menjadi `zip`:
+Kode Java ini menunjukkan cara menetapkan jenis file untuk objek OLE yang disematkan menjadi `zip`:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 ISlide slide = presentation.getSlides().get_Item(0);
 IOleObjectFrame oleFrame = (IOleObjectFrame) slide.getShapes().get_Item(0);
@@ -257,20 +278,26 @@ byte[] fileData = oleFrame.getEmbeddedData().getEmbeddedFileData();
 
 System.out.println("Current embedded file extension is: " + fileExtension);
 
-// Change the file type to ZIP.
+// Ubah tipe file menjadi ZIP.
 oleFrame.setEmbeddedData(new OleEmbeddedDataInfo(fileData, "zip"));
 
 presentation.save("output.pptx", SaveFormat.Pptx);
 presentation.dispose();
 ```
 
-## **Set Icon Images and Titles for Embedded Objects**
+## **Menetapkan Gambar Ikon dan Judul untuk Objek yang Disematkan**
 
-Setelah menyematkan sebuah objek OLE, pratinjau berupa gambar ikon ditambahkan secara otomatis. Pratinjau inilah yang dilihat pengguna sebelum mengakses atau membuka objek OLE. Jika Anda ingin menggunakan gambar dan teks tertentu sebagai elemen dalam pratinjau, Anda dapat mengatur gambar ikon dan judul menggunakan Aspose.Slides for Android via Java.
+Setelah menyematkan sebuah objek OLE, pratinjau yang terdiri dari gambar ikon secara otomatis ditambahkan. Pratinjau inilah yang dilihat pengguna sebelum mengakses atau membuka objek OLE. Jika Anda ingin menggunakan gambar dan teks tertentu sebagai elemen dalam pratinjau, Anda dapat menetapkan gambar ikon dan judul menggunakan Aspose.Slides untuk Android via Java.
 
-Kode Java ini menunjukkan cara mengatur gambar ikon dan judul untuk objek yang disematkan:
+Kode Java ini menunjukkan cara menetapkan gambar ikon dan judul untuk objek yang disematkan:
 
 ```java
+import com.aspose.slides.*;
+import java.io.BufferedInputStream;
+import java.io.DataInputStream;
+import java.io.File;
+import java.io.FileInputStream;
+
 Presentation presentation = new Presentation("sample.pptx");
 ISlide slide = presentation.getSlides().get_Item(0);
 IOleObjectFrame oleFrame = (IOleObjectFrame) slide.getShapes().get_Item(0);
@@ -292,25 +319,41 @@ presentation.save("output.pptx", SaveFormat.Pptx);
 presentation.dispose();
 ```
 
-## **Prevent an OLE Object Frame from Being Resized and Pepositioned**
+## **Mencegah Bingkai Objek OLE Diubah Ukuran dan Posisinya**
 
-Setelah Anda menambahkan objek OLE yang ditautkan ke slide presentasi, ketika Anda membuka presentasi di PowerPoint, Anda mungkin melihat pesan yang menanyakan apakah akan memperbarui tautan. Mengklik tombol "Update Links" dapat mengubah ukuran dan posisi bingkai objek OLE karena PowerPoint memperbarui data dari objek OLE yang ditautkan dan menyegarkan pratinjau objek. Untuk mencegah PowerPoint meminta pembaruan data objek, atur metode `setUpdateAutomatic` pada antarmuka [IOleObjectFrame](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ioleobjectframe/) menjadi `false`:
+Setelah Anda menambahkan objek OLE yang tertaut ke slide presentasi, ketika Anda membuka presentasi di PowerPoint, Anda mungkin melihat pesan yang meminta Anda memperbarui tautan. Mengklik tombol "Update Links" dapat mengubah ukuran dan posisi bingkai objek OLE karena PowerPoint memperbarui data dari objek OLE yang tertaut dan menyegarkan pratinjau objek. Untuk mencegah PowerPoint meminta memperbarui data objek, panggil metode [setUpdateAutomatic](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ioleobjectframe/#setUpdateAutomatic-boolean-) pada antarmuka [IOleObjectFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ioleobjectframe/) dengan nilai `false`:
 
 ```java
-oleFrame.setUpdateAutomatic(false);
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("sample.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IOleObjectFrame oleFrame = (IOleObjectFrame) slide.getShapes().get_Item(0);
+
+    oleFrame.setUpdateAutomatic(false);
+
+    presentation.save("output.pptx", SaveFormat.Pptx);
+} finally {
+    if (presentation != null) presentation.dispose();
+}
 ```
 
-## **Extract Embedded Files**
+## **Mengekstrak File yang Disematkan**
 
-Aspose.Slides for Android via Java memungkinkan Anda mengekstrak file yang disematkan dalam slide sebagai objek OLE dengan cara berikut:
+Aspose.Slides untuk Android via Java memungkinkan Anda mengekstrak file yang disematkan dalam slide sebagai objek OLE dengan cara berikut:
 
-1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/Presentation) yang berisi objek OLE yang ingin Anda ekstrak.
-2. Lakukan iterasi melalui semua shape dalam presentasi dan akses shape [OLEObjectFrame](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/oleobjectframe).
+1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) yang berisi objek OLE yang ingin Anda ekstrak.
+2. Iterasikan semua shape dalam presentasi dan akses shape [OLEObjectFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/oleobjectframe) .
 3. Akses data file yang disematkan dari bingkai objek OLE dan tulis ke disk.
 
 Kode Java ini menunjukkan cara mengekstrak file yang disematkan dalam slide sebagai objek OLE:
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.io.FileOutputStream;
+
 Presentation presentation = new Presentation("sample.pptx");
 ISlide slide = presentation.getSlides().get_Item(0);
 
@@ -332,20 +375,22 @@ for (int index = 0; index < slide.getShapes().size(); index++) {
 presentation.dispose();
 ```
 
-## **FAQ**
+## **Tanya Jawab**
 
 **Apakah konten OLE akan dirender saat mengekspor slide ke PDF/gambar?**
 
-Yang terlihat pada slide yang dirender adalah ikon/gambar pengganti (pratinjau). Konten OLE "langsung" tidak dieksekusi selama proses rendering. Jika diperlukan, setel gambar pratinjau Anda sendiri untuk memastikan tampilan yang diharapkan pada PDF yang diekspor.
+Apa yang terlihat pada slide yang dirender—ikon/gambar pengganti (pratinjau). Konten OLE "live" tidak dijalankan selama proses render. Jika diperlukan, atur gambar pratinjau Anda sendiri untuk memastikan tampilan yang diharapkan dalam PDF yang diekspor.
 
-**Bagaimana cara mengunci objek OLE pada slide sehingga pengguna tidak dapat memindahkan/mengeditnya di PowerPoint?**
+Untuk juga mempertahankan file yang disematkan sebagai lampiran PDF, panggil [setIncludeOleData](https://reference.aspose.com/slides/androidjava/com.aspose.slides/pdfoptions/#setIncludeOleData-boolean-) dengan `true`. Opsi ini dinonaktifkan secara default. Untuk contoh dan instruksi memeriksa lampiran, lihat [Pertahankan File OLE yang Disematkan sebagai Lampiran PDF](/slides/id/androidjava/convert-powerpoint-to-pdf/#preserve-embedded-ole-files-as-pdf-attachments).
 
-Kunci shape: Aspose.Slides menyediakan kunci pada tingkat shape. Ini bukan enkripsi, tetapi secara efektif mencegah penyuntingan dan pemindahan tidak sengaja.
+**Bagaimana saya dapat mengunci objek OLE pada slide sehingga pengguna tidak dapat memindahkan/menyuntingnya di PowerPoint?**
 
-**Mengapa objek Excel yang ditautkan "melompat" atau berubah ukuran saat saya membuka presentasi?**
+Kunci shape: Aspose.Slides menyediakan kunci pada level shape. Ini bukan enkripsi, tetapi secara efektif mencegah penyuntingan atau pemindahan yang tidak disengaja.
 
-PowerPoint mungkin menyegarkan pratinjau OLE yang ditautkan. Untuk tampilan yang stabil, ikuti praktik [Working Solution for Worksheet Resizing](/slides/id/androidjava/working-solution-for-worksheet-resizing/) — baik sesuaikan bingkai dengan rentang, atau skala rentang ke bingkai tetap dan setel gambar pengganti yang tepat.
+**Mengapa objek Excel yang tertaut "melompat" atau berubah ukuran ketika saya membuka presentasi?**
 
-**Apakah jalur relatif untuk objek OLE yang ditautkan akan dipertahankan dalam format PPTX?**
+PowerPoint mungkin menyegarkan pratinjau OLE yang tertaut. Untuk tampilan yang stabil, ikuti praktik [Solusi Praktis untuk Penyesuaian Ukuran Worksheet](/slides/id/androidjava/working-solution-for-worksheet-resizing/) — baik menyesuaikan bingkai dengan rentang, atau menskalakan rentang ke bingkai tetap dan menetapkan gambar pengganti yang sesuai.
 
-Dalam PPTX, informasi "jalur relatif" tidak tersedia — hanya jalur penuh. Jalur relatif ditemukan pada format PPT yang lebih lama. Untuk portabilitas, lebih baik menggunakan jalur absolut yang dapat diandalkan/URI yang dapat diakses atau menyematkan file.
+**Apakah jalur relatif untuk objek OLE yang tertaut akan dipertahankan dalam format PPTX?**
+
+Dalam PPTX, informasi "jalur relatif" tidak tersedia—hanya jalur lengkap. Jalur relatif ditemukan pada format PPT yang lebih lama. Untuk portabilitas, lebih baik menggunakan jalur absolut yang dapat diandalkan/URI yang dapat diakses atau menyematkan.

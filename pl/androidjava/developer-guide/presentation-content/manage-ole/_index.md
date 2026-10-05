@@ -5,7 +5,7 @@ type: docs
 weight: 40
 url: /pl/androidjava/manage-ole/
 keywords:
-- obiekt OLE
+- Obiekt OLE
 - Łączenie i osadzanie obiektów
 - dodaj OLE
 - osadź OLE
@@ -26,39 +26,46 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Optymalizuj zarządzanie obiektami OLE w PowerPoint i plikach OpenDocument przy użyciu Aspose.Slides for Android via Java. Osadzaj, aktualizuj i eksportuj zawartość OLE bezproblemowo."
+description: Optymalizuj zarządzanie obiektami OLE w plikach PowerPoint i OpenDocument przy użyciu Aspose.Slides dla Androida w Javie. Osadzaj, aktualizuj i eksportuj treść OLE bezproblemowo.
 ---
 ## **Wprowadzenie**
 
-{{% alert color="primary" %}} 
+{{% alert color="info" title="Note" %}}
 
-OLE (Object Linking & Embedding) to technologia firmy Microsoft, która umożliwia umieszczanie danych i obiektów utworzonych w jednej aplikacji w innej aplikacji poprzez łączenie lub osadzanie. 
+OLE (Object Linking & Embedding) jest technologią firmy Microsoft, która pozwala na umieszczanie danych i obiektów utworzonych w jednej aplikacji w innej aplikacji za pomocą łączenia lub osadzania. 
 
 {{% /alert %}} 
 
-Rozważmy wykres utworzony w programie MS Excel. Wykres ten jest następnie umieszczany na slajdzie PowerPoint. Ten wykres Excel jest uznawany za obiekt OLE. 
+Rozważmy wykres utworzony w programie MS Excel. Wykres jest następnie umieszczany wewnątrz slajdu PowerPoint. Ten wykres Excela jest uważany za obiekt OLE. 
 
-- Obiekt OLE może pojawiać się jako ikona. W takim przypadku, po dwukrotnym kliknięciu ikony, wykres otwiera się w powiązanej aplikacji (Excel), lub zostaniesz poproszony o wybranie aplikacji do otwierania lub edytowania obiektu. 
-- Obiekt OLE może wyświetlać swoją rzeczywistą zawartość, np. zawartość wykresu. W takim przypadku wykres zostaje aktywowany w PowerPoint, ładuje się interfejs wykresu i możesz modyfikować dane wykresu w ramach PowerPoint.
+- Obiekt OLE może pojawić się jako ikona. W takim przypadku, po dwukrotnym kliknięciu ikony, wykres zostaje otwarty w powiązanej aplikacji (Excel) lub zostaniesz poproszony o wybranie aplikacji do otwarcia lub edycji obiektu.
+- Obiekt OLE może wyświetlać swoje rzeczywiste zawartości, takie jak zawartość wykresu. W tym przypadku wykres jest aktywowany w programie PowerPoint, ładuje się interfejs wykresu i możesz modyfikować dane wykresu w PowerPoint.
 
-[Aspose.Slides for Android via Java](https://products.aspose.com/slides/pl/androidjava/) umożliwia wstawianie obiektów OLE do slajdów jako ramki obiektów OLE ([OleObjectFrame](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/OleObjectFrame)).
+[Aspose.Slides for Android via Java](https://products.aspose.com/slides/androidjava/) umożliwia wstawianie OLE Objects do slajdów jako OLE object frames ([OleObjectFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/OleObjectFrame)).
 
-## **Dodawanie ramek obiektów OLE do slajdów**
+## **Dodaj ramki obiektów OLE do slajdów**
 
-Zakładając, że już utworzyłeś wykres w programie Microsoft Excel i chcesz osadzić go na slajdzie jako ramkę obiektu OLE przy użyciu Aspose.Slides for Android via Java, możesz zrobić to w następujący sposób:
+Assuming you have already created a chart in Microsoft Excel and want to embed it in a slide as an OLE object frame using Aspose.Slides for Android via Java, you can do it this way:
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/Presentation).  
-1. Uzyskaj referencję do slajdu za pomocą jego indeksu.  
-1. Odczytaj plik Excel jako tablicę bajtów.  
-1. Dodaj [OleObjectFrame](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/OleObjectFrame) do slajdu, zawierając tablicę bajtów oraz inne informacje o obiekcie OLE.  
-1. Zapisz zmodyfikowaną prezentację jako plik PPTX.  
+1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) .
+1. Uzyskaj odniesienie do slajdu za pomocą jego indeksu.
+1. Odczytaj plik Excel jako tablicę bajtów.
+1. Dodaj [OleObjectFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/OleObjectFrame) do slajdu, zawierając tablicę bajtów i inne informacje o obiekcie OLE.
+1. Zapisz zmodyfikowaną prezentację jako plik PPTX.
 
-W poniższym przykładzie dodaliśmy wykres z pliku Excel do slajdu jako ramkę obiektu OLE przy użyciu Aspose.Slides for Android via Java.  
-**Uwaga** że konstruktor [OleEmbeddedDataInfo](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/OleEmbeddedDataInfo) przyjmuje rozszerzenie obiektu możliwego do osadzenia jako drugi parametr. To rozszerzenie pozwala PowerPoint prawidłowo interpretować typ pliku i wybrać odpowiednią aplikację do otwarcia tego obiektu OLE.
+In the example below, we added a chart from an Excel file to a slide as an OLE object frame using Aspose.Slides for Android via Java.  
+**Note** that the [OleEmbeddedDataInfo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/OleEmbeddedDataInfo) constructor takes an embeddable object extension as a second parameter. This extension allows PowerPoint to correctly interpret the file type and choose the right application to open this OLE object.
 
 ```java 
+import com.aspose.slides.*;
+import java.io.BufferedInputStream;
+import java.io.DataInputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.awt.geom.Dimension2D;
+
 Presentation presentation = new Presentation();
-SizeF slideSize = presentation.getSlideSize().getSize();
+Dimension2D slideSize = presentation.getSlideSize().getSize();
 ISlide slide = presentation.getSlides().get_Item(0);
 
 // Przygotuj dane dla obiektu OLE.
@@ -70,20 +77,22 @@ dis.readFully(fileData);
 
 IOleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(fileData, "xlsx");
 
-// Add the OLE object frame to the slide.
-slide.getShapes().addOleObjectFrame(0, 0, slideSize.getWidth(), slideSize.getHeight(), dataInfo);
+// Dodaj ramkę obiektu OLE do slajdu.
+slide.getShapes().addOleObjectFrame(0, 0, (float) slideSize.getWidth(), (float) slideSize.getHeight(), dataInfo);
 
 presentation.save("output.pptx", SaveFormat.Pptx);
 presentation.dispose();
 ```
 
-### **Dodawanie połączonych ramek obiektów OLE**
+### **Dodaj połączone ramki obiektów OLE**
 
-Aspose.Slides for Android via Java umożliwia dodanie [OleObjectFrame](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/OleObjectFrame) bez osadzania danych, a jedynie z odnośnikiem do pliku.  
+Aspose.Slides for Android via Java umożliwia dodanie [OleObjectFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/OleObjectFrame) bez osadzania danych, a jedynie z odwołaniem do pliku.
 
-Poniższy kod Java pokazuje, jak dodać [OleObjectFrame](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/OleObjectFrame) z połączonym plikiem Excel do slajdu:
+This Java code shows you how to add an [OleObjectFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/OleObjectFrame) with a linked Excel file to a slide:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 ISlide slide = presentation.getSlides().get_Item(0);
 
@@ -94,18 +103,21 @@ presentation.save("output.pptx", SaveFormat.Pptx);
 presentation.dispose();
 ```
 
-## **Dostęp do ramek obiektów OLE**
+## **Uzyskaj dostęp do ramek obiektów OLE**
 
-Jeśli obiekt OLE jest już osadzony w slajdzie, możesz go łatwo znaleźć lub uzyskać dostęp w następujący sposób:
+If an OLE object is already embedded in a slide, you can easily find or access it this way:
 
-1. Wczytaj prezentację z osadzonym obiektem OLE, tworząc instancję klasy [Presentation](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/Presentation).  
-2. Uzyskaj referencję do slajdu, używając jego indeksu.  
-3. Uzyskaj dostęp do kształtu [OleObjectFrame](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/OleObjectFrame). W naszym przykładzie użyliśmy wcześniej utworzonego pliku PPTX, który ma tylko jeden kształt na pierwszym slajdzie. Następnie *rzuciliśmy* (cast) ten obiekt jako [IOleObjectFrame](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ioleobjectframe/). To była pożądana ramka obiektu OLE, do której uzyskano dostęp.  
-4. Po uzyskaniu dostępu do ramki obiektu OLE możesz wykonywać dowolne operacje na niej.  
+1. Wczytaj prezentację z osadzonym obiektem OLE, tworząc instancję klasy [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) .
+2. Uzyskaj odniesienie do slajdu, używając jego indeksu.
+3. Uzyskaj dostęp do kształtu [OleObjectFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/OleObjectFrame).  
+   W naszym przykładzie użyliśmy wcześniej utworzonego PPTX, który ma tylko jeden kształt na pierwszym slajdzie. Następnie *cast* ten obiekt jako [IOleObjectFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ioleobjectframe/). To była pożądana ramka obiektu OLE, do której uzyskano dostęp.
+4. Po uzyskaniu dostępu do ramki obiektu OLE możesz wykonać dowolną operację na niej.
 
-W poniższym przykładzie dostęp uzyskano do ramki obiektu OLE (obiekt wykresu Excel osadzony w slajdzie) oraz jego danych plikowych.
+In the example below, an OLE object frame (an Excel chart object embedded in a slide) and its file data are accessed.
 
 ```java 
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 ISlide slide = presentation.getSlides().get_Item(0);
 IShape shape = slide.getShapes().get_Item(0);
@@ -123,13 +135,15 @@ if (shape instanceof IOleObjectFrame) {
 }
 ```
 
-### **Dostęp do właściwości połączonej ramki obiektu OLE**
+### **Uzyskaj właściwości połączonej ramki obiektu OLE**
 
-Aspose.Slides umożliwia dostęp do właściwości połączonych ramek obiektów OLE.  
+Aspose.Slides umożliwia dostęp do właściwości połączonej ramki obiektu OLE.
 
-Poniższy kod Java pokazuje, jak sprawdzić, czy obiekt OLE jest połączony, a następnie uzyskać ścieżkę do połączonego pliku:
+This Java code shows you how to check if an OLE object is linked and then obtain the path to the linked file:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.ppt");
 ISlide slide = presentation.getSlides().get_Item(0);
 IShape shape = slide.getShapes().get_Item(0);
@@ -139,10 +153,10 @@ if (shape instanceof IOleObjectFrame) {
 
     // Sprawdź, czy obiekt OLE jest połączony.
     if (oleFrame.isObjectLink()) {
-        // Wyświetl pełną ścieżkę do połączonego pliku.
+        // Wypisz pełną ścieżkę do połączonego pliku.
         System.out.println("OLE object frame is linked to: " + oleFrame.getLinkPathLong());
 
-        // Wyświetl względną ścieżkę do połączonego pliku, jeśli istnieje.
+        // Wypisz względną ścieżkę do połączonego pliku, jeśli istnieje.
         // Tylko prezentacje PPT mogą zawierać względną ścieżkę.
         if (oleFrame.getLinkPathRelative() != null && !oleFrame.getLinkPathRelative().isEmpty()) {
             System.out.println("OLE object frame relative path: " + oleFrame.getLinkPathRelative());
@@ -153,28 +167,35 @@ if (shape instanceof IOleObjectFrame) {
 presentation.dispose();
 ```
 
-## **Zmiana danych obiektu OLE**
+## **Zmień dane obiektu OLE**
 
-{{% alert color="primary" %}} 
+{{% alert color="info" title="Note" %}}
 
-W tej sekcji poniższy przykład kodu używa [Aspose.Cells for Android via Java](/cells/androidjava/).
+In this section, the code example below uses [Aspose.Cells for Android via Java](https://docs.aspose.com/cells/androidjava/).
 
-{{% /alert %}} 
+{{% /alert %}}
 
-Jeśli obiekt OLE jest już osadzony w slajdzie, możesz łatwo uzyskać dostęp do tego obiektu i zmodyfikować jego dane w następujący sposób:
+If an OLE object is already embedded in a slide, you can easily access that object and modify its data this way:
 
-1. Wczytaj prezentację z osadzonym obiektem OLE, tworząc instancję klasy [Presentation](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/Presentation).  
-2. Uzyskaj referencję do slajdu za pomocą jego indeksu.  
-3. Uzyskaj dostęp do kształtu OLE object frame. W naszym przykładzie użyliśmy wcześniej utworzonego pliku PPTX, który ma jeden kształt na pierwszym slajdzie. Następnie *rzuciliśmy* (cast) ten obiekt jako [IOleObjectFrame](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ioleobjectframe/). To była pożądana ramka obiektu OLE, do której uzyskano dostęp.  
-4. Po uzyskaniu dostępu do ramki obiektu OLE możesz wykonywać dowolne operacje na niej.  
-5. Utwórz obiekt `Workbook` i uzyskaj dostęp do danych OLE.  
-6. Uzyskaj dostęp do żądanego `Worksheet` i zmodyfikuj dane.  
-7. Zapisz zaktualizowany `Workbook` w strumieniu.  
-8. Zmień dane obiektu OLE ze strumienia.  
+1. Wczytaj prezentację z osadzonym obiektem OLE, tworząc instancję klasy [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) .
+2. Uzyskaj odniesienie do slajdu za pomocą jego indeksu. 
+3. Uzyskaj dostęp do kształtu ramki obiektu OLE.  
+   W naszym przykładzie użyliśmy wcześniej utworzonego PPTX, który ma jeden kształt na pierwszym slajdzie. Następnie *cast* ten obiekt jako [IOleObjectFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ioleobjectframe/). To była pożądana ramka obiektu OLE, do której uzyskano dostęp.
+4. Po uzyskaniu dostępu do ramki obiektu OLE możesz wykonać dowolną operację na niej.
+5. Utwórz obiekt `Workbook` i uzyskaj dostęp do danych OLE.
+6. Uzyskaj dostęp do żądanej `Worksheet` i zmień dane.
+7. Zapisz zaktualizowany `Workbook` w strumieniu.
+8. Zmień dane obiektu OLE ze strumienia.
 
-W poniższym przykładzie uzyskano dostęp do ramki obiektu OLE (obiekt wykresu Excel osadzony w slajdzie) i zmodyfikowano jego dane plikowe, aby zaktualizować dane wykresu.
+In the example below, an OLE object frame (an Excel chart object embedded in a slide) is accessed, and its file data is modified to update the chart data.
 
 ```java 
+import com.aspose.slides.*;
+import com.aspose.cells.Workbook;
+import com.aspose.cells.OoxmlSaveOptions;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+
 Presentation presentation = new Presentation("sample.pptx");
 ISlide slide = presentation.getSlides().get_Item(0);
 IShape shape = slide.getShapes().get_Item(0);
@@ -184,12 +205,12 @@ if (shape instanceof IOleObjectFrame) {
 
     ByteArrayInputStream oleStream = new ByteArrayInputStream(oleFrame.getEmbeddedData().getEmbeddedFileData());
 
-    // Odczytaj dane obiektu OLE jako obiekt Workbook.
+    // Wczytaj dane obiektu OLE jako obiekt Workbook.
     Workbook workbook = new Workbook(oleStream);
 
     ByteArrayOutputStream newOleStream = new ByteArrayOutputStream();
 
-    // Zmodyfikuj dane skoroszytu.
+    // Modyfikuj dane workbooka.
     workbook.getWorksheets().get(0).getCells().get(0, 4).putValue("E");
     workbook.getWorksheets().get(0).getCells().get(1, 4).putValue(12);
     workbook.getWorksheets().get(0).getCells().get(2, 4).putValue(14);
@@ -207,13 +228,19 @@ presentation.save("output.pptx", SaveFormat.Pptx);
 presentation.dispose();
 ```
 
-## **Osadzanie innych typów plików w slajdach**
+## **Osadź inne typy plików w slajdach**
 
-Poza wykresami Excel, Aspose.Slides for Android via Java umożliwia osadzanie innych rodzajów plików w slajdach. Na przykład możesz wstawiać pliki HTML, PDF i ZIP jako obiekty. Gdy użytkownik dwukrotnie kliknie wstawiony obiekt, otwiera się on automatycznie w odpowiednim programie, lub użytkownik zostaje poproszony o wybranie odpowiedniego programu do otwarcia.
+Besides Excel charts, Aspose.Slides for Android via Java umożliwia osadzenie innych typów plików w slajdach. Na przykład możesz wstawić pliki HTML, PDF i ZIP jako obiekty. Gdy użytkownik dwukrotnie kliknie wstawiony obiekt, otwiera się automatycznie w odpowiednim programie lub zostaje poproszony o wybranie odpowiedniego programu do otwarcia.
 
-Poniższy kod Java pokazuje, jak osadzić HTML i ZIP w slajdzie:
+This Java code shows you how to embed HTML and ZIP into a slide:
 
 ```java
+import com.aspose.slides.*;
+import java.io.BufferedInputStream;
+import java.io.DataInputStream;
+import java.io.File;
+import java.io.FileInputStream;
+
 Presentation presentation = new Presentation();
 ISlide slide = presentation.getSlides().get_Item(0);
 
@@ -239,13 +266,15 @@ presentation.save("output.pptx", SaveFormat.Pptx);
 presentation.dispose();
 ```
 
-## **Ustawianie typów plików dla osadzonych obiektów**
+## **Ustaw typy plików dla osadzonych obiektów**
 
-Podczas pracy z prezentacjami możesz potrzebować zastąpić stare obiekty OLE nowymi lub zamienić nieobsługiwany obiekt OLE na obsługiwany. Aspose.Slides for Android via Java umożliwia ustawienie typu pliku dla osadzonego obiektu, co pozwala na aktualizację danych ramki OLE lub jej rozszerzenia.
+When working with presentations, you may need to replace old OLE objects with new ones or replace an unsupported OLE object with a supported one. Aspose.Slides for Android via Java umożliwia ustawienie typu pliku dla osadzonego obiektu, co pozwala zaktualizować dane ramki OLE lub jej rozszerzenie.
 
-Poniższy kod Java pokazuje, jak ustawić typ pliku dla osadzonego obiektu OLE na `zip`:
+This Java code shows you how to set the file type for an embedded OLE object to `zip`:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 ISlide slide = presentation.getSlides().get_Item(0);
 IOleObjectFrame oleFrame = (IOleObjectFrame) slide.getShapes().get_Item(0);
@@ -255,20 +284,26 @@ byte[] fileData = oleFrame.getEmbeddedData().getEmbeddedFileData();
 
 System.out.println("Current embedded file extension is: " + fileExtension);
 
-// Change the file type to ZIP.
+// Zmień typ pliku na ZIP.
 oleFrame.setEmbeddedData(new OleEmbeddedDataInfo(fileData, "zip"));
 
 presentation.save("output.pptx", SaveFormat.Pptx);
 presentation.dispose();
 ```
 
-## **Ustawianie obrazów ikon i tytułów dla osadzonych obiektów**
+## **Ustaw obrazy ikon i tytuły dla osadzonych obiektów**
 
-Po osadzeniu obiektu OLE automatycznie dodawany jest podgląd składający się z obrazu ikony. Ten podgląd jest tym, co użytkownicy widzą przed dostępem lub otwarciem obiektu OLE. Jeśli chcesz użyć określonego obrazu i tekstu jako elementów podglądu, możesz ustawić obraz ikony i tytuł za pomocą Aspose.Slides for Android via Java.
+After embedding an OLE object, a preview consisting of an icon image is added automatically. This preview is what users see before accessing or opening the OLE object. If you want to use a specific image and text as elements in the preview, you can set the icon image and title using Aspose.Slides for Android via Java.
 
-Poniższy kod Java pokazuje, jak ustawić obraz ikony i tytuł dla osadzonego obiektu:
+This Java code shows you how to set the icon image and title for an embedded object:
 
 ```java
+import com.aspose.slides.*;
+import java.io.BufferedInputStream;
+import java.io.DataInputStream;
+import java.io.File;
+import java.io.FileInputStream;
+
 Presentation presentation = new Presentation("sample.pptx");
 ISlide slide = presentation.getSlides().get_Item(0);
 IOleObjectFrame oleFrame = (IOleObjectFrame) slide.getShapes().get_Item(0);
@@ -290,25 +325,41 @@ presentation.save("output.pptx", SaveFormat.Pptx);
 presentation.dispose();
 ```
 
-## **Zapobieganie zmianie rozmiaru i położenia ramki obiektu OLE**
+## **Zapobiegaj zmianie rozmiaru i położenia ramki obiektu OLE**
 
-Po dodaniu połączonego obiektu OLE do slajdu prezentacji, podczas otwierania prezentacji w PowerPoint możesz zobaczyć komunikat z prośbą o zaktualizowanie linków. Kliknięcie przycisku „Update Links” może zmienić rozmiar i położenie ramki obiektu OLE, ponieważ PowerPoint aktualizuje dane z połączonego obiektu OLE i odświeża podgląd obiektu. Aby zapobiec wyświetlaniu tego komunikatu i aktualizacji danych obiektu, ustaw metodę `setUpdateAutomatic` interfejsu [IOleObjectFrame](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ioleobjectframe/) na `false`:
+After you add a linked OLE object to a presentation slide, when you open the presentation in PowerPoint, you might see a message asking you to update the links. Clicking the "Update Links" button may change the size and position of the OLE object frame because PowerPoint updates the data from the linked OLE object and refreshes the object preview. To prevent PowerPoint from prompting to update the object's data, call the [setUpdateAutomatic](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ioleobjectframe/#setUpdateAutomatic-boolean-) method of the [IOleObjectFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ioleobjectframe/) interface with `false`:
 
 ```java
-oleFrame.setUpdateAutomatic(false);
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("sample.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IOleObjectFrame oleFrame = (IOleObjectFrame) slide.getShapes().get_Item(0);
+
+    oleFrame.setUpdateAutomatic(false);
+
+    presentation.save("output.pptx", SaveFormat.Pptx);
+} finally {
+    if (presentation != null) presentation.dispose();
+}
 ```
 
-## **Wyodrębnianie osadzonych plików**
+## **Wyodrębnij osadzone pliki**
 
-Aspose.Slides for Android via Java umożliwia wyodrębnianie plików osadzonych w slajdach jako obiekty OLE w następujący sposób:
+Aspose.Slides for Android via Java umożliwia wyodrębnienie plików osadzonych w slajdach jako obiekty OLE w następujący sposób:
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/Presentation) zawierającej obiekty OLE, które chcesz wyodrębnić.  
-2. Iteruj przez wszystkie kształty w prezentacji i uzyskaj dostęp do kształtów [OLEObjectFrame](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/oleobjectframe).  
-3. Uzyskaj dostęp do danych osadzonych plików z ramek OLE i zapisz je na dysku.  
+1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) zawierającej obiekty OLE, które chcesz wyodrębnić.
+2. Przejdź przez wszystkie kształty w prezentacji i uzyskaj dostęp do kształtów [OLEObjectFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/oleobjectframe).
+3. Uzyskaj dostęp do danych osadzonych plików z ramek OLE i zapisz je na dysku.
 
-Poniższy kod Java pokazuje, jak wyodrębnić pliki osadzone w slajdzie jako obiekty OLE:
+This Java code shows you how to extract files embedded in a slide as OLE objects:
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.io.FileOutputStream;
+
 Presentation presentation = new Presentation("sample.pptx");
 ISlide slide = presentation.getSlides().get_Item(0);
 
@@ -332,18 +383,20 @@ presentation.dispose();
 
 ## **FAQ**
 
-**Czy zawartość OLE będzie renderowana przy eksportowaniu slajdów do PDF/obrazów?**
+**Will the OLE content be rendered when exporting slides to PDF/images?**
 
-Renderowana jest to, co jest widoczne na slajdzie — ikona/obraz zastępczy (podgląd). „Żywa” zawartość OLE nie jest wykonywana podczas renderowania. W razie potrzeby ustaw własny obraz podglądu, aby zapewnić oczekiwany wygląd w wyeksportowanym PDF.
+What is visible on the slide is rendered—the icon/substitute image (preview). The "live" OLE content is not executed during rendering. If needed, set your own preview image to ensure the expected appearance in the exported PDF.
 
-**Jak mogę zablokować obiekt OLE na slajdzie, aby użytkownicy nie mogli go przemieszczać/edytować w PowerPoint?**
+To also preserve the embedded file as a PDF attachment, call [setIncludeOleData](https://reference.aspose.com/slides/androidjava/com.aspose.slides/pdfoptions/#setIncludeOleData-boolean-) with `true`. This option is disabled by default. For an example and instructions for checking the attachment, see [Preserve Embedded OLE Files as PDF Attachments](/slides/pl/androidjava/convert-powerpoint-to-pdf/#preserve-embedded-ole-files-as-pdf-attachments).
 
-Zablokuj kształt: Aspose.Slides udostępnia blokady na poziomie kształtu. Nie jest to szyfrowanie, ale skutecznie zapobiega przypadkowym edycjom i przemieszczaniu.
+**How can I lock an OLE object on a slide so users cannot move/edit it in PowerPoint?**
 
-**Dlaczego połączony obiekt Excel „przeskakuje” lub zmienia rozmiar po otwarciu prezentacji?**
+Lock the shape: Aspose.Slides provides shape-level locks. This is not encryption, but it effectively prevents accidental edits and movement.
 
-PowerPoint może odświeżać podgląd połączonego OLE. Aby uzyskać stabilny wygląd, stosuj się do zaleceń zawartych w [Working Solution for Worksheet Resizing](/slides/pl/androidjava/working-solution-for-worksheet-resizing/) — dopasuj ramkę do zakresu lub skaluj zakres do stałej ramki i ustaw odpowiedni obraz zastępczy.
+**Why does a linked Excel object "jump" or change size when I open the presentation?**
 
-**Czy względne ścieżki do połączonych obiektów OLE będą zachowane w formacie PPTX?**
+PowerPoint may refresh the preview of the linked OLE. For a stable appearance, follow the [Working Solution for Worksheet Resizing](/slides/pl/androidjava/working-solution-for-worksheet-resizing/) practices—either fit the frame to the range, or scale the range to a fixed frame and set an appropriate substitute image.
 
-W PPTX informacje o „względnej ścieżce” nie są dostępne — zachowywana jest tylko pełna ścieżka. Ścieżki względne występują w starszym formacie PPT. Dla przenośności zaleca się używanie niezawodnych ścieżek bezwzględnych/ dostępnych URI lub osadzanie.
+**Will relative paths for linked OLE objects be preserved in the PPTX format?**
+
+In PPTX, "relative path" information is not available—only the full path. Relative paths are found in the older PPT format. For portability, prefer reliable absolute paths/accessible URIs or embedding.

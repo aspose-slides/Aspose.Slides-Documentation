@@ -6,15 +6,15 @@ weight: 40
 url: /hu/php-java/manage-ole/
 keywords:
 - OLE objektum
-- Objektum hivatkozás és beágyazás
+- Objektumkapcsolás és beágyazás
 - OLE hozzáadása
 - OLE beágyazása
 - objektum hozzáadása
 - objektum beágyazása
 - fájl hozzáadása
 - fájl beágyazása
-- linkelt objektum
-- linkelt fájl
+- hivatkozott objektum
+- hivatkozott fájl
 - OLE módosítása
 - OLE ikon
 - OLE cím
@@ -25,79 +25,79 @@ keywords:
 - prezentáció
 - PHP
 - Aspose.Slides
-description: "Optimalizálja az OLE objektumok kezelését PowerPoint és OpenDocument fájlokban az Aspose.Slides for PHP via Java segítségével. Ágyazzon be, frissítsen és exportáljon OLE tartalmat zökkenőmentesen."
+description: "Optimalizálja az OLE objektumok kezelését PowerPoint és OpenDocument fájlokban az Aspose.Slides for PHP via Java segítségével. Beágyazás, frissítés és OLE tartalom exportálása zökkenőmentesen."
 ---
 ## **Bevezetés**
 
-{{% alert color="primary" %}} 
+{{% alert color="info" title="Megjegyzés" %}}
 
-Az OLE (Object Linking & Embedding) egy Microsoft technológia, amely lehetővé teszi, hogy egy alkalmazásban létrehozott adatokat és objektumokat egy másik alkalmazásba helyezzék át hivatkozás vagy beágyazás révén. 
+Az OLE (Object Linking & Embedding) egy Microsoft technológia, amely lehetővé teszi, hogy egy alkalmazásban létrehozott adatokat és objektumokat egy másik alkalmazásba helyezzük el hivatkozás vagy beágyazás révén. 
 
 {{% /alert %}} 
 
-Tekintsünk egy MS Excelben létrehozott diagramot. A diagramot ezután egy PowerPoint-diára helyezzük. Ez az Excel-diagram OLE objektumnak tekinthető. 
+Tekintsünk egy MS Excelben létrehozott diagramot. A diagramot ezután egy PowerPoint diára helyezzük. Ez az Excel-diagram OLE objektumnak tekinthető. 
 
-- Egy OLE objektum ikonként jelenhet meg. Ebben az esetben, ha duplán kattintunk az ikonra, a diagram a hozzá kapcsolódó alkalmazásban (Excel) nyílik meg, vagy felkérik a felhasználót, hogy válasszon alkalmazást az objektum megnyitásához vagy szerkesztéséhez. 
-- Egy OLE objektum megjelenítheti a tényleges tartalmát, például egy diagram tartalmát. Ebben az esetben a diagram aktiválódik a PowerPointban, betöltődik a diagram felület, és a PowerPointon belül módosíthatja a diagram adatait. 
+- Egy OLE objektum megjelenhet ikonként. Ebben az esetben, ha duplán kattintunk az ikonra, a diagram a hozzá kapcsolódó alkalmazásban (Excel) nyílik meg, vagy felkérik a felhasználót, hogy válasszon alkalmazást az objektum megnyitásához vagy szerkesztéséhez.
+- Egy OLE objektum megjelenítheti a tényleges tartalmát, például egy diagram tartalmát. Ebben az esetben a diagram aktiválódik a PowerPointban, betöltődik a diagram felülete, és módosíthatja a diagram adatait a PowerPointon belül.
 
-[Aspose.Slides for PHP via Java](https://products.aspose.com/slides/hu/php-java/) lehetővé teszi OLE objektumok beszúrását a diákba OLE objektumkeretként ([OleObjectFrame](https://reference.aspose.com/slides/hu/php-java/aspose.slides/oleobjectframe/)).
+[Aspose.Slides for PHP via Java](https://products.aspose.com/slides/php-java/) lehetővé teszi OLE objektumok beszúrását a diákba OLE objektumkeretekként ([OleObjectFrame](https://reference.aspose.com/slides/php-java/aspose.slides/oleobjectframe/)).
 
-## **OLE Objektumkeretek hozzáadása a diákhoz**
+## **OLE Objektumkeretek Hozzáadása a Diákhoz**
 
-Tegyük fel, hogy már elkészítette a diagramot a Microsoft Excelben, és azt be szeretné ágyazni egy diára OLE objektumkeretként az Aspose.Slides for PHP via Java segítségével; ezt a következőképpen teheti meg:
+Tegyük fel, hogy már létrehozott egy diagramot a Microsoft Excelben, és az Aspose.Slides for PHP via Java segítségével OLE objektumkeretként szeretné beágyazni egy diára. Ezt a következőképpen teheti meg:
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/) osztályból.  
-1. Kapjon referenciát a diára a megfelelő indexével.  
-1. Olvassa be az Excel‑fájlt byte‑tömbként.  
-1. Adja hozzá a [OleObjectFrame](https://reference.aspose.com/slides/hu/php-java/aspose.slides/oleobjectframe/) keretet a diára, amely tartalmazza a byte‑tömböt és az OLE objektum egyéb információit.  
-1. Írja ki a módosított prezentációt PPTX fájlként.  
+1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) osztályból.
+1. Szerezze meg a dia referencia‑ját az indexén keresztül.
+1. Olvassa be az Excel‑fájlt bájt‑tömbként.
+1. Adja hozzá az [OleObjectFrame](https://reference.aspose.com/slides/php-java/aspose.slides/oleobjectframe/)‑et a diához a bájt‑tömbbel és az OLE objektum egyéb adataival.
+1. Írja ki a módosított prezentációt PPTX fájlként.
 
-Az alábbi példában egy Excel‑fájlból származó diagramot adtunk hozzá egy diára OLE objektumkeretként az Aspose.Slides for PHP via Java használatával.  
-**Megjegyzés** hogy a [OleEmbeddedDataInfo](https://reference.aspose.com/slides/hu/php-java/aspose.slides/oleembeddeddatainfo/) konstruktor második paraméterként egy beágyazható objektum kiterjesztését várja. Ez a kiterjesztés lehetővé teszi a PowerPoint számára, hogy megfelelően értelmezze a fájltípust, és a megfelelő alkalmazást válassza az OLE objektum megnyitásához.  
+Az alábbi példában egy Excel‑fájlból származó diagramot adtunk hozzá a diához OLE objektumkeretként az Aspose.Slides for PHP via Java használatával.
+**Megjegyzés**: az [OleEmbeddedDataInfo](https://reference.aspose.com/slides/php-java/aspose.slides/oleembeddeddatainfo/) konstruktor a beágyazható objektum kiterjesztését második paraméterként fogadja. Ez a kiterjesztés lehetővé teszi a PowerPoint számára, hogy helyesen értelmezze a fájltípust, és a megfelelő alkalmazást válassza az OLE objektum megnyitásához.
 
 ```php
 $presentation = new Presentation();
 $slideSize = $presentation->getSlideSize()->getSize();
 $slide = $presentation->getSlides()->get_Item(0);
 
-// Prepare data for the OLE object.
+// Az OLE objektum adatainak előkészítése.
 $fileData = file_get_contents("book.xlsx");
 $dataInfo = new OleEmbeddedDataInfo($fileData, "xlsx");
 
-// Add the OLE object frame to the slide.
+// OLE objektumkeret hozzáadása a diára.
 $slide->getShapes()->addOleObjectFrame(0, 0, $slideSize->getWidth(), $slideSize->getHeight(), $dataInfo);
 
 $presentation->save("output.pptx", SaveFormat::Pptx);
 $presentation->dispose();
 ```
 
-### **Linkelt OLE Objektumkeretek hozzáadása**
+### **Hivatkozott OLE Objektumkeretek Hozzáadása**
 
-Az Aspose.Slides for PHP via Java lehetővé teszi egy [OleObjectFrame](https://reference.aspose.com/slides/hu/php-java/aspose.slides/oleobjectframe/) hozzáadását adatbeágyazás nélkül, csak egy fájlra mutató hivatkozással.
+Az Aspose.Slides for PHP via Java lehetővé teszi, hogy egy [OleObjectFrame](https://reference.aspose.com/slides/php-java/aspose.slides/oleobjectframe/)‑et adat‑beágyazás nélkül, csak egy fájlra mutató hivatkozással adjon hozzá.
 
-Ez a PHP‑kód megmutatja, hogyan adjon egy [OleObjectFrame](https://reference.aspose.com/slides/hu/php-java/aspose.slides/oleobjectframe/) keretet egy hivatkozott Excel‑fájllal a diára:  
+Ez a PHP‑kód megmutatja, hogyan lehet egy [OleObjectFrame](https://reference.aspose.com/slides/php-java/aspose.slides/oleobjectframe/)‑et egy hivatkozott Excel‑fájllal hozzáadni egy diához:
 
 ```php
 $presentation = new Presentation();
 $slide = $presentation->getSlides()->get_Item(0);
 
-// OLE objektumkeret hozzáadása linkelt Excel fájllal.
+// OLE objektumkeret hozzáadása egy hivatkozott Excel fájllal.
 $slide->getShapes()->addOleObjectFrame(20, 20, 200, 150, "Excel.Sheet.12", "book.xlsx");
 
 $presentation->save("output.pptx", SaveFormat::Pptx);
 $presentation->dispose();
 ```
 
-## **OLE Objektumkeretek elérése**
+## **OLE Objektumkeretek Elérése**
 
-Ha egy OLE objektum már be van ágyazva egy diára, ezt a módot követve könnyedén megtalálhatja vagy elérheti:  
+Ha egy OLE objektum már be van ágyazva egy diára, egyszerűen megtalálhatja vagy elérheti a következő módon:
 
-1. Töltse be a prezentációt, amely tartalmazza a beágyazott OLE objektumot, egy [Presentation](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/) példány létrehozásával.  
-2. Szerezze meg a dia referenciáját az indexének használatával.  
-3. Hozzáférés a [OleObjectFrame](https://reference.aspose.com/slides/hu/php-java/aspose.slides/oleobjectframe/) alakzathoz. Példánkban a korábban létrehozott PPTX‑et használtuk, amelynek az első diáján csak egy alakzat van.  
-4. Miután hozzáfért az OLE objektumkerethez, tetszőleges műveletet végrehajthat rajta.  
+1. Töltsön be egy prezentációt, amely a beágyazott OLE objektumot tartalmazza, úgy, hogy létrehozza a [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) osztály egy példányát.
+2. Szerezze meg a dia referencia‑ját az indexével.
+3. Hozzáférés az [OleObjectFrame](https://reference.aspose.com/slides/php-java/aspose.slides/oleobjectframe/) alakzatához. A példánkban a korábban létrehozott PPTX‑et használtuk, amelynek az első dián egyetlen alakzata van.
+4. Miután az OLE objektumkeret elérhető, bármilyen műveletet végrehajthat rajta.
 
-Az alábbi példában egy OLE objektumkeretet (egy Excel‑diagramot beágyazott objektumként) és annak fájladatát érjük el.  
+Az alábbi példában egy OLE objektumkeretet (egy beágyazott Excel‑diagramot) és annak fájladatait érjük el.
 
 ```php
 $presentation = new Presentation("sample.pptx");
@@ -107,7 +107,7 @@ $shape = $slide->getShapes()->get_Item(0);
 if (java_instanceof($shape, new JavaClass("com.aspose.slides.OleObjectFrame"))) {
     $oleFrame = $shape;
     
-    // A beágyazott fájl adatainak lekérése.
+    // A beágyazott fájl adatai lekérése.
     $fileData = $oleFrame->getEmbeddedData()->getEmbeddedFileData();
 
     // A beágyazott fájl kiterjesztésének lekérése.
@@ -117,11 +117,11 @@ if (java_instanceof($shape, new JavaClass("com.aspose.slides.OleObjectFrame"))) 
 }
 ```
 
-### **Linkelt OLE Objektumkeret tulajdonságainak elérése**
+### **Hivatkozott OLE Objektumkeret Tulajdonságainak Elérése**
 
-Az Aspose.Slides lehetővé teszi a linkelt OLE objektumkeret tulajdonságainak elérését.
+Az Aspose.Slides lehetővé teszi, hogy hivatkozott OLE objektumkeret tulajdonságait elérje.
 
-Ez a PHP‑kód megmutatja, hogyan ellenőrizze, hogy egy OLE objektum linkelt‑e, majd hogyan szerezze meg a linked fájl elérési útját:  
+Ez a PHP‑kód megmutatja, hogyan ellenőrizze, hogy egy OLE objektum hivatkozott‑e, majd hogyan szerezze meg a hivatkozott fájl elérési útját:
 
 ```php
 $presentation = new Presentation("sample.ppt");
@@ -131,13 +131,13 @@ $shape = $slide->getShapes()->get_Item(0);
 if (java_instanceof($shape, new JavaClass("com.aspose.slides.OleObjectFrame"))) {
     $oleFrame = $shape;
 
-    // Ellenőrizze, hogy az OLE objektum linkelt-e.
+    // Ellenőrizze, hogy az OLE objektum hivatkozott-e.
     if (java_values($oleFrame->isObjectLink()) != 0) {
-        // Kiírja a linkelt fájl teljes útvonalát.
+        // Írja ki a hivatkozott fájl teljes elérési útját.
         echo "OLE object frame is linked to: " . $oleFrame->getLinkPathLong() . PHP_EOL;
 
-        // Kiírja a linkelt fájl relatív útvonalát, ha létezik.
-        // Csak a PPT prezentációk tartalmazhatják a relatív útvonalat.
+        // Írja ki a hivatkozott fájl relatív útvonalát, ha van.
+        // Csak a PPT-prezentációk tartalmazhatják a relatív útvonalat.
         $relativePath = java_values($oleFrame->getLinkPathRelative());
         if (!is_null($relativePath) && $relativePath !== "") {
             echo "OLE object frame relative path: " . $oleFrame->getLinkPathRelative() . PHP_EOL;
@@ -148,26 +148,26 @@ if (java_instanceof($shape, new JavaClass("com.aspose.slides.OleObjectFrame"))) 
 $presentation->dispose();
 ```
 
-## **OLE Objektum adatainak módosítása**
+## **OLE Objektum Adatainak Módosítása**
 
-{{% alert color="primary" %}} 
+{{% alert color="info" title="Megjegyzés" %}}
 
-Ebben a szakaszban az alábbi kódrészlet a [Aspose.Cells for PHP via Java](/cells/php-java/) használatát mutatja be. 
+Ebben a szakaszban az alábbi kódpélda a [Aspose.Cells for PHP via Java](https://docs.aspose.com/cells/php-java/)‑t használja.
 
-{{% /alert %}} 
+{{% /alert %}}
 
-Ha egy OLE objektum már be van ágyazva egy diára, ezt a módot követve könnyedén elérheti és módosíthatja az adatokat:  
+Ha egy OLE objektum már be van ágyazva egy diára, egyszerűen elérheti azt, és módosíthatja az adatait a következő módon:
 
-1. Töltse be a prezentációt, amely tartalmazza a beágyazott OLE objektumot, egy [Presentation](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/) példány létrehozásával.  
-2. Szerezze meg a dia referenciáját az indexével.  
-3. Hozzáférés a [OleObjectFrame](https://reference.aspose.com/slides/hu/php-java/aspose.slides/oleobjectframe/) alakzathoz. Példánkban a korábban létrehozott PPTX‑et használtuk, amelynek az első diáján egy alakzat van.  
-4. Miután hozzáfért az OLE objektumkerethez, tetszőleges műveletet végrehajthat rajta.  
-5. Hozzon létre egy `Workbook` objektumot, és férjen hozzá az OLE‑adatokhoz.  
-6. Nyissa meg a kívánt `Worksheet`‑et, és módosítsa az adatokat.  
-7. Mentse el a frissített `Workbook`‑ot egy stream‑be.  
-8. Cserélje ki az OLE objektum adatát a stream‑ből.  
+1. Töltsön be egy prezentációt, amely a beágyazott OLE objektumot tartalmazza, úgy, hogy létrehozza a [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) osztály egy példányát.
+2. Szerezze meg a dia referencia‑ját az indexével. 
+3. Hozzáférés az [OleObjectFrame](https://reference.aspose.com/slides/php-java/aspose.slides/oleobjectframe/) alakzatához. A példánkban a korábban létrehozott PPTX‑et használtuk, amelynek az első dián egyetlen alakzata van.
+4. Miután az OLE objektumkeret elérhető, bármilyen műveletet végrehajthat rajta.
+5. Hozzon létre egy `Workbook` objektumot, és érje el az OLE adatokat.
+6. Hozzáférés a kívánt `Worksheet`‑hez, és módosítsa az adatokat.
+7. Mentse a frissített `Workbook`‑ot egy áramlamba.
+8. Az OLE objektum adatait cserélje ki az áramlamból.
 
-Az alábbi példában egy OLE objektumkeretet (egy Excel‑diagramot beágyazott objektumként) érünk el, és módosítjuk a fájladatát a diagram adatainak frissítése érdekében.  
+Az alábbi példában egy OLE objektumkeretet (egy beágyazott Excel‑diagramot) érünk el, és a fájladatait módosítjuk a diagramadatok frissítése érdekében.
 
 ```php
 $presentation = new Presentation("sample.pptx");
@@ -177,14 +177,14 @@ $shape = $slide->getShapes()->get_Item(0);
 if (java_instanceof($shape, new JavaClass("com.aspose.slides.OleObjectFrame"))) {
     $oleFrame = $shape;
 
-    $oleStream = new ByteArrayInputStream($oleFrame->getEmbeddedData()->getEmbeddedFileData());
+    $oleStream = new Java("java.io.ByteArrayInputStream", $oleFrame->getEmbeddedData()->getEmbeddedFileData());
 
-    // Az OLE objektum adatainak beolvasása Workbook objektumként.
+    // Olvassa be az OLE objektum adatát Workbook objektumként.
     $workbook = new Workbook($oleStream);
 
     $newOleStream = new Java("java.io.ByteArrayOutputStream");
 
-    // A munkafüzet adatok módosítása.
+    // Módosítsa a munkafüzet adatait.
     $workbook->getWorksheets()->get(0)->getCells()->get(0, 4)->putValue("E");
     $workbook->getWorksheets()->get(0)->getCells()->get(1, 4)->putValue(12);
     $workbook->getWorksheets()->get(0)->getCells()->get(2, 4)->putValue(14);
@@ -205,11 +205,11 @@ $presentation->save("output.pptx", SaveFormat::Pptx);
 $presentation->dispose();
 ```
 
-## **Más fájltípusok beágyazása a diákba**
+## **Egyéb Fájltípusok Beágyazása a Diákba**
 
-Az Excel‑diagramok mellett az Aspose.Slides for PHP via Java lehetővé teszi más fájltípusok beágyazását is a diákba. Például HTML, PDF, illetve ZIP fájlokat is beszúrhat objektumként. Amikor a felhasználó duplán kattint a beszúrt objektumra, az automatikusan megnyílik a megfelelő programban, vagy felkérik, hogy válasszon egy megfelelő programot a megnyitáshoz.  
+Az Excel‑diagramokon kívül az Aspose.Slides for PHP via Java lehetővé teszi más fájltípusok beágyazását a diákba is. Például HTML, PDF és ZIP fájlokat szúrhat be objektumként. Amikor a felhasználó duplán kattint a beszúrt objektumra, az automatikusan megnyílik a megfelelő programban, vagy a felhasználót felkéri, hogy válasszon egy alkalmas programot a megnyitáshoz.
 
-Ez a PHP‑kód megmutatja, hogyan ágyazzon be HTML‑t és ZIP‑et egy diára:  
+Ez a PHP‑kód megmutatja, hogyan ágyazzon be HTML‑t és ZIP‑et egy diára:
 
 ```php
 $presentation = new Presentation("sample.pptx");
@@ -229,11 +229,11 @@ $presentation->save("output.pptx", SaveFormat::Pptx);
 $presentation->dispose();
 ```
 
-## **Beágyazott objektumok fájltípusának beállítása**
+## **Beágyazott Objektumok Fájltípusának Beállítása**
 
-Prezentációk kezelése közben előfordulhat, hogy régi OLE objektumokat újakkal kell helyettesíteni, vagy egy nem támogatott OLE objektumot egy támogatottra cserélni. Az Aspose.Slides for PHP via Java lehetővé teszi a beágyazott objektum fájltípusának megadását, így frissítheti az OLE keret adatait vagy annak kiterjesztését.  
+Prezentációk kezelésekor előfordulhat, hogy régi OLE objektumokat újakkal kell helyettesíteni, vagy egy nem támogatott OLE objektumot támogatottal. Az Aspose.Slides for PHP via Java lehetővé teszi, hogy beállítsa a beágyazott objektum fájltípusát, így frissítheti az OLE keret adatait vagy annak kiterjesztését.
 
-Ez a PHP‑kód megmutatja, hogyan állítsa be egy beágyazott OLE objektum fájltípusát `zip`‑re:  
+Ez a PHP‑kód megmutatja, hogyan állíthatja a beágyazott OLE objektum fájltípusát `zip`‑re:
 
 ```php
 $presentation = new Presentation("sample.pptx");
@@ -245,29 +245,29 @@ $fileData = $oleFrame->getEmbeddedData()->getEmbeddedFileData();
 
 echo "Current embedded file extension is: " . $fileExtension . PHP_EOL;
 
-// Change the file type to ZIP.
+// A fájltípus módosítása ZIP-re.
 $oleFrame->setEmbeddedData(new OleEmbeddedDataInfo($fileData, "zip"));
 
 $presentation->save("output.pptx", SaveFormat::Pptx);
 $presentation->dispose();
 ```
 
-## **Ikon képek és címek beállítása a beágyazott objektumokhoz**
+## **Ikonképek és Címek Beállítása a Beágyazott Objektumokhoz**
 
-Az OLE objektum beágyazása után automatikusan hozzáadódik egy előnézet, amely egy ikon képből áll. Ez az előnézet jelenik meg a felhasználók számára, mielőtt hozzáférnének vagy megnyitnák az OLE objektumot. Ha konkrét képet és szöveget szeretne használni az előnézetben, akkor az Aspose.Slides for PHP via Java segítségével beállíthatja az ikon képet és a címet.  
+Miután beágyazott egy OLE objektumot, automatikusan hozzáadódik egy előnézet, amely ikonképből áll. Ez az előnézet látható a felhasználók számára, mielőtt elérnék vagy megnyitnák az OLE objektumot. Ha egy adott képet és szöveget szeretne használni az előnézet elemeiként, beállíthatja az ikonképét és a címet az Aspose.Slides for PHP via Java‑val.
 
-Ez a PHP‑kód megmutatja, hogyan állítsa be az ikon képet és a címet egy beágyazott objektumhoz:  
+Ez a PHP‑kód megmutatja, hogyan állíthatja be az ikonképét és a címét egy beágyazott objektumhoz:
 
 ```php
 $presentation = new Presentation("sample.pptx");
 $slide = $presentation->getSlides()->get_Item(0);
 $oleFrame = $slide->getShapes()->get_Item(0);
 
-// Kép hozzáadása a prezentáció erőforrásaihoz.
+// Képet ad a prezentáció erőforrásaihoz.
 $imageData = file_get_contents("image.png");
 $oleImage = $presentation->getImages()->addImage($imageData);
 
-// Set a title and the image for the OLE preview.
+// Címet és képet állít be az OLE előnézethez.
 $oleFrame->setSubstitutePictureTitle("My title");
 $oleFrame->getSubstitutePictureFormat()->getPicture()->setImage($oleImage);
 $oleFrame->setObjectIcon(true);
@@ -276,23 +276,30 @@ $presentation->save("output.pptx", SaveFormat::Pptx);
 $presentation->dispose();
 ```
 
-## **Az OLE Objektumkeret átméretezésének és áthelyezésének megakadályozása**
+## **Az OLE Objektumkeret Átméretezésének és Áthelyezésének Megakadályozása**
 
-Miután egy linkelt OLE objektumot hozzáadott a prezentáció egy diájához, a PowerPoint megnyitásakor megjelenhet egy üzenet, amely a hivatkozások frissítését kéri. Az „Update Links” (Hivatkozások frissítése) gombra kattintva a OLE objektumkeret mérete és pozíciója megváltozhat, mivel a PowerPoint a linked OLE objektumból származó adatokat frissíti, és az objektum előnézetét újrahajszolja. Ahhoz, hogy a PowerPoint ne kérje az objektum adatainak frissítését, állítsa a [OleObjectFrame](https://reference.aspose.com/slides/hu/php-java/aspose.slides/oleobjectframe/) osztály `setUpdateAutomatic` metódusát `false`‑ra:  
+Miután egy hivatkozott OLE objektumot hozzáadott egy prezentációs diához, a PowerPoint megnyitásakor előfordulhat, hogy egy üzenet jelenik meg a linkek frissítésének kérésével. A „Linkek frissítése” gombra kattintva az OLE objektumkeret mérete és pozíciója megváltozhat, mert a PowerPoint a hivatkozott OLE objektum adatait frissíti és az előnézetet újrarendereli. Az objektum adatainak frissítésére való felszólítás elkerüléséhez hívja meg az [OleObjectFrame](https://reference.aspose.com/slides/php-java/aspose.slides/oleobjectframe/) osztály [setUpdateAutomatic](https://reference.aspose.com/slides/php-java/aspose.slides/oleobjectframe/#setUpdateAutomatic) metódusát `false`‑val:
 
 ```php
+$presentation = new Presentation("sample.pptx");
+$slide = $presentation->getSlides()->get_Item(0);
+$oleFrame = $slide->getShapes()->get_Item(0);
+
 $oleFrame->setUpdateAutomatic(false);
+
+$presentation->save("output.pptx", SaveFormat::Pptx);
+$presentation->dispose();
 ```
 
-## **Beágyazott fájlok kinyerése**
+## **Beágyazott Fájlok Kinyerése**
 
-Az Aspose.Slides for PHP via Java lehetővé teszi a diákba beágyazott, OLE objektumként tárolt fájlok kinyerését a következő módon:  
+Az Aspose.Slides for PHP via Java lehetővé teszi, hogy a diákban OLE objektumként beágyazott fájlokat a következőképpen nyerje ki:
 
-1. Hozzon létre egy [Presentation](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/) példányt, amely tartalmazza a kinyerni kívánt OLE objektumokat.  
-2. Járja be a prezentáció összes alakzatát, és férjen hozzá az [OLEObjectFrame](https://reference.aspose.com/slides/hu/php-java/aspose.slides/oleobjectframe/) alakzatokhoz.  
-3. Olvassa ki a beágyazott fájlok adatát az OLE objektumkeretekből, és írja ki a lemezre.  
+1. Hozzon létre egy [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) példányt, amely a kinyerni kívánt OLE objektumokat tartalmazza.
+2. Járja be a prezentáció összes alakzatát, és érje el az [OLEObjectFrame](https://reference.aspose.com/slides/php-java/aspose.slides/oleobjectframe/) alakzatokat.
+3. Hozzáférés a beágyazott fájlok adataihoz az OLE objektumkeretekből, és írja őket lemezre.
 
-Ez a PHP‑kód megmutatja, hogyan nyerjen ki fájlokat, amelyek OLE objektumként vannak beágyazva egy diára:  
+Ez a PHP‑kód megmutatja, hogyan nyerjen ki egy dián beágyazott fájlokat OLE objektumként:
 
 ```php
 $presentation = new Presentation("sample.pptx");
@@ -318,14 +325,16 @@ $presentation->dispose();
 
 ## **GYIK**
 
-**Megjelenik-e az OLE tartalom, amikor a diákat PDF‑re vagy képekre exportálják?**
+**Megjelenik‑e az OLE tartalom a diák PDF‑re/képre exportálásakor?**
 
-A diáron látható elem (az ikon/helyettesítő kép, azaz az előnézet) kerül renderelésre. Az „élő” OLE tartalom nem kerül végrehajtásra a renderelés során. Szükség esetén állítson be saját előnézeti képet, hogy a várt megjelenés a PDF‑ben is biztosított legyen.  
+A dián látható tartalom kerül renderelésre – az ikon/helyettesítő kép (előnézet). Az „élő” OLE tartalom nem kerül végrehajtásra a renderelés során. Szükség esetén állítson be saját előnézeti képet, hogy a várt megjelenés jelenjen meg az exportált PDF‑ben.
 
-**Hogyan zárhatok le egy OLE objektumot a dián, hogy a felhasználók ne mozgathassák vagy szerkeszthessék a PowerPointban?**
+Az beágyazott fájl PDF‑csatolmányként történő megőrzéséhez hívja meg a [setIncludeOleData](https://reference.aspose.com/slides/php-java/aspose.slides/pdfoptions/#setIncludeOleData) metódust `true`‑val. Ez a beállítás alapértelmezés szerint le van tiltva. Példáért és az csatolmány ellenőrzésének leírásáért lásd a [Preserve Embedded OLE Files as PDF Attachments](/slides/hu/php-java/convert-powerpoint-to-pdf/#preserve-embedded-ole-files-as-pdf-attachments) cikket.
 
-Zárja le az alakzatot: az Aspose.Slides alakzatszintű zárolási lehetőségeket biztosít. Ez nem titkosítás, de hatékonyan megakadályozza a véletlen szerkesztéseket és áthelyezéseket.  
+**Hogyan lehet zárolni egy OLE objektumot a dián, hogy a felhasználók ne mozgathassák/szerkeszthessék PowerPointban?**
 
-**A linkelt OLE objektumok relatív útvonalai megmaradnak-e a PPTX formátumban?**
+Zárolja az alakzatot: az Aspose.Slides alakzatszintű zárolásokat biztosít. Ez nem titkosítás, de hatékonyan megakadályozza a véletlen szerkesztéseket és áthelyezéseket.
 
-A PPTX formátumban a „relatív útvonal” információ nem érhető el – csak a teljes útvonal tárolódik. Relatív útvonalak a régebbi PPT formátumban találhatók. A hordozhatóság érdekében javasolt megbízható abszolút útvonalakat, elérhető URI‑kat vagy beágyazást használni.
+**Megmaradnak‑e a hivatkozott OLE objektumok relatív útvonalai PPTX formátumban?**
+
+A PPTX‑ben a „relatív útvonal” információ nem áll rendelkezésre – csak a teljes útvonal. A relatív útvonalak a régebbi PPT formátumban szerepelnek. A hordozhatóság érdekében inkább megbízható abszolút útvonalakat vagy elérhető URI‑kat használjon, vagy ágyazza be a fájlokat.

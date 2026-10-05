@@ -6,7 +6,7 @@ weight: 40
 url: /sv/nodejs-java/manage-ole/
 keywords:
 - OLE-objekt
-- Objektlänkning & inbäddning
+- Objektlänkning och inbäddning
 - lägg till OLE
 - bädda in OLE
 - lägg till objekt
@@ -14,7 +14,7 @@ keywords:
 - lägg till fil
 - bädda in fil
 - länkat objekt
-- länkt fil
+- länkad fil
 - ändra OLE
 - OLE-ikon
 - OLE-titel
@@ -30,78 +30,86 @@ description: "Optimera hanteringen av OLE-objekt i PowerPoint- och OpenDocument-
 ---
 ## **Introduktion**
 
-{{% alert color="primary" %}} 
+{{% alert color="info" title="Note" %}}
 
-OLE (Object Linking & Embedding) är en Microsoft‑teknik som gör det möjligt att placera data och objekt som skapats i en applikation i en annan applikation genom länka eller bädda in. 
+OLE (Object Linking & Embedding) är en Microsoft-teknik som tillåter data och objekt som skapats i en applikation att placeras i en annan applikation genom länkar eller inbäddning. 
 
 {{% /alert %}} 
 
-Tänk på ett diagram skapat i MS Excel. Diagrammet placeras sedan i en PowerPoint‑bild. Detta Excel‑diagram betraktas som ett OLE‑objekt. 
+Tänk dig ett diagram skapat i MS Excel. Diagrammet placeras sedan i en PowerPoint-bild. Det Excel-diagrammet betraktas som ett OLE‑objekt. 
 
-- Ett OLE‑objekt kan visas som en ikon. I så fall öppnas diagrammet i den tillhörande applikationen (Excel) när du dubbelklickar på ikonen, eller så blir du ombedd att välja en applikation för att öppna eller redigera objektet. 
-- Ett OLE‑objekt kan visa sitt faktiska innehåll, till exempel innehållet i ett diagram. I så fall aktiveras diagrammet i PowerPoint, diagramgränssnittet laddas och du kan ändra diagrammets data inom PowerPoint.
+- Ett OLE‑objekt kan visas som en ikon. I så fall, när du dubbelklickar på ikonen, öppnas diagrammet i den associerade applikationen (Excel), eller så uppmanas du att välja en applikation för att öppna eller redigera objektet.
+- Ett OLE‑objekt kan visa sitt faktiska innehåll, till exempel innehållet i ett diagram. I så fall aktiveras diagrammet i PowerPoint, diagramgränssnittet laddas, och du kan modifiera diagrammets data i PowerPoint.
 
-[Aspose.Slides for Node.js via Java](https://products.aspose.com/slides/sv/nodejs-java/) låter dig infoga OLE‑objekt i bilder som OLE‑objektrammar ([OleObjectFrame](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/OleObjectFrame)).
+[Aspose.Slides for Node.js via Java](https://products.aspose.com/slides/nodejs-java/) låter dig infoga OLE‑objekt i bilder som OLE‑objekt‑ramar ([OleObjectFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/OleObjectFrame)).
 
-## **Lägga till OLE‑objektramar i bilder**
+## **Lägga till OLE‑objekt‑ramar i bilder**
 
-Anta att du redan har skapat ett diagram i Microsoft Excel och vill bädda in det i en bild som en OLE‑objektram med Aspose.Slides for Node.js via Java, så kan du göra så här:
+Om du redan har skapat ett diagram i Microsoft Excel och vill bädda in det i en bild som en OLE‑objekt‑ram med Aspose.Slides for Node.js via Java, kan du göra så här:
 
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/Presentation) .
-1. Hämta en bilds referens via dess index.
-1. Läs Excel‑filen som en bytearray.
-1. Lägg till [OleObjectFrame](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/OleObjectFrame) till bilden med bytearrayen och övrig information om OLE‑objektet.
-1. Skriv den modifierade presentationen som en PPTX‑fil.
+1. Skapa en instans av [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) klassen.
+2. Hämta en bilds referens via dess index.
+3. Läs Excel‑filen som en byte‑array.
+4. Lägg till [OleObjectFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/OleObjectFrame) till bilden som innehåller byte‑arrayen och annan information om OLE‑objektet.
+5. Skriv den modifierade presentationen som en PPTX‑fil.
 
-I exemplet nedan lade vi till ett diagram från en Excel‑fil till en bild som en OLE‑objektram med Aspose.Slides for Node.js via Java.  
-**Obs!** att konstruktorn för [OleEmbeddedDataInfo](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/OleEmbeddedDataInfo) tar en inbäddningsbar objekttillägg som andra parameter. Detta tillägg gör att PowerPoint korrekt kan tolka filtypen och välja rätt applikation för att öppna detta OLE‑objekt.
+I exemplet nedan lade vi till ett diagram från en Excel‑fil i en bild som en OLE‑objekt‑ram med Aspose.Slides for Node.js via Java. **Note** att [OleEmbeddedDataInfo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/OleEmbeddedDataInfo)‑konstruktorn tar en inbäddningsbar objekt‑extension som andra parameter. Denna extension gör att PowerPoint korrekt kan tolka filtypen och välja rätt program för att öppna detta OLE‑objekt.
 
 ```javascript
+const asposeSlides = require("aspose.slides.via.java");
+const fs = require("fs");
+const java = require("java");
+
 var presentation = new asposeSlides.Presentation();
 var slideSize = presentation.getSlideSize().getSize();
 var slide = presentation.getSlides().get_Item(0);
 
-// Förbered data för OLE-objektet.
+// Prepare data for the OLE object.
 var oleStream = fs.readFileSync("book.xlsx");
 var fileData = Array.from(oleStream);
 var dataInfo = new asposeSlides.OleEmbeddedDataInfo(java.newArray("byte", fileData), "xlsx");
 
-// Lägg till OLE-objektramen på bilden.
+// Add the OLE object frame to the slide.
 slide.getShapes().addOleObjectFrame(0, 0, slideSize.getWidth(), slideSize.getHeight(), dataInfo);
 
 presentation.save("output.pptx", asposeSlides.SaveFormat.Pptx);
 presentation.dispose();
 ```
 
-### **Lägga till länkade OLE‑objektramar**
+### **Lägga till länkade OLE‑objekt‑ramar**
 
-Aspose.Slides for Node.js via Java gör det möjligt att lägga till en [OleObjectFrame](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/OleObjectFrame) utan att bädda in data, utan endast med en länk till filen.  
+Aspose.Slides for Node.js via Java låter dig lägga till en [OleObjectFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/OleObjectFrame) utan att bädda in data utan endast med en länk till filen.
 
-Denna JavaScript‑kod visar hur du lägger till en [OleObjectFrame](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/OleObjectFrame) med en länkad Excel‑fil till en bild:
+Denna JavaScript‑kod visar hur du lägger till en [OleObjectFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/OleObjectFrame) med en länkad Excel‑fil till en bild:
 
 ```javascript
+const asposeSlides = require("aspose.slides.via.java");
+
 var presentation = new asposeSlides.Presentation();
 var slide = presentation.getSlides().get_Item(0);
 
-// Lägg till en OLE-objektram med en länkad Excel-fil.
+// Lägg till en OLE‑objekt‑ram med en länkad Excel‑fil.
 slide.getShapes().addOleObjectFrame(20, 20, 200, 150, "Excel.Sheet.12", "book.xlsx");
 
 presentation.save("output.pptx", asposeSlides.SaveFormat.Pptx);
 presentation.dispose();
 ```
 
-## **Åtkomst till OLE‑objektramar**
+## **Åtkomst till OLE‑objekt‑ramar**
 
 Om ett OLE‑objekt redan är inbäddat i en bild kan du enkelt hitta eller komma åt det på följande sätt:
 
-1. Ladda en presentation med det inbäddade OLE‑objektet genom att skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/Presentation) .
-2. Hämta bildens referens genom att använda dess index.
-3. Kom åt [OleObjectFrame](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/OleObjectFrame)-formen. I vårt exempel använde vi den tidigare skapade PPTX‑filen som har endast en form på den första bilden.
-4. När OLE‑objektramen har nåtts kan du utföra vilken operation som helst på den.
+1. Läs in en presentation med det inbäddade OLE‑objektet genom att skapa en instans av [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) klassen.
+2. Hämta referensen till bilden genom att använda dess index.
+3. Kom åt [OleObjectFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/OleObjectFrame)‑formen. I vårt exempel använde vi den tidigare skapade PPTX‑filen som har endast en form på den första bilden.
+4. När OLE‑objekt‑ramen är åtkomlig kan du utföra vilken operation som helst på den.
 
-I exemplet nedan nås en OLE‑objektram (ett Excel‑diagramobjekt inbäddat i en bild) och dess fildata.
+I exemplet nedan får man åtkomst till en OLE‑objekt‑ram (ett Excel‑diagram som är inbäddat i en bild) och dess fildata.
 
 ```javascript
+const asposeSlides = require("aspose.slides.via.java");
+const java = require("java");
+
 var presentation = new asposeSlides.Presentation("sample.pptx");
 var slide = presentation.getSlides().get_Item(0);
 var shape = slide.getShapes().get_Item(0);
@@ -112,20 +120,23 @@ if (java.instanceOf(shape, "com.aspose.slides.OleObjectFrame")) {
     // Hämta den inbäddade filens data.
     var fileData = oleFrame.getEmbeddedData().getEmbeddedFileData();
 
-    // Hämta filtillägget för den inbäddade filen.
+    // Hämta den inbäddade filens filändelse.
     var fileExtension = oleFrame.getEmbeddedData().getEmbeddedFileExtension();
 
     // ...
 }
 ```
 
-### **Åtkomst till egenskaper för länkade OLE‑objektramar**
+### **Åtkomst till egenskaper för länkade OLE‑objekt‑ramar**
 
-Aspose.Slides låter dig komma åt egenskaper för länkade OLE‑objektramar.  
+Aspose.Slides låter dig komma åt egenskaper för länkade OLE‑objekt‑ramar.
 
 Denna JavaScript‑kod visar hur du kontrollerar om ett OLE‑objekt är länkat och sedan hämtar sökvägen till den länkade filen:
 
 ```javascript
+const asposeSlides = require("aspose.slides.via.java");
+const java = require("java");
+
 var presentation = new asposeSlides.Presentation("sample.ppt");
 var slide = presentation.getSlides().get_Item(0);
 var shape = slide.getShapes().get_Item(0);
@@ -151,26 +162,29 @@ presentation.dispose();
 
 ## **Ändra OLE‑objektdata**
 
-{{% alert color="primary" %}} 
+{{% alert color="info" title="Note" %}}
 
-I detta avsnitt använder kodexemplet nedan [Aspose.Cells for Java](/cells/java/).  
+I det här avsnittet använder kodexemplet nedan [Aspose.Cells for Java](https://docs.aspose.com/cells/java/).
 
 {{% /alert %}}
 
-Om ett OLE‑objekt redan är inbäddat i en bild kan du enkelt nå det och ändra dess data på följande sätt:
+Om ett OLE‑objekt redan är inbäddat i en bild kan du enkelt komma åt det och modifiera dess data på följande sätt:
 
-1. Ladda en presentation med det inbäddade OLE‑objektet genom att skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/Presentation) .
+1. Läs in en presentation med det inbäddade OLE‑objektet genom att skapa en instans av [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) klassen.
 2. Hämta bildens referens via dess index. 
-3. Kom åt OLE‑objektramsformen. I vårt exempel använde vi den tidigare skapade PPTX‑filen som har en form på den första bilden.
-4. När OLE‑objektramen har nåtts kan du utföra vilken operation som helst på den.
-5. Skapa ett `Workbook`‑objekt och kom åt OLE‑data.
-6. Kom åt det önskade `Worksheet`‑arket och ändra data.
+3. Kom åt OLE‑objekt‑ramens form. I vårt exempel använde vi den tidigare skapade PPTX‑filen som har en form på den första bilden.
+4. När OLE‑objekt‑ramen är åtkomlig kan du utföra vilken operation som helst på den.
+5. Skapa ett `Workbook`‑objekt och hämta OLE‑data.
+6. Kom åt önskad `Worksheet` och ändra datan.
 7. Spara den uppdaterade `Workbook` i en ström.
-8. Ändra OLE‑objektdatan från strömmen.
+8. Ändra OLE‑objektets data från strömmen.
 
-I exemplet nedan nås en OLE‑objektram (ett Excel‑diagramobjekt inbäddat i en bild) och dess fildata ändras för att uppdatera diagrammets data.
+I exemplet nedan får man åtkomst till en OLE‑objekt‑ram (ett Excel‑diagram som är inbäddat i en bild) och dess fildata ändras för att uppdatera diagrammets data.
 
 ```javascript
+const asposeSlides = require("aspose.slides.via.java");
+const java = require("java");
+
 var presentation = new asposeSlides.Presentation("sample.pptx");
 var slide = presentation.getSlides().get_Item(0);
 var shape = slide.getShapes().get_Item(0);
@@ -178,24 +192,26 @@ var shape = slide.getShapes().get_Item(0);
 if (java.instanceOf(shape, "com.aspose.slides.OleObjectFrame")) {
     var oleFrame = shape;
 
-    var oleStream = java.newInstanceSync("java.io.ByteArrayInputStream", oleFrame.getEmbeddedData().getEmbeddedFileData());
+    var embeddedData = Array.from(oleFrame.getEmbeddedData().getEmbeddedFileData());
+    var oleStream = java.newInstanceSync("java.io.ByteArrayInputStream", java.newArray("byte", embeddedData));
 
-    // Läs OLE-objektdata som ett Workbook-objekt.
-    var workbook = java.newInstanceSync("Workbook", oleStream);
+    // Läs OLE-objektets data som ett Workbook-objekt.
+    var workbook = java.newInstanceSync("com.aspose.cells.Workbook", oleStream);
 
     var newOleStream = java.newInstanceSync("java.io.ByteArrayOutputStream");
 
-    // Modifiera workbook-data.
+    // Modifiera arbetsbokens data.
     workbook.getWorksheets().get(0).getCells().get(0, 4).putValue("E");
     workbook.getWorksheets().get(0).getCells().get(1, 4).putValue(12);
     workbook.getWorksheets().get(0).getCells().get(2, 4).putValue(14);
     workbook.getWorksheets().get(0).getCells().get(3, 4).putValue(15);
 
-    var fileOptions = java.newInstanceSync("OoxmlSaveOptions", java.getStaticFieldValue("com.aspose.cells.SaveFormat", "XLSX"));
+    var fileOptions = java.newInstanceSync("com.aspose.cells.OoxmlSaveOptions", java.getStaticFieldValue("com.aspose.cells.SaveFormat", "XLSX"));
     workbook.save(newOleStream, fileOptions);
 
-    // Ändra OLE-ramens objektdatas.
-    var newData = new asposeSlides.OleEmbeddedDataInfo(newOleStream.toByteArray(), oleFrame.getEmbeddedData().getEmbeddedFileExtension());
+    // Ändra OLE-ramens objektdata.
+    var newFileData = java.newArray("byte", Array.from(newOleStream.toByteArray()));
+    var newData = new asposeSlides.OleEmbeddedDataInfo(newFileData, oleFrame.getEmbeddedData().getEmbeddedFileExtension());
     oleFrame.setEmbeddedData(newData);
 
     newOleStream.close();
@@ -208,11 +224,15 @@ presentation.dispose();
 
 ## **Bädda in andra filtyper i bilder**
 
-Förutom Excel‑diagram låter Aspose.Slides for Node.js via Java dig bädda in andra filtyper i bilder. Till exempel kan du infoga HTML-, PDF- och ZIP-filer som objekt. När en användare dubbelklickar på det infogade objektet öppnas det automatiskt i det relevanta programmet, eller så uppmanas användaren att välja ett lämpligt program för att öppna det.
+Förutom Excel‑diagram låter Aspose.Slides for Node.js via Java dig bädda in andra filtyper i bilder. Till exempel kan du infoga HTML-, PDF‑ och ZIP‑filer som objekt. När en användare dubbelklickar på det infogade objektet öppnas det automatiskt i det relevanta programmet, eller så uppmanas användaren att välja ett lämpligt program för att öppna det.
 
 Denna JavaScript‑kod visar hur du bäddar in HTML och ZIP i en bild:
 
 ```javascript
+const asposeSlides = require("aspose.slides.via.java");
+const fs = require("fs");
+const java = require("java");
+
 var presentation = new asposeSlides.Presentation();
 var slide = presentation.getSlides().get_Item(0);
 
@@ -234,11 +254,14 @@ presentation.dispose();
 
 ## **Ställa in filtyper för inbäddade objekt**
 
-När du arbetar med presentationer kan du behöva ersätta gamla OLE‑objekt med nya eller ersätta ett icke‑stödd OLE‑objekt med ett som stöds. Aspose.Slides for Node.js via Java låter dig ange filtypen för ett inbäddat objekt, så att du kan uppdatera OLE‑ramens data eller dess filändelse.
+När du arbetar med presentationer kan du behöva ersätta gamla OLE‑objekt med nya eller ersätta ett ej‑stödd OLE‑objekt med ett stödd. Aspose.Slides for Node.js via Java låter dig ange filtypen för ett inbäddat objekt, vilket gör att du kan uppdatera OLE‑ramens data eller dess extension.
 
 Denna JavaScript‑kod visar hur du anger filtypen för ett inbäddat OLE‑objekt till `zip`:
 
 ```javascript
+const asposeSlides = require("aspose.slides.via.java");
+const java = require("java");
+
 var presentation = new asposeSlides.Presentation("sample.pptx");
 var slide = presentation.getSlides().get_Item(0);
 var oleFrame = slide.getShapes().get_Item(0);
@@ -258,11 +281,13 @@ presentation.dispose();
 
 ## **Ställa in ikonbilder och titlar för inbäddade objekt**
 
-Efter att ha bäddat in ett OLE‑objekt läggs en förhandsgranskning bestående av en ikonbild automatiskt till. Denna förhandsgranskning är det användarna ser innan de får åtkomst till eller öppnar OLE‑objektet. Om du vill använda en specifik bild och text som element i förhandsgranskningen kan du ange ikonbilden och titeln med Aspose.Slides for Node.js via Java.
+Efter att ha bäddat in ett OLE‑objekt läggs automatiskt en förhandsgranskning bestående av en ikonbild till. Denna förhandsgranskning är vad användarna ser innan de får åtkomst till eller öppnar OLE‑objektet. Om du vill använda en specifik bild och text som element i förhandsgranskningen kan du ange ikonbilden och titeln med Aspose.Slides for Node.js via Java.
 
 Denna JavaScript‑kod visar hur du anger ikonbilden och titeln för ett inbäddat objekt:
 
 ```javascript
+const asposeSlides = require("aspose.slides.via.java");
+
 var presentation = new asposeSlides.Presentation("sample.pptx");
 var slide = presentation.getSlides().get_Item(0);
 var oleFrame = slide.getShapes().get_Item(0);
@@ -272,7 +297,7 @@ var image = asposeSlides.Images.fromFile("image.png");
 var oleImage = presentation.getImages().addImage(image);
 image.dispose();
 
-// Set a title and the image for the OLE preview.
+// Ange en titel och bilden för OLE‑förhandsgranskningen.
 oleFrame.setSubstitutePictureTitle("My title");
 oleFrame.getSubstitutePictureFormat().getPicture().setImage(oleImage);
 oleFrame.setObjectIcon(true);
@@ -281,25 +306,38 @@ presentation.save("output.pptx", asposeSlides.SaveFormat.Pptx);
 presentation.dispose();
 ```
 
-## **Förhindra att OLE‑objektram ändras i storlek och position**
+## **Förhindra att en OLE‑objekt‑ram kan ändras i storlek och flyttas**
 
-När du har lagt till ett länkat OLE‑objekt i en presentationsbild och öppnar presentationen i PowerPoint kan du se ett meddelande som ber dig att uppdatera länkarna. Om du klickar på knappen "Uppdatera länkar" kan storlek och position för OLE‑objektramen förändras eftersom PowerPoint uppdaterar data från det länkade OLE‑objektet och uppdaterar förhandsgranskningen. För att förhindra att PowerPoint frågar om att uppdatera objektets data, använd metoden `setUpdateAutomatic` i klassen [OleObjectFrame](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/oleobjectframe/) med värdet `false`:
+Efter att du har lagt till ett länkat OLE‑objekt i en presentationsbild, kan du när du öppnar presentationen i PowerPoint se ett meddelande som ber dig att uppdatera länkarna. Att klicka på knappen "Update Links" kan ändra storlek och position för OLE‑objekt‑ramen eftersom PowerPoint uppdaterar data från det länkade OLE‑objektet och uppdaterar objektets förhandsgranskning. För att förhindra att PowerPoint frågar om att uppdatera objektets data, anropa [setUpdateAutomatic](https://reference.aspose.com/slides/nodejs-java/aspose.slides/oleobjectframe/#setUpdateAutomatic)‑metoden i [OleObjectFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/oleobjectframe/)‑klassen med `false`:
 
 ```javascript
+const asposeSlides = require("aspose.slides.via.java");
+
+var presentation = new asposeSlides.Presentation("sample.pptx");
+var slide = presentation.getSlides().get_Item(0);
+var oleFrame = slide.getShapes().get_Item(0);
+
 oleFrame.setUpdateAutomatic(false);
+
+presentation.save("output.pptx", asposeSlides.SaveFormat.Pptx);
+presentation.dispose();
 ```
 
 ## **Extrahera inbäddade filer**
 
-Aspose.Slides for Node.js via Java låter dig extrahera de filer som är inbäddade i bilder som OLE‑objekt på följande sätt:
+Aspose.Slides for Node.js via Java låter dig extrahera filer som är inbäddade i bilder som OLE‑objekt på följande sätt:
 
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/Presentation) som innehåller de OLE‑objekt du tänker extrahera.
-2. Loopa igenom alla former i presentationen och kom åt [OLEObjectFrame](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/oleobjectframe)-formerna.
-3. Hämta data för de inbäddade filerna från OLE‑objektramarna och skriv den till disk.
+1. Skapa en instans av [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation)‑klassen som innehåller de OLE‑objekt du avser att extrahera.
+2. Loopa igenom alla former i presentationen och få åtkomst till [OLEObjectFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/oleobjectframe)‑former.
+3. Få åtkomst till data från inbäddade filer i OLE‑objekt‑ramar och skriv den till disk.
 
 Denna JavaScript‑kod visar hur du extraherar filer som är inbäddade i en bild som OLE‑objekt:
 
 ```javascript
+const asposeSlides = require("aspose.slides.via.java");
+const fs = require("fs");
+const java = require("java");
+
 var presentation = new asposeSlides.Presentation("sample.pptx");
 var slide = presentation.getSlides().get_Item(0);
 
@@ -324,12 +362,12 @@ presentation.dispose();
 
 **Kommer OLE‑innehållet att renderas när bilder exporteras till PDF/bilder?**
 
-Det som är synligt på bilden renderas – ikonen/ersättningsbilden (förhandsgranskning). Det "levande" OLE‑innehållet körs inte under rendering. Vid behov kan du ange en egen förhandsgranskningsbild för att säkerställa det förväntade utseendet i den exporterade PDF‑filen.
+Det som är synligt på bilden renderas — ikonen/ersättningsbilden (förhandsgranskning). Det "levande" OLE‑innehållet körs inte under rendering. Vid behov, ange din egen förhandsgranskningsbild för att säkerställa önskat utseende i den exporterade PDF‑filen. För att även bevara den inbäddade filen som en PDF‑bilaga, anropa [setIncludeOleData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfoptions/#setIncludeOleData) med `true`. Detta alternativ är inaktiverat som standard. För ett exempel och instruktioner för att kontrollera bilagan, se [Preserve Embedded OLE Files as PDF Attachments](/slides/sv/nodejs-java/convert-powerpoint-to-pdf/#preserve-embedded-ole-files-as-pdf-attachments).
 
 **Hur kan jag låsa ett OLE‑objekt på en bild så att användare inte kan flytta/redigera det i PowerPoint?**
 
-Lås formen: Aspose.Slides erbjuder lås på formnivå. Detta är inte kryptering, men det hindrar effektivt oavsiktliga ändringar och förflyttning.
+Lås formen: Aspose.Slides tillhandahåller lås på formnivå. Detta är inte kryptering, men det förhindrar effektivt oavsiktliga redigeringar och flyttning.
 
 **Kommer relativa sökvägar för länkade OLE‑objekt att bevaras i PPTX‑formatet?**
 
-I PPTX finns ingen information om "relativ sökväg" – endast den fullständiga sökvägen. Relativa sökvägar finns i det äldre PPT‑formatet. För portabilitet bör du föredra pålitliga absoluta sökvägar/tillgängliga URI:er eller bädda in filerna.
+I PPTX‑formatet finns ingen information om "relativ sökväg"—endast den fullständiga sökvägen. Relativa sökvägar finns i det äldre PPT‑formatet. För portabilitet bör du föredra pålitliga absoluta sökvägar/tillgängliga URI‑er eller inbäddning.

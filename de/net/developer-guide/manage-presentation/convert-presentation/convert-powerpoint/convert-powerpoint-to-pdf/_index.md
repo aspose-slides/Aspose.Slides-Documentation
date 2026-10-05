@@ -1,5 +1,5 @@
 ---
-title: PPT und PPTX in PDF konvertieren in .NET [Erweiterte Funktionen enthalten]
+title: PPT und PPTX zu PDF konvertieren in .NET [Erweiterte Funktionen enthalten]
 linktitle: PowerPoint zu PDF
 type: docs
 weight: 40
@@ -10,168 +10,180 @@ keywords:
 - PowerPoint zu PDF
 - Präsentation zu PDF
 - PPT zu PDF
-- PPT zu PDF konvertieren
+- PPT in PDF konvertieren
 - PPTX zu PDF
-- PPTX zu PDF konvertieren
+- PPTX in PDF konvertieren
 - PowerPoint als PDF speichern
 - PPT als PDF speichern
 - PPTX als PDF speichern
-- PPT nach PDF exportieren
-- PPTX nach PDF exportieren
+- PPT zu PDF exportieren
+- PPTX zu PDF exportieren
+- Anhang
 - PDF/A1a
 - PDF/A1b
 - PDF/UA
 - .NET
 - C#
 - Aspose.Slides
-description: "Konvertieren Sie PowerPoint PPT/PPTX in hochwertige, durchsuchbare PDFs in .NET mit Aspose.Slides, inklusive schneller C#-Beispielcode und erweiterten Konvertierungsoptionen."
+description: "Konvertieren Sie PowerPoint PPT/PPTX in hochwertige, durchsuchbare PDFs in .NET mit Aspose.Slides, inklusive schneller C#-Codebeispiele und erweiterter Konvertierungsoptionen."
 ---
 ## **Übersicht**
 
-Das Konvertieren von PowerPoint-Präsentationen (PPT, PPTX, ODP usw.) in das PDF-Format in C# bietet mehrere Vorteile, darunter die Kompatibilität über verschiedene Geräte hinweg und die Erhaltung des Layouts und der Formatierung Ihrer Präsentation. Dieser Leitfaden zeigt, wie Präsentationen in PDF-Dokumente konvertiert werden, verschiedene Optionen zur Steuerung der Bildqualität verwendet werden, ausgeblendete Folien einbezogen werden, PDF-Dateien mit einem Passwort geschützt werden, Schriftarten-Ersetzungen erkannt werden, bestimmte Folien für die Konversion ausgewählt werden und Compliance-Standards auf die Ausgabedokumente angewendet werden.
+Das Konvertieren von PowerPoint‑Präsentationen (PPT, PPTX, ODP usw.) in das PDF‑Format in C# bietet mehrere Vorteile, darunter Kompatibilität über verschiedene Geräte hinweg und das Beibehalten des Layouts und der Formatierung Ihrer Präsentation. Diese Anleitung zeigt, wie Sie Präsentationen in PDF‑Dokumente konvertieren, verschiedene Optionen zur Steuerung der Bildqualität verwenden, versteckte Folien einbinden, PDF‑Dateien mit einem Kennwort schützen, Schriftartsubstitutionen erkennen, bestimmte Folien für die Konvertierung auswählen und Compliance‑Standards auf die Ausgabedokumente anwenden.
 
-## **PowerPoint zu PDF-Konvertierungen**
+## **PowerPoint‑zu‑PDF‑Konvertierungen**
+
+Mit Aspose.Slides können Sie Präsentationen in den folgenden Formaten in PDF konvertieren:
 
 * **PPT**
 * **PPTX**
 * **ODP**
 
-Um eine Präsentation in PDF zu konvertieren, übergeben Sie den Dateinamen als Argument an die Klasse [Presentation](https://reference.aspose.com/slides/de/net/aspose.slides/presentation/) und speichern die Präsentation anschließend mit der Methode [Save](https://reference.aspose.com/slides/de/net/aspose.slides/presentation/save/) als PDF. Die Klasse [Presentation](https://reference.aspose.com/slides/de/net/aspose.slides/presentation/) stellt die Methode [Save](https://reference.aspose.com/slides/de/net/aspose.slides/presentation/save/) zur Verfügung, die typischerweise zum Konvertieren einer Präsentation in PDF verwendet wird.
+Um eine Präsentation in PDF zu konvertieren, übergeben Sie den Dateinamen als Argument an die Klasse [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) und speichern Sie die Präsentation anschließend mit der Methode [Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/) als PDF. Die Klasse [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) stellt die Methode [Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/) bereit, die typischerweise zum Konvertieren einer Präsentation in PDF verwendet wird.
 
-{{%  alert title="HINWEIS"  color="warning"   %}} 
-Aspose.Slides für .NET fügt seinen API-Informationen und die Versionsnummer in Ausgabedokumente ein. Beispielsweise füllt Aspose.Slides beim Konvertieren einer Präsentation in PDF das Feld Application mit "*Aspose.Slides*" und das Feld PDF Producer mit einem Wert in der Form "*Aspose.Slides v XX.XX*". **Hinweis**: Sie können Aspose.Slides nicht anweisen, diese Informationen aus den Ausgabedokumenten zu ändern oder zu entfernen.
+{{% alert color="info" title="Note" %}}
+Aspose.Slides für .NET fügt seine API‑Informationen und Versionsnummer in Ausgabedokumente ein. Beispielsweise füllt Aspose.Slides beim Konvertieren einer Präsentation in PDF das Feld Application mit "*Aspose.Slides*" und das Feld PDF Producer mit einem Wert in der Form "*Aspose.Slides v XX.XX*". **Hinweis**: Sie können Aspose.Slides nicht anweisen, diese Informationen aus Ausgabedokumenten zu ändern oder zu entfernen.
 {{% /alert %}}
 
-Aspose.Slides ermöglicht:
-* Ganze Präsentationen in PDF
+Aspose.Slides ermöglicht das Konvertieren von:
+
+* Gesamte Präsentationen in PDF
 * Bestimmte Folien einer Präsentation in PDF
 
-Aspose.Slides exportiert Präsentationen zu PDF und stellt sicher, dass die resultierenden PDFs die Originalpräsentationen genau widerspiegeln. Elemente und Attribute werden in der Konvertierung exakt gerendert, einschließlich:
+Aspose.Slides exportiert Präsentationen nach PDF und stellt sicher, dass die resultierenden PDFs der Originalpräsentation sehr nahe kommen. Elemente und Attribute werden bei der Konvertierung genau gerendert, einschließlich:
+
 * Bilder
 * Textfelder und Formen
 * Textformatierung
 * Absatzformatierung
 * Hyperlinks
-* Kopf- und Fußzeilen
+* Kopf‑ und Fußzeilen
 * Aufzählungszeichen
 * Tabellen
 
 ## **PowerPoint in PDF konvertieren**
 
-Der standardmäßige PowerPoint-zu-PDF-Konvertierungsprozess verwendet Standardoptionen. In diesem Fall versucht Aspose.Slides, die bereitgestellte Präsentation mit optimalen Einstellungen und höchster Qualität in PDF zu konvertieren.
+Der standardmäßige PowerPoint‑zu‑PDF‑Konvertierungsprozess verwendet Standardoptionen. In diesem Fall versucht Aspose.Slides, die bereitgestellte Präsentation mit optimalen Einstellungen und höchstmöglicher Qualität in PDF zu konvertieren.
 
-Der folgende C#‑Code zeigt, wie eine Präsentation (PPT, PPTX, ODP usw.) in PDF konvertiert wird:
-```c#
-// Instanziieren Sie die Presentation‑Klasse, die eine PowerPoint‑ oder OpenDocument‑Datei repräsentiert.
+Das folgende Beispiel lädt eine Präsentation und speichert alle sichtbaren Folien mit den standardmäßigen Exporteinstellungen als PDF.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using var presentation = new Presentation("PowerPoint.ppt");
-
-// Speichern Sie die Präsentation als PDF.
 presentation.Save("PDF-result.pdf", SaveFormat.Pdf);
 ```
 
-{{%  alert  color="primary"  %}} 
-Aspose bietet einen kostenlosen Online-**PowerPoint-zu-PDF-Konverter**(https://products.aspose.app/slides/de/conversion/ppt-to-pdf) an, der den Präsentation-zu-PDF-Konvertierungsprozess demonstriert. Sie können mit diesem Konverter einen Test durchführen, um die hier beschriebene Vorgehensweise live umzusetzen.
+{{% alert color="info" title="Note" %}}
+Aspose bietet einen kostenlosen Online‑[**PowerPoint‑zu‑PDF‑Konverter**](https://products.aspose.app/slides/conversion/ppt-to-pdf), der den Präsentation‑zu‑PDF‑Konvertierungsprozess demonstriert. Sie können diesen Konverter testen, um eine Live‑Umsetzung des hier beschriebenen Verfahrens zu sehen.
 {{% /alert %}}
 
 ## **PowerPoint in PDF mit Optionen konvertieren**
 
-Aspose.Slides bietet benutzerdefinierte Optionen - Eigenschaften der Klasse [PdfOptions](https://reference.aspose.com/slides/de/net/aspose.slides.export/pdfoptions/) - die es Ihnen ermöglichen, das resultierende PDF anzupassen, das PDF mit einem Passwort zu sperren oder festzulegen, wie der Konvertierungsprozess ablaufen soll.
+Aspose.Slides stellt benutzerdefinierte Optionen—Eigenschaften der Klasse [PdfOptions](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/)—zur Verfügung, mit denen Sie das resultierende PDF anpassen, das PDF mit einem Kennwort schützen oder festlegen können, wie der Konvertierungsprozess ablaufen soll.
 
 ### **PowerPoint in PDF mit benutzerdefinierten Optionen konvertieren**
 
-Mit benutzerdefinierten Konvertierungsoptionen können Sie Ihre bevorzugte Qualitätseinstellung für Rasterbilder festlegen, bestimmen, wie Metadateien behandelt werden, ein Kompressionsniveau für Text festlegen, die DPI für Bilder konfigurieren und mehr.
+Durch die Verwendung benutzerdefinierter Konvertierungsoptionen können Sie Ihre bevorzugte Qualitätseinstellung für Rasterbilder festlegen, festlegen, wie Metadateien verarbeitet werden sollen, ein Kompressionslevel für Text einstellen, die DPI für Bilder konfigurieren und vieles mehr.
 
-Das nachstehende Codebeispiel zeigt, wie eine PowerPoint-Präsentation mit mehreren benutzerdefinierten Optionen in PDF konvertiert wird.
-```c#
-// Instanziieren Sie die PdfOptions‑Klasse.
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 var pdfOptions = new PdfOptions
 {
-    // Legen Sie die Qualität für JPG‑Bilder fest.
     JpegQuality = 90,
-
-    // Legen Sie die DPI für Bilder fest.
     SufficientResolution = 300,
-
-    // Legen Sie das Verhalten für Metadateien fest.
     SaveMetafilesAsPng = true,
-
-    // Legen Sie die Textkomprimierungsstufe für Textinhalt fest.
     TextCompression = PdfTextCompression.Flate,
-
-    // Definieren Sie den PDF‑Compliance‑Modus.
     Compliance = PdfCompliance.Pdf15
 };
 
-// Instanziieren Sie die Presentation‑Klasse, die eine PowerPoint‑ oder OpenDocument‑Datei darstellt.
 using var presentation = new Presentation("PowerPoint.pptx");
-
-// Speichern Sie die Präsentation als PDF‑Dokument.
 presentation.Save("PowerPoint-to-PDF.pdf", SaveFormat.Pdf, pdfOptions);
 ```
 
-### **PowerPoint in PDF mit ausgeblendeten Folien konvertieren**
+### **Eingebettete OLE‑Dateien als PDF‑Anhänge beibehalten**
 
-Enthält eine Präsentation ausgeblendete Folien, können Sie die Eigenschaft [ShowHiddenSlides](https://reference.aspose.com/slides/de/net/aspose.slides.export/pdfoptions/showhiddenslides/) der Klasse [PdfOptions](https://reference.aspose.com/slides/de/net/aspose.slides.export/pdfoptions/) verwenden, um die ausgeblendeten Folien als Seiten im resultierenden PDF einzufügen.
+Wenn eine Präsentation eine eingebettete Excel‑Arbeitsmappe enthält, möchten Sie möglicherweise, dass PDF‑Empfänger sowohl auf die Daten der Arbeitsmappe zugreifen als auch die Folien ansehen können. Setzen Sie [PdfOptions.IncludeOleData](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/includeoledata/) auf `true`, um eingebettete OLE‑Dateien als Anhänge im resultierenden PDF beizubehalten.
 
-Der folgende C#‑Code zeigt, wie eine PowerPoint‑Präsentation in PDF konvertiert wird, wobei ausgeblendete Folien eingeschlossen werden:
-```c#
-// Instanziieren Sie die Presentation‑Klasse, die eine PowerPoint‑ oder OpenDocument‑Datei repräsentiert.
-using var presentation = new Presentation("PowerPoint.pptx");
+Der Standardwert ist `false`: Das Vorschau‑Bild oder Symbol des OLE‑Objekts wird auf der PDF‑Seite dargestellt, aber die eingebettete Datei wird nicht als Anhang hinzugefügt. Durch Setzen der Option auf `true` werden außerdem die Dateidaten hinzugefügt. Die Vorschau bleibt eine visuelle Darstellung; der Anhang ermöglicht es den Empfängern, die eingebettete Datei separat zu öffnen oder zu speichern. Das OLE‑Objekt wird nicht zu einem interaktiven Excel‑Arbeitsblatt auf der PDF‑Seite.
 
-// Instanziieren Sie die PdfOptions‑Klasse.
+Das folgende Beispiel lädt eine Präsentation, die bereits eine eingebettete Excel‑Arbeitsmappe enthält, und exportiert sie als PDF mit der angehängten Arbeitsmappe.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+var pdfOptions = new PdfOptions { IncludeOleData = true };
+
+using var presentation = new Presentation("presentation.pptx");
+presentation.Save("presentation.pdf", SaveFormat.Pdf, pdfOptions);
+```
+
+Um das Ergebnis zu überprüfen:
+
+1. Öffnen Sie das exportierte PDF in einem Viewer, der Dateianhänge unterstützt, z. B. Adobe Acrobat Reader.
+2. Öffnen Sie das **Attachments**‑Panel des Viewers und suchen Sie die eingebettete Arbeitsmappe.
+3. Speichern Sie den Anhang und öffnen Sie ihn in Excel, um die Daten zu prüfen, oder öffnen Sie ihn direkt, falls der Viewer dies erlaubt. Die Vorschau auf der PDF‑Seite ist vom Anhang getrennt.
+
+{{% alert color="info" title="Note" %}}
+Die PDF/A‑Standards legen Beschränkungen für Anhänge fest: PDF/A‑1 verbietet eingebettete Dateien, PDF/A‑2 erlaubt nur PDF/A‑Anhänge, und PDF/A‑3 erlaubt andere Dateitypen, einschließlich Excel‑Arbeitsmappen. Dies sind Anforderungen der Standards, keine Einschränkungen, die speziell für Aspose.Slides gelten. Dieses Beispiel verwendet die standardmäßige PDF‑Compliance‑Einstellung und demonstriert keinen PDF/A‑Export.
+{{% /alert %}}
+
+### **PowerPoint in PDF mit versteckten Folien konvertieren**
+
+Wenn eine Präsentation versteckte Folien enthält, können Sie die Eigenschaft [ShowHiddenSlides](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/showhiddenslides/) der Klasse [PdfOptions](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/) verwenden, um die versteckten Folien als Seiten im resultierenden PDF einzuschließen.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 var pdfOptions = new PdfOptions();
-
-// Fügen Sie ausgeblendete Folien hinzu.
 pdfOptions.ShowHiddenSlides = true;
 
-// Speichern Sie die Präsentation als PDF.
+using var presentation = new Presentation("PowerPoint.pptx");
 presentation.Save("PowerPoint-to-PDF.pdf", SaveFormat.Pdf, pdfOptions);
 ```
 
-### **PowerPoint in passwortgeschützte PDF konvertieren**
+### **PowerPoint in ein passwortgeschütztes PDF konvertieren**
 
-Der folgende C#‑Code demonstriert, wie eine PowerPoint‑Präsentation mit den Schutzparametern der Klasse [PdfOptions](https://reference.aspose.com/slides/de/net/aspose.slides.export/pdfoptions/) in ein passwortgeschütztes PDF konvertiert wird:
-```c#
-// Instanziieren Sie die Presentation‑Klasse, die eine PowerPoint‑ oder OpenDocument‑Datei repräsentiert.
-using var presentation = new Presentation("PowerPoint.pptx");
+Das folgende Beispiel exportiert eine Präsentation in ein PDF, das zum Öffnen das Kennwort `password` erfordert. Die Zugriffsrechte erlauben das Drucken, einschließlich hochqualitativen Drucks.
 
-// Instanziieren Sie die PdfOptions‑Klasse.
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 var pdfOptions = new PdfOptions();
-
-// Legen Sie ein PDF‑Passwort und Zugriffsberechtigungen fest.
 pdfOptions.Password = "password";
 pdfOptions.AccessPermissions = PdfAccessPermissions.PrintDocument | PdfAccessPermissions.HighQualityPrint;
 
-// Speichern Sie die Präsentation als PDF.
+using var presentation = new Presentation("PowerPoint.pptx");
 presentation.Save("PPTX-to-PDF.pdf", SaveFormat.Pdf, pdfOptions);
 ```
 
-### **Schriftart‑Ersetzungen erkennen**
+### **Schriftartsubstitutionen erkennen**
 
-Aspose.Slides stellt die Eigenschaft [WarningCallback](https://reference.aspose.com/slides/de/net/aspose.slides.export/saveoptions/warningcallback/) der Klasse [PdfOptions](https://reference.aspose.com/slides/de/net/aspose.slides.export/pdfoptions/) bereit, mit der Sie Schriftart‑Ersetzungen während des Präsentation‑zu‑PDF‑Konvertierungsprozesses erkennen können.
+Aspose.Slides stellt die Eigenschaft [WarningCallback](https://reference.aspose.com/slides/net/aspose.slides.export/saveoptions/warningcallback/) der Klasse [PdfOptions](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/) bereit, die es Ihnen ermöglicht, während des Präsentation‑zu‑PDF‑Konvertierungsprozesses Schriftartsubstitutionen zu erkennen.
 
-Der folgende C#‑Code zeigt, wie Schriftart‑Ersetzungen erkannt werden:
-```c#
-public static void Main()
-{
-    // Instanziieren Sie die Presentation‑Klasse, die eine PowerPoint‑ oder OpenDocument‑Datei repräsentiert. 
-    using var presentation = new Presentation("sample.pptx");
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.Warnings;
+using System;
 
-    // Setzen Sie den Warn‑Callback in den PDF‑Optionen.
-    var pdfOptions = new PdfOptions();
-    pdfOptions.WarningCallback = new FontSubstitutionHandler();
+var pdfOptions = new PdfOptions();
+pdfOptions.WarningCallback = new FontSubstitutionHandler();
 
-    // Speichern Sie die Präsentation als PDF.
-    presentation.Save("output.pdf", SaveFormat.Pdf, pdfOptions);
-}
+using var presentation = new Presentation("sample.pptx");
+presentation.Save("output.pdf", SaveFormat.Pdf, pdfOptions);
 
-// Implementierung des Warn‑Callbacks.
-private class FontSubstitutionHandler : IWarningCallback
+class FontSubstitutionHandler : IWarningCallback
 {
     public ReturnAction Warning(IWarningInfo warning)
     {
-        if (warning.WarningType == WarningType.DataLoss &&
-            warning.Description.StartsWith("Font will be substituted"))
+        if (warning.WarningType == WarningType.DataLoss && warning.Description.StartsWith("Font will be substituted"))
         {
             Console.WriteLine($"Font substitution warning: {warning.Description}");
         }
@@ -181,58 +193,54 @@ private class FontSubstitutionHandler : IWarningCallback
 }
 ```
 
-{{%  alert color="primary"  %}} 
-Weitere Informationen zum Empfangen von Callbacks für Schriftart‑Ersetzungen während des Rendering‑Prozesses finden Sie unter [Getting Warning Callbacks for Fonts Substitution](/slides/de/net/getting-warning-callbacks-for-fonts-substitution-in-aspose-slides/).
-
-Weitere Informationen zur Schriftart‑Ersetzung finden Sie im Artikel [Font Substitution](/slides/de/net/font-substitution/).
+{{% alert color="info" title="Note" %}}
+Für weitere Informationen zur Schriftartsubstitution siehe den Artikel [Schriftartsubstitution](/slides/de/net/font-substitution/).
 {{% /alert %}} 
 
 ## **Ausgewählte Folien von PowerPoint in PDF konvertieren**
 
-Der folgende C#‑Code zeigt, wie nur bestimmte Folien einer PowerPoint‑Präsentation in PDF konvertiert werden:
-```c#
-// Instanziieren Sie die Presentation‑Klasse, die eine PowerPoint‑ oder OpenDocument‑Datei repräsentiert.
+Das folgende Beispiel exportiert die Folien 1 und 3 einer Präsentation nach PDF. Die Foliennummern in diesem Array beginnen bei 1, und die Eingabepäsentation muss mindestens drei Folien enthalten.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using var presentation = new Presentation("PowerPoint.pptx");
-
-// Legen Sie ein Array von Foliennummern fest.
-int[] slides = { 1, 3 };
-
-// Speichern Sie die Präsentation als PDF.
+var slides = new[] { 1, 3 };
 presentation.Save("PPTX-to-PDF.pdf", slides, SaveFormat.Pdf);
 ```
 
 ## **PowerPoint in PDF mit benutzerdefinierter Foliengröße konvertieren**
 
-Der folgende C#‑Code demonstriert, wie eine PowerPoint‑Präsentation mit einer festgelegten Foliengröße in PDF konvertiert wird:
-```c#
+Das folgende Beispiel kopiert die erste Folie einer Präsentation in eine neue Präsentation mit einer Foliengröße von 612 × 792 Punkten (8,5 × 11 Zoll). Es skaliert den Folieninhalt, um ihn anzupassen, und exportiert die einzelne Folie nach PDF.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 var slideWidth = 612;
 var slideHeight = 792;
 
-// Load a PowerPoint presentation.
 using var presentation = new Presentation("SelectedSlides.pptx");
-
-// Create a new presentation with an adjusted slide size.
 using var resizedPresentation = new Presentation();
 
-// Set the custom slide size.
 resizedPresentation.SlideSize.SetSize(slideWidth, slideHeight, SlideSizeScaleType.EnsureFit);
-
-// Clone the first slide from the original presentation.
 var slide = presentation.Slides[0];
 resizedPresentation.Slides.InsertClone(0, slide);
 
-// Save the resized presentation to a PDF with notes.
-resizedPresentation.Save("PDF_with_notes.pdf", SaveFormat.Pdf);
+// Remove the blank slide that the new presentation was created with.
+resizedPresentation.Slides.RemoveAt(1);
+resizedPresentation.Save("PDF_with_custom_slide_size.pdf", SaveFormat.Pdf);
 ```
 
 ## **PowerPoint in PDF im Notizfolien‑Ansicht konvertieren**
 
-Der folgende C#‑Code zeigt, wie eine PowerPoint‑Präsentation in ein PDF konvertiert wird, das Notizen enthält:
-```c#
-// Laden Sie eine PowerPoint-Präsentation.
-using var presentation = new Presentation("NotesFile.pptx");
+Das folgende Beispiel exportiert eine Präsentation nach PDF und platziert die Rednernotizen jeder Folie unterhalb der Folie. Verwenden Sie eine Präsentation mit Rednernotizen, um das Ergebnis zu sehen.
 
-// Konfigurieren Sie die PDF-Optionen mit Notizen-Layout.
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 var pdfOptions = new PdfOptions
 {
     SlidesLayoutOptions = new NotesCommentsLayoutingOptions
@@ -241,16 +249,20 @@ var pdfOptions = new PdfOptions
     }
 };
 
-// Speichern Sie die Präsentation als PDF mit Notizen.
+using var presentation = new Presentation("NotesFile.pptx");
 presentation.Save("PDF_with_notes.pdf", SaveFormat.Pdf, pdfOptions);
 ```
 
-## **Barrierefreiheit und Compliance-Standards für PDF**
+## **Barrierefreiheit und Compliance‑Standards für PDF**
 
-Aspose.Slides ermöglicht die Verwendung eines Konvertierungsverfahrens, das den [Web Content Accessibility Guidelines (**WCAG**)](https://www.w3.org/TR/WCAG-TECHS/pdf.html) entspricht. Sie können ein PowerPoint-Dokument mit einem der folgenden Compliance-Standards nach PDF exportieren: **PDF/A1a**, **PDF/A1b** und **PDF/UA**.
+Aspose.Slides ermöglicht Ihnen ein Konvertierungsverfahren, das den [Web Content Accessibility Guidelines (**WCAG**)](https://www.w3.org/TR/WCAG-TECHS/pdf.html) entspricht. Sie können ein PowerPoint‑Dokument in PDF exportieren, wobei Sie einen dieser Compliance‑Standards verwenden: **PDF/A1a**, **PDF/A1b** und **PDF/UA**.
 
-Der folgende C#‑Code demonstriert einen PowerPoint-zu-PDF-Konvertierungsprozess, der mehrere PDFs basierend auf verschiedenen Compliance-Standards erzeugt:
-```c#
+Dieser C#‑Code demonstriert einen PowerPoint‑zu‑PDF‑Konvertierungsprozess, der mehrere PDFs basierend auf unterschiedlichen Compliance‑Standards erzeugt:
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using var presentation = new Presentation("pres.pptx");
 
 presentation.Save("pres-a1a-compliance.pdf", SaveFormat.Pdf, new PdfOptions
@@ -269,36 +281,36 @@ presentation.Save("pres-ua-compliance.pdf", SaveFormat.Pdf, new PdfOptions
 });
 ```
 
-{{% alert title="Hinweis" color="warning" %}} 
-Aspose.Slides unterstützt PDF-Konvertierungsoperationen, sodass Sie PDF-Dateien in gängige Dateiformate konvertieren können. Sie können [PDF to HTML](https://products.aspose.com/slides/de/net/conversion/pdf-to-html/), [PDF to image](https://products.aspose.com/slides/de/net/conversion/pdf-to-image/), [PDF to JPG](https://products.aspose.com/slides/de/net/conversion/pdf-to-jpg/) und [PDF to PNG](https://products.aspose.com/slides/de/net/conversion/pdf-to-png/) Konvertierungen durchführen. Weitere PDF-Konvertierungsoperationen zu speziellen Formaten — [PDF to SVG](https://products.aspose.com/slides/de/net/conversion/pdf-to-svg/), [PDF to TIFF](https://products.aspose.com/slides/de/net/conversion/pdf-to-tiff/), und [PDF to XML](https://products.aspose.com/slides/de/net/conversion/pdf-to-xml/) — werden ebenfalls unterstützt.
+{{% alert color="info" title="Note" %}}
+Aspose.Slides unterstützt PDF‑Konvertierungsoperationen, mit denen Sie PDF‑Dateien in gängige Dateiformate konvertieren können. Sie können [PDF zu HTML](https://products.aspose.com/slides/net/conversion/pdf-to-html/), [PDF zu Bild](https://products.aspose.com/slides/net/conversion/pdf-to-image/), [PDF zu JPG](https://products.aspose.com/slides/net/conversion/pdf-to-jpg/) und [PDF zu PNG](https://products.aspose.com/slides/net/conversion/pdf-to-png/) Umwandlungen durchführen. Weitere PDF‑Konvertierungsoperationen zu spezialisierten Formaten—[PDF zu SVG](https://products.aspose.com/slides/net/conversion/pdf-to-svg/), [PDF zu TIFF](https://products.aspose.com/slides/net/conversion/pdf-to-tiff/), und [PDF zu XML](https://products.aspose.com/slides/net/conversion/pdf-to-xml/)—werden ebenfalls unterstützt.
 {{% /alert %}}
 
-> **Hinweis:** Beim Exportieren zu PDF/UA behandelt Aspose.Slides komplexe Grafiken wie SmartArt, Diagramme und Formeln als ein einzelnes Bild. Einzelne Pfadelemente werden nicht als separater Inhalt erhalten und können als Artefakte markiert werden; Alternativtext wird nur für das gesamte Bild bereitgestellt.
+> **Hinweis:** Beim Exportieren nach PDF/UA behandelt Aspose.Slides komplexe Grafiken wie SmartArt, Diagramme und Formeln als einzelne Figur. Einzelne Pfadelemente werden nicht als separater Inhalt erhalten und können als Artefakte markiert werden; Alternativtext wird nur für die gesamte Figur bereitgestellt.
 
 ## **FAQ**
 
 **Kann ich mehrere PowerPoint‑Dateien stapelweise in PDF konvertieren?**
 
-Ja, Aspose.Slides unterstützt die Batch‑Konvertierung mehrerer PPT‑ oder PPTX‑Dateien in PDF. Sie können Ihre Dateien iterativ durchlaufen und den Konvertierungsprozess programmgesteuert anwenden.
+Ja, Aspose.Slides unterstützt die Batch‑Konvertierung mehrerer PPT‑ oder PPTX‑Dateien nach PDF. Sie können Ihre Dateien iterieren und den Konvertierungsprozess programmgesteuert anwenden.
 
-**Ist es möglich, das konvertierte PDF mit einem Passwort zu schützen?**
+**Ist es möglich, das konvertierte PDF mit einem Kennwort zu schützen?**
 
-Absolut. Verwenden Sie die Klasse [PdfOptions](https://reference.aspose.com/slides/de/net/aspose.slides.export/pdfoptions/), um während des Konvertierungsprozesses ein Passwort festzulegen und Zugriffsrechte zu definieren.
+Ja. Verwenden Sie die Klasse [PdfOptions](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/), um ein Kennwort festzulegen und Zugriffsberechtigungen während des Konvertierungsprozesses zu definieren.
 
-**Wie kann ich ausgeblendete Folien in das PDF einbeziehen?**
+**Wie kann ich versteckte Folien in das PDF einbinden?**
 
-Setzen Sie die Eigenschaft `ShowHiddenSlides` in der Klasse [PdfOptions](https://reference.aspose.com/slides/de/net/aspose.slides.export/pdfoptions/) auf `true`, um ausgeblendete Folien im resultierenden PDF zu berücksichtigen.
+Setzen Sie die Eigenschaft [ShowHiddenSlides](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/showhiddenslides/) in der Klasse [PdfOptions](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/) auf `true`, um versteckte Folien im resultierenden PDF zu berücksichtigen.
 
 **Kann Aspose.Slides eine hohe Bildqualität im PDF beibehalten?**
 
-Ja, Sie können die Bildqualität steuern, indem Sie Eigenschaften wie `JpegQuality` und `SufficientResolution` in der Klasse [PdfOptions](https://reference.aspose.com/slides/de/net/aspose.slides.export/pdfoptions/) setzen, um hochwertige Bilder in Ihrem PDF sicherzustellen.
+Ja, Sie können die Bildqualität steuern, indem Sie Eigenschaften wie [JpegQuality](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/jpegquality/) und [SufficientResolution](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/sufficientresolution/) in der Klasse [PdfOptions](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/) festlegen, um hochqualitative Bilder in Ihrem PDF sicherzustellen.
 
 **Unterstützt Aspose.Slides PDF/A‑Compliance‑Standards?**
 
-Ja, Aspose.Slides ermöglicht den Export von PDFs, die verschiedenen Standards entsprechen, einschließlich PDF/A1a, PDF/A1b und PDF/UA, sodass Ihre Dokumente Barrierefreiheit und Archivierungsanforderungen erfüllen.
+Ja, Aspose.Slides ermöglicht den Export von PDFs, die verschiedenen Standards entsprechen, einschließlich PDF/A1a, PDF/A1b und PDF/UA, wodurch Ihre Dokumente den Anforderungen an Barrierefreiheit und Archivierung entsprechen.
 
-## **Zusätzliche Ressourcen**
+## **Weitere Ressourcen**
 
 - [Aspose.Slides für .NET Dokumentation](/slides/de/net/)
-- [Aspose.Slides für .NET API-Referenz](https://reference.aspose.com/slides/de/net/)
-- [Aspose kostenlose Online-Konverter](https://products.aspose.app/slides/de/conversion)
+- [Aspose.Slides für .NET API‑Referenz](https://reference.aspose.com/slides/net/)
+- [Aspose Kostenlose Online‑Konverter](https://products.aspose.app/slides/conversion)

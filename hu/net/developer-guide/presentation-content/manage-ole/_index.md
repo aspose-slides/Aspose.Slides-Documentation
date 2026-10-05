@@ -6,15 +6,15 @@ weight: 40
 url: /hu/net/manage-ole/
 keywords:
 - OLE objektum
-- Objektumláncolás és beágyazás
+- Objektumösszekapcsolás és beágyazás
 - OLE hozzáadása
 - OLE beágyazása
 - objektum hozzáadása
 - objektum beágyazása
 - fájl hozzáadása
 - fájl beágyazása
-- linkelt objektum
-- linkelt fájl
+- kapcsolt objektum
+- kapcsolt fájl
 - OLE módosítása
 - OLE ikon
 - OLE cím
@@ -26,34 +26,40 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Optimalizálja az OLE objektumok kezelését PowerPoint és OpenDocument fájlokban az Aspose.Slides for .NET segítségével. Beágyazza, frissíti és zökkenőmentesen exportálja az OLE tartalmat."
+description: "Optimalizálja az OLE objektumok kezelését PowerPoint és OpenDocument fájlokban az Aspose.Slides for .NET segítségével. Ágyazza be, frissítse és exportálja az OLE tartalmat zökkenőmentesen."
 ---
 ## **Bevezetés**
 
-{{% alert title="Információ" color="info" %}}
-Az OLE (Object Linking & Embedding) egy Microsoft technológia, amely lehetővé teszi, hogy egy alkalmazásban létrehozott adatokat és objektumokat egy másik alkalmazásba helyezzék el hivatkozással vagy beágyazással. 
+{{% alert color="info" title="Note" %}}
+OLE (Object Linking & Embedding) egy Microsoft technológia, amely lehetővé teszi, hogy egy alkalmazásban létrehozott adatokat és objektumokat egy másik alkalmazásba helyezzük el hivatkozás vagy beágyazás segítségével. 
+
+A diagramot ezután egy PowerPoint diára helyezik. Ez az Excel diagram OLE objektumnak számít. 
+
+- Egy OLE objektum ikonként jelenhet meg. Ebben az esetben, ha duplán kattint az ikonra, a diagram a hozzá tartozó alkalmazásban (Excel) nyílik meg, vagy felkérik, hogy válasszon egy alkalmazást az objektum megnyitásához vagy szerkesztéséhez. 
+- Egy OLE objektum megjelenítheti tényleges tartalmát, például egy diagram tartalmát. Ebben az esetben a diagram aktiválódik a PowerPointban, a diagram felület betöltődik, és a PowerPointon belül módosíthatja a diagram adatait. 
+
+[Aspose.Slides for .NET](https://products.aspose.com/slides/net/) lehetővé teszi OLE objektumok beszúrását a diákra OLE objektumkeretekként ([OleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe)).
 {{% /alert %}} 
 
-Hozzon példaként egy MS Excelben létrehozott diagramot. A diagramot ezután egy PowerPoint diára helyezik. Az Excel diagram OLE objektumnak minősül. 
+## **OLE Objektumkeretek Hozzáadása a Diákhoz**
 
-- Egy OLE objektum megjelenhet ikonként. Ebben az esetben, ha duplán kattint az ikonra, a diagram a társított alkalmazásban (Excel) nyílik meg, vagy felkérik egy alkalmazás kiválasztására az objektum megnyitásához vagy szerkesztéséhez. 
-- Egy OLE objektum megjelenítheti a tényleges tartalmát, például egy diagram tartalmát. Ebben az esetben a diagram aktiválódik a PowerPointban, betöltődik a diagram felülete, és módosíthatja a diagram adatait a PowerPointon belül.
+Tételezzük fel, hogy már létrehozott egy diagramot a Microsoft Excelben, és Aspose.Slides for .NET segítségével OLE objektumkeretként szeretné beágyazni egy diára, ezt a módon teheti meg:
 
-[Aspose.Slides for .NET](https://products.aspose.com/slides/hu/net/) lehetővé teszi OLE objektumok beillesztését a diákba OLE objektumkeretekként ([OleObjectFrame](https://reference.aspose.com/slides/hu/net/aspose.slides/oleobjectframe)).
+1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) osztályból.  
+2. Szerezze meg egy dia hivatkozását az indexe alapján.  
+3. Olvassa be az Excel fájlt bájt tömbként.  
+4. Adja hozzá a [OleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe) elemet a diához, amely tartalmazza a bájt tömböt és egyéb információkat az OLE objektumról.  
+5. Írja ki a módosított prezentációt PPTX fájlként.  
 
-## **OLE objektumkeretek hozzáadása a diákhoz**
+Az alábbi példában egy Excel fájlból származó diagramot adtunk hozzá egy diához [OleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe) formájában az Aspose.Slides for .NET használatával.  
+**Megjegyzés** hogy a [OleEmbeddedDataInfo](https://reference.aspose.com/slides/net/aspose.slides.dom.ole/oleembeddeddatainfo/) konstruktor második paraméterként egy beágyazható objektum kiterjesztést vár. Ez a kiterjesztés lehetővé teszi a PowerPoint számára, hogy helyesen értelmezze a fájltípust és a megfelelő alkalmazást válassza az OLE objektum megnyitásához.
 
-Feltételezve, hogy már létrehozott egy diagramot a Microsoft Excelben, és azt OLE objektumkeretként szeretné beágyazni egy diára az Aspose.Slides for .NET segítségével, ezt a következőképpen teheti meg:
-
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation) osztályból.
-2. Szerezze meg egy dia referenciaját az indexe alapján.
-3. Olvassa be az Excel-fájlt byte tömbként.
-4. Adja hozzá a [OleObjectFrame](https://reference.aspose.com/slides/hu/net/aspose.slides/oleobjectframe)-et a diához, amely tartalmazza a byte tömböt és egyéb információkat az OLE objektumról.
-5. Írja ki a módosított prezentációt PPTX fájlként.
-
-Az alábbi példában egy Excel-fájlból származó diagramot adtunk hozzá egy diára [OleObjectFrame](https://reference.aspose.com/slides/hu/net/aspose.slides/oleobjectframe) formájában az Aspose.Slides for .NET használatával.  
-**Megjegyzés**, hogy a [OleEmbeddedDataInfo](https://reference.aspose.com/slides/hu/net/aspose.slides.dom.ole/oleembeddeddatainfo/) konstruktor második paraméterként egy beágyazható objektum kiterjesztést vesz át. Ez a kiterjesztés lehetővé teszi a PowerPoint számára, hogy helyesen értelmezze a fájltípust, és a megfelelő alkalmazást válassza az OLE objektum megnyitásához.
 ```csharp 
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.DOM.Ole;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     SizeF slideSize = presentation.SlideSize.Size;
@@ -63,55 +69,61 @@ using (Presentation presentation = new Presentation())
     byte[] fileData = File.ReadAllBytes("book.xlsx");
     IOleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(fileData, "xlsx");
 
-    // Adja hozzá az OLE objektumkeretet a diához.
+    // Adjon hozzá egy OLE objektumkeretet a diához.
     slide.Shapes.AddOleObjectFrame(0, 0, slideSize.Width, slideSize.Height, dataInfo);
 
     presentation.Save("output.pptx", SaveFormat.Pptx);
 }
 ```
 
-### **Linkelt OLE objektumkeretek hozzáadása**
+### **Kapcsolt OLE Objektumkeretek Hozzáadása**
 
-Az Aspose.Slides for .NET lehetővé teszi egy [OleObjectFrame](https://reference.aspose.com/slides/hu/net/aspose.slides/oleobjectframe) hozzáadását adat beágyazása nélkül, csak a fájlra mutató hivatkozással.
+Aspose.Slides for .NET lehetővé teszi egy [OleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe) hozzáadását anélkül, hogy adatot ágyazna be, csak a fájlra mutató hivatkozással.
 
-Ez a C# kód megmutatja, hogyan adhatunk egy [OleObjectFrame](https://reference.aspose.com/slides/hu/net/aspose.slides/oleobjectframe)-et egy linkelt Excel-fájllal egy diára:
+Ez a C# kód megmutatja, hogyan adhatunk hozzá egy [OleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe) elemet egy kapcsolt Excel fájllal egy diához:
+
 ```csharp 
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     ISlide slide = presentation.Slides[0];
 
-    // Adjon hozzá egy OLE objektumkeretet egy linkelt Excel-fájlhoz.
+    // Adjon hozzá egy OLE objektumkeretet egy kapcsolt Excel fájllal.
     slide.Shapes.AddOleObjectFrame(20, 20, 200, 150, "Excel.Sheet.12", "book.xlsx");
 
     presentation.Save("output.pptx", SaveFormat.Pptx);
 }
 ```
 
-## **OLE objektumkeretek elérése**
+## **OLE Objektumkeretek Elérése**
 
-Ha egy OLE objektum már be van ágyazva egy diára, ezt a módot követve könnyen megtalálhatja vagy elérheti:
+Ha egy OLE objektum már be van ágyazva egy diára, ezt a módot könnyen megtalálhatja vagy elérheti:
 
-1. Töltsön be egy prezentációt, amely tartalmazza a beágyazott OLE objektumot, a [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation) osztály példányosításával.
-2. Szerezze meg a dia referenciaját az indexének használatával.
-3. Hozzáférés a [OleObjectFrame](https://reference.aspose.com/slides/hu/net/aspose.slides/oleobjectframe) alakzathoz.
-   Példánkban a korábban létrehozott PPTX-et használtuk, amelynek az első dián csak egy alakzata van. Ezután *cast*-oltuk (átcastoltuk) az objektumot egy [IOleObjectFrame](https://reference.aspose.com/slides/hu/net/aspose.slides/ioleobjectframe)-ként. Ez volt a kívánt OLE objektumkeret, amelyhez hozzáfértünk.
-4. Miután hozzáfértünk az OLE objektumkerethez, tetszőleges műveletet végezhet rajta.
+1. Töltsön be egy prezentációt a beágyazott OLE objektummal úgy, hogy létrehoz egy példányt a [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) osztályból.  
+2. Szerezze meg a dia hivatkozását az indexének használatával.  
+3. Érje el a [OleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe) alakzatot. A példánkban a korábban létrehozott PPTX-et használtuk, amelynek az első dián csak egy alakzata van. Ezután *cast*‑oltuk azt az objektumot egy [IOleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/ioleobjectframe) típusúvá. Ez volt a kívánt OLE objektumkeret, amelyet el kell érni.  
+4. Miután elérte az OLE objektumkeretet, bármilyen műveletet végrehajthat rajta.  
 
-Az alábbi példában egy OLE objektumkeret (egy diára beágyazott Excel-diagram objektum) és annak fájladatát érjük el.
+Az alábbi példában egy OLE objektumkeret (egy beágyazott Excel diagram objektum) és annak fájladatait érjük el.
+
 ```csharp 
+using Aspose.Slides;
+
 using (Presentation presentation = new Presentation("sample.pptx"))
 {
     ISlide slide = presentation.Slides[0];
 
-    // Az első alakzatot OLE objektumkeretként lekérjük.
+    // Szerezze meg az első alakzatot OLE objektumkeretként.
     IOleObjectFrame oleFrame = slide.Shapes[0] as IOleObjectFrame;
 
     if (oleFrame != null)
     {
-        // A beágyazott fájl adatait lekérjük.
+        // Szerezze meg a beágyazott fájl adatokat.
         byte[] fileData = oleFrame.EmbeddedData.EmbeddedFileData;
 
-        // A beágyazott fájl kiterjesztését lekérjük.
+        // Szerezze meg a beágyazott fájl kiterjesztését.
         string fileExtension = oleFrame.EmbeddedData.EmbeddedFileExtension;
 
         // ...
@@ -119,26 +131,29 @@ using (Presentation presentation = new Presentation("sample.pptx"))
 }
 ```
 
-### **Linkelt OLE objektumkeret tulajdonságainak elérése**
+### **Kapcsolt OLE Objektumkeret Tulajdonságainak Elérése**
 
-Az Aspose.Slides lehetővé teszi a linkelt OLE objektumkeret tulajdonságainak elérését.
+Aspose.Slides lehetővé teszi a kapcsolt OLE objektumkeret tulajdonságainak elérését.
 
-Ez a C# kód megmutatja, hogyan ellenőrizheti, hogy egy OLE objektum linkelt-e, majd hogyan szerezheti meg a linkelt fájl elérési útját:
+Ez a C# kód megmutatja, hogyan ellenőrizheti, hogy egy OLE objektum kapcsolt-e, és hogyan szerezheti meg a kapcsolt fájl útvonalát:
+
 ```csharp
+using Aspose.Slides;
+
 using (Presentation presentation = new Presentation("sample.ppt"))
 {
     ISlide slide = presentation.Slides[0];
 
-    // Az első alakzatot OLE objektumkeretként lekérjük.
+    // Szerezze meg az első alakzatot OLE objektumkeretként.
     IOleObjectFrame oleFrame = slide.Shapes[0] as IOleObjectFrame;
 
-    // Ellenőrizzük, hogy az OLE objektum linkelt-e.
+    // Ellenőrizze, hogy az OLE objektum kapcsolt-e.
     if (oleFrame != null && oleFrame.IsObjectLink)
     {
-        // Kiírjuk a linkelt fájl teljes útvonalát.
+        // Írja ki a kapcsolt fájl teljes útvonalát.
         Console.WriteLine("OLE object frame is linked to: " + oleFrame.LinkPathLong);
 
-        // Kiírjuk a linkelt fájl relatív útvonalát, ha létezik.
+        // Írja ki a kapcsolt fájl relatív útvonalát, ha van.
         // Csak a PPT prezentációk tartalmazhatják a relatív útvonalat.
         if (!string.IsNullOrEmpty(oleFrame.LinkPathRelative))
         {
@@ -148,52 +163,56 @@ using (Presentation presentation = new Presentation("sample.ppt"))
 }
 ```
 
-## **OLE objektum adatainak módosítása**
+## **OLE Objektum Adatainak Módosítása**
 
-{{% alert color="primary" %}} 
-Ebbe a szakaszba az alábbi kódpélda a [Aspose.Cells for .NET](/cells/net/) használatát mutatja. 
+{{% alert color="info" title="Note" %}}
+Ebbe a szakaszba a lenti kódpélda a [Aspose.Cells for .NET](https://docs.aspose.com/cells/net/) használatát mutatja.
 {{% /alert %}}
 
-Ha egy OLE objektum már be van ágyazva egy diára, könnyen hozzáférhet az objektumhoz és módosíthatja annak adatait a következő módon:
+Ha egy OLE objektum már be van ágyazva egy diára, ezt a módot könnyen elérheti és módosíthatja az adatait:
 
-1. Töltsön be egy prezentációt, amely tartalmazza a beágyazott OLE objektumot, a [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation) osztály példányosításával.
-2. Szerezze meg a dia referenciaját az indexe alapján.
-3. Hozzáférés az [OLEObjectFrame](https://reference.aspose.com/slides/hu/net/aspose.slides/oleobjectframe) alakzathoz.
-   Példánkban a korábban létrehozott PPTX-et használtuk, amelynek az első dián egy alakzata van. Ezután *cast*-oltuk az objektumot egy [IOleObjectFrame](https://reference.aspose.com/slides/hu/net/aspose.slides/ioleobjectframe)-ként. Ez volt a kívánt OLE objektumkeret, amelyhez hozzáfértünk.
-4. Miután hozzáfértünk az OLE objektumkerethez, tetszőleges műveletet végezhet rajta.
-5. Hozzon létre egy `Workbook` objektumot, és férjen hozzá az OLE adatokhoz.
-6. Hozzáférés a kívánt `Worksheet`-hez, és módosítsa az adatokat.
-7. Mentse az frissített `Workbook`-ot egy stream-be.
-8. Módosítsa az OLE objektum adatait a streamből.
+1. Töltsön be egy prezentációt a beágyazott OLE objektummal úgy, hogy létrehoz egy példányt a [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) osztályból.  
+2. Szerezze meg a dia hivatkozását az indexe alapján.  
+3. Érje el a [OLEObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe) alakzatot. A példánkban a korábban létrehozott PPTX-et használtuk, amelynek az első dián egy alakzata van. Ezután *cast*‑oltuk azt az objektumot egy [IOleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/ioleobjectframe) típusúvá. Ez volt a kívánt OLE objektumkeret, amelyet el kell érni.  
+4. Miután elérte az OLE objektumkeretet, bármilyen műveletet végrehajthat rajta.  
+5. Hozzon létre egy `Workbook` objektumot, és érje el az OLE adatokat.  
+6. Érje el a kívánt `Worksheet`‑ot, és módosítsa az adatokat.  
+7. Mentse az frissített `Workbook`‑ot egy streambe.  
+8. Módosítsa az OLE objektum adatait a streamből.  
 
-Az alábbi példában egy OLE objektumkeretet (egy diára beágyazott Excel-diagram objektumot) érünk el, és a fájl adatait módosítjuk a diagram adatok frissítéséhez.
+Az alábbi példában egy OLE objektumkeret (egy beágyazott Excel diagram) elérhető, és a fájl adatait módosítják a diagram adatainak frissítéséhez.
+
 ```csharp 
+using Aspose.Slides;
+using Aspose.Slides.DOM.Ole;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation("sample.pptx"))
 {
     ISlide slide = presentation.Slides[0];
 
-    // Az első alakzatot OLE objektumkeretként lekérjük.
+    // Szerezze meg az első alakzatot OLE objektumkeretként.
     IOleObjectFrame oleFrame = slide.Shapes[0] as IOleObjectFrame;
 
     if (oleFrame != null)
     {
         using (MemoryStream oleStream = new MemoryStream(oleFrame.EmbeddedData.EmbeddedFileData))
         {
-            // Az OLE objektum adatait Workbook objektumként olvassuk.
-            Workbook workbook = new Workbook(oleStream);
+            // Olvassa be az OLE objektum adatokat Workbook objektumként.
+            Aspose.Cells.Workbook workbook = new Aspose.Cells.Workbook(oleStream);
 
             using (MemoryStream newOleStream = new MemoryStream())
             {
-                // A munkafüzet adatait módosítjuk.
+                // Módosítsa a workbook adatait.
                 workbook.Worksheets[0].Cells[0, 4].PutValue("E");
                 workbook.Worksheets[0].Cells[1, 4].PutValue(12);
                 workbook.Worksheets[0].Cells[2, 4].PutValue(14);
                 workbook.Worksheets[0].Cells[3, 4].PutValue(15);
 
-                OoxmlSaveOptions fileOptions = new OoxmlSaveOptions(Aspose.Cells.SaveFormat.Xlsx);
+                Aspose.Cells.OoxmlSaveOptions fileOptions = new Aspose.Cells.OoxmlSaveOptions(Aspose.Cells.SaveFormat.Xlsx);
                 workbook.Save(newOleStream, fileOptions);
 
-                // Az OLE keret objektum adatait módosítjuk.
+                // Módosítsa az OLE keret objektum adatait.
                 IOleEmbeddedDataInfo newData = new OleEmbeddedDataInfo(newOleStream.ToArray(), oleFrame.EmbeddedData.EmbeddedFileExtension);
                 oleFrame.SetEmbeddedData(newData);
             }
@@ -204,12 +223,17 @@ using (Presentation presentation = new Presentation("sample.pptx"))
 }
 ```
 
-## **Más fájltípusok beágyazása a diákba**
+## **Más Fájl Típusok Beágyazása a Diákba**
 
-Az Excel diagramok mellett az Aspose.Slides for .NET lehetővé teszi más típusú fájlok beágyazását a diákba. Például HTML, PDF és ZIP fájlokat is beilleszthet objektumként. Amikor a felhasználó duplán kattint a beillesztett objektumra, az automatikusan megnyílik a megfelelő programban, vagy felkérik a megfelelő program kiválasztására a megnyitáshoz.
+Az Excel diagramok mellett az Aspose.Slides for .NET lehetővé teszi más típusú fájlok beágyazását a diákba. Például HTML, PDF és ZIP fájlokat helyezhet be objektumként. Amikor a felhasználó duplán kattint a beillesztett objektumra, az automatikusan megnyílik a megfelelő programban, vagy a felhasználót felkérik, hogy válasszon egy megfelelő programot a megnyitáshoz.
 
-Ez a C# kód megmutatja, hogyan ágyazhat be HTML- és ZIP-fájlokat egy diára:
+Ez a C# kód megmutatja, hogyan ágyazzunk be HTML-t és ZIP-et egy diára:
+
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.DOM.Ole;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     ISlide slide = presentation.Slides[0];
@@ -228,12 +252,17 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-## **Beágyazott objektumok fájltípusának beállítása**
+## **Beágyazott Objektumok Fájltípusának Beállítása**
 
-Prezentációk kezelése során előfordulhat, hogy régi OLE objektumokat kell cserélni újakra, vagy egy nem támogatott OLE objektumot egy támogatottra. Az Aspose.Slides for .NET lehetővé teszi a beágyazott objektum fájltípusának beállítását, így frissítheti az OLE keret adatait vagy annak kiterjesztését.
+Prezentációk kezelése közben előfordulhat, hogy régi OLE objektumokat újakkal kell helyettesíteni, vagy egy nem támogatott OLE objektumot támogatottal. Az Aspose.Slides for .NET lehetővé teszi a beágyazott objektum fájltípusának beállítását, így frissítheti az OLE keret adatait vagy annak kiterjesztését.
 
-Ez a C# kód megmutatja, hogyan állítható be a beágyazott OLE objektum fájltípusa `zip`-re:
+Ez a C# kód megmutatja, hogyan állítsa be egy beágyazott OLE objektum fájltípusát `zip`‑re:
+
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.DOM.Ole;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation("sample.pptx"))
 {
     ISlide slide = presentation.Slides[0];
@@ -244,29 +273,33 @@ using (Presentation presentation = new Presentation("sample.pptx"))
 
     Console.WriteLine($"Current embedded file extension is: {fileExtension}");
 
-    // A fájltípus módosítása ZIP-re.
+    // A fájl típusának módosítása ZIP-re.
     oleFrame.SetEmbeddedData(new OleEmbeddedDataInfo(fileData, "zip"));
 
     presentation.Save("output.pptx", SaveFormat.Pptx);
 }
 ```
 
-## **Ikonképek és címek beállítása beágyazott objektumokhoz**
+## **Ikon Képek és Címek Beállítása a Beágyazott Objektumokhoz**
 
-Egy OLE objektum beágyazása után automatikusan hozzáadódik egy előnézet, amely egy ikonképből áll. Ez az előnézet az, amit a felhasználók látnak az OLE objektum elérése vagy megnyitása előtt. Ha egy adott képet és szöveget szeretne használni az előnézet elemeiként, az ikonképet és a címet az Aspose.Slides for .NET segítségével állíthatja be.
+OLE objektum beágyazása után automatikusan hozzáadódik egy előnézet, amely egy ikon képből áll. Ez az előnézet az, amit a felhasználók látnak, mielőtt elérnék vagy megnyitnák az OLE objektumot. Ha egy konkrét képet és szöveget szeretne használni az előnézet elemeiként, beállíthatja az ikon képet és a címet az Aspose.Slides for .NET használatával.
 
-Ez a C# kód megmutatja, hogyan állítható be az ikonkép és a cím egy beágyazott objektumhoz: 
+Ez a C# kód megmutatja, hogyan állítsa be az ikon képet és a címet egy beágyazott objektumhoz: 
+
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation("sample.pptx"))
 {
     ISlide slide = presentation.Slides[0];
     IOleObjectFrame oleFrame = (IOleObjectFrame)slide.Shapes[0];
 
-    // Képet adunk a prezentáció erőforrásaihoz.
+    // Kép hozzáadása a prezentáció erőforrásaihoz.
     byte[] imageData = File.ReadAllBytes("image.png");
     IPPImage oleImage = presentation.Images.AddImage(imageData);
 
-    // Beállítunk egy címet és képet az OLE előnézethez.
+    // Cím és kép beállítása az OLE előnézethez.
     oleFrame.SubstitutePictureTitle = "My title";
     oleFrame.SubstitutePictureFormat.Picture.Image = oleImage;
     oleFrame.IsObjectIcon = true;
@@ -275,23 +308,38 @@ using (Presentation presentation = new Presentation("sample.pptx"))
 }
 ```
 
-## **Az OLE objektumkeret átméretezésének és áthelyezésének megakadályozása**
+## **Az OLE Objektumkeret Méretezésének és Áthelyezésének Megakadályozása**
 
-Miután egy linkelt OLE objektumot hozzáad egy prezentációs diához, a PowerPointban történő megnyitáskor megjelenhet egy üzenet, amely a hivatkozások frissítését kérdezi. A „Update Links” (Hivatkozások frissítése) gombra kattintás megváltoztathatja az OLE objektumkeret méretét és pozícióját, mivel a PowerPoint frissíti a linkelt OLE objektum adatait és frissíti az objektum előnézetét. Az OLE objektum adatainak frissítésére vonatkozó PowerPoint‑i felszólítás elkerüléséhez állítsa az [IOleObjectFrame](https://reference.aspose.com/slides/hu/net/aspose.slides/ioleobjectframe/) interfész `UpdateAutomatic` tulajdonságát `false`-ra:
+Miután egy kapcsolt OLE objektumot hozzáad egy prezentációs diához, a PowerPointban történő megnyitáskor megjelenhet egy üzenet, amely a hivatkozások frissítését kéri. Az "Update Links" gombra kattintás megváltoztathatja az OLE objektumkeret méretét és pozícióját, mivel a PowerPoint frissíti a kapcsolt OLE objektum adatait, és frissíti az objektum előnézetét. A PowerPoint felkéréseinek elkerülése érdekében, állítsa a `UpdateAutomatic` tulajdonságot a [IOleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/ioleobjectframe/) interfészben `false` értékre:
+
 ```cs
-oleFrame.UpdateAutomatic = false;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using (Presentation presentation = new Presentation("sample.pptx"))
+{
+    IOleObjectFrame oleFrame = (IOleObjectFrame)presentation.Slides[0].Shapes[0];
+
+    // Tartsa meg az OLE objektumkeret méretét és helyzetét, amikor a PowerPoint frissíti a hivatkozást.
+    oleFrame.UpdateAutomatic = false;
+
+    presentation.Save("output.pptx", SaveFormat.Pptx);
+}
 ```
 
-## **Beágyazott fájlok kinyerése**
+## **Beágyazott Fájlok Kinyerése**
 
-Az Aspose.Slides for .NET lehetővé teszi a diákba beágyazott fájlok OLE objektumokként történő kinyerését a következő módon:
+Az Aspose.Slides for .NET lehetővé teszi a diákba beágyazott fájlok OLE objektumként történő kinyerését a következő módon:
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation) osztályból, amely tartalmazza a kinyerni kívánt OLE objektumokat.
-2. Járjon végig a prezentáció összes alakzatán, és érje el az [OLEObjectFrame](https://reference.aspose.com/slides/hu/net/aspose.slides/oleobjectframe) alakzatokat.
-3. Szerezze meg a beágyazott fájlok adatait az OLE objektumkeretekből, és írja őket lemezre.
+1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) osztályból, amely tartalmazza a kinyerni kívánt OLE objektumokat.  
+2. Iteráljon végig a prezentáció összes alakzatán, és érje el a [OLEObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe) alakzatokat.  
+3. Érje el a beágyazott fájlok adatait az OLE objektumkeretekből, és írja őket lemezre.  
 
-Ez a C# kód megmutatja, hogyan lehet kinyerni egy diára beágyazott fájlokat OLE objektumokként:
+Ez a C# kód megmutatja, hogyan nyerhet ki fájlokat, amelyek OLE objektumként vannak beágyazva egy diában:
+
 ```c#
+using Aspose.Slides;
+
 using (Presentation presentation = new Presentation("sample.pptx"))
 {
     ISlide slide = presentation.Slides[0];
@@ -313,20 +361,22 @@ using (Presentation presentation = new Presentation("sample.pptx"))
 }
 ```
 
-## **GYIK**
+## **FAQ**
 
-**Megjelenik-e az OLE tartalom a diák PDF/képek formátumba exportálásakor?**
+**Megjelenik-e az OLE tartalom a diák PDF/képek exportálásakor?**
 
-A dián látható elem jelenik meg – az ikon/helyettesítő kép (előnézet). A „valódi” OLE tartalom nem kerül végrehajtásra a renderelés során. Szükség esetén állítson be saját előnézeti képet a várt megjelenés biztosításához az exportált PDF-ben.
+A dián látható tartalom kerül renderelésre – az ikon/helyettesítő kép (előnézet). Az „élő” OLE tartalom nem kerül végrehajtásra a renderelés során. Szükség esetén állítson be saját előnézeti képet, hogy a várt megjelenést biztosítsa az exportált PDF‑ben.
 
-**Hogyan zárolhatok egy OLE objektumot a dián, hogy a felhasználók ne mozdíthassák/szerkeszthessék a PowerPointban?**
+Az beágyazott fájl PDF mellékletként való megtartásához állítsa a [PdfOptions.IncludeOleData](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/includeoledata/) értékét `true`‑ra. Ez az opció alapértelmezés szerint le van tiltva. Egy példáért és az ellenőrzés módjáért lásd a [Preserve Embedded OLE Files as PDF Attachments](/slides/hu/net/convert-powerpoint-to-pdf/#preserve-embedded-ole-files-as-pdf-attachments) oldalt.
 
-Zárolja az alakzatot: az Aspose.Slides [alakzatszintű zárolásokat](/slides/hu/net/applying-protection-to-presentation/) biztosít. Ez nem titkosítás, de hatékonyan megakadályozza a véletlen szerkesztéseket és áthelyezést.
+**Hogyan zárolhatok egy OLE objektumot a dián, hogy a felhasználók ne tudják mozgatni/szerkeszteni a PowerPointban?**
 
-**Miért „ugrik” vagy változik mérete a linkelt Excel objektum, amikor megnyitom a prezentációt?**
+Zárja le az alakzatot: az Aspose.Slides [alakzat-szintű zárolásokat](/slides/hu/net/applying-protection-to-presentation/) kínál. Ez nem titkosítás, de hatékonyan megakadályozza a véletlen szerkesztéseket és mozgatást.
 
-A PowerPoint frissítheti a linkelt OLE előnézetét. Stabil megjelenés érdekében kövesse a [Worksheet Resizing munkamegoldás](/slides/hu/net/working-solution-for-worksheet-resizing/) gyakorlatait – vagy illessze a keretet a tartományhoz, vagy méretezze a tartományt egy rögzített keretre, és állítson be megfelelő helyettesítő képet.
+**Miért „ugrik” vagy változik mérete egy kapcsolt Excel objektumnak, amikor megnyitom a prezentációt?**
 
-**Megmaradnak-e a linkelt OLE objektumok relatív útvonalai a PPTX formátumban?**
+A PowerPoint frissítheti a kapcsolt OLE előnézetét. A stabil megjelenés érdekében kövesse a [Working Solution for Worksheet Resizing](/slides/hu/net/working-solution-for-worksheet-resizing/) gyakorlatait – vagy illessze a keretet a tartományhoz, vagy méretezze a tartományt egy fix keretre, és állítson be megfelelő helyettesítő képet.
 
-A PPTX formátumban a „relatív útvonal” információ nem áll rendelkezésre – csak a teljes útvonal. Relatív útvonalak a régebbi PPT formátumban találhatók. A hordozhatóság érdekében részesítse előnyben a megbízható abszolút útvonalakat/könnyen elérhető URI-kat vagy a beágyazást.
+**Megmaradnak-e a relatív útvonalak a kapcsolt OLE objektumokhoz a PPTX formátumban?**
+
+PPTX‑ben a „relatív útvonal” információ nem érhető el – csak a teljes útvonal. A relatív útvonalak a régebbi PPT formátumban találhatók. A hordozhatóság érdekében részesítsen előnyben megbízható abszolút útvonalakat/elérhető URI‑kat vagy a beágyazást.

@@ -1,20 +1,20 @@
 ---
-title: .NET में प्रेजेंटेशन में OLE ऑब्जेक्ट्स का प्रबंधन
-linktitle: OLE प्रबंधन
+title: .NET में प्रेजेंटेशन में OLE ऑब्जेक्ट्स प्रबंधित करें
+linktitle: OLE प्रबंधित करें
 type: docs
 weight: 40
 url: /hi/net/manage-ole/
 keywords:
 - OLE ऑब्जेक्ट
-- ऑब्जेक्ट लिंकिंग और एम्बेडिंग
+- ऑब्जेक्ट लिंकिंग एवं एम्बेडिंग
 - OLE जोड़ें
 - OLE एम्बेड करें
 - ऑब्जेक्ट जोड़ें
 - ऑब्जेक्ट एम्बेड करें
 - फ़ाइल जोड़ें
 - फ़ाइल एम्बेड करें
-- लिंक्ड ऑब्जेक्ट
-- लिंक्ड फ़ाइल
+- जुड़ा ऑब्जेक्ट
+- जुड़ी फ़ाइल
 - OLE बदलें
 - OLE आइकन
 - OLE शीर्षक
@@ -22,39 +22,46 @@ keywords:
 - ऑब्जेक्ट निकालें
 - फ़ाइल निकालें
 - PowerPoint
-- प्रेज़ेंटेशन
+- प्रेजेंटेशन
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides for .NET के साथ PowerPoint और OpenDocument फ़ाइलों में OLE ऑब्जेक्ट प्रबंधन को अनुकूलित करें। OLE सामग्री को सहजता से एम्बेड, अपडेट और एक्सपोर्ट करें।"
+description: "Aspose.Slides for .NET के साथ PowerPoint और OpenDocument फ़ाइलों में OLE ऑब्जेक्ट प्रबंधन को अनुकूलित करें। OLE सामग्री को सहजता से एम्बेड, अपडेट और निर्यात करें।"
 ---
 ## **परिचय**
 
-{{% alert title="सूचना" color="info" %}}
-OLE (ऑब्जेक्ट लिंकिंग एवं एम्बेडिंग) एक माइक्रोसॉफ्ट तकनीक है जो एक एप्लिकेशन में बने डेटा और ऑब्जेक्ट को लिंकिंग या एम्बेडिंग के माध्यम से दूसरे एप्लिकेशन में रखने की अनुमति देती है। 
+{{% alert color="info" title="Note" %}}
+
+OLE (Object Linking & Embedding) माइक्रोसॉफ्ट की एक तकनीक है जो एक एप्लिकेशन में निर्मित डेटा और वस्तुओं को लिंकिंग या एंबेडिंग के माध्यम से दूसरे एप्लिकेशन में रखने की अनुमति देती है।
+
 {{% /alert %}} 
 
-MS Excel में बनाई गई एक चार्ट को देखें। इस चार्ट को फिर PowerPoint स्लाइड में रखा जाता है। वह Excel चार्ट एक OLE ऑब्जेक्ट माना जाता है। 
+मान लें कि MS Excel में एक चार्ट बनाया गया है। फिर वह चार्ट PowerPoint स्लाइड में रख दिया जाता है। वह Excel चार्ट एक OLE ऑब्जेक्ट माना जाता है। 
 
-- एक OLE ऑब्जेक्ट आइकन के रूप में दिखाई दे सकता है। इस स्थिति में, जब आप आइकन को डबल‑क्लिक करते हैं, तो चार्ट अपने संबद्ध एप्लिकेशन (Excel) में खुल जाता है, या आपको ऑब्जेक्ट खोलने या संपादित करने के लिए एप्लिकेशन चुनने का अनुरोध किया जाता है। 
-- एक OLE ऑब्जेक्ट अपना वास्तविक कंटेंट, जैसे कि चार्ट का कंटेंट, प्रदर्शित कर सकता है। इस स्थिति में, चार्ट PowerPoint में सक्रिय हो जाता है, चार्ट इंटरफ़ेस लोड होता है, और आप PowerPoint के भीतर चार्ट के डेटा को संशोधित कर सकते हैं। 
+- एक OLE ऑब्जेक्ट एक आइकन के रूप में दिखा सकता है। इस स्थिति में, जब आप आइकन पर डबल-क्लिक करते हैं, तो चार्ट अपने सम्बद्ध एप्लिकेशन (Excel) में खुल जाता है, या आपसे ऑब्जेक्ट को खोलने या संपादित करने के लिए एक एप्लिकेशन चुनने को कहा जाता है। 
+- एक OLE ऑब्जेक्ट अपनी वास्तविक सामग्री प्रदर्शित कर सकता है, जैसे कि चार्ट की सामग्री। इस स्थिति में, चार्ट PowerPoint में सक्रिय हो जाता है, चार्ट इंटरफ़ेस लोड होता है, और आप PowerPoint के भीतर चार्ट के डेटा को संशोधित कर सकते हैं। 
 
-[Aspose.Slides for .NET](https://products.aspose.com/slides/hi/net/) आपको स्लाइड्स में OLE ऑब्जेक्ट्स को OLE ऑब्जेक्ट फ्रेम के रूप में सम्मिलित करने की अनुमति देता है ([OleObjectFrame](https://reference.aspose.com/slides/hi/net/aspose.slides/oleobjectframe))।
+[Aspose.Slides for .NET](https://products.aspose.com/slides/net/) आपको OLE ऑब्जेक्ट्स को स्लाइड्स में OLE ऑब्जेक्ट फ्रेम के रूप में सम्मिलित करने की अनुमति देता है ([OleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe)).
 
 ## **स्लाइड्स में OLE ऑब्जेक्ट फ्रेम जोड़ें**
 
-मान लीजिए आपने Microsoft Excel में एक चार्ट बना लिया है और Aspose.Slides for .NET का उपयोग करके उसे OLE ऑब्जेक्ट फ्रेम के रूप में स्लाइड में एम्बेड करना चाहते हैं, तो आप इसे इस तरह कर सकते हैं:
+मान लें कि आप पहले ही Microsoft Excel में एक चार्ट बना चुके हैं और इसे Aspose.Slides for .NET का उपयोग करके OLE ऑब्जेक्ट फ्रेम के रूप में स्लाइड में एंबेड करना चाहते हैं, आप इसे इस तरह कर सकते हैं:
 
-1. [Presentation](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation) क्लास का एक इंस्टेंस बनाएं।  
-2. स्लाइड को उसके इंडेक्स द्वारा प्राप्त करें।  
+1. [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) क्लास का एक इंस्टेंस बनाएं।  
+2. इंडेक्स के माध्यम से स्लाइड का रेफ़रेंस प्राप्त करें।  
 3. Excel फ़ाइल को बाइट एरे के रूप में पढ़ें।  
-4. बाइट एरे और OLE ऑब्जेक्ट के अन्य विवरणों के साथ स्लाइड में [OleObjectFrame](https://reference.aspose.com/slides/hi/net/aspose.slides/oleobjectframe) जोड़ें।  
+4. स्लाइड में बाइट एरे और OLE ऑब्जेक्ट के बारे में अन्य जानकारी सहित [OleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe) जोड़ें।  
 5. संशोधित प्रेजेंटेशन को PPTX फ़ाइल के रूप में लिखें।  
 
-नीचे दिए गए उदाहरण में, हमने Excel फ़ाइल से एक चार्ट को Aspose.Slides for .NET का उपयोग करके एक स्लाइड में [OleObjectFrame](https://reference.aspose.com/slides/hi/net/aspose.slides/oleobjectframe) के रूप में जोड़ा है।  
-**ध्यान दें** कि [OleEmbeddedDataInfo](https://reference.aspose.com/slides/hi/net/aspose.slides.dom.ole/oleembeddeddatainfo/) कन्स्ट्रक्टर दूसरा पैरामीटर के रूप में एम्बेडेबल ऑब्जेक्ट एक्स्टेंशन लेता है। यह एक्स्टेंशन PowerPoint को फ़ाइल प्रकार को सही ढंग से समझने और इस OLE ऑब्जेक्ट को खोलने के लिए उचित एप्लिकेशन चुनने में मदद करता है।
+नीचे दिए गए उदाहरण में, हमने Excel फ़ाइल से एक चार्ट को Aspose.Slides for .NET का उपयोग करके एक [OleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe) के रूप में स्लाइड में जोड़ा।  
+**ध्यान दें** कि [OleEmbeddedDataInfo](https://reference.aspose.com/slides/net/aspose.slides.dom.ole/oleembeddeddatainfo/) कंस्ट्रक्टर दूसरा पैरामीटर के रूप में एक एंबेडेबल ऑब्जेक्ट एक्सटेंशन लेता है। यह एक्सटेंशन PowerPoint को फ़ाइल प्रकार को सही ढंग से समझने और इस OLE ऑब्जेक्ट को खोलने के लिए सही एप्लिकेशन चुनने में सक्षम बनाता है।
 
 ```csharp 
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.DOM.Ole;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     SizeF slideSize = presentation.SlideSize.Size;
@@ -71,41 +78,46 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-### **लिंक्ड OLE ऑब्जेक्ट फ्रेम जोड़ें**
+### **जुड़े हुए OLE ऑब्जेक्ट फ्रेम जोड़ें**
 
-Aspose.Slides for .NET आपको डेटा एम्बेड किए बिना केवल फ़ाइल के लिंक के साथ एक [OleObjectFrame](https://reference.aspose.com/slides/hi/net/aspose.slides/oleobjectframe) जोड़ने की अनुमति देता है।
+Aspose.Slides for .NET आपको डेटा एंबेड किए बिना, केवल फ़ाइल के लिंक के साथ एक [OleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe) जोड़ने की अनुमति देता है।
 
-यह C# कोड दिखाता है कि कैसे एक लिंक्ड Excel फ़ाइल के साथ एक [OleObjectFrame](https://reference.aspose.com/slides/hi/net/aspose.slides/oleobjectframe) को स्लाइड में जोड़ा जाए:
+यह C# कोड आपको दिखाता है कि कैसे एक जुड़े हुए Excel फ़ाइल के साथ [OleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe) को स्लाइड में जोड़ें:
 
 ```csharp 
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     ISlide slide = presentation.Slides[0];
 
-    // लिंक्ड Excel फ़ाइल के साथ एक OLE ऑब्जेक्ट फ्रेम जोड़ें।
+    // जुड़ी हुई Excel फ़ाइल के साथ एक OLE ऑब्जेक्ट फ्रेम जोड़ें।
     slide.Shapes.AddOleObjectFrame(20, 20, 200, 150, "Excel.Sheet.12", "book.xlsx");
 
     presentation.Save("output.pptx", SaveFormat.Pptx);
 }
 ```
 
-## **OLE ऑब्जेक्ट फ्रेम तक पहुंचें**
+## **OLE ऑब्जेक्ट फ्रेम तक पहुँच**
 
-यदि कोई OLE ऑब्जेक्ट पहले से ही स्लाइड में एम्बेड किया गया है, तो आप इसे इस तरह आसानी से खोज या एक्सेस कर सकते हैं:
+यदि कोई OLE ऑब्जेक्ट पहले से ही स्लाइड में एंबेड किया गया है, तो आप इसे इस तरह आसानी से खोज या पहुँच सकते हैं:
 
-1. एम्बेडेड OLE ऑब्जेक्ट वाली प्रेजेंटेशन को लोड करने के लिए [Presentation](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation) क्लास का एक इंस्टेंस बनाएं।  
-2. स्लाइड को उसके इंडेक्स द्वारा प्राप्त करें।  
-3. [OleObjectFrame](https://reference.aspose.com/slides/hi/net/aspose.slides/oleobjectframe) शेप को एक्सेस करें। हमारे उदाहरण में, हमने पहले बनाए गए PPTX का उपयोग किया जिसमें पहली स्लाइड पर केवल एक शेप है। फिर हमने उस ऑब्जेक्ट को [IOleObjectFrame](https://reference.aspose.com/slides/hi/net/aspose.slides/ioleobjectframe) के रूप में *cast* किया। यही वांछित OLE ऑब्जेक्ट फ्रेम था जिसे एक्सेस किया जाना था।  
-4. एक बार OLE ऑब्जेक्ट फ्रेम एक्सेस हो जाने पर, आप उस पर कोई भी ऑपरेशन कर सकते हैं।  
+1. एंबेडेड OLE ऑब्जेक्ट वाले प्रेजेंटेशन को [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) क्लास का एक इंस्टेंस बनाकर लोड करें।  
+2. उसके इंडेक्स का उपयोग करके स्लाइड का रेफ़रेंस प्राप्त करें।  
+3. [OleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe) आकार तक पहुँचें। हमारे उदाहरण में, हमने पहले बनाई गई PPTX का उपयोग किया जिसमें पहली स्लाइड पर केवल एक आकार है। फिर हमने उस ऑब्जेक्ट को [IOleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/ioleobjectframe) के रूप में *cast* किया। यह वह वांछित OLE ऑब्जेक्ट फ्रेम था जिसे एक्सेस करना था।  
+4. एक बार OLE ऑब्जेक्ट फ्रेम तक पहुँचने के बाद, आप उस पर कोई भी ऑपरेशन कर सकते हैं।  
 
-नीचे दिए गए उदाहरण में, एक OLE ऑब्जेक्ट फ्रेम (एक स्लाइड में एम्बेडेड Excel चार्ट ऑब्जेक्ट) और उसके फ़ाइल डेटा को एक्सेस किया गया है।
+नीचे दिए गए उदाहरण में, एक OLE ऑब्जेक्ट फ्रेम (एक स्लाइड में एंबेड किया गया Excel चार्ट ऑब्जेक्ट) और उसकी फ़ाइल डेटा तक पहुँच प्राप्त की गई है।
 
 ```csharp 
+using Aspose.Slides;
+
 using (Presentation presentation = new Presentation("sample.pptx"))
 {
     ISlide slide = presentation.Slides[0];
 
-    // पहले शेप को OLE ऑब्जेक्ट फ्रेम के रूप में प्राप्त करें।
+    // पहले आकार को OLE ऑब्जेक्ट फ्रेम के रूप में प्राप्त करें।
     IOleObjectFrame oleFrame = slide.Shapes[0] as IOleObjectFrame;
 
     if (oleFrame != null)
@@ -121,28 +133,30 @@ using (Presentation presentation = new Presentation("sample.pptx"))
 }
 ```
 
-### **लिंक्ड OLE ऑब्जेक्ट फ्रेम प्रॉपर्टी एक्सेस करें**
+### **जुड़े हुए OLE ऑब्जेक्ट फ्रेम गुणों तक पहुँच**
 
-Aspose.Slides आपको लिंक्ड OLE ऑब्जेक्ट फ्रेम प्रॉपर्टी एक्सेस करने की सुविधा देता है।
+Aspose.Slides आपको जुड़े हुए OLE ऑब्जेक्ट फ्रेम के गुणों तक पहुँच प्रदान करता है।
 
-यह C# कोड दिखाता है कि कैसे यह जांचा जाए कि OLE ऑब्जेक्ट लिंक्ड है और फिर लिंक्ड फ़ाइल का पाथ प्राप्त किया जाए:
+यह C# कोड आपको दिखाता है कि कैसे जांचें कि OLE ऑब्जेक्ट जुड़ा हुआ है और फिर जुड़े फ़ाइल का पथ प्राप्त करें:
 
 ```csharp
+using Aspose.Slides;
+
 using (Presentation presentation = new Presentation("sample.ppt"))
 {
     ISlide slide = presentation.Slides[0];
 
-    // पहले शेप को OLE ऑब्जेक्ट फ्रेम के रूप में प्राप्त करें।
+    // पहले आकार को OLE ऑब्जेक्ट फ्रेम के रूप में प्राप्त करें।
     IOleObjectFrame oleFrame = slide.Shapes[0] as IOleObjectFrame;
 
-    // जाँचें कि OLE ऑब्जेक्ट लिंक्ड है या नहीं।
+    // जाँचें कि OLE ऑब्जेक्ट जुड़ा है या नहीं।
     if (oleFrame != null && oleFrame.IsObjectLink)
     {
-        // लिंक्ड फ़ाइल का पूर्ण पाथ प्रिंट करें।
+        // जुड़ी फ़ाइल का पूर्ण पथ प्रिंट करें।
         Console.WriteLine("OLE object frame is linked to: " + oleFrame.LinkPathLong);
 
-        // यदि मौजूद हो तो लिंक्ड फ़ाइल का रिलेटिव पाथ प्रिंट करें।
-        // केवल PPT प्रेजेंटेशन में रिलेटिव पाथ हो सकता है।
+        // यदि मौजूद हो तो जुड़ी फ़ाइल का सापेक्ष पथ प्रिंट करें।
+        // केवल PPT प्रेजेंटेशन्स में सापेक्ष पथ हो सकता है।
         if (!string.IsNullOrEmpty(oleFrame.LinkPathRelative))
         {
             Console.WriteLine("OLE object frame relative path: " + oleFrame.LinkPathRelative);
@@ -153,29 +167,35 @@ using (Presentation presentation = new Presentation("sample.ppt"))
 
 ## **OLE ऑब्जेक्ट डेटा बदलें**
 
-{{% alert color="primary" %}} 
-इस सेक्शन में, नीचे दिया गया कोड उदाहरण [Aspose.Cells for .NET](/cells/net/) का उपयोग करता है। 
+{{% alert color="info" title="Note" %}}
+
+इस अनुभाग में, नीचे दिया गया कोड उदाहरण [Aspose.Cells for .NET](https://docs.aspose.com/cells/net/) का उपयोग करता है।
+
 {{% /alert %}}
 
-यदि कोई OLE ऑब्जेक्ट पहले से ही स्लाइड में एम्बेड किया गया है, तो आप इसे इस तरह एक्सेस करके उसका डेटा बदल सकते हैं:
+यदि कोई OLE ऑब्जेक्ट पहले से ही स्लाइड में एंबेड किया गया है, तो आप इस तरह आसानी से उस ऑब्जेक्ट तक पहुँच सकते हैं और उसके डेटा को संशोधित कर सकते हैं:
 
-1. एम्बेडेड OLE ऑब्जेक्ट वाली प्रेजेंटेशन को लोड करने के लिए [Presentation](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation) क्लास का एक इंस्टेंस बनाएं।  
-2. स्लाइड को उसके इंडेक्स द्वारा प्राप्त करें।  
-3. [OLEObjectFrame](https://reference.aspose.com/slides/hi/net/aspose.slides/oleobjectframe) शेप को एक्सेस करें। हमारे उदाहरण में, हमने पहले बनाए गए PPTX का उपयोग किया जिसमें पहली स्लाइड पर एक शेप है। फिर हमने उस ऑब्जेक्ट को [IOleObjectFrame](https://reference.aspose.com/slides/hi/net/aspose.slides/ioleobjectframe) के रूप में *cast* किया। यही वांछित OLE ऑब्जेक्ट फ्रेम था जिसे एक्सेस किया जाना था।  
-4. एक बार OLE ऑब्जेक्ट फ्रेम एक्सेस हो जाने पर, आप उस पर कोई भी ऑपरेशन कर सकते हैं।  
-5. एक `Workbook` ऑब्जेक्ट बनाएं और OLE डेटा को एक्सेस करें।  
-6. इच्छित `Worksheet` को एक्सेस करें और डेटा में बदलाव करें।  
-7. अपडेटेड `Workbook` को एक स्ट्रीम में सहेजें।  
+1. एंबेडेड OLE ऑब्जेक्ट वाला प्रेजेंटेशन को [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) क्लास का एक इंस्टेंस बनाकर लोड करें।  
+2. उसके इंडेक्स के माध्यम से स्लाइड का रेफ़रेंस प्राप्त करें।  
+3. [OLEObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe) आकार तक पहुँचें। हमारे उदाहरण में, हमने पहले बनाई गई PPTX का उपयोग किया जिसमें पहली स्लाइड पर एक आकार है। फिर हमने उस ऑब्जेक्ट को [IOleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/ioleobjectframe) के रूप में *cast* किया। यह वह वांछित OLE ऑब्जेक्ट फ्रेम था जिसे एक्सेस किया जाना था।  
+4. एक बार OLE ऑब्जेक्ट फ्रेम तक पहुँचने के बाद, आप उस पर कोई भी ऑपरेशन कर सकते हैं।  
+5. एक `Workbook` ऑब्जेक्ट बनाएं और OLE डेटा तक पहुँचें।  
+6. इच्छित `Worksheet` तक पहुँचें और डेटा में संशोधन करें।  
+7. अद्यतन `Workbook` को एक स्ट्रीम में सहेजें।  
 8. स्ट्रीम से OLE ऑब्जेक्ट डेटा बदलें।  
 
-नीचे दिए गए उदाहरण में, एक OLE ऑब्जेक्ट फ्रेम (एक स्लाइड में एम्बेडेड Excel चार्ट ऑब्जेक्ट) को एक्सेस किया गया है, और उसकी फ़ाइल डेटा को संशोधित करके चार्ट डेटा को अपडेट किया गया है।
+नीचे दिए गए उदाहरण में, एक OLE ऑब्जेक्ट फ्रेम (स्लाइड में एंबेड किया गया Excel चार्ट ऑब्जेक्ट) तक पहुँच प्राप्त की गई है, और उसकी फ़ाइल डेटा को चार्ट डेटा को अपडेट करने के लिए संशोधित किया गया है।
 
 ```csharp 
+using Aspose.Slides;
+using Aspose.Slides.DOM.Ole;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation("sample.pptx"))
 {
     ISlide slide = presentation.Slides[0];
 
-    // पहले शेप को OLE ऑब्जेक्ट फ्रेम के रूप में प्राप्त करें।
+    // पहले आकार को OLE ऑब्जेक्ट फ्रेम के रूप में प्राप्त करें।
     IOleObjectFrame oleFrame = slide.Shapes[0] as IOleObjectFrame;
 
     if (oleFrame != null)
@@ -183,17 +203,17 @@ using (Presentation presentation = new Presentation("sample.pptx"))
         using (MemoryStream oleStream = new MemoryStream(oleFrame.EmbeddedData.EmbeddedFileData))
         {
             // OLE ऑब्जेक्ट डेटा को Workbook ऑब्जेक्ट के रूप में पढ़ें।
-            Workbook workbook = new Workbook(oleStream);
+            Aspose.Cells.Workbook workbook = new Aspose.Cells.Workbook(oleStream);
 
             using (MemoryStream newOleStream = new MemoryStream())
             {
-                // वर्कबुक डेटा को संशोधित करें।
+                // वर्कबुक डेटा संशोधित करें।
                 workbook.Worksheets[0].Cells[0, 4].PutValue("E");
                 workbook.Worksheets[0].Cells[1, 4].PutValue(12);
                 workbook.Worksheets[0].Cells[2, 4].PutValue(14);
                 workbook.Worksheets[0].Cells[3, 4].PutValue(15);
 
-                OoxmlSaveOptions fileOptions = new OoxmlSaveOptions(Aspose.Cells.SaveFormat.Xlsx);
+                Aspose.Cells.OoxmlSaveOptions fileOptions = new Aspose.Cells.OoxmlSaveOptions(Aspose.Cells.SaveFormat.Xlsx);
                 workbook.Save(newOleStream, fileOptions);
 
                 // OLE फ्रेम ऑब्जेक्ट डेटा बदलें।
@@ -207,13 +227,17 @@ using (Presentation presentation = new Presentation("sample.pptx"))
 }
 ```
 
-## **स्लाइड्स में अन्य फ़ाइल प्रकार एम्बेड करें**
+## **स्लाइड्स में अन्य फ़ाइल प्रकार एंबेड करें**
 
-Excel चार्ट के अलावा, Aspose.Slides for .NET आपको स्लाइड्स में विभिन्न प्रकार की फ़ाइलें एम्बेड करने की अनुमति देता है। उदाहरण के लिए, आप HTML, PDF और ZIP फ़ाइलों को ऑब्जेक्ट के रूप में सम्मिलित कर सकते हैं। जब उपयोगकर्ता सम्मिलित ऑब्जेक्ट को डबल‑क्लिक करता है, तो वह स्वतः संबंधित प्रोग्राम में खुल जाता है, या उपयोगकर्ता को उपयुक्त प्रोग्राम चुनने के लिए प्रेरित किया जाता है।
+Excel चार्ट के अलावा, Aspose.Slides for .NET आपको स्लाइड्स में अन्य प्रकार की फ़ाइलें एंबेड करने की अनुमति देता है। उदाहरण के लिए, आप HTML, PDF, और ZIP फ़ाइलों को ऑब्जेक्ट के रूप में सम्मिलित कर सकते हैं। जब कोई उपयोगकर्ता सम्मिलित ऑब्जेक्ट पर डबल-क्लिक करता है, तो यह स्वचालित रूप से संबंधित प्रोग्राम में खुल जाता है, या उपयोगकर्ता को इसे खोलने के लिए उपयुक्त प्रोग्राम चुनने के लिए प्रेरित किया जाता है।
 
-यह C# कोड दिखाता है कि कैसे HTML और ZIP को स्लाइड में एम्बेड किया जाए:
+यह C# कोड आपको दिखाता है कि कैसे HTML और ZIP को स्लाइड में एंबेड किया जाए:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.DOM.Ole;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     ISlide slide = presentation.Slides[0];
@@ -232,13 +256,17 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-## **एम्बेडेड ऑब्जेक्ट्स के लिए फ़ाइल प्रकार निर्धारित करें**
+## **एंबेडेड ऑब्जेक्ट्स के लिए फ़ाइल प्रकार निर्धारित करें**
 
-प्रेजेंटेशन्स के साथ काम करते समय, आप पुराने OLE ऑब्जेक्ट को नए से बदलना या असमर्थित OLE ऑब्जेक्ट को समर्थित से बदलना चाह सकते हैं। Aspose.Slides for .NET आपको एम्बेडेड ऑब्जेक्ट के फ़ाइल प्रकार को सेट करने की सुविधा देता है, जिससे आप OLE फ्रेम डेटा या उसकी एक्स्टेंशन को अपडेट कर सकते हैं।
+प्रेजेंटेशन के साथ काम करते समय, आपको पुराने OLE ऑब्जेक्ट्स को नए से बदलना पड़ सकता है या असमर्थित OLE ऑब्जेक्ट को समर्थित से बदलना पड़ सकता है। Aspose.Slides for .NET आपको एंबेडेड ऑब्जेक्ट के लिए फ़ाइल प्रकार सेट करने की अनुमति देता है, जिससे आप OLE फ्रेम डेटा या उसके एक्सटेंशन को अपडेट कर सकते हैं।
 
-यह C# कोड दिखाता है कि कैसे एम्बेडेड OLE ऑब्जेक्ट का फ़ाइल प्रकार `zip` सेट किया जाए:
+यह C# कोड आपको दिखाता है कि कैसे एंबेडेड OLE ऑब्जेक्ट का फ़ाइल प्रकार `zip` सेट किया जाए:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.DOM.Ole;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation("sample.pptx"))
 {
     ISlide slide = presentation.Slides[0];
@@ -256,23 +284,26 @@ using (Presentation presentation = new Presentation("sample.pptx"))
 }
 ```
 
-## **एम्बेडेड ऑब्जेक्ट्स के लिए आइकन इमेज और शीर्षक निर्धारित करें**
+## **एंबेडेड ऑब्जेक्ट्स के लिए आइकन इमेज और शीर्षक सेट करें**
 
-एक OLE ऑब्जेक्ट को एम्बेड करने के बाद, एक प्रीव्यू जिसमें आइकन इमेज होती है, स्वतः जोड़ा जाता है। यह प्रीव्यू वही है जो उपयोगकर्ता OLE ऑब्जेक्ट को एक्सेस या खोलने से पहले देखते हैं। यदि आप प्रीव्यू में विशिष्ट इमेज और टेक्स्ट का उपयोग करना चाहते हैं, तो आप Aspose.Slides for .NET का उपयोग करके आइकन इमेज और शीर्षक सेट कर सकते हैं।
+OLE ऑब्जेक्ट को एंबेड करने के बाद, एक आइकन इमेज से बनी प्रीव्यू स्वचालित रूप से जोड़ दी जाती है। यह प्रीव्यू वह है जो उपयोगकर्ता OLE ऑब्जेक्ट को एक्सेस या खोलने से पहले देखते हैं। यदि आप प्रीव्यू में विशिष्ट इमेज और टेक्स्ट को तत्वों के रूप में उपयोग करना चाहते हैं, तो आप Aspose.Slides for .NET का उपयोग करके आइकन इमेज और शीर्षक सेट कर सकते हैं।
 
-यह C# कोड दिखाता है कि कैसे एम्बेडेड ऑब्जेक्ट के लिए आइकन इमेज और शीर्षक सेट किया जाए: 
+यह C# कोड आपको दिखाता है कि कैसे एंबेडेड ऑब्जेक्ट के लिए आइकन इमेज और शीर्षक सेट किया जाए: 
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation("sample.pptx"))
 {
     ISlide slide = presentation.Slides[0];
     IOleObjectFrame oleFrame = (IOleObjectFrame)slide.Shapes[0];
 
-    // प्रेजेंटेशन संसाधनों में एक इमेज जोड़ें।
+    // प्रेजेंटेशन संसाधनों में एक छवि जोड़ें।
     byte[] imageData = File.ReadAllBytes("image.png");
     IPPImage oleImage = presentation.Images.AddImage(imageData);
 
-    // OLE प्रीव्यू के लिए शीर्षक और इमेज सेट करें।
+    // OLE प्रीव्यू के लिए शीर्षक और छवि सेट करें।
     oleFrame.SubstitutePictureTitle = "My title";
     oleFrame.SubstitutePictureFormat.Picture.Image = oleImage;
     oleFrame.IsObjectIcon = true;
@@ -281,24 +312,37 @@ using (Presentation presentation = new Presentation("sample.pptx"))
 }
 ```
 
-## **OLE ऑब्जेक्ट फ्रेम को आकार बदलने और पुनः स्थिति बदलने से रोकें**
+## **OLE ऑब्जेक्ट फ्रेम को आकार बदलने और पुनःस्थिति करने से रोकें**
 
-जब आप एक लिंक्ड OLE ऑब्जेक्ट को प्रेजेंटेशन स्लाइड में जोड़ते हैं, और PowerPoint में प्रेजेंटेशन खोलते हैं, तो आपको लिंक अपडेट करने का संदेश मिल सकता है। "Update Links" बटन पर क्लिक करने से OLE ऑब्जेक्ट फ्रेम का आकार और स्थिति बदल सकती है क्योंकि PowerPoint लिंक्ड OLE ऑब्जेक्ट से डेटा अपडेट करता है और ऑब्जेक्ट प्रीव्यू को रिफ्रेश करता है। इसे रोकने के लिए, [IOleObjectFrame](https://reference.aspose.com/slides/hi/net/aspose.slides/ioleobjectframe/) इंटरफ़ेस की `UpdateAutomatic` प्रॉपर्टी को `false` सेट करें:
+जब आप एक जुड़ा हुआ OLE ऑब्जेक्ट प्रेजेंटेशन स्लाइड में जोड़ते हैं, और PowerPoint में प्रेजेंटेशन खोलते हैं, तो आपको लिंक अपडेट करने का संदेश दिख सकता है। "Update Links" बटन पर क्लिक करने से OLE ऑब्जेक्ट फ्रेम का आकार और स्थिति बदल सकती है क्योंकि PowerPoint जुड़े OLE ऑब्जेक्ट से डेटा अपडेट करता है और ऑब्जेक्ट प्रीव्यू को रीफ़्रेश करता है। PowerPoint को ऑब्जेक्ट डेटा अपडेट करने के लिए प्रेरित होने से रोकने के लिए, [IOleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/ioleobjectframe/) इंटरफ़ेस की `UpdateAutomatic` प्रॉपर्टी को `false` सेट करें:
 
 ```cs
-oleFrame.UpdateAutomatic = false;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using (Presentation presentation = new Presentation("sample.pptx"))
+{
+    IOleObjectFrame oleFrame = (IOleObjectFrame)presentation.Slides[0].Shapes[0];
+
+    // PowerPoint लिंक को अपडेट करने पर OLE ऑब्जेक्ट फ्रेम का आकार और स्थिति बरकरार रखें।
+    oleFrame.UpdateAutomatic = false;
+
+    presentation.Save("output.pptx", SaveFormat.Pptx);
+}
 ```
 
-## **एम्बेडेड फ़ाइलें निकालें**
+## **एंबेडेड फ़ाइलों को निकालें**
 
-Aspose.Slides for .NET आपको स्लाइड्स में OLE ऑब्जेक्ट के रूप में एम्बेडेड फ़ाइलों को इस प्रकार निकालने की अनुमति देता है:
-1. उस [Presentation](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation) क्लास का एक इंस्टेंस बनाएं जिसमें आप जिन OLE ऑब्जेक्ट्स को निकालना चाहते हैं वे मौजूद हों।  
-2. प्रेजेंटेशन में सभी शेप्स के माध्यम से लूप करें और [OLEObjectFrame](https://reference.aspose.com/slides/hi/net/aspose.slides/oleobjectframe) शेप्स को एक्सेस करें।  
-3. एम्बेडेड फ़ाइलों का डेटा OLE ऑब्जेक्ट फ्रेम से एक्सेस करें और उसे डिस्क पर लिखें।  
+Aspose.Slides for .NET आपको स्लाइड्स में एंबेडेड फ़ाइलों को OLE ऑब्जेक्ट्स के रूप में इस प्रकार निकालने की अनुमति देता है:
+1. वह [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) क्लास का एक इंस्टेंस बनाएं जिसमें आप निकालने वाले OLE ऑब्जेक्ट्स हों।  
+2. प्रेजेंटेशन में सभी आकारों (shapes) के माध्यम से लूप करें और [OLEObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe) आकारों तक पहुँचें।  
+3. OLE ऑब्जेक्ट फ्रेम से एंबेडेड फ़ाइलों का डेटा एक्सेस करें और इसे डिस्क पर लिखें।  
 
-यह C# कोड दिखाता है कि कैसे एक स्लाइड में OLE ऑब्जेक्ट के रूप में एम्बेडेड फ़ाइलों को निकाला जाए:
+यह C# कोड आपको दिखाता है कि कैसे स्लाइड में एंबेडेड फ़ाइलों को OLE ऑब्जेक्ट्स के रूप में निकाला जाए:
 
 ```c#
+using Aspose.Slides;
+
 using (Presentation presentation = new Presentation("sample.pptx"))
 {
     ISlide slide = presentation.Slides[0];
@@ -320,16 +364,21 @@ using (Presentation presentation = new Presentation("sample.pptx"))
 }
 ```
 
-## **अक्सर पूछे जाने वाले प्रश्न**
+## **FAQ**
 
-**क्या स्लाइड्स को PDF/इमेज में निर्यात करते समय OLE कंटेंट रेंडर होगा?**  
-स्लाइड पर जो दिखाई देता है वह रेंडर किया जाता है—आइकन/सब्स्टीट्यूट इमेज (प्रीव्यू)। "लाइव" OLE कंटेंट रेंडरिंग के दौरान निष्पादित नहीं होता। यदि आवश्यक हो, तो अपने स्वयं के प्रीव्यू इमेज को सेट करें ताकि निर्यातित PDF में अपेक्षित रूप दिखे।
+**क्या OLE सामग्री स्लाइड्स को PDF/छवियों में निर्यात करते समय रेंडर होगी?**
 
-**मैं स्लाइड पर OLE ऑब्जेक्ट को कैसे लॉक करूँ ताकि उपयोगकर्ता PowerPoint में इसे स्थानांतरित/संपादित न कर सकें?**  
-शेप को लॉक करें: Aspose.Slides [shape‑level locks](/slides/hi/net/applying-protection-to-presentation/) प्रदान करता है। यह एन्क्रिप्शन नहीं है, लेकिन यह आकस्मिक संपादन और मूवमेंट को प्रभावी रूप से रोकता है।
+जिस चीज़ को स्लाइड पर दिखाया जाता है, वह रेंडर होती है—आइकन/सबस्टीट्यूट इमेज (प्रीव्यू)। "live" OLE सामग्री रेंडरिंग के दौरान निष्पादित नहीं होती। यदि आवश्यक हो, तो निर्यातित PDF में अपेक्षित दिखावट सुनिश्चित करने के लिए अपना स्वयं का प्रीव्यू इमेज सेट करें।  
+एंबेडेड फ़ाइल को PDF अटैचमेंट के रूप में भी संरक्षित करने के लिए, [PdfOptions.IncludeOleData](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/includeoledata/) को `true` सेट करें। यह विकल्प डिफ़ॉल्ट रूप से अक्षम है। उदाहरण और अटैचमेंट की जाँच करने के निर्देश के लिए देखें [Preserve Embedded OLE Files as PDF Attachments](/slides/hi/net/convert-powerpoint-to-pdf/#preserve-embedded-ole-files-as-pdf-attachments)।
 
-**जब मैं प्रेजेंटेशन खोलता हूँ तो लिंक्ड Excel ऑब्जेक्ट "जम्प" करता है या आकार बदल जाता है, क्यों?**  
-PowerPoint लिंक्ड OLE का प्रीव्यू रिफ्रेश कर सकता है। स्थिर दिखावट के लिए, [Worksheet Resizing के लिए वर्किंग सॉल्यूशन](/slides/hi/net/working-solution-for-worksheet-resizing/) के अभ्यासों का पालन करें—या तो फ्रेम को रेंज के अनुरूप फिट करें, या रेंज को स्थिर फ्रेम में स्केल करें और उपयुक्त सब्स्टीट्यूट इमेज सेट करें।
+**मैं एक OLE ऑब्जेक्ट को स्लाइड पर कैसे लॉक करूँ ताकि उपयोगकर्ता इसे PowerPoint में नहीं हिला/संपादित कर सकें?**
 
-**क्या PPTX फॉर्मेट में लिंक्ड OLE ऑब्जेक्ट्स के रिलेटिव पाथ्स संरक्षित रहते हैं?**  
-PPTX में "रिलेटिव पाथ" जानकारी उपलब्ध नहीं होती—केवल पूर्ण पाथ। रिलेटिव पाथ्स पुराने PPT फॉर्मेट में मिलते हैं। पोर्टेबिलिटी के लिए विश्वसनीय एब्सोल्यूट पाथ्स/एक्सेसिबल URIs या एम्बेडिंग को प्राथमिकता दें।
+शेप को लॉक करें: Aspose.Slides [shape-level locks](/slides/hi/net/applying-protection-to-presentation/) प्रदान करता है। यह एन्क्रिप्शन नहीं है, लेकिन यह आकस्मिक संपादन और आंदोलन को प्रभावी रूप से रोकता है।
+
+**जब मैं प्रेजेंटेशन खोलता हूँ तो जुड़ा हुआ Excel ऑब्जेक्ट "जम्प" क्यों करता है या आकार बदलता है?**
+
+PowerPoint जुड़े हुए OLE का प्रीव्यू रीफ़्रेश कर सकता है। स्थिर दिखावट के लिए, [Working Solution for Worksheet Resizing](/slides/hi/net/working-solution-for-worksheet-resizing/) के अभ्यासों का पालन करें—या तो फ्रेम को रेंज के अनुसार फिट करें, या रेंज को एक निश्चित फ्रेम में स्केल करें और उचित सब्स्टीट्यूट इमेज सेट करें।
+
+**क्या PPTX फ़ॉर्मेट में जुड़े OLE ऑब्जेक्ट्स के रिलेटिव पाथ संरक्षित रहेंगे?**
+
+PPTX में "relative path" जानकारी उपलब्ध नहीं है—केवल पूरा पाथ होता है। रिलेटिव पाथ्स पुरानी PPT फ़ॉर्मेट में मिलते हैं। पोर्टेबिलिटी के लिए, विश्वसनीय एब्सॉल्यूट पाथ/एक्सेसिबल URI या एंबेडिंग को प्राथमिकता दें।

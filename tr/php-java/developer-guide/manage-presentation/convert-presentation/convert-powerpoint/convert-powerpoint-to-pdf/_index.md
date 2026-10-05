@@ -1,35 +1,36 @@
 ---
-title: PHP'de PPT ve PPTX'i PDF'ye Dönüştürün [Gelişmiş Özellikler Dahil]
-linktitle: PowerPoint PDF'ye
+title: PHP'de PPT ve PPTX'yi PDF'ye Dönüştür [Gelişmiş Özellikler Dahil]
+linktitle: PowerPoint'ten PDF'ye
 type: docs
 weight: 40
 url: /tr/php-java/convert-powerpoint-to-pdf/
 keywords:
 - PowerPoint dönüştür
 - sunumu dönüştür
-- PowerPoint PDF'ye
+- PowerPoint'ten PDF'ye
 - sunumu PDF'ye
-- PPT PDF'ye
+- PPT'den PDF'ye
 - PPT'yi PDF'ye dönüştür
-- PPTX PDF'ye
+- PPTX'den PDF'ye
 - PPTX'i PDF'ye dönüştür
 - PowerPoint'i PDF olarak kaydet
 - PPT'yi PDF olarak kaydet
 - PPTX'i PDF olarak kaydet
-- PPT'yi PDF'ye aktar
-- PPTX'i PDF'ye aktar
+- PPT'yi PDF'ye dışa aktar
+- PPTX'i PDF'ye dışa aktar
+- ek
 - PDF/A1a
 - PDF/A1b
 - PDF/UA
 - PHP
 - Aspose.Slides
-description: "Aspose.Slides kullanarak PHP'de PowerPoint PPT/PPTX'i yüksek kaliteli, aranabilir PDF'lere dönüştürün, hızlı kod örnekleri ve gelişmiş dönüşüm seçenekleriyle."
+description: "Aspose.Slides kullanarak PHP'de PowerPoint PPT/PPTX dosyalarını yüksek kaliteli, aranabilir PDF'lere dönüştürün; hızlı kod örnekleri ve gelişmiş dönüşüm seçenekleri ile."
 ---
 ## **Genel Bakış**
 
-PowerPoint sunumlarını (PPT, PPTX, ODP vb.) PHP'de PDF formatına dönüştürmek, farklı cihazlar arasında uyumluluk ve sunumunuzun düzeni ile biçimlendirmesini koruma gibi çeşitli avantajlar sunar. Bu kılavuz, sunumları PDF belgelerine nasıl dönüştüreceğinizi, görüntü kalitesini kontrol etmek için çeşitli seçenekleri nasıl kullanacağınızı, gizli slaytları dahil etmeyi, PDF dosyalarını şifrelemeyi, yazı tipi ikamelerini tespit etmeyi, dönüştürme için belirli slaytları seçmeyi ve çıktı belgelerine uyumluluk standartlarını uygulamayı gösterir.
+PowerPoint sunumlarını (PPT, PPTX, ODP vb.) PHP'de PDF formatına dönüştürmek, farklı cihazlarda uyumluluk ve sunumunuzun düzeni ile biçimlendirmesinin korunması gibi çeşitli avantajlar sağlar. Bu kılavuz, sunumları PDF belgelerine nasıl dönüştüreceğinizi, görüntü kalitesini kontrol etmek için çeşitli seçenekleri nasıl kullanacağınızı, gizli slaytları dahil etmeyi, PDF dosyalarını şifre korumalı hale getirmeyi, yazı tipi ikamelerini tespit etmeyi, dönüştürme için belirli slaytları seçmeyi ve çıktı belgelerine uyumluluk standartlarını uygulamayı gösterir.
 
-## **PowerPoint'ten PDF'ye Dönüşümler**
+## **PowerPoint'ten PDF Dönüşümleri**
 
 Aspose.Slides kullanarak, aşağıdaki formatlardaki sunumları PDF'ye dönüştürebilirsiniz:
 
@@ -37,131 +38,154 @@ Aspose.Slides kullanarak, aşağıdaki formatlardaki sunumları PDF'ye dönüşt
 * **PPTX**
 * **ODP**
 
-Bir sunumu PDF'ye dönüştürmek için, dosya adını [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/Presentation) sınıfına argüman olarak geçirip ardından `save` yöntemiyle sunumu PDF olarak kaydedin. [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/Presentation) sınıfı, genellikle bir sunumu PDF'ye dönüştürmek için kullanılan `save` yöntemini ortaya çıkarır.
+Bir sunumu PDF'ye dönüştürmek için, dosya adını [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) sınıfına argüman olarak geçirin ve ardından sunumu bir [save](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#save) yöntemi kullanarak PDF olarak kaydedin. [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) sınıfı, genellikle bir sunumu PDF'ye dönüştürmek için kullanılan [save](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#save) yöntemini sunar.
 
-{{%  alert title="NOTE"  color="warning"   %}} 
-
-Aspose.Slides for PHP via Java, çıktı belgelerine API bilgisi ve sürüm numarasını ekler. Örneğin, bir sunumu PDF'ye dönüştürürken, Aspose.Slides Application alanını "*Aspose.Slides*" ve PDF Producer alanını "*Aspose.Slides v XX.XX*" biçiminde doldurur. **Note** bu bilgiyi çıktı belgelerinden değiştiremez veya kaldıramazsınız.
-
+{{% alert color="info" title="Note" %}}
+Aspose.Slides for PHP via Java, çıktı belgelerine API bilgilerini ve sürüm numarasını ekler. Örneğin, bir sunumu PDF'ye dönüştürürken, Aspose.Slides Application (Uygulama) alanını "*Aspose.Slides*" ve PDF Producer (PDF Üreticisi) alanını "*Aspose.Slides v XX.XX*" şeklinde bir değerle doldurur. **Not** bu bilgiyi çıktı belgelerinden değiştirmek veya kaldırmak için Aspose.Slides'e talimat veremezsiniz.
 {{% /alert %}}
 
-Aspose.Slides, şunları dönüştürmenize olanak tanır:
+Aspose.Slides size şunları dönüştürme imkanı verir:
 
-* Tüm sunumları PDF'ye
+* Tam sunumları PDF'ye
 * Bir sunumdan belirli slaytları PDF'ye
 
-Aspose.Slides, sunumları PDF'ye dışa aktarır ve ortaya çıkan PDF'lerin orijinal sunumlara yakın olmasını sağlar. Dönüşümde öğeler ve öznitelikler doğru bir şekilde işlenir, şunlar dahil:
+Aspose.Slides sunumları PDF'ye dışa aktarır ve oluşan PDF'lerin orijinal sunumlarla yakından eşleşmesini sağlar. Dönüşüm sırasında öğeler ve öznitelikler doğru bir şekilde işlenir, şunlar dahil:
 
 * Görseller
 * Metin kutuları ve şekiller
 * Metin biçimlendirme
 * Paragraf biçimlendirme
 * Köprüler
-* Üst bilgi ve alt bilgi
+* Üstbilgi ve altbilgi
 * Madde işaretleri
 * Tablolar
 
-## **PowerPoint'i PDF'ye Dönüştür**
+## **PowerPoint'ten PDF'ye Dönüştür**
 
-Standart PowerPoint'ten PDF'ye dönüşüm süreci varsayılan seçenekleri kullanır. Bu durumda, Aspose.Slides sağlanan sunumu en yüksek kalite seviyelerinde optimum ayarlarla PDF'ye dönüştürmeye çalışır.
+Standart PowerPoint'ten PDF'ye dönüşüm süreci varsayılan seçenekleri kullanır. Bu durumda, Aspose.Slides sağlanan sunumu en yüksek kalite seviyelerinde optimal ayarlarla PDF'ye dönüştürmeye çalışır.
 
-Bu kod, bir sunumu (PPT, PPTX, ODP vb.) PDF'ye nasıl dönüştüreceğinizi gösterir:
+Aşağıdaki örnek bir sunumu yükler ve tüm görünür slaytları varsayılan dışa aktarma ayarlarını kullanarak PDF olarak kaydeder.
 
 ```php
-# Bir PowerPoint veya OpenDocument dosyasını temsil eden Presentation sınıfını örnekleyin.
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
 $presentation = new Presentation("PowerPoint.pptx");
 try {
-    # Sunumu PDF olarak kaydedin.
     $presentation->save("PPT-to-PDF.pdf", SaveFormat::Pdf);
 } finally {
     $presentation->dispose();
 }
 ```
 
-{{%  alert  color="primary"  %}} 
-
-Aspose, sunumdan PDF'ye dönüşüm sürecini gösteren ücretsiz bir çevrimiçi [**PowerPoint to PDF converter**](https://products.aspose.app/slides/tr/conversion/ppt-to-pdf) sunar. Burada açıklanan prosedürün canlı bir uygulaması için bu dönüştürücü ile bir test yapabilirsiniz.
-
+{{% alert color="info" title="Note" %}}
+Aspose, sunumdan PDF'ye dönüşüm sürecini gösteren ücretsiz bir çevrimiçi [**PowerPoint'ten PDF dönüştürücü**](https://products.aspose.app/slides/conversion/ppt-to-pdf) sunar. Burada açıklanan prosedürün canlı bir uygulaması için bu dönüştürücüyle bir test çalıştırabilirsiniz.
 {{% /alert %}}
 
-## **Seçeneklerle PowerPoint'i PDF'ye Dönüştür**
+## **Seçeneklerle PowerPoint'ten PDF'ye Dönüştür**
 
-Aspose.Slides, oluşan PDF'yi özelleştirmenize, PDF'yi şifreyle kilitlemenize veya dönüşüm sürecinin nasıl ilerleyeceğini belirlemenize olanak tanıyan özel seçenekler—[PdfOptions] sınıfı altındaki özellikler—sağlar.
+Aspose.Slides, oluşturulan PDF'yi özelleştirmenize, PDF'yi bir şifre ile kilitlemenize veya dönüşüm sürecinin nasıl ilerleyeceğini belirtmenize olanak tanıyan özel seçenekler—[PdfOptions](https://reference.aspose.com/slides/php-java/aspose.slides/pdfoptions/) sınıfının özellikleri—sağlar.
 
 ### **Özel Seçeneklerle PowerPoint'i PDF'ye Dönüştür**
 
-Özel dönüşüm seçeneklerini kullanarak, raster görüntüler için tercih ettiğiniz kalite ayarını tanımlayabilir, metafile'ların nasıl işleneceğini belirleyebilir, metin için sıkıştırma seviyesini ayarlayabilir, görüntüler için DPI'yi yapılandırabilir ve daha fazlasını yapabilirsiniz.
+Özel dönüşüm seçeneklerini kullanarak raster görüntüler için tercih ettiğiniz kalite ayarını belirleyebilir, metafile'ların nasıl işleneceğini söyleyebilir, metin için sıkıştırma düzeyini ayarlayabilir, görüntüler için DPI yapılandırabilir ve daha fazlasını yapabilirsiniz.
 
-Aşağıdaki kod örneği, bir PowerPoint sunumunu çeşitli özel seçeneklerle PDF'ye nasıl dönüştüreceğinizi gösterir.
+Aşağıdaki örnek, JPEG kalitesi %90, görüntü çözünürlüğü 300 DPI, metafile'ların PNG olarak kaydedildiği ve Flate metin sıkıştırması kullanılan bir PDF 1.5'e bir sunumu dışa aktarır.
 
 ```php
-# PdfOptions sınıfını örnekleyin.
+use aspose\slides\PdfCompliance;
+use aspose\slides\PdfOptions;
+use aspose\slides\PdfTextCompression;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
 $pdfOptions = new PdfOptions();
-
-# JPG görüntüleri için kaliteyi ayarlayın.
 $pdfOptions->setJpegQuality(90);
-
-# Görüntüler için DPI ayarlayın.
 $pdfOptions->setSufficientResolution(300);
-
-# Metafile'ların davranışını ayarlayın.
 $pdfOptions->setSaveMetafilesAsPng(true);
-
-# Metin içeriği için metin sıkıştırma seviyesini ayarlayın.
 $pdfOptions->setTextCompression(PdfTextCompression::Flate);
-
-# PDF uyumluluk modunu tanımlayın.
 $pdfOptions->setCompliance(PdfCompliance::Pdf15);
 
-# PowerPoint veya OpenDocument dosyasını temsil eden Presentation sınıfını örnekleyin.
 $presentation = new Presentation("PowerPoint.pptx");
 try {
-    # Sunumu PDF belgesi olarak kaydedin.
     $presentation->save("PowerPoint-to-PDF.pdf", SaveFormat::Pdf, $pdfOptions);
 } finally {
     $presentation->dispose();
 }
 ```
+
+### **Gömülü OLE Dosyalarını PDF Ekleri Olarak Koru**
+
+Bir sunumda gömülü bir Excel çalışma kitabı varsa, PDF alıcılarının hem çalışma kitabının verilerine erişmesini hem de slaytları görmesini isteyebilirsiniz. Gömülü OLE dosyalarını sonuç PDF'de ek olarak korumak için [setIncludeOleData](https://reference.aspose.com/slides/php-java/aspose.slides/pdfoptions/#setIncludeOleData) yöntemini `true` ile çağırın.
+
+Varsayılan değer `false`tır: OLE nesnesinin ön izleme resmi veya simgesi PDF sayfasında render edilir, ancak gömülü dosya ek olarak dahil edilmez. Seçeneği `true` olarak ayarlamak dosya verisini ayrıca ekler. Ön izleme görsel bir temsil olarak kalır; ek, alıcıların gömülü dosyayı ayrı ayrı açmasına veya kaydetmesine izin verir. OLE nesnesi PDF sayfasında etkileşimli bir Excel çalışma sayfasına dönüşmez.
+
+Aşağıdaki örnek, içinde zaten gömülü bir Excel çalışma kitabı bulunan bir sunumu yükler ve çalışma kitabını ekli olarak PDF'ye dışa aktarır.
+
+```php
+use aspose\slides\PdfOptions;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$pdfOptions = new PdfOptions();
+$pdfOptions->setIncludeOleData(true);
+
+$presentation = new Presentation("presentation.pptx");
+try {
+    $presentation->save("presentation.pdf", SaveFormat::Pdf, $pdfOptions);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Sonucu kontrol etmek için:
+
+1. PDF'yi dosya eklerini destekleyen bir görüntüleyicide, örneğin Adobe Acrobat Reader'da açın.
+2. Görüntüleyicinin **Attachments** panelini açın ve gömülü çalışma kitabını bulun.
+3. Ek'i kaydedin ve Excel'de açarak verilerini inceleyin veya görüntüleyici izin veriyorsa doğrudan açın. PDF sayfasındaki ön izleme ekten ayrı bir öğedir.
+
+{{% alert color="info" title="Note" %}}
+PDF/A standartları eklerle ilgili kısıtlamalar getirir: PDF/A-1 gömülü dosyaları yasaklar, PDF/A-2 yalnızca PDF/A eklerine izin verir ve PDF/A-3 Excel çalışma kitapları dahil diğer dosya tiplerine izin verir. Bunlar standartların gereklilikleridir, Aspose.Slides'e özgü kısıtlamalar değildir. Bu örnek varsayılan PDF uyumluluk ayarını kullanır ve PDF/A dışa aktarmasını göstermez.
+{{% /alert %}}
 
 ### **Gizli Slaytlarla PowerPoint'i PDF'ye Dönüştür**
 
-Bir sunum gizli slaytlar içeriyorsa, [PdfOptions] sınıfındaki [setShowHiddenSlides](https://reference.aspose.com/slides/tr/php-java/aspose.slides/pdfoptions/#setShowHiddenSlides) yöntemiyle gizli slaytları ortaya çıkan PDF'de sayfa olarak ekleyebilirsiniz.
+Bir sunum gizli slaytlar içeriyorsa, gizli slaytları sonuç PDF'de sayfa olarak eklemek için [PdfOptions](https://reference.aspose.com/slides/php-java/aspose.slides/pdfoptions/) sınıfından [setShowHiddenSlides](https://reference.aspose.com/slides/php-java/aspose.slides/pdfoptions/#setShowHiddenSlides) yöntemini kullanabilirsiniz.
 
-Bu kod, gizli slaytların dahil edildiği bir PowerPoint sunumunu PDF'ye nasıl dönüştüreceğinizi gösterir:
+Aşağıdaki örnek, gizli slaytlar dahil olmak üzere bir sunumu PDF'ye dışa aktarır.
 
 ```php
-# Bir PowerPoint veya OpenDocument dosyasını temsil eden Presentation sınıfını örnekleyin.
+use aspose\slides\PdfOptions;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$pdfOptions = new PdfOptions();
+$pdfOptions->setShowHiddenSlides(true);
+
 $presentation = new Presentation("PowerPoint.pptx");
 try {
-    # PdfOptions sınıfını örnekleyin.
-    $pdfOptions = new PdfOptions();
-
-    # Gizli slaytları ekleyin.
-    $pdfOptions->setShowHiddenSlides(true);
-
-    # Sunumu PDF olarak kaydedin.
     $presentation->save("PowerPoint-to-PDF.pdf", SaveFormat::Pdf, $pdfOptions);
 } finally {
     $presentation->dispose();
 }
 ```
 
-### **Şifre Koruması ile PowerPoint'i PDF'ye Dönüştür**
+### **Şifre Korумalı PDF Olarak PowerPoint'i Dönüştür**
 
-Bu kod, [PdfOptions](https://reference.aspose.com/slides/tr/php-java/aspose.slides/pdfoptions/) sınıfındaki koruma parametrelerini kullanarak bir PowerPoint sunumunu şifre korumalı PDF'ye nasıl dönüştüreceğinizi gösterir:
+Aşağıdaki örnek, açılması için `password` şifresini gerektiren bir PDF'ye bir sunumu dışa aktarır. Erişim izinleri, yüksek kaliteli baskı dahil bastırmaya izin verir.
 
 ```php
-# Bir PowerPoint veya OpenDocument dosyasını temsil eden Presentation sınıfını örnekleyin.
+use aspose\slides\PdfAccessPermissions;
+use aspose\slides\PdfOptions;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$pdfOptions = new PdfOptions();
+$pdfOptions->setPassword("password");
+$pdfOptions->setAccessPermissions(PdfAccessPermissions::PrintDocument | PdfAccessPermissions::HighQualityPrint);
+
 $presentation = new Presentation("PowerPoint.pptx");
 try {
-    # PdfOptions sınıfını örnekleyin.
-    $pdfOptions = new PdfOptions();
-
-    # PDF şifresi ve erişim izinlerini ayarlayın.
-    $pdfOptions->setPassword("password");
-    $pdfOptions->setAccessPermissions(PdfAccessPermissions::PrintDocument | PdfAccessPermissions::HighQualityPrint);
-
-    # Sunumu PDF olarak kaydedin.
     $presentation->save("PPTX-to-PDF.pdf", SaveFormat::Pdf, $pdfOptions);
 } finally {
     $presentation->dispose();
@@ -170,16 +194,21 @@ try {
 
 ### **Yazı Tipi İkamelerini Algıla**
 
-Aspose.Slides, sunumdan PDF'ye dönüşüm sürecinde yazı tipi ikamelerini algılamanızı sağlayan [PdfOptions] sınıfı altındaki [setWarningCallback](https://reference.aspose.com/slides/tr/php-java/aspose.slides/saveoptions/#setWarningCallback) yöntemini sunar.
+Aspose.Slides, sunumdan PDF'ye dönüşüm sürecinde yazı tipi ikamelerini tespit etmenizi sağlayan [PdfOptions](https://reference.aspose.com/slides/php-java/aspose.slides/pdfoptions/) sınıfının altında bulunan [setWarningCallback](https://reference.aspose.com/slides/php-java/aspose.slides/saveoptions/#setWarningCallback) yöntemini sunar.
 
-Bu kod, yazı tipi ikamelerini nasıl tespit edeceğinizi gösterir:
+Aşağıdaki örnek bir sunumu PDF'ye dışa aktarır ve font ikame uyarılarını konsola yazdırır. Bir uyarı yalnızca kullanılabilir olmayan bir font dışa aktarım sırasında ikame edildiğinde yazdırılır.
 
 ```php
+use aspose\slides\PdfOptions;
+use aspose\slides\Presentation;
+use aspose\slides\ReturnAction;
+use aspose\slides\SaveFormat;
+use aspose\slides\WarningType;
+
 class FontSubstitutionHandler {
     function warning($warning)
     {
-        if (java_values($warning->getWarningType()) == WarningType::DataLoss &&
-        $warning->getDescription()->startsWith("Font will be substituted")) {
+        if (java_values($warning->getWarningType()) == WarningType::DataLoss && $warning->getDescription()->startsWith("Font will be substituted")) {
             echo("Font substitution warning: " . $warning->getDescription());
         }
 
@@ -187,69 +216,64 @@ class FontSubstitutionHandler {
     }
 }
 
-// PDF seçeneklerinde uyarı geri çağrısını ayarla.
-$pdfOptions = new PdfOptions();
 $warningCallback = java_closure(new FontSubstitutionHandler(), null, java("com.aspose.slides.IWarningCallback"));
+
+$pdfOptions = new PdfOptions();
 $pdfOptions->setWarningCallback($warningCallback);
 
-// PowerPoint veya OpenDocument dosyasını temsil eden Presentation sınıfını örnekle.
 $presentation = new Presentation("sample.pptx");
 try {
-    // Sunumu PDF olarak kaydet.
     $presentation->save("output.pdf", SaveFormat::Pdf, $pdfOptions);
 } finally {
     $presentation->dispose();
 }
 ```
 
-{{%  alert color="primary"  %}} 
-
-Yazı tipi ikameleri hakkında daha fazla bilgi için, [Font Substitution](/slides/tr/php-java/font-substitution/) makalesine bakın.
-
+{{% alert color="info" title="Note" %}}
+Yazı tipi ikameleri hakkında daha fazla bilgi için [Font Substitution](/slides/tr/php-java/font-substitution/) makalesine bakın.
 {{% /alert %}} 
 
-## **PowerPoint'te Seçili Slaytları PDF'ye Dönüştür**
+## **PowerPoint'ten Seçili Slaytları PDF'ye Dönüştür**
 
-Bu kod, bir PowerPoint sunumundan yalnızca belirli slaytları PDF'ye nasıl dönüştüreceğinizi gösterir:
+Aşağıdaki örnek, bir sunumdan 1 ve 3 numaralı slaytları PDF'ye dışa aktarır. Bu dizideki slayt numaraları 1 tabanlıdır ve giriş sunumu en az üç slayt içermelidir.
 
 ```php
-# PowerPoint veya OpenDocument dosyasını temsil eden Presentation sınıfını örnekleyin.
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
 $presentation = new Presentation("PowerPoint.pptx");
 try {
-    # Slayt numaralarının dizisini ayarlayın.
     $slides = array(1, 3);
-
-    # Sunumu PDF olarak kaydedin.
     $presentation->save("PPTX-to-PDF.pdf", $slides, SaveFormat::Pdf);
 } finally {
     $presentation->dispose();
 }
 ```
 
-## **Özel Slayt Boyutu ile PowerPoint'i PDF'ye Dönüştür**
+## **Özel Slayt Boyutuyla PowerPoint'i PDF'ye Dönüştür**
 
-Bu kod, belirtilen bir slayt boyutuyla PowerPoint sunumunu PDF'ye nasıl dönüştüreceğini gösterir:
+Aşağıdaki örnek, bir sunumun ilk slaytını 612 × 792 puan (8,5 × 11 inç) boyutunda bir yeni sunuma kopyalar. Slayt içeriğini sığdıracak şekilde ölçekler ve tek slaytı PDF'ye dışa aktarır.
 
 ```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\SlideSizeScaleType;
+
 $slideWidth = 612.0;
 $slideHeight = 792.0;
 
-# PowerPoint veya OpenDocument dosyasını temsil eden Presentation sınıfını örnekleyin.
 $presentation = new Presentation("SelectedSlides.pptx");
-
-# Ayarlanmış slayt boyutuyla yeni bir sunum oluşturun.
 $resizedPresentation = new Presentation();
 
 try {
-    # Özel slayt boyutunu ayarlayın.
     $resizedPresentation->getSlideSize()->setSize($slideWidth, $slideHeight, SlideSizeScaleType::EnsureFit);
-
-    # Orijinal sunumdan ilk slaytı klonlayın.
     $slide = $presentation->getSlides()->get_Item(0);
     $resizedPresentation->getSlides()->insertClone(0, $slide);
 
-    # Yeniden boyutlandırılmış sunumu notlarla birlikte PDF'ye kaydedin.
-    $resizedPresentation->save("PDFnotes_out.pdf", SaveFormat::Pdf);
+    // Yeni oluşturulan sunumda oluşan boş slaytı kaldır.
+    $resizedPresentation->getSlides()->removeAt(1);
+
+    $resizedPresentation->save("PDF_with_custom_slide_size.pdf", SaveFormat::Pdf);
 } finally {
     $resizedPresentation->dispose();
     $presentation->dispose();
@@ -258,30 +282,34 @@ try {
 
 ## **Not Slaytı Görünümünde PowerPoint'i PDF'ye Dönüştür**
 
-Bu kod, notları içeren bir PDF'ye PowerPoint sunumunu nasıl dönüştüreceğini gösterir:
+Aşağıdaki örnek bir sunumu PDF'ye dışa aktarır, her slaytın konuşmacı notlarını slaytın altına yerleştirir. Sonucu görmek için konuşmacı notları içeren bir sunum kullanın.
 
 ```php
-# PowerPoint veya OpenDocument dosyasını temsil eden Presentation sınıfını örnekleyin.
+use aspose\slides\NotesCommentsLayoutingOptions;
+use aspose\slides\NotesPositions;
+use aspose\slides\PdfOptions;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$notesOptions = new NotesCommentsLayoutingOptions();
+$notesOptions->setNotesPosition(NotesPositions::BottomFull);
+
+$pdfOptions = new PdfOptions();
+$pdfOptions->setSlidesLayoutOptions($notesOptions);
+
 $presentation = new Presentation("SelectedSlides.pptx");
 try {
-    # PDF seçeneklerini Not Düzeni ile yapılandırın.
-    $notesOptions = new NotesCommentsLayoutingOptions();
-    $notesOptions->setNotesPosition(NotesPositions::BottomFull);
-    $pdfOptions = new PdfOptions();
-    $pdfOptions->setSlidesLayoutOptions($notesOptions);
-
-    # Sunumu notlarla birlikte PDF olarak kaydedin.
     $presentation->save("PDF_with_notes.pdf", SaveFormat::Pdf, $pdfOptions);
 } finally {
     $presentation->dispose();
 }
 ```
 
-## **PDF için Erişilebilirlik ve Uyumluluk Standartları**
+## **PDF İçin Erişilebilirlik ve Uyumluluk Standartları**
 
-Aspose.Slides, [Web Content Accessibility Guidelines (**WCAG**)](https://www.w3.org/TR/WCAG-TECHS/pdf.html) ile uyumlu bir dönüşüm prosedürü kullanmanıza izin verir. PowerPoint belgesini PDF'ye, şu uyumluluk standartlarından herhangi birini kullanarak dışa aktarabilirsiniz: **PDF/A1a**, **PDF/A1b**, ve **PDF/UA**.
+Aspose.Slides, [Web Content Accessibility Guidelines (**WCAG**)](https://www.w3.org/TR/WCAG-TECHS/pdf.html) standartlarına uygun bir dönüşüm prosedürü kullanmanıza izin verir. Bir PowerPoint belgesini PDF'ye şu uyumluluk standartlarından herhangi birini kullanarak dışa aktarabilirsiniz: **PDF/A1a**, **PDF/A1b** ve **PDF/UA**.
 
-Bu kod, farklı uyumluluk standartlarına göre birden fazla PDF üreten bir PowerPoint'ten PDF'ye dönüşüm sürecini gösterir:
+Bu kod, farklı uyumluluk standartlarına dayalı birden fazla PDF üreten bir PowerPoint'ten PDF'ye dönüşüm sürecini gösterir:
 
 ```php
 $presentation = new Presentation("pres.pptx");
@@ -301,38 +329,36 @@ try {
 }
 ```
 
-{{% alert title="Note" color="warning" %}} 
-
-Aspose.Slides, PDF dönüştürme işlemlerini destekler ve PDF dosyalarını popüler dosya formatlarına dönüştürmenize olanak tanır. [PDF to HTML](https://products.aspose.com/slides/tr/php-java/conversion/pdf-to-html/), [PDF to image](https://products.aspose.com/slides/tr/php-java/conversion/pdf-to-image/), [PDF to JPG](https://products.aspose.com/slides/tr/php-java/conversion/pdf-to-jpg/), ve [PDF to PNG](https://products.aspose.com/slides/tr/php-java/conversion/pdf-to-png/) dönüşümlerini gerçekleştirebilirsiniz. Ayrıca, özel formatlara PDF dönüştürme işlemleri—[PDF to SVG](https://products.aspose.com/slides/tr/php-java/conversion/pdf-to-svg/), [PDF to TIFF](https://products.aspose.com/slides/tr/php-java/conversion/pdf-to-tiff/), ve [PDF to XML](https://products.aspose.com/slides/tr/php-java/conversion/pdf-to-xml/)—da desteklenir.
-
+{{% alert color="info" title="Note" %}}
+Aspose.Slides, PDF dönüşüm işlemlerini destekler ve PDF dosyalarını popüler dosya formatlarına dönüştürmenize olanak tanır. [PDF'den HTML'ye](https://products.aspose.com/slides/php-java/conversion/pdf-to-html/), [PDF'den görsele](https://products.aspose.com/slides/php-java/conversion/pdf-to-image/), [PDF'den JPG'ye](https://products.aspose.com/slides/php-java/conversion/pdf-to-jpg/) ve [PDF'den PNG'ye](https://products.aspose.com/slides/php-java/conversion/pdf-to-png/) dönüşümlerini gerçekleştirebilirsiniz. [PDF'den SVG'ye](https://products.aspose.com/slides/php-java/conversion/pdf-to-svg/), [PDF'den TIFF'e](https://products.aspose.com/slides/php-java/conversion/pdf-to-tiff/), ve [PDF'den XML'e](https://products.aspose.com/slides/php-java/conversion/pdf-to-xml/) gibi özel formatlara dönüşüm işlemleri de desteklenmektedir.
 {{% /alert %}}
 
-> **Note:** PDF/UA'ya dışa aktarırken, Aspose.Slides SmartArt, grafikler ve formüller gibi karmaşık grafikleri tek bir şekil olarak ele alır. Tek tek yol öğeleri ayrı içerik olarak korunmaz ve artefakt olarak işaretlenebilir; alternatif metin yalnızca bütün şekil için sağlanır.
+> **Not:** PDF/UA'ya dışa aktarırken, Aspose.Slides SmartArt, grafikler ve formüller gibi karmaşık grafikleri tek bir figür olarak ele alır. Bireysel yol elemanları ayrı içerik olarak korunmaz ve artefakt olarak işaretlenebilir; alternatif metin yalnızca bütün figür için sağlanır.
 
 ## **SSS**
 
-**Birden fazla PowerPoint dosyasını toplu olarak PDF'ye dönüştürebilir miyim?**
+**Birden çok PowerPoint dosyasını toplu olarak PDF'ye dönüştürebilir miyim?**
 
-Evet, Aspose.Slides, birden fazla PPT veya PPTX dosyasını PDF'ye toplu dönüştürmeyi destekler. Dosyalarınız üzerinden döngü kurarak dönüşüm sürecini programlı olarak uygulayabilirsiniz.
+Evet, Aspose.Slides birden fazla PPT veya PPTX dosyasının toplu olarak PDF'ye dönüştürülmesini destekler. Dosyalarınızın üzerinden programatik olarak geçerek dönüşüm sürecini uygulayabilirsiniz.
 
-**Dönüştürülen PDF'yi şifreyle korumak mümkün mü?**
+**Dönüştürülen PDF'yi şifre korumalı yapmak mümkün mü?**
 
-Kesinlikle. Dönüşüm sürecinde bir şifre belirlemek ve erişim izinlerini tanımlamak için [PdfOptions] sınıfını kullanın.
+Evet. Dönüşüm sürecinde bir şifre belirlemek ve erişim izinlerini tanımlamak için [PdfOptions](https://reference.aspose.com/slides/php-java/aspose.slides/pdfoptions/) sınıfını kullanabilirsiniz.
 
-**PDF'ye gizli slaytları nasıl ekleyebilirim?**
+**Gizli slaytları PDF'ye nasıl ekleyebilirim?**
 
-PDF'de gizli slaytları dahil etmek için [PdfOptions] sınıfındaki `setShowHiddenSlides` yöntemini kullanın.
+Gizli slaytları sonuç PDF'ye eklemek için [PdfOptions](https://reference.aspose.com/slides/php-java/aspose.slides/pdfoptions/) sınıfındaki [setShowHiddenSlides](https://reference.aspose.com/slides/php-java/aspose.slides/pdfoptions/#setShowHiddenSlides) yöntemini `true` ile çağırın.
 
 **Aspose.Slides PDF'de yüksek görüntü kalitesini koruyabilir mi?**
 
-Evet, PDF'nizde yüksek kaliteli görüntüler sağlamak için [PdfOptions] sınıfındaki `setJpegQuality` ve `setSufficientResolution` gibi yöntemleri kullanarak görüntü kalitesini kontrol edebilirsiniz.
+Evet, [PdfOptions](https://reference.aspose.com/slides/php-java/aspose.slides/pdfoptions/) sınıfındaki [setJpegQuality](https://reference.aspose.com/slides/php-java/aspose.slides/pdfoptions/#setJpegQuality) ve [setSufficientResolution](https://reference.aspose.com/slides/php-java/aspose.slides/pdfoptions/#setSufficientResolution) gibi yöntemleri kullanarak PDF'nizde yüksek kaliteli görüntüler elde edebilirsiniz.
 
 **Aspose.Slides PDF/A uyumluluk standartlarını destekliyor mu?**
 
-Evet, Aspose.Slides, PDF/A1a, PDF/A1b ve PDF/UA gibi çeşitli standartlara uyumlu PDF'ler dışa aktarmanıza olanak tanır; böylece belgeleriniz erişilebilirlik ve arşivleme gereksinimlerini karşılar.
+Evet, Aspose.Slides, PDF/A1a, PDF/A1b ve PDF/UA dahil olmak üzere [çeşitli standartlara](https://reference.aspose.com/slides/php-java/aspose.slides/pdfcompliance/) uyumlu PDF'ler dışa aktarmanıza olanak tanır; böylece belgeleriniz erişilebilirlik ve arşivleme gereksinimlerini karşılar.
 
 ## **Ek Kaynaklar**
 
-- [Aspose.Slides for PHP via Java Documentation](/slides/tr/php-java/)
-- [Aspose.Slides for PHP via Java API Reference](https://reference.aspose.com/slides/tr/php-java/)
-- [Aspose Free Online Converters](https://products.aspose.app/slides/tr/conversion)
+- [Aspose.Slides for PHP via Java Dokümantasyonu](/slides/tr/php-java/)
+- [Aspose.Slides for PHP via Java API Referansı](https://reference.aspose.com/slides/php-java/)
+- [Aspose Ücretsiz Çevrimiçi Dönüştürücüler](https://products.aspose.app/slides/conversion)

@@ -1,11 +1,11 @@
 ---
-title: Διαχείριση αντικειμένων OLE σε παρουσιάσεις σε .NET
+title: Διαχείριση Αντικειμένων OLE σε Παρουσιάσεις στο .NET
 linktitle: Διαχείριση OLE
 type: docs
 weight: 40
 url: /el/net/manage-ole/
 keywords:
-- αντικείμενο OLE
+- Αντικείμενο OLE
 - Σύνδεση & Ενσωμάτωση Αντικειμένων
 - προσθήκη OLE
 - ενσωμάτωση OLE
@@ -26,35 +26,42 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Βελτιστοποιήστε τη διαχείριση αντικειμένων OLE στο PowerPoint και στα αρχεία OpenDocument με το Aspose.Slides για .NET. Ενσωμάτωση, ενημέρωση και εξαγωγή του περιεχομένου OLE χωρίς προβλήματα."
+description: "Βελτιστοποιήστε τη διαχείριση αντικειμένων OLE σε αρχεία PowerPoint και OpenDocument με το Aspose.Slides για .NET. Ενσωματώστε, ενημερώστε και εξάγετε το περιεχόμενο OLE άψογα."
 ---
 ## **Εισαγωγή**
 
-{{% alert title="Info" color="info" %}}
-OLE (Object Linking & Embedding) είναι τεχνολογία της Microsoft που επιτρέπει σε δεδομένα και αντικείμενα που δημιουργούνται σε μία εφαρμογή να τοποθετούνται σε άλλη εφαρμογή μέσω σύνδεσης ή ενσωμάτωσης. 
+{{% alert color="info" title="Σημείωση" %}}
+
+OLE (Object Linking & Embedding) είναι τεχνολογία της Microsoft που επιτρέπει τα δεδομένα και τα αντικείμενα που δημιουργούνται σε μια εφαρμογή να τοποθετούνται σε άλλη εφαρμογή μέσω σύνδεσης ή ενσωμάτωσης. 
+
 {{% /alert %}} 
 
-Σκεφτείτε ένα γράφημα που δημιουργήθηκε στο MS Excel. Το γράφημα στη συνέχεια τοποθετείται μέσα σε μια διαφάνεια του PowerPoint. Αυτό το γράφημα του Excel θεωρείται αντικείμενο OLE. 
+Θεωρήστε ένα διάγραμμα που δημιουργήθηκε στο MS Excel. Το διάγραμμα τοποθετείται στη συνέχεια σε μια διαφάνεια του PowerPoint. Αυτό το διάγραμμα Excel θεωρείται αντικείμενο OLE. 
 
-- Ένα αντικείμενο OLE μπορεί να εμφανίζεται ως εικονίδιο. Σε αυτήν την περίπτωση, όταν κάνετε διπλό κλικ στο εικονίδιο, το γράφημα ανοίγει στην σχετική εφαρμογή (Excel), ή σας ζητείται να επιλέξετε μια εφαρμογή για το άνοιγμα ή την επεξεργασία του αντικειμένου. 
-- Ένα αντικείμενο OLE μπορεί να εμφανίζει το πραγματικό του περιεχόμενο, όπως τα δεδομένα ενός γραφήματος. Σε αυτήν την περίπτωση, το γράφημα ενεργοποιείται στο PowerPoint, φορτώνεται η διεπαφή του γραφήματος και μπορείτε να τροποποιήσετε τα δεδομένα του γραφήματος μέσα στο PowerPoint.
+- Ένα αντικείμενο OLE μπορεί να εμφανίζεται ως εικονίδιο. Σε αυτήν την περίπτωση, όταν κάνετε διπλό κλικ στο εικονίδιο, το διάγραμμα ανοίγει στην σχετική του εφαρμογή (Excel), ή σας ζητείται να επιλέξετε μια εφαρμογή για το άνοιγμα ή την επεξεργασία του αντικειμένου. 
+- Ένα αντικείμενο OLE μπορεί να εμφανίζει το πραγματικό του περιεχόμενο, όπως τα περιεχόμενα ενός διαγράμματος. Σε αυτήν την περίπτωση, το διάγραμμα ενεργοποιείται στο PowerPoint, φορτώνεται η διεπαφή του διαγράμματος και μπορείτε να τροποποιήσετε τα δεδομένα του διαγράμματος εντός του PowerPoint.
 
-[Aspose.Slides for .NET](https://products.aspose.com/slides/el/net/) σας επιτρέπει να εισάγετε αντικείμενα OLE σε διαφάνειες ως πλαίσια αντικειμένων OLE ([OleObjectFrame](https://reference.aspose.com/slides/el/net/aspose.slides/oleobjectframe)).
+[Aspose.Slides for .NET](https://products.aspose.com/slides/net/) σας επιτρέπει να εισάγετε OLE Objects σε διαφάνειες ως πλαίσια αντικειμένων OLE ([OleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe)).
 
-## **Προσθήκη πλαισίων αντικειμένου OLE σε διαφάνειες**
+## **Προσθήκη Πλαισίων Αντικειμένων OLE σε Διαφάνειες**
 
-Αν υποθέσουμε ότι έχετε ήδη δημιουργήσει ένα γράφημα στο Microsoft Excel και θέλετε να το ενσωματώσετε σε μια διαφάνεια ως πλαίσιο αντικειμένου OLE χρησιμοποιώντας το Aspose.Slides for .NET, μπορείτε να το κάνετε ως εξής:
+Υποθέτοντας ότι έχετε ήδη δημιουργήσει ένα διάγραμμα στο Microsoft Excel και θέλετε να το ενσωματώσετε σε μια διαφάνεια ως πλαίσιο αντικειμένου OLE χρησιμοποιώντας το Aspose.Slides for .NET, μπορείτε να το κάνετε ως εξής:
 
-1. Δημιουργήστε ένα αντίinstance της κλάσης [Presentation](https://reference.aspose.com/slides/el/net/aspose.slides/presentation).
-2. Λάβετε μια αναφορά στη διαφάνεια μέσω του δείκτη της.
+1. Δημιουργήστε ένα στιγμιότυπο της κλάσης [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
+2. Λάβετε την αναφορά μιας διαφάνειας μέσω του δείκτη της.
 3. Διαβάστε το αρχείο Excel ως πίνακα byte.
-4. Προσθέστε το [OleObjectFrame](https://reference.aspose.com/slides/el/net/aspose.slides/oleobjectframe) στη διαφάνεια περιλαμβάνοντας τον πίνακα byte και άλλες πληροφορίες για το αντικείμενο OLE.
-5. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
+4. Προσθέστε το [OleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe) στη διαφάνεια που περιέχει τον πίνακα byte και άλλες πληροφορίες για το αντικείμενο OLE.
+5. Γράψτε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
 
-Στο παρακάτω παράδειγμα, προσθέσαμε ένα γράφημα από αρχείο Excel σε μια διαφάνεια ως [OleObjectFrame](https://reference.aspose.com/slides/el/net/aspose.slides/oleobjectframe) χρησιμοποιώντας το Aspose.Slides for .NET.  
-**Σημείωση** ότι ο κατασκευαστής του [OleEmbeddedDataInfo](https://reference.aspose.com/slides/el/net/aspose.slides.dom.ole/oleembeddeddatainfo/) δέχεται μια επέκταση ενσωματωμένου αντικειμένου ως δεύτερη παράμετρο. Αυτή η επέκταση επιτρέπει στο PowerPoint να ερμηνεύσει σωστά τον τύπο του αρχείου και να επιλέξει τη σωστή εφαρμογή για το άνοιγμα του αντικειμένου OLE.
+Στο παρακάτω παράδειγμα, προσθέσαμε ένα διάγραμμα από αρχείο Excel σε μια διαφάνεια ως [OleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe) χρησιμοποιώντας το Aspose.Slides για .NET.  
+**Σημείωση** ότι ο κατασκευαστής [OleEmbeddedDataInfo](https://reference.aspose.com/slides/net/aspose.slides.dom.ole/oleembeddeddatainfo/) δέχεται μια επέκταση ενσωματώσιμου αντικειμένου ως δεύτερη παράμετρο. Αυτή η επέκταση επιτρέπει στο PowerPoint να ερμηνεύει σωστά τον τύπο αρχείου και να επιλέγει τη σωστή εφαρμογή για το άνοιγμα του αντικειμένου OLE.
 
-```csharp
+```csharp 
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.DOM.Ole;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     SizeF slideSize = presentation.SlideSize.Size;
@@ -64,20 +71,23 @@ using (Presentation presentation = new Presentation())
     byte[] fileData = File.ReadAllBytes("book.xlsx");
     IOleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(fileData, "xlsx");
 
-    // Προσθήκη πλαισίου αντικειμένου OLE στη διαφάνεια.
+    // Προσθήκη του πλαισίου αντικειμένου OLE στη διαφάνεια.
     slide.Shapes.AddOleObjectFrame(0, 0, slideSize.Width, slideSize.Height, dataInfo);
 
     presentation.Save("output.pptx", SaveFormat.Pptx);
 }
 ```
 
-### **Προσθήκη συνδεδεμένων πλαισίων αντικειμένου OLE**
+### **Προσθήκη Συνδεδεμένων Πλαισίων OLE Object**
 
-Το Aspose.Slides for .NET σας επιτρέπει να προσθέσετε ένα [OleObjectFrame](https://reference.aspose.com/slides/el/net/aspose.slides/oleobjectframe) χωρίς ενσωμάτωση δεδομένων, αλλά μόνο με σύνδεσμο προς το αρχείο.
+Το Aspose.Slides for .NET σας επιτρέπει να προσθέσετε ένα [OleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe) χωρίς ενσωμάτωση δεδομένων, αλλά μόνο με σύνδεσμο προς το αρχείο.
 
-Αυτός ο κώδικας C# δείχνει πώς να προσθέσετε ένα [OleObjectFrame](https://reference.aspose.com/slides/el/net/aspose.slides/oleobjectframe) με ένα συνδεδεμένο αρχείο Excel σε μια διαφάνεια:
+Αυτός ο κώδικας C# δείχνει πώς να προσθέσετε ένα [OleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe) με ένα συνδεδεμένο αρχείο Excel σε μια διαφάνεια:
 
-```csharp
+```csharp 
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     ISlide slide = presentation.Slides[0];
@@ -89,18 +99,20 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-## **Πρόσβαση σε πλαίσια αντικειμένου OLE**
+## **Πρόσβαση σε Πλαίσια Αντικειμένων OLE**
 
-Εάν ένα αντικείμενο OLE είναι ήδη ενσωματωμένο σε μια διαφάνεια, μπορείτε εύκολα να το βρείτε ή να το προσπελάσετε ως εξής:
+Αν ένα αντικείμενο OLE είναι ήδη ενσωματωμένο σε μια διαφάνεια, μπορείτε εύκολα να το βρείτε ή να το προσπελάσετε ως εξής:
 
-1. Φορτώστε μια παρουσίαση με το ενσωματωμένο αντικείμενο OLE δημιουργώντας ένα αντίinstance της κλάσης [Presentation](https://reference.aspose.com/slides/el/net/aspose.slides/presentation).
-2. Λάβετε την αναφορά της διαφάνειας χρησιμοποιώντας τον δείκτη της.
-3. Πρόσβαση στο σχήμα [OleObjectFrame](https://reference.aspose.com/slides/el/net/aspose.slides/oleobjectframe). Στο παράδειγμά μας, χρησιμοποιήσαμε το προηγούμενο PPTX που έχει μόνο ένα σχήμα στην πρώτη διαφάνεια. Στη συνέχεια *cast* αυτό το αντικείμενο ως [IOleObjectFrame](https://reference.aspose.com/slides/el/net/aspose.slides/ioleobjectframe). Αυτό ήταν το επιθυμητό πλαίσιο αντικειμένου OLE για πρόσβαση.
-4. Μόλις το πλαίσιο αντικειμένου OLE προσεγγιστεί, μπορείτε να εκτελέσετε οποιαδήποτε ενέργεια πάνω του.
+1. Φορτώστε μια παρουσίαση με το ενσωματωμένο αντικείμενο OLE δημιουργώντας ένα στιγμιότυπο της κλάσης [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
+2. Λάβετε την αναφορά της διαφάνειας χρησιμοποιώντας το δείκτη της.
+3. Πρόσβαση στο σχήμα [OleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe). Στο παράδειγμά μας, χρησιμοποιήσαμε το προηγούμενο δημιουργημένο PPTX που έχει μόνο ένα σχήμα στην πρώτη διαφάνεια. Στη συνέχεια *cast* (μετατρέπουμε) αυτό το αντικείμενο σε ένα [IOleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/ioleobjectframe). Αυτό ήταν το επιθυμητό πλαίσιο αντικειμένου OLE που θέλουμε να προσεγγίσουμε.
+4. Μόλις το πλαίσιο αντικειμένου OLE προσεγγιστεί, μπορείτε να εκτελέσετε οποιαδήποτε λειτουργία πάνω του.
 
-Στο παρακάτω παράδειγμα, ένα πλαίσιο αντικειμένου OLE (ένα αντικείμενο γραφήματος Excel ενσωματωμένο σε διαφάνεια) και τα δεδομένα του αρχείου προσεγγίζονται.
+Στο παρακάτω παράδειγμα, ένα πλαίσιο αντικειμένου OLE (ένα αντικείμενο διαγράμματος Excel ενσωματωμένο σε διαφάνεια) και τα δεδομένα του αρχείου του προσεγγίζονται.
 
-```csharp
+```csharp 
+using Aspose.Slides;
+
 using (Presentation presentation = new Presentation("sample.pptx"))
 {
     ISlide slide = presentation.Slides[0];
@@ -110,7 +122,7 @@ using (Presentation presentation = new Presentation("sample.pptx"))
 
     if (oleFrame != null)
     {
-        // Αποκτήστε τα ενσωματωμένα δεδομένα αρχείου.
+        // Λάβετε τα ενσωματωμένα δεδομένα αρχείου.
         byte[] fileData = oleFrame.EmbeddedData.EmbeddedFileData;
 
         // Λάβετε την επέκταση του ενσωματωμένου αρχείου.
@@ -121,13 +133,15 @@ using (Presentation presentation = new Presentation("sample.pptx"))
 }
 ```
 
-### **Πρόσβαση σε ιδιότητες συνδεδεμένου πλαισίου αντικειμένου OLE**
+### **Πρόσβαση στις Ιδιότητες Συνδεδεμένου Πλαισίου OLE Object**
 
-Το Aspose.Slides σας επιτρέπει να προσπελάσετε τις ιδιότητες του συνδεδεμένου πλαισίου αντικειμένου OLE.
+Το Aspose.Slides σας επιτρέπει να προσπελάσετε τις ιδιότητες συνδεδεμένου πλαισίου OLE αντικειμένου.
 
-Αυτός ο κώδικας C# δείχνει πώς να ελέγξετε εάν ένα αντικείμενο OLE είναι συνδεδεμένο και στη συνέχεια να αποκτήσετε τη διαδρομή προς το συνδεδεμένο αρχείο:
+Αυτός ο κώδικας C# δείχνει πώς να ελέγξετε αν ένα αντικείμενο OLE είναι συνδεδεμένο και στη συνέχεια να αποκτήσετε τη διαδρομή του συνδεδεμένου αρχείου:
 
 ```csharp
+using Aspose.Slides;
+
 using (Presentation presentation = new Presentation("sample.ppt"))
 {
     ISlide slide = presentation.Slides[0];
@@ -138,7 +152,7 @@ using (Presentation presentation = new Presentation("sample.ppt"))
     // Ελέγξτε αν το αντικείμενο OLE είναι συνδεδεμένο.
     if (oleFrame != null && oleFrame.IsObjectLink)
     {
-        // Εκτυπώστε τη πλήρη διαδρομή του συνδεδεμένου αρχείου.
+        // Εκτυπώστε την πλήρη διαδρομή του συνδεδεμένου αρχείου.
         Console.WriteLine("OLE object frame is linked to: " + oleFrame.LinkPathLong);
 
         // Εκτυπώστε τη σχετική διαδρομή του συνδεδεμένου αρχείου εάν υπάρχει.
@@ -151,26 +165,32 @@ using (Presentation presentation = new Presentation("sample.ppt"))
 }
 ```
 
-## **Αλλαγή δεδομένων αντικειμένου OLE**
+## **Αλλαγή Δεδομένων Αντικειμένου OLE**
 
-{{% alert color="primary" %}} 
-Σε αυτήν την ενότητα, το παρακάτω παράδειγμα κώδικα χρησιμοποιεί [Aspose.Cells for .NET](/cells/net/). 
+{{% alert color="info" title="Σημείωση" %}}
+
+Σε αυτήν την ενότητα, το παρακάτω παράδειγμα κώδικα χρησιμοποιεί το [Aspose.Cells for .NET](https://docs.aspose.com/cells/net/).
+
 {{% /alert %}}
 
-Εάν ένα αντικείμενο OLE είναι ήδη ενσωματωμένο σε μια διαφάνεια, μπορείτε εύκολα να το προσπελάσετε και να τροποποιήσετε τα δεδομένα του ως εξής:
+Αν ένα αντικείμενο OLE είναι ήδη ενσωματωμένο σε μια διαφάνεια, μπορείτε εύκολα να προσεγγίσετε αυτό το αντικείμενο και να τροποποιήσετε τα δεδομένα του ως εξής:
 
-1. Φορτώστε μια παρουσίαση με το ενσωματωμένο αντικείμενο OLE δημιουργώντας ένα αντίinstance της κλάσης [Presentation](https://reference.aspose.com/slides/el/net/aspose.slides/presentation).
+1. Φορτώστε μια παρουσίαση με το ενσωματωμένο αντικείμενο OLE δημιουργώντας ένα στιγμιότυπο της κλάσης [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
 2. Λάβετε την αναφορά της διαφάνειας μέσω του δείκτη της. 
-3. Πρόσβαση στο σχήμα [OLEObjectFrame](https://reference.aspose.com/slides/el/net/aspose.slides/oleobjectframe). Στο παράδειγμά μας, χρησιμοποιήσαμε το προηγούμενο PPTX που έχει ένα σχήμα στην πρώτη διαφάνεια. Στη συνέχεια *cast* αυτό το αντικείμενο ως [IOleObjectFrame](https://reference.aspose.com/slides/el/net/aspose.slides/ioleobjectframe). Αυτό ήταν το επιθυμητό πλαίσιο αντικειμένου OLE για πρόσβαση.
-4. Μόλις το πλαίσιο αντικειμένου OLE προσεγγιστεί, μπορείτε να εκτελέσετε οποιαδήποτε ενέργεια πάνω του.
-5. Δημιουργήστε ένα αντικείμενο `Workbook` και προσπελάστε τα δεδομένα OLE.
-6. Προσπελάστε το επιθυμητό `Worksheet` και επεξεργαστείτε τα δεδομένα.
+3. Πρόσβαση στο σχήμα [OLEObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe). Στο παράδειγμά μας, χρησιμοποιήσαμε το προηγούμενο δημιουργημένο PPTX που έχει ένα σχήμα στην πρώτη διαφάνεια. Στη συνέχεια *cast* (μετατρέπουμε) αυτό το αντικείμενο σε ένα [IOleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/ioleobjectframe). Αυτό ήταν το επιθυμητό πλαίσιο αντικειμένου OLE που θέλουμε να προσεγγίσουμε.
+4. Μόλις το πλαίσιο αντικειμένου OLE προσεγγιστεί, μπορείτε να εκτελέσετε οποιαδήποτε λειτουργία επάνω του.
+5. Δημιουργήστε ένα αντικείμενο `Workbook` και προσεγγίστε τα δεδομένα OLE.
+6. Προσεγγίστε το επιθυμητό `Worksheet` και τροποποιήστε τα δεδομένα.
 7. Αποθηκεύστε το ενημερωμένο `Workbook` σε ροή.
 8. Αλλάξτε τα δεδομένα του αντικειμένου OLE από τη ροή.
 
-Στο παρακάτω παράδειγμα, ένα πλαίσιο αντικειμένου OLE (ένα αντικείμενο γραφήματος Excel ενσωματωμένο σε διαφάνεια) προσεγγίζεται και τα δεδομένα του αρχείου τροποποιούνται ώστε να ενημερωθούν τα δεδομένα του γραφήματος.
+Στο παρακάτω παράδειγμα, ένα πλαίσιο αντικειμένου OLE (ένα αντικείμενο διαγράμματος Excel ενσωματωμένο σε διαφάνεια) προσεγγίζεται και τα δεδομένα του αρχείου του τροποποιούνται για την ενημέρωση των δεδομένων του διαγράμματος.
 
 ```csharp 
+using Aspose.Slides;
+using Aspose.Slides.DOM.Ole;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation("sample.pptx"))
 {
     ISlide slide = presentation.Slides[0];
@@ -183,17 +203,17 @@ using (Presentation presentation = new Presentation("sample.pptx"))
         using (MemoryStream oleStream = new MemoryStream(oleFrame.EmbeddedData.EmbeddedFileData))
         {
             // Διαβάστε τα δεδομένα του αντικειμένου OLE ως αντικείμενο Workbook.
-            Workbook workbook = new Workbook(oleStream);
+            Aspose.Cells.Workbook workbook = new Aspose.Cells.Workbook(oleStream);
 
             using (MemoryStream newOleStream = new MemoryStream())
             {
-                // Τροποποιήστε τα δεδομένα του workbook.
+                // Τροποποιήστε τα δεδομένα του βιβλίου εργασίας.
                 workbook.Worksheets[0].Cells[0, 4].PutValue("E");
                 workbook.Worksheets[0].Cells[1, 4].PutValue(12);
                 workbook.Worksheets[0].Cells[2, 4].PutValue(14);
                 workbook.Worksheets[0].Cells[3, 4].PutValue(15);
 
-                OoxmlSaveOptions fileOptions = new OoxmlSaveOptions(Aspose.Cells.SaveFormat.Xlsx);
+                Aspose.Cells.OoxmlSaveOptions fileOptions = new Aspose.Cells.OoxmlSaveOptions(Aspose.Cells.SaveFormat.Xlsx);
                 workbook.Save(newOleStream, fileOptions);
 
                 // Αλλάξτε τα δεδομένα του αντικειμένου πλαισίου OLE.
@@ -207,13 +227,17 @@ using (Presentation presentation = new Presentation("sample.pptx"))
 }
 ```
 
-## **Ενσωμάτωση άλλων τύπων αρχείων σε διαφάνειες**
+## **Ενσωμάτωση Άλλων Τύπων Αρχείων σε Διαφάνειες**
 
-Εκτός από γραφήματα Excel, το Aspose.Slides for .NET σας επιτρέπει να ενσωματώσετε άλλα είδη αρχείων σε διαφάνειες. Για παράδειγμα, μπορείτε να εισάγετε HTML, PDF και ZIP αρχεία ως αντικείμενα. Όταν ο χρήστης κάνει διπλό κλικ στο εισαχθέν αντικείμενο, αυτό ανοίγει αυτόματα στο σχετικό πρόγραμμα, ή του ζητείται να επιλέξει ένα κατάλληλο πρόγραμμα για το άνοιγμα.
+Εκτός από διαγράμματα Excel, το Aspose.Slides for .NET σας επιτρέπει να ενσωματώσετε άλλα είδη αρχείων σε διαφάνειες. Για παράδειγμα, μπορείτε να εισάγετε αρχεία HTML, PDF και ZIP ως αντικείμενα. Όταν ένας χρήστης κάνει διπλό κλικ στο εισαχθέν αντικείμενο, ανοίγει αυτόματα στο αντίστοιχο πρόγραμμα, ή ο χρήστης ερωτάται να επιλέξει ένα κατάλληλο πρόγραμμα για το άνοιγμα του.
 
 Αυτός ο κώδικας C# δείχνει πώς να ενσωματώσετε HTML και ZIP σε μια διαφάνεια:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.DOM.Ole;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     ISlide slide = presentation.Slides[0];
@@ -232,13 +256,17 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-## **Ορισμός τύπων αρχείων για ενσωματωμένα αντικείμενα**
+## **Ορισμός Τύπων Αρχείων για Ενσωματωμένα Αντικείμενα**
 
-Κατά τη práci με παρουσιάσεις, μπορεί να χρειαστεί να αντικαταστήσετε παλιά αντικείμενα OLE με νέα ή να αντικαταστήσετε ένα μη υποστηριζόμενο αντικείμενο OLE με ένα υποστηριζόμενο. Το Aspose.Slides for .NET σας επιτρέπει να ορίσετε τον τύπο αρχείου για ένα ενσωματωμένο αντικείμενο, επιτρέποντάς σας να ενημερώσετε τα δεδομένα του πλαισίου OLE ή την επέκτασή του.
+Κατά την εργασία με παρουσιάσεις, μπορεί να χρειαστεί να αντικαταστήσετε παλιά αντικείμενα OLE με νέα ή να αντικαταστήσετε ένα μη υποστηριζόμενο αντικείμενο OLE με ένα υποστηριζόμενο. Το Aspose.Slides for .NET σας επιτρέπει να ορίσετε τον τύπο αρχείου για ένα ενσωματωμένο αντικείμενο, επιτρέποντάς σας να ενημερώσετε τα δεδομένα του πλαισίου OLE ή την επέκτασή του.
 
 Αυτός ο κώδικας C# δείχνει πώς να ορίσετε τον τύπο αρχείου για ένα ενσωματωμένο αντικείμενο OLE σε `zip`:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.DOM.Ole;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation("sample.pptx"))
 {
     ISlide slide = presentation.Slides[0];
@@ -256,13 +284,16 @@ using (Presentation presentation = new Presentation("sample.pptx"))
 }
 ```
 
-## **Ορισμός εικονιδίων εικόνας και τίτλων για ενσωματωμένα αντικείμενα**
+## **Ορισμός Εικόνων Εικονιδίων και Τίτλων για Ενσωματωμένα Αντικείμενα**
 
-Μετά την ενσωμάτωση ενός αντικειμένου OLE, προστίθεται αυτόματα μια προεπισκόπηση που αποτελείται από εικόνα εικονιδίου. Αυτή η προεπισκόπηση είναι ό,τι βλέπουν οι χρήστες πριν προσπελάσουν ή ανοίξουν το αντικείμενο OLE. Εάν θέλετε να χρησιμοποιήσετε μια συγκεκριμένη εικόνα και κείμενο ως στοιχεία στην προεπισκόπηση, μπορείτε να ορίσετε την εικόνα εικονιδίου και τον τίτλο χρησιμοποιώντας το Aspose.Slides for .NET.
+Μετά την ενσωμάτωση ενός αντικειμένου OLE, προστίθεται αυτόματα μια προεπισκόπηση που αποτελείται από εικόνα εικονιδίου. Αυτή η προεπισκόπηση είναι αυτό που βλέπουν οι χρήστες πριν προσπελάσουν ή ανοίξουν το αντικείμενο OLE. Εάν θέλετε να χρησιμοποιήσετε μια συγκεκριμένη εικόνα και κείμενο ως στοιχεία στην προεπισκόπηση, μπορείτε να ορίσετε την εικόνα εικονιδίου και τον τίτλο χρησιμοποιώντας το Aspose.Slides for .NET.
 
 Αυτός ο κώδικας C# δείχνει πώς να ορίσετε την εικόνα εικονιδίου και τον τίτλο για ένα ενσωματωμένο αντικείμενο: 
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation("sample.pptx"))
 {
     ISlide slide = presentation.Slides[0];
@@ -281,24 +312,38 @@ using (Presentation presentation = new Presentation("sample.pptx"))
 }
 ```
 
-## **Αποτροπή αλλαγής μεγέθους και θέσης πλαισίου αντικειμένου OLE**
+## **Αποτροπή Αλλαγής Μεγέθους και Θέσης Πλαισίου OLE Object**
 
-Αφού προσθέσετε ένα συνδεδεμένο αντικείμενο OLE σε μια διαφάνεια παρουσίασης, όταν ανοίξετε την παρουσίαση στο PowerPoint, μπορεί να εμφανιστεί μήνυμα που σας ζητά να ενημερώσετε τους συνδέσμους. Πατώντας το κουμπί «Update Links» μπορεί να αλλάξει το μέγεθος και η θέση του πλαισίου αντικειμένου OLE, επειδή το PowerPoint ενημερώνει τα δεδομένα από το συνδεδεμένο αντικείμενο OLE και ανανεώνει την προεπισκόπηση. Για να αποτρέψετε το PowerPoint από το να ζητά ενημέρωση των δεδομένων του αντικειμένου, ορίστε την ιδιότητα `UpdateAutomatic` του διεπαφής [IOleObjectFrame](https://reference.aspose.com/slides/el/net/aspose.slides/ioleobjectframe/) σε `false`:
+Αφού προσθέσετε ένα συνδεδεμένο αντικείμενο OLE σε μια διαφάνεια παρουσίασης, όταν ανοίξετε την παρουσίαση στο PowerPoint, μπορεί να εμφανιστεί μήνυμα που σας ζητά να ενημερώσετε τους συνδέσμους. Κάνοντας κλικ στο κουμπί «Update Links» (Ενημέρωση Συνδέσμων) ενδέχεται να αλλάξει το μέγεθος και η θέση του πλαισίου αντικειμένου OLE, επειδή το PowerPoint ενημερώνει τα δεδομένα από το συνδεδεμένο αντικείμενο OLE και ανανεώνει την προεπισκόπηση του αντικειμένου. Για να αποτρέψετε το PowerPoint από την προτροπή ενημέρωσης των δεδομένων του αντικειμένου, ορίστε την ιδιότητα `UpdateAutomatic` της διεπαφής [IOleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/ioleobjectframe/) σε `false`:
 
 ```cs
-oleFrame.UpdateAutomatic = false;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using (Presentation presentation = new Presentation("sample.pptx"))
+{
+    IOleObjectFrame oleFrame = (IOleObjectFrame)presentation.Slides[0].Shapes[0];
+
+    // Διατηρήστε το μέγεθος και τη θέση του πλαισίου αντικειμένου OLE όταν το PowerPoint ενημερώνει τη σύνδεση.
+    oleFrame.UpdateAutomatic = false;
+
+    presentation.Save("output.pptx", SaveFormat.Pptx);
+}
 ```
 
-## **Εξαγωγή ενσωματωμένων αρχείων**
+## **Εξαγωγή Ενσωματωμένων Αρχείων**
 
-Το Aspose.Slides for .NET σας επιτρέπει να εξάγετε τα αρχεία που είναι ενσωματωμένα σε διαφάνειες ως αντικείμενα OLE ως εξής:
-1. Δημιουργήστε ένα αντίinstance της κλάσης [Presentation](https://reference.aspose.com/slides/el/net/aspose.slides/presentation) που περιέχει τα αντικείμενα OLE που σκοπεύετε να εξάγετε.
-2. Περάστε από όλα τα σχήματα στην παρουσίαση και προσπελάστε τα σχήματα [OLEObjectFrame](https://reference.aspose.com/slides/el/net/aspose.slides/oleobjectframe).
-3. Προσπελάστε τα δεδομένα των ενσωματωμένων αρχείων από τα πλαίσια αντικειμένου OLE και γράψτε τα στο δίσκο.
+Το Aspose.Slides for .NET σας επιτρέπει να εξάγετε τα αρχεία που είναι ενσωματωμένα σε διαφάνειες ως αντικείμενα OLE με τον εξής τρόπο:
 
-Αυτός ο κώδικας C# δείχνει πώς να εξαγάγετε αρχεία ενσωματωμένα σε μια διαφάνεια ως αντικείμενα OLE:
+1. Δημιουργήστε ένα στιγμιότυπο της κλάσης [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) που περιέχει τα αντικείμενα OLE που σκοπεύετε να εξάγετε.
+2. Επαναλάβετε (διασχίστε) όλα τα σχήματα στην παρουσίαση και προσεγγίστε τα σχήματα [OLEObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe).
+3. Προσεγγίστε τα δεδομένα των ενσωματωμένων αρχείων από τα πλαίσια αντικειμένων OLE και γράψτε τα στον δίσκο.
+
+Αυτός ο κώδικας C# δείχνει πώς να εξάγετε αρχεία ενσωματωμένα σε μια διαφάνεια ως αντικείμενα OLE:
 
 ```c#
+using Aspose.Slides;
+
 using (Presentation presentation = new Presentation("sample.pptx"))
 {
     ISlide slide = presentation.Slides[0];
@@ -320,20 +365,22 @@ using (Presentation presentation = new Presentation("sample.pptx"))
 }
 ```
 
-## **ΣΥΓΚΑΤΑΤΑΣΕΙΣ (FAQ)**
+## **Συχνές Ερωτήσεις**
 
 **Θα αποδοθεί το περιεχόμενο OLE κατά την εξαγωγή των διαφανειών σε PDF/εικόνες;**
 
-Αυτό που είναι ορατό στη διαφάνεια αποδίδεται — το εικονίδιο/αντικαταστατική εικόνα (προεπισκόπηση). Το «ζωντανό» περιεχόμενο OLE δεν εκτελείται κατά τη διαδικασία αποτύπωσης. Αν είναι απαραίτητο, ορίστε τη δική σας εικόνα προεπισκόπησης ώστε να εξασφαλίσετε την αναμενόμενη εμφάνιση στο εξαχθέν PDF.
+Αυτό που είναι ορατό στη διαφάνεια αποδίδεται—το εικονίδιο/εικόνα αντικατάστασης (προεπισκόπηση). Το «ζωντανό» περιεχόμενο OLE δεν εκτελείται κατά την απόδοση. Εάν χρειάζεται, ορίστε τη δική σας εικόνα προεπισκόπης για να εξασφαλίσετε την αναμενόμενη εμφάνιση στο εξαχθέν PDF.
 
-**Πώς μπορώ να κλειδώσω ένα αντικείμενο OLE σε διαφάνεια ώστε οι χρήστες να μην μπορούν να το μετακινήσουν/επεξεργαστούν στο PowerPoint;**
+Για να διατηρήσετε επίσης το ενσωματωμένο αρχείο ως συνημμένο PDF, ορίστε το [PdfOptions.IncludeOleData](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/includeoledata/) σε `true`. Αυτή η επιλογή είναι απενεργοποιημένη εξ ορισμού. Για ένα παράδειγμα και οδηγίες ελέγχου του συνημμένου, δείτε [Preserve Embedded OLE Files as PDF Attachments](/slides/el/net/convert-powerpoint-to-pdf/#preserve-embedded-ole-files-as-pdf-attachments).
 
-Κλειδώστε το σχήμα: το Aspose.Slides παρέχει [shape-level locks](/slides/el/net/applying-protection-to-presentation/). Αυτό δεν είναι κρυπτογράφηση, αλλά αποτρέπει αποτελεσματικά τυχαίες επεμβάσεις και μετακινήσεις.
+**Πώς μπορώ να κλειδώσω ένα αντικείμενο OLE σε μια διαφάνεια ώστε οι χρήστες να μην μπορούν να το μετακινήσουν/επεξεργαστούν στο PowerPoint;**
+
+Κλειδώστε το σχήμα: Το Aspose.Slides παρέχει [shape-level locks](/slides/el/net/applying-protection-to-presentation/). Αυτό δεν είναι κρυπτογράφηση, αλλά εμποδίζει αποτελεσματικά τυχαίες επεμβάσεις και μετακινήσεις.
 
 **Γιατί ένα συνδεδεμένο αντικείμενο Excel «πηδά» ή αλλάζει μέγεθος όταν ανοίγω την παρουσίαση;**
 
-Το PowerPoint μπορεί να ανανεώσει την προεπισκόπηση του συνδεδεμένου OLE. Για σταθερή εμφάνιση, ακολουθήστε τις πρακτικές του [Working Solution for Worksheet Resizing](/slides/el/net/working-solution-for-worksheet-resizing/) — είτε προσαρμόστε το πλαίσιο στην περιοχή, είτε κλιμακώστε την περιοχή σε σταθερό πλαίσιο και ορίστε μια κατάλληλη αντικαταστατική εικόνα.
+Το PowerPoint μπορεί να ανανεώσει την προεπισκόπηση του συνδεδεμένου OLE. Για σταθερή εμφάνιση, ακολουθήστε τις πρακτικές του [Working Solution for Worksheet Resizing](/slides/el/net/working-solution-for-worksheet-resizing/)—είτε να προσαρμόσετε το πλαίσιο στο εύρος, είτε να κλιμακώσετε το εύρος σε ένα σταθερό πλαίσιο και να ορίσετε κατάλληλη εικόνα αντικατάστασης.
 
 **Θα διατηρηθούν οι σχετικές διαδρομές για συνδεδεμένα αντικείμενα OLE στη μορφή PPTX;**
 
-Στο PPTX, οι πληροφορίες «σχετικής διαδρομής» δεν είναι διαθέσιμες — μόνο η πλήρης διαδρομή. Σχετικές διαδρομές υπάρχουν μόνο στην παλαιότερη μορφή PPT. Για φορητότητα, προτιμήστε αξιόπιστες απόλυτες διαδρομές/προσβάσιμες URI ή ενσωμάτωση.
+Στο PPTX, οι πληροφορίες «σχετική διαδρομή» δεν είναι διαθέσιμες—υπάρχει μόνο η πλήρης διαδρομή. Οι σχετικές διαδρομές υπάρχουν μόνο στην παλαιότερη μορφή PPT. Για φορητότητα, προτιμήστε αξιόπιστες απόλυτες διαδρομές/προσβάσιμα URIs ή ενσωμάτωση.

@@ -1,6 +1,6 @@
 ---
-title: Gestire OLE nelle presentazioni usando PHP
-linktitle: Gestire OLE
+title: Gestire OLE nelle Presentazioni con PHP
+linktitle: Gestisci OLE
 type: docs
 weight: 40
 url: /it/php-java/manage-ole/
@@ -25,35 +25,35 @@ keywords:
 - presentazione
 - PHP
 - Aspose.Slides
-description: "Ottimizza la gestione degli oggetti OLE in PowerPoint e nei file OpenDocument con Aspose.Slides per PHP via Java. Incorpora, aggiorna ed esporta contenuti OLE senza problemi."
+description: "Ottimizza la gestione degli oggetti OLE in PowerPoint e nei file OpenDocument con Aspose.Slides per PHP via Java. Incorpora, aggiorna ed esporta i contenuti OLE senza problemi."
 ---
 ## **Introduzione**
 
-{{% alert color="primary" %}} 
+{{% alert color="info" title="Note" %}}
 
-OLE (Object Linking & Embedding) è una tecnologia Microsoft che consente di inserire dati e oggetti creati in un'applicazione all'interno di un'altra applicazione tramite collegamento o incorporamento. 
+OLE (Object Linking & Embedding) è una tecnologia Microsoft che consente ai dati e agli oggetti creati in un’applicazione di essere inseriti in un’altra applicazione tramite collegamento o incorporamento. 
 
 {{% /alert %}} 
 
-Considera un grafico creato in MS Excel. Il grafico viene poi inserito in una diapositiva di PowerPoint. Quel grafico di Excel è considerato un oggetto OLE. 
+Considera un grafico creato in MS Excel. Il grafico viene quindi inserito all’interno di una diapositiva PowerPoint. Quel grafico Excel è considerato un oggetto OLE. 
 
-- Un oggetto OLE può apparire come un'icona. In questo caso, facendo doppio clic sull'icona, il grafico si apre nell'applicazione associata (Excel), oppure viene chiesto di selezionare un'applicazione per aprire o modificare l'oggetto. 
-- Un oggetto OLE può mostrare il suo contenuto reale, ad esempio il contenuto di un grafico. In questo caso, il grafico è attivato in PowerPoint, l'interfaccia del grafico viene caricata e puoi modificare i dati del grafico direttamente in PowerPoint.
+- Un oggetto OLE può apparire come un’icona. In questo caso, facendo doppio clic sull’icona, il grafico si apre nell’applicazione associata (Excel) o viene chiesto di selezionare un’applicazione per aprire o modificare l’oggetto.
+- Un oggetto OLE può visualizzare il suo contenuto reale, ad esempio il contenuto di un grafico. In questo caso, il grafico è attivato in PowerPoint, l’interfaccia del grafico si carica e puoi modificare i dati del grafico direttamente in PowerPoint.
 
-[Aspose.Slides per PHP via Java](https://products.aspose.com/slides/it/php-java/) consente di inserire oggetti OLE nelle diapositive come cornici di oggetti OLE ([OleObjectFrame](https://reference.aspose.com/slides/it/php-java/aspose.slides/oleobjectframe/)).
+[Aspose.Slides per PHP via Java](https://products.aspose.com/slides/php-java/) consente di inserire oggetti OLE nelle diapositive come cornici di oggetti OLE ([OleObjectFrame](https://reference.aspose.com/slides/php-java/aspose.slides/oleobjectframe/)).
 
-## **Aggiungere cornici di oggetti OLE alle diapositive**
+## **Aggiungere Cornici di Oggetti OLE alle Diapositive**
 
-Supponendo che tu abbia già creato un grafico in Microsoft Excel e desideri incorporarlo in una diapositiva come cornice di oggetto OLE utilizzando Aspose.Slides per PHP via Java, puoi farlo in questo modo:
+Supponendo di aver già creato un grafico in Microsoft Excel e di volerlo incorporare in una diapositiva come cornice di oggetto OLE usando Aspose.Slides per PHP via Java, è possibile farlo in questo modo:
 
-1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/php-java/aspose.slides/presentation/). 
-1. Ottieni il riferimento a una diapositiva tramite il suo indice. 
-1. Leggi il file Excel come array di byte. 
-1. Aggiungi il [OleObjectFrame](https://reference.aspose.com/slides/it/php-java/aspose.slides/oleobjectframe/) alla diapositiva contenente l'array di byte e le altre informazioni sull'oggetto OLE. 
-1. Scrivi la presentazione modificata come file PPTX. 
+1. Crea un’istanza della classe [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/).
+1. Ottieni il riferimento a una diapositiva tramite il suo indice.
+1. Leggi il file Excel come array di byte.
+1. Aggiungi il [OleObjectFrame](https://reference.aspose.com/slides/php-java/aspose.slides/oleobjectframe/) alla diapositiva contenente l’array di byte e le altre informazioni sull’oggetto OLE.
+1. Scrivi la presentazione modificata come file PPTX.
 
-Nell'esempio seguente, abbiamo aggiunto un grafico da un file Excel a una diapositiva come cornice di oggetto OLE utilizzando Aspose.Slides per PHP via Java. 
-**Nota** che il costruttore [OleEmbeddedDataInfo](https://reference.aspose.com/slides/it/php-java/aspose.slides/oleembeddeddatainfo/) accetta un'estensione di oggetto incorporabile come secondo parametro. Questa estensione consente a PowerPoint di interpretare correttamente il tipo di file e scegliere l'applicazione giusta per aprire questo oggetto OLE.
+Nell’esempio seguente, abbiamo aggiunto un grafico da un file Excel a una diapositiva come cornice di oggetto OLE usando Aspose.Slides per PHP via Java.  
+**Nota** che il costruttore [OleEmbeddedDataInfo](https://reference.aspose.com/slides/php-java/aspose.slides/oleembeddeddatainfo/) accetta un’estensione di oggetto incorporabile come secondo parametro. Questa estensione consente a PowerPoint di interpretare correttamente il tipo di file e di scegliere l’applicazione giusta per aprire questo oggetto OLE.
 
 ```php
 $presentation = new Presentation();
@@ -71,11 +71,11 @@ $presentation->save("output.pptx", SaveFormat::Pptx);
 $presentation->dispose();
 ```
 
-### **Aggiungere cornici di oggetti OLE collegate**
+### **Aggiungere Cornici di Oggetti OLE Collegate**
 
-Aspose.Slides per PHP via Java consente di aggiungere un [OleObjectFrame](https://reference.aspose.com/slides/it/php-java/aspose.slides/oleobjectframe/) senza incorporare dati, ma solo con un collegamento al file.
+Aspose.Slides per PHP via Java consente di aggiungere un [OleObjectFrame](https://reference.aspose.com/slides/php-java/aspose.slides/oleobjectframe/) senza incorporare dati, ma solo con un collegamento al file.
 
-Questo codice PHP mostra come aggiungere un [OleObjectFrame](https://reference.aspose.com/slides/it/php-java/aspose.slides/oleobjectframe/) con un file Excel collegato a una diapositiva:
+Questo codice PHP mostra come aggiungere un [OleObjectFrame](https://reference.aspose.com/slides/php-java/aspose.slides/oleobjectframe/) con un file Excel collegato a una diapositiva:
 
 ```php
 $presentation = new Presentation();
@@ -88,16 +88,16 @@ $presentation->save("output.pptx", SaveFormat::Pptx);
 $presentation->dispose();
 ```
 
-## **Accedere alle cornici di oggetti OLE**
+## **Accedere alle Cornici di Oggetti OLE**
 
 Se un oggetto OLE è già incorporato in una diapositiva, è possibile trovarlo o accedervi facilmente in questo modo:
 
-1. Carica una presentazione con l'oggetto OLE incorporato creando un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/php-java/aspose.slides/presentation/). 
-2. Ottieni il riferimento alla diapositiva usando il suo indice. 
-3. Accedi alla forma [OleObjectFrame](https://reference.aspose.com/slides/it/php-java/aspose.slides/oleobjectframe/). Nel nostro esempio, abbiamo usato il PPTX creato in precedenza che contiene una sola forma nella prima diapositiva. 
-4. Una volta che la cornice dell'oggetto OLE è stata acceduta, è possibile eseguire qualsiasi operazione su di essa. 
+1. Carica una presentazione contenente l’oggetto OLE incorporato creando un’istanza della classe [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/).
+2. Ottieni il riferimento della diapositiva usando il suo indice.
+3. Accedi alla forma [OleObjectFrame](https://reference.aspose.com/slides/php-java/aspose.slides/oleobjectframe/). Nel nostro esempio, abbiamo usato il PPTX creato in precedenza che contiene una sola forma nella prima diapositiva.
+4. Una volta acceduta la cornice dell’oggetto OLE, è possibile eseguire qualsiasi operazione su di essa.
 
-Nell'esempio seguente, una cornice di oggetto OLE (un oggetto grafico Excel incorporato in una diapositiva) e i dati del file a essa associati vengono acceduti.
+Nell’esempio seguente, una cornice di oggetto OLE (un oggetto grafico Excel incorporato in una diapositiva) e i dati del suo file vengono accessi.
 
 ```php
 $presentation = new Presentation("sample.pptx");
@@ -108,16 +108,12 @@ if (java_instanceof($shape, new JavaClass("com.aspose.slides.OleObjectFrame"))) 
     $oleFrame = $shape;
     
     // Ottieni i dati del file incorporato.
-    $fileData = $oleFrame->getEmbeddedData()->getEmbeddedFileData();
-
     // Ottieni l'estensione del file incorporato.
-    $fileExtension = $oleFrame->getEmbeddedData()->getEmbeddedFileExtension();
-
     // ...
 }
 ```
 
-### **Accedere alle proprietà della cornice di oggetto OLE collegata**
+### **Accedere alle Proprietà della Cornice di Oggetti OLE Collegata**
 
 Aspose.Slides consente di accedere alle proprietà delle cornici di oggetti OLE collegate.
 
@@ -136,7 +132,7 @@ if (java_instanceof($shape, new JavaClass("com.aspose.slides.OleObjectFrame"))) 
         // Stampa il percorso completo del file collegato.
         echo "OLE object frame is linked to: " . $oleFrame->getLinkPathLong() . PHP_EOL;
 
-        // Stampa il percorso relativo del file collegato, se presente.
+        // Stampa il percorso relativo del file collegato se presente.
         // Solo le presentazioni PPT possono contenere il percorso relativo.
         $relativePath = java_values($oleFrame->getLinkPathRelative());
         if (!is_null($relativePath) && $relativePath !== "") {
@@ -148,26 +144,26 @@ if (java_instanceof($shape, new JavaClass("com.aspose.slides.OleObjectFrame"))) 
 $presentation->dispose();
 ```
 
-## **Modificare i dati dell'oggetto OLE**
+## **Modificare i Dati degli Oggetti OLE**
 
-{{% alert color="primary" %}} 
+{{% alert color="info" title="Note" %}}
 
-In questa sezione, l'esempio di codice seguente utilizza [Aspose.Cells per PHP via Java](/cells/php-java/). 
+In questa sezione, l’esempio di codice sottostante utilizza [Aspose.Cells per PHP via Java](https://docs.aspose.com/cells/php-java/).
 
 {{% /alert %}}
 
-Se un oggetto OLE è già incorporato in una diapositiva, è possibile accedere a quell'oggetto e modificarne i dati in questo modo:
+Se un oggetto OLE è già incorporato in una diapositiva, è possibile accedere a quell’oggetto e modificarne i dati in questo modo:
 
-1. Carica una presentazione con l'oggetto OLE incorporato creando un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/php-java/aspose.slides/presentation/). 
-2. Ottieni il riferimento alla diapositiva tramite il suo indice. 
-3. Accedi alla forma [OleObjectFrame](https://reference.aspose.com/slides/it/php-java/aspose.slides/oleobjectframe/). Nel nostro esempio, abbiamo usato il PPTX creato in precedenza che contiene una forma nella prima diapositiva. 
-4. Una volta che la cornice dell'oggetto OLE è stata acceduta, è possibile eseguire qualsiasi operazione su di essa. 
-5. Crea un oggetto `Workbook` e accedi ai dati OLE. 
-6. Accedi al `Worksheet` desiderato e modifica i dati. 
-7. Salva il `Workbook` aggiornato in uno stream. 
-8. Modifica i dati dell'oggetto OLE dallo stream. 
+1. Carica una presentazione contenente l’oggetto OLE incorporato creando un’istanza della classe [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/).
+2. Ottieni il riferimento della diapositiva tramite il suo indice. 
+3. Accedi alla forma [OleObjectFrame](https://reference.aspose.com/slides/php-java/aspose.slides/oleobjectframe/). Nel nostro esempio, abbiamo usato il PPTX creato in precedenza che contiene una forma nella prima diapositiva.
+4. Una volta acceduta la cornice dell’oggetto OLE, è possibile eseguire qualsiasi operazione su di essa.
+5. Crea un oggetto `Workbook` e accedi ai dati OLE.
+6. Accedi al `Worksheet` desiderato e modifica i dati.
+7. Salva il `Workbook` aggiornato in uno stream.
+8. Modifica i dati dell’oggetto OLE dallo stream.
 
-Nell'esempio seguente, una cornice di oggetto OLE (un oggetto grafico Excel incorporato in una diapositiva) viene acceduta e i dati del file vengono modificati per aggiornare i dati del grafico.
+Nell’esempio seguente, una cornice di oggetto OLE (un oggetto grafico Excel incorporato in una diapositiva) viene accessa e i dati del suo file vengono modificati per aggiornare i dati del grafico.
 
 ```php
 $presentation = new Presentation("sample.pptx");
@@ -177,7 +173,7 @@ $shape = $slide->getShapes()->get_Item(0);
 if (java_instanceof($shape, new JavaClass("com.aspose.slides.OleObjectFrame"))) {
     $oleFrame = $shape;
 
-    $oleStream = new ByteArrayInputStream($oleFrame->getEmbeddedData()->getEmbeddedFileData());
+    $oleStream = new Java("java.io.ByteArrayInputStream", $oleFrame->getEmbeddedData()->getEmbeddedFileData());
 
     // Leggi i dati dell'oggetto OLE come oggetto Workbook.
     $workbook = new Workbook($oleStream);
@@ -193,7 +189,7 @@ if (java_instanceof($shape, new JavaClass("com.aspose.slides.OleObjectFrame"))) 
     $fileOptions = new OoxmlSaveOptions(SaveFormat::XLSX);
     $workbook->save($newOleStream, $fileOptions);
 
-    // Cambia i dati dell'oggetto cornice OLE.
+    // Modifica i dati dell'oggetto cornice OLE.
     $newData = new OleEmbeddedDataInfo($newOleStream->toByteArray(), $oleFrame->getEmbeddedData()->getEmbeddedFileExtension());
     $oleFrame->setEmbeddedData($newData);
 
@@ -205,9 +201,9 @@ $presentation->save("output.pptx", SaveFormat::Pptx);
 $presentation->dispose();
 ```
 
-## **Incorporare altri tipi di file nelle diapositive**
+## **Incorporare Altri Tipi di File nelle Diapositive**
 
-Oltre ai grafici Excel, Aspose.Slides per PHP via Java consente di incorporare altri tipi di file nelle diapositive. Ad esempio, è possibile inserire file HTML, PDF e ZIP come oggetti. Quando l'utente fa doppio clic sull'oggetto inserito, questo si apre automaticamente nel programma pertinente, oppure viene chiesto di selezionare un programma appropriato per aprirlo.
+Oltre ai grafici Excel, Aspose.Slides per PHP via Java consente di incorporare altri tipi di file nelle diapositive. Ad esempio, è possibile inserire file HTML, PDF e ZIP come oggetti. Quando l’utente fa doppio clic sull’oggetto inserito, questo si apre automaticamente nel programma pertinente, oppure viene richiesto all’utente di selezionare un programma appropriato per aprirlo.
 
 Questo codice PHP mostra come incorporare HTML e ZIP in una diapositiva:
 
@@ -229,7 +225,7 @@ $presentation->save("output.pptx", SaveFormat::Pptx);
 $presentation->dispose();
 ```
 
-## **Impostare i tipi di file per gli oggetti incorporati**
+## **Impostare i Tipi di File per gli Oggetti Incorporati**
 
 Durante il lavoro con le presentazioni, potresti dover sostituire vecchi oggetti OLE con nuovi o sostituire un oggetto OLE non supportato con uno supportato. Aspose.Slides per PHP via Java consente di impostare il tipo di file per un oggetto incorporato, permettendo di aggiornare i dati della cornice OLE o la sua estensione.
 
@@ -252,11 +248,11 @@ $presentation->save("output.pptx", SaveFormat::Pptx);
 $presentation->dispose();
 ```
 
-## **Impostare le immagini dell'icona e i titoli per gli oggetti incorporati**
+## **Impostare Immagini e Titoli dell'Icona per gli Oggetti Incorporati**
 
-Dopo aver incorporato un oggetto OLE, viene aggiunta automaticamente un'anteprima costituita da un'immagine icona. Questa anteprima è ciò che gli utenti vedono prima di accedere o aprire l'oggetto OLE. Se desideri utilizzare un'immagine e un testo specifici come elementi dell'anteprima, puoi impostare l'immagine icona e il titolo utilizzando Aspose.Slides per PHP via Java.
+Dopo aver incorporato un oggetto OLE, viene aggiunta automaticamente un’anteprima costituita da un’immagine icona. Questa anteprima è ciò che gli utenti vedono prima di accedere o aprire l’oggetto OLE. Se desideri utilizzare un’immagine e un testo specifici come elementi dell’anteprima, puoi impostare l’immagine icona e il titolo usando Aspose.Slides per PHP via Java.
 
-Questo codice PHP mostra come impostare l'immagine icona e il titolo per un oggetto incorporato:
+Questo codice PHP mostra come impostare l’immagine icona e il titolo per un oggetto incorporato:
 
 ```php
 $presentation = new Presentation("sample.pptx");
@@ -276,21 +272,28 @@ $presentation->save("output.pptx", SaveFormat::Pptx);
 $presentation->dispose();
 ```
 
-## **Impedire il ridimensionamento e il riposizionamento della cornice di oggetto OLE**
+## **Impedire che una Cornice di Oggetto OLE venga Ridimensionata e Riposizionata**
 
-Dopo aver aggiunto un oggetto OLE collegato a una diapositiva di presentazione, quando apri la presentazione in PowerPoint potresti vedere un messaggio che ti chiede di aggiornare i collegamenti. Facendo clic sul pulsante "Aggiorna collegamenti" la dimensione e la posizione della cornice dell'oggetto OLE potrebbero cambiare perché PowerPoint aggiorna i dati dall'oggetto OLE collegato e aggiorna l'anteprima dell'oggetto. Per impedire a PowerPoint di chiedere l'aggiornamento dei dati dell'oggetto, imposta il metodo `setUpdateAutomatic` della classe [OleObjectFrame](https://reference.aspose.com/slides/it/php-java/aspose.slides/oleobjectframe/) su `false`:
+Dopo aver aggiunto un oggetto OLE collegato a una diapositiva di presentazione, aprendo la presentazione in PowerPoint potresti visualizzare un messaggio che ti chiede di aggiornare i collegamenti. Il pulsante “Update Links” potrebbe modificare dimensione e posizione della cornice OLE perché PowerPoint aggiorna i dati dall’oggetto OLE collegato e rinfresca l’anteprima dell’oggetto. Per impedire a PowerPoint di chiedere l’aggiornamento dei dati dell’oggetto, chiama il metodo [setUpdateAutomatic](https://reference.aspose.com/slides/php-java/aspose.slides/oleobjectframe/#setUpdateAutomatic) della classe [OleObjectFrame](https://reference.aspose.com/slides/php-java/aspose.slides/oleobjectframe/) con `false`:
 
 ```php
+$presentation = new Presentation("sample.pptx");
+$slide = $presentation->getSlides()->get_Item(0);
+$oleFrame = $slide->getShapes()->get_Item(0);
+
 $oleFrame->setUpdateAutomatic(false);
+
+$presentation->save("output.pptx", SaveFormat::Pptx);
+$presentation->dispose();
 ```
 
-## **Estrarre i file incorporati**
+## **Estrazione dei File Incorporati**
 
 Aspose.Slides per PHP via Java consente di estrarre i file incorporati nelle diapositive come oggetti OLE in questo modo:
 
-1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/php-java/aspose.slides/presentation/) contenente gli oggetti OLE da estrarre. 
-2. Scorri tutte le forme nella presentazione e accedi alle forme [OLEObjectFrame](https://reference.aspose.com/slides/it/php-java/aspose.slides/oleobjectframe/). 
-3. Accedi ai dati dei file incorporati dalle cornici OLE e scrivili su disco. 
+1. Crea un’istanza della classe [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) contenente gli oggetti OLE che intendi estrarre.
+2. Scorri tutte le forme nella presentazione e accedi alle forme [OLEObjectFrame](https://reference.aspose.com/slides/php-java/aspose.slides/oleobjectframe/).
+3. Accedi ai dati dei file incorporati dalle cornici OLE e scrivili su disco.
 
 Questo codice PHP mostra come estrarre i file incorporati in una diapositiva come oggetti OLE:
 
@@ -320,12 +323,14 @@ $presentation->dispose();
 
 **Il contenuto OLE verrà renderizzato durante l'esportazione delle diapositive in PDF/immagini?**
 
-Quello che è visibile nella diapositiva viene renderizzato – l'icona/immagine di sostituzione (anteprima). Il contenuto OLE "live" non viene eseguito durante il rendering. Se necessario, imposta una tua immagine di anteprima per garantire l'aspetto previsto nel PDF esportato.
+Viene renderizzata solo la parte visibile nella diapositiva—l’icona/immagine sostitutiva (anteprima). Il contenuto OLE “live” non viene eseguito durante il rendering. Se necessario, imposta la tua immagine di anteprima per garantire l’aspetto previsto nel PDF esportato.
+
+Per conservare anche il file incorporato come allegato PDF, chiama [setIncludeOleData](https://reference.aspose.com/slides/php-java/aspose.slides/pdfoptions/#setIncludeOleData) con `true`. Questa opzione è disabilitata per impostazione predefinita. Per un esempio e istruzioni su come verificare l’allegato, vedi [Preserva i File OLE Incorporati come Allegati PDF](/slides/it/php-java/convert-powerpoint-to-pdf/#preserve-embedded-ole-files-as-pdf-attachments).
 
 **Come posso bloccare un oggetto OLE su una diapositiva in modo che gli utenti non possano spostarlo/modificarlo in PowerPoint?**
 
-Blocca la forma: Aspose.Slides fornisce blocchi a livello di forma. Non si tratta di crittografia, ma impedisce efficacemente modifiche accidentali e spostamenti.
+Blocca la forma: Aspose.Slides fornisce blocchi a livello di forma. Non è crittografia, ma impedisce efficacemente modifiche accidentali e spostamenti.
 
-**I percorsi relativi per gli oggetti OLE collegati saranno mantenuti nel formato PPTX?**
+**I percorsi relativi per gli oggetti OLE collegati saranno conservati nel formato PPTX?**
 
-Nel PPTX, le informazioni sui "percorsi relativi" non sono disponibili – solo il percorso completo. I percorsi relativi si trovano nel vecchio formato PPT. Per la portabilità, preferisci percorsi assoluti affidabili/URI accessibili o l'incorporamento.
+Nel PPTX le informazioni sul “percorso relativo” non sono disponibili—solo il percorso completo. I percorsi relativi sono presenti nel vecchio formato PPT. Per la portabilità, preferisci percorsi assoluti affidabili/URI accessibili o l’incorporamento.

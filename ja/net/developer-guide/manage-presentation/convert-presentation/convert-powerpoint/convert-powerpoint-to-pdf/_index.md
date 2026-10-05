@@ -1,57 +1,54 @@
 ---
-title: .NET で PPT と PPTX を PDF に変換する [高度な機能を含む]
-linktitle: PowerPoint を PDF に変換
+title: ".NET で PPT と PPTX を PDF に変換 [高度な機能を含む]"
+linktitle: "PowerPoint を PDF に変換"
 type: docs
 weight: 40
 url: /ja/net/convert-powerpoint-to-pdf/
 keywords:
-- PowerPoint を変換
-- プレゼンテーションを変換
-- PowerPoint を PDF に変換
-- プレゼンテーションを PDF に変換
-- PPT を PDF に変換
-- PPT を PDF に変換
-- PPTX を PDF に変換
-- PPTX を PDF に変換
-- PowerPoint を PDF として保存
-- PPT を PDF として保存
-- PPTX を PDF として保存
-- PPT を PDF にエクスポート
-- PPTX を PDF にエクスポート
-- PDF/A1a
-- PDF/A1b
-- PDF/UA
-- .NET
-- C#
-- Aspose.Slides
-description: " .NET で Aspose.Slides を使用して、PowerPoint の PPT/PPTX を高品質で検索可能な PDF に変換します。高速な C# コード例と高度な変換オプションを提供します。"
+- "PowerPoint を変換"
+- "プレゼンテーションを変換"
+- "PowerPoint を PDF に変換"
+- "プレゼンテーションを PDF に変換"
+- "PPT を PDF に変換"
+- "PPT を PDF に変換"
+- "PPTX を PDF に変換"
+- "PPTX を PDF に変換"
+- "PowerPoint を PDF として保存"
+- "PPT を PDF として保存"
+- "PPTX を PDF として保存"
+- "PPT を PDF にエクスポート"
+- "PPTX を PDF にエクスポート"
+- "添付"
+- "PDF/A1a"
+- "PDF/A1b"
+- "PDF/UA"
+- ".NET"
+- "C#"
+- "Aspose.Slides"
+description: ".NET で Aspose.Slides を使用して PowerPoint PPT/PPTX を高品質で検索可能な PDF に変換します。高速な C# コード例と高度な変換オプションを提供します。"
 ---
 ## **概要**
 
-PowerPoint プレゼンテーション (PPT、PPTX、ODP など) を C# で PDF 形式に変換することには、さまざまな利点があります。デバイス間での互換性や、プレゼンテーションのレイアウトや書式設定を保持できる点などです。このガイドでは、プレゼンテーションを PDF ドキュメントに変換する方法、画像品質を制御するさまざまなオプションの使用方法、非表示スライドの含め方、PDF ファイルのパスワード保護、フォント置換の検出、変換対象の特定スライドの選択、出力ドキュメントへの準拠基準の適用方法を示します。
+C# で PowerPoint プレゼンテーション（PPT、PPTX、ODP など）を PDF 形式に変換すると、さまざまなデバイス間での互換性やプレゼンテーションのレイアウトと書式設定を保持するなど、多くの利点があります。本ガイドでは、プレゼンテーションを PDF ドキュメントに変換する方法、画像品質を制御するオプションの使用、非表示スライドの含め方、PDF ファイルのパスワード保護、フォント置換の検出、特定スライドの選択変換、および出力ドキュメントにコンプライアンス基準を適用する方法を示します。
 
 ## **PowerPoint から PDF への変換**
-
-Aspose.Slides を使用すると、次の形式のプレゼンテーションを PDF に変換できます。
 
 * **PPT**
 * **PPTX**
 * **ODP**
 
-プレゼンテーションを PDF に変換するには、ファイル名を引数として [Presentation](https://reference.aspose.com/slides/ja/net/aspose.slides/presentation/) クラスに渡し、[Save](https://reference.aspose.com/slides/ja/net/aspose.slides/presentation/save/) メソッドで PDF として保存します。[Presentation](https://reference.aspose.com/slides/ja/net/aspose.slides/presentation/) クラスは、プレゼンテーションを PDF に変換する際に通常使用される [Save](https://reference.aspose.com/slides/ja/net/aspose.slides/presentation/save/) メソッドを公開しています。
+プレゼンテーションを PDF に変換するには、ファイル名を引数として [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) クラスに渡し、[Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/) メソッドを使用してプレゼンテーションを PDF として保存します。[Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) クラスは通常、プレゼンテーションを PDF に変換するために使用される [Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/) メソッドを公開しています。
 
-{{%  alert title="NOTE"  color="warning"   %}} 
-
-Aspose.Slides for .NET は、出力ドキュメントに API 情報とバージョン番号を挿入します。たとえば、プレゼンテーションを PDF に変換する際、Aspose.Slides は Application フィールドに "*Aspose.Slides*"、PDF Producer フィールドに "*Aspose.Slides v XX.XX*" という形式の値を設定します。**Note** この情報を出力ドキュメントから変更または削除するよう指示することはできません。
-
+{{% alert color="info" title="Note" %}}
+Aspose.Slides for .NET は、出力ドキュメントに API 情報とバージョン番号を挿入します。たとえば、プレゼンテーションを PDF に変換する場合、Aspose.Slides は Application フィールドに「*Aspose.Slides*」を、PDF Producer フィールドに「*Aspose.Slides v XX.XX*」形式の値を設定します。**注** Aspose.Slides に対してこの情報を変更または削除するよう指示することはできません。
 {{% /alert %}}
 
-Aspose.Slides では次の変換が可能です。
+Aspose.Slides を使用すると、次の変換が可能です：
 
 * プレゼンテーション全体を PDF に変換
 * プレゼンテーションから特定のスライドを PDF に変換
 
-Aspose.Slides はプレゼンテーションを PDF にエクスポートし、生成された PDF が元のプレゼンテーションにできるだけ近い形になるよう保証します。変換時に正確にレンダリングされる要素と属性は以下のとおりです。
+Aspose.Slides はプレゼンテーションを PDF にエクスポートし、生成された PDF が元のプレゼンテーションと非常に近い形になるようにします。変換では、以下を含む要素と属性が正確にレンダリングされます：
 
 * 画像
 * テキストボックスと図形
@@ -64,127 +61,133 @@ Aspose.Slides はプレゼンテーションを PDF にエクスポートし、�
 
 ## **PowerPoint を PDF に変換**
 
-標準の PowerPoint から PDF への変換プロセスはデフォルトオプションを使用します。この場合、Aspose.Slides は最大品質レベルで最適な設定を用いて提供されたプレゼンテーションを PDF に変換しようとします。
+標準的な PowerPoint から PDF への変換プロセスはデフォルトオプションを使用します。この場合、Aspose.Slides は提供されたプレゼンテーションを最大品質レベルの最適な設定で PDF に変換しようとします。
 
-この C# コードは、プレゼンテーション (PPT、PPTX、ODP など) を PDF に変換する方法を示しています。
+次の例は、プレゼンテーションを読み込み、デフォルトのエクスポート設定を使用してすべての表示スライドを PDF に保存します。
 
-```c#
-// PowerPoint または OpenDocument ファイルを表す Presentation クラスのインスタンスを作成します。
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using var presentation = new Presentation("PowerPoint.ppt");
-
-// プレゼンテーションを PDF として保存します。
 presentation.Save("PDF-result.pdf", SaveFormat.Pdf);
 ```
 
-{{%  alert  color="primary"  %}} 
-
-Aspose は、プレゼンテーションから PDF への変換プロセスを実演する無料のオンライン [**PowerPoint to PDF converter**](https://products.aspose.app/slides/ja/conversion/ppt-to-pdf) を提供しています。このコンバーターを使用して、本ガイドで説明した手順を実際にテストできます。
-
+{{% alert color="info" title="Note" %}}
+Aspose は、プレゼンテーションから PDF への変換プロセスを示す無料のオンライン [**PowerPoint から PDF コンバータ**](https://products.aspose.app/slides/conversion/ppt-to-pdf) を提供しています。このコンバータでテストを実行し、本稿で説明した手順をライブで実装できます。
 {{% /alert %}}
 
-## **PowerPoint をオプション付きで PDF に変換**
+## **オプションを使用した PowerPoint から PDF への変換**
 
-Aspose.Slides は、結果の PDF をカスタマイズしたり、パスワードでロックしたり、変換プロセスの進め方を指定したりできるカスタムオプション（[PdfOptions](https://reference.aspose.com/slides/ja/net/aspose.slides.export/pdfoptions/) クラスのプロパティ）を提供します。
+Aspose.Slides は、[PdfOptions](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/) クラスの下にあるカスタムオプション（プロパティ）を提供し、生成された PDF をカスタマイズしたり、パスワードで保護したり、変換プロセスの進行方法を指定したりできます。
 
-### **PowerPoint をカスタムオプション付きで PDF に変換**
+### **カスタムオプションを使用した PowerPoint から PDF への変換**
 
-カスタム変換オプションを使用すると、ラスタ画像の品質設定、メタファイルの処理方法、テキストの圧縮レベル、画像の DPI 設定などを指定できます。
+カスタム変換オプションを使用すると、ラスタ画像の品質設定を指定したり、メタファイルの処理方法を定義したり、テキストの圧縮レベルを設定したり、画像の DPI を構成したり、その他多数の設定が可能です。
 
-以下のコード例は、いくつかのカスタムオプションを使用して PowerPoint プレゼンテーションを PDF に変換する方法を示しています。
+次の例は、JPEG 品質を 90、画像解像度を 300 DPI、メタファイルを PNG として保存し、Flate テキスト圧縮を使用して PDF 1.5 にエクスポートします。
 
-```c#
-// PdfOptions クラスのインスタンスを作成します。
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 var pdfOptions = new PdfOptions
 {
-    // JPG 画像の品質を設定します。
     JpegQuality = 90,
-
-    // 画像の DPI を設定します。
     SufficientResolution = 300,
-
-    // メタファイルの動作を設定します。
     SaveMetafilesAsPng = true,
-
-    // テキスト コンテンツの圧縮レベルを設定します。
     TextCompression = PdfTextCompression.Flate,
-
-    // PDF 準拠モードを定義します。
     Compliance = PdfCompliance.Pdf15
 };
 
-// PowerPoint または OpenDocument ファイルを表す Presentation クラスのインスタンスを作成します。
 using var presentation = new Presentation("PowerPoint.pptx");
-
-// プレゼンテーションを PDF ドキュメントとして保存します。
 presentation.Save("PowerPoint-to-PDF.pdf", SaveFormat.Pdf, pdfOptions);
 ```
 
-### **PowerPoint を非表示スライド付きで PDF に変換**
+### **埋め込み OLE ファイルを PDF 添付ファイルとして保持**
 
-プレゼンテーションに非表示スライドが含まれている場合、[PdfOptions](https://reference.aspose.com/slides/ja/net/aspose.slides.export/pdfoptions/) クラスの [ShowHiddenSlides](https://reference.aspose.com/slides/ja/net/aspose.slides.export/pdfoptions/showhiddenslides/) プロパティを使用して、非表示スライドを生成された PDF のページとして含めることができます。
+プレゼンテーションに埋め込みの Excel ワークブックが含まれている場合、PDF の受信者がスライドを閲覧できるだけでなく、ワークブックのデータにもアクセスできるようにしたいことがあります。埋め込み OLE ファイルを結果の PDF の添付ファイルとして保持するには、[PdfOptions.IncludeOleData](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/includeoledata/) を `true` に設定します。
 
-この C# コードは、非表示スライドを含めて PowerPoint プレゼンテーションを PDF に変換する方法を示しています。
+既定値は `false` です。OLE オブジェクトのプレビュー画像またはアイコンは PDF ページに描画されますが、埋め込みファイルは添付ファイルとして含まれません。オプションを `true` に設定すると、ファイルデータも追加で含まれます。プレビューは視覚的表現のままで、添付ファイルにより受信者は埋め込みファイルを別々に開くか保存できます。OLE オブジェクトは PDF ページ上でインタラクティブな Excel ワークシートにはなりません。
 
-```c#
-// PowerPoint または OpenDocument ファイルを表す Presentation クラスのインスタンスを作成します。
-using var presentation = new Presentation("PowerPoint.pptx");
+次の例は、すでに埋め込みの Excel ワークブックを含むプレゼンテーションを読み込み、ワークブックを添付した状態で PDF にエクスポートします。
 
-// PdfOptions クラスのインスタンスを作成します。
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+var pdfOptions = new PdfOptions { IncludeOleData = true };
+
+using var presentation = new Presentation("presentation.pptx");
+presentation.Save("presentation.pdf", SaveFormat.Pdf, pdfOptions);
+```
+
+結果を確認するには：
+
+1. Adobe Acrobat Reader など、ファイル添付をサポートするビューアでエクスポートされた PDF を開きます。
+2. ビューアの **添付ファイル** パネルを開き、埋め込みワークブックを見つけます。
+3. 添付ファイルを保存し、Excel で開いてデータを確認するか、ビューアが許可すれば直接開きます。PDF ページ上のプレビューは添付ファイルとは別です。
+
+{{% alert color="info" title="Note" %}}
+PDF/A 標準は添付ファイルに制限を課しています。PDF/A-1 は埋め込みファイルを禁止し、PDF/A-2 は PDF/A 添付ファイルのみを許可し、PDF/A-3 は Excel ワークブックを含むその他のファイルタイプを許可します。これらは標準の要件であり、Aspose.Slides 固有の制限ではありません。この例は既定の PDF コンプライアンス設定を使用しており、PDF/A エクスポートは示していません。
+{{% /alert %}}
+
+### **非表示スライドを含む PowerPoint から PDF への変換**
+
+プレゼンテーションに非表示スライドがある場合、[PdfOptions](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/) クラスの [ShowHiddenSlides](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/showhiddenslides/) プロパティを使用して、非表示スライドを結果の PDF のページとして含めることができます。
+
+次の例は、非表示スライドを含めてプレゼンテーションを PDF にエクスポートします。
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 var pdfOptions = new PdfOptions();
-
-// 非表示スライドを追加します。
 pdfOptions.ShowHiddenSlides = true;
 
-// プレゼンテーションを PDF として保存します。
+using var presentation = new Presentation("PowerPoint.pptx");
 presentation.Save("PowerPoint-to-PDF.pdf", SaveFormat.Pdf, pdfOptions);
 ```
 
-### **PowerPoint をパスワード保護 PDF に変換**
+### **パスワード保護された PDF への PowerPoint 変換**
 
-この C# コードは、[PdfOptions](https://reference.aspose.com/slides/ja/net/aspose.slides.export/pdfoptions/) クラスの保護パラメータを使用して、PowerPoint プレゼンテーションをパスワード保護された PDF に変換する方法を示しています。
+次の例は、開く際にパスワード `password` が必要な PDF にプレゼンテーションをエクスポートします。アクセス権限では印刷が許可されており、高品質印刷も含まれます。
 
-```c#
-// PowerPoint または OpenDocument ファイルを表す Presentation クラスのインスタンスを作成します。
-using var presentation = new Presentation("PowerPoint.pptx");
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-// PdfOptions クラスのインスタンスを作成します。
 var pdfOptions = new PdfOptions();
-
-// PDF のパスワードとアクセス許可を設定します。
 pdfOptions.Password = "password";
 pdfOptions.AccessPermissions = PdfAccessPermissions.PrintDocument | PdfAccessPermissions.HighQualityPrint;
 
-// プレゼンテーションを PDF として保存します。
+using var presentation = new Presentation("PowerPoint.pptx");
 presentation.Save("PPTX-to-PDF.pdf", SaveFormat.Pdf, pdfOptions);
 ```
 
 ### **フォント置換の検出**
 
-Aspose.Slides は、[PdfOptions](https://reference.aspose.com/slides/ja/net/aspose.slides.export/pdfoptions/) クラスの下にある [WarningCallback](https://reference.aspose.com/slides/ja/net/aspose.slides.export/saveoptions/warningcallback/) プロパティを提供し、プレゼンテーションから PDF への変換プロセス中にフォント置換を検出できるようにします。
+Aspose.Slides は、[PdfOptions](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/) クラスの下にある [WarningCallback](https://reference.aspose.com/slides/net/aspose.slides.export/saveoptions/warningcallback/) プロパティを提供し、プレゼンテーションから PDF への変換プロセス中にフォント置換を検出できるようにします。
 
-この C# コードは、フォント置換を検出する方法を示しています。
+次の例は、プレゼンテーションを PDF にエクスポートし、フォント置換の警告をコンソールに出力します。警告は、利用できないフォントがエクスポート中に置換された場合にのみ出力されます。
 
-```c#
-public static void Main()
-{
-    // PowerPoint または OpenDocument ファイルを表す Presentation クラスのインスタンスを作成します。 
-    using var presentation = new Presentation("sample.pptx");
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.Warnings;
+using System;
 
-    // PDF オプションで警告コールバックを設定します。
-    var pdfOptions = new PdfOptions();
-    pdfOptions.WarningCallback = new FontSubstitutionHandler();
+var pdfOptions = new PdfOptions();
+pdfOptions.WarningCallback = new FontSubstitutionHandler();
 
-    // プレゼンテーションを PDF として保存します。
-    presentation.Save("output.pdf", SaveFormat.Pdf, pdfOptions);
-}
+using var presentation = new Presentation("sample.pptx");
+presentation.Save("output.pdf", SaveFormat.Pdf, pdfOptions);
 
-// 警告コールバックの実装。
-private class FontSubstitutionHandler : IWarningCallback
+class FontSubstitutionHandler : IWarningCallback
 {
     public ReturnAction Warning(IWarningInfo warning)
     {
-        if (warning.WarningType == WarningType.DataLoss &&
-            warning.Description.StartsWith("Font will be substituted"))
+        if (warning.WarningType == WarningType.DataLoss && warning.Description.StartsWith("Font will be substituted"))
         {
             Console.WriteLine($"Font substitution warning: {warning.Description}");
         }
@@ -194,61 +197,54 @@ private class FontSubstitutionHandler : IWarningCallback
 }
 ```
 
-{{%  alert color="primary"  %}} 
+{{% alert color="info" title="Note" %}}
+フォント置換の詳細については、[Font Substitution](/slides/ja/net/font-substitution/) 記事をご覧ください。
+{{% /alert %}}
 
-レンダリングプロセス中のフォント置換に関するコールバック取得の詳細については、[Getting Warning Callbacks for Fonts Substitution](/slides/ja/net/getting-warning-callbacks-for-fonts-substitution-in-aspose-slides/) を参照してください。フォント置換の詳細については、[Font Substitution](/slides/ja/net/font-substitution/) 記事をご覧ください。
+## **PowerPoint から選択スライドを PDF に変換**
 
-{{% /alert %}} 
+次の例は、プレゼンテーションからスライド 1 と 3 を PDF にエクスポートします。この配列のスライド番号は 1 から始まり、入力プレゼンテーションは少なくとも 3 枚のスライドを含んでいる必要があります。
 
-## **PowerPoint から選択したスライドを PDF に変換**
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-この C# コードは、PowerPoint プレゼンテーションから特定のスライドだけを PDF に変換する方法を示しています。
-
-```c#
-// PowerPoint または OpenDocument ファイルを表す Presentation クラスのインスタンスを作成します。
 using var presentation = new Presentation("PowerPoint.pptx");
-
-// スライド番号の配列を設定します。
-int[] slides = { 1, 3 };
-
-// プレゼンテーションを PDF として保存します。
+var slides = new[] { 1, 3 };
 presentation.Save("PPTX-to-PDF.pdf", slides, SaveFormat.Pdf);
 ```
 
 ## **カスタムスライドサイズで PowerPoint を PDF に変換**
 
-この C# コードは、指定したスライドサイズで PowerPoint プレゼンテーションを PDF に変換する方法を示しています。
+次の例は、プレゼンテーションの最初のスライドを 612 × 792 ポイント（8.5 × 11 インチ）のスライドサイズを持つ新しいプレゼンテーションにコピーします。スライド内容をフィットするようにスケーリングし、単一スライドを PDF にエクスポートします。
 
-```c#
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 var slideWidth = 612;
 var slideHeight = 792;
 
-// PowerPoint プレゼンテーションを読み込みます。
 using var presentation = new Presentation("SelectedSlides.pptx");
-
-// スライドサイズを調整した新しいプレゼンテーションを作成します。
 using var resizedPresentation = new Presentation();
 
-// カスタムスライドサイズを設定します。
 resizedPresentation.SlideSize.SetSize(slideWidth, slideHeight, SlideSizeScaleType.EnsureFit);
-
-// 元のプレゼンテーションから最初のスライドをクローンします。
 var slide = presentation.Slides[0];
 resizedPresentation.Slides.InsertClone(0, slide);
 
-// リサイズしたプレゼンテーションをノート付きの PDF として保存します。
-resizedPresentation.Save("PDF_with_notes.pdf", SaveFormat.Pdf);
+// Remove the blank slide that the new presentation was created with.
+resizedPresentation.Slides.RemoveAt(1);
+resizedPresentation.Save("PDF_with_custom_slide_size.pdf", SaveFormat.Pdf);
 ```
 
 ## **ノートスライドビューで PowerPoint を PDF に変換**
 
-この C# コードは、ノートを含む PDF に PowerPoint プレゼンテーションを変換する方法を示しています。
+次の例は、プレゼンテーションを PDF にエクスポートし、各スライドのスピーカーノートをスライドの下部に配置します。結果を確認するには、スピーカーノートを含むプレゼンテーションを使用してください。
 
-```c#
-// PowerPoint プレゼンテーションを読み込みます。
-using var presentation = new Presentation("NotesFile.pptx");
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-// Configure the PDF options with Notes Layout.
 var pdfOptions = new PdfOptions
 {
     SlidesLayoutOptions = new NotesCommentsLayoutingOptions
@@ -257,17 +253,20 @@ var pdfOptions = new PdfOptions
     }
 };
 
-// Save the presentation to a PDF with notes.
+using var presentation = new Presentation("NotesFile.pptx");
 presentation.Save("PDF_with_notes.pdf", SaveFormat.Pdf, pdfOptions);
 ```
 
-## **PDF のアクセシビリティと準拠基準**
+## **PDF のアクセシビリティとコンプライアンス標準**
 
-Aspose.Slides は、[Web Content Accessibility Guidelines (**WCAG**)](https://www.w3.org/TR/WCAG-TECHS/pdf.html) に準拠した変換手順を使用できるようにします。次の準拠基準のいずれかを使用して PowerPoint ドキュメントを PDF にエクスポートできます：**PDF/A1a**、**PDF/A1b**、**PDF/UA**。
+Aspose.Slides は、[Web Content Accessibility Guidelines (**WCAG**)](https://www.w3.org/TR/WCAG-TECHS/pdf.html) に準拠した変換手順を使用できます。これらのコンプライアンス標準のいずれか (**PDF/A1a**, **PDF/A1b**, **PDF/UA**) を使用して PowerPoint ドキュメントを PDF にエクスポートできます。
 
-この C# コードは、異なる準拠基準に基づいて複数の PDF を生成する PowerPoint から PDF への変換プロセスを示しています。
+この C# コードは、異なるコンプライアンス標準に基づいて複数の PDF を生成する PowerPoint から PDF への変換プロセスを示しています。
 
-```c#
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using var presentation = new Presentation("pres.pptx");
 
 presentation.Save("pres-a1a-compliance.pdf", SaveFormat.Pdf, new PdfOptions
@@ -286,38 +285,36 @@ presentation.Save("pres-ua-compliance.pdf", SaveFormat.Pdf, new PdfOptions
 });
 ```
 
-{{% alert title="Note" color="warning" %}} 
-
-Aspose.Slides は PDF 変換操作をサポートしており、PDF ファイルを一般的なフォーマットに変換できます。[PDF to HTML](https://products.aspose.com/slides/ja/net/conversion/pdf-to-html/)、[PDF to image](https://products.aspose.com/slides/ja/net/conversion/pdf-to-image/)、[PDF to JPG](https://products.aspose.com/slides/ja/net/conversion/pdf-to-jpg/)、[PDF to PNG](https://products.aspose.com/slides/ja/net/conversion/pdf-to-png/) の変換が可能です。さらに、[PDF to SVG](https://products.aspose.com/slides/ja/net/conversion/pdf-to-svg/)、[PDF to TIFF](https://products.aspose.com/slides/ja/net/conversion/pdf-to-tiff/)、[PDF to XML](https://products.aspose.com/slides/ja/net/conversion/pdf-to-xml/) といった特殊フォーマットへの変換もサポートされています。
-
+{{% alert color="info" title="Note" %}}
+Aspose.Slides は PDF 変換操作をサポートしており、PDF ファイルを一般的なファイル形式に変換できます。[PDF to HTML](https://products.aspose.com/slides/net/conversion/pdf-to-html/)、[PDF to image](https://products.aspose.com/slides/net/conversion/pdf-to-image/)、[PDF to JPG](https://products.aspose.com/slides/net/conversion/pdf-to-jpg/)、[PDF to PNG](https://products.aspose.com/slides/net/conversion/pdf-to-png/) の変換を実行できます。さらに、[PDF to SVG](https://products.aspose.com/slides/net/conversion/pdf-to-svg/)、[PDF to TIFF](https://products.aspose.com/slides/net/conversion/pdf-to-tiff/)、[PDF to XML](https://products.aspose.com/slides/net/conversion/pdf-to-xml/) などの専門フォーマットへの変換もサポートされています。
 {{% /alert %}}
 
-> **Note:** PDF/UA にエクスポートする場合、Aspose.Slides は SmartArt、チャート、数式などの複雑なグラフィックを単一の図として扱います。個々のパス要素は別個のコンテンツとして保持されず、アーティファクトとしてマークされる可能性があり、代替テキストは全体の図に対してのみ提供されます。
+> **注:** PDF/UA にエクスポートする際、Aspose.Slides は SmartArt、チャート、数式などの複雑なグラフィックを単一の図として扱います。個々のパス要素は別個のコンテンツとして保持されず、アーティファクトとしてマークされる場合があります。代替テキストは全体の図に対してのみ提供されます。
 
 ## **よくある質問**
 
-**複数の PowerPoint ファイルをまとめて PDF に変換できますか？**
+**複数の PowerPoint ファイルを一括で PDF に変換できますか？**
 
 はい、Aspose.Slides は複数の PPT または PPTX ファイルを PDF にバッチ変換することをサポートしています。ファイルを反復処理し、プログラムで変換プロセスを適用できます。
 
 **変換された PDF にパスワード保護を設定できますか？**
 
-もちろんです。[PdfOptions](https://reference.aspose.com/slides/ja/net/aspose.slides.export/pdfoptions/) クラスを使用して、変換プロセス中にパスワードとアクセス許可を設定できます。
+はい。変換プロセス中にパスワードを設定し、アクセス許可を定義するには、[PdfOptions](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/) クラスを使用します。
 
 **PDF に非表示スライドを含めるにはどうすればよいですか？**
 
-[PdfOptions](https://reference.aspose.com/slides/ja/net/aspose.slides.export/pdfoptions/) クラスの `ShowHiddenSlides` プロパティを `true` に設定すると、生成された PDF に非表示スライドが含まれます。
+[PdfOptions](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/) クラスの [ShowHiddenSlides](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/showhiddenslides/) プロパティを `true` に設定すると、結果の PDF に非表示スライドが含まれます。
 
-**Aspose.Slides は PDF の画像品質を高く保てますか？**
+**Aspose.Slides は PDF の画像品質を高く保つことができますか？**
 
-はい、[PdfOptions](https://reference.aspose.com/slides/ja/net/aspose.slides.export/pdfoptions/) クラスの `JpegQuality` や `SufficientResolution` などのプロパティを設定することで、PDF 内の画像品質を高く保つことができます。
+はい、[JpegQuality](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/jpegquality/) や [SufficientResolution](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/sufficientresolution/) などのプロパティを [PdfOptions](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/) クラスで設定することで、PDF の画像品質を高く保つことができます。
 
-**Aspose.Slides は PDF/A 準拠標準をサポートしていますか？**
+**Aspose.Slides は PDF/A コンプライアンス標準をサポートしていますか？**
 
-はい、Aspose.Slides は PDF/A1a、PDF/A1b、PDF/UA などのさまざまな標準に準拠した PDF のエクスポートを可能にし、アクセシビリティとアーカイブ要件を満たすことができます。
+はい、Aspose.Slides は PDF/A1a、PDF/A1b、PDF/UA など、さまざまな標準に準拠した PDF のエクスポートを可能にし、文書がアクセシビリティとアーカイブ要件を満たすようにします。
 
 ## **追加リソース**
 
-- [Aspose.Slides for .NET Documentation](/slides/ja/net/)
-- [Aspose.Slides for .NET API Reference](https://reference.aspose.com/slides/ja/net/)
-- [Aspose Free Online Converters](https://products.aspose.app/slides/ja/conversion)
+- [Aspose.Slides for .NET ドキュメント](/slides/ja/net/)
+- [Aspose.Slides for .NET API リファレンス](https://reference.aspose.com/slides/net/)
+- [Aspose 無料オンラインコンバータ](https://products.aspose.app/slides/conversion)
