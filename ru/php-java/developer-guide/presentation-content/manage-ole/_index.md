@@ -1,5 +1,5 @@
 ---
-title: Управление OLE в презентациях с помощью PHP
+title: Управление OLE в презентациях с использованием PHP
 linktitle: Управление OLE
 type: docs
 weight: 40
@@ -25,32 +25,36 @@ keywords:
 - презентация
 - PHP
 - Aspose.Slides
-description: "Оптимизируйте управление OLE объектами в файлах PowerPoint и OpenDocument с помощью Aspose.Slides for PHP via Java. Внедряйте, обновляйте и экспортируйте содержимое OLE без проблем."
+description: "Оптимизируйте управление OLE‑объектами в файлах PowerPoint и OpenDocument с помощью Aspose.Slides for PHP via Java. Внедряйте, обновляйте и экспортируйте OLE‑контент без проблем."
 ---
+## **Введение**
 
-{{% alert color="primary" %}} 
-OLE (Object Linking & Embedding) — технология Microsoft, позволяющая помещать данные и объекты, созданные в одном приложении, в другое приложение с помощью связывания или внедрения. 
+{{% alert color="info" title="Note" %}}
+
+OLE (Object Linking & Embedding) — технология Microsoft, позволяющая размещать данные и объекты, созданные в одном приложении, в другом приложении посредством связывания или внедрения. 
+
 {{% /alert %}} 
 
-Рассмотрим диаграмму, созданную в MS Excel. Диаграмма помещается на слайд PowerPoint. Такая диаграмма Excel считается OLE‑объектом. 
+Рассмотрим диаграмму, созданную в MS Excel. Затем эта диаграмма помещается в слайд PowerPoint. Такая диаграмма Excel считается OLE‑объектом. 
 
-- OLE‑объект может отображаться в виде значка. В этом случае двойной щелчок по значку открывает диаграмму в соответствующем приложении (Excel) или предлагает выбрать приложение для открытия/редактирования объекта. 
-- OLE‑объект может показывать своё содержимое, например содержимое диаграммы. Тогда диаграмма активируется в PowerPoint, загружается её интерфейс, и вы можете изменять данные диаграммы непосредственно в PowerPoint.
+- OLE‑объект может отображаться в виде значка. В этом случае двойной щелчок по значку открывает диаграмму в связанном приложении (Excel) или запрашивает выбор приложения для открытия или редактирования объекта.
+- OLE‑объект может показывать своё фактическое содержимое, например содержимое диаграммы. В этом случае диаграмма активируется в PowerPoint, загружается её интерфейс, и вы можете изменять данные диаграммы непосредственно в PowerPoint.
 
-[Aspose.Slides for PHP via Java](https://products.aspose.com/slides/php-java/) позволяет вставлять OLE‑объекты на слайды в виде OLE‑object frames ([OleObjectFrame](https://reference.aspose.com/slides/php-java/aspose.slides/oleobjectframe/)).
+[Aspose.Slides для PHP via Java](https://products.aspose.com/slides/php-java/) позволяет вставлять OLE‑объекты в слайды в виде OLE‑кадров объектов ([OleObjectFrame](https://reference.aspose.com/slides/php-java/aspose.slides/oleobjectframe/)).
 
-## **Add OLE Object Frames to Slides**
+## **Добавление OLE‑кадров объектов на слайды**
 
-Предположим, что вы уже создали диаграмму в Microsoft Excel и хотите внедрить её в слайд как OLE‑object frame с помощью Aspose.Slides for PHP via Java. Сделать это можно так:
+Предположим, что вы уже создали диаграмму в Microsoft Excel и хотите внедрить её в слайд в виде OLE‑кадра объекта с использованием Aspose.Slides for PHP via Java. Делайте так:
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/).  
-1. Получите ссылку на слайд по его индексу.  
-1. Прочитайте файл Excel как массив байтов.  
-1. Добавьте [OleObjectFrame](https://reference.aspose.com/slides/php-java/aspose.slides/oleobjectframe/) на слайд, указав массив байтов и другую информацию об OLE‑объекте.  
-1. Сохраните изменённую презентацию в файл PPTX.  
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/).
+2. Получите ссылку на слайд по его индексу.
+3. Прочитайте файл Excel как массив байтов.
+4. Добавьте [OleObjectFrame](https://reference.aspose.com/slides/php-java/aspose.slides/oleobjectframe/) на слайд, указав массив байтов и другую информацию об OLE‑объекте.
+5. Запишите изменённую презентацию в файл PPTX.
 
-В примере ниже мы добавили диаграмму из файла Excel на слайд как OLE‑object frame с помощью Aspose.Slides for PHP via Java.  
-**Note** that the [OleEmbeddedDataInfo](https://reference.aspose.com/slides/php-java/aspose.slides/oleembeddeddatainfo/) constructor takes an embeddable object extension as a second parameter. This extension allows PowerPoint to correctly interpret the file type and choose the right application to open this OLE object.
+В примере ниже мы добавили диаграмму из файла Excel на слайд в виде OLE‑кадра объекта, используя Aspose.Slides for PHP via Java.  
+**Примечание**: конструктор [OleEmbeddedDataInfo](https://reference.aspose.com/slides/php-java/aspose.slides/oleembeddeddatainfo/) принимает расширение внедряемого объекта вторым параметром. Это расширение позволяет PowerPoint правильно определить тип файла и выбрать нужное приложение для открытия данного OLE‑объекта.
+
 ```php
 $presentation = new Presentation();
 $slideSize = $presentation->getSlideSize()->getSize();
@@ -67,34 +71,34 @@ $presentation->save("output.pptx", SaveFormat::Pptx);
 $presentation->dispose();
 ```
 
-
-### **Add Linked OLE Object Frames**
+### **Добавление связанных OLE‑кадров объектов**
 
 Aspose.Slides for PHP via Java позволяет добавить [OleObjectFrame](https://reference.aspose.com/slides/php-java/aspose.slides/oleobjectframe/) без внедрения данных, а только со ссылкой на файл.
 
-Этот PHP‑код показывает, как добавить [OleObjectFrame](https://reference.aspose.com/slides/php-java/aspose.slides/oleobjectframe/) со связанным файлом Excel на слайд:
+Этот PHP‑код показывает, как добавить [OleObjectFrame](https://reference.aspose.com/slides/php-java/aspose.slides/oleobjectframe/) с привязанным файлом Excel на слайд:
+
 ```php
 $presentation = new Presentation();
 $slide = $presentation->getSlides()->get_Item(0);
 
-// Добавить OLE объектный кадр со связанным файлом Excel.
+// Добавить OLE‑кадр объекта с привязанным файлом Excel.
 $slide->getShapes()->addOleObjectFrame(20, 20, 200, 150, "Excel.Sheet.12", "book.xlsx");
 
 $presentation->save("output.pptx", SaveFormat::Pptx);
 $presentation->dispose();
 ```
 
-
-## **Access OLE Object Frames**
+## **Доступ к OLE‑кадрам объектов**
 
 Если OLE‑объект уже внедрён в слайд, вы можете легко найти или получить к нему доступ следующим образом:
 
-1. Загрузите презентацию с внедрённым OLE‑объектом, создав экземпляр класса [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/).  
-2. Получите ссылку на слайд, используя его индекс.  
-3. Получите форму [OleObjectFrame](https://reference.aspose.com/slides/php-java/aspose.slides/oleobjectframe/). В примере мы использовали ранее созданный PPTX, в котором на первом слайде находится единственная форма.  
-4. После доступа к OLE‑object frame вы можете выполнить любую операцию над ним.  
+1. Загрузите презентацию с внедрённым OLE‑объектом, создав экземпляр класса [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/).
+2. Получите ссылку на слайд, используя его индекс.
+3. Доступ к элементу формы [OleObjectFrame](https://reference.aspose.com/slides/php-java/aspose.slides/oleobjectframe/). В нашем примере использовался ранее созданный PPTX, содержащий единственную форму на первом слайде.
+4. После получения доступа к OLE‑кадру вы можете выполнять любые операции с ним.
 
-В примере ниже демонстрируется доступ к OLE‑object frame (объект диаграммы Excel, внедрённый в слайд) и его файловым данным.
+В примере ниже демонстрируется доступ к OLE‑кадру объекта (внедрённому объекту Excel‑диаграммы) и его файловым данным.
+
 ```php
 $presentation = new Presentation("sample.pptx");
 $slide = $presentation->getSlides()->get_Item(0);
@@ -103,18 +107,18 @@ $shape = $slide->getShapes()->get_Item(0);
 if (java_instanceof($shape, new JavaClass("com.aspose.slides.OleObjectFrame"))) {
     $oleFrame = $shape;
     
-    // Получить данные вложенного файла.
-    // Получить расширение вложенного файла.
+    // Получить данные внедрённого файла.
+    // Получить расширение внедрённого файла.
     // ...
 }
 ```
 
+### **Доступ к свойствам связанного OLE‑кадра объекта**
 
-### **Access Linked OLE Object Frame Properties**
+Aspose.Slides позволяет получать свойства связанного OLE‑кадра объекта.
 
-Aspose.Slides позволяет получать свойства связанных OLE‑object frame.
+Этот PHP‑код показывает, как проверить, связан ли OLE‑объект, и затем получить путь к связанному файлу:
 
-Этот PHP‑код показывает, как проверить, является ли OLE‑объект связанным, и затем получить путь к связанному файлу:
 ```php
 $presentation = new Presentation("sample.ppt");
 $slide = $presentation->getSlides()->get_Item(0);
@@ -123,7 +127,7 @@ $shape = $slide->getShapes()->get_Item(0);
 if (java_instanceof($shape, new JavaClass("com.aspose.slides.OleObjectFrame"))) {
     $oleFrame = $shape;
 
-    // Проверить, связан ли OLE объект.
+    // Проверить, связан ли OLE-объект.
     if (java_values($oleFrame->isObjectLink()) != 0) {
         // Вывести полный путь к связанному файлу.
         echo "OLE object frame is linked to: " . $oleFrame->getLinkPathLong() . PHP_EOL;
@@ -140,25 +144,27 @@ if (java_instanceof($shape, new JavaClass("com.aspose.slides.OleObjectFrame"))) 
 $presentation->dispose();
 ```
 
+## **Изменение данных OLE‑объекта**
 
-## **Change OLE Object Data**
+{{% alert color="info" title="Note" %}}
 
-{{% alert color="primary" %}} 
-В этом разделе пример кода использует [Aspose.Cells for PHP via Java](/cells/php-java/). 
-{{% /alert %}} 
+В этом разделе приведён пример кода, использующий [Aspose.Cells for PHP via Java](https://docs.aspose.com/cells/php-java/).
+
+{{% /alert %}}
 
 Если OLE‑объект уже внедрён в слайд, вы можете легко получить доступ к этому объекту и изменить его данные следующим образом:
 
-1. Загрузите презентацию с внедрённым OLE‑объектом, создав экземпляр класса [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/).  
-2. Получите ссылку на слайд по его индексу.  
-3. Получите форму [OleObjectFrame](https://reference.aspose.com/slides/php-java/aspose.slides/oleobjectframe/). В примере мы использовали ранее созданный PPTX, в котором на первом слайде одна форма.  
-4. После доступа к OLE‑object frame выполните любую требуемую операцию.  
-5. Создайте объект `Workbook` и получите доступ к OLE‑данным.  
-6. Получите нужный `Worksheet` и измените данные.  
-7. Сохраните обновлённый `Workbook` в поток.  
-8. Замените данные OLE‑объекта из потока.  
+1. Загрузите презентацию с внедрённым OLE‑объектом, создав экземпляр класса [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/).
+2. Получите ссылку на слайд по его индексу. 
+3. Доступ к элементу формы [OleObjectFrame](https://reference.aspose.com/slides/php-java/aspose.slides/oleobjectframe/). В примере использовался ранее созданный PPTX с одной формой на первом слайде.
+4. После получения доступа к OLE‑кадру выполните нужные операции.
+5. Создайте объект `Workbook` и получите доступ к OLE‑данным.
+6. Доступ к требуемому `Worksheet` и изменение данных.
+7. Сохраните обновлённый `Workbook` в поток.
+8. Замените данные OLE‑объекта из потока.
 
-В примере ниже показано, как получить доступ к OLE‑object frame (объект диаграммы Excel, внедрённый в слайд) и изменить его файловые данные для обновления данных диаграммы.
+В примере ниже OLE‑кадр объекта (внедрённый объект Excel‑диаграммы) открывается, и его файловые данные изменяются для обновления данных диаграммы.
+
 ```php
 $presentation = new Presentation("sample.pptx");
 $slide = $presentation->getSlides()->get_Item(0);
@@ -167,14 +173,14 @@ $shape = $slide->getShapes()->get_Item(0);
 if (java_instanceof($shape, new JavaClass("com.aspose.slides.OleObjectFrame"))) {
     $oleFrame = $shape;
 
-    $oleStream = new ByteArrayInputStream($oleFrame->getEmbeddedData()->getEmbeddedFileData());
+    $oleStream = new Java("java.io.ByteArrayInputStream", $oleFrame->getEmbeddedData()->getEmbeddedFileData());
 
     // Прочитать данные OLE‑объекта как объект Workbook.
     $workbook = new Workbook($oleStream);
 
     $newOleStream = new Java("java.io.ByteArrayOutputStream");
 
-    // Изменить данные workbook.
+    // Изменить данные книги.
     $workbook->getWorksheets()->get(0)->getCells()->get(0, 4)->putValue("E");
     $workbook->getWorksheets()->get(0)->getCells()->get(1, 4)->putValue(12);
     $workbook->getWorksheets()->get(0)->getCells()->get(2, 4)->putValue(14);
@@ -195,12 +201,12 @@ $presentation->save("output.pptx", SaveFormat::Pptx);
 $presentation->dispose();
 ```
 
+## **Внедрение других типов файлов в слайды**
 
-## **Embed Other File Types in Slides**
+Помимо Excel‑диаграмм, Aspose.Slides for PHP via Java позволяет внедрять в слайды другие типы файлов. Например, можно вставлять HTML, PDF и ZIP‑файлы в виде объектов. При двойном щелчке по вставленному объекту он автоматически открывается в соответствующей программе, либо пользователь получает запрос выбрать подходящую программу для открытия.
 
-Помимо диаграмм Excel, Aspose.Slides for PHP via Java позволяет внедрять в слайды другие типы файлов. Например, можно вставлять HTML, PDF и ZIP‑файлы в виде объектов. При двойном щелчке пользовательского объекта он автоматически откроется в соответствующей программе, либо пользователю будет предложено выбрать подходящую программу для открытия.  
+Этот PHP‑код демонстрирует, как внедрить HTML и ZIP в слайд:
 
-Этот PHP‑код показывает, как внедрить HTML и ZIP в слайд:
 ```php
 $presentation = new Presentation("sample.pptx");
 $slide = $presentation->getSlides()->get_Item(0);
@@ -219,12 +225,12 @@ $presentation->save("output.pptx", SaveFormat::Pptx);
 $presentation->dispose();
 ```
 
+## **Установка типов файлов для внедрённых объектов**
 
-## **Set File Types for Embedded Objects**
+При работе с презентациями иногда требуется заменить старые OLE‑объекты новыми или заменить неподдерживаемый OLE‑объект поддерживаемым. Aspose.Slides for PHP via Java позволяет задать тип файла для внедрённого объекта, что даёт возможность обновить данные OLE‑кадра или его расширение.
 
-При работе с презентациями может потребоваться заменить старые OLE‑объекты новыми или заменить неподдерживаемый OLE‑объект поддерживаемым. Aspose.Slides for PHP via Java позволяет установить тип файла для внедрённого объекта, что даёт возможность обновить данные OLE‑frame или его расширение.  
+Этот PHP‑код показывает, как установить тип файла для внедрённого OLE‑объекта в `zip`:
 
-Этот PHP‑код показывает, как установить тип файла для внедрённого OLE‑объекта как `zip`:
 ```php
 $presentation = new Presentation("sample.pptx");
 $slide = $presentation->getSlides()->get_Item(0);
@@ -242,12 +248,12 @@ $presentation->save("output.pptx", SaveFormat::Pptx);
 $presentation->dispose();
 ```
 
+## **Установка изображений‑значков и заголовков для внедрённых объектов**
 
-## **Set Icon Images and Titles for Embedded Objects**
+После внедрения OLE‑объекта автоматически добавляется предварительный просмотр в виде значка. Этот предварительный просмотр виден пользователям до доступа к объекту. Если требуется использовать конкретное изображение и текст в качестве элементов предварительного просмотра, можно задать значок и заголовок с помощью Aspose.Slides for PHP via Java.
 
-После внедрения OLE‑объекта автоматически добавляется предварительный просмотр в виде значка. Этот предварительный просмотр виден пользователям до доступа к объекту. Если необходимо использовать конкретное изображение и текст в этом предварительном просмотре, можно задать изображение значка и заголовок с помощью Aspose.Slides for PHP via Java.  
+Этот PHP‑код демонстрирует, как задать изображение‑значок и заголовок для внедрённого объекта:
 
-Этот PHP‑код показывает, как задать изображение значка и заголовок для внедрённого объекта:
 ```php
 $presentation = new Presentation("sample.pptx");
 $slide = $presentation->getSlides()->get_Item(0);
@@ -257,7 +263,7 @@ $oleFrame = $slide->getShapes()->get_Item(0);
 $imageData = file_get_contents("image.png");
 $oleImage = $presentation->getImages()->addImage($imageData);
 
-// Установить заголовок и изображение для превью OLE.
+// Set a title and the image for the OLE preview.
 $oleFrame->setSubstitutePictureTitle("My title");
 $oleFrame->getSubstitutePictureFormat()->getPicture()->setImage($oleImage);
 $oleFrame->setObjectIcon(true);
@@ -266,24 +272,31 @@ $presentation->save("output.pptx", SaveFormat::Pptx);
 $presentation->dispose();
 ```
 
+## **Предотвращение изменения размера и перемещения OLE‑кадра объекта**
 
-## **Prevent an OLE Object Frame from Being Resized and Pepositioned**
+После добавления связанного OLE‑объекта на слайд презентации, при открытии презентации в PowerPoint может появиться сообщение с запросом обновить ссылки. Нажатие кнопки «Update Links» может изменить размер и положение OLE‑кадра, поскольку PowerPoint обновляет данные из связанного OLE‑объекта и обновляет его предварительный просмотр. Чтобы предотвратить запрос PowerPoint об обновлении данных объекта, вызовите метод [setUpdateAutomatic](https://reference.aspose.com/slides/php-java/aspose.slides/oleobjectframe/#setUpdateAutomatic) класса [OleObjectFrame](https://reference.aspose.com/slides/php-java/aspose.slides/oleobjectframe/) со значением `false`:
 
-После добавления связанного OLE‑объекта в слайд презентации, при открытии презентации в PowerPoint может появиться сообщение с запросом обновления связей. Нажатие кнопки «Update Links» может изменить размер и положение OLE‑object frame, так как PowerPoint обновляет данные из связанного OLE‑объекта и обновляет его превью. Чтобы предотвратить запрос PowerPoint о обновлении данных объекта, установите метод `setUpdateAutomatic` класса [OleObjectFrame](https://reference.aspose.com/slides/php-java/aspose.slides/oleobjectframe/) в `false`:
 ```php
+$presentation = new Presentation("sample.pptx");
+$slide = $presentation->getSlides()->get_Item(0);
+$oleFrame = $slide->getShapes()->get_Item(0);
+
 $oleFrame->setUpdateAutomatic(false);
+
+$presentation->save("output.pptx", SaveFormat::Pptx);
+$presentation->dispose();
 ```
 
-
-## **Extract Embedded Files**
+## **Извлечение внедрённых файлов**
 
 Aspose.Slides for PHP via Java позволяет извлекать файлы, внедрённые в слайды в виде OLE‑объектов, следующим образом:
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) с OLE‑объектами, которые необходимо извлечь.  
-2. Пройдите по всем формам презентации и получите формы [OLEObjectFrame](https://reference.aspose.com/slides/php-java/aspose.slides/oleobjectframe/).  
-3. Получите данные встроенных файлов из OLE‑object frame и запишите их на диск.  
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) с OLE‑объектами, которые необходимо извлечь.
+2. Пройдитесь по всем формам в презентации и получите доступ к формам [OLEObjectFrame](https://reference.aspose.com/slides/php-java/aspose.slides/oleobjectframe/).
+3. Получите данные внедрённых файлов из OLE‑кадров объектов и запишите их на диск.
 
-Этот PHP‑код показывает, как извлечь файлы, внедрённые в слайд как OLE‑объекты:
+Этот PHP‑код показывает, как извлечь файлы, внедрённые в слайд в виде OLE‑объектов:
+
 ```php
 $presentation = new Presentation("sample.pptx");
 $slide = $presentation->getSlides()->get_Item(0);
@@ -306,17 +319,18 @@ for ($index = 0; $index < $shapeCount; $index++) {
 $presentation->dispose();
 ```
 
-
 ## **FAQ**
 
-**Will the OLE content be rendered when exporting slides to PDF/images?**
+**Будет ли OLE‑содержимое отображено при экспорте слайдов в PDF/изображения?**
 
-То, что видно на слайде, будет отрендерено — значок/замещающее изображение (превью). «Живое» OLE‑содержимое при рендеринге не исполняется. При необходимости задайте собственное изображение превью, чтобы обеспечить ожидаемый вид в экспортированном PDF.
+При рендеринге отображается то, что видно на слайде — значок/заменяющее изображение (превью). «живое» OLE‑содержимое не исполняется во время рендеринга. При необходимости задайте своё превью‑изображение, чтобы обеспечить ожидаемый вид в экспортированном PDF.
 
-**How can I lock an OLE object on a slide so users cannot move/edit it in PowerPoint?**
+Чтобы также сохранить внедрённый файл в PDF как вложение, вызовите [setIncludeOleData](https://reference.aspose.com/slides/php-java/aspose.slides/pdfoptions/#setIncludeOleData) со значением `true`. Эта опция отключена по умолчанию. Пример и инструкции по проверке вложения см. в статье [Preserve Embedded OLE Files as PDF Attachments](/slides/ru/php-java/convert-powerpoint-to-pdf/#preserve-embedded-ole-files-as-pdf-attachments).
+
+**Как заблокировать OLE‑объект на слайде, чтобы пользователи не могли перемещать/редактировать его в PowerPoint?**
 
 Заблокируйте форму: Aspose.Slides предоставляет блокировки на уровне формы. Это не шифрование, но эффективно предотвращает случайные изменения и перемещения.
 
-**Will relative paths for linked OLE objects be preserved in the PPTX format?**
+**Сохранятся ли относительные пути для связанных OLE‑объектов в формате PPTX?**
 
-В PPTX информация о «относительном пути» отсутствует — сохраняется только полный путь. Относительные пути встречаются в более старом формате PPT. Для переносимости рекомендуется использовать надёжные абсолютные пути/доступные URI или внедрение.
+В PPTX информация о «относительном пути» недоступна — сохраняется только полный путь. Относительные пути присутствуют в более старом формате PPT. Для переносимости предпочтительнее использовать надёжные абсолютные пути/доступные URI или внедрение.

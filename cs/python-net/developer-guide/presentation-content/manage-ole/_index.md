@@ -25,38 +25,40 @@ keywords:
 - prezentace
 - Python
 - Aspose.Slides
-description: "Optimalizujte správu OLE objektů v PowerPointu a souborech OpenDocument pomocí Aspose.Slides pro Python via .NET. Vkládejte, aktualizujte a exportujte OLE obsah bez problémů."
+description: "Optimalizujte správu OLE objektů v PowerPoint a souborech OpenDocument s Aspose.Slides pro Python pomocí .NET. Vkládejte, aktualizujte a exportujte obsah OLE bez problémů."
 ---
 ## **Úvod**
 
-{{% alert title="Info" color="info" %}}
+{{% alert color="info" title="Note" %}}
 
-**OLE (Object Linking & Embedding)** je technologie společnosti Microsoft, která umožňuje propojit nebo vložit data a objekty vytvořené v jedné aplikaci do jiné.
+**OLE (Object Linking & Embedding)** je technologie Microsoftu, která umožňuje propojit nebo vložit data a objekty vytvořené v jedné aplikaci do jiné.
 
 {{% /alert %}}
 
-Například graf vytvořený v Microsoft Excelu a umístěný na snímku PowerPointu je OLE objektem.
+Například graf vytvořený v Microsoft Excel a umístěný na snímku PowerPointu je OLE objekt.
 
-- OLE objekt se může zobrazovat jako ikona. Dvojklikem na ikonu se objekt otevře v přidružené aplikaci (např. Excel) nebo se zobrazí výzva k výběru aplikace pro otevření či úpravu.
+- OLE objekt se může zobrazovat jako ikona. Dvojklik na ikonu otevře objekt v jeho přiřazené aplikaci (např. Excel) nebo vyzve k výběru aplikace pro otevření či úpravu.
 - OLE objekt může zobrazovat svůj obsah (například graf). V tomto případě PowerPoint aktivuje vložený objekt, načte rozhraní grafu a umožní upravit data grafu přímo v PowerPointu.
 
-Aspose.Slides for Python vám umožňuje vkládat OLE objekty do snímků jako OLE objektové rámy ([OleObjectFrame](https://reference.aspose.com/slides/cs/python-net/aspose.slides/oleobjectframe/)).
+Aspose.Slides for Python vám umožňuje vkládat OLE objekty do snímků jako OLE objektové rámy ([OleObjectFrame](https://reference.aspose.com/slides/python-net/aspose.slides/oleobjectframe/)).
 
 ## **Přidání OLE objektů do snímků**
 
-Pokud jste již vytvořili graf v Microsoft Excelu a chcete jej vložit do snímku jako OLE objektový rámec pomocí Aspose.Slides for Python, postupujte podle následujících kroků:
+Pokud jste již vytvořili graf v Microsoft Excel a chcete jej vložit do snímku jako OLE objektový rámec pomocí Aspose.Slides for Python, postupujte podle těchto kroků:
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/python-net/aspose.slides/presentation/).
+1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
 1. Získejte odkaz na snímek podle jeho indexu.
 1. Načtěte soubor Excel do pole bajtů.
-1. Přidejte [OleObjectFrame](https://reference.aspose.com/slides/cs/python-net/aspose.slides/oleobjectframe/) do snímku a předáte pole bajtů a další podrobnosti OLE objektu.
+1. Přidejte [OleObjectFrame](https://reference.aspose.com/slides/python-net/aspose.slides/oleobjectframe/) na snímek a předávejte pole bajtů a další podrobnosti OLE objektu.
 1. Uložte upravenou prezentaci jako soubor PPTX.
 
-V níže uvedeném příkladu je graf ze souboru Excel vložen do snímku jako [OleObjectFrame](https://reference.aspose.com/slides/cs/python-net/aspose.slides/oleobjectframe/).
+V níže uvedeném příkladu je graf ze souboru Excel vložen do snímku jako [OleObjectFrame](https://reference.aspose.com/slides/python-net/aspose.slides/oleobjectframe/).
 
-**Poznámka:** Konstruktor [OleEmbeddedDataInfo](https://reference.aspose.com/slides/cs/python-net/aspose.slides.dom.ole/oleembeddeddatainfo/) přijímá jako druhý parametr příponu souboru vkládaného objektu. PowerPoint tuto příponu používá k identifikaci typu souboru a výběru vhodné aplikace pro otevření OLE objektu.
+**Poznámka:** Konstruktor [OleEmbeddedDataInfo](https://reference.aspose.com/slides/python-net/aspose.slides.dom.ole/oleembeddeddatainfo/) přijímá příponu souboru vložitelného objektu jako druhý parametr. PowerPoint používá tuto příponu k identifikaci typu souboru a výběru vhodné aplikace pro otevření OLE objektu.
 
 ```py
+import aspose.slides as slides
+
 with slides.Presentation() as presentation:
     slide_size = presentation.slide_size.size
     slide = presentation.slides[0]
@@ -74,11 +76,13 @@ with slides.Presentation() as presentation:
 
 ### **Přidání propojených OLE objektů**
 
-Aspose.Slides for Python vám umožňuje přidat [OleObjectFrame](https://reference.aspose.com/slides/cs/python-net/aspose.slides/oleobjectframe/), který odkazuje na soubor místo vkládání jeho dat.
+Aspose.Slides for Python vám umožňuje přidat [OleObjectFrame](https://reference.aspose.com/slides/python-net/aspose.slides/oleobjectframe/), který odkazuje na soubor místo vložení jeho dat.
 
-Níže uvedený Python příklad ukazuje, jak přidat [OleObjectFrame](https://reference.aspose.com/slides/cs/python-net/aspose.slides/oleobjectframe/) propojený na soubor Excel na snímku:
+Následující příklad v Pythonu ukazuje, jak přidat [OleObjectFrame](https://reference.aspose.com/slides/python-net/aspose.slides/oleobjectframe/) odkazující na soubor Excel na snímku:
 
 ```py
+import aspose.slides as slides
+
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
@@ -90,16 +94,18 @@ with slides.Presentation() as presentation:
 
 ## **Přístup k OLE objektům**
 
-Pokud je OLE objekt již vložen do snímku, můžete k němu přistoupit následujícím způsobem:
+Pokud je OLE objekt již vložen do snímku, můžete k němu přistupovat následovně:
 
 1. Načtěte prezentaci, která obsahuje vložený OLE objekt, vytvořením instance třídy Presentation.
 1. Získejte odkaz na snímek podle jeho indexu.
 1. Přistupte k tvaru OleObjectFrame.
 1. Jakmile máte OLE objektový rámec, proveďte požadované operace.
 
-Níže uvedený příklad přistupuje k OLE objektovému rámci – vloženému Excel grafu – a načte jeho souborová data. V tomto příkladu používáme PPTX, který má na první snímku jediný tvar.
+Níže uvedený příklad přistupuje k OLE objektovému rámci — vloženému grafu Excelu — a načte jeho data souboru. V tomto příkladu používáme PPTX, který má na prvním snímku jediný tvar.
 
 ```py
+import aspose.slides as slides
+
 with slides.Presentation("sample.pptx") as presentation:
     slide = presentation.slides[0]
     shape = slide.shapes[0]
@@ -107,7 +113,7 @@ with slides.Presentation("sample.pptx") as presentation:
     if isinstance(shape, slides.OleObjectFrame):
         ole_frame = shape
 
-        # Získejte vložená data souboru.
+        # Získejte data vloženého souboru.
         file_data = ole_frame.embedded_data.embedded_file_data
 
         # Získejte příponu vloženého souboru.
@@ -116,13 +122,15 @@ with slides.Presentation("sample.pptx") as presentation:
         # ...
 ```
 
-### **Přístup k vlastnostem propojeného OLE objektu**
+### **Přístup k vlastnostem propojených OLE objektů**
 
-Aspose.Slides umožňuje přístup k vlastnostem rámce propojeného OLE objektu.
+Aspose.Slides vám umožňuje přistupovat k vlastnostem propojeného OLE objektového rámce.
 
-Python příklad níže kontroluje, zda je OLE objekt propojen, a pokud ano, získá cestu k propojenému souboru:
+Níže uvedený příklad v Pythonu kontroluje, zda je OLE objekt propojen, a pokud ano, získá cestu k propojenému souboru:
 
 ```py
+import aspose.slides as slides
+
 with slides.Presentation("sample.ppt") as presentation:
     slide = presentation.slides[0]
     shape = slide.shapes[0]
@@ -135,7 +143,7 @@ with slides.Presentation("sample.ppt") as presentation:
             # Vytiskněte úplnou cestu k propojenému souboru.
             print("OLE object frame is linked to:", ole_frame.link_path_long)
 
-            # Vytiskněte relativní cestu k propojenému souboru, pokud existuje.
+            # Vytiskněte relativní cestu k propojenému souboru, pokud je k dispozici.
             # Pouze prezentace .ppt mohou obsahovat relativní cestu.
             if ole_frame.link_path_relative:
                 print("OLE object frame relative path:", ole_frame.link_path_relative)
@@ -143,24 +151,24 @@ with slides.Presentation("sample.ppt") as presentation:
 
 ## **Změna dat OLE objektu**
 
-{{% alert color="primary" %}}
+{{% alert color="info" title="Note" %}}
 
-V této sekci ukázkový kód používá [Aspose.Cells for Python via .NET](/cells/python-net/).
+V této sekci níže uvedený kód používá [Aspose.Cells for Python via .NET](https://docs.aspose.com/cells/python-net/).
 
 {{% /alert %}}
 
-Pokud je OLE objekt již vložen do snímku, můžete k němu přistoupit a upravit jeho data následujícím způsobem:
+Pokud je OLE objekt již vložen do snímku, můžete k němu přistupovat a upravit jeho data následovně:
 
-1. Načtěte prezentaci vytvořením instance třídy [Presentation](https://reference.aspose.com/slides/cs/python-net/aspose.slides/presentation/).
+1. Načtěte prezentaci vytvořením instance třídy [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
 1. Získejte cílový snímek podle jeho indexu.
-1. Přistupte k tvaru [OleObjectFrame](https://reference.aspose.com/slides/cs/python-net/aspose.slides/oleobjectframe/).
+1. Přistupte k tvaru [OleObjectFrame](https://reference.aspose.com/slides/python-net/aspose.slides/oleobjectframe/).
 1. Jakmile máte OLE objektový rámec, proveďte požadované operace.
 1. Vytvořte objekt `Workbook` a načtěte OLE data.
 1. Otevřete požadovaný `Worksheet` a upravte data.
 1. Uložte aktualizovaný `Workbook` do proudu.
-1. Nahraďte data OLE objektu pomocí tohoto proudu.
+1. Nahraďte data OLE objektu tímto proudem.
 
-V níže uvedeném příkladu je OLE objektový rámec (vložený Excel graf) přístupný a jeho souborová data jsou upravena tak, aby se aktualizoval graf. Vzorek používá dříve vytvořený PPTX, který obsahuje na první snímku jediný tvar.
+V níže uvedeném příkladu je OLE objektový rámec (vložený graf Excelu) přístupný a jeho data souboru jsou upravena tak, aby aktualizovala graf. Vzorek používá dříve vytvořený PPTX, který obsahuje jediný tvar na prvním snímku.
 
 ```py
 import io
@@ -197,11 +205,13 @@ with slides.Presentation("sample.pptx") as presentation:
 
 ## **Vkládání souborů do snímků**
 
-Kromě Excel grafů vám Aspose.Slides for Python umožňuje vložit do snímků i jiné typy souborů. Například můžete vložit HTML, PDF a ZIP soubory jako objekty. Když uživatel dvojklikne vložený objekt, otevře se automaticky v přidružené aplikaci, nebo bude vyzván k výběru vhodného programu.
+Kromě grafů Excelu vám Aspose.Slides for Python umožňuje vkládat do snímků i jiné typy souborů. Například můžete vložit soubory HTML, PDF a ZIP jako objekty. Když uživatel dvojklikne vložený objekt, otevře se automaticky v příslušné aplikaci nebo je vyzván k výběru vhodného programu.
 
-Tento Python kód ukazuje, jak vložit HTML a ZIP soubory do snímku:
+Níže uvedený kód v Pythonu ukazuje, jak vložit soubory HTML a ZIP do snímku:
 
 ```py
+import aspose.slides as slides
+
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
@@ -224,11 +234,13 @@ with slides.Presentation() as presentation:
 
 ## **Nastavení typů souborů pro vložené objekty**
 
-Při práci s prezentacemi může být potřeba nahradit staré OLE objekty novými nebo vyměnit nepodporovaný OLE objekt za podporovaný. Aspose.Slides for Python vám umožňuje nastavit typ souboru vloženého objektu, což vám umožní aktualizovat data rámce OLE nebo jeho příponu souboru.
+Při práci s prezentacemi může být potřeba nahradit staré OLE objekty novými nebo vyměnit nepodporovaný OLE objekt za podporovaný. Aspose.Slides for Python vám umožňuje nastavit typ souboru vloženého objektu, což vám umožní aktualizovat data OLE rámce nebo jeho příponu souboru.
 
-Tento Python kód ukazuje, jak nastavit typ souboru vloženého OLE objektu na `zip`:
+Níže uvedený kód v Pythonu ukazuje, jak nastavit typ souboru vloženého OLE objektu na `zip`:
 
 ```py
+import aspose.slides as slides
+
 with slides.Presentation("sample.pptx") as presentation:
     slide = presentation.slides[0]
     ole_frame = slide.shapes[0]
@@ -246,11 +258,13 @@ with slides.Presentation("sample.pptx") as presentation:
 
 ## **Nastavení ikon a názvů pro vložené objekty**
 
-Po vložení OLE objektu je automaticky přidán náhled založený na ikonce. Tento náhled je to, co uživatelé vidí před tím, než objekt otevřou nebo k němu přistoupí. Pokud chcete použít konkrétní obrázek a text v náhledu, můžete nastavit ikonu a název pomocí Aspose.Slides for Python.
+Po vložení OLE objektu je automaticky přidán náhled založený na ikoně. Tento náhled vidí uživatelé před tím, než objekt otevřou nebo získají k němu přístup. Pokud chcete v náhledu použít konkrétní obrázek a text, můžete nastavit obrázek ikony a název pomocí Aspose.Slides for Python.
 
-Tento Python kód ukazuje, jak nastavit ikonu a název pro vložený objekt:
+Níže uvedený kód v Pythonu ukazuje, jak nastavit obrázek ikony a název pro vložený objekt:
 
 ```py
+import aspose.slides as slides
+
 with slides.Presentation("sample.pptx") as presentation:
     slide = presentation.slides[0]
     ole_frame = slide.shapes[0]
@@ -267,25 +281,35 @@ with slides.Presentation("sample.pptx") as presentation:
     presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Zabránění změnám velikosti a pozice OLE objektových rámců**
+## **Zabránit změně velikosti a přesunutí rámců OLE objektů**
 
-Po přidání propojeného OLE objektu do snímku může PowerPoint při otevření prezentace požadovat aktualizaci odkazů. Volba „Update Links“ může změnit velikost a pozici OLE objektového rámce, protože PowerPoint obnoví náhled pomocí dat z propojeného objektu. Chcete‑li zabránit výzvě k aktualizaci dat objektu, nastavte vlastnost `update_automatic` třídy [OleObjectFrame](https://reference.aspose.com/slides/cs/python-net/aspose.slides/oleobjectframe/) na `False`:
+Po přidání propojeného OLE objektu do snímku může PowerPoint při otevření prezentace vyzvat k aktualizaci odkazů. Volba Aktualizovat odkazy může změnit velikost a umístění rámce OLE objektu, protože PowerPoint obnovuje náhled s daty z propojeného objektu. Chcete‑li zabránit výzvě k aktualizaci dat objektu, nastavte vlastnost `update_automatic` třídy [OleObjectFrame](https://reference.aspose.com/slides/python-net/aspose.slides/oleobjectframe/) na `False`:
 
 ```py
-ole_frame.update_automatic = False
+import aspose.slides as slides
+
+with slides.Presentation("sample.pptx") as presentation:
+    slide = presentation.slides[0]
+    ole_frame = slide.shapes[0]
+
+    ole_frame.update_automatic = False
+
+    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **Extrahování vložených souborů**
 
-Aspose.Slides for Python vám umožňuje extrahovat soubory vložené do snímků jako OLE objekty následujícím způsobem:
+Aspose.Slides for Python vám umožňuje extrahovat soubory vložené do snímků jako OLE objekty následovně:
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/python-net/aspose.slides/presentation/), která obsahuje OLE objekty, jež chcete extrahovat.
-1. Projděte všechny tvary v prezentaci a vyhledejte tvary typu OLEObjectFrame.
-1. Získejte vložená data souboru z každého [OLEObjectFrame](https://reference.aspose.com/slides/cs/python-net/aspose.slides/oleobjectframe/) a zapište je na disk.
+1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/), která obsahuje OLE objekty, jež chcete extrahovat.
+1. Projděte všechny tvary v prezentaci a najděte tvary OLEObjectFrame.
+1. Získejte data vloženého souboru z každého [OLEObjectFrame](https://reference.aspose.com/slides/python-net/aspose.slides/oleobjectframe/) a zapište je na disk.
 
-Níže uvedený Python kód ukazuje, jak extrahovat soubory vložené do snímku jako OLE objekty:
+Níže uvedený kód v Pythonu ukazuje, jak extrahovat soubory vložené do snímku jako OLE objekty:
 
 ```py
+import aspose.slides as slides
+
 with slides.Presentation("sample.pptx") as presentation:
     slide = presentation.slides[0]
 
@@ -301,20 +325,22 @@ with slides.Presentation("sample.pptx") as presentation:
                 file_stream.write(file_data)
 ```
 
-## **Často kladené otázky**
+## **FAQ**
 
-**Bude OLE obsah vykreslen při exportu snímků do PDF/obrázků?**
+**Bude obsah OLE při exportu snímků do PDF/obrázků vykreslen?**
 
-Na snímku se vykreslí to, co je viditelné – ikona/substituční obrázek (náhled). „Živý“ OLE obsah se během vykreslování neprovádí. Pokud je potřeba, nastavte vlastní obrázek náhledu, aby exportovaný PDF vypadal podle očekávání.
+Na snímku se vykresluje to, co je viditelné — ikona/náhradní obrázek (náhled). „Živý“ OLE obsah není během vykreslování spuštěn. V případě potřeby nastavte vlastní náhledový obrázek, aby se zajistil očekávaný vzhled v exportovaném PDF.
 
-**Jak mohu uzamknout OLE objekt na snímku, aby uživatelé nemohli v PowerPointu objekt přesouvat/upravovat?**
+Pro zachování vloženého souboru také jako PDF přílohu nastavte [PdfOptions.include_ole_data](https://reference.aspose.com/slides/python-net/aspose.slides.export/pdfoptions/include_ole_data/) na `True`. Tato volba je ve výchozím nastavení vypnutá. Příklad a postup pro kontrolu přílohy najdete v [Zachovat vložené OLE soubory jako PDF přílohy](/slides/cs/python-net/convert-powerpoint-to-pdf/#preserve-embedded-ole-files-as-pdf-attachments).
 
-Uzamkněte tvar: Aspose.Slides poskytuje [shape-level locks](/slides/cs/python-net/applying-protection-to-presentation/). Nejde o šifrování, ale účinně to brání náhodným úpravám a přesouvání.
+**Jak mohu uzamknout OLE objekt na snímku, aby jej uživatelé nemohli v PowerPointu přesouvat či upravovat?**
 
-**Proč se propojený Excel objekt „posune“ nebo změní velikost při otevření prezentace?**
+Uzamkněte tvar: Aspose.Slides poskytuje [zámky na úrovni tvaru](/slides/cs/python-net/applying-protection-to-presentation/). Nejde o šifrování, ale účinně zabraňuje neúmyslným úpravám a přesunutí.
 
-PowerPoint může obnovit náhled propojeného OLE. Pro stabilní vzhled dodržujte postupy z [Working Solution for Worksheet Resizing](/slides/cs/python-net/working-solution-for-worksheet-resizing/) – buď přizpůsobte rámec rozsahu, nebo škálujte rozsah na pevný rámec a nastavte vhodný substituční obrázek.
+**Proč se propojený objekt Excel „poskakuje“ nebo mění velikost, když otevřu prezentaci?**
 
-**Budou v PPTX formátu zachovány relativní cesty k propojeným OLE objektům?**
+PowerPoint může obnovit náhled propojeného OLE. Pro stabilní vzhled dodržujte postupy z [Řešení pro změnu velikosti listu](/slides/cs/python-net/working-solution-for-worksheet-resizing/) — buď přizpůsobte rámec rozsahu, nebo škálujte rozsah na pevný rámec a nastavte vhodný náhradní obrázek.
 
-V PPTX není informace o „relativní cestě“ dostupná – jen úplná cesta. Relativní cesty jsou k dispozici jen ve starším formátu PPT. Pro přenositelnost upřednostňujte spolehlivé absolutní cesty/přístupné URI nebo vkládání.
+**Zůstanou relativní cesty pro propojené OLE objekty zachovány ve formátu PPTX?**
+
+V PPTX nejsou informace o „relativní cestě“ k dispozici — je dostupná jen úplná cesta. Relativní cesty jsou v starším formátu PPT. Pro přenosnost upřednostňujte spolehlivé absolutní cesty/přístupné URI nebo vložení.

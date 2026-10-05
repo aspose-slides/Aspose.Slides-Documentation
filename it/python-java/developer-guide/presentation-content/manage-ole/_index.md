@@ -6,7 +6,7 @@ weight: 40
 url: /it/python-java/manage-ole/
 keywords:
 - oggetto OLE
-- collegamento e incorporamento di oggetti
+- Collegamento e incorporamento di oggetti
 - aggiungi OLE
 - incorpora OLE
 - aggiungi oggetto
@@ -26,35 +26,34 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Ottimizza la gestione degli oggetti OLE in PowerPoint e nei file OpenDocument con Aspose.Slides per Python via Java. Incorpora, aggiorna ed esporta i contenuti OLE senza problemi."
+description: "Ottimizza la gestione degli oggetti OLE in file PowerPoint e OpenDocument con Aspose.Slides per Python via Java. Incorpora, aggiorna ed esporta i contenuti OLE senza problemi."
 ---
 ## **Introduzione**
 
 {{% alert color="info" title="Note" %}}
 
-OLE (Object Linking & Embedding) è una tecnologia Microsoft che consente di posizionare dati e oggetti creati in un'applicazione all'interno di un'altra applicazione mediante collegamento o incorporamento.
+OLE (Object Linking & Embedding) è una tecnologia Microsoft che consente di collocare dati e oggetti creati in un'applicazione in un'altra applicazione tramite collegamento o incorporamento.
 
 {{% /alert %}}
 
-Considera un grafico creato in MS Excel. Il grafico viene poi inserito all'interno di una diapositiva PowerPoint. Quel grafico Excel è considerato un oggetto OLE.
+Considera un grafico creato in MS Excel. Il grafico viene quindi inserito all'interno di una diapositiva PowerPoint. Quel grafico Excel è considerato un oggetto OLE.
 
-- Un oggetto OLE può apparire come un'icona. In questo caso, quando fai doppio clic sull'icona, il grafico si apre nell'applicazione associata (Excel), oppure ti viene chiesto di selezionare un'applicazione per aprire o modificare l'oggetto.
-- Un oggetto OLE può visualizzare i propri contenuti effettivi, come i dati di un grafico. In questo caso, il grafico viene attivato in PowerPoint, l'interfaccia del grafico si carica e puoi modificare i dati del grafico all'interno di PowerPoint.
+- Un oggetto OLE può apparire come un'icona. In questo caso, quando fai doppio clic sull'icona, il grafico viene aperto nella sua applicazione associata (Excel), o ti viene chiesto di selezionare un'applicazione per aprire o modificare l'oggetto.
+- Un oggetto OLE può mostrare i propri contenuti reali, come il contenuto di un grafico. In questo caso, il grafico viene attivato in PowerPoint, l'interfaccia del grafico viene caricata e puoi modificare i dati del grafico all'interno di PowerPoint.
 
-[Aspose.Slides per Python via Java](https://products.aspose.com/slides/it/python-java/) consente di inserire oggetti OLE nelle diapositive come frame di oggetti OLE ([OleObjectFrame](https://reference.aspose.com/slides/it/python-java/aspose.slides/oleobjectframe/)).
+[Aspose.Slides for Python via Java](https://products.aspose.com/slides/python-java/) consente di inserire oggetti OLE nelle diapositive come frame di oggetti OLE ([OleObjectFrame](https://reference.aspose.com/slides/python-java/aspose.slides/oleobjectframe/)).
 
-## **Aggiungi frame di oggetti OLE alle diapositive**
+## **Aggiungere frame di oggetti OLE alle diapositive**
 
-Supponendo di aver già creato un grafico in Microsoft Excel e di volerlo incorporare in una diapositiva come frame di oggetto OLE usando Aspose.Slides per Python via Java, puoi procedere così:
+Supponendo di aver già creato un grafico in Microsoft Excel e di volerlo incorporare in una diapositiva come frame di oggetto OLE utilizzando Aspose.Slides for Python via Java, puoi farlo in questo modo:
 
-1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/python-java/aspose.slides/presentation/).
+1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) .
 2. Ottieni un riferimento a una diapositiva tramite il suo indice.
 3. Leggi il file Excel come array di byte.
-4. Aggiungi il [OleObjectFrame](https://reference.aspose.com/slides/it/python-java/aspose.slides/oleobjectframe/) alla diapositiva contenente l'array di byte e le altre informazioni sull'oggetto OLE.
-5. Scrivi la presentazione modificata in un file PPTX.
+4. Aggiungi il [OleObjectFrame](https://reference.aspose.com/slides/python-java/aspose.slides/oleobjectframe/) alla diapositiva contenente l'array di byte e altre informazioni sull'oggetto OLE.
+5. Scrivi la presentazione modificata come file PPTX.
 
-Nell'esempio seguente, abbiamo aggiunto un grafico da un file Excel a una diapositiva come frame di oggetto OLE usando Aspose.Slides per Python via Java.  
-**Nota** che il costruttore [OleEmbeddedDataInfo](https://reference.aspose.com/slides/it/python-java/aspose.slides/oleembeddeddatainfo/) accetta un'estensione di oggetto incorporabile come secondo parametro. Questa estensione consente a PowerPoint di interpretare correttamente il tipo di file e scegliere l'applicazione giusta per aprire questo oggetto OLE.
+Nell'esempio seguente, abbiamo aggiunto un grafico da un file Excel a una diapositiva come frame di oggetto OLE utilizzando Aspose.Slides for Python via Java. **Nota** che il costruttore [OleEmbeddedDataInfo](https://reference.aspose.com/slides/python-java/aspose.slides/oleembeddeddatainfo/) accetta un'estensione di oggetto incorporabile come secondo parametro. Questa estensione consente a PowerPoint di interpretare correttamente il tipo di file e scegliere l'applicazione giusta per aprire questo oggetto OLE.
 
 ```python
 from pathlib import Path
@@ -87,11 +86,11 @@ finally:
     presentation.dispose()
 ```
 
-### **Aggiungi frame di oggetti OLE collegati**
+### **Aggiungere frame di oggetti OLE collegati**
 
-Aspose.Slides per Python via Java consente di aggiungere un [OleObjectFrame](https://reference.aspose.com/slides/it/python-java/aspose.slides/oleobjectframe/) con un collegamento al file invece di dati incorporati.
+Aspose.Slides for Python via Java consente di aggiungere un [OleObjectFrame](https://reference.aspose.com/slides/python-java/aspose.slides/oleobjectframe/) con un collegamento al file invece dei dati incorporati.
 
-Questo codice Python mostra come aggiungere un [OleObjectFrame](https://reference.aspose.com/slides/it/python-java/aspose.slides/oleobjectframe/) con un file Excel collegato a una diapositiva:
+Questo codice Python mostra come aggiungere un [OleObjectFrame](https://reference.aspose.com/slides/python-java/aspose.slides/oleobjectframe/) con un file Excel collegato a una diapositiva:
 
 ```python
 import jpype
@@ -106,7 +105,7 @@ presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
 
-    # Aggiungi un frame di oggetto OLE con un file Excel collegato.
+    # Aggiungi un frame oggetto OLE con un file Excel collegato.
     slide.getShapes().addOleObjectFrame(20, 20, 200, 150, "Excel.Sheet.12", "book.xlsx")
 
     presentation.save("output.pptx", SaveFormat.Pptx)
@@ -114,16 +113,17 @@ finally:
     presentation.dispose()
 ```
 
-## **Accedi ai frame di oggetti OLE**
+## **Accedere ai frame di oggetti OLE**
 
-Se un oggetto OLE è già incorporato in una diapositiva, puoi trovarlo o accedervi facilmente in questo modo:
+Se un oggetto OLE è già incorporato in una diapositiva, è possibile trovarlo o accedervi facilmente in questo modo:
 
-1. Carica una presentazione con l'oggetto OLE incorporato creando un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/python-java/aspose.slides/presentation/).
+1. Carica una presentazione con l'oggetto OLE incorporato creando un'istanza della classe [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) .
 2. Ottieni un riferimento alla diapositiva tramite il suo indice.
-3. Accedi alla forma [OleObjectFrame](https://reference.aspose.com/slides/it/python-java/aspose.slides/oleobjectframe/). Nel nostro esempio, abbiamo utilizzato il PPTX creato in precedenza che ha una sola forma nella prima diapositiva. Abbiamo quindi verificato che l'oggetto fosse un [OleObjectFrame](https://reference.aspose.com/slides/it/python-java/aspose.slides/oleobjectframe/). Questo era il frame di oggetto OLE desiderato da accedere.
-4. Una volta accesso il frame di oggetto OLE, puoi eseguire qualsiasi operazione su di esso.
+3. Accedi alla forma [OleObjectFrame](https://reference.aspose.com/slides/python-java/aspose.slides/oleobjectframe/) .
+   Nel nostro esempio, abbiamo usato il PPTX creato in precedenza che ha una sola forma nella prima diapositiva. Abbiamo quindi verificato che l'oggetto fosse un [OleObjectFrame](https://reference.aspose.com/slides/python-java/aspose.slides/oleobjectframe/). Questo era il frame di oggetto OLE desiderato da accedere.
+4. Una volta che il frame dell'oggetto OLE è stato accesso, è possibile eseguire qualsiasi operazione su di esso.
 
-Nell'esempio seguente, viene acceduto un frame di oggetto OLE (un oggetto grafico Excel incorporato in una diapositiva) e i suoi dati file.
+Nell'esempio seguente, viene accesso un frame di oggetto OLE (un oggetto grafico Excel incorporato in una diapositiva) e i suoi dati file.
 
 ```python
 import jpype
@@ -153,11 +153,11 @@ finally:
     presentation.dispose()
 ```
 
-### **Accedi alle proprietà del frame di oggetto OLE collegato**
+### **Accedere alle proprietà del frame di oggetto OLE collegato**
 
 Aspose.Slides consente di accedere alle proprietà del frame di oggetto OLE collegato.
 
-Questo codice Python mostra come verificare se un oggetto OLE è collegato e poi ottenere il percorso del file collegato:
+Questo codice Python mostra come verificare se un oggetto OLE è collegato e quindi ottenere il percorso del file collegato:
 
 ```python
 import jpype
@@ -184,30 +184,33 @@ try:
             # Stampa il percorso relativo del file collegato se presente.
             # Solo le presentazioni PPT possono contenere il percorso relativo.
             relative_path = ole_frame.getLinkPathRelative()
+            if relative_path is not None and not relative_path.isEmpty():
+                print("OLE object frame relative path: " + str(relative_path))
 finally:
     presentation.dispose()
 ```
 
-## **Modifica i dati dell'oggetto OLE**
+## **Modificare i dati dell'oggetto OLE**
 
 {{% alert color="info" title="Note" %}}
 
-In questa sezione, l'esempio di codice mostrato utilizza [Aspose.Cells for Python via Java](https://products.aspose.com/cells/python-java/).
+Nella presente sezione, l'esempio di codice qui sotto utilizza [Aspose.Cells for Python via Java](https://products.aspose.com/cells/python-java/).
 
 {{% /alert %}}
 
-Se un oggetto OLE è già incorporato in una diapositiva, puoi accedere facilmente a quell'oggetto e modificare i suoi dati in questo modo:
+Se un oggetto OLE è già incorporato in una diapositiva, è possibile accedere facilmente a quell'oggetto e modificare i suoi dati in questo modo:
 
-1. Carica una presentazione con l'oggetto OLE incorporato creando un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/python-java/aspose.slides/presentation/).
+1. Carica una presentazione con l'oggetto OLE incorporato creando un'istanza della classe [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) .
 2. Ottieni un riferimento alla diapositiva tramite il suo indice.
-3. Accedi alla forma del frame di oggetto OLE. Nel nostro esempio, abbiamo utilizzato il PPTX creato in precedenza che ha una forma nella prima diapositiva. Abbiamo quindi verificato che l'oggetto fosse un [OleObjectFrame](https://reference.aspose.com/slides/it/python-java/aspose.slides/oleobjectframe/). Questo era il frame dell'oggetto OLE desiderato da accedere.
-4. Una volta accesso il frame dell'oggetto OLE, puoi eseguire qualsiasi operazione su di esso.
+3. Accedi alla forma del frame dell'oggetto OLE.
+   Nel nostro esempio, abbiamo usato il PPTX creato in precedenza che ha una sola forma nella prima diapositiva. Abbiamo quindi verificato che l'oggetto fosse un [OleObjectFrame](https://reference.aspose.com/slides/python-java/aspose.slides/oleobjectframe/). Questo era il frame di oggetto OLE desiderato da accedere.
+4. Una volta che il frame dell'oggetto OLE è stato accesso, è possibile eseguire qualsiasi operazione su di esso.
 5. Crea un oggetto [Workbook](https://reference.aspose.com/cells/python-java/asposecells.api/workbook/) e accedi ai dati OLE.
 6. Accedi al [Worksheet](https://reference.aspose.com/cells/python-java/asposecells.api/worksheet/) desiderato e modifica i dati.
 7. Salva il [Workbook](https://reference.aspose.com/cells/python-java/asposecells.api/workbook/) aggiornato in uno stream.
 8. Modifica i dati dell'oggetto OLE dallo stream.
 
-Nell'esempio seguente, viene acceduto un frame di oggetto OLE (un oggetto grafico Excel incorporato in una diapositiva) e i suoi dati file vengono modificati per aggiornare i dati del grafico.
+Nell'esempio seguente, viene accesso un frame di oggetto OLE (un oggetto grafico Excel incorporato in una diapositiva) e i suoi dati file vengono modificati per aggiornare i dati del grafico.
 
 ```python
 import jpype
@@ -233,7 +236,7 @@ try:
         file_data = ole_frame.getEmbeddedData().getEmbeddedFileData()
         ole_stream = ByteArrayInputStream(file_data)
 
-        # Leggi i dati dell'oggetto OLE come oggetto Workbook.
+        # Leggi i dati dell'oggetto OLE come un oggetto Workbook.
         workbook = Workbook(ole_stream)
 
         new_ole_stream = ByteArrayOutputStream()
@@ -248,7 +251,7 @@ try:
         file_options = OoxmlSaveOptions(CellsSaveFormat.XLSX)
         workbook.save(new_ole_stream, file_options)
 
-        # Cambia i dati dell'oggetto frame OLE.
+        # Cambia i dati dell'oggetto del frame OLE.
         new_file_data = new_ole_stream.toByteArray()
         new_data = OleEmbeddedDataInfo(new_file_data, ole_frame.getEmbeddedData().getEmbeddedFileExtension())
         ole_frame.setEmbeddedData(new_data)
@@ -258,9 +261,9 @@ finally:
     presentation.dispose()
 ```
 
-## **Incorpora altri tipi di file nelle diapositive**
+## **Incorporare altri tipi di file nelle diapositive**
 
-Oltre ai grafici Excel, Aspose.Slides per Python via Java consente di incorporare altri tipi di file nelle diapositive. Ad esempio, è possibile inserire file HTML, PDF e ZIP come oggetti. Quando l'utente fa doppio clic sull'oggetto inserito, esso si apre automaticamente nel programma pertinente, oppure viene chiesto all'utente di selezionare un programma appropriato per aprirlo.
+Oltre ai grafici Excel, Aspose.Slides for Python via Java consente di incorporare altri tipi di file nelle diapositive. Ad esempio, è possibile inserire file HTML, PDF e ZIP come oggetti. Quando un utente fa doppio clic sull'oggetto inserito, questo si apre automaticamente nel programma pertinente, oppure all'utente viene chiesto di selezionare un programma appropriato per aprirlo.
 
 Questo codice Python mostra come incorporare HTML e ZIP in una diapositiva:
 
@@ -296,11 +299,11 @@ finally:
     presentation.dispose()
 ```
 
-## **Imposta i tipi di file per gli oggetti incorporati**
+## **Impostare i tipi di file per gli oggetti incorporati**
 
-Durante il lavoro con le presentazioni, potresti dover sostituire vecchi oggetti OLE con nuovi o sostituire un oggetto OLE non supportato con uno supportato. Aspose.Slides per Python via Java consente di impostare il tipo di file per un oggetto incorporato, permettendo di aggiornare i dati del frame OLE o la sua estensione.
+Durante il lavoro con le presentazioni, potresti dover sostituire vecchi oggetti OLE con nuovi o sostituire un oggetto OLE non supportato con uno supportato. Aspose.Slides for Python via Java consente di impostare il tipo di file per un oggetto incorporato, permettendo di aggiornare i dati del frame OLE o la sua estensione.
 
-Questo codice Python mostra come impostare il tipo di file per un oggetto OLE incorporato su `zip`:
+Questo codice Python mostra come impostare il tipo di file per un oggetto OLE incorporato a `zip`:
 
 ```python
 import jpype
@@ -330,9 +333,9 @@ finally:
     presentation.dispose()
 ```
 
-## **Imposta immagini icona e titoli per gli oggetti incorporati**
+## **Impostare immagini icona e titoli per gli oggetti incorporati**
 
-Dopo che un oggetto OLE è stato incorporato, viene aggiunta automaticamente un'anteprima costituita da un'immagine icona. Questa anteprima è ciò che gli utenti vedono prima di accedere o aprire l'oggetto OLE. Se vuoi utilizzare un'immagine e un testo specifici come elementi dell'anteprima, puoi impostare l'immagine icona e il titolo usando Aspose.Slides per Python via Java.
+Dopo che un oggetto OLE è stato incorporato, viene aggiunta automaticamente un'anteprima costituita da un'immagine icona. Quest'anteprima è ciò che gli utenti vedono prima di accedere o aprire l'oggetto OLE. Se desideri utilizzare un'immagine e un testo specifici come elementi nell'anteprima, puoi impostare l'immagine icona e il titolo utilizzando Aspose.Slides for Python via Java.
 
 Questo codice Python mostra come impostare l'immagine icona e il titolo per un oggetto incorporato:
 
@@ -367,9 +370,9 @@ finally:
     presentation.dispose()
 ```
 
-## **Impedisci il ridimensionamento e lo spostamento dei frame di oggetti OLE**
+## **Impedire il ridimensionamento e lo spostamento di un frame di oggetto OLE**
 
-Dopo aver aggiunto un oggetto OLE collegato a una diapositiva della presentazione, quando apri la presentazione in PowerPoint potresti vedere un messaggio che ti chiede di aggiornare i collegamenti. Cliccare il pulsante “Update Links” può modificare le dimensioni e la posizione del frame dell'oggetto OLE perché PowerPoint aggiorna i dati dall'oggetto OLE collegato e rinfresca l'anteprima dell'oggetto. Per evitare che PowerPoint chieda di aggiornare i dati dell'oggetto, imposta il metodo [setUpdateAutomatic](https://reference.aspose.com/slides/it/python-java/aspose.slides/oleobjectframe/#setUpdateAutomatic) della classe [OleObjectFrame](https://reference.aspose.com/slides/it/python-java/aspose.slides/oleobjectframe/) su `False`:
+Dopo aver aggiunto un oggetto OLE collegato a una diapositiva della presentazione, quando apri la presentazione in PowerPoint potresti vedere un messaggio che ti chiede di aggiornare i collegamenti. Cliccare sul pulsante "Update Links" può modificare la dimensione e la posizione del frame dell'oggetto OLE perché PowerPoint aggiorna i dati dall'oggetto OLE collegato e aggiorna l'anteprima dell'oggetto. Per impedire a PowerPoint di chiedere l'aggiornamento dei dati dell'oggetto, chiama il metodo [setUpdateAutomatic](https://reference.aspose.com/slides/python-java/aspose.slides/oleobjectframe/#setUpdateAutomatic) della classe [OleObjectFrame](https://reference.aspose.com/slides/python-java/aspose.slides/oleobjectframe/) con `False`:
 
 ```python
 import jpype
@@ -392,13 +395,13 @@ finally:
     presentation.dispose()
 ```
 
-## **Estrai file incorporati**
+## **Estrarre i file incorporati**
 
-Aspose.Slides per Python via Java consente di estrarre i file incorporati nelle diapositive come oggetti OLE in questo modo:
+Aspose.Slides for Python via Java consente di estrarre i file incorporati nelle diapositive come oggetti OLE in questo modo:
 
-1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/python-java/aspose.slides/presentation/) contenente gli oggetti OLE che desideri estrarre.
-2. Scorri tutte le forme nella presentazione e accedi alle forme [OleObjectFrame](https://reference.aspose.com/slides/it/python-java/aspose.slides/oleobjectframe/).
-3. Accedi ai dati dei file incorporati dai frame OLE e scrivili su disco.
+1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) contenente gli oggetti OLE che intendi estrarre.
+2. Scorri tutte le forme nella presentazione e accedi alle forme [OleObjectFrame](https://reference.aspose.com/slides/python-java/aspose.slides/oleobjectframe/) .
+3. Accedi ai dati dei file incorporati dai frame di oggetti OLE e scrivili su disco.
 
 Questo codice Python mostra come estrarre i file incorporati in una diapositiva come oggetti OLE:
 
@@ -436,16 +439,18 @@ finally:
 
 **Il contenuto OLE verrà renderizzato durante l'esportazione delle diapositive in PDF/immagini?**
 
-Viene renderizzata solo la parte visibile nella diapositiva—l'icona/immagine sostitutiva (anteprima). Il contenuto OLE “live” non viene eseguito durante il rendering. Se necessario, imposta un'immagine di anteprima personalizzata per garantire l'aspetto desiderato nel PDF esportato.
+Viene renderizzata solo la parte visibile sulla diapositiva—l'icona/immagine sostitutiva (anteprima). Il contenuto OLE "live" non viene eseguito durante il rendering. Se necessario, imposta una tua immagine di anteprima per garantire l'aspetto previsto nel PDF esportato.
+
+Per conservare anche il file incorporato come allegato PDF, chiama [setIncludeOleData](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/#setIncludeOleData) con `True`. Questa opzione è disabilitata per impostazione predefinita. Per un esempio e istruzioni su come controllare l'allegato, vedi [Preserve Embedded OLE Files as PDF Attachments](/slides/it/python-java/convert-powerpoint-to-pdf/#preserve-embedded-ole-files-as-pdf-attachments).
 
 **Come posso bloccare un oggetto OLE su una diapositiva in modo che gli utenti non possano spostarlo/modificarlo in PowerPoint?**
 
-Blocca la forma: Aspose.Slides fornisce [blocchi a livello di forma](/slides/it/python-java/applying-protection-to-presentation/). Non si tratta di crittografia, ma limita efficacemente le modifiche accidentali e lo spostamento.
+Blocca la forma: Aspose.Slides fornisce [blocchi a livello di forma](/slides/it/python-java/applying-protection-to-presentation/). Non si tratta di crittografia, ma impedisce efficacemente modifiche accidentali e spostamenti.
 
-**Perché un oggetto Excel collegato “salta” o cambia dimensione quando apro la presentazione?**
+**Perché un oggetto Excel collegato "salta" o cambia dimensione quando apro la presentazione?**
 
-PowerPoint potrebbe aggiornare l'anteprima dell'OLE collegato. Per un aspetto stabile, segui le pratiche indicate nella [Soluzione funzionante per il ridimensionamento del foglio di lavoro](/slides/it/python-java/working-solution-for-worksheet-resizing/) — oppure adatta il frame all'intervallo, oppure scala l'intervallo a un frame fisso e imposta un'immagine sostitutiva appropriata.
+PowerPoint può aggiornare l'anteprima dell'OLE collegato. Per un aspetto stabile, segui le pratiche della [Working Solution for Worksheet Resizing](/slides/it/python-java/working-solution-for-worksheet-resizing/): adatta il frame all'intervallo, oppure scala l'intervallo a un frame fisso e imposta un'immagine sostitutiva appropriata.
 
 **I percorsi relativi per gli oggetti OLE collegati saranno conservati nel formato PPTX?**
 
-In PPTX le informazioni sul “percorso relativo” non sono disponibili—solo il percorso completo. I percorsi relativi sono presenti nel formato PPT più vecchio. Per la portabilità, è preferibile usare percorsi assoluti affidabili/URI accessibili o incorporare i file.
+Nella PPTX le informazioni sul "percorso relativo" non sono disponibili—solo il percorso completo. I percorsi relativi si trovano nel vecchio formato PPT. Per la portabilità, è preferibile utilizzare percorsi assoluti affidabili/URI accessibili o l'incorporamento.

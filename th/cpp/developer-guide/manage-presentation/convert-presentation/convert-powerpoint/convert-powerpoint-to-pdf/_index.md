@@ -1,48 +1,47 @@
 ---
-title: แปลง PPT และ PPTX เป็น PDF ใน C++ [รวมฟีเจอร์ขั้นสูง]
-linktitle: PowerPoint เป็น PDF
+title: แปลง PPT และ PPTX ไปเป็น PDF ใน C++ [รวมคุณลักษณะขั้นสูง]
+linktitle: PowerPoint ไปเป็น PDF
 type: docs
 weight: 40
 url: /th/cpp/convert-powerpoint-to-pdf/
 keywords:
 - แปลง PowerPoint
 - แปลงงานนำเสนอ
-- PowerPoint เป็น PDF
-- งานนำเสนอเป็น PDF
-- PPT เป็น PDF
-- แปลง PPT เป็น PDF
-- PPTX เป็น PDF
-- แปลง PPTX เป็น PDF
+- PowerPoint ไปเป็น PDF
+- งานนำเสนอไปเป็น PDF
+- PPT ไปเป็น PDF
+- แปลง PPT ไปเป็น PDF
+- PPTX ไปเป็น PDF
+- แปลง PPTX ไปเป็น PDF
 - บันทึก PowerPoint เป็น PDF
 - บันทึก PPT เป็น PDF
 - บันทึก PPTX เป็น PDF
 - ส่งออก PPT เป็น PDF
 - ส่งออก PPTX เป็น PDF
+- ไฟล์แนบ
 - PDF/A1a
 - PDF/A1b
 - PDF/UA
 - C++
 - Aspose.Slides
-description: "แปลง PowerPoint PPT/PPTX เป็น PDF คุณภาพสูงและค้นหาได้ใน C++ ด้วย Aspose.Slides พร้อมตัวอย่างโค้ดที่เร็วและตัวเลือกการแปลงขั้นสูง."
+description: "แปลง PowerPoint PPT/PPTX เป็น PDF คุณภาพสูงที่ค้นหาได้ใน C++ ด้วย Aspose.Slides พร้อมตัวอย่างโค้ดที่เร็วและตัวเลือกการแปลงขั้นสูง"
 ---
-## **Overview**
+## **ภาพรวม**
 
-การแปลงงานนำเสนอ PowerPoint (PPT, PPTX, ODP ฯลฯ) เป็นรูปแบบ PDF ใน C++ มีข้อดีหลายประการ รวมถึงความเข้ากันได้กับอุปกรณ์ต่าง ๆ และการรักษารูปแบบและการจัดวางของงานนำเสนอ แนวทางนี้แสดงวิธีแปลงงานนำเสนอเป็นเอกสาร PDF ใช้ตัวเลือกต่าง ๆ เพื่อควบคุมคุณภาพของรูปภาพ รวมถึงการรวมสไลด์ที่ซ่อนอยู่ การตั้งรหัสผ่านให้ไฟล์ PDF การตรวจจับการแทนที่ฟอนท์ การเลือกสไลด์เฉพาะสำหรับการแปลง และการใช้มาตรฐานการปฏิบัติตามเพื่อเอกสารผลลัพธ์
+การแปลงงานนำเสนอ PowerPoint (PPT, PPTX, ODP ฯลฯ) เป็นรูปแบบ PDF ใน C++ มีข้อได้เปรียบหลายประการ รวมถึงความเข้ากันได้กับอุปกรณ์ต่าง ๆ และการรักษาการจัดวางและการจัดรูปแบบของงานนำเสนอของคุณ คู่มือนี้จะแสดงวิธีแปลงงานนำเสนอเป็นเอกสาร PDF, ใช้ตัวเลือกต่าง ๆ เพื่อควบคุมคุณภาพของภาพ, รวมสไลด์ที่ซ่อนไว้, ป้องกัน PDF ด้วยรหัสผ่าน, ตรวจจับการแทนที่ฟอนท์, เลือกสไลด์เฉพาะสำหรับการแปลง, และใช้มาตรฐานการปฏิบัติตามสำหรับเอกสารผลลัพธ์
 
-## **PowerPoint to PDF Conversions**
+## **การแปลง PowerPoint ไปเป็น PDF**
 
-ด้วย Aspose.Slides คุณสามารถแปลงงานนำเสนอในรูปแบบต่อไปนี้เป็น PDF:
+โดยใช้ Aspose.Slides คุณสามารถแปลงงานนำเสนอในรูปแบบต่อไปนี้เป็น PDF:
 
 * **PPT**
 * **PPTX**
 * **ODP**
 
-เพื่อแปลงงานนำเสนอเป็น PDF ให้ส่งชื่อไฟล์เป็นอาร์กิวเมนต์ให้คลาส [Presentation](https://reference.aspose.com/slides/th/cpp/aspose.slides/presentation/) จากนั้นบันทึกงานนำเสนอเป็น PDF ด้วยเมธอด `Save` คลาส [Presentation](https://reference.aspose.com/slides/th/cpp/aspose.slides/presentation/) เปิดเผยเมธอด `Save` ซึ่งโดยปกติใช้เพื่อแปลงงานนำเสนอเป็น PDF
+เพื่อแปลงงานนำเสนอเป็น PDF ให้ส่งชื่อไฟล์เป็นอาร์กิวเมนต์ให้กับคลาส [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) แล้วบันทึกงานนำเสนอเป็น PDF โดยใช้เมธอด [Save](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/save/) คลาส [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) มีเมธอด [Save](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/save/) ที่โดยทั่วไปใช้ในการแปลงงานนำเสนอเป็น PDF
 
-{{%  alert title="NOTE"  color="warning"   %}} 
-
-Aspose.Slides for C++ ใส่ข้อมูล API และหมายเลขเวอร์ชันลงในเอกสารผลลัพธ์ ตัวอย่างเช่น เมื่อแปลงงานนำเสนอเป็น PDF Aspose.Slides จะเติมช่อง Application ด้วย "*Aspose.Slides*" และช่อง PDF Producer ด้วยค่าในรูปแบบ "*Aspose.Slides v XX.XX*" **หมายเหตุ** ว่าคุณไม่สามารถสั่งให้ Aspose.Slides เปลี่ยนหรือเอาข้อมูลนี้ออกจากเอกสารผลลัพธ์ได้
-
+{{% alert color="info" title="หมายเหตุ" %}}
+Aspose.Slides for C++ inserts its API information and version number into output documents. For example, when converting a presentation to PDF, Aspose.Slides populates the Application field with "*Aspose.Slides*" and the PDF Producer field with a value in "*Aspose.Slides v XX.XX*" form. **Note** that you cannot instruct Aspose.Slides to change or remove this information from output documents.
 {{% /alert %}}
 
 Aspose.Slides อนุญาตให้คุณแปลง:
@@ -50,243 +49,308 @@ Aspose.Slides อนุญาตให้คุณแปลง:
 * งานนำเสนอทั้งหมดเป็น PDF
 * สไลด์เฉพาะจากงานนำเสนอเป็น PDF
 
-Aspose.Slides ส่งออกงานนำเสนอเป็น PDF โดยทำให้ PDF ที่ได้ตรงกับงานนำเสนอเดิมอย่างใกล้เคียง ส่วนประกอบและแอตทริบิวต์จะถูกเรนเดอร์อย่างแม่นยำในการแปลง รวมถึง:
+Aspose.Slides exports presentations to PDF, ensuring the resulting PDFs closely match the original presentations. Elements and attributes are rendered accurately in the conversion, including:
 
 * รูปภาพ
 * กล่องข้อความและรูปร่าง
 * การจัดรูปแบบข้อความ
 * การจัดรูปแบบย่อหน้า
-* ลิงก์ไฮเปอร์ลิงก์
-* ส่วนหัวและส่วนท้าย
-* จุดสัญลักษณ์
+* ไฮเปอร์ลิงก์
+* หัวกระดาษและท้ายกระดาษ
+* สัญลักษณ์หัวข้อย่อย
 * ตาราง
 
-## **Convert PowerPoint to PDF**
+## **แปลง PowerPoint ไปเป็น PDF**
 
-กระบวนการแปลง PowerPoint เป็น PDF แบบมาตรฐานใช้ตัวเลือกค่าเริ่มต้น ในกรณีนี้ Aspose.Slides จะพยายามแปลงงานนำเสนอที่ระบุเป็น PDF โดยใช้การตั้งค่าที่เหมาะสมที่สุดที่ระดับคุณภาพสูงสุด
+กระบวนการแปลงมาตรฐานจาก PowerPoint ไปเป็น PDF ใช้ตัวเลือกค่าเริ่มต้น ในกรณีนี้ Aspose.Slides พยายามแปลงงานนำเสนอที่ให้เป็น PDF โดยใช้การตั้งค่าที่ดีที่สุดในระดับคุณภาพสูงสุด
 
-โค้ด C++ นี้แสดงวิธีแปลงงานนำเสนอ (PPT, PPTX, ODP ฯลฯ) เป็น PDF:
+ตัวอย่างต่อไปนี้โหลดงานนำเสนอและบันทึกสไลด์ที่มองเห็นทั้งหมดเป็น PDF โดยใช้การตั้งค่าเริ่มต้นสำหรับส่งออก
 
-```c++
-// สร้างอินสแตนซ์ของคลาส Presentation ที่แสดงไฟล์ PowerPoint หรือ OpenDocument
+```cpp
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 auto presentation = MakeObject<Presentation>(u"PowerPoint.ppt");
-
-// บันทึกงานนำเสนอเป็น PDF
 presentation->Save(u"PPT-to-PDF.pdf", SaveFormat::Pdf);
-
 presentation->Dispose();
 ```
 
-{{%  alert  color="primary"  %}} 
-
-Aspose มีเครื่องมือแปลงออนไลน์ฟรี [**PowerPoint to PDF converter**](https://products.aspose.app/slides/th/conversion/ppt-to-pdf) ที่สาธิตกระบวนการแปลงงานนำเสนอเป็น PDF คุณสามารถทดสอบด้วยเครื่องมือนี้เพื่อดูการทำงานจริงของขั้นตอนที่อธิบายไว้ที่นี่
-
+{{% alert color="info" title="หมายเหตุ" %}}
+Aspose offers a free online [**PowerPoint to PDF converter**](https://products.aspose.app/slides/conversion/ppt-to-pdf) that demonstrates the presentation-to-PDF conversion process. You can run a test with this converter for a live implementation of the procedure described here.
 {{% /alert %}}
 
-## **Convert PowerPoint to PDF with Options**
+## **แปลง PowerPoint ไปเป็น PDF ด้วยตัวเลือก**
 
-Aspose.Slides มีตัวเลือกแบบกำหนดเอง — คุณสมบัติภายใต้คลาส [PdfOptions](https://reference.aspose.com/slides/th/cpp/aspose.slides.export/pdfoptions/) — ที่ช่วยให้คุณปรับแต่ง PDF ที่ได้ ล็อก PDF ด้วยรหัสผ่าน หรือระบุวิธีการดำเนินการแปลง
+Aspose.Slides provides custom options—properties under the [PdfOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/) class—that allow you to customize the resulting PDF, lock the PDF with a password, or specify how the conversion process should proceed.
 
-### **Convert PowerPoint to PDF with Custom Options**
+### **แปลง PowerPoint ไปเป็น PDF ด้วยตัวเลือกกำหนดเอง**
 
-ด้วยตัวเลือกการแปลงแบบกำหนดเอง คุณสามารถกำหนดการตั้งค่าคุณภาพที่ต้องการสำหรับภาพเรสเตอร์ ระบุวิธีการจัดการเมทาฟายล์ ตั้งระดับการบีบอัดสำหรับข้อความ ตั้งค่า DPI สำหรับภาพ ฯลฯ
+Using custom conversion options, you can define your preferred quality setting for raster images, specify how metafiles should be handled, set a compression level for text, configure DPI for images, and more.
 
-โค้ดตัวอย่างด้านล่างแสดงวิธีแปลงงานนำเสนอ PowerPoint เป็น PDF โดยใช้ตัวเลือกกำหนดเองหลายอย่าง:
+The following example exports a presentation to PDF 1.5 with JPEG quality set to 90, image resolution set to 300 DPI, metafiles saved as PNG, and Flate text compression.
 
-```c++
-// สร้างอินสแตนซ์ของคลาส PdfOptions.
+```cpp
+#include <DOM/Presentation.h>
+#include <Export/PdfCompliance.h>
+#include <Export/PdfOptions.h>
+#include <Export/PdfTextCompression.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 auto pdfOptions = MakeObject<PdfOptions>();
-
-// ตั้งค่าคุณภาพสำหรับภาพ JPG.
 pdfOptions->set_JpegQuality(90);
-
-// ตั้งค่า DPI สำหรับภาพ.
 pdfOptions->set_SufficientResolution(300);
-
-// กำหนดพฤติกรรมสำหรับเมทาฟายล์.
 pdfOptions->set_SaveMetafilesAsPng(true);
-
-// ตั้งระดับการบีบอัดข้อความสำหรับเนื้อหาข้อความ.
 pdfOptions->set_TextCompression(PdfTextCompression::Flate);
-
-// กำหนดโหมดการปฏิบัติตาม PDF.
 pdfOptions->set_Compliance(PdfCompliance::Pdf15);
 
-// สร้างอินสแตนซ์ของคลาส Presentation ที่แสดงไฟล์ PowerPoint หรือ OpenDocument.
 auto presentation = MakeObject<Presentation>(u"PowerPoint.pptx");
-
-// บันทึกงานนำเสนอเป็นเอกสาร PDF.
 presentation->Save(u"PowerPoint-to-PDF.pdf", SaveFormat::Pdf, pdfOptions);
-
 presentation->Dispose();
 ```
 
-### **Convert PowerPoint to PDF with Hidden Slides**
+### **รักษาไฟล์ OLE ที่ฝังไว้เป็นไฟล์แนบ PDF**
 
-หากงานนำเสนอมีสไลด์ที่ซ่อนอยู่ คุณสามารถใช้เมธอด [set_ShowHiddenSlides](https://reference.aspose.com/slides/th/cpp/aspose.slides.export/pdfoptions/set_showhiddenslides/) จากคลาส [PdfOptions](https://reference.aspose.com/slides/th/cpp/aspose.slides.export/pdfoptions/) เพื่อรวมสไลด์ที่ซ่อนเป็นหน้าใน PDF ที่สร้างขึ้น
+If a presentation contains an embedded Excel workbook, you may want PDF recipients to access the workbook's data as well as view the slides. Call [PdfOptions::set_IncludeOleData](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/set_includeoledata/) with `true` to preserve embedded OLE files as attachments in the resulting PDF.
 
-โค้ด C++ นี้แสดงวิธีแปลงงานนำเสนอ PowerPoint เป็น PDF พร้อมรวมสไลด์ที่ซ่อนอยู่:
+The default value is `false`: the OLE object's preview image or icon is rendered on the PDF page, but its embedded file is not included as an attachment. Setting the option to `true` additionally includes the file data. The preview remains a visual representation; the attachment lets recipients open or save the embedded file separately. The OLE object does not become an interactive Excel worksheet on the PDF page.
 
-```c++
-// สร้างอินสแตนซ์ของคลาส Presentation ที่แสดงไฟล์ PowerPoint หรือ OpenDocument
-auto presentation = MakeObject<Presentation>(u"PowerPoint.pptx");
+The following example loads a presentation that already contains an embedded Excel workbook and exports it to PDF with the workbook attached.
 
-// สร้างอินสแตนซ์ของคลาส PdfOptions.
+```cpp
+#include <DOM/Presentation.h>
+#include <Export/PdfOptions.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 auto pdfOptions = MakeObject<PdfOptions>();
+pdfOptions->set_IncludeOleData(true);
 
-// เพิ่มสไลด์ที่ซ่อนอยู่.
+auto presentation = MakeObject<Presentation>(u"presentation.pptx");
+presentation->Save(u"presentation.pdf", SaveFormat::Pdf, pdfOptions);
+presentation->Dispose();
+```
+
+To check the result:
+
+1. Open the exported PDF in a viewer that supports file attachments, such as Adobe Acrobat Reader.
+2. Open the viewer's **Attachments** panel and locate the embedded workbook.
+3. Save the attachment and open it in Excel to inspect its data, or open it directly if the viewer permits it. The preview on the PDF page is separate from the attachment.
+
+{{% alert color="info" title="หมายเหตุ" %}}
+The PDF/A standards impose restrictions on attachments: PDF/A-1 prohibits embedded files, PDF/A-2 permits only PDF/A attachments, and PDF/A-3 permits other file types, including Excel workbooks. These are requirements of the standards, not restrictions specific to Aspose.Slides. This example uses the default PDF compliance setting and does not demonstrate PDF/A export.
+{{% /alert %}}
+
+### **แปลง PowerPoint ไปเป็น PDF พร้อมสไลด์ที่ซ่อนไว้**
+
+If a presentation contains hidden slides, you can use the [set_ShowHiddenSlides](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/set_showhiddenslides/) method from the [PdfOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/) class to include the hidden slides as pages in the resulting PDF.
+
+The following example exports a presentation to PDF, including any hidden slides.
+
+```cpp
+#include <DOM/Presentation.h>
+#include <Export/PdfOptions.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto pdfOptions = MakeObject<PdfOptions>();
 pdfOptions->set_ShowHiddenSlides(true);
 
-// บันทึกงานนำเสนอเป็น PDF.
+auto presentation = MakeObject<Presentation>(u"PowerPoint.pptx");
 presentation->Save(u"PowerPoint-to-PDF.pdf", SaveFormat::Pdf, pdfOptions);
-
 presentation->Dispose();
 ```
 
-### **Convert PowerPoint to Password-Protected PDF**
+### **แปลง PowerPoint ไปเป็น PDF ที่ป้องกันด้วยรหัสผ่าน**
 
-โค้ด C++ นี้แสดงวิธีแปลงงานนำเสนอ PowerPoint เป็น PDF ที่มีการป้องกันด้วยรหัสผ่านโดยใช้พารามิเตอร์การป้องกันจากคลาส [PdfOptions](https://reference.aspose.com/slides/th/cpp/aspose.slides.export/pdfoptions/):
+The following example exports a presentation to a PDF that requires the password `password` to open. The access permissions allow printing, including high-quality printing.
 
-```c++
-// สร้างอินสแตนซ์ของคลาส Presentation ที่แสดงไฟล์ PowerPoint หรือ OpenDocument
-auto presentation = MakeObject<Presentation>(u"PowerPoint.pptx");
+```cpp
+#include <DOM/Presentation.h>
+#include <Export/PdfAccessPermissions.h>
+#include <Export/PdfOptions.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
 
-// สร้างอินสแตนซ์ของคลาส PdfOptions.
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 auto pdfOptions = MakeObject<PdfOptions>();
-
-// ตั้งรหัสผ่าน PDF และสิทธิ์การเข้าถึง
 pdfOptions->set_Password(u"password");
 pdfOptions->set_AccessPermissions(PdfAccessPermissions::PrintDocument | PdfAccessPermissions::HighQualityPrint);
 
-// บันทึกงานนำเสนอเป็น PDF.
+auto presentation = MakeObject<Presentation>(u"PowerPoint.pptx");
 presentation->Save(u"PPTX-to-PDF.pdf", SaveFormat::Pdf, pdfOptions);
-
 presentation->Dispose();
 ```
 
-### **Detect Font Substitutions**
+### **ตรวจจับการแทนที่ฟอนท์**
 
-Aspose.Slides มีเมธอด [set_WarningCallback](https://reference.aspose.com/slides/th/cpp/aspose.slides.export/saveoptions/set_warningcallback/) ภายใต้คลาส [PdfOptions](https://reference.aspose.com/slides/th/cpp/aspose.slides.export/pdfoptions/) ที่ช่วยให้คุณตรวจจับการแทนที่ฟอนท์ระหว่างกระบวนการแปลงงานนำเสนอเป็น PDF
+Aspose.Slides provides the [set_WarningCallback](https://reference.aspose.com/slides/cpp/aspose.slides.export/saveoptions/set_warningcallback/) method under the [PdfOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/) class, enabling you to detect font substitutions during the presentation-to-PDF conversion process.
 
-โค้ด C++ นี้แสดงวิธีตรวจจับการแทนที่ฟอนท์:
+The following example exports a presentation to PDF and prints font substitution warnings to the console. A warning is printed only when an unavailable font is substituted during export.
 
-```c++
-// การดำเนินการของคอลลแบ็กเตือน.
+```cpp
+#include <DOM/Presentation.h>
+#include <Export/PdfOptions.h>
+#include <Export/SaveFormat.h>
+#include <Warnings/IWarningCallback.h>
+#include <Warnings/IWarningInfo.h>
+#include <Warnings/ReturnAction.h>
+#include <Warnings/WarningType.h>
+#include <system/console.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace Aspose::Slides::Warnings;
+using namespace System;
+
 class FontSubstitutionHandler : public IWarningCallback
 {
 public:
-    ReturnAction Warning(SharedPtr<IWarningInfo> warning) override;
+    ReturnAction Warning(SharedPtr<IWarningInfo> warning) override
+    {
+        if (warning->get_WarningType() == WarningType::DataLoss && warning->get_Description().StartsWith(u"Font will be substituted"))
+        {
+            Console::WriteLine(u"Font substitution warning: {0}", warning->get_Description());
+        }
+
+        return ReturnAction::Continue;
+    }
 };
 
-ReturnAction FontSubstitutionHandler::Warning(SharedPtr<IWarningInfo> warning)
-{
-    if (warning->get_WarningType() == WarningType::DataLoss && 
-        warning->get_Description().StartsWith(u"Font will be substituted"))
-    {
-        Console::WriteLine(u"Font substitution warning: {0}", warning->get_Description());
-    }
+auto pdfOptions = MakeObject<PdfOptions>();
+auto warningHandler = MakeObject<FontSubstitutionHandler>();
+pdfOptions->set_WarningCallback(warningHandler);
 
-    return ReturnAction::Continue;
-}
-
-int main()
-{
-    // สร้างอินสแตนซ์ของคลาส Presentation ที่แสดงไฟล์ PowerPoint หรือ OpenDocument.
-    auto presentation = MakeObject<Presentation>(u"sample.pptx");
-
-    // ตั้งค่าคอลลแบ็กเตือนในตัวเลือก PDF.
-    auto pdfOptions = MakeObject<PdfOptions>();
-    pdfOptions->set_WarningCallback(MakeObject<FontSubstitutionHandler>());
-
-    // บันทึกงานนำเสนอเป็น PDF.
-    presentation->Save(u"output.pdf", SaveFormat::Pdf, pdfOptions);
-    
-    presentation->Dispose();
-
-    return 0;
-}
-```
-
-{{%  alert color="primary"  %}} 
-
-สำหรับข้อมูลเพิ่มเติมเกี่ยวกับการรับคอลลแบ็กเมื่อมีการแทนที่ฟอนท์ระหว่างการเรนเดอร์ โปรดดูที่ [Getting Warning Callbacks for Fonts Substitution](/slides/th/cpp/getting-warning-callbacks-for-fonts-substitution-in-aspose-slides/)
-
-สำหรับข้อมูลเพิ่มเติมเกี่ยวกับการแทนที่ฟอนท์ โปรดดูบทความ [Font Substitution](/slides/th/cpp/font-substitution/)
-
-{{% /alert %}} 
-
-## **Convert Selected Slides from PowerPoint to PDF**
-
-โค้ด C++ นี้แสดงวิธีแปลงเฉพาะสไลด์ที่เลือกจากงานนำเสนอ PowerPoint เป็น PDF:
-
-```C++
-// สร้างอินสแตนซ์ของคลาส Presentation ที่แสดงไฟล์ PowerPoint หรือ OpenDocument
-auto presentation = MakeObject<Presentation>(u"PowerPoint.pptx");
-
-// ตั้งอาร์เรย์ของหมายเลขสไลด์
-auto slides = MakeArray<int32_t>({ 1, 3 });
-
-// บันทึกงานนำเสนอเป็น PDF
-presentation->Save(u"PPTX-to-PDF.pdf", slides, SaveFormat::Pdf);
-
+auto presentation = MakeObject<Presentation>(u"sample.pptx");
+presentation->Save(u"output.pdf", SaveFormat::Pdf, pdfOptions);
 presentation->Dispose();
 ```
 
-## **Convert PowerPoint to PDF with Custom Slide Size**
+{{% alert color="info" title="หมายเหตุ" %}}
+For more information on font substitution, see the [การแทนที่ฟอนท์](/slides/th/cpp/font-substitution/) article.
+{{% /alert %}} 
 
-โค้ด C++ นี้แสดงวิธีแปลงงานนำเสนอ PowerPoint เป็น PDF โดยกำหนดขนาดสไลด์ตามต้องการ:
+## **แปลงสไลด์ที่เลือกจาก PowerPoint ไปเป็น PDF**
 
-```C++
+The following example exports slides 1 and 3 from a presentation to PDF. Slide numbers in this array are one-based, and the input presentation must contain at least three slides.
+
+```cpp
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/array.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"PowerPoint.pptx");
+auto slides = MakeArray<int32_t>({ 1, 3 });
+presentation->Save(u"PPTX-to-PDF.pdf", slides, SaveFormat::Pdf);
+presentation->Dispose();
+```
+
+## **แปลง PowerPoint ไปเป็น PDF ด้วยขนาดสไลด์ที่กำหนดเอง**
+
+The following example copies the first slide from a presentation into a new presentation with a slide size of 612 × 792 points (8.5 × 11 inches). It scales the slide content to fit and exports the single slide to PDF.
+
+```cpp
+#include <DOM/ISlideCollection.h>
+#include <DOM/ISlideSize.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideSizeScaleType.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 auto slideWidth = 612;
 auto slideHeight = 792;
 
-// สร้างอินสแตนซ์ของคลาส Presentation ที่แสดงไฟล์ PowerPoint หรือ OpenDocument.
 auto presentation = MakeObject<Presentation>(u"SelectedSlides.pptx");
-
-// สร้างงานนำเสนอใหม่ด้วยขนาดสไลด์ที่ปรับแล้ว.
 auto resizedPresentation = MakeObject<Presentation>();
 
-// ตั้งค่าขนาดสไลด์ที่กำหนดเอง.
 resizedPresentation->get_SlideSize()->SetSize(slideWidth, slideHeight, SlideSizeScaleType::EnsureFit);
 
-// คัดลอกสไลด์แรกจากงานนำเสนอเดิม.
 auto slide = presentation->get_Slide(0);
 resizedPresentation->get_Slides()->InsertClone(0, slide);
 
-// บันทึกงานนำเสนอที่ปรับขนาดเป็น PDF พร้อมบันทึกย่อ.
-resizedPresentation->Save(u"PDF_with_notes.pdf", SaveFormat::Pdf);
+// Remove the blank slide that the new presentation was created with.
+resizedPresentation->get_Slides()->RemoveAt(1);
+
+resizedPresentation->Save(u"PDF_with_custom_slide_size.pdf", SaveFormat::Pdf);
 
 resizedPresentation->Dispose();
 presentation->Dispose();
 ```
 
-## **Convert PowerPoint to PDF in Notes Slide View**
+## **แปลง PowerPoint ไปเป็น PDF ในมุมมองสไลด์บันทึก**
 
-โค้ด C++ นี้แสดงวิธีแปลงงานนำเสนอ PowerPoint เป็น PDF ที่รวมบันทึกย่อของสไลด์:
+The following example exports a presentation to PDF, placing each slide's speaker notes below the slide. Use a presentation containing speaker notes to see the result.
 
-```C++
-// สร้างอินสแตนซ์ของคลาส Presentation ที่แสดงไฟล์ PowerPoint หรือ OpenDocument.
-auto presentation = MakeObject<Presentation>(u"SelectedSlides.pptx");
+```cpp
+#include <DOM/Presentation.h>
+#include <Export/NotesCommentsLayoutingOptions.h>
+#include <Export/NotesPositions.h>
+#include <Export/PdfOptions.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
 
-// กำหนดค่าตัวเลือก PDF ด้วยการจัดเค้าโครงบันทึกย่อ.
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 auto notesOptions = MakeObject<NotesCommentsLayoutingOptions>();
 notesOptions->set_NotesPosition(NotesPositions::BottomFull);
+
 auto pdfOptions = MakeObject<PdfOptions>();
 pdfOptions->set_SlidesLayoutOptions(notesOptions);
 
-// บันทึกงานนำเสนอเป็น PDF พร้อมบันทึกย่อ.
-presentation->Save(u"PDF_with_notes.tiff", SaveFormat::Pdf, pdfOptions);
-
+auto presentation = MakeObject<Presentation>(u"NotesFile.pptx");
+presentation->Save(u"PDF_with_notes.pdf", SaveFormat::Pdf, pdfOptions);
 presentation->Dispose();
 ```
 
-## **Accessibility and Compliance Standards for PDF**
+## **มาตรฐานการเข้าถึงและการปฏิบัติตามสำหรับ PDF**
 
-Aspose.Slides อนุญาตให้คุณใช้กระบวนการแปลงที่สอดคล้องกับ [Web Content Accessibility Guidelines (**WCAG**)](https://www.w3.org/TR/WCAG-TECHS/pdf.html) คุณสามารถส่งออกเอกสาร PowerPoint เป็น PDF โดยใช้มาตรฐานการปฏิบัติตามใดก็ได้ต่อไปนี้: **PDF/A1a**, **PDF/A1b**, และ **PDF/UA**
+Aspose.Slides allows you to use a conversion procedure that complies with [Web Content Accessibility Guidelines (**WCAG**)](https://www.w3.org/TR/WCAG-TECHS/pdf.html). You can export a PowerPoint document to PDF using any of these compliance standards: **PDF/A1a**, **PDF/A1b**, and **PDF/UA**.
 
-โค้ด C++ นี้แสดงกระบวนการแปลง PowerPoint เป็น PDF ที่สร้าง PDF หลายไฟล์ตามมาตรฐานการปฏิบัติตามที่แตกต่างกัน:
+This C++ code demonstrates a PowerPoint-to-PDF conversion process that produces multiple PDFs based on different compliance standards:
 
-```C++
+```cpp
+#include <DOM/Presentation.h>
+#include <Export/PdfCompliance.h>
+#include <Export/PdfOptions.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 auto presentation = MakeObject<Presentation>(u"pres.pptx");
 
 auto pdfOptionsA1a = MakeObject<PdfOptions>();
@@ -306,38 +370,31 @@ presentation->Save(u"pres-ua-compliance.pdf", SaveFormat::Pdf, pdfOptionsUa);
 presentation->Dispose();
 ```
 
-{{% alert title="Note" color="warning" %}} 
-
-Aspose.Slides รองรับการแปลง PDF ไปยังรูปแบบไฟล์ยอดนิยมอื่น ๆ คุณสามารถดำเนินการแปลง [PDF to HTML](https://products.aspose.com/slides/th/cpp/conversion/pdf-to-html/), [PDF to image](https://products.aspose.com/slides/th/cpp/conversion/pdf-to-image/), [PDF to JPG](https://products.aspose.com/slides/th/cpp/conversion/pdf-to-jpg/), และ [PDF to PNG](https://products.aspose.com/slides/th/cpp/conversion/pdf-to-png/) อีกทั้งยังรองรับการแปลง PDF ไปยังรูปแบบพิเศษ เช่น [PDF to SVG](https://products.aspose.com/slides/th/cpp/conversion/pdf-to-svg/), [PDF to TIFF](https://products.aspose.com/slides/th/cpp/conversion/pdf-to-tiff/), และ [PDF to XML](https://products.aspose.com/slides/th/cpp/conversion/pdf-to-xml/)
-
+{{% alert color="info" title="หมายเหตุ" %}}
+Aspose.Slides supports PDF conversion operations, allowing you to convert PDF files to popular file formats. You can perform [PDF to HTML](https://products.aspose.com/slides/cpp/conversion/pdf-to-html/), [PDF to image](https://products.aspose.com/slides/cpp/conversion/pdf-to-image/), [PDF to JPG](https://products.aspose.com/slides/cpp/conversion/pdf-to-jpg/), and [PDF to PNG](https://products.aspose.com/slides/cpp/conversion/pdf-to-png/) conversions. Other PDF conversion operations to specialized formats—[PDF to SVG](https://products.aspose.com/slides/cpp/conversion/pdf-to-svg/), [PDF to TIFF](https://products.aspose.com/slides/cpp/conversion/pdf-to-tiff/), and [PDF to XML](https://products.aspose.com/slides/cpp/conversion/pdf-to-xml/)—are also supported.
 {{% /alert %}}
 
-> **Note:** เมื่อส่งออกเป็น PDF/UA Aspose.Slides จะจัดการกราฟิกซับซ้อนเช่น SmartArt, แผนภูมิและสูตรเป็นรูปแบบเดียว ไม่ได้เก็บส่วนประกอบของเส้นทางเป็นเนื้อหาแยกต่างหากและอาจถูกมาร์คเป็นอาร์ติแฟกต์; ข้อความอธิบายจะถูกใส่เฉพาะรูปแบบทั้งหมดเท่านั้น
+> **Note:** When exporting to PDF/UA, Aspose.Slides treats complex graphics such as SmartArt, charts, and formulas as a single figure. Individual path elements are not preserved as separate content and may be marked as artifacts; alternative text is provided only for the whole figure.
 
-## **FAQ**
+## **คำถามที่พบบ่อย**
 
-**Can I convert multiple PowerPoint files to PDF in bulk?**
+**Can I convert multiple PowerPoint files to PDF in bulk?**  
+Yes, Aspose.Slides supports batch conversion of multiple PPT or PPTX files to PDF. You can iterate through your files and apply the conversion process programmatically.
 
-ใช่, Aspose.Slides รองรับการแปลงหลายไฟล์ PPT หรือ PPTX เป็น PDF เป็นชุด คุณสามารถวนลูปไฟล์ของคุณและเรียกใช้กระบวนการแปลงโดยอัตโนมัติ
+**Is it possible to password-protect the converted PDF?**  
+Yes. Use the [PdfOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/) class to set a password and define access permissions during the conversion process.
 
-**Is it possible to password-protect the converted PDF?**
+**How do I include hidden slides in the PDF?**  
+Use the [set_ShowHiddenSlides](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/set_showhiddenslides/) method in the [PdfOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/) class to include hidden slides in the resulting PDF.
 
-แน่นอน ใช้คลาส [PdfOptions](https://reference.aspose.com/slides/th/cpp/aspose.slides.export/pdfoptions/) เพื่อตั้งรหัสผ่านและกำหนดสิทธิ์การเข้าถึงระหว่างการแปลง
+**Can Aspose.Slides maintain high image quality in the PDF?**  
+Yes, you can control image quality by using methods such as [set_JpegQuality](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/set_jpegquality/) and [set_SufficientResolution](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/set_sufficientresolution/) in the [PdfOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/) class to ensure high-quality images in your PDF.
 
-**How do I include hidden slides in the PDF?**
+**Does Aspose.Slides support PDF/A compliance standards?**  
+Yes, Aspose.Slides allows you to export PDFs that comply with various standards, including PDF/A1a, PDF/A1b, and PDF/UA, ensuring your documents meet accessibility and archival requirements.
 
-ใช้เมธอด `set_ShowHiddenSlides` ในคลาส [PdfOptions](https://reference.aspose.com/slides/th/cpp/aspose.slides.export/pdfoptions/) เพื่อรวมสไลด์ที่ซ่อนอยู่ใน PDF ที่สร้างขึ้น
+## **แหล่งข้อมูลเพิ่มเติม**
 
-**Can Aspose.Slides maintain high image quality in the PDF?**
-
-ได้, คุณสามารถควบคุมคุณภาพภาพด้วยเมธอดเช่น `set_JpegQuality` และ `set_SufficientResolution` ในคลาส [PdfOptions](https://reference.aspose.com/slides/th/cpp/aspose.slides.export/pdfoptions/) เพื่อให้ได้ภาพความละเอียดสูงใน PDF ของคุณ
-
-**Does Aspose.Slides support PDF/A compliance standards?**
-
-ใช่, Aspose.Slides อนุญาตให้คุณส่งออก PDF ที่สอดคล้องกับมาตรฐานต่าง ๆ รวมถึง PDF/A1a, PDF/A1b, และ PDF/UA เพื่อให้เอกสารของคุณตรงตามข้อกำหนดการเข้าถึงและการจัดเก็บระยะยาว
-
-## **Additional Resources**
-
-- [Aspose.Slides for C++ Documentation](/slides/th/cpp/)
-- [Aspose.Slides for C++ API Reference](https://reference.aspose.com/slides/th/cpp/)
-- [Aspose Free Online Converters](https://products.aspose.app/slides/th/conversion)
+- [เอกสาร Aspose.Slides สำหรับ C++](/slides/th/cpp/)
+- [อ้างอิง API ของ Aspose.Slides สำหรับ C++](https://reference.aspose.com/slides/cpp/)
+- [ตัวแปลงออนไลน์ฟรีของ Aspose](https://products.aspose.app/slides/conversion)

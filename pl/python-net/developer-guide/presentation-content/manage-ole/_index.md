@@ -1,11 +1,11 @@
 ---
 title: Zarządzanie OLE w prezentacjach przy użyciu Pythona
-linktitle: Zarządzaj OLE
+linktitle: Zarządzanie OLE
 type: docs
 weight: 40
 url: /pl/python-net/manage-ole/
 keywords:
-- Obiekt OLE
+- obiekt OLE
 - Łączenie i osadzanie obiektów
 - dodaj OLE
 - osadź OLE
@@ -13,8 +13,8 @@ keywords:
 - osadź obiekt
 - dodaj plik
 - osadź plik
-- powiązany obiekt
-- powiązany plik
+- połączony obiekt
+- połączony plik
 - zmień OLE
 - ikona OLE
 - tytuł OLE
@@ -25,36 +25,40 @@ keywords:
 - prezentacja
 - Python
 - Aspose.Slides
-description: "Optymalizuj zarządzanie obiektami OLE w plikach PowerPoint i OpenDocument przy użyciu Aspose.Slides dla Pythona przez .NET. Osadzaj, aktualizuj i eksportuj zawartość OLE bezproblemowo."
+description: "Optymalizuj zarządzanie obiektami OLE w plikach PowerPoint i OpenDocument przy użyciu Aspose.Slides for Python via .NET. Osadzaj, aktualizuj i eksportuj zawartość OLE bezproblemowo."
 ---
 ## **Wprowadzenie**
 
-{{% alert title="Informacja" color="info" %}}
-**OLE (Object Linking & Embedding)** jest technologią Microsoft, która pozwala na powiązanie lub osadzenie danych i obiektów utworzonych w jednej aplikacji w innej.
+{{% alert color="info" title="Note" %}}
+
+**OLE (Object Linking & Embedding)** jest technologią Microsoft, która pozwala na łączenie lub osadzanie danych i obiektów utworzonych w jednej aplikacji w innej.
+
 {{% /alert %}}
 
 Na przykład wykres utworzony w Microsoft Excel i umieszczony na slajdzie PowerPoint jest obiektem OLE.
 
-- Obiekt OLE może występować jako ikona. Podwójne kliknięcie ikony otwiera obiekt w powiązanej aplikacji (np. Excel) lub wyświetla okno wyboru aplikacji do otwarcia lub edycji.
-- Obiekt OLE może wyświetlać swoją zawartość (na przykład wykres). W takim przypadku PowerPoint aktywuje osadzony obiekt, ładuje interfejs wykresu i umożliwia edytowanie danych wykresu bezpośrednio w PowerPoint.
+- Obiekt OLE może wyświetlać się jako ikona. Dwukrotne kliknięcie ikony otwiera obiekt w powiązanej aplikacji (np. Excel) lub wyświetla monitek o wybranie aplikacji do otwarcia lub edycji.
+- Obiekt OLE może wyświetlać swoją zawartość (na przykład wykres). W takim przypadku PowerPoint aktywuje osadzony obiekt, ładuje interfejs wykresu i pozwala edytować dane wykresu w PowerPoint.
 
-Aspose.Slides for Python umożliwia wstawianie obiektów OLE do slajdów jako ramki obiektów OLE ([OleObjectFrame](https://reference.aspose.com/slides/pl/python-net/aspose.slides/oleobjectframe/)).
+Aspose.Slides for Python umożliwia wstawianie obiektów OLE do slajdów jako ramki obiektów OLE ([OleObjectFrame](https://reference.aspose.com/slides/python-net/aspose.slides/oleobjectframe/)).
 
 ## **Dodawanie obiektów OLE do slajdów**
 
 Jeśli już utworzyłeś wykres w Microsoft Excel i chcesz osadzić go w slajdzie jako ramkę obiektu OLE przy użyciu Aspose.Slides for Python, wykonaj następujące kroki:
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/python-net/aspose.slides/presentation/).
-1. Uzyskaj odniesienie do slajdu według jego indeksu.
+1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+1. Uzyskaj odwołanie do slajdu po jego indeksie.
 1. Odczytaj plik Excel do tablicy bajtów.
-1. Dodaj [OleObjectFrame](https://reference.aspose.com/slides/pl/python-net/aspose.slides/oleobjectframe/) do slajdu, podając tablicę bajtów oraz inne szczegóły obiektu OLE.
+1. Dodaj [OleObjectFrame](https://reference.aspose.com/slides/python-net/aspose.slides/oleobjectframe/) do slajdu, przekazując tablicę bajtów oraz inne szczegóły obiektu OLE.
 1. Zapisz zmodyfikowaną prezentację jako plik PPTX.
 
-W poniższym przykładzie wykres z pliku Excel jest osadzony w slajdzie jako [OleObjectFrame](https://reference.aspose.com/slides/pl/python-net/aspose.slides/oleobjectframe/).
+W poniższym przykładzie wykres z pliku Excel jest osadzony w slajdzie jako [OleObjectFrame](https://reference.aspose.com/slides/python-net/aspose.slides/oleobjectframe/).
 
-**Uwaga:** Konstruktor [OleEmbeddedDataInfo](https://reference.aspose.com/slides/pl/python-net/aspose.slides.dom.ole/oleembeddeddatainfo/) przyjmuje rozszerzenie pliku osadzania jako drugi parametr. PowerPoint wykorzystuje to rozszerzenie do identyfikacji typu pliku i wyboru odpowiedniej aplikacji do otwarcia obiektu OLE.
+**Uwaga:** Konstruktor [OleEmbeddedDataInfo](https://reference.aspose.com/slides/python-net/aspose.slides.dom.ole/oleembeddeddatainfo/) przyjmuje rozszerzenie pliku osadzalnego obiektu jako drugi parametr. PowerPoint używa tego rozszerzenia, aby zidentyfikować typ pliku i wybrać odpowiednią aplikację do otwarcia obiektu OLE.
 
 ```py
+import aspose.slides as slides
+
 with slides.Presentation() as presentation:
     slide_size = presentation.slide_size.size
     slide = presentation.slides[0]
@@ -70,17 +74,19 @@ with slides.Presentation() as presentation:
     presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **Dodawanie powiązanych obiektów OLE**
+### **Dodawanie połączonych obiektów OLE**
 
-Aspose.Slides for Python umożliwia dodanie [OleObjectFrame](https://reference.aspose.com/slides/pl/python-net/aspose.slides/oleobjectframe/), który odwołuje się do pliku zamiast osadzania jego danych.
+Aspose.Slides for Python umożliwia dodanie [OleObjectFrame](https://reference.aspose.com/slides/python-net/aspose.slides/oleobjectframe/), który łączy się z plikiem zamiast osadzać jego dane.
 
-Poniższy przykład w Pythonie pokazuje, jak dodać [OleObjectFrame](https://reference.aspose.com/slides/pl/python-net/aspose.slides/oleobjectframe/), powiązany z plikiem Excel na slajdzie:
+Poniższy przykład w Pythonie pokazuje, jak dodać [OleObjectFrame](https://reference.aspose.com/slides/python-net/aspose.slides/oleobjectframe/), połączony z plikiem Excel na slajdzie:
 
 ```py
+import aspose.slides as slides
+
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
-    # Dodaj ramkę obiektu OLE z powiązanym plikiem Excel.
+    # Dodaj ramkę obiektu OLE z połączonym plikiem Excel.
     slide.shapes.add_ole_object_frame(20, 20, 200, 150, "Excel.Sheet.12", "book.xlsx")
 
     presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
@@ -90,14 +96,16 @@ with slides.Presentation() as presentation:
 
 Jeśli obiekt OLE jest już osadzony w slajdzie, możesz uzyskać do niego dostęp w następujący sposób:
 
-1. Wczytaj prezentację zawierającą osadzony obiekt OLE, tworząc instancję klasy Presentation.
-1. Uzyskaj odniesienie do slajdu według jego indeksu.
+1. Załaduj prezentację zawierającą osadzony obiekt OLE, tworząc instancję klasy Presentation.
+1. Uzyskaj odwołanie do slajdu po jego indeksie.
 1. Uzyskaj dostęp do kształtu OleObjectFrame.
-1. Po uzyskaniu ramki obiektu OLE wykonaj na niej niezbędne operacje.
+1. Gdy masz już ramkę obiektu OLE, wykonaj na niej wszelkie wymagane operacje.
 
-Poniższy przykład uzyskuje dostęp do ramki obiektu OLE — osadzonego wykresu Excel — i pobiera jego dane pliku. W tym przykładzie używamy pliku PPTX zawierającego pojedynczy kształt na pierwszym slajdzie.
+Poniższy przykład uzyskuje dostęp do ramki obiektu OLE — osadzonego wykresu Excel — i pobiera jego dane pliku. W tym przykładzie używamy PPTX, który ma pojedynczy kształt na pierwszym slajdzie.
 
 ```py
+import aspose.slides as slides
+
 with slides.Presentation("sample.pptx") as presentation:
     slide = presentation.slides[0]
     shape = slide.shapes[0]
@@ -114,13 +122,15 @@ with slides.Presentation("sample.pptx") as presentation:
         # ...
 ```
 
-### **Dostęp do właściwości powiązanego obiektu OLE**
+### **Dostęp do właściwości połączonego obiektu OLE**
 
-Aspose.Slides umożliwia dostęp do właściwości ramki powiązanego obiektu OLE.
+Aspose.Slides umożliwia dostęp do właściwości połączonej ramki obiektu OLE.
 
-Poniższy przykład w Pythonie sprawdza, czy obiekt OLE jest powiązany i, jeśli tak, pobiera ścieżkę do powiązanego pliku:
+Poniższy przykład w Pythonie sprawdza, czy obiekt OLE jest połączony i, jeśli tak, pobiera ścieżkę do połączonego pliku:
 
 ```py
+import aspose.slides as slides
+
 with slides.Presentation("sample.ppt") as presentation:
     slide = presentation.slides[0]
     shape = slide.shapes[0]
@@ -128,12 +138,12 @@ with slides.Presentation("sample.ppt") as presentation:
     if isinstance(shape, slides.OleObjectFrame):
         ole_frame = shape
 
-        # Sprawdź, czy obiekt OLE jest powiązany.
+        # Sprawdź, czy obiekt OLE jest połączony.
         if ole_frame.is_object_link:
-            # Wyświetl pełną ścieżkę do powiązanego pliku.
+            # Wypisz pełną ścieżkę do połączonego pliku.
             print("OLE object frame is linked to:", ole_frame.link_path_long)
 
-            # Wyświetl względną ścieżkę do powiązanego pliku, jeśli istnieje.
+            # Wypisz ścieżkę względną do połączonego pliku, jeśli jest dostępna.
             # Tylko prezentacje .ppt mogą zawierać ścieżkę względną.
             if ole_frame.link_path_relative:
                 print("OLE object frame relative path:", ole_frame.link_path_relative)
@@ -141,22 +151,24 @@ with slides.Presentation("sample.ppt") as presentation:
 
 ## **Zmiana danych obiektu OLE**
 
-{{% alert color="primary" %}}
-W tej sekcji poniższy przykład kodu wykorzystuje [Aspose.Cells for Python via .NET](/cells/python-net/).
+{{% alert color="info" title="Note" %}}
+
+W tej sekcji poniższy przykład kodu używa [Aspose.Cells for Python via .NET](https://docs.aspose.com/cells/python-net/).
+
 {{% /alert %}}
 
 Jeśli obiekt OLE jest już osadzony w slajdzie, możesz uzyskać do niego dostęp i zmodyfikować jego dane w następujący sposób:
 
-1. Wczytaj prezentację, tworząc instancję klasy [Presentation](https://reference.aspose.com/slides/pl/python-net/aspose.slides/presentation/).
-1. Uzyskaj docelowy slajd według jego indeksu.
-1. Uzyskaj dostęp do kształtu [OleObjectFrame](https://reference.aspose.com/slides/pl/python-net/aspose.slides/oleobjectframe/).
-1. Po uzyskaniu ramki obiektu OLE wykonaj wymagane operacje.
+1. Załaduj prezentację, tworząc instancję klasy [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+1. Uzyskaj docelowy slajd po jego indeksie.
+1. Uzyskaj dostęp do kształtu [OleObjectFrame](https://reference.aspose.com/slides/python-net/aspose.slides/oleobjectframe/).
+1. Gdy masz już ramkę obiektu OLE, wykonaj wymagane operacje na niej.
 1. Utwórz obiekt `Workbook` i odczytaj dane OLE.
 1. Otwórz żądany `Worksheet` i edytuj dane.
 1. Zapisz zaktualizowany `Workbook` do strumienia.
-1. Zastąp dane obiektu OLE używając tego strumienia.
+1. Zamień dane obiektu OLE przy użyciu tego strumienia.
 
-W poniższym przykładzie dostęp do ramki obiektu OLE (osadzonego wykresu Excel) jest uzyskany i jego dane pliku są modyfikowane w celu zaktualizowania wykresu. Przykład używa wcześniej utworzonego pliku PPTX zawierającego pojedynczy kształt na pierwszym slajdzie.
+W poniższym przykładzie ramka obiektu OLE (osadzony wykres Excel) jest dostępna i jej dane pliku są modyfikowane w celu aktualizacji wykresu. Przykład używa wcześniej utworzonego PPTX, który zawiera pojedynczy kształt na pierwszym slajdzie.
 
 ```py
 import io
@@ -175,7 +187,7 @@ with slides.Presentation("sample.pptx") as presentation:
             workbook = cells.Workbook(ole_stream)
 
         with io.BytesIO() as new_ole_stream:
-            # Zmodyfikuj dane skoroszytu.
+            # Modyfikuj dane skoroszytu.
             workbook.worksheets.get(0).cells.get(0, 4).put_value("E")
             workbook.worksheets.get(0).cells.get(1, 4).put_value(12)
             workbook.worksheets.get(0).cells.get(2, 4).put_value(14)
@@ -193,11 +205,13 @@ with slides.Presentation("sample.pptx") as presentation:
 
 ## **Osadzanie plików w slajdach**
 
-Oprócz wykresów Excel, Aspose.Slides for Python umożliwia osadzanie innych typów plików w slajdach. Na przykład możesz wstawić pliki HTML, PDF i ZIP jako obiekty. Gdy użytkownik dwukrotnie kliknie wstawiony obiekt, otwiera się automatycznie w powiązanej aplikacji lub wyświetlane jest okno wyboru odpowiedniego programu.
+Oprócz wykresów Excel, Aspose.Slides for Python umożliwia osadzanie w slajdach innych typów plików. Na przykład możesz wstawiać pliki HTML, PDF i ZIP jako obiekty. Gdy użytkownik dwukrotnie kliknie wstawiony obiekt, otwiera się automatycznie w powiązanej aplikacji lub wyświetla się monit o wybranie odpowiedniego programu.
 
-Poniższy kod w Pythonie pokazuje, jak osadzić pliki HTML i ZIP w slajdzie:
+Ten kod w Pythonie pokazuje, jak osadzić pliki HTML i ZIP w slajdzie:
 
 ```py
+import aspose.slides as slides
+
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
@@ -220,11 +234,13 @@ with slides.Presentation() as presentation:
 
 ## **Ustawianie typów plików dla osadzonych obiektów**
 
-Podczas pracy z prezentacjami może być konieczne zastąpienie starych obiektów OLE nowymi lub wymiana nieobsługiwanego obiektu OLE na obsługiwany. Aspose.Slides for Python umożliwia ustawienie typu pliku osadzonego obiektu, co pozwala zaktualizować dane ramki OLE lub jej rozszerzenie pliku.
+Pracując z prezentacjami, możesz potrzebować zamienić stare obiekty OLE na nowe lub zastąpić nieobsługiwany obiekt OLE obsługiwanym. Aspose.Slides for Python pozwala ustawić typ pliku osadzonego obiektu, umożliwiając aktualizację danych ramki OLE lub jej rozszerzenia pliku.
 
-Poniższy kod w Pythonie pokazuje, jak ustawić typ pliku osadzonego obiektu OLE na `zip`:
+Ten kod w Pythonie pokazuje, jak ustawić typ pliku osadzonego obiektu OLE na `zip`:
 
 ```py
+import aspose.slides as slides
+
 with slides.Presentation("sample.pptx") as presentation:
     slide = presentation.slides[0]
     ole_frame = slide.shapes[0]
@@ -242,11 +258,13 @@ with slides.Presentation("sample.pptx") as presentation:
 
 ## **Ustawianie obrazów ikon i tytułów dla osadzonych obiektów**
 
-Po osadzeniu obiektu OLE automatycznie dodawany jest podgląd w formie ikony. Ten podgląd jest widoczny dla użytkowników przed dostępem lub otwarciem obiektu OLE. Jeśli chcesz użyć konkretnego obrazu i tekstu w podglądzie, możesz ustawić obraz ikony i tytuł przy użyciu Aspose.Slides for Python.
+Po osadzeniu obiektu OLE automatycznie dodawane jest podgląd oparty na ikonie. Ten podgląd widzą użytkownicy przed dostępem lub otwarciem obiektu OLE. Jeśli chcesz użyć konkretnego obrazu i tekstu w podglądzie, możesz ustawić obraz ikony i tytuł przy użyciu Aspose.Slides for Python.
 
-Poniższy kod w Pythonie pokazuje, jak ustawić obraz ikony i tytuł dla osadzonego obiektu:
+Ten kod w Pythonie pokazuje, jak ustawić obraz ikony i tytuł dla osadzonego obiektu:
 
 ```py
+import aspose.slides as slides
+
 with slides.Presentation("sample.pptx") as presentation:
     slide = presentation.slides[0]
     ole_frame = slide.shapes[0]
@@ -265,23 +283,33 @@ with slides.Presentation("sample.pptx") as presentation:
 
 ## **Zapobieganie zmianie rozmiaru i położenia ramki obiektu OLE**
 
-Po dodaniu powiązanego obiektu OLE do slajdu PowerPoint może wyświetlić monitu o aktualizację linków przy otwieraniu prezentacji. Wybranie Aktualizuj linki może zmienić rozmiar i położenie ramki obiektu OLE, ponieważ PowerPoint odświeża podgląd danymi z powiązanego obiektu. Aby zapobiec wyświetlaniu monitu o aktualizację danych obiektu, ustaw właściwość `update_automatic` klasy [OleObjectFrame](https://reference.aspose.com/slides/pl/python-net/aspose.slides/oleobjectframe/) na `False`:
+Po dodaniu połączonego obiektu OLE do slajdu PowerPoint może wyświetlić monitek o aktualizację łączy przy otwieraniu prezentacji. Wybranie Aktualizuj łącza może zmienić rozmiar i położenie ramki obiektu OLE, ponieważ PowerPoint odświeża podgląd danymi z połączonego obiektu. Aby zapobiec wyświetlaniu monitu o aktualizację danych obiektu, ustaw właściwość `update_automatic` klasy [OleObjectFrame](https://reference.aspose.com/slides/python-net/aspose.slides/oleobjectframe/) na `False`:
 
 ```py
-ole_frame.update_automatic = False
+import aspose.slides as slides
+
+with slides.Presentation("sample.pptx") as presentation:
+    slide = presentation.slides[0]
+    ole_frame = slide.shapes[0]
+
+    ole_frame.update_automatic = False
+
+    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **Wyodrębnianie osadzonych plików**
 
-Aspose.Slides for Python umożliwia wyodrębnianie plików osadzonych w slajdach jako obiektów OLE w następujący sposób:
+Aspose.Slides for Python umożliwia wyodrębnianie plików osadzonych w slajdach jako obiekty OLE w następujący sposób:
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/python-net/aspose.slides/presentation/), która zawiera obiekty OLE, które chcesz wyodrębnić.
-1. Iteruj przez wszystkie kształty w prezentacji i znajdź kształty OLEObjectFrame.
-1. Pobierz osadzone dane pliku z każdego [OLEObjectFrame](https://reference.aspose.com/slides/pl/python-net/aspose.slides/oleobjectframe/) i zapisz je na dysk.
+1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/), która zawiera obiekty OLE, które chcesz wyodrębnić.
+2. Przejdź po wszystkich kształtach w prezentacji i znajdź kształty OLEObjectFrame.
+3. Pobierz dane osadzonego pliku z każdego [OLEObjectFrame](https://reference.aspose.com/slides/python-net/aspose.slides/oleobjectframe/) i zapisz je na dysku.
 
 Poniższy kod w Pythonie pokazuje, jak wyodrębnić pliki osadzone w slajdzie jako obiekty OLE:
 
 ```py
+import aspose.slides as slides
+
 with slides.Presentation("sample.pptx") as presentation:
     slide = presentation.slides[0]
 
@@ -299,18 +327,20 @@ with slides.Presentation("sample.pptx") as presentation:
 
 ## **FAQ**
 
-**Czy zawartość OLE będzie renderowana przy eksportowaniu slajdów do PDF/obrazów?**
+**Czy zawartość OLE zostanie wyrenderowana podczas eksportowania slajdów do PDF/obrazów?**
 
-Renderowana jest to, co jest widoczne na slajdzie — ikona/obraz zastępczy (podgląd). „Żywa” zawartość OLE nie jest wykonywana podczas renderowania. W razie potrzeby ustaw własny obraz podglądu, aby zapewnić oczekiwany wygląd w wyeksportowanym PDF.
+To, co jest widoczne na slajdzie, jest renderowane — ikona/obraz zastępczy (podgląd). „Żywa” zawartość OLE nie jest wykonywana podczas renderowania. W razie potrzeby ustaw własny obraz podglądu, aby zapewnić oczekiwany wygląd w wyeksportowanym PDF.
 
-**Jak mogę zablokować obiekt OLE na slajdzie, aby użytkownicy nie mogli go przemieszczać/edytować w PowerPoint?**
+Aby także zachować osadzony plik jako załącznik PDF, ustaw [PdfOptions.include_ole_data](https://reference.aspose.com/slides/python-net/aspose.slides.export/pdfoptions/include_ole_data/) na `True`. Opcja ta jest domyślnie wyłączona. Przykład i instrukcje sprawdzania załącznika znajdziesz w [Zachowaj osadzone pliki OLE jako załączniki PDF](/slides/pl/python-net/convert-powerpoint-to-pdf/#preserve-embedded-ole-files-as-pdf-attachments).
 
-Zablokuj kształt: Aspose.Slides udostępnia [blokady na poziomie kształtu](/slides/pl/python-net/applying-protection-to-presentation/). Nie jest to szyfrowanie, ale skutecznie zapobiega przypadkowym edycjom i przemieszczaniu.
+**Jak mogę zablokować obiekt OLE na slajdzie, aby użytkownicy nie mogli go przesuwać/edytować w PowerPoint?**
 
-**Dlaczego powiązany obiekt Excel „przeskakuje” lub zmienia rozmiar po otwarciu prezentacji?**
+Zablokuj kształt: Aspose.Slides udostępnia [blokady na poziomie kształtu](/slides/pl/python-net/applying-protection-to-presentation/). To nie jest szyfrowanie, ale skutecznie zapobiega przypadkowym edycjom i przesuwaniu.
 
-PowerPoint może odświeżać podgląd powiązanego OLE. Aby uzyskać stabilny wygląd, stosuj praktyki opisane w [Working Solution for Worksheet Resizing](/slides/pl/python-net/working-solution-for-worksheet-resizing/) — dopasuj ramkę do zakresu lub skaluj zakres do stałej ramki i ustaw odpowiedni obraz zastępczy.
+**Dlaczego połączony obiekt Excel "przeskakuje" lub zmienia rozmiar po otwarciu prezentacji?**
 
-**Czy względne ścieżki powiązanych obiektów OLE będą zachowane w formacie PPTX?**
+PowerPoint może odświeżyć podgląd połączonego OLE. Aby uzyskać stabilny wygląd, stosuj praktyki z [Working Solution for Worksheet Resizing](/slides/pl/python-net/working-solution-for-worksheet-resizing/) — dopasuj ramkę do zakresu lub przeskaluj zakres do stałej ramki i ustaw odpowiedni obraz zastępczy.
 
-W formacie PPTX informacje o „ścieżce względnej” nie są dostępne — tylko pełna ścieżka. Ścieżki względne występują w starszym formacie PPT. Dla przenośności lepiej używać pewnych ścieżek bezwzględnych/ dostępnych URI lub osadzania.
+**Czy ścieżki względne połączonych obiektów OLE będą zachowane w formacie PPTX?**
+
+W PPTX informacje o „ścieżkach względnych” nie są dostępne — tylko pełna ścieżka. Ścieżki względne występują w starszym formacie PPT. Dla przenośności lepiej używać pewnych ścieżek bezwzględnych/dostępnych URI lub osadzania.

@@ -6,15 +6,15 @@ weight: 40
 url: /sv/cpp/manage-ole/
 keywords:
 - OLE-objekt
-- Objektlänkning & inbäddning
-- lägg till OLE
+- Objektlänkning och inbäddning
+- lägga till OLE
 - bädda in OLE
-- lägg till objekt
+- lägga till objekt
 - bädda in objekt
-- lägg till fil
+- lägga till fil
 - bädda in fil
 - länkat objekt
-- länkad fil
+- länkt fil
 - ändra OLE
 - OLE-ikon
 - OLE-titel
@@ -29,38 +29,50 @@ description: "Optimera hanteringen av OLE-objekt i PowerPoint- och OpenDocument-
 ---
 ## **Introduktion**
 
-{{% alert title="Info" color="info" %}}
-
-OLE (Object Linking & Embedding) är en Microsoft-teknik som gör det möjligt att placera data och objekt som skapats i ett program i ett annat program genom länkar eller inbäddning. 
-
+{{% alert color="info" title="Note" %}}
+OLE (Object Linking & Embedding) är en Microsoft-teknik som tillåter data och objekt som skapats i en applikation att placeras i en annan applikation genom länkning eller inbäddning. 
 {{% /alert %}} 
 
-Tänk på ett diagram som skapats i MS Excel. Diagrammet placeras sedan i en PowerPoint-bild. Det Excel‑diagrammet betraktas som ett OLE‑objekt. 
+Tänk på ett diagram skapat i MS Excel. Diagrammet placeras sedan i en PowerPoint‑bild. Det Excel‑diagrammet betraktas som ett OLE‑objekt. 
 
-- Ett OLE‑objekt kan visas som en ikon. I så fall öppnas diagrammet i den associerade applikationen (Excel) när du dubbelklickar på ikonen, eller så uppmanas du att välja en applikation för att öppna eller redigera objektet. 
-- Ett OLE‑objekt kan visa sitt faktiska innehåll, såsom innehållet i ett diagram. I så fall aktiveras diagrammet i PowerPoint, diagramgränssnittet laddas och du kan ändra diagrammets data i PowerPoint.
+- Ett OLE‑objekt kan visas som en ikon. I detta fall, när du dubbelklickar på ikonen, öppnas diagrammet i dess associerade program (Excel), eller så blir du ombedd att välja ett program för att öppna eller redigera objektet. 
+- Ett OLE‑objekt kan visa sitt faktiska innehåll, t.ex. innehållet i ett diagram. I detta fall aktiveras diagrammet i PowerPoint, diagramgränssnittet laddas och du kan ändra diagrammets data i PowerPoint.
 
-[Aspose.Slides för C++](https://products.aspose.com/slides/sv/cpp/) gör det möjligt att infoga OLE‑objekt i bilder som OLE‑objekt‑ramar ([OleObjectFrame](https://reference.aspose.com/slides/sv/cpp/aspose.slides/oleobjectframe/)).
+[Aspose.Slides för C++](https://products.aspose.com/slides/cpp/) låter dig infoga OLE‑objekt i bilder som OLE‑objekt‑ramar ([OleObjectFrame](https://reference.aspose.com/slides/cpp/aspose.slides/oleobjectframe/)).
 
-## **Lägg till OLE‑objektramar i bilder**
+## **Lägg till OLE‑objekt‑ramar i bilder**
 
-Anta att du redan har skapat ett diagram i Microsoft Excel och vill bädda in det i en bild som ett OLE‑objekt‑ram med Aspose.Slides för C++, så här gör du:
+Förutsatt att du redan har skapat ett diagram i Microsoft Excel och vill bädda in det i en bild som en OLE‑objekt‑ram med Aspose.Slides för C++, kan du göra så här:
 
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/cpp/class/aspose.slides.presentation). 
-2. Hämta en bilds referens via dess index. 
-3. Läs Excel‑filen som en byte‑array. 
-4. Lägg till [OleObjectFrame](https://reference.aspose.com/slides/sv/cpp/aspose.slides/oleobjectframe/) på bilden och inkludera byte‑arrayen samt annan information om OLE‑objektet. 
-5. Skriv den modifierade presentationen som en PPTX‑fil. 
+1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) .
+2. Hämta en bilds referens via dess index.
+3. Läs Excel‑filen som en byte‑array.
+4. Lägg till [OleObjectFrame](https://reference.aspose.com/slides/cpp/aspose.slides/oleobjectframe/) på bilden med byte‑arrayen och annan information om OLE‑objektet.
+5. Skriv den modifierade presentationen som en PPTX‑fil.
 
-I exemplet nedan har vi lagt till ett diagram från en Excel‑fil på en bild som ett [OleObjectFrame](https://reference.aspose.com/slides/sv/cpp/aspose.slides/oleobjectframe/) med Aspose.Slides för C++.  
-**Obs!** att konstruktorn för [OleEmbeddedDataInfo](https://reference.aspose.com/slides/sv/cpp/aspose.slides.dom.ole/oleembeddeddatainfo/) tar en inbäddningsbar objekt‑utökning som andra parameter. Denna utökning gör att PowerPoint korrekt kan tolka filtypen och välja rätt program för att öppna detta OLE‑objekt.
+I exemplet nedan lade vi till ett diagram från en Excel‑fil till en bild som ett [OleObjectFrame](https://reference.aspose.com/slides/cpp/aspose.slides/oleobjectframe/) med Aspose.Slides för C++. **Obs** att konstruktorn för [OleEmbeddedDataInfo](https://reference.aspose.com/slides/cpp/aspose.slides.dom.ole/oleembeddeddatainfo/) tar en inbäddningsbar objekt‑extension som andra parameter. Denna extension låter PowerPoint korrekt tolka filtypen och välja rätt program för att öppna detta OLE‑objekt.
 
 ``` cpp
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideSize.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <Ole/OleEmbeddedDataInfo.h>
+#include <drawing/size_f.h>
+#include <system/io/file.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::DOM::Ole;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
+
 auto presentation = MakeObject<Presentation>();
 auto slideSize = presentation->get_SlideSize()->get_Size();
 auto slide = presentation->get_Slide(0);
 
-// Förbered data för OLE-objektet.
+// Prepare data for the OLE object.
 auto fileData = File::ReadAllBytes(u"book.xlsx");
 auto dataInfo = MakeObject<OleEmbeddedDataInfo>(fileData, u"xlsx");
 
@@ -71,13 +83,22 @@ presentation->Save(u"output.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-### **Lägg till länkade OLE‑objektramar**
+### **Lägg till länkade OLE‑objekt‑ramar**
 
-Aspose.Slides för C++ gör det möjligt att lägga till ett [OleObjectFrame](https://reference.aspose.com/slides/sv/cpp/aspose.slides/oleobjectframe/) utan att bädda in data, utan endast med en länk till filen.
+Aspose.Slides för C++ låter dig lägga till ett [OleObjectFrame](https://reference.aspose.com/slides/cpp/aspose.slides/oleobjectframe/) utan att bädda in data, utan bara med en länk till filen.
 
-Denna C++‑kod visar hur du lägger till ett [OleObjectFrame](https://reference.aspose.com/slides/sv/cpp/aspose.slides/oleobjectframe/) med en länkad Excel‑fil på en bild:
+Denna C++‑kod visar hur du lägger till ett [OleObjectFrame](https://reference.aspose.com/slides/cpp/aspose.slides/oleobjectframe/) med en länkad Excel‑fil till en bild:
 
 ```cpp
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
 
@@ -88,19 +109,26 @@ presentation->Save(u"output.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Åtkomst till OLE‑objektramar**
+## **Åtkomst till OLE‑objekt‑ramar**
 
 Om ett OLE‑objekt redan är inbäddat i en bild kan du enkelt hitta eller komma åt det på följande sätt:
 
-1. Läs in en presentation med det inbäddade OLE‑objektet genom att skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/cpp/class/aspose.slides.presentation). 
-2. Hämta referensen till bilden genom att använda dess index. 
-3. Åtkomst till [OleObjectFrame](https://reference.aspose.com/slides/sv/cpp/aspose.slides/oleobjectframe/)-formen.  
-   I vårt exempel använde vi den tidigare skapade PPTX‑filen som bara har en form på den första bilden. Vi *castar* sedan det objektet till ett [IOleObjectFrame](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ioleobjectframe/). Detta var den önskade OLE‑objektramen som skulle nås. 
-4. När OLE‑objektramen har nåtts kan du utföra vilken operation som helst på den. 
+1. Läs in en presentation med det inbäddade OLE‑objektet genom att skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) .
+2. Hämta referensen till bilden genom att använda dess index.
+3. Kom åt [OleObjectFrame](https://reference.aspose.com/slides/cpp/aspose.slides/oleobjectframe/)‑formen. I vårt exempel använde vi den tidigare skapade PPTX‑filen som har endast en form på den första bilden. Vi *castade* sedan det objektet till ett [IOleObjectFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ioleobjectframe/). Detta var den önskade OLE‑objekt‑ramen som skulle nås.
+4. När OLE‑objekt‑ramen har nåtts kan du utföra vilken operation som helst på den.
 
-I exemplet nedan nås ett OLE‑objektram (ett Excel‑diagramobjekt inbäddat i en bild) och dess fildata.
+I exemplet nedan nås en OLE‑objekt‑ram (ett Excel‑diagramobjekt inbäddat i en bild) och dess fildata.
 
 ``` cpp
+#include <DOM/IOleEmbeddedDataInfo.h>
+#include <DOM/IOleObjectFrame.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <system/object_ext.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 auto presentation = MakeObject<Presentation>(u"sample.pptx");
 auto slide = presentation->get_Slide(0);
 auto shape = slide->get_Shape(0);
@@ -109,7 +137,7 @@ if (ObjectExt::Is<IOleObjectFrame>(shape))
 { 
     auto oleFrame = ExplicitCast<IOleObjectFrame>(shape);
 
-    // Hämta den inbäddade fildatan.
+    // Hämta den inbäddade filens data.
     auto fileData = oleFrame->get_EmbeddedData()->get_EmbeddedFileData();
 
     // Hämta den inbäddade filens filändelse.
@@ -119,13 +147,21 @@ if (ObjectExt::Is<IOleObjectFrame>(shape))
 }
 ```
 
-### **Åtkomst till egenskaper för länkade OLE‑objektramar**
+### **Kom åt egenskaper för länkad OLE‑objekt‑ram**
 
-Aspose.Slides gör det möjligt att komma åt egenskaper för länkade OLE‑objektramar.
+Aspose.Slides låter dig komma åt egenskaper för länkade OLE‑objekt‑ramar.
 
 Denna C++‑kod visar hur du kontrollerar om ett OLE‑objekt är länkat och sedan får sökvägen till den länkade filen:
 
 ```cpp
+#include <DOM/IOleObjectFrame.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <system/object_ext.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 auto presentation = MakeObject<Presentation>(u"sample.ppt");
 auto slide = presentation->get_Slide(0);
 auto shape = slide->get_Shape(0);
@@ -150,45 +186,68 @@ if (ObjectExt::Is<IOleObjectFrame>(shape))
 }
 ```
 
-## **Ändra OLE‑objektdata**
+## **Ändra OLE‑objektsdata**
 
-{{% alert color="primary" %}} 
-
-I det här avsnittet använder kodexemplet nedan [Aspose.Cells för C++](/cells/cpp/).
-
+{{% alert color="info" title="Note" %}}
+I det här avsnittet använder kodexemplet nedan [Aspose.Cells för C++](https://docs.aspose.com/cells/cpp/).
 {{% /alert %}}
 
-Om ett OLE‑objekt redan är inbäddat i en bild kan du enkelt nå det objektet och ändra dess data på följande sätt:
+Om ett OLE‑objekt redan är inbäddat i en bild kan du enkelt komma åt objektet och ändra dess data på följande sätt:
 
-1. Läs in en presentation med det inbäddade OLE‑objektet genom att skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/cpp/class/aspose.slides.presentation). 
+1. Läs in en presentation med det inbäddade OLE‑objektet genom att skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) .
 2. Hämta bildens referens via dess index. 
-3. Åtkomst till [OLEObjectFrame](https://reference.aspose.com/slides/sv/cpp/aspose.slides/oleobjectframe/)-formen.  
-   I vårt exempel använde vi den tidigare skapade PPTX‑filen som har en form på den första bilden. Vi *castar* sedan objektet till ett [IOleObjectFrame](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ioleobjectframe/). Detta var den önskade OLE‑objektramen som skulle nås. 
-4. När OLE‑objektramen har nåtts kan du utföra vilken operation som helst på den. 
-5. Skapa ett `Workbook`‑objekt och åtkomst till OLE‑data. 
-6. Kom åt önskat `Worksheet` och ändra datan. 
-7. Spara det uppdaterade `Workbook` i en ström. 
-8. Ändra OLE‑objektets data från strömmen. 
+3. Kom åt [OLEObjectFrame](https://reference.aspose.com/slides/cpp/aspose.slides/oleobjectframe/)‑formen. I vårt exempel använde vi den tidigare skapade PPTX‑filen som har en form på den första bilden. Vi *castade* sedan det objektet till ett [IOleObjectFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ioleobjectframe/). Detta var den önskade OLE‑objekt‑ramen som skulle nås.
+4. När OLE‑objekt‑ramen har nåtts kan du utföra vilken operation som helst på den.
+5. Skapa ett `Workbook`‑objekt och kom åt OLE‑data.
+6. Kom åt önskat `Worksheet` och ändra data.
+7. Spara den uppdaterade `Workbook` i en stream.
+8. Ändra OLE‑objektsdata från streamen.
 
-I exemplet nedan nås ett OLE‑objektram (ett Excel‑diagramobjekt inbäddat i en bild) och dess fildata ändras för att uppdatera diagrammets data.
+I exemplet nedan nås en OLE‑objekt‑ram (ett Excel‑diagramobjekt inbäddat i en bild) och dess fildata ändras för att uppdatera diagrammets data.
 
 ``` cpp
+#include <DOM/IOleObjectFrame.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <Ole/OleEmbeddedDataInfo.h>
+#include <system/io/memory_stream.h>
+#include <system/smart_ptr.h>
+#include "Aspose.Cells/Cell.h"
+#include "Aspose.Cells/Cells.h"
+#include "Aspose.Cells/Initializer.h"
+#include "Aspose.Cells/OoxmlSaveOptions.h"
+#include "Aspose.Cells/SaveFormat.h"
+#include "Aspose.Cells/U16String.h"
+#include "Aspose.Cells/Vector.h"
+#include "Aspose.Cells/Workbook.h"
+#include "Aspose.Cells/Worksheet.h"
+#include "Aspose.Cells/WorksheetCollection.h"
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::DOM::Ole;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
+
+// Aspose.Cells för C++ måste startas innan någon av dess typer används.
+Aspose::Cells::Startup();
+
 auto presentation = MakeObject<Presentation>(u"sample.pptx");
 auto slide = presentation->get_Slide(0);
 
-// Hämta den första formen som en OLE-objektram.
+// Get the first shape as an OLE object frame.
 auto oleFrame = AsCast<IOleObjectFrame>(slide->get_Shape(0));
 
 if (oleFrame != nullptr)
 {
     auto oleStream = MakeObject<MemoryStream>(oleFrame->get_EmbeddedData()->get_EmbeddedFileData());
 
-    // Läs OLE-objektets data som ett Workbook-objekt.
+    // Läs OLE-objektsdata som ett Workbook-objekt.
     auto oleArray = oleStream->ToArray();
     std::vector<uint8_t> workbookData(oleArray->data().begin(), oleArray->data().end());
     Aspose::Cells::Workbook workbook(Aspose::Cells::Vector<uint8_t>(workbookData.data(), workbookData.size()));
 
-    // Modifiera workbook-datan.
+    // Ändra arbetsbokens data.
     auto worksheet = workbook.GetWorksheets().Get(0);
     worksheet.GetCells().Get(0, 4).PutValue(Aspose::Cells::U16String("E"));
     worksheet.GetCells().Get(1, 4).PutValue(12);
@@ -203,21 +262,37 @@ if (oleFrame != nullptr)
         MakeArray<uint8_t>(std::vector<uint8_t>(newWorkbookData.GetData(), newWorkbookData.GetData() + newWorkbookData.GetLength())),
         0, newWorkbookData.GetLength());
 
-    // Ändra OLE-ramens objektdata.
+    // Ändra OLE-ramens objektdatas.
     auto newData = MakeObject<OleEmbeddedDataInfo>(newOleStream->ToArray(), oleFrame->get_EmbeddedData()->get_EmbeddedFileExtension());
     oleFrame->SetEmbeddedData(newData);
 }
 
 presentation->Save(u"output.pptx", SaveFormat::Pptx);
+
+Aspose::Cells::Cleanup();
 ```
 
 ## **Bädda in andra filtyper i bilder**
 
-Förutom Excel‑diagram gör Aspose.Slides för C++ det möjligt att bädda in andra filtyper i bilder. Till exempel kan du infoga HTML-, PDF- och ZIP‑filer som objekt. När en användare dubbelklickar på det infogade objektet öppnas det automatiskt i det relevanta programmet, eller så uppmanas användaren att välja ett lämpligt program för att öppna det.
+Förutom Excel‑diagram låter Aspose.Slides för C++ dig bädda in andra filtyper i bilder. Till exempel kan du infoga HTML‑, PDF‑ och ZIP‑filer som objekt. När en användare dubbelklickar på det infogade objektet öppnas det automatiskt i det relevanta programmet, eller så uppmanas användaren att välja ett lämpligt program för att öppna det.
 
 Denna C++‑kod visar hur du bäddar in HTML och ZIP i en bild:
 
 ``` cpp
+#include <DOM/IOleObjectFrame.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <Ole/OleEmbeddedDataInfo.h>
+#include <system/io/file.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::DOM::Ole;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
+
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
 
@@ -237,11 +312,22 @@ presentation->Dispose();
 
 ## **Ange filtyper för inbäddade objekt**
 
-När du arbetar med presentationer kan du behöva ersätta gamla OLE‑objekt med nya eller ersätta ett icke‑stödd OLE‑objekt med ett som stöds. Aspose.Slides för C++ gör det möjligt att ange filtypen för ett inbäddat objekt, vilket låter dig uppdatera OLE‑ramens data eller dess filändelse.
+När du arbetar med presentationer kan du behöva ersätta gamla OLE‑objekt med nya eller ersätta ett icke‑stött OLE‑objekt med ett stödt. Aspose.Slides för C++ låter dig ange filtyp för ett inbäddat objekt, vilket gör det möjligt att uppdatera OLE‑ramens data eller dess extension.
 
 Denna C++‑kod visar hur du anger filtypen för ett inbäddat OLE‑objekt till `zip`:
 
 ``` cpp
+#include <DOM/IOleObjectFrame.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <Ole/OleEmbeddedDataInfo.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::DOM::Ole;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 auto presentation = MakeObject<Presentation>(u"sample.pptx");
 auto slide = presentation->get_Slide(0);
 auto oleFrame = ExplicitCast<IOleObjectFrame>(slide->get_Shape(0));
@@ -251,7 +337,7 @@ auto fileData = oleFrame->get_EmbeddedData()->get_EmbeddedFileData();
 
 std::wcout << L"Current embedded file extension is: " << fileExtension << std::endl;
 
-// Ändra filtyp till ZIP.
+// Ändra filtypen till ZIP.
 oleFrame->SetEmbeddedData(MakeObject<OleEmbeddedDataInfo>(fileData, u"zip"));
 
 presentation->Save(u"output.pptx", SaveFormat::Pptx);
@@ -260,16 +346,30 @@ presentation->Dispose();
 
 ## **Ange ikonbilder och titlar för inbäddade objekt**
 
-Efter att ha bäddat in ett OLE‑objekt läggs automatiskt en förhandsgranskning bestående av en ikonbild till. Denna förhandsgranskning är vad användarna ser innan de öppnar eller får åtkomst till OLE‑objektet. Om du vill använda en specifik bild och text som element i förhandsgranskningen kan du ange ikonbilden och titeln med Aspose.Slides för C++.
+Efter att ett OLE‑objekt har bäddats in läggs automatiskt en förhandsgranskning bestående av en ikonbild till. Denna förhandsgranskning är vad användare ser innan de öppnar eller åtkommer OLE‑objektet. Om du vill använda en specifik bild och text som element i förhandsgranskningen kan du ange ikonbilden och titeln med Aspose.Slides för C++.
 
 Denna C++‑kod visar hur du anger ikonbilden och titeln för ett inbäddat objekt: 
 
 ``` cpp
+#include <DOM/IImageCollection.h>
+#include <DOM/IOleObjectFrame.h>
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlidesPicture.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
+
 auto presentation = MakeObject<Presentation>(u"sample.pptx");
 auto slide = presentation->get_Slide(0);
 auto oleFrame = ExplicitCast<IOleObjectFrame>(slide->get_Shape(0));
 
-// Lägg till en bild i presentationens resurser.
+// Lägg till en bild till presentationens resurser.
 auto imageData = File::ReadAllBytes(u"image.png");
 auto oleImage = presentation->get_Images()->AddImage(imageData);
 
@@ -282,25 +382,48 @@ presentation->Save(u"output.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Förhindra att en OLE‑objektram ändrar storlek och position**
+## **Förhindra att en OLE‑objekt‑ram ändras i storlek och flyttas**
 
-Efter att du har lagt till ett länkat OLE‑objekt på en presentationsbild kan du, när du öppnar presentationen i PowerPoint, få ett meddelande som ber dig att uppdatera länkarna. Om du klickar på knappen "Uppdatera länkar" kan storleken och positionen för OLE‑objektramen ändras eftersom PowerPoint uppdaterar data från det länkade OLE‑objektet och uppdaterar förhandsgranskningen. För att förhindra att PowerPoint uppmanar dig att uppdatera objektets data, sätt `set_UpdateAutomatic`‑metoden för [IOleObjectFrame](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ioleobjectframe/)‑gränssnittet till `false`:
+Efter att du har lagt till ett länkat OLE‑objekt i en presentationsbild kan du, när du öppnar presentationen i PowerPoint, se ett meddelande som ber dig uppdatera länkarna. Om du klickar på knappen "Update Links" kan storleken och positionen på OLE‑objekt‑ramen ändras eftersom PowerPoint uppdaterar data från det länkade OLE‑objektet och uppdaterar objektets förhandsgranskning. För att förhindra att PowerPoint ber om att uppdatera objektets data, anropa metoden [set_UpdateAutomatic](https://reference.aspose.com/slides/cpp/aspose.slides/ioleobjectframe/set_updateautomatic/) på gränssnittet [IOleObjectFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ioleobjectframe/) med `false`:
 
 ```cpp
+#include <DOM/IOleObjectFrame.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"sample.pptx");
+auto slide = presentation->get_Slide(0);
+auto oleFrame = ExplicitCast<IOleObjectFrame>(slide->get_Shape(0));
+
 oleFrame->set_UpdateAutomatic(false);
 ```
 
 ## **Extrahera inbäddade filer**
 
-Aspose.Slides för C++ gör det möjligt att extrahera filer som är inbäddade i bilder som OLE‑objekt på följande sätt:
+Aspose.Slides för C++ låter dig extrahera filer som är inbäddade i bilder som OLE‑objekt på följande sätt:
 
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/cpp/class/aspose.slides.presentation) som innehåller de OLE‑objekt du vill extrahera. 
-2. Iterera igenom alla former i presentationen och åtkomst till [OLEObjectFrame](https://reference.aspose.com/slides/sv/cpp/aspose.slides/oleobjectframe/)-former. 
-3. Kom åt datan för de inbäddade filerna från OLE‑objektramar och skriv den till disk. 
+1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) som innehåller de OLE‑objekt du avser att extrahera.
+2. Loopa igenom alla former i presentationen och kom åt [OLEObjectFrame](https://reference.aspose.com/slides/cpp/aspose.slides/oleobjectframe/)-formerna.
+3. Kom åt data för de inbäddade filerna från OLE‑objekt‑ramarna och skriv dem till disk.
 
 Denna C++‑kod visar hur du extraherar filer som är inbäddade i en bild som OLE‑objekt:
 
 ``` cpp
+#include <DOM/IOleEmbeddedDataInfo.h>
+#include <DOM/IOleObjectFrame.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <system/io/file.h>
+#include <system/object_ext.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::IO;
+
 auto presentation = MakeObject<Presentation>(u"sample.pptx");
 auto slide = presentation->get_Slide(0);
 
@@ -327,16 +450,18 @@ presentation->Dispose();
 
 **Kommer OLE‑innehållet att renderas när bilder exporteras till PDF/bilder?**
 
-Det som syns på bilden renderas — ikonen/ersättningsbilden (förhandsgranskning). Det "levande" OLE‑innehållet körs inte under rendering. Vid behov kan du ange en egen förhandsgranskningsbild för att säkra önskat utseende i den exporterade PDF‑filen.
+Det som syns på bilden renderas – ikonen/ersättningsbilden (förhandsgranskning). Det "levande" OLE‑innehållet körs inte vid rendering. Vid behov kan du ange en egen förhandsgranskningsbild för att säkerställa önskat utseende i den exporterade PDF‑filen.
+
+För att också bevara den inbäddade filen som en PDF‑bilaga, anropa [PdfOptions::set_IncludeOleData](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/set_includeoledata/) med `true`. Detta alternativ är inaktiverat som standard. För ett exempel och instruktioner för att kontrollera bilagan, se [Bevara inbäddade OLE‑filer som PDF‑bilagor](/slides/sv/cpp/convert-powerpoint-to-pdf/#preserve-embedded-ole-files-as-pdf-attachments).
 
 **Hur kan jag låsa ett OLE‑objekt på en bild så att användare inte kan flytta/redigera det i PowerPoint?**
 
-Lås formen: Aspose.Slides erbjuder [formnivå‑låsning](/slides/sv/cpp/applying-protection-to-presentation/). Detta är ingen kryptering, men det förhindrar effektivt oavsiktliga redigeringar och flyttningar.
+Lås formen: Aspose.Slides tillhandahåller [formnivå‑lås](/slides/sv/cpp/applying-protection-to-presentation/). Detta är ingen kryptering, men det förhindrar effektivt oavsiktliga redigeringar och förflyttningar.
 
-**Varför hoppar ett länkat Excel‑objekt eller ändrar storlek när jag öppnar presentationen?**
+**Varför hoppar ett länkat Excel‑objekt eller förändrar storlek när jag öppnar presentationen?**
 
-PowerPoint kan uppdatera förhandsgranskningen av det länkade OLE‑objektet. För ett stabilt utseende, följ rekommendationerna i [Working Solution for Worksheet Resizing](/slides/sv/cpp/working-solution-for-worksheet-resizing/) – antingen anpassa ramen till intervallet eller skala intervallet till en fast ram och ange en lämplig ersättningsbild.
+PowerPoint kan uppdatera förhandsgranskningen av det länkade OLE‑objektet. För ett stabilt utseende, följ rutinerna i [Arbetslösning för arbetsbladsskalning](/slides/sv/cpp/working-solution-for-worksheet-resizing/) – antingen anpassa ramen till området, eller skala området till en fast ram och ange en lämplig ersättningsbild.
 
 **Kommer relativa sökvägar för länkade OLE‑objekt att bevaras i PPTX‑formatet?**
 
-I PPTX finns ingen information om "relativ sökväg" – endast den fullständiga sökvägen. Relativa sökvägar finns i det äldre PPT‑formatet. För portabilitet bör du föredra pålitliga absoluta sökvägar/tillgängliga URI:er eller inbäddning.
+I PPTX‑formatet finns ingen information om "relativ sökväg" – endast hela sökvägen. Relativa sökvägar finns i det äldre PPT‑formatet. För portabilitet bör du föredra pålitliga absoluta sökvägar/tillgängliga URI:er eller inbäddning.

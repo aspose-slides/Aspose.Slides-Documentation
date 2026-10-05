@@ -6,8 +6,8 @@ weight: 40
 url: /id/python-java/manage-ole/
 keywords:
 - objek OLE
-- Pengaitan dan Penyematan Objek
-- tambahkan OLE
+- Object Linking & Embedding
+- menambah OLE
 - sematkan OLE
 - tambahkan objek
 - sematkan objek
@@ -26,32 +26,33 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: Optimalkan manajemen objek OLE dalam file PowerPoint dan OpenDocument dengan Aspose.Slides for Python via Java. Sematkan, perbarui, dan ekspor konten OLE secara mulus.
+description: "Optimalkan manajemen objek OLE dalam file PowerPoint dan OpenDocument dengan Aspose.Slides untuk Python via Java. Sematkan, perbarui, dan ekspor konten OLE dengan mulus."
 ---
-## **Pengantar**
+## **Pendahuluan**
 
 {{% alert color="info" title="Note" %}}
-OLE (Object Linking & Embedding) adalah teknologi Microsoft yang memungkinkan data dan objek yang dibuat di satu aplikasi ditempatkan di aplikasi lain melalui penautan atau penyisipan.
+OLE (Object Linking & Embedding) adalah teknologi Microsoft yang memungkinkan data dan objek yang dibuat di satu aplikasi ditempatkan di aplikasi lain melalui penautan atau penyematan.
 {{% /alert %}}
 
 Pertimbangkan sebuah diagram yang dibuat di MS Excel. Diagram tersebut kemudian ditempatkan di dalam slide PowerPoint. Diagram Excel itu dianggap sebagai objek OLE.
 
-- Objek OLE dapat muncul sebagai ikon. Dalam kasus ini, saat Anda mengklik ganda ikon, diagram akan terbuka di aplikasi terkait (Excel), atau Anda akan diminta memilih aplikasi untuk membuka atau mengedit objek.
-- Objek OLE dapat menampilkan isi sebenarnya, seperti isi diagram. Dalam kasus ini, diagram diaktifkan di PowerPoint, antarmuka diagram dimuat, dan Anda dapat memodifikasi data diagram di dalam PowerPoint.
+- Sebuah objek OLE dapat muncul sebagai ikon. Dalam kasus ini, ketika Anda mengklik ganda ikon, diagram akan dibuka di aplikasi terkait (Excel), atau Anda akan diminta memilih aplikasi untuk membuka atau menyunting objek.
+- Sebuah objek OLE dapat menampilkan isi sebenarnya, seperti isi sebuah diagram. Dalam kasus ini, diagram diaktifkan di PowerPoint, antarmuka diagram dimuat, dan Anda dapat mengubah data diagram di dalam PowerPoint.
 
-[Aspose.Slides for Python via Java](https://products.aspose.com/slides/id/python-java/) memungkinkan Anda menyisipkan objek OLE ke dalam slide sebagai bingkai objek OLE ([OleObjectFrame](https://reference.aspose.com/slides/id/python-java/aspose.slides/oleobjectframe/)).
+[Aspose.Slides for Python via Java](https://products.aspose.com/slides/python-java/) memungkinkan Anda menyisipkan objek OLE ke dalam slide sebagai bingkai objek OLE ([OleObjectFrame](https://reference.aspose.com/slides/python-java/aspose.slides/oleobjectframe/)).
 
 ## **Menambahkan Bingkai Objek OLE ke Slide**
 
-Andaikan Anda sudah membuat diagram di Microsoft Excel dan ingin menyisipkannya ke dalam slide sebagai bingkai objek OLE menggunakan Aspose.Slides for Python via Java, Anda dapat melakukannya dengan cara berikut:
+Dengan asumsi Anda sudah membuat sebuah diagram di Microsoft Excel dan ingin menyematkannya dalam slide sebagai bingkai objek OLE menggunakan Aspose.Slides for Python via Java, Anda dapat melakukannya dengan cara berikut:
 
-1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentation/) .
+1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) .
 2. Dapatkan referensi ke slide berdasarkan indeksnya.
 3. Baca file Excel sebagai array byte.
-4. Tambahkan [OleObjectFrame](https://reference.aspose.com/slides/id/python-java/aspose.slides/oleobjectframe/) ke slide dengan menyertakan array byte dan informasi lain tentang objek OLE.
-5. Tuliskan presentasi yang telah dimodifikasi sebagai file PPTX.
+4. Tambahkan [OleObjectFrame](https://reference.aspose.com/slides/python-java/aspose.slides/oleobjectframe/) ke slide yang berisi array byte dan informasi lain tentang objek OLE.
+5. Tulis presentasi yang telah dimodifikasi sebagai file PPTX.
 
-Dalam contoh di bawah ini, kami menambahkan diagram dari file Excel ke slide sebagai bingkai objek OLE menggunakan Aspose.Slides for Python via Java. **Catatan** bahwa konstruktor [OleEmbeddedDataInfo](https://reference.aspose.com/slides/id/python-java/aspose.slides/oleembeddeddatainfo/) menerima ekstensi objek yang dapat disisipkan sebagai parameter kedua. Ekstensi ini memungkinkan PowerPoint untuk menginterpretasikan jenis file dengan benar dan memilih aplikasi yang tepat untuk membuka objek OLE ini.
+Dalam contoh di bawah, kami menambahkan sebuah diagram dari file Excel ke slide sebagai bingkai objek OLE menggunakan Aspose.Slides for Python via Java.  
+**Catatan** bahwa konstruktor [OleEmbeddedDataInfo](https://reference.aspose.com/slides/python-java/aspose.slides/oleembeddeddatainfo/) menerima ekstensi objek yang dapat disematkan sebagai parameter kedua. Ekstensi ini memungkinkan PowerPoint menginterpretasikan tipe file dengan benar dan memilih aplikasi yang tepat untuk membuka objek OLE ini.
 
 ```python
 from pathlib import Path
@@ -84,11 +85,11 @@ finally:
     presentation.dispose()
 ```
 
-### **Menambahkan Bingkai OLE Tertaut**
+### **Menambahkan Bingkai Objek OLE Tertaut**
 
-Aspose.Slides for Python via Java memungkinkan Anda menambahkan sebuah [OleObjectFrame](https://reference.aspose.com/slides/id/python-java/aspose.slides/oleobjectframe/) dengan tautan ke file alih-alih data yang disisipkan.
+Aspose.Slides for Python via Java memungkinkan Anda menambahkan sebuah [OleObjectFrame](https://reference.aspose.com/slides/python-java/aspose.slides/oleobjectframe/) dengan tautan ke file alih-alih data yang disematkan.
 
-Kode Python berikut menunjukkan cara menambahkan sebuah [OleObjectFrame](https://reference.aspose.com/slides/id/python-java/aspose.slides/oleobjectframe/) dengan file Excel yang ditautkan ke sebuah slide:
+Kode Python ini menunjukkan cara menambahkan sebuah [OleObjectFrame](https://reference.aspose.com/slides/python-java/aspose.slides/oleobjectframe/) dengan file Excel yang ditautkan ke slide:
 
 ```python
 import jpype
@@ -113,14 +114,15 @@ finally:
 
 ## **Mengakses Bingkai Objek OLE**
 
-Jika sebuah objek OLE sudah disisipkan dalam slide, Anda dapat dengan mudah menemukannya atau mengaksesnya dengan cara berikut:
+Jika sebuah objek OLE sudah disematkan dalam slide, Anda dapat dengan mudah menemukannya atau mengaksesnya dengan cara berikut:
 
-1. Muat presentasi dengan objek OLE yang disisipkan dengan membuat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentation/) .
+1. Muat sebuah presentasi dengan objek OLE yang disematkan dengan membuat instance dari kelas [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) .
 2. Dapatkan referensi ke slide berdasarkan indeksnya.
-3. Akses bentuk [OleObjectFrame](https://reference.aspose.com/slides/id/python-java/aspose.slides/oleobjectframe/). Dalam contoh kami, kami menggunakan PPTX yang sebelumnya dibuat yang hanya memiliki satu bentuk pada slide pertama. Kami kemudian memeriksa bahwa objek tersebut adalah sebuah [OleObjectFrame](https://reference.aspose.com/slides/id/python-java/aspose.slides/oleobjectframe/). Ini adalah bingkai objek OLE yang diinginkan untuk diakses.
+3. Akses shape [OleObjectFrame](https://reference.aspose.com/slides/python-java/aspose.slides/oleobjectframe/).  
+   Dalam contoh kami, kami menggunakan PPTX yang sebelumnya dibuat yang hanya memiliki satu shape pada slide pertama. Kami kemudian memeriksa bahwa objek tersebut adalah sebuah [OleObjectFrame](https://reference.aspose.com/slides/python-java/aspose.slides/oleobjectframe/). Ini adalah bingkai objek OLE yang diinginkan untuk diakses.
 4. Setelah bingkai objek OLE diakses, Anda dapat melakukan operasi apa pun padanya.
 
-Dalam contoh di bawah ini, sebuah bingkai objek OLE (objek diagram Excel yang disisipkan dalam slide) dan data file-nya diakses.
+Dalam contoh di bawah, sebuah bingkai objek OLE (objek diagram Excel yang disematkan dalam slide) dan data berkasnya diakses.
 
 ```python
 import jpype
@@ -140,20 +142,24 @@ try:
         ole_frame = shape
 
         # Dapatkan data file yang disematkan.
+        file_data = ole_frame.getEmbeddedData().getEmbeddedFileData()
+
         # Dapatkan ekstensi file yang disematkan.
+        file_extension = ole_frame.getEmbeddedData().getEmbeddedFileExtension()
+
         # ...
 finally:
     presentation.dispose()
 ```
 
-### **Mengakses Properti Bingkai OLE Tertaut**
+### **Mengakses Properti Bingkai Objek OLE Tertaut**
 
 Aspose.Slides memungkinkan Anda mengakses properti bingkai objek OLE yang tertaut.
 
-Kode Python berikut menunjukkan cara memeriksa apakah sebuah objek OLE tertaut dan kemudian memperoleh path ke file yang tertaut:
+Kode Python ini menunjukkan cara memeriksa apakah sebuah objek OLE ditautkan dan kemudian memperoleh jalur ke file yang ditautkan:
 
 ```python
-import jpide
+import jpype
 import asposeslides
 
 if not jpype.isJVMStarted():
@@ -186,21 +192,22 @@ finally:
 ## **Mengubah Data Objek OLE**
 
 {{% alert color="info" title="Note" %}}
-Pada bagian ini, contoh kode di bawah ini menggunakan [Aspose.Cells for Python via Java](https://products.aspose.com/cells/python-java/).
+Dalam bagian ini, contoh kode di bawah menggunakan [Aspose.Cells for Python via Java](https://products.aspose.com/cells/python-java/).
 {{% /alert %}}
 
-Jika sebuah objek OLE sudah disisipkan dalam slide, Anda dapat dengan mudah mengakses objek tersebut dan mengubah datanya dengan cara berikut:
+Jika sebuah objek OLE sudah disematkan dalam slide, Anda dapat dengan mudah mengakses objek tersebut dan mengubah datanya dengan cara berikut:
 
-1. Muat presentasi dengan objek OLE yang disisipkan dengan membuat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentation/) .
+1. Muat sebuah presentasi dengan objek OLE yang disematkan dengan membuat instance dari kelas [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) .
 2. Dapatkan referensi ke slide berdasarkan indeksnya.
-3. Akses bentuk bingkai objek OLE. Dalam contoh kami, kami menggunakan PPTX yang sebelumnya dibuat yang memiliki satu bentuk pada slide pertama. Kami kemudian memeriksa bahwa objek tersebut adalah sebuah [OleObjectFrame](https://reference.aspose.com/slides/id/python-java/aspose.slides/oleobjectframe/). Ini adalah bingkai objek OLE yang diinginkan untuk diakses.
+3. Akses shape bingkai objek OLE.  
+   Dalam contoh kami, kami menggunakan PPTX yang sebelumnya dibuat yang memiliki satu shape pada slide pertama. Kami kemudian memeriksa bahwa objek tersebut adalah sebuah [OleObjectFrame](https://reference.aspose.com/slides/python-java/aspose.slides/oleobjectframe/). Ini adalah bingkai objek OLE yang diinginkan untuk diakses.
 4. Setelah bingkai objek OLE diakses, Anda dapat melakukan operasi apa pun padanya.
-5. Buat objek [Workbook](https://reference.aspose.com/cells/python-java/asposecells.api/workbook/) dan akses data OLE.
+5. Buat sebuah objek [Workbook](https://reference.aspose.com/cells/python-java/asposecells.api/workbook/) dan akses data OLE.
 6. Akses [Worksheet](https://reference.aspose.com/cells/python-java/asposecells.api/worksheet/) yang diinginkan dan ubah data.
 7. Simpan [Workbook](https://reference.aspose.com/cells/python-java/asposecells.api/workbook/) yang diperbarui ke dalam stream.
-8. Ubah data objek OLE dari stream.
+8. Ganti data objek OLE dari stream.
 
-Dalam contoh di bawah ini, sebuah bingkai objek OLE (objek diagram Excel yang disisipkan dalam slide) diakses, dan data file-nya dimodifikasi untuk memperbarui data diagram.
+Dalam contoh di bawah, sebuah bingkai objek OLE (objek diagram Excel yang disematkan dalam slide) diakses, dan data berkasnya dimodifikasi untuk memperbarui data diagram.
 
 ```python
 import jpype
@@ -231,7 +238,7 @@ try:
 
         new_ole_stream = ByteArrayOutputStream()
 
-        # Modifikasi data workbook.
+        # Ubah data workbook.
         cells = workbook.getWorksheets().get(0).getCells()
         cells.get(0, 4).putValue("E")
         cells.get(1, 4).putValue(jpype.JInt(12))
@@ -251,11 +258,11 @@ finally:
     presentation.dispose()
 ```
 
-## **Menyisipkan Jenis File Lain ke Slide**
+## **Menyematkan Jenis File Lain di Slide**
 
-Selain diagram Excel, Aspose.Slides for Python via Java memungkinkan Anda menyisipkan jenis file lain ke dalam slide. Misalnya, Anda dapat menyisipkan file HTML, PDF, dan ZIP sebagai objek. Ketika pengguna mengklik ganda objek yang disisipkan, itu secara otomatis terbuka di program terkait, atau pengguna akan diminta untuk memilih program yang sesuai untuk membukanya.
+Selain diagram Excel, Aspose.Slides for Python via Java memungkinkan Anda menyematkan jenis file lain ke dalam slide. Misalnya, Anda dapat menyisipkan file HTML, PDF, dan ZIP sebagai objek. Ketika pengguna mengklik ganda objek yang disisipkan, objek tersebut otomatis terbuka di program terkait, atau pengguna diminta memilih program yang sesuai untuk membukanya.
 
-Kode Python berikut menunjukkan cara menyisipkan HTML dan ZIP ke dalam slide:
+Kode Python ini menunjukkan cara menyematkan HTML dan ZIP ke dalam slide:
 
 ```python
 from pathlib import Path
@@ -289,11 +296,11 @@ finally:
     presentation.dispose()
 ```
 
-## **Mengatur Jenis File untuk Objek yang Disisipkan**
+## **Mengatur Jenis File untuk Objek yang Disematkan**
 
-Saat bekerja dengan presentasi, Anda mungkin perlu mengganti objek OLE lama dengan yang baru atau mengganti objek OLE yang tidak didukung dengan yang didukung. Aspose.Slides for Python via Java memungkinkan Anda mengatur jenis file untuk objek yang disisipkan, sehingga Anda dapat memperbarui data bingkai OLE atau ekstensi filenya.
+Saat bekerja dengan presentasi, Anda mungkin perlu mengganti objek OLE lama dengan yang baru atau mengganti objek OLE yang tidak didukung dengan yang didukung. Aspose.Slides for Python via Java memungkinkan Anda mengatur jenis file untuk objek yang disematkan, sehingga Anda dapat memperbarui data bingkai OLE atau ekstensi file tersebut.
 
-Kode Python berikut menunjukkan cara mengatur jenis file untuk objek OLE yang disisipkan menjadi `zip`:
+Kode Python ini menunjukkan cara mengatur jenis file untuk objek OLE yang disematkan menjadi `zip`:
 
 ```python
 import jpype
@@ -314,7 +321,7 @@ try:
 
     print("Current embedded file extension is: " + str(file_extension))
 
-    # Ubah jenis file menjadi ZIP.
+    # Ubah tipe file menjadi ZIP.
     data_info = OleEmbeddedDataInfo(file_data, "zip")
     ole_frame.setEmbeddedData(data_info)
 
@@ -323,11 +330,11 @@ finally:
     presentation.dispose()
 ```
 
-## **Mengatur Gambar Ikon dan Judul untuk Objek yang Disisipkan**
+## **Mengatur Gambar Ikon dan Judul untuk Objek yang Disematkan**
 
-Setelah sebuah objek OLE disisipkan, pratinjau yang terdiri dari gambar ikon secara otomatis ditambahkan. Pratinjau ini adalah apa yang dilihat pengguna sebelum mengakses atau membuka objek OLE. Jika Anda ingin menggunakan gambar dan teks tertentu sebagai elemen dalam pratinjau, Anda dapat mengatur gambar ikon dan judul menggunakan Aspose.Slides for Python via Java.
+Setelah sebuah objek OLE disematkan, pratinjau yang terdiri dari gambar ikon secara otomatis ditambahkan. Pratinjau inilah yang dilihat pengguna sebelum mengakses atau membuka objek OLE. Jika Anda ingin menggunakan gambar dan teks tertentu sebagai elemen dalam pratinjau, Anda dapat mengatur gambar ikon dan judul menggunakan Aspose.Slides for Python via Java.
 
-Kode Python berikut menunjukkan cara mengatur gambar ikon dan judul untuk objek yang disisipkan:
+Kode Python ini menunjukkan cara mengatur gambar ikon dan judul untuk objek yang disematkan:
 
 ```python
 from pathlib import Path
@@ -362,7 +369,7 @@ finally:
 
 ## **Mencegah Bingkai Objek OLE Diubah Ukuran dan Posisinya**
 
-Setelah Anda menambahkan objek OLE yang tertaut ke slide presentasi, ketika Anda membuka presentasi di PowerPoint, Anda mungkin melihat pesan yang meminta Anda memperbarui tautan. Mengklik tombol "Update Links" dapat mengubah ukuran dan posisi bingkai objek OLE karena PowerPoint memperbarui data dari objek OLE yang tertaut dan menyegarkan pratinjau objek. Untuk mencegah PowerPoint meminta pembaruan data objek, setel metode [setUpdateAutomatic](https://reference.aspose.com/slides/id/python-java/aspose.slides/oleobjectframe/#setUpdateAutomatic) dari kelas [OleObjectFrame](https://reference.aspose.com/slides/id/python-java/aspose.slides/oleobjectframe/) ke `False`:
+Setelah Anda menambahkan objek OLE yang tertaut ke slide presentasi, ketika Anda membuka presentasi di PowerPoint, Anda mungkin melihat pesan yang meminta Anda memperbarui tautan. Mengklik tombol "Update Links" dapat mengubah ukuran dan posisi bingkai objek OLE karena PowerPoint memperbarui data dari objek OLE yang tertaut dan menyegarkan pratinjau objek. Untuk mencegah PowerPoint menanyakan pembaruan data objek, panggil metode [setUpdateAutomatic](https://reference.aspose.com/slides/python-java/aspose.slides/oleobjectframe/#setUpdateAutomatic) dari kelas [OleObjectFrame](https://reference.aspose.com/slides/python-java/aspose.slides/oleobjectframe/) dengan `False`:
 
 ```python
 import jpype
@@ -385,15 +392,15 @@ finally:
     presentation.dispose()
 ```
 
-## **Mengekstrak File yang Disisipkan**
+## **Mengekstrak File yang Disematkan**
 
-Aspose.Slides for Python via Java memungkinkan Anda mengekstrak file yang disisipkan dalam slide sebagai objek OLE dengan cara berikut:
+Aspose.Slides for Python via Java memungkinkan Anda mengekstrak file yang disematkan dalam slide sebagai objek OLE dengan cara berikut:
 
-1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentation/) yang berisi objek OLE yang ingin Anda ekstrak.
-2. Iterasi semua shape dalam presentasi dan akses shape [OleObjectFrame](https://reference.aspose.com/slides/id/python-java/aspose.slides/oleobjectframe/).
-3. Akses data file yang disisipkan dari bingkai objek OLE dan tulis ke disk.
+1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) yang berisi objek OLE yang ingin Anda ekstrak.
+2. Loop melalui semua shape dalam presentasi dan akses shape [OleObjectFrame](https://reference.aspose.com/slides/python-java/aspose.slides/oleobjectframe/).
+3. Akses data file yang disematkan dari bingkai objek OLE dan tulis ke disk.
 
-Kode Python berikut menunjukkan cara mengekstrak file yang disisipkan dalam slide sebagai objek OLE:
+Kode Python ini menunjukkan cara mengekstrak file yang disematkan dalam slide sebagai objek OLE:
 
 ```python
 from pathlib import Path
@@ -427,14 +434,20 @@ finally:
 
 ## **FAQ**
 
-**Apakah konten OLE akan dirender saat mengekspor slide ke PDF/gambar?**  
-Yang terlihat pada slide yang dirender—ikon/gambar pengganti (pratinjau). Konten OLE "live" tidak dijalankan selama proses rendering. Jika diperlukan, atur gambar pratinjau Anda sendiri untuk memastikan tampilan yang diharapkan dalam PDF yang diekspor.
+**Apakah konten OLE akan dirender saat mengekspor slide ke PDF/gambar?**
 
-**Bagaimana cara mengunci objek OLE pada slide agar pengguna tidak dapat memindahkan/mengeditnya di PowerPoint?**  
-Kunci shape: Aspose.Slides menyediakan [kunci tingkat shape](/slides/id/python-java/applying-protection-to-presentation/). Ini bukan enkripsi, tetapi secara efektif mencegah pengeditan dan pemindahan yang tidak disengaja.
+Apa yang terlihat di slide yang dirender—ikon/gambar pengganti (pratinjau). Konten OLE "hidup" tidak dijalankan selama proses render. Jika diperlukan, atur gambar pratinjau Anda sendiri untuk memastikan tampilan yang diharapkan pada PDF yang diekspor.
 
-**Mengapa objek Excel yang tertaut "melompat" atau mengubah ukuran saat saya membuka presentasi?**  
-PowerPoint mungkin menyegarkan pratinjau OLE yang tertaut. Untuk tampilan yang stabil, ikuti praktik [Working Solution for Worksheet Resizing](/slides/id/python-java/working-solution-for-worksheet-resizing/)—baik sesuaikan bingkai dengan rentang, atau skala rentang ke bingkai tetap dan atur gambar pengganti yang sesuai.
+Untuk juga mempertahankan file yang disematkan sebagai lampiran PDF, panggil [setIncludeOleData](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/#setIncludeOleData) dengan `True`. Opsi ini dinonaktifkan secara default. Untuk contoh dan instruksi memeriksa lampiran, lihat [Preserve Embedded OLE Files as PDF Attachments](/slides/id/python-java/convert-powerpoint-to-pdf/#preserve-embedded-ole-files-as-pdf-attachments).
 
-**Apakah jalur relatif untuk objek OLE yang tertaut akan dipertahankan dalam format PPTX?**  
-Dalam PPTX, informasi "jalur relatif" tidak tersedia—hanya jalur lengkap. Jalur relatif ditemukan pada format PPT yang lebih lama. Untuk portabilitas, sebaiknya gunakan jalur absolut yang dapat diandalkan/URI yang dapat diakses atau menyisipkan file.
+**Bagaimana cara mengunci objek OLE pada slide sehingga pengguna tidak dapat memindahkannya/mengeditnya di PowerPoint?**
+
+Kunci shape: Aspose.Slides menyediakan [shape-level locks](/slides/id/python-java/applying-protection-to-presentation/). Ini bukan enkripsi, namun secara efektif mencegah penyuntingan dan pemindahan yang tidak disengaja.
+
+**Mengapa objek Excel yang ditautkan "melompat" atau mengubah ukuran ketika saya membuka presentasi?**
+
+PowerPoint mungkin menyegarkan pratinjau OLE yang ditautkan. Untuk tampilan yang stabil, ikuti praktik [Working Solution for Worksheet Resizing](/slides/id/python-java/working-solution-for-worksheet-resizing/)—baik menyesuaikan bingkai dengan rentang, atau menskalakan rentang ke bingkai tetap dan mengatur gambar pengganti yang sesuai.
+
+**Apakah jalur relatif untuk objek OLE yang ditautkan akan dipertahankan dalam format PPTX?**
+
+Dalam PPTX, informasi "jalur relatif" tidak tersedia—hanya jalur lengkap. Jalur relatif hanya ditemukan di format PPT lama. Untuk portabilitas, lebih baik menggunakan jalur absolut yang dapat diandalkan/URI yang dapat diakses atau menyematkan file.

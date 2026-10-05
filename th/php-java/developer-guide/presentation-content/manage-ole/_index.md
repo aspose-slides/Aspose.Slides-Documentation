@@ -1,101 +1,102 @@
 ---
-title: จัดการ OLE ในการนำเสนอโดยใช้ PHP
+title: จัดการ OLE ในงานนำเสนอโดยใช้ PHP
 linktitle: จัดการ OLE
 type: docs
 weight: 40
 url: /th/php-java/manage-ole/
 keywords:
-- วัตถุ OLE
-- การเชื่อมโยงและการฝังวัตถุ
+- อ็อบเจกต์ OLE
+- การเชื่อมโยงและฝังอ็อบเจกต์
 - เพิ่ม OLE
 - ฝัง OLE
-- เพิ่มวัตถุ
-- ฝังวัตถุ
+- เพิ่มอ็อบเจกต์
+- ฝังอ็อบเจกต์
 - เพิ่มไฟล์
 - ฝังไฟล์
-- วัตถุที่เชื่อมโยง
+- อ็อบเจกต์ที่เชื่อมโยง
 - ไฟล์ที่เชื่อมโยง
 - เปลี่ยน OLE
 - ไอคอน OLE
-- ชื่อ OLE
+- หัวเรื่อง OLE
 - สกัด OLE
-- สกัดวัตถุ
+- สกัดอ็อบเจกต์
 - สกัดไฟล์
 - PowerPoint
-- การนำเสนอ
+- งานนำเสนอ
 - PHP
 - Aspose.Slides
-description: "เพิ่มประสิทธิภาพการจัดการวัตถุ OLE ในไฟล์ PowerPoint และ OpenDocument ด้วย Aspose.Slides สำหรับ PHP ผ่าน Java. ฝัง, ปรับปรุงและส่งออกเนื้อหา OLE อย่างไร้รอยต่อ."
+description: "ปรับแต่งการจัดการอ็อบเจกต์ OLE ใน PowerPoint และไฟล์ OpenDocument ด้วย Aspose.Slides สำหรับ PHP ผ่าน Java. ฝัง, อัปเดต และส่งออกเนื้อหา OLE ได้อย่างราบรื่น."
 ---
 ## **บทนำ**
 
-{{% alert color="primary" %}} 
-OLE (Object Linking & Embedding) เป็นเทคโนโลยีของ Microsoft ที่อนุญาตให้ข้อมูลและอ็อบเจกต์ที่สร้างในแอปพลิเคชันหนึ่งถูกวางในแอปพลิเคชันอื่นผ่านการเชื่อมโยงหรือการฝัง. 
+{{% alert color="info" title="Note" %}}
+
+OLE (Object Linking & Embedding) เป็นเทคโนโลยีของ Microsoft ที่อนุญาตให้ข้อมูลและอ็อบเจกต์ที่สร้างในแอปพลิเคชันหนึ่งถูกวางในแอปพลิเคชันอื่นผ่านการเชื่อมโยงหรือฝัง
+
 {{% /alert %}} 
 
-ลองพิจารณาชาร์ตที่สร้างใน MS Excel ชาร์ตนั้นจะถูกวางอยู่ในสไลด์ของ PowerPoint ชาร์ต Excel นี้ถือเป็นวัตถุ OLE. 
+พิจารณาแผนภูมิที่สร้างใน MS Excel แผนภูมินั้นถูกวางไว้ในสไลด์ PowerPoint แผนภูมิ Excel นี้ถือเป็นอ็อบเจกต์ OLE 
 
-- วัตถุ OLE อาจปรากฏเป็นไอคอน ในกรณีนี้ เมื่อคุณดับเบิลคลิกไอคอน ชาร์ตจะเปิดในแอปพลิเคชันที่เกี่ยวข้อง (Excel) หรือคุณจะถูกขอให้เลือกแอปพลิเคชันเพื่อเปิดหรือแก้ไขวัตถุ
-- วัตถุ OLE อาจแสดงเนื้อหาจริงของมัน เช่น เนื้อหาของชาร์ต ในกรณีนี้ ชาร์ตจะถูกเปิดใช้งานใน PowerPoint อินเตอร์เฟสของชาร์ตจะโหลดและคุณสามารถปรับแก้ข้อมูลของชาร์ตภายใน PowerPoint ได้
+- อ็อบเจกต์ OLE อาจปรากฏเป็นไอคอน ในกรณีนี้เมื่อคุณดับเบิลคลิกที่ไอคอน แผนภูมิจะเปิดในแอปพลิเคชันที่สัมพันธ์ (Excel) หรือคุณจะถูกถามให้เลือกแอปพลิเคชันเพื่อเปิดหรือแก้ไขอ็อบเจกต์
+- อ็อบเจกต์ OLE อาจแสดงเนื้อหาจริงของมัน เช่น เนื้อหาของแผนภูมิ ในกรณีนี้แผนภูมิจะถูกเปิดใช้งานใน PowerPoint อินเทอร์เฟซของแผนภูมิจะโหลดขึ้น และคุณสามารถแก้ไขข้อมูลของแผนภูมิได้ภายใน PowerPoint
 
-[Aspose.Slides for PHP via Java](https://products.aspose.com/slides/th/php-java/) ช่วยให้คุณแทรกวัตถุ OLE ลงในสไลด์เป็นกรอบวัตถุ OLE ([OleObjectFrame](https://reference.aspose.com/slides/th/php-java/aspose.slides/oleobjectframe/)).
+[Aspose.Slides for PHP via Java](https://products.aspose.com/slides/php-java/) ช่วยให้คุณแทรก OLE Objects ลงในสไลด์เป็นกรอบอ็อบเจกต์ OLE ([OleObjectFrame](https://reference.aspose.com/slides/php-java/aspose.slides/oleobjectframe/))
 
-## **เพิ่มกรอบวัตถุ OLE ลงในสไลด์**
+## **เพิ่มกรอบอ็อบเจกต์ OLE ลงในสไลด์**
 
-Assuming you have already created a chart in Microsoft Excel and want to embed it in a slide as an OLE object frame using Aspose.Slides for PHP via Java, you can do it this way:
+สมมติว่าคุณได้สร้างแผนภูมิใน Microsoft Excel แล้วและต้องการฝังมันในสไลด์เป็นกรอบอ็อบเจกต์ OLE ด้วย Aspose.Slides for PHP via Java คุณสามารถทำได้ตามนี้:
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentation/) class.  
-1. Get a slide's reference through its index.  
-1. Read the Excel file as a byte array.  
-1. Add the [OleObjectFrame](https://reference.aspose.com/slides/th/php-java/aspose.slides/oleobjectframe/) to the slide containing the byte array and other information about the OLE object.  
-1. Write the modified presentation as a PPTX file.  
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/)  
+2. รับอ้างอิงของสไลด์ผ่านดัชนีของมัน  
+3. อ่านไฟล์ Excel เป็นอาร์เรย์ของไบต์  
+4. เพิ่ม [OleObjectFrame](https://reference.aspose.com/slides/php-java/aspose.slides/oleobjectframe/) ไปยังสไลด์โดยใส่อาร์เรย์ไบต์และข้อมูลอื่นๆ ของอ็อบเจกต์ OLE  
+5. เขียนพรีเซนเทชั่นที่แก้ไขแล้วเป็นไฟล์ PPTX  
 
-In the example below, we added a chart from an Excel file to a slide as an OLE object frame using Aspose.Slides for PHP via Java.  
-**Note** that the [OleEmbeddedDataInfo](https://reference.aspose.com/slides/th/php-java/aspose.slides/oleembeddeddatainfo/) constructor takes an embeddable object extension as a second parameter. This extension allows PowerPoint to correctly interpret the file type and choose the right application to open this OLE object.
+ในตัวอย่างด้านล่าง เราได้เพิ่มแผนภูมิจากไฟล์ Excel ลงในสไลด์เป็นกรอบอ็อบเจกต์ OLE ด้วย Aspose.Slides for PHP via Java. **หมายเหตุ**ว่า ตัวสร้าง [OleEmbeddedDataInfo](https://reference.aspose.com/slides/php-java/aspose.slides/oleembeddeddatainfo/) รับส่วนขยายของอ็อบเจกต์ที่ฝังได้เป็นพารามิเตอร์ที่สอง ส่วนขยายนั้นทำให้ PowerPoint สามารถตีความประเภทไฟล์ได้อย่างถูกต้องและเลือกแอปพลิเคชันที่เหมาะสมเพื่อเปิดอ็อบเจกต์ OLE นี้.
 
 ```php
 $presentation = new Presentation();
 $slideSize = $presentation->getSlideSize()->getSize();
 $slide = $presentation->getSlides()->get_Item(0);
 
-// เตรียมข้อมูลสำหรับวัตถุ OLE.
+// เตรียมข้อมูลสำหรับอ็อบเจกต์ OLE.
 $fileData = file_get_contents("book.xlsx");
 $dataInfo = new OleEmbeddedDataInfo($fileData, "xlsx");
 
-// เพิ่มกรอบวัตถุ OLE ลงในสไลด์.
+// เพิ่มกรอบอ็อบเจกต์ OLE ลงในสไลด์.
 $slide->getShapes()->addOleObjectFrame(0, 0, $slideSize->getWidth(), $slideSize->getHeight(), $dataInfo);
 
 $presentation->save("output.pptx", SaveFormat::Pptx);
 $presentation->dispose();
 ```
 
-### **เพิ่มกรอบวัตถุ OLE ที่เชื่อมโยง**
+### **เพิ่มกรอบอ็อบเจกต์ OLE ที่เชื่อมโยง**
 
-Aspose.Slides for PHP via Java ช่วยให้คุณเพิ่ม [OleObjectFrame](https://reference.aspose.com/slides/th/php-java/aspose.slides/oleobjectframe/) โดยไม่ต้องฝังข้อมูล แต่เพียงแค่เชื่อมโยงไปยังไฟล์  
+Aspose.Slides for PHP via Java อนุญาตให้คุณเพิ่ม [OleObjectFrame](https://reference.aspose.com/slides/php-java/aspose.slides/oleobjectframe/) โดยไม่ต้องฝังข้อมูล แต่เพียงแค่เชื่อมโยงไปยังไฟล์
 
-This PHP code shows you how to add an [OleObjectFrame](https://reference.aspose.com/slides/th/php-java/aspose.slides/oleobjectframe/) with a linked Excel file to a slide:
+โค้ด PHP นี้แสดงวิธีเพิ่ม [OleObjectFrame](https://reference.aspose.com/slides/php-java/aspose.slides/oleobjectframe/) พร้อมไฟล์ Excel ที่เชื่อมโยงไปยังสไลด์:
 
 ```php
 $presentation = new Presentation();
 $slide = $presentation->getSlides()->get_Item(0);
 
-// เพิ่มกรอบวัตถุ OLE พร้อมไฟล์ Excel ที่เชื่อมโยง.
+// เพิ่มกรอบอ็อบเจกต์ OLE พร้อมไฟล์ Excel ที่เชื่อมโยง.
 $slide->getShapes()->addOleObjectFrame(20, 20, 200, 150, "Excel.Sheet.12", "book.xlsx");
 
 $presentation->save("output.pptx", SaveFormat::Pptx);
 $presentation->dispose();
 ```
 
-## **เข้าถึงกรอบวัตถุ OLE**
+## **เข้าถึงกรอบอ็อบเจกต์ OLE**
 
-If an OLE object is already embedded in a slide, you can easily find or access it this way:
+หากอ็อบเจกต์ OLE ถูกฝังอยู่ในสไลด์แล้ว คุณสามารถค้นหา หรือเข้าถึงมันได้อย่างง่ายดายโดยทำตามนี้:
 
-1. Load a presentation with the embedded OLE object by creating an instance of the [Presentation](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentation/) class.  
-2. Get the reference of the slide by using its index.  
-3. Access the [OleObjectFrame](https://reference.aspose.com/slides/th/php-java/aspose.slides/oleobjectframe/) shape. In our example, we used the previously created PPTX that has only one shape on the first slide.  
-4. Once the OLE object frame is accessed, you can perform any operation on it.  
+1. โหลดพรีเซนเทชั่นที่มีอ็อบเจกต์ OLE ฝังอยู่โดยสร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/)  
+2. รับอ้างอิงของสไลด์โดยใช้ดัชนีของมัน  
+3. เข้าถึงรูปทรง [OleObjectFrame](https://reference.aspose.com/slides/php-java/aspose.slides/oleobjectframe/) ในตัวอย่างของเรา เราใช้ไฟล์ PPTX ที่สร้างขึ้นก่อนหน้านี้ซึ่งมีรูปร่างเดียวบนสไลด์แรก  
+4. เมื่อเข้าถึงกรอบอ็อบเจกต์ OLE แล้ว คุณสามารถทำการดำเนินการใดๆ กับมันได้  
 
-In the example below, an OLE object frame (an Excel chart object embedded in a slide) and its file data are accessed.
+ในตัวอย่างด้านล่าง เราได้เข้าถึงกรอบอ็อบเจกต์ OLE (อ็อบเจกต์แผนภูมิ Excel ที่ฝังในสไลด์) และข้อมูลไฟล์ของมัน
 
 ```php
 $presentation = new Presentation("sample.pptx");
@@ -105,21 +106,17 @@ $shape = $slide->getShapes()->get_Item(0);
 if (java_instanceof($shape, new JavaClass("com.aspose.slides.OleObjectFrame"))) {
     $oleFrame = $shape;
     
-    // ดึงข้อมูลไฟล์ที่ฝังไว้.
-    $fileData = $oleFrame->getEmbeddedData()->getEmbeddedFileData();
-
-    // ดึงนามสกุลของไฟล์ที่ฝังไว้.
-    $fileExtension = $oleFrame->getEmbeddedData()->getEmbeddedFileExtension();
-
+    // รับข้อมูลไฟล์ที่ฝังไว้.
+    // รับส่วนขยายของไฟล์ที่ฝังไว้.
     // ...
 }
 ```
 
-### **คุณสมบัติของกรอบวัตถุ OLE ที่เชื่อมโยง**
+### **เข้าถึงคุณสมบัติกรอบอ็อบเจกต์ OLE ที่เชื่อมโยง**
 
-Aspose.Slides ให้คุณเข้าถึงคุณสมบัติของกรอบวัตถุ OLE ที่เชื่อมโยง  
+Aspose.Slides อนุญาตให้คุณเข้าถึงคุณสมบัติกรอบอ็อบเจกต์ OLE ที่เชื่อมโยง
 
-This PHP code shows you how to check if an OLE object is linked and then obtain the path to the linked file:
+โค้ด PHP นี้แสดงวิธีตรวจสอบว่าอ็อบเจกต์ OLE ถูกเชื่อมโยงหรือไม่และรับเส้นทางไปยังไฟล์ที่เชื่อมโยง:
 
 ```php
 $presentation = new Presentation("sample.ppt");
@@ -129,13 +126,13 @@ $shape = $slide->getShapes()->get_Item(0);
 if (java_instanceof($shape, new JavaClass("com.aspose.slides.OleObjectFrame"))) {
     $oleFrame = $shape;
 
-    // ตรวจสอบว่าวัตถุ OLE ถูกเชื่อมโยงหรือไม่.
+    // ตรวจสอบว่าอ็อบเจกต์ OLE ถูกเชื่อมโยงหรือไม่.
     if (java_values($oleFrame->isObjectLink()) != 0) {
-        // พิมพ์เส้นทางเต็มไปยังไฟล์ที่เชื่อมโยง.
+        // พิมพ์เส้นทางเต็มของไฟล์ที่เชื่อมโยง.
         echo "OLE object frame is linked to: " . $oleFrame->getLinkPathLong() . PHP_EOL;
 
-        // พิมพ์เส้นทางสัมพันธ์ไปยังไฟล์ที่เชื่อมโยงหากมี.
-        // เฉพาะการนำเสนอ PPT เท่านั้นที่สามารถมีเส้นทางสัมพันธ์ได้.
+        // พิมพ์เส้นทางสัมพัทธ์ของไฟล์ที่เชื่อมโยงหากมี.
+        // เฉพาะพรีเซนเทชั่น PPT เท่านั้นที่สามารถมีเส้นทางสัมพัทธ์ได้.
         $relativePath = java_values($oleFrame->getLinkPathRelative());
         if (!is_null($relativePath) && $relativePath !== "") {
             echo "OLE object frame relative path: " . $oleFrame->getLinkPathRelative() . PHP_EOL;
@@ -146,24 +143,26 @@ if (java_instanceof($shape, new JavaClass("com.aspose.slides.OleObjectFrame"))) 
 $presentation->dispose();
 ```
 
-## **เปลี่ยนข้อมูลวัตถุ OLE**
+## **เปลี่ยนข้อมูลอ็อบเจกต์ OLE**
 
-{{% alert color="primary" %}} 
-In this section, the code example below uses [Aspose.Cells for PHP via Java](/cells/php-java/).  
-{{% /alert %}}  
+{{% alert color="info" title="Note" %}}
 
-If an OLE object is already embedded in a slide, you can easily access that object and modify its data this way:
+ในส่วนนี้ ตัวอย่างโค้ดด้านล่างใช้ [Aspose.Cells for PHP via Java](https://docs.aspose.com/cells/php-java/).
 
-1. Load a presentation with the embedded OLE object by creating an instance of the [Presentation](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentation/) class.  
-2. Get the slide's reference through its index.  
-3. Access the [OleObjectFrame](https://reference.aspose.com/slides/th/php-java/aspose.slides/oleobjectframe/) shape. In our example, we used the previously created PPTX that has one shape on the first slide.  
-4. Once the OLE object frame is accessed, you can perform any operation on it.  
-5. Create a `Workbook` object and access the OLE data.  
-6. Access the desired `Worksheet` and amend the data.  
-7. Save the updated `Workbook` in a stream.  
-8. Change the OLE object data from the stream.  
+{{% /alert %}}
 
-In the example below, an OLE object frame (an Excel chart object embedded in a slide) is accessed, and its file data is modified to update the chart data.
+หากอ็อบเจกต์ OLE ถูกฝังอยู่ในสไลด์แล้ว คุณสามารถเข้าถึงอ็อบเจกต์นั้นและแก้ไขข้อมูลของมันได้อย่างง่ายดายโดยทำตามนี้:
+
+1. โหลดพรีเซนเทชั่นที่มีอ็อบเจกต์ OLE ฝังอยู่โดยสร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/)  
+2. รับอ้างอิงของสไลด์ผ่านดัชนีของมัน  
+3. เข้าถึงรูปทรง [OleObjectFrame](https://reference.aspose.com/slides/php-java/aspose.slides/oleobjectframe/) ในตัวอย่างของเรา เราใช้ PPTX ที่สร้างขึ้นก่อนหน้านี้ซึ่งมีรูปร่างหนึ่งบนสไลด์แรก  
+4. เมื่อเข้าถึงกรอบอ็อบเจกต์ OLE แล้ว คุณสามารถทำการดำเนินการใดๆ กับมันได้  
+5. สร้างอ็อบเจกต์ `Workbook` และเข้าถึงข้อมูล OLE  
+6. เข้าถึง `Worksheet` ที่ต้องการและแก้ไขข้อมูล  
+7. บันทึก `Workbook` ที่อัปเดตลงในสตรีม  
+8. เปลี่ยนข้อมูลอ็อบเจกต์ OLE จากสตรีม  
+
+ในตัวอย่างด้านล่าง เราได้เข้าถึงกรอบอ็อบเจกต์ OLE (อ็อบเจกต์แผนภูมิ Excel ที่ฝังในสไลด์) และแก้ไขข้อมูลไฟล์ของมันเพื่ออัปเดตข้อมูลของแผนภูมิ
 
 ```php
 $presentation = new Presentation("sample.pptx");
@@ -173,9 +172,9 @@ $shape = $slide->getShapes()->get_Item(0);
 if (java_instanceof($shape, new JavaClass("com.aspose.slides.OleObjectFrame"))) {
     $oleFrame = $shape;
 
-    $oleStream = new ByteArrayInputStream($oleFrame->getEmbeddedData()->getEmbeddedFileData());
+    $oleStream = new Java("java.io.ByteArrayInputStream", $oleFrame->getEmbeddedData()->getEmbeddedFileData());
 
-    // อ่านข้อมูลวัตถุ OLE เป็นออบเจกต์ Workbook.
+    // อ่านข้อมูลอ็อบเจกต์ OLE เป็นอ็อบเจกต์ Workbook.
     $workbook = new Workbook($oleStream);
 
     $newOleStream = new Java("java.io.ByteArrayOutputStream");
@@ -189,7 +188,7 @@ if (java_instanceof($shape, new JavaClass("com.aspose.slides.OleObjectFrame"))) 
     $fileOptions = new OoxmlSaveOptions(SaveFormat::XLSX);
     $workbook->save($newOleStream, $fileOptions);
 
-    // เปลี่ยนข้อมูลออบเจกต์ของกรอบ OLE.
+    // เปลี่ยนข้อมูลอ็อบเจกต์ของกรอบ OLE.
     $newData = new OleEmbeddedDataInfo($newOleStream->toByteArray(), $oleFrame->getEmbeddedData()->getEmbeddedFileExtension());
     $oleFrame->setEmbeddedData($newData);
 
@@ -201,11 +200,11 @@ $presentation->save("output.pptx", SaveFormat::Pptx);
 $presentation->dispose();
 ```
 
-## **ฝังชนิดไฟล์อื่นในสไลด์**
+## **ฝังไฟล์ประเภทอื่นในสไลด์**
 
-Besides Excel charts, Aspose.Slides for PHP via Java allows you to embed other types of files into slides. For example, you can insert HTML, PDF, and ZIP files as objects. When a user double-clicks the inserted object, it automatically opens in the relevant program, or the user is prompted to select an appropriate program to open it.  
+นอกเหนือจากแผนภูมิ Excel แล้ว Aspose.Slides for PHP via Java ยังอนุญาตให้คุณฝังไฟล์ประเภทอื่นลงในสไลด์ได้ ตัวอย่างเช่น คุณสามารถแทรกไฟล์ HTML, PDF และ ZIP เป็นอ็อบเจกต์ เมื่อผู้ใช้ดับเบิลคลิกที่อ็อบเจกต์ที่แทรกไว้ มันจะเปิดโดยอัตโนมัติในโปรแกรมที่เกี่ยวข้อง หรือผู้ใช้จะได้รับการแจ้งให้เลือกโปรแกรมที่เหมาะสมเพื่อเปิด
 
-This PHP code shows you how to embed HTML and ZIP into a slide:
+โค้ด PHP นี้แสดงวิธีฝัง HTML และ ZIP ลงในสไลด์:
 
 ```php
 $presentation = new Presentation("sample.pptx");
@@ -225,11 +224,11 @@ $presentation->save("output.pptx", SaveFormat::Pptx);
 $presentation->dispose();
 ```
 
-## **ตั้งชนิดไฟล์สำหรับวัตถุที่ฝัง**
+## **ตั้งค่าประเภทไฟล์สำหรับอ็อบเจกต์ที่ฝัง**
 
-When working with presentations, you may need to replace old OLE objects with new ones or replace an unsupported OLE object with a supported one. Aspose.Slides for PHP via Java allows you to set the file type for an embedded object, enabling you to update the OLE frame data or its extension.  
+เมื่อทำงานกับพรีเซนเทชั่น คุณอาจต้องการแทนที่อ็อบเจกต์ OLE เก่าโดยอ็อบเจกต์ใหม่หรือแทนที่อ็อบเจกต์ OLE ที่ไม่รองรับด้วยอ็อบเจกต์ที่รองรับ Aspose.Slides for PHP via Java อนุญาตให้คุณตั้งค่าประเภทไฟล์สำหรับอ็อบเจกต์ที่ฝังไว้ เพื่อให้คุณสามารถอัปเดตข้อมูลกรอบ OLE หรือส่วนขยายของมันได้
 
-This PHP code shows you how to set the file type for an embedded OLE object to `zip`:
+โค้ด PHP นี้แสดงวิธีตั้งค่าประเภทไฟล์สำหรับอ็อบเจกต์ OLE ที่ฝังเป็น `zip`:
 
 ```php
 $presentation = new Presentation("sample.pptx");
@@ -242,24 +241,23 @@ $fileData = $oleFrame->getEmbeddedData()->getEmbeddedFileData();
 echo "Current embedded file extension is: " . $fileExtension . PHP_EOL;
 
 // เปลี่ยนประเภทไฟล์เป็น ZIP.
-$oleFrame->setEmbeddedData(new OleEmbeddedDataInfo($fileData, "zip"));
 
 $presentation->save("output.pptx", SaveFormat::Pptx);
 $presentation->dispose();
 ```
 
-## **ตั้งภาพไอคอนและชื่อสำหรับวัตถุที่ฝัง**
+## **ตั้งค่าภาพไอคอนและหัวเรื่องสำหรับอ็อบเจกต์ที่ฝัง**
 
-After embedding an OLE object, a preview consisting of an icon image is added automatically. This preview is what users see before accessing or opening the OLE object. If you want to use a specific image and text as elements in the preview, you can set the icon image and title using Aspose.Slides for PHP via Java.  
+หลังจากฝังอ็อบเจกต์ OLE จะมีการเพิ่มตัวอย่างภาพประกอบที่ประกอบด้วยภาพไอคอนโดยอัตโนมัติ ตัวอย่างนี้คือสิ่งที่ผู้ใช้เห็นก่อนเข้าถึงหรือเปิดอ็อบเจกต์ OLE หากคุณต้องการใช้ภาพและข้อความเฉพาะเป็นองค์ประกอบในตัวอย่าง สามารถตั้งค่าภาพไอคอนและหัวเรื่องโดยใช้ Aspose.Slides for PHP via Java
 
-This PHP code shows you how to set the icon image and title for an embedded object:
+โค้ด PHP นี้แสดงวิธีตั้งค่าภาพไอคอนและหัวเรื่องสำหรับอ็อบเจกต์ที่ฝัง:
 
 ```php
 $presentation = new Presentation("sample.pptx");
 $slide = $presentation->getSlides()->get_Item(0);
 $oleFrame = $slide->getShapes()->get_Item(0);
 
-// เพิ่มภาพไปยังทรัพยากรของการนำเสนอ.
+// เพิ่มรูปภาพไปยังทรัพยากรของพรีเซนเทชั่น.
 $imageData = file_get_contents("image.png");
 $oleImage = $presentation->getImages()->addImage($imageData);
 
@@ -272,23 +270,30 @@ $presentation->save("output.pptx", SaveFormat::Pptx);
 $presentation->dispose();
 ```
 
-## **ป้องกันไม่ให้กรอบวัตถุ OLE ถูกปรับขนาดและย้ายตำแหน่ง**
+## **ป้องกันไม่ให้กรอบอ็อบเจกต์ OLE ถูกปรับขนาดและย้ายตำแหน่ง**
 
-After you add a linked OLE object to a presentation slide, when you open the presentation in PowerPoint, you might see a message asking you to update the links. Clicking the "Update Links" button may change the size and position of the OLE object frame because PowerPoint updates the data from the linked OLE object and refreshes the object preview. To prevent PowerPoint from prompting to update the object's data, set the `setUpdateAutomatic` method of the [OleObjectFrame](https://reference.aspose.com/slides/th/php-java/aspose.slides/oleobjectframe/) class to `false`:
+หลังจากที่คุณเพิ่มอ็อบเจกต์ OLE ที่เชื่อมโยงลงในสไลด์พรีเซนเทชั่น เมื่อคุณเปิดพรีเซนเทชั่นใน PowerPoint คุณอาจเห็นข้อความขอให้คุณอัปเดตลิงก์ การคลิกปุ่ม "Update Links" อาจทำให้ขนาดและตำแหน่งของกรอบอ็อบเจกต์ OLE เปลี่ยนไป เพราะ PowerPoint จะอัปเดตข้อมูลจากอ็อบเจกต์ OLE ที่เชื่อมโยงและรีเฟรชตัวอย่างอ็อบเจกต์ เพื่อป้องกันไม่ให้ PowerPoint แสดงข้อความขออัปเดตข้อมูลของอ็อบเจกต์ ให้เรียกเมธอด [setUpdateAutomatic](https://reference.aspose.com/slides/php-java/aspose.slides/oleobjectframe/#setUpdateAutomatic) ของคลาส [OleObjectFrame](https://reference.aspose.com/slides/php-java/aspose.slides/oleobjectframe/) ด้วยค่า `false` :
 
 ```php
+$presentation = new Presentation("sample.pptx");
+$slide = $presentation->getSlides()->get_Item(0);
+$oleFrame = $slide->getShapes()->get_Item(0);
+
 $oleFrame->setUpdateAutomatic(false);
+
+$presentation->save("output.pptx", SaveFormat::Pptx);
+$presentation->dispose();
 ```
 
 ## **สกัดไฟล์ที่ฝังไว้**
 
-Aspose.Slides for PHP via Java allows you to extract the files embedded in slides as OLE objects this way:
+Aspose.Slides for PHP via Java อนุญาตให้คุณสกัดไฟล์ที่ฝังอยู่ในสไลด์เป็นอ็อบเจกต์ OLE ได้ตามนี้:
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentation/) class containing the OLE objects you intend to extract.  
-2. Loop through all the shapes in the presentation and access the [OLEObjectFrame](https://reference.aspose.com/slides/th/php-java/aspose.slides/oleobjectframe/) shapes.  
-3. Access the data of embedded files from OLE object frames and write it to disk.  
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) ที่มีอ็อบเจกต์ OLE ที่คุณต้องการสกัด  
+2. วนลูปผ่านรูปทรงทั้งหมดในพรีเซนเทชั่นและเข้าถึงรูปทรง [OLEObjectFrame](https://reference.aspose.com/slides/php-java/aspose.slides/oleobjectframe/)  
+3. เข้าถึงข้อมูลไฟล์ที่ฝังจากกรอบอ็อบเจกต์ OLE แล้วเขียนลงดิสก์  
 
-This PHP code shows you how to extract files embedded in a slide as OLE objects:
+โค้ด PHP นี้แสดงวิธีสกัดไฟล์ที่ฝังในสไลด์เป็นอ็อบเจกต์ OLE:
 
 ```php
 $presentation = new Presentation("sample.pptx");
@@ -312,16 +317,18 @@ for ($index = 0; $index < $shapeCount; $index++) {
 $presentation->dispose();
 ```
 
-## **FAQ**
+## **คำถามที่พบบ่อย**
 
-**เนื้อหา OLE จะถูกเรนเดอร์เมื่อตัดออกเป็น PDF/รูปภาพหรือไม่?**  
+**เนื้อหา OLE จะถูกเรนเดอร์เมื่อส่งออกสไลด์เป็น PDF/รูปภาพหรือไม่?**
 
-สิ่งที่มองเห็นบนสไลด์จะถูกเรนเดอร์—ไอคอน/ภาพทดแทน (preview) เนื้อหา OLE แบบ “สด” จะไม่ถูกประมวลผลในระหว่างการเรนเดอร์ หากต้องการ ให้ตั้งภาพ preview ของคุณเองเพื่อให้แน่ใจว่าการแสดงผลใน PDF ที่ส่งออกตรงตามที่คาดหวัง  
+สิ่งที่แสดงบนสไลด์เท่านั้นที่จะถูกเรนเดอร์ — ไอคอน/ภาพทดแทน (พรีวิว) เนื้อหา OLE แบบ “สด” จะไม่ถูกประมวลผลในระหว่างการเรนเดอร์ หากต้องการสามารถตั้งค่าภาพพรีวิวของคุณเองเพื่อให้ได้ลักษณะที่คาดหวังใน PDF ที่ส่งออก  
 
-**ฉันจะล็อกวัตถุ OLE บนสไลด์เพื่อให้ผู้ใช้ไม่สามารถย้าย/แก้ไขได้ใน PowerPoint อย่างไร?**  
+เพื่อให้คงไฟล์ที่ฝังเป็นไฟล์แนบใน PDF ด้วย ให้เรียกเมธอด [setIncludeOleData](https://reference.aspose.com/slides/php-java/aspose.slides/pdfoptions/#setIncludeOleData) ด้วยค่า `true` ตัวเลือกนี้จะปิดการใช้งานโดยค่าเริ่มต้น สำหรับตัวอย่างและวิธีตรวจสอบไฟล์แนบ ให้ดูที่ [Preserve Embedded OLE Files as PDF Attachments](/slides/th/php-java/convert-powerpoint-to-pdf/#preserve-embedded-ole-files-as-pdf-attachments).
 
-ล็อกรูปร่าง: Aspose.Slides ให้การล็อกระดับรูปร่าง นี่ไม่ใช่การเข้ารหัส แต่ช่วยป้องกันการแก้ไขหรือการย้ายโดยไม่ได้ตั้งใจ  
+**ฉันจะล็อกอ็อบเจกต์ OLE บนสไลด์เพื่อให้ผู้ใช้ไม่สามารถย้าย/แก้ไขได้ใน PowerPoint อย่างไร?**
 
-**เส้นทางสัมพันธ์สำหรับวัตถุ OLE ที่เชื่อมโยงจะถูกเก็บรักษาไว้ในรูปแบบ PPTX หรือไม่?**  
+ล็อกรูปทรง: Aspose.Slides มีการล็อกระดับรูปทรง ซึ่งไม่ใช่การเข้ารหัส แต่ช่วยป้องกันการแก้ไขหรือการย้ายโดยไม่ตั้งใจ
 
-ใน PPTX ข้อมูล “relative path” ไม่ได้มีให้ใช้—จะมีเพียงเส้นทางเต็มเท่านั้น เส้นทางสัมพันธ์พบได้ในรูปแบบ PPT เก่า ๆ เพื่อความพกพา ควรใช้เส้นทางเต็มที่เชื่อถือได้/URI ที่เข้าถึงได้ หรือการฝังไฟล์แทน  
+**เส้นทางสัมพัทธ์สำหรับอ็อบเจกต์ OLE ที่เชื่อมโยงจะถูกคงไว้ในรูปแบบ PPTX หรือไม่?**
+
+ใน PPTX ไม่มีข้อมูล "เส้นทางสัมพัทธ์" — มีเพียงเส้นทางเต็มเท่านั้น เส้นทางสัมพัทธ์จะมีในรูปแบบ PPT เก่า สำหรับความพกพา แนะนำให้ใช้เส้นทางเต็มที่เชื่อถือได้/URI ที่เข้าถึงได้หรือการฝังไฟล์

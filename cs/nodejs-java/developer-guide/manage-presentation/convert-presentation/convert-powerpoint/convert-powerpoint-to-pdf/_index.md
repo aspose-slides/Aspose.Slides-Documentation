@@ -1,36 +1,37 @@
 ---
-title: Převod PPT a PPTX do PDF v JavaScriptu [Zahrnuty pokročilé funkce]
+title: Převést PPT a PPTX do PDF v JavaScriptu [Zahrnuty pokročilé funkce]
 linktitle: PowerPoint do PDF
 type: docs
 weight: 40
 url: /cs/nodejs-java/convert-powerpoint-to-pdf/
 keywords:
-- převod PowerPoint
-- převod prezentace
+- převést PowerPoint
+- převést prezentaci
 - PowerPoint do PDF
 - prezentace do PDF
 - PPT do PDF
-- převod PPT do PDF
+- převést PPT do PDF
 - PPTX do PDF
-- převod PPTX do PDF
+- převést PPTX do PDF
 - uložit PowerPoint jako PDF
 - uložit PPT jako PDF
 - uložit PPTX jako PDF
 - exportovat PPT do PDF
 - exportovat PPTX do PDF
+- příloha
 - PDF/A1a
 - PDF/A1b
 - PDF/UA
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Převod PowerPoint PPT/PPTX do vysoce kvalitních, prohledávatelných PDF pomocí Aspose.Slides pro Node.js, s rychlými ukázkami kódu a pokročilými možnostmi konverze."
+description: "Převést PowerPoint PPT/PPTX na vysoce kvalitní, prohledávatelné PDF pomocí Aspose.Slides pro Node.js, s rychlými ukázkami kódu a pokročilými možnostmi převodu."
 ---
 ## **Přehled**
 
-Konverze prezentací PowerPoint a OpenDocument (PPT, PPTX, ODP atd.) do formátu PDF v JavaScriptu nabízí několik výhod, včetně kompatibility napříč různými zařízeními a zachování rozvržení a formátování vaší prezentace. Tento průvodce ukazuje, jak převést prezentace do PDF dokumentů, používat různé možnosti pro řízení kvality obrázků, zahrnout skryté snímky, chránit PDF soubory heslem, detekovat náhrady písem, vybrat konkrétní snímky pro konverzi a aplikovat normy shody na výstupní dokumenty.
+Převod prezentací PowerPoint a OpenDocument (PPT, PPTX, ODP, atd.) do formátu PDF v JavaScriptu nabízí řadu výhod, včetně kompatibility napříč různými zařízeními a zachování rozvržení a formátování vaší prezentace. Tento průvodce ukazuje, jak převést prezentace do PDF dokumentů, použít různé možnosti pro kontrolu kvality obrázků, zahrnout skryté snímky, chránit PDF heslem, detekovat substituce písem, vybrat konkrétní snímky pro převod a aplikovat standardy souladu na výstupní dokumenty.
 
-## **Konverze PowerPoint do PDF**
+## **PowerPoint na PDF konverze**
 
 Pomocí Aspose.Slides můžete převést prezentace v následujících formátech do PDF:
 
@@ -38,255 +39,278 @@ Pomocí Aspose.Slides můžete převést prezentace v následujících formátec
 * **PPTX**
 * **ODP**
 
-Pro převod prezentace do PDF předáte název souboru jako argument třídě [Presentation](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/presentation/) a pak prezentaci uložíte jako PDF pomocí metody `save`. Třída [Presentation](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/presentation/) poskytuje metodu `save`, která se obvykle používá k převodu prezentace do PDF.
+Chcete‑li převést prezentaci do PDF, předáte název souboru jako argument třídě [Prezentace](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) a poté prezentaci uložíte jako PDF pomocí metody [uložit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/#save). Třída [Prezentace](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) poskytuje metodu [uložit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/#save), která se běžně používá k převodu prezentace do PDF.
 
-{{%  alert title="NOTE"  color="warning"   %}} 
-
-Aspose.Slides pro Node.js přes Java vkládá informace o své API a číslo verze do výstupních dokumentů. Například při převodu prezentace do PDF Aspose.Slides vyplní pole Application hodnotou "*Aspose.Slides*" a pole PDF Producer hodnotou ve formátu "*Aspose.Slides v XX.XX*". **Poznámka** že nemůžete Aspose.Slides instruovat, aby tyto informace v výstupních dokumentech změnilo nebo odstranilo.
-
+{{% alert color="info" title="Note" %}}
+Aspose.Slides pro Node.js via Java vkládá informace o svém API a číslo verze do výstupních dokumentů. Například při převodu prezentace do PDF Aspose.Slides vyplní pole Application hodnotou "*Aspose.Slides*" a pole PDF Producer hodnotou ve formátu "*Aspose.Slides v XX.XX*". **Poznámka** že nemůžete Aspose.Slides instruovat, aby tyto informace ve výstupních dokumentech změnilo nebo odstranilo.
 {{% /alert %}}
 
 Aspose.Slides vám umožňuje převést:
 
 * Celé prezentace do PDF
-* Specifické snímky z prezentace do PDF
+* Vybrané snímky z prezentace do PDF
 
-Aspose.Slides exportuje prezentace do PDF a zajišťuje, že vzniklé PDF úzce odpovídají originálním prezentacím. Prvky a atributy jsou při převodu vykresleny přesně, včetně:
+Aspose.Slides exportuje prezentace do PDF a zajišťuje, že výsledné PDF úzce odpovídají původním prezentacím. Prvky a atributy jsou při převodu renderovány přesně, včetně:
 
-* Obrázků
-* Textových polí a tvarů
+* Obrázky
+* Textová pole a tvary
 * Formátování textu
 * Formátování odstavců
-* Hyperlinků
+* Hyperlinky
 * Záhlaví a zápatí
-* Odrážek
-* Tabulek
+* Odrážky
+* Tabulky
 
-## **Převod PowerPoint do PDF**
+## **Převést PowerPoint do PDF**
 
-Standardní proces převodu PowerPoint do PDF používá výchozí možnosti. V tomto případě se Aspose.Slides snaží převést poskytnutou prezentaci do PDF pomocí optimálního nastavení při maximální úrovni kvality.
+Standardní proces převodu PowerPoint‑to‑PDF používá výchozí možnosti. V tomto případě se Aspose.Slides snaží převést zadanou prezentaci do PDF pomocí optimálního nastavení při maximální úrovni kvality.
 
-Následující kód ukazuje, jak převést prezentaci (PPT, PPTX, ODP atd.) do PDF:
+Následující příklad načte prezentaci a uloží všechny viditelné snímky do PDF pomocí výchozího nastavení exportu.
 
 ```js
-// Vytvořte instanci třídy Presentation, která reprezentuje soubor PowerPoint nebo OpenDocument.
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let presentation = new aspose.slides.Presentation("PowerPoint.ppt");
 try {
-    // Uložte prezentaci jako PDF.
     presentation.save("PPT-to-PDF.pdf", aspose.slides.SaveFormat.Pdf);
 } finally {
     presentation.dispose();
 }
 ```
 
-{{%  alert  color="primary"  %}} 
-
-Aspose nabízí bezplatný online [**konvertor PowerPoint do PDF**](https://products.aspose.app/slides/cs/conversion/ppt-to-pdf), který demonstruje proces převodu prezentace do PDF. Můžete spustit test s tímto konvertorem pro živou implementaci postupů popsaných zde.
-
+{{% alert color="info" title="Note" %}}
+Aspose nabízí bezplatný online [**PowerPoint na PDF převodník**](https://products.aspose.app/slides/conversion/ppt-to-pdf), který demonstruje proces převodu prezentace do PDF. Můžete tento převodník vyzkoušet pro živou implementaci popsaného postupu.
 {{% /alert %}}
 
-## **Převod PowerPoint do PDF s možnostmi**
+## **Převést PowerPoint do PDF s možnostmi**
 
-Aspose.Slides poskytuje vlastní možnosti — vlastnosti ve třídě [PdfOptions](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/pdfoptions/) — které vám umožní přizpůsobit výsledné PDF, uzamknout PDF heslem nebo určit, jak má proces převodu probíhat.
+Aspose.Slides poskytuje vlastní možnosti — vlastnosti třídy [PdfOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfoptions/) — které umožňují přizpůsobit výsledné PDF, uzamknout PDF heslem nebo určit, jak má převod probíhat.
 
-### **Převod PowerPoint do PDF s vlastními možnostmi**
+### **Převést PowerPoint do PDF s vlastními možnostmi**
 
-Pomocí vlastních možností převodu můžete definovat preferované nastavení kvality rastrových obrázků, určit, jak mají být zpracovávány met soubory, nastavit úroveň komprese pro text, nakonfigurovat DPI pro obrázky a další.
+Pomocí vlastních možností převodu můžete definovat preferované nastavení kvality rastru obrázků, určit, jak mají být zpracovávány metafily, nastavit úroveň komprese textu, konfigurovat DPI obrázků a další.
 
-Níže uvedený příklad kódu demonstruje, jak převést PowerPoint prezentaci do PDF s několika vlastními možnostmi.
+Následující příklad exportuje prezentaci do PDF 1.5 s kvalitou JPEG nastavenou na 90, rozlišením obrázku 300 DPI, metafily uloženými jako PNG a kompresí textu Flate.
 
 ```js
-// Vytvořte instanci třídy PdfOptions.
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 let pdfOptions = new aspose.slides.PdfOptions();
-
-// Nastavte kvalitu JPG obrázků.
 pdfOptions.setJpegQuality(java.newByte(90));
-
-// Nastavte DPI pro obrázky.
 pdfOptions.setSufficientResolution(300);
-
-// Nastavte chování pro metafily.
 pdfOptions.setSaveMetafilesAsPng(true);
-
-// Nastavte úroveň komprese textu pro textový obsah.
 pdfOptions.setTextCompression(aspose.slides.PdfTextCompression.Flate);
-
-// Definujte režim shody PDF.
 pdfOptions.setCompliance(aspose.slides.PdfCompliance.Pdf15);
 
-// Vytvořte instanci třídy Presentation, která představuje soubor PowerPoint nebo OpenDocument.
 let presentation = new aspose.slides.Presentation("PowerPoint.pptx");
 try {
-    // Uložte prezentaci jako PDF dokument.
     presentation.save("PowerPoint-to-PDF.pdf", aspose.slides.SaveFormat.Pdf, pdfOptions);
 } finally {
     presentation.dispose();
 }
 ```
 
-### **Převod PowerPoint do PDF se skrytými snímky**
+### **Zachovat vložené OLE soubory jako přílohy PDF**
 
-Pokud prezentace obsahuje skryté snímky, můžete použít metodu [setShowHiddenSlides](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/PdfOptions#setShowHiddenSlides) ze třídy [PdfOptions](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/PdfOptions), abyste zahrnuli skryté snímky jako stránky ve výsledném PDF.
+Pokud prezentace obsahuje vložený sešit Excelu, můžete chtít, aby příjemci PDF měli přístup k datům sešitu i k prohlížení snímků. Zavolejte [setIncludeOleData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfoptions/#setIncludeOleData) s hodnotou `true`, aby se vložené OLE soubory zachovaly jako přílohy v výsledném PDF.
 
-Tento JavaScriptový kód ukazuje, jak převést PowerPoint prezentaci do PDF se zahrnutými skrytými snímky:
+Výchozí hodnota je `false`: náhledový obrázek nebo ikona OLE objektu se vykreslí na stránce PDF, ale vložený soubor není zahrnut jako příloha. Nastavením možnosti na `true` se souborová data navíc zahrnou. Náhled zůstává vizuální reprezentací; příloha umožňuje příjemcům otevřít nebo uložit vložený soubor samostatně. OLE objekt se nestane interaktivním listem Excelu na stránce PDF.
+
+Následující příklad načte prezentaci, která již obsahuje vložený sešit Excelu, a exportuje ji do PDF se sešitem připojeným.
 
 ```js
-// Vytvořte instanci třídy Presentation, která představuje soubor PowerPoint nebo OpenDocument.
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+let pdfOptions = new aspose.slides.PdfOptions();
+pdfOptions.setIncludeOleData(true);
+
+let presentation = new aspose.slides.Presentation("presentation.pptx");
+try {
+    presentation.save("presentation.pdf", aspose.slides.SaveFormat.Pdf, pdfOptions);
+} finally {
+    presentation.dispose();
+}
+```
+
+Pro kontrolu výsledku:
+
+1. Otevřete exportované PDF v prohlížeči, který podporuje souborové přílohy, například Adobe Acrobat Reader.
+2. Otevřete panel **Přílohy** prohlížeče a najděte vložený sešit.
+3. Uložte přílohu a otevřete ji v Excelu k inspekci dat, nebo ji otevřete přímo, pokud to prohlížeč umožňuje. Náhled na stránce PDF je oddělený od přílohy.
+
+{{% alert color="info" title="Note" %}}
+Standardy PDF/A ukládají omezení na přílohy: PDF/A‑1 zakazuje vložené soubory, PDF/A‑2 povoluje jen přílohy PDF/A a PDF/A‑3 povoluje jiné typy souborů, včetně sešitů Excelu. Jedná se o požadavky standardů, nikoli omezení specifická pro Aspose.Slides. Tento příklad používá výchozí nastavení souladu PDF a neukazuje export PDF/A.
+{{% /alert %}}
+
+### **Převést PowerPoint do PDF s skrytými snímky**
+
+Pokud prezentace obsahuje skryté snímky, můžete použít metodu [setShowHiddenSlides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfoptions/#setShowHiddenSlides) ze třídy [PdfOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfoptions/), aby se skryté snímky zahrnuly jako stránky ve výsledném PDF.
+
+Následující příklad exportuje prezentaci do PDF, včetně všech skrytých snímků.
+
+```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+let pdfOptions = new aspose.slides.PdfOptions();
+pdfOptions.setShowHiddenSlides(true);
+
 let presentation = new aspose.slides.Presentation("PowerPoint.pptx");
 try {
-    // Vytvořte instanci třídy PdfOptions.
-    let pdfOptions = new aspose.slides.PdfOptions();
-
-    // Přidejte skryté snímky.
-    pdfOptions.setShowHiddenSlides(true);
-
-    // Uložte prezentaci jako PDF.
     presentation.save("PowerPoint-to-PDF.pdf", aspose.slides.SaveFormat.Pdf, pdfOptions);
 } finally {
     presentation.dispose();
 }
 ```
 
-### **Převod PowerPoint do PDF chráněného heslem**
+### **Převést PowerPoint do chráněného PDF heslem**
 
-Tento JavaScriptový kód demonstruje, jak převést PowerPoint prezentaci do PDF chráněného heslem pomocí parametrů ochrany ze třídy [PdfOptions](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/PdfOptions):
+Následující příklad exportuje prezentaci do PDF, které vyžaduje heslo `password` pro otevření. Přístupová oprávnění umožňují tisk, včetně tisku ve vysoké kvalitě.
 
 ```js
-// Vytvořte instanci třídy Presentation, která představuje soubor PowerPoint nebo OpenDocument.
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+let pdfOptions = new aspose.slides.PdfOptions();
+pdfOptions.setPassword("password");
+pdfOptions.setAccessPermissions(aspose.slides.PdfAccessPermissions.PrintDocument | aspose.slides.PdfAccessPermissions.HighQualityPrint);
+
 let presentation = new aspose.slides.Presentation("PowerPoint.pptx");
 try {
-    // Vytvořte instanci třídy PdfOptions.
-    let pdfOptions = new aspose.slides.PdfOptions();
-
-    // Nastavte heslo PDF a přístupová oprávnění.
-    pdfOptions.setPassword("password");
-    pdfOptions.setAccessPermissions(aspose.slides.PdfAccessPermissions.PrintDocument | aspose.slides.PdfAccessPermissions.HighQualityPrint);
-
-    // Uložte prezentaci jako PDF.
     presentation.save("PPTX-to-PDF.pdf", aspose.slides.SaveFormat.Pdf, pdfOptions);
 } finally {
     presentation.dispose();
 }
 ```
 
-### **Detekce náhrad písem**
+### **Detekovat substituce písem**
 
-Aspose.Slides poskytuje metodu [setWarningCallback](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/saveoptions/#setWarningCallback) ve třídě [PdfOptions](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/PdfOptions), která vám umožní detekovat náhrady písem během procesu převodu prezentace do PDF.
+Aspose.Slides poskytuje metodu [setWarningCallback](https://reference.aspose.com/slides/nodejs-java/aspose.slides/saveoptions/#setWarningCallback) ve třídě [PdfOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfoptions/), která umožňuje detekovat substituce písem během procesu převodu prezentace do PDF.
 
-Tento JavaScriptový kód ukazuje, jak detekovat náhrady písem:
+Následující příklad exportuje prezentaci do PDF a vypisuje varování o substitucích písem do konzole. Varování se vypíše pouze tehdy, když během exportu dojde k substituci nedostupného písma.
 
 ```js
-// Nastavte výstražný callback v PDF možnostech.
-let pdfOptions = new aspose.slides.PdfOptions();
-pdfOptions.setWarningCallback(FontSubstitutionHandler);
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
 
-// Vytvořte instanci třídy Presentation, která představuje soubor PowerPoint nebo OpenDocument.
-let presentation = new aspose.slides.Presentation("sample.pptx");
-
-// Uložte prezentaci jako PDF.
-presentation.save("output.pdf", aspose.slides.SaveFormat.Pdf, pdfOptions);
-presentation.dispose();
-```
-```js
 const FontSubstitutionHandler = java.newProxy("com.aspose.slides.IWarningCallback", {
 	warning: function (warning) {
-		if (warning.getWarningType() === aspose.slides.WarningType.DataLoss) {
+		if (warning.getWarningType() === aspose.slides.WarningType.DataLoss && warning.getDescription().startsWith("Font will be substituted")) {
 			console.warn("Font substitution warning: " + warning.getDescription());
 		}
 		return aspose.slides.ReturnAction.Continue;
 	}
 });
+
+let pdfOptions = new aspose.slides.PdfOptions();
+pdfOptions.setWarningCallback(FontSubstitutionHandler);
+
+let presentation = new aspose.slides.Presentation("sample.pptx");
+try {
+    presentation.save("output.pdf", aspose.slides.SaveFormat.Pdf, pdfOptions);
+} finally {
+    presentation.dispose();
+}
 ```
 
-{{%  alert color="primary"  %}} 
-
-Pro více informací o náhradách písem si přečtěte článek [Font Substitution](/slides/cs/nodejs-java/font-substitution/).
-
+{{% alert color="info" title="Note" %}}
+Pro více informací o substitucích písem viz článek [Substituce písem](/slides/cs/nodejs-java/font-substitution/).
 {{% /alert %}} 
 
-## **Převod vybraných snímků v PowerPointu do PDF**
+## **Převést vybrané snímky z PowerPoint do PDF**
 
-Tento JavaScriptový kód demonstruje, jak převést pouze konkrétní snímky z PowerPoint prezentace do PDF:
+Následující příklad exportuje snímky 1 a 3 z prezentace do PDF. Čísla snímků v tomto poli jsou jedničková a vstupní prezentace musí obsahovat alespoň tři snímky.
 
 ```js
-// Vytvořte instanci třídy Presentation, která představuje soubor PowerPoint nebo OpenDocument.
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 let presentation = new aspose.slides.Presentation("PowerPoint.pptx");
 try {
-    // Nastavte pole čísel snímků.
     let slides = java.newArray("int", [1, 3]);
-
-    // Uložte prezentaci jako PDF.
     presentation.save("PPTX-to-PDF.pdf", slides, aspose.slides.SaveFormat.Pdf);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Převod PowerPoint do PDF s vlastní velikostí snímku**
+## **Převést PowerPoint do PDF s vlastní velikostí snímku**
 
-Tento JavaScriptový kód demonstruje, jak převést PowerPoint prezentaci do PDF s určenou velikostí snímku:
+Následující příklad zkopíruje první snímek z prezentace do nové prezentace s velikostí snímku 612 × 792 bodů (8,5 × 11 palců). Obsah snímku se přizpůsobí a exportuje se jediný snímek do PDF.
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 const slideWidth = 612;
 const slideHeight = 792;
 
-// Vytvořte instanci třídy Presentation, která představuje soubor PowerPoint nebo OpenDocument.
 let presentation = new aspose.slides.Presentation("SelectedSlides.pptx");
-
-// Vytvořte novou prezentaci s upravenou velikostí snímku.
 let resizedPresentation = new aspose.slides.Presentation();
 
 try {
-    // Nastavte vlastní velikost snímku.
     resizedPresentation.getSlideSize().setSize(slideWidth, slideHeight, aspose.slides.SlideSizeScaleType.EnsureFit);
-
-    // Zkopírujte první snímek z původní prezentace.
     let slide = presentation.getSlides().get_Item(0);
     resizedPresentation.getSlides().insertClone(0, slide);
 
-    // Uložte změněnou velikost prezentaci do PDF s poznámkami.
-    resizedPresentation.save("PDF_with_notes.pdf", aspose.slides.SaveFormat.Pdf);
+    // Odstraňte prázdný snímek, který byl vytvořen v nové prezentaci.
+    resizedPresentation.getSlides().removeAt(1);
+
+    resizedPresentation.save("PDF_with_custom_slide_size.pdf", aspose.slides.SaveFormat.Pdf);
 } finally {
     resizedPresentation.dispose();
     presentation.dispose();
 }
 ```
 
-## **Převod PowerPoint do PDF v zobrazení poznámek ke snímkům**
+## **Převést PowerPoint do PDF v zobrazení poznámek ke snímkům**
 
-Tento JavaScriptový kód demonstruje, jak převést PowerPoint prezentaci do PDF, který obsahuje poznámky:
+Následující příklad exportuje prezentaci do PDF a pod každý snímek umístí poznámky přednášejícího. Použijte prezentaci obsahující poznámky přednášejícího pro zobrazení výsledku.
 
 ```js
-// Vytvořte instanci třídy Presentation, která představuje soubor PowerPoint nebo OpenDocument.
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+let notesOptions = new aspose.slides.NotesCommentsLayoutingOptions();
+notesOptions.setNotesPosition(aspose.slides.NotesPositions.BottomFull);
+
+let pdfOptions = new aspose.slides.PdfOptions();
+pdfOptions.setSlidesLayoutOptions(notesOptions);
+
 let presentation = new aspose.slides.Presentation("SelectedSlides.pptx");
 try {
-    // Nastavte možnosti PDF s rozvržením poznámek.
-    let notesOptions = new aspose.slides.NotesCommentsLayoutingOptions();
-    notesOptions.setNotesPosition(aspose.slides.NotesPositions.BottomFull);
-    let pdfOptions = new aspose.slides.PdfOptions();
-    pdfOptions.setSlidesLayoutOptions(notesOptions);
-
-    // Uložte prezentaci do PDF s poznámkami.
     presentation.save("PDF_with_notes.pdf", aspose.slides.SaveFormat.Pdf, pdfOptions);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Dostupnost a standardy shody pro PDF**
+## **Standardy přístupnosti a souladu pro PDF**
 
-Aspose.Slides vám umožňuje použít postup převodu, který je v souladu s [Web Content Accessibility Guidelines (**WCAG**)](https://www.w3.org/TR/WCAG-TECHS/pdf.html). Můžete exportovat PowerPoint dokument do PDF pomocí jakéhokoli z těchto standardů shody: **PDF/A1a**, **PDF/A1b** a **PDF/UA**.
+Aspose.Slides vám umožňuje použít konverzní postup, který splňuje [Web Content Accessibility Guidelines (**WCAG**)](https://www.w3.org/TR/WCAG-TECHS/pdf.html). Můžete exportovat dokument PowerPoint do PDF s kterýmkoli z těchto standardů souladu: **PDF/A1a**, **PDF/A1b** a **PDF/UA**.
 
-Tento JavaScriptový kód demonstruje proces převodu PowerPoint do PDF, který vytváří více PDF na základě různých standardů shody:
+Tento kód demonstruje proces převodu PowerPoint‑to‑PDF, který vytváří několik PDF podle různých standardů souladu:
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let presentation = new aspose.slides.Presentation("pres.pptx");
 try {
     let pdfOptions = new aspose.slides.PdfOptions();
+
     pdfOptions.setCompliance(aspose.slides.PdfCompliance.PdfA1a);
     presentation.save("pres-a1a-compliance.pdf", aspose.slides.SaveFormat.Pdf, pdfOptions);
+
     pdfOptions.setCompliance(aspose.slides.PdfCompliance.PdfA1b);
     presentation.save("pres-a1b-compliance.pdf", aspose.slides.SaveFormat.Pdf, pdfOptions);
+
     pdfOptions.setCompliance(aspose.slides.PdfCompliance.PdfUa);
     presentation.save("pres-ua-compliance.pdf", aspose.slides.SaveFormat.Pdf, pdfOptions);
 } finally {
@@ -294,10 +318,8 @@ try {
 }
 ```
 
-{{% alert title="Note" color="warning" %}} 
-
-Aspose.Slides podporuje operace převodu PDF, které vám umožní převést PDF soubory do populárních formátů. Můžete provádět konverze [PDF do HTML](https://products.aspose.com/slides/cs/nodejs-java/conversion/pdf-to-html/), [PDF do JPG](https://products.aspose.com/slides/cs/nodejs-java/conversion/pdf-to-jpg/) a [PDF do PNG](https://products.aspose.com/slides/cs/nodejs-java/conversion/pdf-to-png/). Další konverze PDF do specializovaných formátů — [PDF do SVG](https://products.aspose.com/slides/cs/nodejs-java/conversion/pdf-to-svg/), [PDF do TIFF](https://products.aspose.com/slides/cs/nodejs-java/conversion/pdf-to-tiff/) — jsou také podporovány.
-
+{{% alert color="info" title="Note" %}}
+Aspose.Slides podporuje operace převodu PDF, což vám umožňuje převádět PDF soubory do oblíbených formátů. Můžete provádět konverze [PDF do HTML](https://products.aspose.com/slides/nodejs-java/conversion/pdf-to-html/), [PDF do JPG](https://products.aspose.com/slides/nodejs-java/conversion/pdf-to-jpg/) a [PDF do PNG](https://products.aspose.com/slides/nodejs-java/conversion/pdf-to-png/). Další konverze PDF do specializovaných formátů — [PDF do SVG](https://products.aspose.com/slides/nodejs-java/conversion/pdf-to-svg/), [PDF do TIFF](https://products.aspose.com/slides/nodejs-java/conversion/pdf-to-tiff/) — jsou také podporovány.
 {{% /alert %}}
 
 > **Poznámka:** Při exportu do PDF/UA Aspose.Slides zachází s komplexní grafikou, jako jsou SmartArt, grafy a vzorce, jako s jednou figurou. Jednotlivé elementy cesty nejsou zachovány jako samostatný obsah a mohou být označeny jako artefakty; alternativní text je poskytován pouze pro celou figuru.
@@ -306,26 +328,26 @@ Aspose.Slides podporuje operace převodu PDF, které vám umožní převést PDF
 
 **Mohu hromadně převést více souborů PowerPoint do PDF?**
 
-Ano, Aspose.Slides podporuje hromadný převod více souborů PPT nebo PPTX do PDF. Můžete programově projít své soubory a aplikovat proces převodu.
+Ano, Aspose.Slides podporuje hromadný převod více souborů PPT nebo PPTX do PDF. Můžete iterovat přes své soubory a programově aplikovat proces převodu.
 
-**Je možné převzatý PDF soubor chránit heslem?**
+**Je možné zabezpečit převodní PDF heslem?**
 
-Určitě. Použijte třídu [PdfOptions](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/PdfOptions) k nastavení hesla a definování přístupových oprávnění během procesu převodu.
+Ano. Použijte třídu [PdfOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfoptions/) pro nastavení hesla a definování přístupových oprávnění během převodu.
 
 **Jak zahrnout skryté snímky do PDF?**
 
-Použijte metodu `setShowHiddenSlides` ve třídě [PdfOptions](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/PdfOptions) k zahrnutí skrytých snímků do výsledného PDF.
+Zavolejte [setShowHiddenSlides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfoptions/#setShowHiddenSlides) s hodnotou `true` ve třídě [PdfOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfoptions/) pro zahrnutí skrytých snímků do výsledného PDF.
 
-**Dokáže Aspose.Slides udržet vysokou kvalitu obrázků v PDF?**
+**Může Aspose.Slides zachovat vysokou kvalitu obrázků v PDF?**
 
-Ano, můžete řídit kvalitu obrázků pomocí metod jako `setJpegQuality` a `setSufficientResolution` ve třídě [PdfOptions](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/PdfOptions), abyste zajistili vysoce kvalitní obrázky ve vašem PDF.
+Ano, můžete kontrolovat kvalitu obrázků pomocí metod jako [setJpegQuality](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfoptions/#setJpegQuality) a [setSufficientResolution](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfoptions/#setSufficientResolution) ve třídě [PdfOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfoptions/) a zajistit tak vysokou kvalitu obrázků ve svém PDF.
 
-**Podporuje Aspose.Slides standardy shody PDF/A?**
+**Podporuje Aspose.Slides standardy souladu PDF/A?**
 
-Ano, Aspose.Slides vám umožňuje exportovat PDF, která splňují různé standardy, včetně PDF/A1a, PDF/A1b a PDF/UA, a tím zajišťují, že vaše dokumenty splňují požadavky na přístupnost a archivaci.
+Ano, Aspose.Slides vám umožňuje exportovat PDF, která splňují [různé standardy](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfcompliance/), včetně PDF/A1a, PDF/A1b a PDF/UA, čímž zajišťuje, že vaše dokumenty vyhovují požadavkům na přístupnost a archivaci.
 
 ## **Další zdroje**
 
-- [Aspose.Slides for Node.js via Java Documentation](/slides/cs/nodejs-java/)
-- [Aspose.Slides for Node.js via Java API Reference](https://reference.aspose.com/slides/cs/nodejs-java/)
-- [Aspose Free Online Converters](https://products.aspose.app/slides/cs/conversion)
+- [Dokumentace Aspose.Slides pro Node.js via Java](/slides/cs/nodejs-java/)
+- [API reference Aspose.Slides pro Node.js via Java](https://reference.aspose.com/slides/nodejs-java/)
+- [Bezplatné online převodníky Aspose](https://products.aspose.app/slides/conversion)

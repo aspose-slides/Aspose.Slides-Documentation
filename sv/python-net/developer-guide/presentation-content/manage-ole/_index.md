@@ -14,7 +14,7 @@ keywords:
 - lägg till fil
 - bädda in fil
 - länkat objekt
-- länkat fil
+- länkad fil
 - ändra OLE
 - OLE-ikon
 - OLE-titel
@@ -27,36 +27,38 @@ keywords:
 - Aspose.Slides
 description: "Optimera hanteringen av OLE-objekt i PowerPoint- och OpenDocument-filer med Aspose.Slides för Python via .NET. Bädda in, uppdatera och exportera OLE-innehåll sömlöst."
 ---
-## **Introduction**
+## **Introduktion**
 
-{{% alert title="Info" color="info" %}}
+{{% alert color="info" title="Note" %}}
 
-**OLE (Object Linking & Embedding)** är en Microsoft‑teknik som låter data och objekt som skapats i en applikation länkas eller bäddas in i en annan.
+**OLE (Object Linking & Embedding)** är en Microsoft-teknik som låter data och objekt som skapats i en applikation länkas eller bäddas in i en annan.
 
 {{% /alert %}}
 
 Till exempel är ett diagram som skapats i Microsoft Excel och placerats på en PowerPoint‑bild ett OLE‑objekt.
 
-- Ett OLE‑objekt kan visas som en ikon. Om du dubbelklickar på ikonen öppnas objektet i dess associerade program (t.ex. Excel) eller så får du en uppmaning att välja ett program för att öppna eller redigera det.
-- Ett OLE‑objekt kan visa sitt innehåll (till exempel ett diagram). I så fall aktiverar PowerPoint det inbäddade objektet, läser in diagramgränssnittet och låter dig redigera diagrammets data i PowerPoint.
+- Ett OLE‑objekt kan visas som en ikon. Att dubbelklicka på ikonen öppnar objektet i dess associerade program (t.ex. Excel) eller uppmanar dig att välja ett program för att öppna eller redigera det.
+- Ett OLE‑objekt kan visa sitt innehåll (t.ex. ett diagram). I så fall aktiverar PowerPoint det inbäddade objektet, laddar diagramgränssnittet och låter dig redigera diagrammets data i PowerPoint.
 
-Aspose.Slides för Python låter dig infoga OLE‑objekt i bilder som OLE‑objektramlar ([OleObjectFrame](https://reference.aspose.com/slides/sv/python-net/aspose.slides/oleobjectframe/)).
+Aspose.Slides för Python låter dig infoga OLE‑objekt i bilder som OLE‑objekt‑ramar ([OleObjectFrame](https://reference.aspose.com/slides/python-net/aspose.slides/oleobjectframe/)).
 
-## **Add OLE Objects to Slides**
+## **Lägg till OLE‑objekt på bilder**
 
-Om du redan har skapat ett diagram i Microsoft Excel och vill bädda in det i en bild som ett OLE‑objektram med Aspose.Slides för Python, följ dessa steg:
+Om du redan har skapat ett diagram i Microsoft Excel och vill bädda in det i en bild som en OLE‑objekt‑ram med Aspose.Slides för Python, följ dessa steg:
 
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/python-net/aspose.slides/presentation/).
-1. Hämta en referens till bilden genom dess index.
-1. Läs Excel‑filen till en byte‑array.
-1. Lägg till ett [OleObjectFrame](https://reference.aspose.com/slides/sv/python-net/aspose.slides/oleobjectframe/) på bilden och ange byte‑arrayen samt övriga OLE‑objektdetaljer.
-1. Spara den modifierade presentationen som en PPTX‑fil.
+1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+2. Hämta en referens till bilden med dess index.
+3. Läs in Excel‑filen till en byte‑array.
+4. Lägg till ett [OleObjectFrame](https://reference.aspose.com/slides/python-net/aspose.slides/oleobjectframe/) på bilden och ange byte‑arrayen samt övriga OLE‑objektdetaljer.
+5. Spara den modifierade presentationen som en PPTX‑fil.
 
-I exemplet nedan är ett diagram från en Excel‑fil inbäddat i en bild som ett [OleObjectFrame](https://reference.aspose.com/slides/sv/python-net/aspose.slides/oleobjectframe/).
+I exempel nedan är ett diagram från en Excel‑fil inbäddat i en bild som ett [OleObjectFrame](https://reference.aspose.com/slides/python-net/aspose.slides/oleobjectframe/).
 
-**Obs:** Konstruktorn för [OleEmbeddedDataInfo](https://reference.aspose.com/slides/sv/python-net/aspose.slides.dom.ole/oleembeddeddatainfo/) tar den inbäddningsbara objektets filtillägg som sin andra parameter. PowerPoint använder detta tillägg för att identifiera filtypen och välja rätt program för att öppna OLE‑objektet.
+**Obs:** Konstruktoren för [OleEmbeddedDataInfo](https://reference.aspose.com/slides/python-net/aspose.slides.dom.ole/oleembeddeddatainfo/) tar den inbäddade objektets filändelse som sin andra parameter. PowerPoint använder denna ändelse för att identifiera filtypen och välja lämpligt program för att öppna OLE‑objektet.
 
 ```py
+import aspose.slides as slides
+
 with slides.Presentation() as presentation:
     slide_size = presentation.slide_size.size
     slide = presentation.slides[0]
@@ -66,40 +68,44 @@ with slides.Presentation() as presentation:
         file_data = file_stream.read()
         data_info = slides.dom.ole.OleEmbeddedDataInfo(file_data, "xlsx")
 
-    # Lägg till en OLE-objektram på bilden.
+    # Lägg till en OLE-objekt-ram på bilden.
     ole_frame = slide.shapes.add_ole_object_frame(0, 0, slide_size.width, slide_size.height, data_info)
 
     presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **Add Linked OLE Objects**
+### **Lägg till länkade OLE‑objekt**
 
-Aspose.Slides för Python låter dig lägga till ett [OleObjectFrame](https://reference.aspose.com/slides/sv/python-net/aspose.slides/oleobjectframe/) som länkar till en fil i stället för att bädda in dess data.
+Aspose.Slides för Python låter dig lägga till ett [OleObjectFrame](https://reference.aspose.com/slides/python-net/aspose.slides/oleobjectframe/) som länkar till en fil istället för att bädda in dess data.
 
-Följande Python‑exempel visar hur du lägger till ett [OleObjectFrame](https://reference.aspose.com/slides/sv/python-net/aspose.slides/oleobjectframe/) länkat till en Excel‑fil på en bild:
+Följande Python‑exempel visar hur man lägger till ett [OleObjectFrame](https://reference.aspose.com/slides/python-net/aspose.slides/oleobjectframe/) länkat till en Excel‑fil på en bild:
 
 ```py
+import aspose.slides as slides
+
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
-    # Lägg till en OLE-objektram med en länkad Excel-fil.
+    # Lägg till en OLE-objekt-ram med en länkad Excel-fil.
     slide.shapes.add_ole_object_frame(20, 20, 200, 150, "Excel.Sheet.12", "book.xlsx")
 
     presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Access OLE Objects**
+## **Åtkomst till OLE‑objekt**
 
-Om ett OLE‑objekt redan är inbäddat i en bild kan du komma åt det på följande sätt:
+Om ett OLE‑objekt redan är inbäddat i en bild kan du komma åt det enligt följande:
 
-1. Skapa en instans av klassen Presentation som innehåller det inbäddade OLE‑objektet.
-1. Hämta en referens till bilden genom dess index.
-1. Åtkom OleObjectFrame‑formen.
-1. När du har OLE‑objektram‑ramen kan du utföra önskade operationer på den.
+1. Läs in presentationen som innehåller det inbäddade OLE‑objektet genom att skapa en instans av Presentation‑klassen.
+2. Hämta en referens till bilden med dess index.
+3. Åtkomst till OleObjectFrame‑formen.
+4. När du har OLE‑objekt‑ramen utför de nödvändiga operationerna på den.
 
-Exemplet nedan hämtar OLE‑objektram‑ramen – ett inbäddat Excel‑diagram – och läser dess fildata. I detta exempel använder vi en PPTX‑fil som har en enda form på den första bilden.
+I exemplet nedan nås OLE‑objekt‑ramen — ett inbäddat Excel‑diagram — och dess fildata hämtas. I detta exempel använder vi en PPTX som har en enda form på den första bilden.
 
 ```py
+import aspose.slides as slides
+
 with slides.Presentation("sample.pptx") as presentation:
     slide = presentation.slides[0]
     shape = slide.shapes[0]
@@ -107,22 +113,24 @@ with slides.Presentation("sample.pptx") as presentation:
     if isinstance(shape, slides.OleObjectFrame):
         ole_frame = shape
 
-        # Hämta den inbäddade filens data.
+        # Hämta den inbäddade fildatan.
         file_data = ole_frame.embedded_data.embedded_file_data
 
-        # Hämta filtillägget för den inbäddade filen.
+        # Hämta filens filändelse.
         file_extension = ole_frame.embedded_data.embedded_file_extension
 
         # ...
 ```
 
-### **Access Linked OLE Object Properties**
+### **Åtkomst till egenskaper för länkade OLE‑objekt**
 
-Aspose.Slides låter dig komma åt egenskaperna för en länkad OLE‑objektram.
+Aspose.Slides låter dig komma åt egenskaperna för en länkad OLE‑objekt‑ram.
 
 Python‑exemplet nedan kontrollerar om ett OLE‑objekt är länkat och, om så är fallet, hämtar sökvägen till den länkade filen:
 
 ```py
+import aspose.slides as slides
+
 with slides.Presentation("sample.ppt") as presentation:
     slide = presentation.slides[0]
     shape = slide.shapes[0]
@@ -132,7 +140,7 @@ with slides.Presentation("sample.ppt") as presentation:
 
         # Kontrollera om OLE-objektet är länkat.
         if ole_frame.is_object_link:
-            # Skriv ut hela sökvägen till den länkade filen.
+            # Skriv ut den fullständiga sökvägen till den länkade filen.
             print("OLE object frame is linked to:", ole_frame.link_path_long)
 
             # Skriv ut den relativa sökvägen till den länkade filen, om den finns.
@@ -141,26 +149,26 @@ with slides.Presentation("sample.ppt") as presentation:
                 print("OLE object frame relative path:", ole_frame.link_path_relative)
 ```
 
-## **Change OLE Object Data**
+## **Ändra OLE‑objektsdata**
 
-{{% alert color="primary" %}}
+{{% alert color="info" title="Note" %}}
 
-I det här avsnittet använder kodexemplet nedan [Aspose.Cells for Python via .NET](/cells/python-net/).
+I det här avsnittet använder kodexemplet nedan [Aspose.Cells for Python via .NET](https://docs.aspose.com/cells/python-net/).
 
 {{% /alert %}}
 
-Om ett OLE‑objekt redan är inbäddat i en bild kan du komma åt det och ändra dess data på följande sätt:
+Om ett OLE‑objekt redan är inbäddat i en bild kan du komma åt det och ändra dess data enligt följande:
 
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/python-net/aspose.slides/presentation/).
-1. Hämta mål‑bilden genom dess index.
-1. Åtkom formen [OleObjectFrame](https://reference.aspose.com/slides/sv/python-net/aspose.slides/oleobjectframe/).
-1. När du har OLE‑objektram‑ramen kan du utföra de nödvändiga operationerna på den.
-1. Skapa ett `Workbook`‑objekt och läs OLE‑data.
-1. Öppna önskad `Worksheet` och redigera data.
-1. Spara den uppdaterade `Workbook`‑en till en ström.
-1. Ersätt OLE‑objektets data med den strömmen.
+1. Läs in presentationen genom att skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+2. Hämta mål‑bilden med dess index.
+3. Åtkomst till formen [OleObjectFrame](https://reference.aspose.com/slides/python-net/aspose.slides/oleobjectframe/).
+4. När du har OLE‑objekt‑ramen utför de nödvändiga operationerna på den.
+5. Skapa ett `Workbook`‑objekt och läs OLE‑data.
+6. Öppna önskat `Worksheet` och redigera datan.
+7. Spara den uppdaterade `Workbook` till en ström.
+8. Ersätt OLE‑objektets data med hjälp av den strömmen.
 
-Exemplet nedan visar hur ett OLE‑objektram (ett inbäddat Excel‑diagram) hämtas och hur dess fildata modifieras för att uppdatera diagrammet. Exemplet använder en tidigare skapad PPTX‑fil som innehåller en enda form på den första bilden.
+I exemplet nedan nås en OLE‑objekt‑ram (ett inbäddat Excel‑diagram) och dess fildata ändras för att uppdatera diagrammet. Exemplet använder en tidigare skapad PPTX som innehåller en enda form på den första bilden.
 
 ```py
 import io
@@ -179,7 +187,7 @@ with slides.Presentation("sample.pptx") as presentation:
             workbook = cells.Workbook(ole_stream)
 
         with io.BytesIO() as new_ole_stream:
-            # Ändra workbook-data.
+            # Modifiera arbetsbokens data.
             workbook.worksheets.get(0).cells.get(0, 4).put_value("E")
             workbook.worksheets.get(0).cells.get(1, 4).put_value(12)
             workbook.worksheets.get(0).cells.get(2, 4).put_value(14)
@@ -188,20 +196,22 @@ with slides.Presentation("sample.pptx") as presentation:
             file_options = cells.OoxmlSaveOptions(cells.SaveFormat.XLSX)
             workbook.save(new_ole_stream, file_options)
 
-            # Ändra OLE-ramens objektdata.
+            # Ändra OLE-ramens objektdatat.
             new_data = slides.dom.ole.OleEmbeddedDataInfo(new_ole_stream.getvalue(), ole_frame.embedded_data.embedded_file_extension)
             ole_frame.set_embedded_data(new_data)
 
     presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Embed Files in Slides**
+## **Bädda in filer i bilder**
 
-Förutom Excel‑diagram låter Aspose.Slides för Python dig bädda in andra filtyper i bilder. Du kan till exempel infoga HTML‑, PDF‑ och ZIP‑filer som objekt. När en användare dubbelklickar på ett infogat objekt öppnas det automatiskt i det associerade programmet, eller så får användaren en uppmaning att välja ett lämpligt program.
+Förutom Excel‑diagram låter Aspose.Slides för Python dig bädda in andra filtyper i bilder. Du kan till exempel infoga HTML‑, PDF‑ och ZIP‑filer som objekt. När en användare dubbelklickar på ett infogat objekt öppnas det automatiskt i det associerade programmet, eller så uppmanas användaren att välja ett lämpligt program.
 
-Denna Python‑kod visar hur du bäddar in HTML‑ och ZIP‑filer i en bild:
+Den här Python‑koden visar hur man bäddar in HTML‑ och ZIP‑filer i en bild:
 
 ```py
+import aspose.slides as slides
+
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
@@ -222,13 +232,15 @@ with slides.Presentation() as presentation:
     presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Set File Types for Embedded Objects**
+## **Ställ in filtyper för inbäddade objekt**
 
-När du arbetar med presentationer kan du behöva ersätta gamla OLE‑objekt med nya eller byta ut ett icke‑stött OLE‑objekt mot ett som stöds. Aspose.Slides för Python låter dig ange filtypen för ett inbäddat objekt, vilket gör att du kan uppdatera OLE‑ramens data eller dess filtillägg.
+När du arbetar med presentationer kan det vara nödvändigt att ersätta gamla OLE‑objekt med nya eller byta ut ett icke‑stödd OLE‑objekt mot ett stödd. Aspose.Slides för Python låter dig ange filtypen för ett inbäddat objekt, vilket gör att du kan uppdatera OLE‑ramens data eller dess filändelse.
 
-Denna Python‑kod visar hur du anger den inbäddade OLE‑objektets filtyp till `zip`:
+Den här Python‑koden visar hur du ställer in den inbäddade OLE‑objektets filtyp till `zip`:
 
 ```py
+import aspose.slides as slides
+
 with slides.Presentation("sample.pptx") as presentation:
     slide = presentation.slides[0]
     ole_frame = slide.shapes[0]
@@ -244,22 +256,24 @@ with slides.Presentation("sample.pptx") as presentation:
     presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Set Icon Images and Titles for Embedded Objects**
+## **Ställ in ikonbilder och titlar för inbäddade objekt**
 
-Efter att du har bäddat in ett OLE‑objekt läggs en ikonbaserad förhandsvisning automatiskt till. Denna förhandsvisning är vad användarna ser innan de får åtkomst till eller öppnar OLE‑objektet. Om du vill använda en specifik bild och text i förhandsvisningen kan du ange ikonbilden och titeln med Aspose.Slides för Python.
+När du har bäddat in ett OLE‑objekt läggs en ikonbaserad förhandsgranskning till automatiskt. Denna förhandsgranskning är vad användarna ser innan de öppnar eller åtkommer OLE‑objektet. Om du vill använda en specifik bild och text i förhandsgranskningen kan du ange ikonbilden och titeln med Aspose.Slides för Python.
 
-Denna Python‑kod visar hur du anger ikonbilden och titeln för ett inbäddat objekt:
+Den här Python‑koden visar hur du anger ikonbilden och titeln för ett inbäddat objekt:
 
 ```py
+import aspose.slides as slides
+
 with slides.Presentation("sample.pptx") as presentation:
     slide = presentation.slides[0]
     ole_frame = slide.shapes[0]
 
-    # Lägg till en bild till presentationens resurser.
+    # Lägg till en bild i presentationens resurser.
     with slides.Images.from_file("image.png") as image:
         ole_image = presentation.images.add_image(image)
 
-    # Ange en titel och bilden för OLE-förhandsvisningen.
+    # Ange en titel och bilden för OLE‑förhandsvisning.
     ole_frame.substitute_picture_title = "My title"
     ole_frame.substitute_picture_format.picture.image = ole_image
     ole_frame.is_object_icon = True
@@ -267,25 +281,35 @@ with slides.Presentation("sample.pptx") as presentation:
     presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Prevent OLE Object Frames from Being Resized and Pepositioned**
+## **Förhindra att OLE‑objekt‑ramar ändras i storlek eller flyttas**
 
-Efter att du har lagt till ett länkat OLE‑objekt på en bild kan PowerPoint uppmana dig att uppdatera länkar när du öppnar presentationen. Att välja 'Uppdatera länkar' kan ändra OLE‑objektramens storlek och position eftersom PowerPoint uppdaterar förhandsvisningen med data från det länkade objektet. För att förhindra att PowerPoint ber dig uppdatera objektets data, sätt egenskapen `update_automatic` för klassen [OleObjectFrame](https://reference.aspose.com/slides/sv/python-net/aspose.slides/oleobjectframe/) till `False`:
+När du har lagt till ett länkat OLE‑objekt på en bild kan PowerPoint be dig att uppdatera länkarna när du öppnar presentationen. Att välja Uppdatera länkar kan ändra OLE‑objekt‑ramens storlek och position eftersom PowerPoint uppdaterar förhandsgranskningen med data från det länkade objektet. För att förhindra att PowerPoint ber dig att uppdatera objektets data, sätt egenskapen `update_automatic` för klassen [OleObjectFrame](https://reference.aspose.com/slides/python-net/aspose.slides/oleobjectframe/) till `False`:
 
 ```py
-ole_frame.update_automatic = False
+import aspose.slides as slides
+
+with slides.Presentation("sample.pptx") as presentation:
+    slide = presentation.slides[0]
+    ole_frame = slide.shapes[0]
+
+    ole_frame.update_automatic = False
+
+    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Extract Embedded Files**
+## **Extrahera inbäddade filer**
 
 Aspose.Slides för Python låter dig extrahera filer som är inbäddade i bilder som OLE‑objekt på följande sätt:
 
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/python-net/aspose.slides/presentation/) som innehåller de OLE‑objekt du vill extrahera.
-1. Iterera igenom alla former i presentationen och lokalisera OLEObjectFrame‑former.
-1. Hämta den inbäddade fildatan från varje [OLEObjectFrame](https://reference.aspose.com/slides/sv/python-net/aspose.slides/oleobjectframe/) och skriv den till disk.
+1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) som innehåller de OLE‑objekt du vill extrahera.
+2. Iterera genom alla former i presentationen och lokalisera OLEObjectFrame‑formerna.
+3. Hämta den inbäddade fildatan från varje [OLEObjectFrame](https://reference.aspose.com/slides/python-net/aspose.slides/oleobjectframe/) och skriv den till disk.
 
-Följande Python‑kod visar hur du extraherar filer som är inbäddade i en bild som OLE‑objekt:
+Följande Python‑kod visar hur man extraherar filer som är inbäddade i en bild som OLE‑objekt:
 
 ```py
+import aspose.slides as slides
+
 with slides.Presentation("sample.pptx") as presentation:
     slide = presentation.slides[0]
 
@@ -303,18 +327,20 @@ with slides.Presentation("sample.pptx") as presentation:
 
 ## **FAQ**
 
-**Will the OLE content be rendered when exporting slides to PDF/images?**  
-**Kommer OLE‑innehållet att renderas när bilder exporteras till PDF/bilder?**  
-Det som syns på bilden renderas – ikonen/substitutionsbilden (förhandsvisning). Det "levande" OLE‑innehållet körs inte under rendering. Om så behövs, ange en egen förhandsvisningsbild för att säkerställa det förväntade utseendet i den exporterade PDF‑filen.
+**Kommer OLE‑innehållet att renderas när man exporterar bilder till PDF/bilder?**
 
-**How can I lock an OLE object on a slide so users cannot move/edit it in PowerPoint?**  
-**Hur kan jag låsa ett OLE‑objekt på en bild så att användare inte kan flytta/redigera det i PowerPoint?**  
-Lås formen: Aspose.Slides tillhandahåller [shape-level locks](/slides/sv/python-net/applying-protection-to-presentation/). Detta är ingen kryptering, men det förhindrar effektivt oavsiktliga redigeringar och förflyttning.
+Det som syns på bilden renderas — ikonen/ersättningsbilden (förhandsgranskning). Det "levande" OLE‑innehållet körs inte under rendering. Vid behov, ställ in en egen förhandsgranskningsbild för att säkerställa det förväntade utseendet i den exporterade PDF‑filen.
 
-**Why does a linked Excel object "jump" or change size when I open the presentation?**  
-**Varför hoppar ett länkat Excel‑objekt eller ändrar storlek när jag öppnar presentationen?**  
-PowerPoint kan uppdatera förhandsvisningen av det länkade OLE‑objektet. För ett stabilt utseende, följ bästa praxis i [Working Solution for Worksheet Resizing](/slides/sv/python-net/working-solution-for-worksheet-resizing/) – antingen anpassa ramen till området eller skala området till en fast ram och ange en lämplig substitutionsbild.
+För att även behålla den inbäddade filen som en PDF‑bilaga, sätt [PdfOptions.include_ole_data](https://reference.aspose.com/slides/python-net/aspose.slides.export/pdfoptions/include_ole_data/) till `True`. Detta alternativ är inaktiverat som standard. För ett exempel och instruktioner för att kontrollera bilagan, se [Preserve Embedded OLE Files as PDF Attachments](/slides/sv/python-net/convert-powerpoint-to-pdf/#preserve-embedded-ole-files-as-pdf-attachments).
 
-**Will relative paths for linked OLE objects be preserved in the PPTX format?**  
-**Kommer relativa sökvägar för länkade OLE‑objekt att bevaras i PPTX‑formatet?**  
-I PPTX finns ingen information om "relativ sökväg" – endast den fullständiga sökvägen. Relativa sökvägar finns i det äldre PPT‑formatet. För portabilitet, föredra pålitliga absoluta sökvägar/tillgängliga URI:er eller inbäddning.
+**Hur kan jag låsa ett OLE‑objekt på en bild så att användare inte kan flytta/redigera det i PowerPoint?**
+
+Lås formen: Aspose.Slides erbjuder [shape-level locks](/slides/sv/python-net/applying-protection-to-presentation/). Detta är ingen kryptering, men det förhindrar effektivt oavsiktliga redigeringar och flyttningar.
+
+**Varför "hoppar" ett länkat Excel‑objekt eller ändrar storlek när jag öppnar presentationen?**
+
+PowerPoint kan uppdatera förhandsgranskningen av den länkade OLE:n. För ett stabilt utseende, följ praxis i [Working Solution for Worksheet Resizing](/slides/sv/python-net/working-solution-for-worksheet-resizing/) — antingen anpassa ramen till området, eller skala området till en fast ram och ange en lämplig ersättningsbild.
+
+**Kommer relativa sökvägar för länkade OLE‑objekt att bevaras i PPTX‑formatet?**
+
+I PPTX finns ingen information om "relativ sökväg" — endast den fullständiga sökvägen. Relativa sökvägar finns i det äldre PPT‑formatet. För portabilitet, föredra pålitliga absoluta sökvägar/tillgängliga URI:er eller inbäddning.

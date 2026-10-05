@@ -1,292 +1,316 @@
 ---
-title: JavaScript'te PPT ve PPTX'i PDF'ye Dönüştürme [Gelişmiş Özellikler Dahildir]
-linktitle: PowerPoint'ten PDF'ye
+title: "JavaScript'te PPT ve PPTX'i PDF'e Dönüştür [Gelişmiş Özellikler Dahil]"
+linktitle: "PowerPoint'ten PDF'e"
 type: docs
 weight: 40
 url: /tr/nodejs-java/convert-powerpoint-to-pdf/
 keywords:
-- PowerPoint'i dönüştür
-- sunumu dönüştür
-- PowerPoint'ten PDF'ye
-- sunumu PDF'ye
-- PPT'yi PDF'ye
-- PPT'yi PDF'ye dönüştür
-- PPTX'i PDF'ye
-- PPTX'i PDF'ye dönüştür
-- PowerPoint'i PDF olarak kaydet
-- PPT'yi PDF olarak kaydet
-- PPTX'i PDF olarak kaydet
-- PPT'yi PDF'ye dışa aktar
-- PPTX'i PDF'ye dışa aktar
+- "PowerPoint'i dönüştür"
+- "sunumu dönüştür"
+- "PowerPoint'ten PDF'e"
+- "sunumu PDF'e"
+- "PPT'den PDF'e"
+- "PPT'yi PDF'e dönüştür"
+- "PPTX'den PDF'e"
+- "PPTX'i PDF'e dönüştür"
+- "PowerPoint'i PDF olarak kaydet"
+- "PPT'yi PDF olarak kaydet"
+- "PPTX'i PDF olarak kaydet"
+- "PPT'yi PDF'e aktar"
+- "PPTX'i PDF'e aktar"
+- "ek"
 - PDF/A1a
 - PDF/A1b
 - PDF/UA
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Aspose.Slides for Node.js kullanarak PowerPoint PPT/PPTX dosyalarını yüksek kaliteli, aranabilir PDF'lere dönüştürün; hızlı kod örnekleri ve gelişmiş dönüşüm seçenekleriyle."
+description: "Aspose.Slides for Node.js kullanarak PowerPoint PPT/PPTX'i yüksek kaliteli, aranabilir PDF'lere dönüştürün, hızlı kod örnekleri ve gelişmiş dönüşüm seçenekleriyle."
 ---
 ## **Genel Bakış**
 
-PowerPoint ve OpenDocument sunumlarını (PPT, PPTX, ODP vb.) JavaScript kullanarak PDF formatına dönüştürmek, farklı cihazlar arasında uyumluluk sağlaması ve sunumun düzeni ile biçimlendirmesini koruması gibi çeşitli avantajlar sunar. Bu kılavuz, sunumları PDF belgelere dönüştürmeyi, görüntü kalitesini kontrol etmek için çeşitli seçenekleri kullanmayı, gizli slaytları dahil etmeyi, PDF dosyalarını şifrelemeyi, yazı tipi ikamelerini tespit etmeyi, belirli slaytları seçerek dönüştürmeyi ve çıktı belgelerine uyumluluk standartları uygulamayı gösterir.
+PowerPoint ve OpenDocument sunumlarını (PPT, PPTX, ODP vb.) JavaScript'te PDF formatına dönüştürmek, farklı cihazlarda uyumluluk ve sunumunuzun düzeni ile biçimlendirmesini koruma gibi çeşitli avantajlar sunar. Bu kılavuz, sunumları PDF belgelerine nasıl dönüştüreceğinizi, görüntü kalitesini kontrol etmek için çeşitli seçenekleri nasıl kullanacağınızı, gizli slaytları dahil etmeyi, PDF dosyalarını parola ile korumayı, yazı tipi ikamelerini tespit etmeyi, belirli slaytları seçerek dönüştürmeyi ve çıktı belgelerine uyumluluk standartları uygulamayı gösterir.
 
-## **PowerPoint PDF Dönüşümleri**
+## **PowerPoint'tan PDF Dönüşümleri**
 
-Aspose.Slides kullanarak aşağıdaki formatlardaki sunumları PDF’ye dönüştürebilirsiniz:
+Aspose.Slides kullanarak aşağıdaki formatlardaki sunumları PDF'e dönüştürebilirsiniz:
 
 * **PPT**
 * **PPTX**
 * **ODP**
 
-Bir sunumu PDF’ye dönüştürmek için dosya adını [Presentation](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/presentation/) sınıfına argüman olarak geçirin ve ardından sunumu `save` yöntemiyle PDF olarak kaydedin. [Presentation](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/presentation/) sınıfı, bir sunumu PDF’ye dönüştürmek için yaygın olarak kullanılan `save` yöntemini sunar.
+Bir sunumu PDF'e dönüştürmek için, dosya adını [Sunum](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) sınıfına argüman olarak geçirin ve ardından bir [kaydet](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/#save) yöntemiyle sunumu PDF olarak kaydedin. [Sunum](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) sınıfı, genellikle bir sunumu PDF'e dönüştürmek için kullanılan [kaydet](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/#save) yöntemini ortaya çıkarır.
 
-{{%  alert title="NOTE"  color="warning"   %}} 
-
-Aspose.Slides for Node.js via Java, API bilgilerini ve sürüm numarasını çıktı belgelere ekler. Örneğin, bir sunumu PDF’ye dönüştürürken Aspose.Slides, Uygulama alanını "*Aspose.Slides*" ve PDF Üreticisi alanını "*Aspose.Slides v XX.XX*" biçiminde doldurur. **Not**: Aspose.Slides’in bu bilgileri çıktı belgelerden değiştirmesini veya kaldırmasını sağlayamazsınız.
-
+{{% alert color="info" title="Note" %}}
+Aspose.Slides for Node.js via Java, çıktı belgelerine API bilgilerini ve sürüm numarasını ekler. Örneğin, bir sunumu PDF'e dönüştürürken, Aspose.Slides Application alanını "*Aspose.Slides*" ve PDF Producer alanını "*Aspose.Slides v XX.XX*" biçiminde bir değerle doldurur. **Not** bu bilgiyi çıktı belgelerinden değiştiremez veya kaldıramazsınız.
 {{% /alert %}}
 
-Aspose.Slides şunları dönüştürmenize olanak tanır:
+Aspose.Slides size şunları dönüştürme imkanı verir:
 
-* Tüm sunumları PDF’ye
-* Sunumdan belirli slaytları PDF’ye
+* **Tüm sunumları PDF'e**
+* **Bir sunumdan belirli slaytları PDF'e**
 
-Aspose.Slides sunumları PDF’ye dışa aktarır ve ortaya çıkan PDF’lerin orijinal sunumlarla yakından eşleşmesini sağlar. Dönüşüm sırasında aşağıdaki öğeler ve nitelikler doğru şekilde işlenir:
+Aspose.Slides sunumları PDF'e dışa aktarır ve ortaya çıkan PDF'lerin orijinal sunumlarla yakından eşleşmesini sağlar. Dönüşüm sırasında öğeler ve öznitelikler doğru bir şekilde işlenir, aşağıdakiler dahil:
 
-* Görseller
+* Görüntüler
 * Metin kutuları ve şekiller
-* Metin biçimlendirme
-* Paragraf biçimlendirme
+* Metin biçimlendirmesi
+* Paragraf biçimlendirmesi
 * Köprüler
-* Üstbilgi ve altbilgi
-* Madde işaretleri
+* Üstbilgiler ve altbilgiler
+* Madde imleri
 * Tablolar
 
-## **PowerPoint’i PDF’ye Dönüştürme**
+## **PowerPoint'i PDF'e Dönüştür**
 
-Standart PowerPoint‑PDF dönüşüm süreci varsayılan seçenekleri kullanır. Bu durumda Aspose.Slides, sağlanan sunumu en yüksek kalite seviyelerinde optimum ayarlarla PDF’ye dönüştürmeye çalışır.
+Standart PowerPoint'tan PDF'e dönüştürme süreci varsayılan seçenekleri kullanır. Bu durumda, Aspose.Slides sağlanan sunumu en yüksek kalite seviyelerinde optimum ayarlarla PDF'e dönüştürmeye çalışır.
 
-Aşağıdaki kod, bir sunumu (PPT, PPTX, ODP vb.) PDF’ye nasıl dönüştüreceğinizi gösterir:
+Aşağıdaki örnek bir sunumu yükler ve varsayılan dışa aktarma ayarlarını kullanarak tüm görünür slaytları PDF olarak kaydeder.
 
 ```js
-// PowerPoint veya OpenDocument dosyasını temsil eden Presentation sınıfını örnekleyin.
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let presentation = new aspose.slides.Presentation("PowerPoint.ppt");
 try {
-    // Sunumu PDF olarak kaydedin.
     presentation.save("PPT-to-PDF.pdf", aspose.slides.SaveFormat.Pdf);
 } finally {
     presentation.dispose();
 }
 ```
 
-{{%  alert  color="primary"  %}} 
-
-Aspose, sunum‑PDF dönüşüm sürecini gösteren ücretsiz bir çevrimiçi **PowerPoint to PDF converter**[https://products.aspose.app/slides/tr/conversion/ppt-to-pdf] sunar. Buradaki dönüştürücüyle test yaparak burada açıklanan prosedürü canlı olarak deneyebilirsiniz.
-
+{{% alert color="info" title="Note" %}}
+Aspose, ücretsiz bir çevrimiçi [**PowerPoint'tan PDF'ye Dönüştürücü**](https://products.aspose.app/slides/conversion/ppt-to-pdf) sunar ve sunumdan PDF'ye dönüşüm sürecini gösterir. Bu dönüştürücü ile burada açıklanan prosedürün canlı bir uygulamasını test edebilirsiniz.
 {{% /alert %}}
 
-## **Seçeneklerle PowerPoint’i PDF’ye Dönüştürme**
+## **PowerPoint'i PDF'e Seçeneklerle Dönüştür**
 
-Aspose.Slides, [PdfOptions](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/pdfoptions/) sınıfı altında bulunan özel seçenekler‑özellikleri sayesinde oluşturulan PDF’yi özelleştirmenize, PDF’yi bir şifreyle kilitlemenize veya dönüşüm sürecinin nasıl ilerleyeceğini belirlemenize olanak tanır.
+Aspose.Slides, sonuç PDF'yi özelleştirmenizi, PDF'yi bir parola ile kilitlemenizi veya dönüşüm sürecinin nasıl ilerleyeceğini belirlemenizi sağlayan özel seçenekler—[PdfOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfoptions/) sınıfı altındaki özellikler—sağlar.
 
-### **Özel Seçeneklerle PowerPoint’i PDF’ye Dönüştürme**
+### **PowerPoint'i PDF'e Özel Seçeneklerle Dönüştür**
 
-Özel dönüşüm seçenekleriyle raster görüntüler için tercih edilen kalite ayarını, metafile’ların nasıl işleneceğini, metin için sıkıştırma seviyesini, görüntüler için DPI’yı ve daha fazlasını belirleyebilirsiniz.
+Özel dönüşüm seçeneklerini kullanarak, raster görüntüler için tercih ettiğiniz kalite ayarını tanımlayabilir, metafile'ların nasıl işleneceğini belirleyebilir, metin için sıkıştırma seviyesini ayarlayabilir, görüntüler için DPI'yi yapılandırabilir ve daha fazlasını yapabilirsiniz.
 
-Aşağıdaki kod örneği, bir PowerPoint sunumunu birkaç özel seçenekle PDF’ye nasıl dönüştüreceğinizi gösterir.
+Aşağıdaki örnek, JPEG kalitesi 90, görüntü çözünürlüğü 300 DPI, metafile'lar PNG olarak kaydedilmiş ve Flate metin sıkıştırması kullanılarak bir sunumu PDF 1.5 formatına dışa aktarır.
 
 ```js
-// PdfOptions sınıfını örnekleyin.
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 let pdfOptions = new aspose.slides.PdfOptions();
-
-// Set the quality for JPG images.
 pdfOptions.setJpegQuality(java.newByte(90));
-
-// Set DPI for images.
 pdfOptions.setSufficientResolution(300);
-
-// Set the behavior for metafiles.
 pdfOptions.setSaveMetafilesAsPng(true);
-
-// Set the text compression level for textual content.
 pdfOptions.setTextCompression(aspose.slides.PdfTextCompression.Flate);
-
-// Define the PDF compliance mode.
 pdfOptions.setCompliance(aspose.slides.PdfCompliance.Pdf15);
 
-// PowerPoint veya OpenDocument dosyasını temsil eden Presentation sınıfını örnekleyin.
 let presentation = new aspose.slides.Presentation("PowerPoint.pptx");
 try {
-    // Sunumu PDF belgesi olarak kaydedin.
     presentation.save("PowerPoint-to-PDF.pdf", aspose.slides.SaveFormat.Pdf, pdfOptions);
 } finally {
     presentation.dispose();
 }
 ```
 
-### **Gizli Slaytlarla PowerPoint’i PDF’ye Dönüştürme**
+### **Gömülü OLE Dosyalarını PDF Ekleri Olarak Koruma**
 
-Bir sunum gizli slaytlar içeriyorsa, gizli slaytları ortaya çıkan PDF’de sayfa olarak eklemek için [PdfOptions](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/PdfOptions) sınıfının [setShowHiddenSlides](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/PdfOptions#setShowHiddenSlides) yöntemini kullanabilirsiniz.
+Bir sunumda gömülü bir Excel çalışma kitabı varsa, PDF alıcılarının çalışma kitabının verilerine erişmesini ve slaytları görmesini isteyebilirsiniz. Gömülü OLE dosyalarını sonuç PDF'de ek olarak korumak için [setIncludeOleData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfoptions/#setIncludeOleData) metodunu `true` ile çağırın.
 
-Bu JavaScript kodu, gizli slaytların dahil olduğu bir PowerPoint sunumunu PDF’ye nasıl dönüştüreceğinizi gösterir:
+Varsayılan değer `false`'tur: OLE nesnesinin ön izleme resmi veya simgesi PDF sayfasında görüntülenir, ancak gömülü dosya ek olarak eklenmez. Seçeneği `true` olarak ayarlamak, dosya verilerini ayrıca ekler. Ön izleme görsel bir temsil olarak kalır; ek, alıcıların gömülü dosyayı ayrı olarak açmasına veya kaydetmesine olanak tanır. OLE nesnesi PDF sayfasında etkileşimli bir Excel çalışma sayfasına dönüşmez.
+
+Aşağıdaki örnek, içinde zaten gömülü bir Excel çalışma kitabı bulunan bir sunumu yükler ve çalışma kitabı ekli olarak PDF'e dışa aktarır.
 
 ```js
-// PowerPoint veya OpenDocument dosyasını temsil eden Presentation sınıfını örnekleyin.
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+let pdfOptions = new aspose.slides.PdfOptions();
+pdfOptions.setIncludeOleData(true);
+
+let presentation = new aspose.slides.Presentation("presentation.pptx");
+try {
+    presentation.save("presentation.pdf", aspose.slides.SaveFormat.Pdf, pdfOptions);
+} finally {
+    presentation.dispose();
+}
+```
+
+Sonucu kontrol etmek için:
+
+1. PDF'yi Adobe Acrobat Reader gibi dosya eklerini destekleyen bir görüntüleyicide açın.
+2. Görüntüleyicinin **Ekler** panelini açın ve gömülü çalışma kitabını bulun.
+3. Ek'i kaydedin ve verilerini incelemek için Excel'de açın, ya da görüntüleyici izin veriyorsa doğrudan açın. PDF sayfasındaki ön izleme ek'ten ayrı bir unsurdur.
+
+{{% alert color="info" title="Note" %}}
+PDF/A standartları ekler üzerinde kısıtlamalar getirir: PDF/A-1 gömülü dosyaları yasaklar, PDF/A-2 yalnızca PDF/A eklerini izin verir ve PDF/A-3 diğer dosya türlerini, Excel çalışma kitapları dahil, izin verir. Bunlar standartların gereklilikleridir, Aspose.Slides'e özgü kısıtlamalar değildir. Bu örnek varsayılan PDF uyumluluk ayarını kullanır ve PDF/A dışa aktarımını göstermez.
+{{% /alert %}}
+
+### **PowerPoint'i Gizli Slaytlarla PDF'e Dönüştür**
+
+Bir sunumda gizli slaytlar varsa, [setShowHiddenSlides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfoptions/#setShowHiddenSlides) metodunu [PdfOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfoptions/) sınıfından kullanarak gizli slaytları sonuç PDF'te sayfa olarak dahil edebilirsiniz.
+
+Aşağıdaki örnek, gizli slaytları dahil ederek bir sunumu PDF'e dışa aktarır.
+
+```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+let pdfOptions = new aspose.slides.PdfOptions();
+pdfOptions.setShowHiddenSlides(true);
+
 let presentation = new aspose.slides.Presentation("PowerPoint.pptx");
 try {
-    // PdfOptions sınıfını örnekleyin.
-    let pdfOptions = new aspose.slides.PdfOptions();
-
-    // Gizli slaytları ekle.
-    pdfOptions.setShowHiddenSlides(true);
-
-    // Sunumu PDF olarak kaydedin.
     presentation.save("PowerPoint-to-PDF.pdf", aspose.slides.SaveFormat.Pdf, pdfOptions);
 } finally {
     presentation.dispose();
 }
 ```
 
-### **Şifre Koruması Olan PDF’ye PowerPoint Dönüştürme**
+### **PowerPoint'i Parola Korumalı PDF'e Dönüştür**
 
-Bu JavaScript kodu, [PdfOptions](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/PdfOptions) sınıfının koruma parametrelerini kullanarak bir PowerPoint sunumunu şifre korumalı PDF’ye nasıl dönüştüreceğinizi gösterir:
+Aşağıdaki örnek, açmak için `password` şifresini gerektiren bir PDF olarak sunumu dışa aktarır. Erişim izinleri, yüksek kaliteli baskı da dahil olmak üzere yazdırmaya izin verir.
 
 ```js
-// PowerPoint veya OpenDocument dosyasını temsil eden Presentation sınıfını örnekleyin.
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+let pdfOptions = new aspose.slides.PdfOptions();
+pdfOptions.setPassword("password");
+pdfOptions.setAccessPermissions(aspose.slides.PdfAccessPermissions.PrintDocument | aspose.slides.PdfAccessPermissions.HighQualityPrint);
+
 let presentation = new aspose.slides.Presentation("PowerPoint.pptx");
 try {
-    // PdfOptions sınıfını örnekleyin.
-    let pdfOptions = new aspose.slides.PdfOptions();
-
-    // PDF şifresi ve erişim izinlerini ayarlayın.
-    pdfOptions.setPassword("password");
-    pdfOptions.setAccessPermissions(aspose.slides.PdfAccessPermissions.PrintDocument | aspose.slides.PdfAccessPermissions.HighQualityPrint);
-
-    // Sunumu PDF olarak kaydedin.
     presentation.save("PPTX-to-PDF.pdf", aspose.slides.SaveFormat.Pdf, pdfOptions);
 } finally {
     presentation.dispose();
 }
 ```
 
-### **Yazı Tipi Değiştirmelerini Tespit Etme**
+### **Yazı Tipi İkamelerini Algıla**
 
-Aspose.Slides, sunum‑PDF dönüşüm sürecinde yazı tipi ikamelerini tespit etmenizi sağlayan [PdfOptions](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/PdfOptions) sınıfı altındaki [setWarningCallback](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/saveoptions/#setWarningCallback) yöntemini sunar.
+Aspose.Slides, sunumu PDF'e dönüştürme sürecinde yazı tipi ikamelerini algılamanızı sağlayan [PdfOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfoptions/) sınıfı altında [setWarningCallback](https://reference.aspose.com/slides/nodejs-java/aspose.slides/saveoptions/#setWarningCallback) metodunu sunar.
 
-Bu JavaScript kodu, yazı tipi değiştirilmelerini nasıl tespit edeceğinizi gösterir:
+Aşağıdaki örnek, bir sunumu PDF'e dışa aktarır ve konsola yazı tipi ikame uyarılarını yazdırır. Bir uyarı yalnızca kullanılabilir olmayan bir yazı tipi dışa aktarma sırasında ikame edildiğinde yazdırılır.
 
 ```js
-// PDF seçeneklerinde uyarı geri aramasını ayarlayın.
-let pdfOptions = new aspose.slides.PdfOptions();
-pdfOptions.setWarningCallback(FontSubstitutionHandler);
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
 
-// PowerPoint veya OpenDocument dosyasını temsil eden Presentation sınıfını örnekleyin.
-let presentation = new aspose.slides.Presentation("sample.pptx");
-
-// Sunumu PDF olarak kaydedin.
-presentation.save("output.pdf", aspose.slides.SaveFormat.Pdf, pdfOptions);
-presentation.dispose();
-```
-```js
 const FontSubstitutionHandler = java.newProxy("com.aspose.slides.IWarningCallback", {
 	warning: function (warning) {
-		if (warning.getWarningType() === aspose.slides.WarningType.DataLoss) {
+		if (warning.getWarningType() === aspose.slides.WarningType.DataLoss && warning.getDescription().startsWith("Font will be substituted")) {
 			console.warn("Font substitution warning: " + warning.getDescription());
 		}
 		return aspose.slides.ReturnAction.Continue;
 	}
 });
+
+let pdfOptions = new aspose.slides.PdfOptions();
+pdfOptions.setWarningCallback(FontSubstitutionHandler);
+
+let presentation = new aspose.slides.Presentation("sample.pptx");
+try {
+    presentation.save("output.pdf", aspose.slides.SaveFormat.Pdf, pdfOptions);
+} finally {
+    presentation.dispose();
+}
 ```
 
-{{%  alert color="primary"  %}} 
-
-Yazı tipi ikameleri hakkında daha fazla bilgi için [Font Substitution](/slides/tr/nodejs-java/font-substitution/) makalesine bakın.
-
+{{% alert color="info" title="Note" %}}
+Yazı tipi ikamesi hakkında daha fazla bilgi için [Yazı Tipi İkamesi](/slides/tr/nodejs-java/font-substitution/) makalesine bakın.
 {{% /alert %}} 
 
-## **Seçilen Slaytları PDF’ye Dönüştürme**
+## **PowerPoint'ten Seçili Slaytları PDF'e Dönüştür**
 
-Bu JavaScript kodu, bir PowerPoint sunumundan yalnızca belirli slaytları PDF’ye nasıl dönüştüreceğinizi gösterir:
+Aşağıdaki örnek, bir sunumdan 1 ve 3 numaralı slaytları PDF'e dışa aktarır. Bu dizi içindeki slayt numaraları bir temellidir ve giriş sunumu en az üç slayt içermelidir.
 
 ```js
-// PowerPoint veya OpenDocument dosyasını temsil eden Presentation sınıfını örnekleyin.
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 let presentation = new aspose.slides.Presentation("PowerPoint.pptx");
 try {
-    // Slayt numaraları dizisini ayarla.
     let slides = java.newArray("int", [1, 3]);
-
-    // Sunumu PDF olarak kaydedin.
     presentation.save("PPTX-to-PDF.pdf", slides, aspose.slides.SaveFormat.Pdf);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Özel Slayt Boyutuyla PowerPoint’i PDF’ye Dönüştürme**
+## **PowerPoint'i Özel Slayt Boyutu ile PDF'e Dönüştür**
 
-Bu JavaScript kodu, belirli bir slayt boyutu kullanarak bir PowerPoint sunumunu PDF’ye nasıl dönüştüreceğinizi gösterir:
+Aşağıdaki örnek, bir sunumdan ilk slaytı 612 × 792 puan (8.5 × 11 inç) boyutunda bir yeni sunuma kopyalar. Slayt içeriğini sığacak şekilde ölçeklendirir ve tek slaytı PDF'e dışa aktarır.
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 const slideWidth = 612;
 const slideHeight = 792;
 
-// PowerPoint veya OpenDocument dosyasını temsil eden Presentation sınıfını örnekleyin.
 let presentation = new aspose.slides.Presentation("SelectedSlides.pptx");
-
-// Ayarlanmış slayt boyutu ile yeni bir sunum oluşturun.
 let resizedPresentation = new aspose.slides.Presentation();
 
 try {
-    // Özel slayt boyutunu ayarlayın.
     resizedPresentation.getSlideSize().setSize(slideWidth, slideHeight, aspose.slides.SlideSizeScaleType.EnsureFit);
-
-    // Orijinal sunumdan ilk slaytı kopyalayın.
     let slide = presentation.getSlides().get_Item(0);
     resizedPresentation.getSlides().insertClone(0, slide);
 
-    // Yeniden boyutlandırılmış sunumu notlarla birlikte PDF olarak kaydedin.
-    resizedPresentation.save("PDF_with_notes.pdf", aspose.slides.SaveFormat.Pdf);
+    // Yeni oluşturulan sunumda bulunan boş slaytı kaldır.
+    resizedPresentation.getSlides().removeAt(1);
+
+    resizedPresentation.save("PDF_with_custom_slide_size.pdf", aspose.slides.SaveFormat.Pdf);
 } finally {
     resizedPresentation.dispose();
     presentation.dispose();
 }
 ```
 
-## **Not Slaytı Görünümünde PDF’ye Dönüştürme**
+## **PowerPoint'i Not Slaytı Görünümünde PDF'e Dönüştür**
 
-Bu JavaScript kodu, notları içeren bir PDF oluşturmak için bir PowerPoint sunumunu nasıl dönüştüreceğinizi gösterir:
+Aşağıdaki örnek, bir sunumu PDF'e dışa aktarır ve her slaytın konuşmacı notlarını slaytın altına yerleştirir. Sonucu görmek için konuşmacı notları içeren bir sunum kullanın.
 
 ```js
-// PowerPoint veya OpenDocument dosyasını temsil eden Presentation sınıfını örnekleyin.
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+let notesOptions = new aspose.slides.NotesCommentsLayoutingOptions();
+notesOptions.setNotesPosition(aspose.slides.NotesPositions.BottomFull);
+
+let pdfOptions = new aspose.slides.PdfOptions();
+pdfOptions.setSlidesLayoutOptions(notesOptions);
+
 let presentation = new aspose.slides.Presentation("SelectedSlides.pptx");
 try {
-    // Notlar Düzeniyle PDF seçeneklerini yapılandırın.
-    let notesOptions = new aspose.slides.NotesCommentsLayoutingOptions();
-    notesOptions.setNotesPosition(aspose.slides.NotesPositions.BottomFull);
-    let pdfOptions = new aspose.slides.PdfOptions();
-    pdfOptions.setSlidesLayoutOptions(notesOptions);
-
-    // Sunumu notlarla birlikte PDF olarak kaydedin.
     presentation.save("PDF_with_notes.pdf", aspose.slides.SaveFormat.Pdf, pdfOptions);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **PDF İçin Erişilebilirlik ve Uyumluluk Standartları**
+## **PDF için Erişilebilirlik ve Uyumluluk Standartları**
 
-Aspose.Slides, [Web Content Accessibility Guidelines (**WCAG**)](https://www.w3.org/TR/WCAG-TECHS/pdf.html) ile uyumlu bir dönüşüm prosedürü kullanmanıza izin verir. Aşağıdaki uyumluluk standartlarından herhangi birini kullanarak bir PowerPoint belgesini PDF’ye dışa aktarabilirsiniz: **PDF/A1a**, **PDF/A1b** ve **PDF/UA**.
+Aspose.Slides, [Web Content Accessibility Guidelines (**WCAG**)](https://www.w3.org/TR/WCAG-TECHS/pdf.html) ile uyumlu bir dönüşüm prosedürü kullanmanıza olanak tanır. Bir PowerPoint belgesini PDF'e, aşağıdaki uyumluluk standartlarından herhangi birini kullanarak dışa aktarabilirsiniz: **PDF/A1a**, **PDF/A1b**, ve **PDF/UA**.
 
-Bu JavaScript kodu, farklı uyumluluk standartlarına göre birden fazla PDF üreten bir PowerPoint‑PDF dönüşüm sürecini gösterir:
+Bu kod, farklı uyumluluk standartlarına göre birden fazla PDF oluşturan bir PowerPoint'ten PDF'e dönüşüm sürecini gösterir:
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let presentation = new aspose.slides.Presentation("pres.pptx");
 try {
     let pdfOptions = new aspose.slides.PdfOptions();
+
     pdfOptions.setCompliance(aspose.slides.PdfCompliance.PdfA1a);
     presentation.save("pres-a1a-compliance.pdf", aspose.slides.SaveFormat.Pdf, pdfOptions);
+
     pdfOptions.setCompliance(aspose.slides.PdfCompliance.PdfA1b);
     presentation.save("pres-a1b-compliance.pdf", aspose.slides.SaveFormat.Pdf, pdfOptions);
+
     pdfOptions.setCompliance(aspose.slides.PdfCompliance.PdfUa);
     presentation.save("pres-ua-compliance.pdf", aspose.slides.SaveFormat.Pdf, pdfOptions);
 } finally {
@@ -294,38 +318,36 @@ try {
 }
 ```
 
-{{% alert title="Note" color="warning" %}} 
-
-Aspose.Slides, PDF dönüşüm işlemlerini destekler ve PDF dosyalarını popüler formatlara dönüştürmenize olanak tanır. [PDF to HTML](https://products.aspose.com/slides/tr/nodejs-java/conversion/pdf-to-html/), [PDF to JPG](https://products.aspose.com/slides/tr/nodejs-java/conversion/pdf-to-jpg/) ve [PDF to PNG](https://products.aspose.com/slides/tr/nodejs-java/conversion/pdf-to-png/) dönüşümlerini gerçekleştirebilirsiniz. Ayrıca, [PDF to SVG](https://products.aspose.com/slides/tr/nodejs-java/conversion/pdf-to-svg/) ve [PDF to TIFF](https://products.aspose.com/slides/tr/nodejs-java/conversion/pdf-to-tiff/) gibi özel formatlara dönüştürme işlemleri de desteklenir.
-
+{{% alert color="info" title="Note" %}}
+Aspose.Slides, PDF dönüştürme işlemlerini destekler ve PDF dosyalarını popüler dosya formatlarına dönüştürmenize olanak tanır. [PDF'den HTML'ye](https://products.aspose.com/slides/nodejs-java/conversion/pdf-to-html/) , [PDF'den JPG'ye](https://products.aspose.com/slides/nodejs-java/conversion/pdf-to-jpg/) ve [PDF'den PNG'ye](https://products.aspose.com/slides/nodejs-java/conversion/pdf-to-png/) dönüşümlerini gerçekleştirebilirsiniz. Özel formatlara yönelik diğer PDF dönüştürme işlemleri—[PDF'den SVG'ye](https://products.aspose.com/slides/nodejs-java/conversion/pdf-to-svg/) , [PDF'den TIFF'e](https://products.aspose.com/slides/nodejs-java/conversion/pdf-to-tiff/)—da desteklenir.
 {{% /alert %}}
 
-> **Not:** PDF/UA olarak dışa aktarırken, Aspose.Slides SmartArt, grafikler ve formüller gibi karmaşık grafikleri tek bir şekil olarak işler. Bireysel yol öğeleri ayrı içerik olarak korunmaz ve artefakt olarak işaretlenebilir; alternatif metin yalnızca bütün şekil için sağlanır.
+> **Not:** PDF/UA'ya dışa aktarırken, Aspose.Slides SmartArt, grafikler ve formüller gibi karmaşık grafikleri tek bir figür olarak ele alır. Tek tek yol öğeleri ayrı içerik olarak korunmaz ve artefakt olarak işaretlenebilir; alternatif metin yalnızca bütün figür için sağlanır.
 
 ## **SSS**
 
-**Birden fazla PowerPoint dosyasını toplu olarak PDF’ye dönüştürebilir miyim?**
+**Birden çok PowerPoint dosyasını toplu olarak PDF'e dönüştürebilir miyim?**
 
-Evet, Aspose.Slides, birden fazla PPT veya PPTX dosyasını PDF’ye toplu dönüştürmeyi destekler. Dosyalarınızı döngüyle işleyerek dönüşüm sürecini programlı olarak uygulayabilirsiniz.
+Evet, Aspose.Slides birden fazla PPT veya PPTX dosyasının toplu olarak PDF'e dönüştürülmesini destekler. Dosyalarınızda döngü oluşturarak dönüşüm sürecini programlı olarak uygulayabilirsiniz.
 
-**Dönüştürülen PDF’yi şifreyle koruyabilir miyim?**
+**Dönüştürülen PDF'i parola ile korumak mümkün mü?**
 
-Kesinlikle. Dönüşüm sırasında şifre belirlemek ve erişim izinlerini tanımlamak için [PdfOptions](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/PdfOptions) sınıfını kullanın.
+Evet. Dönüşüm sürecinde bir şifre belirlemek ve erişim izinlerini tanımlamak için [PdfOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfoptions/) sınıfını kullanabilirsiniz.
 
-**Gizli slaytları PDF’ye nasıl dahil ederim?**
+**Gizli slaytları PDF'e nasıl ekleyebilirim?**
 
-Gizli slaytları ortaya çıkan PDF’ye eklemek için [PdfOptions](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/PdfOptions) sınıfındaki `setShowHiddenSlides` yöntemini kullanın.
+PDF'e gizli slaytları dahil etmek için [setShowHiddenSlides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfoptions/#setShowHiddenSlides) metodunu `true` ile [PdfOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfoptions/) sınıfında çağırın.
 
-**Aspose.Slides PDF’de yüksek görüntü kalitesini koruyabilir mi?**
+**Aspose.Slides PDF'te yüksek görüntü kalitesini koruyabilir mi?**
 
-Evet, [PdfOptions](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/PdfOptions) sınıfındaki `setJpegQuality` ve `setSufficientResolution` gibi yöntemleri kullanarak PDF’nizde yüksek kaliteli görseller elde edebilirsiniz.
+Evet, PDF'inizde yüksek kaliteli görüntüler sağlamak için [PdfOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfoptions/) sınıfındaki [setJpegQuality](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfoptions/#setJpegQuality) ve [setSufficientResolution](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfoptions/#setSufficientResolution) gibi yöntemleri kullanarak görüntü kalitesini kontrol edebilirsiniz.
 
 **Aspose.Slides PDF/A uyumluluk standartlarını destekliyor mu?**
 
-Evet, Aspose.Slides, PDF/A1a, PDF/A1b ve PDF/UA gibi çeşitli standartlara uyumlu PDF’ler dışa aktarmanıza olanak tanır; böylece belgeleriniz erişilebilirlik ve arşivleme gereksinimlerini karşılar.
+Evet, Aspose.Slides, [various standards](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfcompliance/) (PDF/A1a, PDF/A1b ve PDF/UA dahil) ile uyumlu PDF'ler dışa aktarmanıza izin verir ve belgelerinizin erişilebilirlik ve arşivleme gereksinimlerini karşılamasını sağlar.
 
 ## **Ek Kaynaklar**
 
-- [Aspose.Slides for Node.js via Java Documentation](/slides/tr/nodejs-java/)
-- [Aspose.Slides for Node.js via Java API Reference](https://reference.aspose.com/slides/tr/nodejs-java/)
-- [Aspose Ücretsiz Çevrimiçi Dönüştürücüler](https://products.aspose.app/slides/tr/conversion)
+- [Aspose.Slides for Node.js via Java Belgeleri](/slides/tr/nodejs-java/)
+- [Aspose.Slides for Node.js via Java API Referansı](https://reference.aspose.com/slides/nodejs-java/)
+- [Aspose Ücretsiz Çevrimiçi Dönüştürücüler](https://products.aspose.app/slides/conversion)

@@ -25,32 +25,36 @@ keywords:
 - عرض تقديمي
 - PHP
 - Aspose.Slides
-description: "تحسين إدارة كائنات OLE في ملفات PowerPoint وOpenDocument باستخدام Aspose.Slides للـ PHP عبر Java. قم بتضمين وتحديث وتصدير محتوى OLE بسلاسة."
+description: "تحسين إدارة كائنات OLE في ملفات PowerPoint وOpenDocument باستخدام Aspose.Slides for PHP عبر Java. قم بتضمين المحتوى، تحديثه، وتصديره بسلاسة."
 ---
+## **مقدمة**
 
-{{% alert color="primary" %}} 
-OLE (Object Linking & Embedding) هي تقنية من مايكروسوفت تسمح للبيانات والكائنات التي تم إنشاؤها في تطبيق واحد أن تُوضع في تطبيق آخر عبر الربط أو الإدراج. 
+{{% alert color="info" title="Note" %}}
+
+OLE (Object Linking & Embedding) هي تقنية من مايكروسوفت تسمح بنقل البيانات والكائنات التي تم إنشاؤها في تطبيق إلى تطبيق آخر عبر الربط أو الإدراج. 
+
 {{% /alert %}} 
 
-ضع في الاعتبار مخططًا تم إنشاؤه في MS Excel. ثم يُوضع المخطط داخل شريحة PowerPoint. يُعتبر ذلك المخطط في Excel كائن OLE. 
+تخيّل مخططًا تم إنشاؤه في MS Excel. يتم وضع المخطط داخل شريحة PowerPoint. يُعتبر هذا المخطط في Excel كائن OLE. 
 
-- قد يظهر كائن OLE كأيقونة. في هذه الحالة، عندما تنقر مزدوجًا على الأيقونة، يتم فتح المخطط في التطبيق المرتبط به (Excel)، أو يُطلب منك اختيار تطبيق لفتح أو تحرير الكائن. 
-- قد يعرض كائن OLE محتوياته الفعلية، مثل محتويات مخطط. في هذه الحالة، يتم تنشيط المخطط في PowerPoint، يتم تحميل واجهة المخطط، وتتمكن من تعديل بيانات المخطط داخل PowerPoint. 
+- قد يظهر كائن OLE كأيقونة. في هذه الحالة، عندما تنقر مزدوجًا على الأيقونة، يفتح المخطط في التطبيق المرتبط به (Excel)، أو يُطلب منك اختيار تطبيق لفتح أو تعديل الكائن.
+- قد يعرض كائن OLE محتواه الفعلي، مثل محتوى المخطط. في هذه الحالة، يتم تنشيط المخطط في PowerPoint، يُحمَّل واجهة المخطط، وتتمكن من تعديل بيانات المخطط داخل PowerPoint.
 
-[Aspose.Slides for PHP via Java](https://products.aspose.com/slides/php-java/) يسمح لك بإدراج OLE Objects في الشرائح كإطارات كائن OLE ([OleObjectFrame](https://reference.aspose.com/slides/php-java/aspose.slides/oleobjectframe/)).
+[Aspose.Slides for PHP via Java](https://products.aspose.com/slides/php-java/) يتيح لك إدراج كائنات OLE في الشرائح كإطارات كائن OLE ([OleObjectFrame](https://reference.aspose.com/slides/php-java/aspose.slides/oleobjectframe/)).
 
 ## **إضافة إطارات كائن OLE إلى الشرائح**
 
-بافتراض أنك قد أنشأت مخططًا بالفعل في Microsoft Excel وتريد تضمينه في شريحة كإطار كائن OLE باستخدام Aspose.Slides for PHP via Java، يمكنك القيام بذلك بهذه الطريقة:
+باستخدام مخطط قمت بإنشائه مسبقًا في Microsoft Excel وتريد إدراجه في شريحة كإطار كائن OLE باستخدام Aspose.Slides for PHP via Java، يمكنك القيام بذلك بالطريقة التالية:
 
-1. إنشاء مثال من فئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/). 
-2. الحصول على مرجع الشريحة عبر فهرسها. 
-3. قراءة ملف Excel كمصفوفة بايت. 
-4. إضافة [OleObjectFrame](https://reference.aspose.com/slides/php-java/aspose.slides/oleobjectframe/) إلى الشريحة التي تحتوي على مصفوفة البايت ومعلومات أخرى حول كائن OLE. 
-5. كتابة العرض التقديمي المعدل كملف PPTX. 
+1. أنشئ مثيلًا من الفئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) .
+1. احصل على مرجع الشريحة من خلال فهرسها.
+1. اقرأ ملف Excel كمصفوفة بايت.
+1. أضف الـ [OleObjectFrame](https://reference.aspose.com/slides/php-java/aspose.slides/oleobjectframe/) إلى الشريحة مع مصفوفة البايت ومعلومات أخرى حول كائن OLE.
+1. احفظ العرض التقديمي المعدل كملف PPTX.
 
-في المثال أدناه، أضفنا مخططًا من ملف Excel إلى شريحة كإطار كائن OLE باستخدام Aspose.Slides for PHP via Java.  
-**ملاحظة** أن منشئ [OleEmbeddedDataInfo](https://reference.aspose.com/slides/php-java/aspose.slides/oleembeddeddatainfo/) يأخذ امتداد كائن قابل للتضمين كمعامل ثانٍ. هذا الامتداد يسمح لـ PowerPoint بتفسير نوع الملف بشكل صحيح واختيار التطبيق المناسب لفتح هذا الكائن OLE.  
+في المثال أدناه، أضفنا مخططًا من ملف Excel إلى شريحة كإطار كائن OLE باستخدام Aspose.Slides for PHP via Java.
+**ملاحظة** أن منشئ الـ [OleEmbeddedDataInfo](https://reference.aspose.com/slides/php-java/aspose.slides/oleembeddeddatainfo/) يأخذ امتدادًا لكائن قابل للإدراج كمعامل ثاني. يتيح هذا الامتداد لبرنامج PowerPoint تفسير نوع الملف بشكل صحيح واختيار التطبيق المناسب لفتح كائن OLE هذا.
+
 ```php
 $presentation = new Presentation();
 $slideSize = $presentation->getSlideSize()->getSize();
@@ -67,34 +71,34 @@ $presentation->save("output.pptx", SaveFormat::Pptx);
 $presentation->dispose();
 ```
 
+### **إضافة إطارات كائن OLE مرتبطة**
 
-### **إضافة إطارات OLE المرتبطة**
+Aspose.Slides for PHP via Java يتيح لك إضافة [OleObjectFrame](https://reference.aspose.com/slides/php-java/aspose.slides/oleobjectframe/) دون إدراج البيانات وإنما فقط مع رابط إلى الملف.
 
-Aspose.Slides for PHP via Java يسمح لك بإضافة [OleObjectFrame](https://reference.aspose.com/slides/php-java/aspose.slides/oleobjectframe/) دون تضمين البيانات ولكن فقط مع ارتباط إلى الملف.  
+هذا الكود PHP يوضح كيفية إضافة [OleObjectFrame](https://reference.aspose.com/slides/php-java/aspose.slides/oleobjectframe/) مع ملف Excel مرتبط إلى شريحة:
 
-هذا الكود PHP يوضح لك كيفية إضافة [OleObjectFrame](https://reference.aspose.com/slides/php-java/aspose.slides/oleobjectframe/) بملف Excel مرتبط إلى شريحة:  
 ```php
 $presentation = new Presentation();
 $slide = $presentation->getSlides()->get_Item(0);
 
-// Add an OLE object frame with a linked Excel file.
+// إضافة إطار كائن OLE مع ملف Excel مرتبط.
 $slide->getShapes()->addOleObjectFrame(20, 20, 200, 150, "Excel.Sheet.12", "book.xlsx");
 
 $presentation->save("output.pptx", SaveFormat::Pptx);
 $presentation->dispose();
 ```
 
+## **الوصول إلى إطارات كائن OLE**
 
-## **الوصول إلى إطارات OLE**
+إذا كان كائن OLE مضمّنًا بالفعل في شريحة، يمكنك بسهولة العثور عليه أو الوصول إليه بهذه الطريقة:
 
-إذا كان كائن OLE مضمّنًا بالفعل في شريحة، يمكنك العثور عليه أو الوصول إليه بسهولة بهذه الطريقة:
+1. حمّل عرضًا تقديميًا يحتوي على كائن OLE المضمّن بإنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) .
+2. احصل على مرجع الشريحة باستخدام فهرسها.
+3. وصول إلى شكل الـ [OleObjectFrame](https://reference.aspose.com/slides/php-java/aspose.slides/oleobjectframe/). في مثالنا، استخدمنا ملف PPTX الذي تم إنشاؤه مسبقًا ويحتوي على شكل واحد فقط في الشريحة الأولى.
+4. بمجرد الوصول إلى إطار كائن OLE، يمكنك إجراء أي عملية عليه.
 
-1. تحميل عرض تقديمي يحتوي على كائن OLE مضمّن بإنشاء مثال من فئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/). 
-2. الحصول على مرجع الشريحة باستخدام فهرسها. 
-3. الوصول إلى شكل [OleObjectFrame](https://reference.aspose.com/slides/php-java/aspose.slides/oleobjectframe/). في مثالنا، استخدمنا ملف PPTX الذي تم إنشاؤه مسبقًا والذي يحتوي على شكل واحد فقط في الشريحة الأولى. 
-4. بمجرد الوصول إلى إطار كائن OLE، يمكنك تنفيذ أي عملية عليه.  
+في المثال أدناه، يتم الوصول إلى إطار كائن OLE (كائن مخطط Excel مضمّن في شريحة) وبيانات ملفه.
 
-في المثال أدناه، تم الوصول إلى إطار كائن OLE (كائن مخطط Excel مضمّن في شريحة) وبيانات ملفه.  
 ```php
 $presentation = new Presentation("sample.pptx");
 $slide = $presentation->getSlides()->get_Item(0);
@@ -103,20 +107,21 @@ $shape = $slide->getShapes()->get_Item(0);
 if (java_instanceof($shape, new JavaClass("com.aspose.slides.OleObjectFrame"))) {
     $oleFrame = $shape;
     
-    // احصل على بيانات الملف المضمّن.
+    // الحصول على بيانات الملف المضمّن.
     $fileData = $oleFrame->getEmbeddedData()->getEmbeddedFileData();
 
-    // احصل على امتداد الملف المضمّن.
+    // الحصول على امتداد الملف المضمّن.
     $fileExtension = $oleFrame->getEmbeddedData()->getEmbeddedFileExtension();
 
     // ...
 }
 ```
 
+### **الوصول إلى خصائص إطار كائن OLE المرتبط**
 
-### **الوصول إلى خصائص إطار OLE المرتبط**
+Aspose.Slides يتيح لك الوصول إلى خصائص إطار كائن OLE المرتبط.
 
-Aspose.Slides يتيح لك الوصول إلى خصائص إطار OLE المرتبط.  
+هذا الكود PHP يوضح كيفية التحقق ما إذا كان كائن OLE مرتبطًا ثم الحصول على مسار الملف المرتبط:
 
 ```php
 $presentation = new Presentation("sample.ppt");
@@ -143,27 +148,27 @@ if (java_instanceof($shape, new JavaClass("com.aspose.slides.OleObjectFrame"))) 
 $presentation->dispose();
 ```
 
-
 ## **تغيير بيانات كائن OLE**
 
-{{% alert color="primary" %}} 
+{{% alert color="info" title="Note" %}}
 
-في هذا القسم، يستخدم المثال البرمجي أدناه [Aspose.Cells for PHP via Java](/cells/php-java/). 
+في هذا القسم، يستخدم المثال البرمجي أدناه [Aspose.Cells for PHP via Java](https://docs.aspose.com/cells/php-java/).
 
-{{% /alert %}} 
+{{% /alert %}}
 
 إذا كان كائن OLE مضمّنًا بالفعل في شريحة، يمكنك بسهولة الوصول إلى ذلك الكائن وتعديل بياناته بهذه الطريقة:
 
-1. تحميل عرض تقديمي يحتوي على كائن OLE مضمّن بإنشاء مثال من فئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/). 
-2. الحصول على مرجع الشريحة عبر فهرسها. 
-3. الوصول إلى شكل [OleObjectFrame](https://reference.aspose.com/slides/php-java/aspose.slides/oleobjectframe/). في مثالنا، استخدمنا ملف PPTX الذي تم إنشاؤه مسبقًا والذي يحتوي على شكل واحد في الشريحة الأولى. 
-4. بمجرد الوصول إلى إطار كائن OLE، يمكنك تنفيذ أي عملية عليه. 
-5. إنشاء كائن `Workbook` والوصول إلى بيانات OLE. 
-6. الوصول إلى الـ `Worksheet` المطلوب وتعديل البيانات. 
-7. حفظ الـ `Workbook` المحدث في تدفق. 
-8. تغيير بيانات كائن OLE من التدفق. 
+1. حمّل عرضًا تقديميًا يحتوي على كائن OLE المضمّن بإنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) .
+2. احصل على مرجع الشريحة من خلال فهرسها. 
+3. وصول إلى شكل الـ [OleObjectFrame](https://reference.aspose.com/slides/php-java/aspose.slides/oleobjectframe/). في مثالنا، استخدمنا ملف PPTX الذي تم إنشاؤه مسبقًا ويحتوي على شكل واحد في الشريحة الأولى.
+4. بمجرد الوصول إلى إطار كائن OLE، يمكنك إجراء أي عملية عليه.
+5. أنشئ كائن `Workbook` وادخل إلى بيانات OLE.
+6. ادخل إلى الـ `Worksheet` المطلوب وقم بتعديل البيانات.
+7. احفظ الـ `Workbook` المحدث في تدفق.
+8. غيّر بيانات كائن OLE من التدفق.
 
-في المثال أدناه، تم الوصول إلى إطار كائن OLE (كائن مخطط Excel مضمّن في شريحة) وتعديل بيانات ملفه لتحديث بيانات المخطط.  
+في المثال أدناه، يتم الوصول إلى إطار كائن OLE (كائن مخطط Excel مضمّن في شريحة) وتعديل بيانات ملفه لتحديث بيانات المخطط.
+
 ```php
 $presentation = new Presentation("sample.pptx");
 $slide = $presentation->getSlides()->get_Item(0);
@@ -172,7 +177,7 @@ $shape = $slide->getShapes()->get_Item(0);
 if (java_instanceof($shape, new JavaClass("com.aspose.slides.OleObjectFrame"))) {
     $oleFrame = $shape;
 
-    $oleStream = new ByteArrayInputStream($oleFrame->getEmbeddedData()->getEmbeddedFileData());
+    $oleStream = new Java("java.io.ByteArrayInputStream", $oleFrame->getEmbeddedData()->getEmbeddedFileData());
 
     // قراءة بيانات كائن OLE ككائن Workbook.
     $workbook = new Workbook($oleStream);
@@ -200,10 +205,11 @@ $presentation->save("output.pptx", SaveFormat::Pptx);
 $presentation->dispose();
 ```
 
+## **إدراج أنواع ملفات أخرى في الشرائح**
 
-## **تضمين أنواع ملفات أخرى في الشرائح**
+بعيدًا عن مخططات Excel، Aspose.Slides for PHP via Java يتيح لك إدراج أنواع أخرى من الملفات في الشرائح. على سبيل المثال، يمكنك إدراج ملفات HTML وPDF وZIP ككائنات. عندما ينقر المستخدم مزدوجًا على الكائن المُدرج، يفتح تلقائيًا في البرنامج المناسب، أو يُطلب من المستخدم اختيار برنامج ملائم لفتح الملف.
 
-إلى جانب مخططات Excel، Aspose.Slides for PHP via Java يتيح لك تضمين أنواع أخرى من الملفات في الشرائح. على سبيل المثال، يمكنك إدراج ملفات HTML وPDF وZIP ككائنات. عندما ينقر المستخدم مزدوجًا على الكائن المُدرج، يفتح تلقائيًا في البرنامج المناسب، أو يُطلب من المستخدم اختيار برنامج مناسب لفتح الملف.  
+هذا الكود PHP يوضح كيفية إدراج HTML وZIP في شريحة:
 
 ```php
 $presentation = new Presentation("sample.pptx");
@@ -223,10 +229,11 @@ $presentation->save("output.pptx", SaveFormat::Pptx);
 $presentation->dispose();
 ```
 
+## **تحديد أنواع الملفات للكائنات المضمّنة**
 
-## **تعيين أنواع الملفات للكائنات المضمّنة**
+عند العمل على عروض تقديمية، قد تحتاج إلى استبدال كائنات OLE القديمة بأخرى جديدة أو استبدال كائن OLE غير مدعوم بآخر مدعوم. Aspose.Slides for PHP via Java يتيح لك تحديد نوع الملف لكائن مضمّن، مما يسمح لك بتحديث بيانات إطار OLE أو امتداده.
 
-عند العمل على عروض تقديمية، قد تحتاج إلى استبدال كائنات OLE القديمة بأخرى جديدة أو استبدال كائن OLE غير مدعوم بآخر مدعوم. Aspose.Slides for PHP via Java يتيح لك تعيين نوع الملف لكائن مضمّن، مما يمكنك من تحديث بيانات إطار OLE أو امتداده.  
+هذا الكود PHP يوضح كيفية تحديد نوع الملف لكائن OLE مضمّن إلى `zip`:
 
 ```php
 $presentation = new Presentation("sample.pptx");
@@ -238,28 +245,27 @@ $fileData = $oleFrame->getEmbeddedData()->getEmbeddedFileData();
 
 echo "Current embedded file extension is: " . $fileExtension . PHP_EOL;
 
-// Change the file type to ZIP.
-$oleFrame->setEmbeddedData(new OleEmbeddedDataInfo($fileData, "zip"));
+// تغيير نوع الملف إلى ZIP.
 
 $presentation->save("output.pptx", SaveFormat::Pptx);
 $presentation->dispose();
 ```
 
-
 ## **تعيين صور الأيقونة والعناوين للكائنات المضمّنة**
 
-بعد تضمين كائن OLE، يتم إضافة معاينة تتكون من صورة أيقونة تلقائيًا. هذه المعاينة هي ما يراه المستخدمون قبل الوصول إلى الكائن أو فتحه. إذا رغبت في استخدام صورة ونص محددين كعناصر في المعاينة، يمكنك تعيين صورة الأيقونة والعنوان باستخدام Aspose.Slides for PHP via Java.  
+بعد إدراج كائن OLE، يتم إضافة معاينة تتكون من صورة أيقونة تلقائيًا. هذه المعاينة هي ما يراه المستخدمون قبل الوصول إلى كائن OLE أو فتحه. إذا رغبت في استخدام صورة ونص معينين كعناصر في المعاينة، يمكنك تعيين صورة الأيقونة والعنوان باستخدام Aspose.Slides for PHP via Java.
+
+هذا الكود PHP يوضح كيفية تعيين صورة الأيقونة والعنوان لكائن مضمّن:
 
 ```php
 $presentation = new Presentation("sample.pptx");
 $slide = $presentation->getSlides()->get_Item(0);
 $oleFrame = $slide->getShapes()->get_Item(0);
 
-// إضافة صورة إلى موارد العرض التقديمي.
+// أضف صورة إلى موارد العرض التقديمي.
 $imageData = file_get_contents("image.png");
 $oleImage = $presentation->getImages()->addImage($imageData);
 
-// تعيين عنوان والصورة لمعاينة OLE.
 $oleFrame->setSubstitutePictureTitle("My title");
 $oleFrame->getSubstitutePictureFormat()->getPicture()->setImage($oleImage);
 $oleFrame->setObjectIcon(true);
@@ -268,22 +274,30 @@ $presentation->save("output.pptx", SaveFormat::Pptx);
 $presentation->dispose();
 ```
 
+## **منع إعادة تحجيم وإعادة وضع إطار كائن OLE**
 
-## **منع تغيير حجم إطار كائن OLE وموقعه**
+بعد إضافة كائن OLE مرتبط إلى شريحة عرض تقديمي، قد تظهر لك رسالة عند فتح العرض في PowerPoint تطلب تحديث الروابط. النقر على زر "Update Links" قد يغيّر حجم وموضع إطار كائن OLE لأن PowerPoint يحدث البيانات من كائن OLE المرتبط ويعيد تحديث معاينة الكائن. لمنع PowerPoint من طلب تحديث بيانات الكائن، استدعِ طريقة [setUpdateAutomatic](https://reference.aspose.com/slides/php-java/aspose.slides/oleobjectframe/#setUpdateAutomatic) للفئة [OleObjectFrame](https://reference.aspose.com/slides/php-java/aspose.slides/oleobjectframe/) مع القيمة `false`:
 
-بعد إضافة كائن OLE مرتبط إلى شريحة عرض تقديمي، عند فتح العرض في PowerPoint قد تظهر لك رسالة تطلب تحديث الروابط. قد يؤدي النقر على زر "Update Links" إلى تغيير حجم وموقع إطار كائن OLE لأن PowerPoint يحدث البيانات من الكائن المرتبط ويعيد رسم المعاينة. لمنع PowerPoint من طلب تحديث بيانات الكائن، اضبط طريقة `setUpdateAutomatic` في فئة [OleObjectFrame](https://reference.aspose.com/slides/php-java/aspose.slides/oleobjectframe/) على `false`:  
 ```php
-$oleFrame->setUpdateAutomatic(false);
-```
+$presentation = new Presentation("sample.pptx");
+$slide = $presentation->getSlides()->get_Item(0);
+$oleFrame = $slide->getShapes()->get_Item(0);
 
+$oleFrame->setUpdateAutomatic(false);
+
+$presentation->save("output.pptx", SaveFormat::Pptx);
+$presentation->dispose();
+```
 
 ## **استخراج الملفات المضمّنة**
 
-Aspose.Slides for PHP via Java يسمح لك باستخراج الملفات المضمّنة في الشرائح ككائنات OLE بهذه الطريقة:
+Aspose.Slides for PHP via Java يتيح لك استخراج الملفات المُضمّنة في الشرائح ككائنات OLE بهذه الطريقة:
 
-1. إنشاء مثال من فئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) التي تحتوي على كائنات OLE التي تنوي استخراجها. 
-2. المرور على جميع الأشكال في العرض والوصول إلى أشكال [OLEObjectFrame](https://reference.aspose.com/slides/php-java/aspose.slides/oleobjectframe/). 
-3. الوصول إلى بيانات الملفات المضمّنة من إطارات كائن OLE وكتابتها إلى القرص.  
+1. أنشئ مثيلًا من الفئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) التي تحتوي على كائنات OLE التي ترغب في استخراجها.
+2. تَجَوَّل عبر جميع الأشكال في العرض التقديمي وادخل إلى أشكال الـ [OLEObjectFrame](https://reference.aspose.com/slides/php-java/aspose.slides/oleobjectframe/).
+3. ادخل إلى بيانات الملفات المُضمّنة من أطر OLE واكتبها إلى القرص.
+
+هذا الكود PHP يوضح كيفية استخراج ملفات مضمّنة في شريحة ككائنات OLE:
 
 ```php
 $presentation = new Presentation("sample.pptx");
@@ -307,17 +321,18 @@ for ($index = 0; $index < $shapeCount; $index++) {
 $presentation->dispose();
 ```
 
-
-## **الأسئلة المتكررة**
+## **FAQ**
 
 **هل سيتم عرض محتوى OLE عند تصدير الشرائح إلى PDF/صور؟**
 
-ما يظهر على الشريحة هو ما يُعرض — أي الأيقونة/الصورة البديلة (المعاينة). محتوى OLE "الحي" لا يُنفذ أثناء عملية العرض. إذا لزم الأمر، قم بتعيين صورة معاينة خاصة لضمان المظهر المتوقع في الـ PDF المُصدّر.  
+ما هو مرئي على الشريحة هو ما يتم تصييره—الأيقونة/الصورة البديلة (المعاينة). لا يتم تنفيذ محتوى OLE "الحي" أثناء التصيير. إذا لزم الأمر، عيّن صورة معاينة خاصة لضمان المظهر المتوقع في PDF المُصدّر.
+
+للحفاظ أيضًا على الملف المضمّن كمرفق PDF، استدعِ [setIncludeOleData](https://reference.aspose.com/slides/php-java/aspose.slides/pdfoptions/#setIncludeOleData) مع القيمة `true`. هذا الخيار مُعطَّل افتراضيًا. للحصول على مثال وتعليمات للتحقق من المرفق، راجع [Preserve Embedded OLE Files as PDF Attachments](/slides/ar/php-java/convert-powerpoint-to-pdf/#preserve-embedded-ole-files-as-pdf-attachments).
 
 **كيف يمكنني قفل كائن OLE على شريحة بحيث لا يتمكن المستخدمون من تحريكه/تحريره في PowerPoint؟**
 
-قفل الشكل: Aspose.Slides يوفر أقفالًا على مستوى الشكل. هذا ليس تشفيرًا، لكنه يمنع الفوضى غير المقصودة والتحريك.  
+قفل الشكل: Aspose.Slides يوفر أقفالًا على مستوى الشكل. هذا ليس تشفيرًا، لكنه يمنع التعديلات غير المقصودة والحركة.
 
-**هل ستُحافظ صيغة PPTX على المسارات النسبية لكائنات OLE المرتبطة؟**
+**هل سيتم حفظ المسارات النسبية لكائنات OLE المرتبطة في تنسيق PPTX؟**
 
-في PPTX لا تتوافر معلومات "المسار النسبي" — فقط المسار الكامل. المسارات النسبية موجودة في صيغة PPT القديمة. لتحقيق قابلية النقل، يُفضَّل الاعتماد على مسارات مطلقة موثوقة أو عناوين URI قابلة للوصول أو تضمين الملفات.
+في PPTX، لا تتوفر معلومات "المسار النسبي"—فقط المسار الكامل. تُوجد المسارات النسبية في الصيغة القديمة PPT. لضمان القابلية للنقل، يُفضَّل استخدام مسارات مطلقة موثوقة/عناوين URI قابلة للوصول أو الإدراج.

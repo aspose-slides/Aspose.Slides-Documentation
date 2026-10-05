@@ -19,69 +19,69 @@ keywords:
 - OLE simgesi
 - OLE başlığı
 - OLE çıkar
-- nesneyi çıkar
-- dosyayı çıkar
+- nesne çıkar
+- dosya çıkar
 - PowerPoint
 - sunum
 - PHP
 - Aspose.Slides
-description: "Aspose.Slides for PHP via Java kullanarak PowerPoint ve OpenDocument dosyalarında OLE nesne yönetimini optimize edin. OLE içeriğini sorunsuz bir şekilde gömün, güncelleyin ve dışa aktarın."
+description: "Aspose.Slides for PHP via Java ile PowerPoint ve OpenDocument dosyalarında OLE nesnesi yönetimini optimize edin. OLE içeriğini sorunsuz bir şekilde gömün, güncelleyin ve dışa aktarın."
 ---
 ## **Giriş**
 
-{{% alert color="primary" %}} 
+{{% alert color="info" title="Not" %}}
 
-OLE (Object Linking & Embedding), bir uygulamada oluşturulan veri ve nesnelerin, bağlantı veya gömme yoluyla başka bir uygulamaya yerleştirilmesini sağlayan bir Microsoft teknolojisidir. 
+OLE (Object Linking & Embedding), bir uygulamada oluşturulan veri ve nesnelerin, başka bir uygulamaya bağlama veya gömme yoluyla yerleştirilmesini sağlayan bir Microsoft teknolojisidir. 
 
 {{% /alert %}} 
 
-MS Excel'de oluşturulan bir grafik düşündüğünüzde, bu grafik bir PowerPoint slaytına yerleştirilir. Bu Excel grafiği bir OLE nesnesi olarak kabul edilir. 
+Microsoft Excel'de oluşturulmuş bir grafik düşünün. Bu grafik daha sonra bir PowerPoint slaytına yerleştirilir. Bu Excel grafiği bir OLE nesnesi olarak kabul edilir. 
 
-- Bir OLE nesnesi bir simge olarak görünebilir. Bu durumda, simgeye çift tıkladığınızda grafik ilişkili uygulamasında (Excel) açılır veya nesneyi açmak ya da düzenlemek için bir uygulama seçmeniz istenir. 
-- Bir OLE nesnesi gerçek içeriğini, örneğin bir grafiğin içeriğini gösterebilir. Bu durumda grafik PowerPoint içinde etkinleşir, grafik arayüzü yüklenir ve grafiğin verilerini PowerPoint içinde değiştirebilirsiniz. 
+- Bir OLE nesnesi bir simge olarak görünebilir. Bu durumda, simgeye çift tıkladığınızda grafik, ilişkili uygulamasında (Excel) açılır veya nesneyi açmak/​düzenlemek için bir uygulama seçmeniz istenir.
+- Bir OLE nesnesi gerçek içeriğini, örneğin bir grafiğin içeriğini, gösterebilir. Bu durumda, grafik PowerPoint içinde etkinleşir, grafik arabirimi yüklenir ve grafik verilerini PowerPoint içinde değiştirebilirsiniz.
 
-[Aspose.Slides for PHP via Java](https://products.aspose.com/slides/tr/php-java/) OLE Nesnelerini slaytlara OLE nesne çerçeveleri ([OleObjectFrame](https://reference.aspose.com/slides/tr/php-java/aspose.slides/oleobjectframe/)) olarak eklemenizi sağlar. 
+[Aspose.Slides for PHP via Java](https://products.aspose.com/slides/php-java/) OLE nesnelerini kaydırlara OLE nesne çerçeveleri ([OleObjectFrame](https://reference.aspose.com/slides/php-java/aspose.slides/oleobjectframe/)) olarak eklemenizi sağlar.
 
-## **OLE Nesne Çerçevelerini Slaytlara Ekleme**
+## **OLE Nesne Çerçevelerini Slaytlara Ekle**
 
-Microsoft Excel'de zaten bir grafik oluşturduğunuzu ve bunu Aspose.Slides for PHP via Java kullanarak bir OLE nesne çerçevesi olarak bir slayta gömmek istediğinizi varsayarsak, bunu şu şekilde yapabilirsiniz:
+Microsoft Excel'de zaten bir grafik oluşturduğunuzu ve Aspose.Slides for PHP via Java kullanarak bu grafiği bir OLE nesne çerçevesi olarak bir slayda gömmek istediğinizi varsayalım; bunu şu şekilde yapabilirsiniz:
 
-1. Aspose.Slides'in [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.  
-1. İndeksine göre bir slaytın referansını alın.  
-1. Excel dosyasını bir bayt dizisi olarak okuyun.  
-1. OLE nesnesi hakkında bayt dizisi ve diğer bilgileri içeren [OleObjectFrame](https://reference.aspose.com/slides/tr/php-java/aspose.slides/oleobjectframe/) çerçevesini slayta ekleyin.  
+1. [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) sınıfından bir örnek oluşturun.  
+1. İndeksi aracılığıyla bir slaytın referansını alın.  
+1. Excel dosyasını bayt dizisi olarak okuyun.  
+1. Bayt dizisini ve OLE nesnesiyle ilgili diğer bilgileri içeren [OleObjectFrame](https://reference.aspose.com/slides/php-java/aspose.slides/oleobjectframe/)'i slayta ekleyin.  
 1. Değiştirilmiş sunumu bir PPTX dosyası olarak yazın.  
 
-Aşağıdaki örnekte, bir Excel dosyasından bir grafiği Aspose.Slides for PHP via Java kullanarak bir OLE nesne çerçevesi olarak bir slayta ekledik.  
-**Not**: [OleEmbeddedDataInfo](https://reference.aspose.com/slides/tr/php-java/aspose.slides/oleembeddeddatainfo/) yapıcısı ikinci parametre olarak gömülebilir nesne uzantısı alır. Bu uzantı, PowerPoint'in dosya türünü doğru şekilde yorumlamasını ve bu OLE nesnesini açmak için doğru uygulamayı seçmesini sağlar.  
+Aşağıdaki örnekte, bir Excel dosyasından bir grafiği Aspose.Slides for PHP via Java kullanarak bir OLE nesne çerçevesi olarak bir slayda ekledik.  
+**Not** ki [OleEmbeddedDataInfo](https://reference.aspose.com/slides/php-java/aspose.slides/oleembeddeddatainfo/) yapıcı, ikinci parametre olarak gömülebilir nesne uzantısını alır. Bu uzantı, PowerPoint'in dosya tipini doğru şekilde yorumlamasını ve OLE nesnesini açmak için doğru uygulamayı seçmesini sağlar.
 
 ```php
 $presentation = new Presentation();
 $slideSize = $presentation->getSlideSize()->getSize();
 $slide = $presentation->getSlides()->get_Item(0);
 
-// OLE nesnesi için veriyi hazırlayın.
+// OLE nesnesi için verileri hazırlayın.
 $fileData = file_get_contents("book.xlsx");
 $dataInfo = new OleEmbeddedDataInfo($fileData, "xlsx");
 
-// Add the OLE object frame to the slide.
+// OLE nesne çerçevesini slayta ekleyin.
 $slide->getShapes()->addOleObjectFrame(0, 0, $slideSize->getWidth(), $slideSize->getHeight(), $dataInfo);
 
 $presentation->save("output.pptx", SaveFormat::Pptx);
 $presentation->dispose();
 ```
 
-### **Bağlantılı OLE Nesne Çerçeveleri Ekleme**
+### **Bağlantılı OLE Nesne Çerçevelerini Ekle**
 
-Aspose.Slides for PHP via Java, veriyi gömmeden yalnızca dosyaya bir bağlantı ile bir [OleObjectFrame](https://reference.aspose.com/slides/tr/php-java/aspose.slides/oleobjectframe/) eklemenizi sağlar.  
+Aspose.Slides for PHP via Java, veri gömmeden yalnızca dosyaya bir bağlantı ile bir [OleObjectFrame](https://reference.aspose.com/slides/php-java/aspose.slides/oleobjectframe/) eklemenizi sağlar.
 
-Bu PHP kodu, bir slayta bağlantılı bir Excel dosyasıyla bir [OleObjectFrame](https://reference.aspose.com/slides/tr/php-java/aspose.slides/oleobjectframe/) nasıl ekleyeceğinizi gösterir:  
+Bu PHP kodu, bir slayda bağlı bir Excel dosyasıyla bir [OleObjectFrame](https://reference.aspose.com/slides/php-java/aspose.slides/oleobjectframe/) eklemenizi gösterir:
 
 ```php
 $presentation = new Presentation();
 $slide = $presentation->getSlides()->get_Item(0);
 
-// Bağlantılı bir Excel dosyasıyla OLE nesne çerçevesi ekle.
+// Bağlantılı bir Excel dosyasıyla OLE nesne çerçevesi ekleyin.
 $slide->getShapes()->addOleObjectFrame(20, 20, 200, 150, "Excel.Sheet.12", "book.xlsx");
 
 $presentation->save("output.pptx", SaveFormat::Pptx);
@@ -90,14 +90,14 @@ $presentation->dispose();
 
 ## **OLE Nesne Çerçevelerine Erişim**
 
-Eğer bir OLE nesnesi zaten bir slayta gömülmüşse, onu kolayca bulabilir veya erişebilirsiniz:  
+Bir OLE nesnesi zaten bir slayta gömülmüşse, bu nesneyi şu şekilde kolayca bulabilir veya erişebilirsiniz:
 
-1. Gömülü OLE nesnesine sahip bir sunumu, [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/) sınıfının bir örneğini oluşturarak yükleyin.  
-2. İndeksini kullanarak slaytın referansını alın.  
-3. [OleObjectFrame](https://reference.aspose.com/slides/tr/php-java/aspose.slides/oleobjectframe/) şekline erişin. Örneğimizde, ilk slaytta yalnızca bir şekil bulunan önceden oluşturulmuş PPTX'i kullandık.  
-4. OLE nesne çerçevesine erişildiğinde, üzerinde istediğiniz herhangi bir işlemi yapabilirsiniz.  
+1. [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) sınıfından bir örnek oluşturarak gömülü OLE nesnesi içeren bir sunum yükleyin.  
+2. İndeksi kullanarak slaytın referansını alın.  
+3. [OleObjectFrame](https://reference.aspose.com/slides/php-java/aspose.slides/oleobjectframe/) şekline erişin. Örneğimizde, ilk slaytta yalnızca bir şekil bulunan önceden oluşturulmuş PPTX dosyasını kullandık.  
+4. OLE nesne çerçevesine erişildiğinde, üzerinde istediğiniz herhangi bir işlemi gerçekleştirebilirsiniz.  
 
-Aşağıdaki örnekte, bir OLE nesne çerçevesine (bir slayta gömülmüş Excel grafik nesnesi) ve dosya verilerine erişilir.  
+Aşağıdaki örnekte, bir OLE nesne çerçevesi (bir slayta gömülmüş bir Excel grafik nesnesi) ve dosya verileri erişilmektedir.
 
 ```php
 $presentation = new Presentation("sample.pptx");
@@ -107,21 +107,17 @@ $shape = $slide->getShapes()->get_Item(0);
 if (java_instanceof($shape, new JavaClass("com.aspose.slides.OleObjectFrame"))) {
     $oleFrame = $shape;
     
-    // Gömülü dosya verisini al.
-    $fileData = $oleFrame->getEmbeddedData()->getEmbeddedFileData();
-
-    // Gömülü dosyanın uzantısını al.
-    $fileExtension = $oleFrame->getEmbeddedData()->getEmbeddedFileExtension();
-
+    // Gömülü dosya verisini alın.
+    // Gömülü dosyanın uzantısını alın.
     // ...
 }
 ```
 
 ### **Bağlantılı OLE Nesne Çerçevesi Özelliklerine Erişim**
 
-Aspose.Slides, bağlantılı OLE nesne çerçevesi özelliklerine erişmenizi sağlar.  
+Aspose.Slides, bağlantılı OLE nesne çerçevesi özelliklerine erişmenizi sağlar.
 
-Bu PHP kodu, bir OLE nesnesinin bağlantılı olup olmadığını kontrol etmeyi ve ardından bağlantılı dosyanın yolunu almayı gösterir:  
+Bu PHP kodu, bir OLE nesnesinin bağlantılı olup olmadığını kontrol etmenizi ve ardından bağlantılı dosyanın yolunu almanızı gösterir:
 
 ```php
 $presentation = new Presentation("sample.ppt");
@@ -136,8 +132,8 @@ if (java_instanceof($shape, new JavaClass("com.aspose.slides.OleObjectFrame"))) 
         // Bağlantılı dosyanın tam yolunu yazdır.
         echo "OLE object frame is linked to: " . $oleFrame->getLinkPathLong() . PHP_EOL;
 
-        // Varsa bağlantılı dosyanın göreceli yolunu yazdır.
-        // Yalnızca PPT sunumları göreceli yolu içerebilir.
+        // Varsa bağlantılı dosyanın göreli yolunu yazdır.
+        // Yalnızca PPT sunumları göreli yolu içerebilir.
         $relativePath = java_values($oleFrame->getLinkPathRelative());
         if (!is_null($relativePath) && $relativePath !== "") {
             echo "OLE object frame relative path: " . $oleFrame->getLinkPathRelative() . PHP_EOL;
@@ -148,26 +144,26 @@ if (java_instanceof($shape, new JavaClass("com.aspose.slides.OleObjectFrame"))) 
 $presentation->dispose();
 ```
 
-## **OLE Nesne Verilerini Değiştirme**
+## **OLE Nesne Verilerini Değiştir**
 
-{{% alert color="primary" %}} 
+{{% alert color="info" title="Not" %}}
 
-Bu bölümde, aşağıdaki kod örneği [Aspose.Cells for PHP via Java](/cells/php-java/) kullanmaktadır.  
+Bu bölümde, aşağıdaki kod örneği [Aspose.Cells for PHP via Java](https://docs.aspose.com/cells/php-java/) kullanmaktadır.
 
-{{% /alert %}} 
+{{% /alert %}}
 
-Eğer bir OLE nesnesi zaten bir slayta gömülmüşse, o nesneye kolayca erişebilir ve verilerini şu şekilde değiştirebilirsiniz:  
+Bir OLE nesnesi zaten bir slayta gömülmüşse, bu nesneye kolayca erişebilir ve verilerini şu şekilde değiştirebilirsiniz:
 
-1. Gömülü OLE nesnesine sahip bir sunumu, [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/) sınıfının bir örneğini oluşturarak yükleyin.  
-2. İndeksini kullanarak slaytın referansını alın.  
-3. [OleObjectFrame](https://reference.aspose.com/slides/tr/php-java/aspose.slides/oleobjectframe/) şekline erişin. Örneğimizde, ilk slaytta bir şekil bulunan önceden oluşturulmuş PPTX'i kullandık.  
-4. OLE nesne çerçevesine erişildiğinde, üzerinde istediğiniz herhangi bir işlemi yapabilirsiniz.  
+1. [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) sınıfından bir örnek oluşturarak gömülü OLE nesnesi içeren bir sunum yükleyin.  
+2. İndeksi aracılığıyla slaytın referansını alın.  
+3. [OleObjectFrame](https://reference.aspose.com/slides/php-java/aspose.slides/oleobjectframe/) şekline erişin. Örneğimizde, ilk slaytta bir şekil bulunan önceden oluşturulmuş PPTX dosyasını kullandık.  
+4. OLE nesne çerçevesine erişildiğinde, üzerinde istediğiniz herhangi bir işlemi gerçekleştirebilirsiniz.  
 5. `Workbook` nesnesi oluşturun ve OLE verisine erişin.  
-6. İstediğiniz `Worksheet`'e erişin ve veriyi düzenleyin.  
-7. Güncellenen `Workbook`'ı bir akışta (stream) kaydedin.  
-8. Akıştan OLE nesne verisini değiştirin.  
+6. İstenen `Worksheet`e erişin ve verileri düzenleyin.  
+7. Güncellenmiş `Workbook`u bir akışta (stream) kaydedin.  
+8. OLE nesne verilerini akıştan değiştirin.  
 
-Aşağıdaki örnekte, bir OLE nesne çerçevesine (bir slayta gömülmüş Excel grafik nesnesi) erişilir ve dosya verisi, grafik verilerini güncellemek için değiştirilir.  
+Aşağıdaki örnekte, bir OLE nesne çerçevesi (bir slayta gömülmüş bir Excel grafik nesnesi) erişilir ve dosya verileri, grafik verilerini güncellemek üzere değiştirilir.
 
 ```php
 $presentation = new Presentation("sample.pptx");
@@ -177,14 +173,14 @@ $shape = $slide->getShapes()->get_Item(0);
 if (java_instanceof($shape, new JavaClass("com.aspose.slides.OleObjectFrame"))) {
     $oleFrame = $shape;
 
-    $oleStream = new ByteArrayInputStream($oleFrame->getEmbeddedData()->getEmbeddedFileData());
+    $oleStream = new Java("java.io.ByteArrayInputStream", $oleFrame->getEmbeddedData()->getEmbeddedFileData());
 
-    // OLE nesnesi verisini Workbook nesnesi olarak okuyun.
+    // OLE nesne verisini Workbook nesnesi olarak okuyun.
     $workbook = new Workbook($oleStream);
 
     $newOleStream = new Java("java.io.ByteArrayOutputStream");
 
-    // Workbook verisini değiştirin.
+    // Çalışma kitabı verisini değiştirin.
     $workbook->getWorksheets()->get(0)->getCells()->get(0, 4)->putValue("E");
     $workbook->getWorksheets()->get(0)->getCells()->get(1, 4)->putValue(12);
     $workbook->getWorksheets()->get(0)->getCells()->get(2, 4)->putValue(14);
@@ -193,7 +189,7 @@ if (java_instanceof($shape, new JavaClass("com.aspose.slides.OleObjectFrame"))) 
     $fileOptions = new OoxmlSaveOptions(SaveFormat::XLSX);
     $workbook->save($newOleStream, $fileOptions);
 
-    // OLE çerçeve nesnesinin verisini değiştirin.
+    // OLE çerçeve nesnesi verisini değiştirin.
     $newData = new OleEmbeddedDataInfo($newOleStream->toByteArray(), $oleFrame->getEmbeddedData()->getEmbeddedFileExtension());
     $oleFrame->setEmbeddedData($newData);
 
@@ -205,11 +201,11 @@ $presentation->save("output.pptx", SaveFormat::Pptx);
 $presentation->dispose();
 ```
 
-## **Diğer Dosya Türlerini Slaytlara Gömme**
+## **Diğer Dosya Türlerini Slaytlara Göm**
 
-Excel grafiklerinin yanı sıra, Aspose.Slides for PHP via Java, slaytlara diğer dosya türlerini de gömmeyi sağlar. Örneğin, HTML, PDF ve ZIP dosyalarını nesne olarak ekleyebilirsiniz. Kullanıcı eklenen nesneye çift tıkladığında, otomatik olarak ilgili programda açılır veya kullanıcı dosyayı açmak için uygun bir program seçmesi istenir.  
+Excel grafiklerinin yanı sıra, Aspose.Slides for PHP via Java, slaytlara HTML, PDF ve ZIP dosyaları gibi diğer dosya türlerini de nesne olarak eklemenizi sağlar. Kullanıcı eklenen nesneye çift tıkladığında, ilgili program otomatik olarak açılır veya kullanıcı, dosyayı açmak için uygun bir program seçmesi istenir.
 
-Bu PHP kodu, bir slayta HTML ve ZIP dosyalarının nasıl gömüleceğini gösterir:  
+Bu PHP kodu, bir slayta HTML ve ZIP dosyalarını nasıl gömeceğinizi gösterir:
 
 ```php
 $presentation = new Presentation("sample.pptx");
@@ -229,11 +225,11 @@ $presentation->save("output.pptx", SaveFormat::Pptx);
 $presentation->dispose();
 ```
 
-## **Gömülü Nesneler İçin Dosya Türlerini Ayarlama**
+## **Gömülü Nesneler İçin Dosya Türlerini Ayarla**
 
-Sunumlarla çalışırken, eski OLE nesnelerini yenileriyle değiştirmek veya desteklenmeyen bir OLE nesnesini desteklenen bir nesneyle değiştirmek isteyebilirsiniz. Aspose.Slides for PHP via Java, gömülü bir nesnenin dosya türünü ayarlamanıza olanak tanır; bu sayede OLE çerçeve verilerini veya uzantısını güncelleyebilirsiniz.  
+Sunumlarla çalışırken, eski OLE nesnelerini yenileriyle değiştirmek veya desteklenmeyen bir OLE nesnesini desteklenen bir nesneyle değiştirmek isteyebilirsiniz. Aspose.Slides for PHP via Java, gömülü bir nesnenin dosya türünü ayarlamanıza izin verir; bu sayede OLE çerçeve verisini veya uzantısını güncelleyebilirsiniz.
 
-Bu PHP kodu, gömülü bir OLE nesnesinin dosya türünü `zip` olarak nasıl ayarlayacağınızı gösterir:  
+Bu PHP kodu, gömülü bir OLE nesnesi için dosya türünü `zip` olarak ayarlamayı gösterir:
 
 ```php
 $presentation = new Presentation("sample.pptx");
@@ -245,29 +241,29 @@ $fileData = $oleFrame->getEmbeddedData()->getEmbeddedFileData();
 
 echo "Current embedded file extension is: " . $fileExtension . PHP_EOL;
 
-// Dosya türünü ZIP olarak değiştir.
+// Dosya tipini ZIP olarak değiştir.
 $oleFrame->setEmbeddedData(new OleEmbeddedDataInfo($fileData, "zip"));
 
 $presentation->save("output.pptx", SaveFormat::Pptx);
 $presentation->dispose();
 ```
 
-## **Gömülü Nesneler İçin Simge Görselleri ve Başlıkları Ayarlama**
+## **Gömülü Nesneler İçin Simge Görselleri ve Başlıkları Ayarla**
 
-Bir OLE nesnesi gömüldükten sonra, otomatik olarak bir simge görüntüsünden oluşan bir ön izleme eklenir. Bu ön izleme, kullanıcıların OLE nesnesine erişmeden veya açmadan önce gördükleri şeydir. Ön izlemede belirli bir görüntü ve metin kullanmak isterseniz, Aspose.Slides for PHP via Java kullanarak simge görüntüsünü ve başlığı ayarlayabilirsiniz.  
+Bir OLE nesnesi gömüldükten sonra, otomatik olarak bir simge görseli içeren bir ön izleme eklenir. Bu ön izleme, kullanıcıların OLE nesnesine erişmeden/​açmadan önce gördükleri şeydir. Ön izlemede belirli bir görsel ve metni öğe olarak kullanmak istiyorsanız, Aspose.Slides for PHP via Java ile simge görselini ve başlığı ayarlayabilirsiniz.
 
-Bu PHP kodu, gömülü bir nesne için simge görüntüsü ve başlık ayarlamanızı gösterir:  
+Bu PHP kodu, gömülü bir nesne için simge görseli ve başlığı nasıl ayarlayacağınızı gösterir:
 
 ```php
 $presentation = new Presentation("sample.pptx");
 $slide = $presentation->getSlides()->get_Item(0);
 $oleFrame = $slide->getShapes()->get_Item(0);
 
-// Sunum kaynaklarına bir görüntü ekle.
+// Sunum kaynaklarına bir görüntü ekleyin.
 $imageData = file_get_contents("image.png");
 $oleImage = $presentation->getImages()->addImage($imageData);
 
-// OLE ön izlemesi için bir başlık ve görüntü ayarla.
+// Set a title and the image for the OLE preview.
 $oleFrame->setSubstitutePictureTitle("My title");
 $oleFrame->getSubstitutePictureFormat()->getPicture()->setImage($oleImage);
 $oleFrame->setObjectIcon(true);
@@ -276,23 +272,30 @@ $presentation->save("output.pptx", SaveFormat::Pptx);
 $presentation->dispose();
 ```
 
-## **Bir OLE Nesne Çerçevesinin Yeniden Boyutlandırılmasını ve Yeniden Konumlandırılmasını Önleme**
+## **OLE Nesne Çerçevesinin Boyutunun ve Konumunun Değiştirilmesini ve Yeniden Konumlandırılmasını Önle**
 
-Bağlantılı bir OLE nesnesini bir sunum slaytına ekledikten sonra, sunumu PowerPoint'te açtığınızda, bağlantıları güncellemek isteyip istemediğinizi soran bir mesaj görebilirsiniz. "Update Links" (Bağlantıları Güncelle) düğmesine tıkladığınızda, PowerPoint bağlantılı OLE nesnesinden verileri güncelleyip nesne ön izlemesini yenilediği için OLE nesne çerçevesinin boyutu ve konumu değişebilir. PowerPoint'in nesnenin verilerini güncelleme isteğini önlemek için, [OleObjectFrame](https://reference.aspose.com/slides/tr/php-java/aspose.slides/oleobjectframe/) sınıfının `setUpdateAutomatic` metodunu `false` olarak ayarlayın:  
+Bağlantılı bir OLE nesnesini bir sunum slaytına ekledikten sonra, PowerPoint'te sunumu açtığınızda, bağlantıları güncellemeniz istenebilir. “Bağlantıları Güncelle” düğmesine tıklamak, PowerPoint bağlantılı OLE nesnesinden verileri güncellediği ve nesne ön izlemesini yenilediği için OLE nesne çerçevesinin boyutunu ve konumunu değiştirebilir. PowerPoint'in nesnenin verilerini güncelleme istemini önlemek için, [OleObjectFrame](https://reference.aspose.com/slides/php-java/aspose.slides/oleobjectframe/) sınıfının [setUpdateAutomatic](https://reference.aspose.com/slides/php-java/aspose.slides/oleobjectframe/#setUpdateAutomatic) yöntemini `false` ile çağırın:
 
 ```php
+$presentation = new Presentation("sample.pptx");
+$slide = $presentation->getSlides()->get_Item(0);
+$oleFrame = $slide->getShapes()->get_Item(0);
+
 $oleFrame->setUpdateAutomatic(false);
+
+$presentation->save("output.pptx", SaveFormat::Pptx);
+$presentation->dispose();
 ```
 
-## **Gömülü Dosyaları Çıkarma**
+## **Gömülü Dosyaları Çıkar**
 
-Aspose.Slides for PHP via Java, slaytlara OLE nesneleri olarak gömülü dosyaları şu şekilde çıkarabilir:  
+Aspose.Slides for PHP via Java, slaytlara OLE nesnesi olarak gömülmüş dosyaları şu şekilde çıkarabilir:
 
-1. Çıkarmak istediğiniz OLE nesnelerini içeren [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.  
-2. Sunumdaki tüm şekillerin üzerinden döngü yapın ve [OLEObjectFrame](https://reference.aspose.com/slides/tr/php-java/aspose.slides/oleobjectframe/) şekillerine erişin.  
-3. OLE nesne çerçevelerindeki gömülü dosya verilerine erişin ve bunları diske yazın.  
+1. Gömülü OLE nesnelerini içeren bir [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) örneği oluşturun.  
+2. Sunumdaki tüm şekilleri döngüye alarak [OLEObjectFrame](https://reference.aspose.com/slides/php-java/aspose.slides/oleobjectframe/) şekillerine erişin.  
+3. OLE nesne çerçevelerindeki gömülü dosya verilerine erişin ve diske yazın.  
 
-Bu PHP kodu, bir slayta OLE nesneleri olarak gömülü dosyaları nasıl çıkaracağınızı gösterir:  
+Bu PHP kodu, bir slayttaki dosyaları OLE nesnesi olarak nasıl çıkaracağınızı gösterir:
 
 ```php
 $presentation = new Presentation("sample.pptx");
@@ -318,11 +321,16 @@ $presentation->dispose();
 
 ## **SSS**
 
-**Slaytlar PDF/resimlere dışa aktarılırken OLE içeriği işlenecek mi?**  
-Slaytta görünen şey işlenir—ikon/değiştirici görüntü (ön izleme). "Canlı" OLE içeriği renderleme sırasında yürütülmez. Gerekirse, dışa aktarılan PDF'de beklenen görünümü sağlamak için kendi ön izleme görüntünüzü ayarlayın.  
+**Slaytları PDF/görsellere dışa aktarırken OLE içeriği işlenecek mi?**
 
-**Bir OLE nesnesini bir slaytta kilitleyerek kullanıcıların PowerPoint'te hareket ettirmesini/düzenlemesini nasıl engelleyebilirim?**  
-Şekli kilitleyin: Aspose.Slides, şekil düzeyinde kilitler sunar. Bu bir şifreleme değildir, ancak yanlışlıkla yapılan düzenlemeleri ve hareketleri etkili bir şekilde engeller.  
+Slaytta görülen şey işlenir—simge/yer tutucu görüntüsü (ön izleme). “Canlı” OLE içeriği işleme sırasında yürütülmez. Gerekirse, dışa aktarılan PDF'de beklenen görünümü sağlamak için kendi ön izleme görselinizi ayarlayın.
 
-**Bağlantılı OLE nesneleri için göreceli yollar PPTX formatında korunacak mı?**  
-PPTX içinde "göreceli yol" bilgisi bulunmaz—yalnızca tam yol vardır. Göreceli yollar, eski PPT formatında bulunur. Taşınabilirlik için güvenilir mutlak yolları / erişilebilir URI'ları veya gömmeyi tercih edin.
+Gömülü dosyayı PDF eki olarak da korumak için, [setIncludeOleData](https://reference.aspose.com/slides/php-java/aspose.slides/pdfoptions/#setIncludeOleData) yöntemini `true` olarak çağırın. Bu seçenek varsayılan olarak devre dışıdır. Bir örnek ve ek kontrol talimatları için [Preserve Embedded OLE Files as PDF Attachments](/slides/tr/php-java/convert-powerpoint-to-pdf/#preserve-embedded-ole-files-as-pdf-attachments) bölümüne bakın.
+
+**Bir OLE nesnesini bir slaytta kilitleyerek kullanıcıların PowerPoint'te nesneyi taşımasını/düzenlemesini nasıl engelleyebilirim?**
+
+Şekli kilitleyin: Aspose.Slides şekil‑seviyesi kilitler sağlar. Bu şifreleme değildir, ancak istem dışı düzenlemeleri ve hareketi etkili şekilde önler.
+
+**Bağlantılı OLE nesnelerinin göreli yolları PPTX formatında korunacak mı?**
+
+PPTX içinde “göreli yol” bilgisi bulunmaz—yalnızca tam yol bulunur. Göreli yollar eski PPT formatında mevcuttur. Taşınabilirlik için güvenilir mutlak yollar/erişilebilir URI'lar veya gömme tercih edilmelidir.

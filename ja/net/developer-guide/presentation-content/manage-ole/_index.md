@@ -1,6 +1,6 @@
 ---
-title: .NET でプレゼンテーションの OLE オブジェクトを管理
-linktitle: OLE の管理
+title: .NET でプレゼンテーション内の OLE オブジェクトを管理
+linktitle: OLE を管理
 type: docs
 weight: 40
 url: /ja/net/manage-ole/
@@ -26,81 +26,94 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides for .NET を使用して、PowerPoint および OpenDocument ファイルの OLE オブジェクト管理を最適化します。OLE コンテンツをシームレスに埋め込み、更新、エクスポートできます。"
+description: "Aspose.Slides for .NET を使用して、PowerPoint および OpenDocument ファイルにおける OLE オブジェクトの管理を最適化します。OLE コンテンツをシームレスに埋め込み、更新、エクスポートできます。"
 ---
+## **紹介**
 
-{{% alert title="Info" color="info" %}}
+{{% alert color="info" title="Note" %}}
 
-OLE（Object Linking & Embedding）は、あるアプリケーションで作成されたデータやオブジェクトを、リンクまたは埋め込みを通じて別のアプリケーションに配置できる Microsoft の技術です。
+OLE (Object Linking & Embedding) は、あるアプリケーションで作成されたデータやオブジェクトを、リンクまたは埋め込みにより別のアプリケーションに配置できる Microsoft の技術です。
 
 {{% /alert %}} 
 
-Excel で作成したチャートを考えてみましょう。そのチャートが PowerPoint のスライドに配置されます。この Excel チャートは OLE オブジェクトと見なされます。
+MS Excel で作成したグラフを考えてみてください。そのグラフを PowerPoint のスライドに配置した場合、Excel のグラフは OLE オブジェクトと見なされます。
 
-- OLE オブジェクトはアイコンとして表示されることがあります。この場合、アイコンをダブルクリックするとチャートは関連付けられたアプリケーション（Excel）で開かれるか、オブジェクトの開閉や編集に使用するアプリケーションを選択するよう求められます。
-- OLE オブジェクトはチャートの内容そのものを表示することがあります。この場合、PowerPoint でチャートがアクティブになり、チャートインターフェイスが読み込まれ、PowerPoint 内でチャートのデータを変更できます。
+- OLE オブジェクトはアイコンとして表示されることがあります。この場合、アイコンをダブルクリックすると、関連付けられたアプリケーション (Excel) でグラフが開かれるか、オブジェクトの開閉や編集に使用するアプリケーションの選択を求められます。
+- OLE オブジェクトは実際の内容 (例えばグラフの内容) を表示することもあります。この場合、PowerPoint 内でグラフが有効化され、グラフのインターフェイスが読み込まれ、PowerPoint 上でグラフのデータを変更できます。
 
-[Aspose.Slides for .NET](https://products.aspose.com/slides/net/) を使用すると、スライドに OLE オブジェクトを OLE オブジェクト フレーム（[OleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe)）として挿入できます。
+[Aspose.Slides for .NET](https://products.aspose.com/slides/net/) を使用すると、OLE オブジェクトを OLE オブジェクトフレーム ([OleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe)) としてスライドに挿入できます。
 
-## **スライドへの OLE オブジェクト フレームの追加**
+## **スライドへのOLEオブジェクトフレームの追加**
 
-Microsoft Excel で既にチャートを作成し、Aspose.Slides for .NET を使用して OLE オブジェクト フレームとしてスライドに埋め込みたい場合、以下の手順で実行できます。
+Microsoft Excel で既にグラフを作成し、Aspose.Slides for .NET を使用して OLE オブジェクトフレームとしてスライドに埋め込みたい場合、以下の手順で行えます。
 
-1. [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) クラスのインスタンスを作成します。
-2. インデックスを使用してスライドの参照を取得します。
-3. Excel ファイルをバイト配列として読み取ります。
-4. バイト配列および OLE オブジェクトに関するその他の情報を含む [OleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe) をスライドに追加します。
+1. [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) クラスのインスタンスを作成します。  
+2. インデックスを使用してスライドの参照を取得します。  
+3. Excel ファイルをバイト配列として読み取ります。  
+4. バイト配列と OLE オブジェクトに関するその他の情報を含む [OleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe) をスライドに追加します。  
 5. 変更したプレゼンテーションを PPTX ファイルとして書き出します。
 
-以下の例では、Excel ファイルからチャートを取得し、Aspose.Slides for .NET を使用して [OleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe) としてスライドに追加しました。  
-**注**: [OleEmbeddedDataInfo](https://reference.aspose.com/slides/net/aspose.slides.dom.ole/oleembeddeddatainfo/) コンストラクタは、2 番目のパラメータとして埋め込み可能なオブジェクト拡張子を受け取ります。この拡張子により PowerPoint はファイルタイプを正しく解釈し、適切なアプリケーションで OLE オブジェクトを開くことができます。
-```csharp
+以下の例では、Excel ファイルからグラフを取得し、Aspose.Slides for .NET を使用して [OleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe) としてスライドに追加しました。  
+**注意** [OleEmbeddedDataInfo](https://reference.aspose.com/slides/net/aspose.slides.dom.ole/oleembeddeddatainfo/) コンストラクタは、第二引数として埋め込み可能オブジェクトの拡張子を受け取ります。この拡張子により、PowerPoint はファイルタイプを正しく解釈し、適切なアプリケーションで OLE オブジェクトを開くことができます。
+
+```csharp 
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.DOM.Ole;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     SizeF slideSize = presentation.SlideSize.Size;
     ISlide slide = presentation.Slides[0];
 
-    // OLE オブジェクト用のデータを準備します。
+    // OLE オブジェクトのデータを準備します。
     byte[] fileData = File.ReadAllBytes("book.xlsx");
     IOleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(fileData, "xlsx");
 
-    // スライドに OLE オブジェクト フレームを追加します。
+    // スライドに OLE オブジェクトフレームを追加します。
     slide.Shapes.AddOleObjectFrame(0, 0, slideSize.Width, slideSize.Height, dataInfo);
 
     presentation.Save("output.pptx", SaveFormat.Pptx);
 }
 ```
 
-
-### **リンクされた OLE オブジェクト フレームの追加**
+### **リンクされたOLEオブジェクトフレームの追加**
 
 Aspose.Slides for .NET を使用すると、データを埋め込まずにファイルへのリンクだけで [OleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe) を追加できます。
 
-以下の C# コードは、リンクされた Excel ファイルを持つ [OleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe) をスライドに追加する方法を示します:
+以下の C# コードは、リンクされた Excel ファイルを使用してスライドに [OleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe) を追加する方法を示しています。
+
 ```csharp 
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     ISlide slide = presentation.Slides[0];
 
-    // リンクされた Excel ファイルを使用して OLE オブジェクト フレームを追加します。
+    // リンクされた Excel ファイルを使用して OLE オブジェクトフレームを追加します。
     slide.Shapes.AddOleObjectFrame(20, 20, 200, 150, "Excel.Sheet.12", "book.xlsx");
 
     presentation.Save("output.pptx", SaveFormat.Pptx);
 }
 ```
 
+## **OLEオブジェクトフレームへのアクセス**
 
-## **OLE オブジェクト フレームへのアクセス**
+スライドに OLE オブジェクトが既に埋め込まれている場合、次の手順で簡単に検索またはアクセスできます。
 
-スライドに OLE オブジェクトが既に埋め込まれている場合、以下の手順で簡単に見つけたりアクセスしたりできます。
+1. [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) クラスのインスタンスを作成して、埋め込み OLE オブジェクトを含むプレゼンテーションをロードします。  
+2. インデックスを使用してスライドの参照を取得します。  
+3. [OleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe) シェイプにアクセスします。  
+   この例では、最初のスライドに 1 つだけシェイプがある先ほど作成した PPTX を使用しました。そのシェイプを [IOleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/ioleobjectframe) として *cast* しました。これがアクセス対象の OLE オブジェクトフレームです。  
+4. OLE オブジェクトフレームにアクセスできたら、任意の操作を実行できます。
 
-1. [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) クラスのインスタンスを作成して、埋め込まれた OLE オブジェクトを含むプレゼンテーションを読み込みます。
-2. インデックスを使用してスライドの参照を取得します。
-3. [OleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe) シェイプにアクセスします。例では、最初のスライドに 1 つだけシェイプがある PPTX を使用し、そのオブジェクトを [IOleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/ioleobjectframe) として *キャスト* しています。これが目的の OLE オブジェクト フレームです。
-4. OLE オブジェクト フレームにアクセスできたら、任意の操作を実行できます。
+以下の例では、スライドに埋め込まれた OLE オブジェクトフレーム (Excel のグラフオブジェクト) とそのファイルデータにアクセスしています。
 
-以下の例では、スライドに埋め込まれた OLE オブジェクト フレーム（Excel チャートオブジェクト）とそのファイルデータにアクセスしています。
 ```csharp 
+using Aspose.Slides;
+
 using (Presentation presentation = new Presentation("sample.pptx"))
 {
     ISlide slide = presentation.Slides[0];
@@ -110,10 +123,10 @@ using (Presentation presentation = new Presentation("sample.pptx"))
 
     if (oleFrame != null)
     {
-        // 埋め込みファイルデータを取得します。
+        // 埋め込まれたファイルデータを取得します。
         byte[] fileData = oleFrame.EmbeddedData.EmbeddedFileData;
 
-        // 埋め込みファイルの拡張子を取得します。
+        // 埋め込まれたファイルの拡張子を取得します。
         string fileExtension = oleFrame.EmbeddedData.EmbeddedFileExtension;
 
         // ...
@@ -121,13 +134,15 @@ using (Presentation presentation = new Presentation("sample.pptx"))
 }
 ```
 
+### **リンクされたOLEオブジェクトフレームのプロパティへのアクセス**
 
-### **リンクされた OLE オブジェクト フレーム プロパティへのアクセス**
+Aspose.Slides を使用すると、リンクされた OLE オブジェクトフレームのプロパティにアクセスできます。
 
-Aspose.Slides を使用すると、リンクされた OLE オブジェクト フレームのプロパティにアクセスできます。
+この C# コードは、OLE オブジェクトがリンクされているかどうかを確認し、リンク先ファイルのパスを取得する方法を示しています。
 
-以下の C# コードは、OLE オブジェクトがリンクされているかどうかを確認し、リンクされたファイルへのパスを取得する方法を示します:
 ```csharp
+using Aspose.Slides;
+
 using (Presentation presentation = new Presentation("sample.ppt"))
 {
     ISlide slide = presentation.Slides[0];
@@ -138,11 +153,11 @@ using (Presentation presentation = new Presentation("sample.ppt"))
     // OLE オブジェクトがリンクされているか確認します。
     if (oleFrame != null && oleFrame.IsObjectLink)
     {
-        // リンクされたファイルのフルパスを出力します。
+        // リンクされたファイルへのフルパスを表示します。
         Console.WriteLine("OLE object frame is linked to: " + oleFrame.LinkPathLong);
 
-        // 存在する場合はリンクされたファイルの相対パスを出力します。
-        // 相対パスを含められるのは PPT プレゼンテーションのみです。
+        // 存在する場合、リンクされたファイルへの相対パスを表示します。
+        // 相対パスを含められるのは PPT プレゼンテーションだけです。
         if (!string.IsNullOrEmpty(oleFrame.LinkPathRelative))
         {
             Console.WriteLine("OLE object frame relative path: " + oleFrame.LinkPathRelative);
@@ -151,28 +166,33 @@ using (Presentation presentation = new Presentation("sample.ppt"))
 }
 ```
 
+## **OLEオブジェクトデータの変更**
 
-## **OLE オブジェクト データの変更**
+{{% alert color="info" title="Note" %}}
 
-{{% alert color="primary" %}} 
-
-このセクションのコード例は [Aspose.Cells for .NET](/cells/net/) を使用しています。
+このセクションでは、以下のコード例で [Aspose.Cells for .NET](https://docs.aspose.com/cells/net/) を使用しています。
 
 {{% /alert %}}
 
-スライドに埋め込まれた OLE オブジェクトが既にある場合、以下の手順でオブジェクトにアクセスしデータを変更できます。
+スライドに OLE オブジェクトが既に埋め込まれている場合、次の手順でオブジェクトにアクセスし、データを変更できます。
 
-1. [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) クラスのインスタンスを作成して、埋め込まれた OLE オブジェクトを含むプレゼンテーションを読み込みます。
-2. インデックスを使用してスライドの参照を取得します。
-3. [OLEObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe) シェイプにアクセスします。例では、最初のスライドに 1 つだけシェイプがある PPTX を使用し、そのオブジェクトを [IOleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/ioleobjectframe) として *キャスト* しています。これが目的の OLE オブジェクト フレームです。
-4. OLE オブジェクト フレームにアクセスできたら、任意の操作を実行できます。
-5. `Workbook` オブジェクトを作成し、OLE データにアクセスします。
-6. 対象の `Worksheet` にアクセスし、データを修正します。
-7. 更新した `Workbook` をストリームに保存します。
-8. ストリームから OLE オブジェクト データを置き換えます。
+1. [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) クラスのインスタンスを作成して、埋め込み OLE オブジェクトを含むプレゼンテーションをロードします。  
+2. インデックスを使用してスライドの参照を取得します。  
+3. [OLEObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe) シェイプにアクセスします。  
+   この例では、最初のスライドに 1 つのシェイプがある PPTX を使用しました。そのシェイプを [IOleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/ioleobjectframe) として *cast* しました。これがアクセス対象の OLE オブジェクトフレームです。  
+4. OLE オブジェクトフレームにアクセスできたら、任意の操作を実行できます。  
+5. `Workbook` オブジェクトを作成し、OLE データにアクセスします。  
+6. 対象の `Worksheet` にアクセスし、データを修正します。  
+7. 更新した `Workbook` をストリームに保存します。  
+8. ストリームから OLE オブジェクトデータを変更します。
 
-以下の例では、スライドに埋め込まれた OLE オブジェクト フレーム（Excel チャートオブジェクト）にアクセスし、ファイルデータを変更してチャートデータを更新しています。
+以下の例では、スライドに埋め込まれた OLE オブジェクトフレーム (Excel のグラフオブジェクト) にアクセスし、ファイルデータを変更してグラフデータを更新しています。
+
 ```csharp 
+using Aspose.Slides;
+using Aspose.Slides.DOM.Ole;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation("sample.pptx"))
 {
     ISlide slide = presentation.Slides[0];
@@ -184,21 +204,21 @@ using (Presentation presentation = new Presentation("sample.pptx"))
     {
         using (MemoryStream oleStream = new MemoryStream(oleFrame.EmbeddedData.EmbeddedFileData))
         {
-            // OLE オブジェクト データを Workbook オブジェクトとして読み取ります。
-            Workbook workbook = new Workbook(oleStream);
+            // OLE オブジェクトデータを Workbook オブジェクトとして読み取ります。
+            Aspose.Cells.Workbook workbook = new Aspose.Cells.Workbook(oleStream);
 
             using (MemoryStream newOleStream = new MemoryStream())
             {
-                // Workbook のデータを変更します。
+                // ワークブックデータを変更します。
                 workbook.Worksheets[0].Cells[0, 4].PutValue("E");
                 workbook.Worksheets[0].Cells[1, 4].PutValue(12);
                 workbook.Worksheets[0].Cells[2, 4].PutValue(14);
                 workbook.Worksheets[0].Cells[3, 4].PutValue(15);
 
-                OoxmlSaveOptions fileOptions = new OoxmlSaveOptions(Aspose.Cells.SaveFormat.Xlsx);
+                Aspose.Cells.OoxmlSaveOptions fileOptions = new Aspose.Cells.OoxmlSaveOptions(Aspose.Cells.SaveFormat.Xlsx);
                 workbook.Save(newOleStream, fileOptions);
 
-                // OLE フレーム オブジェクトのデータを変更します。
+                // OLE フレームオブジェクトデータを変更します。
                 IOleEmbeddedDataInfo newData = new OleEmbeddedDataInfo(newOleStream.ToArray(), oleFrame.EmbeddedData.EmbeddedFileExtension);
                 oleFrame.SetEmbeddedData(newData);
             }
@@ -209,13 +229,17 @@ using (Presentation presentation = new Presentation("sample.pptx"))
 }
 ```
 
-
 ## **スライドへの他のファイルタイプの埋め込み**
 
-Excel チャート以外にも、Aspose.Slides for .NET を使用すると、HTML、PDF、ZIP などのさまざまなファイルをオブジェクトとしてスライドに埋め込めます。ユーザーが挿入されたオブジェクトをダブルクリックすると、関連プログラムで自動的に開くか、適切なプログラムを選択するよう促されます。
+Excel のグラフ以外にも、Aspose.Slides for .NET を使用すると、HTML、PDF、ZIP などのさまざまなファイルをスライドに埋め込むことができます。ユーザーが挿入されたオブジェクトをダブルクリックすると、関連プログラムで自動的に開くか、適切なプログラムの選択を促すダイアログが表示されます。
 
-以下の C# コードは、HTML と ZIP をスライドに埋め込む方法を示します:
+以下の C# コードは、HTML と ZIP をスライドに埋め込む方法を示しています。
+
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.DOM.Ole;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     ISlide slide = presentation.Slides[0];
@@ -234,13 +258,17 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-
 ## **埋め込みオブジェクトのファイルタイプ設定**
 
-プレゼンテーションで作業する際、古い OLE オブジェクトを新しいものに置き換えたり、サポートされていない OLE オブジェクトをサポートされたものに置き換える必要があることがあります。Aspose.Slides for .NET を使用すると、埋め込みオブジェクトのファイルタイプを設定でき、OLE フレームのデータや拡張子を更新できます。
+プレゼンテーションを操作する際、古い OLE オブジェクトを新しいものに置き換えたり、サポートされていない OLE オブジェクトをサポートされているものに置き換える必要がある場合があります。Aspose.Slides for .NET を使用すると、埋め込みオブジェクトのファイルタイプを設定でき、OLE フレームのデータや拡張子を更新できます。
 
-以下の C# コードは、埋め込み OLE オブジェクトのファイルタイプを `zip` に設定する方法を示します:
+この C# コードは、埋め込み OLE オブジェクトのファイルタイプを `zip` に設定する方法を示しています。
+
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.DOM.Ole;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation("sample.pptx"))
 {
     ISlide slide = presentation.Slides[0];
@@ -258,13 +286,16 @@ using (Presentation presentation = new Presentation("sample.pptx"))
 }
 ```
 
-
 ## **埋め込みオブジェクトのアイコン画像とタイトルの設定**
 
-OLE オブジェクトを埋め込むと、アイコン画像で構成されたプレビューが自動的に追加されます。このプレビューは、ユーザーが OLE オブジェクトにアクセスまたは開く前に表示されるものです。特定の画像とテキストをプレビュー要素として使用したい場合は、Aspose.Slides for .NET でアイコン画像とタイトルを設定できます。
+OLE オブジェクトを埋め込むと、アイコン画像からなるプレビューが自動的に追加されます。これはユーザーがオブジェクトにアクセスまたは開く前に表示されるものです。特定の画像とテキストをプレビューの要素として使用したい場合、Aspose.Slides for .NET を使用してアイコン画像とタイトルを設定できます。
 
-以下の C# コードは、埋め込みオブジェクトのアイコン画像とタイトルを設定する方法を示します:
+以下の C# コードは、埋め込みオブジェクトのアイコン画像とタイトルを設定する方法を示しています。
+
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation("sample.pptx"))
 {
     ISlide slide = presentation.Slides[0];
@@ -283,24 +314,38 @@ using (Presentation presentation = new Presentation("sample.pptx"))
 }
 ```
 
+## **OLEオブジェクトフレームのサイズ変更と再配置の防止**
 
-## **OLE オブジェクト フレームのサイズ変更と再配置の防止**
+リンクされた OLE オブジェクトをプレゼンテーションのスライドに追加した後、PowerPoint でプレゼンテーションを開くと「リンクの更新」メッセージが表示されることがあります。 「Update Links」ボタンをクリックすると、PowerPoint がリンクされた OLE オブジェクトのデータを更新し、プレビューを再描画するため、OLE オブジェクトフレームのサイズと位置が変更される場合があります。 PowerPoint がオブジェクトのデータ更新を促さないようにするには、[IOleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/ioleobjectframe/) インターフェイスの `UpdateAutomatic` プロパティを `false` に設定します。
 
-リンクされた OLE オブジェクトをプレゼンテーション スライドに追加した後、PowerPoint でプレゼンテーションを開くと「リンクの更新」メッセージが表示されることがあります。「リンクの更新」ボタンをクリックすると、PowerPoint がリンクされた OLE オブジェクトのデータを取得してプレビューを更新するため、OLE オブジェクト フレームのサイズや位置が変更されることがあります。PowerPoint がオブジェクトのデータ更新を促さないようにするには、[IOleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/ioleobjectframe/) インターフェイスの `UpdateAutomatic` プロパティを `false` に設定します:
 ```cs
-oleFrame.UpdateAutomatic = false;
-```
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
+using (Presentation presentation = new Presentation("sample.pptx"))
+{
+    IOleObjectFrame oleFrame = (IOleObjectFrame)presentation.Slides[0].Shapes[0];
+
+    // PowerPoint がリンクを更新するときに OLE オブジェクトフレームのサイズと位置を保持します。
+    oleFrame.UpdateAutomatic = false;
+
+    presentation.Save("output.pptx", SaveFormat.Pptx);
+}
+```
 
 ## **埋め込みファイルの抽出**
 
 Aspose.Slides for .NET を使用すると、スライドに OLE オブジェクトとして埋め込まれたファイルを次の手順で抽出できます。
-1. 抽出対象の OLE オブジェクトを含む [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) クラスのインスタンスを作成します。
-2. プレゼンテーション内のすべてのシェイプをループし、[OLEObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe) シェイプにアクセスします。
-3. OLE オブジェクト フレームから埋め込まれたファイルのデータにアクセスし、ディスクに書き出します。
 
-以下の C# コードは、スライドに埋め込まれたファイルを OLE オブジェクトとして抽出する方法を示します:
+1. 抽出対象の OLE オブジェクトを含む [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) クラスのインスタンスを作成します。  
+2. プレゼンテーション内のすべてのシェイプをループし、[OLEObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe) シェイプにアクセスします。  
+3. OLE オブジェクトフレームから埋め込みファイルのデータにアクセスし、ディスクに書き出します。
+
+以下の C# コードは、スライドに埋め込まれたファイルを OLE オブジェクトとして抽出する方法を示しています。
+
 ```c#
+using Aspose.Slides;
+
 using (Presentation presentation = new Presentation("sample.pptx"))
 {
     ISlide slide = presentation.Slides[0];
@@ -322,21 +367,22 @@ using (Presentation presentation = new Presentation("sample.pptx"))
 }
 ```
 
-
 ## **FAQ**
 
-**OLE コンテンツは PDF/画像へのエクスポート時にレンダリングされますか？**
+**スライドを PDF/画像にエクスポートするときに OLE コンテンツはレンダリングされますか？**
 
-スライド上に表示されているものがレンダリングされます――アイコン／代替画像（プレビュー）です。「ライブ」な OLE コンテンツはレンダリング時に実行されません。必要に応じて、エクスポートされた PDF で期待通りに見えるようにプレビュー画像を設定してください。
+スライド上に表示されるのはアイコン/代替画像 (プレビュー) です。「ライブ」な OLE コンテンツはレンダリング時に実行されません。必要に応じて、期待通りの外観になるようプレビュー画像を自分で設定してください。
 
-**スライド上の OLE オブジェクトをロックして、ユーザーが PowerPoint で移動／編集できないようにするには？**
+埋め込みファイルを PDF の添付ファイルとしても保持したい場合は、[PdfOptions.IncludeOleData](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/includeoledata/) を `true` に設定します。このオプションは既定で無効です。サンプルと添付ファイルの確認手順は、[Preserve Embedded OLE Files as PDF Attachments](/slides/ja/net/convert-powerpoint-to-pdf/#preserve-embedded-ole-files-as-pdf-attachments) を参照してください。
 
-シェイプをロックします。Aspose.Slides は [シェイプレベルのロック](/slides/ja/net/applying-protection-to-presentation/) を提供しています。これは暗号化ではありませんが、誤操作や移動を実質的に防止します。
+**スライド上の OLE オブジェクトをロックして、ユーザーが PowerPoint で移動/編集できないようにするには？**
 
-**リンクされた Excel オブジェクトが「ジャンプ」したりサイズが変わったりするのはなぜですか？**
+シェイプをロックします。Aspose.Slides は [shape-level locks](/slides/ja/net/applying-protection-to-presentation/) を提供しています。これは暗号化ではありませんが、誤操作による編集や移動を実質的に防止します。
 
-PowerPoint がリンクされた OLE のプレビューを更新することがあります。安定した表示を得るには、[Worksheet Resizing の実装例](/slides/ja/net/working-solution-for-worksheet-resizing/) に従い、フレームを範囲に合わせるか、範囲を固定フレームに合わせて適切な代替画像を設定してください。
+**リンクされた Excel オブジェクトを開くと「ジャンプ」したりサイズが変わったりするのはなぜですか？**
+
+PowerPoint はリンクされた OLE のプレビューを更新することがあります。安定した外観を保つには、[Working Solution for Worksheet Resizing](/slides/ja/net/working-solution-for-worksheet-resizing/) の手順に従い、フレームを範囲に合わせるか、範囲を固定フレームにスケーリングし、適切な代替画像を設定してください。
 
 **リンクされた OLE オブジェクトの相対パスは PPTX 形式で保持されますか？**
 
-PPTX では「相対パス」情報は利用できず、フルパスのみが保存されます。相対パスは旧形式の PPT にのみ存在します。可搬性を確保するには、信頼できる絶対パス／アクセス可能な URI を使用するか、埋め込みを推奨します。
+PPTX では「相対パス」情報は利用できず、フルパスのみが保存されます。相対パスは古い PPT 形式でのみ利用可能です。可搬性を高めるには、信頼できる絶対パスまたはアクセス可能な URI、あるいは埋め込みを使用してください。

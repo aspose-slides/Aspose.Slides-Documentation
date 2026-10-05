@@ -1,34 +1,35 @@
 ---
-title: "在 .NET 中将 PPT 和 PPTX 转换为 PDF（包含高级功能）"
-linktitle: "PowerPoint 转 PDF"
+title: 在 .NET 中将 PPT 和 PPTX 转换为 PDF [包含高级功能]
+linktitle: PowerPoint 转 PDF
 type: docs
 weight: 40
 url: /zh/net/convert-powerpoint-to-pdf/
 keywords:
-- "转换 PowerPoint"
-- "转换 演示文稿"
-- "PowerPoint 转 PDF"
-- "演示文稿 转 PDF"
-- "PPT 转 PDF"
-- "转换 PPT 为 PDF"
-- "PPTX 转 PDF"
-- "转换 PPTX 为 PDF"
-- "将 PowerPoint 保存为 PDF"
-- "将 PPT 保存为 PDF"
-- "将 PPTX 保存为 PDF"
-- "导出 PPT 为 PDF"
-- "导出 PPTX 为 PDF"
+- 转换 PowerPoint
+- 转换 演示文稿
+- PowerPoint 转 PDF
+- 演示文稿 转 PDF
+- PPT 转 PDF
+- 转换 PPT 为 PDF
+- PPTX 转 PDF
+- 转换 PPTX 为 PDF
+- 将 PowerPoint 保存为 PDF
+- 将 PPT 保存为 PDF
+- 将 PPTX 保存为 PDF
+- 导出 PPT 为 PDF
+- 导出 PPTX 为 PDF
+- 附件
 - PDF/A1a
 - PDF/A1b
 - PDF/UA
 - .NET
 - C#
 - Aspose.Slides
-description: "使用 Aspose.Slides 在 .NET 中将 PowerPoint PPT/PPTX 转换为高质量、可搜索的 PDF，提供快速的 C# 示例代码和高级转换选项。"
+description: "在 .NET 中使用 Aspose.Slides 将 PowerPoint PPT/PPTX 转换为高质量、可搜索的 PDF，提供快速的 C# 示例代码和高级转换选项。"
 ---
 ## **概述**
 
-在 C# 中将 PowerPoint 演示文稿（PPT、PPTX、ODP 等）转换为 PDF 格式具有多种优势，包括在不同设备之间的兼容性以及保留演示文稿的布局和格式。本指南演示了如何将演示文稿转换为 PDF 文档，使用各种选项控制图像质量，包含隐藏幻灯片，为 PDF 文件设置密码保护，检测字体替换，选择特定幻灯片进行转换，以及对输出文档应用合规性标准。
+在 C# 中将 PowerPoint 演示文稿（PPT、PPTX、ODP 等）转换为 PDF 格式具有多种优势，包括在不同设备之间的兼容性以及保持演示文稿的布局和格式。本指南演示了如何将演示文稿转换为 PDF 文档，使用各种选项控制图像质量，包含隐藏幻灯片，对 PDF 文件设置密码保护，检测字体替换，选择特定幻灯片进行转换，以及对输出文档应用合规标准。
 
 ## **PowerPoint 转 PDF 转换**
 
@@ -38,20 +39,18 @@ description: "使用 Aspose.Slides 在 .NET 中将 PowerPoint PPT/PPTX 转换为
 * **PPTX**
 * **ODP**
 
-要将演示文稿转换为 PDF，请将文件名作为参数传递给[Presentation](https://reference.aspose.com/slides/zh/net/aspose.slides/presentation/)类，然后使用[Save](https://reference.aspose.com/slides/zh/net/aspose.slides/presentation/save/)方法将演示文稿保存为 PDF。[Presentation](https://reference.aspose.com/slides/zh/net/aspose.slides/presentation/)类公开的[Save](https://reference.aspose.com/slides/zh/net/aspose.slides/presentation/save/)方法通常用于将演示文稿转换为 PDF。
+要将演示文稿转换为 PDF，请将文件名作为参数传递给 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) 类，然后使用 [Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/) 方法将演示文稿保存为 PDF。[Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) 类公开了通常用于将演示文稿转换为 PDF 的 [Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/) 方法。
 
-{{%  alert title="NOTE"  color="warning"   %}} 
-
-Aspose.Slides for .NET 会将其 API 信息和版本号插入输出文档。例如，在将演示文稿转换为 PDF 时，Aspose.Slides 会在 Application 字段中填入 "*Aspose.Slides*"，在 PDF Producer 字段中填入形如 "*Aspose.Slides v XX.XX*" 的值。**注意**，您无法指示 Aspose.Slides 更改或移除这些信息。
-
+{{% alert color="info" title="Note" %}}
+Aspose.Slides for .NET 会将其 API 信息和版本号插入输出文档。例如，在将演示文稿转换为 PDF 时，Aspose.Slides 会在 Application 字段中填入 “*Aspose.Slides*”，在 PDF Producer 字段中填入形如 “*Aspose.Slides v XX.XX*” 的值。**注意**，您无法指示 Aspose.Slides 更改或移除这些信息。
 {{% /alert %}}
 
-Aspose.Slides 允许您将：
+Aspose.Slides 允许您转换：
 
-* 整个演示文稿转换为 PDF
-* 演示文稿中的特定幻灯片转换为 PDF
+* 整个演示文稿为 PDF
+* 演示文稿中的特定幻灯片为 PDF
 
-Aspose.Slides 将演示文稿导出为 PDF，确保生成的 PDF 与原始演示文稿高度匹配。转换过程中准确渲染以下元素和属性：
+Aspose.Slides 将演示文稿导出为 PDF，确保生成的 PDF 与原始演示文稿高度匹配。转换过程中会准确渲染以下元素和属性：
 
 * 图像
 * 文本框和形状
@@ -64,127 +63,133 @@ Aspose.Slides 将演示文稿导出为 PDF，确保生成的 PDF 与原始演示
 
 ## **将 PowerPoint 转换为 PDF**
 
-标准的 PowerPoint 转 PDF 过程使用默认选项。在此情况下，Aspose.Slides 会尝试使用最高质量级别的最佳设置将提供的演示文稿转换为 PDF。
+标准的 PowerPoint 转 PDF 转换过程使用默认选项。在这种情况下，Aspose.Slides 会尝试使用最佳设置和最高质量级别将提供的演示文稿转换为 PDF。
 
-下面的 C# 代码演示了如何将演示文稿（PPT、PPTX、ODP 等）转换为 PDF：
+以下示例加载演示文稿并使用默认导出设置将所有可见幻灯片保存为 PDF。
 
-```c#
-// 实例化表示 PowerPoint 或 OpenDocument 文件的 Presentation 类。
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using var presentation = new Presentation("PowerPoint.ppt");
-
-// 将演示文稿保存为 PDF。
 presentation.Save("PDF-result.pdf", SaveFormat.Pdf);
 ```
 
-{{%  alert  color="primary"  %}} 
-
-Aspose 提供了免费的在线[**PowerPoint to PDF 转换器**](https://products.aspose.app/slides/zh/conversion/ppt-to-pdf)，演示了演示文稿到 PDF 的转换过程。您可以使用此转换器进行测试，以实时实现本文所述的过程。
-
+{{% alert color="info" title="Note" %}}
+Aspose 提供了一个免费的在线 [**PowerPoint to PDF converter**](https://products.aspose.app/slides/conversion/ppt-to-pdf) 演示演示文稿到 PDF 的转换过程。您可以使用此转换器进行测试，以实时实现本文所述的步骤。
 {{% /alert %}}
 
 ## **使用选项将 PowerPoint 转换为 PDF**
 
-Aspose.Slides 提供自定义选项——位于[PdfOptions](https://reference.aspose.com/slides/zh/net/aspose.slides.export/pdfoptions/)类下的属性——可让您自定义生成的 PDF，使用密码锁定 PDF，或指定转换过程的执行方式。
+Aspose.Slides 提供了自定义选项——位于 [PdfOptions](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/) 类下的属性——允许您自定义生成的 PDF、为 PDF 设置密码，或指定转换过程的行为方式。
 
 ### **使用自定义选项将 PowerPoint 转换为 PDF**
 
-通过自定义转换选项，您可以为栅格图像定义首选质量设置，指定元文件的处理方式，为文本设置压缩级别，配置图像的 DPI 等。
+使用自定义转换选项，您可以定义光栅图像的首选质量设置，指定如何处理元文件，为文本设置压缩级别，配置图像的 DPI 等。
 
-下面的代码示例演示了如何使用多个自定义选项将 PowerPoint 演示文稿转换为 PDF：
+以下示例将演示文稿导出为 PDF 1.5，JPEG 质量设为 90，图像分辨率设为 300 DPI，元文件保存为 PNG，并使用 Flate 文本压缩。
 
-```c#
-// 实例化 PdfOptions 类。
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 var pdfOptions = new PdfOptions
 {
-    // 设置 JPG 图像的质量。
     JpegQuality = 90,
-
-    // 设置图像的 DPI。
     SufficientResolution = 300,
-
-    // 设置元文件的处理方式。
     SaveMetafilesAsPng = true,
-
-    // 设置文本内容的压缩级别。
     TextCompression = PdfTextCompression.Flate,
-
-    // 定义 PDF 合规模式。
     Compliance = PdfCompliance.Pdf15
 };
 
-// 实例化表示 PowerPoint 或 OpenDocument 文件的 Presentation 类。
 using var presentation = new Presentation("PowerPoint.pptx");
-
-// 将演示文稿保存为 PDF 文档。
 presentation.Save("PowerPoint-to-PDF.pdf", SaveFormat.Pdf, pdfOptions);
 ```
 
-### **将 PowerPoint 转换为包含隐藏幻灯片的 PDF**
+### **将嵌入的 OLE 文件保留为 PDF 附件**
 
-如果演示文稿包含隐藏幻灯片，您可以使用[PdfOptions](https://reference.aspose.com/slides/zh/net/aspose.slides.export/pdfoptions/)类中的[ShowHiddenSlides](https://reference.aspose.com/slides/zh/net/aspose.slides.export/pdfoptions/showhiddenslides/)属性，将隐藏幻灯片作为页面包含在生成的 PDF 中。
+如果演示文稿中包含嵌入的 Excel 工作簿，您可能希望 PDF 接收者既能访问工作簿的数据，又能查看幻灯片。将 [PdfOptions.IncludeOleData](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/includeoledata/) 设置为 `true` 可将嵌入的 OLE 文件保留为生成的 PDF 中的附件。
 
-下面的 C# 代码展示了如何在转换为 PDF 时包括隐藏幻灯片：
+默认值为 `false`：OLE 对象的预览图像或图标会渲染在 PDF 页面上，但其嵌入文件不会作为附件包含。将此选项设为 `true` 则会额外包含文件数据。预览仍然是视觉表示；附件则允许接收者单独打开或保存嵌入文件。OLE 对象不会在 PDF 页面上变为交互式的 Excel 工作表。
 
-```c#
-// 实例化表示 PowerPoint 或 OpenDocument 文件的 Presentation 类。
-using var presentation = new Presentation("PowerPoint.pptx");
+以下示例加载已包含嵌入式 Excel 工作簿的演示文稿，并将其导出为带有工作簿附件的 PDF。
 
-// 实例化 PdfOptions 类。
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+var pdfOptions = new PdfOptions { IncludeOleData = true };
+
+using var presentation = new Presentation("presentation.pptx");
+presentation.Save("presentation.pdf", SaveFormat.Pdf, pdfOptions);
+```
+
+检查结果：
+
+1. 在支持文件附件的查看器（如 Adobe Acrobat Reader）中打开导出的 PDF。
+2. 打开查看器的 **Attachments** 面板并定位嵌入的工作簿。
+3. 保存附件并在 Excel 中打开以检查其数据，或在查看器允许的情况下直接打开。PDF 页面上的预览与附件是分开的。
+
+{{% alert color="info" title="Note" %}}
+PDF/A 标准对附件有限制：PDF/A-1 禁止嵌入文件，PDF/A-2 仅允许 PDF/A 附件，PDF/A-3 允许包括 Excel 工作簿在内的其他文件类型。这些是标准的要求，而非 Aspose.Slides 的特定限制。本示例使用默认的 PDF 合规设置，并未演示 PDF/A 导出。
+{{% /alert %}}
+
+### **使用隐藏幻灯片将 PowerPoint 转换为 PDF**
+
+如果演示文稿包含隐藏幻灯片，您可以使用来自 [PdfOptions](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/) 类的 [ShowHiddenSlides](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/showhiddenslides/) 属性，将隐藏幻灯片作为页面包含在生成的 PDF 中。
+
+以下示例将演示文稿导出为 PDF，包含所有隐藏幻灯片。
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 var pdfOptions = new PdfOptions();
-
-// 添加隐藏幻灯片。
 pdfOptions.ShowHiddenSlides = true;
 
-// 将演示文稿保存为 PDF。
+using var presentation = new Presentation("PowerPoint.pptx");
 presentation.Save("PowerPoint-to-PDF.pdf", SaveFormat.Pdf, pdfOptions);
 ```
 
 ### **将 PowerPoint 转换为受密码保护的 PDF**
 
-下面的 C# 代码演示了如何使用[PdfOptions](https://reference.aspose.com/slides/zh/net/aspose.slides.export/pdfoptions/)类中的保护参数，将 PowerPoint 演示文稿转换为受密码保护的 PDF：
+以下示例将演示文稿导出为需要密码 `password` 才能打开的 PDF。访问权限允许打印，包括高质量打印。
 
-```c#
-// 实例化表示 PowerPoint 或 OpenDocument 文件的 Presentation 类。
-using var presentation = new Presentation("PowerPoint.pptx");
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-// 实例化 PdfOptions 类。
 var pdfOptions = new PdfOptions();
-
-// 设置 PDF 密码和访问权限。
 pdfOptions.Password = "password";
 pdfOptions.AccessPermissions = PdfAccessPermissions.PrintDocument | PdfAccessPermissions.HighQualityPrint;
 
-// 将演示文稿保存为 PDF。
+using var presentation = new Presentation("PowerPoint.pptx");
 presentation.Save("PPTX-to-PDF.pdf", SaveFormat.Pdf, pdfOptions);
 ```
 
 ### **检测字体替换**
 
-Aspose.Slides 在[PdfOptions](https://reference.aspose.com/slides/zh/net/aspose.slides.export/pdfoptions/)类下提供[WarningCallback](https://reference.aspose.com/slides/zh/net/aspose.slides.export/saveoptions/warningcallback/)属性，帮助您在演示文稿转 PDF 过程中检测字体替换。
+Aspose.Slides 在 [PdfOptions](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/) 类下提供了 [WarningCallback](https://reference.aspose.com/slides/net/aspose.slides.export/saveoptions/warningcallback/) 属性，使您能够在演示文稿到 PDF 的转换过程中检测字体替换。
 
-下面的 C# 代码展示了如何检测字体替换：
+以下示例将演示文稿导出为 PDF，并将字体替换警告打印到控制台。仅当在导出期间替换了不可用字体时才会打印警告。
 
-```c#
-public static void Main()
-{
-    // 实例化表示 PowerPoint 或 OpenDocument 文件的 Presentation 类。 
-    using var presentation = new Presentation("sample.pptx");
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.Warnings;
+using System;
 
-    // 在 PDF 选项中设置警告回调。
-    var pdfOptions = new PdfOptions();
-    pdfOptions.WarningCallback = new FontSubstitutionHandler();
+var pdfOptions = new PdfOptions();
+pdfOptions.WarningCallback = new FontSubstitutionHandler();
 
-    // 将演示文稿保存为 PDF。
-    presentation.Save("output.pdf", SaveFormat.Pdf, pdfOptions);
-}
+using var presentation = new Presentation("sample.pptx");
+presentation.Save("output.pdf", SaveFormat.Pdf, pdfOptions);
 
-// 警告回调的实现。
-private class FontSubstitutionHandler : IWarningCallback
+class FontSubstitutionHandler : IWarningCallback
 {
     public ReturnAction Warning(IWarningInfo warning)
     {
-        if (warning.WarningType == WarningType.DataLoss &&
-            warning.Description.StartsWith("Font will be substituted"))
+        if (warning.WarningType == WarningType.DataLoss && warning.Description.StartsWith("Font will be substituted"))
         {
             Console.WriteLine($"Font substitution warning: {warning.Description}");
         }
@@ -194,63 +199,54 @@ private class FontSubstitutionHandler : IWarningCallback
 }
 ```
 
-{{%  alert color="primary"  %}} 
-
-有关在渲染过程中接收字体替换回调的更多信息，请参阅[获取字体替换警告回调](/slides/zh/net/getting-warning-callbacks-for-fonts-substitution-in-aspose-slides/)。
-
-有关字体替换的更多信息，请参阅[字体替换](/slides/zh/net/font-substitution/)文章。
-
+{{% alert color="info" title="Note" %}}
+有关字体替换的更多信息，请参阅 [Font Substitution](/slides/zh/net/font-substitution/) 文章。
 {{% /alert %}} 
 
-## **将 PowerPoint 中选定的幻灯片转换为 PDF**
+## **将选定的幻灯片从 PowerPoint 转换为 PDF**
 
-下面的 C# 代码演示了如何仅将 PowerPoint 演示文稿中的特定幻灯片转换为 PDF：
+以下示例将演示文稿的第 1 张和第 3 张幻灯片导出为 PDF。数组中的幻灯片编号从 1 开始，输入演示文稿必须至少包含三张幻灯片。
 
-```c#
-// 实例化表示 PowerPoint 或 OpenDocument 文件的 Presentation 类。
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using var presentation = new Presentation("PowerPoint.pptx");
-
-// 设置幻灯片编号数组。
-int[] slides = { 1, 3 };
-
-// 将演示文稿保存为 PDF。
+var slides = new[] { 1, 3 };
 presentation.Save("PPTX-to-PDF.pdf", slides, SaveFormat.Pdf);
 ```
 
 ## **使用自定义幻灯片尺寸将 PowerPoint 转换为 PDF**
 
-下面的 C# 代码演示了如何使用指定的幻灯片尺寸将 PowerPoint 演示文稿转换为 PDF：
+以下示例将演示文稿的第一张幻灯片复制到一个新演示文稿中，幻灯片尺寸为 612 × 792 点（8.5 × 11 英寸）。它会缩放幻灯片内容以适应尺寸，并将单张幻灯片导出为 PDF。
 
-```c#
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 var slideWidth = 612;
 var slideHeight = 792;
 
-// 加载 PowerPoint 演示文稿。
 using var presentation = new Presentation("SelectedSlides.pptx");
-
-// 创建一个具有调整后幻灯片尺寸的新演示文稿。
 using var resizedPresentation = new Presentation();
 
-// 设置自定义幻灯片尺寸。
 resizedPresentation.SlideSize.SetSize(slideWidth, slideHeight, SlideSizeScaleType.EnsureFit);
-
-// 从原始演示文稿克隆第一张幻灯片。
 var slide = presentation.Slides[0];
 resizedPresentation.Slides.InsertClone(0, slide);
 
-// 将调整大小后的演示文稿保存为带备注的 PDF。
-resizedPresentation.Save("PDF_with_notes.pdf", SaveFormat.Pdf);
+// Remove the blank slide that the new presentation was created with.
+resizedPresentation.Slides.RemoveAt(1);
+resizedPresentation.Save("PDF_with_custom_slide_size.pdf", SaveFormat.Pdf);
 ```
 
-## **在备注幻灯片视图下将 PowerPoint 转换为 PDF**
+## **在备注幻灯片视图中将 PowerPoint 转换为 PDF**
 
-下面的 C# 代码演示了如何将 PowerPoint 演示文稿转换为包含备注的 PDF：
+以下示例将演示文稿导出为 PDF，在每张幻灯片下方放置该幻灯片的演讲者备注。请使用包含演讲者备注的演示文稿以查看结果。
 
-```c#
-// 加载 PowerPoint 演示文稿。
-using var presentation = new Presentation("NotesFile.pptx");
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-// 使用备注布局配置 PDF 选项。
 var pdfOptions = new PdfOptions
 {
     SlidesLayoutOptions = new NotesCommentsLayoutingOptions
@@ -259,17 +255,20 @@ var pdfOptions = new PdfOptions
     }
 };
 
-// 将演示文稿保存为带备注的 PDF。
+using var presentation = new Presentation("NotesFile.pptx");
 presentation.Save("PDF_with_notes.pdf", SaveFormat.Pdf, pdfOptions);
 ```
 
-## **PDF 的可访问性和合规性标准**
+## **PDF 的可访问性和合规标准**
 
-Aspose.Slides 允许您使用符合[Web 内容可访问性指南 (**WCAG**)](https://www.w3.org/TR/WCAG-TECHS/pdf.html)的转换过程。您可以使用以下任意合规标准将 PowerPoint 文档导出为 PDF：**PDF/A1a**、**PDF/A1b** 和 **PDF/UA**。
+Aspose.Slides 允许您使用符合 [Web Content Accessibility Guidelines (**WCAG**)](https://www.w3.org/TR/WCAG-TECHS/pdf.html) 的转换过程。您可以使用以下任意合规标准将 PowerPoint 文档导出为 PDF：**PDF/A1a**、**PDF/A1b** 和 **PDF/UA**。
 
-下面的 C# 代码演示了基于不同合规标准生成多个 PDF 的 PowerPoint 转 PDF 过程：
+以下 C# 代码演示了基于不同合规标准生成多个 PDF 的 PowerPoint 转 PDF 过程：
 
-```c#
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using var presentation = new Presentation("pres.pptx");
 
 presentation.Save("pres-a1a-compliance.pdf", SaveFormat.Pdf, new PdfOptions
@@ -288,33 +287,36 @@ presentation.Save("pres-ua-compliance.pdf", SaveFormat.Pdf, new PdfOptions
 });
 ```
 
-{{% alert title="Note" color="warning" %}} 
-
-Aspose.Slides 支持 PDF 转换操作，允许您将 PDF 文件转换为流行的文件格式。您可以执行[PDF 转 HTML](https://products.aspose.com/slides/zh/net/conversion/pdf-to-html/)、[PDF 转图像](https://products.aspose.com/slides/zh/net/conversion/pdf-to-image/)、[PDF 转 JPG](https://products.aspose.com/slides/zh/net/conversion/pdf-to-jpg/)和[PDF 转 PNG](https://products.aspose.com/slides/zh/net/conversion/pdf-to-png/)转换。其他针对专用格式的 PDF 转换操作——[PDF 转 SVG](https://products.aspose.com/slides/zh/net/conversion/pdf-to-svg/)、[PDF 转 TIFF](https://products.aspose.com/slides/zh/net/conversion/pdf-to-tiff/)以及[PDF 转 XML](https://products.aspose.com/slides/zh/net/conversion/pdf-to-xml/)——也受到支持。
-
+{{% alert color="info" title="Note" %}}
+Aspose.Slides 支持 PDF 转换操作，允许您将 PDF 文件转换为常见文件格式。您可以执行 [PDF to HTML](https://products.aspose.com/slides/net/conversion/pdf-to-html/)、[PDF to image](https://products.aspose.com/slides/net/conversion/pdf-to-image/)、[PDF to JPG](https://products.aspose.com/slides/net/conversion/pdf-to-jpg/)、和 [PDF to PNG](https://products.aspose.com/slides/net/conversion/pdf-to-png/) 转换。其他针对专用格式的 PDF 转换操作——[PDF to SVG](https://products.aspose.com/slides/net/conversion/pdf-to-svg/)、[PDF to TIFF](https://products.aspose.com/slides/net/conversion/pdf-to-tiff/)、以及 [PDF to XML](https://products.aspose.com/slides/net/conversion/pdf-to-xml/)——也受到支持。
 {{% /alert %}}
 
-> **注意：** 在导出为 PDF/UA 时，Aspose.Slides 将 SmartArt、图表和公式等复杂图形视为单个图形。单独的路径元素不会作为独立内容保留，可能被标记为伪影；仅为整个图形提供替代文本。
+> **注意：** 在导出为 PDF/UA 时，Aspose.Slides 将 SmartArt、图表和公式等复杂图形视为单个图形。单独的路径元素不会保留为独立内容，可能被标记为伪对象；仅为整个图形提供替代文本。
 
 ## **常见问题解答**
 
-**我可以批量将多个 PowerPoint 文件转换为 PDF 吗？**  
-是的，Aspose.Slides 支持将多个 PPT 或 PPTX 文件批量转换为 PDF。您可以遍历文件并以编程方式应用转换过程。
+**我可以批量将多个 PowerPoint 文件转换为 PDF 吗？**
 
-**能否为转换后的 PDF 设置密码保护？**  
-完全可以。使用[PdfOptions](https://reference.aspose.com/slides/zh/net/aspose.slides.export/pdfoptions/)类在转换过程中设置密码并定义访问权限。
+可以，Aspose.Slides 支持批量将多个 PPT 或 PPTX 文件转换为 PDF。您可以遍历文件并以编程方式应用转换过程。
 
-**如何在 PDF 中包含隐藏幻灯片？**  
-在[PdfOptions](https://reference.aspose.com/slides/zh/net/aspose.slides.export/pdfoptions/)类中将`ShowHiddenSlides`属性设置为`true`，即可在生成的 PDF 中包含隐藏幻灯片。
+**是否可以为转换后的 PDF 设置密码保护？**
 
-**Aspose.Slides 能在 PDF 中保持高图像质量吗？**  
-可以。通过在[PdfOptions](https://reference.aspose.com/slides/zh/net/aspose.slides.export/pdfoptions/)类中设置`JpegQuality`、`SufficientResolution` 等属性，您可以确保 PDF 中的图像保持高质量。
+可以。使用 [PdfOptions](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/) 类在转换过程中设置密码并定义访问权限。
 
-**Aspose.Slides 是否支持 PDF/A 合规标准？**  
-支持。Aspose.Slides 允许您导出符合多种标准的 PDF，包括 PDF/A1a、PDF/A1b 和 PDF/UA，确保文档满足可访问性和归档要求。
+**如何在 PDF 中包含隐藏幻灯片？**
 
-## **附加资源**
+在 [PdfOptions](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/) 类中将 [ShowHiddenSlides](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/showhiddenslides/) 属性设置为 `true`，即可在生成的 PDF 中包含隐藏幻灯片。
 
-- [Aspose.Slides for .NET 文档](/slides/zh/net/)
-- [Aspose.Slides for .NET API 参考]((https://reference.aspose.com/slides/zh/net/))
-- [Aspose 免费在线转换器]((https://products.aspose.app/slides/zh/conversion))
+**Aspose.Slides 能在 PDF 中保持高图像质量吗？**
+
+可以，您可以通过在 [PdfOptions](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/) 类中设置 [JpegQuality](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/jpegquality/) 和 [SufficientResolution](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/sufficientresolution/) 等属性，以确保 PDF 中的图像具有高质量。
+
+**Aspose.Slides 是否支持 PDF/A 合规标准？**
+
+可以，Aspose.Slides 允许您导出符合多种标准的 PDF，包括 PDF/A1a、PDF/A1b 和 PDF/UA，确保文档满足可访问性和归档要求。
+
+## **其他资源**
+
+- [Aspose.Slides for .NET Documentation](/slides/zh/net/)
+- [Aspose.Slides for .NET API Reference](https://reference.aspose.com/slides/net/)
+- [Aspose Free Online Converters](https://products.aspose.app/slides/conversion)

@@ -7,14 +7,14 @@ url: /sv/java/manage-ole/
 keywords:
 - OLE-objekt
 - Objektlänkning & inbäddning
-- lägg till OLE
+- lägga till OLE
 - bädda in OLE
-- lägg till objekt
+- lägga till objekt
 - bädda in objekt
-- lägg till fil
+- lägga till fil
 - bädda in fil
 - länkat objekt
-- länkad fil
+- länkat fil
 - ändra OLE
 - OLE-ikon
 - OLE-titel
@@ -29,33 +29,36 @@ description: "Optimera hanteringen av OLE-objekt i PowerPoint- och OpenDocument-
 ---
 ## **Introduktion**
 
-{{% alert color="primary" %}} 
+{{% alert color="info" title="Obs" %}}
+OLE (Object Linking & Embedding) är en Microsoft‑teknik som gör det möjligt att placera data och objekt som skapats i ett program i ett annat program genom länkning eller inbäddning. 
 
-OLE (Object Linking & Embedding) är en Microsoft-teknik som gör att data och objekt som skapats i en applikation kan placeras i en annan applikation genom länkning eller inbäddning. 
+Consider a chart created in MS Excel. The chart is then placed inside a PowerPoint slide. That Excel chart is considered an OLE object. 
 
+- Ett OLE‑objekt kan visas som en ikon. I så fall öppnas diagrammet i den associerade applikationen (Excel) när du dubbelklickar på ikonen, eller så blir du ombedd att välja en applikation för att öppna eller redigera objektet.
+- Ett OLE‑objekt kan visa sitt faktiska innehåll, till exempel ett diagram. I så fall aktiveras diagrammet i PowerPoint, diagramgränssnittet laddas och du kan ändra diagrammets data i PowerPoint.
+
+[Aspose.Slides för Java](https://products.aspose.com/slides/java/) låter dig infoga OLE‑objekt i bilder som OLE‑objektramramar ([OleObjectFrame](https://reference.aspose.com/slides/java/com.aspose.slides/OleObjectFrame)).
 {{% /alert %}} 
 
-Tänk på ett diagram skapat i MS Excel. Diagrammet placeras sedan i en PowerPoint‑bild. Det Excel‑diagrammet betraktas som ett OLE‑objekt. 
+## **Lägg till OLE‑objektramramar i bilder**
 
-- Ett OLE‑objekt kan visas som en ikon. I så fall öppnas diagrammet i den associerade applikationen (Excel) när du dubbelklickar på ikonen, eller så blir du ombedd att välja en applikation för att öppna eller redigera objektet. 
-- Ett OLE‑objekt kan visa sitt faktiska innehåll, till exempel innehållet i ett diagram. I så fall aktiveras diagrammet i PowerPoint, diagramgränssnittet laddas och du kan redigera diagrammets data i PowerPoint.
+Om du redan har skapat ett diagram i Microsoft Excel och vill bädda in det i en bild som en OLE‑objektramram med Aspose.Slides för Java, kan du göra så här:
 
-[Aspose.Slides for Java](https://products.aspose.com/slides/sv/java/) gör det möjligt att infoga OLE‑objekt i bilder som OLE‑objekt‑ramar ([OleObjectFrame](https://reference.aspose.com/slides/sv/java/com.aspose.slides/OleObjectFrame)).
+1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) .
+1. Hämta en bilds referens via dess index.
+1. Läs Excel‑filen som en byte‑array.
+1. Lägg till [OleObjectFrame](https://reference.aspose.com/slides/java/com.aspose.slides/OleObjectFrame) till bilden med byte‑arrayen och annan information om OLE‑objektet.
+1. Skriv den modifierade presentationen som en PPTX‑fil.
 
-## **Lägg till OLE‑objekt‑ramar i bilder**
+I exemplet nedan lade vi till ett diagram från en Excel‑fil i en bild som en OLE‑objektramram med Aspose.Slides för Java.  
+**Obs** att konstruktorn för [OleEmbeddedDataInfo](https://reference.aspose.com/slides/java/com.aspose.slides/OleEmbeddedDataInfo) tar en inbäddningsbar objekt‑extension som andra parameter. Denna extension gör att PowerPoint korrekt kan tolka filtypen och välja rätt program för att öppna detta OLE‑objekt.
 
-Om du redan har skapat ett diagram i Microsoft Excel och vill bädda in det i en bild som en OLE‑objekt‑ram med Aspose.Slides for Java, kan du göra så här:
+``` java
+import com.aspose.slides.*;
+import java.awt.geom.Dimension2D;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/java/com.aspose.slides/Presentation). 
-1. Hämta en bilds referens via dess index. 
-1. Läs Excel‑filen som en byte‑array. 
-1. Lägg till [OleObjectFrame](https://reference.aspose.com/slides/sv/java/com.aspose.slides/OleObjectFrame) i bilden med byte‑arrayen och annan information om OLE‑objektet. 
-1. Skriv den ändrade presentationen som en PPTX‑fil. 
-
-I exempelnedan har vi lagt till ett diagram från en Excel‑fil i en bild som en OLE‑objekt‑ram med Aspose.Slides for Java.
-**Obs** att konstruktorn för [OleEmbeddedDataInfo](https://reference.aspose.com/slides/sv/java/com.aspose.slides/OleEmbeddedDataInfo) tar en inbäddningsbar objekt‑extension som andra parameter. Denna extension gör att PowerPoint korrekt kan tolka filtypen och välja rätt program för att öppna detta OLE‑objekt.
-
-``` java 
 Presentation presentation = new Presentation();
 Dimension2D slideSize = presentation.getSlideSize().getSize();
 ISlide slide = presentation.getSlides().get_Item(0);
@@ -64,20 +67,22 @@ ISlide slide = presentation.getSlides().get_Item(0);
 byte[] fileData = Files.readAllBytes(Paths.get("book.xlsx"));
 IOleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(fileData, "xlsx");
 
-// Lägg till OLE-objektramen på bilden.
+// Lägg till OLE-objektrammen i bilden.
 slide.getShapes().addOleObjectFrame(0, 0, (float)slideSize.getWidth(), (float)slideSize.getHeight(), dataInfo);
 
 presentation.save("output.pptx", SaveFormat.Pptx);
 presentation.dispose();
 ```
 
-### **Lägg till länkade OLE‑objekt‑ramar**
+### **Lägg till länkade OLE‑objektramramar**
 
-Aspose.Slides for Java låter dig lägga till ett [OleObjectFrame](https://reference.aspose.com/slides/sv/java/com.aspose.slides/OleObjectFrame) utan att bädda in data, utan endast med en länk till filen.
+Aspose.Slides för Java låter dig lägga till en [OleObjectFrame](https://reference.aspose.com/slides/java/com.aspose.slides/OleObjectFrame) utan att bädda in data, utan endast med en länk till filen.
 
-Denna Java‑kod visar hur du lägger till ett [OleObjectFrame](https://reference.aspose.com/slides/sv/java/com.aspose.slides/OleObjectFrame) med en länkad Excel‑fil till en bild:
+Denna Java‑kod visar hur du lägger till en [OleObjectFrame](https://reference.aspose.com/slides/java/com.aspose.slides/OleObjectFrame) med en länkad Excel‑fil i en bild:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 ISlide slide = presentation.getSlides().get_Item(0);
 
@@ -88,19 +93,20 @@ presentation.save("output.pptx", SaveFormat.Pptx);
 presentation.dispose();
 ```
 
-## **Åtkomst till OLE‑objekt‑ramar**
+## **Åtkomst till OLE‑objektramramar**
 
 Om ett OLE‑objekt redan är inbäddat i en bild kan du enkelt hitta eller komma åt det på följande sätt:
 
-1. Läs in en presentation med det inbäddade OLE‑objektet genom att skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/java/com.aspose.slides/Presentation). 
-2. Hämta bildens referens genom att använda dess index. 
-3. Kom åt formen [OleObjectFrame](https://reference.aspose.com/slides/sv/java/com.aspose.slides/OleObjectFrame).
-   I vårt exempel använde vi den tidigare skapade PPTX‑filen som har endast en form på den första bilden. Vi *castade* sedan det objektet till ett [IOleObjectFrame](https://reference.aspose.com/slides/sv/java/com.aspose.slides/IOleObjectFrame). Detta var den önskade OLE‑objekt‑ramen som skulle nås. 
-4. När OLE‑objekt‑ramen har nåtts kan du utföra vilken operation som helst på den. 
+1. Läs in en presentation med det inbäddade OLE‑objektet genom att skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) .
+2. Hämta bildens referens genom att använda dess index.
+3. Kom åt [OleObjectFrame](https://reference.aspose.com/slides/java/com.aspose.slides/OleObjectFrame)‑formen. I vårt exempel använde vi den tidigare skapade PPTX‑filen som har endast en form på den första bilden. Vi *castade* sedan det objektet till ett [IOleObjectFrame](https://reference.aspose.com/slides/java/com.aspose.slides/IOleObjectFrame). Detta var den önskade OLE‑objektramramen som skulle nås.
+4. När OLE‑objektramramen har nåtts kan du utföra vilken operation som helst på den.
 
-I exempelnedan nås en OLE‑objekt‑ram (ett Excel‑diagramobjekt inbäddat i en bild) och dess fildata.
+I exemplet nedan nås en OLE‑objektramram (ett Excel‑diagram som är inbäddat i en bild) och dess fildata.
 
 ``` java 
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 ISlide slide = presentation.getSlides().get_Item(0);
 IShape shape = slide.getShapes().get_Item(0);
@@ -118,13 +124,15 @@ if (shape instanceof IOleObjectFrame) {
 }
 ```
 
-### **Kom åt egenskaper för länkad OLE‑objekt‑ram**
+### **Kom åt egenskaper för länkad OLE‑objektramram**
 
-Aspose.Slides låter dig komma åt egenskaper för länkade OLE‑objekt‑ramar.
+Aspose.Slides låter dig komma åt egenskaper för länkade OLE‑objektramramar.
 
-Denna Java‑kod visar hur du kontrollerar om ett OLE‑objekt är länkat och sedan hämtar sökvägen till den länkade filen:
+Denna Java‑kod visar hur du kontrollerar om ett OLE‑objekt är länkat och sedan erhåller sökvägen till den länkade filen:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.ppt");
 ISlide slide = presentation.getSlides().get_Item(0);
 IShape shape = slide.getShapes().get_Item(0);
@@ -150,27 +158,30 @@ presentation.dispose();
 
 ## **Ändra OLE‑objektdata**
 
-{{% alert color="primary" %}} 
-
-I det här avsnittet använder kodexemplet nedan [Aspose.Cells for Java](/cells/java/).
-
+{{% alert color="info" title="Obs" %}}
+I det här avsnittet använder kodexemplet nedan [Aspose.Cells för Java](https://docs.aspose.com/cells/java/).
 {{% /alert %}}
 
 Om ett OLE‑objekt redan är inbäddat i en bild kan du enkelt komma åt det objektet och ändra dess data på följande sätt:
 
-1. Läs in en presentation med det inbäddade OLE‑objektet genom att skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/java/com.aspose.slides/Presentation). 
+1. Läs in en presentation med det inbäddade OLE‑objektet genom att skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) .
 2. Hämta bildens referens via dess index. 
-3. Kom åt OLE‑objekt‑ramens form.
-   I vårt exempel använde vi den tidigare skapade PPTX‑filen som har en form på den första bilden. Vi *castade* sedan det objektet till ett [IOleObjectFrame](https://reference.aspose.com/slides/sv/java/com.aspose.slides/IOleObjectFrame). Detta var den önskade OLE‑objekt‑ramen som skulle nås. 
-4. När OLE‑objekt‑ramen har nåtts kan du utföra vilken operation som helst på den. 
-5. Skapa ett `Workbook`‑objekt och kom åt OLE‑data. 
-6. Kom åt önskat `Worksheet` och ändra datan. 
-7. Spara det uppdaterade `Workbook` i en ström. 
-8. Ändra OLE‑objekt‑datan från strömmen. 
+3. Kom åt OLE‑objektramformens form. I vårt exempel använde vi den tidigare skapade PPTX‑filen som har en form på den första bilden. Vi *castade* sedan det objektet till ett [IOleObjectFrame](https://reference.aspose.com/slides/java/com.aspose.slides/IOleObjectFrame). Detta var den önskade OLE‑objektramramen att nå.
+4. När OLE‑objektramramen har nåtts kan du utföra vilken operation som helst på den.
+5. Skapa ett `Workbook`‑objekt och komma åt OLE‑data.
+6. Kom åt önskat `Worksheet` och ändra data.
+7. Spara det uppdaterade `Workbook` i en ström.
+8. Ändra OLE‑objektdatan från strömmen.
 
-I exempelnedan nås en OLE‑objekt‑ram (ett Excel‑diagramobjekt inbäddat i en bild) och dess fildata ändras för att uppdatera diagrammets data.
+I exemplet nedan nås en OLE‑objektramram (ett Excel‑diagram som är inbäddat i en bild) och dess fildata ändras för att uppdatera diagrammets data.
 
 ``` java 
+import com.aspose.slides.*;
+import com.aspose.cells.Workbook;
+import com.aspose.cells.OoxmlSaveOptions;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+
 Presentation presentation = new Presentation("sample.pptx");
 ISlide slide = presentation.getSlides().get_Item(0);
 IShape shape = slide.getShapes().get_Item(0);
@@ -180,12 +191,12 @@ if (shape instanceof IOleObjectFrame) {
 
     ByteArrayInputStream oleStream = new ByteArrayInputStream(oleFrame.getEmbeddedData().getEmbeddedFileData());
 
-    // Läs OLE-objektdata som ett Workbook-objekt.
+    // Läs OLE-objektets data som ett Workbook-objekt.
     Workbook workbook = new Workbook(oleStream);
 
     ByteArrayOutputStream newOleStream = new ByteArrayOutputStream();
 
-    // Modifiera Workbook-datat.
+    // Modifiera arbetsbokens data.
     workbook.getWorksheets().get(0).getCells().get(0, 4).putValue("E");
     workbook.getWorksheets().get(0).getCells().get(1, 4).putValue(12);
     workbook.getWorksheets().get(0).getCells().get(2, 4).putValue(14);
@@ -194,7 +205,7 @@ if (shape instanceof IOleObjectFrame) {
     OoxmlSaveOptions fileOptions = new OoxmlSaveOptions(com.aspose.cells.SaveFormat.XLSX);
     workbook.save(newOleStream, fileOptions);
 
-    // Ändra OLE-ramens objektdata.
+    // Ändra OLE-ramens objektsdata.
     IOleEmbeddedDataInfo newData = new OleEmbeddedDataInfo(newOleStream.toByteArray(), oleFrame.getEmbeddedData().getEmbeddedFileExtension());
     oleFrame.setEmbeddedData(newData);
 }
@@ -205,11 +216,15 @@ presentation.dispose();
 
 ## **Bädda in andra filtyper i bilder**
 
-Förutom Excel‑diagram låter Aspose.Slides for Java dig bädda in andra filtyper i bilder. Till exempel kan du infoga HTML-, PDF- och ZIP‑filer som objekt. När en användare dubbelklickar på det infogade objektet öppnas det automatiskt i det relevanta programmet, eller så uppmanas användaren att välja ett lämpligt program för att öppna det.
+Förutom Excel‑diagram låter Aspose.Slides för Java dig bädda in andra typer av filer i bilder. Till exempel kan du infoga HTML‑, PDF‑ och ZIP‑filer som objekt. När en användare dubbelklickar på det infogade objektet öppnas det automatiskt i det relevanta programmet, eller så blir användaren ombedd att välja ett lämpligt program för att öppna det.
 
 Denna Java‑kod visar hur du bäddar in HTML och ZIP i en bild:
 
 ```java
+import com.aspose.slides.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
 Presentation presentation = new Presentation();
 ISlide slide = presentation.getSlides().get_Item(0);
 
@@ -229,11 +244,13 @@ presentation.dispose();
 
 ## **Ange filtyper för inbäddade objekt**
 
-När du arbetar med presentationer kan du behöva ersätta gamla OLE‑objekt med nya eller byta ut ett ej‑stödd OLE‑objekt mot ett stödd. Aspose.Slides for Java låter dig ange filtypen för ett inbäddat objekt, vilket gör att du kan uppdatera OLE‑ramens data eller dess extension.
+När du arbetar med presentationer kan du behöva ersätta gamla OLE‑objekt med nya eller ersätta ett ej stödd OLE‑objekt med ett som stöds. Aspose.Slides för Java låter dig ange filtypen för ett inbäddat objekt, vilket gör att du kan uppdatera OLE‑ramens data eller dess extension.
 
-Denna Java‑kod visar hur du anger filtypen för ett inbäddat OLE‑objekt till `zip`:
+Denna Java‑kod visar hur du ställer in filtypen för ett inbäddat OLE‑objekt till `zip`:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 ISlide slide = presentation.getSlides().get_Item(0);
 IOleObjectFrame oleFrame = (IOleObjectFrame) slide.getShapes().get_Item(0);
@@ -252,11 +269,15 @@ presentation.dispose();
 
 ## **Ange ikonbilder och titlar för inbäddade objekt**
 
-Efter att ha bäddat in ett OLE‑objekt läggs en förhandsgranskning bestående av en ikonbild automatiskt till. Denna förhandsgranskning är vad användarna ser innan de kommer åt eller öppnar OLE‑objektet. Om du vill använda en specifik bild och text som element i förhandsgranskningen kan du ange ikonbilden och titeln med Aspose.Slides for Java.
+Efter att ha bäddat in ett OLE‑objekt läggs automatiskt en förhandsgranskning bestående av en ikonbild till. Denna förhandsgranskning är vad användarna visar innan de når eller öppnar OLE‑objektet. Om du vill använda en specifik bild och text som element i förhandsgranskningen kan du ange ikonbilden och titeln med Aspose.Slides för Java.
 
 Denna Java‑kod visar hur du anger ikonbilden och titeln för ett inbäddat objekt:
 
 ```java
+import com.aspose.slides.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
 Presentation presentation = new Presentation("sample.pptx");
 ISlide slide = presentation.getSlides().get_Item(0);
 IOleObjectFrame oleFrame = (IOleObjectFrame) slide.getShapes().get_Item(0);
@@ -265,7 +286,7 @@ IOleObjectFrame oleFrame = (IOleObjectFrame) slide.getShapes().get_Item(0);
 byte[] imageData = Files.readAllBytes(Paths.get("image.png"));
 IPPImage oleImage = presentation.getImages().addImage(imageData);
 
-// Set a title and the image for the OLE preview.
+// Ställ in en titel och bilden för OLE-förhandsgranskningen.
 oleFrame.setSubstitutePictureTitle("My title");
 oleFrame.getSubstitutePictureFormat().getPicture().setImage(oleImage);
 oleFrame.setObjectIcon(true);
@@ -274,25 +295,39 @@ presentation.save("output.pptx", SaveFormat.Pptx);
 presentation.dispose();
 ```
 
-## **Förhindra att en OLE‑objekt‑ram skalas och flyttas**
+## **Förhindra att en OLE‑objektramram ändras i storlek eller position**
 
-Efter att du har lagt till ett länkat OLE‑objekt till en presentationsbild kan du, när du öppnar presentationen i PowerPoint, få ett meddelande som ber dig uppdatera länkarna. Att klicka på knappen "Uppdatera länkar" kan ändra storlek och position för OLE‑objekt‑ramen eftersom PowerPoint uppdaterar data från det länkade OLE‑objektet och uppdaterar objektets förhandsgranskning. För att hindra PowerPoint från att be om att uppdatera objektets data, sätt metoden `setUpdateAutomatic` i gränssnittet [IOleObjectFrame](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ioleobjectframe/) till `false`:
+När du har lagt till ett länkat OLE‑objekt i en presentationsbild och öppnar presentationen i PowerPoint kan du få ett meddelande som ber dig uppdatera länkarna. Om du klickar på knappen "Update Links" kan storleken och positionen för OLE‑objektramramen ändras eftersom PowerPoint uppdaterar data från det länkade OLE‑objektet och uppdaterar förhandsgranskningen. För att förhindra att PowerPoint ber om att uppdatera objektets data, anropa metoden [setUpdateAutomatic](https://reference.aspose.com/slides/java/com.aspose.slides/ioleobjectframe/#setUpdateAutomatic-boolean-) på gränssnittet [IOleObjectFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ioleobjectframe/) med `false`:
 
 ```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("sample.pptx");
+ISlide slide = presentation.getSlides().get_Item(0);
+IOleObjectFrame oleFrame = (IOleObjectFrame) slide.getShapes().get_Item(0);
+
 oleFrame.setUpdateAutomatic(false);
+
+presentation.save("output.pptx", SaveFormat.Pptx);
+presentation.dispose();
 ```
 
 ## **Extrahera inbäddade filer**
 
-Aspose.Slides for Java låter dig extrahera de filer som är inbäddade i bilder som OLE‑objekt på följande sätt:
+Aspose.Slides för Java låter dig extrahera de filer som är inbäddade i bilder som OLE‑objekt på följande sätt:
 
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/java/com.aspose.slides/Presentation) som innehåller de OLE‑objekt du vill extrahera. 
-2. Loopa igenom alla former i presentationen och kom åt formerna av typen [OLEObjectFrame](https://reference.aspose.com/slides/sv/java/com.aspose.slides/oleobjectframe). 
-3. Kom åt data för de inbäddade filerna från OLE‑objekt‑ramarna och skriv den till disk. 
+1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) som innehåller de OLE‑objekt du avser att extrahera.
+2. Iterera igenom alla former i presentationen och nå [OLEObjectFrame](https://reference.aspose.com/slides/java/com.aspose.slides/oleobjectframe)‑formerna.
+3. Kom åt data för inbäddade filer från OLE‑objektramramar och skriv dem till disk.
 
 Denna Java‑kod visar hur du extraherar filer som är inbäddade i en bild som OLE‑objekt:
 
 ```java
+import com.aspose.slides.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
 Presentation presentation = new Presentation("sample.pptx");
 ISlide slide = presentation.getSlides().get_Item(0);
 
@@ -315,18 +350,20 @@ presentation.dispose();
 
 ## **FAQ**
 
-**Kommer OLE‑innehållet att renderas när bilder exporteras till PDF/bilder?**
+**Kommer OLE‑innehållet att renderas vid export av bilder till PDF/bilder?**
 
-Det som syns på bilden renderas – ikonen/ersättningsbilden (förhandsgranskning). Det "levande" OLE‑innehållet körs inte under renderingen. Om så behövs, ange en egen förhandsgranskningsbild för att säkerställa önskat utseende i den exporterade PDF‑filen.
+Det som syns på bilden renderas – ikonen/ersättningsbilden (förhandsgranskning). Det "levande" OLE‑innehållet körs inte under rendering. Vid behov kan du ange en egen förhandsgranskningsbild för att säkerställa önskat utseende i den exporterade PDF‑filen.
+
+För att också bevara den inbäddade filen som en PDF‑bilaga, anropa [setIncludeOleData](https://reference.aspose.com/slides/java/com.aspose.slides/pdfoptions/#setIncludeOleData-boolean-) med `true`. Detta alternativ är inaktiverat som standard. För ett exempel och instruktioner för att kontrollera bilagan, se [Bevara inbäddade OLE‑filer som PDF‑bilagor](/slides/sv/java/convert-powerpoint-to-pdf/#preserve-embedded-ole-files-as-pdf-attachments).
 
 **Hur kan jag låsa ett OLE‑objekt på en bild så att användare inte kan flytta/redigera det i PowerPoint?**
 
-Lås formen: Aspose.Slides erbjuder [formnivå‑lås](/slides/sv/java/applying-protection-to-presentation/). Detta är ingen kryptering, men det förhindrar i praktiken oavsiktliga redigeringar och flyttning.
+Lås formen: Aspose.Slides erbjuder [formnivå‑lås](/slides/sv/java/applying-protection-to-presentation/). Detta är ingen kryptering, men det förhindrar effektivt oavsiktliga redigeringar och flyttning.
 
 **Varför hoppar ett länkat Excel‑objekt eller ändrar storlek när jag öppnar presentationen?**
 
-PowerPoint kan uppdatera förhandsgranskningen av det länkade OLE‑objektet. För ett stabilt utseende, följ praxis i [Working Solution for Worksheet Resizing](/slides/sv/java/working-solution-for-worksheet-resizing/) – antingen anpassa ramen till området, eller skala området till en fast ram och ange en lämplig ersättningsbild.
+PowerPoint kan uppdatera förhandsgranskningen av det länkade OLE‑objektet. För ett stabilt utseende, följ riktlinjerna i [Arbetslösning för arbetsbladsskalning](/slides/sv/java/working-solution-for-worksheet-resizing/) – antingen anpassa ramen till omfånget, eller skala omfånget till en fast ram och ange en lämplig ersättningsbild.
 
-**Behåller PPTX‑formatet relativa sökvägar för länkade OLE‑objekt?**
+**Kommer relativa sökvägar för länkade OLE‑objekt att bevaras i PPTX‑formatet?**
 
-I PPTX finns ingen information om "relativ sökväg" – endast den fullständiga sökvägen. Relativa sökvägar finns i det äldre PPT‑formatet. För portabilitet, föredra pålitliga absoluta sökvägar/tillgängliga URI:er eller inbäddning.
+I PPTX finns ingen information om "relativ sökväg" – endast hela sökvägen. Relativa sökvägar finns i det äldre PPT‑formatet. För portabilitet bör du föredra pålitliga absoluta sökvägar/tillgängliga URI:er eller inbäddning.

@@ -1,6 +1,6 @@
 ---
-title: "PPT és PPTX konvertálása PDF-be PHP-ban [Haladó funkciók beépítve]"
-linktitle: "PowerPoint PDF-be"
+title: PPT és PPTX konvertálása PDF-be PHP-ben [Fejlett funkciók beépítve]
+linktitle: PowerPoint PDF-be
 type: docs
 weight: 40
 url: /hu/php-java/convert-powerpoint-to-pdf/
@@ -18,160 +18,192 @@ keywords:
 - PPTX mentése PDF-ként
 - PPT exportálása PDF-be
 - PPTX exportálása PDF-be
+- csatolmány
 - PDF/A1a
 - PDF/A1b
 - PDF/UA
 - PHP
 - Aspose.Slides
-description: "Konvertálja a PowerPoint PPT/PPTX fájlokat magas minőségű, kereshető PDF-ekbe PHP-ban az Aspose.Slides használatával, gyors kódrészletekkel és haladó konvertálási beállításokkal."
+description: "Konvertálja a PowerPoint PPT/PPTX fájlokat magas minőségű, kereshető PDF-ekbe PHP-ben az Aspose.Slides használatával, gyors kódrészletekkel és fejlett konvertálási beállításokkal."
 ---
 ## **Áttekintés**
 
-A PowerPoint‑prezentációk (PPT, PPTX, ODP stb.) PDF formátumba való konvertálása PHP‑ben számos előnnyel jár, többek között különböző eszközök közötti kompatibilitást és a prezentáció elrendezésének, formázásának megőrzését. Ez az útmutató bemutatja, hogyan konvertálhatók a prezentációk PDF‑dokumentumokká, hogyan használhatók különféle beállítások a képminőség szabályozásához, a rejtett diák belefoglalásához, a PDF‑fájlok jelszóval védéséhez, a betűkészlet‑helyettesítések észleléséhez, a konkrét diák kiválasztásához a konvertáláshoz, valamint a megfelelőségi szabványok alkalmazásához a kimeneti dokumentumokon.
+A PowerPoint‑prezentációk (PPT, PPTX, ODP stb.) PDF formátumba konvertálása PHP‑ben több előnnyel jár, többek között különböző eszközök közötti kompatibilitással és a prezentáció elrendezésének és formázásának megőrzésével. Ez az útmutató bemutatja, hogyan konvertálhatók a prezentációk PDF‑dokumentumokká, hogyan használhatók különféle beállítások a képek minőségének szabályozásához, a rejtett diák belefoglalásához, a PDF‑fájlok jelszóval való védelméhez, a betűkészlet‑cserék észleléséhez, a konkrét diák kiválasztásához a konvertáláshoz, valamint a megfelelőségi szabványok alkalmazásához a kimeneti dokumentumokra.
 
-## **PowerPoint‑PDF konverziók**
+## **PowerPoint PDF konvertálások**
 
-Az Aspose.Slides segítségével a következő formátumú prezentációk konvertálhatók PDF‑be:
+Az Aspose.Slides használatával a következő formátumú prezentációkat konvertálhatja PDF‑be:
 
 * **PPT**
 * **PPTX**
 * **ODP**
 
-A prezentáció PDF‑be konvertálásához adja át a fájlnevet argumentumként a [Presentation](https://reference.aspose.com/slides/hu/php-java/aspose.slides/Presentation) osztálynak, majd a `save` metódussal mentse a prezentációt PDF‑ként. A [Presentation](https://reference.aspose.com/slides/hu/php-java/aspose.slides/Presentation) osztály a `save` metódust teszi elérhetővé, amelyet általában a prezentáció PDF‑be konvertálásához használnak.
+A prezentáció PDF‑re konvertálásához adja át a fájlnevet argumentumként a [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) osztálynak, majd a [save](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#save) metódussal mentse a prezentációt PDF‑ként. A [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) osztály a [save](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#save) metódust teszi elérhetővé, amelyet általában a prezentáció PDF‑re konvertálásához használnak.
 
-{{%  alert title="NOTE"  color="warning"   %}} 
-
-Aspose.Slides for PHP via Java beilleszti az API‑információkat és a verziószámot a kimeneti dokumentumokba. Például, amikor egy prezentációt PDF‑be konvertál, az Aspose.Slides a Application mezőt „*Aspose.Slides*” értékkel, a PDF Producer mezőt pedig “*Aspose.Slides v XX.XX*” formában tölti ki. **Megjegyzés**: nem adhatja meg az Aspose.Slides számára, hogy ezt az információt módosítsa vagy eltávolítsa a kimeneti dokumentumokból.
-
+{{% alert color="info" title="Note" %}}
+Az Aspose.Slides for PHP via Java beilleszti az API‑információkat és a verziószámot a kimeneti dokumentumokba. Például egy prezentáció PDF‑re konvertálásakor az Aspose.Slides az Application mezőt "*Aspose.Slides*" értékkel, a PDF Producer mezőt pedig "*Aspose.Slides v XX.XX*" formában tölti ki. **Megjegyzés**, hogy nem adhatja meg az Aspose.Slides‑nek, hogy módosítsa vagy eltávolítsa ezeket az információkat a kimeneti dokumentumokból.
 {{% /alert %}}
 
-Az Aspose.Slides lehetővé teszi a konvertálást:
-* Teljes prezentációk PDF‑be
-* Egyes diák a prezentációból PDF‑be
+Az Aspose.Slides lehetővé teszi, hogy konvertáljon:
+* Teljes prezentációkat PDF‑be
+* A prezentáció egyes diákját PDF‑be
 
-Az Aspose.Slides a prezentációkat PDF‑be exportálja, biztosítva, hogy a keletkezett PDF‑ek szorosan megegyezzenek az eredeti prezentációkkal. Az elemek és attribútumok pontosan kerülnek renderelésre a konvertálás során, többek között:
+Az Aspose.Slides a prezentációkat PDF‑be exportálja, biztosítva, hogy a kapott PDF‑ek szorosan megegyezzenek az eredeti prezentációkkal. Az elemek és attribútumok pontosan jelennek meg a konvertálás során, többek között:
 * Képek
 * Szövegdobozok és alakzatok
 * Szövegformázás
 * Bekezdésformázás
 * Hiperhivatkozások
-* Fej- és láblécek
-* Felsorolások
+* Élőfejek és élőlábak
+* Felsorolásjelek
 * Táblázatok
 
-## **PowerPoint PDF‑be konvertálása**
+## **PowerPoint konvertálása PDF‑be**
 
-A standard PowerPoint‑PDF konvertálási folyamat az alapértelmezett beállításokat használja. Ebben az esetben az Aspose.Slides megpróbálja a megadott prezentációt a legoptimálisabb beállításokkal, maximális minőségi szinten PDF‑be konvertálni.
+Az alapértelmezett PowerPoint‑PDF konvertálási folyamat alapértelmezett beállításokat használ. Ebben az esetben az Aspose.Slides a megadott prezentációt a legoptimálisabb beállításokkal, a legmagasabb minőségi szinteken próbálja PDF‑re konvertálni.
 
-Ez a kód bemutatja, hogyan konvertálhat egy prezentációt (PPT, PPTX, ODP stb.) PDF‑be:
+Az alábbi példa betölt egy prezentációt, és az alapértelmezett exportbeállításokkal menti az összes látható diát PDF‑be.
 
 ```php
-# Példányosítja a Presentation osztályt, amely egy PowerPoint vagy OpenDocument fájlt képvisel.
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
 $presentation = new Presentation("PowerPoint.pptx");
 try {
-    # Mentse a prezentációt PDF formátumba.
     $presentation->save("PPT-to-PDF.pdf", SaveFormat::Pdf);
 } finally {
     $presentation->dispose();
 }
 ```
 
-{{%  alert  color="primary"  %}} 
-
-Az Aspose egy ingyenes online [**PowerPoint to PDF converter**](https://products.aspose.app/slides/hu/conversion/ppt-to-pdf) biztosít, amely bemutatja a prezentáció‑PDF konvertálási folyamatot. A konverterrel tesztet futtathat, hogy élőben lássa a leírt eljárást.
-
+{{% alert color="info" title="Note" %}}
+Az Aspose ingyenes online [**PowerPoint PDF konvertáló**](https://products.aspose.app/slides/conversion/ppt-to-pdf) szolgáltatást kínál, amely bemutatja a prezentáció‑PDF konvertálási folyamatot. Ezzel a konvertálóval tesztelheti az itt leírt eljárás élő megvalósítását.
 {{% /alert %}}
 
-## **PowerPoint PDF‑be konvertálása beállításokkal**
+## **PowerPoint konvertálása PDF‑be beállításokkal**
 
-Az Aspose.Slides egyedi beállításokat—tulajdonságokat a [PdfOptions](https://reference.aspose.com/slides/hu/php-java/aspose.slides/PdfOptions) osztályban—kínál, amelyek lehetővé teszik a keletkezett PDF testreszabását, jelszóval való zárolását, vagy a konvertálási folyamat menetének meghatározását.
+Az Aspose.Slides egyedi beállításokat – a [PdfOptions](https://reference.aspose.com/slides/php-java/aspose.slides/pdfoptions/) osztály tulajdonságait – biztosít, amelyekkel testreszabhatja a létrehozott PDF‑et, jelszóval lezárhatja, vagy meghatározhatja a konvertálási folyamat menetével kapcsolatos paramétereket.
 
-### **PowerPoint PDF‑be konvertálása egyéni beállításokkal**
+### **PowerPoint konvertálása PDF‑be egyéni beállításokkal**
 
-Az egyéni konvertálási beállításokkal meghatározhatja a raszteres képek kívánt minőségi beállítását, megadhatja a metafájlok kezelésének módját, beállíthatja a szöveg tömörítési szintjét, konfigurálhatja a képek DPI‑jét, és még sok mást.
+Az egyéni konvertálási beállítások használatával meghatározhatja a raszteres képek kívánt minőségét, megadhatja a metafájlok kezelésének módját, beállíthat egy szöveg‑tömörítési szintet, konfigurálhatja a képek DPI‑értékét, és egyebeket.
+
+Az alábbi példa egy prezentációt PDF 1.5‑ként exportál, JPEG‑minőség 90‑re állítva, kép felbontás 300 DPI, a metafájlok PNG‑ként mentve, és Flate szövegtömörítéssel.
 
 ```php
-# PdfOptions osztály példányosítása.
+use aspose\slides\PdfCompliance;
+use aspose\slides\PdfOptions;
+use aspose\slides\PdfTextCompression;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
 $pdfOptions = new PdfOptions();
-
-# JPG képek minőségének beállítása.
 $pdfOptions->setJpegQuality(90);
-
-# Képek DPI értékének beállítása.
 $pdfOptions->setSufficientResolution(300);
-
-# Metafájlok viselkedésének beállítása.
 $pdfOptions->setSaveMetafilesAsPng(true);
-
-# Szöveges tartalom szövegkompressziós szintjének beállítása.
 $pdfOptions->setTextCompression(PdfTextCompression::Flate);
-
-# PDF megfelelőségi mód definiálása.
 $pdfOptions->setCompliance(PdfCompliance::Pdf15);
 
-# A Presentation osztály példányosítása, amely egy PowerPoint vagy OpenDocument fájlt képvisel.
 $presentation = new Presentation("PowerPoint.pptx");
 try {
-    # A prezentáció mentése PDF dokumentumként.
     $presentation->save("PowerPoint-to-PDF.pdf", SaveFormat::Pdf, $pdfOptions);
 } finally {
     $presentation->dispose();
 }
 ```
 
-### **PowerPoint PDF‑be konvertálása rejtett diák beillesztésével**
+### **Beágyazott OLE fájlok megőrzése PDF‑csatolmányként**
 
-Ha egy prezentáció rejtett diákot tartalmaz, a [setShowHiddenSlides](https://reference.aspose.com/slides/hu/php-java/aspose.slides/pdfoptions/#setShowHiddenSlides) metódust a [PdfOptions](https://reference.aspose.com/slides/hu/php-java/aspose.slides/PdfOptions) osztályból használhatja a rejtett diák eredményként kapott PDF‑ben történő oldalként való belefoglalásához.
+Ha egy prezentáció beágyazott Excel‑munkafüzetet tartalmaz, előfordulhat, hogy a PDF‑fogadók szeretnék elérni a munkafüzet adatait, valamint megtekinteni a diát. Hívja meg a [setIncludeOleData](https://reference.aspose.com/slides/php-java/aspose.slides/pdfoptions/#setIncludeOleData) metódust `true`‑val, hogy a beágyazott OLE‑fájlok csatolmányként maradjanak a létrehozott PDF‑ben.
+
+Az alapértelmezett érték `false`: az OLE‑objektum előnézeti képe vagy ikonja megjelenik a PDF‑oldalon, de a beágyazott fájl nem kerül csatolmányként bele. Az opció `true`‑ra állítása megjeleníti a fájl adatát is. Az előnézet továbbra is vizuális ábrázolás marad; a csatolmány lehetővé teszi a fogadók számára, hogy külön nyissák meg vagy mentsék a beágyazott fájlt. Az OLE‑objektum nem alakul interaktív Excel‑munkalappá a PDF‑oldalon.
+
+Az alábbi példa betölt egy olyan prezentációt, amely már tartalmaz beágyazott Excel‑munkafüzetet, és azt PDF‑ként exportálja a munkafüzet csatolásával.
 
 ```php
-# Példányosítja a Presentation osztályt, amely egy PowerPoint vagy OpenDocument fájlt képvisel.
+use aspose\slides\PdfOptions;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$pdfOptions = new PdfOptions();
+$pdfOptions->setIncludeOleData(true);
+
+$presentation = new Presentation("presentation.pptx");
+try {
+    $presentation->save("presentation.pdf", SaveFormat::Pdf, $pdfOptions);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Az eredmény ellenőrzéséhez:
+1. Nyissa meg az exportált PDF‑et olyan megjelenítővel, amely támogatja a fájlcsatolmányokat, például az Adobe Acrobat Readerrel.
+2. Nyissa meg a megjelenítő **Csatolmányok** paneljét, és keresse meg a beágyazott munkafüzetet.
+3. Mentse a csatolmányt, és nyissa meg Excelben az adatok ellenőrzéséhez, vagy nyissa meg közvetlenül, ha a megjelenítő engedélyezi. Az előnézet a PDF‑oldalon különálló a csatolmánytól.
+
+{{% alert color="info" title="Note" %}}
+**Megjegyzés** A PDF/A szabványok korlátozásokat szabnak a csatolmányokra: a PDF/A‑1 tiltja a beágyazott fájlokat, a PDF/A‑2 csak PDF/A‑csatolmányokat enged meg, a PDF/A‑3 pedig más fájltípusokat, köztük Excel‑munkafüzeteket is. Ezek a szabványok követelményei, nem az Aspose.Slides‑re vonatkozó korlátozások. Ez a példa az alapértelmezett PDF‑megfelelőségi beállítást használja, és nem mutat be PDF/A‑exportot.
+{{% /alert %}}
+
+### **PowerPoint konvertálása PDF‑be rejtett diákkal**
+
+Ha egy prezentáció rejtett diákat tartalmaz, a [setShowHiddenSlides](https://reference.aspose.com/slides/php-java/aspose.slides/pdfoptions/#setShowHiddenSlides) metódust a [PdfOptions](https://reference.aspose.com/slides/php-java/aspose.slides/pdfoptions/) osztályból használva a rejtett diák a létrehozott PDF‑ben is megjelennek oldalként.
+
+```php
+use aspose\slides\PdfOptions;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$pdfOptions = new PdfOptions();
+$pdfOptions->setShowHiddenSlides(true);
+
 $presentation = new Presentation("PowerPoint.pptx");
 try {
-    # PdfOptions osztály példányosítása.
-    $pdfOptions = new PdfOptions();
-
-    # Rejtett diák hozzáadása.
-    $pdfOptions->setShowHiddenSlides(true);
-
-    # A prezentáció mentése PDF‑ként.
     $presentation->save("PowerPoint-to-PDF.pdf", SaveFormat::Pdf, $pdfOptions);
 } finally {
     $presentation->dispose();
 }
 ```
 
-### **PowerPoint PDF‑be konvertálása jelszóval védve**
+### **PowerPoint konvertálása jelszóval védett PDF‑be**
 
-Ez a kód bemutatja, hogyan konvertálhat egy PowerPoint‑prezentációt jelszóval védett PDF‑be a [PdfOptions](https://reference.aspose.com/slides/hu/php-java/aspose.slides/pdfoptions/) osztály védelmi paramétereinek használatával:
+Az alábbi példa egy prezentációt olyan PDF‑ként exportál, amely megnyitásához a `password` jelszó szükséges. A hozzáférési jogosultságok engedélyezik a nyomtatást, beleértve a nagy felbontású nyomtatást.
 
 ```php
-# Példányosítja a Presentation osztályt, amely egy PowerPoint vagy OpenDocument fájlt képvisel.
+use aspose\slides\PdfAccessPermissions;
+use aspose\slides\PdfOptions;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$pdfOptions = new PdfOptions();
+$pdfOptions->setPassword("password");
+$pdfOptions->setAccessPermissions(PdfAccessPermissions::PrintDocument | PdfAccessPermissions::HighQualityPrint);
+
 $presentation = new Presentation("PowerPoint.pptx");
 try {
-    # PdfOptions osztály példányosítása.
-    $pdfOptions = new PdfOptions();
-
-    # PDF jelszó és hozzáférési jogosultságok beállítása.
-    $pdfOptions->setPassword("password");
-    $pdfOptions->setAccessPermissions(PdfAccessPermissions::PrintDocument | PdfAccessPermissions::HighQualityPrint);
-
-    # A prezentáció mentése PDF‑ként.
     $presentation->save("PPTX-to-PDF.pdf", SaveFormat::Pdf, $pdfOptions);
 } finally {
     $presentation->dispose();
 }
 ```
 
-### **Betűkészlet‑helyettesítések észlelése**
+### **Betűkészlet‑cserék észlelése**
 
-Az Aspose.Slides a [setWarningCallback](https://reference.aspose.com/slides/hu/php-java/aspose.slides/saveoptions/#setWarningCallback) metódust a [PdfOptions](https://reference.aspose.com/slides/hu/php-java/aspose.slides/pdfoptions/) osztályban biztosítja, ami lehetővé teszi a betűkészlet‑helyettesítések észlelését a prezentáció‑PDF konvertálási folyamat során.
+Az Aspose.Slides a [setWarningCallback](https://reference.aspose.com/slides/php-java/aspose.slides/saveoptions/#setWarningCallback) metódust a [PdfOptions](https://reference.aspose.com/slides/php-java/aspose.slides/pdfoptions/) osztály alatt biztosítja, amely lehetővé teszi a betűkészlet‑cserék észlelését a prezentáció‑PDF konvertálási folyamat során.
+
+Az alábbi példa egy prezentációt PDF‑ként exportál, és a konzolra írja a betűkészlet‑csere figyelmeztetéseket. Figyelmeztetés csak akkor jelenik meg, ha egy nem elérhető betűkészletet cserélnek ki az export során.
 
 ```php
+use aspose\slides\PdfOptions;
+use aspose\slides\Presentation;
+use aspose\slides\ReturnAction;
+use aspose\slides\SaveFormat;
+use aspose\slides\WarningType;
+
 class FontSubstitutionHandler {
     function warning($warning)
     {
-        if (java_values($warning->getWarningType()) == WarningType::DataLoss &&
-        $warning->getDescription()->startsWith("Font will be substituted")) {
+        if (java_values($warning->getWarningType()) == WarningType::DataLoss && $warning->getDescription()->startsWith("Font will be substituted")) {
             echo("Font substitution warning: " . $warning->getDescription());
         }
 
@@ -179,101 +211,99 @@ class FontSubstitutionHandler {
     }
 }
 
-// Állítsa be a figyelmeztető visszahívást a PDF opciókban.
-$pdfOptions = new PdfOptions();
 $warningCallback = java_closure(new FontSubstitutionHandler(), null, java("com.aspose.slides.IWarningCallback"));
+
+$pdfOptions = new PdfOptions();
 $pdfOptions->setWarningCallback($warningCallback);
 
-// Példányosítsa a Presentation osztályt, amely egy PowerPoint vagy OpenDocument fájlt képvisel.
 $presentation = new Presentation("sample.pptx");
 try {
-    // Mentse a prezentációt PDF‑ként.
     $presentation->save("output.pdf", SaveFormat::Pdf, $pdfOptions);
 } finally {
     $presentation->dispose();
 }
 ```
 
-{{%  alert color="primary"  %}} 
-
-A betűkészlet‑helyettesítésről további információkért tekintse meg a [Font Substitution](/slides/hu/php-java/font-substitution/) cikket.
-
-{{% /alert %}} 
+{{% alert color="info" title="Note" %}}
+További információért a betűkészlet‑cserékről lásd a [Betűkészlet‑csere](/slides/hu/php-java/font-substitution/) cikket.
+{{% /alert %}}
 
 ## **Kiválasztott diák konvertálása PowerPoint‑ból PDF‑be**
 
-Ez a kód bemutatja, hogyan konvertálhat csak a PowerPoint‑prezentáció bizonyos diáit PDF‑be:
+Az alábbi példa egy prezentáció 1‑es és 3‑as diáját exportálja PDF‑be. A tömbben a diák számozása egy‑alapú, és a bemeneti prezentációnak legalább három diát kell tartalmaznia.
 
 ```php
-# Példányosítja a Presentation osztályt, amely egy PowerPoint vagy OpenDocument fájlt képvisel.
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
 $presentation = new Presentation("PowerPoint.pptx");
 try {
-    # Diák számait tartalmazó tömb beállítása.
     $slides = array(1, 3);
-
-    # A prezentáció mentése PDF‑ként.
     $presentation->save("PPTX-to-PDF.pdf", $slides, SaveFormat::Pdf);
 } finally {
     $presentation->dispose();
 }
 ```
 
-## **PowerPoint PDF‑be konvertálása egyéni diamérettel**
+## **PowerPoint konvertálása PDF‑be egyéni diamérettel**
 
-Ez a kód bemutatja, hogyan konvertálható a PowerPoint‑prezentáció PDF‑be meghatározott diamérettel:
+Az alábbi példa a prezentáció első diáját átmásolja egy új prezentációba, amelynek diamérete 612 × 792 pont (8,5 × 11 hüvelyk). A diatartalmat átméretezi, hogy illeszkedjen, és az egyetlen diát PDF‑be exportálja.
 
 ```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\SlideSizeScaleType;
+
 $slideWidth = 612.0;
 $slideHeight = 792.0;
 
-# Példányosítja a Presentation osztályt, amely egy PowerPoint vagy OpenDocument fájlt képvisel.
 $presentation = new Presentation("SelectedSlides.pptx");
-
-# Létrehoz egy új prezentációt módosított diamérettel.
 $resizedPresentation = new Presentation();
 
 try {
-    # Beállítja az egyéni diaméretet.
     $resizedPresentation->getSlideSize()->setSize($slideWidth, $slideHeight, SlideSizeScaleType::EnsureFit);
-
-    # Klónozza az első diát az eredeti prezentációból.
     $slide = $presentation->getSlides()->get_Item(0);
     $resizedPresentation->getSlides()->insertClone(0, $slide);
 
-    # Mentse a méretezett prezentációt PDF-be jegyzetekkel.
-    $resizedPresentation->save("PDFnotes_out.pdf", SaveFormat::Pdf);
+    // Távolítsa el azt az üres diát, amelyet az új prezentáció létrehozott.
+
+    $resizedPresentation->save("PDF_with_custom_slide_size.pdf", SaveFormat::Pdf);
 } finally {
     $resizedPresentation->dispose();
     $presentation->dispose();
 }
 ```
 
-## **PowerPoint PDF‑be konvertálása jegyzetdia nézetben**
+## **PowerPoint konvertálása PDF‑be jegyzetes dianézetben**
 
-Ez a kód bemutatja, hogyan konvertálható egy PowerPoint‑prezentáció PDF‑be, amely tartalmazza a jegyzeteket:
+Az alábbi példa egy prezentációt PDF‑be exportál, amelyben minden dia előadói jegyzete a dia alatt jelenik meg. Használjon előadói jegyzeteket tartalmazó prezentációt a végeredmény megtekintéséhez.
 
 ```php
-# Példányosítja a Presentation osztályt, amely egy PowerPoint vagy OpenDocument fájlt képvisel.
+use aspose\slides\NotesCommentsLayoutingOptions;
+use aspose\slides\NotesPositions;
+use aspose\slides\PdfOptions;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$notesOptions = new NotesCommentsLayoutingOptions();
+$notesOptions->setNotesPosition(NotesPositions::BottomFull);
+
+$pdfOptions = new PdfOptions();
+$pdfOptions->setSlidesLayoutOptions($notesOptions);
+
 $presentation = new Presentation("SelectedSlides.pptx");
 try {
-    # PDF opciók beállítása Jegyzet elrendezéssel.
-    $notesOptions = new NotesCommentsLayoutingOptions();
-    $notesOptions->setNotesPosition(NotesPositions::BottomFull);
-    $pdfOptions = new PdfOptions();
-    $pdfOptions->setSlidesLayoutOptions($notesOptions);
-
-    # A prezentáció mentése PDF-be jegyzetekkel.
     $presentation->save("PDF_with_notes.pdf", SaveFormat::Pdf, $pdfOptions);
 } finally {
     $presentation->dispose();
 }
 ```
 
-## **PDF hozzáférhetőségi és megfelelőségi szabványok**
+## **PDF‑hez kapcsolódó hozzáférhetőség és megfelelőségi szabványok**
 
-Az Aspose.Slides lehetővé teszi egy olyan konvertálási eljárás használatát, amely megfelel a [Web Content Accessibility Guidelines (**WCAG**)](https://www.w3.org/TR/WCAG-TECHS/pdf.html) irányelveinek. A PowerPoint-dokumentumot PDF‑re exportálhatja a következő megfelelőségi szabványok bármelyikével: **PDF/A1a**, **PDF/A1b**, és **PDF/UA**.
+Az Aspose.Slides lehetővé teszi egy olyan konvertálási eljárás használatát, amely megfelel a [Webtartalom‑hozzáférhetőségi irányelvek (**WCAG**)](https://www.w3.org/TR/WCAG-TECHS/pdf.html) szabványnak. A PowerPoint dokumentumot PDF‑be exportálhatja a következő megfelelőségi szabványok bármelyikével: **PDF/A1a**, **PDF/A1b**, és **PDF/UA**.
 
-Ez a kód bemutat egy PowerPoint‑PDF konvertálási folyamatot, amely különböző megfelelőségi szabványok alapján több PDF‑et hoz létre:
+Ez a kód bemutat egy PowerPoint‑PDF konvertálási folyamatot, amely különböző megfelelőségi szabványok alapján több PDF‑et állít elő:
 
 ```php
 $presentation = new Presentation("pres.pptx");
@@ -293,38 +323,31 @@ try {
 }
 ```
 
-{{% alert title="Note" color="warning" %}} 
-
-Az Aspose.Slides támogatja a PDF konvertálási műveleteket, lehetővé téve a PDF fájlok népszerű formátumokra való átalakítását. Végrehajthatja a [PDF to HTML](https://products.aspose.com/slides/hu/php-java/conversion/pdf-to-html/), [PDF to image](https://products.aspose.com/slides/hu/php-java/conversion/pdf-to-image/), [PDF to JPG](https://products.aspose.com/slides/hu/php-java/conversion/pdf-to-jpg/), és [PDF to PNG](https://products.aspose.com/slides/hu/php-java/conversion/pdf-to-png/) konverziókat. Egyéb PDF konvertálások speciális formátumokra – [PDF to SVG](https://products.aspose.com/slides/hu/php-java/conversion/pdf-to-svg/), [PDF to TIFF](https://products.aspose.com/slides/hu/php-java/conversion/pdf-to-tiff/), és [PDF to XML](https://products.aspose.com/slides/hu/php-java/conversion/pdf-to-xml/) – szintén támogatottak.
-
+{{% alert color="info" title="Note" %}}
+Az Aspose.Slides támogatja a PDF konvertálási műveleteket, lehetővé téve a PDF‑fájlok népszerű formátumokba való átalakítását. Végrehajthatja a [PDF‑t HTML‑re](https://products.aspose.com/slides/php-java/conversion/pdf-to-html/), a [PDF‑t képre](https://products.aspose.com/slides/php-java/conversion/pdf-to-image/), a [PDF‑t JPG‑re](https://products.aspose.com/slides/php-java/conversion/pdf-to-jpg/), illetve a [PDF‑t PNG‑re](https://products.aspose.com/slides/php-java/conversion/pdf-to-png/) konvertálásokat. Egyéb PDF‑konvertálási műveletek speciális formátumokra – [PDF‑t SVG‑re](https://products.aspose.com/slides/php-java/conversion/pdf-to-svg/), [PDF‑t TIFF‑re](https://products.aspose.com/slides/php-java/conversion/pdf-to-tiff/), és [PDF‑t XML‑re](https://products.aspose.com/slides/php-java/conversion/pdf-to-xml/) – szintén támogatottak.
 {{% /alert %}}
 
-> **Megjegyzés:** PDF/UA exportálásakor az Aspose.Slides a komplex grafikákat, például a SmartArt‑ot, diagramokat és képleteket egyetlen ábraként kezeli. Az egyes útvonal elemek nem maradnak meg különálló tartalomként, és előfordulhat, hogy artefaktumként vannak megjelölve; alternatív szöveg csak az egész ábrához kerül biztosításra.
+> **Megjegyzés:** PDF/UA‑ba exportáláskor az Aspose.Slides a komplex grafikákat, például a SmartArt‑ot, diagramokat és képleteket egyetlen alakzatként kezeli. Az egyedi útvonal‑elemek nem maradnak meg különálló tartalomként, és esetleg műtárgyként vannak jelölve; alternatív szöveg csak az egész alakzatra vonatkozik.
 
 ## **GYIK**
 
-**Konvertálhatok több PowerPoint fájlt egyszerre PDF‑be?**
+**Konvertálhatok több PowerPoint fájlt egyszerre PDF‑be?**  
+Igen, az Aspose.Slides támogatja a több PPT vagy PPTX fájl kötegelt PDF‑re konvertálását. A fájlokon programozott módon iterálhat, és alkalmazhatja a konvertálási folyamatot.
 
-Igen, az Aspose.Slides támogatja több PPT vagy PPTX fájl kötegelt PDF‑be konvertálását. A fájlokon programozottan iterálhat, és alkalmazhatja a konvertálási folyamatot.
+**Lehetséges a konvertált PDF jelszóval védése?**  
+Igen. Használja a [PdfOptions](https://reference.aspose.com/slides/php-java/aspose.slides/pdfoptions/) osztályt a jelszó beállításához és a hozzáférési jogosultságok meghatározásához a konvertálási folyamat során.
 
-**Lehetséges a konvertált PDF jelszóval védése?**
+**Hogyan foglalhatom bele a rejtett diákat a PDF‑be?**  
+Hívja meg a [setShowHiddenSlides](https://reference.aspose.com/slides/php-java/aspose.slides/pdfoptions/#setShowHiddenSlides) metódust `true`‑val a [PdfOptions](https://reference.aspose.com/slides/php-java/aspose.slides/pdfoptions/) osztályban, hogy a rejtett diák megjelenjenek a létrehozott PDF‑ben.
 
-Természetesen. Használja a [PdfOptions](https://reference.aspose.com/slides/hu/php-java/aspose.slides/pdfoptions/) osztályt, hogy beállítson jelszót és meghatározza a hozzáférési jogosultságokat a konvertálási folyamat során.
+**Meg tudja az Aspose.Slides fenntartani a magas képi minőséget a PDF‑ben?**  
+Igen, a képek minőségét úgy szabályozhatja, hogy a [setJpegQuality](https://reference.aspose.com/slides/php-java/aspose.slides/pdfoptions/#setJpegQuality) és a [setSufficientResolution](https://reference.aspose.com/slides/php-java/aspose.slides/pdfoptions/#setSufficientResolution) metódusokat a [PdfOptions](https://reference.aspose.com/slides/php-java/aspose.slides/pdfoptions/) osztályban használja, biztosítva, hogy dokumentumai megfeleljenek a hozzáférhetőségi és archiválási követelményeknek.
 
-**Hogyan foglalhatom bele a rejtett diákat a PDF‑be?**
-
-Használja a `setShowHiddenSlides` metódust a [PdfOptions](https://reference.aspose.com/slides/hu/php-java/aspose.slides/pdfoptions/) osztályban, hogy a rejtett diák a keletkezett PDF‑ben is szerepeljenek.
-
-**Az Aspose.Slides képes magas képminőséget biztosítani a PDF‑ben?**
-
-Igen, a képminőséget szabályozhatja a `setJpegQuality` és `setSufficientResolution` metódusok használatával a [PdfOptions](https://reference.aspose.com/slides/hu/php-java/aspose.slides/pdfoptions/) osztályban, hogy magas minőségű képek legyenek a PDF‑ben.
-
-**Az Aspose.Slides támogatja a PDF/A megfelelőségi szabványokat?**
-
-Igen, az Aspose.Slides lehetővé teszi a PDF‑ek exportálását, amelyek megfelelnek különböző szabványoknak, beleértve a PDF/A1a, PDF/A1b és PDF/UA szabványokat, ezáltal biztosítva, hogy dokumentumai megfeleljenek a hozzáférhetőségi és archiválási követelményeknek.
+**Támogatja az Aspose.Slides a PDF/A megfelelőségi szabványokat?**  
+Igen, az Aspose.Slides lehetővé teszi olyan PDF‑ek exportálását, amelyek megfelelnek a [különféle szabványoknak](https://reference.aspose.com/slides/php-java/aspose.slides/pdfcompliance/), beleértve a PDF/A1a, PDF/A1b és PDF/UA szabványokat, ezáltal biztosítva, hogy dokumentumai megfeleljenek a hozzáférhetőségi és archiválási követelményeknek.
 
 ## **További források**
 
-- [Aspose.Slides for PHP via Java Documentation](/slides/hu/php-java/)
-- [Aspose.Slides for PHP via Java API Reference](https://reference.aspose.com/slides/hu/php-java/)
-- [Aspose Free Online Converters](https://products.aspose.app/slides/hu/conversion)
+- [Aspose.Slides for PHP via Java dokumentáció](/slides/hu/php-java/)
+- [Aspose.Slides for PHP via Java API referencia](https://reference.aspose.com/slides/php-java/)
+- [Aspose ingyenes online konverterek](https://products.aspose.app/slides/conversion)

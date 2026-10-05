@@ -1,61 +1,65 @@
 ---
-title: Správa OLE objektů v prezentacích v .NET
-linktitle: Správa OLE
+title: Spravovat OLE objekty v prezentacích v .NET
+linktitle: Spravovat OLE
 type: docs
 weight: 40
 url: /cs/net/manage-ole/
 keywords:
-- OLE objekt
-- Objektové propojování a vkládání
-- přidat OLE
-- vložit OLE
-- přidat objekt
-- vložit objekt
-- přidat soubor
-- vložit soubor
-- propojený objekt
-- propojený soubor
-- změnit OLE
-- OLE ikona
-- OLE název
-- extrahovat OLE
-- extrahovat objekt
-- extrahovat soubor
-- PowerPoint
-- prezentace
-- .NET
-- C#
-- Aspose.Slides
-description: "Optimalizujte správu OLE objektů v PowerPointu a souborech OpenDocument pomocí Aspose.Slides pro .NET. Vkládejte, aktualizujte a exportujte OLE obsah bez problémů."
+  - OLE objekt
+  - Objektové propojení a vkládání
+  - přidat OLE
+  - vložit OLE
+  - přidat objekt
+  - vložit objekt
+  - přidat soubor
+  - vložit soubor
+  - propojený objekt
+  - propojený soubor
+  - změnit OLE
+  - OLE ikona
+  - OLE název
+  - extrahovat OLE
+  - extrahovat objekt
+  - extrahovat soubor
+  - PowerPoint
+  - prezentace
+  - .NET
+  - C#
+  - Aspose.Slides
+description: "Optimalizujte správu OLE objektů v souborech PowerPoint a OpenDocument pomocí Aspose.Slides pro .NET. Vkládejte, aktualizujte a exportujte OLE obsah hladce."
 ---
 ## **Úvod**
 
-{{% alert title="Info" color="info" %}}
-
-OLE (Object Linking & Embedding) je technologie společnosti Microsoft, která umožňuje umístit data a objekty vytvořené v jedné aplikaci do jiné aplikace pomocí propojení nebo vložení. 
-
+{{% alert color="info" title="Note" %}}
+OLE (Object Linking & Embedding) je technologie Microsoftu, která umožňuje umístit data a objekty vytvořené v jedné aplikaci do jiné aplikace prostřednictvím propojení nebo vložení. 
 {{% /alert %}} 
 
-Uvažujme o grafu vytvořeném v MS Excel. Tento graf je poté umístěn do snímku PowerPointu. Tento Excel graf se považuje za OLE objekt. 
+Zvažte graf vytvořený v MS Excel. Tento graf je poté umístěn do snímku PowerPointu. Tento Excel graf je považován za OLE objekt. 
 
-- OLE objekt se může zobrazovat jako ikona. V takovém případě, když ikonu dvojkliknete, otevře se graf v přidružené aplikaci (Excel), nebo budete vyzváni k výběru aplikace pro otevření nebo úpravu objektu. 
-- OLE objekt může zobrazovat svůj skutečný obsah, například obsah grafu. V tomto případě je graf aktivován v PowerPointu, načte se rozhraní grafu a můžete upravovat data grafu přímo v PowerPointu.
+- OLE objekt může být zobrazen jako ikona. V tom případě, když na ikonu dvakrát kliknete, otevře se graf v jeho přidružené aplikaci (Excel), nebo budete vyzváni vybrat aplikaci pro otevření či úpravu objektu. 
+- OLE objekt může zobrazovat svůj skutečný obsah, například obsah grafu. V tomto případě je graf aktivován v PowerPointu, načte se rozhraní grafu a můžete v PowerPointu upravovat data grafu.
 
-[Aspose.Slides for .NET](https://products.aspose.com/slides/cs/net/) umožňuje vkládat OLE objekty do snímků jako rámy OLE objektů ([OleObjectFrame](https://reference.aspose.com/slides/cs/net/aspose.slides/oleobjectframe)).
+[Aspose.Slides for .NET](https://products.aspose.com/slides/net/) vám umožňuje vložit OLE objekty do snímků jako OLE rámce objektů ([OleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe)).
 
-## **Přidání OLE objektových rámců do snímků**
+## **Přidání OLE rámců objektů do snímků**
 
-Předpokládejme, že jste již vytvořili graf v Microsoft Excel a chcete jej vložit do snímku jako rámeček OLE objektu pomocí Aspose.Slides for .NET, můžete to provést následujícím způsobem:
+Předpokládáme, že jste již vytvořili graf v Microsoft Excel a chcete jej vložit do snímku jako OLE rámec objektu pomocí Aspose.Slides for .NET, můžete to provést takto:
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation).
+1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
 2. Získejte odkaz na snímek pomocí jeho indexu.
-3. Načtěte soubor Excel jako pole bajtů.
-4. Přidejte [OleObjectFrame](https://reference.aspose.com/slides/cs/net/aspose.slides/oleobjectframe) do snímku, který obsahuje pole bajtů a další informace o OLE objektu.
-5. Uložte upravenou prezentaci jako soubor PPTX.
+3. Přečtěte soubor Excel jako pole bajtů.
+4. Přidejte [OleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe) do snímku s polem bajtů a dalším informacemi o OLE objektu.
+5. Zapište upravenou prezentaci jako soubor PPTX.
 
-V níže uvedeném příkladu jsme přidali graf ze souboru Excel do snímku jako [OleObjectFrame](https://reference.aspose.com/slides/cs/net/aspose.slides/oleobjectframe) pomocí Aspose.Slides for .NET. **Poznámka** že konstruktor [OleEmbeddedDataInfo](https://reference.aspose.com/slides/cs/net/aspose.slides.dom.ole/oleembeddeddatainfo/) přijímá rozšíření vkládatelného objektu jako druhý parametr. Toto rozšíření umožňuje PowerPointu správně interpretovat typ souboru a vybrat správnou aplikaci pro otevření tohoto OLE objektu.
+V níže uvedeném příkladu jsme přidali graf ze souboru Excel do snímku jako [OleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe) pomocí Aspose.Slides for .NET.  
+**Poznámka**: konstruktor [OleEmbeddedDataInfo](https://reference.aspose.com/slides/net/aspose.slides.dom.ole/oleembeddeddatainfo/) přijímá jako druhý parametr rozšíření vkládaného objektu. Toto rozšíření umožňuje PowerPointu správně interpretovat typ souboru a vybrat správnou aplikaci pro otevření tohoto OLE objektu.
 
-```csharp 
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.DOM.Ole;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     SizeF slideSize = presentation.SlideSize.Size;
@@ -65,56 +69,62 @@ using (Presentation presentation = new Presentation())
     byte[] fileData = File.ReadAllBytes("book.xlsx");
     IOleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(fileData, "xlsx");
 
-    // Přidejte OLE objektový rámec do snímku.
+    // Přidejte rámec OLE objektu do snímku.
     slide.Shapes.AddOleObjectFrame(0, 0, slideSize.Width, slideSize.Height, dataInfo);
 
     presentation.Save("output.pptx", SaveFormat.Pptx);
 }
 ```
 
-### **Přidání propojených OLE objektových rámců**
+### **Přidání propojených OLE rámců objektů**
 
-Aspose.Slides for .NET umožňuje přidat [OleObjectFrame](https://reference.aspose.com/slides/cs/net/aspose.slides/oleobjectframe) bez vkládání dat, ale pouze s odkazem na soubor.
+Aspose.Slides for .NET vám umožňuje přidat [OleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe) bez vložení dat, pouze s odkazem na soubor.
 
-Tento kód v C# ukazuje, jak přidat [OleObjectFrame](https://reference.aspose.com/slides/cs/net/aspose.slides/oleobjectframe) s propojeným souborem Excel do snímku:
+Tento C# kód vám ukazuje, jak přidat [OleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe) s odkázaným souborem Excel do snímku:
 
-```csharp 
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     ISlide slide = presentation.Slides[0];
 
-    // Přidejte OLE objektový rámec s odkazem na soubor Excel.
+    // Přidejte rámec OLE objektu s propojeným souborem Excel.
     slide.Shapes.AddOleObjectFrame(20, 20, 200, 150, "Excel.Sheet.12", "book.xlsx");
 
     presentation.Save("output.pptx", SaveFormat.Pptx);
 }
 ```
 
-## **Přístup k OLE objektovým rámcům**
+## **Přístup k OLE rámcům objektů**
 
-Pokud je OLE objekt již vložen do snímku, můžete jej snadno najít nebo získat tímto způsobem:
+Pokud je OLE objekt již vložen do snímku, můžete jej snadno najít nebo přistupovat k němu tímto způsobem:
 
-1. Načtěte prezentaci s vloženým OLE objektem vytvořením instance třídy [Presentation](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation).
+1. Načtěte prezentaci s vloženým OLE objektem vytvořením instance třídy [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
 2. Získejte odkaz na snímek pomocí jeho indexu.
-3. Získejte přístup k tvaru [OleObjectFrame](https://reference.aspose.com/slides/cs/net/aspose.slides/oleobjectframe). V našem příkladu jsme použili dříve vytvořený PPTX, který má na první snímku pouze jeden tvar. Poté jsme tento objekt *přetypovali* na [IOleObjectFrame](https://reference.aspose.com/slides/cs/net/aspose.slides/ioleobjectframe). Toto byl požadovaný rám OLE objektu, ke kterému jsme chtěli získat přístup.
-4. Jakmile získáte přístup k rámci OLE objektu, můžete na něm provádět libovolné operace.
+3. Přistupte k tvaru [OleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe). 
+   V našem příkladu jsme použili dříve vytvořený PPTX, který má na prvním snímku jen jeden tvar. Pak jsme tento objekt *přetypovali* na [IOleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/ioleobjectframe). To byl požadovaný OLE rámec objektu, ke kterému jsme přistupovali.
+4. Jakmile je OLE rámec objektu přístupný, můžete na něm provádět libovolnou operaci.
 
-V níže uvedeném příkladu je přístup k OLE objektovému rámci (grafu Excel vloženému do snímku) a jeho souborovým datům.
+V níže uvedeném příkladu je přístup k OLE rámci objektu (objekt Excel grafu vložený do snímku) a jeho souborovým datům.
 
 ```csharp 
+using Aspose.Slides;
+
 using (Presentation presentation = new Presentation("sample.pptx"))
 {
     ISlide slide = presentation.Slides[0];
 
-    // Získejte první tvar jako OLE objektový rámec.
+    // Získat první tvar jako OLE rámec objektu.
     IOleObjectFrame oleFrame = slide.Shapes[0] as IOleObjectFrame;
 
     if (oleFrame != null)
     {
-        // Získejte data vloženého souboru.
+        // Získat vložená data souboru.
         byte[] fileData = oleFrame.EmbeddedData.EmbeddedFileData;
 
-        // Získejte příponu vloženého souboru.
+        // Získat příponu vloženého souboru.
         string fileExtension = oleFrame.EmbeddedData.EmbeddedFileExtension;
 
         // ...
@@ -122,27 +132,29 @@ using (Presentation presentation = new Presentation("sample.pptx"))
 }
 ```
 
-### **Přístup k vlastnostem propojeného OLE objektového rámce**
+### **Přístup k vlastnostem propojeného OLE rámce objektu**
 
-Aspose.Slides umožňuje přístup k vlastnostem propojených OLE objektových rámců.
+Aspose.Slides vám umožňuje přistupovat k vlastnostem propojených OLE rámců objektů.
 
-Tento kód v C# ukazuje, jak zkontrolovat, zda je OLE objekt propojen, a poté získat cestu k propojenému souboru:
+Tento C# kód vám ukazuje, jak zkontrolovat, zda je OLE objekt propojen, a poté získat cestu k propojenému souboru:
 
 ```csharp
+using Aspose.Slides;
+
 using (Presentation presentation = new Presentation("sample.ppt"))
 {
     ISlide slide = presentation.Slides[0];
 
-    // Získejte první tvar jako OLE objektový rámec.
+    // Získat první tvar jako rámec OLE objektu.
     IOleObjectFrame oleFrame = slide.Shapes[0] as IOleObjectFrame;
 
-    // Zkontrolujte, zda je OLE objekt propojen.
+    // Zkontrolovat, zda je OLE objekt propojen.
     if (oleFrame != null && oleFrame.IsObjectLink)
     {
-        // Vytiskněte úplnou cestu k propojenému souboru.
+        // Vytisknout úplnou cestu k propojenému souboru.
         Console.WriteLine("OLE object frame is linked to: " + oleFrame.LinkPathLong);
 
-        // Vytiskněte relativní cestu k propojenému souboru, pokud existuje.
+        // Vytisknout relativní cestu k propojenému souboru, pokud existuje.
         // Pouze prezentace PPT mohou obsahovat relativní cestu.
         if (!string.IsNullOrEmpty(oleFrame.LinkPathRelative))
         {
@@ -154,52 +166,55 @@ using (Presentation presentation = new Presentation("sample.ppt"))
 
 ## **Změna dat OLE objektu**
 
-{{% alert color="primary" %}} 
-
-V této sekci níže uvedený příklad kódu používá [Aspose.Cells for .NET](/cells/net/).
-
+{{% alert color="info" title="Note" %}}
+V této sekci níže uvedený příklad kódu používá [Aspose.Cells for .NET](https://docs.aspose.com/cells/net/).
 {{% /alert %}}
 
-Pokud je OLE objekt již vložen do snímku, můžete jej snadno získat a upravit jeho data tímto způsobem:
+Pokud je OLE objekt již vložen do snímku, můžete jej snadno přistupovat a upravit jeho data tímto způsobem:
 
-1. Načtěte prezentaci s vloženým OLE objektem vytvořením instance třídy [Presentation](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation).
+1. Načtěte prezentaci s vloženým OLE objektem vytvořením instance třídy [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
 2. Získejte odkaz na snímek pomocí jeho indexu.
-3. Získejte přístup k tvaru [OLEObjectFrame](https://reference.aspose.com/slides/cs/net/aspose.slides/oleobjectframe). V našem příkladu jsme použili dříve vytvořený PPTX, který má na první snímku jeden tvar. Poté jsme tento objekt *přetypovali* na [IOleObjectFrame](https://reference.aspose.com/slides/cs/net/aspose.slides/ioleobjectframe). Toto byl požadovaný rám OLE objektu, ke kterému jsme chtěli získat přístup.
-4. Jakmile získáte přístup k rámci OLE objektu, můžete na něm provádět libovolné operace.
-5. Vytvořte objekt `Workbook` a získejte přístup k OLE datům.
-6. Získejte požadovaný `Worksheet` a upravte data.
+3. Přistupte k tvaru [OLEObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe).
+   V našem příkladu jsme použili dříve vytvořený PPTX, který má na prvním snímku jeden tvar. Pak jsme tento objekt *přetypovali* na [IOleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/ioleobjectframe). To byl požadovaný OLE rámec objektu, ke kterému jsme přistupovali.
+4. Jakmile je OLE rámec objektu přístupný, můžete na něm provádět libovolnou operaci.
+5. Vytvořte objekt `Workbook` a přistupte k OLE datům.
+6. Přistupte k požadovanému `Worksheet` a upravte data.
 7. Uložte aktualizovaný `Workbook` do proudu.
-8. Změňte data OLE objektu z proudu.
+8. Změňte data OLE objektu ze proudu.
 
-V níže uvedeném příkladu je přístup k OLE objektovému rámci (grafu Excel vloženému do snímku) a jeho souborová data jsou upravena pro aktualizaci dat grafu.
+V níže uvedeném příkladu je přístup k OLE rámci objektu (objekt Excel grafu vložený do snímku) a jeho souborová data jsou upravena k aktualizaci dat grafu.
 
 ```csharp 
+using Aspose.Slides;
+using Aspose.Slides.DOM.Ole;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation("sample.pptx"))
 {
     ISlide slide = presentation.Slides[0];
 
-    // Získejte první tvar jako OLE objektový rámec.
+    // Získat první tvar jako rámec OLE objektu.
     IOleObjectFrame oleFrame = slide.Shapes[0] as IOleObjectFrame;
 
     if (oleFrame != null)
     {
         using (MemoryStream oleStream = new MemoryStream(oleFrame.EmbeddedData.EmbeddedFileData))
         {
-            // Přečtěte data OLE objektu jako objekt Workbook.
-            Workbook workbook = new Workbook(oleStream);
+            // Načíst data OLE objektu jako objekt Workbook.
+            Aspose.Cells.Workbook workbook = new Aspose.Cells.Workbook(oleStream);
 
             using (MemoryStream newOleStream = new MemoryStream())
             {
-                // Modifikujte data sešitu.
+                // Upravit data sešitu.
                 workbook.Worksheets[0].Cells[0, 4].PutValue("E");
                 workbook.Worksheets[0].Cells[1, 4].PutValue(12);
                 workbook.Worksheets[0].Cells[2, 4].PutValue(14);
                 workbook.Worksheets[0].Cells[3, 4].PutValue(15);
 
-                OoxmlSaveOptions fileOptions = new OoxmlSaveOptions(Aspose.Cells.SaveFormat.Xlsx);
+                Aspose.Cells.OoxmlSaveOptions fileOptions = new Aspose.Cells.OoxmlSaveOptions(Aspose.Cells.SaveFormat.Xlsx);
                 workbook.Save(newOleStream, fileOptions);
 
-                // Změňte data objektu OLE rámce.
+                // Změnit data objektu OLE rámce.
                 IOleEmbeddedDataInfo newData = new OleEmbeddedDataInfo(newOleStream.ToArray(), oleFrame.EmbeddedData.EmbeddedFileExtension);
                 oleFrame.SetEmbeddedData(newData);
             }
@@ -212,11 +227,15 @@ using (Presentation presentation = new Presentation("sample.pptx"))
 
 ## **Vkládání dalších typů souborů do snímků**
 
-Kromě grafů Excel umožňuje Aspose.Slides for .NET vložit do snímků i jiné typy souborů. Například můžete vložit soubory HTML, PDF a ZIP jako objekty. Když uživatel dvojklikne na vložený objekt, automaticky se otevře v příslušném programu nebo je uživatel vyzván, aby vybral vhodný program pro jeho otevření.
+Kromě Excel grafů vám Aspose.Slides for .NET umožňuje vložit do snímků i jiné typy souborů. Například můžete vložit soubory HTML, PDF a ZIP jako objekty. Když uživatel dvakrát klikne na vložený objekt, automaticky se otevře ve příslušném programu, nebo je uživatel vyzván vybrat vhodný program pro jeho otevření.
 
-Tento kód v C# ukazuje, jak vložit HTML a ZIP do snímku:
+Tento C# kód vám ukazuje, jak vložit HTML a ZIP do snímku:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.DOM.Ole;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     ISlide slide = presentation.Slides[0];
@@ -237,11 +256,15 @@ using (Presentation presentation = new Presentation())
 
 ## **Nastavení typů souborů pro vložené objekty**
 
-Při práci s prezentacemi může být potřeba nahradit staré OLE objekty novými nebo nahradit nepodporovaný OLE objekt podporovaným. Aspose.Slides for .NET umožňuje nastavit typ souboru pro vložený objekt, což umožňuje aktualizovat data OLE rámce nebo jeho příponu.
+Při práci s prezentacemi může být potřeba nahradit staré OLE objekty novými nebo nahradit nepodporovaný OLE objekt podporovaným. Aspose.Slides for .NET vám umožňuje nastavit typ souboru pro vložený objekt, což vám umožní aktualizovat data OLE rámce nebo jeho rozšíření.
 
-Tento kód v C# ukazuje, jak nastavit typ souboru pro vložený OLE objekt na `zip`:
+Tento C# kód vám ukazuje, jak nastavit typ souboru pro vložený OLE objekt na `zip`:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.DOM.Ole;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation("sample.pptx"))
 {
     ISlide slide = presentation.Slides[0];
@@ -252,7 +275,7 @@ using (Presentation presentation = new Presentation("sample.pptx"))
 
     Console.WriteLine($"Current embedded file extension is: {fileExtension}");
 
-    // Změňte typ souboru na ZIP.
+    // Změnit typ souboru na ZIP.
     oleFrame.SetEmbeddedData(new OleEmbeddedDataInfo(fileData, "zip"));
 
     presentation.Save("output.pptx", SaveFormat.Pptx);
@@ -261,21 +284,24 @@ using (Presentation presentation = new Presentation("sample.pptx"))
 
 ## **Nastavení obrázků ikon a názvů pro vložené objekty**
 
-Po vložení OLE objektu se automaticky přidá náhled skládající se z obrázku ikony. Tento náhled uživatelé vidí před přístupem nebo otevřením OLE objektu. Pokud chcete použít konkrétní obrázek a text jako prvky v náhledu, můžete nastavit obrázek ikony a název pomocí Aspose.Slides for .NET.
+Po vložení OLE objektu se automaticky přidá náhled skládající se z obrázku ikony. Tento náhled je to, co uživatelé vidí před přístupem nebo otevřením OLE objektu. Pokud chcete použít konkrétní obrázek a text jako prvky v náhledu, můžete nastavit obrázek ikony a název pomocí Aspose.Slides for .NET.
 
-Tento kód v C# ukazuje, jak nastavit obrázek ikony a název pro vložený objekt: 
+Tento C# kód vám ukazuje, jak nastavit obrázek ikony a název pro vložený objekt: 
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation("sample.pptx"))
 {
     ISlide slide = presentation.Slides[0];
     IOleObjectFrame oleFrame = (IOleObjectFrame)slide.Shapes[0];
 
-    // Přidejte obrázek do zdrojů prezentace.
+    // Přidat obrázek do zdrojů prezentace.
     byte[] imageData = File.ReadAllBytes("image.png");
     IPPImage oleImage = presentation.Images.AddImage(imageData);
 
-    // Nastavte název a obrázek pro náhled OLE.
+    // Nastavit název a obrázek pro náhled OLE.
     oleFrame.SubstitutePictureTitle = "My title";
     oleFrame.SubstitutePictureFormat.Picture.Image = oleImage;
     oleFrame.IsObjectIcon = true;
@@ -284,24 +310,38 @@ using (Presentation presentation = new Presentation("sample.pptx"))
 }
 ```
 
-## **Zabránit změně velikosti a posunu OLE objektového rámce**
+## **Zabránit změně velikosti a přemístění OLE rámce objektu**
 
-Po přidání propojeného OLE objektu do snímku prezentace, když otevřete prezentaci v PowerPointu, můžete vidět zprávu, která vás žádá o aktualizaci odkazů. Kliknutí na tlačítko „Update Links“ může změnit velikost a polohu rámce OLE objektu, protože PowerPoint aktualizuje data z propojeného OLE objektu a obnovuje náhled objektu. Chcete‑li zabránit PowerPointu v dotazu na aktualizaci dat objektu, nastavte vlastnost `UpdateAutomatic` rozhraní [IOleObjectFrame](https://reference.aspose.com/slides/cs/net/aspose.slides/ioleobjectframe/) na `false`:
+Po přidání propojeného OLE objektu do snímku prezentace a otevření prezentace v PowerPointu se může zobrazit zpráva s výzvou k aktualizaci odkazů. Kliknutím na tlačítko „Update Links“ může dojít ke změně velikosti a polohy OLE rámce objektu, protože PowerPoint aktualizuje data z propojeného OLE objektu a obnoví náhled objektu. Chcete‑li zabránit výzvě PowerPointu k aktualizaci dat objektu, nastavte vlastnost `UpdateAutomatic` rozhraní [IOleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/ioleobjectframe/) na `false`:
 
 ```cs
-oleFrame.UpdateAutomatic = false;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using (Presentation presentation = new Presentation("sample.pptx"))
+{
+    IOleObjectFrame oleFrame = (IOleObjectFrame)presentation.Slides[0].Shapes[0];
+
+    // Zachovat velikost a pozici rámce OLE objektu, když PowerPoint aktualizuje odkaz.
+    oleFrame.UpdateAutomatic = false;
+
+    presentation.Save("output.pptx", SaveFormat.Pptx);
+}
 ```
 
-## **Extrahování vložených souborů**
+## **Extrahovat vložené soubory**
 
-Aspose.Slides for .NET umožňuje extrahovat soubory vložené do snímků jako OLE objekty tímto způsobem:
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation), která obsahuje OLE objekty, které chcete extrahovat.
-2. Projděte všechny tvary v prezentaci a získejte přístup k tvarům [OLEObjectFrame](https://reference.aspose.com/slides/cs/net/aspose.slides/oleobjectframe).
-3. Získejte data vložených souborů z OLE objektových rámců a zapište je na disk.
+Aspose.Slides for .NET vám umožňuje extrahovat soubory vložené do snímků jako OLE objekty tímto způsobem:
 
-Tento kód v C# ukazuje, jak extrahovat soubory vložené do snímku jako OLE objekty:
+1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) obsahující OLE objekty, které chcete extrahovat.
+2. Projděte všechny tvary v prezentaci a přistupujte k tvarům [OLEObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe).
+3. Přistupte k datům vložených souborů z OLE rámců objektů a zapište je na disk.
+
+Tento C# kód vám ukazuje, jak extrahovat soubory vložené do snímku jako OLE objekty:
 
 ```c#
+using Aspose.Slides;
+
 using (Presentation presentation = new Presentation("sample.pptx"))
 {
     ISlide slide = presentation.Slides[0];
@@ -323,20 +363,21 @@ using (Presentation presentation = new Presentation("sample.pptx"))
 }
 ```
 
-## **FAQ**
+## **Často kladené otázky**
 
-**Bude při exportu snímků do PDF/obrázků vykreslen obsah OLE?**
+**Bude obsah OLE vykreslen při exportu snímků do PDF/obrázků?**
 
-To, co je na snímku viditelné, se vykreslí – ikona/náhradní obrázek (náhled). „Živý“ OLE obsah se během vykreslování nespouští. V případě potřeby nastavte vlastní náhledový obrázek, aby výstupní PDF vypadal podle očekávání.
+Na snímku se vykresluje to, co je viditelné — ikona/náhradní obrázek (náhled). „Živý“ OLE obsah se během vykreslování nespouští. V případě potřeby nastavte vlastní obrázek náhledu, aby byl v exportovaném PDF očekávaný vzhled.  
+Chcete‑li také zachovat vložený soubor jako přílohu PDF, nastavte [PdfOptions.IncludeOleData](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/includeoledata/) na `true`. Tato volba je ve výchozím nastavení zakázána. Pro příklad a instrukce ke kontrole přílohy viz [Preserve Embedded OLE Files as PDF Attachments](/slides/cs/net/convert-powerpoint-to-pdf/#preserve-embedded-ole-files-as-pdf-attachments).
 
-**Jak mohu uzamknout OLE objekt na snímku, aby jej uživatelé v PowerPointu nemohli přesouvat/upravovat?**
+**Jak mohu zamknout OLE objekt na snímku, aby jej uživatelé nemohli přesouvat/upravovat v PowerPointu?**
 
-Uzamkněte tvar: Aspose.Slides poskytuje [zámky na úrovni tvaru](/slides/cs/net/applying-protection-to-presentation/). Nejedná se o šifrování, ale účinně zabraňuje nechtěným úpravám a přesunům.
+Uzamkněte tvar: Aspose.Slides poskytuje [shape-level locks](/slides/cs/net/applying-protection-to-presentation/). Nejedná se o šifrování, ale účinně zabraňuje neúmyslným úpravám a přesunu.
 
 **Proč se propojený Excel objekt „přeskakuje“ nebo mění velikost, když otevřu prezentaci?**
 
-PowerPoint může obnovit náhled propojeného OLE. Pro stabilní vzhled dodržujte osvědčené postupy z [Working Solution for Worksheet Resizing](/slides/cs/net/working-solution-for-worksheet-resizing/) – buď přizpůsobte rám rozsahu, nebo škálujte rozsah na pevný rám a nastavte vhodný náhradní obrázek.
+PowerPoint může obnovit náhled propojeného OLE. Pro stabilní vzhled dodržujte postupy z [Working Solution for Worksheet Resizing](/slides/cs/net/working-solution-for-worksheet-resizing/) — buď přizpůsobte rámec rozsahu, nebo škálujte rozsah na pevný rámec a nastavte vhodný náhradní obrázek.
 
-**Zůstanou relativní cesty k propojeným OLE objektům zachovány ve formátu PPTX?**
+**Zůstanou relativní cesty pro propojené OLE objekty zachovány ve formátu PPTX?**
 
-Ve formátu PPTX informace o „relativní cestě“ nejsou k dispozici – pouze úplná cesta. Relativní cesty jsou dostupné ve starším formátu PPT. Pro přenositelnost upřednostňujte spolehlivé absolutní cesty/přístupné URI nebo vkládání.
+V PPTX nejsou informace o „relativní cestě“ k dispozici — existuje pouze úplná cesta. Relativní cesty se nacházejí ve starším formátu PPT. Pro přenositelnost raději používejte spolehlivé absolutní cesty/přístupné URI nebo vkládání.

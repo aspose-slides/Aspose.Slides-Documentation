@@ -6,9 +6,9 @@ weight: 40
 url: /ar/python-java/convert-powerpoint-to-pdf/
 keywords:
 - تحويل PowerPoint
-- تحويل العرض التقديمي
+- تحويل العرض
 - PowerPoint إلى PDF
-- العرض التقديمي إلى PDF
+- العرض إلى PDF
 - PPT إلى PDF
 - تحويل PPT إلى PDF
 - PPTX إلى PDF
@@ -18,55 +18,58 @@ keywords:
 - حفظ PPTX كـ PDF
 - تصدير PPT إلى PDF
 - تصدير PPTX إلى PDF
+- مرفق
 - PDF/A1a
 - PDF/A1b
 - PDF/UA
 - Python
 - Java
 - Aspose.Slides
-description: "تحويل PowerPoint PPT/PPTX إلى ملفات PDF عالية الجودة وقابلة للبحث في Python عبر Java باستخدام Aspose.Slides، مع أمثلة برمجية سريعة وخيارات تحويل متقدمة."
+description: "تحويل PowerPoint PPT/PPTX إلى ملفات PDF عالية الجودة وقابلة للبحث في Python عبر Java باستخدام Aspose.Slides، مع أمثلة كود سريعة وخيارات تحويل متقدمة."
 ---
 ## **نظرة عامة**
 
-تحويل عروض PowerPoint (PPT، PPTX، ODP، إلخ) إلى صيغة PDF في Python عبر Java يوفر عدة مزايا، بما في ذلك التوافق عبر الأجهزة المختلفة والحفاظ على تخطيط وتنسيق العرض التقديمي الخاص بك. يوضح هذا الدليل كيفية تحويل العروض إلى مستندات PDF، واستخدام خيارات مختلفة للتحكم في جودة الصورة، وتضمين الشرائح المخفية، وحماية ملفات PDF بكلمة مرور، واكتشاف استبدال الخطوط، واختيار شرائح محددة للتحويل، وتطبيق معايير الامتثال على المستندات الناتجة.
+يتيح تحويل عروض PowerPoint (PPT و PPTX و ODP وغيرها) إلى صيغة PDF في Python عبر Java عدة مزايا، بما في ذلك التوافق عبر الأجهزة المختلفة والحفاظ على تخطيط العرض وتنسيقه. يوضح هذا الدليل كيفية تحويل العروض إلى مستندات PDF، واستخدام خيارات مختلفة للتحكم في جودة الصور، وإدراج الشرائح المخفية، وحماية ملفات PDF بكلمة مرور، واكتشاف استبدال الخطوط، واختيار شرائح محددة للتحويل، وتطبيق معايير الالتزام على المستندات الناتجة.
 
-## **تحويلات PowerPoint إلى PDF**
+## **تحويل PowerPoint إلى PDF**
 
-باستخدام Aspose.Slides، يمكنك تحويل العروض في الصيغ التالية إلى PDF:
+باستخدام Aspose.Slides، يمكنك تحويل العروض بالتنسيقات التالية إلى PDF:
 
 * **PPT**
 * **PPTX**
 * **ODP**
 
-لتحويل عرض تقديمي إلى PDF، قم بتمرير اسم الملف كمعامل إلى فئة [Presentation](https://reference.aspose.com/slides/ar/python-java/aspose.slides/presentation/) ثم احفظ العرض كملف PDF باستخدام طريقة [save](https://reference.aspose.com/slides/ar/python-java/aspose.slides/presentation/#save). فئة [Presentation](https://reference.aspose.com/slides/ar/python-java/aspose.slides/presentation/) تعرض طريقة [save](https://reference.aspose.com/slides/ar/python-java/aspose.slides/presentation/#save) التي تُستخدم عادةً لتحويل عرض تقديمي إلى PDF.
+لتحويل عرض إلى PDF، مرّر اسم الملف كمعامل إلى فئة [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) ثم احفظ العرض كملف PDF باستخدام طريقة [save](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#save). فئة [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) توفر طريقة [save](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#save) التي تُستخدم عادةً لتحويل العرض إلى PDF.
 
 {{% alert color="info" title="Note" %}}
-يُدرج Aspose.Slides for Python عبر Java معلومات واجهة برمجة التطبيقات ورقم الإصدار في المستندات الناتجة. على سبيل المثال، عند تحويل عرض تقديمي إلى PDF، يملأ Aspose.Slides حقل Application بـ "*Aspose.Slides*" وحقل PDF Producer بقيمة على الشكل "*Aspose.Slides v XX.XX*". **ملاحظة** أنه لا يمكنك توجيه Aspose.Slides لتغيير أو إزالة هذه المعلومات من المستندات الناتجة.
+
+يقوم Aspose.Slides for Python via Java بإدراج معلومات API وإصدارها في المستندات الناتجة. على سبيل المثال، عند تحويل عرض إلى PDF، يملأ Aspose.Slides حقل Application بـ "*Aspose.Slides*" وحقل PDF Producer بقيمة على شكل "*Aspose.Slides v XX.XX*". **ملاحظة** أنه لا يمكن توجيه Aspose.Slides لتغيير أو إزالة هذه المعلومات من المستندات الناتجة.
+
 {{% /alert %}}
 
-Aspose.Slides يسمح لك بتحويل:
+يسمح Aspose.Slides لك بتحويل:
 
-* العروض الكاملة إلى PDF
-* شرائح محددة من عرض تقديمي إلى PDF
+* العروض بالكامل إلى PDF
+* شرائح محددة من العرض إلى PDF
 
-يقوم Aspose.Slides بتصدير العروض إلى PDF، مما يضمن أن ملفات PDF الناتجة تطابق تقريبًا العروض الأصلية. يتم عرض العناصر والسمات بدقة في التحويل، بما في ذلك:
+يصدّر Aspose.Slides العروض إلى PDF، مما يضمن أن ملفات PDF الناتجة تطابق العروض الأصلية بشكل كبير. تُ render العناصر والسمات بدقة أثناء التحويل، بما في ذلك:
 
 * الصور
-* مربعات النص والأشكال
+* صناديق النصوص والأشكال
 * تنسيق النص
 * تنسيق الفقرات
-* الروابط الفائقة
-* الترويسات والتذييلات
-* القوائم النقطية
+* الروابط التشعبية
+* الترويسات وتذييلات الصفحات
+* العلامات النقطية
 * الجداول
 
 ## **تحويل PowerPoint إلى PDF**
 
-يستخدم التحويل القياسي إعدادات التصدير الافتراضية لملف PDF. استخدم الخيارات المخصصة عندما تحتاج إلى التحكم في جودة الصورة، محتوى الصفحة، أو امتثال PDF.
+يستخدم التحويل القياسي إعدادات تصدير PDF الافتراضية. استخدم خيارات مخصصة عندما تحتاج إلى التحكم في جودة الصورة أو محتوى الصفحة أو التوافق مع معايير PDF.
 
-قم بتثبيت [Aspose.Slides for Python via Java](/slides/ar/python-java/installation/) وبيئة تشغيل Java المتوافقة قبل تشغيل الأمثلة. كل مثال يقرأ `presentation.pptx` من دليل العمل الحالي؛ استبدله بملف PPT أو PPTX أو ODP الخاص بك. ابدأ الـ JVM مرة واحدة لكل عملية Python.
+قم بتثبيت [Aspose.Slides for Python via Java](/slides/ar/python-java/installation/) وجافا رن تايم متوافق قبل تشغيل الأمثلة. كل مثال يقرأ `presentation.pptx` من دليل العمل الحالي؛ استبدله بملف PPT أو PPTX أو ODP الخاص بك. ابدأ JVM مرة واحدة لكل عملية Python.
 
-هذا الكود يحول عرضًا تقديميًا إلى PDF:
+المثال التالي يحمل عرضاً ويحفظ جميع الشرائح الظاهرة إلى PDF باستخدام إعدادات التصدير الافتراضية.
 
 ```python
 import jpype
@@ -85,18 +88,20 @@ finally:
 ```
 
 {{% alert color="info" title="Note" %}}
-توفر Aspose محولًا مجانيًا على الإنترنت [**محول PowerPoint إلى PDF**](https://products.aspose.app/slides/ar/conversion/ppt-to-pdf) الذي يوضح عملية تحويل العرض إلى PDF. يمكنك إجراء اختبار باستخدام هذا المحول لتطبيق عملي للإجراء الموضح هنا.
+
+تقدم Aspose أداة مجانية على الإنترنت تُدعى [**محول PowerPoint إلى PDF**](https://products.aspose.app/slides/conversion/ppt-to-pdf) تُظهر عملية تحويل العرض إلى PDF. يمكنك تجربة هذه الأداة لتطبيق عملي مباشر للخطوات الموضحة هنا.
+
 {{% /alert %}}
 
-## **تحويل PowerPoint إلى PDF مع الخيارات**
+## **تحويل PowerPoint إلى PDF مع خيارات**
 
-يوفر Aspose.Slides خيارات مخصصة—خصائص تحت فئة [PdfOptions](https://reference.aspose.com/slides/ar/python-java/aspose.slides/pdfoptions/) — التي تتيح لك تخصيص ملف PDF الناتج، قفل PDF بكلمة مرور، أو تحديد كيفية سير عملية التحويل.
+يقدم Aspose.Slides خيارات مخصصة—خصائص ضمن فئة [PdfOptions](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/)—تتيح لك تخصيص PDF الناتج، أو قفل PDF بكلمة مرور، أو تحديد طريقة سير عملية التحويل.
 
 ### **تحويل PowerPoint إلى PDF مع خيارات مخصصة**
 
-باستخدام خيارات التحويل المخصصة، يمكنك تحديد إعداد الجودة المفضل للصور النقطية، تحديد طريقة معالجة ملفات الميتا، تعيين مستوى الضغط للنص، تكوين DPI للصور، وأكثر.
+باستخدام خيارات تحويل مخصصة، يمكنك تحديد إعداد جودة الصور النقطية المفضلة، وتحديد طريقة معالجة ملفات الميتافايل، وتعيين مستوى ضغط النص، وتكوين DPI للصور، وغيرها.
 
-يبين مثال الشيفرة أدناه كيفية تحويل عرض PowerPoint إلى PDF مع عدة خيارات مخصصة.
+المثال التالي يصدر عرضاً إلى PDF 1.5 مع جودة JPEG محددة إلى 90، ودقة صورة 300 DPI، وحفظ ملفات الميتافايل بصيغة PNG، وضغط نص Flate.
 
 ```python
 import jpype
@@ -107,24 +112,27 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import PdfCompliance, PdfOptions, PdfTextCompression, Presentation, SaveFormat
 
+pdf_options = PdfOptions()
+pdf_options.setJpegQuality(jpype.JByte(90))
+pdf_options.setSufficientResolution(300)
+pdf_options.setSaveMetafilesAsPng(True)
+pdf_options.setTextCompression(PdfTextCompression.Flate)
+pdf_options.setCompliance(PdfCompliance.Pdf15)
+
 presentation = Presentation("presentation.pptx")
 try:
-    pdf_options = PdfOptions()
-    pdf_options.setJpegQuality(jpype.JByte(90))
-    pdf_options.setSufficientResolution(300)
-    pdf_options.setSaveMetafilesAsPng(True)
-    pdf_options.setTextCompression(PdfTextCompression.Flate)
-    pdf_options.setCompliance(PdfCompliance.Pdf15)
     presentation.save("presentation-custom.pdf", SaveFormat.Pdf, pdf_options)
 finally:
     presentation.dispose()
 ```
 
-### **تحويل PowerPoint إلى PDF مع الشرائح المخفية**
+### **الحفاظ على ملفات OLE المضمنة كمرفقات PDF**
 
-إذا كان العرض يحتوي على شرائح مخفية، يمكنك استخدام طريقة [setShowHiddenSlides](https://reference.aspose.com/slides/ar/python-java/aspose.slides/pdfoptions/#setShowHiddenSlides) من فئة [PdfOptions](https://reference.aspose.com/slides/ar/python-java/aspose.slides/pdfoptions/) لتضمين الشرائح المخفية كصفحات في ملف PDF الناتج.
+إذا كان العرض يحتوي على مصنف Excel مدمج، قد ترغب في أن يتمكن متلقي PDF من الوصول إلى بيانات المصنف بالإضافة إلى عرض الشرائح. استدعِ [setIncludeOleData](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/#setIncludeOleData) مع القيمة `True` للحفاظ على ملفات OLE المضمنة كمرفقات في PDF الناتج.
 
-هذا الكود يوضح كيفية تحويل عرض PowerPoint إلى PDF مع تضمين الشرائح المخفية:
+القيمة الافتراضية هي `False`: يتم عرض صورة المعاينة أو الأيقونة لكائن OLE على صفحة PDF، لكن الملف المدمج غير مضمّن كمرفق. ضبط الخيار على `True` يضيف بيانات الملف كمرفق إضافي. تبقى المعاينة تمثيلًا بصريًا؛ المرفق يتيح للمستلمين فتح أو حفظ الملف المدمج بشكل منفصل. لا يتحول كائن OLE إلى ورقة عمل Excel تفاعلية على صفحة PDF.
+
+المثال التالي يحمل عرضاً يحتوي بالفعل على مصنف Excel مدمج ويصدره إلى PDF مع إرفاق المصنف.
 
 ```python
 import jpype
@@ -135,18 +143,56 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import PdfOptions, Presentation, SaveFormat
 
+pdf_options = PdfOptions()
+pdf_options.setIncludeOleData(True)
+
 presentation = Presentation("presentation.pptx")
 try:
-    pdf_options = PdfOptions()
-    pdf_options.setShowHiddenSlides(True)
+    presentation.save("presentation.pdf", SaveFormat.Pdf, pdf_options)
+finally:
+    presentation.dispose()
+```
+
+للتحقق من النتيجة:
+
+1. افتح PDF المُصدّر في عارض يدعم المرفقات، مثل Adobe Acrobat Reader.
+2. افتح لوحة **Attachments** في العارض وحدد المصنف المدمج.
+3. احفظ المرفق وافتحه في Excel لتفحص البيانات، أو افتحه مباشرة إذا سمح العارض بذلك. تكون المعاينة على صفحة PDF منفصلة عن المرفق.
+
+{{% alert color="info" title="Note" %}}
+
+تفرض معايير PDF/A قيودًا على المرفقات: PDF/A-1 يمنع الملفات المدمجة، PDF/A-2 يسمح فقط بمرفقات PDF/A، وPDF/A-3 يسمح بأنواع ملفات أخرى بما في ذلك مصنفات Excel. هذه متطلبات المعايير، وليست قيودًا خاصة بـ Aspose.Slides. يستخدم هذا المثال إعداد الامتثال الافتراضي ولا يوضح تصدير PDF/A.
+
+{{% /alert %}}
+
+### **تحويل PowerPoint إلى PDF مع الشرائح المخفية**
+
+إذا كان العرض يحتوي على شرائح مخفية، يمكنك استخدام طريقة [setShowHiddenSlides](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/#setShowHiddenSlides) من فئة [PdfOptions](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/) لإدراج الشرائح المخفية كصفحات في PDF الناتج.
+
+المثال التالي يصدر عرضاً إلى PDF، متضمنًا أي شرائح مخفية.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import PdfOptions, Presentation, SaveFormat
+
+pdf_options = PdfOptions()
+pdf_options.setShowHiddenSlides(True)
+
+presentation = Presentation("presentation.pptx")
+try:
     presentation.save("presentation-hidden-slides.pdf", SaveFormat.Pdf, pdf_options)
 finally:
     presentation.dispose()
 ```
 
-### **تحويل PowerPoint إلى PDF محمي بكلمة مرور**
+### **تحويل PowerPoint إلى PDF محمّى بكلمة مرور**
 
-هذا الكود يوضح كيفية تحويل عرض PowerPoint إلى PDF محمي بكلمة مرور باستخدام معلمات الحماية من فئة [PdfOptions](https://reference.aspose.com/slides/ar/python-java/aspose.slides/pdfoptions/):
+المثال التالي يصدر عرضاً إلى PDF يتطلب كلمة المرور `password` لفتحه. تسمح أذونات الوصول بالطباعة، بما في ذلك الطباعة عالية الجودة.
 
 ```python
 import jpype
@@ -157,12 +203,12 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import PdfAccessPermissions, PdfOptions, Presentation, SaveFormat
 
+pdf_options = PdfOptions()
+pdf_options.setPassword("password")
+pdf_options.setAccessPermissions(PdfAccessPermissions.PrintDocument | PdfAccessPermissions.HighQualityPrint)
+
 presentation = Presentation("presentation.pptx")
 try:
-    pdf_options = PdfOptions()
-    pdf_options.setPassword("password")
-    permissions = PdfAccessPermissions.PrintDocument | PdfAccessPermissions.HighQualityPrint
-    pdf_options.setAccessPermissions(permissions)
     presentation.save("presentation-protected.pdf", SaveFormat.Pdf, pdf_options)
 finally:
     presentation.dispose()
@@ -170,9 +216,9 @@ finally:
 
 ### **اكتشاف استبدال الخطوط**
 
-يوفر Aspose.Slides طريقة [setWarningCallback](https://reference.aspose.com/slides/ar/python-java/aspose.slides/saveoptions/#setWarningCallback) ضمن فئة [PdfOptions](https://reference.aspose.com/slides/ar/python-java/aspose.slides/pdfoptions/)، مما يتيح لك اكتشاف استبدال الخطوط أثناء عملية تحويل العرض إلى PDF.
+يقدم Aspose.Slides طريقة [setWarningCallback](https://reference.aspose.com/slides/python-java/aspose.slides/saveoptions/#setWarningCallback) ضمن فئة [PdfOptions](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/) تمكِّنك من اكتشاف استبدال الخطوط أثناء عملية تحويل العرض إلى PDF.
 
-استخدم وكيل JPype لتلقي ردود التحذير من واجهة برمجة تطبيقات Java. حوّل سلسلة الوصف من Java إلى سلسلة Python قبل فحص البادئة الخاصة بها:
+المثال التالي يصدر عرضاً إلى PDF ويطبع تحذيرات استبدال الخطوط إلى وحدة التحكم. يتم طباعة التحذير فقط عندما يتم استبدال خط غير متوفر أثناء التصدير. استخدم وكيل JPype لتلقي ردود التحذير من API جافا. حوّل سلسلة الوصف من جافا إلى سلسلة بايثون قبل فحص البادئة:
 
 ```python
 import jpype
@@ -191,26 +237,28 @@ class FontSubstitutionHandler:
         return ReturnAction.Continue
 
 
+handler = FontSubstitutionHandler()
+callback = jpype.JProxy("com.aspose.slides.IWarningCallback", inst=handler)
+
+pdf_options = PdfOptions()
+pdf_options.setWarningCallback(callback)
+
 presentation = Presentation("presentation.pptx")
 try:
-    handler = FontSubstitutionHandler()
-    callback = jpype.JProxy("com.aspose.slides.IWarningCallback", inst=handler)
-    pdf_options = PdfOptions()
-    pdf_options.setWarningCallback(callback)
     presentation.save("presentation-font-warnings.pdf", SaveFormat.Pdf, pdf_options)
 finally:
     presentation.dispose()
 ```
 
 {{% alert color="info" title="Note" %}}
-لمزيد من المعلومات حول تلقي ردود التحذير لاستبدال الخطوط أثناء عملية العرض، راجع [Getting Warning Callbacks for Font Substitution](/slides/ar/python-java/getting-warning-callbacks-for-fonts-substitution-in-aspose-slides/).
 
-لمزيد من المعلومات حول استبدال الخطوط، اطلع على مقالة [Font Substitution](/slides/ar/python-java/font-substitution/).
+لمزيد من المعلومات حول استبدال الخطوط، راجع مقالة [Font Substitution](/slides/ar/python-java/font-substitution/).
+
 {{% /alert %}}
 
-## **تحويل الشرائح المحددة في PowerPoint إلى PDF**
+## **تحويل شرائح محددة من PowerPoint إلى PDF**
 
-أرقام الشرائح التي يتم تمريرها إلى [Presentation.save](https://reference.aspose.com/slides/ar/python-java/aspose.slides/presentation/#save) تبدأ من 1. هذا المثال يصدر الشرائح 1 و3 عندما تكون موجودة:
+أرقام الشرائح التي تُمرّر إلى [Presentation.save](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#save) تُعدّ مرقمة بدءًا من 1. هذا المثال يصدر الشرائح 1 و3 عندما تكون موجودة:
 
 ```python
 import jpype
@@ -223,21 +271,18 @@ from asposeslides.api import Presentation, SaveFormat
 
 presentation = Presentation("presentation.pptx")
 try:
-    if presentation.getSlides().size() >= 3:
-        slide_numbers = jpype.JArray(jpype.JInt)([1, 3])
-        presentation.save("presentation-selected-slides.pdf", slide_numbers, SaveFormat.Pdf)
-    else:
-        print("The presentation must contain at least three slides.")
+    slide_numbers = jpype.JArray(jpype.JInt)([1, 3])
+    presentation.save("presentation-selected-slides.pdf", slide_numbers, SaveFormat.Pdf)
 finally:
     presentation.dispose()
 ```
 
-## **تحويل PowerPoint إلى PDF بحجم شريحة مخصص**
+## **تحويل PowerPoint إلى PDF مع حجم شريحة مخصص**
 
-هذا المثال يصدر الشريحة الأولى على صفحة قياسها 612 × 792 نقطة (US Letter). ينسخ الشريحة إلى عرض تقديمي جديد بالحجم المحدد:
+هذا المثال يصدر الشريحة الأولى على صفحة مقاسها 612 × 792 نقطة (US Letter). يقوم بنسخ الشريحة إلى عرض تقديمي جديد بالحجم المحدد ويضبط محتوى الشريحة للتناسب.
 
 ```python
-import jpype
+import jpipe
 import asposeslides
 
 if not jpype.isJVMStarted():
@@ -246,26 +291,24 @@ if not jpype.isJVMStarted():
 from asposeslides.api import Presentation, SaveFormat, SlideSizeScaleType
 
 presentation = Presentation("presentation.pptx")
+resized_presentation = Presentation()
 try:
-    resized_presentation = Presentation()
-    try:
-        resized_presentation.getSlideSize().setSize(612.0, 792.0, SlideSizeScaleType.EnsureFit)
-        if presentation.getSlides().size() > 0:
-            slide = presentation.getSlides().get_Item(0)
-            resized_presentation.getSlides().insertClone(0, slide)
-            resized_presentation.getSlides().removeAt(1)
-            resized_presentation.save("presentation-custom-size.pdf", SaveFormat.Pdf)
-        else:
-            print("The presentation contains no slides.")
-    finally:
-        resized_presentation.dispose()
+    resized_presentation.getSlideSize().setSize(612, 792, SlideSizeScaleType.EnsureFit)
+    slide = presentation.getSlides().get_Item(0)
+    resized_presentation.getSlides().insertClone(0, slide)
+
+    # إزالة الشريحة الفارغة التي تم إنشاء العرض التقديمي الجديد بها.
+    resized_presentation.getSlides().removeAt(1)
+
+    resized_presentation.save("presentation-custom-size.pdf", SaveFormat.Pdf)
 finally:
     presentation.dispose()
+    resized_presentation.dispose()
 ```
 
-## **تحويل PowerPoint إلى PDF في وضع شريحة الملاحظات**
+## **تحويل PowerPoint إلى PDF في وضع ملاحظات الشريحة**
 
-هذا الكود يوضح كيفية تحويل عرض PowerPoint إلى PDF يتضمن الملاحظات:
+المثال التالي يصدر عرضاً إلى PDF، يوضع ملاحظات المتحدث لكل شريحة أسفل الشريحة. استخدم عرضًا يحتوي على ملاحظات المتحدث لرؤية النتيجة.
 
 ```python
 import jpype
@@ -276,22 +319,24 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import NotesCommentsLayoutingOptions, NotesPositions, PdfOptions, Presentation, SaveFormat
 
+notes_options = NotesCommentsLayoutingOptions()
+notes_options.setNotesPosition(NotesPositions.BottomFull)
+
+pdf_options = PdfOptions()
+pdf_options.setSlidesLayoutOptions(notes_options)
+
 presentation = Presentation("presentation.pptx")
 try:
-    notes_options = NotesCommentsLayoutingOptions()
-    notes_options.setNotesPosition(NotesPositions.BottomFull)
-    pdf_options = PdfOptions()
-    pdf_options.setSlidesLayoutOptions(notes_options)
     presentation.save("presentation-with-notes.pdf", SaveFormat.Pdf, pdf_options)
 finally:
     presentation.dispose()
 ```
 
-## **معايير الوصول والامتثال لملفات PDF**
+## **إمكانية الوصول ومعايير الالتزام لملفات PDF**
 
-عند إعداد ملفات PDF قابلة للوصول، راجع [Web Content Accessibility Guidelines (**WCAG**)](https://www.w3.org/TR/WCAG-TECHS/pdf.html). استخدم [PdfOptions.setCompliance](https://reference.aspose.com/slides/ar/python-java/aspose.slides/pdfoptions/#setCompliance) لتحديد معيار الإخراج: **PDF/A1a**، **PDF/A1b**، و**PDF/UA**.
+عند إعداد ملفات PDF قابلة للوصول، راجع [إرشادات محتوى الويب لتسهيل الوصول (WCAG)](https://www.w3.org/TR/WCAG-TECHS/pdf.html). استخدم [PdfOptions.setCompliance](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/#setCompliance) لاختيار معيار الإخراج: **PDF/A1a** و**PDF/A1b** و**PDF/UA**.
 
-هذا الكود يوضح عملية تحويل PowerPoint إلى PDF تُنتج عدة ملفات PDF بناءً على معايير امتثال مختلفة:
+يوضح هذا الكود عملية تحويل PowerPoint إلى PDF تنتج ملفات PDF متعددة وفقًا لمعايير الالتزام المختلفة:
 
 ```python
 import jpype
@@ -305,42 +350,45 @@ from asposeslides.api import PdfCompliance, PdfOptions, Presentation, SaveFormat
 presentation = Presentation("presentation.pptx")
 try:
     pdf_options = PdfOptions()
+
     pdf_options.setCompliance(PdfCompliance.PdfA1a)
     presentation.save("presentation-a1a.pdf", SaveFormat.Pdf, pdf_options)
+
     pdf_options.setCompliance(PdfCompliance.PdfA1b)
     presentation.save("presentation-a1b.pdf", SaveFormat.Pdf, pdf_options)
+    
     pdf_options.setCompliance(PdfCompliance.PdfUa)
     presentation.save("presentation-ua.pdf", SaveFormat.Pdf, pdf_options)
 finally:
     presentation.dispose()
 ```
 
-> **ملاحظة:** عند التصدير إلى PDF/UA، يتعامل Aspose.Slides مع الرسومات المعقدة مثل SmartArt والرسوم البيانية والصيغ ككائن واحد. لا يتم الحفاظ على عناصر المسار الفردية كمحتوى منفصل وقد يتم وضع علامة عليها كآثار؛ يتم توفير النص البديل فقط للكائن الكامل.
+> **ملاحظة:** عند التصدير إلى PDF/UA، يعامل Aspose.Slides الرسومات المعقدة مثل SmartArt والرسوم البيانية والصيغ كشكل واحد. لا تُحفظ عناصر المسار الفردية كمحتوى منفصل وقد تُصنّف كآثار؛ يُقدَّم النص البديل فقط للشكل بأكمله.
 
-## **الأسئلة الشائعة**
+## **الأسئلة المتكررة**
 
-**هل يمكنني تحويل عدة ملفات PowerPoint إلى PDF مجمّعة؟**
+**هل يمكنني تحويل عدة ملفات PowerPoint إلى PDF دفعيًا؟**
 
-نعم، يدعم Aspose.Slides تحويل دفعة من عدة ملفات PPT أو PPTX إلى PDF. يمكنك تكرار ملفاتك وتطبيق عملية التحويل برمجيًا.
+نعم، يدعم Aspose.Slides التحويل الدفعي لملفات PPT أو PPTX متعددة إلى PDF. يمكنك التنقل عبر ملفاتك وتطبيق عملية التحويل برمجيًا.
 
-**هل يمكن حماية PDF المحول بكلمة مرور؟**
+**هل يمكن حماية PDF المُحوّل بكلمة مرور؟**
 
-نعم. استخدم فئة [PdfOptions](https://reference.aspose.com/slides/ar/python-java/aspose.slides/pdfoptions/) لتعيين كلمة مرور وتحديد أذونات الوصول أثناء عملية التحويل.
+نعم. استخدم فئة [PdfOptions](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/) لتعيين كلمة مرور وتحديد أذونات الوصول أثناء عملية التحويل.
 
-**كيف يمكنني تضمين الشرائح المخفية في PDF؟**
+**كيف يمكن تضمين الشرائح المخفية في PDF؟**
 
-استخدم طريقة [setShowHiddenSlides](https://reference.aspose.com/slides/ar/python-java/aspose.slides/pdfoptions/#setShowHiddenSlides) في فئة [PdfOptions](https://reference.aspose.com/slides/ar/python-java/aspose.slides/pdfoptions/) لتضمين الشرائح المخفية في PDF الناتج.
+استدعِ [setShowHiddenSlides](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/#setShowHiddenSlides) مع القيمة `True` في فئة [PdfOptions](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/) لتضمين الشرائح المخفية في PDF الناتج.
 
-**هل يمكن لـ Aspose.Slides الحفاظ على جودة صورة عالية في PDF؟**
+**هل يمكن لـ Aspose.Slides الحفاظ على جودة عالية للصور في PDF؟**
 
-نعم، يمكنك التحكم في جودة الصورة باستخدام طرق مثل [setJpegQuality](https://reference.aspose.com/slides/ar/python-java/aspose.slides/pdfoptions/#setJpegQuality) و [setSufficientResolution](https://reference.aspose.com/slides/ar/python-java/aspose.slides/pdfoptions/#setSufficientResolution) في فئة [PdfOptions](https://reference.aspose.com/slides/ar/python-java/aspose.slides/pdfoptions/) لضمان صور عالية الجودة في PDF الخاص بك.
+نعم، يمكنك التحكم في جودة الصور باستخدام طرق مثل [setJpegQuality](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/#setJpegQuality) و[setSufficientResolution](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/#setSufficientResolution) في فئة [PdfOptions](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/) لضمان صور عالية الجودة في PDF الخاص بك.
 
-**هل يدعم Aspose.Slides معايير امتثال PDF/A؟**
+**هل يدعم Aspose.Slides معايير الالتزام PDF/A؟**
 
-نعم، يتيح Aspose.Slides تصدير ملفات PDF متوافقة مع [various standards](https://reference.aspose.com/slides/ar/python-java/aspose.slides/pdfcompliance/)، بما في ذلك PDF/A1a، PDF/A1b، وPDF/UA، للوصول أو الأرشفة. اختر المعيار المناسب وراجع النتيجة وفقًا لاحتياجاتك.
+نعم، يتيح لك Aspose.Slides تصدير ملفات PDF تتوافق مع [معايير مختلفة](https://reference.aspose.com/slides/python-java/aspose.slides/pdfcompliance/)، بما في ذلك PDF/A1a وPDF/A1b وPDF/UA، لتلبية احتياجات الوصول أو الأرشفة. اختر المعيار المناسب وراجع المخرجات وفقًا لمتطلباتك.
 
 ## **موارد إضافية**
 
-- [توثيق Aspose.Slides for Python عبر Java](/slides/ar/python-java/)
-- [مرجع API لـ Aspose.Slides for Python عبر Java](https://reference.aspose.com/slides/ar/python-java/)
-- [محولات Aspose المجانية على الإنترنت](https://products.aspose.app/slides/ar/conversion)
+- [Aspose.Slides for Python via Java Documentation](/slides/ar/python-java/)
+- [Aspose.Slides for Python via Java API Reference](https://reference.aspose.com/slides/python-java/)
+- [Aspose Free Online Converters](https://products.aspose.app/slides/conversion)
