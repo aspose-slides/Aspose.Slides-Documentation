@@ -5,13 +5,13 @@ type: docs
 weight: 40
 url: /de/nodejs-java/export-to-html5/
 keywords:
-- PowerPoint zu HTML5
-- OpenDocument zu HTML5
-- Präsentation zu HTML5
-- Folie zu HTML5
-- PPT zu HTML5
-- PPTX zu HTML5
-- ODP zu HTML5
+- PowerPoint nach HTML5
+- OpenDocument nach HTML5
+- Präsentation nach HTML5
+- Folie nach HTML5
+- PPT nach HTML5
+- PPTX nach HTML5
+- ODP nach HTML5
 - PPT als HTML5 speichern
 - PPTX als HTML5 speichern
 - ODP als HTML5 speichern
@@ -21,62 +21,65 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Exportieren Sie PowerPoint‑ und OpenDocument‑Präsentationen in responsives HTML5 mit Aspose.Slides für Node.js. Bewahren Sie Formatierungen, Animationen und Interaktivität."
+description: "Exportieren Sie PowerPoint- und OpenDocument-Präsentationen in responsives HTML5 mit Aspose.Slides für Node.js. Bewahren Sie Formatierung, Animationen und Interaktivität."
 ---
+## **Übersicht**
 
-Aspose.Slides unterstützt den HTML5-Export. Der hier beschriebene Export nach HTML5 ermöglicht es Ihnen, PowerPoint in HTML zu konvertieren, ohne Web-Erweiterungen oder Abhängigkeiten. Auf diese Weise können Sie mit eigenen Vorlagen sehr flexible Optionen anwenden, die den Exportprozess und das resultierende HTML, CSS, JavaScript und die Animationsattribute definieren. 
+Dieser Artikel erklärt, wie PowerPoint‑Präsentationen mit Aspose.Slides für Node.js via Java in HTML5 konvertiert werden. Er behandelt den einfachen Export, die Steuerung von Form‑Animationen und Folienübergängen sowie das Kommentar‑Layout. Außerdem vergleicht er die HTML5‑Ausgabe mit der SVG‑basierten Ausgabe des Standard‑HTML‑Exports.
 
 ## **PowerPoint nach HTML5 exportieren**
 
-Dieser JavaScript‑Code zeigt, wie Sie eine Präsentation nach HTML5 exportieren, ohne Web‑Erweiterungen und Abhängigkeiten zu verwenden:
+Das folgende Beispiel lädt eine Präsentation aus dem Arbeitsverzeichnis und speichert sie im HTML5‑Format. Es verwendet die standardmäßigen Exporteinstellungen; das nächste Beispiel zeigt, wie die Animationswiedergabe explizit gesteuert werden kann. Ersetzen Sie den Eingabepfad durch den Pfad zu Ihrer Präsentation.
+
 ```javascript
-var pres = new aspose.slides.Presentation("pres.pptx");
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation("pres.pptx");
 try {
-    pres.save("pres.html", aspose.slides.SaveFormat.Html5);
+    presentation.save("pres.html", aspose.slides.SaveFormat.Html5);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-
-{{% alert color="primary" %}} 
-In diesem Fall erhalten Sie sauberes HTML. 
+{{% alert color="info" title="Note" %}}
+Zusätzlich zum HTML‑Dokument schreibt der Export unterstützende CSS‑ und JavaScript‑Dateien für Folienstyling, Animationen, Effekte und Navigation. Bewahren Sie diese Dateien zusammen mit dem HTML‑Dokument auf, wenn Sie die Ausgabe verschieben oder veröffentlichen. Die erzeugte Seite lädt außerdem jQuery und Anime.js von öffentlichen CDNs; ohne sie funktionieren Foliennavigation und Animationen nicht.
 {{% /alert %}}
 
-Auf diese Weise können Sie Einstellungen für Formanimationen und Folienübergänge festlegen:
+Um ohne die Wiedergabe von Form‑Animationen oder Folienübergängen zu exportieren, übergeben Sie `false` an [setAnimateShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/html5options/#setAnimateShapes-boolean-) und [setAnimateTransitions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/html5options/#setAnimateTransitions-boolean-) in [Html5Options](https://reference.aspose.com/slides/nodejs-java/aspose.slides/html5options/). Diese Einstellungen sind unabhängig, so dass Sie eine aktivieren und die andere deaktivieren können. Das Beispiel exportiert die Präsentation mit beiden Animationsarten im erzeugten Dokument deaktiviert.
+
 ```javascript
-var pres = new aspose.slides.Presentation("pres.pptx");
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const html5Options = new aspose.slides.Html5Options();
+html5Options.setAnimateShapes(false);
+html5Options.setAnimateTransitions(false);
+
+const presentation = new aspose.slides.Presentation("pres.pptx");
 try {
-    var html5Options = new aspose.slides.Html5Options();
-    html5Options.setAnimateShapes(false);
-    html5Options.setAnimateTransitions(false);
-    pres.save("pres5.html", aspose.slides.SaveFormat.Html5, html5Options);
+    presentation.save("pres5.html", aspose.slides.SaveFormat.Html5, html5Options);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
-
 
 ## **PowerPoint nach HTML exportieren**
 
-Dieser JavaScript‑Code demonstriert den Standard‑PowerPoint‑nach‑HTML‑Prozess:
+Der Standard‑HTML‑Export verwendet einen anderen Rendering‑Ansatz: Folieninhalt wird als SVG innerhalb einer HTML‑Seite dargestellt. Das folgende Beispiel konvertiert eine Präsentation in ein HTML‑Dokument mit diesem Rendering‑Ansatz.
+
 ```javascript
-var pres = new aspose.slides.Presentation("pres.pptx");
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation("pres.pptx");
 try {
-    pres.save("pres.html", aspose.slides.SaveFormat.Html);
+    presentation.save("pres.html", aspose.slides.SaveFormat.Html);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+Der nachstehende vereinfachte Markup verdeutlicht die Struktur der erzeugten Seite. Das SVG‑Element enthält den gerenderten Folieninhalt; der Platzhaltertext steht für diesen Inhalt und ist kein wörtlicher Exportausgabe.
 
-In diesem Fall wird der Präsentationsinhalt über SVG in einer Form wie dieser gerendert:
 ```html
 <body>
 <div class="slide" name="slide" id="slideslideIface1">
@@ -87,66 +90,94 @@ In diesem Fall wird der Präsentationsinhalt über SVG in einer Form wie dieser 
 </body>
 ```
 
-
-{{% alert title="Note" color="warning" %}} 
-Wenn Sie diese Methode zum Export von PowerPoint nach HTML verwenden, können Sie aufgrund der SVG‑Rendarbeitung keine Stile anwenden oder bestimmte Elemente animieren. 
+{{% alert title="Warning" color="warning" %}}
+Der SVG‑basierte Export stellt PowerPoint‑Formen nicht als einzelne HTML‑Elemente bereit. Verwenden Sie den HTML5‑Export, wenn Sie die in diesem Artikel gezeigten Optionen für Form‑Animationen und Folienübergänge benötigen.
 {{% /alert %}}
 
-## **PowerPoint nach HTML5-Folienansicht exportieren**
+## **PowerPoint nach HTML5‑Folienansicht exportieren**
 
-**Aspose.Slides** ermöglicht es Ihnen, eine PowerPoint‑Präsentation in ein HTML5‑Dokument zu konvertieren, in dem die Folien im Folienansichtsmodus dargestellt werden. In diesem Fall sehen Sie beim Öffnen der resultierenden HTML5‑Datei in einem Browser die Präsentation im Folienansichtsmodus auf einer Webseite. 
+Der HTML5‑Export erzeugt eine Seite zum Anzeigen und Navigieren der Präsentationsfolien in einem Browser. Dieses Beispiel aktiviert sowohl [setAnimateShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/html5options/#setAnimateShapes-boolean-) als auch [setAnimateTransitions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/html5options/#setAnimateTransitions-boolean-), sodass die exportierte Folienansicht Effekte aus der Quellpräsentation wiedergeben kann.
 
-Dieser JavaScript‑Code demonstriert den Exportprozess von PowerPoint zur HTML5‑Folienansicht:
+Verwenden Sie eine Präsentation, die bereits Form‑Animationen und Folienübergänge enthält, um die Wirkung dieser Einstellungen zu sehen. Das Aktivieren fügt Folien, die keine Effekte haben, keine neuen Effekte hinzu. Öffnen Sie nach dem Export das erzeugte HTML5‑Dokument in einem Browser, wobei die zugehörigen Dateien verfügbar sind.
+
 ```javascript
-var pres = new aspose.slides.Presentation("pres.pptx");
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const html5Options = new aspose.slides.Html5Options();
+html5Options.setAnimateShapes(true);
+html5Options.setAnimateTransitions(true);
+
+const presentation = new aspose.slides.Presentation("pres.pptx");
 try {
-    var html5Options = new aspose.slides.Html5Options();
-    html5Options.setAnimateShapes(true);
-    html5Options.setAnimateTransitions(true);
-    pres.save("HTML5-slide-view.html", aspose.slides.SaveFormat.Html5, html5Options);
+    presentation.save("HTML5-slide-view.html", aspose.slides.SaveFormat.Html5, html5Options);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-
 ## **Eine Präsentation in ein HTML5‑Dokument mit Kommentaren konvertieren**
 
-Kommentare in PowerPoint sind ein Werkzeug, das es Benutzern ermöglicht, Notizen oder Feedback zu Präsentationsfolien zu hinterlassen. Sie sind besonders in kollaborativen Projekten nützlich, bei denen mehrere Personen ihre Vorschläge oder Anmerkungen zu bestimmten Folienelementen hinzufügen können, ohne den Hauptinhalt zu ändern. Jeder Kommentar zeigt den Namen des Autors, sodass leicht nachverfolgt werden kann, wer die Anmerkung hinterlassen hat.
-
-Angenommen, wir haben die folgende PowerPoint‑Präsentation in der Datei "sample.pptx" gespeichert.
+Sie können vorhandene Folienkommentare in die HTML5‑Ausgabe einbinden, sodass Leser Rückmeldungen neben dem Folieninhalt sehen können. Das Beispiel in diesem Abschnitt setzt voraus, dass die Quellpräsentation Kommentare enthält, wie unten dargestellt. Es exportiert diese Kommentare; es werden keine neuen erstellt.
 
 ![Zwei Kommentare auf der Präsentationsfolie](two_comments_pptx.png)
 
-Wenn Sie eine PowerPoint‑Präsentation in ein HTML5‑Dokument konvertieren, können Sie einfach festlegen, ob Kommentare der Präsentation im Ausgabedokument enthalten sein sollen. Dazu müssen Sie die Anzeigeparameter für Kommentare in der Eigenschaft `notes_comments_layouting` der Klasse [Html5Options](https://reference.aspose.com/slides/nodejs-java/aspose.slides/html5options/) angeben.
+Übergeben Sie ein [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/notescommentslayoutingoptions/)‑Objekt an die Methode [setSlidesLayoutOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/html5options/#setSlidesLayoutOptions-aspose.slides.ISlidesLayoutOptions-) von [Html5Options](https://reference.aspose.com/slides/nodejs-java/aspose.slides/html5options/). Verwenden Sie [setCommentsPosition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/notescommentslayoutingoptions/#setCommentsPosition-int-), um `Right` aus der Aufzählung [CommentsPositions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/commentspositions/) auszuwählen, damit die Kommentare rechts von jeder Folie platziert werden.
 
-Das folgende Codebeispiel konvertiert eine Präsentation in ein HTML5‑Dokument, wobei die Kommentare rechts von den Folien angezeigt werden.
+Das folgende Beispiel exportiert die Präsentation nach HTML5 mit diesem Kommentar‑Layout. Eine Präsentation ohne Kommentare enthält keinen anzuzeigenden Kommentartext.
+
 ```javascript
-let html5Options = new aspose.slides.Html5Options();
-html5Options.getNotesCommentsLayouting().setCommentsPosition(aspose.slides.CommentsPositions.Right);
+const aspose = { slides: require("aspose.slides.via.java") };
 
-let presentation = new aspose.slides.Presentation("sample.pptx");
-presentation.save("output.html", aspose.slides.SaveFormat.Html5, html5Options);
-presentation.dispose();
+const layoutOptions = new aspose.slides.NotesCommentsLayoutingOptions();
+layoutOptions.setCommentsPosition(aspose.slides.CommentsPositions.Right);
+
+const html5Options = new aspose.slides.Html5Options();
+html5Options.setSlidesLayoutOptions(layoutOptions);
+
+const presentation = new aspose.slides.Presentation("sample.pptx");
+try {
+    presentation.save("output.html", aspose.slides.SaveFormat.Html5, html5Options);
+} finally {
+    presentation.dispose();
+}
 ```
 
-
-Das Dokument "output.html" wird im Bild unten angezeigt.
-
 ![Die Kommentare im ausgegebenen HTML5‑Dokument](two_comments_html5.png)
+
+## **JavaScript‑Hyperlinks beim Export ausschließen**
+
+Angenommen, `hyperlinks.pptx` enthält verlinkten Text mit einem Ziel `javascript:alert('Hello')` und einen normalen `https://example.com/`‑Link. Um den JavaScript‑Hyperlink beim Export auszuschließen, übergeben Sie `true` an [SaveOptions.setSkipJavaScriptLinks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/saveoptions/#setSkipJavaScriptLinks-boolean-). Der Standardwert ist `false`, sodass diese Links nicht gefiltert werden, es sei denn, Sie aktivieren die Option.
+
+Das folgende Beispiel lädt die Präsentation aus dem Arbeitsverzeichnis und exportiert sie mit [Html5Options](https://reference.aspose.com/slides/nodejs-java/aspose.slides/html5options/):
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const html5Options = new aspose.slides.Html5Options();
+html5Options.setSkipJavaScriptLinks(true);
+
+const presentation = new aspose.slides.Presentation("hyperlinks.pptx");
+try {
+    presentation.save("filtered-html5.html", aspose.slides.SaveFormat.Html5, html5Options);
+} finally {
+    presentation.dispose();
+}
+```
+
+Die exportierte Datei lässt den JavaScript‑Hyperlink weg, behält jedoch dessen Text und den normalen HTTPS‑Link bei. Die Quellpräsentation bleibt unverändert.
+
+Diese Option filtert JavaScript‑Hyperlinks; sie entfernt nicht alle Skripte oder anderen aktiven Inhalt und garantiert keine CSP‑Konformität. Beispielsweise enthält die HTML5‑Ausgabe weiterhin Skripte für die Foliennavigation und Animationen.
 
 ## **FAQ**
 
 **Kann ich steuern, ob Objektanimationen und Folienübergänge in HTML5 abgespielt werden?**
 
-Ja, HTML5 bietet separate Optionen zum Aktivieren oder Deaktivieren von [Formanimationen](https://reference.aspose.com/slides/nodejs-java/aspose.slides/html5options/setanimateshapes/) und [Folienübergängen](https://reference.aspose.com/slides/nodejs-java/aspose.slides/html5options/setanimatetransitions/).
+Ja, der HTML5‑Export bietet separate Optionen, um [shape animations](https://reference.aspose.com/slides/nodejs-java/aspose.slides/html5options/#setAnimateShapes-boolean-) und [slide transitions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/html5options/#setAnimateTransitions-boolean-) zu aktivieren oder zu deaktivieren.
 
-**Wird die Ausgabe von Kommentaren unterstützt und wo können sie relativ zur Folie platziert werden?**
+**Werden Kommentare unterstützt und wo können sie relativ zur Folie platziert werden?**
 
-Ja, Kommentare können in HTML5 hinzugefügt und über [Layout‑Einstellungen](https://reference.aspose.com/slides/nodejs-java/aspose.slides/html5options/#setNotesCommentsLayouting) (z. B. rechts von der Folie) positioniert werden.
+Ja, vorhandene Kommentare können in die HTML5‑Ausgabe eingebunden und (zum Beispiel rechts von der Folie) über [layout settings](https://reference.aspose.com/slides/nodejs-java/aspose.slides/html5options/#setSlidesLayoutOptions-aspose.slides.ISlidesLayoutOptions-) für Notizen und Kommentare positioniert werden.
 
 **Kann ich Links, die JavaScript aufrufen, aus Sicherheits‑ oder CSP‑Gründen überspringen?**
 
-Ja, es gibt eine [Einstellung](https://reference.aspose.com/slides/nodejs-java/aspose.slides/saveoptions/#setSkipJavaScriptLinks), mit der Sie beim Speichern Hyperlinks, die JavaScript‑Aufrufe enthalten, überspringen können. Dies unterstützt die Einhaltung strenger Sicherheitsrichtlinien.
+Ja, die Einstellung [setSkipJavaScriptLinks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/saveoptions/#setSkipJavaScriptLinks-boolean-) ermöglicht es, beim Speichern Hyperlinks mit JavaScript‑Aufrufen zu überspringen. Der Standardwert ist `false`. Siehe [JavaScript‑Hyperlinks beim Export ausschließen](/slides/de/nodejs-java/export-to-html5/#exclude-javascript-hyperlinks-during-export) für ein HTML5‑Exportbeispiel und den Anwendungsbereich des Filters. Diese Einstellung entfernt nicht das JavaScript, das vom HTML5‑Viewer für Navigation und Animationen verwendet wird.

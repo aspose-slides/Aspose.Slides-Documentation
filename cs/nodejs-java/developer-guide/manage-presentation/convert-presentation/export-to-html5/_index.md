@@ -25,59 +25,60 @@ description: "Exportujte prezentace PowerPoint a OpenDocument do responzivního 
 ---
 ## **Přehled**
 
-Tento článek vysvětluje, jak převést prezentace PowerPoint do HTML5 pomocí Aspose.Slides. Popisuje základní export do HTML5 bez webových rozšíření nebo dalších závislostí, stejně jako možnosti řízení animací tvarů a přechodů mezi snímky. Článek také ukazuje standardní proces exportu z PowerPointu do HTML, vysvětluje, jak vygenerovat výstup HTML5 v režimu zobrazení snímků, a demonstruje, jak zahrnout komentáře do exportovaného dokumentu nastavením jejich rozložení.
+Tento článek vysvětluje, jak převést prezentace PowerPoint do HTML5 pomocí Aspose.Slides pro Node.js přes Java. Popisuje základní export, řízení animací tvarů a přechodů snímků a rozvržení komentářů. Také porovnává výstup HTML5 s výstupem založeným na SVG při standardním exportu HTML.
 
 ## **Export PowerPoint do HTML5**
 
-Tento JavaScriptový kód ukazuje, jak exportovat prezentaci do HTML5 bez webových rozšíření a závislostí:
+Následující příklad načte prezentaci ze pracovního adresáře a uloží ji ve formátu HTML5. Používá výchozí nastavení exportu; další příklad ukazuje, jak explicitně řídit přehrávání animací. Nahraďte vstupní cestu cestou k vaší prezentaci.
 
 ```javascript
-var pres = new aspose.slides.Presentation("pres.pptx");
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation("pres.pptx");
 try {
-    pres.save("pres.html", aspose.slides.SaveFormat.Html5);
+    presentation.save("pres.html", aspose.slides.SaveFormat.Html5);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-{{% alert color="primary" %}} 
-V tomto případě získáte čistý HTML. 
+{{% alert color="info" title="Note" %}}
+Kromě HTML dokumentu export zapisuje podpůrné soubory CSS a JavaScript pro stylování snímků, animace, efekty a navigaci. Uchovejte tyto soubory spolu s HTML dokumentem při přesunu nebo publikaci výstupu. Vygenerovaná stránka také načítá jQuery a Anime.js z veřejných CDN; bez nich nefunguje navigace mezi snímky ani animace.
 {{% /alert %}}
 
-Můžete také zadat nastavení pro animace tvarů a přechody snímků tímto způsobem:
+Pro export bez přehrávání animací tvarů nebo přechodů snímků předáte `false` metodám [setAnimateShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/html5options/#setAnimateShapes-boolean-) a [setAnimateTransitions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/html5options/#setAnimateTransitions-boolean-) v [Html5Options](https://reference.aspose.com/slides/nodejs-java/aspose.slides/html5options/). Tato nastavení jsou nezávislá, takže můžete jedno povolit a druhé zakázat. Příklad exportuje prezentaci s vypnutými oba typy animací ve vygenerované stránce.
 
 ```javascript
-var pres = new aspose.slides.Presentation("pres.pptx");
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const html5Options = new aspose.slides.Html5Options();
+html5Options.setAnimateShapes(false);
+html5Options.setAnimateTransitions(false);
+
+const presentation = new aspose.slides.Presentation("pres.pptx");
 try {
-    var html5Options = new aspose.slides.Html5Options();
-    html5Options.setAnimateShapes(false);
-    html5Options.setAnimateTransitions(false);
-    pres.save("pres5.html", aspose.slides.SaveFormat.Html5, html5Options);
+    presentation.save("pres5.html", aspose.slides.SaveFormat.Html5, html5Options);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
 ## **Export PowerPoint do HTML**
 
-Tento JavaScript demonstruje standardní proces exportu PowerPointu do HTML:
+Standardní export do HTML používá odlišný přístup k renderování: obsah snímku je v HTML stránce reprezentován pomocí SVG. Následující příklad převádí prezentaci do HTML dokumentu pomocí tohoto renderovacího přístupu.
 
 ```javascript
-var pres = new aspose.slides.Presentation("pres.pptx");
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation("pres.pptx");
 try {
-    pres.save("pres.html", aspose.slides.SaveFormat.Html);
+    presentation.save("pres.html", aspose.slides.SaveFormat.Html);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-V tomto případě je obsah prezentace vykreslen pomocí SVG ve formě jako je tato:
+Níže uvedený zjednodušený markup ilustruje strukturu vygenerované stránky. Prvek SVG obsahuje vykreslený obsah snímku; text zástupného znaku představuje tento obsah a nejedná se o doslovný výstup exportu.
 
 ```html
 <body>
@@ -89,61 +90,94 @@ V tomto případě je obsah prezentace vykreslen pomocí SVG ve formě jako je t
 </body>
 ```
 
-{{% alert title="Note" color="warning" %}} 
-Při použití této metody pro export PowerPointu do HTML nebudete moci aplikovat styly ani animovat konkrétní prvky kvůli vykreslování SVG. 
+{{% alert title="Warning" color="warning" %}}
+Export založený na SVG neukazuje tvary PowerPointu jako samostatné HTML elementy. Použijte export do HTML5, pokud potřebujete možnosti animace tvarů a přechodů snímků uvedené v tomto článku.
 {{% /alert %}}
 
 ## **Export PowerPoint do HTML5 zobrazení snímků**
 
-**Aspose.Slides** umožňuje převést prezentaci PowerPoint do HTML5 dokumentu, ve kterém jsou snímky prezentovány v režimu zobrazení snímků. V takovém případě, když otevřete výsledný soubor HTML5 v prohlížeči, zobrazí se prezentace v režimu zobrazení snímků na webové stránce.
+Export do HTML5 vytváří stránku pro prohlížení a navigaci mezi snímky prezentace v prohlížeči. Tento příklad povoluje jak [setAnimateShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/html5options/#setAnimateShapes-boolean-), tak [setAnimateTransitions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/html5options/#setAnimateTransitions-boolean-), aby exportované zobrazení snímků mohlo přehrávat efekty ze zdrojové prezentace.
 
-Tento JavaScriptový kód demonstruje proces exportu PowerPointu do HTML5 v režimu zobrazení snímků:
+Použijte prezentaci, která již obsahuje animace tvarů a přechody snímků, abyste viděli vliv těchto nastavení. jejich povolení nepřidá nové efekty do snímků, které žádné nemají. Po exportu otevřete vygenerovaný HTML5 dokument v prohlížeči se všemi podpůrnými soubory.
 
 ```javascript
-var pres = new aspose.slides.Presentation("pres.pptx");
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const html5Options = new aspose.slides.Html5Options();
+html5Options.setAnimateShapes(true);
+html5Options.setAnimateTransitions(true);
+
+const presentation = new aspose.slides.Presentation("pres.pptx");
 try {
-    var html5Options = new aspose.slides.Html5Options();
-    html5Options.setAnimateShapes(true);
-    html5Options.setAnimateTransitions(true);
-    pres.save("HTML5-slide-view.html", aspose.slides.SaveFormat.Html5, html5Options);
+    presentation.save("HTML5-slide-view.html", aspose.slides.SaveFormat.Html5, html5Options);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
 ## **Převod prezentace do HTML5 dokumentu s komentáři**
 
-Komentáře v PowerPointu jsou nástrojem, který uživatelům umožňuje zanechat poznámky nebo zpětnou vazbu na snímcích prezentace. Jsou zvláště užitečné v kolaborativních projektech, kde více lidí může přidávat své návrhy nebo připomínky k jednotlivým prvkům snímku, aniž by měnili hlavní obsah. Každý komentář zobrazí jméno autora, což usnadňuje sledovat, kdo připomínku zanechal.
-
-Předpokládejme, že máme následující prezentaci PowerPoint uloženou v souboru "sample.pptx".
+Můžete zahrnout existující komentáře ke snímkům do výstupu HTML5, aby čtenáři viděli zpětnou vazbu vedle obsahu snímku. Příklad v této sekci předpokládá, že zdrojová prezentace obsahuje komentáře, jak je znázorněno níže. Exportuje tyto komentáře; nevytváří nové.
 
 ![Dva komentáře na snímku prezentace](two_comments_pptx.png)
 
-Když převádíte prezentaci PowerPoint do HTML5 dokumentu, můžete snadno určit, zda zahrnout komentáře z prezentace do výstupního dokumentu. K tomu je potřeba nastavit parametry zobrazení komentářů ve vlastnosti `notes_comments_layouting` třídy [Html5Options](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/html5options/).
+Předání objektu [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/notescommentslayoutingoptions/) metodě [setSlidesLayoutOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/html5options/#setSlidesLayoutOptions-aspose.slides.ISlidesLayoutOptions-) třídy [Html5Options](https://reference.aspose.com/slides/nodejs-java/aspose.slides/html5options/). Použijte [setCommentsPosition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/notescommentslayoutingoptions/#setCommentsPosition-int-), abyste vybrali `Right` z enumerace [CommentsPositions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/commentspositions/), čímž umístíte komentáře vpravo od každého snímku.
 
-Následující ukázkový kód převádí prezentaci do HTML5 dokumentu s komentáři zobrazenými vpravo od snímků.
+Následující příklad exportuje prezentaci do HTML5 s tímto rozvržením komentářů. Prezentace bez komentářů nebude mít žádný text komentáře k zobrazení.
+
 ```javascript
-let html5Options = new aspose.slides.Html5Options();
-html5Options.getNotesCommentsLayouting().setCommentsPosition(aspose.slides.CommentsPositions.Right);
+const aspose = { slides: require("aspose.slides.via.java") };
 
-let presentation = new aspose.slides.Presentation("sample.pptx");
-presentation.save("output.html", aspose.slides.SaveFormat.Html5, html5Options);
-presentation.dispose();
+const layoutOptions = new aspose.slides.NotesCommentsLayoutingOptions();
+layoutOptions.setCommentsPosition(aspose.slides.CommentsPositions.Right);
+
+const html5Options = new aspose.slides.Html5Options();
+html5Options.setSlidesLayoutOptions(layoutOptions);
+
+const presentation = new aspose.slides.Presentation("sample.pptx");
+try {
+    presentation.save("output.html", aspose.slides.SaveFormat.Html5, html5Options);
+} finally {
+    presentation.dispose();
+}
 ```
-
-Dokument "output.html" je zobrazen na obrázku níže.
 
 ![Komentáře ve výstupním HTML5 dokumentu](two_comments_html5.png)
 
-## **Často kladené otázky**
+## **Vyloučení JavaScriptových hyperodkazů při exportu**
 
-**Mohu řídit, zda se animace objektů a přechody snímků spustí v HTML5?**  
-Ano, HTML5 poskytuje samostatné možnosti pro povolení nebo zakázání [animací tvarů](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/html5options/setanimateshapes/) a [přechodů snímků](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/html5options/setanimatetransitions/).
+Předpokládejme, že `hyperlinks.pptx` obsahuje odkazovaný text s cílem `javascript:alert('Hello')` a běžný odkaz `https://example.com/`. Pro vyloučení JavaScriptového hyperodkazu při exportu předáte `true` metodě [SaveOptions.setSkipJavaScriptLinks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/saveoptions/#setSkipJavaScriptLinks-boolean-). Výchozí hodnota je `false`, takže tyto odkazy nejsou filtrovány, pokud nepovolíte tuto možnost.
 
-**Je podpora výstupu komentářů k dispozici a kde mohou být umístěny vzhledem k snímku?**  
-Ano, komentáře lze v HTML5 přidat a umístit (například vpravo od snímku) pomocí [nastavení rozložení](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/html5options/#setNotesCommentsLayouting) pro poznámky a komentáře.
+Následující příklad načte prezentaci ze pracovního adresáře a exportuje ji pomocí [Html5Options](https://reference.aspose.com/slides/nodejs-java/aspose.slides/html5options/):
 
-**Mohu vynechat odkazy, které volají JavaScript, z bezpečnostních nebo CSP důvodů?**  
-Ano, existuje [nastavení](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/saveoptions/#setSkipJavaScriptLinks), které umožňuje během ukládání přeskočit hypertextové odkazy s voláním JavaScriptu. To pomáhá dodržovat přísné bezpečnostní zásady.
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const html5Options = new aspose.slides.Html5Options();
+html5Options.setSkipJavaScriptLinks(true);
+
+const presentation = new aspose.slides.Presentation("hyperlinks.pptx");
+try {
+    presentation.save("filtered-html5.html", aspose.slides.SaveFormat.Html5, html5Options);
+} finally {
+    presentation.dispose();
+}
+```
+
+Exportovaný soubor vynechává JavaScriptový hyperodkaz a zachovává jeho text i běžný HTTPS odkaz. Zdrojová prezentace zůstává beze změny.
+
+Tato možnost filtruje JavaScriptové hyperodkazy; neodstraňuje všechny skripty ani jiný aktivní obsah a neposkytuje záruku souladu s CSP. Například výstup HTML5 i nadále obsahuje skripty pro navigaci mezi snímky a animace.
+
+## **FAQ**
+
+**Mohu ovládat, zda se animace objektů a přechody snímků v HTML5 přehrají?**
+
+Ano, export do HTML5 nabízí samostatné možnosti pro povolení nebo zakázání [shape animations](https://reference.aspose.com/slides/nodejs-java/aspose.slides/html5options/#setAnimateShapes-boolean-) a [slide transitions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/html5options/#setAnimateTransitions-boolean-).
+
+**Jsou komentáře podporovány a kde je lze umístit vzhledem ke snímku?**
+
+Ano, existující komentáře mohou být zahrnuty do výstupu HTML5 a umístěny (například vpravo od snímku) prostřednictvím [layout settings](https://reference.aspose.com/slides/nodejs-java/aspose.slides/html5options/#setSlidesLayoutOptions-aspose.slides.ISlidesLayoutOptions-) pro poznámky a komentáře.
+
+**Mohu přeskočit odkazy vyvolávající JavaScript z důvodů zabezpečení nebo CSP?**
+
+Ano, nastavení [setSkipJavaScriptLinks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/saveoptions/#setSkipJavaScriptLinks-boolean-) umožňuje při ukládání přeskočit hyperodkazy s voláním JavaScriptu. Výchozí hodnota je `false`. Viz [Exclude JavaScript Hyperlinks During Export](/slides/cs/nodejs-java/export-to-html5/#exclude-javascript-hyperlinks-during-export) pro příklad exportu do HTML5 a rozsah filtru. Toto nastavení neodstraňuje JavaScript používaný HTML5 prohlížečem pro navigaci a animace.

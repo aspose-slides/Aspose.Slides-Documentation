@@ -23,57 +23,56 @@ keywords:
 - Aspose.Slides
 description: "Экспорт презентаций PowerPoint и OpenDocument в адаптивный HTML5 с помощью Aspose.Slides для .NET. Сохранение форматирования, анимаций и интерактивности."
 ---
+## **Обзор**
 
-{{% alert title="Info" color="info" %}}
-
-В [Aspose.Slides 21.9](/slides/ru/net/aspose-slides-for-net-21-9-release-notes/) мы реализовали поддержку экспорта в HTML5. Однако, если вы предпочитаете экспортировать PowerPoint в HTML с помощью WebExtensions, смотрите [эту статью](/slides/ru/net/web-extensions/) вместо этого. 
-
-{{% /alert %}} 
-
-Процесс экспорта в HTML5, представленный здесь, позволяет конвертировать PowerPoint в HTML без веб‑расширений и зависимостей. Таким образом, используя собственные шаблоны, вы можете задавать гибкие параметры, определяющие процесс экспорта и получаемый HTML, CSS, JavaScript и атрибуты анимации. 
+В этой статье объясняется, как преобразовать презентации PowerPoint в HTML5 с помощью Aspose.Slides для .NET. Описываются базовый экспорт, управление анимацией фигур и переходами слайдов, а также расположение комментариев. Также сравнивается вывод в HTML5 с SVG‑основным выводом стандартного экспорта в HTML.
 
 ## **Экспорт PowerPoint в HTML5**
 
-Этот пример кода C# показывает, как экспортировать презентацию в HTML5 без веб‑расширений и зависимостей:
-```c#
-using (Presentation pres = new Presentation("pres.pptx"))
-{
-   pres.Save("pres.html", SaveFormat.Html5);
-}
+В следующем примере презентация загружается из рабочей директории и сохраняется в формате HTML5. Используются настройки экспорта по умолчанию; в следующем примере показывается, как явно управлять воспроизведением анимации. Замените путь к входному файлу на путь к вашей презентации.
+
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("pres.pptx");
+presentation.Save("pres.html", SaveFormat.Html5);
 ```
 
-
-{{% alert color="primary" %}} 
-
-В этом случае вы получаете чистый HTML. 
-
+{{% alert color="info" title="Note" %}}
+Помимо HTML‑документа, экспорт создаёт поддерживающие файлы CSS и JavaScript для стилизации слайдов, анимаций, эффектов и навигации. Сохраняйте эти файлы вместе с HTML‑документом при перемещении или публикации результата. Сгенерированная страница также загружает jQuery и Anime.js из публичных CDN; без них навигация по слайдам и анимации не работают.
 {{% /alert %}}
 
-Вы можете указать настройки анимации фигур и переходов между слайдами следующим образом:
-```c#
-using (Presentation pres = new Presentation("pres.pptx"))
-{
-   pres.Save("pres5.html", SaveFormat.Html5, new Html5Options
-   {
-       AnimateShapes = false,
-       AnimateTransitions = false
-   });
-}
-```
+Чтобы выполнить экспорт без воспроизведения анимаций фигур или переходов слайдов, установите [AnimateShapes](https://reference.aspose.com/slides/net/aspose.slides.export/html5options/animateshapes/) и [AnimateTransitions](https://reference.aspose.com/slides/net/aspose.slides.export/html5options/animatetransitions/) в `false` в [Html5Options](https://reference.aspose.com/slides/net/aspose.slides.export/html5options/). Эти параметры независимы, поэтому можно включить один, отключив другой. В примере презентация экспортируется с отключёнными обоими типами анимации на сгенерированной странице.
 
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+var html5Options = new Html5Options
+{
+    AnimateShapes = false,
+    AnimateTransitions = false
+};
+
+using var presentation = new Presentation("pres.pptx");
+presentation.Save("pres5.html", SaveFormat.Html5, html5Options);
+```
 
 ## **Экспорт PowerPoint в HTML**
 
-Этот пример C# демонстрирует стандартный процесс экспорта PowerPoint в HTML:
-```c#
-using (Presentation pres = new Presentation("pres.pptx"))
-{
-   pres.Save("pres.html", SaveFormat.Html);
-}
+Стандартный экспорт в HTML использует другой подход к рендерингу: содержимое слайда представлено в виде SVG внутри HTML‑страницы. В следующем примере презентация преобразуется в HTML‑документ с использованием этого подхода.
+
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("pres.pptx");
+presentation.Save("pres.html", SaveFormat.Html);
 ```
 
+Ниже упрощённая разметка, иллюстрирующая структуру сгенерированной страницы. Элемент SVG содержит рендеринг содержимого слайда; текст‑заполнитель представляет это содержимое и не является реальным результатом экспорта.
 
-В этом случае содержимое презентации отображается через SVG в виде:
 ```html
 <body>
 <div class="slide" name="slide" id="slideslideIface1">
@@ -84,69 +83,92 @@ using (Presentation pres = new Presentation("pres.pptx"))
 </body>
 ```
 
-
-{{% alert title="Note" color="warning" %}} 
-
-При использовании этого метода экспорта PowerPoint в HTML из‑за рендеринга SVG вы не сможете применять стили или анимировать отдельные элементы. 
-
+{{% alert title="Warning" color="warning" %}}
+Экспорт на основе SVG не предоставляет формы PowerPoint в виде отдельных HTML‑элементов. Используйте экспорт в HTML5, если вам нужны параметры анимации фигур и переходов слайдов, продемонстрированные в этой статье.
 {{% /alert %}}
 
 ## **Экспорт PowerPoint в режим просмотра слайдов HTML5**
 
-**Aspose.Slides** позволяет конвертировать презентацию PowerPoint в документ HTML5, в котором слайды представлены в режиме просмотра слайдов. В этом случае, когда вы открываете полученный файл HTML5 в браузере, вы видите презентацию в режиме просмотра слайдов на веб‑странице. 
+Экспорт в HTML5 создает страницу для просмотра и навигации по слайдам презентации в браузере. В этом примере включены как [AnimateShapes](https://reference.aspose.com/slides/net/aspose.slides.export/html5options/animateshapes/), так и [AnimateTransitions](https://reference.aspose.com/slides/net/aspose.slides.export/html5options/animatetransitions/), чтобы экспортированный просмотр слайдов мог воспроизводить эффекты исходной презентации.
 
-Этот пример кода C# демонстрирует процесс экспорта PowerPoint в режим просмотра слайдов HTML5:
-```c#
-using (Presentation pres = new Presentation("pres.pptx"))
+Используйте презентацию, уже содержащую анимацию фигур и переходы слайдов, чтобы увидеть эффект этих настроек. Включение их не добавляет новых эффектов к слайдам, где их нет. После экспорта откройте сгенерированный HTML5‑документ в браузере, убедившись, что поддерживающие файлы доступны.
+
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+var html5Options = new Html5Options
 {
-   pres.Save("HTML5-slide-view.html", SaveFormat.Html5, new Html5Options
-   {
-       AnimateShapes = true,
-       AnimateTransitions = true
-   });
-}
-```
+    AnimateShapes = true,
+    AnimateTransitions = true
+};
 
+using var presentation = new Presentation("pres.pptx");
+presentation.Save("HTML5-slide-view.html", SaveFormat.Html5, html5Options);
+```
 
 ## **Преобразование презентации в документ HTML5 с комментариями**
 
-Комментарии в PowerPoint – это инструмент, позволяющий пользователям оставлять заметки или обратную связь на слайдах презентации. Они особенно полезны в совместных проектах, где несколько человек могут добавлять свои предложения или замечания к конкретным элементам слайда, не меняя основной контент. Каждый комментарий отображает имя автора, что упрощает отслеживание, кто оставил замечание.
+Вы можете включить существующие комментарии к слайдам в вывод HTML5, чтобы читатели могли видеть обратную связь рядом с содержимым слайда. Пример в этом разделе предполагает, что исходная презентация содержит комментарии, как показано ниже. Он экспортирует эти комментарии; новые не создаются.
 
-Допустим, у нас есть следующая презентация PowerPoint, сохранённая в файле «sample.pptx».
+![Два комментария на слайде презентации](two_comments_pptx.png)
 
-![Two comments on the presentation slide](two_comments_pptx.png)
+Назначьте объект [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/net/aspose.slides.export/notescommentslayoutingoptions/) свойству [SlidesLayoutOptions](https://reference.aspose.com/slides/net/aspose.slides.export/html5options/slideslayoutoptions/) класса [Html5Options](https://reference.aspose.com/slides/net/aspose.slides.export/html5options/). Установите [CommentsPosition](https://reference.aspose.com/slides/net/aspose.slides.export/notescommentslayoutingoptions/commentsposition/) в значение `Right` из перечисления [CommentsPositions](https://reference.aspose.com/slides/net/aspose.slides.export/commentspositions/), чтобы разместить комментарии справа от каждого слайда.
 
-При преобразовании презентации PowerPoint в документ HTML5 вы можете легко указать, включать ли комментарии из презентации в выходной документ. Для этого необходимо задать параметры отображения комментариев в свойстве `NotesCommentsLayouting` класса [Html5Options](https://reference.aspose.com/slides/net/aspose.slides.export/html5options/).
+В следующем примере презентация экспортируется в HTML5 с этой компоновкой комментариев. Презентация без комментариев не будет иметь текста комментариев для отображения.
 
-Следующий пример кода конвертирует презентацию в документ HTML5 с комментариями, отображаемыми справа от слайдов.
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+var layoutOptions = new NotesCommentsLayoutingOptions
+{
+    CommentsPosition = CommentsPositions.Right
+};
+
 var html5Options = new Html5Options
 {
-    NotesCommentsLayouting =
-    {
-        CommentsPosition = CommentsPositions.Right
-    }
+    SlidesLayoutOptions = layoutOptions
 };
 
 using var presentation = new Presentation("sample.pptx");
 presentation.Save("output.html", SaveFormat.Html5, html5Options);
 ```
 
+На изображении ниже показан экспортированный документ HTML5 с комментариями, отображаемыми рядом со слайдом.
 
-Документ «output.html» показан на изображении ниже.
+![Комментарии в выходном документе HTML5](two_comments_html5.png)
 
-![The comments in the output HTML5 document](two_comments_html5.png)
+## **Исключение JavaScript‑ссылок при экспорте**
+
+Предположим, `hyperlinks.pptx` содержит связанный текст с целью `javascript:alert('Hello')` и обычную ссылку `https://example.com/`. Чтобы исключить JavaScript‑ссылку при экспорте, установите [SaveOptions.SkipJavaScriptLinks](https://reference.aspose.com/slides/net/aspose.slides.export/saveoptions/skipjavascriptlinks/) в `true`. По умолчанию значение `false`, поэтому такие ссылки не фильтруются, если не включить параметр.
+
+В следующем примере презентация загружается из рабочей директории и экспортируется с использованием [Html5Options](https://reference.aspose.com/slides/net/aspose.slides.export/html5options/):
+
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+var html5Options = new Html5Options { SkipJavaScriptLinks = true };
+
+using var presentation = new Presentation("hyperlinks.pptx");
+presentation.Save("filtered-html5.html", SaveFormat.Html5, html5Options);
+```
+
+Экспортированный файл удаляет JavaScript‑ссылку, сохраняя её текст и обычную HTTPS‑ссылку. Исходная презентация остаётся неизменной.
+
+Этот параметр фильтрует JavaScript‑ссылки; он не удаляет все скрипты или другой активный контент и не гарантирует соответствие CSP. Например, вывод HTML5 по‑прежнему содержит скрипты для навигации по слайдам и анимаций.
 
 ## **FAQ**
 
-**Можно ли управлять тем, будут ли анимации объектов и переходы между слайдами воспроизводиться в HTML5?**
+**Могу ли я управлять тем, будут ли анимации объектов и переходы слайдов воспроизводиться в HTML5?**
 
-Да, в HTML5 есть отдельные параметры для включения или отключения [анимации фигур](https://reference.aspose.com/slides/net/aspose.slides.export/html5options/animateshapes/) и [переходов между слайдами](https://reference.aspose.com/slides/net/aspose.slides.export/html5options/animatetransitions/).
+Да, экспорт в HTML5 предоставляет отдельные параметры для включения или отключения [анимации фигур](https://reference.aspose.com/slides/net/aspose.slides.export/html5options/animateshapes/) и [переходов слайдов](https://reference.aspose.com/slides/net/aspose.slides.export/html5options/animatetransitions/).
 
-**Поддерживается ли вывод комментариев и где их можно разместить относительно слайда?**
+**Поддерживаются ли комментарии и где их можно разместить относительно слайда?**
 
-Да, комментарии можно добавить в HTML5 и разместить (например, справа от слайда) с помощью [параметров макета](https://reference.aspose.com/slides/net/aspose.slides.export/html5options/notescommentslayouting/) для заметок и комментариев.
+Да, существующие комментарии могут быть включены в вывод HTML5 и расположены (например, справа от слайда) с помощью [настроек компоновки](https://reference.aspose.com/slides/net/aspose.slides.export/html5options/slideslayoutoptions/) для заметок и комментариев.
 
-**Можно ли пропустить ссылки, вызывающие JavaScript, по соображениям безопасности или политики CSP?**
+**Могу ли я пропускать ссылки, вызывающие JavaScript, по соображениям безопасности или CSP?**
 
-Да, существует [параметр](https://reference.aspose.com/slides/net/aspose.slides.export/saveoptions/skipjavascriptlinks/), позволяющий пропускать гиперссылки с вызовами JavaScript при сохранении. Это помогает соблюсти строгие политики безопасности.
+Да, параметр [SkipJavaScriptLinks](https://reference.aspose.com/slides/net/aspose.slides.export/saveoptions/skipjavascriptlinks/) позволяет пропускать гиперссылки с вызовами JavaScript при сохранении. По умолчанию `false`. См. [Exclude JavaScript Hyperlinks During Export](/slides/ru/net/export-to-html5/#exclude-javascript-hyperlinks-during-export) для простого примера экспорта в HTML, HTML5 и PDF и области действия фильтра. Этот параметр не удаляет JavaScript, используемый HTML5‑просмотрщиком для навигации и анимаций.

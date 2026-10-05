@@ -1,14 +1,14 @@
 ---
-title: 在 Android 上将演示文稿转换为 HTML5
-linktitle: 演示文稿转 HTML5
+title: 将演示文稿转换为 Android 上的 HTML5
+linktitle: 演示文稿到 HTML5
 type: docs
 weight: 40
 url: /zh/androidjava/export-to-html5/
 keywords:
 - PowerPoint 转 HTML5
 - OpenDocument 转 HTML5
-- 演示文稿 转 HTML5
-- 幻灯片 转 HTML5
+- 演示文稿转 HTML5
+- 幻灯片转 HTML5
 - PPT 转 HTML5
 - PPTX 转 HTML5
 - ODP 转 HTML5
@@ -21,57 +21,65 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "通过 Java 使用适用于 Android 的 Aspose.Slides 将 PowerPoint 和 OpenDocument 演示文稿导出为响应式 HTML5。保留格式、动画和交互性。"
+description: "使用 Aspose.Slides for Android via Java 将 PowerPoint 和 OpenDocument 演示文稿导出为响应式 HTML5。保留格式、动画和交互性。"
 ---
+## **概述**
 
-Aspose.Slides 支持 HTML5 导出。此处的 HTML5 导出过程允许您在无需 Web 扩展或依赖项的情况下将 PowerPoint 转换为 HTML。这样，使用您自己的模板，您可以应用非常灵活的选项来定义导出过程以及生成的 HTML、CSS、JavaScript 和动画属性。 
+本文介绍如何使用 Aspose.Slides for Android via Java 将 PowerPoint 演示文稿转换为 HTML5。它涵盖了基本导出、形状动画和幻灯片切换的控制以及评论布局。还比较了 HTML5 输出与标准 HTML 导出的基于 SVG 的输出。
 
 ## **将 PowerPoint 导出为 HTML5**
 
-下面的 Java 代码展示了如何在没有 Web 扩展和依赖项的情况下将演示文稿导出为 HTML5：
+以下示例从工作目录加载演示文稿并将其保存为 HTML5 格式。它使用默认导出设置；下一个示例演示如何显式控制动画播放。请将输入路径替换为您的演示文稿路径。
+
 ```java
-Presentation pres = new Presentation("pres.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("pres.pptx");
 try {
-    pres.save("pres.html", SaveFormat.Html5);
+    presentation.save("pres.html", SaveFormat.Html5);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-
-{{% alert color="primary" %}} 
-在这种情况下，您会得到干净的 HTML。 
+{{% alert color="info" title="Note" %}}
+除了 HTML 文档外，导出还会生成用于幻灯片样式、动画、效果和导航的 CSS 和 JavaScript 支持文件。移动或发布输出时请将这些文件与 HTML 文档一起保留。生成的页面还会从公共 CDN 加载 jQuery 和 Anime.js；如果没有这些文件，幻灯片导航和动画将无法运行。
 {{% /alert %}}
 
-您可以通过以下方式指定形状动画和幻灯片切换的设置：
+若要在导出时不播放形状动画或幻灯片切换，可在 [Html5Options](https://reference.aspose.com/slides/androidjava/com.aspose.slides/html5options/) 中对 [setAnimateShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/html5options/#setAnimateShapes-boolean-) 和 [setAnimateTransitions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/html5options/#setAnimateTransitions-boolean-) 传入 `false`。这些设置相互独立，可在启用一个的同时禁用另一个。示例在生成的页面中将两种动画均禁用后导出演示文稿。
+
 ```java
-Presentation pres = new Presentation("pres.pptx");
+import com.aspose.slides.*;
+
+Html5Options html5Options = new Html5Options();
+html5Options.setAnimateShapes(false);
+html5Options.setAnimateTransitions(false);
+
+Presentation presentation = new Presentation("pres.pptx");
 try {
-    Html5Options html5Options = new Html5Options();
-    html5Options.setAnimateShapes(false);
-    html5Options.setAnimateTransitions(false);
-    
-    pres.save("pres5.html", SaveFormat.Html5, html5Options);
+    presentation.save("pres5.html", SaveFormat.Html5, html5Options);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
-
 
 ## **将 PowerPoint 导出为 HTML**
 
-下面的 Java 演示了标准的 PowerPoint 到 HTML 的过程：
+标准的 HTML 导出采用不同的渲染方式：幻灯片内容以 SVG 形式嵌入 HTML 页面中。以下示例使用此渲染方式将演示文稿转换为 HTML 文档。
+
 ```java
-Presentation pres = new Presentation("pres.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("pres.pptx");
 try {
-    pres.save("pres.html", SaveFormat.Html);
+    presentation.save("pres.html", SaveFormat.Html);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+下面的简化标记展示了生成页面的结构。SVG 元素包含渲染后的幻灯片内容；占位符文本表示该内容，并非实际导出输出。
 
-在这种情况下，演示文稿内容通过 SVG 渲染，形式如下：
 ```html
 <body>
 <div class="slide" name="slide" id="slideslideIface1">
@@ -82,65 +90,94 @@ try {
 </body>
 ```
 
-
-{{% alert title="Note" color="warning" %}} 
-当您使用此方法将 PowerPoint 导出为 HTML 时，由于 SVG 渲染，您将无法对特定元素应用样式或进行动画。 
+{{% alert title="Warning" color="warning" %}}
+基于 SVG 的导出不会将 PowerPoint 形状暴露为单独的 HTML 元素。当您需要本文演示的形状动画和幻灯片切换选项时，请使用 HTML5 导出。
 {{% /alert %}}
 
 ## **将 PowerPoint 导出为 HTML5 幻灯片视图**
 
-**Aspose.Slides** 允许您将 PowerPoint 演示文稿转换为 HTML5 文档，其中幻灯片以幻灯片视图模式呈现。在这种情况下，使用浏览器打开生成的 HTML5 文件时，您将在网页上以幻灯片视图模式观看演示文稿。 
+HTML5 导出生成一个用于在浏览器中查看和导航演示文稿幻灯片的页面。本示例同时启用 [setAnimateShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/html5options/#setAnimateShapes-boolean-) 和 [setAnimateTransitions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/html5options/#setAnimateTransitions-boolean-)，以便导出的幻灯片视图能够播放来源演示文稿中的效果。
 
-下面的 Java 代码演示了 PowerPoint 到 HTML5 幻灯片视图的导出过程：
+请使用已包含形状动画和幻灯片切换的演示文稿，以观察这些设置的效果。启用它们不会为没有动画的幻灯片添加新效果。导出后，在浏览器中打开生成的 HTML5 文档，并确保其支持文件可用。
+
 ```java
-Presentation pres = new Presentation("pres.pptx");
-try {
-    Html5Options html5Options = new Html5Options();
-    html5Options.setAnimateShapes(true);
-    html5Options.setAnimateTransitions(true);
+import com.aspose.slides.*;
 
-    pres.save("HTML5-slide-view.html", SaveFormat.Html5, html5Options);
+Html5Options html5Options = new Html5Options();
+html5Options.setAnimateShapes(true);
+html5Options.setAnimateTransitions(true);
+
+Presentation presentation = new Presentation("pres.pptx");
+try {
+    presentation.save("HTML5-slide-view.html", SaveFormat.Html5, html5Options);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+## **将演示文稿转换为带评论的 HTML5 文档**
 
-## **将演示文稿转换为带有批注的 HTML5 文档**
+您可以在 HTML5 输出中包含现有的幻灯片评论，以便读者在幻灯片内容旁看到反馈。本节示例假设源演示文稿包含评论，如下所示。它会导出这些评论，而不会创建新评论。
 
-PowerPoint 中的批注是一种工具，允许用户在演示幻灯片上留下备注或反馈。它们在协作项目中尤其有用，多个人员可以在不更改主要内容的前提下，对特定幻灯片元素添加建议或备注。每条批注都会显示作者姓名，便于追踪是谁留下的备注。
+![演示文稿幻灯片上的两个评论](two_comments_pptx.png)
 
-假设我们有一个保存在 "sample.pptx" 文件中的 PowerPoint 演示文稿。
+将 [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/notescommentslayoutingoptions/) 对象传递给 [Html5Options](https://reference.aspose.com/slides/androidjava/com.aspose.slides/html5options/) 的 [setSlidesLayoutOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/html5options/#setSlidesLayoutOptions-com.aspose.slides.ISlidesLayoutOptions-) 方法。使用 [setCommentsPosition](https://reference.aspose.com/slides/androidjava/com.aspose.slides/notescommentslayoutingoptions/#setCommentsPosition-int-) 从 [CommentsPositions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/commentspositions/) 枚举中选择 `Right`，将评论放置在每张幻灯片的右侧。
 
-![演示幻灯片上的两个批注](two_comments_pptx.png)
+下面的示例使用此评论布局将演示文稿导出为 HTML5。没有评论的演示文稿将不会显示任何评论文本。
 
-将 PowerPoint 演示文稿转换为 HTML5 文档时，您可以轻松指定是否在输出文档中包含演示文稿的批注。为此，需要在 [Html5Options](https://reference.aspose.com/slides/androidjava/com.aspose.slides/html5options/) 类的 `getNotesCommentsLayouting` 方法中指定批注的显示参数。
-
-下面的代码示例将演示文稿转换为 HTML5 文档，并将批注显示在幻灯片的右侧。
 ```java
+import com.aspose.slides.*;
+
+NotesCommentsLayoutingOptions layoutOptions = new NotesCommentsLayoutingOptions();
+layoutOptions.setCommentsPosition(CommentsPositions.Right);
+
 Html5Options html5Options = new Html5Options();
-html5Options.getNotesCommentsLayouting().setCommentsPosition(CommentsPositions.Right);
+html5Options.setSlidesLayoutOptions(layoutOptions);
 
 Presentation presentation = new Presentation("sample.pptx");
-presentation.save("output.html", SaveFormat.Html5, html5Options);
-presentation.dispose();
+try {
+    presentation.save("output.html", SaveFormat.Html5, html5Options);
+} finally {
+    presentation.dispose();
+}
 ```
 
+![输出的 HTML5 文档中的评论](two_comments_html5.png)
 
-"output.html" 文档如下面的图片所示。
+## **导出时排除 JavaScript 超链接**
 
-![输出 HTML5 文档中的批注](two_comments_html5.png)
+假设 `hyperlinks.pptx` 包含指向 `javascript:alert('Hello')` 的链接文本以及普通的 `https://example.com/` 链接。若要在导出时排除 JavaScript 超链接，请对 [SaveOptions.setSkipJavaScriptLinks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/saveoptions/#setSkipJavaScriptLinks-boolean-) 传入 `true`。默认值为 `false`，因此除非启用此选项，否则这些链接不会被过滤。
+
+下面的示例从工作目录加载演示文稿，并使用 [Html5Options](https://reference.aspose.com/slides/androidjava/com.aspose.slides/html5options/) 导出：
+
+```java
+import com.aspose.slides.*;
+
+Html5Options html5Options = new Html5Options();
+html5Options.setSkipJavaScriptLinks(true);
+
+Presentation presentation = new Presentation("hyperlinks.pptx");
+try {
+    presentation.save("filtered-html5.html", SaveFormat.Html5, html5Options);
+} finally {
+    presentation.dispose();
+}
+```
+
+导出的文件会省略 JavaScript 超链接，但保留其文本和普通的 HTTPS 链接。源演示文稿保持不变。
+
+此选项仅过滤 JavaScript 超链接；它不会删除所有脚本或其他活动内容，也不保证符合 CSP。例如，HTML5 输出仍会包含用于幻灯片导航和动画的脚本。
 
 ## **常见问题**
 
-**我能控制对象动画和幻灯片切换是否在 HTML5 中播放吗？**
+**我可以控制对象动画和幻灯片切换在 HTML5 中是否播放吗？**
 
-是的，HTML5 提供了单独的选项来启用或禁用 [形状动画](https://reference.aspose.com/slides/androidjava/com.aspose.slides/html5options/#setAnimateShapes-boolean-) 和 [幻灯片切换](https://reference.aspose.com/slides/androidjava/com.aspose.slides/html5options/#setAnimateTransitions-boolean-)。
+可以，HTML5 导出提供了独立的选项来启用或禁用 [shape animations](https://reference.aspose.com/slides/androidjava/com.aspose.slides/html5options/#setAnimateShapes-boolean-) 和 [slide transitions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/html5options/#setAnimateTransitions-boolean-)。
 
-**是否支持输出批注，以及可以相对于幻灯片放置在哪里？**
+**是否支持评论？它们可以相对于幻灯片放置在何处？**
 
-是的，批注可以在 HTML5 中添加，并通过用于备注和批注的 [布局设置](https://reference.aspose.com/slides/androidjava/com.aspose.slides/html5options/#setSlidesLayoutOptions-com.aspose.slides.ISlidesLayoutOptions-) 将其定位（例如放在幻灯片的右侧）。
+是的，现有的评论可以包含在 HTML5 输出中，并可通过 [layout settings](https://reference.aspose.com/slides/androidjava/com.aspose.slides/html5options/#setSlidesLayoutOptions-com.aspose.slides.ISlidesLayoutOptions-) 为备注和评论进行布局设置（例如，将其放置在幻灯片右侧）。
 
-**我可以跳过调用 JavaScript 的链接以满足安全或 CSP 要求吗？**
+**我可以为了安全或 CSP 原因跳过调用 JavaScript 的链接吗？**
 
-是的，有一个 [设置](https://reference.aspose.com/slides/androidjava/com.aspose.slides/saveoptions/#setSkipJavaScriptLinks-boolean-) 可以在保存时跳过带有 JavaScript 调用的超链接。这有助于遵守严格的安全策略。
+可以，[setSkipJavaScriptLinks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/saveoptions/#setSkipJavaScriptLinks-boolean-) 设置允许在保存时跳过包含 JavaScript 调用的超链接。默认值为 `false`。请参阅 [Exclude JavaScript Hyperlinks During Export](/slides/zh/androidjava/export-to-html5/#exclude-javascript-hyperlinks-during-export) 获取 HTML5 导出示例及过滤范围。此设置不会删除 HTML5 查看器用于导航和动画的 JavaScript。

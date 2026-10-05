@@ -1,75 +1,71 @@
 ---
 title: Python'da Sunumları HTML5'e Dönüştür
-linktitle: HTML5'e Dışa Aktar
+linktitle: Sunumdan HTML5'e
 type: docs
 weight: 40
 url: /tr/python-net/export-to-html5/
 keywords:
-- PowerPoint'ten HTML5'e
+- PowerPoint'tan HTML5'e
 - OpenDocument'ten HTML5'e
 - sunumdan HTML5'e
 - slayttan HTML5'e
 - PPT'den HTML5'e
-- PPTX'ten HTML5'e
+- PPTX'den HTML5'e
 - ODP'den HTML5'e
-- PowerPoint dönüştür
-- OpenDocument dönüştür
-- sunumu dönüştür
-- slaytı dönüştür
-- HTML5 dışa aktarımı
-- sunumu dışa aktar
-- slaytı dışa aktar
-- PowerPoint
-- OpenDocument
-- sunum
+- PPT'yi HTML5 olarak kaydet
+- PPTX'i HTML5 olarak kaydet
+- ODP'yi HTML5 olarak kaydet
+- PPT'yi HTML5'e dışa aktar
+- PPTX'i HTML5'e dışa aktar
+- ODP'yi HTML5'e dışa aktar
 - Python
 - Aspose.Slides
-description: "PowerPoint ve OpenDocument sunumlarını, .NET üzerinden Python için Aspose.Slides ile duyarlı HTML5'e dışa aktarın. Biçimlendirme, animasyonlar ve etkileşimi koruyun."
+description: "Aspose.Slides for Python via .NET ile PowerPoint ve OpenDocument sunumlarını responsive HTML5'e dışa aktarın. Biçimlendirme, animasyonlar ve etkileşimi koruyun."
 ---
 ## **Genel Bakış**
 
-Bu makale, Aspose.Slides kullanarak PowerPoint sunumlarını HTML5'e nasıl dönüştüreceğinizi açıklar. Web uzantıları veya ek bağımlılıklar olmadan temel HTML5 dışa aktarımını, şekil animasyonları ve slayt geçişlerini kontrol etme seçeneklerini kapsar. Makale ayrıca standart PowerPoint‑to‑HTML dışa aktarım sürecini gösterir, slayt görünüm modunda HTML5 çıktısı oluşturmayı açıklar ve dışa aktarılan belgede yorumları düzenleyerek nasıl dahil edileceğini gösterir.
+Bu makale, Aspose.Slides for Python via .NET kullanarak PowerPoint sunumlarını HTML5'e nasıl dönüştüreceğinizi açıklar. Temel dışa aktarma, şekil animasyonları ve slayt geçişlerinin kontrolü ve yorum düzeni konularını kapsar. Ayrıca HTML5 çıktısını standart HTML dışa aktarmanın SVG tabanlı çıktısı ile karşılaştırır.
 
 ## **PowerPoint'i HTML5'e Dışa Aktar**
 
-Bu python kodu, web uzantıları ve bağımlılıklar olmadan bir sunumu HTML5'e nasıl dışa aktaracağınızı gösterir:
+Aşağıdaki örnek, çalışma dizininden bir sunumu yükler ve HTML5 formatında kaydeder. Varsayılan dışa aktarma ayarlarını kullanır; sonraki örnek, animasyon oynatımını açıkça nasıl kontrol edeceğinizi gösterir. Giriş yolunu sunumunuzun yolu ile değiştirin.
 
-```py
+```python
 import aspose.slides as slides
 
 with slides.Presentation("pres.pptx") as presentation:
-    presentation.save("index.html", slides.export.SaveFormat.HTML5)
+    presentation.save("pres.html", slides.export.SaveFormat.HTML5)
 ```
 
-{{% alert color="primary" %}} 
-Bu durumda temiz HTML elde edersiniz. 
+{{% alert color="info" title="Not" %}}
+HTML belgesine ek olarak, dışa aktarma slayt stillendirme, animasyonlar, efektler ve gezinme için destekleyici CSS ve JavaScript dosyaları yazar. Çıktıyı taşırken veya yayımlarken bu dosyaları HTML belgesiyle birlikte tutun. Oluşturulan sayfa ayrıca jQuery ve Anime.js'i genel CDN'lerden yükler; bunlar olmadan slayt gezinmesi ve animasyonlar çalışmaz.
 {{% /alert %}}
 
-Şekil animasyonları ve slayt geçişleri için ayarları şu şekilde belirtebilirsiniz:
+Şekil animasyonları veya slayt geçişleri oynatılmadan dışa aktarmak için, [animate_shapes](https://reference.aspose.com/slides/python-net/aspose.slides.export/html5options/animate_shapes/) ve [animate_transitions](https://reference.aspose.com/slides/python-net/aspose.slides.export/html5options/animate_transitions/) ayarlarını [Html5Options](https://reference.aspose.com/slides/python-net/aspose.slides.export/html5options/) içinde `False` olarak ayarlayın. Bu ayarlar bağımsızdır, böylece birini etkinleştirirken diğerini devre dışı bırakabilirsiniz. Örnek, her iki animasyon türünün de devre dışı bırakıldığı bir sunumu oluşturulan sayfada dışa aktarır.
 
-```py
+```python
 import aspose.slides as slides
 
-with slides.Presentation("pres.pptx") as presentation:
-    options = slides.export.Html5Options()
-    options.animate_shapes = False
-    options.animate_transitions = False
+html5_options = slides.export.Html5Options()
+html5_options.animate_shapes = False
+html5_options.animate_transitions = False
 
-    presentation.save("index.html", slides.export.SaveFormat.HTML5, options)
+with slides.Presentation("pres.pptx") as presentation:
+    presentation.save("pres5.html", slides.export.SaveFormat.HTML5, html5_options)
 ```
 
 ## **PowerPoint'i HTML'e Dışa Aktar**
 
-Bu python kodu, standart PowerPoint‑to‑HTML sürecini gösterir:
+Standart HTML dışa aktarma farklı bir renderleme yaklaşımı kullanır: slayt içeriği bir HTML sayfası içinde SVG olarak temsil edilir. Aşağıdaki örnek, bu renderleme yaklaşımını kullanarak bir sunumu HTML belgesine dönüştürür.
 
-```py
+```python
 import aspose.slides as slides
 
 with slides.Presentation("pres.pptx") as presentation:
-    presentation.save("index.html", slides.export.SaveFormat.HTML)
+    presentation.save("pres.html", slides.export.SaveFormat.HTML)
 ```
 
-Bu durumda, sunum içeriği aşağıdaki gibi bir biçimde SVG aracılığıyla işlenir:
+Aşağıdaki basitleştirilmiş işaretleme, oluşturulan sayfanın yapısını gösterir. SVG öğesi renderlenen slayt içeriğini içerir; yer tutucu metin bu içeriği temsil eder ve gerçek dışa aktarma çıktısı değildir.
 
 ```html
 <body>
@@ -81,62 +77,82 @@ Bu durumda, sunum içeriği aşağıdaki gibi bir biçimde SVG aracılığıyla 
 </body>
 ```
 
-{{% alert title="Not" color="warning" %}} 
-Bu yöntemi kullanarak PowerPoint'i HTML'e dışa aktardığınızda, SVG işleme nedeniyle stil uygulayamaz veya belirli öğeleri canlandıramazsınız. 
+{{% alert title="Uyarı" color="warning" %}}
+SVG tabanlı dışa aktarma, PowerPoint şekillerini ayrı HTML öğeleri olarak ortaya çıkarmaz. Bu makalede gösterilen şekil‑animasyonu ve slayt‑geçişi seçeneklerine ihtiyaç duyduğunuzda HTML5 dışa aktarmayı kullanın.
 {{% /alert %}}
 
-## **PowerPoint'i HTML5 Slayt Görünümü Olarak Dışa Aktar**
+## **PowerPoint'i HTML5 Slayt Görünümüne Dışa Aktar**
 
-**Aspose.Slides**, slaytların slayt görünüm modunda sunulduğu bir HTML5 belgesine PowerPoint sunumunu dönüştürmenizi sağlar. Bu durumda, oluşturulan HTML5 dosyasını bir tarayıcıda açtığınızda, sunumu bir web sayfasında slayt görünüm modunda görebilirsiniz. 
+HTML5 dışa aktarma, tarayıcıda sunum slaytlarını görüntülemek ve gezinmek için bir sayfa üretir. Bu örnek, dışa aktarılan slayt görünümünün kaynak sunumdan efektleri oynatabilmesi için hem [animate_shapes](https://reference.aspose.com/slides/python-net/aspose.slides.export/html5options/animate_shapes/) hem de [animate_transitions](https://reference.aspose.com/slides/python-net/aspose.slides.export/html5options/animate_transitions/) seçeneklerini etkinleştirir.
 
-Bu Python kodu, PowerPoint'i HTML5 Slayt Görünümü dışa aktarım sürecini gösterir:
+Bu ayarların etkisini görmek için zaten şekil animasyonları ve slayt geçişleri içeren bir sunum kullanın. Bunları etkinleştirmek, hiç efekti olmayan slaytlara yeni efekt eklemez. Dışa aktarmadan sonra, oluşturulan HTML5 belgesini destek dosyaları mevcutken bir tarayıcıda açın.
 
 ```python
 import aspose.slides as slides
 
-with slides.Presentation("pres.pptx") as pres:
-    # Slayt geçişleri, animasyonlar ve şekil animasyonları içeren bir sunumu HTML5'e dışa aktar
-    options = slides.export.Html5Options()
-    options.animate_shapes = True
-    options.animate_transitions = True
+html5_options = slides.export.Html5Options()
+html5_options.animate_shapes = True
+html5_options.animate_transitions = True
 
-    # Sunumu kaydet
-    pres.save("HTML5-slide-view.html", slides.export.SaveFormat.HTML5, options)
+with slides.Presentation("pres.pptx") as presentation:
+    presentation.save("HTML5-slide-view.html", slides.export.SaveFormat.HTML5, html5_options)
 ```
 
-## **Sunumu Yorumlu Bir HTML5 Belgesine Dönüştür**
+## **Sunumu Yorumlarla Birlikte HTML5 Belgesine Dönüştür**
 
-PowerPoint'teki yorumlar, kullanıcıların sunum slaytlarına not veya geri bildirim bırakmasını sağlayan bir araçtır. Özellikle birden fazla kişinin belirli slayt öğelerine öneri veya açıklama ekleyebildiği işbirlikli projelerde çok faydalıdır; ana içeriği değiştirmeden. Her yorum, yazarın adını gösterdiği için kimin yorum bıraktığını takip etmek kolaydır.
+Mevcut slayt yorumlarını HTML5 çıktısına dahil ederek okuyucuların yorumları slayt içeriğiyle birlikte görmesini sağlayabilirsiniz. Bu bölümdaki örnek, kaynak sunumda aşağıda gösterildiği gibi yorumların bulunmasını bekler. Yorumları dışa aktarır; yeni yorumlar oluşturmaz.
 
-Örneğin aşağıdaki PowerPoint sunumumuz "sample.pptx" dosyasında kaydedilmiştir.
+![Sunum slaytındaki iki yorum](two_comments_pptx.png)
 
-![Sunum slaytında iki yorum](two_comments_pptx.png)
+Bir [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/python-net/aspose.slides.export/notescommentslayoutingoptions/) nesnesini [Html5Options](https://reference.aspose.com/slides/python-net/aspose.slides.export/html5options/) sınıfının [slides_layout_options](https://reference.aspose.com/slides/python-net/aspose.slides.export/html5options/slides_layout_options/) özelliğine atayın. Yorumları her slaydın sağına yerleştirmek için [CommentsPositions](https://reference.aspose.com/slides/python-net/aspose.slides.export/commentspositions/) enum'ından `RIGHT` değerine sahip [comments_position](https://reference.aspose.com/slides/python-net/aspose.slides.export/notescommentslayoutingoptions/comments_position/) ayarlayın.
 
-PowerPoint sunumunu bir HTML5 belgesine dönüştürürken, çıktıda yorumların dahil edilip edilmeyeceğini kolayca belirtebilirsiniz. Bunu yapmak için, yorumların görüntüleme parametrelerini `notes_comments_layouting` özelliği aracılığıyla [Html5Options](https://reference.aspose.com/slides/tr/python-net/aspose.slides.export/html5options/) sınıfında belirtmeniz gerekir.
+Aşağıdaki örnek, bu yorum düzeniyle sunumu HTML5'e dışa aktarır. Yorumları olmayan bir sunumda görüntülenecek yorum metni bulunmaz.
 
-Aşağıdaki kod örneği, yorumların slaytların sağına yerleştirildiği bir HTML5 belgesine sunumu dönüştürür.
-```py
-html5_options = Html5Options()
-html5_options.notes_comments_layouting.comments_position = CommentsPositions.RIGHT
+```python
+import aspose.slides as slides
 
-with Presentation("sample.pptx") as presentation:
-    presentation.save("output.html", SaveFormat.HTML5, html5_options)
+layout_options = slides.export.NotesCommentsLayoutingOptions()
+layout_options.comments_position = slides.export.CommentsPositions.RIGHT
+
+html5_options = slides.export.Html5Options()
+html5_options.slides_layout_options = layout_options
+
+with slides.Presentation("sample.pptx") as presentation:
+    presentation.save("output.html", slides.export.SaveFormat.HTML5, html5_options)
 ```
 
-"Anaçık.html" belgesi aşağıdaki görselde gösterilmiştir.
+![HTML5 çıktısındaki yorumlar](two_comments_html5.png)
 
-![Çıktı HTML5 belgesindeki yorumlar](two_comments_html5.png)
+## **Dışa Aktarım Sırasında JavaScript Bağlantılarını Hariç Tut**
+
+`hyperlinks.pptx` dosyasının `javascript:alert('Hello')` hedefli bir bağlanmış metin ve normal bir `https://example.com/` bağlantısı içerdiğini varsayalım. Dışa aktarım sırasında JavaScript bağlantısını hariç tutmak için [Html5Options.skip_java_script_links](https://reference.aspose.com/slides/python-net/aspose.slides.export/html5options/skip_java_script_links/) ayarını `True` olarak ayarlayın. Varsayılan değer `False` olduğundan, bu bağlantılar seçenek etkinleştirilmedikçe filtrelenmez.
+
+Aşağıdaki örnek, sunumu çalışma dizininden yükler ve [Html5Options](https://reference.aspose.com/slides/python-net/aspose.slides.export/html5options/) kullanarak dışa aktarır:
+
+```python
+import aspose.slides as slides
+
+html5_options = slides.export.Html5Options()
+html5_options.skip_java_script_links = True
+
+with slides.Presentation("hyperlinks.pptx") as presentation:
+    presentation.save("filtered-html5.html", slides.export.SaveFormat.HTML5, html5_options)
+```
+
+Dışa aktarılan dosya, JavaScript bağlantısını metni ve normal HTTPS bağlantısını koruyarak dışarı çıkar. Kaynak sunum değişmeden kalır.
+
+Bu seçenek JavaScript bağlantılarını filtreler; tüm betikleri veya diğer aktif içerikleri kaldırmaz, ayrıca CSP uyumluluğunu garanti etmez. Örneğin, HTML5 çıktısı hâlâ slayt gezinmesi ve animasyonlar için betikler içerir.
 
 ## **SSS**
 
 **HTML5'te nesne animasyonları ve slayt geçişlerinin oynatılıp oynatılmayacağını kontrol edebilir miyim?**
 
-Evet, HTML5, [şekil animasyonlarını](https://reference.aspose.com/slides/tr/python-net/aspose.slides.export/html5options/animate_shapes/) ve [slayt geçişlerini](https://reference.aspose.com/slides/tr/python-net/aspose.slides.export/html5options/animate_transitions/) etkinleştirme veya devre dışı bırakma için ayrı seçenekler sunar.
+Evet, HTML5 dışa aktarma, [şekil animasyonları](https://reference.aspose.com/slides/python-net/aspose.slides.export/html5options/animate_shapes/) ve [slayt geçişleri](https://reference.aspose.com/slides/python-net/aspose.slides.export/html5options/animate_transitions/) seçeneklerini ayrı ayrı etkinleştirmenize veya devre dışı bırakmanıza imkan tanır.
 
-**Yorumların çıktısı destekleniyor mu ve slayta göre nerede konumlandırılabilir?**
+**Yorumlar destekleniyor mu ve slayta göre nerede konumlandırılabilir?**
 
-Evet, yorumlar HTML5'te eklenebilir ve notlar ile yorumlar için [düzen ayarları](https://reference.aspose.com/slides/tr/python-net/aspose.slides.export/html5options/notes_comments_layouting/) aracılığıyla (örneğin slaytın sağına) konumlandırılabilir.
+Evet, mevcut yorumlar HTML5 çıktısına dahil edilebilir ve notlar ve yorumlar için [düzen ayarları](https://reference.aspose.com/slides/python-net/aspose.slides.export/html5options/slides_layout_options/) aracılığıyla (örneğin slaytın sağına) konumlandırılabilir.
 
 **Güvenlik veya CSP nedenleriyle JavaScript çağıran bağlantıları atlayabilir miyim?**
 
-Evet, kaydetme sırasında JavaScript çağrısı içeren hiperlinkleri atlamanızı sağlayan bir [ayar](https://reference.aspose.com/slides/tr/python-net/aspose.slides.export/html5options/skip_java_script_links/) mevcuttur. Bu, katı güvenlik politikalarına uymaya yardımcı olur.
+Evet, [skip_java_script_links](https://reference.aspose.com/slides/python-net/aspose.slides.export/html5options/skip_java_script_links/) ayarı, kaydetme sırasında JavaScript çağrısı içeren bağlantıları atlamanızı sağlar. Varsayılan değer `False`'tır. Bir HTML5 dışa aktarma örneği ve filtrenin kapsamı için [JavaScript Bağlantılarını Dışa Aktarım Sırasında Hariç Tut](/slides/tr/python-net/export-to-html5/#exclude-javascript-hyperlinks-during-export) bölümüne bakın. Bu ayar, HTML5 görüntüleyicisinin gezinme ve animasyonlar için kullandığı JavaScript'i kaldırmaz.

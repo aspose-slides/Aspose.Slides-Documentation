@@ -1,5 +1,5 @@
 ---
-title: Μετατροπή Παρουσιάσεων σε HTML5 με Java
+title: Μετατροπή παρουσιάσεων σε HTML5 σε Java
 linktitle: Παρουσίαση σε HTML5
 type: docs
 weight: 40
@@ -20,58 +20,64 @@ keywords:
 - εξαγωγή ODP σε HTML5
 - Java
 - Aspose.Slides
-description: "Εξαγωγή παρουσιάσεων PowerPoint & OpenDocument σε προσαρμόσιμο HTML5 με το Aspose.Slides για Java. Διατήρηση μορφοποίησης, κινούμενων γραφικών και διαδραστικότητας."
+description: "Εξαγωγή παρουσιάσεων PowerPoint & OpenDocument σε προσαρμόσιμο HTML5 με Aspose.Slides για Java. Διατήρηση μορφοποίησης, κινούμενων εικόνων και διαδραστικότητας."
 ---
 ## **Επισκόπηση**
 
-Αυτό το άρθρο εξηγεί πώς να μετατρέψετε παρουσιάσεις PowerPoint σε HTML5 χρησιμοποιώντας το Aspose.Slides. Καλύπτει τη βασική εξαγωγή HTML5 χωρίς επεκτάσεις ιστού ή πρόσθετες εξαρτήσεις, καθώς και επιλογές για έλεγχο των κινούμενων σχημάτων και των μεταβάσεων διαφάνειας. Το άρθρο δείχνει επίσης τη τυπική διαδικασία εξαγωγής PowerPoint σε HTML, επεξηγεί πώς να δημιουργήσετε έξοδο HTML5 σε λειτουργία προβολής διαφάνειας και δείχνει πώς να συμπεριλάβετε σχόλια στο εξαγόμενο έγγραφο ρυθμίζοντας τη διάταξή τους.
+Αυτό το άρθρο εξηγεί πώς να μετατρέψετε παρουσιάσεις PowerPoint σε HTML5 χρησιμοποιώντας το Aspose.Slides for Java. Καλύπτει τη βασική εξαγωγή, τον έλεγχο των κινούμενων σχημάτων και των μεταβάσεων διαφανειών, καθώς και τη διάταξη σχολίων. Επιπλέον, συγκρίνει την έξοδο HTML5 με την έξοδο βασισμένη σε SVG της τυπικής εξαγωγής HTML.
 
 ## **Εξαγωγή PowerPoint σε HTML5**
 
-Αυτός ο κώδικας Java δείχνει πώς να εξάγετε μια παρουσίαση σε HTML5 χωρίς επεκτάσεις ιστού και εξαρτήσεις:
+Το παρακάτω παράδειγμα φορτώνει μια παρουσίαση από τον τρέχοντα φάκελο και την αποθηκεύει σε μορφή HTML5. Χρησιμοποιεί τις προεπιλεγμένες ρυθμίσεις εξαγωγής· το επόμενο παράδειγμα δείχνει πώς να ελέγξετε ρητά την αναπαραγωγή των κινούμενων σχεδίων. Αντικαταστήστε τη διαδρομή εισόδου με τη διαδρομή της παρουσίασής σας.
 
 ```java
-Presentation pres = new Presentation("pres.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("pres.pptx");
 try {
-    pres.save("pres.html", SaveFormat.Html5);
+    presentation.save("pres.html", SaveFormat.Html5);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-{{% alert color="primary" %}} 
-Σε αυτή την περίπτωση, λαμβάνετε καθαρό HTML. 
+{{% alert color="info" title="Note" %}}
+Εκτός από το έγγραφο HTML, η εξαγωγή δημιουργεί υποστηρικτικά αρχεία CSS και JavaScript για το στυλ των διαφανειών, τις κινούμενες εικόνες, τα εφέ και την πλοήγηση. Διατηρήστε αυτά τα αρχεία μαζί με το έγγραφο HTML όταν μετακινείτε ή δημοσιεύετε την έξοδο. Η παραγόμενη σελίδα φορτώνει επίσης jQuery και Anime.js από δημόσια CDN· χωρίς αυτά, η πλοήγηση και οι κινούμενες εικόνες των διαφανών δεν λειτουργούν.
 {{% /alert %}}
 
-Μπορείτε να καθορίσετε ρυθμίσεις για τις κινούμενες εικόνες και τις μεταβάσεις διαφάνειας με αυτόν τον τρόπο:
+Για εξαγωγή χωρίς την αναπαραγωγή κινούμενων σχημάτων ή μεταβάσεων διαφανειών, περάστε `false` στην [setAnimateShapes](https://reference.aspose.com/slides/java/com.aspose.slides/html5options/#setAnimateShapes-boolean-) και την [setAnimateTransitions](https://reference.aspose.com/slides/java/com.aspose.slides/html5options/#setAnimateTransitions-boolean-) στο [Html5Options](https://reference.aspose.com/slides/java/com.aspose.slides/html5options/). Αυτές οι ρυθμίσεις είναι ανεξάρτητες, οπότε μπορείτε να ενεργοποιήσετε τη μία ενώ απενεργοποιείτε την άλλη. Το παράδειγμα εξάγει την παρουσίαση με και τις δύο μορφές κινούμενων εικόνων απενεργοποιημένες στην παραγόμενη σελίδα.
 
 ```java
-Presentation pres = new Presentation("pres.pptx");
+import com.aspose.slides.*;
+
+Html5Options html5Options = new Html5Options();
+html5Options.setAnimateShapes(false);
+html5Options.setAnimateTransitions(false);
+
+Presentation presentation = new Presentation("pres.pptx");
 try {
-    Html5Options html5Options = new Html5Options();
-    html5Options.setAnimateShapes(false);
-    html5Options.setAnimateTransitions(false);
-    
-    pres.save("pres5.html", SaveFormat.Html5, html5Options);
+    presentation.save("pres5.html", SaveFormat.Html5, html5Options);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
 ## **Εξαγωγή PowerPoint σε HTML**
 
-Αυτός ο κώδικας Java δείχνει τη τυπική διαδικασία εξαγωγής PowerPoint σε HTML:
+Η τυπική εξαγωγή HTML χρησιμοποιεί διαφορετική προσέγγιση απόδοσης: το περιεχόμενο των διαφανειών αναπαρίσταται με SVG μέσα σε μια σελίδα HTML. Το παρακάτω παράδειγμα μετατρέπει μια παρουσίαση σε έγγραφο HTML χρησιμοποιώντας αυτήν την προσέγγιση απόδοσης.
 
 ```java
-Presentation pres = new Presentation("pres.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("pres.pptx");
 try {
-    pres.save("pres.html", SaveFormat.Html);
+    presentation.save("pres.html", SaveFormat.Html);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-Σε αυτή την περίπτωση, το περιεχόμενο της παρουσίασης αποδίδεται μέσω SVG με τη μορφή όπως φαίνεται παρακάτω:
+Η απλοποιημένη σήμανση παρακάτω απεικονίζει τη δομή της παραγόμενης σελίδας. Το στοιχείο SVG περιέχει το αποδομένο περιεχόμενο της διαφάνειας· το κείμενο κράτησης θέσης αντιπροσωπεύει αυτό το περιεχόμενο και δεν αποτελεί κυριολεξία εξαγόμενο αποτέλεσμα.
 
 ```html
 <body>
@@ -83,63 +89,93 @@ try {
 </body>
 ```
 
-{{% alert title="Note" color="warning" %}} 
-Όταν χρησιμοποιείτε αυτή τη μέθοδο για εξαγωγή PowerPoint σε HTML, λόγω της απόδοσης SVG, δεν θα μπορείτε να εφαρμόσετε στυλ ή να κουνήσετε συγκεκριμένα στοιχεία. 
+{{% alert title="Warning" color="warning" %}}
+Η εξαγωγή με βάση το SVG δεν εκθέτει τα σχήματα PowerPoint ως ξεχωριστά στοιχεία HTML. Χρησιμοποιήστε την εξαγωγή HTML5 όταν χρειάζεστε τις επιλογές κίνησης σχημάτων και μεταβάσεων διαφανειών που παρουσιάζονται σε αυτό το άρθρο.
 {{% /alert %}}
 
-## **Εξαγωγή PowerPoint σε προβολή διαφάνειας HTML5**
+## **Εξαγωγή PowerPoint σε προβολή διαφανειών HTML5**
 
-**Aspose.Slides** σάς επιτρέπει να μετατρέψετε μια παρουσίαση PowerPoint σε έγγραφο HTML5 στο οποίο οι διαφάνειες παρουσιάζονται σε λειτουργία προβολής διαφάνειας. Σε αυτή την περίπτωση, όταν ανοίγετε το προκύπτον αρχείο HTML5 σε έναν φυλλομετρητή, βλέπετε την παρουσίαση σε λειτουργία προβολής διαφάνειας σε μια ιστοσελίδα. 
+Η εξαγωγή HTML5 δημιουργεί μια σελίδα για προβολή και πλοήγηση των διαφανειών της παρουσίασης σε πρόγραμμα περιήγησης. Αυτό το παράδειγμα ενεργοποιεί τόσο την [setAnimateShapes](https://reference.aspose.com/slides/java/com.aspose.slides/html5options/#setAnimateShapes-boolean-) όσο και την [setAnimateTransitions](https://reference.aspose.com/slides/java/com.aspose.slides/html5options/#setAnimateTransitions-boolean-) ώστε η εξαγόμενη προβολή διαφανειών να μπορεί να αναπαράγει τα εφέ από την πηγαία παρουσίαση.
 
-Αυτός ο κώδικας Java δείχνει τη διαδικασία εξαγωγής PowerPoint σε προβολή διαφάνειας HTML5:
+Χρησιμοποιήστε μια παρουσίαση που ήδη περιέχει κινούμενα σχήματα και μεταβάσεις διαφανειών για να δείτε το αποτέλεσμα αυτών των ρυθμίσεων. Η ενεργοποίησή τους δεν προσθέτει νέα εφέ σε διαφάνειες που δεν τα έχουν. Μετά την εξαγωγή, ανοίξτε το παραγόμενο έγγραφο HTML5 σε πρόγραμμα περιήγησης με τα υποστηρικτικά αρχεία διαθέσιμα.
 
 ```java
-Presentation pres = new Presentation("pres.pptx");
-try {
-    Html5Options html5Options = new Html5Options();
-    html5Options.setAnimateShapes(true);
-    html5Options.setAnimateTransitions(true);
+import com.aspose.slides.*;
 
-    pres.save("HTML5-slide-view.html", SaveFormat.Html5, html5Options);
+Html5Options html5Options = new Html5Options();
+html5Options.setAnimateShapes(true);
+html5Options.setAnimateTransitions(true);
+
+Presentation presentation = new Presentation("pres.pptx");
+try {
+    presentation.save("HTML5-slide-view.html", SaveFormat.Html5, html5Options);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Μετατροπή παρουσιάσεων σε έγγραφα HTML5 με σχόλια**
+## **Μετατροπή παρουσίασης σε έγγραφο HTML5 με σχόλια**
 
-Τα σχόλια στο PowerPoint είναι ένα εργαλείο που επιτρέπει στους χρήστες να αφήνουν σημειώσεις ή σχόλια στις διαφάνειες της παρουσίασης. Είναι ιδιαίτερα χρήσιμα σε συνεργατικά έργα, όπου πολλοί μπορούν να προσθέσουν προτάσεις ή παρατηρήσεις σε συγκεκριμένα στοιχεία της διαφάνειας χωρίς να τροποποιήσουν το κύριο περιεχόμενο. Κάθε σχόλιο εμφανίζει το όνομα του συγγραφέα, καθιστώντας εύκολο τον εντοπισμό του ατόμου που το άφησε.
-
-Ας υποθέσουμε ότι έχουμε την ακόλουθη παρουσίαση PowerPoint αποθηκευμένη στο αρχείο "sample.pptx".
+Μπορείτε να συμπεριλάβετε υπάρχοντα σχόλια διαφανειών στην έξοδο HTML5 ώστε οι αναγνώστες να βλέπουν τα σχόλια παράλληλα με το περιεχόμενο της διαφάνειας. Το παράδειγμα σε αυτήν την ενότητα υποθέτει ότι η πηγαία παρουσίαση περιέχει σχόλια, όπως φαίνεται παρακάτω. Εξάγει αυτά τα σχόλια· δεν δημιουργεί νέα.
 
 ![Δύο σχόλια στη διαφάνεια της παρουσίασης](two_comments_pptx.png)
 
-Όταν μετατρέπετε μια παρουσίαση PowerPoint σε έγγραφο HTML5, μπορείτε εύκολα να καθορίσετε εάν θα συμπεριληφθούν τα σχόλια της παρουσίασης στο τελικό έγγραφο. Για να το κάνετε αυτό, πρέπει να ορίσετε τις παραμέτρους εμφάνισης των σχολίων στη μέθοδο `getNotesCommentsLayouting` της κλάσης [Html5Options](https://reference.aspose.com/slides/el/java/com.aspose.slides/html5options/) .
+Περιμένετε ένα αντικείμενο [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/java/com.aspose.slides/notescommentslayoutingoptions/) στο μέθοδο [setSlidesLayoutOptions](https://reference.aspose.com/slides/java/com.aspose.slides/html5options/#setSlidesLayoutOptions-com.aspose.slides.ISlidesLayoutOptions-) της [Html5Options](https://reference.aspose.com/slides/java/com.aspose.slides/html5options/). Χρησιμοποιήστε το [setCommentsPosition](https://reference.aspose.com/slides/java/com.aspose.slides/notescommentslayoutingoptions/#setCommentsPosition-int-) για να επιλέξετε `Right` από την απαρίθμηση [CommentsPositions](https://reference.aspose.com/slides/java/com.aspose.slides/commentspositions/) ώστε να τοποθετήσετε τα σχόλια δεξιά της κάθε διαφάνειας.
 
-Το παρακάτω παράδειγμα κώδικα μετατρέπει μια παρουσίαση σε έγγραφο HTML5 με τα σχόλια να εμφανίζονται στα δεξιά των διαφανειών.
+Το παρακάτω παράδειγμα εξάγει την παρουσίαση σε HTML5 με αυτή τη διάταξη σχολίων. Μια παρουσίαση χωρίς σχόλια δεν θα έχει κείμενο σχολίου προς εμφάνιση.
+
 ```java
+import com.aspose.slides.*;
+
+NotesCommentsLayoutingOptions layoutOptions = new NotesCommentsLayoutingOptions();
+layoutOptions.setCommentsPosition(CommentsPositions.Right);
+
 Html5Options html5Options = new Html5Options();
-html5Options.getNotesCommentsLayouting().setCommentsPosition(CommentsPositions.Right);
+html5Options.setSlidesLayoutOptions(layoutOptions);
 
 Presentation presentation = new Presentation("sample.pptx");
-presentation.save("output.html", SaveFormat.Html5, html5Options);
-presentation.dispose();
+try {
+    presentation.save("output.html", SaveFormat.Html5, html5Options);
+} finally {
+    presentation.dispose();
+}
 ```
 
-Το έγγραφο "output.html" εμφανίζεται στην παρακάτω εικόνα.
+Η εικόνα παρακάτω δείχνει το εξαγόμενο έγγραφο HTML5 με τα σχόλια εμφανιζόμενα δίπλα στη διαφάνεια.
 
-![Τα σχόλια στο παραγόμενο έγγραφο HTML5](two_comments_html5.png)
+![Τα σχόλια στο εξαγόμενο έγγραφο HTML5](two_comments_html5.png)
 
-## **Συχνές ερωτήσεις**
+## **Εξαίρεση υπερσυνδέσμων JavaScript κατά την εξαγωγή**
 
-**Μπορώ να ελέγξω εάν οι κινήσεις αντικειμένων και οι μεταβάσεις διαφάνειας θα εκτελεστούν σε HTML5;**
+Υποθέστε ότι το `hyperlinks.pptx` περιέχει κείμενο με συνδεμένο `javascript:alert('Hello')` προορισμό και έναν συνηθισμένο σύνδεσμο `https://example.com/`. Για να εξαιρέσετε τον υπερσύνδεσμο JavaScript κατά την εξαγωγή, περάστε `true` στην [SaveOptions.setSkipJavaScriptLinks](https://reference.aspose.com/slides/java/com.aspose.slides/saveoptions/#setSkipJavaScriptLinks-boolean-). Η προεπιλογή είναι `false`, οπότε αυτοί οι σύνδεσμοι δεν φιλτράρονται εκτός εάν ενεργοποιήσετε την επιλογή.
 
-Ναι, το HTML5 παρέχει ξεχωριστές επιλογές για την ενεργοποίηση ή την απενεργοποίηση των [shape animations](https://reference.aspose.com/slides/el/java/com.aspose.slides/html5options/#setAnimateShapes-boolean-) και των [slide transitions](https://reference.aspose.com/slides/el/java/com.aspose.slides/html5options/#setAnimateTransitions-boolean-).
+Το παρακάτω παράδειγμα φορτώνει την παρουσίαση από τον τρέχοντα φάκελο και την εξάγει χρησιμοποιώντας το [Html5Options](https://reference.aspose.com/slides/java/com.aspose.slides/html5options/):
 
-**Υπάρχει υποστήριξη για την έξοδο των σχολίων, και πού μπορούν να τοποθετηθούν σε σχέση με τη διαφάνεια;**
+```java
+import com.aspose.slides.*;
 
-Ναι, τα σχόλια μπορούν να προστεθούν σε HTML5 και να τοποθετηθούν (για παράδειγμα, στα δεξιά της διαφάνειας) μέσω των [layout settings](https://reference.aspose.com/slides/el/java/com.aspose.slides/html5options/#setSlidesLayoutOptions-com.aspose.slides.ISlidesLayoutOptions-) για σημειώσεις και σχόλια.
+Html5Options html5Options = new Html5Options();
+html5Options.setSkipJavaScriptLinks(true);
 
-**Μπορώ να παραλείψω συνδέσμους που καλούν JavaScript για λόγους ασφαλείας ή CSP;**
+Presentation presentation = new Presentation("hyperlinks.pptx");
+try {
+    presentation.save("filtered-html5.html", SaveFormat.Html5, html5Options);
+} finally {
+    presentation.dispose();
+}
+```
 
-Ναι, υπάρχει ένα [setting](https://reference.aspose.com/slides/el/java/com.aspose.slides/saveoptions/#setSkipJavaScriptLinks-boolean-) που σας επιτρέπει να παραλείψετε υπερσυνδέσμους με κλήσεις JavaScript κατά την αποθήκευση. Αυτό βοηθά στην τήρηση αυστηρών πολιτικών ασφαλείας.
+Το εξαγόμενο αρχείο παραλείπει τον υπερσύνδεσμο JavaScript διατηρώντας το κείμενό του και τον συνηθισμένο σύνδεσμο HTTPS. Η πηγαία παρουσίαση παραμένει αμετάβλητη.
+
+Αυτή η επιλογή φιλτράρει τους υπερσυνδέσμους JavaScript· δεν αφαιρεί όλα τα σενάρια ή άλλο ενεργό περιεχόμενο, ούτε εγγυάται τη συμμόρφωση με CSP. Για παράδειγμα, η έξοδος HTML5 εξακολουθεί να περιλαμβάνει σενάρια για την πλοήγηση και τις κινούμενες εικόνες των διαφανών.
+
+## **ΣΥΧΝΆ ΡΩΤΗΜΑΤΑ**
+
+**Μπορώ να ελέγξω εάν οι κινούμενες εικόνες αντικειμένων και οι μεταβάσεις διαφανειών θα αναπαράγονται σε HTML5;**  
+Ναι, η εξαγωγή HTML5 παρέχει ξεχωριστές επιλογές για την ενεργοποίηση ή απενεργοποίηση των [shape animations](https://reference.aspose.com/slides/java/com.aspose.slides/html5options/#setAnimateShapes-boolean-) και των [slide transitions](https://reference.aspose.com/slides/java/com.aspose.slides/html5options/#setAnimateTransitions-boolean-).
+
+**Υπάρχουν στήριξη για σχόλια και πού μπορούν να τοποθετηθούν σε σχέση με τη διαφάνεια;**  
+Ναι, τα υπάρχοντα σχόλια μπορούν να συμπεριληφθούν στην έξοδο HTML5 και να τοποθετηθούν (π.χ. δεξιά της διαφάνειας) μέσω των [layout settings](https://reference.aspose.com/slides/java/com.aspose.slides/html5options/#setSlidesLayoutOptions-com.aspose.slides.ISlidesLayoutOptions-) για σημειώσεις και σχόλια.
+
+**Μπορώ να παραλείψω συνδέσμους που εκτελούν JavaScript για λόγους ασφαλείας ή CSP;**  
+Ναι, η ρύθμιση [setSkipJavaScriptLinks](https://reference.aspose.com/slides/java/com.aspose.slides/saveoptions/#setSkipJavaScriptLinks-boolean-) σας επιτρέπει να παραλείψετε τους υπερσυνδέσμους με κλήσεις JavaScript κατά την αποθήκευση. Η προεπιλογή είναι `false`. Δείτε το [Exclude JavaScript Hyperlinks During Export](/slides/el/java/export-to-html5/#exclude-javascript-hyperlinks-during-export) για ένα παράδειγμα εξαγωγής HTML5 και το πεδίο εφαρμογής του φίλτρου. Αυτή η ρύθμιση δεν αφαιρεί το JavaScript που χρησιμοποιείται από τον προβολέα HTML5 για πλοήγηση και κινούμενες εικόνες.

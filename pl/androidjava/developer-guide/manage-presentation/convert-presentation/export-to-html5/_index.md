@@ -1,5 +1,5 @@
 ---
-title: Konwertowanie prezentacji na HTML5 w Androidzie
+title: Konwertuj prezentacje do HTML5 na Androidzie
 linktitle: Prezentacja do HTML5
 type: docs
 weight: 40
@@ -21,58 +21,64 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Eksportuj prezentacje PowerPoint i OpenDocument do responsywnego HTML5 z użyciem Aspose.Slides dla Androida w Javie. Zachowaj formatowanie, animacje i interaktywność."
+description: "Eksportuj prezentacje PowerPoint i OpenDocument do responsywnego HTML5 za pomocą Aspose.Slides dla Androida w Javie. Zachowaj formatowanie, animacje i interaktywność."
 ---
 ## **Przegląd**
 
-Ten artykuł wyjaśnia, jak konwertować prezentacje PowerPoint na HTML5 przy użyciu Aspose.Slides. Obejmuje podstawowy eksport HTML5 bez rozszerzeń internetowych ani dodatkowych zależności, a także opcje kontrolowania animacji kształtów i przejść slajdów. Artykuł pokazuje również standardowy proces eksportu PowerPoint do HTML, wyjaśnia, jak generować wyjście HTML5 w trybie widoku slajdów, oraz demonstruje, jak włączyć komentarze w wyeksportowanym dokumencie poprzez skonfigurowanie ich układu.
+Ten artykuł wyjaśnia, jak konwertować prezentacje PowerPoint do formatu HTML5 za pomocą Aspose.Slides dla Androida przy użyciu Javy. Omówiono podstawowy eksport, kontrolę animacji kształtów i przejść slajdów oraz układ komentarzy. Porównano także wynik HTML5 z wynikiem opartym na SVG w standardowym eksporcie HTML.
 
 ## **Eksport PowerPoint do HTML5**
 
-Ten kod Java pokazuje, jak wyeksportować prezentację do HTML5 bez rozszerzeń internetowych i zależności:
+Poniższy przykład wczytuje prezentację z bieżącego katalogu i zapisuje ją w formacie HTML5. Używa domyślnych ustawień eksportu; kolejny przykład pokazuje, jak jawnie sterować odtwarzaniem animacji. Zastąp ścieżkę wejściową ścieżką do swojej prezentacji.
 
 ```java
-Presentation pres = new Presentation("pres.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("pres.pptx");
 try {
-    pres.save("pres.html", SaveFormat.Html5);
+    presentation.save("pres.html", SaveFormat.Html5);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-{{% alert color="primary" %}} 
-W tym przypadku otrzymujesz czysty kod HTML. 
+{{% alert color="info" title="Note" %}}
+Oprócz dokumentu HTML, eksport zapisuje pomocnicze pliki CSS i JavaScript służące do stylizacji slajdów, animacji, efektów i nawigacji. Trzymaj te pliki razem z dokumentem HTML przy przenoszeniu lub publikowaniu wyniku. Wygenerowana strona ładuje również jQuery i Anime.js z publicznych CDN‑ów; bez nich nawigacja i animacje slajdów nie działają.
 {{% /alert %}}
 
-Możesz w ten sposób określić ustawienia animacji kształtów i przejść slajdów:
+Aby wyeksportować bez odtwarzania animacji kształtów lub przejść slajdów, przekaż `false` do [setAnimateShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/html5options/#setAnimateShapes-boolean-) i [setAnimateTransitions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/html5options/#setAnimateTransitions-boolean-) w [Html5Options](https://reference.aspose.com/slides/androidjava/com.aspose.slides/html5options/). Te ustawienia są niezależne, więc możesz włączyć jedno, a wyłączyć drugie. Przykład eksportuje prezentację z wyłączonymi obiema typami animacji w wygenerowanej stronie.
 
 ```java
-Presentation pres = new Presentation("pres.pptx");
+import com.aspose.slides.*;
+
+Html5Options html5Options = new Html5Options();
+html5Options.setAnimateShapes(false);
+html5Options.setAnimateTransitions(false);
+
+Presentation presentation = new Presentation("pres.pptx");
 try {
-    Html5Options html5Options = new Html5Options();
-    html5Options.setAnimateShapes(false);
-    html5Options.setAnimateTransitions(false);
-    
-    pres.save("pres5.html", SaveFormat.Html5, html5Options);
+    presentation.save("pres5.html", SaveFormat.Html5, html5Options);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
 ## **Eksport PowerPoint do HTML**
 
-Ten kod Java demonstruje standardowy proces eksportu PowerPoint do HTML:
+Standardowy eksport HTML używa innego podejścia renderowania: zawartość slajdu jest przedstawiona jako SVG wewnątrz strony HTML. Poniższy przykład konwertuje prezentację na dokument HTML przy użyciu tego podejścia renderowania.
 
 ```java
-Presentation pres = new Presentation("pres.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("pres.pptx");
 try {
-    pres.save("pres.html", SaveFormat.Html);
+    presentation.save("pres.html", SaveFormat.Html);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-W tym przypadku zawartość prezentacji jest renderowana za pomocą SVG w formie takiej:
+Uproszczony znacznik poniżej ilustruje strukturę wygenerowanej strony. Element SVG zawiera wyrenderowaną treść slajdu; tekst zastępczy reprezentuje tę treść i nie jest dosłownym wynikiem eksportu.
 
 ```html
 <body>
@@ -84,63 +90,94 @@ W tym przypadku zawartość prezentacji jest renderowana za pomocą SVG w formie
 </body>
 ```
 
-{{% alert title="Note" color="warning" %}} 
-Kiedy używasz tej metody do eksportu PowerPoint do HTML, ze względu na renderowanie SVG, nie będziesz w stanie zastosować stylów ani animować konkretnych elementów. 
+{{% alert title="Warning" color="warning" %}}
+Eksport oparty na SVG nie udostępnia kształtów PowerPoint jako osobnych elementów HTML. Użyj eksportu HTML5, gdy potrzebujesz opcji animacji kształtów i przejść slajdów przedstawionych w tym artykule.
 {{% /alert %}}
 
 ## **Eksport PowerPoint do widoku slajdów HTML5**
 
-**Aspose.Slides** umożliwia konwersję prezentacji PowerPoint do dokumentu HTML5, w którym slajdy są wyświetlane w trybie widoku slajdów. W tym przypadku, po otwarciu wynikowego pliku HTML5 w przeglądarce, zobaczysz prezentację w trybie widoku slajdów na stronie internetowej. 
+Eksport HTML5 tworzy stronę do przeglądania i nawigacji po slajdach prezentacji w przeglądarce. Ten przykład włącza zarówno [setAnimateShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/html5options/#setAnimateShapes-boolean-) i [setAnimateTransitions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/html5options/#setAnimateTransitions-boolean-), aby wyeksportowany widok slajdów mógł odtwarzać efekty z oryginalnej prezentacji.
 
-Ten kod Java demonstruje proces eksportu PowerPoint do widoku slajdów HTML5:
+Użyj prezentacji, która już zawiera animacje kształtów i przejścia slajdów, aby zobaczyć efekt tych ustawień. Włączenie ich nie dodaje nowych efektów do slajdów, które ich nie mają. Po eksporcie otwórz wygenerowany dokument HTML5 w przeglądarce z dostępnymi plikami pomocniczymi.
 
 ```java
-Presentation pres = new Presentation("pres.pptx");
-try {
-    Html5Options html5Options = new Html5Options();
-    html5Options.setAnimateShapes(true);
-    html5Options.setAnimateTransitions(true);
+import com.aspose.slides.*;
 
-    pres.save("HTML5-slide-view.html", SaveFormat.Html5, html5Options);
+Html5Options html5Options = new Html5Options();
+html5Options.setAnimateShapes(true);
+html5Options.setAnimateTransitions(true);
+
+Presentation presentation = new Presentation("pres.pptx");
+try {
+    presentation.save("HTML5-slide-view.html", SaveFormat.Html5, html5Options);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Konwersja prezentacji do dokumentu HTML5 z komentarzami**
+## **Konwertuj prezentację na dokument HTML5 z komentarzami**
 
-Komentarze w PowerPoint są narzędziem, które pozwala użytkownikom zostawiać notatki lub opinie na slajdach prezentacji. Są szczególnie przydatne w projektach współpracy, gdzie wiele osób może dodać swoje sugestie lub uwagi do konkretnych elementów slajdu bez zmieniania głównej treści. Każdy komentarz wyświetla imię i nazwisko autora, co ułatwia śledzenie, kto pozostawił uwagę.
-
-Załóżmy, że mamy następującą prezentację PowerPoint zapisaną w pliku "sample.pptx".
+Możesz dołączyć istniejące komentarze slajdów do wyjścia HTML5, aby czytelnicy mogli zobaczyć uwagi obok treści slajdu. Przykład w tej sekcji zakłada, że źródłowa prezentacja zawiera komentarze, jak przedstawiono poniżej. Eksportuje te komentarze; nie tworzy nowych.
 
 ![Dwa komentarze na slajdzie prezentacji](two_comments_pptx.png)
 
-Podczas konwersji prezentacji PowerPoint do dokumentu HTML5 możesz łatwo określić, czy uwzględnić komentarze z prezentacji w dokumencie wynikowym. Aby to zrobić, musisz określić parametry wyświetlania komentarzy w metodzie `getNotesCommentsLayouting` klasy [Html5Options](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/html5options/).
+Przekaż obiekt [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/notescommentslayoutingoptions/) do metody [setSlidesLayoutOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/html5options/#setSlidesLayoutOptions-com.aspose.slides.ISlidesLayoutOptions-) klasy [Html5Options](https://reference.aspose.com/slides/androidjava/com.aspose.slides/html5options/). Użyj [setCommentsPosition](https://reference.aspose.com/slides/androidjava/com.aspose.slides/notescommentslayoutingoptions/#setCommentsPosition-int-), aby wybrać `Right` z wyliczenia [CommentsPositions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/commentspositions/) i umieścić komentarze po prawej stronie każdego slajdu.
 
-Poniższy przykład kodu konwertuje prezentację do dokumentu HTML5 z komentarzami wyświetlanymi po prawej stronie slajdów.
+Poniższy przykład eksportuje prezentację do HTML5 z takim układem komentarzy. Prezentacja bez komentarzy nie będzie zawierać tekstu komentarzy do wyświetlenia.
+
 ```java
+import com.aspose.slides.*;
+
+NotesCommentsLayoutingOptions layoutOptions = new NotesCommentsLayoutingOptions();
+layoutOptions.setCommentsPosition(CommentsPositions.Right);
+
 Html5Options html5Options = new Html5Options();
-html5Options.getNotesCommentsLayouting().setCommentsPosition(CommentsPositions.Right);
+html5Options.setSlidesLayoutOptions(layoutOptions);
 
 Presentation presentation = new Presentation("sample.pptx");
-presentation.save("output.html", SaveFormat.Html5, html5Options);
-presentation.dispose();
+try {
+    presentation.save("output.html", SaveFormat.Html5, html5Options);
+} finally {
+    presentation.dispose();
+}
 ```
 
-Dokument "output.html" jest pokazany na poniższym obrazku.
-
 ![Komentarze w wyjściowym dokumencie HTML5](two_comments_html5.png)
+
+## **Wyklucz odnośniki JavaScript podczas eksportu**
+
+Załóżmy, że `hyperlinks.pptx` zawiera tekst z odnośnikiem o docelowym adresie `javascript:alert('Hello')` oraz zwykły odnośnik `https://example.com/`. Aby wykluczyć odnośnik JavaScript podczas eksportu, przekaż `true` do [SaveOptions.setSkipJavaScriptLinks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/saveoptions/#setSkipJavaScriptLinks-boolean-). Domyślnie jest to `false`, więc te odnośniki nie są filtrowane, dopóki nie włączysz tej opcji.
+
+Poniższy przykład wczytuje prezentację z bieżącego katalogu i eksportuje ją przy użyciu [Html5Options](https://reference.aspose.com/slides/androidjava/com.aspose.slides/html5options/):
+
+```java
+import com.aspose.slides.*;
+
+Html5Options html5Options = new Html5Options();
+html5Options.setSkipJavaScriptLinks(true);
+
+Presentation presentation = new Presentation("hyperlinks.pptx");
+try {
+    presentation.save("filtered-html5.html", SaveFormat.Html5, html5Options);
+} finally {
+    presentation.dispose();
+}
+```
+
+Wyeksportowany plik pomija odnośnik JavaScript, zachowując jego tekst oraz zwykły odnośnik HTTPS. Źródłowa prezentacja pozostaje niezmieniona.
+
+Ta opcja filtruje odnośniki JavaScript; nie usuwa wszystkich skryptów ani innych aktywnych treści, ani nie gwarantuje zgodności z CSP. Na przykład wyjście HTML5 wciąż zawiera skrypty do nawigacji po slajdach i animacji.
 
 ## **FAQ**
 
 **Czy mogę kontrolować, czy animacje obiektów i przejścia slajdów będą odtwarzane w HTML5?**
 
-Tak, HTML5 udostępnia oddzielne opcje włączania lub wyłączania [animacji kształtów](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/html5options/#setAnimateShapes-boolean-) oraz [przejść slajdów](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/html5options/#setAnimateTransitions-boolean-).
+Tak, eksport HTML5 udostępnia oddzielne opcje włączania lub wyłączania [animacje kształtów](https://reference.aspose.com/slides/androidjava/com.aspose.slides/html5options/#setAnimateShapes-boolean-) i [przejścia slajdów](https://reference.aspose.com/slides/androidjava/com.aspose.slides/html5options/#setAnimateTransitions-boolean-).
 
-**Czy obsługiwane jest wyjście komentarzy i gdzie można je umieścić względem slajdu?**
+**Czy komentarze są obsługiwane i gdzie można je umieścić względem slajdu?**
 
-Tak, komentarze mogą być dodawane w HTML5 i pozycjonowane (na przykład po prawej stronie slajdu) za pomocą [ustawień układu](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/html5options/#setSlidesLayoutOptions-com.aspose.slides.ISlidesLayoutOptions-) dla notatek i komentarzy.
+Tak, istniejące komentarze mogą być uwzględnione w wyjściu HTML5 i rozmieszczone (na przykład po prawej stronie slajdu) przy użyciu [ustawień układu](https://reference.aspose.com/slides/androidjava/com.aspose.slides/html5options/#setSlidesLayoutOptions-com.aspose.slides.ISlidesLayoutOptions-) dla notatek i komentarzy.
 
-**Czy mogę pominąć linki wywołujące JavaScript ze względów bezpieczeństwa lub CSP?**
+**Czy mogę pominąć odnośniki wywołujące JavaScript ze względów bezpieczeństwa lub CSP?**
 
-Tak, istnieje [ustawienie](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/saveoptions/#setSkipJavaScriptLinks-boolean-), które pozwala pominąć hiperłącza wywołujące JavaScript podczas zapisywania. Pomaga to spełnić surowe zasady bezpieczeństwa.
+Tak, ustawienie [setSkipJavaScriptLinks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/saveoptions/#setSkipJavaScriptLinks-boolean-) pozwala pominąć odnośniki z wywołaniami JavaScript podczas zapisu. Domyślnie jest to `false`. Zobacz [Wyklucz odnośniki JavaScript podczas eksportu](/slides/pl/androidjava/export-to-html5/#exclude-javascript-hyperlinks-during-export) dla przykładu eksportu HTML5 i zakresu filtru. To ustawienie nie usuwa JavaScript używanego przez podgląd HTML5 do nawigacji i animacji.

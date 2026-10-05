@@ -1,5 +1,5 @@
 ---
-title: Konwertuj prezentacje do HTML5 w C++
+title: Konwertowanie prezentacji do HTML5 w C++
 linktitle: Prezentacja do HTML5
 type: docs
 weight: 40
@@ -24,50 +24,66 @@ description: "Eksportuj prezentacje PowerPoint i OpenDocument do responsywnego H
 ---
 ## **Przegląd**
 
-Ten artykuł wyjaśnia, jak konwertować prezentacje PowerPoint do HTML5 przy użyciu Aspose.Slides. Obejmuje podstawowy eksport HTML5 bez rozszerzeń internetowych ani dodatkowych zależności, a także opcje kontrolowania animacji kształtów i przejść slajdów. Artykuł pokazuje również standardowy proces eksportu z PowerPointa do HTML, wyjaśnia, jak generować wyjście HTML5 w trybie widoku slajdów, oraz demonstruje, jak dołączyć komentarze do wyeksportowanego dokumentu, konfigurując ich rozmieszczenie.
+Ten artykuł wyjaśnia, jak konwertować prezentacje PowerPoint do formatu HTML5 przy użyciu Aspose.Slides for C++. Omówiono podstawowy eksport, kontrolę animacji kształtów i przejść slajdów oraz układ komentarzy. Ponadto porównano wyjście HTML5 z wyjściem opartym na SVG, generowanym przy standardowym eksporcie HTML.
 
-## **Eksport PowerPoint do HTML5**
+## **Eksportowanie prezentacji PowerPoint do HTML5**
 
-Ten kod C++ pokazuje, jak wyeksportować prezentację do HTML5.
+Poniższy przykład ładuje prezentację z bieżącego katalogu i zapisuje ją w formacie HTML5. Używa domyślnych ustawień eksportu; kolejny przykład pokazuje, jak jawnie kontrolować odtwarzanie animacji. Zastąp ścieżkę wejściową ścieżką do własnej prezentacji.
 
 ```cpp
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
-        
-auto pres = System::MakeObject<Presentation>(u"pres.pptx");
-pres->Save(u"pres.html", SaveFormat::Html5);
+
+auto presentation = System::MakeObject<Presentation>(u"pres.pptx");
+presentation->Save(u"pres.html", SaveFormat::Html5);
+presentation->Dispose();
 ```
 
-{{% alert color="primary" %}} 
-W tym przypadku otrzymujesz czysty HTML. 
+{{% alert color="info" title="Note" %}}
+Oprócz dokumentu HTML, eksport zapisuje dodatkowe pliki CSS i JavaScript potrzebne do stylizacji slajdów, animacji, efektów i nawigacji. Przechowuj te pliki razem z dokumentem HTML przy przenoszeniu lub publikowaniu wyniku. Wygenerowana strona ładuje także jQuery i Anime.js z publicznych CDN‑ów; bez nich nawigacja slajdów i animacje nie działają.
 {{% /alert %}}
 
-Możesz chcieć określić ustawienia animacji kształtów i przejść slajdów w ten sposób:
+Aby wyeksportować bez odtwarzania animacji kształtów lub przejść slajdów, przekaż `false` do [set_AnimateShapes](https://reference.aspose.com/slides/cpp/aspose.slides.export/html5options/set_animateshapes/) i [set_AnimateTransitions](https://reference.aspose.com/slides/cpp/aspose.slides.export/html5options/set_animatetransitions/) w [Html5Options](https://reference.aspose.com/slides/cpp/aspose.slides.export/html5options/). Ustawienia te są niezależne, więc można włączyć jedno, wyłączając drugie. Przykład eksportuje prezentację z wyłączonymi oboma typami animacji w wygenerowanej stronie.
 
 ```cpp
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+#include <Export/Html5Options.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 
-auto pres = System::MakeObject<Presentation>(u"pres.pptx");
-auto options = System::MakeObject<Html5Options>();
-options->set_AnimateShapes(true);
-options->set_AnimateTransitions(true);
-pres->Save(u"pres.html", SaveFormat::Html5, options);
+auto html5Options = System::MakeObject<Html5Options>();
+html5Options->set_AnimateShapes(false);
+html5Options->set_AnimateTransitions(false);
+
+auto presentation = System::MakeObject<Presentation>(u"pres.pptx");
+presentation->Save(u"pres5.html", SaveFormat::Html5, html5Options);
+presentation->Dispose();
 ```
+## **Eksportowanie prezentacji PowerPoint do HTML**
 
-## **Eksport PowerPoint do HTML**
-
-Ten kod C++ demonstruje standardowy proces konwersji z PowerPoint do HTML:
+Standardowy eksport HTML wykorzystuje inne podejście renderowania: zawartość slajdu jest reprezentowana jako SVG wewnątrz strony HTML. Poniższy przykład konwertuje prezentację do dokumentu HTML przy użyciu tego podejścia renderowania.
 
 ```cpp
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
-        
-auto pres = System::MakeObject<Presentation>(u"pres.pptx");
-pres->Save(u"pres.html", SaveFormat::Html);
+
+auto presentation = System::MakeObject<Presentation>(u"pres.pptx");
+presentation->Save(u"pres.html", SaveFormat::Html);
+presentation->Dispose();
 ```
 
-W tym przypadku zawartość prezentacji jest renderowana przy użyciu SVG w formie takiej jak poniżej:
+Uproszczony znacznik poniżej ilustruje strukturę wygenerowanej strony. Element SVG zawiera wyrenderowaną zawartość slajdu; tekst zastępczy reprezentuje tę zawartość i nie jest dosłownym wynikiem eksportu.
 
 ```html
 <body>
@@ -79,58 +95,105 @@ W tym przypadku zawartość prezentacji jest renderowana przy użyciu SVG w form
 </body>
 ```
 
-{{% alert title="Note" color="warning" %}} 
-Kiedy używasz tej metody do eksportu PowerPoint do HTML, ze względu na renderowanie SVG, nie będziesz mógł zastosować stylów ani animować konkretnych elementów. 
+{{% alert title="Warning" color="warning" %}}
+Eksport oparty na SVG nie udostępnia kształtów PowerPoint jako oddzielnych elementów HTML. Użyj eksportu HTML5, gdy potrzebne są opcje animacji kształtów i przejść slajdów przedstawione w tym artykule.
 {{% /alert %}}
 
-## **Eksport PowerPoint do widoku slajdów HTML5**
+## **Eksportowanie prezentacji PowerPoint do widoku slajdów HTML5**
 
-**Aspose.Slides** pozwala konwertować prezentację PowerPoint do dokumentu HTML5, w którym slajdy są wyświetlane w trybie widoku slajdów. W tym przypadku, gdy otworzysz wynikowy plik HTML5 w przeglądarce, zobaczysz prezentację w trybie widoku slajdów na stronie internetowej. 
+Eksport HTML5 generuje stronę do przeglądania i nawigacji po slajdach prezentacji w przeglądarce. Ten przykład przekazuje `true` zarówno do [set_AnimateShapes](https://reference.aspose.com/slides/cpp/aspose.slides.export/html5options/set_animateshapes/) jak i [set_AnimateTransitions](https://reference.aspose.com/slides/cpp/aspose.slides.export/html5options/set_animatetransitions/), aby wyeksportowany widok slajdów mógł odtwarzać efekty z oryginalnej prezentacji.  
+Użyj prezentacji, która już zawiera animacje kształtów i przejścia slajdów, aby zobaczyć efekt tych ustawień. Włączenie ich nie dodaje nowych efektów do slajdów, które ich nie posiadają. Po eksporcie otwórz wygenerowany dokument HTML5 w przeglądarce, mając dostępne pliki pomocnicze.
 
-Ten kod C++ demonstruje proces eksportu PowerPoint do widoku slajdów HTML5:
+```cpp
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+#include <Export/Html5Options.h>
 
-```c++
-auto pres = System::MakeObject<Presentation>(u"pres.pptx");
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto html5Options = System::MakeObject<Html5Options>();
 html5Options->set_AnimateShapes(true);
 html5Options->set_AnimateTransitions(true);
-pres->Save(u"HTML5-slide-view.html", SaveFormat::Html5, html5Options);
+
+auto presentation = System::MakeObject<Presentation>(u"pres.pptx");
+presentation->Save(u"HTML5-slide-view.html", SaveFormat::Html5, html5Options);
+presentation->Dispose();
 ```
+## **Konwertowanie prezentacji do dokumentu HTML5 z komentarzami**
 
-## **Konwersja prezentacji do dokumentu HTML5 z komentarzami**
+Możesz uwzględnić istniejące komentarze slajdów w wyjściu HTML5, aby czytelnicy mogli zobaczyć uwagi wraz z zawartością slajdu. Przykład w tej sekcji zakłada, że źródłowa prezentacja zawiera komentarze, jak pokazano poniżej. Eksportuje te komentarze; nie tworzy nowych.
 
-Komentarze w PowerPoint są narzędziem, które pozwala użytkownikom zostawiać notatki lub uwagi na slajdach prezentacji. Są szczególnie przydatne w projektach współpracy, gdzie wiele osób może dodawać swoje sugestie lub uwagi do konkretnych elementów slajdu bez zmieniania głównej treści. Każdy komentarz wyświetla nazwę autora, co ułatwia śledzenie, kto dodał daną uwagę.
+![Two comments on the presentation slide](two_comments_pptx.png)
 
-Załóżmy, że mamy następującą prezentację PowerPoint zapisaną w pliku "sample.pptx".
+Przekaż obiekt [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/notescommentslayoutingoptions/) do metody [set_SlidesLayoutOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/html5options/set_slideslayoutoptions/) klasy [Html5Options](https://reference.aspose.com/slides/cpp/aspose.slides.export/html5options/). Wywołaj [set_CommentsPosition](https://reference.aspose.com/slides/cpp/aspose.slides.export/notescommentslayoutingoptions/set_commentsposition/) z wartością `CommentsPositions::Right` z wyliczenia [CommentsPositions](https://reference.aspose.com/slides/cpp/aspose.slides.export/commentspositions/), aby umieścić komentarze po prawej stronie każdego slajdu.
 
-![Dwa komentarze na slajdzie prezentacji](two_comments_pptx.png)
+Poniższy przykład eksportuje prezentację do HTML5 z tym układem komentarzy. Prezentacja bez komentarzy nie będzie zawierała tekstu komentarza do wyświetlenia.
 
-Podczas konwertowania prezentacji PowerPoint do dokumentu HTML5 możesz łatwo określić, czy włączyć komentarze z prezentacji do dokumentu wyjściowego. Aby to zrobić, musisz określić parametry wyświetlania komentarzy w metodzie `get_NotesCommentsLayouting` klasy [Html5Options](https://reference.aspose.com/slides/pl/cpp/aspose.slides.export/html5options/) .
-
-Poniższy przykład kodu konwertuje prezentację do dokumentu HTML5 z komentarzami wyświetlanymi po prawej stronie slajdów.
 ```cpp
-auto html5Options = MakeObject<Html5Options>();
-html5Options->get_NotesCommentsLayouting()->set_CommentsPosition(CommentsPositions::Right);
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+#include <Export/Html5Options.h>
+#include <Export/NotesCommentsLayoutingOptions.h>
+#include <Export/CommentsPositions.h>
 
-auto presentation = MakeObject<Presentation>(u"sample.pptx");
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto layoutOptions = System::MakeObject<NotesCommentsLayoutingOptions>();
+layoutOptions->set_CommentsPosition(CommentsPositions::Right);
+
+auto html5Options = System::MakeObject<Html5Options>();
+html5Options->set_SlidesLayoutOptions(layoutOptions);
+
+auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
 presentation->Save(u"output.html", SaveFormat::Html5, html5Options);
 presentation->Dispose();
 ```
 
-Dokument "output.html" jest pokazany na poniższym obrazie.
+Poniższy obrazek pokazuje wyeksportowany dokument HTML5 z komentarzami wyświetlanymi obok slajdu.
 
-![Komentarze w wyjściowym dokumencie HTML5](two_comments_html5.png)
+![The comments in the output HTML5 document](two_comments_html5.png)
+
+## **Wykluczanie hiperłączy JavaScript podczas eksportu**
+
+Załóżmy, że `hyperlinks.pptx` zawiera tekst z odnośnikiem o docelowym `javascript:alert('Hello')` oraz zwykły link `https://example.com/`. Aby wykluczyć hiperłącze JavaScript podczas eksportu, wywołaj [SaveOptions::set_SkipJavaScriptLinks](https://reference.aspose.com/slides/cpp/aspose.slides.export/saveoptions/set_skipjavascriptlinks/) z wartością `true`. Domyślnie jest to `false`, więc te linki nie są filtrowane, chyba że włączysz tę opcję.
+
+Poniższy przykład ładuje prezentację z bieżącego katalogu i eksportuje ją przy użyciu [Html5Options](https://reference.aspose.com/slides/cpp/aspose.slides.export/html5options/):
+
+```cpp
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+#include <Export/Html5Options.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto html5Options = System::MakeObject<Html5Options>();
+html5Options->set_SkipJavaScriptLinks(true);
+
+auto presentation = System::MakeObject<Presentation>(u"hyperlinks.pptx");
+presentation->Save(u"filtered-html5.html", SaveFormat::Html5, html5Options);
+presentation->Dispose();
+```
+
+Wyeksportowany plik pomija hiperłącze JavaScript, zachowując jego tekst oraz zwykły link HTTPS. Źródłowa prezentacja pozostaje niezmieniona.
+
+Opcja ta filtruje hiperłącza JavaScript; nie usuwa wszystkich skryptów ani innej aktywnej zawartości, ani nie gwarantuje zgodności z CSP. Na przykład wyjście HTML5 wciąż zawiera skrypty odpowiedzialne za nawigację slajdów i animacje.
 
 ## **FAQ**
 
 **Czy mogę kontrolować, czy animacje obiektów i przejścia slajdów będą odtwarzane w HTML5?**
 
-Tak, HTML5 udostępnia osobne opcje umożliwiające włączenie lub wyłączenie [animacji kształtów](https://reference.aspose.com/slides/pl/cpp/aspose.slides.export/html5options/set_animateshapes/) i [przejść slajdów](https://reference.aspose.com/slides/pl/cpp/aspose.slides.export/html5options/set_animatetransitions/).
+Tak, eksport HTML5 oferuje oddzielne opcje włączania lub wyłączania [animacje kształtów](https://reference.aspose.com/slides/cpp/aspose.slides.export/html5options/set_animateshapes/) i [przejścia slajdów](https://reference.aspose.com/slides/cpp/aspose.slides.export/html5options/set_animatetransitions/).
 
-**Czy obsługiwany jest eksport komentarzy i gdzie można je umieścić względem slajdu?**
+**Czy komentarze są obsługiwane i gdzie można je umieścić względem slajdu?**
 
-Tak, komentarze można dodać w HTML5 i umieścić (na przykład po prawej stronie slajdu) za pomocą ustawień układu dla notatek i komentarzy.
+Tak, istniejące komentarze mogą być uwzględnione w wyjściu HTML5 i umieszczone (na przykład po prawej stronie slajdu) przy użyciu [ustawienia układu](https://reference.aspose.com/slides/cpp/aspose.slides.export/html5options/set_slideslayoutoptions/).
 
 **Czy mogę pominąć linki wywołujące JavaScript ze względów bezpieczeństwa lub CSP?**
 
-Tak, istnieje [ustawienie](https://reference.aspose.com/slides/pl/cpp/aspose.slides.export/saveoptions/set_skipjavascriptlinks/), które pozwala pominąć hiperłącza z wywołaniami JavaScript podczas zapisywania. Pomaga to spełnić rygorystyczne zasady bezpieczeństwa.
+Tak, metoda [set_SkipJavaScriptLinks](https://reference.aspose.com/slides/cpp/aspose.slides.export/saveoptions/set_skipjavascriptlinks/) pozwala pominąć hiperłącza wywołujące JavaScript podczas zapisywania. Domyślnie jest to `false`. Zobacz [Exclude JavaScript Hyperlinks During Export](/slides/pl/cpp/export-to-html5/#exclude-javascript-hyperlinks-during-export) po przykład eksportu HTML5 i zakres filtru. To ustawienie nie usuwa JavaScript używanego przez przeglądarkę HTML5 do nawigacji i animacji.

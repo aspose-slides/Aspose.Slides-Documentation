@@ -1,73 +1,71 @@
 ---
 title: Prezentációk konvertálása HTML5-re Pythonban
-linktitle: Exportálás HTML5-re
+linktitle: Prezentáció HTML5-re
 type: docs
 weight: 40
 url: /hu/python-net/export-to-html5/
 keywords:
 - PowerPoint HTML5-re
 - OpenDocument HTML5-re
-- prezentáció HTML5-re
+- előadás HTML5-re
 - dia HTML5-re
 - PPT HTML5-re
 - PPTX HTML5-re
 - ODP HTML5-re
-- PowerPoint konvertálása
-- OpenDocument konvertálása
-- prezentáció konvertálása
-- dia konvertálása
-- HTML5 export
-- prezentáció exportálása
-- dia exportálása
-- PowerPoint
-- OpenDocument
-- prezentáció
+- PPT mentése HTML5-ként
+- PPTX mentése HTML5-ként
+- ODP mentése HTML5-ként
+- PPT exportálása HTML5-be
+- PPTX exportálása HTML5-be
+- ODP exportálása HTML5-be
 - Python
 - Aspose.Slides
-description: "Exportálja a PowerPoint és OpenDocument prezentációkat reszponzív HTML5-re az Aspose.Slides for Python via .NET segítségével. Megőrzi a formázást, animációkat és az interaktivitást."
+description: "Exportálja a PowerPoint és OpenDocument előadásokat reszponzív HTML5 formátumba az Aspose.Slides for Python via .NET segítségével. Megőrizze a formázást, animációkat és az interaktivitást."
 ---
 ## **Áttekintés**
 
-Ez a cikk bemutatja, hogyan lehet a PowerPoint előadásokat HTML5 formátumba konvertálni az Aspose.Slides használatával. Kitér az egyszerű HTML5 exportálásra webes kiegészítők vagy további függőségek nélkül, valamint a formák animációinak és diaátmenetek vezérlésére szolgáló beállításokra. A cikk továbbá bemutatja a szokásos PowerPoint‑HTML exportfolyamatot, elmagyarázza, hogyan generálható HTML5 kimenet dia‑nézet módban, és megmutatja, hogyan lehet megjegyzéseket belefoglalni az exportált dokumentumba az elrendezés beállításával.
+Ez a cikk bemutatja, hogyan lehet a PowerPoint előadásokat HTML5 formátumba konvertálni az Aspose.Slides for Python via .NET használatával. Lefedi az alapvető exportálást, az alakzatanimációk és diáátmenetek vezérlését, valamint a megjegyzések elrendezését. Emellett összehasonlítja a HTML5 kimenetet a szabványos HTML export SVG-alapú kimenetével.
 
-## **PowerPoint exportálása HTML5-re**
+## **PowerPoint exportálása HTML5-be**
 
-Ez a Python kód bemutatja, hogyan exportálhatunk egy előadást HTML5 formátumba webes kiegészítők és függőségek nélkül:
+A következő példa betölt egy előadást a munkakönyvtárból, és HTML5 formátumban menti el. Alapértelmezett exportbeállításokat használ; a következő példa azt mutatja be, hogyan lehet kifejezetten vezérelni az animáció lejátszását. Cserélje le a bemeneti útvonalat a saját előadásának útvonalára.
 
-```py
+```python
 import aspose.slides as slides
 
 with slides.Presentation("pres.pptx") as presentation:
-    presentation.save("index.html", slides.export.SaveFormat.HTML5)
+    presentation.save("pres.html", slides.export.SaveFormat.HTML5)
 ```
 
-{{% alert color="primary" %}}Ebben az esetben tiszta HTML-et kapunk.{{% /alert %}}
+{{% alert color="info" title="Megjegyzés" %}}
+A HTML-dokumentum mellett az exportálás támogatási CSS és JavaScript fájlokat is ír a diák stílusához, animációkhoz, hatásokhoz és navigációhoz. Tartsa meg ezeket a fájlokat a HTML-dokumentummal együtt a kimenet áthelyezésekor vagy közzétételekor. A generált oldal a jQuery és az Anime.js könyvtárakat is betölti nyilvános CDN-kről; ezek nélkül a dia-navigáció és az animációk nem fognak működni.
+{{% /alert %}}
 
-Az alábbi módon adhatja meg a formák animációi és a diaátmenetek beállításait:
+Az alakzatanimációk vagy a diáátmenetek lejátszása nélküli exportáláshoz állítsa a [animate_shapes](https://reference.aspose.com/slides/python-net/aspose.slides.export/html5options/animate_shapes/) és a [animate_transitions](https://reference.aspose.com/slides/python-net/aspose.slides.export/html5options/animate_transitions/) értékét `False`-ra a [Html5Options](https://reference.aspose.com/slides/python-net/aspose.slides.export/html5options/)-ban. Ezek a beállítások függetlenek, így egyet engedélyezhet, miközben a másikat letiltja. A példa az előadást exportálja úgy, hogy mindkét animációtípust letiltja a generált oldalon.
 
-```py
+```python
+import aspose.slides as slides
+
+html5_options = slides.export.Html5Options()
+html5_options.animate_shapes = False
+html5_options.animate_transitions = False
+
+with slides.Presentation("pres.pptx") as presentation:
+    presentation.save("pres5.html", slides.export.SaveFormat.HTML5, html5_options)
+```
+
+## **PowerPoint exportálása HTML-be**
+
+A szabványos HTML-exportálás más megjelenítési megközelítést alkalmaz: a dia tartalmát SVG-ként jeleníti meg egy HTML-oldalon. A következő példa egy előadást HTML-dokumentummá konvertál ennek a megjelenítési módnak a használatával.
+
+```python
 import aspose.slides as slides
 
 with slides.Presentation("pres.pptx") as presentation:
-    options = slides.export.Html5Options()
-    options.animate_shapes = False
-    options.animate_transitions = False
-
-    presentation.save("index.html", slides.export.SaveFormat.HTML5, options)
+    presentation.save("pres.html", slides.export.SaveFormat.HTML)
 ```
 
-## **PowerPoint exportálása HTML-re**
-
-Ez a Python kód bemutatja a szokásos PowerPoint‑HTML exportfolyamatot:
-
-```py
-import aspose.slides as slides
-
-with slides.Presentation("pres.pptx") as presentation:
-    presentation.save("index.html", slides.export.SaveFormat.HTML)
-```
-
-Ebben az esetben az előadás tartalma SVG‑ként kerül renderelésre a következő módon:
+Az alábbi egyszerűsített jelölőnyelv a generált oldal szerkezetét mutatja be. Az SVG elem tartalmazza a renderelt dia tartalmát; a helyőrző szöveg ezt a tartalmat ábrázolja, és nem a tényleges exportkimenet.
 
 ```html
 <body>
@@ -79,60 +77,84 @@ Ebben az esetben az előadás tartalma SVG‑ként kerül renderelésre a követ
 </body>
 ```
 
-{{% alert title="Megjegyzés" color="warning" %}}Ha ezzel a módszerrel exportálja a PowerPointot HTML-re, az SVG renderelés miatt nem lesz lehetőség stílusok alkalmazására vagy egyes elemek animálására.{{% /alert %}}
+{{% alert title="Figyelmeztetés" color="warning" %}}
+Az SVG-alapú exportálás nem teszi elérhetővé a PowerPoint alakzatokat különálló HTML elemekként. Használja a HTML5 exportálást, ha a cikkben bemutatott alakzat-animációs és dia-átmeneti beállításokra van szükség.
+{{% /alert %}}
 
-## **PowerPoint exportálása HTML5 dia‑nézetben**
+## **PowerPoint exportálása HTML5 dia nézetben**
 
-**Aspose.Slides** lehetővé teszi, hogy egy PowerPoint előadást HTML5 dokumentummá konvertáljon, ahol a diák dia‑nézet módban jelennek meg. Ebben az esetben, ha a kapott HTML5 fájlt egy böngészőben nyitja meg, a prezentációt dia‑nézetben láthatja a weboldalon.
+A HTML5 export egy oldalt hoz létre a bemutató diáinak böngészőben történő megtekintéséhez és navigálásához. Ez a példa engedélyezi mind a [animate_shapes](https://reference.aspose.com/slides/python-net/aspose.slides.export/html5options/animate_shapes/) és a [animate_transitions](https://reference.aspose.com/slides/python-net/aspose.slides.export/html5options/animate_transitions/) opciókat, hogy az exportált dia nézet lejátszhassa a forrás előadás hatásait.
 
-Ez a Python kód bemutatja a PowerPoint‑HTML5 dia‑nézet exportfolyamatát:
+Használjon olyan előadást, amely már tartalmaz alakzatanimációkat és diáátmeneteket, hogy lássa ezen beállítások hatását. Ezek engedélyezése nem ad hozzá új hatásokat a diákhoz, amelyeknek korábban nem voltak. Exportálás után nyissa meg a generált HTML5 dokumentumot egy böngészőben, a szükséges támogatási fájlok rendelkezésre állásával.
 
 ```python
 import aspose.slides as slides
 
-with slides.Presentation("pres.pptx") as pres:
-    # Exportáljon egy prezentációt, amely diák átmeneteket, animációkat és alakzat animációkat tartalmaz HTML5-be
-    options = slides.export.Html5Options()
-    options.animate_shapes = True
-    options.animate_transitions = True
+html5_options = slides.export.Html5Options()
+html5_options.animate_shapes = True
+html5_options.animate_transitions = True
 
-    # Prezentáció mentése
-    pres.save("HTML5-slide-view.html", slides.export.SaveFormat.HTML5, options)
+with slides.Presentation("pres.pptx") as presentation:
+    presentation.save("HTML5-slide-view.html", slides.export.SaveFormat.HTML5, html5_options)
 ```
 
-## **Prezentáció konvertálása HTML5 dokumentummá megjegyzésekkel**
+## **Az előadás konvertálása HTML5 dokumentummá megjegyzésekkel**
 
-A PowerPoint megjegyzések olyan eszközök, amelyek lehetővé teszik a felhasználók számára, hogy jegyzeteket vagy visszajelzéseket hagyanak a prezentáció diáin. Különösen együttműködési projektekben hasznosak, ahol több ember is hozzáadhatja javaslatait vagy megjegyzéseit a diákat érintő elemekhez anélkül, hogy a fő tartalmat módosítaná. Minden megjegyzés megjeleníti a szerző nevét, így könnyen nyomon követhető, ki hagyta a megjegyzést.
+A meglévő dia megjegyzéseket beillesztheti a HTML5 kimenetbe, így az olvasók a visszajelzéseket a dia tartalma mellett láthatják. Ennek a szakasznak a példája azt feltételezi, hogy a forrás előadás megjegyzéseket tartalmaz, ahogy az alább látható. Ezeket a megjegyzéseket exportálja; újakat nem hoz létre.
 
-Tegyük fel, hogy a következő PowerPoint prezentáció a "sample.pptx" fájlban van elmentve.
+![Két megjegyzés a bemutató dián](two_comments_pptx.png)
 
-![Két megjegyzés a prezentáció dián](two_comments_pptx.png)
+Rendeljen egy [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/python-net/aspose.slides.export/notescommentslayoutingoptions/) objektumot a [slides_layout_options](https://reference.aspose.com/slides/python-net/aspose.slides.export/html5options/slides_layout_options/) tulajdonsághoz a [Html5Options](https://reference.aspose.com/slides/python-net/aspose.slides.export/html5options/)- esetén. Állítsa a [comments_position](https://reference.aspose.com/slides/python-net/aspose.slides.export/notescommentslayoutingoptions/comments_position/) értékét `RIGHT`-re a [CommentsPositions](https://reference.aspose.com/slides/python-net/aspose.slides.export/commentspositions/) felsorolásból, hogy a megjegyzéseket az egyes diák jobb oldalára helyezze.
 
-Amikor egy PowerPoint előadást HTML5 dokumentummá konvertál, egyszerűen megadhatja, hogy a megjegyzéseket felvegye-e a kimeneti dokumentumba. Ehhez a `notes_comments_layouting` tulajdonságban kell megadni a megjegyzések megjelenítési paramétereit a [Html5Options](https://reference.aspose.com/slides/hu/python-net/aspose.slides.export/html5options/) osztályban.
+A következő példa exportálja az előadást HTML5-be ezzel a megjegyzéselrendezéssel. A megjegyzésekkel nem rendelkező előadásnak nem lesz megjeleníthető megjegyzés szövege.
 
-A következő kódrészlet egy prezentációt HTML5 dokumentummá konvertál, ahol a megjegyzések a diák jobb oldalán jelennek meg.
-```py
-html5_options = Html5Options()
-html5_options.notes_comments_layouting.comments_position = CommentsPositions.RIGHT
+```python
+import aspose.slides as slides
 
-with Presentation("sample.pptx") as presentation:
-    presentation.save("output.html", SaveFormat.HTML5, html5_options)
+layout_options = slides.export.NotesCommentsLayoutingOptions()
+layout_options.comments_position = slides.export.CommentsPositions.RIGHT
+
+html5_options = slides.export.Html5Options()
+html5_options.slides_layout_options = layout_options
+
+with slides.Presentation("sample.pptx") as presentation:
+    presentation.save("output.html", slides.export.SaveFormat.HTML5, html5_options)
 ```
 
-Az "output.html" dokumentum az alábbi képen látható.
+Az alábbi kép az exportált HTML5 dokumentumot mutatja, ahol a megjegyzések a dia mellett jelennek meg.
 
 ![A megjegyzések a kimeneti HTML5 dokumentumban](two_comments_html5.png)
 
-## **FAQ**
+## **JavaScript hivatkozások kizárása exportálás közben**
 
-**Ellenőrizhetem, hogy az objektumanimációk és diaátmenetek lejátszódnak-e HTML5-ben?**
+Tegyük fel, hogy a `hyperlinks.pptx` egy `javascript:alert('Hello')` célú hivatkozott szöveget és egy egyszerű `https://example.com/` hivatkozást tartalmaz. A JavaScript hivatkozás kizárásához exportáláskor állítsa a [Html5Options.skip_java_script_links](https://reference.aspose.com/slides/python-net/aspose.slides.export/html5options/skip_java_script_links/) értékét `True`-ra. Alapértelmezés szerint `False`, így ezek a linkek nem szűrődnek le, hacsak nem engedélyezi a beállítást.
 
-Igen, a HTML5 külön beállításokat biztosít a [forma animációk](https://reference.aspose.com/slides/hu/python-net/aspose.slides.export/html5options/animate_shapes/) és a [diaátmenetek](https://reference.aspose.com/slides/hu/python-net/aspose.slides.export/html5options/animate_transitions/) engedélyezésére vagy letiltására.
+A következő példa betölti az előadást a munkakönyvtárból, és [Html5Options](https://reference.aspose.com/slides/python-net/aspose.slides.export/html5options/) használatával exportálja:
 
-**Támogatott-e a megjegyzések kimenete, és hol helyezhetők el a diahoz képest?**
+```python
+import aspose.slides as slides
 
-Igen, a megjegyzések hozzáadhatók HTML5-ben, és elhelyezhetők (például a dia jobb oldalán) a [elrendezési beállítások](https://reference.aspose.com/slides/hu/python-net/aspose.slides.export/html5options/notes_comments_layouting/) segítségével a jegyzetek és megjegyzések számára.
+html5_options = slides.export.Html5Options()
+html5_options.skip_java_script_links = True
 
-**Kihagyhatom-e azokat a hivatkozásokat, amelyek JavaScript‑et hívnak meg biztonsági vagy CSP okokból?**
+with slides.Presentation("hyperlinks.pptx") as presentation:
+    presentation.save("filtered-html5.html", slides.export.SaveFormat.HTML5, html5_options)
+```
 
-Igen, van egy [beállítás](https://reference.aspose.com/slides/hu/python-net/aspose.slides.export/html5options/skip_java_script_links/), amely lehetővé teszi, hogy a mentés során kihagyja a JavaScript‑hívással rendelkező hiperhivatkozásokat. Ez segít a szigorú biztonsági szabályok betartásában.
+Az exportált fájl kihagyja a JavaScript hivatkozást, miközben megtartja annak szövegét és a hagyományos HTTPS hivatkozást. A forrás előadás változatlan marad.
+
+Ez a beállítás a JavaScript hivatkozásokat szűri; nem távolít el minden scriptet vagy más aktív tartalmat, és nem garantálja a CSP megfelelőséget. Például a HTML5 kimenet továbbra is tartalmaz scriptet a dia-navigációhoz és az animációkhoz.
+
+## **GYIK**
+
+**Le tudom-e szabályozni, hogy az objektumanimációk és a diáátmenetek lejátszódjanak-e HTML5-ben?**
+
+Igen, a HTML5 export különálló lehetőségeket kínál a [shape animations](https://reference.aspose.com/slides/python-net/aspose.slides.export/html5options/animate_shapes/) és a [slide transitions](https://reference.aspose.com/slides/python-net/aspose.slides.export/html5options/animate_transitions/) engedélyezésére vagy letiltására.
+
+**Támogatottak a megjegyzések, és hol lehet őket elhelyezni a diahoz képest?**
+
+Igen, a meglévő megjegyzések beilleszthetők a HTML5 kimenetbe, és elhelyezhetők (például a dia jobb oldalán) a [layout settings](https://reference.aspose.com/slides/python-net/aspose.slides.export/html5options/slides_layout_options/) használatával a jegyzetek és megjegyzések számára.
+
+**Kihagyhatom-e a JavaScript-et meghívó hivatkozásokat biztonsági vagy CSP okokból?**
+
+Igen, a [skip_java_script_links](https://reference.aspose.com/slides/python-net/aspose.slides.export/html5options/skip_java_script_links/) beállítás lehetővé teszi, hogy a mentés során kihagyja a JavaScript hívásokat tartalmazó hivatkozásokat. Alapértelmezés szerint `False`. Lásd a [JavaScript hivatkozások kizárása exportálás közben](/slides/hu/python-net/export-to-html5/#exclude-javascript-hyperlinks-during-export) szakaszt egy HTML5 exportálási példáért és a szűrő hatóköréért. Ez a beállítás nem távolítja el a HTML5 megjelenítő által a navigációhoz és animációkhoz használt JavaScriptet.

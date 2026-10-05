@@ -5,13 +5,13 @@ type: docs
 weight: 40
 url: /zh-hant/cpp/export-to-html5/
 keywords:
-- PowerPoint 轉 HTML5
-- OpenDocument 轉 HTML5
-- 簡報 轉 HTML5
-- 投影片 轉 HTML5
-- PPT 轉 HTML5
-- PPTX 轉 HTML5
-- ODP 轉 HTML5
+- PowerPoint 轉換為 HTML5
+- OpenDocument 轉換為 HTML5
+- 簡報 轉換為 HTML5
+- 投影片 轉換為 HTML5
+- PPT 轉換為 HTML5
+- PPTX 轉換為 HTML5
+- ODP 轉換為 HTML5
 - 將 PPT 儲存為 HTML5
 - 將 PPTX 儲存為 HTML5
 - 將 ODP 儲存為 HTML5
@@ -20,54 +20,71 @@ keywords:
 - 匯出 ODP 為 HTML5
 - C++
 - Aspose.Slides
-description: "使用 Aspose.Slides for C++ 將 PowerPoint 與 OpenDocument 簡報匯出為相容行動裝置的 HTML5。保留格式、動畫和互動性。"
+description: "使用 Aspose.Slides for C++ 將 PowerPoint 與 OpenDocument 簡報匯出為響應式 HTML5。保留格式、動畫與互動性。"
 ---
 ## **概述**
 
-本文說明如何使用 Aspose.Slides 將 PowerPoint 簡報轉換為 HTML5。它涵蓋了不含 Web 擴充功能或其他相依性的基本 HTML5 匯出，以及控制形狀動畫和投影片過渡的選項。本文亦展示標準的 PowerPoint 轉 HTML 匯出流程，說明如何在投影片檢視模式下產生 HTML5 輸出，並演示如何透過設定版面配置將註解納入匯出的文件中。
+本文說明如何使用 Aspose.Slides for C++ 將 PowerPoint 簡報轉換為 HTML5。它涵蓋了基本匯出、形狀動畫與投影片過渡的控制，以及註解版面配置。還比較了 HTML5 輸出與標準 HTML 匯出的 SVG 基礎輸出。
 
-## **將 PowerPoint 匯出為 HTML5**
+## **匯出 PowerPoint 為 HTML5**
 
-這段 C++ 程式碼示範如何將簡報匯出為 HTML5。
+以下示例從工作目錄載入簡報，並將其保存為 HTML5 格式。它使用預設的匯出設定；下一個示例說明如何明確控制動畫播放。請將輸入路徑替換為您的簡報路徑。
 
 ```cpp
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
-        
-auto pres = System::MakeObject<Presentation>(u"pres.pptx");
-pres->Save(u"pres.html", SaveFormat::Html5);
+
+auto presentation = System::MakeObject<Presentation>(u"pres.pptx");
+presentation->Save(u"pres.html", SaveFormat::Html5);
+presentation->Dispose();
 ```
 
-{{% alert color="primary" %}} 
-在此情況下，您會得到乾淨的 HTML。 
+{{% alert color="info" title="Note" %}}
+除了 HTML 文件外，匯出還會寫入支援的 CSS 與 JavaScript 檔案，用於投影片樣式、動畫、效果與導覽。將這些檔案與 HTML 文件一起保存，以便在移動或發布輸出時使用。產生的頁面也會從公共 CDN 載入 jQuery 與 Anime.js；若未載入，投影片的導覽與動畫將無法運作。
 {{% /alert %}}
 
-您可能想要以此方式指定形狀動畫和投影片過渡的設定：
+要在匯出時不播放形狀動畫或投影片過渡，請在 [Html5Options](https://reference.aspose.com/slides/cpp/aspose.slides.export/html5options/) 中將 `false` 傳遞給 [set_AnimateShapes](https://reference.aspose.com/slides/cpp/aspose.slides.export/html5options/set_animateshapes/) 和 [set_AnimateTransitions](https://reference.aspose.com/slides/cpp/aspose.slides.export/html5options/set_animatetransitions/)。這些設定是獨立的，您可以啟用其中一項而停用另一項。此示例將兩種動畫均停用後匯出簡報。
 
 ```cpp
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+#include <Export/Html5Options.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 
-auto pres = System::MakeObject<Presentation>(u"pres.pptx");
-auto options = System::MakeObject<Html5Options>();
-options->set_AnimateShapes(true);
-options->set_AnimateTransitions(true);
-pres->Save(u"pres.html", SaveFormat::Html5, options);
+auto html5Options = System::MakeObject<Html5Options>();
+html5Options->set_AnimateShapes(false);
+html5Options->set_AnimateTransitions(false);
+
+auto presentation = System::MakeObject<Presentation>(u"pres.pptx");
+presentation->Save(u"pres5.html", SaveFormat::Html5, html5Options);
+presentation->Dispose();
 ```
 
-## **將 PowerPoint 匯出為 HTML**
+## **匯出 PowerPoint 為 HTML**
 
-這段 C++ 程式碼示範標準的 PowerPoint 轉 HTML 流程：
+標準的 HTML 匯出使用不同的呈現方式：投影片內容以 SVG 形式嵌入 HTML 頁面。以下示例使用此呈現方式將簡報轉換為 HTML 文件。
 
 ```cpp
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
-        
-auto pres = System::MakeObject<Presentation>(u"pres.pptx");
-pres->Save(u"pres.html", SaveFormat::Html);
+
+auto presentation = System::MakeObject<Presentation>(u"pres.pptx");
+presentation->Save(u"pres.html", SaveFormat::Html);
+presentation->Dispose();
 ```
 
-在此情況下，簡報內容透過 SVG 以如下形式呈現：
+以下簡化的標記示範產生頁面的結構。SVG 元素包含已呈現的投影片內容；佔位文字僅代表該內容，並非實際匯出輸出。
 
 ```html
 <body>
@@ -79,58 +96,103 @@ pres->Save(u"pres.html", SaveFormat::Html);
 </body>
 ```
 
-{{% alert title="Note" color="warning" %}} 
-當您使用此方法將 PowerPoint 匯出為 HTML 時，由於採用 SVG 轉換，將無法套用樣式或對特定元素進行動畫。 
+{{% alert title="Warning" color="warning" %}}
+基於 SVG 的匯出不會將 PowerPoint 形狀呈現為個別的 HTML 元素。當您需要本文示範的形狀動畫與投影片過渡選項時，請使用 HTML5 匯出。
 {{% /alert %}}
 
-## **將 PowerPoint 匯出為 HTML5 投影片檢視**
+## **匯出 PowerPoint 為 HTML5 投影片檢視**
 
-**Aspose.Slides** 允許您將 PowerPoint 簡報轉換為 HTML5 文件，並以投影片檢視模式呈現投影片。在此情況下，當您在瀏覽器中開啟產生的 HTML5 檔案時，會在網頁上以投影片檢視模式顯示簡報。
+HTML5 匯出會產生可在瀏覽器中檢視與導覽簡報投影片的頁面。此示例將 `true` 傳遞給 [set_AnimateShapes](https://reference.aspose.com/slides/cpp/aspose.slides.export/html5options/set_animateshapes/) 與 [set_AnimateTransitions](https://reference.aspose.com/slides/cpp/aspose.slides.export/html5options/set_animatetransitions/)，使匯出的投影片檢視能播放來源簡報的效果。請使用已包含形狀動畫與投影片過渡的簡報以觀察這些設定的效果。啟用它們不會為沒有任何效果的投影片新增動畫。匯出後，於瀏覽器開啟產生的 HTML5 文件，並確保其支援檔案可用。
 
-這段 C++ 程式碼示範 PowerPoint 轉 HTML5 投影片檢視的匯出流程：
+```cpp
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+#include <Export/Html5Options.h>
 
-```c++
-auto pres = System::MakeObject<Presentation>(u"pres.pptx");
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto html5Options = System::MakeObject<Html5Options>();
 html5Options->set_AnimateShapes(true);
 html5Options->set_AnimateTransitions(true);
-pres->Save(u"HTML5-slide-view.html", SaveFormat::Html5, html5Options);
+
+auto presentation = System::MakeObject<Presentation>(u"pres.pptx");
+presentation->Save(u"HTML5-slide-view.html", SaveFormat::Html5, html5Options);
+presentation->Dispose();
 ```
 
-## **將簡報轉換為含註解的 HTML5 文件**
+## **將簡報轉換為帶有註解的 HTML5 文件**
 
-PowerPoint 中的註解是一種工具，允許使用者在簡報投影片上留下備註或回饋。它們在協作專案中特別有用，因為多位使用者可以對特定投影片元素添加建議或意見，而不會更改主要內容。每則註解皆顯示作者名稱，方便追蹤誰留下了該評論。
+您可以在 HTML5 輸出中納入現有投影片註解，讓讀者能在投影片內容旁看到回饋。此節的示例假設來源簡報已包含註解，如下圖所示。它會匯出這些註解；不會建立新註解。
 
-假設我們有一個名為 "sample.pptx" 的 PowerPoint 簡報檔案如下所示。
+![投影片上的兩則註解](two_comments_pptx.png)
 
-![簡報投影片上的兩則註解](two_comments_pptx.png)
+將 [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/notescommentslayoutingoptions/) 物件傳遞給 [Html5Options](https://reference.aspose.com/slides/cpp/aspose.slides.export/html5options/) 的 [set_SlidesLayoutOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/html5options/set_slideslayoutoptions/) 方法。呼叫 [set_CommentsPosition](https://reference.aspose.com/slides/cpp/aspose.slides.export/notescommentslayoutingoptions/set_commentsposition/)，並使用來自 [CommentsPositions](https://reference.aspose.com/slides/cpp/aspose.slides.export/commentspositions/) 列舉的 `CommentsPositions::Right`，將註解置於每張投影片的右側。
 
-當您將 PowerPoint 簡報轉換為 HTML5 文件時，您可以輕鬆指定是否在輸出文件中包含簡報的註解。為此，您需要在 [Html5Options](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.export/html5options/) 類別的 `get_NotesCommentsLayouting` 方法中設定註解的顯示參數。
-
-以下程式碼範例將簡報轉換為 HTML5 文件，並將註解顯示於投影片右側。
 ```cpp
-auto html5Options = MakeObject<Html5Options>();
-html5Options->get_NotesCommentsLayouting()->set_CommentsPosition(CommentsPositions::Right);
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+#include <Export/Html5Options.h>
+#include <Export/NotesCommentsLayoutingOptions.h>
+#include <Export/CommentsPositions.h>
 
-auto presentation = MakeObject<Presentation>(u"sample.pptx");
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto layoutOptions = System::MakeObject<NotesCommentsLayoutingOptions>();
+layoutOptions->set_CommentsPosition(CommentsPositions::Right);
+
+auto html5Options = System::MakeObject<Html5Options>();
+html5Options->set_SlidesLayoutOptions(layoutOptions);
+
+auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
 presentation->Save(u"output.html", SaveFormat::Html5, html5Options);
 presentation->Dispose();
 ```
 
-圖片下方顯示了 "output.html" 文件的內容。
+下圖顯示匯出的 HTML5 文件，註解顯示在投影片旁邊。
 
 ![輸出 HTML5 文件中的註解](two_comments_html5.png)
 
+## **匯出時排除 JavaScript 超連結**
+
+假設 `hyperlinks.pptx` 包含指向 `javascript:alert('Hello')` 的文字連結，以及一般的 `https://example.com/` 連結。若要在匯出時排除 JavaScript 超連結，請以 `true` 呼叫 [SaveOptions::set_SkipJavaScriptLinks](https://reference.aspose.com/slides/cpp/aspose.slides.export/saveoptions/set_skipjavascriptlinks/)。預設為 `false`，因此除非啟用此選項，這類連結不會被過濾。
+
+以下示例從工作目錄載入簡報，並以 [Html5Options](https://reference.aspose.com/slides/cpp/aspose.slides.export/html5options/) 匯出：
+
+```cpp
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+#include <Export/Html5Options.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto html5Options = System::MakeObject<Html5Options>();
+html5Options->set_SkipJavaScriptLinks(true);
+
+auto presentation = System::MakeObject<Presentation>(u"hyperlinks.pptx");
+presentation->Save(u"filtered-html5.html", SaveFormat::Html5, html5Options);
+presentation->Dispose();
+```
+
+匯出的檔案會省略 JavaScript 超連結，同時保留其文字與一般的 HTTPS 連結。來源簡報保持不變。
+
+此選項僅過濾 JavaScript 超連結；它不會移除所有腳本或其他主動內容，也不保證符合 CSP。舉例而言，HTML5 輸出仍會包含用於投影片導覽與動畫的腳本。
+
 ## **常見問題**
 
-**我可以控制物件動畫與投影片過渡在 HTML5 中是否播放嗎？**
+**我能控制物件動畫與投影片過渡在 HTML5 中是否播放嗎？**
 
-是的，HTML5 提供了分別的選項，可啟用或停用 [shape animations](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.export/html5options/set_animateshapes/) 與 [slide transitions](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.export/html5options/set_animatetransitions/)。
+是的，HTML5 匯出提供單獨的選項，可啟用或停用 [shape animations](https://reference.aspose.com/slides/cpp/aspose.slides.export/html5options/set_animateshapes/) 與 [slide transitions](https://reference.aspose.com/slides/cpp/aspose.slides.export/html5options/set_animatetransitions/)。
 
-**是否支援輸出註解？它們可以相對於投影片放置在哪裡？**
+**是否支援註解，且可以將它們放置在投影片的何處？**
 
-是的，註解可在 HTML5 中加入，並透過註記與註解的版面設定將其定位（例如放在投影片右側）。
+是的，現有的註解可以包含在 HTML5 輸出中，並可透過 [版面設定](https://reference.aspose.com/slides/cpp/aspose.slides.export/html5options/set_slideslayoutoptions/)（例如放在投影片右側）來設定其位置。
 
-**我可以為了安全性或 CSP 而跳過呼叫 JavaScript 的連結嗎？**
+**我能為安全或 CSP 考量而跳過呼叫 JavaScript 的連結嗎？**
 
-是的，有一個 [setting](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.export/saveoptions/set_skipjavascriptlinks/) 可在儲存時跳過包含 JavaScript 呼叫的超連結。這有助於遵守嚴格的安全政策。
+是的，使用 [set_SkipJavaScriptLinks](https://reference.aspose.com/slides/cpp/aspose.slides.export/saveoptions/set_skipjavascriptlinks/) 方法可在儲存時跳過含 JavaScript 呼叫的超連結。預設為 `false`。請參考 [匯出時排除 JavaScript 超連結](/slides/zh-hant/cpp/export-to-html5/#exclude-javascript-hyperlinks-during-export) 以取得 HTML5 匯出範例與過濾範圍說明。此設定不會移除 HTML5 檢視器用於導覽與動畫的 JavaScript。

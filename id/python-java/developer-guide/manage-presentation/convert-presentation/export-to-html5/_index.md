@@ -21,17 +21,17 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Ekspor presentasi PowerPoint & OpenDocument ke HTML5 responsif dengan Aspose.Slides untuk Python via Java. Mempertahankan format, animasi, dan interaktivitas."
+description: "Ekspor presentasi PowerPoint & OpenDocument ke HTML5 responsif dengan Aspose.Slides untuk Python via Java. Pertahankan pemformatan, animasi, dan interaktivitas."
 ---
 ## **Gambaran Umum**
 
-Artikel ini menjelaskan cara mengonversi presentasi PowerPoint ke HTML5 menggunakan Aspose.Slides. Artikel ini mencakup ekspor HTML5 dasar tanpa ekstensi web tambahan, serta opsi untuk mengontrol animasi bentuk dan transisi slide. Artikel ini juga menunjukkan proses ekspor standar PowerPoint ke HTML, menjelaskan cara menghasilkan output HTML5 dalam mode tampilan slide, dan mendemonstrasikan cara menyertakan komentar dalam dokumen yang diekspor dengan mengonfigurasi tata letaknya.
+Artikel ini menjelaskan cara mengonversi presentasi PowerPoint ke HTML5 menggunakan Aspose.Slides untuk Python via Java. Artikel ini mencakup ekspor dasar, kontrol animasi bentuk dan transisi slide, serta tata letak komentar. Selain itu, artikel ini membandingkan output HTML5 dengan output berbasis SVG dari ekspor HTML standar.
 
-Contoh‑contoh memerlukan Aspose.Slides untuk Python via Java dan runtime Java yang kompatibel. Letakkan `pres.pptx` (atau `sample.pptx` untuk contoh komentar) di direktori kerja saat ini. Setiap contoh memulai JVM hanya jika belum berjalan.
+Contoh-contoh memerlukan Aspose.Slides untuk Python via Java dan runtime Java yang kompatibel. Tempatkan presentasi masukan di direktori kerja saat ini. Setiap contoh memulai JVM hanya jika belum berjalan.
 
 ## **Ekspor PowerPoint ke HTML5**
 
-Gunakan [Presentation.save](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentation/#save) dengan [SaveFormat.Html5](https://reference.aspose.com/slides/id/python-java/aspose.slides/saveformat/#Html5) untuk mengekspor presentasi tanpa ekstensi web tambahan:
+Contoh berikut memuat presentasi dari direktori kerja dan menyimpannya dalam format HTML5. Contoh ini menggunakan pengaturan ekspor default; contoh berikutnya menunjukkan cara mengendalikan pemutaran animasi secara eksplisit. Ganti jalur masukan dengan jalur ke presentasi Anda.
 
 ```python
 import jpype
@@ -49,11 +49,11 @@ finally:
     presentation.dispose()
 ```
 
-{{% alert color="info" title="Catatan" %}} 
-Ekspor HTML5 membuat konten HTML untuk ditampilkan di browser. 
+{{% alert color="info" title="Note" %}}
+Selain dokumen HTML, ekspor menulis file CSS dan JavaScript pendukung untuk styling slide, animasi, efek, dan navigasi. Simpan file-file ini bersama dokumen HTML saat memindahkan atau mempublikasikan output. Halaman yang dihasilkan juga memuat jQuery dan Anime.js dari CDN publik; tanpa mereka, navigasi slide dan animasi tidak berjalan.
 {{% /alert %}}
 
-Gunakan [Html5Options](https://reference.aspose.com/slides/id/python-java/aspose.slides/html5options/) untuk mengonfigurasi ekspor. Panggil [setAnimateShapes](https://reference.aspose.com/slides/id/python-java/aspose.slides/html5options/#setAnimateShapes) dan [setAnimateTransitions](https://reference.aspose.com/slides/id/python-java/aspose.slides/html5options/#setAnimateTransitions) dengan `False` untuk menonaktifkan animasi bentuk dan transisi slide:
+Untuk mengekspor tanpa memutar animasi bentuk atau transisi slide, berikan `False` ke [setAnimateShapes](https://reference.aspose.com/slides/python-java/aspose.slides/html5options/#setAnimateShapes) dan [setAnimateTransitions](https://reference.aspose.com/slides/python-java/aspose.slides/html5options/#setAnimateTransitions) di [Html5Options](https://reference.aspose.com/slides/python-java/aspose.slides/html5options/). Pengaturan ini independen, sehingga Anda dapat mengaktifkan satu sementara menonaktifkan yang lain. Contoh ini mengekspor presentasi dengan kedua jenis animasi dinonaktifkan pada halaman yang dihasilkan.
 
 ```python
 import jpype
@@ -64,12 +64,12 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import Html5Options, Presentation, SaveFormat
 
+html5_options = Html5Options()
+html5_options.setAnimateShapes(False)
+html5_options.setAnimateTransitions(False)
+
 presentation = Presentation("pres.pptx")
 try:
-    html5_options = Html5Options()
-    html5_options.setAnimateShapes(False)
-    html5_options.setAnimateTransitions(False)
-
     presentation.save("pres5.html", SaveFormat.Html5, html5_options)
 finally:
     presentation.dispose()
@@ -77,7 +77,7 @@ finally:
 
 ## **Ekspor PowerPoint ke HTML**
 
-Gunakan [SaveFormat.Html](https://reference.aspose.com/slides/id/python-java/aspose.slides/saveformat/#Html) untuk ekspor HTML standar. Lihat [Convert PowerPoint to HTML](/slides/id/python-java/convert-powerpoint-to-html/) untuk lebih banyak opsi:
+Ekspor HTML standar menggunakan pendekatan rendering yang berbeda: konten slide direpresentasikan sebagai SVG di dalam halaman HTML. Contoh berikut mengonversi presentasi menjadi dokumen HTML menggunakan pendekatan rendering ini.
 
 ```python
 import jpype
@@ -95,7 +95,7 @@ finally:
     presentation.dispose()
 ```
 
-Dalam kasus ini, konten presentasi dirender melalui SVG dalam bentuk seperti ini:
+Markup sederhana di bawah ini menggambarkan struktur halaman yang dihasilkan. Elemen SVG berisi konten slide yang dirender; teks placeholder mewakili konten tersebut dan bukan output ekspor sebenarnya.
 
 ```html
 <body>
@@ -107,15 +107,15 @@ Dalam kasus ini, konten presentasi dirender melalui SVG dalam bentuk seperti ini
 </body>
 ```
 
-{{% alert title="Peringatan" color="warning" %}} 
-Ekspor HTML standar merender konten slide melalui SVG dan tidak menyediakan opsi animasi bentuk dan transisi slide HTML5. 
+{{% alert title="Warning" color="warning" %}}
+Ekspor berbasis SVG tidak mengekspos bentuk PowerPoint sebagai elemen HTML terpisah. Gunakan ekspor HTML5 ketika Anda membutuhkan opsi animasi bentuk dan transisi slide yang ditunjukkan dalam artikel ini.
 {{% /alert %}}
 
 ## **Ekspor PowerPoint ke Tampilan Slide HTML5**
 
-**Aspose.Slides** memungkinkan Anda mengonversi presentasi PowerPoint ke dokumen HTML5 di mana slide disajikan dalam mode tampilan slide. Dalam hal ini, ketika Anda membuka file HTML5 yang dihasilkan di browser, Anda akan melihat presentasi dalam mode tampilan slide di halaman web. 
+Ekspor HTML5 menghasilkan halaman untuk melihat dan menavigasi slide presentasi dalam peramban. Contoh ini mengaktifkan kedua [setAnimateShapes](https://reference.aspose.com/slides/python-java/aspose.slides/html5options/#setAnimateShapes) dan [setAnimateTransitions](https://reference.aspose.com/slides/python-java/aspose.slides/html5options/#setAnimateTransitions) sehingga tampilan slide yang diekspor dapat memutar efek dari presentasi sumber.
 
-Kode Python ini menunjukkan proses ekspor PowerPoint ke Tampilan Slide HTML5:
+Gunakan presentasi yang sudah berisi animasi bentuk dan transisi slide untuk melihat efek dari pengaturan ini. Mengaktifkannya tidak menambah efek baru pada slide yang tidak memilikinya. Setelah ekspor, buka dokumen HTML5 yang dihasilkan di peramban dengan file pendukung yang tersedia.
 
 ```python
 import jpype
@@ -126,28 +126,26 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import Html5Options, Presentation, SaveFormat
 
+html5_options = Html5Options()
+html5_options.setAnimateShapes(True)
+html5_options.setAnimateTransitions(True)
+
 presentation = Presentation("pres.pptx")
 try:
-    html5_options = Html5Options()
-    html5_options.setAnimateShapes(True)
-    html5_options.setAnimateTransitions(True)
-
     presentation.save("HTML5-slide-view.html", SaveFormat.Html5, html5_options)
 finally:
     presentation.dispose()
 ```
 
-## **Mengonversi Presentasi ke Dokumen HTML5 dengan Komentar**
+## **Konversi Presentasi ke Dokumen HTML5 dengan Komentar**
 
-Komentar di PowerPoint adalah alat yang memungkinkan pengguna meninggalkan catatan atau umpan balik pada slide presentasi. Mereka sangat berguna dalam proyek kolaboratif, di mana banyak orang dapat menambahkan saran atau catatan mereka pada elemen slide tertentu tanpa mengubah konten utama. Setiap komentar menampilkan nama penulis, sehingga mudah melacak siapa yang meninggalkan catatan tersebut.
-
-Misalkan kami memiliki presentasi PowerPoint berikut yang disimpan dalam file “sample.pptx”.
+Anda dapat menyertakan komentar slide yang ada dalam output HTML5 sehingga pembaca dapat melihat umpan balik bersamaan dengan konten slide. Contoh dalam bagian ini mengharapkan presentasi sumber berisi komentar, seperti yang ditunjukkan di bawah. Itu mengekspor komentar tersebut; tidak membuat yang baru.
 
 ![Dua komentar pada slide presentasi](two_comments_pptx.png)
 
-Saat Anda mengonversi presentasi PowerPoint ke dokumen HTML5, Anda dapat dengan mudah menentukan apakah menyertakan komentar dari presentasi dalam dokumen output. Untuk melakukannya, berikan parameter tampilan untuk komentar ke metode [setSlidesLayoutOptions](https://reference.aspose.com/slides/id/python-java/aspose.slides/html5options/#setSlidesLayoutOptions) dari kelas [Html5Options](https://reference.aspose.com/slides/id/python-java/aspose.slides/html5options/) .
+Berikan objek [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/python-java/aspose.slides/notescommentslayoutingoptions/) ke metode [setSlidesLayoutOptions](https://reference.aspose.com/slides/python-java/aspose.slides/html5options/#setSlidesLayoutOptions) dari [Html5Options](https://reference.aspose.com/slides/python-java/aspose.slides/html5options/). Gunakan [setCommentsPosition](https://reference.aspose.com/slides/python-java/aspose.slides/notescommentslayoutingoptions/#setCommentsPosition) untuk memilih `Right` dari enumerasi [CommentsPositions](https://reference.aspose.com/slides/python-java/aspose.slides/commentspositions/) guna menempatkan komentar di sebelah kanan setiap slide.
 
-Gunakan [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/id/python-java/aspose.slides/notescommentslayoutingoptions/) dan [setCommentsPosition](https://reference.aspose.com/slides/id/python-java/aspose.slides/notescommentslayoutingoptions/#setCommentsPosition) dengan [CommentsPositions.Right](https://reference.aspose.com/slides/id/python-java/aspose.slides/commentspositions/#Right). Contoh kode berikut mengonversi presentasi ke dokumen HTML5 dengan komentar ditampilkan di sebelah kanan slide.
+Contoh berikut mengekspor presentasi ke HTML5 dengan tata letak komentar ini. Presentasi tanpa komentar tidak akan memiliki teks komentar untuk ditampilkan.
 
 ```python
 import jpype
@@ -156,35 +154,64 @@ import asposeslides
 if not jpype.isJVMStarted():
     jpype.startJVM()
 
-from asposeslides.api import CommentsPositions, NotesCommentsLayoutingOptions, Html5Options, Presentation, SaveFormat
+from asposeslides.api import CommentsPositions, Html5Options, NotesCommentsLayoutingOptions, Presentation, SaveFormat
+
+layout_options = NotesCommentsLayoutingOptions()
+layout_options.setCommentsPosition(CommentsPositions.Right)
+
+html5_options = Html5Options()
+html5_options.setSlidesLayoutOptions(layout_options)
 
 presentation = Presentation("sample.pptx")
 try:
-    layout_options = NotesCommentsLayoutingOptions()
-    layout_options.setCommentsPosition(CommentsPositions.Right)
-
-    html5_options = Html5Options()
-    html5_options.setSlidesLayoutOptions(layout_options)
-
     presentation.save("output.html", SaveFormat.Html5, html5_options)
 finally:
     presentation.dispose()
 ```
 
-Dokumen “output.html” ditampilkan pada gambar di bawah ini.
+Gambar di bawah ini menunjukkan dokumen HTML5 yang diekspor dengan komentar ditampilkan di sebelah slide.
 
 ![Komentar dalam dokumen HTML5 output](two_comments_html5.png)
+
+## **Kecualikan Hyperlink JavaScript Saat Ekspor**
+
+Misalkan `hyperlinks.pptx` berisi teks tertaut dengan target `javascript:alert('Hello')` dan tautan biasa `https://example.com/`. Untuk mengecualikan hyperlink JavaScript saat ekspor, berikan `True` ke [SaveOptions.setSkipJavaScriptLinks](https://reference.aspose.com/slides/python-java/aspose.slides/saveoptions/#setSkipJavaScriptLinks). Defaultnya adalah `False`, sehingga tautan ini tidak disaring kecuali Anda mengaktifkan opsi tersebut.
+
+Contoh berikut memuat presentasi dari direktori kerja dan mengekspornya menggunakan [Html5Options](https://reference.aspose.com/slides/python-java/aspose.slides/html5options/):
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import Html5Options, Presentation, SaveFormat
+
+html5_options = Html5Options()
+html5_options.setSkipJavaScriptLinks(True)
+
+presentation = Presentation("hyperlinks.pptx")
+try:
+    presentation.save("filtered-html5.html", SaveFormat.Html5, html5_options)
+finally:
+    presentation.dispose()
+```
+
+File yang diekspor menghilangkan hyperlink JavaScript sambil mempertahankan teksnya dan tautan HTTPS biasa. Presentasi sumber tidak berubah.
+
+Opsi ini menyaring hyperlink JavaScript; tidak menghapus semua skrip atau konten aktif lainnya, serta tidak menjamin kepatuhan CSP. Misalnya, output HTML5 tetap menyertakan skrip untuk navigasi slide dan animasi.
 
 ## **FAQ**
 
 **Apakah saya dapat mengontrol apakah animasi objek dan transisi slide akan diputar di HTML5?**
 
-Ya, HTML5 menyediakan opsi terpisah untuk mengaktifkan atau menonaktifkan [shape animations](https://reference.aspose.com/slides/id/python-java/aspose.slides/html5options/#setAnimateShapes) dan [slide transitions](https://reference.aspose.com/slides/id/python-java/aspose.slides/html5options/#setAnimateTransitions).
+Ya, ekspor HTML5 menyediakan opsi terpisah untuk mengaktifkan atau menonaktifkan [animasi bentuk](https://reference.aspose.com/slides/python-java/aspose.slides/html5options/#setAnimateShapes) dan [transisi slide](https://reference.aspose.com/slides/python-java/aspose.slides/html5options/#setAnimateTransitions).
 
-**Apakah komentar dapat diekspor, dan di mana dapat ditempatkan relatif terhadap slide?**
+**Apakah komentar didukung, dan di mana dapat ditempatkan relatif terhadap slide?**
 
-Ya, komentar dapat ditambahkan dalam HTML5 dan diposisikan (misalnya, di sebelah kanan slide) melalui [layout settings](https://reference.aspose.com/slides/id/python-java/aspose.slides/html5options/#setSlidesLayoutOptions) untuk catatan dan komentar.
+Ya, komentar yang ada dapat disertakan dalam output HTML5 dan diposisikan (misalnya, di sebelah kanan slide) melalui [pengaturan tata letak](https://reference.aspose.com/slides/python-java/aspose.slides/html5options/#setSlidesLayoutOptions) untuk catatan dan komentar.
 
-**Apakah saya dapat melewatkan tautan yang memanggil JavaScript karena alasan keamanan atau CSP?**
+**Apakah saya dapat melewatkan tautan yang memanggil JavaScript untuk alasan keamanan atau CSP?**
 
-Ya, ada [setting](https://reference.aspose.com/slides/id/python-java/aspose.slides/saveoptions/#setSkipJavaScriptLinks) yang memungkinkan Anda melewatkan hyperlink dengan panggilan JavaScript selama penyimpanan. Ini menghapus hyperlink tersebut; hal ini tidak serta merta menjamin semua skrip HTML5 yang dihasilkan memenuhi Kebijakan Keamanan Konten situs.
+Ya, pengaturan [setSkipJavaScriptLinks](https://reference.aspose.com/slides/python-java/aspose.slides/saveoptions/#setSkipJavaScriptLinks) memungkinkan Anda melewatkan hyperlink dengan panggilan JavaScript saat menyimpan. Defaultnya adalah `False`. Lihat [Kecualikan Hyperlink JavaScript Selama Ekspor](/slides/id/python-java/export-to-html5/#exclude-javascript-hyperlinks-during-export) untuk contoh ekspor HTML5 dan cakupan filter. Pengaturan ini tidak menghapus JavaScript yang digunakan oleh penampil HTML5 untuk navigasi dan animasi.

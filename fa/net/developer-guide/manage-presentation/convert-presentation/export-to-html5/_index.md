@@ -12,61 +12,66 @@ keywords:
 - PPT به HTML5
 - PPTX به HTML5
 - ODP به HTML5
-- ذخیره PPT به عنوان HTML5
-- ذخیره PPTX به عنوان HTML5
-- ذخیره ODP به عنوان HTML5
-- صادر کردن PPT به HTML5
-- صادر کردن PPTX به HTML5
-- صادر کردن ODP به HTML5
+- ذخیره PPT به صورت HTML5
+- ذخیره PPTX به صورت HTML5
+- ذخیره ODP به صورت HTML5
+- صادرات PPT به HTML5
+- صادرات PPTX به HTML5
+- صادرات ODP به HTML5
 - .NET
 - C#
 - Aspose.Slides
 description: "صادرات ارائه‌های PowerPoint و OpenDocument به HTML5 واکنش‌گرا با Aspose.Slides برای .NET. حفظ قالب‌بندی، انیمیشن‌ها و تعامل."
 ---
-## **نمای کلی**
+## **بررسی کلی**
 
-این مقاله توضیح می‌دهد که چگونه ارائه‌های PowerPoint را با استفاده از Aspose.Slides به HTML5 تبدیل کنید. این راهنما به خروجی پایه HTML5 بدون افزونه‌های وب یا وابستگی‌های اضافی می‌پردازد و همچنین گزینه‌هایی برای کنترل انیمیشن‌های اشکال و انتقال اسلایدها را ارائه می‌دهد. مقاله همچنین فرآیند استاندارد خروجی PowerPoint به HTML را نشان می‌دهد، توضیح می‌دهد چگونه خروجی HTML5 را در حالت نمایش اسلاید تولید کنید و نشان می‌دهد چگونه می‌توانید با پیکربندی چیدمان، نظرات را در سند صادرشده گنجانده کنید.
+این مقاله توضیح می‌دهد چگونه ارائه‌های PowerPoint را با استفاده از Aspose.Slides for .NET به HTML5 تبدیل کنید. این مقاله به صادرات پایه، کنترل انیمیشن‌های اشکال و انتقالات اسلاید، و چیدمان نظرات می‌پردازد. همچنین خروجی HTML5 را با خروجی مبتنی بر SVG صادرات استاندارد HTML مقایسه می‌کند.
 
 ## **صادرات PowerPoint به HTML5**
 
-این کد C# نشان می‌دهد که چگونه یک ارائه را بدون افزونه‌های وب و وابستگی‌ها به HTML5 صادر کنید:
+مثال زیر یک ارائه را از دایرکتوری کاری بارگذاری می‌کند و به فرمت HTML5 ذخیره می‌نماید. این مثال از تنظیمات پیش‌فرض صادرات استفاده می‌کند؛ مثال بعدی نشان می‌دهد چگونه پخش انیمیشن را به‌صورت صریح کنترل کنید. مسیر ورودی را با مسیر ارائه خود جایگزین کنید.
 
-```c#
-using (Presentation pres = new Presentation("pres.pptx"))
-{
-   pres.Save("pres.html", SaveFormat.Html5);
-}
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("pres.pptx");
+presentation.Save("pres.html", SaveFormat.Html5);
 ```
 
-{{% alert color="primary" %}} 
-در این حالت، یک HTML تمیز دریافت می‌کنید. 
+{{% alert color="info" title="Note" %}}
+علاوه بر سند HTML، صادرات فایل‌های CSS و JavaScript پشتیبان برای استایل اسلاید، انیمیشن‌ها، افکت‌ها و ناوبری می‌نویسد. این فایل‌ها را همراه سند HTML هنگام جابه‌جایی یا انتشار خروجی نگه دارید. صفحه تولید‌شده همچنین jQuery و Anime.js را از CDNهای عمومی بارگذاری می‌کند؛ بدون آنها ناوبری اسلاید و انیمیشن‌ها اجرا نمی‌شوند.
 {{% /alert %}}
 
-اگر می‌خواهید تنظیمات انیمیشن‌های اشکال و انتقال اسلایدها را به این شکل مشخص کنید:
+برای صادرات بدون پخش انیمیشن‌های اشکال یا انتقالات اسلاید، [AnimateShapes](https://reference.aspose.com/slides/net/aspose.slides.export/html5options/animateshapes/) و [AnimateTransitions](https://reference.aspose.com/slides/net/aspose.slides.export/html5options/animatetransitions/) را در [Html5Options](https://reference.aspose.com/slides/net/aspose.slides.export/html5options/) به `false` تنظیم کنید. این تنظیمات مستقل هستند، بنابراین می‌توانید یکی را فعال و دیگری را غیرفعال کنید. مثال زیر ارائه را با هر دو نوع انیمیشن غیرفعال در صفحه تولید‌شده صادر می‌کند.
 
-```c#
-using (Presentation pres = new Presentation("pres.pptx"))
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+var html5Options = new Html5Options
 {
-   pres.Save("pres5.html", SaveFormat.Html5, new Html5Options
-   {
-       AnimateShapes = false,
-       AnimateTransitions = false
-   });
-}
+    AnimateShapes = false,
+    AnimateTransitions = false
+};
+
+using var presentation = new Presentation("pres.pptx");
+presentation.Save("pres5.html", SaveFormat.Html5, html5Options);
 ```
 
 ## **صادرات PowerPoint به HTML**
 
-این کد C# فرآیند استاندارد خروجی PowerPoint به HTML را نشان می‌دهد:
+صادرات استاندارد HTML از روش رندر متفاوتی استفاده می‌کند: محتوای اسلاید به‌صورت SVG درون یک صفحه HTML نمایش داده می‌شود. مثال زیر ارائه را به سند HTML تبدیل می‌کند با استفاده از این روش رندر.
 
-```c#
-using (Presentation pres = new Presentation("pres.pptx"))
-{
-   pres.Save("pres.html", SaveFormat.Html);
-}
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("pres.pptx");
+presentation.Save("pres.html", SaveFormat.Html);
 ```
 
-در این حالت، محتوای ارائه از طریق SVG به شکل زیر رندر می‌شود:
+نحو ساده‌شده زیر ساختار صفحه تولید‌شده را نشان می‌دهد. عنصر SVG شامل محتوای رندر شده اسلاید است؛ متن جایگزین محتوای واقعی را نشان می‌دهد و خروجی صادراتی واقعی نیست.
 
 ```html
 <body>
@@ -78,66 +83,90 @@ using (Presentation pres = new Presentation("pres.pptx"))
 </body>
 ```
 
-{{% alert title="توجه" color="warning" %}} 
-هنگامی که از این روش برای خروجی PowerPoint به HTML استفاده می‌کنید، به دلیل رندر SVG قادر نخواهید بود سبک‌ها را اعمال کنید یا عناصر خاصی را انیمیت کنید. 
+{{% alert title="Warning" color="warning" %}}
+صادرات مبتنی بر SVG اشکال PowerPoint را به‌عنوان عناصر HTML جداگانه در دسترس قرار نمی‌دهد. زمانی که به گزینه‌های انیمیشن شکل و انتقال اسلاید نیاز دارید، از صادرات HTML5 استفاده کنید.
 {{% /alert %}}
 
 ## **صادرات PowerPoint به نمای اسلاید HTML5**
 
-**Aspose.Slides** به شما امکان می‌دهد یک ارائه PowerPoint را به سند HTML5 تبدیل کنید که در آن اسلایدها به صورت نمای اسلاید نمایش داده می‌شوند. در این حالت، وقتی فایل HTML5 حاصل را در مرورگر باز می‌کنید، ارائه را در حالت نمای اسلاید بر روی یک صفحه وب می‌بینید.
+صادرات HTML5 صفحه‌ای برای مشاهده و ناوبری اسلایدهای ارائه در مرورگر تولید می‌کند. این مثال هر دو [AnimateShapes](https://reference.aspose.com/slides/net/aspose.slides.export/html5options/animateshapes/) و [AnimateTransitions](https://reference.aspose.com/slides/net/aspose.slides.export/html5options/animatetransitions/) را فعال می‌کند تا نمای اسلاید صادرشده بتواند اثرات را از ارائه منبع پخش کند.
 
-این کد C# فرآیند خروجی PowerPoint به نمایش اسلاید HTML5 را نشان می‌دهد:
+از ارائه‌ای استفاده کنید که از قبل شامل انیمیشن‌های شکل و انتقالات اسلاید باشد تا اثر این تنظیمات را ببینید. فعال‌سازی آن‌ها اثر جدیدی به اسلایدهایی که هیچ انیمیشنی ندارند اضافه نمی‌کند. پس از صادرات، سند HTML5 تولید‌شده را در مرورگری باز کنید که فایل‌های پشتیبان آن در دسترس باشند.
 
-```c#
-using (Presentation pres = new Presentation("pres.pptx"))
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+var html5Options = new Html5Options
 {
-   pres.Save("HTML5-slide-view.html", SaveFormat.Html5, new Html5Options
-   {
-       AnimateShapes = true,
-       AnimateTransitions = true
-   });
-}
+    AnimateShapes = true,
+    AnimateTransitions = true
+};
+
+using var presentation = new Presentation("pres.pptx");
+presentation.Save("HTML5-slide-view.html", SaveFormat.Html5, html5Options);
 ```
 
 ## **تبدیل ارائه به سند HTML5 با نظرات**
 
-نظرات در PowerPoint ابزاری هستند که به کاربران امکان می‌دهند یادداشت‌ها یا بازخورد خود را روی اسلایدهای ارائه بنویسند. این ویژگی به ویژه در پروژه‌های همکاری‌محور مفید است، به‌طوری‌که افراد مختلف می‌توانند پیشنهادات یا نکات خود را به عناصر خاص اسلاید اضافه کنند بدون اینکه محتوای اصلی را تغییر دهند. هر نظر نام نویسنده را نشان می‌دهد و ردیابی منبع آن را آسان می‌کند.
+می‌توانید نظرات موجود اسلاید را در خروجی HTML5 بگنجانید تا خوانندگان بازخورد را در کنار محتوای اسلاید مشاهده کنند. مثال در این بخش انتظار دارد ارائه منبع شامل نظرات باشد، همان‌طور که در زیر نشان داده شده است. این مثال آن نظرات را صادر می‌کند؛ نظرات جدیدی ایجاد نمی‌کند.
 
-فرض کنید ارائه PowerPoint زیر در فایل «sample.pptx» ذخیره شده است.
+![دو نظر روی اسلاید ارائه](two_comments_pptx.png)
 
-![دو نظر بر روی اسلاید ارائه](two_comments_pptx.png)
+یک شیء [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/net/aspose.slides.export/notescommentslayoutingoptions/) را به خصوصیت [SlidesLayoutOptions](https://reference.aspose.com/slides/net/aspose.slides.export/html5options/slideslayoutoptions/) از [Html5Options](https://reference.aspose.com/slides/net/aspose.slides.export/html5options/) اختصاص دهید. [CommentsPosition](https://reference.aspose.com/slides/net/aspose.slides.export/notescommentslayoutingoptions/commentsposition/) را به `Right` از شمارش‌گر [CommentsPositions](https://reference.aspose.com/slides/net/aspose.slides.export/commentspositions/) تنظیم کنید تا نظرات در سمت راست هر اسلاید قرار گیرند.
 
-هنگامی که یک ارائه PowerPoint را به سند HTML5 تبدیل می‌کنید، می‌توانید به راحتی مشخص کنید که آیا نظرات ارائه در سند خروجی گنجانده شوند یا نه. برای انجام این کار، باید پارامترهای نمایش نظرات را در ویژگی `NotesCommentsLayouting` کلاس [Html5Options](https://reference.aspose.com/slides/fa/net/aspose.slides.export/html5options/) تعیین کنید.
-
-کد نمونه زیر ارائه را به سند HTML5 تبدیل می‌کند که نظرات در سمت راست اسلایدها نمایش داده می‌شوند.
+مثال زیر ارائه را با این چیدمان نظر به HTML5 صادر می‌کند. ارائه‌ای بدون نظرات متنی برای نمایش نخواهد داشت.
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+var layoutOptions = new NotesCommentsLayoutingOptions
+{
+    CommentsPosition = CommentsPositions.Right
+};
+
 var html5Options = new Html5Options
 {
-    NotesCommentsLayouting =
-    {
-        CommentsPosition = CommentsPositions.Right
-    }
+    SlidesLayoutOptions = layoutOptions
 };
 
 using var presentation = new Presentation("sample.pptx");
 presentation.Save("output.html", SaveFormat.Html5, html5Options);
 ```
 
-سند «output.html» در تصویر زیر نشان داده شده است.
+![نظرات در سند خروجی HTML5](two_comments_html5.png)
 
-![نظرات در سند HTML5 خروجی](two_comments_html5.png)
+## **نادیده‌گرفتن پیوندهای JavaScript هنگام صادرات**
 
-## **سؤالات متداول**
+فرض کنید `hyperlinks.pptx` شامل متنی پیونددار با هدف `javascript:alert('Hello')` و یک پیوند معمولی `https://example.com/` باشد. برای نادیده‌گرفتن پیوند JavaScript هنگام صادرات، [SaveOptions.SkipJavaScriptLinks](https://reference.aspose.com/slides/net/aspose.slides.export/saveoptions/skipjavascriptlinks/) را به `true` تنظیم کنید. مقدار پیش‌فرض `false` است، بنابراین این پیوندها تا وقتی گزینه فعال نشود فیلتر نمی‌شوند.
 
-**آیا می‌توانم کنترل کنم که انیمیشن‌های اشیاء و انتقال اسلایدها در HTML5 اجرا شوند یا نه؟**
+مثال زیر ارائه را از دایرکتوری کاری بارگذاری می‌کند و با استفاده از [Html5Options](https://reference.aspose.com/slides/net/aspose.slides.export/html5options/) صادر می‌نماید:
 
-بله، HTML5 گزینه‌های جداگانه‌ای برای فعال یا غیرفعال کردن [انیمیشن‌های اشکال](https://reference.aspose.com/slides/fa/net/aspose.slides.export/html5options/animateshapes/) و [انتقال اسلایدها](https://reference.aspose.com/slides/fa/net/aspose.slides.export/html5options/animatetransitions/) فراهم می‌کند.
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-**آیا خروجی نظرات پشتیبانی می‌شود و می‌توان آنها را نسبت به اسلاید در کجا قرار داد؟**
+var html5Options = new Html5Options { SkipJavaScriptLinks = true };
 
-بله، می‌توان نظرات را در HTML5 اضافه کرد و با استفاده از [تنظیمات چیدمان](https://reference.aspose.com/slides/fa/net/aspose.slides.export/html5options/notescommentslayouting/) برای یادداشت‌ها و نظرات، موقعیت آنها (مثلاً در سمت راست اسلاید) را تعیین نمود.
+using var presentation = new Presentation("hyperlinks.pptx");
+presentation.Save("filtered-html5.html", SaveFormat.Html5, html5Options);
+```
 
-**آیا می‌توانم لینک‌هایی که جاوااسکریپت فراخوانی می‌کنند را برای دلایل امنیتی یا CSP رد کنم؟**
+فایل صادرشده پیوند JavaScript را حذف می‌کند اما متن آن و پیوند HTTPS معمولی را حفظ می‌کند. ارائه منبع دست نخورده می‌ماند.
 
-بله، تنظیمی وجود دارد که با استفاده از [این گزینه](https://reference.aspose.com/slides/fa/net/aspose.slides.export/saveoptions/skipjavascriptlinks/) امکان نادیده‌گیری پیوندهایی که دارای فراخوانی‌های JavaScript هستند در هنگام ذخیره‌سازی را فراهم می‌کند. این ویژگی به تطبیق با سیاست‌های امنیتی سخت کمک می‌کند.
+این گزینه پیوندهای JavaScript را فیلتر می‌کند؛ تمام اسکریپت‌ها یا سایر محتوای فعال را حذف نمی‌کند و تضمینی برای سازگاری با CSP نمی‌دهد. برای مثال، خروجی HTML5 هنوز شامل اسکریپت‌های ناوبری اسلاید و انیمیشن‌هاست.
+
+## **پرسش‌های متداول**
+
+**آیا می‌توانم کنترل کنم که انیمیشن‌های اشیاء و انتقالات اسلاید در HTML5 اجرا شوند یا نه؟**
+
+بله، صادرات HTML5 گزینه‌های جداگانه‌ای برای فعال یا غیرفعال کردن [shape animations](https://reference.aspose.com/slides/net/aspose.slides.export/html5options/animateshapes/) و [slide transitions](https://reference.aspose.com/slides/net/aspose.slides.export/html5options/animatetransitions/) فراهم می‌کند.
+
+**آیا نظرات پشتیبانی می‌شوند و می‌توان آن‌ها را نسبت به اسلاید کجا قرار داد؟**
+
+بله، نظرات موجود می‌توانند در خروجی HTML5 گنجانده شوند و از طریق [layout settings](https://reference.aspose.com/slides/net/aspose.slides.export/html5options/slideslayoutoptions/) برای یادداشت‌ها و نظرات، به‌عنوان مثال در سمت راست اسلاید، موقعیت‌یابی شوند.
+
+**آیا می‌توانم پیوندهایی که JavaScript فراخوانی می‌کنند را برای امنیت یا دلایل CSP صرف‌نظر کنم؟**
+
+بله، تنظیم [SkipJavaScriptLinks](https://reference.aspose.com/slides/net/aspose.slides.export/saveoptions/skipjavascriptlinks/) به شما امکان می‌دهد هنگام ذخیره‌سازی پیوندهای دارای فراخوانی JavaScript را نادیده بگیرید. مقدار پیش‌فرض `false` است. برای مثال ساده HTML، HTML5 و PDF به [نادیده‌گرفتن پیوندهای JavaScript هنگام صادرات](/slides/fa/net/export-to-html5/#exclude-javascript-hyperlinks-during-export) مراجعه کنید تا دامنه فیلتر را ببینید. این تنظیم JavaScript مورد استفاده در مرورگر HTML5 برای ناوبری و انیمیشن‌ها را حذف نمی‌کند.

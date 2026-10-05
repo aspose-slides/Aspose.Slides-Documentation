@@ -20,54 +20,71 @@ keywords:
 - exportovat ODP do HTML5
 - C++
 - Aspose.Slides
-description: "Exportujte PowerPoint a OpenDocument prezentace do responsivního HTML5 pomocí Aspose.Slides pro C++. Zachovejte formátování, animace a interaktivitu."
+description: "Exportujte prezentace PowerPoint a OpenDocument do responzivního HTML5 pomocí Aspose.Slides pro C++. Zachovejte formátování, animace a interaktivitu."
 ---
 ## **Přehled**
 
-Tento článek vysvětluje, jak pomocí Aspose.Slides převést prezentace PowerPoint do HTML5. Pokrývá základní export do HTML5 bez webových rozšíření či dalších závislostí, stejně jako možnosti řízení animací tvarů a přechodů mezi snímky. Článek také ukazuje standardní proces exportu z PowerPointu do HTML, vysvětluje, jak vygenerovat výstup HTML5 v režimu zobrazení snímků, a demonstruje, jak do exportovaného dokumentu zahrnout komentáře nastavením jejich rozložení.
+Tento článek vysvětluje, jak převést prezentace PowerPoint do HTML5 pomocí Aspose.Slides pro C++. Pokrývá základní export, řízení animací tvarů a přechodů snímků a rozvržení komentářů. Také porovnává výstup HTML5 s výstupem založeným na SVG při standardním exportu HTML.
 
-## **Export PowerPointu do HTML5**
+## **Export PowerPoint do HTML5**
 
-Tento C++ kód ukazuje, jak exportovat prezentaci do HTML5.
+Následující příklad načte prezentaci z pracovního adresáře a uloží ji ve formátu HTML5. Používá výchozí nastavení exportu; následující příklad ukazuje, jak explicitně řídit přehrávání animací. Nahraďte vstupní cestu cestou k vaší prezentaci.
 
 ```cpp
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
-        
-auto pres = System::MakeObject<Presentation>(u"pres.pptx");
-pres->Save(u"pres.html", SaveFormat::Html5);
+
+auto presentation = System::MakeObject<Presentation>(u"pres.pptx");
+presentation->Save(u"pres.html", SaveFormat::Html5);
+presentation->Dispose();
 ```
 
-{{% alert color="primary" %}} 
-V tomto případě získáte čisté HTML. 
+{{% alert color="info" title="Note" %}}
+Vedle HTML dokumentu export vytvoří podpůrné soubory CSS a JavaScript pro stylování snímků, animace, efekty a navigaci. Uchovávejte tyto soubory spolu s HTML dokumentem při přesouvání nebo publikování výstupu. Vygenerovaná stránka také načítá jQuery a Anime.js z veřejných CDN; bez nich navigace snímků a animace nefungují.
 {{% /alert %}}
 
-Můžete chtít nastavit možnosti pro animace tvarů a přechody mezi snímky tímto způsobem:
+Pro export bez přehrávání animací tvarů nebo přechodů snímků předávejte `false` metodám [set_AnimateShapes](https://reference.aspose.com/slides/cpp/aspose.slides.export/html5options/set_animateshapes/) a [set_AnimateTransitions](https://reference.aspose.com/slides/cpp/aspose.slides.export/html5options/set_animatetransitions/) v [Html5Options](https://reference.aspose.com/slides/cpp/aspose.slides.export/html5options/). Tato nastavení jsou nezávislá, takže můžete povolit jedno a zakázat druhé. Příklad exportuje prezentaci s oběma typy animací vypnutými ve vytvořené stránce.
 
 ```cpp
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+#include <Export/Html5Options.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 
-auto pres = System::MakeObject<Presentation>(u"pres.pptx");
-auto options = System::MakeObject<Html5Options>();
-options->set_AnimateShapes(true);
-options->set_AnimateTransitions(true);
-pres->Save(u"pres.html", SaveFormat::Html5, options);
+auto html5Options = System::MakeObject<Html5Options>();
+html5Options->set_AnimateShapes(false);
+html5Options->set_AnimateTransitions(false);
+
+auto presentation = System::MakeObject<Presentation>(u"pres.pptx");
+presentation->Save(u"pres5.html", SaveFormat::Html5, html5Options);
+presentation->Dispose();
 ```
 
-## **Export PowerPointu do HTML**
+## **Export PowerPoint do HTML**
 
-Tento C++ kód demonstruje standardní proces převodu PowerPointu do HTML:
+Standardní export do HTML používá odlišný přístup k vykreslování: obsah snímku je reprezentován jako SVG uvnitř HTML stránky. Následující příklad převádí prezentaci do HTML dokumentu pomocí tohoto renderovacího přístupu.
 
 ```cpp
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
-        
-auto pres = System::MakeObject<Presentation>(u"pres.pptx");
-pres->Save(u"pres.html", SaveFormat::Html);
+
+auto presentation = System::MakeObject<Presentation>(u"pres.pptx");
+presentation->Save(u"pres.html", SaveFormat::Html);
+presentation->Dispose();
 ```
 
-V tomto případě je obsah prezentace vykreslen pomocí SVG v podobě jako tato:
+Zjednodušené značkování níže ilustruje strukturu vygenerované stránky. Prvek SVG obsahuje vykreslený obsah snímku; text zástupného řetězce představuje tento obsah a není doslovným výstupem exportu.
 
 ```html
 <body>
@@ -79,58 +96,105 @@ V tomto případě je obsah prezentace vykreslen pomocí SVG v podobě jako tato
 </body>
 ```
 
-{{% alert title="Note" color="warning" %}} 
-Když použijete tuto metodu pro export PowerPointu do HTML, kvůli vykreslování SVG nebudete moci aplikovat styly nebo animovat konkrétní prvky. 
+{{% alert title="Warning" color="warning" %}}
+Export založený na SVG neexponuje tvary PowerPointu jako jednotlivé HTML elementy. Použijte export do HTML5, pokud potřebujete možnosti animace tvarů a přechodů snímků demonstrováné v tomto článku.
 {{% /alert %}}
 
-## **Export PowerPointu do HTML5 Slide View**
+## **Export PowerPoint do HTML5 zobrazení snímků**
 
-**Aspose.Slides** umožňuje převést prezentaci PowerPoint do HTML5 dokumentu, ve kterém jsou snímky zobrazeny v režimu náhledu snímků. V tomto případě, když otevřete výsledný HTML5 soubor v prohlížeči, uvidíte prezentaci v režimu náhledu snímků na webové stránce. 
+Export do HTML5 vytváří stránku pro prohlížení a navigaci snímky prezentace v prohlížeči. Tento příklad předává `true` jak metodě [set_AnimateShapes](https://reference.aspose.com/slides/cpp/aspose.slides.export/html5options/set_animateshapes/), tak metodě [set_AnimateTransitions](https://reference.aspose.com/slides/cpp/aspose.slides.export/html5options/set_animatetransitions/), aby exportované zobrazení snímků mohlo přehrávat efekty ze zdrojové prezentace.
 
-Tento C++ kód demonstruje proces exportu PowerPointu do HTML5 ve zobrazení snímků:
+Použijte prezentaci, která již obsahuje animace tvarů a přechody snímků, abyste viděli vliv těchto nastavení. Povolení nepřidá nové efekty k snímkům, které žádné nemají. Po exportu otevřete vygenerovaný HTML5 dokument v prohlížeči se všemi podporujícími soubory.
 
-```c++
-auto pres = System::MakeObject<Presentation>(u"pres.pptx");
+```cpp
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+#include <Export/Html5Options.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto html5Options = System::MakeObject<Html5Options>();
 html5Options->set_AnimateShapes(true);
 html5Options->set_AnimateTransitions(true);
-pres->Save(u"HTML5-slide-view.html", SaveFormat::Html5, html5Options);
+
+auto presentation = System::MakeObject<Presentation>(u"pres.pptx");
+presentation->Save(u"HTML5-slide-view.html", SaveFormat::Html5, html5Options);
+presentation->Dispose();
 ```
 
-## **Převod prezentace do HTML5 dokumentu s komentáři**
+## **Převod prezentace na HTML5 dokument s komentáři**
 
-Komentáře v PowerPointu jsou nástrojem, který umožňuje uživatelům zanechat poznámky nebo zpětnou vazbu na snímcích prezentace. Jsou zvláště užitečné v kolaborativních projektech, kde více lidí může přidávat své návrhy nebo připomínky k určitým prvkům snímků, aniž by měnili hlavní obsah. Každý komentář zobrazuje jméno autora, což usnadňuje sledovat, kdo připomínku zanechal.
-
-Předpokládejme, že máme následující prezentaci PowerPoint uloženou v souboru "sample.pptx".
+Můžete zahrnout existující komentáře ke snímkům do výstupu HTML5, aby čtenáři viděli zpětnou vazbu vedle obsahu snímku. Příklad v této sekci předpokládá, že zdrojová prezentace obsahuje komentáře, jak je znázorněno níže. Exportuje tyto komentáře; nevytváří nové.
 
 ![Dva komentáře na snímku prezentace](two_comments_pptx.png)
 
-Když převádíte PowerPoint prezentaci do HTML5 dokumentu, můžete snadno určit, zda zahrnout komentáře z prezentace do výstupního dokumentu. K tomu je třeba nastavit parametry zobrazení komentářů v metodě `get_NotesCommentsLayouting` třídy [Html5Options](https://reference.aspose.com/slides/cs/cpp/aspose.slides.export/html5options/).
+Předajte objekt [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/notescommentslayoutingoptions/) metodě [set_SlidesLayoutOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/html5options/set_slideslayoutoptions/) třídy [Html5Options](https://reference.aspose.com/slides/cpp/aspose.slides.export/html5options/). Zavolejte [set_CommentsPosition](https://reference.aspose.com/slides/cpp/aspose.slides.export/notescommentslayoutingoptions/set_commentsposition/) s hodnotou `CommentsPositions::Right` z výčtu [CommentsPositions](https://reference.aspose.com/slides/cpp/aspose.slides.export/commentspositions/), aby se komentáře umístily vpravo od každého snímku.
 
-Následující ukázka kódu převádí prezentaci do HTML5 dokumentu s komentáři zobrazenými vpravo od snímků.
+Následující příklad exportuje prezentaci do HTML5 s tímto rozvržením komentářů. Prezentace bez komentářů nebude mít žádný text komentáře k zobrazení.
+
 ```cpp
-auto html5Options = MakeObject<Html5Options>();
-html5Options->get_NotesCommentsLayouting()->set_CommentsPosition(CommentsPositions::Right);
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+#include <Export/Html5Options.h>
+#include <Export/NotesCommentsLayoutingOptions.h>
+#include <Export/CommentsPositions.h>
 
-auto presentation = MakeObject<Presentation>(u"sample.pptx");
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto layoutOptions = System::MakeObject<NotesCommentsLayoutingOptions>();
+layoutOptions->set_CommentsPosition(CommentsPositions::Right);
+
+auto html5Options = System::MakeObject<Html5Options>();
+html5Options->set_SlidesLayoutOptions(layoutOptions);
+
+auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
 presentation->Save(u"output.html", SaveFormat::Html5, html5Options);
 presentation->Dispose();
 ```
 
-Dokument „output.html“ je zobrazen na obrázku níže.
-
 ![Komentáře ve výstupním HTML5 dokumentu](two_comments_html5.png)
+
+## **Vyloučení JavaScriptových hypertextových odkazů během exportu**
+
+Předpokládejme, že `hyperlinks.pptx` obsahuje propojený text s cílem `javascript:alert('Hello')` a běžný odkaz `https://example.com/`. Pro vyloučení JavaScriptového hypertextového odkazu během exportu zavolejte [SaveOptions::set_SkipJavaScriptLinks](https://reference.aspose.com/slides/cpp/aspose.slides.export/saveoptions/set_skipjavascriptlinks/) s hodnotou `true`. Výchozí hodnota je `false`, takže tyto odkazy nejsou filtrovány, pokud možnost neaktivujete.
+
+Následující příklad načte prezentaci z pracovního adresáře a exportuje ji pomocí [Html5Options](https://reference.aspose.com/slides/cpp/aspose.slides.export/html5options/):
+
+```cpp
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+#include <Export/Html5Options.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto html5Options = System::MakeObject<Html5Options>();
+html5Options->set_SkipJavaScriptLinks(true);
+
+auto presentation = System::MakeObject<Presentation>(u"hyperlinks.pptx");
+presentation->Save(u"filtered-html5.html", SaveFormat::Html5, html5Options);
+presentation->Dispose();
+```
+
+Exportovaný soubor vynechá JavaScriptový hypertextový odkaz a zachová jeho text i běžný HTTPS odkaz. Zdrojová prezentace zůstane beze změny.
+
+Tato možnost filtruje JavaScriptové hypertextové odkazy; neodstraňuje všechny skripty ani jiný aktivní obsah, ani nezaručuje shodu s CSP. Například výstup HTML5 stále obsahuje skripty pro navigaci snímky a animace.
 
 ## **Často kladené otázky**
 
-**Mohu ovládat, zda se animace objektů a přechody mezi snímky přehrávají v HTML5?**
+**Mohu řídit, zda se animace objektů a přechody snímků přehrávají v HTML5?**
 
-Ano, HTML5 nabízí samostatné možnosti pro povolení nebo zakázání [animací tvarů](https://reference.aspose.com/slides/cs/cpp/aspose.slides.export/html5options/set_animateshapes/) a [přechodů mezi snímky](https://reference.aspose.com/slides/cs/cpp/aspose.slides.export/html5options/set_animatetransitions/).
+Ano, export do HTML5 poskytuje samostatné možnosti pro povolení nebo zakázání [animací tvarů](https://reference.aspose.com/slides/cpp/aspose.slides.export/html5options/set_animateshapes/) a [přechodů snímků](https://reference.aspose.com/slides/cpp/aspose.slides.export/html5options/set_animatetransitions/).
 
-**Je podpora výstupu komentářů zajištěna a kde mohou být umístěny relativně k snímku?**
+**Jsou komentáře podporovány a kde lze umístit vzhledem k snímku?**
 
-Ano, komentáře lze přidat do HTML5 a umístit (například vpravo od snímku) pomocí nastavení rozložení poznámek a komentářů.
+Ano, existující komentáře lze zahrnout do výstupu HTML5 a umístit (například vpravo od snímku) pomocí [nastavení rozvržení](https://reference.aspose.com/slides/cpp/aspose.slides.export/html5options/set_slideslayoutoptions/) pro poznámky a komentáře.
 
-**Mohu přeskočit odkazy, které spouštějí JavaScript z bezpečnostních důvodů nebo kvůli CSP?**
+**Mohu přeskočit odkazy, které volají JavaScript z bezpečnostních nebo CSP důvodů?**
 
-Ano, existuje [nastavení](https://reference.aspose.com/slides/cs/cpp/aspose.slides.export/saveoptions/set_skipjavascriptlinks/), které umožňuje při ukládání přeskočit hypertextové odkazy s voláním JavaScriptu. To pomáhá dodržovat přísné bezpečnostní zásady.
+Ano, metoda [set_SkipJavaScriptLinks](https://reference.aspose.com/slides/cpp/aspose.slides.export/saveoptions/set_skipjavascriptlinks/) vám umožní při ukládání přeskočit hypertextové odkazy s voláním JavaScriptu. Výchozí hodnota je `false`. Viz [Exclude JavaScript Hyperlinks During Export](/slides/cs/cpp/export-to-html5/#exclude-javascript-hyperlinks-during-export) pro příklad exportu do HTML5 a rozsah filtru. Toto nastavení neodstraňuje JavaScript, který HTML5 prohlížeč používá pro navigaci a animace.
