@@ -18,7 +18,7 @@ keywords:
 - change OLE
 - OLE icon
 - OLE title
-- extact OLE
+- extract OLE
 - extract object
 - extract file
 - PowerPoint 
@@ -30,7 +30,7 @@ description: "Optimize OLE object management in PowerPoint and OpenDocument file
 
 ## **Introduction**
 
-{{% alert title="Info" color="info" %}}
+{{% alert color="info" title="Note" %}}
 
 OLE (Object Linking & Embedding) is a Microsoft technology that allows data and objects created in one application to be placed in another application through linking or embedding. 
 
@@ -39,7 +39,7 @@ OLE (Object Linking & Embedding) is a Microsoft technology that allows data and 
 Consider a chart created in MS Excel. The chart is then placed inside a PowerPoint slide. That Excel chart is considered an OLE object. 
 
 - An OLE object may appear as an icon. In this case, when you double-click the icon, the chart gets opened in its associated application (Excel), or you are asked to select an application for object opening or editing. 
-- An OLE object may display its actual contents, such as the contents of a chart. In this case, the chart is activated in PowerPoint, the chart interface loads, and you get to modify the chart's data within the PowerPoint.
+- An OLE object may display its actual contents, such as the contents of a chart. In this case, the chart is activated in PowerPoint, the chart interface loads, and you get to modify the chart's data within PowerPoint.
 
 [Aspose.Slides for C++](https://products.aspose.com/slides/cpp/) allows you to insert OLE Objects into slides as OLE object frames ([OleObjectFrame](https://reference.aspose.com/slides/cpp/aspose.slides/oleobjectframe/)).
 
@@ -47,7 +47,7 @@ Consider a chart created in MS Excel. The chart is then placed inside a PowerPoi
 
 Assuming you have already created a chart in Microsoft Excel and want to embed it in a slide as an OLE object frame using Aspose.Slides for C++, you can do it this way:
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) class.
 2. Get a slide's reference through its index.
 3. Read the Excel file as a byte array.
 4. Add the [OleObjectFrame](https://reference.aspose.com/slides/cpp/aspose.slides/oleobjectframe/) to the slide containing the byte array and other information about the OLE object.
@@ -117,7 +117,7 @@ presentation->Dispose();
 
 If an OLE object is already embedded in a slide, you can easily find or access it this way:
 
-1. Load a presentation with the embedded OLE object by creating an instance of the [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
+1. Load a presentation with the embedded OLE object by creating an instance of the [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) class.
 2. Get the reference of the slide by using its index.
 3. Access the [OleObjectFrame](https://reference.aspose.com/slides/cpp/aspose.slides/oleobjectframe/) shape.
    In our example, we used the previously created PPTX that has only one shape on the first slide.  We then *cast* that object as an [IOleObjectFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ioleobjectframe/). This was the desired OLE object frame to be accessed.
@@ -193,15 +193,15 @@ if (ObjectExt::Is<IOleObjectFrame>(shape))
 
 ## **Change OLE Object Data**
 
-{{% alert color="info" %}} 
+{{% alert color="info" title="Note" %}}
 
-In this section, the code example below uses [Aspose.Cells for C++](/cells/cpp/).
+In this section, the code example below uses [Aspose.Cells for C++](https://docs.aspose.com/cells/cpp/).
 
 {{% /alert %}}
 
 If an OLE object is already embedded in a slide, you can easily access that object and modify its data this way:
 
-1. Load a presentation with the embedded OLE object by creating an instance of the [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
+1. Load a presentation with the embedded OLE object by creating an instance of the [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) class.
 2. Get the slide's reference through its index. 
 3. Access the [OLEObjectFrame](https://reference.aspose.com/slides/cpp/aspose.slides/oleobjectframe/) shape.
    In our example, we used the previously created PPTX that has one shape on the first slide. We then *cast* that object as an [IOleObjectFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ioleobjectframe/). This was the desired OLE object frame to be accessed.
@@ -390,9 +390,9 @@ presentation->Save(u"output.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Prevent an OLE Object Frame from Being Resized and Pepositioned**
+## **Prevent an OLE Object Frame from Being Resized and Repositioned**
 
-After you add a linked OLE object to a presentation slide, when you open the presentation in PowerPoint, you might see a message asking you to update the links. Clicking the "Update Links" button may change the size and position of the OLE object frame because PowerPoint updates the data from the linked OLE object and refreshes the object preview. To prevent PowerPoint from prompting to update the object's data, set the `set_UpdateAutomatic` method of the [IOleObjectFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ioleobjectframe/) interface to `false`:
+After you add a linked OLE object to a presentation slide, when you open the presentation in PowerPoint, you might see a message asking you to update the links. Clicking the "Update Links" button may change the size and position of the OLE object frame because PowerPoint updates the data from the linked OLE object and refreshes the object preview. To prevent PowerPoint from prompting to update the object's data, call the [set_UpdateAutomatic](https://reference.aspose.com/slides/cpp/aspose.slides/ioleobjectframe/set_updateautomatic/) method of the [IOleObjectFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ioleobjectframe/) interface with `false`:
 
 ```cpp
 #include <DOM/IOleObjectFrame.h>
@@ -413,7 +413,7 @@ oleFrame->set_UpdateAutomatic(false);
 
 Aspose.Slides for C++ allows you to extract the files embedded in slides as OLE objects this way:
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) class containing the OLE objects you intend to extract.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) class containing the OLE objects you intend to extract.
 2. Loop through all the shapes in the presentation and access the [OLEObjectFrame](https://reference.aspose.com/slides/cpp/aspose.slides/oleobjectframe/) shapes.
 3. Access the data of embedded files from OLE object frames and write it to disk.
 
@@ -456,18 +456,20 @@ presentation->Dispose();
 
 ## **FAQ**
 
-### Will the OLE content be rendered when exporting slides to PDF/images?
+**Will the OLE content be rendered when exporting slides to PDF/images?**
 
 What is visible on the slide is rendered—the icon/substitute image (preview). The "live" OLE content is not executed during rendering. If needed, set your own preview image to ensure the expected appearance in the exported PDF.
 
-### How can I lock an OLE object on a slide so users cannot move/edit it in PowerPoint?
+To also preserve the embedded file as a PDF attachment, call [PdfOptions::set_IncludeOleData](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/set_includeoledata/) with `true`. This option is disabled by default. For an example and instructions for checking the attachment, see [Preserve Embedded OLE Files as PDF Attachments](/slides/cpp/convert-powerpoint-to-pdf/#preserve-embedded-ole-files-as-pdf-attachments).
+
+**How can I lock an OLE object on a slide so users cannot move/edit it in PowerPoint?**
 
 Lock the shape: Aspose.Slides provides [shape-level locks](/slides/cpp/applying-protection-to-presentation/). This is not encryption, but it effectively prevents accidental edits and movement.
 
-### Why does a linked Excel object "jump" or change size when I open the presentation?
+**Why does a linked Excel object "jump" or change size when I open the presentation?**
 
 PowerPoint may refresh the preview of the linked OLE. For a stable appearance, follow the [Working Solution for Worksheet Resizing](/slides/cpp/working-solution-for-worksheet-resizing/) practices—either fit the frame to the range, or scale the range to a fixed frame and set an appropriate substitute image.
 
-### Will relative paths for linked OLE objects be preserved in the PPTX format?
+**Will relative paths for linked OLE objects be preserved in the PPTX format?**
 
 In PPTX, "relative path" information is not available—only the full path. Relative paths are found in the older PPT format. For portability, prefer reliable absolute paths/accessible URIs or embedding.

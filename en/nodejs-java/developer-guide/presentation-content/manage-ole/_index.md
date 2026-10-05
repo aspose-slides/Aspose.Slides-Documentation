@@ -18,7 +18,7 @@ keywords:
 - change OLE
 - OLE icon
 - OLE title
-- extact OLE
+- extract OLE
 - extract object
 - extract file
 - PowerPoint 
@@ -31,7 +31,7 @@ description: "Optimize OLE object management in PowerPoint and OpenDocument file
 
 ## **Introduction**
 
-{{% alert color="info" %}} 
+{{% alert color="info" title="Note" %}}
 
 OLE (Object Linking & Embedding) is a Microsoft technology that allows data and objects created in one application to be placed in another application through linking or embedding. 
 
@@ -39,8 +39,8 @@ OLE (Object Linking & Embedding) is a Microsoft technology that allows data and 
 
 Consider a chart created in MS Excel. The chart is then placed inside a PowerPoint slide. That Excel chart is considered an OLE object. 
 
-- An OLE object may appear as an icon. In this case, when you double-click the icon, the chart gets opened in its associated application (Excel), or you are asked to select an application for object opening or editing. 
-- An OLE object may display its actual contents, such as the contents of a chart. In this case, the chart is activated in PowerPoint, the chart interface loads, and you get to modify the chart's data within the PowerPoint.
+- An OLE object may appear as an icon. In this case, when you double-click the icon, the chart gets opened in its associated application (Excel), or you are asked to select an application to open or edit the object.
+- An OLE object may display its actual contents, such as the contents of a chart. In this case, the chart is activated in PowerPoint, the chart interface loads, and you get to modify the chart's data within PowerPoint.
 
 [Aspose.Slides for Node.js via Java](https://products.aspose.com/slides/nodejs-java/) allows you to insert OLE Objects into slides as OLE object frames ([OleObjectFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/OleObjectFrame)).
 
@@ -164,9 +164,9 @@ presentation.dispose();
 
 ## **Changing OLE Object Data**
 
-{{% alert color="info" %}} 
+{{% alert color="info" title="Note" %}}
 
-In this section, the code example below uses [Aspose.Cells for Java](/cells/java/).
+In this section, the code example below uses [Aspose.Cells for Java](https://docs.aspose.com/cells/java/).
 
 {{% /alert %}}
 
@@ -308,9 +308,9 @@ presentation.save("output.pptx", asposeSlides.SaveFormat.Pptx);
 presentation.dispose();
 ```
 
-## **Prevent an OLE Object Frame from Being Resized and Pepositioned**
+## **Prevent an OLE Object Frame from Being Resized and Repositioned**
 
-After you add a linked OLE object to a presentation slide, when you open the presentation in PowerPoint, you might see a message asking you to update the links. Clicking the "Update Links" button may change the size and position of the OLE object frame because PowerPoint updates the data from the linked OLE object and refreshes the object preview. To prevent PowerPoint from prompting to update the object's data, use the `setUpdateAutomatic` method of the [OleObjectFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/oleobjectframe/) class with `false` value:
+After you add a linked OLE object to a presentation slide, when you open the presentation in PowerPoint, you might see a message asking you to update the links. Clicking the "Update Links" button may change the size and position of the OLE object frame because PowerPoint updates the data from the linked OLE object and refreshes the object preview. To prevent PowerPoint from prompting to update the object's data, call the [setUpdateAutomatic](https://reference.aspose.com/slides/nodejs-java/aspose.slides/oleobjectframe/#setUpdateAutomatic) method of the [OleObjectFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/oleobjectframe/) class with `false`:
 
 ```javascript
 const asposeSlides = require("aspose.slides.via.java");
@@ -362,14 +362,16 @@ presentation.dispose();
 
 ## **FAQ**
 
-### Will the OLE content be rendered when exporting slides to PDF/images?
+**Will the OLE content be rendered when exporting slides to PDF/images?**
 
 What is visible on the slide is rendered—the icon/substitute image (preview). The "live" OLE content is not executed during rendering. If needed, set your own preview image to ensure the expected appearance in the exported PDF.
 
-### How can I lock an OLE object on a slide so users cannot move/edit it in PowerPoint?
+To also preserve the embedded file as a PDF attachment, call [setIncludeOleData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfoptions/#setIncludeOleData) with `true`. This option is disabled by default. For an example and instructions for checking the attachment, see [Preserve Embedded OLE Files as PDF Attachments](/slides/nodejs-java/convert-powerpoint-to-pdf/#preserve-embedded-ole-files-as-pdf-attachments).
+
+**How can I lock an OLE object on a slide so users cannot move/edit it in PowerPoint?**
 
 Lock the shape: Aspose.Slides provides shape-level locks. This is not encryption, but it effectively prevents accidental edits and movement.
 
-### Will relative paths for linked OLE objects be preserved in the PPTX format?
+**Will relative paths for linked OLE objects be preserved in the PPTX format?**
 
 In PPTX, "relative path" information is not available—only the full path. Relative paths are found in the older PPT format. For portability, prefer reliable absolute paths/accessible URIs or embedding.

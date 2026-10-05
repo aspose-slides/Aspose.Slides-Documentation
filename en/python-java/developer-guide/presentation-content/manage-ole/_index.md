@@ -39,7 +39,7 @@ OLE (Object Linking & Embedding) is a Microsoft technology that allows data and 
 
 Consider a chart created in MS Excel. The chart is then placed inside a PowerPoint slide. That Excel chart is considered an OLE object.
 
-- An OLE object may appear as an icon. In this case, when you double-click the icon, the chart gets opened in its associated application (Excel), or you are asked to select an application for opening or editing the object.
+- An OLE object may appear as an icon. In this case, when you double-click the icon, the chart gets opened in its associated application (Excel), or you are asked to select an application to open or edit the object.
 - An OLE object may display its actual contents, such as the contents of a chart. In this case, the chart is activated in PowerPoint, the chart interface loads, and you get to modify the chart's data within PowerPoint.
 
 [Aspose.Slides for Python via Java](https://products.aspose.com/slides/python-java/) allows you to insert OLE objects into slides as OLE object frames ([OleObjectFrame](https://reference.aspose.com/slides/python-java/aspose.slides/oleobjectframe/)).
@@ -374,7 +374,7 @@ finally:
 
 ## **Prevent an OLE Object Frame from Being Resized and Repositioned**
 
-After you add a linked OLE object to a presentation slide, when you open the presentation in PowerPoint, you might see a message asking you to update the links. Clicking the "Update Links" button may change the size and position of the OLE object frame because PowerPoint updates the data from the linked OLE object and refreshes the object preview. To prevent PowerPoint from prompting to update the object's data, set the [setUpdateAutomatic](https://reference.aspose.com/slides/python-java/aspose.slides/oleobjectframe/#setUpdateAutomatic) method of the [OleObjectFrame](https://reference.aspose.com/slides/python-java/aspose.slides/oleobjectframe/) class to `False`:
+After you add a linked OLE object to a presentation slide, when you open the presentation in PowerPoint, you might see a message asking you to update the links. Clicking the "Update Links" button may change the size and position of the OLE object frame because PowerPoint updates the data from the linked OLE object and refreshes the object preview. To prevent PowerPoint from prompting to update the object's data, call the [setUpdateAutomatic](https://reference.aspose.com/slides/python-java/aspose.slides/oleobjectframe/#setUpdateAutomatic) method of the [OleObjectFrame](https://reference.aspose.com/slides/python-java/aspose.slides/oleobjectframe/) class with `False`:
 
 ```python
 import jpype
@@ -442,6 +442,8 @@ finally:
 **Will the OLE content be rendered when exporting slides to PDF/images?**
 
 What is visible on the slide is rendered—the icon/substitute image (preview). The "live" OLE content is not executed during rendering. If needed, set your own preview image to ensure the expected appearance in the exported PDF.
+
+To also preserve the embedded file as a PDF attachment, call [setIncludeOleData](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/#setIncludeOleData) with `True`. This option is disabled by default. For an example and instructions for checking the attachment, see [Preserve Embedded OLE Files as PDF Attachments](/slides/python-java/convert-powerpoint-to-pdf/#preserve-embedded-ole-files-as-pdf-attachments).
 
 **How can I lock an OLE object on a slide so users cannot move/edit it in PowerPoint?**
 
