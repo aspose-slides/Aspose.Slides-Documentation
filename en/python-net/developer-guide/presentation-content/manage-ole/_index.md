@@ -18,7 +18,7 @@ keywords:
 - change OLE
 - OLE icon
 - OLE title
-- extact OLE
+- extract OLE
 - extract object
 - extract file
 - PowerPoint 
@@ -30,7 +30,7 @@ description: "Optimize OLE object management in PowerPoint and OpenDocument file
 
 ## **Introduction**
 
-{{% alert title="Info" color="info" %}}
+{{% alert color="info" title="Note" %}}
 
 **OLE (Object Linking & Embedding)** is a Microsoft technology that lets data and objects created in one application be linked or embedded in another.
 
@@ -152,9 +152,9 @@ with slides.Presentation("sample.ppt") as presentation:
 
 ## **Change OLE Object Data**
 
-{{% alert color="info" %}}
+{{% alert color="info" title="Note" %}}
 
-In this section, the code example below uses [Aspose.Cells for Python via .NET](/cells/python-net/).
+In this section, the code example below uses [Aspose.Cells for Python via .NET](https://docs.aspose.com/cells/python-net/).
 
 {{% /alert %}}
 
@@ -282,7 +282,7 @@ with slides.Presentation("sample.pptx") as presentation:
     presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Prevent OLE Object Frames from Being Resized and Pepositioned**
+## **Prevent OLE Object Frames from Being Resized and Repositioned**
 
 After you add a linked OLE object to a slide, PowerPoint may prompt you to update links when you open the presentation. Selecting Update Links can change the OLE object frame’s size and position because PowerPoint refreshes the preview with data from the linked object. To prevent PowerPoint from prompting you to update the object’s data, set the `update_automatic` property of the [OleObjectFrame](https://reference.aspose.com/slides/python-net/aspose.slides/oleobjectframe/) class to `False`:
 
@@ -328,18 +328,20 @@ with slides.Presentation("sample.pptx") as presentation:
 
 ## **FAQ**
 
-### Will the OLE content be rendered when exporting slides to PDF/images?
+**Will the OLE content be rendered when exporting slides to PDF/images?**
 
 What is visible on the slide is rendered—the icon/substitute image (preview). The "live" OLE content is not executed during rendering. If needed, set your own preview image to ensure the expected appearance in the exported PDF.
 
-### How can I lock an OLE object on a slide so users cannot move/edit it in PowerPoint?
+To also preserve the embedded file as a PDF attachment, set [PdfOptions.include_ole_data](https://reference.aspose.com/slides/python-net/aspose.slides.export/pdfoptions/include_ole_data/) to `True`. This option is disabled by default. For an example and instructions for checking the attachment, see [Preserve Embedded OLE Files as PDF Attachments](/slides/python-net/convert-powerpoint-to-pdf/#preserve-embedded-ole-files-as-pdf-attachments).
+
+**How can I lock an OLE object on a slide so users cannot move/edit it in PowerPoint?**
 
 Lock the shape: Aspose.Slides provides [shape-level locks](/slides/python-net/applying-protection-to-presentation/). This is not encryption, but it effectively prevents accidental edits and movement.
 
-### Why does a linked Excel object "jump" or change size when I open the presentation?
+**Why does a linked Excel object "jump" or change size when I open the presentation?**
 
 PowerPoint may refresh the preview of the linked OLE. For a stable appearance, follow the [Working Solution for Worksheet Resizing](/slides/python-net/working-solution-for-worksheet-resizing/) practices—either fit the frame to the range, or scale the range to a fixed frame and set an appropriate substitute image.
 
-### Will relative paths for linked OLE objects be preserved in the PPTX format?
+**Will relative paths for linked OLE objects be preserved in the PPTX format?**
 
 In PPTX, "relative path" information is not available—only the full path. Relative paths are found in the older PPT format. For portability, prefer reliable absolute paths/accessible URIs or embedding.

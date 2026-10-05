@@ -18,6 +18,7 @@ keywords:
 - save PPTX as PDF
 - export PPT to PDF
 - export PPTX to PDF
+- attachment
 - PDF/A1a
 - PDF/A1b
 - PDF/UA
@@ -69,7 +70,7 @@ The standard conversion uses the default PDF export settings. Use custom options
 
 Install [Aspose.Slides for Python via Java](/slides/python-java/installation/) and a compatible Java runtime before running the examples. Each example reads `presentation.pptx` from the current working directory; replace it with your PPT, PPTX, or ODP file. Start the JVM once per Python process.
 
-This code converts a presentation to PDF:
+The following example loads a presentation and saves all visible slides to PDF using the default export settings.
 
 ```python
 import jpype
@@ -101,7 +102,7 @@ Aspose.Slides provides custom options—properties under the [PdfOptions](https:
 
 Using custom conversion options, you can define your preferred quality setting for raster images, specify how metafiles should be handled, set a compression level for text, configure DPI for images, and more.
 
-The code example below demonstrates how to convert a PowerPoint presentation to PDF with several custom options.
+The following example exports a presentation to PDF 1.5 with JPEG quality set to 90, image resolution set to 300 DPI, metafiles saved as PNG, and Flate text compression.
 
 ```python
 import jpype
@@ -112,24 +113,27 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import PdfCompliance, PdfOptions, PdfTextCompression, Presentation, SaveFormat
 
+pdf_options = PdfOptions()
+pdf_options.setJpegQuality(jpype.JByte(90))
+pdf_options.setSufficientResolution(300)
+pdf_options.setSaveMetafilesAsPng(True)
+pdf_options.setTextCompression(PdfTextCompression.Flate)
+pdf_options.setCompliance(PdfCompliance.Pdf15)
+
 presentation = Presentation("presentation.pptx")
 try:
-    pdf_options = PdfOptions()
-    pdf_options.setJpegQuality(jpype.JByte(90))
-    pdf_options.setSufficientResolution(300)
-    pdf_options.setSaveMetafilesAsPng(True)
-    pdf_options.setTextCompression(PdfTextCompression.Flate)
-    pdf_options.setCompliance(PdfCompliance.Pdf15)
     presentation.save("presentation-custom.pdf", SaveFormat.Pdf, pdf_options)
 finally:
     presentation.dispose()
 ```
 
-### **Convert PowerPoint to PDF with Hidden Slides**
+### **Preserve Embedded OLE Files as PDF Attachments**
 
-If a presentation contains hidden slides, you can use the [setShowHiddenSlides](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/#setShowHiddenSlides) method from the [PdfOptions](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/) class to include the hidden slides as pages in the resulting PDF.
+If a presentation contains an embedded Excel workbook, you may want PDF recipients to access the workbook's data as well as view the slides. Call [setIncludeOleData](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/#setIncludeOleData) with `True` to preserve embedded OLE files as attachments in the resulting PDF.
 
-This code shows how to convert a PowerPoint presentation to PDF with hidden slides included:
+The default value is `False`: the OLE object's preview image or icon is rendered on the PDF page, but its embedded file is not included as an attachment. Setting the option to `True` additionally includes the file data. The preview remains a visual representation; the attachment lets recipients open or save the embedded file separately. The OLE object does not become an interactive Excel worksheet on the PDF page.
+
+The following example loads a presentation that already contains an embedded Excel workbook and exports it to PDF with the workbook attached.
 
 ```python
 import jpype
@@ -140,10 +144,48 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import PdfOptions, Presentation, SaveFormat
 
+pdf_options = PdfOptions()
+pdf_options.setIncludeOleData(True)
+
 presentation = Presentation("presentation.pptx")
 try:
-    pdf_options = PdfOptions()
-    pdf_options.setShowHiddenSlides(True)
+    presentation.save("presentation.pdf", SaveFormat.Pdf, pdf_options)
+finally:
+    presentation.dispose()
+```
+
+To check the result:
+
+1. Open the exported PDF in a viewer that supports file attachments, such as Adobe Acrobat Reader.
+2. Open the viewer's **Attachments** panel and locate the embedded workbook.
+3. Save the attachment and open it in Excel to inspect its data, or open it directly if the viewer permits it. The preview on the PDF page is separate from the attachment.
+
+{{% alert color="info" title="Note" %}}
+
+The PDF/A standards impose restrictions on attachments: PDF/A-1 prohibits embedded files, PDF/A-2 permits only PDF/A attachments, and PDF/A-3 permits other file types, including Excel workbooks. These are requirements of the standards, not restrictions specific to Aspose.Slides. This example uses the default PDF compliance setting and does not demonstrate PDF/A export.
+
+{{% /alert %}}
+
+### **Convert PowerPoint to PDF with Hidden Slides**
+
+If a presentation contains hidden slides, you can use the [setShowHiddenSlides](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/#setShowHiddenSlides) method from the [PdfOptions](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/) class to include the hidden slides as pages in the resulting PDF.
+
+The following example exports a presentation to PDF, including any hidden slides.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import PdfOptions, Presentation, SaveFormat
+
+pdf_options = PdfOptions()
+pdf_options.setShowHiddenSlides(True)
+
+presentation = Presentation("presentation.pptx")
+try:
     presentation.save("presentation-hidden-slides.pdf", SaveFormat.Pdf, pdf_options)
 finally:
     presentation.dispose()
@@ -151,7 +193,7 @@ finally:
 
 ### **Convert PowerPoint to a Password-Protected PDF**
 
-This code demonstrates how to convert a PowerPoint presentation into a password-protected PDF using the protection parameters from the [PdfOptions](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/) class:
+The following example exports a presentation to a PDF that requires the password `password` to open. The access permissions allow printing, including high-quality printing.
 
 ```python
 import jpype
@@ -162,12 +204,12 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import PdfAccessPermissions, PdfOptions, Presentation, SaveFormat
 
+pdf_options = PdfOptions()
+pdf_options.setPassword("password")
+pdf_options.setAccessPermissions(PdfAccessPermissions.PrintDocument | PdfAccessPermissions.HighQualityPrint)
+
 presentation = Presentation("presentation.pptx")
 try:
-    pdf_options = PdfOptions()
-    pdf_options.setPassword("password")
-    permissions = PdfAccessPermissions.PrintDocument | PdfAccessPermissions.HighQualityPrint
-    pdf_options.setAccessPermissions(permissions)
     presentation.save("presentation-protected.pdf", SaveFormat.Pdf, pdf_options)
 finally:
     presentation.dispose()
@@ -177,7 +219,7 @@ finally:
 
 Aspose.Slides provides the [setWarningCallback](https://reference.aspose.com/slides/python-java/aspose.slides/saveoptions/#setWarningCallback) method under the [PdfOptions](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/) class, enabling you to detect font substitutions during the presentation-to-PDF conversion process.
 
-Use a JPype proxy to receive warning callbacks from the Java API. Convert the Java description string to a Python string before checking its prefix:
+The following example exports a presentation to PDF and prints font substitution warnings to the console. A warning is printed only when an unavailable font is substituted during export. Use a JPype proxy to receive warning callbacks from the Java API. Convert the Java description string to a Python string before checking its prefix:
 
 ```python
 import jpype
@@ -196,12 +238,14 @@ class FontSubstitutionHandler:
         return ReturnAction.Continue
 
 
+handler = FontSubstitutionHandler()
+callback = jpype.JProxy("com.aspose.slides.IWarningCallback", inst=handler)
+
+pdf_options = PdfOptions()
+pdf_options.setWarningCallback(callback)
+
 presentation = Presentation("presentation.pptx")
 try:
-    handler = FontSubstitutionHandler()
-    callback = jpype.JProxy("com.aspose.slides.IWarningCallback", inst=handler)
-    pdf_options = PdfOptions()
-    pdf_options.setWarningCallback(callback)
     presentation.save("presentation-font-warnings.pdf", SaveFormat.Pdf, pdf_options)
 finally:
     presentation.dispose()
@@ -209,13 +253,11 @@ finally:
 
 {{% alert color="info" title="Note" %}}
 
-For more information on receiving callbacks for font substitutions during the rendering process, see [Getting Warning Callbacks for Font Substitution](/slides/python-java/getting-warning-callbacks-for-fonts-substitution-in-aspose-slides/).
-
 For more information on font substitution, see the [Font Substitution](/slides/python-java/font-substitution/) article.
 
 {{% /alert %}}
 
-## **Convert Selected Slides in PowerPoint to PDF**
+## **Convert Selected Slides from PowerPoint to PDF**
 
 Slide numbers passed to [Presentation.save](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#save) are 1-based. This example exports slides 1 and 3 when both exist:
 
@@ -230,18 +272,15 @@ from asposeslides.api import Presentation, SaveFormat
 
 presentation = Presentation("presentation.pptx")
 try:
-    if presentation.getSlides().size() >= 3:
-        slide_numbers = jpype.JArray(jpype.JInt)([1, 3])
-        presentation.save("presentation-selected-slides.pdf", slide_numbers, SaveFormat.Pdf)
-    else:
-        print("The presentation must contain at least three slides.")
+    slide_numbers = jpype.JArray(jpype.JInt)([1, 3])
+    presentation.save("presentation-selected-slides.pdf", slide_numbers, SaveFormat.Pdf)
 finally:
     presentation.dispose()
 ```
 
 ## **Convert PowerPoint to PDF with Custom Slide Size**
 
-This example exports the first slide on a page measuring 612 by 792 points (US Letter). It clones the slide into a new presentation with the specified size:
+This example exports the first slide on a page measuring 612 by 792 points (US Letter). It clones the slide into a new presentation with the specified size and scales the slide content to fit.
 
 ```python
 import jpype
@@ -253,26 +292,24 @@ if not jpype.isJVMStarted():
 from asposeslides.api import Presentation, SaveFormat, SlideSizeScaleType
 
 presentation = Presentation("presentation.pptx")
+resized_presentation = Presentation()
 try:
-    resized_presentation = Presentation()
-    try:
-        resized_presentation.getSlideSize().setSize(612.0, 792.0, SlideSizeScaleType.EnsureFit)
-        if presentation.getSlides().size() > 0:
-            slide = presentation.getSlides().get_Item(0)
-            resized_presentation.getSlides().insertClone(0, slide)
-            resized_presentation.getSlides().removeAt(1)
-            resized_presentation.save("presentation-custom-size.pdf", SaveFormat.Pdf)
-        else:
-            print("The presentation contains no slides.")
-    finally:
-        resized_presentation.dispose()
+    resized_presentation.getSlideSize().setSize(612, 792, SlideSizeScaleType.EnsureFit)
+    slide = presentation.getSlides().get_Item(0)
+    resized_presentation.getSlides().insertClone(0, slide)
+
+    # Remove the blank slide that the new presentation was created with.
+    resized_presentation.getSlides().removeAt(1)
+
+    resized_presentation.save("presentation-custom-size.pdf", SaveFormat.Pdf)
 finally:
     presentation.dispose()
+    resized_presentation.dispose()
 ```
 
 ## **Convert PowerPoint to PDF in Notes Slide View**
 
-This code demonstrates how to convert a PowerPoint presentation to a PDF that includes notes:
+The following example exports a presentation to PDF, placing each slide's speaker notes below the slide. Use a presentation containing speaker notes to see the result.
 
 ```python
 import jpype
@@ -283,12 +320,14 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import NotesCommentsLayoutingOptions, NotesPositions, PdfOptions, Presentation, SaveFormat
 
+notes_options = NotesCommentsLayoutingOptions()
+notes_options.setNotesPosition(NotesPositions.BottomFull)
+
+pdf_options = PdfOptions()
+pdf_options.setSlidesLayoutOptions(notes_options)
+
 presentation = Presentation("presentation.pptx")
 try:
-    notes_options = NotesCommentsLayoutingOptions()
-    notes_options.setNotesPosition(NotesPositions.BottomFull)
-    pdf_options = PdfOptions()
-    pdf_options.setSlidesLayoutOptions(notes_options)
     presentation.save("presentation-with-notes.pdf", SaveFormat.Pdf, pdf_options)
 finally:
     presentation.dispose()
@@ -312,10 +351,13 @@ from asposeslides.api import PdfCompliance, PdfOptions, Presentation, SaveFormat
 presentation = Presentation("presentation.pptx")
 try:
     pdf_options = PdfOptions()
+
     pdf_options.setCompliance(PdfCompliance.PdfA1a)
     presentation.save("presentation-a1a.pdf", SaveFormat.Pdf, pdf_options)
+
     pdf_options.setCompliance(PdfCompliance.PdfA1b)
     presentation.save("presentation-a1b.pdf", SaveFormat.Pdf, pdf_options)
+    
     pdf_options.setCompliance(PdfCompliance.PdfUa)
     presentation.save("presentation-ua.pdf", SaveFormat.Pdf, pdf_options)
 finally:
@@ -336,7 +378,7 @@ Yes. Use the [PdfOptions](https://reference.aspose.com/slides/python-java/aspose
 
 **How do I include hidden slides in the PDF?**
 
-Use the [setShowHiddenSlides](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/#setShowHiddenSlides) method in the [PdfOptions](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/) class to include hidden slides in the resulting PDF.
+Call [setShowHiddenSlides](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/#setShowHiddenSlides) with `True` in the [PdfOptions](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/) class to include hidden slides in the resulting PDF.
 
 **Can Aspose.Slides maintain high image quality in the PDF?**
 
