@@ -7,38 +7,38 @@ url: /tr/php-java/manage-smartart/
 keywords:
 - SmartArt
 - SmartArt metni
-- yerleşim türü
+- düzen türü
 - gizli özelliği
 - organizasyon şeması
-- resimli organizasyon şeması
+- resim organizasyon şeması
 - PowerPoint
 - sunum
 - PHP
 - Aspose.Slides
-description: "Aspose.Slides for PHP via Java kullanarak PowerPoint SmartArt oluşturmayı ve düzenlemeyi, slayt tasarımını ve otomasyonu hızlandıran net kod örnekleriyle öğrenin."
+description: "Açık kod örnekleriyle, slayt tasarımı ve otomasyonu hızlandıran, Aspose.Slides for PHP via Java kullanarak PowerPoint SmartArt oluşturmayı ve düzenlemeyi öğrenin."
 ---
 ## **Genel Bakış**
 
-SmartArt, düğümler, düğüm şekilleri ve bir yerleşimden oluşan bir PowerPoint diyagramıdır. Aspose.Slides for PHP via Java ile SmartArt oluşturabilir, düğümlerindeki metni okuyabilir, yerleşimini değiştirebilir, gizli düğümleri inceleyebilir, organizasyon şeması yerleşimlerini yapılandırabilir ve resimli organizasyon şemaları oluşturabilirsiniz.
+SmartArt, düğümler, düğüm şekilleri ve bir düzen kullanılarak oluşturulan bir PowerPoint diyagramıdır. Aspose.Slides for PHP via Java ile SmartArt oluşturabilir, düğümlerinden metin okuyabilir, düzenini değiştirebilir, gizli düğümleri inceleyebilir, organizasyon şeması düzenlerini yapılandırabilir ve resim organizasyon şemaları oluşturabilirsiniz.
 
 ## **SmartArt Nesnesinden Metin Almak**
 
-Bir SmartArt düğümü bir veya daha fazla şekil içerebilir. Görünür metni okumak için [SmartArt::getAllNodes](https://reference.aspose.com/slides/tr/php-java/aspose.slides/smartart/#getAllNodes) üzerinden yineleme yapın, ardından [SmartArtShape::getTextFrame](https://reference.aspose.com/slides/tr/php-java/aspose.slides/smartartshape/#getTextFrame) tarafından döndürülen [TextFrame](https://reference.aspose.com/slides/tr/php-java/aspose.slides/textframe/)’i okuyun.
+Bir SmartArt düğümü bir veya daha fazla şekil içerebilir. Düğüm şekillerinden metin okumak için [SmartArt::getAllNodes](https://reference.aspose.com/slides/php-java/aspose.slides/smartart/getallnodes/) üzerinden döngü oluşturun, ardından [SmartArtShape::getTextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/smartartshape/gettextframe/) tarafından döndürülen [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/) öğesini okuyun.
 
 ```php
+use aspose\slides\Presentation;
+
 $presentation = new Presentation("sample.pptx");
 try {
     $slide = $presentation->getSlides()->get_Item(0);
-    $shape = $slide->getShapes()->get_Item(0);
 
-    if (java_instanceof($shape, new JavaClass("com.aspose.slides.ISmartArt"))) {
-        $smartArt = $shape;
-
-        foreach ($smartArt->getAllNodes() as $smartArtNode) {
-            foreach ($smartArtNode->getShapes() as $smartArtShape) {
-                if (!java_is_null($smartArtShape->getTextFrame())) {
-                    echo($smartArtShape->getTextFrame()->getText());
-                }
+    $smartArt = $slide->getShapes()->get_Item(0);
+    for ($i = 0; $i < java_values($smartArt->getAllNodes()->size()); $i++) {
+        $node = $smartArt->getAllNodes()->get_Item($i);
+        for ($j = 0; $j < java_values($node->getShapes()->size()); $j++) {
+            $nodeShape = $node->getShapes()->get_Item($j);
+            if (!java_is_null($nodeShape->getTextFrame())) {
+                echo $nodeShape->getTextFrame()->getText() . PHP_EOL;
             }
         }
     }
@@ -47,19 +47,23 @@ try {
 }
 ```
 
-## **SmartArt Nesnesinin Yerleşim Türünü Değiştirmek**
+## **SmartArt Nesnesinin Düzen Türünü Değiştirmek**
 
-SmartArt yerleşimi, düğümlerin nasıl düzenlendiğini ve bağlandığını kontrol eder. Aşağıdaki örnek, [SmartArtLayoutType](https://reference.aspose.com/slides/tr/php-java/aspose.slides/smartartlayouttype/) `BasicBlockList` değerine sahip bir SmartArt nesnesi oluşturur, bunu `BasicProcess` değerine değiştirir ve sunumu kaydeder.
+SmartArt düzeni, düğümlerin nasıl düzenlendiğini ve bağlandığını kontrol eder. Aşağıdaki örnek, [SmartArtLayoutType](https://reference.aspose.com/slides/php-java/aspose.slides/smartartlayouttype/) `BasicBlockList` değerine sahip bir SmartArt nesnesi oluşturur, bunu `BasicProcess` değerine değiştirir ve sunumu kaydeder. [ShapeCollection::addSmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addsmartart/)’a gönderilen konum ve boyut noktalar cinsindendir. Düzeni değiştirmek için [SmartArt::setLayout](https://reference.aspose.com/slides/php-java/aspose.slides/smartart/setlayout/) kullanın.
 
 ```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\SmartArtLayoutType;
+
 $presentation = new Presentation();
 try {
-    $smartArt = $presentation->getSlides()->get_Item(0)->getShapes()->addSmartArt(
-        10, 10, 400, 300, SmartArtLayoutType::BasicBlockList);
+    $slide = $presentation->getSlides()->get_Item(0);
 
+    $smartArt = $slide->getShapes()->addSmartArt(10, 10, 400, 300, SmartArtLayoutType::BasicBlockList);
     $smartArt->setLayout(SmartArtLayoutType::BasicProcess);
 
-    $presentation->save("ChangeSmartArtLayout_out.pptx", SaveFormat::Pptx);
+    $presentation->save("ChangeSmartArtLayout.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
 }
@@ -67,80 +71,136 @@ try {
 
 ## **Bir SmartArt Düğümünün Gizli Olup Olmadığını Kontrol Etmek**
 
-[SmartArtNode::isHidden](https://reference.aspose.com/slides/tr/php-java/aspose.slides/smartartnode/ishidden/) düğümün SmartArt veri modelinde gizli olup olmadığını gösterir. Seçilen yerleşim bu düğümleri görünür diyagram öğeleri olarak göstermese bile gizli düğümler yapıda bulunabilir.
+[SmartArtNode::isHidden](https://reference.aspose.com/slides/php-java/aspose.slides/smartartnode/ishidden/) düğümün SmartArt veri modelinde gizli olup olmadığını gösterir. Gizli düğümler, seçilen düzen onları görünür diyagram öğeleri olarak göstermese bile yapıda bulunabilir.
 
-Aşağıdaki örnek, [SmartArtLayoutType](https://reference.aspose.com/slides/tr/php-java/aspose.slides/smartartlayouttype/) `RadialCycle` değerini kullanan bir SmartArt nesnesine bir düğüm ekler ve düğümün gizli durumunu kontrol eder.
+Aşağıdaki örnek, [SmartArtLayoutType](https://reference.aspose.com/slides/php-java/aspose.slides/smartartlayouttype/) `RadialCycle` değerini kullanan bir SmartArt nesnesine bir düğüm ekler ve eklenen düğümün gizli durumunu kontrol eder. Düğüm gizliyse bir mesaj yazdırır ve diyagramı kaydeder.
 
 ```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\SmartArtLayoutType;
+
 $presentation = new Presentation();
 try {
-    $smartArt = $presentation->getSlides()->get_Item(0)->getShapes()->addSmartArt(
-        10, 10, 400, 300, SmartArtLayoutType::RadialCycle);
+    $slide = $presentation->getSlides()->get_Item(0);
 
-    $smartArtNode = $smartArt->getAllNodes()->addNode();
-    $isHidden = $smartArtNode->isHidden();
+    $smartArt = $slide->getShapes()->addSmartArt(10, 10, 400, 300, SmartArtLayoutType::RadialCycle);
+    $node = $smartArt->getAllNodes()->addNode();
+    $isHidden = java_values($node->isHidden());
 
     if ($isHidden) {
-        echo("The node is hidden in the SmartArt data model.");
+        echo "The node is hidden in the SmartArt data model." . PHP_EOL;
     }
 
-    $presentation->save("CheckSmartArtHiddenProperty_out.pptx", SaveFormat::Pptx);
+    $presentation->save("CheckSmartArtHiddenProperty.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
 }
 ```
 
-## **Organizasyon Şeması Yerleşimini Almak veya Ayarlamak**
+## **Organizasyon Şeması Düzenini Almak veya Ayarlamak**
 
-Bir organizasyon şeması yerleşimi kullanan SmartArt diyagramları için, [SmartArtNode::getOrganizationChartLayout](https://reference.aspose.com/slides/tr/php-java/aspose.slides/smartartnode/getorganizationchartlayout/) ve [SmartArtNode::setOrganizationChartLayout](https://reference.aspose.com/slides/tr/php-java/aspose.slides/smartartnode/setorganizationchartlayout/) çocuk düğümlerin bir üst düğüm altında nasıl düzenleneceğini tanımlar. Örneğin, seçilen [OrganizationChartLayoutType](https://reference.aspose.com/slides/tr/php-java/aspose.slides/organizationchartlayouttype/)’a bağlı olarak çocuk düğümleri soldan, sağdan veya her iki taraftan sarkıtacak şekilde ayarlayabilirsiniz.
+Organizasyon şeması düzeni kullanan SmartArt diyagramları için [SmartArtNode::getOrganizationChartLayout](https://reference.aspose.com/slides/php-java/aspose.slides/smartartnode/getorganizationchartlayout/) ve [SmartArtNode::setOrganizationChartLayout](https://reference.aspose.com/slides/php-java/aspose.slides/smartartnode/setorganizationchartlayout/) çocuk düğümlerin bir üst düğüm altında nasıl düzenleneceğini tanımlar. Örneğin, seçilen [OrganizationChartLayoutType](https://reference.aspose.com/slides/php-java/aspose.slides/organizationchartlayouttype/) değerine bağlı olarak çocuk düğümleri soldan, sağdan veya her iki taraftan sarkıtacak şekilde ayarlayabilirsiniz.
 
-Aşağıdaki örnek bir organizasyon şeması oluşturur ve ilk düğümün yerleşimini [OrganizationChartLayoutType](https://reference.aspose.com/slides/tr/php-java/aspose.slides/organizationchartlayouttype/) `LeftHanging` değerine ayarlar.
+Aşağıdaki örnek bir organizasyon şeması oluşturur ve ilk düğümün düzenini [OrganizationChartLayoutType](https://reference.aspose.com/slides/php-java/aspose.slides/organizationchartlayouttype/) `LeftHanging` değerine ayarlar. Sıfır tabanlı indeks `0` ilk üst düzey düğümü seçer; onun çocuk düğümleri seçilen düzeni kullanır. Değiştirilmiş sunum daha sonra kaydedilir.
 
 ```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\SmartArtLayoutType;
+use aspose\slides\OrganizationChartLayoutType;
+
 $presentation = new Presentation();
 try {
-    $smartArt = $presentation->getSlides()->get_Item(0)->getShapes()->addSmartArt(
-        10, 10, 400, 300, SmartArtLayoutType::OrganizationChart);
+    $slide = $presentation->getSlides()->get_Item(0);
 
+    $smartArt = $slide->getShapes()->addSmartArt(10, 10, 400, 300, SmartArtLayoutType::OrganizationChart);
     $rootNode = $smartArt->getNodes()->get_Item(0);
     $rootNode->setOrganizationChartLayout(OrganizationChartLayoutType::LeftHanging);
 
-    $presentation->save("OrganizationChartLayout_out.pptx", SaveFormat::Pptx);
+    $presentation->save("OrganizationChartLayout.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
 }
 ```
 
-## **Resimli Organizasyon Şeması Oluşturmak**
+## **Resim Organizasyon Şeması Oluşturmak**
 
-Resimli organizasyon şeması, resim yer tutucuları içeren hiyerarşi diyagramları için tasarlanmış bir SmartArt yerleşimidir. SmartArt nesnesini bir slayta eklerken [SmartArtLayoutType](https://reference.aspose.com/slides/tr/php-java/aspose.slides/smartartlayouttype/) `PictureOrganizationChart` değerini kullanın.
+Resim organizasyon şeması, görüntü yer tutucuları içeren hiyerarşi diyagramları için tasarlanmış bir SmartArt düzenidir. SmartArt nesnesini bir slayta eklerken [SmartArtLayoutType](https://reference.aspose.com/slides/php-java/aspose.slides/smartartlayouttype/) `PictureOrganizationChart` değerini kullanın. Bu örnek, görüntü yer tutucularıyla bir diyagramı kaydeder; yer tutucuları görüntülerle doldurmaz.
 
 ```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\SmartArtLayoutType;
+
 $presentation = new Presentation();
 try {
-    $smartArt = $presentation->getSlides()->get_Item(0)->getShapes()->addSmartArt(
-        0, 0, 400, 400, SmartArtLayoutType::PictureOrganizationChart);
+    $slide = $presentation->getSlides()->get_Item(0);
 
-    $presentation->save("PictureOrganizationChart_out.pptx", SaveFormat::Pptx);
+    $smartArt = $slide->getShapes()->addSmartArt(0, 0, 400, 400, SmartArtLayoutType::PictureOrganizationChart);
+
+    $presentation->save("PictureOrganizationChart.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
 }
 ```
+
+## **Eski Diyagramları Şekil Gruplarına Dönüştürmek**
+
+Mevcut bir sunumu modernleştirirken, PowerPoint 97–2003’te oluşturulmuş bir organizasyon şemasını güncellemeniz gerekebilir. Aspose.Slides, bu eski diyagramları [LegacyDiagram](https://reference.aspose.com/slides/php-java/aspose.slides/legacydiagram/) nesneleri olarak temsil eder. Bir diyagramı, bireysel görsel öğeleri düzenleyebilmek için bir şekil grubuna dönüştürmek üzere [LegacyDiagram::convertToGroupShape](https://reference.aspose.com/slides/php-java/aspose.slides/legacydiagram/converttogroupshape/) kullanın. Ayrıntılar için [LegacyDiagram API Reference](https://reference.aspose.com/slides/php-java/aspose.slides/legacydiagram/) bölümüne bakın.
+
+Dönüştürme, orijinal diyagramı kaldırmadan şekil koleksiyonuna yeni bir grup ekler. Başarılı dönüşümden sonra, yinelenen içeriği önlemek için orijinali [ShapeCollection::remove](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/remove/) ile kaldırın. Şekil ekleme ve kaldırma işlemlerinin yinelemeyi bozmasını önlemek için dönüştürmeden önce eski diyagramları bir listeye toplayın.
+
+Aşağıdaki örnek bir sunumu açar, her slaytı tarar, diyagramları şekil gruplarına dönüştürür ve güncellenmiş sunumu PPTX olarak kaydeder.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("legacy-diagrams.ppt");
+try {
+    $legacyDiagramType = new JavaClass("com.aspose.slides.ILegacyDiagram");
+    for ($i = 0; $i < java_values($presentation->getSlides()->size()); $i++) {
+        $slide = $presentation->getSlides()->get_Item($i);
+        $legacyDiagrams = [];
+        for ($j = 0; $j < java_values($slide->getShapes()->size()); $j++) {
+            $shape = $slide->getShapes()->get_Item($j);
+            if (java_instanceof($shape, $legacyDiagramType)) {
+                $legacyDiagrams[] = $shape;
+            }
+        }
+
+        foreach ($legacyDiagrams as $legacyDiagram) {
+            $groupShape = $legacyDiagram->convertToGroupShape();
+
+            if (!java_is_null($groupShape)) {
+                $slide->getShapes()->remove($legacyDiagram);
+            }
+        }
+    }
+
+    $presentation->save("modernized.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Kaydedilen sunum, dönüştürülmüş eski diyagramların yerine düzenlenebilir şekil grupları içerir ve yanlarında orijinal diyagram kalmaz. PPTX dosyasını PowerPoint’te açıp her grup içindeki metin, dolgu veya konum gibi bireysel öğeleri düzenleyebilirsiniz.
 
 ## **SSS**
 
-**SmartArt, RTL dilleri için yansıtma veya tersine çevirme destekliyor mu?**
+**SmartArt, RTL dilleri için yansıtma veya tersine çevirme desteği sunuyor mu?**
 
-Evet. [SmartArt::setReversed](https://reference.aspose.com/slides/tr/php-java/aspose.slides/smartart/setreversed/) yöntemi, seçilen SmartArt yerleşimi tersine çevirmeyi desteklediğinde diyagram yönünü soldan-sağa’dan sağdan-sola (veya geri) değiştirir.
+Evet. Seçili SmartArt düzeni tersine çevirmeyi destekliyorsa, [SmartArt::setReversed](https://reference.aspose.com/slides/php-java/aspose.slides/smartart/setreversed/) yöntemi diyagram yönünü soldan sağa’dan sağdan sola’ya değiştirir veya geri alır.
 
-**SmartArt'ı aynı slayta ya da başka bir sunuma biçimlendirmeyi koruyarak nasıl kopyalayabilirim?**
+**SmartArt'ı aynı slayta veya başka bir sunuya biçimlendirmeyi koruyarak nasıl kopyalarım?**
 
-[SmartArt şekilini klonlayın](/slides/tr/php-java/shape-manipulations/) [ShapeCollection::addClone](https://reference.aspose.com/slides/tr/php-java/aspose.slides/shapecollection/addclone/) ile ya da SmartArt içeren slaytı tamamını [klonlayın](/slides/tr/php-java/clone-slides/) [clone the whole slide](/slides/tr/php-java/clone-slides/). Her iki yaklaşım da boyut, konum ve biçimlendirmeyi korur.
+SmartArt şekli [SmartArt şekli kopyala](/slides/tr/php-java/shape-manipulations/) bağlantısı ile [ShapeCollection::addClone](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addclone/) kullanarak ya da SmartArt'ı içeren slaytı [tüm slaytı kopyala](/slides/tr/php-java/clone-slides/) ile kopyalayabilirsiniz. Her iki yöntem de boyut, konum ve biçimlendirmeyi korur.
 
-**SmartArt'ı önizleme veya web dışa aktarımı için raster görüntüye nasıl render edebilirim?**
+**SmartArt'ı önizleme veya web dışa aktarımı için raster görüntüye nasıl render ederim?**
 
-[Slaytı renderlayın](/slides/tr/php-java/convert-powerpoint-to-png/) ya da tüm sunumu PNG veya JPEG formatına dönüştürün. SmartArt slaytın bir parçası olarak renderlanır.
+[Slaytı render edin](/slides/tr/php-java/convert-powerpoint-to-png/) veya tüm sunumu PNG ya da JPEG formatına dönüştürün. SmartArt slaytın bir parçası olarak render edilir.
 
 **Bir slaytta birden fazla SmartArt nesnesi varsa, belirli bir SmartArt nesnesini nasıl bulabilirim?**
 
-SmartArt şekli üzerinde ayırt edici bir [Shape::getAlternativeText](https://reference.aspose.com/slides/tr/php-java/aspose.slides/shape/getalternativetext/) ya da [Shape::getName](https://reference.aspose.com/slides/tr/php-java/aspose.slides/shape/getname/) değeri belirleyin, bu değeri [BaseSlide::getShapes](https://reference.aspose.com/slides/tr/php-java/aspose.slides/baseslide/#getShapes) içinde arayın ve ardından eşleşen şeklin bir [SmartArt](https://reference.aspose.com/slides/tr/php-java/aspose.slides/smartart/) olduğunu kontrol edin.
+SmartArt şekline ayırt edici bir alternatif metin veya ad atamak için [Shape::setAlternativeText](https://reference.aspose.com/slides/php-java/aspose.slides/shape/setalternativetext/) veya [Shape::setName](https://reference.aspose.com/slides/php-java/aspose.slides/shape/setname/) kullanın, bu değeri [BaseSlide::getShapes](https://reference.aspose.com/slides/php-java/aspose.slides/baseslide/#getShapes) içinde arayın ve ardından eşleşen şeklin bir [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/smartart/) olduğunu kontrol edin.

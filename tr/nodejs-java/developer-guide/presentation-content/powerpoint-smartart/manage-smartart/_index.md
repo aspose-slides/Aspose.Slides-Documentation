@@ -1,32 +1,38 @@
 ---
-title: PowerPoint Sunumlarında JavaScript Kullanarak SmartArt Yönetimi
+title: JavaScript Kullanarak PowerPoint Sunumlarında SmartArt Yönetimi
 linktitle: SmartArt Yönetimi
 type: docs
 weight: 10
 url: /tr/nodejs-java/manage-smartart/
 keywords:
 - SmartArt
-- SmartArt Metni
-- Yerleşim Türü
-- Gizli Özellik
-- Organizasyon Şeması
-- Resim Organizasyon Şeması
+- SmartArt metni
+- yerleşim türü
+- gizli özelliği
+- organizasyon şeması
+- resimli organizasyon şeması
 - PowerPoint
-- Sunum
+- sunum
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Aspose.Slides for Node.js kullanarak PowerPoint SmartArt'ı oluşturmayı ve düzenlemeyi, slayt tasarımını ve otomasyonunu hızlandıran net JavaScript kod örnekleriyle öğrenin."
+description: "Aspose.Slides for Node.js kullanarak açık JavaScript kod örnekleriyle PowerPoint SmartArt'i oluşturmayı ve düzenlemeyi öğrenin; bu örnekler slayt tasarımı ve otomasyonunu hızlandırır."
 ---
 ## **Genel Bakış**
 
-SmartArt, düğümler, düğüm şekilleri ve bir yerleşimden oluşan bir PowerPoint diyagramıdır. Java aracılığıyla Node.js için Aspose.Slides ile SmartArt oluşturabilir, düğümlerindeki metni okuyabilir, yerleşimini değiştirebilir, gizli düğümleri inceleyebilir, organizasyon şeması yerleşimlerini yapılandırabilir ve resim organizasyon şemaları oluşturabilirsiniz.
+SmartArt, düğümler, düğüm şekilleri ve bir yerleşimden oluşturulan bir PowerPoint diyagramıdır. Aspose.Slides for Node.js via Java ile SmartArt oluşturabilir, düğümlerindeki metni okuyabilir, yerleşimini değiştirebilir, gizli düğümleri inceleyebilir, organizasyon şeması yerleşimlerini yapılandırabilir ve resimli organizasyon şemaları oluşturabilirsiniz.
 
-## **Bir SmartArt Nesnesinden Metni Al**
+## **SmartArt Nesnesinden Metin Al**
 
-Bir SmartArt düğümü bir veya daha fazla şekil içerebilir. Görünür metni okumak için [SmartArt.getAllNodes](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/smartart/#getAllNodes--) üzerinden döngü yapın, ardından [SmartArtShape.getTextFrame](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/smartartshape/#getTextFrame--) tarafından döndürülen [TextFrame](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/textframe/) öğesini okuyun.
+Bir SmartArt düğümü bir veya daha fazla şekil içerebilir. Düğüm şekillerinden metni okumak için [SmartArt.getAllNodes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/smartart/getallnodes/) üzerinden yineleyin, ardından [SmartArtShape.getTextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/smartartshape/gettextframe/) tarafından döndürülen [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/) okuyun.
+
+Örnek, en az bir slaytı ve o slaytta ilk şekil olarak bir SmartArt nesnesi içeren bir sunum gerektirir. Her mevcut metin çerçevesini konsola yazdırır.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 let presentation = new aspose.slides.Presentation("sample.pptx");
 try {
     let slide = presentation.getSlides().get_Item(0);
@@ -48,42 +54,48 @@ try {
                 }
             }
         }
+    } else {
+        console.log("The first shape is not a SmartArt object.");
     }
 } finally {
     presentation.dispose();
 }
 ```
+## **SmartArt Nesnesinin Yerleşim Türünü Değiştir**
 
-## **Bir SmartArt Nesnesinin Düzen Türünü Değiştir**
-
-SmartArt yerleşimi, düğümlerin nasıl düzenlendiğini ve bağlandığını kontrol eder. Aşağıdaki örnek, `BasicBlockList` değerine sahip bir [SmartArtLayoutType](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/smartartlayouttype/) kullanarak bir SmartArt nesnesi oluşturur, bunu `BasicProcess` değerine değiştirir ve sunumu kaydeder.
+SmartArt yerleşimi, düğümlerin nasıl düzenlendiğini ve bağlandığını kontrol eder. Aşağıdaki örnek, [SmartArtLayoutType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/smartartlayouttype/) `BasicBlockList` değerine sahip bir SmartArt nesnesi oluşturur, bunu `BasicProcess` değerine değiştirir ve sunumu kaydeder. [ShapeCollection.addSmartArt](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/addsmartart/)’a geçirilen konum ve boyut noktalar cinsindendir. Yerleşimi değiştirmek için [SmartArt.setLayout](https://reference.aspose.com/slides/nodejs-java/aspose.slides/smartart/setlayout/) kullanın.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let presentation = new aspose.slides.Presentation();
 try {
-    let smartArt = presentation.getSlides().get_Item(0).getShapes().addSmartArt(
-        10, 10, 400, 300, aspose.slides.SmartArtLayoutType.BasicBlockList);
+    let slide = presentation.getSlides().get_Item(0);
 
+    let smartArt = slide.getShapes().addSmartArt(10, 10, 400, 300, aspose.slides.SmartArtLayoutType.BasicBlockList);
     smartArt.setLayout(aspose.slides.SmartArtLayoutType.BasicProcess);
 
-    presentation.save("ChangeSmartArtLayout_out.pptx", aspose.slides.SaveFormat.Pptx);
+    presentation.save("ChangeSmartArtLayout.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
+## **SmartArt Düğümünün Gizli Olup Olmadığını Kontrol Et**
 
-## **Bir SmartArt Düğümünün Gizli Olup Olmadığını Kontrol Et**
+[SmartArtNode.isHidden](https://reference.aspose.com/slides/nodejs-java/aspose.slides/smartartnode/ishidden/) düğümün SmartArt veri modelinde gizli olup olmadığını gösterir. Seçilen yerleşim, düğümü görünür diyagram öğesi olarak göstermese bile, gizli düğümler yapıda bulunabilir.
 
-[SmartArtNode.isHidden](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/smartartnode/ishidden/) düğümün SmartArt veri modelinde gizli olup olmadığını gösterir. Seçilen yerleşim gizli düğümleri görünür diyagram öğeleri olarak göstermese bile gizli düğümler yapıda bulunabilir.
-
-Aşağıdaki örnek, `RadialCycle` değerine sahip bir [SmartArtLayoutType](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/smartartlayouttype/) kullanan bir SmartArt nesnesine bir düğüm ekler ve düğümün gizli durumunu kontrol eder.
+Aşağıdaki örnek, [SmartArtLayoutType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/smartartlayouttype/) `RadialCycle` değerini kullanan bir SmartArt nesnesine bir düğüm ekler ve eklenen düğümün gizli durumunu kontrol eder. Düğüm gizli ise bir mesaj yazdırır ve diyagramı kaydeder.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let presentation = new aspose.slides.Presentation();
 try {
-    let smartArt = presentation.getSlides().get_Item(0).getShapes().addSmartArt(
-        10, 10, 400, 300, aspose.slides.SmartArtLayoutType.RadialCycle);
+    let slide = presentation.getSlides().get_Item(0);
 
+    let smartArt = slide.getShapes().addSmartArt(10, 10, 400, 300, aspose.slides.SmartArtLayoutType.RadialCycle);
     let node = smartArt.getAllNodes().addNode();
     let isHidden = node.isHidden();
 
@@ -91,63 +103,111 @@ try {
         console.log("The node is hidden in the SmartArt data model.");
     }
 
-    presentation.save("CheckSmartArtHiddenProperty_out.pptx", aspose.slides.SaveFormat.Pptx);
+    presentation.save("CheckSmartArtHiddenProperty.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
+## **Organizasyon Şeması Yerleşimini Al veya Ayarla**
 
-## **Organizasyon Şeması Düzenini Al veya Ayarla**
+Organizasyon şeması yerleşimi kullanan SmartArt diyagramları için, [SmartArtNode.getOrganizationChartLayout](https://reference.aspose.com/slides/nodejs-java/aspose.slides/smartartnode/getorganizationchartlayout/) ve [SmartArtNode.setOrganizationChartLayout](https://reference.aspose.com/slides/nodejs-java/aspose.slides/smartartnode/setorganizationchartlayout/) alt düğümlerin bir üst düğüm altında nasıl düzenleneceğini tanımlar. Örneğin, seçilen [OrganizationChartLayoutType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/organizationchartlayouttype/) değerine bağlı olarak alt düğümleri soldan, sağdan veya her iki taraftan sarkan şekilde ayarlayabilirsiniz.
 
-Organizasyon şeması yerleşimi kullanan SmartArt diyagramları için [SmartArtNode.getOrganizationChartLayout](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/smartartnode/#getOrganizationChartLayout--) ve [SmartArtNode.setOrganizationChartLayout](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/smartartnode/#setOrganizationChartLayout-int-) alt düğümlerin bir üst düğüm altında nasıl düzenlendiğini tanımlar. Örneğin, seçilen [OrganizationChartLayoutType](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/organizationchartlayouttype/) değerine bağlı olarak alt düğümleri soldan, sağdan veya her iki taraftan asılacak şekilde ayarlayabilirsiniz.
-
-Aşağıdaki örnek bir organizasyon şeması oluşturur ve ilk düğümün yerleşimini [OrganizationChartLayoutType](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/organizationchartlayouttype/) `LeftHanging` değerine ayarlar.
+Aşağıdaki örnek bir organizasyon şeması oluşturur ve ilk düğümün yerleşimini [OrganizationChartLayoutType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/organizationchartlayouttype/) `LeftHanging` değerine ayarlar. Sıfır tabanlı `0` indeksi ilk üst düzey düğümü seçer; alt düğümleri seçilen düzeni kullanır. Değiştirilmiş sunum daha sonra kaydedilir.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let presentation = new aspose.slides.Presentation();
 try {
-    let smartArt = presentation.getSlides().get_Item(0).getShapes().addSmartArt(
-        10, 10, 400, 300, aspose.slides.SmartArtLayoutType.OrganizationChart);
+    let slide = presentation.getSlides().get_Item(0);
 
+    let smartArt = slide.getShapes().addSmartArt(10, 10, 400, 300, aspose.slides.SmartArtLayoutType.OrganizationChart);
     let rootNode = smartArt.getNodes().get_Item(0);
     rootNode.setOrganizationChartLayout(aspose.slides.OrganizationChartLayoutType.LeftHanging);
 
-    presentation.save("OrganizationChartLayout_out.pptx", aspose.slides.SaveFormat.Pptx);
+    presentation.save("OrganizationChartLayout.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
+## **Resimli Organizasyon Şeması Oluştur**
 
-## **Resim Organizasyon Şeması Oluştur**
-
-Resim organizasyon şeması, görüntü yer tutucuları içeren hiyerarşi diyagramları için tasarlanmış bir SmartArt yerleşimidir. SmartArt nesnesini bir slayta eklerken [SmartArtLayoutType](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/smartartlayouttype/) `PictureOrganizationChart` değerini kullanın.
+Resimli organizasyon şeması, görüntü yer tutucuları içeren hiyerarşi diyagramları için tasarlanmış bir SmartArt yerleşimidir. Bir slayta SmartArt nesnesi eklerken [SmartArtLayoutType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/smartartlayouttype/) `PictureOrganizationChart` değerini kullanın. Bu örnek, görüntü yer tutucuları içeren bir diyagramı kaydeder; yer tutuculara görüntü eklemez.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let presentation = new aspose.slides.Presentation();
 try {
-    let smartArt = presentation.getSlides().get_Item(0).getShapes().addSmartArt(
-        0, 0, 400, 400, aspose.slides.SmartArtLayoutType.PictureOrganizationChart);
+    let slide = presentation.getSlides().get_Item(0);
 
-    presentation.save("PictureOrganizationChart_out.pptx", aspose.slides.SaveFormat.Pptx);
+    let smartArt = slide.getShapes().addSmartArt(0, 0, 400, 400, aspose.slides.SmartArtLayoutType.PictureOrganizationChart);
+
+    presentation.save("PictureOrganizationChart.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+## **Eski Diyagramları Şekil Gruplarına Dönüştür**
+
+Mevcut bir sunumu modernleştirirken, PowerPoint 97–2003’te oluşturulmuş bir organizasyon şemasını güncellemeniz gerekebilir. Aspose.Slides bu eski diyagramları [LegacyDiagram](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legacydiagram/) nesneleri olarak temsil eder. Bir diyagramı, bireysel görsel öğeleri düzenleyebilmek için şekil grubu haline dönüştürmek üzere [LegacyDiagram.convertToGroupShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legacydiagram/converttogroupshape/) kullanın. Ayrıntılar için [LegacyDiagram API Reference](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legacydiagram/) adresine bakın.
+
+Dönüştürme, orijinal diyagramı kaldırmadan şekil koleksiyonuna yeni bir grup ekler. Dönüşüm başarılı olduktan sonra, kopya içeriği önlemek için orijinali [ShapeCollection.remove](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/remove/) ile kaldırın. Şekil ekleme ve kaldırma işlemleri yinelemeyi bozmasın diye, dönüştürmeden önce eski diyagramları bir listeye toplayın.
+
+Aşağıdaki örnek bir sunumu açar, her slaytı arar, diyagramları şekil gruplarına dönüştürür ve güncellenmiş sunumu PPTX olarak kaydeder.
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation("legacy-diagrams.ppt");
+try {
+    let slides = presentation.getSlides();
+    for (let slideIndex = 0; slideIndex < slides.size(); slideIndex++) {
+        let slide = slides.get_Item(slideIndex);
+        let shapes = slide.getShapes();
+        let legacyDiagrams = [];
+        for (let shapeIndex = 0; shapeIndex < shapes.size(); shapeIndex++) {
+            let shape = shapes.get_Item(shapeIndex);
+            if (java.instanceOf(shape, "com.aspose.slides.ILegacyDiagram")) {
+                legacyDiagrams.push(shape);
+            }
+        }
+
+        for (let legacyDiagram of legacyDiagrams) {
+            let groupShape = legacyDiagram.convertToGroupShape();
+
+            if (groupShape != null) {
+                shapes.remove(legacyDiagram);
+            }
+        }
+    }
+
+    presentation.save("modernized.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **SSS**
+Kaydedilen sunum, dönüştürülmüş eski diyagramların yerine düzenlenebilir şekil grupları içerir; yanlarında orijinal diyagram kalmaz. PPTX'i PowerPoint'te açarak her grup içindeki metin, doldurma veya konum gibi bireysel öğeleri düzenleyebilirsiniz.
 
-**SmartArt RTL dilleri için yansıtma veya ters çevirme destekliyor mu?**
+## **FAQ**
 
-Evet. Seçilen SmartArt yerleşimi ters çevirmeyi desteklediğinde, [SmartArt.setReversed](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/smartart/setreversed/) yöntemi diyagram yönünü soldan sağa’dan sağdan sola'ya değiştirir veya geri çevirir.
+**SmartArt, RTL dilleri için yansıtma veya ters çevirme destekliyor mu?**
+
+Evet. Seçili SmartArt yerleşimi ters çevirme destekliyorsa, [SmartArt.setReversed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/smartart/setreversed/) yöntemi diyagram yönünü soldan sağa’dan sağdan sola’ya veya geri çevirir.
 
 **SmartArt'ı aynı slayta ya da başka bir sunuma biçimlendirmeyi koruyarak nasıl kopyalarım?**
 
-SmartArt şekli [Şekli klonlayarak](/slides/tr/nodejs-java/shape-manipulations/) [ShapeCollection.addClone](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/shapecollection/addclone/) ile ya da SmartArt'ı içeren tüm slaytı [klonlayarak](/slides/tr/nodejs-java/clone-slides/) kopyalayabilirsiniz. Her iki yaklaşım da boyut, konum ve biçimlendirmeyi korur.
+SmartArt şekli, [ShapeCollection.addClone](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/addclone/) ile [clone the SmartArt shape](/slides/tr/nodejs-java/shape-manipulations/) veya SmartArt içeren tüm slaytı [clone the whole slide](/slides/tr/nodejs-java/clone-slides/) ile kopyalayabilirsiniz. Her iki yaklaşım da boyut, konum ve biçimlendirmeyi korur.
 
-**SmartArt'ı önizleme veya web dışa aktarımı için bir raster görüntü olarak nasıl oluştururum?**
+**SmartArt'ı önizleme veya web dışa aktarımı için bir raster görüntüye nasıl render ederim?**
 
-Slaytı veya tüm sunumu PNG ya da JPEG olarak [slaytı render ederek](/slides/tr/nodejs-java/convert-powerpoint-to-png/) dışa aktarabilirsiniz. SmartArt, slaytın bir parçası olarak renderlenir.
+[Slaytı Render Et](/slides/tr/nodejs-java/convert-powerpoint-to-png/) veya tüm sunumu PNG veya JPEG'e dönüştürün. SmartArt, slaytın bir parçası olarak render edilir.
 
-**Bir slaytta birden fazla SmartArt nesnesi varsa belirli birini nasıl bulabilirim?**
+**Bir slaytta birden fazla SmartArt nesnesi varsa belirli bir SmartArt nesnesini nasıl bulabilirim?**
 
-SmartArt şekline belirgin bir [Shape.setAlternativeText](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/shape/setalternativetext/) ya da [Shape.setName](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/shape/setname/) değeri atayın, bu değeri [BaseSlide.getShapes](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/baseslide/#getShapes) içinde arayın ve ardından eşleşen şeklin bir [SmartArt](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/smartart/) olduğundan emin olun.
+SmartArt şekline ayırt edici bir alternatif metin veya ad atamak için [Shape.setAlternativeText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/setalternativetext/) veya [Shape.setName](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/setname/) kullanın, bu değeri [BaseSlide.getShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseslide/#getShapes) içinde arayın ve eşleşen şeklin bir [SmartArt](https://reference.aspose.com/slides/nodejs-java/aspose.slides/smartart/) olduğundan emin olun.

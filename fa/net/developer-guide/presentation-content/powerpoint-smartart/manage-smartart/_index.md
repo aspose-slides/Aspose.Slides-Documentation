@@ -1,5 +1,5 @@
 ---
-title: مدیریت SmartArt در ارائه‌های PowerPoint در .NET
+title: مدیریت SmartArt در ارائه‌های PowerPoint با .NET
 linktitle: مدیریت SmartArt
 type: docs
 weight: 10
@@ -8,7 +8,7 @@ keywords:
 - SmartArt
 - متن SmartArt
 - نوع طرح‌بندی
-- ویژگی مخفی
+- خاصیت مخفی
 - نمودار سازمانی
 - نمودار سازمانی تصویری
 - PowerPoint
@@ -16,32 +16,34 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "یاد بگیرید چگونه با Aspose.Slides برای .NET SmartArt پاورپوینت را با نمونه‌های کد واضح C# بسازید و ویرایش کنید تا طراحی اسلاید و خودکارسازی را تسریع کنید."
+description: "با استفاده از نمونه‌های کد واضح C#، یاد بگیرید که چگونه SmartArt PowerPoint را با Aspose.Slides برای .NET بسازید و ویرایش کنید و فرآیند طراحی اسلاید و خودکارسازی را سرعت بخشید."
 ---
 ## **مرور کلی**
 
-SmartArt یک نمودار PowerPoint است که از گره‌ها، اشکال گره‌ها و یک طرح‌بندی ساخته می‌شود. با Aspose.Slides برای .NET می‌توانید SmartArt ایجاد کنید، متن را از گره‌های آن بخوانید، طرح‌بندی آن را تغییر دهید، گره‌های مخفی را بررسی کنید، طرح‌بندی نمودارهای سازمانی را پیکربندی کنید و نمودارهای سازمانی تصویری بسازید.
+SmartArt یک نمودار PowerPoint است که از گره‌ها، شکل‌های گره و یک طرح ساخته شده است. با Aspose.Slides برای .NET، می‌توانید SmartArt ایجاد کنید، متن را از گره‌های آن بخوانید، طرح آن را تغییر دهید، گره‌های مخفی را بررسی کنید، طرح‌های نمودار سازمانی را پیکربندی کنید و نمودارهای سازمانی تصویری ایجاد کنید.
 
 ## **دریافت متن از یک شیء SmartArt**
 
-یک گره SmartArt می‌تواند یک یا چند شکل داشته باشد. برای خواندن متن قابل مشاهده، از طریق [ISmartArt.AllNodes](https://reference.aspose.com/slides/fa/net/aspose.slides.smartart/ismartart/allnodes/) پیمایش کنید، سپس [ITextFrame](https://reference.aspose.com/slides/fa/net/aspose.slides/itextframe/) برگشتی توسط [ISmartArtShape.TextFrame](https://reference.aspose.com/slides/fa/net/aspose.slides.smartart/ismartartshape/textframe/) را بخوانید.
+یک گره SmartArt می‌تواند یک یا چند شکل داشته باشد. برای خواندن متن از شکل‌های گره، از طریق [ISmartArt.AllNodes](https://reference.aspose.com/slides/net/aspose.slides.smartart/ismartart/allnodes/) مرور کنید، سپس [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/) برگردانده شده توسط [ISmartArtShape.TextFrame](https://reference.aspose.com/slides/net/aspose.slides.smartart/ismartartshape/textframe/) را بخوانید.
 
-```c#
-using (Presentation presentation = new Presentation("sample.pptx"))
+این مثال به یک ارائه با حداقل یک اسلاید و یک شیء SmartArt به عنوان اولین شکل در آن اسلاید نیاز دارد. هر فریم متن موجود را در کنسول چاپ می‌کند.
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.SmartArt;
+
+using var presentation = new Presentation("sample.pptx");
+var slide = presentation.Slides[0];
+
+var smartArt = (ISmartArt) slide.Shapes[0];
+foreach (var node in smartArt.AllNodes)
 {
-    ISlide slide = presentation.Slides[0];
-
-    if (slide.Shapes[0] is ISmartArt smartArt)
+    foreach (var nodeShape in node.Shapes)
     {
-        foreach (ISmartArtNode node in smartArt.AllNodes)
+        if (nodeShape.TextFrame != null)
         {
-            foreach (ISmartArtShape nodeShape in node.Shapes)
-            {
-                if (nodeShape.TextFrame != null)
-                {
-                    Console.WriteLine(nodeShape.TextFrame.Text);
-                }
-            }
+            Console.WriteLine(nodeShape.TextFrame.Text);
         }
     }
 }
@@ -49,91 +51,135 @@ using (Presentation presentation = new Presentation("sample.pptx"))
 
 ## **تغییر نوع طرح‌بندی یک شیء SmartArt**
 
-طرح‌بندی SmartArt تعیین می‌کند گره‌ها چگونه چینیده و به هم متصل می‌شوند. مثال زیر یک شیء SmartArt با مقدار [SmartArtLayoutType](https://reference.aspose.com/slides/fa/net/aspose.slides.smartart/smartartlayouttype/) `BasicBlockList` ایجاد می‌کند، آن را به مقدار `BasicProcess` تغییر می‌دهد و ارائه را ذخیره می‌کند.
+طرح‌بندی SmartArt کنترل می‌کند که گره‌ها چگونه چیده و متصل شوند. مثال زیر یک شیء SmartArt با مقدار `BasicBlockList` از [SmartArtLayoutType](https://reference.aspose.com/slides/net/aspose.slides.smartart/smartartlayouttype/) ایجاد می‌کند، آن را به مقدار `BasicProcess` تغییر می‌دهد و ارائه را ذخیره می‌کند. موقعیت و اندازه‌ای که به [IShapeCollection.AddSmartArt](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addsmartart/) پاس داده می‌شود بر حسب پوینت اندازه‌گیری می‌شود. برای تغییر طرح‌بندی، [ISmartArt.Layout](https://reference.aspose.com/slides/net/aspose.slides.smartart/ismartart/layout/) را تنظیم کنید.
 
-```c#
-using (Presentation presentation = new Presentation())
-{
-    ISmartArt smartArt = presentation.Slides[0].Shapes.AddSmartArt(
-        10, 10, 400, 300, SmartArtLayoutType.BasicBlockList);
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.SmartArt;
 
-    smartArt.Layout = SmartArtLayoutType.BasicProcess;
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    presentation.Save("ChangeSmartArtLayout_out.pptx", SaveFormat.Pptx);
-}
+var smartArt = slide.Shapes.AddSmartArt(10, 10, 400, 300, SmartArtLayoutType.BasicBlockList);
+smartArt.Layout = SmartArtLayoutType.BasicProcess;
+
+presentation.Save("ChangeSmartArtLayout.pptx", SaveFormat.Pptx);
 ```
 
-## **بررسی اینکه آیا یک گره SmartArt مخفی است یا خیر**
+## **بررسی اینکه آیا یک گره SmartArt مخفی است**
 
-[ISmartArtNode.IsHidden](https://reference.aspose.com/slides/fa/net/aspose.slides.smartart/ismartartnode/ishidden/) نشان می‌دهد آیا گره در مدل داده SmartArt مخفی است یا نه. گره‌های مخفی می‌توانند در ساختار وجود داشته باشند حتی زمانی که طرح‌بندی انتخاب شده آن‌ها را به عنوان عناصر نموداری قابل مشاهده نمایش نمی‌دهد.
+[ISmartArtNode.IsHidden](https://reference.aspose.com/slides/net/aspose.slides.smartart/ismartartnode/ishidden/) نشان می‌دهد که آیا گره در مدل داده‌های SmartArt مخفی است یا خیر. گره‌های مخفی می‌توانند در ساختار وجود داشته باشند حتی زمانی که طرح‌بندی انتخاب‌شده آن‌ها را به عنوان عناصر نمودار قابل مشاهده نمایش نمی‌دهد.
 
-مثال زیر یک گره به یک شیء SmartArt که از مقدار [SmartArtLayoutType](https://reference.aspose.com/slides/fa/net/aspose.slides.smartart/smartartlayouttype/) `RadialCycle` استفاده می‌کند، اضافه می‌کند و وضعیت مخفی بودن گره را بررسی می‌نماید.
+مثال زیر یک گره به شیء SmartArt که از مقدار `RadialCycle` از [SmartArtLayoutType](https://reference.aspose.com/slides/net/aspose.slides.smartart/smartartlayouttype/) استفاده می‌کند اضافه می‌کند و وضعیت مخفی بودن گره اضافه‌شده را بررسی می‌کند. اگر گره مخفی باشد پیامی چاپ می‌کند و نمودار را ذخیره می‌کند.
 
-```c#
-using (Presentation presentation = new Presentation())
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.SmartArt;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var smartArt = slide.Shapes.AddSmartArt(10, 10, 400, 300, SmartArtLayoutType.RadialCycle);
+var node = smartArt.AllNodes.AddNode();
+var isHidden = node.IsHidden;
+
+if (isHidden)
 {
-    ISmartArt smartArt = presentation.Slides[0].Shapes.AddSmartArt(
-        10, 10, 400, 300, SmartArtLayoutType.RadialCycle);
-
-    ISmartArtNode node = smartArt.AllNodes.AddNode();
-    bool isHidden = node.IsHidden;
-
-    if (isHidden)
-    {
-        Console.WriteLine("The node is hidden in the SmartArt data model.");
-    }
-
-    presentation.Save("CheckSmartArtHiddenProperty_out.pptx", SaveFormat.Pptx);
+    Console.WriteLine("The node is hidden in the SmartArt data model.");
 }
+
+presentation.Save("CheckSmartArtHiddenProperty.pptx", SaveFormat.Pptx);
 ```
 
 ## **دریافت یا تنظیم طرح‌بندی نمودار سازمانی**
 
-برای نمودارهای SmartArt که از طرح‌بندی نمودار سازمانی استفاده می‌کنند، [ISmartArtNode.OrganizationChartLayout](https://reference.aspose.com/slides/fa/net/aspose.slides.smartart/ismartartnode/organizationchartlayout/) تعیین می‌کند گره‌های فرزند تحت یک گره والد چگونه چینیده شوند. برای مثال می‌توانید گره‌های فرزند را طوری تنظیم کنید که از سمت چپ، راست یا هر دو سمت آویزان شوند، بسته به مقدار انتخاب شده در [OrganizationChartLayoutType](https://reference.aspose.com/slides/fa/net/aspose.slides.smartart/organizationchartlayouttype/).
+برای نمودارهای SmartArt که از طرح‌بندی نمودار سازمانی استفاده می‌کنند، [ISmartArtNode.OrganizationChartLayout](https://reference.aspose.com/slides/net/aspose.slides.smartart/ismartartnode/organizationchartlayout/) تعریف می‌کند که گره‌های فرزند تحت یک گره والد چگونه چیدمان شوند. به عنوان مثال، می‌توانید گره‌های فرزند را طوری تنظیم کنید که از سمت چپ، راست یا هر دو طرف آویز شوند، بسته به [OrganizationChartLayoutType](https://reference.aspose.com/slides/net/aspose.slides.smartart/organizationchartlayouttype/) انتخاب‌شده.
 
-مثال زیر یک نمودار سازمانی ایجاد می‌کند و طرح‌بندی گره اول را به مقدار [OrganizationChartLayoutType](https://reference.aspose.com/slides/fa/net/aspose.slides.smartart/organizationchartlayouttype/) `LeftHanging` تنظیم می‌نماید.
+مثال زیر یک نمودار سازمانی ایجاد می‌کند و طرح‌بندی گره اول را به مقدار `LeftHanging` از [OrganizationChartLayoutType](https://reference.aspose.com/slides/net/aspose.slides.smartart/organizationchartlayouttype/) تنظیم می‌کند. اندیس صفر پایه `0` گره سطح بالای اول را انتخاب می‌کند؛ گره‌های فرزند آن از چیدمان انتخاب‌شده استفاده می‌کنند. سپس ارائه اصلاح‌شده ذخیره می‌شود.
 
-```c#
-using (Presentation presentation = new Presentation())
-{
-    ISmartArt smartArt = presentation.Slides[0].Shapes.AddSmartArt(
-        10, 10, 400, 300, SmartArtLayoutType.OrganizationChart);
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.SmartArt;
 
-    ISmartArtNode rootNode = smartArt.Nodes[0];
-    rootNode.OrganizationChartLayout = OrganizationChartLayoutType.LeftHanging;
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    presentation.Save("OrganizationChartLayout_out.pptx", SaveFormat.Pptx);
-}
+var smartArt = slide.Shapes.AddSmartArt(10, 10, 400, 300, SmartArtLayoutType.OrganizationChart);
+var rootNode = smartArt.Nodes[0];
+rootNode.OrganizationChartLayout = OrganizationChartLayoutType.LeftHanging;
+
+presentation.Save("OrganizationChartLayout.pptx", SaveFormat.Pptx);
 ```
 
-## **ایجاد نمودار سازمانی تصویری**
+## **ایجاد یک نمودار سازمانی تصویری**
 
-نمودار سازمانی تصویری یک طرح‌بندی SmartArt است که برای نمودارهای سلسله‌مراتبی شامل محل‌نگهدارهای تصویر طراحی شده است. هنگام افزودن شیء SmartArt به یک اسلاید، مقدار [SmartArtLayoutType](https://reference.aspose.com/slides/fa/net/aspose.slides.smartart/smartartlayouttype/) `PictureOrganizationChart` را استفاده کنید.
+نمودار سازمانی تصویری یک طرح‌بندی SmartArt است که برای نمودارهای سلسله‌مراتبی شامل جای‌دارهای تصویر طراحی شده است. هنگام افزودن شیء SmartArt به اسلاید، از مقدار `PictureOrganizationChart` از [SmartArtLayoutType](https://reference.aspose.com/slides/net/aspose.slides.smartart/smartartlayouttype/) استفاده کنید. این مثال یک نمودار با جای‌دارهای تصویر ذخیره می‌کند؛ اما جای‌دارها را با تصویر پر نمی‌کند.
 
-```c#
-using (Presentation presentation = new Presentation())
-{
-    ISmartArt smartArt = presentation.Slides[0].Shapes.AddSmartArt(
-        0, 0, 400, 400, SmartArtLayoutType.PictureOrganizationChart);
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.SmartArt;
 
-    presentation.Save("PictureOrganizationChart_out.pptx", SaveFormat.Pptx);
-}
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var smartArt = slide.Shapes.AddSmartArt(0, 0, 400, 400, SmartArtLayoutType.PictureOrganizationChart);
+
+presentation.Save("PictureOrganizationChart.pptx", SaveFormat.Pptx);
 ```
 
-## **FAQ**
+## **تبدیل نمودارهای قدیمی به گروه‌هایی از شکل‌ها**
 
-**آیا SmartArt از آینه‌سازی یا معکوس کردن برای زبان‌های راست‌به‌چپ (RTL) پشتیبانی می‌کند؟**
+هنگام به‌روز رسانی یک ارائه موجود، ممکن است نیاز داشته باشید یک نمودار سازمانی که ابتدا در PowerPoint 97–2003 ایجاد شده را به‌روزرسانی کنید. Aspose.Slides این نمودارهای قدیمی را به عنوان اشیاء [ILegacyDiagram](https://reference.aspose.com/slides/net/aspose.slides/ilegacydiagram/) نمایش می‌دهد. برای تبدیل یک نمودار به گروهی از شکل‌ها و ویرایش عناصر بصری جداگانه، از [LegacyDiagram.ConvertToGroupShape](https://reference.aspose.com/slides/net/aspose.slides/legacydiagram/converttogroupshape/) استفاده کنید. برای جزئیات به [LegacyDiagram API Reference](https://reference.aspose.com/slides/net/aspose.slides/legacydiagram/) مراجعه کنید.
 
-بله. ویژگی [IsReversed](https://reference.aspose.com/slides/fa/net/aspose.slides.smartart/smartart/isreversed/) جهت نمودار را از چپ به راست به راست به چپ یا بالعکس تغییر می‌دهد، هنگامی که طرح‌بندی SmartArt انتخاب شده از معکوس کردن پشتیبانی کند.
+تبدیل یک گروه جدید به مجموعه شکل‌ها اضافه می‌کند بدون اینکه نمودار اصلی حذف شود. پس از تبدیل موفق، برای جلوگیری از محتوای تکراری، اصل را با [IShapeCollection.Remove](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/remove/) حذف کنید. پیش از تبدیل، نمودارهای قدیمی را در یک آرایه جمع‌آوری کنید تا افزودن و حذف شکل‌ها از تکرار جلوگیری کند.
 
-**چگونه می‌توانم SmartArt را در همان اسلاید یا در ارائه دیگری کپی کنم در حالی که قالب‌بندی حفظ شود؟**
+مثال زیر یک ارائه را باز می‌کند، هر اسلاید را جستجو می‌کند، نمودارها را به گروه‌هایی از شکل‌ها تبدیل می‌کند و ارائه بروز‌شده را به صورت PPTX ذخیره می‌کند.
 
-می‌توانید با استفاده از [کلون کردن شکل SmartArt](/slides/fa/net/shape-manipulations/) با [ShapeCollection.AddClone](https://reference.aspose.com/slides/fa/net/aspose.slides/shapecollection/addclone/) یا با [کلون کردن کل اسلاید](/slides/fa/net/clone-slides/) که شامل SmartArt است، اقدام کنید. هر دو روش اندازه، موقعیت و قالب‌بندی را حفظ می‌نمایند.
+```csharp
+using System.Linq;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-**چگونه می‌توانم SmartArt را به تصویر رستر برای پیش‌نمایش یا خروجی وب رندر کنم؟**
+using var presentation = new Presentation("legacy-diagrams.ppt");
+
+foreach (var slide in presentation.Slides)
+{
+    var legacyDiagrams = slide.Shapes.OfType<ILegacyDiagram>().ToArray();
+    foreach (var legacyDiagram in legacyDiagrams)
+    {
+        var groupShape = legacyDiagram.ConvertToGroupShape();
+
+        if (groupShape != null)
+        {
+            slide.Shapes.Remove(legacyDiagram);
+        }
+    }
+}
+
+presentation.Save("modernized.pptx", SaveFormat.Pptx);
+```
+
+ارائه ذخیره‌شده شامل گروه‌های ویرایش‌پذیر شکل‌ها به جای نمودارهای قدیمی تبدیل‌شده است و دیگر هیچ نمودار اصلی در کنار آن‌ها وجود ندارد. PPTX را در PowerPoint باز کنید تا عناصر جداگانه در هر گروه، مانند متن، پرکننده یا موقعیتشان را ویرایش کنید.
+
+## **پرسش‌های متداول**
+
+**آیا SmartArt از آینه‌سازی یا وارونه‌سازی برای زبان‌های راست به چپ پشتیبانی می‌کند؟**
+
+بله. خصوصیت [IsReversed](https://reference.aspose.com/slides/net/aspose.slides.smartart/smartart/isreversed/) جهت نمودار را از چپ به راست به راست به چپ یا برعکس می‌کند، زمانی که طرح‌بندی SmartArt انتخاب‌شده از وارونه‌سازی پشتیبانی کند.
+
+**چگونه می‌توانم SmartArt را به همان اسلاید یا به ارائه دیگری کپی کنم در حالی که قالب‌بندی حفظ شود؟**
+
+شما می‌توانید [کپی‌کردن شکل SmartArt](/slides/fa/net/shape-manipulations/) را با [ShapeCollection.AddClone](https://reference.aspose.com/slides/net/aspose.slides/shapecollection/addclone/) یا [کپی‌کردن کل اسلاید](/slides/fa/net/clone-slides/) که شامل SmartArt است، انجام دهید. هر دو روش اندازه، موقعیت و قالب‌بندی را حفظ می‌کند.
+
+**چگونه می‌توانم SmartArt را به تصویر رستر برای پیش‌نمایش یا صادرات وب رندر کنم؟**
 
 [رندر اسلاید](/slides/fa/net/convert-powerpoint-to-png/) یا کل ارائه را به PNG یا JPEG تبدیل کنید. SmartArt به عنوان بخشی از اسلاید رندر می‌شود.
 
-**چگونه می‌توانم یک شیء SmartArt خاص را در یک اسلاید پیدا کنم اگر چندین مورد وجود داشته باشد؟**
+**چگونه می‌توانم یک شیء SmartArt خاص را در یک اسلاید پیدا کنم اگر چندین مورد موجود باشد؟**
 
-یک مقدار متمایز برای [AlternativeText](https://reference.aspose.com/slides/fa/net/aspose.slides/shape/alternativetext/) یا [Name](https://reference.aspose.com/slides/fa/net/aspose.slides/shape/name/) بر روی شکل SmartArt تنظیم کنید، آن مقدار را در [Slide.Shapes](https://reference.aspose.com/slides/fa/net/aspose.slides/baseslide/shapes/) جستجو کنید و سپس بررسی کنید که شکل یافت‌شده یک [ISmartArt](https://reference.aspose.com/slides/fa/net/aspose.slides.smartart/ismartart/) باشد.
+یک مقدار متمایز برای [AlternativeText](https://reference.aspose.com/slides/net/aspose.slides/shape/alternativetext/) یا [Name](https://reference.aspose.com/slides/net/aspose.slides/shape/name/) روی شکل SmartArt تنظیم کنید، آن مقدار را در [Slide.Shapes](https://reference.aspose.com/slides/net/aspose.slides/baseslide/shapes/) جستجو کنید و سپس بررسی کنید که شکل یافت‌شده یک [ISmartArt](https://reference.aspose.com/slides/net/aspose.slides.smartart/ismartart/) باشد.

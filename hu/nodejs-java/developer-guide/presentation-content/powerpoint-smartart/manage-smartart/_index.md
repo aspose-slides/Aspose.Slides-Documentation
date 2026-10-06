@@ -7,26 +7,31 @@ url: /hu/nodejs-java/manage-smartart/
 keywords:
 - SmartArt
 - SmartArt szöveg
-- elrendezéstípus
+- elrendezés típusa
 - rejtett tulajdonság
 - szervezeti diagram
-- képes szervezeti diagram
+- kép szervezeti diagram
 - PowerPoint
 - prezentáció
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Tanulja meg, hogyan építsen és szerkeszthet PowerPoint SmartArt-ot az Aspose.Slides for Node.js segítségével, tiszta JavaScript kódmintákkal, amelyek felgyorsítják a dia tervezést és az automatizálást."
+description: "Tanulja meg felépíteni és szerkeszteni a PowerPoint SmartArt-ot az Aspose.Slides for Node.js segítségével, egyértelmű JavaScript kódminták használatával, amelyek felgyorsítják a dia tervezését és az automatizálást."
 ---
 ## **Áttekintés**
 
-A SmartArt egy PowerPoint-diagram, amely csomópontokból, csomópont alakzatokból és egy elrendezésből áll. Az Aspose.Slides for Node.js Java-n keresztül segítségével létrehozhatsz SmartArt-ot, kiolvashatod a szöveget a csomópontjaiból, módosíthatod az elrendezését, ellenőrizheted a rejtett csomópontokat, konfigurálhatod a szervezeti diagram elrendezéseket, és létrehozhatsz képes szervezeti diagramokat.
+A SmartArt egy PowerPoint diagram, amely csomópontokból, csomópont alakzatokból és egy elrendezésből áll. Az Aspose.Slides a Node.js számára Java-on keresztül segítségével létrehozhat SmartArt-ot, olvashat szöveget a csomópontjaiból, megváltoztathatja az elrendezését, ellenőrizheti a rejtett csomópontokat, konfigurálhatja a szervezeti diagram elrendezéseket, és létrehozhat kép szervezeti diagramokat.
 
-## **Szöveg lekérése SmartArt objektumból**
+## **Szöveg lekérése egy SmartArt objektumból**
 
-Egy SmartArt csomópont egy vagy több alakzatot tartalmazhat. A látható szöveg beolvasásához iterálj a [SmartArt.getAllNodes](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/smartart/#getAllNodes--) -n, majd olvasd el a [SmartArtShape.getTextFrame](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/smartartshape/#getTextFrame--) által visszaadott [TextFrame](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/textframe/) -t.
+Egy SmartArt csomópont egy vagy több alakzatot tartalmazhat. A csomópont alakzatokból való szöveg olvasásához iteráljon a [SmartArt.getAllNodes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/smartart/getallnodes/), majd olvassa el a [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/) által visszaadott [SmartArtShape.getTextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/smartartshape/gettextframe/).  
+A példához legalább egy diával és egy SmartArt objektummal rendelkező prezentációra van szükség, ahol a SmartArt az első alakzat a dián. Kiírja az összes elérhető szövegkeretet a konzolra.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 let presentation = new aspose.slides.Presentation("sample.pptx");
 try {
     let slide = presentation.getSlides().get_Item(0);
@@ -48,42 +53,49 @@ try {
                 }
             }
         }
+    } else {
+        console.log("The first shape is not a SmartArt object.");
     }
 } finally {
     presentation.dispose();
 }
 ```
 
-## **SmartArt objektum elrendezéstípusának módosítása**
+## **A SmartArt objektum elrendezéstípusának módosítása**
 
-A SmartArt elrendezés határozza meg, hogyan vannak a csomópontok elrendezve és összekapcsolva. A következő példában egy SmartArt objektumot hozunk létre a [SmartArtLayoutType](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/smartartlayouttype/) `BasicBlockList` értékkel, átállítjuk `BasicProcess` értékre, majd mentjük a prezentációt.
+A SmartArt elrendezés szabályozza, hogy a csomópontok hogyan vannak elhelyezve és összekapcsolva. A következő példa egy SmartArt objektumot hoz létre a [SmartArtLayoutType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/smartartlayouttype/) `BasicBlockList` értékkel, átváltja `BasicProcess` értékre, és elmenti a prezentációt. A [ShapeCollection.addSmartArt](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/addsmartart/)‑nak átadott pozíciót és méretet pontban mérik. Használja a [SmartArt.setLayout](https://reference.aspose.com/slides/nodejs-java/aspose.slides/smartart/setlayout/)‑t az elrendezés módosításához.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let presentation = new aspose.slides.Presentation();
 try {
-    let smartArt = presentation.getSlides().get_Item(0).getShapes().addSmartArt(
-        10, 10, 400, 300, aspose.slides.SmartArtLayoutType.BasicBlockList);
+    let slide = presentation.getSlides().get_Item(0);
 
+    let smartArt = slide.getShapes().addSmartArt(10, 10, 400, 300, aspose.slides.SmartArtLayoutType.BasicBlockList);
     smartArt.setLayout(aspose.slides.SmartArtLayoutType.BasicProcess);
 
-    presentation.save("ChangeSmartArtLayout_out.pptx", aspose.slides.SaveFormat.Pptx);
+    presentation.save("ChangeSmartArtLayout.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Ellenőrizd, hogy a SmartArt csomópont rejtett-e**
+## **Ellenőrizze, hogy egy SmartArt csomópont rejtett-e**
 
-[SmartArtNode.isHidden](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/smartartnode/ishidden/) azt jelzi, hogy a csomópont rejtett-e a SmartArt adatmodellben. A rejtett csomópontok létezhetnek a struktúrában akkor is, ha a kiválasztott elrendezés nem jeleníti meg őket látható diagram elemeként.
-
-A következő példa egy csomópontot ad hozzá egy [SmartArtLayoutType](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/smartartlayouttype/) `RadialCycle` értéket használó SmartArt objektumhoz, és ellenőrzi a csomópont rejtett állapotát.
+[SmartArtNode.isHidden](https://reference.aspose.com/slides/nodejs-java/aspose.slides/smartartnode/ishidden/) jelzi, hogy a csomópont rejtett-e a SmartArt adatmodellben. A rejtett csomópontok létezhetnek a struktúrában akkor is, ha a kiválasztott elrendezés nem jeleníti meg őket látható diagram elemekként.  
+A következő példa egy csomópontot ad egy SmartArt objektumhoz, amely a [SmartArtLayoutType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/smartartlayouttype/) `RadialCycle` értéket használ, és ellenőrzi a hozzáadott csomópont rejtett állapotát. Üzenetet ír ki, ha a csomópont rejtett, és elmenti a diagramot.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let presentation = new aspose.slides.Presentation();
 try {
-    let smartArt = presentation.getSlides().get_Item(0).getShapes().addSmartArt(
-        10, 10, 400, 300, aspose.slides.SmartArtLayoutType.RadialCycle);
+    let slide = presentation.getSlides().get_Item(0);
 
+    let smartArt = slide.getShapes().addSmartArt(10, 10, 400, 300, aspose.slides.SmartArtLayoutType.RadialCycle);
     let node = smartArt.getAllNodes().addNode();
     let isHidden = node.isHidden();
 
@@ -91,63 +103,107 @@ try {
         console.log("The node is hidden in the SmartArt data model.");
     }
 
-    presentation.save("CheckSmartArtHiddenProperty_out.pptx", aspose.slides.SaveFormat.Pptx);
+    presentation.save("CheckSmartArtHiddenProperty.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Szervezeti diagram elrendezés lekérése vagy beállítása**
+## **A szervezeti diagram elrendezésének lekérdezése vagy beállítása**
 
-Azoknál a SmartArt diagramoknál, amelyek szervezeti diagram elrendezést használnak, a [SmartArtNode.getOrganizationChartLayout](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/smartartnode/#getOrganizationChartLayout--) és a [SmartArtNode.setOrganizationChartLayout](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/smartartnode/#setOrganizationChartLayout-int-) határozzák meg, hogy a gyermek csomópontok hogyan rendeződnek egy szülő csomópont alatt. Például beállíthatod, hogy a gyermek csomópontok balról, jobbról vagy mindkét oldalról lógjanak, a kiválasztott [OrganizationChartLayoutType](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/organizationchartlayouttype/) függvényében.
-
-A következő példa egy szervezeti diagramot hoz létre, és az első csomópont elrendezését a [OrganizationChartLayoutType](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/organizationchartlayouttype/) `LeftHanging` értékre állítja.
+A szervezeti diagram elrendezést használó SmartArt diagramok esetén a [SmartArtNode.getOrganizationChartLayout](https://reference.aspose.com/slides/nodejs-java/aspose.slides/smartartnode/getorganizationchartlayout/) és a [SmartArtNode.setOrganizationChartLayout](https://reference.aspose.com/slides/nodejs-java/aspose.slides/smartartnode/setorganizationchartlayout/) határozza meg, hogy a gyermekcsomópontok hogyan helyezkednek el egy szülőcsomópont alatt. Például beállíthatja, hogy a gyermekcsomópontok balról, jobbról vagy mindkét oldalról függjenek, a kiválasztott [OrganizationChartLayoutType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/organizationchartlayouttype/) függvényében.  
+A következő példa létrehoz egy szervezeti diagramot, és az első csomópont elrendezését a [OrganizationChartLayoutType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/organizationchartlayouttype/) `LeftHanging` értékre állítja. A 0‑al kezdődő index `0` az első felső szintű csomópontot választja ki; annak gyermekcsomópontjai a kiválasztott elrendezést használják. A módosított prezentációt ezután elmenti.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let presentation = new aspose.slides.Presentation();
 try {
-    let smartArt = presentation.getSlides().get_Item(0).getShapes().addSmartArt(
-        10, 10, 400, 300, aspose.slides.SmartArtLayoutType.OrganizationChart);
+    let slide = presentation.getSlides().get_Item(0);
 
+    let smartArt = slide.getShapes().addSmartArt(10, 10, 400, 300, aspose.slides.SmartArtLayoutType.OrganizationChart);
     let rootNode = smartArt.getNodes().get_Item(0);
     rootNode.setOrganizationChartLayout(aspose.slides.OrganizationChartLayoutType.LeftHanging);
 
-    presentation.save("OrganizationChartLayout_out.pptx", aspose.slides.SaveFormat.Pptx);
+    presentation.save("OrganizationChartLayout.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Képes szervezeti diagram létrehozása**
+## **Kép szervezeti diagram létrehozása**
 
-A képes szervezeti diagram egy olyan SmartArt elrendezés, amely hierarchia diagramokhoz készült, és képpel helyettesítőket tartalmaz. Használd a [SmartArtLayoutType](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/smartartlayouttype/) `PictureOrganizationChart` értéket, amikor a SmartArt objektumot egy diára helyezed.
+A kép szervezeti diagram egy olyan SmartArt elrendezés, amely hierarchikus diagramokhoz készült, és képhelyeket tartalmaz. Használja a [SmartArtLayoutType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/smartartlayouttype/) `PictureOrganizationChart` értéket a SmartArt objektum diára való hozzáadásakor. Ez a példa egy diagramot ment el képhelyekkel; a helyőrzőket nem tölti fel képekkel.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let presentation = new aspose.slides.Presentation();
 try {
-    let smartArt = presentation.getSlides().get_Item(0).getShapes().addSmartArt(
-        0, 0, 400, 400, aspose.slides.SmartArtLayoutType.PictureOrganizationChart);
+    let slide = presentation.getSlides().get_Item(0);
 
-    presentation.save("PictureOrganizationChart_out.pptx", aspose.slides.SaveFormat.Pptx);
+    let smartArt = slide.getShapes().addSmartArt(0, 0, 400, 400, aspose.slides.SmartArtLayoutType.PictureOrganizationChart);
+
+    presentation.save("PictureOrganizationChart.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
+
+## **Örökölt diagramok átalakítása alakzatcsoportokká**
+
+Egy meglévő prezentáció modernizálásakor szükség lehet egy eredetileg PowerPoint 97–2003-ban létrehozott szervezeti diagram frissítésére. Az Aspose.Slides ezeket az örökölt diagramokat [LegacyDiagram](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legacydiagram/) objektumokként jeleníti meg. Használja a [LegacyDiagram.convertToGroupShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legacydiagram/converttogroupshape/)‑t a diagram alakzatcsoportba konvertálásához, hogy egyes vizuális elemeket szerkeszthessen. A részletekért tekintse meg a [LegacyDiagram API Reference](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legacydiagram/).  
+A konverzió egy új csoportot ad az alakzateloszláshoz anélkül, hogy eltávolítaná az eredeti diagramot. Sikeres konverzió után távolítsa el az eredetit a [ShapeCollection.remove](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/remove/) segítségével, hogy elkerülje a duplikált tartalmat. Gyűjtse össze az örökölt diagramokat egy listába a konvertálás előtt, hogy az alakzatok hozzáadása és eltávolítása ne szakítsa meg az iterációt.  
+A következő példa megnyit egy prezentációt, minden diát keres, a diagramokat alakzatcsoportokká konvertálja, és elmenti a frissített prezentációt PPTX formátumban.
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation("legacy-diagrams.ppt");
+try {
+    let slides = presentation.getSlides();
+    for (let slideIndex = 0; slideIndex < slides.size(); slideIndex++) {
+        let slide = slides.get_Item(slideIndex);
+        let shapes = slide.getShapes();
+        let legacyDiagrams = [];
+        for (let shapeIndex = 0; shapeIndex < shapes.size(); shapeIndex++) {
+            let shape = shapes.get_Item(shapeIndex);
+            if (java.instanceOf(shape, "com.aspose.slides.ILegacyDiagram")) {
+                legacyDiagrams.push(shape);
+            }
+        }
+
+        for (let legacyDiagram of legacyDiagrams) {
+            let groupShape = legacyDiagram.convertToGroupShape();
+
+            if (groupShape != null) {
+                shapes.remove(legacyDiagram);
+            }
+        }
+    }
+
+    presentation.save("modernized.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Az elmentett prezentáció szerkeszthető alakzatcsoportokat tartalmaz az átalakított örökölt diagramok helyén, az eredeti diagramok már nem maradnak mellettük. Nyissa meg a PPTX-et a PowerPointban, hogy szerkessze az egyes csoportok elemeit, például a szöveget, a kitöltést vagy a pozíciót.
 
 ## **GYIK**
 
-**A SmartArt támogatja a tükrözést vagy a visszafordítást RTL nyelvek esetén?**
+**Támogatja a SmartArt a tükrözést vagy a visszafordítást RTL nyelvek esetén?**  
+Igen. A [SmartArt.setReversed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/smartart/setreversed/) metódus megfordítja a diagram irányát balról jobbra és jobbról balra, vagy vissza, ha a kiválasztott SmartArt elrendezés támogatja a visszafordítást.
 
-Igen. A [SmartArt.setReversed](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/smartart/setreversed/) metódus a diagram irányát balról jobbra és jobbról balra, vagy vissza, cseréli, ha a kiválasztott SmartArt elrendezés támogatja a visszafordítást.
+**Hogyan másolhatom a SmartArt-ot ugyanarra a diára vagy egy másik prezentációba, miközben megőrzöm a formázást?**  
+A [SmartArt alakzat klónozásával](/slides/hu/nodejs-java/shape-manipulations/) a [ShapeCollection.addClone](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/addclone/) vagy a [SmartArt-ot tartalmazó egész dia klónozásával](/slides/hu/nodejs-java/clone-slides/) másolhatja. Mindkét módszer megőrzi a méretet, a pozíciót és a formázást.
 
-**Hogyan másolhatom a SmartArt-ot ugyanarra a diára vagy egy másik prezentációba a formázás megőrzésével?**
+**Hogyan renderelhetem a SmartArt-ot raszteres képre előnézethez vagy webes exporthoz?**  
+[A dia renderelésével](/slides/hu/nodejs-java/convert-powerpoint-to-png/) vagy a teljes prezentáció PNG vagy JPEG formátumba. A SmartArt a dia részeként kerül renderelésre.
 
-A [SmartArt alakzat klónozásával](/slides/hu/nodejs-java/shape-manipulations/) a [ShapeCollection.addClone](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/shapecollection/addclone/) vagy a [klónozni a teljes diát](/slides/hu/nodejs-java/clone-slides/) klónozhatod a SmartArt-ot tartalmazó diát. Mindkét megközelítés megőrzi a méretet, a pozíciót és a formázást.
-
-**Hogyan renderelhetem a SmartArt-ot raszteres képre előnézet vagy webes export céljából?**
-
-A [diát renderelheted](/slides/hu/nodejs-java/convert-powerpoint-to-png/) vagy a teljes prezentációt PNG vagy JPEG formátumba. A SmartArt a dia részeként kerül renderelésre.
-
-**Hogyan találhatok meg egy konkrét SmartArt objektumot egy dián, ha több is van?**
-
-Állíts be egy jellegzetes [Shape.setAlternativeText](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/shape/setalternativetext/) vagy [Shape.setName](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/shape/setname/) értéket a SmartArt alakzaton, keresd meg ezt az értéket a [BaseSlide.getShapes](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/baseslide/#getShapes) -ban, majd ellenőrizd, hogy a megtalált alakzat egy [SmartArt](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/smartart/).
+**Hogyan találhatok meg egy konkrét SmartArt objektumot egy diáron, ha több is van?**  
+Használja a [Shape.setAlternativeText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/setalternativetext/) vagy a [Shape.setName](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/setname/) módszert, hogy egy egyedi alternatív szöveget vagy nevet adjon a SmartArt alakzatnak, keresse meg ezt az értéket a [BaseSlide.getShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseslide/#getShapes)‑ben, majd ellenőrizze, hogy a megtalált alakzat egy [SmartArt](https://reference.aspose.com/slides/nodejs-java/aspose.slides/smartart/)‑e.

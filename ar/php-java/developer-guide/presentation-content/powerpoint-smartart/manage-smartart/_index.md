@@ -8,37 +8,39 @@ keywords:
 - SmartArt
 - نص SmartArt
 - نوع التخطيط
-- الخاصية المخفية
-- مخطط المنظمة
-- مخطط المنظمة بالصور
+- خاصية مخفية
+- مخطط تنظيم
+- مخطط تنظيم بالصور
 - PowerPoint
 - عرض تقديمي
 - PHP
 - Aspose.Slides
-description: "تعلم كيفية إنشاء وتعديل SmartArt في PowerPoint باستخدام Aspose.Slides for PHP عبر Java من خلال أمثلة شفرة واضحة تُسرّع تصميم الشرائح والأتمتة."
+description: "تعلم بناء وتحرير SmartArt في PowerPoint باستخدام Aspose.Slides لـ PHP عبر Java باستخدام أمثلة شفرة واضحة تسرع تصميم الشرائح والأتمتة."
 ---
 ## **نظرة عامة**
 
-SmartArt هو مخطط PowerPoint مكوَّن من العقد وأشكال العقد وتخطيط. باستخدام Aspose.Slides for PHP عبر Java، يمكنك إنشاء SmartArt، وقراءة النص من عقده، وتغيير تخطيطه، وفحص العقد المخفية، وتكوين تخطيطات مخططات المنظمة، وإنشاء مخططات منظمة بالصور.
+SmartArt هو مخطط PowerPoint يتكون من العقد وأشكال العقد وتخطيط. باستخدام Aspose.Slides لـ PHP عبر Java، يمكنك إنشاء SmartArt، قراءة النص من عقده، تغيير تخطيطه، فحص العقد المخفية، تكوين تخطيطات مخطط التنظيم، وإنشاء مخططات تنظيمية بالصور.
 
 ## **الحصول على النص من كائن SmartArt**
 
-يمكن أن يحتوي عقدة SmartArt على شكل واحد أو أكثر. لقراءة النص الظاهر، قم بالتكرار عبر [SmartArt::getAllNodes](https://reference.aspose.com/slides/ar/php-java/aspose.slides/smartart/#getAllNodes)، ثم اقرأ الـ [TextFrame](https://reference.aspose.com/slides/ar/php-java/aspose.slides/textframe/) الذي يتم إرجاعه بواسطة [SmartArtShape::getTextFrame](https://reference.aspose.com/slides/ar/php-java/aspose.slides/smartartshape/#getTextFrame).
+يمكن لعقدة SmartArt أن تحتوي على شكل واحد أو أكثر. لقراءة النص من أشكال العقدة، قم بالتكرار عبر [SmartArt::getAllNodes](https://reference.aspose.com/slides/php-java/aspose.slides/smartart/getallnodes/)، ثم اقرأ [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/) الذي يتم إرجاعه بواسطة [SmartArtShape::getTextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/smartartshape/gettextframe/).
+
+يتطلب المثال عرض تقديمي يحتوي على شريحة واحدة على الأقل وكائن SmartArt كالشكل الأول في تلك الشريحة. يطبع كل إطار نص متاح إلى وحدة التحكم.
 
 ```php
+use aspose\slides\Presentation;
+
 $presentation = new Presentation("sample.pptx");
 try {
     $slide = $presentation->getSlides()->get_Item(0);
-    $shape = $slide->getShapes()->get_Item(0);
 
-    if (java_instanceof($shape, new JavaClass("com.aspose.slides.ISmartArt"))) {
-        $smartArt = $shape;
-
-        foreach ($smartArt->getAllNodes() as $smartArtNode) {
-            foreach ($smartArtNode->getShapes() as $smartArtShape) {
-                if (!java_is_null($smartArtShape->getTextFrame())) {
-                    echo($smartArtShape->getTextFrame()->getText());
-                }
+    $smartArt = $slide->getShapes()->get_Item(0);
+    for ($i = 0; $i < java_values($smartArt->getAllNodes()->size()); $i++) {
+        $node = $smartArt->getAllNodes()->get_Item($i);
+        for ($j = 0; $j < java_values($node->getShapes()->size()); $j++) {
+            $nodeShape = $node->getShapes()->get_Item($j);
+            if (!java_is_null($nodeShape->getTextFrame())) {
+                echo $nodeShape->getTextFrame()->getText() . PHP_EOL;
             }
         }
     }
@@ -49,17 +51,21 @@ try {
 
 ## **تغيير نوع التخطيط لكائن SmartArt**
 
-يتحكم تخطيط SmartArt في كيفية ترتيب العقد وربطها. المثال التالي ينشئ كائن SmartArt باستخدام قيمة [SmartArtLayoutType](https://reference.aspose.com/slides/ar/php-java/aspose.slides/smartartlayouttype/) `BasicBlockList`، ثم يغيّرها إلى القيمة `BasicProcess`، ويحفظ العرض التقديمي.
+يتحكم تخطيط SmartArt في كيفية ترتيب العقد وربطها. المثال التالي ينشئ كائن SmartArt باستخدام القيمة `BasicBlockList` من [SmartArtLayoutType](https://reference.aspose.com/slides/php-java/aspose.slides/smartartlayouttype/)، ثم يغيّره إلى القيمة `BasicProcess`، ويحفظ العرض التقديمي. يتم قياس الموقع والحجم الممررين إلى [ShapeCollection::addSmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addsmartart/) بالنقاط. استخدم [SmartArt::setLayout](https://reference.aspose.com/slides/php-java/aspose.slides/smartart/setlayout/) لتغيير التخطيط.
 
 ```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\SmartArtLayoutType;
+
 $presentation = new Presentation();
 try {
-    $smartArt = $presentation->getSlides()->get_Item(0)->getShapes()->addSmartArt(
-        10, 10, 400, 300, SmartArtLayoutType::BasicBlockList);
+    $slide = $presentation->getSlides()->get_Item(0);
 
+    $smartArt = $slide->getShapes()->addSmartArt(10, 10, 400, 300, SmartArtLayoutType::BasicBlockList);
     $smartArt->setLayout(SmartArtLayoutType::BasicProcess);
 
-    $presentation->save("ChangeSmartArtLayout_out.pptx", SaveFormat::Pptx);
+    $presentation->save("ChangeSmartArtLayout.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
 }
@@ -67,80 +73,136 @@ try {
 
 ## **التحقق مما إذا كانت عقدة SmartArt مخفية**
 
-[SmartArtNode::isHidden](https://reference.aspose.com/slides/ar/php-java/aspose.slides/smartartnode/ishidden/) يشير إلى ما إذا كانت العقدة مخفية في نموذج بيانات SmartArt. يمكن أن توجد العقد المخفية في الهيكل حتى عندما لا يعرض التخطيط المختار لها كعناصر مرئية في المخطط.
+[SmartArtNode::isHidden](https://reference.aspose.com/slides/php-java/aspose.slides/smartartnode/ishidden/) يشير إلى ما إذا كانت العقدة مخفية في نموذج بيانات SmartArt. يمكن أن توجد العقد المخفية في البنية حتى عندما لا يظهر التخطيط المحددها كعناصر مخطط مرئية.
 
-المثال التالي يضيف عقدة إلى كائن SmartArt يستخدم قيمة [SmartArtLayoutType](https://reference.aspose.com/slides/ar/php-java/aspose.slides/smartartlayouttype/) `RadialCycle` ويتحقق من حالة إخفاء العقدة.
+المثال التالي يضيف عقدة إلى كائن SmartArt يستخدم القيمة `RadialCycle` من [SmartArtLayoutType](https://reference.aspose.com/slides/php-java/aspose.slides/smartartlayouttype/). يتحقق من حالة إخفاء العقدة المضافة. يطبع رسالة إذا كانت العقدة مخفية ويحفظ المخطط.
 
 ```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\SmartArtLayoutType;
+
 $presentation = new Presentation();
 try {
-    $smartArt = $presentation->getSlides()->get_Item(0)->getShapes()->addSmartArt(
-        10, 10, 400, 300, SmartArtLayoutType::RadialCycle);
+    $slide = $presentation->getSlides()->get_Item(0);
 
-    $smartArtNode = $smartArt->getAllNodes()->addNode();
-    $isHidden = $smartArtNode->isHidden();
+    $smartArt = $slide->getShapes()->addSmartArt(10, 10, 400, 300, SmartArtLayoutType::RadialCycle);
+    $node = $smartArt->getAllNodes()->addNode();
+    $isHidden = java_values($node->isHidden());
 
     if ($isHidden) {
-        echo("The node is hidden in the SmartArt data model.");
+        echo "The node is hidden in the SmartArt data model." . PHP_EOL;
     }
 
-    $presentation->save("CheckSmartArtHiddenProperty_out.pptx", SaveFormat::Pptx);
+    $presentation->save("CheckSmartArtHiddenProperty.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
 }
 ```
 
-## **الحصول على تخطيط مخطط المنظمة أو تعيينه**
+## **الحصول على أو تعيين تخطيط مخطط التنظيم**
 
-بالنسبة لمخططات SmartArt التي تستخدم تخطيط مخطط المنظمة، تحدد الدالتان [SmartArtNode::getOrganizationChartLayout](https://reference.aspose.com/slides/ar/php-java/aspose.slides/smartartnode/getorganizationchartlayout/) و [SmartArtNode::setOrganizationChartLayout](https://reference.aspose.com/slides/ar/php-java/aspose.slides/smartartnode/setorganizationchartlayout/) كيفية ترتيب العقد الفرعية تحت عقدة الأصل. على سبيل المثال، يمكنك ضبط العقد الفرعية لتعلّق من اليسار أو اليمين أو كلا الجانبين، اعتمادًا على [OrganizationChartLayoutType](https://reference.aspose.com/slides/ar/php-java/aspose.slides/organizationchartlayouttype/).
+بالنسبة لمخططات SmartArt التي تستخدم تخطيط مخطط التنظيم، تحدد [SmartArtNode::getOrganizationChartLayout](https://reference.aspose.com/slides/php-java/aspose.slides/smartartnode/getorganizationchartlayout/) و[SmartArtNode::setOrganizationChartLayout](https://reference.aspose.com/slides/php-java/aspose.slides/smartartnode/setorganizationchartlayout/) كيفية ترتيب العقد الفرعية تحت العقدة الأصلية. على سبيل المثال، يمكنك تعيين العقد الفرعية لتتدلى من اليسار أو اليمين أو الجانبين، اعتمادًا على [OrganizationChartLayoutType](https://reference.aspose.com/slides/php-java/aspose.slides/organizationchartlayouttype/).
 
-المثال التالي ينشئ مخطط منظمة ويضبط تخطيط العقدة الأولى إلى قيمة [OrganizationChartLayoutType](https://reference.aspose.com/slides/ar/php-java/aspose.slides/organizationchartlayouttype/) `LeftHanging`.
+المثال التالي ينشئ مخطط تنظيم ويضبط التخطيط للعقدة الأولى على القيمة `LeftHanging` من [OrganizationChartLayoutType](https://reference.aspose.com/slides/php-java/aspose.slides/organizationchartlayouttype/). المؤشر الصفري `0` يختار العقدة العليا الأولى؛ وتستخدم العقد الفرعية الترتيب المحدد. ثم يُحفظ العرض التقديمي المعدل.
 
 ```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\SmartArtLayoutType;
+use aspose\slides\OrganizationChartLayoutType;
+
 $presentation = new Presentation();
 try {
-    $smartArt = $presentation->getSlides()->get_Item(0)->getShapes()->addSmartArt(
-        10, 10, 400, 300, SmartArtLayoutType::OrganizationChart);
+    $slide = $presentation->getSlides()->get_Item(0);
 
+    $smartArt = $slide->getShapes()->addSmartArt(10, 10, 400, 300, SmartArtLayoutType::OrganizationChart);
     $rootNode = $smartArt->getNodes()->get_Item(0);
     $rootNode->setOrganizationChartLayout(OrganizationChartLayoutType::LeftHanging);
 
-    $presentation->save("OrganizationChartLayout_out.pptx", SaveFormat::Pptx);
+    $presentation->save("OrganizationChartLayout.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
 }
 ```
 
-## **إنشاء مخطط منظمة بالصور**
+## **إنشاء مخطط تنظيم بصري**
 
-مخطط منظمة بالصور هو تخطيط SmartArt مصمم لمخططات التدرج الهرمي التي تتضمن نواحي للصور. استخدم قيمة [SmartArtLayoutType](https://reference.aspose.com/slides/ar/php-java/aspose.slides/smartartlayouttype/) `PictureOrganizationChart` عند إضافة كائن SmartArt إلى الشريحة.
+مخطط التنظيم بالصور هو تخطيط SmartArt مصمم لمخططات الهرمية التي تتضمن عناصر نائبة للصور. استخدم القيمة `PictureOrganizationChart` من [SmartArtLayoutType](https://reference.aspose.com/slides/php-java/aspose.slides/smartartlayouttype/) عند إضافة كائن SmartArt إلى شريحة. هذا المثال يحفظ مخططًا يحتوي على عناصر نائبة للصور؛ لكنه لا يملأ هذه العناصر بالصور.
 
 ```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\SmartArtLayoutType;
+
 $presentation = new Presentation();
 try {
-    $smartArt = $presentation->getSlides()->get_Item(0)->getShapes()->addSmartArt(
-        0, 0, 400, 400, SmartArtLayoutType::PictureOrganizationChart);
+    $slide = $presentation->getSlides()->get_Item(0);
 
-    $presentation->save("PictureOrganizationChart_out.pptx", SaveFormat::Pptx);
+    $smartArt = $slide->getShapes()->addSmartArt(0, 0, 400, 400, SmartArtLayoutType::PictureOrganizationChart);
+
+    $presentation->save("PictureOrganizationChart.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
 }
 ```
 
-## **الأسئلة المتكررة**
+## **تحويل المخططات القديمة إلى مجموعات من الأشكال**
 
-**هل يدعم SmartArt النسخ المرآتي أو العكس للغات من اليمين إلى اليسار؟**
+عند تحديث عرض تقديمي موجود، قد تحتاج إلى تعديل مخطط تنظيم تم إنشاؤه أصلاً في PowerPoint 97–2003. تمثل Aspose.Slides هذه المخططات القديمة ككائنات [LegacyDiagram](https://reference.aspose.com/slides/php-java/aspose.slides/legacydiagram/). استخدم [LegacyDiagram::convertToGroupShape](https://reference.aspose.com/slides/php-java/aspose.slides/legacydiagram/converttogroupshape/) لتحويل مخطط إلى مجموعة من الأشكال حتى يمكنك تعديل العناصر البصرية الفردية. راجع [LegacyDiagram API Reference](https://reference.aspose.com/slides/php-java/aspose.slides/legacydiagram/) للحصول على التفاصيل.
 
-نعم. تُغيّر الطريقة [SmartArt::setReversed](https://reference.aspose.com/slides/ar/php-java/aspose.slides/smartart/setreversed/) اتجاه المخطط من اليسار إلى اليمين إلى اليمين إلى اليسار، أو العكس، عندما يدعم تخطيط SmartArt المختار العكس.
+تضيف عملية التحويل مجموعة جديدة إلى مجموعة الأشكال دون إزالة المخطط الأصلي. بعد التحويل الناجح، احذف الأصلي باستخدام [ShapeCollection::remove](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/remove/) لتجنب المحتوى المكرّر. قم بجمع المخططات القديمة في قائمة قبل تحويلها حتى لا يعرقل إضافة وإزالة الأشكال عملية التكرار.
+
+المثال التالي يفتح عرض تقديمي، يبحث في كل شريحة، يحول المخططات إلى مجموعات من الأشكال، ويحفظ العرض المحدث كملف PPTX.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("legacy-diagrams.ppt");
+try {
+    $legacyDiagramType = new JavaClass("com.aspose.slides.ILegacyDiagram");
+    for ($i = 0; $i < java_values($presentation->getSlides()->size()); $i++) {
+        $slide = $presentation->getSlides()->get_Item($i);
+        $legacyDiagrams = [];
+        for ($j = 0; $j < java_values($slide->getShapes()->size()); $j++) {
+            $shape = $slide->getShapes()->get_Item($j);
+            if (java_instanceof($shape, $legacyDiagramType)) {
+                $legacyDiagrams[] = $shape;
+            }
+        }
+
+        foreach ($legacyDiagrams as $legacyDiagram) {
+            $groupShape = $legacyDiagram->convertToGroupShape();
+
+            if (!java_is_null($groupShape)) {
+                $slide->getShapes()->remove($legacyDiagram);
+            }
+        }
+    }
+
+    $presentation->save("modernized.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+العرض المحفوظ يحتوي على مجموعات الأشكال القابلة للتحرير بدلاً من المخططات القديمة التي تم تحويلها، دون بقاء المخططات الأصلية بجانبها. افتح ملف PPTX في PowerPoint لتعديل العناصر الفردية داخل كل مجموعة، مثل النص أو التعبئة أو الموقع.
+
+## **FAQ**
+
+**هل يدعم SmartArt عكس أو انعكاس للغات من اليمين إلى اليسار؟**
+
+نعم. طريقة [SmartArt::setReversed](https://reference.aspose.com/slides/php-java/aspose.slides/smartart/setreversed/) تغير اتجاه المخطط من اليسار إلى اليمين إلى اليمين إلى اليسار، أو العكس، عندما يدعم تخطيط SmartArt المختار العكس.
 
 **كيف يمكنني نسخ SmartArt إلى نفس الشريحة أو إلى عرض تقديمي آخر مع الحفاظ على التنسيق؟**
 
-يمكنك [استنساخ شكل SmartArt](/slides/ar/php-java/shape-manipulations/) باستخدام [ShapeCollection::addClone](https://reference.aspose.com/slides/ar/php-java/aspose.slides/shapecollection/addclone/)، أو [استنساخ الشريحة بأكملها](/slides/ar/php-java/clone-slides/) التي تحتوي على SmartArt. كلا النهجين يحافظان على الحجم والموقع والتنسيق.
+يمكنك [استنساخ شكل SmartArt](/slides/ar/php-java/shape-manipulations/) باستخدام [ShapeCollection::addClone](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addclone/)، أو [استنساخ الشريحة بالكامل](/slides/ar/php-java/clone-slides/) التي تحتوي على SmartArt. كلا الطريقتين تحافظان على الحجم والموقع والتنسيق.
 
-**كيف يمكنني تحويل SmartArt إلى صورة نقطية للمعاينة أو تصدير الويب؟**
+**كيف يمكنني عرض SmartArt كصورة نقطية للمعاينة أو التصدير للويب؟**
 
-[قم بتحويل الشريحة](/slides/ar/php-java/convert-powerpoint-to-png/) أو العرض التقديمي بالكامل إلى PNG أو JPEG. يتم تحويل SmartArt كجزء من الشريحة.
+[عرض الشريحة](/slides/ar/php-java/convert-powerpoint-to-png/) أو العرض الكامل إلى PNG أو JPEG. يتم عرض SmartArt كجزء من الشريحة.
 
 **كيف يمكنني العثور على كائن SmartArt محدد في الشريحة إذا كان هناك عدة كائنات؟**
 
-حدد قيمة مميزة لـ [Shape::getAlternativeText](https://reference.aspose.com/slides/ar/php-java/aspose.slides/shape/getalternativetext/) أو [Shape::getName](https://reference.aspose.com/slides/ar/php-java/aspose.slides/shape/getname/) على شكل SmartArt، وابحث عن تلك القيمة في [BaseSlide::getShapes](https://reference.aspose.com/slides/ar/php-java/aspose.slides/baseslide/#getShapes)، ثم تأكد أن الشكل المطابق هو [SmartArt](https://reference.aspose.com/slides/ar/php-java/aspose.slides/smartart/).
+استخدم [Shape::setAlternativeText](https://reference.aspose.com/slides/php-java/aspose.slides/shape/setalternativetext/) أو [Shape::setName](https://reference.aspose.com/slides/php-java/aspose.slides/shape/setname/) لتعيين نص بديل مميز أو اسم لت shape SmartArt، وابحث عن تلك القيمة في [BaseSlide::getShapes](https://reference.aspose.com/slides/php-java/aspose.slides/baseslide/#getShapes)، ثم تحقق من أن الشكل المطابق هو [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/smartart/).

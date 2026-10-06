@@ -1,5 +1,5 @@
 ---
-title: Διαχείριση SmartArt σε Παρουσιάσεις PowerPoint με C++
+title: Διαχείριση SmartArt σε παρουσιάσεις PowerPoint χρησιμοποιώντας C++
 linktitle: Διαχείριση SmartArt
 type: docs
 weight: 10
@@ -7,134 +7,257 @@ url: /el/cpp/manage-smartart/
 keywords:
 - SmartArt
 - Κείμενο SmartArt
-- τύπος διάταξης
-- ιδιότητα κρυφής
-- οργανογράφημα
-- οργανογράφημα με εικόνα
+- Τύπος διάταξης
+- Κρυφή ιδιότητα
+- Διάγραμμα οργανωτικού τύπου
+- Διάγραμμα οργανωτικού τύπου εικόνας
 - PowerPoint
 - παρουσίαση
 - C++
 - Aspose.Slides
-description: "Μάθετε να δημιουργείτε και να επεξεργάζεστε SmartArt του PowerPoint με το Aspose.Slides για C++ χρησιμοποιώντας σαφή παραδείγματα κώδικα που επιταχύνουν το σχεδιασμό και την αυτοματοποίηση των διαφανειών."
+description: "Μάθετε πώς να δημιουργείτε και να επεξεργάζεστε SmartArt PowerPoint με το Aspose.Slides για C++ χρησιμοποιώντας σαφή παραδείγματα κώδικα που επιταχύνουν το σχεδιασμό και την αυτοματοποίηση των διαφανειών."
 ---
 ## **Επισκόπηση**
 
-Το SmartArt είναι ένα διάγραμμα PowerPoint που δημιουργείται από κόμβους, σχήματα κόμβων και μια διάταξη. Με το Aspose.Slides for C++, μπορείτε να δημιουργήσετε SmartArt, να διαβάσετε κείμενο από τους κόμβους του, να αλλάξετε τη διάταξή του, να εξετάσετε κρυφούς κόμβους, να διαμορφώσετε διατάξεις οργανωτικού διαγράμματος και να δημιουργήσετε διαγράμματα οργανωτικού με εικόνα.
+Το SmartArt είναι ένα διάγραμμα PowerPoint που αποτελείται από κόμβους, σχήματα κόμβων και διάταξη. Με το Aspose.Slides για C++, μπορείτε να δημιουργήσετε SmartArt, να διαβάσετε κείμενο από τους κόμβους του, να αλλάξετε τη διάταξή του, να ελέγξετε κρυφούς κόμβους, να ρυθμίσετε διατάξεις διαγραμμάτων οργανωτικού τύπου και να δημιουργήσετε διαγράμματα οργανωτικού τύπου εικόνας.
 
-## **Ανάγνωση Κειμένου από Αντικείμενο SmartArt**
+## **Λήψη κειμένου από αντικείμενο SmartArt**
 
-Ένας κόμβος SmartArt μπορεί να περιέχει ένα ή περισσότερα σχήματα. Για να διαβάσετε το ορατό κείμενο, επαναλάβετε μέσω του [ISmartArt::get_AllNodes](https://reference.aspose.com/slides/el/cpp/aspose.slides.smartart/smartart/get_allnodes/), στη συνέχεια διαβάστε το [ITextFrame](https://reference.aspose.com/slides/el/cpp/aspose.slides/itextframe/) που επιστρέφεται από το [ISmartArtShape::get_TextFrame](https://reference.aspose.com/slides/el/cpp/aspose.slides.smartart/smartartshape/get_textframe/).
+Ένας κόμβος SmartArt μπορεί να περιέχει ένα ή περισσότερα σχήματα. Για να διαβάσετε κείμενο από τα σχήματα του κόμβου, επαναλάβετε μέσω του [ISmartArt::get_AllNodes](https://reference.aspose.com/slides/cpp/aspose.slides.smartart/ismartart/get_allnodes/), στη συνέχεια διαβάστε το [ITextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/) που επιστρέφεται από το [ISmartArtShape::get_TextFrame](https://reference.aspose.com/slides/cpp/aspose.slides.smartart/ismartartshape/get_textframe/).
+
+Το παράδειγμα απαιτεί μια παρουσίαση με τουλάχιστον μία διαφάνεια και ένα αντικείμενο SmartArt ως το πρώτο σχήμα σε αυτή τη διαφάνεια. Εκτυπώνει κάθε διαθέσιμο πλαίσιο κειμένου στην κονσόλα.
 
 ```cpp
-auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/SmartArt/ISmartArt.h>
+#include <DOM/SmartArt/ISmartArtNode.h>
+#include <DOM/SmartArt/ISmartArtNodeCollection.h>
+#include <DOM/SmartArt/ISmartArtShape.h>
+#include <DOM/SmartArt/ISmartArtShapeCollection.h>
+#include <system/console.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::SmartArt;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"sample.pptx");
 auto slide = presentation->get_Slide(0);
-auto shape = slide->get_Shape(0);
 
-if (System::ObjectExt::Is<ISmartArt>(shape))
+auto smartArt = ExplicitCast<ISmartArt>(slide->get_Shape(0));
+for (auto nodeIndex = 0; nodeIndex < smartArt->get_AllNodes()->get_Count(); nodeIndex++)
 {
-    auto smartArt = System::ExplicitCast<ISmartArt>(shape);
-
-    for (int nodeIndex = 0; nodeIndex < smartArt->get_AllNodes()->get_Count(); nodeIndex++)
+    auto node = smartArt->get_AllNodes()->idx_get(nodeIndex);
+    for (auto shapeIndex = 0; shapeIndex < node->get_Shapes()->get_Count(); shapeIndex++)
     {
-        auto node = smartArt->get_AllNodes()->idx_get(nodeIndex);
-
-        for (int shapeIndex = 0; shapeIndex < node->get_Shapes()->get_Count(); shapeIndex++)
+        auto nodeShape = node->get_Shape(shapeIndex);
+        if (nodeShape->get_TextFrame() != nullptr)
         {
-            auto nodeShape = node->get_Shape(shapeIndex);
-
-            if (nodeShape->get_TextFrame() != nullptr)
-            {
-                System::Console::WriteLine(nodeShape->get_TextFrame()->get_Text());
-            }
+            Console::WriteLine(nodeShape->get_TextFrame()->get_Text());
         }
     }
 }
 
 presentation->Dispose();
 ```
-## **Αλλαγή του Τύπου Διάταξης ενός Αντικειμένου SmartArt**
 
-Η διάταξη SmartArt ελέγχει πώς διατάσσονται και συνδέονται οι κόμβοι. Το ακόλουθο παράδειγμα δημιουργεί ένα αντικείμενο SmartArt με την τιμή `BasicBlockList` του [SmartArtLayoutType](https://reference.aspose.com/slides/el/cpp/aspose.slides.smartart/smartartlayouttype/), την αλλάζει στην τιμή `BasicProcess` και αποθηκεύει την παρουσίαση.
+## **Αλλαγή τύπου διάταξης αντικειμένου SmartArt**
+
+Η διάταξη SmartArt ελέγχει πώς διατάσσονται και συνδέονται οι κόμβοι. Το παρακάτω παράδειγμα δημιουργεί ένα αντικείμενο SmartArt με την τιμή `BasicBlockList` του [SmartArtLayoutType](https://reference.aspose.com/slides/cpp/aspose.slides.smartart/smartartlayouttype/), το αλλάζει στην τιμή `BasicProcess` και αποθηκεύει την παρουσίαση. Η θέση και το μέγεθος που περνούν στο [IShapeCollection::AddSmartArt](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addsmartart/) μετρώνται σε μονάδες σημείου. Χρησιμοποιήστε το [ISmartArt::set_Layout](https://reference.aspose.com/slides/cpp/aspose.slides.smartart/ismartart/set_layout/) για να αλλάξετε τη διάταξη.
 
 ```cpp
-auto presentation = System::MakeObject<Presentation>();
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/SmartArt/ISmartArt.h>
+#include <DOM/SmartArt/SmartArtLayoutType.h>
+#include <Export/SaveFormat.h>
 
-auto smartArt = presentation->get_Slide(0)->get_Shapes()->AddSmartArt(
-    10.0f, 10.0f, 400.0f, 300.0f, SmartArtLayoutType::BasicBlockList);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace Aspose::Slides::SmartArt;
+using namespace System;
 
+auto presentation = MakeObject<Presentation>();
+
+auto slide = presentation->get_Slide(0);
+
+auto smartArt = slide->get_Shapes()->AddSmartArt(10.0f, 10.0f, 400.0f, 300.0f, SmartArtLayoutType::BasicBlockList);
 smartArt->set_Layout(SmartArtLayoutType::BasicProcess);
 
-presentation->Save(u"ChangeSmartArtLayout_out.pptx", SaveFormat::Pptx);
+presentation->Save(u"ChangeSmartArtLayout.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
-## **Έλεγχος Εάν ένας Κόμβος SmartArt Είναι Κρυμμένος**
 
-Η μέθοδος [ISmartArtNode::get_IsHidden](https://reference.aspose.com/slides/el/cpp/aspose.slides.smartart/smartartnode/get_ishidden/) υποδεικνύει εάν ο κόμβος είναι κρυμμένος στο μοντέλο δεδομένων SmartArt. Οι κρυφοί κόμβοι μπορούν να υπάρχουν στη δομή ακόμη και όταν η επιλεγμένη διάταξη δεν τους εμφανίζει ως ορατά στοιχεία διαγράμματος.
+## **Έλεγχος αν ένας κόμβος SmartArt είναι κρυμμένος**
 
-Το ακόλουθο παράδειγμα προσθέτει έναν κόμβο σε ένα αντικείμενο SmartArt που χρησιμοποιεί την τιμή `RadialCycle` του [SmartArtLayoutType](https://reference.aspose.com/slides/el/cpp/aspose.slides.smartart/smartartlayouttype/), και ελέγχει την κρυφή κατάσταση του κόμβου.
+Το [ISmartArtNode::get_IsHidden](https://reference.aspose.com/slides/cpp/aspose.slides.smartart/ismartartnode/get_ishidden/) υποδεικνύει αν ο κόμβος είναι κρυμμένος στο μοντέλο δεδομένων SmartArt. Οι κρυφοί κόμβοι μπορούν να υπάρχουν στη δομή ακόμη και όταν η επιλεγμένη διάταξη δεν τους εμφανίζει ως ορατά στοιχεία διαγράμματος.
+
+Το παρακάτω παράδειγμα προσθέτει έναν κόμβο σε ένα αντικείμενο SmartArt που χρησιμοποιεί την τιμή `RadialCycle` του [SmartArtLayoutType](https://reference.aspose.com/slides/cpp/aspose.slides.smartart/smartartlayouttype/), και ελέγχει την κρυφή κατάσταση του προστεθέντος κόμβου. Εκτυπώνει ένα μήνυμα εάν ο κόμβος είναι κρυμμένος και αποθηκεύει το διάγραμμα.
 
 ```cpp
-auto presentation = System::MakeObject<Presentation>();
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/SmartArt/ISmartArt.h>
+#include <DOM/SmartArt/ISmartArtNode.h>
+#include <DOM/SmartArt/ISmartArtNodeCollection.h>
+#include <DOM/SmartArt/SmartArtLayoutType.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
 
-auto smartArt = presentation->get_Slide(0)->get_Shapes()->AddSmartArt(
-    10.0f, 10.0f, 400.0f, 300.0f, SmartArtLayoutType::RadialCycle);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace Aspose::Slides::SmartArt;
+using namespace System;
 
+auto presentation = MakeObject<Presentation>();
+
+auto slide = presentation->get_Slide(0);
+
+auto smartArt = slide->get_Shapes()->AddSmartArt(10.0f, 10.0f, 400.0f, 300.0f, SmartArtLayoutType::RadialCycle);
 auto node = smartArt->get_AllNodes()->AddNode();
-bool isHidden = node->get_IsHidden();
+auto isHidden = node->get_IsHidden();
 
 if (isHidden)
 {
-    System::Console::WriteLine(u"The node is hidden in the SmartArt data model.");
+    Console::WriteLine(u"The node is hidden in the SmartArt data model.");
 }
 
-presentation->Save(u"CheckSmartArtHiddenProperty_out.pptx", SaveFormat::Pptx);
+presentation->Save(u"CheckSmartArtHiddenProperty.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
-## **Ανάκτηση ή Ορισμός της Διάταξης Οργανογράμματος**
 
-Για διαγράμματα SmartArt που χρησιμοποιούν διάταξη οργανογράμματος, οι μέθοδοι [ISmartArtNode::get_OrganizationChartLayout](https://reference.aspose.com/slides/el/cpp/aspose.slides.smartart/smartartnode/get_organizationchartlayout/) και [ISmartArtNode::set_OrganizationChartLayout](https://reference.aspose.com/slides/el/cpp/aspose.slides.smartart/smartartnode/set_organizationchartlayout/) ορίζουν πώς διατάσσονται οι υποκόμβοι κάτω από έναν γονικό κόμβο. Για παράδειγμα, μπορείτε να ορίσετε οι υποκόμβοι να κρέμονται από αριστερά, δεξιά ή και από τις δύο πλευρές, ανάλογα με την επιλεγμένη [OrganizationChartLayoutType](https://reference.aspose.com/slides/el/cpp/aspose.slides.smartart/organizationchartlayouttype/).
+## **Λήψη ή ορισμός διάταξης οργανωτικού διαγράμματος**
 
-Το ακόλουθο παράδειγμα δημιουργεί ένα οργανογράφημα και ορίζει τη διάταξη για τον πρώτο κόμβο στην τιμή `LeftHanging` του [OrganizationChartLayoutType](https://reference.aspose.com/slides/el/cpp/aspose.slides.smartart/organizationchartlayouttype/).
+Για διαγράμματα SmartArt που χρησιμοποιούν διάταξη οργανωτικού διαγράμματος, τα [ISmartArtNode::get_OrganizationChartLayout](https://reference.aspose.com/slides/cpp/aspose.slides.smartart/ismartartnode/get_organizationchartlayout/) και [ISmartArtNode::set_OrganizationChartLayout](https://reference.aspose.com/slides/cpp/aspose.slides.smartart/ismartartnode/set_organizationchartlayout/) ορίζουν πώς τα υποκόμβια διατάσσονται κάτω από έναν γονικό κόμβο. Για παράδειγμα, μπορείτε να ορίσετε τα υποκόμβια να κρέμονται από τα αριστερά, τα δεξιά ή και τις δύο πλευρές, ανάλογα με το επιλεγμένο [OrganizationChartLayoutType](https://reference.aspose.com/slides/cpp/aspose.slides.smartart/organizationchartlayouttype/).
+
+Το παρακάτω παράδειγμα δημιουργεί ένα οργανωτικό διάγραμμα και ορίζει τη διάταξη για τον πρώτο κόμβο στην τιμή `LeftHanging` του [OrganizationChartLayoutType](https://reference.aspose.com/slides/cpp/aspose.slides.smartart/organizationchartlayouttype/). Ο δείκτης μηδενικής βάσης `0` επιλέγει τον πρώτο κόμβο πρώτου επιπέδου· τα υποκόμβια του χρησιμοποιούν τη επιλεγμένη διάταξη. Η τροποποιημένη παρουσίαση αποθηκεύεται στη συνέχεια.
 
 ```cpp
-auto presentation = System::MakeObject<Presentation>();
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/SmartArt/ISmartArt.h>
+#include <DOM/SmartArt/ISmartArtNode.h>
+#include <DOM/SmartArt/OrganizationChartLayoutType.h>
+#include <DOM/SmartArt/SmartArtLayoutType.h>
+#include <Export/SaveFormat.h>
 
-auto smartArt = presentation->get_Slide(0)->get_Shapes()->AddSmartArt(
-    10.0f, 10.0f, 400.0f, 300.0f, SmartArtLayoutType::OrganizationChart);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace Aspose::Slides::SmartArt;
+using namespace System;
 
+auto presentation = MakeObject<Presentation>();
+
+auto slide = presentation->get_Slide(0);
+
+auto smartArt = slide->get_Shapes()->AddSmartArt(10.0f, 10.0f, 400.0f, 300.0f, SmartArtLayoutType::OrganizationChart);
 auto rootNode = smartArt->get_Node(0);
 rootNode->set_OrganizationChartLayout(OrganizationChartLayoutType::LeftHanging);
 
-presentation->Save(u"OrganizationChartLayout_out.pptx", SaveFormat::Pptx);
+presentation->Save(u"OrganizationChartLayout.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
-## **Δημιουργία Εικόνας Οργανωτικού Διαγράμματος**
 
-Το διάγραμμα οργανογράμματος με εικόνα είναι μια διάταξη SmartArt σχεδιασμένη για διαγράμματα ιεραρχίας που περιλαμβάνουν θέσεις εικόνας. Χρησιμοποιήστε την τιμή `PictureOrganizationChart` του [SmartArtLayoutType](https://reference.aspose.com/slides/el/cpp/aspose.slides.smartart/smartartlayouttype/) όταν προσθέτετε το αντικείμενο SmartArt σε μια διαφάνεια.
+## **Δημιουργία διαγράμματος οργανωτικού τύπου εικόνας**
+
+Ένα διάγραμμα οργανωτικού τύπου εικόνας είναι μια διάταξη SmartArt σχεδιασμένη για διαγράμματα ιεραρχίας που περιλαμβάνουν δεσμευτικά θέσης εικόνας. Χρησιμοποιήστε την τιμή `PictureOrganizationChart` του [SmartArtLayoutType](https://reference.aspose.com/slides/cpp/aspose.slides.smartart/smartartlayouttype/) όταν προσθέτετε το αντικείμενο SmartArt σε μια διαφάνεια. Αυτό το παράδειγμα αποθηκεύει ένα διάγραμμα με δεσμευτικά θέσης εικόνας· δεν γεμίζει τα δεσμευτικά θέσης με εικόνες.
 
 ```cpp
-auto presentation = System::MakeObject<Presentation>();
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/SmartArt/SmartArtLayoutType.h>
+#include <Export/SaveFormat.h>
 
-auto smartArt = presentation->get_Slide(0)->get_Shapes()->AddSmartArt(
-    0.0f, 0.0f, 400.0f, 400.0f, SmartArtLayoutType::PictureOrganizationChart);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace Aspose::Slides::SmartArt;
+using namespace System;
 
-presentation->Save(u"PictureOrganizationChart_out.pptx", SaveFormat::Pptx);
+auto presentation = MakeObject<Presentation>();
+
+auto slide = presentation->get_Slide(0);
+
+auto smartArt = slide->get_Shapes()->AddSmartArt(0.0f, 0.0f, 400.0f, 400.0f, SmartArtLayoutType::PictureOrganizationChart);
+
+presentation->Save(u"PictureOrganizationChart.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
-## **Συχνές Ερωτήσεις**
 
-**Υποστηρίζει το SmartArt την ανάστροφη ή την καθρέφτισή του για γλώσσες RTL;**
+## **Μετατροπή παλαιών διαγραμμάτων σε ομάδες σχημάτων**
 
-Ναι. Η μέθοδος [SmartArt::set_IsReversed](https://reference.aspose.com/slides/el/cpp/aspose.slides.smartart/smartart/set_isreversed/) αλλάζει την κατεύθυνση του διαγράμματος από αριστερά προς δεξιά σε δεξιά προς αριστερά, ή το αντίστροφο, όταν η επιλεγμένη διάταξη SmartArt υποστηρίζει την αντιστροφή.
+Κατά τη σύγχρονη αναβάθμιση μιας υπάρχουσας παρουσίασης, ίσως χρειαστεί να ενημερώσετε ένα οργανωτικό διάγραμμα που δημιουργήθηκε αρχικά σε PowerPoint 97–2003. Το Aspose.Slides αντιπροσωπεύει αυτά τα παλιά διαγράμματα ως αντικείμενα [ILegacyDiagram](https://reference.aspose.com/slides/cpp/aspose.slides/ilegacydiagram/). Χρησιμοποιήστε το [ILegacyDiagram::ConvertToGroupShape](https://reference.aspose.com/slides/cpp/aspose.slides/ilegacydiagram/converttogroupshape/) για να μετατρέψετε ένα διάγραμμα σε ομάδα σχημάτων ώστε να μπορείτε να επεξεργαστείτε μεμονωμένα οπτικά στοιχεία. Δείτε την [LegacyDiagram API Reference](https://reference.aspose.com/slides/cpp/aspose.slides/legacydiagram/) για λεπτομέρειες.
 
-**Πώς μπορώ να αντιγράψω το SmartArt στην ίδια διαφάνεια ή σε άλλη παρουσίαση ενώ διατηρώ τη μορφοποίηση;**
+Η μετατροπή προσθέτει μια νέα ομάδα στη συλλογή σχημάτων χωρίς να αφαιρεί το αρχικό διάγραμμα. Μετά την επιτυχή μετατροπή, αφαιρέστε το αρχικό με το [IShapeCollection::Remove](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/remove/) ώστε να αποφύγετε διπλό περιεχόμενο. Συλλέξτε τα παλιά διαγράμματα σε ένα διάνυσμα πριν τα μετατρέψετε, ώστε η προσθήκη και αφαίρεση σχημάτων να μην διακόπτει την επανάληψη.
 
-Μπορείτε να [κλωνοποιήσετε το σχήμα SmartArt](/slides/el/cpp/shape-manipulations/) με το [ShapeCollection::AddClone](https://reference.aspose.com/slides/el/cpp/aspose.slides/shapecollection/addclone/) ή να [κλωνοποιήσετε ολόκληρη τη διαφάνεια](/slides/el/cpp/clone-slides/) που περιέχει το SmartArt. Και οι δύο προσεγγίσεις διατηρούν το μέγεθος, τη θέση και τη μορφοποίηση.
+Το παρακάτω παράδειγμα ανοίγει μια παρουσίαση, ψάχνει σε κάθε διαφάνεια, μετατρέπει τα διαγράμματα σε ομάδες σχημάτων και αποθηκεύει την ενημερωμένη παρουσίαση ως PPTX.
 
-**Πώς μπορώ να αποδώσω το SmartArt σε εικόνα raster για προεπισκόπηση ή εξαγωγή στο web;**
+```cpp
+#include <DOM/ILegacyDiagram.h>
+#include <DOM/IGroupShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <vector>
 
-Μπορείτε να [αποδώσετε τη διαφάνεια](/slides/el/cpp/convert-powerpoint-to-png/) ή ολόκληρη την παρουσίαση σε PNG ή JPEG. Το SmartArt αποδίδεται ως μέρος της διαφάνειας.
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"legacy-diagrams.ppt");
+
+for (auto slideIndex = 0; slideIndex < presentation->get_Slides()->get_Count(); slideIndex++)
+{
+    auto slide = presentation->get_Slide(slideIndex);
+    std::vector<SharedPtr<ILegacyDiagram>> legacyDiagrams;
+
+    for (auto shapeIndex = 0; shapeIndex < slide->get_Shapes()->get_Count(); shapeIndex++)
+    {
+        auto shape = slide->get_Shape(shapeIndex);
+        if (ObjectExt::Is<ILegacyDiagram>(shape))
+        {
+            auto legacyDiagram = ExplicitCast<ILegacyDiagram>(shape);
+            legacyDiagrams.push_back(legacyDiagram);
+        }
+    }
+
+    for (auto legacyDiagram : legacyDiagrams)
+    {
+        auto groupShape = legacyDiagram->ConvertToGroupShape();
+
+        if (groupShape != nullptr)
+        {
+            slide->get_Shapes()->Remove(legacyDiagram);
+        }
+    }
+}
+
+presentation->Save(u"modernized.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+Η αποθηκευμένη παρουσίαση περιέχει επεξεργάσιμες ομάδες σχημάτων στη θέση των μετατρεπόμενων παλαιών διαγραμμάτων, χωρίς να παραμένουν τα αρχικά διαγράμματα. Ανοίξτε το PPTX στο PowerPoint για να επεξεργαστείτε μεμονωμένα στοιχεία μέσα σε κάθε ομάδα, όπως το κείμενο, το γέμισμα ή τη θέση τους.
+
+## **ΣΥΧΝΑ ΕΡΩΤΗΜΑΤΑ**
+
+**Υποστηρίζει το SmartArt καθρεπτισμό ή αντιστροφή για γλώσσες RTL;**
+
+Ναι. Η μέθοδος [SmartArt::set_IsReversed](https://reference.aspose.com/slides/cpp/aspose.slides.smartart/smartart/set_isreversed/) αλλάζει την κατεύθυνση του διαγράμματος από αριστερά προς δεξιά σε δεξιά προς αριστερά, ή το αντίστροφο, όταν η επιλεγμένη διάταξη SmartArt υποστηρίζει αντιστροφή.
+
+**Πώς μπορώ να αντιγράψω το SmartArt στην ίδια διαφάνεια ή σε άλλη παρουσίαση διατηρώντας τη μορφοποίηση;**
+
+Μπορείτε να [κλωνοποιήσετε το σχήμα SmartArt](/slides/el/cpp/shape-manipulations/) με το [ShapeCollection::AddClone](https://reference.aspose.com/slides/cpp/aspose.slides/shapecollection/addclone/) ή να [κλωνοποιήσετε ολόκληρη τη διαφάνεια](/slides/el/cpp/clone-slides/) που περιέχει το SmartArt. Και οι δύο προσεγγίσεις διατηρούν το μέγεθος, τη θέση και τη μορφοποίηση.
+
+**Πώς αποδίδω το SmartArt σε εικονογραφική εικόνα για προεπισκόπηση ή εξαγωγή στο web;**
+
+[Αποδώστε τη διαφάνεια](/slides/el/cpp/convert-powerpoint-to-png/) ή ολόκληρη την παρουσίαση σε PNG ή JPEG. Το SmartArt αποδίδεται ως μέρος της διαφάνειας.
 
 **Πώς μπορώ να βρω ένα συγκεκριμένο αντικείμενο SmartArt σε μια διαφάνεια εάν υπάρχουν πολλά;**
 
-Ορίστε μια χαρακτηριστική τιμή στο [Shape::set_AlternativeText](https://reference.aspose.com/slides/el/cpp/aspose.slides/shape/set_alternativetext/) ή στο [Shape::set_Name](https://reference.aspose.com/slides/el/cpp/aspose.slides/shape/set_name/) του σχήματος SmartArt, αναζητήστε αυτήν την τιμή στο [BaseSlide::get_Shapes](https://reference.aspose.com/slides/el/cpp/aspose.slides/baseslide/get_shapes/), και στη συνέχεια ελέγξτε ότι το αντίστοιχο σχήμα είναι ένα [ISmartArt](https://reference.aspose.com/slides/el/cpp/aspose.slides.smartart/ismartart/).
+Ορίστε μια διακριτική τιμή [Shape::set_AlternativeText](https://reference.aspose.com/slides/cpp/aspose.slides/shape/set_alternativetext/) ή [Shape::set_Name](https://reference.aspose.com/slides/cpp/aspose.slides/shape/set_name/) στο σχήμα SmartArt, αναζητήστε εκείνη την τιμή στο [BaseSlide::get_Shapes](https://reference.aspose.com/slides/cpp/aspose.slides/baseslide/get_shapes/), και στη συνέχεια ελέγξτε ότι το αντίστοιχο σχήμα είναι ένα [ISmartArt](https://reference.aspose.com/slides/cpp/aspose.slides.smartart/ismartart/).
