@@ -1,5 +1,5 @@
 ---
-title: Gestionar SmartArt en presentaciones de PowerPoint usando Python
+title: Gestionar SmartArt en presentaciones de PowerPoint con Python
 linktitle: Gestionar SmartArt
 type: docs
 weight: 10
@@ -15,17 +15,19 @@ keywords:
 - presentación
 - Python
 - Aspose.Slides
-description: "Aprende a crear y editar SmartArt en PowerPoint con Aspose.Slides para Python mediante .NET utilizando ejemplos de código claros que aceleran el diseño y la automatización de diapositivas."
+description: "Aprenda a crear y editar SmartArt de PowerPoint con Aspose.Slides para Python a través de .NET utilizando ejemplos de código claros que aceleran el diseño y la automatización de diapositivas."
 ---
-## **Descripción general**
+## **Visión general**
 
-SmartArt es un diagrama de PowerPoint formado por nodos, formas de nodos y un diseño. Con Aspose.Slides for Python a través de .NET, puedes crear SmartArt, leer el texto de sus nodos, cambiar su diseño, inspeccionar nodos ocultos, configurar diseños de organigramas y crear organigramas con imágenes.
+SmartArt es un diagrama de PowerPoint formado por nodos, formas de nodo y un diseño. Con Aspose.Slides para Python a través de .NET, puedes crear SmartArt, leer texto de sus nodos, cambiar su diseño, inspeccionar nodos ocultos, configurar diseños de organigrama y crear organigramas con imágenes.
 
 ## **Obtener texto de un objeto SmartArt**
 
-Un nodo de SmartArt puede contener una o más formas. Para leer el texto visible, itera a través de [SmartArt.all_nodes](https://reference.aspose.com/slides/es/python-net/aspose.slides.smartart/smartart/all_nodes/) y luego lee el [TextFrame](https://reference.aspose.com/slides/es/python-net/aspose.slides/textframe/) devuelto por [SmartArtShape.text_frame](https://reference.aspose.com/slides/es/python-net/aspose.slides.smartart/smartartshape/text_frame/).
+Un nodo de SmartArt puede contener una o más formas. Para leer el texto de las formas del nodo, itera a través de [SmartArt.all_nodes](https://reference.aspose.com/slides/python-net/aspose.slides.smartart/smartart/all_nodes/), y luego lee el [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) devuelto por [SmartArtShape.text_frame](https://reference.aspose.com/slides/python-net/aspose.slides.smartart/smartartshape/text_frame/).
 
-```py
+El ejemplo requiere una presentación con al menos una diapositiva y un objeto SmartArt como la primera forma en esa diapositiva. Imprime cada marco de texto disponible en la consola.
+
+```python
 import aspose.slides as slides
 import aspose.slides.smartart as smartart
 
@@ -34,103 +36,127 @@ with slides.Presentation("sample.pptx") as presentation:
     shape = slide.shapes[0]
 
     if isinstance(shape, smartart.SmartArt):
-        smart_art = shape
-
-        for smart_art_node in smart_art.all_nodes:
-            for smart_art_shape in smart_art_node.shapes:
-                if smart_art_shape.text_frame is not None:
-                    print(smart_art_shape.text_frame.text)
+        for node in shape.all_nodes:
+            for node_shape in node.shapes:
+                if node_shape.text_frame is not None:
+                    print(node_shape.text_frame.text)
 ```
 
 ## **Cambiar el tipo de diseño de un objeto SmartArt**
 
-El diseño de SmartArt controla cómo se disponen y conectan los nodos. El siguiente ejemplo crea un objeto SmartArt con el valor `BASIC_BLOCK_LIST` del [SmartArtLayoutType](https://reference.aspose.com/slides/es/python-net/aspose.slides.smartart/smartartlayouttype/), lo cambia al valor `BASIC_PROCESS` y guarda la presentación.
+El diseño de SmartArt controla cómo se organizan y conectan los nodos. El siguiente ejemplo crea un objeto SmartArt con el valor [SmartArtLayoutType](https://reference.aspose.com/slides/python-net/aspose.slides.smartart/smartartlayouttype/) `BASIC_BLOCK_LIST`, lo cambia al valor `BASIC_PROCESS` y guarda la presentación. La posición y el tamaño pasados a [ShapeCollection.add_smart_art](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_smart_art/) se miden en puntos. Establece [SmartArt.layout](https://reference.aspose.com/slides/python-net/aspose.slides.smartart/smartart/layout/) para cambiar el diseño.
 
-```py
+```python
 import aspose.slides as slides
 import aspose.slides.smartart as smartart
 
 with slides.Presentation() as presentation:
-    smart_art = presentation.slides[0].shapes.add_smart_art(
-        10, 10, 400, 300, smartart.SmartArtLayoutType.BASIC_BLOCK_LIST)
+    slide = presentation.slides[0]
 
+    smart_art = slide.shapes.add_smart_art(10, 10, 400, 300, smartart.SmartArtLayoutType.BASIC_BLOCK_LIST)
     smart_art.layout = smartart.SmartArtLayoutType.BASIC_PROCESS
 
-    presentation.save("ChangeSmartArtLayout_out.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("ChangeSmartArtLayout.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **Comprobar si un nodo SmartArt está oculto**
 
-[SmartArtNode.is_hidden](https://reference.aspose.com/slides/es/python-net/aspose.slides.smartart/smartartnode/is_hidden/) indica si el nodo está oculto en el modelo de datos de SmartArt. Los nodos ocultos pueden existir en la estructura aunque el diseño seleccionado no los muestre como elementos visibles del diagrama.
+[SmartArtNode.is_hidden](https://reference.aspose.com/slides/python-net/aspose.slides.smartart/smartartnode/is_hidden/) indica si el nodo está oculto en el modelo de datos de SmartArt. Los nodos ocultos pueden existir en la estructura incluso cuando el diseño seleccionado no los muestra como elementos visibles del diagrama.
 
-El siguiente ejemplo añade un nodo a un objeto SmartArt que utiliza el valor `RADIAL_CYCLE` del [SmartArtLayoutType](https://reference.aspose.com/slides/es/python-net/aspose.slides.smartart/smartartlayouttype/) y comprueba el estado de ocultación del nodo.
+El siguiente ejemplo añade un nodo a un objeto SmartArt que utiliza el valor [SmartArtLayoutType](https://reference.aspose.com/slides/python-net/aspose.slides.smartart/smartartlayouttype/) `RADIAL_CYCLE` y comprueba el estado de ocultación del nodo añadido. Imprime un mensaje si el nodo está oculto y guarda el diagrama.
 
-```py
+```python
 import aspose.slides as slides
 import aspose.slides.smartart as smartart
 
 with slides.Presentation() as presentation:
-    smart_art = presentation.slides[0].shapes.add_smart_art(
-        10, 10, 400, 300, smartart.SmartArtLayoutType.RADIAL_CYCLE)
+    slide = presentation.slides[0]
 
-    smart_art_node = smart_art.all_nodes.add_node()
-    is_hidden = smart_art_node.is_hidden
+    smart_art = slide.shapes.add_smart_art(10, 10, 400, 300, smartart.SmartArtLayoutType.RADIAL_CYCLE)
+    node = smart_art.all_nodes.add_node()
+    is_hidden = node.is_hidden
 
     if is_hidden:
         print("The node is hidden in the SmartArt data model.")
 
-    presentation.save("CheckSmartArtHiddenProperty_out.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("CheckSmartArtHiddenProperty.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **Obtener o establecer el diseño del organigrama**
 
-Para diagramas SmartArt que usan un diseño de organigrama, [SmartArtNode.organization_chart_layout](https://reference.aspose.com/slides/es/python-net/aspose.slides.smartart/smartartnode/organization_chart_layout/) define cómo se disponen los nodos hijos bajo un nodo padre. Por ejemplo, puedes establecer que los nodos hijos cuelguen a la izquierda, a la derecha o a ambos lados, según el [OrganizationChartLayoutType](https://reference.aspose.com/slides/es/python-net/aspose.slides.smartart/organizationchartlayouttype/) seleccionado.
+Para diagramas SmartArt que utilizan un diseño de organigrama, [SmartArtNode.organization_chart_layout](https://reference.aspose.com/slides/python-net/aspose.slides.smartart/smartartnode/organization_chart_layout/) define cómo se organizan los nodos hijos bajo un nodo padre. Por ejemplo, puedes establecer que los nodos hijos cuelguen a la izquierda, a la derecha o en ambos lados, según el [OrganizationChartLayoutType](https://reference.aspose.com/slides/python-net/aspose.slides.smartart/organizationchartlayouttype/) seleccionado.
 
-El siguiente ejemplo crea un organigrama y establece el diseño para el primer nodo al valor `LEFT_HANGING` del [OrganizationChartLayoutType](https://reference.aspose.com/slides/es/python-net/aspose.slides.smartart/organizationchartlayouttype/).
+El siguiente ejemplo crea un organigrama y establece el diseño para el primer nodo al valor [OrganizationChartLayoutType](https://reference.aspose.com/slides/python-net/aspose.slides.smartart/organizationchartlayouttype/) `LEFT_HANGING`. El índice basado en cero `0` selecciona el primer nodo de nivel superior; sus nodos hijos utilizan la disposición seleccionada. La presentación modificada se guarda a continuación.
 
-```py
+```python
 import aspose.slides as slides
 import aspose.slides.smartart as smartart
 
 with slides.Presentation() as presentation:
-    smart_art = presentation.slides[0].shapes.add_smart_art(
-        10, 10, 400, 300, smartart.SmartArtLayoutType.ORGANIZATION_CHART)
+    slide = presentation.slides[0]
 
+    smart_art = slide.shapes.add_smart_art(10, 10, 400, 300, smartart.SmartArtLayoutType.ORGANIZATION_CHART)
     root_node = smart_art.nodes[0]
     root_node.organization_chart_layout = smartart.OrganizationChartLayoutType.LEFT_HANGING
 
-    presentation.save("OrganizationChartLayout_out.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("OrganizationChartLayout.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **Crear un organigrama con imágenes**
 
-Un organigrama con imágenes es un diseño de SmartArt pensado para diagramas jerárquicos que incluyen marcadores de posición de imagen. Usa el valor `PICTURE_ORGANIZATION_CHART` del [SmartArtLayoutType](https://reference.aspose.com/slides/es/python-net/aspose.slides.smartart/smartartlayouttype/) al añadir el objeto SmartArt a una diapositiva.
+Un organigrama con imágenes es un diseño de SmartArt diseñado para diagramas jerárquicos que incluyen marcadores de posición de imágenes. Usa el valor [SmartArtLayoutType](https://reference.aspose.com/slides/python-net/aspose.slides.smartart/smartartlayouttype/) `PICTURE_ORGANIZATION_CHART` al añadir el objeto SmartArt a una diapositiva. Este ejemplo guarda un diagrama con marcadores de posición de imágenes; no rellena los marcadores con imágenes.
 
-```py
+```python
 import aspose.slides as slides
 import aspose.slides.smartart as smartart
 
 with slides.Presentation() as presentation:
-    smart_art = presentation.slides[0].shapes.add_smart_art(
-        0, 0, 400, 400, smartart.SmartArtLayoutType.PICTURE_ORGANIZATION_CHART)
+    slide = presentation.slides[0]
 
-    presentation.save("PictureOrganizationChart_out.pptx", slides.export.SaveFormat.PPTX)
+    smart_art = slide.shapes.add_smart_art(0, 0, 400, 400, smartart.SmartArtLayoutType.PICTURE_ORGANIZATION_CHART)
+
+    presentation.save("PictureOrganizationChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Preguntas frecuentes**
+## **Convertir diagramas heredados en grupos de formas**
 
-**¿SmartArt soporta la reflexión o inversión para idiomas RTL?**
+Al modernizar una presentación existente, puede ser necesario actualizar un organigrama creado originalmente en PowerPoint 97–2003. Aspose.Slides representa estos diagramas heredados como objetos [LegacyDiagram](https://reference.aspose.com/slides/python-net/aspose.slides/legacydiagram/). Usa [LegacyDiagram.convert_to_group_shape](https://reference.aspose.com/slides/python-net/aspose.slides/legacydiagram/convert_to_group_shape/) para convertir un diagrama en un grupo de formas de modo que puedas editar elementos visuales individuales. Consulta la [LegacyDiagram API Reference](https://reference.aspose.com/slides/python-net/aspose.slides/legacydiagram/) para obtener más detalles.
 
-Sí. La propiedad [SmartArt.is_reversed](https://reference.aspose.com/slides/es/python-net/aspose.slides.smartart/smartart/is_reversed/) cambia la dirección del diagrama de izquierda a derecha a derecha a izquierda, o viceversa, cuando el diseño de SmartArt seleccionado admite la inversión.
+La conversión añade un nuevo grupo a la colección de formas sin eliminar el diagrama original. Tras una conversión exitosa, elimina el original con [ShapeCollection.remove](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/remove/) para evitar contenido duplicado. Recopila los diagramas heredados en una lista antes de convertirlos para que la adición y eliminación de formas no interrumpa la iteración.
 
-**¿Cómo puedo copiar SmartArt a la misma diapositiva o a otra presentación conservando el formato?**
+El siguiente ejemplo abre una presentación, busca en cada diapositiva, convierte los diagramas en grupos de formas y guarda la presentación actualizada como PPTX.
 
-Puedes [clonar la forma SmartArt](/slides/es/python-net/shape-manipulations/) con [ShapeCollection.add_clone](https://reference.aspose.com/slides/es/python-net/aspose.slides/shapecollection/add_clone/) o [clonar la diapositiva completa](/slides/es/python-net/clone-slides/) que contiene el SmartArt. Ambos enfoques conservan el tamaño, la posición y el formato.
+```python
+import aspose.slides as slides
+
+with slides.Presentation("legacy-diagrams.ppt") as presentation:
+    for slide in presentation.slides:
+        legacy_diagrams = [shape for shape in slide.shapes if isinstance(shape, slides.LegacyDiagram)]
+        for legacy_diagram in legacy_diagrams:
+            group_shape = legacy_diagram.convert_to_group_shape()
+
+            if group_shape is not None:
+                slide.shapes.remove(legacy_diagram)
+
+    presentation.save("modernized.pptx", slides.export.SaveFormat.PPTX)
+```
+
+La presentación guardada contiene grupos de formas editables en lugar de los diagramas heredados convertidos, sin diagramas originales junto a ellos. Abre el PPTX en PowerPoint para editar elementos individuales dentro de cada grupo, como su texto, relleno o posición.
+
+## **FAQ**
+
+**¿SmartArt admite la reflexión o inversión para idiomas RTL?**
+
+Sí. La propiedad [SmartArt.is_reversed](https://reference.aspose.com/slides/python-net/aspose.slides.smartart/smartart/is_reversed/) cambia la dirección del diagrama de izquierda a derecha a derecha a izquierda, o viceversa, cuando el diseño de SmartArt seleccionado admite la inversión.
+
+**¿Cómo puedo copiar SmartArt a la misma diapositiva o a otra presentación manteniendo el formato?**
+
+Puedes [clonar la forma SmartArt](/slides/es/python-net/shape-manipulations/) con [ShapeCollection.add_clone](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_clone/) o [clonar toda la diapositiva](/slides/es/python-net/clone-slides/) que contiene el SmartArt. Ambas opciones conservan el tamaño, la posición y el formato.
 
 **¿Cómo renderizo SmartArt a una imagen raster para vista previa o exportación web?**
 
-[Renderizar la diapositiva](/slides/es/python-net/convert-powerpoint-to-png/) o toda la presentación a PNG o JPEG. SmartArt se renderiza como parte de la diapositiva.
+[Renderiza la diapositiva](/slides/es/python-net/convert-powerpoint-to-png/) o toda la presentación a PNG o JPEG. SmartArt se renderiza como parte de la diapositiva.
 
 **¿Cómo puedo encontrar un objeto SmartArt específico en una diapositiva si hay varios?**
 
-Establece un texto alternativo distintivo con [Shape.alternative_text](https://reference.aspose.com/slides/es/python-net/aspose.slides/shape/alternative_text/) o un nombre con [Shape.name](https://reference.aspose.com/slides/es/python-net/aspose.slides/shape/name/) en la forma SmartArt, busca ese valor en [Slide.shapes](https://reference.aspose.com/slides/es/python-net/aspose.slides/slide/shapes/) y, a continuación, verifica que la forma coincidente sea un [SmartArt](https://reference.aspose.com/slides/es/python-net/aspose.slides.smartart/smartart/).
+Establece un [Shape.alternative_text](https://reference.aspose.com/slides/python-net/aspose.slides/shape/alternative_text/) o [Shape.name](https://reference.aspose.com/slides/python-net/aspose.slides/shape/name/) distintivo en la forma SmartArt, busca ese valor en [Slide.shapes](https://reference.aspose.com/slides/python-net/aspose.slides/slide/shapes/), y luego verifica que la forma coincidente sea un [SmartArt](https://reference.aspose.com/slides/python-net/aspose.slides.smartart/smartart/).

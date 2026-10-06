@@ -1,45 +1,45 @@
 ---
 title: Správa SmartArt v prezentacích PowerPoint na Androidu
-linktitle: Spravovat SmartArt
+linktitle: Správa SmartArt
 type: docs
 weight: 10
 url: /cs/androidjava/manage-smartart/
 keywords:
 - SmartArt
-- Text SmartArt
+- text SmartArt
 - typ rozvržení
 - skrytá vlastnost
-- organizační diagram
-- obrázkový organizační diagram
+- organizační schéma
+- obrázkové organizační schéma
 - PowerPoint
 - prezentace
 - Android
 - Java
 - Aspose.Slides
-description: "Naučte se vytvářet a upravovat SmartArt v PowerPointu pomocí Aspose.Slides pro Android s využitím přehledných ukázek Java kódu, které urychlují návrh snímků a automatizaci."
+description: "Naučte se vytvářet a upravovat PowerPoint SmartArt pomocí Aspose.Slides pro Android s přehlednými ukázkami Java kódu, které urychlují design a automatizaci snímků."
 ---
 ## **Přehled**
 
-SmartArt je diagram PowerPointu vytvořený z uzlů, tvarů uzlů a rozvržení. S Aspose.Slides for Android via Java můžete vytvářet SmartArt, číst text z jeho uzlů, měnit jeho rozvržení, prohlížet skryté uzly, konfigurovat rozvržení organizačních diagramů a vytvářet obrázkové organizační diagramy.
+SmartArt je diagram PowerPointu vytvořený z uzlů, tvarů uzlů a rozvržení. S Aspose.Slides pro Android pomocí Java můžete vytvářet SmartArt, číst text z jeho uzlů, měnit jeho rozvržení, prohlížet skryté uzly, konfigurovat rozvržení organizačních schémat a vytvářet obrázkové organizační schémata.
 
 ## **Získání textu ze SmartArt objektu**
 
-SmartArt uzel může obsahovat jeden nebo více tvarů. Pro přečtení viditelného textu projděte [ISmartArt.getAllNodes](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ismartart/#getAllNodes--) a poté přečtěte [ITextFrame](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/itextframe/) vrácený metodou [ISmartArtShape.getTextFrame](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ismartartshape/#getTextFrame--).
+Uzel SmartArt může obsahovat jeden nebo více tvarů. Pro čtení textu z tvarů uzlu iterujte přes [ISmartArt.getAllNodes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ismartart/#getAllNodes--), poté si přečtěte [ITextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/) vrácený metodou [ISmartArtShape.getTextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ismartartshape/#getTextFrame--).
+
+Příklad vyžaduje prezentaci alespoň s jedním snímkem a objekt SmartArt jako první tvar na tomto snímku. Vypíše každý dostupný textový rámec do konzole.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
-    IShape shape = slide.getShapes().get_Item(0);
 
-    if (shape instanceof ISmartArt) {
-        ISmartArt smartArt = (ISmartArt) shape;
-
-        for (ISmartArtNode node : smartArt.getAllNodes()) {
-            for (ISmartArtShape nodeShape : node.getShapes()) {
-                if (nodeShape.getTextFrame() != null) {
-                    System.out.println(nodeShape.getTextFrame().getText());
-                }
+    ISmartArt smartArt = (ISmartArt) slide.getShapes().get_Item(0);
+    for (ISmartArtNode node : smartArt.getAllNodes()) {
+        for (ISmartArtShape nodeShape : node.getShapes()) {
+            if (nodeShape.getTextFrame() != null) {
+                System.out.println(nodeShape.getTextFrame().getText());
             }
         }
     }
@@ -48,36 +48,40 @@ try {
 }
 ```
 
-## **Změna typu rozvržení SmartArt objektu**
+## **Změna typu rozvržení objektu SmartArt**
 
-Rozvržení SmartArt určuje, jak jsou uzly uspořádány a propojeny. Následující příklad vytvoří SmartArt objekt s hodnotou [SmartArtLayoutType](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/SmartArtLayoutType) `BasicBlockList`, změní jej na hodnotu `BasicProcess` a uloží prezentaci.
+Rozvržení SmartArt určuje, jak jsou uzly uspořádány a propojeny. Následující příklad vytvoří objekt SmartArt s hodnotou [SmartArtLayoutType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/smartartlayouttype/) `BasicBlockList`, změní jej na hodnotu `BasicProcess` a uloží prezentaci. Pozice a velikost předávané metodě [IShapeCollection.addSmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addSmartArt-float-float-float-float-int-) jsou měřeny v bodech. K změně rozvržení použijte [ISmartArt.setLayout](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ismartart/#setLayout-int-).
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
-    ISmartArt smartArt = presentation.getSlides().get_Item(0).getShapes().addSmartArt(
-        10, 10, 400, 300, SmartArtLayoutType.BasicBlockList);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
+    ISmartArt smartArt = slide.getShapes().addSmartArt(10, 10, 400, 300, SmartArtLayoutType.BasicBlockList);
     smartArt.setLayout(SmartArtLayoutType.BasicProcess);
 
-    presentation.save("ChangeSmartArtLayout_out.pptx", SaveFormat.Pptx);
+    presentation.save("ChangeSmartArtLayout.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Kontrola, zda je SmartArt uzel skrytý**
+## **Kontrola, zda je uzel SmartArt skrytý**
 
-[ISmartArtNode.isHidden](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ismartartnode/#isHidden--) udává, zda je uzel skrytý v datovém modelu SmartArt. Skryté uzly mohou existovat ve struktuře, i když vybrané rozvržení nezobrazí jako viditelné diagramové prvky.
+[ISmartArtNode.isHidden](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ismartartnode/#isHidden--) udává, zda je uzel ve SmartArt datovém modelu skrytý. Skryté uzly mohou existovat ve struktuře, i když vybrané rozvržení je nezobrazuje jako viditelné diagramové prvky.
 
-Následující příklad přidá uzel k SmartArt objektu, který používá hodnotu [SmartArtLayoutType](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/SmartArtLayoutType) `RadialCycle`, a zkontroluje stav skrytí uzlu.
+Následující příklad přidá uzel do objektu SmartArt, který používá hodnotu [SmartArtLayoutType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/smartartlayouttype/) `RadialCycle`, a zkontroluje stav skrytí přidaného uzlu. Vypíše zprávu, pokud je uzel skrytý, a uloží diagram.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
-    ISmartArt smartArt = presentation.getSlides().get_Item(0).getShapes().addSmartArt(
-        10, 10, 400, 300, SmartArtLayoutType.RadialCycle);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
+    ISmartArt smartArt = slide.getShapes().addSmartArt(10, 10, 400, 300, SmartArtLayoutType.RadialCycle);
     ISmartArtNode node = smartArt.getAllNodes().addNode();
     boolean isHidden = node.isHidden();
 
@@ -85,7 +89,7 @@ try {
         System.out.println("The node is hidden in the SmartArt data model.");
     }
 
-    presentation.save("CheckSmartArtHiddenProperty_out.pptx", SaveFormat.Pptx);
+    presentation.save("CheckSmartArtHiddenProperty.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
@@ -93,20 +97,22 @@ try {
 
 ## **Získání nebo nastavení rozvržení organizačního diagramu**
 
-Pro SmartArt diagramy, které používají rozvržení organizačního diagramu, [ISmartArtNode.getOrganizationChartLayout](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ISmartArtNode#getOrganizationChartLayout--) a [ISmartArtNode.setOrganizationChartLayout](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ISmartArtNode#setOrganizationChartLayout-int-) určují, jak jsou podřazené uzly uspořádány pod nadřazeným uzlem. Například můžete nastavit podřazené uzly, aby visely vlevo, vpravo nebo na obou stranách, podle vybraného [OrganizationChartLayoutType](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/OrganizationChartLayoutType).
+U diagramů SmartArt, které používají rozvržení organizačního diagramu, definují [ISmartArtNode.getOrganizationChartLayout](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ismartartnode/#getOrganizationChartLayout--) a [ISmartArtNode.setOrganizationChartLayout](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ismartartnode/#setOrganizationChartLayout-int-) způsob uspořádání podřízených uzlů pod nadřazeným uzlem. Například můžete nastavit podřízené uzly, aby visely vlevo, vpravo nebo na obou stranách, podle vybraného [OrganizationChartLayoutType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/organizationchartlayouttype/).
 
-Následující příklad vytvoří organizační diagram a nastaví rozvržení pro první uzel na hodnotu [OrganizationChartLayoutType](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/OrganizationChartLayoutType) `LeftHanging`.
+Následující příklad vytvoří organizační diagram a nastaví rozvržení pro první uzel na hodnotu [OrganizationChartLayoutType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/organizationchartlayouttype/) `LeftHanging`. Index založený na nule `0` vybírá první uzel nejvyšší úrovně; jeho podřízené uzly použijí vybrané uspořádání. Upravená prezentace je pak uložena.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
-    ISmartArt smartArt = presentation.getSlides().get_Item(0).getShapes().addSmartArt(
-        10, 10, 400, 300, SmartArtLayoutType.OrganizationChart);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
+    ISmartArt smartArt = slide.getShapes().addSmartArt(10, 10, 400, 300, SmartArtLayoutType.OrganizationChart);
     ISmartArtNode rootNode = smartArt.getNodes().get_Item(0);
     rootNode.setOrganizationChartLayout(OrganizationChartLayoutType.LeftHanging);
 
-    presentation.save("OrganizationChartLayout_out.pptx", SaveFormat.Pptx);
+    presentation.save("OrganizationChartLayout.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
@@ -114,34 +120,77 @@ try {
 
 ## **Vytvoření obrázkového organizačního diagramu**
 
-Obrázkový organizační diagram je rozvržení SmartArt určené pro hierarchické diagramy zahrnující zástupce obrázků. Při přidávání SmartArt objektu na snímek použijte hodnotu [SmartArtLayoutType](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/SmartArtLayoutType) `PictureOrganizationChart`.
+Obrázkový organizační diagram je rozvržení SmartArt určené pro hierarchické diagramy, které obsahují zástupné obrázky. Při přidávání objektu SmartArt na snímek použijte hodnotu [SmartArtLayoutType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/smartartlayouttype/) `PictureOrganizationChart`. Tento příklad uloží diagram se zástupnými obrázky; nezaplní zástupce obrázky.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
-    ISmartArt smartArt = presentation.getSlides().get_Item(0).getShapes().addSmartArt(
-        0, 0, 400, 400, SmartArtLayoutType.PictureOrganizationChart);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    presentation.save("PictureOrganizationChart_out.pptx", SaveFormat.Pptx);
+    ISmartArt smartArt = slide.getShapes().addSmartArt(0, 0, 400, 400, SmartArtLayoutType.PictureOrganizationChart);
+
+    presentation.save("PictureOrganizationChart.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
+## **Převod starých diagramů na skupiny tvarů**
+
+Při modernizaci existující prezentace můžete potřebovat aktualizovat organizační diagram původně vytvořený v PowerPoint 97–2003. Aspose.Slides představuje tyto staré diagramy jako objekty [ILegacyDiagram](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilegacydiagram/). K převodu diagramu na skupinu tvarů použijte [LegacyDiagram.convertToGroupShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/legacydiagram/#convertToGroupShape--), abyste mohli upravovat jednotlivé vizuální prvky. Podrobnosti najdete v [LegacyDiagram API Reference](https://reference.aspose.com/slides/androidjava/com.aspose.slides/legacydiagram/).
+
+Převod přidá novou skupinu do kolekce tvarů, aniž by odstranil původní diagram. Po úspěšném převodu odstraňte originál pomocí [IShapeCollection.remove](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#remove-com.aspose.slides.IShape-) a zabráníte duplicitnímu obsahu. Před konverzí shromážděte staré diagramy do seznamu, aby přidávání a odstraňování tvarů neporušovalo iteraci.
+
+Následující příklad otevře prezentaci, prohledá všechny snímky, převádí diagramy na skupiny tvarů a uloží aktualizovanou prezentaci jako PPTX.
+
+```java
+import com.aspose.slides.*;
+import java.util.ArrayList;
+import java.util.List;
+
+Presentation presentation = new Presentation("legacy-diagrams.ppt");
+try {
+    for (ISlide slide : presentation.getSlides()) {
+        List<ILegacyDiagram> legacyDiagrams = new ArrayList<>();
+        for (IShape shape : slide.getShapes()) {
+            if (shape instanceof ILegacyDiagram) {
+                legacyDiagrams.add((ILegacyDiagram) shape);
+            }
+        }
+
+        for (ILegacyDiagram legacyDiagram : legacyDiagrams) {
+            IGroupShape groupShape = legacyDiagram.convertToGroupShape();
+
+            if (groupShape != null) {
+                slide.getShapes().remove(legacyDiagram);
+            }
+        }
+    }
+
+    presentation.save("modernized.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Uložená prezentace obsahuje editovatelné skupiny tvarů místo převedených starých diagramů, přičemž žádné původní diagramy nezůstávají. Otevřete PPTX v PowerPointu a upravujte jednotlivé prvky v každé skupině, například jejich text, výplň nebo pozici.
+
 ## **Často kladené otázky**
 
 **Podporuje SmartArt zrcadlení nebo obrácení pro jazyky RTL?**
 
-Ano. Metoda [ISmartArt.setReversed](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ismartart/#setReversed-boolean-) přepíná směr diagramu z zleva doprava na zprava doleva nebo zpět, pokud vybrané rozvržení SmartArt podporuje obrácení.
+Ano. Metoda [ISmartArt.setReversed](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ismartart/#setReversed-boolean-) přepíná směr diagramu z levého na pravý a zpět, pokud vybrané rozvržení SmartArt podporuje obrácení.
 
-**Jak mohu zkopírovat SmartArt na ten samý snímek nebo do jiné prezentace a zachovat formátování?**
+**Jak mohu zkopírovat SmartArt na stejný snímek nebo do jiné prezentace při zachování formátování?**
 
-Můžete [klonovat tvar SmartArt](/slides/cs/androidjava/shape-manipulations/) metodou [ShapeCollection.addClone](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/shapecollection/#addClone-com.aspose.slides.IShape-float-float-float-float-) nebo [klonovat celý snímek](/slides/cs/androidjava/clone-slides/) obsahující SmartArt. Oba přístupy zachovají velikost, pozici i formátování.
+Můžete [klonovat tvar SmartArt](/slides/cs/androidjava/shape-manipulations/) pomocí [ShapeCollection.addClone](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shapecollection/#addClone-com.aspose.slides.IShape-float-float-float-float-) nebo [klonovat celý snímek](/slides/cs/androidjava/clone-slides/) obsahující SmartArt. Oba přístupy zachovají velikost, pozici i formátování.
 
-**Jak vyrenderovat SmartArt do rastrového obrázku pro náhled nebo export na web?**
+**Jak mohu vykreslit SmartArt do rastrového obrazu pro náhled nebo export na web?**
 
-[Renderujte snímek](/slides/cs/androidjava/convert-powerpoint-to-png/) nebo celou prezentaci do PNG nebo JPEG. SmartArt je renderován jako součást snímku.
+[Renderovat snímek](/slides/cs/androidjava/convert-powerpoint-to-png/) nebo celou prezentaci do PNG nebo JPEG. SmartArt je vykreslen jako součást snímku.
 
-**Jak najít konkrétní SmartArt objekt na snímku, pokud jich je několik?**
+**Jak mohu najít konkrétní objekt SmartArt na snímku, pokud jich je několik?**
 
-Nastavte jedinečný atribut [Shape.getAlternativeText](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/shape/#getAlternativeText--) nebo [Shape.getName](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/shape/#getName--) na tvar SmartArt, vyhledejte tuto hodnotu v [BaseSlide.getShapes](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/baseslide/#getShapes--), a poté ověřte, že nalezený tvar je [ISmartArt](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ismartart/).
+Použijte [Shape.setAlternativeText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shape/#setAlternativeText-java.lang.String-) nebo [Shape.setName](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shape/#setName-java.lang.String-) k přiřazení význačného alternativního textu či názvu tvaru SmartArt, vyhledejte tuto hodnotu v [BaseSlide.getShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/baseslide/#getShapes--), a poté ověřte, že odpovídající tvar je [ISmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ismartart/).

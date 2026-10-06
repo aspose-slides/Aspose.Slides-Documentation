@@ -1,5 +1,5 @@
 ---
-title: مدیریت SmartArt در ارائه‌های PowerPoint در Android
+title: مدیریت SmartArt در ارائه‌های PowerPoint در اندروید
 linktitle: مدیریت SmartArt
 type: docs
 weight: 10
@@ -16,30 +16,30 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "یاد بگیرید چگونه SmartArt در PowerPoint را با Aspose.Slides برای Android بسازید و ویرایش کنید با استفاده از نمونه‌های واضح کد Java که سرعت طراحی اسلاید و خودکارسازی را افزایش می‌دهند."
+description: "یاد بگیرید چگونه SmartArt در PowerPoint را با Aspose.Slides برای اندروید بسازید و ویرایش کنید با استفاده از نمونه‌های واضح کد جاوا که طراحی اسلاید و خودکارسازی را سرعت می‌بخشند."
 ---
 ## **نمای کلی**
 
-SmartArt یک نمودار PowerPoint است که از گره‌ها، اشکال گره و یک طرح‌بندی ساخته شده است. با Aspose.Slides برای Android از طریق Java، می‌توانید SmartArt ایجاد کنید، متن را از گره‌های آن بخوانید، طرح‌بندی آن را تغییر دهید، گره‌های مخفی را بررسی کنید، طرح‌بندی‌های نمودار سازمانی را پیکربندی کنید و نمودارهای سازمانی تصویری ایجاد کنید.
+SmartArt یک نمودار PowerPoint است که از گره‌ها، اشکال گره و یک طرح‌بندی ساخته می‌شود. با Aspose.Slides for Android via Java می‌توانید SmartArt را ایجاد کنید، متن را از گره‌های آن بخوانید، طرح‌بندی آن را تغییر دهید، گره‌های مخفی را بررسی کنید، طرح‌بندی نمودارهای سازمانی را پیکربندی کنید و نمودارهای سازمانی تصویری بسازید.
 
 ## **دریافت متن از یک شیء SmartArt**
 
-یک گره SmartArt می‌تواند یک یا چند شکل را در بر داشته باشد. برای خواندن متن قابل مشاهده، از طریق [ISmartArt.getAllNodes](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ismartart/#getAllNodes--) پیمایش کنید، سپس [ITextFrame](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/itextframe/) بازگردانده‌شده توسط [ISmartArtShape.getTextFrame](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ismartartshape/#getTextFrame--) را بخوانید.
+یک گره SmartArt می‌تواند یک یا چند شکل داشته باشد. برای خواندن متن از اشکال گره، از طریق [ISmartArt.getAllNodes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ismartart/#getAllNodes--) مرور کنید، سپس [ITextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/) برگردانده شده توسط [ISmartArtShape.getTextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ismartartshape/#getTextFrame--) را بخوانید.
+
+این مثال نیاز به ارائه‌ای دارد که حداقل یک اسلاید و یک شیء SmartArt به عنوان اولین شکل در آن اسلاید داشته باشد. هر فریم متنی در دسترس را در کنسول چاپ می‌کند.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
-    IShape shape = slide.getShapes().get_Item(0);
 
-    if (shape instanceof ISmartArt) {
-        ISmartArt smartArt = (ISmartArt) shape;
-
-        for (ISmartArtNode node : smartArt.getAllNodes()) {
-            for (ISmartArtShape nodeShape : node.getShapes()) {
-                if (nodeShape.getTextFrame() != null) {
-                    System.out.println(nodeShape.getTextFrame().getText());
-                }
+    ISmartArt smartArt = (ISmartArt) slide.getShapes().get_Item(0);
+    for (ISmartArtNode node : smartArt.getAllNodes()) {
+        for (ISmartArtShape nodeShape : node.getShapes()) {
+            if (nodeShape.getTextFrame() != null) {
+                System.out.println(nodeShape.getTextFrame().getText());
             }
         }
     }
@@ -50,34 +50,38 @@ try {
 
 ## **تغییر نوع طرح‌بندی یک شیء SmartArt**
 
-طرح‌بندی SmartArt تعیین می‌کند گره‌ها چگونه چیده و به یکدیگر متصل می‌شوند. مثال زیر یک شیء SmartArt را با مقدار `BasicBlockList` از نوع [SmartArtLayoutType](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/SmartArtLayoutType) ایجاد می‌کند، آن را به مقدار `BasicProcess` تغییر می‌دهد و ارائه را ذخیره می‌کند.
+طرح‌بندی SmartArt کنترل می‌کند که گره‌ها چگونه مرتب و متصل شوند. مثال زیر یک شیء SmartArt با مقدار [SmartArtLayoutType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/smartartlayouttype/) `BasicBlockList` ایجاد می‌کند، آن را به مقدار `BasicProcess` تغییر می‌دهد و ارائه را ذخیره می‌کند. موقعیت و اندازه‌ای که به [IShapeCollection.addSmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addSmartArt-float-float-float-float-int-) پاس داده می‌شود بر حسب نقطه (point) اندازه‌گیری می‌شود. برای تغییر طرح‌بندی از [ISmartArt.setLayout](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ismartart/#setLayout-int-) استفاده کنید.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
-    ISmartArt smartArt = presentation.getSlides().get_Item(0).getShapes().addSmartArt(
-        10, 10, 400, 300, SmartArtLayoutType.BasicBlockList);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
+    ISmartArt smartArt = slide.getShapes().addSmartArt(10, 10, 400, 300, SmartArtLayoutType.BasicBlockList);
     smartArt.setLayout(SmartArtLayoutType.BasicProcess);
 
-    presentation.save("ChangeSmartArtLayout_out.pptx", SaveFormat.Pptx);
+    presentation.save("ChangeSmartArtLayout.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **بررسی اینکه آیا یک گره SmartArt مخفی است یا خیر**
+## **بررسی اینکه آیا یک گره SmartArt مخفی است**
 
-[ISmartArtNode.isHidden](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ismartartnode/#isHidden--) نشان می‌دهد آیا گره در مدل داده‌ای SmartArt مخفی است یا خیر. گره‌های مخفی می‌توانند در ساختار وجود داشته باشند حتی زمانی که طرح‌بندی انتخاب‌شده آن‌ها را به‌عنوان عناصر نموداری قابل مشاهده نمایش نمی‌دهد.
+[ISmartArtNode.isHidden](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ismartartnode/#isHidden--) نشان می‌دهد که آیا گره در مدل داده SmartArt مخفی است یا نه. گره‌های مخفی می‌توانند در ساختار وجود داشته باشند حتی وقتی طرح‌بندی انتخاب شده آن‌ها را به ‌عنوان عناصر نمودار قابل رؤیت نمایش نمی‌دهد.
 
-مثال زیر یک گره به شیء SmartArt که از مقدار `RadialCycle` از نوع [SmartArtLayoutType](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/SmartArtLayoutType) استفاده می‌کند اضافه می‌کند و وضعیت مخفی بودن گره را بررسی می‌کند.
+مثال زیر یک گره به شیء SmartArt که از مقدار [SmartArtLayoutType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/smartartlayouttype/) `RadialCycle` استفاده می‌کند، اضافه می‌کند و وضعیت مخفی بودن گره اضافه شده را بررسی می‌کند. اگر گره مخفی باشد پیغامی چاپ می‌کند و نمودار را ذخیره می‌کند.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
-    ISmartArt smartArt = presentation.getSlides().get_Item(0).getShapes().addSmartArt(
-        10, 10, 400, 300, SmartArtLayoutType.RadialCycle);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
+    ISmartArt smartArt = slide.getShapes().addSmartArt(10, 10, 400, 300, SmartArtLayoutType.RadialCycle);
     ISmartArtNode node = smartArt.getAllNodes().addNode();
     boolean isHidden = node.isHidden();
 
@@ -85,7 +89,7 @@ try {
         System.out.println("The node is hidden in the SmartArt data model.");
     }
 
-    presentation.save("CheckSmartArtHiddenProperty_out.pptx", SaveFormat.Pptx);
+    presentation.save("CheckSmartArtHiddenProperty.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
@@ -93,55 +97,100 @@ try {
 
 ## **دریافت یا تنظیم طرح‌بندی نمودار سازمانی**
 
-برای نمودارهای SmartArt که از طرح‌بندی نمودار سازمانی استفاده می‌کنند، متدهای [ISmartArtNode.getOrganizationChartLayout](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ISmartArtNode#getOrganizationChartLayout--) و [ISmartArtNode.setOrganizationChartLayout](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ISmartArtNode#setOrganizationChartLayout-int-) تعیین می‌کنند گره‌های فرزند زیر یک گره والد چگونه چیده شوند. به‌عنوان مثال، می‌توانید گره‌های فرزند را طوری تنظیم کنید که از سمت چپ، راست یا هر دو طرف آویزان شوند، بسته به [OrganizationChartLayoutType](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/OrganizationChartLayoutType) انتخاب‌شده.
+برای نمودارهای SmartArt که از طرح‌بندی سازمانی استفاده می‌کنند، [ISmartArtNode.getOrganizationChartLayout](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ismartartnode/#getOrganizationChartLayout--) و [ISmartArtNode.setOrganizationChartLayout](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ismartartnode/#setOrganizationChartLayout-int-) نحوهٔ چیدمان گره‌های فرزند زیر یک گره والد را تعریف می‌کنند. به عنوان مثال می‌توانید گره‌های فرزند را طوری تنظیم کنید که از سمت چپ، راست یا هر دو طرف آویزان شوند، بسته به [OrganizationChartLayoutType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/organizationchartlayouttype/) انتخابی.
 
-مثال زیر یک نمودار سازمانی ایجاد می‌کند و برای اولین گره، طرح‌بندی را به مقدار `LeftHanging` از نوع [OrganizationChartLayoutType](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/OrganizationChartLayoutType) تنظیم می‌نماید.
+مثال زیر یک نمودار سازمانی ایجاد می‌کند و طرح‌بندی گرهٔ اول را به مقدار [OrganizationChartLayoutType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/organizationchartlayouttype/) `LeftHanging` تنظیم می‌کند. اندیس صفر‑مبنا `0` گرهٔ سطح‑بالای اول را انتخاب می‌کند؛ گره‌های فرزند آن از چیدمان انتخابی استفاده می‌کنند. سپس ارائهٔ اصلاح‌شده ذخیره می‌شود.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
-    ISmartArt smartArt = presentation.getSlides().get_Item(0).getShapes().addSmartArt(
-        10, 10, 400, 300, SmartArtLayoutType.OrganizationChart);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
+    ISmartArt smartArt = slide.getShapes().addSmartArt(10, 10, 400, 300, SmartArtLayoutType.OrganizationChart);
     ISmartArtNode rootNode = smartArt.getNodes().get_Item(0);
     rootNode.setOrganizationChartLayout(OrganizationChartLayoutType.LeftHanging);
 
-    presentation.save("OrganizationChartLayout_out.pptx", SaveFormat.Pptx);
+    presentation.save("OrganizationChartLayout.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **ایجاد نمودار سازمانی تصویری**
+## **ایجاد یک نمودار سازمانی تصویری**
 
-نمودار سازمانی تصویری یک طرح‌بندی SmartArt است که برای نمودارهای سلسله‌مراتبی شامل محل‌های قرارگیری تصویر طراحی شده است. هنگام افزودن شیء SmartArt به یک اسلاید، از مقدار `PictureOrganizationChart` از نوع [SmartArtLayoutType](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/SmartArtLayoutType) استفاده کنید.
+نمودار سازمانی تصویری یک طرح‌بندی SmartArt است که برای نمودارهای سلسله‌مراتبی شامل مکان‌گیرهای تصویر طراحی شده است. هنگام اضافه کردن شیء SmartArt به اسلاید از مقدار [SmartArtLayoutType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/smartartlayouttype/) `PictureOrganizationChart` استفاده کنید. این مثال یک نمودار با مکان‌گیرهای تصویر ذخیره می‌کند؛ اما مکان‌گیرها را با تصویر پر نمی‌کند.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
-    ISmartArt smartArt = presentation.getSlides().get_Item(0).getShapes().addSmartArt(
-        0, 0, 400, 400, SmartArtLayoutType.PictureOrganizationChart);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    presentation.save("PictureOrganizationChart_out.pptx", SaveFormat.Pptx);
+    ISmartArt smartArt = slide.getShapes().addSmartArt(0, 0, 400, 400, SmartArtLayoutType.PictureOrganizationChart);
+
+    presentation.save("PictureOrganizationChart.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **سوالات متداول**
+## **تبدیل نمودارهای قدیمی به گروه‌های شکل**
 
-**آیا SmartArt از انعکاس یا معکوس کردن برای زبان‌های راست به چپ پشتیبانی می‌کند؟**
+هنگام به‌روز رسانی یک ارائه موجود، ممکن است نیاز داشته باشید نمودار سازمانی‌ای که در PowerPoint 97–2003 ساخته شده است را به‌روزرسانی کنید. Aspose.Slides این نمودارهای قدیمی را به صورت اشیاء [ILegacyDiagram](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilegacydiagram/) نمایش می‌دهد. برای تبدیل یک نمودار به یک گروه از شکل‌ها از [LegacyDiagram.convertToGroupShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/legacydiagram/#convertToGroupShape--) استفاده کنید تا بتوانید عناصر بصری فردی را ویرایش کنید. برای جزئیات به [مرجع API LegacyDiagram](https://reference.aspose.com/slides/androidjava/com.aspose.slides/legacydiagram/) مراجعه کنید.
 
-بله. متد [ISmartArt.setReversed](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ismartart/#setReversed-boolean-) جهت نمودار را از چپ به راست به راست به چپ، یا برعکس، تغییر می‌دهد هنگامی که طرح‌بندی SmartArt انتخاب‌شده از معکوس شدن پشتیبانی می‌کند.
+تبدیل یک گروه جدید به مجموعهٔ شکل‌ها اضافه می‌کند بدون این که نمودار اصلی حذف شود. پس از تبدیل موفق، برای جلوگیری از محتوای تکراری، اصل را با استفاده از [IShapeCollection.remove](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#remove-com.aspose.slides.IShape-) حذف کنید. قبل از تبدیل، نمودارهای قدیمی را در یک فهرست جمع‌آوری کنید تا افزودن و حذف شکل‌ها باعث اختلال در تکرار نشود.
 
-**چگونه می‌توانم SmartArt را در همان اسلاید یا در ارائه دیگر کپی کنم در حالی که قالب‌بندی حفظ می‌شود؟**
+مثال زیر یک ارائه را باز می‌کند، هر اسلاید را جستجو می‌کند، نمودارها را به گروه‌های شکل تبدیل می‌کند و ارائهٔ به‌روزشده را به صورت PPTX ذخیره می‌کند.
 
-می‌توانید با استفاده از [ShapeCollection.addClone](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/shapecollection/#addClone-com.aspose.slides.IShape-float-float-float-float-)، [کپی شکل SmartArt](/slides/fa/androidjava/shape-manipulations/) کنید یا با استفاده از [کپی کل اسلاید](/slides/fa/androidjava/clone-slides/) کل اسلاید حاوی SmartArt را کپی کنید. هر دو روش اندازه، موقعیت و قالب‌بندی را حفظ می‌کنند.
+```java
+import com.aspose.slides.*;
+import java.util.ArrayList;
+import java.util.List;
 
-**چگونه می‌توانم SmartArt را به یک تصویر رستر برای پیش‌نمایش یا خروجی وب رندر کنم؟**
+Presentation presentation = new Presentation("legacy-diagrams.ppt");
+try {
+    for (ISlide slide : presentation.getSlides()) {
+        List<ILegacyDiagram> legacyDiagrams = new ArrayList<>();
+        for (IShape shape : slide.getShapes()) {
+            if (shape instanceof ILegacyDiagram) {
+                legacyDiagrams.add((ILegacyDiagram) shape);
+            }
+        }
 
-[رندر اسلاید](/slides/fa/androidjava/convert-powerpoint-to-png/) یا کل ارائه به فرمت PNG یا JPEG. SmartArt به‌عنوان بخشی از اسلاید رندر می‌شود.
+        for (ILegacyDiagram legacyDiagram : legacyDiagrams) {
+            IGroupShape groupShape = legacyDiagram.convertToGroupShape();
 
-**چگونه می‌توانم یک شیء SmartArt خاص را در یک اسلاید پیدا کنم اگر چندین شیء وجود داشته باشد؟**
+            if (groupShape != null) {
+                slide.getShapes().remove(legacyDiagram);
+            }
+        }
+    }
 
-یک مقدار متمایز برای [Shape.getAlternativeText](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/shape/#getAlternativeText--) یا [Shape.getName](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/shape/#getName--) بر روی شکل SmartArt تنظیم کنید، سپس آن مقدار را در [BaseSlide.getShapes](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/baseslide/#getShapes--) جستجو کنید و بررسی کنید که شکل یافت‌شده یک [ISmartArt](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ismartart/) باشد.
+    presentation.save("modernized.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+ارائهٔ ذخیره‌شده شامل گروه‌های قابل ویرایش از شکل‌ها به جای نمودارهای قدیمی تبدیل شده است و هیچ نمودار اصلی در کنار آن‌ها باقی نمی‌ماند. PPTX را در PowerPoint باز کنید تا عناصر فردی در هر گروه، مانند متن، پر یا موقعیت‌شان را ویرایش کنید.
+
+## **FAQ**
+
+**آیا SmartArt از انعکاس یا معکوس کردن برای زبان‌های راست‑به‑چپ پشتیبانی می‌کند؟**
+
+بله. متد [ISmartArt.setReversed](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ismartart/#setReversed-boolean-) جهت نمودار را از چپ به راست به راست به چپ یا برعکس می‌کند وقتی که طرح‌بندی SmartArt انتخاب‌شده از معکوس‌پذیری پشتیبانی می‌کند.
+
+**چگونه می‌توانم SmartArt را در همان اسلاید یا در ارائهٔ دیگری کپی کنم و قالب‌بندی را حفظ کنم؟**
+
+می‌توانید با استفاده از [ShapeCollection.addClone](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shapecollection/#addClone-com.aspose.slides.IShape-float-float-float-float-) شکل SmartArt را [کلون کنید](/slides/fa/androidjava/shape-manipulations/) یا کل اسلاید را [کلون کنید](/slides/fa/androidjava/clone-slides/) که شامل SmartArt است. هر دو روش اندازه، موقعیت و قالب‌بندی را حفظ می‌کنند.
+
+**چگونه می‌توانم SmartArt را به تصویر رستری برای پیش‌نمایش یا صادرات وب رندر کنم؟**
+
+[اسلاید را رندر کنید](/slides/fa/androidjava/convert-powerpoint-to-png/) یا کل ارائه را به PNG یا JPEG. SmartArt به‌عنوان بخشی از اسلاید رندر می‌شود.
+
+**چگونه می‌توانم یک شیء SmartArt خاص را در یک اسلاید پیدا کنم اگر چندین مورد وجود دارد؟**
+
+از [Shape.setAlternativeText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shape/#setAlternativeText-java.lang.String-) یا [Shape.setName](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shape/#setName-java.lang.String-) برای اختصاص متن جایگزین یا نام متمایز به شکل SmartArt استفاده کنید، مقدار آن را در [BaseSlide.getShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/baseslide/#getShapes--) جستجو کنید و سپس بررسی کنید که شکل یافت‌شده یک [ISmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ismartart/) است.

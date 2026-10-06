@@ -8,37 +8,37 @@ keywords:
 - SmartArt
 - SmartArt-Text
 - Layouttyp
-- Versteckte Eigenschaft
+- Ausgeblendete Eigenschaft
 - Organisationsdiagramm
 - Bild-Organisationsdiagramm
 - PowerPoint
 - Präsentation
 - Java
 - Aspose.Slides
-description: "Erfahren Sie, wie Sie PowerPoint SmartArt mit Aspose.Slides für Java erstellen und bearbeiten, anhand klarer Codebeispiele, die das Design und die Automatisierung von Folien beschleunigen."
+description: "Erfahren Sie, wie Sie PowerPoint-SmartArt mit Aspose.Slides für Java erstellen und bearbeiten, indem Sie klare Codebeispiele nutzen, die das Entwerfen und Automatisieren von Folien beschleunigen."
 ---
 ## **Übersicht**
 
-SmartArt ist ein PowerPoint‑Diagramm, das aus Knoten, Knotenformen und einem Layout besteht. Mit Aspose.Slides für Java können Sie SmartArt erstellen, Text aus seinen Knoten lesen, das Layout ändern, versteckte Knoten untersuchen, Organisations‑Chart‑Layouts konfigurieren und Bild‑Organisations‑Charts erstellen.
+SmartArt ist ein PowerPoint‑Diagramm, das aus Knoten, Knotengeformen und einem Layout besteht. Mit Aspose.Slides für Java können Sie SmartArt erstellen, Text aus dessen Knoten auslesen, das Layout ändern, versteckte Knoten untersuchen, Organisationsdiagramm‑Layouts konfigurieren und Bild‑Organisationsdiagramme erstellen.
 
 ## **Text aus einem SmartArt‑Objekt abrufen**
 
-Ein SmartArt‑Knoten kann ein oder mehrere Shapes enthalten. Um den sichtbaren Text zu lesen, iterieren Sie über [ISmartArt.getAllNodes](https://reference.aspose.com/slides/de/java/com.aspose.slides/ismartart/#getAllNodes--), dann lesen Sie das von [ISmartArtShape.getTextFrame](https://reference.aspose.com/slides/de/java/com.aspose.slides/ismartartshape/#getTextFrame--) zurückgegebene [ITextFrame](https://reference.aspose.com/slides/de/java/com.aspose.slides/itextframe/).
+Ein SmartArt‑Knoten kann ein oder mehrere Formen enthalten. Um Text aus den Knotengeformen auszulesen, iterieren Sie über [ISmartArt.getAllNodes](https://reference.aspose.com/slides/java/com.aspose.slides/ismartart/#getAllNodes--), dann lesen Sie das [ITextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/) aus, das von [ISmartArtShape.getTextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ismartartshape/#getTextFrame--) zurückgegeben wird.
+
+Das Beispiel erfordert eine Präsentation mit mindestens einer Folie und einem SmartArt‑Objekt als erster Form auf dieser Folie. Es gibt jedes verfügbare Textfeld in der Konsole aus.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
-    IShape shape = slide.getShapes().get_Item(0);
 
-    if (shape instanceof ISmartArt) {
-        ISmartArt smartArt = (ISmartArt) shape;
-
-        for (ISmartArtNode node : smartArt.getAllNodes()) {
-            for (ISmartArtShape nodeShape : node.getShapes()) {
-                if (nodeShape.getTextFrame() != null) {
-                    System.out.println(nodeShape.getTextFrame().getText());
-                }
+    ISmartArt smartArt = (ISmartArt) slide.getShapes().get_Item(0);
+    for (ISmartArtNode node : smartArt.getAllNodes()) {
+        for (ISmartArtShape nodeShape : node.getShapes()) {
+            if (nodeShape.getTextFrame() != null) {
+                System.out.println(nodeShape.getTextFrame().getText());
             }
         }
     }
@@ -49,34 +49,38 @@ try {
 
 ## **Layouttyp eines SmartArt‑Objekts ändern**
 
-Das SmartArt‑Layout bestimmt, wie Knoten angeordnet und verbunden werden. Das folgende Beispiel erstellt ein SmartArt‑Objekt mit dem [SmartArtLayoutType](https://reference.aspose.com/slides/de/java/com.aspose.slides/SmartArtLayoutType) `BasicBlockList`‑Wert, ändert ihn zu dem Wert `BasicProcess` und speichert die Präsentation.
+Das SmartArt‑Layout steuert, wie Knoten angeordnet und verbunden werden. Das folgende Beispiel erstellt ein SmartArt‑Objekt mit dem [SmartArtLayoutType](https://reference.aspose.com/slides/java/com.aspose.slides/smartartlayouttype/)‑Wert `BasicBlockList`, ändert ihn auf den Wert `BasicProcess` und speichert die Präsentation. Die an [IShapeCollection.addSmartArt](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addSmartArt-float-float-float-float-int-) übergebenen Position und Größe werden in Punkt gemessen. Verwenden Sie [ISmartArt.setLayout](https://reference.aspose.com/slides/java/com.aspose.slides/ismartart/#setLayout-int-), um das Layout zu ändern.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
-    ISmartArt smartArt = presentation.getSlides().get_Item(0).getShapes().addSmartArt(
-        10, 10, 400, 300, SmartArtLayoutType.BasicBlockList);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
+    ISmartArt smartArt = slide.getShapes().addSmartArt(10, 10, 400, 300, SmartArtLayoutType.BasicBlockList);
     smartArt.setLayout(SmartArtLayoutType.BasicProcess);
 
-    presentation.save("ChangeSmartArtLayout_out.pptx", SaveFormat.Pptx);
+    presentation.save("ChangeSmartArtLayout.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Prüfen, ob ein SmartArt‑Knoten ausgeblendet ist**
+## **Überprüfen, ob ein SmartArt‑Knoten ausgeblendet ist**
 
-[ISmartArtNode.isHidden](https://reference.aspose.com/slides/de/java/com.aspose.slides/ismartartnode/#isHidden--) gibt an, ob der Knoten im SmartArt‑Datenmodell ausgeblendet ist. Ausgeblendete Knoten können in der Struktur existieren, selbst wenn das ausgewählte Layout sie nicht als sichtbare Diagrammelemente darstellt.
+[ISmartArtNode.isHidden](https://reference.aspose.com/slides/java/com.aspose.slides/ismartartnode/#isHidden--) gibt an, ob der Knoten im SmartArt‑Datenmodell ausgeblendet ist. Ausgeblendete Knoten können in der Struktur existieren, selbst wenn das ausgewählte Layout sie nicht als sichtbare Diagrammelemente anzeigt.
 
-Das folgende Beispiel fügt einem SmartArt‑Objekt, das den [SmartArtLayoutType](https://reference.aspose.com/slides/de/java/com.aspose.slides/SmartArtLayoutType) `RadialCycle`‑Wert verwendet, einen Knoten hinzu und prüft den ausgeblendeten Zustand des Knotens.
+Das folgende Beispiel fügt einem SmartArt‑Objekt, das den [SmartArtLayoutType](https://reference.aspose.com/slides/java/com.aspose.slides/smartartlayouttype/)‑Wert `RadialCycle` verwendet, einen Knoten hinzu und prüft den ausgeblendeten Zustand des hinzugefügten Knotens. Es gibt eine Meldung aus, wenn der Knoten ausgeblendet ist, und speichert das Diagramm.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
-    ISmartArt smartArt = presentation.getSlides().get_Item(0).getShapes().addSmartArt(
-        10, 10, 400, 300, SmartArtLayoutType.RadialCycle);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
+    ISmartArt smartArt = slide.getShapes().addSmartArt(10, 10, 400, 300, SmartArtLayoutType.RadialCycle);
     ISmartArtNode node = smartArt.getAllNodes().addNode();
     boolean isHidden = node.isHidden();
 
@@ -84,63 +88,108 @@ try {
         System.out.println("The node is hidden in the SmartArt data model.");
     }
 
-    presentation.save("CheckSmartArtHiddenProperty_out.pptx", SaveFormat.Pptx);
+    presentation.save("CheckSmartArtHiddenProperty.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Organisations‑Chart‑Layout abrufen oder festlegen**
+## **Organisation‑Diagrammlayout erhalten oder festlegen**
 
-Für SmartArt‑Diagramme, die ein Organisations‑Chart‑Layout verwenden, definieren [ISmartArtNode.getOrganizationChartLayout](https://reference.aspose.com/slides/de/java/com.aspose.slides/ISmartArtNode#getOrganizationChartLayout--) und [ISmartArtNode.setOrganizationChartLayout](https://reference.aspose.com/slides/de/java/com.aspose.slides/ISmartArtNode#setOrganizationChartLayout-int-) wie Kindknoten unter einem übergeordneten Knoten angeordnet werden. Beispielsweise können Sie Kindknoten links, rechts oder an beiden Seiten hängen lassen, je nach ausgewähltem [OrganizationChartLayoutType](https://reference.aspose.com/slides/de/java/com.aspose.slides/OrganizationChartLayoutType).
+Für SmartArt‑Diagramme, die ein Organisations‑Diagrammlayout verwenden, definieren [ISmartArtNode.getOrganizationChartLayout](https://reference.aspose.com/slides/java/com.aspose.slides/ismartartnode/#getOrganizationChartLayout--) und [ISmartArtNode.setOrganizationChartLayout](https://reference.aspose.com/slides/java/com.aspose.slides/ismartartnode/#setOrganizationChartLayout-int-), wie Kindknoten unter einem übergeordneten Knoten angeordnet werden. Beispielsweise können Sie Kindknoten links, rechts oder an beiden Seiten hängen lassen, abhängig vom ausgewählten [OrganizationChartLayoutType](https://reference.aspose.com/slides/java/com.aspose.slides/organizationchartlayouttype/).
 
-Das folgende Beispiel erstellt ein Organisations‑Chart und legt das Layout für den ersten Knoten auf den [OrganizationChartLayoutType](https://reference.aspose.com/slides/de/java/com.aspose.slides/OrganizationChartLayoutType) `LeftHanging`‑Wert fest.
+Das folgende Beispiel erstellt ein Organisations‑Diagramm und setzt das Layout für den ersten Knoten auf den [OrganizationChartLayoutType](https://reference.aspose.com/slides/java/com.aspose.slides/organizationchartlayouttype/)‑Wert `LeftHanging`. Der nullbasierte Index `0` wählt den ersten Knoten der obersten Ebene aus; seine Kindknoten verwenden die gewählte Anordnung. Die geänderte Präsentation wird anschließend gespeichert.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
-    ISmartArt smartArt = presentation.getSlides().get_Item(0).getShapes().addSmartArt(
-        10, 10, 400, 300, SmartArtLayoutType.OrganizationChart);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
+    ISmartArt smartArt = slide.getShapes().addSmartArt(10, 10, 400, 300, SmartArtLayoutType.OrganizationChart);
     ISmartArtNode rootNode = smartArt.getNodes().get_Item(0);
     rootNode.setOrganizationChartLayout(OrganizationChartLayoutType.LeftHanging);
 
-    presentation.save("OrganizationChartLayout_out.pptx", SaveFormat.Pptx);
+    presentation.save("OrganizationChartLayout.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Bild‑Organisations‑Chart erstellen**
+## **Ein Bild‑Organisationsdiagramm erstellen**
 
-Ein Bild‑Organisations‑Chart ist ein SmartArt‑Layout, das für Hierarchie‑Diagramme mit Bildplatzhaltern entwickelt wurde. Verwenden Sie beim Hinzufügen des SmartArt‑Objekts zu einer Folie den [SmartArtLayoutType](https://reference.aspose.com/slides/de/java/com.aspose.slides/SmartArtLayoutType) `PictureOrganizationChart`‑Wert.
+Ein Bild‑Organisationsdiagramm ist ein SmartArt‑Layout, das für Hierarchiediagramme mit Bild‑Platzhaltern konzipiert ist. Verwenden Sie den [SmartArtLayoutType](https://reference.aspose.com/slides/java/com.aspose.slides/smartartlayouttype/)‑Wert `PictureOrganizationChart`, wenn Sie das SmartArt‑Objekt zu einer Folie hinzufügen. Dieses Beispiel speichert ein Diagramm mit Bild‑Platzhaltern; die Platzhalter werden nicht mit Bildern gefüllt.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
-    ISmartArt smartArt = presentation.getSlides().get_Item(0).getShapes().addSmartArt(
-        0, 0, 400, 400, SmartArtLayoutType.PictureOrganizationChart);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    presentation.save("PictureOrganizationChart_out.pptx", SaveFormat.Pptx);
+    ISmartArt smartArt = slide.getShapes().addSmartArt(0, 0, 400, 400, SmartArtLayoutType.PictureOrganizationChart);
+
+    presentation.save("PictureOrganizationChart.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
+
+## **Legacy‑Diagramme in Gruppen von Formen konvertieren**
+
+Beim Modernisieren einer bestehenden Präsentation müssen Sie möglicherweise ein Organisations‑Diagramm aktualisieren, das ursprünglich in PowerPoint 97–2003 erstellt wurde. Aspose.Slides stellt diese Legacy‑Diagramme als [ILegacyDiagram](https://reference.aspose.com/slides/java/com.aspose.slides/ilegacydiagram/)‑Objekte dar. Verwenden Sie [LegacyDiagram.convertToGroupShape](https://reference.aspose.com/slides/java/com.aspose.slides/legacydiagram/#convertToGroupShape--), um ein Diagramm in eine Gruppe von Formen zu konvertieren, sodass Sie einzelne visuelle Elemente bearbeiten können. Weitere Details finden Sie in der [LegacyDiagram API Reference](https://reference.aspose.com/slides/java/com.aspose.slides/legacydiagram/).
+
+Die Konvertierung fügt der Formensammlung eine neue Gruppe hinzu, ohne das ursprüngliche Diagramm zu entfernen. Nach erfolgreicher Konvertierung entfernen Sie das Original mit [IShapeCollection.remove](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#remove-com.aspose.slides.IShape-), um doppelte Inhalte zu vermeiden. Sammeln Sie die Legacy‑Diagramme in einer Liste, bevor Sie sie konvertieren, damit das Hinzufügen und Entfernen von Formen die Iteration nicht stört.
+
+Das folgende Beispiel öffnet eine Präsentation, durchsucht jede Folie, konvertiert die Diagramme in Gruppen von Formen und speichert die aktualisierte Präsentation als PPTX.
+
+```java
+import com.aspose.slides.*;
+import java.util.ArrayList;
+import java.util.List;
+
+Presentation presentation = new Presentation("legacy-diagrams.ppt");
+try {
+    for (ISlide slide : presentation.getSlides()) {
+        List<ILegacyDiagram> legacyDiagrams = new ArrayList<>();
+        for (IShape shape : slide.getShapes()) {
+            if (shape instanceof ILegacyDiagram) {
+                legacyDiagrams.add((ILegacyDiagram) shape);
+            }
+        }
+
+        for (ILegacyDiagram legacyDiagram : legacyDiagrams) {
+            IGroupShape groupShape = legacyDiagram.convertToGroupShape();
+
+            if (groupShape != null) {
+                slide.getShapes().remove(legacyDiagram);
+            }
+        }
+    }
+
+    presentation.save("modernized.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Die gespeicherte Präsentation enthält bearbeitbare Gruppen von Formen anstelle der konvertierten Legacy‑Diagramme, wobei keine Originaldiagramme mehr vorhanden sind. Öffnen Sie die PPTX in PowerPoint, um einzelne Elemente innerhalb jeder Gruppe zu bearbeiten, etwa deren Text, Füllung oder Position.
 
 ## **FAQ**
 
 **Unterstützt SmartArt das Spiegeln oder Umkehren für RTL‑Sprachen?**
 
-Ja. Die Methode [ISmartArt.setReversed](https://reference.aspose.com/slides/de/java/com.aspose.slides/ismartart/#setReversed-boolean-) ändert die Diagrammrichtung von links‑nach‑rechts zu rechts‑nach‑links oder umgekehrt, wenn das ausgewählte SmartArt‑Layout die Umkehr unterstützt.
+Ja. Die Methode [ISmartArt.setReversed](https://reference.aspose.com/slides/java/com.aspose.slides/ismartart/#setReversed-boolean-) schaltet die Diagramm­richtung von links‑nach‑rechts zu rechts‑nach‑links um bzw. zurück, sofern das ausgewählte SmartArt‑Layout die Umkehr unterstützt.
 
-**Wie kann ich SmartArt auf derselben Folie oder in eine andere Präsentation kopieren und dabei die Formatierung beibehalten?**
+**Wie kann ich SmartArt auf derselben Folie oder in einer anderen Präsentation kopieren und dabei die Formatierung beibehalten?**
 
-Sie können die SmartArt‑Form [SmartArt‑Shape klonen](/slides/de/java/shape-manipulations/) mit [ShapeCollection.addClone](https://reference.aspose.com/slides/de/java/com.aspose.slides/shapecollection/#addClone-com.aspose.slides.IShape-float-float-float-float-) oder die gesamte Folie, die die SmartArt enthält, [ganze Folie klonen](/slides/de/java/clone-slides/). Beide Vorgehensweisen erhalten Größe, Position und Formatierung.
+Sie können die [SmartArt‑Form klonen](/slides/de/java/shape-manipulations/) mit [ShapeCollection.addClone](https://reference.aspose.com/slides/java/com.aspose.slides/shapecollection/#addClone-com.aspose.slides.IShape-float-float-float-float-) oder die gesamte Folie, die SmartArt enthält, [klonen](/slides/de/java/clone-slides/). Beide Ansätze bewahren Größe, Position und Formatierung.
 
-**Wie rendere ich SmartArt zu einem Raster‑Bild für die Vorschau oder den Web‑Export?**
+**Wie rendere ich SmartArt zu einem Rasterbild für die Vorschau oder den Web‑Export?**
 
-Sie können die Folie [Folie rendern](/slides/de/java/convert-powerpoint-to-png/) oder die gesamte Präsentation zu PNG oder JPEG konvertieren. SmartArt wird dabei als Teil der Folie gerendert.
+[Rendern Sie die Folie](/slides/de/java/convert-powerpoint-to-png/) oder die gesamte Präsentation zu PNG oder JPEG. SmartArt wird als Teil der Folie gerendert.
 
-**Wie kann ich ein bestimmtes SmartArt‑Objekt auf einer Folie finden, wenn mehrere vorhanden sind?**
+**Wie finde ich ein bestimmtes SmartArt‑Objekt auf einer Folie, wenn mehrere vorhanden sind?**
 
-Legen Sie einen eindeutigen [Shape.getAlternativeText](https://reference.aspose.com/slides/de/java/com.aspose.slides/shape/#getAlternativeText--) oder [Shape.getName](https://reference.aspose.com/slides/de/java/com.aspose.slides/shape/#getName--) Wert für die SmartArt‑Form fest, suchen Sie diesen Wert in [BaseSlide.getShapes](https://reference.aspose.com/slides/de/java/com.aspose.slides/baseslide/#getShapes--), und prüfen Sie anschließend, ob die gefundene Form ein [ISmartArt](https://reference.aspose.com/slides/de/java/com.aspose.slides/ismartart/) ist.
+Verwenden Sie [Shape.setAlternativeText](https://reference.aspose.com/slides/java/com.aspose.slides/shape/#setAlternativeText-java.lang.String-) oder [Shape.setName](https://reference.aspose.com/slides/java/com.aspose.slides/shape/#setName-java.lang.String-), um dem SmartArt‑Objekt einen eindeutigen Alternativtext oder Namen zuzuweisen, suchen Sie diesen Wert in [BaseSlide.getShapes](https://reference.aspose.com/slides/java/com.aspose.slides/baseslide/#getShapes--), und prüfen Sie anschließend, ob die gefundene Form ein [ISmartArt](https://reference.aspose.com/slides/java/com.aspose.slides/ismartart/) ist.
