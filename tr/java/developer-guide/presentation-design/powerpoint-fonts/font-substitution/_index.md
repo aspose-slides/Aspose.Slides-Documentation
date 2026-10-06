@@ -1,5 +1,5 @@
 ---
-title: Java Kullanarak Sunumlarda Yazı Tipi İkamesi Yapılandırma
+title: Java Kullanarak Sunumlarda Yazı Tipi İkamesini Yapılandırma
 linktitle: Yazı Tipi İkamesi
 type: docs
 weight: 70
@@ -9,25 +9,25 @@ keywords:
 - ikame yazı tipi
 - yazı tipi ikamesi
 - yazı tipini değiştir
-- yazı tipi değişimi
+- yazı tipi değiştirme
 - ikame kuralı
-- değişim kuralı
+- değiştirme kuralı
 - PowerPoint
 - OpenDocument
 - sunum
 - Java
 - Aspose.Slides
-description: "PowerPoint ve OpenDocument sunumlarını renderlarken veya dönüştürürken Java için Aspose.Slides'te yazı tipi ikamesi kurallarını yapılandırın ve ikame edilen yazı tiplerini inceleyin."
+description: "PowerPoint ve OpenDocument sunumlarını render ederken veya dönüştürürken, Java için Aspose.Slides içinde yazı tipi ikame kurallarını yapılandırın ve ikame edilen yazı tiplerini inceleyin."
 ---
 ## **Genel Bakış**
 
-Yazı tipi ikamesi, Aspose.Slides'in bir sunum renderlandığında veya dönüştürüldüğünde erişilemeyen bir yazı tipinin yerine kullanılabilir bir yazı tipini kullanmasını sağlar. İkame, renderlanan çıktıyı etkiler; sunum içeriğine atanmış yazı tipini değiştirmez.
+Yazı tipi ikamesi, Aspose.Slides'ın bir sunum render edildiğinde veya dönüştürüldüğünde erişilemeyen bir yazı tipinin yerine mevcut bir yazı tipini kullanmasını sağlar. İkame, render edilen çıktıyı etkiler; sunum içeriğine atanan yazı tipini değiştirmez.
 
-Belirli bir yazı tipi mevcut olmadığında kullanılacak yazı tipini tanımlayabilir ve Aspose.Slides'in render sırasında yapacağı ikameleri inceleyebilirsiniz. Bu, farklı yüklü yazı tiplerine sahip ortamlarda çıktının tutarlı kalmasına yardımcı olur.
+Belirli bir yazı tipi kullanılamadığında kullanılacak yazı tipini tanımlayabilirsiniz ve Aspose.Slides'ın render sırasında yapacağı ikameleri inceleyebilirsiniz. Bu, farklı yüklü yazı tiplerine sahip ortamlar arasında çıktının tutarlı olmasına yardımcı olur.
 
-## **Yazı Tipi İkame İşlemlerini Alın**
+## **Yazı Tipi İkamelelerini Al**
 
-Render sırasında hangi yazı tiplerinin ikame edileceğini belirlemek için [IFontsManager.getSubstitutions](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ifontsmanager/#getSubstitutions--) yöntemini kullanın. Yöntem, orijinal ve ikame yazı tipi adlarını tanımlayan [FontSubstitutionInfo](https://reference.aspose.com/slides/tr/java/com.aspose.slides/fontsubstitutioninfo/) nesnelerini döndürür.
+Sunum render edildiğinde hangi yazı tiplerinin ikame edileceğini belirlemek için [IFontsManager.getSubstitutions](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ifontsmanager/#getSubstitutions--) yöntemini kullanın. Yöntem, orijinal ve ikame edilen yazı tipi adlarını belirten [FontSubstitutionInfo](https://reference.aspose.com/slides/tr/java/com.aspose.slides/fontsubstitutioninfo/) nesnelerini döndürür.
 
 Aşağıdaki Java örneği bir sunum için tüm yazı tipi ikamelerini listeler:
 
@@ -45,15 +45,15 @@ try {
 }
 ```
 
-## **Seçili Slaytlar İçin Yazı Tipi İkamesi Alın**
+## **Seçili Slaytlar İçin Yazı Tipi İkamelelerini Al**
 
-`int[] slides` argümanı ile [IFontsManager.getSubstitutions](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ifontsmanager/#getSubstitutions-int---) aşırı yüklemesini kullanarak yalnızca belirli slaytları renderlemek için gereken ikameleri inceleyin. Bu, bir sunumun bir kısmını renderlarken veya dışa aktarırken, büyük bir sunumu artımlı olarak kontrol ederken, mevcut olmayan yazı tiplerine bağımlı slaytları bulurken, bir sunucu veya konteyner için minimum bir yazı tipi paketi hazırlarken veya ilgisiz slaytları işlemeden render farklarını teşhis ederken faydalıdır.
+Belirli slaytların render edilmesi için gerekli ikameleri yalnızca incelemek üzere `int[] slides` argümanıyla [IFontsManager.getSubstitutions](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ifontsmanager/#getSubstitutions-int---) aşırı yüklemesini kullanın. Bu, bir sunumun bir kısmını render ederken veya dışa aktarırken, büyük bir sunumu artımlı olarak kontrol ederken, kullanılabilir olmayan yazı tiplerine bağımlı slaytları bulurken, sunucu veya konteyner için minimal bir yazı tipi paketi hazırlarken ya da ilgili olmayan slaytları işlemeden render farklarını tanıdiagnostik ederken faydalıdır.
 
-`slides` dizisi bir‑bazlı slayt dizinleri içerir: `1` ilk slaytı belirtir. Buna karşılık, [Presentation.getSlides](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/#getSlides--) koleksiyon erişicisi sıfır‑bazlı indeksleme kullanır; bu nedenle aynı slayt `presentation.getSlides().get_Item(0)` olarak erişilir. Dizi oluştururken bu farkı akılda tutun, aksi takdirde bir‑birlik hatası oluşabilir.
+`slides` dizisi bir‑tabanlı slayt indeksleri içerir: `1` ilk slaytı tanımlar. Buna karşılık, [Presentation.getSlides](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/#getSlides--) koleksiyon erişicisi sıfır‑tabanlı indeksleme kullanır, bu nedenle aynı slayt `presentation.getSlides().get_Item(0)` şeklinde erişilir. Dizi oluştururken bu farkı akılda tutarak bir‑off hatasından kaçının.
 
-Aşırı yüklemeyi [Presentation.getFontsManager](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/#getFontsManager--) yöntemiyle çağırın. Yalnızca seçili slaytların render edilmesi sırasında belirlenen ikameleri döndürür. Her sonuç, orijinal ve ikame yazı tipi adlarını içeren bir [FontSubstitutionInfo](https://reference.aspose.com/slides/tr/java/com.aspose.slides/fontsubstitutioninfo/) nesnesidir. Sonuç, mevcut yazı tipi ortamını, yapılandırılmış geri dönüş kurallarını, bir [IFontSubstRuleCollection](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ifontsubstrulecollection/) içinde depolanan ikame kurallarını ve [dışarıdan yüklenen yazı tiplerini](/slides/tr/java/custom-font/) yansıtır.
+Aşırı yüklemeyi [Presentation.getFontsManager](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/#getFontsManager--) yöntemiyle çağırın. Yalnızca seçili slaytların render edilmesi sırasında belirlenen ikameleri döndürür. Her sonuç, orijinal ve ikame edilen yazı tipi adlarını içeren bir [FontSubstitutionInfo](https://reference.aspose.com/slides/tr/java/com.aspose.slides/fontsubstitutioninfo/) nesnesidir. Sonuç, mevcut yazı tipi ortamını, yapılandırılmış geri dönüş kurallarını ve [externally loaded fonts](/slides/tr/java/custom-font/) yansıtır. Bir [IFontSubstRuleCollection](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ifontsubstrulecollection/) içinde depolanan ikame kuralları sunum render edildiğinde uygulanır, ancak sonuçta listelenmez; bunun yerine çıktı dosyasındaki yazı tiplerini kontrol edin.
 
-Aynı ikame birden fazla seçili slayt tarafından istenebilir. Bir yazı tipi envanteri veya ön uç raporu oluştururken sonuçları tekilleştirin. Aşağıdaki örnek, döndürülen her ikameyi raporlar ve ardından eşsiz yazı tipi eşlemelerinin sıralı bir listesini oluşturur:
+Aynı ikame birden fazla seçili slayt tarafından istenebilir. Bir yazı tipi envanteri veya ön uç raporu oluştururken sonuçları tekilleştirin. Aşağıdaki örnek her döndürülen ikameyi raporlar ve ardından benzersiz yazı tipi eşlemelerinin sıralı bir listesini oluşturur:
 
 ```java
 import com.aspose.slides.FontSubstitutionInfo;
@@ -91,25 +91,25 @@ try {
 }
 ```
 
-[IFontsManager](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ifontsmanager/) arayüzü her iki aşırı yüklemeyi de sağlar. Renderleme işleminin kapsamına göre birini seçin:
+[IFontsManager](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ifontsmanager/) arabirimi her iki aşırı yüklemeyi de sağlar. Render işleminin kapsamına göre birini seçin:
 
 | Aşırı Yükleme | Ne Zaman Kullanılır |
 |---|---|
-| [getSubstitutions](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ifontsmanager/#getSubstitutions--) parametresiz | Tüm sunum için ikameler gerekirken. |
-| [getSubstitutions](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ifontsmanager/#getSubstitutions-int---) `int[] slides` ile | Seçili bir aralık, artımlı kontrol veya kısmi dışa aktarım için ikameler gerekirken. |
+| [getSubstitutions](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ifontsmanager/#getSubstitutions--) argümansız | Sunumun tamamı için ikameler gerekir. |
+| [getSubstitutions](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ifontsmanager/#getSubstitutions-int---) `int[] slides` ile | Seçili bir aralık, artımlı kontrol veya kısmi dışa aktarım için ikameler gerekir. |
 
-## **Yazı Tipi İkame Kurallarını Ayarlama**
+## **Yazı Tipi İkame Kurallarını Ayarla**
 
-Kaynak bir yazı tipi mevcut olmadığında Aspose.Slides'in kullanması gereken yazı tipini belirtmek için:
+Kaynak bir yazı tipi kullanılamadığında Aspose.Slides'ın kullanması gereken yazı tipini belirtmek için:
 
 1. Sunumu yükleyin.
-2. Kaynak ve ikame yazı tipleri için yazı tipi tanımları oluşturun.
-3. [WhenInaccessible](https://reference.aspose.com/slides/tr/java/com.aspose.slides/fontsubstcondition/) koşuluyla bir [FontSubstRule](https://reference.aspose.com/slides/tr/java/com.aspose.slides/fontsubstrule/) oluşturun.
-4. Kuralı bir [FontSubstRuleCollection](https://reference.aspose.com/slides/tr/java/com.aspose.slides/fontsubstrulecollection/) içine ekleyin.
-5. Koleksiyonu [FontsManager.setFontSubstRuleList](https://reference.aspose.com/slides/tr/java/com.aspose.slides/fontsmanager/#setFontSubstRuleList-com.aspose.slides.IFontSubstRuleCollection-) yöntemiyle atayın.
-6. Sunumu renderleyin veya dönüştürün.
+2. Kaynak ve ikame yazı tipleri için yazı tipi tanımlamaları oluşturun.
+3. [WhenInaccessible](https://reference.aspose.com/slides/tr/java/com.aspose.slides/fontsubstcondition/) koşulu ile bir [FontSubstRule](https://reference.aspose.com/slides/tr/java/com.aspose.slides/fontsubstrule/) oluşturun.
+4. Kuralı bir [FontSubstRuleCollection](https://reference.aspose.com/slides/tr/java/com.aspose.slides/fontsubstrulecollection/) koleksiyonuna ekleyin.
+5. Koleksiyonu [FontsManager.setFontSubstRuleList](https://reference.aspose.com/slides/tr/java/com.aspose.slides/fontsmanager/#setFontSubstRuleList-com.aspose.slides.IFontSubstRuleCollection-) yöntemini kullanarak atayın.
+6. Sunumu render edin veya dönüştürün.
 
-Aşağıdaki Java örneği, `SomeRareFont` mevcut olmadığında `Arial` ile ikame eder ve sonucu doğrulamak için ilk slaytı renderler. İkame yazı tipinin Aspose.Slides tarafından erişilebilir olması gerekir.
+Aşağıdaki Java örneği `SomeRareFont` kullanılamadığında `Arial` ile ikame eder ve ardından sonucu doğrulamak için ilk slaytı render eder. İkame yazı tipi Aspose.Slides tarafından kullanılabilir olmalıdır.
 
 ```java
 import com.aspose.slides.FontData;
@@ -144,46 +144,39 @@ try {
 }
 ```
 
-{{% alert color="info" title="Not" %}}
-Sunum boyunca kullanılan yazı tiplerinde koşulsuz bir değişiklik yapmak için [Yazı Tipi Değiştirme](/slides/tr/java/font-replacement/) bölümüne bakın.
+{{% alert color="info" title="Note" %}}
+Bir sunum boyunca kullanılan yazı tiplerinde koşulsuz bir değişiklik için, [Font Replacement](/slides/tr/java/font-replacement/) bölümüne bakın.
 {{% /alert %}}
 
-## **Matematik Denklemi Yazı Tipleri İçin Kısıtlamalar**
+## **Matematik Denklem Yazı Tipleri İçin Sınırlamalar**
 
-Yazı tipi ikame kuralları, render ve dönüşüm sırasında kullanılan standart yazı tipi seçim sürecinin bir parçasıdır. Aspose.Slides, bir kural tarafından belirtilen mevcut bir yazı tipine erişilemeyen bir yazı tipini yerine koyabildiğinde normal metin için çalışır.
+Yazı tipi ikame kuralları, render ve dönüşüm sırasında kullanılan standart yazı tipi seçim sürecinin bir parçasıdır. Bir kural tarafından belirtilen mevcut bir yazı tipiyle erişilemeyen bir yazı tipini değiştirebildikleri sürece normal metinlerde çalışırlar.
 
-Office Math denklemlerinin ek bir gereksinimi vardır. Bir denklem **Cambria Math** kullanıyorsa, Aspose.Slides denklemin düzenini hesaplamak ve renderlemek için tam olarak bu yazı tipine ihtiyaç duyabilir. **STIX Two Math** gibi başka bir matematik yazı tipine ikame eden bir kural, bu amaçla **Cambria Math**'i değiştiremez ve render hâlâ **Cambria Math** gerektiğini bildirebilir.
+Office Math denklemlerinin ek bir gereksinimi vardır. Bir denklem **Cambria Math** kullanıyorsa, Aspose.Slides denklemin düzenini hesaplamak ve render etmek için o tam yazı tipine ihtiyaç duyabilir. **STIX Two Math** gibi başka bir matematik yazı tipini ikame eden bir kural, bu amaçla **Cambria Math**'i değiştiremez ve render hâlâ **Cambria Math**'in gerekli olduğunu bildirebilir.
 
-Böyle bir sunumu renderlemek veya dönüştürmek için **Cambria Math**'i Aspose.Slides'e sunmanız gerekir. İşletim sistemine kurun veya bir [dış yazı tipi](/slides/tr/java/custom-font/) olarak yükleyin.
+Böyle bir sunumu render etmek veya dönüştürmek için **Cambria Math**'i Aspose.Slides'a kullanılabilir hâle getirin. İşletim sistemine kurun veya bir [external font](/slides/tr/java/custom-font/) olarak yükleyin.
 
-Bu kısıtlama yalnızca denklem düzeni içindir. Yukarıda açıklanan ikame kuralları normal sunum metni için hâlâ geçerlidir.
+Bu sınırlama sadece denklem düzeni için geçerlidir. Yukarıda açıklanan ikame kuralları normal sunum metni için hâlâ geçerlidir.
 
 ## **SSS**
 
-**Yazı tipi değişimi ile yazı tipi ikamesi arasındaki fark nedir?**
+**Yazı tipi değişimi ile yazı tipi ikamesi arasındaki fark nedir?**  
+[Font replacement](/slides/tr/java/font-replacement/) sunum boyunca bir yazı tipini başka birine kasıtlı olarak değiştirir. Yazı tipi ikamesi, yapılandırılmış koşul karşılandığında (örneğin orijinal yazı tipi mevcut değilse) render edilen çıktıya bir yazı tipi seçer.
 
-[Font replacement](/slides/tr/java/font-replacement/) bir sunum boyunca bir yazı tipini başka birine kasıtlı olarak değiştirir. Yazı tipi ikamesi, yapılandırılmış koşul karşılandığında (ör. orijinal yazı tipi mevcut olmadığında) render çıktısı için bir yazı tipi seçer.
+**İkame kuralları ne zaman uygulanır?**  
+Kurallar, render ve dönüşüm sırasında [font selection sequence](/slides/tr/java/font-selection-sequence/) içinde yer alır. `WhenInaccessible` koşulu ile bir kural yalnızca Aspose.Slides kaynak yazı tipine erişemediğinde kullanılır.
 
-**İkame kuralları ne zaman uygulanır?**
+**Bir yazı tipi eksik olduğunda ve hiçbir ikame kuralı yapılandırılmadığında ne olur?**  
+Aspose.Slides, font seçim sürecine göre mevcut en yakın yazı tipini seçer. Sonuç, çalışma zaman ortamında bulunan yazı tiplerine bağlıdır.
 
-Kurallar, render ve dönüşüm sırasında [font selection sequence](/slides/tr/java/font-selection-sequence/) sürecine katılır. `WhenInaccessible` ile bir kural, Aspose.Slides kaynak yazı tipine erişemediğinde yalnızca o zaman kullanılır.
+**İkameyi önlemek için harici yazı tipleri yükleyebilir miyim?**  
+Evet. Render ve dönüşüm sırasında kullanabilmesi için [external fonts](/slides/tr/java/custom-font/) yükleyebilirsiniz.
 
-**Bir yazı tipi eksik ve ikame kuralı yapılandırılmamışsa ne olur?**
+**Aspose, kütüphane ile birlikte yazı tipleri dağıtıyor mu?**  
+Hayır. Yazı tiplerini sağlamaktan ve lisans koşullarına uymaktan siz sorumlusunuz.
 
-Aspose.Slides, font seçim sürecine göre en yakın mevcut yazı tipini seçer. Sonuç, çalışma zaman ortamında bulunan yazı tiplerine bağlıdır.
+**İkame sonuçları Windows, Linux ve macOS arasında farklılık gösterebilir mi?**  
+Evet. Yüklü yazı tipleri ve arama konumları işletim sistemine göre değişir; bir makinede mevcut olan bir yazı tipi başka bir makinada ikame gerektirebilir.
 
-**İkameyi önlemek için dış yazı tipleri yükleyebilir miyim?**
-
-Evet. Render ve dönüşüm sırasında Aspose.Slides'in kullanabilmesi için [dış yazı tipleri yükleyebilir](/slides/tr/java/custom-font/) siz.
-
-**Aspose kütüphane ile birlikte yazı tiplerini dağıtıyor mu?**
-
-Hayır. Yazı tiplerini siz temin etmeli ve lisans koşullarına uymalısınız.
-
-**İkame sonuçları Windows, Linux ve macOS arasında farklılık gösterebilir mi?**
-
-Evet. Yüklü yazı tipleri ve arama konumları işletim sistemine göre değişir; bir makinede mevcut olan bir yazı tipi başka bir makinede ikame gerektirebilir.
-
-**Toplu dönüşümlerde yazı tipi seçimlerini tutarlı nasıl tutarım?**
-
-Her makine veya konteynerde aynı yazı tipi dosyalarını ve sürümlerini kullanın, [gerekli dış yazı tiplerini yükleyin](/slides/tr/java/custom-font/) ve lisans izin veriyorsa [yazı tiplerini gömün](/slides/tr/java/embedded-font/). Ayrıca, beklenmeyen ikameleri belirlemek için dışa aktarmadan önce [IFontsManager.getSubstitutions](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ifontsmanager/#getSubstitutions--) yöntemini çağırabilirsiniz.
+**Toplu dönüşümlerde font seçimlerini tutarlı nasıl yapabilirim?**  
+Her makine veya konteynerde aynı yazı tipi dosyalarını ve sürümlerini kullanın, gerekli harici yazı tiplerini [load required external fonts](/slides/tr/java/custom-font/) ile yükleyin ve lisans izin veriyorsa [embed fonts](/slides/tr/java/embedded-font/) kullanın. İhracattan önce beklenmedik ikameleri tespit etmek için [IFontsManager.getSubstitutions](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ifontsmanager/#getSubstitutions--) yöntemini çağırabilirsiniz.

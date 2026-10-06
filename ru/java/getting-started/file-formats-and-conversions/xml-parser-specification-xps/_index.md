@@ -1,24 +1,35 @@
 ---
-title: Спецификация парсера XML (XPS)
+title: XML Paper Specification (XPS) (Исторический)
 type: docs
 weight: 50
 url: /ru/java/xml-parser-specification-xps/
+keywords:
+- XPS
+- XML Paper Specification
+- исторический
+- Java
+- Aspose.Slides
+description: "Исторический: более старый обзор экспорта XPS в Aspose.Slides for Java, сохранённый для существующих ссылок. Текущее руководство — Convert PowerPoint Presentations to XPS."
 ---
+{{% alert color="info" title="Примечание" %}}
 
-{{% alert color="primary" %}} 
+Это историческая страница, сохранённая для существующих ссылок. Она не описывает текущую версию Aspose.Slides for Java. Для форматов, которые Aspose.Slides for Java загружает, импортирует, сохраняет и отображает, а также для API каждого из них, смотрите [Supported File Formats](/slides/ru/java/supported-file-formats/). Для актуального руководства по конвертации в XPS смотрите [Convert PowerPoint Presentations to XPS](/slides/ru/java/convert-powerpoint-to-xps/).
 
-[Спецификация парсера XML](https://en.wikipedia.org/wiki/Open_XML_Paper_Specification) — это язык описания страниц и формат фиксированных документов, изначально разработанный Microsoft. Как и PDF, XPS предназначен для сохранения точности документа и обеспечения независимого от устройства отображения документа. 
+{{% /alert %}}
 
-{{% /alert %}} 
+{{% alert color="info" title="Примечание" %}}
 
-## **XPS в Aspose.Slides для Java**
-Любой документ презентации, который можно загрузить с помощью Aspose.Slides для Java, можно конвертировать в формат XPS. Aspose.Slides для Java использует высокоэффективный механизм компоновки страниц и рендеринга для создания выходных данных в формате фиксированной компоновки XPS документа.
-Вы можете узнать о экспорте документов презентации в документы XPS через Aspose.Slides для Java в [Конвертация в XPS](https://docs.aspose.com/slides/java/convert-powerpoint-to-xps/).
+[XML Paper Specification](https://en.wikipedia.org/wiki/Open_XML_Paper_Specification) — это язык описания страниц и формат фиксированных документов, первоначально разработанный Microsoft. Как и PDF, XPS предназначен для сохранения точности документа и обеспечения независимого от устройства отображения.
 
-**Входная презентация** 
+{{% /alert %}}
 
-![todo:image_alt_text](xml-parser-specification-xps_1.png)
+## **XPS в Aspose.Slides for Java**
+Любой файл презентации, который может быть загружен Aspose.Slides for Java, может быть преобразован в формат XPS. Aspose.Slides for Java использует движок макета страниц и рендеринга высокого качества для создания вывода в фиксированном формате XPS. Подробнее об экспорте файлов презентаций в XPS через Aspose.Slides for Java можно узнать в [Convert PowerPoint Presentations to XPS](/slides/ru/java/convert-powerpoint-to-xps/).
 
-**Презентация, конвертированная в XPS** 
+**Входная презентация**
 
-![todo:image_alt_text](xml-parser-specification-xps_2.png)
+![Входная презентация](xml-parser-specification-xps_1.png)
+
+**Презентация, конвертированная в XPS**
+
+![Презентация, конвертированная в XPS](xml-parser-specification-xps_2.png)

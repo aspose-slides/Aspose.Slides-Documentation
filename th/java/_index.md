@@ -1,6 +1,6 @@
 ---
-title: Aspose.Slides for Java
-second_title: Aspose.Slides for Java
+title: Aspose.Slides สำหรับ Java
+second_title: Aspose.Slides สำหรับ Java
 type: docs
 weight: 20
 url: /th/java/
@@ -12,14 +12,14 @@ keywords:
 - OpenDocument
 - Java
 - Aspose.Slides
-description: "เริ่มต้นที่นี่: ติดตั้ง Aspose.Slides for Java, สร้างการนำเสนอแรก, และค้นหาคู่มือสำหรับงานทั่วไป, เอกสารอ้างอิง API และการสนับสนุน."
+description: "เริ่มต้นที่นี่: ติดตั้ง Aspose.Slides for Java, สร้างงานนำเสนอแรก, และค้นหาคู่มือสำหรับงานทั่วไป, การปรับใช้และอ้างอิง API."
 is_root: true
 ---
 <img src="home_1.png" alt="Aspose.Slides for Java" align="left" style="width:110px; margin: 0 30px 20px 0"/>
 
-Aspose.Slides for Java เป็นไลบรารีคลาสสำหรับสร้าง, อ่าน, แก้ไข และแปลงงานนำเสนอ PowerPoint และ OpenDocument ในแอปพลิเคชัน Java โดยไม่ต้องใช้ Microsoft PowerPoint.
+Aspose.Slides for Java คือไลบรารีคลาสสำหรับสร้าง, อ่าน, แก้ไขและแปลงงานนำเสนอ PowerPoint และ OpenDocument ในแอปพลิเคชัน Java โดยไม่ต้องใช้ Microsoft PowerPoint.
 
-ไลบรารีนี้สามารถโหลดและบันทึกไฟล์ PPT, PPTX, PPS, POT และ ODP รวมถึงเวอร์ชันที่มีมาโครและเทมเพลต และส่งออกเป็น PDF, XPS, HTML, SVG, TIFF, Markdown และรูปภาพ.
+ไลบรารีนี้สามารถโหลดและบันทึกไฟล์ PPT, PPTX, PPS, POT และ ODP รวมถึงรูปแบบที่มีมาโครและแม่แบบได้ และส่งออกเป็น PDF, XPS, HTML, SVG, TIFF, Markdown และรูปภาพ.
 
 <div style="clear:both"></div>
 
@@ -29,17 +29,19 @@ Aspose.Slides for Java เป็นไลบรารีคลาสสำหร
 <div class="col-md-4">
 <p><b>เริ่มต้น</b></p>
 <hr>
-<p>เริ่มต้นใช้งาน</p>
+<p>เริ่มต้นการใช้งาน</p>
 <ul>
-<li><a href="/slides/th/java/installation/">การติดตั้ง</a></li>
-<li><a href="/slides/th/java/create-presentation/">สร้างการนำเสนอแรกของคุณ</a></li>
-<li><a href="/slides/th/java/getting-started/">คู่มือเริ่มต้นใช้งาน</a></li>
+<li><a href="/slides/th/java/installation/">Installation</a></li>
+<li><a href="/slides/th/java/create-presentation/">Create your first presentation</a></li>
+<li><a href="/slides/th/java/system-requirements/">System requirements</a></li>
+<li><a href="/slides/th/java/getting-started/">Getting started guide</a></li>
 </ul>
 <p>ประเมิน</p>
 <ul>
-<li><a href="/slides/th/java/supported-file-formats/">รูปแบบไฟล์ที่รองรับ</a></li>
-<li><a href="/slides/th/java/evaluate-aspose-slides/">ข้อจำกัดของรุ่นทดลอง</a></li>
-<li><a href="/slides/th/java/licensing/">การให้สิทธิ์ใช้งาน</a></li>
+<li><a href="/slides/th/java/supported-file-formats/">Supported file formats</a></li>
+<li><a href="/slides/th/java/features-overview/">Features overview</a></li>
+<li><a href="/slides/th/java/evaluate-aspose-slides/">Trial limitations</a></li>
+<li><a href="/slides/th/java/licensing/">Licensing</a></li>
 </ul>
 </div>
 <div class="col-md-4">
@@ -47,49 +49,59 @@ Aspose.Slides for Java เป็นไลบรารีคลาสสำหร
 <hr>
 <p>งานทั่วไป</p>
 <ul>
-<li><a href="/slides/th/java/open-presentation/">เปิดการนำเสนอ</a></li>
-<li><a href="/slides/th/java/save-presentation/">บันทึกการนำเสนอ</a></li>
-<li><a href="/slides/th/java/convert-powerpoint-to-pdf/">แปลงเป็น PDF</a></li>
-<li><a href="/slides/th/java/convert-slide/">แปลงสไลด์เป็นภาพ</a></li>
-<li><a href="/slides/th/java/manage-text/">แก้ไขข้อความและรูปร่าง</a></li>
+<li><a href="/slides/th/java/open-presentation/">Open a presentation</a></li>
+<li><a href="/slides/th/java/save-presentation/">Save a presentation</a></li>
+<li><a href="/slides/th/java/convert-powerpoint-to-pdf/">Convert to PDF</a></li>
+<li><a href="/slides/th/java/convert-slide/">Render slides as images</a></li>
+<li><a href="/slides/th/java/manage-text/">Edit text and shapes</a></li>
 </ul>
-<p>กระบวนการทำงานกับ Slides</p>
+<p>เวิร์กฟลอว์ของ Slides</p>
 <ul>
-<li><a href="/slides/th/java/powerpoint-charts/">แผนภูมิ</a></li>
-<li><a href="/slides/th/java/powerpoint-animation/">การเคลื่อนไหว</a></li>
-<li><a href="/slides/th/java/manage-media-files/">เสียงและวิดีโอ</a></li>
-<li><a href="/slides/th/java/presentation-design/">ออกแบบสไลด์</a></li>
-<li><a href="/slides/th/java/merge-presentation/">ผสานการนำเสนอ</a></li>
+<li><a href="/slides/th/java/powerpoint-charts/">Charts</a></li>
+<li><a href="/slides/th/java/powerpoint-animation/">Animations</a></li>
+<li><a href="/slides/th/java/manage-media-files/">Audio and video</a></li>
+<li><a href="/slides/th/java/presentation-design/">Slide design</a></li>
+<li><a href="/slides/th/java/merge-presentation/">Merge presentations</a></li>
 </ul>
 <p>ตัวอย่าง</p>
 <ul>
-<li><a href="/slides/th/java/examples/">ตัวอย่างตามองค์ประกอบสไลด์</a></li>
-<li><a href="https://github.com/aspose-slides/Aspose.Slides-for-Java">ตัวอย่างบน GitHub</a></li>
+<li><a href="/slides/th/java/examples/">Examples by slide element</a></li>
+<li><a href="https://github.com/aspose-slides/Aspose.Slides-for-Java">Examples on GitHub</a></li>
 </ul>
 </div>
 <div class="col-md-4">
-<p><b>อ้างอิงและการสนับสนุน</b></p>
+<p><b>ปรับใช้และสนับสนุน</b></p>
 <hr>
+<p>ปรับใช้</p>
+<ul>
+<li><a href="/slides/th/java/system-requirements/#linux">Linux prerequisites</a></li>
+<li><a href="/slides/th/java/how-to-run-aspose-slides-in-docker/">Run in Docker</a></li>
+<li><a href="/slides/th/java/deploy-fonts/">Fonts</a></li>
+<li><a href="/slides/th/java/security/">Security</a></li>
+</ul>
 <p>อ้างอิง</p>
 <ul>
-<li><a href="https://reference.aspose.com/slides/java/">อ้างอิง API</a></li>
-<li><a href="https://releases.aspose.com/slides/java/release-notes/">บันทึกการอัปเดต</a></li>
-<li><a href="/slides/th/java/known-issues/">ปัญหาที่ทราบ</a></li>
-<li><a href="https://releases.aspose.com/slides/java/">ดาวน์โหลด</a></li>
+<li><a href="https://reference.aspose.com/slides/th/java/">API reference</a></li>
+<li><a href="https://releases.aspose.com/slides/th/java/release-notes/">Release notes</a></li>
+<li><a href="/slides/th/java/known-issues/">Known issues</a></li>
+<li><a href="/slides/th/java/api-limitations/">Output metadata limitations</a></li>
+<li><a href="https://releases.aspose.com/slides/th/java/">Download</a></li>
 </ul>
-<p>การสนับสนุน</p>
+<p>สนับสนุน</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/11">ฟอรั่มสนับสนุนฟรี</a></li>
-<li><a href="https://helpdesk.aspose.com/">ศูนย์ช่วยเหลือแบบชำระค่าใช้จ่าย</a></li>
+<li><a href="https://forum.aspose.com/c/slides/th/11">Free support forum</a></li>
+<li><a href="https://helpdesk.aspose.com/">Paid support helpdesk</a></li>
 </ul>
 </div>
 </div>
 
 ------
 
-## **การนำเสนอแรกของคุณ**
+<a name="your-first-presentation"></a>
 
-Aspose.Slides for Java มีการเผยแพร่ใน Maven repository ของ Aspose เอง ไม่ได้อยู่ใน Maven Central. สร้างโฟลเดอร์สำหรับโครงการ Maven และบันทึก *pom.xml* นี้ลงในนั้น. ไฟล์นี้ประกาศรีโพซิทอรี, เพิ่มไลบรารี, และระบุคลาสที่จะรัน:
+## **งานนำเสนอแรกของคุณ**
+
+Aspose.Slides for Java ถูกเผยแพร่ใน Maven repository ของ Aspose เอง ไม่ได้อยู่ใน Maven Central. สร้างโฟลเดอร์สำหรับโครงการ Maven แล้วบันทึก *pom.xml* นี้ไว้ในนั้น. ไฟล์นี้ประกาศที่เก็บ, เพิ่มไลบรารี, และระบุคลาสที่จะเรียกใช้:
 
 ```xml
 <project xmlns="http://maven.apache.org/POM/4.0.0">
@@ -140,17 +152,17 @@ import com.aspose.slides.*;
 
 public class HelloSlides {
     public static void main(String[] args) {
-        // สร้างการนำเสนอ. มันมีสไลด์ว่างหนึ่งสไลด์แล้ว.
+        // สร้างงานนำเสนอ. มีสไลด์เปล่าหนึ่งสไลด์อยู่แล้ว.
         Presentation presentation = new Presentation();
         try {
             // ดึงสไลด์แรก.
             ISlide slide = presentation.getSlides().get_Item(0);
 
-            // เพิ่มรูปแบบเมฆและใส่ข้อความลงในนั้น.
+            // เพิ่มรูปร่างเมฆและใส่ข้อความลงไป.
             IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Cloud, 20, 20, 200, 80);
             autoShape.getTextFrame().setText("Hello, Aspose!");
 
-            // บันทึกการนำเสนอเป็นไฟล์ PPTX.
+            // บันทึกงานนำเสนอเป็นไฟล์ PPTX.
             presentation.save("new_presentation.pptx", SaveFormat.Pptx);
         } finally {
             presentation.dispose();
@@ -159,10 +171,10 @@ public class HelloSlides {
 }
 ```
 
-จากนั้น, เมื่อติดตั้ง JDK 11 หรือรุ่นหลังจากนั้นและ Apache Maven, ให้รันคำสั่งนี้ในโฟลเดอร์ของโครงการ:
+จากนั้น, เมื่อมี JDK 11 หรือรุ่นใหม่กว่าและ Apache Maven ติดตั้งแล้ว, ให้รันคำสั่งนี้ในโฟลเดอร์โครงการ:
 
 ```bash
 mvn compile exec:java
 ```
 
-โปรแกรมจะบันทึก *new_presentation.pptx* ในโฟลเดอร์ของโครงการ, โดยมีสไลด์หนึ่งที่มีรูปเมฆพร้อมข้อความ. บน Linux จำเป็นต้องติดตั้ง fontconfig และอย่างน้อยหนึ่งแบบอักษร; ดูที่ [การติดตั้ง](/slides/th/java/installation/#linux). หากไม่มีใบอนุญาต, ไฟล์ที่บันทึกจะมีลายน้ำการประเมิน — ดูที่ [การให้สิทธิ์](/slides/th/java/licensing/). สำหรับวิธีเพิ่มเติมในการสร้างและเติมข้อมูลในการนำเสนอ, ดูที่ [สร้างการนำเสนอ](/slides/th/java/create-presentation/).
+โปรแกรมจะบันทึก *new_presentation.pptx* ไว้ในโฟลเดอร์โครงการ, โดยมีสไลด์หนึ่งที่มีรูปเมฆพร้อมข้อความ. ใน Linux จำเป็นต้องติดตั้ง fontconfig และอย่างน้อยหนึ่งแบบอักษร; ดูที่ [Installation](/slides/th/java/installation/#linux). หากไม่มีลิขสิทธิ์ไฟล์ที่บันทึกจะมีลายน้ำการประเมินค่า — ดูที่ [Licensing](/slides/th/java/licensing/). สำหรับวิธีเพิ่มเติมในการสร้างและเติมเนื้อหาในงานนำเสนอ, ดูที่ [Create Presentations](/slides/th/java/create-presentation/).

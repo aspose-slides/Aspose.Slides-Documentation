@@ -1,117 +1,94 @@
 ---
 title: Funkciók áttekintése
 type: docs
-weight: 10
+weight: 104
 url: /hu/java/features-overview/
 keywords:
 - funkciók
 - támogatott platformok
-- fájlformátum
-- konvertálás
+- fájlformátumok
+- konverzió
 - renderelés
-- formázás
+- prezentáció tartalma
 - PowerPoint
 - OpenDocument
 - prezentáció
 - Java
 - Aspose.Slides
-description: "Fedezze fel az Aspose.Slides for Java-t: egy hatékony API, amely hatékonyan képes létrehozni, szerkeszteni, automatizálni és konvertálni a PowerPoint és OpenDocument prezentációkat."
+description: "Tekintse át, hogy az Aspose.Slides for Java milyen területeket lefed, mielőtt értékelné: támogatott platformok, fájlformátumok, dia renderelése és a létrehozható illetve szerkeszthető tartalom."
 ---
-## **Támogatott platformok**
-Az Aspose.Slides for Java a legnépszerűbb fejlesztési és üzemeltetési platformokat támogatja.
+## **Áttekintés**
 
-|**Funkció**|**Leírás**|
-| :- | :- |
-|Asztali alkalmazások|Az Aspose.Slides for Java Windows Forms alkalmazások fejlesztésére használható.|
-|Vállalati webalkalmazások|Az Aspose.Slides for Java segít webalkalmazások építésében. Támogatja az Aspose.Slides for Java PHP-vel való használatát is.|
-|Linux/Unix|Az Aspose.Slides for Java platformfüggetlen API, és Linux és Unix környezetben is működik.|
+Aspose.Slides for Java egy osztálykönyvtár PowerPoint és OpenDocument prezentációk létrehozásához, olvasásához, szerkesztéséhez, konvertálásához és megjelenítéséhez. Nem rendelkezik saját felhasználói felülettel, és nem igényli a Microsoft PowerPoint vagy a Microsoft Office programokat. Ez a cikk összefoglalja, hogy a könyvtár milyen területeket fed le, és hivatkozásokat tartalmaz az egyes témákat részletező cikkekre.
+
+## **Támogatott platformok**
+
+Aspose.Slides for Java egyetlen JAR fájl, amely az Aspose Maven tárolójában a `jdk16` osztályozóval jelenik meg. Tiszta Java nyelven íródott: a JAR nem tartalmaz natív könyvtárakat, és nem függ más csomagoktól.
+
+- **Java:** Java 8 vagy újabb. Az Aspose.Slides for Java 26.9‑es és korábbi verziói Java 6‑on és 7‑en is futnak, amelyet a 26.10‑es verzió már nem támogat; lásd a [26.9 release notes](/slides/hu/java/release-notes/2026/aspose-slides-for-java-26-9-release-notes/).
+- **Operációs rendszerek:** bármely operációs rendszer, amely Java futtatókörnyezetet biztosít, például Windows, Linux és macOS. Linuxon a fontconfig könyvtárnak és legalább egy betűtípusnak telepítve kell lennie.
+
+[Installation](/slides/hu/java/installation/) bemutatja, hogyan adható hozzá a könyvtár egy projekthez, és felsorolja a Linux előfeltételeket. [System Requirements](/slides/hu/java/system-requirements/) részletesen listázza a támogatott platformokat.
 
 ## **Fájlformátumok és konverziók**
-Az Aspose.Slides for Java a Microsoft PowerPoint legtöbb dokumentumformátumát támogatja, és azokat széles körben használt, népszerű formátumokba exportálja.
+
+Az Aspose.Slides megnyitja és menti a PPT, PPTX, PPS, POT, PPSX, POTX, PPTM, PPSM, POTM, ODP, OTP, FODP és PowerPoint XML prezentációkat. PDF és HTML tartalmat importál diákba, és a prezentációkat PDF, XPS, HTML, HTML5, TIFF, animált GIF, SWF, Markdown és XAML formátumban menti. [Supported File Formats](/slides/hu/java/supported-file-formats/) felsorolja az összes formátumot és a hozzájuk tartozó olvasó‑/író API‑t.
 
 |**Funkció**|**Leírás**|
 | :- | :- |
-|[Microsoft PowerPoint (PPT)](/slides/hu/java/microsoft-powerpoint-ppt/)|Az Aspose.Slides for Java a leggyorsabb feldolgozást biztosít ehhez a prezentációs dokumentumformátumhoz.|
-|[PresentationML (PPTX, XML)](/slides/hu/java/presentationml-pptx-xml/)|Az Aspose.Slides for Java támogatja az OOXML prezentációs formátum (más néven PresentationML vagy PPTX) feldolgozását.|
-|[PPT to PPTX conversion](/slides/hu/java/ppt-to-pptx-conversion/)|Az Aspose.Slides for Java támogatja a PPT-ről PPTX-re konvertálást.|
-|[Portable Document Format (PDF)](/slides/hu/java/developer-guide/)|A támogatott fájlformátumok egyetlen metódussal exportálhatók az Adobe Portable Document Format (PDF) dokumentumokba.|
-|[XML Parser Specification (XPS)](/slides/hu/java/xml-parser-specification-xps/)|Minden támogatott fájlformátum egyetlen metódussal exportálható XML Parser Specification (XPS) dokumentumokba.|
-|[Tagged Image File Format (TIFF)](https://docs.aspose.com/slides/hu/java/convert-powerpoint-to-tiff/)|Az Aspose.Slides for Java által támogatott prezentációs fájlformátumok TIFF formátumba is exportálhatók.|
-|[ODP to PPTX Conversion](https://docs.aspose.com/slides/hu/java/convert-odp-to-pptx/)|Az Aspose.Slides for Java támogatja az OpenDocument Presentation (ODP) betöltését és azok PPTX formátumba konvertálását.|
-|[Presentation To HTML Conversion](https://docs.aspose.com/slides/hu/java/convert-powerpoint-to-html/)|Az Aspose.Slides for Java támogatja a prezentációk HTML formátumba konvertálását.|
+|[PPT és PPTX](/slides/hu/java/ppt-vs-pptx/)|Binaris PowerPoint 97‑2003 és az Office Open XML formátum egyaránt olvasható és írható.|
+|[PPT‑ról PPTX‑re konvertálás](/slides/hu/java/convert-ppt-to-pptx/)|Régi PPT prezentációk PPTX‑re konvertálása.|
+|[ODP‑ról PPTX‑re konvertálás](/slides/hu/java/convert-odp-to-pptx/)|ODP, OTP és FODP prezentációk megnyitása és mentése, valamint ODP‑k PPTX‑re konvertálása.|
+|[Portable Document Format (PDF)](/slides/hu/java/convert-powerpoint-to-pdf/)|Prezentációk exportálása PDF‑be, beleértve a PDF/A és PDF/UA dokumentumokat.|
+|[XML Paper Specification (XPS)](/slides/hu/java/convert-powerpoint-to-xps/)|Prezentációk exportálása XPS dokumentumokba.|
+|[Tagged Image File Format (TIFF)](/slides/hu/java/convert-powerpoint-to-tiff/)|Prezentációk exportálása többoldalas TIFF képekbe, egy oldal diánként.|
+|[HTML](/slides/hu/java/convert-powerpoint-to-html/)|Prezentációk exportálása HTML‑be és HTML5‑be.|
+|[PDF és HTML import](/slides/hu/java/import-presentation/)|Diák létrehozása PDF‑oldalakból és HTML tartalomból.|
 
 ## **Prezentáció renderelése**
-Az Aspose.Slides for Java nagy pontosságú renderelést biztosít a prezentációk diáihoz különböző grafikus formátumokba.
 
-|**Funkció**|**Leírás**|
+Az Aspose.Slides a diák és az egyedi alakzatok PNG, JPEG, BMP, GIF, TIFF és SVG képekként, valamint a diákat EMF metafájlokként jeleníti meg. Lásd a [Convert Presentation Slides to Images](/slides/hu/java/convert-slide/), a [Render Presentation Slides as SVG Images](/slides/hu/java/render-a-slide-as-an-svg-image/) és a [Create Thumbnails of Presentation Shapes](/slides/hu/java/create-shape-thumbnails/) útmutatókat.
+
+## **Tartalom funkciói**
+
+Az Aspose.Slides lehetővé teszi a prezentáció szinte minden tartalmának létrehozását, olvasását és módosítását:
+
+|**Terület**|**Mit tehetsz**|
 | :- | :- |
-|Támogatott képfájlformátumok|Az Aspose.Slides for Java segítségével nem csak a prezentációs diák, hanem a diákon lévő képek renderelhetők a népszerű, támogatott grafikus formátumokba, mint például TIFF, PNG, BMP, JPEG, GIF és metafájlok.|
-|SVG formátum|Az Aspose.Slides for Java beépített metódust biztosít a prezentációs diák Scalable Vector Graphics (SVG) formátumba exportálásához.|
-
-## **Tartalom funkciók**
-Az Aspose.Slides for Java lehetővé teszi a prezentációk szinte minden tartalmának elérését, módosítását vagy létrehozását.
-
-|**Funkció**|**Leírás**|
-| :- | :- |
-|Mesterdiák|A mesterdiák határozzák meg a normál diák elrendezését. Az Aspose.Slides for Java lehetővé teszi a prezentáció mesterdiáinak elérését és módosítását.|
-|Normál diák|Az Aspose.Slides for Java segítségével nem csak új, különböző típusú diák létrehozására, hanem a meglévő diák elérésére és módosítására is van lehetőség.|
-|Diák klónozása / másolása|Az Aspose.Slides for Java módszereket kínál a meglévő diák klónozására vagy másolására, nem csak egy prezentáción belül, hanem egyik prezentációból a másikba is. Mivel egy dia az elrendezést a mesterdiától örökli, a beépített klónozási módszerek automatikusan másolják a mestert a klónozás során.|
-|Diák szekcióinak kezelése|Lehetőség a diák különböző szekciókba rendezésére a prezentációban.|
-|Helyettesítők és szöveghelyek|Helyettesítők és szöveghelyek elérése egy dián. Emellett a megfelelő metódussal egy diát szöveghelyekkel is létrehozhat.|
-|Fejléc és lábléc|Az Aspose.Slides for Java segíti a diák fejlécének / láblécének kezelését.|
-|Jegyzetek a diákon|Az Aspose.Slides for Java segítségével nem csak a diákhoz tartozó jegyzetek elérésére és módosítására, hanem azok hozzáadására is van lehetőség.|
-|Alakzat keresése|Egy adott alakzat megtalálható egy dián a hozzá tartozó alternatív szöveg alapján.|
-|Háttér|Az Aspose.Slides for Java lehetővé teszi a mester vagy normál dia háttérrel való munkát.|
-|Szövegdobozok|Szövegdobozok létrehozhatók az elejétől. A meglévő szövegdobozok elérhetők, és a szövegük módosítható az eredeti formázás megőrzésével.|
-|Téglalap alakzatok|Téglalap alakzatok létrehozhatók vagy módosíthatók az Aspose.Slides for Java által.|
-|Polivonalis alakzatok|Polivonalis alakzatok is létrehozhatók vagy módosíthatók az Aspose.Slides for Java által.|
-|Ellipszis alakzatok|Ellipszis alakzatok szintén létrehozhatók vagy módosíthatók az Aspose.Slides for Java által.|
-|Csoport alakzatok|Az Aspose.Slides for Java támogatja a csoport alakzatokat.|
-|Auto alakzatok|Az Aspose.Slides for Java szintén támogatja az auto alakzatokat.|
-|SmartArt|A Microsoft PowerPoint-ben elérhető SmartArt alakzatok támogatása.|
-|Diagramok|A PowerPoint által támogatott MSO diagramok támogatása.|
-|Képkeretek|Képek kezelése képkeretekben az Aspose.Slides for Java használatával.|
-|Audio keretek|Az Aspose.Slides for Java lehetővé teszi audio fájlok hivatkozásának vagy beágyazásának diákon audio keretekben.|
-|Video keretek|A videó fájlok video keretekben kezelhetők az Aspose.Slides for Java segítségével. A hivatkozott és beágyazott videók támogatása is elérhető.|
-|OLE keret|OLE objektumok kezelése OLE keretekben az Aspose.Slides for Java által.|
-|ActiveX vezérlők|Az ActiveX vezérlők támogatása elérhető.|
-|VBA makrók|VBA makrók kezelésének támogatása a prezentáción belül.|
-|Táblázatok|A diákon lévő táblázatok szintén támogatottak az Aspose.Slides for Java által.|
-|Szövegkeret|Bármely alakzathoz tartozó szöveg elérhető az alakzathoz tartozó szövegkereten keresztül.|
-|Szöveg beolvasás|A prezentáció szövege beolvasható a prezentáció vagy dia szintjén a beépített beolvasó módszerekkel.|
-|Animációk|Animációk alkalmazhatók alakzatokra.|
-|Diavetítések|Diavetítések és diaátmenetek támogatottak.|
-
-## **Formázási funkciók**
-Lehetséges a szöveg és alakzatok formázása a prezentációs dokumentum diáin az Aspose.Slides for Java használatával.
-
-|**Funkció**|**Leírás**|
-| :- | :- |
-|Szövegformázás|<p>Az Aspose.Slides for Java-ban a szöveget a alakzatokhoz tartozó szövegkeretek kezelik. Így a szöveg formázása a szövegkeretekhez kapcsolódó bekezdések és részek segítségével történik. A következő szövegelemek formázhatók.</p><p>- Betűtípus.</p><p>- Betűméret.</p><p>- Betűszín.</p><p>- Betűárnyalatok.</p><p>- Bekezdés igazítása.</p><p>- Bekezdés felsorolása.</p><p>- Bekezdés orientációja.</p>|
-|Alakzatformázás|<p>Az Aspose.Slides for Java-ban a dia alapvető eleme az alakzat. Az alábbi alakzatelemek formázhatók az Aspose.Slides for Java használatával:</p><p>- Pozíció</p><p>- Méret</p><p>- Vonal</p><p>- Kitöltés (beleértve a mintát, színátmenetet és egyenletes kitöltést).</p><p>- Szöveg</p><p>- Kép</p>|
+|[Slides](/slides/hu/java/presentation-slide/)|Diák hozzáadása, klónozása, átrendezése és eltávolítása; elrendezések és mesterek alkalmazása; diák szekciókba szervezése; diaméret módosítása.|
+|[Design](/slides/hu/java/presentation-design/)|Háttér, témaszínek, fejléc és lábléc, valamint betűtípusok beállítása.|
+|[Text](/slides/hu/java/manage-text/)|Szövegdobozok, bekezdések és szakaszok létrehozása és szerkesztése; betűtípusok, színek, felsorolások és igazítás beállítása; keresés és csere.|
+|[Shapes](/slides/hu/java/powerpoint-shapes/)|AutoShape‑ok, vonalak, csatlakozók, alakzatcsoportok és képkockák létrehozása; pozíció, méret, vonal és egyszínű, fokozatos vagy mintás kitöltés beállítása; alakzat keresése alternatív szöveg alapján.|
+|[Tables](/slides/hu/java/powerpoint-table/), [charts](/slides/hu/java/powerpoint-charts/), and [SmartArt](/slides/hu/java/powerpoint-smartart/)|Táblák, Microsoft Office diagramok és SmartArt diagramok létrehozása és szerkesztése.|
+|[Media](/slides/hu/java/manage-media-files/), [OLE objects](/slides/hu/java/manage-ole/), and [ActiveX controls](/slides/hu/java/activex/)|Beágyazott vagy hivatkozott audio‑ és videókockák hozzáadása, OLE objektumok beágyazása, valamint ActiveX vezérlők hozzáadása, módosítása vagy eltávolítása.|
+|[Notes](/slides/hu/java/presentation-notes/) and [comments](/slides/hu/java/presentation-comments/)|Előadói jegyzetek és felülvizsgálati megjegyzések hozzáadása, olvasása és szerkesztése.|
+|[Animation](/slides/hu/java/powerpoint-animation/) and [transitions](/slides/hu/java/slide-transition/)|Animációs effektusok alkalmazása alakzatokra, diaátmenetek beállítása és diavetítés‑beállítások konfigurálása.|
+|[Security](/slides/hu/java/presentation-security/)|Prezentációk jelszóval történő titkosítása, írásvédettség beállítása, valamint [digital signatures](/slides/hu/java/digital-signature-in-powerpoint/) kezelése.|
+|[VBA macros](/slides/hu/java/presentation-via-vba/)|VBA modulok hozzáadása, kinyerése és eltávolítása makró‑engedélyezett prezentációkban.|
+|[Properties](/slides/hu/java/presentation-properties/)|Dokumentumtulajdonságok olvasása és szerkesztése.|
 
 ## **GYIK**
 
-### Szükséges-e a Microsoft PowerPoint telepítése a szerveren/PC-n a könyvtár működéséhez?
+**Szükséges-e a Microsoft PowerPoint telepítése a szerveren vagy a gépen a könyvtár működéséhez?**
 
-Nem. A PowerPoint nem szükséges; az Aspose.Slides egy önálló motor a prezentációk létrehozásához, szerkesztéséhez, konvertálásához és rendereléséhez.
+Nem. A PowerPoint nem kötelező; az Aspose.Slides egy önálló motor a prezentációk létrehozásához, szerkesztéséhez, konvertálásához és megjelenítéséhez.
 
-### Hogyan működik a több szálas feldolgozás? Párhuzamosítható a feldolgozás?
+**Hogyan működik a többthreades feldolgozás? Párhuzamosítható a feldolgozás?**
 
-Biztonságos különböző dokumentumok feldolgozása külön szálakban; ugyanazt a [prezentáció](https://reference.aspose.com/slides/hu/java/com.aspose.slides/presentation/) objektumot nem szabad [több szál](/slides/hu/java/multithreading/) egyidejűleg használni.
+Biztonságos különböző dokumentumok külön szálakon való feldolgozása; ugyanazt a [Presentation](/slides/hu/java/multithreading/) objektumot nem szabad [multiple threads](/slides/hu/java/multithreading/) egy időben használni.
 
-### Támogatottak a fájl jelszavak és titkosítás?
+**Támogatottak-e a fájl jelszavak és a titkosítás?**
 
-Igen. [Megnyithat](/slides/hu/java/password-protected-presentation/) titkosított prezentációkat, beállíthat vagy eltávolíthat megnyitási és írási jelszót, valamint ellenőrizheti a védelem állapotát.
+Igen. [You can](/slides/hu/java/password-protected-presentation/) megnyitni titkosított prezentációkat, beállítani vagy eltávolítani megnyitási és írási jelszót, valamint ellenőrizni a védelem állapotát.
 
-### Szükséges foglalkozni a betűkészlet csomagokkal Linux konténerekben?
+**Gondoskodni kell a betűtípusokról Linux konténerekben?**
 
-Igen. Ajánlott a közös betűkészlet csomagok telepítése és/vagy a [betűkészlet könyvtárak](/slides/hu/java/custom-font/) kifejezett megadása az alkalmazásban a váratlan helyettesítések elkerülése érdekében.
+Igen. Linuxon a fontconfig könyvtárnak és legalább egy betűtípusnak telepítve kell lennie, valamint a prezentációkban használt betűtípusoknak vagy megfelelő helyettesítőknek is elérhetőknek kell lenniük a helyes megjelenítéshez. A [specify font directories](/slides/hu/java/custom-font/) is beállítható az alkalmazásban. Lásd a [Installation](/slides/hu/java/installation/#linux) részt.
 
-### Vannak korlátozások az értékelő verzióban?
+**Vannak-e korlátozások az értékelő verzióban?**
 
-Az [értékelő módban](/slides/hu/java/licensing/) vízjel kerül hozzáadásra a kimenethez, és bizonyos korlátozások érvényesek; egy [30 napos ideiglenes licenc](https://purchase.aspose.com/temporary-license/) elérhető a teljes funkcionalitás teszteléséhez.
+Igen. Licenc [license](/slides/hu/java/licensing/) hiányában az Aspose.Slides minden mentett diára értékelő vízjelet helyez, és levágja a kódból kiolvasott szöveget. Egy [30‑napos ideiglenes licenc](https://purchase.aspose.com/temporary-license/) elérhető a teljes funkcionalitás teszteléséhez.
 
-### Támogatott-e külső formátumok importálása egy prezentációba (PDF/HTML → PPTX)?
+**Támogatott-e külső formátumok (PDF vagy HTML) importálása prezentációba (PPTX‑be)?**
 
-Igen. [PDF oldalakat és HTML tartalmat](/slides/hu/java/import-presentation/) adhat a prezentációhoz, amelyek diákká válnak.
+Igen. PDF‑oldalakat és HTML‑tartalmat [PDF pages and HTML content](/slides/hu/java/import-presentation/) adhat a prezentációhoz, amely diákká alakul.

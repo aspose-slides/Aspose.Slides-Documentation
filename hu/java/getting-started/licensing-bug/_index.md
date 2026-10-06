@@ -1,46 +1,53 @@
 ---
-title: Licencelési hiba
+title: Licencelési hiba a 23.2-tól 23.7-ig (Történelmi)
+linktitle: Licencelési hiba 23.2-23.7 (Történelmi)
 type: docs
-weight: 95
+weight: 200
 url: /hu/java/licensing-bug/
 keywords:
 - licencelési hiba
 - örökös licenc
+- történelmi
+- verzió 23.2
+- verzió 23.7
 - Java
 - Aspose.Slides
-description: "Ismerje meg, hogyan érinti a licencelési hiba az Aspose.Slides for Java 23.2–23.7 verziókban a örökös kulcsokat, és hogyan javítható, hogy a PPT, PPTX és ODP fájlok továbbra is működjenek."
+description: "Történelmi: egy licencelési hiba az Aspose.Slides for Java 23.2-tól 23.7-ig, amely a feliratkozás lejárta után örökös licenceket értékelő módba állított át, valamint a javított verziók 23.2.1-től 23.7.1-ig."
 ---
-## **Áttekintés**
+{{% alert color="info" title="Note" %}}
+Ez egy történelmi oldal. Leír egy hibát az Aspose.Slides for Java 23.2‑től 23.7‑ig terjedő verzióiban, amelyek 2023‑ban jelentek meg, valamint a javító verziókat. Nem írja le a jelenlegi verziót. A jelenlegi verzió licencelésével kapcsolatban lásd a [Licensing](/slides/hu/java/licensing/) oldalt.
+{{% /alert %}}
 
-Ez a cikk egy licencelési hibát ír le, amely az Aspose.Slides for Java 23.2, 23.3, 23.4, 23.5, 23.6 és 23.7 verziókban jelentkezett. Ez a hiba azt eredményezte, hogy a örökös licencek ideiglenesen használhatatlanná váltak, miután előfizetésük lejárt.
+## **Overview**
 
-## **Tünetek**
+Ez a cikk leír egy licencelési hibát, amely az Aspose.Slides for Java 23.2, 23.3, 23.4, 23.5, 23.6 és 23.7 verzióiban jelentkezett. A hiba miatt a örökös licencek ideiglenesen használhatatlanná váltak a feliratkozásuk lejárta után.
 
-Miután az örökös licenc előfizetése lejár, az Aspose.Slides for Java 23.2‑23.7 verziói a licencet lejártként jelenthetik, és az összes funkciót értékelő módba helyezik. Ez a viselkedés helytelen, és nem érinti a 23.2 előtti és a 23.7 utáni verziókat.
+## **Symptoms**
 
-## **Megoldás**
+Miután az örökös licenc előfizetése lejár, az Aspose.Slides for Java 23.2‑tól 23.7‑ig terjedő verziói a licencet lejártként jelenthetik, és minden funkciót értékelő módba állíthatnak.  
+Ez a viselkedés helytelen, és nem érinti a 23.2 előtti és a 23.7 utáni verziókat.
 
-Az Aspose.Slides for Java orvosolta ezt a problémát, és kiadta a javítást tartalmazó frissített verziókat (23.2.1, 23.3.1, 23.4.1, 23.5.1, 23.6.1, 23.7.1).
+## **Resolution**
 
-Ha a projektjében az érintett Aspose.Slides for Java verziók egyikét használja, kérjük, váltson a javított verzióra.
+Az Aspose.Slides for Java megoldotta ezt a problémát, és kiadta a javítással ellátott frissített verziókat (23.2.1, 23.3.1, 23.4.1, 23.5.1, 23.6.1, 23.7.1).  
+Ha a projektedben az Aspose.Slides for Java érintett verzióját használod, kérlek válts a kijavított verzióra.
 
-List of versions with the fix:
+A javítással ellátott verziók listája:
 
-| Tároló hivatkozás | Kiadási megjegyzések hivatkozása |
+| Tároló hivatkozás | Kiadási megjegyzések hivatkozás |
 | :- | :- |
-|[23.2.1](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/23.2.1/)|[Kiadási megjegyzések Aspose.Slides for Java 23.2.1](https://releases.aspose.com/slides/hu/java/release-notes/2023/aspose-slides-for-java-23-2-1-release-notes/)|
-|[23.3.1](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/23.3.1/)|[Kiadási megjegyzések Aspose.Slides for Java 23.3.1](https://releases.aspose.com/slides/hu/java/release-notes/2023/aspose-slides-for-java-23-3-1-release-notes/)|
-|[23.4.1](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/23.4.1/)|[Kiadási megjegyzések Aspose.Slides for Java 23.4.1](https://releases.aspose.com/slides/hu/java/release-notes/2023/aspose-slides-for-java-23-4-1-release-notes/)|
-|[23.5.1](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/23.5.1/)|[Kiadási megjegyzések Aspose.Slides for Java 23.5.1](https://releases.aspose.com/slides/hu/java/release-notes/2023/aspose-slides-for-java-23-5-1-release-notes/)|
-|[23.6.1](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/23.6.1/)|[Kiadási megjegyzések Aspose.Slides for Java 23.6.1](https://releases.aspose.com/slides/hu/java/release-notes/2023/aspose-slides-for-java-23-6-1-release-notes/)|
-|[23.7.1](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/23.7.1/)|[Kiadási megjegyzések Aspose.Slides for Java 23.7.1](https://releases.aspose.com/slides/hu/java/release-notes/2023/aspose-slides-for-java-23-7-1-release-notes/)|
+|[23.2.1](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/23.2.1/) | [Release notes Aspose.Slides for Java 23.2.1](https://releases.aspose.com/slides/hu/java/release-notes/2023/aspose-slides-for-java-23-2-1-release-notes/)|
+|[23.3.1](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/23.3.1/) | [Release notes Aspose.Slides for Java 23.3.1](https://releases.aspose.com/slides/hu/java/release-notes/2023/aspose-slides-for-java-23-3-1-release-notes/)|
+|[23.4.1](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/23.4.1/) | [Release notes Aspose.Slides for Java 23.4.1](https://releases.aspose.com/slides/hu/java/release-notes/2023/aspose-slides-for-java-23-4-1-release-notes/)|
+|[23.5.1](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/23.5.1/) | [Release notes Aspose.Slides for Java 23.5.1](https://releases.aspose.com/slides/hu/java/release-notes/2023/aspose-slides-for-java-23-5-1-release-notes/)|
+|[23.6.1](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/23.6.1/) | [Release notes Aspose.Slides for Java 23.6.1](https://releases.aspose.com/slides/hu/java/release-notes/2023/aspose-slides-for-java-23-6-1-release-notes/)|
+|[23.7.1](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/23.7.1/) | [Release notes Aspose.Slides for Java 23.7.1](https://releases.aspose.com/slides/hu/java/release-notes/2023/aspose-slides-for-java-23-7-1-release-notes/)|
 
-Ha bármilyen licencelési problémát tapasztal az Aspose.Slides for Java használata során:
+Ha bármilyen licencelési problémába ütközöl az Aspose.Slides for Java használata során:
+- Ellenőrizd a használt verziót, és győződj meg arról, hogy nem érinti a fent leírt hiba.
+- Lásd a [Licensing](/slides/hu/java/licensing/) oldalát a licenc alkalmazásának és ellenőrzésének módjáról.
+- Lépj kapcsolatba az [Aspose support](https://forum.aspose.com/c/slides/hu/11) csapattal további segítségért.
 
-- Ellenőrizze a használt verziót, és győződjön meg róla, hogy nem érinti a fent leírt hibát.
-- Tekintse meg az [Aspose dokumentációt](https://docs.aspose.com/slides/hu/java/getting-started/) a hibaelhárítási lépések és a ismert licencproblémák tekintetében.
-- Lépjen kapcsolatba az [Aspose támogatással](https://forum.aspose.com/) további segítségért.
+## **Affected products and versions**
 
-## **Érintett termékek és verziók**
-
-Kérjük, vegye figyelembe, hogy ez a hiba csak az Aspose.Slides for Java 23.2‑23.7 verzióit érinti. **Más Aspose termékek és az Aspose.Slides egyéb verziói nem érintettek**.
+Felhívjuk a figyelmet, hogy ez a hiba csak az Aspose.Slides for Java 23.2‑től 23.7‑ig terjedő verzióit érinti. **Más Aspose termékek és az Aspose.Slides egyéb verziói nem érintettek**.

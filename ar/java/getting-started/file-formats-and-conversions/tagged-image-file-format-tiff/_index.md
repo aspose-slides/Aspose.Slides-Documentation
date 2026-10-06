@@ -1,18 +1,30 @@
 ---
-title: صيغة ملف الصورة المميزة (TIFF)
+title: تنسيق ملف الصورة ذو العلامة (TIFF) (تاريخي)
 type: docs
 weight: 60
 url: /ar/java/tagged-image-file-format-tiff/
+keywords:
+- TIFF
+- تصدير TIFF
+- تاريخي
+- Java
+- Aspose.Slides
+description: "تاريخي: نظرة عامة قديمة على تصدير TIFF في Aspose.Slides for Java، تم الاحتفاظ بها للروابط الحالية. الدليل الحالي هو تحويل عروض PowerPoint إلى TIFF."
 ---
+{{% alert color="info" title="ملاحظة" %}}
+
+هذه صفحة تاريخية، تم الاحتفاظ بها للروابط الموجودة. لا تصف الإصدار الحالي من Aspose.Slides for Java. للتعرف على الصيغ التي تقوم Aspose.Slides for Java بتحميلها واستيرادها وحفظها وعرضها، وكذلك واجهة برمجة التطبيقات لكل منها، راجع [الصيغ المدعومة](/slides/ar/java/supported-file-formats/). للحصول على دليل تحويل TIFF الحالي، راجع [تحويل عروض PowerPoint إلى TIFF](/slides/ar/java/convert-powerpoint-to-tiff/).
+
+{{% /alert %}}
 
 ## **حول TIFF**
 
-صيغة [ملف الصورة المميزة](https://en.wikipedia.org/wiki/TIFF) المعروفة بتخزين صور متعددة في مستند واحد تم إنشاؤها في الأصل بواسطة ألدوس. هذه الصيغة مدعومة بشكل واسع من قبل تطبيقات المسح الضوئي، الفاكس، وغيرها من تطبيقات معالجة الصور.
+تنسيق Tagged Image File Format المعروف بتخزين عدة صور في مستند واحد تم إنشاؤه أصلاً بواسطة Aldus. يُدعم هذا التنسيق على نطاق واسع من قبل تطبيقات المسح، الفاكس، وغيرها من تطبيقات تعديل الصور.
 
-## **TIFF في Aspose.Slides لـ Java**
+## **TIFF في Aspose.Slides for Java**
 
-يمكن تحويل أي مستند يمكن تحميله في Aspose.Slide لـ Java إلى مستند TIFF مباشرة بواسطة Aspose.Slides لـ Java مما يلغي الحاجة إلى أي مكون طرف ثالث. علاوة على ذلك، يمكنك بشكل اختياري تعريف حجم الصور في مستند TIFF الناتج. يمكنك العثور على معلومات حول تصدير مستندات العرض التقديمي إلى مستندات TIFF من خلال Aspose.Slides لـ Java في [هذا الموضوع](/slides/ar/java/converting-a-presentation/).
+يمكن تحويل أي مستند يمكن تحميله في Aspose.Slides for Java مباشرةً إلى مستند TIFF عبر Aspose.Slides for Java، مما يلغي الحاجة إلى أي مكوّن طرف ثالث. بالإضافة إلى ذلك، يمكنك اختياريًا تحديد حجم الصور في مستند TIFF الناتج. يمكنك العثور على معلومات حول تصدير مستندات العروض التقديمية إلى مستندات TIFF عبر Aspose.Slides for Java في [تحويل عروض PowerPoint إلى TIFF](/slides/ar/java/convert-powerpoint-to-tiff/).
 
-**مستند عرض تقديمي تم تحويله إلى مستند TIFF من خلال Aspose.Slides لـ Java** 
+**مستند عرض تقديمي تم تحويله إلى مستند TIFF عبر Aspose.Slides for Java**
 
-![todo:image_alt_text](tagged-image-file-format-tiff_1.png) ![todo:image_alt_text](tagged-image-file-format-tiff_2.png)
+![الصفحة الأولى من مستند TIFF](tagged-image-file-format-tiff_1.png) ![الصفحة الثانية من مستند TIFF](tagged-image-file-format-tiff_2.png)

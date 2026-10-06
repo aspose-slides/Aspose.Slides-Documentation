@@ -1,24 +1,35 @@
 ---
-title: XML パーサー仕様 (XPS)
+title: XML Paper Specification (XPS) (履歴)
 type: docs
 weight: 50
 url: /ja/java/xml-parser-specification-xps/
+keywords:
+- XPS
+- XML Paper Specification
+- 履歴
+- Java
+- Aspose.Slides
+description: "履歴: Aspose.Slides for Java における XPS エクスポートの古い概要で、既存のリンクのために保持されています。現在のガイドは Convert PowerPoint Presentations to XPS です。"
 ---
+{{% alert color="info" title="Note" %}}
 
-{{% alert color="primary" %}} 
+これは既存のリンク用に保持された履歴ページです。現在のバージョンの Aspose.Slides for Java については記述されていません。Aspose.Slides for Java が読み込み、インポート、保存、レンダリングできるフォーマットとそれぞれの API については、[Supported File Formats](/slides/ja/java/supported-file-formats/) を参照してください。現在の XPS 変換ガイドについては、[Convert PowerPoint Presentations to XPS](/slides/ja/java/convert-powerpoint-to-xps/) をご覧ください。
 
-[XML パーサー仕様](https://en.wikipedia.org/wiki/Open_XML_Paper_Specification)は、Microsoftによって最初に開発されたページ記述言語および固定文書形式です。PDFのように、XPSは文書の忠実度を保ち、デバイスに依存しない文書の外観を提供するように設計されています。 
+{{% /alert %}}
 
-{{% /alert %}} 
+{{% alert color="info" title="Note" %}}
 
-## **Aspose.Slides for JavaにおけるXPS**
-Aspose.Slides for Javaで読み込むことのできる任意のプレゼンテーション文書は、XPS形式に変換できます。Aspose.Slides for Javaは、高忠実度のページレイアウトとレンダリングエンジンを使用して、固定レイアウトのXPS文書形式で出力を生成します。
-Aspose.Slides for Javaを使用してプレゼンテーション文書をXPS文書にエクスポートする方法については、[XPSへの変換](https://docs.aspose.com/slides/java/convert-powerpoint-to-xps/)をご覧ください。
+[XML Paper Specification](https://en.wikipedia.org/wiki/Open_XML_Paper_Specification) は Microsoft が元々開発したページ記述言語および固定文書フォーマットです。PDF と同様に、XPS は文書の忠実性を保ち、デバイスに依存しない文書の外観を提供するよう設計されています。
 
-**入力プレゼンテーション** 
+{{% /alert %}}
 
-![todo:image_alt_text](xml-parser-specification-xps_1.png)
+## **Aspose.Slides for Java の XPS**
+Aspose.Slides for Java が読み込めるプレゼンテーションドキュメントはすべて XPS 形式に変換できます。Aspose.Slides for Java は高忠実度のページレイアウトおよびレンダリングエンジンを使用して、固定レイアウトの XPS ドキュメント形式で出力します。Aspose.Slides for Java を使用したプレゼンテーションドキュメントの XPS へのエクスポート方法については、[Convert PowerPoint Presentations to XPS](/slides/ja/java/convert-powerpoint-to-xps/) を参照してください。
 
-**XPSに変換されたプレゼンテーション** 
+**入力プレゼンテーション**
 
-![todo:image_alt_text](xml-parser-specification-xps_2.png)
+![入力プレゼンテーション](xml-parser-specification-xps_1.png)
+
+**XPS に変換されたプレゼンテーション**
+
+![XPS に変換されたプレゼンテーション](xml-parser-specification-xps_2.png)

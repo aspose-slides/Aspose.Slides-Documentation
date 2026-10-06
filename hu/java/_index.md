@@ -6,20 +6,20 @@ weight: 20
 url: /hu/java/
 keywords:
 - dokumentáció
-- prezentáció feldolgozás
-- prezentáció konvertálás
+- prezentációfeldolgozás
+- prezentációkonverzió
 - PowerPoint
 - OpenDocument
 - Java
 - Aspose.Slides
-description: "Kezdje itt: telepítse az Aspose.Slides for Java-t, hozza létre az első prezentációt, és keresse meg az általános feladatokhoz, az API-referencia és a támogatás útmutatóit."
+description: "Kezdje itt: telepítse az Aspose.Slides for Java-t, hozza létre az első prezentációt, és találja meg az útmutatókat a gyakori feladatokhoz, a telepítéshez és az API referenciához."
 is_root: true
 ---
 <img src="home_1.png" alt="Aspose.Slides for Java" align="left" style="width:110px; margin: 0 30px 20px 0"/>
 
-Az Aspose.Slides for Java egy osztálykönyvtár PowerPoint és OpenDocument előadások létrehozásához, olvasásához, szerkesztéséhez és konvertálásához Java alkalmazásokban, a Microsoft PowerPoint nélkül.
+Az Aspose.Slides for Java egy osztálykönyvtár a PowerPoint és OpenDocument prezentációk létrehozásához, olvasásához, szerkesztéséhez és átalakításához Java alkalmazásokban, a Microsoft PowerPoint nélkül.
 
-Betölti és menti a PPT, PPTX, PPS, POT és ODP formátumokat, beleértve a makróval ellátott és sablon változatokat is, és exportál PDF, XPS, HTML, SVG, TIFF, Markdown és képek formátumokba.
+Betölti és menti a PPT, PPTX, PPS, POT és ODP formátumokat, beleértve a makrókat tartalmazó és sablon változatokat is, valamint exportál PDF, XPS, HTML, SVG, TIFF, Markdown és képek formátumba.
 
 <div style="clear:both"></div>
 
@@ -32,24 +32,26 @@ Betölti és menti a PPT, PPTX, PPS, POT és ODP formátumokat, beleértve a mak
 <p>ELKEZDÉS</p>
 <ul>
 <li><a href="/slides/hu/java/installation/">Telepítés</a></li>
-<li><a href="/slides/hu/java/create-presentation/">Az első előadás létrehozása</a></li>
+<li><a href="/slides/hu/java/create-presentation/">Készítsd el az első prezentációdat</a></li>
+<li><a href="/slides/hu/java/system-requirements/">Rendszerkövetelmények</a></li>
 <li><a href="/slides/hu/java/getting-started/">Első lépések útmutatója</a></li>
 </ul>
 <p>ÉRTÉKELÉS</p>
 <ul>
 <li><a href="/slides/hu/java/supported-file-formats/">Támogatott fájlformátumok</a></li>
-<li><a href="/slides/hu/java/evaluate-aspose-slides/">Próba korlátozások</a></li>
+<li><a href="/slides/hu/java/features-overview/">Funkciók áttekintése</a></li>
+<li><a href="/slides/hu/java/evaluate-aspose-slides/">Próbaverzió korlátai</a></li>
 <li><a href="/slides/hu/java/licensing/">Licencelés</a></li>
 </ul>
 </div>
 <div class="col-md-4">
-<p><b>Készítés Slides-szel</b></p>
+<p><b>Slides használatával</b></p>
 <hr>
 <p>ÁLTALÁNOS FELADATOK</p>
 <ul>
-<li><a href="/slides/hu/java/open-presentation/">Előadás megnyitása</a></li>
-<li><a href="/slides/hu/java/save-presentation/">Előadás mentése</a></li>
-<li><a href="/slides/hu/java/convert-powerpoint-to-pdf/">PDF-re konvertálás</a></li>
+<li><a href="/slides/hu/java/open-presentation/">Prezentáció megnyitása</a></li>
+<li><a href="/slides/hu/java/save-presentation/">Prezentáció mentése</a></li>
+<li><a href="/slides/hu/java/convert-powerpoint-to-pdf/">PDF-be konvertálás</a></li>
 <li><a href="/slides/hu/java/convert-slide/">Diák renderelése képekként</a></li>
 <li><a href="/slides/hu/java/manage-text/">Szöveg és alakzatok szerkesztése</a></li>
 </ul>
@@ -59,27 +61,35 @@ Betölti és menti a PPT, PPTX, PPS, POT és ODP formátumokat, beleértve a mak
 <li><a href="/slides/hu/java/powerpoint-animation/">Animációk</a></li>
 <li><a href="/slides/hu/java/manage-media-files/">Hang és videó</a></li>
 <li><a href="/slides/hu/java/presentation-design/">Dia tervezés</a></li>
-<li><a href="/slides/hu/java/merge-presentation/">Előadások egyesítése</a></li>
+<li><a href="/slides/hu/java/merge-presentation/">Prezentációk összevonása</a></li>
 </ul>
 <p>PELDÁK</p>
 <ul>
-<li><a href="/slides/hu/java/examples/">Példák diaelemenként</a></li>
-<li><a href="https://github.com/aspose-slides/Aspose.Slides-for-Java">Példák a GitHub-on</a></li>
+<li><a href="/slides/hu/java/examples/">Példák diák elem szerint</a></li>
+<li><a href="https://github.com/aspose-slides/Aspose.Slides-for-Java">Példák a GitHubon</a></li>
 </ul>
 </div>
 <div class="col-md-4">
-<p><b>Referencia &amp; Támogatás</b></p>
+<p><b>Telepítés és támogatás</b></p>
 <hr>
+<p>TELEPÍTÉS</p>
+<ul>
+<li><a href="/slides/hu/java/system-requirements/#linux">Linux előfeltételek</a></li>
+<li><a href="/slides/hu/java/how-to-run-aspose-slides-in-docker/">Dockerben futtatás</a></li>
+<li><a href="/slides/hu/java/deploy-fonts/">Betűkészletek</a></li>
+<li><a href="/slides/hu/java/security/">Biztonság</a></li>
+</ul>
 <p>REFERENCIA</p>
 <ul>
-<li><a href="https://reference.aspose.com/slides/java/">API referencia</a></li>
-<li><a href="https://releases.aspose.com/slides/java/release-notes/">Kiadási jegyzetek</a></li>
+<li><a href="https://reference.aspose.com/slides/hu/java/">API referencia</a></li>
+<li><a href="https://releases.aspose.com/slides/hu/java/release-notes/">Kiadási megjegyzések</a></li>
 <li><a href="/slides/hu/java/known-issues/">Ismert problémák</a></li>
-<li><a href="https://releases.aspose.com/slides/java/">Letöltés</a></li>
+<li><a href="/slides/hu/java/api-limitations/">Kimeneti metaadat korlátok</a></li>
+<li><a href="https://releases.aspose.com/slides/hu/java/">Letöltés</a></li>
 </ul>
 <p>TÁMOGATÁS</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/11">Ingyenes támogatási fórum</a></li>
+<li><a href="https://forum.aspose.com/c/slides/hu/11">Ingyenes támogatási fórum</a></li>
 <li><a href="https://helpdesk.aspose.com/">Fizetős támogatási helpdesk</a></li>
 </ul>
 </div>
@@ -87,9 +97,11 @@ Betölti és menti a PPT, PPTX, PPS, POT és ODP formátumokat, beleértve a mak
 
 ------
 
-## **Az első előadásod**
+<a name="your-first-presentation"></a>
 
-Az Aspose.Slides for Java az Aspose saját Maven tárolójában van közzétéve, nem a Maven Centralban. Hozzon létre egy mappát egy Maven projekthez, és mentse ebbe a *pom.xml*-t. Ez deklarálja a tárolót, hozzáadja a könyvtárat, és megnevezi a futtatandó osztályt:
+## **Az első prezentációd**
+
+Az Aspose.Slides for Java saját Maven tárolójában van közzétéve, nem a Maven Centralban. Hozzon létre egy mappát egy Maven projekthez, és mentse el ebbe a *pom.xml*-t. Ez deklarálja a tárolót, hozzáadja a könyvtárat, és megadja a futtatandó osztályt:
 
 ```xml
 <project xmlns="http://maven.apache.org/POM/4.0.0">
@@ -133,14 +145,14 @@ Az Aspose.Slides for Java az Aspose saját Maven tárolójában van közzétéve
 </project>
 ```
 
-Mentse ezt a kódot *src/main/java/HelloSlides.java* néven:
+Mentse el ezt a kódot *src/main/java/HelloSlides.java* néven:
 
 ```java
 import com.aspose.slides.*;
 
 public class HelloSlides {
     public static void main(String[] args) {
-        // Hozzon létre egy prezentációt. Már egy üres diát tartalmaz.
+        // Hozzon létre egy prezentációt. Már tartalmaz egy üres diát.
         Presentation presentation = new Presentation();
         try {
             // Szerezze meg az első diát.
@@ -159,10 +171,10 @@ public class HelloSlides {
 }
 ```
 
-Ezután, a JDK 11 vagy újabb és az Apache Maven telepítése után, futtassa ezt a parancsot a projekt mappában:
+Ezután, JDK 11 vagy újabb és az Apache Maven telepítése után, futtassa ezt a parancsot a projekt mappában:
 
 ```bash
 mvn compile exec:java
 ```
 
-A program elmenti a *new_presentation.pptx*-t a projekt mappájába, egyetlen diával, amely egy felhő alakzatot tartalmaz szöveggel. Linuxon a fontconfig és legalább egy betűkészlet telepítve kell legyen; lásd a [Telepítés](/slides/hu/java/installation/#linux) oldalt. Licenc nélkül a mentett fájl egy értékelési vízjelet tartalmaz – lásd a [Licencelés](/slides/hu/java/licensing/) oldalt. További módok az előadás létrehozására és kitöltésére a [Előadások létrehozása](/slides/hu/java/create-presentation/) oldalon.
+A program elmenti a *new_presentation.pptx*-t a projekt mappába, egy diával, amely felhő alakzatot és szöveget tartalmaz. Linuxon a fontconfig és legalább egy betűkészlet telepítve kell legyen; lásd a [Telepítés](/slides/hu/java/installation/#linux) részt. Licenc nélkül a mentett fájl egy értékelési vízjelet tartalmaz — lásd a [Licencelés](/slides/hu/java/licensing/) részt. További módok a prezentáció létrehozására és feltöltésére a [Prezentációk létrehozása](/slides/hu/java/create-presentation/) oldalon találhatók.

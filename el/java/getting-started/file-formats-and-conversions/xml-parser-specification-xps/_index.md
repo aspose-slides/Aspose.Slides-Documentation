@@ -1,22 +1,36 @@
 ---
-title: Προδιαγραφή Αναλυτή XML (XPS)
+title: Προδιαγραφή Χαρτιού XML (XPS) (Ιστορικό)
 type: docs
 weight: 50
 url: /el/java/xml-parser-specification-xps/
+keywords:
+- XPS
+- Προδιαγραφή Χαρτιού XML
+- ιστορικό
+- Java
+- Aspose.Slides
+description: "Ιστορικό: μια παλαιότερη επισκόπηση της εξαγωγής XPS στο Aspose.Slides for Java, διατηρημένη για υπάρχοντες συνδέσμους. Ο τρέχων οδηγός είναι Convert PowerPoint Presentations to XPS."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" title="Note" %}}
 
-Η [Προδιαγραφή Αναλυτή XML](https://en.wikipedia.org/wiki/Open_XML_Paper_Specification) είναι μια γλώσσα περιγραφής σελίδας και μορφή σταθερού εγγράφου που δημιουργήθηκε αρχικά από τη Microsoft. Όπως το PDF, το XPS έχει σχεδιαστεί για να διατηρεί την πιστότητα του εγγράφου και να παρέχει εμφάνιση ανεξάρτητη από τη συσκευή. 
+Αυτή είναι μια ιστορική σελίδα, διατηρημένη για υπάρχοντες συνδέσμους. Δεν περιγράφει την τρέχουσα έκδοση του Aspose.Slides for Java. Για τις μορφές που το Aspose.Slides for Java φορτώνει, εισάγει, αποθηκεύει και αποδίδει, καθώς και το API για καθεμία, δείτε [Supported File Formats](/slides/el/java/supported-file-formats/). Για τον τρέχοντα οδηγό μετατροπής XPS, δείτε [Convert PowerPoint Presentations to XPS](/slides/el/java/convert-powerpoint-to-xps/).
 
-{{% /alert %}} 
+{{% /alert %}}
 
-## **XPS στο Aspose.Slides για Java**
-Οποιοδήποτε έγγραφο παρουσίασης που μπορεί να φορτωθεί από το Aspose.Slides για Java μπορεί να μετατραπεί σε μορφή XPS. Το Aspose.Slides για Java χρησιμοποιεί την μηχανή διάταξης και απόδοσης υψηλής πιστότητας για να παράγει έξοδο σε μορφή εγγράφου XPS σταθερής διάταξης. Μπορείτε να μάθετε για την εξαγωγή των εγγράφων παρουσίασης σε έγγραφα XPS μέσω του Aspose.Slides για Java στο [Μετατροπή σε XPS](https://docs.aspose.com/slides/el/java/convert-powerpoint-to-xps/).
+{{% alert color="info" title="Note" %}}
 
-**Η εισαγώμενη παρουσίαση** 
+Το [XML Paper Specification](https://en.wikipedia.org/wiki/Open_XML_Paper_Specification) είναι μια γλώσσα περιγραφής σελίδας και φορμάτ σταθερού εγγράφου που αρχικά αναπτύχθηκε από τη Microsoft. Όπως το PDF, το XPS έχει σχεδιαστεί για να διατηρεί την πιστότητα του εγγράφου και να παρέχει εμφάνιση εγγράφου ανεξάρτητη από τη συσκευή.
 
-![todo:image_alt_text](xml-parser-specification-xps_1.png)
+{{% /alert %}}
 
-**Μια παρουσίαση που μετατράπηκε σε XPS** 
+## **XPS στο Aspose.Slides for Java**
+Κάθε έγγραφο παρουσίασης που μπορεί να φορτωθεί από το Aspose.Slides for Java μπορεί να μετατραπεί σε φορμάτ XPS. Το Aspose.Slides for Java χρησιμοποιεί την υψηλής πιστότητας μηχανή διάταξης σελίδων και απόδοσης για την παραγωγή εξόδου σε σταθερής διάταξης μορφότυπο XPS.
+Μπορείτε να μάθετε πώς να εξάγετε τα έγγραφα παρουσίασης σε έγγραφα XPS μέσω του Aspose.Slides for Java στο [Convert PowerPoint Presentations to XPS](/slides/el/java/convert-powerpoint-to-xps/).
 
-![todo:image_alt_text](xml-parser-specification-xps_2.png)
+**Η παρουσίαση εισόδου**
+
+![Η παρουσίαση εισόδου](xml-parser-specification-xps_1.png)
+
+**Παρουσίαση που μετατράπηκε σε XPS**
+
+![Η παρουσίαση που μετατράπηκε σε XPS](xml-parser-specification-xps_2.png)

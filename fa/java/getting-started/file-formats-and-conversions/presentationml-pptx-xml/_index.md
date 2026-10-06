@@ -1,41 +1,52 @@
 ---
-title: PresentationML (PPTX، XML)
+title: PresentationML (PPTX, XML) (تاریخی)
 type: docs
 weight: 20
 url: /fa/java/presentationml-pptx-xml/
+keywords:
+- PresentationML
+- PPTX
+- Office Open XML
+- تاریخی
+- جاوا
+- Aspose.Slides
+description: "تاریخی: یک مرور قدیمی از قالب PresentationML (PPTX) در Aspose.Slides برای Java، حفظ شده برای پیوندهای موجود. فهرست فعلی قالب‌های پشتیبانی‌شده در قالب‌های فایل پشتیبانی‌شده موجود است."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" title="Note" %}}
 
-PresentationML نامی برای مجموعه‌ای از فرمت‌های مبتنی بر XML است که برای اسناد ارائه استفاده می‌شوند. Office OpenXML (OOXML) فرمت مبتنی بر XML معرفی‌شده در برنامه‌های Microsoft Office 2007 است. Office OpenXML یک فرمت کانتینری برای چندین زبان نشانه‌گذاری مبتنی بر XML تخصصی می‌باشد. PresentationML زبان نشانه‌گذاری‌ای است که توسط Microsoft Office PowerPoint 2007 برای ذخیره‌سازی اسناد استفاده می‌شود.
+این یک صفحه تاریخی است که برای پیوندهای موجود حفظ شده است. این نسخه فعلی Aspose.Slides برای Java را توصیف نمی‌کند. برای قالب‌هایی که Aspose.Slides برای Java بارگذاری، وارد، ذخیره و رندر می‌کند و API هر کدام، به [قالب‌های فایل پشتیبانی‌شده](/slides/fa/java/supported-file-formats/) مراجعه کنید. برای مقایسه PPTX با PPT، به [درک تفاوت: PPT در مقابل PPTX](/slides/fa/java/ppt-vs-pptx/) نگاه کنید.
 
-{{% /alert %}} 
+{{% /alert %}}
+{{% alert color="info" title="Note" %}}
 
-## **PresentationML در Aspose.Slides for Java**
-اسناد OOXML PresentationML به صورت فایل‌های PPTX ارائه می‌شوند؛ بسته‌های XML فشرده‌ای که مطابق مشخصات [OOXML ECMA-376](https://www.ecma-international.org/publications-and-standards/standards/ecma-376/) هستند. Aspose.Slides for Java به‌صورت گسترده‌ای از ایجاد، خواندن، دستکاری و نوشتن اسناد PresentationML پشتیبانی می‌کند. علاوه بر این، Aspose.Slides for Java قادر است اسناد PresentationML را به قالبی گسترده‌ استفاده‌شده مانند PDF صادر کند. این امکان به این دلیل است که Aspose.Slides for Java با هدف مدیریت جامع اسناد ارائه طراحی شده و در واقع PresentationML نمایش داخلی اسناد را به‌صورت یک بسته XML فشرده نگه می‌دارد.
+PresentationML نامی برای یک خانواده از قالب‌های مبتنی بر XML برای اسناد ارائه است. Office OpenXML (OOXML) قالب مبتنی بر XML معرفی‌شده در برنامه‌های Microsoft Office 2007 است. Office OpenXML یک قالب محفظه‌ای برای چند زبان علامت‌گذاری مبتنی بر XML تخصصی است. PresentationML زبان علامت‌گذاری مورد استفاده Microsoft Office PowerPoint 2007 برای ذخیره اسناد است.
 
-**یک سند PPTX تولید‌شده توسط Aspose.Slides for Java و باز شده در Microsoft PowerPoint** 
+{{% /alert %}}
 
-![todo:image_alt_text](presentationml-pptx-xml_1.png)
+## **PresentationML در Aspose.Slides برای Java**
+اسناد OOXML PresentationML به صورت فایل‌های PPTX ارائه می‌شوند، بسته‌های XML فشرده که طبق مشخصات [OOXML ECMA-376](https://ecma-international.org/publications-and-standards/standards/ecma-376/) عمل می‌کنند. Aspose.Slides برای Java به طور گسترده‌ای از ایجاد، خواندن، دستکاری و نوشتن اسناد PresentationML پشتیبانی می‌کند. علاوه بر این، Aspose.Slides برای Java قادر به صادرات اسناد PresentationML به قالب سندی گسترده‌استفاده مانند PDF است. این به این دلیل است که Aspose.Slides برای Java با هدف مدیریت جامع اسناد ارائه و اینکه PresentationML در حقیقت نمای داخلی اسناد را به صورت یک بسته XML فشرده نگه می‌دارد، طراحی شده است.
 
+**یک سند PPTX که توسط Aspose.Slides برای Java ایجاد شده و در Microsoft PowerPoint باز می‌شود**
 
-**مشاهده همان سند PPTX تولید‌شده توسط Aspose.Slides for Java در یک فایل ZIP** 
+![یک سند PPTX که توسط Aspose.Slides برای Java ایجاد شده و در Microsoft PowerPoint باز می‌شود](presentationml-pptx-xml_1.png)
 
-![todo:image_alt_text](presentationml-pptx-xml_2.jpg)
+**مشاهده همان سند PPTX که توسط Aspose.Slides برای Java ایجاد شده به صورت یک بسته ZIP**
 
+![مشاهده همان سند PPTX که توسط Aspose.Slides برای Java ایجاد شده به صورت یک بسته ZIP](presentationml-pptx-xml_2.jpg)
 
-## **PresentationML باز است، چرا از Aspose.Slides for Java استفاده کنیم؟**
-از آنجا که PresentationML مبتنی بر XML است، امکان ساخت برنامه‌هایی برای پردازش و تولید اسناد PresentationML با استفاده از کلاس‌های XML بدون وابستگی به کتابخانه کلاس شخص ثالثی مانند Aspose.Slides for Java وجود دارد. با این حال، استفاده از Aspose.Slides for Java مزایای متعددی نسبت به کلاس‌های XML هنگام کار با اسناد PresentationML ارائه می‌دهد.
+## **PresentationML باز است، چرا از Aspose.Slides برای Java استفاده کنیم؟**
+از آنجا که PresentationML مبتنی بر XML است، ساخت برنامه‌هایی برای پردازش و تولید اسناد PresentationML با استفاده از کلاس‌های XML بدون اتکا به کتابخانهٔ کلاس شخص ثالثی مانند Aspose.Slides برای Java کاملاً ممکن است. با این حال، استفاده از Aspose.Slides برای Java مزایای متعددی نسبت به کلاس‌های XML هنگام کار با اسناد PresentationML دارد.
 
-مشخصات OOXML چند هزار صفحه دارد، بنابراین برای مدیریت صحیح اسناد PresentationML باید زمان و تلاشی فراوان برای درک این فرمت صرف کنید. از سوی دیگر، با Aspose.Slides for Java فقط از کلاس‌ها و متدها و ویژگی‌های آن‌ها استفاده می‌کنید تا عملیات‌هایی را انجام دهید که اگر از طریق کلاس‌های XML انجام شوند، پیچیده به‌نظر می‌رسند.
+مشخصات OOXML چند هزار صفحه است، بنابراین برای مدیریت صحیح اسناد PresentationML باید زمان و تلاش زیادی برای درک این قالب صرف کنید. از سوی دیگر، با Aspose.Slides برای Java، فقط از کلاس‌ها و متدها و خواص آن‌ها استفاده می‌کنید تا عملیات‌هایی را که اگر توسط کلاس‌های XML انجام می‌شدند پیچیده به نظر می‌رسیدند، انجام دهید.
 
-برخی ویژگی‌هایی که Aspose.Slides ارائه می‌دهد، حتی در زمان کار با اسناد PresentationML از طریق کلاس‌های XML در دسترس نیستند:
+برخی از ویژگی‌های Aspose.Slides که هنگام کار با اسناد PresentationML از طریق کلاس‌های XML حتی موجود نیستند:
 
-- صادر کردن اسناد PPT به فرمت PDF.
-- رندر کردن یک اسلاید به هر فرمت تصویری که توسط چارچوب Java پشتیبانی می‌شود.
+- صادرات اسناد PPT به فرمت PDF.
+- رندر کردن یک اسلاید به هر قالب تصویر که توسط Java Framework پشتیبانی می‌شود.
 - کپی خودکار مسترها از یک ارائه منبع با استفاده از ویژگی کلونینگ.
-- اعمال حفاظت بر اشکال.
+- اعمال محافظت بر اشکال.
 
-در زیر نمونه‌ای از یک سند PresentationML با یک اسلاید تک‌صفحه که شامل یک جعبه متن با متن «Hello World» است، آورده شده است. برای خواندن متن با استفاده از کلاس‌های XML، باید برنامه‌ای بنویسید که بتواند این متن ساده را از قطعه زیر تجزیه‑تحلیل کند. Aspose.Slides این کار را برای شما انجام می‌دهد.
+در زیر یک مثال از سند PresentationML با یک اسلاید تک که شامل یک جعبهٔ متنی با متن «Hello World» است آورده شده است. برای خواندن متن با استفاده از کلاس‌های XML، باید برنامه‌ای بنویسید که بتواند این متن ساده را از قطعهٔ زیر تجزیه کند. Aspose.Slides این کار را برای شما انجام می‌دهد.
 
 **XML**
 

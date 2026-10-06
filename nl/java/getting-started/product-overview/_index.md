@@ -1,12 +1,12 @@
 ---
 title: Productoverzicht
 type: docs
-weight: 10
+weight: 102
 url: /nl/java/product-overview/
 keywords:
 - productoverzicht
 - documentverwerking
-- belangrijkste functies
+- kernfuncties
 - presentatiefuncties
 - diafuncties
 - grafische functies
@@ -20,32 +20,32 @@ keywords:
 - presentatie
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Java stelt je in staat PowerPoint (PPT, PPTX) en OpenDocument (ODP) presentaties te creëren, bewerken en converteren zonder Microsoft Office."
+description: "Aspose.Slides for Java laat je PowerPoint (PPT, PPTX) en OpenDocument (ODP) presentaties maken, bewerken en converteren zonder Microsoft Office."
 ---
 ![Aspose.Slides for Java](product-overview_1.png)
 
-## **Welkom bij Aspose.Slides for Java!**
+## **Welkom bij Aspose.Slides voor Java!**
 
-Aspose.Slides for Java is een Microsoft PowerPoint®‑beheers‑API die Java‑toepassingen in staat stelt PowerPoint®‑documenten te lezen en te schrijven zonder Microsoft PowerPoint®.
+Aspose.Slides for Java is een Microsoft PowerPoint®-beheers-API die Java-toepassingen in staat stelt PowerPoint®-documenten te lezen en te schrijven zonder Microsoft PowerPoint®.
 
-Aspose.Slides for Java is het eerste en enige component dat de functionaliteit biedt die nodig is om PowerPoint®‑documenten te beheren.
+Aspose.Slides for Java is de eerste en enige component die de functionaliteiten biedt die nodig zijn om PowerPoint®-documenten te beheren.
 
-Aspose.Slides for Java biedt veel belangrijke functies, zoals het beheren van tekst, vormen, tabellen & animaties, het toevoegen van audio & video aan dia’s, het voorvertonen van dia’s, en het exporteren van dia’s naar SVG, PDF en andere formaten.
+Aspose.Slides for Java biedt tal van belangrijke functies, zoals het beheren van tekst, vormen, tabellen en animaties, het toevoegen van audio en video aan dia's, het voorvertonen van dia's, het exporteren van dia's naar SVG, PDF en andere formaten.
 
 ## **Productbeschrijving**
 
-Aspose.Slides for Java laat niet alleen PowerPoint‑bestanden van verschillende bronnen openen, maar stelt je ook in staat presentaties op verschillende manieren op te slaan. Je kunt bijvoorbeeld presentaties opslaan in PPT; je kunt ook dia’s opslaan als afbeeldingen.
+Aspose.Slides for Java laat je niet alleen PowerPoint‑bestanden vanuit verschillende bronnen openen, maar stelt je ook in staat je presentaties op verschillende manieren op te slaan. Je kunt bijvoorbeeld je presentaties opslaan als PPT; je kunt ook je dia's opslaan als afbeeldingen.
 
-Aspose.Slides for Java geeft je vrijwel alle functies die je wel of niet in Microsoft PowerPoint aantreft. Gezien de veelzijdigheid van Aspose.Slides for Java kun je, naast tabellen en verschillende soorten vormen, ook verschillende soorten frames—tekst‑, audio‑ en video‑frames—aan je dia’s toevoegen.
+Aspose.Slides for Java biedt bijna alle functies die je wel of niet in Microsoft PowerPoint vindt. Gezien de veelzijdigheid van Aspose.Slides for Java kun je, naast tabellen en verschillende soorten vormen, ook verschillende soorten frames—tekst‑, audio‑ en video‑frames—aan je dia's toevoegen.
 
-Aspose.Slides for Java biedt bovendien volledig uitgeruste demo’s en werkende voorbeelden voor ontwikkelaars om de API beter te begrijpen.
+Aspose.Slides for Java biedt ook volledig uitgeruste demo’s en werkende voorbeelden voor ontwikkelaars om een beter inzicht in de API te krijgen.
 
 ### **Presentatiefuncties**
 
-- PowerPoint‑presentaties van verschillende bronnen openen.
+- Microsoft PowerPoint‑presentaties openen vanuit verschillende bronnen.
 - Presentaties opslaan in verschillende Microsoft PowerPoint‑formaten.
 - Presentaties vanaf nul maken.
-- Presentaties converteren naar PDF‑documenten zonder een ander component te gebruiken.
+- Presentaties converteren naar PDF‑documenten zonder gebruik te maken van een andere component.
 - Mogelijkheid om Open Document Presentation (ODP) te lezen.
 - Mogelijkheid om PPT naar PPTX of omgekeerd te converteren.
 - Documenteigenschappen van een presentatie lezen of wijzigen.
@@ -56,112 +56,112 @@ Aspose.Slides for Java biedt bovendien volledig uitgeruste demo’s en werkende 
 - Presentaties exporteren naar PDF‑notities / TIFF‑notities
 - Presentaties exporteren naar HTML
 
-### **Diafuncties**
+### **Dia‑functies**
 
-- Nieuwe dia’s van nul creëren en toevoegen aan presentaties.
-- Toegang tot elke dia via de positie in een presentatie.
-- Dia’s kopiëren of klonen naar dezelfde of een andere presentatie.
-- Dia’s bewerken en verwijderen.
-- Meesters kopiëren met dia’s automatisch.
-- Dia’s voorvertonen.
+- Nieuwe dia's vanaf nul maken en toevoegen aan presentaties.
+- Elke dia benaderen via zijn positie in een presentatie.
+- Dia's kopiëren of klonen naar dezelfde of een andere presentatie.
+- Dia's bewerken en verwijderen.
+- Master‑dia’s automatisch met dia's kopiëren.
+- Dia's voorvertonen.
 - De naam van een dia ophalen of instellen.
-- Dia’s opslaan als afbeeldingen.
-- Dia’s exporteren naar SVG‑formaat.
-- Werken met vele meesters in presentaties.
-- Achtergrond van dia’s vullen met elke ondersteunde stijl.
-- Nieuwe of bestaande notities van dia’s toevoegen of beheren.
-- Nieuwe dia‑meesters en -stijlen dynamisch instellen.
-- Dia‑overgang toevoegen of wijzigen.
+- Dia's opslaan als afbeeldingen.
+- Dia's exporteren naar SVG‑formaat.
+- Werken met meerdere masters in presentaties.
+- De achtergrond van dia's vullen met elke ondersteunde stijl.
+- Nieuwe notities toevoegen of dia‑notities beheren.
+- Nieuwe master‑dia’s en stijlen dynamisch instellen.
+- Dia‑overgangen toevoegen of wijzigen.
 - Morph‑overgangen toevoegen
 
-### **Grafische & multimediafuncties**
+### **Grafische‑ en multimedia‑functies**
 
-- Vormen creëren of beheren, zoals lijnen, rechthoeken, ellipsen en polylijnen.
+- Vormen maken of beheren, zoals lijnen, rechthoeken, ellipsen en polylijnen.
 - Lijnstijlen in vormen beheren.
 - Alternatieve tekst van een vorm ophalen.
-- Vormen draaien of spiegelen.
+- Vormen roteren of spiegelen.
 - Vormen vullen in verschillende stijlen, bijvoorbeeld effen, verloop, patroon, textuur en afbeelding.
-- Gebruikmaken van 48 vooraf gedefinieerde patronen en 24 texturen.
+- Gebruik maken van een van de 48 vooraf gedefinieerde patronen en 24 texturen.
 - Links aan vormen toewijzen.
-- Animatie‑effecten lezen, wijzigen en toevoegen aan dia’s en vormen.
+- Animatie‑effecten lezen, wijzigen en toevoegen aan dia's en vormen.
 - Nieuwe afbeeldingen toevoegen aan presentaties en bestaande beheren.
-- Nieuwe afbeelding‑bullets toevoegen aan presentaties en bestaande beheren.
+- Nieuwe afbeeldings‑bullet‑punten toevoegen aan presentaties en bestaande beheren.
 - Nieuwe audio‑frames toevoegen aan presentaties en bestaande beheren.
 - Nieuwe video‑frames toevoegen aan presentaties en bestaande beheren.
 
-### **Tabelfuncties**
+### **Tabel‑functies**
 
-- Tabellen van nul maken en toevoegen aan dia’s.
-- Tabellen van formaat veranderen en verplaatsen.
-- Toegang tot elke cel in een tabel.
+- Tabellen vanaf nul maken en toevoegen aan dia's.
+- Tabellen van grootte wijzigen en verplaatsen.
+- Elke cel in een tabel benaderen.
 - Het formaat en de randen van elke cel wijzigen.
-- Kolommen en rijen van grootte aanpassen.
+- Kolommen en rijen van grootte wijzigen.
 - Kolommen en rijen toevoegen en verwijderen.
-- Randenbreedte en -kleur voor de hele tabel instellen.
-- Vooraf ingestelde opmaak op tabellen toepassen
+- Randdikte en -kleur voor de hele tabel instellen.
+- Vooraf ingestelde stijlen op tabellen toepassen
 
 ### **Tekst‑ en alinea‑functies**
 
-- Teksten in tekst‑plaatsaanduidingen en tekst‑frames ophalen en instellen.
-- Het type van een plaatsaanduiding ophalen.
-- Tekstopmaak in een tekst‑frame wijzigen.
+- Teksten ophalen en instellen in tekst‑placeholders en tekst‑frames.
+- Het type van een placeholder ophalen.
+- De tekstopmaak in een tekst‑frame wijzigen.
 - Nieuwe lettertypen toevoegen of de al gebruikte lettertypen in een presentatie beheren.
 - Teksten en tekstopmaak wijzigen.
-- Links naar de tekst maken of beheren.
+- Links naar tekst maken of beheren.
 - Tabs en effectieve tabs ondersteunen.
 - Nieuwe tekst‑frames toevoegen aan bijna elk type vorm.
-- Marges en tekstomloop‑instellingen van tekst‑frames ophalen en wijzigen.
-- Inspringing van alinea’s ophalen en wijzigen.
+- Marges en tekstomloop‑instellingen van tekst‑frames benaderen en wijzigen.
+- Alinea‑inspringing benaderen en wijzigen.
 
 ### **Geavanceerde functies**
 
-- Toegang tot OLE‑objecten die in presentaties zijn ingebed.
+- OLE‑objecten die in presentaties zijn ingesloten benaderen.
 - Presentaties vergrendelen.
-- Watermerken aan presentaties toevoegen.
-- Animaties toepassen op vormen binnen dia’s.
+- Watermerken toevoegen aan presentaties.
+- Animaties toepassen op vormen binnen dia's.
 
-## **Veelgestelde vragen**
+## **FAQ**
 
-**Ondersteunt het PDF‑conformiteitsniveaus voor archivering en toegankelijkheid (PDF/A en PDF/UA)?**
+### Ondersteunt het PDF-conformiteitsniveaus voor archivering en toegankelijkheid (PDF/A en PDF/UA)?
 
-Ja. Je kunt opslaan naar PDF met PDF/A‑2a/2b/2u, PDF/A‑3a/3b, evenals PDF/UA door de [PDF‑exportopties](https://reference.aspose.com/slides/nl/java/com.aspose.slides/pdfoptions/) te configureren.
+Ja. Je kunt opslaan naar PDF met PDF/A-2a/2b/2u, PDF/A-3a/3b, evenals PDF/UA door de [PDF export options](https://reference.aspose.com/slides/nl/java/com.aspose.slides/pdfoptions/) te configureren.
 
-**Is er een mechanisme voor lettertype‑substitutie en ondersteuning voor aangepaste lettertypen om correcte weergave te garanderen?**
+### Is er een lettertype‑vervangingsmechanisme en ondersteuning voor aangepaste lettertypen om correcte weergave te garanderen?
 
-Ja. De bibliotheek laat je [aangepaste lettertypen laden](/slides/nl/java/custom-font/) en [fallback‑regels definiëren](/slides/nl/java/fallback-font/) zodat ontbrekende tekens betrouwbaar worden vervangen tijdens conversie en weergave.
+Ja. De bibliotheek stelt je in staat om [aangepaste lettertypen te laden](/slides/nl/java/custom-font/) en [fallback‑regels te definiëren](/slides/nl/java/fallback-font/) zodat ontbrekende glyphs betrouwbaar worden vervangen tijdens conversie en weergave.
 
-**Kan ik detecteren of een bestand met een wachtwoord is beveiligd zonder het volledig te openen?**
+### Kan ik detecteren of een bestand met een wachtwoord beveiligd is zonder het volledig te openen?
 
 Ja. Je kunt een [presentatie inspecteren](/slides/nl/java/examine-presentation/) om te bepalen of er een wachtwoord vereist is voordat het volledige document wordt geladen.
 
-**Is Microsoft PowerPoint vereist voor verwerking en conversies?**
+### Is Microsoft PowerPoint vereist voor verwerking en conversies?
 
-Nee. Aspose.Slides is een zelfstandige engine; PowerPoint is niet nodig op de server of werkstation.
+Nee. Aspose.Slides is een autonome engine; PowerPoint is niet nodig op de server of workstation.
 
-**Is het veilig om presentaties vanuit meerdere threads te verwerken?**
+### Is het veilig om presentaties vanuit meerdere threads te verwerken?
 
-Ja, je kunt verschillende documenten parallel verwerken in afzonderlijke threads; vermijd alleen het gelijktijdig gebruiken van dezelfde presentatie‑instantie [over threads](/slides/nl/java/multithreading/).
+Ja, je kunt verschillende documenten parallel verwerken in afzonderlijke threads; vermijd echter het gelijktijdig gebruiken van dezelfde presentatie‑instantie [over threads](/slides/nl/java/multithreading/).
 
-**Worden macro’s behouden en kan ik VBA beheren in PPTM/PPSM‑bestanden?**
+### Worden macro's behouden en kan ik VBA beheren in PPTM/PPSM‑bestanden?
 
-Ja. Presentaties met macro’s [worden ondersteund](/slides/nl/java/presentation-via-vba/), en je kunt [VBA‑projecten inspecteren en beheren](https://reference.aspose.com/slides/nl/java/com.aspose.slides/presentation/#getVbaProject--) in die bestanden.
+Ja. Presentaties met macro's [worden ondersteund](/slides/nl/java/presentation-via-vba/), en je kunt [VBA‑projecten inspecteren en beheren](https://reference.aspose.com/slides/nl/java/com.aspose.slides/presentation/#getVbaProject--) in die bestanden.
 
-**Kan ik PDF of HTML terug converteren naar PowerPoint‑dia’s?**
+### Kan ik PDF of HTML terug converteren naar PowerPoint‑dia's?
 
-Ja. Je kunt [PDF‑pagina’s of HTML‑inhoud importeren](/slides/nl/java/import-presentation/) om dia’s in een presentatie te maken of te vullen.
+Ja. Je kunt [PDF‑pagina's of HTML‑inhoud importeren](/slides/nl/java/import-presentation/) om dia's te maken of te vullen in een presentatie.
 
-**Wordt XPS‑export ondersteund, en kan ik de kwaliteit en inhoud van de XPS‑output regelen?**
+### Wordt XPS‑export ondersteund, en kan ik de kwaliteit en inhoud van de XPS‑output beheersen?
 
-Ja. [Exporteren naar XPS](/slides/nl/java/convert-powerpoint-to-xps/) is beschikbaar, en [opslaan‑opties](https://reference.aspose.com/slides/nl/java/com.aspose.slides/xpsoptions/) laten je de uitvoerkwaliteit en inbegrepen inhoud afstemmen.
+Ja. [Export to XPS](/slides/nl/java/convert-powerpoint-to-xps/) is beschikbaar, en [save options](https://reference.aspose.com/slides/nl/java/com.aspose.slides/xpsoptions/) stellen je in staat de uitvoerkwaliteit en de inbegrepen inhoud af te stemmen.
 
-**Kan ik dia’s naar afbeeldingen converteren en de uitvoerkwaliteit regelen?**
+### Kan ik dia's omzetten naar afbeeldingen en de uitvoerkwaliteit beheersen?
 
-Ja. Dia’s kunnen [gerenderd worden naar PNG, JPEG, GIF, BMP, TIFF](/slides/nl/java/convert-powerpoint-to-png/) en andere formaten met fijne controle over grootte en kwaliteit.
+Ja. Dia's kunnen worden [gerenderd naar PNG, JPEG, GIF, BMP, TIFF](/slides/nl/java/convert-powerpoint-to-png/) en andere formaten met fijnmazige controle over grootte en kwaliteit.
 
-**Worden wiskundige formules ondersteund (MathML/MathText) en kunnen ze geëxporteerd worden?**
+### Worden wiskundige formules ondersteund (MathML/MathText) en kunnen ze geëxporteerd worden?
 
-Ja. Je kunt [wiskundige tekst maken en bewerken](/slides/nl/java/powerpoint-math-equations/) en [formules exporteren](/slides/nl/java/exporting-math-equations/), ook naar MathML.
+Ja. Je kunt [wiskundige tekst maken en bewerken](/slides/nl/java/powerpoint-math-equations/) en [vergelijkingen exporteren](/slides/nl/java/exporting-math-equations/), inclusief naar MathML.
 
-**Hoe gaat de bibliotheek om met encryptie en wachtwoorden (openen, instellen, verwijderen)?**
+### Hoe gaat de bibliotheek om met versleuteling en wachtwoorden (openen, instellen, verwijderen)?
 
 [Het ondersteunt](/slides/nl/java/password-protected-presentation/) het openen van versleutelde presentaties, het instellen of verwijderen van wachtwoorden voor openen en wijzigen, en het controleren van de beveiligingsstatus van een bestand.

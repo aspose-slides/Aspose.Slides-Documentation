@@ -1,117 +1,94 @@
 ---
-title: Resumen de funciones
+title: "Resumen de características"
 type: docs
-weight: 10
+weight: 104
 url: /es/java/features-overview/
 keywords:
-- funciones
+- características
 - plataformas compatibles
-- formato de archivo
+- formatos de archivo
 - conversión
 - renderizado
-- formateo
+- contenido de presentación
 - PowerPoint
 - OpenDocument
 - presentación
 - Java
 - Aspose.Slides
-description: "Descubra Aspose.Slides for Java: una API potente para crear, editar, automatizar y convertir presentaciones PowerPoint y OpenDocument de manera eficiente."
+description: "Revise lo que Aspose.Slides for Java abarca antes de evaluarlo: plataformas compatibles, formatos de archivo, renderizado de diapositivas y el contenido que puede crear y editar."
 ---
-## **Plataformas compatibles**
-Aspose.Slides for Java admite las plataformas de desarrollo y despliegue más populares.
+## **Descripción general**
 
-|**Funcionalidad**|**Descripción**|
-| :- | :- |
-|Aplicaciones de escritorio|Aspose.Slides for Java puede usarse para desarrollar aplicaciones Windows Forms|
-|Aplicaciones web empresariales|Usar Aspose.Slides for Java ayuda a crear aplicaciones web dirigidas a. También se proporciona soporte para usar Aspose.Slides for Java con PHP.|
-|Linux/Unix|Aspose.Slides for Java es una API independiente de la plataforma y puede funcionar en entornos Linux y Unix.|
+Aspose.Slides for Java es una biblioteca de clases para crear, leer, editar, convertir y renderizar presentaciones de PowerPoint y OpenDocument. No tiene interfaz de usuario propia y no requiere Microsoft PowerPoint ni Microsoft Office. Este artículo resume lo que cubre la biblioteca y enlaza a los artículos que describen cada área.
+
+## **Plataformas compatibles**
+
+Aspose.Slides for Java es un único archivo JAR, publicado en el repositorio Maven de Aspose con el clasificador `jdk16`. Está escrito en Java puro: el JAR no contiene bibliotecas nativas y no depende de otros paquetes.
+
+- **Java:** Java 8 o superior. Aspose.Slides for Java 26.9 y versiones anteriores también funcionan con Java 6 y 7, versión que la 26.10 ya no soporta; consulte las [notas de la versión 26.9](https://releases.aspose.com/slides/es/java/release-notes/2026/aspose-slides-for-java-26-9-release-notes/).
+- **Sistemas operativos:** cualquier sistema operativo con un entorno de ejecución Java, como Windows, Linux y macOS. En Linux, debe estar instalada la biblioteca fontconfig y al menos una fuente.
+
+[Instalación](/slides/es/java/installation/) muestra cómo añadir la biblioteca a un proyecto y enumera los prerrequisitos para Linux. [Requisitos del sistema](/slides/es/java/system-requirements/) enumera las plataformas compatibles con detalle.
 
 ## **Formatos de archivo y conversiones**
-Aspose.Slides for Java admite la mayoría de los formatos de documento de Microsoft PowerPoint y los exporta a formatos populares ampliamente utilizados por las organizaciones.
 
-|**Funcionalidad**|**Descripción**|
+Aspose.Slides abre y guarda presentaciones PPT, PPTX, PPS, POT, PPSX, POTX, PPTM, PPSM, POTM, ODP, OTP, FODP y PowerPoint XML. Importa contenido PDF y HTML en diapositivas, y guarda presentaciones como PDF, XPS, HTML, HTML5, TIFF, GIF animado, SWF, Markdown y XAML. [Formatos de archivo compatibles](/slides/es/java/supported-file-formats/) enumera cada formato con la API que lo lee o escribe.
+
+|**Características**|**Descripción**|
 | :- | :- |
-|[Microsoft PowerPoint (PPT)](/slides/es/java/microsoft-powerpoint-ppt/)|Aspose.Slides for Java ofrece el procesamiento más rápido para este formato de documento de presentación.|
-|[PresentationML (PPTX, XML)](/slides/es/java/presentationml-pptx-xml/)|Aspose.Slides for Java admite el procesamiento del formato de presentación OOXML (también conocido como PresentationML o PPTX).|
-|[Conversión de PPT a PPTX](/slides/es/java/ppt-to-pptx-conversion/)|Aspose.Slides for Java admite la conversión de PPT a PPTX.|
-|[Formato de documento portátil (PDF)](/slides/es/java/developer-guide/)|Los formatos de archivo compatibles pueden exportarse a documentos Adobe Portable Document Format (PDF) con un único método.|
-|[Especificación de analizador XML (XPS)](/slides/es/java/xml-parser-specification-xps/)|Todos los formatos de archivo compatibles pueden exportarse a documentos XML Parser Specification (XPS) con un único método.|
-|[Formato de archivo de imagen etiquetado (TIFF)](https://docs.aspose.com/slides/es/java/convert-powerpoint-to-tiff/)|Los formatos de archivo de presentación compatibles con Aspose.Slides for Java también pueden exportarse a Tagged Image File Format (TIFF).|
-|[Conversión de ODP a PPTX](https://docs.aspose.com/slides/es/java/convert-odp-to-pptx/)|Aspose.Slides for Java admite la carga y acceso a OpenDocument Presentation (ODP) y su conversión a PPTX.|
-|[Conversión de presentación a HTML](https://docs.aspose.com/slides/es/java/convert-powerpoint-to-html/)|Aspose.Slides for Java admite la conversión de PresentationEx a formato HTML.|
+|[PPT y PPTX](/slides/es/java/ppt-vs-pptx/)|Leer y escribir tanto el formato binario PowerPoint 97-2003 como el formato Office Open XML.|
+|[Conversión de PPT a PPTX](/slides/es/java/convert-ppt-to-pptx/)|Convertir presentaciones PPT heredadas a PPTX.|
+|[Conversión de ODP a PPTX](/slides/es/java/convert-odp-to-pptx/)|Abrir y guardar presentaciones ODP, OTP y FODP, y convertir presentaciones ODP a PPTX.|
+|[Formato de documento portátil (PDF)](/slides/es/java/convert-powerpoint-to-pdf/)|Exportar presentaciones a PDF, incluidos documentos PDF/A y PDF/UA.|
+|[Especificación de papel XML (XPS)](/slides/es/java/convert-powerpoint-to-xps/)|Exportar presentaciones a documentos XPS.|
+|[Formato de archivo de imagen etiquetado (TIFF)](/slides/es/java/convert-powerpoint-to-tiff/)|Exportar presentaciones a imágenes TIFF multipágina, una página por diapositiva.|
+|[HTML](/slides/es/java/convert-powerpoint-to-html/)|Exportar presentaciones a HTML y HTML5.|
+|[Importación de PDF y HTML](/slides/es/java/import-presentation/)|Crear diapositivas a partir de páginas PDF y contenido HTML.|
 
 ## **Renderizado de presentaciones**
-Aspose.Slides for Java admite el renderizado de alta fidelidad de diapositivas de las presentaciones a varios formatos gráficos:
 
-|**Funcionalidad**|**Descripción**|
+Aspose.Slides renderiza diapositivas y formas individuales como imágenes PNG, JPEG, BMP, GIF, TIFF y SVG, y las diapositivas como metafiles EMF. Consulte [Convertir diapositivas de presentación a imágenes](/slides/es/java/convert-slide/), [Renderizar diapositivas de presentación como imágenes SVG](/slides/es/java/render-a-slide-as-an-svg-image/), y [Crear miniaturas de formas de presentación](/slides/es/java/create-shape-thumbnails/).
+
+## **Características del contenido**
+
+Aspose.Slides le permite crear, leer y modificar casi todo el contenido de una presentación:
+
+|**Área**|**Qué puede hacer**|
 | :- | :- |
-|Formatos de imagen compatibles|Con Aspose.Slides for Java, podrá renderizar no solo diapositivas de presentación, sino también imágenes en las diapositivas, a formatos gráficos compatibles populares como TIFF, PNG, BMP, JPEG, GIF y metarchivos.|
-|Formato SVG|Aspose.Slides for Java proporciona un método incorporado para exportar diapositivas de presentación al formato Scalable Vector Graphics (SVG).|
-
-## **Características de contenido**
-Aspose.Slides for Java le permite acceder, modificar o crear casi todo el contenido posible de las presentaciones.
-
-|**Funcionalidad**|**Descripción**|
-| :- | :- |
-|Diapositivas maestras|Las diapositivas maestras definen el diseño de las diapositivas normales. Aspose.Slides for Java le permite acceder y modificar las diapositivas maestras de una presentación.|
-|Diapositivas normales|Con Aspose.Slides for Java, no solo puede crear nuevas diapositivas de diferentes tipos, sino también acceder y modificar diapositivas existentes.|
-|Clonado / Copia de diapositivas|Aspose.Slides for Java proporciona métodos para clonar o copiar diapositivas existentes no solo dentro de una presentación, sino también de una presentación a otra. Dado que una diapositiva hereda su diseño de la diapositiva maestra, los métodos de clonación incorporados copian automáticamente la maestra al clonar.|
-|Gestión de secciones de diapositivas|Posibilidad de organizar diapositivas en diferentes secciones dentro de la presentación.|
-|Marcadores de posición y contenedores de texto|Acceda a los marcadores de posición y contenedores de texto en una diapositiva. Además, puede crear una diapositiva con contenedores de texto desde cero usando el método adecuado.|
-|Encabezados y pies de página|Aspose.Slides for Java también facilita el manejo de encabezados / pies de página en las diapositivas.|
-|Notas en diapositivas|Con Aspose.Slides for Java, no solo puede acceder y modificar notas asociadas a una diapositiva, sino también añadir notas.|
-|Buscar una forma|Puede encontrar una forma específica en una diapositiva usando el texto alternativo asociado a la forma.|
-|Fondos|Aspose.Slides for Java le permite trabajar con el fondo asociado a una diapositiva maestra o normal.|
-|Cajas de texto|Las cajas de texto pueden crearse desde cero. Las cajas de texto existentes pueden accederse y su texto puede modificarse sin perder el formato original.|
-|Formas rectangulares|Las formas rectangulares pueden ser creadas o modificadas por Aspose.Slides for Java.|
-|Formas de polilínea|Las formas de polilínea también pueden ser creadas o modificadas por Aspose.Slides for Java.|
-|Formas elípticas|Las formas elípticas también son creadas o modificadas por Aspose.Slides for Java.|
-|Formas agrupadas|Aspose.Slides for Java admite formas agrupadas.|
-|Formas automáticas|Las formas automáticas también son compatibles con Aspose.Slides for Java.|
-|SmartArt|Compatibilidad con formas SmartArt disponibles en MS PowerPoint.|
-|Gráficos|Compatibilidad con gráficos MSO admitidos por PowerPoint.|
-|Marcos de imagen|Las imágenes se gestionan en marcos de imagen usando Aspose.Slides for Java.|
-|Marcos de audio|Los archivos de audio pueden enlazarse o incrustarse en las diapositivas mediante marcos de audio de Aspose.Slides for Java.|
-|Marcos de video|Los archivos de video se manejan en marcos de video a través de Aspose.Slides for Java. Está disponible el soporte tanto para videos enlazados como incrustados.|
-|Marco OLE|Los objetos OLE se gestionan en marcos OLE mediante Aspose.Slides for Java.|
-|Controles ActiveX|Está disponible la compatibilidad con controles ActiveX.|
-|Macros VBA|Compatibilidad para gestionar macros VBA dentro de la presentación.|
-|Tablas|Las tablas en las diapositivas también son compatibles con Aspose.Slides for Java.|
-|Marco de texto|El texto asociado a cualquier forma puede accederse mediante el marco de texto asociado a esa forma.|
-|Escaneo de texto|El texto de una presentación puede escanearse a nivel de presentación o de diapositiva mediante los métodos de escaneo incorporados.|
-|Animaciones|Se pueden aplicar animaciones a las formas.|
-|Presentaciones|Las presentaciones y transiciones de diapositivas son compatibles.|
-
-## **Características de formato**
-Es posible dar formato al texto y a las formas en diapositivas de un documento de presentación usando Aspose.Slides for Java.
-
-|**Funcionalidad**|**Descripción**|
-| :- | :- |
-|Formateo de texto|<p>En Aspose.Slides for Java, el texto se gestiona a través de marcos de texto asociados a formas. Por lo tanto, el texto se formatea usando párrafos y segmentos asociados a los marcos de texto. Los siguientes elementos de texto pueden formatearse.</p><p>- Tipo de fuente.</p><p>- Tamaño de fuente.</p><p>- Color de fuente.</p><p>- Sombras de fuente.</p><p>- Alineación del párrafo.</p><p>- Viñetas del párrafo.</p><p>- Orientación del párrafo.</p>|
-|Formateo de forma|<p>En Aspose.Slides for Java, el elemento básico de una diapositiva es la forma. Los siguientes elementos de Forma pueden formatearse usando Aspose.Slides for Java:</p><p>- Posición</p><p>- Tamaño</p><p>- Línea</p><p>- Relleno (incluyendo patrón, degradado y sólido).</p><p>- Texto</p><p>- Imagen</p>|
+|[Diapositivas](/slides/es/java/presentation-slide/)|Añadir, clonar, reordenar y eliminar diapositivas; aplicar diseños y maestros; organizar diapositivas en secciones; cambiar el tamaño de la diapositiva.|
+|[Diseño](/slides/es/java/presentation-design/)|Establecer fondos, colores del tema, encabezados y pies de página, y fuentes.|
+|[Texto](/slides/es/java/manage-text/)|Crear y editar marcos de texto, párrafos y porciones; establecer fuentes, colores, viñetas y alineación; buscar y reemplazar texto.|
+|[Formas](/slides/es/java/powerpoint-shapes/)|Crear AutoShapes, líneas, conectores, formas agrupadas y marcos de imagen; establecer posición, tamaño, línea y relleno sólido, degradado o de patrón; buscar una forma por su texto alternativo.|
+|[Tablas](/slides/es/java/powerpoint-table/), [gráficos](/slides/es/java/powerpoint-charts/), y [SmartArt](/slides/es/java/powerpoint-smartart/)|Crear y editar tablas, gráficos de Microsoft Office y diagramas SmartArt.|
+|[Multimedia](/slides/es/java/manage-media-files/), [objetos OLE](/slides/es/java/manage-ole/), y [controles ActiveX](/slides/es/java/activex/)|Añadir marcos de audio y vídeo incrustados o vinculados, incrustar objetos OLE y añadir, modificar o eliminar controles ActiveX.|
+|[Notas](/slides/es/java/presentation-notes/) y [comentarios](/slides/es/java/presentation-comments/)|Añadir, leer y editar notas del orador y comentarios de revisión.|
+|[Animación](/slides/es/java/powerpoint-animation/) y [transiciones](/slides/es/java/slide-transition/)|Aplicar efectos de animación a formas, establecer transiciones de diapositivas y configurar la presentación.|
+|[Seguridad](/slides/es/java/presentation-security/)|Cifrar presentaciones con una contraseña, establecer protección de escritura y trabajar con [firmas digitales](/slides/es/java/digital-signature-in-powerpoint/).|
+|[Macros VBA](/slides/es/java/presentation-via-vba/)|Añadir, extraer y eliminar módulos VBA en presentaciones con macros habilitadas.|
+|[Propiedades](/slides/es/java/presentation-properties/)|Leer y editar propiedades del documento.|
 
 ## **Preguntas frecuentes**
 
-### ¿Necesito instalar Microsoft PowerPoint en el servidor/PC para que la biblioteca funcione?
+**¿Necesito instalar Microsoft PowerPoint en el servidor o PC para que la biblioteca funcione?**
 
 No. PowerPoint no es necesario; Aspose.Slides es un motor independiente para crear, editar, convertir y renderizar presentaciones.
 
-### ¿Cómo funciona la multihilos? ¿Puede el procesamiento paralelizarse?
+**¿Cómo funciona el multihilo? ¿Se puede paralelizar el procesamiento?**
 
-Es seguro procesar diferentes documentos en diferentes hilos; el mismo [presentación](https://reference.aspose.com/slides/es/java/com.aspose.slides/presentation/) objeto no debe ser usado por [múltiples hilos](/slides/es/java/multithreading/) al mismo tiempo.
+Es seguro procesar diferentes documentos en diferentes hilos; el mismo objeto [Presentation](https://reference.aspose.com/slides/es/java/com.aspose.slides/presentation/) no debe ser utilizado por [múltiples hilos](/slides/es/java/multithreading/) al mismo tiempo.
 
-### ¿Se admiten contraseñas de archivo y cifrado?
+**¿Se admiten contraseñas y cifrado de archivos?**
 
-Sí. [Puedes](/slides/es/java/password-protected-presentation/) abrir presentaciones cifradas, establecer o eliminar una contraseña de apertura y escritura, y comprobar el estado de protección.
+Sí. [Puede](/slides/es/java/password-protected-presentation/) abrir presentaciones cifradas, establecer o eliminar una contraseña de apertura y escritura, y comprobar el estado de protección.
 
-### ¿Debo preocuparme por los paquetes de fuentes en contenedores Linux?
+**¿Debo preocuparme por las fuentes en contenedores Linux?**
 
-Sí. Se recomienda instalar paquetes de fuentes comunes y/o especificar explícitamente [directorios de fuentes](/slides/es/java/custom-font/) en su aplicación para evitar sustituciones inesperadas.
+Sí. En Linux, la biblioteca fontconfig y al menos una fuente deben estar instaladas, y las fuentes utilizadas en sus presentaciones, o sustitutos adecuados, deben estar instaladas para que el texto se renderice correctamente. También puede [especificar directorios de fuentes](/slides/es/java/custom-font/) en su aplicación. Consulte [Instalación](/slides/es/java/installation/#linux).
 
-### ¿Hay limitaciones en la versión de evaluación?
+**¿Existen limitaciones en la versión de evaluación?**
 
-En [modo de evaluación](/slides/es/java/licensing/), se añade una marca de agua a la salida y se aplican ciertas limitaciones; está disponible una [licencia temporal de 30 días](https://purchase.aspose.com/temporary-license/) para pruebas con todas las funcionalidades.
+Sí. Sin una [licencia](/slides/es/java/licensing/), Aspose.Slides añade una marca de agua de evaluación a cada diapositiva que guarda y trunca el texto que su código lee a través de la API. Está disponible una [licencia temporal de 30 días](https://purchase.aspose.com/temporary-license/) para pruebas con todas las funciones.
 
-### ¿Se admite la importación de formatos externos a una presentación (PDF/HTML → PPTX)?
+**¿Se admite la importación de formatos externos a una presentación (PDF o HTML a PPTX)?**
 
 Sí. Puede añadir [páginas PDF y contenido HTML](/slides/es/java/import-presentation/) a una presentación, convirtiéndolos en diapositivas.

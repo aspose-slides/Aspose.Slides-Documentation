@@ -1,10 +1,10 @@
 ---
-title: Gambaran Produk
+title: Ikhtisar Produk
 type: docs
-weight: 10
+weight: 102
 url: /id/java/product-overview/
 keywords:
-- gambaran produk
+- ikhtisar produk
 - pemrosesan dokumen
 - fitur utama
 - fitur presentasi
@@ -20,25 +20,25 @@ keywords:
 - presentasi
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Java memungkinkan Anda membuat, mengedit, dan mengonversi presentasi PowerPoint (PPT, PPTX) dan OpenDocument (ODP) tanpa Microsoft Office."
+description: "Aspose.Slides for Java memungkinkan Anda membuat, mengedit, dan mengonversi presentasi PowerPoint (PPT, PPTX) serta OpenDocument (ODP) tanpa Microsoft Office."
 ---
-![Aspose.Slides untuk Java](product-overview_1.png)
+![Aspose.Slides for Java](product-overview_1.png)
 
-## **Selamat datang di Aspose.Slides untuk Java!**
+## **Selamat datang di Aspose.Slides for Java!**
 
-Aspose.Slides for Java adalah API manajemen Microsoft PowerPoint® yang memungkinkan aplikasi Java membaca dan menulis dokumen PowerPoint® tanpa Microsoft PowerPoint®. 
+Aspose.Slides for Java adalah API manajemen Microsoft PowerPoint® yang memungkinkan aplikasi Java membaca dan menulis dokumen PowerPoint® tanpa Microsoft PowerPoint®.
 
-Aspose.Slides for Java adalah komponen pertama dan satu-satunya yang menyediakan fungsionalitas yang diperlukan untuk mengelola dokumen PowerPoint®. 
+Aspose.Slides for Java adalah komponen pertama dan satu-satunya yang menyediakan fungsionalitas yang diperlukan untuk mengelola dokumen PowerPoint®.
 
 Aspose.Slides for Java menawarkan banyak fitur utama seperti mengelola teks, bentuk, tabel & animasi, menambahkan audio & video ke slide, meninjau slide, mengekspor slide ke SVG, PDF, dan format lainnya.
 
 ## **Deskripsi Produk**
 
-Aspose.Slides for Java tidak hanya memungkinkan Anda membuka file PowerPoint dari berbagai sumber, tetapi juga memungkinkan Anda menyimpan presentasi Anda dalam berbagai cara. Misalnya, Anda dapat menyimpan presentasi dalam format PPT; Anda juga dapat menyimpan slide sebagai gambar. 
+Aspose.Slides for Java tidak hanya memungkinkan Anda membuka file PowerPoint dari berbagai sumber, tetapi juga memungkinkan Anda menyimpan presentasi Anda dalam berbagai cara. Misalnya, Anda dapat menyimpan presentasi Anda dalam format PPT; Anda juga dapat menyimpan slide Anda sebagai gambar.
 
-Aspose.Slides for Java memberikan hampir semua fitur yang mungkin atau tidak Anda temukan di Microsoft PowerPoint. Mengingat fleksibilitas Aspose.Slides for Java, selain tabel dan berbagai jenis bentuk, Anda juga dapat menambahkan berbagai jenis bingkai—bingkai teks, audio, dan video—ke slide Anda. 
+Aspose.Slides for Java memberikan hampir semua fitur yang mungkin atau mungkin tidak Anda temukan di Microsoft PowerPoint. Mengingat fleksibilitas Aspose.Slides for Java, selain tabel dan berbagai jenis bentuk, Anda juga dapat menambahkan berbagai jenis bingkai—teks, audio, dan video—ke slide Anda.
 
-Aspose.Slides for Java juga menyediakan demo lengkap dan contoh kerja bagi pengembang untuk mendapatkan pemahaman yang lebih baik tentang API.
+Aspose.Slides for Java juga menyediakan demo lengkap dan contoh kerja bagi pengembang untuk memahami API dengan lebih baik.
 
 ### **Fitur Presentasi**
 
@@ -53,35 +53,35 @@ Aspose.Slides for Java juga menyediakan demo lengkap dan contoh kerja bagi penge
 - Mengekspor presentasi ke TIFF
 - Mengekspor presentasi ke XPS
 - Mengekspor presentasi ke SWF
-- Mengekspor presentasi ke Catatan PDF / Catatan TIFF
+- Mengekspor presentasi ke PDF Note / Tiff Notes
 - Mengekspor presentasi ke HTML
 
 ### **Fitur Slide**
 
 - Membuat slide baru dari awal dan menambahkannya ke presentasi.
-- Mengakses slide mana pun melalui posisinya dalam sebuah presentasi.
+- Mengakses slide mana pun melalui posisinya dalam presentasi.
 - Menyalin atau menggandakan slide ke presentasi yang sama atau lain.
 - Mengedit dan menghapus slide.
-- Menyalin master bersamaan dengan slide secara otomatis.
+- Menyalin master bersama slide secara otomatis.
 - Meninjau slide.
-- Mendapatkan atau menetapkan nama slide.
+- Mengambil atau mengatur nama slide.
 - Menyimpan slide sebagai gambar.
 - Mengekspor slide ke format SVG.
 - Bekerja dengan banyak master dalam presentasi.
-- Mengisi latar belakang slide dengan gaya yang didukung apa pun.
-- Menambahkan atau mengelola catatan slide.
+- Mengisi latar belakang slide dengan gaya apa pun yang didukung.
+- Menambah atau mengelola catatan slide.
 - Menetapkan master slide dan gaya baru secara dinamis.
-- Menambahkan atau memodifikasi transisi pertunjukan slide.
+- Menambah atau memodifikasi transisi slide show.
 - Menambahkan Transisi Morph
 
 ### **Fitur Grafik & Multimedia**
 
 - Membuat atau mengelola bentuk seperti garis, persegi panjang, elips, dan polilin.
 - Mengelola gaya garis pada bentuk.
-- Mendapatkan teks alternatif sebuah bentuk.
-- Memutar atau membalik bentuk.
-- Mengisi bentuk dengan berbagai gaya, misalnya padat, gradasi, pola, tekstur, dan gambar.
-- Menggunakan salah satu dari 48 pola yang telah ditentukan dan 24 tekstur.
+- Mengambil teks alternatif sebuah bentuk.
+- Memutar atau membalikkan bentuk.
+- Mengisi bentuk dengan berbagai gaya, misalnya solid, gradasi, pola, tekstur, dan gambar.
+- Menggunakan 48 pola pra-definisi dan 24 tekstur.
 - Menetapkan tautan ke bentuk.
 - Membaca, memodifikasi, dan menambahkan efek animasi baru ke slide dan bentuk.
 - Menambahkan gambar baru ke presentasi dan mengelola yang sudah ada.
@@ -102,9 +102,9 @@ Aspose.Slides for Java juga menyediakan demo lengkap dan contoh kerja bagi penge
 
 ### **Fitur Teks & Paragraf**
 
-- Mendapatkan dan menetapkan teks di placeholder teks dan bingkai teks.
-- Mendapatkan tipe placeholder.
-- Mengubah pemformatan teks dalam sebuah bingkai teks.
+- Mengambil dan mengatur teks dalam placeholder teks dan bingkai teks.
+- Mengambil jenis placeholder.
+- Mengubah pemformatan teks dalam bingkai teks.
 - Menambahkan font baru atau mengelola font yang sudah digunakan dalam presentasi.
 - Mengubah teks dan Pemformatan Teks.
 - Membuat atau mengelola tautan ke teks.
@@ -115,53 +115,53 @@ Aspose.Slides for Java juga menyediakan demo lengkap dan contoh kerja bagi penge
 
 ### **Fitur Lanjutan**
 
-- Mengakses objek OLE yang tertanam dalam presentasi.
+- Mengakses objek OLE yang disematkan dalam presentasi.
 - Mengunci presentasi.
 - Menambahkan watermark ke presentasi.
-- Menerapkan animasi pada bentuk di dalam slide.
+- Menerapkan animasi ke bentuk di dalam slide.
 
 ## **FAQ**
 
-**Apakah mendukung level kepatuhan PDF untuk arsip dan aksesibilitas (PDF/A dan PDF/UA)?**
+### Apakah mendukung tingkat kepatuhan PDF untuk arsip dan aksesibilitas (PDF/A dan PDF/UA)?
 
 Ya. Anda dapat menyimpan ke PDF dengan PDF/A-2a/2b/2u, PDF/A-3a/3b, serta PDF/UA dengan mengonfigurasi [opsi ekspor PDF](https://reference.aspose.com/slides/id/java/com.aspose.slides/pdfoptions/).
 
-**Apakah ada mekanisme substitusi font dan dukungan untuk font khusus untuk memastikan render yang tepat?**
+### Apakah ada mekanisme substitusi font dan dukungan untuk font khusus untuk memastikan rendering yang benar?
 
-Ya. Perpustakaan memungkinkan Anda [memuat font khusus](/slides/id/java/custom-font/) dan [menentukan aturan fallback](/slides/id/java/fallback-font/) sehingga glyph yang hilang dapat digantikan secara andal selama konversi dan rendering.
+Ya. Perpustakaan memungkinkan Anda [memuat font khusus](/slides/id/java/custom-font/) dan [mendefinisikan aturan fallback](/slides/id/java/fallback-font/) sehingga glyph yang hilang dapat diganti secara andal selama konversi dan rendering.
 
-**Apakah saya dapat mendeteksi apakah file dilindungi kata sandi tanpa membuka sepenuhnya?**
+### Bisakah saya mendeteksi apakah sebuah file dilindungi kata sandi tanpa membukanya sepenuhnya?
 
-Ya. Anda dapat [memeriksa presentasi](/slides/id/java/examine-presentation/) untuk menentukan apakah membutuhkan kata sandi sebelum memuat dokumen lengkap.
+Ya. Anda dapat [memeriksa presentasi](/slides/id/java/examine-presentation/) untuk menentukan apakah memerlukan kata sandi sebelum memuat dokumen penuh.
 
-**Apakah Microsoft PowerPoint diperlukan untuk pemrosesan dan konversi?**
+### Apakah Microsoft PowerPoint diperlukan untuk pemrosesan dan konversi?
 
-Tidak. Aspose.Slides adalah mesin mandiri; PowerPoint tidak dibutuhkan di server atau workstation.
+Tidak. Aspose.Slides adalah mesin mandiri; PowerPoint tidak diperlukan di server atau workstation.
 
-**Apakah aman memproses presentasi dari banyak thread?**
+### Apakah aman memproses presentasi dari beberapa thread?
 
-Ya, Anda dapat memproses dokumen yang berbeda secara paralel di thread terpisah; cukup hindari penggunaan instance presentasi yang sama secara bersamaan [di seluruh thread](/slides/id/java/multithreading/).
+Ya, Anda dapat memproses dokumen yang berbeda secara paralel di thread terpisah; cukup hindari menggunakan instance presentasi yang sama secara bersamaan [antar thread](/slides/id/java/multithreading/).
 
-**Apakah macro dipertahankan dan dapat saya kelola VBA dalam file PPTM/PPSM?**
+### Apakah makro dipertahankan dan dapat saya mengelola VBA di file PPTM/PPSM?
 
-Ya. Presentasi dengan macro [didukung](/slides/id/java/presentation-via-vba/), dan Anda dapat [memeriksa dan mengelola proyek VBA](https://reference.aspose.com/slides/id/java/com.aspose.slides/presentation/#getVbaProject--) dalam file tersebut.
+Ya. Presentasi dengan makro [didukung](/slides/id/java/presentation-via-vba/), dan Anda dapat [memeriksa dan mengelola proyek VBA](https://reference.aspose.com/slides/id/java/com.aspose.slides/presentation/#getVbaProject--) dalam file tersebut.
 
-**Apakah saya dapat mengonversi PDF atau HTML kembali menjadi slide PowerPoint?**
+### Bisakah saya mengonversi PDF atau HTML kembali menjadi slide PowerPoint?
 
 Ya. Anda dapat [mengimpor halaman PDF atau konten HTML](/slides/id/java/import-presentation/) untuk membuat atau mengisi slide dalam sebuah presentasi.
 
-**Apakah ekspor XPS didukung, dan dapat saya mengontrol kualitas serta konten output XPS?**
+### Apakah ekspor XPS didukung, dan dapat saya mengontrol kualitas serta konten output XPS?
 
 Ya. [Ekspor ke XPS](/slides/id/java/convert-powerpoint-to-xps/) tersedia, dan [opsi penyimpanan](https://reference.aspose.com/slides/id/java/com.aspose.slides/xpsoptions/) memungkinkan Anda menyesuaikan kualitas output dan konten yang disertakan.
 
-**Apakah saya dapat mengonversi slide menjadi gambar dan mengontrol kualitas output?**
+### Bisakah saya mengonversi slide menjadi gambar dan mengontrol kualitas output?
 
-Ya. Slide dapat [dirender ke PNG, JPEG, GIF, BMP, TIFF](/slides/id/java/convert-powerpoint-to-png/) dan format lain dengan kontrol terperinci atas ukuran dan kualitas.
+Ya. Slide dapat [dirender ke PNG, JPEG, GIF, BMP, TIFF](/slides/id/java/convert-powerpoint-to-png/) dan format lain dengan kontrol detail atas ukuran dan kualitas.
 
-**Apakah rumus matematika didukung (MathML/MathText) dan dapat diekspor?**
+### Apakah formula matematika didukung (MathML/MathText) dan dapat diekspor?
 
-Ya. Anda dapat [membuat dan mengedit teks matematika](/slides/id/java/powerpoint-math-equations/) serta [mengekspor persamaan](/slides/id/java/exporting-math-equations/), termasuk ke MathML.
+Ya. Anda dapat [membuat dan mengedit teks matematis](/slides/id/java/powerpoint-math-equations/) dan [mengekspor persamaan](/slides/id/java/exporting-math-equations/), termasuk ke MathML.
 
-**Bagaimana perpustakaan menangani enkripsi dan kata sandi (buka, setel, hapus)?**
+### Bagaimana perpustakaan menangani enkripsi dan kata sandi (buka, set, hapus)?
 
-[Mendukung](/slides/id/java/password-protected-presentation/) membuka presentasi terenkripsi, mengatur atau menghapus kata sandi untuk membuka dan memodifikasi, serta memeriksa status perlindungan sebuah file.
+[Itu mendukung](/slides/id/java/password-protected-presentation/) pembukaan presentasi terenkripsi, pengaturan atau penghapusan kata sandi untuk membuka dan memodifikasi, serta memeriksa status perlindungan file.

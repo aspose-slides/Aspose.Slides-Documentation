@@ -1,47 +1,57 @@
 ---
-title: Lisanslama Hatası
+title: 23.2-23.7 Sürümlerinde Lisanslama Hatası (Tarihsel)
+linktitle: Lisanslama Hatası 23.2-23.7 (Tarihsel)
 type: docs
-weight: 95
+weight: 200
 url: /tr/java/licensing-bug/
 keywords:
 - lisanslama hatası
 - kalıcı lisans
+- tarihsel
+- sürüm 23.2
+- sürüm 23.7
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Java 23.2–23.7 sürümlerinde bir lisanslama hatasının kalıcı anahtarları nasıl etkilediğini ve PPT, PPTX ve ODP ile çalışmaya devam etmek için nasıl düzeltileceğini öğrenin."
+description: "Tarihsel: Aspose.Slides for Java 23.2-23.7 sürümlerinde, süresi dolan abonelikten sonra kalıcı lisansları değerlendirme moduna geçiren bir lisanslama hatası ve 23.2.1-23.7.1 sürümlerinde düzeltildi."
 ---
-## **Genel Bakış**
+{{% alert color="info" title="Note" %}}
 
-Bu makale, Aspose.Slides for Java 23.2, 23.3, 23.4, 23.5, 23.6 ve 23.7 sürümlerinde karşılaşılan bir lisanslama hatasını açıklamaktadır. Bu hata, kalıcı lisansların süresi dolduktan sonra geçici olarak kullanılamaz hale gelmesine neden olmuştur.
+Bu bir geçmiş sayfasıdır. 2023 yılında yayınlanan Aspose.Slides for Java 23.2‑23.7 sürümlerindeki bir hatayı ve bu hatayı düzelten sürümleri açıklar. Güncel sürümü açıklamaz. Güncel sürümdeki lisanslama hakkında bilgi için [Lisanslama](/slides/tr/java/licensing/) bölümüne bakın.
 
-## **Belirtiler**
+{{% /alert %}}
 
-Kalıcı lisans aboneliğiniz sona erdikten sonra, Aspose.Slides for Java 23.2‑23.7 sürümleri lisansı süresi dolmuş olarak bildirebilir ve tüm işlevleri değerlendirme moduna geçirebilir.
+## **Overview**
+
+Bu makale, Aspose.Slides for Java 23.2, 23.3, 23.4, 23.5, 23.6 ve 23.7 sürümlerinde karşılaşılan bir lisanslama hatasını anlatır. Bu hata, süresi dolan kalıcı lisansların geçici olarak kullanılamaz hâle gelmesine neden olmuştur.
+
+## **Symptoms**
+
+Kalıcı lisans aboneliğiniz sona erdiğinde, Aspose.Slides for Java 23.2 ‑ 23.7 sürümleri lisansı süresi dolmuş olarak raporlayabilir ve tüm işlevleri değerlendirme moduna geçirebilir.
 Bu davranış yanlıştır ve 23.2 öncesi ve 23.7 sonrası sürümleri etkilemez.
 
-## **Çözüm**
+## **Resolution**
 
-Aspose.Slides for Java bu sorunu giderdi ve hatayı düzelten güncellenmiş sürümleri (23.2.1, 23.3.1, 23.4.1, 23.5.1, 23.6.1, 23.7.1) yayınladı.
+Aspose.Slides for Java bu sorunu giderdi ve düzeltmeyi içeren güncellenmiş sürümleri (23.2.1, 23.3.1, 23.4.1, 23.5.1, 23.6.1, 23.7.1) yayınladı.
 
-Projelerinizde etkilenen Aspose.Slides for Java sürümlerinden birini kullanıyorsanız, düzeltilmiş sürüme geçmeniz önerilir.
+Projenizde etkilenmiş bir Aspose.Slides for Java sürümünü kullanıyorsanız, lütfen düzeltilmiş sürüme geçin.
 
 Düzeltme içeren sürüm listesi:
 
-| Depo bağlantısı | Sürüm notları bağlantısı |
+| Repository link | Release notes link |
 | :- | :- |
-|[23.2.1](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/23.2.1/)|[Release notes Aspose.Slides for Java 23.2.1](https://releases.aspose.com/slides/tr/java/release-notes/2023/aspose-slides-for-java-23-2-1-release-notes/)|
-|[23.3.1](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/23.3.1/)|[Release notes Aspose.Slides for Java 23.3.1](https://releases.aspose.com/slides/tr/java/release-notes/2023/aspose-slides-for-java-23-3-1-release-notes/)|
-|[23.4.1](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/23.4.1/)|[Release notes Aspose.Slides for Java 23.4.1](https://releases.aspose.com/slides/tr/java/release-notes/2023/aspose-slides-for-java-23-4-1-release-notes/)|
-|[23.5.1](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/23.5.1/)|[Release notes Aspose.Slides for Java 23.5.1](https://releases.aspose.com/slides/tr/java/release-notes/2023/aspose-slides-for-java-23-5-1-release-notes/)|
-|[23.6.1](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/23.6.1/)|[Release notes Aspose.Slides for Java 23.6.1](https://releases.aspose.com/slides/tr/java/release-notes/2023/aspose-slides-for-java-23-6-1-release-notes/)|
-|[23.7.1](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/23.7.1/)|[Release notes Aspose.Slides for Java 23.7.1](https://releases.aspose.com/slides/tr/java/release-notes/2023/aspose-slides-for-java-23-7-1-release-notes/)|
+|[23.2.1](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/23.2.1/) | [Sürüm notları Aspose.Slides for Java 23.2.1](https://releases.aspose.com/slides/tr/java/release-notes/2023/aspose-slides-for-java-23-2-1-release-notes/)|
+|[23.3.1](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/23.3.1/) | [Sürüm notları Aspose.Slides for Java 23.3.1](https://releases.aspose.com/slides/tr/java/release-notes/2023/aspose-slides-for-java-23-3-1-release-notes/)|
+|[23.4.1](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/23.4.1/) | [Sürüm notları Aspose.Slides for Java 23.4.1](https://releases.aspose.com/slides/tr/java/release-notes/2023/aspose-slides-for-java-23-4-1-release-notes/)|
+|[23.5.1](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/23.5.1/) | [Sürüm notları Aspose.Slides for Java 23.5.1](https://releases.aspose.com/slides/tr/java/release-notes/2023/aspose-slides-for-java-23-5-1-release-notes/)|
+|[23.6.1](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/23.6.1/) | [Sürüm notları Aspose.Slides for Java 23.6.1](https://releases.aspose.com/slides/tr/java/release-notes/2023/aspose-slides-for-java-23-6-1-release-notes/)|
+|[23.7.1](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/23.7.1/) | [Sürüm notları Aspose.Slides for Java 23.7.1](https://releases.aspose.com/slides/tr/java/release-notes/2023/aspose-slides-for-java-23-7-1-release-notes/)|
 
-Aspose.Slides for Java ile ilgili lisans sorunları yaşarsanız:
+Aspose.Slides for Java ile ilgili lisanslama sorunları yaşıyorsanız:
 
 - Kullandığınız sürümü kontrol edin ve yukarıda açıklanan hatadan etkilenmediğinden emin olun.
-- Sorun giderme adımları ve bilinen lisans sorunları için [Aspose belgelerine](https://docs.aspose.com/slides/tr/java/getting-started/) bakın.
-- Daha fazla destek için [Aspose destek](https://forum.aspose.com/) sayfası ile iletişime geçin.
+- Lisansı nasıl uygulayacağınız ve doğrulayacağınız için [Lisanslama](/slides/tr/java/licensing/) bölümüne bakın.
+- Daha fazla yardım için [Aspose desteği](https://forum.aspose.com/c/slides/tr/11) ile iletişime geçin.
 
-## **Etkilenen ürünler ve sürümler**
+## **Affected products and versions**
 
-Bu hatanın sadece Aspose.Slides for Java 23.2‑23.7 sürümlerini etkilediğini lütfen unutmayın. **Diğer Aspose ürünleri ve Aspose.Slides'in diğer sürümleri etkilenmemektedir**.
+Bu hatanın yalnızca Aspose.Slides for Java 23.2‑23.7 sürümlerini etkilediğini unutmayın. **Diğer Aspose ürünleri ve Aspose.Slides'in diğer sürümleri etkilenmez**.

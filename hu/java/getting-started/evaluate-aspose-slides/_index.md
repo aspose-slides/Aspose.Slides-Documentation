@@ -1,45 +1,49 @@
 ---
-title: Értékelje az Aspose.Slides-t
+title: Aspose.Slides értékelése
 type: docs
-weight: 130
+weight: 85
 url: /hu/java/evaluate-aspose-slides/
 keywords:
-- Az Aspose.Slides értékelése
+- Aspose.Slides értékelése
 - Aspose.Slides értékelés
-- értékelő verzió
+- értékelési verzió
 - teljes funkcionalitás
-- értékelő vízjel
-- Aspose.Slides megvásárlása
-- korlát
+- értékelési vízjel
+- Aspose.Slides vásárlása
+- korlátozás
 - PowerPoint
 - OpenDocument
-- prezentáció
+- bemutató
 - Java
 - Aspose.Slides
-description: "Értékelje az Aspose.Slides for Java terméket, és fedezze fel az API funkciókat PowerPoint (PPT, PPTX) és OpenDocument (ODP) prezentációkhoz — kezdje el ingyenes próbaverzióját."
+description: "Az Aspose.Slides for Java értékelése, és az API funkciók felfedezése a PowerPoint (PPT, PPTX) és OpenDocument (ODP) bemutatókhoz – indítsa el ingyenes próbáját."
 ---
-## **Aspose.Slides kiértékelése**
+## **Aspose.Slides értékelés**
 
-Letöltheti az Aspose.Slides-t értékelés céljából. Az értékelő letöltés megegyezik a megvásárolt letöltéssel; a licenc alkalmazásához néhány kódsort hozzáadva licencelté válik.
+Letöltheti az Aspose.Slides-t értékelésre. Az értékelési letöltés megegyezik a megvásárolt letöltéssel; néhány kódsort hozzáadva a licenc alkalmazásához, licencelté válik.
 
-Licenc nélkül az Aspose.Slides teljes funkcionalitását biztosítja értékelő módban, két korláttal: minden mentett prezentáció minden diájához hozzáad egy értékelő vízjel szövegmezőt, és a kódból az API-n keresztül olvasott szöveg, beleértve a legutóbb beállított szöveget is, csak az első néhány karakterre kerül csonkolásra, melyet egy értesítés követ az értékelési korlátról. A kód által írt szöveg pedig teljes egészében mentésre kerül. A [getPresentationText](https://reference.aspose.com/slides/java/com.aspose.slides/presentationfactory/#getPresentationText-java.lang.String-int-) metódus, amely a teljes prezentáció betöltése nélkül nyeri ki a szöveget, csak az értékelő értesítéseket adja vissza, és nem a dia szövegét.
+Licenc nélkül az Aspose.Slides a teljes funkcionalitását biztosítja értékelési módban, két korlátozással: minden mentett bemutató minden diájára egy értékelési vízjel szövegmezőt helyez, és a kódja által az API-n keresztül olvasott szöveg – beleértve a most beállított szöveget – az első néhány karakterre van csonkolva, majd egy értesítést kap az értékelési korlátozásról. A kód által írt szöveg teljesen mentésre kerül. A [getPresentationText](https://reference.aspose.com/slides/hu/java/com.aspose.slides/presentationfactory/#getPresentationText-java.lang.String-int-) metódus, amely a teljes bemutató betöltése nélkül nyeri ki a szöveget, csak az értékelési értesítéseket adja vissza, diaszöveget nem.
 
-![Dia az értékelő vízjellel](evaluate-aspose-slides_1.png)
+![Dia az értékelési vízjellel](evaluate-aspose-slides_1.png)
 
-{{% alert color="info" title="Megjegyzés" %}}
-Ha az Aspose.Slides-t az értékelő verzió korlátozásai nélkül szeretné tesztelni, kérhet egy 30 napos ideiglenes licencet is. Lásd a [Hogyan kérhet ideiglenes licencet?](https://purchase.aspose.com/temporary-license) oldalt.
+{{% alert color="info" title="Note" %}}
+Ha az Aspose.Slides-t az értékelési verzió korlátozása nélkül szeretné tesztelni, kérhet 30 napos Ideiglenes Licencet is. További információért lásd a [Hogyan szerezhet Temporary License licencet?](https://purchase.aspose.com/temporary-license) oldalt.
 {{% /alert %}}
 
 ## **GYIK**
 
-### Tesztelhetek több prezentációt párhuzamosan különböző szálakon az értékelő módban?
-Igen. Különböző dokumentumokat feldolgozhat párhuzamosan; nem szabad ugyanazt a prezentációobjektumot [szálak között](/slides/hu/java/multithreading/) megosztani. Az értékelő mód nem befolyásolja ezt.
+### Tesztelhetek több bemutatót párhuzamosan különböző szálakon értékelési módban?
 
-### Szükséges-e a Microsoft PowerPoint telepítése a könyvtár értékeléséhez szerveren vagy CI-ben?
-Nem. Az Aspose.Slides egy önálló motor, és sem értékeléskor, sem éles működéskor nem igényli a PowerPoint telepítését.
+Igen. Különböző dokumentumokat paralelisan feldolgozhat; nem szabad ugyanazt a bemutatóobjektumot megosztani [a szálakon](/slides/hu/java/multithreading/). Az értékelési mód nem befolyásolja ezt.
 
-### Teljesen tesztelhetem a PPT/PPTX PDF-re és képekre konvertálását értékelő módban?
-Igen. A [konvertálók](/slides/hu/java/convert-presentation/) működnek; a kimenet vízjelet fog tartalmazni.
+### Szükséges-e a Microsoft PowerPoint telepítése a könyvtár értékeléséhez egy szerveren vagy CI környezetben?
+
+Nem. Az Aspose.Slides egy önálló motor, és sem értékeléshez, sem éles üzemben nem igényel telepített PowerPointot.
+
+### Teljesen tesztelhetem a PPT/PPTX PDF- és képre konvertálását értékelési módban?
+
+Igen. A konverterek működnek; a kimenet vízjelet fog tartalmazni.
 
 ### Használhatok ideiglenes licencet terheléses teszteléshez vízjel nélkül?
-Igen. Egy 30 napos ideiglenes licenc eltávolítja az értékelő mód korlátozásait, és lehetővé teszi a tesztelést vízjel nélkül.
+
+Igen. Egy 30 napos ideiglenes licenc eltávolítja az értékelési mód korlátozásait, és lehetővé teszi a tesztelést vízjel nélkül.
