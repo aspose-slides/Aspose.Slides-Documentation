@@ -17,20 +17,25 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "使用 Aspose.Slides for Node.js 在 JavaScript 中自訂簡報備註。無縫操作 PowerPoint 與 OpenDocument 備註，提高您的生產力。"
+description: "使用 Aspose.Slides for Node.js 在 JavaScript 中自訂簡報備註。無縫操作 PowerPoint 和 OpenDocument 的備註，以提升您的工作效率。"
 ---
 ## **概觀**
 
-Aspose.Slides 支援從簡報中移除備註投影片。本主題將介紹此功能，包括如何移除備註以及如何在簡報中對備註投影片套用樣式。Aspose.Slides 允許您從任何投影片中移除備註，亦可對現有備註套用樣式。開發人員可以透過以下方式移除備註：
+Aspose.Slides 支援從簡報中移除備註投影片。在本主題中，我們將介紹此功能，包括如何移除備註以及如何對簡報中的備註投影片套用樣式。Aspose.Slides 允許您從任何投影片移除備註，並對現有備註套用樣式。開發人員可以透過以下方式移除備註：
 
-- 從簡報的特定投影片中移除備註。
-- 從簡報的所有投影片中移除備註。
+- 從簡報中的特定投影片移除備註。
+- 從簡報中的所有投影片移除備註。
+
+若要讀取或變更備註頁面尺寸、切換方向，並檢查匯出行為，請參閱[備註頁面大小](/slides/zh-hant/nodejs-java/notes-size/)。
 
 ## **從投影片移除備註**
-以下範例示範了如何移除特定投影片的備註：
+可以如以下範例所示，從特定投影片移除備註：
 
 ```javascript
-// 實例化一個代表簡報檔案的 Presentation 物件
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+// 建立代表簡報檔案的 Presentation 物件
 var pres = new aspose.slides.Presentation("presWithNotes.pptx");
 try {
     // 移除第一張投影片的備註
@@ -46,10 +51,13 @@ try {
 ```
 
 ## **從簡報移除備註**
-以下範例示範了如何移除簡報中所有投影片的備註：
+可以如以下範例所示，從簡報中的所有投影片移除備註：
 
 ```javascript
-// 實例化一個代表簡報檔案的 Presentation 物件
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+// 建立代表簡報檔案的 Presentation 物件
 var pres = new aspose.slides.Presentation("presWithNotes.pptx");
 try {
     // 移除所有投影片的備註
@@ -68,10 +76,14 @@ try {
 ```
 
 ## **新增 NotesStyle**
-[getNotesStyle](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/MasterNotesSlide#getNotesStyle--) 方法已新增至 [MasterNotesSlide](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/MasterNotesSlide) 類別中。此屬性指定備註文字的樣式。以下範例示範了其實作。
+[getNotesStyle](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/MasterNotesSlide#getNotesStyle--) 方法已新增至 [MasterNotesSlide](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/MasterNotesSlide) 類別，並分別新增至 [MasterNotesSlide](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/MasterNotesSlide) 類別。此屬性指定備註文字的樣式。以下範例示範了其實作。
 
 ```javascript
-// 實例化一個代表簡報檔案的 Presentation 物件
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+// 建立代表簡報檔案的 Presentation 物件
 var pres = new aspose.slides.Presentation("demo.pptx");
 try {
     var notesMaster = pres.getMasterNotesSlideManager().getMasterNotesSlide();
@@ -80,7 +92,7 @@ try {
         var notesStyle = notesMaster.getNotesStyle();
         // 為第一層段落設定符號項目符號
         var paragraphFormat = notesStyle.getLevel(0);
-        paragraphFormat.getBullet().setType(aspose.slides.BulletType.Symbol);
+        paragraphFormat.getBullet().setType(java.newByte(aspose.slides.BulletType.Symbol));
     }
     pres.save("NotesSlideWithNotesStyle.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
@@ -94,8 +106,8 @@ try {
 
 **哪個 API 實體提供對特定投影片備註的存取？**
 
-備註是透過投影片的備註管理員取得：投影片擁有一個 [NotesSlideManager](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/notesslidemanager/)，以及一個會回傳備註物件的 [method](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/notesslidemanager/getnotesslide/)（若無備註則回傳 `null`）。
+備註可通過投影片的備註管理器存取：投影片具有一個 [NotesSlideManager](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/notesslidemanager/)，以及一個返回備註物件的 [method](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/notesslidemanager/getnotesslide/)（若無備註則返回 `null`）。
 
-**在函式庫支援的 PowerPoint 版本之間，備註支援有差異嗎？**
+**此函式庫支援的 PowerPoint 版本在備註支援方面是否有差異？**
 
-此函式庫支援廣泛的 Microsoft PowerPoint 格式（97 版及更新版本）以及 ODP；備註在這些格式中皆受支援，且不須依賴已安裝的 PowerPoint。
+此函式庫支援廣泛的 Microsoft PowerPoint 格式（97 版至更新版本）以及 ODP；在這些格式中皆支援備註，且不依賴已安裝的 PowerPoint 副本。

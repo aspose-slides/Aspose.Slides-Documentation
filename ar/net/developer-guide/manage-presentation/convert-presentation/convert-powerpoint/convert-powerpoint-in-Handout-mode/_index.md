@@ -1,5 +1,5 @@
 ---
-title: تحويل عروض PowerPoint التقديمية إلى وضع النشرة في .NET
+title: تحويل عروض PowerPoint التقديمية في وضع النشرة في .NET
 linktitle: وضع النشرة
 type: docs
 weight: 150
@@ -16,51 +16,61 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "تحويل العروض التقديمية إلى نشرات في .NET. ضبط عدد الشرائح في الصفحة، الحفاظ على الملاحظات، التصدير إلى PDF أو صور باستخدام Aspose.Slides، مع عينة كود C#. جرّبها مجانًا."
+description: "تحويل العروض التقديمية إلى نشرات في .NET. ضبط عدد الشرائح لكل صفحة، الاحتفاظ بالملاحظات، التصدير إلى PDF أو صور باستخدام Aspose.Slides، مع مثال كود C#. جرّبه مجانًا."
 ---
+## **المقدمة**
+
+Aspose.Slides يتيح لك تحويل العروض التقديمية إلى صيغ إخراج تدعم وضع النشرة. في هذا الوضع، يتم ترتيب عدة شرائح على صفحة واحدة، وهو ما يكون مفيدًا لطباعة مواد العروض للموتمرات والندوات وغيرها من الفعاليات المماثلة.
+
+يتم تكوين وضع النشرة من خلال الخاصية `SlidesLayoutOptions`، المتاحة في [IPdfOptions](https://reference.aspose.com/slides/ar/net/aspose.slides.export/ipdfoptions/)، [IRenderingOptions](https://reference.aspose.com/slides/ar/net/aspose.slides.export/irenderingoptions/)، [IHtmlOptions](https://reference.aspose.com/slides/ar/net/aspose.slides.export/ihtmloptions/)، و[ITiffOptions](https://reference.aspose.com/slides/ar/net/aspose.slides.export/itiffoptions/). لتحديد تخطيط النشرة، استخدم كائن [HandoutLayoutingOptions](https://reference.aspose.com/slides/ar/net/aspose.slides.export/handoutlayoutingoptions/).
+
+لتحديد أبعاد صفحة النشرة واتجاهها قبل التصدير، راجع [حجم صفحة الملاحظات](/slides/ar/net/notes-size/).
 
 ## **تصدير وضع النشرة**
 
-توفر Aspose.Slides القدرة على تحويل العروض التقديمية إلى تنسيقات متعددة، بما في ذلك إنشاء نماذج للطباعة في وضع النشرة. يتيح لك هذا الوضع تكوين كيفية ظهور عدة شرائح على صفحة واحدة، مما يجعله مفيدًا للمؤتمرات والندوات وغيرها من الفعاليات. يمكنك تمكين هذا الوضع عن طريق تعيين خاصية `SlidesLayoutOptions` في واجهات [IPdfOptions](https://reference.aspose.com/slides/net/aspose.slides.export/ipdfoptions/), [IRenderingOptions](https://reference.aspose.com/slides/net/aspose.slides.export/irenderingoptions/), [IHtmlOptions](https://reference.aspose.com/slides/net/aspose.slides.export/ihtmloptions/), و[ITiffOptions](https://reference.aspose.com/slides/net/aspose.slides.export/itiffoptions/) .
+لتصدير عرض تقديمي في وضع النشرة، قم بتعيين الخاصية `SlidesLayoutOptions` لخيارات التصدير المستهدفة وعيّن كائنًا من نوع [HandoutLayoutingOptions](https://reference.aspose.com/slides/ar/net/aspose.slides.export/handoutlayoutingoptions/) يحدد عدد الشرائح لكل صفحة ومعلمات العرض ذات الصلة.
 
-لتكوين وضع النشرة، استخدم كائن [HandoutLayoutingOptions](https://reference.aspose.com/slides/net/aspose.slides.export/handoutlayoutingoptions/) ، الذي يحدد عدد الشرائح الموضوعة على صفحة واحدة وغيرها من معلمات العرض.
+فيما يلي مثال على التعليمات البرمجية يوضح كيفية تحويل عرض تقديمي إلى PDF في وضع النشرة.
 
-فيما يلي مثال على الشيفرة يوضح كيفية تحويل عرض تقديمي إلى PDF في وضع النشرة.
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // تحميل عرض تقديمي.
 using var presentation = new Presentation("sample.pptx");
 
-// Set the export options.
+// ضبط خيارات التصدير.
 var pdfOptions = new PdfOptions
 {
     SlidesLayoutOptions = new HandoutLayoutingOptions
     {
-        Handout = HandoutType.Handouts4Horizontal,  // 4 شرائح على صفحة واحدة أفقياً
+        Handout = HandoutType.Handouts4Horizontal,  // 4 شرائح على صفحة واحدة أفقيًا
         PrintSlideNumbers = true,                   // طباعة أرقام الشرائح
         PrintFrameSlide = true,                     // طباعة إطار حول الشرائح
-        PrintComments = false                       // بدون تعليقات
+        PrintComments = false                       // لا تعليقات
     }
 };
 
-// Export the presentation to PDF with the chosen layout.
+// تصدير العرض التقديمي إلى PDF باستخدام التخطيط المختار.
 presentation.Save("output.pdf", SaveFormat.Pdf, pdfOptions);
 ```
 
-
 {{% alert color="warning" %}} 
-ضع في اعتبارك أن خاصية `SlidesLayoutOptions` متاحة فقط لبعض تنسيقات الإخراج، مثل PDF وHTML وTIFF، وأثناء التحويل إلى صور.
+
+تذكر أن الخاصية `SlidesLayoutOptions` متاحة فقط لبعض صيغ الإخراج، مثل PDF وHTML وTIFF، وعند التصدير كصور.
+
 {{% /alert %}} 
 
-## **الأسئلة الشائعة**
+## **الأسئلة المتكررة**
 
-**ما هو الحد الأقصى لعدد المصغرات الشرائح في كل صفحة في وضع النشرة؟**
+### ما هو الحد الأقصى لعدد صور الشرائح المصغرة لكل صفحة في وضع النشرة؟
 
-يدعم Aspose.Slides [الإعدادات المسبقة](https://reference.aspose.com/slides/net/aspose.slides.export/handouttype/) حتى 9 مصغرات لكل صفحة مع ترتيب أفقي أو رأسي: 1، 2، 3، 4 (أفقي/رأسي)، 6 (أفقي/رأسي)، و9 (أفقي/رأسي).
+Aspose.Slides يدعم [الإعدادات المسبقة](https://reference.aspose.com/slides/ar/net/aspose.slides.export/handouttype/) حتى 9 صور مصغرة لكل صفحة بترتيب أفقي أو عمودي: 1، 2، 3، 4 (أفقي/عمودي)، 6 (أفقي/عمودي)، و9 (أفقي/عمودي).
 
-**هل يمكنني تعريف شبكة مخصصة، مثل 5 أو 8 شرائح لكل صفحة؟**
+### هل يمكنني تعريف شبكة مخصصة، مثل 5 أو 8 شرائح لكل صفحة؟
 
-لا. يتم التحكم في عدد وترتيب المصغرات بدقة عبر تعداد [HandoutType](https://reference.aspose.com/slides/net/aspose.slides.export/handouttype/) ، ولا تُدعم التخطيطات العشوائية.
+لا. يتم التحكم في عدد وترتيب الصور المصغرة بدقة من خلال تعداد [HandoutType](https://reference.aspose.com/slides/ar/net/aspose.slides.export/handouttype/)؛ لا تدعم التخطيطات العشوائية.
 
-**هل يمكنني تضمين الشرائح المخفية في مخرجات النشرة؟**
+### هل يمكن تضمين الشرائح المخفية في ناتج النشرة؟
 
-نعم. قم بتمكين الخيار `ShowHiddenSlides` في إعدادات التصدير للتنسيق المستهدف، مثل [PdfOptions](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/), [HtmlOptions](https://reference.aspose.com/slides/net/aspose.slides.export/htmloptions/), أو [TiffOptions](https://reference.aspose.com/slides/net/aspose.slides.export/tiffoptions/).
+نعم. فعّل الخيار `ShowHiddenSlides` في إعدادات التصدير للصيغة المستهدفة، مثل [PdfOptions](https://reference.aspose.com/slides/ar/net/aspose.slides.export/pdfoptions/)، [HtmlOptions](https://reference.aspose.com/slides/ar/net/aspose.slides.export/htmloptions/)، أو [TiffOptions](https://reference.aspose.com/slides/ar/net/aspose.slides.export/tiffoptions/).

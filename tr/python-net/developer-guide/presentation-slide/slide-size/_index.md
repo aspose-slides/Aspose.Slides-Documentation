@@ -11,105 +11,102 @@ keywords:
 - geniş ekran
 - 4:3
 - 16:9
-- slayt boyutunu ayarla
+- slayt boyutu ayarla
 - slayt boyutunu değiştir
 - özel slayt boyutu
 - özel slayt boyutu
-- benzersiz slayt boyutu
+- eşsiz slayt boyutu
 - tam boyutlu slayt
 - ekran tipi
-- yeniden ölçekleme yok
-- uygunluk sağla
+- yeniden ölçeklendirme
+- sığdırmayı sağla
 - büyüt
 - PowerPoint
 - OpenDocument
 - sunum
 - Python
 - Aspose.Slides
-descriptions: "Python ve Aspose.Slides kullanarak PPT, PPTX ve ODP dosyalarındaki slaytları hızlıca yeniden boyutlandırmayı, kalite kaybı olmadan herhangi bir ekran için sunumları optimize etmeyi öğrenin."
+description: "Python ve Aspose.Slides ile PPT, PPTX ve ODP dosyalarındaki slaytları hızlı bir şekilde yeniden boyutlandırmayı öğrenin, kalite kaybı olmadan herhangi bir ekran için sunumları optimize edin."
 ---
-## **Giriş**
+## **Introduction**
 
-Aspose.Slides, PowerPoint sunumlarında slayt boyutunu ve en‑boy oranını ayarlamak için kapsamlı araçlar sunar; bu, hem baskı hem de ekranda görüntüleme için kritiktir. 
+Aspose.Slides, PowerPoint sunumlarında slayt boyutunu ve en-boy oranını ayarlamak için kapsamlı araçlar sağlar; bu, hem baskı hem de ekranda gösterim için kritiktir.
 
 Popüler Slayt Boyutları ve Oranları:
+- **Standard (4:3 Aspect Ratio)**: Eski ekranlar ve cihazlar için idealdir.
+- **Widescreen (16:9 Aspect Ratio)**: Modern projeksiyon cihazları ve ekranlar için önerilir.
 
-- **Standart (4:3 En‑Boy Oranı)**: Eski ekranlar ve cihazlar için idealdir.
-- **Geniş Ekran (16:9 En‑Boy Oranı)**: Modern projektörler ve ekranlar için önerilir.
+Sunumunuz boyunca tutarlılığı sağlamak için tek bir slayt boyutu ve en-boy oranı tüm slaytlara uygulanır. En iyi sonuçlar için, komplikasyonları önlemek amacıyla slayt boyutlarını sunumu oluşturma sürecinin başında ayarlayın.
 
-Sunumunuz boyunca tutarlılığı sağlayın; tek bir slayt boyutu ve en‑boy oranı tüm slaytlara uygulanır. En iyi sonuçlar için, slayt boyutlarını sunum oluşturma sürecinin başında ayarlayın, böylece komplikasyonlardan kaçınırsınız.
-
-{{% alert color="primary" %}} 
-Varsayılan olarak, Aspose.Slides ile oluşturulan sunumlar standart 4:3 en‑boy oranını kullanır.
+{{% alert color="info" title="Note" %}}
+Varsayılan olarak, Aspose.Slides ile oluşturulan sunumlar standart 4:3 en-boy oranını kullanır.
 {{% /alert %}}
+
+Not ve el kitapçığı sayfalarının boyutları normal slaytlardan ayrı olup, boyut ve yönlerini değiştirmek için [Notes Page Size](/slides/tr/python-net/notes-size/) sayfasına bakın.
 
 ## **Sunumda Slayt Boyutunu Değiştirme**
 
-Bu örnek kod, Python'da Aspose.Slides kullanarak bir sunumda slayt boyutunun nasıl değiştirileceğini gösterir:
-
+Bu örnek kod, Python'da Aspose.Slides kullanarak bir sunumda slayt boyutunu nasıl değiştireceğinizi gösterir:
 ```py
 import aspose.slides as slides
 
-with slides.Presentation(path + "AccessSlides.pptx") as pres:
-    pres.slide_size.set_size(slides.SlideSizeType.ON_SCREEN16X9, slides.SlideSizeScaleType.DO_NOT_SCALE)
-    pres.save("pres-4x3-aspect-ratio.pptx", slides.export.SaveFormat.PPTX)
+with slides.Presentation("AccessSlides.pptx") as pres:
+    pres.slide_size.set_size(slides.SlideSizeType.ON_SCREEN_16X9, slides.SlideSizeScaleType.DO_NOT_SCALE)
+    pres.save("pres-16x9-aspect-ratio.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **Özel Slayt Boyutlarını Belirleme**
 
-Ortak slayt boyutları (4:3 ve 16:9) işiniz için uygun değilse, belirli veya benzersiz bir slayt boyutu kullanmayı tercih edebilirsiniz. Örneğin, sunumunuzdaki slaytları özel bir sayfa düzeninde tam boyutlu olarak yazdırmayı planlıyorsanız veya belirli ekran türlerinde görüntülemeyi düşünüyorsanız, sunumunuz için özel bir boyut ayarı kullanmanız yararlı olacaktır. 
+Eğer yaygın slayt boyutları (4:3 ve 16:9) çalışmanız için uygun değilse, belirli veya benzersiz bir slayt boyutu kullanmayı tercih edebilirsiniz. Örneğin, sunumunuzdan tam boyutlu slaytları özel bir sayfa düzeninde yazdırmayı planlıyorsanız veya sunumunuzu belirli ekran türlerinde göstermek istiyorsanız, özel bir boyut ayarı kullanmanız faydalı olacaktır.
 
-Bu örnek kod, Python üzerinden .NET aracılığıyla Aspose.Slides for Python kullanarak bir sunumda özel slayt boyutu belirlemenin nasıl yapılacağını gösterir:
-
+Bu örnek kod, Python'da Aspose.Slides for Python via .NET kullanarak bir sunum için özel slayt boyutu nasıl belirleyeceğinizi gösterir:
 ```py
 import aspose.slides as slides
 
-with slides.Presentation(path + "AccessSlides.pptx") as pres:
+with slides.Presentation("AccessSlides.pptx") as pres:
     pres.slide_size.set_size(780, 540, slides.SlideSizeScaleType.DO_NOT_SCALE) # A4 kağıt boyutu
     pres.save("pres-a4-slide-size.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Yeniden Boyutlandırmadan Sonra Slayt İçeriğini Yönetme**
+## **Kaydırma Sonrası Slayt İçeriğini Ele Alma**
 
-Bir sunumun slayt boyutunu değiştirdikten sonra, slaytların içeriği (örneğin resimler veya nesneler) bozulabilir. Varsayılan olarak, nesneler yeni slayt boyutuna uyması için otomatik olarak yeniden boyutlandırılır. Ancak, bir sunumun slayt boyutunu değiştirirken, Aspose.Slides'in slaytlardaki içeriği nasıl ele alacağını belirleyen bir ayar belirtebilirsiniz.
+Bir sunumun slayt boyutunu değiştirdikten sonra, slaytların içeriği (örneğin resimler veya nesneler) bozulabilir. Varsayılan olarak, nesneler yeni slayt boyutuna uyacak şekilde otomatik olarak yeniden boyutlandırılır. Ancak, bir sunumun slayt boyutu değiştirildiğinde, Aspose.Slides'in slaytlardaki içerikle nasıl başa çıktığını belirleyen bir ayar belirtebilirsiniz.
 
-Ne yapmayı veya neyi başarmayı amaçladığınıza bağlı olarak aşağıdaki ayarlardan herhangi birini kullanabilirsiniz:
-
+Ne yapmayı ya da neyi başarmayı amaçladığınıza bağlı olarak, bu ayarlardan herhangi birini kullanabilirsiniz:
 - `DO_NOT_SCALE`
 
-  Slaytlardaki nesnelerin yeniden boyutlandırılmasını istemiyorsanız, bu ayarı kullanın.
+  Nesnelerin slaytlarda yeniden boyutlandırılmasını **istemiyorsanız**, bu ayarı kullanın.
 
 - `ENSURE_FIT`
 
-  Daha küçük bir slayt boyutuna ölçeklendirmek ve Aspose.Slides'in slayt nesnelerini küçülterek hepsinin slaytlara sığmasını sağlamasını istiyorsanız (böylece içerik kaybını önlersiniz), bu ayarı kullanın. 
+  Daha küçük bir slayt boyutuna ölçeklendirmek istiyor ve Aspose.Slides'in slayt nesnelerini tüm slaytlara sığacak şekilde küçültmesini (böylece içeriğin kaybolmasını önlersiniz) istiyorsanız, bu ayarı kullanın.
 
 - `MAXIMIZE`
 
-  Daha büyük bir slayt boyutuna ölçeklendirmek ve Aspose.Slides'in slayt nesnelerini yeni slayt boyutuna orantılı olacak şekilde büyütmesini istiyorsanız, bu ayarı kullanın. 
+  Daha büyük bir slayt boyutuna ölçeklendirmek istiyor ve Aspose.Slides'in slayt nesnelerini yeni slayt boyutuna orantılı olacak şekilde büyütmesini istiyorsanız, bu ayarı kullanın.
 
 Bu örnek kod, bir sunumun slayt boyutunu değiştirirken `MAXIMIZE` ayarının nasıl kullanılacağını gösterir:
-
 ```py
 import aspose.slides as slides
 
-with slides.Presentation(path + "AccessSlides.pptx") as pres:
+with slides.Presentation("AccessSlides.pptx") as pres:
    pres.slide_size.set_size(slides.SlideSizeType.LEDGER, slides.SlideSizeScaleType.MAXIMIZE)
 ```
 
 ## **SSS**
 
-**Özel bir slayt boyutunu inç dışında bir birim (örneğin puan veya milimetre) kullanarak ayarlayabilir miyim?**
+**İnç dışında birimlerle (örneğin, puan veya milimetre) özel bir slayt boyutu ayarlayabilir miyim?**
 
-Evet. Aspose.Slides, dahili olarak puan birimini kullanır; 1 puan bir inçin 1/72'sine eşittir. Herhangi bir birimi (örneğin milimetre veya santimetre) puana dönüştürüp, dönüştürülmüş değerleri slayt genişliği ve yüksekliğini tanımlamak için kullanabilirsiniz.
+Evet. Aspose.Slides dahili olarak puan (point) kullanır; 1 puan 1/72 inçtir. Milimetre veya santimetre gibi herhangi bir birimi puana dönüştürüp, dönüştürülmüş değerleri slayt genişliği ve yüksekliği tanımlamak için kullanabilirsiniz.
 
-**Çok büyük bir özel slayt boyutu, render sırasında performans ve bellek kullanımını etkiler mi?**
+**Çok büyük bir özel slayt boyutu, oluşturma sırasında performans ve bellek kullanımını etkiler mi?**
 
-Evet. Daha büyük slayt boyutları (puan cinsinden) ve yüksek render ölçeği, daha fazla bellek tüketimi ve daha uzun işleme sürelerine yol açar. Pratik bir slayt boyutu hedefleyin ve yalnızca istenen çıktı kalitesini elde etmek için render ölçeğini gerektiği gibi ayarlayın.
+Evet. Daha büyük slayt boyutları (puan cinsinden) ve daha yüksek oluşturma ölçeği, bellek tüketimini artırır ve işlem süresini uzatır. Pratik bir slayt boyutu hedefleyin ve yalnızca istenen çıktı kalitesini elde etmek için oluşturma ölçeğini gerektiği gibi ayarlayın.
 
-**Standart dışı bir slayt boyutu tanımlayıp ardından farklı boyutlara sahip sunumlardan slaytları birleştirebilir miyim?**
+**Tek bir standart dışı slayt boyutu tanımlayıp, farklı boyutlara sahip sunumlardan slaytları birleştirebilir miyim?**
 
-Farklı slayt boyutlarına sahip oldukları sürece [merge presentations](/slides/tr/python-net/merge-presentation/) yapamazsınız — önce bir sunumu diğerine eşit olacak şekilde yeniden boyutlandırın. Slayt boyutunu değiştirirken, mevcut içeriğin nasıl ele alınacağını [SlideSizeScaleType](https://reference.aspose.com/slides/tr/python-net/aspose.slides/slidesizescaletype/) seçeneğiyle belirleyebilirsiniz. Boyutları hizaladıktan sonra, biçimlendirmeyi koruyarak slaytları birleştirebilirsiniz.
+Farklı slayt boyutlarına sahip oldukları sürece [sunumları birleştiremezsiniz](/slides/tr/python-net/merge-presentation/) — önce bir sunumu diğerine eşitlemek için yeniden boyutlandırın. Slayt boyutu değiştirildiğinde, mevcut içeriğin nasıl ele alınacağını [SlideSizeScaleType](https://reference.aspose.com/slides/tr/python-net/aspose.slides/slidesizescaletype/) seçeneğiyle belirleyebilirsiniz. Boyutlar eşitlendiğinde, biçimlendirmeyi koruyarak slaytları birleştirebilirsiniz.
 
-**Bireysel şekiller veya slaytın belirli bölgeleri için küçük resimler (thumbnail) oluşturabilir miyim ve bunlar yeni slayt boyutunu dikkate alır mı?**
+**Bireysel şekiller veya bir slaytın belirli bölgeleri için küçük resimler oluşturabilir miyim ve yeni slayt boyutunu dikkate alır mı?**
 
-Evet. Aspose.Slides, [entire slides](/slides/tr/python-net/slide/get_image/) ve [selected shapes](/slides/tr/python-net/shape/get_image/) için önizleme görselleri oluşturabilir. Oluşturulan görüntüler mevcut slayt boyutu ve en‑boy oranını yansıtarak tutarlı çerçeveleme ve geometri sağlar.
+Evet. Aspose.Slides, [tüm slaytlar](https://reference.aspose.com/slides/tr/python-net/aspose.slides/slide/get_image/) için ve [seçili şekiller](https://reference.aspose.com/slides/tr/python-net/aspose.slides/shape/get_image/) için küçük resimler oluşturabilir. Oluşturulan görseller mevcut slayt boyutunu ve en-boy oranını yansıtarak tutarlı çerçeveleme ve geometri sağlar.

@@ -1,5 +1,5 @@
 ---
-title: Gestire le note della presentazione in JavaScript
+title: Gestisci le note della presentazione in JavaScript
 linktitle: Note della presentazione
 type: docs
 weight: 110
@@ -7,8 +7,8 @@ url: /it/nodejs-java/presentation-notes/
 keywords:
 - note
 - diapositiva delle note
-- aggiungere note
-- rimuovere note
+- aggiungi note
+- rimuovi note
 - stile delle note
 - note master
 - PowerPoint
@@ -17,26 +17,31 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Personalizza le note della presentazione in JavaScript con Aspose.Slides per Node.js. Lavora senza soluzione di continuità con le note di PowerPoint e OpenDocument per aumentare la tua produttività."
+description: "Personalizza le note della presentazione in JavaScript con Aspose.Slides per Node.js. Lavora senza problemi con le note di PowerPoint e OpenDocument per aumentare la tua produttività."
 ---
 ## **Panoramica**
 
-Aspose.Slides supporta la rimozione delle diapositive delle note da una presentazione. In questo argomento introdurremo questa funzionalità, incluso come rimuovere le note e come applicare uno stile alle diapositive delle note in una presentazione. Aspose.Slides consente di rimuovere le note da qualsiasi diapositiva e anche di applicare uno stile alle note esistenti. Gli sviluppatori possono rimuovere le note nei seguenti modi:
+Aspose.Slides supporta la rimozione delle diapositive delle note da una presentazione. In questo argomento presenteremo questa funzionalità, includendo come rimuovere le note e come applicare uno stile alle diapositive delle note in una presentazione. Aspose.Slides consente di rimuovere le note da qualsiasi diapositiva e anche di applicare uno stile alle note esistenti. Gli sviluppatori possono rimuovere le note nei seguenti modi:
 
 - Rimuovere le note da una diapositiva specifica in una presentazione.
 - Rimuovere le note da tutte le diapositive in una presentazione.
 
-## **Rimuovere le note dalla diapositiva**
-Le note di una diapositiva specifica possono essere rimosse come mostrato nell'esempio seguente:
+Per leggere o modificare le dimensioni della pagina delle note, cambiare orientamento e verificare il comportamento di esportazione, vedere [Notes Page Size](/slides/it/nodejs-java/notes-size/).
+
+## **Rimuovi note da una diapositiva**
+Le note da una diapositiva specifica possono essere rimosse come mostrato nell'esempio seguente:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 // Istanziare un oggetto Presentation che rappresenta un file di presentazione
 var pres = new aspose.slides.Presentation("presWithNotes.pptx");
 try {
-    // Rimuovere le note della prima diapositiva
+    // Rimozione delle note della prima diapositiva
     var mgr = pres.getSlides().get_Item(0).getNotesSlideManager();
     mgr.removeNotesSlide();
-    // Salvare la presentazione su disco
+    // Salvataggio della presentazione su disco
     pres.save("test.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     if (pres != null) {
@@ -45,20 +50,23 @@ try {
 }
 ```
 
-## **Rimuovere le note dalla presentazione**
-Le note di tutte le diapositive di una presentazione possono essere rimosse come mostrato nell'esempio seguente:
+## **Rimuovi note da una presentazione**
+Le note da tutte le diapositive in una presentazione possono essere rimosse come mostrato nell'esempio seguente:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 // Istanziare un oggetto Presentation che rappresenta un file di presentazione
 var pres = new aspose.slides.Presentation("presWithNotes.pptx");
 try {
-    // Rimuovere le note di tutte le diapositive
+    // Rimozione delle note di tutte le diapositive
     var mgr = null;
     for (var i = 0; i < pres.getSlides().size(); i++) {
         mgr = pres.getSlides().get_Item(i).getNotesSlideManager();
         mgr.removeNotesSlide();
     }
-    // Salvare la presentazione su disco
+    // Salvataggio della presentazione su disco
     pres.save("test.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     if (pres != null) {
@@ -67,10 +75,14 @@ try {
 }
 ```
 
-## **Aggiungere NotesStyle**
-[getNotesStyle](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/MasterNotesSlide#getNotesStyle--) method è stato aggiunto alla classe [MasterNotesSlide](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/MasterNotesSlide) e alla classe [MasterNotesSlide](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/MasterNotesSlide) rispettivamente. Questa proprietà specifica lo stile di un testo delle note. L'implementazione è mostrata nell'esempio seguente.
+## **Aggiungi NotesStyle**
+Il metodo [getNotesStyle](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/MasterNotesSlide#getNotesStyle--) è stato aggiunto alla classe [MasterNotesSlide](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/MasterNotesSlide) e alla classe [MasterNotesSlide](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/MasterNotesSlide) rispettivamente. Questa proprietà specifica lo stile del testo delle note. L'implementazione è dimostrata nell'esempio seguente.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 // Istanziare un oggetto Presentation che rappresenta un file di presentazione
 var pres = new aspose.slides.Presentation("demo.pptx");
 try {
@@ -78,9 +90,9 @@ try {
     if (notesMaster != null) {
         // Ottenere lo stile del testo di MasterNotesSlide
         var notesStyle = notesMaster.getNotesStyle();
-        // Impostare il punto elenco simbolo per i paragrafi di primo livello
+        // Impostare il simbolo di bullet per i paragrafi di primo livello
         var paragraphFormat = notesStyle.getLevel(0);
-        paragraphFormat.getBullet().setType(aspose.slides.BulletType.Symbol);
+        paragraphFormat.getBullet().setType(java.newByte(aspose.slides.BulletType.Symbol));
     }
     pres.save("NotesSlideWithNotesStyle.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
@@ -94,8 +106,8 @@ try {
 
 **Quale entità API fornisce l'accesso alle note di una diapositiva specifica?**
 
-Le note sono accessibili tramite il gestore delle note della diapositiva: la diapositiva dispone di un [NotesSlideManager](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/notesslidemanager/) e di un [method](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/notesslidemanager/getnotesslide/) che restituisce l'oggetto delle note, oppure `null` se non ci sono note.
+Le note sono accessibili tramite il gestore delle note della diapositiva: la diapositiva possiede un [NotesSlideManager](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/notesslidemanager/) e un [method](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/notesslidemanager/getnotesslide/) che restituisce l'oggetto note, o `null` se non ci sono note.
 
-**Ci sono differenze nel supporto delle note tra le versioni di PowerPoint con cui la libreria funziona?**
+**Esistono differenze nel supporto delle note tra le versioni di PowerPoint con cui funziona la libreria?**
 
-La libreria supporta un'ampia gamma di formati Microsoft PowerPoint (97‑e versioni successive) e ODP; le note sono supportate in questi formati senza dipendere da una copia installata di PowerPoint.
+La libreria supporta un'ampia gamma di formati Microsoft PowerPoint (97‑newer) e ODP; le note sono supportate in questi formati senza dipendere da una copia installata di PowerPoint.

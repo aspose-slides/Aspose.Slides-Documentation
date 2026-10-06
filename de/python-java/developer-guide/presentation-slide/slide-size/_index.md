@@ -1,5 +1,5 @@
 ---
-title: Foliengröße einer Präsentation in Python über Java ändern
+title: Ändern der Foliengröße in einer Präsentation mit Python über Java
 linktitle: Foliengröße
 type: docs
 weight: 70
@@ -13,13 +13,13 @@ keywords:
 - 16:9
 - Foliengröße festlegen
 - Foliengröße ändern
-- benutzerdefinierte Foliengröße
-- besondere Foliengröße
-- einzigartige Foliengröße
-- Vollformat‑Folien
+- Benutzerdefinierte Foliengröße
+- Besondere Foliengröße
+- Einzigartige Foliengröße
+- Vollformatfolie
 - Bildschirmtyp
 - Nicht skalieren
-- Passend machen
+- Anpassen sicherstellen
 - Maximieren
 - PowerPoint
 - OpenDocument
@@ -27,26 +27,28 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Erfahren Sie, wie Sie Folien in PPT-, PPTX- und ODP-Dateien schnell mit Python über Java und Aspose.Slides skalieren und Präsentationen für jeden Bildschirm optimieren können, ohne Qualitätsverlust."
+description: "Erfahren Sie, wie Sie Folien in PPT-, PPTX- und ODP-Dateien schnell mit Python über Java und Aspose.Slides skalieren und Präsentationen für jeden Bildschirm optimieren, ohne Qualitätsverlust."
 ---
-## **Einführung**
+## **Einleitung**
 
-Aspose.Slides bietet umfassende Werkzeuge zum Anpassen der Foliengröße und des Seitenverhältnisses in PowerPoint‑Präsentationen, was sowohl für den Druck als auch für die Anzeige auf Bildschirmen entscheidend ist.
+Aspose.Slides bietet umfassende Werkzeuge zum Anpassen der Foliengröße und des Seitenverhältnisses in PowerPoint‑Präsentationen, die sowohl für den Druck als auch für die Anzeige auf Bildschirmen entscheidend sind.
 
-Beliebte Foliengrößen und Seitenverhältnisse:
+Beliebte Foliengrößen und -verhältnisse:
 
 - **Standard (Seitenverhältnis 4:3)**: Ideal für ältere Bildschirme und Geräte.
 - **Widescreen (Seitenverhältnis 16:9)**: Empfohlen für moderne Projektoren und Displays.
 
-Stellen Sie die Konsistenz Ihrer gesamten Präsentation sicher, da eine einheitliche Foliengröße und ein einheitliches Seitenverhältnis für alle Folien gelten. Für optimale Ergebnisse legen Sie die Folienabmessungen gleich zu Beginn des Erstellungsprozesses fest, um Komplikationen zu vermeiden.
+Stellen Sie Konsistenz in Ihrer gesamten Präsentation sicher, da eine einheitliche Foliengröße und ein einheitliches Seitenverhältnis für alle Folien gelten. Für optimale Ergebnisse sollten Sie die Folienabmessungen zu Beginn des Erstellungsprozesses Ihrer Präsentation festlegen, um Komplikationen zu vermeiden.
 
 {{% alert color="info" title="Note" %}}
-Standardmäßig verwenden Präsentationen, die mit Aspose.Slides erstellt wurden, das Standard‑Seitenverhältnis 4:3.
+Standardmäßig verwenden mit Aspose.Slides erstellte Präsentationen das Seitenverhältnis 4:3.
 {{% /alert %}}
+
+Notiz‑ und Handzettelseiten haben eigene Abmessungen, die von normalen Folien abweichen. Siehe [Notes Page Size](/slides/de/python-java/notes-size/), um deren Größe und Ausrichtung zu ändern.
 
 ## **Foliengröße in Präsentationen ändern**
 
-Dieser Beispielcode zeigt, wie Sie die Foliengröße in einer Präsentation in Python über Java mit Aspose.Slides ändern:
+Dieses Beispiel zeigt, wie Sie die Foliengröße einer Präsentation in Python über Java mit Aspose.Slides ändern:
 
 ```python
 import jpype
@@ -67,9 +69,9 @@ finally:
 
 ## **Benutzerdefinierte Foliengrößen in Präsentationen festlegen**
 
-Wenn die üblichen Foliengrößen (4:3 und 16:9) für Ihre Arbeit nicht geeignet sind, können Sie eine bestimmte oder einzigartige Foliengröße verwenden. Beispielsweise, wenn Sie Vollformat‑Folien aus Ihrer Präsentation auf einem benutzerdefinierten Seitengestaltungsplan drucken möchten oder wenn Sie Ihre Präsentation auf bestimmten Bildschirmen anzeigen wollen, profitieren Sie wahrscheinlich von einer individuellen Größe für Ihre Präsentation.
+Wenn Ihnen die gängigen Foliengrößen (4:3 und 16:9) für Ihre Arbeit nicht ausreichen, können Sie eine spezifische oder eindeutige Foliengröße verwenden. Beispielsweise profitieren Sie von einer benutzerdefinierten Größeneinstellung, wenn Sie Vollformat‑Folien Ihrer Präsentation auf einem eigenen Seitendesign ausdrucken oder Ihre Präsentation auf bestimmten Bildschirmtypen anzeigen möchten.
 
-Dieser Beispielcode zeigt, wie Sie mit Aspose.Slides für Python über Java eine benutzerdefinierte Foliengröße für eine Präsentation festlegen:
+Dieses Beispiel zeigt, wie Sie Aspose.Slides für Python über Java verwenden, um für eine Präsentation eine benutzerdefinierte Foliengröße festzulegen:
 
 ```python
 import jpype
@@ -90,23 +92,23 @@ finally:
 
 ## **Folieninhalt nach Größenänderung behandeln**
 
-Nachdem Sie die Foliengröße einer Präsentation geändert haben, können die Inhalte der Folien (Bilder oder Objekte usw.) verzerrt werden. Standardmäßig werden die Objekte automatisch so skaliert, dass sie zur neuen Foliengröße passen. Beim Ändern der Foliengröße einer Präsentation können Sie jedoch eine Einstellung festlegen, die bestimmt, wie Aspose.Slides mit den Inhalten auf den Folien umgeht.
+Nachdem Sie die Foliengröße einer Präsentation geändert haben, können die Folieninhalte (Bilder oder Objekte usw.) verzerrt werden. Standardmäßig werden die Objekte automatisch an die neue Foliengröße angepasst. Beim Ändern der Foliengröße einer Präsentation können Sie jedoch eine Einstellung angeben, die bestimmt, wie Aspose.Slides mit den Inhalten auf den Folien umgeht.
 
 Je nach gewünschtem Ergebnis können Sie eine der folgenden Einstellungen verwenden:
 
 - [DoNotScale](https://reference.aspose.com/slides/de/python-java/aspose.slides/slidesizescaletype/#DoNotScale)
-  
+
   Wenn Sie NICHT möchten, dass die Objekte auf den Folien skaliert werden, verwenden Sie diese Einstellung.
 
 - [EnsureFit](https://reference.aspose.com/slides/de/python-java/aspose.slides/slidesizescaletype/#EnsureFit)
-  
-  Wenn Sie zu einer kleineren Foliengröße skalieren und Aspose.Slides die Objekte verkleinern soll, damit sie alle auf die Folien passen (damit Sie keinen Inhalt verlieren), verwenden Sie diese Einstellung.
+
+  Wenn Sie auf eine kleinere Foliengröße skalieren und Aspose.Slides die Folienobjekte verkleinern soll, damit alles auf die Folien passt (so vermeiden Sie Inhaltsverlust), verwenden Sie diese Einstellung.
 
 - [Maximize](https://reference.aspose.com/slides/de/python-java/aspose.slides/slidesizescaletype/#Maximize)
-  
-  Wenn Sie zu einer größeren Foliengröße skalieren und Aspose.Slides die Objekte vergrößern soll, damit sie proportional zur neuen Foliengröße werden, verwenden Sie diese Einstellung.
 
-Dieser Beispielcode zeigt, wie Sie die Einstellung [Maximize](https://reference.aspose.com/slides/de/python-java/aspose.slides/slidesizescaletype/#Maximize) verwenden, wenn Sie die Größe der Folien einer Präsentation ändern:
+  Wenn Sie auf eine größere Foliengröße skalieren und Aspose.Slides die Folienobjekte vergrößern soll, damit sie proportional zur neuen Foliengröße werden, verwenden Sie diese Einstellung.
+
+Dieses Beispiel zeigt, wie Sie die [Maximize](https://reference.aspose.com/slides/de/python-java/aspose.slides/slidesizescaletype/#Maximize)‑Einstellung beim Ändern der Foliengröße einer Präsentation verwenden:
 
 ```python
 import jpype
@@ -132,12 +134,12 @@ Ja. Aspose.Slides verwendet intern Punkte, wobei 1 Punkt 1/72 Zoll entspricht. S
 
 **Beeinflusst eine sehr große benutzerdefinierte Foliengröße die Leistung und den Speicherverbrauch beim Rendern?**
 
-Ja. Größere Folienabmessungen (in Punkten) in Kombination mit einer höheren Render‑Skala führen zu höherem Speicherverbrauch und längeren Verarbeitungszeiten. Streben Sie eine praktikable Foliengröße an und passen Sie die Render‑Skala nur nach Bedarf an, um die gewünschte Ausgabqualität zu erreichen.
+Ja. Größere Folienabmessungen (in Punkten) in Kombination mit einer höheren Render‑Skala führen zu höherem Speicherverbrauch und längeren Verarbeitungszeiten. Ziel ist eine praktikable Foliengröße; passen Sie die Render‑Skala nur bei Bedarf an, um die gewünschte Ausgabequalität zu erreichen.
 
-**Kann ich eine nicht standardmäßige Foliengröße definieren und anschließend Folien aus Präsentationen mit unterschiedlichen Größen zusammenführen?**
+**Kann ich eine nicht standardmäßige Foliengröße festlegen und dann Folien aus Präsentationen mit unterschiedlichen Größen zusammenführen?**
 
-Sie können keine [Präsentationen zusammenführen](/slides/de/python-java/merge-presentation/), wenn diese unterschiedliche Foliengrößen haben – passen Sie zuerst eine Präsentation an die Größe der anderen an. Beim Ändern der Foliengröße können Sie über die Option [SlideSizeScaleType](https://reference.aspose.com/slides/de/python-java/aspose.slides/slidesizescaletype/) festlegen, wie vorhandene Inhalte behandelt werden. Nach der Angleichung der Größen können Sie Folien zusammenführen und dabei die Formatierung beibehalten.
+Sie können keine [merge presentations](/slides/de/python-java/merge-presentation/) durchführen, solange die Präsentationen unterschiedliche Foliengrößen haben — passen Sie zunächst eine Präsentation an die andere an. Beim Ändern der Foliengröße können Sie über die Option [SlideSizeScaleType](https://reference.aspose.com/slides/de/python-java/aspose.slides/slidesizescaletype/) festlegen, wie vorhandene Inhalte behandelt werden. Nach der Angleichung der Größen können Sie Folien zusammenführen und die Formatierung beibehalten.
 
-**Kann ich Thumbnails für einzelne Formen oder bestimmte Bereiche einer Folie erzeugen, und berücksichtigen diese die neue Foliengröße?**
+**Kann ich Thumbnails für einzelne Formen oder bestimmte Bereiche einer Folie erzeugen, und werden diese die neue Foliengröße berücksichtigen?**
 
-Ja. Aspose.Slides kann Thumbnails für [gesamte Folien](https://reference.aspose.com/slides/de/python-java/aspose.slides/slide/#getImage) sowie für [ausgewählte Formen](https://reference.aspose.com/slides/de/python-java/aspose.slides/shape/#getImage) rendern. Die erzeugten Bilder spiegeln die aktuelle Foliengröße und das Seitenverhältnis wider, sodass Bildausschnitt und Geometrie konsistent bleiben.
+Ja. Aspose.Slides kann Thumbnails für [entire slides](https://reference.aspose.com/slides/de/python-java/aspose.slides/slide/#getImage) sowie für [selected shapes](https://reference.aspose.com/slides/de/python-java/aspose.slides/shape/#getImage) rendern. Die resultierenden Bilder spiegeln die aktuelle Foliengröße und das Seitenverhältnis wider, wodurch ein konsistenter Bildausschnitt und korrekte Geometrie gewährleistet sind.

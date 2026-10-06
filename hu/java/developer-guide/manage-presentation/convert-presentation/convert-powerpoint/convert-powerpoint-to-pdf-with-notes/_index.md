@@ -1,6 +1,6 @@
 ---
-title: PowerPoint prezentációk konvertálása PDF-re jegyzetekkel Java-ban
-linktitle: PowerPoint PDF-re jegyzetekkel
+title: PowerPoint prezentációk konvertálása PDF-be jegyzetekkel Java-ban
+linktitle: PowerPoint PDF-be jegyzetekkel
 type: docs
 weight: 50
 url: /hu/java/convert-powerpoint-to-pdf-with-notes/
@@ -10,11 +10,11 @@ keywords:
 - dia konvertálása
 - PPT konvertálása
 - PPTX konvertálása
-- PowerPoint PDF-re
-- prezentáció PDF-re
-- dia PDF-re
-- PPT PDF-re
-- PPTX PDF-re
+- PowerPoint PDF-be
+- prezentáció PDF-be
+- dia PDF-be
+- PPT PDF-be
+- PPTX PDF-be
 - prezentáció mentése PDF-ként
 - PPT mentése PDF-ként
 - PPTX mentése PDF-ként
@@ -24,36 +24,38 @@ keywords:
 - PDF jegyzetekkel
 - Java
 - Aspose.Slides
-description: "Konvertálja a PPT és PPTX formátumokat PDF-re jegyzetekkel az Aspose.Slides for Java segítségével. Tartsa meg az elrendezéseket és az előadói jegyzeteket a professzionális prezentációkhoz."
+description: "PPT és PPTX formátumok konvertálása PDF-be jegyzetekkel az Aspose.Slides for Java használatával. Elrendezések és előadói jegyzetek megőrzése professzionális prezentációkhoz."
 ---
 ## **Áttekintés**
 
-Ebben a cikkben megtanulhatja, hogyan konvertálhatja a PowerPoint‑prezentációkat PDF formátumba előadói jegyzetekkel az Aspose.Slides segítségével. Ez az útmutató bemutatja a szükséges lépéseket, és kódpéldákat biztosít a feladat hatékony megvalósításához. A cikk végére képes lesz:
+Ebben a cikkben megtanulja, hogyan konvertálhatja a PowerPoint‑prezentációkat PDF formátumba előadásjegyzetekkel az Aspose.Slides használatával. Ez az útmutató lefedi a szükséges lépéseket, és kódrészletekkel segíti a feladat hatékony megoldását. A cikk végére képes lesz:
 
-- Megvalósítani a konverziós folyamatot, amely a PowerPoint‑diákot PDF‑dokumentummá alakítja, miközben megőrzi az előadói jegyzeteket.
-- Testreszabni a kimeneti PDF‑et, hogy az előadói jegyzetek bele legyenek foglalva és a kívánt módon legyenek formázva.
+- Implementálni a konverziós folyamatot, amely a PowerPoint‑diaikat PDF‑dokumentummá alakítja át, miközben megőrzi az előadásjegyzeteket.
+- Testreszabni a kimeneti PDF‑et, hogy a jegyzetek a kívánt módon legyenek benne és formázva.
 
-## **PowerPoint átalakítása PDF‑re jegyzetekkel**
+Az exportálás előtti jegyzetoldal méretének és orientációjának beállításához lásd [Megjegyzés oldal mérete](/slides/hu/java/notes-size/).
 
-A `save` metódus a [Presentation](https://reference.aspose.com/slides/hu/java/com.aspose.slides/presentation/) osztályban használható egy PPT vagy PPTX prezentáció PDF‑re konvertálásához előadói jegyzetekkel. Az Aspose.Slides‑szal egyszerűen betölti a prezentációt, a [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/hu/java/com.aspose.slides/notescommentslayoutingoptions/) osztály segítségével konfigurálja az elrendezési beállításokat a jegyzetek belefoglalásához, majd PDF‑ként menti a fájlt. Az alábbi kódrészlet bemutatja, hogyan konvertálhat egy mintaprezentációt PDF‑re a Jegyzetdia nézetben.
+## **PowerPoint konvertálása PDF‑be jegyzetekkel**
+
+A `save` metódus a [Presentation](https://reference.aspose.com/slides/hu/java/com.aspose.slides/presentation/) osztályban használható PPT vagy PPTX prezentáció PDF‑be konvertálására előadásjegyzetekkel. Az Aspose.Slides‑szel egyszerűen betölti a prezentációt, beállítja a felületelrendezési beállításokat a [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/hu/java/com.aspose.slides/notescommentslayoutingoptions/) osztály segítségével a jegyzetek feltüntetéséhez, majd PDF‑ként menti a fájlt. Az alábbi kódrészlet bemutatja, hogyan konvertálhat egy mintaprezentációt PDF‑be Jegyzet Dia nézetben.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 
-// Állítsa be a PDF beállításokat az előadói jegyzetek rendereléséhez.
+// PDF beállítások konfigurálása az előadói jegyzetek rendereléséhez.
 NotesCommentsLayoutingOptions notesOptions = new NotesCommentsLayoutingOptions();
 notesOptions.setNotesPosition(NotesPositions.BottomFull); // Az előadói jegyzeteket a dia alá rendereli.
 
 PdfOptions pdfOptions = new PdfOptions();
 pdfOptions.setSlidesLayoutOptions(notesOptions);
 
-// Mentse a prezentációt PDF-ként előadói jegyzetekkel.
+// Save the presentation to PDF with speaker notes.
 presentation.save("output.pdf", SaveFormat.Pdf, pdfOptions);
 presentation.dispose();
 ```
 
-{{% alert color="primary" %}} 
-
-Érdemes megnézni az Aspose [Online PowerPoint to PDF Converter](https://products.aspose.app/slides/hu/conversion) szolgáltatását. 
-
+{{% alert color="info" title="Note" %}}
+Érdemes megtekinteni az Aspose [Online PowerPoint PDF konvertáló](https://products.aspose.app/slides/hu/conversion) szolgáltatást.
 {{% /alert %}}

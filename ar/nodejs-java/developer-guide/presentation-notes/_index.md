@@ -1,26 +1,38 @@
 ---
-title: ملاحظات العرض التقديمي
+title: إدارة ملاحظات العرض التقديمي في JavaScript
+linktitle: ملاحظات العرض التقديمي
 type: docs
 weight: 110
 url: /ar/nodejs-java/presentation-notes/
-keywords: "ملاحظات المتحدث في PowerPoint باستخدام JavaScript"
-description: "ملاحظات العرض، ملاحظات المتحدث باستخدام JavaScript"
+keywords:
+- ملاحظات
+- شريحة ملاحظات
+- إضافة ملاحظات
+- إزالة ملاحظات
+- نمط الملاحظات
+- ملاحظات رئيسية
+- PowerPoint
+- OpenDocument
+- عرض تقديمي
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "قم بتخصيص ملاحظات العرض التقديمي في JavaScript باستخدام Aspose.Slides لـ Node.js. اعمل بسلاسة مع ملاحظات PowerPoint وOpenDocument لزيادة إنتاجيتك."
 ---
+## **نظرة عامة**
 
-{{% alert color="primary" %}} 
-يدعم Aspose.Slides إزالة شرائح الملاحظات من العرض التقديمي. في هذا الموضوع، سنقدم هذه الميزة الجديدة لإزالة الملاحظات وكذلك إضافة شرائح نمط الملاحظات من أي عرض تقديمي. 
-{{% /alert %}} 
+يدعم Aspose.Slides إزالة شرائح الملاحظات من العرض التقديمي. في هذا الموضوع، سنقدم هذه الميزة، بما في ذلك كيفية إزالة الملاحظات وكيفية تطبيق نمط على شرائح الملاحظات في العرض التقديمي. يتيح Aspose.Slides لك إزالة الملاحظات من أي شريحة وتطبيق تنسيق على الملاحظات الموجودة. يمكن للمطورين إزالة الملاحظات بالطرق التالية:
 
-Aspose.Slides for Node.js via Java يوفر ميزة إزالة ملاحظات أي شريحة بالإضافة إلى إضافة نمط للملاحظات الحالية. يمكن للمطورين إزالة الملاحظات بالطرق التالية:
+- إزالة الملاحظات من شريحة محددة في العرض التقديمي.
+- إزالة الملاحظات من جميع الشرائح في العرض التقديمي.
 
-* إزالة ملاحظات شريحة معينة من عرض تقديمي.
-* إزالة ملاحظات جميع شرائح العرض التقديمي.
+لقراءة أو تغيير أبعاد صفحة الملاحظات، وتبديل الاتجاه، والتحقق من سلوك التصدير، راجع [Notes Page Size](/slides/ar/nodejs-java/notes-size/).
 
+## **إزالة ملاحظات من شريحة**
+يمكن إزالة الملاحظات من شريحة محددة كما هو موضح في المثال أدناه:
 
-## **إزالة الملاحظات من الشريحة**
-يمكن إزالة ملاحظات بعض الشرائح المحددة كما هو موضح في المثال أدناه:
 ```javascript
-// إنشاء كائن Presentation يمثل ملف عرض تقديمي
+// إنشاء كائن Presentation الذي يمثل ملف عرض تقديمي
 var pres = new aspose.slides.Presentation("presWithNotes.pptx");
 try {
     // إزالة ملاحظات الشريحة الأولى
@@ -35,11 +47,14 @@ try {
 }
 ```
 
+## **إزالة ملاحظات من عرض تقديمي**
+يمكن إزالة الملاحظات من جميع الشرائح في عرض تقديمي كما هو موضح في المثال أدناه:
 
-## **إزالة الملاحظات من العرض التقديمي**
-يمكن إزالة ملاحظات جميع شرائح العرض التقديمي كما هو موضح في المثال أدناه:
 ```javascript
-// إنشاء كائن Presentation يمثل ملف عرض تقديمي
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+// إنشاء كائن Presentation الذي يمثل ملف عرض تقديمي
 var pres = new aspose.slides.Presentation("presWithNotes.pptx");
 try {
     // إزالة ملاحظات جميع الشرائح
@@ -57,20 +72,24 @@ try {
 }
 ```
 
+## **إضافة NotesStyle**
+تمت إضافة الطريقة [getNotesStyle](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/MasterNotesSlide#getNotesStyle--) إلى فئة [MasterNotesSlide](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/MasterNotesSlide) وفئة [MasterNotesSlide](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/MasterNotesSlide) على التوالي. تحدد هذه الخاصية نمط نص الملاحظات. يتم توضيح التنفيذ في المثال أدناه.
 
-## **إضافة نمط الملاحظات**
-تم إضافة طريقة [getNotesStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MasterNotesSlide#getNotesStyle--) إلى الفئة [MasterNotesSlide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MasterNotesSlide) وفئة [MasterNotesSlide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MasterNotesSlide) على التوالي. تحدد هذه الخاصية نمط نص الملاحظات. يتم توضيح التنفيذ في المثال أدناه.
 ```javascript
-// إنشاء كائن Presentation يمثل ملف عرض تقديمي
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+// إنشاء كائن Presentation الذي يمثل ملف عرض تقديمي
 var pres = new aspose.slides.Presentation("demo.pptx");
 try {
     var notesMaster = pres.getMasterNotesSlideManager().getMasterNotesSlide();
     if (notesMaster != null) {
         // الحصول على نمط نص MasterNotesSlide
         var notesStyle = notesMaster.getNotesStyle();
-        // تعيين نقطة رمزية للمستوى الأول من الفقرات
+        // تعيين نقطه رمزية للفقرة من المستوى الأول
         var paragraphFormat = notesStyle.getLevel(0);
-        paragraphFormat.getBullet().setType(aspose.slides.BulletType.Symbol);
+        paragraphFormat.getBullet().setType(java.newByte(aspose.slides.BulletType.Symbol));
     }
     pres.save("NotesSlideWithNotesStyle.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
@@ -80,13 +99,12 @@ try {
 }
 ```
 
-
 ## **الأسئلة الشائعة**
 
-**ما الكيان API الذي يوفر الوصول إلى ملاحظات شريحة معينة؟**
+**ما الكيان في API الذي يوفر الوصول إلى ملاحظات شريحة محددة؟**
 
-يتم الوصول إلى الملاحظات من خلال مدير الملاحظات للشرائح: تحتوي الشريحة على [NotesSlideManager](https://reference.aspose.com/slides/nodejs-java/aspose.slides/notesslidemanager/) و[طريقة](https://reference.aspose.com/slides/nodejs-java/aspose.slides/notesslidemanager/getnotesslide/) تُعيد كائن الملاحظات، أو `null` إذا لم تكن هناك ملاحظات.
+يتم الوصول إلى الملاحظات من خلال مدير ملاحظات الشريحة: الشريحة لديها [NotesSlideManager](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/notesslidemanager/) و[طريقة](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/notesslidemanager/getnotesslide/) تُعيد كائن الملاحظات، أو `null` إذا لم تكن هناك ملاحظات.
 
-**هل هناك اختلافات في دعم الملاحظات عبر إصدارات PowerPoint التي يعمل معها المكتبة؟**
+**هل هناك اختلافات في دعم الملاحظات عبر إصدارات PowerPoint التي تعمل معها المكتبة؟**
 
-تستهدف المكتبة مجموعة واسعة من صيغ Microsoft PowerPoint (من 97 إلى الأحدث) وODP؛ يتم دعم الملاحظات ضمن هذه الصيغ دون الاعتماد على نسخة مثبتة من PowerPoint.
+تستهدف المكتبة مجموعة واسعة من تنسيقات Microsoft PowerPoint (97‑الأحدث) وODP؛ يتم دعم الملاحظات داخل هذه التنسيقات دون الاعتماد على نسخة مثبتة من PowerPoint.

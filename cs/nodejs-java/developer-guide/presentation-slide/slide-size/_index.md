@@ -7,7 +7,7 @@ url: /cs/nodejs-java/slide-size/
 keywords:
 - velikost snímku
 - poměr stran
-- standardní
+- standard
 - širokoúhlý
 - 4:3
 - 16:9
@@ -15,7 +15,7 @@ keywords:
 - změnit velikost snímku
 - vlastní velikost snímku
 - speciální velikost snímku
-- unikátní velikost snímku
+- jedinečná velikost snímku
 - snímek v plné velikosti
 - typ obrazovky
 - neškálovat
@@ -27,28 +27,33 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-descriptions: "Naučte se rychle měnit velikost snímků v souborech PPT, PPTX a ODP pomocí Node.js a Aspose.Slides, optimalizujte prezentace pro jakoukoli obrazovku bez ztráty kvality."
+description: "Naučte se rychle měnit velikost snímků v souborech PPT, PPTX a ODP pomocí Node.js a Aspose.Slides, optimalizujte prezentace pro jakoukoli obrazovku bez ztráty kvality."
 ---
 ## **Úvod**
 
-Aspose.Slides poskytuje komplexní nástroje pro úpravu velikosti snímku a poměru stran v PowerPoint prezentacích, což je zásadní jak pro tisk, tak pro zobrazování na obrazovce. 
+Aspose.Slides poskytuje komplexní nástroje pro úpravu velikosti snímku a poměru stran v prezentacích PowerPoint, což je klíčové jak pro tisk, tak pro zobrazení na obrazovce.
 
 Oblíbené velikosti snímků a poměry:
 
-- **Standard (poměr stran 4:3)**: Ideální pro starší obrazovky a zařízení.
+- **Standard (poměr stran 4:3)**: Ideální pro starší monitory a zařízení.
 - **Širokoúhlý (poměr stran 16:9)**: Doporučeno pro moderní projektory a displeje.
 
-Zajistěte konzistenci v celé prezentaci, protože jedna velikost snímku a poměr stran se vztahují na všechny snímky. Pro optimální výsledek nastavte rozměry snímku na začátku procesu tvorby prezentace, aby nedošlo ke komplikacím.
+Zajistěte konzistenci v celé prezentaci, protože jediná velikost snímku a poměr stran se vztahují ke všem snímkům. Pro optimální výsledek nastavte rozměry snímku na začátku tvorby prezentace, abyste se vyhnuli komplikacím.
 
-{{% alert color="primary" %}} 
+{{% alert color="info" title="Note" %}}
 Ve výchozím nastavení používají prezentace vytvořené pomocí Aspose.Slides standardní poměr stran 4:3.
 {{% /alert %}}
 
+Poznámky a stránky s výstřižky mají jiné rozměry než běžné snímky. Viz [Velikost stránky poznámek](/slides/cs/nodejs-java/notes-size/) pro změnu jejich velikosti a orientace.
+
 ## **Změna velikosti snímku v prezentacích**
 
-Tento ukázkový kód vám ukáže, jak změnit velikost snímku v prezentaci v JavaScriptu pomocí Aspose.Slides:
+ Tento ukázkový kód ukazuje, jak změnit velikost snímku v prezentaci v JavaScriptu pomocí Aspose.Slides:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation("pres-4x3-aspect-ratio.pptx");
 try {
     pres.getSlideSize().setSize(aspose.slides.SlideSizeType.OnScreen16x9, aspose.slides.SlideSizeScaleType.DoNotScale);
@@ -62,14 +67,17 @@ try {
 
 ## **Určení vlastních velikostí snímků v prezentacích**
 
-Pokud vám běžné velikosti snímků (4:3 a 16:9) nevyhovují, můžete se rozhodnout použít specifickou nebo unikátní velikost snímku. Například, pokud plánujete tisknout snímky v plné velikosti z prezentace na vlastní rozložení stránky nebo pokud chcete prezentaci zobrazovat na určitých typech obrazovek, pravděpodobně získáte výhodu používáním vlastního nastavení velikosti pro vaši prezentaci. 
+Pokud vám běžné velikosti snímků (4:3 a 16:9) nevyhovují, můžete zvolit konkrétní nebo jedinečnou velikost snímku. Například pokud plánujete tisknout snímky v plné velikosti na vlastní rozložení stránky nebo chcete prezentaci zobrazovat na určitých typech obrazovek, pravděpodobně získáte výhody z nastavení vlastní velikosti pro vaši prezentaci.
 
-Tento ukázkový kód vám ukáže, jak pomocí Aspose.Slides pro Node.js přes Java specifikovat vlastní velikost snímku pro prezentaci v JavaScriptu:
+Tento ukázkový kód ukazuje, jak pomocí Aspose.Slides pro Node.js přes Java specifikovat vlastní velikost snímku pro prezentaci v JavaScriptu:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation("pres.pptx");
 try {
-    pres.getSlideSize().setSize(780, 540, aspose.slides.SlideSizeScaleType.DoNotScale);// velikost papíru A4
+    pres.getSlideSize().setSize(780, 540, aspose.slides.SlideSizeScaleType.DoNotScale);// formát papíru A4
     pres.save("pres-a4-slide-size.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     if (pres != null) {
@@ -80,25 +88,28 @@ try {
 
 ## **Řešení problémů při změně velikosti snímků v prezentacích**
 
-Po změně velikosti snímku v prezentaci se může obsah snímků (například obrázky nebo objekty) deformovat. Ve výchozím nastavení jsou objekty automaticky změněny velikostně tak, aby odpovídaly nové velikosti snímku. Nicméně při změně velikosti snímku můžete určit nastavení, které určuje, jak Aspose.Slides zachází s obsahem na snímcích.
+Po změně velikosti snímku v prezentaci se může obsah snímků (obrázky nebo objekty) deformovat. Ve výchozím nastavení se objekty automaticky přizpůsobí nové velikosti snímku. Při změně velikosti snímku však můžete určit nastavení, které určuje, jak Aspose.Slides zachází s obsahem na snímcích.
 
-V závislosti na tom, co chcete udělat nebo dosáhnout, můžete použít kterékoliv z těchto nastavení:
+Podle toho, co chcete dosáhnout, můžete použít některé z těchto nastavení:
 
 - `DoNotScale`
 
-  Pokud NECHCETE, aby objekty na snímcích byly změněny velikostně, použijte toto nastavení.
+  Pokud **NE** chcete, aby se objekty na snímcích měnily, použijte toto nastavení.
 
 - `EnsureFit`
 
-  Pokud chcete škálovat na menší velikost snímku a potřebujete, aby Aspose.Slides zmenšilo objekty na snímcích tak, aby se všechny vešly na snímky (tím zabráníte ztrátě obsahu), použijte toto nastavení.
+  Pokud chcete přizpůsobit menší velikost snímku a potřebujete, aby Aspose.Slides zmenšil objekty tak, aby se všechny vešly na snímek (tím se vyhnete ztrátě obsahu), použijte toto nastavení.
 
 - `Maximize`
 
-  Pokud chcete škálovat na větší velikost snímku a potřebujete, aby Aspose.Slides zvětšilo objekty na snímcích tak, aby byly úměrné nové velikosti snímku, použijte toto nastavení.
+  Pokud chcete přizpůsobit větší velikost snímku a potřebujete, aby Aspose.Slides zvětšil objekty tak, aby byly úměrné nové velikosti snímku, použijte toto nastavení.
 
-Tento ukázkový kód vám ukáže, jak použít nastavení `Maximize` při změně velikosti snímku v prezentaci:
+Tento ukázkový kód ukazuje, jak použít nastavení `Maximize` při změně velikosti snímku v prezentaci:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation("pres.pptx");
 try {
     pres.getSlideSize().setSize(aspose.slides.SlideSizeType.Ledger, aspose.slides.SlideSizeScaleType.Maximize);
@@ -109,20 +120,20 @@ try {
 }
 ```
 
-## **Často kladené dotazy**
+## **Často kladené otázky**
 
 **Mohu nastavit vlastní velikost snímku pomocí jednotek jiných než palce (například body nebo milimetry)?**
 
-Ano. Aspose.Slides interně používá body, kde 1 bod je roven 1/72 palce. Jakoukoliv jednotku (například milimetry nebo centimetry) můžete převést na body a použít převedené hodnoty k definování šířky a výšky snímku.
+Ano. Aspose.Slides interně používá body, kde 1 bod odpovídá 1/72 palce. Jakoukoli jednotku (například milimetry nebo centimetry) můžete převést na body a použít převedené hodnoty k definování šířky a výšky snímku.
 
-**Ovplyvní velmi velká vlastní velikost snímku výkon a využití paměti během vykreslování?**
+**Ovlivní velmi velká vlastní velikost snímku výkon a spotřebu paměti během vykreslování?**
 
-Ano. Větší rozměry snímku (v bodech) v kombinaci s vyšším měřítkem vykreslování vedou k vyšší spotřebě paměti a delším dobám zpracování. Snažte se o praktickou velikost snímku a měřítko vykreslování upravujte jen podle potřeby, aby byl dosažen požadovaný výstupní kvalita.
+Ano. Větší rozměry snímku (v bodech) v kombinaci s vyšším měřítkem vykreslování zvyšují spotřebu paměti a prodlužují dobu zpracování. Zvolte praktickou velikost snímku a upravujte měřítko vykreslování jen podle potřeby, aby byl dosažen požadovaný výstupní kvalita.
 
-**Mohu definovat jednu nestandardní velikost snímku a poté sloučit snímky z prezentací, které mají různé velikosti?**
+**Mohu definovat jednu nestandardní velikost snímku a pak sloučit snímky z prezentací, které mají různé velikosti?**
 
-Nemůžete [sloučit prezentace](/slides/cs/nodejs-java/merge-presentation/) pokud mají různé velikosti snímků — nejprve změňte velikost jedné prezentace, aby odpovídala druhé. Při změně velikosti snímku můžete zvolit, jak bude zacházeno s existujícím obsahem, pomocí možnosti [SlideSizeScaleType](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/slidesizescaletype/). Po zarovnání velikostí můžete sloučit snímky se zachováním formátování.
+Nemůžete [sloučit prezentace](/slides/cs/nodejs-java/merge-presentation/) pokud mají různé velikosti snímků — nejprve změňte velikost jedné prezentace tak, aby odpovídala druhé. Při změně velikosti snímku můžete zvolit, jak bude zacházeno s existujícím obsahem pomocí možnosti [SlideSizeScaleType](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/slidesizescaletype/). Po vyrovnání velikostí můžete sloučit snímky při zachování formátování.
 
-**Mohu generovat náhledy pro jednotlivé tvary nebo konkrétní oblasti snímku, a budou respektovat novou velikost snímku?**
+**Mohu generovat miniatury pro jednotlivé tvary nebo konkrétní oblasti snímku a budou respektovat novou velikost snímku?**
 
-Ano. Aspose.Slides může vykreslovat náhledy pro [celé snímky](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/slide/#getImage) i pro [vybrané tvary](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/shape/#getImage). Výsledné obrázky odrážejí aktuální velikost a poměr stran snímku, což zajišťuje konzistentní rámování a geometrii.
+Ano. Aspose.Slides dokáže vytvářet miniatury pro [celé snímky](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/slide/#getImage) i pro [vybrané tvary](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/shape/#getImage). Výsledné obrázky odrážejí aktuální velikost a poměr stran snímku, což zajišťuje konzistentní rámování a geometrii.

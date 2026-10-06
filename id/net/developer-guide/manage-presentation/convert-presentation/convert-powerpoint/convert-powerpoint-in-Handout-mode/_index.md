@@ -1,5 +1,5 @@
 ---
-title: Mengonversi Presentasi PowerPoint dalam Mode Handout di .NET
+title: Konversi Presentasi PowerPoint dalam Mode Handout di .NET
 linktitle: Mode Handout
 type: docs
 weight: 150
@@ -16,25 +16,30 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Konversi presentasi menjadi handout di .NET. Atur slide per halaman, pertahankan catatan, ekspor ke PDF atau gambar dengan Aspose.Slides, dengan contoh kode C#. Coba secara gratis."
+description: "Konversi presentasi menjadi handout di .NET. Atur jumlah slide per halaman, pertahankan catatan, ekspor ke PDF atau gambar dengan Aspose.Slides, beserta contoh kode C#. Coba gratis."
 ---
 ## **Pendahuluan**
 
 Aspose.Slides memungkinkan Anda mengonversi presentasi ke format output yang mendukung mode Handout. Dalam mode ini, beberapa slide diatur pada satu halaman, yang berguna untuk mencetak materi presentasi untuk konferensi, seminar, dan acara serupa.
 
-Mode Handout dikonfigurasi melalui properti `SlidesLayoutOptions`, yang tersedia di [IPdfOptions](https://reference.aspose.com/slides/id/net/aspose.slides.export/ipdfoptions/), [IRenderingOptions](https://reference.aspose.com/slides/id/net/aspose.slides.export/irenderingoptions/), [IHtmlOptions](https://reference.aspose.com/slides/id/net/aspose.slides.export/ihtmloptions/), dan [ITiffOptions](https://reference.aspose.com/slides/id/net/aspose.slides.export/itiffoptions/). Untuk menentukan tata letak handout, gunakan objek [HandoutLayoutingOptions](https://reference.aspose.com/slides/id/net/aspose.slides.export/handoutlayoutingoptions/) .
+Mode Handout dikonfigurasi melalui properti `SlidesLayoutOptions`, yang tersedia di [IPdfOptions](https://reference.aspose.com/slides/id/net/aspose.slides.export/ipdfoptions/), [IRenderingOptions](https://reference.aspose.com/slides/id/net/aspose.slides.export/irenderingoptions/), [IHtmlOptions](https://reference.aspose.com/slides/id/net/aspose.slides.export/ihtmloptions/), dan [ITiffOptions](https://reference.aspose.com/slides/id/net/aspose.slides.export/itiffoptions/). Untuk menentukan tata letak handout, gunakan objek [HandoutLayoutingOptions](https://reference.aspose.com/slides/id/net/aspose.slides.export/handoutlayoutingoptions/).
+
+Untuk mengatur dimensi dan orientasi halaman handout sebelum ekspor, lihat [Notes Page Size](/slides/id/net/notes-size/).
 
 ## **Ekspor Mode Handout**
 
-Untuk mengekspor presentasi dalam mode Handout, atur properti `SlidesLayoutOptions` pada opsi ekspor target dan berikan instance [HandoutLayoutingOptions](https://reference.aspose.com/slides/id/net/aspose.slides.export/handoutlayoutingoptions/) yang menentukan jumlah slide per halaman serta parameter tampilan terkait.
+Untuk mengekspor presentasi dalam mode Handout, atur properti `SlidesLayoutOptions` pada opsi ekspor target dan beri instance [HandoutLayoutingOptions](https://reference.aspose.com/slides/id/net/aspose.slides.export/handoutlayoutingoptions/) yang mendefinisikan jumlah slide per halaman serta parameter tampilan terkait.
 
-Berikut adalah contoh kode yang menunjukkan cara mengonversi presentasi ke PDF dalam mode Handout.
+Berikut contoh kode yang menunjukkan cara mengonversi presentasi ke PDF dalam mode Handout.
 
 ```c#
-// Muat presentasi.
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+// Muat sebuah presentasi.
 using var presentation = new Presentation("sample.pptx");
 
-// Atur opsi ekspor.
+// Set the export options.
 var pdfOptions = new PdfOptions
 {
     SlidesLayoutOptions = new HandoutLayoutingOptions
@@ -42,11 +47,11 @@ var pdfOptions = new PdfOptions
         Handout = HandoutType.Handouts4Horizontal,  // 4 slide pada satu halaman secara horizontal
         PrintSlideNumbers = true,                   // cetak nomor slide
         PrintFrameSlide = true,                     // cetak bingkai di sekitar slide
-        PrintComments = false                       // tanpa komentar
+        PrintComments = false                       // tidak ada komentar
     }
 };
 
-// Ekspor presentasi ke PDF dengan tata letak yang dipilih.
+// Export the presentation to PDF with the chosen layout.
 presentation.Save("output.pdf", SaveFormat.Pdf, pdfOptions);
 ```
 
@@ -56,14 +61,14 @@ Perlu diingat bahwa properti `SlidesLayoutOptions` hanya tersedia untuk format o
 
 ## **FAQ**
 
-**Berapa jumlah maksimum thumbnail slide per halaman dalam mode Handout?**
+### Apa jumlah maksimum thumbnail slide per halaman dalam mode Handout?
 
 Aspose.Slides mendukung [presets](https://reference.aspose.com/slides/id/net/aspose.slides.export/handouttype/) hingga 9 thumbnail per halaman dengan urutan horizontal atau vertikal: 1, 2, 3, 4 (horizontal/vertikal), 6 (horizontal/vertikal), dan 9 (horizontal/vertikal).
 
-**Apakah saya dapat menentukan kisi khusus, seperti 5 atau 8 slide per halaman?**
+### Dapatkah saya mendefinisikan grid khusus, seperti 5 atau 8 slide per halaman?
 
 Tidak. Jumlah dan urutan thumbnail dikontrol secara ketat oleh enumerasi [HandoutType](https://reference.aspose.com/slides/id/net/aspose.slides.export/handouttype/); tata letak arbitrer tidak didukung.
 
-**Apakah saya dapat menyertakan slide tersembunyi dalam output Handout?**
+### Dapatkah saya menyertakan slide tersembunyi dalam output Handout?
 
 Ya. Aktifkan opsi `ShowHiddenSlides` dalam pengaturan ekspor untuk format target, seperti [PdfOptions](https://reference.aspose.com/slides/id/net/aspose.slides.export/pdfoptions/), [HtmlOptions](https://reference.aspose.com/slides/id/net/aspose.slides.export/htmloptions/), atau [TiffOptions](https://reference.aspose.com/slides/id/net/aspose.slides.export/tiffoptions/).
