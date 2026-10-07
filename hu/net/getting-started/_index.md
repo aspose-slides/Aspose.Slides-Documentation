@@ -1,10 +1,10 @@
 ---
-title: Elindulás
+title: Kezdő lépések
 type: docs
 weight: 10
 url: /hu/net/getting-started/
 keywords:
-- elindulás
+- kezdés
 - rendszerkövetelmények
 - telepítés
 - első prezentáció
@@ -18,58 +18,58 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Az út egy új .NET projektből az első, Aspose.Slides‑el elmentett prezentációig: ellenőrizd a követelményeket, telepítsd a csomagot, futtasd az első programot, és folytasd a gyakori feladatokkal."
+description: "Az út egy új .NET projektből az első mentett prezentációig az Aspose.Slides segítségével: ellenőrizze a követelményeket, telepítse a csomagot, futtassa az első programot, és folytassa a gyakori feladatokkal."
 ---
 ## **Áttekintés**
 
-Végig kell járni az alábbi négy lépést sorrendben. Minden lépés megnevezi, mit kell tenni, és linket biztosít a részletekkel. Az értékelésről, licencelésről és támogatásról a lépések után olvashatsz.
+Végig kell járnia az alábbi négy lépést sorrendben. Minden lépés megnevezi, mit kell tenni, és a részleteket tartalmazó cikkre mutat. Az értékelés, licencelés és támogatás a lépések után következik.
 
-## **1. lépés: A rendszerkövetelmények ellenőrzése**
+## **1. lépés: Rendszerkövetelmények ellenőrzése**
 
-Aspose.Slides for .NET Windows, Linux és macOS rendszereken fut. [Rendszerkövetelmények](/slides/hu/net/system-requirements/) felsorolja az operációs rendszereket és a .NET verziókat, amelyeket az egyes csomagok támogatnak, valamint a Linux számára szükséges további könyvtárakat.
+Az [Aspose.Slides for .NET](https://products.aspose.com/slides/net/) Windows, Linux és macOS rendszereken fut. A [Rendszerkövetelmények](/slides/hu/net/system-requirements/) felsorolja az operációs rendszereket és .NET verziókat, amelyeket az egyes csomagok támogatnak, valamint a Linuxhoz szükséges további könyvtárakat.
 
-## **2. lépés: A csomag telepítése**
+## **2. lépés: Csomag telepítése**
 
-Aspose.Slides for .NET két NuGet csomagként érhető el, amelyek ugyanazokat a osztályokat biztosítják. Add hozzá valamelyik csomagot a projektedhez:
+Az Aspose.Slides for .NET a NuGet-en keresztül érhető el két csomagként, amelyek ugyanazokat az osztályokat tartalmazzák. Adjon hozzá egyet a projektjéhez:
 
 - Windows rendszeren: `dotnet add package Aspose.Slides.NET`
-- Linux és macOS rendszeren: `dotnet add package Aspose.Slides.NET6.CrossPlatform`. Linuxon előbb telepíteni kell a `fontconfig` könyvtárat.
-- Alpine Linuxon, valamint olyan Linux rendszereken, ahol a glibc régebbi, mint 2.23 (x64) vagy 2.39 (ARM64): Aspose.Slides.NET, a `libgdiplus` könyvtárral együtt.
+- Linux és macOS rendszeren: `dotnet add package Aspose.Slides.NET6.CrossPlatform`. Linuxon először telepítse a `fontconfig` könyvtárat.
+- Alpine Linuxon, valamint olyan Linux rendszereken, ahol a glibc régebbi, mint 2.23 (x64) vagy 2.39 (ARM64): Aspose.Slides.NET, a `libgdiplus` könyvtár telepítésével.
 
-[Telepítés](/slides/hu/net/installation/) tartalmazza a Linux parancsokat, a további indítási beállítást, amelyre az Aspose.Slides.NET Linuxon szükség van, és a Visual Studio lépéseit.
+[Telepítés](/slides/hu/net/installation/) leírja a Linux parancsokat, az extra indítási beállítást, amelyre az Aspose.Slides.NET-nek Linuxon szüksége van, és a Visual Studio lépéseit.
 
-## **3. lépés: Az első prezentáció létrehozása**
+## **3. lépés: Hozza létre az első prezentációját**
 
-A [gyors kezdő útmutató az Aspose.Slides for .NET kezdőoldalán](/slides/hu/net/#your-first-presentation) egy teljes konzolos program: szövegdobozt ad egy diára, majd PPTX fájlként menti a prezentációt. A [Prezentációk létrehozása](/slides/hu/net/create-presentation/) részletesebben magyarázza ugyanazokat a lépéseket, és bemutatja, hogyan nyiss meg egy meglévő prezentációt, valamint hogyan mentsd el más formátumban.
+A [gyors kezdés az Aspose.Slides for .NET kezdőlapon](/slides/hu/net/#your-first-presentation) egy teljes konzolos program: szövegdobozt ad egy diára, és PPTX fájlként menti a prezentációt. A [Prezentációk létrehozása](/slides/hu/net/create-presentation/) részletesebben ismerteti a lépéseket, és bemutatja, hogyan nyisson meg egy meglévő prezentációt, és mentse más formátumba.
 
-## **4. lépés: További gyakori feladatok**
+## **4. lépés: Folytassa a gyakori feladatokkal**
 
 - [Prezentáció megnyitása](/slides/hu/net/open-presentation/)
 - [Prezentáció mentése](/slides/hu/net/save-presentation/)
 - [Prezentáció PDF-be konvertálása](/slides/hu/net/convert-powerpoint-to-pdf/)
-- [Diák képként történő renderelése](/slides/hu/net/convert-slide/)
+- [Diák képként renderelése](/slides/hu/net/convert-slide/)
 - [Prezentáció szövegének szerkesztése](/slides/hu/net/manage-text/)
-- [Példák diák elemei szerint](/slides/hu/net/examples/)
+- [Példák diakelemekre](/slides/hu/net/examples/)
 
-## **Értékelés és licenc**
+## **Értékelés és licencelés**
 
-Licenc nélkül az Aspose.Slides értékelési módban fut: minden mentett diára vízjelet tesz, és a prezentációkból beolvasott szöveget csonkolja.
+Licenc nélkül az Aspose.Slides értékelő módban fut: minden mentett diára vízjelet helyez, és a prezentációkból beolvasott szöveget csonkolja.
 
-- [Az Aspose.Slides kiértékelése](/slides/hu/net/evaluate-aspose-slides/) leírja az értékelési korlátozásokat és a ideiglenes licenc kérésének módját.
-- [Licencelés](/slides/hu/net/licensing/) bemutatja, hogyan alkalmazz licencet fájlból, stream-ből vagy beágyazott erőforrásból.
-- [Mérő licenc](/slides/hu/net/metered-licensing/) a felhasználás alapú licencelést tárgyalja.
-- [Támogatott fájlformátumok](/slides/hu/net/supported-file-formats/) felsorolja az Aspose.Slides által betölthető és menthető formátumokat.
+- [Az Aspose.Slides értékelése](/slides/hu/net/evaluate-aspose-slides/) leírja az értékelési korlátozásokat és azt, hogyan kérhet ideiglenes licencet.
+- [Licencelés](/slides/hu/net/licensing/) bemutatja, hogyan alkalmazzon licencet fájlból, adatfolyamból vagy beágyazott erőforrásból.
+- [Mérték alapú licencelés](/slides/hu/net/metered-licensing/) a használat alapján számlázott licencelést tárgyalja.
+- [Támogatott fájlformátumok](/slides/hu/net/supported-file-formats/) felsorolja azokat a formátumokat, amelyeket az Aspose.Slides be tud tölteni és menteni.
 
-## **Segítség kérés**
+## **Segítség kérése**
 
-[Terméktámogatás](/slides/hu/net/product-support/) elmagyarázza, hogyan tegyél fel kérdést az [ingyenes támogatási fórumban](https://forum.aspose.com/c/slides/11), és mit kell mellékelned, ha problémát jelentesz be.
+[Terméktámogatás](/slides/hu/net/product-support/) leírja, hogyan tehet fel kérdést az [ingyenes támogatási fórumon](https://forum.aspose.com/c/slides/11) és mit kell a jelentésben szerepeltetni.
 
 ## **GYIK**
 
-**Szükségem van a Microsoft PowerPoint telepítésére?**
+**Szükség van Microsoft PowerPoint telepítésére?**
 
-Nem. Az Aspose.Slides saját maga olvassa és írja a prezentációs fájlokat, nem használ PowerPointot, így szervereken és Linuxon is futtatható.
+Nem. Az Aspose.Slides saját maga olvassa és írja a prezentációs fájlokat, nem használ PowerPointot, így szervereken és Linuxon is fut.
 
-**Melyik csomagot kellene használnom egy .NET Framework alkalmazáshoz?**
+**Melyik csomagot használjam .NET Framework alkalmazáshoz?**
 
-Aspose.Slides.NET. Tartalmaz build-eket a .NET Framework 4.6.2 és újabb, a .NET 6 és újabb, valamint a .NET Standard 2.0 számára. Az Aspose.Slides.NET6.CrossPlatform .NET 6 vagy újabb verziót igényel.
+Aspose.Slides.NET. Tartalmaz összeállításokat a .NET Framework 4.6.2-től felfelé, a .NET 6-tól felfelé és a .NET Standard 2.0-hoz. Az Aspose.Slides.NET6.CrossPlatform .NET 6 vagy újabb verziót igényel.

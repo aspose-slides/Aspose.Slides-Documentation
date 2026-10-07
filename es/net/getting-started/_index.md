@@ -18,31 +18,31 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "El camino desde un proyecto .NET nuevo hasta la primera presentación guardada con Aspose.Slides: verifica los requisitos, instala el paquete, ejecuta un primer programa y continúa con tareas comunes."
+description: "El camino desde un proyecto .NET nuevo hasta una primera presentación guardada con Aspose.Slides: compruebe los requisitos, instale el paquete, ejecute un primer programa y continúe con tareas comunes."
 ---
-## **Resumen**
+## **Visión general**
 
-Siga los cuatro pasos a continuación en orden. Cada paso indica qué hacer y enlaza al artículo con los detalles. La evaluación, la licencia y el soporte se tratan después de los pasos.
+Siga los cuatro pasos a continuación en orden. Cada paso indica qué hacer y enlaza el artículo con los detalles. La evaluación, la licencia y el soporte se tratan después de los pasos.
 
-## **Paso 1: Verificar los requisitos del sistema**
+## **Paso 1: Compruebe los requisitos del sistema**
 
-Aspose.Slides for .NET funciona en Windows, Linux y macOS. [Requisitos del sistema](/slides/es/net/system-requirements/) enumera los sistemas operativos y versiones de .NET que admite cada paquete, y las bibliotecas que Linux necesita adicionalmente.
+[Aspose.Slides for .NET](https://products.aspose.com/slides/net/) se ejecuta en Windows, Linux y macOS. [System Requirements](/slides/es/net/system-requirements/) enumera los sistemas operativos y versiones de .NET que admite cada paquete, y las bibliotecas que Linux necesita adicionalmente.
 
-## **Paso 2: Instalar el paquete**
+## **Paso 2: Instale el paquete**
 
 Aspose.Slides for .NET se distribuye a través de NuGet como dos paquetes que proporcionan las mismas clases. Añada uno de ellos a su proyecto:
 
 - En Windows: `dotnet add package Aspose.Slides.NET`
 - En Linux y macOS: `dotnet add package Aspose.Slides.NET6.CrossPlatform`. En Linux, instale primero la biblioteca `fontconfig`.
-- En Alpine Linux, y en sistemas Linux cuya glibc sea anterior a 2.23 (x64) o 2.39 (ARM64): Aspose.Slides.NET, con la biblioteca `libgdiplus` instalada.
+- En Alpine Linux, y en sistemas Linux cuya glibc sea anterior a la 2.23 (x64) o a la 2.39 (ARM64): Aspose.Slides.NET, con la biblioteca `libgdiplus` instalada.
 
-[Instalación](/slides/es/net/installation/) proporciona los comandos de Linux, la configuración de inicio adicional que Aspose.Slides.NET necesita en Linux, y los pasos para Visual Studio.
+[Installation](/slides/es/net/installation/) proporciona los comandos de Linux, la configuración de inicio adicional que Aspose.Slides.NET necesita en Linux y los pasos para Visual Studio.
 
-## **Paso 3: Crear su primera presentación**
+## **Paso 3: Cree su primera presentación**
 
-El [inicio rápido en la página principal de Aspose.Slides for .NET](/slides/es/net/#your-first-presentation) es un programa de consola completo: añade un cuadro de texto a una diapositiva y guarda la presentación como un archivo PPTX. [Crear presentaciones](/slides/es/net/create-presentation/) explica los mismos pasos con más detalle y muestra cómo abrir una presentación existente y guardarla en otro formato.
+El [inicio rápido en la página principal de Aspose.Slides para .NET](/slides/es/net/#your-first-presentation) es un programa de consola completo: agrega un cuadro de texto a una diapositiva y guarda la presentación como un archivo PPTX. [Crear presentaciones](/slides/es/net/create-presentation/) explica los mismos pasos con más detalle y muestra cómo abrir una presentación existente y guardarla en otro formato.
 
-## **Paso 4: Continuar con tareas comunes**
+## **Paso 4: Continúe con tareas comunes**
 
 - [Abrir una presentación](/slides/es/net/open-presentation/)
 - [Guardar una presentación](/slides/es/net/save-presentation/)
@@ -53,22 +53,22 @@ El [inicio rápido en la página principal de Aspose.Slides for .NET](/slides/es
 
 ## **Evaluar y licenciar**
 
-Sin una licencia, Aspose.Slides se ejecuta en modo de evaluación: añade una marca de agua a cada diapositiva que guarda y trunca el texto leído de las presentaciones.
+Sin una licencia, Aspose.Slides se ejecuta en modo de evaluación: agrega una marca de agua a cada diapositiva que guarda y trunca el texto leído de las presentaciones.
 
 - [Evaluar Aspose.Slides](/slides/es/net/evaluate-aspose-slides/) describe las limitaciones de la evaluación y cómo solicitar una licencia temporal.
-- [Licenciamiento](/slides/es/net/licensing/) muestra cómo aplicar una licencia desde un archivo, un flujo o un recurso incrustado.
-- [Licenciamiento por consumo](/slides/es/net/metered-licensing/) cubre la licencia facturada por uso.
+- [Licencias](/slides/es/net/licensing/) muestra cómo aplicar una licencia desde un archivo, un flujo o un recurso incrustado.
+- [Licenciamiento por consumo](/slides/es/net/metered-licensing/) cubre la licencia que se factura según el uso.
 - [Formatos de archivo compatibles](/slides/es/net/supported-file-formats/) enumera los formatos que Aspose.Slides puede cargar y guardar.
 
 ## **Obtener ayuda**
 
-[Soporte del producto](/slides/es/net/product-support/) explica cómo hacer una pregunta en el [foro de soporte gratuito](https://forum.aspose.com/c/slides/11) y qué incluir al informar de un problema.
+[Product Support](/slides/es/net/product-support/) explica cómo hacer una pregunta en el [foro de soporte gratuito](https://forum.aspose.com/c/slides/11) y qué incluir al informar de un problema.
 
 ## **Preguntas frecuentes**
 
 **¿Necesito tener Microsoft PowerPoint instalado?**
 
-No. Aspose.Slides lee y escribe los archivos de presentación por sí mismo y no utiliza PowerPoint, por lo que también se ejecuta en servidores y en Linux.
+No. Aspose.Slides lee y escribe archivos de presentación por sí mismo y no utiliza PowerPoint, por lo que también se ejecuta en servidores y en Linux.
 
 **¿Qué paquete debo usar para una aplicación .NET Framework?**
 

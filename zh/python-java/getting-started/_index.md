@@ -1,17 +1,52 @@
 ---
-title: 开始使用
+title: 入门指南
 type: docs
-description: "使用此引导来了解 Aspose.Slides for Python via Java 的基本知识，以开始实现 Aspose.Slides 对您业务的价值。"
 weight: 10
 url: /zh/python-java/getting-started/
+keywords:
+- 入门
+- 安装
+- 系统要求
+- 授权
+- PowerPoint
+- 演示文稿
+- Python
+- Java
+- Aspose.Slides
+description: "使用 Aspose.Slides for Python via Java 入门：查看需求，安装库，探索支持的格式和功能，并应用许可证。"
 ---
+## **概述**
 
-此 **开始使用** 页面向您介绍 Aspose.Slides 的基本知识。如果您第一次使用 Aspose.Slides，可以从此页面快速查看产品的基本要求及其功能。
+本节帮助您准备环境并开始使用 [Aspose.Slides for Python via Java](https://products.aspose.com/slides/python-java/)。请按照以下设置步骤操作，然后探索库的功能以及与您项目相关的指南。
 
-- [**产品概述**](/slides/zh/python-java/product-overview/) – 提供有关 Aspose.Slides for Python via Java 库的一般信息
-- [**支持的文件格式**](/slides/zh/python-java/supported-file-formats/) – 提供有关支持格式的信息
-- [**功能概述**](/slides/zh/python-java/features-overview/) – 提供有关在以给定格式加载或保存文档时支持的功能的信息
-- [**系统要求**](/slides/zh/python-java/system-requirements/) – 提供有关系统和开发环境要求的信息
-- [**限制和 API 差异**](/slides/zh/python-java/limitations-and-api-differences/) – 提供有关产品限制和 API 差异的信息
-- [**许可和订阅**](/slides/zh/python-java/licensing) – 提供有关申请许可证和使用多个 Aspose 产品的信息
-- [**安装**](/slides/zh/python-java/installation/) – 提供有关安装 Aspose.Slides 的信息。
+## **设置库**
+
+1. 查看[系统要求](/slides/zh/python-java/system-requirements/)以检查操作系统、Python、Java 和 JPype 的要求。
+2. 遵循[安装](/slides/zh/python-java/installation/)指南，安装所需的包并使用示例验证设置。
+3. 阅读[评估 Aspose.Slides](/slides/zh/python-java/evaluate-aspose-slides/)，了解评估限制和临时许可证选项。
+4. 遵循[授权](/slides/zh/python-java/licensing/)指南以应用您的许可证。
+
+## **探索功能与兼容性**
+
+- [产品概述](/slides/zh/python-java/product-overview/) 介绍了库及其演示文稿处理功能。
+- [支持的文件格式](/slides/zh/python-java/supported-file-formats/) 列出了可用于加载、导入、保存和导出演示文稿的格式。
+- [功能概述](/slides/zh/python-java/features-overview/) 总结了转换、渲染、编辑和格式化功能。
+- [限制和 API 差异](/slides/zh/python-java/limitations-and-api-differences/) 解释了在从 Python 使用 Java API 时需要考虑的限制和差异。
+
+## **获取帮助**
+
+请参阅[产品支持](/slides/zh/python-java/product-support/)以获取故障排除指南、问题报告说明以及其他资源的链接。
+
+## **常见问题**
+
+**如果我从未使用过 Aspose.Slides for Python via Java，我应该从哪里开始？**
+
+请从上述链接的系统要求和安装指南开始。安装指南包含一个示例，您可以运行它来验证您的环境。
+
+**我如何检查库是否支持我的演示文稿格式？**
+
+使用支持的文件格式检查输入和输出格式，然后查阅功能概述了解可用于您任务的操作。
+
+**在将 Java 示例改写为 Python 之前，我应该阅读什么？**
+
+阅读限制和 API 差异，以获取关于导入、资源清理以及通过 Java 使用 Python 时文件处理的指导。
