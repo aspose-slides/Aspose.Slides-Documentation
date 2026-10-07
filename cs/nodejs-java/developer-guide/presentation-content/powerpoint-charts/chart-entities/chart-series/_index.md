@@ -1,43 +1,43 @@
 ---
-title: Správa řad dat grafu v prezentacích pomocí JavaScriptu
-linktitle: Datové řady
+title: Správa datových sérií grafu v prezentacích pomocí JavaScriptu
+linktitle: Datové série
 type: docs
 url: /cs/nodejs-java/chart-series/
 keywords:
-- řada grafu
-- překrytí řady
-- barva řady
-- název řady
+- série grafu
+- překrytí sérií
+- barva série
+- název série
 - datový bod
 - buňka sešitu
-- mezera řady
+- mezera mezi sériemi
 - záporná hodnota
 - PowerPoint
 - prezentace
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Zjistěte, jak spravovat řady grafu, datové body, buňky sešitu, formátování, překrytí, šířku mezery a záporné hodnoty v prezentacích pomocí JavaScriptu."
+description: "Naučte se, jak spravovat série grafu, datové body, buňky sešitu, formátování, překrytí, šířku mezery a záporné hodnoty v prezentacích pomocí JavaScriptu."
 ---
 ## **Přehled**
 
-Graf ukládá svá vykreslená data do sešitu dat grafu. [ChartSeries](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/chartseries/) představuje jednu sadu souvisejících hodnot a každá [ChartDataPoint](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/chartdatapoint/) v sérii odkazuje na jednu nebo více buněk sešitu. Objekt [ChartCategory](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/chartcategory/) poskytuje štítky nebo seskupovací hodnoty sdílené sériemi. Název série, kategorie a hodnoty bodů jsou proto propojeny s objekty [ChartDataCell](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/chartdatacell/), nikoli uloženy pouze jako zobrazovaný text.
+Graf ukládá svá vykreslená data do sešitu dat grafu. [ChartSeries](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/) představuje jeden soubor souvisejících hodnot a každý [ChartDataPoint](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/) v sérii odkazuje na jednu nebo více buněk sešitu. Objekt [ChartCategory](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartcategory/) poskytuje popisky nebo hodnoty seskupení sdílené sériemi. Název série, kategorie a hodnoty bodů jsou proto propojeny s objekty [ChartDataCell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatacell/), místo aby byly uloženy pouze jako text pro zobrazení.
 
-U typického kategoriálního grafu výchozí sešit používá řádek 0 pro názvy sérií, sloupec 0 pro názvy kategorií a zbývající buňky pro hodnoty sérií. Indexy listu, řádku a sloupce předávané metodě [ChartDataWorkbook.getCell](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/chartdataworkbook/#getCell) jsou založeny na nule. Toto rozvržení je užitečné, když vytváříte graf s výchozími daty, ale nepředpokládejte, že každý existující graf jej používá. Pro načtenou prezentaci si před změnou hodnot sešitu prohlédněte buňky, na které odkazují série, kategorie a datové body.
+Pro typický kategoriální graf výchozí sešit používá řádek 0 pro názvy sérií, sloupec 0 pro názvy kategorií a zbývající buňky pro hodnoty sérií. Indexy listu, řádku a sloupce předávané metodě [ChartDataWorkbook.getCell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/#getCell) jsou nulové‑založené. Toto rozvržení je užitečné, když vytvoříte graf s výchozími daty, ale nepředpokládejte, že každý existující graf jej používá. Pro načtenou prezentaci před změnou hodnot sešitu zkontrolujte buňky, na které odkazují série, kategorie a datové body.
 
-Nastavení grafu mají tři různé úrovně:
+Nastavení grafu má tři různé úrovně:
 
-- Nastavení na úrovni série, jako je [ChartSeries.getFormat](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/chartseries/#getFormat), poskytuje výchozí vzhled pro všechny body v jedné sérii.
-- Nastavení datových bodů, jako je [ChartDataPoint.getFormat](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/chartdatapoint/#getFormat), přepíše vzhled série pro jeden bod.
-- Skupinová nastavení se vztahují na kompatibilní série, které patří do stejné [ChartSeriesGroup](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/chartseriesgroup/). Přístup ke skupině získáte pomocí [ChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/chartseries/#getParentSeriesGroup), pokud potřebujete nastavit možnosti jako překrytí nebo šířka mezery.
+- Nastavení na úrovni série, například [ChartSeries.getFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/#getFormat), poskytuje výchozí vzhled pro všechny body v jedné sérii.
+- Nastavení datového bodu, například [ChartDataPoint.getFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/#getFormat), přepíše vzhled série pro jeden bod.
+- Skupinová nastavení se vztahují na kompatibilní série, které patří do stejné [ChartSeriesGroup](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/). Ke skupině přistupujte pomocí [ChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/#getParentSeriesGroup), když potřebujete nastavit možnosti jako překrytí nebo šířku mezery.
 
-Když není nastaven explicitní výplňový styl bodu ani série, rozhoduje o automatickém vzhledu styl a motiv grafu. Když jsou přítomny jak formátování série, tak bodu, formátování bodu má přednost pro konkrétní bod.
+Když není nastaven explicitní výplň bodu nebo série, styl grafu a motiv určují automatický vzhled. Když jsou přítomna jak formátování série, tak bodu, má přednost formátování bodu.
 
-![chart-series-powerpoint](chart-series-powerpoint.png)
+![graf-serie-powerpoint](chart-series-powerpoint.png)
 
-## **Nastavení překrytí řady grafu**
+## **Nastavení překrytí sérií grafu**
 
-[ChartSeries.getOverlap](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/chartseries/#getOverlap) uvádí, jak moc se překrývají pruhy či sloupce v 2D grafu, v rozmezí –100 až 100 procent. Jedná se o pouze‑čtení projekci nastavení na nadřazenou skupinu sérií. K aktualizaci všech kompatibilních sérií ve skupině použijte [ChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/chartseriesgroup/#setOverlap). Tato volba se vztahuje na typy grafů, které zobrazují seskupené pruhy nebo sloupce; neovlivňuje nesouvisející skupiny sérií v kombinovaném grafu.
+[ChartSeries.getOverlap](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/#getOverlap) uvádí, jak moc se překrývají pruhy nebo sloupce ve 2D grafu, v rozmezí –100 % až 100 %. Jedná se o pouze čtení projekce nastavení na nadřazené skupině sérií. Použijte [ChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/#setOverlap) k aktualizaci všech kompatibilních sérií v této skupině. Tato volba platí pro typy grafů, které zobrazují seskupené pruhy nebo sloupce; neovlivňuje nesouvisející skupiny sérií v kombinovaném grafu.
 
 Následující příklad nastavuje překrytí pro skupinu, která obsahuje první sérii:
 
@@ -54,7 +54,7 @@ const presentation = new aspose.slides.Presentation();
 try {
     const slide = presentation.getSlides().get_Item(firstSlideIndex);
 
-    // Nový graf obsahuje ukázkové řady, kategorie a hodnoty.
+    // Nový graf obsahuje ukázkové série, kategorie a hodnoty.
     const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 20, 20, 500, 200);
 
     const series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
@@ -68,13 +68,13 @@ try {
 
 Výsledek:
 
-![The series overlap](series_overlap.png)
+![Překrytí sérií](series_overlap.png)
 
 ## **Změna barvy výplně série**
 
-Použijte [ChartSeries.getFormat](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/chartseries/#getFormat) k nastavení výchozí výplně pro celou sérii. Pokud má bod již explicitně nastavenou výplň, jeho nastavení [ChartDataPoint.getFormat](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/chartdatapoint/#getFormat) přepíše výplň série pro tento bod.
+Použijte [ChartSeries.getFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/#getFormat) k nastavení výchozí výplně celé série. Pokud má bod již explicitní výplň, jeho nastavení [ChartDataPoint.getFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/#getFormat) přepíše výplň série pro tento bod.
 
-Následující příklad použije plnou modrou výplň na první sérii:
+Následující příklad použije jednotnou modrou výplň na první sérii:
 
 ```javascript
 const aspose = {};
@@ -104,11 +104,11 @@ try {
 
 Výsledek:
 
-![The color of the series](series_color.png)
+![Barva série](series_color.png)
 
 ## **Změna názvu série**
 
-Název série je uložen v sešitu dat grafu a běžně se zobrazuje v legendě. Ve výchozím sešitu vytvořeném pro seskupený sloupcový graf je buňka B1 v řádku 0, sloupci 1 a obsahuje název první série. Pojmenované konstanty v následujícím příkladu tuto strukturu explicitně uvádějí:
+Název série je uložen v sešitu dat grafu a obvykle se zobrazuje v legendě. Ve výchozím sešitu vytvořeném pro seskupený sloupcový graf je buňka B1 v řádku 0, sloupci 1 a obsahuje název první série. Pojmenované konstanty v následujícím příkladu tuto strukturu explicitně uvádějí:
 
 ```javascript
 const aspose = {};
@@ -135,7 +135,7 @@ try {
 }
 ```
 
-Můžete také aktualizovat buňku, na kterou již odkazuje [ChartSeries.getName](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/chartseries/#getName). Tento přístup se vyhýbá předpokladu konkrétního řádku a sloupce v existujícím grafu:
+Můžete také aktualizovat buňku, na kterou již odkazuje [ChartSeries.getName](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/#getName). Tento přístup se vyhýbá předpokladu konkrétního řádku a sloupce v existujícím grafu:
 
 ```javascript
 const aspose = {};
@@ -163,13 +163,64 @@ try {
 
 Výsledek:
 
-![The series name](series_name.png)
+![Název série](series_name.png)
+
+### **Vytvoření série s názvem ze více buněk**
+
+Složený název série je užitečný, když je název produktu a období vykazování uloženy v samostatných buňkách sešitu. Například můžete zkombinovat `Product A` v B1 a `2026` v C1 do jediného názvu série a přitom udržet obě části propojené na jejich zdrojové buňky.
+
+Použijte [ChartDataWorkbook.getCellCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/#getCellCollection) k získání rozsahu názvu a pak tento výběr předáte metodě [ChartSeriesCollection.add](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriescollection/#add). Argument `skipHiddenCells` řídí, zda jsou zahrnuty skryté buňky: `true` je vyloučí, `false` zahrne. Tento příklad používá `false` k zahrnutí každé buňky v rozsahu názvu.
+
+Následující příklad vytvoří prezentaci s jednou sérií a dvěma datovými body. Buňky B1:C1 poskytují pouze název série; A2:A3 poskytují popisky kategorií a B2:B3 poskytují číselné hodnoty.
+
+```javascript
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 620, 180);
+
+    chart.getChartData().getSeries().clear();
+    chart.getChartData().getCategories().clear();
+    chart.setLegend(true);
+
+    const workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.clear(0);
+
+    // Tyto dvě buňky poskytují název série.
+    workbook.getCell(0, 0, 1, "Product A");
+    workbook.getCell(0, 0, 2, "2026");
+    const nameCells = workbook.getCellCollection("Sheet1!$B$1:$C$1", false);
+    const series = chart.getChartData().getSeries().add(nameCells, aspose.slides.ChartType.ClusteredColumn);
+
+    // Samostatné buňky poskytují kategorie a číselné datové body.
+    const northCategory = workbook.getCell(0, 1, 0, "North");
+    const southCategory = workbook.getCell(0, 2, 0, "South");
+    chart.getChartData().getCategories().add(northCategory);
+    chart.getChartData().getCategories().add(southCategory);
+    const northValue = workbook.getCell(0, 1, 1, 120);
+    const southValue = workbook.getCell(0, 2, 1, 150);
+    series.getDataPoints().addDataPointForBarSeries(northValue);
+    series.getDataPoints().addDataPointForBarSeries(southValue);
+
+    presentation.save("composite_series_name.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Výsledný název série je `Product A 2026`, s mezerou mezi dvěma hodnotami buněk. Legenda to zobrazuje jako jeden záznam pro oba sloupce. Obrázek níže ilustruje výsledek:
+
+![Sloupcový graf s hodnotami North a South a složeným názvem série Product A 2026 v legendě](composite_series_name.png)
 
 ## **Získání automatické barvy výplně série**
 
-[ChartSeries.getAutomaticSeriesColor](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/chartseries/#getAutomaticSeriesColor) vrací barvu spočítanou z indexu série a stylu grafu. Toto je barva použitá, když výplň série není explicitně definována. Volání metody pouze čte vypočtenou barvu; neprovádí přiřazení nové výplně.
+[ChartSeries.getAutomaticSeriesColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/#getAutomaticSeriesColor) vrací barvu vypočítanou na základě indexu série a stylu grafu. Toto je barva použitá, když výplň série nebyla explicitně definována. Volání metody přečte vypočítanou barvu; nepřiřazuje novou výplň.
 
-Následující příklad vypisuje automatickou barvu každé výchozí série:
+Následující příklad vypíše automatickou barvu každé výchozí série:
 
 ```javascript
 const aspose = {};
@@ -205,11 +256,11 @@ Series 2: java.awt.Color[r=155,g=187,b=89]
 
 Přesné barvy závisí na stylu a motivu grafu.
 
-## **Nastavení obrácené barvy výplně pro řadu grafu**
+## **Nastavení invertované barvy výplně pro sérii grafu**
 
-U pruhových, sloupcových a bublinových sérií může [ChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/chartseries/#setInvertIfNegative) zobrazit záporné hodnoty jinou výplní. Nastavte běžnou výplň série na plnou, povolte inverzi a přiřaďte barvu záporných hodnot pomocí [ChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/chartseries/#getInvertedSolidFillColor). Záporná čísla v sešitu zůstávají beze změny; mění se jen jejich zobrazovaná barva.
+Pro pruhové, sloupcové a bublinové série může [ChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/#setInvertIfNegative) zobrazit záporné hodnoty jinou výplní. Nastavte běžnou výplň série na jednotnou, povolte inverzi a přiřaďte barvu záporné hodnoty pomocí [ChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/#getInvertedSolidFillColor). Záporná čísla zůstávají v sešitu beze změny; mění se pouze jejich zobrazovaná barva.
 
-Následující příklad nahradí výchozí data grafu jednou sérií. Řádek 0 listu obsahuje název série, sloupec 0 názvy kategorií a sloupec 1 hodnoty:
+Následující příklad nahradí výchozí data grafu jednou sérií. List řádek 0 obsahuje název série, sloupec 0 obsahuje názvy kategorií a sloupec 1 obsahuje hodnoty:
 
 ```javascript
 const aspose = {};
@@ -269,9 +320,9 @@ try {
 
 Výsledek:
 
-![The inverted solid fill color](inverted_solid_fill_color.png)
+![Invertovaná jednotná výplň](inverted_solid_fill_color.png)
 
-Inverzi můžete povolit jen pro jeden bod pomocí [ChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/chartdatapoint/#setInvertIfNegative). V následujícím příkladu je inverze zakázána pro celou sérii a povolena pouze pro vybraný bod. Bod má také přiřazenu zápornou hodnotu, aby byl efekt viditelný:
+Inverzi můžete povolit pro jeden bod pomocí [ChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/#setInvertIfNegative). V následujícím příkladu je inverze zakázána pro sérii a povolena jen pro vybraný bod. Bod je také přiřazen zápornou hodnotou, aby byl efekt viditelný:
 
 ```javascript
 const aspose = {};
@@ -310,7 +361,7 @@ try {
 
 ## **Vymazání konkrétní hodnoty datového bodu**
 
-Pro vyprázdnění jednoho bodu bez odebrání ostatních bodů nastavte buňku v sešitu, která jej podporuje, na `null`. U sloupcového grafu je vykreslená hodnota dostupná přes [ChartDataPoint.getValue](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/chartdatapoint/#getValue). Datový bod zůstane na stejné pozici kategorie, ale graf bude jeho hodnotu považovat za prázdnou dle nastavení prázdných hodnot grafu.
+Aby byl jeden bod prázdný, aniž by se odstranily ostatní body, nastavte jeho podporující buňku sešitu na `null`. Pro sloupcový graf je vykreslená hodnota dostupná přes [ChartDataPoint.getValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/#getValue). Datový bod zůstane na stejném místě kategorie, ale graf jej podle nastavení prázdných hodnot považuje za prázdný.
 
 Následující příklad vymaže pouze druhý bod v první sérii:
 
@@ -338,17 +389,17 @@ try {
 }
 ```
 
-Bodové grafy používají samostatné buňky X a Y a bublinové grafy také buňku velikosti. Vymažte jen buňku, která představuje hodnotu, kterou chcete odstranit. Nepoužívejte [ChartDataPointCollection.clear](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/chartdatapointcollection/#clear), pokud chcete zachovat ostatní body, protože tato metoda odstraňuje všechny datové body ze sbírky.
+Bodové grafy používají samostatné buňky X a Y a bublinové grafy také buňku velikosti. Vymažte jen buňku, která představuje hodnotu, kterou chcete odstranit. Nepoužívejte [ChartDataPointCollection.clear](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapointcollection/#clear), pokud chcete zachovat ostatní body, protože tato metoda odstraní všechny datové body ze sbírky.
 
 ## **Řízení zobrazení prázdných buněk**
 
-Skryté buňky, které obsahují hodnoty, jsou odlišným případem od prázdných buněk. Pro zahrnutí nebo vyloučení dat ze skrytých řádků a sloupců listu viz [Include Data from Hidden Rows and Columns](/slides/cs/nodejs-java/chart-workbook/#include-data-from-hidden-rows-and-columns).
+Skryté buňky s hodnotami jsou odlišný případ od prázdných buněk. Pro zahrnutí nebo vyloučení dat ze skrytých řádků a sloupců listu viz [Include Data from Hidden Rows and Columns](/slides/cs/nodejs-java/chart-workbook/#include-data-from-hidden-rows-and-columns).
 
-Prázdná buňka sešitu představuje chybějící data; buňka obsahující `0` představuje známou číselnou hodnotu. Zavolejte [ChartDataCell.setValue](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/chartdatacell/#setValue) s `null`, aby buňka byla prázdná. Číselná nula zůstává nulou bez ohledu na nastavení prázdných buněk.
+Prázdná buňka sešitu představuje chybějící data; buňka obsahující `0` představuje známou číselnou hodnotu. Zavolejte [ChartDataCell.setValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatacell/#setValue) s `null`, aby se buňka stala prázdnou. Číselná nula zůstane nulou bez ohledu na nastavení prázdných buněk.
 
-Použijte [Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/chart/#setDisplayBlanksAs) k výběru, jak graf zobrazuje prázdné buňky. Toto nastavení se vztahuje na celý graf. Mění způsob, jakým jsou prázdná místa vykreslena, aniž by se prázdná buňka v sešitu vyplnila nulou nebo interpolovanou hodnotou.
+Použijte [Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#setDisplayBlanksAs) k výběru, jak má graf zobrazovat prázdné buňky. Toto nastavení platí pro celý graf. Mění způsob, jakým jsou prázdná místa vykreslena, aniž by se prázdná buňka sešitu vyplňovala nulou nebo interpolovanou hodnotou.
 
-Následující samostatný příklad vytvoří čárový graf s jednou sérií, vymaže hodnotu pro Den 3 a uloží stejný graf ve všech třech režimech. Vstupní soubor není vyžadován. [ChartDataWorkbook](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/chartdataworkbook/) používá list 0, sloupec 0 pro štítky kategorií a sloupec 1 pro hodnoty; řádek 0 obsahuje název série. Výsledná data jsou `10, 20, empty, 30, 40`.
+Následující samostatný příklad vytvoří čárový graf s jednou sérií, vymaže hodnotu pro den 3 a uloží stejný graf ve všech režimech. Vstupní soubor není vyžadován. [ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/) používá list 0, sloupec 0 pro popisky kategorií a sloupec 1 pro hodnoty; řádek 0 obsahuje název série. Konečná data jsou `10, 20, empty, 30, 40`.
 
 ```javascript
 const aspose = {};
@@ -376,7 +427,7 @@ try {
         series.getDataPoints().addDataPointForLineSeries(valueCell);
     }
 
-    // Nechte den 3. den skutečně prázdný, přičemž zachováte jeho kategorii a datový bod.
+    // Nechte den 3 skutečně prázdný, přičemž zachováte jeho kategorii a datový bod.
     workbook.getCell(0, 3, 1).setValue(null);
 
     const modes = [aspose.slides.DisplayBlanksAsType.Gap, aspose.slides.DisplayBlanksAsType.Zero, aspose.slides.DisplayBlanksAsType.Span];
@@ -390,19 +441,19 @@ try {
 }
 ```
 
-Každý výstupní soubor ukládá režim přiřazený před uložením: `empty_cells_Gap.pptx`, `empty_cells_Zero.pptx` a `empty_cells_Span.pptx`. Pro uložení jen jedné verze nastavte požadovaný režim a prezentaci uložte jednou místo iterace přes režimy.
+Každý výstupní soubor ukládá režim přiřazený před uložením: `empty_cells_Gap.pptx`, `empty_cells_Zero.pptx` a `empty_cells_Span.pptx`. Pro uložení pouze jedné verze nastavte požadovaný režim a prezentaci uložte jednou místo iterace přes režimy.
 
-Srovnání níže ukazuje stejná data ve všech třech souborech. Den 3 je v sešitu v každém případě prázdný:
+Níže je srovnání, které ukazuje stejná data ve všech třech souborech. Den 3 je v sešitu v každém případě prázdný:
 
-![Line charts with identical data: Gap breaks the line at Day 3, Zero drops the line to zero, and Span connects Day 2 to Day 4.](display_blanks_as.png)
+![Čárové grafy se stejnými daty: Gap přeruší čáru v den 3, Zero svede čáru k nule, a Span spojí den 2 s dnem 4.](display_blanks_as.png)
 
-Viditelný efekt závisí na typu grafu. Čárový graf umožňuje snadno porovnat všechny tři režimy. U pruhových a sloupcových grafů není žádná čára k propojení přes chybějící kategorii, takže `Span` nemůže vytvořit ukázaný spojovací segment; chybějící sloupec a sloupec s nulovou výškou mohou také vypadat podobně. Podobně u bodového grafu jen s značkama neexistuje spojovací čára. Neočekávejte tři odlišné výsledky pro každý typ grafu; ověřte výstup pro typ, který používáte.
+Viditelný efekt závisí na typu grafu. Čárový graf usnadňuje porovnání všech tří režimů. Pruh a sloupec nemají čáru, kterou by se dalo spojit přes chybějící kategorii, takže `Span` nemůže vytvořit spojovací segment zobrazený výše; chybějící sloupec a sloupec s nulovou výškou mohou také vypadat podobně. Podobně scatter‑graf s pouze značkami nemá spojovací čáru. Neočekávejte tři odlišné výsledky pro každý typ grafu; zkontrolujte výstup pro typ, který používáte.
 
-## **Nastavení šířky mezery mezi řadami**
+## **Nastavení šířky mezery mezi sériemi**
 
-Šířka mezery je prostor mezi sousedními shluky pruhů nebo sloupců, vyjádřený v procentech šířky pruhu nebo sloupce. Stejně jako překrytí patří k nadřazené skupině sérií, nikoli k jedné sérii. Zavolejte [ChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/chartseriesgroup/#setGapWidth) jednou pro skupinu. Větší hodnota vytvoří více prostoru mezi shluky; menší hodnota je učiní hustšími.
+Šířka mezery je prostor mezi sousedními shluky pruhů nebo sloupců, vyjádřený jako procento šířky pruhu nebo sloupce. Stejně jako překrytí patří k nadřazené skupině sérií, nikoli k jedné sérii. Zavolejte [ChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/#setGapWidth) jednou pro skupinu. Větší hodnota vytvoří více místa mezi shluky; menší hodnota je učiní hustšími.
 
-Následující příklad mění šířku mezery a uloží pouze finální prezentaci:
+Následující příklad mění šířku mezery a ukládá pouze finální prezentaci:
 
 ```javascript
 const aspose = {};
@@ -429,46 +480,46 @@ try {
 
 Výsledek:
 
-![The gap width](gap_width.png)
+![Šířka mezery](gap_width.png)
 
-## **Časté dotazy**
+## **Často kladené otázky**
 
-**Které typy grafů podporují datové řady?**
+**Které typy grafů podporují datové série?**
 
-Všechny typy grafů reprezentované výčtem [ChartType](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/charttype/) používají data grafu, ale jejich řady nemají vždy stejnou strukturu hodnot nebo nastavení. Například kategoriální grafy používají kategorie a hodnoty, bodové grafy používají hodnoty X a Y a bublinové grafy přidávají velikosti bublin. Použijte metodu pro tvorbu datových bodů, která odpovídá typu řady. Možnosti jako překrytí a šířka mezery platí jen pro kompatibilní skupiny pruhových nebo sloupcových grafů.
+Všechny typy grafů reprezentované výčtem [ChartType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/) používají datový sešit, ale jejich série nemají vždy stejnou strukturu hodnot nebo nastavení. Například kategoriální grafy používají kategorie a hodnoty, scatter‑grafy používají hodnoty X a Y a bublinové grafy přidávají velikosti bublin. Použijte metodu tvorby datových bodů, která odpovídá typu série. Volby jako překrytí a šířka mezery platí jen pro kompatibilní skupiny pruhů nebo sloupců.
 
-**Co je skupina řad grafu?**
+**Co je skupina sérií grafu?**
 
-[ChartSeriesGroup](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/chartseriesgroup/) obsahuje kompatibilní řady, které sdílejí nastavení na úrovni skupiny. Kombinovaný graf může obsahovat více než jednu skupinu, takže změna skupiny dosažené přes jednu řadu nemusí nutně změnit každou řadu v grafu.
+[ChartSeriesGroup](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/) obsahuje kompatibilní série, které sdílí nastavení na úrovni skupiny. Kombinovaný graf může obsahovat více než jednu skupinu, takže změna skupiny získané přes jednu sérii nemusí nutně změnit všechny série v grafu.
 
 **Obsahuje nově vytvořený graf výchozí data?**
 
-Ano. Ve výchozím nastavení metoda [ShapeCollection.addChart](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/shapecollection/#addChart) vytváří ukázkové řady, kategorie a hodnoty. Můžete tyto buňky upravit nebo vymazat jak řady, tak kolekce kategorií před přidáním zcela vlastního datového souboru. Přetížená metoda může také vytvořit graf bez výchozích dat.
+Ano. Ve výchozím nastavení metoda [ShapeCollection.addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addChart) vytvoří vzorové série, kategorie a hodnoty. Můžete tyto buňky upravit nebo vymazat jak série, tak kolekce kategorií před přidáním zcela vlastního souboru dat. Přetížení může také vytvořit graf bez výchozích dat.
 
 **Jak jsou objekty grafu propojeny s buňkami sešitu?**
 
-Názvy řad, štítky kategorií a hodnoty datových bodů odkazují na buňky v [ChartDataWorkbook](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/chartdataworkbook/). Změna odkazované buňky aktualizuje odpovídající prvek grafu. Při tvorbě vlastních dat zachovejte zarovnání řádků kategorií a řádků hodnot řad tak, aby každý bod byl vykreslen pod zamýšlenou kategorií.
+Názvy sérií, popisky kategorií a hodnoty datových bodů odkazují na buňky v [ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/). Změna odkazované buňky aktualizuje odpovídající prvek grafu. Když vytváříte vlastní data, udržujte řádky kategorií a řádky hodnot sérií zarovnané tak, aby každý bod byl vykreslen pod zamýšlenou kategorií.
 
-**Jak vymazat jeden bod místo celé řady?**
+**Jak vymazat jeden bod místo celé série?**
 
-Nastavte příslušnou buňku hodnoty na `null`, aby se zachovala pozice kategorie bodu jako prázdného bodu. Používejte [ChartDataPointCollection.clear](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/chartdatapointcollection/#clear) pouze tehdy, když chcete odstranit všechny body z dané řady. Pokud také odstraňujete kategorie, aktualizujte všechny řady, aby jejich hodnoty zůstaly zarovnané s kolekcí kategorií.
+Nastavte příslušnou buňku s hodnotou na `null`, aby bod zůstal na pozici své kategorie jako prázdný bod. Použijte [ChartDataPointCollection.clear](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapointcollection/#clear) pouze tehdy, když chcete odstranit všechny body z dané série. Pokud také odstraňujete kategorie, aktualizujte všechny série tak, aby jejich hodnoty zůstaly zarovnané s kolekcí kategorií.
 
-**Jak jsou prázdné body zobrazeny?**
+**Jak jsou prázdné body zobrazovány?**
 
-Výsledek závisí na typu grafu a hodnotě nastavené pomocí [Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/chart/#setDisplayBlanksAs). Podporované grafy mohou zobrazovat prázdná místa jako mezery, jako nulové hodnoty nebo propojením sousedních bodů. Vyberte nastavení, které odpovídá významu chybějících dat ve vaší prezentaci. Viz kapitola [Řízení zobrazení prázdných buněk](#control-the-display-of-empty-cells) pro úplný příklad a vizuální srovnání.
+Výsledek závisí na typu grafu a hodnotě nastavené pomocí [Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#setDisplayBlanksAs). Podporované grafy mohou zobrazovat prázdná místa jako mezery, jako nulové hodnoty nebo spojením sousedních bodů. Zvolte nastavení, které odpovídá významu chybějících dat ve vaší prezentaci. Viz sekce [Řízení zobrazení prázdných buněk](#control-the-display-of-empty-cells) pro úplný příklad a vizuální srovnání.
 
 **Jak jsou formátovány záporné hodnoty?**
 
-U podporovaných pruhových, sloupcových a bublinových řad zavolejte [ChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/chartseries/#setInvertIfNegative) a nastavte barvu vrácenou metodou [ChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/chartseries/#getInvertedSolidFillColor). Chování můžete přepsat pro jednotlivý bod pomocí [ChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/chartdatapoint/#setInvertIfNegative). Tyto metody ovlivňují formátování, ne uložené číselné hodnoty.
+U podporovaných pruhových, sloupcových a bublinových sérií zavolejte [ChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/#setInvertIfNegative) a nastavte barvu vrácenou metodou [ChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/#getInvertedSolidFillColor). Chování můžete přepsat pro jednotlivý bod pomocí [ChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/#setInvertIfNegative). Tyto metody ovlivňují formátování, nikoli uložené číselné hodnoty.
 
-**Které formátování má přednost, když je formátována jak řada, tak bod?**
+**Které formátování má přednost, když je formátována jak série, tak bod?**
 
-Explicitní formátování datového bodu má přednost pro tento bod. Ostatní body pokračují v používání explicitního formátu řady nebo, když není formát řady definován, automatického stylu a motivu grafu. Skupinová nastavení, jako jsou překrytí a šířka mezery, řídí rozložení a nejsou přepsáním formátování na úrovni bodu.
+Explicitní formátování datového bodu má přednost pro tento bod. Ostatní body nadále používají explicitní formát série nebo, pokud není definován, automatický styl a motiv grafu. Skupinová nastavení jako překrytí a šířka mezery řídí rozvržení a nejsou přepisovatelné na úrovni bodu.
 
-**Existuje limit počtu řad, které může graf obsahovat?**
+**Existuje limit počtu sérií, které může graf obsahovat?**
 
-Aspose.Slides neukládá samostatný pevný limit počtu řad. V praxi omezují souborové limity prezentace, dostupná paměť, čas vykreslování a čitelnost grafu.
+Aspose.Slides neukládá samostatný pevný limit počtu sérií. V praxi limit určují omezení souboru prezentace, dostupná paměť, doba vykreslování a čitelnost grafu.
 
 **Co změnit, když jsou sloupce příliš blízko u sebe nebo příliš daleko?**
 
-Zavolejte [ChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/chartseriesgroup/#setGapWidth) na příslušnou nadřazenou skupinu řad. Zvýšte hodnotu pro rozšíření prostoru mezi shluky nebo ji snižte pro jejich přiblížení.
+Zavolejte [ChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/#setGapWidth) na příslušné nadřazené skupině sérií. Zvýšte hodnotu pro rozšíření prostoru mezi shluky nebo ji snižte pro jejich přiblížení.

@@ -1,6 +1,6 @@
 ---
-title: إدارة بيانات سلاسل المخطط في العروض التقديمية باستخدام JavaScript
-linktitle: سلاسل البيانات
+title: إدارة سلاسل بيانات المخطط في العروض التقديمية باستخدام JavaScript
+linktitle: سلسلة البيانات
 type: docs
 url: /ar/nodejs-java/chart-series/
 keywords:
@@ -9,7 +9,7 @@ keywords:
 - لون السلسلة
 - اسم السلسلة
 - نقطة البيانات
-- خلية دفتر العمل
+- خلية المصنف
 - فجوة السلسلة
 - قيمة سلبية
 - PowerPoint
@@ -17,29 +17,29 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "تعلم كيفية إدارة سلاسل المخطط، نقاط البيانات، خلايا دفتر العمل، التنسيق، التداخل، عرض الفجوة، والقيم السلبية في العروض التقديمية باستخدام JavaScript."
+description: "تعرف على كيفية إدارة سلاسل المخطط، نقاط البيانات، خلايا المصنف، التنسيق، التداخل، عرض الفجوة، والقيم السلبية في العروض التقديمية باستخدام JavaScript."
 ---
 ## **نظرة عامة**
 
-يخزن المخطط بياناته المخططة في دفتر عمل بيانات المخطط. تمثّل [ChartSeries](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/chartseries/) مجموعة واحدة من القيم المرتبطة، وكل [ChartDataPoint](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/chartdatapoint/) في السلسلة يشير إلى خلية واحدة أو أكثر في دفتر العمل. توفر كائنات [ChartCategory](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/chartcategory/) التسميات أو قيم التجميع المشتركة بين السلاسل. وبالتالي فإن اسم السلسلة والفئات وقيم النقاط مرتبطة بكائنات [ChartDataCell](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/chartdatacell/) بدلاً من تخزينها كنص عرض فقط.
+يخزن المخطط بياناته المرسومة في مصنف بيانات المخطط. تمثّل [ChartSeries](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/) مجموعة واحدة من القيم ذات الصلة، وكل [ChartDataPoint](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/) في السلسلة يشير إلى خلية أو أكثر في المصنف. توفّر كائنات [ChartCategory](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartcategory/) التسميات أو قيم التجميع المشتركة بين السلاسل. وبالتالي يتم ربط اسم السلسلة والفئات وقيم النقاط بـ [ChartDataCell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatacell/) بدلاً من تخزينها كنص عرض فقط.
 
-بالنسبة للمخطط الفئوي النموذجي، يستخدم دفتر العمل الافتراضي الصف 0 لأسماء السلاسل، والعمود 0 لأسماء الفئات، والبقية للخلايا التي تحتوي على قيم السلسلة. الفهارس الخاصة بالورقة، الصف، والعمود التي تُمرّر إلى [ChartDataWorkbook.getCell](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/chartdataworkbook/#getCell) تبدأ من الصفر. يُفيد هذا التخطيط عند إنشاء مخطط ببيانات افتراضية، لكن لا تفترض أن كل مخطط موجود يستخدمه. بالنسبة للعرض التقديمي المحمل، افحص الخلايا التي تُشير إليها السلاسل والفئات ونقاط البيانات قبل تعديل قيم دفتر العمل.
+للمخطط الفئوي النموذجي، يستخدم المصنف الافتراضي الصف 0 لأسماء السلاسل، والعمود 0 لأسماء الفئات، والخلايا المتبقية لقيم السلسلة. إن فهارس ورقة العمل والصف والعمود التي تُمرّر إلى [ChartDataWorkbook.getCell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/#getCell) تبدأ من الصفر. يُعدّ هذا الترتيب مفيداً عند إنشاء مخطط ببيانات افتراضية، لكن لا تفترض أن كل مخطط موجود يستخدمه. بالنسبة لعروض تقديمية محمّلة، تفحّص الخلايا التي تُشير إليها السلاسل والفئات ونقاط البيانات قبل تعديل قيم المصنف.
 
 لإعدادات المخطط ثلاث نطاقات مختلفة:
 
-- إعدادات على مستوى السلسلة، مثل [ChartSeries.getFormat](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/chartseries/#getFormat)، تُقدِّم المظهر الافتراضي لكل النقاط في سلسلة واحدة.
-- إعدادات على مستوى نقطة البيانات، مثل [ChartDataPoint.getFormat](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/chartdatapoint/#getFormat)، تتجاوز مظهر السلسلة لنقطة واحدة.
-- إعدادات المجموعة تنطبق على السلاسل المتوافقة التي تنتمي إلى نفس [ChartSeriesGroup](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/chartseriesgroup/). يمكن الوصول إلى المجموعة عبر [ChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/chartseries/#getParentSeriesGroup) عندما تحتاج لتعيين خيارات مثل التداخل أو عرض الفجوة.
+- إعدادات على مستوى السلسلة، مثل [ChartSeries.getFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/#getFormat)، تُوفر المظهر الافتراضي لجميع النقاط في سلسلة واحدة.
+- إعدادات نقطة البيانات، مثل [ChartDataPoint.getFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/#getFormat)، تتجاوز مظهر السلسلة لنقطة واحدة.
+- إعدادات المجموعة تنطبق على السلاسل المتوافقة التي تنتمي إلى نفس [ChartSeriesGroup](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/). يمكن الوصول إلى المجموعة عبر [ChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/#getParentSeriesGroup) عندما تحتاج إلى ضبط خيارات مثل التداخل أو عرض الفجوة.
 
-عند عدم تحديد تعبئة صريحة للنقطة أو السلسلة، يحدد نمط المخطط والثيم المظهر التلقائي. عندما تكون كلٌ من تنسيقات السلسلة والنقطة موجودة، تُعطى أولوية لتنسيق النقطة لتلك النقطة.
+عند عدم ضبط تعبئة صريحة للنقطة أو السلسلة، يحدّد نمط المخطط والثيم المظهر التلقائي. عندما تكون كل من تنسيقات السلسلة والنقطة موجودة، تُعطى أولوية لتنسيق النقطة لتلك النقطة.
 
-![سلسلة المخطط في PowerPoint](chart-series-powerpoint.png)
+![سلسلة المخطط PowerPoint](chart-series-powerpoint.png)
 
-## **تعيين تداخل سلاسل المخطط**
+## **ضبط تداخل سلاسل المخطط**
 
-يُبلغ [ChartSeries.getOverlap](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/chartseries/#getOverlap) مقدار تداخل الأعمدة أو الأعمدة في مخطط 2D، من -100 إلى 100 في المئة. وهو عرض قراءة فقط للإعداد في مجموعة السلسلة الأصلية. استخدم [ChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/chartseriesgroup/#setOverlap) لتحديث كل السلاسل المتوافقة في تلك المجموعة. ينطبق هذا الخيار على أنماط المخططات التي تُظهر أعمدة أو أشرطة مجمّعة؛ ولا يؤثر على مجموعات السلاسل غير المرتبطة في مخطط مركب.
+[ChartSeries.getOverlap](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/#getOverlap) يُبلغ عن مقدار تداخل الأعمدة أو القضبان في مخطط ثنائي الأبعاد، من -100 إلى 100 بالمائة. وهو إسقاط للقراءة فقط للإعداد على مجموعة السلاسل الأصلية. استخدم [ChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/#setOverlap) لتحديث كل السلاسل المتوافقة في تلك المجموعة. ينطبق هذا الخيار على أنواع المخططات التي تعرض أعمدة أو قضبان مجموعّة؛ ولا يؤثر على مجموعات السلاسل غير المرتبطة في مخطط مركب.
 
-المثال التالي يعيّن التداخل للمجموعة التي تحتوي على السلسلة الأولى:
+المثال التالي يضبط التداخل للمجموعة التي تحتوي على السلسلة الأولى:
 
 ```javascript
 const aspose = {};
@@ -54,7 +54,7 @@ const presentation = new aspose.slides.Presentation();
 try {
     const slide = presentation.getSlides().get_Item(firstSlideIndex);
 
-    // المخطط الجديد يحتوي على سلاسل، فئات، وقيم نموذجية.
+    // المخطط الجديد يحتوي على سلاسل وعينات، فئات، وقيم.
     const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 20, 20, 500, 200);
 
     const series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
@@ -72,7 +72,7 @@ try {
 
 ## **تغيير لون تعبئة السلسلة**
 
-استخدم [ChartSeries.getFormat](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/chartseries/#getFormat) لتعيين التعبئة الافتراضية لسلسلة كاملة. إذا كانت النقطة لديها تعبئة صريحة مسبقًا، فإن إعداد [ChartDataPoint.getFormat](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/chartdatapoint/#getFormat) يتجاوز تعبئة السلسلة لتلك النقطة.
+استخدم [ChartSeries.getFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/#getFormat) لتعيين التعبئة الافتراضية لسلسلة كاملة. إذا كانت للنقطة تعبئة صريحة، فإن إعداد [ChartDataPoint.getFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/#getFormat) يتجاوز تعبئة السلسلة لتلك النقطة.
 
 المثال التالي يطبّق تعبئة صلبة باللون الأزرق على السلسلة الأولى:
 
@@ -108,7 +108,7 @@ try {
 
 ## **تغيير اسم السلسلة**
 
-يُخزن اسم السلسلة في دفتر عمل بيانات المخطط ويُعرض عادةً في الأسطورة. في دفتر العمل الافتراضي المُنشأ لمخطط عمود مُجمّع، تكون الخلية B1 في الصف 0 والعمود 1 وتحتوي على اسم السلسلة الأولى. الثوابت المسماة في المثال التالي تجعل هذا الهيكل واضحًا:
+يُخزن اسم السلسلة في مصنف بيانات المخطط ويُعرض عادةً في وسيلة الإيضاح. في المصنف الافتراضي المُنشأ لمخطط أعمدة مجمّعة، تكون الخلية B1 في الصف 0، العمود 1 وتحتوي على اسم السلسلة الأولى. تُظهر الثوابت المسماة في المثال التالي هذا الهيكل بوضوح:
 
 ```javascript
 const aspose = {};
@@ -135,7 +135,7 @@ try {
 }
 ```
 
-يمكنك أيضًا تحديث الخلية التي يُشير إليها [ChartSeries.getName](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/chartseries/#getName). يتجنّب هذا الأسلوب الافتراض بوجود صف أو عمود معين في مخطط موجود:
+يمكنك أيضاً تحديث الخلية التي تُشير إليها [ChartSeries.getName](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/#getName). يَتجنّب هذا النهج الافتراض بوجود صف وعمود معينين في مخطط موجود:
 
 ```javascript
 const aspose = {};
@@ -165,9 +165,60 @@ try {
 
 ![اسم السلسلة](series_name.png)
 
+### **إنشاء سلسلة باسم مأخوذ من خلايا متعددة**
+
+يكون اسم السلسلة المركّبة مفيداً عندما يُخزن اسم المنتج وفترة التقرير في خلايا مصنف منفصلة. على سبيل المثال، يمكنك دمج `Product A` في B1 و `2026` في C1 لتكوين اسم سلسلة واحد مع الحفاظ على ربط كلا الجزئين بالخلايا المصدر.
+
+استخدم [ChartDataWorkbook.getCellCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/#getCellCollection) لاسترجاع نطاق الاسم، ثم مرّر هذا التجميع إلى [ChartSeriesCollection.add](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriescollection/#add). يتحكم المتغيّر `skipHiddenCells` فيما إذا كانت الخلايا المخفيّة تُضمّن: `true` تستثنيها، و`false` تضمّنها. يستخدم المثال التالي `false` لتضمين كل خلية في نطاق الاسم.
+
+المثال التالي يخلق عرضاً تقديمياً بسلسلة واحدة ونقطتي بيانات. تُزوّد الخلايا B1:C1 باسم السلسلة فقط؛ وتُزوّد A2:A3 بتسميات الفئات، وتُزوّد B2:B3 بالقيم الرقمية.
+
+```javascript
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 620, 180);
+
+    chart.getChartData().getSeries().clear();
+    chart.getChartData().getCategories().clear();
+    chart.setLegend(true);
+
+    const workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.clear(0);
+
+    // هاتان الخليتان تزودان اسم السلسلة.
+    workbook.getCell(0, 0, 1, "Product A");
+    workbook.getCell(0, 0, 2, "2026");
+    const nameCells = workbook.getCellCollection("Sheet1!$B$1:$C$1", false);
+    const series = chart.getChartData().getSeries().add(nameCells, aspose.slides.ChartType.ClusteredColumn);
+
+    // خلايا منفصلة تزود الفئات ونقاط البيانات الرقمية.
+    const northCategory = workbook.getCell(0, 1, 0, "North");
+    const southCategory = workbook.getCell(0, 2, 0, "South");
+    chart.getChartData().getCategories().add(northCategory);
+    chart.getChartData().getCategories().add(southCategory);
+    const northValue = workbook.getCell(0, 1, 1, 120);
+    const southValue = workbook.getCell(0, 2, 1, 150);
+    series.getDataPoints().addDataPointForBarSeries(northValue);
+    series.getDataPoints().addDataPointForBarSeries(southValue);
+
+    presentation.save("composite_series_name.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+اسم السلسلة الناتج هو `Product A 2026` مع مسافة بين القيمتين من الخلية. تُظهر وسيلة الإيضاح ذلك كإدخال واحد لكل العمودين. توضح الصورة أدناه النتيجة:
+
+![مخطط أعمدة مع قيم الشمال والجنوب واسم السلسلة المركّبة Product A 2026 في وسيلة الإيضاح](composite_series_name.png)
+
 ## **الحصول على لون تعبئة السلسلة التلقائي**
 
-يعيد [ChartSeries.getAutomaticSeriesColor](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/chartseries/#getAutomaticSeriesColor) اللون المحسوب من فهرس السلسلة ونمط المخطط. هذا هو اللون المستخدم عندما لا تُحدَّد تعبئة السلسلة صراحة. استدعاء الطريقة يقرأ اللون المحسوب؛ ولا يعيّن تعبئة جديدة.
+[ChartSeries.getAutomaticSeriesColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/#getAutomaticSeriesColor) يُعيد اللون المحسوب من فهرس السلسلة ونمط المخطط. هذا هو اللون المُستخدم عندما لا تُحدَّد تعبئة السلسلة صراحة. تستدعي الطريقة اللون المحسوب؛ ولا تُعيّن تعبئة جديدة.
 
 المثال التالي يطبع اللون التلقائي لكل سلسلة افتراضية:
 
@@ -195,7 +246,7 @@ try {
 }
 ```
 
-مخرجات المثال لنمط المخطط الافتراضي:
+مثال على المخرجات لنمط المخطط الافتراضي:
 
 ```text
 Series 0: java.awt.Color[r=79,g=129,b=189]
@@ -203,13 +254,13 @@ Series 1: java.awt.Color[r=192,g=80,b=77]
 Series 2: java.awt.Color[r=155,g=187,b=89]
 ```
 
-الألوان الدقيقة تعتمد على نمط المخطط والثيم.
+تعتمد الألوان الدقيقة على نمط المخطط والثيم.
 
-## **تعيين لون تعبئة معكوس لسلسلة المخطط**
+## **ضبط عكس لون التعبئة لسلسلة المخطط**
 
-بالنسبة لسلاسل الأعمدة، الأشرطة، والفقاعات، يمكن لـ [ChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/chartseries/#setInvertIfNegative) عرض القيم السالبة بتعبئة مختلفة. عيّن تعبئة السلسلة العادية إلى صلبة، فعّل الانعكاس، وعيّن لون القيمة السالبة عبر [ChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/chartseries/#getInvertedSolidFillColor). تبقى الأرقام السالبة غير معدَّلة في دفتر العمل؛ يتغيّر فقط لون العرض.
+بالنسبة لسلاسل الأعمدة، الأعمدة، والفقاعات، يمكن لـ [ChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/#setInvertIfNegative) عرض القيم السالبة بتعبئة مختلفة. اضبط تعبئة السلسلة العادية لتكون صلبة، مفعّلًا العكس، وعين لون القيمة السالبة عبر [ChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/#getInvertedSolidFillColor). تظل الأرقام السالبة دون تغيير في المصنف؛ يتغيّر فقط لون عرضها.
 
-المثال التالي يستبدل بيانات المخطط الافتراضية بسلسلة واحدة. الصف 0 في الورقة يحتوي على اسم السلسلة، والعمود 0 يحتوي على أسماء الفئات، والعمود 1 يحتوي على القيم:
+المثال التالي يُستبدل بيانات المخطط الافتراضية بسلسلة واحدة. يحتوي الصف 0 من ورقة العمل على اسم السلسلة، العمود 0 على أسماء الفئات، والعمود 1 على القيم:
 
 ```javascript
 const aspose = {};
@@ -269,9 +320,9 @@ try {
 
 النتيجة:
 
-![لون التعبئة الصلبة المعكوس](inverted_solid_fill_color.png)
+![لون التعبئة الصلب المعكوس](inverted_solid_fill_color.png)
 
-يمكنك تمكين الانعكاس لنقطة واحدة عبر [ChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/chartdatapoint/#setInvertIfNegative). في المثال التالي، يُعطَّل الانعكاس للسلسلة ويُفعَّل فقط للنقطة المحددة. تُعطى النقطة أيضًا قيمة سالبة لتظهر التأثير:
+يمكنك تمكين العكس لنقطة واحدة عبر [ChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/#setInvertIfNegative). في المثال التالي يُعطَّل العكس للسلسلة ويُفعَّل فقط للنقطة المحددة. تُعيّن النقطة قيمة سالبة لتظهر التأثير:
 
 ```javascript
 const aspose = {};
@@ -308,11 +359,11 @@ try {
 }
 ```
 
-## **مسح قيمة نقطة بيانات معينة**
+## **مسح قيمة نقطة بيانات محددة**
 
-لجعل نقطة واحدة فارغة دون إزالة النقاط الأخرى، عيّن خلية دفتر العمل الداعمة لها إلى `null`. بالنسبة لمخطط عمودي، القيمة المرسومة متاحة عبر [ChartDataPoint.getValue](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/chartdatapoint/#getValue). تظل نقطة البيانات في نفس موقع الفئة، لكن المخطط يتعامل مع قيمتها كفراغ وفقًا لإعدادات القيم الفارغة في المخطط.
+لجعل نقطة واحدة فارغة دون إزالة باقي النقاط، اضبط خلية المصنف الداعمة لها إلى `null`. للمخطط العمودي، تتوفر القيمة المرسومة عبر [ChartDataPoint.getValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/#getValue). تبقى نقطة البيانات في نفس موضع الفئة، لكن المخطط يتعامل مع قيمتها كخالية وفق إعدادات القيم الفارغة للمخطط.
 
-المثال التالي يمسح فقط النقطة الثانية في السلسلة الأولى:
+المثال التالي يمسح النقطة الثانية في السلسلة الأولى فقط:
 
 ```javascript
 const aspose = {};
@@ -338,17 +389,17 @@ try {
 }
 ```
 
-تستخدم مخططات التشتت خلايا X وY منفصلة، وتستخدم مخططات الفقاعات أيضًا خلية الحجم. امسح الخلية التي تمثّل القيمة التي ترغب في إزالتها. لا تستدعِ [ChartDataPointCollection.clear](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/chartdatapointcollection/#clear) عندما تريد الحفاظ على النقاط الأخرى، لأن هذه الطريقة تحذف كل نقاط البيانات من المجموعة.
+تستخدم مخططات التناثر خلايا X وY منفصلة، وتستخدم مخططات الفقاعات خلية الحجم أيضاً. امسح الخلية التي تمثل القيمة التي تريد إزالتها فقط. لا تُستدعي [ChartDataPointCollection.clear](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapointcollection/#clear) عندما تريد الحفاظ على النقاط الأخرى، لأن هذه الطريقة تُزيل كل نقاط البيانات من التجميع.
 
 ## **التحكم في عرض الخلايا الفارغة**
 
-الخلايا المخفية التي تحتوي على قيم هي حالة منفصلة عن الخلايا الفارغة. لتضمين أو استبعاد البيانات من صفوف وأعمدة الورقة المخفية، راجع [Include Data from Hidden Rows and Columns](/slides/ar/nodejs-java/chart-workbook/#include-data-from-hidden-rows-and-columns).
+الخلايا المخفية التي تحتوي على قيم هي حالة منفصلة عن الخلايا الفارغة. لتضمين أو استبعاد البيانات من الصفوف والأعمدة المخفيّة في ورقة العمل، راجع [Include Data from Hidden Rows and Columns](/slides/ar/nodejs-java/chart-workbook/#include-data-from-hidden-rows-and-columns).
 
-الخلية الفارغة في دفتر العمل تمثّل بيانات مفقودة؛ الخلية التي تحتوي على `0` تمثّل قيمة عددية معروفة. استدعِ [ChartDataCell.setValue](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/chartdatacell/#setValue) مع `null` لجعل الخلية فارغة. الصفر الرقمي يبقى صفرًا بغض النظر عن إعداد الخلايا الفارغة.
+تمثّل خلية مصنف فارغة بيانات مفقودة؛ وتُمثّل الخلية التي تحتوي على `0` قيمة رقمية معروفة. استدعِ [ChartDataCell.setValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatacell/#setValue) مع `null` لجعل الخلية فارغة. يبقى الصفر الرقمي صفرًا بغض النظر عن إعداد الخلية الفارغة.
 
-استخدم [Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/chart/#setDisplayBlanksAs) لاختيار طريقة عرض المخطط للخلايا الفارغة. ينطبق هذا الإعداد على كامل المخطط. إنه يغيّر طريقة رسم الفواصل دون ملء الخلية الفارغة بالصفر أو قيمة مقربة.
+استخدم [Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#setDisplayBlanksAs) لاختيار كيفية عرض المخطط للخلايا الفارغة. ينطبق هذا الإعداد على المخطط بأكمله. يغيّر طريقة رسم الفجوات دون ملء الخلية الفارغة بالصفر أو قيمة مُقوَّسة.
 
-المثال التالي المستقل يُنشئ مخططًا خطيًا بسلسلة واحدة، يمسح القيمة لليوم 3، ويحفظ المخطط بنفسه بكل وضع. لا يلزم ملف إدخال. يستخدم [ChartDataWorkbook](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/chartdataworkbook/) الورقة 0، العمود 0 لتسميات الفئات، والعمود 1 للقيم؛ الصف 0 يحمل اسم السلسلة. البيانات النهائية هي `10, 20, empty, 30, 40`.
+المثال المستقل التالي يُنشئ مخططًا خطيًا بسلسلة واحدة، يمسح القيمة لليوم 3، ويحفظ المخطط نفسه بكل وضع. لا يلزم ملف إدخال. يستخدم [ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/) ورقة العمل 0، العمود 0 لتسميات الفئات، والعمود 1 للقيم؛ الصف 0 يحمل اسم السلسلة. البيانات النهائية هي `10, 20, empty, 30, 40`.
 
 ```javascript
 const aspose = {};
@@ -376,7 +427,7 @@ try {
         series.getDataPoints().addDataPointForLineSeries(valueCell);
     }
 
-    // اترك اليوم 3 فارغًا فعليًا، مع الحفاظ على فئته ونقطة البيانات الخاصة به.
+    // اترك اليوم 3 فارغًا حقًا، مع الحفاظ على فئته ونقطة بياناته.
     workbook.getCell(0, 3, 1).setValue(null);
 
     const modes = [aspose.slides.DisplayBlanksAsType.Gap, aspose.slides.DisplayBlanksAsType.Zero, aspose.slides.DisplayBlanksAsType.Span];
@@ -390,19 +441,19 @@ try {
 }
 ```
 
-كل ملف ناتج يُخزّن الوضع المعيّن قبل الحفظ: `empty_cells_Gap.pptx`، `empty_cells_Zero.pptx`، و`empty_cells_Span.pptx`. لحفظ نسخة واحدة فقط، عيّن الوضع المطلوب واحفظ العرض التقديمي مرة واحدة بدلًا من التكرار على الأوضاع.
+كل ملف ناتج يخزن الوضع المُعين قبل الحفظ: `empty_cells_Gap.pptx`، `empty_cells_Zero.pptx`، و `empty_cells_Span.pptx`. لحفظ نسخة واحدة فقط، عيّن الوضع المطلوب واحفظ العرض مرةً واحدة بدلاً من التكرار على الأوضاع.
 
-المقارنة أدناه تُظهر نفس البيانات في جميع الملفات الثلاثة. اليوم 3 فارغ في دفتر العمل في كل حالة:
+المقارنة أدناه تُظهر البيانات نفسها في جميع الملفات الثلاثة. اليوم 3 فارغ في المصنف في كل حالة:
 
-![مخططات خطية ببيانات متطابقة: الفجوة تقطع الخط في اليوم 3، الصفر يُخفض الخط إلى الصفر، والامتداد يربط اليوم 2 باليوم 4.](display_blanks_as.png)
+![مخططات خطية ببيانات متماثلة: الفجوة تقطع الخط في اليوم 3، الصفر يُنزل الخط إلى الصفر، والامتداد يربط اليوم 2 باليوم 4.](display_blanks_as.png)
 
-التأثير المرئي يعتمد على نوع المخطط. يجعل مخطط الخطّ الثلاثة أوضاع سهلة المقارنة. المخططات الشريطية والعمودية لا تمتلك خطًا يربط عبر فئة مفقودة، لذا لا يستطيع `Span` إنتاج القطعة المتصلة الموضحة أعلاه؛ وقد تبدو عمود مفقود وعمود بارتفاع صفر متشابهين. بالمثل، مخطط التشتت مع العلامات فقط لا يملك خطًا متصلًا. لا تتوقع ثلاث نتائج متميزة لكل نوع مخطط؛ افحص النتيجة للنوع الذي تستخدمه.
+يعتمد التأثير المرئي على نوع المخطط. يُسهِّل مخطط الخط مقارنة جميع الأوضاع الثلاثة. لا توجد خطوط ربط في مخططات الأعمدة أو القضبان عندما تكون الفئة مفقودة، لذا لا يمكن لـ `Span` إنتاج الجزء المتصل أعلاه؛ كما قد يبدو العمود المفقود وعمود الصفر متشابهين. وبالمثل، لا يُظهر مخطط التناثر مع العلامات فقط خطًا ربطًا. لا تتوقع ثلاث نتائج مميزة لكل نوع مخطط؛ تحقق من المخرجات لنوع المخطط الذي تستخدمه.
 
-## **تعيين عرض الفجوة بين السلاسل**
+## **ضبط عرض الفجوة بين السلاسل**
 
-عرض الفجوة هو المسافة بين مجموعات الأعمدة أو الأشرطة المتجاورة، تُعبَّر كنسبة مئوية من عرض العمود أو الشريط. مثل التداخل، ينتمي إلى مجموعة السلسلة الأصلية بدلاً من سلسلة واحدة. استدعِ [ChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/chartseriesgroup/#setGapWidth) مرة واحدة للمجموعة. القيمة الأكبر تخلق مساحة أكبر بين المجموعات؛ والقيمة الأصغر تجعلها أكثر كثافة.
+عرض الفجوة هو المسافة بين مجموعات الأعمدة أو القضبان المتجاورة، تُعبَّر كنسبة مئوية من عرض العمود أو القضيب. مثل التداخل، ينتمي إلى مجموعة السلاسل الأصلية بدلاً من سلسلة واحدة. استدعِ [ChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/#setGapWidth) مرةً واحدة للمجموعة. القيمة الأكبر تُنشئ مساحة أكبر بين المجموعات؛ والقيمة الأصغر تجعلها أكثر كثافة.
 
-المثال التالي يغيّر عرض الفجوة ويحفظ العرض التقديمي النهائي فقط:
+المثال التالي يغيّر عرض الفجوة ويحفظ العرض النهائي فقط:
 
 ```javascript
 const aspose = {};
@@ -431,44 +482,44 @@ try {
 
 ![عرض الفجوة](gap_width.png)
 
-## **الأسئلة الشائعة**
+## **الأسئلة المتكررة**
 
-**ما أنواع المخططات التي تدعم سلاسل البيانات؟**
+**ما أنواع المخططات التي تدعم السلاسل البيانية؟**
 
-جميع أنواع المخططات المًمثلة في تعداد [ChartType](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/charttype/) تستخدم بيانات المخطط، لكن سلاسلها لا تتشارك جميعها نفس بنية القيم أو الإعدادات. على سبيل المثال، تستخدم المخططات الفئوية الفئات والقيم، ومخططات التشتت قيم X وY، ومخططات الفقاعات تضيف أحجام الفقاعات. استخدم طريقة إنشاء نقطة البيانات التي تتطابق مع نوع السلسلة. تنطبق خيارات مثل التداخل وعرض الفجوة فقط على مجموعات الأعمدة أو الشريط المتوافقة.
+جميع أنواع المخططات الممثَّلة في تعداد [ChartType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/) تستخدم بيانات المخطط، لكن سلاسلها لا تتشارك نفس بنية القيم أو الإعدادات. على سبيل المثال، تستخدم المخططات الفئوية الفئات والقيم، وتستخدم مخططات التناثر قيم X وY، وتضيف مخططات الفقاعات أحجام الفقاعات. استخدم طريقة إنشاء نقطة البيانات التي تتطابق مع نوع السلسلة. تنطبق خيارات مثل التداخل وعرض الفجوة فقط على مجموعات الأعمدة أو القضبان المتوافقة.
 
-**ما هي مجموعة سلاسل المخطط؟**
+**ما هو مجموعة سلاسل المخطط؟**
 
-[ChartSeriesGroup](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/chartseriesgroup/) يحتوي على سلاسل متوافقة تشترك في إعدادات التخطيط على مستوى المجموعة. يمكن أن يحتوي مخطط مركب على أكثر من مجموعة، لذا تغيير المجموعة التي تُصل من خلالها إحدى السلاسل لا يغيّر بالضرورة كل السلاسل في المخطط.
+[ChartSeriesGroup](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/) يُضمّن سلاسل متوافقة تشترك في إعدادات رسم على مستوى المجموعة. يمكن أن يحتوي مخطط مركب على أكثر من مجموعة، لذا فإن تعديل المجموعة التي يتم الوصول إليها عبر سلسلة لا يعني بالضرورة تغيير كل السلاسل في المخطط.
 
 **هل يحتوي المخطط المُنشأ حديثًا على بيانات افتراضية؟**
 
-نعم. بشكل افتراضي، تُنشئ الدالة [ShapeCollection.addChart](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/shapecollection/#addChart) سلاسل، فئات، وقيم نموذجية. يمكنك تعديل تلك الخلايا أو مسح كل من مجموعات السلاسل والفئات قبل إضافة مجموعة بيانات مخصصة بالكامل. يمكن للنسخة الفائقة أيضًا إنشاء مخطط دون بيانات افتراضية.
+نعم. بشكل افتراضي، تُنشئ [ShapeCollection.addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addChart) سلاسل وعلاقات وفئات نموذجية. يمكنك تعديل تلك الخلايا أو مسح كل من مجموعات السلاسل والفئات قبل إضافة مجموعة بيانات مخصصة بالكامل. يمكن أيضًا استدعاء نسخة أخرى لإنشاء مخطط بدون بيانات افتراضية.
 
-**كيف تُربط كائنات المخطط بخلايا دفتر العمل؟**
+**كيف تُربط كائنات المخطط بخلايا المصنف؟**
 
-أسماء السلاسل، تسميات الفئات، وقيم نقاط البيانات تُشير إلى خلايا في [ChartDataWorkbook](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/chartdataworkbook/). تعديل خلية مُشار إليها يُحدِّث العنصر المقابل في المخطط. عند بناء بيانات مخصصة، احرص على محاذاة صفوف الفئات وصفوف قيم السلاسل بحيث تُرسم كل نقطة تحت الفئة المقصودة.
+تشير أسماء السلاسل، وتسميات الفئات، وقيم نقاط البيانات إلى خلايا في [ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/). يؤدي تعديل الخلية المشار إليها إلى تحديث العنصر المقابل في المخطط. عند بناء بيانات مخصصة، احرص على محاذاة صفوف الفئات وصفوف قيم السلاسل بحيث تُرسم كل نقطة تحت الفئة المقصودة.
 
-**كيف أحذف نقطة واحدة بدلاً من السلسلة بأكملها؟**
+**كيف أمسح نقطة واحدة بدلاً من السلسلة بأكملها؟**
 
-عيّن خلية القيمة ذات الصلة إلى `null` لتبقى نقطة الفئة في موقعها كنقطة فارغة. استخدم [ChartDataPointCollection.clear](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/chartdatapointcollection/#clear) فقط عندما ترغب في حذف كل النقاط من تلك السلسلة. إذا أزلت الفئات أيضًا، حدّث كل السلاسل بحيث تظل قيمها متناسقة مع مجموعة الفئات.
+اضبط خلية القيمة ذات الصلة إلى `null` للحفاظ على موضع الفئة كنقطة فارغة. استخدم [ChartDataPointCollection.clear](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapointcollection/#clear) فقط عندما تريد إزالة جميع النقاط من تلك السلسلة. إذا أزلت الفئات أيضًا، حدّث كل السلاسل بحيث تظل قيمها متناسقة مع مجموعة الفئات.
 
 **كيف تُعرض النقاط الفارغة؟**
 
-يعتمد النتيجة على نوع المخطط والقيمة المُعيَّنة عبر [Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/chart/#setDisplayBlanksAs). يمكن للمخططات المدعومة عرض الفواصل كفجوات، كقِيَم صفرية، أو بربط النقاط المتجاورة. اختر الإعداد الذي يتطابق مع معنى البيانات المفقودة في عرضك. راجع [Control the Display of Empty Cells](#control-the-display-of-empty-cells) لمثال كامل ومقارنة بصرية.
+تختلف النتيجة حسب نوع المخطط والإعداد المحدد عبر [Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#setDisplayBlanksAs). يمكن للمخططات المدعومة عرض الفجوات كفراغات، أو كقيم صفرية، أو بربط النقاط المجاورة. اختر الإعداد الذي يعكس معنى البيانات المفقودة في عرضك. راجع [التحكم في عرض الخلايا الفارغة](#control-the-display-of-empty-cells) للحصول على مثال كامل ومقارنة بصرية.
 
-**كيف يُنسق القيم السالبة؟**
+**كيف تُنسق القيم السالبة؟**
 
-بالنسبة للسلاسل الشريطية، العمودية، والفقاعات المدعومة، استدعِ [ChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/chartseries/#setInvertIfNegative) وعَيِّن اللون الذي تُعيده [ChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/chartseries/#getInvertedSolidFillColor). يمكنك تجاوز السلوك لنقطة فردية باستخدام [ChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/chartdatapoint/#setInvertIfNegative). هذه الطرق تؤثر على التنسيق، وليس على القيم العددية المخزّنة.
+بالنسبة للسلاسل المدعومة من الأعمدة، الأعمدة، والفقاعات، استدعِ [ChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/#setInvertIfNegative) وعيّن اللون المسترجع عبر [ChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/#getInvertedSolidFillColor). يمكن تجاوز السلوك لنقطة فردية باستخدام [ChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/#setInvertIfNegative). تؤثر هذه الطرق على التنسيق فقط، ولا تغيّر القيم الرقمية المخزَّنة.
 
-**أي تنسيق ينتصر عندما يتم تنسيق كل من السلسلة والنقطة؟**
+**أي تنسيق ينتصر عندما تُنسق كل من السلسلة والنقطة؟**
 
-يتفوّق تنسيق نقطة البيانات الصريح لتلك النقطة. تستمر النقاط الأخرى في استخدام تنسيق السلسلة الصريح أو، إذا لم يُحدَّد تنسيق السلسلة، النمط والثيم التلقائي للمخطط. إعدادات المجموعة مثل التداخل وعرض الفجوة تتحكم في التخطيط وليست تجاوزات تنسيق على مستوى النقطة.
+أولوية التنسيق الصريح لنقطة البيانات لتلك النقطة. تستمر النقاط الأخرى في استخدام تنسيق السلسلة الصريح أو، إذا لم يُحدَّد تنسيق السلسلة، نمط المخطط والثيم التلقائي. تُسيطر إعدادات المجموعة مثل التداخل وعرض الفجوة على التخطيط ولا تُعدّ تجاوزات تنسيق على مستوى النقطة.
 
 **هل هناك حد لعدد السلاسل التي يمكن أن يحتويها المخطط؟**
 
-Aspose.Slides لا يفرض حدًا ثابتًا منفصلًا لعدد السلاسل. في الواقع، تحدد قيود ملف العرض، الذاكرة المتاحة، زمن التقديم، وقابلية قراءة المخطط حدًا عمليًا.
+لا يفرض Aspose.Slides حدًا ثابتًا منفصلًا لعدد السلاسل. في الواقع، تُحدِّد قيود ملف العرض، الذاكرة المتاحة، وقت التصيير، وقابلية قراءة المخطط حدًا عمليًا.
 
-**ماذا يجب تغييره عندما تكون الأعمدة متقاربة جدًا أو متباعدة كثيرًا؟**
+**ماذا أفعل عندما تكون الأعمدة متقاربة جدًا أو متباعدة جدًا؟**
 
-استدعِ [ChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/chartseriesgroup/#setGapWidth) على مجموعة السلسلة الأصلية المناسبة. زد القيمة لتوسيع المسافة بين المجموعات، أو قللها لتقريب المجموعات من بعضها البعض.
+استدعِ [ChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/#setGapWidth) على مجموعة السلاسل الأصلية المناسبة. زد القيمة لتوسيع الفجوة بين المجموعات، أو قلّلها لتقريب المجموعات من بعضها.

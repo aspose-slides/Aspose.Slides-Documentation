@@ -1,44 +1,44 @@
 ---
-title: إدارة سلاسل بيانات المخطط في العروض التقديمية باستخدام .NET
+title: إدارة سلاسل بيانات المخطط في العروض التقديمية في .NET
 linktitle: سلاسل البيانات
 type: docs
 url: /ar/net/chart-series/
 keywords:
-- سلسلة المخطط
+- سلسلة مخطط
 - تداخل السلسلة
 - لون السلسلة
 - لون الفئة
 - اسم السلسلة
-- نقطة البيانات
+- نقطة بيانات
 - فجوة السلسلة
 - PowerPoint
 - عرض تقديمي
 - .NET
 - C#
 - Aspose.Slides
-description: "تعلم كيفية إدارة سلاسل المخطط، نقاط البيانات، خلايا دفتر العمل، التنسيق، التداخل، عرض الفجوة، والقيم السالبة في العروض التقديمية باستخدام C#."
+description: "تعلم كيفية إدارة سلاسل المخطط، نقاط البيانات، خلايا دفتر العمل، التنسيق، التداخل، عرض الفجوة، والقيم السلبية في العروض التقديمية باستخدام C#."
 ---
 ## **نظرة عامة**
 
-يخزن المخطط بياناته المرسومة في دفتر عمل بيانات المخطط. تمثل [IChartSeries](https://reference.aspose.com/slides/ar/net/aspose.slides.charts/ichartseries/) مجموعة واحدة من القيم المرتبطة، وكل [IChartDataPoint](https://reference.aspose.com/slides/ar/net/aspose.slides.charts/ichartdatapoint/) في السلسلة يشير إلى خلية أو أكثر في دفتر العمل. توفر كائنات [IChartCategory](https://reference.aspose.com/slides/ar/net/aspose.slides.charts/ichartcategory/) التسميات أو قيم التجميع المشتركة بين السلاسل. لذلك يتم ربط اسم السلسلة، الفئات، وقيم النقاط بكائنات [IChartDataCell](https://reference.aspose.com/slides/ar/net/aspose.slides.charts/ichartdatacell/) بدلاً من تخزينها كنص عرض فقط.
+تخزن المخطط بياناته المرسومة في دفتر بيانات المخطط. يمثل [IChartSeries](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/) مجموعة واحدة من القيم المرتبطة، وكل [IChartDataPoint](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/) في السلسلة يشير إلى خلية أو أكثر في دفتر العمل. توفر كائنات [IChartCategory](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartcategory/) التسميات أو قيم التجميع المشتركة بين السلاسل. لذلك يتم ربط اسم السلسلة والفئات وقيم النقاط بكائنات [IChartDataCell](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatacell/) بدلاً من تخزينها كنص عرض فقط.
 
-في مخطط الفئة النموذجي، يستخدم دفتر العمل الافتراضي الصف 0 لأسماء السلاسل، العمود 0 لأسماء الفئات، وتُملأ الخلايا المتبقية بقيم السلاسل. الفهارس للورقة والصف والعمود التي تُمرَّر إلى [IChartDataWorkbook.GetCell](https://reference.aspose.com/slides/ar/net/aspose.slides.charts/ichartdataworkbook/getcell/) تبدأ من الصفر. هذا التخطيط مفيد عندما تنشئ مخططًا ببيانات افتراضية، لكن لا تفترض أن كل مخطط موجود يستخدمه. بالنسبة للعرض التقديمي المُحمَّل، افحص الخلايا التي تشير إليها السلاسل، الفئات، ونقاط البيانات قبل تغيير قيم دفتر العمل.
+في مخطط الفئات النموذجي، يستخدم دفتر العمل الافتراضي الصف 0 لأسماء السلاسل، والعمود 0 لأسماء الفئات، وتُستخدم الخلايا المتبقية لقيم السلسلة. يتم تمرير مؤشرات ورقة العمل والصف والعمود إلى [IChartDataWorkbook.GetCell](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/getcell/) بصفر كأساس. هذا التخطيط مفيد عندما تنشئ مخططًا ببيانات افتراضية، لكن لا تفترض أن كل مخطط موجود يستخدمه. في عرض تقديمي محمَّل، قم بتفتيش الخلايا التي تشير إليها السلاسل والفئات ونقاط البيانات قبل تعديل قيم دفتر العمل.
 
-لإعدادات المخطط ثلاث نطاقات مختلفة:
+إعدادات المخطط لها ثلاث نطاقات مختلفة:
 
-- إعدادات على مستوى السلسلة، مثل [IChartSeries.Format](https://reference.aspose.com/slides/ar/net/aspose.slides.charts/ichartseries/format/)، تُوفر المظهر الافتراضي لجميع النقاط في سلسلة واحدة.
-- إعدادات على مستوى نقطة البيانات، مثل [IChartDataPoint.Format](https://reference.aspose.com/slides/ar/net/aspose.slides.charts/ichartdatapoint/format/)، تتجاوز مظهر السلسلة لنقطة واحدة.
-- إعدادات المجموعة تنطبق على السلاسل المتوافقة التي تنتمي إلى نفس [IChartSeriesGroup](https://reference.aspose.com/slides/ar/net/aspose.slides.charts/ichartseriesgroup/). يمكن الوصول إلى المجموعة عبر [IChartSeries.ParentSeriesGroup](https://reference.aspose.com/slides/ar/net/aspose.slides.charts/ichartseries/parentseriesgroup/) عندما تحتاج إلى تعيين خيارات مثل التداخل أو عرض الفجوة.
+- إعدادات مستوى السلسلة، مثل [IChartSeries.Format](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/format/)، توفر المظهر الافتراضي لجميع النقاط في سلسلة واحدة.
+- إعدادات نقطة البيانات، مثل [IChartDataPoint.Format](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/format/)، تتجاوز مظهر السلسلة لنقطة واحدة.
+- تنطبق إعدادات المجموعة على السلاسل المتوافقة التي تنتمي إلى نفس [IChartSeriesGroup](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/). يمكنك الوصول إلى المجموعة عبر [IChartSeries.ParentSeriesGroup](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/parentseriesgroup/) عندما تحتاج إلى تعيين خيارات مثل التداخل أو عرض الفجوة.
 
-عند عدم تحديد تعبئة صريحة للنقطة أو السلسلة، يحدد نمط المخطط والموضوع المظهر التلقائي. عندما تكون كل من تنسيقات السلسلة والنقطة موجودة، تُعطى تنسيق النقطة الأولوية لتلك النقطة.
+عندما لا يتم تعيين تعبئة صريحة للنقطة أو السلسلة، يحدد نمط المخطط والموضوع المظهر التلقائي. عندما يكون كل من تنسيق السلسلة وتنسيق النقطة موجودين، يتفوق تنسيق النقطة لتلك النقطة.
 
-![chart-series-powerpoint](chart-series-powerpoint.png)
+![سلسلة المخطط PowerPoint](chart-series-powerpoint.png)
 
 ## **تعيين تداخل سلسلة المخطط**
 
-[IChartSeries.Overlap](https://reference.aspose.com/slides/ar/net/aspose.slides.charts/ichartseries/overlap/) يُظهر مقدار تداخل الأعمدة أو القضبان في مخطط ثنائي الأبعاد، من -100 إلى 100 بالمئة. وهو إسقاط للقراءة فقط للإعداد على مجموعة السلسلة الأصلية. عيّن [IChartSeriesGroup.Overlap](https://reference.aspose.com/slides/ar/net/aspose.slides.charts/ichartseriesgroup/overlap/) لتحديث كل السلاسل المتوافقة في تلك المجموعة. يُطبق هذا الخيار على أنواع المخططات التي تعرض أعمدة أو قضبان مجمَّعة؛ ولا يؤثر على مجموعات السلاسل غير المرتبطة في مخطط مركب.
+[IChartSeries.Overlap](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/overlap/) يُبلغ عن مدى تداخل الأشرطة أو الأعمدة في مخطط ثنائي الأبعاد، من -100 إلى 100 بالمائة. إنه إظهار للقراءة فقط للإعداد على مجموعة السلسلة الأصل. قم بتعيين [IChartSeriesGroup.Overlap](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/overlap/) لتحديث كل السلاسل المتوافقة في تلك المجموعة. ينطبق هذا الخيار على أنواع المخططات التي تعرض أشرطة أو أعمدة مجمعة؛ ولا يؤثر على مجموعات السلاسل غير ذات الصلة في مخطط مركب.
 
-المثال التالي يعيّن التداخل للمجموعة التي تحتوي على السلسلة الأولى:
+المثال التالي يضبط التداخل للمجموعة التي تحتوي على السلسلة الأولى:
 
 ```cs
 using Aspose.Slides;
@@ -52,7 +52,7 @@ const sbyte overlapPercent = 30;
 using var presentation = new Presentation();
 var slide = presentation.Slides[firstSlideIndex];
 
-// المخطط الجديد يحتوي على سلاسل، فئات، وقيم نموذجية.
+// المخطط الجديد يحتوي على سلاسل وعناصر فئة وقيم تجريبية.
 var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
 
 var series = chart.ChartData.Series[firstSeriesIndex];
@@ -63,13 +63,13 @@ presentation.Save("series_overlap.pptx", SaveFormat.Pptx);
 
 النتيجة:
 
-![The series overlap](series_overlap.png)
+![تداخل السلسلة](series_overlap.png)
 
 ## **تغيير لون تعبئة السلسلة**
 
-استخدم [IChartSeries.Format](https://reference.aspose.com/slides/ar/net/aspose.slides.charts/ichartseries/format/) لتعيين التعبئة الافتراضية لسلسلة كاملة. إذا كانت النقطة لديها تعبئة صريحة، فإن إعداد [IChartDataPoint.Format](https://reference.aspose.com/slides/ar/net/aspose.slides.charts/ichartdatapoint/format/) يتجاوز تعبئة السلسلة لتلك النقطة.
+استخدم [IChartSeries.Format](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/format/) لتعيين التعبئة الافتراضية لسلسلة كاملة. إذا كانت النقطة لديها تعبئة صريحة بالفعل، فإن إعداد [IChartDataPoint.Format](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/format/) يتجاوز تعبئة السلسلة لتلك النقطة.
 
-المثال التالي يطبق تعبئة صلبة زرقاء على السلسلة الأولى:
+المثال التالي يطبق تعبئة صلبة باللون الأزرق على السلسلة الأولى:
 
 ```cs
 using System.Drawing;
@@ -94,11 +94,11 @@ presentation.Save("series_color.pptx", SaveFormat.Pptx);
 
 النتيجة:
 
-![The color of the series](series_color.png)
+![لون السلسلة](series_color.png)
 
 ## **تغيير اسم السلسلة**
 
-يُخزن اسم السلسلة في دفتر عمل بيانات المخطط ويُعرض عادةً في وسيلة الإيضاح. في دفتر العمل الافتراضي الذي يُنشئ لمخطط عمودي متكتل، تكون الخلية B1 في الصف 0، العمود 1 وتحتوي على اسم السلسلة الأولى. الثوابت المسماة في المثال التالي تجعل ذلك الهيكل واضحًا:
+يُخزن اسم السلسلة في دفتر بيانات المخطط وعادةً ما يُعرض في المفتاح. في دفتر العمل الافتراضي الذي يُنشأ لمخطط أعمدة مجمّعة، تكون الخلية B1 في الصف 0 والعمود 1 وتحتوي على اسم السلسلة الأولى. الثوابت المسماة في المثال التالي تجعل هذا الهيكل واضحًا:
 
 ```cs
 using Aspose.Slides;
@@ -122,7 +122,7 @@ seriesNameCell.Value = "Revenue";
 presentation.Save("series_name.pptx", SaveFormat.Pptx);
 ```
 
-يمكنك أيضًا تحديث الخلية التي يشير إليها [IChartSeries.Name](https://reference.aspose.com/slides/ar/net/aspose.slides.charts/ichartseries/name/). يَتَجنّب هذا النهج الافتراض بوجود صف أو عمود محدد في مخطط موجود:
+يمكنك أيضًا تحديث الخلية التي يُشير إليها بالفعل [IChartSeries.Name](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/name/). ي避免 هذا النهج الافتراض بوجود صف وعمود معينين في مخطط موجود:
 
 ```cs
 using Aspose.Slides;
@@ -147,11 +147,59 @@ presentation.Save("series_name.pptx", SaveFormat.Pptx);
 
 النتيجة:
 
-![The series name](series_name.png)
+![اسم السلسلة](series_name.png)
+
+### **إنشاء سلسلة باسم من عدة خلايا**
+
+يكون اسم السلسلة المركب مفيدًا عندما يتم تخزين اسم المنتج وفترة التقرير في خلايا دفتر عمل منفصلة. على سبيل المثال، يمكنك دمج `Product A` في B1 و`2026` في C1 في اسم سلسلة واحد مع الحفاظ على ارتباط الجزأين بخلايا المصدر.
+
+استخدم [IChartDataWorkbook.GetCellCollection](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/getcellcollection/) لاسترجاع نطاق الاسم، ثم مرّر تلك المجموعة إلى [IChartSeriesCollection.Add](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriescollection/add/). يتحكم معامل `skipHiddenCells` فيما إذا كانت الخلايا المخفية مُضمنة: `true` يستثنيها، بينما `false` يضمنها. يستخدم هذا المثال `false` لتضمين كل الخلايا في نطاق الاسم.
+
+المثال التالي ينشئ عرض تقديمي بسلسلة واحدة ونقطتي بيانات. الخلايا B1:C1 تزود فقط باسم السلسلة؛ A2:A3 تزود تسميات الفئات، وB2:B3 تزود القيم الرقمية.
+
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 620, 180);
+
+chart.ChartData.Series.Clear();
+chart.ChartData.Categories.Clear();
+chart.HasLegend = true;
+
+var workbook = chart.ChartData.ChartDataWorkbook;
+workbook.Clear(0);
+
+// هاتان الخليتان توفران اسم السلسلة.
+workbook.GetCell(0, 0, 1, "Product A");
+workbook.GetCell(0, 0, 2, "2026");
+var nameCells = workbook.GetCellCollection("Sheet1!$B$1:$C$1", skipHiddenCells: false);
+var series = chart.ChartData.Series.Add(nameCells, ChartType.ClusteredColumn);
+
+// خلايا منفصلة توفر الفئات ونقاط البيانات الرقمية.
+var northCategory = workbook.GetCell(0, 1, 0, "North");
+var southCategory = workbook.GetCell(0, 2, 0, "South");
+chart.ChartData.Categories.Add(northCategory);
+chart.ChartData.Categories.Add(southCategory);
+var northValue = workbook.GetCell(0, 1, 1, 120);
+var southValue = workbook.GetCell(0, 2, 1, 150);
+series.DataPoints.AddDataPointForBarSeries(northValue);
+series.DataPoints.AddDataPointForBarSeries(southValue);
+
+presentation.Save("composite_series_name.pptx", SaveFormat.Pptx);
+```
+
+اسم السلسلة الناتج هو `Product A 2026`، مع مسافة بين قيمتي الخليتين. يُظهر المفتاح ذلك كإدخال واحد لكل العمودين. الصورة أدناه تم توليدها من العرض المُحَفَظ:
+
+![مخطط عمودي بقيم شمال وجنوب واسم السلسلة المركبة Product A 2026 في المفتاح](composite_series_name.png)
 
 ## **الحصول على لون تعبئة السلسلة التلقائي**
 
-[IChartSeries.GetAutomaticSeriesColor](https://reference.aspose.com/slides/ar/net/aspose.slides.charts/ichartseries/getautomaticseriescolor/) يُعيد اللون الذي يُحسب من فهرس السلسلة ونمط المخطط. هذا هو اللون المستخدم عندما لا تكون تعبئة السلسلة مُحدَّدة صراحة. استدعاء الطريقة يقرأ اللون المُحسب؛ لا يُعيّن تعبئة جديدة.
+[IChartSeries.GetAutomaticSeriesColor](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/getautomaticseriescolor/) يعيد اللون المحسوب من فهرس السلسلة ونمط المخطط. هذا هو اللون المستخدم عندما لا تكون تعبئة السلسلة معرفة صراحة. استدعاء الطريقة يقرأ اللون المحسوب؛ لا يعيّن تعبئة جديدة.
 
 المثال التالي يطبع اللون التلقائي لكل سلسلة افتراضية:
 
@@ -176,7 +224,7 @@ for (var seriesIndex = 0; seriesIndex < seriesCount; seriesIndex++)
 }
 ```
 
-مخرجات المثال للنمط الافتراضي للمخطط:
+مثال على المخرجات لنمط المخطط الافتراضي:
 
 ```text
 Series 0: ff4f81bd
@@ -186,9 +234,9 @@ Series 2: ff9bbb59
 
 الألوان الدقيقة تعتمد على نمط المخطط والموضوع.
 
-## **تعيين لون تعبئة معكوس لسلسلة المخطط**
+## **تعيين لون تعبئة عكسي لسلسلة المخطط**
 
-بالنسبة لسلاسل القضبان، الأعمدة، والفقاعات، يمكن لـ [IChartSeries.InvertIfNegative](https://reference.aspose.com/slides/ar/net/aspose.slides.charts/ichartseries/invertifnegative/) عرض القيم السالبة بتعبئة مختلفة. عيّن تعبئة السلسلة العادية إلى صلبة، مّكن العكس، وعين لون القيمة السالبة عبر [IChartSeries.InvertedSolidFillColor](https://reference.aspose.com/slides/ar/net/aspose.slides.charts/ichartseries/invertedsolidfillcolor/). الأرقام السالبة تظل غير مُغيَّرة في دفتر العمل؛ يتغير فقط لون العرض.
+بالنسبة لسلاسل الأشرطة والأعمدة والفقاعات، يمكن لـ[IChartSeries.InvertIfNegative](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/invertifnegative/) عرض القيم السلبية بتعبئة مختلفة. عيّن تعبئة السلسلة العادية إلى صلبة، فعّل العكس، وعيّن لون القيمة السلبية عبر [IChartSeries.InvertedSolidFillColor](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/invertedsolidfillcolor/). تبقى الأرقام السلبية دون تغيير في دفتر العمل؛ فقط يتغير لون عرضها.
 
 المثال التالي يستبدل بيانات المخطط الافتراضية بسلسلة واحدة. الصف 0 في ورقة العمل يحتوي على اسم السلسلة، العمود 0 يحتوي على أسماء الفئات، والعمود 1 يحتوي على القيم:
 
@@ -245,9 +293,9 @@ presentation.Save("inverted_solid_fill_color.pptx", SaveFormat.Pptx);
 
 النتيجة:
 
-![The inverted solid fill color](inverted_solid_fill_color.png)
+![لون التعبئة الصلبة العكسية](inverted_solid_fill_color.png)
 
-يمكنك تمكين العكس لنقطة واحدة عبر [IChartDataPoint.InvertIfNegative](https://reference.aspose.com/slides/ar/net/aspose.slides.charts/ichartdatapoint/invertifnegative/). في المثال التالي، يتم تعطيل العكس للسلسلة وتفعيله فقط للنقطة المحددة. تُعطى النقطة قيمة سالبة لكي يكون التأثير مرئيًا:
+يمكنك تمكين العكس لنقطة واحدة عبر [IChartDataPoint.InvertIfNegative](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/invertifnegative/). في المثال التالي، يتم تعطيل العكس للسلسلة وتمكينه فقط للنقطة المحددة. تُعطى النقطة أيضًا قيمة سلبية لتكون النتيجة مرئية:
 
 ```cs
 using System.Drawing;
@@ -281,9 +329,9 @@ presentation.Save("data_point_invert_color_if_negative.pptx", SaveFormat.Pptx);
 
 ## **مسح قيمة نقطة بيانات محددة**
 
-لجعل نقطة واحدة فارغة دون إزالة باقي النقاط، عيّن خلية دفتر العمل الداعمة لها إلى `null`. بالنسبة لمخطط عمودي، القيمة المرسومة متاحة عبر [IChartDataPoint.YValue](https://reference.aspose.com/slides/ar/net/aspose.slides.charts/ichartdatapoint/yvalue/). تظل نقطة البيانات في نفس موضع الفئة، لكن المخطط يعامل قيمتها كقيمة فارغة وفقًا لإعدادات القيم الفارغة للمخطط.
+لجعل نقطة واحدة فارغة دون حذف باقي النقاط، عيّن خلية دفتر العمل الداعمة لها إلى `null`. بالنسبة لمخطط الأعمدة، تكون القيمة المرسومة متاحة عبر [IChartDataPoint.YValue](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/yvalue/). تظل نقطة البيانات في نفس موقع الفئة، لكن المخطط يعامل قيمتها كخالية وفقًا لإعدادات قيمة الخلية الفارغة في المخطط.
 
-المثال التالي يمسح النقطة الثانية فقط في السلسلة الأولى:
+المثال التالي يمسح فقط النقطة الثانية في السلسلة الأولى:
 
 ```cs
 using Aspose.Slides;
@@ -306,17 +354,17 @@ dataPoint.YValue.AsCell.Value = null;
 presentation.Save("clear_data_point_value.pptx", SaveFormat.Pptx);
 ```
 
-تستخدم مخططات التبعثر خلايا X وY منفصلة، وتستخدم مخططات الفقاعات أيضًا خلية الحجم. امسح فقط الخلية التي تمثل القيمة التي تريد إزالتها. لا تُستدعِ [IChartDataPointCollection.Clear](https://reference.aspose.com/slides/ar/net/aspose.slides.charts/ichartdatapointcollection/clear/) عندما تريد الحفاظ على النقاط الأخرى، لأن هذه الطريقة تُزيل كل نقاط البيانات من المجموعة.
+تستخدم مخططات التبعثر خلايا X وY منفصلة، وتستخدم مخططات الفقاعات أيضًا خلية حجم. امسح فقط الخلية التي تمثل القيمة التي تريد إزالتها. لا تستدعِ [IChartDataPointCollection.Clear](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapointcollection/clear/) عندما تريد الاحتفاظ بالنقاط الأخرى، لأن هذه الطريقة تزيل كل نقطة بيانات من المجموعة.
 
 ## **التحكم في عرض الخلايا الفارغة**
 
-الخلايا المخفية التي تحتوي على قيم هي حالة منفصلة عن الخلايا الفارغة. لتضمين أو استبعاد البيانات من الصفوف والأعمدة المخفية في ورقة العمل، راجع [Include Data from Hidden Rows and Columns](/slides/ar/net/chart-workbook/#include-data-from-hidden-rows-and-columns).
+الخلايا المخفية التي تحتوي على قيم هي حالة منفصلة عن الخلايا الفارغة. لتضمين أو استبعاد البيانات من الصفوف والأعمدة المخفية في ورقة العمل، راجع [تضمين البيانات من الصفوف والأعمدة المخفية](/slides/ar/net/chart-workbook/#include-data-from-hidden-rows-and-columns).
 
-الخلية الفارغة في دفتر العمل تمثّل بيانات مفقودة؛ الخلية التي تحتوي على `0` تمثّل قيمة رقمية معروفة. عيّن [IChartDataCell.Value](https://reference.aspose.com/slides/ar/net/aspose.slides.charts/ichartdatacell/value/) إلى `null` لجعل الخلية فارغة. الصفر الرقمي يظل صفرًا بغض النظر عن إعداد الخلية الفارغة.
+تمثل خلية دفتر العمل الفارغة بيانات مفقودة؛ خلية تحتوي على `0` تمثل قيمة رقمية معروفة. عيّن [IChartDataCell.Value](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatacell/value/) إلى `null` لجعل الخلية فارغة. الصفر الرقمي يبقى صفرًا بغض النظر عن إعداد الخلية الفارغة.
 
-استخدم [IChart.DisplayBlanksAs](https://reference.aspose.com/slides/ar/net/aspose.slides.charts/ichart/displayblanksas/) لاختيار كيفية عرض المخطط للخلايا الفارغة. ينطبق هذا الإعداد على المخطط بأكمله. إنه يغيّر طريقة رسم الفراغات، دون ملء الخلية الفارغة بالصفر أو قيمة مُinterp.
+استخدم [IChart.DisplayBlanksAs](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/displayblanksas/) لتحديد كيفية عرض المخطط للخلايا الفارغة. ينطبق هذا الإعداد على المخطط بأكمله. إنه يغيّر طريقة رسم الفواصل، دون ملء خلية دفتر العمل الفارغة بالصفر أو قيمة متوسطة.
 
-المثال التالي كامل يُنشئ مخططًا خطيًا بسلسلة واحدة، يمسح القيمة لليوم الثالث، ويحفظ نفس المخطط بكل وضع. لا يلزم ملف إدخال. يستخدم [IChartDataWorkbook](https://reference.aspose.com/slides/ar/net/aspose.slides.charts/ichartdataworkbook/) ورقة العمل 0، العمود 0 لتسميات الفئات، والعمود 1 للقيم؛ الصف 0 يحمل اسم السلسلة. البيانات النهائية هي `10, 20, empty, 30, 40`.
+المثال التالي المستقل ينشئ مخطط خط مع سلسلة واحدة، يمسح القيمة لليوم 3، ويحفظ المخطط نفسه بكل وضع. لا يلزم ملف إدخال. يستخدم [IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/) ورقة عمل 0، العمود 0 لتسميات الفئات، والعمود 1 للقيم؛ الصف 0 يحمل اسم السلسلة. البيانات النهائية هي `10, 20, empty, 30, 40`.
 
 ```cs
 using Aspose.Slides;
@@ -345,7 +393,7 @@ for (var i = 0; i < values.Length; i++)
     series.DataPoints.AddDataPointForLineSeries(valueCell);
 }
 
-// اتّرك اليوم الثالث فارغًا فعليًا، مع الاحتفاظ بفئته ونقطة البيانات الخاصة به.
+// Leave Day 3 genuinely empty, while retaining its category and data point.
 workbook.GetCell(0, 3, 1).Value = null;
 
 var modes = new[] { DisplayBlanksAsType.Gap, DisplayBlanksAsType.Zero, DisplayBlanksAsType.Span };
@@ -356,19 +404,19 @@ foreach (var mode in modes)
 }
 ```
 
-كل ملف ناتج يخزن الوضع المعيّن قبل الحفظ: `empty_cells_Gap.pptx`، `empty_cells_Zero.pptx`، و`empty_cells_Span.pptx`. لحفظ نسخة واحدة فقط، عيّن الوضع المطلوب واحفظ العرض مرة واحدة بدلًا من التكرار على الأوضاع.
+كل ملف ناتج يخزّن الوضع المحدد قبل الحفظ: `empty_cells_Gap.pptx`، `empty_cells_Zero.pptx`، و`empty_cells_Span.pptx`. لحفظ نسخة واحدة فقط، عيّن الوضع المطلوب واحفظ العرض مرة واحدة بدلاً من التكرار على الأوضاع.
 
-المقارنة أدناه تُظهر نفس البيانات في جميع الملفات الثلاثة. اليوم الثالث فارغ في دفتر العمل في كل حالة:
+المقارنة أدناه تُظهر نفس البيانات في جميع الملفات الثلاثة. اليوم 3 فارغ في دفتر العمل في كل حالة:
 
-![Line charts with identical data: Gap breaks the line at Day 3, Zero drops the line to zero, and Span connects Day 2 to Day 4.](display_blanks_as.png)
+![مخططات الخط مع بيانات متطابقة: Gap يقطع الخط عند اليوم 3، Zero يخفض الخط إلى الصفر، وSpan يربط اليوم 2 باليوم 4.](display_blanks_as.png)
 
-التأثير المرئي يعتمد على نوع المخطط. المخطط الخطي يُظهر الثلاثة أوضاع بسهولة للمقارنة. مخططات الشريط والعمود لا تمتلك خطًا للتوصيل عبر فئة مفقودة، لذا لا يمكن لـ `Span` إنتاج الجزء المتصل الموضح أعلاه؛ قد يبدو العمود المفقود والعمود صفر الارتفاع متماثلين. بالمثل، مخطط التبعثر مع علامات فقط لا يمتلك خطًا موصلاً. لا تتوقع ثلاث نتائج متميزة لكل نوع مخطط؛ تحقق من الناتج للنوع الذي تستخدمه.
+تأثير العرض يعتمد على نوع المخطط. تجعل مخططات الخط جميع الأوضاع الثلاثة سهلة للمقارنة. لا تمتلك مخططات العمود والأشرطة خطًا لتوصيل الفئات المفقودة، لذا لا يمكن لـ`Span` إنتاج القطعة المتصلة المعروضة أعلاه؛ وقد تبدو العمود المفقود والعمود صفر الارتفاع متشابهين. بالمثل، مخطط التبعثر مع العلامات فقط لا يحتوي على خط ربط. لا تتوقع ثلاث نتائج مميزة لكل نوع مخطط؛ راجع النتيجة للنوع الذي تستخدمه.
 
-## **تعيين عرض فجوة السلسلة**
+## **تعيين عرض الفجوة للسلسلة**
 
-عرض الفجوة هو المسافة بين مجموعات الأعمدة أو القضبان المتجاورة، تُعبَّر كنسبة مئوية من عرض العمود أو القضيب. مثل التداخل، ينتمي إلى مجموعة السلسلة الأصلية وليس إلى سلسلة واحدة. عيّن [IChartSeriesGroup.GapWidth](https://reference.aspose.com/slides/ar/net/aspose.slides.charts/ichartseriesgroup/gapwidth/) مرة واحدة للمجموعة. القيمة الأكبر تُنشئ مساحة أكبر بين المجموعات؛ القيمة الأصغر تجعلها أكثر كثافة.
+عرض الفجوة هو المسافة بين مجموعات الأشرطة أو الأعمدة المتجاورة، معبرًا عنها كنسبة مئوية من عرض الشريط أو العمود. مثل التداخل، ينتمي إلى مجموعة السلسلة الأصلية بدلاً من سلسلة واحدة. عيّن [IChartSeriesGroup.GapWidth](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/gapwidth/) مرة واحدة للمجموعة. القيمة الأكبر تُنشئ مساحة أكبر بين المجموعات؛ القيمة الأصغر تجعلها أكثر كثافة.
 
-المثال التالي يغيّر عرض الفجوة ويحفظ العرض التقديمي النهائي فقط:
+المثال التالي يغيّر عرض الفجوة ويحفظ العرض النهائي فقط:
 
 ```cs
 using Aspose.Slides;
@@ -392,46 +440,46 @@ presentation.Save("gap_width_30.pptx", SaveFormat.Pptx);
 
 النتيجة:
 
-![The gap width](gap_width.png)
+![عرض الفجوة](gap_width.png)
 
 ## **الأسئلة الشائعة**
 
-**ما أنواع المخططات التي تدعم سلاسل البيانات؟**
+**ما نوع المخططات التي تدعم سلاسل البيانات؟**
 
-جميع أنواع المخططات الممثَّلة في تعداد [ChartType](https://reference.aspose.com/slides/ar/net/aspose.slides.charts/charttype/) تستخدم بيانات المخطط، لكن سلاسلها ليس لها نفس بنية القيم أو الإعدادات. على سبيل المثال، تستخدم مخططات الفئة الفئات والقيم، ومخططات التبعثر تستخدم قيم X وY، ومخططات الفقاعات تُضيف أحجام الفقاعات. استخدم طريقة إنشاء نقطة البيانات التي تتطابق مع نوع السلسلة. الخيارات مثل التداخل وعرض الفجوة تُطبق فقط على مجموعات الشرائط أو الأعمدة المتوافقة.
+جميع أنواع المخططات الممثلة في تعداد [ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) تستخدم بيانات المخطط، لكن سلاسلها لا تتشارك جميعها في هيكل القيم أو الإعدادات نفسها. على سبيل المثال، تستخدم مخططات الفئات الفئات والقيم، ومخططات التبعثر تستخدم قيم X وY، ومخططات الفقاعات تضيف أحجام الفقاعات. استخدم طريقة إنشاء نقطة البيانات التي تتطابق مع نوع السلسلة. تنطبق خيارات مثل التداخل وعرض الفجوة فقط على مجموعات الأشرطة أو الأعمدة المتوافقة.
 
 **ما هي مجموعة سلاسل المخطط؟**
 
-[IChartSeriesGroup](https://reference.aspose.com/slides/ar/net/aspose.slides.charts/ichartseriesgroup/) تحتوي على سلاسل متوافقة تشترك في إعدادات الرسم على مستوى المجموعة. يمكن لمخطط مركب أن يحتوي على أكثر من مجموعة، لذا تغيير المجموعة التي تصل من خلالها سلسلة واحدة لا يغيّر بالضرورة كل السلاسل في المخطط.
+تحتوي [IChartSeriesGroup](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/) على سلاسل متوافقة تشترك في إعدادات الرسم على مستوى المجموعة. يمكن لمخطط مركب أن يحتوي على أكثر من مجموعة، لذا فإن تغيير المجموعة التي يتم الوصول إليها عبر سلسلة معينة لا يعني بالضرورة تغيير كل السلاسل في المخطط.
 
 **هل يحتوي المخطط المُنشأ حديثًا على بيانات افتراضية؟**
 
-نعم. بشكل افتراضي، يُنشئ [IShapeCollection.AddChart](https://reference.aspose.com/slides/ar/net/aspose.slides/ishapecollection/addchart/) سلاسل، فئات، وقيم نموذجية. يمكنك تعديل تلك الخلايا أو مسح كل من مجموعات السلاسل والفئات قبل إضافة مجموعة بيانات مخصصة تمامًا. يمكن أن يُنشئ تحميل زائد مخططًا بدون بيانات افتراضية.
+نعم. بشكل افتراضي، يقوم [IShapeCollection.AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) بإنشاء سلاسل، فئات، وقيم تجريبية. يمكنك تعديل تلك الخلايا أو مسح مجموعات السلسلة والفئة قبل إضافة مجموعة بيانات مخصصة بالكامل. يمكن أيضًا استخدام نسخة م overloaded لإنشاء مخطط بدون بيانات افتراضية.
 
 **كيف يتم ربط كائنات المخطط بخلايا دفتر العمل؟**
 
-أسماء السلاسل، تسميات الفئات، وقيم نقاط البيانات تشير إلى خلايا في [IChartDataWorkbook](https://reference.aspose.com/slides/ar/net/aspose.slides.charts/ichartdataworkbook/). تغيير خلية مُشار إليها يُحدِّث العنصر المقابل في المخطط. عند بناء بيانات مخصصة، احرص على محاذاة صفوف الفئات وصفوف قيم السلاسل بحيث تُرسم كل نقطة تحت الفئة المقصودة.
+أسماء السلاسل، تسميات الفئات، وقيم نقاط البيانات تشير إلى خلايا في [IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/). تغيير خلية مُشار إليها يجدد العنصر المقابل في المخطط. عند بناء بيانات مخصصة، احتفظ بصفوف الفئات وصفوف قيم السلسلة محاذية بحيث يتم رسم كل نقطة تحت الفئة المقصودة.
 
-**كيف أمسح نقطة واحدة بدلاً من السلسلة بأكملها؟**
+**كيف أقوم بمسح نقطة واحدة بدلاً من السلسلة بأكملها؟**
 
-عيّن خلية القيمة ذات الصلة إلى `null` للاحتفاظ بموضع الفئة للنقطة كنقطة فارغة. استخدم [IChartDataPointCollection.Clear](https://reference.aspose.com/slides/ar/net/aspose.slides.charts/ichartdatapointcollection/clear/) فقط عندما ترغب في إزالة جميع النقاط من تلك السلسلة. إذا أزلت الفئات أيضًا، حدّث كل السلاسل بحيث تظل قيمها محاذية مع مجموعة الفئات.
+عيّن خلية القيمة ذات الصلة إلى `null` للاحتفاظ بموقع الفئة للنقطة كنقطة فارغة. استخدم [IChartDataPointCollection.Clear](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapointcollection/clear/) فقط عندما تقصد إزالة جميع النقاط من تلك السلسلة. إذا قمت بإزالة الفئات أيضًا، حدّث كل سلسلة بحيث تظل قيمها محاذية مع مجموعة الفئات.
 
-**كيف تُعرض النقاط الفارغة؟**
+**كيف يتم عرض النقاط الفارغة؟**
 
-النتيجة تعتمد على نوع المخطط و[IChart.DisplayBlanksAs](https://reference.aspose.com/slides/ar/net/aspose.slides.charts/ichart/displayblanksas/). المخططات المدعومة يمكنها عرض الفراغات كفجوات أو كقيم صفرية أو بربط النقاط المتجاورة. اختر الإعداد الذي يتوافق مع معنى البيانات المفقودة في عرضك. راجع [Control the Display of Empty Cells](#control-the-display-of-empty-cells) لمثال كامل ومقارنة بصرية.
+الناتج يعتمد على نوع المخطط و[IChart.DisplayBlanksAs](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/displayblanksas/). يمكن للمخططات المدعومة عرض الفواصل كفجوات، كقيم صفرية، أو بربط النقاط المجاورة. اختر الإعداد الذي يتطابق مع معنى البيانات المفقودة في عرضك. راجع [التحكم في عرض الخلايا الفارغة](#control-the-display-of-empty-cells) للحصول على مثال كامل ومقارنة مرئية.
 
-**كيف تُنسق القيم السالبة؟**
+**كيف يتم تنسيق القيم السلبية؟**
 
-بالنسبة للسلاسل المدعومة من نوع الشريط، العمود، والفقاعة، فعّل [IChartSeries.InvertIfNegative](https://reference.aspose.com/slides/ar/net/aspose.slides.charts/ichartseries/invertifnegative/) وعيّن [IChartSeries.InvertedSolidFillColor](https://reference.aspose.com/slides/ar/net/aspose.slides.charts/ichartseries/invertedsolidfillcolor/). يمكنك تجاوز السلوك لنقطة فردية عبر [IChartDataPoint.InvertIfNegative](https://reference.aspose.com/slides/ar/net/aspose.slides.charts/ichartdatapoint/invertifnegative/). هذه الخصائص تؤثر على التنسيق، ليست على القيم الرقمية المخزنة.
+بالنسبة للسلاسل المدعومة من الأشرطة، الأعمدة، والفقاعات، فعّل [IChartSeries.InvertIfNegative](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/invertifnegative/) وعين [IChartSeries.InvertedSolidFillColor](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/invertedsolidfillcolor/). يمكنك تجاوز السلوك لنقطة فردية باستخدام [IChartDataPoint.InvertIfNegative](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/invertifnegative/). تؤثر هذه الخصائص على التنسيق، وليس على القيم الرقمية المخزنة.
 
-**أي تنسيق ينتصر عندما تكون كل من السلسلة والنقطة مُنسّقين؟**
+**أي تنسيق ينتصر عندما يتم تنسيق كل من السلسلة والنقطة؟**
 
-التنسيق الصريح لنقطة البيانات يتفوّق لتلك النقطة. تستمر النقاط الأخرى في استخدام تنسيق السلسلة الصريح أو، إذا لم يُحدد تنسيق السلسلة، النمط والموضوع التلقائي للمخطط. خصائص المجموعة مثل التداخل وعرض الفجوة تتحكم في التخطيط ولا تُعدّ تجاوزًا لتنسيق مستوى النقطة.
+يتفوق تنسيق نقطة البيانات الصريحة لتلك النقطة. تواصل النقاط الأخرى استخدام تنسيق السلسلة الصريح أو، إذا لم يُحدد تنسيق السلسلة، نمط المخطط والموضوع التلقائي. تتحكم خصائص المجموعة مثل التداخل وعرض الفجوة في التخطيط وليست تجاوزات لتنسيق على مستوى النقطة.
 
 **هل هناك حد لعدد السلاسل التي يمكن أن يحتويها المخطط؟**
 
-Aspose.Slides لا يفرض حدًا ثابتًا لعدد السلاسل. في الممارسة العملية، تحدد قيود ملف العرض التقديمي، الذاكرة المتاحة، وقت العرض، وقابلية قراءة المخطط حدًا عمليًا.
+لا تفرض Aspose.Slides حدًا ثابتًا منفصلًا لعدد السلاسل. في الواقع، تحدد قيود ملف العرض، الذاكرة المتاحة، زمن التخطيط، وقابلية قراءة المخطط حدًا عمليًا.
 
-**ماذا يجب أن أغيّر عندما تكون الأعمدة قريبة جدًا أو متباعدة كثيرًا؟**
+**ماذا يجب تغيير عندما تكون الأعمدة متقاربة جدًا أو متباعدة جدًا؟**
 
-عيّن [IChartSeriesGroup.GapWidth](https://reference.aspose.com/slides/ar/net/aspose.slides.charts/ichartseriesgroup/gapwidth/) على مجموعة السلسلة الأصلية المناسبة. زد القيمة لتوسيع المسافة بين المجموعات، أو قللها لتقريب المجموعات من بعضها.
+عيّن [IChartSeriesGroup.GapWidth](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/gapwidth/) على مجموعة السلسلة الأصلية المناسبة. زد القيمة لتوسيع المسافة بين المجموعات، أو قللها لجعل المجموعات أقرب إلى بعضها.

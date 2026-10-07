@@ -1,6 +1,6 @@
 ---
-title: مدیریت سری‌های دادهٔ نمودار در ارائه‌ها بر روی اندروید
-linktitle: سری‌های داده
+title: مدیریت سری داده‌های نمودار در ارائه‌های اندروید
+linktitle: سری داده‌ها
 type: docs
 url: /fa/androidjava/chart-series/
 keywords:
@@ -14,32 +14,32 @@ keywords:
 - مقدار منفی
 - PowerPoint
 - ارائه
-- Android
-- Java
+- اندروید
+- جاوا
 - Aspose.Slides
-description: "یادگیری نحوه مدیریت سری‌های نمودار، نقاط داده، سلول‌های کتاب‌کار، قالب‌بندی، همپوشانی، عرض فاصله و مقادیر منفی در ارائه‌ها بر روی اندروید."
+description: "یاد بگیرید چگونه سری‌های نمودار، نقاط داده، سلول‌های کتاب‌کار، قالب‌بندی، همپوشانی، عرض فاصله و مقادیر منفی را در ارائه‌های اندروید مدیریت کنید."
 ---
-## **نمای کلی**
+## **بررسی کلی**
 
-یک نمودار داده‌های نمودار شده خود را در یک کتاب‌کار دادهٔ نمودار ذخیره می‌کند. یک [IChartSeries](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ichartseries/) یک مجموعهٔ مقادیر مرتبط را نشان می‌دهد و هر [IChartDataPoint](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ichartdatapoint/) در این مجموعه به یک یا چند سلول کتاب‌کار ارجاع می‌دهد. اشیاء [IChartCategory](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ichartcategory/) برچسب‌ها یا مقادیر گروه‌بندی شدهٔ مشترک بین مجموعه‌ها را فراهم می‌کنند. بنابراین نام مجموعه، دسته‌ها و مقادیر نقطه‌ها به اشیاء [IChartDataCell](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ichartdatacell/) متصل هستند نه اینکه فقط به عنوان متن نمایش ذخیره شوند.
+یک نمودار داده‌های ترسیم‌شده خود را در یک کتاب‌کار داده‌های نمودار ذخیره می‌کند. یک [IChartSeries](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/) مجموعه‌ای از مقادیر مرتبط را نشان می‌دهد و هر [IChartDataPoint](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/) در سری به یک یا بیش از یک سلول کتاب‌کار ارجاع می‌دهد. اشیای [IChartCategory](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartcategory/) برچسب‌ها یا مقادیر گروه‌بندی مشترک بین سری‌ها را فراهم می‌کنند. بنابراین نام سری، دسته‌ها و مقادیر نقاط به اشیای [IChartDataCell](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatacell/) متصل هستند نه اینکه فقط به‌صورت متن نمایشی ذخیره شوند.
 
-برای یک نمودار دسته‌ای معمول، کتاب‌کار پیش‌فرض از ردیف 0 برای نام‌های مجموعه، ستون 0 برای نام‌های دسته و سلول‌های باقی‌مانده برای مقادیر مجموعه استفاده می‌کند. اندیس‌های کاربرگ، ردیف و ستون که به [IChartDataWorkbook.getCell](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ichartdataworkbook/#getCell-int-int-int-) پاس داده می‌شوند، از صفر شروع می‌شوند. این چیدمان وقتی که نمودار را با داده‌های پیش‌فرض ایجاد می‌کنید مفید است، اما فرض نکنید که هر نمودار موجود از آن استفاده می‌کند. برای یک ارائهٔ بارگذاری‑شده، قبل از تغییر مقادیر کتاب‌کار، سلول‌های ارجاع‑داده‌شده توسط مجموعه‌ها، دسته‌ها و نقاط داده را بررسی کنید.
+برای یک نمودار دسته‌ای معمولی، کتاب‌کار پیش‌فرض ردیف 0 را برای نام‌های سری، ستون 0 را برای نام‌های دسته و بقیه سلول‌ها را برای مقادیر سری استفاده می‌کند. شاخص‌های ورق‌کار، ردیف و ستون که به [IChartDataWorkbook.getCell](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/#getCell-int-int-int-) ارسال می‌شوند، مبتنی بر صفر هستند. این چیدمان زمانی که نموداری با داده‌های پیش‌فرض ایجاد می‌کنید مفید است، اما فرض نکنید که هر نمودار موجود از آن استفاده می‌کند. برای یک ارائه بارگذاری‌شده، قبل از تغییر مقادیر کتاب‌کار، سلول‌های ارجاع‌دیده‌شده توسط سری‌ها، دسته‌ها و نقاط داده را بررسی کنید.
 
-تنظیمات نمودار در سه محدودهٔ متفاوت وجود دارند:
+تنظیمات نمودار دارای سه حوزه متفاوت هستند:
 
-- تنظیمات سطح مجموعه، مانند [IChartSeries.getFormat](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ichartseries/#getFormat--)، ظاهر پیش‌فرض همهٔ نقاط یک مجموعه را فراهم می‌کند.
-- تنظیمات نقطهٔ داده، مانند [IChartDataPoint.getFormat](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ichartdatapoint/#getFormat--)، ظاهر مجموعه را برای یک نقطه بازنویسی می‌کند.
-- تنظیمات گروهی بر مجموعه‌های سازگاری که به همان [IChartSeriesGroup](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ichartseriesgroup/) تعلق دارند اعمال می‌شود. برای تنظیم گزینه‌هایی مانند overlap یا gap width، از [IChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ichartseries/#getParentSeriesGroup--) استفاده کنید.
+- تنظیمات در سطح سری، مانند [IChartSeries.getFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getFormat--), ظاهر پیش‌فرض همه نقاط در یک سری را فراهم می‌کنند.
+- تنظیمات نقطه‌داده، مانند [IChartDataPoint.getFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/#getFormat--), ظاهر سری را برای یک نقطه بازنویسی می‌کنند.
+- تنظیمات گروهی بر روی سری‌های سازگاری که به همان [IChartSeriesGroup](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/) تعلق دارند اعمال می‌شود. هنگام نیاز به تنظیم گزینه‌هایی مانند همپوشانی یا عرض فواصل، گروه را از طریق [IChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getParentSeriesGroup--) دسترسی کنید.
 
-وقتی هیچ پرش صریحی برای نقطه یا مجموعه تنظیم نشده باشد، سبک و تم نمودار ظاهر خودکار را تعیین می‌کند. وقتی هم تنظیمات مجموعه و هم تنظیمات نقطه وجود داشته باشد، تنظیمات نقطه برای همان نقطه اولویت دارد.
+زمانی که پر کردن صریح نقطه یا سری تنظیم نشده باشد، سبک و تم نمودار ظاهر خودکار را تعیین می‌کنند. هنگامی که هم فرمت سری و هم فرمت نقطه وجود داشته باشد، فرمت نقطه برای آن نقطه برتری دارد.
 
-![chart-series-powerpoint](chart-series-powerpoint.png)
+![نمودار-سری-پاورپوینت](chart-series-powerpoint.png)
 
-## **تنظیم Overlap مجموعهٔ نمودار**
+## **تنظیم همپوشانی سری نمودار**
 
-[IChartSeries.getOverlap](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ichartseries/#getOverlap--) مقدار همپوشانی نوارها یا ستون‌ها را در یک نمودار دو‑بعدی، از -100 تا 100 درصد، گزارش می‌دهد. این یک نمای فقط‑خواندنی از تنظیمات گروه مجموعهٔ والد است. برای به‑روزرسانی همهٔ مجموعه‌های سازگار در آن گروه، از [IChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ichartseriesgroup/#setOverlap-byte-) استفاده کنید. این گزینه برای انواع نموداری که نوارها یا ستون‌های گروهی را نمایش می‌دهند اعمال می‌شود؛ برای گروه‌های مجموعهٔ نامرتبط در یک نمودار ترکیبی تأثیری ندارد.
+[IChartSeries.getOverlap](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getOverlap--) گزارش می‌دهد که ستون‌ها یا میله‌ها در یک نمودار دو‌بعدی تا چه حد همپوشانی دارند، از -100 تا 100 درصد. این یک پیش‌بینی فقط‑خواندنی از تنظیمات گروه سری والد است. از [IChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/#setOverlap-byte-) برای به‌روزرسانی همه سری‌های سازگار در آن گروه استفاده کنید. این گزینه بر انواع نمودارهایی که میله‌ها یا ستون‌های گروهی را نمایش می‌دهند اعمال می‌شود؛ بر گروه‌های سری نامرتبط در یک نمودار ترکیبی تأثیری ندارد.
 
-مثال زیر overlap گروهی که شامل اولین مجموعه است را تنظیم می‌کند:
+مثال زیر همپوشانی را برای گروهی که شامل اولین سری است تنظیم می‌کند:
 
 ```java
 import com.aspose.slides.*;
@@ -52,7 +52,7 @@ Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(firstSlideIndex);
 
-    // نمودار جدید شامل مجموعه‌های نمونه، دسته‌ها و مقادیر است.
+    // نمودار جدید شامل سری‌های نمونه، دسته‌ها و مقادیر است.
     IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
 
     IChartSeries series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
@@ -66,13 +66,13 @@ try {
 
 نتیجه:
 
-![The series overlap](series_overlap.png)
+![همپوشانی سری](series_overlap.png)
 
-## **تغییر رنگ پرشدن مجموعه**
+## **تغییر رنگ پر کردن سری**
 
-از [IChartSeries.getFormat](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ichartseries/#getFormat--) برای تنظیم پرشدن پیش‌فرض یک مجموعهٔ کامل استفاده کنید. اگر یک نقطه قبلاً پرشدن صریح داشته باشد، تنظیم [IChartDataPoint.getFormat](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ichartdatapoint/#getFormat--) آن، پرشدن مجموعه را برای همان نقطه بازنویسی می‌کند.
+از [IChartSeries.getFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getFormat--) برای تنظیم پر کردن پیش‌فرض یک سری کامل استفاده کنید. اگر یک نقطه قبلاً پر کردن صریح داشته باشد، تنظیم [IChartDataPoint.getFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/#getFormat--) آن، پر کردن سری را برای آن نقطه بازنویسی می‌کند.
 
-مثال زیر پرشدن آبی ثابت را به اولین مجموعه اعمال می‌کند:
+مثال زیر یک پر کردن آبی جامد به اولین سری اعمال می‌کند:
 
 ```java
 import com.aspose.slides.*;
@@ -99,11 +99,11 @@ try {
 
 نتیجه:
 
-![The color of the series](series_color.png)
+![رنگ سری](series_color.png)
 
-## **تغییر نام مجموعه**
+## **تغییر نام سری**
 
-نام مجموعه در کتاب‌کار دادهٔ نمودار ذخیره می‌شود و معمولاً در افسانه (legend) نمایش داده می‌شود. در کتاب‌کار پیش‌فرض ایجاد شده برای یک نمودار ستونی خوشه‌ای، سلول B1 در ردیف 0، ستون 1 قرار دارد و نام اولین مجموعه را شامل می‌شود. ثابت‌های نام‌گذاری در مثال زیر این ساختار را به‌وضوح نشان می‌دهند:
+نام یک سری در کتاب‌کار داده‌های نمودار ذخیره می‌شود و معمولاً در فهرست (legend) نمایش داده می‌شود. در کتاب‌کار پیش‌فرض ساخته‌شده برای یک نمودار ستون خوشه‌ای، سلول B1 در ردیف 0، ستون 1 قرار دارد و نام اولین سری را شامل می‌شود. ثابت‌های نام‌گذاری شده در مثال زیر این ساختار را صریح می‌سازند:
 
 ```java
 import com.aspose.slides.*;
@@ -129,7 +129,7 @@ try {
 }
 ```
 
-همچنین می‌توانید سلولی را که توسط [IChartSeries.getName](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ichartseries/#getName--) ارجاع شده است، به‌روزرسانی کنید. این روش از فرض یک ردیف و ستون خاص در یک نمودار موجود جلوگیری می‌کند:
+همچنین می‌توانید سلولی که توسط [IChartSeries.getName](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getName--) ارجاع داده شده است به‌روزرسانی کنید. این رویکرد از فرض ردیف و ستون خاصی در یک نمودار موجود جلوگیری می‌کند:
 
 ```java
 import com.aspose.slides.*;
@@ -156,13 +156,61 @@ try {
 
 نتیجه:
 
-![The series name](series_name.png)
+![نام سری](series_name.png)
 
-## **دریافت رنگ پرشدن خودکار مجموعه**
+### **ایجاد یک سری با نامی از چند سلول**
 
-[IChartSeries.getAutomaticSeriesColor](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ichartseries/#getAutomaticSeriesColor--) رنگی را که بر پایهٔ اندیس مجموعه و سبک نمودار محاسبه می‌شود، به صورت یک عدد صحیح ARGB اندروید برمی‌گرداند. این همان رنگی است که وقتی پرشدن مجموعه به‌صورت صریح تعریف نشده باشد، استفاده می‌شود. فراخوانی این متد فقط مقدار محاسبه‌شده را می‌خواند؛ پرشدنی جدید اختصاص نمی‌دهد.
+یک نام ترکیبی برای سری زمانی مفید است که نام محصول و دوره گزارش در سلول‌های جداژه کتاب‌کار ذخیره شده باشند. به عنوان مثال، می‌توانید `Product A` در B1 و `2026` در C1 را به یک نام واحد سری ترکیب کنید و هر دو بخش را به سلول‌های مبدأشان مرتبط نگه دارید. از [IChartDataWorkbook.getCellCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/#getCellCollection-java.lang.String-boolean-) برای بازیابی بازه نام استفاده کنید، سپس آن مجموعه را به [IChartSeriesCollection.add](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriescollection/#add-com.aspose.slides.IChartCellCollection-int-) پاس دهید. آرگومان `skipHiddenCells` تعیین می‌کند آیا سلول‌های پنهان شامل شوند یا نه: `true` آن‌ها را حذف می‌کند، در حالی که `false` شامل می‌شود. این مثال از `false` برای شامل کردن تمام سلول‌های بازه نام استفاده می‌کند.
 
-مثال زیر عدد صحیح رنگ خودکار هر مجموعه پیش‌فرض را چاپ می‌کند:
+مثال زیر یک ارائه با یک سری و دو نقطه داده ایجاد می‌کند. سلول‌های B1:C1 فقط نام سری را فراهم می‌کنند؛ A2:A3 برچسب‌های دسته را فراهم می‌کنند و B2:B3 مقادیر عددی را فراهم می‌کنند.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 620, 180);
+
+    chart.getChartData().getSeries().clear();
+    chart.getChartData().getCategories().clear();
+    chart.setLegend(true);
+
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.clear(0);
+
+    // این دو سلول نام سری را فراهم می‌کنند.
+    workbook.getCell(0, 0, 1, "Product A");
+    workbook.getCell(0, 0, 2, "2026");
+    IChartCellCollection nameCells = workbook.getCellCollection("Sheet1!$B$1:$C$1", false);
+    IChartSeries series = chart.getChartData().getSeries().add(nameCells, ChartType.ClusteredColumn);
+
+    // سلول‌های جداگانه دسته‌ها و نقاط داده عددی را فراهم می‌کنند.
+    IChartDataCell northCategory = workbook.getCell(0, 1, 0, "North");
+    IChartDataCell southCategory = workbook.getCell(0, 2, 0, "South");
+    chart.getChartData().getCategories().add(northCategory);
+    chart.getChartData().getCategories().add(southCategory);
+    IChartDataCell northValue = workbook.getCell(0, 1, 1, 120);
+    IChartDataCell southValue = workbook.getCell(0, 2, 1, 150);
+    series.getDataPoints().addDataPointForBarSeries(northValue);
+    series.getDataPoints().addDataPointForBarSeries(southValue);
+
+    presentation.save("composite_series_name.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+نام سری حاصل `Product A 2026` است، با یک فاصله بین دو مقدار سلولی. فهرست این را به‌عنوان یک ورودی برای هر دو ستون نشان می‌دهد. تصویر زیر نتیجه را نشان می‌دهد:
+
+![نمودار ستونی با مقادیر شمال و جنوب و نام ترکیبی سری Product A 2026 در فهرست](composite_series_name.png)
+
+## **دریافت رنگ پر کردن خودکار سری**
+
+[IChartSeries.getAutomaticSeriesColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getAutomaticSeriesColor--) رنگی را که بر پایه شاخص سری و سبک نمودار به‌صورت عدد صحیح رنگ ARGB اندروید محاسبه می‌شود برمی‌گرداند. این رنگ زمانی استفاده می‌شود که پر کردن سری به‌صورت صریح تعریف نشده باشد. فراخوانی این متد رنگ محاسبه‌شده را می‌خواند؛ هیچ پر کردن جدیدی اختصاص نمی‌دهد.
+
+مثال زیر عدد صحیح رنگ خودکار هر سری پیش‌فرض را چاپ می‌کند:
 
 ```java
 import com.aspose.slides.*;
@@ -186,13 +234,13 @@ try {
 }
 ```
 
-مقادیر دقیق عددی بسته به سبک و تم نمودار متفاوت هستند.
+مقادیر صحیح دقیق به سبک و تم نمودار بستگی دارند.
 
-## **تنظیم رنگ پرشدن معکوس برای یک مجموعهٔ نمودار**
+## **تنظیم رنگ معکوس پر برای یک سری نمودار**
 
-برای مجموعه‌های نوار، ستون و حباب، [IChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ichartseries/#setInvertIfNegative-boolean-) می‌تواند مقادیر منفی را با پرشدن متفاوتی نمایش دهد. پرشدن معمولی مجموعه را به‌صورت ثابت تنظیم کنید، معکوس‌سازی را فعال کنید و رنگ مقدار منفی را از طریق [IChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ichartseries/#getInvertedSolidFillColor--) اختصاص دهید. اعداد منفی در کتاب‌کار بدون تغییر می‌مانند؛ فقط رنگ نمایش آن‌ها تغییر می‌کند.
+برای سری‌های میله، ستون و حباب، [IChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#setInvertIfNegative-boolean-) می‌تواند مقادیر منفی را با پر رنگ متفاوت نمایش دهد. پر کردن معمولی سری را به جامد تنظیم کنید، معکوس‌سازی را فعال کنید و رنگ مقدار منفی را از طریق [IChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getInvertedSolidFillColor--) اختصاص دهید. اعداد منفی در کتاب‌کار بدون تغییر می‌مانند؛ فقط رنگ نمایش آن‌ها تغییر می‌کند.
 
-مثال زیر داده‌های پیش‌فرض نمودار را با یک مجموعه جایگزین می‌کند. ردیف 0 کاربرگ شامل نام مجموعه، ستون 0 شامل نام‌های دسته و ستون 1 شامل مقادیر است:
+مثال زیر داده‌های پیش‌فرض نمودار را با یک سری جایگزین می‌کند. ردیف 0 ورق‌کار نام سری را شامل می‌شود، ستون 0 نام‌های دسته را شامل می‌شود و ستون 1 مقادیر را شامل می‌شود:
 
 ```java
 import com.aspose.slides.*;
@@ -249,9 +297,9 @@ try {
 
 نتیجه:
 
-![The inverted solid fill color](inverted_solid_fill_color.png)
+![رنگ پر معکوس جامد](inverted_solid_fill_color.png)
 
-می‌توانید برای یک نقطهٔ خاص معکوس‌سازی را از طریق [IChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ichartdatapoint/#setInvertIfNegative-boolean-) فعال کنید. در مثال زیر معکوس‌سازی برای مجموعه غیرفعال و فقط برای نقطهٔ انتخاب‌شده فعال می‌شود. همچنین به این نقطه مقدار منفی اختصاص داده می‌شود تا اثر قابل مشاهده باشد:
+می‌توانید برای یک نقطه معکوس‌سازی را از طریق [IChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/#setInvertIfNegative-boolean-) فعال کنید. در مثال زیر، معکوس‌سازی برای سری غیرفعال و فقط برای نقطه منتخب فعال است. همچنین به نقطه مقدار منفی اختصاص داده می‌شود تا اثر قابل مشاهده باشد:
 
 ```java
 import com.aspose.slides.*;
@@ -285,11 +333,11 @@ try {
 }
 ```
 
-## **پاک کردن مقدار یک نقطهٔ دادهٔ خاص**
+## **پاکسازی مقدار نقطه داده مشخص**
 
-برای خالی‌کردن یک نقطه بدون حذف نقاط دیگر، سلول پشتیبان کتاب‌کار آن را به `null` تنظیم کنید. برای یک نمودار ستونی، مقدار رسم‌شده از طریق [IChartDataPoint.getValue](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ichartdatapoint/#getValue--) در دسترس است. نقطهٔ داده در همان موقعیت دسته باقی می‌ماند، اما نمودار مقدار آن را بر اساس تنظیمات مقادیر خالی نمودار به‌عنوان خالی درنظر می‌گیرد.
+برای خالی کردن یک نقطه بدون حذف نقاط دیگر، سلول پشتیبان کتاب‌کار آن را به `null` تنظیم کنید. برای یک نمودار ستونی، مقدار ترسیم‌شده از طریق [IChartDataPoint.getValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/#getValue--) در دسترس است. نقطه داده در همان موقعیت دسته باقی می‌ماند، اما نمودار مقدار آن را مطابق تنظیمات مقدار خالی نمودار به‌صورت خالی در نظر می‌گیرد.
 
-مثال زیر فقط نقطهٔ دوم مجموعهٔ اول را پاک می‌کند:
+مثال زیر فقط نقطه دوم در اولین سری را پاک می‌کند:
 
 ```java
 import com.aspose.slides.*;
@@ -314,17 +362,17 @@ try {
 }
 ```
 
-نمودارهای پراکندگی از سلول‌های جداگانهٔ X و Y استفاده می‌کنند و نمودارهای حباب نیز از یک سلول اندازه استفاده می‌کنند. فقط سلولی را که نمایانگر مقدار مورد نظر برای حذف است پاک کنید. هنگام نیاز به حفظ نقاط دیگر، از فراخوانی [IChartDataPointCollection.clear](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ichartdatapointcollection/#clear--) خودداری کنید، زیرا این متد تمام نقاط دادهٔ مجموعه را حذف می‌کند.
+نمودارهای پراکنده از سلول‌های جداگانه X و Y استفاده می‌کنند و نمودارهای حبابی همچنین از یک سلول اندازه استفاده می‌کنند. فقط سلولی که مقدار مورد نظر برای حذف را نمایندگی می‌کند پاک کنید. هنگامیکه می‌خواهید نقاط دیگر را نگه دارید، از فراخوانی [IChartDataPointCollection.clear](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapointcollection/#clear--) خودداری کنید، زیرا این متد تمام نقاط داده را از مجموعه حذف می‌کند.
 
 ## **کنترل نمایش سلول‌های خالی**
 
-سلول‌های پنهانی که مقادیر دارند موردی متفاوت نسبت به سلول‌های خالی هستند. برای شامل یا حذف داده‌ها از ردیف‌ها و ستون‌های پنهان کاربرگ، به مقالهٔ [Include Data from Hidden Rows and Columns](/slides/fa/androidjava/chart-workbook/#include-data-from-hidden-rows-and-columns) مراجعه کنید.
+سلول‌های مخفی که مقادیر دارند موردی متفاوت از سلول‌های خالی هستند. برای شامل یا حذف داده‌ها از ردیف‌ها و ستون‌های مخفی ورق‌کار، به [Include Data from Hidden Rows and Columns](/slides/fa/androidjava/chart-workbook/#include-data-from-hidden-rows-and-columns) مراجعه کنید.
 
-یک سلول کتاب‌کار خالی نشان‌دهندهٔ دادهٔ از دست رفته است؛ سلولی که `0` دارد نمایانگر مقدار عددی شناخته‌شده‌ای است. برای خالی‌کردن یک سلول، [IChartDataCell.setValue](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ichartdatacell/#setValue-java.lang.Object-) را با `null` فراخوانی کنید. عدد صفر عددی صفر می‌ماند صرف‌نظر از تنظیم خالی‑سلول.
+یک سلول خالی در کتاب‌کار نمایانگر داده‌ی گمشده است؛ یک سلول حاوی `0` نمایانگر مقدار عددی شناخته‌شده است. برای خالی کردن یک سلول، [IChartDataCell.setValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatacell/#setValue-java.lang.Object-) را با `null` صدا بزنید. صفر عددی همچنان صفر می‌ماند، صرف‌نظر از تنظیم خالی‑سلول.
 
-از [IChart.setDisplayBlanksAs](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ichart/#setDisplayBlanksAs-int-) برای انتخاب نحوهٔ نمایش سلول‌های خالی توسط نمودار استفاده کنید. این تنظیم بر کل نمودار اعمال می‌شود. این گزینه نحوهٔ رسم خالی‌ها را تغییر می‌دهد بدون اینکه سلول خالی کتاب‌کار با صفر یا مقدار درونی‌سازی‑شده پر شود.
+از [IChart.setDisplayBlanksAs](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#setDisplayBlanksAs-int-) برای انتخاب نحوه نمایش سلول‌های خالی در نمودار استفاده کنید. این تنظیم بر تمام نمودار اعمال می‌شود. نحوه ترسیم خالی‌ها را تغییر می‌دهد، بدون پر کردن سلول خالی کتاب‌کار با صفر یا مقدار درونیابی‌شده.
 
-مثال خود‑محافظ زیر یک نمودار خطی با یک مجموعه ایجاد می‌کند، مقدار روز 3 را پاک می‌کند و همان نمودار را با هر حالت ذخیره می‌کند. نیازی به فایل ورودی نیست. [IChartDataWorkbook](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ichartdataworkbook/) از کاربرگ 0، ستون 0 برای برچسب‌های دسته و ستون 1 برای مقادیر استفاده می‌کند؛ ردیف 0 نام مجموعه را دارد. دادهٔ نهایی `10, 20, empty, 30, 40` است.
+مثال زیر خودکفا یک نمودار خطی با یک سری ایجاد می‌کند، مقدار روز 3 را پاک می‌کند و همان نمودار را با هر حالت ذخیره می‌نماید. نیازی به فایل ورودی نیست. [IChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/) از ورق‌کار 0، ستون 0 برای برچسب‌های دسته و ستون 1 برای مقادیر استفاده می‌کند؛ ردیف 0 نام سری را در خود دارد. داده نهایی `10, 20, empty, 30, 40` است.
 
 ```java
 import com.aspose.slides.*;
@@ -351,7 +399,7 @@ try {
         series.getDataPoints().addDataPointForLineSeries(valueCell);
     }
 
-    // روز 3 را به‌طور واقعی خالی بگذارید، در حالی که دسته و نقطهٔ دادهٔ آن را حفظ می‌کنید.
+    // روز ۳ را واقعاً خالی بگذارید، در حالی که دسته‌بندی و نقطه دادهٔ آن را نگه می‌دارید.
     workbook.getCell(0, 3, 1).setValue(null);
 
     int[] modes = { DisplayBlanksAsType.Gap, DisplayBlanksAsType.Zero, DisplayBlanksAsType.Span };
@@ -365,19 +413,19 @@ try {
 }
 ```
 
-هر فایل خروجی حالت اختصاص‑یافته قبل از ذخیره‌سازی را نشان می‌دهد: `empty_cells_Gap.pptx`، `empty_cells_Zero.pptx` و `empty_cells_Span.pptx`. برای ذخیرهٔ فقط یک نسخه، حالت دلخواه را تنظیم کنید و یک‌بار ارائه را ذخیره کنید، به جای تکرار بر روی حالت‌ها.
+هر فایل خروجی حالت اختصاص‌یافته قبل از ذخیره‌سازی را ذخیره می‌کند: `empty_cells_Gap.pptx`، `empty_cells_Zero.pptx` و `empty_cells_Span.pptx`. برای ذخیره تنها یک نسخه، حالت دلخواه را اختصاص داده و یک بار ارائه را ذخیره کنید به‌جای تکرار بر روی حالت‌ها.
 
-مقایسهٔ زیر همان داده را در هر سه فایل نشان می‌دهد. روز 3 در هر حالت در کتاب‌کار خالی است:
+مقایسه زیر همان داده‌ها را در هر سه فایل نشان می‌دهد. روز 3 در کتاب‌کار در هر حالت خالی است:
 
-![Line charts with identical data: Gap breaks the line at Day 3, Zero drops the line to zero, and Span connects Day 2 to Day 4.](display_blanks_as.png)
+![نمودارهای خطی با داده‌های یکسان: Gap خط را در روز 3 قطع می‌کند، Zero خط را به صفر می‌کشاند، و Span روز 2 را به روز 4 متصل می‌کند.](display_blanks_as.png)
 
-اثر قابل مشاهده بسته به نوع نمودار متفاوت است. یک نمودار خطی همهٔ سه حالت را برای مقایسه آسان می‌کند. نمودارهای میله و ستونی خطی برای اتصال قطعات بین دسته‌های گمشده ندارند، به همین دلیل `Span` نمی‌تواند قطعهٔ متصل را که در بالا نشان داده شد تولید کند؛ یک ستون گمشده و یک ستون با ارتفاع صفر نیز می‌توانند مشابه به‌نظر برسند. به‌طور مشابه، یک نمودار پراکندگی فقط با مارکرها هیچ خط متصلی ندارد. انتظار ندارید که برای هر نوع نمودار سه نتیجهٔ متمایز داشته باشید؛ خروجی را برای نوع نموداری که استفاده می‌کنید بررسی کنید.
+اثر قابل مشاهده به نوع نمودار بستگی دارد. یک نمودار خطی مقایسه سه حالت را آسان می‌کند. نمودارهای میله و ستون خطی برای اتصال بین دسته‌های گمشده ندارند، بنابراین `Span` نمی‌تواند بخش اتصال نشان داده‌شده را تولید کند؛ یک ستون گمشده و یک ستون صفر‑ارتفاع می‌توانند مشابه به نظر برسند. به‌طور مشابه، یک نمودار پراکنده فقط با مارکرها خط اتصال ندارد. انتظار نتایج متمایز برای هر نوع نمودار را نداشته باشید؛ خروجی را برای نوع مورد استفاده‌تان بررسی کنید.
 
-## **تنظیم عرض فاصلهٔ مجموعه**
+## **تنظیم عرض فاصله سری**
 
-عرض فاصله (Gap width) فاصله بین خوشه‌های میله یا ستون مجاور است که به‌صورت درصدی از عرض میله یا ستون بیان می‌شود. همانند overlap، این تنظیم متعلق به گروه مجموعهٔ والد است نه به یک مجموعهٔ خاص. یک‌بار برای گروه فراخوانی کنید: [IChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ichartseriesgroup/#setGapWidth-int-). مقدار بزرگتر فضای بیشتری بین خوشه‌ها ایجاد می‌کند؛ مقدار کوچکتر آن را متراکم‌تر می‌سازد.
+عرض فاصله فضای بین خوشه‌های میله یا ستون مجاور است که به صورت درصدی از عرض میله یا ستون بیان می‌شود. مانند همپوشانی، به گروه سری والد تعلق دارد نه به یک سری. برای گروه یک‌بار [IChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/#setGapWidth-int-) را فراخوانی کنید. مقدار بزرگتر فضای بیشتری بین خوشه‌ها ایجاد می‌کند؛ مقدار کوچکتر آنها را متراکم‌تر می‌کند.
 
-مثال زیر عرض فاصله را تغییر داده و فقط ارائهٔ نهایی را ذخیره می‌کند:
+مثال زیر عرض فاصله را تغییر می‌دهد و فقط ارائه نهایی را ذخیره می‌کند:
 
 ```java
 import com.aspose.slides.*;
@@ -403,46 +451,46 @@ try {
 
 نتیجه:
 
-![The gap width](gap_width.png)
+![عرض فاصله](gap_width.png)
 
-## **سؤالات متداول**
+## **سوالات متداول**
 
-**کدام انواع نمودار از مجموعه‌های داده پشتیبانی می‌کنند؟**
+**کدام انواع نمودار از سری داده‌ها پشتیبانی می‌کنند؟**
 
-تمام انواع نمودار که توسط شمارش [ChartType](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/charttype/) توصیف می‌شوند از دادهٔ نمودار استفاده می‌کنند، اما ساختار یا تنظیمات ارزش آن‌ها یکسان نیست. به‌عنوان مثال، نمودارهای دسته‌ای از دسته‌ها و مقادیر استفاده می‌کنند، نمودارهای پراکندگی از مقادیر X و Y، و نمودارهای حباب علاوه بر آن اندازهٔ حباب را دارند. از روش ایجاد نقطهٔ داده‌ای که با نوع مجموعه مطابقت دارد استفاده کنید. گزینه‌هایی مانند overlap و gap width فقط برای گروه‌های میوه یا ستون سازگار اعمال می‌شوند.
+تمام انواع نمودارهای نشان‌داده‌شده توسط شمارش [ChartType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/) از داده‌های نمودار استفاده می‌کنند، اما سری‌های آنها همه ساختار یا تنظیمات مقدار یکسانی ندارند. به عنوان مثال، نمودارهای دسته‌ای از دسته‌ها و مقادیر استفاده می‌کنند، نمودارهای پراکنده از مقادیر X و Y و نمودارهای حبابی از اندازه حباب استفاده می‌کنند. از روش ایجاد نقطه‑داده‌ای که با نوع سری سازگار است استفاده کنید. گزینه‌هایی مانند همپوشانی و عرض فاصله فقط برای گروه‌های میله یا ستون سازگار اعمال می‌شوند.
 
-**گروه مجموعهٔ نمودار چیست؟**
+**گروه سری نمودار چیست؟**
 
-یک [IChartSeriesGroup](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ichartseriesgroup/) شامل مجموعه‌های سازگاری است که تنظیمات رسم در سطح گروه را به‌اشتراک می‌گذارند. یک نمودار ترکیبی می‌تواند بیش از یک گروه داشته باشد، بنابراین تغییر گروهی که از طریق یک مجموعه دسترسی پیدا می‌کنید لزوماً تمام مجموعه‌های نمودار را تغییر نمی‌دهد.
+یک [IChartSeriesGroup](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/) شامل سری‌های سازگار است که تنظیمات ترسیم در سطح گروه را به‌اشتراک می‌گذارند. یک نمودار ترکیبی می‌تواند بیش از یک گروه داشته باشد، بنابراین تغییر گروه دست‌یافته از طریق یک سری لزوماً تمام سری‌های نمودار را تغییر نمی‌دهد.
 
-**آیا نمودار تازه‌ساخته‌شده داده‌های پیش‌فرض دارد؟**
+**آیا یک نمودار تازه ایجاد شده دارای داده‌های پیش‌فرض است؟**
 
-بله. به‌طور پیش‌فرض، [IShapeCollection.addChart](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) مجموعه‌ها، دسته‌ها و مقادیر نمونه را ایجاد می‌کند. می‌توانید این سلول‌ها را ویرایش کنید یا قبل از افزودن یک مجموعه دادهٔ کاملاً سفارشی، هر دو مجموعه و دسته‌ها را پاک کنید. یک overload نیز می‌تواند نموداری بدون دادهٔ پیش‌فرض ایجاد کند.
+بله. به‌صورت پیش‌فرض، [IShapeCollection.addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) سری‌ها، دسته‌ها و مقادیر نمونه ایجاد می‌کند. می‌توانید آن سلول‌ها را ویرایش کنید یا هم‌زمان مجموعه سری‌ها و دسته‌ها را قبل از افزودن مجموعه داده کاملاً سفارشی پاک کنید. یک overload نیز می‌تواند نموداری بدون داده پیش‌فرض ایجاد کند.
 
-**اشیاء نمودار چگونه به سلول‌های کتاب‌کار متصل می‌شوند؟**
+**چگونه اشیای نمودار به سلول‌های کتاب‌کار متصل می‌شوند؟**
 
-نام‌های مجموعه، برچسب‌های دسته و مقادیر نقطهٔ داده به سلول‌های یک [IChartDataWorkbook](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ichartdataworkbook/) ارجاع می‌دهند. تغییر یک سلول ارجاع‑داده‌شده، المان مربوطهٔ نمودار را به‌روزرسانی می‌کند. هنگام ساخت دادهٔ سفارشی، ردیف‌های دسته و ردیف‌های مقادیر مجموعه را هم‌راستا نگه دارید تا هر نقطه زیر دستهٔ موردنظر رسم شود.
+نام‌های سری، برچسب‌های دسته و مقادیر نقاط داده به سلول‌های یک [IChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/) ارجاع می‌دهند. تغییر یک سلول ارجاع‑دیده‌شده عنصر مربوط به نمودار را به‌روز می‌کند. هنگام ساخت داده‌های سفارشی، ردیف‌های دسته و ردیف‌های مقادیر سری را هم‌تراز نگه دارید تا هر نقطه زیر دستهٔ موردنظر ترسیم شود.
 
-**چگونه یک نقطه را به‌جای تمام مجموعه پاک کنم؟**
+**چگونه یک نقطه را به‌جای تمام سری پاک کنم؟**
 
-سلول مقدار مربوطه را به `null` تنظیم کنید تا موقعیت دستهٔ نقطه به‌عنوان نقطهٔ خالی حفظ شود. فقط وقتی می‌خواهید تمام نقاط یک مجموعه را حذف کنید، از [IChartDataPointCollection.clear](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ichartdatapointcollection/#clear--) استفاده کنید. اگر دسته‌ها را نیز حذف می‌کنید، هر مجموعه را به‌روزرسانی کنید تا مقادیرشان با مجموعهٔ دسته‌ها هم‌راستا بماند.
+سلول مقدار مربوطه را به `null` تنظیم کنید تا موقعیت دستهٔ نقطه به‌عنوان نقطه خالی حفظ شود. فقط زمانی که قصد حذف تمام نقاط از آن سری را دارید از [IChartDataPointCollection.clear](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapointcollection/#clear--) استفاده کنید. اگر دسته‌ها را نیز حذف می‌کنید، هر سری را به‌روزرسانی کنید تا مقادیر آنها با مجموعه دسته هم‌تراز بمانند.
 
 **نقاط خالی چگونه نمایش داده می‌شوند؟**
 
-نتیجه بسته به نوع نمودار و مقدار تنظیم‌شده از طریق [IChart.setDisplayBlanksAs](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ichart/#setDisplayBlanksAs-int-) متفاوت است. نمودارهای پشتیبانی‌شده می‌توانند خالی‌ها را به‌عنوان شکاف، مقدار صفر یا با اتصال نقاط همسایه نمایش دهند. تنظیمی را انتخاب کنید که معنای دادهٔ از دست رفته در ارائهٔ شما را منعکس کند. برای مثال کامل و مقایسهٔ تصویری، بخش «Control the Display of Empty Cells» را ببینید.
+نتیجه به نوع نمودار و مقداری که از طریق [IChart.setDisplayBlanksAs](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#setDisplayBlanksAs-int-) تنظیم شده است بستگی دارد. نمودارهای پشتیبانی‌شده می‌توانند خالی‌ها را به‌صورت فواصل، به‌عنوان مقادیر صفر یا با اتصال نقاط همسایه نمایش دهند. تنظیمی را انتخاب کنید که با معنای داده‌های گمشده در ارائهٔ شما منطبق باشد. برای یک مثال کامل و مقایسهٔ بصری، به [Control the Display of Empty Cells](#control-the-display-of-empty-cells) مراجعه کنید.
 
 **مقدارهای منفی چگونه قالب‌بندی می‌شوند؟**
 
-برای مجموعه‌های میوه، ستون و حباب پشتیبانی‌شده، [IChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ichartseries/#setInvertIfNegative-boolean-) را فراخوانی کنید و رنگی که از [IChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ichartseries/#getInvertedSolidFillColor--) برمی‌گردد، تنظیم کنید. می‌توانید رفتار را برای یک نقطهٔ فردی با [IChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ichartdatapoint/#setInvertIfNegative-boolean-) بازنویسی کنید. این متدها فقط قالب‌بندی را تحت تأثیر قرار می‌دهند، نه مقادیر عددی ذخیره‌شده.
+برای سری‌های میله، ستون و حبابی پشتیبانی‌شده، [IChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#setInvertIfNegative-boolean-) را فراخوانی کنید و رنگ بازگردانده‌شده توسط [IChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getInvertedSolidFillColor--) را تنظیم کنید. می‌توانید رفتار را برای یک نقطهٔ منفرد با [IChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/#setInvertIfNegative-boolean-) بازنویسی کنید. این روش‌ها فقط بر قالب‌بندی تأثیر می‌گذارند، نه بر مقادیر عددی ذخیره‌شده.
 
-**اگر هم مجموعه و هم نقطه قالب‌بندی شوند، کدام برتر است؟**
+**کدام قالب‌بندی بر‌تری دارد وقتی هم سری و هم نقطه قالب‌بندی شوند؟**
 
-قالب‌بندی صریح نقطهٔ داده برای همان نقطه اولویت دارد. نقاط دیگر همچنان از قالب‌بندی صریح مجموعه یا، اگر قالب‌بندی مجموعه تعریف نشده باشد، از سبک و تم خودکار نمودار استفاده می‌کنند. تنظیمات گروهی مانند overlap و gap width برچسب‌ها را کنترل می‌کنند و بازنویسی قالب‌بندی سطح نقطه نیستند.
+قالب‌بندی صریح نقطه‑داده برای آن نقطه برتری دارد. نقاط دیگر همچنان از قالب صریح سری یا، زمانی که قالب سری تعریف نشده باشد، از سبک و تم خودکار نمودار استفاده می‌کنند. تنظیمات گروهی مانند همپوشانی و عرض فاصله چیدمان را کنترل می‌کنند و بازنویسی‌های قالب‌بندی سطح نقطه نیستند.
 
-**آیا محدودیتی برای تعداد مجموعه‌های یک نمودار وجود دارد؟**
+**آیا محدودیتی برای تعداد سری‌های موجود در یک نمودار وجود دارد؟**
 
-Aspose.Slides محدودیت ثابت جداگانهٔ تعداد مجموعه‌ها را اعمال نمی‌کند. در عمل، محدودیت‌های فایل ارائه، حافظه موجود، زمان رندر و قابلیت خوانایی نمودار تعیین‌کنندهٔ حد معقول هستند.
+Aspose.Slides محدودیت ثابت جداگانه‌ای برای تعداد سری‌ها اعمال نمی‌کند. در عمل، محدودیت‌های فایل ارائه، حافظه موجود، زمان رندر و قابلیت خواندن نمودار، محدودیتی مفید تعیین می‌کنند.
 
-**اگر ستون‌ها بیش از حد به‌هم نزدیک یا دور باشند چه کاری باید انجام دهم؟**
+**چه چیزی را باید تغییر دهم وقتی ستون‌ها بیش از حد نزدیک یا بیش از حد دور هستند؟**
 
-متد [IChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ichartseriesgroup/#setGapWidth-int-) را بر روی گروه مجموعهٔ والد مناسب فراخوانی کنید. مقدار را افزایش دهید تا فضای بین خوشه‌ها عریض‌تر شود یا کاهش دهید تا خوشه‌ها نزدیک‌تر شوند.
+در گروه سری والد مناسب، [IChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/#setGapWidth-int-) را فراخوانی کنید. مقدار را افزایش دهید تا فضای بین خوشه‌ها گسترده‌ شود، یا کاهش دهید تا خوشه‌ها به یکدیگر نزدیک‌تر شوند.

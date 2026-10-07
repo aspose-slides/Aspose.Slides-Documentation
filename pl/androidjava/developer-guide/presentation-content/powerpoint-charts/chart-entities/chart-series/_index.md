@@ -4,7 +4,7 @@ linktitle: Serie danych
 type: docs
 url: /pl/androidjava/chart-series/
 keywords:
-- serie wykresu
+- seria wykresu
 - nakładanie serii
 - kolor serii
 - nazwa serii
@@ -17,29 +17,29 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Dowiedz się, jak zarządzać seriami wykresu, punktami danych, komórkami skoroszytu, formatowaniem, nakładaniem, szerokością przerwy i wartościami ujemnymi w prezentacjach na Androidzie."
+description: "Dowiedz się, jak zarządzać seriami wykresu, punktami danych, komórkami skoroszytu, formatowaniem, nakładaniem, szerokością przerwy oraz wartościami ujemnymi w prezentacjach na Androidzie."
 ---
 ## **Przegląd**
 
-Wykres przechowuje swoje wykreślone dane w skoroszycie danych wykresu. [IChartSeries](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ichartseries/) reprezentuje jeden zestaw powiązanych wartości, a każdy [IChartDataPoint](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ichartdatapoint/) w serii odnosi się do jednej lub więcej komórek skoroszytu. Obiekty [IChartCategory](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ichartcategory/) dostarczają etykiet lub wartości grupowania współdzielonych przez serie. Nazwa serii, kategorie i wartości punktów są więc połączone z obiektami [IChartDataCell](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ichartdatacell/) zamiast być przechowywane wyłącznie jako tekst wyświetlany.
+Wykres przechowuje swoje wykreślone dane w skoroszycie danych wykresu. [IChartSeries](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/) reprezentuje jeden zbiór powiązanych wartości, a każdy [IChartDataPoint](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/) w serii odnosi się do jednej lub wielu komórek skoroszytu. Obiekty [IChartCategory](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartcategory/) dostarczają etykiety lub wartości grupujące współdzielone przez serie. Nazwa serii, kategorie i wartości punktów są więc połączone z obiektami [IChartDataCell](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatacell/) zamiast być przechowywane wyłącznie jako tekst wyświetlany.
 
-Dla typowego wykresu kategorii domyślny skoroszyt używa wiersza 0 dla nazw serii, kolumny 0 dla nazw kategorii oraz pozostałych komórek dla wartości serii. Indeksy arkusza, wiersza i kolumny przekazywane do [IChartDataWorkbook.getCell](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ichartdataworkbook/#getCell-int-int-int-) są zerowo‑indeksowane. Ten układ jest przydatny, gdy tworzysz wykres z danymi domyślnymi, ale nie zakładaj, że każdy istniejący wykres go używa. Dla wczytanej prezentacji sprawdź komórki odwoływane przez serie, kategorie i punkty danych przed zmianą wartości w skoroszycie.
+Dla typowego wykresu kategorii domyślny skoroszyt używa wiersza 0 dla nazw serii, kolumny 0 dla nazw kategorii oraz pozostałych komórek dla wartości serii. Indeksy arkusza, wiersza i kolumny przekazywane do [IChartDataWorkbook.getCell](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/#getCell-int-int-int-) są zerowo‑indeksowane. Ten układ jest przydatny, gdy tworzysz wykres z danymi domyślnymi, ale nie zakładaj, że każdy istniejący wykres go używa. Dla wczytanej prezentacji sprawdź komórki odwoływane przez serie, kategorie i punkty danych przed zmianą wartości w skoroszycie.
 
 Ustawienia wykresu mają trzy różne zakresy:
 
-- Ustawienia na poziomie serii, takie jak [IChartSeries.getFormat](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ichartseries/#getFormat--), określają domyślny wygląd wszystkich punktów w jednej serii.
-- Ustawienia punktu danych, takie jak [IChartDataPoint.getFormat](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ichartdatapoint/#getFormat--), nadpisują wygląd serii dla jednego punktu.
-- Ustawienia grupowe dotyczą kompatybilnych serii należących do tego samego [IChartSeriesGroup](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ichartseriesgroup/). Dostęp do grupy uzyskujesz przez [IChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ichartseries/#getParentSeriesGroup--) kiedy potrzebujesz ustawić opcje takie jak nakładanie lub szerokość przerwy.
+- Ustawienia na poziomie serii, takie jak [IChartSeries.getFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getFormat--), określają domyślny wygląd wszystkich punktów w jednej serii.
+- Ustawienia punktu danych, takie jak [IChartDataPoint.getFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/#getFormat--), nadpisują wygląd serii dla jednego punktu.
+- Ustawienia grupy mają zastosowanie do kompatybilnych serii należących do tego samego [IChartSeriesGroup](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/). Uzyskaj dostęp do grupy przez [IChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getParentSeriesGroup--) gdy potrzebujesz ustawić opcje takie jak nakładanie lub szerokość przerwy.
 
-Gdy nie jest ustawione żadne wyraźne wypełnienie punktu lub serii, styl i motyw wykresu określają automatyczny wygląd. Gdy istnieją zarówno formatowanie serii, jak i punktu, formatowanie punktu ma pierwszeństwo dla tego punktu.
+Gdy nie jest ustawione jawne wypełnienie punktu lub serii, styl i motyw wykresu określają automatyczny wygląd. Gdy zarówno formatowanie serii, jak i punktu jest obecne, formatowanie punktu ma pierwszeństwo dla tego punktu.
 
-![chart-series-powerpoint](chart-series-powerpoint.png)
+![seria-wykresu-powerpoint](chart-series-powerpoint.png)
 
-## **Ustawienie nakładania serii wykresu**
+## **Ustaw nakładanie serii wykresu**
 
-[IChartSeries.getOverlap](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ichartseries/#getOverlap--) zwraca, o ile słupki lub kolumny nakładają się na siebie w wykresie 2D, w zakresie od -100 do 100 procent. Jest to tylko odczytowa projekcja ustawienia grupy serii nadrzędnej. Użyj [IChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ichartseriesgroup/#setOverlap-byte-) aby zaktualizować wszystkie kompatybilne serie w tej grupie. Opcja ta dotyczy typów wykresów wyświetlających grupowane słupki lub kolumny; nie wpływa na niepowiązane grupy serii w wykresie kombinowanym.
+[IChartSeries.getOverlap](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getOverlap--) zwraca, w jakim stopniu słupki lub kolumny nakładają się w wykresie 2D, od ‑100 do 100 procent. Jest to odczytowa projekcja ustawienia na grupie nadrzędnej serii. Użyj [IChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/#setOverlap-byte-) aby zaktualizować wszystkie kompatybilne serie w tej grupie. Opcja ta ma zastosowanie do typów wykresów wyświetlających grupowane słupki lub kolumny; nie wpływa na niepowiązane grupy serii w wykresie złożonym.
 
-Poniższy przykład ustawia nakładanie dla grupy zawierającej pierwszą serię:
+Poniższy przykład ustawia nakładanie dla grupy, która zawiera pierwszą serię:
 
 ```java
 import com.aspose.slides.*;
@@ -66,13 +66,13 @@ try {
 
 Wynik:
 
-![The series overlap](series_overlap.png)
+![Nakładanie serii](series_overlap.png)
 
-## **Zmiana koloru wypełnienia serii**
+## **Zmień kolor wypełnienia serii**
 
-Użyj [IChartSeries.getFormat](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ichartseries/#getFormat--) aby ustawić domyślne wypełnienie całej serii. Jeśli punkt ma już wyraźne wypełnienie, jego ustawienie [IChartDataPoint.getFormat](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ichartdatapoint/#getFormat--) nadpisuje wypełnienie serii dla tego punktu.
+Użyj [IChartSeries.getFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getFormat--) aby ustawić domyślne wypełnienie całej serii. Jeśli punkt już ma jawne wypełnienie, jego ustawienie [IChartDataPoint.getFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/#getFormat--) nadpisuje wypełnienie serii dla tego punktu.
 
-Poniższy przykład nakłada jednolite niebieskie wypełnienie na pierwszą serię:
+Poniższy przykład stosuje jednolite niebieskie wypełnienie do pierwszej serii:
 
 ```java
 import com.aspose.slides.*;
@@ -99,11 +99,11 @@ try {
 
 Wynik:
 
-![The color of the series](series_color.png)
+![Kolor serii](series_color.png)
 
-## **Zmiana nazwy serii**
+## **Zmień nazwę serii**
 
-Nazwa serii jest przechowywana w skoroszycie danych wykresu i zwykle wyświetlana jest w legendzie. W domyślnym skoroszycie utworzonym dla wykresu słupkowego skumulowanego komórka B1 znajduje się w wierszu 0, kolumnie 1 i zawiera nazwę pierwszej serii. Stałe nazwane w poniższym przykładzie czynią tę strukturę explicytą:
+Nazwa serii jest przechowywana w skoroszycie danych wykresu i zazwyczaj wyświetlana w legendzie. W domyślnym skoroszycie utworzonym dla wykresu kolumnowego grupowanego komórka B1 znajduje się w wierszu 0, kolumnie 1 i zawiera nazwę pierwszej serii. Stałe nazwane w poniższym przykładzie wyraźnie opisują tę strukturę:
 
 ```java
 import com.aspose.slides.*;
@@ -129,7 +129,7 @@ try {
 }
 ```
 
-Możesz także zaktualizować komórkę już odwoływaną przez [IChartSeries.getName](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ichartseries/#getName--). To podejście unika zakładania konkretnego wiersza i kolumny w istniejącym wykresie:
+Możesz także zaktualizować komórkę już odwoływaną przez [IChartSeries.getName](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getName--). Takie podejście unika zakładania konkretnego wiersza i kolumny w istniejącym wykresie:
 
 ```java
 import com.aspose.slides.*;
@@ -156,13 +156,63 @@ try {
 
 Wynik:
 
-![The series name](series_name.png)
+![Nazwa serii](series_name.png)
 
-## **Pobranie automatycznego koloru wypełnienia serii**
+### **Utwórz serię z nazwą z wielu komórek**
 
-[IChartSeries.getAutomaticSeriesColor](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ichartseries/#getAutomaticSeriesColor--) zwraca kolor wyliczony na podstawie indeksu serii i stylu wykresu jako całkowitą liczbę ARGB Android. Jest to kolor używany, gdy wypełnienie serii nie zostało wyraźnie określone. Wywołanie metody odczytuje wyliczony kolor; nie przypisuje nowego wypełnienia.
+Złożona nazwa serii jest przydatna, gdy nazwa produktu i okres sprawozdawczy są przechowywane w oddzielnych komórkach skoroszytu. Na przykład możesz połączyć `Product A` w B1 i `2026` w C1 w jedną nazwę serii, zachowując jednocześnie powiązanie obu części z ich komórkami źródłowymi.
 
-Poniższy przykład wypisuje automatyczną liczbę całkowitą koloru dla każdej domyślnej serii:
+Użyj [IChartDataWorkbook.getCellCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/#getCellCollection-java.lang.String-boolean-) aby pobrać zakres nazw, a następnie przekaż tę kolekcję do [IChartSeriesCollection.add](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriescollection/#add-com.aspose.slides.IChartCellCollection-int-). Argument `skipHiddenCells` steruje, czy ukryte komórki są uwzględniane: `true` je wyklucza, `false` włącza. Ten przykład używa `false`, aby włączyć każdą komórkę w zakresie nazw.
+
+Poniższy przykład tworzy prezentację z jedną serią i dwoma punktami danych. Komórki B1:C1 dostarczają wyłącznie nazwę serii; A2:A3 dostarczają etykiety kategorii, a B2:B3 dostarczają wartości liczbowe.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 620, 180);
+
+    chart.getChartData().getSeries().clear();
+    chart.getChartData().getCategories().clear();
+    chart.setLegend(true);
+
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.clear(0);
+
+    // Te dwie komórki dostarczają nazwę serii.
+    workbook.getCell(0, 0, 1, "Product A");
+    workbook.getCell(0, 0, 2, "2026");
+    IChartCellCollection nameCells = workbook.getCellCollection("Sheet1!$B$1:$C$1", false);
+    IChartSeries series = chart.getChartData().getSeries().add(nameCells, ChartType.ClusteredColumn);
+
+    // Oddzielne komórki dostarczają kategorie i numeryczne punkty danych.
+    IChartDataCell northCategory = workbook.getCell(0, 1, 0, "North");
+    IChartDataCell southCategory = workbook.getCell(0, 2, 0, "South");
+    chart.getChartData().getCategories().add(northCategory);
+    chart.getChartData().getCategories().add(southCategory);
+    IChartDataCell northValue = workbook.getCell(0, 1, 1, 120);
+    IChartDataCell southValue = workbook.getCell(0, 2, 1, 150);
+    series.getDataPoints().addDataPointForBarSeries(northValue);
+    series.getDataPoints().addDataPointForBarSeries(southValue);
+
+    presentation.save("composite_series_name.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Wynikowa nazwa serii to `Product A 2026`, ze spacją pomiędzy wartościami dwóch komórek. Legenda wyświetla to jako jedną pozycję dla obu kolumn. Poniższy obraz ilustruje rezultat:
+
+![Wykres kolumnowy z wartościami Północ i Południe oraz złożoną nazwą serii Product A 2026 w legendzie](composite_series_name.png)
+
+## **Pobierz automatyczny kolor wypełnienia serii**
+
+[IChartSeries.getAutomaticSeriesColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getAutomaticSeriesColor--) zwraca kolor obliczony na podstawie indeksu serii i stylu wykresu jako całkowitą liczbę Android ARGB. Jest to kolor używany, gdy wypełnienie serii nie zostało jawnie zdefiniowane. Wywołanie metody odczytuje obliczony kolor; nie przypisuje nowego wypełnienia.
+
+Poniższy przykład wypisuje automatyczny całkowity kolor dla każdej domyślnej serii:
 
 ```java
 import com.aspose.slides.*;
@@ -186,13 +236,13 @@ try {
 }
 ```
 
-Dokładne wartości liczbowe zależą od stylu i motywu wykresu.
+Dokładne wartości całkowite zależą od stylu i motywu wykresu.
 
-## **Ustawienie odwróconego koloru wypełnienia dla serii wykresu**
+## **Ustaw odwrócony kolor wypełnienia dla serii wykresu**
 
-Dla serii słupkowych, kolumnowych i bąbelkowych [IChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ichartseries/#setInvertIfNegative-boolean-) może wyświetlać wartości ujemne innym wypełnieniem. Ustaw regularne wypełnienie serii na jednolite, włącz odwracanie i przypisz kolor wartości ujemnej przez [IChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ichartseries/#getInvertedSolidFillColor--). Ujemne liczby pozostają niezmienione w skoroszycie; zmienia się tylko ich kolor wyświetlania.
+Dla serii słupkowych, kolumnowych i bąbelkowych [IChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#setInvertIfNegative-boolean-) może wyświetlać wartości ujemne innym wypełnieniem. Ustaw regularne wypełnienie serii na jednolite, włącz odwracanie i przypisz kolor wartości ujemnej przez [IChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getInvertedSolidFillColor--). Ujemne liczby pozostają niezmienione w skoroszycie; zmienia się tylko ich kolor wyświetlania.
 
-Poniższy przykład zastępuje domyślne dane wykresu jedną serią. Wiersz 0 arkusza zawiera nazwę serii, kolumna 0 zawiera nazwy kategorii, a kolumna 1 zawiera wartości:
+Poniższy przykład zamienia domyślne dane wykresu na jedną serię. Wiersz 0 arkusza zawiera nazwę serii, kolumna 0 zawiera nazwy kategorii, a kolumna 1 zawiera wartości:
 
 ```java
 import com.aspose.slides.*;
@@ -249,9 +299,9 @@ try {
 
 Wynik:
 
-![The inverted solid fill color](inverted_solid_fill_color.png)
+![Odwrócony jednolity kolor wypełnienia](inverted_solid_fill_color.png)
 
-Możesz włączyć odwracanie dla jednego punktu przez [IChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ichartdatapoint/#setInvertIfNegative-boolean-). W poniższym przykładzie odwracanie jest wyłączone dla serii i włączone tylko dla wybranego punktu. Punktowi przypisano także wartość ujemną, aby efekt był widoczny:
+Możesz włączyć odwracanie dla jednego punktu przez [IChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/#setInvertIfNegative-boolean-). W poniższym przykładzie odwracanie jest wyłączone dla serii i włączone tylko dla wybranego punktu. Punktowi przypisano również wartość ujemną, aby efekt był widoczny:
 
 ```java
 import com.aspose.slides.*;
@@ -285,9 +335,9 @@ try {
 }
 ```
 
-## **Wyczyszczenie konkretnej wartości punktu danych**
+## **Wyczyść konkretną wartość punktu danych**
 
-Aby uczynić jeden punkt pustym bez usuwania pozostałych punktów, ustaw jego komórkę w skoroszycie na `null`. Dla wykresu kolumnowego wartość wykreślona jest dostępna przez [IChartDataPoint.getValue](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ichartdatapoint/#getValue--). Punkt danych pozostaje w tej samej pozycji kategorii, ale wykres traktuje jego wartość jako pustą zgodnie z ustawieniami pustych wartości wykresu.
+Aby uczynić jeden punkt pustym bez usuwania pozostałych, ustaw jego komórkę w skoroszycie na `null`. Dla wykresu kolumnowego wykreślona wartość jest dostępna przez [IChartDataPoint.getValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/#getValue--). Punkt danych pozostaje na tej samej pozycji kategorii, ale wykres traktuje jego wartość jako pustą zgodnie z ustawieniami pustych wartości wykresu.
 
 Poniższy przykład czyści tylko drugi punkt w pierwszej serii:
 
@@ -314,17 +364,17 @@ try {
 }
 ```
 
-Wykresy punktowe używają osobnych komórek X i Y, a wykresy bąbelkowe dodatkowo komórki rozmiaru. Czyść tylko komórkę, która reprezentuje wartość, którą chcesz usunąć. Nie wywołuj [IChartDataPointCollection.clear](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ichartdatapointcollection/#clear--) gdy chcesz zachować pozostałe punkty, ponieważ ta metoda usuwa wszystkie punkty danych z kolekcji.
+Wykresy punktowe używają oddzielnych komórek X i Y, a wykresy bąbelkowe dodatkowo komórki rozmiaru. Czyść tylko komórkę, która reprezentuje wartość, którą zamierzasz usunąć. Nie wywołuj [IChartDataPointCollection.clear](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapointcollection/#clear--) gdy chcesz zachować pozostałe punkty, ponieważ ta metoda usuwa każdy punkt danych z kolekcji.
 
-## **Kontrola wyświetlania pustych komórek**
+## **Kontroluj wyświetlanie pustych komórek**
 
 Ukryte komórki zawierające wartości to odrębny przypadek od pustych komórek. Aby włączać lub wyłączać dane z ukrytych wierszy i kolumn arkusza, zobacz [Include Data from Hidden Rows and Columns](/slides/pl/androidjava/chart-workbook/#include-data-from-hidden-rows-and-columns).
 
-Pusta komórka skoroszytu oznacza brak danych; komórka zawierająca `0` oznacza znaną wartość liczbową. Wywołaj [IChartDataCell.setValue](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ichartdatacell/#setValue-java.lang.Object-) z `null`, aby uczynić komórkę pustą. Liczbowy zero pozostaje zerem niezależnie od ustawienia pustych komórek.
+Pusta komórka skoroszytu oznacza brak danych; komórka zawierająca `0` oznacza znaną wartość liczbową. Wywołaj [IChartDataCell.setValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatacell/#setValue-java.lang.Object-) z `null`, aby uczynić komórkę pustą. Liczbowa zero pozostaje zerem niezależnie od ustawienia pustej komórki.
 
-Użyj [IChart.setDisplayBlanksAs](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ichart/#setDisplayBlanksAs-int-) aby wybrać, jak wykres wyświetla puste komórki. Ustawienie to obowiązuje cały wykres. Zmienia sposób rysowania pustych miejsc, nie wypełniając pustej komórki zerem ani interpolowaną wartością.
+Użyj [IChart.setDisplayBlanksAs](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#setDisplayBlanksAs-int-) aby wybrać, jak wykres wyświetla puste komórki. To ustawienie ma zastosowanie do całego wykresu. Zmienia sposób wykreślania pustek, nie wypełniając pustej komórki w skoroszycie zerem ani interpolowaną wartością.
 
-Poniższy samodzielny przykład tworzy wykres liniowy z jedną serią, czyści wartość dla Dnia 3 i zapisuje ten sam wykres w każdym trybie. Plik wejściowy nie jest wymagany. [IChartDataWorkbook](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ichartdataworkbook/) używa arkusza 0, kolumny 0 dla etykiet kategorii i kolumny 1 dla wartości; wiersz 0 zawiera nazwę serii. Końcowe dane to `10, 20, empty, 30, 40`.
+Poniższy, samodzielny przykład tworzy wykres liniowy z jedną serią, czyści wartość dla Dnia 3 i zapisuje wykres w każdym trybie. Nie jest potrzebny plik wejściowy. [IChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/) używa arkusza 0, kolumny 0 dla etykiet kategorii i kolumny 1 dla wartości; wiersz 0 zawiera nazwę serii. Końcowe dane to `10, 20, empty, 30, 40`.
 
 ```java
 import com.aspose.slides.*;
@@ -351,7 +401,7 @@ try {
         series.getDataPoints().addDataPointForLineSeries(valueCell);
     }
 
-    // Zostaw dzień 3 naprawdę pusty, zachowując jego kategorię i punkt danych.
+    // Pozostaw Dzień 3 naprawdę pusty, zachowując jego kategorię i punkt danych.
     workbook.getCell(0, 3, 1).setValue(null);
 
     int[] modes = { DisplayBlanksAsType.Gap, DisplayBlanksAsType.Zero, DisplayBlanksAsType.Span };
@@ -369,13 +419,13 @@ Każdy plik wyjściowy przechowuje tryb przypisany przed zapisem: `empty_cells_G
 
 Poniższe porównanie pokazuje te same dane w trzech plikach. Dzień 3 jest pusty w skoroszycie we wszystkich przypadkach:
 
-![Line charts with identical data: Gap breaks the line at Day 3, Zero drops the line to zero, and Span connects Day 2 to Day 4.](display_blanks_as.png)
+![Wykresy liniowe z identycznymi danymi: Gap przerywa linię w Dniu 3, Zero obniża linię do zera, a Span łączy Dzień 2 z Dniem 4.](display_blanks_as.png)
 
-Widoczny efekt zależy od typu wykresu. Wykres liniowy umożliwia łatwe porównanie wszystkich trzech trybów. Wykresy słupkowe i kolumnowe nie mają linii łączącej brakującą kategorię, więc `Span` nie może wygenerować pokazanego segmentu; brakująca kolumna i kolumna o wysokości zero mogą wyglądać podobnie. Podobnie wykres punktowy z samymi znacznikami nie ma linii łączącej. Nie oczekuj trzech odrębnych wyników dla każdego typu wykresu; sprawdź rezultat dla używanego typu.
+Widoczny efekt zależy od typu wykresu. Wykres liniowy umożliwia łatwe porównanie wszystkich trzech trybów. Wykresy słupkowe i kolumnowe nie mają linii łączącej brakującą kategorię, więc `Span` nie może wygenerować połączenia pokazanego powyżej; brakująca kolumna i kolumna o wysokości 0 mogą wyglądać podobnie. Analogicznie wykres punktowy z samymi znacznikami nie ma linii łączącej. Nie oczekuj trzech odrębnych wyników dla każdego typu wykresu; sprawdź wynik dla używanego typu.
 
-## **Ustawienie szerokości przerwy serii**
+## **Ustaw szerokość przerwy między seriami**
 
-Szerokość przerwy to odstęp między sąsiadującymi grupami słupków lub kolumn, wyrażony jako procent szerokości słupka lub kolumny. Podobnie jak nakładanie, należy do grupy serii nadrzędnej, a nie do jednej serii. Wywołaj [IChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ichartseriesgroup/#setGapWidth-int-) raz dla grupy. Większa wartość tworzy więcej miejsca między grupami; mniejsza wartość sprawia, że są one bardziej zwarte.
+Szerokość przerwy to odstęp między sąsiadującymi grupami słupków lub kolumn, wyrażony jako procent szerokości słupka lub kolumny. Podobnie jak nakładanie, należy do grupy nadrzędnej serii, a nie do jednej serii. Wywołaj [IChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/#setGapWidth-int-) raz dla grupy. Większa wartość tworzy więcej miejsca między grupami; mniejsza wartość sprawia, że są gęstsze.
 
 Poniższy przykład zmienia szerokość przerwy i zapisuje tylko końcową prezentację:
 
@@ -403,46 +453,46 @@ try {
 
 Wynik:
 
-![The gap width](gap_width.png)
+![Szerokość przerwy](gap_width.png)
 
 ## **FAQ**
 
-**Jakie typy wykresów obsługują serie danych?**
+**Które typy wykresów obsługują serie danych?**
 
-Wszystkie typy wykresów reprezentowane przez wyliczenie [ChartType](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/charttype/) używają danych wykresu, ale ich serie nie mają zawsze tej samej struktury wartości ani ustawień. Na przykład wykresy kategorii używają kategorii i wartości, wykresy punktowe używają wartości X i Y, a wykresy bąbelkowe dodatkowo rozmiaru bąbelka. Używaj metody tworzenia punktu danych odpowiadającej typowi serii. Opcje takie jak nakładanie i szerokość przerwy mają zastosowanie tylko do kompatybilnych grup słupków lub kolumn.
+Wszystkie typy wykresów reprezentowane przez wyliczenie [ChartType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/) używają danych wykresu, ale ich serie nie wszystkie mają tę samą strukturę wartości ani te same ustawienia. Na przykład wykresy kategorii używają kategorii i wartości, wykresy punktowe używają wartości X i Y, a wykresy bąbelkowe dodają rozmiary bąbelków. Użyj metody tworzenia punktów danych odpowiedniej dla typu serii. Opcje takie jak nakładanie i szerokość przerwy mają zastosowanie tylko do kompatybilnych grup słupków lub kolumn.
 
 **Czym jest grupa serii wykresu?**
 
-[IChartSeriesGroup](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ichartseriesgroup/) zawiera kompatybilne serie, które współdzielą ustawienia grupowe wykreślania. Wykres kombinowany może zawierać więcej niż jedną grupę, więc zmiana grupy uzyskanej przez jedną serię niekoniecznie zmieni wszystkie serie w wykresie.
+[IChartSeriesGroup](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/) zawiera kompatybilne serie, które współdzielą ustawienia wykreślania na poziomie grupy. Wykres złożony może zawierać więcej niż jedną grupę, więc zmiana grupy uzyskanej przez jedną serię niekoniecznie zmieni wszystkie serie w wykresie.
 
-**Czy nowo utworzony wykres zawiera domyślne dane?**
+**Czy nowo utworzony wykres zawiera dane domyślne?**
 
-Tak. Domyślnie [IShapeCollection.addChart](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) tworzy przykładowe serie, kategorie i wartości. Możesz edytować te komórki lub wyczyścić zarówno kolekcje serii, jak i kategorii przed dodaniem całkowicie własnego zestawu danych. Przeciążenie może także utworzyć wykres bez danych domyślnych.
+Tak. Domyślnie [IShapeCollection.addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) tworzy przykładowe serie, kategorie i wartości. Możesz edytować te komórki lub wyczyścić zarówno kolekcje serii, jak i kategorii przed dodaniem w pełni własnego zestawu danych. Istnieje także przeciążenie, które tworzy wykres bez danych domyślnych.
 
 **Jak obiekty wykresu są połączone z komórkami skoroszytu?**
 
-Nazwy serii, etykiety kategorii i wartości punktów danych odwołują się do komórek w [IChartDataWorkbook](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ichartdataworkbook/). Zmiana odwoływanej komórki aktualizuje odpowiadający element wykresu. Tworząc własne dane, utrzymuj wiersze kategorii i wiersze wartości serii wyrównane, aby każdy punkt był wykreślony pod właściwą kategorią.
+Nazwy serii, etykiety kategorii i wartości punktów danych odwołują się do komórek w [IChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/). Zmiana odwoływanej komórki aktualizuje odpowiadający element wykresu. Budując własne dane, utrzymuj wyrównane wiersze kategorii i wiersze wartości serii, aby każdy punkt był wykreślony pod zamierzoną kategorią.
 
 **Jak wyczyścić jeden punkt zamiast całej serii?**
 
-Ustaw odpowiednią komórkę wartości na `null`, aby zachować pozycję kategorii punktu jako pusty punkt. Używaj [IChartDataPointCollection.clear](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ichartdatapointcollection/#clear--) tylko wtedy, gdy chcesz usunąć wszystkie punkty z tej serii. Jeśli usuwasz także kategorie, zaktualizuj wszystkie serie, aby ich wartości pozostały wyrównane z kolekcją kategorii.
+Ustaw odpowiednią komórkę wartości na `null`, aby zachować pozycję kategorii punktu jako pusty punkt. Używaj [IChartDataPointCollection.clear](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapointcollection/#clear--) tylko wtedy, gdy zamierzasz usunąć wszystkie punkty z tej serii. Jeśli dodatkowo usuwasz kategorie, zaktualizuj każdą serię, aby ich wartości pozostały wyrównane z kolekcją kategorii.
 
 **Jak wyświetlane są puste punkty?**
 
-Wynik zależy od typu wykresu oraz wartości skonfigurowanej przez [IChart.setDisplayBlanksAs](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ichart/#setDisplayBlanksAs-int-). Obsługiwane wykresy mogą wyświetlać puste miejsca jako przerwy, jako wartości zero lub przez połączenie sąsiadujących punktów. Wybierz ustawienie, które odzwierciedla znaczenie brakujących danych w Twojej prezentacji. Zobacz [Control the Display of Empty Cells](#control-the-display-of-empty-cells) po kompletny przykład i porównanie wizualne.
+Wynik zależy od typu wykresu i wartości skonfigurowanej przez [IChart.setDisplayBlanksAs](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#setDisplayBlanksAs-int-). Obsługiwane wykresy mogą wyświetlać puste miejsca jako przerwy, jako wartości zero lub łącząc sąsiednie punkty. Wybierz ustawienie pasujące do znaczenia brakujących danych w twojej prezentacji. Zobacz [Control the Display of Empty Cells](#control-the-display-of-empty-cells) po kompletny przykład i porównanie wizualne.
 
 **Jak formatowane są wartości ujemne?**
 
-Dla obsługiwanych serii słupkowych, kolumnowych i bąbelkowych wywołaj [IChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ichartseries/#setInvertIfNegative-boolean-) i ustaw kolor zwracany przez [IChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ichartseries/#getInvertedSolidFillColor--). Możesz nadpisać zachowanie dla pojedynczego punktu przy pomocy [IChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ichartdatapoint/#setInvertIfNegative-boolean-). Metody te wpływają na formatowanie, a nie na przechowywane wartości liczbowe.
+Dla obsługiwanych serii słupkowych, kolumnowych i bąbelkowych wywołaj [IChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#setInvertIfNegative-boolean-) i ustaw kolor zwrócony przez [IChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getInvertedSolidFillColor--). Możesz nadpisać zachowanie dla pojedynczego punktu przy użyciu [IChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/#setInvertIfNegative-boolean-). Metody te wpływają na formatowanie, a nie na przechowywane wartości liczbowe.
 
 **Które formatowanie ma pierwszeństwo, gdy zarówno seria, jak i punkt są sformatowane?**
 
-Wyraźne formatowanie punktu ma pierwszeństwo dla tego punktu. Inne punkty nadal używają wyraźnego formatu serii albo, gdy format serii nie jest określony, automatycznego stylu i motywu wykresu. Ustawienia grupowe, takie jak nakładanie i szerokość przerwy, kontrolują układ i nie są nadpisaniami formatowania na poziomie punktu.
+Jawne formatowanie punktu danych ma pierwszeństwo dla tego punktu. Inne punkty nadal używają jawnego formatu serii lub, gdy format serii nie jest określony, automatycznego stylu i motywu wykresu. Ustawienia grupy, takie jak nakładanie i szerokość przerwy, kontrolują układ i nie są nadpisaniami formatowania na poziomie punktu.
 
 **Czy istnieje limit liczby serii w wykresie?**
 
-Aspose.Slides nie nakłada osobnego stałego limitu liczby serii. W praktyce ograniczenia pliku prezentacji, dostępna pamięć, czas renderowania i czytelność wykresu determinują praktyczny limit.
+Aspose.Slides nie narzuca osobnego stałego limitu liczby serii. W praktyce ograniczenia pliku prezentacji, dostępna pamięć, czas renderowania i czytelność wykresu określają użyteczny limit.
 
 **Co zmienić, gdy kolumny są zbyt blisko siebie lub zbyt daleko?**
 
-Wywołaj [IChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ichartseriesgroup/#setGapWidth-int-) na odpowiedniej grupie serii nadrzędnej. Zwiększ wartość, aby poszerzyć odstęp między grupami, lub zmniejsz ją, aby przybliżyć grupy do siebie.
+Wywołaj [IChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/#setGapWidth-int-) na odpowiedniej grupie nadrzędnej serii. Zwiększ wartość, aby poszerzyć przestrzeń między grupami, lub zmniejsz ją, aby przybliżyć grupy do siebie.

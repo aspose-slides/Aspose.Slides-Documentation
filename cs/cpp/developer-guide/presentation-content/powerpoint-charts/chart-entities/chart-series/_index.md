@@ -1,43 +1,43 @@
 ---
-title: Správa datových sérií diagramu v prezentacích v C++
-linktitle: Datové série
+title: Správa datových řad grafu v prezentacích v C++
+linktitle: Datové řady
 type: docs
 url: /cs/cpp/chart-series/
 keywords:
-- série diagramu
-- překrytí série
-- barva série
+- řada grafu
+- překrytí řady
+- barva řady
 - barva kategorie
-- název série
+- název řady
 - datový bod
-- mezera série
+- mezera řady
 - PowerPoint
 - prezentace
 - C++
 - Aspose.Slides
-description: "Naučte se, jak spravovat série diagramů, datové body, buňky sešitu, formátování, překrytí, šířku mezery a záporné hodnoty v prezentacích pomocí C++."
+description: "Naučte se, jak spravovat řady grafu, datové body, buňky sešitu, formátování, překrytí, šířku mezery a záporné hodnoty v prezentacích pomocí C++."
 ---
 ## **Přehled**
 
-Diagram ukládá svá vykreslená data do sešitu dat diagramu. [IChartSeries](https://reference.aspose.com/slides/cs/cpp/aspose.slides.charts/ichartseries/) představuje jednu sadu souvisejících hodnot a každý [IChartDataPoint](https://reference.aspose.com/slides/cs/cpp/aspose.slides.charts/ichartdatapoint/) v sérii odkazuje na jednu nebo více buněk sešitu. Objekt [IChartCategory](https://reference.aspose.com/slides/cs/cpp/aspose.slides.charts/ichartcategory/) poskytuje popisky nebo hodnoty seskupení sdílené sériemi. Název série, kategorie a hodnoty bodů jsou tedy propojeny s objekty [IChartDataCell](https://reference.aspose.com/slides/cs/cpp/aspose.slides.charts/ichartdatacell/), místo aby byly uloženy jen jako zobrazovaný text.
+Graf ukládá svá vykreslená data do sešitu dat grafu. [IChartSeries](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/) představuje sadu souvisejících hodnot a každý [IChartDataPoint](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapoint/) v řadě odkazuje na jednu nebo více buněk sešitu. Objekt [IChartCategory](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartcategory/) poskytuje popisky nebo skupinové hodnoty sdílené řadou. Název řady, kategorie a hodnoty bodů jsou proto propojeny s objekty [IChartDataCell](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatacell/) místo toho, aby byly uloženy pouze jako zobrazovaný text.
 
-Pro typický kategoriální diagram výchozí sešit používá řádek 0 pro názvy sérií, sloupec 0 pro názvy kategorií a zbývající buňky pro hodnoty sérií. Indexy listu, řádku a sloupce předávané metodě [IChartDataWorkbook::GetCell](https://reference.aspose.com/slides/cs/cpp/aspose.slides.charts/ichartdataworkbook/getcell/) jsou nulové (zero‑based). Toto rozvržení je užitečné, když vytváříte diagram s výchozími daty, ale nepředpokládejte, že každý existující diagram jej používá. U načtené prezentace si před změnou hodnot v sešitu prohlédněte buňky, na které odkazují série, kategorie a datové body.
+Pro typický kategoriový graf výchozí sešit používá řádek 0 pro názvy řad, sloupec 0 pro názvy kategorií a zbývající buňky pro hodnoty řad. Indexy listu, řádku a sloupce předávané metodě [IChartDataWorkbook::GetCell](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/getcell/) jsou nulové. Toto rozvržení je užitečné, když vytvoříte graf s výchozími daty, ale neassume, že každý existující graf jej používá. Pro načtenou prezentaci si před změnou hodnot v sešitu prohlédněte buňky, na které odkazují řady, kategorie a datové body.
 
-Nastavení diagramu má tři různé úrovně:
+Nastavení grafu mají tři různé úrovně:
 
-- Nastavení na úrovni série, například [IChartSeries::get_Format](https://reference.aspose.com/slides/cs/cpp/aspose.slides.charts/ichartseries/get_format/), poskytuje výchozí vzhled pro všechny body v jedné sérii.
-- Nastavení datového bodu, například [IChartDataPoint::get_Format](https://reference.aspose.com/slides/cs/cpp/aspose.slides.charts/ichartdatapoint/get_format/), přepíše vzhled série pro jeden bod.
-- Skupinová nastavení se vztahují na kompatibilní série, které patří do stejné [IChartSeriesGroup](https://reference.aspose.com/slides/cs/cpp/aspose.slides.charts/ichartseriesgroup/). Přistupujte ke skupině přes [IChartSeries::get_ParentSeriesGroup](https://reference.aspose.com/slides/cs/cpp/aspose.slides.charts/ichartseries/get_parentseriesgroup/), pokud potřebujete nastavit možnosti jako překrytí nebo šířka mezery.
+- Nastavení na úrovni řady, například [IChartSeries::get_Format](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_format/), poskytuje výchozí vzhled pro všechny body v jedné řadě.
+- Nastavení datového bodu, například [IChartDataPoint::get_Format](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapoint/get_format/), přepíše vzhled řady pro jeden bod.
+- Nastavení skupiny se vztahuje na kompatibilní řady, které patří do stejné [IChartSeriesGroup](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/). Přístup ke skupině získáte přes [IChartSeries::get_ParentSeriesGroup](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_parentseriesgroup/), když potřebujete nastavit možnosti jako překrytí nebo šířka mezery.
 
-Pokud není nastaveno žádné explicitní vyplnění bodu nebo série, určuje automatický vzhled styl a motiv diagramu. Pokud jsou přítomny jak formátování série, tak bodu, má přednost formátování bodu.
+Když není nastaven výslovný výplňový styl bodu nebo řady, určuje automatický vzhled styl a motiv grafu. Když jsou přítomny oba formátování řady i bodu, formátování bodu má přednost pro daný bod.
 
-![chart-series-powerpoint](chart-series-powerpoint.png)
+![graf-řada-powerpoint](chart-series-powerpoint.png)
 
-## **Nastavit překrytí série diagramu**
+## **Nastavení překrytí řady grafu**
 
-[IChartSeries::get_Overlap](https://reference.aspose.com/slides/cs/cpp/aspose.slides.charts/ichartseries/get_overlap/) udává, jak moc se pruhy nebo sloupce překrývají v 2‑D diagramu, v rozsahu od -100 do 100 procent. Jedná se o pouze pro čtení projekci nastavení na nadřazenou skupinu sérií. Zavolejte [IChartSeriesGroup::set_Overlap](https://reference.aspose.com/slides/cs/cpp/aspose.slides.charts/ichartseriesgroup/set_overlap/) pro aktualizaci všech kompatibilních sérií v této skupině. Tato možnost se vztahuje na typy diagramů, které zobrazují seskupené pruhy nebo sloupce; neovlivňuje nesouvisející skupiny sérií v kombinovaném diagramu.
+[IChartSeries::get_Overlap](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_overlap/) udává, jak moc se překrývají pruhy nebo sloupce ve 2D grafu, v rozmezí -100 až 100 procent. Jedná se o pouze‑čtení projekci nastavení na nadřazenou skupinu řad. Voláním [IChartSeriesGroup::set_Overlap](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/set_overlap/) aktualizujete každou kompatibilní řadu v této skupině. Tato volba se vztahuje na typy grafů, které zobrazují seskupené pruhy nebo sloupce; neovlivňuje nesouvisející skupiny řad v kombinovaném grafu.
 
-Následující příklad nastavuje překrytí pro skupinu, která obsahuje první sérii:
+Následující příklad nastavuje překrytí pro skupinu, která obsahuje první řadu:
 
 ```cpp
 #include <cstdint>
@@ -64,7 +64,7 @@ const int8_t overlapPercent = 30;
 auto presentation = System::MakeObject<Presentation>();
 auto slide = presentation->get_Slide(firstSlideIndex);
 
-// Nový diagram obsahuje ukázkové série, kategorie a hodnoty.
+// Nový graf obsahuje vzorové řady, kategorie a hodnoty.
 auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 20.0f, 20.0f, 500.0f, 200.0f);
 
 auto seriesCollection = chart->get_ChartData()->get_Series();
@@ -77,13 +77,13 @@ presentation->Dispose();
 
 Výsledek:
 
-![Překrytí série](series_overlap.png)
+![Překrytí řady](series_overlap.png)
 
-## **Změnit barvu výplně série**
+## **Změna barvy výplně řady**
 
-Použijte [IChartSeries::get_Format](https://reference.aspose.com/slides/cs/cpp/aspose.slides.charts/ichartseries/get_format/) k nastavení výchozí výplně pro celou sérii. Pokud má bod již explicitní výplň, jeho nastavení [IChartDataPoint::get_Format](https://reference.aspose.com/slides/cs/cpp/aspose.slides.charts/ichartdatapoint/get_format/) přepíše výplň série pro tento bod.
+Použijte [IChartSeries::get_Format](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_format/) k nastavení výchozí výplně celé řady. Pokud má bod již výslovně nastavenou výplň, jeho nastavení [IChartDataPoint::get_Format](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapoint/get_format/) přepíše výplň řady pro tento bod.
 
-Následující příklad aplikuje jednolitou modrou výplň na první sérii:
+Následující příklad použije plnou modrou výplň pro první řadu:
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -128,11 +128,11 @@ presentation->Dispose();
 
 Výsledek:
 
-![Barva série](series_color.png)
+![Barva řady](series_color.png)
 
-## **Změnit název série**
+## **Změna názvu řady**
 
-Název série je uložen v sešitu dat diagramu a obvykle se zobrazuje v legendě. Ve výchozím sešitu vytvořeném pro seskupený sloupcový diagram je buňka B1 v řádku 0, sloupci 1 a obsahuje název první série. Pojmenované konstanty v následujícím příkladu tuto strukturu explicitně uvádějí:
+Název řady je uložen v sešitu dat grafu a obvykle se zobrazuje v legendě. Ve výchozím sešitu vytvořeném pro seskupený sloupcový graf je buňka B1 v řádku 0, sloupci 1 a obsahuje název první řady. Pojmenované konstanty v následujícím příkladu tuto strukturu explicitně vymezují:
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -173,7 +173,7 @@ presentation->Save(u"series_name.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Můžete také aktualizovat buňku, na kterou již odkazuje [IChartSeries::get_Name](https://reference.aspose.com/slides/cs/cpp/aspose.slides.charts/ichartseries/get_name/). Tento přístup se vyhýbá předpokládání konkrétního řádku a sloupce v existujícím diagramu:
+Můžete také aktualizovat buňku, na kterou již odkazuje [IChartSeries::get_Name](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_name/). Tento přístup se vyhýbá předpokladu konkrétního řádku a sloupce v existujícím grafu:
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -220,13 +220,89 @@ presentation->Dispose();
 
 Výsledek:
 
-![Název série](series_name.png)
+![Název řady](series_name.png)
 
-## **Získat automatickou barvu výplně série**
+### **Vytvoření řady s názvem z více buněk**
 
-[IChartSeries::GetAutomaticSeriesColor](https://reference.aspose.com/slides/cs/cpp/aspose.slides.charts/ichartseries/getautomaticseriescolor/) vrací barvu vypočtenou z indexu série a stylu diagramu. Toto je barva použita, když výplň série nebyla explicitně definována. Volání metody načte vypočtenou barvu; nepřiřadí novou výplň.
+Kombinovaný název řady je užitečný, když jsou název produktu a období reportování uloženy v samostatných buňkách sešitu. Například můžete sloučit `Product A` v B1 a `2026` v C1 do jediného názvu řady a přitom udržet oba části propojené na jejich zdrojové buňky.
 
-Následující příklad vypíše automatickou barvu každé výchozí série:
+Použijte [IChartDataWorkbook::GetCellCollection](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/getcellcollection/) k získání rozsahu názvu a tento rozsah předávejte metodě [IChartSeriesCollection::Add](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriescollection/add/). Argument `skipHiddenCells` určuje, zda mají být skryté buňky zahrnuty: `true` je vyloučí, `false` zahrne. Tento příklad používá `false` k zahrnutí všech buněk v rozsahu názvu.
+
+Následující příklad vytvoří prezentaci s jednou řadou a dvěma datovými body. Buňky B1:C1 obsahují pouze název řady; A2:A3 poskytují popisky kategorií a B2:B3 číselné hodnoty.
+
+```cpp
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartCellCollection.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataCell.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/object_ext.h>
+#include <system/shared_ptr.h>
+#include <system/string.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using System::ObjectExt;
+using System::String;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 50.0f, 50.0f, 620.0f, 180.0f);
+auto chartData = chart->get_ChartData();
+
+chartData->get_Series()->Clear();
+chartData->get_Categories()->Clear();
+chart->set_HasLegend(true);
+
+auto workbook = chartData->get_ChartDataWorkbook();
+workbook->Clear(0);
+
+// Tyto dvě buňky poskytují název řady.
+auto productName = ObjectExt::Box<String>(u"Product A");
+auto reportingPeriod = ObjectExt::Box<String>(u"2026");
+workbook->GetCell(0, 0, 1, productName);
+workbook->GetCell(0, 0, 2, reportingPeriod);
+auto nameCells = workbook->GetCellCollection(u"Sheet1!$B$1:$C$1", false);
+auto series = chartData->get_Series()->Add(nameCells, ChartType::ClusteredColumn);
+
+// Samostatné buňky poskytují kategorie a číselné datové body.
+auto northLabel = ObjectExt::Box<String>(u"North");
+auto southLabel = ObjectExt::Box<String>(u"South");
+auto northCategory = workbook->GetCell(0, 1, 0, northLabel);
+auto southCategory = workbook->GetCell(0, 2, 0, southLabel);
+chartData->get_Categories()->Add(northCategory);
+chartData->get_Categories()->Add(southCategory);
+auto northAmount = ObjectExt::Box<int>(120);
+auto southAmount = ObjectExt::Box<int>(150);
+auto northValue = workbook->GetCell(0, 1, 1, northAmount);
+auto southValue = workbook->GetCell(0, 2, 1, southAmount);
+series->get_DataPoints()->AddDataPointForBarSeries(northValue);
+series->get_DataPoints()->AddDataPointForBarSeries(southValue);
+
+presentation->Save(u"composite_series_name.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+Výsledný název řady je `Product A 2026` s mezerou mezi dvěma hodnotami buněk. Legenda ho zobrazuje jako jeden záznam pro oba sloupce. Obrázek níže ukazuje výsledek:
+
+![Sloupcový graf s hodnotami Sever a Jih a kombinovaným názvem řady Product A 2026 v legendě](composite_series_name.png)
+
+## **Získání automatické barvy výplně řady**
+
+[IChartSeries::GetAutomaticSeriesColor](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/getautomaticseriescolor/) vrací barvu vypočtenou z indexu řady a stylu grafu. Jedná se o barvu používanou, když výplň řady není explicitně definována. Volání metody pouze načte vypočtenou barvu; nenastavuje novou výplň.
+
+Následující příklad vypíše automatickou barvu každé výchozí řady:
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -268,7 +344,7 @@ for (int seriesIndex = 0; seriesIndex < seriesCount; seriesIndex++)
 presentation->Dispose();
 ```
 
-Příklad výstupu pro výchozí styl diagramu:
+Ukázkový výstup pro výchozí styl grafu:
 
 ```text
 Series 0: ff4f81bd
@@ -276,13 +352,13 @@ Series 1: ffc0504d
 Series 2: ff9bbb59
 ```
 
-Přesné barvy závisí na stylu a motivu diagramu.
+Přesné barvy závisí na stylu a motivu grafu.
 
-## **Nastavit invertovanou barvu výplně pro sérii diagramu**
+## **Nastavení invertované barvy výplně pro řadu grafu**
 
-Pro pruhové, sloupcové a bublinové série může [IChartSeries::set_InvertIfNegative](https://reference.aspose.com/slides/cs/cpp/aspose.slides.charts/ichartseries/set_invertifnegative/) zobrazit záporné hodnoty s jinou výplní. Nastavte běžnou výplň série na plnou, povolte inverzi a přiřaďte barvu záporné hodnoty pomocí [IChartSeries::get_InvertedSolidFillColor](https://reference.aspose.com/slides/cs/cpp/aspose.slides.charts/ichartseries/get_invertedsolidfillcolor/). Záporná čísla zůstávají v sešitu nezměněna; mění se jen jejich barva zobrazení.
+Pro pruhové, sloupcové a bublinové řady může [IChartSeries::set_InvertIfNegative](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/set_invertifnegative/) zobrazit záporné hodnoty jinou výplní. Nastavte běžnou výplň řady na plnou, povolte inverzi a přiřaďte barvu záporných hodnot přes [IChartSeries::get_InvertedSolidFillColor](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_invertedsolidfillcolor/). Záporná čísla zůstávají v sešitu nezměněna; mění se jen jejich zobrazovaná barva.
 
-Následující příklad nahrazuje výchozí data diagramu jednou sérií. Řádek 0 listu obsahuje název série, sloupec 0 obsahuje názvy kategorií a sloupec 1 obsahuje hodnoty:
+Následující příklad nahradí výchozí data grafu jednou řadou. Řádek 0 listu obsahuje název řady, sloupec 0 názvy kategorií a sloupec 1 hodnoty:
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -372,7 +448,7 @@ Výsledek:
 
 ![Invertovaná plná výplň](inverted_solid_fill_color.png)
 
-Inverzi můžete povolit pro jeden bod pomocí [IChartDataPoint::set_InvertIfNegative](https://reference.aspose.com/slides/cs/cpp/aspose.slides.charts/ichartdatapoint/set_invertifnegative/). V následujícím příkladu je inverze pro sérii vypnutá a povolena pouze pro vybraný bod. Bod také dostane zápornou hodnotu, aby byl efekt viditelný:
+Invertaci můžete povolit pro jeden bod pomocí [IChartDataPoint::set_InvertIfNegative](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapoint/set_invertifnegative/). V následujícím příkladu je inverze zakázána pro řadu a povolena jen pro vybraný bod. Bod má také přiřazenou zápornou hodnotu, aby byl efekt viditelný:
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -430,11 +506,11 @@ presentation->Save(u"data_point_invert_color_if_negative.pptx", SaveFormat::Pptx
 presentation->Dispose();
 ```
 
-## **Vymazat konkrétní hodnotu datového bodu**
+## **Vymazání konkrétní hodnoty datového bodu**
 
-Aby byl jeden bod prázdný, aniž byste odstranili ostatní body, nastavte buňku sešitu, která ho podporuje, na `nullptr`. Pro sloupcový diagram je vykreslená hodnota dostupná přes [IChartDataPoint::get_YValue](https://reference.aspose.com/slides/cs/cpp/aspose.slides.charts/ichartdatapoint/get_yvalue/). Datový bod zůstane ve stejné pozici kategorie, ale diagram bude jeho hodnotu považovat za prázdnou podle nastavení prázdných hodnot diagramu.
+Chcete‑li učinit jeden bod prázdným bez odstranění ostatních, nastavte buňku v sešitu na `nullptr`. Pro sloupcový graf je vykreslená hodnota dostupná přes [IChartDataPoint::get_YValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapoint/get_yvalue/). Datový bod zůstává na stejné pozici kategorie, ale graf jej podle nastavení prázdných hodnot považuje za prázdný.
 
-Následující příklad vymaže jen druhý bod v první sérii:
+Následující příklad vymaže pouze druhý bod v první řadě:
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -473,17 +549,17 @@ presentation->Save(u"clear_data_point_value.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Scatter diagramy používají oddělené buňky X a Y a bublinové diagramy také používají buňku velikosti. Vymažte pouze buňku, která představuje hodnotu, kterou chcete odstranit. Nezavolejte [IChartDataPointCollection::Clear](https://reference.aspose.com/slides/cs/cpp/aspose.slides.charts/ichartdatapointcollection/clear/), pokud chcete zachovat ostatní body, protože tato metoda odstraní všechny datové body ze sbírky.
+Grafy rozptylu používají samostatné buňky X a Y a bublinové grafy také buňku velikosti. Vymažte jen buňku, která představuje hodnotu, kterou chcete odstranit. Nevolajte [IChartDataPointCollection::Clear](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapointcollection/clear/), pokud chcete zachovat ostatní body, protože tato metoda odstraní všechny datové body ze sbírky.
 
-## **Řídit zobrazování prázdných buněk**
+## **Řízení zobrazení prázdných buněk**
 
-Skryté buňky, které obsahují hodnoty, jsou odlišným případem než prázdné buňky. Pro zahrnutí nebo vyloučení dat ze skrytých řádků a sloupců listu viz [Include Data from Hidden Rows and Columns](/slides/cs/cpp/chart-workbook/#include-data-from-hidden-rows-and-columns).
+Skryté buňky, které obsahují hodnoty, jsou odlišný případ od prázdných buněk. Pro zahrnutí nebo vyloučení dat ze skrytých řádků a sloupců listu viz [Include Data from Hidden Rows and Columns](/slides/cs/cpp/chart-workbook/#include-data-from-hidden-rows-and-columns).
 
-Prázdná buňka sešitu představuje chybějící data; buňka obsahující `0` představuje známou číselnou hodnotu. Zavolejte [IChartDataCell::set_Value](https://reference.aspose.com/slides/cs/cpp/aspose.slides.charts/ichartdatacell/set_value/) s `nullptr`, aby byla buňka prázdná. Číselná nula zůstane nulou bez ohledu na nastavení prázdné buňky.
+Prázdná buňka v sešitu představuje chybějící data; buňka obsahující `0` představuje známou číselnou hodnotu. Zavolejte [IChartDataCell::set_Value](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatacell/set_value/) s `nullptr`, aby buňka byla prázdná. Číselná nula zůstává nulou bez ohledu na nastavení prázdných buněk.
 
-Použijte [IChart::set_DisplayBlanksAs](https://reference.aspose.com/slides/cs/cpp/aspose.slides.charts/ichart/set_displayblanksas/) k výběru, jak má diagram zobrazovat prázdné buňky. Toto nastavení se vztahuje na celý diagram. Mění způsob, jakým jsou prázdná místa vykreslována, aniž by se prázdná buňka sešitu vyplňovala nulou nebo interpolovanou hodnotou.
+Pomocí [IChart::set_DisplayBlanksAs](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/set_displayblanksas/) vyberte, jak má graf zobrazovat prázdné buňky. Toto nastavení se vztahuje na celý graf. Mění způsob, jakým jsou prázdná místa vykreslena, aniž by se prázdná buňka naplnila nulou nebo interpolovanou hodnotou.
 
-Následující samostatný příklad vytvoří čárový diagram s jednou sérií, vymaže hodnotu pro den 3 a uloží stejný diagram ve všech režimech. Vstupní soubor není vyžadován. [IChartDataWorkbook](https://reference.aspose.com/slides/cs/cpp/aspose.slides.charts/ichartdataworkbook/) používá list 0, sloupec 0 pro popisky kategorií a sloupec 1 pro hodnoty; řádek 0 obsahuje název série. Konečná data jsou `10, 20, empty, 30, 40`.
+Následující samostatný příklad vytvoří čárový graf s jednou řadou, vymaže hodnotu pro den 3 a uloží graf ve všech třech režimech. Vstupní soubor není vyžadován. [IChartDataWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/) používá list 0, sloupec 0 pro popisky kategorií a sloupec 1 pro hodnoty; řádek 0 obsahuje název řady. Konečná data jsou `10, 20, empty, 30, 40`.
 
 ```cpp
 #include <array>
@@ -551,19 +627,19 @@ for (auto mode : modes)
 presentation->Dispose();
 ```
 
-Každý výstupní soubor ukládá režim přiřazený před uložením: `empty_cells_Gap.pptx`, `empty_cells_Zero.pptx` a `empty_cells_Span.pptx`. Pro uložení pouze jedné verze přiřaďte požadovaný režim a prezentaci uložte jednou místo iterace přes režimy.
+Každý výstupní soubor ukládá režim přiřazený před uložením: `empty_cells_Gap.pptx`, `empty_cells_Zero.pptx` a `empty_cells_Span.pptx`. Pokud chcete uložit jen jednu verzi, přiřaďte požadovaný režim a prezentaci uložte jednou místo iterace přes režimy.
 
 Srovnání níže ukazuje stejná data ve všech třech souborech. Den 3 je v sešitu v každém případě prázdný:
 
-![Čárové diagramy se stejnými daty: Gap přeruší čáru v den 3, Zero spustí čáru na nulu a Span spojuje den 2 s dnem 4.](display_blanks_as.png)
+![Čárové grafy se stejnými daty: Gap přerušuje čáru v den 3, Zero snižuje čáru na nulu a Span spojuje den 2 s den 4.](display_blanks_as.png)
 
-Viditelný efekt závisí na typu diagramu. Čárový diagram usnadňuje porovnání všech tří režimů. Pruhové a sloupcové diagramy nemají čáru, která by spojovala chybějící kategorii, takže `Span` nemůže vytvořit spojující úsek zobrazený výše; chybějící sloupec a sloupec s nulovou výškou mohou také vypadat podobně. Podobně scatter diagram s jen značkami nemá spojující čáru. Neočekávejte tři odlišné výsledky pro každý typ diagramu; zkontrolujte výstup pro typ, který používáte.
+Viditelný efekt závisí na typu grafu. Čárový graf umožňuje snadno porovnat všechny tři režimy. Pruhové a sloupcové grafy nemají čáru, kterou by se dalo propojit přes chybějící kategorii, takže `Span` nemůže vytvořit spojující úsek zobrazený výše; chybějící sloupec a sloupec o výšce nula mohou vypadat podobně. Podobně scatter graf s jen značkami nemá spojovací čáru. Neočekávejte tři odlišné výsledky pro každý typ grafu; zkontrolujte výstup pro typ, který používáte.
 
-## **Nastavit šířku mezery mezi sériemi**
+## **Nastavení šířky mezery řady**
 
-Šířka mezery je prostor mezi sousedními pruhovými nebo sloupcovými shluky, vyjádřený jako procento šířky pruhu nebo sloupce. Podobně jako překrytí patří k nadřazené skupině sérií, nikoli k jedné sérii. Zavolejte [IChartSeriesGroup::set_GapWidth](https://reference.aspose.com/slides/cs/cpp/aspose.slides.charts/ichartseriesgroup/set_gapwidth/) jednou pro skupinu. Větší hodnota vytvoří více místa mezi shluky; menší hodnota je učiní hustší.
+Šířka mezery je prostor mezi sousedními shluky pruhů nebo sloupců, udávaný jako procento šířky pruhu nebo sloupce. Stejně jako překrytí patří k nadřazené skupině řad, nikoli k jedné řadě. Zavolejte [IChartSeriesGroup::set_GapWidth](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/set_gapwidth/) jednou pro skupinu. Větší hodnota vytvoří více prostoru mezi shluky; menší hodnota je učiní kompaktnějšími.
 
-Následující příklad mění šířku mezery a uloží jen finální prezentaci:
+Následující příklad změní šířku mezery a uloží pouze finální prezentaci:
 
 ```cpp
 #include <cstdint>
@@ -604,44 +680,44 @@ Výsledek:
 
 ![Šířka mezery](gap_width.png)
 
-## **FAQ**
+## **Často kladené otázky**
 
-**Které typy diagramů podporují datové série?**
+**Které typy grafů podporují datové řady?**
 
-Všechny typy diagramů zastoupené výčtem [ChartType](https://reference.aspose.com/slides/cs/cpp/aspose.slides.charts/charttype/) používají data diagramu, ale jejich série nemají všechny stejnou strukturu hodnot ani nastavení. Například kategoriální diagramy používají kategorie a hodnoty, scatter diagramy používají hodnoty X a Y a bublinové diagramy přidávají velikosti bublin. Použijte metodu tvorby datových bodů, která odpovídá typu série. Možnosti jako překrytí a šířka mezery platí jen pro kompatibilní pruhové nebo sloupcové skupiny.
+Všechny typy grafů reprezentované výčtem [ChartType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/) používají grafická data, ale jejich řady nemají všude stejnou strukturu hodnot nebo nastavení. Například kategoriové grafy používají kategorie a hodnoty, rozptylové grafy X a Y hodnoty a bublinové grafy přidávají velikosti bublin. Použijte metodu pro vytváření datových bodů, která odpovídá typu řady. Volby jako překrytí a šířka mezery se vztahují jen na kompatibilní skupiny pruhových nebo sloupcových řad.
 
-**Co je skupina sérií diagramu?**
+**Co je skupina řad grafu?**
 
-[IChartSeriesGroup](https://reference.aspose.com/slides/cs/cpp/aspose.slides.charts/ichartseriesgroup/) obsahuje kompatibilní série, které sdílejí nastavení vykreslování na úrovni skupiny. Kombinovaný diagram může obsahovat více než jednu skupinu, takže změna skupiny dosažené přes jednu sérii nutně neovlivní všechny série v diagramu.
+[IChartSeriesGroup](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/) obsahuje kompatibilní řady, které sdílejí nastavení na úrovni skupiny. Kombinovaný graf může obsahovat více než jednu skupinu, takže změna skupiny dosažené přes jednu řadu nemusí nutně změnit každou řadu v grafu.
 
-**Obsahuje nově vytvořený diagram výchozí data?**
+**Obsahuje nově vytvořený graf výchozí data?**
 
-Ano. Ve výchozím nastavení [IShapeCollection::AddChart](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ishapecollection/addchart/) vytváří ukázkové série, kategorie a hodnoty. Můžete upravit tyto buňky nebo vymazat jak sérii, tak kolekci kategorií před přidáním zcela vlastního datového souboru. Přetížení může také vytvořit diagram bez výchozích dat.
+Ano. Ve výchozím nastavení metoda [IShapeCollection::AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) vytváří ukázkové řady, kategorie a hodnoty. Můžete tyto buňky upravit nebo vymazat jak řady, tak kolekce kategorií před přidáním zcela vlastního souboru dat. Přetížená metoda může také vytvořit graf bez výchozích dat.
 
-**Jak jsou objekty diagramu propojeny s buňkami sešitu?**
+**Jak jsou objekty grafu propojeny s buňkami sešitu?**
 
-Názvy sérií, popisky kategorií a hodnoty datových bodů odkazují na buňky v [IChartDataWorkbook](https://reference.aspose.com/slides/cs/cpp/aspose.slides.charts/ichartdataworkbook/). Změna odkazované buňky aktualizuje odpovídající prvek diagramu. Při vytváření vlastních dat udržujte řádky kategorií a řádky hodnot sérií zarovnané, aby každý bod byl vykreslen pod zamýšlenou kategorií.
+Názvy řad, popisky kategorií a hodnoty datových bodů odkazují na buňky v [IChartDataWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/). Změna odkazované buňky aktualizuje odpovídající prvek grafu. Při vytváření vlastních dat udržujte řádky kategorií a řádky hodnot řad zarovnané, aby byl každý bod vykreslen pod zamýšlenou kategorií.
 
-**Jak vymazat jeden bod místo celé série?**
+**Jak vymazat jeden bod místo celé řady?**
 
-Nastavte příslušnou buňku hodnoty na `nullptr`, aby bod zachoval svou pozici kategorie jako prázdný bod. Zavolejte [IChartDataPointCollection::Clear](https://reference.aspose.com/slides/cs/cpp/aspose.slides.charts/ichartdatapointcollection/clear/) pouze tehdy, když máte v úmyslu odstranit všechny body z této série. Pokud také odstraňujete kategorie, aktualizujte všechny série, aby jejich hodnoty zůstaly zarovnané s kolekcí kategorií.
+Nastavte relevantní buňku hodnoty na `nullptr`, aby bod zachoval svou pozici v kategorii jako prázdný bod. Volání [IChartDataPointCollection::Clear](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapointcollection/clear/) použijte jen tehdy, když chcete odstranit všechny body z řady. Pokud také odstraňujete kategorie, aktualizujte všechny řady, aby jejich hodnoty zůstaly zarovnané ke kolekci kategorií.
 
 **Jak jsou prázdné body zobrazovány?**
 
-Výsledek závisí na typu diagramu a [IChart::get_DisplayBlanksAs](https://reference.aspose.com/slides/cs/cpp/aspose.slides.charts/ichart/get_displayblanksas/). Podporované diagramy mohou prázdná místa zobrazovat jako mezery, jako nulové hodnoty nebo spojením sousedních bodů. Vyberte nastavení, které odpovídá významu chybějících dat ve vaší prezentaci. Viz [Control the Display of Empty Cells](#control-the-display-of-empty-cells) pro kompletní příklad a vizuální srovnání.
+Výsledek závisí na typu grafu a na metodě [IChart::get_DisplayBlanksAs](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_displayblanksas/). Podporované grafy mohou prázdná místa zobrazovat jako mezery, jako nulové hodnoty nebo připojením sousedních bodů. Vyberte nastavení, které odpovídá významu chybějících dat ve vaší prezentaci. Viz kapitola [Control the Display of Empty Cells](#control-the-display-of-empty-cells) pro kompletní příklad a vizuální srovnání.
 
-**Jak jsou záporné hodnoty formátovány?**
+**Jak jsou formátovány záporné hodnoty?**
 
-U podporovaných pruhových, sloupcových a bublinových sérií zavolejte [IChartSeries::set_InvertIfNegative](https://reference.aspose.com/slides/cs/cpp/aspose.slides.charts/ichartseries/set_invertifnegative/) a nastavte barvu pomocí [IChartSeries::get_InvertedSolidFillColor](https://reference.aspose.com/slides/cs/cpp/aspose.slides.charts/ichartseries/get_invertedsolidfillcolor/). Chování pro jednotlivý bod můžete přepsat pomocí [IChartDataPoint::set_InvertIfNegative](https://reference.aspose.com/slides/cs/cpp/aspose.slides.charts/ichartdatapoint/set_invertifnegative/). Tyto metody ovlivňují formátování, nikoli uložené číselné hodnoty.
+U podporovaných pruhových, sloupcových a bublinových řad zavolejte [IChartSeries::set_InvertIfNegative](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/set_invertifnegative/) a nastavte barvu přes [IChartSeries::get_InvertedSolidFillColor](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_invertedsolidfillcolor/). Chování můžete přepsat pro jednotlivý bod pomocí [IChartDataPoint::set_InvertIfNegative](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapoint/set_invertifnegative/). Tyto metody ovlivňují formátování, ne uložené číselné hodnoty.
 
-**Které formátování má přednost, když je formátována jak série, tak bod?**
+**Které formátování má přednost, když jsou formátovány jak řada, tak bod?**
 
-Explicitní formátování datového bodu má přednost pro tento bod. Ostatní body nadále používají explicitní formát série nebo, pokud formát série není definován, automatický styl a motiv diagramu. Skupinová nastavení jako překrytí a šířka mezery řídí rozvržení a nejsou přepisovány na úrovni bodu.
+Výslovné formátování datového bodu má přednost pro ten bod. Ostatní body nadále používají explicitní formát řady nebo, když není definován, automatický styl a motiv grafu. Nastavení skupiny, jako jsou překrytí a šířka mezery, řídí rozvržení a nejsou přepisováním formátování na úrovni bodu.
 
-**Existuje limit, kolik sérií může diagram obsahovat?**
+**Existuje limit počtu řad, které může graf obsahovat?**
 
-Aspose.Slides nekladá samostatný pevný limit počtu sérií. V praxi určují užitečný limit omezení souboru prezentace, dostupná paměť, čas renderování a čitelnost diagramu.
+Aspose.Slides nekladá samostatný pevný limit počtu řad. V praxi určují omezení souboru prezentace, dostupná paměť, doba vykreslování a čitelnost grafu praktické limity.
 
 **Co změnit, když jsou sloupce příliš blízko u sebe nebo příliš daleko?**
 
-Zavolejte [IChartSeriesGroup::set_GapWidth](https://reference.aspose.com/slides/cs/cpp/aspose.slides.charts/ichartseriesgroup/set_gapwidth/) na příslušné nadřazené skupině sérií. Zvyšte hodnotu pro zvětšení prostoru mezi shluky nebo ji snižte, aby se shluky přiblížily.
+Zavolejte [IChartSeriesGroup::set_GapWidth](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/set_gapwidth/) na příslušnou nadřazenou skupinu řad. Zvýšením hodnoty rozšíříte prostor mezi shluky, snížením jej přiblížíte.
