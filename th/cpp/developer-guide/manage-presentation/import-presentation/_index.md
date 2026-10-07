@@ -70,10 +70,10 @@ presentation->Save(u"MyPresentation.pptx", SaveFormat::Pptx);
 {{% alert title="Note" color="warning" %}} 
 คุณยังสามารถใช้ Aspose.Slides เพื่อแปลง HTML ไปยังรูปแบบไฟล์ที่นิยมอื่น ๆ: 
 
-* [HTML ไปเป็นภาพ](https://products.aspose.com/slides/th/cpp/conversion/html-to-image/)
-* [HTML เป็น JPG](https://products.aspose.com/slides/th/cpp/conversion/html-to-jpg/)
-* [HTML เป็น XML](https://products.aspose.com/slides/th/cpp/conversion/html-to-xml/)
-* [HTML เป็น TIFF](https://products.aspose.com/slides/th/cpp/conversion/html-to-tiff/)
+* [HTML ไปเป็นภาพ](https://products.aspose.com/slides/cpp/conversion/html-to-image/)
+* [HTML เป็น JPG](https://products.aspose.com/slides/cpp/conversion/html-to-jpg/)
+* [HTML เป็น XML](https://products.aspose.com/slides/cpp/conversion/html-to-xml/)
+* [HTML เป็น TIFF](https://products.aspose.com/slides/cpp/conversion/html-to-tiff/)
 
 {{% /alert %}}
 
