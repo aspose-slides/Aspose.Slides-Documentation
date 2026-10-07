@@ -65,6 +65,7 @@ It exports reports to PPT, PPTX, PPS and PPSX presentations and slide shows, to 
 <p>REFERENCE</p>
 <ul>
 <li><a href="https://releases.aspose.com/slides/reportingservices/release-notes/">Release notes</a></li>
+<li><a href="https://products.aspose.com/slides/reporting-services/">Product page</a></li>
 <li><a href="https://releases.aspose.com/slides/reportingservices/">Download</a></li>
 </ul>
 <p>SUPPORT</p>

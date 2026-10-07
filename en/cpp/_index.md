@@ -76,6 +76,7 @@ It loads and saves PPT, PPTX, PPS, POT and ODP, including macro-enabled and temp
 <li><a href="https://reference.aspose.com/slides/cpp/">API reference</a></li>
 <li><a href="https://releases.aspose.com/slides/cpp/release-notes/">Release notes</a></li>
 <li><a href="/slides/cpp/known-issues/">Known issues</a></li>
+<li><a href="https://products.aspose.com/slides/cpp/">Product page</a></li>
 <li><a href="https://releases.aspose.com/slides/cpp/">Download</a></li>
 </ul>
 <p>SUPPORT</p>

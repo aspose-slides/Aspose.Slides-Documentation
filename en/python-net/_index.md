@@ -82,6 +82,7 @@ It loads and saves PPT, PPTX, PPS, POT and ODP, including macro-enabled and temp
 <ul>
 <li><a href="https://reference.aspose.com/slides/python-net/">API reference</a></li>
 <li><a href="https://releases.aspose.com/slides/python-net/release-notes/">Release notes</a></li>
+<li><a href="https://products.aspose.com/slides/python-net/">Product page</a></li>
 <li><a href="https://releases.aspose.com/slides/python-net/">Download</a></li>
 </ul>
 <p>SUPPORT</p>

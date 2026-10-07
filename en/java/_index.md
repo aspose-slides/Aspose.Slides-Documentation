@@ -86,6 +86,7 @@ It loads and saves PPT, PPTX, PPS, POT and ODP, including macro-enabled and temp
 <li><a href="https://releases.aspose.com/slides/java/release-notes/">Release notes</a></li>
 <li><a href="/slides/java/known-issues/">Known issues</a></li>
 <li><a href="/slides/java/api-limitations/">Output metadata limitations</a></li>
+<li><a href="https://products.aspose.com/slides/java/">Product page</a></li>
 <li><a href="https://releases.aspose.com/slides/java/">Download</a></li>
 </ul>
 <p>SUPPORT</p>

@@ -66,6 +66,7 @@ It exports a filled report to PPT and PPTX, one slide per report page, and also 
 <p>REFERENCE</p>
 <ul>
 <li><a href="https://releases.aspose.com/slides/jasperreport/release-notes/">Release notes</a></li>
+<li><a href="https://products.aspose.com/slides/jasperreports/">Product page</a></li>
 <li><a href="https://releases.aspose.com/slides/jasperreport/">Download</a></li>
 </ul>
 <p>SUPPORT</p>

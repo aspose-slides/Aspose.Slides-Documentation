@@ -59,6 +59,7 @@ It converts PPT and PPTX files to PDF, TIFF, XPS, HTML, SWF and ODP, and to the 
 <p>REFERENCE</p>
 <ul>
 <li><a href="https://releases.aspose.com/slides/sharepoint/release-notes/">Release notes</a></li>
+<li><a href="https://products.aspose.com/slides/sharepoint/">Product page</a></li>
 <li><a href="https://releases.aspose.com/slides/sharepoint/">Download</a></li>
 </ul>
 <p>SUPPORT</p>

@@ -87,6 +87,7 @@ It loads and saves PPT, PPTX, PPS, POT and ODP, including macro-enabled and temp
 <li><a href="https://releases.aspose.com/slides/net/release-notes/">Release notes</a></li>
 <li><a href="/slides/net/known-issues/">Known issues</a></li>
 <li><a href="/slides/net/api-limitations/">Output metadata limitations</a></li>
+<li><a href="https://products.aspose.com/slides/net/">Product page</a></li>
 <li><a href="https://releases.aspose.com/slides/net/">Download</a></li>
 </ul>
 <p>SUPPORT</p>

@@ -76,6 +76,7 @@ It loads and saves PPT, PPTX, PPS, POT and ODP, including macro-enabled and temp
 <li><a href="https://reference.aspose.com/slides/nodejs-java/">API reference</a></li>
 <li><a href="https://releases.aspose.com/slides/nodejs-java/release-notes/">Release notes</a></li>
 <li><a href="/slides/nodejs-java/known-issues/">Known issues</a></li>
+<li><a href="https://products.aspose.com/slides/nodejs-java/">Product page</a></li>
 <li><a href="https://releases.aspose.com/slides/nodejs-java/">Download</a></li>
 </ul>
 <p>SUPPORT</p>
