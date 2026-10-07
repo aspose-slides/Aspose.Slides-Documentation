@@ -17,9 +17,9 @@ is_root: true
 ---
 <img src="aspose_slides-for-php-via-java.png" alt="Aspose.Slides for PHP via Java" align="left" style="width:110px; margin: 0 30px 20px 0"/>
 
-Aspose.Slides for PHP via Java 是一个类库，用于在 PHP 应用程序中创建、读取、编辑和转换 PowerPoint 和 OpenDocument 演示文稿，无需 Microsoft PowerPoint 或 Office 自动化。
+Aspose.Slides for PHP via Java 是一个类库，可在 PHP 应用程序中创建、读取、编辑和转换 PowerPoint 和 OpenDocument 演示文稿，无需 Microsoft PowerPoint 或 Office 自动化。
 
-它加载并保存 PPT、PPTX、PPS、POT 和 ODP，包括启用宏和模板的变体，并导出为 PDF、XPS、HTML、SVG、TIFF、Markdown 和图像。
+它可以加载和保存 PPT、PPTX、PPS、POT 和 ODP，包括宏启用和模板变体，并导出为 PDF、XPS、HTML、SVG、TIFF、Markdown 和图像。
 
 <div style="clear:both"></div>
 
@@ -29,11 +29,11 @@ Aspose.Slides for PHP via Java 是一个类库，用于在 PHP 应用程序中�
 <div class="col-md-4">
 <p><b>开始使用</b></p>
 <hr>
-<p>入门指南</p>
+<p>快速入门</p>
 <ul>
 <li><a href="/slides/zh/php-java/installation/">安装</a></li>
 <li><a href="/slides/zh/php-java/create-presentation/">创建您的第一个演示文稿</a></li>
-<li><a href="/slides/zh/php-java/getting-started/">入门指南</a></li>
+<li><a href="/slides/zh/php-java/getting-started/">快速入门指南</a></li>
 </ul>
 <p>评估</p>
 <ul>
@@ -72,8 +72,9 @@ Aspose.Slides for PHP via Java 是一个类库，用于在 PHP 应用程序中�
 <p>参考</p>
 <ul>
 <li><a href="https://reference.aspose.com/slides/php-java/">API 参考</a></li>
-<li><a href="https://releases.aspose.com/slides/php-java/release-notes/">发行说明</a></li>
+<li><a href="https://releases.aspose.com/slides/php-java/release-notes/">发布说明</a></li>
 <li><a href="/slides/zh/php-java/known-issues/">已知问题</a></li>
+<li><a href="https://products.aspose.com/slides/php-java/">产品页</a></li>
 <li><a href="https://releases.aspose.com/slides/php-java/">下载</a></li>
 </ul>
 <p>支持</p>
@@ -88,18 +89,18 @@ Aspose.Slides for PHP via Java 是一个类库，用于在 PHP 应用程序中�
 
 ## **您的第一个演示文稿**
 
-Aspose.Slides for PHP via Java 在 Apache Tomcat 中的 Java 环境上运行，您的 PHP 脚本通过 PHP/Java Bridge 与其交互。[Installation](/slides/zh/php-java/installation/) 会设置 PHP 8.3 及更早版本、Java、Tomcat 和桥接器，然后在项目文件夹中从 Packagist 安装包。
+Aspose.Slides for PHP via Java 在 Apache Tomcat 中的 Java 环境上运行，您的 PHP 脚本通过 PHP/Java Bridge 与其通信。[安装](/slides/zh/php-java/installation/) 在项目文件夹中设置 PHP 8.3 或更早版本、Java、Tomcat 和桥接，并从 Packagist 安装该包：
 
 ```bash
 composer require aspose/slides
 ```
 
-然后将包的 JAR 文件复制到桥接器中并重启 Tomcat，如[Install on Linux](/slides/zh/php-java/installation/#install-on-linux) 的第 4 步或[Install on Windows](/slides/zh/php-java/installation/#install-on-windows) 的第 6 步所示。Tomcat 运行后，将此脚本保存为项目文件夹中的 *hello.php* 并运行 `php hello.php`：
+然后将包的 JAR 文件复制到桥接中并重启 Tomcat，方法同[在 Linux 上安装](/slides/zh/php-java/installation/#install-on-linux) 第 4 步或[在 Windows 上安装](/slides/zh/php-java/installation/#install-on-windows) 第 6 步。在 Tomcat 运行时，将此脚本保存为 *hello.php* 到项目文件夹并运行 `php hello.php`：
 
 ```php
 <?php
 require_once("http://localhost:8080/JavaBridge/java/Java.inc");
-require_once(__DIR__ . "/vendor/aspose/slides/zh/lib/aspose.slides.php");
+require_once(__DIR__ . "/vendor/aspose/slides/lib/aspose.slides.php");
 
 use aspose\slides\Presentation;
 use aspose\slides\SaveFormat;
@@ -116,4 +117,4 @@ try {
 }
 ```
 
-脚本会在同目录下保存 *hello.pptx*，其中包含一个带有文本框的幻灯片。没有许可证时，保存的文件会带有评估水印——请参阅 [Licensing](/slides/zh/php-java/licensing/)。有关创建和填充演示文稿的更多方法，请参阅 [Create Presentations](/slides/zh/php-java/create-presentation/).
+该脚本在自身旁边保存 *hello.pptx*，其中包含一个带有文本框的幻灯片。未授权时，保存的文件会带有评估水印——请参阅[授权](/slides/zh/php-java/licensing/)。欲了解更多创建和填充演示文稿的方法，请参阅[创建演示文稿](/slides/zh/php-java/create-presentation/)。

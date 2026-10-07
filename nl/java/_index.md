@@ -12,14 +12,14 @@ keywords:
 - OpenDocument
 - Java
 - Aspose.Slides
-description: "Begin hier: installeer Aspose.Slides for Java, maak een eerste presentatie en vind de gidsen voor veelvoorkomende taken, de API-referentie en ondersteuning."
+description: "Begin hier: installeer Aspose.Slides voor Java, maak een eerste presentatie en vind de handleidingen voor algemene taken, implementatie en de API‑referentie."
 is_root: true
 ---
 <img src="home_1.png" alt="Aspose.Slides for Java" align="left" style="width:110px; margin: 0 30px 20px 0"/>
 
-Aspose.Slides for Java is een class library voor het maken, lezen, bewerken en converteren van PowerPoint- en OpenDocument‑presentaties in Java‑toepassingen, zonder Microsoft PowerPoint.
+Aspose.Slides for Java is een klassebibliotheek voor het maken, lezen, bewerken en converteren van PowerPoint- en OpenDocument‑presentaties in Java‑applicaties, zonder Microsoft PowerPoint.
 
-Het laadt en slaat PPT, PPTX, PPS, POT en ODP op, inclusief macro‑ingeschakelde en sjabloonvarianten, en exporteert naar PDF, XPS, HTML, SVG, TIFF, Markdown en afbeeldingen.
+Het laadt en slaat PPT, PPTX, PPS, POT en ODP, inclusief macro‑enabled en sjabloonvarianten, en exporteert naar PDF, XPS, HTML, SVG, TIFF, Markdown en afbeeldingen.
 
 <div style="clear:both"></div>
 
@@ -29,67 +29,80 @@ Het laadt en slaat PPT, PPTX, PPS, POT en ODP op, inclusief macro‑ingeschakeld
 <div class="col-md-4">
 <p><b>Aan de slag</b></p>
 <hr>
-<p>GETTING STARTED</p>
+<p>AAN DE SLAG</p>
 <ul>
 <li><a href="/slides/nl/java/installation/">Installatie</a></li>
-<li><a href="/slides/nl/java/create-presentation/">Maak uw eerste presentatie</a></li>
-<li><a href="/slides/nl/java/getting-started/">Startgids</a></li>
+<li><a href="/slides/nl/java/create-presentation/">Maak je eerste presentatie</a></li>
+<li><a href="/slides/nl/java/system-requirements/">Systeemvereisten</a></li>
+<li><a href="/slides/nl/java/getting-started/">Handleiding voor eerste stappen</a></li>
 </ul>
-<p>EVALUATE</p>
+<p>EVALUEREN</p>
 <ul>
 <li><a href="/slides/nl/java/supported-file-formats/">Ondersteunde bestandsformaten</a></li>
-<li><a href="/slides/nl/java/evaluate-aspose-slides/">Beperking van de proefversie</a></li>
+<li><a href="/slides/nl/java/features-overview/">Functies overzicht</a></li>
+<li><a href="/slides/nl/java/evaluate-aspose-slides/">Beperkingen van de proefversie</a></li>
 <li><a href="/slides/nl/java/licensing/">Licenties</a></li>
 </ul>
 </div>
 <div class="col-md-4">
 <p><b>Bouw met Slides</b></p>
 <hr>
-<p>COMMON TASKS</p>
+<p>ALGEMENE TAKEN</p>
 <ul>
 <li><a href="/slides/nl/java/open-presentation/">Open een presentatie</a></li>
 <li><a href="/slides/nl/java/save-presentation/">Sla een presentatie op</a></li>
-<li><a href="/slides/nl/java/convert-powerpoint-to-pdf/">Converteren naar PDF</a></li>
+<li><a href="/slides/nl/java/convert-powerpoint-to-pdf/">Converteer naar PDF</a></li>
 <li><a href="/slides/nl/java/convert-slide/">Render dia's als afbeeldingen</a></li>
 <li><a href="/slides/nl/java/manage-text/">Tekst en vormen bewerken</a></li>
 </ul>
-<p>SLIDES WORKFLOWS</p>
+<p>SLIDES-WERKSTROMEN</p>
 <ul>
 <li><a href="/slides/nl/java/powerpoint-charts/">Grafieken</a></li>
 <li><a href="/slides/nl/java/powerpoint-animation/">Animaties</a></li>
 <li><a href="/slides/nl/java/manage-media-files/">Audio en video</a></li>
-<li><a href="/slides/nl/java/presentation-design/">Diaontwerp</a></li>
+<li><a href="/slides/nl/java/presentation-design/">Dia‑ontwerp</a></li>
 <li><a href="/slides/nl/java/merge-presentation/">Presentaties samenvoegen</a></li>
 </ul>
-<p>EXAMPLES</p>
+<p>VOORBEELDEN</p>
 <ul>
 <li><a href="/slides/nl/java/examples/">Voorbeelden per dia‑element</a></li>
 <li><a href="https://github.com/aspose-slides/Aspose.Slides-for-Java">Voorbeelden op GitHub</a></li>
 </ul>
 </div>
 <div class="col-md-4">
-<p><b>Referentie &amp; Support</b></p>
+<p><b>Implementatie &amp; ondersteuning</b></p>
 <hr>
-<p>REFERENCE</p>
+<p>IMPLEMENTEREN</p>
 <ul>
-<li><a href="https://reference.aspose.com/slides/java/">API-referentie</a></li>
+<li><a href="/slides/nl/java/system-requirements/#linux">Linux‑vereisten</a></li>
+<li><a href="/slides/nl/java/how-to-run-aspose-slides-in-docker/">Uitvoeren in Docker</a></li>
+<li><a href="/slides/nl/java/deploy-fonts/">Lettertypen</a></li>
+<li><a href="/slides/nl/java/security/">Beveiliging</a></li>
+</ul>
+<p>REFERENTIE</p>
+<ul>
+<li><a href="https://reference.aspose.com/slides/java/">API‑referentie</a></li>
 <li><a href="https://releases.aspose.com/slides/java/release-notes/">Release‑opmerkingen</a></li>
-<li><a href="/slides/nl/java/known-issues/">Bekende problemen</a></li>
+<li><a href="/slides/nl/java/known-issues/">Gekende problemen</a></li>
+<li><a href="/slides/nl/java/api-limitations/">Beperkingen van uitvoer‑metadata</a></li>
+<li><a href="https://products.aspose.com/slides/java/">Productpagina</a></li>
 <li><a href="https://releases.aspose.com/slides/java/">Download</a></li>
 </ul>
-<p>SUPPORT</p>
+<p>ONDERSTEUNING</p>
 <ul>
 <li><a href="https://forum.aspose.com/c/slides/11">Gratis ondersteuningsforum</a></li>
-<li><a href="https://helpdesk.aspose.com/">Betaalde ondersteuningshelpdesk</a></li>
+<li><a href="https://helpdesk.aspose.com/">Betaalde ondersteunings‑helpdesk</a></li>
 </ul>
 </div>
 </div>
 
 ------
 
-## **Uw eerste presentatie**
+<a name="your-first-presentation"></a>
 
-Aspose.Slides for Java wordt gepubliceerd in de eigen Maven‑repository van Aspose, niet in Maven Central. Maak een map aan voor een Maven‑project en sla hierin dit *pom.xml* bestand op. Het declareert de repository, voegt de bibliotheek toe en geeft de klasse op die moet worden uitgevoerd:
+## **Je eerste presentatie**
+
+Aspose.Slides for Java wordt gepubliceerd in de eigen Maven‑repository van Aspose, niet in Maven Central. Maak een map voor een Maven‑project en sla dit *pom.xml* daarin op. Het declareert de repository, voegt de bibliotheek toe en geeft de te starten klasse aan:
 
 ```xml
 <project xmlns="http://maven.apache.org/POM/4.0.0">
@@ -150,7 +163,7 @@ public class HelloSlides {
             IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Cloud, 20, 20, 200, 80);
             autoShape.getTextFrame().setText("Hello, Aspose!");
 
-            // Sla de presentatie op als een PPTX‑bestand.
+            // Sla de presentatie op als een PPTX-bestand.
             presentation.save("new_presentation.pptx", SaveFormat.Pptx);
         } finally {
             presentation.dispose();
@@ -165,4 +178,4 @@ Voer vervolgens, met JDK 11 of hoger en Apache Maven geïnstalleerd, dit command
 mvn compile exec:java
 ```
 
-Het programma slaat *new_presentation.pptx* op in de projectmap, met één dia waarop een wolk‑vorm met tekst staat. Op Linux moeten fontconfig en ten minste één lettertype geïnstalleerd zijn; zie [Installatie](/slides/nl/java/installation/#linux). Zonder licentie bevat het opgeslagen bestand een evaluatiewatermerk — zie [Licenties](/slides/nl/java/licensing/). Voor meer manieren om een presentatie te maken en te vullen, zie [Presentaties maken](/slides/nl/java/create-presentation/).
+Het programma slaat *new_presentation.pptx* op in de projectmap, met één dia die een wolkvorm met tekst bevat. Op Linux moeten fontconfig en minstens één lettertype geïnstalleerd zijn; zie [Installatie](/slides/nl/java/installation/#linux). Zonder licentie bevat het opgeslagen bestand een evaluatiewatermerk — zie [Licenties](/slides/nl/java/licensing/). Voor meer mogelijkheden om een presentatie te maken en in te vullen, zie [Presentaties maken](/slides/nl/java/create-presentation/).

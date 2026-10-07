@@ -13,14 +13,14 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Mulai di sini: instal Aspose.Slides for .NET, buat presentasi pertama, dan temukan panduan untuk tugas umum, penyebaran, serta referensi API."
+description: "Mulai di sini: instal Aspose.Slides untuk .NET, buat presentasi pertama, dan temukan panduan untuk tugas umum, penyebaran, dan referensi API."
 is_root: true
 ---
 <img src="home_1.png" alt="Aspose.Slides for .NET" align="left" style="width:110px; margin: 0 30px 20px 0"/>
 
-Aspose.Slides for .NET adalah perpustakaan kelas untuk membuat, membaca, mengedit, dan mengonversi presentasi PowerPoint serta OpenDocument dalam aplikasi .NET, tanpa Microsoft PowerPoint atau Office Automation.
+Aspose.Slides for .NET adalah pustaka kelas untuk membuat, membaca, mengedit, dan mengonversi presentasi PowerPoint serta OpenDocument dalam aplikasi .NET, tanpa Microsoft PowerPoint atau Office Automation.
 
-Ia memuat dan menyimpan PPT, PPTX, PPS, POT, dan ODP, termasuk varian yang mendukung makro dan templat, serta mengekspor ke PDF, XPS, HTML, SVG, TIFF, Markdown, dan gambar.
+Pustaka ini memuat dan menyimpan PPT, PPTX, PPS, POT, dan ODP, termasuk varian yang mendukung macro dan template, serta mengekspor ke PDF, XPS, HTML, SVG, TIFF, Markdown, dan gambar.
 
 <div style="clear:both"></div>
 
@@ -30,7 +30,7 @@ Ia memuat dan menyimpan PPT, PPTX, PPS, POT, dan ODP, termasuk varian yang mendu
 <div class="col-md-4">
 <p><b>Mulai</b></p>
 <hr>
-<p>MEMULAI</p>
+<p>MULAI</p>
 <ul>
 <li><a href="/slides/id/net/installation/">Instalasi</a></li>
 <li><a href="/slides/id/net/create-presentation/">Buat presentasi pertama Anda</a></li>
@@ -41,7 +41,7 @@ Ia memuat dan menyimpan PPT, PPTX, PPS, POT, dan ODP, termasuk varian yang mendu
 <ul>
 <li><a href="/slides/id/net/supported-file-formats/">Format file yang didukung</a></li>
 <li><a href="/slides/id/net/features-overview/">Gambaran fitur</a></li>
-<li><a href="/slides/id/net/evaluate-aspose-slides/">Batasan trial</a></li>
+<li><a href="/slides/id/net/evaluate-aspose-slides/">Batasan percobaan</a></li>
 <li><a href="/slides/id/net/licensing/">Lisensi</a></li>
 </ul>
 </div>
@@ -58,7 +58,7 @@ Ia memuat dan menyimpan PPT, PPTX, PPS, POT, dan ODP, termasuk varian yang mendu
 </ul>
 <p>ALUR KERJA SLIDES</p>
 <ul>
-<li><a href="/slides/id/net/powerpoint-charts/">Diagram</a></li>
+<li><a href="/slides/id/net/powerpoint-charts/">Bagan</a></li>
 <li><a href="/slides/id/net/powerpoint-animation/">Animasi</a></li>
 <li><a href="/slides/id/net/manage-media-files/">Audio dan video</a></li>
 <li><a href="/slides/id/net/presentation-design/">Desain slide</a></li>
@@ -71,12 +71,12 @@ Ia memuat dan menyimpan PPT, PPTX, PPS, POT, dan ODP, termasuk varian yang mendu
 </ul>
 </div>
 <div class="col-md-4">
-<p><b>Penyebaran &amp; Dukungan</b></p>
+<p><b>Deploy &amp; Dukungan</b></p>
 <hr>
-<p>PENYEBARAN</p>
+<p>DEPLOY</p>
 <ul>
 <li><a href="/slides/id/net/net6/">Lintas platform (.NET 6+)</a></li>
-<li><a href="/slides/id/net/how-to-run-aspose-slides-in-docker/">Jalankan di Docker</a></li>
+<li><a href="/slides/id/net/how-to-run-aspose-slides-in-docker/">Jalankan dalam Docker</a></li>
 <li><a href="/slides/id/net/deploy-fonts/">Font</a></li>
 <li><a href="/slides/id/net/security/">Keamanan</a></li>
 </ul>
@@ -86,6 +86,7 @@ Ia memuat dan menyimpan PPT, PPTX, PPS, POT, dan ODP, termasuk varian yang mendu
 <li><a href="https://releases.aspose.com/slides/net/release-notes/">Catatan rilis</a></li>
 <li><a href="/slides/id/net/known-issues/">Masalah yang diketahui</a></li>
 <li><a href="/slides/id/net/api-limitations/">Batasan metadata output</a></li>
+<li><a href="https://products.aspose.com/slides/net/">Halaman produk</a></li>
 <li><a href="https://releases.aspose.com/slides/net/">Unduh</a></li>
 </ul>
 <p>DUKUNGAN</p>
@@ -102,7 +103,7 @@ Ia memuat dan menyimpan PPT, PPTX, PPS, POT, dan ODP, termasuk varian yang mendu
 
 ## **Presentasi pertama Anda**
 
-Buat aplikasi console dengan .NET SDK 6 atau lebih baru:
+Buat aplikasi konsol dengan .NET SDK 6 atau yang lebih baru:
 
 ```bash
 dotnet new console -n HelloSlides
@@ -127,4 +128,4 @@ shape.TextFrame.Text = "Hello, Aspose.Slides!";
 presentation.Save("hello.pptx", SaveFormat.Pptx);
 ```
 
-Program ini menyimpan *hello.pptx* dengan satu slide yang berisi kotak teks. Tanpa lisensi, file yang disimpan akan menampilkan watermark evaluasi — lihat [Licensing](/slides/id/net/licensing/). Untuk cara lain membuat dan mengisi presentasi, lihat [Create Presentations](/slides/id/net/create-presentation/).
+Program menyimpan *hello.pptx* dengan satu slide yang berisi kotak teks. Tanpa lisensi, file yang disimpan membawa tanda air evaluasi — lihat [Licensing](/slides/id/net/licensing/). Untuk lebih banyak cara membuat dan mengisi presentasi, lihat [Create Presentations](/slides/id/net/create-presentation/).

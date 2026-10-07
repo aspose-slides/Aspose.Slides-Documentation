@@ -17,9 +17,9 @@ is_root: true
 ---
 <img src="home_1.png" alt="Aspose.Slides for SharePoint" align="left" style="width:110px; margin: 0 30px 20px 0"/>
 
-Aspose.Slides for SharePoint je farm řešení pro SharePoint 2007 až 2019, které převádí prezentace PowerPoint uložené v knihovnách dokumentů na serveru, bez Microsoft PowerPoint a bez psaní kódu.
+Aspose.Slides for SharePoint je farm řešení pro SharePoint 2007 – 2019, které převádí prezentace PowerPoint uložené v knihovnách dokumentů na serveru, bez Microsoft PowerPoint a bez psaní kódu.
 
-Převádí soubory PPT a PPTX do formátů PDF, TIFF, XPS, HTML, SWF a ODP a také do formátů PowerPoint PPS, PPSX, PPTM, PPSM, POTX a POTM a výsledek uloží do knihovny dokumentů.
+Převádí soubory PPT a PPTX do PDF, TIFF, XPS, HTML, SWF a ODP a do formátů PPS, PPSX, PPTM, PPSM, POTX a POTM a výsledek ukládá do knihovny dokumentů.
 
 <div style="clear:both"></div>
 
@@ -29,11 +29,11 @@ Převádí soubory PPT a PPTX do formátů PDF, TIFF, XPS, HTML, SWF a ODP a tak
 <div class="col-md-4">
 <p><b>Začínáme</b></p>
 <hr>
-<p>ZAČÁTEK</p>
+<p>JAK ZAČÍT</p>
 <ul>
 <li><a href="/slides/cs/sharepoint/installing-aspose-slides-for-sharepoint/">Instalace</a></li>
 <li><a href="/slides/cs/sharepoint/deployment-and-activation/">Nasazení a aktivace řešení</a></li>
-<li><a href="/slides/cs/sharepoint/uninstalling-aspose-slides-for-sharepoint/">Odinstalovat</a></li>
+<li><a href="/slides/cs/sharepoint/uninstalling-aspose-slides-for-sharepoint/">Odinstalace</a></li>
 <li><a href="/slides/cs/sharepoint/getting-started/">Průvodce pro začátek</a></li>
 </ul>
 <p>HODNOCENÍ</p>
@@ -44,7 +44,7 @@ Převádí soubory PPT a PPTX do formátů PDF, TIFF, XPS, HTML, SWF a ODP a tak
 </ul>
 </div>
 <div class="col-md-4">
-<p><b>Vytvořit pomocí Slides</b></p>
+<p><b>Vytvářejte s Slides</b></p>
 <hr>
 <p>PŘEVOD</p>
 <ul>
@@ -58,12 +58,13 @@ Převádí soubory PPT a PPTX do formátů PDF, TIFF, XPS, HTML, SWF a ODP a tak
 <p>REFERENCE</p>
 <ul>
 <li><a href="https://releases.aspose.com/slides/sharepoint/release-notes/">Poznámky k vydání</a></li>
+<li><a href="https://products.aspose.com/slides/sharepoint/">Stránka produktu</a></li>
 <li><a href="https://releases.aspose.com/slides/sharepoint/">Stáhnout</a></li>
 </ul>
 <p>PODPORA</p>
 <ul>
 <li><a href="https://forum.aspose.com/c/slides/11">Bezplatné fórum podpory</a></li>
-<li><a href="https://helpdesk.aspose.com/">Placená podpora – helpdesk</a></li>
+<li><a href="https://helpdesk.aspose.com/">Placená podpora</a></li>
 </ul>
 </div>
 </div>
@@ -72,12 +73,12 @@ Převádí soubory PPT a PPTX do formátů PDF, TIFF, XPS, HTML, SWF a ODP a tak
 
 ## **Váš první export**
 
-Aspose.Slides for SharePoint se nainstaluje jednou na farmu a poté se používá z jakékoli knihovny dokumentů, kde je aktivována:
+Aspose.Slides for SharePoint se nainstaluje jednou na farmu a poté se používá z libovolné knihovny dokumentů, kde je aktivována:
 
-1. Stáhněte ZIP archiv ze [stránky ke stažení](https://releases.aspose.com/slides/sharepoint/) a rozbalte jej na serveru ve vaší SharePoint farmě.
-2. Spusťte instalační program odpovídající verzi vašeho SharePointu: *Setup2007.exe*, *Setup2010.exe*, *Setup2013.exe*, *Setup2016.exe* nebo *Setup2019.exe*. Použijte účet, který může instalovat a nasazovat SharePoint řešení. Přijměte licenční smlouvu, vyberte kolekce webů, na kterých chcete funkci aktivovat, a nechte instalátor nasadit řešení. Každá obrazovka je popsána v [Instalaci](/slides/cs/sharepoint/installing-aspose-slides-for-sharepoint/).
-3. Otevřete knihovnu dokumentů v jedné z těchto kolekcí webů, otevřete nabídku souboru PPT nebo PPTX a vyberte **Převést pomocí Aspose.Slides**. V SharePoint 2007 se položka menu nazývá **Převést pomocí Aspose.Slides**.
+1. Stáhněte ZIP archiv ze [download page](https://releases.aspose.com/slides/sharepoint/) a rozbalte jej na serveru ve vaší farmě SharePoint.
+2. Spusťte instalační program odpovídající verzi vašeho SharePointu: *Setup2007.exe*, *Setup2010.exe*, *Setup2013.exe*, *Setup2016.exe* nebo *Setup2019.exe*. Použijte účet, který může instalovat a nasazovat řešení SharePoint. Přijměte licenční smlouvu, vyberte kolekce webů, na kterých chcete funkci aktivovat, a nechte instalátor nasadit řešení. Každá obrazovka je popsána v [Installation](/slides/cs/sharepoint/installing-aspose-slides-for-sharepoint/).
+3. Otevřete knihovnu dokumentů v jedné z těchto kolekcí, otevřete nabídku souboru PPT nebo PPTX a vyberte **Convert via Aspose.Slides**. Ve SharePoint 2007 se tato položka nazývá **Convert with Aspose.Slides**.
 4. V sekci **Convert to** vyberte **PDF - Adobe Portable Document**. Pokud potřebujete, změňte název cílového souboru a složku a klikněte na **Convert**.
-5. Po dokončení převodu klikněte na **Destination Library**, aby se otevřela složka obsahující nový PDF soubor.
+5. Po dokončení převodu klikněte na **Destination Library** a otevřete složku, ve které je nový PDF soubor uložen.
 
-Bez licence obsahuje převáděný soubor vodotisk – viz [Licencování](/slides/cs/sharepoint/installing-aspose-slides-for-sharepoint-license/). Pro stejný postup se snímky obrazovky viz [Převod dokumentů Microsoft PowerPoint do jiných formátů](/slides/cs/sharepoint/converting-microsoft-powerpoint-documents-into-other-formats/).
+Bez licence obsahuje převedený soubor vodotisk pro hodnocení – viz [Licensing](/slides/cs/sharepoint/installing-aspose-slides-for-sharepoint-license/). Pro stejné kroky se snímky obrazovky viz [Converting Microsoft PowerPoint Documents into Other Formats](/slides/cs/sharepoint/converting-microsoft-powerpoint-documents-into-other-formats/).

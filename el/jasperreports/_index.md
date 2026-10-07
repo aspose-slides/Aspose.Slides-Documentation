@@ -1,6 +1,6 @@
 ---
-title: "Aspose.Slides για JasperReports"
-second_title: "Aspose.Slides για JasperReports"
+title: Aspose.Slides for JasperReports
+second_title: Aspose.Slides for JasperReports
 type: docs
 weight: 70
 url: /el/jasperreports/
@@ -14,12 +14,12 @@ keywords:
 - PPTX
 - Java
 - Aspose.Slides
-description: "Ξεκινήστε εδώ: εγκαταστήστε το Aspose.Slides για JasperReports, εξάγετε την πρώτη αναφορά σε PowerPoint και βρείτε τους οδηγούς για εξαγωγή, ενσωμάτωση JasperReports Server και υποστήριξη."
+description: "Ξεκινήστε εδώ: εγκαταστήστε το Aspose.Slides for JasperReports, εξάγετε μια πρώτη αναφορά σε PowerPoint και βρείτε τους οδηγούς για την εξαγωγή, την ενσωμάτωση JasperReports Server και την υποστήριξη."
 is_root: true
 ---
-<img src="home_1.png" alt="Aspose.Slides για JasperReports" align="left" style="width:110px; margin: 0 30px 20px 0"/>
+<img src="home_1.png" alt="Aspose.Slides for JasperReports" align="left" style="width:110px; margin: 0 30px 20px 0"/>
 
-Το Aspose.Slides for JasperReports προσθέτει εξαγωγείς PowerPoint στη βιβλιοθήκη JasperReports Library και στον JasperReports Server, ώστε οι εφαρμογές Java και οι διακομιστές αναφορών να μπορούν να αποθηκεύουν συμπληρωμένες αναφορές ως παρουσιάσεις χωρίς το Microsoft PowerPoint.
+Aspose.Slides for JasperReports προσθέτει εξαγωγείς PowerPoint στη βιβλιοθήκη JasperReports και στον JasperReports Server, ώστε οι εφαρμογές Java και οι διακομιστές αναφορών να μπορούν να αποθηκεύουν συμπληρωμένες αναφορές ως παρουσιάσεις χωρίς το Microsoft PowerPoint.
 
 Εξάγει μια συμπληρωμένη αναφορά σε PPT και PPTX, μία διαφάνεια ανά σελίδα αναφοράς, καθώς και σε PDF και HTML.
 
@@ -31,16 +31,16 @@ is_root: true
 <div class="col-md-4">
 <p><b>Ξεκινήστε</b></p>
 <hr>
-<p>ΞΕΚΙΝΗΣΜΑ</p>
+<p>ΞΕΚΙΝΗΣΤΕ</p>
 <ul>
 <li><a href="/slides/el/jasperreports/installing-aspose-slides-for-jasperreports/">Εγκατάσταση</a></li>
 <li><a href="/slides/el/jasperreports/product-overview/">Επισκόπηση προϊόντος</a></li>
 <li><a href="/slides/el/jasperreports/system-requirements/">Απαιτήσεις συστήματος</a></li>
-<li><a href="/slides/el/jasperreports/getting-started/">Οδηγός εκκίνησης</a></li>
+<li><a href="/slides/el/jasperreports/getting-started/">Οδηγός έναρξης</a></li>
 </ul>
 <p>ΑΞΙΟΛΟΓΗΣΗ</p>
 <ul>
-<li><a href="/slides/el/jasperreports/supported-file-formats/">Υποστηριζόμενες μορφές αρχείου</a></li>
+<li><a href="/slides/el/jasperreports/supported-file-formats/">Υποστηριζόμενα μορφότυπα αρχείων</a></li>
 <li><a href="/slides/el/jasperreports/evaluate-aspose-slides/">Περιορισμοί δοκιμής</a></li>
 <li><a href="/slides/el/jasperreports/licensing/">Αδειοδότηση</a></li>
 </ul>
@@ -65,12 +65,13 @@ is_root: true
 <p>ΑΝΑΦΟΡΑ</p>
 <ul>
 <li><a href="https://releases.aspose.com/slides/jasperreport/release-notes/">Σημειώσεις έκδοσης</a></li>
+<li><a href="https://products.aspose.com/slides/jasperreports/">Σελίδα προϊόντος</a></li>
 <li><a href="https://releases.aspose.com/slides/jasperreport/">Λήψη</a></li>
 </ul>
 <p>ΥΠΟΣΤΗΡΙΞΗ</p>
 <ul>
 <li><a href="https://forum.aspose.com/c/slides/11">Δωρεάν φόρουμ υποστήριξης</a></li>
-<li><a href="https://helpdesk.aspose.com/">Πληρωμένη βοήθεια υποστήριξης</a></li>
+<li><a href="https://helpdesk.aspose.com/">Πληρωμένο helpdesk υποστήριξης</a></li>
 </ul>
 </div>
 </div>
@@ -79,17 +80,17 @@ is_root: true
 
 ## **Η πρώτη σας εξαγωγή**
 
-Αυτά τα βήματα δημιουργούν μια αναφορά μιας γραμμής, τη συμπληρώνουν και την εξάγουν σε PPTX με το JasperReports 6.16.0 από το Maven Central. Χρειάζεστε JDK 11 ή μεταγενέστερο και Apache Maven.
+Αυτά τα βήματα δημιουργούν μια αναφορά μίας γραμμής, τη συμπληρώνουν και την εξάγουν σε PPTX με το JasperReports 6.16.0 από το Maven Central. Χρειάζεστε JDK 11 ή μεταγενέστερο και Apache Maven.
 
-1. Κατεβάστε το ZIP από τη [download page](https://releases.aspose.com/slides/jasperreport/) και αποσυμπιέστε το. Ο φάκελος *lib* περιέχει έναν υποφάκελο για κάθε εύρος εκδόσεων JasperReports, και κάθε υποφάκελος περιέχει το jar για εκείνο το εύρος. Για το JasperReports 6.16.0, αντιγράψτε το *lib/JasperReports 6.5.0 - 6.16.0 (JDK 1.6)/aspose.slides.jasperreports.library-26.6.jar* σε έναν άδειο φάκελο έργου.
+1. Κατεβάστε το ZIP από τη [σελίδα λήψης](https://releases.aspose.com/slides/jasperreport/) και αποσυμπιέστε το. Ο φάκελος *lib* περιέχει έναν υποφάκελο για κάθε εύρος εκδόσεων του JasperReports, και ο καθένας κρατά το jar για εκείνο το εύρος. Για το JasperReports 6.16.0, αντιγράψτε το *lib/JasperReports 6.5.0 - 6.16.0 (JDK 1.6)/aspose.slides.jasperreports.library-26.6.jar* σε έναν κενό φάκελο έργου.
 
-2. Το jar περιλαμβάνεται στο ZIP αντί για αποθετήριο Maven, επομένως εγκαταστήστε το στο τοπικό αποθετήριο Maven. Εκτελέστε αυτήν την εντολή στον φάκελο του έργου:
+2. Το jar περιλαμβάνεται στο ZIP αντί για ένα αποθετήριο Maven, ώστε να το εγκαταστήσετε στο τοπικό αποθετήριο Maven. Εκτελέστε αυτή την εντολή στον φάκελο του έργου:
 
 ```bash
 mvn install:install-file "-Dfile=aspose.slides.jasperreports.library-26.6.jar" "-DgroupId=com.aspose" "-DartifactId=aspose-slides-jasperreports" "-Dversion=26.6" "-Dpackaging=jar"
 ```
 
-3. Αποθηκεύστε αυτό το *pom.xml* στον φάκελο του έργου. Προσθέτει το JasperReports 6.16.0 και το jar που εγκαταστήσατε, και ορίζει την κλάση που θα εκτελεστεί. Το JasperReports 6.16.0 δηλώνει μια διορθωμένη έκδοση του iText που δεν υπάρχει στο Maven Central, γι' αυτό το αρχείο το αποκλείει· οι εξαγωγείς Aspose δεν το χρειάζονται.
+3. Αποθηκεύστε αυτό το *pom.xml* στον φάκελο του έργου. Προσθέτει το JasperReports 6.16.0 και το jar που εγκαταστήσατε, και ορίζει την κλάση που θα εκτελεστεί. Το JasperReports 6.16.0 δηλώνει μια διορθωμένη έκδοση του iText που δεν βρίσκεται στο Maven Central, επομένως το αρχείο το αποκλείει· οι εξαγωγείς Aspose δεν το χρειάζονται.
 
 ```xml
 <project xmlns="http://maven.apache.org/POM/4.0.0">
@@ -135,7 +136,7 @@ mvn install:install-file "-Dfile=aspose.slides.jasperreports.library-26.6.jar" "
 </project>
 ```
 
-4. Αποθηκεύστε αυτό το σχέδιο αναφοράς ως *hello.jrxml* στον φάκελο του έργου. Εμφανίζει μια γραμμή κειμένου στην κορδέλα τίτλου:
+4. Αποθηκεύστε αυτό το σχέδιο αναφοράς ως *hello.jrxml* στον φάκελο του έργου. Εκτυπώνει μια γραμμή κειμένου στη ζώνη τίτλου:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -158,7 +159,7 @@ mvn install:install-file "-Dfile=aspose.slides.jasperreports.library-26.6.jar" "
 </jasperReport>
 ```
 
-5. Αποθηκεύστε αυτόν τον κώδικα ως *src/main/java/HelloExport.java*. Συγκεντρώει το σχέδιο, το γεμίζει με μία κενή εγγραφή και εξάγει το αποτέλεσμα με `ASPptxExporter`:
+5. Αποθηκεύστε αυτόν τον κώδικα ως *src/main/java/HelloExport.java*. Συνεκταρίζει το σχέδιο, το συμπληρώνει με μία κενή εγγραφή και εξάγει το αποτέλεσμα με `ASPptxExporter`:
 
 ```java
 import java.util.HashMap;
@@ -173,11 +174,11 @@ import net.sf.jasperreports.engine.JasperReport;
 
 public class HelloExport {
     public static void main(String[] args) throws Exception {
-        // Μεταγλώττιση του σχεδίου αναφοράς και γέμισμα του με μία κενή εγγραφή.
+        // Συγγράψτε το σχέδιο της αναφοράς και συμπληρώστε το με μία κενή εγγραφή.
         JasperReport report = JasperCompileManager.compileReport("hello.jrxml");
         JasperPrint jasperPrint = JasperFillManager.fillReport(report, new HashMap<String, Object>(), new JREmptyDataSource());
 
-        // Εξαγωγή της συμπληρωμένης αναφοράς σε PPTX.
+        // Εξάγετε τη συμπληρωμένη αναφορά σε PPTX.
         ASPptxExporter exporter = new ASPptxExporter();
         exporter.setParameter(JRExporterParameter.JASPER_PRINT, jasperPrint);
         exporter.setParameter(JRExporterParameter.OUTPUT_FILE_NAME, "hello.pptx");
@@ -186,10 +187,10 @@ public class HelloExport {
 }
 ```
 
-6. Εκτελέστε αυτήν την εντολή στον φάκελο του έργου:
+6. Εκτελέστε αυτή την εντολή στον φάκελο του έργου:
 
 ```bash
 mvn compile exec:java
 ```
 
-Το πρόγραμμα αποθηκεύει το *hello.pptx* στον φάκελο του έργου, με μία διαφάνεια που περιέχει το κείμενο της αναφοράς. Ο μεταγλωττιστής σημειώνει ότι ο κώδικας χρησιμοποιεί παρωχημένο API: οι εξαγωγείς λαμβάνουν την είσοδο και την έξοδο μέσω του `JRExporterParameter` και δεν δέχονται τις νεότερες ρυθμίσεις `setExporterInput` και `setExporterOutput`. Σε Linux, πρέπει να είναι εγκατεστημένα το fontconfig και τουλάχιστον μια γραμματοσειρά, αλλιώς η συμπλήρωση της αναφοράς αποτυγχάνει. Χωρίς άδεια, κάθε διαφάνεια φέρει ένα υδατογράφημα αξιολόγησης στο κέντρο — δείτε τη [Licensing](/slides/el/jasperreports/licensing/). Για εξαγωγή σε PPT, PDF ή HTML, δείτε την [PPT, PPTX, PDF and HTML Export](/slides/el/jasperreports/ppt-pptx-pdf-and-html-export/).
+Το πρόγραμμα αποθηκεύει το *hello.pptx* στον φάκελο του έργου, με μία διαφάνεια που περιέχει το κείμενο της αναφοράς. Ο μεταγλωττιστής σημειώνει ότι ο κώδικας χρησιμοποιεί μια παρωχημένη API: οι εξαγωγείς λαμβάνουν την είσοδο και την έξοδο μέσω του `JRExporterParameter`, και δεν αποδέχονται τη νεότερη διαμόρφωση `setExporterInput` και `setExporterOutput`. Σε Linux, πρέπει να είναι εγκατεστημένα το fontconfig και τουλάχιστον μία γραμματοσειρά, αλλιώς η συμπλήρωση της αναφοράς αποτυγχάνει. Χωρίς άδεια, κάθε διαφάνεια περιέχει ένα υδατογράφημα αξιολόγησης στο κέντρο — δείτε [Αδειοδότηση](/slides/el/jasperreports/licensing/). Για εξαγωγή σε PPT, PDF ή HTML, δείτε [Εξαγωγή PPT, PPTX, PDF και HTML](/slides/el/jasperreports/ppt-pptx-pdf-and-html-export/).

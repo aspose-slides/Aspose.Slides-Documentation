@@ -19,7 +19,7 @@ is_root: true
 
 Aspose.Slides for PHP via Java adalah pustaka kelas untuk membuat, membaca, mengedit, dan mengonversi presentasi PowerPoint dan OpenDocument dalam aplikasi PHP, tanpa Microsoft PowerPoint atau Office Automation.
 
-Ia memuat dan menyimpan PPT, PPTX, PPS, POT, dan ODP, termasuk varian yang mendukung makro dan templat, serta mengekspor ke PDF, XPS, HTML, SVG, TIFF, Markdown, dan gambar.
+Pustaka ini memuat dan menyimpan PPT, PPTX, PPS, POT, dan ODP, termasuk varian yang mendukung macro dan templat, serta mengekspor ke PDF, XPS, HTML, SVG, TIFF, Markdown, dan gambar.
 
 <div style="clear:both"></div>
 
@@ -29,7 +29,7 @@ Ia memuat dan menyimpan PPT, PPTX, PPS, POT, dan ODP, termasuk varian yang mendu
 <div class="col-md-4">
 <p><b>Mulai</b></p>
 <hr>
-<p>MEMULAI</p>
+<p>MULAI</p>
 <ul>
 <li><a href="/slides/id/php-java/installation/">Instalasi</a></li>
 <li><a href="/slides/id/php-java/create-presentation/">Buat presentasi pertama Anda</a></li>
@@ -51,7 +51,7 @@ Ia memuat dan menyimpan PPT, PPTX, PPS, POT, dan ODP, termasuk varian yang mendu
 <li><a href="/slides/id/php-java/save-presentation/">Simpan presentasi</a></li>
 <li><a href="/slides/id/php-java/convert-powerpoint-to-pdf/">Konversi ke PDF</a></li>
 <li><a href="/slides/id/php-java/convert-slide/">Render slide sebagai gambar</a></li>
-<li><a href="/slides/id/php-java/manage-text/">Sunting teks dan bentuk</a></li>
+<li><a href="/slides/id/php-java/manage-text/">Edit teks dan bentuk</a></li>
 </ul>
 <p>ALUR KERJA SLIDES</p>
 <ul>
@@ -63,7 +63,7 @@ Ia memuat dan menyimpan PPT, PPTX, PPS, POT, dan ODP, termasuk varian yang mendu
 </ul>
 <p>CONTOH</p>
 <ul>
-<li><a href="/slides/id/php-java/examples/">Contoh per elemen slide</a></li>
+<li><a href="/slides/id/php-java/examples/">Contoh berdasarkan elemen slide</a></li>
 </ul>
 </div>
 <div class="col-md-4">
@@ -74,6 +74,7 @@ Ia memuat dan menyimpan PPT, PPTX, PPS, POT, dan ODP, termasuk varian yang mendu
 <li><a href="https://reference.aspose.com/slides/php-java/">Referensi API</a></li>
 <li><a href="https://releases.aspose.com/slides/php-java/release-notes/">Catatan rilis</a></li>
 <li><a href="/slides/id/php-java/known-issues/">Masalah yang diketahui</a></li>
+<li><a href="https://products.aspose.com/slides/php-java/">Halaman produk</a></li>
 <li><a href="https://releases.aspose.com/slides/php-java/">Unduh</a></li>
 </ul>
 <p>DUKUNGAN</p>
@@ -88,18 +89,18 @@ Ia memuat dan menyimpan PPT, PPTX, PPS, POT, dan ODP, termasuk varian yang mendu
 
 ## **Presentasi pertama Anda**
 
-Aspose.Slides for PHP via Java berjalan di Java dalam Apache Tomcat, dan skrip PHP Anda mengaksesnya melalui PHP/Java Bridge. [Instalasi](/slides/id/php-java/installation/) menyiapkan PHP 8.3 atau yang lebih lama, Java, Tomcat, dan bridge, lalu menginstal paket dari Packagist di folder proyek:
+Aspose.Slides for PHP via Java berjalan di atas Java di dalam Apache Tomcat, dan skrip PHP Anda mengaksesnya melalui PHP/Java Bridge. [Instalasi](/slides/id/php-java/installation/) menyiapkan PHP 8.3 atau lebih lama, Java, Tomcat, dan bridge, lalu menginstal paket dari Packagist di folder proyek:
 
 ```bash
 composer require aspose/slides
 ```
 
-Kemudian salin file JAR paket ke dalam bridge dan restart Tomcat, seperti pada langkah 4 dari [Instal di Linux](/slides/id/php-java/installation/#install-on-linux) atau langkah 6 dari [Instal di Windows](/slides/id/php-java/installation/#install-on-windows). Dengan Tomcat berjalan, simpan skrip ini sebagai *hello.php* di folder proyek dan jalankan `php hello.php`:
+Kemudian salin berkas JAR paket ke dalam bridge dan mulai ulang Tomcat, seperti pada langkah 4 dari [Instal pada Linux](/slides/id/php-java/installation/#install-on-linux) atau langkah 6 dari [Instal pada Windows](/slides/id/php-java/installation/#install-on-windows). Dengan Tomcat berjalan, simpan skrip ini sebagai *hello.php* di folder proyek dan jalankan `php hello.php`:
 
 ```php
 <?php
 require_once("http://localhost:8080/JavaBridge/java/Java.inc");
-require_once(__DIR__ . "/vendor/aspose/slides/id/lib/aspose.slides.php");
+require_once(__DIR__ . "/vendor/aspose/slides/lib/aspose.slides.php");
 
 use aspose\slides\Presentation;
 use aspose\slides\SaveFormat;
@@ -116,4 +117,4 @@ try {
 }
 ```
 
-Skrip tersebut menyimpan *hello.pptx* di sampingnya, dengan satu slide yang berisi kotak teks. Tanpa lisensi, file yang disimpan memiliki watermark evaluasi — lihat [Lisensi](/slides/id/php-java/licensing/). Untuk lebih banyak cara membuat dan mengisi presentasi, lihat [Buat Presentasi](/slides/id/php-java/create-presentation/).
+Skrip ini menyimpan *hello.pptx* di sampingnya, dengan satu slide yang berisi kotak teks. Tanpa lisensi, berkas yang disimpan akan menampilkan watermark evaluasi — lihat [Lisensi](/slides/id/php-java/licensing/). Untuk cara lain membuat dan mengisi presentasi, lihat [Buat presentasi](/slides/id/php-java/create-presentation/).

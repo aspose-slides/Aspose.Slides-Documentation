@@ -5,8 +5,8 @@ weight: 10
 url: /it/
 keywords:
 - documentazione
-- elaborazione delle presentazioni
-- conversione delle presentazioni
+- elaborazione di presentazioni
+- conversione di presentazioni
 - PowerPoint
 - OpenDocument
 - Aspose.Slides
@@ -16,7 +16,7 @@ description: "Inizia qui: scegli la tua piattaforma per aprire la documentazione
 
 Aspose.Slides è un insieme di librerie per creare, leggere, modificare e convertire presentazioni PowerPoint e OpenDocument senza Microsoft PowerPoint.
 
-È disponibile per .NET, Java, Android, C++, Python, Node.js e PHP, nonché come plugin che esportano report da JasperReports e Reporting Services in PowerPoint e convertono presentazioni in SharePoint.
+È disponibile per .NET, Java, Android, C++, Python, Node.js e PHP, e come plugin che esportano report da JasperReports e Reporting Services in PowerPoint e convertono presentazioni in SharePoint.
 
 <div style="clear:both"></div>
 
@@ -28,16 +28,16 @@ Aspose.Slides è un insieme di librerie per creare, leggere, modificare e conver
 <hr>
 <p>.NET</p>
 <ul>
-<li><a href="/slides/it/net/"><b>Aspose.Slides for .NET</b></a><br>Per le applicazioni .NET.<br><small><a href="/slides/it/net/installation/">Installazione</a> · <a href="/slides/it/net/getting-started/">Guida introduttiva</a> · <a href="https://reference.aspose.com/slides/net/">Riferimento API</a> · <a href="https://releases.aspose.com/slides/net/release-notes/">Note di rilascio</a></small></li>
+<li><a href="/slides/it/net/"><b>Aspose.Slides for .NET</b></a><br>Per applicazioni .NET.<br><small><a href="/slides/it/net/installation/">Installazione</a> · <a href="/slides/it/net/getting-started/">Primi passi</a> · <a href="https://reference.aspose.com/slides/net/">Riferimento API</a> · <a href="https://releases.aspose.com/slides/net/release-notes/">Note di rilascio</a> · <a href="https://products.aspose.com/slides/net/">Pagina del prodotto</a></small></li>
 </ul>
 <p>JAVA</p>
 <ul>
-<li><a href="/slides/it/java/"><b>Aspose.Slides for Java</b></a><br>Per le applicazioni Java.<br><small><a href="/slides/it/java/installation/">Installazione</a> · <a href="/slides/it/java/getting-started/">Guida introduttiva</a> · <a href="https://reference.aspose.com/slides/java/">Riferimento API</a> · <a href="https://releases.aspose.com/slides/java/release-notes/">Note di rilascio</a></small></li>
-<li><a href="/slides/it/androidjava/"><b>Aspose.Slides for Android via Java</b></a><br>Per le applicazioni Android.<br><small><a href="/slides/it/androidjava/install-aspose-slides-for-android-via-java/">Installazione</a> · <a href="/slides/it/androidjava/getting-started/">Guida introduttiva</a> · <a href="https://reference.aspose.com/slides/androidjava/">Riferimento API</a> · <a href="https://releases.aspose.com/slides/androidjava/release-notes/">Note di rilascio</a></small></li>
+<li><a href="/slides/it/java/"><b>Aspose.Slides for Java</b></a><br>Per applicazioni Java.<br><small><a href="/slides/it/java/installation/">Installazione</a> · <a href="/slides/it/java/getting-started/">Primi passi</a> · <a href="https://reference.aspose.com/slides/java/">Riferimento API</a> · <a href="https://releases.aspose.com/slides/java/release-notes/">Note di rilascio</a> · <a href="https://products.aspose.com/slides/java/">Pagina del prodotto</a></small></li>
+<li><a href="/slides/it/androidjava/"><b>Aspose.Slides for Android via Java</b></a><br>Per applicazioni Android.<br><small><a href="/slides/it/androidjava/install-aspose-slides-for-android-via-java/">Installazione</a> · <a href="/slides/it/androidjava/getting-started/">Primi passi</a> · <a href="https://reference.aspose.com/slides/androidjava/">Riferimento API</a> · <a href="https://releases.aspose.com/slides/androidjava/release-notes/">Note di rilascio</a> · <a href="https://products.aspose.com/slides/android-java/">Pagina del prodotto</a></small></li>
 </ul>
 <p>C++</p>
 <ul>
-<li><a href="/slides/it/cpp/"><b>Aspose.Slides for C++</b></a><br>Per le applicazioni C++.<br><small><a href="/slides/it/cpp/installation/">Installazione</a> · <a href="/slides/it/cpp/getting-started/">Guida introduttiva</a> · <a href="https://reference.aspose.com/slides/cpp/">Riferimento API</a> · <a href="https://releases.aspose.com/slides/cpp/release-notes/">Note di rilascio</a></small></li>
+<li><a href="/slides/it/cpp/"><b>Aspose.Slides for C++</b></a><br>Per applicazioni C++.<br><small><a href="/slides/it/cpp/installation/">Installazione</a> · <a href="/slides/it/cpp/getting-started/">Primi passi</a> · <a href="https://reference.aspose.com/slides/cpp/">Riferimento API</a> · <a href="https://releases.aspose.com/slides/cpp/release-notes/">Note di rilascio</a> · <a href="https://products.aspose.com/slides/cpp/">Pagina del prodotto</a></small></li>
 </ul>
 </div>
 <div class="col-md-4">
@@ -45,30 +45,30 @@ Aspose.Slides è un insieme di librerie per creare, leggere, modificare e conver
 <hr>
 <p>PYTHON</p>
 <ul>
-<li><a href="/slides/it/python-net/"><b>Aspose.Slides for Python via .NET</b></a><br>Include il runtime .NET che utilizza.<br><small><a href="/slides/it/python-net/installation/">Installazione</a> · <a href="/slides/it/python-net/getting-started/">Guida introduttiva</a> · <a href="https://reference.aspose.com/slides/python-net/">Riferimento API</a> · <a href="https://releases.aspose.com/slides/python-net/release-notes/">Note di rilascio</a></small></li>
-<li><a href="/slides/it/python-java/"><b>Aspose.Slides for Python via Java</b></a><br>Esegue la libreria Java tramite JPype.<br><small><a href="/slides/it/python-java/installation/">Installazione</a> · <a href="/slides/it/python-java/getting-started/">Guida introduttiva</a> · <a href="https://reference.aspose.com/slides/python-java/">Riferimento API</a> · <a href="https://releases.aspose.com/slides/python-java/release-notes/">Note di rilascio</a></small></li>
+<li><a href="/slides/it/python-net/"><b>Aspose.Slides for Python via .NET</b></a><br>Include il runtime .NET che utilizza.<br><small><a href="/slides/it/python-net/installation/">Installazione</a> · <a href="/slides/it/python-net/getting-started/">Primi passi</a> · <a href="https://reference.aspose.com/slides/python-net/">Riferimento API</a> · <a href="https://releases.aspose.com/slides/python-net/release-notes/">Note di rilascio</a> · <a href="https://products.aspose.com/slides/python-net/">Pagina del prodotto</a></small></li>
+<li><a href="/slides/it/python-java/"><b>Aspose.Slides for Python via Java</b></a><br>Esegue la libreria Java tramite JPype.<br><small><a href="/slides/it/python-java/installation/">Installazione</a> · <a href="/slides/it/python-java/getting-started/">Primi passi</a> · <a href="https://reference.aspose.com/slides/python-java/">Riferimento API</a> · <a href="https://releases.aspose.com/slides/python-java/release-notes/">Note di rilascio</a> · <a href="https://products.aspose.com/slides/python-java/">Pagina del prodotto</a></small></li>
 </ul>
 <p>NODE.JS</p>
 <ul>
-<li><a href="/slides/it/nodejs-java/"><b>Aspose.Slides for Node.js via Java</b></a><br>Esegue la libreria Java in una macchina virtuale Java.<br><small><a href="/slides/it/nodejs-java/installation/">Installazione</a> · <a href="/slides/it/nodejs-java/getting-started/">Guida introduttiva</a> · <a href="https://reference.aspose.com/slides/nodejs-java/">Riferimento API</a> · <a href="https://releases.aspose.com/slides/nodejs-java/release-notes/">Note di rilascio</a></small></li>
-<li><a href="/slides/it/nodejs-net/"><b>Aspose.Slides for Node.js via .NET</b></a><br>Esegue la libreria .NET tramite edge-js.<br><small><a href="/slides/it/nodejs-net/installation/">Installazione</a> · <a href="/slides/it/nodejs-net/developer-guide/">Guida per sviluppatori</a> · <a href="/slides/it/nodejs-net/api-reference/">Riferimento API</a> · <a href="https://releases.aspose.com/slides/nodejs-net/release-notes/">Note di rilascio</a></small></li>
+<li><a href="/slides/it/nodejs-java/"><b>Aspose.Slides for Node.js via Java</b></a><br>Esegue la libreria Java in una macchina virtuale Java.<br><small><a href="/slides/it/nodejs-java/installation/">Installazione</a> · <a href="/slides/it/nodejs-java/getting-started/">Primi passi</a> · <a href="https://reference.aspose.com/slides/nodejs-java/">Riferimento API</a> · <a href="https://releases.aspose.com/slides/nodejs-java/release-notes/">Note di rilascio</a> · <a href="https://products.aspose.com/slides/nodejs-java/">Pagina del prodotto</a></small></li>
+<li><a href="/slides/it/nodejs-net/"><b>Aspose.Slides for Node.js via .NET</b></a><br>Esegue la libreria .NET tramite edge-js.<br><small><a href="/slides/it/nodejs-net/installation/">Installazione</a> · <a href="/slides/it/nodejs-net/developer-guide/">Guida per sviluppatori</a> · <a href="/slides/it/nodejs-net/api-reference/">Riferimento API</a> · <a href="https://releases.aspose.com/slides/nodejs-net/release-notes/">Note di rilascio</a> · <a href="https://products.aspose.com/slides/nodejs-net/">Pagina del prodotto</a></small></li>
 </ul>
 <p>PHP</p>
 <ul>
-<li><a href="/slides/it/php-java/"><b>Aspose.Slides for PHP via Java</b></a><br>Chiama la libreria Java tramite PHP/Java Bridge.<br><small><a href="/slides/it/php-java/installation/">Installazione</a> · <a href="/slides/it/php-java/getting-started/">Guida introduttiva</a> · <a href="https://reference.aspose.com/slides/php-java/">Riferimento API</a> · <a href="https://releases.aspose.com/slides/php-java/release-notes/">Note di rilascio</a></small></li>
+<li><a href="/slides/it/php-java/"><b>Aspose.Slides for PHP via Java</b></a><br>Chiama la libreria Java tramite PHP/Java Bridge.<br><small><a href="/slides/it/php-java/installation/">Installazione</a> · <a href="/slides/it/php-java/getting-started/">Primi passi</a> · <a href="https://reference.aspose.com/slides/php-java/">Riferimento API</a> · <a href="https://releases.aspose.com/slides/php-java/release-notes/">Note di rilascio</a> · <a href="https://products.aspose.com/slides/php-java/">Pagina del prodotto</a></small></li>
 </ul>
 </div>
 <div class="col-md-4">
-<p><b>Plugin per Reports e SharePoint</b></p>
+<p><b>Plugin per Report e SharePoint</b></p>
 <hr>
 <p>REPORTING</p>
 <ul>
-<li><a href="/slides/it/jasperreports/"><b>Aspose.Slides for JasperReports</b></a><br>Esporta i report JasperReports in PowerPoint.<br><small><a href="/slides/it/jasperreports/installing-aspose-slides-for-jasperreports/">Installazione</a> · <a href="https://releases.aspose.com/slides/jasperreport/release-notes/">Note di rilascio</a></small></li>
-<li><a href="/slides/it/reportingservices/"><b>Aspose.Slides for Reporting Services</b></a><br>Esporta i report SQL Server Reporting Services in PowerPoint.<br><small><a href="/slides/it/reportingservices/installing-aspose-slides-for-reporting-services/">Installazione</a> · <a href="https://releases.aspose.com/slides/reportingservices/release-notes/">Note di rilascio</a></small></li>
+<li><a href="/slides/it/jasperreports/"><b>Aspose.Slides for JasperReports</b></a><br>Esporta i report di JasperReports in PowerPoint.<br><small><a href="/slides/it/jasperreports/installing-aspose-slides-for-jasperreports/">Installazione</a> · <a href="https://releases.aspose.com/slides/jasperreport/release-notes/">Note di rilascio</a> · <a href="https://products.aspose.com/slides/jasperreports/">Pagina del prodotto</a></small></li>
+<li><a href="/slides/it/reportingservices/"><b>Aspose.Slides for Reporting Services</b></a><br>Esporta i report di SQL Server Reporting Services in PowerPoint.<br><small><a href="/slides/it/reportingservices/installing-aspose-slides-for-reporting-services/">Installazione</a> · <a href="https://releases.aspose.com/slides/reportingservices/release-notes/">Note di rilascio</a> · <a href="https://products.aspose.com/slides/reporting-services/">Pagina del prodotto</a></small></li>
 </ul>
 <p>SHAREPOINT</p>
 <ul>
-<li><a href="/slides/it/sharepoint/"><b>Aspose.Slides for SharePoint</b></a><br>Converte le presentazioni nei siti SharePoint.<br><small><a href="/slides/it/sharepoint/installing-aspose-slides-for-sharepoint/">Installazione</a> · <a href="https://releases.aspose.com/slides/sharepoint/release-notes/">Note di rilascio</a></small></li>
+<li><a href="/slides/it/sharepoint/"><b>Aspose.Slides for SharePoint</b></a><br>Converte le presentazioni nei siti SharePoint.<br><small><a href="/slides/it/sharepoint/installing-aspose-slides-for-sharepoint/">Installazione</a> · <a href="https://releases.aspose.com/slides/sharepoint/release-notes/">Note di rilascio</a> · <a href="https://products.aspose.com/slides/sharepoint/">Pagina del prodotto</a></small></li>
 </ul>
 </div>
 </div>

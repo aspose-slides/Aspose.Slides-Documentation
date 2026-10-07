@@ -6,21 +6,21 @@ weight: 47
 url: /pt/nodejs-java/
 keywords:
 - documentação
-- processamento de apresentações
-- conversão de apresentações
+- processamento de apresentação
+- conversão de apresentação
 - PowerPoint
 - OpenDocument
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Comece aqui: instale o Aspose.Slides para Node.js via Java, crie uma primeira apresentação e encontre os guias para tarefas comuns, a referência da API e o suporte."
+description: "Comece aqui: instale Aspose.Slides para Node.js via Java, crie sua primeira apresentação e encontre os guias para tarefas comuns, a referência da API e o suporte."
 is_root: true
 ---
-<img src="aspose_slides-for-nodejs-via-java.png" alt="Aspose.Slides for Node.js via Java" align="left" style="width:110px; margin: 0 30px 20px 0"/>
+<img src="aspose_slides-for-nodejs-via-java.png" alt="Aspose.Slides para Node.js via Java" align="left" style="width:110px; margin: 0 30px 20px 0"/>
 
-Aspose.Slides for Node.js via Java é uma biblioteca para criar, ler, editar e converter apresentações PowerPoint e OpenDocument em aplicações Node.js, sem o Microsoft PowerPoint.
+Aspose.Slides para Node.js via Java é uma biblioteca para criar, ler, editar e converter apresentações PowerPoint e OpenDocument em aplicações Node.js, sem o Microsoft PowerPoint.
 
-Ela carrega e salva PPT, PPTX, PPS, POT e ODP, incluindo variantes habilitadas para macro e modelos, e exporta para PDF, XPS, HTML, SVG, TIFF, Markdown e imagens.
+Ela carrega e salva arquivos PPT, PPTX, PPS, POT e ODP, incluindo variantes com macros e modelos, e exporta para PDF, XPS, HTML, SVG, TIFF, Markdown e imagens.
 
 <div style="clear:both"></div>
 
@@ -30,11 +30,11 @@ Ela carrega e salva PPT, PPTX, PPS, POT e ODP, incluindo variantes habilitadas p
 <div class="col-md-4">
 <p><b>Começar</b></p>
 <hr>
-<p>INICIANDO</p>
+<p>COMEÇANDO</p>
 <ul>
 <li><a href="/slides/pt/nodejs-java/installation/">Instalação</a></li>
 <li><a href="/slides/pt/nodejs-java/create-presentation/">Crie sua primeira apresentação</a></li>
-<li><a href="/slides/pt/nodejs-java/getting-started/">Guia de início</a></li>
+<li><a href="/slides/pt/nodejs-java/getting-started/">Guia de introdução</a></li>
 </ul>
 <p>AVALIAR</p>
 <ul>
@@ -44,7 +44,7 @@ Ela carrega e salva PPT, PPTX, PPS, POT e ODP, incluindo variantes habilitadas p
 </ul>
 </div>
 <div class="col-md-4">
-<p><b>Construir com Slides</b></p>
+<p><b>Criar com Slides</b></p>
 <hr>
 <p>TAREFAS COMUNS</p>
 <ul>
@@ -54,12 +54,12 @@ Ela carrega e salva PPT, PPTX, PPS, POT e ODP, incluindo variantes habilitadas p
 <li><a href="/slides/pt/nodejs-java/convert-slide/">Renderizar slides como imagens</a></li>
 <li><a href="/slides/pt/nodejs-java/manage-text/">Editar texto e formas</a></li>
 </ul>
-<p>FLUXOS DE TRABALHO</p>
+<p>FLUXOS DE TRABALHO DO SLIDES</p>
 <ul>
 <li><a href="/slides/pt/nodejs-java/powerpoint-charts/">Gráficos</a></li>
 <li><a href="/slides/pt/nodejs-java/powerpoint-animation/">Animações</a></li>
 <li><a href="/slides/pt/nodejs-java/manage-media-files/">Áudio e vídeo</a></li>
-<li><a href="/slides/pt/nodejs-java/presentation-design/">Design de slide</a></li>
+<li><a href="/slides/pt/nodejs-java/presentation-design/">Design de slides</a></li>
 <li><a href="/slides/pt/nodejs-java/merge-presentation/">Mesclar apresentações</a></li>
 </ul>
 <p>EXEMPLOS</p>
@@ -73,14 +73,15 @@ Ela carrega e salva PPT, PPTX, PPS, POT e ODP, incluindo variantes habilitadas p
 <p>REFERÊNCIA</p>
 <ul>
 <li><a href="https://reference.aspose.com/slides/nodejs-java/">Referência da API</a></li>
-<li><a href="https://releases.aspose.com/slides/nodejs-java/release-notes/">Notas de lançamento</a></li>
+<li><a href="https://releases.aspose.com/slides/nodejs-java/release-notes/">Notas da versão</a></li>
 <li><a href="/slides/pt/nodejs-java/known-issues/">Problemas conhecidos</a></li>
+<li><a href="https://products.aspose.com/slides/nodejs-java/">Página do produto</a></li>
 <li><a href="https://releases.aspose.com/slides/nodejs-java/">Download</a></li>
 </ul>
 <p>SUPORTE</p>
 <ul>
 <li><a href="https://forum.aspose.com/c/slides/11">Fórum de suporte gratuito</a></li>
-<li><a href="https://helpdesk.aspose.com/">Helpdesk de suporte pago</a></li>
+<li><a href="https://helpdesk.aspose.com/">Central de suporte paga</a></li>
 </ul>
 </div>
 </div>
@@ -89,7 +90,7 @@ Ela carrega e salva PPT, PPTX, PPS, POT e ODP, incluindo variantes habilitadas p
 
 ## **Sua primeira apresentação**
 
-Além do Node.js 20 ou posterior, o pacote requer um Java Development Kit (JDK), Python e uma cadeia de ferramentas de compilação C++, porque o npm compila sua ponte `java` durante a instalação. Consulte [Instalação](/slides/pt/nodejs-java/installation/) para as etapas em cada sistema operacional. Em seguida, crie um projeto e instale o pacote via npm:
+Além do Node.js 20 ou superior, o pacote requer um Java Development Kit (JDK), Python e uma cadeia de ferramentas de compilação C++, porque o npm compila sua ponte `java` durante a instalação. Veja [Instalação](/slides/pt/nodejs-java/installation/) para as etapas em cada sistema operacional. Em seguida, crie um projeto e instale o pacote via npm:
 
 ```bash
 mkdir hello-slides
@@ -113,8 +114,8 @@ try {
     presentation.dispose();
 }
 
-// Aspose.Slides é executado em uma máquina virtual Java que mantém o Node.js em execução, portanto finalize o processo explicitamente.
+// Aspose.Slides roda em uma máquina virtual Java que mantém o Node.js em execução, portanto encerre o processo explicitamente.
 process.exit(0);
 ```
 
-Execute-o com `node hello.js`. O script salva *hello.pptx* com um slide contendo uma caixa de texto. Sem licença, o arquivo salvo contém uma marca d'água de avaliação — veja [Licenciamento](/slides/pt/nodejs-java/licensing/). Para mais maneiras de criar e preencher uma apresentação, veja [Criar apresentações](/slides/pt/nodejs-java/create-presentation/).
+Execute-o com `node hello.js`. O script salva *hello.pptx* com um slide contendo uma caixa de texto. Sem licença, o arquivo salvo possui uma marca d'água de avaliação — veja [Licenciamento](/slides/pt/nodejs-java/licensing/). Para mais maneiras de criar e preencher uma apresentação, consulte [Criar Apresentações](/slides/pt/nodejs-java/create-presentation/).

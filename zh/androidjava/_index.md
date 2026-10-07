@@ -1,6 +1,6 @@
 ---
-title: Aspose.Slides for Android via Java
-second_title: Aspose.Slides for Android
+title: 适用于 Android via Java 的 Aspose.Slides
+second_title: 适用于 Android 的 Aspose.Slides
 type: docs
 weight: 40
 url: /zh/androidjava/
@@ -13,14 +13,14 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "从这里开始：将 Aspose.Slides for Android via Java 添加到您的应用程序，创建第一个演示文稿，并查找常见任务的指南、API 参考和支持。"
+description: "从这里开始：将 Aspose.Slides for Android via Java 添加到您的应用程序，创建第一个演示文稿，并查找常见任务指南、API 参考和支持。"
 is_root: true
 ---
 <img src="home_1.png" alt="Aspose.Slides for Android via Java" align="left" style="width:110px; margin: 0 30px 20px 0"/>
 
-Aspose.Slides for Android via Java 是一个类库，可在 Android 应用程序中创建、读取、编辑和转换 PowerPoint 和 OpenDocument 演示文稿，无需 Microsoft PowerPoint。
+Aspose.Slides for Android via Java 是一个类库，用于在 Android 应用程序中创建、读取、编辑和转换 PowerPoint 和 OpenDocument 演示文稿，无需 Microsoft PowerPoint。
 
-它可以加载和保存 PPT、PPTX、PPS、POT 和 ODP，包括带宏的和模板变体，并可导出为 PDF、XPS、HTML、SVG、TIFF、Markdown 和图像。
+它可以加载和保存 PPT、PPTX、PPS、POT 和 ODP，包括宏启用和模板变体，并导出为 PDF、XPS、HTML、SVG、TIFF、Markdown 和图像。
 
 <div style="clear:both"></div>
 
@@ -28,9 +28,9 @@ Aspose.Slides for Android via Java 是一个类库，可在 Android 应用程序
 
 <div class="row">
 <div class="col-md-4">
-<p><b>入门</b></p>
+<p><b>开始使用</b></p>
 <hr>
-<p>快速入门</p>
+<p>入门</p>
 <ul>
 <li><a href="/slides/zh/androidjava/install-aspose-slides-for-android-via-java/">安装</a></li>
 <li><a href="/slides/zh/androidjava/create-presentation/">创建您的第一个演示文稿</a></li>
@@ -38,9 +38,9 @@ Aspose.Slides for Android via Java 是一个类库，可在 Android 应用程序
 </ul>
 <p>评估</p>
 <ul>
-<li><a href="/slides/zh/androidjava/supported-file-formats/">受支持的文件格式</a></li>
+<li><a href="/slides/zh/androidjava/supported-file-formats/">支持的文件格式</a></li>
 <li><a href="/slides/zh/androidjava/evaluate-aspose-slides/">试用限制</a></li>
-<li><a href="/slides/zh/androidjava/licensing/">授权</a></li>
+<li><a href="/slides/zh/androidjava/licensing/">授权许可</a></li>
 </ul>
 </div>
 <div class="col-md-4">
@@ -75,6 +75,7 @@ Aspose.Slides for Android via Java 是一个类库，可在 Android 应用程序
 <li><a href="https://reference.aspose.com/slides/androidjava/">API 参考</a></li>
 <li><a href="https://releases.aspose.com/slides/androidjava/release-notes/">发行说明</a></li>
 <li><a href="/slides/zh/androidjava/known-issues/">已知问题</a></li>
+<li><a href="https://products.aspose.com/slides/android-java/">产品页面</a></li>
 <li><a href="https://releases.aspose.com/slides/androidjava/">下载</a></li>
 </ul>
 <p>支持</p>
@@ -89,7 +90,7 @@ Aspose.Slides for Android via Java 是一个类库，可在 Android 应用程序
 
 ## **您的第一个演示文稿**
 
-该库来自 Aspose 的 Maven 仓库。新的 Android Studio 项目已经在 *settings.gradle.kts* 中拥有 `dependencyResolutionManagement` 块。请将下面显示的 `maven` 行添加到其中的 `repositories` 块，而不是粘贴第二个块：
+该库来自 Aspose 的 Maven 仓库。新的 Android Studio 项目已经在 *settings.gradle.kts* 中包含 `dependencyResolutionManagement` 块。请将下面显示的 `maven` 行添加到其内部的 `repositories` 块中，而不是粘贴第二个块：
 
 ```kotlin
 dependencyResolutionManagement {
@@ -110,4 +111,4 @@ dependencies {
 }
 ```
 
-[Installation](/slides/zh/androidjava/install-aspose-slides-for-android-via-java/) 包含 Groovy 构建脚本、手动 JAR 文件以及如何选择版本的说明。您的第一个演示文稿的代码位于 [Create Presentations](/slides/zh/androidjava/create-presentation/) 页面：它向幻灯片添加一个文本框并将演示文稿保存到应用的存储中。该示例已编译并构建成 APK；尚未在设备上运行。没有许可证时，保存的演示文稿会带有评估水印——请参阅 [Licensing](/slides/zh/androidjava/licensing/)。
+[安装](/slides/zh/androidjava/install-aspose-slides-for-android-via-java/) 介绍了 Groovy 构建脚本、手动 JAR 文件以及如何选择版本。您的第一个演示文稿的代码位于 [创建演示文稿](/slides/zh/androidjava/create-presentation/)：它向幻灯片添加一个文本框并将演示文稿保存到应用的存储中。该示例已编译并构建为 APK；尚未在设备上运行。没有许可的情况下，保存的演示文稿会带有评估水印 —— 请参阅 [授权许可](/slides/zh/androidjava/licensing/).

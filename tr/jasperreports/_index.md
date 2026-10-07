@@ -8,20 +8,20 @@ keywords:
 - belgeler
 - JasperReports
 - JasperReports Server
-- rapor dışa aktarımı
+- rapor dışa aktarım
 - PowerPoint
 - PPT
 - PPTX
 - Java
 - Aspose.Slides
-description: "Buradan başlayın: Aspose.Slides for JasperReports'u kurun, ilk raporu PowerPoint'e dışa aktarın ve dışa aktarma, JasperReports Server entegrasyonu ve destek kılavuzlarını bulun."
+description: "Buradan başlayın: Aspose.Slides for JasperReports'ı kurun, ilk raporu PowerPoint'e dışa aktarın ve dışa aktarım, JasperReports Server entegrasyonu ve destek kılavuzlarını bulun."
 is_root: true
 ---
 <img src="home_1.png" alt="Aspose.Slides for JasperReports" align="left" style="width:110px; margin: 0 30px 20px 0"/>
 
 Aspose.Slides for JasperReports, JasperReports Library ve JasperReports Server'a PowerPoint dışa aktarıcıları ekler, böylece Java uygulamaları ve rapor sunucuları doldurulmuş raporları Microsoft PowerPoint olmadan sunum olarak kaydedebilir.
 
-Doldurulmuş bir raporu PPT ve PPTX formatına, rapor sayfası başına bir slayt olacak şekilde, ayrıca PDF ve HTML olarak dışa aktarır.
+Doldurulmuş bir raporu PPT ve PPTX formatına, rapor sayfası başına bir slayt olacak şekilde, ayrıca PDF ve HTML formatına dışa aktarır.
 
 <div style="clear:both"></div>
 
@@ -29,24 +29,24 @@ Doldurulmuş bir raporu PPT ve PPTX formatına, rapor sayfası başına bir slay
 
 <div class="row">
 <div class="col-md-4">
-<p><b>Başlarken</b></p>
+<p><b>Başlayın</b></p>
 <hr>
 <p>BAŞLANGIÇ</p>
 <ul>
 <li><a href="/slides/tr/jasperreports/installing-aspose-slides-for-jasperreports/">Kurulum</a></li>
-<li><a href="/slides/tr/jasperreports/product-overview/">Ürün incelemesi</a></li>
+<li><a href="/slides/tr/jasperreports/product-overview/">Ürün genel bakışı</a></li>
 <li><a href="/slides/tr/jasperreports/system-requirements/">Sistem gereksinimleri</a></li>
-<li><a href="/slides/tr/jasperreports/getting-started/">Başlangıç rehberi</a></li>
+<li><a href="/slides/tr/jasperreports/getting-started/">Başlangıç kılavuzu</a></li>
 </ul>
 <p>DEĞERLENDİR</p>
 <ul>
-<li><a href="/slides/tr/jasperreports/supported-file-formats/">Desteklenen dosya formatları</a></li>
+<li><a href="/slides/tr/jasperreports/supported-file-formats/">Desteklenen dosya biçimleri</a></li>
 <li><a href="/slides/tr/jasperreports/evaluate-aspose-slides/">Deneme sınırlamaları</a></li>
 <li><a href="/slides/tr/jasperreports/licensing/">Lisanslama</a></li>
 </ul>
 </div>
 <div class="col-md-4">
-<p><b>Slides ile Oluştur</b></p>
+<p><b>Slides ile Oluşturun</b></p>
 <hr>
 <p>DIŞA AKTARMA</p>
 <ul>
@@ -65,7 +65,8 @@ Doldurulmuş bir raporu PPT ve PPTX formatına, rapor sayfası başına bir slay
 <p>REFERANS</p>
 <ul>
 <li><a href="https://releases.aspose.com/slides/jasperreport/release-notes/">Sürüm notları</a></li>
-<li><a href="https://releases.aspose.com/slides/jasperreport/">İndir</a></li>
+<li><a href="https://products.aspose.com/slides/jasperreports/">Ürün sayfası</a></li>
+<li><a href="https://releases.aspose.com/slides/jasperreport/">İndirme</a></li>
 </ul>
 <p>DESTEK</p>
 <ul>
@@ -79,17 +80,17 @@ Doldurulmuş bir raporu PPT ve PPTX formatına, rapor sayfası başına bir slay
 
 ## **İlk dışa aktarımınız**
 
-Bu adımlar tek satırlık bir raporu derler, doldurur ve Maven Central üzerindeki JasperReports 6.16.0 ile PPTX olarak dışa aktarır. JDK 11 veya daha yeni bir sürüm ve Apache Maven gerekir.
+Bu adımlar, tek satırlık bir raporu derler, doldurur ve Maven Central'dan JasperReports 6.16.0 ile PPTX olarak dışa aktarır. JDK 11 veya üzeri ve Apache Maven gerekir.
 
-1. ZIP dosyasını [download sayfası](https://releases.aspose.com/slides/jasperreport/) üzerinden indirin ve açın. *lib* klasörü, JasperReports sürüm aralıklarına göre bir alt klasör içerir ve her biri o aralık için jar dosyasını tutar. JasperReports 6.16.0 için *lib/JasperReports 6.5.0 - 6.16.0 (JDK 1.6)/aspose.slides.jasperreports.library-26.6.jar* dosyasını boş bir proje klasörüne kopyalayın.
+1. ZIP dosyasını [indirme sayfası](https://releases.aspose.com/slides/jasperreport/) üzerinden indirin ve açın. *lib* klasörü, JasperReports sürüm aralıklarına göre bir alt klasör içerir ve her biri o aralık için jar dosyasını tutar. JasperReports 6.16.0 için *lib/JasperReports 6.5.0 - 6.16.0 (JDK 1.6)/aspose.slides.jasperreports.library-26.6.jar* dosyasını boş bir proje klasörüne kopyalayın.
 
-2. Jar, Maven deposundan değil ZIP içinde geldiği için yerel Maven deponuza yükleyin. Proje klasöründe şu komutu çalıştırın:
+2. Jar, Maven deposundan değil ZIP içinde geldiği için yerel Maven deponuza kurmanız gerekir. Proje klasöründe şu komutu çalıştırın:
 
 ```bash
 mvn install:install-file "-Dfile=aspose.slides.jasperreports.library-26.6.jar" "-DgroupId=com.aspose" "-DartifactId=aspose-slides-jasperreports" "-Dversion=26.6" "-Dpackaging=jar"
 ```
 
-3. Bu *pom.xml* dosyasını proje klasörüne kaydedin. JasperReports 6.16.0 ve yüklediğiniz jar'ı ekler ve çalıştırılacak sınıfı belirtir. JasperReports 6.16.0, Maven Central'da bulunmayan bir iText yamasını beyan eder, bu yüzden dosya onu dışarı bırakır; Aspose dışa aktarıcıları buna ihtiyaç duymaz.
+3. *pom.xml* dosyasını proje klasörüne kaydedin. Bu, JasperReports 6.16.0 ve kurduğunuz jar dosyasını ekler ve çalıştırılacak sınıfı belirler. JasperReports 6.16.0, Maven Central'da bulunmayan yamanmış bir iText sürümü bildirir, bu nedenle dosyada bu olarak dışarıda bırakılır; Aspose dışa aktarıcıları buna ihtiyaç duymaz.
 
 ```xml
 <project xmlns="http://maven.apache.org/POM/4.0.0">
@@ -135,7 +136,7 @@ mvn install:install-file "-Dfile=aspose.slides.jasperreports.library-26.6.jar" "
 </project>
 ```
 
-4. Bu rapor tasarımını proje klasörüne *hello.jrxml* olarak kaydedin. Başlık bandında bir satır metin yazar:
+4. Bu rapor tasarımını proje klasöründe *hello.jrxml* olarak kaydedin. Başlık bandında bir satır metin basar:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -158,7 +159,7 @@ mvn install:install-file "-Dfile=aspose.slides.jasperreports.library-26.6.jar" "
 </jasperReport>
 ```
 
-5. Kodu *src/main/java/HelloExport.java* olarak kaydedin. Tasarımı derler, bir boş kayıtla doldurur ve sonucu `ASPptxExporter` ile dışa aktarır:
+5. Bu kodu *src/main/java/HelloExport.java* olarak kaydedin. Tasarımı derler, bir boş kayıtla doldurur ve sonucu `ASPptxExporter` ile dışa aktarır:
 
 ```java
 import java.util.HashMap;
@@ -173,11 +174,11 @@ import net.sf.jasperreports.engine.JasperReport;
 
 public class HelloExport {
     public static void main(String[] args) throws Exception {
-        // Rapor tasarımını derle ve tek bir boş kayıtla doldur.
+        // Rapor tasarımını derleyin ve bir boş kayıtla doldurun.
         JasperReport report = JasperCompileManager.compileReport("hello.jrxml");
         JasperPrint jasperPrint = JasperFillManager.fillReport(report, new HashMap<String, Object>(), new JREmptyDataSource());
 
-        // Doldurulmuş raporu PPTX'e dışa aktar.
+        // Doldurulmuş raporu PPTX olarak dışa aktarın.
         ASPptxExporter exporter = new ASPptxExporter();
         exporter.setParameter(JRExporterParameter.JASPER_PRINT, jasperPrint);
         exporter.setParameter(JRExporterParameter.OUTPUT_FILE_NAME, "hello.pptx");
@@ -192,4 +193,4 @@ public class HelloExport {
 mvn compile exec:java
 ```
 
-Program, proje klasöründe *hello.pptx* dosyasını kaydeder; bu dosya raporun metnini içeren bir slayt içerir. Derleyici, kodun kullanımdan kaldırılmış bir API'yi kullandığını belirtir: dışa aktarıcılar girdilerini ve çıktısını `JRExporterParameter` üzerinden alır ve yeni `setExporterInput` ve `setExporterOutput` yapılandırmasını kabul etmez. Linux'ta fontconfig ve en az bir yazı tipi yüklü olmalıdır, aksi takdirde rapor doldurulamaz. Lisans olmadan, her slayt ortasında bir değerlendirme filigranı taşır — bakınız [Lisanslama](/slides/tr/jasperreports/licensing/). PPT, PDF veya HTML'ye dışa aktarmak için bakınız [PPT, PPTX, PDF ve HTML Dışa Aktarma](/slides/tr/jasperreports/ppt-pptx-pdf-and-html-export/).
+Program, proje klasöründe *hello.pptx* dosyasını kaydeder; raporun metnini içeren bir slayt oluşturur. Derleyici, kodun eski bir API kullandığını bildirir: dışa aktarıcılar girdilerini ve çıktısını `JRExporterParameter` aracılığıyla alır ve yeni `setExporterInput` ve `setExporterOutput` yapılandırmalarını kabul etmez. Linux'ta fontconfig ve en az bir yazı tipi kurulmuş olmalıdır, aksi takdirde rapor doldurma başarısız olur. Lisans olmadan, her slayt ortasında bir değerlendirme filigranı taşır — bkz. [Lisanslama](/slides/tr/jasperreports/licensing/). PPT, PDF veya HTML olarak dışa aktarmak için [PPT, PPTX, PDF ve HTML Dışa Aktarımı](/slides/tr/jasperreports/ppt-pptx-pdf-and-html-export/) sayfasına bakın.

@@ -5,21 +5,21 @@ type: docs
 weight: 20
 url: /tr/java/
 keywords:
-- dokümantasyon
+- belgelendirme
 - sunum işleme
 - sunum dönüştürme
 - PowerPoint
 - OpenDocument
 - Java
 - Aspose.Slides
-description: "Buradan başlayın: Aspose.Slides for Java'yi kurun, ilk sunumunuzu oluşturun ve ortak görevler, API referansı ve destek için rehberleri bulun."
+description: "Buradan başlayın: Aspose.Slides for Java'yi kurun, ilk sunumunuzu oluşturun ve ortak görevler, dağıtım ve API referansı için kılavuzları bulun."
 is_root: true
 ---
 <img src="home_1.png" alt="Aspose.Slides for Java" align="left" style="width:110px; margin: 0 30px 20px 0"/>
 
 Aspose.Slides for Java, Microsoft PowerPoint olmadan Java uygulamalarında PowerPoint ve OpenDocument sunumları oluşturmak, okumak, düzenlemek ve dönüştürmek için bir sınıf kitaplığıdır.
 
-Makro etkin ve şablon varyantları da dahil olmak üzere PPT, PPTX, PPS, POT ve ODP dosyalarını yükler ve kaydeder; ayrıca PDF, XPS, HTML, SVG, TIFF, Markdown ve görüntülere dışa aktarır.
+Makro destekli ve şablon varyantları dahil olmak üzere PPT, PPTX, PPS, POT ve ODP dosyalarını yükler ve kaydeder, ayrıca PDF, XPS, HTML, SVG, TIFF, Markdown ve görüntülere dışa aktarır.
 
 <div style="clear:both"></div>
 
@@ -27,17 +27,19 @@ Makro etkin ve şablon varyantları da dahil olmak üzere PPT, PPTX, PPS, POT ve
 
 <div class="row">
 <div class="col-md-4">
-<p><b>Başlarken</b></p>
+<p><b>Başlayın</b></p>
 <hr>
-<p>BAŞLAMA</p>
+<p>BAŞLANGIÇ</p>
 <ul>
 <li><a href="/slides/tr/java/installation/">Kurulum</a></li>
 <li><a href="/slides/tr/java/create-presentation/">İlk sunumunuzu oluşturun</a></li>
-<li><a href="/slides/tr/java/getting-started/">Başlangıç rehberi</a></li>
+<li><a href="/slides/tr/java/system-requirements/">Sistem gereksinimleri</a></li>
+<li><a href="/slides/tr/java/getting-started/">Başlangıç kılavuzu</a></li>
 </ul>
 <p>DEĞERLENDİR</p>
 <ul>
 <li><a href="/slides/tr/java/supported-file-formats/">Desteklenen dosya formatları</a></li>
+<li><a href="/slides/tr/java/features-overview/">Özelliklere genel bakış</a></li>
 <li><a href="/slides/tr/java/evaluate-aspose-slides/">Deneme sınırlamaları</a></li>
 <li><a href="/slides/tr/java/licensing/">Lisanslama</a></li>
 </ul>
@@ -47,13 +49,13 @@ Makro etkin ve şablon varyantları da dahil olmak üzere PPT, PPTX, PPS, POT ve
 <hr>
 <p>ORTAK GÖREVLER</p>
 <ul>
-<li><a href="/slides/tr/java/open-presentation/">Bir sunumu açın</a></li>
-<li><a href="/slides/tr/java/save-presentation/">Bir sunumu kaydedin</a></li>
-<li><a href="/slides/tr/java/convert-powerpoint-to-pdf/">PDF'ye dönüştür</a></li>
-<li><a href="/slides/tr/java/convert-slide/">Slaytları resim olarak render et</a></li>
+<li><a href="/slides/tr/java/open-presentation/">Sunum aç</a></li>
+<li><a href="/slides/tr/java/save-presentation/">Sunumu kaydet</a></li>
+<li><a href="/slides/tr/java/convert-powerpoint-to-pdf/">PDF'e dönüştür</a></li>
+<li><a href="/slides/tr/java/convert-slide/">Slaytları resim olarak oluştur</a></li>
 <li><a href="/slides/tr/java/manage-text/">Metin ve şekilleri düzenle</a></li>
 </ul>
-<p>SLIDES İŞ AKIŞLARI</p>
+<p>SLAYT İŞ AKIŞLARI</p>
 <ul>
 <li><a href="/slides/tr/java/powerpoint-charts/">Grafikler</a></li>
 <li><a href="/slides/tr/java/powerpoint-animation/">Animasyonlar</a></li>
@@ -68,28 +70,39 @@ Makro etkin ve şablon varyantları da dahil olmak üzere PPT, PPTX, PPS, POT ve
 </ul>
 </div>
 <div class="col-md-4">
-<p><b>Referans &amp; Destek</b></p>
+<p><b>Dağıtım ve Destek</b></p>
 <hr>
-<p>REFERANS</p>
+<p>DAĞITIM</p>
+<ul>
+<li><a href="/slides/tr/java/system-requirements/#linux">Linux önkoşulları</a></li>
+<li><a href="/slides/tr/java/how-to-run-aspose-slides-in-docker/">Docker'da çalıştır</a></li>
+<li><a href="/slides/tr/java/deploy-fonts/">Yazı tipleri</a></li>
+<li><a href="/slides/tr/java/security/">Güvenlik</a></li>
+</ul>
+<p>REFERANSLAR</p>
 <ul>
 <li><a href="https://reference.aspose.com/slides/java/">API referansı</a></li>
 <li><a href="https://releases.aspose.com/slides/java/release-notes/">Sürüm notları</a></li>
 <li><a href="/slides/tr/java/known-issues/">Bilinen sorunlar</a></li>
+<li><a href="/slides/tr/java/api-limitations/">Çıktı meta verisi sınırlamaları</a></li>
+<li><a href="https://products.aspose.com/slides/java/">Ürün sayfası</a></li>
 <li><a href="https://releases.aspose.com/slides/java/">İndirme</a></li>
 </ul>
 <p>DESTEK</p>
 <ul>
 <li><a href="https://forum.aspose.com/c/slides/11">Ücretsiz destek forumu</a></li>
-<li><a href="https://helpdesk.aspose.com/">Ücretli destek yardım masası</a></li>
+<li><a href="https://helpdesk.aspose.com/">Ücretli destek hizmet masası</a></li>
 </ul>
 </div>
 </div>
 
 ------
 
+<a name="your-first-presentation"></a>
+
 ## **İlk sunumunuz**
 
-Aspose.Slides for Java, Maven Central yerine Aspose'un kendi Maven deposunda yayımlanır. Bir Maven projesi için bir klasör oluşturun ve *pom.xml* dosyasını içine kaydedin. Depoyu bildirir, kütüphaneyi ekler ve çalıştırılacak sınıfı adlandırır:
+Aspose.Slides for Java, Maven Central yerine Aspose'un kendi Maven deposunda yayınlanır. Bir Maven projesi için bir klasör oluşturun ve *pom.xml* dosyasını içine kaydedin. Bu dosya depoyu bildirir, kitaplığı ekler ve çalıştırılacak sınıfı adlandırır:
 
 ```xml
 <project xmlns="http://maven.apache.org/POM/4.0.0">
@@ -140,7 +153,7 @@ import com.aspose.slides.*;
 
 public class HelloSlides {
     public static void main(String[] args) {
-        // Bir sunum oluşturun. Zaten içinde bir boş slayt içeriyor.
+        // Bir sunum oluşturun. Zaten içinde bir boş slayt bulunur.
         Presentation presentation = new Presentation();
         try {
             // İlk slaytı alın.
@@ -165,4 +178,4 @@ Ardından, JDK 11 veya daha yeni bir sürüm ve Apache Maven kurulu olduğunda, 
 mvn compile exec:java
 ```
 
-Program, proje klasöründe bir slayt içinde metin içeren bir bulut şekli bulunan *new_presentation.pptx* dosyasını kaydeder. Linux'ta fontconfig ve en az bir fontun yüklü olması gerekir; bkz.[Kurulum](/slides/tr/java/installation/#linux). Lisans olmadan, kaydedilen dosya bir değerlendirme filigranı içerir — bkz.[Lisanslama](/slides/tr/java/licensing/). Sunum oluşturma ve doldurma hakkında daha fazla yöntem için bkz.[Sunum Oluşturma](/slides/tr/java/create-presentation/).
+Program, proje klasöründe *new_presentation.pptx* dosyasını, içinde metin içeren bir bulut şekli bulunan bir slayt ile kaydeder. Linux'ta fontconfig ve en az bir yazı tipi kurulmuş olmalıdır; bkz.[Kurulum](/slides/tr/java/installation/#linux). Lisans olmadan, kaydedilen dosya bir değerlendirme filigranı içerir — bkz.[Lisanslama](/slides/tr/java/licensing/). Sunum oluşturma ve doldurma hakkında daha fazla bilgi için bkz.[İlk sunumunuzu oluşturun](/slides/tr/java/create-presentation/).

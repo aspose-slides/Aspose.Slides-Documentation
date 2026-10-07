@@ -1,6 +1,6 @@
 ---
-title: Aspose.Slides for JasperReports
-second_title: Aspose.Slides for JasperReports
+title: Aspose.Slides für JasperReports
+second_title: Aspose.Slides für JasperReports
 type: docs
 weight: 70
 url: /de/jasperreports/
@@ -14,14 +14,14 @@ keywords:
 - PPTX
 - Java
 - Aspose.Slides
-description: "Starten Sie hier: Installieren Sie Aspose.Slides for JasperReports, exportieren Sie einen ersten Bericht nach PowerPoint und finden Sie die Anleitungen für den Export, die Integration von JasperReports Server und den Support."
+description: "Starten Sie hier: Installieren Sie Aspose.Slides für JasperReports, exportieren Sie einen ersten Bericht nach PowerPoint und finden Sie die Anleitungen für den Export, die Integration in JasperReports Server und den Support."
 is_root: true
 ---
 <img src="home_1.png" alt="Aspose.Slides for JasperReports" align="left" style="width:110px; margin: 0 30px 20px 0"/>
 
-Aspose.Slides for JasperReports fügt PowerPoint‑Exportierer zu JasperReports Library und JasperReports Server hinzu, sodass Java‑Anwendungen und Berichtserver ausgefüllte Berichte als Präsentationen speichern können, ohne Microsoft PowerPoint.
+Aspose.Slides for JasperReports fügt der JasperReports Library und dem JasperReports Server PowerPoint‑Exporter hinzu, sodass Java‑Anwendungen und Reporting‑Server ausgefüllte Berichte als Präsentationen ohne Microsoft PowerPoint speichern können.
 
-Es exportiert einen ausgefüllten Bericht nach PPT und PPTX, eine Folie pro Berichtseite, und außerdem nach PDF und HTML.
+Es exportiert einen ausgefüllten Bericht in PPT und PPTX, eine Folie pro Berichtseite, sowie nach PDF und HTML.
 
 <div style="clear:both"></div>
 
@@ -36,12 +36,12 @@ Es exportiert einen ausgefüllten Bericht nach PPT und PPTX, eine Folie pro Beri
 <li><a href="/slides/de/jasperreports/installing-aspose-slides-for-jasperreports/">Installation</a></li>
 <li><a href="/slides/de/jasperreports/product-overview/">Produktübersicht</a></li>
 <li><a href="/slides/de/jasperreports/system-requirements/">Systemanforderungen</a></li>
-<li><a href="/slides/de/jasperreports/getting-started/">Einsteiger‑Leitfaden</a></li>
+<li><a href="/slides/de/jasperreports/getting-started/">Leitfaden für den Einstieg</a></li>
 </ul>
-<p>EVALUATE</p>
+<p>EVALUIEREN</p>
 <ul>
 <li><a href="/slides/de/jasperreports/supported-file-formats/">Unterstützte Dateiformate</a></li>
-<li><a href="/slides/de/jasperreports/evaluate-aspose-slides/">Testversion‑Einschränkungen</a></li>
+<li><a href="/slides/de/jasperreports/evaluate-aspose-slides/">Einschränkungen der Testversion</a></li>
 <li><a href="/slides/de/jasperreports/licensing/">Lizenzierung</a></li>
 </ul>
 </div>
@@ -60,12 +60,13 @@ Es exportiert einen ausgefüllten Bericht nach PPT und PPTX, eine Folie pro Beri
 </ul>
 </div>
 <div class="col-md-4">
-<p><b>Reference &amp; Support</b></p>
+<p><b>Referenz &amp; Support</b></p>
 <hr>
-<p>REFERENCE</p>
+<p>REFERENZ</p>
 <ul>
 <li><a href="https://releases.aspose.com/slides/jasperreport/release-notes/">Versionshinweise</a></li>
-<li><a href="https://releases.aspose.com/slides/jasperreport/">Download</a></li>
+<li><a href="https://products.aspose.com/slides/jasperreports/">Produktseite</a></li>
+<li><a href="https://releases.aspose.com/slides/jasperreport/">Herunterladen</a></li>
 </ul>
 <p>SUPPORT</p>
 <ul>
@@ -79,17 +80,17 @@ Es exportiert einen ausgefüllten Bericht nach PPT und PPTX, eine Folie pro Beri
 
 ## **Ihr erster Export**
 
-Diese Schritte erstellen einen einzeiligen Bericht, füllen ihn und exportieren ihn nach PPTX mit JasperReports 6.16.0 aus dem Maven‑Central. Sie benötigen JDK 11 oder höher sowie Apache Maven.
+Diese Schritte kompilieren einen Ein‑Zeilen‑Bericht, füllen ihn und exportieren ihn mit JasperReports 6.16.0 aus Maven Central zu PPTX. Sie benötigen JDK 11 oder höher und Apache Maven.
 
-1. Laden Sie das ZIP von der [Download‑Seite](https://releases.aspose.com/slides/jasperreport/) herunter und entpacken Sie es. Sein *lib*-Ordner enthält je nach JasperReports‑Version einen Unterordner, und jeder enthält die entsprechende JAR‑Datei. Für JasperReports 6.16.0 kopieren Sie *lib/JasperReports 6.5.0 - 6.16.0 (JDK 1.6)/aspose.slides.jasperreports.library-26.6.jar* in einen leeren Projektordner.
+1. Laden Sie das ZIP von der [Download-Seite](https://releases.aspose.com/slides/jasperreport/) herunter und entpacken Sie es. Sein *lib*-Ordner enthält für jede JasperReports‑Versionen‑Spanne einen Unterordner, der das jeweilige JAR enthält. Für JasperReports 6.16.0 kopieren Sie *lib/JasperReports 6.5.0 - 6.16.0 (JDK 1.6)/aspose.slides.jasperreports.library-26.6.jar* in einen leeren Projektordner.
 
-2. Die JAR‑Datei befindet sich im ZIP und nicht in einem Maven‑Repository, daher installieren Sie sie in Ihr lokales Maven‑Repository. Führen Sie diesen Befehl im Projektordner aus:
+2. Das JAR befindet sich im ZIP und nicht in einem Maven‑Repository, daher installieren Sie es in Ihr lokales Maven‑Repository. Führen Sie diesen Befehl im Projektordner aus:
 
 ```bash
 mvn install:install-file "-Dfile=aspose.slides.jasperreports.library-26.6.jar" "-DgroupId=com.aspose" "-DartifactId=aspose-slides-jasperreports" "-Dversion=26.6" "-Dpackaging=jar"
 ```
 
-3. Speichern Sie diese *pom.xml* im Projektordner. Sie fügt JasperReports 6.16.0 und die installierte JAR‑Datei hinzu und gibt die auszuführende Klasse an. JasperReports 6.16.0 deklariert einen gepatchten iText‑Build, der nicht im Maven‑Central verfügbar ist, daher wird er aus der Datei ausgeschlossen; die Aspose‑Exporter benötigen ihn nicht.
+3. Speichern Sie diese *pom.xml* im Projektordner. Sie fügt JasperReports 6.16.0 und das von Ihnen installierte JAR hinzu und benennt die auszuführende Klasse. JasperReports 6.16.0 deklariert einen gepatchten iText‑Build, der nicht in Maven Central verfügbar ist, daher wird er in der Datei ausgeschlossen; die Aspose‑Exporter benötigen ihn nicht.
 
 ```xml
 <project xmlns="http://maven.apache.org/POM/4.0.0">
@@ -135,7 +136,7 @@ mvn install:install-file "-Dfile=aspose.slides.jasperreports.library-26.6.jar" "
 </project>
 ```
 
-4. Speichern Sie dieses Bericht‑Design als *hello.jrxml* im Projektordner. Es gibt eine Textzeile im Titel‑Band aus:
+4. Speichern Sie dieses Report‑Design als *hello.jrxml* im Projektordner. Es gibt eine Textzeile im Titelband aus:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -173,7 +174,7 @@ import net.sf.jasperreports.engine.JasperReport;
 
 public class HelloExport {
     public static void main(String[] args) throws Exception {
-        // Kompiliere das Berichtdesign und fülle es mit einem leeren Datensatz.
+        // Kompiliere das Berichtslayout und fülle es mit einem leeren Datensatz.
         JasperReport report = JasperCompileManager.compileReport("hello.jrxml");
         JasperPrint jasperPrint = JasperFillManager.fillReport(report, new HashMap<String, Object>(), new JREmptyDataSource());
 
@@ -192,4 +193,4 @@ public class HelloExport {
 mvn compile exec:java
 ```
 
-Das Programm speichert *hello.pptx* im Projektordner, mit einer Folie, die den Text des Berichts enthält. Der Compiler weist darauf hin, dass der Code eine veraltete API verwendet: Die Exporter übernehmen Eingabe und Ausgabe über `JRExporterParameter` und unterstützen nicht die neuere Konfiguration `setExporterInput` und `setExporterOutput`. Unter Linux müssen fontconfig und mindestens eine Schriftart installiert sein, sonst schlägt das Befüllen des Berichts fehl. Ohne Lizenz enthält jede Folie ein Evaluations‑Wasserzeichen in der Mitte — siehe [Lizenzierung](/slides/de/jasperreports/licensing/). Zum Export nach PPT, PDF oder HTML siehe [Export nach PPT, PPTX, PDF und HTML](/slides/de/jasperreports/ppt-pptx-pdf-and-html-export/).
+Das Programm speichert *hello.pptx* im Projektordner, mit einer Folie, die den Text des Berichts enthält. Der Compiler weist darauf hin, dass der Code eine veraltete API verwendet: Die Exporter erhalten ihre Eingabe und Ausgabe über `JRExporterParameter` und akzeptieren nicht die neuere Konfiguration `setExporterInput` und `setExporterOutput`. Unter Linux müssen fontconfig und mindestens eine Schriftart installiert sein, sonst schlägt das Füllen des Berichts fehl. Ohne Lizenz trägt jede Folie ein Evaluations‑Wasserzeichen in der Mitte — siehe [Lizenzierung](/slides/de/jasperreports/licensing/). Zum Exportieren nach PPT, PDF oder HTML, siehe [PPT, PPTX, PDF und HTML Export](/slides/de/jasperreports/ppt-pptx-pdf-and-html-export/).

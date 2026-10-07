@@ -1,6 +1,6 @@
 ---
-title: Aspose.Slides for .NET
-second_title: Aspose.Slides for .NET
+title: Aspose.Slides für .NET
+second_title: Aspose.Slides für .NET
 type: docs
 weight: 10
 url: /de/net/
@@ -13,14 +13,14 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Starten Sie hier: Installieren Sie Aspose.Slides for .NET, erstellen Sie eine erste Präsentation und finden Sie die Anleitungen für gängige Aufgaben, Bereitstellung und die API-Referenz."
+description: "Starten Sie hier: installieren Sie Aspose.Slides für .NET, erstellen Sie eine erste Präsentation und finden Sie die Anleitungen für gängige Aufgaben, Bereitstellung und die API-Referenz."
 is_root: true
 ---
 <img src="home_1.png" alt="Aspose.Slides for .NET" align="left" style="width:110px; margin: 0 30px 20px 0"/>
 
-Aspose.Slides for .NET ist eine Klassenbibliothek zum Erstellen, Lesen, Bearbeiten und Konvertieren von PowerPoint- und OpenDocument-Präsentationen in .NET-Anwendungen, ohne Microsoft PowerPoint oder Office-Automatisierung.
+Aspose.Slides für .NET ist eine Klassenbibliothek zum Erstellen, Lesen, Bearbeiten und Konvertieren von PowerPoint- und OpenDocument-Präsentationen in .NET-Anwendungen, ohne Microsoft PowerPoint oder Office-Automatisierung.
 
-Sie lädt und speichert PPT, PPTX, PPS, POT und ODP, einschließlich Makro‑unterstützter und Vorlagen‑Varianten, und exportiert nach PDF, XPS, HTML, SVG, TIFF, Markdown und Bildern.
+Sie lädt und speichert PPT, PPTX, PPS, POT und ODP, einschließlich makroaktivierter und Vorlagenvarianten, und exportiert nach PDF, XPS, HTML, SVG, TIFF, Markdown und Bildern.
 
 <div style="clear:both"></div>
 
@@ -46,7 +46,7 @@ Sie lädt und speichert PPT, PPTX, PPS, POT und ODP, einschließlich Makro‑unt
 </ul>
 </div>
 <div class="col-md-4">
-<p><b>Entwickeln mit Slides</b></p>
+<p><b>Mit Slides erstellen</b></p>
 <hr>
 <p>ALLGEMEINE AUFGABEN</p>
 <ul>
@@ -71,21 +71,22 @@ Sie lädt und speichert PPT, PPTX, PPS, POT und ODP, einschließlich Makro‑unt
 </ul>
 </div>
 <div class="col-md-4">
-<p><b>Bereitstellung &amp; Support</b></p>
+<p><b>Bereitstellen &amp; Support</b></p>
 <hr>
-<p>BEREITSTELLUNG</p>
+<p>EINSETZEN</p>
 <ul>
 <li><a href="/slides/de/net/net6/">Plattformübergreifend (.NET 6+)</a></li>
 <li><a href="/slides/de/net/how-to-run-aspose-slides-in-docker/">In Docker ausführen</a></li>
-<li><a href="/slides/de/net/deploy-fonts/">Schriftarten</a></li>
+<li><a href="/slides/de/net/deploy-fonts/">Schriften</a></li>
 <li><a href="/slides/de/net/security/">Sicherheit</a></li>
 </ul>
 <p>REFERENZ</p>
 <ul>
-<li><a href="https://reference.aspose.com/slides/net/">API-Referenz</a></li>
+<li><a href="https://reference.aspose.com/slides/net/">API‑Referenz</a></li>
 <li><a href="https://releases.aspose.com/slides/net/release-notes/">Versionshinweise</a></li>
 <li><a href="/slides/de/net/known-issues/">Bekannte Probleme</a></li>
-<li><a href="/slides/de/net/api-limitations/">Einschränkungen bei Metadaten</a></li>
+<li><a href="/slides/de/net/api-limitations/">Einschränkungen bei Ausgabemetadaten</a></li>
+<li><a href="https://products.aspose.com/slides/net/">Produktseite</a></li>
 <li><a href="https://releases.aspose.com/slides/net/">Download</a></li>
 </ul>
 <p>SUPPORT</p>
@@ -109,7 +110,7 @@ dotnet new console -n HelloSlides
 cd HelloSlides
 ```
 
-Fügen Sie anschließend ein Paket für Ihre Plattform hinzu:
+Dann fügen Sie ein Paket für Ihre Plattform hinzu:
 
 - Unter Windows: `dotnet add package Aspose.Slides.NET`
 - Unter Linux und macOS: `dotnet add package Aspose.Slides.NET6.CrossPlatform` — siehe [Installation](/slides/de/net/installation/) für die Linux‑Voraussetzungen und für Systeme, die stattdessen Aspose.Slides.NET benötigen.
@@ -127,4 +128,4 @@ shape.TextFrame.Text = "Hello, Aspose.Slides!";
 presentation.Save("hello.pptx", SaveFormat.Pptx);
 ```
 
-Das Programm speichert *hello.pptx* mit einer Folie, die ein Textfeld enthält. Ohne Lizenz enthält die gespeicherte Datei ein Evaluations‑Wasserzeichen — siehe [Lizenzierung](/slides/de/net/licensing/). Weitere Möglichkeiten zum Erstellen und Befüllen einer Präsentation finden Sie unter [Präsentationen erstellen](/slides/de/net/create-presentation/).
+Das Programm speichert *hello.pptx* mit einer Folie, die ein Textfeld enthält. Ohne Lizenz enthält die gespeicherte Datei ein Evaluierungswasserzeichen — siehe [Lizenzierung](/slides/de/net/licensing/). Für weitere Möglichkeiten zum Erstellen und Befüllen einer Präsentation siehe [Präsentationen erstellen](/slides/de/net/create-presentation/).

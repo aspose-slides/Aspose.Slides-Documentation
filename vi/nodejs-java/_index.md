@@ -13,14 +13,14 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Bắt đầu tại đây: cài đặt Aspose.Slides cho Node.js qua Java, tạo một bài thuyết trình đầu tiên, và tìm các hướng dẫn cho các nhiệm vụ phổ biến, tham khảo API và hỗ trợ."
+description: "Bắt đầu ở đây: cài đặt Aspose.Slides cho Node.js qua Java, tạo một bài thuyết trình đầu tiên, và tìm các hướng dẫn cho các nhiệm vụ chung, tài liệu tham khảo API và hỗ trợ."
 is_root: true
 ---
-<img src="aspose_slides-for-nodejs-via-java.png" alt="Aspose.Slides cho Node.js qua Java" align="left" style="width:110px; margin: 0 30px 20px 0"/>
+<img src="aspose_slides-for-nodejs-via-java.png" alt="Aspose.Slides for Node.js via Java" align="left" style="width:110px; margin: 0 30px 20px 0"/>
 
-Aspose.Slides cho Node.js qua Java là một thư viện để tạo, đọc, chỉnh sửa và chuyển đổi các bài thuyết trình PowerPoint và OpenDocument trong các ứng dụng Node.js, mà không cần Microsoft PowerPoint.
+Aspose.Slides for Node.js via Java là một thư viện để tạo, đọc, chỉnh sửa và chuyển đổi các bài thuyết trình PowerPoint và OpenDocument trong các ứng dụng Node.js, mà không cần Microsoft PowerPoint.
 
-Thư viện này tải và lưu các định dạng PPT, PPTX, PPS, POT và ODP, bao gồm các phiên bản hỗ trợ macro và mẫu, và xuất ra PDF, XPS, HTML, SVG, TIFF, Markdown và hình ảnh.
+Thư viện này tải và lưu các định dạng PPT, PPTX, PPS, POT và ODP, bao gồm các biến thể có macro và mẫu, và xuất ra PDF, XPS, HTML, SVG, TIFF, Markdown và hình ảnh.
 
 <div style="clear:both"></div>
 
@@ -38,7 +38,7 @@ Thư viện này tải và lưu các định dạng PPT, PPTX, PPS, POT và ODP,
 </ul>
 <p>ĐÁNH GIÁ</p>
 <ul>
-<li><a href="/slides/vi/nodejs-java/supported-file-formats/">Định dạng tệp được hỗ trợ</a></li>
+<li><a href="/slides/vi/nodejs-java/supported-file-formats/">Các định dạng file được hỗ trợ</a></li>
 <li><a href="/slides/vi/nodejs-java/evaluate-aspose-slides/">Giới hạn dùng thử</a></li>
 <li><a href="/slides/vi/nodejs-java/licensing/">Giấy phép</a></li>
 </ul>
@@ -46,21 +46,21 @@ Thư viện này tải và lưu các định dạng PPT, PPTX, PPS, POT và ODP,
 <div class="col-md-4">
 <p><b>Xây dựng với Slides</b></p>
 <hr>
-<p>CÔNG VIỆC THƯỜNG</p>
+<p>CÔNG VIỆC THÔNG DỤNG</p>
 <ul>
 <li><a href="/slides/vi/nodejs-java/open-presentation/">Mở một bài thuyết trình</a></li>
 <li><a href="/slides/vi/nodejs-java/save-presentation/">Lưu một bài thuyết trình</a></li>
 <li><a href="/slides/vi/nodejs-java/convert-powerpoint-to-pdf/">Chuyển đổi sang PDF</a></li>
-<li><a href="/slides/vi/nodejs-java/convert-slide/">Kết xuất các slide dưới dạng hình ảnh</a></li>
+<li><a href="/slides/vi/nodejs-java/convert-slide/">Kết xuất slide thành hình ảnh</a></li>
 <li><a href="/slides/vi/nodejs-java/manage-text/">Chỉnh sửa văn bản và hình dạng</a></li>
 </ul>
-<p>QUY TRÌNH SLIDE</p>
+<p>QUY TRÌNH LÀM VIỆC VỚI SLIDES</p>
 <ul>
 <li><a href="/slides/vi/nodejs-java/powerpoint-charts/">Biểu đồ</a></li>
 <li><a href="/slides/vi/nodejs-java/powerpoint-animation/">Hoạt ảnh</a></li>
 <li><a href="/slides/vi/nodejs-java/manage-media-files/">Âm thanh và video</a></li>
 <li><a href="/slides/vi/nodejs-java/presentation-design/">Thiết kế slide</a></li>
-<li><a href="/slides/vi/nodejs-java/merge-presentation/">Hợp nhất các bài thuyết trình</a></li>
+<li><a href="/slides/vi/nodejs-java/merge-presentation/">Kết hợp các bài thuyết trình</a></li>
 </ul>
 <p>VÍ DỤ</p>
 <ul>
@@ -75,6 +75,7 @@ Thư viện này tải và lưu các định dạng PPT, PPTX, PPS, POT và ODP,
 <li><a href="https://reference.aspose.com/slides/nodejs-java/">Tham khảo API</a></li>
 <li><a href="https://releases.aspose.com/slides/nodejs-java/release-notes/">Ghi chú phát hành</a></li>
 <li><a href="/slides/vi/nodejs-java/known-issues/">Vấn đề đã biết</a></li>
+<li><a href="https://products.aspose.com/slides/nodejs-java/">Trang sản phẩm</a></li>
 <li><a href="https://releases.aspose.com/slides/nodejs-java/">Tải xuống</a></li>
 </ul>
 <p>HỖ TRỢ</p>
@@ -89,7 +90,7 @@ Thư viện này tải và lưu các định dạng PPT, PPTX, PPS, POT và ODP,
 
 ## **Bài thuyết trình đầu tiên của bạn**
 
-Ngoài Node.js 20 trở lên, gói này yêu cầu một Java Development Kit (JDK), Python và một chuỗi công cụ xây dựng C++, vì npm biên dịch cầu nối `java` trong quá trình cài đặt. Xem [Cài đặt](/slides/vi/nodejs-java/installation/) để biết các bước trên mỗi hệ điều hành. Sau đó tạo một dự án và cài đặt gói từ npm:
+Ngoài Node.js 20 trở lên, gói này yêu cầu Java Development Kit (JDK), Python và một chuỗi công cụ xây dựng C++, vì npm biên dịch cầu nối `java` của nó trong quá trình cài đặt. Xem [Cài đặt](/slides/vi/nodejs-java/installation/) để biết các bước trên mỗi hệ điều hành. Sau đó tạo một dự án và cài đặt gói từ npm:
 
 ```bash
 mkdir hello-slides
@@ -113,8 +114,8 @@ try {
     presentation.dispose();
 }
 
-// Aspose.Slides chạy trong một máy ảo Java giữ cho Node.js tiếp tục chạy, vì vậy hãy kết thúc tiến trình một cách rõ ràng.
+// Aspose.Slides chạy trong một máy ảo Java giữ cho Node.js luôn hoạt động, vì vậy hãy kết thúc tiến trình một cách rõ ràng.
 process.exit(0);
 ```
 
-Chạy nó bằng `node hello.js`. Kịch bản sẽ lưu *hello.pptx* với một slide chứa hộp văn bản. Nếu không có giấy phép, tệp đã lưu sẽ có dấu bản quyền đánh dấu — xem [Giấy phép](/slides/vi/nodejs-java/licensing/). Để biết thêm cách tạo và điền nội dung cho một bài thuyết trình, xem [Tạo bài thuyết trình](/slides/vi/nodejs-java/create-presentation/).
+Chạy nó bằng `node hello.js`. Kịch bản sẽ lưu *hello.pptx* với một slide chứa một hộp văn bản. Khi không có giấy phép, tệp đã lưu sẽ mang dấu nước đánh giá — xem [Giấy phép](/slides/vi/nodejs-java/licensing/). Để biết thêm các cách tạo và điền nội dung vào bài thuyết trình, xem [Tạo bài thuyết trình](/slides/vi/nodejs-java/create-presentation/).

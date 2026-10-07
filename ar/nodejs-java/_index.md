@@ -5,22 +5,22 @@ type: docs
 weight: 47
 url: /ar/nodejs-java/
 keywords:
-- وثائق
-- معالجة العروض
-- تحويل العروض
+- توثيق
+- معالجة العروض التقديمية
+- تحويل العروض التقديمية
 - PowerPoint
 - OpenDocument
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "ابدأ هنا: قم بتثبيت Aspose.Slides لـ Node.js عبر Java، أنشئ أول عرض تقديمي، واعثر على الأدلة للمهام الشائعة، ومرجع API، والدعم."
+description: "ابدأ هنا: قم بتثبيت Aspose.Slides لـ Node.js عبر Java، أنشئ عرضًا تقديميًا أولًا، واعثر على الأدلة للمهام الشائعة، ومرجع API، والدعم."
 is_root: true
 ---
-<img src="aspose_slides-for-nodejs-via-java.png" alt="Aspose.Slides for Node.js via Java" align="left" style="width:110px; margin: 0 30px 20px 0"/>
+<img src="aspose_slides-for-nodejs-via-java.png" alt="Aspose.Slides لـ Node.js عبر Java" align="left" style="width:110px; margin: 0 30px 20px 0"/>
 
-Aspose.Slides for Node.js via Java هو مكتبة لإنشاء وقراءة وتحرير وتحويل عروض PowerPoint وOpenDocument في تطبيقات Node.js، دون الحاجة إلى Microsoft PowerPoint.
+Aspose.Slides لـ Node.js عبر Java هي مكتبة لإنشاء وقراءة وتعديل وتحويل عروض PowerPoint وOpenDocument في تطبيقات Node.js، دون الحاجة إلى Microsoft PowerPoint.
 
-تقوم بتحميل وحفظ PPT وPPTX وPPS وPOT وODP، بما فيها المتغيرات التي تدعم الماكرو والقوالب، وتصدير إلى PDF وXPS وHTML وSVG وTIFF وMarkdown والصور.
+تدعم تحميل وحفظ ملفات PPT وPPTX وPPS وPOT وODP، بما في ذلك الإصدارات ذات الماكرو والقوالب، وتُمكن من تصديرها إلى PDF وXPS وHTML وSVG وTIFF وMarkdown والصور.
 
 <div style="clear:both"></div>
 
@@ -28,33 +28,33 @@ Aspose.Slides for Node.js via Java هو مكتبة لإنشاء وقراءة و�
 
 <div class="row">
 <div class="col-md-4">
-<p><b>ابدأ</b></p>
+<p><b>البدء</b></p>
 <hr>
-<p>بدء الاستخدام</p>
+<p>GETTING STARTED</p>
 <ul>
 <li><a href="/slides/ar/nodejs-java/installation/">التثبيت</a></li>
-<li><a href="/slides/ar/nodejs-java/create-presentation/">إنشاء أول عرض تقديمي لك</a></li>
+<li><a href="/slides/ar/nodejs-java/create-presentation/">إنشاء العرض التقديمي الأول الخاص بك</a></li>
 <li><a href="/slides/ar/nodejs-java/getting-started/">دليل البدء</a></li>
 </ul>
-<p>تقييم</p>
+<p>EVALUATE</p>
 <ul>
 <li><a href="/slides/ar/nodejs-java/supported-file-formats/">تنسيقات الملفات المدعومة</a></li>
-<li><a href="/slides/ar/nodejs-java/evaluate-aspose-slides/">قيود النسخة التجريبية</a></li>
+<li><a href="/slides/ar/nodejs-java/evaluate-aspose-slides/">قيود التجربة</a></li>
 <li><a href="/slides/ar/nodejs-java/licensing/">التراخيص</a></li>
 </ul>
 </div>
 <div class="col-md-4">
-<p><b>بناء باستخدام Slides</b></p>
+<p><b>إنشاء باستخدام Slides</b></p>
 <hr>
-<p>المهام الشائعة</p>
+<p>COMMON TASKS</p>
 <ul>
 <li><a href="/slides/ar/nodejs-java/open-presentation/">فتح عرض تقديمي</a></li>
 <li><a href="/slides/ar/nodejs-java/save-presentation/">حفظ عرض تقديمي</a></li>
 <li><a href="/slides/ar/nodejs-java/convert-powerpoint-to-pdf/">تحويل إلى PDF</a></li>
-<li><a href="/slides/ar/nodejs-java/convert-slide/">عرض الشرائح كصور</a></li>
+<li><a href="/slides/ar/nodejs-java/convert-slide/">تصيير الشرائح كصور</a></li>
 <li><a href="/slides/ar/nodejs-java/manage-text/">تحرير النصوص والأشكال</a></li>
 </ul>
-<p>تدفقات عمل Slides</p>
+<p>SLIDES WORKFLOWS</p>
 <ul>
 <li><a href="/slides/ar/nodejs-java/powerpoint-charts/">المخططات</a></li>
 <li><a href="/slides/ar/nodejs-java/powerpoint-animation/">الرسوم المتحركة</a></li>
@@ -62,7 +62,7 @@ Aspose.Slides for Node.js via Java هو مكتبة لإنشاء وقراءة و�
 <li><a href="/slides/ar/nodejs-java/presentation-design/">تصميم الشرائح</a></li>
 <li><a href="/slides/ar/nodejs-java/merge-presentation/">دمج العروض التقديمية</a></li>
 </ul>
-<p>أمثلة</p>
+<p>EXAMPLES</p>
 <ul>
 <li><a href="/slides/ar/nodejs-java/examples/">أمثلة حسب عنصر الشريحة</a></li>
 </ul>
@@ -70,26 +70,27 @@ Aspose.Slides for Node.js via Java هو مكتبة لإنشاء وقراءة و�
 <div class="col-md-4">
 <p><b>المرجع والدعم</b></p>
 <hr>
-<p>المرجع</p>
+<p>REFERENCE</p>
 <ul>
 <li><a href="https://reference.aspose.com/slides/nodejs-java/">مرجع API</a></li>
 <li><a href="https://releases.aspose.com/slides/nodejs-java/release-notes/">ملاحظات الإصدار</a></li>
 <li><a href="/slides/ar/nodejs-java/known-issues/">المشكلات المعروفة</a></li>
-<li><a href="https://releases.aspose.com/slides/nodejs-java/">تنزيل</a></li>
+<li><a href="https://products.aspose.com/slides/nodejs-java/">صفحة المنتج</a></li>
+<li><a href="https://releases.aspose.com/slides/nodejs-java/">التحميل</a></li>
 </ul>
-<p>الدعم</p>
+<p>SUPPORT</p>
 <ul>
 <li><a href="https://forum.aspose.com/c/slides/11">منتدى الدعم المجاني</a></li>
-<li><a href="https://helpdesk.aspose.com/">مكتب مساعدة الدعم المدفوع</a></li>
+<li><a href="https://helpdesk.aspose.com/">مكتب المساعدة للدعم المدفوع</a></li>
 </ul>
 </div>
 </div>
 
 ------
 
-## **عرضك التقديمي الأول**
+## **العرض التقديمي الأول الخاص بك**
 
-إلى جانب Node.js 20 أو أحدث، تحتاج الحزمة إلى مجموعة تطوير جافا (JDK)، بايثون وسلسلة أدوات بناء C++، لأن npm يقوم بترجمة جسر `java` أثناء التثبيت. راجع [Installation](/slides/ar/nodejs-java/installation/) للحصول على الخطوات لكل نظام تشغيل. ثم أنشئ مشروعًا وقم بتثبيت الحزمة من npm:
+بالإضافة إلى Node.js 20 أو أحدث، تحتاج الحزمة إلى مجموعة تطوير جافا (JDK) وPython وأدوات بناء C++، لأن npm يقوم بترجمة جسر `java` أثناء التثبيت. راجع [Installation](/slides/ar/nodejs-java/installation/) للحصول على الخطوات الخاصة بكل نظام تشغيل. ثم أنشئ مشروعًا وقم بتثبيت الحزمة من npm:
 
 ```bash
 mkdir hello-slides
@@ -113,8 +114,8 @@ try {
     presentation.dispose();
 }
 
-// تشغيل Aspose.Slides في آلة افتراضية Java تحافظ على تشغيل Node.js، لذا يجب إيقاف العملية صراحةً.
+// تشغل Aspose.Slides في آلة افتراضية جافا تبقي Node.js قيد التشغيل، لذا يجب إنهاء العملية صراحةً.
 process.exit(0);
 ```
 
-شغله باستخدام `node hello.js`. يقوم السكربت بحفظ *hello.pptx* مع شريحة واحدة تحتوي على صندوق نص. بدون ترخيص، يحتوي الملف المحفوظ على علامة مائية تقييم — راجع [Licensing](/slides/ar/nodejs-java/licensing/). لمزيد من الطرق لإنشاء ملء عرض تقديمي، راجع [Create Presentations](/slides/ar/nodejs-java/create-presentation/).
+شغّله باستخدام `node hello.js`. يقوم السكربت بحفظ *hello.pptx* مع شريحة واحدة تحتوي على مربع نص. بدون ترخيص، يحتوي الملف المحفوظ على علامة مائية للتقييم — راجع [Licensing](/slides/ar/nodejs-java/licensing/). لمزيد من الطرق لإنشاء وتعبئة عرض تقديمي، انظر [Create Presentations](/slides/ar/nodejs-java/create-presentation/).

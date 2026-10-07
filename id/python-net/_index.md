@@ -6,9 +6,9 @@ weight: 35
 url: /id/python-net/
 is_root: true
 keywords:
-- Aspose.Slides untuk Python
+- Aspose.Slides for Python
 - Otomasi PowerPoint dengan Python
-- Perpustakaan PPT Python
+- Pustaka PPT Python
 - Ekspor PowerPoint ke PDF dengan Python
 - Ekspor PowerPoint ke SVG dengan Python
 - Edit PowerPoint dalam Python
@@ -20,13 +20,13 @@ keywords:
 - OpenDocument
 - Python
 - Aspose.Slides
-description: "Mulailah di sini: instal Aspose.Slides untuk Python via .NET, buat presentasi pertama, dan temukan panduan untuk tugas umum, referensi API, serta dukungan."
+description: "Mulai di sini: instal Aspose.Slides for Python via .NET, buat presentasi pertama, dan temukan panduan untuk tugas umum, referensi API, serta dukungan."
 ---
 <img src="aspose_slides-for-python.png" alt="Aspose.Slides for Python via .NET" align="left" style="width:110px; margin: 0 30px 20px 0"/>
 
 Aspose.Slides for Python via .NET adalah pustaka Python untuk membuat, membaca, mengedit, dan mengonversi presentasi PowerPoint dan OpenDocument, tanpa Microsoft PowerPoint atau Microsoft Office.
 
-Pustaka ini memuat dan menyimpan file PPT, PPTX, PPS, POT, dan ODP, termasuk varian yang mendukung makro dan templat, serta mengekspor ke PDF, XPS, HTML, SVG, TIFF, Markdown, dan gambar.
+Ia memuat dan menyimpan PPT, PPTX, PPS, POT, dan ODP, termasuk varian yang mendukung makro dan template, serta mengekspor ke PDF, XPS, HTML, SVG, TIFF, Markdown, dan gambar.
 
 <div style="clear:both"></div>
 
@@ -50,14 +50,14 @@ Pustaka ini memuat dan menyimpan file PPT, PPTX, PPS, POT, dan ODP, termasuk var
 </ul>
 </div>
 <div class="col-md-4">
-<p><b>Membangun dengan Slides</b></p>
+<p><b>Bangun dengan Slides</b></p>
 <hr>
 <p>TUGAS UMUM</p>
 <ul>
-<li><a href="/slides/id/python-net/open-presentation/">Buka sebuah presentasi</a></li>
-<li><a href="/slides/id/python-net/save-presentation/">Simpan sebuah presentasi</a></li>
+<li><a href="/slides/id/python-net/open-presentation/">Buka presentasi</a></li>
+<li><a href="/slides/id/python-net/save-presentation/">Simpan presentasi</a></li>
 <li><a href="/slides/id/python-net/convert-powerpoint-to-pdf/">Konversi ke PDF</a></li>
-<li><a href="/slides/id/python-net/convert-slide/">Render slide sebagai gambar</a></li>
+<li><a href="/slides/id/python-net/convert-slide/">Render slide menjadi gambar</a></li>
 <li><a href="/slides/id/python-net/manage-text/">Edit teks dan bentuk</a></li>
 </ul>
 <p>ALUR KERJA SLIDES</p>
@@ -70,7 +70,7 @@ Pustaka ini memuat dan menyimpan file PPT, PPTX, PPS, POT, dan ODP, termasuk var
 </ul>
 <p>CONTOH</p>
 <ul>
-<li><a href="/slides/id/python-net/examples/">Contoh berdasarkan elemen slide</a></li>
+<li><a href="/slides/id/python-net/examples/">Contoh per elemen slide</a></li>
 <li><a href="https://github.com/aspose-slides/Aspose.Slides-for-Python-via-.NET">Contoh di GitHub</a></li>
 </ul>
 </div>
@@ -81,6 +81,7 @@ Pustaka ini memuat dan menyimpan file PPT, PPTX, PPS, POT, dan ODP, termasuk var
 <ul>
 <li><a href="https://reference.aspose.com/slides/python-net/">Referensi API</a></li>
 <li><a href="https://releases.aspose.com/slides/python-net/release-notes/">Catatan rilis</a></li>
+<li><a href="https://products.aspose.com/slides/python-net/">Halaman produk</a></li>
 <li><a href="https://releases.aspose.com/slides/python-net/">Unduh</a></li>
 </ul>
 <p>DUKUNGAN</p>
@@ -101,19 +102,19 @@ Instal paket dari PyPI:
 pip install aspose.slides
 ```
 
-Paket ini sudah menyertakan runtime .NET yang digunakannya, sehingga Anda tidak perlu menginstal .NET. Pada Linux, juga instal pustaka libgdiplus dan ICU, dan dengan Python sistem pada Debian atau Ubuntu, jalankan perintah dalam lingkungan virtual. macOS memiliki prasyarat tambahan, dan kami belum memverifikasi instalasi di sana. Lihat [Installation](/slides/id/python-net/installation/) untuk perintah, prasyarat macOS, dan versi Python yang didukung.
+Paket tersebut menyertakan runtime .NET yang digunakannya, jadi Anda tidak perlu menginstal .NET. Di Linux, juga instal pustaka libgdiplus dan ICU, dan dengan Python sistem Debian atau Ubuntu, jalankan perintah dalam lingkungan virtual. macOS memiliki prasyarat tambahan, dan kami belum memverifikasi instalasi di sana. Lihat [Instalasi](/slides/id/python-net/installation/) untuk perintah, prasyarat macOS, dan versi Python yang didukung.
 
 Simpan kode ini sebagai *hello.py*:
 
 ```py
 import aspose.slides as slides
 
-# Membuat instance kelas Presentation yang mewakili file presentasi.
+# Instansiasi kelas Presentation yang merepresentasikan file presentasi.
 with slides.Presentation() as presentation:
     # Dapatkan slide pertama.
     slide = presentation.slides[0]
 
-    # Tambahkan auto-shape dengan tipe CLOUD.
+    # Tambahkan auto-shape tipe CLOUD.
     auto_shape = slide.shapes.add_auto_shape(slides.ShapeType.CLOUD, 20, 20, 200, 80)
     auto_shape.text_frame.text = "Hello, Aspose!"
 
@@ -121,4 +122,4 @@ with slides.Presentation() as presentation:
     presentation.save("new_presentation.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Jalankan dengan `python hello.py`. Skrip ini menyimpan *new_presentation.pptx* di folder saat ini, dengan satu slide yang berisi bentuk awan berisi teks "Hello, Aspose!". Tanpa lisensi, file yang disimpan akan memiliki watermark evaluasi — lihat [Licensing](/slides/id/python-net/licensing/). Untuk cara lain membuat dan mengisi presentasi, lihat [Create Presentations](/slides/id/python-net/create-presentation/).
+Jalankan dengan `python hello.py`. Skrip menyimpan *new_presentation.pptx* di folder saat ini, dengan satu slide yang berisi bentuk awan dengan teks "Hello, Aspose!". Tanpa lisensi, file yang disimpan memiliki watermark evaluasi — lihat [Lisensi](/slides/id/python-net/licensing/). Untuk cara lebih banyak membuat dan mengisi presentasi, lihat [Buat Presentasi](/slides/id/python-net/create-presentation/).

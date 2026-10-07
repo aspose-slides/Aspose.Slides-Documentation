@@ -20,7 +20,7 @@ is_root: true
 
 Aspose.Slides for Node.js via Java 是一个库，用于在 Node.js 应用程序中创建、读取、编辑和转换 PowerPoint 和 OpenDocument 演示文稿，无需 Microsoft PowerPoint。
 
-它可以加载和保存 PPT、PPTX、PPS、POT 和 ODP，包括启用宏和模板的变体，并导出为 PDF、XPS、HTML、SVG、TIFF、Markdown 和图像。
+它可以加载和保存 PPT、PPTX、PPS、POT 和 ODP，包括支持宏的及模板变体，并且可以导出为 PDF、XPS、HTML、SVG、TIFF、Markdown 和图像。
 
 <div style="clear:both"></div>
 
@@ -30,11 +30,11 @@ Aspose.Slides for Node.js via Java 是一个库，用于在 Node.js 应用程序
 <div class="col-md-4">
 <p><b>入门</b></p>
 <hr>
-<p>快速入门</p>
+<p>开始使用</p>
 <ul>
 <li><a href="/slides/zh/nodejs-java/installation/">安装</a></li>
 <li><a href="/slides/zh/nodejs-java/create-presentation/">创建您的第一个演示文稿</a></li>
-<li><a href="/slides/zh/nodejs-java/getting-started/">入门指南</a></li>
+<li><a href="/slides/zh/nodejs-java/getting-started/">快速入门指南</a></li>
 </ul>
 <p>评估</p>
 <ul>
@@ -68,13 +68,14 @@ Aspose.Slides for Node.js via Java 是一个库，用于在 Node.js 应用程序
 </ul>
 </div>
 <div class="col-md-4">
-<p><b>参考与支持</b></p>
+<p><b>参考 &amp; 支持</b></p>
 <hr>
 <p>参考</p>
 <ul>
 <li><a href="https://reference.aspose.com/slides/nodejs-java/">API 参考</a></li>
 <li><a href="https://releases.aspose.com/slides/nodejs-java/release-notes/">发行说明</a></li>
 <li><a href="/slides/zh/nodejs-java/known-issues/">已知问题</a></li>
+<li><a href="https://products.aspose.com/slides/nodejs-java/">产品页面</a></li>
 <li><a href="https://releases.aspose.com/slides/nodejs-java/">下载</a></li>
 </ul>
 <p>支持</p>
@@ -89,7 +90,7 @@ Aspose.Slides for Node.js via Java 是一个库，用于在 Node.js 应用程序
 
 ## **您的第一个演示文稿**
 
-除了 Node.js 20 或更高版本之外，该包还需要 Java 开发工具包（JDK）、Python 和 C++ 构建工具链，因为 npm 在安装期间会编译其 `java` 桥接。请参阅[Installation](/slides/zh/nodejs-java/installation/)了解各操作系统的步骤。然后创建项目并从 npm 安装此包：
+除了 Node.js 20 或更高版本之外，该包还需要 Java Development Kit（JDK）、Python 和 C++ 构建工具链，因为 npm 在安装期间会编译其 `java` 桥接。请参阅[安装](/slides/zh/nodejs-java/installation/)了解每个操作系统的步骤。然后创建项目并从 npm 安装该包：
 
 ```bash
 mkdir hello-slides
@@ -98,7 +99,7 @@ npm init -y
 npm install aspose.slides.via.java
 ```
 
-将以下代码保存为项目文件夹中的 *hello.js*：
+将此代码保存为项目文件夹中的 *hello.js*：
 
 ```javascript
 const asposeSlides = require("aspose.slides.via.java");
@@ -113,8 +114,8 @@ try {
     presentation.dispose();
 }
 
-// Aspose.Slides 在 Java 虚拟机中运行，该虚拟机会保持 Node.js 持续运行，因此需要显式结束进程。
+// Aspose.Slides 在 Java 虚拟机中运行，该虚拟机会保持 Node.js 运行，因此需显式结束进程。
 process.exit(0);
 ```
 
-使用 `node hello.js` 运行它。脚本会保存一个包含文本框的单张幻灯片的 *hello.pptx*。如果没有许可证，保存的文件会带有评估水印——请参阅[Licensing](/slides/zh/nodejs-java/licensing/)。有关创建和填充演示文稿的更多方法，请参阅[Create Presentations](/slides/zh/nodejs-java/create-presentation/)。
+使用 `node hello.js` 运行它。脚本会保存一个包含文本框的单张幻灯片的 *hello.pptx*。如果没有许可证，保存的文件会带有评估水印 —— 请参阅[授权](/slides/zh/nodejs-java/licensing/)。了解更多创建和填充演示文稿的方法，请参阅[创建演示文稿](/slides/zh/nodejs-java/create-presentation/)。

@@ -19,7 +19,7 @@ is_root: true
 
 Aspose.Slides for C++ 是一个原生 C++ 库，用于创建、读取、编辑和转换 PowerPoint 和 OpenDocument 演示文稿，无需 Microsoft PowerPoint 或 Office 自动化。
 
-它支持加载和保存 PPT、PPTX、PPS、POT 和 ODP，包括带宏的和模板变体，并可导出为 PDF、XPS、HTML、SVG、TIFF、Markdown 和图像。
+它可加载和保存 PPT、PPTX、PPS、POT 和 ODP，包括宏启用和模板变体，并可导出为 PDF、XPS、HTML、SVG、TIFF、Markdown 和图像。
 
 <div style="clear:both"></div>
 
@@ -27,9 +27,9 @@ Aspose.Slides for C++ 是一个原生 C++ 库，用于创建、读取、编辑�
 
 <div class="row">
 <div class="col-md-4">
-<p><b>快速入门</b></p>
+<p><b>入门</b></p>
 <hr>
-<p>入门</p>
+<p>开始使用</p>
 <ul>
 <li><a href="/slides/zh/cpp/installation/">安装</a></li>
 <li><a href="/slides/zh/cpp/create-presentation/">创建您的第一个演示文稿</a></li>
@@ -39,7 +39,7 @@ Aspose.Slides for C++ 是一个原生 C++ 库，用于创建、读取、编辑�
 <ul>
 <li><a href="/slides/zh/cpp/supported-file-formats/">支持的文件格式</a></li>
 <li><a href="/slides/zh/cpp/evaluate-aspose-slides/">试用限制</a></li>
-<li><a href="/slides/zh/cpp/licensing/">授权许可</a></li>
+<li><a href="/slides/zh/cpp/licensing/">授权</a></li>
 </ul>
 </div>
 <div class="col-md-4">
@@ -63,18 +63,19 @@ Aspose.Slides for C++ 是一个原生 C++ 库，用于创建、读取、编辑�
 </ul>
 <p>示例</p>
 <ul>
-<li><a href="/slides/zh/cpp/examples/">按幻灯片元素的示例</a></li>
+<li><a href="/slides/zh/cpp/examples/">按幻灯片元素划分的示例</a></li>
 <li><a href="https://github.com/aspose-slides/Aspose.Slides-for-C">GitHub 上的示例</a></li>
 </ul>
 </div>
 <div class="col-md-4">
-<p><b>参考 &amp; 支持</b></p>
+<p><b>参考与支持</b></p>
 <hr>
 <p>参考</p>
 <ul>
 <li><a href="https://reference.aspose.com/slides/cpp/">API 参考</a></li>
-<li><a href="https://releases.aspose.com/slides/cpp/release-notes/">发布说明</a></li>
+<li><a href="https://releases.aspose.com/slides/cpp/release-notes/">发行说明</a></li>
 <li><a href="/slides/zh/cpp/known-issues/">已知问题</a></li>
+<li><a href="https://products.aspose.com/slides/cpp/">产品页面</a></li>
 <li><a href="https://releases.aspose.com/slides/cpp/">下载</a></li>
 </ul>
 <p>支持</p>
@@ -89,15 +90,15 @@ Aspose.Slides for C++ 是一个原生 C++ 库，用于创建、读取、编辑�
 
 ## **您的第一个演示文稿**
 
-在 Windows 上，使用 Visual Studio 创建一个 C++ **Console App** 项目，并在包管理器控制台中安装 NuGet 包（**工具** > **NuGet 包管理器** > **包管理器控制台**）：
+在 Windows 上，在 Visual Studio 中创建一个 C++ **控制台应用** 项目，并在包管理器控制台 (**Tools** > **NuGet Package Manager** > **Package Manager Console**) 中安装 NuGet 包：
 
 ```powershell
 Install-Package Aspose.Slides.Cpp
 ```
 
-在 Linux 上，下载 Linux ZIP 包并按照 [Installation](/slides/zh/cpp/installation/#linux) 中描述的方式设置 CMake 项目。
+在 Linux 上，下载 Linux ZIP 包并按照 [Installation](/slides/zh/cpp/installation/#linux) 中描述的步骤设置 CMake 项目。
 
-然后将以下代码用作程序的主源文件。它会创建一个包含一个文本框的演示文稿并保存它：
+然后将以下代码用作程序的主源文件。它会创建一个包含文本框的演示文稿并保存：
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -133,4 +134,4 @@ cmake --build build
 ./build/hello
 ```
 
-程序会将 *hello.pptx*（包含一个带文本框的幻灯片）保存下来。若未授权，保存的文件会带有评估水印 — 请参阅 [Licensing](/slides/zh/cpp/licensing/)。欲了解更多创建和填充演示文稿的方法，请参阅 [Create Presentations](/slides/zh/cpp/create-presentation/)。
+该程序将 *hello.pptx* 保存为包含一个文本框的幻灯片。若未授权，保存的文件会带有评估水印——请参阅 [授权](/slides/zh/cpp/licensing/)。欲了解更多创建和填充演示文稿的方法，请参阅 [创建演示文稿](/slides/zh/cpp/create-presentation/).

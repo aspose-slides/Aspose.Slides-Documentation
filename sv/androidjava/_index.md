@@ -6,8 +6,8 @@ weight: 40
 url: /sv/androidjava/
 keywords:
 - dokumentation
-- presentationhantering
-- presentationkonvertering
+- presentationsbehandling
+- presentationskonvertering
 - PowerPoint
 - OpenDocument
 - Android
@@ -18,9 +18,9 @@ is_root: true
 ---
 <img src="home_1.png" alt="Aspose.Slides for Android via Java" align="left" style="width:110px; margin: 0 30px 20px 0"/>
 
-Aspose.Slides for Android via Java är ett klassbibliotek för att skapa, läsa, redigera och konvertera PowerPoint‑ och OpenDocument‑presentationer i Android‑applikationer, utan Microsoft PowerPoint.
+Aspose.Slides for Android via Java är ett klassbibliotek för att skapa, läsa, redigera och konvertera PowerPoint- och OpenDocument-presentationer i Android-applikationer, utan Microsoft PowerPoint.
 
-Det laddar och sparar PPT, PPTX, PPS, POT och ODP, inklusive makro‑aktiverade och mallvarianter, och exporterar till PDF, XPS, HTML, SVG, TIFF, Markdown och bilder.
+Det laddar och sparar PPT, PPTX, PPS, POT och ODP, inklusive makroaktiverade och mallvarianter, och exporterar till PDF, XPS, HTML, SVG, TIFF, Markdown och bilder.
 
 <div style="clear:both"></div>
 
@@ -28,25 +28,25 @@ Det laddar och sparar PPT, PPTX, PPS, POT och ODP, inklusive makro‑aktiverade 
 
 <div class="row">
 <div class="col-md-4">
-<p><b>Komma igång</b></p>
+<p><b>Kom igång</b></p>
 <hr>
-<p>KOMMA IGÅNG</p>
+<p>Kom igång</p>
 <ul>
 <li><a href="/slides/sv/androidjava/install-aspose-slides-for-android-via-java/">Installation</a></li>
 <li><a href="/slides/sv/androidjava/create-presentation/">Skapa din första presentation</a></li>
-<li><a href="/slides/sv/androidjava/getting-started/">Startguide</a></li>
+<li><a href="/slides/sv/androidjava/getting-started/">Kom igång-guide</a></li>
 </ul>
-<p>UTVÄRDERA</p>
+<p>Utvärdera</p>
 <ul>
 <li><a href="/slides/sv/androidjava/supported-file-formats/">Filformat som stöds</a></li>
-<li><a href="/slides/sv/androidjava/evaluate-aspose-slides/">Begränsningar i provversionen</a></li>
+<li><a href="/slides/sv/androidjava/evaluate-aspose-slides/">Begränsningar för provversionen</a></li>
 <li><a href="/slides/sv/androidjava/licensing/">Licensiering</a></li>
 </ul>
 </div>
 <div class="col-md-4">
 <p><b>Bygg med Slides</b></p>
 <hr>
-<p>VANLIGA UPPGIFTER</p>
+<p>Vanliga uppgifter</p>
 <ul>
 <li><a href="/slides/sv/androidjava/open-presentation/">Öppna en presentation</a></li>
 <li><a href="/slides/sv/androidjava/save-presentation/">Spara en presentation</a></li>
@@ -54,13 +54,13 @@ Det laddar och sparar PPT, PPTX, PPS, POT och ODP, inklusive makro‑aktiverade 
 <li><a href="/slides/sv/androidjava/convert-slide/">Rendera bildspel som bilder</a></li>
 <li><a href="/slides/sv/androidjava/manage-text/">Redigera text och former</a></li>
 </ul>
-<p>SLIDES‑FLÖDEN</p>
+<p>Slides-arbetsflöden</p>
 <ul>
 <li><a href="/slides/sv/androidjava/powerpoint-charts/">Diagram</a></li>
 <li><a href="/slides/sv/androidjava/powerpoint-animation/">Animationer</a></li>
-<li><a href="/slides/sv/androidjava/manage-media-files/">Ljud och video</a></li>
-<li><a href="/slides/sv/androidjava/presentation-design/">Bilddesign</a></li>
-<li><a href="/slides/sv/androidjava/merge-presentation/">Slå samman presentationer</a></li>
+<li><a href="/slides/sv/androidjava/manage-media-files/">Audio och video</a></li>
+<li><a href="/slides/sv/androidjava/presentation-design/">Design av bildspel</a></li>
+<li><a href="/slides/sv/androidjava/merge-presentation/">Slå ihop presentationer</a></li>
 </ul>
 <p>EXEMPEL</p>
 <ul>
@@ -73,9 +73,10 @@ Det laddar och sparar PPT, PPTX, PPS, POT och ODP, inklusive makro‑aktiverade 
 <p>REFERENS</p>
 <ul>
 <li><a href="https://reference.aspose.com/slides/androidjava/">API‑referens</a></li>
-<li><a href="https://releases.aspose.com/slides/androidjava/release-notes/">Versionsanmärkningar</a></li>
+<li><a href="https://releases.aspose.com/slides/androidjava/release-notes/">Versionsnoteringar</a></li>
 <li><a href="/slides/sv/androidjava/known-issues/">Kända problem</a></li>
-<li><a href="https://releases.aspose.com/slides/androidjava/">Ladda ner</a></li>
+<li><a href="https://products.aspose.com/slides/android-java/">Produktsida</a></li>
+<li><a href="https://releases.aspose.com/slides/androidjava/">Nedladdning</a></li>
 </ul>
 <p>SUPPORT</p>
 <ul>
@@ -89,7 +90,7 @@ Det laddar och sparar PPT, PPTX, PPS, POT och ODP, inklusive makro‑aktiverade 
 
 ## **Din första presentation**
 
-Biblioteket kommer från Asposes Maven‑arkiv. Nya Android‑Studio‑projekt har redan ett `dependencyResolutionManagement`‑block i *settings.gradle.kts*. Lägg till `maven`‑raden som visas nedan i `repositories`‑blocket inuti det, istället för att klistra in ett andra block:
+Biblioteket hämtas från Asposes Maven‑arkiv. Nya Android Studio‑projekt har redan ett `dependencyResolutionManagement`‑block i *settings.gradle.kts*. Lägg till `maven`‑raden som visas nedan i `repositories`‑blocket i det, istället för att klistra in ett andra block:
 
 ```kotlin
 dependencyResolutionManagement {
@@ -110,4 +111,4 @@ dependencies {
 }
 ```
 
-[Installation](/slides/sv/androidjava/install-aspose-slides-for-android-via-java/) täcker Groovy‑byggskript, den manuella JAR‑filen och hur man väljer en version. Koden för din första presentation finns på [Create Presentations](/slides/sv/androidjava/create-presentation/): den lägger till en textruta på en bild och sparar presentationen i appens lagring. Detta exempel har kompilerats och byggts till en APK; det har inte körts på en enhet. Utan licens innehåller sparade presentationer ett utvärderingsvattenstämpel — se [Licensing](/slides/sv/androidjava/licensing/).
+[Installation](/slides/sv/androidjava/install-aspose-slides-for-android-via-java/) täcker Groovy‑byggskript, den manuella JAR‑filen och hur du väljer en version. Koden för din första presentation finns på [Create Presentations](/slides/sv/androidjava/create-presentation/): den lägger till en textruta på en bild och sparar presentationen i din apps lagring. Det exemplet har kompilerats och byggts till en APK; det har inte körts på en enhet. Utan licens har sparade presentationer ett utvärderingsvattenstämpel — se [Licensing](/slides/sv/androidjava/licensing/).

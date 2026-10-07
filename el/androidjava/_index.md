@@ -16,11 +16,11 @@ keywords:
 description: "Ξεκινήστε εδώ: προσθέστε το Aspose.Slides για Android μέσω Java στην εφαρμογή σας, δημιουργήστε την πρώτη παρουσίαση και βρείτε τους οδηγούς για κοινές εργασίες, την αναφορά API και την υποστήριξη."
 is_root: true
 ---
-<img src="home_1.png" alt="Aspose.Slides για Android μέσω Java" align="left" style="width:110px; margin: 0 30px 20px 0"/>
+<img src="home_1.png" alt="Aspose.Slides for Android via Java" align="left" style="width:110px; margin: 0 30px 20px 0"/>
 
-Aspose.Slides για Android μέσω Java είναι μια βιβλιοθήκη κλάσεων για δημιουργία, ανάγνωση, επεξεργασία και μετατροπή παρουσιάσεων PowerPoint και OpenDocument σε εφαρμογές Android, χωρίς το Microsoft PowerPoint.
+Aspose.Slides for Android via Java είναι μια βιβλιοθήκη κλάσεων για δημιουργία, ανάγνωση, επεξεργασία και μετατροπή παρουσιάσεων PowerPoint και OpenDocument σε εφαρμογές Android, χωρίς το Microsoft PowerPoint.
 
-Φορτώνει και αποθηκεύει αρχεία PPT, PPTX, PPS, POT και ODP, συμπεριλαμβανομένων των εκδόσεων με μακροεντολές και προτύπων, και εξάγει σε PDF, XPS, HTML, SVG, TIFF, Markdown και εικόνες.
+Φορτώνει και αποθηκεύει αρχεία PPT, PPTX, PPS, POT και ODP, συμπεριλαμβανομένων των εκδόσεων με μακροεντολές και των προτύπων, και εξάγει σε PDF, XPS, HTML, SVG, TIFF, Markdown και εικόνες.
 
 <div style="clear:both"></div>
 
@@ -30,23 +30,23 @@ Aspose.Slides για Android μέσω Java είναι μια βιβλιοθήκ�
 <div class="col-md-4">
 <p><b>Ξεκινήστε</b></p>
 <hr>
-<p>ΞΕΚΙΝΗΣΤΕ</p>
+<p>ΞΕΚΙΝΗΣΗ</p>
 <ul>
 <li><a href="/slides/el/androidjava/install-aspose-slides-for-android-via-java/">Εγκατάσταση</a></li>
 <li><a href="/slides/el/androidjava/create-presentation/">Δημιουργήστε την πρώτη σας παρουσίαση</a></li>
-<li><a href="/slides/el/androidjava/getting-started/">Οδηγός έναρξης</a></li>
+<li><a href="/slides/el/androidjava/getting-started/">Οδηγός εκκίνησης</a></li>
 </ul>
-<p>ΑΞΙΟΛΟΓΗΣΤΕ</p>
+<p>ΑΞΙΟΛΟΓΗΣΗ</p>
 <ul>
 <li><a href="/slides/el/androidjava/supported-file-formats/">Υποστηριζόμενες μορφές αρχείων</a></li>
 <li><a href="/slides/el/androidjava/evaluate-aspose-slides/">Περιορισμοί δοκιμής</a></li>
-<li><a href="/slides/el/androidjava/licensing/">Άδειες</a></li>
+<li><a href="/slides/el/androidjava/licensing/">Αδειοδότηση</a></li>
 </ul>
 </div>
 <div class="col-md-4">
 <p><b>Δημιουργήστε με Slides</b></p>
 <hr>
-<p>ΚΑΝΟΝΙΚΕΣ ΕΡΓΑΣΙΕΣ</p>
+<p>ΣΥΝΗΘΙΚΕΣ ΕΡΓΑΣΙΕΣ</p>
 <ul>
 <li><a href="/slides/el/androidjava/open-presentation/">Άνοιγμα παρουσίασης</a></li>
 <li><a href="/slides/el/androidjava/save-presentation/">Αποθήκευση παρουσίασης</a></li>
@@ -54,12 +54,12 @@ Aspose.Slides για Android μέσω Java είναι μια βιβλιοθήκ�
 <li><a href="/slides/el/androidjava/convert-slide/">Απόδοση διαφανειών ως εικόνες</a></li>
 <li><a href="/slides/el/androidjava/manage-text/">Επεξεργασία κειμένου και σχημάτων</a></li>
 </ul>
-<p>ΡΟΜΠΟΤΑ ΕΡΓΑΣΙΩΝ SLIDES</p>
+<p>ΡΟΟΙ ΕΡΓΑΣΙΑΣ ΣΛΑΙΔΩΝ</p>
 <ul>
 <li><a href="/slides/el/androidjava/powerpoint-charts/">Διαγράμματα</a></li>
-<li><a href="/slides/el/androidjava/powerpoint-animation/">Κινούμενα γραφικά</a></li>
-<li><a href="/slides/el/androidjava/manage-media-files/">Ήχος και βίντεο</a></li>
-<li><a href="/slides/el/androidjava/presentation-design/">Σχεδίαση διαφανειών</a></li>
+<li><a href="/slides/el/androidjava/powerpoint-animation/">Κινούμενα σχέδια</a></li>
+<li><a href="/slides/el/androidjava/manage-media-files/">Ήχο και βίντεο</a></li>
+<li><a href="/slides/el/androidjava/presentation-design/">Σχεδιασμός διαφάνειας</a></li>
 <li><a href="/slides/el/androidjava/merge-presentation/">Συγχώνευση παρουσιάσεων</a></li>
 </ul>
 <p>ΠΑΡΑΔΕΙΓΜΑΤΑ</p>
@@ -74,13 +74,14 @@ Aspose.Slides για Android μέσω Java είναι μια βιβλιοθήκ�
 <ul>
 <li><a href="https://reference.aspose.com/slides/androidjava/">Αναφορά API</a></li>
 <li><a href="https://releases.aspose.com/slides/androidjava/release-notes/">Σημειώσεις έκδοσης</a></li>
-<li><a href="/slides/el/androidjava/known-issues/">Γνωστά προβλήματα</a></li>
+<li><a href="/slides/el/androidjava/known-issues/">Γνωστά ζητήματα</a></li>
+<li><a href="https://products.aspose.com/slides/android-java/">Σελίδα προϊόντος</a></li>
 <li><a href="https://releases.aspose.com/slides/androidjava/">Λήψη</a></li>
 </ul>
 <p>ΥΠΟΣΤΗΡΙΞΗ</p>
 <ul>
 <li><a href="https://forum.aspose.com/c/slides/11">Δωρεάν φόρουμ υποστήριξης</a></li>
-<li><a href="https://helpdesk.aspose.com/">Πληρωμένη υπηρεσία υποστήριξης</a></li>
+<li><a href="https://helpdesk.aspose.com/">Πληρωμένη υποστήριξη helpdesk</a></li>
 </ul>
 </div>
 </div>
@@ -89,7 +90,7 @@ Aspose.Slides για Android μέσω Java είναι μια βιβλιοθήκ�
 
 ## **Η πρώτη σας παρουσίαση**
 
-Η βιβλιοθήκη προέρχεται από το αποθετήριο Maven της Aspose. Τα νέα έργα Android Studio διαθέτουν ήδη ένα μπλοκ `dependencyResolutionManagement` στο *settings.gradle.kts*. Προσθέστε τη γραμμή `maven` που φαίνεται παρακάτω στο μπλοκ `repositories` μέσα σε αυτό, αντί να επικολλήσετε ένα δεύτερο μπλοκ:
+Η βιβλιοθήκη προέρχεται από το αποθετήριο Maven της Aspose. Τα νέα έργα Android Studio έχουν ήδη ένα μπλοκ `dependencyResolutionManagement` στο *settings.gradle.kts*. Προσθέστε τη γραμμή `maven` που φαίνεται παρακάτω στο μπλοκ `repositories` μέσα σε αυτό, αντί να επικολλήσετε ένα δεύτερο μπλοκ:
 
 ```kotlin
 dependencyResolutionManagement {
@@ -110,4 +111,4 @@ dependencies {
 }
 ```
 
-[Installation](/slides/el/androidjava/install-aspose-slides-for-android-via-java/) καλύπτει τα σενάρια κατασκευής Groovy, το χειροκίνητο αρχείο JAR και πώς να επιλέξετε μια έκδοση. Ο κώδικας για την πρώτη σας παρουσίαση είναι στο [Create Presentations](/slides/el/androidjava/create-presentation/): προσθέτει ένα πλαίσιο κειμένου σε μια διαφάνεια και αποθηκεύει την παρουσίαση στη μνήμη της εφαρμογής σας. Το δείγμα αυτό έχει μεταγλωττιστεί και κατασκευαστεί ως APK· δεν έχει εκτελεστεί σε συσκευή. Χωρίς άδεια, οι αποθηκευμένες παρουσιάσεις φέρουν υδατογράφημα αξιολόγησης — δείτε το [Licensing](/slides/el/androidjava/licensing/).
+Η [Εγκατάσταση](/slides/el/androidjava/install-aspose-slides-for-android-via-java/) καλύπτει τα σενάρια δημιουργίας με Groovy, το χειροκίνητο αρχείο JAR και πώς να επιλέξετε μια έκδοση. Ο κώδικας για την πρώτη σας παρουσίαση βρίσκεται στη [Δημιουργία παρουσιάσεων](/slides/el/androidjava/create-presentation/): προσθέτει ένα πλαίσιο κειμένου σε μια διαφάνεια και αποθηκεύει την παρουσίαση στη μνήμη της εφαρμογής σας. Αυτό το παράδειγμα έχει μεταγλωττιστεί και ενσωματωθεί σε ένα APK· δεν έχει εκτελεστεί σε συσκευή. Χωρίς άδεια, οι αποθηκευμένες παρουσιάσεις φέρουν υδατογράφημα αξιολόγησης — δείτε την [Αδειοδότηση](/slides/el/androidjava/licensing/).

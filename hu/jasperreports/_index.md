@@ -1,6 +1,6 @@
 ---
-title: Aspose.Slides for JasperReports
-second_title: Aspose.Slides for JasperReports
+title: Aspose.Slides a JasperReports-hez
+second_title: Aspose.Slides a JasperReports-hez
 type: docs
 weight: 70
 url: /hu/jasperreports/
@@ -14,14 +14,14 @@ keywords:
 - PPTX
 - Java
 - Aspose.Slides
-description: "Kezdje itt: telepítse az Aspose.Slides for JasperReports terméket, exportálja első jelentését PowerPointba, és találja meg az export, a JasperReports Server integráció és a támogatás útmutatóit."
+description: "Kezdje itt: telepítse az Aspose.Slides for JasperReports‑t, exportálja az első jelentést PowerPoint‑ba, és találja meg az exportálásra, a JasperReports Server integrációra és a támogatásra vonatkozó útmutatókat."
 is_root: true
 ---
 <img src="home_1.png" alt="Aspose.Slides for JasperReports" align="left" style="width:110px; margin: 0 30px 20px 0"/>
 
-Az Aspose.Slides for JasperReports PowerPoint exportálókat ad a JasperReports Library-hez és a JasperReports Server-hez, így a Java alkalmazások és jelentéskiszolgálók a kitöltött jelentéseket prezentációként menthetik anélkül, hogy a Microsoft PowerPointra lenne szükség.
+Az Aspose.Slides for JasperReports PowerPoint exportálókat ad hozzá a JasperReports Library-hez és a JasperReports Server-hez, így a Java‑alkalmazások és a jelentésszerverek a kitöltött jelentéseket prezentációként menthetik a Microsoft PowerPoint nélkül.
 
-Ez a kitöltött jelentést PPT és PPTX formátumba exportálja, oldalanként egy diát, valamint PDF és HTML formátumba is.
+Egy kitöltött jelentést PPT‑re és PPTX‑re exportál, egy diát egy jelentésoldalra, valamint PDF‑re és HTML‑re.
 
 <div style="clear:both"></div>
 
@@ -31,27 +31,27 @@ Ez a kitöltött jelentést PPT és PPTX formátumba exportálja, oldalanként e
 <div class="col-md-4">
 <p><b>Első lépések</b></p>
 <hr>
-<p>ELKEZDÉS</p>
+<p>Kezdés</p>
 <ul>
 <li><a href="/slides/hu/jasperreports/installing-aspose-slides-for-jasperreports/">Telepítés</a></li>
 <li><a href="/slides/hu/jasperreports/product-overview/">Termék áttekintés</a></li>
 <li><a href="/slides/hu/jasperreports/system-requirements/">Rendszerkövetelmények</a></li>
-<li><a href="/slides/hu/jasperreports/getting-started/">Első lépések útmutatója</a></li>
+<li><a href="/slides/hu/jasperreports/getting-started/">Első lépések útmutató</a></li>
 </ul>
 <p>ÉRTÉKELÉS</p>
 <ul>
 <li><a href="/slides/hu/jasperreports/supported-file-formats/">Támogatott fájlformátumok</a></li>
-<li><a href="/slides/hu/jasperreports/evaluate-aspose-slides/">Próbaidő korlátai</a></li>
+<li><a href="/slides/hu/jasperreports/evaluate-aspose-slides/">Kipróbálási korlátozások</a></li>
 <li><a href="/slides/hu/jasperreports/licensing/">Licencelés</a></li>
 </ul>
 </div>
 <div class="col-md-4">
-<p><b>Készítés Slides-szel</b></p>
+<p><b>Diák használatával</b></p>
 <hr>
 <p>EXPORTÁLÁS</p>
 <ul>
-<li><a href="/slides/hu/jasperreports/ppt-pptx-pdf-and-html-export/">Exportálás PPT, PPTX, PDF és HTML formátumba</a></li>
-<li><a href="/slides/hu/jasperreports/ppt-pptx-pdf-and-html-export/#map-fonts">Betűtípusok leképezése</a></li>
+<li><a href="/slides/hu/jasperreports/ppt-pptx-pdf-and-html-export/">Exportálás PPT, PPTX, PDF és HTML formátumokba</a></li>
+<li><a href="/slides/hu/jasperreports/ppt-pptx-pdf-and-html-export/#map-fonts">Betűkészletek feltérképezése</a></li>
 <li><a href="/slides/hu/jasperreports/integration-with-jasperserver/">JasperReports Server integráció</a></li>
 </ul>
 <p>PELDÁK</p>
@@ -64,7 +64,8 @@ Ez a kitöltött jelentést PPT és PPTX formátumba exportálja, oldalanként e
 <hr>
 <p>REFERENCIA</p>
 <ul>
-<li><a href="https://releases.aspose.com/slides/jasperreport/release-notes/">Kiadási megjegyzések</a></li>
+<li><a href="https://releases.aspose.com/slides/jasperreport/release-notes/">Kiadási jegyzetek</a></li>
+<li><a href="https://products.aspose.com/slides/jasperreports/">Termékoldal</a></li>
 <li><a href="https://releases.aspose.com/slides/jasperreport/">Letöltés</a></li>
 </ul>
 <p>TÁMOGATÁS</p>
@@ -77,19 +78,19 @@ Ez a kitöltött jelentést PPT és PPTX formátumba exportálja, oldalanként e
 
 ------
 
-## **Első exportja**
+## **Az első exportálásod**
 
-Ezek a lépések egy egyvonalas jelentést fordítanak le, töltik ki, és PPTX-be exportálják a JasperReports 6.16.0 verzióval a Maven Centralról. Szüksége van JDK 11 vagy újabb, valamint az Apache Maven-re.
+Ezek a lépések egy egyvonalas jelentést fordítanak le, töltik ki, és exportálják PPTX formátumba a JasperReports 6.16.0 verzióval a Maven Centralból. JDK 11 vagy újabb, valamint Apache Maven szükséges.
 
-1. Töltse le a ZIP fájlt a [letöltési oldalról](https://releases.aspose.com/slides/jasperreport/) és csomagolja ki. A *lib* mappája minden JasperReports verziótartományhoz egy almappát tartalmaz, és mindegyikben a tartományhoz tartozó jar fájl van. A JasperReports 6.16.0-hoz másolja a *lib/JasperReports 6.5.0 - 6.16.0 (JDK 1.6)/aspose.slides.jasperreports.library-26.6.jar* fájlt egy üres projekt mappába.
+1. Töltse le a ZIP‑fájlt a [letöltési oldal](https://releases.aspose.com/slides/jasperreport/)-ról, és csomagolja ki. A *lib* mappában minden JasperReports verziótartományhoz egy almappa van, és mindegyik a megfelelő jar‑t tartalmazza. A JasperReports 6.16.0 esetén másolja a *lib/JasperReports 6.5.0 - 6.16.0 (JDK 1.6)/aspose.slides.jasperreports.library-26.6.jar* fájlt egy üres projektmappába.
 
-2. Az jar a ZIP-ben van, nem Maven tárolóból, ezért telepíteni kell a helyi Maven tárolóba. Futassa ezt a parancsot a projekt mappában:
+2. A jar a ZIP‑ben van, nem Maven tárolóból, ezért telepítse a helyi Maven tárolójába. Futtassa ezt a parancsot a projektmappában:
 
 ```bash
 mvn install:install-file "-Dfile=aspose.slides.jasperreports.library-26.6.jar" "-DgroupId=com.aspose" "-DartifactId=aspose-slides-jasperreports" "-Dversion=26.6" "-Dpackaging=jar"
 ```
 
-3. Mentse el ezt a *pom.xml*-t a projekt mappába. Ez hozzáadja a JasperReports 6.16.0-t és a telepített jar-t, valamint megadja a futtatandó osztályt. A JasperReports 6.16.0 egy javított iText buildet deklarál, amely nem érhető el a Maven Centralban, ezért a fájl kizárja azt; az Aspose exportálók nem igénylik.
+3. Mentse el ezt a *pom.xml* fájlt a projektmappába. Hozzáadja a JasperReports 6.16.0‑t és a telepített jar‑t, valamint megadja a futtatandó osztályt. A JasperReports 6.16.0 egy javított iText‑verziót deklarál, amely nincs a Maven Centralon, ezért a fájl kihagyja azt; az Aspose exportálók nem igénylik.
 
 ```xml
 <project xmlns="http://maven.apache.org/POM/4.0.0">
@@ -135,7 +136,7 @@ mvn install:install-file "-Dfile=aspose.slides.jasperreports.library-26.6.jar" "
 </project>
 ```
 
-4. Mentse el ezt a jelentés-tervet *hello.jrxml*-ként a projekt mappába. Egy szövegsort nyomtat a cím szalagra:
+4. Mentse el ezt a jelentésdizájnt *hello.jrxml* néven a projektmappába. Egy sor szöveget nyomtat a címsávban:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -158,7 +159,7 @@ mvn install:install-file "-Dfile=aspose.slides.jasperreports.library-26.6.jar" "
 </jasperReport>
 ```
 
-5. Mentse el ezt a kódot *src/main/java/HelloExport.java*-ként. Lefordítja a tervet, egy üres rekorddal tölti ki, és az eredményt az `ASPptxExporter` segítségével exportálja:
+5. Mentse el ezt a kódot *src/main/java/HelloExport.java* néven. Lefordítja a dizájnt, egy üres rekorddal tölti ki, és exportálja az eredményt az `ASPptxExporter`‑rel:
 
 ```java
 import java.util.HashMap;
@@ -173,11 +174,11 @@ import net.sf.jasperreports.engine.JasperReport;
 
 public class HelloExport {
     public static void main(String[] args) throws Exception {
-        // Fordítsa le a jelentéstervet, és töltse ki egy üres rekorddal.
+        // A jelentésdizájn lefordítása és kitöltése egy üres rekorddal.
         JasperReport report = JasperCompileManager.compileReport("hello.jrxml");
         JasperPrint jasperPrint = JasperFillManager.fillReport(report, new HashMap<String, Object>(), new JREmptyDataSource());
 
-        // Exportálja a kitöltött jelentést PPTX formátumba.
+        // A kitöltött jelentés exportálása PPTX-be.
         ASPptxExporter exporter = new ASPptxExporter();
         exporter.setParameter(JRExporterParameter.JASPER_PRINT, jasperPrint);
         exporter.setParameter(JRExporterParameter.OUTPUT_FILE_NAME, "hello.pptx");
@@ -186,10 +187,10 @@ public class HelloExport {
 }
 ```
 
-6. Futassa ezt a parancsot a projekt mappában:
+6. Futtassa ezt a parancsot a projektmappában:
 
 ```bash
 mvn compile exec:java
 ```
 
-A program a *hello.pptx* fájlt menti a projekt mappába, egy diával, amely a jelentés szövegét tartalmazza. A fordító megjegyzi, hogy a kód elavult API-t használ: az exportálók a bemenetüket és kimenetüket a `JRExporterParameter`-en keresztül kapják, és nem fogadják el az újabb `setExporterInput` és `setExporterOutput` beállítást. Linuxon a fontconfig és legalább egy betűtípus telepítése szükséges, különben a jelentés kitöltése meghiúsul. Licenc nélkül minden dián egy értékelési vízjel jelenik meg a közepén – lásd a [Licencelés](/slides/hu/jasperreports/licensing/) oldalt. PPT, PDF vagy HTML exportálásához lásd a [PPT, PPTX, PDF és HTML Export](/slides/hu/jasperreports/ppt-pptx-pdf-and-html-export/) oldalt.
+A program a *hello.pptx* fájlt a projektmappába menti, egyetlen diával, amely a jelentés szövegét tartalmazza. A fordító megjegyzi, hogy a kód elavult API‑t használ: az exportálók a bemenetet és kimenetet a `JRExporterParameter`‑en keresztül kapják, és nem fogadják el a új `setExporterInput` és `setExporterOutput` konfigurációt. Linuxon a fontconfig‑nek és legalább egy betűkészletnek telepítve kell lennie, különben a jelentés kitöltése hibát eredményez. Licenc nélkül minden dia közepén egy értékelési vízjel jelenik meg – lásd a [Licencelés](/slides/hu/jasperreports/licensing/) oldalt. PPT, PDF vagy HTML exportálásához lásd a [PPT, PPTX, PDF és HTML exportálás](/slides/hu/jasperreports/ppt-pptx-pdf-and-html-export/) oldalt.

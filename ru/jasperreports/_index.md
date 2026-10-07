@@ -1,6 +1,6 @@
 ---
-title: Aspose.Slides for JasperReports
-second_title: Aspose.Slides for JasperReports
+title: Aspose.Slides для JasperReports
+second_title: Aspose.Slides для JasperReports
 type: docs
 weight: 70
 url: /ru/jasperreports/
@@ -14,14 +14,14 @@ keywords:
 - PPTX
 - Java
 - Aspose.Slides
-description: "Начните здесь: установите Aspose.Slides for JasperReports, экспортируйте первый отчёт в PowerPoint и найдите руководства по экспорту, интеграции с JasperReports Server и поддержке."
+description: "Начните здесь: установите Aspose.Slides для JasperReports, экспортируйте первый отчёт в PowerPoint и найдите руководства по экспорту, интеграции с JasperReports Server и поддержке."
 is_root: true
 ---
 <img src="home_1.png" alt="Aspose.Slides for JasperReports" align="left" style="width:110px; margin: 0 30px 20px 0"/>
 
-Aspose.Slides for JasperReports добавляет экспортеры PowerPoint в JasperReports Library и JasperReports Server, чтобы Java‑приложения и серверы отчётов могли сохранять заполненные отчёты в виде презентаций без Microsoft PowerPoint.
+Aspose.Slides for JasperReports добавляет экспортеры PowerPoint в JasperReports Library и JasperReports Server, чтобы Java‑приложения и серверы отчетов могли сохранять заполненные отчёты в виде презентаций без Microsoft PowerPoint.
 
-Он экспортирует заполненный отчёт в PPT и PPTX, один слайд на страницу отчёта, а также в PDF и HTML.
+Он экспортирует заполненный отчёт в форматы PPT и PPTX, по одному слайду на страницу отчёта, а также в PDF и HTML.
 
 <div style="clear:both"></div>
 
@@ -31,14 +31,14 @@ Aspose.Slides for JasperReports добавляет экспортеры PowerPoi
 <div class="col-md-4">
 <p><b>Начало работы</b></p>
 <hr>
-<p>НАЧАЛО РАБОТЫ</p>
+<p>GETTING STARTED</p>
 <ul>
 <li><a href="/slides/ru/jasperreports/installing-aspose-slides-for-jasperreports/">Установка</a></li>
 <li><a href="/slides/ru/jasperreports/product-overview/">Обзор продукта</a></li>
 <li><a href="/slides/ru/jasperreports/system-requirements/">Системные требования</a></li>
 <li><a href="/slides/ru/jasperreports/getting-started/">Руководство по началу работы</a></li>
 </ul>
-<p>ОЦЕНИТЬ</p>
+<p>EVALUATE</p>
 <ul>
 <li><a href="/slides/ru/jasperreports/supported-file-formats/">Поддерживаемые форматы файлов</a></li>
 <li><a href="/slides/ru/jasperreports/evaluate-aspose-slides/">Ограничения пробной версии</a></li>
@@ -46,31 +46,32 @@ Aspose.Slides for JasperReports добавляет экспортеры PowerPoi
 </ul>
 </div>
 <div class="col-md-4">
-<p><b>Создание со Slides</b></p>
+<p><b>Создание с Slides</b></p>
 <hr>
-<p>ЭКСПОРТ</p>
+<p>EXPORT</p>
 <ul>
 <li><a href="/slides/ru/jasperreports/ppt-pptx-pdf-and-html-export/">Экспорт в PPT, PPTX, PDF и HTML</a></li>
 <li><a href="/slides/ru/jasperreports/ppt-pptx-pdf-and-html-export/#map-fonts">Сопоставление шрифтов</a></li>
 <li><a href="/slides/ru/jasperreports/integration-with-jasperserver/">Интеграция с JasperReports Server</a></li>
 </ul>
-<p>ПРИМЕРЫ</p>
+<p>EXAMPLES</p>
 <ul>
-<li><a href="/slides/ru/jasperreports/demos-setup/">Примеры проектов</a></li>
+<li><a href="/slides/ru/jasperreports/demos-setup/">Демонстрационные проекты</a></li>
 </ul>
 </div>
 <div class="col-md-4">
 <p><b>Справка &amp; Поддержка</b></p>
 <hr>
-<p>СПРАВОЧНИК</p>
+<p>REFERENCE</p>
 <ul>
 <li><a href="https://releases.aspose.com/slides/jasperreport/release-notes/">Примечания к выпуску</a></li>
+<li><a href="https://products.aspose.com/slides/jasperreports/">Страница продукта</a></li>
 <li><a href="https://releases.aspose.com/slides/jasperreport/">Скачать</a></li>
 </ul>
-<p>ПОДДЕРЖКА</p>
+<p>SUPPORT</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/11">Бесплатный форум поддержки</a></li>
-<li><a href="https://helpdesk.aspose.com/">Платная служба поддержки</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">Форум бесплатной поддержки</a></li>
+<li><a href="https://helpdesk.aspose.com/">Платная поддержка</a></li>
 </ul>
 </div>
 </div>
@@ -79,17 +80,17 @@ Aspose.Slides for JasperReports добавляет экспортеры PowerPoi
 
 ## **Ваш первый экспорт**
 
-Эти шаги компилируют однострочный отчёт, заполняют его и экспортируют в PPTX с помощью JasperReports 6.16.0 из Maven Central. Требуется JDK 11 или новее и Apache Maven.
+Эти шаги компилируют однострочный отчёт, заполняют его и экспортируют в PPTX с помощью JasperReports 6.16.0 из Maven Central. Требуются JDK 11 или новее и Apache Maven.
 
-1. Скачайте ZIP‑архив со [download page](https://releases.aspose.com/slides/jasperreport/) и распакуйте его. Папка *lib* содержит подпапку для каждого диапазона версий JasperReports, в которой находится jar‑файл соответствующего диапазона. Для JasperReports 6.16.0 скопируйте *lib/JasperReports 6.5.0 - 6.16.0 (JDK 1.6)/aspose.slides.jasperreports.library-26.6.jar* в пустую папку проекта.
+1. Скачайте ZIP‑файл со [страницы загрузки](https://releases.aspose.com/slides/jasperreport/) и распакуйте его. Папка *lib* содержит подпапки для каждого диапазона версий JasperReports, каждая из которых содержит jar‑файл соответствующего диапазона. Для JasperReports 6.16.0 скопируйте *lib/JasperReports 6.5.0 - 6.16.0 (JDK 1.6)/aspose.slides.jasperreports.library-26.6.jar* в пустую папку проекта.
 
-2. Jar‑файл поставляется в ZIP, а не из Maven‑репозитория, поэтому установите его в локальный Maven‑репозиторий. Выполните эту команду в папке проекта:
+2. Jar‑файл поставляется в ZIP‑архиве, а не из Maven‑репозитория, поэтому установите его в ваш локальный Maven‑репозиторий. Выполните эту команду в папке проекта:
 
 ```bash
 mvn install:install-file "-Dfile=aspose.slides.jasperreports.library-26.6.jar" "-DgroupId=com.aspose" "-DartifactId=aspose-slides-jasperreports" "-Dversion=26.6" "-Dpackaging=jar"
 ```
 
-3. Сохраните этот *pom.xml* в папке проекта. Он добавляет JasperReports 6.16.0 и установленный jar, а также указывает класс для запуска. JasperReports 6.16.0 объявляет модифицированную сборку iText, которой нет в Maven Central, поэтому файл исключает её; экспортёрам Aspose она не нужна.
+3. Сохраните этот *pom.xml* в папке проекта. Он добавляет JasperReports 6.16.0 и установленный jar, а также указывает класс для запуска. JasperReports 6.16.0 объявляет исправленную сборку iText, которой нет в Maven Central, поэтому файл исключает её; экспортёрам Aspose она не нужна.
 
 ```xml
 <project xmlns="http://maven.apache.org/POM/4.0.0">
@@ -135,7 +136,7 @@ mvn install:install-file "-Dfile=aspose.slides.jasperreports.library-26.6.jar" "
 </project>
 ```
 
-4. Сохраните дизайн отчёта как *hello.jrxml* в папке проекта. Он выводит одну строку текста в заголовочной полосе:
+4. Сохраните этот дизайн отчёта как *hello.jrxml* в папке проекта. Он выводит одну строку текста в заголовочной полосе:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -192,4 +193,4 @@ public class HelloExport {
 mvn compile exec:java
 ```
 
-Программа сохраняет *hello.pptx* в папке проекта, создав один слайд с текстом отчёта. Компилятор отмечает, что код использует устаревший API: экспортёры получают ввод и вывод через `JRExporterParameter` и не принимают более новую конфигурацию `setExporterInput` и `setExporterOutput`. В Linux должен быть установлен fontconfig и по крайней мере один шрифт, иначе заполнение отчёта не удаётся. Без лицензии каждый слайд получает водяной знак оценки в центре — см. [Licensing](/slides/ru/jasperreports/licensing/). Чтобы экспортировать в PPT, PDF или HTML, смотрите [PPT, PPTX, PDF and HTML Export](/slides/ru/jasperreports/ppt-pptx-pdf-and-html-export/).
+Программа сохраняет *hello.pptx* в папке проекта, создавая один слайд с текстом отчёта. Компилятор отмечает, что код использует устаревший API: экспортеры принимают входные и выходные данные через `JRExporterParameter` и не поддерживают более новую конфигурацию `setExporterInput` и `setExporterOutput`. В Linux необходимо установить fontconfig и хотя бы один шрифт, иначе заполнение отчёта завершится ошибкой. Без лицензии каждый слайд содержит оценочный водяной знак в центре — см. [Licensing](/slides/ru/jasperreports/licensing/). Для экспорта в PPT, PDF или HTML см. [PPT, PPTX, PDF and HTML Export](/slides/ru/jasperreports/ppt-pptx-pdf-and-html-export/).

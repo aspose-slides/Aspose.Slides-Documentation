@@ -8,11 +8,11 @@ is_root: true
 keywords:
 - Aspose.Slides для Python
 - Автоматизация PowerPoint на Python
-- Библиотека PPT на Python
+- Библиотека PPT для Python
 - Экспорт PowerPoint в PDF на Python
 - Экспорт PowerPoint в SVG на Python
-- Редактирование PowerPoint в Python
-- PowerPoint на Python без Microsoft Office
+- Редактирование PowerPoint на Python
+- PowerPoint для Python без Microsoft Office
 - Управление PPTX с помощью Python
 - Предпросмотр слайдов на Python
 - Добавление аудио в слайды на Python
@@ -20,13 +20,13 @@ keywords:
 - OpenDocument
 - Python
 - Aspose.Slides
-description: "Начните здесь: установите Aspose.Slides для Python через .NET, создайте первую презентацию и найдите руководства по типовым задачам, справочник API и поддержку."
+description: "Начните здесь: установите Aspose.Slides for Python via .NET, создайте первую презентацию и найдите руководства по общим задачам, справочник API и поддержку."
 ---
 <img src="aspose_slides-for-python.png" alt="Aspose.Slides for Python via .NET" align="left" style="width:110px; margin: 0 30px 20px 0"/>
 
 Aspose.Slides for Python via .NET — это библиотека Python для создания, чтения, редактирования и конвертации презентаций PowerPoint и OpenDocument без Microsoft PowerPoint или Microsoft Office.
 
-Она загружает и сохраняет файлы PPT, PPTX, PPS, POT и ODP, включая варианты с макросами и шаблоны, и экспортирует в PDF, XPS, HTML, SVG, TIFF, Markdown и изображения.
+Она загружает и сохраняет файлы PPT, PPTX, PPS, POT и ODP, включая варианты с макросами и шаблоны, а также экспортирует в PDF, XPS, HTML, SVG, TIFF, Markdown и изображения.
 
 <div style="clear:both"></div>
 
@@ -39,7 +39,7 @@ Aspose.Slides for Python via .NET — это библиотека Python для 
 <p>НАЧАЛО РАБОТЫ</p>
 <ul>
 <li><a href="/slides/ru/python-net/installation/">Установка</a></li>
-<li><a href="/slides/ru/python-net/create-presentation/">Создайте свою первую презентацию</a></li>
+<li><a href="/slides/ru/python-net/create-presentation/">Создайте вашу первую презентацию</a></li>
 <li><a href="/slides/ru/python-net/getting-started/">Руководство по началу работы</a></li>
 </ul>
 <p>ОЦЕНКА</p>
@@ -57,16 +57,16 @@ Aspose.Slides for Python via .NET — это библиотека Python для 
 <li><a href="/slides/ru/python-net/open-presentation/">Открыть презентацию</a></li>
 <li><a href="/slides/ru/python-net/save-presentation/">Сохранить презентацию</a></li>
 <li><a href="/slides/ru/python-net/convert-powerpoint-to-pdf/">Конвертировать в PDF</a></li>
-<li><a href="/slides/ru/python-net/convert-slide/">Отрисовать слайды как изображения</a></li>
+<li><a href="/slides/ru/python-net/convert-slide/">Отображать слайды как изображения</a></li>
 <li><a href="/slides/ru/python-net/manage-text/">Редактировать текст и фигуры</a></li>
 </ul>
 <p>РАБОЧИЕ ПРОЦЕССЫ SLIDES</p>
 <ul>
 <li><a href="/slides/ru/python-net/powerpoint-charts/">Диаграммы</a></li>
-<li><a href="/slides/ru/python-net/powerpoint-animation/">Анимации</a></li>
+<li><a href="/slides/ru/python-net/powerpoint-animation/">Анимация</a></li>
 <li><a href="/slides/ru/python-net/manage-media-files/">Аудио и видео</a></li>
 <li><a href="/slides/ru/python-net/presentation-design/">Дизайн слайдов</a></li>
-<li><a href="/slides/ru/python-net/merge-presentation/">Объединить презентации</a></li>
+<li><a href="/slides/ru/python-net/merge-presentation/">Объединение презентаций</a></li>
 </ul>
 <p>ПРИМЕРЫ</p>
 <ul>
@@ -77,16 +77,17 @@ Aspose.Slides for Python via .NET — это библиотека Python для 
 <div class="col-md-4">
 <p><b>Справка и поддержка</b></p>
 <hr>
-<p>СПРАВКА</p>
+<p>СПРАВОЧНИК</p>
 <ul>
-<li><a href="https://reference.aspose.com/slides/python-net/">Справочник API</a></li>
+<li><a href="https://reference.aspose.com/slides/python-net/">API‑справочник</a></li>
 <li><a href="https://releases.aspose.com/slides/python-net/release-notes/">Примечания к выпуску</a></li>
+<li><a href="https://products.aspose.com/slides/python-net/">Страница продукта</a></li>
 <li><a href="https://releases.aspose.com/slides/python-net/">Скачать</a></li>
 </ul>
 <p>ПОДДЕРЖКА</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/11">Бесплатный форум поддержки</a></li>
-<li><a href="https://helpdesk.aspose.com/">Платная служба поддержки</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">Форум бесплатной поддержки</a></li>
+<li><a href="https://helpdesk.aspose.com/">Платная техподдержка</a></li>
 </ul>
 </div>
 </div>
@@ -101,9 +102,9 @@ Aspose.Slides for Python via .NET — это библиотека Python для 
 pip install aspose.slides
 ```
 
-Пакет включает используемую .NET runtime, поэтому вам не нужно устанавливать .NET. На Linux также установите библиотеки libgdiplus и ICU, а при использовании системного Python в Debian или Ubuntu выполните команду в виртуальном окружении. macOS требует дополнительных зависимостей, и мы не проверяли установку на этой системе. Смотрите [Installation](/slides/ru/python-net/installation/) для команд, требований macOS и поддерживаемых версий Python.
+Пакет включает используемую .NET‑runtime, поэтому отдельная установка .NET не требуется. В Linux также установите библиотеки libgdiplus и ICU, а при работе с системным Python в Debian или Ubuntu запускать команду в виртуальном окружении. macOS имеет дополнительные требования, и установка на этой системе не проверялась. Смотрите [Установка](/slides/ru/python-net/installation/) для получения команд, требований к macOS и поддерживаемых версий Python.
 
-Сохраните этот код как *hello.py*:
+Сохраните следующий код как *hello.py*:
 
 ```py
 import aspose.slides as slides
@@ -117,8 +118,8 @@ with slides.Presentation() as presentation:
     auto_shape = slide.shapes.add_auto_shape(slides.ShapeType.CLOUD, 20, 20, 200, 80)
     auto_shape.text_frame.text = "Hello, Aspose!"
 
-    # Сохранить презентацию как файл PPTX.
+    # Сохранить презентацию в файл PPTX.
     presentation.save("new_presentation.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Запустите его с помощью `python hello.py`. Скрипт сохраняет *new_presentation.pptx* в текущей папке, содержащий один слайд с фигурой облака, на которой написано «Hello, Aspose!». Без лицензии сохранённый файл содержит водяной знак оценки — см. [Licensing](/slides/ru/python-net/licensing/). Для получения дополнительных способов создания и заполнения презентации см. [Create Presentations](/slides/ru/python-net/create-presentation/).
+Запустите его командой `python hello.py`. Скрипт сохраняет *new_presentation.pptx* в текущей папке, создавая один слайд с облачной фигурой, на которой написано «Hello, Aspose!». Без лицензии сохранённый файл содержит водяной знак оценки — см. [Лицензирование](/slides/ru/python-net/licensing/). Для получения дополнительных способов создания и заполнения презентации смотрите [Создание презентаций](/slides/ru/python-net/create-presentation/).

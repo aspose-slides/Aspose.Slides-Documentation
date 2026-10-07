@@ -1,6 +1,6 @@
 ---
-title: Aspose.Slides for Reporting Services
-second_title: Aspose.Slides for Reporting Services
+title: Aspose.Slides για Υπηρεσίες Αναφοράς
+second_title: Aspose.Slides για Υπηρεσίες Αναφοράς
 type: docs
 weight: 50
 url: /el/reportingservices/
@@ -9,18 +9,18 @@ keywords:
 - SQL Server Reporting Services
 - SSRS
 - Power BI Report Server
-- Σελιδοποιημένες αναφορές
+- σελιδοποιημένες αναφορές
 - RDL
-- Εξαγωγή PowerPoint
+- εξαγωγή PowerPoint
 - Aspose.Slides
-description: "Ξεκινήστε εδώ: εγκαταστήστε το Aspose.Slides for Reporting Services, εξάγετε την πρώτη αναφορά σε PowerPoint και βρείτε τις μορφές εξαγωγής, τις απαιτήσεις συστήματος και την υποστήριξη."
+description: "Ξεκινήστε εδώ: εγκαταστήστε το Aspose.Slides for Reporting Services, εξάγετε μια πρώτη αναφορά σε PowerPoint και βρείτε τις μορφές εξαγωγής, τις απαιτήσεις συστήματος και την υποστήριξη."
 is_root: true
 ---
-<img src="home_1.png" alt="Aspose.Slides for Reporting Services" align="left" style="width:110px; margin: 0 30px 20px 0"/>
+<img src="home_1.png" alt="Aspose.Slides για Υπηρεσίες Αναφοράς" align="left" style="width:110px; margin: 0 30px 20px 0"/>
 
-Το Aspose.Slides for Reporting Services είναι μια επέκταση απόδοσης για το Microsoft SQL Server Reporting Services και το Power BI Report Server, η οποία προσθέτει μορφές παρουσίασης στη λίστα εξαγωγής των σελιδοποιημένων (RDL) αναφορών, χωρίς το Microsoft PowerPoint στον εξυπηρετητή.
+Aspose.Slides for Reporting Services είναι μια επέκταση απόδοσης για το Microsoft SQL Server Reporting Services και το Power BI Report Server που προσθέτει μορφές παρουσίασης στη λίστα εξαγωγής των σελιδοποιημένων (RDL) αναφορών, χωρίς το Microsoft PowerPoint στον διακομιστή.
 
-Εξάγει αναφορές σε παρουσιάσεις PPT, PPTX, PPS και PPSX, καθώς και σε προβολές διαφανειών, σε ODP και σε XPS.
+Εξάγει αναφορές σε παρουσιάσεις PPT, PPTX, PPS και PPSX, σε παρουσιάσεις διαφανειών, σε ODP και σε XPS.
 
 <div style="clear:both"></div>
 
@@ -34,19 +34,19 @@ is_root: true
 <ul>
 <li><a href="/slides/el/reportingservices/installing-aspose-slides-for-reporting-services/">Εγκατάσταση</a></li>
 <li><a href="/slides/el/reportingservices/system-requirements/">Απαιτήσεις συστήματος</a></li>
-<li><a href="/slides/el/reportingservices/install-with-msi-installer/">Εγκατάσταση με τον εγκαταστάτη MSI</a></li>
+<li><a href="/slides/el/reportingservices/install-with-msi-installer/">Εγκατάσταση με το πρόγραμμα MSI</a></li>
 <li><a href="/slides/el/reportingservices/install-manually/">Χειροκίνητη εγκατάσταση</a></li>
-<li><a href="/slides/el/reportingservices/power-bi/">Εγκατάσταση στο Power BI Report Server</a></li>
+<li><a href="/slides/el/reportingservices/power-bi/">Εγκατάσταση στον Power BI Report Server</a></li>
 </ul>
 <p>ΑΞΙΟΛΟΓΗΣΗ</p>
 <ul>
 <li><a href="/slides/el/reportingservices/supported-file-formats/">Υποστηριζόμενες μορφές αρχείων</a></li>
 <li><a href="/slides/el/reportingservices/evaluate-aspose-slides/">Περιορισμοί δοκιμής</a></li>
-<li><a href="/slides/el/reportingservices/license-aspose-slides-for-reporting-services/">Άδεια χρήσης</a></li>
+<li><a href="/slides/el/reportingservices/license-aspose-slides-for-reporting-services/">Αδειοδότηση</a></li>
 </ul>
 </div>
 <div class="col-md-4">
-<p><b>Δομήστε με Slides</b></p>
+<p><b>Δημιουργία με Slides</b></p>
 <hr>
 <p>ΕΞΑΓΩΓΗ</p>
 <ul>
@@ -64,6 +64,7 @@ is_root: true
 <p>ΑΝΑΦΟΡΑ</p>
 <ul>
 <li><a href="https://releases.aspose.com/slides/reportingservices/release-notes/">Σημειώσεις έκδοσης</a></li>
+<li><a href="https://products.aspose.com/slides/reporting-services/">Σελίδα προϊόντος</a></li>
 <li><a href="https://releases.aspose.com/slides/reportingservices/">Λήψη</a></li>
 </ul>
 <p>ΥΠΟΣΤΗΡΙΞΗ</p>
@@ -78,13 +79,13 @@ is_root: true
 
 ## **Η πρώτη σας εξαγωγή**
 
-Δεν χρειάζεται να γράψετε κώδικα: εγκαθιστάτε την επέκταση στον εξυπηρετητή αναφορών και οι μορφές της εμφανίζονται στη λίστα εξαγωγής κάθε σελιδοποιημένης αναφοράς στον εξυπηρετητή.
+Δεν απαιτείται καμία γραφή κώδικα: εγκαθιστάτε την επέκταση στον διακομιστή αναφορών και οι μορφές της εμφανίζονται στη λίστα εξαγωγής κάθε σελιδοποιημένης αναφοράς σε αυτόν τον διακομιστή.
 
-1. Βεβαιωθείτε ότι ο εξυπηρετης αναφορών πληροί τις [απαιτήσεις συστήματος](/slides/el/reportingservices/system-requirements/), συμπεριλαμβανομένου του .NET Framework 3.5.
-1. Από τη [σελίδα λήψης](https://releases.aspose.com/slides/reportingservices/), κατεβάστε τον εγκαταστάτη MSI, *Aspose.Slides for Reporting Services*. Για χειροκίνητη εγκατάσταση, κατεβάστε το πακέτο ZIP, *Aspose.Slides for Reporting Services (DLLs Only)*.
-1. Εγκαταστήστε την επέκταση στον εξυπηρετητή αναφορών: εκτελέστε το MSI ως διαχειριστής, όπως περιγράφεται στην [Εγκατάσταση με τον εγκαταστάτη MSI](/slides/el/reportingservices/install-with-msi-installer/), ή ακολουθήστε την [Χειροκίνητη εγκατάσταση](/slides/el/reportingservices/install-manually/) για το πακέτο ZIP.
-1. Σε πρόγραμμα περιήγησης, ανοίξτε το web portal του εξυπηρετητή αναφορών (Report Manager σε SQL Server 2014 και παλαιότερα). Από προεπιλογή, η διεύθυνσή του είναι `https://<ComputerName>/reports`.
-1. Ανοίξτε μια σελιδοποιημένη αναφορά. Στη γραμμή εργαλείων της αναφοράς, ανοίξτε τη λίστα **Export** και επιλέξτε **PPTX - PowerPoint 2007 Presentation via Aspose.Slides**. Εάν η γραμμή εργαλείων διαθέτει ξεχωριστό κουμπί **Export**, όπως κάνει το Report Manager, επιλέξτε το.
-1. Ανοίξτε ή αποθηκεύστε το αρχείο PPTX που κατεβάζει το πρόγραμμα περιήγησης.
+1. Ελέγξτε ότι ο διακομιστής αναφορών πληροί τις [απαιτήσεις συστήματος](/slides/el/reportingservices/system-requirements/), συμπεριλαμβανομένου του .NET Framework 3.5.
+1. Από τη [σελίδα λήψης](https://releases.aspose.com/slides/reportingservices/), κατεβάστε το πρόγραμμα εγκατάστασης MSI, *Aspose.Slides for Reporting Services*. Για χειροκίνητη εγκατάσταση, κατεβάστε το πακέτο ZIP, *Aspose.Slides for Reporting Services (DLLs Only)*.
+1. Εγκαταστήστε την επέκταση στον διακομιστή αναφορών: εκτελέστε το MSI ως διαχειριστή, όπως περιγράφεται στην [Εγκατάσταση με το πρόγραμμα MSI](/slides/el/reportingservices/install-with-msi-installer/), ή ακολουθήστε την [Χειροκίνητη εγκατάσταση](/slides/el/reportingservices/install-manually/) για το πακέτο ZIP.
+1. Σε έναν περιηγητή, ανοίξτε το web portal του διακομιστή αναφορών (Report Manager σε SQL Server 2014 και παλαιότερες εκδόσεις). Από προεπιλογή, η διεύθυνσή του είναι `https://<ComputerName>/reports`.
+1. Ανοίξτε μια σελιδοποιημένη αναφορά. Στη γραμμή εργαλείων της αναφοράς, ανοίξτε τη λίστα **Εξαγωγή** και επιλέξτε **PPTX - PowerPoint 2007 Presentation μέσω Aspose.Slides**. Εάν η γραμμή εργαλείων διαθέτει ξεχωριστό κουμπί **Εξαγωγή**, όπως κάνει το Report Manager, επιλέξτε το.
+1. Ανοίξτε ή αποθηκεύστε το αρχείο PPTX που κατεβάζει ο περιηγητής.
 
-Χωρίς άδεια, η εξαγόμενη παρουσίαση εμφανίζει υδατογράφημα αξιολόγησης — δείτε την [Άδεια χρήσης](/slides/el/reportingservices/license-aspose-slides-for-reporting-services/). Για τις άλλες μορφές στη λίστα εξαγωγής, δείτε τις [Υποστηριζόμενες μορφές αρχείων](/slides/el/reportingservices/supported-file-formats/).
+Χωρίς άδεια, η εξαχθείσα παρουσίαση περιέχει υδατογράφημα αξιολόγησης — δείτε την [Αδειοδότηση](/slides/el/reportingservices/license-aspose-slides-for-reporting-services/). Για τις άλλες μορφές στη λίστα εξαγωγής, δείτε τις [Υποστηριζόμενες μορφές αρχείων](/slides/el/reportingservices/supported-file-formats/).

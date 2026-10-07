@@ -8,13 +8,13 @@ is_root: true
 keywords:
 - Aspose.Slides untuk Python via Java
 - Perpustakaan PowerPoint Python
-- kelola presentasi PowerPoint di Python
-- baca dan tulis PowerPoint di Python
-- edit slide PowerPoint di Python
-- ekspor PowerPoint ke PDF di Python
-- ekspor PowerPoint ke SVG di Python
+- mengelola presentasi PowerPoint di Python
+- membaca dan menulis PowerPoint di Python
+- mengedit slide PowerPoint di Python
+- mengekspor PowerPoint ke PDF di Python
+- mengekspor PowerPoint ke SVG di Python
 - pratinjau slide di Python
-- tambahkan audio dan video ke slide di Python
+- menambahkan audio dan video ke slide di Python
 - PowerPoint tanpa Microsoft Office
 - Python
 - Java
@@ -23,9 +23,9 @@ description: "Mulai di sini: instal Aspose.Slides untuk Python via Java, buat pr
 ---
 <img src="aspose_slides-for-python-via-java.png" alt="Aspose.Slides untuk Python via Java" align="left" style="width:110px; margin: 0 30px 20px 0"/>
 
-Aspose.Slides for Python via Java adalah perpustakaan untuk membuat, membaca, mengedit, dan mengonversi presentasi PowerPoint dan OpenDocument dalam aplikasi Python, tanpa Microsoft PowerPoint; ia menjalankan mesin Aspose.Slides Java di proses Python Anda melalui JPype.
+Aspose.Slides untuk Python via Java adalah perpustakaan untuk membuat, membaca, mengedit, dan mengonversi presentasi PowerPoint serta OpenDocument dalam aplikasi Python, tanpa Microsoft PowerPoint; ia menjalankan mesin Aspose.Slides Java dalam proses Python Anda melalui JPype.
 
-Ia memuat dan menyimpan PPT, PPTX, PPS, POT, dan ODP, termasuk varian yang mendukung makro dan templat, serta mengekspor ke PDF, XPS, HTML, SVG, TIFF, Markdown, dan gambar.
+Perpustakaan ini memuat dan menyimpan PPT, PPTX, PPS, POT, dan ODP, termasuk varian yang mendukung makro dan template, serta mengekspor ke PDF, XPS, HTML, SVG, TIFF, Markdown, dan gambar.
 
 <div style="clear:both"></div>
 
@@ -33,7 +33,7 @@ Ia memuat dan menyimpan PPT, PPTX, PPS, POT, dan ODP, termasuk varian yang mendu
 
 <div class="row">
 <div class="col-md-4">
-<p><b>Memulai</b></p>
+<p><b>Mulai</b></p>
 <hr>
 <p>MEMULAI</p>
 <ul>
@@ -49,7 +49,7 @@ Ia memuat dan menyimpan PPT, PPTX, PPS, POT, dan ODP, termasuk varian yang mendu
 </ul>
 </div>
 <div class="col-md-4">
-<p><b>Bangun dengan Slides</b></p>
+<p><b>Membangun dengan Slides</b></p>
 <hr>
 <p>TUGAS UMUM</p>
 <ul>
@@ -80,9 +80,10 @@ Ia memuat dan menyimpan PPT, PPTX, PPS, POT, dan ODP, termasuk varian yang mendu
 <li><a href="https://reference.aspose.com/slides/python-java/">Referensi API</a></li>
 <li><a href="https://releases.aspose.com/slides/python-java/release-notes/">Catatan rilis</a></li>
 <li><a href="/slides/id/python-java/known-issues/">Masalah yang diketahui</a></li>
+<li><a href="https://products.aspose.com/slides/python-java/">Halaman produk</a></li>
 <li><a href="https://releases.aspose.com/slides/python-java/">Unduh</a></li>
 </ul>
-<p>DUKUNGAN</p>
+<p>Dukungan</p>
 <ul>
 <li><a href="https://forum.aspose.com/c/slides/11">Forum dukungan gratis</a></li>
 <li><a href="https://helpdesk.aspose.com/">Helpdesk dukungan berbayar</a></li>
@@ -94,20 +95,20 @@ Ia memuat dan menyimpan PPT, PPTX, PPS, POT, dan ODP, termasuk varian yang mendu
 
 ## **Presentasi pertama Anda**
 
-Instal Python dan JDK, atur `JAVA_HOME`, serta buat dan aktifkan lingkungan virtual seperti yang dijelaskan pada [Instalasi](/slides/id/python-java/installation/). Kemudian instal JPype dan Aspose.Slides dari PyPI:
+Instal Python dan JDK, tetapkan `JAVA_HOME`, serta buat dan aktifkan lingkungan virtual seperti yang dijelaskan di [Instalasi](/slides/id/python-java/installation/). Kemudian instal JPype dan Aspose.Slides dari PyPI:
 
 ```sh
 python -m pip install JPype1 aspose-slides-java
 ```
 
-Simpan kode ini sebagai *hello.py*. Kode ini memulai Mesin Virtual Java, menambahkan bentuk awan dengan teks ke slide pertama dari presentasi baru, dan menyimpan presentasi:
+Simpan kode ini sebagai *hello.py*. Kode ini memulai Java Virtual Machine, menambahkan bentuk awan dengan teks ke slide pertama dari presentasi baru, dan menyimpan presentasi:
 
 ```python
-import jpype
+import jpile
 import asposeslides
 
-if not jpype.isJVMStarted():
-    jpype.startJVM()
+if not jpile.isJVMStarted():
+    jpile.startJVM()
 
 from asposeslides.api import Presentation, SaveFormat, ShapeType
 
@@ -127,10 +128,10 @@ finally:
     presentation.dispose()
 ```
 
-Jalankan di lingkungan virtual yang sama:
+Jalankan dalam lingkungan virtual yang sama:
 
 ```sh
 python hello.py
 ```
 
-Skrip ini menyimpan *new_presentation.pptx* dengan satu slide yang berisi bentuk awan dengan teks "Hello, Aspose!". Tanpa lisensi, file yang disimpan juga menampilkan watermark evaluasi — lihat [Lisensi](/slides/id/python-java/licensing/). Untuk lebih banyak cara membuat dan mengisi presentasi, lihat [Buat Presentasi](/slides/id/python-java/create-presentation/).
+Skrip ini menyimpan *new_presentation.pptx* dengan satu slide yang berisi bentuk awan berisi teks "Hello, Aspose!". Tanpa lisensi, file yang disimpan juga menampilkan watermark evaluasi — lihat [Lisensi](/slides/id/python-java/licensing/). Untuk cara lain membuat dan mengisi presentasi, lihat [Buat Presentasi](/slides/id/python-java/create-presentation/).

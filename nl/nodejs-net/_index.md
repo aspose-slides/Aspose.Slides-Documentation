@@ -7,20 +7,20 @@ url: /nl/nodejs-net/
 keywords:
 - documentatie
 - presentatieverwerking
-- presentatietransformatie
+- presentatieconversie
 - PowerPoint
 - OpenDocument
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Begin hier: installeer Aspose.Slides voor Node.js via .NET, maak een eerste presentatie, en vind de handleidingen voor veelvoorkomende taken, licenties, de API-referentie en ondersteuning."
+description: "Begin hier: installeer Aspose.Slides voor Node.js via .NET, maak een eerste presentatie, en vind de gidsen voor algemene taken, licenties, de API-referentie en ondersteuning."
 is_root: true
 ---
 <img src="aspose_slides-for-nodejs-via-net.png" alt="Aspose.Slides voor Node.js via .NET" align="left" style="width:110px; margin: 0 30px 20px 0"/>
 
-Aspose.Slides for Node.js via .NET is een bibliotheek voor het maken, lezen, bewerken en converteren van PowerPoint- en OpenDocument‑presentaties in Node.js‑toepassingen, zonder Microsoft PowerPoint of Office‑automatisering. Het draait Aspose.Slides voor .NET via de edge‑js‑brug, zodat de JavaScript‑API de .NET‑API weerspiegelt, met camelCase‑namen voor leden.
+Aspose.Slides voor Node.js via .NET is een bibliotheek voor het maken, lezen, bewerken en converteren van PowerPoint‑ en OpenDocument‑presentaties in Node.js‑toepassingen, zonder Microsoft PowerPoint of Office‑automatisering. Het draait Aspose.Slides voor .NET via de edge‑js‑brug, zodat de JavaScript‑API de .NET‑API weerspiegelt, met camelCase‑member‑namen.
 
-Het laadt en slaat PPT, PPTX, PPS, POT en ODP op, inclusief macro‑ingeschakelde en sjabloonvarianten, en exporteert naar PDF, XPS, HTML, TIFF, Markdown en afbeeldingen.
+Het laadt en slaat PPT, PPTX, PPS, POT en ODP op, inclusief macro‑ingeschakelde en sjabloon‑varianten, en exporteert naar PDF, XPS, HTML, TIFF, Markdown en afbeeldingen.
 
 <div style="clear:both"></div>
 
@@ -30,22 +30,22 @@ Het laadt en slaat PPT, PPTX, PPS, POT en ODP op, inclusief macro‑ingeschakeld
 <div class="col-md-4">
 <p><b>Aan de slag</b></p>
 <hr>
-<p>EERSTE STAPPEN</p>
+<p>Eerste stappen</p>
 <ul>
 <li><a href="/slides/nl/nodejs-net/installation/">Installatie</a></li>
-<li><a href="/slides/nl/nodejs-net/create-presentation/">Maak uw eerste presentatie</a></li>
+<li><a href="/slides/nl/nodejs-net/create-presentation/">Maak je eerste presentatie</a></li>
 <li><a href="/slides/nl/nodejs-net/developer-guide/">Ontwikkelaarsgids</a></li>
 </ul>
-<p>EVALUEREN</p>
+<p>Evalueren</p>
 <ul>
 <li><a href="/slides/nl/nodejs-net/evaluate-aspose-slides/">Beperkingen proefversie</a></li>
-<li><a href="/slides/nl/nodejs-net/licensing/">Licentie</a></li>
+<li><a href="/slides/nl/nodejs-net/licensing/">Licenties</a></li>
 </ul>
 </div>
 <div class="col-md-4">
 <p><b>Bouw met Slides</b></p>
 <hr>
-<p>ALGEMENE TAKEN</p>
+<p>Algemene taken</p>
 <ul>
 <li><a href="/slides/nl/nodejs-net/open-presentation/">Open en sla een presentatie op</a></li>
 <li><a href="/slides/nl/nodejs-net/convert-powerpoint-to-pdf/">Converteer naar PDF</a></li>
@@ -54,27 +54,28 @@ Het laadt en slaat PPT, PPTX, PPS, POT en ODP op, inclusief macro‑ingeschakeld
 </ul>
 </div>
 <div class="col-md-4">
-<p><b>Referentie &amp; ondersteuning</b></p>
+<p><b>Referentie &amp; Ondersteuning</b></p>
 <hr>
-<p>REFERENTIE</p>
+<p>Referentie</p>
 <ul>
 <li><a href="https://reference.aspose.com/slides/net/">.NET API-referentie</a></li>
 <li><a href="https://releases.aspose.com/slides/nodejs-net/release-notes/">Release‑opmerkingen</a></li>
+<li><a href="https://products.aspose.com/slides/nodejs-net/">Productpagina</a></li>
 <li><a href="https://releases.aspose.com/slides/nodejs-net/">Download</a></li>
 </ul>
-<p>ONDERSTEUNING</p>
+<p>Ondersteuning</p>
 <ul>
 <li><a href="https://forum.aspose.com/c/slides/11">Gratis ondersteuningsforum</a></li>
-<li><a href="https://helpdesk.aspose.com/">Betaalde ondersteuningshelpdesk</a></li>
+<li><a href="https://helpdesk.aspose.com/">Betaalde ondersteunings‑helpdesk</a></li>
 </ul>
 </div>
 </div>
 
 ------
 
-## **Uw eerste presentatie**
+## **Je eerste presentatie**
 
-U heeft Node.js 22 of 24 en de .NET SDK 8 of later nodig; Linux heeft ook een aantal systeem‑pakketten nodig. [Installatie](/slides/nl/nodejs-net/installation/) geeft ze weer en de platforms die getest zijn. Maak een project, voeg een override toe die npm vertelt welke edge‑js‑release geïnstalleerd moet worden, en installeer het pakket:
+Je hebt Node.js 22 of 24 en de .NET SDK 8 of hoger nodig; Linux heeft ook een paar systeempakketten nodig. [Installatie](/slides/nl/nodejs-net/installation/) somt ze op en de platforms die zijn getest. Maak een project, voeg een override toe die npm vertelt welke edge‑js‑release geïnstalleerd moet worden, en installeer het pakket:
 
 ```sh
 mkdir hello-slides
@@ -101,14 +102,14 @@ const presentation = new Presentation();
 try {
     const slide = presentation.slides.get(0);
 
-    // Positie en grootte zijn in points (1/72 inch): x, y, breedte, hoogte.
+    // Positie en grootte zijn in punten (1/72 inch): x, y, breedte, hoogte.
     const rectangle = slide.shapes.addAutoShape(ShapeType.Rectangle, 50, 50, 400, 100);
     rectangle.addTextFrame("Hello, World!");
 
     presentation.save("hello.pptx", SaveFormat.Pptx);
     console.log("Saved hello.pptx");
 } finally {
-    // Vrijgeven van het .NET-object dat de presentatie ondersteunt.
+    // Vrijgeven van het .NET‑object dat de presentatie ondersteunt.
     presentation.dispose();
 }
 ```
@@ -119,4 +120,4 @@ Voer het uit vanuit de projectmap:
 node hello.js
 ```
 
-Het script geeft `Saved hello.pptx` weer en slaat *hello.pptx* op met één dia die een rechthoek met de tekst bevat. Zonder licentie bevat het opgeslagen bestand een evaluatiewatermerk — zie [Licentie](/slides/nl/nodejs-net/licensing/). Voor meer manieren om een presentatie te maken en te vullen, zie [Maak een presentatie](/slides/nl/nodejs-net/create-presentation/).
+Het script geeft `Saved hello.pptx` weer en slaat *hello.pptx* op met één dia met een rechthoek die de tekst bevat. Zonder licentie draagt het opgeslagen bestand een evaluatiewatermerk — zie [Licensing](/slides/nl/nodejs-net/licensing/). Voor meer manieren om een presentatie te maken en te vullen, zie [Maak een presentatie](/slides/nl/nodejs-net/create-presentation/).

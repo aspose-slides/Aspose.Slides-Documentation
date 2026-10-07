@@ -12,14 +12,14 @@ keywords:
 - OpenDocument
 - C++
 - Aspose.Slides
-description: "Begin hier: installeer Aspose.Slides for C++, maak een eerste presentatie, en vind de handleidingen voor algemene taken, de API-referentie en ondersteuning."
+description: "Begin hier: installeer Aspose.Slides for C++, maak een eerste presentatie en vind de handleidingen voor veelvoorkomende taken, de API‑referentie en ondersteuning."
 is_root: true
 ---
 <img src="home_1.png" alt="Aspose.Slides for C++" align="left" style="width:110px; margin: 0 30px 20px 0"/>
 
-Aspose.Slides for C++ is een native C++-bibliotheek voor het maken, lezen, bewerken en converteren van PowerPoint- en OpenDocument‑presentaties, zonder Microsoft PowerPoint of Office‑automatisering.
+Aspose.Slides for C++ is een native C++‑bibliotheek voor het maken, lezen, bewerken en converteren van PowerPoint‑ en OpenDocument‑presentaties, zonder Microsoft PowerPoint of Office‑automatisering.
 
-Het laadt en slaat PPT, PPTX, PPS, POT en ODP op, inclusief macro‑ingeschakelde en sjabloonvarianten, en exporteert naar PDF, XPS, HTML, SVG, TIFF, Markdown en afbeeldingen.
+Hij laadt en slaat PPT, PPTX, PPS, POT en ODP op, inclusief macro‑ingeschakelde en sjabloonvarianten, en exporteert naar PDF, XPS, HTML, SVG, TIFF, Markdown en afbeeldingen.
 
 <div style="clear:both"></div>
 
@@ -29,11 +29,11 @@ Het laadt en slaat PPT, PPTX, PPS, POT en ODP op, inclusief macro‑ingeschakeld
 <div class="col-md-4">
 <p><b>Aan de slag</b></p>
 <hr>
-<p>Eerste stappen</p>
+<p>AAN DE SLAG</p>
 <ul>
 <li><a href="/slides/nl/cpp/installation/">Installatie</a></li>
-<li><a href="/slides/nl/cpp/create-presentation/">Maak je eerste presentatie</a></li>
-<li><a href="/slides/nl/cpp/getting-started/">Gids voor aan de slag</a></li>
+<li><a href="/slides/nl/cpp/create-presentation/">Maak uw eerste presentatie</a></li>
+<li><a href="/slides/nl/cpp/getting-started/">Beginhandleiding</a></li>
 </ul>
 <p>EVALUEREN</p>
 <ul>
@@ -53,12 +53,12 @@ Het laadt en slaat PPT, PPTX, PPS, POT en ODP op, inclusief macro‑ingeschakeld
 <li><a href="/slides/nl/cpp/convert-slide/">Render dia's als afbeeldingen</a></li>
 <li><a href="/slides/nl/cpp/manage-text/">Bewerk tekst en vormen</a></li>
 </ul>
-<p>WERKSTROMEN</p>
+<p>SLIDES-WERKSTROMEN</p>
 <ul>
 <li><a href="/slides/nl/cpp/powerpoint-charts/">Grafieken</a></li>
 <li><a href="/slides/nl/cpp/powerpoint-animation/">Animaties</a></li>
 <li><a href="/slides/nl/cpp/manage-media-files/">Audio en video</a></li>
-<li><a href="/slides/nl/cpp/presentation-design/">Dia-ontwerp</a></li>
+<li><a href="/slides/nl/cpp/presentation-design/">Diaontwerp</a></li>
 <li><a href="/slides/nl/cpp/merge-presentation/">Presentaties samenvoegen</a></li>
 </ul>
 <p>VOORBEELDEN</p>
@@ -68,26 +68,27 @@ Het laadt en slaat PPT, PPTX, PPS, POT en ODP op, inclusief macro‑ingeschakeld
 </ul>
 </div>
 <div class="col-md-4">
-<p><b>Referentie &amp; Support</b></p>
+<p><b>Referentie &amp; Ondersteuning</b></p>
 <hr>
 <p>REFERENTIE</p>
 <ul>
 <li><a href="https://reference.aspose.com/slides/cpp/">API‑referentie</a></li>
-<li><a href="https://releases.aspose.com/slides/cpp/release-notes/">Release‑notities</a></li>
+<li><a href="https://releases.aspose.com/slides/cpp/release-notes/">Release‑notes</a></li>
 <li><a href="/slides/nl/cpp/known-issues/">Bekende problemen</a></li>
+<li><a href="https://products.aspose.com/slides/cpp/">Productpagina</a></li>
 <li><a href="https://releases.aspose.com/slides/cpp/">Download</a></li>
 </ul>
-<p>SUPPORT</p>
+<p>ONDERSTEUNING</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/11">Gratis ondersteuningsforum</a></li>
-<li><a href="https://helpdesk.aspose.com/">Betaalde ondersteuningshelpdesk</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">Gratis forum voor ondersteuning</a></li>
+<li><a href="https://helpdesk.aspose.com/">Betaalde helpdesk voor ondersteuning</a></li>
 </ul>
 </div>
 </div>
 
 ------
 
-## **Je eerste presentatie**
+## **Uw eerste presentatie**
 
 Op Windows maakt u een C++ **Console App**‑project in Visual Studio en installeert u het NuGet‑pakket in de Package Manager Console (**Tools** > **NuGet Package Manager** > **Package Manager Console**):
 
@@ -97,7 +98,7 @@ Install-Package Aspose.Slides.Cpp
 
 Op Linux downloadt u het Linux‑ZIP‑pakket en stelt u het CMake‑project in zoals beschreven in [Installatie](/slides/nl/cpp/installation/#linux).
 
-Gebruik vervolgens deze code als de hoofdbroncode van uw programma. Het maakt een presentatie met één tekstvak en slaat deze op:
+Gebruik vervolgens deze code als de hoofd‑bronfile van uw programma. Het maakt een presentatie met één tekstvak en slaat deze op:
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -125,7 +126,7 @@ int main()
 }
 ```
 
-Om het op Windows uit te voeren, selecteert u het **x64**‑platform in de werkbalk en drukt u op **Ctrl+F5**. Op Linux slaat u het op als *main.cpp* in de projectmap, bouwt en voert u het daar uit:
+Om het onder Windows uit te voeren, selecteert u het **x64**‑platform in de werkbalk en drukt u op **Ctrl+F5**. Op Linux slaat u het op als *main.cpp* in de projectmap, bouwt u het vervolgens en voert u het daar uit:
 
 ```bash
 cmake -S . -B build -DCMAKE_BUILD_TYPE=Release

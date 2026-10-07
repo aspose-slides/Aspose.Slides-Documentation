@@ -17,9 +17,9 @@ is_root: true
 ---
 <img src="home_1.png" alt="Aspose.Slides for C++" align="left" style="width:110px; margin: 0 30px 20px 0"/>
 
-Aspose.Slides per C++ è una libreria nativa C++ per creare, leggere, modificare e convertire presentazioni PowerPoint e OpenDocument, senza Microsoft PowerPoint o Office Automation.
+Aspose.Slides for C++ è una libreria C++ nativa per creare, leggere, modificare e convertire presentazioni PowerPoint e OpenDocument, senza Microsoft PowerPoint o automazione di Office.
 
-Carica e salva PPT, PPTX, PPS, POT e ODP, incluse le varianti con macro e i modelli, ed esporta in PDF, XPS, HTML, SVG, TIFF, Markdown e immagini.
+Carica e salva file PPT, PPTX, PPS, POT e ODP, incluse le varianti con macro e i modelli, ed esporta in PDF, XPS, HTML, SVG, TIFF, Markdown e immagini.
 
 <div style="clear:both"></div>
 
@@ -35,11 +35,11 @@ Carica e salva PPT, PPTX, PPS, POT e ODP, incluse le varianti con macro e i mode
 <li><a href="/slides/it/cpp/create-presentation/">Crea la tua prima presentazione</a></li>
 <li><a href="/slides/it/cpp/getting-started/">Guida introduttiva</a></li>
 </ul>
-<p>VALUTARE</p>
+<p>VALUTAZIONE</p>
 <ul>
-<li><a href="/slides/it/cpp/supported-file-formats/">Formati file supportati</a></li>
+<li><a href="/slides/it/cpp/supported-file-formats/">Formati di file supportati</a></li>
 <li><a href="/slides/it/cpp/evaluate-aspose-slides/">Limitazioni della versione di prova</a></li>
-<li><a href="/slides/it/cpp/licensing/">Licenze</a></li>
+<li><a href="/slides/it/cpp/licensing/">Licenza</a></li>
 </ul>
 </div>
 <div class="col-md-4">
@@ -50,7 +50,7 @@ Carica e salva PPT, PPTX, PPS, POT e ODP, incluse le varianti con macro e i mode
 <li><a href="/slides/it/cpp/open-presentation/">Apri una presentazione</a></li>
 <li><a href="/slides/it/cpp/save-presentation/">Salva una presentazione</a></li>
 <li><a href="/slides/it/cpp/convert-powerpoint-to-pdf/">Converti in PDF</a></li>
-<li><a href="/slides/it/cpp/convert-slide/">Rendi le diapositive come immagini</a></li>
+<li><a href="/slides/it/cpp/convert-slide/">Renderizza diapositive come immagini</a></li>
 <li><a href="/slides/it/cpp/manage-text/">Modifica testo e forme</a></li>
 </ul>
 <p>FLUSSI DI LAVORO SLIDES</p>
@@ -58,7 +58,7 @@ Carica e salva PPT, PPTX, PPS, POT e ODP, incluse le varianti con macro e i mode
 <li><a href="/slides/it/cpp/powerpoint-charts/">Grafici</a></li>
 <li><a href="/slides/it/cpp/powerpoint-animation/">Animazioni</a></li>
 <li><a href="/slides/it/cpp/manage-media-files/">Audio e video</a></li>
-<li><a href="/slides/it/cpp/presentation-design/">Design delle diapositive</a></li>
+<li><a href="/slides/it/cpp/presentation-design/">Progettazione diapositiva</a></li>
 <li><a href="/slides/it/cpp/merge-presentation/">Unisci presentazioni</a></li>
 </ul>
 <p>ESEMPI</p>
@@ -75,6 +75,7 @@ Carica e salva PPT, PPTX, PPS, POT e ODP, incluse le varianti con macro e i mode
 <li><a href="https://reference.aspose.com/slides/cpp/">Riferimento API</a></li>
 <li><a href="https://releases.aspose.com/slides/cpp/release-notes/">Note di rilascio</a></li>
 <li><a href="/slides/it/cpp/known-issues/">Problemi noti</a></li>
+<li><a href="https://products.aspose.com/slides/cpp/">Pagina prodotto</a></li>
 <li><a href="https://releases.aspose.com/slides/cpp/">Download</a></li>
 </ul>
 <p>SUPPORTO</p>
@@ -89,15 +90,15 @@ Carica e salva PPT, PPTX, PPS, POT e ODP, incluse le varianti con macro e i mode
 
 ## **La tua prima presentazione**
 
-Su Windows, crea un progetto **Console App** C++ in Visual Studio e installa il pacchetto NuGet nella Console di Gestione Pacchetti (**Tools** > **NuGet Package Manager** > **Package Manager Console**):
+Su Windows, crea un progetto C++ **Console App** in Visual Studio e installa il pacchetto NuGet nella Console di Package Manager (**Tools** > **NuGet Package Manager** > **Package Manager Console**):
 
 ```powershell
 Install-Package Aspose.Slides.Cpp
 ```
 
-Su Linux, scarica il pacchetto ZIP per Linux e configura il progetto CMake descritto in [Installazione](/slides/it/cpp/installation/#linux).
+Su Linux, scarica il pacchetto ZIP per Linux e configura il progetto CMake descritto nella pagina [Installazione](/slides/it/cpp/installation/#linux).
 
-Quindi usa questo codice come file sorgente principale del tuo programma. Crea una presentazione con una casella di testo e la salva:
+Quindi utilizza questo codice come file sorgente principale del tuo programma. Crea una presentazione con un unico riquadro di testo e la salva:
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -133,4 +134,4 @@ cmake --build build
 ./build/hello
 ```
 
-Il programma salva *hello.pptx* con una diapositiva contenente una casella di testo. Senza licenza, il file salvato contiene una filigrana di valutazione — vedi [Licenze](/slides/it/cpp/licensing/). Per altri modi di creare e riempire una presentazione, vedi [Crea presentazioni](/slides/it/cpp/create-presentation/).
+Il programma salva *hello.pptx* con una diapositiva contenente un riquadro di testo. Senza licenza, il file salvato presenta una filigrana di valutazione — vedi [Licenza](/slides/it/cpp/licensing/). Per ulteriori modalità di creare e compilare una presentazione, vedi [Crea presentazioni](/slides/it/cpp/create-presentation/).

@@ -12,7 +12,7 @@ keywords:
 - OpenDocument
 - PHP
 - Aspose.Slides
-description: "Commencez ici : installez Aspose.Slides for PHP via Java, créez une première présentation, et trouvez les guides pour les tâches courantes, la référence API et le support."
+description: "Commencez ici : installez Aspose.Slides pour PHP via Java, créez votre première présentation, et trouvez les guides pour les tâches courantes, la référence API et le support."
 is_root: true
 ---
 <img src="aspose_slides-for-php-via-java.png" alt="Aspose.Slides pour PHP via Java" align="left" style="width:110px; margin: 0 30px 20px 0"/>
@@ -29,28 +29,28 @@ Elle charge et enregistre les formats PPT, PPTX, PPS, POT et ODP, y compris les 
 <div class="col-md-4">
 <p><b>Commencer</b></p>
 <hr>
-<p>COMMENCER</p>
+<p>DÉMARRAGE</p>
 <ul>
 <li><a href="/slides/fr/php-java/installation/">Installation</a></li>
-<li><a href="/slides/fr/php-java/create-presentation/">Créez votre première présentation</a></li>
+<li><a href="/slides/fr/php-java/create-presentation/">Créer votre première présentation</a></li>
 <li><a href="/slides/fr/php-java/getting-started/">Guide de démarrage</a></li>
 </ul>
 <p>ÉVALUER</p>
 <ul>
 <li><a href="/slides/fr/php-java/supported-file-formats/">Formats de fichiers pris en charge</a></li>
-<li><a href="/slides/fr/php-java/evaluate-aspose-slides/">Limitations de l'évaluation</a></li>
+<li><a href="/slides/fr/php-java/evaluate-aspose-slides/">Limitations de l'essai</a></li>
 <li><a href="/slides/fr/php-java/licensing/">Licence</a></li>
 </ul>
 </div>
 <div class="col-md-4">
-<p><b>Construire avec Slides</b></p>
+<p><b>Créer avec Slides</b></p>
 <hr>
 <p>TÂCHES COURANTES</p>
 <ul>
 <li><a href="/slides/fr/php-java/open-presentation/">Ouvrir une présentation</a></li>
 <li><a href="/slides/fr/php-java/save-presentation/">Enregistrer une présentation</a></li>
 <li><a href="/slides/fr/php-java/convert-powerpoint-to-pdf/">Convertir en PDF</a></li>
-<li><a href="/slides/fr/php-java/convert-slide/">Rendu des diapositives en images</a></li>
+<li><a href="/slides/fr/php-java/convert-slide/">Rendre les diapositives en images</a></li>
 <li><a href="/slides/fr/php-java/manage-text/">Modifier le texte et les formes</a></li>
 </ul>
 <p>FLUX DE TRAVAIL SLIDES</p>
@@ -59,7 +59,7 @@ Elle charge et enregistre les formats PPT, PPTX, PPS, POT et ODP, y compris les 
 <li><a href="/slides/fr/php-java/powerpoint-animation/">Animations</a></li>
 <li><a href="/slides/fr/php-java/manage-media-files/">Audio et vidéo</a></li>
 <li><a href="/slides/fr/php-java/presentation-design/">Conception de diapositives</a></li>
-<li><a href="/slides/fr/php-java/merge-presentation/">Fusionner les présentations</a></li>
+<li><a href="/slides/fr/php-java/merge-presentation/">Fusionner des présentations</a></li>
 </ul>
 <p>EXEMPLES</p>
 <ul>
@@ -74,9 +74,10 @@ Elle charge et enregistre les formats PPT, PPTX, PPS, POT et ODP, y compris les 
 <li><a href="https://reference.aspose.com/slides/php-java/">Référence API</a></li>
 <li><a href="https://releases.aspose.com/slides/php-java/release-notes/">Notes de version</a></li>
 <li><a href="/slides/fr/php-java/known-issues/">Problèmes connus</a></li>
+<li><a href="https://products.aspose.com/slides/php-java/">Page produit</a></li>
 <li><a href="https://releases.aspose.com/slides/php-java/">Télécharger</a></li>
 </ul>
-<p>SUPPORT</p>
+<p>ASSISTANCE</p>
 <ul>
 <li><a href="https://forum.aspose.com/c/slides/11">Forum d'assistance gratuit</a></li>
 <li><a href="https://helpdesk.aspose.com/">Service d'assistance payant</a></li>
@@ -88,18 +89,18 @@ Elle charge et enregistre les formats PPT, PPTX, PPS, POT et ODP, y compris les 
 
 ## **Votre première présentation**
 
-Aspose.Slides for PHP via Java fonctionne sur Java à l'intérieur d'Apache Tomcat, et vos scripts PHP y accèdent via PHP/Java Bridge. [Installation](/slides/fr/php-java/installation/) configure PHP 8.3 ou antérieur, Java, Tomcat et le pont, puis installe le paquet depuis Packagist dans un dossier de projet :
+Aspose.Slides for PHP via Java s'exécute sur Java à l'intérieur d'Apache Tomcat, et vos scripts PHP y accèdent via PHP/Java Bridge. [Installation](/slides/fr/php-java/installation/) configure PHP 8.3 ou antérieur, Java, Tomcat et le pont, puis installe le package depuis Packagist dans un dossier de projet :
 
 ```bash
 composer require aspose/slides
 ```
 
-Ensuite, copiez le fichier JAR du paquet dans le bridge et redémarrez Tomcat, comme indiqué à l'étape 4 de [Install on Linux](/slides/fr/php-java/installation/#install-on-linux) ou à l'étape 6 de [Install on Windows](/slides/fr/php-java/installation/#install-on-windows). Avec Tomcat en cours d'exécution, enregistrez ce script sous *hello.php* dans le dossier du projet et exécutez `php hello.php` :
+Ensuite, copiez le fichier JAR du package dans le pont et redémarrez Tomcat, comme indiqué à l'étape 4 de [Installation sous Linux](/slides/fr/php-java/installation/#install-on-linux) ou à l'étape 6 de [Installation sous Windows](/slides/fr/php-java/installation/#install-on-windows). Avec Tomcat en cours d'exécution, enregistrez ce script sous *hello.php* dans le dossier du projet et exécutez `php hello.php` :
 
 ```php
 <?php
 require_once("http://localhost:8080/JavaBridge/java/Java.inc");
-require_once(__DIR__ . "/vendor/aspose/slides/fr/lib/aspose.slides.php");
+require_once(__DIR__ . "/vendor/aspose/slides/lib/aspose.slides.php");
 
 use aspose\slides\Presentation;
 use aspose\slides\SaveFormat;
@@ -116,4 +117,4 @@ try {
 }
 ```
 
-Le script enregistre *hello.pptx* à côté de lui, avec une diapositive contenant une zone de texte. Sans licence, le fichier enregistré comporte un filigrane d'évaluation — voir [Licensing](/slides/fr/php-java/licensing/). Pour d'autres méthodes de création et de remplissage d'une présentation, consultez [Create Presentations](/slides/fr/php-java/create-presentation/).
+Le script enregistre *hello.pptx* à côté de lui, avec une diapositive contenant une zone de texte. Sans licence, le fichier enregistré comporte un filigrane d'évaluation — voir [Licence](/slides/fr/php-java/licensing/). Pour plus de façons de créer et de remplir une présentation, voir [Créer des présentations](/slides/fr/php-java/create-presentation/).

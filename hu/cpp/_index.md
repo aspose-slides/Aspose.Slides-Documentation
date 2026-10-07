@@ -12,14 +12,14 @@ keywords:
 - OpenDocument
 - C++
 - Aspose.Slides
-description: "Kezdje itt: telepítse az Aspose.Slides for C++-t, hozza létre az első prezentációt, és találja meg az útmutatókat az általános feladatokhoz, az API referenciához és a támogatáshoz."
+description: "Kezdje itt: telepítse az Aspose.Slides for C++-t, hozza létre az első bemutatót, és találja meg az útmutatókat a gyakori feladatokhoz, az API referenciához és a támogatáshoz."
 is_root: true
 ---
 <img src="home_1.png" alt="Aspose.Slides for C++" align="left" style="width:110px; margin: 0 30px 20px 0"/>
 
-Az Aspose.Slides for C++ egy natív C++ könyvtár PowerPoint- és OpenDocument-prezentációk létrehozásához, olvasásához, szerkesztéséhez és konvertálásához, a Microsoft PowerPoint vagy az Office automatizáció nélkül.
+Az Aspose.Slides for C++ egy natív C++ könyvtár PowerPoint és OpenDocument prezentációk létrehozásához, olvasásához, szerkesztéséhez és konvertálásához, Microsoft PowerPoint vagy Office Automation nélkül.
 
-Betölti és menti a PPT, PPTX, PPS, POT és ODP formátumokat, beleértve a makrókat tartalmazó és sablonváltozatokat is, és exportál PDF, XPS, HTML, SVG, TIFF, Markdown és képek formátumokba.
+Betölti és menti a PPT, PPTX, PPS, POT és ODP fájlokat, beleértve a makrókat és sablonokat tartalmazó verziókat, és exportál PDF, XPS, HTML, SVG, TIFF, Markdown és képek formátumba.
 
 <div style="clear:both"></div>
 
@@ -32,8 +32,8 @@ Betölti és menti a PPT, PPTX, PPS, POT és ODP formátumokat, beleértve a mak
 <p>ELKEZDÉS</p>
 <ul>
 <li><a href="/slides/hu/cpp/installation/">Telepítés</a></li>
-<li><a href="/slides/hu/cpp/create-presentation/">Az első prezentáció létrehozása</a></li>
-<li><a href="/slides/hu/cpp/getting-started/">Bevezető útmutató</a></li>
+<li><a href="/slides/hu/cpp/create-presentation/">Készítse el első bemutatóját</a></li>
+<li><a href="/slides/hu/cpp/getting-started/">Kezdő útmutató</a></li>
 </ul>
 <p>ÉRTÉKELÉS</p>
 <ul>
@@ -43,38 +43,39 @@ Betölti és menti a PPT, PPTX, PPS, POT és ODP formátumokat, beleértve a mak
 </ul>
 </div>
 <div class="col-md-4">
-<p><b>Fejlesztés Slides-szel</b></p>
+<p><b>Építés Slides használatával</b></p>
 <hr>
 <p>ÁLTALÁNOS FELADATOK</p>
 <ul>
-<li><a href="/slides/hu/cpp/open-presentation/">Prezentáció megnyitása</a></li>
-<li><a href="/slides/hu/cpp/save-presentation/">Prezentáció mentése</a></li>
-<li><a href="/slides/hu/cpp/convert-powerpoint-to-pdf/">PDF-be konvertálás</a></li>
-<li><a href="/slides/hu/cpp/convert-slide/">Diák renderelése képként</a></li>
+<li><a href="/slides/hu/cpp/open-presentation/">Bemutató megnyitása</a></li>
+<li><a href="/slides/hu/cpp/save-presentation/">Bemutató mentése</a></li>
+<li><a href="/slides/hu/cpp/convert-powerpoint-to-pdf/">Konvertálás PDF-be</a></li>
+<li><a href="/slides/hu/cpp/convert-slide/">Diaok képként renderelése</a></li>
 <li><a href="/slides/hu/cpp/manage-text/">Szöveg és alakzatok szerkesztése</a></li>
 </ul>
-<p>SLIDES MUNKAFOLYAMATOK</p>
+<p>DIÁK MUNKAFOLYAMA</p>
 <ul>
 <li><a href="/slides/hu/cpp/powerpoint-charts/">Diagramok</a></li>
 <li><a href="/slides/hu/cpp/powerpoint-animation/">Animációk</a></li>
 <li><a href="/slides/hu/cpp/manage-media-files/">Hang és videó</a></li>
 <li><a href="/slides/hu/cpp/presentation-design/">Dia tervezés</a></li>
-<li><a href="/slides/hu/cpp/merge-presentation/">Prezentációk egyesítése</a></li>
+<li><a href="/slides/hu/cpp/merge-presentation/">Bemutatók egyesítése</a></li>
 </ul>
-<p>PÉLDÁK</p>
+<p>PELDÁK</p>
 <ul>
-<li><a href="/slides/hu/cpp/examples/">Példák diák elemei szerint</a></li>
-<li><a href="https://github.com/aspose-slides/Aspose.Slides-for-C">Példák a GitHubon</a></li>
+<li><a href="/slides/hu/cpp/examples/">Példák diaelemek szerint</a></li>
+<li><a href="https://github.com/aspose-slides/Aspose.Slides-for-C">Példák a GitHub-on</a></li>
 </ul>
 </div>
 <div class="col-md-4">
-<p><b>Referenciák és támogatás</b></p>
+<p><b>Referencia és támogatás</b></p>
 <hr>
 <p>REFERENCIA</p>
 <ul>
-<li><a href="https://reference.aspose.com/slides/cpp/">API referenciák</a></li>
+<li><a href="https://reference.aspose.com/slides/cpp/">API referencia</a></li>
 <li><a href="https://releases.aspose.com/slides/cpp/release-notes/">Kiadási megjegyzések</a></li>
-<li><a href="/slides/hu/cpp/known-issues/">Ismert problémák</a></li>
+<li><a href="/slides/hu/cpp/known-issues/">Ismert hibák</a></li>
+<li><a href="https://products.aspose.com/slides/cpp/">Termékoldal</a></li>
 <li><a href="https://releases.aspose.com/slides/cpp/">Letöltés</a></li>
 </ul>
 <p>TÁMOGATÁS</p>
@@ -87,7 +88,7 @@ Betölti és menti a PPT, PPTX, PPS, POT és ODP formátumokat, beleértve a mak
 
 ------
 
-## **Az első prezentációd**
+## **Az első bemutatója**
 
 Windows rendszeren hozza létre a C++ **Console App** projektet a Visual Studio-ban, és telepítse a NuGet csomagot a Package Manager Console-ban (**Tools** > **NuGet Package Manager** > **Package Manager Console**):
 
@@ -95,9 +96,9 @@ Windows rendszeren hozza létre a C++ **Console App** projektet a Visual Studio-
 Install-Package Aspose.Slides.Cpp
 ```
 
-Linuxon töltse le a Linux ZIP csomagot, és állítsa be a [Telepítés](/slides/hu/cpp/installation/#linux) leírás szerinti CMake projektet.
+Linuxon töltse le a Linux ZIP csomagot, és állítsa be a [Telepítés](/slides/hu/cpp/installation/#linux) leírásában szereplő CMake projektet.
 
-Ezután használja ezt a kódot a program fő forrásfájlként. Egyetlen szövegdobozos prezentációt hoz létre, és elmenti:
+Ezután használja ezt a kódot programja fő forrásfájlként. Egy szövegdobozos bemutatót hoz létre, majd elmenti:
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -125,7 +126,7 @@ int main()
 }
 ```
 
-Windowson a **x64** platformot válassza az eszköztáron, majd nyomja meg a **Ctrl+F5**-öt. Linuxon mentse *main.cpp*-ként a projekt mappájába, majd építse és futtassa ott:
+Windowson a **x64** platform kiválasztásával a szerszámsoron, majd nyomja meg a **Ctrl+F5**-öt. Linuxon mentse *main.cpp* néven a projekt mappájába, majd építse és futtassa ott:
 
 ```bash
 cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
@@ -133,4 +134,4 @@ cmake --build build
 ./build/hello
 ```
 
-A program *hello.pptx*-t ment egy diárral, amely egy szövegdobozt tartalmaz. Licenc nélkül a mentett fájl értékelő vízjelét tartalmaz — lásd a [Licencelés](/slides/hu/cpp/licensing/). További módokért a prezentációk létrehozására és feltöltésére, lásd a [Prezentációk létrehozása](/slides/hu/cpp/create-presentation/).
+A program elmenti a *hello.pptx*-t, amely egy szövegdobozos diát tartalmaz. Licenc nélkül a mentett fájl értékelő vízjeleket kap — lásd a [Licencelés](/slides/hu/cpp/licensing/) részt. További módok a bemutató létrehozására és feltöltésére: lásd a [Bemutatók létrehozása](/slides/hu/cpp/create-presentation/) oldalt.

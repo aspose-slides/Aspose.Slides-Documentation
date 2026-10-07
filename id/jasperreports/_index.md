@@ -14,12 +14,12 @@ keywords:
 - PPTX
 - Java
 - Aspose.Slides
-description: "Mulai di sini: instal Aspose.Slides untuk JasperReports, ekspor laporan pertama ke PowerPoint, dan temukan panduan untuk ekspor, integrasi JasperReports Server, dan dukungan."
+description: "Mulai di sini: instal Aspose.Slides untuk JasperReports, ekspor laporan pertama ke PowerPoint, dan temukan panduan untuk ekspor, integrasi JasperReports Server, serta dukungan."
 is_root: true
 ---
-<img src="home_1.png" alt="Aspose.Slides for JasperReports" align="left" style="width:110px; margin: 0 30px 20px 0"/>
+<img src="home_1.png" alt="Aspose.Slides untuk JasperReports" align="left" style="width:110px; margin: 0 30px 20px 0"/>
 
-Aspose.Slides for JasperReports menambahkan eksportir PowerPoint ke JasperReports Library dan JasperReports Server, sehingga aplikasi Java dan server laporan dapat menyimpan laporan yang terisi sebagai presentasi tanpa Microsoft PowerPoint.
+Aspose.Slides for JasperReports menambahkan ekspor PowerPoint ke JasperReports Library dan JasperReports Server, sehingga aplikasi Java dan server laporan dapat menyimpan laporan yang terisi sebagai presentasi tanpa Microsoft PowerPoint.
 
 Ini mengekspor laporan yang terisi ke PPT dan PPTX, satu slide per halaman laporan, serta ke PDF dan HTML.
 
@@ -34,7 +34,7 @@ Ini mengekspor laporan yang terisi ke PPT dan PPTX, satu slide per halaman lapor
 <p>MEMULAI</p>
 <ul>
 <li><a href="/slides/id/jasperreports/installing-aspose-slides-for-jasperreports/">Instalasi</a></li>
-<li><a href="/slides/id/jasperreports/product-overview/">Gambaran produk</a></li>
+<li><a href="/slides/id/jasperreports/product-overview/">Ikhtisar produk</a></li>
 <li><a href="/slides/id/jasperreports/system-requirements/">Persyaratan sistem</a></li>
 <li><a href="/slides/id/jasperreports/getting-started/">Panduan memulai</a></li>
 </ul>
@@ -46,7 +46,7 @@ Ini mengekspor laporan yang terisi ke PPT dan PPTX, satu slide per halaman lapor
 </ul>
 </div>
 <div class="col-md-4">
-<p><b>Buat dengan Slides</b></p>
+<p><b>Bangun dengan Slides</b></p>
 <hr>
 <p>EKSPOR</p>
 <ul>
@@ -65,6 +65,7 @@ Ini mengekspor laporan yang terisi ke PPT dan PPTX, satu slide per halaman lapor
 <p>REFERENSI</p>
 <ul>
 <li><a href="https://releases.aspose.com/slides/jasperreport/release-notes/">Catatan rilis</a></li>
+<li><a href="https://products.aspose.com/slides/jasperreports/">Halaman produk</a></li>
 <li><a href="https://releases.aspose.com/slides/jasperreport/">Unduh</a></li>
 </ul>
 <p>DUKUNGAN</p>
@@ -79,17 +80,17 @@ Ini mengekspor laporan yang terisi ke PPT dan PPTX, satu slide per halaman lapor
 
 ## **Ekspor pertama Anda**
 
-Langkah-langkah ini mengkompilasi laporan satu baris, mengisinya, dan mengekspornya ke PPTX dengan JasperReports 6.16.0 dari Maven Central. Anda memerlukan JDK 11 atau lebih baru dan Apache Maven.
+Langkah-langkah ini mengompilasi laporan satu baris, mengisinya, dan mengekspornya ke PPTX dengan JasperReports 6.16.0 dari Maven Central. Anda memerlukan JDK 11 atau lebih baru serta Apache Maven.
 
-1. Unduh ZIP dari [halaman unduhan](https://releases.aspose.com/slides/jasperreport/) dan ekstrak. Folder *lib*‑nya memiliki satu subfolder per rentang versi JasperReports, dan masing‑masing berisi jar untuk rentang tersebut. Untuk JasperReports 6.16.0, salin *lib/JasperReports 6.5.0 - 6.16.0 (JDK 1.6)/aspose.slides.jasperreports.library-26.6.jar* ke folder proyek yang kosong.
+1. Unduh ZIP dari [halaman unduhan](https://releases.aspose.com/slides/jasperreport/) dan ekstrak. Folder *lib*‑nya memiliki satu subfolder per rentang versi JasperReports, dan masing‑masing berisi jar untuk rentang tersebut. Untuk JasperReports 6.16.0, salin *lib/JasperReports 6.5.0 - 6.16.0 (JDK 1.6)/aspose.slides.jasperreports.library-26.6.jar* ke dalam folder proyek yang kosong.
 
-2. Jar tersebut terdapat dalam ZIP bukan dari repositori Maven, jadi instal ke repositori Maven lokal Anda. Jalankan perintah berikut di folder proyek:
+2. Jar berada dalam ZIP, bukan dari repositori Maven, sehingga instal ke repositori Maven lokal Anda. Jalankan perintah berikut di folder proyek:
 
 ```bash
 mvn install:install-file "-Dfile=aspose.slides.jasperreports.library-26.6.jar" "-DgroupId=com.aspose" "-DartifactId=aspose-slides-jasperreports" "-Dversion=26.6" "-Dpackaging=jar"
 ```
 
-3. Simpan *pom.xml* ini di folder proyek. File ini menambahkan JasperReports 6.16.0 dan jar yang Anda instal, serta menentukan kelas yang akan dijalankan. JasperReports 6.16.0 mendeklarasikan build iText yang dipatch yang tidak ada di Maven Central, sehingga file ini mengecualikannya; eksportir Aspose tidak memerlukannya.
+3. Simpan *pom.xml* ini di folder proyek. Ini menambahkan JasperReports 6.16.0 dan jar yang Anda instal, serta menentukan kelas yang akan dijalankan. JasperReports 6.16.0 menyatakan build iText yang dipatch yang tidak ada di Maven Central, sehingga file tersebut mengecualikannya; exporter Aspose tidak membutuhkannya.
 
 ```xml
 <project xmlns="http://maven.apache.org/POM/4.0.0">
@@ -158,7 +159,7 @@ mvn install:install-file "-Dfile=aspose.slides.jasperreports.library-26.6.jar" "
 </jasperReport>
 ```
 
-5. Simpan kode ini sebagai *src/main/java/HelloExport.java*. Kode ini mengkompilasi desain, mengisinya dengan satu record kosong, dan mengekspor hasilnya dengan `ASPptxExporter`:
+5. Simpan kode ini sebagai *src/main/java/HelloExport.java*. Ia mengompilasi desain, mengisinya dengan satu catatan kosong, dan mengekspor hasilnya dengan `ASPptxExporter`:
 
 ```java
 import java.util.HashMap;
@@ -173,11 +174,11 @@ import net.sf.jasperreports.engine.JasperReport;
 
 public class HelloExport {
     public static void main(String[] args) throws Exception {
-        // Kompilasi desain laporan dan isi dengan satu record kosong.
+        // Kompilasi desain laporan dan isi dengan satu rekaman kosong.
         JasperReport report = JasperCompileManager.compileReport("hello.jrxml");
         JasperPrint jasperPrint = JasperFillManager.fillReport(report, new HashMap<String, Object>(), new JREmptyDataSource());
 
-        // Ekspor laporan yang terisi ke PPTX.
+        // Ekspor laporan yang sudah terisi ke PPTX.
         ASPptxExporter exporter = new ASPptxExporter();
         exporter.setParameter(JRExporterParameter.JASPER_PRINT, jasperPrint);
         exporter.setParameter(JRExporterParameter.OUTPUT_FILE_NAME, "hello.pptx");
@@ -192,4 +193,4 @@ public class HelloExport {
 mvn compile exec:java
 ```
 
-Program ini menyimpan *hello.pptx* di folder proyek, dengan satu slide yang memuat teks laporan. Kompilator mencatat bahwa kode ini menggunakan API yang sudah tidak dipakai lagi: eksportir mengambil masukan dan keluaran melalui `JRExporterParameter`, dan mereka tidak menerima konfigurasi `setExporterInput` dan `setExporterOutput` yang lebih baru. Pada Linux, fontconfig dan setidaknya satu font harus diinstal, atau proses pengisian laporan akan gagal. Tanpa lisensi, setiap slide menampilkan watermark evaluasi di tengahnya — lihat [Lisensi](/slides/id/jasperreports/licensing/). Untuk mengekspor ke PPT, PDF, atau HTML, lihat [Ekspor PPT, PPTX, PDF dan HTML](/slides/id/jasperreports/ppt-pptx-pdf-and-html-export/).
+Program menyimpan *hello.pptx* di folder proyek, dengan satu slide yang berisi teks laporan. Compiler mencatat bahwa kode tersebut menggunakan API yang sudah usang: exporter mengambil input dan output melalui `JRExporterParameter`, dan tidak menerima konfigurasi baru `setExporterInput` serta `setExporterOutput`. Di Linux, fontconfig dan setidaknya satu font harus terpasang, atau proses pengisian laporan akan gagal. Tanpa lisensi, setiap slide menampilkan watermark evaluasi di tengahnya — lihat [Lisensi](/slides/id/jasperreports/licensing/). Untuk mengekspor ke PPT, PDF, atau HTML, lihat [Ekspor PPT, PPTX, PDF dan HTML](/slides/id/jasperreports/ppt-pptx-pdf-and-html-export/).

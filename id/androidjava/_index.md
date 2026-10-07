@@ -1,6 +1,6 @@
 ---
-title: Aspose.Slides for Android via Java
-second_title: Aspose.Slides for Android
+title: Aspose.Slides untuk Android via Java
+second_title: Aspose.Slides untuk Android
 type: docs
 weight: 40
 url: /id/androidjava/
@@ -13,10 +13,10 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Mulailah di sini: tambahkan Aspose.Slides for Android via Java ke aplikasi Anda, buat presentasi pertama, dan temukan panduan untuk tugas umum, referensi API, dan dukungan."
+description: "Mulai di sini: tambahkan Aspose.Slides for Android via Java ke aplikasi Anda, buat presentasi pertama, dan temukan panduan untuk tugas umum, referensi API dan dukungan."
 is_root: true
 ---
-<img src="home_1.png" alt="Aspose.Slides untuk Android via Java" align="left" style="width:110px; margin: 0 30px 20px 0"/>
+<img src="home_1.png" alt="Aspose.Slides for Android via Java" align="left" style="width:110px; margin: 0 30px 20px 0"/>
 
 Aspose.Slides for Android via Java adalah pustaka kelas untuk membuat, membaca, mengedit, dan mengonversi presentasi PowerPoint dan OpenDocument dalam aplikasi Android, tanpa Microsoft PowerPoint.
 
@@ -24,11 +24,11 @@ Pustaka ini memuat dan menyimpan PPT, PPTX, PPS, POT, dan ODP, termasuk varian y
 
 <div style="clear:both"></div>
 
-------
+---
 
 <div class="row">
 <div class="col-md-4">
-<p><b>Mulai</b></p>
+<p><b>Memulai</b></p>
 <hr>
 <p>MEMULAI</p>
 <ul>
@@ -75,6 +75,7 @@ Pustaka ini memuat dan menyimpan PPT, PPTX, PPS, POT, dan ODP, termasuk varian y
 <li><a href="https://reference.aspose.com/slides/androidjava/">Referensi API</a></li>
 <li><a href="https://releases.aspose.com/slides/androidjava/release-notes/">Catatan rilis</a></li>
 <li><a href="/slides/id/androidjava/known-issues/">Masalah yang diketahui</a></li>
+<li><a href="https://products.aspose.com/slides/android-java/">Halaman produk</a></li>
 <li><a href="https://releases.aspose.com/slides/androidjava/">Unduh</a></li>
 </ul>
 <p>DUKUNGAN</p>
@@ -85,11 +86,11 @@ Pustaka ini memuat dan menyimpan PPT, PPTX, PPS, POT, dan ODP, termasuk varian y
 </div>
 </div>
 
-------
+---
 
 ## **Presentasi pertama Anda**
 
-Pustaka ini berasal dari repositori Maven Aspose. Proyek Android Studio baru sudah memiliki blok `dependencyResolutionManagement` di *settings.gradle.kts*. Tambahkan baris `maven` yang ditunjukkan di bawah ke dalam blok `repositories` di dalamnya, alih-alih menempelkan blok kedua:
+Pustaka ini berasal dari repositori Maven Aspose. Proyek Android Studio baru sudah memiliki blok `dependencyResolutionManagement` di *settings.gradle.kts*. Tambahkan baris `maven` yang ditunjukkan di bawah ke blok `repositories` di dalamnya, alih-alih menempelkan blok kedua:
 
 ```kotlin
 dependencyResolutionManagement {
@@ -110,4 +111,4 @@ dependencies {
 }
 ```
 
-[Installation](/slides/id/androidjava/install-aspose-slides-for-android-via-java/) mencakup skrip build Groovy, file JAR manual, dan cara memilih versi. Kode untuk presentasi pertama Anda ada di [Create Presentations](/slides/id/androidjava/create-presentation/): kode ini menambahkan kotak teks ke sebuah slide dan menyimpan presentasi ke penyimpanan aplikasi Anda. Contoh tersebut telah dikompilasi dan dibangun menjadi APK; belum dijalankan pada perangkat. Tanpa lisensi, presentasi yang disimpan memiliki watermark evaluasi — lihat [Licensing](/slides/id/androidjava/licensing/).
+[Instalasi](/slides/id/androidjava/install-aspose-slides-for-android-via-java/) mencakup skrip build Groovy, file JAR manual, dan cara memilih versi. Kode untuk presentasi pertama Anda ada di [Buat Presentasi](/slides/id/androidjava/create-presentation/): ia menambahkan kotak teks ke slide dan menyimpan presentasi ke penyimpanan aplikasi Anda. Contoh itu telah dikompilasi dan dibangun menjadi APK; belum dijalankan pada perangkat. Tanpa lisensi, presentasi yang disimpan akan menampilkan watermark evaluasi — lihat [Lisensi](/slides/id/androidjava/licensing/).

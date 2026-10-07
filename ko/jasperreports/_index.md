@@ -14,14 +14,14 @@ keywords:
 - PPTX
 - Java
 - Aspose.Slides
-description: "시작하기: Aspose.Slides for JasperReports를 설치하고, 첫 번째 보고서를 PowerPoint로 내보내며, 내보내기, JasperReports Server 통합 및 지원에 대한 가이드를 확인하십시오."
+description: "시작하기: Aspose.Slides for JasperReports를 설치하고, 첫 보고서를 PowerPoint로 내보내며, 내보내기, JasperReports Server 통합 및 지원에 대한 가이드를 찾아보세요."
 is_root: true
 ---
 <img src="home_1.png" alt="Aspose.Slides for JasperReports" align="left" style="width:110px; margin: 0 30px 20px 0"/>
 
-Aspose.Slides for JasperReports는 JasperReports Library와 JasperReports Server에 PowerPoint 내보내기 기능을 추가하여 Java 애플리케이션 및 보고서 서버가 Microsoft PowerPoint 없이도 채워진 보고서를 프레젠테이션으로 저장할 수 있도록 합니다.
+Aspose.Slides for JasperReports는 JasperReports Library와 JasperReports Server에 PowerPoint 내보내기를 추가하여 Java 애플리케이션과 보고서 서버가 Microsoft PowerPoint 없이도 채워진 보고서를 프레젠테이션으로 저장할 수 있도록 합니다.
 
-채워진 보고서를 PPT 및 PPTX 파일로 내보내며, 보고서 페이지당 하나의 슬라이드를 생성하고 PDF 및 HTML 형식으로도 내보낼 수 있습니다.
+채워진 보고서를 PPT 및 PPTX(페이지당 한 슬라이드)로, 또한 PDF와 HTML로 내보냅니다.
 
 <div style="clear:both"></div>
 
@@ -41,7 +41,7 @@ Aspose.Slides for JasperReports는 JasperReports Library와 JasperReports Server
 <p>평가</p>
 <ul>
 <li><a href="/slides/ko/jasperreports/supported-file-formats/">지원 파일 형식</a></li>
-<li><a href="/slides/ko/jasperreports/evaluate-aspose-slides/">체험판 제한 사항</a></li>
+<li><a href="/slides/ko/jasperreports/evaluate-aspose-slides/">시험 제한 사항</a></li>
 <li><a href="/slides/ko/jasperreports/licensing/">라이선스</a></li>
 </ul>
 </div>
@@ -65,6 +65,7 @@ Aspose.Slides for JasperReports는 JasperReports Library와 JasperReports Server
 <p>참조</p>
 <ul>
 <li><a href="https://releases.aspose.com/slides/jasperreport/release-notes/">릴리스 노트</a></li>
+<li><a href="https://products.aspose.com/slides/jasperreports/">제품 페이지</a></li>
 <li><a href="https://releases.aspose.com/slides/jasperreport/">다운로드</a></li>
 </ul>
 <p>지원</p>
@@ -79,17 +80,17 @@ Aspose.Slides for JasperReports는 JasperReports Library와 JasperReports Server
 
 ## **첫 번째 내보내기**
 
-이 단계에서는 한 줄 보고서를 컴파일하고 채운 다음 JasperReports 6.16.0을 사용하여 Maven Central에서 PPTX로 내보냅니다. JDK 11 이상과 Apache Maven이 필요합니다.
+다음 단계는 한 줄 보고서를 컴파일하고, 데이터를 채운 뒤, Maven Central의 JasperReports 6.16.0을 사용해 PPTX로 내보냅니다. JDK 11 이상과 Apache Maven이 필요합니다.
 
-1. ZIP 파일을 [download page](https://releases.aspose.com/slides/jasperreport/)에서 다운로드하고 압축을 풉니다. *lib* 폴더에는 JasperReports 버전 범위별로 하위 폴더가 하나씩 있으며, 각 폴더에는 해당 범위의 jar 파일이 들어 있습니다. JasperReports 6.16.0의 경우 *lib/JasperReports 6.5.0 - 6.16.0 (JDK 1.6)/aspose.slides.jasperreports.library-26.6.jar*을 빈 프로젝트 폴더에 복사합니다.
+1. ZIP 파일을 [download page](https://releases.aspose.com/slides/jasperreport/)에서 다운로드하고 압축을 풉니다. *lib* 폴더에는 JasperReports 버전 범위별 하위 폴더가 있으며, 각 폴더에 해당 범위의 jar 파일이 들어 있습니다. JasperReports 6.16.0의 경우 *lib/JasperReports 6.5.0 - 6.16.0 (JDK 1.6)/aspose.slides.jasperreports.library-26.6.jar* 를 빈 프로젝트 폴더에 복사합니다.
 
-2. jar 파일은 Maven 저장소가 아니라 ZIP에 포함되어 있으므로 로컬 Maven 저장소에 설치해야 합니다. 프로젝트 폴더에서 다음 명령을 실행합니다:
+2. jar 파일은 ZIP에 포함되어 있어 Maven 리포지토리에서 가져오는 것이 아니라 로컬 Maven 리포지토리에 설치해야 합니다. 프로젝트 폴더에서 다음 명령을 실행합니다:
 
 ```bash
 mvn install:install-file "-Dfile=aspose.slides.jasperreports.library-26.6.jar" "-DgroupId=com.aspose" "-DartifactId=aspose-slides-jasperreports" "-Dversion=26.6" "-Dpackaging=jar"
 ```
 
-3. *pom.xml* 파일을 프로젝트 폴더에 저장합니다. 이 파일은 JasperReports 6.16.0과 설치한 jar를 추가하고 실행할 클래스를 지정합니다. JasperReports 6.16.0은 Maven Central에 없는 패치된 iText 빌드를 선언하므로 파일에서 이를 제외합니다; Aspose 내보내기 기능은 이를 필요로 하지 않습니다.
+3. 이 *pom.xml*을 프로젝트 폴더에 저장합니다. 여기에는 JasperReports 6.16.0과 설치한 jar가 추가되고 실행할 클래스가 지정됩니다. JasperReports 6.16.0은 Maven Central에 없는 패치된 iText 빌드를 선언하므로 파일에서 이를 제외합니다; Aspose 내보내기에는 필요하지 않습니다.
 
 ```xml
 <project xmlns="http://maven.apache.org/POM/4.0.0">
@@ -158,7 +159,7 @@ mvn install:install-file "-Dfile=aspose.slides.jasperreports.library-26.6.jar" "
 </jasperReport>
 ```
 
-5. 이 코드를 *src/main/java/HelloExport.java* 파일로 저장합니다. 디자인을 컴파일하고 하나의 빈 레코드로 채운 뒤 `ASPptxExporter`를 사용해 결과를 내보냅니다:
+5. 이 코드를 *src/main/java/HelloExport.java* 로 저장합니다. 디자인을 컴파일하고, 빈 레코드 하나로 채운 뒤 `ASPptxExporter` 로 결과를 내보냅니다:
 
 ```java
 import java.util.HashMap;
@@ -192,4 +193,4 @@ public class HelloExport {
 mvn compile exec:java
 ```
 
-프로그램은 *hello.pptx* 파일을 프로젝트 폴더에 저장하며, 보고서 텍스트가 포함된 하나의 슬라이드를 생성합니다. 컴파일러는 코드가 더 이상 사용되지 않는 API를 사용한다고 경고합니다: 내보내기 기능은 `JRExporterParameter`를 통해 입력과 출력을 받으며, 최신 `setExporterInput` 및 `setExporterOutput` 구성을 지원하지 않습니다. Linux에서는 fontconfig와 최소 하나의 글꼴이 설치되어야 보고서 채우기가 정상적으로 이루어집니다. 라이선스가 없을 경우 각 슬라이드 중앙에 평가용 워터마크가 표시됩니다 — [Licensing](/slides/ko/jasperreports/licensing/)를 참조하십시오. PPT, PDF 또는 HTML로 내보내려면 [PPT, PPTX, PDF and HTML Export](/slides/ko/jasperreports/ppt-pptx-pdf-and-html-export/)를 참조하십시오.
+프로그램은 프로젝트 폴더에 *hello.pptx* 를 저장하며, 보고서 텍스트가 포함된 하나의 슬라이드를 생성합니다. 컴파일러는 코드가 더 이상 사용되지 않는 API를 사용한다고 알립니다: 내보내기는 `JRExporterParameter`를 통해 입력과 출력을 받으며, 최신 `setExporterInput` 및 `setExporterOutput` 설정을 지원하지 않습니다. Linux에서는 fontconfig와 최소 하나의 글꼴이 설치되어 있어야 보고서 채우기가 성공합니다. 라이선스가 없으면 각 슬라이드 중앙에 평가 워터마크가 표시됩니다 — [라이선스](/slides/ko/jasperreports/licensing/)을 참고하세요. PPT, PDF 또는 HTML로 내보내려면 [PPT, PPTX, PDF 및 HTML 내보내기](/slides/ko/jasperreports/ppt-pptx-pdf-and-html-export/)를 참조하십시오.

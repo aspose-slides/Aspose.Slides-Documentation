@@ -8,24 +8,24 @@ is_root: true
 keywords:
 - Aspose.Slides για Python μέσω Java
 - Βιβλιοθήκη PowerPoint για Python
-- Διαχείριση παρουσιάσεων PowerPoint στην Python
-- Ανάγνωση και εγγραφή PowerPoint στην Python
-- Επεξεργασία διαφανειών PowerPoint στην Python
-- Εξαγωγή PowerPoint σε PDF στην Python
-- Εξαγωγή PowerPoint σε SVG στην Python
-- Προεπισκόπηση διαφανειών στην Python
-- Προσθήκη ήχου και βίντεο στις διαφάνειες στην Python
+- Διαχείριση παρουσιάσεων PowerPoint σε Python
+- Ανάγνωση και εγγραφή PowerPoint σε Python
+- Επεξεργασία διαφανειών PowerPoint σε Python
+- Εξαγωγή PowerPoint σε PDF σε Python
+- Εξαγωγή PowerPoint σε SVG σε Python
+- Προεπισκόπηση διαφανειών σε Python
+- Προσθήκη ήχου και βίντεο σε διαφάνειες σε Python
 - PowerPoint χωρίς Microsoft Office
 - Python
 - Java
 - Aspose.Slides
-description: "Ξεκινήστε εδώ: εγκαταστήστε το Aspose.Slides for Python via Java, δημιουργήστε την πρώτη παρουσίαση και βρείτε τους οδηγούς για τις κοινές εργασίες, την αναφορά API και την υποστήριξη."
+description: "Ξεκινήστε εδώ: εγκαταστήστε το Aspose.Slides για Python μέσω Java, δημιουργήστε την πρώτη παρουσίαση και βρείτε τους οδηγούς για κοινές εργασίες, την αναφορά API και την υποστήριξη."
 ---
-<img src="aspose_slides-for-python-via-java.png" alt="Aspose.Slides for Python via Java" align="left" style="width:110px; margin: 0 30px 20px 0"/>
+<img src="aspose_slides-for-python-via-java.png" alt="Aspose.Slides για Python μέσω Java" align="left" style="width:110px; margin: 0 30px 20px 0"/>
 
-Το Aspose.Slides for Python via Java είναι μια βιβλιοθήκη για δημιουργία, ανάγνωση, επεξεργασία και μετατροπή παρουσιάσεων PowerPoint και OpenDocument σε εφαρμογές Python, χωρίς το Microsoft PowerPoint· λειτουργεί τη μηχανή Aspose.Slides Java στη διαδικασία Python μέσω JPype.
+Aspose.Slides for Python via Java είναι μια βιβλιοθήκη για δημιουργία, ανάγνωση, επεξεργασία και μετατροπή παρουσιάσεων PowerPoint και OpenDocument σε εφαρμογές Python, χωρίς το Microsoft PowerPoint· εκτελεί τη μηχανή Aspose.Slides Java στη διαδικασία Python μέσω JPype.
 
-Φορτώνει και αποθηκεύει αρχεία PPT, PPTX, PPS, POT και ODP, συμπεριλαμβανομένων των εκδόσεων με μακροεντολές και προτύπων, και εξάγει σε PDF, XPS, HTML, SVG, TIFF, Markdown και εικόνες.
+Φορτώνει και αποθηκεύει PPT, PPTX, PPS, POT και ODP, συμπεριλαμβανομένων των παραλλαγών με μακροεντολές και προτύπων, και εξάγει σε PDF, XPS, HTML, SVG, TIFF, Markdown και εικόνες.
 
 <div style="clear:both"></div>
 
@@ -35,23 +35,23 @@ description: "Ξεκινήστε εδώ: εγκαταστήστε το Aspose.Sl
 <div class="col-md-4">
 <p><b>Ξεκινήστε</b></p>
 <hr>
-<p>ΞΕΚΙΝΗΣΤΕ</p>
+<p>ΑΡΧΙΚΗ ΧΡΗΣΗ</p>
 <ul>
 <li><a href="/slides/el/python-java/installation/">Εγκατάσταση</a></li>
 <li><a href="/slides/el/python-java/create-presentation/">Δημιουργήστε την πρώτη σας παρουσίαση</a></li>
 <li><a href="/slides/el/python-java/getting-started/">Οδηγός έναρξης</a></li>
 </ul>
-<p>ΑΞΙΟΛΟΓΗΣΤΕ</p>
+<p>ΑΞΙΟΛΟΓΗΣΗ</p>
 <ul>
 <li><a href="/slides/el/python-java/supported-file-formats/">Υποστηριζόμενες μορφές αρχείων</a></li>
-<li><a href="/slides/el/python-java/evaluate-aspose-slides/">Περιορισμοί δοκιμής</a></li>
-<li><a href="/slides/el/python-java/licensing/">Άδεια</a></li>
+<li><a href="/slides/el/python-java/evaluate-aspose-slides/">Περιορισμοί δοκιμαστικής έκδοσης</a></li>
+<li><a href="/slides/el/python-java/licensing/">Αδειοδότηση</a></li>
 </ul>
 </div>
 <div class="col-md-4">
-<p><b>Κατασκευή με Slides</b></p>
+<p><b>Δημιουργήστε με Slides</b></p>
 <hr>
-<p>ΣΥΝΗΘΕΜΕΝΕΣ ΕΡΓΑΣΙΕΣ</p>
+<p>ΚΟΙΝΕΣ ΕΡΓΑΣΙΕΣ</p>
 <ul>
 <li><a href="/slides/el/python-java/open-presentation/">Άνοιγμα παρουσίασης</a></li>
 <li><a href="/slides/el/python-java/save-presentation/">Αποθήκευση παρουσίασης</a></li>
@@ -59,12 +59,12 @@ description: "Ξεκινήστε εδώ: εγκαταστήστε το Aspose.Sl
 <li><a href="/slides/el/python-java/convert-slide/">Απόδοση διαφανειών ως εικόνες</a></li>
 <li><a href="/slides/el/python-java/manage-text/">Επεξεργασία κειμένου και σχημάτων</a></li>
 </ul>
-<p>ΡΟΕΣ ΕΡΓΑΣΙΩΝ SLIDES</p>
+<p>ΡΟΟΙ ΕΡΓΑΣΙΩΝ Slides</p>
 <ul>
-<li><a href="/slides/el/python-java/powerpoint-charts/">Γραφήματα</a></li>
+<li><a href="/slides/el/python-java/powerpoint-charts/">Διαγράμματα</a></li>
 <li><a href="/slides/el/python-java/powerpoint-animation/">Κινούμενα σχέδια</a></li>
 <li><a href="/slides/el/python-java/manage-media-files/">Ήχος και βίντεο</a></li>
-<li><a href="/slides/el/python-java/presentation-design/">Σχεδίαση διαφάνειας</a></li>
+<li><a href="/slides/el/python-java/presentation-design/">Σχεδίαση διαφανειών</a></li>
 <li><a href="/slides/el/python-java/merge-presentation/">Συγχώνευση παρουσιάσεων</a></li>
 </ul>
 <p>ΠΑΡΑΔΕΙΓΜΑΤΑ</p>
@@ -73,19 +73,20 @@ description: "Ξεκινήστε εδώ: εγκαταστήστε το Aspose.Sl
 </ul>
 </div>
 <div class="col-md-4">
-<p><b>Τεκμηρίωση &amp; Υποστήριξη</b></p>
+<p><b>Αναφορά &amp; Υποστήριξη</b></p>
 <hr>
 <p>ΑΝΑΦΟΡΑ</p>
 <ul>
 <li><a href="https://reference.aspose.com/slides/python-java/">Αναφορά API</a></li>
 <li><a href="https://releases.aspose.com/slides/python-java/release-notes/">Σημειώσεις έκδοσης</a></li>
 <li><a href="/slides/el/python-java/known-issues/">Γνωστά προβλήματα</a></li>
+<li><a href="https://products.aspose.com/slides/python-java/">Σελίδα προϊόντος</a></li>
 <li><a href="https://releases.aspose.com/slides/python-java/">Λήψη</a></li>
 </ul>
 <p>ΥΠΟΣΤΗΡΙΞΗ</p>
 <ul>
 <li><a href="https://forum.aspose.com/c/slides/11">Δωρεάν φόρουμ υποστήριξης</a></li>
-<li><a href="https://helpdesk.aspose.com/">Πληρωμένο helpdesk υποστήριξης</a></li>
+<li><a href="https://helpdesk.aspose.com/">Υποστήριξη helpdesk επί πληρωμή</a></li>
 </ul>
 </div>
 </div>
@@ -94,13 +95,13 @@ description: "Ξεκινήστε εδώ: εγκαταστήστε το Aspose.Sl
 
 ## **Η πρώτη σας παρουσίαση**
 
-Εγκαταστήστε Python και ένα JDK, ορίστε τη μεταβλητή `JAVA_HOME` και δημιουργήστε και ενεργοποιήστε ένα εικονικό περιβάλλον όπως περιγράφεται στην [Εγκατάσταση](/slides/el/python-java/installation/). Στη συνέχεια εγκαταστήστε JPype και Aspose.Slides από το PyPI:
+Εγκαταστήστε το Python και ένα JDK, ορίστε το `JAVA_HOME` και δημιουργήστε και ενεργοποιήστε ένα εικονικό περιβάλλον όπως περιγράφεται στην [Εγκατάσταση](/slides/el/python-java/installation/). Στη συνέχεια εγκαταστήστε το JPype και το Aspose.Slides από το PyPI:
 
 ```sh
 python -m pip install JPype1 aspose-slides-java
 ```
 
-Αποθηκεύστε αυτόν τον κώδικα ως *hello.py*. Εκκινεί τη Java Virtual Machine, προσθέτει ένα σχήμα σύννεφων με κείμενο στην πρώτη διαφάνεια μιας νέας παρουσίασης και αποθηκεύει την παρουσίαση:
+Αποθηκεύστε αυτόν τον κώδικα ως *hello.py*. Ξεκινά τη μηχανή εικονικής μηχανής Java, προσθέτει ένα σχήμα σύννεφου με κείμενο στην πρώτη διαφάνεια μιας νέας παρουσίασης, και αποθηκεύει την παρουσίαση:
 
 ```python
 import jpype
@@ -117,7 +118,7 @@ try:
     # Αποκτήστε την πρώτη διαφάνεια.
     slide = presentation.getSlides().get_Item(0)
 
-    # Προσθέστε ένα σχήμα σύννεφο και ορίστε το κείμενό του.
+    # Προσθέστε ένα σχήμα σύννεφου και ορίστε το κείμενό του.
     auto_shape = slide.getShapes().addAutoShape(ShapeType.Cloud, 20, 20, 200, 80)
     auto_shape.getTextFrame().setText("Hello, Aspose!")
 
@@ -133,4 +134,4 @@ finally:
 python hello.py
 ```
 
-Το σενάριο αποθηκεύει το *new_presentation.pptx* με μια διαφάνεια που περιέχει ένα σχήμα σύννεφων με το κείμενο "Hello, Aspose!". Χωρίς άδεια, το αποθηκευμένο αρχείο περιλαμβάνει επίσης υδατογράφημα αξιολόγησης — δείτε την [Άδεια](/slides/el/python-java/licensing/). Για περισσότερους τρόπους δημιουργίας και γέμισης μιας παρουσίασης, δείτε την [Δημιουργία παρουσιάσεων](/slides/el/python-java/create-presentation/).
+Το σκριπτά το αποθηκεύει *new_presentation.pptx* με μία διαφάνεια που περιέχει ένα σχήμα σύννεφου με το κείμενο «Hello, Aspose!». Χωρίς άδεια, το αποθηκευμένο αρχείο περιέχει επίσης υδατογράφημα αξιολόγησης — δείτε [Αδειοδότηση](/slides/el/python-java/licensing/). Για περισσότερους τρόπους δημιουργίας και γεμίσματος μιας παρουσίασης, δείτε [Δημιουργία παρουσιάσεων](/slides/el/python-java/create-presentation/).

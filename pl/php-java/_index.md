@@ -1,6 +1,6 @@
 ---
-title: Aspose.Slides dla PHP via Java
-second_title: Aspose.Slides dla PHP
+title: Aspose.Slides for PHP via Java
+second_title: Aspose.Slides for PHP
 type: docs
 weight: 45
 url: /pl/php-java/
@@ -12,14 +12,14 @@ keywords:
 - OpenDocument
 - PHP
 - Aspose.Slides
-description: "Zacznij tutaj: zainstaluj Aspose.Slides for PHP via Java, utwórz pierwszą prezentację i znajdź przewodniki do typowych zadań, referencję API oraz wsparcie."
+description: "Zacznij tutaj: zainstaluj Aspose.Slides for PHP via Java, utwórz pierwszą prezentację i znajdź poradniki dotyczące typowych zadań, referencję API oraz wsparcie."
 is_root: true
 ---
 <img src="aspose_slides-for-php-via-java.png" alt="Aspose.Slides for PHP via Java" align="left" style="width:110px; margin: 0 30px 20px 0"/>
 
-Aspose.Slides for PHP via Java to biblioteka klas umożliwiająca tworzenie, odczytywanie, edytowanie i konwertowanie prezentacji PowerPoint oraz OpenDocument w aplikacjach PHP, bez konieczności posiadania Microsoft PowerPoint ani automatyzacji Office.
+Aspose.Slides for PHP via Java jest biblioteką klas służącą do tworzenia, odczytywania, edytowania i konwertowania prezentacji PowerPoint i OpenDocument w aplikacjach PHP, bez Microsoft PowerPoint ani automatyzacji Office.
 
-Obsługuje ładowanie i zapisywanie plików PPT, PPTX, PPS, POT oraz ODP, w tym wersje z makrami i szablony, oraz umożliwia eksport do PDF, XPS, HTML, SVG, TIFF, Markdown i obrazów.
+Ładuje i zapisuje pliki PPT, PPTX, PPS, POT i ODP, w tym wersje z makrami i szablony, oraz eksportuje do PDF, XPS, HTML, SVG, TIFF, Markdown oraz obrazów.
 
 <div style="clear:both"></div>
 
@@ -33,7 +33,7 @@ Obsługuje ładowanie i zapisywanie plików PPT, PPTX, PPS, POT oraz ODP, w tym 
 <ul>
 <li><a href="/slides/pl/php-java/installation/">Instalacja</a></li>
 <li><a href="/slides/pl/php-java/create-presentation/">Utwórz swoją pierwszą prezentację</a></li>
-<li><a href="/slides/pl/php-java/getting-started/">Przewodnik wprowadzający</a></li>
+<li><a href="/slides/pl/php-java/getting-started/">Poradnik wprowadzający</a></li>
 </ul>
 <p>EWALUACJA</p>
 <ul>
@@ -43,17 +43,17 @@ Obsługuje ładowanie i zapisywanie plików PPT, PPTX, PPS, POT oraz ODP, w tym 
 </ul>
 </div>
 <div class="col-md-4">
-<p><b>Tworzenie przy użyciu Slides</b></p>
+<p><b>Tworzenie z Slides</b></p>
 <hr>
-<p>POSPOLITE ZADANIA</p>
+<p>ZADANIA OGÓLNE</p>
 <ul>
 <li><a href="/slides/pl/php-java/open-presentation/">Otwórz prezentację</a></li>
 <li><a href="/slides/pl/php-java/save-presentation/">Zapisz prezentację</a></li>
 <li><a href="/slides/pl/php-java/convert-powerpoint-to-pdf/">Konwertuj do PDF</a></li>
-<li><a href="/slides/pl/php-java/convert-slide/">Renderowanie slajdów jako obrazy</a></li>
+<li><a href="/slides/pl/php-java/convert-slide/">Renderuj slajdy jako obrazy</a></li>
 <li><a href="/slides/pl/php-java/manage-text/">Edytuj tekst i kształty</a></li>
 </ul>
-<p>PRZEPŁYWY PRACY Z SLIDES</p>
+<p>PRZEBIEGI SLIDE'ÓW</p>
 <ul>
 <li><a href="/slides/pl/php-java/powerpoint-charts/">Wykresy</a></li>
 <li><a href="/slides/pl/php-java/powerpoint-animation/">Animacje</a></li>
@@ -63,20 +63,21 @@ Obsługuje ładowanie i zapisywanie plików PPT, PPTX, PPS, POT oraz ODP, w tym 
 </ul>
 <p>PRZYKŁADY</p>
 <ul>
-<li><a href="/slides/pl/php-java/examples/">Przykłady według elementu slajdu</a></li>
+<li><a href="/slides/pl/php-java/examples/">Przykłady według elementów slajdu</a></li>
 </ul>
 </div>
 <div class="col-md-4">
-<p><b>Referencje i wsparcie</b></p>
+<p><b>Dokumentacja i wsparcie</b></p>
 <hr>
 <p>REFERENCJA</p>
 <ul>
 <li><a href="https://reference.aspose.com/slides/php-java/">Referencja API</a></li>
 <li><a href="https://releases.aspose.com/slides/php-java/release-notes/">Informacje o wydaniu</a></li>
 <li><a href="/slides/pl/php-java/known-issues/">Znane problemy</a></li>
+<li><a href="https://products.aspose.com/slides/php-java/">Strona produktu</a></li>
 <li><a href="https://releases.aspose.com/slides/php-java/">Pobierz</a></li>
 </ul>
-<p>WSPARCIE</p>
+<p>Wsparcie</p>
 <ul>
 <li><a href="https://forum.aspose.com/c/slides/11">Darmowe forum wsparcia</a></li>
 <li><a href="https://helpdesk.aspose.com/">Płatny helpdesk wsparcia</a></li>
@@ -88,18 +89,18 @@ Obsługuje ładowanie i zapisywanie plików PPT, PPTX, PPS, POT oraz ODP, w tym 
 
 ## **Twoja pierwsza prezentacja**
 
-Aspose.Slides for PHP via Java działa na Javie w środowisku Apache Tomcat, a Twoje skrypty PHP łączą się z nim poprzez PHP/Java Bridge. [Instalacja](/slides/pl/php-java/installation/) konfiguruje PHP 8.3 lub starszą wersję, Javę, Tomcat oraz most, a następnie instaluje pakiet z Packagist w folderze projektu:
+Aspose.Slides for PHP via Java działa na Javie w Apache Tomcat, a Twoje skrypty PHP łączą się z nim poprzez PHP/Java Bridge. [Instalacja](/slides/pl/php-java/installation/) konfiguruje PHP 8.3 lub starsze, Java, Tomcat i most, a następnie instaluję pakiet z Packagist w folderze projektu:
 
 ```bash
 composer require aspose/slides
 ```
 
-Następnie skopiuj plik JAR pakietu do mostu i uruchom ponownie Tomcat, tak jak w kroku 4 [Instalacji na Linuksie](/slides/pl/php-java/installation/#install-on-linux) lub kroku 6 [Instalacji na Windows](/slides/pl/php-java/installation/#install-on-windows). Przy uruchomionym Tomcat zapisz ten skrypt jako *hello.php* w folderze projektu i uruchom `php hello.php`:
+Następnie skopiuj plik JAR pakietu do mostu i zrestartuj Tomcat, tak jak w kroku 4 [Instalacja w systemie Linux](/slides/pl/php-java/installation/#install-on-linux) lub w kroku 6 [Instalacja w systemie Windows](/slides/pl/php-java/installation/#install-on-windows). Z uruchomionym Tomcatem, zapisz ten skrypt jako *hello.php* w folderze projektu i uruchom `php hello.php`:
 
 ```php
 <?php
 require_once("http://localhost:8080/JavaBridge/java/Java.inc");
-require_once(__DIR__ . "/vendor/aspose/slides/pl/lib/aspose.slides.php");
+require_once(__DIR__ . "/vendor/aspose/slides/lib/aspose.slides.php");
 
 use aspose\slides\Presentation;
 use aspose\slides\SaveFormat;
@@ -116,4 +117,4 @@ try {
 }
 ```
 
-Skrypt zapisuje *hello.pptx* obok siebie, z jednym slajdem zawierającym pole tekstowe. Bez licencji zapisany plik zawiera znak wodny oceny — zobacz [Licencjonowanie](/slides/pl/php-java/licensing/). Aby dowiedzieć się więcej o sposobach tworzenia i wypełniania prezentacji, zobacz [Tworzenie prezentacji](/slides/pl/php-java/create-presentation/).
+Skrypt zapisuje *hello.pptx* obok siebie, z jednym slajdem zawierającym pole tekstowe. Bez licencji zapisany plik zawiera znak wodny oceny — zobacz [Licencjonowanie](/slides/pl/php-java/licensing/). Po więcej sposobów tworzenia i wypełniania prezentacji, zobacz [Tworzenie prezentacji](/slides/pl/php-java/create-presentation/).
