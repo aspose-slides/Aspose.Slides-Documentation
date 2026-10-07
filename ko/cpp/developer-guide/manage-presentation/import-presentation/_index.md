@@ -74,10 +74,10 @@ presentation->Save(u"MyPresentation.pptx", SaveFormat::Pptx);
 {{% alert title="Note" color="warning" %}} 
 Aspose.Slides를 사용하여 HTML을 다른 일반 파일 형식으로도 변환할 수 있습니다: 
 
-* [HTML을 이미지로](https://products.aspose.com/slides/ko/cpp/conversion/html-to-image/)
-* [HTML을 JPG로](https://products.aspose.com/slides/ko/cpp/conversion/html-to-jpg/)
-* [HTML을 XML로](https://products.aspose.com/slides/ko/cpp/conversion/html-to-xml/)
-* [HTML을 TIFF로](https://products.aspose.com/slides/ko/cpp/conversion/html-to-tiff/)
+* [HTML을 이미지로](https://products.aspose.com/slides/cpp/conversion/html-to-image/)
+* [HTML을 JPG로](https://products.aspose.com/slides/cpp/conversion/html-to-jpg/)
+* [HTML을 XML로](https://products.aspose.com/slides/cpp/conversion/html-to-xml/)
+* [HTML을 TIFF로](https://products.aspose.com/slides/cpp/conversion/html-to-tiff/)
 
 {{% /alert %}}
 
