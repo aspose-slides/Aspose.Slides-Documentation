@@ -16,318 +16,257 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Hantera tabellceller i PowerPoint med Aspose.Slides för Node.js. Bli expert på att snabbt komma åt, modifiera och formatera celler för sömlös bildautomation."
+description: "Hantera PowerPoint-tabellceller i JavaScript: identifiera sammanslagna celler, ta bort kanter, dela celler samt ange bakgrundsfärger och bilder med Aspose.Slides för Node.js via Java."
 ---
 ## **Översikt**
 
-Aspose.Slides låter dig komma åt och ändra tabellceller i PowerPoint-presentationer. Den här artikeln förklarar hur du identifierar sammanslagna tabellceller, tar bort cellkanter, arbetar med cellnumrering efter sammanslagning eller delning av celler, ändrar en cells bakgrundsfärg och lägger till en bild i en tabellcell. Exemplen visar hur du skapar eller öppnar en presentation, hämtar en tabell från en bild, uppdaterar cellformatering via cellegenskaper och sparar den ändrade presentationen som en PPTX-fil.
+Aspose.Slides låter dig komma åt och ändra tabellceller i PowerPoint‑presentationer. Denna artikel förklarar hur du identifierar sammanslagna tabellceller, tar bort cellkanter, arbetar med cellnumrering efter sammanslagning eller delning av celler, ändrar en cells bakgrundsfärg och lägger till en bild i en tabellcell. Exemplen visar hur du skapar eller öppnar en presentation, hämtar en tabell från en bild, uppdaterar cellformatering via cell‑egenskaper och sparar den ändrade presentationen som en PPTX‑fil.
 
-## **Identifiera sammanslagen tabellcell**
+Aspose.Slides använder nollbaserade index för att komma åt tabellceller i ordning **(kolumn, rad)**.
 
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/Presentation).
-2. Hämta tabellen från den första bilden.
-3. Iterera genom tabellens rader och kolumner för att hitta sammanslagna celler.
-4. Skriv ut ett meddelande när sammanslagna celler hittas.
+## **Identifiera en sammanslagen tabellcell**
 
-Denna JavaScript‑kod visar hur du identifierar sammanslagna tabellceller i en presentation:
+Exemplet öppnar en befintlig presentation och får den första formen på den första bilden som en tabell. Det förutsätter att bilden och formen finns och att formen är en tabell. Därefter itererar det genom alla rader och kolumner och använder [isMergedCell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/ismergedcell/) för att identifiera celler i sammanslagna områden. För varje matchning skriver det ut cellkoordinaterna i formatet `rad;kolumn`, [getRowSpan](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/getrowspan/), [getColSpan](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/getcolspan/) och regionens startkoordinater, [getFirstRowIndex](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/getfirstrowindex/) och [getFirstColumnIndex](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/getfirstcolumnindex/).
 
 ```javascript
-var pres = new aspose.slides.Presentation("SomePresentationWithTable.pptx");
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation("presentation_with_table.pptx");
 try {
-    var table = pres.getSlides().get_Item(0).getShapes().get_Item(0);// antar att Slide#0.Shape#0 är en tabell
-    for (var i = 0; i < table.getRows().size(); i++) {
-        for (var j = 0; j < table.getColumns().size(); j++) {
-            var currentCell = table.getRows().get_Item(i).get_Item(j);
-            if (currentCell.isMergedCell()) {
-                console.log(java.callStaticMethodSync("java.lang.String", "format", "Cell %d;%d is a part of merged cell with RowSpan=%d and ColSpan=%d starting from Cell %d;%d.", i, j, currentCell.getRowSpan(), currentCell.getColSpan(), currentCell.getFirstRowIndex(), currentCell.getFirstColumnIndex()));
+    const slide = presentation.getSlides().get_Item(0);
+    const table = slide.getShapes().get_Item(0);
+
+    const rowCount = table.getRows().size();
+    for (let rowIndex = 0; rowIndex < rowCount; rowIndex++) {
+        const columnCount = table.getColumns().size();
+        for (let columnIndex = 0; columnIndex < columnCount; columnIndex++) {
+            const cell = table.get_Item(columnIndex, rowIndex);
+            if (cell.isMergedCell()) {
+                console.log("Cell %d;%d belongs to a merged region with RowSpan=%d and ColSpan=%d starting at %d;%d.", rowIndex, columnIndex, cell.getRowSpan(), cell.getColSpan(), cell.getFirstRowIndex(), cell.getFirstColumnIndex());
             }
         }
     }
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Ta bort kantlinjer för tabellceller**
+## **Ta bort tabellcellkanter**
 
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/Presentation).
-2. Hämta en bilds referens via dess index.
-3. Definiera en array av kolumner med bredd.
-4. Definiera en array av rader med höjd.
-5. Lägg till en tabell på bilden via metoden [addTable](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/ShapeCollection#addTable-float-float-double:A-double:A-).
-6. Iterera genom varje cell för att rensa de övre, nedre, högra och vänstra kanterna.
-7. Spara den ändrade presentationen som en PPTX-fil.
-
-Denna JavaScript‑kod visar hur du tar bort kanterna från tabellceller:
+Skapa en [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) och lägg till en tabell på dess första bild med [addTable](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/addtable/). Kolumnbredder, radhöjder och tabellens position anges i punkter. Exemplet sätter alla fyra cellkanter till [FillType.NoFill](https://reference.aspose.com/slides/nodejs-java/aspose.slides/filltype/), vilket gör dem osynliga.
 
 ```javascript
-// Instansierar Presentation-klassen som representerar en PPTX-fil
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // Åtkommer den första bilden
-    var sld = pres.getSlides().get_Item(0);
-    // Definierar kolumner med bredder och rader med höjder
-    var dblCols = java.newArray("double", [50, 50, 50, 50]);
-    var dblRows = java.newArray("double", [50, 30, 30, 30, 30]);
-    // Lägger till tabellform till bilden
-    var tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
-    // Sätter kantformatet för varje cell
-    for (let i = 0; i < tbl.getRows().size(); i++) {
-        const row = tbl.getRows().get_Item(i);
-        for (let j = 0; j < row.size(); j++) {
-            const cell = row.get_Item(j);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const columnWidths = java.newArray("double", [50, 50, 50, 50]);
+    const rowHeights = java.newArray("double", [50, 30, 30, 30, 30]);
+    const table = slide.getShapes().addTable(100, 50, columnWidths, rowHeights);
+
+    for (let rowIndex = 0; rowIndex < table.getRows().size(); rowIndex++) {
+        const row = table.getRows().get_Item(rowIndex);
+        for (let columnIndex = 0; columnIndex < row.size(); columnIndex++) {
+            const cell = row.get_Item(columnIndex);
             cell.getCellFormat().getBorderTop().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
             cell.getCellFormat().getBorderBottom().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
             cell.getCellFormat().getBorderLeft().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
             cell.getCellFormat().getBorderRight().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
         }
     }
-    // Skriver PPTX-filen till disk
-    pres.save("table_out.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("table.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Nummerering i sammanslagna celler**
+## **Slå samman tabellceller**
 
-Om vi sammanslår 2 par celler (1, 1) x (2, 1) och (1, 2) x (2, 2) kommer den resulterande tabellen att numreras. Denna JavaScript‑kod demonstrerar processen:
+Använd [mergeCells](https://reference.aspose.com/slides/nodejs-java/aspose.slides/table/mergecells/) för att kombinera ett rektangulärt område av tabellceller till en cell. Specificera cellerna i det övre vänstra och det nedre högra hörnet av området. Det sista argumentet styr om sammanslagningen får omfatta celler utanför det specificerade området; `false` håller sammanslagningen inom det området.
+
+Exemplet skapar en 4×4‑tabell med 70‑punkts kolumner och rader, och slår sedan ihop de fyra centrala cellerna från `(1, 1)` till `(2, 2)`. Den resulterande cellen sträcker sig över två kolumner och två rader, medan tabellens underliggande rutnät behåller fyra kolumner och fyra rader. För att komma åt den sammanslagna cellens innehåll eller formatering, använd dess övre‑vänstra position: `table.get_Item(1, 1)` i detta exempel. De andra positionerna i det sammanslagna området förblir en del av tabellrutnätet, så indexen för celler utanför området ändras inte.
 
 ```javascript
-// Instansierar Presentation-klassen som representerar en PPTX-fil
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // Hämtar den första bilden
-    var sld = pres.getSlides().get_Item(0);
-    // Definierar kolumner med bredder och rader med höjder
-    var dblCols = java.newArray("double", [70, 70, 70, 70]);
-    var dblRows = java.newArray("double", [70, 70, 70, 70]);
-    // Lägger till en tabellform på bilden
-    var tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
-    // Anger kantformatet för varje cell
-    for (let i = 0; i < tbl.getRows().size(); i++) {
-        const row = tbl.getRows().get_Item(i);
-        for (let j = 0; j < row.size(); j++) {
-            const cell = row.get_Item(j);
-            cell.getCellFormat().getBorderTop().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-            cell.getCellFormat().getBorderTop().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-            cell.getCellFormat().getBorderTop().setWidth(5);
-            cell.getCellFormat().getBorderBottom().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-            cell.getCellFormat().getBorderBottom().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-            cell.getCellFormat().getBorderBottom().setWidth(5);
-            cell.getCellFormat().getBorderLeft().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-            cell.getCellFormat().getBorderLeft().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-            cell.getCellFormat().getBorderLeft().setWidth(5);
-            cell.getCellFormat().getBorderRight().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-            cell.getCellFormat().getBorderRight().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-            cell.getCellFormat().getBorderRight().setWidth(5);
-        }
-    }
-    // Slår ihop celler (1, 1) x (2, 1)
-    tbl.mergeCells(tbl.get_Item(1, 1), tbl.get_Item(2, 1), false);
-    // Slår ihop celler (1, 2) x (2, 2)
-    tbl.mergeCells(tbl.get_Item(1, 2), tbl.get_Item(2, 2), false);
-    pres.save("MergeCells_out.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const columnWidths = java.newArray("double", [70, 70, 70, 70]);
+    const rowHeights = java.newArray("double", [70, 70, 70, 70]);
+    const table = slide.getShapes().addTable(100, 50, columnWidths, rowHeights);
+
+    table.mergeCells(table.get_Item(1, 1), table.get_Item(2, 2), false);
+
+    presentation.save("merged_cells.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-Vi sammanslår sedan cellerna ytterligare genom att slå ihop (1, 1) och (1, 2). Resultatet är en tabell som innehåller en stor sammanslagen cell i mitten:
+## **Dela tabellceller**
+
+Att slå ihop celler i föregående exempel bevarar tabellens rutnät. Att dela en cell kan införa en ny rutnätskolumn och ändra kolumnindex för celler till höger om den. Aspose.Slides följer PowerPoints tabellrutnätmodell.
+
+Detta exempel skapar en 4×4‑tabell med 70‑punkts kolumner och rader och anropar [splitByWidth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/splitbywidth/) på cell `(1, 1)`. Hälften av cellens 70‑punkts bredd skickas för att skapa två lika breda celler.
+
+Efter denna delning nås de två halvorna som `table.get_Item(1, 1)` och `table.get_Item(2, 1)`. Tabellrutnätet har nu fem kolumner: celler som ursprungligen var i kolumn 2 och 3 flyttas till kolumn 3 respektive 4. Radindex förblir oförändrade. Använd dessa uppdaterade kolumnindex när du hämtar celler efter delningen.
 
 ```javascript
-// Instansierar Presentation-klassen som representerar en PPTX-fil
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // Hämtar den första bilden
-    var sld = pres.getSlides().get_Item(0);
-    // Definierar kolumner med bredder och rader med höjder
-    var dblCols = java.newArray("double", [70, 70, 70, 70]);
-    var dblRows = java.newArray("double", [70, 70, 70, 70]);
-    // Lägger till en tabellform på bilden
-    var tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
-    // Anger kantformatet för varje cell
-    for (let i = 0; i < tbl.getRows().size(); i++) {
-        const row = tbl.getRows().get_Item(i);
-        for (let j = 0; j < row.size(); j++) {
-            const cell = row.get_Item(j);
-            cell.getCellFormat().getBorderTop().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-            cell.getCellFormat().getBorderTop().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-            cell.getCellFormat().getBorderTop().setWidth(5);
-            cell.getCellFormat().getBorderBottom().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-            cell.getCellFormat().getBorderBottom().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-            cell.getCellFormat().getBorderBottom().setWidth(5);
-            cell.getCellFormat().getBorderLeft().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-            cell.getCellFormat().getBorderLeft().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-            cell.getCellFormat().getBorderLeft().setWidth(5);
-            cell.getCellFormat().getBorderRight().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-            cell.getCellFormat().getBorderRight().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-            cell.getCellFormat().getBorderRight().setWidth(5);
-        }
-    }
-    // Slår ihop celler (1, 1) x (2, 1)
-    tbl.mergeCells(tbl.get_Item(1, 1), tbl.get_Item(2, 1), false);
-    // Slår ihop celler (1, 2) x (2, 2)
-    tbl.mergeCells(tbl.get_Item(1, 2), tbl.get_Item(2, 2), false);
-    // Slår ihop celler (1, 1) x (1, 2)
-    tbl.mergeCells(tbl.get_Item(1, 1), tbl.get_Item(1, 2), true);
-    // Skriver PPTX-filen till disk
-    pres.save("MergeCells_out.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const columnWidths = java.newArray("double", [70, 70, 70, 70]);
+    const rowHeights = java.newArray("double", [70, 70, 70, 70]);
+    const table = slide.getShapes().addTable(100, 50, columnWidths, rowHeights);
+
+    table.get_Item(1, 1).splitByWidth(table.get_Item(1, 1).getWidth() / 2);
+
+    presentation.save("split_cells.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Nummerering i delade celler**
+### **Dela sammanslagna celler efter rad‑ eller kolumnspann**
 
-I tidigare exempel, när tabellceller sammanslogs, ändrades inte numreringen eller talssystemet i övriga celler.
+För att förbereda sammanslagna mallceller för datafyllning, använd [splitByRowSpan](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/splitbyrowspan/) för att dela längs en befintlig radgräns, eller [splitByColSpan](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/splitbycolspan/) för att dela längs en kolumngräns.
 
-Denna gång tar vi en vanlig tabell (en tabell utan sammanslagna celler) och försöker sedan dela cell (1,1) för att få en speciell tabell. Du bör uppmärksamma tabellens numrering, som kan uppfattas som märklig. Detta är dock så Microsoft PowerPoint numrerar tabellceller och Aspose.Slides gör samma sak.
+`index`‑argumentet räknar rader i den övre delen eller kolumner i den vänstra delen av delningen; det är relativt till det sammanslagna området:
 
-Denna JavaScript‑kod demonstrerar den beskrivna processen:
+- Raddelning: `0 < index <` [getRowSpan](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/getrowspan/).
+- Kolumndelning: `0 < index <` [getColSpan](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/getcolspan/).
+
+Exemplet förutsätter att en presentation har en tabell som den första formen på den första bilden, med `(1, 2)` och `(1, 3)` sammanslagna vertikalt. Med start från den lägre positionen använder det [getFirstColumnIndex](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/getfirstcolumnindex/) och [getFirstRowIndex](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/getfirstrowindex/) för att lokalisera ursprunget och kontrollerar båda spannarna. `splitByRowSpan(1)` separerar sedan raderna 2 och 3 för produktnamn. För en horisontell två‑kolumns‑sammanslagning, använd `splitByColSpan(1)` istället.
 
 ```javascript
-// Instansierar Presentation-klassen som representerar en PPTX-fil
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation("table_template.pptx");
 try {
-    // Hämtar den första bilden
-    var sld = pres.getSlides().get_Item(0);
-    // Definierar kolumner med bredder och rader med höjder
-    var dblCols = java.newArray("double", [70, 70, 70, 70]);
-    var dblRows = java.newArray("double", [70, 70, 70, 70]);
-    // Lägger till en tabellform på bilden
-    var tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
-    // Anger kantformatet för varje cell
-    for (let i = 0; i < tbl.getRows().size(); i++) {
-        const row = tbl.getRows().get_Item(i);
-        for (let j = 0; j < row.size(); j++) {
-            const cell = row.get_Item(j);
-            cell.getCellFormat().getBorderTop().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-            cell.getCellFormat().getBorderTop().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-            cell.getCellFormat().getBorderTop().setWidth(5);
-            cell.getCellFormat().getBorderBottom().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-            cell.getCellFormat().getBorderBottom().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-            cell.getCellFormat().getBorderBottom().setWidth(5);
-            cell.getCellFormat().getBorderLeft().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-            cell.getCellFormat().getBorderLeft().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-            cell.getCellFormat().getBorderLeft().setWidth(5);
-            cell.getCellFormat().getBorderRight().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-            cell.getCellFormat().getBorderRight().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-            cell.getCellFormat().getBorderRight().setWidth(5);
-        }
+    const slide = presentation.getSlides().get_Item(0);
+    const table = slide.getShapes().get_Item(0);
+
+    const selectedCell = table.get_Item(1, 3);
+    const firstColumnIndex = selectedCell.getFirstColumnIndex();
+    const firstRowIndex = selectedCell.getFirstRowIndex();
+    const mergedCell = table.get_Item(firstColumnIndex, firstRowIndex);
+
+    if (mergedCell.isMergedCell() && mergedCell.getRowSpan() == 2 && mergedCell.getColSpan() == 1) {
+        mergedCell.splitByRowSpan(1);
+
+        // Hämta de resulterande cellerna från tabellen efter delning.
+        const upperCell = table.get_Item(firstColumnIndex, firstRowIndex);
+        const lowerCell = table.get_Item(firstColumnIndex, firstRowIndex + 1);
+        console.log("Upper cell merged: " + upperCell.isMergedCell());
+        console.log("Lower cell merged: " + lowerCell.isMergedCell());
+
+        upperCell.getTextFrame().setText("Product A");
+        lowerCell.getTextFrame().setText("Product B");
+
+        presentation.save("split_template.pptx", aspose.slides.SaveFormat.Pptx);
+    } else {
+        console.log("Select a merged region spanning exactly two rows and one column.");
     }
-    // Slår ihop celler (1, 1) x (2, 1)
-    tbl.mergeCells(tbl.get_Item(1, 1), tbl.get_Item(2, 1), false);
-    // Slår ihop celler (1, 2) x (2, 2)
-    tbl.mergeCells(tbl.get_Item(1, 2), tbl.get_Item(2, 2), false);
-    // Delar cell (1, 1)
-    tbl.get_Item(1, 1).splitByWidth(tbl.get_Item(2, 1).getWidth() / 2);
-    // Skriver PPTX-filen till disk
-    pres.save("SplitCells_out.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Ändra bakgrundsfärg för tabellcell**
+Tabellrutnätet och omgivande cellindex förblir oförändrade. Hämta de resulterande cellerna via deras koordinater; här har båda spann på 1 och [isMergedCell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/ismergedcell/) returnerar `false`. Större områden kan förbli delvis sammanslagna efter en delning.
 
-Denna JavaScript‑kod visar hur du ändrar en tabellcells bakgrundsfärg:
+Den ursprungliga texten och dess formatering finns kvar i den övre (eller vänstra) cellen; den nya cellen är tom men ärver cellformatering såsom fyllning, kanter och marginaler. Fyll i cellerna efter delning och ange eventuell nödvändig textformatering explicit.
+
+Den sparade presentationen innehåller separata celler “Product A” och “Product B” med mallens cellformatering bevarad. Se [Cell API Reference](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/) för detaljer.
+
+## **Ändra tabellcellens bakgrundsfärg**
+
+Detta exempel skapar en tabell med 150‑punkts kolumner och 50‑punkts rader. Det använder [setFillType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fillformat/setfilltype/) för att välja en solid fyllning och sätter färgen som returneras av [getSolidFillColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fillformat/getsolidfillcolor/) till röd för cell `(2, 3)`, i den tredje kolumnen och fjärde raden.
 
 ```javascript
-var presentation = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var slide = presentation.getSlides().get_Item(0);
-    var dblCols = java.newArray("double", [150, 150, 150, 150]);
-    var dblRows = java.newArray("double", [50, 50, 50, 50, 50]);
-    // skapa en ny tabell
-    var table = slide.getShapes().addTable(50, 50, dblCols, dblRows);
-    // sätt bakgrundsfärgen för en cell
-    var cell = table.get_Item(2, 3);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const columnWidths = java.newArray("double", [150, 150, 150, 150]);
+    const rowHeights = java.newArray("double", [50, 50, 50, 50, 50]);
+    const table = slide.getShapes().addTable(50, 50, columnWidths, rowHeights);
+
+    const cell = table.get_Item(2, 3);
     cell.getCellFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     cell.getCellFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
+
     presentation.save("cell_background_color.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (presentation != null) {
-        presentation.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Lägg till bild i tabellcell**
+## **Lägg till en bild i en tabellcell**
 
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/Presentation).
-2. Hämta en bilds referens via dess index.
-3. Definiera en array av kolumner med bredd.
-4. Definiera en array av rader med höjd.
-5. Lägg till en tabell på bilden via metoden [addTable](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/ShapeCollection#addTable-float-float-double:A-double:A-).
-6. Skapa ett `Images`‑objekt för att hålla bildfilen.
-7. Lägg till `IImage`‑bilden i `PPImage`‑objektet.
-8. Ställ in `FillFormat` för tabellcellen till `Picture`.
-9. Lägg till bilden i tabellens första cell.
-10. Spara den ändrade presentationen som en PPTX‑fil
+Placera inmatningsbilden i arbetskatalogen innan du kör detta exempel. Det laddar bilden med [Images.fromFile](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Images#fromFile) och lägger till den i presentationens bildsamling med [addImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagecollection/addimage/). Därefter tilldelas bilden bildfyllningen för cell `(0, 0)`, den första cellen i tabellen.
 
-Denna JavaScript‑kod visar hur du placerar en bild i en tabellcell när du skapar en tabell:
+[PictureFillMode.Stretch](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillmode/) sträcker bilden för att fylla cellen, vilket kan ändra bildens bildförhållande. Kolumnbredder och radhöjder anges i punkter. Den laddade bilden disponeras i ett `finally`‑block efter att den lagts till i presentationen.
 
 ```javascript
-// Instansierar Presentation-klassen som representerar en PPTX-fil
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // Hämtar den första bilden
-    var islide = pres.getSlides().get_Item(0);
-    // Definierar kolumner med bredder och rader med höjder
-    var dblCols = java.newArray("double", [150, 150, 150, 150]);
-    var dblRows = java.newArray("double", [100, 100, 100, 100, 90]);
-    // Lägger till en tabellform på bilden
-    var tbl = islide.getShapes().addTable(50, 50, dblCols, dblRows);
-    // Skapar ett PPImage-objekt med bildfilen
-    var picture;
-    var image = aspose.slides.Images.fromFile("image.jpg");
+    const slide = presentation.getSlides().get_Item(0);
+
+    const columnWidths = java.newArray("double", [150, 150, 150, 150]);
+    const rowHeights = java.newArray("double", [100, 100, 100, 100, 90]);
+    const table = slide.getShapes().addTable(50, 50, columnWidths, rowHeights);
+
+    let ppImage;
+    const image = aspose.slides.Images.fromFile("aspose_logo.jpg");
     try {
-        picture = pres.getImages().addImage(image);
+        ppImage = presentation.getImages().addImage(image);
     } finally {
-        if (image != null) {
-            image.dispose();
-        }
+        image.dispose();
     }
-    // Lägger till bilden i den första tabellcellen
-    var cellFormat = tbl.get_Item(0, 0).getCellFormat();
-    cellFormat.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Picture));
-    cellFormat.getFillFormat().getPictureFillFormat().setPictureFillMode(aspose.slides.PictureFillMode.Stretch);
-    cellFormat.getFillFormat().getPictureFillFormat().getPicture().setImage(picture);
-    // Sparar PPTX-filen till disk
-    pres.save("Image_In_TableCell_out.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
+
+    table.get_Item(0, 0).getCellFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Picture));
+    table.get_Item(0, 0).getCellFormat().getFillFormat().getPictureFillFormat().setPictureFillMode(aspose.slides.PictureFillMode.Stretch);
+    table.get_Item(0, 0).getCellFormat().getFillFormat().getPictureFillFormat().getPicture().setImage(ppImage);
+
+    presentation.save("table_cell_with_image.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Vanliga frågor**
+## **FAQ**
 
-**Kan jag ange olika linjetjocklekar och -stilar för olika sidor av en enskild cell?**
+**Kan jag ange olika linjetjocklekar och stilar för olika sidor av en enskild cell?**
 
-Ja. Kanterna [top](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/cellformat/getbordertop/)/[bottom](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/cellformat/getborderbottom/)/[left](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/cellformat/getborderleft/)/[right](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/cellformat/getborderright/) har separata egenskaper, så tjocklek och stil för varje sida kan skilja sig åt. Detta följer logiskt från den per‑sida kantkontrollen för en cell som demonstrerades i artikeln.
+Ja. [top](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cellformat/getbordertop/)/[bottom](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cellformat/getborderbottom/)/[left](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cellformat/getborderleft/)/[right](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cellformat/getborderright/) kanter har separata egenskaper, så tjocklek och stil för varje sida kan skilja sig.
 
-**Vad händer med bilden om jag ändrar kolumn-/radstorlek efter att ha ställt in en bild som cellens bakgrund?**
+**Vad händer med bilden om jag ändrar kolumn‑/radstorleken efter att ha satt en bild som cellens bakgrund?**
 
-Beteendet beror på [fill mode](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/picturefillmode/) (stretch/tile). Vid stretch justeras bilden till den nya cellen; vid tile beräknas mosaiken om. Artikeln nämner bildvisningslägen i en cell.
+Beteendet beror på [fill mode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillmode/) (stretch/tile). Vid stretching anpassas bilden till den nya cellen; vid tiling beräknas brickorna om.
 
 **Kan jag tilldela en hyperlänk till allt innehåll i en cell?**
 
-[Hyperlinks](/slides/sv/nodejs-java/manage-hyperlinks/) sätts på textraden (portion) i cellens textram eller på hela tabellen/formen. I praktiken tilldelar du länken till en del eller till all text i cellen.
+[Hyperlinks](/slides/sv/nodejs-java/manage-hyperlinks/) sätts på text‑ (portion)‑nivå inuti cellens textruta eller på hela tabell‑/formnivå. I praktiken tilldelar du länken till en portion eller till all text i cellen.
 
-**Kan jag ange olika teckensnitt i en enda cell?**
+**Kan jag ange olika teckensnitt inom en enda cell?**
 
-Ja. En cells textram stödjer [portions](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/portion/) (körningar) med oberoende formatering — teckensnittsfamilj, stil, storlek och färg.
+Ja. En cells textruta stöder [portions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portion/) (körningar) med oberoende formatering — teckensnitt, stil, storlek och färg.

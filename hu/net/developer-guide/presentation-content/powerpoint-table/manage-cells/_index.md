@@ -5,7 +5,7 @@ type: docs
 weight: 30
 url: /hu/net/manage-cells/
 keywords:
-- táblázatcella
+- táblázatcellák
 - cellák egyesítése
 - szegély eltávolítása
 - cella felosztása
@@ -16,330 +16,230 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Könnyedén kezelje a táblázatcellákat a PowerPointban az Aspose.Slides for .NET segítségével. Tanulja meg a cellák gyors elérését, módosítását és formázását a zökkenőmentes diák automatizálásához."
+description: "PowerPoint táblázatcellák kezelése C#-ban: egyesített cellák azonosítása, szegélyek eltávolítása, cellák felosztása, valamint háttérszínek és képek beállítása az Aspose.Slides for .NET segítségével."
 ---
 ## **Áttekintés**
 
-Az Aspose.Slides lehetővé teszi, hogy hozzáférjen és módosítsa a táblázatcellákat a PowerPoint‑prezentációkban. Ez a cikk elmagyarázza, hogyan azonosíthatja az egyesített táblázatcellákat, hogyan távolíthatja el a cellaszegélyeket, hogyan kezelheti a cellaszámozást az egyesítés vagy felosztás után, hogyan változtathatja meg egy cella háttérszínét, és hogyan adhat hozzá képet egy táblázatcellához. A példák bemutatják, hogyan hozhat létre vagy nyithat meg egy prezentációt, hogyan szerezhet be egy táblázatot egy diáról, hogyan frissítheti a cellaformázást a cella tulajdonságain keresztül, és hogyan mentheti el a módosított prezentációt PPTX fájlként.
+Az Aspose.Slides lehetővé teszi a PowerPoint‑prezentációk táblázatcelláinak elérését és módosítását. Ez a cikk bemutatja, hogyan lehet azonosítani az egyesített táblázatcellákat, eltávolítani a cellaszegélyeket, a cellaszámozással dolgozni az egyesítés vagy felosztás után, megváltoztatni egy cella háttérszínét, és képet hozzáadni egy táblázatcellához. A példák azt mutatják be, hogyan hozhatunk létre vagy nyithatunk meg egy prezentációt, hogyan szerezhetünk táblát egy diáról, hogyan frissíthető a cella formázása a cella tulajdonságain keresztül, és hogyan menthetjük el a módosított prezentációt PPTX fájlként.
 
-## **Egyesített táblázatcellák azonosítása**
+Az Aspose.Slides nulla‑alapú indexeket használ a táblázatcellák eléréséhez a `(column, row)` sorrendben.
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation) osztályból.  
-2. Szerezze meg a táblázatot az első diáról.  
-3. Iteráljon a táblázat sorain és oszlopain, hogy megtalálja az egyesített cellákat.  
-4. Mondjon ki egy üzenetet, amikor egyesített cellákat talál.
+## **Egyesített táblázatcella azonosítása**
 
-Ez a C# kód megmutatja, hogyan azonosíthatók az egyesített táblázatcellák egy prezentációban:
+A példa megnyit egy meglévő prezentációt, és az első dián az első alakzatot táblaként érli el. Feltételezi, hogy a dia és az alakzat létezik, valamint hogy az alakzat táblázat. Ezután végigiterál minden soron és oszlopon, és a [IsMergedCell](https://reference.aspose.com/slides/net/aspose.slides/icell/ismergedcell/) metódust használja az egyesített régiók celláinak azonosítására. Minden egyezésnél kiírja a cella koordinátáit `row;column` sorrendben, a [RowSpan](https://reference.aspose.com/slides/net/aspose.slides/icell/rowspan/), a [ColSpan](https://reference.aspose.com/slides/net/aspose.slides/icell/colspan/), valamint a régió kiindulási koordinátáit, a [FirstRowIndex](https://reference.aspose.com/slides/net/aspose.slides/icell/firstrowindex/) és a [FirstColumnIndex](https://reference.aspose.com/slides/net/aspose.slides/icell/firstcolumnindex/) értékeket.
 
-```c#
-using (Presentation pres = new Presentation("SomePresentationWithTable.pptx"))
+```csharp
+using System;
+using Aspose.Slides;
+
+using var presentation = new Presentation("presentation_with_table.pptx");
+var slide = presentation.Slides[0];
+var table = (ITable) slide.Shapes[0];
+
+var rowCount = table.Rows.Count;
+for (var rowIndex = 0; rowIndex < rowCount; rowIndex++)
 {
-    ITable table = pres.Slides[0].Shapes[0] as ITable; // feltételezve, hogy a Slide#0.Shape#0 egy táblázat
-    for (int i = 0; i < table.Rows.Count; i++)
+    var columnCount = table.Columns.Count;
+    for (var columnIndex = 0; columnIndex < columnCount; columnIndex++)
     {
-        for (int j = 0; j < table.Columns.Count; j++)
+        var cell = table[columnIndex, rowIndex];
+        if (cell.IsMergedCell)
         {
-            ICell currentCell = table.Rows[i][j];
-            if (currentCell.IsMergedCell)
-            {
-                Console.WriteLine(string.Format("Cell {0};{1} is a part of merged cell with RowSpan={2} and ColSpan={3} starting from Cell {4};{5}.",
-                                  i, j, currentCell.RowSpan, currentCell.ColSpan, currentCell.FirstRowIndex, currentCell.FirstColumnIndex));
-
-
-            }
+            Console.WriteLine($"Cell {rowIndex};{columnIndex} belongs to a merged region with RowSpan={cell.RowSpan} and ColSpan={cell.ColSpan} starting at {cell.FirstRowIndex};{cell.FirstColumnIndex}.");
         }
     }
 }
 ```
 
-## **Táblázatcellák szegélyeinek eltávolítása**
+## **Táblázatcella szegélyek eltávolítása**
 
-1. Hozzon létre egy példányt a `Presentation` osztályból.  
-2. Szerzessen meg egy dia hivatkozást az indexe alapján.  
-3. Határozzon meg egy oszlopsorozatot szélességgel.  
-4. Határozzon meg egy sorok sorozatot magassággal.  
-5. Adjon hozzá egy táblázatot a diához az `AddTable` metódussal.  
-6. Iteráljon minden cellán, hogy törölje a felső, alsó, jobb és bal szegélyeket.  
-7. Mentse el a módosított prezentációt PPTX fájlként.
+Hozzon létre egy [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) objektumot, és adjon egy táblát az első diájához a [AddTable](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addtable/) metódussal. Az oszlopszélességek, sormagasságok és a táblázat pozíciója pontokban van megadva. A példa az összes négy cellaszegélyt a [FillType.NoFill](https://reference.aspose.com/slides/net/aspose.slides/filltype/) értékre állítja, így láthatatlanná téve őket.
 
-Ez a C# kód megmutatja, hogyan távolíthatók el a szegélyek a táblázatcellákról:
+```csharp
+using Aspose.Slides;
 
-```c#
-// Létrehozza a Presentation osztályt, amely egy PPTX fájlt képvisel
-using (Presentation pres = new Presentation())
-{
-   // Hozzáfér az első diához
-    Slide sld = (Slide)pres.Slides[0];
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    // Oszlopokat definiál szélességekkel és sorokat magasságokkal
-    double[] dblCols = { 50, 50, 50, 50 };
-    double[] dblRows = { 50, 30, 30, 30, 30 };
+double[] columnWidths = { 50, 50, 50, 50 };
+double[] rowHeights = { 50, 30, 30, 30, 30 };
+var table = slide.Shapes.AddTable(100, 50, columnWidths, rowHeights);
 
-    // Táblázat alakzatot ad hozzá a diához
-    ITable tbl = sld.Shapes.AddTable(100, 50, dblCols, dblRows);
-
-    // Beállítja a szegély formátumát minden cellához
-    foreach (IRow row in tbl.Rows)
-        foreach (ICell cell in row)
-        {
-            cell.CellFormat.BorderTop.FillFormat.FillType = FillType.NoFill;
-            cell.CellFormat.BorderBottom.FillFormat.FillType = FillType.NoFill;
-            cell.CellFormat.BorderLeft.FillFormat.FillType = FillType.NoFill;
-            cell.CellFormat.BorderRight.FillFormat.FillType = FillType.NoFill;
-        }
-
-    // Kiírja a PPTX fájlt a lemezekre
-    pres.Save("table_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
-}
-```
-
-## **Számozás egyesített cellákban**
-
-Ha összefésülünk 2 cellapárt (1, 1) x (2, 1) és (1, 2) x (2, 2), az eredményül kapott táblázat számozott lesz. Ez a C# kód bemutatja a folyamatot:
-
-```c#
-// Példányosítja a Presentation osztályt, amely egy PPTX fájlt képvisel
-using (Presentation presentation = new Presentation())
-{
-    // Hozzáfér az első diához
-    ISlide sld = presentation.Slides[0];
-
-    // Oszlopokat definiál szélességekkel és sorokat magasságokkal
-    double[] dblCols = { 70, 70, 70, 70 };
-    double[] dblRows = { 70, 70, 70, 70 };
-
-    // Táblázat alakzatot ad hozzá a diához
-    ITable tbl = sld.Shapes.AddTable(100, 50, dblCols, dblRows);
-
-    // Beállítja a szegély formátumát minden cellához
-    foreach (IRow row in tbl.Rows)
+foreach (var row in table.Rows)
+    foreach (var cell in row)
     {
-        foreach (ICell cell in row)
-        {
-            cell.CellFormat.BorderTop.FillFormat.FillType = FillType.Solid;
-            cell.CellFormat.BorderTop.FillFormat.SolidFillColor.Color = Color.Red;
-            cell.CellFormat.BorderTop.Width = 5;
-
-            cell.CellFormat.BorderBottom.FillFormat.FillType = FillType.Solid;
-            cell.CellFormat.BorderBottom.FillFormat.SolidFillColor.Color = Color.Red;
-            cell.CellFormat.BorderBottom.Width = 5;
-
-            cell.CellFormat.BorderLeft.FillFormat.FillType = FillType.Solid;
-            cell.CellFormat.BorderLeft.FillFormat.SolidFillColor.Color = Color.Red;
-            cell.CellFormat.BorderLeft.Width = 5;
-
-            cell.CellFormat.BorderRight.FillFormat.FillType = FillType.Solid;
-            cell.CellFormat.BorderRight.FillFormat.SolidFillColor.Color = Color.Red;
-            cell.CellFormat.BorderRight.Width = 5;
-        }
+        cell.CellFormat.BorderTop.FillFormat.FillType = FillType.NoFill;
+        cell.CellFormat.BorderBottom.FillFormat.FillType = FillType.NoFill;
+        cell.CellFormat.BorderLeft.FillFormat.FillType = FillType.NoFill;
+        cell.CellFormat.BorderRight.FillFormat.FillType = FillType.NoFill;
     }
 
-    // Egyesíti a (1, 1) x (2, 1) cellákat
-    tbl.MergeCells(tbl[1, 1], tbl[2, 1], false);
-
-    // Egyesíti a (1, 2) x (2, 2) cellákat
-    tbl.MergeCells(tbl[1, 2], tbl[2, 2], false);
-
-    presentation.Save("MergeCells_out.pptx", SaveFormat.Pptx);
-}
+presentation.Save("table.pptx", SaveFormat.Pptx);
 ```
 
-Ezután további egyesítést végzünk a (1, 1) és (1, 2) cellák összefésülésével. Az eredmény egy középen nagy egyesített cellát tartalmazó táblázat:
+## **Táblázatcellák egyesítése**
 
-```c#
-// Példányosítja a Presentation osztályt, amely egy PPTX fájlt képvisel
-using (Presentation presentation = new Presentation())
+A [MergeCells](https://reference.aspose.com/slides/net/aspose.slides/itable/mergecells/) metódus segítségével egy téglalap alakú cellatartományt egy cellává egyesíthetünk. Meg kell adni a tartomány bal‑felső és jobb‑alsó sarkában lévő cellákat. Az utolsó argumentum szabályozza, hogy az egyesítés magában foglalhat‑e a megadott tartományon kívüli cellákat; a `false` érték az egyesítést a tartományon belül tartja.
+
+A példa egy 4 × 4‑es táblát hoz létre 70‑pontos oszlopokkal és sorokkal, majd egyesíti a középső négy cellát a `(1, 1)`‑től `(2, 2)`‑ig terjedő tartományban. Az eredményül kapott cella két oszlopot és két sort foglal el, míg a táblázat alapszíma továbbra is négy oszlopból és négy sorból áll. Az egyesített cella tartalmának vagy formázásának eléréséhez használja a bal‑felső pozícióját: `table[1, 1]` ebben a példában. A többi pozíció a egyesített tartományban a táblázat rácsának része marad, ezért a tartományon kívüli cellák indexei nem változnak.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+double[] columnWidths = { 70, 70, 70, 70 };
+double[] rowHeights = { 70, 70, 70, 70 };
+var table = slide.Shapes.AddTable(100, 50, columnWidths, rowHeights);
+
+table.MergeCells(table[1, 1], table[2, 2], false);
+
+presentation.Save("merged_cells.pptx", SaveFormat.Pptx);
+```
+
+## **Táblázatcellák felosztása**
+
+Az előző példában a cellák egyesítése megőrzi a táblázat rácsát. Egy cella felosztása új rácsoszlopot hozhat létre, és megváltoztathatja a jobbra lévő cellák oszlopszámait. Az Aspose.Slides a PowerPoint táblarács‑modelljét követi.
+
+Ez a példa egy 4 × 4‑es táblát hoz létre 70‑pontos oszlopokkal és sorokkal, és a `[SplitByWidth](https://reference.aspose.com/slides/net/aspose.slides/icell/splitbywidth/)` metódust hívja a `(1, 1)` cellán. A cella 70‑pontos szélességének felét adja át, hogy két egyenlő szélességű cellát hozzon létre.
+
+A felosztás után a két felét a `table[1, 1]` és a `table[2, 1]` indexekkel érhetjük el. A táblázat rácsa most már öt oszlopot tartalmaz: az eredetileg a 2. és 3. oszlopban lévő cellák a 3. és 4. oszlopba kerülnek. A sor‑indexek változatlanok maradnak. A felosztás után a cellák elérésekor az új oszlopszámokat kell használni.
+
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+double[] columnWidths = { 70, 70, 70, 70 };
+double[] rowHeights = { 70, 70, 70, 70 };
+var table = slide.Shapes.AddTable(100, 50, columnWidths, rowHeights);
+
+table[1, 1].SplitByWidth(table[1, 1].Width / 2);
+
+presentation.Save("split_cells.pptx", SaveFormat.Pptx);
+```
+
+### **Egyesített cellák felosztása sor- vagy oszlopkiterjedés szerint**
+
+Az egyesített sabloncellák adatkitöltés előkészítéséhez használja a [SplitByRowSpan](https://reference.aspose.com/slides/net/aspose.slides/icell/splitbyrowspan/) metódust egy meglévő sortávolság mentén való felosztáshoz, vagy a [SplitByColSpan](https://reference.aspose.com/slides/net/aspose.slides/icell/splitbycolspan/) metódust oszlopkiterjedés mentén való felosztáshoz.
+
+Az `index` argumentum a felosztás felső részének sorait vagy bal részének oszlopait számlálja; a megadott érték a egyesített régióhoz viszonyítva van:
+
+- Sor‑felesztés: `0 < index <` [RowSpan](https://reference.aspose.com/slides/net/aspose.slides/icell/rowspan/).
+- Oszlop‑felesztés: `0 < index <` [ColSpan](https://reference.aspose.com/slides/net/aspose.slides/icell/colspan/).
+
+A példa azt feltételezi, hogy a prezentáció első diájának első alakzata egy táblázat, amelyben a `(1, 2)` és a `(1, 3)` cellák függőlegesen egyesítve vannak. Az alsó pozíciótól kiindulva a [FirstColumnIndex](https://reference.aspose.com/slides/net/aspose.slides/icell/firstcolumnindex/) és a [FirstRowIndex](https://reference.aspose.com/slides/net/aspose.slides/icell/firstrowindex/) segítségével határozza meg a kiindulópontot, és ellenőrzi mindkét kiterjedést. A `SplitByRowSpan(1)` ezután szétválasztja a 2. és 3. sorokat a terméknevekhez. Vízszintesen két oszlopos egyesítéshez helyette a `SplitByColSpan(1)` használható.
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("table_template.pptx");
+var slide = presentation.Slides[0];
+var table = (ITable) slide.Shapes[0];
+
+var selectedCell = table[1, 3];
+var firstColumnIndex = selectedCell.FirstColumnIndex;
+var firstRowIndex = selectedCell.FirstRowIndex;
+var mergedCell = table[firstColumnIndex, firstRowIndex];
+
+if (mergedCell.IsMergedCell && mergedCell.RowSpan == 2 && mergedCell.ColSpan == 1)
 {
-    // Hozzáfér az első diához
-    ISlide slide = presentation.Slides[0];
+    mergedCell.SplitByRowSpan(1);
 
-    // Oszlopokat definiál szélességekkel és sorokat magasságokkal
-    double[] dblCols = { 70, 70, 70, 70 };
-    double[] dblRows = { 70, 70, 70, 70 };
+    // A felosztás után a táblában keletkezett cellákat lekérdezi.
+    var upperCell = table[firstColumnIndex, firstRowIndex];
+    var lowerCell = table[firstColumnIndex, firstRowIndex + 1];
+    Console.WriteLine($"Upper cell merged: {upperCell.IsMergedCell}");
+    Console.WriteLine($"Lower cell merged: {lowerCell.IsMergedCell}");
 
-    // Táblázat alakzatot ad hozzá a diához
-    ITable table = slide.Shapes.AddTable(100, 50, dblCols, dblRows);
+    upperCell.TextFrame.Text = "Product A";
+    lowerCell.TextFrame.Text = "Product B";
 
-    // Beállítja a szegély formátumát minden cellához
-    foreach (IRow row in table.Rows)
-    {
-        foreach (ICell cell in row)
-        {
-            cell.CellFormat.BorderTop.FillFormat.FillType = FillType.Solid;
-            cell.CellFormat.BorderTop.FillFormat.SolidFillColor.Color = Color.Red;
-            cell.CellFormat.BorderTop.Width = 5;
-
-            cell.CellFormat.BorderBottom.FillFormat.FillType = FillType.Solid;
-            cell.CellFormat.BorderBottom.FillFormat.SolidFillColor.Color = Color.Red;
-            cell.CellFormat.BorderBottom.Width = 5;
-
-            cell.CellFormat.BorderLeft.FillFormat.FillType = FillType.Solid;
-            cell.CellFormat.BorderLeft.FillFormat.SolidFillColor.Color = Color.Red;
-            cell.CellFormat.BorderLeft.Width = 5;
-
-            cell.CellFormat.BorderRight.FillFormat.FillType = FillType.Solid;
-            cell.CellFormat.BorderRight.FillFormat.SolidFillColor.Color = Color.Red;
-            cell.CellFormat.BorderRight.Width = 5;
-
-        }
-    }
-
-    // Egyesíti a (1, 1) x (2, 1) cellákat
-    table.MergeCells(table[1, 1], table[2, 1], false);
-
-    // Egyesíti a (1, 2) x (2, 2) cellákat
-    table.MergeCells(table[1, 2], table[2, 2], false);
-
-    // Egyesíti a (1, 2) x (2, 2) cellákat
-    table.MergeCells(table[1, 1], table[1, 2], true);
-
-    // Kiírja a PPTX fájlt a lemezekre
-    presentation.Save("MergeCells1_out.pptx", SaveFormat.Pptx);
+    presentation.Save("split_template.pptx", SaveFormat.Pptx);
 }
-```
-
-## **Számozás egy felosztott cellában**
-
-Az előző példákban, amikor a táblázatcellák egyesültek, a többi cellában lévő számozás vagy számrendszer nem változott.
-
-Ez alkalommal egy szabályos táblázatot (egy egyesített cellákat nem tartalmazó táblázatot) veszünk, majd megpróbáljuk felosztani a (1,1) cellát, hogy egy különleges táblázatot kapjunk. Érdemes figyelni a táblázat számozására, amely furcsának tűnhet. Azonban ez a mód, ahogyan a Microsoft PowerPoint számozza a táblázatcellákat, és az Aspose.Slides is ugyanezt teszi.
-
-Ez a C# kód szemlélteti a leírt folyamatot:
-
-```c#
-// Létrehozza a Presentation osztályt, amely egy PPTX fájlt képvisel
-using (Presentation presentation = new Presentation())
+else
 {
-    // Hozzáfér az első diához
-    ISlide slide = presentation.Slides[0];
-
-    // Oszlopokat definiál szélességekkel és sorokat magasságokkal
-    double[] dblCols = { 70, 70, 70, 70 };
-    double[] dblRows = { 70, 70, 70, 70 };
-
-    // Táblázat alakzatot ad hozzá a diához
-    ITable table = slide.Shapes.AddTable(100, 50, dblCols, dblRows);
-
-    // Beállítja a szegély formátumát minden cellához
-    foreach (IRow row in table.Rows)
-    {
-        foreach (ICell cell in row)
-        {
-            cell.CellFormat.BorderTop.FillFormat.FillType = FillType.Solid;
-            cell.CellFormat.BorderTop.FillFormat.SolidFillColor.Color = Color.Red;
-            cell.CellFormat.BorderTop.Width = 5;
-
-            cell.CellFormat.BorderBottom.FillFormat.FillType = FillType.Solid;
-            cell.CellFormat.BorderBottom.FillFormat.SolidFillColor.Color = Color.Red;
-            cell.CellFormat.BorderBottom.Width = 5;
-
-            cell.CellFormat.BorderLeft.FillFormat.FillType = FillType.Solid;
-            cell.CellFormat.BorderLeft.FillFormat.SolidFillColor.Color = Color.Red;
-            cell.CellFormat.BorderLeft.Width = 5;
-
-            cell.CellFormat.BorderRight.FillFormat.FillType = FillType.Solid;
-            cell.CellFormat.BorderRight.FillFormat.SolidFillColor.Color = Color.Red;
-            cell.CellFormat.BorderRight.Width = 5;
-
-        }
-    }
-
-    // Egyesíti a (1, 1) x (2, 1) cellákat
-    table.MergeCells(table[1, 1], table[2, 1], false);
-
-    // Egyesíti a (1, 2) x (2, 2) cellákat
-    table.MergeCells(table[1, 2], table[2, 2], false);
-
-    // Felosztja a (1, 1) cellát. 
-    table[1, 1].SplitByWidth(table[2, 1].Width / 2);
-
-    // Kiírja a PPTX fájlt a lemezekre
-    presentation.Save("CellSplit_out.pptx", SaveFormat.Pptx);
+    Console.WriteLine("Select a merged region spanning exactly two rows and one column.");
 }
 ```
+
+A táblázat rácsa és a környező cellaindexek változatlanok maradnak. Az eredményül kapott cellákat a koordinátáik alapján kérhetjük le; ebben az esetben mindkettő 1‑es kiterjedéssel rendelkezik, és az [IsMergedCell](https://reference.aspose.com/slides/net/aspose.slides/icell/ismergedcell/) `False` értéket ad. Nagyobb területek egy felosztás után is maradhatnak részben egyesítve.
+
+Az eredeti szöveg és formázása az felső (vagy bal) cellában marad; az új cella üres, de örökli a cella formázását, például a kitöltést, a szegélyeket és a margókat. A felosztás után töltse fel a cellákat, és szükség esetén állítsa be a szövegformázást explicit módon.
+
+A mentett prezentáció külön “Product A” és “Product B” cellákat tartalmaz, a sablon cellaformázása megtartva. További részletekért tekintse meg a [Cell API Reference](https://reference.aspose.com/slides/net/aspose.slides/cell/) dokumentációt.
 
 ## **A táblázatcella háttérszínének módosítása**
 
-Ez a C# kód megmutatja, hogyan változtatható meg egy táblázatcella háttérszíne:
+Ez a példa egy táblát hoz létre 150‑pontos oszlopokkal és 50‑pontos sorokkal. A `[FillType](https://reference.aspose.com/slides/net/aspose.slides/ifillformat/filltype/)` értékét szilárdra, a `[SolidFillColor](https://reference.aspose.com/slides/net/aspose.slides/ifillformat/solidfillcolor/)` értékét pedig pirosra állítja a `(2, 3)` cellánál, amely a harmadik oszlop és a negyedik sor.
 
-```c#
-using (Presentation presentation = new Presentation())
-{
-    ISlide slide = presentation.Slides[0];
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-    double[] dblCols = { 150, 150, 150, 150 };
-    double[] dblRows = { 50, 50, 50, 50, 50 };
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    // új táblázat létrehozása
-    ITable table = slide.Shapes.AddTable(50, 50, dblCols, dblRows);
+double[] columnWidths = { 150, 150, 150, 150 };
+double[] rowHeights = { 50, 50, 50, 50, 50 };
+var table = slide.Shapes.AddTable(50, 50, columnWidths, rowHeights);
 
-    // egy cella háttérszínének beállítása
-    ICell cell = table[2, 3];
-    cell.CellFormat.FillFormat.FillType = FillType.Solid;
-    cell.CellFormat.FillFormat.SolidFillColor.Color = Color.Red;
+var cell = table[2, 3];
+cell.CellFormat.FillFormat.FillType = FillType.Solid;
+cell.CellFormat.FillFormat.SolidFillColor.Color = Color.Red;
 
-    presentation.Save("cell_background_color.pptx", SaveFormat.Pptx);
-}
+presentation.Save("cell_background_color.pptx", SaveFormat.Pptx);
 ```
 
-## **Kép beszúrása egy táblázatcellába**
+## **Kép hozzáadása táblázatcella belsejébe**
 
-1. Hozzon létre egy példányt a `Presentation` osztályból.  
-2. Szerzessen meg egy dia hivatkozást az indexe alapján.  
-3. Határozzon meg egy oszlopok tömbjét szélességgel.  
-4. Határozzon meg egy sorok tömbjét magassággal.  
-5. Adjon hozzá egy táblázatot a diához az `AddTable` metódussal.  
-6. Hozzon létre egy `Bitmap` objektumot a kép fájl tárolására.  
-7. Adja hozzá a bitmap képet az `IPPImage` objektumhoz.  
-8. Állítsa be a táblázatcella `FillFormat` értékét `Picture`-re.  
-9. Tegye a képet a táblázat első cellájába.  
-10. Mentse el a módosított prezentációt PPTX fájlként
+Helyezze az input képet a munkakönyvtárba, mielőtt futtatná ezt a példát. A kép betöltésére a [Images.FromFile](https://reference.aspose.com/slides/net/aspose.slides/images/fromfile/) metódust használja, majd a [AddImage](https://reference.aspose.com/slides/net/aspose.slides/iimagecollection/addimage/) metódussal hozzáadja a prezentáció képgyűjteményéhez. Ezután a képet a `(0, 0)` cella képkitöltéséhez rendeli, amely a táblázat első cellája.
 
-Ez a C# kód megmutatja, hogyan helyezhető el egy kép egy táblázatcellában táblázat létrehozásakor:
+A [PictureFillMode.Stretch](https://reference.aspose.com/slides/net/aspose.slides/picturefillmode/) a képet a cellához nyújtja, ami megváltoztathatja az arányát. Az oszlopszélességek és sormagasságok pontban vannak megadva. A betöltött kép automatikusan felszabadul a `using` deklaráció miatt.
 
-```c#
-// Létrehozza a Presentation osztályt, amely egy PPTX fájlt képvisel
-using (Presentation presentation = new Presentation())
-{
-    // Hozzáfér az első diához
-    ISlide slide = presentation.Slides[0];
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-    // Oszlopokat definiál szélességekkel és sorokat magasságokkal
-    double[] dblCols = { 150, 150, 150, 150 };
-    double[] dblRows = { 100, 100, 100, 100, 90 };
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    // Táblázat alakzatot ad hozzá a diához
-    ITable table = slide.Shapes.AddTable(50, 50, dblCols, dblRows);
+double[] columnWidths = { 150, 150, 150, 150 };
+double[] rowHeights = { 100, 100, 100, 100, 90 };
+var table = slide.Shapes.AddTable(50, 50, columnWidths, rowHeights);
 
-    // Betölt egy képet a fájlból, és hozzáadja a prezentáció erőforrásaihoz
-    IImage image = Images.FromFile("aspose-logo.jpg");
-    IPPImage ppImage = presentation.Images.AddImage(image);
-    image.Dispose();
+using var image = Images.FromFile("aspose_logo.jpg");
+var ppImage = presentation.Images.AddImage(image);
 
-    // Hozzáadja a képet az első táblázatcellához
-    table[0, 0].CellFormat.FillFormat.FillType = FillType.Picture;
-    table[0, 0].CellFormat.FillFormat.PictureFillFormat.PictureFillMode = PictureFillMode.Stretch;
-    table[0, 0].CellFormat.FillFormat.PictureFillFormat.Picture.Image = ppImage;
+table[0, 0].CellFormat.FillFormat.FillType = FillType.Picture;
+table[0, 0].CellFormat.FillFormat.PictureFillFormat.PictureFillMode = PictureFillMode.Stretch;
+table[0, 0].CellFormat.FillFormat.PictureFillFormat.Picture.Image = ppImage;
 
-    // Elmenti a PPTX fájlt a lemezekre
-    presentation.Save("Image_In_TableCell_out.pptx", SaveFormat.Pptx);
-}
+presentation.Save("table_cell_with_image.pptx", SaveFormat.Pptx);
 ```
 
 ## **GYIK**
 
-**Beállíthatok különböző vonalvastagságot és stílust egy cella különböző oldalaihoz?**
+**Beállíthatok‑e különböző vonalvastagságot és stílust a cella különböző oldalain?**
 
-Igen. A [top](https://reference.aspose.com/slides/hu/net/aspose.slides/cellformat/bordertop/)/[bottom](https://reference.aspose.com/slides/hu/net/aspose.slides/cellformat/borderbottom/)/[left](https://reference.aspose.com/slides/hu/net/aspose.slides/cellformat/borderleft/)/[right](https://reference.aspose.com/slides/hu/net/aspose.slides/cellformat/borderright/) szegélyeknek külön tulajdonságaik vannak, így minden oldal vastagsága és stílusa eltérhet. Ez logikusan következik a cikkben bemutatott cella oldalankénti szegélyvezérlésből.
+Igen. A [top](https://reference.aspose.com/slides/net/aspose.slides/cellformat/bordertop/)/[bottom](https://reference.aspose.com/slides/net/aspose.slides/cellformat/borderbottom/)/[left](https://reference.aspose.com/slides/net/aspose.slides/cellformat/borderleft/)/[right](https://reference.aspose.com/slides/net/aspose.slides/cellformat/borderright/) szegélyeknek külön tulajdonságaik vannak, így minden oldal vastagsága és stílusa eltérhet.
 
-**Mi történik a képpel, ha a oszlop/sor méretét módosítom a kép cella háttérként való beállítása után?**
+**Mi történik a képpel, ha a képlet hátteres beállítása után módosítom az oszlop/sor méretét?**
 
-A viselkedés a [fill mode](https://reference.aspose.com/slides/hu/net/aspose.slides/picturefillmode/) (stretch/tile) értékétől függ. Nyújtás esetén a kép igazodik az új cellához; csempe esetén a csempeelemek újraszámolásra kerülnek. A cikk említi a képek megjelenítési módjait egy cellában.
+A viselkedés a [fill mode](https://reference.aspose.com/slides/net/aspose.slides/picturefillmode/) (stretch/tile) függvénye. Nyújtás esetén a kép a új cellához igazodik; csempe esetén a csempéket újraszámítják.
 
-**Hozzáadhatok hivatkozást a cella teljes tartalmához?**
+**Köthetek‑e hiperhivatkozást a cella teljes tartalmához?**
 
-[Hyperlinks](/slides/hu/net/manage-hyperlinks/) a cella szövegkeretén belüli (rész) szintjén vagy az egész táblázat/alak szintjén állítható be. Gyakorlatban a hivatkozást egy részre vagy a cella teljes szövegére lehet alkalmazni.
+A [Hyperlinks](/slides/hu/net/manage-hyperlinks/) a cella szövegkeretén (részlet) vagy a teljes táblán/alakzaton belül állítható be. Gyakorlatilag a linket egy részlethez vagy a cella teljes szövegéhez rendeli.
 
-**Beállíthatok különböző betűtípusokat egyetlen cellán belül?**
+**Beállíthatok‑e különböző betűtípusokat egyetlen cellában?**
 
-Igen. A cella szövegkerete támogatja a [portions](https://reference.aspose.com/slides/hu/net/aspose.slides/portion/) (futamok) önálló formázását — betűcsalád, stílus, méret és szín.
+Igen. A cella szövegkerete támogatja a [portions](https://reference.aspose.com/slides/net/aspose.slides/portion/) (futtatás) önálló formázással – betűcsalád, stílus, méret és szín.

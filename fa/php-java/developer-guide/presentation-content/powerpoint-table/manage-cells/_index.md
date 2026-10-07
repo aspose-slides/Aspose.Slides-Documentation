@@ -15,307 +15,265 @@ keywords:
 - ارائه
 - PHP
 - Aspose.Slides
-description: "به راحتی سلول‌های جدول را در PowerPoint با Aspose.Slides برای PHP مدیریت کنید. دسترسی، اصلاح و استایل‌دهی سریع به سلول‌ها را برای خودکارسازی یک‌پارچه اسلایدها فراگیرید."
+description: "مدیریت سلول‌های جدول PowerPoint در PHP: شناسایی سلول‌های ادغام‌شده، حذف حاشیه‌ها، تقسیم سلول‌ها و تنظیم رنگ‌های پس‌زمینه و تصاویر با Aspose.Slides برای PHP از طریق Java."
 ---
 ## **بررسی کلی**
 
-Aspose.Slides به شما امکان دسترسی و ویرایش سلول‌های جدول در ارائه‌های PowerPoint را می‌دهد. این مقاله توضیح می‌دهد که چگونه سلول‌های جدول ادغام‌شده را شناسایی کنید، خطوط مرزی سلول‌ها را حذف کنید، پس از ادغام یا تقسیم سلول‌ها با شماره‌گذاری سلول‌ها کار کنید، رنگ پس‌زمینه یک سلول را تغییر دهید و یک تصویر را داخل سلول جدول اضافه کنید. مثال‌ها نشان می‌دهند که چگونه یک ارائه را ایجاد یا باز کنید، جدول را از یک اسلاید دریافت کنید، قالب‌بندی سلول را از طریق ویژگی‌های سلول به‌روزرسانی کنید و ارائه اصلاح‌شده را به‌صورت فایل PPTX ذخیره نمایید.
+Aspose.Slides به شما امکان دسترسی و ویرایش سلول‌های جدول در ارائه‌های PowerPoint را می‌دهد. این مقاله توضیح می‌دهد چگونه سلول‌های جدول ادغام‌شده را شناسایی کنید، مرزهای سلول را حذف کنید، پس از ادغام یا تقسیم سلول‌ها با شماره‌گذاری سلول کار کنید، رنگ پس‌زمینه یک سلول را تغییر دهید و یک تصویر را داخل یک سلول جدول اضافه کنید. نمونه‌ها نشان می‌دهند چگونه یک ارائه را ایجاد یا باز کنید، جدول را از یک اسلاید دریافت کنید، قالب‌بندی سلول را از طریق ویژگی‌های سلول به‌روزرسانی کنید و ارائه اصلاح‌شده را به صورت فایل PPTX ذخیره کنید.
 
-## **شناسایی سلول جدول ادغام‌شده**
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/php-java/aspose.slides/Presentation) ایجاد کنید.
-2. جدول را از اولین اسلاید دریافت کنید. 
-3. در سطرها و ستون‌های جدول پیمایش کنید تا سلول‌های ادغام‌شده را پیدا کنید.
-4. وقتی سلول‌های ادغام‌شده یافت شدند، پیغام مناسب را چاپ کنید.
+Aspose.Slides از ایندکس‌های صفر‑مبنا برای دسترسی به سلول‌های جدول به ترتیب `(column, row)` استفاده می‌کند.
 
-این کد PHP نشان می‌دهد که چگونه سلول‌های جدول ادغام‌شده را در یک ارائه شناسایی کنید:
+## **شناسایی یک سلول جدول ادغام‌شده**
+
+مثال یک ارائه موجود را باز می‌کند و شکل اول در اسلاید اول را به عنوان جدول دسترسی می‌یابد. فرض می‌شود اسلاید و شکل وجود داشته باشند و شکل یک جدول باشد. سپس تمام ردیف‌ها و ستون‌ها را مرور می‌کند و از [isMergedCell](https://reference.aspose.com/slides/php-java/aspose.slides/cell/ismergedcell/) برای شناسایی سلول‌ها در نواحی ادغام‌شده استفاده می‌کند. برای هر تطابق، مختصات سلول را به ترتیب `row;column`، [getRowSpan](https://reference.aspose.com/slides/php-java/aspose.slides/cell/getrowspan/)، [getColSpan](https://reference.aspose.com/slides/php-java/aspose.slides/cell/getcolspan/) و مختصات شروع ناحیه را با استفاده از [getFirstRowIndex](https://reference.aspose.com/slides/php-java/aspose.slides/cell/getfirstrowindex/) و [getFirstColumnIndex](https://reference.aspose.com/slides/php-java/aspose.slides/cell/getfirstcolumnindex/) چاپ می‌کند.
 
 ```php
-  $pres = new Presentation("SomePresentationWithTable.pptx");
-  try {
-    $table = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0);// فرض بر این است که Slide#0.Shape#0 یک جدول است
+use aspose\slides\Presentation;
 
-    for($i = 0; $i < java_values($table->getRows()->size()) ; $i++) {
-      for($j = 0; $j < java_values($table->getColumns()->size()) ; $j++) {
-        $currentCell = $table->getRows()->get_Item($i)->get_Item($j);
-        if ($currentCell->isMergedCell()) {
-          echo(sprintf("Cell %d;%d is a part of merged cell with RowSpan=%d and ColSpan=%d starting from Cell %d;%d.", $i, $j, $currentCell->getRowSpan(), $currentCell->getColSpan(), $currentCell->getFirstRowIndex(), $currentCell->getFirstColumnIndex()));
+$presentation = new Presentation("presentation_with_table.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $table = $slide->getShapes()->get_Item(0);
+
+    $rowCount = java_values($table->getRows()->size());
+    for ($rowIndex = 0; $rowIndex < $rowCount; $rowIndex++)
+    {
+        $columnCount = java_values($table->getColumns()->size());
+        for ($columnIndex = 0; $columnIndex < $columnCount; $columnIndex++)
+        {
+            $cell = $table->get_Item($columnIndex, $rowIndex);
+            if (java_values($cell->isMergedCell()))
+            {
+                printf("Cell %d;%d belongs to a merged region with RowSpan=%d and ColSpan=%d starting at %d;%d.\n", $rowIndex, $columnIndex, java_values($cell->getRowSpan()), java_values($cell->getColSpan()), java_values($cell->getFirstRowIndex()), java_values($cell->getFirstColumnIndex()));
+            }
         }
-      }
     }
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **حذف خطوط مرزی سلول جدول**
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/php-java/aspose.slides/Presentation) ایجاد کنید.
-2. از طریق شاخص، مرجع یک اسلاید را دریافت کنید. 
-3. آرایه‌ای از ستون‌ها با عرض تعریف کنید.
-4. آرایه‌ای از سطرها با ارتفاع تعریف کنید.
-5. با استفاده از متد [addTable](https://reference.aspose.com/slides/fa/php-java/aspose.slides/shapecollection/#addTable) یک جدول به اسلاید اضافه کنید.
-6. روی هر سلول پیمایش کنید تا خطوط مرزی بالا، پایین، راست و چپ را پاک کنید.
-7. ارائه اصلاح‌شده را به‌صورت فایل PPTX ذخیره کنید.
+## **حذف مرزهای سلول جدول**
 
-این کد PHP نشان می‌دهد که چگونه خطوط مرزی سلول‌های جدول را حذف کنید:
+یک [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) ایجاد کنید و با استفاده از [addTable](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addtable/) یک جدول به اسلاید اول آن اضافه کنید. عرض ستون‌ها، ارتفاع ردیف‌ها و موقعیت جدول بر حسب نقطه مشخص می‌شود. مثال تمام چهار مرز سلول را به [FillType::NoFill](https://reference.aspose.com/slides/php-java/aspose.slides/filltype/) تنظیم می‌کند تا نامرئی شوند.
 
 ```php
-  # نمونه ساز کلاس Presentation که یک فایل PPTX را نمایندگی می‌کند
-  $pres = new Presentation();
-  try {
-    # به اسلاید اول دسترسی می‌یابد
-    $sld = $pres->getSlides()->get_Item(0);
-    # ستون‌ها را با عرض‌ها و سطرها را با ارتفاع‌ها تعریف می‌کند
-    $dblCols = array(50, 50, 50, 50 );
-    $dblRows = array(50, 30, 30, 30, 30 );
-    # شکل جدول را به اسلاید اضافه می‌کند
-    $tbl = $sld->getShapes()->addTable(100, 50, $dblCols, $dblRows);
-    # قالب حاشیه را برای هر سلول تنظیم می‌کند
-    foreach($tbl->getRows() as $row) {
-      foreach($row as $cell) {
-        $cell->getCellFormat()->getBorderTop()->getFillFormat()->setFillType(FillType::NoFill);
-        $cell->getCellFormat()->getBorderBottom()->getFillFormat()->setFillType(FillType::NoFill);
-        $cell->getCellFormat()->getBorderLeft()->getFillFormat()->setFillType(FillType::NoFill);
-        $cell->getCellFormat()->getBorderRight()->getFillFormat()->setFillType(FillType::NoFill);
-      }
+use aspose\slides\FillType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $columnWidths = [ 50, 50, 50, 50 ];
+    $rowHeights = [ 50, 30, 30, 30, 30 ];
+    $table = $slide->getShapes()->addTable(100, 50, $columnWidths, $rowHeights);
+
+    for ($rowIndex = 0; $rowIndex < java_values($table->getRows()->size()); $rowIndex++) {
+        for ($columnIndex = 0; $columnIndex < java_values($table->getColumns()->size()); $columnIndex++) {
+            $cell = $table->get_Item($columnIndex, $rowIndex);
+            $cell->getCellFormat()->getBorderTop()->getFillFormat()->setFillType(FillType::NoFill);
+            $cell->getCellFormat()->getBorderBottom()->getFillFormat()->setFillType(FillType::NoFill);
+            $cell->getCellFormat()->getBorderLeft()->getFillFormat()->setFillType(FillType::NoFill);
+            $cell->getCellFormat()->getBorderRight()->getFillFormat()->setFillType(FillType::NoFill);
+        }
     }
-    # فایل PPTX را روی دیسک می‌نویسد
-    $pres->save("table_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $presentation->save("table.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **شماره‌گذاری در سلول‌های ادغام‌شده**
-اگر دو جفت سلول (1, 1) × (2, 1) و (1, 2) × (2, 2) را ادغام کنیم، جدول حاصل شماره‌گذاری می‌شود. این کد PHP فرآیند را نشان می‌دهد:
+## **ادغام سلول‌های جدول**
+
+از [mergeCells](https://reference.aspose.com/slides/php-java/aspose.slides/table/mergecells/) برای ترکیب یک محدوده مستطیلی از سلول‌های جدول به یک سلول استفاده کنید. سلول‌های گوشهٔ بالایی‑چپ و گوشهٔ پایین‑راست محدوده را مشخص کنید. آرگومان نهایی کنترل می‌کند که آیا ادغام می‌تواند شامل سلول‌های خارج از محدوده مشخص‌شده باشد؛ `false` ادغام را درون آن محدوده نگه می‌دارد.
+
+مثال یک جدول ۴×۴ با ستون‌ها و ردیف‌های ۷۰ نقطه‌ای ایجاد می‌کند، سپس چهار سلول مرکزی را از `(1, 1)` تا `(2, 2)` ادغام می‌کند. سلول حاصل دو ستون و دو ردیف را در بر می‌گیرد، در حالی که شبکهٔ زیرین جدول همچنان چهار ستون و چهار ردیف دارد. برای دسترسی به محتوای سلول ادغام‌شده یا قالب‌بندی آن، از موقعیت بالایی‑چپ استفاده کنید: `$table->get_Item(1, 1)` در این مثال. سایر موقعیت‌ها در محدودهٔ ادغام‌شده همچنان بخشی از شبکهٔ جدول باقی می‌مانند، بنابراین ایندکس‌های سلول‌های خارج از محدوده تغییر نمی‌کنند.
 
 ```php
-  # نمونه ساز کلاس Presentation که یک فایل PPTX را نمایندگی می‌کند
-  $pres = new Presentation();
-  try {
-    # به اسلاید اول دسترسی می‌یابد
-    $sld = $pres->getSlides()->get_Item(0);
-    # ستون‌ها را با عرض‌ها و سطرها را با ارتفاع‌ها تعریف می‌کند
-    $dblCols = array(70, 70, 70, 70 );
-    $dblRows = array(70, 70, 70, 70 );
-    # یک شکل جدول را به اسلاید اضافه می‌کند
-    $tbl = $sld->getShapes()->addTable(100, 50, $dblCols, $dblRows);
-    # قالب حاشیه را برای هر سلول تنظیم می‌کند
-    foreach($tbl->getRows() as $row) {
-      foreach($row as $cell) {
-        $cell->getCellFormat()->getBorderTop()->getFillFormat()->setFillType(FillType::Solid);
-        $cell->getCellFormat()->getBorderTop()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-        $cell->getCellFormat()->getBorderTop()->setWidth(5);
-        $cell->getCellFormat()->getBorderBottom()->getFillFormat()->setFillType(FillType::Solid);
-        $cell->getCellFormat()->getBorderBottom()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-        $cell->getCellFormat()->getBorderBottom()->setWidth(5);
-        $cell->getCellFormat()->getBorderLeft()->getFillFormat()->setFillType(FillType::Solid);
-        $cell->getCellFormat()->getBorderLeft()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-        $cell->getCellFormat()->getBorderLeft()->setWidth(5);
-        $cell->getCellFormat()->getBorderRight()->getFillFormat()->setFillType(FillType::Solid);
-        $cell->getCellFormat()->getBorderRight()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-        $cell->getCellFormat()->getBorderRight()->setWidth(5);
-      }
-    }
-    # سلول‌ها (1, 1) × (2, 1) را ادغام می‌کند
-    $tbl->mergeCells($tbl->get_Item(1, 1), $tbl->get_Item(2, 1), false);
-    # سلول‌ها (1, 2) × (2, 2) را ادغام می‌کند
-    $tbl->mergeCells($tbl->get_Item(1, 2), $tbl->get_Item(2, 2), false);
-    $pres->save("MergeCells_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $columnWidths = [ 70, 70, 70, 70 ];
+    $rowHeights = [ 70, 70, 70, 70 ];
+    $table = $slide->getShapes()->addTable(100, 50, $columnWidths, $rowHeights);
+
+    $table->mergeCells($table->get_Item(1, 1), $table->get_Item(2, 2), false);
+
+    $presentation->save("merged_cells.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-سپس سلول‌ها را بیشتر ادغام می‌کنیم با ادغام (1, 1) و (1, 2). نتیجه جدولی است که یک سلول بزرگ ادغام‌شده در مرکز دارد:
+## **تقسیم سلول‌های جدول**
+
+ادغام سلول‌ها در مثال قبلی شبکهٔ جدول را حفظ می‌کند. تقسیم یک سلول می‌تواند یک ستون جدید به شبکه اضافه کند و ایندکس‌های ستون‌های سمت راست آن را تغییر دهد. Aspose.Slides مدل شبکهٔ جدول PowerPoint را دنبال می‌کند.
+
+این مثال یک جدول ۴×۴ با ستون‌ها و ردیف‌های ۷۰ نقطه‌ای ایجاد می‌کند و روی سلول `(1, 1)` متد [splitByWidth](https://reference.aspose.com/slides/php-java/aspose.slides/cell/splitbywidth/) را صدا می‌زند. نیمی از عرض ۷۰ نقطه‌ای سلول به‌منظور ایجاد دو سلول با عرض مساوی منتقل می‌شود.
+
+پس از این تقسیم، دو نیمه به صورت `$table->get_Item(1, 1)` و `$table->get_Item(2, 1)` دسترسی پیدا می‌کنند. شبکهٔ جدول اکنون دارای پنج ستون است: سلول‌هایی که قبلاً در ستون‌های ۲ و ۳ بودند به ستون‌های ۳ و ۴ منتقل می‌شوند. ایندکس‌های ردیف بدون تغییر می‌مانند. هنگام دسترسی به سلول‌ها پس از تقسیم، از این ایندکس‌های به‌روز شدهٔ ستون استفاده کنید.
 
 ```php
-  # یک نمونه از کلاس Presentation که یک فایل PPTX را نمایندگی می‌کند
-  $pres = new Presentation();
-  try {
-    # به اسلاید اول دسترسی می‌یابد
-    $sld = $pres->getSlides()->get_Item(0);
-    # ستون‌ها را با عرض‌ها و سطرها را با ارتفاع‌ها تعریف می‌کند
-    $dblCols = array(70, 70, 70, 70 );
-    $dblRows = array(70, 70, 70, 70 );
-    # یک شکل جدول را به اسلاید اضافه می‌کند
-    $tbl = $sld->getShapes()->addTable(100, 50, $dblCols, $dblRows);
-    # قالب حاشیه را برای هر سلول تنظیم می‌کند
-    foreach($tbl->getRows() as $row) {
-      foreach($row as $cell) {
-        $cell->getCellFormat()->getBorderTop()->getFillFormat()->setFillType(FillType::Solid);
-        $cell->getCellFormat()->getBorderTop()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-        $cell->getCellFormat()->getBorderTop()->setWidth(5);
-        $cell->getCellFormat()->getBorderBottom()->getFillFormat()->setFillType(FillType::Solid);
-        $cell->getCellFormat()->getBorderBottom()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-        $cell->getCellFormat()->getBorderBottom()->setWidth(5);
-        $cell->getCellFormat()->getBorderLeft()->getFillFormat()->setFillType(FillType::Solid);
-        $cell->getCellFormat()->getBorderLeft()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-        $cell->getCellFormat()->getBorderLeft()->setWidth(5);
-        $cell->getCellFormat()->getBorderRight()->getFillFormat()->setFillType(FillType::Solid);
-        $cell->getCellFormat()->getBorderRight()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-        $cell->getCellFormat()->getBorderRight()->setWidth(5);
-      }
-    }
-    # سلول‌ها (1, 1) × (2, 1) را ادغام می‌کند
-    $tbl->mergeCells($tbl->get_Item(1, 1), $tbl->get_Item(2, 1), false);
-    # سلول‌ها (1, 2) × (2, 2) را ادغام می‌کند
-    $tbl->mergeCells($tbl->get_Item(1, 2), $tbl->get_Item(2, 2), false);
-    # سلول‌ها (1, 1) × (1, 2) را ادغام می‌کند
-    $tbl->mergeCells($tbl->get_Item(1, 1), $tbl->get_Item(1, 2), true);
-    # فایل PPTX را روی دیسک می‌نویسد
-    $pres->save("MergeCells_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $columnWidths = [ 70, 70, 70, 70 ];
+    $rowHeights = [ 70, 70, 70, 70 ];
+    $table = $slide->getShapes()->addTable(100, 50, $columnWidths, $rowHeights);
+
+    $table->get_Item(1, 1)->splitByWidth(java_values($table->get_Item(1, 1)->getWidth()) / 2);
+
+    $presentation->save("split_cells.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **شماره‌گذاری در سلول تقسیم‌شده**
-در مثال‌های قبلی، وقتی سلول‌های جدول ادغام شدند، سیستم شماره‌گذاری یا اعداد در سلول‌های دیگر تغییر نکرد.  
+### **تقسیم سلول‌های ادغام‌شده بر حسب ردیف یا ستون**
 
-این بار، یک جدول معمولی (بدون سلول‌های ادغام‌شده) را می‌گیریم و سعی می‌کنیم سلول (1,1) را تقسیم کنیم تا جدول ویژه‌ای به دست آید. ممکن است به شماره‌گذاری این جدول توجه کنید که ممکن است عجیب به‌نظر برسد. اما این همان روشی است که Microsoft PowerPoint سلول‌های جدول را شماره‌گذاری می‌کند و Aspose.Slides نیز همین کار را انجام می‌دهد.  
+برای آماده‌سازی سلول‌های الگوی ادغام‌شده برای پر کردن داده، از [splitByRowSpan](https://reference.aspose.com/slides/php-java/aspose.slides/cell/splitbyrowspan/) برای تقسیم بر اساس مرز ردیف موجود یا از [splitByColSpan](https://reference.aspose.com/slides/php-java/aspose.slides/cell/splitbycolspan/) برای تقسیم بر اساس مرز ستون استفاده کنید.
 
-این کد PHP فرآیند شرح‌داده‌شده را نشان می‌دهد:
+آرگومان `index` ردیف‌ها را در بخش بالایی یا ستون‌ها را در بخش چپ تقسیم می‌شمارید؛ این مقدار نسبت به ناحیهٔ ادغام‌شده است:
+
+- تقسیم ردیف: `0 < index <` [getRowSpan](https://reference.aspose.com/slides/php-java/aspose.slides/cell/getrowspan/).
+- تقسیم ستون: `0 < index <` [getColSpan](https://reference.aspose.com/slides/php-java/aspose.slides/cell/getcolspan/).
+
+مثال فرض می‌کند ارائه دارای جدولی به عنوان اولین شکل در اولین اسلاید باشد، به‌طوری که سلول‌های `(1, 2)` و `(1, 3)` به صورت عمودی ادغام شده‌اند. از موقعیت پایین شروع می‌کند و با استفاده از [getFirstColumnIndex](https://reference.aspose.com/slides/php-java/aspose.slides/cell/getfirstcolumnindex/) و [getFirstRowIndex](https://reference.aspose.com/slides/php-java/aspose.slides/cell/getfirstrowindex/) ریشه را پیدا می‌کند و هر دو اسپن را بررسی می‌کند. `splitByRowSpan(1)` سپس ردیف‌های ۲ و ۳ را برای نام‌های محصول جدا می‌کند. برای ادغام افقی دو ستونی، به‌جای آن از `splitByColSpan(1)` استفاده کنید.
 
 ```php
-  # یک نمونه از کلاس Presentation که یک فایل PPTX را نمایندگی می‌کند
-  $pres = new Presentation();
-  try {
-    # به اسلاید اول دسترسی می‌یابد
-    $sld = $pres->getSlides()->get_Item(0);
-    # ستون‌ها را با عرض‌ها و سطرها را با ارتفاع‌ها تعریف می‌کند
-    $dblCols = array(70, 70, 70, 70 );
-    $dblRows = array(70, 70, 70, 70 );
-    # یک شکل جدول را به اسلاید اضافه می‌کند
-    $tbl = $sld->getShapes()->addTable(100, 50, $dblCols, $dblRows);
-    # قالب حاشیه را برای هر سلول تنظیم می‌کند
-    foreach($tbl->getRows() as $row) {
-      foreach($row as $cell) {
-        $cell->getCellFormat()->getBorderTop()->getFillFormat()->setFillType(FillType::Solid);
-        $cell->getCellFormat()->getBorderTop()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-        $cell->getCellFormat()->getBorderTop()->setWidth(5);
-        $cell->getCellFormat()->getBorderBottom()->getFillFormat()->setFillType(FillType::Solid);
-        $cell->getCellFormat()->getBorderBottom()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-        $cell->getCellFormat()->getBorderBottom()->setWidth(5);
-        $cell->getCellFormat()->getBorderLeft()->getFillFormat()->setFillType(FillType::Solid);
-        $cell->getCellFormat()->getBorderLeft()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-        $cell->getCellFormat()->getBorderLeft()->setWidth(5);
-        $cell->getCellFormat()->getBorderRight()->getFillFormat()->setFillType(FillType::Solid);
-        $cell->getCellFormat()->getBorderRight()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-        $cell->getCellFormat()->getBorderRight()->setWidth(5);
-      }
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("table_template.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $table = $slide->getShapes()->get_Item(0);
+
+    $selectedCell = $table->get_Item(1, 3);
+    $firstColumnIndex = java_values($selectedCell->getFirstColumnIndex());
+    $firstRowIndex = java_values($selectedCell->getFirstRowIndex());
+    $mergedCell = $table->get_Item($firstColumnIndex, $firstRowIndex);
+
+    if (java_values($mergedCell->isMergedCell()) && java_values($mergedCell->getRowSpan()) == 2 && java_values($mergedCell->getColSpan()) == 1)
+    {
+        $mergedCell->splitByRowSpan(1);
+
+        // سلول‌های حاصل پس از تقسیم را از جدول دریافت کنید.
+        $upperCell = $table->get_Item($firstColumnIndex, $firstRowIndex);
+        $lowerCell = $table->get_Item($firstColumnIndex, $firstRowIndex + 1);
+        echo "Upper cell merged: " . (java_values($upperCell->isMergedCell()) ? "true" : "false") . PHP_EOL;
+        echo "Lower cell merged: " . (java_values($lowerCell->isMergedCell()) ? "true" : "false") . PHP_EOL;
+
+        $upperCell->getTextFrame()->setText("Product A");
+        $lowerCell->getTextFrame()->setText("Product B");
+
+        $presentation->save("split_template.pptx", SaveFormat::Pptx);
     }
-    # سلول‌ها (1, 1) × (2, 1) را ادغام می‌کند
-    $tbl->mergeCells($tbl->get_Item(1, 1), $tbl->get_Item(2, 1), false);
-    # سلول‌ها (1, 2) × (2, 2) را ادغام می‌کند
-    $tbl->mergeCells($tbl->get_Item(1, 2), $tbl->get_Item(2, 2), false);
-    # سلول (1, 1) را تقسیم می‌کند
-    $tbl->get_Item(1, 1)->splitByWidth($tbl->get_Item(2, 1)->getWidth() / 2);
-    # فایل PPTX را روی دیسک می‌نویسد
-    $pres->save("SplitCells_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
+    else
+    {
+        echo "Select a merged region spanning exactly two rows and one column." . PHP_EOL;
     }
-  }
+} finally {
+    $presentation->dispose();
+}
 ```
+
+شبکهٔ جدول و ایندکس‌های سلول‌های اطراف بدون تغییر می‌مانند. سلول‌های حاصل را بر اساس مختصاتشان دریافت کنید؛ در اینجا هر دو اسپن ۱ دارند و [isMergedCell](https://reference.aspose.com/slides/php-java/aspose.slides/cell/ismergedcell/) مقدار `false` را باز می‌گرداند. نواحی بزرگتر می‌توانند پس از یک تقسیم قسمتی ادغام‌مانده بمانند.
+
+متن اصلی و قالب‌بندی آن در سلول بالا (یا چپ) باقی می‌ماند؛ سلول جدید خالی است اما قالب‌بندی سلول مثل پر‑بار، مرزها و حاشیه‌ها را به ارث می‌برد. پس از تقسیم سلول‌ها را پر کنید و هر قالب‌بندی متنی مورد نیاز را صراحتاً تنظیم کنید.
+
+ارائهٔ ذخیره‌شده شامل سلول‌های جداگانهٔ «Product A» و «Product B» است که قالب‌بندی سلول قالب حفظ شده است. برای جزئیات به [Cell API Reference](https://reference.aspose.com/slides/php-java/aspose.slides/cell/) مراجعه کنید.
 
 ## **تغییر رنگ پس‌زمینه سلول جدول**
 
-این کد PHP نشان می‌دهد که چگونه رنگ پس‌زمینه یک سلول جدول را تغییر دهید:
+این مثال جدولی با ستون‌های ۱۵۰ نقطه‌ای و ردیف‌های ۵۰ نقطه‌ای ایجاد می‌کند. از [setFillType](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/setfilltype/) برای انتخاب پر‑بار جامد استفاده می‌کند و رنگی که توسط [getSolidFillColor](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/getsolidfillcolor/) برگردانده می‌شود را برای سلول `(2, 3)` (ستون سوم و ردیف چهارم) به قرمز تنظیم می‌کند.
 
 ```php
-  $presentation = new Presentation();
-  try {
+use aspose\slides\FillType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
     $slide = $presentation->getSlides()->get_Item(0);
-    $dblCols = array(150, 150, 150, 150 );
-    $dblRows = array(50, 50, 50, 50, 50 );
-    # یک جدول جدید ایجاد می‌کند
-    $table = $slide->getShapes()->addTable(50, 50, $dblCols, $dblRows);
-    # رنگ پس‌زمینه سلول را تنظیم می‌کند
+
+    $columnWidths = [ 150, 150, 150, 150 ];
+    $rowHeights = [ 50, 50, 50, 50, 50 ];
+    $table = $slide->getShapes()->addTable(50, 50, $columnWidths, $rowHeights);
+
     $cell = $table->get_Item(2, 3);
     $cell->getCellFormat()->getFillFormat()->setFillType(FillType::Solid);
     $cell->getCellFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
+
     $presentation->save("cell_background_color.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($presentation)) {
-      $presentation->dispose();
-    }
-  }
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **اضافه کردن تصویر داخل سلول جدول**
+## **اضافه کردن تصویر داخل یک سلول جدول**
 
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/php-java/aspose.slides/Presentation) ایجاد کنید.
-2. از طریق شاخص، مرجع یک اسلاید را دریافت کنید.
-3. آرایه‌ای از ستون‌ها با عرض تعریف کنید.
-4. آرایه‌ای از سطرها با ارتفاع تعریف کنید.
-5. با استفاده از متد [AddTable](https://reference.aspose.com/slides/fa/php-java/aspose.slides/shapecollection/#addTable) یک جدول به اسلاید اضافه کنید.
-6. یک شی `Images` برای نگهداری فایل تصویر ایجاد کنید.
-7. تصویر `IImage` را به شی `IPPImage` اضافه کنید.
-8. `FillFormat` سلول جدول را روی `Picture` تنظیم کنید.
-9. تصویر را به اولین سلول جدول اضافه کنید.
-10. ارائه اصلاح‌شده را به‌صورت فایل PPTX ذخیره کنید.
+تصویر ورودی را قبل از اجرای این مثال در پوشهٔ کاری قرار دهید. تصویر را با [Images::fromFile](https://reference.aspose.com/slides/php-java/aspose.slides/images/#fromFile) بارگیری می‌کند و با [addImage](https://reference.aspose.com/slides/php-java/aspose.slides/imagecollection/addimage/) به مجموعهٔ تصویرهای ارائه اضافه می‌کند. سپس تصویر را به پر‑بار تصویر سلول `(0, 0)` (اولین سلول جدول) اختصاص می‌دهد.
 
-این کد PHP نشان می‌دهد که چگونه هنگام ایجاد جدول، یک تصویر را داخل سلول جدول قرار دهید:
+[PictureFillMode::Stretch](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillmode/) تصویر را برای پر کردن سلول کش می‌دهد که ممکن است نسبت ابعاد آن را تغییر دهد. عرض ستون‌ها و ارتفاع ردیف‌ها بر حسب نقطه است. تصویر بارگیری‌شده پس از افزودن به ارائه در یک بلوک `finally` آزاد می‌شود.
 
 ```php
-  # یک نمونه از کلاس Presentation که یک فایل PPTX را نمایندگی می‌کند
-  $pres = new Presentation();
-  try {
-    # به اسلاید اول دسترسی می‌یابد
-    $islide = $pres->getSlides()->get_Item(0);
-    # ستون‌ها را با عرض‌ها و سطرها را با ارتفاع‌ها تعریف می‌کند
-    $dblCols = array(150, 150, 150, 150 );
-    $dblRows = array(100, 100, 100, 100, 90 );
-    # یک شکل جدول را به اسلاید اضافه می‌کند
-    $tbl = $islide->getShapes()->addTable(50, 50, $dblCols, $dblRows);
-    # یک شیء IPPImage با استفاده از فایل تصویر ایجاد می‌کند
-    $picture;
-    $image = Images->fromFile("image.jpg");
+use aspose\slides\FillType;
+use aspose\slides\Images;
+use aspose\slides\PictureFillMode;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $columnWidths = [ 150, 150, 150, 150 ];
+    $rowHeights = [ 100, 100, 100, 100, 90 ];
+    $table = $slide->getShapes()->addTable(50, 50, $columnWidths, $rowHeights);
+
+    $image = Images::fromFile("aspose_logo.jpg");
     try {
-      $picture = $pres->getImages()->addImage($image);
+        $ppImage = $presentation->getImages()->addImage($image);
     } finally {
-      if (!java_is_null($image)) {
         $image->dispose();
-      }
     }
-    # تصویر را به اولین سلول جدول اضافه می‌کند
-    $cellFormat = $tbl->get_Item(0, 0)->getCellFormat();
-    $cellFormat::getFillFormat()->setFillType(FillType::Picture);
-    $cellFormat::getFillFormat()->getPictureFillFormat()->setPictureFillMode(PictureFillMode->Stretch);
-    $cellFormat::getFillFormat()->getPictureFillFormat()->getPicture()->setImage($picture);
-    # فایل PPTX را روی دیسک ذخیره می‌کند
-    $pres->save("Image_In_TableCell_out.pptx", SaveFormat::Pptx);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $table->get_Item(0, 0)->getCellFormat()->getFillFormat()->setFillType(FillType::Picture);
+    $table->get_Item(0, 0)->getCellFormat()->getFillFormat()->getPictureFillFormat()->setPictureFillMode(PictureFillMode::Stretch);
+    $table->get_Item(0, 0)->getCellFormat()->getFillFormat()->getPictureFillFormat()->getPicture()->setImage($ppImage);
+
+    $presentation->save("table_cell_with_image.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **سوالات متداول**
+## **FAQ**
 
-**آیا می‌توانم ضخامت و سبک خطوط متفاوتی برای هر طرف یک سلول تنظیم کنم؟**
+**آیا می‌توانم ضخامت و سبک خطوط متفاوتی برای جهات مختلف یک سلول واحد تنظیم کنم؟**
 
-بله. خطوط مرزی [top](https://reference.aspose.com/slides/fa/php-java/aspose.slides/cellformat/getbordertop/)/[bottom](https://reference.aspose.com/slides/fa/php-java/aspose.slides/cellformat/getborderbottom/)/[left](https://reference.aspose.com/slides/fa/php-java/aspose.slides/cellformat/getborderleft/)/[right](https://reference.aspose.com/slides/fa/php-java/aspose.slides/cellformat/getborderright/) دارای خصوصیات جداگانه هستند، بنابراین ضخامت و سبک هر طرف می‌تواند متفاوت باشد. این به‌صورت منطقی از کنترل خطوط مرزی به‌ازای هر طرف سلول که در مقاله نشان داده شد، پیروی می‌کند.
+بله. مرزهای [top](https://reference.aspose.com/slides/php-java/aspose.slides/cellformat/getbordertop/)/[bottom](https://reference.aspose.com/slides/php-java/aspose.slides/cellformat/getborderbottom/)/[left](https://reference.aspose.com/slides/php-java/aspose.slides/cellformat/getborderleft/)/[right](https://reference.aspose.com/slides/php-java/aspose.slides/cellformat/getborderright/) دارای ویژگی‌های جداگانه هستند، بنابراین ضخامت و سبک هر سمت می‌تواند متفاوت باشد.
 
-**اگر پس از تنظیم یک تصویر به‌عنوان پس‌زمینه سلول، اندازه ستون/سطر را تغییر دهم، چه اتفاقی برای تصویر می‌افتد؟**
+**اگر پس از تنظیم یک تصویر به عنوان پس‌زمینهٔ سلول، اندازهٔ ستون/ردیف را تغییر دهم، چه اتفاقی می‌افتد؟**
 
-رفتار بستگی به [fill mode](https://reference.aspose.com/slides/fa/php-java/aspose.slides/picturefillmode/) (کشیدگی/کاشی) دارد. در حالت کشیدگی، تصویر با سلول جدید سازگار می‌شود؛ در حالت کاشی، کاشی‌ها دوباره محاسبه می‌شوند. مقاله به حالت‌های نمایش تصویر در یک سلول اشاره دارد.
+رفتار بستگی به [fill mode](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillmode/) (stretch/tile) دارد. با کشش، تصویر با سلول جدید سازگار می‌شود؛ با کاشی‌گذاری، کاشی‌ها مجدداً محاسبه می‌شوند.
 
-**آیا می‌توانم یک ابر링ک را به تمام محتوای یک سلول اختصاص دهم؟**
+**آیا می‌توانم یک پیوند را به تمام محتوای یک سلول اختصاص دهم؟**
 
-[Hyperlinks](/slides/fa/php-java/manage-hyperlinks/) در سطح متن (بخش) داخل فریم متن سلول یا در سطح کل جدول/شکل تنظیم می‌شوند. در عمل، می‌توانید لینک را به یک بخش یا به تمام متن داخل سلول اختصاص دهید.
+[پیوندها](/slides/fa/php-java/manage-hyperlinks/) در سطح متن (پارت) داخل قاب متن سلول یا در سطح کل جدول/شکل تنظیم می‌شوند. در عمل، پیوند را به یک پارت یا تمام متن داخل سلول اختصاص می‌دهید.
 
 **آیا می‌توانم فونت‌های متفاوتی داخل یک سلول تنظیم کنم؟**
 
-بله. فریم متن یک سلول از [portions](https://reference.aspose.com/slides/fa/php-java/aspose.slides/portion/) (بخش‌ها) با قالب‌بندی مستقل—خانواده فونت، سبک، اندازه و رنگ—پشتیبانی می‌کند.
+بله. قاب متن یک سلول از [portions](https://reference.aspose.com/slides/php-java/aspose.slides/portion/) (بخش‌ها) با قالب‌بندی مستقل—خانوادهٔ قلم، سبک، اندازه و رنگ—پشتیبانی می‌کند.

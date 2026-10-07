@@ -1,12 +1,12 @@
 ---
-title: Táblacellák kezelése prezentációkban C++ használatával
+title: C++-ban táblacellák kezelése prezentációkban
 linktitle: Cellák kezelése
 type: docs
 weight: 30
 url: /hu/cpp/manage-cells/
 keywords:
 - táblacella
-- cellák összevonása
+- cellák összeolvasztása
 - szegély eltávolítása
 - cella felosztása
 - kép a cellában
@@ -15,353 +15,323 @@ keywords:
 - prezentáció
 - C++
 - Aspose.Slides
-description: "Könnyedén kezelje a táblacellákat PowerPointban az Aspose.Slides for C++ segítségével. Gyorsan megtanulhatja a cellák elérését, módosítását és formázását a zökkenőmentes diák automatizálásához."
+description: "PowerPoint táblacellák kezelése C++-ban: összeolvasztott cellák azonosítása, szegélyek eltávolítása, cellák felosztása, valamint háttérszínek és képek beállítása az Aspose.Slides for C++ segítségével."
 ---
 ## **Áttekintés**
 
-Az Aspose.Slides lehetővé teszi a táblacellák elérését és módosítását PowerPoint‑prezentációkban. Ez a cikk bemutatja, hogyan lehet azonosítani az összevont táblacellákat, eltávolítani a cellaszegélyeket, kezelni a cellaszámozást az összevonás vagy felosztás után, megváltoztatni egy cella háttérszínét, és képet elhelyezni egy táblacellában. A példák azt mutatják, hogyan hozhatunk létre vagy nyithatunk meg egy prezentációt, hogyan szerezhetünk be egy táblát egy diáról, hogyan frissíthetjük a cella formázását a cella tulajdonságain keresztül, és hogyan menthetjük el a módosított prezentációt PPTX fájlként.
+Az Aspose.Slides lehetővé teszi a PowerPoint‑prezentációk táblacelláinak elérését és módosítását. Ez a cikk bemutatja, hogyan azonosíthatók az összeolvasztott táblacellák, hogyan távolíthatók el a cella szegélyei, hogyan kezelhető a cellaszámozás az összeolvasztás vagy felosztás után, hogyan változtatható meg egy cella háttérszíne, és hogyan adható hozzá kép egy táblacellához. A példák megmutatják, hogyan hozhatunk létre vagy nyithatunk meg egy prezentációt, hogyan szerezzük meg a táblát egy diáról, hogyan frissíthető a cella formázása a cella tulajdonságain keresztül, és hogyan menthetjük el a módosított prezentációt PPTX‑fájlként.
 
-## **Összevont cella azonosítása**
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.presentation) osztályból.
-2. Szerezze be a táblát az első diáról. 
-3. Iteráljon a tábla sorain és oszlopain, hogy megtalálja az összevont cellákat.
-4. Írjon ki egy üzenetet, ha összevont cellákat talál.
+Az Aspose.Slides a nullától indexelt (0‑bázisú) indexeket használja a táblacellák eléréséhez `(oszlop, sor)` sorrendben.
 
-Ez a C++ kód megmutatja, hogyan azonosíthatók az összevont táblacellák egy prezentációban:
+## **Összeolvasztott táblacell azonosítása**
 
-``` cpp
-auto pres = System::MakeObject<Presentation>(u"SomePresentationWithTable.pptx");
-auto table = System::AsCast<ITable>(pres->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0));
+A példa megnyit egy meglévő prezentációt, és az első dián az első alakzatot táblaként használja. Feltételezi, hogy a dia és az alakzat létezik, valamint hogy az alakzat táblát tartalmaz. Ezután végigiterál az összes soron és oszlopon, és a [get_IsMergedCell](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_ismergedcell/) metódussal azonosítja az összeolvasztott területek celláit. Minden egyezésnél kiírja a cella koordinátáit `sor;oszlop` sorrendben, a [get_RowSpan](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_rowspan/), a [get_ColSpan](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_colspan/), valamint a terület kezdő koordinátáit, a [get_FirstRowIndex](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_firstrowindex/) és a [get_FirstColumnIndex](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_firstcolumnindex/) segítségével.
 
-// feltételezve, hogy a Slide#0.Shape#0 egy táblázat
-for (int32_t i = 0; i < table->get_Rows()->get_Count(); i++)
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <DOM/Table/ICell.h>
+#include <system/smart_ptr.h>
+#include <DOM/Table/IRowCollection.h>
+#include <DOM/Table/IColumnCollection.h>
+#include <system/console.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"presentation_with_table.pptx");
+auto slide = presentation->get_Slide(0);
+auto table = ExplicitCast<ITable>(slide->get_Shape(0));
+
+auto rowCount = table->get_Rows()->get_Count();
+for (auto rowIndex = 0; rowIndex < rowCount; rowIndex++)
 {
-    for (int32_t j = 0; j < table->get_Columns()->get_Count(); j++)
+    auto columnCount = table->get_Columns()->get_Count();
+    for (auto columnIndex = 0; columnIndex < columnCount; columnIndex++)
     {
-        auto currentCell = table->get_Rows()->idx_get(i)->idx_get(j);
-        if (currentCell->get_IsMergedCell())
+        auto cell = table->idx_get(columnIndex, rowIndex);
+        if (cell->get_IsMergedCell())
         {
-            Console::WriteLine(String::Format(u"Cell {0};{1} is a part of merged cell with RowSpan={2} and ColSpan={3} starting from Cell {4};{5}.", 
-                i, j, currentCell->get_RowSpan(), currentCell->get_ColSpan(), currentCell->get_FirstRowIndex(), currentCell->get_FirstColumnIndex()));
+            Console::WriteLine(u"Cell {0};{1} belongs to a merged region with RowSpan={2} and ColSpan={3} starting at {4};{5}.", rowIndex, columnIndex, cell->get_RowSpan(), cell->get_ColSpan(), cell->get_FirstRowIndex(), cell->get_FirstColumnIndex());
         }
     }
 }
 ```
 
-## **Táblacella szegélyek eltávolítása**
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.presentation) osztályból.
-2. Szerezzen meg egy dia hivatkozását a indexén keresztül. 
-3. Definiáljon egy oszlopsorozatot szélességgel.
-4. Definiáljon egy sorcsövet magassággal.
-5. Adjon hozzá egy táblát a diára az `AddTable` metódussal.
-6. Iteráljon minden cellán, hogy eltávolítsa a felső, alsó, jobb és bal szegélyeket.
-7. Mentse el a módosított prezentációt PPTX fájlként.
+## **Táblacell szegélyek eltávolítása**
 
-Ez a C++ kód megmutatja, hogyan távolíthatók el a szegélyek a táblacellákból:
+Hozzunk létre egy [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) objektumot, és adjunk hozzá egy táblát az első diájához a [AddTable](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addtable/) metódussal. Az oszlopszélességek, sormagasságok és a tábla pozíciója pontban vannak megadva. A példa a négy cellaszegélyt is [FillType::NoFill](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/) típusra állítja, ezzel láthatatlanná téve őket.
 
-``` cpp
-// Példányosítja a Presentation osztályt, amely egy PPTX fájlt képvisel
-auto pres = MakeObject<Presentation>();
-// Eléri az első diát
-auto sld = pres->get_Slides()->idx_get(0);
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <DOM/Table/ICell.h>
+#include <system/smart_ptr.h>
+#include <DOM/FillType.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/Table/ICellFormat.h>
+#include <DOM/Table/IRow.h>
+#include <DOM/Table/IRowCollection.h>
+#include <system/enumerator_adapter.h>
+#include <Export/SaveFormat.h>
+#include <system/array.h>
 
-// Meghatározza az oszlopokat szélességekkel és a sorokat magasságokkal
-auto dblCols = MakeArray<double>({ 50, 50, 50, 50 });
-auto dblRows = MakeArray<double>({ 50, 30, 30, 30, 30 });
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-// Táblázat alakzatot ad hozzá a diára
-auto tbl = sld->get_Shapes()->AddTable(100.0f, 50.0f, dblCols, dblRows);
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-// Beállítja a szegélyformátumot minden cellához
-for (const auto& row : System::IterateOver(tbl->get_Rows()))
-{
-    for (const auto& cell : System::IterateOver(row))
+auto columnWidths = MakeArray<double>({50, 50, 50, 50});
+auto rowHeights = MakeArray<double>({50, 30, 30, 30, 30});
+auto table = slide->get_Shapes()->AddTable(100, 50, columnWidths, rowHeights);
+
+for (const auto& row : IterateOver(table->get_Rows()))
+    for (const auto& cell : IterateOver(row))
     {
         cell->get_CellFormat()->get_BorderTop()->get_FillFormat()->set_FillType(FillType::NoFill);
         cell->get_CellFormat()->get_BorderBottom()->get_FillFormat()->set_FillType(FillType::NoFill);
         cell->get_CellFormat()->get_BorderLeft()->get_FillFormat()->set_FillType(FillType::NoFill);
         cell->get_CellFormat()->get_BorderRight()->get_FillFormat()->set_FillType(FillType::NoFill);
     }
-}
 
-// A PPTX fájlt leírja a lemezre
-pres->Save(u"table_out.pptx", SaveFormat::Pptx);
+presentation->Save(u"table.pptx", SaveFormat::Pptx);
 ```
 
-## **Számozás összevont cellákban**
-Ha 2 cellapárt (1, 1) x (2, 1) és (1, 2) x (2, 2) vonunk össze, a kapott tábla számozott lesz. Ez a C# kód demonstrálja a folyamatot:
+## **Táblacellák összeolvasztása**
 
-```c++
-const String outPath = u"../out/MergeCells_out.pptx";
+Használja a [MergeCells](https://reference.aspose.com/slides/cpp/aspose.slides/itable/mergecells/) metódust egy téglalap alakú cellatartomány egy cellává egyesítéséhez. Adja meg a tartomány bal‑felső és jobb‑alsó sarkában lévő cellákat. Az utolsó argumentum határozza meg, hogy az összeolvasztás magába foglalhat‑e a megadott tartományon kívüli cellákat; a `false` érték a tartományon belül tartja az összeolvasztást.
 
-// Betölti a kívánt prezentációt
-SharedPtr<Presentation> pres = MakeObject<Presentation>();
+A példa egy 4‑by‑4 táblát hoz létre 70‑pontos oszlop- és sormérettel, majd a középső négy cellát összeolvasztja a `(1, 1)`‑től `(2, 2)`‑ig terjedő tartományban. Az eredményül kapott cella két oszlopot és két sort fed le, miközben a tábla alaprácsa továbbra is négy oszlopból és négy sorból áll. Az összeolvasztott cella tartalmának vagy formázásának eléréséhez használja a bal‑felső pozíciót: `table->idx_get(1, 1)` ebben a példában. A többi pozíció a tartományban továbbra is a tábla rácsának része marad, így a tartományon kívüli cellák indexei nem változnak.
 
-// Eléri az első diát
-SharedPtr<ISlide> islide = pres->get_Slides()->idx_get(0);
-
-// Meghatározza az oszlopokat szélességekkel és a sorokat magasságokkal
-System::ArrayPtr<double> dblCols = System::MakeObject<System::Array<double>>(4, 70);
-System::ArrayPtr<double> dblRows = System::MakeObject<System::Array<double>>(4, 70);
-
-// Táblázat alakzatot ad hozzá a diához
-SharedPtr<ITable> table = islide->get_Shapes()->AddTable(100, 50, dblCols, dblRows);
-
-
-// Beállítja a szegélyformátumot minden cellához
-for (int x = 0; x < table->get_Rows()->get_Count(); x++)
-{
-    SharedPtr<IRow> row = table->get_Rows()->idx_get(x);
-    for (int y = 0; y < row->get_Count(); y++)
-    {
-        SharedPtr<ICell> cell = row->idx_get(y);
-
-        cell->get_BorderTop()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderTop()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderTop()->set_Width(5);
-
-        cell->get_BorderBottom()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderBottom()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderBottom()->set_Width(5);
-
-        cell->get_BorderLeft()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderLeft()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderLeft()->set_Width(5);
-
-        cell->get_BorderRight()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderRight()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderRight()->set_Width(5);
-
-    }
-
-}
-// Egyesíti a cellákat (1, 1) x (2, 1)
-table->MergeCells(table->idx_get(1, 1), table->idx_get(2, 1), false);
-
-// Egyesíti a cellákat (1, 2) x (2, 2)
-table->MergeCells(table->idx_get(1, 2), table->idx_get(2, 2), false);
-
-
-// Mentse a PPTX fájlt a lemezre
-pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
-```
-
-Ezután további összevonást hajtunk végre, összevonva a (1, 1) és (1, 2) cellákat. Az eredmény egy középen egy nagy összevont cellát tartalmazó tábla: 
-
-```c++
-// A dokumentumok könyvtárának elérési útja.
-const String outPath = u"../out/MergeCells_out.pptx";
-
-// Betölti a kívánt prezentációt
-SharedPtr<Presentation> pres = MakeObject<Presentation>();
-
-// Eléri az első diát
-SharedPtr<ISlide> islide = pres->get_Slides()->idx_get(0);
-
-// Meghatározza az oszlopokat szélességekkel és a sorokat magasságokkal
-System::ArrayPtr<double> dblCols = System::MakeObject<System::Array<double>>(4, 70);
-System::ArrayPtr<double> dblRows = System::MakeObject<System::Array<double>>(4, 70);
-
-// Táblázat alakzatot ad hozzá a diára
-SharedPtr<ITable> table = islide->get_Shapes()->AddTable(100, 50, dblCols, dblRows);
-
-
-// Beállítja a szegélyformátumot minden cellához
-for (int x = 0; x < table->get_Rows()->get_Count(); x++)
-{
-    SharedPtr<IRow> row = table->get_Rows()->idx_get(x);
-    for (int y = 0; y < row->get_Count(); y++)
-    {
-        SharedPtr<ICell> cell = row->idx_get(y);
-
-        cell->get_BorderTop()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderTop()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderTop()->set_Width(5);
-
-        cell->get_BorderBottom()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderBottom()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderBottom()->set_Width(5);
-
-        cell->get_BorderLeft()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderLeft()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderLeft()->set_Width(5);
-
-        cell->get_BorderRight()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderRight()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderRight()->set_Width(5);
-
-    }
-
-}
-
-// Egyesíti a cellákat (1, 1) x (2, 1)
-table->MergeCells(table->idx_get(1, 1), table->idx_get(2, 1), false);
-
-// Egyesíti a cellákat (1, 2) x (2, 2)
-table->MergeCells(table->idx_get(1, 2), table->idx_get(2, 2), false);
-
-
-// Elmenti a PPTX fájlt a lemezre
-pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
-```
-
-## **Számozás egy felosztott cellában**
-Az előző példákban, amikor a táblacellákat összevonták, a többi cella számozása nem változott. 
-
-Ezúttal egy szabályos táblát (azaz egy, az összevonás nélküli táblát) veszünk, és megpróbáljuk felosztani a (1,1) cellát, hogy egy speciális táblát kapjunk. Érdemes figyelni a tábla számozására, amely elsőre furcsának tűnhet. Azonban ez a módja annak, ahogyan a Microsoft PowerPoint számozza a táblacellákat, és az Aspose.Slides is ugyanígy működik. 
-
-Ez a C++ kód demonstrálja a leírt folyamatot:
-
-```c++
-// A dokumentumok könyvtárának elérési útja.
-const String outPath = u"../out/CellSplit_out.pptx";
-
-// Betölti a kívánt prezentációt
-SharedPtr<Presentation> pres = MakeObject<Presentation>();
-
-// Eléri az első diát
-SharedPtr<ISlide> islide = pres->get_Slides()->idx_get(0);
-
-// Meghatározza az oszlopokat szélességekkel és a sorokat magasságokkal
-System::ArrayPtr<double> dblCols = System::MakeObject<System::Array<double>>(4, 70);
-System::ArrayPtr<double> dblRows = System::MakeObject<System::Array<double>>(4, 70);
-
-// Táblázat alakzatot ad hozzá a diához
-SharedPtr<ITable> table = islide->get_Shapes()->AddTable(100, 50, dblCols, dblRows);
-
-
-// Beállítja a szegélyformátumot minden cellához
-for (int x = 0; x < table->get_Rows()->get_Count(); x++)
-{
-    SharedPtr<IRow> row = table->get_Rows()->idx_get(x);
-    for (int y = 0; y < row->get_Count(); y++)
-    {
-        SharedPtr<ICell> cell = row->idx_get(y);
-
-        cell->get_BorderTop()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderTop()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderTop()->set_Width(5);
-
-        cell->get_BorderBottom()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderBottom()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderBottom()->set_Width(5);
-
-        cell->get_BorderLeft()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderLeft()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderLeft()->set_Width(5);
-
-        cell->get_BorderRight()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderRight()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderRight()->set_Width(5);
-
-    }
-
-}
-
-// Egyesíti a cellákat (1, 1) x (2, 1)
-table->MergeCells(table->idx_get(1, 1), table->idx_get(2, 1), false);
-
-// Egyesíti a cellákat (1, 2) x (2, 2)
-table->MergeCells(table->idx_get(1, 2), table->idx_get(2, 2), false);
-
-// Felosztja a cellát (1, 1). 
-table->idx_get(1, 1)->SplitByWidth(table->idx_get(2, 1)->get_Width() / 2);
-
-// Elmenti a PPTX fájlt a lemezre
-pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
-```
-
-## **A táblacella háttérszínének módosítása**
-
-Ez a C++ kód megmutatja, hogyan változtatható meg egy táblacella háttérszíne:
-
-``` cpp
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <DOM/Table/ICell.h>
+#include <system/smart_ptr.h>
+#include <Export/SaveFormat.h>
+#include <system/array.h>
 
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto columnWidths = MakeArray<double>({70, 70, 70, 70});
+auto rowHeights = MakeArray<double>({70, 70, 70, 70});
+auto table = slide->get_Shapes()->AddTable(100, 50, columnWidths, rowHeights);
+
+table->MergeCells(table->idx_get(1, 1), table->idx_get(2, 2), false);
+
+presentation->Save(u"merged_cells.pptx", SaveFormat::Pptx);
+```
+
+## **Táblacellák felosztása**
+
+Az előző példában az összeolvasztás megőrzi a tábla rácsát. Egy cella felosztása új rácsoszlopot hozhat létre, és megváltoztathatja a jobb oldalán lévő cellák oszlopszámait. Az Aspose.Slides a PowerPoint táblarács‑modelljét követi.
+
+Ez a példa egy 4‑by‑4 táblát hoz létre 70‑pontos oszlop‑ és sormérettel, és a `(1, 1)` cellán meghívja a [SplitByWidth](https://reference.aspose.com/slides/cpp/aspose.slides/icell/splitbywidth/) metódust. A cella 70‑pontos szélességének felét adja át, így két egyenlő szélességű cella jön létre.
+
+A felosztás után a két felét a `table->idx_get(1, 1)` és a `table->idx_get(2, 1)` hivatkozza. A tábla rácsa most már öt oszlopot tartalmaz: az eredetileg a 2. és 3. oszlopban lévő cellák most a 3. és 4. oszlopba kerülnek. A sor‑indexek változatlanok maradnak. A felosztás utáni cellák elérésekor használja ezeket a frissített oszlopszámokat.
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <DOM/Table/ICell.h>
+#include <system/smart_ptr.h>
+#include <Export/SaveFormat.h>
+#include <system/array.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto columnWidths = MakeArray<double>({70, 70, 70, 70});
+auto rowHeights = MakeArray<double>({70, 70, 70, 70});
+auto table = slide->get_Shapes()->AddTable(100, 50, columnWidths, rowHeights);
+
+table->idx_get(1, 1)->SplitByWidth(table->idx_get(1, 1)->get_Width() / 2);
+
+presentation->Save(u"split_cells.pptx", SaveFormat::Pptx);
+```
+
+### **Összeolvasztott cellák felosztása sor‑ vagy oszlopszélesség szerint**
+
+Az összeolvasztott sabloncellák adatfeltöltés előtti felosztásához használja a [SplitByRowSpan](https://reference.aspose.com/slides/cpp/aspose.slides/icell/splitbyrowspan/) metódust egy meglévő sorhatáron vagy a [SplitByColSpan](https://reference.aspose.com/slides/cpp/aspose.slides/icell/splitbycolspan/) metódust egy oszlophatáron.
+
+Az `index` argumentum a felosztás felső részének sorait vagy bal részének oszlopait számlálja; a megadott érték a összeolvasztott régióhoz képest relatív:
+
+- Sor‑felosztás: `0 < index <` [get_RowSpan](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_rowspan/).
+- Oszlop‑felosztás: `0 < index <` [get_ColSpan](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_colspan/).
+
+A példa azt feltételezi, hogy a prezentáció első diáján az első alakzat egy tábla, amelyben a `(1, 2)` és `(1, 3)` cellák függőlegesen vannak összeolvasztva. Az alsó pozícióból kiindulva a [get_FirstColumnIndex](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_firstcolumnindex/) és a [get_FirstRowIndex](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_firstrowindex/) segítségével meghatározza a kiindulási pontot, majd ellenőrzi mindkét kiterjedést. A `SplitByRowSpan(1)` ezután szétválasztja a 2. és 3. sorokat a terméknevekhez. Vízszintes, két‑oszlopos összeolvasztáshoz használja helyette a `SplitByColSpan(1)`‑et.
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <DOM/Table/ICell.h>
+#include <system/smart_ptr.h>
+#include <DOM/ITextFrame.h>
+#include <system/console.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"table_template.pptx");
+auto slide = presentation->get_Slide(0);
+auto table = ExplicitCast<ITable>(slide->get_Shape(0));
+
+auto selectedCell = table->idx_get(1, 3);
+auto firstColumnIndex = selectedCell->get_FirstColumnIndex();
+auto firstRowIndex = selectedCell->get_FirstRowIndex();
+auto mergedCell = table->idx_get(firstColumnIndex, firstRowIndex);
+
+if (mergedCell->get_IsMergedCell() && mergedCell->get_RowSpan() == 2 && mergedCell->get_ColSpan() == 1)
+{
+    mergedCell->SplitByRowSpan(1);
+
+    // Szerezze be a felosztás után keletkezett cellákat a táblából.
+    auto upperCell = table->idx_get(firstColumnIndex, firstRowIndex);
+    auto lowerCell = table->idx_get(firstColumnIndex, firstRowIndex + 1);
+    Console::WriteLine(u"Upper cell merged: {0}", upperCell->get_IsMergedCell());
+    Console::WriteLine(u"Lower cell merged: {0}", lowerCell->get_IsMergedCell());
+
+    upperCell->get_TextFrame()->set_Text(u"Product A");
+    lowerCell->get_TextFrame()->set_Text(u"Product B");
+
+    presentation->Save(u"split_template.pptx", SaveFormat::Pptx);
+}
+else
+{
+    Console::WriteLine(u"Select a merged region spanning exactly two rows and one column.");
+}
+```
+
+A tábla rácsa és a környező cella‑indexek változatlanok maradnak. A kapott cellákat a koordinátáik alapján érheti el; itt mindkettő 1‑es kiterjedéssel rendelkezik, és a [get_IsMergedCell](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_ismergedcell/) `False`‑t ad vissza. Nagyobb régiók egy felosztás után is részben összeolvasztva maradhatnak.
+
+Az eredeti szöveg és formázása az felső (vagy bal) cellában marad; az új cella üres, de örökli a cella formázását, például a kitöltést, szegélyeket és margókat. A felosztás után töltse fel a cellákat, és állítsa be szükség szerint a szövegformázást.
+
+A mentett prezentáció külön „Product A” és „Product B” cellákat tartalmaz, a sablon cellaformázása megmarad. További részletekért tekintse meg a [Cell API Reference](https://reference.aspose.com/slides/cpp/aspose.slides/cell/) oldalt.
+
+## **A táblacell háttérszínének módosítása**
+
+Ez a példa egy 150‑pontos oszloppal és 50‑pontos sorokkal rendelkező táblát hoz létre. A [set_FillType](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/set_filltype/) segítségével szilárd kitöltést választ, majd a [get_SolidFillColor](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/get_solidfillcolor/) segítségével eléri a kitöltés színét, amelyet pirosra állít a `(2, 3)` cellában, azaz a harmadik oszlopban és a negyedik sorban.
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <DOM/Table/ICell.h>
+#include <system/smart_ptr.h>
+#include <DOM/FillType.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/Table/ICellFormat.h>
+#include <drawing/color.h>
+#include <Export/SaveFormat.h>
+#include <system/array.h>
+
 using namespace System::Drawing;
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-auto presentation = System::MakeObject<Presentation>();
-auto slide = presentation->get_Slides()->idx_get(0);
-        
-auto dblCols = System::MakeArray<double>({150, 150, 150, 150});
-auto dblRows = System::MakeArray<double>({50, 50, 50, 50, 50});
-        
-// új táblát hoz létre
-auto table = slide->get_Shapes()->AddTable(50.0f, 50.0f, dblCols, dblRows);
-        
-// beállítja a cella háttérszínét
-System::SharedPtr<ICell> cell = table->idx_get(2, 3);
-cell->get_CellFormat()->get_FillFormat()->set_FillType(Aspose::Slides::FillType::Solid);
-cell->get_CellFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        
-presentation->Save(u"cell_background_color.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
+auto columnWidths = MakeArray<double>({150, 150, 150, 150});
+auto rowHeights = MakeArray<double>({50, 50, 50, 50, 50});
+auto table = slide->get_Shapes()->AddTable(50, 50, columnWidths, rowHeights);
+
+auto cell = table->idx_get(2, 3);
+cell->get_CellFormat()->get_FillFormat()->set_FillType(FillType::Solid);
+cell->get_CellFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Red());
+
+presentation->Save(u"cell_background_color.pptx", SaveFormat::Pptx);
 ```
 
-## **Kép hozzáadása egy táblacellába**
-1. Hozzon létre egy példányt a `Presentation` osztályból.
-2. Szerezzen meg egy dia hivatkozását az indexén keresztül.
-3. Definiáljon egy oszlopsorozatot szélességgel.
-4. Definiáljon egy sorcsövet magassággal.
-5. Adjon hozzá egy táblát a diára az `AddTable` metódussal. 
-6. Hozzon létre egy `Bitmap` objektumot a képfájl tárolására.
-7. Adja hozzá a bitmap képet az `IPPImage` objektumhoz.
-8. Állítsa be a táblacella `FillFormat` értékét `Picture`‑re.
-9. Adja hozzá a képet a táblázat első cellájához.
-10. Mentse el a módosított prezentációt PPTX fájlként
+## **Kép hozzáadása egy táblacellán belül**
 
-Ez a C# kód megmutatja, hogyan helyezhet el egy képet egy táblacellában egy tábla létrehozásakor:
+A futtatás előtt helyezze az bemeneti képet a munkakönyvtárba. A kép betöltése a [Images::FromFile](https://reference.aspose.com/slides/cpp/aspose.slides/images/fromfile/) metódussal történik, majd a prezentáció képgyűjteményéhez adja hozzá a [AddImage](https://reference.aspose.com/slides/cpp/aspose.slides/iimagecollection/addimage/) segítségével. Ezután a képet a `(0, 0)` cella (a tábla első cellája) képkitöltéséhez rendeli.
 
-```c++
-// A dokumentumok könyvtárának elérési útja.
-const String outPath = u"../out/Image_In_TableCell_out.pptx";
-const String ImagePath = u"../templates/Tulips.jpg";
+A [PictureFillMode::Stretch](https://reference.aspose.com/slides/cpp/aspose.slides/picturefillmode/) a képet a cella kitöltésére nyújtja, ami megváltoztathatja az arányait. Az oszlopszélességek és sormagasságok pontban vannak megadva. A betöltött képet a prezentációhoz való hozzáadás után felszabadítjuk.
 
-// Betölti a kívánt prezentációt
-SharedPtr<Presentation> pres = MakeObject<Presentation>();
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <DOM/Table/ICell.h>
+#include <system/smart_ptr.h>
+#include <DOM/FillType.h>
+#include <DOM/IImageCollection.h>
+#include <IImage.h>
+#include <DOM/IPPImage.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/ISlidesPicture.h>
+#include <DOM/PictureFillMode.h>
+#include <DOM/Table/ICellFormat.h>
+#include <Util/Images.h>
+#include <Export/SaveFormat.h>
+#include <system/array.h>
 
-// Eléri az első diát
-SharedPtr<ISlide> islide = pres->get_Slides()->idx_get(0);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-// Meghatározza az oszlopokat szélességekkel és a sorokat magasságokkal
-System::ArrayPtr<double> dblCols = System::MakeObject<System::Array<double>>(4, 150);
-System::ArrayPtr<double> dblRows = System::MakeObject<System::Array<double>>(4, 100);
-System::ArrayPtr<double> total_for_Cat = System::MakeObject<System::Array<double>>(5, 0);
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-// Táblázat alakzatot ad hozzá a diára
-auto tbl = islide->get_Shapes()->AddTable(50, 50, dblCols, dblRows);
+auto columnWidths = MakeArray<double>({150, 150, 150, 150});
+auto rowHeights = MakeArray<double>({100, 100, 100, 100, 90});
+auto table = slide->get_Shapes()->AddTable(50, 50, columnWidths, rowHeights);
 
-// Lekéri a képet
-auto img = Images::FromFile(ImagePath);
+auto image = Images::FromFile(u"aspose_logo.jpg");
+auto ppImage = presentation->get_Images()->AddImage(image);
+image->Dispose();
 
-// Képet ad a prezentáció képgyűjteményéhez
-SharedPtr<IPPImage> imgx = pres->get_Images()->AddImage(img);
+table->idx_get(0, 0)->get_CellFormat()->get_FillFormat()->set_FillType(FillType::Picture);
+table->idx_get(0, 0)->get_CellFormat()->get_FillFormat()->get_PictureFillFormat()->set_PictureFillMode(PictureFillMode::Stretch);
+table->idx_get(0, 0)->get_CellFormat()->get_FillFormat()->get_PictureFillFormat()->get_Picture()->set_Image(ppImage);
 
-
-// Hozzáadja a képet az első táblacellához
-tbl->idx_get(0, 0)->get_FillFormat()->set_FillType(FillType::Picture);
-tbl->idx_get(0, 0)->get_FillFormat()->get_PictureFillFormat()->set_PictureFillMode(PictureFillMode::Stretch);
-tbl->idx_get(0, 0)->get_FillFormat()->get_PictureFillFormat()->get_Picture()->set_Image(imgx);
-
-// Elmenti a PPTX fájlt a lemezre
-pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
+presentation->Save(u"table_cell_with_image.pptx", SaveFormat::Pptx);
 ```
 
-## **GyIK**
+## **GYIK**
 
-**Beállíthatok különböző vonalvastagságokat és stílusokat a cella egyes oldalain?**
+**Beállíthatok különböző vonalvastagságokat és stílusokat egy cella egyes oldalaira?**
 
-Igen. A [top](https://reference.aspose.com/slides/hu/cpp/aspose.slides/cellformat/get_bordertop/)/[bottom](https://reference.aspose.com/slides/hu/cpp/aspose.slides/cellformat/get_borderbottom/)/[left](https://reference.aspose.com/slides/hu/cpp/aspose.slides/cellformat/get_borderleft/)/[right](https://reference.aspose.com/slides/hu/cpp/aspose.slides/cellformat/get_borderright/) szegélyeknek különálló tulajdonságaik vannak, így az egyes oldalak vastagsága és stílusa eltérő lehet. Ez logikusan következik a cellára vonatkozó oldalankénti szegélyvezérlésből, amelyet a cikk bemutat.
+Igen. A [top](https://reference.aspose.com/slides/cpp/aspose.slides/cellformat/get_bordertop/)/[bottom](https://reference.aspose.com/slides/cpp/aspose.slides/cellformat/get_borderbottom/)/[left](https://reference.aspose.com/slides/cpp/aspose.slides/cellformat/get_borderleft/)/[right](https://reference.aspose.com/slides/cpp/aspose.slides/cellformat/get_borderright/) szegélyeknek külön tulajdonságaik vannak, így minden oldal vastagsága és stílusa eltérhet.
 
-**Mi történik a képpel, ha a oszlop/sor méretét megváltoztatom, miután képet állítottam be a cella háttérként?**
+**Mi történik a képpel, ha a cella háttérképeként beállítottam, majd módosítom az oszlop/sor méretét?**
 
-Az viselkedés a [fill mode](https://reference.aspose.com/slides/hu/cpp/aspose.slides/picturefillmode/) (nyúlás/csempézés) beállításától függ. Nyújtás esetén a kép a új cellához igazodik; csempézésnél a csempéket újraszámolják. A cikk említi a képek megjelenítési módjait egy cellában.
+A viselkedés a [fill mode](https://reference.aspose.com/slides/cpp/aspose.slides/picturefillmode/) (stretch/tile) függvénye. Nyújtás esetén a kép alkalmazkodik az új cellához, csempézés esetén a csempéket újraszámítják.
 
-**Hozzá lehet adni hiperhivatkozást a cella teljes tartalmához?**
+**Hozzá tudok-e rendelni hiperhivatkozást a cella teljes tartalmához?**
 
-A [Hyperlinks](/slides/hu/cpp/manage-hyperlinks/) beállítható a cella szövegkeretén belül a szöveg (részlet) szintjén vagy az egész táblázat/forma szintjén. Gyakorlatban a hivatkozást egy részlethez vagy a cella összes szövegéhez lehet hozzárendelni.
+A [Hyperlinks](/slides/hu/cpp/manage-hyperlinks/) szövegszintű (részlet) vagy az egész táblához/alakzathoz állítható. Gyakorlatban a hivatkozást egy részlethez vagy a cella teljes szövegéhez rendeli.
 
-**Beállíthatok különböző betűtípusokat egyetlen cellán belül?**
+**Beállíthatok-e különböző betűtípusokat egyetlen cellán belül?**
 
-Igen. A cella szövegkerete támogatja a [portions](https://reference.aspose.com/slides/hu/cpp/aspose.slides/portion/) (futás) független formázású részeit – betűcsalád, stílus, méret és szín.
+Igen. A cella szövegdoboza támogatja a [portions](https://reference.aspose.com/slides/cpp/aspose.slides/portion/) (run‑ok) független formázását – betűcsalád, stílus, méret és szín.

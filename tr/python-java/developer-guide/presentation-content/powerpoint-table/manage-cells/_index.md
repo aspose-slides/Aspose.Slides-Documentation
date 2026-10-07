@@ -6,29 +6,26 @@ weight: 30
 url: /tr/python-java/manage-cells/
 keywords:
 - tablo hücresi
-- hücre birleştirme
-- kenarlık kaldırma
-- hücre bölme
-- hücrede resim
+- hücreleri birleştir
+- kenarlığı kaldır
+- hücresi böl
+- hücrede görüntü
 - arka plan rengi
 - PowerPoint
 - sunum
 - Python
 - Aspose.Slides
-description: "Aspose.Slides for Python via Java ile PowerPoint'te tablo hücrelerini sorunsuz bir şekilde yönetin. Hücrelere hızlıca erişme, değiştirme ve biçimlendirme konusunda ustalaşarak sorunsuz slayt otomasyonu sağlayın."
+description: "Python'da PowerPoint tablo hücrelerini yönetin: birleştirilmiş hücreleri belirleyin, kenarlıkları kaldırın, hücreleri bölün ve Aspose.Slides for Python via Java ile arka plan renkleri ve görüntüler ayarlayın."
 ---
 ## **Genel Bakış**
 
-Aspose.Slides PowerPoint sunumlarındaki tablo hücrelerine erişmenizi ve bunları değiştirmenizi sağlar. Bu makale, birleştirilmiş tablo hücrelerini nasıl tanımlayacağınızı, hücre kenarlıklarını nasıl kaldıracağınızı, hücreleri birleştirdikten veya ayırdıktan sonra hücre numaralandırmasıyla nasıl çalışacağınızı, bir hücrenin arka plan rengini nasıl değiştireceğinizi ve bir tablo hücresine nasıl resim ekleyeceğinizi açıklar. Örnekler, bir sunumun nasıl oluşturulacağını veya açılacağını, bir slayttan tablonun nasıl alınacağını, hücre özellikleri aracılığıyla hücre biçimlendirmesinin nasıl güncelleneceğini ve değiştirilmiş sunumun PPTX dosyası olarak nasıl kaydedileceğini gösterir.
+Aspose.Slides, PowerPoint sunumlarındaki tablo hücrelerine erişmenize ve bu hücreleri değiştirmenize olanak tanır. Bu makale, birleştirilmiş tablo hücrelerini nasıl tanımlayacağınızı, hücre kenarlıklarını nasıl kaldıracağınızı, birleştirme veya bölme işleminden sonra hücre numaralandırmasıyla nasıl çalışılacağını, bir hücrenin arka plan rengini nasıl değiştireceğinizi ve bir tablo hücresine nasıl görsel ekleneceğini açıklar. Örnekler, bir sunumun nasıl oluşturulup açılacağını, bir slayttan tablonun nasıl alınacağını, hücre özellikleri aracılığıyla hücre biçimlendirmesinin nasıl güncelleneceğini ve değiştirilmiş sunumun PPTX dosyası olarak nasıl kaydedileceğini gösterir.
+
+Aspose.Slides, tablo hücrelerine `(sütun, satır)` sırasıyla sıfır‑tabanlı dizinler kullanarak erişir.
 
 ## **Birleştirilmiş Tablo Hücresini Tanımlama**
 
-1. Bir [Presentation](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.  
-2. İlk slayttan tabloyu alın.  
-3. Birleştirilmiş hücreleri bulmak için tablonun satırları ve sütunları arasında dolaşın.  
-4. Birleştirilmiş hücreler bulunduğunda bir mesaj yazdırın.  
-
-Bu Python kodu, bir sunumda birleştirilmiş tablo hücrelerini nasıl tanımlayacağınızı gösterir:
+Örnek, mevcut bir sunumu açar ve ilk slayttaki ilk şekle tablo olarak erişir. Slayt ve şeklin var olduğu ve şeklin bir tablo olduğu varsayılır. Daha sonra tüm satır ve sütunlarda döngü yapılır ve [isMergedCell](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#isMergedCell) kullanılarak birleştirilmiş bölgelerdeki hücreler belirlenir. Eşleşen her hücre için `row;column` sırasındaki hücre koordinatları, [getRowSpan](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#getRowSpan), [getColSpan](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#getColSpan) ve bölgenin başlangıç koordinatları, [getFirstRowIndex](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#getFirstRowIndex) ve [getFirstColumnIndex](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#getFirstColumnIndex) yazdırılır.
 
 ```python
 import jpype
@@ -37,36 +34,27 @@ import asposeslides
 if not jpype.isJVMStarted():
     jpype.startJVM()
 
-from asposeslides.api import Presentation, Table
+from asposeslides.api import Presentation
 
-presentation = Presentation("SomePresentationWithTable.pptx")
+presentation = Presentation("presentation_with_table.pptx")
 try:
-    # İlk slayttaki ilk şeklin bir tablo olduğunu varsayın.
-    shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0)
-    if isinstance(shape, Table):
-        table = shape
-        for i in range(table.getRows().size()):
-            for j in range(table.getColumns().size()):
-                current_cell = table.getRows().get_Item(i).get_Item(j)
-                if current_cell.isMergedCell():
-                    print(f"Cell {i};{j} is part of a merged cell with RowSpan={current_cell.getRowSpan()} and ColSpan={current_cell.getColSpan()} starting from Cell {current_cell.getFirstRowIndex()};{current_cell.getFirstColumnIndex()}.")
-    else:
-        print("The first shape is not a table.")
+    slide = presentation.getSlides().get_Item(0)
+    table = slide.getShapes().get_Item(0)
+
+    row_count = table.getRows().size()
+    for row_index in range(row_count):
+        column_count = table.getColumns().size()
+        for column_index in range(column_count):
+            cell = table.get_Item(column_index, row_index)
+            if cell.isMergedCell():
+                print(f"Cell {row_index};{column_index} belongs to a merged region with RowSpan={cell.getRowSpan()} and ColSpan={cell.getColSpan()} starting at {cell.getFirstRowIndex()};{cell.getFirstColumnIndex()}.")
 finally:
     presentation.dispose()
 ```
 
 ## **Tablo Hücre Kenarlıklarını Kaldırma**
 
-1. Bir [Presentation](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.  
-2. İndeksiyle bir slayta referans alın.  
-3. Sütun genişliklerinin bir listesini tanımlayın.  
-4. Satır yüksekliklerinin bir listesini tanımlayın.  
-5. Slayta, [addTable](https://reference.aspose.com/slides/tr/python-java/aspose.slides/shapecollection/#addTable) yöntemiyle bir tablo ekleyin.  
-6. Her hücre üzerinde dolaşarak üst, alt, sağ ve sol kenarlıkları temizleyin.  
-7. Değiştirilmiş sunumu bir PPTX dosyası olarak kaydedin.  
-
-Bu Python kodu, tablo hücrelerinin kenarlıklarını nasıl kaldıracağınızı gösterir:
+[Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) oluşturun ve ilk slaytına [addTable](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addTable) ile bir tablo ekleyin. Sütun genişlikleri, satır yükseklikleri ve tablo konumu puan birimiyle belirtilir. Örnek, dört hücre kenarlığının tümünü [FillType.NoFill](https://reference.aspose.com/slides/python-java/aspose.slides/filltype/) ile ayarlayarak görünmez yapar.
 
 ```python
 import jpype
@@ -79,17 +67,12 @@ from asposeslides.api import Presentation, FillType, SaveFormat
 
 presentation = Presentation()
 try:
-    # İlk slayta eriş.
     slide = presentation.getSlides().get_Item(0)
 
-    # Sütun genişliklerini ve satır yüksekliklerini tanımla.
     column_widths = [50, 50, 50, 50]
     row_heights = [50, 30, 30, 30, 30]
-
-    # Slayta bir tablo ekle.
     table = slide.getShapes().addTable(100, 50, column_widths, row_heights)
 
-    # Her hücre için kenarlık biçimini ayarla.
     for row in table.getRows():
         for cell in row:
             cell.getCellFormat().getBorderTop().getFillFormat().setFillType(FillType.NoFill)
@@ -97,15 +80,16 @@ try:
             cell.getCellFormat().getBorderLeft().getFillFormat().setFillType(FillType.NoFill)
             cell.getCellFormat().getBorderRight().getFillFormat().setFillType(FillType.NoFill)
 
-    # Sunumu PPTX dosyası olarak kaydet.
-    presentation.save("table_out.pptx", SaveFormat.Pptx)
+    presentation.save("table.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-## **Birleştirilmiş Hücrelerde Numaralandırma**
+## **Tablo Hücrelerini Birleştirme**
 
-Eğer iki hücre çifti, (1, 1) ve (2, 1) ile (1, 2) ve (2, 2), birleştirilirse, oluşan tablo hücre numaralandırmasını korur. Bu Python kodu süreci gösterir:
+[mergeCells](https://reference.aspose.com/slides/python-java/aspose.slides/table/#mergeCells) kullanarak dikdörtgensel bir hücre aralığını tek hücreye birleştirebilirsiniz. Aralığın sol‑üst ve sağ‑alt köşe hücrelerini belirtin. Son parametre, birleştirmenin belirtilen aralığın dışındaki hücreleri kapsayıp kapsamayacağını denetler; `False` birleştirmenin bu aralık içinde kalmasını sağlar.
+
+Örnek, 70 puan genişliğinde sütun ve satırlara sahip 4‑x‑4 bir tablo oluşturur, ardından `(1, 1)`‑den `(2, 2)`‑ye kadar dört merkezi hücreyi birleştirir. Ortaya çıkan hücre iki sütun ve iki satır kapsar, ancak tablonun temel ızgarası dört sütun ve dört satır olarak kalır. Birleşik hücrenin içeriğine veya biçimlendirmesine erişmek için üst‑sol konumu kullanın: bu örnekte `table.get_Item(1, 1)`. Birleşik aralıktaki diğer konumlar tablo ızgarasının bir parçası kalır, bu yüzden aralık dışındaki hücrelerin indeksleri değişmez.
 
 ```python
 import jpype
@@ -114,54 +98,30 @@ import asposeslides
 if not jpype.isJVMStarted():
     jpype.startJVM()
 
-from asposeslides.api import Presentation, FillType, SaveFormat
-from java.awt import Color
+from asposeslides.api import Presentation, SaveFormat
 
 presentation = Presentation()
 try:
-    # İlk slayta eriş.
     slide = presentation.getSlides().get_Item(0)
 
-    # Sütun genişliklerini ve satır yüksekliklerini tanımla.
     column_widths = [70, 70, 70, 70]
     row_heights = [70, 70, 70, 70]
-
-    # Slayta bir tablo ekle.
     table = slide.getShapes().addTable(100, 50, column_widths, row_heights)
 
-    # Her hücre için kenarlık biçimini ayarla.
-    for row in table.getRows():
-        for cell in row:
-            cell.getCellFormat().getBorderTop().getFillFormat().setFillType(FillType.Solid)
-            cell.getCellFormat().getBorderTop().getFillFormat().getSolidFillColor().setColor(Color.RED)
-            cell.getCellFormat().getBorderTop().setWidth(5)
+    table.mergeCells(table.get_Item(1, 1), table.get_Item(2, 2), False)
 
-            cell.getCellFormat().getBorderBottom().getFillFormat().setFillType(FillType.Solid)
-            cell.getCellFormat().getBorderBottom().getFillFormat().getSolidFillColor().setColor(Color.RED)
-            cell.getCellFormat().getBorderBottom().setWidth(5)
-
-            cell.getCellFormat().getBorderLeft().getFillFormat().setFillType(FillType.Solid)
-            cell.getCellFormat().getBorderLeft().getFillFormat().getSolidFillColor().setColor(Color.RED)
-            cell.getCellFormat().getBorderLeft().setWidth(5)
-
-            cell.getCellFormat().getBorderRight().getFillFormat().setFillType(FillType.Solid)
-            cell.getCellFormat().getBorderRight().getFillFormat().getSolidFillColor().setColor(Color.RED)
-            cell.getCellFormat().getBorderRight().setWidth(5)
-
-
-    # (1, 1) ve (2, 1) hücrelerini birleştir.
-    table.mergeCells(table.get_Item(1, 1), table.get_Item(2, 1), False)
-
-    # (1, 2) ve (2, 2) hücrelerini birleştir.
-    table.mergeCells(table.get_Item(1, 2), table.get_Item(2, 2), False)
-
-    # Sunumu PPTX dosyası olarak kaydet.
-    presentation.save("MergeCells_out.pptx", SaveFormat.Pptx)
+    presentation.save("merged_cells.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-Daha sonra (1, 1) ve (1, 2) hücrelerini birleştirerek hücreleri daha da birleştiriyoruz. Sonuç, ortasında büyük bir birleştirilmiş hücre bulunan bir tablo olur:
+## **Tablo Hücrelerini Bölme**
+
+Önceki örnekte hücrelerin birleştirilmesi, tablonun ızgarasını korur. Bir hücreyi bölmek yeni bir ızgara sütunu ekleyebilir ve sağ tarafındaki hücrelerin sütun indekslerini değiştirebilir. Aspose.Slides, PowerPoint'in tablo ızgara modelini izler.
+
+Bu örnek, 70 puan genişliğinde sütun ve satırlara sahip 4‑x‑4 bir tablo oluşturur ve `(1, 1)` hücresinde [splitByWidth](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#splitByWidth) çağırır. Hücrenin 70 puan genişliğinin yarısı iki eşit genişlikte hücre oluşturmak için kullanılır.
+
+Bu bölmeden sonra iki yarı `table.get_Item(1, 1)` ve `table.get_Item(2, 1)` olarak erişilir. Tablo ızgarası artık beş sütuna sahiptir: önceden 2 ve 3. sütunlarda bulunan hücreler sırasıyla 3 ve 4. sütunlara kayar. Satır indeksleri değişmez. Bölmeden sonra hücrelere erişirken bu güncellenmiş sütun indekslerini kullanın.
 
 ```python
 import jpype
@@ -170,63 +130,33 @@ import asposeslides
 if not jpype.isJVMStarted():
     jpype.startJVM()
 
-from asposeslides.api import Presentation, FillType, SaveFormat
-from java.awt import Color
+from asposeslides.api import Presentation, SaveFormat
 
 presentation = Presentation()
 try:
-    # İlk slayta eriş.
     slide = presentation.getSlides().get_Item(0)
 
-    # Sütun genişliklerini ve satır yüksekliklerini tanımla.
     column_widths = [70, 70, 70, 70]
     row_heights = [70, 70, 70, 70]
-
-    # Slayta bir tablo ekle.
     table = slide.getShapes().addTable(100, 50, column_widths, row_heights)
 
-    # Her hücre için kenarlık biçimini ayarla.
-    for row in table.getRows():
-        for cell in row:
-            cell.getCellFormat().getBorderTop().getFillFormat().setFillType(FillType.Solid)
-            cell.getCellFormat().getBorderTop().getFillFormat().getSolidFillColor().setColor(Color.RED)
-            cell.getCellFormat().getBorderTop().setWidth(5)
+    table.get_Item(1, 1).splitByWidth(table.get_Item(1, 1).getWidth() / 2)
 
-            cell.getCellFormat().getBorderBottom().getFillFormat().setFillType(FillType.Solid)
-            cell.getCellFormat().getBorderBottom().getFillFormat().getSolidFillColor().setColor(Color.RED)
-            cell.getCellFormat().getBorderBottom().setWidth(5)
-
-            cell.getCellFormat().getBorderLeft().getFillFormat().setFillType(FillType.Solid)
-            cell.getCellFormat().getBorderLeft().getFillFormat().getSolidFillColor().setColor(Color.RED)
-            cell.getCellFormat().getBorderLeft().setWidth(5)
-
-            cell.getCellFormat().getBorderRight().getFillFormat().setFillType(FillType.Solid)
-            cell.getCellFormat().getBorderRight().getFillFormat().getSolidFillColor().setColor(Color.RED)
-            cell.getCellFormat().getBorderRight().setWidth(5)
-
-
-    # (1, 1) ve (2, 1) hücrelerini birleştir.
-    table.mergeCells(table.get_Item(1, 1), table.get_Item(2, 1), False)
-
-    # (1, 2) ve (2, 2) hücrelerini birleştir.
-    table.mergeCells(table.get_Item(1, 2), table.get_Item(2, 2), False)
-
-    # (1, 1) ve (1, 2) hücrelerini birleştir.
-    table.mergeCells(table.get_Item(1, 1), table.get_Item(1, 2), True)
-
-    # Sunumu PPTX dosyası olarak kaydet.
-    presentation.save("MergeCells_out.pptx", SaveFormat.Pptx)
+    presentation.save("split_cells.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-## **Bölünmüş Hücrede Numaralandırma**
+### **Birleştirilmiş Hücreleri Satır veya Sütun Yayılımına Göre Bölme**
 
-Önceki örneklerde, tablo hücrelerini birleştirmek diğer hücrelerin numaralandırmasını değiştirmedi.
+Birleştirilmiş şablon hücrelerini veri doldurmak için hazırlarken, mevcut bir satır sınırı boyunca bölmek için [splitByRowSpan](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#splitByRowSpan), bir sütun sınırı boyunca bölmek için ise [splitByColSpan](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#splitByColSpan) kullanın.
 
-Bu sefer, birleştirilmiş hücreleri olmayan normal bir tablo alıyoruz ve ardından (1, 1) hücresini bölerek özel bir tablo elde etmeye çalışıyoruz. Bu tablonun numaralandırmasına dikkat etmek isteyebilirsiniz; bu garip görünebilir. Ancak bu, Microsoft PowerPoint'in tablo hücrelerini numaralandırma şeklidir ve Aspose.Slides da aynı şeyi yapar.
+`index` argümanı, bölmenin üst kısmındaki satırları veya sol kısmındaki sütunları sayar; birleştirilmiş bölgeye göredir:
 
-Bu Python kodu, açıklanan süreci gösterir:
+- Satır bölme: `0 < index <` [getRowSpan](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#getRowSpan).
+- Sütun bölme: `0 < index <` [getColSpan](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#getColSpan).
+
+Örnek, sunumun ilk slaytındaki ilk şeklin bir tablo olduğunu ve `(1, 2)` ile `(1, 3)` hücrelerinin dikey olarak birleştirildiğini varsayar. Alt konumdan başlayarak, başlangıcı bulmak için [getFirstColumnIndex](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#getFirstColumnIndex) ve [getFirstRowIndex](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#getFirstRowIndex) kullanılır ve her iki yayılım da kontrol edilir. `splitByRowSpan(1)` ardından ürün adları için 2. ve 3. satırları ayırır. Yatay iki sütun birleştirme için `splitByColSpan(1)` kullanılır.
 
 ```python
 import jpype
@@ -235,54 +165,46 @@ import asposeslides
 if not jpype.isJVMStarted():
     jpype.startJVM()
 
-from asposeslides.api import Presentation, FillType, SaveFormat
-from java.awt import Color
+from asposeslides.api import Presentation, SaveFormat
 
-presentation = Presentation()
+presentation = Presentation("table_template.pptx")
 try:
-    # İlk slayta eriş.
     slide = presentation.getSlides().get_Item(0)
+    table = slide.getShapes().get_Item(0)
 
-    # Sütun genişliklerini ve satır yüksekliklerini tanımla.
-    column_widths = [70, 70, 70, 70]
-    row_heights = [70, 70, 70, 70]
+    selected_cell = table.get_Item(1, 3)
+    first_column_index = selected_cell.getFirstColumnIndex()
+    first_row_index = selected_cell.getFirstRowIndex()
+    merged_cell = table.get_Item(first_column_index, first_row_index)
 
-    # Slayta bir tablo ekle.
-    table = slide.getShapes().addTable(100, 50, column_widths, row_heights)
+    if merged_cell.isMergedCell() and merged_cell.getRowSpan() == 2 and merged_cell.getColSpan() == 1:
+        merged_cell.splitByRowSpan(1)
 
-    # Her hücre için kenarlık biçimini ayarla.
-    for row in table.getRows():
-        for cell in row:
-            cell.getCellFormat().getBorderTop().getFillFormat().setFillType(FillType.Solid)
-            cell.getCellFormat().getBorderTop().getFillFormat().getSolidFillColor().setColor(Color.RED)
-            cell.getCellFormat().getBorderTop().setWidth(5)
+        # Bölme işleminden sonra tablodan ortaya çıkan hücreleri alın.
+        upper_cell = table.get_Item(first_column_index, first_row_index)
+        lower_cell = table.get_Item(first_column_index, first_row_index + 1)
+        print(f"Upper cell merged: {upper_cell.isMergedCell()}")
+        print(f"Lower cell merged: {lower_cell.isMergedCell()}")
 
-            cell.getCellFormat().getBorderBottom().getFillFormat().setFillType(FillType.Solid)
-            cell.getCellFormat().getBorderBottom().getFillFormat().getSolidFillColor().setColor(Color.RED)
-            cell.getCellFormat().getBorderBottom().setWidth(5)
+        upper_cell.getTextFrame().setText("Product A")
+        lower_cell.getTextFrame().setText("Product B")
 
-            cell.getCellFormat().getBorderLeft().getFillFormat().setFillType(FillType.Solid)
-            cell.getCellFormat().getBorderLeft().getFillFormat().getSolidFillColor().setColor(Color.RED)
-            cell.getCellFormat().getBorderLeft().setWidth(5)
-
-            cell.getCellFormat().getBorderRight().getFillFormat().setFillType(FillType.Solid)
-            cell.getCellFormat().getBorderRight().getFillFormat().getSolidFillColor().setColor(Color.RED)
-            cell.getCellFormat().getBorderRight().setWidth(5)
-
-
-    # (1, 1) hücresini böl.
-    table.get_Item(1, 1).splitByWidth(table.get_Item(2, 1).getWidth() / 2)
-
-    # Sunumu PPTX dosyası olarak kaydet.
-    presentation.save("SplitCells_out.pptx", SaveFormat.Pptx)
+        presentation.save("split_template.pptx", SaveFormat.Pptx)
+    else:
+        print("Select a merged region spanning exactly two rows and one column.")
 finally:
     presentation.dispose()
 ```
 
+Tablo ızgarası ve çevredeki hücre indeksleri değişmez. Sonuç hücreleri koordinatlarıyla alın; burada ikisi de 1 yayılımına sahiptir ve [isMergedCell](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#isMergedCell) `False` yazdırır. Daha büyük bölgeler tek bir bölme sonrasında kısmen birleştirilmiş kalabilir.
+
+Orijinal metin ve biçimlendirme üst (veya sol) hücrede kalır; yeni hücre boştur ancak dolgu, kenarlık ve kenar boşlukları gibi hücre biçimlendirmesini devralır. Bölmeden sonra hücreleri doldurun ve gereken metin biçimlendirmesini açıkça ayarlayın.
+
+Kaydedilen sunum, şablonun hücre biçimlendirmesi korunmuş olarak ayrı “Product A” ve “Product B” hücrelerini içerir. Ayrıntılar için [Hücre API Referansı](https://reference.aspose.com/slides/python-java/aspose.slides/cell/) inceleyin.
 
 ## **Tablo Hücresinin Arka Plan Rengini Değiştirme**
 
-Bu Python kodu, bir tablo hücresinin arka plan rengini nasıl değiştireceğinizi gösterir:
+Bu örnek, 150 puan genişliğinde sütunlar ve 50 puan yüksekliğinde satırlara sahip bir tablo oluşturur. [setFillType](https://reference.aspose.com/slides/python-java/aspose.slides/fillformat/#setFillType) kullanarak katı bir dolgu seçer ve [getSolidFillColor](https://reference.aspose.com/slides/python-java/aspose.slides/fillformat/#getSolidFillColor) tarafından döndürülen rengi, `(2, 3)` hücresi için kırmızı olarak ayarlar; bu hücre üçüncü sütun ve dördüncü satırdadır.
 
 ```python
 import jpype
@@ -296,41 +218,26 @@ from java.awt import Color
 
 presentation = Presentation()
 try:
-    # İlk slayta eriş.
     slide = presentation.getSlides().get_Item(0)
 
-    # Sütun genişliklerini ve satır yüksekliklerini tanımla.
     column_widths = [150, 150, 150, 150]
     row_heights = [50, 50, 50, 50, 50]
-
-    # Slayta bir tablo ekle.
     table = slide.getShapes().addTable(50, 50, column_widths, row_heights)
 
-    # Bir hücrenin arka plan rengini ayarla.
     cell = table.get_Item(2, 3)
     cell.getCellFormat().getFillFormat().setFillType(FillType.Solid)
     cell.getCellFormat().getFillFormat().getSolidFillColor().setColor(Color.RED)
 
-    # Sunumu PPTX dosyası olarak kaydet.
     presentation.save("cell_background_color.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-## **Tablo Hücresi İçine Resim Ekleme**
+## **Tablo Hücresi İçine Görüntü Ekleme**
 
-1. Bir [Presentation](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.  
-2. İndeksiyle bir slayta referans alın.  
-3. Sütun genişliklerinin bir listesini tanımlayın.  
-4. Satır yüksekliklerinin bir listesini tanımlayın.  
-5. Slayta, [addTable](https://reference.aspose.com/slides/tr/python-java/aspose.slides/shapecollection/#addTable) yöntemiyle bir tablo ekleyin.  
-6. [Images.fromFile](https://reference.aspose.com/slides/tr/python-java/aspose.slides/images/#fromFile) kullanarak resim dosyasını yükleyin.  
-7. Sunuma resmi ekleyerek bir [PPImage](https://reference.aspose.com/slides/tr/python-java/aspose.slides/ppimage/) nesnesi oluşturun.  
-8. Tablo hücresinin [FillFormat](https://reference.aspose.com/slides/tr/python-java/aspose.slides/fillformat/) doldurma türünü [FillType.Picture](https://reference.aspose.com/slides/tr/python-java/aspose.slides/filltype/#Picture) olarak ayarlayın.  
-9. Resmi tablonun ilk hücresine ekleyin.  
-10. Değiştirilmiş sunumu bir PPTX dosyası olarak kaydedin.  
+Bu örneği çalıştırmadan önce giriş görselini çalışma dizinine yerleştirin. Görsel, [Images.fromFile](https://reference.aspose.com/slides/python-java/aspose.slides/images/#fromFile) ile yüklenir ve [addImage](https://reference.aspose.com/slides/python-java/aspose.slides/imagecollection/#addImage) ile sunumun görüntü koleksiyonuna eklenir. Ardından görsel, `(0, 0)` hücresinin resim doldurmasına atanır; bu hücre tablodaki ilk hücredir.
 
-Bu Python kodu, bir tablo oluştururken tablo hücresine nasıl resim yerleştirileceğini gösterir:
+[PictureFillMode.Stretch](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillmode/) görseli hücreye sığdırmak için genişletir, bu da en-boy oranını değiştirebilir. Sütun genişlikleri ve satır yükseklikleri puan birimindedir. Yüklenen görsel, `finally` bloğunda sunuma eklendikten sonra yok edilir.
 
 ```python
 import jpype
@@ -343,49 +250,41 @@ from asposeslides.api import Presentation, Images, FillType, PictureFillMode, Sa
 
 presentation = Presentation()
 try:
-    # İlk slayta eriş.
     slide = presentation.getSlides().get_Item(0)
 
-    # Sütun genişliklerini ve satır yüksekliklerini tanımla.
     column_widths = [150, 150, 150, 150]
     row_heights = [100, 100, 100, 100, 90]
-
-    # Slayta bir tablo ekle.
     table = slide.getShapes().addTable(50, 50, column_widths, row_heights)
 
-    # Görüntü dosyasından sunum resmi oluştur.
-    image = Images.fromFile("image.jpg")
+    image = Images.fromFile("aspose_logo.jpg")
     try:
-        picture = presentation.getImages().addImage(image)
+        presentation_image = presentation.getImages().addImage(image)
     finally:
         image.dispose()
 
-    # Görüntüyü ilk tablo hücresine ekle.
-    cell_format = table.get_Item(0, 0).getCellFormat()
-    cell_format.getFillFormat().setFillType(FillType.Picture)
-    cell_format.getFillFormat().getPictureFillFormat().setPictureFillMode(PictureFillMode.Stretch)
-    cell_format.getFillFormat().getPictureFillFormat().getPicture().setImage(picture)
+    table.get_Item(0, 0).getCellFormat().getFillFormat().setFillType(FillType.Picture)
+    table.get_Item(0, 0).getCellFormat().getFillFormat().getPictureFillFormat().setPictureFillMode(PictureFillMode.Stretch)
+    table.get_Item(0, 0).getCellFormat().getFillFormat().getPictureFillFormat().getPicture().setImage(presentation_image)
 
-    # Sunumu PPTX dosyası olarak kaydet.
-    presentation.save("Image_In_TableCell_out.pptx", SaveFormat.Pptx)
+    presentation.save("table_cell_with_image.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
 ## **SSS**
 
-**Tek bir hücrenin farklı kenarları için farklı çizgi kalınlıkları ve stiller ayarlayabilir miyim?**
+**Bir hücrenin farklı tarafından farklı çizgi kalınlıkları ve stilleri ayarlayabilir miyim?**
 
-Evet. [top](https://reference.aspose.com/slides/tr/python-java/aspose.slides/cellformat/#getBorderTop)/[bottom](https://reference.aspose.com/slides/tr/python-java/aspose.slides/cellformat/#getBorderBottom)/[left](https://reference.aspose.com/slides/tr/python-java/aspose.slides/cellformat/#getBorderLeft)/[right](https://reference.aspose.com/slides/tr/python-java/aspose.slides/cellformat/#getBorderRight) kenarlıkların ayrı özellikleri vardır, bu yüzden her bir kenarın kalınlığı ve stili farklı olabilir. Bu, makalede gösterilen bir hücre için kenar kontrolünün yan‑tarafına dayalı mantıktır.
+Evet. [üst](https://reference.aspose.com/slides/python-java/aspose.slides/cellformat/#getBorderTop)/[alt](https://reference.aspose.com/slides/python-java/aspose.slides/cellformat/#getBorderBottom)/[sol](https://reference.aspose.com/slides/python-java/aspose.slides/cellformat/#getBorderLeft)/[sağ](https://reference.aspose.com/slides/python-java/aspose.slides/cellformat/#getBorderRight) kenarlıkların ayrı özellikleri vardır, bu yüzden her bir tarafın kalınlığı ve stili farklı olabilir.
 
-**Resmi hücrenin arka planı olarak bir resim ayarladıktan sonra sütun/ satır boyutunu değiştirirsem ne olur?**
+**Bir resmi hücrenin arka planı olarak ayarladıktan sonra sütun/satır boyutunu değiştirirsem ne olur?**
 
-Davranış, [fill mode](https://reference.aspose.com/slides/tr/python-java/aspose.slides/picturefillmode/) (stretch/tile) değerine bağlıdır. Gerçekleştirildiğinde, resim yeni hücreye uyacak şekilde ayarlanır; döşendiğinde, döşemeler yeniden hesaplanır. Makale, bir hücredeki resim görüntüleme modlarından bahseder.
+Davranış, [dolgu modu](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillmode/) (stretch/tile) ile ilgilidir. Streçleme durumunda görsel yeni hücreye uyum sağlar; döşeme durumunda ise döşemeler yeniden hesaplanır.
 
-**Bir hücrenin tüm içeriğine bir bağlantı atayabilir miyim?**
+**Bir hücrenin tüm içeriğine bir hipermetin bağlantısı atayabilir miyim?**
 
-[Hyperlinks](/slides/tr/python-java/manage-hyperlinks/) hücrenin metin çerçevesindeki metin (parça) düzeyinde veya tüm tablo/şekil düzeyinde ayarlanır. Pratikte, bağlantıyı bir parçaya veya hücredeki tüm metne atarsınız.
+[Hipermetin Bağlantıları](/slides/tr/python-java/manage-hyperlinks/) hücrenin metin çerçevesi içinde metin (parça) seviyesinde veya tüm tablo/şekil seviyesinde ayarlanır. Pratikte, bağlantıyı bir parçaya ya da hücredeki tüm metne atarsınız.
 
-**Tek bir hücre içinde farklı yazı tipleri ayarlayabilir miyim?**
+**Bir hücre içinde farklı yazı tipleri ayarlayabilir miyim?**
 
-Evet. Bir hücrenin metin çerçevesi, bağımsız biçimlendirmeye (yazı tipi ailesi, stil, boyut ve renk) sahip [portions](https://reference.aspose.com/slides/tr/python-java/aspose.slides/portion/) (parçalar) destekler.
+Evet. Bir hücrenin metin çerçevesi, bağımsız biçimlendirme (yazı tipi ailesi, stil, boyut ve renk) destekleyen [parçalar](https://reference.aspose.com/slides/python-java/aspose.slides/portion/) içerir.

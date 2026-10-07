@@ -1,12 +1,12 @@
 ---
-title: Android पर प्रस्तुतियों में तालिका कोशिकाएँ प्रबंधित करें
-linktitle: कोशिकाएँ प्रबंधित करें
+title: एंड्रॉयड पर प्रस्तुतियों में तालिका कोशिकाओं का प्रबंधन
+linktitle: कोशिकाओं का प्रबंधन
 type: docs
 weight: 30
 url: /hi/androidjava/manage-cells/
 keywords:
 - तालिका कोशिका
-- कोशिकाओं को मिलाएँ
+- कोशिकाओं का मिलान
 - सीमा हटाएँ
 - कोशिका विभाजित करें
 - कोशिका में छवि
@@ -16,69 +16,60 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Java के माध्यम से Android के लिए Aspose.Slides के साथ PowerPoint में तालिका कोशिकाओं को सहजता से प्रबंधित करें। शीघ्रता से कोशिकाओं तक पहुँच, संशोधन और शैलियों को नियंत्रित कर स्लाइड ऑटोमेशन को निर्बाध बनाएं।"
+description: "एंड्रॉयड पर PowerPoint तालिका कोशिकाओं का प्रबंधन: मिलाए गए कोशिकाओं की पहचान करें, सीमा रेखाएँ हटाएँ, कोशिकाओं को विभाजित करें, और Aspose.Slides for Android का उपयोग करके Java के माध्यम से पृष्ठभूमि रंग तथा छवियों को सेट करें।"
 ---
 ## **अवलोकन**
 
-Aspose.Slides आपको PowerPoint प्रस्तुतियों में तालिका कोशिकाओं तक पहुँचने और उन्हें संशोधित करने की सुविधा देता है। यह लेख बताता है कि मर्ज की गई तालिका कोशिकाओं की पहचान कैसे करें, कोशिका की सीमाएँ कैसे हटाएँ, मर्ज या विभाजन के बाद कोशिका क्रमांक कैसे काम करता है, कोशिका की पृष्ठभूमि रंग कैसे बदलें, और तालिका कोशिका के भीतर छवि कैसे जोड़ें। उदाहरण दिखाते हैं कि प्रस्तुति कैसे बनाएँ या खोलें, स्लाइड से तालिका प्राप्त करें, कोशिका गुणों के माध्यम से कोशिका स्वरूपण अपडेट करें, और संशोधित प्रस्तुति को PPTX फ़ाइल के रूप में सहेजें।
+Aspose.Slides आपको PowerPoint प्रस्तुति में तालिका कोशिकाओं तक पहुँचने और उन्हें संशोधित करने की अनुमति देता है। यह लेख merged तालिका कोशिकाओं की पहचान करने, कोशिका सीमा रेखाएँ हटाने, मर्ज या स्प्लिट करने के बाद कोशिका क्रमांक के साथ काम करने, कोशिका की पृष्ठभूमि रंग बदलने, और तालिका कोशिका के भीतर छवि जोड़ने के तरीकों को समझाता है। उदाहरण दर्शाते हैं कि कैसे प्रस्तुति बनाइए या खोलिए, स्लाइड से तालिका प्राप्त कीजिए, कोशिका गुणों के माध्यम से कोशिका स्वरूपण अपडेट करें, और संशोधित प्रस्तुति को PPTX फ़ाइल के रूप में सहेजें।
 
-## **मर्ज की गई तालिका कोशिका की पहचान करें**
-1.  [Presentation](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/Presentation) क्लास का एक इंस्टेंस बनाएँ।
-2.  पहली स्लाइड से तालिका प्राप्त करें। 
-3.  तालिका की पंक्तियों और स्तंभों के माध्यम से इटररेट करके मर्ज किए गए कोशिकाओं को खोजें।
-4.  जब मर्ज की गई कोशिकाएँ मिलें तो संदेश प्रिंट करें।
+Aspose.Slides तालिका कोशिकाओं तक पहुँचने के लिए शून्य-आधारित सूचकांक का उपयोग करता है, क्रम `(column, row)` में।
 
-यह Java कोड दिखाता है कि प्रस्तुति में मर्ज की गई तालिका कोशिकाओं की पहचान कैसे करें:
+## **Merged तालिका कोशिका की पहचान करें**
+
+उदाहरण एक मौजूदा प्रस्तुति खोलता है और पहली स्लाइड पर पहले आकार को तालिका के रूप में पहुँचता है। यह मानता है कि स्लाइड और आकार मौजूद हैं और आकार एक तालिका है। फिर यह सभी पंक्तियों और स्तंभों पर इटररेट करता है और [isMergedCell](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#isMergedCell--) का उपयोग करके merged क्षेत्रों में कोशिकाओं की पहचान करता है। प्रत्येक मिलान के लिए यह `row;column` क्रम में कोशिका निर्देशांक, [getRowSpan](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#getRowSpan--), [getColSpan](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#getColSpan--), और क्षेत्र की प्रारंभिक निर्देशांक, [getFirstRowIndex](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#getFirstRowIndex--) तथा [getFirstColumnIndex](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#getFirstColumnIndex--) को प्रिंट करता है।
 
 ```java
-Presentation pres = new Presentation("SomePresentationWithTable.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("presentation_with_table.pptx");
 try {
-    ITable table = (ITable)pres.getSlides().get_Item(0).getShapes().get_Item(0); // मानते हुए कि Slide#0.Shape#0 एक तालिका है
-    for (int i = 0; i < table.getRows().size(); i++)
+    ISlide slide = presentation.getSlides().get_Item(0);
+    ITable table = (ITable) slide.getShapes().get_Item(0);
+
+    int rowCount = table.getRows().size();
+    for (int rowIndex = 0; rowIndex < rowCount; rowIndex++)
     {
-        for (int j = 0; j < table.getColumns().size(); j++)
+        int columnCount = table.getColumns().size();
+        for (int columnIndex = 0; columnIndex < columnCount; columnIndex++)
         {
-            ICell currentCell = table.getRows().get_Item(i).get_Item(j);
-            if (currentCell.isMergedCell())
+            ICell cell = table.get_Item(columnIndex, rowIndex);
+            if (cell.isMergedCell())
             {
-                System.out.println(String.format("Cell %d;%d is a part of merged cell with RowSpan=%d and ColSpan=%d starting from Cell %d;%d.",
-                        i, j, currentCell.getRowSpan(), currentCell.getColSpan(), currentCell.getFirstRowIndex(), currentCell.getFirstColumnIndex()));
+                System.out.printf("Cell %d;%d belongs to a merged region with RowSpan=%d and ColSpan=%d starting at %d;%d.%n", rowIndex, columnIndex, cell.getRowSpan(), cell.getColSpan(), cell.getFirstRowIndex(), cell.getFirstColumnIndex());
             }
         }
     }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **तालिका कोशिका की सीमाएँ हटाएँ**
-1.  [Presentation](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/Presentation) क्लास का एक इंस्टेंस बनाएँ।
-2.  स्लाइड के इंडेक्स द्वारा उसका रेफ़रेंस प्राप्त करें। 
-3.  चौड़ाई के साथ स्तंभों की एक एरे परिभाषित करें।
-4.  ऊँचाई के साथ पंक्तियों की एक एरे परिभाषित करें।
-5.  [addTable](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/IShapeCollection#addTable-float-float-double:A-double:A-) मेथड के द्वारा स्लाइड में तालिका जोड़ें।
-6.  प्रत्येक कोशिका के शीर्ष, नीचे, दाएं और बाएं सीमाएँ साफ करने के लिए इटररेट करें।
-7.  संशोधित प्रस्तुति को PPTX फ़ाइल के रूप में सहेजें।
+## **तालिका कोशिका सीमा रेखाएँ हटाएँ**
 
-यह Java कोड दिखाता है कि तालिका कोशिकाओं की सीमाएँ कैसे हटाएँ:
+एक [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) बनाइए और उसकी पहली स्लाइड पर [addTable](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addTable-float-float-double---double---) का उपयोग करके एक तालिका जोड़िए। स्तंभ चौड़ाई, पंक्ति ऊँचाई, और तालिका की स्थिति बिंदुओं में निर्दिष्ट की गई है। उदाहरण सभी चार कोशिका सीमा रेखाओं को [FillType.NoFill](https://reference.aspose.com/slides/androidjava/com.aspose.slides/filltype/) पर सेट करता है, जिससे वे अदृश्य हो जाती हैं।
 
 ```java
-// PPTX फ़ाइल का प्रतिनिधित्व करने वाली Presentation क्लास का उदाहरण बनाता है
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    // पहली स्लाइड तक पहुँचता है
-    Slide sld = (Slide)pres.getSlides().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // स्तंभों को चौड़ाइयों और पंक्तियों को ऊँचाइयों के साथ परिभाषित करता है
-    double[] dblCols = { 50, 50, 50, 50 };
-    double[] dblRows = { 50, 30, 30, 30, 30 };
+    double[] columnWidths = { 50, 50, 50, 50 };
+    double[] rowHeights = { 50, 30, 30, 30, 30 };
+    ITable table = slide.getShapes().addTable(100, 50, columnWidths, rowHeights);
 
-    // स्लाइड में तालिका आकार जोड़ता है
-    ITable tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
-
-    // प्रत्येक कोशिका के लिए सीमा स्वरूप सेट करता है
-    for (IRow row : tbl.getRows())
-    {
+    for (IRow row : table.getRows())
         for (ICell cell : row)
         {
             cell.getCellFormat().getBorderTop().getFillFormat().setFillType(FillType.NoFill);
@@ -86,274 +77,194 @@ try {
             cell.getCellFormat().getBorderLeft().getFillFormat().setFillType(FillType.NoFill);
             cell.getCellFormat().getBorderRight().getFillFormat().setFillType(FillType.NoFill);
         }
-    }
 
-    // PPTX को डिस्क पर लिखता है
-    pres.save("table_out.pptx", SaveFormat.Pptx);
+    presentation.save("table.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **मर्ज की गई कोशिकाओं में क्रमांकन**
-यदि हम दो जोड़ों की कोशिकाओं (1, 1) × (2, 1) और (1, 2) × (2, 2) को मर्ज करते हैं, तो परिणामी तालिका क्रमांकित होगी। यह Java कोड प्रक्रिया दर्शाता है:
+## **तालिका कोशिकाओं को मर्ज करें**
+
+[mergeCells](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itable/#mergeCells-com.aspose.slides.ICell-com.aspose.slides.ICell-boolean-) का उपयोग करके तालिका कोशिकाओं की आयताकार सीमा को एक कोशिका में मिलाएँ। सीमा के शीर्ष‑बाएँ और नीचे‑दाएँ कोने की कोशिकाएँ निर्दिष्ट करें। अंतिम तर्क नियंत्रित करता है कि क्या मर्ज निर्दिष्ट सीमा के बाहर की कोशिकाओं को शामिल कर सकता है; `false` मर्ज को उसी सीमा के भीतर रखता है।
+
+उदाहरण 70‑पॉइंट स्तंभ और पंक्तियों के साथ 4‑बाय‑4 तालिका बनाता है, फिर `(1, 1)` से `(2, 2)` तक के चार केंद्रीय कोशिकाओं को मर्ज करता है। परिणामी कोशिका दो स्तंभ और दो पंक्तियों में फैली होती है, जबकि तालिका का मूल ग्रिड चार स्तंभ और चार पंक्तियों को बरकरार रखता है। मर्ज की गई कोशिका की सामग्री या स्वरूपण तक पहुँचने के लिए शीर्ष‑बाएँ स्थिति का उपयोग करें: इस उदाहरण में `table.get_Item(1, 1)`। मर्ज सीमा के बाहर की कोशिकाओं के सूचकांक नहीं बदलते।
 
 ```java
-// PPTX फ़ाइल का प्रतिनिधित्व करने वाली Presentation क्लास का उदाहरण बनाता है
-Presentation pres = new Presentation();
-try {
-    // पहली स्लाइड तक पहुँचता है
-    ISlide sld = pres.getSlides().get_Item(0);
+import com.aspose.slides.*;
 
-    // स्तंभों को चौड़ाइयों और पंक्तियों को ऊँचाइयों के साथ परिभाषित करता है
-    double[] dblCols = { 70, 70, 70, 70 };
-    double[] dblRows = { 70, 70, 70, 70 };
-
-    // स्लाइड में तालिका आकार जोड़ता है
-    ITable tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
-
-    // प्रत्येक कोशिका के लिए सीमा स्वरूप सेट करता है
-    for (IRow row : tbl.getRows())
-    {
-        for (ICell cell : row)
-        {
-            cell.getCellFormat().getBorderTop().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderTop().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderTop().setWidth(5);
-
-            cell.getCellFormat().getBorderBottom().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderBottom().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderBottom().setWidth(5);
-
-            cell.getCellFormat().getBorderLeft().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderLeft().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderLeft().setWidth(5);
-
-            cell.getCellFormat().getBorderRight().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderRight().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderRight().setWidth(5);
-        }
-    }
-
-    // कोशिकाओं (1, 1) x (2, 1) को मर्ज करता है
-    tbl.mergeCells(tbl.get_Item(1, 1), tbl.get_Item(2, 1), false);
-
-    // कोशिकाओं (1, 2) x (2, 2) को मर्ज करता है
-    tbl.mergeCells(tbl.get_Item(1, 2), tbl.get_Item(2, 2), false);
-
-    pres.save("MergeCells_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-फिर हम कोशिकाओं को आगे मर्ज करते हैं, (1, 1) और (1, 2) को मर्ज करके। परिणामस्वरूप एक बड़ी मर्ज की गई कोशिका के साथ मध्य में तालिका बनती है:
-
-```java
-// PPTX फ़ाइल का प्रतिनिधित्व करने वाली Presentation क्लास का उदाहरण बनाता है
-Presentation pres = new Presentation();
-try {
-    // पहली स्लाइड तक पहुँचता है
-    ISlide sld = pres.getSlides().get_Item(0);
-
-    // स्तंभों को चौड़ाइयों और पंक्तियों को ऊँचाइयों के साथ परिभाषित करता है
-    double[] dblCols = { 70, 70, 70, 70 };
-    double[] dblRows = { 70, 70, 70, 70 };
-
-    // स्लाइड में तालिका आकार जोड़ता है
-    ITable tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
-
-    // प्रत्येक कोशिका के लिए सीमा स्वरूप सेट करता है
-    for (IRow row : tbl.getRows())
-    {
-        for (ICell cell : row)
-        {
-            cell.getCellFormat().getBorderTop().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderTop().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderTop().setWidth(5);
-
-            cell.getCellFormat().getBorderBottom().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderBottom().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderBottom().setWidth(5);
-
-            cell.getCellFormat().getBorderLeft().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderLeft().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderLeft().setWidth(5);
-
-            cell.getCellFormat().getBorderRight().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderRight().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderRight().setWidth(5);
-        }
-    }
-
-    // कोशिकाओं (1, 1) x (2, 1) को मर्ज करता है
-    tbl.mergeCells(tbl.get_Item(1, 1), tbl.get_Item(2, 1), false);
-
-    // कोशिकाओं (1, 2) x (2, 2) को मर्ज करता है
-    tbl.mergeCells(tbl.get_Item(1, 2), tbl.get_Item(2, 2), false);
-
-    // कोशिकाओं (1, 1) x (1, 2) को मर्ज करता है
-    tbl.mergeCells(tbl.get_Item(1, 1), tbl.get_Item(1, 2), true);
-	
-	//PPTX फ़ाइल को डिस्क पर लिखता है
-    pres.save("MergeCells_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **विभाजित कोशिका में क्रमांकन**
-पिछले उदाहरणों में, जब तालिका कोशिकाओं को मर्ज किया गया, तो अन्य कोशिकाओं में क्रमांकन या संख्या प्रणाली नहीं बदली। 
-
-इस बार हम एक सामान्य तालिका (बिना मर्ज की हुई) लेते हैं और फिर (1,1) कोशिका को विभाजित करने का प्रयास करते हैं ताकि एक विशेष तालिका प्राप्त हो सके। आपको इस तालिका के क्रमांकन पर ध्यान देना चाहिए, जो थोड़ा अजीब लग सकता है। हालांकि, यही Microsoft PowerPoint तालिका कोशिकाओं को क्रमांकित करता है और Aspose.Slides भी यही करता है। 
-
-यह Java कोड उस प्रक्रिया को दर्शाता है जिसका हमने उल्लेख किया:
-
-```java
-// PPTX फ़ाइल का प्रतिनिधित्व करने वाली Presentation क्लास का उदाहरण बनाता है
-Presentation pres = new Presentation();
-try {
-    // पहली स्लाइड तक पहुँचता है
-    ISlide sld = pres.getSlides().get_Item(0);
-
-    // स्तंभों को चौड़ाइयों और पंक्तियों को ऊँचाइयों के साथ परिभाषित करता है
-    double[] dblCols = { 70, 70, 70, 70 };
-    double[] dblRows = { 70, 70, 70, 70 };
-
-    // स्लाइड में तालिका आकार जोड़ता है
-    ITable tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
-
-    // प्रत्येक कोशिका के लिए सीमा स्वरूप सेट करता है
-    for (IRow row : tbl.getRows())
-    {
-        for (ICell cell : row)
-        {
-            cell.getCellFormat().getBorderTop().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderTop().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderTop().setWidth(5);
-
-            cell.getCellFormat().getBorderBottom().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderBottom().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderBottom().setWidth(5);
-
-            cell.getCellFormat().getBorderLeft().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderLeft().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderLeft().setWidth(5);
-
-            cell.getCellFormat().getBorderRight().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderRight().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderRight().setWidth(5);
-        }
-    }
-
-    // कोशिकाओं (1, 1) x (2, 1) को मर्ज करता है
-    tbl.mergeCells(tbl.get_Item(1, 1), tbl.get_Item(2, 1), false);
-
-    // कोशिकाओं (1, 2) x (2, 2) को मर्ज करता है
-    tbl.mergeCells(tbl.get_Item(1, 2), tbl.get_Item(2, 2), false);
-
-    // कोशिका (1, 1) को विभाजित करता है
-    tbl.get_Item(1, 1).splitByWidth(tbl.get_Item(2, 1).getWidth() / 2);
-
-    //PPTX फ़ाइल को डिस्क पर लिखता है
-    pres.save("SplitCells_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **तालिका कोशिका की पृष्ठभूमि रंग बदलें**
-
-यह Java कोड दिखाता है कि तालिका कोशिका का पृष्ठभूमि रंग कैसे बदलें:
-
-```java
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    double[] dblCols = { 150, 150, 150, 150 };
-    double[] dblRows = { 50, 50, 50, 50, 50 };
+    double[] columnWidths = { 70, 70, 70, 70 };
+    double[] rowHeights = { 70, 70, 70, 70 };
+    ITable table = slide.getShapes().addTable(100, 50, columnWidths, rowHeights);
 
-    // नई तालिका बनाएं
-    ITable table = slide.getShapes().addTable(50, 50, dblCols, dblRows);
+    table.mergeCells(table.get_Item(1, 1), table.get_Item(2, 2), false);
 
-    // सेल की पृष्ठभूमि रंग सेट करें
+    presentation.save("merged_cells.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **तालिका कोशिकाओं को विभाजित करें**
+
+पिछले उदाहरण में कोशिकाओं को मर्ज करने से तालिका का ग्रिड बना रहता है। एक कोशिका को विभाजित करने से नई ग्रिड स्तंभ बन सकता है और उसकी दाएँ की कोशिकाओं के स्तंभ सूचकांक बदल सकते हैं। Aspose.Slides PowerPoint के तालिका ग्रिड मॉडल का अनुसरण करता है।
+
+यह उदाहरण 70‑पॉइंट स्तंभ और पंक्तियों के साथ 4‑बाय‑4 तालिका बनाता है और कोशिका `(1, 1)` पर [splitByWidth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#splitByWidth-double-) को कॉल करता है। कोशिका की 70‑पॉइंट चौड़ाई का आधा भाग दो समान‑चौड़ाई वाली कोशिकाएँ बनाने के लिए पास किया जाता है।
+
+इस विभाजन के बाद, दो भागों को `table.get_Item(1, 1)` तथा `table.get_Item(2, 1)` के रूप में पहुँचा जाता है। तालिका ग्रिड अब पाँच स्तंभ रखता है: मूलतः स्तंभ 2 और 3 में स्थित कोशिकाएँ क्रमशः स्तंभ 3 और 4 में स्थानांतरित हो जाती हैं। पंक्तियों के सूचकांक अपरिवर्तित रहते हैं। विभाजन के बाद कोशिकाओं तक पहुँचते समय इन अद्यतन स्तंभ सूचकांकों का उपयोग करें।
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    double[] columnWidths = { 70, 70, 70, 70 };
+    double[] rowHeights = { 70, 70, 70, 70 };
+    ITable table = slide.getShapes().addTable(100, 50, columnWidths, rowHeights);
+
+    table.get_Item(1, 1).splitByWidth(table.get_Item(1, 1).getWidth() / 2);
+
+    presentation.save("split_cells.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+### **पंक्ति या स्तंभ स्पैन के द्वारा मर्ज की गई कोशिकाओं को विभाजित करें**
+
+डेटा भरने के लिए मर्ज किए गए टेम्पलेट कोशिकाओं को तैयार करने हेतु, मौजूदा पंक्ति सीमा पर विभाजित करने के लिए [splitByRowSpan](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#splitByRowSpan-int-) और स्तंभ सीमा पर विभाजित करने के लिए [splitByColSpan](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#splitByColSpan-int-) का उपयोग करें।
+
+`index` तर्क विभाजन के ऊपरी भाग में पंक्तियों या बाएँ भाग में स्तंभों की संख्या को गिनता है; यह मर्ज किए गए क्षेत्र के सापेक्ष है:
+
+- पंक्ति विभाजन: `0 < index <` [getRowSpan](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#getRowSpan--)।
+- स्तंभ विभाजन: `0 < index <` [getColSpan](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#getColSpan--)।
+
+उदाहरण मानता है कि प्रस्तुति की पहली स्लाइड पर पहला आकार एक तालिका है, जिसमें `(1, 2)` तथा `(1, 3)` लंबवत रूप से मर्ज किए गए हैं। नीचे की स्थिति से शुरू करके यह [getFirstColumnIndex](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#getFirstColumnIndex--) तथा [getFirstRowIndex](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#getFirstRowIndex--) का उपयोग करके मूल निर्धारित करता है और दोनों स्पैन की जाँच करता है। `splitByRowSpan(1)` फिर उत्पाद नामों के लिए पंक्तियों 2 और 3 को अलग करता है। क्षैतिज दो‑स्तंभ मर्ज के लिए इसके बजाय `splitByColSpan(1)` का उपयोग करें।
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("table_template.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    ITable table = (ITable) slide.getShapes().get_Item(0);
+
+    ICell selectedCell = table.get_Item(1, 3);
+    int firstColumnIndex = selectedCell.getFirstColumnIndex();
+    int firstRowIndex = selectedCell.getFirstRowIndex();
+    ICell mergedCell = table.get_Item(firstColumnIndex, firstRowIndex);
+
+    if (mergedCell.isMergedCell() && mergedCell.getRowSpan() == 2 && mergedCell.getColSpan() == 1)
+    {
+        mergedCell.splitByRowSpan(1);
+
+        // विभाजन के बाद तालिका से प्राप्त होने वाली कोशिकाओं को पुनः प्राप्त करें।
+        ICell upperCell = table.get_Item(firstColumnIndex, firstRowIndex);
+        ICell lowerCell = table.get_Item(firstColumnIndex, firstRowIndex + 1);
+        System.out.println("Upper cell merged: " + upperCell.isMergedCell());
+        System.out.println("Lower cell merged: " + lowerCell.isMergedCell());
+
+        upperCell.getTextFrame().setText("Product A");
+        lowerCell.getTextFrame().setText("Product B");
+
+        presentation.save("split_template.pptx", SaveFormat.Pptx);
+    }
+    else
+    {
+        System.out.println("Select a merged region spanning exactly two rows and one column.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+तालिका ग्रिड और आस‑पास की कोशिका सूचकांक अप्रभावित रहते हैं। परिणामी कोशिकाओं को उनके निर्देशांक से पुनः प्राप्त करें; यहाँ दोनों की स्पैन 1 है और [isMergedCell](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#isMergedCell--) `false` प्रिंट करता है। एक विभाजन के बाद भी बड़े क्षेत्रों को आंशिक रूप से मर्ज रखा जा सकता है।
+
+मूल पाठ और उसका स्वरूपण ऊपर (या बाएँ) वाली कोशिका में बना रहता है; नई कोशिका खाली होती है लेकिन भराव, सीमा रेखा और मार्जिन जैसे कोशिका स्वरूपण को उत्तराधिकार प्राप्त करती है। विभाजन के बाद कोशिकाओं को भरें और आवश्यक पाठ स्वरूपण स्पष्ट रूप से सेट करें।
+
+संचित प्रस्तुति में अलग‑अलग “Product A” और “Product B” कोशिकाएँ होती हैं, जिसमें टेम्पलेट की कोशिका स्वरूपण बरकरार रहती है। विवरण के लिए देखें [Cell API Reference](https://reference.aspose.com/slides/androidjava/com.aspose.slides/cell/)।
+
+## **तालिका कोशिका की पृष्ठभूमि रंग बदलें**
+
+यह उदाहरण 150‑पॉइंट स्तंभ और 50‑पॉइंट पंक्तियों के साथ एक तालिका बनाता है। यह [setFillType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifillformat/#setFillType-byte-) का उपयोग करके ठोस भराव चुनता है और [getSolidFillColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifillformat/#getSolidFillColor--) द्वारा लौटाए गए रंग को लाल सेट करता है, जो कोशिका `(2, 3)` (तीसरे स्तंभ और चौथी पंक्ति) के लिए है।
+
+```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    double[] columnWidths = { 150, 150, 150, 150 };
+    double[] rowHeights = { 50, 50, 50, 50, 50 };
+    ITable table = slide.getShapes().addTable(50, 50, columnWidths, rowHeights);
+
     ICell cell = table.get_Item(2, 3);
     cell.getCellFormat().getFillFormat().setFillType(FillType.Solid);
     cell.getCellFormat().getFillFormat().getSolidFillColor().setColor(Color.RED);
 
     presentation.save("cell_background_color.pptx", SaveFormat.Pptx);
 } finally {
-    if (presentation != null) presentation.dispose();
+    presentation.dispose();
 }
 ```
 
-## **तालिका कोशिका के भीतर छवि जोड़ें**
+## **एक तालिका कोशिका के भीतर छवि जोड़ें**
 
-1.  [Presentation](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/Presentation) क्लास का एक इंस्टेंस बनाएँ।
-2.  स्लाइड के इंडेक्स द्वारा उसका रेफ़रेंस प्राप्त करें।
-3.  चौड़ाई के साथ स्तंभों की एक एरे परिभाषित करें।
-4.  ऊँचाई के साथ पंक्तियों की एक एरे परिभाषित करें।
-5.  [AddTable](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/IShapeCollection#addTable-float-float-double:A-double:A-) मेथड के द्वारा स्लाइड में तालिका जोड़ें।
-6.  छवि फ़ाइल रखने के लिए एक `Images` ऑब्जेक्ट बनाएँ।
-7.  `IImage` छवि को `IPPImage` ऑब्जेक्ट में जोड़ें।
-8.  तालिका कोशिका के लिए `FillFormat` को `Picture` सेट करें।
-9.  छवि को तालिका की पहली कोशिका में जोड़ें।
-10. संशोधित प्रस्तुति को PPTX फ़ाइल के रूप में सहेजें।
+उदाहरण चलाने से पहले इनपुट छवि को कार्यशील निर्देशिका में रखें। यह छवि को [Images.fromFile](https://reference.aspose.com/slides/androidjava/com.aspose.slides/images/#fromFile-java.lang.String-) से लोड करता है और उसे प्रस्तुति के इमेज कलेक्शन में [addImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimagecollection/#addImage-com.aspose.slides.IImage-) से जोड़ता है। फिर यह छवि को `(0, 0)` कोशिका (तालिका की पहली कोशिका) के पिक्चर फिल में असाइन करता है।
 
-यह Java कोड दिखाता है कि तालिका बनाते समय तालिका कोशिका के भीतर छवि कैसे रखें:
+[PictureFillMode.Stretch](https://reference.aspose.com/slides/androidjava/com.aspose.slides/picturefillmode/) छवि को कोशिका में भरने के लिए फैलाता है, जिससे उसका अनुपात बदल सकता है। स्तंभ चौड़ाई और पंक्ति ऊँचाई बिंदुओं में दी गई है। लोड की गई छवि को `finally` ब्लॉक में डिस्पोज़ कर दिया जाता है, जब इसे प्रस्तुति में जोड़ दिया जाता है।
 
 ```java
-// PPTX फ़ाइल का प्रतिनिधित्व करने वाली Presentation क्लास का उदाहरण बनाता है
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    // पहली स्लाइड तक पहुँचता है
-    ISlide islide = pres.getSlides().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // स्तंभों को चौड़ाइयों और पंक्तियों को ऊँचाइयों के साथ परिभाषित करता है
-    double[] dblCols = {150, 150, 150, 150};
-    double[] dblRows = {100, 100, 100, 100, 90};
+    double[] columnWidths = { 150, 150, 150, 150 };
+    double[] rowHeights = { 100, 100, 100, 100, 90 };
+    ITable table = slide.getShapes().addTable(50, 50, columnWidths, rowHeights);
 
-    // स्लाइड में तालिका आकार जोड़ता है
-    ITable tbl = islide.getShapes().addTable(50, 50, dblCols, dblRows);
-
-    // छवि फ़ाइल का उपयोग करके एक IPPImage ऑब्जेक्ट बनाता है
-    IPPImage picture;
-    IImage image = Images.fromFile("image.jpg");
+    IPPImage ppImage;
+    IImage image = Images.fromFile("aspose_logo.jpg");
     try {
-        picture = pres.getImages().addImage(image);
+        ppImage = presentation.getImages().addImage(image);
     } finally {
-        if (image != null) image.dispose();
+        image.dispose();
     }
 
-    // छवि को पहली तालिका कोशिका में जोड़ता है
-    ICellFormat cellFormat = tbl.get_Item(0, 0).getCellFormat();
-    cellFormat.getFillFormat().setFillType(FillType.Picture);
-    cellFormat.getFillFormat().getPictureFillFormat().setPictureFillMode(PictureFillMode.Stretch);
-    cellFormat.getFillFormat().getPictureFillFormat().getPicture().setImage(picture);
+    table.get_Item(0, 0).getCellFormat().getFillFormat().setFillType(FillType.Picture);
+    table.get_Item(0, 0).getCellFormat().getFillFormat().getPictureFillFormat().setPictureFillMode(PictureFillMode.Stretch);
+    table.get_Item(0, 0).getCellFormat().getFillFormat().getPictureFillFormat().getPicture().setImage(ppImage);
 
-    // PPTX फ़ाइल को डिस्क पर सहेजता है
-    pres.save("Image_In_TableCell_out.pptx", SaveFormat.Pptx);
-} catch (IOException e) {
+    presentation.save("table_cell_with_image.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
 ## **FAQ**
 
-**क्या मैं एक ही कोशिका के विभिन्न पक्षों के लिए अलग‑अलग रेखा मोटाई और शैली सेट कर सकता हूँ?**
+**क्या मैं एक ही कोशिका के अलग‑अलग पक्षों के लिए विभिन्न रेखा मोटाई और शैली सेट कर सकता हूँ?**
 
-हां। [top](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/cellformat/#getBorderTop--)/[bottom](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/cellformat/#getBorderBottom--)/[left](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/cellformat/#getBorderLeft--)/[right](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/cellformat/#getBorderRight--) सीमाओं की अलग‑अलग प्रॉपर्टी होती है, इसलिए प्रत्येक पक्ष की मोटाई और शैली अलग हो सकती है। यह लेख में प्रदर्शित कोशिका की प्रति‑पक्ष सीमा नियंत्रण से तार्किक रूप से जुड़ा है।
+हां। [ऊपर](https://reference.aspose.com/slides/androidjava/com.aspose.slides/cellformat/#getBorderTop--)/[नीचे](https://reference.aspose.com/slides/androidjava/com.aspose.slides/cellformat/#getBorderBottom--)/[बाएँ](https://reference.aspose.com/slides/androidjava/com.aspose.slides/cellformat/#getBorderLeft--)/[दाएँ](https://reference.aspose.com/slides/androidjava/com.aspose.slides/cellformat/#getBorderRight--) सीमा रेखाओं की अलग‑अलग गुण होते हैं, इसलिए प्रत्येक पक्ष की मोटाई और शैली अलग हो सकती है।
 
-**अगर मैं चित्र को कोशिका की पृष्ठभूमि के रूप में सेट करने के बाद कॉलम/पंक्ति का आकार बदलूँ तो छवि क्या करेगी?**
+**यदि मैं चित्र को कोशिका की पृष्ठभूमि के रूप में सेट करने के बाद स्तंभ/पंक्ति का आकार बदलूँ तो छवि का क्या होता है?**
 
-व्यवहार [fill mode](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/picturefillmode/) (stretch/tile) पर निर्भर करता है। स्ट्रेचिंग के साथ, छवि नई कोशिका के अनुसार समायोजित होती है; टाइलिंग के साथ, टाइलें पुनः गणना की जाती हैं। लेख में कोशिका में छवि प्रदर्शन मोडों का उल्लेख है।
+व्यवहार [fill mode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/picturefillmode/) (stretch/tile) पर निर्भर करता है। स्ट्रेच करने पर छवि नई कोशिका के अनुसार समायोजित होती है; टाइल करने पर टाइलें पुनः गणना की जाती हैं।
 
-**क्या मैं कोशिका की सभी सामग्री को एक हाइपरलिंक दे सकता हूँ?**
+**क्या मैं कोशिका की सभी सामग्री को हाइपरलिंक असाइन कर सकता हूँ?**
 
-[Hyperlinks](/slides/hi/androidjava/manage-hyperlinks/) को कोशिका के टेक्स्ट फ्रेम के भीतर टेक्स्ट (portion) स्तर पर या पूरी तालिका/shape स्तर पर सेट किया जाता है। व्यावहारिक रूप से, आप लिंक को एक portion या कोशिका के सभी टेक्स्ट को असाइन करते हैं।
+[Hyperlinks](/slides/hi/androidjava/manage-hyperlinks/) को कोशिका के टेक्स्ट फ्रेम के भीतर टेक्स्ट (portion) स्तर पर या पूरी तालिका/shape स्तर पर सेट किया जाता है। व्यावहारिक रूप से आप लिंक को किसी पोर्शन या पूरी कोशिका के टेक्स्ट पर असाइन करते हैं।
 
-**क्या मैं एक ही कोशिका के भीतर अलग‑अलग फ़ॉन्ट सेट कर सकता हूँ?**
+**क्या मैं एक ही कोशिका में विभिन्न फ़ॉन्ट सेट कर सकता हूँ?**
 
-हां। एक कोशिका का टेक्स्ट फ्रेम [portions](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/portion/) (runs) को स्वतंत्र स्वरूपण—फ़ॉन्ट फ़ॅमिली, शैली, आकार और रंग—के साथ समर्थन देता है।
+हां। कोशिका का टेक्स्ट फ्रेम [portions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/portion/) (रन) को सपोर्ट करता है, जिनमें फॉन्ट फ़ैमिली, शैली, आकार और रंग स्वतंत्र रूप से सेट किया जा सकता है।

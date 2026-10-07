@@ -1,6 +1,6 @@
 ---
-title: Διαχείριση κελιών πίνακα σε παρουσιάσεις χρησιμοποιώντας JavaScript
-linktitle: Διαχείριση κελιών
+title: Διαχείριση Κυττών Πίνακα σε Παρουσιάσεις με JavaScript
+linktitle: Διαχείριση Κυττάρων
 type: docs
 weight: 30
 url: /el/nodejs-java/manage-cells/
@@ -8,322 +8,265 @@ keywords:
 - κελί πίνακα
 - συγχώνευση κελιών
 - αφαίρεση περιγράμματος
-- διαχωρισμός κελιού
+- διάσπαση κελιού
 - εικόνα σε κελί
-- χρώμα φόντου
+- χρώμα υποβάθρου
 - PowerPoint
 - παρουσίαση
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Διαχειριστείτε τα κελιά πίνακα στο PowerPoint με το Aspose.Slides για Node.js. Κατακτήστε την πρόσβαση, την τροποποίηση και τη μορφοποίηση των κελιών γρήγορα για αδιάσπαστη αυτοματοποίηση των διαφανειών."
+description: "Διαχείριση κελιών πίνακα PowerPoint με JavaScript: αναγνώριση συγχωνευμένων κελιών, αφαίρεση περιγραμμάτων, διάσπαση κελιών και ορισμός χρωμάτων υποβάθρου και εικόνων με Aspose.Slides για Node.js μέσω Java."
 ---
 ## **Επισκόπηση**
 
-Το Aspose.Slides σας επιτρέπει την πρόσβαση και την τροποποίηση των κελιών πινάκων σε παρουσιάσεις PowerPoint. Αυτό το άρθρο εξηγεί πώς να εντοπίζετε συγχωνευμένα κελιά πίνακα, να αφαιρείτε τα περιγράμματα των κελιών, να εργάζεστε με την αρίθμηση των κελιών μετά τη συγχώνευση ή το διαχωρισμό, να αλλάζετε το χρώμα φόντου ενός κελιού και να προσθέτετε εικόνα μέσα σε κελί πίνακα. Τα παραδείγματα δείχνουν πώς να δημιουργήσετε ή να ανοίξετε μια παρουσίαση, να λάβετε έναν πίνακα από μια διαφάνεια, να ενημερώσετε τη μορφοποίηση του κελιού μέσω των ιδιοτήτων του κελιού και να αποθηκεύσετε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
+Το Aspose.Slides σας επιτρέπει να προσπελάζετε και να τροποποιείτε τα κελιά πινάκων σε παρουσιάσεις PowerPoint. Αυτό το άρθρο εξηγεί πώς να εντοπίζετε συγχωνευμένα κελιά πινάκων, να αφαιρείτε τα πλαίσια των κελιών, να εργάζεστε με την αρίθμηση των κελιών μετά τη συγχώνευση ή το διαχωρισμό τους, να αλλάζετε το χρώμα υποβάθρου ενός κελιού και να προσθέτετε εικόνα μέσα σε ένα κελί πίνακα. Τα παραδείγματα δείχνουν πώς να δημιουργήσετε ή να ανοίξετε μια παρουσίαση, να λάβετε έναν πίνακα από μια διαφάνεια, να ενημερώσετε τη μορφοποίηση του κελιού μέσω των ιδιοτήτων του κελιού και να αποθηκεύσετε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
 
-## **Προσδιορισμός Συγχωνευμένων Κελιών Πίνακα**
-1. Δημιουργήστε ένα στιγμιότυπο της κλάσης [Presentation](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/Presentation).
-2. Λάβετε τον πίνακα από την πρώτη διαφάνεια. 
-3. Περάστε από τις σειρές και τις στήλες του πίνακα για να βρείτε συγχωνευμένα κελιά.
-4. Εκτυπώστε μήνυμα όταν βρεθούν συγχωνευμένα κελιά.
+Το Aspose.Slides χρησιμοποιεί δείκτες που ξεκινούν από το μηδέν για την πρόσβαση στα κελιά πινάκων με τη σειρά `(column, row)`.
 
-Αυτός ο κώδικας JavaScript σας δείχνει πώς να εντοπίζετε συγχωνευμένα κελιά πίνακα σε μια παρουσίαση:
+## **Ανίχνευση Συγχωνευμένου Κελιού Πίνακα**
+
+Το παράδειγμα ανοίγει μια υπάρχουσα παρουσίαση και προσπελαύνει το πρώτο σχήμα στην πρώτη διαφάνεια ως πίνακα. Υποθέτει ότι η διαφάνειά και το σχήμα υπάρχουν και ότι το σχήμα είναι πίνακας. Στη συνέχεια διατρέχει όλες τις γραμμές και στήλες και χρησιμοποιεί [isMergedCell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/ismergedcell/) για να εντοπίσει κελιά σε συγχωνευμένες περιοχές. Για κάθε αντιστοίχιση, εκτυπώνει τις συντεταγμένες του κελιού με σειρά `row;column`, [getRowSpan](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/getrowspan/), [getColSpan](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/getcolspan/), και τις αρχικές συντεταγμένες της περιοχής, [getFirstRowIndex](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/getfirstrowindex/) και [getFirstColumnIndex](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/getfirstcolumnindex/).
 
 ```javascript
-var pres = new aspose.slides.Presentation("SomePresentationWithTable.pptx");
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation("presentation_with_table.pptx");
 try {
-    var table = pres.getSlides().get_Item(0).getShapes().get_Item(0);// υποθέτοντας ότι το Slide#0.Shape#0 είναι πίνακας
-    for (var i = 0; i < table.getRows().size(); i++) {
-        for (var j = 0; j < table.getColumns().size(); j++) {
-            var currentCell = table.getRows().get_Item(i).get_Item(j);
-            if (currentCell.isMergedCell()) {
-                console.log(java.callStaticMethodSync("java.lang.String", "format", "Cell %d;%d is a part of merged cell with RowSpan=%d and ColSpan=%d starting from Cell %d;%d.", i, j, currentCell.getRowSpan(), currentCell.getColSpan(), currentCell.getFirstRowIndex(), currentCell.getFirstColumnIndex()));
+    const slide = presentation.getSlides().get_Item(0);
+    const table = slide.getShapes().get_Item(0);
+
+    const rowCount = table.getRows().size();
+    for (let rowIndex = 0; rowIndex < rowCount; rowIndex++) {
+        const columnCount = table.getColumns().size();
+        for (let columnIndex = 0; columnIndex < columnCount; columnIndex++) {
+            const cell = table.get_Item(columnIndex, rowIndex);
+            if (cell.isMergedCell()) {
+                console.log("Cell %d;%d belongs to a merged region with RowSpan=%d and ColSpan=%d starting at %d;%d.", rowIndex, columnIndex, cell.getRowSpan(), cell.getColSpan(), cell.getFirstRowIndex(), cell.getFirstColumnIndex());
             }
         }
     }
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Αφαίρεση Περιγράμματος Κελιών Πίνακα**
-1. Δημιουργήστε ένα στιγμιότυπο της κλάσης [Presentation](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/Presentation).
-2. Λάβετε μια αναφορά στη διαφάνεια μέσω του δείκτη της. 
-3. Ορίστε έναν πίνακα στηλών με πλάτος.
-4. Ορίστε έναν πίνακα γραμμών με ύψος.
-5. Προσθέστε έναν πίνακα στη διαφάνεια μέσω της μεθόδου [addTable](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/ShapeCollection#addTable-float-float-double:A-double:A-).
-6. Διασχίστε κάθε κελί για να αφαιρέσετε τα επάνω, κάτω, δεξιά και αριστερά περιγράμματα.
-7. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
+## **Αφαίρεση Περιγραμμάτων Κελιών Πίνακα**
 
-Αυτός ο κώδικας JavaScript δείχνει πώς να αφαιρέσετε τα περιγράμματα από τα κελιά πίνακα:
+Δημιουργήστε ένα [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) και προσθέστε έναν πίνακα στην πρώτη του διαφάνεια με το [addTable](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/addtable/). Τα πλάτη των στηλών, τα ύψη των γραμμών και η θέση του πίνακα καθορίζονται σε μονάδες (points). Το παράδειγμα ορίζει όλα τα τέσσερα περιγράμματα του κελιού σε [FillType.NoFill](https://reference.aspose.com/slides/nodejs-java/aspose.slides/filltype/), καθιστώντας τα αόρατα.
 
 ```javascript
-// Δημιουργεί ένα αντικείμενο της κλάσης Presentation που αντιπροσωπεύει αρχείο PPTX
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // Πρόσβαση στην πρώτη διαφάνεια
-    var sld = pres.getSlides().get_Item(0);
-    // Ορίζει στήλες με πλάτος και γραμμές με ύψος
-    var dblCols = java.newArray("double", [50, 50, 50, 50]);
-    var dblRows = java.newArray("double", [50, 30, 30, 30, 30]);
-    // Προσθέτει σχήμα πίνακα στην διαφάνεια
-    var tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
-    // Ορίζει τη μορφή περιγράμματος για κάθε κελί
-    for (let i = 0; i < tbl.getRows().size(); i++) {
-        const row = tbl.getRows().get_Item(i);
-        for (let j = 0; j < row.size(); j++) {
-            const cell = row.get_Item(j);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const columnWidths = java.newArray("double", [50, 50, 50, 50]);
+    const rowHeights = java.newArray("double", [50, 30, 30, 30, 30]);
+    const table = slide.getShapes().addTable(100, 50, columnWidths, rowHeights);
+
+    for (let rowIndex = 0; rowIndex < table.getRows().size(); rowIndex++) {
+        const row = table.getRows().get_Item(rowIndex);
+        for (let columnIndex = 0; columnIndex < row.size(); columnIndex++) {
+            const cell = row.get_Item(columnIndex);
             cell.getCellFormat().getBorderTop().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
             cell.getCellFormat().getBorderBottom().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
             cell.getCellFormat().getBorderLeft().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
             cell.getCellFormat().getBorderRight().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
         }
     }
-    // Αποθηκεύει το PPTX στο δίσκο
-    pres.save("table_out.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("table.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Αρίθμηση σε Συγχωνευμένα Κελιά**
-Αν συγχωνεύσουμε 2 ζεύγη κελιών (1, 1) × (2, 1) και (1, 2) × (2, 2), ο προκύπτων πίνακας θα αριθμηθεί. Αυτός ο κώδικας JavaScript επιδεικνύει τη διαδικασία:
+## **Συγχώνευση Κελιών Πίνακα**
+
+Χρησιμοποιήστε το [mergeCells](https://reference.aspose.com/slides/nodejs-java/aspose.slides/table/mergecells/) για να συνδυάσετε ένα ορθογώνιο εύρος κελιών πίνακα σε ένα κελί. Καθορίστε τα κελιά στην επάνω-αριστερή και κάτω-δεξιά γωνία του εύρους. Το τελευταίο όρισμα ελέγχει αν η συγχώνευση μπορεί να περιλαμβάνει κελιά εκτός του καθορισμένου εύρους· η τιμή `false` διατηρεί τη συγχώνευση εντός του εύρους.
+
+Το παράδειγμα δημιουργεί έναν πίνακα 4x4 με στήλες και γραμμές 70 points, στη συνέχεια συγχωνεύει τα τέσσερα κεντρικά κελιά από το `(1, 1)` έως το `(2, 2)`. Το προκύπτον κελί καλύπτει δύο στήλες και δύο γραμμές, ενώ το υποκείμενο πλέγμα του πίνακα παραμένει με τέσσερις στήλες και τέσσερις γραμμές. Για να προσπελάσετε το περιεχόμενο ή τη μορφοποίηση του συγχωνευμένου κελιού, χρησιμοποιήστε τη θέση του επάνω‑αριστερά: `table.get_Item(1, 1)` σε αυτό το παράδειγμα. Οι άλλες θέσεις στο συγχωνευμένο εύρος παραμένουν μέρος του πλέγματος του πίνακα, έτσι οι δείκτες των κελιών εκτός του εύρους δεν αλλάζουν.
 
 ```javascript
-// Δημιουργεί αντικείμενο της κλάσης Presentation που αντιπροσωπεύει αρχείο PPTX
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // Πρόσβαση στην πρώτη διαφάνεια
-    var sld = pres.getSlides().get_Item(0);
-    // Ορίζει στήλες με πλάτος και γραμμές με ύψος
-    var dblCols = java.newArray("double", [70, 70, 70, 70]);
-    var dblRows = java.newArray("double", [70, 70, 70, 70]);
-    // Προσθέτει σχήμα πίνακα στη διαφάνεια
-    var tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
-    // Ορίζει τη μορφή περιγράμματος για κάθε κελί
-    for (let i = 0; i < tbl.getRows().size(); i++) {
-        const row = tbl.getRows().get_Item(i);
-        for (let j = 0; j < row.size(); j++) {
-            const cell = row.get_Item(j);
-            cell.getCellFormat().getBorderTop().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-            cell.getCellFormat().getBorderTop().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-            cell.getCellFormat().getBorderTop().setWidth(5);
-            cell.getCellFormat().getBorderBottom().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-            cell.getCellFormat().getBorderBottom().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-            cell.getCellFormat().getBorderBottom().setWidth(5);
-            cell.getCellFormat().getBorderLeft().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-            cell.getCellFormat().getBorderLeft().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-            cell.getCellFormat().getBorderLeft().setWidth(5);
-            cell.getCellFormat().getBorderRight().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-            cell.getCellFormat().getBorderRight().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-            cell.getCellFormat().getBorderRight().setWidth(5);
-        }
-    }
-    // Συγχωνεύει τα κελιά (1, 1) x (2, 1)
-    tbl.mergeCells(tbl.get_Item(1, 1), tbl.get_Item(2, 1), false);
-    // Συγχωνεύει τα κελιά (1, 2) x (2, 2)
-    tbl.mergeCells(tbl.get_Item(1, 2), tbl.get_Item(2, 2), false);
-    pres.save("MergeCells_out.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const columnWidths = java.newArray("double", [70, 70, 70, 70]);
+    const rowHeights = java.newArray("double", [70, 70, 70, 70]);
+    const table = slide.getShapes().addTable(100, 50, columnWidths, rowHeights);
+
+    table.mergeCells(table.get_Item(1, 1), table.get_Item(2, 2), false);
+
+    presentation.save("merged_cells.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-Στη συνέχεια συγχωνεύουμε περαιτέρω τα κελιά συγχωνεύοντας το (1, 1) με το (1, 2). Το αποτέλεσμα είναι ένας πίνακας που περιέχει ένα μεγάλο συγχωνευμένο κελί στο κέντρο του:
+## **Διαίρεση Κελιών Πίνακα**
+
+Η συγχώνευση κελιών στο προηγούμενο παράδειγμα διατηρεί το πλέγμα του πίνακα. Η διάσπαση ενός κελιού μπορεί να εισαγάγει μια νέα στήλη στο πλέγμα και να αλλάξει τους δείκτες στήλης των κελιών στα δεξιά του. Το Aspose.Slides ακολουθεί το μοντέλο πλέγματος πινάκων του PowerPoint.
+
+Αυτό το παράδειγμα δημιουργεί έναν πίνακα 4x4 με στήλες και γραμμές 70 points και καλεί το [splitByWidth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/splitbywidth/) στο κελί `(1, 1)`. Το μισό του πλάτους των 70 points του κελιού χρησιμοποιείται για τη δημιουργία δύο κελιών ίσου πλάτους.
+
+Μετά από αυτή τη διάσπαση, τα δύο μισά προσπελαύνονται ως `table.get_Item(1, 1)` και `table.get_Item(2, 1)`. Το πλέγμα του πίνακα έχει τώρα πέντε στήλες: τα κελιά αρχικά στις στήλες 2 και 3 μετακινούνται στις στήλες 3 και 4, αντίστοιχα. Οι δείκτες γραμμών παραμένουν αμετάβλητοι. Χρησιμοποιήστε αυτούς τους ενημερωμένους δείκτες στήλης όταν προσπελάζετε κελιά μετά τη διάσπαση.
 
 ```javascript
-// Δημιουργεί αντικείμενο της κλάσης Presentation που αντιπροσωπεύει αρχείο PPTX
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // Πρόσβαση στην πρώτη διαφάνεια
-    var sld = pres.getSlides().get_Item(0);
-    // Ορίζει στήλες με πλάτος και γραμμές με ύψος
-    var dblCols = java.newArray("double", [70, 70, 70, 70]);
-    var dblRows = java.newArray("double", [70, 70, 70, 70]);
-    // Προσθέτει σχήμα πίνακα στη διαφάνεια
-    var tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
-    // Ορίζει τη μορφή περιγράμματος για κάθε κελί
-    for (let i = 0; i < tbl.getRows().size(); i++) {
-        const row = tbl.getRows().get_Item(i);
-        for (let j = 0; j < row.size(); j++) {
-            const cell = row.get_Item(j);
-            cell.getCellFormat().getBorderTop().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-            cell.getCellFormat().getBorderTop().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-            cell.getCellFormat().getBorderTop().setWidth(5);
-            cell.getCellFormat().getBorderBottom().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-            cell.getCellFormat().getBorderBottom().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-            cell.getCellFormat().getBorderBottom().setWidth(5);
-            cell.getCellFormat().getBorderLeft().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-            cell.getCellFormat().getBorderLeft().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-            cell.getCellFormat().getBorderLeft().setWidth(5);
-            cell.getCellFormat().getBorderRight().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-            cell.getCellFormat().getBorderRight().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-            cell.getCellFormat().getBorderRight().setWidth(5);
-        }
-    }
-    // Συγχωνεύει τα κελιά (1, 1) x (2, 1)
-    tbl.mergeCells(tbl.get_Item(1, 1), tbl.get_Item(2, 1), false);
-    // Συγχωνεύει τα κελιά (1, 2) x (2, 2)
-    tbl.mergeCells(tbl.get_Item(1, 2), tbl.get_Item(2, 2), false);
-    // Συγχωνεύει τα κελιά (1, 1) x (1, 2)
-    tbl.mergeCells(tbl.get_Item(1, 1), tbl.get_Item(1, 2), true);
-    // Αποθηκεύει το αρχείο PPTX στο δίσκο
-    pres.save("MergeCells_out.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const columnWidths = java.newArray("double", [70, 70, 70, 70]);
+    const rowHeights = java.newArray("double", [70, 70, 70, 70]);
+    const table = slide.getShapes().addTable(100, 50, columnWidths, rowHeights);
+
+    table.get_Item(1, 1).splitByWidth(table.get_Item(1, 1).getWidth() / 2);
+
+    presentation.save("split_cells.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Αρίθμηση σε Διαχωρισμένο Κελί**
-Στα προηγούμενα παραδείγματα, όταν τα κελιά πίνακα συγχωνεύονταν, το σύστημα αρίθμησης σε άλλα κελιά δεν άλλαζε.
+### **Διαίρεση Συγχωνευμένων Κελιών κατά Γραμμή ή Στήλη**
 
-Αυτή τη φορά, παίρνουμε έναν κανονικό πίνακα (χωρίς συγχωνευμένα κελιά) και προσπαθούμε να διαχωρίσουμε το κελί (1,1) για να δημιουργήσουμε έναν ιδιαίτερο πίνακα. Ίσως θέλετε να προσέξετε την αρίθμηση αυτού του πίνακα, η οποία ενδέχεται να φαίνεται περίεργη. Ωστόσο, έτσι ακριβώς αριθμεί τα κελιά πίνακα το Microsoft PowerPoint και το Aspose.Slides κάνει το ίδιο.
+Για να προετοιμάσετε τα συγχωνευμένα κελιά προτύπου για την εισαγωγή δεδομένων, χρησιμοποιήστε το [splitByRowSpan](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/splitbyrowspan/) για να διαιρέσετε κατά μια υπάρχουσα γραμμή, ή το [splitByColSpan](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/splitbycolspan/) για να διαιρέσετε κατά μια στήλη.
 
-Αυτός ο κώδικας JavaScript επιδεικνύει τη διαδικασία που περιγράψαμε:
+Το όρισμα `index` μετρά τις γραμμές στο άνω μέρος ή τις στήλες στο αριστερό μέρος της διάσπασης· είναι σχετικό με τη συγχωνευμένη περιοχή:
+
+- Διάσπαση γραμμής: `0 < index <` [getRowSpan](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/getrowspan/).
+- Διάσπαση στήλης: `0 < index <` [getColSpan](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/getcolspan/).
+
+Το παράδειγμα υποθέτει ότι μια παρουσίαση έχει πίνακα ως πρώτο σχήμα στην πρώτη διαφάνεια, με τα `(1, 2)` και `(1, 3)` να είναι συγχωνευμένα κατακόρυφα. Ξεκινώντας από τη χαμηλότερη θέση, χρησιμοποιεί τα [getFirstColumnIndex](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/getfirstcolumnindex/) και [getFirstRowIndex](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/getfirstrowindex/) για να εντοπίσει το σημείο εκκίνησης και ελέγχει και τις δύο διασπάσεις. Το `splitByRowSpan(1)` χωρίζει στη συνέχεια τις γραμμές 2 και 3 για τα ονόματα προϊόντων. Για οριζόντια συγχώνευση δύο στηλών, χρησιμοποιήστε το `splitByColSpan(1)`.
 
 ```javascript
-// Δημιουργεί το αντικείμενο της κλάσης Presentation που αντιπροσωπεύει αρχείο PPTX
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation("table_template.pptx");
 try {
-    // Πρόσβαση στην πρώτη διαφάνεια
-    var sld = pres.getSlides().get_Item(0);
-    // Ορίζει στήλες με πλάτος και γραμμές με ύψος
-    var dblCols = java.newArray("double", [70, 70, 70, 70]);
-    var dblRows = java.newArray("double", [70, 70, 70, 70]);
-    // Προσθέτει σχήμα πίνακα στη διαφάνεια
-    var tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
-    // Ορίζει τη μορφή περιγράμματος για κάθε κελί
-    for (let i = 0; i < tbl.getRows().size(); i++) {
-        const row = tbl.getRows().get_Item(i);
-        for (let j = 0; j < row.size(); j++) {
-            const cell = row.get_Item(j);
-            cell.getCellFormat().getBorderTop().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-            cell.getCellFormat().getBorderTop().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-            cell.getCellFormat().getBorderTop().setWidth(5);
-            cell.getCellFormat().getBorderBottom().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-            cell.getCellFormat().getBorderBottom().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-            cell.getCellFormat().getBorderBottom().setWidth(5);
-            cell.getCellFormat().getBorderLeft().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-            cell.getCellFormat().getBorderLeft().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-            cell.getCellFormat().getBorderLeft().setWidth(5);
-            cell.getCellFormat().getBorderRight().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-            cell.getCellFormat().getBorderRight().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-            cell.getCellFormat().getBorderRight().setWidth(5);
-        }
+    const slide = presentation.getSlides().get_Item(0);
+    const table = slide.getShapes().get_Item(0);
+
+    const selectedCell = table.get_Item(1, 3);
+    const firstColumnIndex = selectedCell.getFirstColumnIndex();
+    const firstRowIndex = selectedCell.getFirstRowIndex();
+    const mergedCell = table.get_Item(firstColumnIndex, firstRowIndex);
+
+    if (mergedCell.isMergedCell() && mergedCell.getRowSpan() == 2 && mergedCell.getColSpan() == 1) {
+        mergedCell.splitByRowSpan(1);
+
+        // Ανακτήστε τα προκύπτοντα κελιά από τον πίνακα μετά το διαχωρισμό.
+        const upperCell = table.get_Item(firstColumnIndex, firstRowIndex);
+        const lowerCell = table.get_Item(firstColumnIndex, firstRowIndex + 1);
+        console.log("Upper cell merged: " + upperCell.isMergedCell());
+        console.log("Lower cell merged: " + lowerCell.isMergedCell());
+
+        upperCell.getTextFrame().setText("Product A");
+        lowerCell.getTextFrame().setText("Product B");
+
+        presentation.save("split_template.pptx", aspose.slides.SaveFormat.Pptx);
+    } else {
+        console.log("Select a merged region spanning exactly two rows and one column.");
     }
-    // Συγχωνεύει τα κελιά (1, 1) x (2, 1)
-    tbl.mergeCells(tbl.get_Item(1, 1), tbl.get_Item(2, 1), false);
-    // Συγχωνεύει τα κελιά (1, 2) x (2, 2)
-    tbl.mergeCells(tbl.get_Item(1, 2), tbl.get_Item(2, 2), false);
-    // Διαχωρίζει το κελί (1, 1)
-    tbl.get_Item(1, 1).splitByWidth(tbl.get_Item(2, 1).getWidth() / 2);
-    // Γράφει το αρχείο PPTX στο δίσκο
-    pres.save("SplitCells_out.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Αλλαγή Χρώματος Φόντου Κελιού Πίνακα**
+Το πλέγμα του πίνακα και οι δείκτες των γύρω κελιών παραμένουν αμετάβλητοι. Ανακτήστε τα προκύψαντα κελιά με τις συντεταγμένες τους· εδώ, και τα δύο έχουν εύρος 1 και το [isMergedCell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/ismergedcell/) εμφανίζει `false`. Μεγαλύτερες περιοχές μπορούν να παραμείνουν μερικώς συγχωνευμένες μετά από μία διάσπαση.
 
-Αυτός ο κώδικας JavaScript σας δείχνει πώς να αλλάξετε το χρώμα φόντου ενός κελιού πίνακα:
+Το αρχικό κείμενο και η μορφοποίησή του παραμένουν στο άνω (ή αριστερό) κελί· το νέο κελί είναι κενό αλλά κληρονομεί τη μορφοποίηση του κελιού όπως γέμισμα, περιγράμματα και περιθώρια. Συμπληρώστε τα κελιά μετά τη διάσπαση και ορίστε ρητά οποιαδήποτε απαιτούμενη μορφοποίηση κειμένου.
+
+Η αποθηκευμένη παρουσίαση περιέχει ξεχωριστά κελιά «Product A» και «Product B» με τη μορφοποίηση του κελιού του προτύπου διατηρημένη. Δείτε το [Cell API Reference](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/) για λεπτομέρειες.
+
+## **Αλλαγή Χρώματος Υποβάθρου Κελιού Πίνακα**
+
+Αυτό το παράδειγμα δημιουργεί έναν πίνακα με στήλες 150 points και γραμμές 50 points. Χρησιμοποιεί το [setFillType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fillformat/setfilltype/) για να επιλέξει γεμίσμα στερεό και ορίζει το χρώμα που επιστρέφεται από το [getSolidFillColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fillformat/getsolidfillcolor/) σε κόκκινο για το κελί `(2, 3)`, στην τρίτη στήλη και τέταρτη γραμμή.
 
 ```javascript
-var presentation = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var slide = presentation.getSlides().get_Item(0);
-    var dblCols = java.newArray("double", [150, 150, 150, 150]);
-    var dblRows = java.newArray("double", [50, 50, 50, 50, 50]);
-    // δημιουργία νέου πίνακα
-    var table = slide.getShapes().addTable(50, 50, dblCols, dblRows);
-    // ορισμός χρώματος φόντου για ένα κελί
-    var cell = table.get_Item(2, 3);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const columnWidths = java.newArray("double", [150, 150, 150, 150]);
+    const rowHeights = java.newArray("double", [50, 50, 50, 50, 50]);
+    const table = slide.getShapes().addTable(50, 50, columnWidths, rowHeights);
+
+    const cell = table.get_Item(2, 3);
     cell.getCellFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     cell.getCellFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
+
     presentation.save("cell_background_color.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (presentation != null) {
-        presentation.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
 ## **Προσθήκη Εικόνας Μέσα σε Κελί Πίνακα**
 
-1. Δημιουργήστε ένα στιγμιότυπο της κλάσης [Presentation](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/Presentation).
-2. Λάβετε μια αναφορά στη διαφάνεια μέσω του δείκτη της.
-3. Ορίστε έναν πίνακα στηλών με πλάτος.
-4. Ορίστε έναν πίνακα γραμμών με ύψος.
-5. Προσθέστε έναν πίνακα στη διαφάνεια μέσω της μεθόδου [addTable](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/ShapeCollection#addTable-float-float-double:A-double:A-).
-6. Δημιουργήστε ένα αντικείμενο `Images` για να κρατήσετε το αρχείο εικόνας.
-7. Προσθέστε την εικόνα `IImage` στο αντικείμενο `PPImage`.
-8. Ορίστε το `FillFormat` για το Κελί Πίνακα σε `Picture`.
-9. Προσθέστε την εικόνα στο πρώτο κελί του πίνακα.
-10. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX
+Τοποθετήστε την εικόνα εισόδου στον κατάλογο εργασίας πριν εκτελέσετε αυτό το παράδειγμα. Φορτώνει την εικόνα με το [Images.fromFile](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Images#fromFile) και την προσθέτει στη συλλογή εικόνων της παρουσίασης με το [addImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagecollection/addimage/). Στη συνέχεια αναθέτει την εικόνα στο γέμισμα εικόνας του κελιού `(0, 0)`, το πρώτο κελί του πίνακα.
 
-Αυτός ο κώδικας JavaScript σας δείχνει πώς να τοποθετήσετε μια εικόνα μέσα σε κελί πίνακα κατά τη δημιουργία του πίνακα:
+Το [PictureFillMode.Stretch](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillmode/) τεντώνει την εικόνα ώστε να γεμίσει το κελί, κάτι που μπορεί να αλλάξει την αναλογία διαστάσεων. Τα πλάτη των στηλών και τα ύψη των γραμμών είναι σε μονάδες (points). Η φορτωμένη εικόνα απελευθερώνεται σε ένα μπλοκ `finally` μετά την προσθήκη της στην παρουσίαση.
 
 ```javascript
-// Δημιουργεί το αντικείμενο της κλάσης Presentation που αντιπροσωπεύει αρχείο PPTX
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // Πρόσβαση στην πρώτη διαφάνεια
-    var islide = pres.getSlides().get_Item(0);
-    // Ορίζει στήλες με πλάτος και γραμμές με ύψος
-    var dblCols = java.newArray("double", [150, 150, 150, 150]);
-    var dblRows = java.newArray("double", [100, 100, 100, 100, 90]);
-    // Προσθέτει σχήμα πίνακα στη διαφάνεια
-    var tbl = islide.getShapes().addTable(50, 50, dblCols, dblRows);
-    // Δημιουργεί ένα αντικείμενο PPImage χρησιμοποιώντας το αρχείο εικόνας
-    var picture;
-    var image = aspose.slides.Images.fromFile("image.jpg");
+    const slide = presentation.getSlides().get_Item(0);
+
+    const columnWidths = java.newArray("double", [150, 150, 150, 150]);
+    const rowHeights = java.newArray("double", [100, 100, 100, 100, 90]);
+    const table = slide.getShapes().addTable(50, 50, columnWidths, rowHeights);
+
+    let ppImage;
+    const image = aspose.slides.Images.fromFile("aspose_logo.jpg");
     try {
-        picture = pres.getImages().addImage(image);
+        ppImage = presentation.getImages().addImage(image);
     } finally {
-        if (image != null) {
-            image.dispose();
-        }
+        image.dispose();
     }
-    // Προσθέτει την εικόνα στο πρώτο κελί του πίνακα
-    var cellFormat = tbl.get_Item(0, 0).getCellFormat();
-    cellFormat.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Picture));
-    cellFormat.getFillFormat().getPictureFillFormat().setPictureFillMode(aspose.slides.PictureFillMode.Stretch);
-    cellFormat.getFillFormat().getPictureFillFormat().getPicture().setImage(picture);
-    // Αποθηκεύει το αρχείο PPTX στο δίσκο
-    pres.save("Image_In_TableCell_out.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
+
+    table.get_Item(0, 0).getCellFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Picture));
+    table.get_Item(0, 0).getCellFormat().getFillFormat().getPictureFillFormat().setPictureFillMode(aspose.slides.PictureFillMode.Stretch);
+    table.get_Item(0, 0).getCellFormat().getFillFormat().getPictureFillFormat().getPicture().setImage(ppImage);
+
+    presentation.save("table_cell_with_image.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Συχνές Ερωτήσεις**
+## **ΣΥΧΝΕΣ ΕΡΩΤΗΣΕΙΣ**
 
-**Μπορώ να ορίσω διαφορετικά πάχη και στυλ γραμμής για διαφορετικές πλευρές ενός μόνο κελιού;**
+**Μπορώ να ορίσω διαφορετικά πάχη γραμμών και στυλ για τις διαφορετικές πλευρές ενός μόνο κελιού;**
 
-Ναι. Τα περιγράμματα [top](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/cellformat/getbordertop/), [bottom](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/cellformat/getborderbottom/), [left](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/cellformat/getborderleft/), και [right](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/cellformat/getborderright/) έχουν ξεχωριστές ιδιότητες, ώστε το πάχος και το στυλ κάθε πλευράς να μπορεί να διαφέρει. Αυτό ακολουθεί λογικά τον έλεγχο περιγράμματος ανά πλευρά για ένα κελί, όπως παρουσιάζεται στο άρθρο.
+Ναι. Τα περιγράμματα [top](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cellformat/getbordertop/)/[bottom](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cellformat/getborderbottom/)/[left](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cellformat/getborderleft/)/[right](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cellformat/getborderright/) έχουν ξεχωριστές ιδιότητες, έτσι το πάχος και το στυλ κάθε πλευράς μπορούν να διαφέρουν.
 
 **Τι συμβαίνει με την εικόνα αν αλλάξω το μέγεθος της στήλης/γραμμής μετά τον ορισμό μιας εικόνας ως φόντο του κελιού;**
 
-Η συμπεριφορά εξαρτάται από τη [fill mode](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/picturefillmode/) (stretch/tile). Με το stretch, η εικόνα προσαρμόζεται στο νέο κελί· με το tile, τα κομμάτια επαναϋπολογίζονται. Το άρθρο αναφέρεται στους τρόπους εμφάνισης εικόνας σε κελί.
+Η συμπεριφορά εξαρτάται από το [fill mode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillmode/) (stretch/tile). Με το τέντωμα, η εικόνα προσαρμόζεται στο νέο κελί· με το πλακίδιο, τα πλακίδια επαναϋπολογίζονται.
 
-**Μπορώ να αντιστοιχίσω υπερσύνδεσμο σε όλο το περιεχόμενο ενός κελιού;**
+**Μπορώ να αναθέσω ένα hyperlink σε όλο το περιεχόμενο ενός κελιού;**
 
-Τα [Hyperlinks](/slides/el/nodejs-java/manage-hyperlinks/) ορίζονται σε επίπεδο κειμένου (portion) μέσα στο πλαίσιο κειμένου του κελιού ή σε επίπεδο ολόκληρου πίνακα/σχήματος. Στην πράξη, αντιστοιχίζετε τον σύνδεσμο σε μια μέρος ή σε όλο το κείμενο του κελιού.
+Τα [Hyperlinks](/slides/el/nodejs-java/manage-hyperlinks/) ορίζονται στο επίπεδο του κειμένου (portion) μέσα στο πλαίσιο κειμένου του κελιού ή στο επίπεδο όλου του πίνακα/σχήματος. Στην πράξη, αναθέτετε τον σύνδεσμο σε ένα μέρος ή σε όλο το κείμενο του κελιού.
 
 **Μπορώ να ορίσω διαφορετικές γραμματοσειρές μέσα σε ένα μόνο κελί;**
 
-Ναι. Το πλαίσιο κειμένου ενός κελιού υποστηρίζει [portions](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/portion/) (τμήματα) με ανεξάρτητη μορφοποίηση — οικογένεια γραμματοσειράς, στυλ, μέγεθος και χρώμα.
+Ναι. Το πλαίσιο κειμένου ενός κελιού υποστηρίζει [portions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portion/) (τμήματα) με ανεξάρτητη μορφοποίηση—οικογένεια γραμματοσειράς, στυλ, μέγεθος και χρώμα.

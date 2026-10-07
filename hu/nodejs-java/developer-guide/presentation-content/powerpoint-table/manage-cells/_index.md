@@ -1,11 +1,11 @@
 ---
-title: Táblacellák kezelése prezentációkban JavaScript használatával
+title: Táblázatcellák kezelése prezentációkban JavaScript használatával
 linktitle: Cellák kezelése
 type: docs
 weight: 30
 url: /hu/nodejs-java/manage-cells/
 keywords:
-- táblacella
+- táblázatcella
 - cellák egyesítése
 - szegély eltávolítása
 - cella felosztása
@@ -16,318 +16,257 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Kezelje a táblacellákat PowerPointban az Aspose.Slides for Node.js segítségével. Tanulja meg a cellák gyors elérését, módosítását és formázását a zökkenőmentes diák automatizálásához."
+description: "PowerPoint táblázatcellák kezelése JavaScript-ben: egyesített cellák azonosítása, szegélyek eltávolítása, cellák felosztása, valamint háttérszínek és képek beállítása az Aspose.Slides for Node.js segítségével Java-n keresztül."
 ---
 ## **Áttekintés**
 
-Aspose.Slides lehetővé teszi a táblázatcellák elérését és módosítását PowerPoint‑prezentációkban. Ebben a cikkben bemutatjuk, hogyan azonosítsuk a egyesített táblázatcellákat, hogyan távolítsuk el a cellaszegélyeket, hogyan kezeljük a cellaszámozást egyesítés vagy felosztás után, hogyan változtassuk meg egy cella háttérszínét, és hogyan adjunk képet egy táblázatcellához. A példák bemutatják, hogyan hozzunk létre vagy nyissunk meg egy prezentációt, hogyan szerezzünk be egy táblát egy diából, hogyan frissítsük a cella formázását a cella tulajdonságai alapján, és hogyan mentjük a módosított prezentációt PPTX fájlként.
+Aspose.Slides lehetővé teszi a PowerPoint‑prezentációk táblázatcelláinak elérését és módosítását. Ez a cikk bemutatja, hogyan azonosíthatók az egyesített táblázatcellák, hogyan távolíthatók el a cella szegélyek, hogyan dolgozhat a cellaszámozással egyesítés vagy felosztás után, hogyan változtatható meg egy cella háttérszíne, és hogyan adhatunk képet egy táblázatcella belsejébe. A példák megmutatják, hogyan hozhatunk létre vagy nyithatunk meg egy prezentációt, hogyan szerezhetünk be egy táblázatot egy diáról, hogyan frissíthetjük a cella formázását a cella tulajdonságain keresztül, és hogyan menthetjük a módosított prezentációt PPTX fájlként.
 
-## **Egyesített táblázatcella azonosítása**
+Az Aspose.Slides nulla‑alapú indexeket használ a táblázatcellák eléréséhez a `(oszlop, sor)` sorrendben.
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/Presentation) osztályból.
-2. Szerezze be a táblát az első diáról.
-3. Iteráljon a tábla sorain és oszlopain, hogy megtalálja az egyesített cellákat.
-4. Írjon ki üzenetet, amikor egyesített cellákat talál.
+## **Az egyesített táblázatcella azonosítása**
 
-Ez a JavaScript kód bemutatja, hogyan azonosítsa az egyesített táblázatcellákat egy prezentációban:
+A példa megnyit egy meglévő prezentációt, és az első dián az első alakzatot táblázatként kezeli. Feltételezi, hogy a dia és az alakzat létezik, és hogy az alakzat táblázat. Azt követően végigiterál az összes soron és oszlopon, és a [isMergedCell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/ismergedcell/) metódust használja az egyesített területek celláinak azonosításához. Minden egyezésnél kiírja a cella koordinátáit `sor;oszlop` sorrendben, valamint a [getRowSpan](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/getrowspan/), [getColSpan](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/getcolspan/) értékeket, és a terület kezdő koordinátáit: [getFirstRowIndex](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/getfirstrowindex/) és [getFirstColumnIndex](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/getfirstcolumnindex/).
 
 ```javascript
-var pres = new aspose.slides.Presentation("SomePresentationWithTable.pptx");
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation("presentation_with_table.pptx");
 try {
-    var table = pres.getSlides().get_Item(0).getShapes().get_Item(0);// feltételezve, hogy a Slide#0.Shape#0 egy táblázat
-    for (var i = 0; i < table.getRows().size(); i++) {
-        for (var j = 0; j < table.getColumns().size(); j++) {
-            var currentCell = table.getRows().get_Item(i).get_Item(j);
-            if (currentCell.isMergedCell()) {
-                console.log(java.callStaticMethodSync("java.lang.String", "format", "Cell %d;%d is a part of merged cell with RowSpan=%d and ColSpan=%d starting from Cell %d;%d.", i, j, currentCell.getRowSpan(), currentCell.getColSpan(), currentCell.getFirstRowIndex(), currentCell.getFirstColumnIndex()));
+    const slide = presentation.getSlides().get_Item(0);
+    const table = slide.getShapes().get_Item(0);
+
+    const rowCount = table.getRows().size();
+    for (let rowIndex = 0; rowIndex < rowCount; rowIndex++) {
+        const columnCount = table.getColumns().size();
+        for (let columnIndex = 0; columnIndex < columnCount; columnIndex++) {
+            const cell = table.get_Item(columnIndex, rowIndex);
+            if (cell.isMergedCell()) {
+                console.log("Cell %d;%d belongs to a merged region with RowSpan=%d and ColSpan=%d starting at %d;%d.", rowIndex, columnIndex, cell.getRowSpan(), cell.getColSpan(), cell.getFirstRowIndex(), cell.getFirstColumnIndex());
             }
         }
     }
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Táblacellák szegélyének eltávolítása**
+## **Táblázatcella szegélyek eltávolítása**
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/Presentation) osztályból.
-2. Szerezzen referenciát egy diára az indexével.
-3. Határozzon meg egy oszlopok szélességét tartalmazó tömböt.
-4. Határozzon meg egy sorok magasságát tartalmazó tömböt.
-5. Adjon hozzá egy táblát a diához a [addTable](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/ShapeCollection#addTable-float-float-double:A-double:A-) metódussal.
-6. Iteráljon minden cellán, hogy törölje a felső, alsó, jobb és bal szegélyeket.
-7. Mentse a módosított prezentációt PPTX fájlként.
-
-Ez a JavaScript kód bemutatja, hogyan távolítsa el a szegélyeket a táblacellákról:
+Hozzon létre egy [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) objektumot, és adjon egy táblázatot az első diájához a [addTable](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/addtable/) metódussal. Az oszlopszélességeket, sormagasságokat és a táblázat pozícióját pontokban adja meg. A példa minden négy cellaszegélyt a [FillType.NoFill](https://reference.aspose.com/slides/nodejs-java/aspose.slides/filltype/) értékre állítja, így láthatatlanná válik.
 
 ```javascript
-// Létrehozza a Presentation osztályt, amely egy PPTX fájlt képvisel
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // Eléri az első diát
-    var sld = pres.getSlides().get_Item(0);
-    // Meghatározza az oszlopokat szélességekkel és a sorokat magasságokkal
-    var dblCols = java.newArray("double", [50, 50, 50, 50]);
-    var dblRows = java.newArray("double", [50, 30, 30, 30, 30]);
-    // Táblázat alakzatot ad hozzá a diához
-    var tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
-    // Beállítja a szegély formátumát minden cellához
-    for (let i = 0; i < tbl.getRows().size(); i++) {
-        const row = tbl.getRows().get_Item(i);
-        for (let j = 0; j < row.size(); j++) {
-            const cell = row.get_Item(j);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const columnWidths = java.newArray("double", [50, 50, 50, 50]);
+    const rowHeights = java.newArray("double", [50, 30, 30, 30, 30]);
+    const table = slide.getShapes().addTable(100, 50, columnWidths, rowHeights);
+
+    for (let rowIndex = 0; rowIndex < table.getRows().size(); rowIndex++) {
+        const row = table.getRows().get_Item(rowIndex);
+        for (let columnIndex = 0; columnIndex < row.size(); columnIndex++) {
+            const cell = row.get_Item(columnIndex);
             cell.getCellFormat().getBorderTop().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
             cell.getCellFormat().getBorderBottom().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
             cell.getCellFormat().getBorderLeft().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
             cell.getCellFormat().getBorderRight().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
         }
     }
-    // A PPTX fájlt lemezre írja
-    pres.save("table_out.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("table.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Számozás egyesített cellákban**
+## **Táblázatcellák egyesítése**
 
-Ha két cellapárt egyesítünk (1,1) x (2,1) és (1,2) x (2,2), a kapott tábla számozott lesz. Ez a JavaScript kód bemutatja a folyamatot:
+A [mergeCells](https://reference.aspose.com/slides/nodejs-java/aspose.slides/table/mergecells/) metódust használja egy téglalap alakú táblázatcellák tartomány egy cellává kombinálásához. Adja meg a tartomány bal‑felső és jobb‑alsó sarkában lévő cellákat. Az utolsó argumentum szabályozza, hogy az egyesítés tartalmazhat‑e a megadott tartományon kívüli cellákat; a `false` érték az egyesítést a tartományon belül tartja.
+
+A példa egy 4‑x‑4‑es táblázatot hoz létre 70‑pontos oszlopszélességekkel és sormagasságokkal, majd egyesíti a négy középső cellát a `(1, 1)`‑től `(2, 2)`‑ig terjedő tartományban. Az eredményül kapott cella két oszlopot és két sort fed le, míg a táblázat alatti rács négy oszlopot és négy sort tartalmaz továbbra is. Az egyesített cella tartalmának vagy formázásának eléréséhez használja a bal‑felső pozícióját: ebben a példában `table.get_Item(1, 1)`. A többi pozíció a egyesített tartományban a táblázatrács része marad, ezért a tartományon kívüli cellák indexei nem változnak.
 
 ```javascript
-// Létrehozza a Presentation osztályt, amely egy PPTX fájlt képvisel
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // Eléri az első diát
-    var sld = pres.getSlides().get_Item(0);
-    // Meghatározza az oszlopokat szélességekkel és a sorokat magasságokkal
-    var dblCols = java.newArray("double", [70, 70, 70, 70]);
-    var dblRows = java.newArray("double", [70, 70, 70, 70]);
-    // Táblázat alakzatot ad a diára
-    var tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
-    // Beállítja a szegély formátumát minden cellához
-    for (let i = 0; i < tbl.getRows().size(); i++) {
-        const row = tbl.getRows().get_Item(i);
-        for (let j = 0; j < row.size(); j++) {
-            const cell = row.get_Item(j);
-            cell.getCellFormat().getBorderTop().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-            cell.getCellFormat().getBorderTop().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-            cell.getCellFormat().getBorderTop().setWidth(5);
-            cell.getCellFormat().getBorderBottom().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-            cell.getCellFormat().getBorderBottom().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-            cell.getCellFormat().getBorderBottom().setWidth(5);
-            cell.getCellFormat().getBorderLeft().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-            cell.getCellFormat().getBorderLeft().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-            cell.getCellFormat().getBorderLeft().setWidth(5);
-            cell.getCellFormat().getBorderRight().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-            cell.getCellFormat().getBorderRight().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-            cell.getCellFormat().getBorderRight().setWidth(5);
-        }
-    }
-    // Egyesíti a cellákat (1, 1) x (2, 1)
-    tbl.mergeCells(tbl.get_Item(1, 1), tbl.get_Item(2, 1), false);
-    // Egyesíti a cellákat (1, 2) x (2, 2)
-    tbl.mergeCells(tbl.get_Item(1, 2), tbl.get_Item(2, 2), false);
-    pres.save("MergeCells_out.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const columnWidths = java.newArray("double", [70, 70, 70, 70]);
+    const rowHeights = java.newArray("double", [70, 70, 70, 70]);
+    const table = slide.getShapes().addTable(100, 50, columnWidths, rowHeights);
+
+    table.mergeCells(table.get_Item(1, 1), table.get_Item(2, 2), false);
+
+    presentation.save("merged_cells.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-Ezután tovább egyesítjük a cellákat (1,1) és (1,2) összevonásával. Az eredmény egy középen nagy egyesített cellát tartalmazó tábla:
+## **Táblázatcellák felosztása**
+
+Az előző példában a cellák egyesítése megőrzi a táblázat rácsát. Egy cella felosztása új rácsoszlopot vezethet be, és megváltoztathatja a jobb oldali cellák oszlopszámait. Az Aspose.Slides a PowerPoint táblázatrács modelljét követi.
+
+Ez a példa egy 4‑x‑4‑es táblázatot hoz létre 70‑pontos oszlopszélességekkel és sormagasságokkal, majd a `(1, 1)` cellán meghívja a [splitByWidth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/splitbywidth/) metódust. A cella 70‑pontos szélességének felét adja át, így két egyenlő szélességű cella jön létre.
+
+A felosztás után a két felét a `table.get_Item(1, 1)` és `table.get_Item(2, 1)` hivatkozza. A táblázatrács most már öt oszlopot tartalmaz: az eredetileg a 2‑es és 3‑as oszlopban lévő cellák a 3‑as és 4‑es oszlopba kerülnek. A sorindexek változatlanok maradnak. A felosztás után a cellák elérésénél ezeket a frissített oszlopszámokat használja.
 
 ```javascript
-// Létrehozza a Presentation osztályt, amely egy PPTX fájlt képvisel
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // Eléri az első diát
-    var sld = pres.getSlides().get_Item(0);
-    // Meghatározza az oszlopokat szélességekkel és a sorokat magasságokkal
-    var dblCols = java.newArray("double", [70, 70, 70, 70]);
-    var dblRows = java.newArray("double", [70, 70, 70, 70]);
-    // Táblázat alakzatot ad a diához
-    var tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
-    // Beállítja a szegély formátumát minden cellához
-    for (let i = 0; i < tbl.getRows().size(); i++) {
-        const row = tbl.getRows().get_Item(i);
-        for (let j = 0; j < row.size(); j++) {
-            const cell = row.get_Item(j);
-            cell.getCellFormat().getBorderTop().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-            cell.getCellFormat().getBorderTop().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-            cell.getCellFormat().getBorderTop().setWidth(5);
-            cell.getCellFormat().getBorderBottom().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-            cell.getCellFormat().getBorderBottom().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-            cell.getCellFormat().getBorderBottom().setWidth(5);
-            cell.getCellFormat().getBorderLeft().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-            cell.getCellFormat().getBorderLeft().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-            cell.getCellFormat().getBorderLeft().setWidth(5);
-            cell.getCellFormat().getBorderRight().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-            cell.getCellFormat().getBorderRight().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-            cell.getCellFormat().getBorderRight().setWidth(5);
-        }
-    }
-    // Egyesíti a cellákat (1, 1) x (2, 1)
-    tbl.mergeCells(tbl.get_Item(1, 1), tbl.get_Item(2, 1), false);
-    // Egyesíti a cellákat (1, 2) x (2, 2)
-    tbl.mergeCells(tbl.get_Item(1, 2), tbl.get_Item(2, 2), false);
-    // Egyesíti a cellákat (1, 1) x (1, 2)
-    tbl.mergeCells(tbl.get_Item(1, 1), tbl.get_Item(1, 2), true);
-    // A PPTX fájlt lemezre írja
-    pres.save("MergeCells_out.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const columnWidths = java.newArray("double", [70, 70, 70, 70]);
+    const rowHeights = java.newArray("double", [70, 70, 70, 70]);
+    const table = slide.getShapes().addTable(100, 50, columnWidths, rowHeights);
+
+    table.get_Item(1, 1).splitByWidth(table.get_Item(1, 1).getWidth() / 2);
+
+    presentation.save("split_cells.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Számozás felosztott cellában**
+### **Egyesített cellák felosztása sor- vagy oszlopszélesség szerint**
 
-Az előző példákban, amikor a táblacellákat egyesítették, a többi cellában a számozás vagy számrendszer nem változott.
+A betöltött sabloncellák adatkitöltésre való előkészítéséhez használja a [splitByRowSpan](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/splitbyrowspan/) metódust egy meglévő sorhatár mentén való felosztáshoz, vagy a [splitByColSpan](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/splitbycolspan/) metódust egy oszlophatár mentén való felosztáshoz.
 
-Ezúttal egy szabályos táblát (azaz egy olyan táblát, amelyben nincsenek egyesített cellák) veszünk, és megpróbáljuk felosztani a (1,1) cellát, hogy egy speciális táblát kapjunk. Érdemes figyelni a tábla számozására, amely furcsának tűnhet. Ennek azonban a Microsoft PowerPoint táblacellák számozásának módja, és az Aspose.Slides is ugyanezt teszi.
+Az `index` argumentum a felosztás felső részében lévő sorok vagy a bal oldali részében lévő oszlopok számát jelöli; a megadott érték a egyesített területhez képest relatív:
 
-Ez a JavaScript kód bemutatja a leírt folyamatot:
+- Sor felosztás: `0 < index <` [getRowSpan](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/getrowspan/).
+- Oszlop felosztás: `0 < index <` [getColSpan](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/getcolspan/).
+
+A példa azt feltételezi, hogy a prezentáció első diáján az első alakzat táblázat, amelyben a `(1, 2)` és `(1, 3)` cellák függőlegesen egyesítve vannak. Az alsó pozíciótól kiindulva a [getFirstColumnIndex](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/getfirstcolumnindex/) és [getFirstRowIndex](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/getfirstrowindex/) segítségével határozza meg a kiinduló pontot, és ellenőrzi mindkét kiterjedést. A `splitByRowSpan(1)` ezután szétválasztja a 2‑es és 3‑as sorokat a terméknevekhez. Egy vízszintes, kétoszlopos egyesítés esetén használja helyette a `splitByColSpan(1)` metódust.
 
 ```javascript
-// Létrehozza a Presentation osztályt, amely egy PPTX fájlt képvisel
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation("table_template.pptx");
 try {
-    // Eléri az első diát
-    var sld = pres.getSlides().get_Item(0);
-    // Meghatározza az oszlopokat szélességekkel és a sorokat magasságokkal
-    var dblCols = java.newArray("double", [70, 70, 70, 70]);
-    var dblRows = java.newArray("double", [70, 70, 70, 70]);
-    // Táblázat alakzatot ad a diához
-    var tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
-    // Beállítja a szegély formátumát minden cellához
-    for (let i = 0; i < tbl.getRows().size(); i++) {
-        const row = tbl.getRows().get_Item(i);
-        for (let j = 0; j < row.size(); j++) {
-            const cell = row.get_Item(j);
-            cell.getCellFormat().getBorderTop().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-            cell.getCellFormat().getBorderTop().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-            cell.getCellFormat().getBorderTop().setWidth(5);
-            cell.getCellFormat().getBorderBottom().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-            cell.getCellFormat().getBorderBottom().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-            cell.getCellFormat().getBorderBottom().setWidth(5);
-            cell.getCellFormat().getBorderLeft().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-            cell.getCellFormat().getBorderLeft().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-            cell.getCellFormat().getBorderLeft().setWidth(5);
-            cell.getCellFormat().getBorderRight().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-            cell.getCellFormat().getBorderRight().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-            cell.getCellFormat().getBorderRight().setWidth(5);
-        }
+    const slide = presentation.getSlides().get_Item(0);
+    const table = slide.getShapes().get_Item(0);
+
+    const selectedCell = table.get_Item(1, 3);
+    const firstColumnIndex = selectedCell.getFirstColumnIndex();
+    const firstRowIndex = selectedCell.getFirstRowIndex();
+    const mergedCell = table.get_Item(firstColumnIndex, firstRowIndex);
+
+    if (mergedCell.isMergedCell() && mergedCell.getRowSpan() == 2 && mergedCell.getColSpan() == 1) {
+        mergedCell.splitByRowSpan(1);
+
+        // A felosztás után a táblázatból származó cellák lekérése.
+        const upperCell = table.get_Item(firstColumnIndex, firstRowIndex);
+        const lowerCell = table.get_Item(firstColumnIndex, firstRowIndex + 1);
+        console.log("Upper cell merged: " + upperCell.isMergedCell());
+        console.log("Lower cell merged: " + lowerCell.isMergedCell());
+
+        upperCell.getTextFrame().setText("Product A");
+        lowerCell.getTextFrame().setText("Product B");
+
+        presentation.save("split_template.pptx", aspose.slides.SaveFormat.Pptx);
+    } else {
+        console.log("Select a merged region spanning exactly two rows and one column.");
     }
-    // Egyesíti a cellákat (1, 1) x (2, 1)
-    tbl.mergeCells(tbl.get_Item(1, 1), tbl.get_Item(2, 1), false);
-    // Egyesíti a cellákat (1, 2) x (2, 2)
-    tbl.mergeCells(tbl.get_Item(1, 2), tbl.get_Item(2, 2), false);
-    // Felosztja a (1, 1) cellát
-    tbl.get_Item(1, 1).splitByWidth(tbl.get_Item(2, 1).getWidth() / 2);
-    // A PPTX fájlt lemezre írja
-    pres.save("SplitCells_out.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Táblacellák háttérszínének módosítása**
+A táblázatrács és a környező cellák indexei változatlanok maradnak. A kapott cellákat a koordinátáik alapján kérdezheti le; itt mindkettő 1‑es kiterjedéssel rendelkezik, és a [isMergedCell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/ismergedcell/) `false` értéket ad. Nagyobb területek egy felosztás után is részben egyesítve maradhatnak.
 
-Ez a JavaScript kód bemutatja, hogyan változtassa meg egy táblacella háttérszínét:
+Az eredeti szöveg és annak formázása a felső (vagy bal) cellában marad; az új cella üres, de örökli a cella formázását, mint például a kitöltés, a szegélyek és a margók. Töltse fel a cellákat a felosztás után, és állítsa be a szükséges szövegformázást kifejezetten.
+
+A mentett prezentáció külön „Product A” és „Product B” cellákat tartalmaz, megőrizve a sablon cellaformázását. A részletekért tekintse meg a [Cell API Reference](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/) oldalt.
+
+## **A táblázatcella háttérszínének módosítása**
+
+Ez a példa egy 150‑pontos oszlopszélességű és 50‑pontos sormagasságú táblázatot hoz létre. A [setFillType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fillformat/setfilltype/) segítségével szilárd kitöltést választ, és a [getSolidFillColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fillformat/getsolidfillcolor/) által visszaadott színt pirosra állítja a `(2, 3)` cellában, amely a harmadik oszlopban és a negyedik sorban található.
 
 ```javascript
-var presentation = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var slide = presentation.getSlides().get_Item(0);
-    var dblCols = java.newArray("double", [150, 150, 150, 150]);
-    var dblRows = java.newArray("double", [50, 50, 50, 50, 50]);
-    // új táblát hoz létre
-    var table = slide.getShapes().addTable(50, 50, dblCols, dblRows);
-    // beállítja egy cella háttérszínét
-    var cell = table.get_Item(2, 3);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const columnWidths = java.newArray("double", [150, 150, 150, 150]);
+    const rowHeights = java.newArray("double", [50, 50, 50, 50, 50]);
+    const table = slide.getShapes().addTable(50, 50, columnWidths, rowHeights);
+
+    const cell = table.get_Item(2, 3);
     cell.getCellFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     cell.getCellFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
+
     presentation.save("cell_background_color.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (presentation != null) {
-        presentation.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Kép hozzáadása a táblacellán belül**
+## **Kép hozzáadása táblázatcella belsejébe**
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/Presentation) osztályból.
-2. Szerezzen referenciát egy diára az indexével.
-3. Határozzon meg egy oszlopok szélességét tartalmazó tömböt.
-4. Határozzon meg egy sorok magasságát tartalmazó tömböt.
-5. Adjon hozzá egy táblát a diához a [addTable](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/ShapeCollection#addTable-float-float-double:A-double:A-) metódussal.
-6. Hozzon létre egy `Images` objektumot a képfájl tárolásához.
-7. Adja hozzá az `IImage` képet a `PPImage` objektumhoz.
-8. Állítsa be a táblacellához a `FillFormat` értékét `Picture`-re.
-9. Adja hozzá a képet a tábla első cellájához.
-10. Mentse a módosított prezentációt PPTX fájlként
+Tegye az bemeneti képet a munkakönyvtárba a példa futtatása előtt. A képet a [Images.fromFile](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Images#fromFile) segítségével tölti be, és a [addImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagecollection/addimage/) metódussal adja hozzá a prezentáció képgyűjteményéhez. Ezután a képet a `(0, 0)` cella (a táblázat első cellája) képkitöltéséhez rendeli.
 
-Ez a JavaScript kód bemutatja, hogyan helyezzen el egy képet egy táblacellán belül táblát létrehozva:
+A [PictureFillMode.Stretch](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillmode/) az egész cellát kitölti a képpel, ami megváltoztathatja a képarányt. Az oszlopszélességek és sormagasságok pontokban vannak megadva. A betöltött képet egy `finally` blokkban szabadítja fel, miután hozzáadta a prezentációhoz.
 
 ```javascript
-// Létrehozza a Presentation osztályt, amely egy PPTX fájlt képvisel
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // Eléri az első diát
-    var islide = pres.getSlides().get_Item(0);
-    // Meghatározza az oszlopokat szélességekkel és a sorokat magasságokkal
-    var dblCols = java.newArray("double", [150, 150, 150, 150]);
-    var dblRows = java.newArray("double", [100, 100, 100, 100, 90]);
-    // Táblázat alakzatot ad a diához
-    var tbl = islide.getShapes().addTable(50, 50, dblCols, dblRows);
-    // PPImage objektumot hoz létre a képfájl használatával
-    var picture;
-    var image = aspose.slides.Images.fromFile("image.jpg");
+    const slide = presentation.getSlides().get_Item(0);
+
+    const columnWidths = java.newArray("double", [150, 150, 150, 150]);
+    const rowHeights = java.newArray("double", [100, 100, 100, 100, 90]);
+    const table = slide.getShapes().addTable(50, 50, columnWidths, rowHeights);
+
+    let ppImage;
+    const image = aspose.slides.Images.fromFile("aspose_logo.jpg");
     try {
-        picture = pres.getImages().addImage(image);
+        ppImage = presentation.getImages().addImage(image);
     } finally {
-        if (image != null) {
-            image.dispose();
-        }
+        image.dispose();
     }
-    // Hozzáadja a képet az első táblacellához
-    var cellFormat = tbl.get_Item(0, 0).getCellFormat();
-    cellFormat.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Picture));
-    cellFormat.getFillFormat().getPictureFillFormat().setPictureFillMode(aspose.slides.PictureFillMode.Stretch);
-    cellFormat.getFillFormat().getPictureFillFormat().getPicture().setImage(picture);
-    // A PPTX fájlt lemezre menti
-    pres.save("Image_In_TableCell_out.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
+
+    table.get_Item(0, 0).getCellFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Picture));
+    table.get_Item(0, 0).getCellFormat().getFillFormat().getPictureFillFormat().setPictureFillMode(aspose.slides.PictureFillMode.Stretch);
+    table.get_Item(0, 0).getCellFormat().getFillFormat().getPictureFillFormat().getPicture().setImage(ppImage);
+
+    presentation.save("table_cell_with_image.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
 ## **GYIK**
 
-**Beállíthatok-e különböző vonalvastagságot és stílust a cella egyes oldalain?**
+**Beállíthatok különböző vonalvastagságot és stílust a cella egyes oldalaira?**
 
-Igen. A [felső](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/cellformat/getbordertop/)/[alsó](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/cellformat/getborderbottom/)/[bal](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/cellformat/getborderleft/)/[jobb](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/cellformat/getborderright/) szegélyek különálló tulajdonságokkal rendelkeznek, így minden oldal vastagsága és stílusa eltérő lehet. Ez logikusan következik a cikkben bemutatott, cellánkénti oldalra vonatkozó szegélyvezérlésből.
+Igen. A [top](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cellformat/getbordertop/)/[bottom](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cellformat/getborderbottom/)/[left](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cellformat/getborderleft/)/[right](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cellformat/getborderright/) szegélyeknek különálló tulajdonságai vannak, így minden oldal vastagsága és stílusa eltérő lehet.
 
-**Mi történik a képpel, ha a háttérként beállított kép után megváltoztatom az oszlop/sor méretét?**
+**Mi történik a képpel, ha a oszlop-/sorméretet megváltoztatom miután képet állítottam be a cella háttérként?**
 
-A viselkedés a [kitöltési mód](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/picturefillmode/) (nyújtás/csempézés) függvénye. Nyújtás esetén a kép alkalmazkodik az új cellához; csempézés esetén a csempéket újraszámítják. A cikk említi a kép megjelenítési módjait egy cellában.
+A viselkedés a [fill mode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillmode/) (stretch/tile) beállítástól függ. Nyújtás esetén a kép alkalmazkodik az új cellához; csempézés esetén a csempéket újraszámítják.
 
-**Hozzá lehet-e rendelni hiperhivatkozást a cella teljes tartalmához?**
+**Hozzá tudok-e rendelni hiperhivatkozást a cella teljes tartalmához?**
 
-[Hyperlinks](/slides/hu/nodejs-java/manage-hyperlinks/) a cella szövegkeretén belül a szöveg (részlet) szintjén vagy az egész táblán/alakzat szintjén állítható be. Gyakorlatban a hivatkozást egy részlethez vagy a cella teljes szövegéhez rendeli.
+A [Hyperlinks](/slides/hu/nodejs-java/manage-hyperlinks/) beállítható a cella szövegtábláján belül a szöveg (rész) szintjén vagy az egész táblázat/alakzat szintjén. Gyakorlatban a hivatkozást egy részlethez vagy a cella teljes szövegéhez rendeli.
 
-**Beállíthatok-e különböző betűtípusokat egyetlen cellán belül?**
+**Beállíthatok többféle betűtípust egyetlen cellában?**
 
-Igen. A cella szövegkerete támogatja a [részleteket](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/portion/) (futtatások) független formázással – betűcsalád, stílus, méret és szín.
+Igen. A cella szövegtáblája támogatja a [portions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portion/) (futások) önálló formázását — betűcsalád, stílus, méret és szín.

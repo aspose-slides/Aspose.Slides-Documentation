@@ -1,5 +1,5 @@
 ---
-title: Gestisci le celle della tabella nelle presentazioni usando Python
+title: Gestisci le celle della tabella nelle presentazioni con Python
 linktitle: Gestisci celle
 type: docs
 weight: 30
@@ -15,20 +15,17 @@ keywords:
 - presentazione
 - Python
 - Aspose.Slides
-description: "Gestisci le celle della tabella in PowerPoint con Aspose.Slides per Python via Java in modo semplice. Padroneggia l'accesso, la modifica e lo styling delle celle rapidamente per un'automazione fluida delle diapositive."
+description: "Gestisci le celle della tabella PowerPoint in Python: identifica le celle unite, rimuovi i bordi, dividi le celle e imposta colori di sfondo e immagini con Aspose.Slides per Python via Java."
 ---
 ## **Panoramica**
 
-Aspose.Slides ti consente di accedere e modificare le celle delle tabelle nelle presentazioni PowerPoint. Questo articolo spiega come identificare le celle di tabella unite, rimuovere i bordi delle celle, lavorare con la numerazione delle celle dopo l’unione o la divisione, cambiare il colore di sfondo di una cella e aggiungere un’immagine all’interno di una cella di tabella. Gli esempi mostrano come creare o aprire una presentazione, ottenere una tabella da una diapositiva, aggiornare la formattazione della cella tramite le proprietà della cella e salvare la presentazione modificata come file PPTX.
+Aspose.Slides consente di accedere e modificare le celle di tabella nelle presentazioni PowerPoint. Questo articolo spiega come identificare le celle di tabella unite, rimuovere i bordi delle celle, gestire la numerazione delle celle dopo l’unione o la divisione, cambiare il colore di sfondo di una cella e aggiungere un’immagine all’interno di una cella di tabella. Gli esempi mostrano come creare o aprire una presentazione, ottenere una tabella da una diapositiva, aggiornare la formattazione delle celle tramite le proprietà delle celle e salvare la presentazione modificata come file PPTX.
+
+Aspose.Slides utilizza indici basati su zero per accedere alle celle di tabella nell'ordine `(column, row)`.
 
 ## **Identificare una cella di tabella unita**
 
-1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/python-java/aspose.slides/presentation/).
-2. Ottieni la tabella dalla prima diapositiva.
-3. Itera le righe e le colonne della tabella per trovare le celle unite.
-4. Stampa un messaggio quando vengono trovate celle unite.
-
-Questo codice Python ti mostra come identificare le celle di tabella unite in una presentazione:
+L'esempio apre una presentazione esistente e accede alla prima forma nella prima diapositiva come tabella. Presume che la diapositiva e la forma esistano e che la forma sia una tabella. Quindi itera su tutte le righe e le colonne e utilizza [isMergedCell](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#isMergedCell) per identificare le celle in regioni unite. Per ogni corrispondenza, stampa le coordinate della cella in ordine `row;column`, [getRowSpan](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#getRowSpan), [getColSpan](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#getColSpan), e le coordinate di inizio della regione, [getFirstRowIndex](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#getFirstRowIndex) e [getFirstColumnIndex](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#getFirstColumnIndex).
 
 ```python
 import jpype
@@ -37,36 +34,26 @@ import asposeslides
 if not jpype.isJVMStarted():
     jpype.startJVM()
 
-from asposeslides.api import Presentation, Table
+from asposeslides.api import Presentation
 
-presentation = Presentation("SomePresentationWithTable.pptx")
+presentation = Presentation("presentation_with_table.pptx")
 try:
-    # Supponi che la prima forma nella prima diapositiva sia una tabella.
-    shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0)
-    if isinstance(shape, Table):
-        table = shape
-        for i in range(table.getRows().size()):
-            for j in range(table.getColumns().size()):
-                current_cell = table.getRows().get_Item(i).get_Item(j)
-                if current_cell.isMergedCell():
-                    print(f"Cell {i};{j} is part of a merged cell with RowSpan={current_cell.getRowSpan()} and ColSpan={current_cell.getColSpan()} starting from Cell {current_cell.getFirstRowIndex()};{current_cell.getFirstColumnIndex()}.")
-    else:
-        print("The first shape is not a table.")
+    slide = presentation.getSlides().get_Item(0)
+    table = slide.getShapes().get_Item(0)
+
+    row_count = table.getRows().size()
+    for row_index in range(row_count):
+        column_count = table.getColumns().size()
+        for column_index in range(column_count):
+            cell = table.get_Item(column_index, row_index)
+            if cell.isMergedCell():
+                print(f"Cell {row_index};{column_index} belongs to a merged region with RowSpan={cell.getRowSpan()} and ColSpan={cell.getColSpan()} starting at {cell.getFirstRowIndex()};{cell.getFirstColumnIndex()}.")
 finally:
     presentation.dispose()
 ```
-
 ## **Rimuovere i bordi delle celle della tabella**
 
-1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/python-java/aspose.slides/presentation/).
-2. Ottieni un riferimento a una diapositiva tramite il suo indice.
-3. Definisci un elenco di larghezze delle colonne.
-4. Definisci un elenco di altezze delle righe.
-5. Aggiungi una tabella alla diapositiva tramite il metodo [addTable](https://reference.aspose.com/slides/it/python-java/aspose.slides/shapecollection/#addTable).
-6. Itera ogni cella per cancellare i bordi superiore, inferiore, destro e sinistro.
-7. Salva la presentazione modificata come file PPTX.
-
-Questo codice Python ti mostra come rimuovere i bordi dalle celle della tabella:
+Creare una [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) e aggiungere una tabella alla sua prima diapositiva con [addTable](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addTable). Le larghezze delle colonne, le altezze delle righe e la posizione della tabella sono specificate in punti. L'esempio imposta tutti e quattro i bordi della cella su [FillType.NoFill](https://reference.aspose.com/slides/python-java/aspose.slides/filltype/), rendendoli invisibili.
 
 ```python
 import jpype
@@ -79,17 +66,12 @@ from asposeslides.api import Presentation, FillType, SaveFormat
 
 presentation = Presentation()
 try:
-    # Accedi alla prima diapositiva.
     slide = presentation.getSlides().get_Item(0)
 
-    # Definisci le larghezze delle colonne e le altezze delle righe.
     column_widths = [50, 50, 50, 50]
     row_heights = [50, 30, 30, 30, 30]
-
-    # Aggiungi una tabella alla diapositiva.
     table = slide.getShapes().addTable(100, 50, column_widths, row_heights)
 
-    # Imposta il formato del bordo per ogni cella.
     for row in table.getRows():
         for cell in row:
             cell.getCellFormat().getBorderTop().getFillFormat().setFillType(FillType.NoFill)
@@ -97,71 +79,15 @@ try:
             cell.getCellFormat().getBorderLeft().getFillFormat().setFillType(FillType.NoFill)
             cell.getCellFormat().getBorderRight().getFillFormat().setFillType(FillType.NoFill)
 
-    # Salva la presentazione come file PPTX.
-    presentation.save("table_out.pptx", SaveFormat.Pptx)
+    presentation.save("table.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
+## **Unire le celle della tabella**
 
-## **Numerazione nelle celle unite**
+Utilizzare [mergeCells](https://reference.aspose.com/slides/python-java/aspose.slides/table/#mergeCells) per combinare un intervallo rettangolare di celle della tabella in una singola cella. Specificare le celle negli angoli in alto a sinistra e in basso a destra dell'intervallo. L'ultimo argomento controlla se l'unione può includere celle al di fuori dell'intervallo specificato; `False` mantiene l'unione all'interno di quell'intervallo.
 
-Se uniamo due coppie di celle, (1, 1) e (2, 1), e (1, 2) e (2, 2), la tabella risultante conserva la numerazione delle celle. Questo codice Python dimostra il processo:
-
-```python
-import jpype
-import asposeslides
-
-if not jpame.isJVMStarted():
-    jpype.startJVM()
-
-from asposeslides.api import Presentation, FillType, SaveFormat
-from java.awt import Color
-
-presentation = Presentation()
-try:
-    # Accedi alla prima diapositiva.
-    slide = presentation.getSlides().get_Item(0)
-
-    # Definisci le larghezze delle colonne e le altezze delle righe.
-    column_widths = [70, 70, 70, 70]
-    row_heights = [70, 70, 70, 70]
-
-    # Aggiungi una tabella alla diapositiva.
-    table = slide.getShapes().addTable(100, 50, column_widths, row_heights)
-
-    # Imposta il formato del bordo per ogni cella.
-    for row in table.getRows():
-        for cell in row:
-            cell.getCellFormat().getBorderTop().getFillFormat().setFillType(FillType.Solid)
-            cell.getCellFormat().getBorderTop().getFillFormat().getSolidFillColor().setColor(Color.RED)
-            cell.getCellFormat().getBorderTop().setWidth(5)
-
-            cell.getCellFormat().getBorderBottom().getFillFormat().setFillType(FillType.Solid)
-            cell.getCellFormat().getBorderBottom().getFillFormat().getSolidFillColor().setColor(Color.RED)
-            cell.getCellFormat().getBorderBottom().setWidth(5)
-
-            cell.getCellFormat().getBorderLeft().getFillFormat().setFillType(FillType.Solid)
-            cell.getCellFormat().getBorderLeft().getFillFormat().getSolidFillColor().setColor(Color.RED)
-            cell.getCellFormat().getBorderLeft().setWidth(5)
-
-            cell.getCellFormat().getBorderRight().getFillFormat().setFillType(FillType.Solid)
-            cell.getCellFormat().getBorderRight().getFillFormat().getSolidFillColor().setColor(Color.RED)
-            cell.getCellFormat().getBorderRight().setWidth(5)
-
-
-    # Unisci le celle (1, 1) e (2, 1).
-    table.mergeCells(table.get_Item(1, 1), table.get_Item(2, 1), False)
-
-    # Unisci le celle (1, 2) e (2, 2).
-    table.mergeCells(table.get_Item(1, 2), table.get_Item(2, 2), False)
-
-    # Salva la presentazione come file PPTX.
-    presentation.save("MergeCells_out.pptx", SaveFormat.Pptx)
-finally:
-    presentation.dispose()
-```
-
-Successivamente uniamo ulteriormente le celle unendo (1, 1) e (1, 2). Il risultato è una tabella contenente una grande cella unita al centro:
+L'esempio crea una tabella 4 × 4 con colonne e righe da 70 point, quindi unisce le quattro celle centrali da `(1, 1)` a `(2, 2)`. La cella risultante occupa due colonne e due righe, mentre la griglia sottostante della tabella mantiene quattro colonne e quattro righe. Per accedere al contenuto o alla formattazione della cella unita, utilizzare la sua posizione in alto a sinistra: `table.get_Item(1, 1)` in questo esempio. Le altre posizioni nell'intervallo unito rimangono parte della griglia della tabella, quindi gli indici delle celle al di fuori dell'intervallo non cambiano.
 
 ```python
 import jpype
@@ -170,118 +96,111 @@ import asposeslides
 if not jpype.isJVMStarted():
     jpype.startJVM()
 
-from asposeslides.api import Presentation, FillType, SaveFormat
-from java.awt import Color
+from asposeslides.api import Presentation, SaveFormat
 
 presentation = Presentation()
 try:
-    # Accedi alla prima diapositiva.
     slide = presentation.getSlides().get_Item(0)
 
-    # Definisci le larghezze delle colonne e le altezze delle righe.
     column_widths = [70, 70, 70, 70]
     row_heights = [70, 70, 70, 70]
-
-    # Aggiungi una tabella alla diapositiva.
     table = slide.getShapes().addTable(100, 50, column_widths, row_heights)
 
-    # Imposta il formato del bordo per ogni cella.
-    for row in table.getRows():
-        for cell in row:
-            cell.getCellFormat().getBorderTop().getFillFormat().setFillType(FillType.Solid)
-            cell.getCellFormat().getBorderTop().getFillFormat().getSolidFillColor().setColor(Color.RED)
-            cell.getCellFormat().getBorderTop().setWidth(5)
+    table.mergeCells(table.get_Item(1, 1), table.get_Item(2, 2), False)
 
-            cell.getCellFormat().getBorderBottom().getFillFormat().setFillType(FillType.Solid)
-            cell.getCellFormat().getBorderBottom().getFillFormat().getSolidFillColor().setColor(Color.RED)
-            cell.getCellFormat().getBorderBottom().setWidth(5)
-
-            cell.getCellFormat().getBorderLeft().getFillFormat().setFillType(FillType.Solid)
-            cell.getCellFormat().getBorderLeft().getFillFormat().getSolidFillColor().setColor(Color.RED)
-            cell.getCellFormat().getBorderLeft().setWidth(5)
-
-            cell.getCellFormat().getBorderRight().getFillFormat().setFillType(FillType.Solid)
-            cell.getCellFormat().getBorderRight().getFillFormat().getSolidFillColor().setColor(Color.RED)
-            cell.getCellFormat().getBorderRight().setWidth(5)
-
-
-    # Unisci le celle (1, 1) e (2, 1).
-    table.mergeCells(table.get_Item(1, 1), table.get_Item(2, 1), False)
-
-    # Unisci le celle (1, 2) e (2, 2).
-    table.mergeCells(table.get_Item(1, 2), table.get_Item(2, 2), False)
-
-    # Unisci le celle (1, 1) e (1, 2).
-    table.mergeCells(table.get_Item(1, 1), table.get_Item(1, 2), True)
-
-    # Salva la presentazione come file PPTX.
-    presentation.save("MergeCells_out.pptx", SaveFormat.Pptx)
+    presentation.save("merged_cells.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
+## **Dividere le celle della tabella**
 
-## **Numerazione in una cella divisa**
+L'unione delle celle nell'esempio precedente preserva la griglia della tabella. Dividere una cella può introdurre una nuova colonna nella griglia e modificare gli indici di colonna delle celle a destra. Aspose.Slides segue il modello di griglia delle tabelle di PowerPoint.
 
-Negli esempi precedenti, l’unione delle celle della tabella non ha modificato la numerazione delle altre celle.
+Questo esempio crea una tabella 4 × 4 con colonne e righe da 70 point e chiama [splitByWidth](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#splitByWidth) sulla cella `(1, 1)`. Metà della larghezza di 70 point della cella viene passata per creare due celle di larghezza uguale.
 
-Questa volta prendiamo una tabella regolare (una tabella senza celle unite) e poi proviamo a dividere la cella (1, 1) per ottenere una tabella speciale. Potresti notare una numerazione della tabella che può apparire strana. Tuttavia, questo è il modo in cui Microsoft PowerPoint numera le celle della tabella e Aspose.Slides si comporta allo stesso modo.
-
-Questo codice Python dimostra il processo descritto:
+Dopo questa divisione, le due metà sono accessibili come `table.get_Item(1, 1)` e `table.get_Item(2, 1)`. La griglia della tabella ora ha cinque colonne: le celle originariamente nelle colonne 2 e 3 si spostano rispettivamente alle colonne 3 e 4. Gli indici di riga rimangono invariati. Utilizzare questi indici di colonna aggiornati quando si accede alle celle dopo la divisione.
 
 ```python
 import jpype
 import asposeslides
 
 if not jpype.isJVMStarted():
-    jpage.startJVM()
+    jpype.startJVM()
 
-from asposeslides.api import Presentation, FillType, SaveFormat
-from java.awt import Color
+from asposeslides.api import Presentation, SaveFormat
 
 presentation = Presentation()
 try:
-    # Accedi alla prima diapositiva.
     slide = presentation.getSlides().get_Item(0)
 
-    # Definisci le larghezze delle colonne e le altezze delle righe.
     column_widths = [70, 70, 70, 70]
     row_heights = [70, 70, 70, 70]
-
-    # Aggiungi una tabella alla diapositiva.
     table = slide.getShapes().addTable(100, 50, column_widths, row_heights)
 
-    # Imposta il formato del bordo per ogni cella.
-    for row in table.getRows():
-        for cell in row:
-            cell.getCellFormat().getBorderTop().getFillFormat().setFillType(FillType.Solid)
-            cell.getCellFormat().getBorderTop().getFillFormat().getSolidFillColor().setColor(Color.RED)
-            cell.getCellFormat().getBorderTop().setWidth(5)
+    table.get_Item(1, 1).splitByWidth(table.get_Item(1, 1).getWidth() / 2)
 
-            cell.getCellFormat().getBorderBottom().getFillFormat().setFillType(FillType.Solid)
-            cell.getCellFormat().getBorderBottom().getFillFormat().getSolidFillColor().setColor(Color.RED)
-            cell.getCellFormat().getBorderBottom().setWidth(5)
-
-            cell.getCellFormat().getBorderLeft().getFillFormat().setFillType(FillType.Solid)
-            cell.getCellFormat().getBorderLeft().getFillFormat().getSolidFillColor().setColor(Color.RED)
-            cell.getCellFormat().getBorderLeft().setWidth(5)
-
-            cell.getCellFormat().getBorderRight().getFillFormat().setFillType(FillType.Solid)
-            cell.getCellFormat().getBorderRight().getFillFormat().getSolidFillColor().setColor(Color.RED)
-            cell.getCellFormat().getBorderRight().setWidth(5)
-
-
-    # Dividi la cella (1, 1).
-    table.get_Item(1, 1).splitByWidth(table.get_Item(2, 1).getWidth() / 2)
-
-    # Salva la presentazione come file PPTX.
-    presentation.save("SplitCells_out.pptx", SaveFormat.Pptx)
+    presentation.save("split_cells.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
+### **Dividere le celle unite per intervallo di riga o colonna**
+
+Per preparare le celle modello unite alla popolazione dei dati, utilizzare [splitByRowSpan](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#splitByRowSpan) per dividere lungo un confine di riga esistente, oppure [splitByColSpan](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#splitByColSpan) per dividere lungo un confine di colonna.
+
+L'argomento `index` conta le righe nella parte superiore o le colonne nella parte sinistra della divisione; è relativo alla regione unita:
+
+- Divisione per riga: `0 < index <` [getRowSpan](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#getRowSpan).
+- Divisione per colonna: `0 < index <` [getColSpan](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#getColSpan).
+
+L'esempio presuppone che una presentazione contenga una tabella come prima forma nella prima diapositiva, con `(1, 2)` e `(1, 3)` unite verticalmente. Partendo dalla posizione inferiore, utilizza [getFirstColumnIndex](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#getFirstColumnIndex) e [getFirstRowIndex](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#getFirstRowIndex) per individuare l'origine e controlla entrambi gli intervalli. `splitByRowSpan(1)` separa quindi le righe 2 e 3 per i nomi dei prodotti. Per un'unione orizzontale a due colonne, usare invece `splitByColSpan(1)`.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import Presentation, SaveFormat
+
+presentation = Presentation("table_template.pptx")
+try:
+    slide = presentation.getSlides().get_Item(0)
+    table = slide.getShapes().get_Item(0)
+
+    selected_cell = table.get_Item(1, 3)
+    first_column_index = selected_cell.getFirstColumnIndex()
+    first_row_index = selected_cell.getFirstRowIndex()
+    merged_cell = table.get_Item(first_column_index, first_row_index)
+
+    if merged_cell.isMergedCell() and merged_cell.getRowSpan() == 2 and merged_cell.getColSpan() == 1:
+        merged_cell.splitByRowSpan(1)
+
+        # Recupera le celle risultanti dalla tabella dopo la divisione.
+        upper_cell = table.get_Item(first_column_index, first_row_index)
+        lower_cell = table.get_Item(first_column_index, first_row_index + 1)
+        print(f"Upper cell merged: {upper_cell.isMergedCell()}")
+        print(f"Lower cell merged: {lower_cell.isMergedCell()}")
+
+        upper_cell.getTextFrame().setText("Product A")
+        lower_cell.getTextFrame().setText("Product B")
+
+        presentation.save("split_template.pptx", SaveFormat.Pptx)
+    else:
+        print("Select a merged region spanning exactly two rows and one column.")
+finally:
+    presentation.dispose()
+```
+
+La griglia della tabella e gli indici delle celle circostanti rimangono invariati. Recuperare le celle risultanti tramite le loro coordinate; qui entrambe hanno intervalli di 1 e [isMergedCell](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#isMergedCell) restituisce `False`. Regioni più ampie possono rimanere parzialmente unite dopo una divisione.
+
+Il testo originale e la sua formattazione rimangono nella cella superiore (o sinistra); la nuova cella è vuota ma eredita la formattazione della cella, come riempimento, bordi e margini. Popolare le celle dopo la divisione e impostare esplicitamente qualsiasi formattazione del testo necessaria.
+
+La presentazione salvata contiene celle separate "Product A" e "Product B" con la formattazione della cella del modello mantenuta. Vedi il [Cell API Reference](https://reference.aspose.com/slides/python-java/aspose.slides/cell/) per i dettagli.
 
 ## **Modificare il colore di sfondo della cella della tabella**
 
-Questo codice Python ti mostra come cambiare il colore di sfondo di una cella della tabella:
+Questo esempio crea una tabella con colonne da 150 point e righe da 50 point. Utilizza [setFillType](https://reference.aspose.com/slides/python-java/aspose.slides/fillformat/#setFillType) per selezionare un riempimento solido e imposta il colore restituito da [getSolidFillColor](https://reference.aspose.com/slides/python-java/aspose.slides/fillformat/#getSolidFillColor) su rosso per la cella `(2, 3)`, nella terza colonna e quarta riga.
 
 ```python
 import jpype
@@ -295,41 +214,25 @@ from java.awt import Color
 
 presentation = Presentation()
 try:
-    # Accedi alla prima diapositiva.
     slide = presentation.getSlides().get_Item(0)
 
-    # Definisci le larghezze delle colonne e le altezze delle righe.
     column_widths = [150, 150, 150, 150]
     row_heights = [50, 50, 50, 50, 50]
-
-    # Aggiungi una tabella alla diapositiva.
     table = slide.getShapes().addTable(50, 50, column_widths, row_heights)
 
-    # Imposta il colore di sfondo per una cella.
     cell = table.get_Item(2, 3)
     cell.getCellFormat().getFillFormat().setFillType(FillType.Solid)
     cell.getCellFormat().getFillFormat().getSolidFillColor().setColor(Color.RED)
 
-    # Salva la presentazione come file PPTX.
     presentation.save("cell_background_color.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
-
 ## **Aggiungere un'immagine all'interno di una cella di tabella**
 
-1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/python-java/aspose.slides/presentation/).
-2. Ottieni un riferimento a una diapositiva tramite il suo indice.
-3. Definisci un elenco di larghezze delle colonne.
-4. Definisci un elenco di altezze delle righe.
-5. Aggiungi una tabella alla diapositiva tramite il metodo [addTable](https://reference.aspose.com/slides/it/python-java/aspose.slides/shapecollection/#addTable).
-6. Carica il file immagine usando [Images.fromFile](https://reference.aspose.com/slides/it/python-java/aspose.slides/images/#fromFile).
-7. Aggiungi l’immagine alla presentazione per creare un oggetto [PPImage](https://reference.aspose.com/slides/it/python-java/aspose.slides/ppimage/).
-8. Imposta il tipo di riempimento della cella tramite la proprietà [FillFormat](https://reference.aspose.com/slides/it/python-java/aspose.slides/fillformat/) su [FillType.Picture](https://reference.aspose.com/slides/it/python-java/aspose.slides/filltype/#Picture).
-9. Aggiungi l’immagine alla prima cella della tabella.
-10. Salva la presentazione modificata come file PPTX.
+Posizionare l'immagine di input nella directory di lavoro prima di eseguire questo esempio. L'immagine viene caricata con [Images.fromFile](https://reference.aspose.com/slides/python-java/aspose.slides/images/#fromFile) e aggiunta alla raccolta immagini della presentazione con [addImage](https://reference.aspose.com/slides/python-java/aspose.slides/imagecollection/#addImage). Successivamente viene assegnata l'immagine al riempimento immagine della cella `(0, 0)`, la prima cella della tabella.
 
-Questo codice Python ti mostra come inserire un'immagine all'interno di una cella della tabella durante la creazione della tabella:
+[PictureFillMode.Stretch](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillmode/) allunga l'immagine per riempire la cella, il che può modificare il suo rapporto d'aspetto. Le larghezze delle colonne e le altezze delle righe sono in punti. L'immagine caricata viene eliminata in un blocco `finally` dopo essere stata aggiunta alla presentazione.
 
 ```python
 import jpype
@@ -342,49 +245,40 @@ from asposeslides.api import Presentation, Images, FillType, PictureFillMode, Sa
 
 presentation = Presentation()
 try:
-    # Accedi alla prima diapositiva.
     slide = presentation.getSlides().get_Item(0)
 
-    # Definisci le larghezze delle colonne e le altezze delle righe.
     column_widths = [150, 150, 150, 150]
     row_heights = [100, 100, 100, 100, 90]
-
-    # Aggiungi una tabella alla diapositiva.
     table = slide.getShapes().addTable(50, 50, column_widths, row_heights)
 
-    # Crea un'immagine della presentazione dal file immagine.
-    image = Images.fromFile("image.jpg")
+    image = Images.fromFile("aspose_logo.jpg")
     try:
-        picture = presentation.getImages().addImage(image)
+        presentation_image = presentation.getImages().addImage(image)
     finally:
         image.dispose()
 
-    # Aggiungi l'immagine alla prima cella della tabella.
-    cell_format = table.get_Item(0, 0).getCellFormat()
-    cell_format.getFillFormat().setFillType(FillType.Picture)
-    cell_format.getFillFormat().getPictureFillFormat().setPictureFillMode(PictureFillMode.Stretch)
-    cell_format.getFillFormat().getPictureFillFormat().getPicture().setImage(picture)
+    table.get_Item(0, 0).getCellFormat().getFillFormat().setFillType(FillType.Picture)
+    table.get_Item(0, 0).getCellFormat().getFillFormat().getPictureFillFormat().setPictureFillMode(PictureFillMode.Stretch)
+    table.get_Item(0, 0).getCellFormat().getFillFormat().getPictureFillFormat().getPicture().setImage(presentation_image)
 
-    # Salva la presentazione come file PPTX.
-    presentation.save("Image_In_TableCell_out.pptx", SaveFormat.Pptx)
+    presentation.save("table_cell_with_image.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
-
 ## **FAQ**
 
-**Posso impostare spessori e stili di linea diversi per i lati di una singola cella?**
+**Posso impostare spessori e stili di linea diversi per i diversi lati di una singola cella?**
 
-Sì. I bordi [top](https://reference.aspose.com/slides/it/python-java/aspose.slides/cellformat/#getBorderTop)/[bottom](https://reference.aspose.com/slides/it/python-java/aspose.slides/cellformat/#getBorderBottom)/[left](https://reference.aspose.com/slides/it/python-java/aspose.slides/cellformat/#getBorderLeft)/[right](https://reference.aspose.com/slides/it/python-java/aspose.slides/cellformat/#getBorderRight) hanno proprietà separate, quindi lo spessore e lo stile di ciascun lato possono differire. Questo deriva logicamente dal controllo dei bordi per lato di una cella mostrato nell'articolo.
+Sì. I bordi [top](https://reference.aspose.com/slides/python-java/aspose.slides/cellformat/#getBorderTop)/[bottom](https://reference.aspose.com/slides/python-java/aspose.slides/cellformat/#getBorderBottom)/[left](https://reference.aspose.com/slides/python-java/aspose.slides/cellformat/#getBorderLeft)/[right](https://reference.aspose.com/slides/python-java/aspose.slides/cellformat/#getBorderRight) hanno proprietà separate, quindi lo spessore e lo stile di ciascun lato possono differire.
 
 **Cosa succede all'immagine se modifico la dimensione della colonna/riga dopo aver impostato un'immagine come sfondo della cella?**
 
-Il comportamento dipende dalla [fill mode](https://reference.aspose.com/slides/it/python-java/aspose.slides/picturefillmode/) (stretch/tile). Con lo stretching, l'immagine si adatta alla nuova cella; con il tiling, le tessere vengono ricalcolate. L'articolo menziona le modalità di visualizzazione dell'immagine in una cella.
+Il comportamento dipende dalla [fill mode](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillmode/) (stretch/tile). Con lo stretching, l'immagine si adatta alla nuova cella; con il tiling, le piastrelle vengono ricalcolate.
 
-**Posso assegnare un collegamento ipertestuale a tutto il contenuto di una cella?**
+**Posso assegnare un hyperlink a tutto il contenuto di una cella?**
 
-[Hyperlinks](/slides/it/python-java/manage-hyperlinks/) vengono impostati a livello di porzione di testo all'interno del frame di testo della cella o a livello dell'intera tabella/forma. In pratica, assegni il collegamento a una porzione o a tutto il testo nella cella.
+[Hyperlinks](/slides/it/python-java/manage-hyperlinks/) sono impostati a livello di testo (porzione) all'interno del riquadro di testo della cella o a livello dell'intera tabella/forma. In pratica, si assegna il collegamento a una porzione o a tutto il testo nella cella.
 
-**Posso impostare caratteri diversi all'interno di una singola cella?**
+**Posso impostare font diversi all'interno di una singola cella?**
 
-Sì. Il frame di testo di una cella supporta le [portions](https://reference.aspose.com/slides/it/python-java/aspose.slides/portion/) (run) con formattazione indipendente—famiglia di caratteri, stile, dimensione e colore.
+Sì. Il riquadro di testo di una cella supporta [portions](https://reference.aspose.com/slides/python-java/aspose.slides/portion/) (runs) con formattazione indipendente — famiglia di font, stile, dimensione e colore.

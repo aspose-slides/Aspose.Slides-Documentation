@@ -12,72 +12,49 @@ keywords:
 - imagem na célula
 - cor de fundo
 - PowerPoint
-- OpenDocument
 - apresentação
 - Python
 - Aspose.Slides
-description: "Gerencie facilmente células de tabela no PowerPoint e OpenDocument com Aspose.Slides para Python via .NET. Domine o acesso, modificação e estilo de células rapidamente para automação de slides fluida."
+description: "Gerencie células de tabelas do PowerPoint em Python: identifique células mescladas, remova bordas, divida células e defina cores de fundo e imagens com Aspose.Slides para Python via .NET."
 ---
 ## **Visão geral**
 
-Aspose.Slides permite acessar e modificar células de tabelas em apresentações do PowerPoint. Este artigo explica como identificar células mescladas, remover bordas das células, trabalhar com a numeração das células após mesclar ou dividir, alterar a cor de fundo de uma célula e inserir uma imagem dentro de uma célula de tabela. Os exemplos mostram como criar ou abrir uma apresentação, obter uma tabela de um slide, atualizar a formatação da célula por meio das propriedades da célula e salvar a apresentação modificada como arquivo PPTX.
+Aspose.Slides permite acessar e modificar células de tabela em apresentações do PowerPoint. Este artigo explica como identificar células de tabela mescladas, remover bordas de célula, trabalhar com a numeração de células após mesclar ou dividir células, alterar a cor de fundo de uma célula e adicionar uma imagem dentro de uma célula de tabela. Os exemplos mostram como criar ou abrir uma apresentação, obter uma tabela de um slide, atualizar a formatação da célula por meio das propriedades da célula e salvar a apresentação modificada como um arquivo PPTX.
 
-## **Identificar células mescladas da tabela**
+Aspose.Slides usa índices baseados em zero. As coordenadas neste artigo são escritas como `(coluna, linha)`.
 
-As tabelas costumam conter células mescladas para cabeçalhos ou para agrupar dados relacionados. Nesta seção, você verá como determinar se uma célula específica pertence a uma região mesclada e como referenciar a célula mestre (superior‑esquerda) para ler ou formatar todo o bloco de forma consistente.
+## **Identificar uma Célula de Tabela Mesclada**
 
-1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/python-net/aspose.slides/presentation/).
-1. Obtenha a tabela do primeiro slide.
-1. Percorra as linhas e colunas da tabela para encontrar células mescladas.
-1. Exiba uma mensagem quando células mescladas forem encontradas.
+O exemplo abre uma apresentação existente e acessa a primeira forma no primeiro slide como uma tabela. Ele assume que o slide e a forma existem e que a forma é uma tabela. Em seguida, itera por todas as linhas e colunas e usa [is_merged_cell](https://reference.aspose.com/slides/python-net/aspose.slides/cell/is_merged_cell/) para identificar células em regiões mescladas. Para cada correspondência, ele imprime as coordenadas da célula na ordem `linha;coluna`, [row_span](https://reference.aspose.com/slides/python-net/aspose.slides/cell/row_span/), [col_span](https://reference.aspose.com/slides/python-net/aspose.slides/cell/col_span/), e as coordenadas iniciais da região, [first_row_index](https://reference.aspose.com/slides/python-net/aspose.slides/cell/first_row_index/) e [first_column_index](https://reference.aspose.com/slides/python-net/aspose.slides/cell/first_column_index/).
 
-O código Python a seguir identifica células mescladas em uma apresentação:
-
-```py
+```python
 import aspose.slides as slides
 
 with slides.Presentation("presentation_with_table.pptx") as presentation:
-    # Supondo que a primeira forma no primeiro slide seja uma tabela.
-    table = presentation.slides[0].shapes[0]
+    slide = presentation.slides[0]
+    table = slide.shapes[0]
 
     for row_index in range(len(table.rows)):
         for column_index in range(len(table.columns)):
             cell = table.rows[row_index][column_index]
             if cell.is_merged_cell:
-                print("Cell ({}, {}) is part of a merged region with a row span of {} and a column span of {}, starting from cell ({}, {}).".format(
-                    row_index, column_index, cell.row_span, cell.col_span, cell.first_row_index, cell.first_column_index))
+                print(f"Cell {row_index};{column_index} belongs to a merged region with row_span={cell.row_span} and col_span={cell.col_span} starting at {cell.first_row_index};{cell.first_column_index}.")
 ```
 
-## **Remover bordas das células da tabela**
+## **Remover Bordas de Células da Tabela**
 
-Às vezes, as bordas da tabela distraem o conteúdo ou criam desordem visual. Esta seção mostra como remover bordas de células selecionadas—ou de lados específicos de uma célula—para obter um layout mais limpo e melhor alinhado ao design do slide.
-
-1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/python-net/aspose.slides/presentation/).
-1. Obtenha o slide pelo seu índice.
-1. Defina um array de larguras de coluna.
-1. Defina um array de alturas de linha.
-1. Adicione uma tabela ao slide usando o método [add_table](https://reference.aspose.com/slides/pt/python-net/aspose.slides/shapecollection/add_table/).
-1. Percorra cada célula para limpar as bordas superior, inferior, esquerda e direita.
-1. Salve a apresentação modificada como arquivo PPTX.
-
-O código Python a seguir demonstra como remover bordas das células da tabela:
+Crie uma [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) e adicione uma tabela ao seu primeiro slide com [add_table](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_table/). As larguras das colunas, alturas das linhas e a posição da tabela são especificadas em pontos. O exemplo define todas as quatro bordas da célula para [FillType.NO_FILL](https://reference.aspose.com/slides/python-net/aspose.slides/filltype/), tornando-as invisíveis.
 
 ```python
 import aspose.slides as slides
 
-# Instanciar a classe Presentation que representa um arquivo PPTX.
 with slides.Presentation() as presentation:
-    # Acessar o primeiro slide.
     slide = presentation.slides[0]
 
-    # Definir colunas com larguras e linhas com alturas.
     column_widths = [50, 50, 50, 50]
     row_heights = [50, 30, 30, 30, 30]
+    table = slide.shapes.add_table(100, 50, column_widths, row_heights)
 
-    # Adicionar uma forma de tabela ao slide.
-    table = slide.shapes.add_table(50, 50, column_widths, row_heights)
-
-    # Limpar o preenchimento da borda para cada célula.
     for row in table.rows:
         for cell in row:
             cell.cell_format.border_top.fill_format.fill_type = slides.FillType.NO_FILL
@@ -85,102 +62,102 @@ with slides.Presentation() as presentation:
             cell.cell_format.border_left.fill_format.fill_type = slides.FillType.NO_FILL
             cell.cell_format.border_right.fill_format.fill_type = slides.FillType.NO_FILL
 
-    # Salvar o arquivo PPTX no disco.
     presentation.save("table.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Numeração em células mescladas**
+## **Mesclar Células da Tabela**
 
-Se você mesclar dois pares de células—por exemplo, (1, 1) × (2, 1) e (1, 2) × (2, 2)—a tabela resultante manterá a mesma numeração de células da tabela sem mesclar. O código Python a seguir demonstra esse comportamento:
+Use [merge_cells](https://reference.aspose.com/slides/python-net/aspose.slides/table/merge_cells/) para combinar um intervalo retangular de células da tabela em uma única célula. Especifique as células nos cantos superior esquerdo e inferior direito do intervalo. O argumento final controla se a mesclagem pode incluir células fora do intervalo especificado; `False` mantém a mesclagem dentro desse intervalo.
+
+O exemplo cria uma tabela 4x4 com colunas e linhas de 70 pontos, então mescla as quatro células centrais de `(1, 1)` até `(2, 2)`. A célula resultante abrange duas colunas e duas linhas, enquanto a grade subjacente da tabela mantém quatro colunas e quatro linhas. Para acessar o conteúdo ou a formatação da célula mesclada, use sua posição superior esquerda: `table.rows[1][1]` neste exemplo. As outras posições no intervalo mesclado permanecem parte da grade da tabela, de modo que os índices das células fora do intervalo não mudam.
 
 ```python
 import aspose.slides as slides
 
-# Instanciar a classe Presentation que representa um arquivo PPTX.
 with slides.Presentation() as presentation:
-    # Acessar o primeiro slide.
     slide = presentation.slides[0]
 
-    # Definir colunas com larguras e linhas com alturas.
     column_widths = [70, 70, 70, 70]
     row_heights = [70, 70, 70, 70]
+    table = slide.shapes.add_table(100, 50, column_widths, row_heights)
 
-    # Adicionar uma forma de tabela ao slide.
-    table = slide.shapes.add_table(50, 50, column_widths, row_heights)
+    table.merge_cells(table.rows[1][1], table.rows[2][2], False)
 
-    # Mesclar células (1,1) e (2,1).
-    table.merge_cells(table.rows[1][1], table.rows[2][1], False)
-
-    # Mesclar células (1, 2) e (2, 2).
-    table.merge_cells(table.rows[1][2], table.rows[2][2], False)
-
-    # Imprimir os índices das células.
-    for row_index in range(len(table.rows)):
-        for column_index in range(len(table.rows[row_index])):
-            cell = table.rows[row_index][column_index]
-            print(f"{cell.first_row_index, cell.first_column_index} ", end="")
-        print()
-
-    # Salvar o arquivo PPTX no disco.
     presentation.save("merged_cells.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Saída:
+## **Dividir Células da Tabela**
 
-```text
-(0, 0) (0, 1) (0, 2) (0, 3) 
-(1, 0) (1, 1) (1, 2) (1, 3) 
-(2, 0) (1, 1) (1, 2) (2, 3) 
-(3, 0) (3, 1) (3, 2) (3, 3)
-```
+Mesclar células no exemplo anterior preserva a grade da tabela. Dividir uma célula pode introduzir uma nova coluna na grade e alterar os índices de coluna das células à sua direita. Aspose.Slides segue o modelo de grade de tabela do PowerPoint.
 
-## **Numeração em células divididas**
+Este exemplo cria uma tabela 4x4 com colunas e linhas de 70 pontos e chama [split_by_width](https://reference.aspose.com/slides/python-net/aspose.slides/cell/split_by_width/) na célula `(1, 1)`. Metade da largura de 70 pontos da célula é passada para criar duas células de largura igual.
 
-No exemplo anterior, quando as células da tabela foram mescladas, a numeração nas demais células não mudou. Agora, criamos uma tabela regular (sem células mescladas) e dividimos a célula (1, 1) para produzir uma tabela especial. Preste atenção à numeração dessa tabela—pode parecer incomum. No entanto, é assim que o Microsoft PowerPoint numera as células da tabela, e o Aspose.Slides segue o mesmo comportamento.
-
-O código Python a seguir demonstra esse comportamento:
+Após essa divisão, as duas metades são acessadas como `table.rows[1][1]` e `table.rows[1][2]`. A grade da tabela agora tem cinco colunas: células originalmente nas colunas 2 e 3 movem‑se para as colunas 3 e 4, respectivamente. Os índices das linhas permanecem inalterados. Use esses índices de coluna atualizados ao acessar células após a divisão.
 
 ```python
 import aspose.slides as slides
 
-# Instanciar a classe Presentation que representa um arquivo PPTX.
 with slides.Presentation() as presentation:
-    # Acessar o primeiro slide.
     slide = presentation.slides[0]
 
-    # Definir larguras de coluna e alturas de linha.
     column_widths = [70, 70, 70, 70]
     row_heights = [70, 70, 70, 70]
+    table = slide.shapes.add_table(100, 50, column_widths, row_heights)
 
-    # Adicionar uma forma de tabela ao slide.
-    table = slide.shapes.add_table(50, 50, column_widths, row_heights)
+    table.rows[1][1].split_by_width(table.rows[1][1].width / 2)
 
-    # Dividir a célula (1, 1).
-    table.rows[1][1].split_by_width(table.rows[2][1].width / 2)
-
-    # Imprimir os índices das células.
-    for row_index in range(len(table.rows)):
-        for column_index in range(len(table.rows[row_index])):
-            cell = table.rows[row_index][column_index]
-            print(f"{cell.first_row_index, cell.first_column_index} ", end="")
-        print()
-
-    # Salvar o arquivo PPTX no disco.
     presentation.save("split_cells.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Saída:
+### **Dividir Células Mescladas por Extensão de Linha ou Coluna**
 
-```text
-(0, 0) (0, 1) (0, 1) (0, 3) (0, 4) 
-(1, 0) (1, 1) (1, 2) (1, 3) (1, 4) 
-(2, 0) (2, 1) (2, 1) (2, 3) (2, 4) 
-(3, 0) (3, 1) (3, 1) (3, 3) (3, 4) 
+Para preparar células de modelo mescladas para preenchimento de dados, use [split_by_row_span](https://reference.aspose.com/slides/python-net/aspose.slides/cell/split_by_row_span/) para dividir ao longo de um limite de linha existente, ou [split_by_col_span](https://reference.aspose.com/slides/python-net/aspose.slides/cell/split_by_col_span/) para dividir ao longo de um limite de coluna.
+
+O argumento `index` conta linhas na parte superior ou colunas na parte esquerda da divisão; ele é relativo à região mesclada:
+
+- Divisão de linha: `0 < index <` [row_span](https://reference.aspose.com/slides/python-net/aspose.slides/cell/row_span/).
+- Divisão de coluna: `0 < index <` [col_span](https://reference.aspose.com/slides/python-net/aspose.slides/cell/col_span/).
+
+O exemplo pressupõe que uma apresentação tenha uma tabela como a primeira forma no primeiro slide, com `(1, 2)` e `(1, 3)` mesclados verticalmente. Começando a partir da posição inferior, ele usa [first_column_index](https://reference.aspose.com/slides/python-net/aspose.slides/cell/first_column_index/) e [first_row_index](https://reference.aspose.com/slides/python-net/aspose.slides/cell/first_row_index/) para localizar a origem e verifica ambas as extensões. `split_by_row_span` com um índice de 1 então separa as linhas 2 e 3 para nomes de produto. Para uma mesclagem horizontal de duas colunas, use `split_by_col_span` com índice 1.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("table_template.pptx") as presentation:
+    slide = presentation.slides[0]
+    table = slide.shapes[0]
+
+    selected_cell = table.rows[3][1]
+    first_column_index = selected_cell.first_column_index
+    first_row_index = selected_cell.first_row_index
+    merged_cell = table.rows[first_row_index][first_column_index]
+
+    if merged_cell.is_merged_cell and merged_cell.row_span == 2 and merged_cell.col_span == 1:
+        merged_cell.split_by_row_span(1)
+
+        # Recupere as células resultantes da tabela após a divisão.
+        upper_cell = table.rows[first_row_index][first_column_index]
+        lower_cell = table.rows[first_row_index + 1][first_column_index]
+        print(f"Upper cell merged: {upper_cell.is_merged_cell}")
+        print(f"Lower cell merged: {lower_cell.is_merged_cell}")
+
+        upper_cell.text_frame.text = "Product A"
+        lower_cell.text_frame.text = "Product B"
+
+        presentation.save("split_template.pptx", slides.export.SaveFormat.PPTX)
+    else:
+        print("Select a merged region spanning exactly two rows and one column.")
 ```
 
-## **Alterar a cor de fundo da célula da tabela**
+A grade da tabela e os índices das células ao redor permanecem inalterados. Recupere as células resultantes por suas coordenadas; aqui, ambas têm extensão 1 e [is_merged_cell](https://reference.aspose.com/slides/python-net/aspose.slides/cell/is_merged_cell/) imprime `False`. Regiões maiores podem permanecer parcialmente mescladas após uma divisão.
 
-O exemplo Python a seguir demonstra como alterar a cor de fundo de uma célula da tabela:
+O texto original e sua formatação permanecem na célula superior (ou esquerda); a nova célula está vazia, mas herda a formatação da célula como preenchimento, bordas e margens. Preencha as células após a divisão e defina explicitamente qualquer formatação de texto necessária.
+
+A apresentação salva contém células separadas "Product A" e "Product B" com a formatação de célula do modelo mantida. Consulte a [Cell API Reference](https://reference.aspose.com/slides/python-net/aspose.slides/cell/) para detalhes.
+
+## **Alterar a Cor de Fundo da Célula da Tabela**
+
+Este exemplo cria uma tabela com colunas de 150 pontos e linhas de 50 pontos. Ele define [fill_type](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/fill_type/) como sólido e [solid_fill_color](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/solid_fill_color/) como vermelho para a célula `(2, 3)`, na terceira coluna e quarta linha.
 
 ```python
 import aspose.pydrawing as draw
@@ -191,78 +168,56 @@ with slides.Presentation() as presentation:
 
     column_widths = [150, 150, 150, 150]
     row_heights = [50, 50, 50, 50, 50]
-
-    # Criar uma nova tabela.
     table = slide.shapes.add_table(50, 50, column_widths, row_heights)
 
-    # Definir a cor de fundo para uma célula.
-    cell = table.rows[2][3]
+    cell = table.rows[3][2]
     cell.cell_format.fill_format.fill_type = slides.FillType.SOLID
     cell.cell_format.fill_format.solid_fill_color.color = draw.Color.red
 
     presentation.save("cell_background_color.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Inserir imagens em células da tabela**
+## **Adicionar uma Imagem Dentro de uma Célula da Tabela**
 
-Esta seção mostra como inserir uma imagem em uma célula de tabela no Aspose.Slides. Ela cobre a aplicação de preenchimento de imagem na célula alvo e a configuração de opções de exibição, como esticar ou repetir.
+Coloque a imagem de entrada no diretório de trabalho antes de executar este exemplo. Ele carrega a imagem com [Images.from_file](https://reference.aspose.com/slides/python-net/aspose.slides/images/from_file/) e a adiciona à coleção de imagens da apresentação com [add_image](https://reference.aspose.com/slides/python-net/aspose.slides/imagecollection/add_image/). Em seguida, atribui a imagem ao preenchimento de imagem da célula `(0, 0)`, a primeira célula da tabela.
 
-1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/python-net/aspose.slides/presentation/).
-1. Obtenha uma referência ao slide pelo seu índice.
-1. Defina um array de larguras de coluna.
-1. Defina um array de alturas de linha.
-1. Adicione uma tabela ao slide com o método [add_table](https://reference.aspose.com/slides/pt/python-net/aspose.slides/shapecollection/add_table/).
-1. Carregue a imagem a partir de um arquivo.
-1. Adicione a imagem às imagens da apresentação para obter um [PPImage](https://reference.aspose.com/slides/pt/python-net/aspose.slides/ppimage/).
-1. Defina o [FillType](https://reference.aspose.com/slides/pt/python-net/aspose.slides/filltype/) da célula da tabela como `PICTURE`.
-1. Aplique a imagem à célula da tabela e escolha um modo de preenchimento (por exemplo, `STRETCH`).
-1. Salve a apresentação como arquivo PPTX.
-
-O código Python a seguir mostra como colocar uma imagem dentro de uma célula da tabela ao criar a tabela:
+[PictureFillMode.STRETCH](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillmode/) estica a imagem para preencher a célula, o que pode alterar sua proporção. As larguras das colunas e alturas das linhas estão em pontos. A imagem carregada é descartada automaticamente quando seu bloco `with` termina.
 
 ```python
 import aspose.slides as slides
 
-# Instanciar um objeto Presentation.
 with slides.Presentation() as presentation:
-    # Acessar o primeiro slide.
     slide = presentation.slides[0]
 
-    # Definir larguras de coluna e alturas de linha.
     column_widths = [150, 150, 150, 150]
-    row_heights = [100, 100, 100, 100]
-
-    # Adicionar uma forma de tabela ao slide.
+    row_heights = [100, 100, 100, 100, 90]
     table = slide.shapes.add_table(50, 50, column_widths, row_heights)
 
-    # Carregar a imagem e adicioná‑la à apresentação para obter um PPImage.
-    with slides.Images.from_file("image.png") as source_image:
-        image = presentation.images.add_image(source_image)
+    with slides.Images.from_file("aspose_logo.jpg") as image:
+        presentation_image = presentation.images.add_image(image)
 
-    # Aplicar a imagem à primeira célula da tabela.
     cell = table.rows[0][0]
     cell.cell_format.fill_format.fill_type = slides.FillType.PICTURE
     cell.cell_format.fill_format.picture_fill_format.picture_fill_mode = slides.PictureFillMode.STRETCH
-    cell.cell_format.fill_format.picture_fill_format.picture.image = image
+    cell.cell_format.fill_format.picture_fill_format.picture.image = presentation_image
 
-    # Salvar a apresentação no disco.
-    presentation.save("image_in_table_cell.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("table_cell_with_image.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **FAQ**
 
-**Posso definir espessuras e estilos de linha diferentes para lados distintos de uma única célula?**
+**Posso definir diferentes espessuras e estilos de linha para diferentes lados de uma única célula?**
 
-Sim. As bordas [top](https://reference.aspose.com/slides/pt/python-net/aspose.slides/cellformat/border_top/),[bottom](https://reference.aspose.com/slides/pt/python-net/aspose.slides/cellformat/border_bottom/),[left](https://reference.aspose.com/slides/pt/python-net/aspose.slides/cellformat/border_left/),[right](https://reference.aspose.com/slides/pt/python-net/aspose.slides/cellformat/border_right/) têm propriedades separadas, de modo que a espessura e o estilo de cada lado podem ser diferentes. Isso decorre do controle de borda por lado demonstrado no artigo.
+Sim. As bordas [top](https://reference.aspose.com/slides/python-net/aspose.slides/cellformat/border_top/)/[bottom](https://reference.aspose.com/slides/python-net/aspose.slides/cellformat/border_bottom/)/[left](https://reference.aspose.com/slides/python-net/aspose.slides/cellformat/border_left/)/[right](https://reference.aspose.com/slides/python-net/aspose.slides/cellformat/border_right/) têm propriedades separadas, portanto a espessura e o estilo de cada lado podem ser diferentes.
 
-**O que acontece com a imagem se eu alterar o tamanho da coluna/linha após definir uma foto como fundo da célula?**
+**O que acontece com a imagem se eu mudar o tamanho da coluna/linha após definir uma imagem como plano de fundo da célula?**
 
-O comportamento depende do [fill mode](https://reference.aspose.com/slides/pt/python-net/aspose.slides/picturefillmode/) (stretch/tile). Com estiramento, a imagem ajusta‑se à nova célula; com repetição, os blocos são recalculados. O artigo menciona os modos de exibição da imagem em uma célula.
+O comportamento depende do [fill mode](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillmode/) (stretch/tile). Com estiramento, a imagem ajusta‑se à nova célula; com ladrilhamento, os ladrilhos são recalculados.
 
-**Posso atribuir um hyperlink a todo o conteúdo de uma célula?**
+**Posso atribuir um hiperlink a todo o conteúdo de uma célula?**
 
-[Hyperlinks](/slides/pt/python-net/manage-hyperlinks/) são definidos no nível do texto (porção) dentro do quadro de texto da célula ou no nível de toda a tabela/forma. Na prática, você atribui o link a uma porção ou a todo o texto da célula.
+[Hyperlinks](/slides/pt/python-net/manage-hyperlinks/) são definidos no nível de texto (porção) dentro da moldura de texto da célula ou no nível de toda a tabela/forma. Na prática, você atribui o link a uma porção ou a todo o texto na célula.
 
 **Posso definir fontes diferentes dentro de uma única célula?**
 
-Sim. O quadro de texto de uma célula suporta [portions](https://reference.aspose.com/slides/pt/python-net/aspose.slides/portion/) (execuções) com formatação independente—família da fonte, estilo, tamanho e cor.
+Sim. A moldura de texto de uma célula suporta [portions](https://reference.aspose.com/slides/python-net/aspose.slides/portion/) (execuções) com formatação independente — família da fonte, estilo, tamanho e cor.

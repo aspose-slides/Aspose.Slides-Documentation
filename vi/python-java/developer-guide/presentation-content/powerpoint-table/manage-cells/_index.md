@@ -1,5 +1,5 @@
 ---
-title: Quản lý các ô bảng trong bản trình bày bằng Python
+title: Quản lý các ô bảng trong bản trình chiếu bằng Python
 linktitle: Quản lý ô
 type: docs
 weight: 30
@@ -7,28 +7,25 @@ url: /vi/python-java/manage-cells/
 keywords:
 - ô bảng
 - hợp nhất ô
-- xóa đường viền
+- xóa viền
 - tách ô
 - hình ảnh trong ô
 - màu nền
 - PowerPoint
-- bản trình bày
+- bản trình chiếu
 - Python
 - Aspose.Slides
-description: "Quản lý các ô bảng trong PowerPoint một cách dễ dàng với Aspose.Slides cho Python thông qua Java. Nắm vững cách truy cập, chỉnh sửa và tạo kiểu cho các ô nhanh chóng để tự động hoá slide một cách liền mạch."
+description: "Quản lý các ô bảng PowerPoint trong Python: xác định các ô đã hợp nhất, xóa viền, tách ô, và đặt màu nền và hình ảnh bằng Aspose.Slides cho Python thông qua Java."
 ---
 ## **Tổng quan**
 
-Aspose.Slides cho phép bạn truy cập và chỉnh sửa các ô bảng trong bản trình bày PowerPoint. Bài viết này giải thích cách xác định các ô bảng đã hợp nhất, xóa đường viền của ô, làm việc với việc đánh số ô sau khi hợp nhất hoặc tách ô, thay đổi màu nền của ô và chèn hình ảnh vào bên trong một ô bảng. Các ví dụ cho thấy cách tạo hoặc mở một bản trình bày, lấy bảng từ một slide, cập nhật định dạng ô thông qua các thuộc tính của ô, và lưu bản trình bày đã chỉnh sửa dưới dạng tệp PPTX.
+Aspose.Slides cho phép bạn truy cập và chỉnh sửa các ô bảng trong bản trình chiếu PowerPoint. Bài viết này giải thích cách xác định các ô bảng đã hợp nhất, xóa viền ô, làm việc với việc đánh số ô sau khi hợp nhất hoặc tách ô, thay đổi màu nền của ô, và thêm hình ảnh vào bên trong một ô bảng. Các ví dụ hiển thị cách tạo hoặc mở một bản trình chiếu, lấy bảng từ một slide, cập nhật định dạng ô thông qua các thuộc tính của ô, và lưu bản trình chiếu đã chỉnh sửa dưới dạng tệp PPTX.
+
+Aspose.Slides sử dụng chỉ mục bắt đầu từ 0 để truy cập các ô bảng theo thứ tự `(column, row)`.
 
 ## **Xác định ô bảng đã hợp nhất**
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/python-java/aspose.slides/presentation/) .
-2. Lấy bảng từ slide đầu tiên.
-3. Duyệt qua các hàng và cột của bảng để tìm các ô đã hợp nhất.
-4. In ra thông báo khi phát hiện các ô đã hợp nhất.
-
-Mã Python này cho bạn thấy cách xác định các ô bảng đã hợp nhất trong một bản trình bày:
+Ví dụ mở một bản trình chiếu đã tồn tại và truy cập hình dạng đầu tiên trên slide đầu tiên dưới dạng bảng. Nó giả định rằng slide và hình dạng tồn tại và hình dạng là một bảng. Sau đó, nó duyệt qua tất cả các hàng và cột và sử dụng [isMergedCell](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#isMergedCell) để xác định các ô trong vùng đã hợp nhất. Đối với mỗi kết quả khớp, nó in tọa độ ô theo thứ tự `row;column`, [getRowSpan](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#getRowSpan), [getColSpan](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#getColSpan), và tọa độ bắt đầu của vùng, [getFirstRowIndex](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#getFirstRowIndex) và [getFirstColumnIndex](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#getFirstColumnIndex).
 
 ```python
 import jpype
@@ -37,36 +34,27 @@ import asposeslides
 if not jpype.isJVMStarted():
     jpype.startJVM()
 
-from asposeslides.api import Presentation, Table
+from asposeslides.api import Presentation
 
-presentation = Presentation("SomePresentationWithTable.pptx")
+presentation = Presentation("presentation_with_table.pptx")
 try:
-    # Giả sử rằng hình dạng đầu tiên trên slide đầu tiên là một bảng.
-    shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0)
-    if isinstance(shape, Table):
-        table = shape
-        for i in range(table.getRows().size()):
-            for j in range(table.getColumns().size()):
-                current_cell = table.getRows().get_Item(i).get_Item(j)
-                if current_cell.isMergedCell():
-                    print(f"Cell {i};{j} is part of a merged cell with RowSpan={current_cell.getRowSpan()} and ColSpan={current_cell.getColSpan()} starting from Cell {current_cell.getFirstRowIndex()};{current_cell.getFirstColumnIndex()}.")
-    else:
-        print("The first shape is not a table.")
+    slide = presentation.getSlides().get_Item(0)
+    table = slide.getShapes().get_Item(0)
+
+    row_count = table.getRows().size()
+    for row_index in range(row_count):
+        column_count = table.getColumns().size()
+        for column_index in range(column_count):
+            cell = table.get_Item(column_index, row_index)
+            if cell.isMergedCell():
+                print(f"Cell {row_index};{column_index} belongs to a merged region with RowSpan={cell.getRowSpan()} and ColSpan={cell.getColSpan()} starting at {cell.getFirstRowIndex()};{cell.getFirstColumnIndex()}.")
 finally:
     presentation.dispose()
 ```
 
-## **Xóa đường viền ô bảng**
+## **Xóa viền ô bảng**
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/python-java/aspose.slides/presentation/) .
-2. Lấy tham chiếu đến một slide theo chỉ mục của nó.
-3. Định nghĩa một danh sách độ rộng cột.
-4. Định nghĩa một danh sách chiều cao hàng.
-5. Thêm một bảng vào slide thông qua phương thức [addTable](https://reference.aspose.com/slides/vi/python-java/aspose.slides/shapecollection/#addTable) .
-6. Duyệt qua từng ô để xóa các đường viền trên, dưới, phải và trái.
-7. Lưu bản trình bày đã chỉnh sửa dưới dạng tệp PPTX.
-
-Mã Python này cho bạn thấy cách xóa đường viền khỏi các ô bảng:
+Tạo một [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) và thêm một bảng vào slide đầu tiên của nó bằng [addTable](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addTable). Chiều rộng cột, chiều cao hàng và vị trí bảng được chỉ định bằng điểm. Ví dụ đặt cả bốn viền ô thành [FillType.NoFill](https://reference.aspose.com/slides/python-java/aspose.slides/filltype/), khiến chúng trở nên vô hình.
 
 ```python
 import jpype
@@ -79,17 +67,12 @@ from asposeslides.api import Presentation, FillType, SaveFormat
 
 presentation = Presentation()
 try:
-    # Truy cập slide đầu tiên.
     slide = presentation.getSlides().get_Item(0)
 
-    # Định nghĩa độ rộng cột và chiều cao hàng.
     column_widths = [50, 50, 50, 50]
     row_heights = [50, 30, 30, 30, 30]
-
-    # Thêm một bảng vào slide.
     table = slide.getShapes().addTable(100, 50, column_widths, row_heights)
 
-    # Đặt định dạng đường viền cho mỗi ô.
     for row in table.getRows():
         for cell in row:
             cell.getCellFormat().getBorderTop().getFillFormat().setFillType(FillType.NoFill)
@@ -97,15 +80,16 @@ try:
             cell.getCellFormat().getBorderLeft().getFillFormat().setFillType(FillType.NoFill)
             cell.getCellFormat().getBorderRight().getFillFormat().setFillType(FillType.NoFill)
 
-    # Lưu bản trình bày dưới dạng tệp PPTX.
-    presentation.save("table_out.pptx", SaveFormat.Pptx)
+    presentation.save("table.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-## **Đánh số trong các ô đã hợp nhất**
+## **Hợp nhất các ô bảng**
 
-Nếu chúng ta hợp nhất hai cặp ô, (1, 1) và (2, 1), và (1, 2) và (2, 2), bảng kết quả vẫn giữ nguyên số thứ tự của các ô. Mã Python này minh họa quy trình:
+Sử dụng [mergeCells](https://reference.aspose.com/slides/python-java/aspose.slides/table/#mergeCells) để kết hợp một phạm vi hình chữ nhật các ô bảng thành một ô duy nhất. Xác định các ô ở góc trên‑trái và góc dưới‑phải của phạm vi. Tham số cuối cùng kiểm soát việc hợp nhất có thể bao gồm các ô nằm ngoài phạm vi đã chỉ định hay không; `False` giữ việc hợp nhất trong phạm vi đó.
+
+Ví dụ tạo một bảng 4x4 với các cột và hàng có chiều rộng/chiều cao 70 điểm, sau đó hợp nhất bốn ô trung tâm từ `(1, 1)` đến `(2, 2)`. Ô kết quả bao phủ hai cột và hai hàng, trong khi lưới cơ bản của bảng vẫn giữ bốn cột và bốn hàng. Để truy cập nội dung hoặc định dạng của ô đã hợp nhất, sử dụng vị trí trên‑trái của nó: `table.get_Item(1, 1)` trong ví dụ này. Các vị trí khác trong phạm vi đã hợp nhất vẫn là một phần của lưới bảng, vì vậy chỉ mục của các ô nằm ngoài phạm vi không thay đổi.
 
 ```python
 import jpype
@@ -114,119 +98,30 @@ import asposeslides
 if not jpype.isJVMStarted():
     jpype.startJVM()
 
-from asposeslides.api import Presentation, FillType, SaveFormat
-from java.awt import Color
+from asposeslides.api import Presentation, SaveFormat
 
 presentation = Presentation()
 try:
-    # Truy cập slide đầu tiên.
     slide = presentation.getSlides().get_Item(0)
 
-    # Định nghĩa độ rộng cột và chiều cao hàng.
     column_widths = [70, 70, 70, 70]
     row_heights = [70, 70, 70, 70]
-
-    # Thêm một bảng vào slide.
     table = slide.getShapes().addTable(100, 50, column_widths, row_heights)
 
-    # Đặt định dạng đường viền cho mỗi ô.
-    for row in table.getRows():
-        for cell in row:
-            cell.getCellFormat().getBorderTop().getFillFormat().setFillType(FillType.Solid)
-            cell.getCellFormat().getBorderTop().getFillFormat().getSolidFillColor().setColor(Color.RED)
-            cell.getCellFormat().getBorderTop().setWidth(5)
+    table.mergeCells(table.get_Item(1, 1), table.get_Item(2, 2), False)
 
-            cell.getCellFormat().getBorderBottom().getFillFormat().setFillType(FillType.Solid)
-            cell.getCellFormat().getBorderBottom().getFillFormat().getSolidFillColor().setColor(Color.RED)
-            cell.getCellFormat().getBorderBottom().setWidth(5)
-
-            cell.getCellFormat().getBorderLeft().getFillFormat().setFillType(FillType.Solid)
-            cell.getCellFormat().getBorderLeft().getFillFormat().getSolidFillColor().setColor(Color.RED)
-            cell.getCellFormat().getBorderLeft().setWidth(5)
-
-            cell.getCellFormat().getBorderRight().getFillFormat().setFillType(FillType.Solid)
-            cell.getCellFormat().getBorderRight().getFillFormat().getSolidFillColor().setColor(Color.RED)
-            cell.getCellFormat().getBorderRight().setWidth(5)
-
-
-    # Hợp nhất các ô (1, 1) và (2, 1).
-    table.mergeCells(table.get_Item(1, 1), table.get_Item(2, 1), False)
-
-    # Hợp nhất các ô (1, 2) và (2, 2).
-    table.mergeCells(table.get_Item(1, 2), table.get_Item(2, 2), False)
-
-    # Lưu bản trình bày dưới dạng tệp PPTX.
-    presentation.save("MergeCells_out.pptx", SaveFormat.Pptx)
+    presentation.save("merged_cells.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-Sau đó chúng ta tiếp tục hợp nhất các ô bằng cách hợp nhất (1, 1) và (1, 2). Kết quả là một bảng có một ô hợp nhất lớn ở giữa:
+## **Tách các ô bảng**
 
-```python
-import jpype
-import asposeslides
+Việc hợp nhất các ô trong ví dụ trước giữ nguyên lưới của bảng. Tách một ô có thể tạo thêm một cột lưới mới và thay đổi chỉ mục cột của các ô nằm bên phải nó. Aspose.Slides tuân theo mô hình lưới bảng của PowerPoint.
 
-if not jpype.isJVMStarted():
-    jpase.startJVM()
+Ví dụ này tạo một bảng 4x4 với các cột và hàng 70 điểm và gọi [splitByWidth](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#splitByWidth) trên ô `(1, 1)`. Một nửa độ rộng 70 điểm của ô được truyền để tạo hai ô có độ rộng bằng nhau.
 
-from asposeslides.api import Presentation, FillType, SaveFormat
-from java.awt import Color
-
-presentation = Presentation()
-try:
-    # Truy cập slide đầu tiên.
-    slide = presentation.getSlides().get_Item(0)
-
-    # Định nghĩa độ rộng cột và chiều cao hàng.
-    column_widths = [70, 70, 70, 70]
-    row_heights = [70, 70, 70, 70]
-
-    # Thêm một bảng vào slide.
-    table = slide.getShapes().addTable(100, 50, column_widths, row_heights)
-
-    # Đặt định dạng đường viền cho mỗi ô.
-    for row in table.getRows():
-        for cell in row:
-            cell.getCellFormat().getBorderTop().getFillFormat().setFillType(FillType.Solid)
-            cell.getCellFormat().getBorderTop().getFillFormat().getSolidFillColor().setColor(Color.RED)
-            cell.getCellFormat().getBorderTop().setWidth(5)
-
-            cell.getCellFormat().getBorderBottom().getFillFormat().setFillType(FillType.Solid)
-            cell.getCellFormat().getBorderBottom().getFillFormat().getSolidFillColor().setColor(Color.RED)
-            cell.getCellFormat().getBorderBottom().setWidth(5)
-
-            cell.getCellFormat().getBorderLeft().getFillFormat().setFillType(FillType.Solid)
-            cell.getCellFormat().getBorderLeft().getFillFormat().getSolidFillColor().setColor(Color.RED)
-            cell.getCellFormat().getBorderLeft().setWidth(5)
-
-            cell.getCellFormat().getBorderRight().getFillFormat().setFillType(FillType.Solid)
-            cell.getCellFormat().getBorderRight().getFillFormat().getSolidFillColor().setColor(Color.RED)
-            cell.getCellFormat().getBorderRight().setWidth(5)
-
-
-    # Hợp nhất các ô (1, 1) và (2, 1).
-    table.mergeCells(table.get_Item(1, 1), table.get_Item(2, 1), False)
-
-    # Hợp nhất các ô (1, 2) và (2, 2).
-    table.mergeCells(table.get_Item(1, 2), table.get_Item(2, 2), False)
-
-    # Hợp nhất các ô (1, 1) và (1, 2).
-    table.mergeCells(table.get_Item(1, 1), table.get_Item(1, 2), True)
-
-    # Lưu bản trình bày dưới dạng tệp PPTX.
-    presentation.save("MergeCells_out.pptx", SaveFormat.Pptx)
-finally:
-    presentation.dispose()
-```
-
-## **Đánh số trong ô được tách**
-
-Trong các ví dụ trước, việc hợp nhất các ô bảng không thay đổi số thứ tự của các ô còn lại.
-
-Lần này, chúng ta lấy một bảng thông thường (bảng không có ô nào đã hợp nhất) và sau đó cố gắng tách ô (1, 1) để tạo ra một bảng đặc biệt. Bạn có thể muốn chú ý đến cách đánh số của bảng này, có thể sẽ cảm thấy lạ. Tuy nhiên, đó là cách Microsoft PowerPoint đánh số các ô bảng và Aspose.Slides cũng làm tương tự.
-
-Mã Python này minh họa quy trình chúng tôi mô tả:
+Sau khi tách, hai nửa được truy cập dưới dạng `table.get_Item(1, 1)` và `table.get_Item(2, 1)`. Lưới bảng hiện có năm cột: các ô ban đầu ở cột 2 và 3 chuyển sang cột 3 và 4 tương ứng. Chỉ mục hàng không thay đổi. Sử dụng các chỉ mục cột được cập nhật này khi truy cập các ô sau khi tách.
 
 ```python
 import jpype
@@ -235,53 +130,80 @@ import asposeslides
 if not jpype.isJVMStarted():
     jpype.startJVM()
 
-from asposeslides.api import Presentation, FillType, SaveFormat
-from java.awt import Color
+from asposeslides.api import Presentation, SaveFormat
 
 presentation = Presentation()
 try:
-    # Truy cập slide đầu tiên.
     slide = presentation.getSlides().get_Item(0)
 
-    # Định nghĩa độ rộng cột và chiều cao hàng.
     column_widths = [70, 70, 70, 70]
     row_heights = [70, 70, 70, 70]
-
-    # Thêm một bảng vào slide.
     table = slide.getShapes().addTable(100, 50, column_widths, row_heights)
 
-    # Đặt định dạng đường viền cho mỗi ô.
-    for row in table.getRows():
-        for cell in row:
-            cell.getCellFormat().getBorderTop().getFillFormat().setFillType(FillType.Solid)
-            cell.getCellFormat().getBorderTop().getFillFormat().getSolidFillColor().setColor(Color.RED)
-            cell.getCellFormat().getBorderTop().setWidth(5)
+    table.get_Item(1, 1).splitByWidth(table.get_Item(1, 1).getWidth() / 2)
 
-            cell.getCellFormat().getBorderBottom().getFillFormat().setFillType(FillType.Solid)
-            cell.getCellFormat().getBorderBottom().getFillFormat().getSolidFillColor().setColor(Color.RED)
-            cell.getCellFormat().getBorderBottom().setWidth(5)
-
-            cell.getCellFormat().getBorderLeft().getFillFormat().setFillType(FillType.Solid)
-            cell.getCellFormat().getBorderLeft().getFillFormat().getSolidFillColor().setColor(Color.RED)
-            cell.getCellFormat().getBorderLeft().setWidth(5)
-
-            cell.getCellFormat().getBorderRight().getFillFormat().setFillType(FillType.Solid)
-            cell.getCellFormat().getBorderRight().getFillFormat().getSolidFillColor().setColor(Color.RED)
-            cell.getCellFormat().getBorderRight().setWidth(5)
-
-
-    # Tách ô (1, 1).
-    table.get_Item(1, 1).splitByWidth(table.get_Item(2, 1).getWidth() / 2)
-
-    # Lưu bản trình bày dưới dạng tệp PPTX.
-    presentation.save("SplitCells_out.pptx", SaveFormat.Pptx)
+    presentation.save("split_cells.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
+
+### **Tách các ô đã hợp nhất theo chiều hàng hoặc cột**
+
+Để chuẩn bị các ô mẫu đã hợp nhất cho việc điền dữ liệu, sử dụng [splitByRowSpan](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#splitByRowSpan) để tách dọc theo ranh giới hàng hiện có, hoặc [splitByColSpan](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#splitByColSpan) để tách dọc theo ranh giới cột.
+
+Tham số `index` đếm các hàng ở phần trên hoặc các cột ở phần trái của phép tách; nó tương đối với vùng đã hợp nhất:
+- Tách hàng: `0 < index <` [getRowSpan](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#getRowSpan).
+- Tách cột: `0 < index <` [getColSpan](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#getColSpan).
+
+Ví dụ yêu cầu bản trình chiếu có một bảng là hình dạng đầu tiên trên slide đầu tiên, với các ô `(1, 2)` và `(1, 3)` được hợp nhất dọc. Bắt đầu từ vị trí dưới, nó sử dụng [getFirstColumnIndex](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#getFirstColumnIndex) và [getFirstRowIndex](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#getFirstRowIndex) để xác định nguồn gốc và kiểm tra cả hai phạm vi. `splitByRowSpan(1)` sau đó tách các hàng 2 và 3 cho tên sản phẩm. Đối với việc hợp nhất ngang hai cột, thay vào đó sử dụng `splitByColSpan(1)`.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import Presentation, SaveFormat
+
+presentation = Presentation("table_template.pptx")
+try:
+    slide = presentation.getSlides().get_Item(0)
+    table = slide.getShapes().get_Item(0)
+
+    selected_cell = table.get_Item(1, 3)
+    first_column_index = selected_cell.getFirstColumnIndex()
+    first_row_index = selected_cell.getFirstRowIndex()
+    merged_cell = table.get_Item(first_column_index, first_row_index)
+
+    if merged_cell.isMergedCell() and merged_cell.getRowSpan() == 2 and merged_cell.getColSpan() == 1:
+        merged_cell.splitByRowSpan(1)
+
+        # Lấy các ô kết quả từ bảng sau khi tách.
+        upper_cell = table.get_Item(first_column_index, first_row_index)
+        lower_cell = table.get_Item(first_column_index, first_row_index + 1)
+        print(f"Upper cell merged: {upper_cell.isMergedCell()}")
+        print(f"Lower cell merged: {lower_cell.isMergedCell()}")
+
+        upper_cell.getTextFrame().setText("Product A")
+        lower_cell.getTextFrame().setText("Product B")
+
+        presentation.save("split_template.pptx", SaveFormat.Pptx)
+    else:
+        print("Select a merged region spanning exactly two rows and one column.")
+finally:
+    presentation.dispose()
+```
+
+Lưới bảng và các chỉ mục ô xung quanh vẫn không thay đổi. Lấy các ô kết quả bằng tọa độ của chúng; ở đây, cả hai đều có phạm vi 1 và [isMergedCell](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#isMergedCell) in ra `False`. Các khu vực lớn hơn có thể vẫn còn một phần được hợp nhất sau một lần tách.
+
+Văn bản gốc và định dạng của nó vẫn giữ trong ô trên (hoặc trái); ô mới trống nhưng kế thừa định dạng ô như nền, viền và lề. Điền dữ liệu vào các ô sau khi tách và đặt bất kỳ định dạng văn bản nào cần thiết một cách rõ ràng.
+
+Bản trình chiếu đã lưu chứa các ô "Product A" và "Product B" riêng biệt với định dạng ô của mẫu được giữ lại. Xem [Cell API Reference](https://reference.aspose.com/slides/python-java/aspose.slides/cell/) để biết chi tiết.
 
 ## **Thay đổi màu nền của ô bảng**
 
-Mã Python này cho bạn thấy cách thay đổi màu nền của một ô bảng:
+Ví dụ này tạo một bảng có các cột 150 điểm và các hàng 50 điểm. Nó sử dụng [setFillType](https://reference.aspose.com/slides/python-java/aspose.slides/fillformat/#setFillType) để chọn nền đặc và đặt màu được trả về bởi [getSolidFillColor](https://reference.aspose.com/slides/python-java/aspose.slides/fillformat/#getSolidFillColor) thành màu đỏ cho ô `(2, 3)`, ở cột thứ ba và hàng thứ tư.
 
 ```python
 import jpype
@@ -295,22 +217,16 @@ from java.awt import Color
 
 presentation = Presentation()
 try:
-    # Truy cập slide đầu tiên.
     slide = presentation.getSlides().get_Item(0)
 
-    # Định nghĩa độ rộng cột và chiều cao hàng.
     column_widths = [150, 150, 150, 150]
     row_heights = [50, 50, 50, 50, 50]
-
-    # Thêm một bảng vào slide.
     table = slide.getShapes().addTable(50, 50, column_widths, row_heights)
 
-    # Đặt màu nền cho một ô.
     cell = table.get_Item(2, 3)
     cell.getCellFormat().getFillFormat().setFillType(FillType.Solid)
     cell.getCellFormat().getFillFormat().getSolidFillColor().setColor(Color.RED)
 
-    # Lưu bản trình bày dưới dạng tệp PPTX.
     presentation.save("cell_background_color.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
@@ -318,18 +234,9 @@ finally:
 
 ## **Thêm hình ảnh vào bên trong ô bảng**
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/python-java/aspose.slides/presentation/) .
-2. Lấy tham chiếu đến một slide theo chỉ mục của nó.
-3. Định nghĩa một danh sách độ rộng cột.
-4. Định nghĩa một danh sách chiều cao hàng.
-5. Thêm một bảng vào slide thông qua phương thức [addTable](https://reference.aspose.com/slides/vi/python-java/aspose.slides/shapecollection/#addTable) .
-6. Tải tệp hình ảnh bằng cách sử dụng [Images.fromFile](https://reference.aspose.com/slides/vi/python-java/aspose.slides/images/#fromFile) .
-7. Thêm hình ảnh vào bản trình bày để tạo một đối tượng [PPImage](https://reference.aspose.com/slides/vi/python-java/aspose.slides/ppimage/) .
-8. Đặt loại tô của [FillFormat](https://reference.aspose.com/slides/vi/python-java/aspose.slides/fillformat/) cho ô bảng thành [FillType.Picture](https://reference.aspose.com/slides/vi/python-java/aspose.slides/filltype/#Picture) .
-9. Thêm hình ảnh vào ô đầu tiên của bảng.
-10. Lưu bản trình bày đã chỉnh sửa dưới dạng tệp PPTX.
+Đặt hình ảnh đầu vào trong thư mục làm việc trước khi chạy ví dụ này. Nó tải hình ảnh bằng [Images.fromFile](https://reference.aspose.com/slides/python-java/aspose.slides/images/#fromFile) và thêm nó vào bộ sưu tập hình ảnh của bản trình chiếu bằng [addImage](https://reference.aspose.com/slides/python-java/aspose.slides/imagecollection/#addImage). Sau đó nó gán hình ảnh cho nền hình ảnh của ô `(0, 0)`, ô đầu tiên trong bảng.
 
-Mã Python này cho bạn thấy cách chèn hình ảnh vào bên trong một ô bảng khi tạo bảng:
+[PictureFillMode.Stretch](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillmode/) kéo dài hình ảnh để lấp đầy ô, có thể làm thay đổi tỷ lệ khung hình. Chiều rộng cột và chiều cao hàng được tính bằng điểm. Hình ảnh đã tải được giải phóng trong một khối `finally` sau khi nó được thêm vào bản trình chiếu.
 
 ```python
 import jpype
@@ -342,49 +249,41 @@ from asposeslides.api import Presentation, Images, FillType, PictureFillMode, Sa
 
 presentation = Presentation()
 try:
-    # Truy cập slide đầu tiên.
     slide = presentation.getSlides().get_Item(0)
 
-    # Định nghĩa độ rộng cột và chiều cao hàng.
     column_widths = [150, 150, 150, 150]
     row_heights = [100, 100, 100, 100, 90]
-
-    # Thêm một bảng vào slide.
     table = slide.getShapes().addTable(50, 50, column_widths, row_heights)
 
-    # Tạo hình ảnh cho bản trình bày từ tệp hình ảnh.
-    image = Images.fromFile("image.jpg")
+    image = Images.fromFile("aspose_logo.jpg")
     try:
-        picture = presentation.getImages().addImage(image)
+        presentation_image = presentation.getImages().addImage(image)
     finally:
         image.dispose()
 
-    # Thêm hình ảnh vào ô bảng đầu tiên.
-    cell_format = table.get_Item(0, 0).getCellFormat()
-    cell_format.getFillFormat().setFillType(FillType.Picture)
-    cell_format.getFillFormat().getPictureFillFormat().setPictureFillMode(PictureFillMode.Stretch)
-    cell_format.getFillFormat().getPictureFillFormat().getPicture().setImage(picture)
+    table.get_Item(0, 0).getCellFormat().getFillFormat().setFillType(FillType.Picture)
+    table.get_Item(0, 0).getCellFormat().getFillFormat().getPictureFillFormat().setPictureFillMode(PictureFillMode.Stretch)
+    table.get_Item(0, 0).getCellFormat().getFillFormat().getPictureFillFormat().getPicture().setImage(presentation_image)
 
-    # Lưu bản trình bày dưới dạng tệp PPTX.
-    presentation.save("Image_In_TableCell_out.pptx", SaveFormat.Pptx)
+    presentation.save("table_cell_with_image.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-## **Câu hỏi thường gặp**
+## **FAQ**
 
-**Tôi có thể đặt độ dày và kiểu đường viền khác nhau cho các phía khác nhau của một ô duy nhất không?**
+**Có thể đặt độ dày và kiểu đường viền khác nhau cho mỗi phía của một ô duy nhất không?**
 
-Có. Các đường viền [trên](https://reference.aspose.com/slides/vi/python-java/aspose.slides/cellformat/#getBorderTop)/[dưới](https://reference.aspose.com/slides/vi/python-java/aspose.slides/cellformat/#getBorderBottom)/[trái](https://reference.aspose.com/slides/vi/python-java/aspose.slides/cellformat/#getBorderLeft)/[phải](https://reference.aspose.com/slides/vi/python-java/aspose.slides/cellformat/#getBorderRight) có các thuộc tính riêng, vì vậy độ dày và kiểu của mỗi phía có thể khác nhau. Điều này hợp lý dựa trên việc kiểm soát đường viền từng phía cho một ô được trình bày trong bài viết.
+Có. Các viền [top](https://reference.aspose.com/slides/python-java/aspose.slides/cellformat/#getBorderTop)/[bottom](https://reference.aspose.com/slides/python-java/aspose.slides/cellformat/#getBorderBottom)/[left](https://reference.aspose.com/slides/python-java/aspose.slides/cellformat/#getBorderLeft)/[right](https://reference.aspose.com/slides/python-java/aspose.slides/cellformat/#getBorderRight) có các thuộc tính riêng, do đó độ dày và kiểu của mỗi phía có thể khác nhau.
 
-**Điều gì xảy ra với hình ảnh nếu tôi thay đổi kích thước cột/hàng sau khi đã đặt hình ảnh làm nền cho ô?**
+**Điều gì xảy ra với hình ảnh nếu tôi thay đổi kích thước cột/hàng sau khi đặt hình ảnh làm nền của ô?**
 
-Hành vi phụ thuộc vào [chế độ tô](https://reference.aspose.com/slides/vi/python-java/aspose.slides/picturefillmode/) (kéo dãn/ghép mẫu). Khi kéo dãn, hình ảnh sẽ điều chỉnh theo ô mới; khi ghép mẫu, các mẫu sẽ được tính lại. Bài viết đề cập đến các chế độ hiển thị hình ảnh trong ô.
+Hành vi phụ thuộc vào [fill mode](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillmode/). Khi kéo dài, hình ảnh sẽ điều chỉnh theo ô mới; khi lặp lại, các ô lặp sẽ được tính lại.
 
-**Tôi có thể gán siêu liên kết cho toàn bộ nội dung của một ô không?**
+**Có thể gán một siêu liên kết cho toàn bộ nội dung của một ô không?**
 
 [Hyperlinks](/slides/vi/python-java/manage-hyperlinks/) được đặt ở mức văn bản (phần) bên trong khung văn bản của ô hoặc ở mức toàn bộ bảng/hình dạng. Trong thực tế, bạn gán liên kết cho một phần hoặc cho toàn bộ văn bản trong ô.
 
-**Tôi có thể đặt các phông chữ khác nhau trong một ô duy nhất không?**
+**Có thể đặt các phông chữ khác nhau trong một ô duy nhất không?**
 
-Có. Khung văn bản của ô hỗ trợ [các phần](https://reference.aspose.com/slides/vi/python-java/aspose.slides/portion/) (runs) với định dạng độc lập—gia đình phông chữ, kiểu, kích thước và màu sắc.
+Có. Khung văn bản của ô hỗ trợ [portions](https://reference.aspose.com/slides/python-java/aspose.slides/portion/) (các đoạn) với định dạng độc lập—gia đình phông, kiểu, kích thước và màu.

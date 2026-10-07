@@ -6,9 +6,9 @@ weight: 30
 url: /id/net/manage-cells/
 keywords:
 - sel tabel
-- menggabungkan sel
-- menghapus batas
-- memisahkan sel
+- gabungkan sel
+- hapus batas
+- bagi sel
 - gambar dalam sel
 - warna latar belakang
 - PowerPoint
@@ -16,327 +16,230 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Kelola sel tabel di PowerPoint dengan mudah menggunakan Aspose.Slides untuk .NET. Kuasai cara mengakses, memodifikasi, dan menata sel secara cepat untuk otomatisasi slide yang mulus."
+description: "Kelola sel tabel PowerPoint di C#: identifikasi sel yang digabung, hapus batas, bagi sel, dan atur warna latar belakang serta gambar dengan Aspose.Slides untuk .NET."
 ---
 ## **Gambaran Umum**
 
-Aspose.Slides memungkinkan Anda mengakses dan memodifikasi sel tabel dalam presentasi PowerPoint. Artikel ini menjelaskan cara mengidentifikasi sel tabel yang digabung, menghapus batas sel, bekerja dengan penomoran sel setelah menggabungkan atau memisahkan sel, mengubah warna latar belakang sel, dan menambahkan gambar di dalam sel tabel. Contoh-contoh menunjukkan cara membuat atau membuka presentasi, mengambil tabel dari slide, memperbarui format sel melalui properti sel, dan menyimpan presentasi yang telah dimodifikasi sebagai file PPTX.
+Aspose.Slides memungkinkan Anda mengakses dan memodifikasi sel tabel dalam presentasi PowerPoint. Artikel ini menjelaskan cara mengidentifikasi sel tabel yang digabung, menghapus batas sel, bekerja dengan penomoran sel setelah penggabungan atau pemisahan sel, mengubah warna latar belakang sel, dan menambahkan gambar di dalam sel tabel. Contoh-contohnya menunjukkan cara membuat atau membuka presentasi, mendapatkan tabel dari sebuah slide, memperbarui format sel melalui properti sel, dan menyimpan presentasi yang telah dimodifikasi sebagai file PPTX.
 
-## **Identifikasi Sel Tabel yang Digabung**
+Aspose.Slides menggunakan indeks berbasis nol untuk mengakses sel tabel dalam urutan `(column, row)`.
 
-1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/net/aspose.slides/presentation).
-2. Ambil tabel dari slide pertama. 
-3. Iterasi melalui baris dan kolom tabel untuk menemukan sel yang digabung.
-4. Cetak pesan ketika sel yang digabung ditemukan.
+## **Mengidentifikasi Sel Tabel yang Digabung**
 
-Kode C# ini menunjukkan cara mengidentifikasi sel tabel yang digabung dalam sebuah presentasi:
+Contoh ini membuka presentasi yang ada dan mengakses bentuk pertama pada slide pertama sebagai tabel. Diasumsikan bahwa slide dan bentuk ada serta bentuk tersebut adalah tabel. Kemudian iterasi melalui semua baris dan kolom dan menggunakan [IsMergedCell](https://reference.aspose.com/slides/net/aspose.slides/icell/ismergedcell/) untuk mengidentifikasi sel dalam wilayah yang digabung. Untuk setiap kecocokan, ia mencetak koordinat sel dalam urutan `row;column`, [RowSpan](https://reference.aspose.com/slides/net/aspose.slides/icell/rowspan/), [ColSpan](https://reference.aspose.com/slides/net/aspose.slides/icell/colspan/), dan koordinat awal wilayah, [FirstRowIndex](https://reference.aspose.com/slides/net/aspose.slides/icell/firstrowindex/) dan [FirstColumnIndex](https://reference.aspose.com/slides/net/aspose.slides/icell/firstcolumnindex/).
 
-```c#
-using (Presentation pres = new Presentation("SomePresentationWithTable.pptx"))
+```csharp
+using System;
+using Aspose.Slides;
+
+using var presentation = new Presentation("presentation_with_table.pptx");
+var slide = presentation.Slides[0];
+var table = (ITable) slide.Shapes[0];
+
+var rowCount = table.Rows.Count;
+for (var rowIndex = 0; rowIndex < rowCount; rowIndex++)
 {
-    ITable table = pres.Slides[0].Shapes[0] as ITable; // asumsi bahwa Slide#0.Shape#0 adalah sebuah tabel
-    for (int i = 0; i < table.Rows.Count; i++)
+    var columnCount = table.Columns.Count;
+    for (var columnIndex = 0; columnIndex < columnCount; columnIndex++)
     {
-        for (int j = 0; j < table.Columns.Count; j++)
+        var cell = table[columnIndex, rowIndex];
+        if (cell.IsMergedCell)
         {
-            ICell currentCell = table.Rows[i][j];
-            if (currentCell.IsMergedCell)
-            {
-                Console.WriteLine(string.Format("Cell {0};{1} is a part of merged cell with RowSpan={2} and ColSpan={3} starting from Cell {4};{5}.",
-                                  i, j, currentCell.RowSpan, currentCell.ColSpan, currentCell.FirstRowIndex, currentCell.FirstColumnIndex));
-
-
-            }
+            Console.WriteLine($"Cell {rowIndex};{columnIndex} belongs to a merged region with RowSpan={cell.RowSpan} and ColSpan={cell.ColSpan} starting at {cell.FirstRowIndex};{cell.FirstColumnIndex}.");
         }
     }
 }
 ```
 
-## **Hapus Batas Sel Tabel**
-1. Buat sebuah instance dari kelas `Presentation`.
-2. Dapatkan referensi slide melalui indeksnya. 
-3. Tentukan array kolom dengan lebar.
-4. Tentukan array baris dengan tinggi.
-5. Tambahkan tabel ke slide melalui metode `AddTable`.
-6. Iterasi melalui setiap sel untuk menghapus batas atas, bawah, kanan, dan kiri.
-7. Simpan presentasi yang telah dimodifikasi sebagai file PPTX.
+## **Menghapus Batas Sel Tabel**
 
-Kode C# ini menunjukkan cara menghapus batas dari sel tabel:
+Buat sebuah [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) dan tambahkan tabel ke slide pertamanya dengan [AddTable](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addtable/). Lebar kolom, tinggi baris, dan posisi tabel ditentukan dalam poin. Contoh ini mengatur keempat batas sel menjadi [FillType.NoFill](https://reference.aspose.com/slides/net/aspose.slides/filltype/), sehingga tidak terlihat.
 
-```c#
-// Menginstansiasi kelas Presentation yang merepresentasikan file PPTX
-using (Presentation pres = new Presentation())
-{
-   // Mengakses slide pertama
-    Slide sld = (Slide)pres.Slides[0];
+```csharp
+using Aspose.Slides;
 
-    // Menentukan kolom dengan lebar dan baris dengan tinggi
-    double[] dblCols = { 50, 50, 50, 50 };
-    double[] dblRows = { 50, 30, 30, 30, 30 };
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    // Menambahkan bentuk tabel ke slide
-    ITable tbl = sld.Shapes.AddTable(100, 50, dblCols, dblRows);
+double[] columnWidths = { 50, 50, 50, 50 };
+double[] rowHeights = { 50, 30, 30, 30, 30 };
+var table = slide.Shapes.AddTable(100, 50, columnWidths, rowHeights);
 
-    // Mengatur format batas untuk setiap sel
-    foreach (IRow row in tbl.Rows)
-        foreach (ICell cell in row)
-        {
-            cell.CellFormat.BorderTop.FillFormat.FillType = FillType.NoFill;
-            cell.CellFormat.BorderBottom.FillFormat.FillType = FillType.NoFill;
-            cell.CellFormat.BorderLeft.FillFormat.FillType = FillType.NoFill;
-            cell.CellFormat.BorderRight.FillFormat.FillType = FillType.NoFill;
-        }
-
-    // Menulis file PPTX ke disk
-    pres.Save("table_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
-}
-```
-
-## **Penomoran pada Sel yang Digabung**
-Jika kita menggabungkan 2 pasang sel (1, 1) x (2, 1) dan (1, 2) x (2, 2), tabel yang dihasilkan akan bernomor. Kode C# ini mendemonstrasikan prosesnya:
-
-```c#
- // Menginstansiasi kelas Presentation yang merepresentasikan file PPTX
-using (Presentation presentation = new Presentation())
-{
-    // Mengakses slide pertama
-    ISlide sld = presentation.Slides[0];
-
-    // Mendefinisikan kolom dengan lebar dan baris dengan tinggi
-    double[] dblCols = { 70, 70, 70, 70 };
-    double[] dblRows = { 70, 70, 70, 70 };
-
-    // Menambahkan bentuk tabel ke slide
-    ITable tbl = sld.Shapes.AddTable(100, 50, dblCols, dblRows);
-
-    // Mengatur format batas untuk setiap sel
-    foreach (IRow row in tbl.Rows)
+foreach (var row in table.Rows)
+    foreach (var cell in row)
     {
-        foreach (ICell cell in row)
-        {
-            cell.CellFormat.BorderTop.FillFormat.FillType = FillType.Solid;
-            cell.CellFormat.BorderTop.FillFormat.SolidFillColor.Color = Color.Red;
-            cell.CellFormat.BorderTop.Width = 5;
-
-            cell.CellFormat.BorderBottom.FillFormat.FillType = FillType.Solid;
-            cell.CellFormat.BorderBottom.FillFormat.SolidFillColor.Color = Color.Red;
-            cell.CellFormat.BorderBottom.Width = 5;
-
-            cell.CellFormat.BorderLeft.FillFormat.FillType = FillType.Solid;
-            cell.CellFormat.BorderLeft.FillFormat.SolidFillColor.Color = Color.Red;
-            cell.CellFormat.BorderLeft.Width = 5;
-
-            cell.CellFormat.BorderRight.FillFormat.FillType = FillType.Solid;
-            cell.CellFormat.BorderRight.FillFormat.SolidFillColor.Color = Color.Red;
-            cell.CellFormat.BorderRight.Width = 5;
-        }
+        cell.CellFormat.BorderTop.FillFormat.FillType = FillType.NoFill;
+        cell.CellFormat.BorderBottom.FillFormat.FillType = FillType.NoFill;
+        cell.CellFormat.BorderLeft.FillFormat.FillType = FillType.NoFill;
+        cell.CellFormat.BorderRight.FillFormat.FillType = FillType.NoFill;
     }
 
-    // Menggabungkan sel (1, 1) x (2, 1)
-    tbl.MergeCells(tbl[1, 1], tbl[2, 1], false);
+presentation.Save("table.pptx", SaveFormat.Pptx);
+```
 
-    // Menggabungkan sel (1, 2) x (2, 2)
-    tbl.MergeCells(tbl[1, 2], tbl[2, 2], false);
+## **Menggabungkan Sel Tabel**
 
-    presentation.Save("MergeCells_out.pptx", SaveFormat.Pptx);
+Gunakan [MergeCells](https://reference.aspose.com/slides/net/aspose.slides/itable/mergecells/) untuk menggabungkan rentang persegi panjang sel tabel menjadi satu sel. Tentukan sel di sudut kiri atas dan kanan bawah dari rentang tersebut. Argumen terakhir mengontrol apakah penggabungan dapat mencakup sel di luar rentang yang ditentukan; `false` menjaga penggabungan tetap dalam rentang itu.
+
+Contoh ini membuat tabel 4x4 dengan kolom dan baris berukuran 70 poin, kemudian menggabungkan empat sel tengah dari `(1, 1)` hingga `(2, 2)`. Sel yang dihasilkan mencakup dua kolom dan dua baris, sementara grid tabel tetap memiliki empat kolom dan empat baris. Untuk mengakses konten atau format sel yang digabung, gunakan posisi kiri atasnya: `table[1, 1]` dalam contoh ini. Posisi lain dalam rentang yang digabung tetap menjadi bagian dari grid tabel, sehingga indeks sel di luar rentang tidak berubah.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+double[] columnWidths = { 70, 70, 70, 70 };
+double[] rowHeights = { 70, 70, 70, 70 };
+var table = slide.Shapes.AddTable(100, 50, columnWidths, rowHeights);
+
+table.MergeCells(table[1, 1], table[2, 2], false);
+
+presentation.Save("merged_cells.pptx", SaveFormat.Pptx);
+```
+
+## **Membagi Sel Tabel**
+
+Penggabungan sel pada contoh sebelumnya mempertahankan grid tabel. Membagi sebuah sel dapat memperkenalkan kolom grid baru dan mengubah indeks kolom sel di sebelah kanannya. Aspose.Slides mengikuti model grid tabel PowerPoint.
+
+Contoh ini membuat tabel 4x4 dengan kolom dan baris berukuran 70 poin dan memanggil [SplitByWidth](https://reference.aspose.com/slides/net/aspose.slides/icell/splitbywidth/) pada sel `(1, 1)`. Setengah lebar sel yang berukuran 70 poin digunakan untuk membuat dua sel dengan lebar sama.
+
+Setelah pembagian ini, dua bagian dapat diakses sebagai `table[1, 1]` dan `table[2, 1]`. Grid tabel kini memiliki lima kolom: sel yang semula berada di kolom 2 dan 3 pindah ke kolom 3 dan 4 masing‑masing. Indeks baris tetap tidak berubah. Gunakan indeks kolom yang diperbarui ini saat mengakses sel setelah pembagian.
+
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+double[] columnWidths = { 70, 70, 70, 70 };
+double[] rowHeights = { 70, 70, 70, 70 };
+var table = slide.Shapes.AddTable(100, 50, columnWidths, rowHeights);
+
+table[1, 1].SplitByWidth(table[1, 1].Width / 2);
+
+presentation.Save("split_cells.pptx", SaveFormat.Pptx);
+```
+
+### **Membagi Sel yang Digabung berdasarkan Rentang Baris atau Kolom**
+
+Untuk menyiapkan sel templat yang digabung agar dapat diisi data, gunakan [SplitByRowSpan](https://reference.aspose.com/slides/net/aspose.slides/icell/splitbyrowspan/) untuk membagi sepanjang batas baris yang ada, atau [SplitByColSpan](https://reference.aspose.com/slides/net/aspose.slides/icell/splitbycolspan/) untuk membagi sepanjang batas kolom.
+
+Argumen `index` menghitung baris di bagian atas atau kolom di bagian kiri dari pembagian; nilai ini relatif terhadap wilayah yang digabung:
+
+- Pembagian baris: `0 < index <` [RowSpan](https://reference.aspose.com/slides/net/aspose.slides/icell/rowspan/).
+- Pembagian kolom: `0 < index <` [ColSpan](https://reference.aspose.com/slides/net/aspose.slides/icell/colspan/).
+
+Contoh ini mengasumsikan presentasi memiliki tabel sebagai bentuk pertama pada slide pertama, dengan `(1, 2)` dan `(1, 3)` digabung secara vertikal. Dimulai dari posisi bawah, ia menggunakan [FirstColumnIndex](https://reference.aspose.com/slides/net/aspose.slides/icell/firstcolumnindex/) dan [FirstRowIndex](https://reference.aspose.com/slides/net/aspose.slides/icell/firstrowindex/) untuk menemukan asalnya dan memeriksa kedua rentang. `SplitByRowSpan(1)` kemudian memisahkan baris 2 dan 3 untuk nama produk. Untuk penggabungan horizontal dua kolom, gunakan `SplitByColSpan(1)` sebagai gantinya.
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("table_template.pptx");
+var slide = presentation.Slides[0];
+var table = (ITable) slide.Shapes[0];
+
+var selectedCell = table[1, 3];
+var firstColumnIndex = selectedCell.FirstColumnIndex;
+var firstRowIndex = selectedCell.FirstRowIndex;
+var mergedCell = table[firstColumnIndex, firstRowIndex];
+
+if (mergedCell.IsMergedCell && mergedCell.RowSpan == 2 && mergedCell.ColSpan == 1)
+{
+    mergedCell.SplitByRowSpan(1);
+
+    // Ambil sel yang dihasilkan dari tabel setelah pemisahan.
+    var upperCell = table[firstColumnIndex, firstRowIndex];
+    var lowerCell = table[firstColumnIndex, firstRowIndex + 1];
+    Console.WriteLine($"Upper cell merged: {upperCell.IsMergedCell}");
+    Console.WriteLine($"Lower cell merged: {lowerCell.IsMergedCell}");
+
+    upperCell.TextFrame.Text = "Product A";
+    lowerCell.TextFrame.Text = "Product B";
+
+    presentation.Save("split_template.pptx", SaveFormat.Pptx);
+}
+else
+{
+    Console.WriteLine("Select a merged region spanning exactly two rows and one column.");
 }
 ```
 
-Kemudian kami menggabungkan sel lebih lanjut dengan menggabungkan (1, 1) dan (1, 2). Hasilnya adalah tabel yang berisi sel besar yang digabung di tengahnya: 
+Grid tabel dan indeks sel di sekitarnya tetap tidak berubah. Ambil sel yang dihasilkan berdasarkan koordinatnya; di sini, keduanya memiliki rentang 1 dan [IsMergedCell](https://reference.aspose.com/slides/net/aspose.slides/icell/ismergedcell/) menghasilkan `False`. Wilayah yang lebih besar dapat tetap sebagian digabung setelah satu pembagian.
 
-```c#
- // Menginstansiasi kelas Presentation yang merepresentasikan file PPTX
-using (Presentation presentation = new Presentation())
-{
-    // Mengakses slide pertama
-    ISlide slide = presentation.Slides[0];
+Teks asli dan formatnya tetap berada di sel atas (atau kiri); sel baru kosong tetapi mewarisi format sel seperti isian, batas, dan margin. Isi sel setelah pemisahan dan atur format teks yang diperlukan secara eksplisit.
 
-    // Mendefinisikan kolom dengan lebar dan baris dengan tinggi
-    double[] dblCols = { 70, 70, 70, 70 };
-    double[] dblRows = { 70, 70, 70, 70 };
+Presentasi yang disimpan berisi sel “Product A” dan “Product B” terpisah dengan format sel templat tetap dipertahankan. Lihat [Cell API Reference](https://reference.aspose.com/slides/net/aspose.slides/cell/) untuk detail.
 
-    // Menambahkan bentuk tabel ke slide
-    ITable table = slide.Shapes.AddTable(100, 50, dblCols, dblRows);
+## **Mengubah Warna Latar Belakang Sel Tabel**
 
-    // Mengatur format batas untuk setiap sel
-    foreach (IRow row in table.Rows)
-    {
-        foreach (ICell cell in row)
-        {
-            cell.CellFormat.BorderTop.FillFormat.FillType = FillType.Solid;
-            cell.CellFormat.BorderTop.FillFormat.SolidFillColor.Color = Color.Red;
-            cell.CellFormat.BorderTop.Width = 5;
+Contoh ini membuat tabel dengan kolom berukuran 150 poin dan baris berukuran 50 poin. Ia mengatur [FillType](https://reference.aspose.com/slides/net/aspose.slides/ifillformat/filltype/) menjadi solid dan [SolidFillColor](https://reference.aspose.com/slides/net/aspose.slides/ifillformat/solidfillcolor/) menjadi merah untuk sel `(2, 3)`, yaitu kolom ketiga dan baris keempat.
 
-            cell.CellFormat.BorderBottom.FillFormat.FillType = FillType.Solid;
-            cell.CellFormat.BorderBottom.FillFormat.SolidFillColor.Color = Color.Red;
-            cell.CellFormat.BorderBottom.Width = 5;
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-            cell.CellFormat.BorderLeft.FillFormat.FillType = FillType.Solid;
-            cell.CellFormat.BorderLeft.FillFormat.SolidFillColor.Color = Color.Red;
-            cell.CellFormat.BorderLeft.Width = 5;
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-            cell.CellFormat.BorderRight.FillFormat.FillType = FillType.Solid;
-            cell.CellFormat.BorderRight.FillFormat.SolidFillColor.Color = Color.Red;
-            cell.CellFormat.BorderRight.Width = 5;
+double[] columnWidths = { 150, 150, 150, 150 };
+double[] rowHeights = { 50, 50, 50, 50, 50 };
+var table = slide.Shapes.AddTable(50, 50, columnWidths, rowHeights);
 
-        }
-    }
+var cell = table[2, 3];
+cell.CellFormat.FillFormat.FillType = FillType.Solid;
+cell.CellFormat.FillFormat.SolidFillColor.Color = Color.Red;
 
-    // Menggabungkan sel (1, 1) x (2, 1)
-    table.MergeCells(table[1, 1], table[2, 1], false);
-
-    // Menggabungkan sel (1, 2) x (2, 2)
-    table.MergeCells(table[1, 2], table[2, 2], false);
-
-    // Menggabungkan sel (1, 2) x (2, 2)
-    table.MergeCells(table[1, 1], table[1, 2], true);
-
-    // Menulis file PPTX ke disk
-    presentation.Save("MergeCells1_out.pptx", SaveFormat.Pptx);
-}
+presentation.Save("cell_background_color.pptx", SaveFormat.Pptx);
 ```
 
-## **Penomoran pada Sel yang Dipisah**
-Pada contoh sebelumnya, ketika sel tabel digabung, penomoran atau sistem angka pada sel lain tidak berubah. 
+## **Menambahkan Gambar Di Dalam Sel Tabel**
 
-Kali ini, kami menggunakan tabel biasa (tabel tanpa sel yang digabung) dan kemudian mencoba memisahkan sel (1,1) untuk mendapatkan tabel khusus. Anda mungkin perlu memperhatikan penomoran tabel ini, yang mungkin terlihat aneh. Namun, itulah cara Microsoft PowerPoint menomori sel tabel dan Aspose.Slides melakukan hal yang sama. 
+Letakkan gambar input di direktori kerja sebelum menjalankan contoh ini. Gambar dimuat dengan [Images.FromFile](https://reference.aspose.com/slides/net/aspose.slides/images/fromfile/) dan ditambahkan ke koleksi gambar presentasi dengan [AddImage](https://reference.aspose.com/slides/net/aspose.slides/iimagecollection/addimage/). Kemudian gambar tersebut diberikan ke isian gambar sel `(0, 0)`, sel pertama dalam tabel.
 
-Kode C# ini mendemonstrasikan proses yang kami jelaskan:
+[PictureFillMode.Stretch](https://reference.aspose.com/slides/net/aspose.slides/picturefillmode/) memperluas gambar untuk mengisi sel, yang dapat mengubah rasio aspeknya. Lebar kolom dan tinggi baris dinyatakan dalam poin. Gambar yang dimuat dibuang secara otomatis oleh pernyataan `using`‑nya.
 
-```c#
-// Menginstansiasi kelas Presentation yang merepresentasikan file PPTX
-using (Presentation presentation = new Presentation())
-{
-    // Mengakses slide pertama
-    ISlide slide = presentation.Slides[0];
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-    // Mendefinisikan kolom dengan lebar dan baris dengan tinggi
-    double[] dblCols = { 70, 70, 70, 70 };
-    double[] dblRows = { 70, 70, 70, 70 };
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    // Menambahkan bentuk tabel ke slide
-    ITable table = slide.Shapes.AddTable(100, 50, dblCols, dblRows);
+double[] columnWidths = { 150, 150, 150, 150 };
+double[] rowHeights = { 100, 100, 100, 100, 90 };
+var table = slide.Shapes.AddTable(50, 50, columnWidths, rowHeights);
 
-    // Mengatur format batas untuk setiap sel
-    foreach (IRow row in table.Rows)
-    {
-        foreach (ICell cell in row)
-        {
-            cell.CellFormat.BorderTop.FillFormat.FillType = FillType.Solid;
-            cell.CellFormat.BorderTop.FillFormat.SolidFillColor.Color = Color.Red;
-            cell.CellFormat.BorderTop.Width = 5;
+using var image = Images.FromFile("aspose_logo.jpg");
+var ppImage = presentation.Images.AddImage(image);
 
-            cell.CellFormat.BorderBottom.FillFormat.FillType = FillType.Solid;
-            cell.CellFormat.BorderBottom.FillFormat.SolidFillColor.Color = Color.Red;
-            cell.CellFormat.BorderBottom.Width = 5;
+table[0, 0].CellFormat.FillFormat.FillType = FillType.Picture;
+table[0, 0].CellFormat.FillFormat.PictureFillFormat.PictureFillMode = PictureFillMode.Stretch;
+table[0, 0].CellFormat.FillFormat.PictureFillFormat.Picture.Image = ppImage;
 
-            cell.CellFormat.BorderLeft.FillFormat.FillType = FillType.Solid;
-            cell.CellFormat.BorderLeft.FillFormat.SolidFillColor.Color = Color.Red;
-            cell.CellFormat.BorderLeft.Width = 5;
-
-            cell.CellFormat.BorderRight.FillFormat.FillType = FillType.Solid;
-            cell.CellFormat.BorderRight.FillFormat.SolidFillColor.Color = Color.Red;
-            cell.CellFormat.BorderRight.Width = 5;
-
-        }
-    }
-
-    // Menggabungkan sel (1, 1) x (2, 1)
-    table.MergeCells(table[1, 1], table[2, 1], false);
-
-    // Menggabungkan sel (1, 2) x (2, 2)
-    table.MergeCells(table[1, 2], table[2, 2], false);
-
-    // Memisahkan sel (1, 1).
-    table[1, 1].SplitByWidth(table[2, 1].Width / 2);
-
-    // Menulis file PPTX ke disk
-    presentation.Save("CellSplit_out.pptx", SaveFormat.Pptx);
-}
-```
-
-## **Ubah Warna Latar Belakang Sel Tabel**
-
-Kode C# ini menunjukkan cara mengubah warna latar belakang sel tabel:
-
-```c#
-using (Presentation presentation = new Presentation())
-{
-    ISlide slide = presentation.Slides[0];
-
-    double[] dblCols = { 150, 150, 150, 150 };
-    double[] dblRows = { 50, 50, 50, 50, 50 };
-
-    // buat tabel baru
-    ITable table = slide.Shapes.AddTable(50, 50, dblCols, dblRows);
-
-    // atur warna latar belakang untuk sebuah sel
-    ICell cell = table[2, 3];
-    cell.CellFormat.FillFormat.FillType = FillType.Solid;
-    cell.CellFormat.FillFormat.SolidFillColor.Color = Color.Red;
-
-    presentation.Save("cell_background_color.pptx", SaveFormat.Pptx);
-}
-```
-
-## **Tambah Gambar di Dalam Sel Tabel**
-
-1. Buat sebuah instance dari kelas `Presentation`.
-2. Dapatkan referensi slide melalui indeksnya.
-3. Tentukan array kolom dengan lebar.
-4. Tentukan array baris dengan tinggi.
-5. Tambahkan tabel ke slide melalui metode `AddTable`. 
-6. Buat objek `Bitmap` untuk menampung file gambar.
-7. Tambahkan gambar bitmap ke objek `IPPImage`.
-8. Set `FillFormat` untuk Sel Tabel menjadi `Picture`.
-9. Tambahkan gambar ke sel pertama tabel.
-10. Simpan presentasi yang telah dimodifikasi sebagai file PPTX
-
-Kode C# ini menunjukkan cara menempatkan gambar di dalam sel tabel saat membuat tabel:
-
-```c#
-// Menginstansiasi kelas Presentation yang merepresentasikan file PPTX
-using (Presentation presentation = new Presentation())
-{
-    // Mengakses slide pertama
-    ISlide slide = presentation.Slides[0];
-
-    // Mendefinisikan kolom dengan lebar dan baris dengan tinggi
-    double[] dblCols = { 150, 150, 150, 150 };
-    double[] dblRows = { 100, 100, 100, 100, 90 };
-
-    // Menambahkan bentuk tabel ke slide
-    ITable table = slide.Shapes.AddTable(50, 50, dblCols, dblRows);
-
-    // Memuat gambar dari file dan menambahkannya ke sumber daya presentasi
-    IImage image = Images.FromFile("aspose-logo.jpg");
-    IPPImage ppImage = presentation.Images.AddImage(image);
-    image.Dispose();
-
-    // Menambahkan gambar ke sel tabel pertama
-    table[0, 0].CellFormat.FillFormat.FillType = FillType.Picture;
-    table[0, 0].CellFormat.FillFormat.PictureFillFormat.PictureFillMode = PictureFillMode.Stretch;
-    table[0, 0].CellFormat.FillFormat.PictureFillFormat.Picture.Image = ppImage;
-
-    // Menulis file PPTX ke disk
-    presentation.Save("Image_In_TableCell_out.pptx", SaveFormat.Pptx);
-}
+presentation.Save("table_cell_with_image.pptx", SaveFormat.Pptx);
 ```
 
 ## **FAQ**
 
 **Apakah saya dapat mengatur ketebalan dan gaya garis yang berbeda untuk sisi yang berbeda dari satu sel?**
 
-Ya. Batas [top](https://reference.aspose.com/slides/id/net/aspose.slides/cellformat/bordertop/)/[bottom](https://reference.aspose.com/slides/id/net/aspose.slides/cellformat/borderbottom/)/[left](https://reference.aspose.com/slides/id/net/aspose.slides/cellformat/borderleft/)/[right](https://reference.aspose.com/slides/id/net/aspose.slides/cellformat/borderright/) memiliki properti terpisah, sehingga ketebalan dan gaya pada setiap sisi dapat berbeda. Hal ini secara logis mengikuti kontrol batas per sisi untuk sebuah sel yang ditunjukkan dalam artikel.
+Ya. Batas [top](https://reference.aspose.com/slides/net/aspose.slides/cellformat/bordertop/)/[bottom](https://reference.aspose.com/slides/net/aspose.slides/cellformat/borderbottom/)/[left](https://reference.aspose.com/slides/net/aspose.slides/cellformat/borderleft/)/[right](https://reference.aspose.com/slides/net/aspose.slides/cellformat/borderright/) memiliki properti terpisah, sehingga ketebalan dan gaya tiap sisi dapat berbeda.
 
 **Apa yang terjadi pada gambar jika saya mengubah ukuran kolom/baris setelah menetapkan gambar sebagai latar belakang sel?**
 
-Perilakunya tergantung pada [fill mode](https://reference.aspose.com/slides/id/net/aspose.slides/picturefillmode/) (stretch/tile). Dengan stretch, gambar menyesuaikan diri dengan sel baru; dengan tile, ubin‑ubin dihitung ulang. Artikel ini menyebutkan mode tampilan gambar dalam sebuah sel.
+Perilaku tergantung pada [fill mode](https://reference.aspose.com/slides/net/aspose.slides/picturefillmode/) (stretch/tile). Dengan stretching, gambar menyesuaikan dengan sel yang baru; dengan tiling, ubin‑ubin dihitung ulang.
 
-**Apakah saya dapat menetapkan hyperlink ke seluruh konten sel?**
+**Apakah saya dapat menetapkan tautan hiper ke seluruh konten sebuah sel?**
 
-[Hyperlinks](/slides/id/net/manage-hyperlinks/) diatur pada tingkat teks (portion) di dalam kerangka teks sel atau pada tingkat seluruh tabel/benda. Pada praktiknya, Anda menetapkan tautan ke bagian tertentu atau ke seluruh teks dalam sel.
+[Hyperlinks](/slides/id/net/manage-hyperlinks/) diatur pada tingkat teks (bagian) di dalam kerangka teks sel atau pada tingkat seluruh tabel/bentuk. Pada praktiknya, Anda menetapkan tautan ke bagian tertentu atau ke semua teks dalam sel.
 
 **Apakah saya dapat mengatur font yang berbeda dalam satu sel?**
 
-Ya. Kerangka teks sel mendukung [portions](https://reference.aspose.com/slides/id/net/aspose.slides/portion/) (run) dengan format independen—jenis font, gaya, ukuran, dan warna.
+Ya. Kerangka teks sel mendukung [portions](https://reference.aspose.com/slides/net/aspose.slides/portion/) (run) dengan format independen—keluarga font, gaya, ukuran, dan warna.

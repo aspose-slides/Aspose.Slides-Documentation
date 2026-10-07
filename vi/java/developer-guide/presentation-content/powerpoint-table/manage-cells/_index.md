@@ -1,5 +1,5 @@
 ---
-title: Quản lý các ô bảng trong bản thuyết trình bằng Java
+title: Quản lý các ô bảng trong bản trình chiếu bằng Java
 linktitle: Quản lý ô
 type: docs
 weight: 30
@@ -7,77 +7,68 @@ url: /vi/java/manage-cells/
 keywords:
 - ô bảng
 - hợp nhất ô
-- xóa viền
+- xóa đường viền
 - tách ô
 - hình ảnh trong ô
 - màu nền
 - PowerPoint
-- bản thuyết trình
+- bản trình chiếu
 - Java
 - Aspose.Slides
-description: "Dễ dàng quản lý các ô bảng trong PowerPoint với Aspose.Slides cho Java. Thành thạo việc truy cập, chỉnh sửa và tạo kiểu ô một cách nhanh chóng để tự động hoá slide mượt mà."
+description: "Quản lý các ô bảng PowerPoint bằng Java: xác định các ô đã hợp nhất, xóa đường viền, tách ô, và đặt màu nền và hình ảnh cho ô bằng Aspose.Slides cho Java."
 ---
 ## **Tổng quan**
 
-Aspose.Slides cho phép bạn truy cập và chỉnh sửa các ô bảng trong bản thuyết trình PowerPoint. Bài viết này giải thích cách xác định các ô bảng đã hợp nhất, xóa viền ô, làm việc với việc đánh số ô sau khi hợp nhất hoặc tách ô, thay đổi màu nền của ô, và thêm hình ảnh vào bên trong một ô bảng. Các ví dụ minh họa cách tạo hoặc mở một bản thuyết trình, lấy bảng từ một slide, cập nhật định dạng ô thông qua các thuộc tính của ô, và lưu bản thuyết trình đã chỉnh sửa dưới dạng tệp PPTX.
+Aspose.Slides cho phép bạn truy cập và sửa đổi các ô bảng trong bản trình chiếu PowerPoint. Bài viết này giải thích cách xác định các ô bảng đã hợp nhất, xóa đường viền ô, làm việc với đánh số ô sau khi hợp nhất hoặc tách ô, thay đổi màu nền của ô, và thêm hình ảnh vào bên trong một ô bảng. Các ví dụ cho thấy cách tạo hoặc mở một bản trình chiếu, lấy bảng từ một slide, cập nhật định dạng ô thông qua các thuộc tính ô, và lưu bản trình chiếu đã sửa đổi dưới dạng tệp PPTX.
+
+Aspose.Slides sử dụng chỉ mục bắt đầu từ 0 để truy cập các ô bảng theo thứ tự `(column, row)`.
 
 ## **Xác định ô bảng đã hợp nhất**
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/Presentation) class.
-2. Lấy bảng từ slide đầu tiên. 
-3. Duyệt qua các hàng và cột của bảng để tìm các ô đã hợp nhất.
-4. In ra thông báo khi phát hiện các ô đã hợp nhất.
 
-Mã Java này cho bạn thấy cách xác định các ô bảng đã hợp nhất trong một bản thuyết trình:
+Ví dụ mở một bản trình chiếu hiện có và truy cập hình dạng đầu tiên trên slide đầu tiên dưới dạng bảng. Giả sử rằng slide và hình dạng tồn tại và hình dạng là một bảng. Sau đó, nó duyệt qua tất cả các hàng và cột và sử dụng [isMergedCell](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#isMergedCell--) để xác định các ô trong vùng hợp nhất. Đối với mỗi kết quả khớp, nó in tọa độ ô theo thứ tự `row;column`, [getRowSpan](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#getRowSpan--), [getColSpan](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#getColSpan--), và tọa độ bắt đầu của vùng, [getFirstRowIndex](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#getFirstRowIndex--) và [getFirstColumnIndex](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#getFirstColumnIndex--).
 
 ```java
-Presentation pres = new Presentation("SomePresentationWithTable.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("presentation_with_table.pptx");
 try {
-    ITable table = (ITable)pres.getSlides().get_Item(0).getShapes().get_Item(0); // giả sử Slide#0.Shape#0 là một bảng
-    for (int i = 0; i < table.getRows().size(); i++)
+    ISlide slide = presentation.getSlides().get_Item(0);
+    ITable table = (ITable) slide.getShapes().get_Item(0);
+
+    int rowCount = table.getRows().size();
+    for (int rowIndex = 0; rowIndex < rowCount; rowIndex++)
     {
-        for (int j = 0; j < table.getColumns().size(); j++)
+        int columnCount = table.getColumns().size();
+        for (int columnIndex = 0; columnIndex < columnCount; columnIndex++)
         {
-            ICell currentCell = table.getRows().get_Item(i).get_Item(j);
-            if (currentCell.isMergedCell())
+            ICell cell = table.get_Item(columnIndex, rowIndex);
+            if (cell.isMergedCell())
             {
-                System.out.println(String.format("Cell %d;%d is a part of merged cell with RowSpan=%d and ColSpan=%d starting from Cell %d;%d.",
-                        i, j, currentCell.getRowSpan(), currentCell.getColSpan(), currentCell.getFirstRowIndex(), currentCell.getFirstColumnIndex()));
+                System.out.printf("Cell %d;%d belongs to a merged region with RowSpan=%d and ColSpan=%d starting at %d;%d.%n", rowIndex, columnIndex, cell.getRowSpan(), cell.getColSpan(), cell.getFirstRowIndex(), cell.getFirstColumnIndex());
             }
         }
     }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Xóa viền ô bảng**
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/Presentation) class.
-2. Lấy tham chiếu của slide thông qua chỉ mục của nó. 
-3. Định nghĩa một mảng các cột với chiều rộng.
-4. Định nghĩa một mảng các hàng với chiều cao.
-5. Thêm một bảng vào slide thông qua phương thức [addTable](https://reference.aspose.com/slides/vi/java/com.aspose.slides/IShapeCollection#addTable-float-float-double:A-double:A-) .
-6. Duyệt qua mọi ô để xóa các viền trên, dưới, phải và trái.
-7. Lưu bản thuyết trình đã chỉnh sửa dưới dạng tệp PPTX.
+## **Xóa đường viền ô bảng**
 
-Mã Java này cho bạn thấy cách xóa viền khỏi các ô bảng:
+Tạo một [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) và thêm một bảng vào slide đầu tiên của nó bằng [addTable](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addTable-float-float-double---double---). Chiều rộng cột, chiều cao hàng và vị trí bảng được chỉ định bằng điểm. Ví dụ đặt tất cả bốn đường viền ô thành [FillType.NoFill](https://reference.aspose.com/slides/java/com.aspose.slides/filltype/), làm cho chúng ẩn.
 
 ```java
-// Khởi tạo lớp Presentation đại diện cho một tệp PPTX
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    // Truy cập slide đầu tiên
-    Slide sld = (Slide)pres.getSlides().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Định nghĩa các cột với độ rộng và các hàng với chiều cao
-    double[] dblCols = { 50, 50, 50, 50 };
-    double[] dblRows = { 50, 30, 30, 30, 30 };
+    double[] columnWidths = { 50, 50, 50, 50 };
+    double[] rowHeights = { 50, 30, 30, 30, 30 };
+    ITable table = slide.getShapes().addTable(100, 50, columnWidths, rowHeights);
 
-    // Thêm hình dạng bảng vào slide
-    ITable tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
-
-    // Đặt định dạng viền cho từng ô
-    for (IRow row : tbl.getRows())
-    {
+    for (IRow row : table.getRows())
         for (ICell cell : row)
         {
             cell.getCellFormat().getBorderTop().getFillFormat().setFillType(FillType.NoFill);
@@ -85,274 +76,193 @@ try {
             cell.getCellFormat().getBorderLeft().getFillFormat().setFillType(FillType.NoFill);
             cell.getCellFormat().getBorderRight().getFillFormat().setFillType(FillType.NoFill);
         }
-    }
 
-    // Ghi tệp PPTX ra đĩa
-    pres.save("table_out.pptx", SaveFormat.Pptx);
+    presentation.save("table.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Đánh số trong các ô đã hợp nhất**
-Nếu chúng tôi hợp nhất 2 cặp ô (1, 1) x (2, 1) và (1, 2) x (2, 2), bảng kết quả sẽ được đánh số. Mã Java này minh họa quy trình:
+## **Hợp nhất các ô bảng**
+
+Sử dụng [mergeCells](https://reference.aspose.com/slides/java/com.aspose.slides/itable/#mergeCells-com.aspose.slides.ICell-com.aspose.slides.ICell-boolean-) để kết hợp một phạm vi hình chữ nhật của các ô bảng thành một ô duy nhất. Xác định các ô ở góc trên‑trái và góc dưới‑phải của phạm vi. Đối số cuối cùng kiểm soát việc hợp nhất có bao gồm các ô ngoài phạm vi đã chỉ định hay không; `false` giữ hợp nhất trong phạm vi đó.
+
+Ví dụ tạo một bảng 4×4 với các cột và hàng có độ dài 70 điểm, sau đó hợp nhất bốn ô trung tâm từ `(1, 1)` tới `(2, 2)`. Ô kết quả kéo dài qua hai cột và hai hàng, trong khi lưới cơ bản của bảng vẫn giữ bốn cột và bốn hàng. Để truy cập nội dung hoặc định dạng của ô đã hợp nhất, sử dụng vị trí trên‑trái của nó: `table.get_Item(1, 1)` trong ví dụ này. Các vị trí khác trong phạm vi hợp nhất vẫn là một phần của lưới bảng, vì vậy chỉ mục của các ô ngoài phạm vi không thay đổi.
 
 ```java
-// Khởi tạo lớp Presentation đại diện cho một tệp PPTX
-Presentation pres = new Presentation();
-try {
-    // Truy cập slide đầu tiên
-    ISlide sld = pres.getSlides().get_Item(0);
+import com.aspose.slides.*;
 
-    // Định nghĩa các cột với độ rộng và các hàng với chiều cao
-    double[] dblCols = { 70, 70, 70, 70 };
-    double[] dblRows = { 70, 70, 70, 70 };
-
-    // Thêm hình dạng bảng vào slide
-    ITable tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
-
-    // Đặt định dạng viền cho từng ô
-    for (IRow row : tbl.getRows())
-    {
-        for (ICell cell : row)
-        {
-            cell.getCellFormat().getBorderTop().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderTop().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderTop().setWidth(5);
-
-            cell.getCellFormat().getBorderBottom().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderBottom().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderBottom().setWidth(5);
-
-            cell.getCellFormat().getBorderLeft().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderLeft().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderLeft().setWidth(5);
-
-            cell.getCellFormat().getBorderRight().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderRight().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderRight().setWidth(5);
-        }
-    }
-
-    // Hợp nhất các ô (1, 1) x (2, 1)
-    tbl.mergeCells(tbl.get_Item(1, 1), tbl.get_Item(2, 1), false);
-
-    // Hợp nhất các ô (1, 2) x (2, 2)
-    tbl.mergeCells(tbl.get_Item(1, 2), tbl.get_Item(2, 2), false);
-
-    pres.save("MergeCells_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-Sau đó chúng tôi tiếp tục hợp nhất các ô bằng cách hợp nhất (1, 1) và (1, 2). Kết quả là một bảng chứa một ô hợp nhất lớn ở giữa: 
-
-```java
-// Khởi tạo lớp Presentation đại diện cho một tệp PPTX
-Presentation pres = new Presentation();
-try {
-    // Truy cập slide đầu tiên
-    ISlide sld = pres.getSlides().get_Item(0);
-
-    // Định nghĩa các cột với độ rộng và các hàng với chiều cao
-    double[] dblCols = { 70, 70, 70, 70 };
-    double[] dblRows = { 70, 70, 70, 70 };
-
-    // Thêm hình dạng bảng vào slide
-    ITable tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
-
-    // Đặt định dạng viền cho từng ô
-    for (IRow row : tbl.getRows())
-    {
-        for (ICell cell : row)
-        {
-            cell.getCellFormat().getBorderTop().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderTop().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderTop().setWidth(5);
-
-            cell.getCellFormat().getBorderBottom().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderBottom().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderBottom().setWidth(5);
-
-            cell.getCellFormat().getBorderLeft().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderLeft().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderLeft().setWidth(5);
-
-            cell.getCellFormat().getBorderRight().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderRight().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderRight().setWidth(5);
-        }
-    }
-
-    // Hợp nhất các ô (1, 1) x (2, 1)
-    tbl.mergeCells(tbl.get_Item(1, 1), tbl.get_Item(2, 1), false);
-
-    // Hợp nhất các ô (1, 2) x (2, 2)
-    tbl.mergeCells(tbl.get_Item(1, 2), tbl.get_Item(2, 2), false);
-
-    // Hợp nhất các ô (1, 1) x (1, 2)
-    tbl.mergeCells(tbl.get_Item(1, 1), tbl.get_Item(1, 2), true);
-    
-	//Ghi tệp PPTX ra đĩa
-    pres.save("MergeCells_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Đánh số trong ô đã tách**
-Trong các ví dụ trước, khi các ô bảng được hợp nhất, hệ thống đánh số hoặc số thứ tự trong các ô khác không thay đổi. 
-
-Lần này chúng tôi lấy một bảng thường (bảng không có ô hợp nhất) và sau đó cố gắng tách ô (1,1) để có được một bảng đặc biệt. Bạn có thể muốn chú ý đến cách đánh số của bảng này, có thể được coi là lạ. Tuy nhiên, đó là cách Microsoft PowerPoint đánh số các ô bảng và Aspose.Slides cũng làm tương tự. 
-
-Mã Java này minh họa quy trình chúng tôi đã mô tả:
-
-```java
-// Khởi tạo lớp Presentation đại diện cho một tệp PPTX
-Presentation pres = new Presentation();
-try {
-    // Truy cập slide đầu tiên
-    ISlide sld = pres.getSlides().get_Item(0);
-
-    // Định nghĩa các cột với độ rộng và các hàng với chiều cao
-    double[] dblCols = { 70, 70, 70, 70 };
-    double[] dblRows = { 70, 70, 70, 70 };
-
-    // Thêm hình dạng bảng vào slide
-    ITable tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
-
-    // Đặt định dạng viền cho từng ô
-    for (IRow row : tbl.getRows())
-    {
-        for (ICell cell : row)
-        {
-            cell.getCellFormat().getBorderTop().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderTop().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderTop().setWidth(5);
-
-            cell.getCellFormat().getBorderBottom().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderBottom().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderBottom().setWidth(5);
-
-            cell.getCellFormat().getBorderLeft().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderLeft().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderLeft().setWidth(5);
-
-            cell.getCellFormat().getBorderRight().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderRight().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderRight().setWidth(5);
-        }
-    }
-
-    // Hợp nhất các ô (1, 1) x (2, 1)
-    tbl.mergeCells(tbl.get_Item(1, 1), tbl.get_Item(2, 1), false);
-
-    // Hợp nhất các ô (1, 2) x (2, 2)
-    tbl.mergeCells(tbl.get_Item(1, 2), tbl.get_Item(2, 2), false);
-
-    // Tách ô (1, 1)
-    tbl.get_Item(1, 1).splitByWidth(tbl.get_Item(2, 1).getWidth() / 2);
-
-    // Ghi tệp PPTX ra đĩa
-    pres.save("SplitCells_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Thay đổi màu nền của ô bảng**
-
-Mã Java này cho bạn thấy cách thay đổi màu nền của ô bảng:
-
-```java
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    double[] dblCols = { 150, 150, 150, 150 };
-    double[] dblRows = { 50, 50, 50, 50, 50 };
+    double[] columnWidths = { 70, 70, 70, 70 };
+    double[] rowHeights = { 70, 70, 70, 70 };
+    ITable table = slide.getShapes().addTable(100, 50, columnWidths, rowHeights);
 
-    //    tạo một bảng mới
-    ITable table = slide.getShapes().addTable(50, 50, dblCols, dblRows);
+    table.mergeCells(table.get_Item(1, 1), table.get_Item(2, 2), false);
 
-    //    đặt màu nền cho một ô 
+    presentation.save("merged_cells.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Tách các ô bảng**
+
+Việc hợp nhất các ô trong ví dụ trước giữ nguyên lưới của bảng. Tách một ô có thể tạo ra một cột lưới mới và thay đổi chỉ mục cột của các ô bên phải nó. Aspose.Slides tuân theo mô hình lưới bảng của PowerPoint.
+
+Ví dụ này tạo một bảng 4×4 với các cột và hàng có độ dài 70 điểm và gọi [splitByWidth](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#splitByWidth-double-) trên ô `(1, 1)`. Một nửa độ rộng 70 điểm của ô được truyền vào để tạo hai ô có độ rộng bằng nhau.
+
+Sau khi tách, hai nửa được truy cập dưới dạng `table.get_Item(1, 1)` và `table.get_Item(2, 1)`. Lưới bảng hiện có năm cột: các ô ban đầu ở cột 2 và 3 chuyển sang cột 3 và 4, tương ứng. Chỉ mục hàng không thay đổi. Sử dụng các chỉ mục cột đã cập nhật này khi truy cập các ô sau khi tách.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    double[] columnWidths = { 70, 70, 70, 70 };
+    double[] rowHeights = { 70, 70, 70, 70 };
+    ITable table = slide.getShapes().addTable(100, 50, columnWidths, rowHeights);
+
+    table.get_Item(1, 1).splitByWidth(table.get_Item(1, 1).getWidth() / 2);
+
+    presentation.save("split_cells.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+### **Tách các ô đã hợp nhất theo phạm vi hàng hoặc cột**
+
+Để chuẩn bị các ô mẫu đã hợp nhất cho việc điền dữ liệu, sử dụng [splitByRowSpan](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#splitByRowSpan-int-) để tách dọc theo ranh giới hàng hiện có, hoặc [splitByColSpan](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#splitByColSpan-int-) để tách dọc theo ranh giới cột.
+
+Đối số `index` đếm các hàng ở phần trên hoặc các cột ở phần trái của phép tách; nó tương đối với vùng đã hợp nhất:
+- Row split: `0 < index <` [getRowSpan](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#getRowSpan--).
+- Column split: `0 < index <` [getColSpan](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#getColSpan--).
+
+Ví dụ mong đợi một bản trình chiếu có một bảng là hình dạng đầu tiên trên slide đầu tiên, với `(1, 2)` và `(1, 3)` được hợp nhất theo chiều dọc. Bắt đầu từ vị trí thấp hơn, nó sử dụng [getFirstColumnIndex](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#getFirstColumnIndex--) và [getFirstRowIndex](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#getFirstRowIndex--) để xác định nguồn gốc và kiểm tra cả hai phạm vi. `splitByRowSpan(1)` sau đó tách các hàng 2 và 3 cho tên sản phẩm. Đối với một phép hợp nhất ngang hai cột, hãy sử dụng `splitByColSpan(1)` thay thế.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("table_template.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    ITable table = (ITable) slide.getShapes().get_Item(0);
+
+    ICell selectedCell = table.get_Item(1, 3);
+    int firstColumnIndex = selectedCell.getFirstColumnIndex();
+    int firstRowIndex = selectedCell.getFirstRowIndex();
+    ICell mergedCell = table.get_Item(firstColumnIndex, firstRowIndex);
+
+    if (mergedCell.isMergedCell() && mergedCell.getRowSpan() == 2 && mergedCell.getColSpan() == 1)
+    {
+        mergedCell.splitByRowSpan(1);
+
+        // Lấy các ô kết quả từ bảng sau khi tách.
+        ICell upperCell = table.get_Item(firstColumnIndex, firstRowIndex);
+        ICell lowerCell = table.get_Item(firstColumnIndex, firstRowIndex + 1);
+        System.out.println("Upper cell merged: " + upperCell.isMergedCell());
+        System.out.println("Lower cell merged: " + lowerCell.isMergedCell());
+
+        upperCell.getTextFrame().setText("Product A");
+        lowerCell.getTextFrame().setText("Product B");
+
+        presentation.save("split_template.pptx", SaveFormat.Pptx);
+    }
+    else
+    {
+        System.out.println("Select a merged region spanning exactly two rows and one column.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Lưới bảng và các chỉ mục ô xung quanh vẫn không thay đổi. Lấy các ô kết quả bằng tọa độ của chúng; ở đây, cả hai đều có phạm vi 1 và [isMergedCell](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#isMergedCell--) in ra `false`. Các vùng lớn hơn có thể vẫn còn một phần hợp nhất sau một lần tách.
+
+Văn bản gốc và định dạng của nó vẫn ở ô trên (hoặc bên trái); ô mới trống nhưng kế thừa định dạng ô như màu nền, đường viền và lề. Điền dữ liệu vào các ô sau khi tách và đặt bất kỳ định dạng văn bản nào cần thiết một cách rõ ràng.
+
+Bản trình chiếu đã lưu chứa các ô riêng biệt "Product A" và "Product B" với định dạng ô của mẫu được giữ nguyên. Xem [Cell API Reference](https://reference.aspose.com/slides/java/com.aspose.slides/cell/) để biết chi tiết.
+
+## **Thay đổi màu nền ô bảng**
+
+Ví dụ này tạo một bảng với các cột 150 điểm và các hàng 50 điểm. Nó sử dụng [setFillType](https://reference.aspose.com/slides/java/com.aspose.slides/ifillformat/#setFillType-byte-) để chọn tô đặc và đặt màu trả về bởi [getSolidFillColor](https://reference.aspose.com/slides/java/com.aspose.slides/ifillformat/#getSolidFillColor--) thành màu đỏ cho ô `(2, 3)`, ở cột thứ ba và hàng thứ tư.
+
+```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    double[] columnWidths = { 150, 150, 150, 150 };
+    double[] rowHeights = { 50, 50, 50, 50, 50 };
+    ITable table = slide.getShapes().addTable(50, 50, columnWidths, rowHeights);
+
     ICell cell = table.get_Item(2, 3);
     cell.getCellFormat().getFillFormat().setFillType(FillType.Solid);
     cell.getCellFormat().getFillFormat().getSolidFillColor().setColor(Color.RED);
 
     presentation.save("cell_background_color.pptx", SaveFormat.Pptx);
 } finally {
-    if (presentation != null) presentation.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Thêm hình ảnh vào bên trong ô bảng**
+## **Thêm hình ảnh vào bên trong một ô bảng**
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/Presentation) class.
-2. Lấy tham chiếu của slide thông qua chỉ mục của nó.
-3. Định nghĩa một mảng các cột với chiều rộng.
-4. Định nghĩa một mảng các hàng với chiều cao.
-5. Thêm một bảng vào slide thông qua phương thức [AddTable](https://reference.aspose.com/slides/vi/java/com.aspose.slides/IShapeCollection#addTable-float-float-double:A-double:A-) .
-6. Tạo một đối tượng `Images` để chứa tệp hình ảnh.
-7. Thêm hình ảnh `IImage` vào đối tượng `IPPImage`.
-8. Đặt `FillFormat` cho ô bảng thành `Picture`.
-9. Thêm hình ảnh vào ô đầu tiên của bảng.
-10. Lưu bản thuyết trình đã chỉnh sửa dưới dạng tệp PPTX
+Đặt ảnh đầu vào vào thư mục làm việc trước khi chạy ví dụ này. Nó tải ảnh bằng [Images.fromFile](https://reference.aspose.com/slides/java/com.aspose.slides/images/#fromFile-java.lang.String-) và thêm nó vào bộ sưu tập ảnh của bản trình chiếu bằng [addImage](https://reference.aspose.com/slides/java/com.aspose.slides/iimagecollection/#addImage-com.aspose.slides.IImage-). Sau đó, nó gán ảnh vào phần fill hình ảnh của ô `(0, 0)`, ô đầu tiên trong bảng.
 
-Mã Java này cho bạn thấy cách đặt hình ảnh vào ô bảng khi tạo một bảng:
+[PictureFillMode.Stretch](https://reference.aspose.com/slides/java/com.aspose.slides/picturefillmode/) kéo dài ảnh để lấp đầy ô, có thể làm thay đổi tỷ lệ khung hình. Chiều rộng cột và chiều cao hàng được tính bằng điểm. Ảnh đã tải sẽ được giải phóng trong khối `finally` sau khi được thêm vào bản trình chiếu.
 
 ```java
-// Khởi tạo lớp Presentation đại diện cho một tệp PPTX
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    // Truy cập slide đầu tiên
-    ISlide islide = pres.getSlides().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    
+    double[] columnWidths = { 150, 150, 150, 150 };
+    double[] rowHeights = { 100, 100, 100, 100, 90 };
+    ITable table = slide.getShapes().addTable(50, 50, columnWidths, rowHeights);
 
-    // Định nghĩa các cột với độ rộng và các hàng với chiều cao
-    double[] dblCols = {150, 150, 150, 150};
-    double[] dblRows = {100, 100, 100, 100, 90};
-
-    // Thêm hình dạng bảng vào slide
-    ITable tbl = islide.getShapes().addTable(50, 50, dblCols, dblRows);
-
-    // Tạo một đối tượng IPPImage bằng tệp hình ảnh
-    IPPImage picture;
-    IImage image = Images.fromFile("image.jpg");
+    IPPImage ppImage;
+    IImage image = Images.fromFile("aspose_logo.jpg");
     try {
-        picture = pres.getImages().addImage(image);
+        ppImage = presentation.getImages().addImage(image);
     } finally {
-        if (image != null) image.dispose();
+        image.dispose();
     }
 
-    // Thêm hình ảnh vào ô bảng đầu tiên
-    ICellFormat cellFormat = tbl.get_Item(0, 0).getCellFormat();
-    cellFormat.getFillFormat().setFillType(FillType.Picture);
-    cellFormat.getFillFormat().getPictureFillFormat().setPictureFillMode(PictureFillMode.Stretch);
-    cellFormat.getFillFormat().getPictureFillFormat().getPicture().setImage(picture);
+    table.get_Item(0, 0).getCellFormat().getFillFormat().setFillType(FillType.Picture);
+    table.get_Item(0, 0).getCellFormat().getFillFormat().getPictureFillFormat().setPictureFillMode(PictureFillMode.Stretch);
+    table.get_Item(0, 0).getCellFormat().getFillFormat().getPictureFillFormat().getPicture().setImage(ppImage);
 
-    // Lưu tệp PPTX vào đĩa
-    pres.save("Image_In_TableCell_out.pptx", SaveFormat.Pptx);
-} catch (IOException e) {
+    presentation.save("table_cell_with_image.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Câu hỏi thường gặp**
+## **FAQ**
 
-**Tôi có thể đặt độ dày và kiểu đường viền khác nhau cho các mặt của một ô duy nhất không?**
+**Can I set different line thicknesses and styles for different sides of a single cell?**
 
-Có. Các viền [top](https://reference.aspose.com/slides/vi/java/com.aspose.slides/cellformat/#getBorderTop--)/[bottom](https://reference.aspose.com/slides/vi/java/com.aspose.slides/cellformat/#getBorderBottom--)/[left](https://reference.aspose.com/slides/vi/java/com.aspose.slides/cellformat/#getBorderLeft--)/[right](https://reference.aspose.com/slides/vi/java/com.aspose.slides/cellformat/#getBorderRight--) có các thuộc tính riêng, vì vậy độ dày và kiểu của mỗi mặt có thể khác nhau. Điều này hợp lý dựa trên việc kiểm soát viền từng mặt cho một ô được trình bày trong bài viết.
+Yes. The [top](https://reference.aspose.com/slides/java/com.aspose.slides/cellformat/#getBorderTop--)/[bottom](https://reference.aspose.com/slides/java/com.aspose.slides/cellformat/#getBorderBottom--)/[left](https://reference.aspose.com/slides/java/com.aspose.slides/cellformat/#getBorderLeft--)/[right](https://reference.aspose.com/slides/java/com.aspose.slides/cellformat/#getBorderRight--) borders have separate properties, so the thickness and style of each side can differ.
 
-**Điều gì sẽ xảy ra với hình ảnh nếu tôi thay đổi kích thước cột/hàng sau khi đặt một bức ảnh làm nền cho ô?**
+**What happens to the image if I change the column/row size after setting a picture as the cell’s background?**
 
-Hành vi phụ thuộc vào [fill mode](https://reference.aspose.com/slides/vi/java/com.aspose.slides/picturefillmode/) (kéo dài/điệu). Khi kéo dài, hình ảnh sẽ điều chỉnh theo ô mới; khi điệu, các mẫu sẽ được tính lại. Bài viết đề cập đến các chế độ hiển thị hình ảnh trong ô.
+The behavior depends on the [fill mode](https://reference.aspose.com/slides/java/com.aspose.slides/picturefillmode/) (stretch/tile). With stretching, the image adjusts to the new cell; with tiling, the tiles are recalculated.
 
-**Tôi có thể gán siêu liên kết cho toàn bộ nội dung của một ô không?**
+**Can I assign a hyperlink to all the content of a cell?**
 
-[Hyperlinks](/slides/vi/java/manage-hyperlinks/) được đặt ở mức đoạn văn bản (portion) bên trong khung văn bản của ô hoặc ở mức toàn bộ bảng/hình. Trong thực tế, bạn gán liên kết cho một đoạn hoặc cho toàn bộ văn bản trong ô.
+[Hyperlinks](/slides/vi/java/manage-hyperlinks/) are set at the text (portion) level inside the cell’s text frame or at the level of the entire table/shape. In practice, you assign the link to a portion or to all the text in the cell.
 
-**Tôi có thể đặt các phông chữ khác nhau trong một ô duy nhất không?**
+**Can I set different fonts within a single cell?**
 
-Có. Khung văn bản của ô hỗ trợ [portions](https://reference.aspose.com/slides/vi/java/com.aspose.slides/portion/) (runs) với định dạng độc lập—gia đình phông chữ, kiểu, kích thước và màu.
+Yes. A cell’s text frame supports [portions](https://reference.aspose.com/slides/java/com.aspose.slides/portion/) (runs) with independent formatting—font family, style, size, and color.

@@ -7,7 +7,7 @@ url: /id/python-java/manage-cells/
 keywords:
 - sel tabel
 - gabungkan sel
-- hapus border
+- hapus batas
 - pisah sel
 - gambar dalam sel
 - warna latar belakang
@@ -15,20 +15,17 @@ keywords:
 - presentasi
 - Python
 - Aspose.Slides
-description: "Kelola sel tabel di PowerPoint dengan mudah menggunakan Aspose.Slides untuk Python via Java. Kuasai cara mengakses, memodifikasi, dan menata sel secara cepat untuk otomatisasi slide yang mulus."
+description: "Kelola sel tabel PowerPoint dalam Python: identifikasi sel yang digabung, hapus batas, pisah sel, dan atur warna latar belakang serta gambar dengan Aspose.Slides untuk Python melalui Java."
 ---
 ## **Gambaran Umum**
 
-Aspose.Slides memungkinkan Anda mengakses dan memodifikasi sel tabel dalam presentasi PowerPoint. Artikel ini menjelaskan cara mengidentifikasi sel tabel yang digabungkan, menghapus garis tepi sel, bekerja dengan penomoran sel setelah menggabungkan atau memisahkan sel, mengubah warna latar belakang sel, dan menambahkan gambar di dalam sel tabel. Contoh-contohnya menunjukkan cara membuat atau membuka presentasi, mengambil tabel dari slide, memperbarui pemformatan sel melalui properti sel, dan menyimpan presentasi yang dimodifikasi sebagai file PPTX.
+Aspose.Slides memungkinkan Anda mengakses dan memodifikasi sel tabel dalam presentasi PowerPoint. Artikel ini menjelaskan cara mengidentifikasi sel tabel yang digabung, menghapus batas sel, bekerja dengan penomoran sel setelah menggabungkan atau memisahkan sel, mengubah warna latar belakang sel, dan menambahkan gambar di dalam sel tabel. Contoh-contohnya menunjukkan cara membuat atau membuka presentasi, mendapatkan tabel dari slide, memperbarui pemformatan sel melalui properti sel, dan menyimpan presentasi yang telah dimodifikasi sebagai file PPTX.
 
-## **Mengidentifikasi Sel Tabel yang Digabungkan**
+Aspose.Slides menggunakan indeks berbasis nol untuk mengakses sel tabel dalam urutan `(column, row)`.
 
-1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentation/) .
-2. Dapatkan tabel dari slide pertama.
-3. Iterasi melalui baris dan kolom tabel untuk menemukan sel yang digabungkan.
-4. Cetak pesan saat sel yang digabungkan ditemukan.
+## **Mengidentifikasi Sel Tabel yang Digabung**
 
-Kode Python ini menunjukkan cara mengidentifikasi sel tabel yang digabungkan dalam presentasi:
+Contoh ini membuka presentasi yang ada dan mengakses bentuk pertama pada slide pertama sebagai tabel. Ia mengasumsikan bahwa slide dan bentuk tersebut ada serta bentuknya adalah tabel. Selanjutnya ia mengulangi semua baris dan kolom dan menggunakan [isMergedCell](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#isMergedCell) untuk mengidentifikasi sel dalam wilayah yang digabung. Untuk setiap kecocokan, ia mencetak koordinat sel dalam urutan `row;column`, [getRowSpan](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#getRowSpan), [getColSpan](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#getColSpan), dan koordinat awal wilayah, [getFirstRowIndex](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#getFirstRowIndex) serta [getFirstColumnIndex](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#getFirstColumnIndex).
 
 ```python
 import jpype
@@ -37,59 +34,45 @@ import asposeslides
 if not jpype.isJVMStarted():
     jpype.startJVM()
 
-from asposeslides.api import Presentation, Table
+from asposeslides.api import Presentation
 
-presentation = Presentation("SomePresentationWithTable.pptx")
+presentation = Presentation("presentation_with_table.pptx")
 try:
-    # Asumsikan bahwa shape pertama pada slide pertama adalah sebuah tabel.
-    shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0)
-    if isinstance(shape, Table):
-        table = shape
-        for i in range(table.getRows().size()):
-            for j in range(table.getColumns().size()):
-                current_cell = table.getRows().get_Item(i).get_Item(j)
-                if current_cell.isMergedCell():
-                    print(f"Cell {i};{j} is part of a merged cell with RowSpan={current_cell.getRowSpan()} and ColSpan={current_cell.getColSpan()} starting from Cell {current_cell.getFirstRowIndex()};{current_cell.getFirstColumnIndex()}.")
-    else:
-        print("The first shape is not a table.")
+    slide = presentation.getSlides().get_Item(0)
+    table = slide.getShapes().get_Item(0)
+
+    row_count = table.getRows().size()
+    for row_index in range(row_count):
+        column_count = table.getColumns().size()
+        for column_index in range(column_count):
+            cell = table.get_Item(column_index, row_index)
+            if cell.isMergedCell():
+                print(f"Cell {row_index};{column_index} belongs to a merged region with RowSpan={cell.getRowSpan()} and ColSpan={cell.getColSpan()} starting at {cell.getFirstRowIndex()};{cell.getFirstColumnIndex()}.")
 finally:
     presentation.dispose()
 ```
 
-## **Menghapus Garis Tepi Sel Tabel**
+## **Menghapus Batas Sel Tabel**
 
-1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentation/) .
-2. Dapatkan referensi ke slide berdasarkan indeksnya.
-3. Tentukan daftar lebar kolom.
-4. Tentukan daftar tinggi baris.
-5. Tambahkan tabel ke slide melalui metode [addTable](https://reference.aspose.com/slides/id/python-java/aspose.slides/shapecollection/#addTable) .
-6. Iterasi melalui setiap sel untuk menghapus garis tepi atas, bawah, kanan, dan kiri.
-7. Simpan presentasi yang telah dimodifikasi sebagai file PPTX.
-
-Kode Python ini menunjukkan cara menghapus garis tepi dari sel tabel:
+Buat sebuah [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) dan tambahkan tabel ke slide pertamanya dengan [addTable](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addTable). Lebar kolom, tinggi baris, dan posisi tabel ditentukan dalam poin. Contoh ini mengatur semua empat batas sel ke [FillType.NoFill](https://reference.aspose.com/slides/python-java/aspose.slides/filltype/), sehingga menjadi tidak terlihat.
 
 ```python
 import jpype
 import asposeslides
 
 if not jpype.isJVMStarted():
-    jpage.startJVM()
+    jpype.startJVM()
 
 from asposeslides.api import Presentation, FillType, SaveFormat
 
 presentation = Presentation()
 try:
-    # Akses slide pertama.
     slide = presentation.getSlides().get_Item(0)
 
-    # Tentukan lebar kolom dan tinggi baris.
     column_widths = [50, 50, 50, 50]
     row_heights = [50, 30, 30, 30, 30]
-
-    # Tambahkan tabel ke slide.
     table = slide.getShapes().addTable(100, 50, column_widths, row_heights)
 
-    # Atur format batas untuk setiap sel.
     for row in table.getRows():
         for cell in row:
             cell.getCellFormat().getBorderTop().getFillFormat().setFillType(FillType.NoFill)
@@ -97,15 +80,16 @@ try:
             cell.getCellFormat().getBorderLeft().getFillFormat().setFillType(FillType.NoFill)
             cell.getCellFormat().getBorderRight().getFillFormat().setFillType(FillType.NoFill)
 
-    # Simpan presentasi sebagai file PPTX.
-    presentation.save("table_out.pptx", SaveFormat.Pptx)
+    presentation.save("table.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-## **Penomoran pada Sel yang Digabungkan**
+## **Menggabungkan Sel Tabel**
 
-Jika kita menggabungkan dua pasangan sel, (1, 1) dan (2, 1), serta (1, 2) dan (2, 2), tabel yang dihasilkan mempertahankan penomoran selnya. Kode Python ini mendemonstrasikan prosesnya:
+Gunakan [mergeCells](https://reference.aspose.com/slides/python-java/aspose.slides/table/#mergeCells) untuk menggabungkan rentang persegi panjang sel tabel menjadi satu sel. Tentukan sel pada sudut kiri-atas dan kanan-bawah dari rentang. Argumen terakhir mengontrol apakah penggabungan dapat mencakup sel di luar rentang yang ditentukan; `False` menjaga penggabungan tetap dalam rentang tersebut.
+
+Contoh ini membuat tabel 4x4 dengan kolom dan baris 70 poin, lalu menggabungkan empat sel tengah dari `(1, 1)` hingga `(2, 2)`. Sel yang dihasilkan membentang dua kolom dan dua baris, sementara grid tabel yang mendasarinya tetap memiliki empat kolom dan empat baris. Untuk mengakses konten atau pemformatan sel yang digabung, gunakan posisi kiri-atasnya: `table.get_Item(1, 1)` dalam contoh ini. Posisi lain dalam rentang yang digabung tetap menjadi bagian dari grid tabel, sehingga indeks sel di luar rentang tidak berubah.
 
 ```python
 import jpype
@@ -114,54 +98,30 @@ import asposeslides
 if not jpype.isJVMStarted():
     jpype.startJVM()
 
-from asposeslides.api import Presentation, FillType, SaveFormat
-from java.awt import Color
+from asposeslides.api import Presentation, SaveFormat
 
 presentation = Presentation()
 try:
-    # Akses slide pertama.
     slide = presentation.getSlides().get_Item(0)
 
-    # Tentukan lebar kolom dan tinggi baris.
     column_widths = [70, 70, 70, 70]
     row_heights = [70, 70, 70, 70]
-
-    # Tambahkan tabel ke slide.
     table = slide.getShapes().addTable(100, 50, column_widths, row_heights)
 
-    # Atur format batas untuk setiap sel.
-    for row in table.getRows():
-        for cell in row:
-            cell.getCellFormat().getBorderTop().getFillFormat().setFillType(FillType.Solid)
-            cell.getCellFormat().getBorderTop().getFillFormat().getSolidFillColor().setColor(Color.RED)
-            cell.getCellFormat().getBorderTop().setWidth(5)
+    table.mergeCells(table.get_Item(1, 1), table.get_Item(2, 2), False)
 
-            cell.getCellFormat().getBorderBottom().getFillFormat().setFillType(FillType.Solid)
-            cell.getCellFormat().getBorderBottom().getFillFormat().getSolidFillColor().setColor(Color.RED)
-            cell.getCellFormat().getBorderBottom().setWidth(5)
-
-            cell.getCellFormat().getBorderLeft().getFillFormat().setFillType(FillType.Solid)
-            cell.getCellFormat().getBorderLeft().getFillFormat().getSolidFillColor().setColor(Color.RED)
-            cell.getCellFormat().getBorderLeft().setWidth(5)
-
-            cell.getCellFormat().getBorderRight().getFillFormat().setFillType(FillType.Solid)
-            cell.getCellFormat().getBorderRight().getFillFormat().getSolidFillColor().setColor(Color.RED)
-            cell.getCellFormat().getBorderRight().setWidth(5)
-
-
-    # Gabungkan sel (1, 1) dan (2, 1).
-    table.mergeCells(table.get_Item(1, 1), table.get_Item(2, 1), False)
-
-    # Gabungkan sel (1, 2) dan (2, 2).
-    table.mergeCells(table.get_Item(1, 2), table.get_Item(2, 2), False)
-
-    # Simpan presentasi sebagai file PPTX.
-    presentation.save("MergeCells_out.pptx", SaveFormat.Pptx)
+    presentation.save("merged_cells.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-Kemudian kami menggabungkan sel lebih lanjut dengan menggabungkan (1, 1) dan (1, 2). Hasilnya adalah tabel yang berisi satu sel besar yang digabungkan di tengahnya:
+## **Membagi Sel Tabel**
+
+Menggabungkan sel pada contoh sebelumnya mempertahankan grid tabel. Membagi sebuah sel dapat menambahkan kolom grid baru dan mengubah indeks kolom sel di sebelah kanannya. Aspose.Slides mengikuti model grid tabel PowerPoint.
+
+Contoh ini membuat tabel 4x4 dengan kolom dan baris 70 poin dan memanggil [splitByWidth](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#splitByWidth) pada sel `(1, 1)`. Setengah lebar 70 poin sel tersebut diberikan untuk membuat dua sel dengan lebar yang sama.
+
+Setelah pembagian ini, dua bagian tersebut diakses sebagai `table.get_Item(1, 1)` dan `table.get_Item(2, 1)`. Grid tabel kini memiliki lima kolom: sel yang semula berada di kolom 2 dan 3 berpindah ke kolom 3 dan 4, masing‑masing. Indeks baris tetap tidak berubah. Gunakan indeks kolom yang diperbarui ini saat mengakses sel setelah pembagian.
 
 ```python
 import jpype
@@ -170,63 +130,81 @@ import asposeslides
 if not jpype.isJVMStarted():
     jpype.startJVM()
 
-from asposeslides.api import Presentation, FillType, SaveFormat
-from java.awt import Color
+from asposeslides.api import Presentation, SaveFormat
 
 presentation = Presentation()
 try:
-    # Akses slide pertama.
     slide = presentation.getSlides().get_Item(0)
 
-    # Tentukan lebar kolom dan tinggi baris.
     column_widths = [70, 70, 70, 70]
     row_heights = [70, 70, 70, 70]
-
-    # Tambahkan tabel ke slide.
     table = slide.getShapes().addTable(100, 50, column_widths, row_heights)
 
-    # Atur format batas untuk setiap sel.
-    for row in table.getRows():
-        for cell in row:
-            cell.getCellFormat().getBorderTop().getFillFormat().setFillType(FillType.Solid)
-            cell.getCellFormat().getBorderTop().getFillFormat().getSolidFillColor().setColor(Color.RED)
-            cell.getCellFormat().getBorderTop().setWidth(5)
+    table.get_Item(1, 1).splitByWidth(table.get_Item(1, 1).getWidth() / 2)
 
-            cell.getCellFormat().getBorderBottom().getFillFormat().setFillType(FillType.Solid)
-            cell.getCellFormat().getBorderBottom().getFillFormat().getSolidFillColor().setColor(Color.RED)
-            cell.getCellFormat().getBorderBottom().setWidth(5)
-
-            cell.getCellFormat().getBorderLeft().getFillFormat().setFillType(FillType.Solid)
-            cell.getCellFormat().getBorderLeft().getFillFormat().getSolidFillColor().setColor(Color.RED)
-            cell.getCellFormat().getBorderLeft().setWidth(5)
-
-            cell.getCellFormat().getBorderRight().getFillFormat().setFillType(FillType.Solid)
-            cell.getCellFormat().getBorderRight().getFillFormat().getSolidFillColor().setColor(Color.RED)
-            cell.getCellFormat().getBorderRight().setWidth(5)
-
-
-    # Gabungkan sel (1, 1) dan (2, 1).
-    table.mergeCells(table.get_Item(1, 1), table.get_Item(2, 1), False)
-
-    # Gabungkan sel (1, 2) dan (2, 2).
-    table.mergeCells(table.get_Item(1, 2), table.get_Item(2, 2), False)
-
-    # Gabungkan sel (1, 1) dan (1, 2).
-    table.mergeCells(table.get_Item(1, 1), table.get_Item(1, 2), True)
-
-    # Simpan presentasi sebagai file PPTX.
-    presentation.save("MergeCells_out.pptx", SaveFormat.Pptx)
+    presentation.save("split_cells.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-## **Penomoran pada Sel yang Dipisah**
+### **Membagi Sel yang Digabung berdasarkan Rentang Baris atau Kolom**
 
-Pada contoh sebelumnya, menggabungkan sel tabel tidak mengubah penomoran sel lainnya.
+Untuk menyiapkan sel templat yang digabung untuk pengisian data, gunakan [splitByRowSpan](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#splitByRowSpan) untuk membagi sepanjang batas baris yang ada, atau [splitByColSpan](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#splitByColSpan) untuk membagi sepanjang batas kolom.
 
-Kali ini, kami mengambil tabel biasa (tabel tanpa sel yang digabungkan) dan kemudian mencoba memisahkan sel (1, 1) untuk mendapatkan tabel khusus. Perhatikan penomoran tabel ini, yang mungkin tampak aneh. Namun, itulah cara Microsoft PowerPoint menomori sel tabel dan Aspose.Slides melakukan hal yang sama.
+Argumen `index` menghitung baris pada bagian atas atau kolom pada bagian kiri dari pembagian; ia relatif terhadap wilayah yang digabung:
 
-Kode Python ini mendemonstrasikan proses yang kami jelaskan:
+- Pembagian baris: `0 < index <` [getRowSpan](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#getRowSpan).
+- Pembagian kolom: `0 < index <` [getColSpan](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#getColSpan).
+
+Contoh ini mengasumsikan presentasi memiliki tabel sebagai bentuk pertama pada slide pertama, dengan `(1, 2)` dan `(1, 3)` digabung secara vertikal. Memulai dari posisi bawah, ia menggunakan [getFirstColumnIndex](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#getFirstColumnIndex) dan [getFirstRowIndex](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#getFirstRowIndex) untuk menemukan asal dan memeriksa kedua rentang. `splitByRowSpan(1)` kemudian memisahkan baris 2 dan 3 untuk nama produk. Untuk penggabungan dua kolom secara horizontal, gunakan `splitByColSpan(1)` sebagai gantinya.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import Presentation, SaveFormat
+
+presentation = Presentation("table_template.pptx")
+try:
+    slide = presentation.getSlides().get_Item(0)
+    table = slide.getShapes().get_Item(0)
+
+    selected_cell = table.get_Item(1, 3)
+    first_column_index = selected_cell.getFirstColumnIndex()
+    first_row_index = selected_cell.getFirstRowIndex()
+    merged_cell = table.get_Item(first_column_index, first_row_index)
+
+    if merged_cell.isMergedCell() and merged_cell.getRowSpan() == 2 and merged_cell.getColSpan() == 1:
+        merged_cell.splitByRowSpan(1)
+
+        # Ambil sel yang dihasilkan dari tabel setelah pemisahan.
+        upper_cell = table.get_Item(first_column_index, first_row_index)
+        lower_cell = table.get_Item(first_column_index, first_row_index + 1)
+        print(f"Upper cell merged: {upper_cell.isMergedCell()}")
+        print(f"Lower cell merged: {lower_cell.isMergedCell()}")
+
+        upper_cell.getTextFrame().setText("Product A")
+        lower_cell.getTextFrame().setText("Product B")
+
+        presentation.save("split_template.pptx", SaveFormat.Pptx)
+    else:
+        print("Select a merged region spanning exactly two rows and one column.")
+finally:
+    presentation.dispose()
+```
+
+Grid tabel dan indeks sel di sekitarnya tetap tidak berubah. Ambil sel yang dihasilkan dengan koordinatnya; di sini, keduanya memiliki rentang 1 dan [isMergedCell](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#isMergedCell) mencetak `False`. Wilayah yang lebih besar dapat tetap sebagian digabung setelah satu pembagian.
+
+Teks asli dan pemformatannya tetap berada di sel atas (atau kiri); sel baru kosong tetapi mewarisi pemformatan sel seperti isi, batas, dan margin. Isi sel setelah pembagian dan atur pemformatan teks yang diperlukan secara eksplisit.
+
+Presentasi yang disimpan berisi sel terpisah “Product A” dan “Product B” dengan pemformatan sel templat tetap dipertahankan. Lihat [Cell API Reference](https://reference.aspose.com/slides/python-java/aspose.slides/cell/) untuk detail.
+
+## **Mengubah Warna Latar Belakang Sel Tabel**
+
+Contoh ini membuat tabel dengan kolom 150 poin dan baris 50 poin. Ia menggunakan [setFillType](https://reference.aspose.com/slides/python-java/aspose.slides/fillformat/#setFillType) untuk memilih isian solid dan mengatur warna yang dikembalikan oleh [getSolidFillColor](https://reference.aspose.com/slides/python-java/aspose.slides/fillformat/#getSolidFillColor) menjadi merah untuk sel `(2, 3)`, yaitu kolom ketiga dan baris keempat.
 
 ```python
 import jpype
@@ -240,77 +218,16 @@ from java.awt import Color
 
 presentation = Presentation()
 try:
-    # Akses slide pertama.
     slide = presentation.getSlides().get_Item(0)
 
-    # Tentukan lebar kolom dan tinggi baris.
-    column_widths = [70, 70, 70, 70]
-    row_heights = [70, 70, 70, 70]
-
-    # Tambahkan tabel ke slide.
-    table = slide.getShapes().addTable(100, 50, column_widths, row_heights)
-
-    # Atur format batas untuk setiap sel.
-    for row in table.getRows():
-        for cell in row:
-            cell.getCellFormat().getBorderTop().getFillFormat().setFillType(FillType.Solid)
-            cell.getCellFormat().getBorderTop().getFillFormat().getSolidFillColor().setColor(Color.RED)
-            cell.getCellFormat().getBorderTop().setWidth(5)
-
-            cell.getCellFormat().getBorderBottom().getFillFormat().setFillType(FillType.Solid)
-            cell.getCellFormat().getBorderBottom().getFillFormat().getSolidFillColor().setColor(Color.RED)
-            cell.getCellFormat().getBorderBottom().setWidth(5)
-
-            cell.getCellFormat().getBorderLeft().getFillFormat().setFillType(FillType.Solid)
-            cell.getCellFormat().getBorderLeft().getFillFormat().getSolidFillColor().setColor(Color.RED)
-            cell.getCellFormat().getBorderLeft().setWidth(5)
-
-            cell.getCellFormat().getBorderRight().getFillFormat().setFillType(FillType.Solid)
-            cell.getCellFormat().getBorderRight().getFillFormat().getSolidFillColor().setColor(Color.RED)
-            cell.getCellFormat().getBorderRight().setWidth(5)
-
-
-    # Pisah sel (1, 1).
-    table.get_Item(1, 1).splitByWidth(table.get_Item(2, 1).getWidth() / 2)
-
-    # Simpan presentasi sebagai file PPTX.
-    presentation.save("SplitCells_out.pptx", SaveFormat.Pptx)
-finally:
-    presentation.dispose()
-```
-
-## **Ubah Warna Latar Belakang Sel Tabel**
-
-Kode Python ini menunjukkan cara mengubah warna latar belakang sel tabel:
-
-```python
-import jpype
-import asposeslides
-
-if not jpype.isJVMStarted():
-    jpype.startJVM()
-
-from asposeslides.api import Presentation, FillType, SaveFormat
-from java.awt import Color
-
-presentation = Presentation()
-try:
-    # Akses slide pertama.
-    slide = presentation.getSlides().get_Item(0)
-
-    # Tentukan lebar kolom dan tinggi baris.
     column_widths = [150, 150, 150, 150]
     row_heights = [50, 50, 50, 50, 50]
-
-    # Tambahkan tabel ke slide.
     table = slide.getShapes().addTable(50, 50, column_widths, row_heights)
 
-    # Atur warna latar belakang untuk sebuah sel.
     cell = table.get_Item(2, 3)
     cell.getCellFormat().getFillFormat().setFillType(FillType.Solid)
     cell.getCellFormat().getFillFormat().getSolidFillColor().setColor(Color.RED)
 
-    # Simpan presentasi sebagai file PPTX.
     presentation.save("cell_background_color.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
@@ -318,18 +235,9 @@ finally:
 
 ## **Menambahkan Gambar di Dalam Sel Tabel**
 
-1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentation/) .
-2. Dapatkan referensi ke slide berdasarkan indeksnya.
-3. Tentukan daftar lebar kolom.
-4. Tentukan daftar tinggi baris.
-5. Tambahkan tabel ke slide melalui metode [addTable](https://reference.aspose.com/slides/id/python-java/aspose.slides/shapecollection/#addTable) .
-6. Muat file gambar menggunakan [Images.fromFile](https://reference.aspose.com/slides/id/python-java/aspose.slides/images/#fromFile) .
-7. Tambahkan gambar ke presentasi untuk membuat objek [PPImage](https://reference.aspose.com/slides/id/python-java/aspose.slides/ppimage/) .
-8. Atur tipe isian [FillFormat](https://reference.aspose.com/slides/id/python-java/aspose.slides/fillformat/) sel tabel menjadi [FillType.Picture](https://reference.aspose.com/slides/id/python-java/aspose.slides/filltype/#Picture) .
-9. Tambahkan gambar ke sel pertama tabel.
-10. Simpan presentasi yang telah dimodifikasi sebagai file PPTX.
+Tempatkan gambar input di direktori kerja sebelum menjalankan contoh ini. Ia memuat gambar dengan [Images.fromFile](https://reference.aspose.com/slides/python-java/aspose.slides/images/#fromFile) dan menambahkannya ke koleksi gambar presentasi dengan [addImage](https://reference.aspose.com/slides/python-java/aspose.slides/imagecollection/#addImage). Kemudian gambar tersebut diberikan ke isian gambar sel `(0, 0)`, sel pertama pada tabel.
 
-Kode Python ini menunjukkan cara menempatkan gambar di dalam sel tabel saat membuat tabel:
+[PictureFillMode.Stretch](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillmode/) memperluas gambar untuk mengisi sel, yang dapat mengubah rasio aspeknya. Lebar kolom dan tinggi baris dalam poin. Gambar yang dimuat dibuang dalam blok `finally` setelah ditambahkan ke presentasi.
 
 ```python
 import jpype
@@ -342,49 +250,41 @@ from asposeslides.api import Presentation, Images, FillType, PictureFillMode, Sa
 
 presentation = Presentation()
 try:
-    # Akses slide pertama.
     slide = presentation.getSlides().get_Item(0)
 
-    # Tentukan lebar kolom dan tinggi baris.
     column_widths = [150, 150, 150, 150]
     row_heights = [100, 100, 100, 100, 90]
-
-    # Tambahkan tabel ke slide.
     table = slide.getShapes().addTable(50, 50, column_widths, row_heights)
 
-    # Buat gambar presentasi dari file gambar.
-    image = Images.fromFile("image.jpg")
+    image = Images.fromFile("aspose_logo.jpg")
     try:
-        picture = presentation.getImages().addImage(image)
+        presentation_image = presentation.getImages().addImage(image)
     finally:
         image.dispose()
 
-    # Tambahkan gambar ke sel tabel pertama.
-    cell_format = table.get_Item(0, 0).getCellFormat()
-    cell_format.getFillFormat().setFillType(FillType.Picture)
-    cell_format.getFillFormat().getPictureFillFormat().setPictureFillMode(PictureFillMode.Stretch)
-    cell_format.getFillFormat().getPictureFillFormat().getPicture().setImage(picture)
+    table.get_Item(0, 0).getCellFormat().getFillFormat().setFillType(FillType.Picture)
+    table.get_Item(0, 0).getCellFormat().getFillFormat().getPictureFillFormat().setPictureFillMode(PictureFillMode.Stretch)
+    table.get_Item(0, 0).getCellFormat().getFillFormat().getPictureFillFormat().getPicture().setImage(presentation_image)
 
-    # Simpan presentasi sebagai file PPTX.
-    presentation.save("Image_In_TableCell_out.pptx", SaveFormat.Pptx)
+    presentation.save("table_cell_with_image.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
 ## **FAQ**
 
-**Apakah saya dapat mengatur ketebalan garis dan gaya yang berbeda untuk sisi yang berbeda dari satu sel?**
+**Apakah saya dapat mengatur ketebalan dan gaya garis yang berbeda untuk sisi yang berbeda dari satu sel?**
 
-Ya. Garis [top](https://reference.aspose.com/slides/id/python-java/aspose.slides/cellformat/#getBorderTop)/[bottom](https://reference.aspose.com/slides/id/python-java/aspose.slides/cellformat/#getBorderBottom)/[left](https://reference.aspose.com/slides/id/python-java/aspose.slides/cellformat/#getBorderLeft)/[right](https://reference.aspose.com/slides/id/python-java/aspose.slides/cellformat/#getBorderRight) memiliki properti terpisah, sehingga ketebalan dan gaya setiap sisi dapat berbeda. Ini secara logis mengikuti kontrol garis per sisi untuk sebuah sel yang ditunjukkan dalam artikel.
+Ya. Batas [top](https://reference.aspose.com/slides/python-java/aspose.slides/cellformat/#getBorderTop)/[bottom](https://reference.aspose.com/slides/python-java/aspose.slides/cellformat/#getBorderBottom)/[left](https://reference.aspose.com/slides/python-java/aspose.slides/cellformat/#getBorderLeft)/[right](https://reference.aspose.com/slides/python-java/aspose.slides/cellformat/#getBorderRight) memiliki properti terpisah, sehingga ketebalan dan gaya tiap sisi dapat berbeda.
 
-**Apa yang terjadi pada gambar jika saya mengubah ukuran kolom/baris setelah menetapkan gambar sebagai latar belakang sel?**
+**Apa yang terjadi pada gambar jika saya mengubah ukuran kolom/baris setelah mengatur gambar sebagai latar belakang sel?**
 
-Perilaku bergantung pada [fill mode](https://reference.aspose.com/slides/id/python-java/aspose.slides/picturefillmode/) (stretch/tile). Dengan stretch, gambar menyesuaikan dengan sel baru; dengan tile, ubin dihitung ulang. Artikel menyebutkan mode tampilan gambar dalam sel.
+Perilakunya bergantung pada [fill mode](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillmode/) (stretch/tile). Dengan stretch, gambar menyesuaikan diri dengan sel yang baru; dengan tile, ubin‑ubin dihitung ulang.
 
-**Apakah saya dapat menetapkan hyperlink ke seluruh konten sebuah sel?**
+**Apakah saya dapat menugaskan hyperlink ke seluruh konten sel?**
 
-[Hyperlinks](/slides/id/python-java/manage-hyperlinks/) diatur pada tingkat teks (portion) di dalam bingkai teks sel atau pada tingkat seluruh tabel/bentuk. Pada praktiknya, Anda menetapkan tautan ke sebuah portion atau ke seluruh teks dalam sel.
+[Hyperlinks](/slides/id/python-java/manage-hyperlinks/) diatur pada tingkat teks (bagian) di dalam bingkai teks sel atau pada tingkat seluruh tabel/bentuk. Pada praktiknya, Anda menugaskan tautan ke sebuah bagian atau ke seluruh teks dalam sel.
 
-**Apakah saya dapat mengatur font yang berbeda di dalam satu sel?**
+**Apakah saya dapat mengatur font yang berbeda dalam satu sel?**
 
-Ya. Bingkai teks sel mendukung [portions](https://reference.aspose.com/slides/id/python-java/aspose.slides/portion/) (run) dengan pemformatan independen—familia font, gaya, ukuran, dan warna.
+Ya. Bingkai teks sel mendukung [portions](https://reference.aspose.com/slides/python-java/aspose.slides/portion/) (jalur) dengan pemformatan independen—jenis font, gaya, ukuran, dan warna.

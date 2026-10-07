@@ -1,6 +1,6 @@
 ---
-title: Διαχείριση κελιών πίνακα σε παρουσιάσεις στο Android
-linktitle: Διαχείριση κελιών
+title: Διαχείριση κελιών πίνακα σε παρουσιάσεις Android
+linktitle: Διαχείριση Κελιών
 type: docs
 weight: 30
 url: /el/androidjava/manage-cells/
@@ -16,69 +16,60 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Διαχειριστείτε άψογα τα κελιά πίνακα στο PowerPoint με το Aspose.Slides για Android μέσω Java. Κατακτήστε την πρόσβαση, την τροποποίηση και το στυλιζάρισμα των κελιών γρήγορα για αδιάλειπτη αυτοματοποίηση διαφανειών."
+description: "Διαχειριστείτε τα κελιά πίνακα PowerPoint στο Android: εντοπίστε συγχωνευμένα κελιά, αφαιρέστε περιγράμματα, διαχωρίστε κελιά και ορίστε χρώματα φόντου και εικόνες με το Aspose.Slides για Android μέσω Java."
 ---
 ## **Επισκόπηση**
 
-Το Aspose.Slides σάς επιτρέπει να αποκτήσετε πρόσβαση και να τροποποιήσετε τα κελιά πίνακα σε παρουσιάσεις PowerPoint. Αυτό το άρθρο εξηγεί πώς να εντοπίσετε συγχωνευμένα κελιά πίνακα, να αφαιρέσετε τα περιθώρια των κελιών, να εργαστείτε με την αρίθμηση των κελιών μετά τη συγχώνευση ή το διαχωρισμό τους, να αλλάξετε το χρώμα φόντου ενός κελιού και να προσθέσετε μια εικόνα μέσα σε κελί πίνακα. Τα παραδείγματα δείχνουν πώς να δημιουργήσετε ή να ανοίξετε μια παρουσίαση, να πάρετε έναν πίνακα από μια διαφάνεια, να ενημερώσετε τη μορφοποίηση του κελιού μέσω των ιδιοτήτων του και να αποθηκεύσετε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
+Το Aspose.Slides σάς επιτρέπει να έχετε πρόσβαση και να τροποποιήσετε τα κελιά πινάκων σε παρουσιάσεις PowerPoint. Αυτό το άρθρο εξηγεί πώς να εντοπίσετε συγχωνευμένα κελιά πινάκων, να αφαιρέσετε τα περιγράμματα των κελιών, να εργαστείτε με την αρίθμηση κελιών μετά τη συγχώνευση ή τον διαχωρισμό, να αλλάξετε το χρώμα φόντου ενός κελιού και να προσθέσετε εικόνα μέσα σε κελί πινάκου. Τα παραδείγματα δείχνουν πώς να δημιουργήσετε ή να ανοίξετε μια παρουσίαση, να αποκτήσετε έναν πίνακα από μια διαφάνεια, να ενημερώσετε τη μορφοποίηση των κελιών μέσω των ιδιοτήτων των κελιών και να αποθηκεύσετε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
 
-## **Αναγνώριση Συγχωνευμένου Κελιού Πίνακα**
-1. Δημιουργήστε ένα στιγμιότυπο της κλάσης [Presentation](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/Presentation).
-2. Αποκτήστε τον πίνακα από την πρώτη διαφάνεια. 
-3. Επαναλάβετε τις γραμμές και στήλες του πίνακα για να βρείτε συγχωνευμένα κελιά.
-4. Εκτυπώστε μήνυμα όταν βρεθούν συγχωνευμένα κελιά.
+Το Aspose.Slides χρησιμοποιεί δείκτες που ξεκινούν από το μηδέν για να έχει πρόσβαση στα κελιά του πίνακα με τη σειρά `(στήλη, γραμμή)`.
 
-Αυτός ο κώδικας Java δείχνει πώς να εντοπίσετε συγχωνευμένα κελιά πίνακα σε μια παρουσίαση:
+## **Εντοπισμός Συγχωνευμένου Κελιού Πίνακα**
+
+Το παράδειγμα ανοίγει μια υπάρχουσα παρουσίαση και αποκτά το πρώτο σχήμα στην πρώτη διαφάνεια ως πίνακα. Υποθέτει ότι η διαφάνεια και το σχήμα υπάρχουν και ότι το σχήμα είναι πίνακας. Στη συνέχεια επαναλαμβάνει όλες τις γραμμές και τις στήλες και χρησιμοποιεί [isMergedCell](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#isMergedCell--) για να εντοπίσει κελιά σε συγχωνευμένες περιοχές. Για κάθε ταιριάζον αποτέλεσμα, εκτυπώνει τις συντεταγμένες του κελιού με τη σειρά `γραμμή;στήλη`, [getRowSpan](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#getRowSpan--), [getColSpan](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#getColSpan--), και τις αρχικές συντεταγμένες της περιοχής, [getFirstRowIndex](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#getFirstRowIndex--) και [getFirstColumnIndex](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#getFirstColumnIndex--).
 
 ```java
-Presentation pres = new Presentation("SomePresentationWithTable.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("presentation_with_table.pptx");
 try {
-    ITable table = (ITable)pres.getSlides().get_Item(0).getShapes().get_Item(0); // υποθέτοντας ότι το Slide#0.Shape#0 είναι πίνακας
-    for (int i = 0; i < table.getRows().size(); i++)
+    ISlide slide = presentation.getSlides().get_Item(0);
+    ITable table = (ITable) slide.getShapes().get_Item(0);
+
+    int rowCount = table.getRows().size();
+    for (int rowIndex = 0; rowIndex < rowCount; rowIndex++)
     {
-        for (int j = 0; j < table.getColumns().size(); j++)
+        int columnCount = table.getColumns().size();
+        for (int columnIndex = 0; columnIndex < columnCount; columnIndex++)
         {
-            ICell currentCell = table.getRows().get_Item(i).get_Item(j);
-            if (currentCell.isMergedCell())
+            ICell cell = table.get_Item(columnIndex, rowIndex);
+            if (cell.isMergedCell())
             {
-                System.out.println(String.format("Cell %d;%d is a part of merged cell with RowSpan=%d and ColSpan=%d starting from Cell %d;%d.",
-                        i, j, currentCell.getRowSpan(), currentCell.getColSpan(), currentCell.getFirstRowIndex(), currentCell.getFirstColumnIndex()));
+                System.out.printf("Cell %d;%d belongs to a merged region with RowSpan=%d and ColSpan=%d starting at %d;%d.%n", rowIndex, columnIndex, cell.getRowSpan(), cell.getColSpan(), cell.getFirstRowIndex(), cell.getFirstColumnIndex());
             }
         }
     }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
 ## **Αφαίρεση Περιγραμμάτων Κελιών Πίνακα**
-1. Δημιουργήστε ένα στιγμιότυπο της κλάσης [Presentation](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/Presentation).
-2. Αποκτήστε μια αναφορά σε διαφάνεια με βάση το δείκτη της. 
-3. Ορίστε έναν πίνακα στηλών με το πλάτος.
-4. Ορίστε έναν πίνακα σειρών με το ύψος.
-5. Προσθέστε έναν πίνακα στη διαφάνεια μέσω της μεθόδου [addTable](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/IShapeCollection#addTable-float-float-double:A-double:A-).
-6. Επαναλάβετε κάθε κελί για να καθαρίσετε τα πάνω, κάτω, δεξιά και αριστερά περιγράμματα.
-7. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
 
-Αυτός ο κώδικας Java δείχνει πώς να αφαιρέσετε τα περιγράμματα από κελιά πίνακα:
+Δημιουργήστε ένα [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) και προσθέστε έναν πίνακα στην πρώτη του διαφάνεια με την [addTable](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addTable-float-float-double---double---). Τα πλάτη των στηλών, τα ύψη των γραμμών και η θέση του πίνακα ορίζονται σε σημεία. Το παράδειγμα ορίζει και τα τέσσερα περιγράμματα κελιών στο [FillType.NoFill](https://reference.aspose.com/slides/androidjava/com.aspose.slides/filltype/), καθιστώντας τα αόρατα.
 
 ```java
-// Δημιουργεί μια Presentation κλάση που αντιπροσωπεύει αρχείο PPTX
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    // Πρόσβαση στην πρώτη διαφάνεια
-    Slide sld = (Slide)pres.getSlides().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Ορίζει στήλες με πλάτη και σειρές με ύψη
-    double[] dblCols = { 50, 50, 50, 50 };
-    double[] dblRows = { 50, 30, 30, 30, 30 };
+    double[] columnWidths = { 50, 50, 50, 50 };
+    double[] rowHeights = { 50, 30, 30, 30, 30 };
+    ITable table = slide.getShapes().addTable(100, 50, columnWidths, rowHeights);
 
-    // Προσθέτει σχήμα πίνακα στη διαφάνεια
-    ITable tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
-
-    // Ορίζει τη μορφή περιγράμματος για κάθε κελί
-    for (IRow row : tbl.getRows())
-    {
+    for (IRow row : table.getRows())
         for (ICell cell : row)
         {
             cell.getCellFormat().getBorderTop().getFillFormat().setFillType(FillType.NoFill);
@@ -86,274 +77,194 @@ try {
             cell.getCellFormat().getBorderLeft().getFillFormat().setFillType(FillType.NoFill);
             cell.getCellFormat().getBorderRight().getFillFormat().setFillType(FillType.NoFill);
         }
-    }
 
-    // Γράφει το PPTX στο δίσκο
-    pres.save("table_out.pptx", SaveFormat.Pptx);
+    presentation.save("table.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Αρίθμηση σε Συγχωνευμένα Κελιά**
-Αν συγχωνεύσουμε 2 ζεύγη κελιών (1, 1) x (2, 1) και (1, 2) x (2, 2), ο προκύπτων πίνακας θα αριθμηθεί. Αυτός ο κώδικας Java παρουσιάζει τη διαδικασία:
+## **Συγχώνευση Κελιών Πίνακα**
+
+Χρησιμοποιήστε την [mergeCells](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itable/#mergeCells-com.aspose.slides.ICell-com.aspose.slides.ICell-boolean-) για να συνδυάσετε ένα ορθογώνιο εύρος κελιών σε ένα κελί. Καθορίστε τα κελιά στην πάνω‑αριστερή και στην κάτω‑δεξιά γωνία του εύρους. Η τελική παράμετρος ελέγχει αν η συγχώνευση μπορεί να περιλάβει κελιά εκτός του καθορισμένου εύρους· το `false` περιορίζει τη συγχώνευση στο εύρος αυτό.
+
+Το παράδειγμα δημιουργεί έναν πίνακα 4x4 με στήλες και γραμμές 70 σημείων, στη συνέχεια συγχωνεύει τα τέσσερα κεντρικά κελιά από το `(1, 1)` έως το `(2, 2)`. Το αποτέλεσμα είναι ένα κελί που εκτείνεται σε δύο στήλες και δύο γραμμές, ενώ το υποκείμενο πλέγμα του πίνακα διατηρεί τέσσερις στήλες και τέσσερις γραμμές. Για να έχετε πρόσβαση στο περιεχόμενο ή τη μορφοποίηση του συγχωνευμένου κελιού, χρησιμοποιήστε τη θέση του πάνω‑αριστερού άκρου: `table.get_Item(1, 1)` σε αυτό το παράδειγμα. Οι άλλες θέσεις στο συγχωνευμένο εύρος παραμένουν μέρος του πλέγματος του πίνακα, οπότε οι δείκτες των κελιών εκτός του εύρους δεν αλλάζουν.
 
 ```java
-// Δημιουργεί ένα αντικείμενο της κλάσης Presentation που αντιπροσωπεύει αρχείο PPTX
-Presentation pres = new Presentation();
-try {
-    // Πρόσβαση στην πρώτη διαφάνεια
-    ISlide sld = pres.getSlides().get_Item(0);
+import com.aspose.slides.*;
 
-    // Ορίζει στήλες με πλάτη και σειρές με ύψη
-    double[] dblCols = { 70, 70, 70, 70 };
-    double[] dblRows = { 70, 70, 70, 70 };
-
-    // Προσθέτει σχήμα πίνακα στη διαφάνεια
-    ITable tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
-
-    // Ορίζει τη μορφή περιγράμματος για κάθε κελί
-    for (IRow row : tbl.getRows())
-    {
-        for (ICell cell : row)
-        {
-            cell.getCellFormat().getBorderTop().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderTop().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderTop().setWidth(5);
-
-            cell.getCellFormat().getBorderBottom().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderBottom().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderBottom().setWidth(5);
-
-            cell.getCellFormat().getBorderLeft().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderLeft().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderLeft().setWidth(5);
-
-            cell.getCellFormat().getBorderRight().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderRight().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderRight().setWidth(5);
-        }
-    }
-
-    // Συγχωνεύει τα κελιά (1, 1) x (2, 1)
-    tbl.mergeCells(tbl.get_Item(1, 1), tbl.get_Item(2, 1), false);
-
-    // Συγχωνεύει τα κελιά (1, 2) x (2, 2)
-    tbl.mergeCells(tbl.get_Item(1, 2), tbl.get_Item(2, 2), false);
-
-    pres.save("MergeCells_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-Στη συνέχεια συγχωνεύουμε περαιτέρω τα κελιά συγχωνεύοντας τα (1, 1) και (1, 2). Το αποτέλεσμα είναι ένας πίνακας που περιέχει ένα μεγάλο συγχωνευμένο κελί στο κέντρο του:
-
-```java
-// Δημιουργεί αντικείμενο Presentation που αντιπροσωπεύει αρχείο PPTX
-Presentation pres = new Presentation();
-try {
-    // Πρόσβαση στην πρώτη διαφάνεια
-    ISlide sld = pres.getSlides().get_Item(0);
-
-    // Ορίζει στήλες με πλάτη και σειρές με ύψη
-    double[] dblCols = { 70, 70, 70, 70 };
-    double[] dblRows = { 70, 70, 70, 70 };
-
-    // Προσθέτει σχήμα πίνακα στη διαφάνεια
-    ITable tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
-
-    // Ορίζει τη μορφή περιγράμματος για κάθε κελί
-    for (IRow row : tbl.getRows())
-    {
-        for (ICell cell : row)
-        {
-            cell.getCellFormat().getBorderTop().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderTop().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderTop().setWidth(5);
-
-            cell.getCellFormat().getBorderBottom().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderBottom().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderBottom().setWidth(5);
-
-            cell.getCellFormat().getBorderLeft().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderLeft().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderLeft().setWidth(5);
-
-            cell.getCellFormat().getBorderRight().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderRight().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderRight().setWidth(5);
-        }
-    }
-
-    // Συγχωνεύει τα κελιά (1, 1) x (2, 1)
-    tbl.mergeCells(tbl.get_Item(1, 1), tbl.get_Item(2, 1), false);
-
-    // Συγχωνεύει τα κελιά (1, 2) x (2, 2)
-    tbl.mergeCells(tbl.get_Item(1, 2), tbl.get_Item(2, 2), false);
-
-    // Συγχωνεύει τα κελιά (1, 1) x (1, 2)
-    tbl.mergeCells(tbl.get_Item(1, 1), tbl.get_Item(1, 2), true);
-	
-	// Γράφει το αρχείο PPTX στο δίσκο
-    pres.save("MergeCells_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Αρίθμηση σε Διαχωρισμένο Κελί**
-Στα προηγούμενα παραδείγματα, όταν τα κελιά πίνακα συγχωνεύτηκαν, το σύστημα αρίθμησης στα άλλα κελιά δεν άλλαξε.
-
-Αυτή τη φορά, παίρνουμε έναν κανονικό πίνακα (χωρίς συγχωνευμένα κελιά) και στη συνέχεια προσπαθούμε να διαχωρίσουμε το κελί (1,1) ώστε να προκύψει ένας ιδιαίτερος πίνακας. Ίσως θέλετε να προσέξετε την αρίθμηση αυτού του πίνακα, η οποία μπορεί να φανεί περίεργη. Ωστόσο, έτσι αριθμεί τα κελιά πίνακα το Microsoft PowerPoint και το Aspose.Slides κάνει το ίδιο.
-
-Αυτός ο κώδικας Java δείχνει τη διαδικασία που περιγράψαμε:
-
-```java
-// Δημιουργεί την κλάση Presentation που αντιπροσωπεύει αρχείο PPTX
-Presentation pres = new Presentation();
-try {
-    // Πρόσβαση στην πρώτη διαφάνεια
-    ISlide sld = pres.getSlides().get_Item(0);
-
-    // Ορίζει στήλες με πλάτη και σειρές με ύψη
-    double[] dblCols = { 70, 70, 70, 70 };
-    double[] dblRows = { 70, 70, 70, 70 };
-
-    // Προσθέτει σχήμα πίνακα στη διαφάνεια
-    ITable tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
-
-    // Ορίζει τη μορφή περιγράμματος για κάθε κελί
-    for (IRow row : tbl.getRows())
-    {
-        for (ICell cell : row)
-        {
-            cell.getCellFormat().getBorderTop().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderTop().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderTop().setWidth(5);
-
-            cell.getCellFormat().getBorderBottom().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderBottom().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderBottom().setWidth(5);
-
-            cell.getCellFormat().getBorderLeft().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderLeft().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderLeft().setWidth(5);
-
-            cell.getCellFormat().getBorderRight().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderRight().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderRight().setWidth(5);
-        }
-    }
-
-    // Συγχωνεύει τα κελιά (1, 1) x (2, 1)
-    tbl.mergeCells(tbl.get_Item(1, 1), tbl.get_Item(2, 1), false);
-
-    // Συγχωνεύει τα κελιά (1, 2) x (2, 2)
-    tbl.mergeCells(tbl.get_Item(1, 2), tbl.get_Item(2, 2), false);
-
-    // Διαχωρίζει το κελί (1, 1)
-    tbl.get_Item(1, 1).splitByWidth(tbl.get_Item(2, 1).getWidth() / 2);
-
-    // Γράφει το αρχείο PPTX στο δίσκο
-    pres.save("SplitCells_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Αλλαγή Χρώματος Φόντου Κελιού Πίνακα**
-
-Αυτός ο κώδικας Java δείχνει πώς να αλλάξετε το χρώμα φόντου ενός κελιού πίνακα:
-
-```java
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    double[] dblCols = { 150, 150, 150, 150 };
-    double[] dblRows = { 50, 50, 50, 50, 50 };
+    double[] columnWidths = { 70, 70, 70, 70 };
+    double[] rowHeights = { 70, 70, 70, 70 };
+    ITable table = slide.getShapes().addTable(100, 50, columnWidths, rowHeights);
 
-    // δημιουργεί νέο πίνακα
-    ITable table = slide.getShapes().addTable(50, 50, dblCols, dblRows);
+    table.mergeCells(table.get_Item(1, 1), table.get_Item(2, 2), false);
 
-    // ορίζει το χρώμα φόντου για ένα κελί 
+    presentation.save("merged_cells.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Διαίρεση Κελιών Πίνακα**
+
+Η συγχώνευση κελιών στο προηγούμενο παράδειγμα διατηρεί το πλέγμα του πίνακα. Η διαίρεση ενός κελιού μπορεί να εισάγει μια νέα στήλη πλέγματος και να αλλάξει τους δείκτες των στηλών των κελιών δεξιά του. Το Aspose.Slides ακολουθεί το μοντέλο πλέγματος πινάκων του PowerPoint.
+
+Αυτό το παράδειγμα δημιουργεί έναν πίνακα 4x4 με στήλες και γραμμές 70 σημείων και καλεί την [splitByWidth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#splitByWidth-double-) στο κελί `(1, 1)`. Η μισή από το πλάτος των 70 σημείων του κελιού περνιέται για να δημιουργηθούν δύο κελιά ίσου πλάτους.
+
+Μετά από αυτή τη διαίρεση, οι δύο μισές προσεγγίζονται ως `table.get_Item(1, 1)` και `table.get_Item(2, 1)`. Το πλέγμα του πίνακα έχει τώρα πέντε στήλες: τα κελιά που αρχικά ήταν στις στήλες 2 και 3 μετακινούνται στις στήλες 3 και 4, αντίστοιχα. Οι δείκτες γραμμών παραμένουν αμετάβλητοι. Χρησιμοποιήστε αυτούς τους ενημερωμένους δείκτες στηλών όταν έχετε πρόσβαση σε κελιά μετά τη διαίρεση.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    double[] columnWidths = { 70, 70, 70, 70 };
+    double[] rowHeights = { 70, 70, 70, 70 };
+    ITable table = slide.getShapes().addTable(100, 50, columnWidths, rowHeights);
+
+    table.get_Item(1, 1).splitByWidth(table.get_Item(1, 1).getWidth() / 2);
+
+    presentation.save("split_cells.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+### **Διαίρεση Συγχωνευμένων Κελιών κατά Γραμμή ή Στήλη**
+
+Για να προετοιμάσετε συγχωνευμένα κελιά προτύπου για την πληρότητα δεδομένων, χρησιμοποιήστε την [splitByRowSpan](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#splitByRowSpan-int-) ώστε να διαχωρίσετε κατά υπάρχον όριο γραμμής, ή την [splitByColSpan](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#splitByColSpan-int-) ώστε να διαχωρίσετε κατά όριο στήλης.
+
+Η παράμετρος `index` μετράει τις γραμμές στο άνω μέρος ή τις στήλες στο αριστερό μέρος του διαχωρισμού· είναι σχετική με τη συγχωνευμένη περιοχή:
+
+- Διαχωρισμός γραμμής: `0 < index <` [getRowSpan](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#getRowSpan--).
+- Διαχωρισμός στήλης: `0 < index <` [getColSpan](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#getColSpan--).
+
+Το παράδειγμα προϋποθέτει ότι η παρουσίαση διαθέτει πίνακα ως πρώτο σχήμα στην πρώτη διαφάνεια, με τα `(1, 2)` και `(1, 3)` συγχωνευμένα κάθετα. Ξεκινώντας από τη χαμηλότερη θέση, χρησιμοποιεί το [getFirstColumnIndex](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#getFirstColumnIndex--) και το [getFirstRowIndex](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#getFirstRowIndex--) για να εντοπίσει την προέλευση και ελέγχει και τις δύο εκτάσεις. Το `splitByRowSpan(1)` στη συνέχεια διαχωρίζει τις γραμμές 2 και 3 για τα ονόματα προϊόντων. Για μια οριζόντια συγχώνευση δύο στηλών, χρησιμοποιήστε το `splitByColSpan(1)`.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("table_template.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    ITable table = (ITable) slide.getShapes().get_Item(0);
+
+    ICell selectedCell = table.get_Item(1, 3);
+    int firstColumnIndex = selectedCell.getFirstColumnIndex();
+    int firstRowIndex = selectedCell.getFirstRowIndex();
+    ICell mergedCell = table.get_Item(firstColumnIndex, firstRowIndex);
+
+    if (mergedCell.isMergedCell() && mergedCell.getRowSpan() == 2 && mergedCell.getColSpan() == 1)
+    {
+        mergedCell.splitByRowSpan(1);
+
+        // Ανακτήστε τα προκύπτοντα κελιά από τον πίνακα μετά το διαχωρισμό.
+        ICell upperCell = table.get_Item(firstColumnIndex, firstRowIndex);
+        ICell lowerCell = table.get_Item(firstColumnIndex, firstRowIndex + 1);
+        System.out.println("Upper cell merged: " + upperCell.isMergedCell());
+        System.out.println("Lower cell merged: " + lowerCell.isMergedCell());
+
+        upperCell.getTextFrame().setText("Product A");
+        lowerCell.getTextFrame().setText("Product B");
+
+        presentation.save("split_template.pptx", SaveFormat.Pptx);
+    }
+    else
+    {
+        System.out.println("Select a merged region spanning exactly two rows and one column.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Το πλέγμα του πίνακα και οι γύρω δείκτες κελιών παραμένουν αμετάβλητοι. Ανακτήστε τα προκύπτοντα κελιά με τις συντεταγμένες τους· εδώ, και τα δύο έχουν εκτάσεις 1 και το [isMergedCell](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#isMergedCell--) εμφανίζει `false`. Μεγαλύτερες περιοχές μπορούν να παραμείνουν εν μέρει συγχωνευμένες μετά από ένα διαχωρισμό.
+
+Το αρχικό κείμενο και η μορφοποίησή του παραμένουν στο άνω (ή αριστερό) κελί· το νέο κελί είναι κενό αλλά κληρονομεί τη μορφοποίηση του κελιού όπως γέμισμα, περιγράμματα και περιθώρια. Συμπληρώστε τα κελιά μετά το διαχωρισμό και ορίστε ρητά τυχόν απαιτούμενη μορφοποίηση κειμένου.
+
+Η αποθηκευμένη παρουσίαση περιέχει ξεχωριστά κελιά "Product A" και "Product B" με τη μορφοποίηση του προτύπου διατηρημένη. Δείτε την [Cell API Reference](https://reference.aspose.com/slides/androidjava/com.aspose.slides/cell/) για λεπτομέρειες.
+
+## **Αλλαγή Χρώματος Φόντου Κελιού Πίνακα**
+
+Αυτό το παράδειγμα δημιουργεί έναν πίνακα με στήλες 150 σημείων και γραμμές 50 σημείων. Χρησιμοποιεί το [setFillType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifillformat/#setFillType-byte-) για να επιλέξει γεμισμό συμπαγούς χρώματος και ορίζει το χρώμα που επιστρέφεται από το [getSolidFillColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifillformat/#getSolidFillColor--) σε κόκκινο για το κελί `(2, 3)`, στην τρίτη στήλη και τέταρτη γραμμή.
+
+```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    double[] columnWidths = { 150, 150, 150, 150 };
+    double[] rowHeights = { 50, 50, 50, 50, 50 };
+    ITable table = slide.getShapes().addTable(50, 50, columnWidths, rowHeights);
+
     ICell cell = table.get_Item(2, 3);
     cell.getCellFormat().getFillFormat().setFillType(FillType.Solid);
     cell.getCellFormat().getFillFormat().getSolidFillColor().setColor(Color.RED);
 
     presentation.save("cell_background_color.pptx", SaveFormat.Pptx);
 } finally {
-    if (presentation != null) presentation.dispose();
+    presentation.dispose();
 }
 ```
 
 ## **Προσθήκη Εικόνας Μέσα σε Κελί Πίνακα**
 
-1. Δημιουργήστε ένα στιγμιότυπο της κλάσης [Presentation](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/Presentation).
-2. Αποκτήστε μια αναφορά σε διαφάνεια με βάση το δείκτη της.
-3. Ορίστε έναν πίνακα στηλών με το πλάτος.
-4. Ορίστε έναν πίνακα σειρών με το ύψος.
-5. Προσθέστε έναν πίνακα στη διαφάνεια μέσω της μεθόδου [AddTable](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/IShapeCollection#addTable-float-float-double:A-double:A-).
-6. Δημιουργήστε ένα αντικείμενο `Images` για να κρατήσει το αρχείο εικόνας.
-7. Προσθέστε την εικόνα `IImage` στο αντικείμενο `IPPImage`.
-8. Ορίστε το `FillFormat` του κελιού πίνακα σε `Picture`.
-9. Προσθέστε την εικόνα στο πρώτο κελί του πίνακα.
-10. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
+Τοποθετήστε την είσοδο εικόνας στον φάκελο εργασίας πριν τρέξετε αυτό το παράδειγμα. Φορτώνει την εικόνα με το [Images.fromFile](https://reference.aspose.com/slides/androidjava/com.aspose.slides/images/#fromFile-java.lang.String-) και την προσθέτει στη συλλογή εικόνων της παρουσίασης με το [addImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimagecollection/#addImage-com.aspose.slides.IImage-). Στη συνέχεια αναθέτει την εικόνα στο γέμισμα εικόνας του κελιού `(0, 0)`, του πρώτου κελιού του πίνακα.
 
-Αυτός ο κώδικας Java δείχνει πώς να τοποθετήσετε μια εικόνα μέσα σε κελί πίνακα κατά τη δημιουργία ενός πίνακα:
+[PictureFillMode.Stretch](https://reference.aspose.com/slides/androidjava/com.aspose.slides/picturefillmode/) τεντώνει την εικόνα ώστε να γεμίσει το κελί, γεγονός που μπορεί να αλλάξει την αναλογία του. Τα πλάτη των στηλών και τα ύψη των γραμμών είναι σε σημεία. Η φορτωμένη εικόνα διαγράφεται σε μπλοκ `finally` μετά την προσθήκη της στην παρουσίαση.
 
 ```java
-// Δημιουργεί την κλάση Presentation που αντιπροσωπεύει αρχείο PPTX
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    // Πρόσβαση στην πρώτη διαφάνεια
-    ISlide islide = pres.getSlides().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Ορίζει στήλες με πλάτη και σειρές με ύψη
-    double[] dblCols = {150, 150, 150, 150};
-    double[] dblRows = {100, 100, 100, 100, 90};
+    double[] columnWidths = { 150, 150, 150, 150 };
+    double[] rowHeights = { 100, 100, 100, 100, 90 };
+    ITable table = slide.getShapes().addTable(50, 50, columnWidths, rowHeights);
 
-    // Προσθέτει σχήμα πίνακα στη διαφάνεια
-    ITable tbl = islide.getShapes().addTable(50, 50, dblCols, dblRows);
-
-    // Δημιουργεί αντικείμενο IPPImage χρησιμοποιώντας το αρχείο εικόνας
-    IPPImage picture;
-    IImage image = Images.fromFile("image.jpg");
+    IPPImage ppImage;
+    IImage image = Images.fromFile("aspose_logo.jpg");
     try {
-        picture = pres.getImages().addImage(image);
+        ppImage = presentation.getImages().addImage(image);
     } finally {
-        if (image != null) image.dispose();
+        image.dispose();
     }
 
-    // Προσθέτει την εικόνα στο πρώτο κελί του πίνακα
-    ICellFormat cellFormat = tbl.get_Item(0, 0).getCellFormat();
-    cellFormat.getFillFormat().setFillType(FillType.Picture);
-    cellFormat.getFillFormat().getPictureFillFormat().setPictureFillMode(PictureFillMode.Stretch);
-    cellFormat.getFillFormat().getPictureFillFormat().getPicture().setImage(picture);
+    table.get_Item(0, 0).getCellFormat().getFillFormat().setFillType(FillType.Picture);
+    table.get_Item(0, 0).getCellFormat().getFillFormat().getPictureFillFormat().setPictureFillMode(PictureFillMode.Stretch);
+    table.get_Item(0, 0).getCellFormat().getFillFormat().getPictureFillFormat().getPicture().setImage(ppImage);
 
-    // Αποθηκεύει το αρχείο PPTX στον δίσκο
-    pres.save("Image_In_TableCell_out.pptx", SaveFormat.Pptx);
-} catch (IOException e) {
+    presentation.save("table_cell_with_image.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Συχνές Ερωτήσεις**
+## **FAQ**
 
 **Μπορώ να ορίσω διαφορετικά πάχη και στυλ γραμμής για διαφορετικές πλευρές ενός μόνο κελιού;**
 
-Ναι. Τα περιγράμματα [top](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/cellformat/#getBorderTop--)/[bottom](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/cellformat/#getBorderBottom--)/[left](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/cellformat/#getBorderLeft--)/[right](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/cellformat/#getBorderRight--) έχουν ξεχωριστές ιδιότητες, ώστε το πάχος και το στυλ της κάθε πλευράς να μπορούν να διαφέρουν. Αυτό προκύπτει λογικά από τον έλεγχο περιθωρίων ανά πλευρά για ένα κελί που παρουσιάζεται στο άρθρο.
+Ναι. Τα περιγράμματα [top](https://reference.aspose.com/slides/androidjava/com.aspose.slides/cellformat/#getBorderTop--)/[bottom](https://reference.aspose.com/slides/androidjava/com.aspose.slides/cellformat/#getBorderBottom--)/[left](https://reference.aspose.com/slides/androidjava/com.aspose.slides/cellformat/#getBorderLeft--)/[right](https://reference.aspose.com/slides/androidjava/com.aspose.slides/cellformat/#getBorderRight--) έχουν ξεχωριστές ιδιότητες, έτσι ώστε το πάχος και το στυλ κάθε πλευράς να μπορεί να διαφέρει.
 
-**Τι συμβαίνει με την εικόνα αν αλλάξω το μέγεθος στήλης/γραμμής μετά τον ορισμό μιας εικόνας ως φόντου του κελιού;**
+**Τι συμβαίνει με την εικόνα αν αλλάξω το μέγεθος στήλης/γραμμής μετά τον ορισμό μιας εικόνας ως φόντο κελιού;**
 
-Η συμπεριφορά εξαρτάται από τη [fill mode](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/picturefillmode/) (stretch/tile). Με το stretching, η εικόνα προσαρμόζεται στο νέο κελί· με το tiling, τα πλακίδια επανυπολογίζονται. Το άρθρο αναφέρει τις λειτουργίες εμφάνισης εικόνας σε κελί.
+Η συμπεριφορά εξαρτάται από τη [fill mode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/picturefillmode/) (stretch/tile). Με τέντωμα, η εικόνα προσαρμόζεται στο νέο κελί· με επικάλυψη, τα τεμάχια επαναϋπολογίζονται.
 
-** Μπορώ να προσθέσω υπερσύνδεσμο σε όλο το περιεχόμενο ενός κελιού;**
+**Μπορώ να αναθέσω υπερσύνδεσμο σε όλο το περιεχόμενο ενός κελιού;**
 
-[Hyperlinks](/slides/el/androidjava/manage-hyperlinks/) ορίζονται στο επίπεδο κειμένου (portion) μέσα στο πλαίσιο κειμένου του κελιού ή στο επίπεδο ολόκληρου πίνακα/σχήματος. Στην πράξη, ορίζετε το σύνδεσμο σε μια portion ή σε όλο το κείμενο του κελιού.
+[Hyperlinks](/slides/el/androidjava/manage-hyperlinks/) ορίζονται στο επίπεδο κειμένου (τμήματος) μέσα στο πλαίσιο κειμένου του κελιού ή στο επίπεδο ολόκληρου του πίνακα/σχήματος. Στην πράξη, αναθέτετε τον σύνδεσμο σε ένα τμήμα ή σε όλο το κείμενο του κελιού.
 
 **Μπορώ να ορίσω διαφορετικές γραμματοσειρές μέσα σε ένα μόνο κελί;**
 
-Ναι. Το πλαίσιο κειμένου ενός κελιού υποστηρίζει [portions](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/portion/) (runs) με ανεξάρτητη μορφοποίηση—συγγένεια γραμματοσειράς, στυλ, μέγεθος και χρώμα.
+Ναι. Το πλαίσιο κειμένου ενός κελιού υποστηρίζει [portions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/portion/) (τεμάχια) με ανεξάρτητη μορφοποίηση—οικογένεια γραμματοσειράς, στυλ, μέγεθος και χρώμα.

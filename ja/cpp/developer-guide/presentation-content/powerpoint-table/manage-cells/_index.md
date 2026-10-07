@@ -1,13 +1,13 @@
 ---
-title: C++ を使用してプレゼンテーションのテーブルセルを管理する
-linktitle: セルを管理する
+title: C++ を使用してプレゼンテーションの表セルを管理
+linktitle: セルの管理
 type: docs
 weight: 30
 url: /ja/cpp/manage-cells/
 keywords:
-- テーブルセル
+- 表セル
 - セルの結合
-- 枠線の削除
+- 境界線の削除
 - セルの分割
 - セル内の画像
 - 背景色
@@ -15,349 +15,323 @@ keywords:
 - プレゼンテーション
 - C++
 - Aspose.Slides
-description: "Aspose.Slides for C++ を使用して、PowerPoint のテーブルセルを手間なく管理できます。セルへのアクセス、変更、スタイリングを迅速に習得し、スムーズなスライド自動化を実現します。"
+description: "C++ で PowerPoint の表セルを管理します。結合されたセルの特定、境界線の削除、セルの分割、背景色や画像の設定を Aspose.Slides for C++ で行います。"
 ---
+## **概要**
 
-## **結合されたセルを識別する**
-1. Presentation クラスのインスタンスを作成します。
-2. 最初のスライドからテーブルを取得します。
-3. テーブルの行と列を走査して結合セルを探します。
-4. 結合セルが見つかったときにメッセージを出力します。
+Aspose.Slides は PowerPoint プレゼンテーションの表セルにアクセスし、変更することができます。この記事では、結合された表セルを特定する方法、セルの境界線を削除する方法、結合または分割後のセル番号の取り扱い、セルの背景色を変更する方法、そして表セル内に画像を追加する方法を説明します。サンプルは、プレゼンテーションを作成または開き、スライドから表を取得し、セルプロパティを通じてセルの書式設定を更新し、変更されたプレゼンテーションを PPTX ファイルとして保存する手順を示しています。
 
-この C++ コードは、プレゼンテーション内で結合されたテーブルセルを識別する方法を示しています：
-``` cpp
-auto pres = System::MakeObject<Presentation>(u"SomePresentationWithTable.pptx");
-auto table = System::AsCast<ITable>(pres->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0));
+Aspose.Slides はゼロベースのインデックスを使用し、`(column, row)` の順序で表セルにアクセスします。
 
-// Slide#0.Shape#0 がテーブルであると仮定しています
-for (int32_t i = 0; i < table->get_Rows()->get_Count(); i++)
+## **結合された表セルの特定**
+
+この例では、既存のプレゼンテーションを開き、最初のスライドの最初のシェイプを表として取得します。スライドとシェイプが存在し、シェイプが表であることを前提としています。その後、すべての行と列を反復し、[get_IsMergedCell](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_ismergedcell/) を使用して結合領域内のセルを特定します。マッチした各セルについて、`row;column` の順序でセル座標を出力し、[get_RowSpan](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_rowspan/)、[get_ColSpan](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_colspan/)、および領域の開始座標である [get_FirstRowIndex](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_firstrowindex/) と [get_FirstColumnIndex](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_firstcolumnindex/) を出力します。
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <DOM/Table/ICell.h>
+#include <system/smart_ptr.h>
+#include <DOM/Table/IRowCollection.h>
+#include <DOM/Table/IColumnCollection.h>
+#include <system/console.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"presentation_with_table.pptx");
+auto slide = presentation->get_Slide(0);
+auto table = ExplicitCast<ITable>(slide->get_Shape(0));
+
+auto rowCount = table->get_Rows()->get_Count();
+for (auto rowIndex = 0; rowIndex < rowCount; rowIndex++)
 {
-    for (int32_t j = 0; j < table->get_Columns()->get_Count(); j++)
+    auto columnCount = table->get_Columns()->get_Count();
+    for (auto columnIndex = 0; columnIndex < columnCount; columnIndex++)
     {
-        auto currentCell = table->get_Rows()->idx_get(i)->idx_get(j);
-        if (currentCell->get_IsMergedCell())
+        auto cell = table->idx_get(columnIndex, rowIndex);
+        if (cell->get_IsMergedCell())
         {
-            Console::WriteLine(String::Format(u"Cell {0};{1} is a part of merged cell with RowSpan={2} and ColSpan={3} starting from Cell {4};{5}.", 
-                i, j, currentCell->get_RowSpan(), currentCell->get_ColSpan(), currentCell->get_FirstRowIndex(), currentCell->get_FirstColumnIndex()));
+            Console::WriteLine(u"Cell {0};{1} belongs to a merged region with RowSpan={2} and ColSpan={3} starting at {4};{5}.", rowIndex, columnIndex, cell->get_RowSpan(), cell->get_ColSpan(), cell->get_FirstRowIndex(), cell->get_FirstColumnIndex());
         }
     }
 }
 ```
 
+## **表セルの境界線を削除**
 
-## **テーブルセルの境界線を削除する**
-1. Presentation クラスのインスタンスを作成します。
-2. インデックスを使用してスライドの参照を取得します。
-3. 幅を指定した列の配列を定義します。
-4. 高さを指定した行の配列を定義します。
-5. `AddTable` メソッドでスライドにテーブルを追加します。
-6. 各セルを走査し、上・下・右・左の境界線をクリアします。
-7. 変更したプレゼンテーションを PPTX ファイルとして保存します。
+[Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) を作成し、[AddTable](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addtable/) を使用して最初のスライドに表を追加します。列幅、行高さ、および表の位置はポイントで指定されます。この例では、すべてのセル境界線を [FillType::NoFill](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/) に設定し、境界線を非表示にします。
 
-この C++ コードは、テーブルセルの境界線を削除する方法を示しています：
-``` cpp
-// PPTX ファイルを表す Presentation クラスのインスタンスを作成
-auto pres = MakeObject<Presentation>();
-// 最初のスライドにアクセス
-auto sld = pres->get_Slides()->idx_get(0);
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <DOM/Table/ICell.h>
+#include <system/smart_ptr.h>
+#include <DOM/FillType.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/Table/ICellFormat.h>
+#include <DOM/Table/IRow.h>
+#include <DOM/Table/IRowCollection.h>
+#include <system/enumerator_adapter.h>
+#include <Export/SaveFormat.h>
+#include <system/array.h>
 
-// 列の幅と行の高さを定義
-auto dblCols = MakeArray<double>({ 50, 50, 50, 50 });
-auto dblRows = MakeArray<double>({ 50, 30, 30, 30, 30 });
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-// スライドにテーブルシェイプを追加
-auto tbl = sld->get_Shapes()->AddTable(100.0f, 50.0f, dblCols, dblRows);
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-// 各セルの罫線形式を設定
-for (const auto& row : System::IterateOver(tbl->get_Rows()))
-{
-    for (const auto& cell : System::IterateOver(row))
+auto columnWidths = MakeArray<double>({50, 50, 50, 50});
+auto rowHeights = MakeArray<double>({50, 30, 30, 30, 30});
+auto table = slide->get_Shapes()->AddTable(100, 50, columnWidths, rowHeights);
+
+for (const auto& row : IterateOver(table->get_Rows()))
+    for (const auto& cell : IterateOver(row))
     {
         cell->get_CellFormat()->get_BorderTop()->get_FillFormat()->set_FillType(FillType::NoFill);
         cell->get_CellFormat()->get_BorderBottom()->get_FillFormat()->set_FillType(FillType::NoFill);
         cell->get_CellFormat()->get_BorderLeft()->get_FillFormat()->set_FillType(FillType::NoFill);
         cell->get_CellFormat()->get_BorderRight()->get_FillFormat()->set_FillType(FillType::NoFill);
     }
-}
 
-// PPTX ファイルをディスクに保存
-pres->Save(u"table_out.pptx", SaveFormat::Pptx);
+presentation->Save(u"table.pptx", SaveFormat::Pptx);
 ```
 
+## **表セルの結合**
 
-## **結合セル内の番号付け**
-2 つのセルペア (1,1)×(2,1) と (1,2)×(2,2) を結合すると、結果のテーブルは番号が振られます。この C# コードはそのプロセスをデモします：
-```c++
-const String outPath = u"../out/MergeCells_out.pptx";
+[MergeCells](https://reference.aspose.com/slides/cpp/aspose.slides/itable/mergecells/) を使用して、矩形領域の表セルを 1 つのセルに結合します。範囲の左上隅と右下隅のセルを指定します。最後の引数は、結合が指定範囲外のセルを含むかどうかを制御します。`false` にすると、結合はその範囲内にとどまります。
 
-// 目的のプレゼンテーションをロードします
-SharedPtr<Presentation> pres = MakeObject<Presentation>();
+この例では、列幅と行高さが 70 ポイントの 4×4 の表を作成し、`(1, 1)` から `(2, 2)` までの 4 つの中心セルを結合します。結果として得られるセルは 2 列と 2 行にまたがりますが、表の基礎となるグリッドは 4 列 4 行のままです。結合されたセルの内容や書式設定にアクセスするには、左上の位置 `table->idx_get(1, 1)` を使用します。この例では他の位置は表のグリッドの一部であり、範囲外のセルのインデックスは変更されません。
 
-// 最初のスライドにアクセスします
-SharedPtr<ISlide> islide = pres->get_Slides()->idx_get(0);
-
-// 列の幅と行の高さを定義します
-System::ArrayPtr<double> dblCols = System::MakeObject<System::Array<double>>(4, 70);
-System::ArrayPtr<double> dblRows = System::MakeObject<System::Array<double>>(4, 70);
-
-// スライドにテーブルシェイプを追加します
-SharedPtr<ITable> table = islide->get_Shapes()->AddTable(100, 50, dblCols, dblRows);
-
-
-// 各セルの罫線形式を設定します
-for (int x = 0; x < table->get_Rows()->get_Count(); x++)
-{
-    SharedPtr<IRow> row = table->get_Rows()->idx_get(x);
-    for (int y = 0; y < row->get_Count(); y++)
-    {
-        SharedPtr<ICell> cell = row->idx_get(y);
-
-        cell->get_BorderTop()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderTop()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderTop()->set_Width(5);
-
-        cell->get_BorderBottom()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderBottom()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderBottom()->set_Width(5);
-
-        cell->get_BorderLeft()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderLeft()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderLeft()->set_Width(5);
-
-        cell->get_BorderRight()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderRight()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderRight()->set_Width(5);
-
-    }
-
-}
-// セル (1, 1) と (2, 1) を結合します
-table->MergeCells(table->idx_get(1, 1), table->idx_get(2, 1), false);
-
-// セル (1, 2) と (2, 2) を結合します
-table->MergeCells(table->idx_get(1, 2), table->idx_get(2, 2), false);
-
-// PPTX ファイルをディスクに保存します
-pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
-```
-
-
-その後、セル (1,1) と (1,2) をさらに結合します。結果は、中央に大きな結合セルを持つテーブルになります：
-```c++
-// ドキュメントディレクトリへのパスです。
-const String outPath = u"../out/MergeCells_out.pptx";
-
-// 目的のプレゼンテーションをロードします
-SharedPtr<Presentation> pres = MakeObject<Presentation>();
-
-// 最初のスライドにアクセスします
-SharedPtr<ISlide> islide = pres->get_Slides()->idx_get(0);
-
-// 列の幅と行の高さを定義します
-System::ArrayPtr<double> dblCols = System::MakeObject<System::Array<double>>(4, 70);
-System::ArrayPtr<double> dblRows = System::MakeObject<System::Array<double>>(4, 70);
-
-// スライドにテーブルシェイプを追加します
-SharedPtr<ITable> table = islide->get_Shapes()->AddTable(100, 50, dblCols, dblRows);
-
-
-// 各セルの罫線形式を設定します
-for (int x = 0; x < table->get_Rows()->get_Count(); x++)
-{
-    SharedPtr<IRow> row = table->get_Rows()->idx_get(x);
-    for (int y = 0; y < row->get_Count(); y++)
-    {
-        SharedPtr<ICell> cell = row->idx_get(y);
-
-        cell->get_BorderTop()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderTop()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderTop()->set_Width(5);
-
-        cell->get_BorderBottom()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderBottom()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderBottom()->set_Width(5);
-
-        cell->get_BorderLeft()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderLeft()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderLeft()->set_Width(5);
-
-        cell->get_BorderRight()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderRight()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderRight()->set_Width(5);
-
-    }
-
-}
-
-// セル (1, 1) と (2, 1) を結合します
-table->MergeCells(table->idx_get(1, 1), table->idx_get(2, 1), false);
-
-// セル (1, 2) と (2, 2) を結合します
-table->MergeCells(table->idx_get(1, 2), table->idx_get(2, 2), false);
-
-
-// PPTX ファイルをディスクに保存します
-pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
-```
-
-
-## **分割セル内の番号付け**
-前の例では、テーブルセルが結合されても他のセルの番号付けは変わりませんでした。
-
-今回は、結合セルのない通常のテーブルを使用し、セル (1,1) を分割して特別なテーブルを作成します。このテーブルの番号付けは奇妙に見えるかもしれませんが、Microsoft PowerPoint と Aspose.Slides の両方が同じ方法で番号付けを行います。
-
-この C++ コードは、上記の手順を実演します：
-```c++
-// ドキュメントディレクトリへのパスです。
-const String outPath = u"../out/CellSplit_out.pptx";
-
-// 目的のプレゼンテーションをロードします
-SharedPtr<Presentation> pres = MakeObject<Presentation>();
-
-// 最初のスライドにアクセスします
-SharedPtr<ISlide> islide = pres->get_Slides()->idx_get(0);
-
-// 列の幅と行の高さを定義します
-System::ArrayPtr<double> dblCols = System::MakeObject<System::Array<double>>(4, 70);
-System::ArrayPtr<double> dblRows = System::MakeObject<System::Array<double>>(4, 70);
-
-// スライドにテーブルシェイプを追加します
-SharedPtr<ITable> table = islide->get_Shapes()->AddTable(100, 50, dblCols, dblRows);
-
-
-// 各セルの罫線形式を設定します
-for (int x = 0; x < table->get_Rows()->get_Count(); x++)
-{
-    SharedPtr<IRow> row = table->get_Rows()->idx_get(x);
-    for (int y = 0; y < row->get_Count(); y++)
-    {
-        SharedPtr<ICell> cell = row->idx_get(y);
-
-        cell->get_BorderTop()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderTop()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderTop()->set_Width(5);
-
-        cell->get_BorderBottom()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderBottom()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderBottom()->set_Width(5);
-
-        cell->get_BorderLeft()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderLeft()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderLeft()->set_Width(5);
-
-        cell->get_BorderRight()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderRight()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderRight()->set_Width(5);
-
-    }
-
-}
-
-// セル (1, 1) と (2, 1) を結合します
-table->MergeCells(table->idx_get(1, 1), table->idx_get(2, 1), false);
-
-// セル (1, 2) と (2, 2) を結合します
-table->MergeCells(table->idx_get(1, 2), table->idx_get(2, 2), false);
-
-// セル (1, 1) を分割します。 
-table->idx_get(1, 1)->SplitByWidth(table->idx_get(2, 1)->get_Width() / 2);
-
-// PPTX ファイルをディスクに保存します
-pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
-```
-
-
-
-## **テーブルセルの背景色を変更する**
-
-この C++ コードは、テーブルセルの背景色を変更する方法を示しています：
-``` cpp
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <DOM/Table/ICell.h>
+#include <system/smart_ptr.h>
+#include <Export/SaveFormat.h>
+#include <system/array.h>
 
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto columnWidths = MakeArray<double>({70, 70, 70, 70});
+auto rowHeights = MakeArray<double>({70, 70, 70, 70});
+auto table = slide->get_Shapes()->AddTable(100, 50, columnWidths, rowHeights);
+
+table->MergeCells(table->idx_get(1, 1), table->idx_get(2, 2), false);
+
+presentation->Save(u"merged_cells.pptx", SaveFormat::Pptx);
+```
+
+## **表セルの分割**
+
+前の例でセルを結合すると、表のグリッドは保持されます。セルを分割すると、新しいグリッド列が導入され、右側のセルの列インデックスが変更されることがあります。Aspose.Slides は PowerPoint の表グリッドモデルに従います。
+
+この例では、列幅と行高さが 70 ポイントの 4×4 の表を作成し、セル `(1, 1)` に対して [SplitByWidth](https://reference.aspose.com/slides/cpp/aspose.slides/icell/splitbywidth/) を呼び出します。セルの 70 ポイント幅の半分を指定して、幅が等しい 2 つのセルを作成します。
+
+この分割後、2 つの半分は `table->idx_get(1, 1)` と `table->idx_get(2, 1)` でアクセスできます。表のグリッドは現在 5 列になり、元々列 2 と列 3 にあったセルはそれぞれ列 3 と列 4 に移動します。行インデックスは変わりません。分割後にセルにアクセスする際は、これら更新された列インデックスを使用してください。
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <DOM/Table/ICell.h>
+#include <system/smart_ptr.h>
+#include <Export/SaveFormat.h>
+#include <system/array.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto columnWidths = MakeArray<double>({70, 70, 70, 70});
+auto rowHeights = MakeArray<double>({70, 70, 70, 70});
+auto table = slide->get_Shapes()->AddTable(100, 50, columnWidths, rowHeights);
+
+table->idx_get(1, 1)->SplitByWidth(table->idx_get(1, 1)->get_Width() / 2);
+
+presentation->Save(u"split_cells.pptx", SaveFormat::Pptx);
+```
+
+### **行または列のスパンで結合セルを分割**
+
+データ入力のために結合されたテンプレートセルを準備するには、既存の行境界に沿って分割するために [SplitByRowSpan](https://reference.aspose.com/slides/cpp/aspose.slides/icell/splitbyrowspan/) を使用し、列境界に沿って分割するには [SplitByColSpan](https://reference.aspose.com/slides/cpp/aspose.slides/icell/splitbycolspan/) を使用します。
+
+`index` 引数は、分割された上部の行または左側の列の数をカウントします。これは結合領域に対して相対的です：
+
+- 行分割: `0 < index <` [get_RowSpan](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_rowspan/).
+- 列分割: `0 < index <` [get_ColSpan](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_colspan/).
+
+この例では、プレゼンテーションの最初のスライドの最初のシェイプが表であり、`(1, 2)` と `(1, 3)` が縦方向に結合されていることを想定しています。下部の位置から始めて、[get_FirstColumnIndex](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_firstcolumnindex/) と [get_FirstRowIndex](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_firstrowindex/) を使用して起点を特定し、両方のスパンを確認します。`SplitByRowSpan(1)` は製品名用に行 2 と行 3 を分割します。横方向の 2 列結合の場合は、代わりに `SplitByColSpan(1)` を使用します。
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <DOM/Table/ICell.h>
+#include <system/smart_ptr.h>
+#include <DOM/ITextFrame.h>
+#include <system/console.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"table_template.pptx");
+auto slide = presentation->get_Slide(0);
+auto table = ExplicitCast<ITable>(slide->get_Shape(0));
+
+auto selectedCell = table->idx_get(1, 3);
+auto firstColumnIndex = selectedCell->get_FirstColumnIndex();
+auto firstRowIndex = selectedCell->get_FirstRowIndex();
+auto mergedCell = table->idx_get(firstColumnIndex, firstRowIndex);
+
+if (mergedCell->get_IsMergedCell() && mergedCell->get_RowSpan() == 2 && mergedCell->get_ColSpan() == 1)
+{
+    mergedCell->SplitByRowSpan(1);
+
+    // 分割後にテーブルから得られるセルを取得します。
+    auto upperCell = table->idx_get(firstColumnIndex, firstRowIndex);
+    auto lowerCell = table->idx_get(firstColumnIndex, firstRowIndex + 1);
+    Console::WriteLine(u"Upper cell merged: {0}", upperCell->get_IsMergedCell());
+    Console::WriteLine(u"Lower cell merged: {0}", lowerCell->get_IsMergedCell());
+
+    upperCell->get_TextFrame()->set_Text(u"Product A");
+    lowerCell->get_TextFrame()->set_Text(u"Product B");
+
+    presentation->Save(u"split_template.pptx", SaveFormat::Pptx);
+}
+else
+{
+    Console::WriteLine(u"Select a merged region spanning exactly two rows and one column.");
+}
+```
+
+表のグリッドおよび周囲のセルインデックスは変更されません。結果のセルは座標で取得します。ここでは両方ともスパンが 1 で、[get_IsMergedCell](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_ismergedcell/) は `False` を出力します。より大きな領域は、1 回の分割後も部分的に結合されたままにできることがあります。
+
+元のテキストと書式設定は上部（または左側）のセルに残り、新しいセルは空ですが、塗りつぶし、境界線、余白などのセル書式設定を継承します。分割後にセルにデータを入力し、必要なテキスト書式設定を明示的に設定してください。
+
+保存されたプレゼンテーションには、テンプレートのセル書式設定が保持されたまま、別々の「Product A」および「Product B」セルが含まれます。詳細は [Cell API Reference](https://reference.aspose.com/slides/cpp/aspose.slides/cell/) を参照してください。
+
+## **表セルの背景色を変更**
+
+この例では、列幅 150 ポイント、行高さ 50 ポイントの表を作成します。[set_FillType](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/set_filltype/) を使用して単色塗りつぶしを選択し、[get_SolidFillColor](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/get_solidfillcolor/) で塗りつぶしカラーにアクセスし、セル `(2, 3)`（3 列目、4 行目）の色を赤に設定します。
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <DOM/Table/ICell.h>
+#include <system/smart_ptr.h>
+#include <DOM/FillType.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/Table/ICellFormat.h>
+#include <drawing/color.h>
+#include <Export/SaveFormat.h>
+#include <system/array.h>
+
 using namespace System::Drawing;
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-auto presentation = System::MakeObject<Presentation>();
-auto slide = presentation->get_Slides()->idx_get(0);
-        
-auto dblCols = System::MakeArray<double>({150, 150, 150, 150});
-auto dblRows = System::MakeArray<double>({50, 50, 50, 50, 50});
-        
-// 新しいテーブルを作成する
-auto table = slide->get_Shapes()->AddTable(50.0f, 50.0f, dblCols, dblRows);
-        
-// セルの背景色を設定する
-System::SharedPtr<ICell> cell = table->idx_get(2, 3);
-cell->get_CellFormat()->get_FillFormat()->set_FillType(Aspose::Slides::FillType::Solid);
-cell->get_CellFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        
-presentation->Save(u"cell_background_color.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
+auto columnWidths = MakeArray<double>({150, 150, 150, 150});
+auto rowHeights = MakeArray<double>({50, 50, 50, 50, 50});
+auto table = slide->get_Shapes()->AddTable(50, 50, columnWidths, rowHeights);
+
+auto cell = table->idx_get(2, 3);
+cell->get_CellFormat()->get_FillFormat()->set_FillType(FillType::Solid);
+cell->get_CellFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Red());
+
+presentation->Save(u"cell_background_color.pptx", SaveFormat::Pptx);
 ```
 
+## **表セル内に画像を追加**
 
-## **テーブルセル内に画像を追加する**
-1. `Presentation` クラスのインスタンスを作成します。
-2. インデックスを使用してスライドの参照を取得します。
-3. 幅を指定した列の配列を定義します。
-4. 高さを指定した行の配列を定義します。
-5. `AddTable` メソッドでスライドにテーブルを追加します。
-6. 画像ファイルを保持するために `Bitmap` オブジェクトを作成します。
-7. ビットマップ画像を `IPPImage` オブジェクトに追加します。
-8. テーブルセルの `FillFormat` を `Picture` に設定します。
-9. 画像をテーブルの最初のセルに追加します。
-10. 変更したプレゼンテーションを PPTX ファイルとして保存します。
+この例を実行する前に、入力画像を作業ディレクトリに配置してください。画像は [Images::FromFile](https://reference.aspose.com/slides/cpp/aspose.slides/images/fromfile/) で読み込み、[AddImage](https://reference.aspose.com/slides/cpp/aspose.slides/iimagecollection/addimage/) を使用してプレゼンテーションの画像コレクションに追加します。その後、画像を表の最初のセルである `(0, 0)` のピクチャーフィルに割り当てます。
 
-この C# コードは、テーブル作成時にセル内に画像を配置する方法を示しています：
-```c++
-// ドキュメントディレクトリへのパスです。
-const String outPath = u"../out/Image_In_TableCell_out.pptx";
-const String ImagePath = u"../templates/Tulips.jpg";
+[PictureFillMode::Stretch](https://reference.aspose.com/slides/cpp/aspose.slides/picturefillmode/) は画像を伸張してセルを埋めますが、アスペクト比が変わる可能性があります。列幅と行高さはポイントで指定されます。読み込んだ画像はプレゼンテーションに追加された後に破棄されます。
 
-// 目的のプレゼンテーションをロードします
-SharedPtr<Presentation> pres = MakeObject<Presentation>();
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <DOM/Table/ICell.h>
+#include <system/smart_ptr.h>
+#include <DOM/FillType.h>
+#include <DOM/IImageCollection.h>
+#include <IImage.h>
+#include <DOM/IPPImage.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/ISlidesPicture.h>
+#include <DOM/PictureFillMode.h>
+#include <DOM/Table/ICellFormat.h>
+#include <Util/Images.h>
+#include <Export/SaveFormat.h>
+#include <system/array.h>
 
-// 最初のスライドにアクセスします
-SharedPtr<ISlide> islide = pres->get_Slides()->idx_get(0);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-// 列の幅と行の高さを定義します
-System::ArrayPtr<double> dblCols = System::MakeObject<System::Array<double>>(4, 150);
-System::ArrayPtr<double> dblRows = System::MakeObject<System::Array<double>>(4, 100);
-System::ArrayPtr<double> total_for_Cat = System::MakeObject<System::Array<double>>(5, 0);
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-// スライドにテーブルシェイプを追加します
-auto tbl = islide->get_Shapes()->AddTable(50, 50, dblCols, dblRows);
+auto columnWidths = MakeArray<double>({150, 150, 150, 150});
+auto rowHeights = MakeArray<double>({100, 100, 100, 100, 90});
+auto table = slide->get_Shapes()->AddTable(50, 50, columnWidths, rowHeights);
 
-// 画像を取得します
-auto img = Images::FromFile(ImagePath);
+auto image = Images::FromFile(u"aspose_logo.jpg");
+auto ppImage = presentation->get_Images()->AddImage(image);
+image->Dispose();
 
-// プレゼンテーションの画像コレクションに画像を追加します
-SharedPtr<IPPImage> imgx = pres->get_Images()->AddImage(img);
+table->idx_get(0, 0)->get_CellFormat()->get_FillFormat()->set_FillType(FillType::Picture);
+table->idx_get(0, 0)->get_CellFormat()->get_FillFormat()->get_PictureFillFormat()->set_PictureFillMode(PictureFillMode::Stretch);
+table->idx_get(0, 0)->get_CellFormat()->get_FillFormat()->get_PictureFillFormat()->get_Picture()->set_Image(ppImage);
 
-// 画像を最初のテーブルセルに追加します
-tbl->idx_get(0, 0)->get_FillFormat()->set_FillType(FillType::Picture);
-tbl->idx_get(0, 0)->get_FillFormat()->get_PictureFillFormat()->set_PictureFillMode(PictureFillMode::Stretch);
-tbl->idx_get(0, 0)->get_FillFormat()->get_PictureFillFormat()->get_Picture()->set_Image(imgx);
-
-// PPTX ファイルをディスクに保存します
-pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
+presentation->Save(u"table_cell_with_image.pptx", SaveFormat::Pptx);
 ```
-
 
 ## **FAQ**
 
-**単一セルの各側面に異なる線の太さやスタイルを設定できますか？**
+**単一セルの各辺に対して異なる線の太さやスタイルを設定できますか？**
 
-はい。上([top](https://reference.aspose.com/slides/cpp/aspose.slides/cellformat/get_bordertop/)) / 下([bottom](https://reference.aspose.com/slides/cpp/aspose.slides/cellformat/get_borderbottom/)) / 左([left](https://reference.aspose.com/slides/cpp/aspose.slides/cellformat/get_borderleft/)) / 右([right](https://reference.aspose.com/slides/cpp/aspose.slides/cellformat/get_borderright/)) の境界線はそれぞれ個別のプロパティを持ち、各側面の太さとスタイルを別々に設定できます。この記事で示したセル単位の側面別境界線制御に基づくものです。
+はい。[top](https://reference.aspose.com/slides/cpp/aspose.slides/cellformat/get_bordertop/)/[bottom](https://reference.aspose.com/slides/cpp/aspose.slides/cellformat/get_borderbottom/)/[left](https://reference.aspose.com/slides/cpp/aspose.slides/cellformat/get_borderleft/)/[right](https://reference.aspose.com/slides/cpp/aspose.slides/cellformat/get_borderright/) の境界線は個別のプロパティを持っているため、各辺の太さやスタイルを異なるように設定できます。
 
-**画像をセルの背景として設定した後に列・行のサイズを変更すると画像はどうなりますか？**
+**セルの背景に画像を設定した後に列や行のサイズを変更するとどうなりますか？**
 
-動作は [fill mode](https://reference.aspose.com/slides/cpp/aspose.slides/picturefillmode/)（stretch/​tile）に依存します。ストレッチの場合、画像は新しいセルサイズに合わせて調整されます。タイルの場合、タイルが再計算されます。この記事ではセル内の画像表示モードについて説明しています。
+動作は[フィルモード](https://reference.aspose.com/slides/cpp/aspose.slides/picturefillmode/)に依存します。stretch（伸張）を使用すると、画像は新しいセルサイズに合わせて調整されます。tile（タイル）を使用すると、タイルが再計算されます。
 
-**セル内のすべてのコンテンツにハイパーリンクを割り当てられますか？**
+**セルの内容全体にハイパーリンクを割り当てられますか？**
 
-[Hyperlinks](/slides/ja/cpp/manage-hyperlinks/) はセルのテキストフレーム内のテキスト（portion）レベル、またはテーブル全体/シェイプレベルで設定できます。実務上は、portion にリンクを設定するか、セル内のすべてのテキストに対してリンクを設定します。
+[Hyperlinks](/slides/ja/cpp/manage-hyperlinks/) は、セルのテキストフレーム内のテキスト（ポーション）レベル、またはテーブル/シェイプ全体のレベルで設定されます。実際には、リンクはポーションに対して、またはセル内のすべてのテキストに対して割り当てます。
 
-**単一セル内でフォントを複数設定できますか？**
+**単一セル内で異なるフォントを設定できますか？**
 
-はい。セルのテキストフレームは [portions](https://reference.aspose.com/slides/cpp/aspose.slides/portion/)（ラン）をサポートしており、フォント ファミリ、スタイル、サイズ、色などを個別にフォーマットできます。
+はい。セルのテキストフレームは、[portions](https://reference.aspose.com/slides/cpp/aspose.slides/portion/)（ラン）をサポートしており、フォント ファミリー、スタイル、サイズ、カラーなどを個別に書式設定できます。

@@ -6,7 +6,7 @@ weight: 30
 url: /sv/androidjava/manage-cells/
 keywords:
 - tabellcell
-- sammanfoga celler
+- slå samman celler
 - ta bort kant
 - dela cell
 - bild i cell
@@ -16,69 +16,60 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Hantera tabellceller i PowerPoint med Aspose.Slides för Android via Java utan ansträngning. Bemästra åtkomst, ändring och formatering av celler snabbt för sömlös bildspelsautomatisering."
+description: "Hantera PowerPoint-tabellceller på Android: identifiera sammanslagna celler, ta bort kanter, dela celler och sätt bakgrundsfärger och bilder med Aspose.Slides för Android via Java."
 ---
 ## **Översikt**
 
-Aspose.Slides låter dig komma åt och ändra tabellceller i PowerPoint-presentationer. Den här artikeln förklarar hur man identifierar sammanslagna tabellceller, tar bort cellkanter, arbetar med cellnumrering efter sammanslagning eller delning av celler, ändrar en cells bakgrundsfärg och lägger till en bild i en tabellcell. Exemplen visar hur man skapar eller öppnar en presentation, hämtar en tabell från en bild, uppdaterar cellformatering via cellegenskaper och sparar den ändrade presentationen som en PPTX‑fil.
+Aspose.Slides låter dig komma åt och ändra tabellceller i PowerPoint-presentationer. Den här artikeln förklarar hur man identifierar sammanslagna tabellceller, tar bort cellkanter, arbetar med cellnumrering efter sammanslagning eller delning av celler, ändrar en cells bakgrundsfärg och lägger till en bild i en tabellcell. Exemplen visar hur man skapar eller öppnar en presentation, hämtar en tabell från en bild, uppdaterar cellformatering via cellegenskaper och sparar den ändrade presentationen som en PPTX-fil.
+
+Aspose.Slides använder nollbaserade index för att komma åt tabellceller i ordningen `(column, row)`.
 
 ## **Identifiera en sammanslagen tabellcell**
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/Presentation).
-2. Hämta tabellen från den första bilden.
-3. Iterera genom tabellens rader och kolumner för att hitta sammanslagna celler.
-4. Skriv ut ett meddelande när sammanslagna celler hittas.
 
-Denna Java‑kod visar hur du identifierar sammanslagna tabellceller i en presentation:
+Exemplet öppnar en befintlig presentation och får åtkomst till den första formen på den första bilden som en tabell. Det förutsätter att bilden och formen finns och att formen är en tabell. Därefter itererar det genom alla rader och kolumner och använder [isMergedCell](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#isMergedCell--) för att identifiera celler i sammanslagna områden. För varje matchning skriver det ut cellkoordinaterna i ordningen `row;column`, [getRowSpan](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#getRowSpan--), [getColSpan](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#getColSpan--), och områdets startkoordinater, [getFirstRowIndex](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#getFirstRowIndex--) och [getFirstColumnIndex](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#getFirstColumnIndex--).
 
 ```java
-Presentation pres = new Presentation("SomePresentationWithTable.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("presentation_with_table.pptx");
 try {
-    ITable table = (ITable)pres.getSlides().get_Item(0).getShapes().get_Item(0); // antar att Slide#0.Shape#0 är en tabell
-    for (int i = 0; i < table.getRows().size(); i++)
+    ISlide slide = presentation.getSlides().get_Item(0);
+    ITable table = (ITable) slide.getShapes().get_Item(0);
+
+    int rowCount = table.getRows().size();
+    for (int rowIndex = 0; rowIndex < rowCount; rowIndex++)
     {
-        for (int j = 0; j < table.getColumns().size(); j++)
+        int columnCount = table.getColumns().size();
+        for (int columnIndex = 0; columnIndex < columnCount; columnIndex++)
         {
-            ICell currentCell = table.getRows().get_Item(i).get_Item(j);
-            if (currentCell.isMergedCell())
+            ICell cell = table.get_Item(columnIndex, rowIndex);
+            if (cell.isMergedCell())
             {
-                System.out.println(String.format("Cell %d;%d is a part of merged cell with RowSpan=%d and ColSpan=%d starting from Cell %d;%d.",
-                        i, j, currentCell.getRowSpan(), currentCell.getColSpan(), currentCell.getFirstRowIndex(), currentCell.getFirstColumnIndex()));
+                System.out.printf("Cell %d;%d belongs to a merged region with RowSpan=%d and ColSpan=%d starting at %d;%d.%n", rowIndex, columnIndex, cell.getRowSpan(), cell.getColSpan(), cell.getFirstRowIndex(), cell.getFirstColumnIndex());
             }
         }
     }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
 ## **Ta bort tabellcellkanter**
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/Presentation).
-2. Hämta en bilds referens via dess index.
-3. Definiera en array av kolumner med bredd.
-4. Definiera en array av rader med höjd.
-5. Lägg till en tabell på bilden via metoden [addTable](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/IShapeCollection#addTable-float-float-double:A-double:A-).
-6. Iterera genom varje cell för att rensa den övre, nedre, högra och vänstra kanten.
-7. Spara den ändrade presentationen som en PPTX‑fil.
 
-Denna Java‑kod visar hur du tar bort kanterna från tabellceller:
+Skapa en [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) och lägg till en tabell på dess första bild med [addTable](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addTable-float-float-double---double---). Kolumnbredder, radhöjder och tabellens position anges i punkter. Exemplet sätter alla fyra cellkanter till [FillType.NoFill](https://reference.aspose.com/slides/androidjava/com.aspose.slides/filltype/), vilket gör dem osynliga.
 
 ```java
-// Instansierar Presentation-klassen som representerar en PPTX-fil
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    // Hämtar den första bilden
-    Slide sld = (Slide)pres.getSlides().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Definierar kolumner med bredd och rader med höjd
-    double[] dblCols = { 50, 50, 50, 50 };
-    double[] dblRows = { 50, 30, 30, 30, 30 };
+    double[] columnWidths = { 50, 50, 50, 50 };
+    double[] rowHeights = { 50, 30, 30, 30, 30 };
+    ITable table = slide.getShapes().addTable(100, 50, columnWidths, rowHeights);
 
-    // Lägger till tabellform på bilden
-    ITable tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
-
-    // Sätter kantformat för varje cell
-    for (IRow row : tbl.getRows())
-    {
+    for (IRow row : table.getRows())
         for (ICell cell : row)
         {
             cell.getCellFormat().getBorderTop().getFillFormat().setFillType(FillType.NoFill);
@@ -86,274 +77,194 @@ try {
             cell.getCellFormat().getBorderLeft().getFillFormat().setFillType(FillType.NoFill);
             cell.getCellFormat().getBorderRight().getFillFormat().setFillType(FillType.NoFill);
         }
-    }
 
-    // Skriver PPTX-filen till disk
-    pres.save("table_out.pptx", SaveFormat.Pptx);
+    presentation.save("table.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Numrering i sammanslagna celler**
-Om vi slår samman 2 par celler (1, 1) x (2, 1) och (1, 2) x (2, 2) kommer den resulterande tabellen att vara numrerad. Denna Java‑kod demonstrerar processen:
+## **Sammanfoga tabellceller**
+
+Använd [mergeCells](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itable/#mergeCells-com.aspose.slides.ICell-com.aspose.slides.ICell-boolean-) för att kombinera ett rektangulärt område av tabellceller till en cell. Specificera cellerna i det övre vänstra och nedre högra hörnet av området. Det sista argumentet styr om sammanslagningen får inkludera celler utanför det angivna området; `false` håller sammanslagningen inom det området.
+
+Exemplet skapar en 4×4-tabell med 70‑punkts kolumner och rader, och sammanslår sedan de fyra centrala cellerna från `(1, 1)` till `(2, 2)`. Den resulterande cellen spänner över två kolumner och två rader, medan tabellens underliggande rutnät behåller fyra kolumner och fyra rader. För att komma åt den sammanslagna cellens innehåll eller formatering, använd dess övre vänstra position: `table.get_Item(1, 1)` i detta exempel. De andra positionerna i det sammanslagna området förblir en del av tabellrutnätet, så indexen för celler utanför området ändras inte.
 
 ```java
-// Instansierar Presentation-klassen som representerar en PPTX-fil
-Presentation pres = new Presentation();
-try {
-    // Hämtar första bilden
-    ISlide sld = pres.getSlides().get_Item(0);
+import com.aspose.slides.*;
 
-    // Definierar kolumner med bredd och rader med höjd
-    double[] dblCols = { 70, 70, 70, 70 };
-    double[] dblRows = { 70, 70, 70, 70 };
-
-    // Lägger till en tabellform på bilden
-    ITable tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
-
-    // Ställer in kantformat för varje cell
-    for (IRow row : tbl.getRows())
-    {
-        for (ICell cell : row)
-        {
-            cell.getCellFormat().getBorderTop().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderTop().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderTop().setWidth(5);
-
-            cell.getCellFormat().getBorderBottom().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderBottom().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderBottom().setWidth(5);
-
-            cell.getCellFormat().getBorderLeft().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderLeft().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderLeft().setWidth(5);
-
-            cell.getCellFormat().getBorderRight().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderRight().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderRight().setWidth(5);
-        }
-    }
-
-    // Slår samman celler (1, 1) x (2, 1)
-    tbl.mergeCells(tbl.get_Item(1, 1), tbl.get_Item(2, 1), false);
-
-    // Slår samman celler (1, 2) x (2, 2)
-    tbl.mergeCells(tbl.get_Item(1, 2), tbl.get_Item(2, 2), false);
-
-    pres.save("MergeCells_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-Vi slår sedan ihop cellerna ytterligare genom att slå samman (1, 1) och (1, 2). Resultatet är en tabell som innehåller en stor sammanslagen cell i mitten:
-
-```java
-// Instansierar Presentation-klassen som representerar en PPTX-fil
-Presentation pres = new Presentation();
-try {
-    // Hämtar första bilden
-    ISlide sld = pres.getSlides().get_Item(0);
-
-    // Definierar kolumner med bredd och rader med höjd
-    double[] dblCols = { 70, 70, 70, 70 };
-    double[] dblRows = { 70, 70, 70, 70 };
-
-    // Lägger till en tabellform på bilden
-    ITable tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
-
-    // Ställer in kantformat för varje cell
-    for (IRow row : tbl.getRows())
-    {
-        for (ICell cell : row)
-        {
-            cell.getCellFormat().getBorderTop().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderTop().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderTop().setWidth(5);
-
-            cell.getCellFormat().getBorderBottom().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderBottom().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderBottom().setWidth(5);
-
-            cell.getCellFormat().getBorderLeft().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderLeft().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderLeft().setWidth(5);
-
-            cell.getCellFormat().getBorderRight().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderRight().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderRight().setWidth(5);
-        }
-    }
-
-    // Slår samman celler (1, 1) x (2, 1)
-    tbl.mergeCells(tbl.get_Item(1, 1), tbl.get_Item(2, 1), false);
-
-    // Slår samman celler (1, 2) x (2, 2)
-    tbl.mergeCells(tbl.get_Item(1, 2), tbl.get_Item(2, 2), false);
-
-    // Slår samman celler (1, 1) x (1, 2)
-    tbl.mergeCells(tbl.get_Item(1, 1), tbl.get_Item(1, 2), true);
-    
-	// Skriver PPTX-filen till disk
-    pres.save("MergeCells_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Numrering i en delad cell**
-I tidigare exempel, när tabellceller slogs samman, ändrades inte numreringen eller siffersystemet i de andra cellerna.
-
-Denna gång tar vi en vanlig tabell (en tabell utan sammanslagna celler) och försöker sedan dela cell (1,1) för att få en speciell tabell. Du kanske vill uppmärksamma denna tabsellens numrering, som kan uppfattas som märklig. Men så numererar Microsoft PowerPoint tabellceller och Aspose.Slides gör samma sak.
-
-Denna Java‑kod demonstrerar processen vi beskrev:
-
-```java
-// Instansierar Presentation-klassen som representerar en PPTX-fil
-Presentation pres = new Presentation();
-try {
-    // Hämtar den första bilden
-    ISlide sld = pres.getSlides().get_Item(0);
-
-    // Definierar kolumner med bredd och rader med höjd
-    double[] dblCols = { 70, 70, 70, 70 };
-    double[] dblRows = { 70, 70, 70, 70 };
-
-    // Lägger till en tabellform på bilden
-    ITable tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
-
-    // Ställer in kantformat för varje cell
-    for (IRow row : tbl.getRows())
-    {
-        for (ICell cell : row)
-        {
-            cell.getCellFormat().getBorderTop().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderTop().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderTop().setWidth(5);
-
-            cell.getCellFormat().getBorderBottom().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderBottom().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderBottom().setWidth(5);
-
-            cell.getCellFormat().getBorderLeft().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderLeft().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderLeft().setWidth(5);
-
-            cell.getCellFormat().getBorderRight().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderRight().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderRight().setWidth(5);
-        }
-    }
-
-    // Slår samman celler (1, 1) x (2, 1)
-    tbl.mergeCells(tbl.get_Item(1, 1), tbl.get_Item(2, 1), false);
-
-    // Slår samman celler (1, 2) x (2, 2)
-    tbl.mergeCells(tbl.get_Item(1, 2), tbl.get_Item(2, 2), false);
-
-    // Delar cell (1, 1)
-    tbl.get_Item(1, 1).splitByWidth(tbl.get_Item(2, 1).getWidth() / 2);
-
-    //Skriver PPTX-filen till disk
-    pres.save("SplitCells_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Ändra tabellcellens bakgrundsfärg**
-
-Denna Java‑kod visar hur du ändrar en tabellcells bakgrundsfärg:
-
-```java
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    double[] dblCols = { 150, 150, 150, 150 };
-    double[] dblRows = { 50, 50, 50, 50, 50 };
+    double[] columnWidths = { 70, 70, 70, 70 };
+    double[] rowHeights = { 70, 70, 70, 70 };
+    ITable table = slide.getShapes().addTable(100, 50, columnWidths, rowHeights);
 
-    // skapa en ny tabell
-    ITable table = slide.getShapes().addTable(50, 50, dblCols, dblRows);
+    table.mergeCells(table.get_Item(1, 1), table.get_Item(2, 2), false);
 
-    // sätt bakgrundsfärgen för en cell 
+    presentation.save("merged_cells.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Dela tabellceller**
+
+Att sammanslå celler i föregående exempel bevarar tabellens rutnät. Att dela en cell kan introducera en ny rutnätskolumn och ändra kolumnindexen för cellerna till höger om den. Aspose.Slides följer PowerPoints tabellrutnätsmodell.
+
+Detta exempel skapar en 4×4-tabell med 70‑punkts kolumner och rader och anropar [splitByWidth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#splitByWidth-double-) på cell `(1, 1)`. Hälften av cellens 70‑punkts bredd skickas för att skapa två lika breda celler.
+
+Efter denna delning nås de två halvorna som `table.get_Item(1, 1)` och `table.get_Item(2, 1)`. Tabellrutnätet har nu fem kolumner: celler som ursprungligen var i kolumn 2 och 3 flyttas till kolumn 3 respektive 4. Radräkningarna förblir oförändrade. Använd dessa uppdaterade kolumnindex när du kommer åt celler efter delningen.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    double[] columnWidths = { 70, 70, 70, 70 };
+    double[] rowHeights = { 70, 70, 70, 70 };
+    ITable table = slide.getShapes().addTable(100, 50, columnWidths, rowHeights);
+
+    table.get_Item(1, 1).splitByWidth(table.get_Item(1, 1).getWidth() / 2);
+
+    presentation.save("split_cells.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+### **Dela sammanslagna celler efter rad- eller kolumnspann**
+
+För att förbereda sammanslagna mallceller för datainmatning, använd [splitByRowSpan](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#splitByRowSpan-int-) för att dela längs en befintlig radgräns, eller [splitByColSpan](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#splitByColSpan-int-) för att dela längs en kolumngräns.
+
+`index`-argumentet räknar rader i den övre delen eller kolumner i den vänstra delen av delningen; det är relativt till det sammanslagna området:
+
+- Raddelning: `0 < index <` [getRowSpan](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#getRowSpan--).
+- Kolumndelning: `0 < index <` [getColSpan](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#getColSpan--).
+
+Exemplet förutsätter att en presentation har en tabell som den första formen på den första bilden, med `(1, 2)` och `(1, 3)` sammanslagna vertikalt. Med start från den nedre positionen använder det [getFirstColumnIndex](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#getFirstColumnIndex--) och [getFirstRowIndex](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#getFirstRowIndex--) för att lokalisera ursprunget och kontrollerar båda spannen. `splitByRowSpan(1)` separerar sedan raderna 2 och 3 för produktnamn. För en horisontell tvåkolumnssammanslagning, använd `splitByColSpan(1)` istället.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("table_template.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    ITable table = (ITable) slide.getShapes().get_Item(0);
+
+    ICell selectedCell = table.get_Item(1, 3);
+    int firstColumnIndex = selectedCell.getFirstColumnIndex();
+    int firstRowIndex = selectedCell.getFirstRowIndex();
+    ICell mergedCell = table.get_Item(firstColumnIndex, firstRowIndex);
+
+    if (mergedCell.isMergedCell() && mergedCell.getRowSpan() == 2 && mergedCell.getColSpan() == 1)
+    {
+        mergedCell.splitByRowSpan(1);
+
+        // Hämta de resulterande cellerna från tabellen efter delning.
+        ICell upperCell = table.get_Item(firstColumnIndex, firstRowIndex);
+        ICell lowerCell = table.get_Item(firstColumnIndex, firstRowIndex + 1);
+        System.out.println("Upper cell merged: " + upperCell.isMergedCell());
+        System.out.println("Lower cell merged: " + lowerCell.isMergedCell());
+
+        upperCell.getTextFrame().setText("Product A");
+        lowerCell.getTextFrame().setText("Product B");
+
+        presentation.save("split_template.pptx", SaveFormat.Pptx);
+    }
+    else
+    {
+        System.out.println("Select a merged region spanning exactly two rows and one column.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Tabellrutnätet och omkringliggande cellindex förblir oförändrade. Hämta de resulterande cellerna med deras koordinater; här har båda spännvidder på 1 och [isMergedCell](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#isMergedCell--) skriver ut `false`. Större områden kan förbli delvis sammanslagna efter en delning.
+
+Den ursprungliga texten och dess formatering kvarstår i den övre (eller vänstra) cellen; den nya cellen är tom men ärver cellformatering såsom fyllning, kanter och marginaler. Fyll i cellerna efter delning och ange eventuell nödvändig textformatering explicit.
+
+Den sparade presentationen innehåller separata "Product A"- och "Product B"-celler med mallens cellformatering bevarad. Se [Cell API Reference](https://reference.aspose.com/slides/androidjava/com.aspose.slides/cell/) för detaljer.
+
+## **Ändra tabellcellens bakgrundsfärg**
+
+Detta exempel skapar en tabell med 150‑punkts kolumner och 50‑punkts rader. Det använder [setFillType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifillformat/#setFillType-byte-) för att välja en solid fyllning och sätter färgen som returneras av [getSolidFillColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifillformat/#getSolidFillColor--) till röd för cell `(2, 3)`, i den tredje kolumnen och fjärde raden.
+
+```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    double[] columnWidths = { 150, 150, 150, 150 };
+    double[] rowHeights = { 50, 50, 50, 50, 50 };
+    ITable table = slide.getShapes().addTable(50, 50, columnWidths, rowHeights);
+
     ICell cell = table.get_Item(2, 3);
     cell.getCellFormat().getFillFormat().setFillType(FillType.Solid);
     cell.getCellFormat().getFillFormat().getSolidFillColor().setColor(Color.RED);
 
     presentation.save("cell_background_color.pptx", SaveFormat.Pptx);
 } finally {
-    if (presentation != null) presentation.dispose();
+    presentation.dispose();
 }
 ```
 
 ## **Lägg till en bild i en tabellcell**
 
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/Presentation).
-2. Hämta en bilds referens via dess index.
-3. Definiera en array av kolumner med bredd.
-4. Definiera en array av rader med höjd.
-5. Lägg till en tabell på bilden via metoden [AddTable](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/IShapeCollection#addTable-float-float-double:A-double:A-).
-6. Skapa ett `Images`‑objekt för att hålla bildfilen.
-7. Lägg till `IImage`‑bilden till `IPPImage`‑objektet.
-8. Ställ in `FillFormat` för tabellcellen till `Picture`.
-9. Lägg till bilden i tabellens första cell.
-10. Spara den ändrade presentationen som en PPTX‑fil
+Placera inmatningsbilden i arbetskatalogen innan du kör detta exempel. Den läser in bilden med [Images.fromFile](https://reference.aspose.com/slides/androidjava/com.aspose.slides/images/#fromFile-java.lang.String-) och lägger till den i presentationens bildsamling med [addImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimagecollection/#addImage-com.aspose.slides.IImage-). Därefter tilldelas bilden som bildfyllning för cell `(0, 0)`, den första cellen i tabellen.
 
-Denna Java‑kod visar hur du placerar en bild i en tabellcell när du skapar en tabell:
+[PictureFillMode.Stretch](https://reference.aspose.com/slides/androidjava/com.aspose.slides/picturefillmode/) sträcker bilden för att fylla cellen, vilket kan ändra dess bildförhållande. Kolumnbredder och radhöjder är i punkter. Den inlästa bilden frigörs i en `finally`-block efter att den har lagts till i presentationen.
 
 ```java
-// Instansierar Presentation-klassen som representerar en PPTX-fil
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    // Hämtar den första bilden
-    ISlide islide = pres.getSlides().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Definierar kolumner med bredd och rader med höjd
-    double[] dblCols = {150, 150, 150, 150};
-    double[] dblRows = {100, 100, 100, 100, 90};
+    double[] columnWidths = { 150, 150, 150, 150 };
+    double[] rowHeights = { 100, 100, 100, 100, 90 };
+    ITable table = slide.getShapes().addTable(50, 50, columnWidths, rowHeights);
 
-    // Lägger till en tabellform på bilden
-    ITable tbl = islide.getShapes().addTable(50, 50, dblCols, dblRows);
-
-    // Skapar ett IPPImage-objekt med bildfilen
-    IPPImage picture;
-    IImage image = Images.fromFile("image.jpg");
+    IPPImage ppImage;
+    IImage image = Images.fromFile("aspose_logo.jpg");
     try {
-        picture = pres.getImages().addImage(image);
+        ppImage = presentation.getImages().addImage(image);
     } finally {
-        if (image != null) image.dispose();
+        image.dispose();
     }
 
-    // Lägger till bilden i den första tabellcellen
-    ICellFormat cellFormat = tbl.get_Item(0, 0).getCellFormat();
-    cellFormat.getFillFormat().setFillType(FillType.Picture);
-    cellFormat.getFillFormat().getPictureFillFormat().setPictureFillMode(PictureFillMode.Stretch);
-    cellFormat.getFillFormat().getPictureFillFormat().getPicture().setImage(picture);
+    table.get_Item(0, 0).getCellFormat().getFillFormat().setFillType(FillType.Picture);
+    table.get_Item(0, 0).getCellFormat().getFillFormat().getPictureFillFormat().setPictureFillMode(PictureFillMode.Stretch);
+    table.get_Item(0, 0).getCellFormat().getFillFormat().getPictureFillFormat().getPicture().setImage(ppImage);
 
-    // Sparar PPTX-filen till disk
-    pres.save("Image_In_TableCell_out.pptx", SaveFormat.Pptx);
-} catch (IOException e) {
+    presentation.save("table_cell_with_image.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
 ## **FAQ**
 
-**Kan jag ange olika linjetjocklekar och -stilar för olika sidor av en enskild cell?**
+**Kan jag ange olika linjetjocklekar och stilar för de olika sidorna av en enskild cell?**
 
-Ja. Kanterna [top](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/cellformat/#getBorderTop--)/[bottom](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/cellformat/#getBorderBottom--)/[left](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/cellformat/#getBorderLeft--)/[right](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/cellformat/#getBorderRight--) har separata egenskaper, så tjockleken och stilen för varje sida kan skilja sig. Detta följer logiskt av den per‑sidokanalkontroll för en cell som demonstreras i artikeln.
+Ja. [top](https://reference.aspose.com/slides/androidjava/com.aspose.slides/cellformat/#getBorderTop--)/[bottom](https://reference.aspose.com/slides/androidjava/com.aspose.slides/cellformat/#getBorderBottom--)/[left](https://reference.aspose.com/slides/androidjava/com.aspose.slides/cellformat/#getBorderLeft--)/[right](https://reference.aspose.com/slides/androidjava/com.aspose.slides/cellformat/#getBorderRight--) kanterna har separata egenskaper, så tjockleken och stilen för varje sida kan vara olika.
 
-**Vad händer med bilden om jag ändrar kolumn‑/radstorlek efter att ha satt en bild som cellens bakgrund?**
+**Vad händer med bilden om jag ändrar kolumn-/radstorleken efter att ha ställt in en bild som cellens bakgrund?**
 
-Beteendet beror på [fill mode](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/picturefillmode/). Vid stretchning anpassas bilden till den nya cellen; vid tile‑ning beräknas om kakelna. Artikeln nämner bildens visningslägen i en cell.
+Beteendet beror på [fill mode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/picturefillmode/). Vid streching anpassas bilden till den nya cellen; vid tiling beräknas brickorna om.
 
 **Kan jag tilldela en hyperlänk till allt innehåll i en cell?**
 
-[Hyperlinks](/slides/sv/androidjava/manage-hyperlinks/) sätts på textraden (portion)nivå inne i cellens textram eller på hela tabellens/figurens nivå. I praktiken tilldelar du länken till en portion eller till all text i cellen.
+[Hyperlinks](/slides/sv/androidjava/manage-hyperlinks/) sätts på textraden (portion) nivå inne i cellens textruta eller på hela tabellens/formens nivå. I praktiken tilldelar du länken till en del eller till all text i cellen.
 
-**Kan jag ange olika teckensnitt inom en enskild cell?**
+**Kan jag ange olika teckensnitt inom en enda cell?**
 
-Ja. En cells textram stödjer [portions](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/portion/) (körningar) med oberoende formatering—teckensnittsfamilj, stil, storlek och färg.
+Ja. En cells textruta stödjer [portions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/portion/) (körningar) med oberoende formatering—teckensnittsfamilj, stil, storlek och färg.

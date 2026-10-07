@@ -1,6 +1,6 @@
 ---
-title: Διαχείριση Κελιών Πίνακα σε Παρουσιάσεις με Python
-linktitle: Διαχείριση Κελιών
+title: Διαχείριση κελιών πίνακα σε παρουσιάσεις με Python
+linktitle: Διαχείριση κελιών
 type: docs
 weight: 30
 url: /el/python-net/manage-cells/
@@ -12,68 +12,49 @@ keywords:
 - εικόνα σε κελί
 - χρώμα φόντου
 - PowerPoint
-- OpenDocument
 - παρουσίαση
 - Python
 - Aspose.Slides
-description: "Διαχειριστείτε με ευκολία τα κελιά πίνακα σε PowerPoint και OpenDocument με το Aspose.Slides για Python μέσω .NET. Κατακτήστε την πρόσβαση, την τροποποίηση και τη μορφοποίηση κελιών γρήγορα για αδιάκοπη αυτοματοποίηση διαφανειών."
+description: "Διαχείριση κελιών πίνακα PowerPoint σε Python: αναγνώριση συγχωνευμένων κελιών, αφαίρεση περιγραμμάτων, διαχωρισμός κελιών και ορισμός χρωμάτων φόντου και εικόνων με Aspose.Slides για Python μέσω .NET."
 ---
 ## **Επισκόπηση**
 
-Aspose.Slides σας επιτρέπει να έχετε πρόσβαση και να τροποποιείτε τα κελιά πινάκων σε παρουσιάσεις PowerPoint. Αυτό το άρθρο εξηγεί πώς να εντοπίσετε συγχωνευμένα κελιά πινάκων, να αφαιρέσετε τα σύνορα των κελιών, να εργαστείτε με την αρίθμηση κελιών μετά τη συγχώνευση ή το διαχωρισμό τους, να αλλάξετε το χρώμα φόντου ενός κελιού και να προσθέσετε μια εικόνα μέσα σε κελί πίνακα. Τα παραδείγματα δείχνουν πώς να δημιουργήσετε ή να ανοίξετε μια παρουσίαση, να πάρετε έναν πίνακα από μια διαφάνεια, να ενημερώσετε τη μορφοποίηση των κελιών μέσω των ιδιοτήτων των κελιών και να αποθηκεύσετε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
+Το Aspose.Slides σάς επιτρέπει να αποκτάτε πρόσβαση και να τροποποιείτε κελιά πινάκων σε παρουσιάσεις PowerPoint. Αυτό το άρθρο εξηγεί πώς να αναγνωρίσετε συγχωνευμένα κελιά πινάκων, να αφαιρέσετε τα πλαίσια των κελιών, να εργαστείτε με την αρίθμηση κελιών μετά τη συγχώνευση ή το διαχωρισμό των κελιών, να αλλάξετε το χρώμα φόντου ενός κελιού και να προσθέσετε εικόνα μέσα σε κελί πίνακα. Τα παραδείγματα δείχνουν πώς να δημιουργήσετε ή να ανοίξετε μια παρουσίαση, να λάβετε έναν πίνακα από μια διαφάνεια, να ενημερώσετε τη μορφοποίηση του κελιού μέσω των ιδιοτήτων του κελιού και να αποθηκεύσετε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
 
-## **Αναγνώριση Συγχωνευμένων Κελιών Πίνακα**
+Το Aspose.Slides χρησιμοποιεί δείκτες αρχής 0. Οι συντεταγμένες σε αυτό το άρθρο γράφονται ως `(column, row)`.
 
-Οι πίνακες συχνά περιέχουν συγχωνευμένα κελιά για κεφαλίδες ή για ομαδοποίηση σχετικών δεδομένων. Σε αυτήν την ενότητα, θα δείτε πώς να προσδιορίσετε αν ένα συγκεκριμένο κελί ανήκει σε μια συγχωνευμένη περιοχή και πώς να αναφερθείτε στο κύριο (πάνω‑αριστερό) κελί ώστε να διαβάζετε ή να μορφοποιείτε ολόκληρο το μπλοκ με συνέπεια.
+## **Αναγνώριση Συγχωνευμένου Κελιού Πίνακα**
 
-1. Δημιουργήστε μια παρουσία της [Presentation](https://reference.aspose.com/slides/el/python-net/aspose.slides/presentation/) κλάσης.  
-1. Αποκτήστε τον πίνακα από την πρώτη διαφάνεια.  
-1. Περιηγηθείτε στις γραμμές και στήλες του πίνακα για να βρείτε συγχωνευμένα κελιά.  
-1. Εμφανίστε ένα μήνυμα όταν εντοπιστούν συγχωνευμένα κελιά.
+Το παράδειγμα ανοίγει μια υπάρχουσα παρουσίαση και προσπελαύνει το πρώτο σχήμα στην πρώτη διαφάνεια ως πίνακα. Υποθέτει ότι η διαφάνεια και το σχήμα υπάρχουν και ότι το σχήμα είναι πίνακας. Στη συνέχεια, διασχίζει όλες τις γραμμές και στήλες και χρησιμοποιεί [is_merged_cell](https://reference.aspose.com/slides/python-net/aspose.slides/cell/is_merged_cell/) για να εντοπίσει κελιά σε συγχωνευμένες περιοχές. Για κάθε αντιστοιχία, εκτυπώνει τις συντεταγμένες του κελιού με σειρά `row;column`, [row_span](https://reference.aspose.com/slides/python-net/aspose.slides/cell/row_span/), [col_span](https://reference.aspose.com/slides/python-net/aspose.slides/cell/col_span/), και τις αρχικές συντεταγμένες της περιοχής, [first_row_index](https://reference.aspose.com/slides/python-net/aspose.slides/cell/first_row_index/) και [first_column_index](https://reference.aspose.com/slides/python-net/aspose.slides/cell/first_column_index/).
 
-```py
+```python
 import aspose.slides as slides
 
 with slides.Presentation("presentation_with_table.pptx") as presentation:
-    # Υποθέτοντας ότι το πρώτο σχήμα στην πρώτη διαφάνεια είναι πίνακας.
-    table = presentation.slides[0].shapes[0]
+    slide = presentation.slides[0]
+    table = slide.shapes[0]
 
     for row_index in range(len(table.rows)):
         for column_index in range(len(table.columns)):
             cell = table.rows[row_index][column_index]
             if cell.is_merged_cell:
-                print("Cell ({}, {}) is part of a merged region with a row span of {} and a column span of {}, starting from cell ({}, {}).".format(
-                    row_index, column_index, cell.row_span, cell.col_span, cell.first_row_index, cell.first_column_index))
+                print(f"Cell {row_index};{column_index} belongs to a merged region with row_span={cell.row_span} and col_span={cell.col_span} starting at {cell.first_row_index};{cell.first_column_index}.")
 ```
 
-## **Αφαίρεση Συνορίων Κελιών Πίνακα**
+## **Αφαίρεση Περιγραμμάτων Κελιού Πίνακα**
 
-Μερικές φορές τα σύνορα των πινάκων αποσπούν την προσοχή από το περιεχόμενο ή δημιουργούν οπτικό χάος. Αυτή η ενότητα δείχνει πώς να αφαιρέσετε τα σύνορα από επιλεγμένα κελιά—ή συγκεκριμένες πλευρές ενός κελιού—ώστε να πετύχετε μια πιο καθαρή διάταξη και καλύτερη εναρμόνιση με το σχεδιασμό της διαφάνειάς σας.
-
-1. Δημιουργήστε μια παρουσία της [Presentation](https://reference.aspose.com/slides/el/python-net/aspose.slides/presentation/) κλάσης.  
-1. Αποκτήστε τη διαφάνεια με βάση το δείκτη της.  
-1. Ορίστε έναν πίνακα με τα πλάτη των στηλών.  
-1. Ορίστε έναν πίνακα με τα ύψη των γραμμών.  
-1. Προσθέστε έναν πίνακα στη διαφάνεια χρησιμοποιώντας τη μέθοδο [add_table](https://reference.aspose.com/slides/el/python-net/aspose.slides/shapecollection/add_table/).  
-1. Περιηγηθείτε σε κάθε κελί για να αφαιρέσετε τα σύνορα πάνω, κάτω, αριστερά και δεξιά.  
-1. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
+Δημιουργήστε ένα [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) και προσθέστε ένα πίνακα στην πρώτη του διαφάνεια με [add_table](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_table/). Το πλάτος των στηλών, το ύψος των γραμμών και η θέση του πίνακα ορίζονται σε μονάδες point. Το παράδειγμα θέτει όλα τα τέσσερα περιγράμματα κελιού σε [FillType.NO_FILL](https://reference.aspose.com/slides/python-net/aspose.slides/filltype/), κάνοντάς τα αόρατα.
 
 ```python
 import aspose.slides as slides
 
-# Δημιουργήστε την κλάση Presentation που αντιπροσωπεύει ένα αρχείο PPTX.
 with slides.Presentation() as presentation:
-    # Πρόσβαση στην πρώτη διαφάνεια.
     slide = presentation.slides[0]
 
-    # Ορίστε στήλες με πλάτη και γραμμές με ύψη.
     column_widths = [50, 50, 50, 50]
     row_heights = [50, 30, 30, 30, 30]
+    table = slide.shapes.add_table(100, 50, column_widths, row_heights)
 
-    # Προσθέστε ένα σχήμα πίνακα στη διαφάνεια.
-    table = slide.shapes.add_table(50, 50, column_widths, row_heights)
-
-    # Απαλείψτε τη γέμιση του περιγράμματος για κάθε κελί.
     for row in table.rows:
         for cell in row:
             cell.cell_format.border_top.fill_format.fill_type = slides.FillType.NO_FILL
@@ -81,100 +62,102 @@ with slides.Presentation() as presentation:
             cell.cell_format.border_left.fill_format.fill_type = slides.FillType.NO_FILL
             cell.cell_format.border_right.fill_format.fill_type = slides.FillType.NO_FILL
 
-    # Αποθηκεύστε το αρχείο PPTX στον δίσκο.
     presentation.save("table.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Αρίθμηση σε Συγχωνευμένα Κελιά**
+## **Συγχώνευση Κελιών Πίνακα**
 
-Εάν συγχωνεύσετε δύο ζεύγη κελιών—π.χ., (1, 1) x (2, 1) και (1, 2) x (2, 2)—ο προκύπτων πίνακας θα διατηρήσει την ίδια αρίθμηση κελιών όπως ο πίνακας χωρίς συγχώνευση. Ο παρακάτω κώδικας Python δείχνει αυτή τη συμπεριφορά:
+Χρησιμοποιήστε το [merge_cells](https://reference.aspose.com/slides/python-net/aspose.slides/table/merge_cells/) για να συνδυάσετε μια ορθογώνια περιοχή κελιών πίνακα σε ένα κελί. Καθορίστε τα κελιά στην επάνω αριστερή και κάτω δεξιά γωνία της περιοχής. Το τελευταίο όρισμα ελέγχει αν η συγχώνευση μπορεί να περιλαμβάνει κελιά εκτός της δηλωμένης περιοχής· `False` διατηρεί τη συγχώνευση εντός της περιοχής.
+
+Το παράδειγμα δημιουργεί ένα πίνακα 4×4 με στήλες και γραμμές 70 point, και στη συνέχεια συγχωνεύει τα τέσσερα κεντρικά κελιά από `(1, 1)` έως `(2, 2)`. Το αποτέλεσμα είναι ένα κελί που εκτείνεται σε δύο στήλες και δύο γραμμές, ενώ το υποκείμενο πλέγμα του πίνακα διατηρεί τέσσερις στήλες και τέσσερις γραμμές. Για να προσπελάσετε το περιεχόμενο ή τη μορφοποίηση του συγχωνευμένου κελιού, χρησιμοποιήστε τη θέση του επάνω αριστερά: `table.rows[1][1]` σε αυτό το παράδειγμα. Οι άλλες θέσεις στην συγχωνευμένη περιοχή παραμένουν μέρος του πλέγματος του πίνακα, έτσι οι δείκτες των κελιών εκτός της περιοχής δεν αλλάζουν.
 
 ```python
 import aspose.slides as slides
 
-# Δημιουργήστε την κλάση Presentation που αντιπροσωπεύει ένα αρχείο PPTX.
 with slides.Presentation() as presentation:
-    # Πρόσβαση στην πρώτη διαφάνεια.
     slide = presentation.slides[0]
 
-    # Ορίστε στήλες με πλάτη και γραμμές με ύψη.
     column_widths = [70, 70, 70, 70]
     row_heights = [70, 70, 70, 70]
+    table = slide.shapes.add_table(100, 50, column_widths, row_heights)
 
-    # Προσθέστε ένα σχήμα πίνακα στη διαφάνεια.
-    table = slide.shapes.add_table(50, 50, column_widths, row_heights)
+    table.merge_cells(table.rows[1][1], table.rows[2][2], False)
 
-    # Συγχωνεύστε τα κελιά (1,1) και (2,1).
-    table.merge_cells(table.rows[1][1], table.rows[2][1], False)
-
-    # Συγχωνεύστε τα κελιά (1, 2) και (2, 2).
-    table.merge_cells(table.rows[1][2], table.rows[2][2], False)
-
-    # Εκτυπώστε τους δείκτες των κελιών.
-    for row_index in range(len(table.rows)):
-        for column_index in range(len(table.rows[row_index])):
-            cell = table.rows[row_index][column_index]
-            print(f"{cell.first_row_index, cell.first_column_index} ", end="")
-        print()
-
-    # Αποθηκεύστε το αρχείο PPTX στον δίσκο.
     presentation.save("merged_cells.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Έξοδος:
+## **Διαίρεση Κελιών Πίνακα**
 
-```text
-(0, 0) (0, 1) (0, 2) (0, 3) 
-(1, 0) (1, 1) (1, 2) (1, 3) 
-(2, 0) (1, 1) (1, 2) (2, 3) 
-(3, 0) (3, 1) (3, 2) (3, 3)
-```
+Η συγχώνευση κελιών στο προηγούμενο παράδειγμα διατηρεί το πλέγμα του πίνακα. Ο διαχωρισμός ενός κελιού μπορεί να εισάγει μια νέα στήλη στο πλέγμα και να αλλάξει τους δείκτες των στηλών των κελιών στα δεξιά του. Το Aspose.Slides ακολουθεί το μοντέλο πλέγματος πινάκων του PowerPoint.
 
-## **Αρίθμηση σε Διαχωρισμένα Κελιά**
+Αυτό το παράδειγμα δημιουργεί έναν πίνακα 4×4 με στήλες και γραμμές 70 point και καλεί το [split_by_width](https://reference.aspose.com/slides/python-net/aspose.slides/cell/split_by_width/) στο κελί `(1, 1)`. Το μισό του πλάτους 70 point του κελιού περνιέται για να δημιουργηθούν δύο κελιά ίσου πλάτους.
 
-Στο προηγούμενο παράδειγμα, όταν τα κελιά του πίνακα συγχωνεύθηκαν, η αρίθμηση στα άλλα κελιά δεν άλλαξε. Αυτή τη φορά, δημιουργούμε έναν κανονικό πίνακα (χωρίς συγχωνευμένα κελιά) και στη συνέχεια διαχωρίζουμε το κελί (1, 1) για να παραχθεί ένας ειδικός πίνακας. Δώστε προσοχή στην αρίθμηση αυτού του πίνακα—μπορεί να φαίνεται ασυνήθιστη. Ωστόσο, έτσι αρίθμηση τα κελιά το Microsoft PowerPoint, και το Aspose.Slides ακολουθεί την ίδια συμπεριφορά.
+Μετά από αυτόν τον διαχωρισμό, τα δύο μισά προσπελάζονται ως `table.rows[1][1]` και `table.rows[1][2]`. Το πλέγμα του πίνακα έχει τώρα πέντε στήλες: τα κελιά που αρχικά ήταν στις στήλες 2 και 3 μετατοπίζονται στις στήλες 3 και 4, αντίστοιχα. Οι δείκτες των γραμμών παραμένουν αμετάβλητοι. Χρησιμοποιήστε αυτούς τους ενημερωμένους δείκτες στηλών όταν προσπελάζετε κελιά μετά τον διαχωρισμό.
 
 ```python
 import aspose.slides as slides
 
-# Δημιουργήστε την κλάση Presentation που αντιπροσωπεύει ένα αρχείο PPTX.
 with slides.Presentation() as presentation:
-    # Πρόσβαση στην πρώτη διαφάνεια.
     slide = presentation.slides[0]
 
-    # Ορίστε πλάτη στηλών και ύψη γραμμών.
     column_widths = [70, 70, 70, 70]
     row_heights = [70, 70, 70, 70]
+    table = slide.shapes.add_table(100, 50, column_widths, row_heights)
 
-    # Προσθέστε ένα σχήμα πίνακα στη διαφάνεια.
-    table = slide.shapes.add_table(50, 50, column_widths, row_heights)
+    table.rows[1][1].split_by_width(table.rows[1][1].width / 2)
 
-    # Διαχωρισμός του κελιού (1, 1).
-    table.rows[1][1].split_by_width(table.rows[2][1].width / 2)
-
-    # Εκτυπώστε τους δείκτες των κελιών.
-    for row_index in range(len(table.rows)):
-        for column_index in range(len(table.rows[row_index])):
-            cell = table.rows[row_index][column_index]
-            print(f"{cell.first_row_index, cell.first_column_index} ", end="")
-        print()
-
-    # Αποθηκεύστε το αρχείο PPTX στον δίσκο.
     presentation.save("split_cells.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Έξοδος:
+### **Διαίρεση Συγχωνευμένων Κελιών κατά Γραμμή ή Στήλη**
 
-```text
-(0, 0) (0, 1) (0, 1) (0, 3) (0, 4) 
-(1, 0) (1, 1) (1, 2) (1, 3) (1, 4) 
-(2, 0) (2, 1) (2, 1) (2, 3) (2, 4) 
-(3, 0) (3, 1) (3, 1) (3, 3) (3, 4) 
+Για να προετοιμάσετε συγχωνευμένα κελιά προτύπου για πληθυσμό δεδομένων, χρησιμοποιήστε το [split_by_row_span](https://reference.aspose.com/slides/python-net/aspose.slides/cell/split_by_row_span/) για διαχωρισμό κατά υπάρχουσα γραμμή, ή το [split_by_col_span](https://reference.aspose.com/slides/python-net/aspose.slides/cell/split_by_col_span/) για διαχωρισμό κατά στήλη.
+
+Το όρισμα `index` μετρά τις γραμμές στο ανώτερο μέρος ή τις στήλες στο αριστερό μέρος του διαχωρισμού· είναι σχετικό με τη συγχωνευμένη περιοχή:
+
+- Διαχωρισμός γραμμής: `0 < index <` [row_span](https://reference.aspose.com/slides/python-net/aspose.slides/cell/row_span/).
+- Διαχωρισμός στήλης: `0 < index <` [col_span](https://reference.aspose.com/slides/python-net/aspose.slides/cell/col_span/).
+
+Το παράδειγμα υποθέτει ότι μια παρουσίαση έχει πίνακα ως πρώτο σχήμα στην πρώτη διαφάνεια, με τα κελιά `(1, 2)` και `(1, 3)` να είναι συγχωνευμένα κάθετα. Ξεκινώντας από τη χαμηλότερη θέση, χρησιμοποιεί το [first_column_index](https://reference.aspose.com/slides/python-net/aspose.slides/cell/first_column_index/) και το [first_row_index](https://reference.aspose.com/slides/python-net/aspose.slides/cell/first_row_index/) για τον εντοπισμό της αρχής και ελέγχει και τις δύο εκτάσεις. Το `split_by_row_span` με δείκτη 1 διαχωρίζει τις γραμμές 2 και 3 για τα ονόματα προϊόντων. Για οριζόντια συγχώνευση δύο στηλών, χρησιμοποιήστε το `split_by_col_span` με δείκτη 1.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("table_template.pptx") as presentation:
+    slide = presentation.slides[0]
+    table = slide.shapes[0]
+
+    selected_cell = table.rows[3][1]
+    first_column_index = selected_cell.first_column_index
+    first_row_index = selected_cell.first_row_index
+    merged_cell = table.rows[first_row_index][first_column_index]
+
+    if merged_cell.is_merged_cell and merged_cell.row_span == 2 and merged_cell.col_span == 1:
+        merged_cell.split_by_row_span(1)
+
+        # Ανάκτηση των προκύπτοντων κελιών από τον πίνακα μετά το διαχωρισμό.
+        upper_cell = table.rows[first_row_index][first_column_index]
+        lower_cell = table.rows[first_row_index + 1][first_column_index]
+        print(f"Upper cell merged: {upper_cell.is_merged_cell}")
+        print(f"Lower cell merged: {lower_cell.is_merged_cell}")
+
+        upper_cell.text_frame.text = "Product A"
+        lower_cell.text_frame.text = "Product B"
+
+        presentation.save("split_template.pptx", slides.export.SaveFormat.PPTX)
+    else:
+        print("Select a merged region spanning exactly two rows and one column.")
 ```
 
-## **Αλλαγή Χρώματος Φόντου Κελιάς Πίνακα**
+Το πλέγμα του πίνακα και οι γύρω δείκτες κελιών παραμένουν αμετάβλητοι. Ανακτήστε τα προκύπτοντα κελιά με τις συντεταγμένες τους· εδώ, και τα δύο έχουν εκτάσεις 1 και το [is_merged_cell](https://reference.aspose.com/slides/python-net/aspose.slides/cell/is_merged_cell/) επιστρέφει `False`. Μεγαλύτερες περιοχές μπορούν να παραμείνουν μερικώς συγχωνευμένες μετά από ένα διαχωρισμό.
 
-Το παρακάτω παράδειγμα Python δείχνει πώς να αλλάξετε το χρώμα φόντου ενός κελιού πίνακα:
+Το αρχικό κείμενο και η μορφοποίησή του παραμένουν στο άνω (ή αριστερό) κελί· το νέο κελί είναι κενό αλλά κληρονομεί τη μορφοποίηση του κελιού όπως γέμισμα, περιγράμματα και περιθώρια. Συμπληρώστε τα κελιά μετά τον διαχωρισμό και ορίστε ρητά τυχόν απαιτούμενη μορφοποίηση κειμένου.
+
+Η αποθηκευμένη παρουσίαση περιέχει ξεχωριστά κελιά "Product A" και "Product B" με τη μορφοποίηση του προτύπου στα κελιά διατηρημένη. Δείτε την [Cell API Reference](https://reference.aspose.com/slides/python-net/aspose.slides/cell/) για λεπτομέρειες.
+
+## **Αλλαγή Χρώματος Φόντου Κελιού Πίνακα**
+
+Αυτό το παράδειγμα δημιουργεί έναν πίνακα με στήλες 150 point και γραμμές 50 point. Ορίζει το [fill_type](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/fill_type/) σε solid και το [solid_fill_color](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/solid_fill_color/) σε κόκκινο για το κελί `(2, 3)`, στην τρίτη στήλη και τέταρτη γραμμή.
 
 ```python
 import aspose.pydrawing as draw
@@ -185,76 +168,56 @@ with slides.Presentation() as presentation:
 
     column_widths = [150, 150, 150, 150]
     row_heights = [50, 50, 50, 50, 50]
-
-    # Δημιουργήστε ένα νέο πίνακα.
     table = slide.shapes.add_table(50, 50, column_widths, row_heights)
 
-    # Ορίστε το χρώμα φόντου για ένα κελί.
-    cell = table.rows[2][3]
+    cell = table.rows[3][2]
     cell.cell_format.fill_format.fill_type = slides.FillType.SOLID
     cell.cell_format.fill_format.solid_fill_color.color = draw.Color.red
 
     presentation.save("cell_background_color.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Εισαγωγή Εικόνων σε Κελιά Πίνακα**
+## **Προσθήκη Εικόνας Μέσα σε Κελί Πίνακα**
 
-Αυτή η ενότητα δείχνει πώς να εισάγετε μια εικόνα σε ένα κελί πίνακα στο Aspose.Slides. Καλύπτει την εφαρμογή γεμίσματος εικόνας στο επιλεγμένο κελί και τη ρύθμιση επιλογών εμφάνισης όπως η τένωση ή η επανάληψη.
+Τοποθετήστε την είσοδο εικόνας στον τρέχοντα φάκελο πριν τρέξετε αυτό το παράδειγμα. Φορτώνει την εικόνα με [Images.from_file](https://reference.aspose.com/slides/python-net/aspose.slides/images/from_file/) και την προσθέτει στη συλλογή εικόνων της παρουσίασης με [add_image](https://reference.aspose.com/slides/python-net/aspose.slides/imagecollection/add_image/). Στη συνέχεια αντιστοιχίζει την εικόνα στη γεμίσματα εικόνας του κελιού `(0, 0)`, του πρώτου κελιού του πίνακα.
 
-1. Δημιουργήστε μια παρουσία της [Presentation](https://reference.aspose.com/slides/el/python-net/aspose.slides/presentation/) κλάσης.  
-1. Αποκτήστε μια αναφορά σε διαφάνεια με βάση το δείκτη της.  
-1. Ορίστε έναν πίνακα με τα πλάτη των στηλών.  
-1. Ορίστε έναν πίνακα με τα ύψη των γραμμών.  
-1. Προσθέστε έναν πίνακα στη διαφάνεια με τη μέθοδο [add_table](https://reference.aspose.com/slides/el/python-net/aspose.slides/shapecollection/add_table/).  
-1. Φορτώστε την εικόνα από αρχείο.  
-1. Προσθέστε την εικόνα στις εικόνες της παρουσίασης για να λάβετε ένα [PPImage](https://reference.aspose.com/slides/el/python-net/aspose.slides/ppimage/).  
-1. Ορίστε το [FillType] του κελιού πίνακα σε `PICTURE`.  
-1. Εφαρμόστε την εικόνα στο κελί πίνακα και επιλέξτε λειτουργία γεμίσματος (π.χ., `STRETCH`).  
-1. Αποθηκεύστε την παρουσίαση ως αρχείο PPTX.
+Το [PictureFillMode.STRETCH](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillmode/) τεντώνει την εικόνα ώστε να γεμίσει το κελί, κάτι που μπορεί να αλλάξει την αναλογία διαστάσεων. Το πλάτος των στηλών και το ύψος των γραμμών είναι σε μονάδες point. Η φορτωμένη εικόνα διακόπτεται αυτόματα όταν το μπλοκ `with` τερματίζει.
 
 ```python
 import aspose.slides as slides
 
-# Δημιουργήστε ένα αντικείμενο Presentation.
 with slides.Presentation() as presentation:
-    # Πρόσβαση στην πρώτη διαφάνεια.
     slide = presentation.slides[0]
 
-    # Ορίστε πλάτη στηλών και ύψη γραμμών.
     column_widths = [150, 150, 150, 150]
-    row_heights = [100, 100, 100, 100]
-
-    # Προσθέστε ένα σχήμα πίνακα στη διαφάνεια.
+    row_heights = [100, 100, 100, 100, 90]
     table = slide.shapes.add_table(50, 50, column_widths, row_heights)
 
-    # Φορτώστε την εικόνα και προσθέστε την στην παρουσίαση για να αποκτήσετε ένα PPImage.
-    with slides.Images.from_file("image.png") as source_image:
-        image = presentation.images.add_image(source_image)
+    with slides.Images.from_file("aspose_logo.jpg") as image:
+        presentation_image = presentation.images.add_image(image)
 
-    # Εφαρμόστε την εικόνα στο πρώτο κελί του πίνακα.
     cell = table.rows[0][0]
     cell.cell_format.fill_format.fill_type = slides.FillType.PICTURE
     cell.cell_format.fill_format.picture_fill_format.picture_fill_mode = slides.PictureFillMode.STRETCH
-    cell.cell_format.fill_format.picture_fill_format.picture.image = image
+    cell.cell_format.fill_format.picture_fill_format.picture.image = presentation_image
 
-    # Αποθηκεύστε την παρουσίαση στον δίσκο.
-    presentation.save("image_in_table_cell.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("table_cell_with_image.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **Συχνές Ερωτήσεις**
 
-**Μπορώ να ορίσω διαφορετικά πάχη και στυλ γραμμής για διαφορετικές πλευρές ενός ενιαίου κελιού;**
+**Μπορώ να ορίσω διαφορετικά πάχη γραμμής και στυλ για διαφορετικές πλευρές ενός μόνο κελιού;**
 
-Ναι. Τα σύνορα [πάνω](https://reference.aspose.com/slides/el/python-net/aspose.slides/cellformat/border_top/)/[κάτω](https://reference.aspose.com/slides/el/python-net/aspose.slides/cellformat/border_bottom/)/[αριστερά](https://reference.aspose.com/slides/el/python-net/aspose.slides/cellformat/border_left/)/[δεξιά](https://reference.aspose.com/slides/el/python-net/aspose.slides/cellformat/border_right/) έχουν ξεχωριστές ιδιότητες, έτσι το πάχος και το στυλ κάθε πλευράς μπορούν να διαφέρουν. Αυτό ακολουθεί λογικά τον έλεγχο των σύνορων ανά πλευρά για ένα κελί, όπως παρουσιάστηκε στο άρθρο.
+Ναι. Τα περιγράμματα [top](https://reference.aspose.com/slides/python-net/aspose.slides/cellformat/border_top/)/[bottom](https://reference.aspose.com/slides/python-net/aspose.slides/cellformat/border_bottom/)/[left](https://reference.aspose.com/slides/python-net/aspose.slides/cellformat/border_left/)/[right](https://reference.aspose.com/slides/python-net/aspose.slides/cellformat/border_right/) έχουν ξεχωριστές ιδιότητες, ώστε το πάχος και το στυλ κάθε πλευράς να μπορεί να διαφέρει.
 
-**Τι συμβαίνει με την εικόνα αν αλλάξω το μέγεθος στήλης/γραμμής μετά τον ορισμό μιας εικόνας ως φόντο κελιού;**
+**Τι συμβαίνει με την εικόνα εάν αλλάξω το μέγεθος στήλης/γραμμής μετά τον ορισμό μιας εικόνας ως φόντου κελιού;**
 
-Η συμπεριφορά εξαρτάται από τη [λειτουργία γεμίσματος](https://reference.aspose.com/slides/el/python-net/aspose.slides/picturefillmode/) (stretch/tile). Με την τένωση, η εικόνα προσαρμόζεται στο νέο κελί· με την επανάληψη, τα πλακάκια επαναϋπολογίζονται. Το άρθρο αναφέρει τις λειτουργίες εμφάνισης εικόνας σε κελί.
+Η συμπεριφορά εξαρτάται από το [fill mode](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillmode/) (stretch/tile). Με τέντωμα, η εικόνα προσαρμόζεται στο νέο κελί· με επικάλυψη (tiling), τα πλακίδια υπολογίζονται εκ νέου.
 
-**Μπορώ να εκχωρήσω έναν σύνδεσμο σε όλο το περιεχόμενο ενός κελιού;**
+**Μπορώ να αντιστοιχίσω έναν υπερσύνδεσμο σε όλο το περιεχόμενο ενός κελιού;**
 
-Τα [Hyperlinks](/slides/el/python-net/manage-hyperlinks/) ορίζονται στο επίπεδο του κειμένου (τμήματος) μέσα στο πλαίσιο κειμένου του κελιού ή στο επίπεδο ολόκληρου του πίνακα/σχήματος. Στην πράξη, εκχωρείτε το σύνδεσμο σε ένα τμήμα ή σε όλο το κείμενο του κελιού.
+Τα [Hyperlinks](/slides/el/python-net/manage-hyperlinks/) ορίζονται σε επίπεδο κειμένου (portion) μέσα στο πλαίσιο κειμένου του κελιού ή σε επίπεδο ολόκληρου του πίνακα/σχήματος. Στην πράξη, αντιστοιχίζετε το σύνδεσμο σε ένα τμήμα ή σε όλο το κείμενο του κελιού.
 
 **Μπορώ να ορίσω διαφορετικές γραμματοσειρές μέσα σε ένα μόνο κελί;**
 
-Ναι. Το πλαίσιο κειμένου ενός κελιού υποστηρίζει [portions](https://reference.aspose.com/slides/el/python-net/aspose.slides/portion/) (τμήματα) με ανεξάρτητη μορφοποίηση — οικογένεια γραμματοσειράς, στυλ, μέγεθος και χρώμα.
+Ναι. Το πλαίσιο κειμένου ενός κελιού υποστηρίζει [portions](https://reference.aspose.com/slides/python-net/aspose.slides/portion/) με ανεξάρτητη μορφοποίηση—οικογένεια γραμματοσειράς, στυλ, μέγεθος και χρώμα.

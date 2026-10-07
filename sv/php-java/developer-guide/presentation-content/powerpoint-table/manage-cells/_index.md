@@ -6,7 +6,7 @@ weight: 30
 url: /sv/php-java/manage-cells/
 keywords:
 - tabellcell
-- sammanfoga celler
+- slå ihop celler
 - ta bort ram
 - dela cell
 - bild i cell
@@ -15,307 +15,265 @@ keywords:
 - presentation
 - PHP
 - Aspose.Slides
-description: "Hantera enkelt tabellceller i PowerPoint med Aspose.Slides för PHP. Lär dig snabbt få åtkomst till, ändra och formatera celler för sömlös bildautomation."
+description: "Hantera PowerPoint-tabellceller i PHP: identifiera sammanslagna celler, ta bort ramar, dela celler och sätt bakgrundsfärger samt bilder med Aspose.Slides för PHP via Java."
 ---
 ## **Översikt**
 
-Aspose.Slides låter dig komma åt och ändra tabellceller i PowerPoint-presentationer. Denna artikel förklarar hur du identifierar sammanslagna tabellceller, tar bort cellramar, arbetar med cellnumrering efter sammanslagning eller uppdelning av celler, ändrar en cells bakgrundsfärg och lägger till en bild i en tabellcell. Exemplen visar hur du skapar eller öppnar en presentation, hämtar en tabell från en bild, uppdaterar cellformatering via cellegenskaper och sparar den ändrade presentationen som en PPTX-fil.
+Aspose.Slides gör att du kan komma åt och ändra tabellceller i PowerPoint‑presentationer. Denna artikel förklarar hur du identifierar sammanslagna tabellceller, tar bort cellramar, arbetar med cellnumrering efter sammanslagning eller delning av celler, ändrar en cells bakgrundsfärg och lägger till en bild i en tabellcell. Exemplen visar hur du skapar eller öppnar en presentation, hämtar en tabell från en bild, uppdaterar cellformatering via cell‑egenskaper och sparar den ändrade presentationen som en PPTX‑fil.
+
+Aspose.Slides använder nollbaserade index för att komma åt tabellceller i ordningen `(kolumn, rad)`.
 
 ## **Identifiera en sammanslagen tabellcell**
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/php-java/aspose.slides/Presentation).
-2. Hämta tabellen från den första bilden. 
-3. Iterera genom tabellens rader och kolumner för att hitta sammanslagna celler.
-4. Skriv ut ett meddelande när sammanslagna celler hittas.
 
-Denna PHP‑kod visar hur du identifierar sammanslagna tabellceller i en presentation:
+Exemplet öppnar en befintlig presentation och får den första formen på den första bilden som en tabell. Det förutsätter att bilden och formen finns och att formen är en tabell. Därefter itereras alla rader och kolumner och [isMergedCell](https://reference.aspose.com/slides/php-java/aspose.slides/cell/ismergedcell/) används för att identifiera celler i sammanslagna områden. För varje träff skrivs cellens koordinater i `rad;kolumn`‑ordning, [getRowSpan](https://reference.aspose.com/slides/php-java/aspose.slides/cell/getrowspan/), [getColSpan](https://reference.aspose.com/slides/php-java/aspose.slides/cell/getcolspan/) och områdets startkoordinater, [getFirstRowIndex](https://reference.aspose.com/slides/php-java/aspose.slides/cell/getfirstrowindex/) och [getFirstColumnIndex](https://reference.aspose.com/slides/php-java/aspose.slides/cell/getfirstcolumnindex/).
 
 ```php
-  $pres = new Presentation("SomePresentationWithTable.pptx");
-  try {
-    $table = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0);// antar att Slide#0.Shape#0 är en tabell
+use aspose\slides\Presentation;
 
-    for($i = 0; $i < java_values($table->getRows()->size()) ; $i++) {
-      for($j = 0; $j < java_values($table->getColumns()->size()) ; $j++) {
-        $currentCell = $table->getRows()->get_Item($i)->get_Item($j);
-        if ($currentCell->isMergedCell()) {
-          echo(sprintf("Cell %d;%d is a part of merged cell with RowSpan=%d and ColSpan=%d starting from Cell %d;%d.", $i, $j, $currentCell->getRowSpan(), $currentCell->getColSpan(), $currentCell->getFirstRowIndex(), $currentCell->getFirstColumnIndex()));
+$presentation = new Presentation("presentation_with_table.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $table = $slide->getShapes()->get_Item(0);
+
+    $rowCount = java_values($table->getRows()->size());
+    for ($rowIndex = 0; $rowIndex < $rowCount; $rowIndex++)
+    {
+        $columnCount = java_values($table->getColumns()->size());
+        for ($columnIndex = 0; $columnIndex < $columnCount; $columnIndex++)
+        {
+            $cell = $table->get_Item($columnIndex, $rowIndex);
+            if (java_values($cell->isMergedCell()))
+            {
+                printf("Cell %d;%d belongs to a merged region with RowSpan=%d and ColSpan=%d starting at %d;%d.\n", $rowIndex, $columnIndex, java_values($cell->getRowSpan()), java_values($cell->getColSpan()), java_values($cell->getFirstRowIndex()), java_values($cell->getFirstColumnIndex()));
+            }
         }
-      }
     }
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+} finally {
+    $presentation->dispose();
+}
 ```
 
 ## **Ta bort tabellcellramar**
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/php-java/aspose.slides/Presentation).
-2. Hämta en bilds referens via dess index. 
-3. Definiera en array av kolumner med bredd.
-4. Definiera en array av rader med höjd.
-5. Lägg till en tabell på bilden via metoden [addTable](https://reference.aspose.com/slides/sv/php-java/aspose.slides/shapecollection/#addTable).
-6. Iterera genom varje cell för att rensa de övre, nedre, högra och vänstra ramarna.
-7. Spara den ändrade presentationen som en PPTX-fil.
 
-Denna PHP‑kod visar hur du tar bort ramarna från tabellceller:
+Skapa en [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) och lägg till en tabell på dess första bild med [addTable](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addtable/). Kolumnbredder, radhöjder och tabellens position anges i punkter. Exemplet sätter alla fyra cellramar till [FillType::NoFill](https://reference.aspose.com/slides/php-java/aspose.slides/filltype/), så de blir osynliga.
 
 ```php
-  # Instansierar Presentation-klassen som representerar en PPTX-fil
-  $pres = new Presentation();
-  try {
-    # Åtkommer den första bilden
-    $sld = $pres->getSlides()->get_Item(0);
-    # Definierar kolumner med bredder och rader med höjder
-    $dblCols = array(50, 50, 50, 50 );
-    $dblRows = array(50, 30, 30, 30, 30 );
-    # Lägger till tabellform på bilden
-    $tbl = $sld->getShapes()->addTable(100, 50, $dblCols, $dblRows);
-    # Ställer in ramformatet för varje cell
-    foreach($tbl->getRows() as $row) {
-      foreach($row as $cell) {
-        $cell->getCellFormat()->getBorderTop()->getFillFormat()->setFillType(FillType::NoFill);
-        $cell->getCellFormat()->getBorderBottom()->getFillFormat()->setFillType(FillType::NoFill);
-        $cell->getCellFormat()->getBorderLeft()->getFillFormat()->setFillType(FillType::NoFill);
-        $cell->getCellFormat()->getBorderRight()->getFillFormat()->setFillType(FillType::NoFill);
-      }
+use aspose\slides\FillType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $columnWidths = [ 50, 50, 50, 50 ];
+    $rowHeights = [ 50, 30, 30, 30, 30 ];
+    $table = $slide->getShapes()->addTable(100, 50, $columnWidths, $rowHeights);
+
+    for ($rowIndex = 0; $rowIndex < java_values($table->getRows()->size()); $rowIndex++) {
+        for ($columnIndex = 0; $columnIndex < java_values($table->getColumns()->size()); $columnIndex++) {
+            $cell = $table->get_Item($columnIndex, $rowIndex);
+            $cell->getCellFormat()->getBorderTop()->getFillFormat()->setFillType(FillType::NoFill);
+            $cell->getCellFormat()->getBorderBottom()->getFillFormat()->setFillType(FillType::NoFill);
+            $cell->getCellFormat()->getBorderLeft()->getFillFormat()->setFillType(FillType::NoFill);
+            $cell->getCellFormat()->getBorderRight()->getFillFormat()->setFillType(FillType::NoFill);
+        }
     }
-    # Skriver PPTX-filen till disk
-    $pres->save("table_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $presentation->save("table.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **Numrering i sammanslagna celler**
-Om vi slår ihop två cellpar (1, 1) × (2, 1) och (1, 2) × (2, 2) blir den resulterande tabellen numrerad. Denna PHP‑kod demonstrerar processen:
+## **Slå ihop tabellceller**
+
+Använd [mergeCells](https://reference.aspose.com/slides/php-java/aspose.slides/table/mergecells/) för att kombinera ett rektangulärt område av tabellceller till en cell. Ange cellerna i det övre vänstra respektive nedre högra hörnet av området. Det sista argumentet styr om sammanslagningen får omfatta celler utanför det angivna området; `false` håller sammanslagningen inom området.
+
+Exemplet skapar en 4 × 4‑tabell med 70‑punkts kolumner och rader och slår sedan ihop de fyra centrala cellerna från `(1, 1)` till `(2, 2)`. Den resulterande cellen spänner två kolumner och två rader, medan tabellens underliggande rutnät behåller fyra kolumner och fyra rader. För att komma åt den sammanslagna cellens innehåll eller formatering, använd dess övre‑vänstra position: `$table->get_Item(1, 1)` i detta exempel. De andra positionerna i det sammanslagna området förblir en del av tabellrutnätet, så indexen för celler utanför området ändras inte.
 
 ```php
-  # Instansierar Presentation-klassen som representerar en PPTX-fil
-  $pres = new Presentation();
-  try {
-    # Åtkommer den första bilden
-    $sld = $pres->getSlides()->get_Item(0);
-    # Definierar kolumner med bredder och rader med höjder
-    $dblCols = array(70, 70, 70, 70 );
-    $dblRows = array(70, 70, 70, 70 );
-    # Lägger till en tabellform på bilden
-    $tbl = $sld->getShapes()->addTable(100, 50, $dblCols, $dblRows);
-    # Ställer in ramformatet för varje cell
-    foreach($tbl->getRows() as $row) {
-      foreach($row as $cell) {
-        $cell->getCellFormat()->getBorderTop()->getFillFormat()->setFillType(FillType::Solid);
-        $cell->getCellFormat()->getBorderTop()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-        $cell->getCellFormat()->getBorderTop()->setWidth(5);
-        $cell->getCellFormat()->getBorderBottom()->getFillFormat()->setFillType(FillType::Solid);
-        $cell->getCellFormat()->getBorderBottom()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-        $cell->getCellFormat()->getBorderBottom()->setWidth(5);
-        $cell->getCellFormat()->getBorderLeft()->getFillFormat()->setFillType(FillType::Solid);
-        $cell->getCellFormat()->getBorderLeft()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-        $cell->getCellFormat()->getBorderLeft()->setWidth(5);
-        $cell->getCellFormat()->getBorderRight()->getFillFormat()->setFillType(FillType::Solid);
-        $cell->getCellFormat()->getBorderRight()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-        $cell->getCellFormat()->getBorderRight()->setWidth(5);
-      }
-    }
-    # Slår ihop celler (1, 1) x (2, 1)
-    $tbl->mergeCells($tbl->get_Item(1, 1), $tbl->get_Item(2, 1), false);
-    # Slår ihop celler (1, 2) x (2, 2)
-    $tbl->mergeCells($tbl->get_Item(1, 2), $tbl->get_Item(2, 2), false);
-    $pres->save("MergeCells_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $columnWidths = [ 70, 70, 70, 70 ];
+    $rowHeights = [ 70, 70, 70, 70 ];
+    $table = $slide->getShapes()->addTable(100, 50, $columnWidths, $rowHeights);
+
+    $table->mergeCells($table->get_Item(1, 1), $table->get_Item(2, 2), false);
+
+    $presentation->save("merged_cells.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-Vi slår sedan ihop cellerna ytterligare genom att slå samman (1, 1) och (1, 2). Resultatet är en tabell som innehåller en stor sammanslagen cell i mitten: 
+## **Dela tabellceller**
+
+Sammanslagna celler i föregående exempel bevarar tabellens rutnät. Att dela en cell kan introducera en ny rutnätskolumn och ändra kolumnindex för celler till höger. Aspose.Slides följer PowerPoints tabellrutnätsmodell.
+
+Detta exempel skapar en 4 × 4‑tabell med 70‑punkts kolumner och rader och anropar [splitByWidth](https://reference.aspose.com/slides/php-java/aspose.slides/cell/splitbywidth/) på cell `(1, 1)`. Halva cellens 70‑punkts bredd skickas för att skapa två lika breda celler.
+
+Efter delningen nås de två halvorna som `$table->get_Item(1, 1)` och `$table->get_Item(2, 1)`. Tabellrutnätet har nu fem kolumner: celler som ursprungligen låg i kolumnerna 2 och 3 flyttas till kolumnerna 3 respektive 4. Radräknare förblir oförändrade. Använd dessa uppdaterade kolumnindex när du får åtkomst till celler efter delningen.
 
 ```php
-  # Instansierar Presentation-klassen som representerar en PPTX-fil
-  $pres = new Presentation();
-  try {
-    # Åtkommer den första bilden
-    $sld = $pres->getSlides()->get_Item(0);
-    # Definierar kolumner med bredder och rader med höjder
-    $dblCols = array(70, 70, 70, 70 );
-    $dblRows = array(70, 70, 70, 70 );
-    # Lägger till en tabellform på bilden
-    $tbl = $sld->getShapes()->addTable(100, 50, $dblCols, $dblRows);
-    # Ställer in ramformatet för varje cell
-    foreach($tbl->getRows() as $row) {
-      foreach($row as $cell) {
-        $cell->getCellFormat()->getBorderTop()->getFillFormat()->setFillType(FillType::Solid);
-        $cell->getCellFormat()->getBorderTop()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-        $cell->getCellFormat()->getBorderTop()->setWidth(5);
-        $cell->getCellFormat()->getBorderBottom()->getFillFormat()->setFillType(FillType::Solid);
-        $cell->getCellFormat()->getBorderBottom()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-        $cell->getCellFormat()->getBorderBottom()->setWidth(5);
-        $cell->getCellFormat()->getBorderLeft()->getFillFormat()->setFillType(FillType::Solid);
-        $cell->getCellFormat()->getBorderLeft()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-        $cell->getCellFormat()->getBorderLeft()->setWidth(5);
-        $cell->getCellFormat()->getBorderRight()->getFillFormat()->setFillType(FillType::Solid);
-        $cell->getCellFormat()->getBorderRight()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-        $cell->getCellFormat()->getBorderRight()->setWidth(5);
-      }
-    }
-    # Slår ihop celler (1, 1) x (2, 1)
-    $tbl->mergeCells($tbl->get_Item(1, 1), $tbl->get_Item(2, 1), false);
-    # Slår ihop celler (1, 2) x (2, 2)
-    $tbl->mergeCells($tbl->get_Item(1, 2), $tbl->get_Item(2, 2), false);
-    # Slår ihop celler (1, 1) x (1, 2)
-    $tbl->mergeCells($tbl->get_Item(1, 1), $tbl->get_Item(1, 2), true);
-    # Skriver PPTX-filen till disk
-    $pres->save("MergeCells_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $columnWidths = [ 70, 70, 70, 70 ];
+    $rowHeights = [ 70, 70, 70, 70 ];
+    $table = $slide->getShapes()->addTable(100, 50, $columnWidths, $rowHeights);
+
+    $table->get_Item(1, 1)->splitByWidth(java_values($table->get_Item(1, 1)->getWidth()) / 2);
+
+    $presentation->save("split_cells.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **Numrering i en uppdelad cell**
-I tidigare exempel, när tabellceller slog ihop, förändrades inte numreringen eller talssystemet i de andra cellerna. 
+### **Dela sammanslagna celler efter rad‑ eller kolumnspann**
 
-Denna gång tar vi en vanlig tabell (en tabell utan sammanslagna celler) och försöker sedan dela cell (1,1) för att få en speciell tabell. Du kan vilja uppmärksamma tabellens numrering, som kan uppfattas som märklig. Detta är dock så Microsoft PowerPoint numrerar tabellceller och Aspose.Slides gör samma sak. 
+För att förbereda sammanslagna mallceller för datafyllning, använd [splitByRowSpan](https://reference.aspose.com/slides/php-java/aspose.slides/cell/splitbyrowspan/) för att dela längs en befintlig radgräns, eller [splitByColSpan](https://reference.aspose.com/slides/php-java/aspose.slides/cell/splitbycolspan/) för att dela längs en kolumngräns.
 
-Denna PHP‑kod demonstrerar den process vi beskrev:
+`index`‑argumentet räknar rader i den övre delen eller kolumner i den vänstra delen av delningen; det är relativt till det sammanslagna området:
+
+- Raddelning: `0 < index <` [getRowSpan](https://reference.aspose.com/slides/php-java/aspose.slides/cell/getrowspan/).
+- Kolumndelning: `0 < index <` [getColSpan](https://reference.aspose.com/slides/php-java/aspose.slides/cell/getcolspan/).
+
+Exemplet förutsätter att en presentation har en tabell som den första formen på den första bilden, med `(1, 2)` och `(1, 3)` sammanslagna vertikalt. Utgående från den nedre positionen används [getFirstColumnIndex](https://reference.aspose.com/slides/php-java/aspose.slides/cell/getfirstcolumnindex/) och [getFirstRowIndex](https://reference.aspose.com/slides/php-java/aspose.slides/cell/getfirstrowindex/) för att lokalisera ursprunget och kontrollerar båda spannen. `splitByRowSpan(1)` separerar sedan raderna 2 och 3 för produktnamn. För en horisontell två‑kolumns‑sammanslagning, använd `splitByColSpan(1)` istället.
 
 ```php
-  # Instansierar Presentation-klassen som representerar en PPTX-fil
-  $pres = new Presentation();
-  try {
-    # Åtkommer den första bilden
-    $sld = $pres->getSlides()->get_Item(0);
-    # Definierar kolumner med bredder och rader med höjder
-    $dblCols = array(70, 70, 70, 70 );
-    $dblRows = array(70, 70, 70, 70 );
-    # Lägger till en tabellform på bilden
-    $tbl = $sld->getShapes()->addTable(100, 50, $dblCols, $dblRows);
-    # Ställer in ramformatet för varje cell
-    foreach($tbl->getRows() as $row) {
-      foreach($row as $cell) {
-        $cell->getCellFormat()->getBorderTop()->getFillFormat()->setFillType(FillType::Solid);
-        $cell->getCellFormat()->getBorderTop()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-        $cell->getCellFormat()->getBorderTop()->setWidth(5);
-        $cell->getCellFormat()->getBorderBottom()->getFillFormat()->setFillType(FillType::Solid);
-        $cell->getCellFormat()->getBorderBottom()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-        $cell->getCellFormat()->getBorderBottom()->setWidth(5);
-        $cell->getCellFormat()->getBorderLeft()->getFillFormat()->setFillType(FillType::Solid);
-        $cell->getCellFormat()->getBorderLeft()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-        $cell->getCellFormat()->getBorderLeft()->setWidth(5);
-        $cell->getCellFormat()->getBorderRight()->getFillFormat()->setFillType(FillType::Solid);
-        $cell->getCellFormat()->getBorderRight()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-        $cell->getCellFormat()->getBorderRight()->setWidth(5);
-      }
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("table_template.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $table = $slide->getShapes()->get_Item(0);
+
+    $selectedCell = $table->get_Item(1, 3);
+    $firstColumnIndex = java_values($selectedCell->getFirstColumnIndex());
+    $firstRowIndex = java_values($selectedCell->getFirstRowIndex());
+    $mergedCell = $table->get_Item($firstColumnIndex, $firstRowIndex);
+
+    if (java_values($mergedCell->isMergedCell()) && java_values($mergedCell->getRowSpan()) == 2 && java_values($mergedCell->getColSpan()) == 1)
+    {
+        $mergedCell->splitByRowSpan(1);
+
+        // Hämta de resulterande cellerna från tabellen efter delning.
+        $upperCell = $table->get_Item($firstColumnIndex, $firstRowIndex);
+        $lowerCell = $table->get_Item($firstColumnIndex, $firstRowIndex + 1);
+        echo "Upper cell merged: " . (java_values($upperCell->isMergedCell()) ? "true" : "false") . PHP_EOL;
+        echo "Lower cell merged: " . (java_values($lowerCell->isMergedCell()) ? "true" : "false") . PHP_EOL;
+
+        $upperCell->getTextFrame()->setText("Product A");
+        $lowerCell->getTextFrame()->setText("Product B");
+
+        $presentation->save("split_template.pptx", SaveFormat::Pptx);
     }
-    # Slår ihop celler (1, 1) x (2, 1)
-    $tbl->mergeCells($tbl->get_Item(1, 1), $tbl->get_Item(2, 1), false);
-    # Slår ihop celler (1, 2) x (2, 2)
-    $tbl->mergeCells($tbl->get_Item(1, 2), $tbl->get_Item(2, 2), false);
-    # Delar cell (1, 1)
-    $tbl->get_Item(1, 1)->splitByWidth($tbl->get_Item(2, 1)->getWidth() / 2);
-    # Skriver PPTX-filen till disk
-    $pres->save("SplitCells_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
+    else
+    {
+        echo "Select a merged region spanning exactly two rows and one column." . PHP_EOL;
     }
-  }
+} finally {
+    $presentation->dispose();
+}
 ```
+
+Tabellrutnätet och omgivande cellindex förblir oförändrade. Hämta de resulterande cellerna via deras koordinater; här har båda spännvidderna 1 och [isMergedCell](https://reference.aspose.com/slides/php-java/aspose.slides/cell/ismergedcell/) returnerar `false`. Större områden kan förbli delvis sammanslagna efter en delning.
+
+Den ursprungliga texten och dess formatering kvarstår i den övre (eller vänstra) cellen; den nya cellen är tom men ärver cellformatering som fyllning, ramar och marginaler. Fyll i cellerna efter delning och sätt eventuell textformatering explicit.
+
+Den sparade presentationen innehåller separata "Product A"‑ och "Product B"‑celler med mallens cellformatering bevarad. Se [Cell API Reference](https://reference.aspose.com/slides/php-java/aspose.slides/cell/) för detaljer.
 
 ## **Ändra tabellcellens bakgrundsfärg**
 
-Denna PHP‑kod visar hur du ändrar en cells bakgrundsfärg:
+Detta exempel skapar en tabell med 150‑punkts kolumner och 50‑punkts rader. Det använder [setFillType](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/setfilltype/) för att välja en solid fyllning och sätter färgen som returneras av [getSolidFillColor](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/getsolidfillcolor/) till röd för cell `(2, 3)`, i den tredje kolumnen och fjärde raden.
 
 ```php
-  $presentation = new Presentation();
-  try {
+use aspose\slides\FillType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
     $slide = $presentation->getSlides()->get_Item(0);
-    $dblCols = array(150, 150, 150, 150 );
-    $dblRows = array(50, 50, 50, 50, 50 );
-    # skapa en ny tabell
-    $table = $slide->getShapes()->addTable(50, 50, $dblCols, $dblRows);
-    # ange bakgrundsfärgen för en cell
+
+    $columnWidths = [ 150, 150, 150, 150 ];
+    $rowHeights = [ 50, 50, 50, 50, 50 ];
+    $table = $slide->getShapes()->addTable(50, 50, $columnWidths, $rowHeights);
+
     $cell = $table->get_Item(2, 3);
     $cell->getCellFormat()->getFillFormat()->setFillType(FillType::Solid);
     $cell->getCellFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
+
     $presentation->save("cell_background_color.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($presentation)) {
-      $presentation->dispose();
-    }
-  }
+} finally {
+    $presentation->dispose();
+}
 ```
 
 ## **Lägg till en bild i en tabellcell**
 
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/php-java/aspose.slides/Presentation).
-2. Hämta en bilds referens via dess index.
-3. Definiera en array av kolumner med bredd.
-4. Definiera en array av rader med höjd.
-5. Lägg till en tabell på bilden via metoden [AddTable](https://reference.aspose.com/slides/sv/php-java/aspose.slides/shapecollection/#addTable).
-6. Skapa ett `Images`‑objekt för att hålla bildfilen.
-7. Lägg till `IImage`‑bilden till `IPPImage`‑objektet.
-8. Ställ in `FillFormat` för tabellcellen till `Picture`.
-9. Lägg till bilden i tabellens första cell.
-10. Spara den ändrade presentationen som en PPTX-fil
+Placera inmatningsbilden i arbetskatalogen innan du kör detta exempel. Den laddar bilden med [Images::fromFile](https://reference.aspose.com/slides/php-java/aspose.slides/images/#fromFile) och lägger till den i presentationens bildsamling med [addImage](https://reference.aspose.com/slides/php-java/aspose.slides/imagecollection/addimage/). Därefter tilldelas bilden till bildfyllningen för cell `(0, 0)`, den första cellen i tabellen.
 
-Denna PHP‑kod visar hur du placerar en bild i en tabellcell när du skapar en tabell:
+[PictureFillMode::Stretch](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillmode/) sträcker bilden så att den fyller cellen, vilket kan ändra dess bildförhållande. Kolumnbredder och radhöjder anges i punkter. Den laddade bilden avyttras i ett `finally`‑block efter att den lagts till i presentationen.
 
 ```php
-  # Instansierar Presentation-klassen som representerar en PPTX-fil
-  $pres = new Presentation();
-  try {
-    # Åtkommer den första bilden
-    $islide = $pres->getSlides()->get_Item(0);
-    # Definierar kolumner med bredder och rader med höjder
-    $dblCols = array(150, 150, 150, 150 );
-    $dblRows = array(100, 100, 100, 100, 90 );
-    # Lägger till en tabellform på bilden
-    $tbl = $islide->getShapes()->addTable(50, 50, $dblCols, $dblRows);
-    # Skapa ett IPPImage-objekt med bildfilen
-    $picture;
-    $image = Images->fromFile("image.jpg");
+use aspose\slides\FillType;
+use aspose\slides\Images;
+use aspose\slides\PictureFillMode;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $columnWidths = [ 150, 150, 150, 150 ];
+    $rowHeights = [ 100, 100, 100, 100, 90 ];
+    $table = $slide->getShapes()->addTable(50, 50, $columnWidths, $rowHeights);
+
+    $image = Images::fromFile("aspose_logo.jpg");
     try {
-      $picture = $pres->getImages()->addImage($image);
+        $ppImage = $presentation->getImages()->addImage($image);
     } finally {
-      if (!java_is_null($image)) {
         $image->dispose();
-      }
     }
-    # Lägger till bilden i den första tabellcellen
-    $cellFormat = $tbl->get_Item(0, 0)->getCellFormat();
-    $cellFormat::getFillFormat()->setFillType(FillType::Picture);
-    $cellFormat::getFillFormat()->getPictureFillFormat()->setPictureFillMode(PictureFillMode->Stretch);
-    $cellFormat::getFillFormat()->getPictureFillFormat()->getPicture()->setImage($picture);
-    # Sparar PPTX-filen till disk
-    $pres->save("Image_In_TableCell_out.pptx", SaveFormat::Pptx);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $table->get_Item(0, 0)->getCellFormat()->getFillFormat()->setFillType(FillType::Picture);
+    $table->get_Item(0, 0)->getCellFormat()->getFillFormat()->getPictureFillFormat()->setPictureFillMode(PictureFillMode::Stretch);
+    $table->get_Item(0, 0)->getCellFormat()->getFillFormat()->getPictureFillFormat()->getPicture()->setImage($ppImage);
+
+    $presentation->save("table_cell_with_image.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
 ## **FAQ**
 
-**Kan jag ange olika linjetjocklekar och stilar för olika sidor av en enskild cell?**
+**Kan jag ange olika linjetjocklekar och -stilar för olika sidor av en enda cell?**
 
-Ja. [top](https://reference.aspose.com/slides/sv/php-java/aspose.slides/cellformat/getbordertop/)/[bottom](https://reference.aspose.com/slides/sv/php-java/aspose.slides/cellformat/getborderbottom/)/[left](https://reference.aspose.com/slides/sv/php-java/aspose.slides/cellformat/getborderleft/)/[right](https://reference.aspose.com/slides/sv/php-java/aspose.slides/cellformat/getborderright/) ramar har separata egenskaper, så tjockleken och stilen för varje sida kan variera. Detta följer logiskt från per-sida ramkontroll för en cell som demonstreras i artikeln.
+Ja. De [top](https://reference.aspose.com/slides/php-java/aspose.slides/cellformat/getbordertop/)/[bottom](https://reference.aspose.com/slides/php-java/aspose.slides/cellformat/getborderbottom/)/[left](https://reference.aspose.com/slides/php-java/aspose.slides/cellformat/getborderleft/)/[right](https://reference.aspose.com/slides/php-java/aspose.slides/cellformat/getborderright/) ramarna har separata egenskaper, så tjocklek och stil för varje sida kan skilja sig.
 
-**Vad händer med bilden om jag ändrar kolumn-/radstorlek efter att ha satt en bild som cellens bakgrund?**
+**Vad händer med bilden om jag ändrar kolumn‑/radstorlek efter att ha satt en bild som cellens bakgrund?**
 
-Beteendet beror på [fill mode](https://reference.aspose.com/slides/sv/php-java/aspose.slides/picturefillmode/) (stretch/tile). Vid stretch anpassas bilden till den nya cellen; vid tile beräknas rutorna om. Artikeln nämner bildvisningslägen i en cell.
+Beteendet beror på [fill mode](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillmode/) (stretch/tile). Vid stretching anpassas bilden till den nya cellen; vid tiling räknas rutorna om.
 
-**Kan jag tilldela en hyperlänk till allt innehåll i en cell?**
+**Kan jag tilldela en hyperlänk till hela cellens innehåll?**
 
-[Hyperlinks](/slides/sv/php-java/manage-hyperlinks/) sätts på textraden (portion) nivå inom cellens textram eller på hela tabellens/figurens nivå. I praktiken tilldelar du länken till en del eller till all text i cellen.
+[Hyperlinks](/slides/sv/php-java/manage-hyperlinks/) sätts på text‑ (portion)‑nivå inom cellens textram eller på hela tabell‑/form‑nivå. I praktiken tilldelar du länken till en portion eller till all text i cellen.
 
 **Kan jag ange olika teckensnitt inom en enda cell?**
 
-Ja. En cells textram stöder [portions](https://reference.aspose.com/slides/sv/php-java/aspose.slides/portion/) (körningar) med oberoende formatering—teckensnittsfamilj, stil, storlek och färg.
+Ja. En cells textram stödjer [portions](https://reference.aspose.com/slides/php-java/aspose.slides/portion/) (runs) med oberoende formatering – teckensnittsfamilj, stil, storlek och färg.

@@ -1,316 +1,279 @@
 ---
-title: Управление ячейками таблицы в презентациях с использованием PHP
+title: Управление ячейками таблиц в презентациях с использованием PHP
 linktitle: Управление ячейками
 type: docs
 weight: 30
 url: /ru/php-java/manage-cells/
 keywords:
 - ячейка таблицы
-- объединение ячеек
-- удалить границу
-- разделить ячейку
+- объединять ячейки
+- удалять границу
+- разделять ячейку
 - изображение в ячейке
 - цвет фона
 - PowerPoint
 - презентация
 - PHP
 - Aspose.Slides
-description: "Легко управляйте ячейками таблицы в PowerPoint с помощью Aspose.Slides для PHP. Овладейте быстрым доступом, изменением и стилизацией ячеек для бесшовной автоматизации слайдов."
+description: "Управляйте ячейками таблиц PowerPoint в PHP: определяйте объединённые ячейки, удаляйте границы, разделяйте ячейки и задавайте цвета фона и изображения с помощью Aspose.Slides для PHP через Java."
 ---
+## **Обзор**
 
-## **Определить объединенную ячейку таблицы**
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
-2. Получите таблицу с первого слайда.
-3. Итерируйте строки и столбцы таблицы, чтобы найти объединённые ячейки.
-4. Выведите сообщение, когда найдёте объединённые ячейки.
+Aspose.Slides позволяет получать доступ к ячейкам таблиц в презентациях PowerPoint и изменять их. В этой статье объясняется, как определить объединённые ячейки таблицы, удалить границы ячеек, работать с нумерацией ячеек после объединения или разбиения, изменить цвет фона ячейки и добавить изображение внутри ячейки таблицы. Примеры показывают, как создать или открыть презентацию, получить таблицу со слайда, обновить форматирование ячеек через свойства ячеек и сохранить изменённую презентацию в файл PPTX.
 
-Этот PHP код показывает, как определить объединённые ячейки таблицы в презентации:
+Aspose.Slides использует нулевые индексы для доступа к ячейкам таблицы в порядке `(column, row)`.
+
+## **Определить объединённую ячейку таблицы**
+
+Пример открывает существующую презентацию и получает первую форму на первом слайде как таблицу. Предполагается, что слайд и форма существуют и что форма является таблицей. Затем он перебирает все строки и столбцы и использует [isMergedCell](https://reference.aspose.com/slides/php-java/aspose.slides/cell/ismergedcell/) для определения ячеек в объединённых областях. Для каждого совпадения выводятся координаты ячейки в порядке `row;column`, [getRowSpan](https://reference.aspose.com/slides/php-java/aspose.slides/cell/getrowspan/), [getColSpan](https://reference.aspose.com/slides/php-java/aspose.slides/cell/getcolspan/) и начальные координаты области, [getFirstRowIndex](https://reference.aspose.com/slides/php-java/aspose.slides/cell/getfirstrowindex/) и [getFirstColumnIndex](https://reference.aspose.com/slides/php-java/aspose.slides/cell/getfirstcolumnindex/).
+
 ```php
-  $pres = new Presentation("SomePresentationWithTable.pptx");
-  try {
-    $table = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0);// предполагая, что Slide#0.Shape#0 является таблицей
+use aspose\slides\Presentation;
 
-    for($i = 0; $i < java_values($table->getRows()->size()) ; $i++) {
-      for($j = 0; $j < java_values($table->getColumns()->size()) ; $j++) {
-        $currentCell = $table->getRows()->get_Item($i)->get_Item($j);
-        if ($currentCell->isMergedCell()) {
-          echo(sprintf("Cell %d;%d is a part of merged cell with RowSpan=%d and ColSpan=%d starting from Cell %d;%d.", $i, $j, $currentCell->getRowSpan(), $currentCell->getColSpan(), $currentCell->getFirstRowIndex(), $currentCell->getFirstColumnIndex()));
+$presentation = new Presentation("presentation_with_table.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $table = $slide->getShapes()->get_Item(0);
+
+    $rowCount = java_values($table->getRows()->size());
+    for ($rowIndex = 0; $rowIndex < $rowCount; $rowIndex++)
+    {
+        $columnCount = java_values($table->getColumns()->size());
+        for ($columnIndex = 0; $columnIndex < $columnCount; $columnIndex++)
+        {
+            $cell = $table->get_Item($columnIndex, $rowIndex);
+            if (java_values($cell->isMergedCell()))
+            {
+                printf("Cell %d;%d belongs to a merged region with RowSpan=%d and ColSpan=%d starting at %d;%d.\n", $rowIndex, $columnIndex, java_values($cell->getRowSpan()), java_values($cell->getColSpan()), java_values($cell->getFirstRowIndex()), java_values($cell->getFirstColumnIndex()));
+            }
         }
-      }
     }
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+} finally {
+    $presentation->dispose();
+}
 ```
-
 
 ## **Удалить границы ячеек таблицы**
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
-2. Получите ссылку на слайд по его индексу.
-3. Определите массив столбцов с шириной.
-4. Определите массив строк с высотой.
-5. Добавьте таблицу на слайд с помощью метода [addTable](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#addTable).
-6. Итерируйте каждую ячейку, чтобы очистить верхнюю, нижнюю, правую и левую границы.
-7. Сохраните изменённую презентацию в файле PPTX.
 
-Этот PHP код показывает, как удалить границы из ячеек таблицы:
+Создайте [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) и добавьте таблицу на первый слайд с помощью [addTable](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addtable/). Ширины столбцов, высоты строк и позиция таблицы указываются в пунктах. Пример устанавливает все четыре границы ячейки в значение [FillType::NoFill](https://reference.aspose.com/slides/php-java/aspose.slides/filltype/), делая их невидимыми.
+
 ```php
-  # Создает экземпляр класса Presentation, представляющего файл PPTX
-  $pres = new Presentation();
-  try {
-    # Получает первый слайд
-    $sld = $pres->getSlides()->get_Item(0);
-    # Определяет столбцы с ширинами и строки с высотами
-    $dblCols = array(50, 50, 50, 50 );
-    $dblRows = array(50, 30, 30, 30, 30 );
-    # Добавляет форму таблицы на слайд
-    $tbl = $sld->getShapes()->addTable(100, 50, $dblCols, $dblRows);
-    # Устанавливает формат границы для каждой ячейки
-    foreach($tbl->getRows() as $row) {
-      foreach($row as $cell) {
-        $cell->getCellFormat()->getBorderTop()->getFillFormat()->setFillType(FillType::NoFill);
-        $cell->getCellFormat()->getBorderBottom()->getFillFormat()->setFillType(FillType::NoFill);
-        $cell->getCellFormat()->getBorderLeft()->getFillFormat()->setFillType(FillType::NoFill);
-        $cell->getCellFormat()->getBorderRight()->getFillFormat()->setFillType(FillType::NoFill);
-      }
+use aspose\slides\FillType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $columnWidths = [ 50, 50, 50, 50 ];
+    $rowHeights = [ 50, 30, 30, 30, 30 ];
+    $table = $slide->getShapes()->addTable(100, 50, $columnWidths, $rowHeights);
+
+    for ($rowIndex = 0; $rowIndex < java_values($table->getRows()->size()); $rowIndex++) {
+        for ($columnIndex = 0; $columnIndex < java_values($table->getColumns()->size()); $columnIndex++) {
+            $cell = $table->get_Item($columnIndex, $rowIndex);
+            $cell->getCellFormat()->getBorderTop()->getFillFormat()->setFillType(FillType::NoFill);
+            $cell->getCellFormat()->getBorderBottom()->getFillFormat()->setFillType(FillType::NoFill);
+            $cell->getCellFormat()->getBorderLeft()->getFillFormat()->setFillType(FillType::NoFill);
+            $cell->getCellFormat()->getBorderRight()->getFillFormat()->setFillType(FillType::NoFill);
+        }
     }
-    # Сохраняет PPTX на диск
-    $pres->save("table_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $presentation->save("table.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
+## **Объединить ячейки таблицы**
 
-## **Нумерация в объединённых ячейках**
-Если мы объединим 2 пары ячеек (1, 1) x (2, 1) и (1, 2) x (2, 2), получившаяся таблица будет пронумерована. Этот PHP код демонстрирует процесс:
+Используйте [mergeCells](https://reference.aspose.com/slides/php-java/aspose.slides/table/mergecells/) для объединения прямоугольного диапазона ячеек таблицы в одну ячейку. Укажите ячейки в левом верхнем и правом нижнем углах диапазона. Последний аргумент управляет тем, могут ли объединяться ячейки за пределами указанного диапазона; `false` сохраняет объединение внутри этого диапазона.
+
+Пример создаёт таблицу 4×4 с колонками и строками по 70 пунктов, затем объединяет четыре центральные ячейки от `(1, 1)` до `(2, 2)`. Получившаяся ячейка охватывает два столбца и две строки, тогда как базовая сетка таблицы остаётся четырёхколоночной и четырёхстрочной. Чтобы получить доступ к содержимому или форматированию объединённой ячейки, используйте её позицию в левом верхнем углу: `$table->get_Item(1, 1)` в этом примере. Другие позиции в объединённом диапазоне остаются частью сетки таблицы, поэтому индексы ячеек вне диапазона не меняются.
+
 ```php
-  # Создаёт экземпляр класса Presentation, представляющего файл PPTX
-  $pres = new Presentation();
-  try {
-    # Получает первый слайд
-    $sld = $pres->getSlides()->get_Item(0);
-    # Определяет столбцы с ширинами и строки с высотами
-    $dblCols = array(70, 70, 70, 70 );
-    $dblRows = array(70, 70, 70, 70 );
-    # Добавляет форму таблицы на слайд
-    $tbl = $sld->getShapes()->addTable(100, 50, $dblCols, $dblRows);
-    # Устанавливает формат границы для каждой ячейки
-    foreach($tbl->getRows() as $row) {
-      foreach($row as $cell) {
-        $cell->getCellFormat()->getBorderTop()->getFillFormat()->setFillType(FillType::Solid);
-        $cell->getCellFormat()->getBorderTop()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-        $cell->getCellFormat()->getBorderTop()->setWidth(5);
-        $cell->getCellFormat()->getBorderBottom()->getFillFormat()->setFillType(FillType::Solid);
-        $cell->getCellFormat()->getBorderBottom()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-        $cell->getCellFormat()->getBorderBottom()->setWidth(5);
-        $cell->getCellFormat()->getBorderLeft()->getFillFormat()->setFillType(FillType::Solid);
-        $cell->getCellFormat()->getBorderLeft()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-        $cell->getCellFormat()->getBorderLeft()->setWidth(5);
-        $cell->getCellFormat()->getBorderRight()->getFillFormat()->setFillType(FillType::Solid);
-        $cell->getCellFormat()->getBorderRight()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-        $cell->getCellFormat()->getBorderRight()->setWidth(5);
-      }
-    }
-    # Объединяет ячейки (1, 1) x (2, 1)
-    $tbl->mergeCells($tbl->get_Item(1, 1), $tbl->get_Item(2, 1), false);
-    # Объединяет ячейки (1, 2) x (2, 2)
-    $tbl->mergeCells($tbl->get_Item(1, 2), $tbl->get_Item(2, 2), false);
-    $pres->save("MergeCells_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $columnWidths = [ 70, 70, 70, 70 ];
+    $rowHeights = [ 70, 70, 70, 70 ];
+    $table = $slide->getShapes()->addTable(100, 50, $columnWidths, $rowHeights);
+
+    $table->mergeCells($table->get_Item(1, 1), $table->get_Item(2, 2), false);
+
+    $presentation->save("merged_cells.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
+## **Разделить ячейки таблицы**
 
-Затем мы продолжаем объединять ячейки, объединяя (1, 1) и (1, 2). Результатом является таблица, содержащая большую объединённую ячейку в центре:
+Объединение ячеек в предыдущем примере сохраняет сетку таблицы. Разделение ячейки может добавить новый столбец в сетку и изменить индексы столбцов ячеек справа от неё. Aspose.Slides следует модели сетки таблицы PowerPoint.
+
+Этот пример создаёт таблицу 4×4 с колонками и строками по 70 пунктов и вызывает [splitByWidth](https://reference.aspose.com/slides/php-java/aspose.slides/cell/splitbywidth/) для ячейки `(1, 1)`. Площадью в половину ширины 70 пунктов передаётся для создания двух ячеек одинаковой ширины.
+
+После этого разделения две половины доступны как `$table->get_Item(1, 1)` и `$table->get_Item(2, 1)`. Сетка таблицы теперь содержит пять столбцов: ячейки, первоначально в столбцах 2 и 3, перемещаются в столбцы 3 и 4 соответственно. Индексы строк остаются без изменений. Используйте обновлённые индексы столбцов при доступе к ячейкам после разделения.
+
 ```php
-  # Создает экземпляр класса Presentation, представляющего файл PPTX
-  $pres = new Presentation();
-  try {
-    # Получает первый слайд
-    $sld = $pres->getSlides()->get_Item(0);
-    # Определяет столбцы с ширинами и строки с высотами
-    $dblCols = array(70, 70, 70, 70 );
-    $dblRows = array(70, 70, 70, 70 );
-    # Добавляет форму таблицы на слайд
-    $tbl = $sld->getShapes()->addTable(100, 50, $dblCols, $dblRows);
-    # Устанавливает формат границы для каждой ячейки
-    foreach($tbl->getRows() as $row) {
-      foreach($row as $cell) {
-        $cell->getCellFormat()->getBorderTop()->getFillFormat()->setFillType(FillType::Solid);
-        $cell->getCellFormat()->getBorderTop()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-        $cell->getCellFormat()->getBorderTop()->setWidth(5);
-        $cell->getCellFormat()->getBorderBottom()->getFillFormat()->setFillType(FillType::Solid);
-        $cell->getCellFormat()->getBorderBottom()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-        $cell->getCellFormat()->getBorderBottom()->setWidth(5);
-        $cell->getCellFormat()->getBorderLeft()->getFillFormat()->setFillType(FillType::Solid);
-        $cell->getCellFormat()->getBorderLeft()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-        $cell->getCellFormat()->getBorderLeft()->setWidth(5);
-        $cell->getCellFormat()->getBorderRight()->getFillFormat()->setFillType(FillType::Solid);
-        $cell->getCellFormat()->getBorderRight()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-        $cell->getCellFormat()->getBorderRight()->setWidth(5);
-      }
-    }
-    # Объединяет ячейки (1, 1) x (2, 1)
-    $tbl->mergeCells($tbl->get_Item(1, 1), $tbl->get_Item(2, 1), false);
-    # Объединяет ячейки (1, 2) x (2, 2)
-    $tbl->mergeCells($tbl->get_Item(1, 2), $tbl->get_Item(2, 2), false);
-    # Объединяет ячейки (1, 1) x (1, 2)
-    $tbl->mergeCells($tbl->get_Item(1, 1), $tbl->get_Item(1, 2), true);
-    # Записывает PPTX файл на диск
-    $pres->save("MergeCells_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $columnWidths = [ 70, 70, 70, 70 ];
+    $rowHeights = [ 70, 70, 70, 70 ];
+    $table = $slide->getShapes()->addTable(100, 50, $columnWidths, $rowHeights);
+
+    $table->get_Item(1, 1)->splitByWidth(java_values($table->get_Item(1, 1)->getWidth()) / 2);
+
+    $presentation->save("split_cells.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
+### **Разделить объединённые ячейки по строке или столбцу**
 
-## **Нумерация в разделённой ячейке**
-В предыдущих примерах, когда ячейки таблицы объединялись, нумерация или система нумерации в остальных ячейках не менялась.  
+Чтобы подготовить объединённые шаблонные ячейки для заполнения данными, используйте [splitByRowSpan](https://reference.aspose.com/slides/php-java/aspose.slides/cell/splitbyrowspan/) для разбиения вдоль существующей границы строки или [splitByColSpan](https://reference.aspose.com/slides/php-java/aspose.slides/cell/splitbycolspan/) для разбиения вдоль границы столбца.
 
-В этот раз мы берём обычную таблицу (таблицу без объединённых ячеек) и пытаемся разделить ячейку (1,1), получая особую таблицу. Возможно, вам стоит обратить внимание на нумерацию этой таблицы, которая может показаться странной. Однако именно так Microsoft PowerPoint нумерует ячейки таблицы, и Aspose.Slides делает то же самое.  
+Аргумент `index` считает строки в верхней части или столбцы в левой части разбиения; он относителен к объединённой области:
 
-Этот PHP код демонстрирует описанный процесс:
+- Разделение по строке: `0 < index <` [getRowSpan](https://reference.aspose.com/slides/php-java/aspose.slides/cell/getrowspan/).
+- Разделение по столбцу: `0 < index <` [getColSpan](https://reference.aspose.com/slides/php-java/aspose.slides/cell/getcolspan/).
+
+Пример ожидает, что в презентации первая форма на первом слайде будет таблицей, где ячейки `(1, 2)` и `(1, 3)` объединены вертикально. Начиная с нижней позиции, он использует [getFirstColumnIndex](https://reference.aspose.com/slides/php-java/aspose.slides/cell/getfirstcolumnindex/) и [getFirstRowIndex](https://reference.aspose.com/slides/php-java/aspose.slides/cell/getfirstrowindex/) для определения начала и проверяет оба охвата. `splitByRowSpan(1)` затем разделяет строки 2 и 3 для названий продуктов. Для горизонтального объединения двух столбцов используйте вместо этого `splitByColSpan(1)`.
+
 ```php
-  # Создает экземпляр класса Presentation, представляющего файл PPTX
-  $pres = new Presentation();
-  try {
-    # Получает первый слайд
-    $sld = $pres->getSlides()->get_Item(0);
-    # Определяет столбцы с ширинами и строки с высотами
-    $dblCols = array(70, 70, 70, 70 );
-    $dblRows = array(70, 70, 70, 70 );
-    # Добавляет форму таблицы на слайд
-    $tbl = $sld->getShapes()->addTable(100, 50, $dblCols, $dblRows);
-    # Устанавливает формат границы для каждой ячейки
-    foreach($tbl->getRows() as $row) {
-      foreach($row as $cell) {
-        $cell->getCellFormat()->getBorderTop()->getFillFormat()->setFillType(FillType::Solid);
-        $cell->getCellFormat()->getBorderTop()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-        $cell->getCellFormat()->getBorderTop()->setWidth(5);
-        $cell->getCellFormat()->getBorderBottom()->getFillFormat()->setFillType(FillType::Solid);
-        $cell->getCellFormat()->getBorderBottom()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-        $cell->getCellFormat()->getBorderBottom()->setWidth(5);
-        $cell->getCellFormat()->getBorderLeft()->getFillFormat()->setFillType(FillType::Solid);
-        $cell->getCellFormat()->getBorderLeft()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-        $cell->getCellFormat()->getBorderLeft()->setWidth(5);
-        $cell->getCellFormat()->getBorderRight()->getFillFormat()->setFillType(FillType::Solid);
-        $cell->getCellFormat()->getBorderRight()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-        $cell->getCellFormat()->getBorderRight()->setWidth(5);
-      }
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("table_template.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $table = $slide->getShapes()->get_Item(0);
+
+    $selectedCell = $table->get_Item(1, 3);
+    $firstColumnIndex = java_values($selectedCell->getFirstColumnIndex());
+    $firstRowIndex = java_values($selectedCell->getFirstRowIndex());
+    $mergedCell = $table->get_Item($firstColumnIndex, $firstRowIndex);
+
+    if (java_values($mergedCell->isMergedCell()) && java_values($mergedCell->getRowSpan()) == 2 && java_values($mergedCell->getColSpan()) == 1)
+    {
+        $mergedCell->splitByRowSpan(1);
+
+        // Получить ячейки, получившиеся в таблице после разбиения.
+        $upperCell = $table->get_Item($firstColumnIndex, $firstRowIndex);
+        $lowerCell = $table->get_Item($firstColumnIndex, $firstRowIndex + 1);
+        echo "Upper cell merged: " . (java_values($upperCell->isMergedCell()) ? "true" : "false") . PHP_EOL;
+        echo "Lower cell merged: " . (java_values($lowerCell->isMergedCell()) ? "true" : "false") . PHP_EOL;
+
+        $upperCell->getTextFrame()->setText("Product A");
+        $lowerCell->getTextFrame()->setText("Product B");
+
+        $presentation->save("split_template.pptx", SaveFormat::Pptx);
     }
-    # Объединяет ячейки (1, 1) x (2, 1)
-    $tbl->mergeCells($tbl->get_Item(1, 1), $tbl->get_Item(2, 1), false);
-    # Объединяет ячейки (1, 2) x (2, 2)
-    $tbl->mergeCells($tbl->get_Item(1, 2), $tbl->get_Item(2, 2), false);
-    # Разделяет ячейку (1, 1)
-    $tbl->get_Item(1, 1)->splitByWidth($tbl->get_Item(2, 1)->getWidth() / 2);
-    # Записывает файл PPTX на диск
-    $pres->save("SplitCells_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
+    else
+    {
+        echo "Select a merged region spanning exactly two rows and one column." . PHP_EOL;
     }
-  }
+} finally {
+    $presentation->dispose();
+}
 ```
 
+Сетка таблицы и окружающие индексы ячеек остаются без изменений. Получите результирующие ячейки по их координатам; здесь обе имеют охваты равные 1, и [isMergedCell](https://reference.aspose.com/slides/php-java/aspose.slides/cell/ismergedcell/) возвращает `false`. Более крупные области могут оставаться частично объединёнными после одного разбиения.
+
+Исходный текст и его форматирование остаются в верхней (или левой) ячейке; новая ячейка пустая, но наследует форматирование ячейки, такое как заливка, границы и отступы. Заполняйте ячейки после разбиения и при необходимости явно задавайте форматирование текста.
+
+Сохранённая презентация содержит отдельные ячейки «Product A» и «Product B» с сохранённым форматированием ячейки шаблона. См. [Cell API Reference](https://reference.aspose.com/slides/php-java/aspose.slides/cell/) для подробностей.
 
 ## **Изменить цвет фона ячейки таблицы**
-Этот PHP код показывает, как изменить цвет фона ячейки таблицы:
+
+Этот пример создаёт таблицу со столбцами 150 пунктов и строками 50 пунктов. Он использует [setFillType](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/setfilltype/) для выбора сплошной заливки и задаёт цвет, возвращаемый [getSolidFillColor](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/getsolidfillcolor/), в красный для ячейки `(2, 3)`, т. е. в третьем столбце и четвёртой строке.
+
 ```php
-  $presentation = new Presentation();
-  try {
+use aspose\slides\FillType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
     $slide = $presentation->getSlides()->get_Item(0);
-    $dblCols = array(150, 150, 150, 150 );
-    $dblRows = array(50, 50, 50, 50, 50 );
-    # создать новую таблицу
-    $table = $slide->getShapes()->addTable(50, 50, $dblCols, $dblRows);
-    # установить цвет фона для ячейки
+
+    $columnWidths = [ 150, 150, 150, 150 ];
+    $rowHeights = [ 50, 50, 50, 50, 50 ];
+    $table = $slide->getShapes()->addTable(50, 50, $columnWidths, $rowHeights);
+
     $cell = $table->get_Item(2, 3);
     $cell->getCellFormat()->getFillFormat()->setFillType(FillType::Solid);
     $cell->getCellFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
+
     $presentation->save("cell_background_color.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($presentation)) {
-      $presentation->dispose();
-    }
-  }
+} finally {
+    $presentation->dispose();
+}
 ```
 
+## **Добавить изображение внутри ячейки таблицы**
 
-## **Добавить изображение внутрь ячейки таблицы**
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
-2. Получите ссылку на слайд по его индексу.
-3. Определите массив столбцов с шириной.
-4. Определите массив строк с высотой.
-5. Добавьте таблицу на слайд с помощью метода [AddTable](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#addTable).
-6. Создайте объект `Images` для хранения файла изображения.
-7. Добавьте изображение `IImage` в объект `IPPImage`.
-8. Установите `FillFormat` для ячейки таблицы в значение `Picture`.
-9. Добавьте изображение в первую ячейку таблицы.
-10. Сохраните изменённую презентацию в файле PPTX
+Поместите входное изображение в рабочий каталог перед запуском этого примера. Оно загружается с помощью [Images::fromFile](https://reference.aspose.com/slides/php-java/aspose.slides/images/#fromFile) и добавляется в коллекцию изображений презентации через [addImage](https://reference.aspose.com/slides/php-java/aspose.slides/imagecollection/addimage/). Затем изображение назначается заливке рисунком ячейки `(0, 0)`, первой ячейки таблицы.
 
-Этот PHP код показывает, как разместить изображение внутри ячейки таблицы при её создании:
+[PictureFillMode::Stretch](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillmode/) растягивает изображение, заполняя ячейку, что может изменить её соотношение сторон. Ширины столбцов и высоты строк указаны в пунктах. Загруженное изображение освобождается в блоке `finally` после того, как оно добавлено в презентацию.
+
 ```php
-  # Создает экземпляр класса Presentation, представляющего файл PPTX
-  $pres = new Presentation();
-  try {
-    # Получает первый слайд
-    $islide = $pres->getSlides()->get_Item(0);
-    # Определяет столбцы с ширинами и строки с высотами
-    $dblCols = array(150, 150, 150, 150 );
-    $dblRows = array(100, 100, 100, 100, 90 );
-    # Добавляет форму таблицы на слайд
-    $tbl = $islide->getShapes()->addTable(50, 50, $dblCols, $dblRows);
-    # Создает объект IPPImage, используя файл изображения
-    $picture;
-    $image = Images->fromFile("image.jpg");
-    try {
-      $picture = $pres->getImages()->addImage($image);
-    } finally {
-      if (!java_is_null($image)) {
-        $image->dispose();
-      }
-    }
-    # Добавляет изображение в первую ячейку таблицы
-    $cellFormat = $tbl->get_Item(0, 0)->getCellFormat();
-    $cellFormat::getFillFormat()->setFillType(FillType::Picture);
-    $cellFormat::getFillFormat()->getPictureFillFormat()->setPictureFillMode(PictureFillMode->Stretch);
-    $cellFormat::getFillFormat()->getPictureFillFormat()->getPicture()->setImage($picture);
-    # Сохраняет файл PPTX на диск
-    $pres->save("Image_In_TableCell_out.pptx", SaveFormat::Pptx);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
+use aspose\slides\FillType;
+use aspose\slides\Images;
+use aspose\slides\PictureFillMode;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
 
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $columnWidths = [ 150, 150, 150, 150 ];
+    $rowHeights = [ 100, 100, 100, 100, 90 ];
+    $table = $slide->getShapes()->addTable(50, 50, $columnWidths, $rowHeights);
+
+    $image = Images::fromFile("aspose_logo.jpg");
+    try {
+        $ppImage = $presentation->getImages()->addImage($image);
+    } finally {
+        $image->dispose();
+    }
+
+    $table->get_Item(0, 0)->getCellFormat()->getFillFormat()->setFillType(FillType::Picture);
+    $table->get_Item(0, 0)->getCellFormat()->getFillFormat()->getPictureFillFormat()->setPictureFillMode(PictureFillMode::Stretch);
+    $table->get_Item(0, 0)->getCellFormat()->getFillFormat()->getPictureFillFormat()->getPicture()->setImage($ppImage);
+
+    $presentation->save("table_cell_with_image.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
 
 ## **FAQ**
 
-**Можно ли задать разную толщину линий и стили для разных сторон одной ячейки?**
+**Можно ли задать разную толщину и стиль линии для разных сторон одной ячейки?**
 
-Да. Границы [верхняя](https://reference.aspose.com/slides/php-java/aspose.slides/cellformat/getbordertop/)/[нижняя](https://reference.aspose.com/slides/php-java/aspose.slides/cellformat/getborderbottom/)/[левая](https://reference.aspose.com/slides/php-java/aspose.slides/cellformat/getborderleft/)/[правая](https://reference.aspose.com/slides/php-java/aspose.slides/cellformat/getborderright/) имеют отдельные свойства, поэтому толщина и стиль каждой стороны могут отличаться. Это логически вытекает из управления границами по сторонам для ячейки, продемонстрированного в статье.
+Да. Границы [top](https://reference.aspose.com/slides/php-java/aspose.slides/cellformat/getbordertop/)/[bottom](https://reference.aspose.com/slides/php-java/aspose.slides/cellformat/getborderbottom/)/[left](https://reference.aspose.com/slides/php-java/aspose.slides/cellformat/getborderleft/)/[right](https://reference.aspose.com/slides/php-java/aspose.slides/cellformat/getborderright/) имеют отдельные свойства, поэтому толщина и стиль каждой стороны могут различаться.
 
-**Что происходит с изображением, если я изменю размер столбца/строки после установки картинки как фона ячейки?**
+**Что происходит с изображением, если изменить размер столбца/строки после установки рисунка в качестве фона ячейки?**
 
-Поведение зависит от [режима заливки](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillmode/) (stretch/tile). При растягивании изображение подстраивается под новую ячейку; при замощении плитки пересчитываются. В статье упоминаются режимы отображения изображения в ячейке.
+Поведение зависит от [fill mode](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillmode/) (stretch/tile). При растягивании изображение подстраивается под новую ячейку; при плиточном отображении плитки пересчитываются.
 
-**Можно ли назначить гиперссылку всему содержимому ячейки?**
+**Можно ли присвоить гиперссылку всему содержимому ячейки?**
 
-[Гиперссылки](/slides/ru/php-java/manage-hyperlinks/) задаются на уровне текста (части) внутри текстового фрейма ячейки или на уровне всей таблицы/объекта. На практике вы назначаете ссылку части или всему тексту в ячейке.
+[Hyperlinks](/slides/ru/php-java/manage-hyperlinks/) задаются на уровне текста (части) внутри текстового фрейма ячейки или на уровне всей таблицы/формы. На практике ссылку назначают части или всему тексту в ячейке.
 
 **Можно ли задать разные шрифты внутри одной ячейки?**
 
-Да. Текстовый фрейм ячейки поддерживает [части](https://reference.aspose.com/slides/php-java/aspose.slides/portion/) (runs) с независимым форматированием — семейство шрифта, стиль, размер и цвет.
+Да. Текстовый фрейм ячейки поддерживает [portions](https://reference.aspose.com/slides/php-java/aspose.slides/portion/) (фрагменты) с независимым форматированием — типом шрифта, стилем, размером и цветом.

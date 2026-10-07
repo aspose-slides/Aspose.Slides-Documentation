@@ -1,6 +1,6 @@
 ---
 title: Beheer tabelcellen in presentaties met Python
-linktitle: Beheer cellen
+linktitle: Cellen beheren
 type: docs
 weight: 30
 url: /nl/python-net/manage-cells/
@@ -12,72 +12,49 @@ keywords:
 - afbeelding in cel
 - achtergrondkleur
 - PowerPoint
-- OpenDocument
 - presentatie
 - Python
 - Aspose.Slides
-description: "Beheer tabelcellen moeiteloos in PowerPoint en OpenDocument met Aspose.Slides voor Python via .NET. Toegang, wijzigen en opmaken van cellen snel voor naadloze dia-automatisering."
+description: "Beheer PowerPoint-tabelcellen in Python: identificeer samengevoegde cellen, verwijder randen, splits cellen, en stel achtergrondkleuren en afbeeldingen in met Aspose.Slides voor Python via .NET."
 ---
 ## **Overzicht**
 
-Aspose.Slides stelt u in staat om tabelcellen in PowerPoint‑presentaties te benaderen en aan te passen. Dit artikel legt uit hoe u samengevoegde tabelcellen kunt identificeren, celranden kunt verwijderen, met celnummering kunt werken na het samenvoegen of splitsen van cellen, de achtergrondkleur van een cel kunt wijzigen en een afbeelding in een tabelcel kunt toevoegen. De voorbeelden laten zien hoe u een presentatie maakt of opent, een tabel van een dia krijgt, celopmaak bijwerkt via cel‑eigenschappen, en de gewijzigde presentatie opslaat als een PPTX‑bestand.
+Aspose.Slides stelt u in staat om tabelcellen in PowerPoint‑presentaties te benaderen en te wijzigen. Dit artikel legt uit hoe u samengevoegde tabelcellen kunt identificeren, celranden kunt verwijderen, met celnummering kunt werken na het samenvoegen of splitsen van cellen, de achtergrondkleur van een cel kunt wijzigen, en een afbeelding in een tabelcel kunt toevoegen. De voorbeelden tonen hoe u een presentatie kunt maken of openen, een tabel van een dia kunt ophalen, de opmaak van een cel kunt bijwerken via cel‑eigenschappen, en de gewijzigde presentatie kunt opslaan als een PPTX‑bestand.
 
-## **Samengevoegde tabelcellen identificeren**
+Aspose.Slides gebruikt nul‑gebaseerde indexen. Coördinaten in dit artikel worden geschreven als `(column, row)`.
 
-Tabellen bevatten vaak samengevoegde cellen voor kopteksten of om gerelateerde gegevens te groeperen. In deze sectie ziet u hoe u kunt bepalen of een specifieke cel tot een samengevoegd gebied behoort en hoe u de master‑cel (linksboven) kunt refereren, zodat u het volledige blok consistent kunt lezen of opmaken.
+## **Een samengevoegde tabelcel identificeren**
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/python-net/aspose.slides/presentation/)‑klasse.
-1. Haal de tabel op van de eerste dia.
-1. Itereer door de rijen en kolommen van de tabel om samengevoegde cellen te vinden.
-1. Druk een bericht af wanneer er samengevoegde cellen worden gevonden.
+Het voorbeeld opent een bestaande presentatie en benadert de eerste vorm op de eerste dia als een tabel. Het gaat ervan uit dat de dia en vorm bestaan en dat de vorm een tabel is. Vervolgens doorloopt het alle rijen en kolommen en gebruikt [is_merged_cell](https://reference.aspose.com/slides/python-net/aspose.slides/cell/is_merged_cell/) om cellen in samengevoegde gebieden te identificeren. Voor elke overeenkomst drukt het de celcoördinaten af in `row;column`‑volgorde, [row_span](https://reference.aspose.com/slides/python-net/aspose.slides/cell/row_span/), [col_span](https://reference.aspose.com/slides/python-net/aspose.slides/cell/col_span/), en de startcoördinaten van het gebied, [first_row_index](https://reference.aspose.com/slides/python-net/aspose.slides/cell/first_row_index/) en [first_column_index](https://reference.aspose.com/slides/python-net/aspose.slides/cell/first_column_index/).
 
-De volgende Python‑code identificeert samengevoegde tabelcellen in een presentatie:
-
-```py
+```python
 import aspose.slides as slides
 
 with slides.Presentation("presentation_with_table.pptx") as presentation:
-    # Aannemende dat de eerste vorm op de eerste dia een tabel is.
-    table = presentation.slides[0].shapes[0]
+    slide = presentation.slides[0]
+    table = slide.shapes[0]
 
     for row_index in range(len(table.rows)):
         for column_index in range(len(table.columns)):
             cell = table.rows[row_index][column_index]
             if cell.is_merged_cell:
-                print("Cell ({}, {}) is part of a merged region with a row span of {} and a column span of {}, starting from cell ({}, {}).".format(
-                    row_index, column_index, cell.row_span, cell.col_span, cell.first_row_index, cell.first_column_index))
+                print(f"Cell {row_index};{column_index} belongs to a merged region with row_span={cell.row_span} and col_span={cell.col_span} starting at {cell.first_row_index};{cell.first_column_index}.")
 ```
 
 ## **Tabelcelranden verwijderen**
 
-Soms voeren tabelranden afleiding af of creëren ze visueel rommel. Deze sectie laat zien hoe u randen van geselecteerde cellen—of van specifieke zijden van een cel—kunt verwijderen, zodat u een nettere lay‑out krijgt en beter aansluit bij het ontwerp van uw dia.
-
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/python-net/aspose.slides/presentation/)‑klasse.
-1. Haal de dia op via de index.
-1. Definieer een array met kolombreedtes.
-1. Definieer een array met rijhoogtes.
-1. Voeg een tabel toe aan de dia met de [add_table](https://reference.aspose.com/slides/nl/python-net/aspose.slides/shapecollection/add_table/)‑methode.
-1. Itereer door elke cel om de boven‑, onder‑, linker‑ en rechterrand te wissen.
-1. Sla de gewijzigde presentatie op als een PPTX‑bestand.
-
-De volgende Python‑code toont hoe u randen van tabelcellen kunt verwijderen:
+Maak een [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) en voeg een tabel toe aan de eerste dia met [add_table](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_table/). Kolombreedtes, rijhoogtes en de tabelpositie worden gespecificeerd in points. Het voorbeeld stelt alle vier de celranden in op [FillType.NO_FILL](https://reference.aspose.com/slides/python-net/aspose.slides/filltype/), waardoor ze onzichtbaar worden.
 
 ```python
 import aspose.slides as slides
 
-# Maak een instantie van de Presentation-klasse die een PPTX-bestand vertegenwoordigt.
 with slides.Presentation() as presentation:
-    # Toegang tot de eerste dia.
     slide = presentation.slides[0]
 
-    # Definieer kolommen met breedtes en rijen met hoogtes.
     column_widths = [50, 50, 50, 50]
     row_heights = [50, 30, 30, 30, 30]
+    table = slide.shapes.add_table(100, 50, column_widths, row_heights)
 
-    # Voeg een tabelvorm toe aan de dia.
-    table = slide.shapes.add_table(50, 50, column_widths, row_heights)
-
-    # Maak de randvulling van elke cel leeg.
     for row in table.rows:
         for cell in row:
             cell.cell_format.border_top.fill_format.fill_type = slides.FillType.NO_FILL
@@ -85,102 +62,102 @@ with slides.Presentation() as presentation:
             cell.cell_format.border_left.fill_format.fill_type = slides.FillType.NO_FILL
             cell.cell_format.border_right.fill_format.fill_type = slides.FillType.NO_FILL
 
-    # Sla het PPTX-bestand op schijf.
     presentation.save("table.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Nummering in samengevoegde cellen**
+## **Tabelcellen samenvoegen**
 
-Als u twee paren cellen samenvoegt—bijvoorbeeld (1, 1) × (2, 1) en (1, 2) × (2, 2)—behoudt de resulterende tabel dezelfde celnummering als de tabel zonder samenvoegen. De volgende Python‑code demonstreert dit gedrag:
+Gebruik [merge_cells](https://reference.aspose.com/slides/python-net/aspose.slides/table/merge_cells/) om een rechthoekig bereik van tabelcellen te combineren tot één cel. Specificeer de cellen in de linkerboven‑ en rechteronderhoek van het bereik. Het laatste argument bepaalt of de samenvoeging cellen buiten het opgegeven bereik mag omvatten; `False` houdt de samenvoeging binnen dat bereik.
+
+Het voorbeeld maakt een 4‑bij‑4 tabel met kolommen en rijen van 70 points, en voegt vervolgens de vier centrale cellen van `(1, 1)` tot `(2, 2)` samen. De resulterende cel bestrijkt twee kolommen en twee rijen, terwijl het onderliggende raster van de tabel vier kolommen en vier rijen behoudt. Om de inhoud of opmaak van de samengevoegde cel te benaderen, gebruikt u de linkerboven‑positie: `table.rows[1][1]` in dit voorbeeld. De andere posities in het samengevoegde bereik blijven deel uitmaken van het tabelraster, zodat de indexen van cellen buiten het bereik ongewijzigd blijven.
 
 ```python
 import aspose.slides as slides
 
-# Maak een instantie van de Presentation-klasse die een PPTX-bestand vertegenwoordigt.
 with slides.Presentation() as presentation:
-    # Toegang tot de eerste dia.
     slide = presentation.slides[0]
 
-    # Definieer kolommen met breedtes en rijen met hoogtes.
     column_widths = [70, 70, 70, 70]
     row_heights = [70, 70, 70, 70]
+    table = slide.shapes.add_table(100, 50, column_widths, row_heights)
 
-    # Voeg een tabelvorm toe aan de dia.
-    table = slide.shapes.add_table(50, 50, column_widths, row_heights)
+    table.merge_cells(table.rows[1][1], table.rows[2][2], False)
 
-    # Voeg cellen (1,1) en (2,1) samen.
-    table.merge_cells(table.rows[1][1], table.rows[2][1], False)
-
-    # Voeg cellen (1, 2) en (2, 2) samen.
-    table.merge_cells(table.rows[1][2], table.rows[2][2], False)
-
-    # Print de celindices.
-    for row_index in range(len(table.rows)):
-        for column_index in range(len(table.rows[row_index])):
-            cell = table.rows[row_index][column_index]
-            print(f"{cell.first_row_index, cell.first_column_index} ", end="")
-        print()
-
-    # Sla het PPTX-bestand op schijf.
     presentation.save("merged_cells.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Uitvoer:
+## **Tabelcellen splitsen**
 
-```text
-(0, 0) (0, 1) (0, 2) (0, 3) 
-(1, 0) (1, 1) (1, 2) (1, 3) 
-(2, 0) (1, 1) (1, 2) (2, 3) 
-(3, 0) (3, 1) (3, 2) (3, 3)
-```
+Het samenvoegen van cellen in het vorige voorbeeld behoudt het raster van de tabel. Het splitsen van een cel kan een nieuwe rasterkolom introduceren en de kolomindexen van cellen rechts van die cel wijzigen. Aspose.Slides volgt het tabelrastermodel van PowerPoint.
 
-## **Nummering in gesplitste cellen**
+Dit voorbeeld maakt een 4‑bij‑4 tabel met kolommen en rijen van 70 points en roept [split_by_width](https://reference.aspose.com/slides/python-net/aspose.slides/cell/split_by_width/) aan op cel `(1, 1)`. De helft van de 70 points brede cel wordt doorgegeven om twee even‑brede cellen te maken.
 
-In het vorige voorbeeld, toen tabelcellen werden samengevoegd, veranderde de nummering in de andere cellen niet. Deze keer maken we een gewone tabel (zonder samengevoegde cellen) en splitsen we cel (1, 1) om een speciale tabel te creëren. Let op de nummering van deze tabel—die er ongewoon uit kan zien. Dit is echter hoe Microsoft PowerPoint tabelcellen nummert, en Aspose.Slides volgt hetzelfde gedrag.
-
-De volgende Python‑code demonstreert dit gedrag:
+Na deze splitsing worden de twee helften benaderd als `table.rows[1][1]` en `table.rows[1][2]`. Het tabelraster heeft nu vijf kolommen: cellen die oorspronkelijk in kolommen 2 en 3 stonden, verschuiven naar kolommen 3 en 4. Rij‑indexen blijven ongewijzigd. Gebruik deze bijgewerkte kolomindexen bij het benaderen van cellen na de splitsing.
 
 ```python
 import aspose.slides as slides
 
-# Maak een instantie van de Presentation-klasse die een PPTX-bestand vertegenwoordigt.
 with slides.Presentation() as presentation:
-    # Toegang tot de eerste dia.
     slide = presentation.slides[0]
 
-    # Definieer kolombreedtes en rijhoogtes.
     column_widths = [70, 70, 70, 70]
     row_heights = [70, 70, 70, 70]
+    table = slide.shapes.add_table(100, 50, column_widths, row_heights)
 
-    # Voeg een tabelvorm toe aan de dia.
-    table = slide.shapes.add_table(50, 50, column_widths, row_heights)
+    table.rows[1][1].split_by_width(table.rows[1][1].width / 2)
 
-    # Splits cel (1, 1).
-    table.rows[1][1].split_by_width(table.rows[2][1].width / 2)
-
-    # Print de celindices.
-    for row_index in range(len(table.rows)):
-        for column_index in range(len(table.rows[row_index])):
-            cell = table.rows[row_index][column_index]
-            print(f"{cell.first_row_index, cell.first_column_index} ", end="")
-        print()
-
-    # Sla het PPTX-bestand op schijf.
     presentation.save("split_cells.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Uitvoer:
+### **Samengevoegde cellen splitsen op rij‑ of kolom‑span**
 
-```text
-(0, 0) (0, 1) (0, 1) (0, 3) (0, 4) 
-(1, 0) (1, 1) (1, 2) (1, 3) (1, 4) 
-(2, 0) (2, 1) (2, 1) (2, 3) (2, 4) 
-(3, 0) (3, 1) (3, 1) (3, 3) (3, 4) 
+Om samengevoegde sjablooncellen voor gegevenspopulatie voor te bereiden, gebruikt u [split_by_row_span](https://reference.aspose.com/slides/python-net/aspose.slides/cell/split_by_row_span/) om langs een bestaande rijscheiding te splitsen, of [split_by_col_span](https://reference.aspose.com/slides/python-net/aspose.slides/cell/split_by_col_span/) om langs een kolomscheiding te splitsen.
+
+Het argument `index` telt rijen in het bovenste deel of kolommen in het linkerdeel van de splitsing; het is relatief ten opzichte van het samengevoegde gebied:
+
+- Row split: `0 < index <` [row_span](https://reference.aspose.com/slides/python-net/aspose.slides/cell/row_span/).
+- Column split: `0 < index <` [col_span](https://reference.aspose.com/slides/python-net/aspose.slides/cell/col_span/).
+
+Het voorbeeld gaat ervan uit dat een presentatie een tabel bevat als de eerste vorm op de eerste dia, met `(1, 2)` en `(1, 3)` verticaal samengevoegd. Vanuit de lagere positie gebruikt het [first_column_index](https://reference.aspose.com/slides/python-net/aspose.slides/cell/first_column_index/) en [first_row_index](https://reference.aspose.com/slides/python-net/aspose.slides/cell/first_row_index/) om de oorsprong te vinden en controleert beide spans. `split_by_row_span` met een index van 1 scheidt vervolgens rijen 2 en 3 voor productnamen. Voor een horizontale twee‑kolomsamenvoeging gebruikt u `split_by_col_span` met een index van 1.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("table_template.pptx") as presentation:
+    slide = presentation.slides[0]
+    table = slide.shapes[0]
+
+    selected_cell = table.rows[3][1]
+    first_column_index = selected_cell.first_column_index
+    first_row_index = selected_cell.first_row_index
+    merged_cell = table.rows[first_row_index][first_column_index]
+
+    if merged_cell.is_merged_cell and merged_cell.row_span == 2 and merged_cell.col_span == 1:
+        merged_cell.split_by_row_span(1)
+
+        # Haal de resulterende cellen uit de tabel op na het splitsen.
+        upper_cell = table.rows[first_row_index][first_column_index]
+        lower_cell = table.rows[first_row_index + 1][first_column_index]
+        print(f"Upper cell merged: {upper_cell.is_merged_cell}")
+        print(f"Lower cell merged: {lower_cell.is_merged_cell}")
+
+        upper_cell.text_frame.text = "Product A"
+        lower_cell.text_frame.text = "Product B"
+
+        presentation.save("split_template.pptx", slides.export.SaveFormat.PPTX)
+    else:
+        print("Select a merged region spanning exactly two rows and one column.")
 ```
 
-## **Achtergrondkleur van tabelcel wijzigen**
+Het tabelraster en de omringende cel­indexen blijven ongewijzigd. Haal de resulterende cellen op via hun coördinaten; hier hebben beide een span van 1 en [is_merged_cell](https://reference.aspose.com/slides/python-net/aspose.slides/cell/is_merged_cell/) geeft `False` weer. Grotere gebieden kunnen na één splitsing gedeeltelijk samengevoegd blijven.
 
-Het volgende Python‑voorbeeld toont hoe u de achtergrondkleur van een tabelcel kunt wijzigen:
+De oorspronkelijke tekst en opmaak blijven behouden in de bovenste (of linker) cel; de nieuwe cel is leeg maar erft celopmaak zoals vulling, randen en marges. Populate de cellen na het splitsen en stel eventuele vereiste tekstopmaak expliciet in.
+
+De opgeslagen presentatie bevat afzonderlijke “Product A”‑ en “Product B”‑cellen waarbij de opmaak van het sjabloon behouden blijft. Zie de [Cell API Reference](https://reference.aspose.com/slides/python-net/aspose.slides/cell/) voor details.
+
+## **Achtergrondkleur van de tabelcel wijzigen**
+
+Dit voorbeeld maakt een tabel met kolommen van 150 points en rijen van 50 points. Het stelt [fill_type](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/fill_type/) in op solid en [solid_fill_color](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/solid_fill_color/) op rood voor cel `(2, 3)`, in de derde kolom en vierde rij.
 
 ```python
 import aspose.pydrawing as draw
@@ -191,78 +168,56 @@ with slides.Presentation() as presentation:
 
     column_widths = [150, 150, 150, 150]
     row_heights = [50, 50, 50, 50, 50]
-
-    # Maak een nieuwe tabel.
     table = slide.shapes.add_table(50, 50, column_widths, row_heights)
 
-    # Stel de achtergrondkleur voor een cel in.
-    cell = table.rows[2][3]
+    cell = table.rows[3][2]
     cell.cell_format.fill_format.fill_type = slides.FillType.SOLID
     cell.cell_format.fill_format.solid_fill_color.color = draw.Color.red
 
     presentation.save("cell_background_color.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Afbeeldingen in tabelcellen invoegen**
+## **Een afbeelding in een tabelcel toevoegen**
 
-Deze sectie laat zien hoe u een afbeelding in een tabelcel kunt invoegen in Aspose.Slides. Het behandelt het toepassen van een afbeelding als vulling op de doelcel en het configureren van weergaveopties zoals rekken of tegel.
+Plaats de invoerafbeelding in de werkmap voordat u dit voorbeeld uitvoert. De afbeelding wordt geladen met [Images.from_file](https://reference.aspose.com/slides/python-net/aspose.slides/images/from_file/) en toegevoegd aan de afbeeldingencollectie van de presentatie met [add_image](https://reference.aspose.com/slides/python-net/aspose.slides/imagecollection/add_image/). Vervolgens wordt de afbeelding toegewezen aan de picture‑fill van cel `(0, 0)`, de eerste cel in de tabel.
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/python-net/aspose.slides/presentation/)‑klasse.
-1. Haal een referentie naar de dia op via de index.
-1. Definieer een array met kolombreedtes.
-1. Definieer een array met rijhoogtes.
-1. Voeg een tabel toe aan de dia met de [add_table](https://reference.aspose.com/slides/nl/python-net/aspose.slides/shapecollection/add_table/)‑methode.
-1. Laad de afbeelding vanuit een bestand.
-1. Voeg de afbeelding toe aan de afbeeldingen van de presentatie om een [PPImage](https://reference.aspose.com/slides/nl/python-net/aspose.slides/ppimage/) te verkrijgen.
-1. Stel de [FillType](https://reference.aspose.com/slides/nl/python-net/aspose.slides/filltype/) van de tabelcel in op `PICTURE`.
-1. Pas de afbeelding toe op de tabelcel en kies een vullingsmodus (bijv. `STRETCH`).
-1. Sla de presentatie op als een PPTX‑bestand.
-
-De volgende Python‑code toont hoe u een afbeelding in een tabelcel plaatst bij het maken van een tabel:
+[PictureFillMode.STRETCH](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillmode/) strekt de afbeelding uit om de cel te vullen, wat de beeldverhouding kan wijzigen. Kolombreedtes en rijhoogtes worden in points opgegeven. De geladen afbeelding wordt automatisch vrijgegeven wanneer het `with`‑blok eindigt.
 
 ```python
 import aspose.slides as slides
 
-# Instantieer een Presentation-object.
 with slides.Presentation() as presentation:
-    # Toegang tot de eerste dia.
     slide = presentation.slides[0]
 
-    # Definieer kolombreedtes en rijhoogtes.
     column_widths = [150, 150, 150, 150]
-    row_heights = [100, 100, 100, 100]
-
-    # Voeg een tabelvorm toe aan de dia.
+    row_heights = [100, 100, 100, 100, 90]
     table = slide.shapes.add_table(50, 50, column_widths, row_heights)
 
-    # Laad de afbeelding en voeg deze toe aan de presentatie om een PPImage te verkrijgen.
-    with slides.Images.from_file("image.png") as source_image:
-        image = presentation.images.add_image(source_image)
+    with slides.Images.from_file("aspose_logo.jpg") as image:
+        presentation_image = presentation.images.add_image(image)
 
-    # Pas de afbeelding toe op de eerste tabelcel.
     cell = table.rows[0][0]
     cell.cell_format.fill_format.fill_type = slides.FillType.PICTURE
     cell.cell_format.fill_format.picture_fill_format.picture_fill_mode = slides.PictureFillMode.STRETCH
-    cell.cell_format.fill_format.picture_fill_format.picture.image = image
+    cell.cell_format.fill_format.picture_fill_format.picture.image = presentation_image
 
-    # Sla de presentatie op schijf.
-    presentation.save("image_in_table_cell.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("table_cell_with_image.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **FAQ**
 
 **Kan ik verschillende lijndiktes en -stijlen instellen voor de verschillende zijden van één cel?**
 
-Ja. De [boven](https://reference.aspose.com/slides/nl/python-net/aspose.slides/cellformat/border_top/)/[onder](https://reference.aspose.com/slides/nl/python-net/aspose.slides/cellformat/border_bottom/)/[links](https://reference.aspose.com/slides/nl/python-net/aspose.slides/cellformat/border_left/)/[rechts](https://reference.aspose.com/slides/nl/python-net/aspose.slides/cellformat/border_right/) randen hebben afzonderlijke eigenschappen, zodat de dikte en stijl van elke zijde kan verschillen. Dit volgt logisch uit de per‑zijde randcontrole voor een cel die in het artikel wordt aangetoond.
+Ja. De [top](https://reference.aspose.com/slides/python-net/aspose.slides/cellformat/border_top/)/[bottom](https://reference.aspose.com/slides/python-net/aspose.slides/cellformat/border_bottom/)/[left](https://reference.aspose.com/slides/python-net/aspose.slides/cellformat/border_left/)/[right](https://reference.aspose.com/slides/python-net/aspose.slides/cellformat/border_right/) randen hebben afzonderlijke eigenschappen, zodat de dikte en stijl van elke zijde kunnen verschillen.
 
-**Wat gebeurt er met de afbeelding als ik de kolom‑/rijgrootte wijzig nadat ik een afbeelding als achtergrond van de cel heb ingesteld?**
+**Wat gebeurt er met de afbeelding als ik de kolom‑/rij‑grootte aanpas nadat ik een afbeelding als achtergrond van de cel heb ingesteld?**
 
-Het gedrag hangt af van de [vullingsmodus](https://reference.aspose.com/slides/nl/python-net/aspose.slides/picturefillmode/) (stretch/tile). Bij rekken past de afbeelding zich aan de nieuwe cel aan; bij tegels worden de tegels opnieuw berekend. Het artikel vermeldt de weergavemodi van een afbeelding in een cel.
+Het gedrag hangt af van de [fill mode](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillmode/) (stretch/tile). Bij stretching past de afbeelding zich aan de nieuwe cel aan; bij tiling worden de tegels opnieuw berekend.
 
 **Kan ik een hyperlink toewijzen aan alle inhoud van een cel?**
 
-[Hyperlinks](/slides/nl/python-net/manage-hyperlinks/) worden ingesteld op tekst‑ (gedeelte) niveau binnen het tekstvak van de cel of op het niveau van de gehele tabel/vorm. In de praktijk kent u de link toe aan een gedeelte of aan alle tekst in de cel.
+[Hyperlinks](/slides/nl/python-net/manage-hyperlinks/) worden ingesteld op tekstaanduidings‑ (portion) niveau binnen het tekstframe van de cel of op niveau van de gehele tabel/vorm. In de praktijk wijst u de link toe aan een portion of aan alle tekst in de cel.
 
-**Kan ik verschillende lettertypen binnen één cel instellen?**
+**Kan ik verschillende lettertypen instellen binnen één cel?**
 
-Ja. Het tekstvak van een cel ondersteunt [portions](https://reference.aspose.com/slides/nl/python-net/aspose.slides/portion/) (runs) met onafhankelijke opmaak—lettertypefamilie, stijl, grootte en kleur.
+Ja. Het tekstframe van een cel ondersteunt [portions](https://reference.aspose.com/slides/python-net/aspose.slides/portion/) (runs) met onafhankelijke opmaak – lettertype, stijl, grootte en kleur.

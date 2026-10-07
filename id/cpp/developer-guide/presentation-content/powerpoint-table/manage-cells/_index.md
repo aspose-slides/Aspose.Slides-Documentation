@@ -1,13 +1,13 @@
 ---
-title: Kelola Sel Tabel dalam Presentasi Menggunakan C++
+title: Kelola Sel Tabel dalam Presentasi dengan C++
 linktitle: Kelola Sel
 type: docs
 weight: 30
 url: /id/cpp/manage-cells/
 keywords:
 - sel tabel
-- menggabungkan sel
-- hapus border
+- gabungkan sel
+- hapus batas
 - pisah sel
 - gambar dalam sel
 - warna latar belakang
@@ -15,353 +15,322 @@ keywords:
 - presentasi
 - C++
 - Aspose.Slides
-description: "Kelola sel tabel di PowerPoint dengan Aspose.Slides untuk C++ secara mudah. Kuasai cara mengakses, memodifikasi, dan menata sel dengan cepat untuk otomatisasi slide yang mulus."
+description: "Kelola sel tabel PowerPoint di C++: identifikasi sel yang digabung, hapus batas, pisah sel, dan mengatur warna latar belakang serta gambar dengan Aspose.Slides untuk C++."
 ---
-## **Gambaran Umum**
+## **Ikhtisar**
 
-Aspose.Slides memungkinkan Anda mengakses dan memodifikasi sel tabel dalam presentasi PowerPoint. Artikel ini menjelaskan cara mengidentifikasi sel tabel yang digabungkan, menghapus border sel, bekerja dengan penomoran sel setelah menggabungkan atau memisahkan sel, mengubah warna latar belakang sel, dan menambahkan gambar di dalam sel tabel. Contoh-contoh menunjukkan cara membuat atau membuka presentasi, mengambil tabel dari slide, memperbarui format sel melalui properti sel, dan menyimpan presentasi yang telah dimodifikasi sebagai file PPTX.
+Aspose.Slides memungkinkan Anda mengakses dan memodifikasi sel tabel dalam presentasi PowerPoint. Artikel ini menjelaskan cara mengidentifikasi sel tabel yang digabungkan, menghapus batas sel, bekerja dengan penomoran sel setelah menggabungkan atau memisahkan sel, mengubah warna latar belakang sel, dan menambahkan gambar di dalam sel tabel. Contoh-contoh menunjukkan cara membuat atau membuka presentasi, mendapatkan tabel dari slide, memperbarui format sel melalui properti sel, dan menyimpan presentasi yang dimodifikasi sebagai file PPTX.
 
-## **Identifikasi Sel yang Digabungkan**
-1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.presentation).
-2. Ambil tabel dari slide pertama.
-3. Iterasi melalui baris dan kolom tabel untuk menemukan sel yang digabungkan.
-4. Cetak pesan ketika sel yang digabungkan ditemukan.
+Aspose.Slides menggunakan indeks berbasis nol untuk mengakses sel tabel dalam urutan `(column, row)`.
 
-Kode C++ berikut menunjukkan cara mengidentifikasi sel tabel yang digabungkan dalam sebuah presentasi:
+## **Identifikasi Sel Tabel yang Digabungkan**
 
-``` cpp
-auto pres = System::MakeObject<Presentation>(u"SomePresentationWithTable.pptx");
-auto table = System::AsCast<ITable>(pres->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0));
+Contoh ini membuka presentasi yang ada dan mengakses bentuk pertama pada slide pertama sebagai tabel. Ia mengasumsikan bahwa slide dan bentuk tersebut ada serta bentuk tersebut adalah tabel. Kemudian ia mengiterasi semua baris dan kolom dan menggunakan [get_IsMergedCell](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_ismergedcell/) untuk mengidentifikasi sel dalam wilayah yang digabungkan. Untuk setiap kecocokan, ia mencetak koordinat sel dalam urutan `row;column`, [get_RowSpan](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_rowspan/), [get_ColSpan](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_colspan/), dan koordinat awal wilayah, [get_FirstRowIndex](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_firstrowindex/) dan [get_FirstColumnIndex](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_firstcolumnindex/).
 
-// mengasumsikan bahwa Slide#0.Shape#0 adalah tabel
-for (int32_t i = 0; i < table->get_Rows()->get_Count(); i++)
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <DOM/Table/ICell.h>
+#include <system/smart_ptr.h>
+#include <DOM/Table/IRowCollection.h>
+#include <DOM/Table/IColumnCollection.h>
+#include <system/console.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"presentation_with_table.pptx");
+auto slide = presentation->get_Slide(0);
+auto table = ExplicitCast<ITable>(slide->get_Shape(0));
+
+auto rowCount = table->get_Rows()->get_Count();
+for (auto rowIndex = 0; rowIndex < rowCount; rowIndex++)
 {
-    for (int32_t j = 0; j < table->get_Columns()->get_Count(); j++)
+    auto columnCount = table->get_Columns()->get_Count();
+    for (auto columnIndex = 0; columnIndex < columnCount; columnIndex++)
     {
-        auto currentCell = table->get_Rows()->idx_get(i)->idx_get(j);
-        if (currentCell->get_IsMergedCell())
+        auto cell = table->idx_get(columnIndex, rowIndex);
+        if (cell->get_IsMergedCell())
         {
-            Console::WriteLine(String::Format(u"Cell {0};{1} is a part of merged cell with RowSpan={2} and ColSpan={3} starting from Cell {4};{5}.", 
-                i, j, currentCell->get_RowSpan(), currentCell->get_ColSpan(), currentCell->get_FirstRowIndex(), currentCell->get_FirstColumnIndex()));
+            Console::WriteLine(u"Cell {0};{1} belongs to a merged region with RowSpan={2} and ColSpan={3} starting at {4};{5}.", rowIndex, columnIndex, cell->get_RowSpan(), cell->get_ColSpan(), cell->get_FirstRowIndex(), cell->get_FirstColumnIndex());
         }
     }
 }
 ```
 
-## **Hapus Border Sel Tabel**
-1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.presentation).
-2. Dapatkan referensi slide melalui indeksnya.
-3. Tentukan array kolom dengan lebar.
-4. Tentukan array baris dengan tinggi.
-5. Tambahkan tabel ke slide melalui metode `AddTable`.
-6. Iterasi melalui setiap sel untuk menghapus border atas, bawah, kanan, dan kiri.
-7. Simpan presentasi yang dimodifikasi sebagai file PPTX.
+## **Hapus Batas Sel Tabel**
 
-Kode C++ berikut menunjukkan cara menghapus border dari sel tabel:
+Buat sebuah [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) dan tambahkan tabel ke slide pertamanya dengan [AddTable](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addtable/). Lebar kolom, tinggi baris, dan posisi tabel ditentukan dalam poin. Contoh ini mengatur keempat batas sel menjadi [FillType::NoFill](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/), sehingga tidak terlihat.
 
-``` cpp
-// Membuat instance kelas Presentation yang mewakili file PPTX
-auto pres = MakeObject<Presentation>();
-// Mengakses slide pertama
-auto sld = pres->get_Slides()->idx_get(0);
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <DOM/Table/ICell.h>
+#include <system/smart_ptr.h>
+#include <DOM/FillType.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/Table/ICellFormat.h>
+#include <DOM/Table/IRow.h>
+#include <DOM/Table/IRowCollection.h>
+#include <system/enumerator_adapter.h>
+#include <Export/SaveFormat.h>
+#include <system/array.h>
 
-// Mendefinisikan kolom dengan lebar dan baris dengan tinggi
-auto dblCols = MakeArray<double>({ 50, 50, 50, 50 });
-auto dblRows = MakeArray<double>({ 50, 30, 30, 30, 30 });
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-// Menambahkan bentuk tabel ke slide
-auto tbl = sld->get_Shapes()->AddTable(100.0f, 50.0f, dblCols, dblRows);
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-// Mengatur format border untuk setiap sel
-for (const auto& row : System::IterateOver(tbl->get_Rows()))
-{
-    for (const auto& cell : System::IterateOver(row))
+auto columnWidths = MakeArray<double>({50, 50, 50, 50});
+auto rowHeights = MakeArray<double>({50, 30, 30, 30, 30});
+auto table = slide->get_Shapes()->AddTable(100, 50, columnWidths, rowHeights);
+
+for (const auto& row : IterateOver(table->get_Rows()))
+    for (const auto& cell : IterateOver(row))
     {
         cell->get_CellFormat()->get_BorderTop()->get_FillFormat()->set_FillType(FillType::NoFill);
         cell->get_CellFormat()->get_BorderBottom()->get_FillFormat()->set_FillType(FillType::NoFill);
         cell->get_CellFormat()->get_BorderLeft()->get_FillFormat()->set_FillType(FillType::NoFill);
         cell->get_CellFormat()->get_BorderRight()->get_FillFormat()->set_FillType(FillType::NoFill);
     }
-}
 
-// Menulis file PPTX ke disk
-pres->Save(u"table_out.pptx", SaveFormat::Pptx);
+presentation->Save(u"table.pptx", SaveFormat::Pptx);
 ```
 
-## **Penomoran dalam Sel yang Digabungkan**
-Jika kita menggabungkan 2 pasang sel (1, 1) x (2, 1) dan (1, 2) x (2, 2), tabel yang dihasilkan akan memiliki penomoran. Kode C# berikut mendemonstrasikan prosesnya:
+## **Gabungkan Sel Tabel**
 
-```c++
-const String outPath = u"../out/MergeCells_out.pptx";
+Gunakan [MergeCells](https://reference.aspose.com/slides/cpp/aspose.slides/itable/mergecells/) untuk menggabungkan rentang persegi panjang sel tabel menjadi satu sel. Tentukan sel di sudut kiri‑atas dan kanan‑bawah dari rentang tersebut. Argumen terakhir mengontrol apakah penggabungan dapat mencakup sel di luar rentang yang ditentukan; `false` menjaga penggabungan tetap dalam rentang itu.
 
-// Memuat presentasi yang diinginkan
-SharedPtr<Presentation> pres = MakeObject<Presentation>();
+Contoh ini membuat tabel 4‑by‑4 dengan kolom dan baris 70 poin, kemudian menggabungkan empat sel tengah dari `(1, 1)` hingga `(2, 2)`. Sel hasil mencakup dua kolom dan dua baris, sementara kisi dasar tabel tetap memiliki empat kolom dan empat baris. Untuk mengakses konten atau format sel yang digabungkan, gunakan posisi kiri‑atasnya: `table->idx_get(1, 1)` dalam contoh ini. Posisi lain dalam rentang yang digabungkan tetap menjadi bagian dari kisi tabel, sehingga indeks sel di luar rentang tidak berubah.
 
-// Mengakses slide pertama
-SharedPtr<ISlide> islide = pres->get_Slides()->idx_get(0);
-
-// Mendefinisikan kolom dengan lebar dan baris dengan tinggi
-System::ArrayPtr<double> dblCols = System::MakeObject<System::Array<double>>(4, 70);
-System::ArrayPtr<double> dblRows = System::MakeObject<System::Array<double>>(4, 70);
-
-// Menambahkan bentuk tabel ke slide
-SharedPtr<ITable> table = islide->get_Shapes()->AddTable(100, 50, dblCols, dblRows);
-
-
-// Mengatur format border untuk setiap sel
-for (int x = 0; x < table->get_Rows()->get_Count(); x++)
-{
-    SharedPtr<IRow> row = table->get_Rows()->idx_get(x);
-    for (int y = 0; y < row->get_Count(); y++)
-    {
-        SharedPtr<ICell> cell = row->idx_get(y);
-
-        cell->get_BorderTop()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderTop()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderTop()->set_Width(5);
-
-        cell->get_BorderBottom()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderBottom()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderBottom()->set_Width(5);
-
-        cell->get_BorderLeft()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderLeft()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderLeft()->set_Width(5);
-
-        cell->get_BorderRight()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderRight()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderRight()->set_Width(5);
-
-    }
-
-}
-// Menggabungkan sel (1, 1) x (2, 1)
-table->MergeCells(table->idx_get(1, 1), table->idx_get(2, 1), false);
-
-// Menggabungkan sel (1, 2) x (2, 2)
-table->MergeCells(table->idx_get(1, 2), table->idx_get(2, 2), false);
-
-
-// Menyimpan file PPTX ke disk
-pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
-```
-
-Kemudian kami menggabungkan sel lebih lanjut dengan menggabungkan (1, 1) dan (1, 2). Hasilnya adalah tabel yang berisi sel besar yang digabungkan di tengahnya:
-
-```c++
-// Jalur ke direktori dokumen.
-const String outPath = u"../out/MergeCells_out.pptx";
-
-// Memuat presentasi yang diinginkan
-SharedPtr<Presentation> pres = MakeObject<Presentation>();
-
-// Mengakses slide pertama
-SharedPtr<ISlide> islide = pres->get_Slides()->idx_get(0);
-
-// Mendefinisikan kolom dengan lebar dan baris dengan tinggi
-System::ArrayPtr<double> dblCols = System::MakeObject<System::Array<double>>(4, 70);
-System::ArrayPtr<double> dblRows = System::MakeObject<System::Array<double>>(4, 70);
-
-// Menambahkan bentuk tabel ke slide
-SharedPtr<ITable> table = islide->get_Shapes()->AddTable(100, 50, dblCols, dblRows);
-
-
-// Mengatur format border untuk setiap sel
-for (int x = 0; x < table->get_Rows()->get_Count(); x++)
-{
-    SharedPtr<IRow> row = table->get_Rows()->idx_get(x);
-    for (int y = 0; y < row->get_Count(); y++)
-    {
-        SharedPtr<ICell> cell = row->idx_get(y);
-
-        cell->get_BorderTop()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderTop()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderTop()->set_Width(5);
-
-        cell->get_BorderBottom()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderBottom()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderBottom()->set_Width(5);
-
-        cell->get_BorderLeft()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderLeft()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderLeft()->set_Width(5);
-
-        cell->get_BorderRight()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderRight()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderRight()->set_Width(5);
-
-    }
-
-}
-
-// Menggabungkan sel (1, 1) x (2, 1)
-table->MergeCells(table->idx_get(1, 1), table->idx_get(2, 1), false);
-
-// Menggabungkan sel (1, 2) x (2, 2)
-table->MergeCells(table->idx_get(1, 2), table->idx_get(2, 2), false);
-
-
-// Menyimpan file PPTX ke disk
-pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
-```
-
-## **Penomoran dalam Sel yang Dipisah**
-Dalam contoh sebelumnya, ketika sel tabel digabungkan, penomoran atau sistem nomor pada sel lain tidak berubah.
-
-Kali ini, kami mengambil tabel biasa (tabel tanpa sel yang digabungkan) dan kemudian mencoba memisahkan sel (1,1) untuk mendapatkan tabel khusus. Anda mungkin ingin memperhatikan penomoran tabel ini, yang mungkin terasa aneh. Namun, itulah cara Microsoft PowerPoint menomori sel tabel dan Aspose.Slides melakukan hal yang sama.
-
-Kode C++ berikut mendemonstrasikan proses yang kami jelaskan:
-
-```c++
-// Jalur ke direktori dokumen.
-const String outPath = u"../out/CellSplit_out.pptx";
-
-// Memuat presentasi yang diinginkan
-SharedPtr<Presentation> pres = MakeObject<Presentation>();
-
-// Mengakses slide pertama
-SharedPtr<ISlide> islide = pres->get_Slides()->idx_get(0);
-
-// Mendefinisikan kolom dengan lebar dan baris dengan tinggi
-System::ArrayPtr<double> dblCols = System::MakeObject<System::Array<double>>(4, 70);
-System::ArrayPtr<double> dblRows = System::MakeObject<System::Array<double>>(4, 70);
-
-// Menambahkan bentuk tabel ke slide
-SharedPtr<ITable> table = islide->get_Shapes()->AddTable(100, 50, dblCols, dblRows);
-
-
-// Mengatur format border untuk setiap sel
-for (int x = 0; x < table->get_Rows()->get_Count(); x++)
-{
-    SharedPtr<IRow> row = table->get_Rows()->idx_get(x);
-    for (int y = 0; y < row->get_Count(); y++)
-    {
-        SharedPtr<ICell> cell = row->idx_get(y);
-
-        cell->get_BorderTop()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderTop()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderTop()->set_Width(5);
-
-        cell->get_BorderBottom()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderBottom()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderBottom()->set_Width(5);
-
-        cell->get_BorderLeft()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderLeft()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderLeft()->set_Width(5);
-
-        cell->get_BorderRight()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderRight()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderRight()->set_Width(5);
-
-    }
-
-}
-
-// Menggabungkan sel (1, 1) x (2, 1)
-table->MergeCells(table->idx_get(1, 1), table->idx_get(2, 1), false);
-
-// Menggabungkan sel (1, 2) x (2, 2)
-table->MergeCells(table->idx_get(1, 2), table->idx_get(2, 2), false);
-
-// memisahkan sel (1, 1). 
-table->idx_get(1, 1)->SplitByWidth(table->idx_get(2, 1)->get_Width() / 2);
-
-// Menyimpan file PPTX ke disk
-pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
-```
-
-## **Ubah Warna Latar Belakang Sel Tabel**
-
-Kode C++ berikut menunjukkan cara mengubah warna latar belakang sel tabel:
-
-``` cpp
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <DOM/Table/ICell.h>
+#include <system/smart_ptr.h>
+#include <Export/SaveFormat.h>
+#include <system/array.h>
 
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto columnWidths = MakeArray<double>({70, 70, 70, 70});
+auto rowHeights = MakeArray<double>({70, 70, 70, 70});
+auto table = slide->get_Shapes()->AddTable(100, 50, columnWidths, rowHeights);
+
+table->MergeCells(table->idx_get(1, 1), table->idx_get(2, 2), false);
+
+presentation->Save(u"merged_cells.pptx", SaveFormat::Pptx);
+```
+
+## **Pisahkan Sel Tabel**
+
+Menggabungkan sel pada contoh sebelumnya mempertahankan kisi tabel. Memisahkan sebuah sel dapat memperkenalkan kolom kisi baru dan mengubah indeks kolom sel di sebelah kanannya. Aspose.Slides mengikuti model kisi tabel PowerPoint.
+
+Contoh ini membuat tabel 4‑by‑4 dengan kolom dan baris 70 poin dan memanggil [SplitByWidth](https://reference.aspose.com/slides/cpp/aspose.slides/icell/splitbywidth/) pada sel `(1, 1)`. Setengah lebar 70 poin sel tersebut diberikan untuk membuat dua sel dengan lebar yang sama.
+
+Setelah pemisahan ini, dua bagian diakses sebagai `table->idx_get(1, 1)` dan `table->idx_get(2, 1)`. Kisi tabel kini memiliki lima kolom: sel yang semula berada di kolom 2 dan 3 berpindah ke kolom 3 dan 4, masing‑masing. Indeks baris tetap tidak berubah. Gunakan indeks kolom yang diperbarui ini saat mengakses sel setelah pemisahan.
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <DOM/Table/ICell.h>
+#include <system/smart_ptr.h>
+#include <Export/SaveFormat.h>
+#include <system/array.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto columnWidths = MakeArray<double>({70, 70, 70, 70});
+auto rowHeights = MakeArray<double>({70, 70, 70, 70});
+auto table = slide->get_Shapes()->AddTable(100, 50, columnWidths, rowHeights);
+
+table->idx_get(1, 1)->SplitByWidth(table->idx_get(1, 1)->get_Width() / 2);
+
+presentation->Save(u"split_cells.pptx", SaveFormat::Pptx);
+```
+
+### **Pisahkan Sel yang Digabungkan berdasarkan Rentang Baris atau Kolom**
+
+Untuk mempersiapkan sel templat yang digabungkan untuk pengisian data, gunakan [SplitByRowSpan](https://reference.aspose.com/slides/cpp/aspose.slides/icell/splitbyrowspan/) untuk memisahkan sepanjang batas baris yang ada, atau [SplitByColSpan](https://reference.aspose.com/slides/cpp/aspose.slides/icell/splitbycolspan/) untuk memisahkan sepanjang batas kolom.
+
+Argumen `index` menghitung baris di bagian atas atau kolom di bagian kiri dari pemisahan; ia relatif terhadap wilayah yang digabungkan:
+- Pemisahan baris: `0 < index <` [get_RowSpan](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_rowspan/).
+- Pemisahan kolom: `0 < index <` [get_ColSpan](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_colspan/).
+
+Contoh ini mengharapkan sebuah presentasi memiliki tabel sebagai bentuk pertama pada slide pertama, dengan `(1, 2)` dan `(1, 3)` digabung secara vertikal. Dimulai dari posisi bawah, ia menggunakan [get_FirstColumnIndex](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_firstcolumnindex/) dan [get_FirstRowIndex](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_firstrowindex/) untuk menemukan asal dan memeriksa kedua rentang. `SplitByRowSpan(1)` kemudian memisahkan baris 2 dan 3 untuk nama produk. Untuk penggabungan dua kolom secara horizontal, gunakan `SplitByColSpan(1)` sebagai gantinya.
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <DOM/Table/ICell.h>
+#include <system/smart_ptr.h>
+#include <DOM/ITextFrame.h>
+#include <system/console.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"table_template.pptx");
+auto slide = presentation->get_Slide(0);
+auto table = ExplicitCast<ITable>(slide->get_Shape(0));
+
+auto selectedCell = table->idx_get(1, 3);
+auto firstColumnIndex = selectedCell->get_FirstColumnIndex();
+auto firstRowIndex = selectedCell->get_FirstRowIndex();
+auto mergedCell = table->idx_get(firstColumnIndex, firstRowIndex);
+
+if (mergedCell->get_IsMergedCell() && mergedCell->get_RowSpan() == 2 && mergedCell->get_ColSpan() == 1)
+{
+    mergedCell->SplitByRowSpan(1);
+
+    // Ambil sel yang dihasilkan dari tabel setelah dipisah.
+    auto upperCell = table->idx_get(firstColumnIndex, firstRowIndex);
+    auto lowerCell = table->idx_get(firstColumnIndex, firstRowIndex + 1);
+    Console::WriteLine(u"Upper cell merged: {0}", upperCell->get_IsMergedCell());
+    Console::WriteLine(u"Lower cell merged: {0}", lowerCell->get_IsMergedCell());
+
+    upperCell->get_TextFrame()->set_Text(u"Product A");
+    lowerCell->get_TextFrame()->set_Text(u"Product B");
+
+    presentation->Save(u"split_template.pptx", SaveFormat::Pptx);
+}
+else
+{
+    Console::WriteLine(u"Select a merged region spanning exactly two rows and one column.");
+}
+```
+
+Kisi tabel dan indeks sel di sekitarnya tetap tidak berubah. Ambil sel hasil dengan koordinatnya; di sini, keduanya memiliki rentang 1 dan [get_IsMergedCell](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_ismergedcell/) mencetak `False`. Wilayah yang lebih besar dapat tetap sebagian tergabung setelah satu pemisahan.
+
+Teks asli dan formatnya tetap berada di sel atas (atau kiri); sel baru kosong tetapi mewarisi format sel seperti isian, batas, dan margin. Isi sel setelah pemisahan dan atur format teks yang diperlukan secara eksplisit.
+
+Presentasi yang disimpan berisi sel terpisah "Product A" dan "Product B" dengan format sel dari templat yang dipertahankan. Lihat [Cell API Reference](https://reference.aspose.com/slides/cpp/aspose.slides/cell/) untuk detail.
+
+## **Ubah Warna Latar Belakang Sel Tabel**
+
+Contoh ini membuat tabel dengan kolom 150 poin dan baris 50 poin. Ia menggunakan [set_FillType](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/set_filltype/) untuk memilih isian padat dan [get_SolidFillColor](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/get_solidfillcolor/) untuk mengakses warna isian dan mengaturnya menjadi merah untuk sel `(2, 3)`, pada kolom ketiga dan baris keempat.
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <DOM/Table/ICell.h>
+#include <system/smart_ptr.h>
+#include <DOM/FillType.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/Table/ICellFormat.h>
+#include <drawing/color.h>
+#include <Export/SaveFormat.h>
+#include <system/array.h>
+
 using namespace System::Drawing;
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-auto presentation = System::MakeObject<Presentation>();
-auto slide = presentation->get_Slides()->idx_get(0);
-        
-auto dblCols = System::MakeArray<double>({150, 150, 150, 150});
-auto dblRows = System::MakeArray<double>({50, 50, 50, 50, 50});
-        
-// buat tabel baru
-auto table = slide->get_Shapes()->AddTable(50.0f, 50.0f, dblCols, dblRows);
-        
-// atur warna latar belakang untuk sel 
-System::SharedPtr<ICell> cell = table->idx_get(2, 3);
-cell->get_CellFormat()->get_FillFormat()->set_FillType(Aspose::Slides::FillType::Solid);
-cell->get_CellFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        
-presentation->Save(u"cell_background_color.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
+auto columnWidths = MakeArray<double>({150, 150, 150, 150});
+auto rowHeights = MakeArray<double>({50, 50, 50, 50, 50});
+auto table = slide->get_Shapes()->AddTable(50, 50, columnWidths, rowHeights);
+
+auto cell = table->idx_get(2, 3);
+cell->get_CellFormat()->get_FillFormat()->set_FillType(FillType::Solid);
+cell->get_CellFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Red());
+
+presentation->Save(u"cell_background_color.pptx", SaveFormat::Pptx);
 ```
 
 ## **Tambahkan Gambar di Dalam Sel Tabel**
-1. Buat instance kelas `Presentation`.
-2. Dapatkan referensi slide melalui indeksnya.
-3. Tentukan array kolom dengan lebar.
-4. Tentukan array baris dengan tinggi.
-5. Tambahkan tabel ke slide melalui metode `AddTable`.
-6. Buat objek `Bitmap` untuk menampung file gambar.
-7. Tambahkan gambar bitmap ke objek `IPPImage`.
-8. Atur `FillFormat` untuk Sel Tabel menjadi `Picture`.
-9. Tambahkan gambar ke sel pertama tabel.
-10. Simpan presentasi yang dimodifikasi sebagai file PPTX
 
-Kode C# berikut menunjukkan cara menempatkan gambar di dalam sel tabel saat membuat tabel:
+Letakkan gambar input di direktori kerja sebelum menjalankan contoh ini. Ia memuat gambar dengan [Images::FromFile](https://reference.aspose.com/slides/cpp/aspose.slides/images/fromfile/) dan menambahkannya ke koleksi gambar presentasi dengan [AddImage](https://reference.aspose.com/slides/cpp/aspose.slides/iimagecollection/addimage/). Kemudian gambar tersebut diberikan ke isian gambar sel `(0, 0)`, sel pertama pada tabel.
 
-```c++
-// Jalur ke direktori dokumen.
-const String outPath = u"../out/Image_In_TableCell_out.pptx";
-const String ImagePath = u"../templates/Tulips.jpg";
+[PictureFillMode::Stretch](https://reference.aspose.com/slides/cpp/aspose.slides/picturefillmode/) memanjang gambar untuk mengisi sel, yang dapat mengubah rasio aspeknya. Lebar kolom dan tinggi baris dalam poin. Gambar yang dimuat dibuang setelah ditambahkan ke presentasi.
 
-// Memuat presentasi yang diinginkan
-SharedPtr<Presentation> pres = MakeObject<Presentation>();
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <DOM/Table/ICell.h>
+#include <system/smart_ptr.h>
+#include <DOM/FillType.h>
+#include <DOM/IImageCollection.h>
+#include <IImage.h>
+#include <DOM/IPPImage.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/ISlidesPicture.h>
+#include <DOM/PictureFillMode.h>
+#include <DOM/Table/ICellFormat.h>
+#include <Util/Images.h>
+#include <Export/SaveFormat.h>
+#include <system/array.h>
 
-// Mengakses slide pertama
-SharedPtr<ISlide> islide = pres->get_Slides()->idx_get(0);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-// Mendefinisikan kolom dengan lebar dan baris dengan tinggi
-System::ArrayPtr<double> dblCols = System::MakeObject<System::Array<double>>(4, 150);
-System::ArrayPtr<double> dblRows = System::MakeObject<System::Array<double>>(4, 100);
-System::ArrayPtr<double> total_for_Cat = System::MakeObject<System::Array<double>>(5, 0);
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-// Menambahkan bentuk tabel ke slide
-auto tbl = islide->get_Shapes()->AddTable(50, 50, dblCols, dblRows);
+auto columnWidths = MakeArray<double>({150, 150, 150, 150});
+auto rowHeights = MakeArray<double>({100, 100, 100, 100, 90});
+auto table = slide->get_Shapes()->AddTable(50, 50, columnWidths, rowHeights);
 
-// Mengambil gambar
-auto img = Images::FromFile(ImagePath);
+auto image = Images::FromFile(u"aspose_logo.jpg");
+auto ppImage = presentation->get_Images()->AddImage(image);
+image->Dispose();
 
-// Menambahkan gambar ke koleksi gambar presentasi
-SharedPtr<IPPImage> imgx = pres->get_Images()->AddImage(img);
+table->idx_get(0, 0)->get_CellFormat()->get_FillFormat()->set_FillType(FillType::Picture);
+table->idx_get(0, 0)->get_CellFormat()->get_FillFormat()->get_PictureFillFormat()->set_PictureFillMode(PictureFillMode::Stretch);
+table->idx_get(0, 0)->get_CellFormat()->get_FillFormat()->get_PictureFillFormat()->get_Picture()->set_Image(ppImage);
 
-
-// Menambahkan gambar ke sel tabel pertama
-tbl->idx_get(0, 0)->get_FillFormat()->set_FillType(FillType::Picture);
-tbl->idx_get(0, 0)->get_FillFormat()->get_PictureFillFormat()->set_PictureFillMode(PictureFillMode::Stretch);
-tbl->idx_get(0, 0)->get_FillFormat()->get_PictureFillFormat()->get_Picture()->set_Image(imgx);
-
-// Simpan file PPTX ke disk
-pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
+presentation->Save(u"table_cell_with_image.pptx", SaveFormat::Pptx);
 ```
 
 ## **FAQ**
 
-**Apakah saya dapat mengatur ketebalan dan gaya garis yang berbeda untuk sisi yang berbeda dari satu sel?**
+**Bisakah saya mengatur ketebalan garis dan gaya yang berbeda untuk sisi yang berbeda dari satu sel?**
 
-Ya. Border [top](https://reference.aspose.com/slides/id/cpp/aspose.slides/cellformat/get_bordertop/)/[bottom](https://reference.aspose.com/slides/id/cpp/aspose.slides/cellformat/get_borderbottom/)/[left](https://reference.aspose.com/slides/id/cpp/aspose.slides/cellformat/get_borderleft/)/[right](https://reference.aspose.com/slides/id/cpp/aspose.slides/cellformat/get_borderright/) memiliki properti terpisah, sehingga ketebalan dan gaya setiap sisi dapat berbeda. Hal ini logis sesuai dengan kontrol border per sisi untuk sebuah sel yang ditunjukkan dalam artikel.
+Ya. Batas [atas](https://reference.aspose.com/slides/cpp/aspose.slides/cellformat/get_bordertop/)/[bawah](https://reference.aspose.com/slides/cpp/aspose.slides/cellformat/get_borderbottom/)/[kiri](https://reference.aspose.com/slides/cpp/aspose.slides/cellformat/get_borderleft/)/[kanan](https://reference.aspose.com/slides/cpp/aspose.slides/cellformat/get_borderright/) memiliki properti terpisah, sehingga ketebalan dan gaya masing‑masing sisi dapat berbeda.
 
-**Apa yang terjadi pada gambar jika saya mengubah ukuran kolom/baris setelah menetapkan gambar sebagai latar belakang sel?**
+**Apa yang terjadi pada gambar jika saya mengubah ukuran kolom/baris setelah mengatur gambar sebagai latar belakang sel?**
 
-Perilakunya tergantung pada [fill mode](https://reference.aspose.com/slides/id/cpp/aspose.slides/picturefillmode/) (stretch/tile). Dengan stretch, gambar menyesuaikan diri dengan sel baru; dengan tile, ubin dihitung ulang. Artikel ini menyebutkan mode tampilan gambar dalam sel.
+Perilakunya tergantung pada [fill mode](https://reference.aspose.com/slides/cpp/aspose.slides/picturefillmode/). Dengan peregangan, gambar menyesuaikan diri dengan sel baru; dengan penempatan ubin, ubin‑ubin tersebut dihitung ulang.
 
-**Apakah saya dapat menetapkan hyperlink ke seluruh konten sel?**
+**Bisakah saya menetapkan hyperlink ke seluruh konten sel?**
 
-[Hyperlinks](/slides/id/cpp/manage-hyperlinks/) diatur pada tingkat teks (portion) di dalam bingkai teks sel atau pada tingkat seluruh tabel/bentuk. Pada praktiknya, Anda menetapkan tautan ke bagian tertentu atau ke seluruh teks dalam sel.
+[Hyperlinks](/slides/id/cpp/manage-hyperlinks/) diatur pada tingkat teks (bagian) di dalam bingkai teks sel atau pada tingkat seluruh tabel/bentuk. Pada praktiknya, Anda menetapkan tautan ke suatu bagian atau ke seluruh teks dalam sel.
 
-**Apakah saya dapat mengatur font yang berbeda dalam satu sel?**
+**Bisakah saya mengatur font yang berbeda dalam satu sel?**
 
-Ya. Bingkai teks sel mendukung [portions](https://reference.aspose.com/slides/id/cpp/aspose.slides/portion/) (run) dengan format independen—familir font, gaya, ukuran, dan warna.
+Ya. Bingkai teks sel mendukung [portions](https://reference.aspose.com/slides/cpp/aspose.slides/portion/).

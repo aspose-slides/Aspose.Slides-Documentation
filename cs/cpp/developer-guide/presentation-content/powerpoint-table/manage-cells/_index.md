@@ -6,358 +6,331 @@ weight: 30
 url: /cs/cpp/manage-cells/
 keywords:
 - buňka tabulky
-- sloučení buněk
-- odstranění okraje
-- rozdělení buňky
+- sloučit buňky
+- odstranit okraj
+- rozdělit buňku
 - obrázek v buňce
 - barva pozadí
 - PowerPoint
 - prezentace
 - C++
 - Aspose.Slides
-description: "Jednoduše spravujte buňky tabulky v PowerPoint pomocí Aspose.Slides pro C++. Ovládněte přístup, úpravu a stylování buněk rychle pro plynulou automatizaci snímků."
+description: "Spravujte buňky tabulky PowerPoint v C++: identifikujte sloučené buňky, odstraňujte okraje, rozdělte buňky a nastavte barvy pozadí a obrázky pomocí Aspose.Slides pro C++."
 ---
 ## **Přehled**
 
-Aspose.Slides vám umožňuje přistupovat k buňkám tabulek a upravovat je v prezentacích PowerPoint. Tento článek vysvětluje, jak identifikovat sloučené buňky tabulky, odstranit okraje buněk, pracovat s číslováním buněk po sloučení nebo rozdělení buněk, změnit barvu pozadí buňky a přidat obrázek do buňky tabulky. Příklady ukazují, jak vytvořit nebo otevřít prezentaci, získat tabulku ze snímku, aktualizovat formátování buněk pomocí vlastností buňky a uložit upravenou prezentaci jako soubor PPTX.
+Aspose.Slides vám umožňuje přistupovat k buňkám tabulky a měnit je v prezentacích PowerPoint. Tento článek vysvětluje, jak identifikovat sloučené buňky tabulky, odstranit okraje buněk, pracovat s číslováním buněk po sloučení nebo rozdělení buněk, změnit barvu pozadí buňky a přidat obrázek uvnitř buňky tabulky. Příklady ukazují, jak vytvořit nebo otevřít prezentaci, získat tabulku ze snímku, aktualizovat formátování buněk prostřednictvím vlastností buňky a uložit upravenou prezentaci jako soubor PPTX.  
+Aspose.Slides používá nulové indexy pro přístup k buňkám tabulky v pořadí `(column, row)`.
 
-## **Identifikace sloučené buňky**
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.presentation).
-2. Získejte tabulku z prvního snímku. 
-3. Procházejte řádky a sloupce tabulky, abyste našli sloučené buňky.
-4. Vytiskněte zprávu, když jsou nalezeny sloučené buňky.
+## **Identifikace sloučené buňky tabulky**
 
-``` cpp
-auto pres = System::MakeObject<Presentation>(u"SomePresentationWithTable.pptx");
-auto table = System::AsCast<ITable>(pres->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0));
+Příklad otevře existující prezentaci a přistoupí k prvnímu tvaru na první snímku jako k tabulce. Předpokládá, že snímek a tvar existují a že tvar je tabulka. Poté prochází všechny řádky a sloupce a pomocí [get_IsMergedCell](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_ismergedcell/) identifikuje buňky ve sloučených oblastech. Pro každou shodu vypíše souřadnice buňky v pořadí `row;column`, [get_RowSpan](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_rowspan/), [get_ColSpan](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_colspan/) a počáteční souřadnice oblasti, [get_FirstRowIndex](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_firstrowindex/) a [get_FirstColumnIndex](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_firstcolumnindex/).
 
-// assuming that Slide#0.Shape#0 is a table
-for (int32_t i = 0; i < table->get_Rows()->get_Count(); i++)
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <DOM/Table/ICell.h>
+#include <system/smart_ptr.h>
+#include <DOM/Table/IRowCollection.h>
+#include <DOM/Table/IColumnCollection.h>
+#include <system/console.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"presentation_with_table.pptx");
+auto slide = presentation->get_Slide(0);
+auto table = ExplicitCast<ITable>(slide->get_Shape(0));
+
+auto rowCount = table->get_Rows()->get_Count();
+for (auto rowIndex = 0; rowIndex < rowCount; rowIndex++)
 {
-    for (int32_t j = 0; j < table->get_Columns()->get_Count(); j++)
+    auto columnCount = table->get_Columns()->get_Count();
+    for (auto columnIndex = 0; columnIndex < columnCount; columnIndex++)
     {
-        auto currentCell = table->get_Rows()->idx_get(i)->idx_get(j);
-        if (currentCell->get_IsMergedCell())
+        auto cell = table->idx_get(columnIndex, rowIndex);
+        if (cell->get_IsMergedCell())
         {
-            Console::WriteLine(String::Format(u"Cell {0};{1} is a part of merged cell with RowSpan={2} and ColSpan={3} starting from Cell {4};{5}.", 
-                i, j, currentCell->get_RowSpan(), currentCell->get_ColSpan(), currentCell->get_FirstRowIndex(), currentCell->get_FirstColumnIndex()));
+            Console::WriteLine(u"Cell {0};{1} belongs to a merged region with RowSpan={2} and ColSpan={3} starting at {4};{5}.", rowIndex, columnIndex, cell->get_RowSpan(), cell->get_ColSpan(), cell->get_FirstRowIndex(), cell->get_FirstColumnIndex());
         }
     }
 }
 ```
 
-## **Odstranění okrajů buněk tabulky**
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.presentation).
-2. Získejte referenci na snímek pomocí jeho indexu. 
-3. Definujte pole sloupců s šířkou.
-4. Definujte pole řádků s výškou.
-5. Přidejte tabulku do snímku pomocí metody `AddTable`.
-6. Procházejte každou buňku a vymažte horní, dolní, pravý a levý okraj.
-7. Uložte upravenou prezentaci jako soubor PPTX.
+## **Odstranění okrajů buňky tabulky**
 
-``` cpp
-// Vytvoří instanci třídy Presentation, která představuje soubor PPTX
-auto pres = MakeObject<Presentation>();
-// Přistupuje k prvnímu snímku
-auto sld = pres->get_Slides()->idx_get(0);
+Vytvořte objekt [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) a přidejte tabulku na první snímek pomocí [AddTable](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addtable/). Šířky sloupců, výšky řádků a pozice tabulky jsou zadány v bodech. Příklad nastaví všechny čtyři okraje buňky na [FillType::NoFill](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/), čímž je učiní neviditelnými.
 
-// Definuje sloupce se šířkami a řádky s výškami
-auto dblCols = MakeArray<double>({ 50, 50, 50, 50 });
-auto dblRows = MakeArray<double>({ 50, 30, 30, 30, 30 });
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <DOM/Table/ICell.h>
+#include <system/smart_ptr.h>
+#include <DOM/FillType.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/Table/ICellFormat.h>
+#include <DOM/Table/IRow.h>
+#include <DOM/Table/IRowCollection.h>
+#include <system/enumerator_adapter.h>
+#include <Export/SaveFormat.h>
+#include <system/array.h>
 
-// Přidá tvar tabulky do snímku
-auto tbl = sld->get_Shapes()->AddTable(100.0f, 50.0f, dblCols, dblRows);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-// Nastaví formát okrajů pro každou buňku
-for (const auto& row : System::IterateOver(tbl->get_Rows()))
-{
-    for (const auto& cell : System::IterateOver(row))
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto columnWidths = MakeArray<double>({50, 50, 50, 50});
+auto rowHeights = MakeArray<double>({50, 30, 30, 30, 30});
+auto table = slide->get_Shapes()->AddTable(100, 50, columnWidths, rowHeights);
+
+for (const auto& row : IterateOver(table->get_Rows()))
+    for (const auto& cell : IterateOver(row))
     {
         cell->get_CellFormat()->get_BorderTop()->get_FillFormat()->set_FillType(FillType::NoFill);
         cell->get_CellFormat()->get_BorderBottom()->get_FillFormat()->set_FillType(FillType::NoFill);
         cell->get_CellFormat()->get_BorderLeft()->get_FillFormat()->set_FillType(FillType::NoFill);
         cell->get_CellFormat()->get_BorderRight()->get_FillFormat()->set_FillType(FillType::NoFill);
     }
-}
 
-// Zapíše soubor PPTX na disk
-pres->Save(u"table_out.pptx", SaveFormat::Pptx);
+presentation->Save(u"table.pptx", SaveFormat::Pptx);
 ```
 
-## **Číslování ve sloučených buňkách**
-Pokud sloučíme 2 páry buněk (1, 1) x (2, 1) a (1, 2) x (2, 2), výsledná tabulka bude číslovaná. Tento C# kód demonstruje proces:
+## **Sloučení buněk tabulky**
 
-```c++
-const String outPath = u"../out/MergeCells_out.pptx";
+Použijte [MergeCells](https://reference.aspose.com/slides/cpp/aspose.slides/itable/mergecells/) k sloučení obdélníkového rozsahu buněk tabulky do jedné buňky. Uveďte buňky v levém horním a pravém dolním rohu rozsahu. Poslední argument určuje, zda sloučení může zahrnovat buňky mimo zadaný rozsah; `false` udržuje sloučení uvnitř tohoto rozsahu.
 
-// Načte požadovanou prezentaci
-SharedPtr<Presentation> pres = MakeObject<Presentation>();
+Příklad vytvoří tabulku 4 × 4 se sloupci a řádky o šířce 70 bodů a následně sloučí čtyři centrální buňky od `(1, 1)` po `(2, 2)`. Výsledná buňka zabírá dva sloupce a dva řádky, zatímco podkladová mřížka tabulky si zachová čtyři sloupce a čtyři řádky. Pro přístup k obsahu nebo formátování sloučené buňky použijte její pozici v levém horním rohu: `table->idx_get(1, 1)` v tomto příkladu. Ostatní pozice ve sloučeném rozsahu zůstávají součástí mřížky tabulky, takže indexy buněk mimo rozsah se nezmění.
 
-// Přistupuje k prvnímu snímku
-SharedPtr<ISlide> islide = pres->get_Slides()->idx_get(0);
-
-// Definuje sloupce se šířkami a řádky s výškami
-System::ArrayPtr<double> dblCols = System::MakeObject<System::Array<double>>(4, 70);
-System::ArrayPtr<double> dblRows = System::MakeObject<System::Array<double>>(4, 70);
-
-// Přidá tvar tabulky do snímku
-SharedPtr<ITable> table = islide->get_Shapes()->AddTable(100, 50, dblCols, dblRows);
-
-
-// Nastaví formát okraje pro každou buňku
-for (int x = 0; x < table->get_Rows()->get_Count(); x++)
-{
-    SharedPtr<IRow> row = table->get_Rows()->idx_get(x);
-    for (int y = 0; y < row->get_Count(); y++)
-    {
-        SharedPtr<ICell> cell = row->idx_get(y);
-
-        cell->get_BorderTop()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderTop()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderTop()->set_Width(5);
-
-        cell->get_BorderBottom()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderBottom()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderBottom()->set_Width(5);
-
-        cell->get_BorderLeft()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderLeft()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderLeft()->set_Width(5);
-
-        cell->get_BorderRight()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderRight()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderRight()->set_Width(5);
-
-    }
-
-}
-// Sloučí buňky (1, 1) x (2, 1)
-table->MergeCells(table->idx_get(1, 1), table->idx_get(2, 1), false);
-
-// Sloučí buňky (1, 2) x (2, 2)
-table->MergeCells(table->idx_get(1, 2), table->idx_get(2, 2), false);
-
-
-// Uloží soubor PPTX na disk
-pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
-```
-
-Poté buňky dále sloučíme sloučením (1, 1) a (1, 2). Výsledkem je tabulka obsahující velkou sloučenou buňku uprostřed: 
-
-```c++
-// Cesta k adresáři dokumentů.
-const String outPath = u"../out/MergeCells_out.pptx";
-
-// Načte požadovanou prezentaci
-SharedPtr<Presentation> pres = MakeObject<Presentation>();
-
-// Přistupuje k prvnímu snímku
-SharedPtr<ISlide> islide = pres->get_Slides()->idx_get(0);
-
-// Definuje sloupce se šířkami a řádky s výškami
-System::ArrayPtr<double> dblCols = System::MakeObject<System::Array<double>>(4, 70);
-System::ArrayPtr<double> dblRows = System::MakeObject<System::Array<double>>(4, 70);
-
-// Přidá tvar tabulky do snímku
-SharedPtr<ITable> table = islide->get_Shapes()->AddTable(100, 50, dblCols, dblRows);
-
-
-// Nastaví formát okraje pro každou buňku
-for (int x = 0; x < table->get_Rows()->get_Count(); x++)
-{
-    SharedPtr<IRow> row = table->get_Rows()->idx_get(x);
-    for (int y = 0; y < row->get_Count(); y++)
-    {
-        SharedPtr<ICell> cell = row->idx_get(y);
-
-        cell->get_BorderTop()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderTop()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderTop()->set_Width(5);
-
-        cell->get_BorderBottom()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderBottom()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderBottom()->set_Width(5);
-
-        cell->get_BorderLeft()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderLeft()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderLeft()->set_Width(5);
-
-        cell->get_BorderRight()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderRight()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderRight()->set_Width(5);
-
-    }
-
-}
-
-// Sloučí buňky (1, 1) x (2, 1)
-table->MergeCells(table->idx_get(1, 1), table->idx_get(2, 1), false);
-
-// Sloučí buňky (1, 2) x (2, 2)
-table->MergeCells(table->idx_get(1, 2), table->idx_get(2, 2), false);
-
-
-// Uloží soubor PPTX na disk
-pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
-```
-
-## **Číslování v rozdělené buňce**
-V předchozích příkladech, když byly buňky tabulky sloučeny, číslování nebo číselný systém v ostatních buňkách se nezměnil. 
-
-Tentokrát vezmeme běžnou tabulku (tabulku bez sloučených buněk) a pak se pokusíme rozdělit buňku (1,1), abychom získali zvláštní tabulku. Měli byste věnovat pozornost číslování této tabulky, které může působit podivně. Přesto je to způsob, jakým Microsoft PowerPoint čísluje buňky tabulky, a Aspose.Slides dělá totéž. 
-
-Tento C++ kód demonstruje popsaný proces:
-
-```c++
-// Cesta k adresáři dokumentů.
-const String outPath = u"../out/CellSplit_out.pptx";
-
-// Načte požadovanou prezentaci
-SharedPtr<Presentation> pres = MakeObject<Presentation>();
-
-// Přistupuje k prvnímu snímku
-SharedPtr<ISlide> islide = pres->get_Slides()->idx_get(0);
-
-// Definuje sloupce se šířkami a řádky s výškami
-System::ArrayPtr<double> dblCols = System::MakeObject<System::Array<double>>(4, 70);
-System::ArrayPtr<double> dblRows = System::MakeObject<System::Array<double>>(4, 70);
-
-// Přidá tvar tabulky do snímku
-SharedPtr<ITable> table = islide->get_Shapes()->AddTable(100, 50, dblCols, dblRows);
-
-
-// Nastaví formát okraje pro každou buňku
-for (int x = 0; x < table->get_Rows()->get_Count(); x++)
-{
-    SharedPtr<IRow> row = table->get_Rows()->idx_get(x);
-    for (int y = 0; y < row->get_Count(); y++)
-    {
-        SharedPtr<ICell> cell = row->idx_get(y);
-
-        cell->get_BorderTop()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderTop()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderTop()->set_Width(5);
-
-        cell->get_BorderBottom()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderBottom()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderBottom()->set_Width(5);
-
-        cell->get_BorderLeft()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderLeft()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderLeft()->set_Width(5);
-
-        cell->get_BorderRight()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderRight()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderRight()->set_Width(5);
-
-    }
-
-}
-
-// Sloučí buňky (1, 1) x (2, 1)
-table->MergeCells(table->idx_get(1, 1), table->idx_get(2, 1), false);
-
-// Sloučí buňky (1, 2) x (2, 2)
-table->MergeCells(table->idx_get(1, 2), table->idx_get(2, 2), false);
-
-// Rozdělí buňku (1, 1). 
-table->idx_get(1, 1)->SplitByWidth(table->idx_get(2, 1)->get_Width() / 2);
-
-// Uloží soubor PPTX na disk
-pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
-```
-
-## **Změna barvy pozadí buňky tabulky**
-
-Tento C++ kód ukazuje, jak změnit barvu pozadí buňky tabulky:
-
-``` cpp
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <DOM/Table/ICell.h>
+#include <system/smart_ptr.h>
+#include <Export/SaveFormat.h>
+#include <system/array.h>
 
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto columnWidths = MakeArray<double>({70, 70, 70, 70});
+auto rowHeights = MakeArray<double>({70, 70, 70, 70});
+auto table = slide->get_Shapes()->AddTable(100, 50, columnWidths, rowHeights);
+
+table->MergeCells(table->idx_get(1, 1), table->idx_get(2, 2), false);
+
+presentation->Save(u"merged_cells.pptx", SaveFormat::Pptx);
+```
+
+## **Rozdělení buněk tabulky**
+
+Sloučení buněk v předchozím příkladu zachovává mřížku tabulky. Rozdělení buňky může zavést nový sloupec v mřížce a změnit indexy sloupců buněk vpravo od ní. Aspose.Slides se řídí modelem mřížky tabulky v PowerPointu.
+
+Tento příklad vytvoří tabulku 4 × 4 se sloupci a řádky o šířce 70 bodů a zavolá [SplitByWidth](https://reference.aspose.com/slides/cpp/aspose.slides/icell/splitbywidth/) na buňku `(1, 1)`. Polovina šířky buňky 70 bodů je předána pro vytvoření dvou buňek stejné šířky.
+
+Po tomto rozdělení jsou dvě poloviny přístupné jako `table->idx_get(1, 1)` a `table->idx_get(2, 1)`. Mřížka tabulky nyní má pět sloupců: buňky původně ve sloupcích 2 a 3 se přesunou do sloupců 3 a 4. Indexy řádků zůstávají beze změny. Používejte tyto aktualizované indexy sloupců při přístupu k buňkám po rozdělení.
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <DOM/Table/ICell.h>
+#include <system/smart_ptr.h>
+#include <Export/SaveFormat.h>
+#include <system/array.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto columnWidths = MakeArray<double>({70, 70, 70, 70});
+auto rowHeights = MakeArray<double>({70, 70, 70, 70});
+auto table = slide->get_Shapes()->AddTable(100, 50, columnWidths, rowHeights);
+
+table->idx_get(1, 1)->SplitByWidth(table->idx_get(1, 1)->get_Width() / 2);
+
+presentation->Save(u"split_cells.pptx", SaveFormat::Pptx);
+```
+
+### **Rozdělení sloučených buněk podle řádku nebo sloupce**
+
+Pro přípravu sloučených šablonových buněk na naplnění daty použijte [SplitByRowSpan](https://reference.aspose.com/slides/cpp/aspose.slides/icell/splitbyrowspan/) pro rozdělení podél existující řádkové hranice nebo [SplitByColSpan](https://reference.aspose.com/slides/cpp/aspose.slides/icell/splitbycolspan/) pro rozdělení podél sloupcové hranice.  
+
+`index` argument počítá řádky v horní části nebo sloupce v levé části rozdělení; je relativní k sloučené oblasti:
+
+- Rozdělení řádku: `0 < index <` [get_RowSpan](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_rowspan/).
+- Rozdělení sloupce: `0 < index <` [get_ColSpan](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_colspan/).
+
+Příklad předpokládá, že prezentace má tabulku jako první tvar na první snímku, přičemž buňky `(1, 2)` a `(1, 3)` jsou sloučeny vertikálně. Začínaje od spodní pozice, používá [get_FirstColumnIndex](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_firstcolumnindex/) a [get_FirstRowIndex](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_firstrowindex/) k nalezení počátku a kontroluje oba rozsahy. `SplitByRowSpan(1)` pak oddělí řádky 2 a 3 pro názvy produktů. Pro horizontální sloučení dvou sloupců použijte místo toho `SplitByColSpan(1)`.
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <DOM/Table/ICell.h>
+#include <system/smart_ptr.h>
+#include <DOM/ITextFrame.h>
+#include <system/console.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"table_template.pptx");
+auto slide = presentation->get_Slide(0);
+auto table = ExplicitCast<ITable>(slide->get_Shape(0));
+
+auto selectedCell = table->idx_get(1, 3);
+auto firstColumnIndex = selectedCell->get_FirstColumnIndex();
+auto firstRowIndex = selectedCell->get_FirstRowIndex();
+auto mergedCell = table->idx_get(firstColumnIndex, firstRowIndex);
+
+if (mergedCell->get_IsMergedCell() && mergedCell->get_RowSpan() == 2 && mergedCell->get_ColSpan() == 1)
+{
+    mergedCell->SplitByRowSpan(1);
+
+    // Získejte výsledné buňky z tabulky po rozdělení.
+    auto upperCell = table->idx_get(firstColumnIndex, firstRowIndex);
+    auto lowerCell = table->idx_get(firstColumnIndex, firstRowIndex + 1);
+    Console::WriteLine(u"Upper cell merged: {0}", upperCell->get_IsMergedCell());
+    Console::WriteLine(u"Lower cell merged: {0}", lowerCell->get_IsMergedCell());
+
+    upperCell->get_TextFrame()->set_Text(u"Product A");
+    lowerCell->get_TextFrame()->set_Text(u"Product B");
+
+    presentation->Save(u"split_template.pptx", SaveFormat::Pptx);
+}
+else
+{
+    Console::WriteLine(u"Select a merged region spanning exactly two rows and one column.");
+}
+```
+
+Mřížka tabulky a okolní indexy buněk zůstávají beze změny. Získejte výsledné buňky podle jejich souřadnic; v tomto případě mají oba rozsahy 1 a [get_IsMergedCell](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_ismergedcell/) vypíše `False`. Větší oblasti mohou po jednom rozdělení zůstat částečně sloučeny.  
+
+Původní text a jeho formátování zůstávají v horní (nebo levé) buňce; nová buňka je prázdná, ale dědí formátování buňky, jako je výplň, okraje a okraje. Po rozdělení buňky naplňte a nastavení požadovaného formátování textu proveďte explicitně.  
+
+Uložená prezentace obsahuje samostatné buňky „Product A“ a „Product B“ s zachovaným formátováním buňky ze šablony. Podrobnosti naleznete v [Cell API Reference](https://reference.aspose.com/slides/cpp/aspose.slides/cell/).
+
+## **Změna barvy pozadí buňky tabulky**
+
+Tento příklad vytvoří tabulku se sloupci o šířce 150 bodů a řádky o výšce 50 bodů. Použije [set_FillType](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/set_filltype/) k výběru plné výplně a [get_SolidFillColor](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/get_solidfillcolor/) k získání barvy výplně a nastaví ji na červenou pro buňku `(2, 3)`, ve třetím sloupci a čtvrtém řádku.
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <DOM/Table/ICell.h>
+#include <system/smart_ptr.h>
+#include <DOM/FillType.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/Table/ICellFormat.h>
+#include <drawing/color.h>
+#include <Export/SaveFormat.h>
+#include <system/array.h>
+
 using namespace System::Drawing;
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-auto presentation = System::MakeObject<Presentation>();
-auto slide = presentation->get_Slides()->idx_get(0);
-        
-auto dblCols = System::MakeArray<double>({150, 150, 150, 150});
-auto dblRows = System::MakeArray<double>({50, 50, 50, 50, 50});
-        
-// vytvoří novou tabulku
-auto table = slide->get_Shapes()->AddTable(50.0f, 50.0f, dblCols, dblRows);
-        
-// nastaví barvu pozadí buňky 
-System::SharedPtr<ICell> cell = table->idx_get(2, 3);
-cell->get_CellFormat()->get_FillFormat()->set_FillType(Aspose::Slides::FillType::Solid);
-cell->get_CellFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        
-presentation->Save(u"cell_background_color.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
+auto columnWidths = MakeArray<double>({150, 150, 150, 150});
+auto rowHeights = MakeArray<double>({50, 50, 50, 50, 50});
+auto table = slide->get_Shapes()->AddTable(50, 50, columnWidths, rowHeights);
+
+auto cell = table->idx_get(2, 3);
+cell->get_CellFormat()->get_FillFormat()->set_FillType(FillType::Solid);
+cell->get_CellFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Red());
+
+presentation->Save(u"cell_background_color.pptx", SaveFormat::Pptx);
 ```
 
 ## **Přidání obrázku do buňky tabulky**
-1. Vytvořte instanci třídy `Presentation`.
-2. Získejte referenci na snímek pomocí jeho indexu.
-3. Definujte pole sloupců s šířkou.
-4. Definujte pole řádků s výškou.
-5. Přidejte tabulku do snímku pomocí metody `AddTable`. 
-6. Vytvořte objekt `Bitmap` pro uložení souboru obrázku.
-7. Přidejte bitmapový obrázek do objektu `IPPImage`.
-8. Nastavte `FillFormat` buňky tabulky na `Picture`.
-9. Přidejte obrázek do první buňky tabulky.
-10. Uložte upravenou prezentaci jako soubor PPTX
 
-Tento C# kód ukazuje, jak umístit obrázek do buňky tabulky při vytváření tabulky:
+Umístěte vstupní obrázek do pracovního adresáře před spuštěním tohoto příkladu. Načte obrázek pomocí [Images::FromFile](https://reference.aspose.com/slides/cpp/aspose.slides/images/fromfile/) a přidá jej do kolekce obrázků prezentace pomocí [AddImage](https://reference.aspose.com/slides/cpp/aspose.slides/iimagecollection/addimage/). Poté přiřadí obrázek jako výplň obrázku buňky `(0, 0)`, první buňky v tabulce.  
 
-```c++
-// Cesta k adresáři dokumentů.
-const String outPath = u"../out/Image_In_TableCell_out.pptx";
-const String ImagePath = u"../templates/Tulips.jpg";
+[PictureFillMode::Stretch](https://reference.aspose.com/slides/cpp/aspose.slides/picturefillmode/) roztahuje obrázek tak, aby vyplnil buňku, což může změnit její poměr stran. Šířky sloupců a výšky řádků jsou v bodech. Načtený obrázek je uvolněn po jeho přidání do prezentace.
 
-// Načte požadovanou prezentaci
-SharedPtr<Presentation> pres = MakeObject<Presentation>();
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <DOM/Table/ICell.h>
+#include <system/smart_ptr.h>
+#include <DOM/FillType.h>
+#include <DOM/IImageCollection.h>
+#include <IImage.h>
+#include <DOM/IPPImage.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/ISlidesPicture.h>
+#include <DOM/PictureFillMode.h>
+#include <DOM/Table/ICellFormat.h>
+#include <Util/Images.h>
+#include <Export/SaveFormat.h>
+#include <system/array.h>
 
-// Přistupuje k prvnímu snímku
-SharedPtr<ISlide> islide = pres->get_Slides()->idx_get(0);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-// Definuje sloupce se šířkami a řádky s výškami
-System::ArrayPtr<double> dblCols = System::MakeObject<System::Array<double>>(4, 150);
-System::ArrayPtr<double> dblRows = System::MakeObject<System::Array<double>>(4, 100);
-System::ArrayPtr<double> total_for_Cat = System::MakeObject<System::Array<double>>(5, 0);
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-// Přidá tvar tabulky do snímku
-auto tbl = islide->get_Shapes()->AddTable(50, 50, dblCols, dblRows);
+auto columnWidths = MakeArray<double>({150, 150, 150, 150});
+auto rowHeights = MakeArray<double>({100, 100, 100, 100, 90});
+auto table = slide->get_Shapes()->AddTable(50, 50, columnWidths, rowHeights);
 
-// Načte obrázek
-auto img = Images::FromFile(ImagePath);
+auto image = Images::FromFile(u"aspose_logo.jpg");
+auto ppImage = presentation->get_Images()->AddImage(image);
+image->Dispose();
 
-// Přidá obrázek do kolekce obrázků prezentace
-SharedPtr<IPPImage> imgx = pres->get_Images()->AddImage(img);
+table->idx_get(0, 0)->get_CellFormat()->get_FillFormat()->set_FillType(FillType::Picture);
+table->idx_get(0, 0)->get_CellFormat()->get_FillFormat()->get_PictureFillFormat()->set_PictureFillMode(PictureFillMode::Stretch);
+table->idx_get(0, 0)->get_CellFormat()->get_FillFormat()->get_PictureFillFormat()->get_Picture()->set_Image(ppImage);
 
-
-// Přidá obrázek do první buňky tabulky
-tbl->idx_get(0, 0)->get_FillFormat()->set_FillType(FillType::Picture);
-tbl->idx_get(0, 0)->get_FillFormat()->get_PictureFillFormat()->set_PictureFillMode(PictureFillMode::Stretch);
-tbl->idx_get(0, 0)->get_FillFormat()->get_PictureFillFormat()->get_Picture()->set_Image(imgx);
-
-// Uloží soubor PPTX na disk
-pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
+presentation->Save(u"table_cell_with_image.pptx", SaveFormat::Pptx);
 ```
 
-## **FAQ**
+## **Často kladené otázky**
 
-**Mohu nastavit různé tloušťky a styly čar pro různé strany jedné buňky?**
+**Mohu nastavit různou tloušťku čar a styly pro různé strany jedné buňky?**
 
-Ano. Okraje [top](https://reference.aspose.com/slides/cs/cpp/aspose.slides/cellformat/get_bordertop/)/[bottom](https://reference.aspose.com/slides/cs/cpp/aspose.slides/cellformat/get_borderbottom/)/[left](https://reference.aspose.com/slides/cs/cpp/aspose.slides/cellformat/get_borderleft/)/[right](https://reference.aspose.com/slides/cs/cpp/aspose.slides/cellformat/get_borderright/) mají samostatné vlastnosti, takže tloušťka a styl každé strany se mohou lišit. To logicky vyplývá z řízení okrajů jednotlivých stran buňky, jak je ukázáno v článku.
+Ano. Okraje [top](https://reference.aspose.com/slides/cpp/aspose.slides/cellformat/get_bordertop/)/[bottom](https://reference.aspose.com/slides/cpp/aspose.slides/cellformat/get_borderbottom/)/[left](https://reference.aspose.com/slides/cpp/aspose.slides/cellformat/get_borderleft/)/[right](https://reference.aspose.com/slides/cpp/aspose.slides/cellformat/get_borderright/) mají samostatné vlastnosti, takže tloušťka a styl každé strany se mohou lišit.
 
-**Co se stane s obrázkem, pokud po nastavení obrázku jako pozadí buňky změníte velikost sloupce/řádku?**
+**Co se stane s obrázkem, pokud změním velikost sloupce/řádku po nastavení obrázku jako pozadí buňky?**
 
-Chování závisí na [fill mode](https://reference.aspose.com/slides/cs/cpp/aspose.slides/picturefillmode/) (stretch/tile). Při roztažení se obrázek přizpůsobí nové buňce; při dlaždicování se dlaždice přepočítají. Článek zmiňuje režimy zobrazení obrázku v buňce.
+Chování závisí na [fill mode](https://reference.aspose.com/slides/cpp/aspose.slides/picturefillmode/) (stretch/tile). Při natažení se obrázek přizpůsobí nové buňce; při dláždění se dlaždice přepočítají.
 
 **Mohu přiřadit hypertextový odkaz k celému obsahu buňky?**
 
-[Hyperlinks](/slides/cs/cpp/manage-hyperlinks/) jsou nastaveny na úrovni textu (části) uvnitř textového rámce buňky nebo na úrovni celé tabulky/objektu. V praxi přiřadíte odkaz buď k části, nebo ke všemu textu v buňce.
+[Hyperlinks](/slides/cs/cpp/manage-hyperlinks/) jsou nastaveny na úrovni textu (části) uvnitř textového rámce buňky nebo na úrovni celé tabulky/tvaru. V praxi přiřadíte odkaz k části nebo k celému textu v buňce.
 
 **Mohu nastavit různé písma v jedné buňce?**
 
-Ano. Textový rámec buňky podporuje [portions](https://reference.aspose.com/slides/cs/cpp/aspose.slides/portion/) (běhy) s nezávislým formátováním – rodinu písma, styl, velikost a barvu.
+Ano. Textový rámec buňky podporuje [portions](https://reference.aspose.com/slides/cpp/aspose.slides/portion/) (běhy) s nezávislým formátováním – rodinu písma, styl, velikost a barvu.

@@ -1,321 +1,277 @@
 ---
-title: PHP का उपयोग करके प्रस्तुतियों में टेबल सेल प्रबंधित करें
-linktitle: सेल प्रबंधित करें
+title: PHP का उपयोग करके प्रस्तुतियों में तालिका कोशिकाओं का प्रबंधन
+linktitle: कोशिकाओं का प्रबंधन
 type: docs
 weight: 30
 url: /hi/php-java/manage-cells/
 keywords:
-- टेबल सेल
-- सेल मर्ज
-- बॉर्डर हटाएँ
-- सेल विभाजित करें
-- सेल में छवि
+- तालिका कोशिका
+- कोशिकाओं को मिलाएँ
+- सीमा हटाएँ
+- कोशिका विभाजित करें
+- कोशिका में छवि
 - पृष्ठभूमि रंग
 - PowerPoint
 - प्रस्तुति
 - PHP
 - Aspose.Slides
-description: "Aspose.Slides for PHP के साथ PowerPoint में टेबल सेल्स को सहजता से प्रबंधित करें। शीघ्रता से सेल्स तक पहुँच, संशोधन और स्टाइलिंग में प्रमुख बनें ताकि स्लाइड ऑटोमेशन सुगम हो सके।"
+description: "PHP में PowerPoint तालिका कोशिकाओं का प्रबंधन: मर्ज की गई कोशिकाओं की पहचान, सीमाओं को हटाना, कोशिकाओं को विभाजित करना, और Aspose.Slides for PHP via Java के साथ पृष्ठभूमि रंग और छवियों को सेट करना।"
 ---
-## **समीक्षा**
+## **अवलोकन**
 
-Aspose.Slides आपको PowerPoint प्रस्तुतियों में टेबल सेल्स तक पहुँचने और उन्हें संशोधित करने की अनुमति देता है। यह लेख दर्शाता है कि मर्ज्ड टेबल सेल्स की पहचान कैसे करें, सेल बॉर्डर को हटाएँ, सेल को मर्ज या स्प्लिट करने के बाद नंबरिंग के साथ कैसे काम करें, सेल की पृष्ठभूमि का रंग कैसे बदलें, और टेबल सेल के भीतर एक छवि कैसे जोड़ें। उदाहरण दर्शाते हैं कि प्रस्तुति कैसे बनाएं या खोलें, स्लाइड से टेबल प्राप्त करें, सेल प्रॉपर्टीज़ के माध्यम से सेल फॉर्मेटिंग अपडेट करें, और संशोधित प्रस्तुति को PPTX फ़ाइल के रूप में सहेजें।
+Aspose.Slides आपको PowerPoint प्रस्तुतियों में तालिका कोशिकाओं तक पहुँचने और संशोधित करने की अनुमति देता है। यह लेख समझाता है कि मर्ज की गई तालिका कोशिकाओं की पहचान कैसे करें, कोशिका सीमाओं को हटाएँ, मर्ज या स्प्लिट करने के बाद कोशिका क्रमांक के साथ कैसे काम करें, कोशिका की पृष्ठभूमि रंग बदलें, और तालिका कोशिका के भीतर एक छवि जोड़ें। उदाहरण दिखाते हैं कि प्रस्तुति कैसे बनाएँ या खोलें, स्लाइड से एक तालिका प्राप्त करें, कोशिका गुणों के माध्यम से कोशिका स्वरूपण अपडेट करें, और संशोधित प्रस्तुति को PPTX फ़ाइल के रूप में सहेजें।
 
-## **मर्ज्ड टेबल सेल की पहचान करें**
-1. [Presentation](https://reference.aspose.com/slides/hi/php-java/aspose.slides/Presentation) क्लास का एक इंस्टेंस बनाएं।
-2. पहले स्लाइड से टेबल प्राप्त करें।
-3. टेबल की पंक्तियों और स्तंभों में इटररेट करें ताकि मर्ज्ड सेल्स मिल सकें।
-4. जब मर्ज्ड सेल्स मिलें तो संदेश प्रिंट करें।
+Aspose.Slides शून्य-आधारित सूचकांकों का उपयोग करता है तालिका कोशिकाओं तक `(column, row)` क्रम में पहुँचने के लिए।
 
-यह PHP कोड आपको प्रस्तुति में मर्ज्ड टेबल सेल्स की पहचान करने का तरीका दिखाता है:
+## **मर्ज की गई तालिका कोशिका की पहचान**
+
+उदाहरण एक मौजूदा प्रस्तुति खोलता है और पहले स्लाइड पर पहले आकार (shape) तक तालिका के रूप में पहुँचता है। यह मानता है कि स्लाइड और आकार मौजूद हैं और आकार एक तालिका है। फिर वह सभी पंक्तियों और स्तंभों पर पुनरावृति करता है और मर्ज किए गए क्षेत्रों में कोशिकाओं की पहचान करने के लिए [isMergedCell](https://reference.aspose.com/slides/php-java/aspose.slides/cell/ismergedcell/) का उपयोग करता है। प्रत्येक मिलान के लिए, वह कोशिका निर्देशांक `row;column` क्रम में, [getRowSpan](https://reference.aspose.com/slides/php-java/aspose.slides/cell/getrowspan/), [getColSpan](https://reference.aspose.com/slides/php-java/aspose.slides/cell/getcolspan/), और क्षेत्र के प्रारंभिक निर्देशांक, [getFirstRowIndex](https://reference.aspose.com/slides/php-java/aspose.slides/cell/getfirstrowindex/) और [getFirstColumnIndex](https://reference.aspose.com/slides/php-java/aspose.slides/cell/getfirstcolumnindex/) प्रिंट करता है।
 
 ```php
-  $pres = new Presentation("SomePresentationWithTable.pptx");
-  try {
-    $table = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0);// मान लेते हैं कि Slide#0.Shape#0 एक टेबल है
+use aspose\slides\Presentation;
 
-    for($i = 0; $i < java_values($table->getRows()->size()) ; $i++) {
-      for($j = 0; $j < java_values($table->getColumns()->size()) ; $j++) {
-        $currentCell = $table->getRows()->get_Item($i)->get_Item($j);
-        if ($currentCell->isMergedCell()) {
-          echo(sprintf("Cell %d;%d is a part of merged cell with RowSpan=%d and ColSpan=%d starting from Cell %d;%d.", $i, $j, $currentCell->getRowSpan(), $currentCell->getColSpan(), $currentCell->getFirstRowIndex(), $currentCell->getFirstColumnIndex()));
-        }
-      }
-    }
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-## **टेबल सेल बॉर्डर हटाएँ**
-1. [Presentation](https://reference.aspose.com/slides/hi/php-java/aspose.slides/Presentation) क्लास का एक इंस्टेंस बनाएं।
-2. इंडेक्स के माध्यम से स्लाइड का रेफ़रेंस प्राप्त करें।
-3. चौड़ाई के साथ कॉलम्स की एक एरे परिभाषित करें।
-4. ऊँचाई के साथ रो की एक एरे परिभाषित करें।
-5. स्लाइड में टेबल को [addTable](https://reference.aspose.com/slides/hi/php-java/aspose.slides/shapecollection/#addTable) मेथड के द्वारा जोड़ें।
-6. हर सेल को इटररेट करके शीर्ष, नीचे, दायें और बायें बॉर्डर साफ करें।
-7. संशोधित प्रस्तुति को PPTX फ़ाइल के रूप में सहेजें।
-
-यह PHP कोड आपको टेबल सेल्स से बॉर्डर हटाने का तरीका दिखाता है:
-
-```php
-  # एक PPTX फ़ाइल का प्रतिनिधित्व करने वाली Presentation क्लास का उदाहरण बनाता है
-  $pres = new Presentation();
-  try {
-    # पहली स्लाइड तक पहुँचता है
-    $sld = $pres->getSlides()->get_Item(0);
-    # चौड़ाई वाले कॉलम और ऊँचाई वाली पंक्तियों को परिभाषित करता है
-    $dblCols = array(50, 50, 50, 50 );
-    $dblRows = array(50, 30, 30, 30, 30 );
-    # स्लाइड में टेबल शेप जोड़ता है
-    $tbl = $sld->getShapes()->addTable(100, 50, $dblCols, $dblRows);
-    # प्रत्येक सेल के लिए बॉर्डर फॉर्मेट सेट करता है
-    foreach($tbl->getRows() as $row) {
-      foreach($row as $cell) {
-        $cell->getCellFormat()->getBorderTop()->getFillFormat()->setFillType(FillType::NoFill);
-        $cell->getCellFormat()->getBorderBottom()->getFillFormat()->setFillType(FillType::NoFill);
-        $cell->getCellFormat()->getBorderLeft()->getFillFormat()->setFillType(FillType::NoFill);
-        $cell->getCellFormat()->getBorderRight()->getFillFormat()->setFillType(FillType::NoFill);
-      }
-    }
-    # PPTX को डिस्क पर लिखता है
-    $pres->save("table_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-## **मर्ज्ड सेल्स में क्रमांकन**
-यदि हम दो जोड़े सेल्स (1, 1) x (2, 1) और (1, 2) x (2, 2) को मर्ज करें, तो परिणामी टेबल में क्रमांक होंगे। यह PHP कोड प्रक्रिया को दर्शाता है:
-
-```php
-  # एक PPTX फ़ाइल का प्रतिनिधित्व करने वाली Presentation क्लास को इंस्टैंशिएट करता है
-  $pres = new Presentation();
-  try {
-    # पहली स्लाइड तक पहुँचता है
-    $sld = $pres->getSlides()->get_Item(0);
-    # चौड़ाई वाले कॉलम और ऊँचाई वाली पंक्तियों को परिभाषित करता है
-    $dblCols = array(70, 70, 70, 70 );
-    $dblRows = array(70, 70, 70, 70 );
-    # स्लाइड में टेबल शेप जोड़ता है
-    $tbl = $sld->getShapes()->addTable(100, 50, $dblCols, $dblRows);
-    # प्रत्येक सेल के लिए बॉर्डर फॉर्मेट सेट करता है
-    foreach($tbl->getRows() as $row) {
-      foreach($row as $cell) {
-        $cell->getCellFormat()->getBorderTop()->getFillFormat()->setFillType(FillType::Solid);
-        $cell->getCellFormat()->getBorderTop()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-        $cell->getCellFormat()->getBorderTop()->setWidth(5);
-        $cell->getCellFormat()->getBorderBottom()->getFillFormat()->setFillType(FillType::Solid);
-        $cell->getCellFormat()->getBorderBottom()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-        $cell->getCellFormat()->getBorderBottom()->setWidth(5);
-        $cell->getCellFormat()->getBorderLeft()->getFillFormat()->setFillType(FillType::Solid);
-        $cell->getCellFormat()->getBorderLeft()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-        $cell->getCellFormat()->getBorderLeft()->setWidth(5);
-        $cell->getCellFormat()->getBorderRight()->getFillFormat()->setFillType(FillType::Solid);
-        $cell->getCellFormat()->getBorderRight()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-        $cell->getCellFormat()->getBorderRight()->setWidth(5);
-      }
-    }
-    # सेल (1, 1) x (2, 1) को मर्ज करता है
-    $tbl->mergeCells($tbl->get_Item(1, 1), $tbl->get_Item(2, 1), false);
-    # सेल (1, 2) x (2, 2) को मर्ज करता है
-    $tbl->mergeCells($tbl->get_Item(1, 2), $tbl->get_Item(2, 2), false);
-    $pres->save("MergeCells_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-हम फिर (1, 1) और (1, 2) को मर्ज करके सेल्स को आगे मर्ज करते हैं। परिणामस्वरूप टेबल के केंद्र में एक बड़ा मर्ज्ड सेल वाला टेबल बनता है:
-
-```php
-  # एक PPTX फ़ाइल का प्रतिनिधित्व करने वाली Presentation क्लास को इंस्टैंशिएट करता है
-  $pres = new Presentation();
-  try {
-    # पहली स्लाइड तक पहुँचता है
-    $sld = $pres->getSlides()->get_Item(0);
-    # चौड़ाई वाले कॉलम और ऊँचाई वाली पंक्तियों को परिभाषित करता है
-    $dblCols = array(70, 70, 70, 70 );
-    $dblRows = array(70, 70, 70, 70 );
-    # स्लाइड में एक टेबल शेप जोड़ता है
-    $tbl = $sld->getShapes()->addTable(100, 50, $dblCols, $dblRows);
-    # प्रत्येक सेल के लिए बॉर्डर फॉर्मेट सेट करता है
-    foreach($tbl->getRows() as $row) {
-      foreach($row as $cell) {
-        $cell->getCellFormat()->getBorderTop()->getFillFormat()->setFillType(FillType::Solid);
-        $cell->getCellFormat()->getBorderTop()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-        $cell->getCellFormat()->getBorderTop()->setWidth(5);
-        $cell->getCellFormat()->getBorderBottom()->getFillFormat()->setFillType(FillType::Solid);
-        $cell->getCellFormat()->getBorderBottom()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-        $cell->getCellFormat()->getBorderBottom()->setWidth(5);
-        $cell->getCellFormat()->getBorderLeft()->getFillFormat()->setFillType(FillType::Solid);
-        $cell->getCellFormat()->getBorderLeft()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-        $cell->getCellFormat()->getBorderLeft()->setWidth(5);
-        $cell->getCellFormat()->getBorderRight()->getFillFormat()->setFillType(FillType::Solid);
-        $cell->getCellFormat()->getBorderRight()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-        $cell->getCellFormat()->getBorderRight()->setWidth(5);
-      }
-    }
-    # सेल (1, 1) x (2, 1) को मर्ज करता है
-    $tbl->mergeCells($tbl->get_Item(1, 1), $tbl->get_Item(2, 1), false);
-    # सेल (1, 2) x (2, 2) को मर्ज करता है
-    $tbl->mergeCells($tbl->get_Item(1, 2), $tbl->get_Item(2, 2), false);
-    # सेल (1, 1) x (1, 2) को मर्ज करता है
-    $tbl->mergeCells($tbl->get_Item(1, 1), $tbl->get_Item(1, 2), true);
-    # PPTX फ़ाइल को डिस्क पर लिखता है
-    $pres->save("MergeCells_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-## **स्प्लिटेड सेल में क्रमांकन**
-पिछले उदाहरणों में, जब टेबल सेल्स को मर्ज किया गया, तो अन्य सेल्स की क्रमांक प्रणाली नहीं बदली।
-
-इस बार, हम एक सामान्य टेबल (बिना मर्ज्ड सेल्स वाला टेबल) लेते हैं और फिर सेल (1,1) को स्प्लिट करने की कोशिश करते हैं ताकि एक विशेष टेबल बन सके। आप इस टेबल की क्रमांकन पर ध्यान दे सकते हैं, जो शायद अजीब लग सकती है। हालांकि, यह वही तरीका है जिससे Microsoft PowerPoint टेबल सेल्स को क्रमांकित करता है और Aspose.Slides भी यही करता है।
-
-यह PHP कोड प्रक्रिया को दर्शाता है:
-
-```php
-  # PPTX फ़ाइल का प्रतिनिधित्व करने वाली Presentation क्लास को इंस्टैंशिएट करता है
-  $pres = new Presentation();
-  try {
-    # पहली स्लाइड तक पहुँचता है
-    $sld = $pres->getSlides()->get_Item(0);
-    # चौड़ाई वाले कॉलम और ऊँचाई वाली पंक्तियों को परिभाषित करता है
-    $dblCols = array(70, 70, 70, 70 );
-    $dblRows = array(70, 70, 70, 70 );
-    # स्लाइड में टेबल शेप जोड़ता है
-    $tbl = $sld->getShapes()->addTable(100, 50, $dblCols, $dblRows);
-    # प्रत्येक सेल के लिए बॉर्डर फॉर्मेट सेट करता है
-    foreach($tbl->getRows() as $row) {
-      foreach($row as $cell) {
-        $cell->getCellFormat()->getBorderTop()->getFillFormat()->setFillType(FillType::Solid);
-        $cell->getCellFormat()->getBorderTop()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-        $cell->getCellFormat()->getBorderTop()->setWidth(5);
-        $cell->getCellFormat()->getBorderBottom()->getFillFormat()->setFillType(FillType::Solid);
-        $cell->getCellFormat()->getBorderBottom()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-        $cell->getCellFormat()->getBorderBottom()->setWidth(5);
-        $cell->getCellFormat()->getBorderLeft()->getFillFormat()->setFillType(FillType::Solid);
-        $cell->getCellFormat()->getBorderLeft()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-        $cell->getCellFormat()->getBorderLeft()->setWidth(5);
-        $cell->getCellFormat()->getBorderRight()->getFillFormat()->setFillType(FillType::Solid);
-        $cell->getCellFormat()->getBorderRight()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-        $cell->getCellFormat()->getBorderRight()->setWidth(5);
-      }
-    }
-    # सेल (1, 1) x (2, 1) को मर्ज करता है
-    $tbl->mergeCells($tbl->get_Item(1, 1), $tbl->get_Item(2, 1), false);
-    # सेल (1, 2) x (2, 2) को मर्ज करता है
-    $tbl->mergeCells($tbl->get_Item(1, 2), $tbl->get_Item(2, 2), false);
-    # सेल (1, 1) को विभाजित करता है
-    $tbl->get_Item(1, 1)->splitByWidth($tbl->get_Item(2, 1)->getWidth() / 2);
-    # PPTX फ़ाइल को डिस्क पर लिखता है
-    $pres->save("SplitCells_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-## **टेबल सेल की पृष्ठभूमि का रंग बदलें**
-
-यह PHP कोड दिखाता है कि टेबल सेल की पृष्ठभूमि का रंग कैसे बदलें:
-
-```php
-  $presentation = new Presentation();
-  try {
+$presentation = new Presentation("presentation_with_table.pptx");
+try {
     $slide = $presentation->getSlides()->get_Item(0);
-    $dblCols = array(150, 150, 150, 150 );
-    $dblRows = array(50, 50, 50, 50, 50 );
-    # एक नई टेबल बनाता है
-    $table = $slide->getShapes()->addTable(50, 50, $dblCols, $dblRows);
-    # एक सेल के लिए पृष्ठभूमि रंग सेट करता है
+    $table = $slide->getShapes()->get_Item(0);
+
+    $rowCount = java_values($table->getRows()->size());
+    for ($rowIndex = 0; $rowIndex < $rowCount; $rowIndex++)
+    {
+        $columnCount = java_values($table->getColumns()->size());
+        for ($columnIndex = 0; $columnIndex < $columnCount; $columnIndex++)
+        {
+            $cell = $table->get_Item($columnIndex, $rowIndex);
+            if (java_values($cell->isMergedCell()))
+            {
+                printf("Cell %d;%d belongs to a merged region with RowSpan=%d and ColSpan=%d starting at %d;%d.\n", $rowIndex, $columnIndex, java_values($cell->getRowSpan()), java_values($cell->getColSpan()), java_values($cell->getFirstRowIndex()), java_values($cell->getFirstColumnIndex()));
+            }
+        }
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+## **तालिका कोशिका की सीमाओं को हटाएँ**
+
+एक [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) बनाएँ और उसके पहले स्लाइड में [addTable](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addtable/) के साथ एक तालिका जोड़ें। स्तंभ चौड़ाइयाँ, पंक्ति ऊँचाइयाँ, और तालिका की स्थिति पॉइंट्स में निर्दिष्ट हैं। उदाहरण सभी चार कोशिका सीमाओं को [FillType::NoFill](https://reference.aspose.com/slides/php-java/aspose.slides/filltype/) पर सेट करता है, जिससे वे अदृश्य हो जाती हैं।
+
+```php
+use aspose\slides\FillType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $columnWidths = [ 50, 50, 50, 50 ];
+    $rowHeights = [ 50, 30, 30, 30, 30 ];
+    $table = $slide->getShapes()->addTable(100, 50, $columnWidths, $rowHeights);
+
+    for ($rowIndex = 0; $rowIndex < java_values($table->getRows()->size()); $rowIndex++) {
+        for ($columnIndex = 0; $columnIndex < java_values($table->getColumns()->size()); $columnIndex++) {
+            $cell = $table->get_Item($columnIndex, $rowIndex);
+            $cell->getCellFormat()->getBorderTop()->getFillFormat()->setFillType(FillType::NoFill);
+            $cell->getCellFormat()->getBorderBottom()->getFillFormat()->setFillType(FillType::NoFill);
+            $cell->getCellFormat()->getBorderLeft()->getFillFormat()->setFillType(FillType::NoFill);
+            $cell->getCellFormat()->getBorderRight()->getFillFormat()->setFillType(FillType::NoFill);
+        }
+    }
+
+    $presentation->save("table.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+## **तालिका कोशिकाओं को मर्ज करें**
+
+[mergeCells](https://reference.aspose.com/slides/php-java/aspose.slides/table/mergecells/) का उपयोग करके तालिका कोशिकाओं की एक आयताकार सीमा को एक ही कोशिका में मिलाएँ। सीमा के ऊपर-बाएँ और नीचे-दाएँ कोनों पर स्थित कोशिकाओं को निर्दिष्ट करें। अंतिम तर्क नियंत्रित करता है कि मर्ज निर्दिष्ट सीमा के बाहर की कोशिकाओं को शामिल कर सकता है या नहीं; `false` मर्ज को उसी सीमा में रखता है।
+
+उदाहरण 70- पॉइंट स्तंभों और पंक्तियों के साथ 4×4 तालिका बनाता है, फिर `(1, 1)` से लेकर `(2, 2)` तक के चार केन्द्रीकृत कोशिकाओं को मर्ज करता है। परिणामस्वरूप कोशिका दो स्तंभों और दो पंक्तियों को कवर करती है, जबकि तालिका की मूल ग्रिड चार स्तंभ और चार पंक्तियाँ रखती है। मर्ज की गई कोशिका की सामग्री या स्वरूपण तक पहुँचने के लिए, उसके ऊपर-बाएँ स्थिति का उपयोग करें: इस उदाहरण में `$table->get_Item(1, 1)`। मर्ज सीमा के अन्य स्थितियाँ तालिका ग्रिड का हिस्सा बनी रहती हैं, इसलिए सीमा से बाहर की कोशिकाओं के सूचकांक नहीं बदलते।
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $columnWidths = [ 70, 70, 70, 70 ];
+    $rowHeights = [ 70, 70, 70, 70 ];
+    $table = $slide->getShapes()->addTable(100, 50, $columnWidths, $rowHeights);
+
+    $table->mergeCells($table->get_Item(1, 1), $table->get_Item(2, 2), false);
+
+    $presentation->save("merged_cells.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+## **तालिका कोशिकाओं को विभाजित करें**
+
+पिछले उदाहरण में कोशिकाओं को मर्ज करने से तालिका की ग्रिड संरक्षित रहती है। किसी कोशिका को विभाजित करने से नया ग्रिड स्तंभ जोड़ सकता है और दाईं ओर की कोशिकाओं के स्तंभ सूचकांकों को बदल सकता है। Aspose.Slides PowerPoint की तालिका ग्रिड मॉडल का अनुसरण करता है।
+
+यह उदाहरण 70- पॉइंट स्तंभों और पंक्तियों के साथ 4×4 तालिका बनाता है और कोशिका `(1, 1)` पर [splitByWidth](https://reference.aspose.com/slides/php-java/aspose.slides/cell/splitbywidth/) को कॉल करता है। कोशिका की 70- पॉइंट चौड़ाई का आधा भाग दो समान-चौड़ाई कोशिकाओं को बनाने के लिए पास किया जाता है।
+
+इस विभाजन के बाद, दो भागों तक `$table->get_Item(1, 1)` और `$table->get_Item(2, 1)` द्वारा पहुँचा जाता है। तालिका ग्रिड अब पाँच स्तंभ रखती है: मूल रूप से स्तंभ 2 और 3 में स्थित कोशिकाएँ क्रमशः स्तंभ 3 और 4 में चली जाती हैं। पंक्ति सूचकांक अपरिवर्तित रहते हैं। विभाजन के बाद कोशिकाओं तक पहुँचते समय इन अपडेट किए गए स्तंभ सूचकांकों का उपयोग करें।
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $columnWidths = [ 70, 70, 70, 70 ];
+    $rowHeights = [ 70, 70, 70, 70 ];
+    $table = $slide->getShapes()->addTable(100, 50, $columnWidths, $rowHeights);
+
+    $table->get_Item(1, 1)->splitByWidth(java_values($table->get_Item(1, 1)->getWidth()) / 2);
+
+    $presentation->save("split_cells.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+### **पंक्ति या स्तंभ स्पैन द्वारा मर्ज की गई कोशिकाओं को विभाजित करें**
+
+डेटा भरने के लिए मर्ज किए गए टेम्प्लेट कोशिकाओं की तैयारी हेतु, मौजूदा पंक्ति सीमा के साथ विभाजन के लिए [splitByRowSpan](https://reference.aspose.com/slides/php-java/aspose.slides/cell/splitbyrowspan/) का उपयोग करें, या स्तंभ सीमा के साथ विभाजन के लिए [splitByColSpan](https://reference.aspose.com/slides/php-java/aspose.slides/cell/splitbycolspan/) का उपयोग करें।  
+`index` तर्क विभाजन के ऊपरी भाग में पंक्तियों या बाएँ भाग में स्तंभों की गिनती करता है; यह मर्ज किए गए क्षेत्र के सापेक्ष है:
+
+- पंक्ति विभाजन: `0 < index <` [getRowSpan](https://reference.aspose.com/slides/php-java/aspose.slides/cell/getrowspan/).
+- स्तंभ विभाजन: `0 < index <` [getColSpan](https://reference.aspose.com/slides/php-java/aspose.slides/cell/getcolspan/).
+
+उदाहरण अपेक्षा करता है कि प्रस्तुति पहली स्लाइड पर पहले आकार के रूप में एक तालिका रखती हो, जिसमें `(1, 2)` और `(1, 3)` लंबवत मर्ज किए गए हों। नीचे की स्थिति से शुरू करके, वह मूल को खोजने के लिए [getFirstColumnIndex](https://reference.aspose.com/slides/php-java/aspose.slides/cell/getfirstcolumnindex/) और [getFirstRowIndex](https://reference.aspose.com/slides/php-java/aspose.slides/cell/getfirstrowindex/) का उपयोग करता है और दोनों स्पैन की जाँच करता है। `splitByRowSpan(1)` फिर उत्पाद नामों के लिए पंक्तियों 2 और 3 को अलग करता है। क्षैतिज दो-स्तंभ मर्ज के लिए, `splitByColSpan(1)` का उपयोग करें।
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("table_template.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $table = $slide->getShapes()->get_Item(0);
+
+    $selectedCell = $table->get_Item(1, 3);
+    $firstColumnIndex = java_values($selectedCell->getFirstColumnIndex());
+    $firstRowIndex = java_values($selectedCell->getFirstRowIndex());
+    $mergedCell = $table->get_Item($firstColumnIndex, $firstRowIndex);
+
+    if (java_values($mergedCell->isMergedCell()) && java_values($mergedCell->getRowSpan()) == 2 && java_values($mergedCell->getColSpan()) == 1)
+    {
+        $mergedCell->splitByRowSpan(1);
+
+        // विभाजन के बाद तालिका से प्राप्त हुई कोशिकाओं को प्राप्त करें।
+        $upperCell = $table->get_Item($firstColumnIndex, $firstRowIndex);
+        $lowerCell = $table->get_Item($firstColumnIndex, $firstRowIndex + 1);
+        echo "Upper cell merged: " . (java_values($upperCell->isMergedCell()) ? "true" : "false") . PHP_EOL;
+        echo "Lower cell merged: " . (java_values($lowerCell->isMergedCell()) ? "true" : "false") . PHP_EOL;
+
+        $upperCell->getTextFrame()->setText("Product A");
+        $lowerCell->getTextFrame()->setText("Product B");
+
+        $presentation->save("split_template.pptx", SaveFormat::Pptx);
+    }
+    else
+    {
+        echo "Select a merged region spanning exactly two rows and one column." . PHP_EOL;
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+तालिका ग्रिड और आस-पास की कोशिका सूचकांक अपरिवर्तित रहते हैं। परिणामी कोशिकाओं को उनके निर्देशांक से प्राप्त करें; यहाँ, दोनों का स्पैन 1 है और [isMergedCell](https://reference.aspose.com/slides/php-java/aspose.slides/cell/ismergedcell/) `false` प्रिंट करता है। बड़े क्षेत्रों को एक विभाजन के बाद भी भागिक रूप से मर्ज रखा जा सकता है।
+
+मूल पाठ और उसका स्वरूपण ऊपर (या बाएँ) कोशिका में बना रहता है; नई कोशिका खाली है लेकिन भराव, सीमाओं और मार्जिन जैसी कोशिका स्वरूपण को विरासत में लेती है। विभाजन के बाद कोशिकाओं को भरें और आवश्यक पाठ स्वरूपण स्पष्ट रूप से सेट करें।
+
+सेव की गई प्रस्तुति में अलग-अलग "Product A" और "Product B" कोशिकाएँ होती हैं जिनमें टेम्प्लेट की कोशिका स्वरूपण बरकरार रहता है। विवरण के लिए [Cell API Reference](https://reference.aspose.com/slides/php-java/aspose.slides/cell/) देखें।
+
+## **तालिका कोशिका की पृष्ठभूमि रंग बदलें**
+
+यह उदाहरण 150- पॉइंट स्तंभों और 50- पॉइंट पंक्तियों वाली तालिका बनाता है। यह [setFillType](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/setfilltype/) का उपयोग करके ठोस भराव चुनता है और [getSolidFillColor](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/getsolidfillcolor/) द्वारा लौटाए गए रंग को लाल सेट करता है कोशिका `(2, 3)` के लिए, जो तीसरे स्तंभ और चौथी पंक्ति में स्थित है।
+
+```php
+use aspose\slides\FillType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $columnWidths = [ 150, 150, 150, 150 ];
+    $rowHeights = [ 50, 50, 50, 50, 50 ];
+    $table = $slide->getShapes()->addTable(50, 50, $columnWidths, $rowHeights);
+
     $cell = $table->get_Item(2, 3);
     $cell->getCellFormat()->getFillFormat()->setFillType(FillType::Solid);
     $cell->getCellFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
+
     $presentation->save("cell_background_color.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($presentation)) {
-      $presentation->dispose();
-    }
-  }
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **टेबल सेल के भीतर एक छवि जोड़ें**
+## **तालिका कोशिका के अंदर छवि जोड़ें**
 
-1. [Presentation](https://reference.aspose.com/slides/hi/php-java/aspose.slides/Presentation) क्लास का एक इंस्टेंस बनाएं।
-2. इंडेक्स के माध्यम से स्लाइड का रेफ़रेंस प्राप्त करें।
-3. चौड़ाई के साथ कॉलम्स की एक एरे परिभाषित करें।
-4. ऊँचाई के साथ रो की एक एरे परिभाषित करें।
-5. स्लाइड में टेबल को [AddTable](https://reference.aspose.com/slides/hi/php-java/aspose.slides/shapecollection/#addTable) मेथड के द्वारा जोड़ें।
-6. छवि फ़ाइल को रखने के लिए `Images` ऑब्जेक्ट बनाएं।
-7. `IImage` इमेज को `IPPImage` ऑब्जेक्ट में जोड़ें।
-8. टेबल सेल के लिए `FillFormat` को `Picture` पर सेट करें।
-9. छवि को टेबल की पहली सेल में जोड़ें।
-10. संशोधित प्रस्तुति को PPTX फ़ाइल के रूप में सहेजें।
-
-यह PHP कोड दिखाता है कि टेबल बनाते समय टेबल सेल के भीतर छवि कैसे रखें:
+इस उदाहरण को चलाने से पहले इनपुट छवि को कार्य निर्देशिका में रखें। यह छवि को [Images::fromFile](https://reference.aspose.com/slides/php-java/aspose.slides/images/#fromFile) से लोड करता है और प्रस्तुति की छवि संग्रह में [addImage](https://reference.aspose.com/slides/php-java/aspose.slides/imagecollection/addimage/) के साथ जोड़ता है। फिर यह छवि को कोशिका `(0, 0)` के चित्र भराव को असाइन करता है, जो तालिका की पहली कोशिका है।  
+[PictureFillMode::Stretch](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillmode/) छवि को खींचकर कोशिका में भरता है, जिससे इसका अनुपात बदल सकता है। स्तंभ चौड़ाइयाँ और पंक्ति ऊँचाइयाँ पॉइंट्स में हैं। लोड किए गए चित्र को प्रस्तुति में जोड़ने के बाद `finally` ब्लॉक में नष्ट कर दिया जाता है।
 
 ```php
-  # एक PPTX फ़ाइल का प्रतिनिधित्व करने वाली Presentation क्लास को इंस्टैंशिएट करता है
-  $pres = new Presentation();
-  try {
-    # पहली स्लाइड तक पहुँचता है
-    $islide = $pres->getSlides()->get_Item(0);
-    # चौड़ाई वाले कॉलम और ऊँचाई वाली पंक्तियों को परिभाषित करता है
-    $dblCols = array(150, 150, 150, 150 );
-    $dblRows = array(100, 100, 100, 100, 90 );
-    # स्लाइड में टेबल शेप जोड़ता है
-    $tbl = $islide->getShapes()->addTable(50, 50, $dblCols, $dblRows);
-    # इमेज फ़ाइल का उपयोग करके एक IPPImage ऑब्जेक्ट बनाता है
-    $picture;
-    $image = Images->fromFile("image.jpg");
+use aspose\slides\FillType;
+use aspose\slides\Images;
+use aspose\slides\PictureFillMode;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $columnWidths = [ 150, 150, 150, 150 ];
+    $rowHeights = [ 100, 100, 100, 100, 90 ];
+    $table = $slide->getShapes()->addTable(50, 50, $columnWidths, $rowHeights);
+
+    $image = Images::fromFile("aspose_logo.jpg");
     try {
-      $picture = $pres->getImages()->addImage($image);
+        $ppImage = $presentation->getImages()->addImage($image);
     } finally {
-      if (!java_is_null($image)) {
         $image->dispose();
-      }
     }
-    # इमेज को पहले टेबल सेल में जोड़ता है
-    $cellFormat = $tbl->get_Item(0, 0)->getCellFormat();
-    $cellFormat::getFillFormat()->setFillType(FillType::Picture);
-    $cellFormat::getFillFormat()->getPictureFillFormat()->setPictureFillMode(PictureFillMode->Stretch);
-    $cellFormat::getFillFormat()->getPictureFillFormat()->getPicture()->setImage($picture);
-    # PPTX फ़ाइल को डिस्क पर सहेजता है
-    $pres->save("Image_In_TableCell_out.pptx", SaveFormat::Pptx);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $table->get_Item(0, 0)->getCellFormat()->getFillFormat()->setFillType(FillType::Picture);
+    $table->get_Item(0, 0)->getCellFormat()->getFillFormat()->getPictureFillFormat()->setPictureFillMode(PictureFillMode::Stretch);
+    $table->get_Item(0, 0)->getCellFormat()->getFillFormat()->getPictureFillFormat()->getPicture()->setImage($ppImage);
+
+    $presentation->save("table_cell_with_image.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **अक्सर पूछे जाने वाले प्रश्न**
+## **FAQ**
 
-**क्या मैं एक ही सेल की अलग-अलग पक्षों के लिए अलग-अलग रेखा मोटाई और शैलियां सेट कर सकता हूँ?**
+**क्या मैं एक ही कोशिका के विभिन्न पक्षों के लिए अलग‑अलग लाइन मोटाई और शैली सेट कर सकता हूँ?**
 
-हाँ। [top](https://reference.aspose.com/slides/hi/php-java/aspose.slides/cellformat/getbordertop/)/[bottom](https://reference.aspose.com/slides/hi/php-java/aspose.slides/cellformat/getborderbottom/)/[left](https://reference.aspose.com/slides/hi/php-java/aspose.slides/cellformat/getborderleft/)/[right](https://reference.aspose.com/slides/hi/php-java/aspose.slides/cellformat/getborderright/) बॉर्डर्स के अलग-अलग प्रॉपर्टी हैं, इसलिए प्रत्येक पक्ष की मोटाई और शैली अलग हो सकती है। यह लेख में दर्शाए गए सेल के प्रति-पक्ष बॉर्डर नियंत्रण से तर्कसंगत रूप से मेल खाता है।
+हाँ। [top](https://reference.aspose.com/slides/php-java/aspose.slides/cellformat/getbordertop/)/[bottom](https://reference.aspose.com/slides/php-java/aspose.slides/cellformat/getborderbottom/)/[left](https://reference.aspose.com/slides/php-java/aspose.slides/cellformat/getborderleft/)/[right](https://reference.aspose.com/slides/php-java/aspose.slides/cellformat/getborderright/) सीमाओं के अलग‑अलग गुण होते हैं, इसलिए प्रत्येक पक्ष की मोटाई और शैली भिन्न हो सकती है।
 
-**यदि मैं सेल के पृष्ठभूमि के रूप में एक चित्र सेट करने के बाद कॉलम/रो का आकार बदलूँ तो छवि के साथ क्या होता है?**
+**यदि मैं चित्र को कोशिका की पृष्ठभूमि के रूप में सेट करने के बाद स्तंभ/पंक्ति का आकार बदलूँ तो छवि पर क्या असर पड़ेगा?**
 
-यह व्यवहार [fill mode](https://reference.aspose.com/slides/hi/php-java/aspose.slides/picturefillmode/) (stretch/tile) पर निर्भर करता है। स्ट्रेचिंग के साथ, छवि नए सेल के अनुसार समायोजित होती है; टाइलिंग के साथ, टाइलों की पुनर्गणना होती है। लेख में सेल में छवि डिस्प्ले मोड्स का उल्लेख किया गया है।
+यह व्यवहार [fill mode](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillmode/) (stretch/tile) पर निर्भर करता है। स्ट्रेच करने पर छवि नए कोशिका के अनुसार समायोजित होती है; टाइल करने पर टाइलें पुनः गणना की जाती हैं।
 
-**क्या मैं सेल की सभी सामग्री को एक हाइपरलिंक असाइन कर सकता हूँ?**
+**क्या मैं कोशिका की पूरी सामग्री को एक हाइपरलिंक असाइन कर सकता हूँ?**
 
-[Hyperlinks](/slides/hi/php-java/manage-hyperlinks/) को सेल के टेक्स्ट फ्रेम के भीतर टेक्स्ट (portion) स्तर पर या पूरी टेबल/shape स्तर पर सेट किया जाता है। व्यवहार में, आप लिंक को किसी हिस्से या सेल की पूरी टेक्स्ट पर असाइन करते हैं।
+[Hyperlinks](/slides/hi/php-java/manage-hyperlinks/) को कोशिका के टेक्स्ट फ्रेम के अंदर टेक्स्ट (portion) स्तर पर या पूरी तालिका/shape स्तर पर सेट किया जाता है। व्यवहार में, आप लिंक को एक portion या पूरी कोशिका के टेक्स्ट पर असाइन करते हैं।
 
-**क्या मैं एक ही सेल के भीतर विभिन्न फ़ॉन्ट सेट कर सकता हूँ?**
+**क्या मैं एक ही कोशिका के भीतर विभिन्न फ़ॉन्ट सेट कर सकता हूँ?**
 
-हाँ। एक सेल के टेक्स्ट फ्रेम में [portions](https://reference.aspose.com/slides/hi/php-java/aspose.slides/portion/) (रन) समर्थन करता है जिसमें स्वतंत्र फ़ॉर्मेटिंग—फ़ॉन्ट फ़ैमिली, शैली, आकार और रंग होते हैं।
+हाँ। कोशिका के टेक्स्ट फ्रेम में [portions](https://reference.aspose.com/slides/php-java/aspose.slides/portion/) (runs) समर्थन है जिनके स्वतंत्र स्वरूपण—फ़ॉन्ट परिवार, शैली, आकार और रंग—होते हैं।

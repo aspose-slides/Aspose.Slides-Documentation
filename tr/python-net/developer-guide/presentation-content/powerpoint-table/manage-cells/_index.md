@@ -6,78 +6,55 @@ weight: 30
 url: /tr/python-net/manage-cells/
 keywords:
 - tablo hücresi
-- hücre birleştirme
-- kenarlık kaldırma
-- hücre bölme
+- hücreleri birleştir
+- kenarlığı kaldır
+- hücresi böl
 - hücrede resim
 - arka plan rengi
 - PowerPoint
-- OpenDocument
 - sunum
 - Python
 - Aspose.Slides
-description: "Aspose.Slides for Python via .NET ile PowerPoint ve OpenDocument'ta tablo hücrelerini zahmetsizce yönetin. Hücrelere hızlıca erişin, değiştirin ve stil verin, sorunsuz slayt otomasyonu sağlayın."
+description: "Python ile PowerPoint tablo hücrelerini yönetin: birleştirilmiş hücreleri tanımlayın, kenarlıkları kaldırın, hücreleri bölün ve Aspose.Slides for Python via .NET ile arka plan renkleri ve resimler ayarlayın."
 ---
 ## **Genel Bakış**
 
-Aspose.Slides, PowerPoint sunumlarındaki tablo hücrelerine erişmenizi ve bu hücreleri değiştirmenizi sağlar. Bu makale, birleştirilmiş tablo hücrelerini nasıl tanımlayacağınızı, hücre kenarlıklarını nasıl kaldıracağınızı, hücreleri birleştirdikten veya bölüştükten sonra hücre numaralandırmasıyla nasıl çalışılacağını, bir hücrenin arka plan rengini nasıl değiştireceğinizi ve bir tablo hücresine nasıl resim ekleyeceğinizi açıklar. Örnekler, bir sunumu nasıl oluşturup açacağınızı, bir slayttan tablo almayı, hücre özellikleri aracılığıyla hücre biçimlendirmesini güncellemeyi ve değiştirilen sunumu PPTX dosyası olarak kaydetmeyi gösterir.
+Aspose.Slides, PowerPoint sunumlarındaki tablo hücrelerine erişmenizi ve bunları değiştirmenizi sağlar. Bu makale, birleştirilmiş tablo hücrelerini nasıl tanımlayacağınızı, hücre kenarlıklarını nasıl kaldıracağınızı, birleştirme veya bölme işleminden sonra hücre numaralandırmasıyla nasıl çalışılacağını, bir hücrenin arka plan rengini nasıl değiştireceğinizi ve bir tablo hücresine nasıl resim ekleyeceğinizi açıklar. Örnekler, bir sunumun nasıl oluşturulacağını veya açılacağını, bir slayttan tablo nasıl alınacağını, hücre özellikleri aracılığıyla hücre biçimlendirmesinin nasıl güncelleneceğini ve değiştirilmiş sunumun PPTX dosyası olarak nasıl kaydedileceğini göstermektedir.
 
-## **Birleştirilmiş Tablo Hücrelerini Belirleme**
+Aspose.Slides, sıfır tabanlı indeksler kullanır. Bu makaledeki koordinatlar `(column, row)` biçiminde yazılmıştır.
 
-Tablolar genellikle başlıklar için veya ilişkili verileri gruplamak amacıyla birleştirilmiş hücreler içerir. Bu bölümde, belirli bir hücrenin birleştirilmiş bir bölgeye ait olup olmadığını nasıl belirleyeceğinizi ve tüm bloğu tutarlı bir şekilde okuyup biçimlendirebilmek için ana (sol üst) hücreye nasıl referans vereceğinizi göreceksiniz.
+## **Birleştirilmiş Tablo Hücresini Tanımlama**
 
-1. Bir [Presentation](https://reference.aspose.com/slides/tr/python-net/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
-2. İlk slayttan tabloyu alın.
-3. Birleştirilmiş hücreleri bulmak için tablonun satır ve sütunlarında yineleme yapın.
-4. Birleştirilmiş hücreler bulunduğunda bir mesaj yazdırın.
+Örnek, mevcut bir sunumu açar ve ilk slayttaki ilk şekle tablo olarak erişir. Slayt ve şeklin mevcut olduğu ve şeklin bir tablo olduğu varsayılır. Ardından tüm satır ve sütunlar döngüyle gezilir ve birleştirilmiş bölgelerdeki hücreleri belirlemek için [is_merged_cell](https://reference.aspose.com/slides/python-net/aspose.slides/cell/is_merged_cell/) kullanılır. Her eşleşme için hücre koordinatları `row;column` sırasıyla, [row_span](https://reference.aspose.com/slides/python-net/aspose.slides/cell/row_span/), [col_span](https://reference.aspose.com/slides/python-net/aspose.slides/cell/col_span/), ve bölgenin başlangıç koordinatları, [first_row_index](https://reference.aspose.com/slides/python-net/aspose.slides/cell/first_row_index/) ve [first_column_index](https://reference.aspose.com/slides/python-net/aspose.slides/cell/first_column_index/) yazdırılır.
 
-Aşağıdaki Python kodu, bir sunumdaki birleştirilmiş tablo hücrelerini tanımlar:
-
-```py
+```python
 import aspose.slides as slides
 
 with slides.Presentation("presentation_with_table.pptx") as presentation:
-    # İlk slayttaki ilk şeklin bir tablo olduğunu varsayarak.
-    table = presentation.slides[0].shapes[0]
+    slide = presentation.slides[0]
+    table = slide.shapes[0]
 
     for row_index in range(len(table.rows)):
         for column_index in range(len(table.columns)):
             cell = table.rows[row_index][column_index]
             if cell.is_merged_cell:
-                print("Cell ({}, {}) is part of a merged region with a row span of {} and a column span of {}, starting from cell ({}, {}).".format(
-                    row_index, column_index, cell.row_span, cell.col_span, cell.first_row_index, cell.first_column_index))
+                print(f"Cell {row_index};{column_index} belongs to a merged region with row_span={cell.row_span} and col_span={cell.col_span} starting at {cell.first_row_index};{cell.first_column_index}.")
 ```
 
 ## **Tablo Hücre Kenarlıklarını Kaldırma**
 
-Bazen tablo kenarlıkları içerikten dikkati dağıtır veya görsel karmaşa yaratır. Bu bölüm, seçilen hücrelerin—veya bir hücrenin belirli kenarlarının—kenarlıklarını nasıl kaldıracağınızı gösterir, böylece daha temiz bir düzen elde eder ve slayt tasarımınıza daha iyi uyum sağlarsınız.
-
-1. Bir [Presentation](https://reference.aspose.com/slides/tr/python-net/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
-2. İndeksiyle slaytı alın.
-3. Sütun genişliklerinin bir dizisini tanımlayın.
-4. Satır yüksekliklerinin bir dizisini tanımlayın.
-5. Slayta, [add_table](https://reference.aspose.com/slides/tr/python-net/aspose.slides/shapecollection/add_table/) metodunu kullanarak bir tablo ekleyin.
-6. Her hücreyi dolaşarak üst, alt, sol ve sağ kenarlıkları temizleyin.
-7. Değiştirilen sunumu PPTX dosyası olarak kaydedin.
-
-Aşağıdaki Python kodu, tablo hücrelerinden kenarlıkların nasıl kaldırılacağını gösterir:
+Bir [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) oluşturun ve ilk slaytına [add_table](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_table/) ile bir tablo ekleyin. Sütun genişlikleri, satır yükseklikleri ve tablo konumu puan cinsinden belirtilir. Örnek, dört hücre kenarlığını da [FillType.NO_FILL](https://reference.aspose.com/slides/python-net/aspose.slides/filltype/) olarak ayarlar ve böylece kenarlıklar görünmez hale gelir.
 
 ```python
 import aspose.slides as slides
 
-# PPTX dosyasını temsil eden Presentation sınıfını örnekleyin.
 with slides.Presentation() as presentation:
-    # İlk slayta erişin.
     slide = presentation.slides[0]
 
-    # Genişlikleri olan sütunları ve yükseklikleri olan satırları tanımlayın.
     column_widths = [50, 50, 50, 50]
     row_heights = [50, 30, 30, 30, 30]
+    table = slide.shapes.add_table(100, 50, column_widths, row_heights)
 
-    # Slayta bir tablo şekli ekleyin.
-    table = slide.shapes.add_table(50, 50, column_widths, row_heights)
-
-    # Her hücre için kenarlık doldurmayı temizleyin.
     for row in table.rows:
         for cell in row:
             cell.cell_format.border_top.fill_format.fill_type = slides.FillType.NO_FILL
@@ -85,102 +62,102 @@ with slides.Presentation() as presentation:
             cell.cell_format.border_left.fill_format.fill_type = slides.FillType.NO_FILL
             cell.cell_format.border_right.fill_format.fill_type = slides.FillType.NO_FILL
 
-    # PPTX dosyasını diske kaydedin.
     presentation.save("table.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Birleştirilmiş Hücrelerde Numaralandırma**
+## **Tablo Hücrelerini Birleştirme**
 
-Eğer iki hücre çiftini birleştirirseniz—örneğin (1, 1) x (2, 1) ve (1, 2) x (2, 2)—sonuçta oluşan tablo, birleştirme yapılmamış tabloyla aynı hücre numaralandırmasını korur. Aşağıdaki Python kodu bu davranışı gösterir:
+Bir dikdörtgen tablo hücresi aralığını tek bir hücreye birleştirmek için [merge_cells](https://reference.aspose.com/slides/python-net/aspose.slides/table/merge_cells/) kullanın. Aralığın sol‑üst ve sağ‑alt köşe hücrelerini belirtin. Son argüman, birleştirmenin belirtilen aralığın dışındaki hücreleri içerip içermeyeceğini kontrol eder; `False` birleştirmenin sadece bu aralıkta kalmasını sağlar.
+
+Örnek, 70 puan sütun ve satır genişliğine sahip 4x4 bir tablo oluşturur ve ardından `(1, 1)` ile `(2, 2)` arasındaki dört merkezi hücreyi birleştirir. Ortaya çıkan hücre iki sütun ve iki satır kapsar, ancak tablonun temel ızgarası dört sütun ve dört satır olarak kalır. Birleştirilmiş hücrenin içeriğine veya biçimlendirmesine erişmek için bu örnekte `table.rows[1][1]` şeklindeki sol‑üst konumu kullanılır. Birleştirme aralığındaki diğer konumlar tablo ızgarasının bir parçası olmaya devam eder, bu yüzden aralık dışındaki hücrelerin indeksleri değişmez.
 
 ```python
 import aspose.slides as slides
 
-# PPTX dosyasını temsil eden Presentation sınıfını örnekleyin.
 with slides.Presentation() as presentation:
-    # İlk slayta erişin.
     slide = presentation.slides[0]
 
-    # Genişlikleri olan sütunları ve yükseklikleri olan satırları tanımlayın.
     column_widths = [70, 70, 70, 70]
     row_heights = [70, 70, 70, 70]
+    table = slide.shapes.add_table(100, 50, column_widths, row_heights)
 
-    # Slayta bir tablo şekli ekleyin.
-    table = slide.shapes.add_table(50, 50, column_widths, row_heights)
+    table.merge_cells(table.rows[1][1], table.rows[2][2], False)
 
-    # Hücreleri (1,1) ve (2,1) birleştirin.
-    table.merge_cells(table.rows[1][1], table.rows[2][1], False)
-
-    # Hücreleri (1, 2) ve (2, 2) birleştirin.
-    table.merge_cells(table.rows[1][2], table.rows[2][2], False)
-
-    # Hücre indekslerini yazdırın.
-    for row_index in range(len(table.rows)):
-        for column_index in range(len(table.rows[row_index])):
-            cell = table.rows[row_index][column_index]
-            print(f"{cell.first_row_index, cell.first_column_index} ", end="")
-        print()
-
-    # PPTX dosyasını diske kaydedin.
     presentation.save("merged_cells.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Çıktı:
+## **Tablo Hücrelerini Bölme**
 
-```text
-(0, 0) (0, 1) (0, 2) (0, 3) 
-(1, 0) (1, 1) (1, 2) (1, 3) 
-(2, 0) (1, 1) (1, 2) (2, 3) 
-(3, 0) (3, 1) (3, 2) (3, 3)
-```
+Önceki örnekte hücreleri birleştirmek, tablonun ızgarasını korur. Bir hücreyi bölmek yeni bir ızgara sütunu oluşturabilir ve sağ tarafındaki hücrelerin sütun indekslerini değiştirebilir. Aspose.Slides, PowerPoint'in tablo ızgara modelini izler.
 
-## **Bölünmüş Hücrelerde Numaralandırma**
+Bu örnek, 70 puan sütun ve satır genişliğine sahip 4x4 bir tablo oluşturur ve `(1, 1)` hücresinde [split_by_width](https://reference.aspose.com/slides/python-net/aspose.slides/cell/split_by_width/) çağırır. Hücrenin 70 puan genişliğinin yarısı, iki eşit genişlikte hücre oluşturmak için kullanılır.
 
-Önceki örnekte, tablo hücreleri birleştirildiğinde, diğer hücrelerdeki numaralandırma değişmezdi. Bu sefer, birleştirilmiş hücresi olmayan normal bir tablo oluşturup ardından (1, 1) hücresini bölerek özel bir tablo elde ediyoruz. Bu tablonun numaralandırmasına dikkat edin—alışılmadık görünebilir. Ancak, bu Microsoft PowerPoint'in tablo hücrelerini numaralandırma şeklidir ve Aspose.Slides aynı davranışı izler.
-
-Aşağıdaki Python kodu bu davranışı gösterir:
+Bu bölmeden sonra iki yarı `table.rows[1][1]` ve `table.rows[1][2]` olarak erişilir. Tablo ızgarası artık beş sütuna sahiptir: önceden 2. ve 3. sütunlarda olan hücreler sırasıyla 3. ve 4. sütunlara taşınır. Satır indeksleri değişmez. Bölme işleminden sonra hücrelere erişirken bu güncellenmiş sütun indekslerini kullanın.
 
 ```python
 import aspose.slides as slides
 
-# PPTX dosyasını temsil eden Presentation sınıfının bir örneğini oluşturun.
 with slides.Presentation() as presentation:
-    # İlk slayta erişin.
     slide = presentation.slides[0]
 
-    # Sütun genişliklerini ve satır yüksekliklerini tanımlayın.
     column_widths = [70, 70, 70, 70]
     row_heights = [70, 70, 70, 70]
+    table = slide.shapes.add_table(100, 50, column_widths, row_heights)
 
-    # Slayta bir tablo şekli ekleyin.
-    table = slide.shapes.add_table(50, 50, column_widths, row_heights)
+    table.rows[1][1].split_by_width(table.rows[1][1].width / 2)
 
-    # Hücreyi (1, 1) bölün.
-    table.rows[1][1].split_by_width(table.rows[2][1].width / 2)
-
-    # Hücre indekslerini yazdırın.
-    for row_index in range(len(table.rows)):
-        for column_index in range(len(table.rows[row_index])):
-            cell = table.rows[row_index][column_index]
-            print(f"{cell.first_row_index, cell.first_column_index} ", end="")
-        print()
-
-    # PPTX dosyasını diske kaydedin.
     presentation.save("split_cells.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Çıktı:
+### **Birleştirilmiş Hücreleri Satır veya Sütun Kapsamına Göre Bölme**
 
-```text
-(0, 0) (0, 1) (0, 1) (0, 3) (0, 4) 
-(1, 0) (1, 1) (1, 2) (1, 3) (1, 4) 
-(2, 0) (2, 1) (2, 1) (2, 3) (2, 4) 
-(3, 0) (3, 1) (3, 1) (3, 3) (3, 4) 
+Birleştirilmiş şablon hücrelerini veri doldurma için hazırlamak amacıyla, mevcut bir satır sınırına göre bölmek için [split_by_row_span](https://reference.aspose.com/slides/python-net/aspose.slides/cell/split_by_row_span/) veya bir sütun sınırına göre bölmek için [split_by_col_span](https://reference.aspose.com/slides/python-net/aspose.slides/cell/split_by_col_span/) kullanın.
+
+`index` argümanı, bölmenin üst kısmındaki satırları veya sol kısmındaki sütunları sayar; bu değer birleştirilmiş bölgeye göredir:
+
+- Satır bölme: `0 < index <` [row_span](https://reference.aspose.com/slides/python-net/aspose.slides/cell/row_span/).
+- Sütun bölme: `0 < index <` [col_span](https://reference.aspose.com/slides/python-net/aspose.slides/cell/col_span/).
+
+Örnek, sunumda ilk slayttaki ilk şeklin bir tablo olduğunu ve `(1, 2)` ile `(1, 3)` hücrelerinin dikey olarak birleştirildiğini varsayar. Alt konumdan başlayarak, kökeni bulmak için [first_column_index](https://reference.aspose.com/slides/python-net/aspose.slides/cell/first_column_index/) ve [first_row_index](https://reference.aspose.com/slides/python-net/aspose.slides/cell/first_row_index/) kullanır ve her iki kapsamı da kontrol eder. `split_by_row_span` ile indeks 1 verildiğinde, ürün isimleri için 2. ve 3. satırlar ayrılır. Yatay iki sütun birleştirme için, bunun yerine `split_by_col_span` ile indeks 1 kullanın.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("table_template.pptx") as presentation:
+    slide = presentation.slides[0]
+    table = slide.shapes[0]
+
+    selected_cell = table.rows[3][1]
+    first_column_index = selected_cell.first_column_index
+    first_row_index = selected_cell.first_row_index
+    merged_cell = table.rows[first_row_index][first_column_index]
+
+    if merged_cell.is_merged_cell and merged_cell.row_span == 2 and merged_cell.col_span == 1:
+        merged_cell.split_by_row_span(1)
+
+        # Bölme işleminden sonra tablodan elde edilen hücreleri al.
+        upper_cell = table.rows[first_row_index][first_column_index]
+        lower_cell = table.rows[first_row_index + 1][first_column_index]
+        print(f"Upper cell merged: {upper_cell.is_merged_cell}")
+        print(f"Lower cell merged: {lower_cell.is_merged_cell}")
+
+        upper_cell.text_frame.text = "Product A"
+        lower_cell.text_frame.text = "Product B"
+
+        presentation.save("split_template.pptx", slides.export.SaveFormat.PPTX)
+    else:
+        print("Select a merged region spanning exactly two rows and one column.")
 ```
+
+Tablo ızgarası ve çevredeki hücre indeksleri değişmeden kalır. Sonuç hücreleri koordinatlarıyla alın; burada ikisi de 1 kapsamına sahiptir ve [is_merged_cell](https://reference.aspose.com/slides/python-net/aspose.slides/cell/is_merged_cell/) `False` yazdırır. Daha büyük bölgeler tek bir bölmeden sonra kısmen birleştirilmiş kalabilir.
+
+Orijinal metin ve biçimlendirmesi üst (veya sol) hücrede kalır; yeni hücre boş olur ancak dolgu, kenarlıklar ve kenar boşlukları gibi hücre biçimlendirmesini devralır. Hücreleri bölme işleminden sonra doldurun ve gerekli metin biçimlendirmesini açıkça ayarlayın.
+
+Kaydedilen sunum, şablonun hücre biçimlendirmesini koruyan ayrı "Product A" ve "Product B" hücrelerine sahiptir. Ayrıntılar için [Cell API Reference](https://reference.aspose.com/slides/python-net/aspose.slides/cell/) adresine bakın.
 
 ## **Tablo Hücresinin Arka Plan Rengini Değiştirme**
 
-Aşağıdaki Python örneği, bir tablo hücresinin arka plan renginin nasıl değiştirileceğini gösterir:
+Bu örnek, 150 puan sütun ve 50 puan satır genişliğine sahip bir tablo oluşturur. `(2, 3)` hücresi için [fill_type](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/fill_type/) solid ve [solid_fill_color](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/solid_fill_color/) kırmızı olarak ayarlar; bu hücre üçüncü sütun ve dördüncü satırdadır.
 
 ```python
 import aspose.pydrawing as draw
@@ -191,78 +168,56 @@ with slides.Presentation() as presentation:
 
     column_widths = [150, 150, 150, 150]
     row_heights = [50, 50, 50, 50, 50]
-
-    # Yeni bir tablo oluştur.
     table = slide.shapes.add_table(50, 50, column_widths, row_heights)
 
-    # Bir hücrenin arka plan rengini ayarla.
-    cell = table.rows[2][3]
+    cell = table.rows[3][2]
     cell.cell_format.fill_format.fill_type = slides.FillType.SOLID
     cell.cell_format.fill_format.solid_fill_color.color = draw.Color.red
 
     presentation.save("cell_background_color.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Tablo Hücrelerine Resim Ekleme**
+## **Bir Tablo Hücresine Resim Ekleme**
 
-Bu bölüm, Aspose.Slides içinde bir tablo hücresine nasıl resim ekleneceğini gösterir. Hedef hücreye resim doldurma uygulanması ve görüntüleme seçeneklerinin (genişletme veya döşeme gibi) yapılandırılmasını kapsar.
+Bu örneği çalıştırmadan önce giriş resmini çalışma dizinine koyun. Resim, [Images.from_file](https://reference.aspose.com/slides/python-net/aspose.slides/images/from_file/) ile yüklenir ve sunumun resim koleksiyonuna [add_image](https://reference.aspose.com/slides/python-net/aspose.slides/imagecollection/add_image/) ile eklenir. Daha sonra resim, tablodaki ilk hücre olan `(0, 0)` hücresinin resim dolgusuna atanır.
 
-1. Bir [Presentation](https://reference.aspose.com/slides/tr/python-net/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
-2. İndeksiyle bir slayt referansı alın.
-3. Sütun genişliklerinin bir dizisini tanımlayın.
-4. Satır yüksekliklerinin bir dizisini tanımlayın.
-5. Slayta, [add_table](https://reference.aspose.com/slides/tr/python-net/aspose.slides/shapecollection/add_table/) metodunu kullanarak bir tablo ekleyin.
-6. Resmi bir dosyadan yükleyin.
-7. Sunumun images koleksiyonuna resmi ekleyerek bir [PPImage](https://reference.aspose.com/slides/tr/python-net/aspose.slides/ppimage/) elde edin.
-8. Tablo hücresinin [FillType](https://reference.aspose.com/slides/tr/python-net/aspose.slides/filltype/) özelliğini `PICTURE` olarak ayarlayın.
-9. Resmi tablo hücresine uygulayın ve bir doldurma modu seçin (ör. `STRETCH`).
-10. Sunumu PPTX dosyası olarak kaydedin.
-
-Aşağıdaki Python kodu, bir tablo oluştururken tablo hücresine nasıl resim yerleştirileceğini gösterir:
+[PictureFillMode.STRETCH](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillmode/) resmi hücreyi dolduracak şekilde uzatır; bu, görüntünün en‑boy oranını değiştirebilir. Sütun genişlikleri ve satır yükseklikleri puan cinsindendir. Yüklenen resim, `with` bloğu sona erdiğinde otomatik olarak serbest bırakılır.
 
 ```python
 import aspose.slides as slides
 
-# Presentation nesnesini örnekleyin.
 with slides.Presentation() as presentation:
-    # İlk slayta erişin.
     slide = presentation.slides[0]
 
-    # Sütun genişliklerini ve satır yüksekliklerini tanımlayın.
     column_widths = [150, 150, 150, 150]
-    row_heights = [100, 100, 100, 100]
-
-    # Slayta bir tablo şekli ekleyin.
+    row_heights = [100, 100, 100, 100, 90]
     table = slide.shapes.add_table(50, 50, column_widths, row_heights)
 
-    # Görüntüyü yükleyin ve sunuma ekleyerek bir PPImage elde edin.
-    with slides.Images.from_file("image.png") as source_image:
-        image = presentation.images.add_image(source_image)
+    with slides.Images.from_file("aspose_logo.jpg") as image:
+        presentation_image = presentation.images.add_image(image)
 
-    # Görüntüyü ilk tablo hücresine uygulayın.
     cell = table.rows[0][0]
     cell.cell_format.fill_format.fill_type = slides.FillType.PICTURE
     cell.cell_format.fill_format.picture_fill_format.picture_fill_mode = slides.PictureFillMode.STRETCH
-    cell.cell_format.fill_format.picture_fill_format.picture.image = image
+    cell.cell_format.fill_format.picture_fill_format.picture.image = presentation_image
 
-    # Sunumu diske kaydedin.
-    presentation.save("image_in_table_cell.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("table_cell_with_image.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **SSS**
 
-**Tek bir hücrenin farklı kenarları için farklı çizgi kalınlıkları ve stilleri ayarlayabilir miyim?**
+**Tek bir hücrenin farklı kenarları için farklı çizgi kalınlıkları ve stiller ayarlayabilir miyim?**
 
-Evet. [top](https://reference.aspose.com/slides/tr/python-net/aspose.slides/cellformat/border_top/)/[bottom](https://reference.aspose.com/slides/tr/python-net/aspose.slides/cellformat/border_bottom/)/[left](https://reference.aspose.com/slides/tr/python-net/aspose.slides/cellformat/border_left/)/[right](https://reference.aspose.com/slides/tr/python-net/aspose.slides/cellformat/border_right/) kenarlarının ayrı özellikleri vardır, bu yüzden her bir kenarın kalınlığı ve stili farklı olabilir. Bu, makalede gösterilen hücre için kenar kontrolünün taraf bazlı olmasından mantıksal olarak doğrudur.
+Evet. [top](https://reference.aspose.com/slides/python-net/aspose.slides/cellformat/border_top/)/[bottom](https://reference.aspose.com/slides/python-net/aspose.slides/cellformat/border_bottom/)/[left](https://reference.aspose.com/slides/python-net/aspose.slides/cellformat/border_left/)/[right](https://reference.aspose.com/slides/python-net/aspose.slides/cellformat/border_right/) kenarlıkların ayrı ayrı özellikleri vardır; bu nedenle her bir tarafın kalınlığı ve stili farklı olabilir.
 
-**Hücrenin arka planı olarak bir resim ayarladıktan sonra sütun/ satır boyutunu değiştirirsem resim ne olur?**
+**Bir resmi hücrenin arka planı olarak ayarladıktan sonra sütun/satır boyutunu değiştirirsem, resim ne olur?**
 
-Davranış, [fill mode](https://reference.aspose.com/slides/tr/python-net/aspose.slides/picturefillmode/) değerine bağlıdır. Genişletme (stretch) seçildiğinde resim yeni hücreye göre ayarlanır; döşeme (tile) seçildiğinde döşemeler yeniden hesaplanır. Makale, hücre içindeki resim görüntüleme modlarından bahseder.
+Davranış, [fill mode](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillmode/) (stretch/tile) değerine bağlıdır. Uzatma seçildiyse, resim yeni hücreye uyum sağlar; döşeme (tiling) seçildiyse, döşemeler yeniden hesaplanır.
 
-**Bir hücrenin tüm içeriğine bir köprü (hyperlink) atayabilir miyim?**
+**Bir hücrenin tüm içeriğine bir hiperlink atayabilir miyim?**
 
-[Hyperlinks](/slides/tr/python-net/manage-hyperlinks/) hücrenin metin çerçevesi içindeki metin (parça) düzeyinde veya tüm tablo/şekil düzeyinde ayarlanır. Pratikte, bağlantıyı bir parçaya ya da hücredeki tüm metne atarsınız.
+[Hyperlinks](/slides/tr/python-net/manage-hyperlinks/) hücrenin metin çerçevesindeki metin (parça) düzeyinde veya tüm tablo/şekil düzeyinde ayarlanır. Pratikte, bağlantıyı bir parçaya ya da hücredeki tüm metne atarsınız.
 
 **Tek bir hücre içinde farklı yazı tipleri ayarlayabilir miyim?**
 
-Evet. Bir hücrenin metin çerçevesi, bağımsız biçimlendirmeye sahip [portions](https://reference.aspose.com/slides/tr/python-net/aspose.slides/portion/) (koşular) — yazı tipi ailesi, stil, boyut ve renk — destekler.
+Evet. Bir hücrenin metin çerçevesi, bağımsız biçimlendirmeye sahip [portions](https://reference.aspose.com/slides/python-net/aspose.slides/portion/) (çalıştırmalar) – yazı tipi ailesi, stil, boyut ve renk – destekler.

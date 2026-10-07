@@ -6,7 +6,7 @@ weight: 30
 url: /fa/cpp/manage-cells/
 keywords:
 - سلول جدول
-- ترکیب سلول‌ها
+- ادغام سلول‌ها
 - حذف حاشیه
 - تقسیم سلول
 - تصویر در سلول
@@ -15,353 +15,323 @@ keywords:
 - ارائه
 - C++
 - Aspose.Slides
-description: "به سادگی سلول‌های جدول را در PowerPoint با Aspose.Slides برای C++ مدیریت کنید. دسترسی، تغییر و استایل‌دهی به سلول‌ها را به‌سرعت برای خودکارسازی بی‌نقص اسلایدها فراگیرید."
+description: "مدیریت سلول‌های جدول PowerPoint در C++: شناسایی سلول‌های ترکیبی، حذف حاشیه‌ها، تقسیم سلول‌ها و تنظیم رنگ‌های پس‌زمینه و تصاویر با Aspose.Slides برای C++."
 ---
-## **مروری کلی**
+## **نمای کلی**
 
-Aspose.Slides به شما امکان دسترسی و تغییر سلول‌های جدول در ارائه‌های PowerPoint را می‌دهد. این مقاله توضیح می‌دهد چگونه سلول‌های جدول ترکیب‌شده را شناسایی کنید، حاشیه‌های سلول را حذف کنید، پس از ترکیب یا تقسیم سلول‌ها با شماره‌گذاری سلول‌ها کار کنید، رنگ پس‌زمینه یک سلول را تغییر دهید، و یک تصویر را داخل سلول جدول اضافه کنید. مثال‌ها نشان می‌دهند چگونه یک ارائه را ایجاد یا باز کنید، جدول را از یک اسلاید دریافت کنید، قالب‌بندی سلول را از طریق ویژگی‌های سلول به‌روزرسانی کنید، و ارائه‌ی اصلاح‌شده را به صورت فایل PPTX ذخیره کنید.
+Aspose.Slides به شما امکان دسترسی و تغییر سلول‌های جدول در ارائه‌های PowerPoint را می‌دهد. این مقاله توضیح می‌دهد که چگونه سلول‌های ترکیبی جدول را شناسایی کنید، حاشیه‌های سلول را حذف کنید، پس از ترکیب یا تقسیم سلول‌ها با شماره‌گذاری سلول کار کنید، رنگ پس‌زمینه یک سلول را تغییر دهید و یک تصویر را داخل سلول جدول اضافه کنید. مثال‌ها نشان می‌دهند که چگونه یک ارائه را ایجاد یا باز کنید، جدول را از یک اسلاید دریافت کنید، قالب‌بندی سلول را از طریق ویژگی‌های سلول به‌روزرسانی کنید و ارائه اصلاح‌شده را به‌صورت فایل PPTX ذخیره نمایید.
 
-## **شناسایی سلول ترکیب‌شده**
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/cpp/class/aspose.slides.presentation) ایجاد کنید.  
-2. جدول را از اولین اسلاید دریافت کنید.  
-3. در سطرها و ستون‌های جدول پیمایش کنید تا سلول‌های ترکیب‌شده را پیدا کنید.  
-4. زمانیکه سلول‌های ترکیب‌شده پیدا شد، پیام چاپ کنید.
+Aspose.Slides برای دسترسی به سلول‌های جدول از ایندکس‌های صفر مبنا به ترتیب `(ستون، ردیف)` استفاده می‌کند.
 
-این کد C++ نشان می‌دهد چگونه سلول‌های جدول ترکیب‌شده را در یک ارائه شناسایی کنید:
+## **تشخیص سلول ترکیبی جدول**
 
-``` cpp
-auto pres = System::MakeObject<Presentation>(u"SomePresentationWithTable.pptx");
-auto table = System::AsCast<ITable>(pres->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0));
+مثال یک ارائه موجود را باز می‌کند و اولین شکل در اولین اسلاید را به‌عنوان جدول دسترسی می‌دهد. فرض می‌شود که اسلاید و شکل وجود دارند و شکل یک جدول است. سپس تمام ردیف‌ها و ستون‌ها را پیمایش می‌کند و از [get_IsMergedCell](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_ismergedcell/) برای شناسایی سلول‌های موجود در نواحی ترکیبی استفاده می‌کند. برای هر مطابقت، مختصات سلول را به ترتیب `row;column`، [get_RowSpan](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_rowspan/)، [get_ColSpan](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_colspan/)، و مختصات شروع ناحیه، [get_FirstRowIndex](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_firstrowindex/) و [get_FirstColumnIndex](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_firstcolumnindex/) چاپ می‌کند.
 
-// فرض می‌کنیم که اسلاید#0.شکل#0 یک جدول است
-for (int32_t i = 0; i < table->get_Rows()->get_Count(); i++)
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <DOM/Table/ICell.h>
+#include <system/smart_ptr.h>
+#include <DOM/Table/IRowCollection.h>
+#include <DOM/Table/IColumnCollection.h>
+#include <system/console.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"presentation_with_table.pptx");
+auto slide = presentation->get_Slide(0);
+auto table = ExplicitCast<ITable>(slide->get_Shape(0));
+
+auto rowCount = table->get_Rows()->get_Count();
+for (auto rowIndex = 0; rowIndex < rowCount; rowIndex++)
 {
-    for (int32_t j = 0; j < table->get_Columns()->get_Count(); j++)
+    auto columnCount = table->get_Columns()->get_Count();
+    for (auto columnIndex = 0; columnIndex < columnCount; columnIndex++)
     {
-        auto currentCell = table->get_Rows()->idx_get(i)->idx_get(j);
-        if (currentCell->get_IsMergedCell())
+        auto cell = table->idx_get(columnIndex, rowIndex);
+        if (cell->get_IsMergedCell())
         {
-            Console::WriteLine(String::Format(u"Cell {0};{1} is a part of merged cell with RowSpan={2} and ColSpan={3} starting from Cell {4};{5}.", 
-                i, j, currentCell->get_RowSpan(), currentCell->get_ColSpan(), currentCell->get_FirstRowIndex(), currentCell->get_FirstColumnIndex()));
+            Console::WriteLine(u"Cell {0};{1} belongs to a merged region with RowSpan={2} and ColSpan={3} starting at {4};{5}.", rowIndex, columnIndex, cell->get_RowSpan(), cell->get_ColSpan(), cell->get_FirstRowIndex(), cell->get_FirstColumnIndex());
         }
     }
 }
 ```
 
 ## **حذف حاشیه‌های سلول جدول**
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/cpp/class/aspose.slides.presentation) ایجاد کنید.  
-2. مرجع یک اسلاید را از طریق شاخص آن دریافت کنید.  
-3. آرایه‌ای از ستون‌ها با عرض تعریف کنید.  
-4. آرایه‌ای از سطرها با ارتفاع تعریف کنید.  
-5. از متد `AddTable` برای افزودن جدول به اسلاید استفاده کنید.  
-6. در تمام سلول‌ها پیمایش کنید تا حاشیه‌های بالا، پایین، راست و چپ را پاک کنید.  
-7. نمایش اصلاح‌شده را به صورت فایل PPTX ذخیره کنید.
 
-این کد C++ نشان می‌دهد چگونه حاشیه‌های سلول‌های جدول را حذف کنید:
+یک [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) ایجاد کنید و با استفاده از [AddTable](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addtable/) یک جدول به اولین اسلاید آن اضافه کنید. عرض ستون‌ها، ارتفاع ردیف‌ها و موقعیت جدول برحسب نقطه (point) مشخص می‌شوند. مثال تمام چهار حاشیه سلول را به [FillType::NoFill](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/) تنظیم می‌کند تا نامرئی شوند.
 
-``` cpp
-// یک شی از کلاس Presentation که نمایانگر فایل PPTX است را ایجاد می‌کند
-auto pres = MakeObject<Presentation>();
-// به اولین اسلاید دسترسی می‌یابد
-auto sld = pres->get_Slides()->idx_get(0);
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <DOM/Table/ICell.h>
+#include <system/smart_ptr.h>
+#include <DOM/FillType.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/Table/ICellFormat.h>
+#include <DOM/Table/IRow.h>
+#include <DOM/Table/IRowCollection.h>
+#include <system/enumerator_adapter.h>
+#include <Export/SaveFormat.h>
+#include <system/array.h>
 
-// ستون‌ها را با عرض و سطرها را با ارتفاع تعریف می‌کند
-auto dblCols = MakeArray<double>({ 50, 50, 50, 50 });
-auto dblRows = MakeArray<double>({ 50, 30, 30, 30, 30 });
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-// یک شکل جدول را به اسلاید اضافه می‌کند
-auto tbl = sld->get_Shapes()->AddTable(100.0f, 50.0f, dblCols, dblRows);
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-// قالب حاشیه را برای هر سلول تنظیم می‌کند
-for (const auto& row : System::IterateOver(tbl->get_Rows()))
-{
-    for (const auto& cell : System::IterateOver(row))
+auto columnWidths = MakeArray<double>({50, 50, 50, 50});
+auto rowHeights = MakeArray<double>({50, 30, 30, 30, 30});
+auto table = slide->get_Shapes()->AddTable(100, 50, columnWidths, rowHeights);
+
+for (const auto& row : IterateOver(table->get_Rows()))
+    for (const auto& cell : IterateOver(row))
     {
         cell->get_CellFormat()->get_BorderTop()->get_FillFormat()->set_FillType(FillType::NoFill);
         cell->get_CellFormat()->get_BorderBottom()->get_FillFormat()->set_FillType(FillType::NoFill);
         cell->get_CellFormat()->get_BorderLeft()->get_FillFormat()->set_FillType(FillType::NoFill);
         cell->get_CellFormat()->get_BorderRight()->get_FillFormat()->set_FillType(FillType::NoFill);
     }
-}
 
-// فایل PPTX را بر روی دیسک ذخیره می‌کند
-pres->Save(u"table_out.pptx", SaveFormat::Pptx);
+presentation->Save(u"table.pptx", SaveFormat::Pptx);
 ```
 
-## **شماره‌گذاری در سلول‌های ترکیب‌شده**
-اگر دو جفت سلول (1, 1) × (2, 1) و (1, 2) × (2, 2) را ترکیب کنیم، جدول حاصل شماره‌گذاری می‌شود. این کد C# فرایند را نشان می‌دهد:
+## **ترکیب سلول‌های جدول**
 
-```c++
-const String outPath = u"../out/MergeCells_out.pptx";
+از [MergeCells](https://reference.aspose.com/slides/cpp/aspose.slides/itable/mergecells/) برای ترکیب یک بازه مستطیلی از سلول‌های جدول به یک سلول استفاده کنید. سلول‌های گوشه بالا‑چپ و پایین‑راست بازه را مشخص کنید. آرگومان نهایی کنترل می‌کند که آیا ترکیب می‌تواند شامل سلول‌های خارج از بازه مشخص‌شده باشد؛ `false` ترکیب را در همان بازه نگه می‌دارد.
 
-// ارائه مورد نظر را بارگذاری می‌کند
-SharedPtr<Presentation> pres = MakeObject<Presentation>();
+مثال یک جدول ۴×۴ با ستون‌ها و ردیف‌های ۷۰‑نقطه‌ای ایجاد می‌کند، سپس چهار سلول مرکزی را از `(1, 1)` تا `(2, 2)` ترکیب می‌نماید. سلول حاصل دو ستون و دو ردیف را می‌پوشاند، در حالی که شبکه زیرین جدول همچنان چهار ستون و چهار ردیف را حفظ می‌کند. برای دسترسی به محتوای یا قالب‌بندی سلول ترکیبی، از موقعیت بالا‑چپ آن استفاده کنید: `table->idx_get(1, 1)` در این مثال. سایر موقعیت‌های موجود در بازه ترکیبی همچنان بخشی از شبکه جدول می‌باشند، بنابراین ایندکس‌های سلول‌های خارج از بازه تغییر نمی‌کنند.
 
-// به اولین اسلاید دسترسی می‌یابد
-SharedPtr<ISlide> islide = pres->get_Slides()->idx_get(0);
-
-// ستون‌ها را با عرض و سطرها را با ارتفاع تعریف می‌کند
-System::ArrayPtr<double> dblCols = System::MakeObject<System::Array<double>>(4, 70);
-System::ArrayPtr<double> dblRows = System::MakeObject<System::Array<double>>(4, 70);
-
-// یک شکل جدول به اسلاید اضافه می‌کند
-SharedPtr<ITable> table = islide->get_Shapes()->AddTable(100, 50, dblCols, dblRows);
-
-
-// قالب حاشیه را برای هر سلول تنظیم می‌کند
-for (int x = 0; x < table->get_Rows()->get_Count(); x++)
-{
-    SharedPtr<IRow> row = table->get_Rows()->idx_get(x);
-    for (int y = 0; y < row->get_Count(); y++)
-    {
-        SharedPtr<ICell> cell = row->idx_get(y);
-
-        cell->get_BorderTop()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderTop()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderTop()->set_Width(5);
-
-        cell->get_BorderBottom()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderBottom()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderBottom()->set_Width(5);
-
-        cell->get_BorderLeft()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderLeft()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderLeft()->set_Width(5);
-
-        cell->get_BorderRight()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderRight()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderRight()->set_Width(5);
-
-    }
-
-}
-// سلول‌ها (1,1) تا (2,1) را ترکیب می‌کند
-table->MergeCells(table->idx_get(1, 1), table->idx_get(2, 1), false);
-
-// سلول‌ها (1,2) تا (2,2) را ترکیب می‌کند
-table->MergeCells(table->idx_get(1, 2), table->idx_get(2, 2), false);
-
-
-// فایل PPTX را بر روی دیسک ذخیره می‌کند
-pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
-```
-
-سپس سلول‌ها را بیشتر ترکیب می‌کنیم با ترکیب (1, 1) و (1, 2). نتیجه جدولی است که یک سلول ترکیب‌شده بزرگ در مرکز دارد:
-
-```c++
-// مسیر پوشه اسناد.
-const String outPath = u"../out/MergeCells_out.pptx";
-
-// ارائه مورد نظر را بارگذاری می‌کند
-SharedPtr<Presentation> pres = MakeObject<Presentation>();
-
-// به اولین اسلاید دسترسی می‌یابد
-SharedPtr<ISlide> islide = pres->get_Slides()->idx_get(0);
-
-// ستون‌ها را با عرض و سطرها را با ارتفاع تعریف می‌کند
-System::ArrayPtr<double> dblCols = System::MakeObject<System::Array<double>>(4, 70);
-System::ArrayPtr<double> dblRows = System::MakeObject<System::Array<double>>(4, 70);
-
-// یک شکل جدول را به اسلاید اضافه می‌کند
-SharedPtr<ITable> table = islide->get_Shapes()->AddTable(100, 50, dblCols, dblRows);
-
-
-// قالب حاشیه را برای هر سلول تنظیم می‌کند
-for (int x = 0; x < table->get_Rows()->get_Count(); x++)
-{
-    SharedPtr<IRow> row = table->get_Rows()->idx_get(x);
-    for (int y = 0; y < row->get_Count(); y++)
-    {
-        SharedPtr<ICell> cell = row->idx_get(y);
-
-        cell->get_BorderTop()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderTop()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderTop()->set_Width(5);
-
-        cell->get_BorderBottom()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderBottom()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderBottom()->set_Width(5);
-
-        cell->get_BorderLeft()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderLeft()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderLeft()->set_Width(5);
-
-        cell->get_BorderRight()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderRight()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderRight()->set_Width(5);
-
-    }
-
-}
-
-// سلول‌ها (1, 1) تا (2, 1) را ترکیب می‌کند
-table->MergeCells(table->idx_get(1, 1), table->idx_get(2, 1), false);
-
-// سلول‌ها (1, 2) تا (2, 2) را ترکیب می‌کند
-table->MergeCells(table->idx_get(1, 2), table->idx_get(2, 2), false);
-
-
-// فایل PPTX را بر روی دیسک ذخیره می‌کند
-pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
-```
-
-## **شماره‌گذاری در سلول تقسیم‌شده**
-در مثال‌های قبلی، زمانی که سلول‌های جدول ترکیب می‌شدند، شماره‌گذاری یا سیستم عددی در سلول‌های دیگر تغییر نمی‌کرد.
-
-این بار، یک جدول معمولی (جدولی بدون سلول ترکیب‌شده) می‌گیریم و سپس سعی می‌کنیم سلول (1,1) را تقسیم کنیم تا جدول ویژه‌ای بدست آوریم. ممکن است به شماره‌گذاری این جدول دقت کنید که ممکن است عجیب به نظر برسد. با این حال، این همان روشی است که Microsoft PowerPoint سلول‌های جدول را شماره‌گذاری می‌کند و Aspose.Slides نیز همین کار را انجام می‌دهد.
-
-این کد C++ فرایندی را که توضیح دادیم نشان می‌دهد:
-
-```c++
-// مسیر پوشه اسناد.
-const String outPath = u"../out/CellSplit_out.pptx";
-
-// ارائه مورد نظر را بارگذاری می‌کند
-SharedPtr<Presentation> pres = MakeObject<Presentation>();
-
-// به اولین اسلاید دسترسی می‌یابد
-SharedPtr<ISlide> islide = pres->get_Slides()->idx_get(0);
-
-// ستون‌ها را با عرض و سطرها را با ارتفاع تعریف می‌کند
-System::ArrayPtr<double> dblCols = System::MakeObject<System::Array<double>>(4, 70);
-System::ArrayPtr<double> dblRows = System::MakeObject<System::Array<double>>(4, 70);
-
-// یک شکل جدول را به اسلاید اضافه می‌کند
-SharedPtr<ITable> table = islide->get_Shapes()->AddTable(100, 50, dblCols, dblRows);
-
-
-// قالب حاشیه را برای هر سلول تنظیم می‌کند
-for (int x = 0; x < table->get_Rows()->get_Count(); x++)
-{
-    SharedPtr<IRow> row = table->get_Rows()->idx_get(x);
-    for (int y = 0; y < row->get_Count(); y++)
-    {
-        SharedPtr<ICell> cell = row->idx_get(y);
-
-        cell->get_BorderTop()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderTop()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderTop()->set_Width(5);
-
-        cell->get_BorderBottom()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderBottom()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderBottom()->set_Width(5);
-
-        cell->get_BorderLeft()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderLeft()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderLeft()->set_Width(5);
-
-        cell->get_BorderRight()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderRight()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderRight()->set_Width(5);
-
-    }
-
-}
-
-// سلول‌ها (1, 1) تا (2, 1) را ترکیب می‌کند
-table->MergeCells(table->idx_get(1, 1), table->idx_get(2, 1), false);
-
-// سلول‌ها (1, 2) تا (2, 2) را ترکیب می‌کند
-table->MergeCells(table->idx_get(1, 2), table->idx_get(2, 2), false);
-
-// سلول (1, 1) را تقسیم می‌کند. 
-table->idx_get(1, 1)->SplitByWidth(table->idx_get(2, 1)->get_Width() / 2);
-
-// فایل PPTX را بر روی دیسک ذخیره می‌کند
-pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
-```
-
-## **تغییر رنگ پس‌زمینه سلول جدول**
-
-این کد C++ نشان می‌دهد چگونه رنگ پس‌زمینه یک سلول جدول را تغییر دهید:
-
-``` cpp
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <DOM/Table/ICell.h>
+#include <system/smart_ptr.h>
+#include <Export/SaveFormat.h>
+#include <system/array.h>
 
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto columnWidths = MakeArray<double>({70, 70, 70, 70});
+auto rowHeights = MakeArray<double>({70, 70, 70, 70});
+auto table = slide->get_Shapes()->AddTable(100, 50, columnWidths, rowHeights);
+
+table->MergeCells(table->idx_get(1, 1), table->idx_get(2, 2), false);
+
+presentation->Save(u"merged_cells.pptx", SaveFormat::Pptx);
+```
+
+## **تقسیم سلول‌های جدول**
+
+ترکیب سلول‌ها در مثال قبلی شبکه جدول را حفظ می‌کند. تقسیم یک سلول می‌تواند یک ستون جدید به شبکه اضافه کند و ایندکس ستون‌های سمت راست آن را تغییر دهد. Aspose.Slides مدل شبکه جدول PowerPoint را دنبال می‌کند.
+
+این مثال یک جدول ۴×۴ با ستون‌ها و ردیف‌های ۷۰‑نقطه‌ای ایجاد می‌کند و بر روی سلول `(1, 1)` متد [SplitByWidth](https://reference.aspose.com/slides/cpp/aspose.slides/icell/splitbywidth/) را فراخوانی می‌کند. نیمی از عرض ۷۰‑نقطه‌ای سلول به‌منظور ایجاد دو سلول با عرض مساوی ارسال می‌شود.
+
+پس از این تقسیم، دو نصف به‌صورت `table->idx_get(1, 1)` و `table->idx_get(2, 1)` قابل دسترسی هستند. شبکه جدول اکنون پنج ستون دارد: سلول‌های قبلاً در ستون‌های ۲ و ۳ به ترتیب به ستون‌های ۳ و ۴ منتقل می‌شوند. ایندکس ردیف‌ها بدون تغییر باقی می‌مانند. هنگام دسترسی به سلول‌ها پس از تقسیم، از این ایندکس‌های به‌روز شده ستون استفاده کنید.
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <DOM/Table/ICell.h>
+#include <system/smart_ptr.h>
+#include <Export/SaveFormat.h>
+#include <system/array.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto columnWidths = MakeArray<double>({70, 70, 70, 70});
+auto rowHeights = MakeArray<double>({70, 70, 70, 70});
+auto table = slide->get_Shapes()->AddTable(100, 50, columnWidths, rowHeights);
+
+table->idx_get(1, 1)->SplitByWidth(table->idx_get(1, 1)->get_Width() / 2);
+
+presentation->Save(u"split_cells.pptx", SaveFormat::Pptx);
+```
+
+### **تقسیم سلول‌های ترکیبی بر حسب گستردگی ردیف یا ستون**
+
+برای آماده‌سازی سلول‌های قالب ترکیبی جهت پر کردن داده، از [SplitByRowSpan](https://reference.aspose.com/slides/cpp/aspose.slides/icell/splitbyrowspan/) برای تقسیم بر حسب مرز ردیف موجود یا از [SplitByColSpan](https://reference.aspose.com/slides/cpp/aspose.slides/icell/splitbycolspan/) برای تقسیم بر حسب مرز ستون استفاده کنید.
+
+آرگومان `index` ردیف‌های بخش بالایی یا ستون‌های بخش چپ تقسیم را می‌شمرد؛ این مقدار نسبت به ناحیه ترکیبی است:
+
+- تقسیم ردیفی: `0 < index <` [get_RowSpan](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_rowspan/).
+- تقسیم ستونی: `0 < index <` [get_ColSpan](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_colspan/).
+
+مثال فرض می‌کند ارائه دارای یک جدول به‌عنوان اولین شکل در اولین اسلاید باشد، به‌طوری که سلول‌های `(1, 2)` و `(1, 3)` به‌صورت عمودی ترکیب شده باشند. از [get_FirstColumnIndex](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_firstcolumnindex/) و [get_FirstRowIndex](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_firstrowindex/) برای یافتن مبدا استفاده می‌کند و هر دو گستردگی را بررسی می‌کند. `SplitByRowSpan(1)` سپس ردیف‌های ۲ و ۳ را برای نام محصولات جدا می‌کند. برای ترکیب افقی دو ستونی، به‌جای آن از `SplitByColSpan(1)` استفاده کنید.
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <DOM/Table/ICell.h>
+#include <system/smart_ptr.h>
+#include <DOM/ITextFrame.h>
+#include <system/console.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"table_template.pptx");
+auto slide = presentation->get_Slide(0);
+auto table = ExplicitCast<ITable>(slide->get_Shape(0));
+
+auto selectedCell = table->idx_get(1, 3);
+auto firstColumnIndex = selectedCell->get_FirstColumnIndex();
+auto firstRowIndex = selectedCell->get_FirstRowIndex();
+auto mergedCell = table->idx_get(firstColumnIndex, firstRowIndex);
+
+if (mergedCell->get_IsMergedCell() && mergedCell->get_RowSpan() == 2 && mergedCell->get_ColSpan() == 1)
+{
+    mergedCell->SplitByRowSpan(1);
+
+    // دریافت سلول‌های حاصل از جدول پس از تقسیم.
+    auto upperCell = table->idx_get(firstColumnIndex, firstRowIndex);
+    auto lowerCell = table->idx_get(firstColumnIndex, firstRowIndex + 1);
+    Console::WriteLine(u"Upper cell merged: {0}", upperCell->get_IsMergedCell());
+    Console::WriteLine(u"Lower cell merged: {0}", lowerCell->get_IsMergedCell());
+
+    upperCell->get_TextFrame()->set_Text(u"Product A");
+    lowerCell->get_TextFrame()->set_Text(u"Product B");
+
+    presentation->Save(u"split_template.pptx", SaveFormat::Pptx);
+}
+else
+{
+    Console::WriteLine(u"Select a merged region spanning exactly two rows and one column.");
+}
+```
+
+شبکه جدول و ایندکس‌های سلول‌های اطراف بدون تغییر می‌مانند. سلول‌های حاصل را بر اساس مختصاتشان بازیابی کنید؛ در اینجا هر دو سلول دارای گستردگی ۱ هستند و [get_IsMergedCell](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_ismergedcell/) مقدار `False` را چاپ می‌کند. نواحی بزرگتر می‌توانند پس از یک تقسیم بخشی ترکیبی باقی بمانند.
+
+متن اصلی و قالب‌بندی آن در سلول بالا (یا چپ) باقی می‌ماند؛ سلول جدید خالی است اما قالب‌بندی سلول از قبیل پرشدن، حاشیه‌ها و حاشیه داخلی را به ارث می‌برد. پس از تقسیم سلول‌ها را پر کنید و هر قالب‌بندی متنی مورد نیاز را به‌صورت صریح تنظیم کنید.
+
+ارائه ذخیره‌شده شامل سلول‌های جداگانه «Product A» و «Product B» است که قالب‌بندی سلول قالب حفظ می‌شود. برای جزئیات بیشتر به [Cell API Reference](https://reference.aspose.com/slides/cpp/aspose.slides/cell/) مراجعه کنید.
+
+## **تغییر رنگ پس‌زمینه سلول جدول**
+
+این مثال یک جدول با ستون‌های ۱۵۰‑نقطه‌ای و ردیف‌های ۵۰‑نقطه‌ای ایجاد می‌کند. از [set_FillType](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/set_filltype/) برای انتخاب پرشدن ثابت و از [get_SolidFillColor](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/get_solidfillcolor/) برای دسترسی به رنگ پرشدن استفاده می‌کند و آن را برای سلول `(2, 3)` (ستون سوم و ردیف چهارم) به رنگ قرمز تنظیم می‌نماید.
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <DOM/Table/ICell.h>
+#include <system/smart_ptr.h>
+#include <DOM/FillType.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/Table/ICellFormat.h>
+#include <drawing/color.h>
+#include <Export/SaveFormat.h>
+#include <system/array.h>
+
 using namespace System::Drawing;
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-auto presentation = System::MakeObject<Presentation>();
-auto slide = presentation->get_Slides()->idx_get(0);
-        
-auto dblCols = System::MakeArray<double>({150, 150, 150, 150});
-auto dblRows = System::MakeArray<double>({50, 50, 50, 50, 50});
-        
-// یک جدول جدید ایجاد کنید
-auto table = slide->get_Shapes()->AddTable(50.0f, 50.0f, dblCols, dblRows);
-        
-// رنگ پس‌زمینه یک سلول را تنظیم کنید 
-System::SharedPtr<ICell> cell = table->idx_get(2, 3);
-cell->get_CellFormat()->get_FillFormat()->set_FillType(Aspose::Slides::FillType::Solid);
-cell->get_CellFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        
-presentation->Save(u"cell_background_color.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
+auto columnWidths = MakeArray<double>({150, 150, 150, 150});
+auto rowHeights = MakeArray<double>({50, 50, 50, 50, 50});
+auto table = slide->get_Shapes()->AddTable(50, 50, columnWidths, rowHeights);
+
+auto cell = table->idx_get(2, 3);
+cell->get_CellFormat()->get_FillFormat()->set_FillType(FillType::Solid);
+cell->get_CellFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Red());
+
+presentation->Save(u"cell_background_color.pptx", SaveFormat::Pptx);
 ```
 
 ## **افزودن تصویر داخل سلول جدول**
-1. یک نمونه از کلاس `Presentation` ایجاد کنید.  
-2. مرجع یک اسلاید را از طریق شاخص آن دریافت کنید.  
-3. آرایه‌ای از ستون‌ها با عرض تعریف کنید.  
-4. آرایه‌ای از سطرها با ارتفاع تعریف کنید.  
-5. از متد `AddTable` برای افزودن جدول به اسلاید استفاده کنید.  
-6. یک شیء `Bitmap` ایجاد کنید تا فایل تصویر را نگه دارد.  
-7. تصویر bitmap را به شیء `IPPImage` اضافه کنید.  
-8. `FillFormat` سلول جدول را به `Picture` تنظیم کنید.  
-9. تصویر را به اولین سلول جدول اضافه کنید.  
-10. نمایش اصلاح‌شده را به صورت فایل PPTX ذخیره کنید
 
-این کد C# نشان می‌دهد چگونه هنگام ایجاد جدول، یک تصویر را داخل سلول جدول قرار دهید:
+قبل از اجرای این مثال، تصویر ورودی را در پوشه کاری قرار دهید. تصویر با [Images::FromFile](https://reference.aspose.com/slides/cpp/aspose.slides/images/fromfile/) بارگذاری می‌شود و با [AddImage](https://reference.aspose.com/slides/cpp/aspose.slides/iimagecollection/addimage/) به مجموعه تصویرهای ارائه اضافه می‌گردد. سپس تصویر به پرشدن تصویر سلول `(0, 0)`، اولین سلول جدول، اختصاص می‌یابد.
 
-```c++
-// مسیر پوشه اسناد.
-const String outPath = u"../out/Image_In_TableCell_out.pptx";
-const String ImagePath = u"../templates/Tulips.jpg";
+[PictureFillMode::Stretch](https://reference.aspose.com/slides/cpp/aspose.slides/picturefillmode/) تصویر را برای پر کردن سلول کشیده می‌کند که ممکن است نسبت ابعاد آن را تغییر دهد. عرض ستون‌ها و ارتفاع ردیف‌ها برحسب نقطه است. تصویر بارگذاری‌شده پس از افزودن به ارائه آزاد (dispose) می‌شود.
 
-// ارائه مورد نظر را بارگذاری می‌کند
-SharedPtr<Presentation> pres = MakeObject<Presentation>();
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <DOM/Table/ICell.h>
+#include <system/smart_ptr.h>
+#include <DOM/FillType.h>
+#include <DOM/IImageCollection.h>
+#include <IImage.h>
+#include <DOM/IPPImage.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/ISlidesPicture.h>
+#include <DOM/PictureFillMode.h>
+#include <DOM/Table/ICellFormat.h>
+#include <Util/Images.h>
+#include <Export/SaveFormat.h>
+#include <system/array.h>
 
-// به اولین اسلاید دسترسی می‌یابد
-SharedPtr<ISlide> islide = pres->get_Slides()->idx_get(0);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-// ستون‌ها را با عرض و سطرها را با ارتفاع تعریف می‌کند
-System::ArrayPtr<double> dblCols = System::MakeObject<System::Array<double>>(4, 150);
-System::ArrayPtr<double> dblRows = System::MakeObject<System::Array<double>>(4, 100);
-System::ArrayPtr<double> total_for_Cat = System::MakeObject<System::Array<double>>(5, 0);
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-// یک شکل جدول را به اسلاید اضافه می‌کند
-auto tbl = islide->get_Shapes()->AddTable(50, 50, dblCols, dblRows);
+auto columnWidths = MakeArray<double>({150, 150, 150, 150});
+auto rowHeights = MakeArray<double>({100, 100, 100, 100, 90});
+auto table = slide->get_Shapes()->AddTable(50, 50, columnWidths, rowHeights);
 
-// تصویر را دریافت می‌کند
-auto img = Images::FromFile(ImagePath);
+auto image = Images::FromFile(u"aspose_logo.jpg");
+auto ppImage = presentation->get_Images()->AddImage(image);
+image->Dispose();
 
-// یک تصویر را به مجموعه تصاویر ارائه اضافه می‌کند
-SharedPtr<IPPImage> imgx = pres->get_Images()->AddImage(img);
+table->idx_get(0, 0)->get_CellFormat()->get_FillFormat()->set_FillType(FillType::Picture);
+table->idx_get(0, 0)->get_CellFormat()->get_FillFormat()->get_PictureFillFormat()->set_PictureFillMode(PictureFillMode::Stretch);
+table->idx_get(0, 0)->get_CellFormat()->get_FillFormat()->get_PictureFillFormat()->get_Picture()->set_Image(ppImage);
 
-
-// تصویر را به اولین سلول جدول اضافه می‌کند
-tbl->idx_get(0, 0)->get_FillFormat()->set_FillType(FillType::Picture);
-tbl->idx_get(0, 0)->get_FillFormat()->get_PictureFillFormat()->set_PictureFillMode(PictureFillMode::Stretch);
-tbl->idx_get(0, 0)->get_FillFormat()->get_PictureFillFormat()->get_Picture()->set_Image(imgx);
-
-// فایل PPTX را بر روی دیسک ذخیره می‌کند
-pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
+presentation->Save(u"table_cell_with_image.pptx", SaveFormat::Pptx);
 ```
 
-## **پرسش‌های متداول**
+## **سوالات متداول**
 
-**آیا می‌توانم ضخامت و سبک خطوط متفاوتی برای طرف‌های مختلف یک سلول تنظیم کنم؟**
+**آیا می‌توانم ضخامت و سبک خطوط متفاوتی برای طرف‌های مختلف یک سلول واحد تنظیم کنم؟**
 
-بله. حاشیه‌های [بالا](https://reference.aspose.com/slides/fa/cpp/aspose.slides/cellformat/get_bordertop/)/[پایین](https://reference.aspose.com/slides/fa/cpp/aspose.slides/cellformat/get_borderbottom/)/[چپ](https://reference.aspose.com/slides/fa/cpp/aspose.slides/cellformat/get_borderleft/)/[راست](https://reference.aspose.com/slides/fa/cpp/aspose.slides/cellformat/get_borderright/) دارای ویژگی‌های جداگانه‌ای هستند، بنابراین ضخامت و سبک هر طرف می‌تواند متفاوت باشد. این به‌طور منطقی از کنترل حاشیه برای هر طرف سلول که در مقاله نشان داده شده، پیروی می‌کند.
+بله. حاشیه‌های [top](https://reference.aspose.com/slides/cpp/aspose.slides/cellformat/get_bordertop/)/[bottom](https://reference.aspose.com/slides/cpp/aspose.slides/cellformat/get_borderbottom/)/[left](https://reference.aspose.com/slides/cpp/aspose.slides/cellformat/get_borderleft/)/[right](https://reference.aspose.com/slides/cpp/aspose.slides/cellformat/get_borderright/) دارای خصوصیات جداگانه‌ای هستند، بنابراین ضخامت و سبک هر طرف می‌تواند متفاوت باشد.
 
-**اگر پس از تنظیم تصویر به‌عنوان پس‌زمینه سلول، اندازه ستون/سطر را تغییر دهم، چه اتفاقی برای تصویر می‌افتد؟**
+**اگر پس از تنظیم تصویر به‌عنوان پس‌زمینه سلول، اندازه ستون/ردیف را تغییر دهم، چه اتفاقی برای تصویر می‌افتد؟**
 
-رفتار بستگی به [حالت پر کردن](https://reference.aspose.com/slides/fa/cpp/aspose.slides/picturefillmode/) دارد. در حالت کشیدگی، تصویر با سلول جدید سازگار می‌شود؛ در حالت کاشی، کاشی‌ها مجدداً محاسبه می‌شوند. مقاله به حالت‌های نمایش تصویر در یک سلول اشاره می‌کند.
+رفتار بستگی به [fill mode](https://reference.aspose.com/slides/cpp/aspose.slides/picturefillmode/) (stretch/tile) دارد. در حالت کشیده شدن (stretch)، تصویر با سلول جدید وفق می‌یابد؛ در حالت کاشی (tile) کاشی‌ها مجدداً محاسبه می‌شوند.
 
-**آیا می‌توانم یک پیوند به تمام محتوای یک سلول اختصاص دهم؟**
+**آیا می‌توانم برای تمام محتوای یک سلول یک ابر링ک تنظیم کنم؟**
 
-[Hyperlinks](/slides/fa/cpp/manage-hyperlinks/) در سطح متن (بخش) داخل چارچوب متن سلول یا در سطح کل جدول/شکل تنظیم می‌شوند. در عمل، پیوند را به یک بخش یا به تمام متن داخل سلول اختصاص می‌دهید.
+[Hyperlinks](/slides/fa/cpp/manage-hyperlinks/) در سطح متن (پرتیشن) داخل فریم متن سلول یا در سطح کل جدول/شکل تنظیم می‌شوند. در عمل، لینک را به یک پرتیشن یا به تمام متن داخل سلول اختصاص می‌دهید.
 
 **آیا می‌توانم فونت‌های متفاوتی داخل یک سلول تنظیم کنم؟**
 
-بله. چارچوب متن یک سلول از [بخش‌ها](https://reference.aspose.com/slides/fa/cpp/aspose.slides/portion/) (روندها) با قالب‌بندی مستقل—خانواده فونت، سبک، اندازه و رنگ—پشتیبانی می‌کند.
+بله. فریم متن یک سلول از [portions](https://reference.aspose.com/slides/cpp/aspose.slides/portion/) (بخش‌ها) با قالب‌بندی مستقل—قابلیت فونت، سبک، اندازه و رنگ—پشتیبانی می‌کند.

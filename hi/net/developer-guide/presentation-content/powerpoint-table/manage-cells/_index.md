@@ -1,345 +1,244 @@
 ---
-title: ".NET में प्रस्तुतियों में तालिका कोशिकाओं को प्रबंधित करें"
-linktitle: "कोशिकाओं को प्रबंधित करें"
+title: ".NET में प्रस्तुतियों में तालिका कोशिकाओं का प्रबंधन"
+linktitle: "कोशिकाओं का प्रबंधन"
 type: docs
 weight: 30
 url: /hi/net/manage-cells/
 keywords:
-- तालिका कोशिका
-- कोशिकाओं को मिलाएँ
-- सीमा हटाएँ
-- कोशिका विभाजित करें
-- कोशिका में छवि
-- पृष्ठभूमि रंग
-- PowerPoint
-- प्रस्तुति
-- .NET
-- C#
-- Aspose.Slides
-description: ".NET के लिए Aspose.Slides के साथ PowerPoint में तालिका कोशिकाओं को सहजता से प्रबंधित करें। कोशिकाओं तक पहुँचने, संशोधित करने और शैली देने में निपुण बनें, ताकि सहज स्लाइड स्वचालन हो सके।"
+- "तालिका कोशिका"
+- "कोशिकाएँ मिलाएँ"
+- "सीमा हटाएँ"
+- "कोशिका विभाजित करें"
+- "कोशिका में छवि"
+- "पृष्ठभूमि रंग"
+- "PowerPoint"
+- "प्रस्तुति"
+- ".NET"
+- "C#"
+- "Aspose.Slides"
+description: "C# में PowerPoint तालिका कोशिकाओं का प्रबंधन: मर्ज की गई कोशिकाओं की पहचान करें, सीमाओं को हटाएँ, कोशिकाओं को विभाजित करें, और Aspose.Slides for .NET के साथ पृष्ठभूमि रंग तथा छवियों को सेट करें।"
 ---
 ## **अवलोकन**
 
-Aspose.Slides आपको PowerPoint प्रस्तुतियों में तालिका कोशिकाओं तक पहुँचने और उन्हें संशोधित करने की अनुमति देता है। यह लेख विलीन तालिका कोशिकाओं की पहचान करना, कोशिका बॉर्डर हटाना, मर्ज या विभाजन के बाद कोशिका क्रमांकन के साथ काम करना, कोशिका की पृष्ठभूमि रंग बदलना, और तालिका कोशिका के अंदर छवि जोड़ने के तरीके बताता है। उदाहरण दिखाते हैं कि प्रस्तुति कैसे बनाएं या खोलें, स्लाइड से तालिका प्राप्त करें, कोशिका गुणों के माध्यम से स्वरूपण अपडेट करें, और संशोधित प्रस्तुति को PPTX फ़ाइल के रूप में सहेजें।
+Aspose.Slides आपको PowerPoint प्रस्तुतियों में तालिका कोशिकाओं तक पहुँचने और उन्हें संशोधित करने की सुविधा देता है। यह लेख समझाता है कि कैसे मर्ज की गई तालिका कोशिकाओं की पहचान करें, कोशिका की सीमाओं को हटाएँ, मर्ज या स्प्लिट करने के बाद कोशिका क्रमांक के साथ काम करें, कोशिका की पृष्ठभूमि रंग बदलें, और तालिका कोशिका के भीतर एक छवि जोड़ें। उदाहरण दिखाते हैं कि कैसे प्रस्तुति बनाएँ या खोलें, स्लाइड से तालिका प्राप्त करें, कोशिका गुणों के माध्यम से कोशिका फ़ॉर्मेटिंग अपडेट करें, और संशोधित प्रस्तुति को PPTX फ़ाइल के रूप में सहेजें।
 
-## **विलीनीकृत तालिका कोशिका की पहचान**
+Aspose.Slides शून्य-आधारित सूचकांक का उपयोग करता है तालिका कोशिकाओं तक पहुँचने के लिए क्रम `(column, row)` में।
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation) class.  
-2. Get the table from the first slide.  
-3. Iterate through the table's rows and columns to find merge cells.  
-4. Print message when merged cells are found.
+## **एक मर्ज की गई तालिका कोशिका की पहचान करें**
 
-यह C# कोड आपको प्रस्तुति में विलीन तालिका कोशिकाओं की पहचान करने का तरीका दिखाता है:
+यह उदाहरण एक मौजूदा प्रस्तुति खोलता है और पहले स्लाइड पर पहली शेप को तालिका के रूप में पहुँचता है। यह मानता है कि स्लाइड और शेप मौजूद हैं और शेप एक तालिका है। फिर यह सभी पंक्तियों और कॉलमों में इटररेट करता है और मर्ज की गई क्षेत्रों में कोशिकाओं की पहचान के लिए [IsMergedCell](https://reference.aspose.com/slides/net/aspose.slides/icell/ismergedcell/) का उपयोग करता है। प्रत्येक मिलान के लिए, यह कोशिका के निर्देशांक `row;column` क्रम में, [RowSpan](https://reference.aspose.com/slides/net/aspose.slides/icell/rowspan/), [ColSpan](https://reference.aspose.com/slides/net/aspose.slides/icell/colspan/), और क्षेत्र की प्रारम्भिक निर्देशांक, [FirstRowIndex](https://reference.aspose.com/slides/net/aspose.slides/icell/firstrowindex/) और [FirstColumnIndex](https://reference.aspose.com/slides/net/aspose.slides/icell/firstcolumnindex/) को प्रिंट करता है।
 
-```c#
-using (Presentation pres = new Presentation("SomePresentationWithTable.pptx"))
+```csharp
+using System;
+using Aspose.Slides;
+
+using var presentation = new Presentation("presentation_with_table.pptx");
+var slide = presentation.Slides[0];
+var table = (ITable) slide.Shapes[0];
+
+var rowCount = table.Rows.Count;
+for (var rowIndex = 0; rowIndex < rowCount; rowIndex++)
 {
-    ITable table = pres.Slides[0].Shapes[0] as ITable; // मानते हुए कि Slide#0.Shape#0 एक तालिका है
-    for (int i = 0; i < table.Rows.Count; i++)
+    var columnCount = table.Columns.Count;
+    for (var columnIndex = 0; columnIndex < columnCount; columnIndex++)
     {
-        for (int j = 0; j < table.Columns.Count; j++)
+        var cell = table[columnIndex, rowIndex];
+        if (cell.IsMergedCell)
         {
-            ICell currentCell = table.Rows[i][j];
-            if (currentCell.IsMergedCell)
-            {
-                Console.WriteLine(string.Format("Cell {0};{1} is a part of merged cell with RowSpan={2} and ColSpan={3} starting from Cell {4};{5}.",
-                                  i, j, currentCell.RowSpan, currentCell.ColSpan, currentCell.FirstRowIndex, currentCell.FirstColumnIndex));
-
-
-            }
+            Console.WriteLine($"Cell {rowIndex};{columnIndex} belongs to a merged region with RowSpan={cell.RowSpan} and ColSpan={cell.ColSpan} starting at {cell.FirstRowIndex};{cell.FirstColumnIndex}.");
         }
     }
 }
 ```
 
-## **तालिका कोशिका बॉर्डर हटाएँ**
+## **तालिका कोशिका की सीमाओं को हटाएँ**
 
-1. Create an instance of the `Presentation` class.  
-2. Get a slide's reference through its index.  
-3. Define an array of columns with width.  
-4. Define an array of rows with height.  
-5. Add a table to the slide through the `AddTable` method.  
-6. Iterate through every cell to clear the top, bottom, right, and left borders.  
-7. Save the modified presentation as a PPTX file.
+[Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) बनाएँ और उसके पहले स्लाइड पर [AddTable](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addtable/) का उपयोग करके एक तालिका जोड़ें। कॉलम चौड़ाई, पंक्ति ऊँचाई, और तालिका का स्थान पॉइंट्स में निर्दिष्ट होते हैं। यह उदाहरण सभी चार कोशिका सीमाओं को [FillType.NoFill](https://reference.aspose.com/slides/net/aspose.slides/filltype/) सेट करता है, जिससे वे अदृश्य हो जाती हैं।
 
-यह C# कोड आपको तालिका कोशिकाओं से बॉर्डर हटाने का तरीका दिखाता है:
+```csharp
+using Aspose.Slides;
 
-```c#
-// PPTX फ़ाइल का प्रतिनिधित्व करने वाले Presentation क्लास का उदाहरण बनाता है
-using (Presentation pres = new Presentation())
-{
-   // पहली स्लाइड तक पहुँचता है
-    Slide sld = (Slide)pres.Slides[0];
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    // कॉलम को चौड़ाई और पंक्तियों को ऊँचाई के साथ परिभाषित करता है
-    double[] dblCols = { 50, 50, 50, 50 };
-    double[] dblRows = { 50, 30, 30, 30, 30 };
+double[] columnWidths = { 50, 50, 50, 50 };
+double[] rowHeights = { 50, 30, 30, 30, 30 };
+var table = slide.Shapes.AddTable(100, 50, columnWidths, rowHeights);
 
-    // स्लाइड में टेबल आकार जोड़ता है
-    ITable tbl = sld.Shapes.AddTable(100, 50, dblCols, dblRows);
-
-    // प्रत्येक कोशिका के लिए बॉर्डर प्रारूप सेट करता है
-    foreach (IRow row in tbl.Rows)
-        foreach (ICell cell in row)
-        {
-            cell.CellFormat.BorderTop.FillFormat.FillType = FillType.NoFill;
-            cell.CellFormat.BorderBottom.FillFormat.FillType = FillType.NoFill;
-            cell.CellFormat.BorderLeft.FillFormat.FillType = FillType.NoFill;
-            cell.CellFormat.BorderRight.FillFormat.FillType = FillType.NoFill;
-        }
-
-    // PPTX फ़ाइल को डिस्क पर लिखता है
-    pres.Save("table_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
-}
-```
-
-## **विलीनीकृत कोशिकाओं में क्रमांकन**
-
-यदि हम 2 जोड़े कोशिकाएँ (1, 1) x (2, 1) और (1, 2) x (2, 2) को मिलाएँ, तो परिणामी तालिका क्रमांकित होगी। यह C# कोड प्रक्रिया को दर्शाता है:
-
-```c#
-// एक PPTX फ़ाइल का प्रतिनिधित्व करने वाले Presentation क्लास का उदाहरण बनाता है
-using (Presentation presentation = new Presentation())
-{
-    // पहली स्लाइड तक पहुँचता है
-    ISlide sld = presentation.Slides[0];
-
-    // कॉलम को चौड़ाइयों और पंक्तियों को ऊँचाइयों के साथ परिभाषित करता है
-    double[] dblCols = { 70, 70, 70, 70 };
-    double[] dblRows = { 70, 70, 70, 70 };
-
-    // स्लाइड में तालिका आकार जोड़ता है
-    ITable tbl = sld.Shapes.AddTable(100, 50, dblCols, dblRows);
-
-    // प्रत्येक कोशिका के लिए बॉर्डर प्रारूप सेट करता है
-    foreach (IRow row in tbl.Rows)
+foreach (var row in table.Rows)
+    foreach (var cell in row)
     {
-        foreach (ICell cell in row)
-        {
-            cell.CellFormat.BorderTop.FillFormat.FillType = FillType.Solid;
-            cell.CellFormat.BorderTop.FillFormat.SolidFillColor.Color = Color.Red;
-            cell.CellFormat.BorderTop.Width = 5;
-
-            cell.CellFormat.BorderBottom.FillFormat.FillType = FillType.Solid;
-            cell.CellFormat.BorderBottom.FillFormat.SolidFillColor.Color = Color.Red;
-            cell.CellFormat.BorderBottom.Width = 5;
-
-            cell.CellFormat.BorderLeft.FillFormat.FillType = FillType.Solid;
-            cell.CellFormat.BorderLeft.FillFormat.SolidFillColor.Color = Color.Red;
-            cell.CellFormat.BorderLeft.Width = 5;
-
-            cell.CellFormat.BorderRight.FillFormat.FillType = FillType.Solid;
-            cell.CellFormat.BorderRight.FillFormat.SolidFillColor.Color = Color.Red;
-            cell.CellFormat.BorderRight.Width = 5;
-        }
+        cell.CellFormat.BorderTop.FillFormat.FillType = FillType.NoFill;
+        cell.CellFormat.BorderBottom.FillFormat.FillType = FillType.NoFill;
+        cell.CellFormat.BorderLeft.FillFormat.FillType = FillType.NoFill;
+        cell.CellFormat.BorderRight.FillFormat.FillType = FillType.NoFill;
     }
 
-    // कोशिकाएँ (1, 1) x (2, 1) को मिलाता है
-    tbl.MergeCells(tbl[1, 1], tbl[2, 1], false);
-
-    // कोशिकाएँ (1, 2) x (2, 2) को मिलाता है
-    tbl.MergeCells(tbl[1, 2], tbl[2, 2], false);
-
-    presentation.Save("MergeCells_out.pptx", SaveFormat.Pptx);
-}
+presentation.Save("table.pptx", SaveFormat.Pptx);
 ```
 
-फिर हम (1, 1) और (1, 2) को मिलाकर कोशिकाओं को आगे विलीन करते हैं। परिणामस्वरूप तालिका के केंद्र में एक बड़ी विलीन कोशिका होगी:
+## **तालिका कोशिकाओं का मर्ज करें**
 
-```c#
-// PPTX फ़ाइल का प्रतिनिधित्व करने वाले Presentation क्लास का उदाहरण बनाता है
-using (Presentation presentation = new Presentation())
+[MergeCells](https://reference.aspose.com/slides/net/aspose.slides/itable/mergecells/) का उपयोग करके तालिका कोशिकाओं की आयताकार रेंज को एक कोशिका में मिलाएँ। रेंज के ऊपरी-बाएँ और निचले-दाएँ कोने की कोशिकाओं को निर्दिष्ट करें। अंतिम आर्ग्यूमेंट यह नियंत्रित करता है कि क्या मर्ज निर्दिष्ट रेंज के बाहर की कोशिकाओं को शामिल कर सकता है; `false` मर्ज को उसी रेंज में रखता है।
+
+यह उदाहरण 70 पॉइंट कॉलम और पंक्तियों के साथ 4x4 तालिका बनाता है, फिर चार मध्यवर्ती कोशिकाओं को `(1, 1)` से `(2, 2)` तक मर्ज करता है। परिणामी कोशिका दो कॉलम और दो पंक्तियों को कवर करती है, जबकि तालिका की मूल ग्रिड में चार कॉलम और चार पंक्तियां बनी रहती हैं। मर्ज की गई कोशिका की सामग्री या फ़ॉर्मेटिंग तक पहुँचने के लिए, उसके ऊपरी-बाएँ स्थिति का उपयोग करें: इस उदाहरण में `table[1, 1]`। मर्ज रेंज में अन्य स्थितियाँ तालिका ग्रिड का हिस्सा बनी रहती हैं, इसलिए रेंज के बाहर की कोशिकाओं के अनुक्रमांक नहीं बदलते।
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+double[] columnWidths = { 70, 70, 70, 70 };
+double[] rowHeights = { 70, 70, 70, 70 };
+var table = slide.Shapes.AddTable(100, 50, columnWidths, rowHeights);
+
+table.MergeCells(table[1, 1], table[2, 2], false);
+
+presentation.Save("merged_cells.pptx", SaveFormat.Pptx);
+```
+
+## **तालिका कोशिकाओं को विभाजित करें**
+
+पिछले उदाहरण में कोशिकाओं को मर्ज करने से तालिका की ग्रिड बनी रहती है। एक कोशिका को विभाजित करने से नया ग्रिड कॉलम बन सकता है और उसके दाएँ स्थित कोशिकाओं के कॉलम अनुक्रमांक बदल सकते हैं। Aspose.Slides PowerPoint की तालिका ग्रिड मॉडल का पालन करता है।
+
+यह उदाहरण 70 पॉइंट कॉलम और पंक्तियों के साथ 4x4 तालिका बनाता है और `(1, 1)` कोशिका पर [SplitByWidth](https://reference.aspose.com/slides/net/aspose.slides/icell/splitbywidth/) को कॉल करता है। कोशिका की 70 पॉइंट चौड़ाई के आधे भाग को दो समान-चौड़ाई वाली कोशिकाएँ बनाने के लिए पास किया जाता है।
+
+इस विभाजन के बाद, दोनों हिस्सों तक `table[1, 1]` और `table[2, 1]` के रूप में पहुँचा जाता है। तालिका ग्रिड अब पाँच कॉलम रखती है: मूल रूप से कॉलम 2 और 3 में थीं वे क्रमशः कॉलम 3 और 4 में चली जाती हैं। पंक्ति अनुक्रमांक अपरिवर्तित रहते हैं। विभाजन के बाद कोशिकाओं तक पहुँचते समय इन अद्यतन कॉलम अनुक्रमांक का उपयोग करें।
+
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+double[] columnWidths = { 70, 70, 70, 70 };
+double[] rowHeights = { 70, 70, 70, 70 };
+var table = slide.Shapes.AddTable(100, 50, columnWidths, rowHeights);
+
+table[1, 1].SplitByWidth(table[1, 1].Width / 2);
+
+presentation.Save("split_cells.pptx", SaveFormat.Pptx);
+```
+
+### **पंक्ति या कॉलम स्पैन के अनुसार मर्ज की गई कोशिकाओं को विभाजित करें**
+
+डेटा प्रविष्टि के लिए मर्ज किए गए टेम्पलेट कोशिकाओं को तैयार करने हेतु, मौजूदा पंक्ति सीमा के साथ विभाजित करने के लिए [SplitByRowSpan](https://reference.aspose.com/slides/net/aspose.slides/icell/splitbyrowspan/) या कॉलम सीमा के साथ विभाजित करने के लिए [SplitByColSpan](https://reference.aspose.com/slides/net/aspose.slides/icell/splitbycolspan/) का उपयोग करें।
+
+`index` आर्ग्यूमेंट विभाजन के ऊपर भाग में पंक्तियों या बाएँ भाग में कॉलमों की गिनती करता है; यह मर्ज किए गए क्षेत्र के सापेक्ष होता है:
+- पंक्ति विभाजन: `0 < index <` [RowSpan](https://reference.aspose.com/slides/net/aspose.slides/icell/rowspan/).
+- कॉलम विभाजन: `0 < index <` [ColSpan](https://reference.aspose.com/slides/net/aspose.slides/icell/colspan/).
+
+यह उदाहरण अपेक्षा करता है कि एक प्रस्तुति में पहले स्लाइड पर पहली शेप एक तालिका है, जिसमें `(1, 2)` और `(1, 3)` लंबवत मर्ज होते हैं। नीचे की स्थिति से शुरू करते हुए, यह [FirstColumnIndex](https://reference.aspose.com/slides/net/aspose.slides/icell/firstcolumnindex/) और [FirstRowIndex](https://reference.aspose.com/slides/net/aspose.slides/icell/firstrowindex/) का उपयोग करके मूल स्थान खोजता है और दोनों स्पैन की जाँच करता है। `SplitByRowSpan(1)` फिर उत्पाद नामों के लिए पंक्तियों 2 और 3 को अलग करता है। क्षैतिज दो-कॉलम मर्ज के लिए, `SplitByColSpan(1)` का उपयोग करें।
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("table_template.pptx");
+var slide = presentation.Slides[0];
+var table = (ITable) slide.Shapes[0];
+
+var selectedCell = table[1, 3];
+var firstColumnIndex = selectedCell.FirstColumnIndex;
+var firstRowIndex = selectedCell.FirstRowIndex;
+var mergedCell = table[firstColumnIndex, firstRowIndex];
+
+if (mergedCell.IsMergedCell && mergedCell.RowSpan == 2 && mergedCell.ColSpan == 1)
 {
-    // पहली स्लाइड तक पहुँचता है
-    ISlide slide = presentation.Slides[0];
+    mergedCell.SplitByRowSpan(1);
 
-    // कॉलम को चौड़ाइयों और पंक्तियों को ऊँचाइयों के साथ परिभाषित करता है
-    double[] dblCols = { 70, 70, 70, 70 };
-    double[] dblRows = { 70, 70, 70, 70 };
+    // विभाजन के बाद तालिका से प्राप्त हुई कोशिकाओं को प्राप्त करें।
+    var upperCell = table[firstColumnIndex, firstRowIndex];
+    var lowerCell = table[firstColumnIndex, firstRowIndex + 1];
+    Console.WriteLine($"Upper cell merged: {upperCell.IsMergedCell}");
+    Console.WriteLine($"Lower cell merged: {lowerCell.IsMergedCell}");
 
-    // स्लाइड में तालिका आकार जोड़ता है
-    ITable table = slide.Shapes.AddTable(100, 50, dblCols, dblRows);
+    upperCell.TextFrame.Text = "Product A";
+    lowerCell.TextFrame.Text = "Product B";
 
-    // प्रत्येक कोशिका के लिए बॉर्डर प्रारूप सेट करता है
-    foreach (IRow row in table.Rows)
-    {
-        foreach (ICell cell in row)
-        {
-            cell.CellFormat.BorderTop.FillFormat.FillType = FillType.Solid;
-            cell.CellFormat.BorderTop.FillFormat.SolidFillColor.Color = Color.Red;
-            cell.CellFormat.BorderTop.Width = 5;
-
-            cell.CellFormat.BorderBottom.FillFormat.FillType = FillType.Solid;
-            cell.CellFormat.BorderBottom.FillFormat.SolidFillColor.Color = Color.Red;
-            cell.CellFormat.BorderBottom.Width = 5;
-
-            cell.CellFormat.BorderLeft.FillFormat.FillType = FillType.Solid;
-            cell.CellFormat.BorderLeft.FillFormat.SolidFillColor.Color = Color.Red;
-            cell.CellFormat.BorderLeft.Width = 5;
-
-            cell.CellFormat.BorderRight.FillFormat.FillType = FillType.Solid;
-            cell.CellFormat.BorderRight.FillFormat.SolidFillColor.Color = Color.Red;
-            cell.CellFormat.BorderRight.Width = 5;
-
-        }
-    }
-
-    // कोशिकाएँ (1, 1) x (2, 1) को मिलाता है
-    table.MergeCells(table[1, 1], table[2, 1], false);
-
-    // कोशिकाएँ (1, 2) x (2, 2) को मिलाता है
-    table.MergeCells(table[1, 2], table[2, 2], false);
-
-    // कोशिकाएँ (1, 2) x (2, 2) को मिलाता है
-    table.MergeCells(table[1, 1], table[1, 2], true);
-
-    // PPTX फ़ाइल को डिस्क पर लिखता है
-    presentation.Save("MergeCells1_out.pptx", SaveFormat.Pptx);
+    presentation.Save("split_template.pptx", SaveFormat.Pptx);
 }
-```
-
-## **विभाजित कोशिका में क्रमांकन**
-
-पिछले उदाहरणों में, जब तालिका कोशिकाएँ विलीन हुईं, तो अन्य कोशिकाओं में क्रमांकन या संख्या प्रणाली नहीं बदली।  
-
-इस बार, हम एक सामान्य तालिका (बिना विलीन कोशिकाओं वाली तालिका) लेते हैं और फिर (1,1) कोशिका को विभाजित करने की कोशिश करते हैं ताकि एक विशेष तालिका प्राप्त हो। आप इस तालिका के क्रमांकन पर ध्यान देना चाह सकते हैं, जो अजीब लग सकता है। हालांकि, यही Microsoft PowerPoint तालिका कोशिकाओं को क्रमांकित करने का तरीका है और Aspose.Slides भी यही करता है।  
-
-यह C# कोड हमारे द्वारा वर्णित प्रक्रिया को दर्शाता है:
-
-```c#
-// एक PPTX फ़ाइल का प्रतिनिधित्व करने वाले Presentation क्लास का उदाहरण बनाता है
-using (Presentation presentation = new Presentation())
+else
 {
-    // पहली स्लाइड तक पहुँचता है
-    ISlide slide = presentation.Slides[0];
-
-    // कॉलम को चौड़ाइयों और पंक्तियों को ऊँचाइयों के साथ परिभाषित करता है
-    double[] dblCols = { 70, 70, 70, 70 };
-    double[] dblRows = { 70, 70, 70, 70 };
-
-    // स्लाइड में तालिका आकार जोड़ता है
-    ITable table = slide.Shapes.AddTable(100, 50, dblCols, dblRows);
-
-    // प्रति कोशिका के लिए बॉर्डर प्रारूप सेट करता है
-    foreach (IRow row in table.Rows)
-    {
-        foreach (ICell cell in row)
-        {
-            cell.CellFormat.BorderTop.FillFormat.FillType = FillType.Solid;
-            cell.CellFormat.BorderTop.FillFormat.SolidFillColor.Color = Color.Red;
-            cell.CellFormat.BorderTop.Width = 5;
-
-            cell.CellFormat.BorderBottom.FillFormat.FillType = FillType.Solid;
-            cell.CellFormat.BorderBottom.FillFormat.SolidFillColor.Color = Color.Red;
-            cell.CellFormat.BorderBottom.Width = 5;
-
-            cell.CellFormat.BorderLeft.FillFormat.FillType = FillType.Solid;
-            cell.CellFormat.BorderLeft.FillFormat.SolidFillColor.Color = Color.Red;
-            cell.CellFormat.BorderLeft.Width = 5;
-
-            cell.CellFormat.BorderRight.FillFormat.FillType = FillType.Solid;
-            cell.CellFormat.BorderRight.FillFormat.SolidFillColor.Color = Color.Red;
-            cell.CellFormat.BorderRight.Width = 5;
-
-        }
-    }
-
-    // कोशिकाएँ (1, 1) x (2, 1) को मिलाता है
-    table.MergeCells(table[1, 1], table[2, 1], false);
-
-    // कोशिकाएँ (1, 2) x (2, 2) को मिलाता है
-    table.MergeCells(table[1, 2], table[2, 2], false);
-
-    // कोशिका (1, 1) को विभाजित करता है।
-    table[1, 1].SplitByWidth(table[2, 1].Width / 2);
-
-    // PPTX फ़ाइल को डिस्क पर लिखता है
-    presentation.Save("CellSplit_out.pptx", SaveFormat.Pptx);
+    Console.WriteLine("Select a merged region spanning exactly two rows and one column.");
 }
 ```
+
+तालिका ग्रिड और आस-पास की कोशिका अनुक्रमांक अपरिवर्तित रहते हैं। परिणामस्वरूप कोशिकाओं को उनके निर्देशांक से प्राप्त करें; यहाँ दोनों के स्पैन 1 हैं और [IsMergedCell](https://reference.aspose.com/slides/net/aspose.slides/icell/ismergedcell/) `False` प्रिंट करता है। बड़े क्षेत्रों को एक विभाजन के बाद भी आंशिक रूप से मर्ज रखा जा सकता है।
+
+मूल पाठ और उसका फ़ॉर्मेटिंग ऊपर (या बाएँ) कोशिका में रहता है; नई कोशिका खाली होती है लेकिन फ़िल, सीमाओं और मार्जिन जैसे सेल फ़ॉर्मेट को विरासत में प्राप्त करती है। विभाजन के बाद कोशिकाओं को भरें और आवश्यक पाठ फ़ॉर्मेटिंग स्पष्ट रूप से सेट करें।
+
+सहेजी गई प्रस्तुति में अलग-अलग "Product A" और "Product B" कोशिकाएँ होती हैं जिनमें टेम्पलेट की कोशिका फ़ॉर्मेटिंग बरकरार रहती है। विवरण के लिए [Cell API Reference](https://reference.aspose.com/slides/net/aspose.slides/cell/) देखें।
 
 ## **तालिका कोशिका की पृष्ठभूमि रंग बदलें**
 
-यह C# कोड आपको तालिका कोशिका की पृष्ठभूमि रंग बदलने का तरीका दिखाता है:
+यह उदाहरण 150 पॉइंट कॉलम और 50 पॉइंट पंक्तियों वाली तालिका बनाता है। यह सेल `(2, 3)` (तीसरे कॉलम और चौथी पंक्ति) के लिए [FillType](https://reference.aspose.com/slides/net/aspose.slides/ifillformat/filltype/) को सॉलिड और [SolidFillColor](https://reference.aspose.com/slides/net/aspose.slides/ifillformat/solidfillcolor/) को लाल सेट करता है।
 
-```c#
-using (Presentation presentation = new Presentation())
-{
-    ISlide slide = presentation.Slides[0];
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-    double[] dblCols = { 150, 150, 150, 150 };
-    double[] dblRows = { 50, 50, 50, 50, 50 };
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    // नई तालिका बनाएं
-    ITable table = slide.Shapes.AddTable(50, 50, dblCols, dblRows);
+double[] columnWidths = { 150, 150, 150, 150 };
+double[] rowHeights = { 50, 50, 50, 50, 50 };
+var table = slide.Shapes.AddTable(50, 50, columnWidths, rowHeights);
 
-    // एक कोशिका के लिए पृष्ठभूमि रंग सेट करें
-    ICell cell = table[2, 3];
-    cell.CellFormat.FillFormat.FillType = FillType.Solid;
-    cell.CellFormat.FillFormat.SolidFillColor.Color = Color.Red;
+var cell = table[2, 3];
+cell.CellFormat.FillFormat.FillType = FillType.Solid;
+cell.CellFormat.FillFormat.SolidFillColor.Color = Color.Red;
 
-    presentation.Save("cell_background_color.pptx", SaveFormat.Pptx);
-}
+presentation.Save("cell_background_color.pptx", SaveFormat.Pptx);
 ```
 
 ## **तालिका कोशिका के भीतर छवि जोड़ें**
 
-1. Create an instance of the`Presentation` class.  
-2. Get a slide's reference through its index.  
-3. Define an array of columns with width.  
-4. Define an array of rows with height.  
-5. Add a table to the slide through the `AddTable` method.  
-6. Create a `Bitmap` object to hold the image file.  
-7. Add the bitmap image to the `IPPImage` object.  
-8. Set the `FillFormat` for the Table Cell to `Picture`.  
-9. Add the image to the table's first cell.  
-10. Save the modified presentation as a PPTX file
+इस उदाहरण को चलाने से पहले इनपुट छवि को कार्य निर्देशिका में रखें। यह छवि को [Images.FromFile](https://reference.aspose.com/slides/net/aspose.slides/images/fromfile/) के साथ लोड करता है और इसे प्रस्तुति की इमेज कलेक्शन में [AddImage](https://reference.aspose.com/slides/net/aspose.slides/iimagecollection/addimage/) के साथ जोड़ता है। फिर यह छवि को सेल `(0, 0)` (तालिका की पहली कोशिका) के चित्र फ़िल में असाइन करता है।
 
-यह C# कोड दिखाता है कि तालिका बनाते समय तालिका कोशिका के भीतर छवि कैसे रखें:
+[PictureFillMode.Stretch](https://reference.aspose.com/slides/net/aspose.slides/picturefillmode/) छवि को सेल में भरने के लिए खिंचाव करता है, जिससे इसका आस्पेक्ट रेशियो बदल सकता है। कॉलम चौड़ाई और पंक्ति ऊँचाई पॉइंट्स में हैं। लोड की गई छवि अपने using घोषणा द्वारा स्वचालित रूप से डिस्पोज़ हो जाती है।
 
-```c#
-// PPTX फ़ाइल का प्रतिनिधित्व करने वाले Presentation क्लास का उदाहरण बनाता है
-using (Presentation presentation = new Presentation())
-{
-    // पहली स्लाइड तक पहुँचता है
-    ISlide slide = presentation.Slides[0];
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-    // कॉलम को चौड़ाइयों और पंक्तियों को ऊँचाइयों के साथ परिभाषित करता है
-    double[] dblCols = { 150, 150, 150, 150 };
-    double[] dblRows = { 100, 100, 100, 100, 90 };
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    // स्लाइड में तालिका आकार जोड़ता है
-    ITable table = slide.Shapes.AddTable(50, 50, dblCols, dblRows);
+double[] columnWidths = { 150, 150, 150, 150 };
+double[] rowHeights = { 100, 100, 100, 100, 90 };
+var table = slide.Shapes.AddTable(50, 50, columnWidths, rowHeights);
 
-    // फ़ाइल से एक छवि लोड करता है और उसे प्रस्तुति संसाधनों में जोड़ता है
-    IImage image = Images.FromFile("aspose-logo.jpg");
-    IPPImage ppImage = presentation.Images.AddImage(image);
-    image.Dispose();
+using var image = Images.FromFile("aspose_logo.jpg");
+var ppImage = presentation.Images.AddImage(image);
 
-    // छवि को पहली तालिका कोशिका में जोड़ता है
-    table[0, 0].CellFormat.FillFormat.FillType = FillType.Picture;
-    table[0, 0].CellFormat.FillFormat.PictureFillFormat.PictureFillMode = PictureFillMode.Stretch;
-    table[0, 0].CellFormat.FillFormat.PictureFillFormat.Picture.Image = ppImage;
+table[0, 0].CellFormat.FillFormat.FillType = FillType.Picture;
+table[0, 0].CellFormat.FillFormat.PictureFillFormat.PictureFillMode = PictureFillMode.Stretch;
+table[0, 0].CellFormat.FillFormat.PictureFillFormat.Picture.Image = ppImage;
 
-    // PPTX फ़ाइल को डिस्क पर सहेजता है
-    presentation.Save("Image_In_TableCell_out.pptx", SaveFormat.Pptx);
-}
+presentation.Save("table_cell_with_image.pptx", SaveFormat.Pptx);
 ```
 
 ## **अक्सर पूछे जाने वाले प्रश्न**
 
-**क्या मैं किसी एकल कोशिका के विभिन्न पक्षों के लिए अलग‑अलग लाइन की मोटाई और शैली सेट कर सकता हूँ?**
+**क्या मैं एक ही कोशिका के विभिन्न पक्षों के लिए अलग-अलग रेखा मोटाई और शैली सेट कर सकता हूँ?**
 
-हाँ। [ऊपर](https://reference.aspose.com/slides/hi/net/aspose.slides/cellformat/bordertop/)/[नीचे](https://reference.aspose.com/slides/hi/net/aspose.slides/cellformat/borderbottom/)/[बाएँ](https://reference.aspose.com/slides/hi/net/aspose.slides/cellformat/borderleft/)/[दाएँ](https://reference.aspose.com/slides/hi/net/aspose.slides/cellformat/borderright/) बॉर्डर के अलग-अलग प्रॉपर्टी होते हैं, इसलिए प्रत्येक पक्ष की मोटाई और शैली अलग हो सकती है। यह लेख में प्रदर्शित किए गए सेल के प्रति‑पक्ष बॉर्डर नियंत्रण से तर्कसंगत रूप से जुड़ा है।
+हाँ। [top](https://reference.aspose.com/slides/net/aspose.slides/cellformat/bordertop/)/[bottom](https://reference.aspose.com/slides/net/aspose.slides/cellformat/borderbottom/)/[left](https://reference.aspose.com/slides/net/aspose.slides/cellformat/borderleft/)/[right](https://reference.aspose.com/slides/net/aspose.slides/cellformat/borderright/) सीमाओं में अलग-अलग प्रॉपर्टीज़ हैं, इसलिए प्रत्येक पक्ष की मोटाई और शैली अलग हो सकती है।
 
-**यदि मैं सेल की पृष्ठभूमि के रूप में चित्र सेट करने के बाद कॉलम/पंक्ति का आकार बदलूँ तो छवि में क्या होता है?**
+**यदि मैं तस्वीर को कोशिका की पृष्ठभूमि के रूप में सेट करने के बाद कॉलम/पंक्ति का आकार बदलूँ तो छवि के साथ क्या होता है?**
 
-व्यवहार [fill mode](https://reference.aspose.com/slides/hi/net/aspose.slides/picturefillmode/) (stretch/​tile) पर निर्भर करता है। स्ट्रेचिंग के साथ, छवि नई कोशिका के अनुसार समायोजित होती है; टाइलिंग के साथ, टाइलों की पुनर्गणना की जाती है। लेख में कोशिका में छवि प्रदर्शित करने के मोड का उल्लेख है।
+व्यवहार [fill mode](https://reference.aspose.com/slides/net/aspose.slides/picturefillmode/) पर निर्भर करता है (stretch/tile)। स्ट्रेचिंग के साथ, छवि नए सेल के अनुसार समायोजित हो जाती है; टाइलिंग के साथ, टाइलें पुनः गणना की जाती हैं।
 
-**क्या मैं कोशिका की सभी सामग्री को हाइपरलिंक असाइन कर सकता हूँ?**
+**क्या मैं कोशिका की सभी सामग्री को एक हाइपरलिंक असाइन कर सकता हूँ?**
 
-[Hyperlinks](/slides/hi/net/manage-hyperlinks/) को सेल के टेक्स्ट फ्रेम के भीतर टेक्स्ट (portion) स्तर पर या पूरी तालिका/शेप स्तर पर सेट किया जाता है। व्यावहारिक रूप से, आप लिंक को किसी भाग या सेल के सभी टेक्स्ट को असाइन करते हैं।
+[Hyperlinks](/slides/hi/net/manage-hyperlinks/) को कोशिका के टेक्स्ट फ्रेम के भीतर टेक्स्ट (portion) स्तर पर या पूरे तालिका/shape स्तर पर सेट किया जाता है। व्यावहारिक रूप में, आप लिंक को एक हिस्से या पूरी कोशिका के सभी टेक्स्ट पर असाइन करते हैं।
 
-**क्या मैं एक ही कोशिका में अलग-अलग फ़ॉन्ट सेट कर सकता हूँ?**
+**क्या मैं एक ही कोशिका के भीतर अलग-अलग फ़ॉन्ट सेट कर सकता हूँ?**
 
-हाँ। एक कोशिका के टेक्स्ट फ्रेम में [portions](https://reference.aspose.com/slides/hi/net/aspose.slides/portion/) (रनों) का समर्थन होता है जिनकी फॉर्मेटिंग स्वतंत्र होती है—फ़ॉन्ट फ़ैमिली, शैली, आकार, और रंग।
+हाँ। कोशिका के टेक्स्ट फ्रेम में [portions](https://reference.aspose.com/slides/net/aspose.slides/portion/) (रन) समर्थन करता है, जिनमें स्वतंत्र फ़ॉर्मेटिंग—फ़ॉन्ट फैमिली, शैली, आकार, और रंग—होता है।
