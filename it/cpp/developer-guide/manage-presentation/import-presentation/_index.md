@@ -74,10 +74,10 @@ presentation->Save(u"MyPresentation.pptx", SaveFormat::Pptx);
 {{% alert title="Note" color="warning" %}} 
 Puoi anche usare Aspose.Slides per convertire HTML in altri formati di file popolari: 
 
-* [HTML a immagine](https://products.aspose.com/slides/it/cpp/conversion/html-to-image/)
-* [HTML a JPG](https://products.aspose.com/slides/it/cpp/conversion/html-to-jpg/)
-* [HTML a XML](https://products.aspose.com/slides/it/cpp/conversion/html-to-xml/)
-* [HTML a TIFF](https://products.aspose.com/slides/it/cpp/conversion/html-to-tiff/)
+* [HTML a immagine](https://products.aspose.com/slides/cpp/conversion/html-to-image/)
+* [HTML a JPG](https://products.aspose.com/slides/cpp/conversion/html-to-jpg/)
+* [HTML a XML](https://products.aspose.com/slides/cpp/conversion/html-to-xml/)
+* [HTML a TIFF](https://products.aspose.com/slides/cpp/conversion/html-to-tiff/)
 
 {{% /alert %}}
 
