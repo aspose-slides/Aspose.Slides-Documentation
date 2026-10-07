@@ -74,10 +74,10 @@ presentation->Save(u"MyPresentation.pptx", SaveFormat::Pptx);
 {{% alert title="Poznámka" color="warning" %}} 
 Můžete také použít Aspose.Slides k převodu HTML do dalších populárních formátů souborů: 
 
-* [HTML to image](https://products.aspose.com/slides/cs/cpp/conversion/html-to-image/)
-* [HTML to JPG](https://products.aspose.com/slides/cs/cpp/conversion/html-to-jpg/)
-* [HTML to XML](https://products.aspose.com/slides/cs/cpp/conversion/html-to-xml/)
-* [HTML to TIFF](https://products.aspose.com/slides/cs/cpp/conversion/html-to-tiff/)
+* [HTML to image](https://products.aspose.com/slides/cpp/conversion/html-to-image/)
+* [HTML to JPG](https://products.aspose.com/slides/cpp/conversion/html-to-jpg/)
+* [HTML to XML](https://products.aspose.com/slides/cpp/conversion/html-to-xml/)
+* [HTML to TIFF](https://products.aspose.com/slides/cpp/conversion/html-to-tiff/)
 
 {{% /alert %}}
 
