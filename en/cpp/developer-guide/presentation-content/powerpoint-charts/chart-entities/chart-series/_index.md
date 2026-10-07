@@ -223,6 +223,82 @@ The result:
 
 ![The series name](series_name.png)
 
+### **Create a Series with a Name from Multiple Cells**
+
+A composite series name is useful when a product name and a reporting period are stored in separate workbook cells. For example, you can combine `Product A` in B1 and `2026` in C1 into a single series name while keeping both parts linked to their source cells.
+
+Use [IChartDataWorkbook::GetCellCollection](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/getcellcollection/) to retrieve the name range, then pass that collection to [IChartSeriesCollection::Add](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriescollection/add/). The `skipHiddenCells` argument controls whether hidden cells are included: `true` excludes them, while `false` includes them. This example uses `false` to include every cell in the name range.
+
+The following example creates a presentation with one series and two data points. Cells B1:C1 supply only the series name; A2:A3 supply the category labels, and B2:B3 supply the numeric values.
+
+```cpp
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartCellCollection.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataCell.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/object_ext.h>
+#include <system/shared_ptr.h>
+#include <system/string.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using System::ObjectExt;
+using System::String;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 50.0f, 50.0f, 620.0f, 180.0f);
+auto chartData = chart->get_ChartData();
+
+chartData->get_Series()->Clear();
+chartData->get_Categories()->Clear();
+chart->set_HasLegend(true);
+
+auto workbook = chartData->get_ChartDataWorkbook();
+workbook->Clear(0);
+
+// These two cells supply the series name.
+auto productName = ObjectExt::Box<String>(u"Product A");
+auto reportingPeriod = ObjectExt::Box<String>(u"2026");
+workbook->GetCell(0, 0, 1, productName);
+workbook->GetCell(0, 0, 2, reportingPeriod);
+auto nameCells = workbook->GetCellCollection(u"Sheet1!$B$1:$C$1", false);
+auto series = chartData->get_Series()->Add(nameCells, ChartType::ClusteredColumn);
+
+// Separate cells supply the categories and numeric data points.
+auto northLabel = ObjectExt::Box<String>(u"North");
+auto southLabel = ObjectExt::Box<String>(u"South");
+auto northCategory = workbook->GetCell(0, 1, 0, northLabel);
+auto southCategory = workbook->GetCell(0, 2, 0, southLabel);
+chartData->get_Categories()->Add(northCategory);
+chartData->get_Categories()->Add(southCategory);
+auto northAmount = ObjectExt::Box<int>(120);
+auto southAmount = ObjectExt::Box<int>(150);
+auto northValue = workbook->GetCell(0, 1, 1, northAmount);
+auto southValue = workbook->GetCell(0, 2, 1, southAmount);
+series->get_DataPoints()->AddDataPointForBarSeries(northValue);
+series->get_DataPoints()->AddDataPointForBarSeries(southValue);
+
+presentation->Save(u"composite_series_name.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+The resulting series name is `Product A 2026`, with a space between the two cell values. The legend displays this as one entry for both columns. The image below illustrates the result:
+
+![Column chart with North and South values and the composite series name Product A 2026 in the legend](composite_series_name.png)
+
 ## **Get the Automatic Series Fill Color**
 
 [IChartSeries::GetAutomaticSeriesColor](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/getautomaticseriescolor/) returns the color calculated from the series index and the chart style. This is the color used when the series fill has not been explicitly defined. Calling the method reads the calculated color; it does not assign a new fill.

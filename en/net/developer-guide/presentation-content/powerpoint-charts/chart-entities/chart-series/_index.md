@@ -150,6 +150,54 @@ The result:
 
 ![The series name](series_name.png)
 
+### **Create a Series with a Name from Multiple Cells**
+
+A composite series name is useful when a product name and a reporting period are stored in separate workbook cells. For example, you can combine `Product A` in B1 and `2026` in C1 into a single series name while keeping both parts linked to their source cells.
+
+Use [IChartDataWorkbook.GetCellCollection](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/getcellcollection/) to retrieve the name range, then pass that collection to [IChartSeriesCollection.Add](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriescollection/add/). The `skipHiddenCells` argument controls whether hidden cells are included: `true` excludes them, while `false` includes them. This example uses `false` to include every cell in the name range.
+
+The following example creates a presentation with one series and two data points. Cells B1:C1 supply only the series name; A2:A3 supply the category labels, and B2:B3 supply the numeric values.
+
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 620, 180);
+
+chart.ChartData.Series.Clear();
+chart.ChartData.Categories.Clear();
+chart.HasLegend = true;
+
+var workbook = chart.ChartData.ChartDataWorkbook;
+workbook.Clear(0);
+
+// These two cells supply the series name.
+workbook.GetCell(0, 0, 1, "Product A");
+workbook.GetCell(0, 0, 2, "2026");
+var nameCells = workbook.GetCellCollection("Sheet1!$B$1:$C$1", skipHiddenCells: false);
+var series = chart.ChartData.Series.Add(nameCells, ChartType.ClusteredColumn);
+
+// Separate cells supply the categories and numeric data points.
+var northCategory = workbook.GetCell(0, 1, 0, "North");
+var southCategory = workbook.GetCell(0, 2, 0, "South");
+chart.ChartData.Categories.Add(northCategory);
+chart.ChartData.Categories.Add(southCategory);
+var northValue = workbook.GetCell(0, 1, 1, 120);
+var southValue = workbook.GetCell(0, 2, 1, 150);
+series.DataPoints.AddDataPointForBarSeries(northValue);
+series.DataPoints.AddDataPointForBarSeries(southValue);
+
+presentation.Save("composite_series_name.pptx", SaveFormat.Pptx);
+```
+
+The resulting series name is `Product A 2026`, with a space between the two cell values. The legend displays this as one entry for both columns. The image below was rendered from the saved presentation:
+
+![Column chart with North and South values and the composite series name Product A 2026 in the legend](composite_series_name.png)
+
 ## **Get the Automatic Series Fill Color**
 
 [IChartSeries.GetAutomaticSeriesColor](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/getautomaticseriescolor/) returns the color calculated from the series index and the chart style. This is the color used when the series fill has not been explicitly defined. Calling the method reads the calculated color; it does not assign a new fill.
