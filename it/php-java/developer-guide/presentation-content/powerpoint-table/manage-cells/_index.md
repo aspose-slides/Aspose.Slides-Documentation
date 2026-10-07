@@ -1,6 +1,6 @@
 ---
-title: Gestisci le celle della tabella nelle presentazioni usando PHP
-linktitle: Gestisci Celle
+title: Gestire le celle della tabella nelle presentazioni usando PHP
+linktitle: Gestire le celle
 type: docs
 weight: 30
 url: /it/php-java/manage-cells/
@@ -15,307 +15,265 @@ keywords:
 - presentazione
 - PHP
 - Aspose.Slides
-description: "Gestisci facilmente le celle delle tabelle in PowerPoint con Aspose.Slides per PHP. Impara ad accedere, modificare e stilizzare le celle rapidamente per un'automazione delle diapositive fluida."
+description: "Gestisci le celle delle tabelle PowerPoint in PHP: identifica le celle unite, rimuovi i bordi, dividi le celle e imposta i colori di sfondo e le immagini con Aspose.Slides per PHP tramite Java."
 ---
 ## **Panoramica**
 
-Aspose.Slides consente di accedere e modificare le celle delle tabelle nelle presentazioni PowerPoint. Questo articolo spiega come identificare le celle di tabella unite, rimuovere i bordi delle celle, gestire la numerazione delle celle dopo l’unione o la divisione, cambiare il colore di sfondo di una cella e aggiungere un’immagine all’interno di una cella di tabella. Gli esempi mostrano come creare o aprire una presentazione, ottenere una tabella da una diapositiva, aggiornare la formattazione delle celle tramite le proprietà della cella e salvare la presentazione modificata come file PPTX.
+Aspose.Slides consente di accedere e modificare le celle delle tabelle nelle presentazioni PowerPoint. Questo articolo spiega come identificare le celle di tabella unite, rimuovere i bordi delle celle, gestire la numerazione delle celle dopo l'unione o la divisione, cambiare il colore di sfondo di una cella e aggiungere un'immagine all'interno di una cella di tabella. Gli esempi mostrano come creare o aprire una presentazione, ottenere una tabella da una diapositiva, aggiornare la formattazione delle celle tramite le proprietà della cella e salvare la presentazione modificata come file PPTX.
+
+Aspose.Slides utilizza indici basati su zero per accedere alle celle della tabella nell'ordine `(colonna, riga)`.
 
 ## **Identificare una cella di tabella unita**
-1. Creare un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/php-java/aspose.slides/Presentation).
-2. Ottenere la tabella dalla prima diapositiva. 
-3. Scorrere le righe e le colonne della tabella per trovare le celle unite.
-4. Stampare un messaggio quando vengono rilevate celle unite.
 
-Questo codice PHP mostra come identificare le celle di tabella unite in una presentazione:
+L'esempio apre una presentazione esistente e accede alla prima forma nella prima diapositiva come tabella. Si presume che la diapositiva e la forma esistano e che la forma sia una tabella. Quindi itera attraverso tutte le righe e le colonne e utilizza [isMergedCell](https://reference.aspose.com/slides/php-java/aspose.slides/cell/ismergedcell/) per identificare le celle in regioni unite. Per ogni corrispondenza, stampa le coordinate della cella in ordine `riga;colonna`, [getRowSpan](https://reference.aspose.com/slides/php-java/aspose.slides/cell/getrowspan/), [getColSpan](https://reference.aspose.com/slides/php-java/aspose.slides/cell/getcolspan/), e le coordinate di inizio della regione, [getFirstRowIndex](https://reference.aspose.com/slides/php-java/aspose.slides/cell/getfirstrowindex/) e [getFirstColumnIndex](https://reference.aspose.com/slides/php-java/aspose.slides/cell/getfirstcolumnindex/).
 
 ```php
-  $pres = new Presentation("SomePresentationWithTable.pptx");
-  try {
-    $table = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0);// supponendo che Slide#0.Shape#0 sia una tabella
+use aspose\slides\Presentation;
 
-    for($i = 0; $i < java_values($table->getRows()->size()) ; $i++) {
-      for($j = 0; $j < java_values($table->getColumns()->size()) ; $j++) {
-        $currentCell = $table->getRows()->get_Item($i)->get_Item($j);
-        if ($currentCell->isMergedCell()) {
-          echo(sprintf("Cell %d;%d is a part of merged cell with RowSpan=%d and ColSpan=%d starting from Cell %d;%d.", $i, $j, $currentCell->getRowSpan(), $currentCell->getColSpan(), $currentCell->getFirstRowIndex(), $currentCell->getFirstColumnIndex()));
+$presentation = new Presentation("presentation_with_table.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $table = $slide->getShapes()->get_Item(0);
+
+    $rowCount = java_values($table->getRows()->size());
+    for ($rowIndex = 0; $rowIndex < $rowCount; $rowIndex++)
+    {
+        $columnCount = java_values($table->getColumns()->size());
+        for ($columnIndex = 0; $columnIndex < $columnCount; $columnIndex++)
+        {
+            $cell = $table->get_Item($columnIndex, $rowIndex);
+            if (java_values($cell->isMergedCell()))
+            {
+                printf("Cell %d;%d belongs to a merged region with RowSpan=%d and ColSpan=%d starting at %d;%d.\n", $rowIndex, $columnIndex, java_values($cell->getRowSpan()), java_values($cell->getColSpan()), java_values($cell->getFirstRowIndex()), java_values($cell->getFirstColumnIndex()));
+            }
         }
-      }
     }
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+} finally {
+    $presentation->dispose();
+}
 ```
 
 ## **Rimuovere i bordi delle celle della tabella**
-1. Creare un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/php-java/aspose.slides/Presentation).
-2. Ottenere il riferimento a una diapositiva tramite il suo indice. 
-3. Definire un array di colonne con larghezza.
-4. Definire un array di righe con altezza.
-5. Aggiungere una tabella alla diapositiva tramite il metodo [addTable](https://reference.aspose.com/slides/it/php-java/aspose.slides/shapecollection/#addTable).
-6. Scorrere ogni cella per cancellare i bordi superiore, inferiore, destro e sinistro.
-7. Salvare la presentazione modificata come file PPTX.
 
-Questo codice PHP mostra come rimuovere i bordi dalle celle della tabella:
+Crea una [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) e aggiungi una tabella alla sua prima diapositiva con [addTable](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addtable/). Le larghezze delle colonne, le altezze delle righe e la posizione della tabella sono specificate in punti. L'esempio imposta tutti e quattro i bordi delle celle su [FillType::NoFill](https://reference.aspose.com/slides/php-java/aspose.slides/filltype/), rendendoli invisibili.
 
 ```php
-  # Instanzia la classe Presentation che rappresenta un file PPTX
-  $pres = new Presentation();
-  try {
-    # Accede alla prima diapositiva
-    $sld = $pres->getSlides()->get_Item(0);
-    # Definisce le colonne con larghezze e le righe con altezze
-    $dblCols = array(50, 50, 50, 50 );
-    $dblRows = array(50, 30, 30, 30, 30 );
-    # Aggiunge la forma della tabella alla diapositiva
-    $tbl = $sld->getShapes()->addTable(100, 50, $dblCols, $dblRows);
-    # Imposta il formato del bordo per ogni cella
-    foreach($tbl->getRows() as $row) {
-      foreach($row as $cell) {
-        $cell->getCellFormat()->getBorderTop()->getFillFormat()->setFillType(FillType::NoFill);
-        $cell->getCellFormat()->getBorderBottom()->getFillFormat()->setFillType(FillType::NoFill);
-        $cell->getCellFormat()->getBorderLeft()->getFillFormat()->setFillType(FillType::NoFill);
-        $cell->getCellFormat()->getBorderRight()->getFillFormat()->setFillType(FillType::NoFill);
-      }
+use aspose\slides\FillType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $columnWidths = [ 50, 50, 50, 50 ];
+    $rowHeights = [ 50, 30, 30, 30, 30 ];
+    $table = $slide->getShapes()->addTable(100, 50, $columnWidths, $rowHeights);
+
+    for ($rowIndex = 0; $rowIndex < java_values($table->getRows()->size()); $rowIndex++) {
+        for ($columnIndex = 0; $columnIndex < java_values($table->getColumns()->size()); $columnIndex++) {
+            $cell = $table->get_Item($columnIndex, $rowIndex);
+            $cell->getCellFormat()->getBorderTop()->getFillFormat()->setFillType(FillType::NoFill);
+            $cell->getCellFormat()->getBorderBottom()->getFillFormat()->setFillType(FillType::NoFill);
+            $cell->getCellFormat()->getBorderLeft()->getFillFormat()->setFillType(FillType::NoFill);
+            $cell->getCellFormat()->getBorderRight()->getFillFormat()->setFillType(FillType::NoFill);
+        }
     }
-    # Scrive il PPTX su disco
-    $pres->save("table_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $presentation->save("table.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **Numerazione nelle celle unite**
-Se uniamo 2 coppie di celle (1, 1) × (2, 1) e (1, 2) × (2, 2), la tabella risultante sarà numerata. Questo codice PHP dimostra il processo:
+## **Unire le celle della tabella**
+
+Usa [mergeCells](https://reference.aspose.com/slides/php-java/aspose.slides/table/mergecells/) per combinare un intervallo rettangolare di celle della tabella in una singola cella. Specifica le celle negli angoli in alto a sinistra e in basso a destra dell'intervallo. L'argomento finale controlla se l'unione può includere celle al di fuori dell'intervallo specificato; `false` mantiene l'unione all'interno di quell'intervallo.
+
+L'esempio crea una tabella 4x4 con colonne e righe da 70 punti, poi unisce le quattro celle centrali da `(1, 1)` a `(2, 2)`. La cella risultante occupa due colonne e due righe, mentre la griglia sottostante della tabella mantiene quattro colonne e quattro righe. Per accedere al contenuto o alla formattazione della cella unita, usa la sua posizione in alto a sinistra: `$table->get_Item(1, 1)` in questo esempio. Le altre posizioni nell'intervallo unito rimangono parte della griglia della tabella, quindi gli indici delle celle al di fuori dell'intervallo non cambiano.
 
 ```php
-  # Instanzia la classe Presentation che rappresenta un file PPTX
-  $pres = new Presentation();
-  try {
-    # Accede alla prima diapositiva
-    $sld = $pres->getSlides()->get_Item(0);
-    # Definisce le colonne con larghezze e le righe con altezze
-    $dblCols = array(70, 70, 70, 70 );
-    $dblRows = array(70, 70, 70, 70 );
-    # Aggiunge una forma di tabella alla diapositiva
-    $tbl = $sld->getShapes()->addTable(100, 50, $dblCols, $dblRows);
-    # Imposta il formato del bordo per ogni cella
-    foreach($tbl->getRows() as $row) {
-      foreach($row as $cell) {
-        $cell->getCellFormat()->getBorderTop()->getFillFormat()->setFillType(FillType::Solid);
-        $cell->getCellFormat()->getBorderTop()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-        $cell->getCellFormat()->getBorderTop()->setWidth(5);
-        $cell->getCellFormat()->getBorderBottom()->getFillFormat()->setFillType(FillType::Solid);
-        $cell->getCellFormat()->getBorderBottom()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-        $cell->getCellFormat()->getBorderBottom()->setWidth(5);
-        $cell->getCellFormat()->getBorderLeft()->getFillFormat()->setFillType(FillType::Solid);
-        $cell->getCellFormat()->getBorderLeft()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-        $cell->getCellFormat()->getBorderLeft()->setWidth(5);
-        $cell->getCellFormat()->getBorderRight()->getFillFormat()->setFillType(FillType::Solid);
-        $cell->getCellFormat()->getBorderRight()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-        $cell->getCellFormat()->getBorderRight()->setWidth(5);
-      }
-    }
-    # Unisce le celle (1, 1) x (2, 1)
-    $tbl->mergeCells($tbl->get_Item(1, 1), $tbl->get_Item(2, 1), false);
-    # Unisce le celle (1, 2) x (2, 2)
-    $tbl->mergeCells($tbl->get_Item(1, 2), $tbl->get_Item(2, 2), false);
-    $pres->save("MergeCells_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $columnWidths = [ 70, 70, 70, 70 ];
+    $rowHeights = [ 70, 70, 70, 70 ];
+    $table = $slide->getShapes()->addTable(100, 50, $columnWidths, $rowHeights);
+
+    $table->mergeCells($table->get_Item(1, 1), $table->get_Item(2, 2), false);
+
+    $presentation->save("merged_cells.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-Successivamente uniamo ulteriormente le celle unendo (1, 1) e (1, 2). Il risultato è una tabella contenente una grande cella unita al centro:
+## **Dividere le celle della tabella**
+
+L'unione delle celle nell'esempio precedente conserva la griglia della tabella. La divisione di una cella può introdurre una nuova colonna nella griglia e modificare gli indici di colonna delle celle alla sua destra. Aspose.Slides segue il modello di griglia delle tabelle di PowerPoint.
+
+Questo esempio crea una tabella 4x4 con colonne e righe da 70 punti e chiama [splitByWidth](https://reference.aspose.com/slides/php-java/aspose.slides/cell/splitbywidth/) sulla cella `(1, 1)`. Metà della larghezza di 70 punti della cella viene passata per creare due celle di larghezza uguale.
+
+Dopo questa divisione, le due metà sono accessibili come `$table->get_Item(1, 1)` e `$table->get_Item(2, 1)`. La griglia della tabella ora ha cinque colonne: le celle originariamente nelle colonne 2 e 3 si spostano rispettivamente nelle colonne 3 e 4. Gli indici delle righe rimangono invariati. Usa questi indici di colonna aggiornati quando accedi alle celle dopo la divisione.
 
 ```php
-  # Instanzia la classe Presentation che rappresenta un file PPTX
-  $pres = new Presentation();
-  try {
-    # Accede alla prima diapositiva
-    $sld = $pres->getSlides()->get_Item(0);
-    # Definisce le colonne con larghezze e le righe con altezze
-    $dblCols = array(70, 70, 70, 70 );
-    $dblRows = array(70, 70, 70, 70 );
-    # Aggiunge una forma di tabella alla diapositiva
-    $tbl = $sld->getShapes()->addTable(100, 50, $dblCols, $dblRows);
-    # Imposta il formato del bordo per ogni cella
-    foreach($tbl->getRows() as $row) {
-      foreach($row as $cell) {
-        $cell->getCellFormat()->getBorderTop()->getFillFormat()->setFillType(FillType::Solid);
-        $cell->getCellFormat()->getBorderTop()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-        $cell->getCellFormat()->getBorderTop()->setWidth(5);
-        $cell->getCellFormat()->getBorderBottom()->getFillFormat()->setFillType(FillType::Solid);
-        $cell->getCellFormat()->getBorderBottom()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-        $cell->getCellFormat()->getBorderBottom()->setWidth(5);
-        $cell->getCellFormat()->getBorderLeft()->getFillFormat()->setFillType(FillType::Solid);
-        $cell->getCellFormat()->getBorderLeft()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-        $cell->getCellFormat()->getBorderLeft()->setWidth(5);
-        $cell->getCellFormat()->getBorderRight()->getFillFormat()->setFillType(FillType::Solid);
-        $cell->getCellFormat()->getBorderRight()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-        $cell->getCellFormat()->getBorderRight()->setWidth(5);
-      }
-    }
-    # Unisce le celle (1, 1) x (2, 1)
-    $tbl->mergeCells($tbl->get_Item(1, 1), $tbl->get_Item(2, 1), false);
-    # Unisce le celle (1, 2) x (2, 2)
-    $tbl->mergeCells($tbl->get_Item(1, 2), $tbl->get_Item(2, 2), false);
-    # Unisce le celle (1, 1) x (1, 2)
-    $tbl->mergeCells($tbl->get_Item(1, 1), $tbl->get_Item(1, 2), true);
-    # Scrive il file PPTX su disco
-    $pres->save("MergeCells_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $columnWidths = [ 70, 70, 70, 70 ];
+    $rowHeights = [ 70, 70, 70, 70 ];
+    $table = $slide->getShapes()->addTable(100, 50, $columnWidths, $rowHeights);
+
+    $table->get_Item(1, 1)->splitByWidth(java_values($table->get_Item(1, 1)->getWidth()) / 2);
+
+    $presentation->save("split_cells.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **Numerazione in una cella divisa**
-Negli esempi precedenti, quando le celle della tabella venivano unite, il sistema di numerazione delle altre celle non cambiava.  
+### **Dividere le celle unite per estensione di riga o colonna**
 
-Questa volta prendiamo una tabella regolare (una tabella senza celle unite) e proviamo a dividere la cella (1,1) per ottenere una tabella speciale. Prestate attenzione alla numerazione di questa tabella, che può apparire strana. Tuttavia, è così che Microsoft PowerPoint numerano le celle delle tabelle e Aspose.Slides fa lo stesso.
+Per preparare le celle modello unite per il popolamento dei dati, usa [splitByRowSpan](https://reference.aspose.com/slides/php-java/aspose.slides/cell/splitbyrowspan/) per dividere lungo un confine di riga esistente, oppure [splitByColSpan](https://reference.aspose.com/slides/php-java/aspose.slides/cell/splitbycolspan/) per dividere lungo un confine di colonna.
 
-Questo codice PHP dimostra il processo descritto:
+L'argomento `index` conta le righe nella parte superiore o le colonne nella parte sinistra della divisione; è relativo alla regione unita:
+
+- Divisione di riga: `0 < index <` [getRowSpan](https://reference.aspose.com/slides/php-java/aspose.slides/cell/getrowspan/).
+- Divisione di colonna: `0 < index <` [getColSpan](https://reference.aspose.com/slides/php-java/aspose.slides/cell/getcolspan/).
+
+L'esempio presuppone che una presentazione abbia una tabella come prima forma nella prima diapositiva, con `(1, 2)` e `(1, 3)` uniti verticalmente. Partendo dalla posizione inferiore, utilizza [getFirstColumnIndex](https://reference.aspose.com/slides/php-java/aspose.slides/cell/getfirstcolumnindex/) e [getFirstRowIndex](https://reference.aspose.com/slides/php-java/aspose.slides/cell/getfirstrowindex/) per individuare l'origine e controlla entrambe le estensioni. `splitByRowSpan(1)` separa quindi le righe 2 e 3 per i nomi dei prodotti. Per un'unione orizzontale di due colonne, usa invece `splitByColSpan(1)`.
 
 ```php
-  # Instanzia la classe Presentation che rappresenta un file PPTX
-  $pres = new Presentation();
-  try {
-    # Accede alla prima diapositiva
-    $sld = $pres->getSlides()->get_Item(0);
-    # Definisce le colonne con larghezze e le righe con altezze
-    $dblCols = array(70, 70, 70, 70 );
-    $dblRows = array(70, 70, 70, 70 );
-    # Aggiunge una forma di tabella alla diapositiva
-    $tbl = $sld->getShapes()->addTable(100, 50, $dblCols, $dblRows);
-    # Imposta il formato del bordo per ogni cella
-    foreach($tbl->getRows() as $row) {
-      foreach($row as $cell) {
-        $cell->getCellFormat()->getBorderTop()->getFillFormat()->setFillType(FillType::Solid);
-        $cell->getCellFormat()->getBorderTop()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-        $cell->getCellFormat()->getBorderTop()->setWidth(5);
-        $cell->getCellFormat()->getBorderBottom()->getFillFormat()->setFillType(FillType::Solid);
-        $cell->getCellFormat()->getBorderBottom()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-        $cell->getCellFormat()->getBorderBottom()->setWidth(5);
-        $cell->getCellFormat()->getBorderLeft()->getFillFormat()->setFillType(FillType::Solid);
-        $cell->getCellFormat()->getBorderLeft()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-        $cell->getCellFormat()->getBorderLeft()->setWidth(5);
-        $cell->getCellFormat()->getBorderRight()->getFillFormat()->setFillType(FillType::Solid);
-        $cell->getCellFormat()->getBorderRight()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-        $cell->getCellFormat()->getBorderRight()->setWidth(5);
-      }
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("table_template.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $table = $slide->getShapes()->get_Item(0);
+
+    $selectedCell = $table->get_Item(1, 3);
+    $firstColumnIndex = java_values($selectedCell->getFirstColumnIndex());
+    $firstRowIndex = java_values($selectedCell->getFirstRowIndex());
+    $mergedCell = $table->get_Item($firstColumnIndex, $firstRowIndex);
+
+    if (java_values($mergedCell->isMergedCell()) && java_values($mergedCell->getRowSpan()) == 2 && java_values($mergedCell->getColSpan()) == 1)
+    {
+        $mergedCell->splitByRowSpan(1);
+
+        // Recupera le celle risultanti dalla tabella dopo la divisione.
+        $upperCell = $table->get_Item($firstColumnIndex, $firstRowIndex);
+        $lowerCell = $table->get_Item($firstColumnIndex, $firstRowIndex + 1);
+        echo "Upper cell merged: " . (java_values($upperCell->isMergedCell()) ? "true" : "false") . PHP_EOL;
+        echo "Lower cell merged: " . (java_values($lowerCell->isMergedCell()) ? "true" : "false") . PHP_EOL;
+
+        $upperCell->getTextFrame()->setText("Product A");
+        $lowerCell->getTextFrame()->setText("Product B");
+
+        $presentation->save("split_template.pptx", SaveFormat::Pptx);
     }
-    # Unisce le celle (1, 1) x (2, 1)
-    $tbl->mergeCells($tbl->get_Item(1, 1), $tbl->get_Item(2, 1), false);
-    # Unisce le celle (1, 2) x (2, 2)
-    $tbl->mergeCells($tbl->get_Item(1, 2), $tbl->get_Item(2, 2), false);
-    # Divide la cella (1, 1)
-    $tbl->get_Item(1, 1)->splitByWidth($tbl->get_Item(2, 1)->getWidth() / 2);
-    # Scrive il file PPTX su disco
-    $pres->save("SplitCells_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
+    else
+    {
+        echo "Select a merged region spanning exactly two rows and one column." . PHP_EOL;
     }
-  }
+} finally {
+    $presentation->dispose();
+}
 ```
+
+La griglia della tabella e gli indici delle celle circostanti rimangono invariati. Recupera le celle risultanti per le loro coordinate; qui, entrambe hanno estensioni di 1 e [isMergedCell](https://reference.aspose.com/slides/php-java/aspose.slides/cell/ismergedcell/) stampa `false`. Regioni più grandi possono rimanere parzialmente unite dopo una divisione.
+
+Il testo originale e la sua formattazione rimangono nella cella superiore (o sinistra); la nuova cella è vuota ma eredita la formattazione della cella come riempimento, bordi e margini. Popola le celle dopo la divisione e imposta esplicitamente qualsiasi formattazione del testo necessaria.
+
+La presentazione salvata contiene celle separate "Product A" e "Product B" con la formattazione delle celle del modello conservata. Consulta il [Cell API Reference](https://reference.aspose.com/slides/php-java/aspose.slides/cell/) per i dettagli.
 
 ## **Cambiare il colore di sfondo della cella della tabella**
 
-Questo codice PHP mostra come cambiare il colore di sfondo di una cella della tabella:
+Questo esempio crea una tabella con colonne da 150 punti e righe da 50 punti. Utilizza [setFillType](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/setfilltype/) per selezionare un riempimento solido e imposta il colore restituito da [getSolidFillColor](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/getsolidfillcolor/) a rosso per la cella `(2, 3)`, nella terza colonna e quarta riga.
 
 ```php
-  $presentation = new Presentation();
-  try {
+use aspose\slides\FillType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
     $slide = $presentation->getSlides()->get_Item(0);
-    $dblCols = array(150, 150, 150, 150 );
-    $dblRows = array(50, 50, 50, 50, 50 );
-    # crea una nuova tabella
-    $table = $slide->getShapes()->addTable(50, 50, $dblCols, $dblRows);
-    # imposta il colore di sfondo per una cella
+
+    $columnWidths = [ 150, 150, 150, 150 ];
+    $rowHeights = [ 50, 50, 50, 50, 50 ];
+    $table = $slide->getShapes()->addTable(50, 50, $columnWidths, $rowHeights);
+
     $cell = $table->get_Item(2, 3);
     $cell->getCellFormat()->getFillFormat()->setFillType(FillType::Solid);
     $cell->getCellFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
+
     $presentation->save("cell_background_color.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($presentation)) {
-      $presentation->dispose();
-    }
-  }
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **Aggiungere un'immagine all'interno di una cella della tabella**
+## **Aggiungere un'immagine all'interno di una cella di tabella**
 
-1. Creare un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/php-java/aspose.slides/Presentation).
-2. Ottenere il riferimento a una diapositiva tramite il suo indice.
-3. Definire un array di colonne con larghezza.
-4. Definire un array di righe con altezza.
-5. Aggiungere una tabella alla diapositiva tramite il metodo [AddTable](https://reference.aspose.com/slides/it/php-java/aspose.slides/shapecollection/#addTable).
-6. Creare un oggetto `Images` per contenere il file immagine.
-7. Aggiungere l'immagine `IImage` all'oggetto `IPPImage`.
-8. Impostare il `FillFormat` della cella della tabella su `Picture`.
-9. Aggiungere l'immagine alla prima cella della tabella.
-10. Salvare la presentazione modificata come file PPTX
+Posiziona l'immagine di input nella directory di lavoro prima di eseguire questo esempio. Carica l'immagine con [Images::fromFile](https://reference.aspose.com/slides/php-java/aspose.slides/images/#fromFile) e la aggiunge alla collezione di immagini della presentazione con [addImage](https://reference.aspose.com/slides/php-java/aspose.slides/imagecollection/addimage/). Quindi assegna l'immagine al riempimento immagine della cella `(0, 0)`, la prima cella della tabella.
 
-Questo codice PHP mostra come inserire un'immagine all'interno di una cella della tabella durante la creazione della tabella:
+[PictureFillMode::Stretch](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillmode/) allunga l'immagine per riempire la cella, il che può modificare le sue proporzioni. Le larghezze delle colonne e le altezze delle righe sono in punti. L'immagine caricata viene eliminata in un blocco `finally` dopo essere stata aggiunta alla presentazione.
 
 ```php
-  # Instanzia la classe Presentation che rappresenta un file PPTX
-  $pres = new Presentation();
-  try {
-    # Accede alla prima diapositiva
-    $islide = $pres->getSlides()->get_Item(0);
-    # Definisce le colonne con larghezze e le righe con altezze
-    $dblCols = array(150, 150, 150, 150 );
-    $dblRows = array(100, 100, 100, 100, 90 );
-    # Aggiunge una forma di tabella alla diapositiva
-    $tbl = $islide->getShapes()->addTable(50, 50, $dblCols, $dblRows);
-    # Crea un oggetto IPPImage usando il file immagine
-    $picture;
-    $image = Images->fromFile("image.jpg");
+use aspose\slides\FillType;
+use aspose\slides\Images;
+use aspose\slides\PictureFillMode;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $columnWidths = [ 150, 150, 150, 150 ];
+    $rowHeights = [ 100, 100, 100, 100, 90 ];
+    $table = $slide->getShapes()->addTable(50, 50, $columnWidths, $rowHeights);
+
+    $image = Images::fromFile("aspose_logo.jpg");
     try {
-      $picture = $pres->getImages()->addImage($image);
+        $ppImage = $presentation->getImages()->addImage($image);
     } finally {
-      if (!java_is_null($image)) {
         $image->dispose();
-      }
     }
-    # Aggiunge l'immagine alla prima cella della tabella
-    $cellFormat = $tbl->get_Item(0, 0)->getCellFormat();
-    $cellFormat::getFillFormat()->setFillType(FillType::Picture);
-    $cellFormat::getFillFormat()->getPictureFillFormat()->setPictureFillMode(PictureFillMode->Stretch);
-    $cellFormat::getFillFormat()->getPictureFillFormat()->getPicture()->setImage($picture);
-    # Salva il file PPTX su disco
-    $pres->save("Image_In_TableCell_out.pptx", SaveFormat::Pptx);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $table->get_Item(0, 0)->getCellFormat()->getFillFormat()->setFillType(FillType::Picture);
+    $table->get_Item(0, 0)->getCellFormat()->getFillFormat()->getPictureFillFormat()->setPictureFillMode(PictureFillMode::Stretch);
+    $table->get_Item(0, 0)->getCellFormat()->getFillFormat()->getPictureFillFormat()->getPicture()->setImage($ppImage);
+
+    $presentation->save("table_cell_with_image.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
 ## **FAQ**
 
-**Posso impostare spessori e stili di linea differenti per i vari lati di una singola cella?**
+**Posso impostare spessori e stili di linea diversi per i vari lati di una singola cella?**
 
-Sì. I bordi [top](https://reference.aspose.com/slides/it/php-java/aspose.slides/cellformat/getbordertop/)/[bottom](https://reference.aspose.com/slides/it/php-java/aspose.slides/cellformat/getborderbottom/)/[left](https://reference.aspose.com/slides/it/php-java/aspose.slides/cellformat/getborderleft/)/[right](https://reference.aspose.com/slides/it/php-java/aspose.slides/cellformat/getborderright/) hanno proprietà separate, quindi lo spessore e lo stile di ciascun lato possono differire. Questo deriva dal controllo dei bordi per lato illustrato nell’articolo.
+Sì. I bordi [top](https://reference.aspose.com/slides/php-java/aspose.slides/cellformat/getbordertop/)/[bottom](https://reference.aspose.com/slides/php-java/aspose.slides/cellformat/getborderbottom/)/[left](https://reference.aspose.com/slides/php-java/aspose.slides/cellformat/getborderleft/)/[right](https://reference.aspose.com/slides/php-java/aspose.slides/cellformat/getborderright/) hanno proprietà separate, quindi lo spessore e lo stile di ciascun lato possono differire.
 
-**Cosa succede all'immagine se modifico la dimensione della colonna/riga dopo aver impostato un’immagine come sfondo della cella?**
+**Cosa accade all'immagine se modifico la dimensione della colonna/riga dopo aver impostato un'immagine come sfondo della cella?**
 
-Il comportamento dipende dalla [fill mode](https://reference.aspose.com/slides/it/php-java/aspose.slides/picturefillmode/) (stretch/tile). Con lo stretch, l’immagine si adatta alla nuova cella; con il tile, le tessere vengono ricalcolate. L’articolo descrive le modalità di visualizzazione dell’immagine in una cella.
+Il comportamento dipende dal [fill mode](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillmode/) (stretch/tile). Con lo stretching, l'immagine si adatta alla nuova cella; con il tiling, le piastrelle vengono ricalcolate.
 
-**Posso assegnare un collegamento ipertestuale all’intero contenuto di una cella?**
+**Posso assegnare un collegamento ipertestuale a tutto il contenuto di una cella?**
 
-I [Hyperlinks](/slides/it/php-java/manage-hyperlinks/) vengono impostati a livello di porzione di testo all’interno del frame di testo della cella o a livello dell’intera tabella/forma. In pratica, si assegna il collegamento a una porzione o a tutto il testo nella cella.
+[Hyperlinks](/slides/it/php-java/manage-hyperlinks/) vengono impostati a livello di testo (porzione) all'interno del frame di testo della cella o a livello dell'intera tabella/form. In pratica, assegni il collegamento a una porzione o a tutto il testo nella cella.
 
-**Posso impostare font diversi all’interno di una singola cella?**
+**Posso impostare font diversi all'interno di una singola cella?**
 
-Sì. Il frame di testo di una cella supporta le [portions](https://reference.aspose.com/slides/it/php-java/aspose.slides/portion/) (run) con formattazione indipendente—famiglia, stile, dimensione e colore del font.
+Sì. Il frame di testo di una cella supporta [portions](https://reference.aspose.com/slides/php-java/aspose.slides/portion/) (run) con formattazione indipendente — famiglia di font, stile, dimensione e colore.

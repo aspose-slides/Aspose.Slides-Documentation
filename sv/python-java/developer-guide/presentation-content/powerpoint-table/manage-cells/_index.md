@@ -6,7 +6,7 @@ weight: 30
 url: /sv/python-java/manage-cells/
 keywords:
 - tabellcell
-- sammanfoga celler
+- slå ihop celler
 - ta bort ram
 - dela cell
 - bild i cell
@@ -15,20 +15,17 @@ keywords:
 - presentation
 - Python
 - Aspose.Slides
-description: "Hantera tabellceller i PowerPoint med Aspose.Slides för Python via Java utan ansträngning. Bemästra åtkomst, modifiering och formatering av celler snabbt för sömlös bildspelsautomatisering."
+description: "Hantera PowerPoint-tabellceller i Python: identifiera sammanslagna celler, ta bort ramar, dela celler och ange bakgrundsfärger samt bilder med Aspose.Slides för Python via Java."
 ---
 ## **Översikt**
 
-Aspose.Slides låter dig komma åt och ändra tabellceller i PowerPoint-presentationer. Denna artikel förklarar hur du identifierar sammanslagna tabellceller, tar bort cellramar, arbetar med cellnumrering efter sammanslagning eller delning av celler, ändrar en cells bakgrundsfärg och lägger till en bild i en tabellcell. Exemplen visar hur du skapar eller öppnar en presentation, får en tabell från en bild, uppdaterar cellformatering via cellens egenskaper och sparar den ändrade presentationen som en PPTX‑fil.
+Aspose.Slides låter dig komma åt och ändra tabellceller i PowerPoint-presentationer. Denna artikel förklarar hur du identifierar sammanslagna tabellceller, tar bort cellramar, arbetar med cellnumrering efter sammanslagning eller delning av celler, ändrar en cells bakgrundsfärg och lägger till en bild i en tabellcell. Exemplen visar hur du skapar eller öppnar en presentation, hämtar en tabell från en bild, uppdaterar cellformatering via cellens egenskaper och sparar den modifierade presentationen som en PPTX‑fil.
+
+Aspose.Slides använder nollbaserade index för att komma åt tabellceller i ordningen `(column, row)`.
 
 ## **Identifiera en sammanslagen tabellcell**
 
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/python-java/aspose.slides/presentation/).
-2. Hämta tabellen från den första bilden.
-3. Iterera genom tabellens rader och kolumner för att hitta sammanslagna celler.
-4. Skriv ut ett meddelande när sammanslagna celler hittas.
-
-Denna Python‑kod visar hur du identifierar sammanslagna tabellceller i en presentation:
+Exemplet öppnar en befintlig presentation och får åtkomst till den första formen på den första bilden som en tabell. Det förutsätter att bilden och formen finns och att formen är en tabell. Därefter itererar det genom alla rader och kolumner och använder [isMergedCell](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#isMergedCell) för att identifiera celler i sammanslagna områden. För varje träff skriver det ut cellkoordinaterna i ordningen `row;column`, [getRowSpan](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#getRowSpan), [getColSpan](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#getColSpan) och regionens startkoordinater, [getFirstRowIndex](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#getFirstRowIndex) och [getFirstColumnIndex](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#getFirstColumnIndex).
 
 ```python
 import jpype
@@ -37,36 +34,27 @@ import asposeslides
 if not jpype.isJVMStarted():
     jpype.startJVM()
 
-from asposeslides.api import Presentation, Table
+from asposeslides.api import Presentation
 
-presentation = Presentation("SomePresentationWithTable.pptx")
+presentation = Presentation("presentation_with_table.pptx")
 try:
-    # Anta att den första formen på den första bilden är en tabell.
-    shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0)
-    if isinstance(shape, Table):
-        table = shape
-        for i in range(table.getRows().size()):
-            for j in range(table.getColumns().size()):
-                current_cell = table.getRows().get_Item(i).get_Item(j)
-                if current_cell.isMergedCell():
-                    print(f"Cell {i};{j} is part of a merged cell with RowSpan={current_cell.getRowSpan()} and ColSpan={current_cell.getColSpan()} starting from Cell {current_cell.getFirstRowIndex()};{current_cell.getFirstColumnIndex()}.")
-    else:
-        print("The first shape is not a table.")
+    slide = presentation.getSlides().get_Item(0)
+    table = slide.getShapes().get_Item(0)
+
+    row_count = table.getRows().size()
+    for row_index in range(row_count):
+        column_count = table.getColumns().size()
+        for column_index in range(column_count):
+            cell = table.get_Item(column_index, row_index)
+            if cell.isMergedCell():
+                print(f"Cell {row_index};{column_index} belongs to a merged region with RowSpan={cell.getRowSpan()} and ColSpan={cell.getColSpan()} starting at {cell.getFirstRowIndex()};{cell.getFirstColumnIndex()}.")
 finally:
     presentation.dispose()
 ```
 
 ## **Ta bort tabellcellramar**
 
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/python-java/aspose.slides/presentation/).
-2. Hämta en referens till en bild via dess index.
-3. Definiera en lista med kolumnbredder.
-4. Definiera en lista med radhöjder.
-5. Lägg till en tabell på bilden via metoden [addTable](https://reference.aspose.com/slides/sv/python-java/aspose.slides/shapecollection/#addTable).
-6. Iterera genom varje cell för att rensa de övre, nedre, högra och vänstra ramarna.
-7. Spara den ändrade presentationen som en PPTX‑fil.
-
-Denna Python‑kod visar hur du tar bort ramarna från tabellceller:
+Skapa en [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) och lägg till en tabell på dess första bild med [addTable](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addTable). Kolumnbredder, radhöjder och tabellens position anges i punkter. Exemplet sätter alla fyra cellramar till [FillType.NoFill](https://reference.aspose.com/slides/python-java/aspose.slides/filltype/), vilket gör dem osynliga.
 
 ```python
 import jpype
@@ -79,17 +67,12 @@ from asposeslides.api import Presentation, FillType, SaveFormat
 
 presentation = Presentation()
 try:
-    # Åtkomst till den första bilden.
     slide = presentation.getSlides().get_Item(0)
 
-    # Definiera kolumnbredder och radhöjder.
     column_widths = [50, 50, 50, 50]
     row_heights = [50, 30, 30, 30, 30]
-
-    # Lägg till en tabell på bilden.
     table = slide.getShapes().addTable(100, 50, column_widths, row_heights)
 
-    # Ställ in ramformatet för varje cell.
     for row in table.getRows():
         for cell in row:
             cell.getCellFormat().getBorderTop().getFillFormat().setFillType(FillType.NoFill)
@@ -97,15 +80,16 @@ try:
             cell.getCellFormat().getBorderLeft().getFillFormat().setFillType(FillType.NoFill)
             cell.getCellFormat().getBorderRight().getFillFormat().setFillType(FillType.NoFill)
 
-    # Spara presentationen som en PPTX-fil.
-    presentation.save("table_out.pptx", SaveFormat.Pptx)
+    presentation.save("table.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-## **Numrering i sammanslagna celler**
+## **Sammanfoga tabellceller**
 
-Om vi slår ihop två par celler, (1, 1) och (2, 1), samt (1, 2) och (2, 2), behåller den resulterande tabellen sin cellnumrering. Denna Python‑kod demonstrerar processen:
+Använd [mergeCells](https://reference.aspose.com/slides/python-java/aspose.slides/table/#mergeCells) för att kombinera ett rektangulärt område av tabellceller till en cell. Specificera cellerna i det övre vänstra och nedre högra hörnet av området. Det sista argumentet styr om sammanslagningen får inkludera celler utanför det angivna området; `False` håller sammanslagningen inom det området.
+
+Exemplet skapar en 4 × 4‑tabell med 70‑punkts kolumner och rader, och sammanslår sedan de fyra centrala cellerna från `(1, 1)` till `(2, 2)`. Den resulterande cellen spänner över två kolumner och två rader, medan tabellens underliggande rutnät behåller fyra kolumner och fyra rader. För att komma åt den sammanslagna cellens innehåll eller formatering, använd dess övre vänstra position: `table.get_Item(1, 1)` i detta exempel. De andra positionerna i det sammanslagna området förblir en del av tabellrutnätet, så indexen för celler utanför området ändras inte.
 
 ```python
 import jpype
@@ -114,54 +98,30 @@ import asposeslides
 if not jpype.isJVMStarted():
     jpype.startJVM()
 
-from asposeslides.api import Presentation, FillType, SaveFormat
-from java.awt import Color
+from asposeslides.api import Presentation, SaveFormat
 
 presentation = Presentation()
 try:
-    # Åtkomst till den första bilden.
     slide = presentation.getSlides().get_Item(0)
 
-    # Definiera kolumnbredder och radhöjder.
     column_widths = [70, 70, 70, 70]
     row_heights = [70, 70, 70, 70]
-
-    # Lägg till en tabell på bilden.
     table = slide.getShapes().addTable(100, 50, column_widths, row_heights)
 
-    # Ställ in ramformatet för varje cell.
-    for row in table.getRows():
-        for cell in row:
-            cell.getCellFormat().getBorderTop().getFillFormat().setFillType(FillType.Solid)
-            cell.getCellFormat().getBorderTop().getFillFormat().getSolidFillColor().setColor(Color.RED)
-            cell.getCellFormat().getBorderTop().setWidth(5)
+    table.mergeCells(table.get_Item(1, 1), table.get_Item(2, 2), False)
 
-            cell.getCellFormat().getBorderBottom().getFillFormat().setFillType(FillType.Solid)
-            cell.getCellFormat().getBorderBottom().getFillFormat().getSolidFillColor().setColor(Color.RED)
-            cell.getCellFormat().getBorderBottom().setWidth(5)
-
-            cell.getCellFormat().getBorderLeft().getFillFormat().setFillType(FillType.Solid)
-            cell.getCellFormat().getBorderLeft().getFillFormat().getSolidFillColor().setColor(Color.RED)
-            cell.getCellFormat().getBorderLeft().setWidth(5)
-
-            cell.getCellFormat().getBorderRight().getFillFormat().setFillType(FillType.Solid)
-            cell.getCellFormat().getBorderRight().getFillFormat().getSolidFillColor().setColor(Color.RED)
-            cell.getCellFormat().getBorderRight().setWidth(5)
-
-
-    # Slå ihop cellerna (1, 1) och (2, 1).
-    table.mergeCells(table.get_Item(1, 1), table.get_Item(2, 1), False)
-
-    # Slå ihop cellerna (1, 2) och (2, 2).
-    table.mergeCells(table.get_Item(1, 2), table.get_Item(2, 2), False)
-
-    # Spara presentationen som en PPTX-fil.
-    presentation.save("MergeCells_out.pptx", SaveFormat.Pptx)
+    presentation.save("merged_cells.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-Vi slår sedan ihop cellerna ytterligare genom att slå ihop (1, 1) och (1, 2). Resultatet är en tabell som innehåller en stor sammanslagen cell i mitten:
+## **Dela tabellceller**
+
+Att sammanfoga celler i det föregående exemplet bevarar tabellens rutnät. Att dela en cell kan införa en ny rutnätskolumn och ändra kolumnindex för celler till höger. Aspose.Slides följer PowerPoints tabellrutnätsmodell.
+
+Detta exempel skapar en 4 × 4‑tabell med 70‑punkts kolumner och rader och anropar [splitByWidth](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#splitByWidth) på cell `(1, 1)`. Halva cellens 70‑punkts bredd skickas för att skapa två celler med lika bredd.
+
+Efter den här delningen nås de två halvorna som `table.get_Item(1, 1)` och `table.get_Item(2, 1)`. Tabellrutnätet har nu fem kolumner: celler som ursprungligen var i kolumn 2 och 3 flyttas till kolumn 3 respektive 4. Radrubrikerna förblir oförändrade. Använd dessa uppdaterade kolumnindex när du får åtkomst till celler efter delningen.
 
 ```python
 import jpype
@@ -170,118 +130,81 @@ import asposeslides
 if not jpype.isJVMStarted():
     jpype.startJVM()
 
-from asposeslides.api import Presentation, FillType, SaveFormat
-from java.awt import Color
+from asposeslides.api import Presentation, SaveFormat
 
 presentation = Presentation()
 try:
-    # Åtkomst till den första bilden.
     slide = presentation.getSlides().get_Item(0)
 
-    # Definiera kolumnbredder och radhöjder.
     column_widths = [70, 70, 70, 70]
     row_heights = [70, 70, 70, 70]
-
-    # Lägg till en tabell på bilden.
     table = slide.getShapes().addTable(100, 50, column_widths, row_heights)
 
-    # Ställ in ramformatet för varje cell.
-    for row in table.getRows():
-        for cell in row:
-            cell.getCellFormat().getBorderTop().getFillFormat().setFillType(FillType.Solid)
-            cell.getCellFormat().getBorderTop().getFillFormat().getSolidFillColor().setColor(Color.RED)
-            cell.getCellFormat().getBorderTop().setWidth(5)
+    table.get_Item(1, 1).splitByWidth(table.get_Item(1, 1).getWidth() / 2)
 
-            cell.getCellFormat().getBorderBottom().getFillFormat().setFillType(FillType.Solid)
-            cell.getCellFormat().getBorderBottom().getFillFormat().getSolidFillColor().setColor(Color.RED)
-            cell.getCellFormat().getBorderBottom().setWidth(5)
-
-            cell.getCellFormat().getBorderLeft().getFillFormat().setFillType(FillType.Solid)
-            cell.getCellFormat().getBorderLeft().getFillFormat().getSolidFillColor().setColor(Color.RED)
-            cell.getCellFormat().getBorderLeft().setWidth(5)
-
-            cell.getCellFormat().getBorderRight().getFillFormat().setFillType(FillType.Solid)
-            cell.getCellFormat().getBorderRight().getFillFormat().getSolidFillColor().setColor(Color.RED)
-            cell.getCellFormat().getBorderRight().setWidth(5)
-
-
-    # Slå ihop cellerna (1, 1) och (2, 1).
-    table.mergeCells(table.get_Item(1, 1), table.get_Item(2, 1), False)
-
-    # Slå ihop cellerna (1, 2) och (2, 2).
-    table.mergeCells(table.get_Item(1, 2), table.get_Item(2, 2), False)
-
-    # Slå ihop cellerna (1, 1) och (1, 2).
-    table.mergeCells(table.get_Item(1, 1), table.get_Item(1, 2), True)
-
-    # Spara presentationen som en PPTX-fil.
-    presentation.save("MergeCells_out.pptx", SaveFormat.Pptx)
+    presentation.save("split_cells.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-## **Numrering i en delad cell**
+### **Dela sammanslagna celler efter rad- eller kolumnspann**
 
-I de föregående exemplen förändrade inte sammanslagning av tabellceller numreringen av de andra cellerna.
+För att förbereda sammanslagna mallceller för datainmatning, använd [splitByRowSpan](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#splitByRowSpan) för att dela längs en befintlig radgräns, eller [splitByColSpan](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#splitByColSpan) för att dela längs en kolumngräns.
 
-Denna gång tar vi en vanlig tabell (en tabell utan sammanslagna celler) och försöker sedan dela cell (1, 1) för att få en speciell tabell. Du kanske vill uppmärksamma tabellens numrering, som kan verka märklig. Detta är dock så Microsoft PowerPoint numrerar tabellceller och Aspose.Slides gör samma sak.
+`index`‑argumentet räknar rader i den övre delen eller kolumner i den vänstra delen av delningen; det är relativt till det sammanslagna området:
 
-Denna Python‑kod demonstrerar processen vi beskrev:
+- Row split: `0 < index <` [getRowSpan](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#getRowSpan).
+- Column split: `0 < index <` [getColSpan](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#getColSpan).
+
+Exemplet förutsätter att en presentation har en tabell som den första formen på den första bilden, med `(1, 2)` och `(1, 3)` sammanslagna vertikalt. Med start från den lägre positionen används [getFirstColumnIndex](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#getFirstColumnIndex) och [getFirstRowIndex](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#getFirstRowIndex) för att lokalisera ursprunget och kontrollera båda spannen. `splitByRowSpan(1)` delar sedan raderna 2 och 3 för produktnamn. För en horisontell sammanslagning av två kolumner, använd `splitByColSpan(1)` istället.
 
 ```python
 import jpype
 import asposeslides
 
-if not jp.ype.isJVMStarted():
+if not jpype.isJVMStarted():
     jpype.startJVM()
 
-from asposeslides.api import Presentation, FillType, SaveFormat
-from java.awt import Color
+from asposeslides.api import Presentation, SaveFormat
 
-presentation = Presentation()
+presentation = Presentation("table_template.pptx")
 try:
-    # Åtkomst till den första bilden.
     slide = presentation.getSlides().get_Item(0)
+    table = slide.getShapes().get_Item(0)
 
-    # Definiera kolumnbredder och radhöjder.
-    column_widths = [70, 70, 70, 70]
-    row_heights = [70, 70, 70, 70]
+    selected_cell = table.get_Item(1, 3)
+    first_column_index = selected_cell.getFirstColumnIndex()
+    first_row_index = selected_cell.getFirstRowIndex()
+    merged_cell = table.get_Item(first_column_index, first_row_index)
 
-    # Lägg till en tabell på bilden.
-    table = slide.getShapes().addTable(100, 50, column_widths, row_heights)
+    if merged_cell.isMergedCell() and merged_cell.getRowSpan() == 2 and merged_cell.getColSpan() == 1:
+        merged_cell.splitByRowSpan(1)
 
-    # Ställ in ramformatet för varje cell.
-    for row in table.getRows():
-        for cell in row:
-            cell.getCellFormat().getBorderTop().getFillFormat().setFillType(FillType.Solid)
-            cell.getCellFormat().getBorderTop().getFillFormat().getSolidFillColor().setColor(Color.RED)
-            cell.getCellFormat().getBorderTop().setWidth(5)
+        # Hämta de resulterande cellerna från tabellen efter delning.
+        upper_cell = table.get_Item(first_column_index, first_row_index)
+        lower_cell = table.get_Item(first_column_index, first_row_index + 1)
+        print(f"Upper cell merged: {upper_cell.isMergedCell()}")
+        print(f"Lower cell merged: {lower_cell.isMergedCell()}")
 
-            cell.getCellFormat().getBorderBottom().getFillFormat().setFillType(FillType.Solid)
-            cell.getCellFormat().getBorderBottom().getFillFormat().getSolidFillColor().setColor(Color.RED)
-            cell.getCellFormat().getBorderBottom().setWidth(5)
+        upper_cell.getTextFrame().setText("Product A")
+        lower_cell.getTextFrame().setText("Product B")
 
-            cell.getCellFormat().getBorderLeft().getFillFormat().setFillType(FillType.Solid)
-            cell.getCellFormat().getBorderLeft().getFillFormat().getSolidFillColor().setColor(Color.RED)
-            cell.getCellFormat().getBorderLeft().setWidth(5)
-
-            cell.getCellFormat().getBorderRight().getFillFormat().setFillType(FillType.Solid)
-            cell.getCellFormat().getBorderRight().getFillFormat().getSolidFillColor().setColor(Color.RED)
-            cell.getCellFormat().getBorderRight().setWidth(5)
-
-
-    # Dela cell (1, 1).
-    table.get_Item(1, 1).splitByWidth(table.get_Item(2, 1).getWidth() / 2)
-
-    # Spara presentationen som en PPTX-fil.
-    presentation.save("SplitCells_out.pptx", SaveFormat.Pptx)
+        presentation.save("split_template.pptx", SaveFormat.Pptx)
+    else:
+        print("Select a merged region spanning exactly two rows and one column.")
 finally:
     presentation.dispose()
 ```
+
+Tabellrutnätet och omkringliggande cellindex förblir oförändrade. Hämta de resulterande cellerna via deras koordinater; här har båda ett spann på 1 och [isMergedCell](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#isMergedCell) skriver ut `False`. Större områden kan förbli delvis sammanslagna efter en delning.
+
+Den ursprungliga texten och dess formatering förblir i den övre (eller vänstra) cellen; den nya cellen är tom men ärver cellformatering såsom fyllning, ramar och marginaler. Fyll i cellerna efter delning och ange eventuell nödvändig textformatering explicit.
+
+Den sparade presentationen innehåller separata celler för "Product A" och "Product B" med mallens cellformatering bevarad. Se [Cell API Reference](https://reference.aspose.com/slides/python-java/aspose.slides/cell/) för detaljer.
 
 ## **Ändra tabellcellens bakgrundsfärg**
 
-Denna Python‑kod visar hur du ändrar en tabellcells bakgrundsfärg:
+Detta exempel skapar en tabell med 150‑punkts kolumner och 50‑punkts rader. Det använder [setFillType](https://reference.aspose.com/slides/python-java/aspose.slides/fillformat/#setFillType) för att välja en solid fyllning och sätter färgen som returneras av [getSolidFillColor](https://reference.aspose.com/slides/python-java/aspose.slides/fillformat/#getSolidFillColor) till röd för cell `(2, 3)`, i den tredje kolumnen och fjärde raden.
 
 ```python
 import jpype
@@ -295,22 +218,16 @@ from java.awt import Color
 
 presentation = Presentation()
 try:
-    # Åtkomst till den första bilden.
     slide = presentation.getSlides().get_Item(0)
 
-    # Definiera kolumnbredder och radhöjder.
     column_widths = [150, 150, 150, 150]
     row_heights = [50, 50, 50, 50, 50]
-
-    # Lägg till en tabell på bilden.
     table = slide.getShapes().addTable(50, 50, column_widths, row_heights)
 
-    # Ställ in bakgrundsfärg för en cell.
     cell = table.get_Item(2, 3)
     cell.getCellFormat().getFillFormat().setFillType(FillType.Solid)
     cell.getCellFormat().getFillFormat().getSolidFillColor().setColor(Color.RED)
 
-    # Spara presentationen som en PPTX-fil.
     presentation.save("cell_background_color.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
@@ -318,18 +235,9 @@ finally:
 
 ## **Lägg till en bild i en tabellcell**
 
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/python-java/aspose.slides/presentation/).
-2. Hämta en referens till en bild via dess index.
-3. Definiera en lista med kolumnbredder.
-4. Definiera en lista med radhöjder.
-5. Lägg till en tabell på bilden via metoden [addTable](https://reference.aspose.com/slides/sv/python-java/aspose.slides/shapecollection/#addTable).
-6. Läs in bildfilen med [Images.fromFile](https://reference.aspose.com/slides/sv/python-java/aspose.slides/images/#fromFile).
-7. Lägg till bilden i presentationen för att skapa ett [PPImage](https://reference.aspose.com/slides/sv/python-java/aspose.slides/ppimage/)‑objekt.
-8. Ställ in tabellcellens [FillFormat](https://reference.aspose.com/slides/sv/python-java/aspose.slides/fillformat/) fylltyp till [FillType.Picture](https://reference.aspose.com/slides/sv/python-java/aspose.slides/filltype/#Picture).
-9. Lägg till bilden i tabellens första cell.
-10. Spara den ändrade presentationen som en PPTX‑fil.
+Placera inmatningsbilden i arbetskatalogen innan du kör detta exempel. Den laddar bilden med [Images.fromFile](https://reference.aspose.com/slides/python-java/aspose.slides/images/#fromFile) och lägger till den i presentationens bildsamling med [addImage](https://reference.aspose.com/slides/python-java/aspose.slides/imagecollection/#addImage). Den tilldelar sedan bilden till bildfyllningen för cell `(0, 0)`, den första cellen i tabellen.
 
-Denna Python‑kod visar hur du placerar en bild i en tabellcell när du skapar en tabell:
+[PictureFillMode.Stretch](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillmode/) sträcker bilden för att fylla cellen, vilket kan ändra bildförhållandet. Kolumnbredder och radhöjder anges i punkter. Den inlästa bilden avaktiveras i ett `finally`‑block efter att den har lagts till i presentationen.
 
 ```python
 import jpype
@@ -342,49 +250,41 @@ from asposeslides.api import Presentation, Images, FillType, PictureFillMode, Sa
 
 presentation = Presentation()
 try:
-    # Åtkomst till den första bilden.
     slide = presentation.getSlides().get_Item(0)
 
-    # Definiera kolumnbredder och radhöjder.
     column_widths = [150, 150, 150, 150]
     row_heights = [100, 100, 100, 100, 90]
-
-    # Lägg till en tabell på bilden.
     table = slide.getShapes().addTable(50, 50, column_widths, row_heights)
 
-    # Skapa en presentationsbild från bildfilen.
-    image = Images.fromFile("image.jpg")
+    image = Images.fromFile("aspose_logo.jpg")
     try:
-        picture = presentation.getImages().addImage(image)
+        presentation_image = presentation.getImages().addImage(image)
     finally:
         image.dispose()
 
-    # Lägg till bilden i den första tabellcellen.
-    cell_format = table.get_Item(0, 0).getCellFormat()
-    cell_format.getFillFormat().setFillType(FillType.Picture)
-    cell_format.getFillFormat().getPictureFillFormat().setPictureFillMode(PictureFillMode.Stretch)
-    cell_format.getFillFormat().getPictureFillFormat().getPicture().setImage(picture)
+    table.get_Item(0, 0).getCellFormat().getFillFormat().setFillType(FillType.Picture)
+    table.get_Item(0, 0).getCellFormat().getFillFormat().getPictureFillFormat().setPictureFillMode(PictureFillMode.Stretch)
+    table.get_Item(0, 0).getCellFormat().getFillFormat().getPictureFillFormat().getPicture().setImage(presentation_image)
 
-    # Spara presentationen som en PPTX-fil.
-    presentation.save("Image_In_TableCell_out.pptx", SaveFormat.Pptx)
+    presentation.save("table_cell_with_image.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
 ## **FAQ**
 
-**Kan jag ange olika linjetjocklekar och stilar för olika sidor av en enda cell?**
+**Kan jag ange olika linjetjocklekar och stilar för olika sidor av en enskild cell?**
 
-Ja. [top](https://reference.aspose.com/slides/sv/python-java/aspose.slides/cellformat/#getBorderTop)/[bottom](https://reference.aspose.com/slides/sv/python-java/aspose.slides/cellformat/#getBorderBottom)/[left](https://reference.aspose.com/slides/sv/python-java/aspose.slides/cellformat/#getBorderLeft)/[right](https://reference.aspose.com/slides/sv/python-java/aspose.slides/cellformat/#getBorderRight)‑ramarna har separata egenskaper, så tjocklek och stil för varje sida kan skilja sig. Detta följer logiskt från per‑sidans ramkontroll för en cell som demonstreras i artikeln.
+Ja. [top](https://reference.aspose.com/slides/python-java/aspose.slides/cellformat/#getBorderTop)/[bottom](https://reference.aspose.com/slides/python-java/aspose.slides/cellformat/#getBorderBottom)/[left](https://reference.aspose.com/slides/python-java/aspose.slides/cellformat/#getBorderLeft)/[right](https://reference.aspose.com/slides/python-java/aspose.slides/cellformat/#getBorderRight)-ramarna har separata egenskaper, så tjocklek och stil för varje sida kan skilja sig.
 
-**Vad händer med bilden om jag ändrar kolumn‑/radstorleken efter att ha ställt in en bild som cellens bakgrund?**
+**Vad händer med bilden om jag ändrar kolumn-/radstorlek efter att ha ställt in en bild som cellens bakgrund?**
 
-Beteendet beror på [fill mode](https://reference.aspose.com/slides/sv/python-java/aspose.slides/picturefillmode/) (stretch/tile). Vid stretching anpassas bilden till den nya cellen; vid tiling beräknas rutorna om. Artikeln nämner bildens visningslägen i en cell.
+Beteendet beror på [fill mode](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillmode/) (stretch/tile). Vid sträckning anpassas bilden till den nya cellen; vid tilning beräknas rutorna om.
 
 **Kan jag tilldela en hyperlänk till allt innehåll i en cell?**
 
-[Hyperlinks](/slides/sv/python-java/manage-hyperlinks/) sätts på text‑ (portion)‑nivå inuti cellens textram eller på hela tabellens/figurens nivå. I praktiken tilldelar du länken till en del eller till all text i cellen.
+[Hyperlinks](/slides/sv/python-java/manage-hyperlinks/) sätts på text‑ (portion) nivå inne i cellens textram eller på hela tabellens/formens nivå. I praktiken tilldelar du länken till en portion eller till all text i cellen.
 
-**Kan jag ange olika teckensnitt i en enda cell?**
+**Kan jag ange olika teckensnitt inom en enskild cell?**
 
-Ja. En cells textram stödjer [portions](https://reference.aspose.com/slides/sv/python-java/aspose.slides/portion/) (körningar) med oberoende formatering—teckensnittsfamilj, stil, storlek och färg.
+Ja. En cells textram stödjer [portions](https://reference.aspose.com/slides/python-java/aspose.slides/portion/) (körningar) med oberoende formatering — teckensnittsfamilj, stil, storlek och färg.

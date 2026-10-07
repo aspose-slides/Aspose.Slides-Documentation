@@ -1,5 +1,5 @@
 ---
-title: إدارة خلايا الجداول في العروض التقديمية باستخدام C++
+title: إدارة خلايا الجدول في العروض التقديمية باستخدام C++
 linktitle: إدارة الخلايا
 type: docs
 weight: 30
@@ -9,356 +9,329 @@ keywords:
 - دمج خلايا
 - إزالة الحدود
 - تقسيم خلية
-- صورة داخل خلية
+- صورة في خلية
 - لون الخلفية
 - PowerPoint
 - عرض تقديمي
 - C++
 - Aspose.Slides
-description: "إدارة خلايا الجداول في PowerPoint بسهولة باستخدام Aspose.Slides لـ C++. اتقن الوصول إلى الخلايا وتعديلها وتنسيقها بسرعة لتحقيق أتمتة سلسة للشرائح."
+description: "إدارة خلايا جدول PowerPoint في C++: تحديد الخلايا المدمجة، إزالة الحدود، تقسيم الخلايا، وتعيين ألوان الخلفية والصور باستخدام Aspose.Slides للغة C++."
 ---
+## **نظرة عامة**
 
-## **تحديد خلية مدمجة**
-1. أنشئ مثالًا من الفئة [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
-2. احصل على الجدول من الشريحة الأولى. 
-3. تجول في صفوف وأعمدة الجدول للعثور على الخلايا المدمجة.
-4. اطبع رسالة عند العثور على خلايا مدمجة.
+Aspose.Slides يسمح لك بالوصول إلى خلايا الجداول وتعديلها في عروض PowerPoint التقديمية. يشرح هذا المقال كيفية تحديد الخلايا المدمجة في الجدول، وإزالة حدود الخلية، والعمل مع ترقيم الخلايا بعد الدمج أو تقسيم الخلايا، وتغيير لون خلفية الخلية، وإضافة صورة داخل خلية جدول. تُظهر الأمثلة كيفية إنشاء أو فتح عرض تقديمي، الحصول على جدول من شريحة، تحديث تنسيق الخلية عبر خصائص الخلية، وحفظ العرض المعدل كملف PPTX.
 
-هذا البرنامج بلغة C++ يوضح لك كيفية تحديد خلايا الجدول المدمجة في عرض تقديمي:
-``` cpp
-auto pres = System::MakeObject<Presentation>(u"SomePresentationWithTable.pptx");
-auto table = System::AsCast<ITable>(pres->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0));
+يستخدم Aspose.Slides فهارس تبدأ من الصفر للوصول إلى خلايا الجدول بالترتيب `(column, row)`.
 
-// assuming that Slide#0.Shape#0 is a table
-for (int32_t i = 0; i < table->get_Rows()->get_Count(); i++)
+## **تحديد خلية جدول مدمجة**
+
+يفتح المثال عرض تقديمي موجود ويصل إلى الشكل الأول في الشريحة الأولى كجدول. يفترض أن الشريحة والشكل موجودان وأن الشكل جدول. ثم يُكرر عبر جميع الصفوف والأعمدة ويستخدم [get_IsMergedCell](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_ismergedcell/) لتحديد الخلايا في المناطق المدمجة. لكل تطابق، يطبع إحداثيات الخلية بترتيب `row;column`، [get_RowSpan](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_rowspan/)، [get_ColSpan](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_colspan/)، وإحداثيات بدء المنطقة، [get_FirstRowIndex](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_firstrowindex/) و[get_FirstColumnIndex](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_firstcolumnindex/).
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <DOM/Table/ICell.h>
+#include <system/smart_ptr.h>
+#include <DOM/Table/IRowCollection.h>
+#include <DOM/Table/IColumnCollection.h>
+#include <system/console.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"presentation_with_table.pptx");
+auto slide = presentation->get_Slide(0);
+auto table = ExplicitCast<ITable>(slide->get_Shape(0));
+
+auto rowCount = table->get_Rows()->get_Count();
+for (auto rowIndex = 0; rowIndex < rowCount; rowIndex++)
 {
-    for (int32_t j = 0; j < table->get_Columns()->get_Count(); j++)
+    auto columnCount = table->get_Columns()->get_Count();
+    for (auto columnIndex = 0; columnIndex < columnCount; columnIndex++)
     {
-        auto currentCell = table->get_Rows()->idx_get(i)->idx_get(j);
-        if (currentCell->get_IsMergedCell())
+        auto cell = table->idx_get(columnIndex, rowIndex);
+        if (cell->get_IsMergedCell())
         {
-            Console::WriteLine(String::Format(u"Cell {0};{1} is a part of merged cell with RowSpan={2} and ColSpan={3} starting from Cell {4};{5}.", 
-                i, j, currentCell->get_RowSpan(), currentCell->get_ColSpan(), currentCell->get_FirstRowIndex(), currentCell->get_FirstColumnIndex()));
+            Console::WriteLine(u"Cell {0};{1} belongs to a merged region with RowSpan={2} and ColSpan={3} starting at {4};{5}.", rowIndex, columnIndex, cell->get_RowSpan(), cell->get_ColSpan(), cell->get_FirstRowIndex(), cell->get_FirstColumnIndex());
         }
     }
 }
 ```
 
+## **إزالة حدود خلية الجدول**
 
-## **إزالة حدود خلايا الجدول**
-1. أنشئ مثالًا من الفئة [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
-2. احصل على مرجع الشريحة عبر فهرستها. 
-3. عرّف مصفوفة الأعمدة مع العرض.
-4. عرّف مصفوفة الصفوف مع الارتفاع.
-5. أضف جدولًا إلى الشريحة باستخدام طريقة `AddTable`.
-6. تجول في كل خلية لمسح الحدود العليا والسفلى واليمنى واليسرى.
-7. احفظ العرض التقديمي المعدل كملف PPTX.
+أنشئ [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) وأضف جدولًا إلى شريحته الأولى باستخدام [AddTable](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addtable/). يتم تحديد عرض الأعمدة، ارتفاع الصفوف، وموقع الجدول بالنقاط. يضبط المثال جميع حدود الخلية الأربعة إلى [FillType::NoFill](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/)، مما يجعلها غير مرئية.
 
-هذا البرنامج بلغة C++ يوضح لك كيفية إزالة حدود خلايا الجدول:
-``` cpp
-// ينشئ فئة Presentation التي تمثل ملف PPTX
-auto pres = MakeObject<Presentation>();
-// يصل إلى الشريحة الأولى
-auto sld = pres->get_Slides()->idx_get(0);
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <DOM/Table/ICell.h>
+#include <system/smart_ptr.h>
+#include <DOM/FillType.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/Table/ICellFormat.h>
+#include <DOM/Table/IRow.h>
+#include <DOM/Table/IRowCollection.h>
+#include <system/enumerator_adapter.h>
+#include <Export/SaveFormat.h>
+#include <system/array.h>
 
-// يحدد الأعمدة بعروضها والصفوف بارتفاعاتها
-auto dblCols = MakeArray<double>({ 50, 50, 50, 50 });
-auto dblRows = MakeArray<double>({ 50, 30, 30, 30, 30 });
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-// يضيف شكل جدول إلى الشريحة
-auto tbl = sld->get_Shapes()->AddTable(100.0f, 50.0f, dblCols, dblRows);
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-// يضبط تنسيق الحدود لكل خلية
-for (const auto& row : System::IterateOver(tbl->get_Rows()))
-{
-    for (const auto& cell : System::IterateOver(row))
+auto columnWidths = MakeArray<double>({50, 50, 50, 50});
+auto rowHeights = MakeArray<double>({50, 30, 30, 30, 30});
+auto table = slide->get_Shapes()->AddTable(100, 50, columnWidths, rowHeights);
+
+for (const auto& row : IterateOver(table->get_Rows()))
+    for (const auto& cell : IterateOver(row))
     {
         cell->get_CellFormat()->get_BorderTop()->get_FillFormat()->set_FillType(FillType::NoFill);
         cell->get_CellFormat()->get_BorderBottom()->get_FillFormat()->set_FillType(FillType::NoFill);
         cell->get_CellFormat()->get_BorderLeft()->get_FillFormat()->set_FillType(FillType::NoFill);
         cell->get_CellFormat()->get_BorderRight()->get_FillFormat()->set_FillType(FillType::NoFill);
     }
-}
 
-// يكتب ملف PPTX إلى القرص
-pres->Save(u"table_out.pptx", SaveFormat::Pptx);
+presentation->Save(u"table.pptx", SaveFormat::Pptx);
 ```
 
+## **دمج خلايا الجدول**
 
-## **الترقيم في الخلايا المدمجة**
-إذا دمجنا زوجين من الخلايا (1, 1) × (2, 1) و(1, 2) × (2, 2)، سيُرقم الجدول الناتج. يعرض هذا البرنامج بلغة C# العملية:
-```c++
-const String outPath = u"../out/MergeCells_out.pptx";
+استخدم [MergeCells](https://reference.aspose.com/slides/cpp/aspose.slides/itable/mergecells/) لتجميع نطاق مستطيل من خلايا الجدول في خلية واحدة. حدد الخلايا في الزاويتين العلوية اليسرى والسفلية اليمنى للنطاق. الوسيط النهائي يتحكم ما إذا كان الدمج قد يشمل خلايا خارج النطاق المحدد؛ `false` يحافظ على الدمج داخل ذلك النطاق.
 
-// يحمّل العرض التقديمي المطلوب
-SharedPtr<Presentation> pres = MakeObject<Presentation>();
+يقوم المثال بإنشاء جدول 4×4 بأعمدة وصفوف حجمها 70 نقطة، ثم يدمج الأربع خلايا المركزية من `(1, 1)` حتى `(2, 2)`. الخلية الناتجة تمتد على عمودين وصفين، بينما يحتفظ شبكة الجدول الأساسية بأربعة أعمدة وأربعة صفوف. للوصول إلى محتوى أو تنسيق الخلية المدمجة، استخدم موقعها العلوي الأيسر: `table->idx_get(1, 1)` في هذا المثال. المواقع الأخرى في النطاق المدمج تظل جزءًا من شبكة الجدول، لذا لا تتغير فهارس الخلايا خارج النطاق.
 
-// الوصول إلى الشريحة الأولى
-SharedPtr<ISlide> islide = pres->get_Slides()->idx_get(0);
-
-// يحدد الأعمدة بعروضها والصفوف بارتفاعاتها
-System::ArrayPtr<double> dblCols = System::MakeObject<System::Array<double>>(4, 70);
-System::ArrayPtr<double> dblRows = System::MakeObject<System::Array<double>>(4, 70);
-
-// يضيف شكل جدول إلى الشريحة
-SharedPtr<ITable> table = islide->get_Shapes()->AddTable(100, 50, dblCols, dblRows);
-
-
-// يضبط تنسيق الحدود لكل خلية
-for (int x = 0; x < table->get_Rows()->get_Count(); x++)
-{
-    SharedPtr<IRow> row = table->get_Rows()->idx_get(x);
-    for (int y = 0; y < row->get_Count(); y++)
-    {
-        SharedPtr<ICell> cell = row->idx_get(y);
-
-        cell->get_BorderTop()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderTop()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderTop()->set_Width(5);
-
-        cell->get_BorderBottom()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderBottom()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderBottom()->set_Width(5);
-
-        cell->get_BorderLeft()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderLeft()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderLeft()->set_Width(5);
-
-        cell->get_BorderRight()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderRight()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderRight()->set_Width(5);
-
-    }
-
-}
-// يدمج الخلايا (1, 1) × (2, 1)
-table->MergeCells(table->idx_get(1, 1), table->idx_get(2, 1), false);
-
-// يدمج الخلايا (1, 2) × (2, 2)
-table->MergeCells(table->idx_get(1, 2), table->idx_get(2, 2), false);
-
-
-// يحفظ ملف PPTX إلى القرص
-pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
-```
-
-
-ثم نستمر في دمج الخلايا بدمج (1, 1) و(1, 2). النتيجة جدول يحتوي على خلية مدمجة كبيرة في المركز:
-```c++
-// مسار دليل المستندات.
-const String outPath = u"../out/MergeCells_out.pptx";
-
-// يقوم بتحميل العرض التقديمي المطلوب
-SharedPtr<Presentation> pres = MakeObject<Presentation>();
-
-// يصل إلى الشريحة الأولى
-SharedPtr<ISlide> islide = pres->get_Slides()->idx_get(0);
-
-// يحدد الأعمدة بعروضها والصفوف بارتفاعاتها
-System::ArrayPtr<double> dblCols = System::MakeObject<System::Array<double>>(4, 70);
-System::ArrayPtr<double> dblRows = System::MakeObject<System::Array<double>>(4, 70);
-
-// يضيف شكل جدول إلى الشريحة
-SharedPtr<ITable> table = islide->get_Shapes()->AddTable(100, 50, dblCols, dblRows);
-
-
-// يحدد تنسيق الحدود لكل خلية
-for (int x = 0; x < table->get_Rows()->get_Count(); x++)
-{
-    SharedPtr<IRow> row = table->get_Rows()->idx_get(x);
-    for (int y = 0; y < row->get_Count(); y++)
-    {
-        SharedPtr<ICell> cell = row->idx_get(y);
-
-        cell->get_BorderTop()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderTop()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderTop()->set_Width(5);
-
-        cell->get_BorderBottom()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderBottom()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderBottom()->set_Width(5);
-
-        cell->get_BorderLeft()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderLeft()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderLeft()->set_Width(5);
-
-        cell->get_BorderRight()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderRight()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderRight()->set_Width(5);
-
-    }
-
-}
-
-// يدمج الخلايا (1, 1) × (2, 1)
-table->MergeCells(table->idx_get(1, 1), table->idx_get(2, 1), false);
-
-// يدمج الخلايا (1, 2) × (2, 2)
-table->MergeCells(table->idx_get(1, 2), table->idx_get(2, 2), false);
-
-
-// يحفظ ملف PPTX إلى القرص
-pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
-```
-
-
-## **الترقيم في خلية مقسمة**
-في الأمثلة السابقة، عندما تم دمج خلايا الجدول، لم يتغير نظام الترقيم في الخلايا الأخرى.
-
-هذه المرة، نأخذ جدولًا عاديًا (بدون خلايا مدمجة) ثم نحاول تقسيم الخلية (1,1) للحصول على جدول خاص. قد تلاحظ أن ترقيم هذا الجدول قد يبدو غير مألوف. ومع ذلك، هذه هي الطريقة التي يقوم بها Microsoft PowerPoint بترقيم خلايا الجداول، وتفعل Aspose.Slides الشيء نفسه.
-
-هذا البرنامج بلغة C++ يوضح العملية التي وصفناها:
-```c++
-// مسار دليل المستندات.
-const String outPath = u"../out/CellSplit_out.pptx";
-
-// يحمل العرض التقديمي المطلوب
-SharedPtr<Presentation> pres = MakeObject<Presentation>();
-
-// يصل إلى الشريحة الأولى
-SharedPtr<ISlide> islide = pres->get_Slides()->idx_get(0);
-
-// يحدد الأعمدة بعروضها والصفوف بارتفاعاتها
-System::ArrayPtr<double> dblCols = System::MakeObject<System::Array<double>>(4, 70);
-System::ArrayPtr<double> dblRows = System::MakeObject<System::Array<double>>(4, 70);
-
-// يضيف شكل جدول إلى الشريحة
-SharedPtr<ITable> table = islide->get_Shapes()->AddTable(100, 50, dblCols, dblRows);
-
-
-// يحدد تنسيق الحدود لكل خلية
-for (int x = 0; x < table->get_Rows()->get_Count(); x++)
-{
-    SharedPtr<IRow> row = table->get_Rows()->idx_get(x);
-    for (int y = 0; y < row->get_Count(); y++)
-    {
-        SharedPtr<ICell> cell = row->idx_get(y);
-
-        cell->get_BorderTop()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderTop()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderTop()->set_Width(5);
-
-        cell->get_BorderBottom()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderBottom()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderBottom()->set_Width(5);
-
-        cell->get_BorderLeft()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderLeft()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderLeft()->set_Width(5);
-
-        cell->get_BorderRight()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderRight()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderRight()->set_Width(5);
-
-    }
-
-}
-
-// يدمج الخلايا (1, 1) × (2, 1)
-table->MergeCells(table->idx_get(1, 1), table->idx_get(2, 1), false);
-
-// يدمج الخلايا (1, 2) × (2, 2)
-table->MergeCells(table->idx_get(1, 2), table->idx_get(2, 2), false);
-
-// يقسم الخلية (1, 1). 
-table->idx_get(1, 1)->SplitByWidth(table->idx_get(2, 1)->get_Width() / 2);
-
-// يحفظ ملف PPTX إلى القرص
-pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
-```
-
-
-## **تغيير لون خلفية خلية الجدول**
-
-هذا البرنامج بلغة C++ يوضح لك كيفية تغيير لون خلفية خلية الجدول:
-``` cpp
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <DOM/Table/ICell.h>
+#include <system/smart_ptr.h>
+#include <Export/SaveFormat.h>
+#include <system/array.h>
 
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
-using namespace System::Drawing;
+using namespace System;
 
-auto presentation = System::MakeObject<Presentation>();
-auto slide = presentation->get_Slides()->idx_get(0);
-        
-auto dblCols = System::MakeArray<double>({150, 150, 150, 150});
-auto dblRows = System::MakeArray<double>({50, 50, 50, 50, 50});
-        
-// إنشاء جدول جديد
-auto table = slide->get_Shapes()->AddTable(50.0f, 50.0f, dblCols, dblRows);
-        
-// set the background color for a cell 
-System::SharedPtr<ICell> cell = table->idx_get(2, 3);
-cell->get_CellFormat()->get_FillFormat()->set_FillType(Aspose::Slides::FillType::Solid);
-cell->get_CellFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        
-presentation->Save(u"cell_background_color.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
+auto columnWidths = MakeArray<double>({70, 70, 70, 70});
+auto rowHeights = MakeArray<double>({70, 70, 70, 70});
+auto table = slide->get_Shapes()->AddTable(100, 50, columnWidths, rowHeights);
+
+table->MergeCells(table->idx_get(1, 1), table->idx_get(2, 2), false);
+
+presentation->Save(u"merged_cells.pptx", SaveFormat::Pptx);
 ```
 
+## **تقسيم خلايا الجدول**
+
+يحافظ دمج الخلايا في المثال السابق على شبكة الجدول. قد يؤدي تقسيم خلية إلى إدخال عمود جديد في الشبكة وتغيير فهارس الأعمدة للخلايا التي على يمينها. تتبع Aspose.Slides نموذج شبكة الجدول الخاص بـ PowerPoint.
+
+يقوم هذا المثال بإنشاء جدول 4×4 بأعمدة وصفوف حجمها 70 نقطة ويستدعي [SplitByWidth](https://reference.aspose.com/slides/cpp/aspose.slides/icell/splitbywidth/) على الخلية `(1, 1)`. يتم تمرير نصف عرض الخلية البالغ 70 نقطة لإنشاء خليتين بعرض متساوٍ.
+
+بعد هذا التقسيم، يتم الوصول إلى النصفين كـ `table->idx_get(1, 1)` و `table->idx_get(2, 1)`. أصبحت شبكة الجدول الآن تحتوي على خمسة أعمدة: الخلايا التي كانت في الأعمدة 2 و3 تنتقل إلى الأعمدة 3 و4 على التوالي. تبقى فهارس الصفوف دون تغيير. استخدم فهارس الأعمدة المحدثة عند الوصول إلى الخلايا بعد التقسيم.
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <DOM/Table/ICell.h>
+#include <system/smart_ptr.h>
+#include <Export/SaveFormat.h>
+#include <system/array.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto columnWidths = MakeArray<double>({70, 70, 70, 70});
+auto rowHeights = MakeArray<double>({70, 70, 70, 70});
+auto table = slide->get_Shapes()->AddTable(100, 50, columnWidths, rowHeights);
+
+table->idx_get(1, 1)->SplitByWidth(table->idx_get(1, 1)->get_Width() / 2);
+
+presentation->Save(u"split_cells.pptx", SaveFormat::Pptx);
+```
+
+### **تقسيم الخلايا المدمجة حسب الصف أو العمود**
+
+لتحضير خلايا القالب المدمجة لتعبئة البيانات، استخدم [SplitByRowSpan](https://reference.aspose.com/slides/cpp/aspose.slides/icell/splitbyrowspan/) لتقسيم على طول حد صف موجود، أو [SplitByColSpan](https://reference.aspose.com/slides/cpp/aspose.slides/icell/splitbycolspan/) لتقسيم على طول حد عمود.
+
+المُعامل `index` يحسب الصفوف في الجزء العلوي أو الأعمدة في الجزء الأيسر من التقسيم؛ وهو نسبًيا للمنطقة المدمجة:
+
+- تقسم صف: `0 < index <` [get_RowSpan](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_rowspan/).
+- تقسم عمود: `0 < index <` [get_ColSpan](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_colspan/).
+
+يفترض المثال أن يحتوي عرض تقديمي على جدول كأول شكل في الشريحة الأولى، مع دمج `(1, 2)` و `(1, 3)` عموديًا. بدءًا من الموضع السفلي، يستخدم [get_FirstColumnIndex](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_firstcolumnindex/) و[get_FirstRowIndex](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_firstrowindex/) لتحديد الأصل ويتحقق من كلا النطاقين. ثم يقوم `SplitByRowSpan(1)` بفصل الصفوف 2 و3 لأسماء المنتجات. لدمج أفقي بعمودين، استخدم `SplitByColSpan(1)` بدلاً من ذلك.
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <DOM/Table/ICell.h>
+#include <system/smart_ptr.h>
+#include <DOM/ITextFrame.h>
+#include <system/console.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"table_template.pptx");
+auto slide = presentation->get_Slide(0);
+auto table = ExplicitCast<ITable>(slide->get_Shape(0));
+
+auto selectedCell = table->idx_get(1, 3);
+auto firstColumnIndex = selectedCell->get_FirstColumnIndex();
+auto firstRowIndex = selectedCell->get_FirstRowIndex();
+auto mergedCell = table->idx_get(firstColumnIndex, firstRowIndex);
+
+if (mergedCell->get_IsMergedCell() && mergedCell->get_RowSpan() == 2 && mergedCell->get_ColSpan() == 1)
+{
+    mergedCell->SplitByRowSpan(1);
+
+    // استرجع الخلايا الناتجة من الجدول بعد التقسيم.
+    auto upperCell = table->idx_get(firstColumnIndex, firstRowIndex);
+    auto lowerCell = table->idx_get(firstColumnIndex, firstRowIndex + 1);
+    Console::WriteLine(u"Upper cell merged: {0}", upperCell->get_IsMergedCell());
+    Console::WriteLine(u"Lower cell merged: {0}", lowerCell->get_IsMergedCell());
+
+    upperCell->get_TextFrame()->set_Text(u"Product A");
+    lowerCell->get_TextFrame()->set_Text(u"Product B");
+
+    presentation->Save(u"split_template.pptx", SaveFormat::Pptx);
+}
+else
+{
+    Console::WriteLine(u"Select a merged region spanning exactly two rows and one column.");
+}
+```
+
+تظل شبكة الجدول وفهارس الخلايا المجاورة دون تغيير. استعد الخلايا الناتجة بإحداثياتها؛ هنا، كلاهما لديه امتداد 1 و [get_IsMergedCell](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_ismergedcell/) يطبع `False`. يمكن للمناطق الأكبر أن تظل مدمجة جزئيًا بعد تقسيم واحد.
+
+يبقى النص الأصلي وتنسيقه في الخلية العلوية (أو اليسرى)؛ الخلية الجديدة تكون فارغة لكنها ترث تنسيق الخلية مثل التعبئة والحدود والهوامش. قم بملء الخلايا بعد التقسيم وضبط أي تنسيق نص مطلوب صراحةً.
+
+يحتوي العرض التقديمي المحفوظ على خلايا منفصلة "Product A" و "Product B" مع الحفاظ على تنسيق خلايا القالب. راجع [Cell API Reference](https://reference.aspose.com/slides/cpp/aspose.slides/cell/) للحصول على التفاصيل.
+
+## **تغيير لون خلفية خلية الجدول**
+
+يقوم هذا المثال بإنشاء جدول بأعمدة حجمها 150 نقطة وصفوف حجمها 50 نقطة. يستخدم [set_FillType](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/set_filltype/) لاختيار تعبئة صلبة و[get_SolidFillColor](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/get_solidfillcolor/) للوصول إلى لون التعبئة وتعيينه إلى الأحمر للخلية `(2, 3)`, في العمود الثالث والصف الرابع.
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <DOM/Table/ICell.h>
+#include <system/smart_ptr.h>
+#include <DOM/FillType.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/Table/ICellFormat.h>
+#include <drawing/color.h>
+#include <Export/SaveFormat.h>
+#include <system/array.h>
+
+using namespace System::Drawing;
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto columnWidths = MakeArray<double>({150, 150, 150, 150});
+auto rowHeights = MakeArray<double>({50, 50, 50, 50, 50});
+auto table = slide->get_Shapes()->AddTable(50, 50, columnWidths, rowHeights);
+
+auto cell = table->idx_get(2, 3);
+cell->get_CellFormat()->get_FillFormat()->set_FillType(FillType::Solid);
+cell->get_CellFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Red());
+
+presentation->Save(u"cell_background_color.pptx", SaveFormat::Pptx);
+```
 
 ## **إضافة صورة داخل خلية جدول**
-1. أنشئ مثالًا من فئة `Presentation`.
-2. احصل على مرجع الشريحة عبر فهرستها.
-3. عرّف مصفوفة الأعمدة مع العرض.
-4. عرّف مصفوفة الصفوف مع الارتفاع.
-5. أضف جدولًا إلى الشريحة باستخدام طريقة `AddTable`. 
-6. أنشئ كائن `Bitmap` لحفظ ملف الصورة.
-7. أضف صورة الـ bitmap إلى كائن `IPPImage`.
-8. اضبط `FillFormat` لخلية الجدول على `Picture`.
-9. أضف الصورة إلى الخلية الأولى في الجدول.
-10. احفظ العرض التقديمي المعدل كملف PPTX
 
-هذا البرنامج بلغة C# يوضح لك كيفية وضع صورة داخل خلية جدول عند إنشاء جدول:
-```c++
-// مسار دليل المستندات.
-const String outPath = u"../out/Image_In_TableCell_out.pptx";
-const String ImagePath = u"../templates/Tulips.jpg";
+ضع صورة الإدخال في دليل العمل قبل تشغيل هذا المثال. يقوم بتحميل الصورة باستخدام [Images::FromFile](https://reference.aspose.com/slides/cpp/aspose.slides/images/fromfile/) ويضيفها إلى مجموعة صور العرض التقديمي باستخدام [AddImage](https://reference.aspose.com/slides/cpp/aspose.slides/iimagecollection/addimage/). ثم يُعيّن الصورة إلى تعبئة الصورة للخلية `(0, 0)`, الخلية الأولى في الجدول.
 
-// يقوم بتحميل العرض التقديمي المطلوب
-SharedPtr<Presentation> pres = MakeObject<Presentation>();
+[PictureFillMode::Stretch](https://reference.aspose.com/slides/cpp/aspose.slides/picturefillmode/) يمدّد الصورة لتملأ الخلية، مما قد يغيّر نسبة الأبعاد الخاصة بها. عرض الأعمدة وارتفاع الصفوف بالنقاط. يتم التخلص من الصورة المحملة بعد إضافتها إلى العرض التقديمي.
 
-// الوصول إلى الشريحة الأولى
-SharedPtr<ISlide> islide = pres->get_Slides()->idx_get(0);
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <DOM/Table/ICell.h>
+#include <system/smart_ptr.h>
+#include <DOM/FillType.h>
+#include <DOM/IImageCollection.h>
+#include <IImage.h>
+#include <DOM/IPPImage.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/ISlidesPicture.h>
+#include <DOM/PictureFillMode.h>
+#include <DOM/Table/ICellFormat.h>
+#include <Util/Images.h>
+#include <Export/SaveFormat.h>
+#include <system/array.h>
 
-// يحدد الأعمدة بعروضها والصفوف بارتفاعاتها
-System::ArrayPtr<double> dblCols = System::MakeObject<System::Array<double>>(4, 150);
-System::ArrayPtr<double> dblRows = System::MakeObject<System::Array<double>>(4, 100);
-System::ArrayPtr<double> total_for_Cat = System::MakeObject<System::Array<double>>(5, 0);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-// يضيف شكل جدول إلى الشريحة
-auto tbl = islide->get_Shapes()->AddTable(50, 50, dblCols, dblRows);
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-// يحصل على الصورة
-auto img = Images::FromFile(ImagePath);
+auto columnWidths = MakeArray<double>({150, 150, 150, 150});
+auto rowHeights = MakeArray<double>({100, 100, 100, 100, 90});
+auto table = slide->get_Shapes()->AddTable(50, 50, columnWidths, rowHeights);
 
-// يضيف صورة إلى مجموعة صور العرض التقديمي
-SharedPtr<IPPImage> imgx = pres->get_Images()->AddImage(img);
+auto image = Images::FromFile(u"aspose_logo.jpg");
+auto ppImage = presentation->get_Images()->AddImage(image);
+image->Dispose();
 
+table->idx_get(0, 0)->get_CellFormat()->get_FillFormat()->set_FillType(FillType::Picture);
+table->idx_get(0, 0)->get_CellFormat()->get_FillFormat()->get_PictureFillFormat()->set_PictureFillMode(PictureFillMode::Stretch);
+table->idx_get(0, 0)->get_CellFormat()->get_FillFormat()->get_PictureFillFormat()->get_Picture()->set_Image(ppImage);
 
-// يضيف الصورة إلى الخلية الأولى في الجدول
-tbl->idx_get(0, 0)->get_FillFormat()->set_FillType(FillType::Picture);
-tbl->idx_get(0, 0)->get_FillFormat()->get_PictureFillFormat()->set_PictureFillMode(PictureFillMode::Stretch);
-tbl->idx_get(0, 0)->get_FillFormat()->get_PictureFillFormat()->get_Picture()->set_Image(imgx);
-
-// حفظ ملف PPTX إلى القرص
-pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
+presentation->Save(u"table_cell_with_image.pptx", SaveFormat::Pptx);
 ```
-
 
 ## **الأسئلة المتكررة**
 
-**هل يمكنني تعيين سمك وأنماط خطوط مختلفة لجوانب خلية واحدة؟**
+**هل يمكنني تعيين سماكات خطوط وأنماط مختلفة لأطراف مختلفة من خلية واحدة؟**
 
-نعم. حدود [أعلى](https://reference.aspose.com/slides/cpp/aspose.slides/cellformat/get_bordertop/)/[أسفل](https://reference.aspose.com/slides/cpp/aspose.slides/cellformat/get_borderbottom/)/[يسار](https://reference.aspose.com/slides/cpp/aspose.slides/cellformat/get_borderleft/)/[يمين](https://reference.aspose.com/slides/cpp/aspose.slides/cellformat/get_borderright/) لها خصائص منفصلة، لذا يمكن أن يختلف السمك والنمط لكل جانب. هذا منطقي بناءً على التحكم في حدود كل جانب للخلية كما هو موضح في المقال.
+نعم. حدود [أعلى](https://reference.aspose.com/slides/cpp/aspose.slides/cellformat/get_bordertop/)/[أسفل](https://reference.aspose.com/slides/cpp/aspose.slides/cellformat/get_borderbottom/)/[يسار](https://reference.aspose.com/slides/cpp/aspose.slides/cellformat/get_borderleft/)/[يمين](https://reference.aspose.com/slides/cpp/aspose.slides/cellformat/get_borderright/) لها خصائص منفصلة، لذا يمكن أن تختلف السماكة والنمط لكل جانب.
 
 **ماذا يحدث للصورة إذا قمت بتغيير حجم العمود/الصف بعد تعيين صورة كخلفية للخلية؟**
 
-السلوك يعتمد على [وضع التعبئة](https://reference.aspose.com/slides/cpp/aspose.slides/picturefillmode/) (تمدد/تلخيص). عند التمدد، تتكيف الصورة مع الخلية الجديدة؛ وعند التلخيص، يُعاد حساب البلاط. يذكر المقال أوضاع عرض الصورة داخل الخلية.
+السلوك يعتمد على [وضع التعبئة](https://reference.aspose.com/slides/cpp/aspose.slides/picturefillmode/). عند التمدد، تُعدل الصورة لتناسب الخلية الجديدة؛ عند التكرار، تُعاد حساب البلاط.
 
-**هل يمكنني ربط جميع محتوى الخلية برابط تشعبي؟**
+**هل يمكنني تعيين ارتباط تشعبي لكل محتوى الخلية؟**
 
-يتم تعيين [Hyperlinks](/slides/ar/cpp/manage-hyperlinks/) على مستوى النص (الجزء) داخل إطار نص الخلية أو على مستوى الجدول/الشكل بالكامل. عمليًا، يمكنك ربط الجزء أو كل النص داخل الخلية.
+[الروابط التشعبية](/slides/ar/cpp/manage-hyperlinks/) يتم ضبطها على مستوى النص (الجزء) داخل إطار نص الخلية أو على مستوى الجدول/الشكل كاملًا. عمليًا، تقوم بتعيين الرابط إلى جزء أو إلى كل النص في الخلية.
 
 **هل يمكنني تعيين خطوط مختلفة داخل خلية واحدة؟**
 
-نعم. يدعم إطار نص الخلية [الأقسام](https://reference.aspose.com/slides/cpp/aspose.slides/portion/) (الـ portions) بتنسيق مستقل—عائلة الخط، النمط، الحجم، واللون.
+نعم. يدعم إطار نص الخلية [المقاطع](https://reference.aspose.com/slides/cpp/aspose.slides/portion/) (runs) بتنسيق مستقل—نوع الخط، الأسلوب، الحجم، واللون.

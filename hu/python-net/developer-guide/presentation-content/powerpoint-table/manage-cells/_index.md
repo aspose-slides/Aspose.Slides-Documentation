@@ -1,83 +1,60 @@
 ---
-title: "Python segítségével táblázatcellák kezelése prezentációkban"
-linktitle: "Cellák kezelése"
+title: Táblázatcellák kezelése prezentációkban Python-nal
+linktitle: Cellák kezelése
 type: docs
 weight: 30
 url: /hu/python-net/manage-cells/
 keywords:
-  - táblázatcella
-  - cellák egyesítése
-  - szegély eltávolítása
-  - cella felosztása
-  - kép a cellában
-  - háttérszín
-  - PowerPoint
-  - OpenDocument
-  - prezentáció
-  - Python
-  - Aspose.Slides
-description: "Könnyedén kezelheti a táblázatcellákat PowerPoint és OpenDocument formátumokban az Aspose.Slides for Python (a .NET-en keresztül) segítségével. Gyorsan elsajátíthatja a cellák elérését, módosítását és stílusozását a zökkenőmentes dia-automatizálás érdekében."
+- táblázatcella
+- cellák egyesítése
+- szegély eltávolítása
+- cella felosztása
+- kép a cellában
+- háttérszín
+- PowerPoint
+- prezentáció
+- Python
+- Aspose.Slides
+description: "PowerPoint táblázatcellák kezelése Pythonban: egyesített cellák azonosítása, szegélyek eltávolítása, cellák felosztása, valamint háttérszínek és képek beállítása az Aspose.Slides for Python segítségével .NET-en keresztül."
 ---
 ## **Áttekintés**
 
-Az Aspose.Slides lehetővé teszi, hogy hozzáférjen és módosítsa a táblázatcellákat a PowerPoint‑prezentációkban. Ez a cikk bemutatja, hogyan azonosítsa az egyesített táblázatcellákat, hogyan távolítsa el a cellahatárokat, hogyan kezelje a cellaszámozást egyesítés vagy felosztás után, hogyan változtassa meg egy cella háttérszínét, és hogyan szúrjon be képet egy táblázatcellába. A példák azt mutatják, hogyan hozhat létre vagy nyithat meg egy prezentációt, hogyan szerezhet be egy táblázatot egy diáról, hogyan frissítheti a cella formázását a cellatulajdonságok segítségével, és hogyan mentheti a módosított prezentációt PPTX‑fájlként.
+Aspose.Slides lehetővé teszi, hogy táblázatcellákat érjen el és módosítson PowerPoint prezentációkban. Ez a cikk bemutatja, hogyan lehet azonosítani az egyesített táblázatcellákat, eltávolítani a cellaszegélyeket, a cellaszámozással dolgozni az egyesítés vagy felosztás után, módosítani egy cella háttérszínét, és képet hozzáadni egy táblázatcellához. A példák megmutatják, hogyan hozhat létre vagy nyithat meg egy prezentációt, hogyan szerezhet be egy táblázatot egy diáról, hogyan frissítheti a cella formázását a cella tulajdonságain keresztül, és hogyan mentheti a módosított prezentációt PPTX fájlként.
 
-## **Egyesített táblázatcellák azonosítása**
+Az Aspose.Slides nulla alapú indexeket használ. A koordinátákat ebben a cikkben `(oszlop, sor)` formában írják.
 
-A táblázatok gyakran tartalmaznak egyesített cellákat a fejléchez vagy a kapcsolódó adatok csoportosításához. Ebben a részben megmutatjuk, hogyan határozhatja meg, hogy egy adott cella egy egyesített régióhoz tartozik‑e, és hogyan hivatkozhat a mester (bal‑felső) cellára, hogy egységesen olvassa vagy formázza a teljes blokkot.
+## **Egyesített táblázatcella azonosítása**
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentation/) osztályból.
-1. Szerezze meg a táblázatot az első diáról.
-1. Járja be a táblázat sorait és oszlopait az egyesített cellák kereséséhez.
-1. Írjon ki egy üzenetet, amikor egyesített cellákat talál.
+A példa megnyit egy meglévő prezentációt, és az első dián az első alakzatot táblázatként érheti el. Feltételezi, hogy a dia és az alakzat létezik, és hogy az alakzat táblázat. Ezután végigiterál az összes soron és oszlopon, és a [is_merged_cell](https://reference.aspose.com/slides/python-net/aspose.slides/cell/is_merged_cell/) segítségével azonosítja az egyesített területek celláit. Minden egyezésnél kiírja a cella koordinátáit `row;column` sorrendben, a [row_span](https://reference.aspose.com/slides/python-net/aspose.slides/cell/row_span/), a [col_span](https://reference.aspose.com/slides/python-net/aspose.slides/cell/col_span/), valamint a terület kezdő koordinátáit, a [first_row_index](https://reference.aspose.com/slides/python-net/aspose.slides/cell/first_row_index/) és a [first_column_index](https://reference.aspose.com/slides/python-net/aspose.slides/cell/first_column_index/) értékeket.
 
-Az alábbi Python‑kód azonosítja az egyesített táblázatcellákat egy prezentációban:
-
-```py
+```python
 import aspose.slides as slides
 
 with slides.Presentation("presentation_with_table.pptx") as presentation:
-    # Feltételezve, hogy az első dia első alakja egy táblázat.
-    table = presentation.slides[0].shapes[0]
+    slide = presentation.slides[0]
+    table = slide.shapes[0]
 
     for row_index in range(len(table.rows)):
         for column_index in range(len(table.columns)):
             cell = table.rows[row_index][column_index]
             if cell.is_merged_cell:
-                print("Cell ({}, {}) is part of a merged region with a row span of {} and a column span of {}, starting from cell ({}, {}).".format(
-                    row_index, column_index, cell.row_span, cell.col_span, cell.first_row_index, cell.first_column_index))
+                print(f"Cell {row_index};{column_index} belongs to a merged region with row_span={cell.row_span} and col_span={cell.col_span} starting at {cell.first_row_index};{cell.first_column_index}.")
 ```
 
 ## **Táblázatcella szegélyek eltávolítása**
 
-Néha a táblázat szegélyei elvonják a figyelmet a tartalomról vagy vizuális zsúfoltságot okoznak. Ez a rész bemutatja, hogyan távolíthatja el a szegélyeket a kiválasztott cellákról — vagy egy cella egyes oldalairól — hogy tisztább elrendezést és a diák tervezésével jobban összhangban lévő megjelenést érjen el.
-
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentation/) osztályból.
-1. Szerezze meg a diát indexe alapján.
-1. Határozzon meg egy tömböt az oszlopszélességekkel.
-1. Határozzon meg egy tömböt a sormagasságokkal.
-1. Adjon hozzá egy táblázatot a diához a [add_table](https://reference.aspose.com/slides/hu/python-net/aspose.slides/shapecollection/add_table/) metódussal.
-1. Járjon végig minden cellán, és távolítsa el a felső, alsó, bal és jobb szegélyeket.
-1. Mentse a módosított prezentációt PPTX‑fájlként.
-
-Az alábbi Python‑kód megmutatja, hogyan távolítható el a szegély a táblázatcellákról:
+Hozzon létre egy [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) objektumot, és adjon egy táblázatot az első diájához a [add_table](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_table/) segítségével. Az oszlopszélességeket, sormagasságokat és a táblázat pozícióját pontban adják meg. A példa az összes négy cellaszegélyt a [FillType.NO_FILL](https://reference.aspose.com/slides/python-net/aspose.slides/filltype/) értékre állítja, így láthatatlanok.
 
 ```python
 import aspose.slides as slides
 
-# Példányosítja a Presentation osztályt, amely egy PPTX fájlt képvisel.
 with slides.Presentation() as presentation:
-    # Eléri az első diát.
     slide = presentation.slides[0]
 
-    # Oszlopok szélességének és sorok magasságának meghatározása.
     column_widths = [50, 50, 50, 50]
     row_heights = [50, 30, 30, 30, 30]
+    table = slide.shapes.add_table(100, 50, column_widths, row_heights)
 
-    # Táblázat alakzat hozzáadása a diára.
-    table = slide.shapes.add_table(50, 50, column_widths, row_heights)
-
-    # Minden cella szegélyfeltöltésének törlése.
     for row in table.rows:
         for cell in row:
             cell.cell_format.border_top.fill_format.fill_type = slides.FillType.NO_FILL
@@ -85,102 +62,102 @@ with slides.Presentation() as presentation:
             cell.cell_format.border_left.fill_format.fill_type = slides.FillType.NO_FILL
             cell.cell_format.border_right.fill_format.fill_type = slides.FillType.NO_FILL
 
-    # PPTX fájl mentése a lemezre.
     presentation.save("table.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Számozás egyesített cellákban**
+## **Táblázatcellák egyesítése**
 
-Ha két cellapárt egyesít — például (1, 1) × (2, 1) és (1, 2) × (2, 2) — a kapott táblázat a táblázat eredeti számozását megtartja az egyesítés nélkül is. Az alábbi Python‑kód ezt a viselkedést demonstrálja:
+A [merge_cells](https://reference.aspose.com/slides/python-net/aspose.slides/table/merge_cells/) segítségével egy téglalap alakú táblázatcella tartományt egyetlen cellába egyesíthetünk. Adja meg a tartomány bal felső és jobb alsó sarkának celláit. Az utolsó argumentum szabályozza, hogy az egyesítés tartalmazhat-e a megadott tartományon kívüli cellákat; a `False` érték az egyesítést a tartományon belül tartja.
+
+A példa egy 4×4-es táblázatot hoz létre 70 pontos oszlopokkal és sorokkal, majd egyesíti a négy középső cellát a `(1, 1)` és `(2, 2)` közötti tartományban. Az eredményül kapott cella két oszlopot és két sort fed le, míg a táblázat alaprészének rácsa továbbra is négy oszlopból és négy sorból áll. Az egyesített cella tartalmához vagy formázásához a bal felső pozíciót kell használni: ebben a példában `table.rows[1][1]`. A többi pozíció a egyesített tartományban továbbra is a táblázat rácsának része, ezért a tartományon kívüli cellák indexei nem változnak.
 
 ```python
 import aspose.slides as slides
 
-# Példányosítja a Presentation osztályt, amely egy PPTX fájlt képvisel.
 with slides.Presentation() as presentation:
-    # Eléri az első diát.
     slide = presentation.slides[0]
 
-    # Oszlopok szélességének és sorok magasságának meghatározása.
     column_widths = [70, 70, 70, 70]
     row_heights = [70, 70, 70, 70]
+    table = slide.shapes.add_table(100, 50, column_widths, row_heights)
 
-    # Táblázat alakzat hozzáadása a diára.
-    table = slide.shapes.add_table(50, 50, column_widths, row_heights)
+    table.merge_cells(table.rows[1][1], table.rows[2][2], False)
 
-    # Cellák (1,1) és (2,1) egyesítése.
-    table.merge_cells(table.rows[1][1], table.rows[2][1], False)
-
-    # Cellák (1, 2) és (2, 2) egyesítése.
-    table.merge_cells(table.rows[1][2], table.rows[2][2], False)
-
-    # Cellák indexeinek kiíratása.
-    for row_index in range(len(table.rows)):
-        for column_index in range(len(table.rows[row_index])):
-            cell = table.rows[row_index][column_index]
-            print(f"{cell.first_row_index, cell.first_column_index} ", end="")
-        print()
-
-    # PPTX fájl mentése a lemezre.
     presentation.save("merged_cells.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Kimenet:
+## **Táblázatcellák felosztása**
 
-```text
-(0, 0) (0, 1) (0, 2) (0, 3) 
-(1, 0) (1, 1) (1, 2) (1, 3) 
-(2, 0) (1, 1) (1, 2) (2, 3) 
-(3, 0) (3, 1) (3, 2) (3, 3)
-```
+A korábbi példában a cellák egyesítése megőrzi a táblázat rácsát. Egy cella felosztása új rácsolkapot hozhat létre, és megváltoztathatja a jobb oldali cellák oszlopindexeit. Az Aspose.Slides a PowerPoint táblázatrács modelljét követi.
 
-## **Számozás felosztott cellákban**
+Ez a példa egy 4×4-es táblázatot hoz létre 70 pontos oszlopokkal és sorokkal, és a `(1, 1)` cellára meghívja a [split_by_width](https://reference.aspose.com/slides/python-net/aspose.slides/cell/split_by_width/) metódust. A cella 70 pontos szélességének fele kerül átadásra, hogy két egyenlő szélességű cella jöjjön létre.
 
-Az előző példában, amikor a táblázatcellákat egyesítették, a többi cella számozása nem változott. Ezúttal egy szabályos táblázatot hozunk létre (egyesített cellák nélkül), majd felosztjuk a (1, 1) cellát, hogy egy speciális táblázatot kapjunk. Figyelje meg ennek a táblázatnak a számozását — elsőre szokatlanul tűnhet. Ez azonban a Microsoft PowerPoint cellaszámozási módja, és az Aspose.Slides ugyanígy működik.
-
-Az alábbi Python‑kód demonstrálja ezt a viselkedést:
+A felosztás után a két felét a `table.rows[1][1]` és a `table.rows[1][2]` hivatkozza. A táblázat rácsa most már öt oszlopot tartalmaz: az eredetileg a 2. és 3. oszlopban lévő cellák a 3. és 4. oszlopba kerülnek. A sorindexek változatlanok maradnak. Ezeket a frissített oszlopindexeket használja a cellák eléréséhez a felosztás után.
 
 ```python
 import aspose.slides as slides
 
-# Példányosítja a Presentation osztályt, amely egy PPTX fájlt képvisel.
 with slides.Presentation() as presentation:
-    # Eléri az első diát.
     slide = presentation.slides[0]
 
-    # Oszlopok szélességének és sorok magasságának meghatározása.
     column_widths = [70, 70, 70, 70]
     row_heights = [70, 70, 70, 70]
+    table = slide.shapes.add_table(100, 50, column_widths, row_heights)
 
-    # Táblázat alakzat hozzáadása a diára.
-    table = slide.shapes.add_table(50, 50, column_widths, row_heights)
+    table.rows[1][1].split_by_width(table.rows[1][1].width / 2)
 
-    # (1, 1) cella felosztása.
-    table.rows[1][1].split_by_width(table.rows[2][1].width / 2)
-
-    # Cellák indexeinek kiíratása.
-    for row_index in range(len(table.rows)):
-        for column_index in range(len(table.rows[row_index])):
-            cell = table.rows[row_index][column_index]
-            print(f"{cell.first_row_index, cell.first_column_index} ", end="")
-        print()
-
-    # PPTX fájl mentése a lemezre.
     presentation.save("split_cells.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Kimenet:
+### **Egyesített cellák felosztása sor vagy oszlop kiterjedés szerint**
 
-```text
-(0, 0) (0, 1) (0, 1) (0, 3) (0, 4) 
-(1, 0) (1, 1) (1, 2) (1, 3) (1, 4) 
-(2, 0) (2, 1) (2, 1) (2, 3) (2, 4) 
-(3, 0) (3, 1) (3, 1) (3, 3) (3, 4) 
+Az egyesített sabloncellák adatkitöltésre való előkészítéséhez használja a [split_by_row_span](https://reference.aspose.com/slides/python-net/aspose.slides/cell/split_by_row_span/) metódust egy meglévő sorhatáron történő felosztáshoz, vagy a [split_by_col_span](https://reference.aspose.com/slides/python-net/aspose.slides/cell/split_by_col_span/) metódust egy oszlophatáron történő felosztáshoz.
+
+Az `index` argumentum a felosztás felső részének sorait vagy bal részének oszlopait számolja; a megadott érték az egyesített területhez viszonyítva értendő:
+
+- Sor felosztás: `0 < index <` [row_span](https://reference.aspose.com/slides/python-net/aspose.slides/cell/row_span/).
+- Oszlop felosztás: `0 < index <` [col_span](https://reference.aspose.com/slides/python-net/aspose.slides/cell/col_span/).
+
+A példa olyan prezentációt feltételez, amelyen az első dián az első alakzat egy táblázat, és a `(1, 2)` valamint a `(1, 3)` cellák függőlegesen egyesítve vannak. Az alsó pozícióból kiindulva a [first_column_index](https://reference.aspose.com/slides/python-net/aspose.slides/cell/first_column_index/) és a [first_row_index](https://reference.aspose.com/slides/python-net/aspose.slides/cell/first_row_index/) segítségével határozza meg a kiinduló pontot, és ellenőrzi mindkét kiterjedést. A `split_by_row_span` 1-es indexszel szétválasztja a 2. és 3. sort a terméknevekhez. Vízszintesen két oszlop egyesítése esetén helyette a `split_by_col_span` 1-es indexszel használható.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("table_template.pptx") as presentation:
+    slide = presentation.slides[0]
+    table = slide.shapes[0]
+
+    selected_cell = table.rows[3][1]
+    first_column_index = selected_cell.first_column_index
+    first_row_index = selected_cell.first_row_index
+    merged_cell = table.rows[first_row_index][first_column_index]
+
+    if merged_cell.is_merged_cell and merged_cell.row_span == 2 and merged_cell.col_span == 1:
+        merged_cell.split_by_row_span(1)
+
+        # Szerezze meg a felosztás után a táblázatból az eredményül kapott cellákat.
+        upper_cell = table.rows[first_row_index][first_column_index]
+        lower_cell = table.rows[first_row_index + 1][first_column_index]
+        print(f"Upper cell merged: {upper_cell.is_merged_cell}")
+        print(f"Lower cell merged: {lower_cell.is_merged_cell}")
+
+        upper_cell.text_frame.text = "Product A"
+        lower_cell.text_frame.text = "Product B"
+
+        presentation.save("split_template.pptx", slides.export.SaveFormat.PPTX)
+    else:
+        print("Select a merged region spanning exactly two rows and one column.")
 ```
 
-## **Táblázatcella háttérszínének módosítása**
+A táblázat rácsa és a környező cellaindexek változatlanok maradnak. A kapott cellákat a koordinátáik alapján kérdezheti le; itt mindkettő 1-es kiterjedéssel rendelkezik, és a [is_merged_cell](https://reference.aspose.com/slides/python-net/aspose.slides/cell/is_merged_cell/) `False` értéket ad vissza. Nagyobb területek egy felosztás után is részben egyesítve maradhatnak.
 
-Az alábbi Python‑példa bemutatja, hogyan változtatható meg egy táblázatcella háttérszíne:
+Az eredeti szöveg és formázás az felső (vagy bal) cellában marad; az új cella üres, de örökli a cella formázását, például a kitöltést, a szegélyeket és a margókat. Töltse fel a cellákat a felosztás után, és állítsa be a szükséges szövegformázást kifeexplicit módon.
+
+A mentett prezentáció külön "Product A" és "Product B" cellákat tartalmaz, a sablon cellaformázása megmarad. A részletekért tekintse meg a [Cell API Reference](https://reference.aspose.com/slides/python-net/aspose.slides/cell/) oldalt.
+
+## **A táblázatcella háttérszín módosítása**
+
+Ez a példa 150 pont széles oszlopokkal és 50 pont magas sorokkal rendelkező táblázatot hoz létre. A `[fill_type](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/fill_type/)` értékét szilárdra, a `[solid_fill_color](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/solid_fill_color/)` értékét pedig pirosra állítja a `(2, 3)` cellához, amely a harmadik oszlopban és a negyedik sorban található.
 
 ```python
 import aspose.pydrawing as draw
@@ -191,78 +168,56 @@ with slides.Presentation() as presentation:
 
     column_widths = [150, 150, 150, 150]
     row_heights = [50, 50, 50, 50, 50]
-
-    # Új táblázat létrehozása.
     table = slide.shapes.add_table(50, 50, column_widths, row_heights)
 
-    # Cellának háttérszín beállítása.
-    cell = table.rows[2][3]
+    cell = table.rows[3][2]
     cell.cell_format.fill_format.fill_type = slides.FillType.SOLID
     cell.cell_format.fill_format.solid_fill_color.color = draw.Color.red
 
     presentation.save("cell_background_color.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Képek beszúrása táblázatcellákba**
+## **Kép hozzáadása egy táblázatcella belsejébe**
 
-Ez a rész bemutatja, hogyan szúrjon be képet egy táblázatcellába az Aspose.Slides‑ben. Tartalmazza a képkitöltés alkalmazását a célcella számára, valamint a megjelenítési beállítások (nyújtás vagy csempézés) konfigurálását.
+Először helyezze a bemeneti képet a munkakönyvtárba, mielőtt futtatná ezt a példát. A képet a [Images.from_file](https://reference.aspose.com/slides/python-net/aspose.slides/images/from_file/) tölti be, majd a [add_image](https://reference.aspose.com/slides/python-net/aspose.slides/imagecollection/add_image/) segítségével a prezentáció képgyűjteményéhez adja hozzá. Ezután a képet a `(0, 0)` cella (a táblázat első cellája) képpel kitöltéséhez rendeli.
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentation/) osztályból.
-1. Szerezzen referenciát a diára indexe alapján.
-1. Határozzon meg egy tömböt az oszlopszélességekkel.
-1. Határozzon meg egy tömböt a sormagasságokkal.
-1. Adjon hozzá egy táblázatot a diához a [add_table](https://reference.aspose.com/slides/hu/python-net/aspose.slides/shapecollection/add_table/) metódussal.
-1. Töltse be a képet egy fájlból.
-1. Adja hozzá a képet a prezentáció képeihez, hogy egy [PPImage](https://reference.aspose.com/slides/hu/python-net/aspose.slides/ppimage/) objektumot kapjon.
-1. Állítsa be a táblázatcella [FillType](https://reference.aspose.com/slides/hu/python-net/aspose.slides/filltype/) értékét `PICTURE`‑re.
-1. Alkalmazza a képet a táblázatcella kitöltésére, és válasszon kitöltési módot (például `STRETCH`).
-1. Mentse a prezentációt PPTX‑fájlként.
-
-Az alábbi Python‑kód megmutatja, hogyan helyezzen el képet egy táblázatcella belsejében táblázat létrehozásakor:
+A [PictureFillMode.STRETCH](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillmode/) a képet a cella kitöltésére nyújtja, ami megváltoztathatja az oldalarányát. Az oszlopszélességek és sormagasságok pontban vannak megadva. A betöltött kép automatikusan felszabadul, amikor a `with` blokk véget ér.
 
 ```python
 import aspose.slides as slides
 
-# Példányosít egy Presentation objektumot.
 with slides.Presentation() as presentation:
-    # Eléri az első diát.
     slide = presentation.slides[0]
 
-    # Definiálja az oszlopszélességeket és a sormagasságokat.
     column_widths = [150, 150, 150, 150]
-    row_heights = [100, 100, 100, 100]
-
-    # Táblázat alakzat hozzáadása a diához.
+    row_heights = [100, 100, 100, 100, 90]
     table = slide.shapes.add_table(50, 50, column_widths, row_heights)
 
-    # Betölti a képet és hozzáadja a prezentációhoz egy PPImage lekérése érdekében.
-    with slides.Images.from_file("image.png") as source_image:
-        image = presentation.images.add_image(source_image)
+    with slides.Images.from_file("aspose_logo.jpg") as image:
+        presentation_image = presentation.images.add_image(image)
 
-    # Alkalmazza a képet az első táblázatcellára.
     cell = table.rows[0][0]
     cell.cell_format.fill_format.fill_type = slides.FillType.PICTURE
     cell.cell_format.fill_format.picture_fill_format.picture_fill_mode = slides.PictureFillMode.STRETCH
-    cell.cell_format.fill_format.picture_fill_format.picture.image = image
+    cell.cell_format.fill_format.picture_fill_format.picture.image = presentation_image
 
-    # A prezentáció mentése a lemezre.
-    presentation.save("image_in_table_cell.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("table_cell_with_image.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **GYIK**
 
-**Beállíthatok különböző vonalvastagságot és -stílust a cella egyes oldalaihoz?**
+**Beállíthatok különböző vonalvastagságokat és stílusokat a cella egyes oldalain?**
 
-Igen. A [top](https://reference.aspose.com/slides/hu/python-net/aspose.slides/cellformat/border_top/)/[bottom](https://reference.aspose.com/slides/hu/python-net/aspose.slides/cellformat/border_bottom/)/[left](https://reference.aspose.com/slides/hu/python-net/aspose.slides/cellformat/border_left/)/[right](https://reference.aspose.com/slides/hu/python-net/aspose.slides/cellformat/border_right/) szegélyeknek külön‑külön tulajdonságai vannak, ezért minden oldal vastagsága és stílusa eltérhet. Ez logikusan következik a cikkben bemutatott per‑side szegélyvezérlésből.
+Igen. A [top](https://reference.aspose.com/slides/python-net/aspose.slides/cellformat/border_top/)/[bottom](https://reference.aspose.com/slides/python-net/aspose.slides/cellformat/border_bottom/)/[left](https://reference.aspose.com/slides/python-net/aspose.slides/cellformat/border_left/)/[right](https://reference.aspose.com/slides/python-net/aspose.slides/cellformat/border_right/) szegélyek különálló tulajdonságokkal rendelkeznek, így az egyes oldalak vastagsága és stílusa eltérhet.
 
-**Mi történik a képpel, ha a oszlop/sor méretét megváltoztatom a kép háttérként való beállítása után?**
+**Mi történik a képpel, ha a oszlop/sor méretét módosítom a kép cella háttérként való beállítása után?**
 
-A viselkedés a [fill mode](https://reference.aspose.com/slides/hu/python-net/aspose.slides/picturefillmode/) (stretch/tile) beállításától függ. Nyújtás esetén a kép alkalmazkodik az új cellához; csempézés esetén a csempéket újraszámolják. A cikk említi a képek megjelenítési módjait a cellában.
+A viselkedés a [fill mode](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillmode/) (stretch/tile) beállításától függ. Nyújtás esetén a kép az új cellához igazodik; csempézés esetén a csempéket újraszámítják.
 
 **Hozzá tudok-e rendelni hiperhivatkozást a cella teljes tartalmához?**
 
-A [Hyperlinks](/slides/hu/python-net/manage-hyperlinks/) a cella szövegkeretén belüli szövegrész (portion) szintjén vagy a teljes táblázat/shape szintjén állítható be. Gyakorlatban a hivatkozást egy részhez vagy a cella teljes szövegéhez rendelhetjük.
+A [Hyperlinks](/slides/hu/python-net/manage-hyperlinks/) a cella szövegkeretének (rész) szintjén vagy a teljes táblázat/alakzat szintjén állítható be. Gyakorlatban a hivatkozást egy részhez vagy a cella egész szövegéhez rendeli.
 
-**Beállíthatok‑e különböző betűtípusokat egyetlen cellában?**
+**Beállíthatok-e különböző betűtípusokat egyetlen cellán belül?**
 
-Igen. A cella szövegkerete támogatja a [portions](https://reference.aspose.com/slides/hu/python-net/aspose.slides/portion/) (futamok) független formázását — betűcsalád, stílus, méret és szín tekintetében.
+Igen. A cella szövegkerete támogatja a [portions](https://reference.aspose.com/slides/python-net/aspose.slides/portion/) (futamok) önálló formázását – betűcsalád, stílus, méret és szín.

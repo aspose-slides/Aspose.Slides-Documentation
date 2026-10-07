@@ -1,5 +1,5 @@
 ---
-title: Beheer van tabelcellen in presentaties met C++
+title: Beheer tabelcellen in presentaties met C++
 linktitle: Beheer cellen
 type: docs
 weight: 30
@@ -15,353 +15,323 @@ keywords:
 - presentatie
 - C++
 - Aspose.Slides
-description: "Beheer tabelcellen in PowerPoint moeiteloos met Aspose.Slides voor C++. Leer snel toegang te krijgen tot, het wijzigen en opmaken van cellen voor een vlekkeloze dia-automatisering."
+description: "Beheer PowerPoint-tabelcellen in C++: identificeer samengevoegde cellen, verwijder randen, splits cellen en stel achtergrondkleuren en afbeeldingen in met Aspose.Slides voor C++."
 ---
 ## **Overzicht**
 
-Aspose.Slides stelt u in staat tabellencellen in PowerPoint‑presentaties te benaderen en te wijzigen. Dit artikel legt uit hoe u samengevoegde tabelcellen kunt identificeren, celranden kunt verwijderen, kunt werken met celnummering na het samenvoegen of splitsen van cellen, de achtergrondkleur van een cel kunt wijzigen, en een afbeelding in een tabelcel kunt toevoegen. De voorbeelden laten zien hoe u een presentatie maakt of opent, een tabel van een dia haalt, de opmaak van een cel bijwerkt via cel‑eigenschappen, en de gewijzigde presentatie opslaat als een PPTX‑bestand.
+Aspose.Slides stelt u in staat om tabelcellen in PowerPoint‑presentaties te benaderen en te wijzigen. In dit artikel wordt uitgelegd hoe u samengevoegde tabelcellen kunt identificeren, celranden kunt verwijderen, kunt werken met celnummers na het samenvoegen of splitsen van cellen, de achtergrondkleur van een cel kunt wijzigen en een afbeelding in een tabelcel kunt toevoegen. De voorbeelden laten zien hoe u een presentatie maakt of opent, een tabel van een dia haalt, de celopmaak via cel‑eigenschappen bijwerkt en de gewijzigde presentatie opslaat als een PPTX‑bestand.
 
-## **Identificeer een samengevoegde cel**
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/cpp/class/aspose.slides.presentation) klasse.  
-2. Haal de tabel op van de eerste dia.  
-3. Itereer door de rijen en kolommen van de tabel om samengevoegde cellen te vinden.  
-4. Print een bericht wanneer samengevoegde cellen worden gevonden.
+Aspose.Slides gebruikt nulgebaseerde indexen om tabelcellen te benaderen in de volgorde `(column, row)`.
 
-Deze C++‑code laat zien hoe u samengevoegde tabelcellen in een presentatie kunt identificeren:
+## **Identificeer een samengevoegde tabelcel**
 
-``` cpp
-auto pres = System::MakeObject<Presentation>(u"SomePresentationWithTable.pptx");
-auto table = System::AsCast<ITable>(pres->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0));
+Het voorbeeld opent een bestaande presentatie en benadert de eerste vorm op de eerste dia als een tabel. Er wordt aangenomen dat de dia en de vorm bestaan en dat de vorm een tabel is. Vervolgens wordt door alle rijen en kolommen gelopen en wordt [get_IsMergedCell](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_ismergedcell/) gebruikt om cellen in samengevoegde gebieden te identificeren. Voor elke overeenkomst worden de celcoördinaten in `row;column`‑volgorde, [get_RowSpan](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_rowspan/), [get_ColSpan](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_colspan/), en de begincoördinaten van het gebied, [get_FirstRowIndex](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_firstrowindex/) en [get_FirstColumnIndex](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_firstcolumnindex/) afgedrukt.
 
-// aangenomen dat Slide#0.Shape#0 een tabel is
-for (int32_t i = 0; i < table->get_Rows()->get_Count(); i++)
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <DOM/Table/ICell.h>
+#include <system/smart_ptr.h>
+#include <DOM/Table/IRowCollection.h>
+#include <DOM/Table/IColumnCollection.h>
+#include <system/console.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"presentation_with_table.pptx");
+auto slide = presentation->get_Slide(0);
+auto table = ExplicitCast<ITable>(slide->get_Shape(0));
+
+auto rowCount = table->get_Rows()->get_Count();
+for (auto rowIndex = 0; rowIndex < rowCount; rowIndex++)
 {
-    for (int32_t j = 0; j < table->get_Columns()->get_Count(); j++)
+    auto columnCount = table->get_Columns()->get_Count();
+    for (auto columnIndex = 0; columnIndex < columnCount; columnIndex++)
     {
-        auto currentCell = table->get_Rows()->idx_get(i)->idx_get(j);
-        if (currentCell->get_IsMergedCell())
+        auto cell = table->idx_get(columnIndex, rowIndex);
+        if (cell->get_IsMergedCell())
         {
-            Console::WriteLine(String::Format(u"Cell {0};{1} is a part of merged cell with RowSpan={2} and ColSpan={3} starting from Cell {4};{5}.", 
-                i, j, currentCell->get_RowSpan(), currentCell->get_ColSpan(), currentCell->get_FirstRowIndex(), currentCell->get_FirstColumnIndex()));
+            Console::WriteLine(u"Cell {0};{1} belongs to a merged region with RowSpan={2} and ColSpan={3} starting at {4};{5}.", rowIndex, columnIndex, cell->get_RowSpan(), cell->get_ColSpan(), cell->get_FirstRowIndex(), cell->get_FirstColumnIndex());
         }
     }
 }
 ```
 
-## **Tabelcelranden verwijderen**
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/cpp/class/aspose.slides.presentation) klasse.  
-2. Haal een referentie naar een dia op via de index.  
-3. Definieer een array van kolommen met breedte.  
-4. Definieer een array van rijen met hoogte.  
-5. Voeg een tabel toe aan de dia via de `AddTable`‑methode.  
-6. Itereer door elke cel om de boven-, onder-, rechts‑ en linkerrand te wissen.  
-7. Sla de gewijzigde presentatie op als een PPTX‑bestand.
+## **Verwijder tabelcelranden**
 
-Deze C++‑code laat zien hoe u de randen van tabelcellen kunt verwijderen:
+Maak een [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) aan en voeg een tabel toe aan de eerste dia met [AddTable](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addtable/). De breedtes van kolommen, hoogtes van rijen en de positie van de tabel worden opgegeven in punten. Het voorbeeld stelt alle vier de celranden in op [FillType::NoFill](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/), waardoor ze onzichtbaar worden.
 
-``` cpp
-// Instantieert de Presentation‑klasse die een PPTX‑bestand vertegenwoordigt
-auto pres = MakeObject<Presentation>();
-// Toet tot de eerste dia
-auto sld = pres->get_Slides()->idx_get(0);
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <DOM/Table/ICell.h>
+#include <system/smart_ptr.h>
+#include <DOM/FillType.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/Table/ICellFormat.h>
+#include <DOM/Table/IRow.h>
+#include <DOM/Table/IRowCollection.h>
+#include <system/enumerator_adapter.h>
+#include <Export/SaveFormat.h>
+#include <system/array.h>
 
-// Definieert kolommen met breedtes en rijen met hoogtes
-auto dblCols = MakeArray<double>({ 50, 50, 50, 50 });
-auto dblRows = MakeArray<double>({ 50, 30, 30, 30, 30 });
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-// Voegt een tabelvorm toe aan de dia
-auto tbl = sld->get_Shapes()->AddTable(100.0f, 50.0f, dblCols, dblRows);
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-// Stelt het randformaat in voor elke cel
-for (const auto& row : System::IterateOver(tbl->get_Rows()))
-{
-    for (const auto& cell : System::IterateOver(row))
+auto columnWidths = MakeArray<double>({50, 50, 50, 50});
+auto rowHeights = MakeArray<double>({50, 30, 30, 30, 30});
+auto table = slide->get_Shapes()->AddTable(100, 50, columnWidths, rowHeights);
+
+for (const auto& row : IterateOver(table->get_Rows()))
+    for (const auto& cell : IterateOver(row))
     {
         cell->get_CellFormat()->get_BorderTop()->get_FillFormat()->set_FillType(FillType::NoFill);
         cell->get_CellFormat()->get_BorderBottom()->get_FillFormat()->set_FillType(FillType::NoFill);
         cell->get_CellFormat()->get_BorderLeft()->get_FillFormat()->set_FillType(FillType::NoFill);
         cell->get_CellFormat()->get_BorderRight()->get_FillFormat()->set_FillType(FillType::NoFill);
     }
-}
 
-// Schrijft het PPTX‑bestand naar schijf
-pres->Save(u"table_out.pptx", SaveFormat::Pptx);
+presentation->Save(u"table.pptx", SaveFormat::Pptx);
 ```
 
-## **Nummering in samengevoegde cellen**
-Als we 2 paren cellen (1, 1) x (2, 1) en (1, 2) x (2, 2) samenvoegen, wordt de resulterende tabel genummerd. Deze C#‑code demonstreert het proces:
+## **Tabelcellen samenvoegen**
 
-```c++
-const String outPath = u"../out/MergeCells_out.pptx";
+Gebruik [MergeCells](https://reference.aspose.com/slides/cpp/aspose.slides/itable/mergecells/) om een rechthoekig bereik van tabelcellen te combineren tot één cel. Geef de cellen op in de linkerboven‑ en rechteronderhoek van het bereik. Het laatste argument bepaalt of het samenvoegen cellen buiten het opgegeven bereik mag omvatten; `false` houdt het samenvoegen binnen dat bereik.
 
-// Laadt de gewenste presentatie
-SharedPtr<Presentation> pres = MakeObject<Presentation>();
+Het voorbeeld maakt een 4‑bij‑4 tabel met kolommen en rijen van 70 punten, en voegt vervolgens de vier centrale cellen van `(1, 1)` tot `(2, 2)` samen. De resulterende cel beslaat twee kolommen en twee rijen, terwijl het onderliggende raster van de tabel vier kolommen en vier rijen behoudt. Om de inhoud of opmaak van de samengevoegde cel te benaderen, gebruik u de linkerbovenpositie: `table->idx_get(1, 1)` in dit voorbeeld. De andere posities in het samengevoegde bereik blijven deel uitmaken van het tabelraster, zodat de indexen van cellen buiten het bereik niet veranderen.
 
-// Benadert de eerste dia
-SharedPtr<ISlide> islide = pres->get_Slides()->idx_get(0);
-
-// Definieert kolommen met breedtes en rijen met hoogtes
-System::ArrayPtr<double> dblCols = System::MakeObject<System::Array<double>>(4, 70);
-System::ArrayPtr<double> dblRows = System::MakeObject<System::Array<double>>(4, 70);
-
-// Voegt een tabelvorm toe aan de dia
-SharedPtr<ITable> table = islide->get_Shapes()->AddTable(100, 50, dblCols, dblRows);
-
-
-// Stelt het randformaat in voor elke cel
-for (int x = 0; x < table->get_Rows()->get_Count(); x++)
-{
-    SharedPtr<IRow> row = table->get_Rows()->idx_get(x);
-    for (int y = 0; y < row->get_Count(); y++)
-    {
-        SharedPtr<ICell> cell = row->idx_get(y);
-
-        cell->get_BorderTop()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderTop()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderTop()->set_Width(5);
-
-        cell->get_BorderBottom()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderBottom()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderBottom()->set_Width(5);
-
-        cell->get_BorderLeft()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderLeft()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderLeft()->set_Width(5);
-
-        cell->get_BorderRight()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderRight()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderRight()->set_Width(5);
-
-    }
-
-}
-// Voegt cellen (1, 1) x (2, 1) samen
-table->MergeCells(table->idx_get(1, 1), table->idx_get(2, 1), false);
-
-// Voegt cellen (1, 2) x (2, 2) samen
-table->MergeCells(table->idx_get(1, 2), table->idx_get(2, 2), false);
-
-
-// Slaat het PPTX‑bestand op naar schijf
-pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
-```
-
-Vervolgens voegen we de cellen verder samen door (1, 1) en (1, 2) te combineren. Het resultaat is een tabel met een grote samengevoegde cel in het midden:
-
-```c++
-// Het pad naar de documentenmap.
-const String outPath = u"../out/MergeCells_out.pptx";
-
-// Laadt de gewenste presentatie
-SharedPtr<Presentation> pres = MakeObject<Presentation>();
-
-// Benadert de eerste dia
-SharedPtr<ISlide> islide = pres->get_Slides()->idx_get(0);
-
-// Definieert kolommen met breedtes en rijen met hoogtes
-System::ArrayPtr<double> dblCols = System::MakeObject<System::Array<double>>(4, 70);
-System::ArrayPtr<double> dblRows = System::MakeObject<System::Array<double>>(4, 70);
-
-// Voegt een tabelvorm toe aan de dia
-SharedPtr<ITable> table = islide->get_Shapes()->AddTable(100, 50, dblCols, dblRows);
-
-
-// Stelt het randformaat in voor elke cel
-for (int x = 0; x < table->get_Rows()->get_Count(); x++)
-{
-    SharedPtr<IRow> row = table->get_Rows()->idx_get(x);
-    for (int y = 0; y < row->get_Count(); y++)
-    {
-        SharedPtr<ICell> cell = row->idx_get(y);
-
-        cell->get_BorderTop()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderTop()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderTop()->set_Width(5);
-
-        cell->get_BorderBottom()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderBottom()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderBottom()->set_Width(5);
-
-        cell->get_BorderLeft()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderLeft()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderLeft()->set_Width(5);
-
-        cell->get_BorderRight()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderRight()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderRight()->set_Width(5);
-
-    }
-
-}
-
-// Voegt cellen (1, 1) x (2, 1) samen
-table->MergeCells(table->idx_get(1, 1), table->idx_get(2, 1), false);
-
-// Voegt cellen (1, 2) x (2, 2) samen
-table->MergeCells(table->idx_get(1, 2), table->idx_get(2, 2), false);
-
-
-// Slaat het PPTX‑bestand op naar schijf
-pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
-```
-
-## **Nummering in een gesplitste cel**
-In eerdere voorbeelden veranderde de nummering of het cijfersysteem in andere cellen niet wanneer tabelcellen werden samengevoegd.
-
-Deze keer nemen we een gewone tabel (een tabel zonder samengevoegde cellen) en proberen vervolgens cel (1,1) te splitsen om een speciale tabel te krijgen. Let op de nummering van deze tabel, die misschien vreemd lijkt. Echter, zo nummeren Microsoft PowerPoint tabelcellen en Aspose.Slides doet precies hetzelfde.
-
-Deze C++‑code demonstreert het beschreven proces:
-
-```c++
-// Het pad naar de documentenmap.
-const String outPath = u"../out/CellSplit_out.pptx";
-
-// Laadt de gewenste presentatie
-SharedPtr<Presentation> pres = MakeObject<Presentation>();
-
-// Benadert de eerste dia
-SharedPtr<ISlide> islide = pres->get_Slides()->idx_get(0);
-
-// Definieert kolommen met breedtes en rijen met hoogtes
-System::ArrayPtr<double> dblCols = System::MakeObject<System::Array<double>>(4, 70);
-System::ArrayPtr<double> dblRows = System::MakeObject<System::Array<double>>(4, 70);
-
-// Voegt een tabelvorm toe aan de dia
-SharedPtr<ITable> table = islide->get_Shapes()->AddTable(100, 50, dblCols, dblRows);
-
-
-// Stelt het randformaat in voor elke cel
-for (int x = 0; x < table->get_Rows()->get_Count(); x++)
-{
-    SharedPtr<IRow> row = table->get_Rows()->idx_get(x);
-    for (int y = 0; y < row->get_Count(); y++)
-    {
-        SharedPtr<ICell> cell = row->idx_get(y);
-
-        cell->get_BorderTop()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderTop()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderTop()->set_Width(5);
-
-        cell->get_BorderBottom()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderBottom()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderBottom()->set_Width(5);
-
-        cell->get_BorderLeft()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderLeft()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderLeft()->set_Width(5);
-
-        cell->get_BorderRight()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderRight()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderRight()->set_Width(5);
-
-    }
-
-}
-
-// Voegt cellen (1, 1) x (2, 1) samen
-table->MergeCells(table->idx_get(1, 1), table->idx_get(2, 1), false);
-
-// Voegt cellen (1, 2) x (2, 2) samen
-table->MergeCells(table->idx_get(1, 2), table->idx_get(2, 2), false);
-
-// splitst cel (1, 1). 
-table->idx_get(1, 1)->SplitByWidth(table->idx_get(2, 1)->get_Width() / 2);
-
-// Slaat het PPTX‑bestand op naar schijf
-pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
-```
-
-## **De achtergrondkleur van een tabelcel wijzigen**
-
-Deze C++‑code laat zien hoe u de achtergrondkleur van een tabelcel kunt wijzigen:
-
-``` cpp
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <DOM/Table/ICell.h>
+#include <system/smart_ptr.h>
+#include <Export/SaveFormat.h>
+#include <system/array.h>
 
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto columnWidths = MakeArray<double>({70, 70, 70, 70});
+auto rowHeights = MakeArray<double>({70, 70, 70, 70});
+auto table = slide->get_Shapes()->AddTable(100, 50, columnWidths, rowHeights);
+
+table->MergeCells(table->idx_get(1, 1), table->idx_get(2, 2), false);
+
+presentation->Save(u"merged_cells.pptx", SaveFormat::Pptx);
+```
+
+## **Tabelcellen splitsen**
+
+Het samenvoegen van cellen in het vorige voorbeeld behoudt het raster van de tabel. Het splitsen van een cel kan een nieuwe rasterkolom introduceren en de kolomindexen van cellen rechts ervan wijzigen. Aspose.Slides volgt het tabelrastermodel van PowerPoint.
+
+Dit voorbeeld maakt een 4‑bij‑4 tabel met kolommen en rijen van 70 punten en roept [SplitByWidth](https://reference.aspose.com/slides/cpp/aspose.slides/icell/splitbywidth/) aan op cel `(1, 1)`. De helft van de breedte van 70 punten van de cel wordt doorgegeven om twee even breedte cellen te creëren.
+
+Na deze splitsing worden de twee helften benaderd als `table->idx_get(1, 1)` en `table->idx_get(2, 1)`. Het tabelraster heeft nu vijf kolommen: cellen die oorspronkelijk in kolommen 2 en 3 stonden, verplaatsen zich naar respectievelijk kolommen 3 en 4. Rijomschrijvingen blijven ongewijzigd. Gebruik deze bijgewerkte kolomindexen bij het benaderen van cellen na de splitsing.
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <DOM/Table/ICell.h>
+#include <system/smart_ptr.h>
+#include <Export/SaveFormat.h>
+#include <system/array.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto columnWidths = MakeArray<double>({70, 70, 70, 70});
+auto rowHeights = MakeArray<double>({70, 70, 70, 70});
+auto table = slide->get_Shapes()->AddTable(100, 50, columnWidths, rowHeights);
+
+table->idx_get(1, 1)->SplitByWidth(table->idx_get(1, 1)->get_Width() / 2);
+
+presentation->Save(u"split_cells.pptx", SaveFormat::Pptx);
+```
+
+### **Samengevoegde cellen splitsen op rij‑ of kolom‑span**
+
+Om samengevoegde sjablooncellen voor gegevensvulling voor te bereiden, gebruik [SplitByRowSpan](https://reference.aspose.com/slides/cpp/aspose.slides/icell/splitbyrowspan/) om langs een bestaande rij‑grens te splitsen, of [SplitByColSpan](https://reference.aspose.com/slides/cpp/aspose.slides/icell/splitbycolspan/) om langs een kolom‑grens te splitsen.
+
+Het argument `index` telt rijen in het bovenste deel of kolommen in het linker deel van de splitsing; het is relatief ten opzichte van het samengevoegde gebied:
+
+- Rijsplitsing: `0 < index <` [get_RowSpan](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_rowspan/).
+- Kolomsplitsing: `0 < index <` [get_ColSpan](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_colspan/).
+
+Het voorbeeld gaat ervan uit dat een presentatie een tabel heeft als de eerste vorm op de eerste dia, waarbij `(1, 2)` en `(1, 3)` verticaal samengevoegd zijn. Beginnende vanaf de lagere positie, gebruikt het [get_FirstColumnIndex](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_firstcolumnindex/) en [get_FirstRowIndex](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_firstrowindex/) om de oorsprong te lokaliseren en controleert beide spans. `SplitByRowSpan(1)` scheidt vervolgens rijen 2 en 3 voor productnamen. Voor een horizontale samensmelting van twee kolommen, gebruik `SplitByColSpan(1)` in plaats daarvan.
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <DOM/Table/ICell.h>
+#include <system/smart_ptr.h>
+#include <DOM/ITextFrame.h>
+#include <system/console.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"table_template.pptx");
+auto slide = presentation->get_Slide(0);
+auto table = ExplicitCast<ITable>(slide->get_Shape(0));
+
+auto selectedCell = table->idx_get(1, 3);
+auto firstColumnIndex = selectedCell->get_FirstColumnIndex();
+auto firstRowIndex = selectedCell->get_FirstRowIndex();
+auto mergedCell = table->idx_get(firstColumnIndex, firstRowIndex);
+
+if (mergedCell->get_IsMergedCell() && mergedCell->get_RowSpan() == 2 && mergedCell->get_ColSpan() == 1)
+{
+    mergedCell->SplitByRowSpan(1);
+
+    // Haal de resulterende cellen op uit de tabel na het splitsen.
+    auto upperCell = table->idx_get(firstColumnIndex, firstRowIndex);
+    auto lowerCell = table->idx_get(firstColumnIndex, firstRowIndex + 1);
+    Console::WriteLine(u"Upper cell merged: {0}", upperCell->get_IsMergedCell());
+    Console::WriteLine(u"Lower cell merged: {0}", lowerCell->get_IsMergedCell());
+
+    upperCell->get_TextFrame()->set_Text(u"Product A");
+    lowerCell->get_TextFrame()->set_Text(u"Product B");
+
+    presentation->Save(u"split_template.pptx", SaveFormat::Pptx);
+}
+else
+{
+    Console::WriteLine(u"Select a merged region spanning exactly two rows and one column.");
+}
+```
+
+Het tabelraster en de omliggende celindexen blijven onveranderd. Haal de resulterende cellen op via hun coördinaten; hier hebben beide een span van 1 en [get_IsMergedCell](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_ismergedcell/) geeft `False` weer. Grotere gebieden kunnen gedeeltelijk samengevoegd blijven na één splitsing.
+
+De oorspronkelijke tekst en opmaak blijven behouden in de boven‑ (of linker‑)cel; de nieuwe cel is leeg maar erft de celopmaak zoals vulling, randen en marges. Vul de cellen in na het splitsen en stel eventuele vereiste tekstopmaak expliciet in.
+
+De opgeslagen presentatie bevat afzonderlijke "Product A"‑ en "Product B"‑cellen met de celopmaak van het sjabloon behouden. Zie de [Cell API Reference](https://reference.aspose.com/slides/cpp/aspose.slides/cell/) voor details.
+
+## **Wijzig de achtergrondkleur van de tabelcel**
+
+Dit voorbeeld maakt een tabel met kolommen van 150 punten en rijen van 50 punten. Het gebruikt [set_FillType](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/set_filltype/) om een effen vulling te selecteren en [get_SolidFillColor](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/get_solidfillcolor/) om de vulkleur te benaderen en deze op rood in te stellen voor cel `(2, 3)`, in de derde kolom en vierde rij.
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <DOM/Table/ICell.h>
+#include <system/smart_ptr.h>
+#include <DOM/FillType.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/Table/ICellFormat.h>
+#include <drawing/color.h>
+#include <Export/SaveFormat.h>
+#include <system/array.h>
+
 using namespace System::Drawing;
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-auto presentation = System::MakeObject<Presentation>();
-auto slide = presentation->get_Slides()->idx_get(0);
-        
-auto dblCols = System::MakeArray<double>({150, 150, 150, 150});
-auto dblRows = System::MakeArray<double>({50, 50, 50, 50, 50});
-        
-// maak een nieuwe tabel
-auto table = slide->get_Shapes()->AddTable(50.0f, 50.0f, dblCols, dblRows);
-        
-// stel de achtergrondkleur in voor een cel 
-System::SharedPtr<ICell> cell = table->idx_get(2, 3);
-cell->get_CellFormat()->get_FillFormat()->set_FillType(Aspose::Slides::FillType::Solid);
-cell->get_CellFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        
-presentation->Save(u"cell_background_color.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
+auto columnWidths = MakeArray<double>({150, 150, 150, 150});
+auto rowHeights = MakeArray<double>({50, 50, 50, 50, 50});
+auto table = slide->get_Shapes()->AddTable(50, 50, columnWidths, rowHeights);
+
+auto cell = table->idx_get(2, 3);
+cell->get_CellFormat()->get_FillFormat()->set_FillType(FillType::Solid);
+cell->get_CellFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Red());
+
+presentation->Save(u"cell_background_color.pptx", SaveFormat::Pptx);
 ```
 
-## **Een afbeelding toevoegen binnen een tabelcel**
-1. Maak een instantie van de `Presentation`‑klasse.  
-2. Haal een referentie naar een dia op via de index.  
-3. Definieer een array van kolommen met breedte.  
-4. Definieer een array van rijen met hoogte.  
-5. Voeg een tabel toe aan de dia via de `AddTable`‑methode.  
-6. Maak een `Bitmap`‑object aan om het beeldbestand op te slaan.  
-7. Voeg de bitmap‑afbeelding toe aan het `IPPImage`‑object.  
-8. Stel de `FillFormat` voor de tabelcel in op `Picture`.  
-9. Voeg de afbeelding toe aan de eerste cel van de tabel.  
-10. Sla de gewijzigde presentatie op als een PPTX‑bestand.
+## **Afbeelding toevoegen binnen een tabelcel**
 
-Deze C#‑code laat zien hoe u een afbeelding in een tabelcel kunt plaatsen bij het maken van een tabel:
+Plaats de invoerafbeelding in de werkmap vóór het uitvoeren van dit voorbeeld. Het laadt de afbeelding met [Images::FromFile](https://reference.aspose.com/slides/cpp/aspose.slides/images/fromfile/) en voegt deze toe aan de afbeeldingcollectie van de presentatie met [AddImage](https://reference.aspose.com/slides/cpp/aspose.slides/iimagecollection/addimage/). Vervolgens wordt de afbeelding toegewezen aan de pictuurvulling van cel `(0, 0)`, de eerste cel in de tabel.
 
-```c++
-// Het pad naar de documentenmap.
-const String outPath = u"../out/Image_In_TableCell_out.pptx";
-const String ImagePath = u"../templates/Tulips.jpg";
+[PictureFillMode::Stretch](https://reference.aspose.com/slides/cpp/aspose.slides/picturefillmode/) strekt de afbeelding uit om de cel te vullen, hetgeen de beeldverhouding kan wijzigen. Kolombreedtes en rijhoogtes worden opgegeven in punten. De geladen afbeelding wordt verwijderd nadat deze aan de presentatie is toegevoegd.
 
-// Laadt de gewenste presentatie
-SharedPtr<Presentation> pres = MakeObject<Presentation>();
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <DOM/Table/ICell.h>
+#include <system/smart_ptr.h>
+#include <DOM/FillType.h>
+#include <DOM/IImageCollection.h>
+#include <IImage.h>
+#include <DOM/IPPImage.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/ISlidesPicture.h>
+#include <DOM/PictureFillMode.h>
+#include <DOM/Table/ICellFormat.h>
+#include <Util/Images.h>
+#include <Export/SaveFormat.h>
+#include <system/array.h>
 
-// Benadert de eerste dia
-SharedPtr<ISlide> islide = pres->get_Slides()->idx_get(0);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-// Definieert kolommen met breedtes en rijen met hoogtes
-System::ArrayPtr<double> dblCols = System::MakeObject<System::Array<double>>(4, 150);
-System::ArrayPtr<double> dblRows = System::MakeObject<System::Array<double>>(4, 100);
-System::ArrayPtr<double> total_for_Cat = System::MakeObject<System::Array<double>>(5, 0);
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-// Voegt een tabelvorm toe aan de dia
-auto tbl = islide->get_Shapes()->AddTable(50, 50, dblCols, dblRows);
+auto columnWidths = MakeArray<double>({150, 150, 150, 150});
+auto rowHeights = MakeArray<double>({100, 100, 100, 100, 90});
+auto table = slide->get_Shapes()->AddTable(50, 50, columnWidths, rowHeights);
 
-// Haalt de afbeelding op
-auto img = Images::FromFile(ImagePath);
+auto image = Images::FromFile(u"aspose_logo.jpg");
+auto ppImage = presentation->get_Images()->AddImage(image);
+image->Dispose();
 
-// Voegt een afbeelding toe aan de afbeeldingsverzameling van de presentatie
-SharedPtr<IPPImage> imgx = pres->get_Images()->AddImage(img);
+table->idx_get(0, 0)->get_CellFormat()->get_FillFormat()->set_FillType(FillType::Picture);
+table->idx_get(0, 0)->get_CellFormat()->get_FillFormat()->get_PictureFillFormat()->set_PictureFillMode(PictureFillMode::Stretch);
+table->idx_get(0, 0)->get_CellFormat()->get_FillFormat()->get_PictureFillFormat()->get_Picture()->set_Image(ppImage);
 
-
-// Voegt de afbeelding toe aan de eerste tabelcel
-tbl->idx_get(0, 0)->get_FillFormat()->set_FillType(FillType::Picture);
-tbl->idx_get(0, 0)->get_FillFormat()->get_PictureFillFormat()->set_PictureFillMode(PictureFillMode::Stretch);
-tbl->idx_get(0, 0)->get_FillFormat()->get_PictureFillFormat()->get_Picture()->set_Image(imgx);
-
-// Slaat het PPTX‑bestand op naar schijf
-pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
+presentation->Save(u"table_cell_with_image.pptx", SaveFormat::Pptx);
 ```
 
-## **FAQ**
+## **Veelgestelde vragen**
 
-**Kan ik verschillende lijndiktes en -stijlen instellen voor de verschillende zijden van één cel?**
+**Kan ik verschillende lijndiktes en stijlen instellen voor verschillende zijden van één cel?**
 
-Ja. De [boven](https://reference.aspose.com/slides/nl/cpp/aspose.slides/cellformat/get_bordertop/)/[onder](https://reference.aspose.com/slides/nl/cpp/aspose.slides/cellformat/get_borderbottom/)/[linker](https://reference.aspose.com/slides/nl/cpp/aspose.slides/cellformat/get_borderleft/)/[rechter](https://reference.aspose.com/slides/nl/cpp/aspose.slides/cellformat/get_borderright/) randen hebben afzonderlijke eigenschappen, zodat de dikte en stijl van elke zijde kan verschillen. Dit volgt logisch uit de per‑zijde randbesturing voor een cel die in het artikel wordt getoond.
+Ja. De [top](https://reference.aspose.com/slides/cpp/aspose.slides/cellformat/get_bordertop/)/[bottom](https://reference.aspose.com/slides/cpp/aspose.slides/cellformat/get_borderbottom/)/[left](https://reference.aspose.com/slides/cpp/aspose.slides/cellformat/get_borderleft/)/[right](https://reference.aspose.com/slides/cpp/aspose.slides/cellformat/get_borderright/) randen hebben afzonderlijke eigenschappen, zodat de dikte en stijl van elk zijde kan verschillen.
 
-**Wat gebeurt er met de afbeelding als ik de kolom‑/rijgrootte wijzig nadat ik een afbeelding als celachtergrond heb ingesteld?**
+**Wat gebeurt er met de afbeelding als ik de kolom‑/rijgrootte verander nadat ik een afbeelding als achtergrond van de cel heb ingesteld?**
 
-Het gedrag hangt af van de [vullingsmodus](https://reference.aspose.com/slides/nl/cpp/aspose.slides/picturefillmode/). Bij stretchen past de afbeelding zich aan de nieuwe cel aan; bij tegelvorm worden de tegels opnieuw berekend. Het artikel noemt de weergavemodi van afbeeldingen in een cel.
+Het gedrag hangt af van de [fill mode](https://reference.aspose.com/slides/cpp/aspose.slides/picturefillmode/) (stretch/tile). Bij rekken past de afbeelding zich aan de nieuwe cel aan; bij betegelen worden de tegels opnieuw berekend.
 
-**Kan ik een hyperlink toewijzen aan de gehele inhoud van een cel?**
+**Kan ik een hyperlink toewijzen aan de volledige inhoud van een cel?**
 
-[Hyperlinks](/slides/nl/cpp/manage-hyperlinks/) worden ingesteld op tekstreeksniveau (portion) binnen het tekstframe van de cel of op het niveau van de gehele tabel/vorm. In de praktijk kent u de link toe aan een portion of aan alle tekst in de cel.
+[Hyperlinks](/slides/nl/cpp/manage-hyperlinks/) worden ingesteld op het tekst‑ (portie) niveau binnen het tekstframe van de cel of op het niveau van de hele tabel/vorm. In de praktijk kent u de link toe aan een portie of aan alle tekst in de cel.
 
-**Kan ik verschillende lettertypen binnen één cel instellen?**
+**Kan ik verschillende lettertypes instellen binnen één cel?**
 
-Ja. Het tekstframe van een cel ondersteunt [portions](https://reference.aspose.com/slides/nl/cpp/aspose.slides/portion/) (runs) met onafhankelijke opmaak—lettertype, stijl, grootte en kleur.
+Ja. Het tekstframe van een cel ondersteunt [portions](https://reference.aspose.com/slides/cpp/aspose.slides/portion/) (runs) met onafhankelijke opmaak—lettertype, stijl, grootte en kleur.

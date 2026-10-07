@@ -6,7 +6,7 @@ weight: 30
 url: /fa/net/manage-cells/
 keywords:
 - سلول جدول
-- ترکیب سلول‌ها
+- ادغام سلول‌ها
 - حذف حاشیه
 - تقسیم سلول
 - تصویر در سلول
@@ -16,35 +16,36 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "به راحتی سلول‌های جدول را در PowerPoint با Aspose.Slides برای .NET مدیریت کنید. دسترسی، اصلاح و استایل‌دهی سریع به سلول‌ها را برای خودکارسازی یکپارچه اسلایدها فراگیرید."
+description: "مدیریت سلول‌های جدول PowerPoint در C#: شناسایی سلول‌های ادغام‌شده، حذف حاشیه‌ها، تقسیم سلول‌ها، و تنظیم رنگ‌های پس‌زمینه و تصاویر با Aspose.Slides برای .NET."
 ---
 ## **نمای کلی**
 
-Aspose.Slides به شما امکان دسترسی و اصلاح سلول‌های جدول در ارائه‌های PowerPoint را می‌دهد. این مقاله نحوه شناسایی سلول‌های ترکیب‌شده در جدول، حذف حاشیه‌های سلول، کار با شماره‌گذاری سلول پس از ترکیب یا تقسیم سلول‌ها، تغییر رنگ پس‌زمینهٔ سلول و افزودن تصویر داخل سلول جدول را توضیح می‌دهد. مثال‌ها نشان می‌دهند چگونه یک ارائه را ایجاد یا باز کنید، جدول را از یک اسلاید دریافت کنید، قالب‌بندی سلول را از طریق ویژگی‌های سلول به‌روزرسانی کنید و ارائهٔ اصلاح‌شده را به‌صورت فایل PPTX ذخیره کنید.
+Aspose.Slides به شما امکان می‌دهد تا به سلول‌های جدول در ارائه‌های PowerPoint دسترسی داشته باشید و آن‌ها را اصلاح کنید. این مقاله توضیح می‌دهد چگونه سلول‌های جدول ادغام‌شده را شناسایی کنید، مرزبندی سلول‌ها را حذف کنید، با شماره‌گذاری سلول پس از ادغام یا جداسازی سلول‌ها کار کنید، رنگ پس‌زمینه سلول را تغییر دهید و یک تصویر را داخل یک سلول جدول اضافه کنید. مثال‌ها نمایش می‌دهند چگونه یک ارائه را ایجاد یا باز کنید، جدول را از یک اسلاید دریافت کنید، قالب‌بندی سلول را از طریق ویژگی‌های سلول به‌روزرسانی کنید و ارائه اصلاح‌شده را به‌صورت فایل PPTX ذخیره نمایید.
 
-## **شناسایی سلول ترکیب‌شده در جدول**
+Aspose.Slides از ایندکس‌های صفر‑پایه برای دسترسی به سلول‌های جدول به ترتیب `(column, row)` استفاده می‌کند.
 
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation) ایجاد کنید.  
-2. جدول را از اولین اسلاید دریافت کنید.  
-3. از ردیف‌ها و ستون‌های جدول عبور کنید تا سلول‌های ترکیب‌شده را پیدا کنید.  
-4. زمانی که سلول‌های ترکیب‌شده پیدا شد پیام چاپ کنید.
+## **شناسایی یک سلول جدول ادغام‌شده**
 
-```c#
-using (Presentation pres = new Presentation("SomePresentationWithTable.pptx"))
+مثال یک ارائه موجود را باز می‌کند و اولین شکل روی اولین اسلاید را به عنوان جدول دسترسی می‌دهد. فرض می‌شود اسلاید و شکل وجود دارند و شکل یک جدول است. سپس از تمام ردیف‌ها و ستون‌ها عبور می‌کند و از [IsMergedCell](https://reference.aspose.com/slides/net/aspose.slides/icell/ismergedcell/) برای شناسایی سلول‌های موجود در نواحی ادغام‌شده استفاده می‌کند. برای هر تطابق، مختصات سلول را به ترتیب `row;column`، [RowSpan](https://reference.aspose.com/slides/net/aspose.slides/icell/rowspan/)، [ColSpan](https://reference.aspose.com/slides/net/aspose.slides/icell/colspan/)، و مختصات شروع ناحیه، [FirstRowIndex](https://reference.aspose.com/slides/net/aspose.slides/icell/firstrowindex/) و [FirstColumnIndex](https://reference.aspose.com/slides/net/aspose.slides/icell/firstcolumnindex/) چاپ می‌کند.
+
+```csharp
+using System;
+using Aspose.Slides;
+
+using var presentation = new Presentation("presentation_with_table.pptx");
+var slide = presentation.Slides[0];
+var table = (ITable) slide.Shapes[0];
+
+var rowCount = table.Rows.Count;
+for (var rowIndex = 0; rowIndex < rowCount; rowIndex++)
 {
-    ITable table = pres.Slides[0].Shapes[0] as ITable; // با فرض اینکه Slide#0.Shape#0 یک جدول است
-    for (int i = 0; i < table.Rows.Count; i++)
+    var columnCount = table.Columns.Count;
+    for (var columnIndex = 0; columnIndex < columnCount; columnIndex++)
     {
-        for (int j = 0; j < table.Columns.Count; j++)
+        var cell = table[columnIndex, rowIndex];
+        if (cell.IsMergedCell)
         {
-            ICell currentCell = table.Rows[i][j];
-            if (currentCell.IsMergedCell)
-            {
-                Console.WriteLine(string.Format("Cell {0};{1} is a part of merged cell with RowSpan={2} and ColSpan={3} starting from Cell {4};{5}.",
-                                  i, j, currentCell.RowSpan, currentCell.ColSpan, currentCell.FirstRowIndex, currentCell.FirstColumnIndex));
-
-
-            }
+            Console.WriteLine($"Cell {rowIndex};{columnIndex} belongs to a merged region with RowSpan={cell.RowSpan} and ColSpan={cell.ColSpan} starting at {cell.FirstRowIndex};{cell.FirstColumnIndex}.");
         }
     }
 }
@@ -52,286 +53,193 @@ using (Presentation pres = new Presentation("SomePresentationWithTable.pptx"))
 
 ## **حذف حاشیه‌های سلول جدول**
 
-1. یک نمونه از کلاس `Presentation` ایجاد کنید.  
-2. مرجع یک اسلاید را از طریق ایندکس آن دریافت کنید.  
-3. یک آرایه از ستون‌ها با عرض تعریف کنید.  
-4. یک آرایه از ردیف‌ها با ارتفاع تعریف کنید.  
-5. از متد `AddTable` برای افزودن جدول به اسلاید استفاده کنید.  
-6. از هر سلول عبور کنید تا حاشیه‌های بالا، پایین، راست و چپ را پاک کنید.  
-7. ارائهٔ اصلاح‌شده را به‌صورت فایل PPTX ذخیره کنید.
+یک [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) ایجاد کنید و با استفاده از [AddTable](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addtable/) یک جدول را به اولین اسلاید آن اضافه کنید. عرض‌های ستون، ارتفاع‌های ردیف و موقعیت جدول بر حسب پوینت تعیین می‌شوند. مثال همه چهار حاشیه سلول را به [FillType.NoFill](https://reference.aspose.com/slides/net/aspose.slides/filltype/) تنظیم می‌کند تا نامرئی شوند.
 
-```c#
-// یک شی از کلاس Presentation که نمایانگر یک فایل PPTX است را ایجاد می‌کند
-using (Presentation pres = new Presentation())
-{
-   // دسترسی به اسلاید اول
-    Slide sld = (Slide)pres.Slides[0];
+```csharp
+using Aspose.Slides;
 
-    // ستون‌ها را با عرض‌ها و ردیف‌ها را با ارتفاع‌ها تعریف می‌کند
-    double[] dblCols = { 50, 50, 50, 50 };
-    double[] dblRows = { 50, 30, 30, 30, 30 };
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    // شکل جدول را به اسلاید اضافه می‌کند
-    ITable tbl = sld.Shapes.AddTable(100, 50, dblCols, dblRows);
+double[] columnWidths = { 50, 50, 50, 50 };
+double[] rowHeights = { 50, 30, 30, 30, 30 };
+var table = slide.Shapes.AddTable(100, 50, columnWidths, rowHeights);
 
-    // قالب حاشیه را برای هر سلول تنظیم می‌کند
-    foreach (IRow row in tbl.Rows)
-        foreach (ICell cell in row)
-        {
-            cell.CellFormat.BorderTop.FillFormat.FillType = FillType.NoFill;
-            cell.CellFormat.BorderBottom.FillFormat.FillType = FillType.NoFill;
-            cell.CellFormat.BorderLeft.FillFormat.FillType = FillType.NoFill;
-            cell.CellFormat.BorderRight.FillFormat.FillType = FillType.NoFill;
-        }
-
-    // فایل PPTX را بر روی دیسک می‌نویسد
-    pres.Save("table_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
-}
-```
-
-## **شماره‌گذاری در سلول‌های ترکیب‌شده**
-
-اگر دو جفت سلول (1, 1) × (2, 1) و (1, 2) × (2, 2) را ترکیب کنیم، جدول حاصل شماره‌گذاری می‌شود. این کد C# فرایند را نشان می‌دهد:
-
-```c#
-// یک شی از کلاس Presentation که نمایانگر یک فایل PPTX است را ایجاد می‌کند
-using (Presentation presentation = new Presentation())
-{
-    // به اولین اسلاید دسترسی می‌یابد
-    ISlide sld = presentation.Slides[0];
-
-    // ستون‌ها را با عرض‌ها و ردیف‌ها را با ارتفاع‌ها تعریف می‌کند
-    double[] dblCols = { 70, 70, 70, 70 };
-    double[] dblRows = { 70, 70, 70, 70 };
-
-    // یک شکل جدول را به اسلاید اضافه می‌کند
-    ITable tbl = sld.Shapes.AddTable(100, 50, dblCols, dblRows);
-
-    // قالب حاشیه را برای هر سلول تنظیم می‌کند
-    foreach (IRow row in tbl.Rows)
+foreach (var row in table.Rows)
+    foreach (var cell in row)
     {
-        foreach (ICell cell in row)
-        {
-            cell.CellFormat.BorderTop.FillFormat.FillType = FillType.Solid;
-            cell.CellFormat.BorderTop.FillFormat.SolidFillColor.Color = Color.Red;
-            cell.CellFormat.BorderTop.Width = 5;
-
-            cell.CellFormat.BorderBottom.FillFormat.FillType = FillType.Solid;
-            cell.CellFormat.BorderBottom.FillFormat.SolidFillColor.Color = Color.Red;
-            cell.CellFormat.BorderBottom.Width = 5;
-
-            cell.CellFormat.BorderLeft.FillFormat.FillType = FillType.Solid;
-            cell.CellFormat.BorderLeft.FillFormat.SolidFillColor.Color = Color.Red;
-            cell.CellFormat.BorderLeft.Width = 5;
-
-            cell.CellFormat.BorderRight.FillFormat.FillType = FillType.Solid;
-            cell.CellFormat.BorderRight.FillFormat.SolidFillColor.Color = Color.Red;
-            cell.CellFormat.BorderRight.Width = 5;
-        }
+        cell.CellFormat.BorderTop.FillFormat.FillType = FillType.NoFill;
+        cell.CellFormat.BorderBottom.FillFormat.FillType = FillType.NoFill;
+        cell.CellFormat.BorderLeft.FillFormat.FillType = FillType.NoFill;
+        cell.CellFormat.BorderRight.FillFormat.FillType = FillType.NoFill;
     }
 
-    // سلول‌های (1, 1) × (2, 1) را ترکیب می‌کند
-    tbl.MergeCells(tbl[1, 1], tbl[2, 1], false);
+presentation.Save("table.pptx", SaveFormat.Pptx);
+```
 
-    // سلول‌های (1, 2) × (2, 2) را ترکیب می‌کند
-    tbl.MergeCells(tbl[1, 2], tbl[2, 2], false);
+## **ادغام سلول‌های جدول**
 
-    presentation.Save("MergeCells_out.pptx", SaveFormat.Pptx);
+از [MergeCells](https://reference.aspose.com/slides/net/aspose.slides/itable/mergecells/) برای ترکیب یک بازه مستطیلی از سلول‌های جدول به یک سلول استفاده کنید. سلول‌های گوشه بالا‑چپ و پایین‑راست بازه را مشخص کنید. آرگومان نهایی تعیین می‌کند که آیا ادغام می‌تواند شامل سلول‌های خارج از بازه مشخص شده باشد یا نه؛ مقدار `false` ادغام را درون آن بازه نگه می‌دارد.
+
+مثال یک جدول ۴×۴ با ستون‌ها و ردیف‌های ۷۰ پوینت ایجاد می‌کند، سپس چهار سلول مرکزی را از `(1, 1)` تا `(2, 2)` ادغام می‌کند. سلول حاصل دو ستون و دو ردیف را در بر می‌گیرد، در حالی که جدول پایه‌ای خود چهار ستون و چهار ردیف را حفظ می‌کند. برای دسترسی به محتوای یا قالب‌بندی سلول ادغام‌شده، از موقعیت بالا‑چپ آن استفاده کنید: `table[1, 1]` در این مثال. سایر موقعیت‌ها در بازه ادغام‌شده جزئی از شبکه جدول باقی می‌مانند، بنابراین ایندکس‌های سلول‌های خارج از بازه تغییر نمی‌کنند.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+double[] columnWidths = { 70, 70, 70, 70 };
+double[] rowHeights = { 70, 70, 70, 70 };
+var table = slide.Shapes.AddTable(100, 50, columnWidths, rowHeights);
+
+table.MergeCells(table[1, 1], table[2, 2], false);
+
+presentation.Save("merged_cells.pptx", SaveFormat.Pptx);
+```
+
+## **تقسیم سلول‌های جدول**
+
+ادغام سلول‌ها در مثال قبلی ساختار شبکه جدول را حفظ می‌کند. تقسیم یک سلول می‌تواند یک ستون جدید به شبکه اضافه کند و ایندکس ستون سلول‌های سمت راست آن را تغییر دهد. Aspose.Slides مدل شبکه جدول PowerPoint را دنبال می‌کند.
+
+این مثال یک جدول ۴×۴ با ستون‌ها و ردیف‌های ۷۰ پوینت ایجاد می‌کند و بر روی سلول `(1, 1)` متد [SplitByWidth](https://reference.aspose.com/slides/net/aspose.slides/icell/splitbywidth/) را فراخوانی می‌کند. نیمی از عرض ۷۰ پوینت سلول برای ایجاد دو سلول با عرض مساوی استفاده می‌شود.
+
+پس از این تقسیم، دو نیمه به صورت `table[1, 1]` و `table[2, 1]` دسترسی می‌یابند. شبکه جدول اکنون پنج ستون دارد: سلول‌های اولیه در ستون‌های ۲ و ۳ به ستون‌های ۳ و ۴ منتقل می‌شوند. ایندکس‌های ردیف تغییر نمی‌کند. هنگام دسترسی به سلول‌ها پس از تقسیم، از این ایندکس‌های ستون به‌روز شده استفاده کنید.
+
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+double[] columnWidths = { 70, 70, 70, 70 };
+double[] rowHeights = { 70, 70, 70, 70 };
+var table = slide.Shapes.AddTable(100, 50, columnWidths, rowHeights);
+
+table[1, 1].SplitByWidth(table[1, 1].Width / 2);
+
+presentation.Save("split_cells.pptx", SaveFormat.Pptx);
+```
+
+### **تقسیم سلول‌های ادغام‌شده بر اساس گستردگی ردیف یا ستون**
+
+برای آماده‌سازی سلول‌های قالب ادغام‌شده برای پرکردن داده، از [SplitByRowSpan](https://reference.aspose.com/slides/net/aspose.slides/icell/splitbyrowspan/) برای تقسیم بر مبنای مرز ردیف موجود، یا از [SplitByColSpan](https://reference.aspose.com/slides/net/aspose.slides/icell/splitbycolspan/) برای تقسیم بر مبنای مرز ستون استفاده کنید.
+
+آرگومان `index` ردیف‌ها را در بخش بالایی یا ستون‌ها را در بخش چپ تقسیم می‌شمارید؛ این مقدار نسبی به ناحیه ادغام‌شده است:
+
+- تقسیم ردیف: `0 < index <` [RowSpan](https://reference.aspose.com/slides/net/aspose.slides/icell/rowspan/).
+- تقسیم ستون: `0 < index <` [ColSpan](https://reference.aspose.com/slides/net/aspose.slides/icell/colspan/).
+
+مثال می‌پذیرد که یک ارائه جدولی را به عنوان اولین شکل در اولین اسلاید داشته باشد، به‌طوری که `(1, 2)` و `(1, 3)` به‌صورت عمودی ادغام شده باشند. از موقعیت پایین شروع می‌کند و از [FirstColumnIndex](https://reference.aspose.com/slides/net/aspose.slides/icell/firstcolumnindex/) و [FirstRowIndex](https://reference.aspose.com/slides/net/aspose.slides/icell/firstrowindex/) برای یافتن منبع استفاده می‌کند و هر دو گستردگی را بررسی می‌کند. `SplitByRowSpan(1)` سپس ردیف‌های ۲ و ۳ را برای نام محصولات جدا می‌کند. برای ادغام افقی دو ستون، به‌جای آن از `SplitByColSpan(1)` استفاده کنید.
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("table_template.pptx");
+var slide = presentation.Slides[0];
+var table = (ITable) slide.Shapes[0];
+
+var selectedCell = table[1, 3];
+var firstColumnIndex = selectedCell.FirstColumnIndex;
+var firstRowIndex = selectedCell.FirstRowIndex;
+var mergedCell = table[firstColumnIndex, firstRowIndex];
+
+if (mergedCell.IsMergedCell && mergedCell.RowSpan == 2 && mergedCell.ColSpan == 1)
+{
+    mergedCell.SplitByRowSpan(1);
+
+    // سلول‌های حاصل از جدول را پس از تقسیم دریافت کنید.
+    var upperCell = table[firstColumnIndex, firstRowIndex];
+    var lowerCell = table[firstColumnIndex, firstRowIndex + 1];
+    Console.WriteLine($"Upper cell merged: {upperCell.IsMergedCell}");
+    Console.WriteLine($"Lower cell merged: {lowerCell.IsMergedCell}");
+
+    upperCell.TextFrame.Text = "Product A";
+    lowerCell.TextFrame.Text = "Product B";
+
+    presentation.Save("split_template.pptx", SaveFormat.Pptx);
+}
+else
+{
+    Console.WriteLine("Select a merged region spanning exactly two rows and one column.");
 }
 ```
 
-سپس سلول‌ها را بیشتر ترکیب می‌کنیم با ترکیب (1, 1) و (1, 2). نتیجه جدولی است که یک سلول بزرگ ترکیب‌شده در مرکز دارد:
+شبکه جدول و ایندکس‌های سلول‌های اطراف بدون تغییر می‌مانند. سلول‌های حاصل را با مختصات آن‌ها بازیابی کنید؛ در اینجا هر دو دارای گستردگی ۱ هستند و [IsMergedCell](https://reference.aspose.com/slides/net/aspose.slides/icell/ismergedcell/) مقدار `False` را چاپ می‌کند. نواحی بزرگ‌تر می‌توانند پس از یک تقسیم به‌صورت جزئی ادغام باقی بمانند.
 
-```c#
- // یک شی از کلاس Presentation که نمایانگر یک فایل PPTX است را ایجاد می‌کند
-using (Presentation presentation = new Presentation())
-{
-    // به اسلاید اول دسترسی می‌یابد
-    ISlide slide = presentation.Slides[0];
+متن اصلی و قالب‌بندی آن در سلول بالا (یا چپ) باقی می‌ماند؛ سلول جدید خالی است اما قالب‌بندی سلول مانند پرکردن، حاشیه‌ها و حاشیه‌ها را به ارث می‌برد. پس از تقسیم سلول‌ها را پر کنید و هر قالب‌بندی متن مورد نیاز را به‌صورت صریح تنظیم کنید.
 
-    // ستون‌ها را با عرض‌ها و ردیف‌ها را با ارتفاع‌ها تعریف می‌کند
-    double[] dblCols = { 70, 70, 70, 70 };
-    double[] dblRows = { 70, 70, 70, 70 };
+ارائه ذخیره‌شده شامل سلول‌های جداگانه «Product A» و «Product B» با حفظ قالب‌بندی سلول قالب است. برای جزئیات به [Cell API Reference](https://reference.aspose.com/slides/net/aspose.slides/cell/) مراجعه کنید.
 
-    // یک شکل جدول را به اسلاید اضافه می‌کند
-    ITable table = slide.Shapes.AddTable(100, 50, dblCols, dblRows);
+## **تغییر رنگ پس‌زمینه سلول جدول**
 
-    // قالب حاشیه را برای هر سلول تنظیم می‌کند
-    foreach (IRow row in table.Rows)
-    {
-        foreach (ICell cell in row)
-        {
-            cell.CellFormat.BorderTop.FillFormat.FillType = FillType.Solid;
-            cell.CellFormat.BorderTop.FillFormat.SolidFillColor.Color = Color.Red;
-            cell.CellFormat.BorderTop.Width = 5;
+این مثال یک جدول با ستون‌های ۱۵۰ پوینت و ردیف‌های ۵۰ پوینت ایجاد می‌کند. برای سلول `(2, 3)` که در ستون سوم و ردیف چهارم قرار دارد، [FillType](https://reference.aspose.com/slides/net/aspose.slides/ifillformat/filltype/) را به solid و [SolidFillColor](https://reference.aspose.com/slides/net/aspose.slides/ifillformat/solidfillcolor/) را به رنگ قرمز تنظیم می‌کند.
 
-            cell.CellFormat.BorderBottom.FillFormat.FillType = FillType.Solid;
-            cell.CellFormat.BorderBottom.FillFormat.SolidFillColor.Color = Color.Red;
-            cell.CellFormat.BorderBottom.Width = 5;
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-            cell.CellFormat.BorderLeft.FillFormat.FillType = FillType.Solid;
-            cell.CellFormat.BorderLeft.FillFormat.SolidFillColor.Color = Color.Red;
-            cell.CellFormat.BorderLeft.Width = 5;
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-            cell.CellFormat.BorderRight.FillFormat.FillType = FillType.Solid;
-            cell.CellFormat.BorderRight.FillFormat.SolidFillColor.Color = Color.Red;
-            cell.CellFormat.BorderRight.Width = 5;
+double[] columnWidths = { 150, 150, 150, 150 };
+double[] rowHeights = { 50, 50, 50, 50, 50 };
+var table = slide.Shapes.AddTable(50, 50, columnWidths, rowHeights);
 
-        }
-    }
+var cell = table[2, 3];
+cell.CellFormat.FillFormat.FillType = FillType.Solid;
+cell.CellFormat.FillFormat.SolidFillColor.Color = Color.Red;
 
-    // سلول‌های (1, 1) × (2, 1) را ترکیب می‌کند
-    table.MergeCells(table[1, 1], table[2, 1], false);
-
-    // سلول‌های (1, 2) × (2, 2) را ترکیب می‌کند
-    table.MergeCells(table[1, 2], table[2, 2], false);
-
-    // سلول‌های (1, 2) × (2, 2) را ترکیب می‌کند
-    table.MergeCells(table[1, 1], table[1, 2], true);
-
-    // فایل PPTX را بر روی دیسک می‌نویسد
-    presentation.Save("MergeCells1_out.pptx", SaveFormat.Pptx);
-}
-```
-
-## **شماره‌گذاری در سلول تقسیم‌شده**
-
-در مثال‌های قبلی، زمانی که سلول‌های جدول ترکیب شدند، شماره‌گذاری یا سیستم عددی در سلول‌های دیگر تغییر نکرد.
-
-این بار، یک جدول معمولی (جدولی بدون سلول‌های ترکیب‌شده) می‌گیریم و سپس سعی می‌کنیم سلول (1,1) را تقسیم کنیم تا جدولی ویژه به دست آوریم. شاید به شماره‌گذاری این جدول توجه کنید که ممکن است عجیب به نظر برسد. با این حال، این همان روشی است که Microsoft PowerPoint سلول‌های جدول را شماره‌گذاری می‌کند و Aspose.Slides نیز به همین شکل عمل می‌کند.
-
-```c#
-// یک شی از کلاس Presentation که نمایانگر یک فایل PPTX است را ایجاد می‌کند
-using (Presentation presentation = new Presentation())
-{
-    // به اسلاید اول دسترسی می‌یابد
-    ISlide slide = presentation.Slides[0];
-
-    // ستون‌ها را با عرض‌ها و ردیف‌ها را با ارتفاع‌ها تعریف می‌کند
-    double[] dblCols = { 70, 70, 70, 70 };
-    double[] dblRows = { 70, 70, 70, 70 };
-
-    // یک شکل جدول را به اسلاید اضافه می‌کند
-    ITable table = slide.Shapes.AddTable(100, 50, dblCols, dblRows);
-
-    // قالب حاشیه را برای هر سلول تنظیم می‌کند
-    foreach (IRow row in table.Rows)
-    {
-        foreach (ICell cell in row)
-        {
-            cell.CellFormat.BorderTop.FillFormat.FillType = FillType.Solid;
-            cell.CellFormat.BorderTop.FillFormat.SolidFillColor.Color = Color.Red;
-            cell.CellFormat.BorderTop.Width = 5;
-
-            cell.CellFormat.BorderBottom.FillFormat.FillType = FillType.Solid;
-            cell.CellFormat.BorderBottom.FillFormat.SolidFillColor.Color = Color.Red;
-            cell.CellFormat.BorderBottom.Width = 5;
-
-            cell.CellFormat.BorderLeft.FillFormat.FillType = FillType.Solid;
-            cell.CellFormat.BorderLeft.FillFormat.SolidFillColor.Color = Color.Red;
-            cell.CellFormat.BorderLeft.Width = 5;
-
-            cell.CellFormat.BorderRight.FillFormat.FillType = FillType.Solid;
-            cell.CellFormat.BorderRight.FillFormat.SolidFillColor.Color = Color.Red;
-            cell.CellFormat.BorderRight.Width = 5;
-
-        }
-    }
-
-    // سلول‌های (1, 1) × (2, 1) را ترکیب می‌کند
-    table.MergeCells(table[1, 1], table[2, 1], false);
-
-    // سلول‌های (1, 2) × (2, 2) را ترکیب می‌کند
-    table.MergeCells(table[1, 2], table[2, 2], false);
-
-    // سلول (1, 1) را تقسیم می‌کند.
-    table[1, 1].SplitByWidth(table[2, 1].Width / 2);
-
-    // فایل PPTX را بر روی دیسک می‌نویسد
-    presentation.Save("CellSplit_out.pptx", SaveFormat.Pptx);
-}
-```
-
-## **تغییر رنگ پس‌زمینهٔ سلول جدول**
-
-این کد C# نشان می‌دهد چگونه رنگ پس‌زمینهٔ یک سلول جدول را تغییر دهید:
-
-```c#
-using (Presentation presentation = new Presentation())
-{
-    ISlide slide = presentation.Slides[0];
-
-    double[] dblCols = { 150, 150, 150, 150 };
-    double[] dblRows = { 50, 50, 50, 50, 50 };
-
-    // یک جدول جدید ایجاد می‌کند
-    ITable table = slide.Shapes.AddTable(50, 50, dblCols, dblRows);
-
-    // رنگ پس‌زمینه را برای یک سلول تنظیم می‌کند
-    ICell cell = table[2, 3];
-    cell.CellFormat.FillFormat.FillType = FillType.Solid;
-    cell.CellFormat.FillFormat.SolidFillColor.Color = Color.Red;
-
-    presentation.Save("cell_background_color.pptx", SaveFormat.Pptx);
-}
+presentation.Save("cell_background_color.pptx", SaveFormat.Pptx);
 ```
 
 ## **افزودن تصویر داخل سلول جدول**
 
-1. یک نمونه از کلاس `Presentation` ایجاد کنید.  
-2. مرجع یک اسلاید را از طریق ایندکس آن دریافت کنید.  
-3. یک آرایه از ستون‌ها با عرض تعریف کنید.  
-4. یک آرایه از ردیف‌ها با ارتفاع تعریف کنید.  
-5. از متد `AddTable` برای افزودن جدول به اسلاید استفاده کنید.  
-6. یک شیء `Bitmap` ایجاد کنید تا فایل تصویر را نگه دارد.  
-7. تصویر bitmap را به شیء `IPPImage` اضافه کنید.  
-8. `FillFormat` سلول جدول را به `Picture` تنظیم کنید.  
-9. تصویر را به اولین سلول جدول اضافه کنید.  
-10. ارائهٔ اصلاح‌شده را به‌صورت فایل PPTX ذخیره کنید.
+قبل از اجرای این مثال، تصویر ورودی را در پوشه کاری قرار دهید. تصویر را با [Images.FromFile](https://reference.aspose.com/slides/net/aspose.slides/images/fromfile/) بارگیری می‌کند و با [AddImage](https://reference.aspose.com/slides/net/aspose.slides/iimagecollection/addimage/) به مجموعه تصویرهای ارائه اضافه می‌کند. سپس تصویر را به پرکردن تصویری سلول `(0, 0)`، اولین سلول جدول، اختصاص می‌دهد.
 
-```c#
-// یک شی از کلاس Presentation که نمایانگر یک فایل PPTX است را ایجاد می‌کند
-using (Presentation presentation = new Presentation())
-{
-    // به اسلاید اول دسترسی می‌یابد
-    ISlide slide = presentation.Slides[0];
+[PictureFillMode.Stretch](https://reference.aspose.com/slides/net/aspose.slides/picturefillmode/) تصویر را برای پر کردن سلول کش می‌دهد که ممکن است نسبت تصویر را تغییر دهد. عرض ستون‌ها و ارتفاع ردیف‌ها بر حسب پوینت است. تصویر بارگیری‌شده به‌صورت خودکار توسط دستور using حذف می‌شود.
 
-    // ستون‌ها را با عرض‌ها و ردیف‌ها را با ارتفاع‌ها تعریف می‌کند
-    double[] dblCols = { 150, 150, 150, 150 };
-    double[] dblRows = { 100, 100, 100, 100, 90 };
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-    // یک شکل جدول را به اسلاید اضافه می‌کند
-    ITable table = slide.Shapes.AddTable(50, 50, dblCols, dblRows);
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    // یک تصویر را از فایل بارگذاری می‌کند و به منابع ارائه اضافه می‌دارد
-    IImage image = Images.FromFile("aspose-logo.jpg");
-    IPPImage ppImage = presentation.Images.AddImage(image);
-    image.Dispose();
+double[] columnWidths = { 150, 150, 150, 150 };
+double[] rowHeights = { 100, 100, 100, 100, 90 };
+var table = slide.Shapes.AddTable(50, 50, columnWidths, rowHeights);
 
-    // تصویر را به اولین سلول جدول اضافه می‌کند
-    table[0, 0].CellFormat.FillFormat.FillType = FillType.Picture;
-    table[0, 0].CellFormat.FillFormat.PictureFillFormat.PictureFillMode = PictureFillMode.Stretch;
-    table[0, 0].CellFormat.FillFormat.PictureFillFormat.Picture.Image = ppImage;
+using var image = Images.FromFile("aspose_logo.jpg");
+var ppImage = presentation.Images.AddImage(image);
 
-    // فایل PPTX را بر روی دیسک ذخیره می‌کند
-    presentation.Save("Image_In_TableCell_out.pptx", SaveFormat.Pptx);
-}
+table[0, 0].CellFormat.FillFormat.FillType = FillType.Picture;
+table[0, 0].CellFormat.FillFormat.PictureFillFormat.PictureFillMode = PictureFillMode.Stretch;
+table[0, 0].CellFormat.FillFormat.PictureFillFormat.Picture.Image = ppImage;
+
+presentation.Save("table_cell_with_image.pptx", SaveFormat.Pptx);
 ```
 
 ## **سؤالات متداول**
 
-**آیا می‌توانم ضخامت و سبک خطوط مختلفی برای سمت‌های مختلف یک سلول تنظیم کنم؟**
+**آیا می‌توانم ضخامت و سبک خطوط مختلف را برای طرف‌های متفاوت یک سلول تنظیم کنم؟**
 
-بله. حاشیه‌های [بالا](https://reference.aspose.com/slides/fa/net/aspose.slides/cellformat/bordertop/)/[پایین](https://reference.aspose.com/slides/fa/net/aspose.slides/cellformat/borderbottom/)/[چپ](https://reference.aspose.com/slides/fa/net/aspose.slides/cellformat/borderleft/)/[راست](https://reference.aspose.com/slides/fa/net/aspose.slides/cellformat/borderright/) دارای ویژگی‌های جداگانه‌ای هستند، بنابراین ضخامت و سبک هر سمت می‌تواند متفاوت باشد. این منطق از کنترل حاشیه‌ به‌ازای هر سمت برای یک سلول که در مقاله نشان داده شد، ناشی می‌شود.
+بله. حاشیه‌های [top](https://reference.aspose.com/slides/net/aspose.slides/cellformat/bordertop/)/[bottom](https://reference.aspose.com/slides/net/aspose.slides/cellformat/borderbottom/)/[left](https://reference.aspose.com/slides/net/aspose.slides/cellformat/borderleft/)/[right](https://reference.aspose.com/slides/net/aspose.slides/cellformat/borderright/) دارای ویژگی‌های جداگانه‌ای هستند، بنابراین ضخامت و سبک هر طرف می‌تواند متفاوت باشد.
 
-**اگر پس از تنظیم تصویر به‌عنوان پس‌زمینهٔ سلول، اندازهٔ ستون/ردیف را تغییر دهم، چه‌ اتفاقی برای تصویر می‌افتد؟**
+**چه اتفاقی برای تصویر می‌افتد اگر پس از تنظیم یک تصویر به‌عنوان پس‌زمینه سلول، اندازه ستون/ردیف را تغییر دهم؟**
 
-رفتار به [حالت پر کردن](https://reference.aspose.com/slides/fa/net/aspose.slides/picturefillmode/) (کشیدگی/کاشی) بستگی دارد. در حالت کشیدگی، تصویر با سلول جدید سازگار می‌شود؛ در حالت کاشی، کاشی‌ها بازمحاسبه می‌شوند. مقاله به حالت‌های نمایش تصویر در یک سلول اشاره می‌کند.
+رفتار بسته به [حالت پرکردن](https://reference.aspose.com/slides/net/aspose.slides/picturefillmode/) متفاوت است. با کشش، تصویر با سلول جدید سازگار می‌شود؛ با tiling، کاشی‌ها دوباره محاسبه می‌شوند.
 
-**آیا می‌توانم یک پیوند (hyperlink) را به تمام محتوای یک سلول اختصاص دهم؟**
+**آیا می‌توانم یک Hyperlink به تمام محتوای یک سلول اختصاص دهم؟**
 
-[Hyperlinks](/slides/fa/net/manage-hyperlinks/) در سطح متن (بخش) داخل چارچوب متن سلول یا در سطح کل جدول/شکل تنظیم می‌شوند. در عمل، پیوند را به یک بخش یا به تمام متن داخل سلول اختصاص می‌دهید.
+[Hyperlinks](/slides/fa/net/manage-hyperlinks/) در سطح متن (بخش) داخل فریم متن سلول یا در سطح کل جدول/شکل تنظیم می‌شوند. در عمل، لینک را به یک بخش یا به تمام متن در سلول اختصاص می‌دهید.
 
-**آیا می‌توانم فونت‌های مختلفی را در یک سلول استفاده کنم؟**
+**آیا می‌توانم قلم‌های مختلف را داخل یک سلول تنظیم کنم؟**
 
-بله. چارچوب متن سلول از [بخش‌ها](https://reference.aspose.com/slides/fa/net/aspose.slides/portion/) (run) با قالب‌بندی مستقل—خانوادهٔ فونت، سبک، اندازه و رنگ—پشتیبانی می‌کند.
+بله. چارچوب متن سلول از [portions](https://reference.aspose.com/slides/net/aspose.slides/portion/) (بخش‌ها) با قالب‌بندی مستقل—خانواده قلم، سبک، اندازه و رنگ—پشتیبانی می‌کند.

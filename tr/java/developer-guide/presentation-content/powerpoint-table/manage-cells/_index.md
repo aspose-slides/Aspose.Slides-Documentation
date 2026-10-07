@@ -1,79 +1,74 @@
 ---
-title: Presentasyonlarda Tablo Hücrelerini Java Kullanarak Yönetme
+title: Java Kullanarak Sunumlarda Tablo Hücrelerini Yönetme
 linktitle: Hücreleri Yönet
 type: docs
 weight: 30
 url: /tr/java/manage-cells/
 keywords:
 - tablo hücresi
-- hücre birleştirme
-- kenarlık kaldırma
-- hücre bölme
-- hücrede görüntü
+- hücreleri birleştir
+- kenarlığı kaldır
+- hücreyi böl
+- hücrede resim
 - arka plan rengi
 - PowerPoint
 - sunum
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Java ile PowerPoint'te tablo hücrelerini zahmetsizce yönetin. Hücrelere hızlıca erişme, değiştirme ve stil uygulama konularında ustalaşarak sorunsuz slayt otomasyonu sağlayın."
+description: "Java'da PowerPoint tablo hücrelerini yönetin: birleştirilmiş hücreleri tanımlayın, kenarlıkları kaldırın, hücreleri bölün ve Aspose.Slides for Java ile arka plan renklerini ve resimleri ayarlayın."
 ---
 ## **Genel Bakış**
 
-Aspose.Slides, PowerPoint sunumlarındaki tablo hücrelerine erişmenizi ve bunları değiştirmenizi sağlar. Bu makale, birleştirilmiş tablo hücrelerini nasıl tanımlayacağınızı, hücre kenarlıklarını nasıl kaldıracağınızı, hücreleri birleştirdikten veya ayırdıktan sonra hücre numaralandırmasıyla nasıl çalışılacağını, bir hücrenin arka plan rengini nasıl değiştireceğinizi ve bir tablo hücresinin içine nasıl görüntü ekleyeceğinizi açıklar. Örnekler, bir sunum nasıl oluşturulur veya açılır, slayttan bir tablo nasıl alınır, hücre özellikleri aracılığıyla hücre biçimlendirmesi nasıl güncellenir ve değiştirilmiş sunum nasıl PPTX dosyası olarak kaydedilir gösterir.
+Aspose.Slides, PowerPoint sunumlarındaki tablo hücrelerine erişmenizi ve bunları değiştirmenizi sağlar. Bu makale, birleştirilmiş tablo hücrelerini nasıl tanımlayacağınızı, hücre kenarlıklarını nasıl kaldıracağınızı, hücreleri birleştirdikten veya böldükten sonra hücre numaralandırmasıyla nasıl çalışılacağını, bir hücrenin arka plan rengini nasıl değiştireceğinizi ve bir tablo hücresine nasıl resim ekleyeceğinizi açıklar. Örnekler, bir sunumu nasıl oluşturup açacağınızı, bir slayttan tablo nasıl alacağınızı, hücre özellikleri aracılığıyla hücre biçimlendirmesini nasıl güncelleyeceğinizi ve değiştirilen sunumu PPTX dosyası olarak nasıl kaydedeceğinizi gösterir.
+
+Aspose.Slides, tablo hücrelerine `(sütun, satır)` sırasıyla erişmek için sıfır tabanlı indeksler kullanır.
 
 ## **Birleştirilmiş Tablo Hücresini Tanımlama**
-1. Create an instance of the  [Presentation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/Presentation) class.
-2. İlk slayttan tabloyu alın. 
-3. Birleştirilmiş hücreleri bulmak için tablonun satır ve sütunları arasında dolaşın. 
-4. Birleştirilmiş hücreler bulunduğunda mesaj yazdırın.
+
+Örnek, mevcut bir sunumu açar ve ilk slayttaki ilk şekli bir tablo olarak erişir. Slayt ve şeklin mevcut olduğunu ve şeklin bir tablo olduğunu varsayar. Ardından tüm satır ve sütunlar üzerinde iterasyon yapar ve birleştirilmiş bölgelerdeki hücreleri tanımlamak için [isMergedCell](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#isMergedCell--) metodunu kullanır. Eşleşen her hücre için `satır;sütun` sırasında hücre koordinatlarını, [getRowSpan](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#getRowSpan--), [getColSpan](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#getColSpan--), ve bölgenin başlangıç koordinatlarını, [getFirstRowIndex](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#getFirstRowIndex--) ve [getFirstColumnIndex](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#getFirstColumnIndex--) metodlarını yazdırır.
 
 ```java
-Presentation pres = new Presentation("SomePresentationWithTable.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("presentation_with_table.pptx");
 try {
-    ITable table = (ITable)pres.getSlides().get_Item(0).getShapes().get_Item(0); // Slide#0.Shape#0 bir tablo olduğu varsayılıyor
-    for (int i = 0; i < table.getRows().size(); i++)
+    ISlide slide = presentation.getSlides().get_Item(0);
+    ITable table = (ITable) slide.getShapes().get_Item(0);
+
+    int rowCount = table.getRows().size();
+    for (int rowIndex = 0; rowIndex < rowCount; rowIndex++)
     {
-        for (int j = 0; j < table.getColumns().size(); j++)
+        int columnCount = table.getColumns().size();
+        for (int columnIndex = 0; columnIndex < columnCount; columnIndex++)
         {
-            ICell currentCell = table.getRows().get_Item(i).get_Item(j);
-            if (currentCell.isMergedCell())
+            ICell cell = table.get_Item(columnIndex, rowIndex);
+            if (cell.isMergedCell())
             {
-                System.out.println(String.format("Cell %d;%d is a part of merged cell with RowSpan=%d and ColSpan=%d starting from Cell %d;%d.",
-                        i, j, currentCell.getRowSpan(), currentCell.getColSpan(), currentCell.getFirstRowIndex(), currentCell.getFirstColumnIndex()));
+                System.out.printf("Cell %d;%d belongs to a merged region with RowSpan=%d and ColSpan=%d starting at %d;%d.%n", rowIndex, columnIndex, cell.getRowSpan(), cell.getColSpan(), cell.getFirstRowIndex(), cell.getFirstColumnIndex());
             }
         }
     }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Tablo Hücre Kenarlıklarını Kaldırma**
-1. Create an instance of the  [Presentation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/Presentation) class.
-2. İndeks aracılığıyla bir slaydın referansını alın. 
-3. Genişliği olan bir sütun dizisi tanımlayın. 
-4. Yüksekliği olan bir satır dizisi tanımlayın. 
-5. Slayta [addTable](https://reference.aspose.com/slides/tr/java/com.aspose.slides/IShapeCollection#addTable-float-float-double:A-double:A-) yöntemiyle bir tablo ekleyin. 
-6. Her hücreyi dolaşarak üst, alt, sağ ve sol kenarlıkları temizleyin. 
-7. Değiştirilmiş sunumu PPTX dosyası olarak kaydedin.
+## **Tablo Hücresi Kenarlıklarını Kaldırma**
+
+Bir [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) oluşturun ve ilk slaydına [addTable](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addTable-float-float-double---double---) yöntemiyle bir tablo ekleyin. Sütun genişlikleri, satır yükseklikleri ve tablo konumu puan cinsinden belirtilir. Örnek, dört hücre kenarlığının hepsini [FillType.NoFill](https://reference.aspose.com/slides/java/com.aspose.slides/filltype/) olarak ayarlar ve böylece kenarlıklar görünmez hâle gelir.
 
 ```java
-// Presentation sınıfını örnekler; bu sınıf bir PPTX dosyasını temsil eder
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    // İlk slaytı erişir
-    Slide sld = (Slide)pres.getSlides().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Genişlikleri olan sütunları ve yükseklikleri olan satırları tanımlar
-    double[] dblCols = { 50, 50, 50, 50 };
-    double[] dblRows = { 50, 30, 30, 30, 30 };
+    double[] columnWidths = { 50, 50, 50, 50 };
+    double[] rowHeights = { 50, 30, 30, 30, 30 };
+    ITable table = slide.getShapes().addTable(100, 50, columnWidths, rowHeights);
 
-    // Slayta tablo şekli ekler
-    ITable tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
-
-    // Her hücre için kenarlık biçimini ayarlar
-    for (IRow row : tbl.getRows())
-    {
+    for (IRow row : table.getRows())
         for (ICell cell : row)
         {
             cell.getCellFormat().getBorderTop().getFillFormat().setFillType(FillType.NoFill);
@@ -81,256 +76,177 @@ try {
             cell.getCellFormat().getBorderLeft().getFillFormat().setFillType(FillType.NoFill);
             cell.getCellFormat().getBorderRight().getFillFormat().setFillType(FillType.NoFill);
         }
-    }
 
-    // PPTX dosyasını diske yazar
-    pres.save("table_out.pptx", SaveFormat.Pptx);
+    presentation.save("table.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Birleştirilmiş Hücrelerde Numaralandırma**
+## **Tablo Hücrelerini Birleştirme**
 
-İki hücre çifti (1,1) x (2,1) ve (1,2) x (2,2) birleştirirsek, ortaya çıkan tablo numaralandırılacaktır. Bu Java kodu süreci gösterir:
+Bir dikdörtgen tablo hücresi aralığını tek bir hücreye birleştirmek için [mergeCells](https://reference.aspose.com/slides/java/com.aspose.slides/itable/#mergeCells-com.aspose.slides.ICell-com.aspose.slides.ICell-boolean-) yöntemini kullanın. Aralığın sol‑üst ve sağ‑alt köşelerindeki hücreleri belirtin. Son argüman, birleştirmenin belirtilen aralığın dışındaki hücreleri içerip içermeyeceğini kontrol eder; `false` birleştirmenin yalnızca bu aralık içinde kalmasını sağlar.
 
-```java
-// PPTX dosyasını temsil eden Presentation sınıfını örnekler
-Presentation pres = new Presentation();
-try {
-    // İlk slayta erişir
-    ISlide sld = pres.getSlides().get_Item(0);
-
-    // Genişlikleri olan sütunları ve yükseklikleri olan satırları tanımlar
-    double[] dblCols = { 70, 70, 70, 70 };
-    double[] dblRows = { 70, 70, 70, 70 };
-
-    // Slayta bir tablo şekli ekler
-    ITable tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
-
-    // Her hücre için kenarlık biçimini ayarlar
-    for (IRow row : tbl.getRows())
-    {
-        for (ICell cell : row)
-        {
-            cell.getCellFormat().getBorderTop().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderTop().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderTop().setWidth(5);
-
-            cell.getCellFormat().getBorderBottom().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderBottom().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderBottom().setWidth(5);
-
-            cell.getCellFormat().getBorderLeft().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderLeft().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderLeft().setWidth(5);
-
-            cell.getCellFormat().getBorderRight().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderRight().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderRight().setWidth(5);
-        }
-    }
-
-    // Hücreleri (1, 1) x (2, 1) birleştirir
-    tbl.mergeCells(tbl.get_Item(1, 1), tbl.get_Item(2, 1), false);
-
-    // Hücreleri (1, 2) x (2, 2) birleştirir
-    tbl.mergeCells(tbl.get_Item(1, 2), tbl.get_Item(2, 2), false);
-
-    pres.save("MergeCells_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-Ardından (1,1) ve (1,2) hücrelerini birleştirerek hücreleri daha da birleştiririz. Sonuç, ortasında büyük bir birleştirilmiş hücre bulunan bir tablo olur: 
+Örnek, 70 puanlık sütun ve satırlara sahip 4x4 bir tablo oluşturur, ardından `(1, 1)` ile `(2, 2)` arasındaki dört ortadaki hücreyi birleştirir. Ortaya çıkan hücre iki sütun ve iki satır kapsar, ancak tablonun temel ızgarası dört sütun ve dört satır olarak kalır. Birleştirilmiş hücrenin içeriğine veya biçimlendirmesine erişmek için sol‑üst konumunu kullanın: bu örnekte `table.get_Item(1, 1)`. Birleştirme aralığındaki diğer konumlar tablo ızgarasının bir parçası olarak kalır, bu yüzden aralığın dışındaki hücrelerin indeksleri değişmez.
 
 ```java
-// PPTX dosyasını temsil eden Presentation sınıfını örnekler
-Presentation pres = new Presentation();
-try {
-    // İlk slayta erişir
-    ISlide sld = pres.getSlides().get_Item(0);
+import com.aspose.slides.*;
 
-    // Genişlikleri olan sütunları ve yükseklikleri olan satırları tanımlar
-    double[] dblCols = { 70, 70, 70, 70 };
-    double[] dblRows = { 70, 70, 70, 70 };
-
-    // Slayta bir tablo şekli ekler
-    ITable tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
-
-    // Her hücre için kenarlık biçimini ayarlar
-    for (IRow row : tbl.getRows())
-    {
-        for (ICell cell : row)
-        {
-            cell.getCellFormat().getBorderTop().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderTop().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderTop().setWidth(5);
-
-            cell.getCellFormat().getBorderBottom().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderBottom().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderBottom().setWidth(5);
-
-            cell.getCellFormat().getBorderLeft().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderLeft().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderLeft().setWidth(5);
-
-            cell.getCellFormat().getBorderRight().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderRight().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderRight().setWidth(5);
-        }
-    }
-
-    // Hücreleri (1, 1) x (2, 1) birleştirir
-    tbl.mergeCells(tbl.get_Item(1, 1), tbl.get_Item(2, 1), false);
-
-    // Hücreleri (1, 2) x (2, 2) birleştirir
-    tbl.mergeCells(tbl.get_Item(1, 2), tbl.get_Item(2, 2), false);
-
-    // Hücreleri (1, 1) x (1, 2) birleştirir
-    tbl.mergeCells(tbl.get_Item(1, 1), tbl.get_Item(1, 2), true);
-    
-	// PPTX dosyasını diske yazar
-    pres.save("MergeCells_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Bölünmüş Bir Hücrede Numaralandırma**
-Önceki örneklerde, tablo hücreleri birleştirildiğinde, diğer hücrelerdeki numaralandırma veya sayı sistemi değişmedi. 
-
-Bu sefer, birleştirilmiş hücresi olmayan normal bir tablo alıp (1,1) hücresini bölerek özel bir tablo elde etmeye çalışıyoruz. Bu tablonun numaralandırmasına dikkat etmek isteyebilirsiniz; bu garip görünebilir. Ancak bu, Microsoft PowerPoint'in tablo hücrelerini numaralandırma şeklidir ve Aspose.Slides de aynı şeyi yapar. 
-
-Bu Java kodu açıklanan süreci gösterir:
-
-```java
-// PPTX dosyasını temsil eden Presentation sınıfını örnekler
-Presentation pres = new Presentation();
-try {
-    // İlk slayta erişir
-    ISlide sld = pres.getSlides().get_Item(0);
-
-    // Genişlikleri olan sütunları ve yükseklikleri olan satırları tanımlar
-    double[] dblCols = { 70, 70, 70, 70 };
-    double[] dblRows = { 70, 70, 70, 70 };
-
-    // Slayta bir tablo şekli ekler
-    ITable tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
-
-    // Her hücre için kenarlık biçimini ayarlar
-    for (IRow row : tbl.getRows())
-    {
-        for (ICell cell : row)
-        {
-            cell.getCellFormat().getBorderTop().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderTop().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderTop().setWidth(5);
-
-            cell.getCellFormat().getBorderBottom().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderBottom().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderBottom().setWidth(5);
-
-            cell.getCellFormat().getBorderLeft().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderLeft().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderLeft().setWidth(5);
-
-            cell.getCellFormat().getBorderRight().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderRight().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderRight().setWidth(5);
-        }
-    }
-
-    // Hücreleri (1, 1) x (2, 1) birleştirir
-    tbl.mergeCells(tbl.get_Item(1, 1), tbl.get_Item(2, 1), false);
-
-    // Hücreleri (1, 2) x (2, 2) birleştirir
-    tbl.mergeCells(tbl.get_Item(1, 2), tbl.get_Item(2, 2), false);
-
-    // Hücreyi (1, 1) bölür
-    tbl.get_Item(1, 1).splitByWidth(tbl.get_Item(2, 1).getWidth() / 2);
-
-    // PPTX dosyasını diske yazar
-    pres.save("SplitCells_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Tablo Hücresinin Arka Plan Rengini Değiştirme**
-
-Bu Java kodu size bir tablo hücresinin arka plan rengini nasıl değiştireceğinizi gösterir:
-
-```java
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    double[] dblCols = { 150, 150, 150, 150 };
-    double[] dblRows = { 50, 50, 50, 50, 50 };
+    double[] columnWidths = { 70, 70, 70, 70 };
+    double[] rowHeights = { 70, 70, 70, 70 };
+    ITable table = slide.getShapes().addTable(100, 50, columnWidths, rowHeights);
 
-    // yeni bir tablo oluştur
-    ITable table = slide.getShapes().addTable(50, 50, dblCols, dblRows);
+    table.mergeCells(table.get_Item(1, 1), table.get_Item(2, 2), false);
 
-    // bir hücrenin arka plan rengini ayarla 
+    presentation.save("merged_cells.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Tablo Hücrelerini Bölme**
+
+Önceki örnekte hücrelerin birleştirilmesi tablonun ızgarasını korur. Bir hücreyi bölmek yeni bir ızgara sütunu ekleyebilir ve sağındaki hücrelerin sütun indekslerini değiştirebilir. Aspose.Slides, PowerPoint'in tablo ızgara modelini izler.
+
+Bu örnek, 70 puanlık sütun ve satırlara sahip 4x4 bir tablo oluşturur ve `(1, 1)` hücresinde [splitByWidth](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#splitByWidth-double-) yöntemini çağırır. Hücrenin 70 puanlık genişliğinin yarısı iki eşit genişlikte hücre oluşturmak için kullanılır.
+
+Bu bölünmeden sonra iki yarı `table.get_Item(1, 1)` ve `table.get_Item(2, 1)` olarak erişilir. Tablo ızgarası artık beş sütuna sahiptir: başlangıçta 2 ve 3. sütunlarda bulunan hücreler sırasıyla 3 ve 4. sütunlara taşır. Satır indeksleri değişmez. Bölünme sonrasında hücrelere erişirken bu güncellenmiş sütun indekslerini kullanın.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    double[] columnWidths = { 70, 70, 70, 70 };
+    double[] rowHeights = { 70, 70, 70, 70 };
+    ITable table = slide.getShapes().addTable(100, 50, columnWidths, rowHeights);
+
+    table.get_Item(1, 1).splitByWidth(table.get_Item(1, 1).getWidth() / 2);
+
+    presentation.save("split_cells.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+### **Satır veya Sütun Kapsamına Göre Birleştirilmiş Hücreleri Bölme**
+
+Veri doldurmak için birleştirilmiş şablon hücrelerini hazırlamak amacıyla, mevcut bir satır sınırı boyunca bölmek için [splitByRowSpan](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#splitByRowSpan-int-) ve bir sütun sınırı boyunca bölmek için [splitByColSpan](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#splitByColSpan-int-) yöntemlerini kullanın.
+
+`index` argümanı, bölmenin üst kısmındaki satırları veya sol kısmındaki sütunları sayar; birleştirilmiş bölgeye göre görelidir:
+
+- Satır bölmesi: `0 < index <` [getRowSpan](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#getRowSpan--).
+- Sütun bölmesi: `0 < index <` [getColSpan](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#getColSpan--).
+
+Örnek, sunumun ilk slaydındaki ilk şeklin bir tablo olmasını ve `(1, 2)` ile `(1, 3)` hücrelerinin dikey olarak birleştirilmiş olmasını varsayar. Alt konumdan başlayarak, kökeni bulmak için [getFirstColumnIndex](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#getFirstColumnIndex--) ve [getFirstRowIndex](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#getFirstRowIndex--) yöntemlerini kullanır ve her iki kapsamı da kontrol eder. `splitByRowSpan(1)` ardından ürün adları için satır 2 ve 3’ü ayırır. Yatay iki sütun birleştirmesi için `splitByColSpan(1)` kullanın.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("table_template.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    ITable table = (ITable) slide.getShapes().get_Item(0);
+
+    ICell selectedCell = table.get_Item(1, 3);
+    int firstColumnIndex = selectedCell.getFirstColumnIndex();
+    int firstRowIndex = selectedCell.getFirstRowIndex();
+    ICell mergedCell = table.get_Item(firstColumnIndex, firstRowIndex);
+
+    if (mergedCell.isMergedCell() && mergedCell.getRowSpan() == 2 && mergedCell.getColSpan() == 1)
+    {
+        mergedCell.splitByRowSpan(1);
+
+        // Bölme işleminden sonra tablodan oluşan hücreleri al.
+        ICell upperCell = table.get_Item(firstColumnIndex, firstRowIndex);
+        ICell lowerCell = table.get_Item(firstColumnIndex, firstRowIndex + 1);
+        System.out.println("Upper cell merged: " + upperCell.isMergedCell());
+        System.out.println("Lower cell merged: " + lowerCell.isMergedCell());
+
+        upperCell.getTextFrame().setText("Product A");
+        lowerCell.getTextFrame().setText("Product B");
+
+        presentation.save("split_template.pptx", SaveFormat.Pptx);
+    }
+    else
+    {
+        System.out.println("Select a merged region spanning exactly two rows and one column.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Tablo ızgarası ve çevredeki hücre indeksleri değişmeden kalır. Oluşan hücreleri koordinatlarıyla alın; burada her ikisi de 1 kapsama sahiptir ve [isMergedCell](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#isMergedCell--) `false` yazdırır. Daha büyük bölgeler bir bölünmeden sonra kısmen birleştirilmiş kalabilir.
+
+Orijinal metin ve biçimlendirmesi üst (veya sol) hücrede kalır; yeni hücre boş olur ancak doldurma, kenarlıklar ve kenar boşlukları gibi hücre biçimlendirmesini devralır. Hücreleri bölünmeden sonra doldurun ve gerekli metin biçimlendirmesini açıkça ayarlayın.
+
+Kaydedilen sunum, şablonun hücre biçimlendirmesini koruyan ayrı "Product A" ve "Product B" hücrelerini içerir. Detaylar için [Cell API Referansı](https://reference.aspose.com/slides/java/com.aspose.slides/cell/) sayfasına bakın.
+
+## **Tablo Hücresi Arka Plan Rengini Değiştirme**
+
+Bu örnek, 150 puanlık sütunlar ve 50 puanlık satırlara sahip bir tablo oluşturur. Katı bir dolgu seçmek için [setFillType](https://reference.aspose.com/slides/java/com.aspose.slides/ifillformat/#setFillType-byte-) yöntemini kullanır ve [getSolidFillColor](https://reference.aspose.com/slides/java/com.aspose.slides/ifillformat/#getSolidFillColor--) tarafından döndürülen rengi, üçüncü sütun ve dördüncü satırdaki `(2, 3)` hücresi için kırmızı olarak ayarlar.
+
+```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    double[] columnWidths = { 150, 150, 150, 150 };
+    double[] rowHeights = { 50, 50, 50, 50, 50 };
+    ITable table = slide.getShapes().addTable(50, 50, columnWidths, rowHeights);
+
     ICell cell = table.get_Item(2, 3);
     cell.getCellFormat().getFillFormat().setFillType(FillType.Solid);
     cell.getCellFormat().getFillFormat().getSolidFillColor().setColor(Color.RED);
 
     presentation.save("cell_background_color.pptx", SaveFormat.Pptx);
 } finally {
-    if (presentation != null) presentation.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Bir Tablo Hücresinin İçine Görüntü Ekleme**
+## **Tablo Hücresi İçine Resim Ekleme**
 
-1. Create an instance of the  [Presentation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/Presentation) class.
-2. İndeks aracılığıyla bir slaydın referansını alın. 
-3. Genişliği olan bir sütun dizisi tanımlayın. 
-4. Yüksekliği olan bir satır dizisi tanımlayın. 
-5. Slayta [AddTable](https://reference.aspose.com/slides/tr/java/com.aspose.slides/IShapeCollection#addTable-float-float-double:A-double:A-) yöntemiyle bir tablo ekleyin. 
-6. `Images` nesnesi oluşturun ve görüntü dosyasını tutun. 
-7. `IImage` görüntüsünü `IPPImage` nesnesine ekleyin. 
-8. Tablo hücresi için `FillFormat` değerini `Picture` olarak ayarlayın. 
-9. Görüntüyü tablonun ilk hücresine ekleyin. 
-10. Değiştirilmiş sunumu PPTX dosyası olarak kaydedin
+Bu örneği çalıştırmadan önce giriş resmini çalışma dizinine koyun. Resmi [Images.fromFile](https://reference.aspose.com/slides/java/com.aspose.slides/images/#fromFile-java.lang.String-) yöntemiyle yükler ve sunumun resim koleksiyonuna [addImage](https://reference.aspose.com/slides/java/com.aspose.slides/iimagecollection/#addImage-com.aspose.slides.IImage-) yöntemiyle ekler. Ardından resmi, tablodaki ilk hücre olan `(0, 0)` hücresinin resim dolgusuna atar.
+
+[PictureFillMode.Stretch](https://reference.aspose.com/slides/java/com.aspose.slides/picturefillmode/) resmi hücreyi dolduracak şekilde uzatır ve bu, en‑boy oranını değiştirebilir. Sütun genişlikleri ve satır yükseklikleri puan cinsindendir. Yüklenen resim, sunuma eklendikten sonra bir `finally` bloğunda serbest bırakılır.
 
 ```java
-// Presentation sınıfını örnekler; bu sınıf bir PPTX dosyasını temsil eder
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    // İlk slayta erişir
-    ISlide islide = pres.getSlides().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    
+    double[] columnWidths = { 150, 150, 150, 150 };
+    double[] rowHeights = { 100, 100, 100, 100, 90 };
+    ITable table = slide.getShapes().addTable(50, 50, columnWidths, rowHeights);
 
-    // Genişlikleri olan sütunları ve yükseklikleri olan satırları tanımlar
-    double[] dblCols = {150, 150, 150, 150};
-    double[] dblRows = {100, 100, 100, 100, 90};
-
-    // Slayta bir tablo şekli ekler
-    ITable tbl = islide.getShapes().addTable(50, 50, dblCols, dblRows);
-
-    // Resim dosyasını kullanarak bir IPPImage nesnesi oluşturur
-    IPPImage picture;
-    IImage image = Images.fromFile("image.jpg");
+    IPPImage ppImage;
+    IImage image = Images.fromFile("aspose_logo.jpg");
     try {
-        picture = pres.getImages().addImage(image);
+        ppImage = presentation.getImages().addImage(image);
     } finally {
-        if (image != null) image.dispose();
+        image.dispose();
     }
 
-    // Resmi ilk tablo hücresine ekler
-    ICellFormat cellFormat = tbl.get_Item(0, 0).getCellFormat();
-    cellFormat.getFillFormat().setFillType(FillType.Picture);
-    cellFormat.getFillFormat().getPictureFillFormat().setPictureFillMode(PictureFillMode.Stretch);
-    cellFormat.getFillFormat().getPictureFillFormat().getPicture().setImage(picture);
+    table.get_Item(0, 0).getCellFormat().getFillFormat().setFillType(FillType.Picture);
+    table.get_Item(0, 0).getCellFormat().getFillFormat().getPictureFillFormat().setPictureFillMode(PictureFillMode.Stretch);
+    table.get_Item(0, 0).getCellFormat().getFillFormat().getPictureFillFormat().getPicture().setImage(ppImage);
 
-    // PPTX dosyasını diske kaydeder
-    pres.save("Image_In_TableCell_out.pptx", SaveFormat.Pptx);
-} catch (IOException e) {
+    presentation.save("table_cell_with_image.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
@@ -338,16 +254,16 @@ try {
 
 **Tek bir hücrenin farklı kenarları için farklı çizgi kalınlıkları ve stiller ayarlayabilir miyim?**
 
-Evet. [üst](https://reference.aspose.com/slides/tr/java/com.aspose.slides/cellformat/#getBorderTop--)/[alt](https://reference.aspose.com/slides/tr/java/com.aspose.slides/cellformat/#getBorderBottom--)/[sol](https://reference.aspose.com/slides/tr/java/com.aspose.slides/cellformat/#getBorderLeft--)/[sağ](https://reference.aspose.com/slides/tr/java/com.aspose.slides/cellformat/#getBorderRight--) kenarlıklarının ayrı özellikleri vardır, bu nedenle her bir kenarın kalınlığı ve stili farklı olabilir. Bu, makalede gösterilen bir hücre için kenar kontrolünün taraf bazlı olmasıyla mantıksal olarak uyumludur.
+Evet. [üst](https://reference.aspose.com/slides/java/com.aspose.slides/cellformat/#getBorderTop--)/[alt](https://reference.aspose.com/slides/java/com.aspose.slides/cellformat/#getBorderBottom--)/[sol](https://reference.aspose.com/slides/java/com.aspose.slides/cellformat/#getBorderLeft--)/[sağ](https://reference.aspose.com/slides/java/com.aspose.slides/cellformat/#getBorderRight--) kenarlıkların ayrı özellikleri vardır, bu nedenle her bir kenarın kalınlığı ve stili farklı olabilir.
 
-**Bir hücrenin arka planı olarak bir resim ayarladıktan sonra sütun/satır boyutunu değiştirirsem, görüntü ne olur?**
+**Bir resmi hücrenin arka planı olarak ayarladıktan sonra sütun/satır boyutunu değiştirirsem ne olur?**
 
-Davranış, [dolgu modu](https://reference.aspose.com/slides/tr/java/com.aspose.slides/picturefillmode/) (stretch/tile) değerine bağlıdır. Stretch seçildiğinde, görüntü yeni hücreye uyacak şekilde ayarlanır; tile seçildiğinde, döşemeler yeniden hesaplanır. Makalede hücredeki görüntü görüntüleme modlarından bahsedilmektedir.
+Davranış, [doldurma modu](https://reference.aspose.com/slides/java/com.aspose.slides/picturefillmode/) (stretch/tile) bağlıdır. Uzatıldığında, resim yeni hücreye göre ayarlanır; döşendiğinde ise karolar yeniden hesaplanır.
 
-**Bir hücrenin tüm içeriğine bir köprü (hyperlink) atayabilir miyim?**
+**Bir hücrenin tüm içeriğine bir bağlantı ekleyebilir miyim?**
 
-[Hyperlinks](/slides/tr/java/manage-hyperlinks/) hücrenin metin çerçevesindeki metin (portion) seviyesinde veya tüm tablo/şekil seviyesinde ayarlanır. Pratikte, bağlantıyı bir bölüme veya hücredeki tüm metne atarsınız.
+[Hyperlinks](/slides/tr/java/manage-hyperlinks/) hücrenin metin çerçevesindeki metin (parça) seviyesinde ya da tüm tablo/şekil seviyesinde ayarlanır. Pratikte, bağlantıyı bir parçaya ya da hücredeki tüm metne atarsınız.
 
 **Tek bir hücre içinde farklı yazı tipleri ayarlayabilir miyim?**
 
-Evet. Bir hücrenin metin çerçevesi, [portion](https://reference.aspose.com/slides/tr/java/com.aspose.slides/portion/) bağımsız biçimlendirmeye (yazı tipi aileleri, stil, boyut ve renk) sahip bölümleri destekler.
+Evet. Bir hücrenin metin çerçevesi, bağımsız biçimlendirmeye sahip [portions](https://reference.aspose.com/slides/java/com.aspose.slides/portion/) (run'lar) - yazı tipi ailesi, stil, boyut ve renk - destekler.

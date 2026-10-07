@@ -1,5 +1,5 @@
 ---
-title: Gerenciar células de tabela em apresentações no .NET
+title: Gerenciar Células de Tabela em Apresentações no .NET
 linktitle: Gerenciar Células
 type: docs
 weight: 30
@@ -16,330 +16,230 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Gerencie facilmente células de tabela no PowerPoint com Aspose.Slides para .NET. Domine o acesso, a modificação e a estilização de células rapidamente para automação de slides perfeita."
+description: "Gerencie células de tabelas do PowerPoint em C#: identifique células mescladas, remova bordas, divida células e defina cores de fundo e imagens com Aspose.Slides para .NET."
 ---
 ## **Visão geral**
 
-Aspose.Slides permite que você acesse e modifique células de tabela em apresentações do PowerPoint. Este artigo explica como identificar células de tabela mescladas, remover bordas de células, trabalhar com a numeração de células após mesclar ou dividir células, alterar a cor de fundo de uma célula e adicionar uma imagem dentro de uma célula de tabela. Os exemplos mostram como criar ou abrir uma apresentação, obter uma tabela de um slide, atualizar a formatação da célula por meio das propriedades da célula e salvar a apresentação modificada como um arquivo PPTX.
+Aspose.Slides permite acessar e modificar células de tabela em apresentações do PowerPoint. Este artigo explica como identificar células de tabela mescladas, remover bordas de células, trabalhar com a numeração de células após mesclar ou dividir células, alterar a cor de fundo de uma célula e adicionar uma imagem dentro de uma célula de tabela. Os exemplos mostram como criar ou abrir uma apresentação, obter uma tabela de um slide, atualizar a formatação da célula através das propriedades da célula e salvar a apresentação modificada como um arquivo PPTX.
+
+Aspose.Slides usa índices baseados em zero para acessar células de tabela na ordem `(column, row)`.
 
 ## **Identificar uma Célula de Tabela Mesclada**
 
-1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/net/aspose.slides/presentation).
-2. Obtenha a tabela do primeiro slide.
-3. Itere pelas linhas e colunas da tabela para encontrar células mescladas.
-4. Imprima uma mensagem quando células mescladas forem encontradas.
+O exemplo abre uma apresentação existente e acessa a primeira forma no primeiro slide como uma tabela. Ele assume que o slide e a forma existem e que a forma é uma tabela. Em seguida, itera por todas as linhas e colunas e usa [IsMergedCell](https://reference.aspose.com/slides/net/aspose.slides/icell/ismergedcell/) para identificar células em regiões mescladas. Para cada correspondência, ele imprime as coordenadas da célula na ordem `row;column`, [RowSpan](https://reference.aspose.com/slides/net/aspose.slides/icell/rowspan/), [ColSpan](https://reference.aspose.com/slides/net/aspose.slides/icell/colspan/), e as coordenadas iniciais da região, [FirstRowIndex](https://reference.aspose.com/slides/net/aspose.slides/icell/firstrowindex/) e [FirstColumnIndex](https://reference.aspose.com/slides/net/aspose.slides/icell/firstcolumnindex/).
 
-Este código C# mostra como identificar células de tabela mescladas em uma apresentação:
+```csharp
+using System;
+using Aspose.Slides;
 
-```c#
-using (Presentation pres = new Presentation("SomePresentationWithTable.pptx"))
+using var presentation = new Presentation("presentation_with_table.pptx");
+var slide = presentation.Slides[0];
+var table = (ITable) slide.Shapes[0];
+
+var rowCount = table.Rows.Count;
+for (var rowIndex = 0; rowIndex < rowCount; rowIndex++)
 {
-    ITable table = pres.Slides[0].Shapes[0] as ITable; // assumindo que Slide#0.Shape#0 é uma tabela
-    for (int i = 0; i < table.Rows.Count; i++)
+    var columnCount = table.Columns.Count;
+    for (var columnIndex = 0; columnIndex < columnCount; columnIndex++)
     {
-        for (int j = 0; j < table.Columns.Count; j++)
+        var cell = table[columnIndex, rowIndex];
+        if (cell.IsMergedCell)
         {
-            ICell currentCell = table.Rows[i][j];
-            if (currentCell.IsMergedCell)
-            {
-                Console.WriteLine(string.Format("Cell {0};{1} is a part of merged cell with RowSpan={2} and ColSpan={3} starting from Cell {4};{5}.",
-                                  i, j, currentCell.RowSpan, currentCell.ColSpan, currentCell.FirstRowIndex, currentCell.FirstColumnIndex));
-
-
-            }
+            Console.WriteLine($"Cell {rowIndex};{columnIndex} belongs to a merged region with RowSpan={cell.RowSpan} and ColSpan={cell.ColSpan} starting at {cell.FirstRowIndex};{cell.FirstColumnIndex}.");
         }
     }
 }
 ```
 
-## **Remover Bordas de Células da Tabela**
+## **Remover Bordas de Célula de Tabela**
 
-1. Crie uma instância da classe `Presentation`.
-2. Obtenha a referência de um slide através de seu índice.
-3. Defina um array de colunas com largura.
-4. Defina um array de linhas com altura.
-5. Adicione uma tabela ao slide usando o método `AddTable`.
-6. Itere por cada célula para limpar as bordas superior, inferior, direita e esquerda.
-7. Salve a apresentação modificada como um arquivo PPTX.
+Crie uma [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) e adicione uma tabela ao seu primeiro slide com [AddTable](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addtable/). As larguras das colunas, as alturas das linhas e a posição da tabela são especificadas em pontos. O exemplo define todas as quatro bordas da célula como [FillType.NoFill](https://reference.aspose.com/slides/net/aspose.slides/filltype/), tornando-as invisíveis.
 
-Este código C# mostra como remover as bordas das células da tabela:
+```csharp
+using Aspose.Slides;
 
-```c#
-// Instancia a classe Presentation que representa um arquivo PPTX
-using (Presentation pres = new Presentation())
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+double[] columnWidths = { 50, 50, 50, 50 };
+double[] rowHeights = { 50, 30, 30, 30, 30 };
+var table = slide.Shapes.AddTable(100, 50, columnWidths, rowHeights);
+
+foreach (var row in table.Rows)
+    foreach (var cell in row)
+    {
+        cell.CellFormat.BorderTop.FillFormat.FillType = FillType.NoFill;
+        cell.CellFormat.BorderBottom.FillFormat.FillType = FillType.NoFill;
+        cell.CellFormat.BorderLeft.FillFormat.FillType = FillType.NoFill;
+        cell.CellFormat.BorderRight.FillFormat.FillType = FillType.NoFill;
+    }
+
+presentation.Save("table.pptx", SaveFormat.Pptx);
+```
+
+## **Mesclar Células de Tabela**
+
+Use [MergeCells](https://reference.aspose.com/slides/net/aspose.slides/itable/mergecells/) para combinar um intervalo retangular de células de tabela em uma única célula. Especifique as células nos cantos superior esquerdo e inferior direito do intervalo. O argumento final controla se a mesclagem pode incluir células fora do intervalo especificado; `false` mantém a mesclagem dentro desse intervalo.
+
+O exemplo cria uma tabela 4 × 4 com colunas e linhas de 70 pontos, então mescla as quatro células centrais de `(1, 1)` até `(2, 2)`. A célula resultante abrange duas colunas e duas linhas, enquanto a grade subjacente da tabela mantém quatro colunas e quatro linhas. Para acessar o conteúdo ou a formatação da célula mesclada, use sua posição superior esquerda: `table[1, 1]` neste exemplo. As demais posições no intervalo mesclado permanecem parte da grade da tabela, portanto os índices das células fora do intervalo não mudam.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+double[] columnWidths = { 70, 70, 70, 70 };
+double[] rowHeights = { 70, 70, 70, 70 };
+var table = slide.Shapes.AddTable(100, 50, columnWidths, rowHeights);
+
+table.MergeCells(table[1, 1], table[2, 2], false);
+
+presentation.Save("merged_cells.pptx", SaveFormat.Pptx);
+```
+
+## **Dividir Células de Tabela**
+
+Mesclar células no exemplo anterior preserva a grade da tabela. Dividir uma célula pode introduzir uma nova coluna na grade e alterar os índices de coluna das células à sua direita. Aspose.Slides segue o modelo de grade de tabelas do PowerPoint.
+
+Este exemplo cria uma tabela 4 × 4 com colunas e linhas de 70 pontos e chama [SplitByWidth](https://reference.aspose.com/slides/net/aspose.slides/icell/splitbywidth/) na célula `(1, 1)`. Metade da largura de 70 pontos da célula é passada para criar duas células de largura igual.
+
+Após essa divisão, as duas metades são acessadas como `table[1, 1]` e `table[2, 1]`. A grade da tabela agora tem cinco colunas: as células originalmente nas colunas 2 e 3 movem‑se para as colunas 3 e 4, respectivamente. Os índices de linha permanecem inalterados. Use esses índices de coluna atualizados ao acessar células após a divisão.
+
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+double[] columnWidths = { 70, 70, 70, 70 };
+double[] rowHeights = { 70, 70, 70, 70 };
+var table = slide.Shapes.AddTable(100, 50, columnWidths, rowHeights);
+
+table[1, 1].SplitByWidth(table[1, 1].Width / 2);
+
+presentation.Save("split_cells.pptx", SaveFormat.Pptx);
+```
+
+### **Dividir Células Mescladas por Alcance de Linha ou Coluna**
+
+Para preparar células de modelo mescladas para preenchimento de dados, use [SplitByRowSpan](https://reference.aspose.com/slides/net/aspose.slides/icell/splitbyrowspan/) para dividir ao longo de um limite de linha existente, ou [SplitByColSpan](https://reference.aspose.com/slides/net/aspose.slides/icell/splitbycolspan/) para dividir ao longo de um limite de coluna.
+
+O argumento `index` conta linhas na parte superior ou colunas na parte esquerda da divisão; ele é relativo à região mesclada:
+
+- Divisão de linha: `0 < index <` [RowSpan](https://reference.aspose.com/slides/net/aspose.slides/icell/rowspan/).
+- Divisão de coluna: `0 < index <` [ColSpan](https://reference.aspose.com/slides/net/aspose.slides/icell/colspan/).
+
+O exemplo pressupõe que uma apresentação tenha uma tabela como a primeira forma no primeiro slide, com `(1, 2)` e `(1, 3)` mesclados verticalmente. Começando a partir da posição inferior, ele usa [FirstColumnIndex](https://reference.aspose.com/slides/net/aspose.slides/icell/firstcolumnindex/) e [FirstRowIndex](https://reference.aspose.com/slides/net/aspose.slides/icell/firstrowindex/) para localizar a origem e verifica ambos os alcances. `SplitByRowSpan(1)` então separa as linhas 2 e 3 para nomes de produtos. Para uma mesclagem horizontal de duas colunas, use `SplitByColSpan(1)` em vez disso.
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("table_template.pptx");
+var slide = presentation.Slides[0];
+var table = (ITable) slide.Shapes[0];
+
+var selectedCell = table[1, 3];
+var firstColumnIndex = selectedCell.FirstColumnIndex;
+var firstRowIndex = selectedCell.FirstRowIndex;
+var mergedCell = table[firstColumnIndex, firstRowIndex];
+
+if (mergedCell.IsMergedCell && mergedCell.RowSpan == 2 && mergedCell.ColSpan == 1)
 {
-   // Acessa o primeiro slide
-    Slide sld = (Slide)pres.Slides[0];
+    mergedCell.SplitByRowSpan(1);
 
-    // Define colunas com larguras e linhas com alturas
-    double[] dblCols = { 50, 50, 50, 50 };
-    double[] dblRows = { 50, 30, 30, 30, 30 };
+    // Recupere as células resultantes da tabela após a divisão.
+    var upperCell = table[firstColumnIndex, firstRowIndex];
+    var lowerCell = table[firstColumnIndex, firstRowIndex + 1];
+    Console.WriteLine($"Upper cell merged: {upperCell.IsMergedCell}");
+    Console.WriteLine($"Lower cell merged: {lowerCell.IsMergedCell}");
 
-    // Adiciona a forma de tabela ao slide
-    ITable tbl = sld.Shapes.AddTable(100, 50, dblCols, dblRows);
+    upperCell.TextFrame.Text = "Product A";
+    lowerCell.TextFrame.Text = "Product B";
 
-    // Define o formato da borda para cada célula
-    foreach (IRow row in tbl.Rows)
-        foreach (ICell cell in row)
-        {
-            cell.CellFormat.BorderTop.FillFormat.FillType = FillType.NoFill;
-            cell.CellFormat.BorderBottom.FillFormat.FillType = FillType.NoFill;
-            cell.CellFormat.BorderLeft.FillFormat.FillType = FillType.NoFill;
-            cell.CellFormat.BorderRight.FillFormat.FillType = FillType.NoFill;
-        }
-
-    // Grava o arquivo PPTX no disco
-    pres.Save("table_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
+    presentation.Save("split_template.pptx", SaveFormat.Pptx);
+}
+else
+{
+    Console.WriteLine("Select a merged region spanning exactly two rows and one column.");
 }
 ```
 
-## **Numeração em Células Mescladas**
+A grade da tabela e os índices das células circundantes permanecem inalterados. Recupere as células resultantes por suas coordenadas; aqui, ambas têm alcance 1 e [IsMergedCell](https://reference.aspose.com/slides/net/aspose.slides/icell/ismergedcell/) imprime `False`. Regiões maiores podem permanecer parcialmente mescladas após uma divisão.
 
-Se mesclarmos 2 pares de células (1, 1) x (2, 1) e (1, 2) x (2, 2), a tabela resultante será numerada. Este código C# demonstra o processo:
+O texto original e sua formatação permanecem na célula superior (ou esquerda); a nova célula fica vazia, porém herda a formatação da célula, como preenchimento, bordas e margens. Popule as células após a divisão e defina explicitamente qualquer formatação de texto necessária.
 
-```c#
-    // Instancia a classe Presentation que representa um arquivo PPTX
-    using (Presentation presentation = new Presentation())
-    {
-        // Acessa o primeiro slide
-        ISlide sld = presentation.Slides[0];
-
-        // Define colunas com larguras e linhas com alturas
-        double[] dblCols = { 70, 70, 70, 70 };
-        double[] dblRows = { 70, 70, 70, 70 };
-
-        // Adiciona uma forma de tabela ao slide
-        ITable tbl = sld.Shapes.AddTable(100, 50, dblCols, dblRows);
-
-        // Define o formato da borda para cada célula
-        foreach (IRow row in tbl.Rows)
-        {
-            foreach (ICell cell in row)
-            {
-                cell.CellFormat.BorderTop.FillFormat.FillType = FillType.Solid;
-                cell.CellFormat.BorderTop.FillFormat.SolidFillColor.Color = Color.Red;
-                cell.CellFormat.BorderTop.Width = 5;
-
-                cell.CellFormat.BorderBottom.FillFormat.FillType = FillType.Solid;
-                cell.CellFormat.BorderBottom.FillFormat.SolidFillColor.Color = Color.Red;
-                cell.CellFormat.BorderBottom.Width = 5;
-
-                cell.CellFormat.BorderLeft.FillFormat.FillType = FillType.Solid;
-                cell.CellFormat.BorderLeft.FillFormat.SolidFillColor.Color = Color.Red;
-                cell.CellFormat.BorderLeft.Width = 5;
-
-                cell.CellFormat.BorderRight.FillFormat.FillType = FillType.Solid;
-                cell.CellFormat.BorderRight.FillFormat.SolidFillColor.Color = Color.Red;
-                cell.CellFormat.BorderRight.Width = 5;
-            }
-        }
-
-        // Mescla células (1, 1) x (2, 1)
-        tbl.MergeCells(tbl[1, 1], tbl[2, 1], false);
-
-        // Mescla células (1, 2) x (2, 2)
-        tbl.MergeCells(tbl[1, 2], tbl[2, 2], false);
-
-        presentation.Save("MergeCells_out.pptx", SaveFormat.Pptx);
-    }
-```
-
-Em seguida, mesclamos ainda mais as células, mesclando (1, 1) e (1, 2). O resultado é uma tabela contendo uma grande célula mesclada em seu centro:
-
-```c#
-// Instancia a classe Presentation que representa um arquivo PPTX
-using (Presentation presentation = new Presentation())
-{
-    // Acessa o primeiro slide
-    ISlide slide = presentation.Slides[0];
-
-    // Define colunas com larguras e linhas com alturas
-    double[] dblCols = { 70, 70, 70, 70 };
-    double[] dblRows = { 70, 70, 70, 70 };
-
-    // Adiciona uma forma de tabela ao slide
-    ITable table = slide.Shapes.AddTable(100, 50, dblCols, dblRows);
-
-    // Define o formato da borda para cada célula
-    foreach (IRow row in table.Rows)
-    {
-        foreach (ICell cell in row)
-        {
-            cell.CellFormat.BorderTop.FillFormat.FillType = FillType.Solid;
-            cell.CellFormat.BorderTop.FillFormat.SolidFillColor.Color = Color.Red;
-            cell.CellFormat.BorderTop.Width = 5;
-
-            cell.CellFormat.BorderBottom.FillFormat.FillType = FillType.Solid;
-            cell.CellFormat.BorderBottom.FillFormat.SolidFillColor.Color = Color.Red;
-            cell.CellFormat.BorderBottom.Width = 5;
-
-            cell.CellFormat.BorderLeft.FillFormat.FillType = FillType.Solid;
-            cell.CellFormat.BorderLeft.FillFormat.SolidFillColor.Color = Color.Red;
-            cell.CellFormat.BorderLeft.Width = 5;
-
-            cell.CellFormat.BorderRight.FillFormat.FillType = FillType.Solid;
-            cell.CellFormat.BorderRight.FillFormat.SolidFillColor.Color = Color.Red;
-            cell.CellFormat.BorderRight.Width = 5;
-
-        }
-    }
-
-    // Mescla células (1, 1) x (2, 1)
-    table.MergeCells(table[1, 1], table[2, 1], false);
-
-    // Mescla células (1, 2) x (2, 2)
-    table.MergeCells(table[1, 2], table[2, 2], false);
-
-    // Mescla células (1, 2) x (2, 2)
-    table.MergeCells(table[1, 1], table[1, 2], true);
-
-    // Grava o arquivo PPTX no disco
-    presentation.Save("MergeCells1_out.pptx", SaveFormat.Pptx);
-}
-```
-
-## **Numeração em uma Célula Dividida**
-
-Nos exemplos anteriores, quando as células da tabela eram mescladas, a numeração nas outras células não mudava.
-
-Desta vez, usamos uma tabela regular (uma tabela sem células mescladas) e então tentamos dividir a célula (1,1) para obter uma tabela especial. Você pode querer prestar atenção à numeração desta tabela, que pode parecer estranha. No entanto, essa é a forma como o Microsoft PowerPoint numera as células da tabela e o Aspose.Slides faz o mesmo.
-
-Este código C# demonstra o processo descrito:
-
-```c#
-// Instancia a classe Presentation que representa um arquivo PPTX
-using (Presentation presentation = new Presentation())
-{
-    // Acessa o primeiro slide
-    ISlide slide = presentation.Slides[0];
-
-    // Define colunas com larguras e linhas com alturas
-    double[] dblCols = { 70, 70, 70, 70 };
-    double[] dblRows = { 70, 70, 70, 70 };
-
-    // Adiciona uma forma de tabela ao slide
-    ITable table = slide.Shapes.AddTable(100, 50, dblCols, dblRows);
-
-    // Define o formato da borda para cada célula
-    foreach (IRow row in table.Rows)
-    {
-        foreach (ICell cell in row)
-        {
-            cell.CellFormat.BorderTop.FillFormat.FillType = FillType.Solid;
-            cell.CellFormat.BorderTop.FillFormat.SolidFillColor.Color = Color.Red;
-            cell.CellFormat.BorderTop.Width = 5;
-
-            cell.CellFormat.BorderBottom.FillFormat.FillType = FillType.Solid;
-            cell.CellFormat.BorderBottom.FillFormat.SolidFillColor.Color = Color.Red;
-            cell.CellFormat.BorderBottom.Width = 5;
-
-            cell.CellFormat.BorderLeft.FillFormat.FillType = FillType.Solid;
-            cell.CellFormat.BorderLeft.FillFormat.SolidFillColor.Color = Color.Red;
-            cell.CellFormat.BorderLeft.Width = 5;
-
-            cell.CellFormat.BorderRight.FillFormat.FillType = FillType.Solid;
-            cell.CellFormat.BorderRight.FillFormat.SolidFillColor.Color = Color.Red;
-            cell.CellFormat.BorderRight.Width = 5;
-
-        }
-    }
-
-    // Mescla células (1, 1) x (2, 1)
-    table.MergeCells(table[1, 1], table[2, 1], false);
-
-    // Mescla células (1, 2) x (2, 2)
-    table.MergeCells(table[1, 2], table[2, 2], false);
-
-    // Divide a célula (1, 1).
-    table[1, 1].SplitByWidth(table[2, 1].Width / 2);
-
-    // Grava o arquivo PPTX no disco
-    presentation.Save("CellSplit_out.pptx", SaveFormat.Pptx);
-}
-```
+A apresentação salva contém células separadas “Product A” e “Product B” com a formatação de célula do modelo mantida. Consulte a [Cell API Reference](https://reference.aspose.com/slides/net/aspose.slides/cell/) para obter detalhes.
 
 ## **Alterar a Cor de Fundo da Célula da Tabela**
 
-Este código C# mostra como alterar a cor de fundo de uma célula de tabela:
+Este exemplo cria uma tabela com colunas de 150 pontos e linhas de 50 pontos. Ele define [FillType](https://reference.aspose.com/slides/net/aspose.slides/ifillformat/filltype/) como sólido e [SolidFillColor](https://reference.aspose.com/slides/net/aspose.slides/ifillformat/solidfillcolor/) como vermelho para a célula `(2, 3)`, na terceira coluna e quarta linha.
 
-```c#
-using (Presentation presentation = new Presentation())
-{
-    ISlide slide = presentation.Slides[0];
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-    double[] dblCols = { 150, 150, 150, 150 };
-    double[] dblRows = { 50, 50, 50, 50, 50 };
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    // cria uma nova tabela
-    ITable table = slide.Shapes.AddTable(50, 50, dblCols, dblRows);
+double[] columnWidths = { 150, 150, 150, 150 };
+double[] rowHeights = { 50, 50, 50, 50, 50 };
+var table = slide.Shapes.AddTable(50, 50, columnWidths, rowHeights);
 
-    // define a cor de fundo para uma célula 
-    ICell cell = table[2, 3];
-    cell.CellFormat.FillFormat.FillType = FillType.Solid;
-    cell.CellFormat.FillFormat.SolidFillColor.Color = Color.Red;
+var cell = table[2, 3];
+cell.CellFormat.FillFormat.FillType = FillType.Solid;
+cell.CellFormat.FillFormat.SolidFillColor.Color = Color.Red;
 
-    presentation.Save("cell_background_color.pptx", SaveFormat.Pptx);
-}
+presentation.Save("cell_background_color.pptx", SaveFormat.Pptx);
 ```
 
 ## **Adicionar uma Imagem Dentro de uma Célula de Tabela**
 
-1. Crie uma instância da classe `Presentation`.
-2. Obtenha a referência de um slide através de seu índice.
-3. Defina um array de colunas com largura.
-4. Defina um array de linhas com altura.
-5. Adicione uma tabela ao slide usando o método `AddTable`.
-6. Crie um objeto `Bitmap` para armazenar o arquivo de imagem.
-7. Adicione a imagem bitmap ao objeto `IPPImage`.
-8. Defina o `FillFormat` da Célula da Tabela como `Picture`.
-9. Adicione a imagem à primeira célula da tabela.
-10. Salve a apresentação modificada como um arquivo PPTX
+Coloque a imagem de entrada no diretório de trabalho antes de executar este exemplo. Ele carrega a imagem com [Images.FromFile](https://reference.aspose.com/slides/net/aspose.slides/images/fromfile/) e a adiciona à coleção de imagens da apresentação com [AddImage](https://reference.aspose.com/slides/net/aspose.slides/iimagecollection/addimage/). Em seguida, atribui a imagem ao preenchimento de imagem da célula `(0, 0)`, a primeira célula da tabela.
 
-Este código C# mostra como colocar uma imagem dentro de uma célula de tabela ao criar uma tabela:
+[PictureFillMode.Stretch](https://reference.aspose.com/slides/net/aspose.slides/picturefillmode/) estica a imagem para preencher a célula, o que pode alterar sua proporção. As larguras das colunas e as alturas das linhas são em pontos. A imagem carregada é descartada automaticamente pela sua declaração using.
 
-```c#
- // Instancia a classe Presentation que representa um arquivo PPTX
-using (Presentation presentation = new Presentation())
-{
-    // Acessa o primeiro slide
-    ISlide slide = presentation.Slides[0];
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-    // Define colunas com larguras e linhas com alturas
-    double[] dblCols = { 150, 150, 150, 150 };
-    double[] dblRows = { 100, 100, 100, 100, 90 };
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    // Adiciona uma forma de tabela ao slide
-    ITable table = slide.Shapes.AddTable(50, 50, dblCols, dblRows);
+double[] columnWidths = { 150, 150, 150, 150 };
+double[] rowHeights = { 100, 100, 100, 100, 90 };
+var table = slide.Shapes.AddTable(50, 50, columnWidths, rowHeights);
 
-    // Carrega uma imagem de um arquivo e a adiciona aos recursos da apresentação
-    IImage image = Images.FromFile("aspose-logo.jpg");
-    IPPImage ppImage = presentation.Images.AddImage(image);
-    image.Dispose();
+using var image = Images.FromFile("aspose_logo.jpg");
+var ppImage = presentation.Images.AddImage(image);
 
-    // Adiciona a imagem à primeira célula da tabela
-    table[0, 0].CellFormat.FillFormat.FillType = FillType.Picture;
-    table[0, 0].CellFormat.FillFormat.PictureFillFormat.PictureFillMode = PictureFillMode.Stretch;
-    table[0, 0].CellFormat.FillFormat.PictureFillFormat.Picture.Image = ppImage;
+table[0, 0].CellFormat.FillFormat.FillType = FillType.Picture;
+table[0, 0].CellFormat.FillFormat.PictureFillFormat.PictureFillMode = PictureFillMode.Stretch;
+table[0, 0].CellFormat.FillFormat.PictureFillFormat.Picture.Image = ppImage;
 
-    // Salva o arquivo PPTX no disco
-    presentation.Save("Image_In_TableCell_out.pptx", SaveFormat.Pptx);
-}
+presentation.Save("table_cell_with_image.pptx", SaveFormat.Pptx);
 ```
 
-## **FAQ**
+## **Perguntas Frequentes**
 
-**Posso definir diferentes espessuras e estilos de linha para os diferentes lados de uma única célula?**
+**Posso definir diferentes espessuras e estilos de linha para diferentes lados de uma única célula?**
 
-Sim. As bordas [superior](https://reference.aspose.com/slides/pt/net/aspose.slides/cellformat/bordertop/)/[inferior](https://reference.aspose.com/slides/pt/net/aspose.slides/cellformat/borderbottom/)/[esquerda](https://reference.aspose.com/slides/pt/net/aspose.slides/cellformat/borderleft/)/[direita](https://reference.aspose.com/slides/pt/net/aspose.slides/cellformat/borderright/) têm propriedades separadas, portanto a espessura e o estilo de cada lado podem ser diferentes. Isso decorre logicamente do controle de borda por lado para uma célula demonstrado no artigo.
+Sim. As bordas [top](https://reference.aspose.com/slides/net/aspose.slides/cellformat/bordertop/)/[bottom](https://reference.aspose.com/slides/net/aspose.slides/cellformat/borderbottom/)/[left](https://reference.aspose.com/slides/net/aspose.slides/cellformat/borderleft/)/[right](https://reference.aspose.com/slides/net/aspose.slides/cellformat/borderright/) têm propriedades separadas, portanto a espessura e o estilo de cada lado podem ser diferentes.
 
-**O que acontece com a imagem se eu alterar o tamanho da coluna/linha depois de definir uma imagem como plano de fundo da célula?**
+**O que acontece com a imagem se eu alterar o tamanho da coluna/linha após definir uma imagem como plano de fundo da célula?**
 
-O comportamento depende do [modo de preenchimento](https://reference.aspose.com/slides/pt/net/aspose.slides/picturefillmode/) (stretch/tile). Com estiramento, a imagem ajusta-se à nova célula; com repetição, os blocos são recalculados. O artigo menciona os modos de exibição da imagem em uma célula.
+O comportamento depende do [fill mode](https://reference.aspose.com/slides/net/aspose.slides/picturefillmode/) (stretch/tile). Com estiramento, a imagem se ajusta à nova célula; com mosaico, os mosaicos são recalculados.
 
-**Posso atribuir um hiperlink a todo o conteúdo de uma célula?**
+**Posso atribuir um hyperlink a todo o conteúdo de uma célula?**
 
 [Hyperlinks](/slides/pt/net/manage-hyperlinks/) são definidos no nível do texto (porção) dentro da caixa de texto da célula ou no nível de toda a tabela/forma. Na prática, você atribui o link a uma porção ou a todo o texto da célula.
 
 **Posso definir fontes diferentes dentro de uma única célula?**
 
-Sim. A caixa de texto de uma célula suporta [porções](https://reference.aspose.com/slides/pt/net/aspose.slides/portion/) (runs) com formatação independente — família da fonte, estilo, tamanho e cor.
+Sim. A caixa de texto de uma célula suporta [portions](https://reference.aspose.com/slides/net/aspose.slides/portion/) (execuções) com formatação independente—família da fonte, estilo, tamanho e cor.

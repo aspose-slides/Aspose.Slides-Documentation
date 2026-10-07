@@ -1,316 +1,279 @@
 ---
-title: إدارة خلايا الجدول في العروض التقديمية باستخدام PHP
+title: إدارة خلايا الجداول في العروض التقديمية باستخدام PHP
 linktitle: إدارة الخلايا
 type: docs
 weight: 30
 url: /ar/php-java/manage-cells/
 keywords:
 - خلية جدول
-- دمج خلايا
-- إزالة الحد
-- تقسيم خلية
-- صورة داخل خلية
+- دمج الخلايا
+- إزالة الحدود
+- تقسيم الخلية
+- صورة في الخلية
 - لون الخلفية
 - PowerPoint
 - عرض تقديمي
 - PHP
 - Aspose.Slides
-description: "إدارة خلايا الجدول في PowerPoint بسهولة باستخدام Aspose.Slides لـ PHP. اتقن الوصول إلى الخلايا وتعديلها وتنسيقها بسرعة لتحقيق أتمتة سلسة للشرائح."
+description: "إدارة خلايا جداول PowerPoint في PHP: تحديد الخلايا المدمجة، إزالة الحدود، تقسيم الخلايا، وتعيين ألوان الخلفية والصور باستخدام Aspose.Slides لـ PHP عبر Java."
 ---
+## **نظرة عامة**
 
-## **Identify a Merged Table Cell**
-1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) .
-2. الحصول على الجدول من الشريحة الأولى. 
-3. التكرار عبر صفوف وأعمدة الجدول للعثور على الخلايا المدمجة.
-4. طباعة رسالة عندما يتم العثور على خلايا مدمجة.
+Aspose.Slides يتيح لك الوصول إلى خلايا الجداول وتعديلها في عروض PowerPoint. توضح هذه المقالة كيفية تحديد خلايا الجداول المدمجة، إزالة حدود الخلية، العمل مع ترقيم الخلايا بعد دمجها أو تقسيمها، تغيير لون خلفية الخلية، وإضافة صورة داخل خلية جدول. تظهر الأمثلة كيفية إنشاء أو فتح عرض تقديمي، الحصول على جدول من شريحة، تحديث تنسيق الخلية عبر خصائص الخلية، وحفظ العرض المعدل كملف PPTX.
 
-يعرض لك هذا الكود PHP كيفية تحديد الخلايا المدمجة في جدول داخل عرض تقديمي:
+Aspose.Slides يستخدم مؤشرات صفرية للوصول إلى خلايا الجداول بالترتيب `(column, row)`.
+
+## **تحديد خلية جدول مدمجة**
+
+يفتح المثال عرضًا تقديميًا موجودًا ويصل إلى الشكل الأول في الشريحة الأولى كجدول. يفترض أن الشريحة والشكل موجودان وأن الشكل هو جدول. ثم يتنقل عبر جميع الصفوف والأعمدة ويستخدم [isMergedCell](https://reference.aspose.com/slides/php-java/aspose.slides/cell/ismergedcell/) لتحديد الخلايا في المناطق المدمجة. لكل تطابق، يطبع إحداثيات الخلية بالترتيب `row;column`، [getRowSpan](https://reference.aspose.com/slides/php-java/aspose.slides/cell/getrowspan/)، [getColSpan](https://reference.aspose.com/slides/php-java/aspose.slides/cell/getcolspan/)، وإحداثيات بداية المنطقة، [getFirstRowIndex](https://reference.aspose.com/slides/php-java/aspose.slides/cell/getfirstrowindex/) و[getFirstColumnIndex](https://reference.aspose.com/slides/php-java/aspose.slides/cell/getfirstcolumnindex/).
+
 ```php
-  $pres = new Presentation("SomePresentationWithTable.pptx");
-  try {
-    $table = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0);// افتراض أن الشريحة#0.الشكل#0 هو جدول
+use aspose\slides\Presentation;
 
-    for($i = 0; $i < java_values($table->getRows()->size()) ; $i++) {
-      for($j = 0; $j < java_values($table->getColumns()->size()) ; $j++) {
-        $currentCell = $table->getRows()->get_Item($i)->get_Item($j);
-        if ($currentCell->isMergedCell()) {
-          echo(sprintf("Cell %d;%d is a part of merged cell with RowSpan=%d and ColSpan=%d starting from Cell %d;%d.", $i, $j, $currentCell->getRowSpan(), $currentCell->getColSpan(), $currentCell->getFirstRowIndex(), $currentCell->getFirstColumnIndex()));
-        }
-      }
-    }
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-
-## **Remove Table Cell Borders**
-1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) .
-2. الحصول على مرجع الشريحة من خلال فهرستها. 
-3. تحديد مصفوفة من الأعمدة مع العرض.
-4. تحديد مصفوفة من الصفوف مع الارتفاع.
-5. إضافة جدول إلى الشريحة عبر طريقة [addTable](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#addTable) .
-6. التكرار عبر كل خلية لإزالة الحدود العلوية والسفلية واليمين واليسار.
-7. حفظ العرض التقديمي المعدل كملف PPTX.
-
-يعرض لك هذا الكود PHP كيفية إزالة الحدود من خلايا الجدول:
-```php
-  # ينشئ فئة Presentation التي تمثل ملف PPTX
-  $pres = new Presentation();
-  try {
-    # يصل إلى الشريحة الأولى
-    $sld = $pres->getSlides()->get_Item(0);
-    # يعرّف الأعمدة بعروضها والصفوف بارتفاعها
-    $dblCols = array(50, 50, 50, 50 );
-    $dblRows = array(50, 30, 30, 30, 30 );
-    # يضيف شكل جدول إلى الشريحة
-    $tbl = $sld->getShapes()->addTable(100, 50, $dblCols, $dblRows);
-    # يحدد تنسيق الحدود لكل خلية
-    foreach($tbl->getRows() as $row) {
-      foreach($row as $cell) {
-        $cell->getCellFormat()->getBorderTop()->getFillFormat()->setFillType(FillType::NoFill);
-        $cell->getCellFormat()->getBorderBottom()->getFillFormat()->setFillType(FillType::NoFill);
-        $cell->getCellFormat()->getBorderLeft()->getFillFormat()->setFillType(FillType::NoFill);
-        $cell->getCellFormat()->getBorderRight()->getFillFormat()->setFillType(FillType::NoFill);
-      }
-    }
-    # يكتب ملف PPTX إلى القرص
-    $pres->save("table_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-
-## **Numbering in Merged Cells**
-إذا دمجنا زوجين من الخلايا (1, 1) × (2, 1) و(1, 2) × (2, 2)، سيتم ترقيم الجدول الناتج. يوضح لك هذا الكود PHP العملية:
-```php
-  # ينشئ فئة Presentation التي تمثل ملف PPTX
-  $pres = new Presentation();
-  try {
-    # يصل إلى الشريحة الأولى
-    $sld = $pres->getSlides()->get_Item(0);
-    # يعرّف الأعمدة بعروضها والصفوف بارتفاعها
-    $dblCols = array(70, 70, 70, 70 );
-    $dblRows = array(70, 70, 70, 70 );
-    # يضيف شكل جدول إلى الشريحة
-    $tbl = $sld->getShapes()->addTable(100, 50, $dblCols, $dblRows);
-    # يحدد تنسيق الحدود لكل خلية
-    foreach($tbl->getRows() as $row) {
-      foreach($row as $cell) {
-        $cell->getCellFormat()->getBorderTop()->getFillFormat()->setFillType(FillType::Solid);
-        $cell->getCellFormat()->getBorderTop()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-        $cell->getCellFormat()->getBorderTop()->setWidth(5);
-        $cell->getCellFormat()->getBorderBottom()->getFillFormat()->setFillType(FillType::Solid);
-        $cell->getCellFormat()->getBorderBottom()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-        $cell->getCellFormat()->getBorderBottom()->setWidth(5);
-        $cell->getCellFormat()->getBorderLeft()->getFillFormat()->setFillType(FillType::Solid);
-        $cell->getCellFormat()->getBorderLeft()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-        $cell->getCellFormat()->getBorderLeft()->setWidth(5);
-        $cell->getCellFormat()->getBorderRight()->getFillFormat()->setFillType(FillType::Solid);
-        $cell->getCellFormat()->getBorderRight()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-        $cell->getCellFormat()->getBorderRight()->setWidth(5);
-      }
-    }
-    # دمج الخلايا (1, 1) × (2, 1)
-    $tbl->mergeCells($tbl->get_Item(1, 1), $tbl->get_Item(2, 1), false);
-    # دمج الخلايا (1, 2) × (2, 2)
-    $tbl->mergeCells($tbl->get_Item(1, 2), $tbl->get_Item(2, 2), false);
-    $pres->save("MergeCells_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-
-ثم نقوم بدمج الخلايا أكثر بدمج (1, 1) و(1, 2). النتيجة هي جدول يحتوي على خلية مدمجة كبيرة في مركزه: 
-```php
-  # ينشئ فئة Presentation التي تمثل ملف PPTX
-  $pres = new Presentation();
-  try {
-    # يصل إلى الشريحة الأولى
-    $sld = $pres->getSlides()->get_Item(0);
-    # يعرّف الأعمدة بعروضها والصفوف بارتفاعها
-    $dblCols = array(70, 70, 70, 70 );
-    $dblRows = array(70, 70, 70, 70 );
-    # يضيف شكل جدول إلى الشريحة
-    $tbl = $sld->getShapes()->addTable(100, 50, $dblCols, $dblRows);
-    # يضبط تنسيق الحدود لكل خلية
-    foreach($tbl->getRows() as $row) {
-      foreach($row as $cell) {
-        $cell->getCellFormat()->getBorderTop()->getFillFormat()->setFillType(FillType::Solid);
-        $cell->getCellFormat()->getBorderTop()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-        $cell->getCellFormat()->getBorderTop()->setWidth(5);
-        $cell->getCellFormat()->getBorderBottom()->getFillFormat()->setFillType(FillType::Solid);
-        $cell->getCellFormat()->getBorderBottom()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-        $cell->getCellFormat()->getBorderBottom()->setWidth(5);
-        $cell->getCellFormat()->getBorderLeft()->getFillFormat()->setFillType(FillType::Solid);
-        $cell->getCellFormat()->getBorderLeft()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-        $cell->getCellFormat()->getBorderLeft()->setWidth(5);
-        $cell->getCellFormat()->getBorderRight()->getFillFormat()->setFillType(FillType::Solid);
-        $cell->getCellFormat()->getBorderRight()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-        $cell->getCellFormat()->getBorderRight()->setWidth(5);
-      }
-    }
-    # يدمج الخلايا (1, 1) × (2, 1)
-    $tbl->mergeCells($tbl->get_Item(1, 1), $tbl->get_Item(2, 1), false);
-    # يدمج الخلايا (1, 2) × (2, 2)
-    $tbl->mergeCells($tbl->get_Item(1, 2), $tbl->get_Item(2, 2), false);
-    # يدمج الخلايا (1, 1) × (1, 2)
-    $tbl->mergeCells($tbl->get_Item(1, 1), $tbl->get_Item(1, 2), true);
-    # يكتب ملف PPTX إلى القرص
-    $pres->save("MergeCells_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-
-## **Numbering in a Splitted Cell**
-في الأمثلة السابقة، عندما تم دمج خلايا الجدول، لم يتغير نظام الترقيم أو الأرقام في الخلايا الأخرى. 
-
-هذه المرة، نأخذ جدولًا عاديًا (جدول بدون خلايا مدمجة) ثم نحاول تقسيم الخلية (1,1) للحصول على جدول خاص. قد ترغب في الانتباه إلى ترقيم هذا الجدول، الذي قد يُعتبر غريبًا. مع ذلك، هذه هي الطريقة التي يرقم بها Microsoft PowerPoint خلايا الجداول، وتقوم Aspose.Slides بنفس الأمر. 
-
-يوضح لك هذا الكود PHP العملية التي وصفناها:
-```php
-  # ينشئ فئة Presentation التي تمثل ملف PPTX
-  $pres = new Presentation();
-  try {
-    # يصل إلى الشريحة الأولى
-    $sld = $pres->getSlides()->get_Item(0);
-    # يعرّف الأعمدة بعروضها والصفوف بارتفاعها
-    $dblCols = array(70, 70, 70, 70 );
-    $dblRows = array(70, 70, 70, 70 );
-    # يضيف شكل جدول إلى الشريحة
-    $tbl = $sld->getShapes()->addTable(100, 50, $dblCols, $dblRows);
-    # يضبط تنسيق الحدود لكل خلية
-    foreach($tbl->getRows() as $row) {
-      foreach($row as $cell) {
-        $cell->getCellFormat()->getBorderTop()->getFillFormat()->setFillType(FillType::Solid);
-        $cell->getCellFormat()->getBorderTop()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-        $cell->getCellFormat()->getBorderTop()->setWidth(5);
-        $cell->getCellFormat()->getBorderBottom()->getFillFormat()->setFillType(FillType::Solid);
-        $cell->getCellFormat()->getBorderBottom()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-        $cell->getCellFormat()->getBorderBottom()->setWidth(5);
-        $cell->getCellFormat()->getBorderLeft()->getFillFormat()->setFillType(FillType::Solid);
-        $cell->getCellFormat()->getBorderLeft()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-        $cell->getCellFormat()->getBorderLeft()->setWidth(5);
-        $cell->getCellFormat()->getBorderRight()->getFillFormat()->setFillType(FillType::Solid);
-        $cell->getCellFormat()->getBorderRight()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-        $cell->getCellFormat()->getBorderRight()->setWidth(5);
-      }
-    }
-    # يدمج الخلايا (1, 1) x (2, 1)
-    $tbl->mergeCells($tbl->get_Item(1, 1), $tbl->get_Item(2, 1), false);
-    # يدمج الخلايا (1, 2) x (2, 2)
-    $tbl->mergeCells($tbl->get_Item(1, 2), $tbl->get_Item(2, 2), false);
-    # يقسّم الخلية (1, 1)
-    $tbl->get_Item(1, 1)->splitByWidth($tbl->get_Item(2, 1)->getWidth() / 2);
-    # يكتب ملف PPTX إلى القرص
-    $pres->save("SplitCells_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-
-## **Change the Table Cell Background Color**
-يعرض لك هذا الكود PHP كيفية تغيير لون خلفية خلية الجدول:
-```php
-  $presentation = new Presentation();
-  try {
+$presentation = new Presentation("presentation_with_table.pptx");
+try {
     $slide = $presentation->getSlides()->get_Item(0);
-    $dblCols = array(150, 150, 150, 150 );
-    $dblRows = array(50, 50, 50, 50, 50 );
-    # إنشاء جدول جديد
-    $table = $slide->getShapes()->addTable(50, 50, $dblCols, $dblRows);
-    # تعيين لون الخلفية لخلية
+    $table = $slide->getShapes()->get_Item(0);
+
+    $rowCount = java_values($table->getRows()->size());
+    for ($rowIndex = 0; $rowIndex < $rowCount; $rowIndex++)
+    {
+        $columnCount = java_values($table->getColumns()->size());
+        for ($columnIndex = 0; $columnIndex < $columnCount; $columnIndex++)
+        {
+            $cell = $table->get_Item($columnIndex, $rowIndex);
+            if (java_values($cell->isMergedCell()))
+            {
+                printf("Cell %d;%d belongs to a merged region with RowSpan=%d and ColSpan=%d starting at %d;%d.\n", $rowIndex, $columnIndex, java_values($cell->getRowSpan()), java_values($cell->getColSpan()), java_values($cell->getFirstRowIndex()), java_values($cell->getFirstColumnIndex()));
+            }
+        }
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+## **إزالة حدود خلية الجدول**
+
+إنشاء [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) وإضافة جدول إلى شريحته الأولى باستخدام [addTable](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addtable/). تُحدد أعرض الأعمدة، ارتفاعات الصفوف، وموقع الجدول بالنقاط. يضبط المثال جميع الحدود الأربعة للخلية إلى [FillType::NoFill](https://reference.aspose.com/slides/php-java/aspose.slides/filltype/)، مما يجعلها غير مرئية.
+
+```php
+use aspose\slides\FillType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $columnWidths = [ 50, 50, 50, 50 ];
+    $rowHeights = [ 50, 30, 30, 30, 30 ];
+    $table = $slide->getShapes()->addTable(100, 50, $columnWidths, $rowHeights);
+
+    for ($rowIndex = 0; $rowIndex < java_values($table->getRows()->size()); $rowIndex++) {
+        for ($columnIndex = 0; $columnIndex < java_values($table->getColumns()->size()); $columnIndex++) {
+            $cell = $table->get_Item($columnIndex, $rowIndex);
+            $cell->getCellFormat()->getBorderTop()->getFillFormat()->setFillType(FillType::NoFill);
+            $cell->getCellFormat()->getBorderBottom()->getFillFormat()->setFillType(FillType::NoFill);
+            $cell->getCellFormat()->getBorderLeft()->getFillFormat()->setFillType(FillType::NoFill);
+            $cell->getCellFormat()->getBorderRight()->getFillFormat()->setFillType(FillType::NoFill);
+        }
+    }
+
+    $presentation->save("table.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+## **دمج خلايا الجدول**
+
+استخدام [mergeCells](https://reference.aspose.com/slides/php-java/aspose.slides/table/mergecells/) لدمج نطاق مستطيل من خلايا الجدول في خلية واحدة. حدد الخلايا في الزاوية العلوية اليسرى واليمنى السفلية للنطاق. يتحكم الوسيط النهائي فيما إذا كان الدمج قد يشمل خلايا خارج النطاق المحدد؛ `false` يبقي الدمج داخل ذلك النطاق.
+
+ينشئ المثال جدولًا 4×4 بأعمدة وصفوف 70 نقطة، ثم يدمج الأربع خلايا المركزية من `(1, 1)` عبر `(2, 2)`. الخلية الناتجة تمتد عمودين وصفين، بينما يظل شبكة الجدول الأساسية بأربعة أعمدة وأربعة صفوف. للوصول إلى محتوى الخلية المدمجة أو تنسيقها، استخدم موضعها العلوي الأيسر: `$table->get_Item(1, 1)` في هذا المثال. تبقى المواضع الأخرى في النطاق المدمج جزءًا من شبكة الجدول، لذا لا تتغير مؤشرات الخلايا خارج النطاق.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $columnWidths = [ 70, 70, 70, 70 ];
+    $rowHeights = [ 70, 70, 70, 70 ];
+    $table = $slide->getShapes()->addTable(100, 50, $columnWidths, $rowHeights);
+
+    $table->mergeCells($table->get_Item(1, 1), $table->get_Item(2, 2), false);
+
+    $presentation->save("merged_cells.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+## **تقسيم خلايا الجدول**
+
+يحافظ دمج الخلايا في المثال السابق على شبكة الجدول. قد يؤدي تقسيم خلية إلى إدخال عمود شبكة جديد وتغيير مؤشرات الأعمدة للخلايا التي على يمينها. يتبع Aspose.Slides نموذج شبكة جداول PowerPoint.
+
+ينشئ هذا المثال جدولًا 4×4 بأعمدة وصفوف 70 نقطة ويستدعي [splitByWidth](https://reference.aspose.com/slides/php-java/aspose.slides/cell/splitbywidth/) على الخلية `(1, 1)`. يتم تمرير نصف عرض الخلية البالغ 70 نقطة لإنشاء خليتين متساويتين العرض.
+
+بعد هذا التقسيم، يتم الوصول إلى النصفين كـ `$table->get_Item(1, 1)` و`$table->get_Item(2, 1)`. أصبحت شبكة الجدول الآن تحتوي على خمسة أعمدة: تنتقل الخلايا التي كانت في الأعمدة 2 و3 إلى الأعمدة 3 و4 على التوالي. تبقى مؤشرات الصفوف دون تغيير. استخدم هذه المؤشرات المحدثة للأعمدة عند الوصول إلى الخلايا بعد التقسيم.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $columnWidths = [ 70, 70, 70, 70 ];
+    $rowHeights = [ 70, 70, 70, 70 ];
+    $table = $slide->getShapes()->addTable(100, 50, $columnWidths, $rowHeights);
+
+    $table->get_Item(1, 1)->splitByWidth(java_values($table->get_Item(1, 1)->getWidth()) / 2);
+
+    $presentation->save("split_cells.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+### **تقسيم الخلايا المدمجة حسب الصف أو العمود**
+
+لتحضير خلايا القالب المدمجة لتعبئة البيانات، استخدم [splitByRowSpan](https://reference.aspose.com/slides/php-java/aspose.slides/cell/splitbyrowspan/) للتقسيم على طول حد صف موجود، أو [splitByColSpan](https://reference.aspose.com/slides/php-java/aspose.slides/cell/splitbycolspan/) للتقسيم على طول حد عمود.
+
+المعامل `index` يُعد الصفوف في الجزء العلوي أو الأعمدة في الجزء الأيسر من التقسيم؛ وهو نسبي إلى المنطقة المدمجة:
+
+- تقسيم الصف: `0 < index <` [getRowSpan](https://reference.aspose.com/slides/php-java/aspose.slides/cell/getrowspan/).
+- تقسيم العمود: `0 < index <` [getColSpan](https://reference.aspose.com/slides/php-java/aspose.slides/cell/getcolspan/).
+
+يفترض المثال وجود عرض تقديمي يحتوي على جدول كأول شكل في الشريحة الأولى، مع دمج `(1, 2)` و`(1, 3)` عموديًا. بدءًا من الموضع السفلي، يستخدم [getFirstColumnIndex](https://reference.aspose.com/slides/php-java/aspose.slides/cell/getfirstcolumnindex/) و[getFirstRowIndex](https://reference.aspose.com/slides/php-java/aspose.slides/cell/getfirstrowindex/) لتحديد الأصل ويفحص كلا النطاقين. `splitByRowSpan(1)` ثم يفصل الصفين 2 و3 لأسماء المنتجات. لدمج أفقي بعمودين، استخدم `splitByColSpan(1)` بدلاً من ذلك.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("table_template.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $table = $slide->getShapes()->get_Item(0);
+
+    $selectedCell = $table->get_Item(1, 3);
+    $firstColumnIndex = java_values($selectedCell->getFirstColumnIndex());
+    $firstRowIndex = java_values($selectedCell->getFirstRowIndex());
+    $mergedCell = $table->get_Item($firstColumnIndex, $firstRowIndex);
+
+    if (java_values($mergedCell->isMergedCell()) && java_values($mergedCell->getRowSpan()) == 2 && java_values($mergedCell->getColSpan()) == 1)
+    {
+        $mergedCell->splitByRowSpan(1);
+
+        // استرجاع الخلايا الناتجة من الجدول بعد التقسيم.
+        $upperCell = $table->get_Item($firstColumnIndex, $firstRowIndex);
+        $lowerCell = $table->get_Item($firstColumnIndex, $firstRowIndex + 1);
+        echo "Upper cell merged: " . (java_values($upperCell->isMergedCell()) ? "true" : "false") . PHP_EOL;
+        echo "Lower cell merged: " . (java_values($lowerCell->isMergedCell()) ? "true" : "false") . PHP_EOL;
+
+        $upperCell->getTextFrame()->setText("Product A");
+        $lowerCell->getTextFrame()->setText("Product B");
+
+        $presentation->save("split_template.pptx", SaveFormat::Pptx);
+    }
+    else
+    {
+        echo "Select a merged region spanning exactly two rows and one column." . PHP_EOL;
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+تبقى شبكة الجدول ومؤشرات الخلايا المجاورة دون تغيير. استرجع الخلايا الناتجة حسب إحداثياتها؛ هنا، كلاهما يمتلك امتدادات مقدارها 1 و[isMergedCell](https://reference.aspose.com/slides/php-java/aspose.slides/cell/ismergedcell/) يُظهر `false`. يمكن أن تبقى المناطق الأكبر مدمجة جزئيًا بعد تقسيم واحد.
+
+النص الأصلي وتنسيقه يبقى في الخلية العليا (أو اليسرى)؛ الخلية الجديدة تكون فارغة لكنها ترث تنسيق الخلية مثل التعبئة، الحدود، والهوامش. قم بملء الخلايا بعد التقسيم وتعيين أي تنسيق نص مطلوب صراحةً.
+
+العرض المحفوظ يحتوي على خلايا "منتج A" و"منتج B" منفصلة مع الحفاظ على تنسيق خلية القالب. راجع [Cell API Reference](https://reference.aspose.com/slides/php-java/aspose.slides/cell/) للمزيد من التفاصيل.
+
+## **تغيير لون خلفية خلية الجدول**
+
+ينشئ هذا المثال جدولًا بأعمدة 150 نقطة وصفوف 50 نقطة. يستخدم [setFillType](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/setfilltype/) لاختيار تعبئة صلبة ويضبط اللون المرجع من [getSolidFillColor](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/getsolidfillcolor/) إلى الأحمر للخلية `(2, 3)`, في العمود الثالث والصف الرابع.
+
+```php
+use aspose\slides\FillType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $columnWidths = [ 150, 150, 150, 150 ];
+    $rowHeights = [ 50, 50, 50, 50, 50 ];
+    $table = $slide->getShapes()->addTable(50, 50, $columnWidths, $rowHeights);
+
     $cell = $table->get_Item(2, 3);
     $cell->getCellFormat()->getFillFormat()->setFillType(FillType::Solid);
     $cell->getCellFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
+
     $presentation->save("cell_background_color.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($presentation)) {
-      $presentation->dispose();
-    }
-  }
+} finally {
+    $presentation->dispose();
+}
 ```
 
+## **إضافة صورة داخل خلية جدول**
 
-## **Add an Image Inside a Table Cell**
-1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) .
-2. الحصول على مرجع الشريحة من خلال فهرستها.
-3. تحديد مصفوفة من الأعمدة مع العرض.
-4. تحديد مصفوفة من الصفوف مع الارتفاع.
-5. إضافة جدول إلى الشريحة عبر طريقة [AddTable](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#addTable) .
-6. إنشاء كائن `Images` لحفظ ملف الصورة.
-7. إضافة صورة `IImage` إلى كائن `IPPImage`.
-8. تعيين `FillFormat` لخلية الجدول إلى `Picture`.
-9. إضافة الصورة إلى الخلية الأولى في الجدول.
-10. حفظ العرض التقديمي المعدل كملف PPTX
+ضع صورة الإدخال في دليل العمل قبل تشغيل هذا المثال. يقوم بتحميل الصورة باستخدام [Images::fromFile](https://reference.aspose.com/slides/php-java/aspose.slides/images/#fromFile) ويضيفها إلى مجموعة صور العرض باستخدام [addImage](https://reference.aspose.com/slides/php-java/aspose.slides/imagecollection/addimage/). ثم يعين الصورة إلى تعبئة الصورة للخلية `(0, 0)`, الخلية الأولى في الجدول.
 
-يعرض لك هذا الكود PHP كيفية وضع صورة داخل خلية جدول عند إنشاء جدول:
+[PictureFillMode::Stretch](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillmode/) يمد الصورة لملء الخلية، مما قد يغير نسبة أبعادها. أعرض الأعمدة وارتفاعات الصفوف بالنقاط. تُخلص الصورة المحملة في كتلة `finally` بعد إضافتها إلى العرض.
+
 ```php
-  # ينشئ فئة Presentation التي تمثل ملف PPTX
-  $pres = new Presentation();
-  try {
-    # يصل إلى الشريحة الأولى
-    $islide = $pres->getSlides()->get_Item(0);
-    # يحدد الأعمدة بعروضها والصفوف بارتفاعها
-    $dblCols = array(150, 150, 150, 150 );
-    $dblRows = array(100, 100, 100, 100, 90 );
-    # يضيف شكل جدول إلى الشريحة
-    $tbl = $islide->getShapes()->addTable(50, 50, $dblCols, $dblRows);
-    # إنشاء كائن IPPImage باستخدام ملف الصورة
-    $picture;
-    $image = Images->fromFile("image.jpg");
+use aspose\slides\FillType;
+use aspose\slides\Images;
+use aspose\slides\PictureFillMode;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $columnWidths = [ 150, 150, 150, 150 ];
+    $rowHeights = [ 100, 100, 100, 100, 90 ];
+    $table = $slide->getShapes()->addTable(50, 50, $columnWidths, $rowHeights);
+
+    $image = Images::fromFile("aspose_logo.jpg");
     try {
-      $picture = $pres->getImages()->addImage($image);
+        $ppImage = $presentation->getImages()->addImage($image);
     } finally {
-      if (!java_is_null($image)) {
         $image->dispose();
-      }
     }
-    # يضيف الصورة إلى الخلية الأولى في الجدول
-    $cellFormat = $tbl->get_Item(0, 0)->getCellFormat();
-    $cellFormat::getFillFormat()->setFillType(FillType::Picture);
-    $cellFormat::getFillFormat()->getPictureFillFormat()->setPictureFillMode(PictureFillMode->Stretch);
-    $cellFormat::getFillFormat()->getPictureFillFormat()->getPicture()->setImage($picture);
-    # يحفظ ملف PPTX إلى القرص
-    $pres->save("Image_In_TableCell_out.pptx", SaveFormat::Pptx);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $table->get_Item(0, 0)->getCellFormat()->getFillFormat()->setFillType(FillType::Picture);
+    $table->get_Item(0, 0)->getCellFormat()->getFillFormat()->getPictureFillFormat()->setPictureFillMode(PictureFillMode::Stretch);
+    $table->get_Item(0, 0)->getCellFormat()->getFillFormat()->getPictureFillFormat()->getPicture()->setImage($ppImage);
+
+    $presentation->save("table_cell_with_image.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
+## **الأسئلة المتكررة**
 
-## **FAQ**
+**هل يمكنني تعيين سماكات خطوط وأنماط مختلفة لجوانب خلية واحدة؟**
 
-**Can I set different line thicknesses and styles for different sides of a single cell?**
+نعم. حدود [top](https://reference.aspose.com/slides/php-java/aspose.slides/cellformat/getbordertop/)/[bottom](https://reference.aspose.com/slides/php-java/aspose.slides/cellformat/getborderbottom/)/[left](https://reference.aspose.com/slides/php-java/aspose.slides/cellformat/getborderleft/)/[right](https://reference.aspose.com/slides/php-java/aspose.slides/cellformat/getborderright/) لها خصائص مستقلة، لذا يمكن أن تختلف السماكة والنمط لكل جانب.
 
-نعم. حدود [top](https://reference.aspose.com/slides/php-java/aspose.slides/cellformat/getbordertop/)/[bottom](https://reference.aspose.com/slides/php-java/aspose.slides/cellformat/getborderbottom/)/[left](https://reference.aspose.com/slides/php-java/aspose.slides/cellformat/getborderleft/)/[right](https://reference.aspose.com/slides/php-java/aspose.slides/cellformat/getborderright/) لها خصائص منفصلة، لذا يمكن أن تختلف السماكة والنمط لكل جانب. يتبع ذلك منطقيًا من التحكم بالحدود حسب الجانب للخلية كما هو موضح في المقال.
+**ماذا يحدث للصورة إذا قمت بتغيير حجم العمود/الصف بعد تعيين صورة كخلفية للخلية؟**
 
-**What happens to the image if I change the column/row size after setting a picture as the cell’s background?**
+السلوك يعتمد على [fill mode](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillmode/) (تمتد/تكرار). عند التمدد، تتكيف الصورة مع الخلية الجديدة؛ وعند التكرار، يُعاد حساب البلاط.
 
-السلوك يعتمد على [fill mode](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillmode/) (تمدد/تلبيس). عند التمدد، تتكيف الصورة مع الخلية الجديدة؛ عند التلبيس، يتم إعادة حساب البلاطات. يذكر المقال أوضاع عرض الصورة داخل الخلية.
+**هل يمكنني ربط ارتباط تشعبي بجميع محتوى خلية؟**
 
-**Can I assign a hyperlink to all the content of a cell?**
+[Hyperlinks](/slides/ar/php-java/manage-hyperlinks/) تُحدد على مستوى النص (الجزء) داخل إطار نص الخلية أو على مستوى الجدول/الشكل بالكامل. عمليًا، تقوم بتعيين الرابط إلى جزء أو إلى كل النص داخل الخلية.
 
-[Hyperlinks](/slides/ar/php-java/manage-hyperlinks/) يتم تعيينها على مستوى النص (القطعة) داخل إطار نص الخلية أو على مستوى الجدول/الشكل بأكمله. عمليًا، تقوم بتعيين الرابط إلى قطعة أو إلى كل النص داخل الخلية.
+**هل يمكنني تعيين خطوط مختلفة داخل خلية واحدة؟**
 
-**Can I set different fonts within a single cell?**
-
-نعم. إطار نص الخلية يدعم [portions](https://reference.aspose.com/slides/php-java/aspose.slides/portion/) (تسلسلات) بحيث يمكن تنسيق كل منها بشكل مستقل—عائلة الخط، النمط، الحجم، واللون.
+نعم. يدعم إطار نص الخلية [portions](https://reference.aspose.com/slides/php-java/aspose.slides/portion/) (تشغيلات) مع تنسيق مستقل—عائلة الخط، النمط، الحجم، واللون.

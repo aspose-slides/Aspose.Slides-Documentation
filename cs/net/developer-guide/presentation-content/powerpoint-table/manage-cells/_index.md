@@ -16,327 +16,230 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Jednoduše spravujte buňky tabulky v PowerPointu pomocí Aspose.Slides pro .NET. Ovládněte rychlý přístup, úpravy a stylování buněk pro bezproblémovou automatizaci snímků."
+description: "Spravujte buňky tabulky v PowerPointu v C#: identifikujte sloučené buňky, odstraňujte okraje, rozdělte buňky a nastavte barvy pozadí a obrázky pomocí Aspose.Slides pro .NET."
 ---
 ## **Přehled**
 
-Aspose.Slides umožňuje přistupovat k buňkám tabulky v prezentacích PowerPoint a upravovat je. Tento článek vysvětluje, jak identifikovat sloučené buňky tabulky, odstranit okraje buněk, pracovat s číslováním buněk po sloučení nebo rozdělení buněk, změnit barvu pozadí buňky a přidat obrázek uvnitř buňky tabulky. Příklady ukazují, jak vytvořit nebo otevřít prezentaci, získat tabulku ze snímku, aktualizovat formátování buňky pomocí vlastností buňky a uložit upravenou prezentaci jako soubor PPTX.
+Aspose.Slides vám umožňuje přistupovat k buňkám tabulek a upravovat je v prezentacích PowerPoint. Tento článek vysvětluje, jak identifikovat sloučené buňky tabulky, odstranit ohraničení buněk, pracovat s číslováním buněk po sloučení nebo rozdělení, změnit barvu pozadí buňky a přidat obrázek do buňky tabulky. Příklady ukazují, jak vytvořit nebo otevřít prezentaci, získat tabulku ze snímku, aktualizovat formátování buňky pomocí vlastností buňky a uložit upravenou prezentaci jako soubor PPTX.
+
+Aspose.Slides používá nulové indexy pro přístup k buňkám tabulky v pořadí `(sloupec, řádek)`.
 
 ## **Identifikace sloučené buňky tabulky**
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation).
-2. Získejte tabulku z první snímku. 
-3. Procházejte řádky a sloupce tabulky a vyhledejte sloučené buňky.
-4. Vypište zprávu, když jsou nalezeny sloučené buňky.
+Příklad otevře existující prezentaci a přistoupí k prvnímu tvaru na prvním snímku jako k tabulce. Předpokládá, že snímek a tvar existují a že tvar je tabulka. Poté prochází všechny řádky a sloupce a používá [IsMergedCell](https://reference.aspose.com/slides/net/aspose.slides/icell/ismergedcell/) k identifikaci buněk ve sloučených oblastech. Pro každou shodu vytiskne souřadnice buňky v pořadí `row;column`, [RowSpan](https://reference.aspose.com/slides/net/aspose.slides/icell/rowspan/), [ColSpan](https://reference.aspose.com/slides/net/aspose.slides/icell/colspan/), a počáteční souřadnice oblasti, [FirstRowIndex](https://reference.aspose.com/slides/net/aspose.slides/icell/firstrowindex/) a [FirstColumnIndex](https://reference.aspose.com/slides/net/aspose.slides/icell/firstcolumnindex/).
 
-Tento C# kód ukazuje, jak v prezentaci identifikovat sloučené buňky tabulky:
+```csharp
+using System;
+using Aspose.Slides;
 
-```c#
-using (Presentation pres = new Presentation("SomePresentationWithTable.pptx"))
+using var presentation = new Presentation("presentation_with_table.pptx");
+var slide = presentation.Slides[0];
+var table = (ITable) slide.Shapes[0];
+
+var rowCount = table.Rows.Count;
+for (var rowIndex = 0; rowIndex < rowCount; rowIndex++)
 {
-    ITable table = pres.Slides[0].Shapes[0] as ITable; // předpokládá se, že Slide#0.Shape#0 je tabulka
-    for (int i = 0; i < table.Rows.Count; i++)
+    var columnCount = table.Columns.Count;
+    for (var columnIndex = 0; columnIndex < columnCount; columnIndex++)
     {
-        for (int j = 0; j < table.Columns.Count; j++)
+        var cell = table[columnIndex, rowIndex];
+        if (cell.IsMergedCell)
         {
-            ICell currentCell = table.Rows[i][j];
-            if (currentCell.IsMergedCell)
-            {
-                Console.WriteLine(string.Format("Cell {0};{1} is a part of merged cell with RowSpan={2} and ColSpan={3} starting from Cell {4};{5}.",
-                                  i, j, currentCell.RowSpan, currentCell.ColSpan, currentCell.FirstRowIndex, currentCell.FirstColumnIndex));
-
-
-            }
+            Console.WriteLine($"Cell {rowIndex};{columnIndex} belongs to a merged region with RowSpan={cell.RowSpan} and ColSpan={cell.ColSpan} starting at {cell.FirstRowIndex};{cell.FirstColumnIndex}.");
         }
     }
 }
 ```
 
-## **Odstranění okrajů buněk tabulky**
-1. Vytvořte instanci třídy `Presentation`.
-2. Získejte odkaz na snímek pomocí jeho indexu. 
-3. Definujte pole sloupců s šířkou.
-4. Definujte pole řádků s výškou.
-5. Přidejte tabulku do snímku pomocí metody `AddTable`.
-6. Projděte všechny buňky a vymažte horní, spodní, pravý a levý okraj.
-7. Uložte upravenou prezentaci jako soubor PPTX.
+## **Odstranění ohraničení buněk tabulky**
 
-Tento C# kód ukazuje, jak odstranit okraje z buněk tabulky:
+Vytvořte [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) a přidejte tabulku na první snímek pomocí [AddTable](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addtable/). Šířky sloupců, výšky řádků a pozice tabulky jsou zadány v bodech. Příklad nastaví všechna čtyři ohraničení buněk na [FillType.NoFill](https://reference.aspose.com/slides/net/aspose.slides/filltype/), čímž je učiní neviditelnými.
 
-```c#
-// Vytvoří instanci třídy Presentation, která představuje soubor PPTX
-using (Presentation pres = new Presentation())
-{
-   // Přistupuje k prvnímu snímku
-    Slide sld = (Slide)pres.Slides[0];
+```csharp
+using Aspose.Slides;
 
-    // Definuje sloupce s šířkami a řádky s výškami
-    double[] dblCols = { 50, 50, 50, 50 };
-    double[] dblRows = { 50, 30, 30, 30, 30 };
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    // Přidá tvar tabulky do snímku
-    ITable tbl = sld.Shapes.AddTable(100, 50, dblCols, dblRows);
+double[] columnWidths = { 50, 50, 50, 50 };
+double[] rowHeights = { 50, 30, 30, 30, 30 };
+var table = slide.Shapes.AddTable(100, 50, columnWidths, rowHeights);
 
-    // Nastaví formát okrajů pro každou buňku
-    foreach (IRow row in tbl.Rows)
-        foreach (ICell cell in row)
-        {
-            cell.CellFormat.BorderTop.FillFormat.FillType = FillType.NoFill;
-            cell.CellFormat.BorderBottom.FillFormat.FillType = FillType.NoFill;
-            cell.CellFormat.BorderLeft.FillFormat.FillType = FillType.NoFill;
-            cell.CellFormat.BorderRight.FillFormat.FillType = FillType.NoFill;
-        }
-
-    // Zapíše soubor PPTX na disk
-    pres.Save("table_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
-}
-```
-
-## **Číslování ve sloučených buňkách**
-Pokud sloučíme 2 páry buněk (1, 1) × (2, 1) a (1, 2) × (2, 2), vzniklá tabulka bude číslovaná. Tento C# kód demonstruje postup:
-
-```c#
-// Instanciace třídy Presentation, která představuje soubor PPTX
-using (Presentation presentation = new Presentation())
-{
-    // Přistupuje k prvnímu snímku
-    ISlide sld = presentation.Slides[0];
-
-    // Definuje sloupce s šířkami a řádky s výškami
-    double[] dblCols = { 70, 70, 70, 70 };
-    double[] dblRows = { 70, 70, 70, 70 };
-
-    // Přidá tvar tabulky do snímku
-    ITable tbl = sld.Shapes.AddTable(100, 50, dblCols, dblRows);
-
-    // Nastaví formát okrajů pro každou buňku
-    foreach (IRow row in tbl.Rows)
+foreach (var row in table.Rows)
+    foreach (var cell in row)
     {
-        foreach (ICell cell in row)
-        {
-            cell.CellFormat.BorderTop.FillFormat.FillType = FillType.Solid;
-            cell.CellFormat.BorderTop.FillFormat.SolidFillColor.Color = Color.Red;
-            cell.CellFormat.BorderTop.Width = 5;
-
-            cell.CellFormat.BorderBottom.FillFormat.FillType = FillType.Solid;
-            cell.CellFormat.BorderBottom.FillFormat.SolidFillColor.Color = Color.Red;
-            cell.CellFormat.BorderBottom.Width = 5;
-
-            cell.CellFormat.BorderLeft.FillFormat.FillType = FillType.Solid;
-            cell.CellFormat.BorderLeft.FillFormat.SolidFillColor.Color = Color.Red;
-            cell.CellFormat.BorderLeft.Width = 5;
-
-            cell.CellFormat.BorderRight.FillFormat.FillType = FillType.Solid;
-            cell.CellFormat.BorderRight.FillFormat.SolidFillColor.Color = Color.Red;
-            cell.CellFormat.BorderRight.Width = 5;
-        }
+        cell.CellFormat.BorderTop.FillFormat.FillType = FillType.NoFill;
+        cell.CellFormat.BorderBottom.FillFormat.FillType = FillType.NoFill;
+        cell.CellFormat.BorderLeft.FillFormat.FillType = FillType.NoFill;
+        cell.CellFormat.BorderRight.FillFormat.FillType = FillType.NoFill;
     }
 
-    // Sloučí buňky (1, 1) x (2, 1)
-    tbl.MergeCells(tbl[1, 1], tbl[2, 1], false);
-
-    // Sloučí buňky (1, 2) x (2, 2)
-    tbl.MergeCells(tbl[1, 2], tbl[2, 2], false);
-
-    presentation.Save("MergeCells_out.pptx", SaveFormat.Pptx);
-}
+presentation.Save("table.pptx", SaveFormat.Pptx);
 ```
 
-Poté buňky dále sloučíme sloučením (1, 1) a (1, 2). Výsledkem je tabulka obsahující velkou sloučenou buňku uprostřed:
+## **Sloučení buněk tabulky**
 
-```c#
-// Vytvoří instanci třídy Presentation, která představuje soubor PPTX
-using (Presentation presentation = new Presentation())
+Použijte [MergeCells](https://reference.aspose.com/slides/net/aspose.slides/itable/mergecells/) k sloučení obdélníkové oblasti buněk tabulky do jedné buňky. Určete buňky v levém horním a pravém dolním rohu oblasti. Poslední argument určuje, zda sloučení může zahrnovat buňky mimo zadaný rozsah; `false` udrží sloučení uvnitř tohoto rozsahu.
+
+Příklad vytvoří tabulku 4 × 4 se sloupci a řádky o šířce 70 bodů a následně sloučí čtyři centrální buňky od `(1, 1)` po `(2, 2)`. Výsledná buňka zabírá dva sloupce a dva řádky, zatímco podkladová mřížka tabulky si zachová čtyři sloupce a čtyři řádky. Pro přístup k obsahu nebo formátování sloučené buňky použijte její levý horní pozici: `table[1, 1]` v tomto příkladu. Ostatní pozice ve sloučeném rozsahu zůstávají součástí mřížky tabulky, takže indexy buněk mimo rozsah se nemění.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+double[] columnWidths = { 70, 70, 70, 70 };
+double[] rowHeights = { 70, 70, 70, 70 };
+var table = slide.Shapes.AddTable(100, 50, columnWidths, rowHeights);
+
+table.MergeCells(table[1, 1], table[2, 2], false);
+
+presentation.Save("merged_cells.pptx", SaveFormat.Pptx);
+```
+
+## **Rozdělení buněk tabulky**
+
+Sloučení buněk v předchozím příkladu zachovává mřížku tabulky. Rozdělení buňky může zavést nový sloupec mřížky a změnit indexy sloupců buněk napravo. Aspose.Slides se řídí modelem mřížky tabulky PowerPointu.
+
+Tento příklad vytvoří tabulku 4 × 4 se sloupci a řádky o šířce 70 bodů a zavolá [SplitByWidth](https://reference.aspose.com/slides/net/aspose.slides/icell/splitbywidth/) na buňce `(1, 1)`. Polovina šířky buňky (70 bodů) je předána pro vytvoření dvou buněk stejné šířky.
+
+Po tomto rozdělení jsou dvě poloviny přístupné jako `table[1, 1]` a `table[2, 1]`. Mřížka tabulky nyní má pět sloupců: buňky původně ve sloupcích 2 a 3 se přesunou na sloupce 3 a 4. Indexy řádků zůstávají beze změny. Používejte tyto aktualizované indexy sloupců při přístupu k buňkám po rozdělení.
+
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+double[] columnWidths = { 70, 70, 70, 70 };
+double[] rowHeights = { 70, 70, 70, 70 };
+var table = slide.Shapes.AddTable(100, 50, columnWidths, rowHeights);
+
+table[1, 1].SplitByWidth(table[1, 1].Width / 2);
+
+presentation.Save("split_cells.pptx", SaveFormat.Pptx);
+```
+
+### **Rozdělení sloučených buněk podle řádku nebo sloupce**
+
+Pro přípravu sloučených šablonových buněk na naplnění daty použijte [SplitByRowSpan](https://reference.aspose.com/slides/net/aspose.slides/icell/splitbyrowspan/) k rozdělení podél existující hranice řádku nebo [SplitByColSpan](https://reference.aspose.com/slides/net/aspose.slides/icell/splitbycolspan/) k rozdělení podél hranice sloupce.
+
+Argument `index` počítá řádky v horní části nebo sloupce v levé části rozdělení; je relativní k sloučené oblasti:
+
+- Rozdělení řádku: `0 < index <` [RowSpan](https://reference.aspose.com/slides/net/aspose.slides/icell/rowspan/).
+- Rozdělení sloupce: `0 < index <` [ColSpan](https://reference.aspose.com/slides/net/aspose.slides/icell/colspan/).
+
+Příklad předpokládá, že prezentace má tabulku jako první tvar na prvním snímku, přičemž buňky `(1, 2)` a `(1, 3)` jsou sloučeny vertikálně. Začíná od spodní pozice, používá [FirstColumnIndex](https://reference.aspose.com/slides/net/aspose.slides/icell/firstcolumnindex/) a [FirstRowIndex](https://reference.aspose.com/slides/net/aspose.slides/icell/firstrowindex/) k nalezení počátku a kontroluje oba rozsahy. `SplitByRowSpan(1)` pak oddělí řádky 2 a 3 pro názvy produktů. Pro vodorovné sloučení dvou sloupců použijte místo toho `SplitByColSpan(1)`.
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("table_template.pptx");
+var slide = presentation.Slides[0];
+var table = (ITable) slide.Shapes[0];
+
+var selectedCell = table[1, 3];
+var firstColumnIndex = selectedCell.FirstColumnIndex;
+var firstRowIndex = selectedCell.FirstRowIndex;
+var mergedCell = table[firstColumnIndex, firstRowIndex];
+
+if (mergedCell.IsMergedCell && mergedCell.RowSpan == 2 && mergedCell.ColSpan == 1)
 {
-    // Přistupuje k prvnímu snímku
-    ISlide slide = presentation.Slides[0];
+    mergedCell.SplitByRowSpan(1);
 
-    // Definuje sloupce s šířkami a řádky s výškami
-    double[] dblCols = { 70, 70, 70, 70 };
-    double[] dblRows = { 70, 70, 70, 70 };
+    // Získat výsledné buňky z tabulky po rozdělení.
+    var upperCell = table[firstColumnIndex, firstRowIndex];
+    var lowerCell = table[firstColumnIndex, firstRowIndex + 1];
+    Console.WriteLine($"Upper cell merged: {upperCell.IsMergedCell}");
+    Console.WriteLine($"Lower cell merged: {lowerCell.IsMergedCell}");
 
-    // Přidá tvar tabulky do snímku
-    ITable table = slide.Shapes.AddTable(100, 50, dblCols, dblRows);
+    upperCell.TextFrame.Text = "Product A";
+    lowerCell.TextFrame.Text = "Product B";
 
-    // Nastaví formát okrajů pro každou buňku
-    foreach (IRow row in table.Rows)
-    {
-        foreach (ICell cell in row)
-        {
-            cell.CellFormat.BorderTop.FillFormat.FillType = FillType.Solid;
-            cell.CellFormat.BorderTop.FillFormat.SolidFillColor.Color = Color.Red;
-            cell.CellFormat.BorderTop.Width = 5;
-
-            cell.CellFormat.BorderBottom.FillFormat.FillType = FillType.Solid;
-            cell.CellFormat.BorderBottom.FillFormat.SolidFillColor.Color = Color.Red;
-            cell.CellFormat.BorderBottom.Width = 5;
-
-            cell.CellFormat.BorderLeft.FillFormat.FillType = FillType.Solid;
-            cell.CellFormat.BorderLeft.FillFormat.SolidFillColor.Color = Color.Red;
-            cell.CellFormat.BorderLeft.Width = 5;
-
-            cell.CellFormat.BorderRight.FillFormat.FillType = FillType.Solid;
-            cell.CellFormat.BorderRight.FillFormat.SolidFillColor.Color = Color.Red;
-            cell.CellFormat.BorderRight.Width = 5;
-
-        }
-    }
-
-    // Sloučí buňky (1, 1) x (2, 1)
-    table.MergeCells(table[1, 1], table[2, 1], false);
-
-    // Sloučí buňky (1, 2) x (2, 2)
-    table.MergeCells(table[1, 2], table[2, 2], false);
-
-    // Sloučí buňky (1, 2) x (2, 2)
-    table.MergeCells(table[1, 1], table[1, 2], true);
-
-    //Zapíše soubor PPTX na disk
-    presentation.Save("MergeCells1_out.pptx", SaveFormat.Pptx);
+    presentation.Save("split_template.pptx", SaveFormat.Pptx);
 }
-```
-
-## **Číslování v rozdělené buňce**
-V předchozích příkladech, když byly buňky tabulky sloučeny, číslování nebo číselný systém v ostatních buňkách se nezměnil. 
-
-Tentokrát vezmeme běžnou tabulku (tabulku bez sloučených buněk) a pak se pokusíme rozdělit buňku (1,1) a získat zvláštní tabulku. Můžete si všimnout číslování této tabulky, které může působit podivně. Přesto je to způsob, jakým Microsoft PowerPoint čísluje buňky tabulky, a Aspose.Slides dělá totéž. 
-
-Tento C# kód demonstruje popsaný postup:
-
-```c#
-// Vytvoří instanci třídy Presentation, která představuje soubor PPTX
-using (Presentation presentation = new Presentation())
+else
 {
-    // Přistupuje k prvnímu snímku
-    ISlide slide = presentation.Slides[0];
-
-    // Definuje sloupce s šířkami a řádky s výškami
-    double[] dblCols = { 70, 70, 70, 70 };
-    double[] dblRows = { 70, 70, 70, 70 };
-
-    // Přidá tvar tabulky do snímku
-    ITable table = slide.Shapes.AddTable(100, 50, dblCols, dblRows);
-
-    // Nastaví formát okrajů pro každou buňku
-    foreach (IRow row in table.Rows)
-    {
-        foreach (ICell cell in row)
-        {
-            cell.CellFormat.BorderTop.FillFormat.FillType = FillType.Solid;
-            cell.CellFormat.BorderTop.FillFormat.SolidFillColor.Color = Color.Red;
-            cell.CellFormat.BorderTop.Width = 5;
-
-            cell.CellFormat.BorderBottom.FillFormat.FillType = FillType.Solid;
-            cell.CellFormat.BorderBottom.FillFormat.SolidFillColor.Color = Color.Red;
-            cell.CellFormat.BorderBottom.Width = 5;
-
-            cell.CellFormat.BorderLeft.FillFormat.FillType = FillType.Solid;
-            cell.CellFormat.BorderLeft.FillFormat.SolidFillColor.Color = Color.Red;
-            cell.CellFormat.BorderLeft.Width = 5;
-
-            cell.CellFormat.BorderRight.FillFormat.FillType = FillType.Solid;
-            cell.CellFormat.BorderRight.FillFormat.SolidFillColor.Color = Color.Red;
-            cell.CellFormat.BorderRight.Width = 5;
-
-        }
-    }
-
-    // Sloučí buňky (1, 1) x (2, 1)
-    table.MergeCells(table[1, 1], table[2, 1], false);
-
-    // Sloučí buňky (1, 2) x (2, 2)
-    table.MergeCells(table[1, 2], table[2, 2], false);
-
-    // Rozdělí buňku (1, 1). 
-    table[1, 1].SplitByWidth(table[2, 1].Width / 2);
-
-    //Zapíše soubor PPTX na disk
-    presentation.Save("CellSplit_out.pptx", SaveFormat.Pptx);
+    Console.WriteLine("Select a merged region spanning exactly two rows and one column.");
 }
 ```
+
+Mřížka tabulky a okolní indexy buněk zůstávají beze změny. Výsledné buňky získáte podle jejich souřadnic; zde mají obě rozsah 1 a [IsMergedCell](https://reference.aspose.com/slides/net/aspose.slides/icell/ismergedcell/) vrací `False`. Větší oblasti mohou po jednom rozdělení zůstávat částečně sloučené.
+
+Původní text a jeho formátování zůstávají v horní (nebo levé) buňce; nová buňka je prázdná, ale dědí formátování buňky, jako je výplň, ohraničení a okraje. Po rozdělení buňky naplňte textem a nastavením požadovaného formátování textu výslovně.
+
+Uložená prezentace obsahuje samostatné buňky „Product A“ a „Product B“ s zachovaným formátováním šablony. Viz [Reference API buňky](https://reference.aspose.com/slides/net/aspose.slides/cell/) pro podrobnosti.
 
 ## **Změna barvy pozadí buňky tabulky**
 
-Tento C# kód ukazuje, jak změnit barvu pozadí buňky tabulky:
+Tento příklad vytvoří tabulku se sloupci 150 bodů a řádky 50 bodů. Nastaví [FillType](https://reference.aspose.com/slides/net/aspose.slides/ifillformat/filltype/) na pevnou výplň a [SolidFillColor](https://reference.aspose.com/slides/net/aspose.slides/ifillformat/solidfillcolor/) na červenou pro buňku `(2, 3)`, ve třetím sloupci a čtvrtém řádku.
 
-```c#
-using (Presentation presentation = new Presentation())
-{
-    ISlide slide = presentation.Slides[0];
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-    double[] dblCols = { 150, 150, 150, 150 };
-    double[] dblRows = { 50, 50, 50, 50, 50 };
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    // vytvoří novou tabulku
-    ITable table = slide.Shapes.AddTable(50, 50, dblCols, dblRows);
+double[] columnWidths = { 150, 150, 150, 150 };
+double[] rowHeights = { 50, 50, 50, 50, 50 };
+var table = slide.Shapes.AddTable(50, 50, columnWidths, rowHeights);
 
-    // nastaví barvu pozadí buňky 
-    ICell cell = table[2, 3];
-    cell.CellFormat.FillFormat.FillType = FillType.Solid;
-    cell.CellFormat.FillFormat.SolidFillColor.Color = Color.Red;
+var cell = table[2, 3];
+cell.CellFormat.FillFormat.FillType = FillType.Solid;
+cell.CellFormat.FillFormat.SolidFillColor.Color = Color.Red;
 
-    presentation.Save("cell_background_color.pptx", SaveFormat.Pptx);
-}
+presentation.Save("cell_background_color.pptx", SaveFormat.Pptx);
 ```
 
 ## **Přidání obrázku do buňky tabulky**
 
-1. Vytvořte instanci třídy `Presentation`.
-2. Získejte odkaz na snímek pomocí jeho indexu.
-3. Definujte pole sloupců s šířkou.
-4. Definujte pole řádků s výškou.
-5. Přidejte tabulku do snímku pomocí metody `AddTable`. 
-6. Vytvořte objekt `Bitmap` pro uchování souboru obrázku.
-7. Přidejte bitmapový obrázek do objektu `IPPImage`.
-8. Nastavte `FillFormat` buňky tabulky na `Picture`.
-9. Přidejte obrázek do první buňky tabulky.
-10. Uložte upravenou prezentaci jako soubor PPTX
+Umístěte vstupní obrázek do pracovního adresáře před spuštěním tohoto příkladu. Načte obrázek pomocí [Images.FromFile](https://reference.aspose.com/slides/net/aspose.slides/images/fromfile/) a přidá jej do kolekce obrázků prezentace pomocí [AddImage](https://reference.aspose.com/slides/net/aspose.slides/iimagecollection/addimage/). Pak přiřadí obrázek k výplni obrázkem buňky `(0, 0)`, první buňky v tabulce.
 
-Tento C# kód ukazuje, jak při vytváření tabulky umístit obrázek do buňky tabulky:
+[PictureFillMode.Stretch](https://reference.aspose.com/slides/net/aspose.slides/picturefillmode/) roztáhne obrázek tak, aby vyplnil buňku, což může změnit její poměr stran. Šířky sloupců a výšky řádků jsou v bodech. Načtený obrázek je automaticky uvolněn pomocí příkazu `using`.
 
-```c#
-// Vytvoří instanci třídy Presentation, která představuje soubor PPTX
-using (Presentation presentation = new Presentation())
-{
-    // Přistupuje k prvnímu snímku
-    ISlide slide = presentation.Slides[0];
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-    // Definuje sloupce s šířkami a řádky s výškami
-    double[] dblCols = { 150, 150, 150, 150 };
-    double[] dblRows = { 100, 100, 100, 100, 90 };
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    // Přidá tvar tabulky do snímku
-    ITable table = slide.Shapes.AddTable(50, 50, dblCols, dblRows);
+double[] columnWidths = { 150, 150, 150, 150 };
+double[] rowHeights = { 100, 100, 100, 100, 90 };
+var table = slide.Shapes.AddTable(50, 50, columnWidths, rowHeights);
 
-    // Načte obrázek ze souboru a přidá jej do zdrojů prezentace
-    IImage image = Images.FromFile("aspose-logo.jpg");
-    IPPImage ppImage = presentation.Images.AddImage(image);
-    image.Dispose();
+using var image = Images.FromFile("aspose_logo.jpg");
+var ppImage = presentation.Images.AddImage(image);
 
-    // Přidá obrázek do první buňky tabulky
-    table[0, 0].CellFormat.FillFormat.FillType = FillType.Picture;
-    table[0, 0].CellFormat.FillFormat.PictureFillFormat.PictureFillMode = PictureFillMode.Stretch;
-    table[0, 0].CellFormat.FillFormat.PictureFillFormat.Picture.Image = ppImage;
+table[0, 0].CellFormat.FillFormat.FillType = FillType.Picture;
+table[0, 0].CellFormat.FillFormat.PictureFillFormat.PictureFillMode = PictureFillMode.Stretch;
+table[0, 0].CellFormat.FillFormat.PictureFillFormat.Picture.Image = ppImage;
 
-    // Uloží soubor PPTX na disk
-    presentation.Save("Image_In_TableCell_out.pptx", SaveFormat.Pptx);
-}
+presentation.Save("table_cell_with_image.pptx", SaveFormat.Pptx);
 ```
 
-## **Časté dotazy**
+## **Často kladené otázky**
 
 **Mohu nastavit různé tloušťky čar a styly pro různé strany jedné buňky?**
 
-Ano. Okraje [nahoře](https://reference.aspose.com/slides/cs/net/aspose.slides/cellformat/bordertop/), [dole](https://reference.aspose.com/slides/cs/net/aspose.slides/cellformat/borderbottom/), [vlevo](https://reference.aspose.com/slides/cs/net/aspose.slides/cellformat/borderleft/) a [vpravo](https://reference.aspose.com/slides/cs/net/aspose.slides/cellformat/borderright/) mají samostatné vlastnosti, takže tloušťka a styl každé strany se mohou lišit. To logicky vyplývá ze řízení okrajů po stranách buňky, jak je ukázáno v článku.
+Ano. Ohraničení [horní](https://reference.aspose.com/slides/net/aspose.slides/cellformat/bordertop/)/[dolní](https://reference.aspose.com/slides/net/aspose.slides/cellformat/borderbottom/)/[levý](https://reference.aspose.com/slides/net/aspose.slides/cellformat/borderleft/)/[pravý](https://reference.aspose.com/slides/net/aspose.slides/cellformat/borderright/) mají samostatné vlastnosti, takže tloušťka a styl každé strany se mohou lišit.
 
-**Co se stane s obrázkem, pokud změním velikost sloupce/řádku po nastavení obrázku jako pozadí buňky?**
+**Co se stane s obrázkem, pokud po nastavení obrázku jako pozadí buňky změníme velikost sloupce/řádku?**
 
-Chování závisí na [režimu výplně](https://reference.aspose.com/slides/cs/net/aspose.slides/picturefillmode/) (stretch/tile). Při roztažení se obrázek přizpůsobí nové buňce; při dlaždicování se dlaždice přepočítají. Článek zmiňuje režimy zobrazení obrázku v buňce.
+Chování závisí na [režimu výplně](https://reference.aspose.com/slides/net/aspose.slides/picturefillmode/) (stretch/tile). Při roztahování se obrázek přizpůsobí nové buňce; při dlaždicování se dlaždice přepočítají.
 
-**Mohu přiřadit hypertextový odkaz ke všemu obsahu buňky?**
+**Mohu přiřadit hyperlinky k veškerému obsahu buňky?**
 
-[Hyperlinky](/slides/cs/net/manage-hyperlinks/) jsou nastaveny na úrovni textu (části) uvnitř textového rámce buňky nebo na úrovni celé tabulky/tvaru. V praxi přiřadíte odkaz buď k části, nebo ke všemu textu v buňce.
+[hyperlinky](/slides/cs/net/manage-hyperlinks/) jsou nastaveny na úrovni textu (části) uvnitř textového rámce buňky nebo na úrovni celé tabulky/tvaru. V praxi přiřadíte odkaz k části nebo k veškerému textu v buňce.
 
 **Mohu nastavit různé písma v jedné buňce?**
 
-Ano. Textový rámec buňky podporuje [části](https://reference.aspose.com/slides/cs/net/aspose.slides/portion/) (běhy) s nezávislým formátováním – rodinu písma, styl, velikost a barvu.
+Ano. Textový rámec buňky podporuje [části](https://reference.aspose.com/slides/net/aspose.slides/portion/) (běhy) s nezávislým formátováním — rodina písma, styl, velikost a barva.

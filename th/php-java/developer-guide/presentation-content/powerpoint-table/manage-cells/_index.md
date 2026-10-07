@@ -7,7 +7,7 @@ url: /th/php-java/manage-cells/
 keywords:
 - เซลล์ตาราง
 - รวมเซลล์
-- ลบขอบ
+- ลบเส้นขอบ
 - แยกเซลล์
 - รูปภาพในเซลล์
 - สีพื้นหลัง
@@ -15,306 +15,265 @@ keywords:
 - งานนำเสนอ
 - PHP
 - Aspose.Slides
-description: "จัดการเซลล์ตารางใน PowerPoint อย่างง่ายดายด้วย Aspose.Slides สำหรับ PHP. เชี่ยวชาญการเข้าถึง, แก้ไข, และจัดรูปแบบเซลล์อย่างรวดเร็วเพื่อการทำงานอัตโนมัติของสไลด์ที่ราบรื่น."
+description: "จัดการเซลล์ตาราง PowerPoint ด้วย PHP: ระบุเซลล์ที่รวม, ลบเส้นขอบ, แยกเซลล์, และตั้งค่าสีพื้นหลังและรูปภาพด้วย Aspose.Slides สำหรับ PHP ผ่าน Java."
 ---
 ## **ภาพรวม**
 
-Aspose.Slides ช่วยให้คุณเข้าถึงและแก้ไขเซลล์ตารางในงานนำเสนอ PowerPoint ได้ บทความนี้อธิบายวิธีการระบุเซลล์ตารางที่รวมกัน, ลบขอบเซลล์, ทำงานกับการนัมเบอร์ของเซลล์หลังจากการรวมหรือแยกเซลล์, เปลี่ยนสีพื้นหลังของเซลล์, และเพิ่มรูปภาพภายในเซลล์ตาราง ตัวอย่างจะแสดงวิธีการสร้างหรือเปิดงานนำเสนอ, ดึงตารางจากสไลด์, ปรับรูปแบบเซลล์ผ่านคุณสมบัติของเซลล์, และบันทึกงานนำเสนอที่แก้ไขเป็นไฟล์ PPTX
+Aspose.Slides ทำให้คุณสามารถเข้าถึงและแก้ไขเซลล์ตารางในงานนำเสนอ PowerPoint ได้ บทความนี้อธิบายวิธีระบุเซลล์ตารางที่รวม การลบเส้นขอบของเซลล์ การทำงานกับการนับเลขเซลล์หลังจากการรวมหรือการแยกเซลล์ การเปลี่ยนสีพื้นหลังของเซลล์ และการเพิ่มรูปภาพภายในเซลล์ตาราง ตัวอย่างจะแสดงวิธีสร้างหรือเปิดงานนำเสนอ ดึงตารางจากสไลด์ ปรับรูปแบบเซลล์ผ่านคุณสมบัติของเซลล์ และบันทึกงานนำเสนอที่ปรับเปลี่ยนเป็นไฟล์ PPTX
 
-## **ระบุเซลล์ตารางที่รวมกัน**
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/php-java/aspose.slides/Presentation) 
-2. รับตารางจากสไลด์แรก 
-3. วนซ้ำผ่านแถวและคอลัมน์ของตารางเพื่อค้นหาเซลล์ที่รวม 
-4. พิมพ์ข้อความเมื่อพบเซลล์ที่รวม
+Aspose.Slides ใช้ดัชนีที่เริ่มจากศูนย์เพื่อเข้าถึงเซลล์ตารางตามลำดับ `(column, row)`.
 
-โค้ด PHP นี้แสดงวิธีระบุเซลล์ตารางที่รวมกันในงานนำเสนอ:
+## **ระบุเซลล์ตารางที่รวม**
+
+ตัวอย่างเปิดงานนำเสนอที่มีอยู่แล้วและเข้าถึงรูปทรงแรกบนสไลด์แรกเป็นตาราง โดยสมมติว่ามีสไลด์และรูปทรงอยู่และรูปทรงเป็นตาราง จากนั้นวนลูปผ่านทุกแถวและคอลัมน์และใช้ [เซลล์ที่รวม](https://reference.aspose.com/slides/php-java/aspose.slides/cell/ismergedcell/) เพื่อระบุเซลล์ในพื้นที่ที่รวม สำหรับแต่ละที่ตรงกันจะแสดงพิกัดเซลล์ในลำดับ `row;column` , [รับช่วงแถว](https://reference.aspose.com/slides/php-java/aspose.slides/cell/getrowspan/), [รับช่วงคอลัมน์](https://reference.aspose.com/slides/php-java/aspose.slides/cell/getcolspan/), และพิกัดเริ่มต้นของพื้นที่นั้น, [ดัชนีแถวแรก](https://reference.aspose.com/slides/php-java/aspose.slides/cell/getfirstrowindex/) และ [ดัชนีคอลัมน์แรก](https://reference.aspose.com/slides/php-java/aspose.slides/cell/getfirstcolumnindex/).
 
 ```php
-  $pres = new Presentation("SomePresentationWithTable.pptx");
-  try {
-    $table = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0);// สมมติว่า Slide#0.Shape#0 เป็นตาราง
+use aspose\slides\Presentation;
 
-    for($i = 0; $i < java_values($table->getRows()->size()) ; $i++) {
-      for($j = 0; $j < java_values($table->getColumns()->size()) ; $j++) {
-        $currentCell = $table->getRows()->get_Item($i)->get_Item($j);
-        if ($currentCell->isMergedCell()) {
-          echo(sprintf("Cell %d;%d is a part of merged cell with RowSpan=%d and ColSpan=%d starting from Cell %d;%d.", $i, $j, $currentCell->getRowSpan(), $currentCell->getColSpan(), $currentCell->getFirstRowIndex(), $currentCell->getFirstColumnIndex()));
+$presentation = new Presentation("presentation_with_table.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $table = $slide->getShapes()->get_Item(0);
+
+    $rowCount = java_values($table->getRows()->size());
+    for ($rowIndex = 0; $rowIndex < $rowCount; $rowIndex++)
+    {
+        $columnCount = java_values($table->getColumns()->size());
+        for ($columnIndex = 0; $columnIndex < $columnCount; $columnIndex++)
+        {
+            $cell = $table->get_Item($columnIndex, $rowIndex);
+            if (java_values($cell->isMergedCell()))
+            {
+                printf("Cell %d;%d belongs to a merged region with RowSpan=%d and ColSpan=%d starting at %d;%d.\n", $rowIndex, $columnIndex, java_values($cell->getRowSpan()), java_values($cell->getColSpan()), java_values($cell->getFirstRowIndex()), java_values($cell->getFirstColumnIndex()));
+            }
         }
-      }
     }
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **ลบขอบเซลล์ตาราง**
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/php-java/aspose.slides/Presentation) 
-2. ดึงอ้างอิงสไลด์ผ่านดัชนีของมัน 
-3. กำหนดอาเรย์ของคอลัมน์พร้อมความกว้าง 
-4. กำหนดอาเรย์ของแถวพร้อมความสูง 
-5. เพิ่มตารางลงในสไลด์ผ่านเมธอด [addTable](https://reference.aspose.com/slides/th/php-java/aspose.slides/shapecollection/#addTable) 
-6. วนซ้ำผ่านทุกเซลล์เพื่อลบขอบบน, ล่าง, ขวา, และซ้าย 
-7. บันทึกงานนำเสนอที่แก้ไขเป็นไฟล์ PPTX
+## **ลบเส้นขอบเซลล์ตาราง**
 
-โค้ด PHP นี้แสดงวิธีลบขอบจากเซลล์ตาราง:
+สร้าง [งานนำเสนอ](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) และเพิ่มตารางไปยังสไลด์แรกด้วย [addTable](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addtable/). ความกว้างคอลัมน์, ความสูงแถว, และตำแหน่งตารางระบุเป็นจุด ตัวอย่างตั้งค่าเส้นขอบสี่ด้านของเซลล์ทั้งหมดเป็น [ไม่มีการเติม](https://reference.aspose.com/slides/php-java/aspose.slides/filltype/), ทำให้มองไม่เห็น.
 
 ```php
-  # สร้างอินสแตนซ์ของคลาส Presentation ที่แทนไฟล์ PPTX
-  $pres = new Presentation();
-  try {
-    # เข้าถึงสไลด์แรก
-    $sld = $pres->getSlides()->get_Item(0);
-    # กำหนดคอลัมน์พร้อมความกว้างและแถวพร้อมความสูง
-    $dblCols = array(50, 50, 50, 50 );
-    $dblRows = array(50, 30, 30, 30, 30 );
-    # เพิ่มรูปร่างตารางลงในสไลด์
-    $tbl = $sld->getShapes()->addTable(100, 50, $dblCols, $dblRows);
-    # กำหนดรูปแบบขอบสำหรับแต่ละเซลล์
-    foreach($tbl->getRows() as $row) {
-      foreach($row as $cell) {
-        $cell->getCellFormat()->getBorderTop()->getFillFormat()->setFillType(FillType::NoFill);
-        $cell->getCellFormat()->getBorderBottom()->getFillFormat()->setFillType(FillType::NoFill);
-        $cell->getCellFormat()->getBorderLeft()->getFillFormat()->setFillType(FillType::NoFill);
-        $cell->getCellFormat()->getBorderRight()->getFillFormat()->setFillType(FillType::NoFill);
-      }
+use aspose\slides\FillType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $columnWidths = [ 50, 50, 50, 50 ];
+    $rowHeights = [ 50, 30, 30, 30, 30 ];
+    $table = $slide->getShapes()->addTable(100, 50, $columnWidths, $rowHeights);
+
+    for ($rowIndex = 0; $rowIndex < java_values($table->getRows()->size()); $rowIndex++) {
+        for ($columnIndex = 0; $columnIndex < java_values($table->getColumns()->size()); $columnIndex++) {
+            $cell = $table->get_Item($columnIndex, $rowIndex);
+            $cell->getCellFormat()->getBorderTop()->getFillFormat()->setFillType(FillType::NoFill);
+            $cell->getCellFormat()->getBorderBottom()->getFillFormat()->setFillType(FillType::NoFill);
+            $cell->getCellFormat()->getBorderLeft()->getFillFormat()->setFillType(FillType::NoFill);
+            $cell->getCellFormat()->getBorderRight()->getFillFormat()->setFillType(FillType::NoFill);
+        }
     }
-    # บันทึกไฟล์ PPTX ลงดิสก์
-    $pres->save("table_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $presentation->save("table.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **การจัดลำดับเลขในเซลล์ที่รวม**
-หากเรารวมเซลล์ 2 คู่ (1, 1) x (2, 1) และ (1, 2) x (2, 2) ตารางที่ได้จะมีการนัมเบอร์ โค้ด PHP นี้แสดงกระบวนการ:
+## **รวมเซลล์ตาราง**
+
+ใช้ [รวมเซลล์](https://reference.aspose.com/slides/php-java/aspose.slides/table/mergecells/) เพื่อรวมช่วงสี่เหลี่ยมของเซลล์ตารางเป็นเซลล์เดียว ระบุเซลล์ที่มุมซ้ายบนและมุมขวาล่างของช่วง พารามิเตอร์สุดท้ายควบคุมว่าการรวมอาจรวมเซลล์นอกช่วงที่กำหนดหรือไม่; `false` จะคงการรวมให้อยู่ในช่วงนั้น
+
+ตัวอย่างสร้างตาราง 4x4 ด้วยคอลัมน์และแถวขนาด 70 จุด จากนั้นรวมสี่เซลล์ตรงกลางจาก `(1, 1)` ถึง `(2, 2)`. เซลล์ที่ได้ครอบคลุมสองคอลัมน์และสองแถว ในขณะที่ตารางยังคงมีกริดสี่คอลัมน์สี่แถว เพื่อเข้าถึงเนื้อหา或รูปแบบของเซลล์ที่รวม ให้ใช้ตำแหน่งซ้ายบน: `$table->get_Item(1, 1)` ในตัวอย่างนี้ ตำแหน่งอื่นในช่วงที่รวมยังคงเป็นส่วนหนึ่งของกริดตาราง ดังนั้นดัชนีของเซลล์ที่อยู่นอกช่วงจะไม่เปลี่ยน
 
 ```php
-  # สร้างอินสแตนซ์ของคลาส Presentation ที่แทนไฟล์ PPTX
-  $pres = new Presentation();
-  try {
-    # เข้าถึงสไลด์แรก
-    $sld = $pres->getSlides()->get_Item(0);
-    # กำหนดคอลัมน์พร้อมความกว้างและแถวพร้อมความสูง
-    $dblCols = array(70, 70, 70, 70 );
-    $dblRows = array(70, 70, 70, 70 );
-    # เพิ่มรูปร่างตารางลงในสไลด์
-    $tbl = $sld->getShapes()->addTable(100, 50, $dblCols, $dblRows);
-    # กำหนดรูปแบบขอบสำหรับแต่ละเซลล์
-    foreach($tbl->getRows() as $row) {
-      foreach($row as $cell) {
-        $cell->getCellFormat()->getBorderTop()->getFillFormat()->setFillType(FillType::Solid);
-        $cell->getCellFormat()->getBorderTop()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-        $cell->getCellFormat()->getBorderTop()->setWidth(5);
-        $cell->getCellFormat()->getBorderBottom()->getFillFormat()->setFillType(FillType::Solid);
-        $cell->getCellFormat()->getBorderBottom()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-        $cell->getCellFormat()->getBorderBottom()->setWidth(5);
-        $cell->getCellFormat()->getBorderLeft()->getFillFormat()->setFillType(FillType::Solid);
-        $cell->getCellFormat()->getBorderLeft()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-        $cell->getCellFormat()->getBorderLeft()->setWidth(5);
-        $cell->getCellFormat()->getBorderRight()->getFillFormat()->setFillType(FillType::Solid);
-        $cell->getCellFormat()->getBorderRight()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-        $cell->getCellFormat()->getBorderRight()->setWidth(5);
-      }
-    }
-    # รวมเซลล์ (1, 1) x (2, 1)
-    $tbl->mergeCells($tbl->get_Item(1, 1), $tbl->get_Item(2, 1), false);
-    # รวมเซลล์ (1, 2) x (2, 2)
-    $tbl->mergeCells($tbl->get_Item(1, 2), $tbl->get_Item(2, 2), false);
-    $pres->save("MergeCells_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $columnWidths = [ 70, 70, 70, 70 ];
+    $rowHeights = [ 70, 70, 70, 70 ];
+    $table = $slide->getShapes()->addTable(100, 50, $columnWidths, $rowHeights);
+
+    $table->mergeCells($table->get_Item(1, 1), $table->get_Item(2, 2), false);
+
+    $presentation->save("merged_cells.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-จากนั้นเราจะรวมเซลล์ต่อโดยรวม (1, 1) และ (1, 2) ผลลัพธ์คือตารางที่มีเซลล์ใหญ่ที่รวมอยู่ตรงกลาง:
+## **แยกเซลล์ตาราง**
+
+การรวมเซลล์ในตัวอย่างก่อนหน้ารักษาโครงสร้างกริดของตาราง การแยกเซลล์อาจสร้างคอลัมน์กริดใหม่และเปลี่ยนดัชนีคอลัมน์ของเซลล์ทางด้านขวา Aspose.Slides ปฏิบัติตามโมเดลกริดของ PowerPoint
+
+ตัวอย่างนี้สร้างตาราง 4x4 ด้วยคอลัมน์และแถวขนาด 70 จุดและเรียกใช้ [แยกตามความกว้าง](https://reference.aspose.com/slides/php-java/aspose.slides/cell/splitbywidth/) บนเซลล์ `(1, 1)`. ครึ่งหนึ่งของความกว้าง 70 จุดของเซลล์ถูกใช้เพื่อสร้างเซลล์สองอันที่กว้างเท่ากัน
+
+หลังจากแยกแล้ว ครึ่งสองส่วนเข้าถึงได้โดย `$table->get_Item(1, 1)` และ `$table->get_Item(2, 1)`. กริดตารางตอนนี้มีห้าคอลัมน์: เซลล์ที่เคยอยู่ในคอลัมน์ 2 และ 3 ย้ายไปที่คอลัมน์ 3 และ 4 ตามลำดับ ดัชนีแถวไม่เปลี่ยน ใช้ดัชนีคอลัมน์ที่อัพเดตเมื่อเข้าถึงเซลล์หลังการแยก
 
 ```php
-  # สร้างอินสแตนซ์ของคลาส Presentation ที่แทนไฟล์ PPTX
-  $pres = new Presentation();
-  try {
-    # เข้าถึงสไลด์แรก
-    $sld = $pres->getSlides()->get_Item(0);
-    # กำหนดคอลัมน์พร้อมความกว้างและแถวพร้อมความสูง
-    $dblCols = array(70, 70, 70, 70 );
-    $dblRows = array(70, 70, 70, 70 );
-    # เพิ่มรูปร่างตารางลงในสไลด์
-    $tbl = $sld->getShapes()->addTable(100, 50, $dblCols, $dblRows);
-    # กำหนดรูปแบบขอบสำหรับแต่ละเซลล์
-    foreach($tbl->getRows() as $row) {
-      foreach($row as $cell) {
-        $cell->getCellFormat()->getBorderTop()->getFillFormat()->setFillType(FillType::Solid);
-        $cell->getCellFormat()->getBorderTop()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-        $cell->getCellFormat()->getBorderTop()->setWidth(5);
-        $cell->getCellFormat()->getBorderBottom()->getFillFormat()->setFillType(FillType::Solid);
-        $cell->getCellFormat()->getBorderBottom()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-        $cell->getCellFormat()->getBorderBottom()->setWidth(5);
-        $cell->getCellFormat()->getBorderLeft()->getFillFormat()->setFillType(FillType::Solid);
-        $cell->getCellFormat()->getBorderLeft()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-        $cell->getCellFormat()->getBorderLeft()->setWidth(5);
-        $cell->getCellFormat()->getBorderRight()->getFillFormat()->setFillType(FillType::Solid);
-        $cell->getCellFormat()->getBorderRight()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-        $cell->getCellFormat()->getBorderRight()->setWidth(5);
-      }
-    }
-    # รวมเซลล์ (1, 1) x (2, 1)
-    $tbl->mergeCells($tbl->get_Item(1, 1), $tbl->get_Item(2, 1), false);
-    # รวมเซลล์ (1, 2) x (2, 2)
-    $tbl->mergeCells($tbl->get_Item(1, 2), $tbl->get_Item(2, 2), false);
-    # รวมเซลล์ (1, 1) x (1, 2)
-    $tbl->mergeCells($tbl->get_Item(1, 1), $tbl->get_Item(1, 2), true);
-    # บันทึกไฟล์ PPTX ลงดิสก์
-    $pres->save("MergeCells_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $columnWidths = [ 70, 70, 70, 70 ];
+    $rowHeights = [ 70, 70, 70, 70 ];
+    $table = $slide->getShapes()->addTable(100, 50, $columnWidths, $rowHeights);
+
+    $table->get_Item(1, 1)->splitByWidth(java_values($table->get_Item(1, 1)->getWidth()) / 2);
+
+    $presentation->save("split_cells.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **การจัดลำดับเลขในเซลล์ที่แยก**
-ในตัวอย่างก่อนหน้า เมื่อเซลล์ตารางถูกรวม ระบบการนัมเบอร์หรือเลขในเซลล์อื่น ๆ ไม่เปลี่ยนแปลง
+### **แยกเซลล์ที่รวมตามช่วงแถวหรือคอลัมน์**
 
-ครั้งนี้เราจะใช้ตารางปกติ (ตารางที่ไม่มีเซลล์ที่รวม) แล้วลองแยกเซลล์ (1,1) เพื่อให้ได้ตารางพิเศษ คุณอาจต้องใส่ใจการนัมเบอร์ของตารางนี้ ซึ่งอาจดูแปลก แต่เป็นวิธีที่ Microsoft PowerPoint นัมเบอร์เซลล์ตารางและ Aspose.Slides ทำเช่นเดียวกัน
+เพื่อเตรียมเซลล์เทมเพลตที่รวมสำหรับการเติมข้อมูล ใช้ [แยกตามช่วงแถว](https://reference.aspose.com/slides/php-java/aspose.slides/cell/splitbyrowspan/) เพื่อแยกตามขอบแถวที่มีอยู่ หรือ [แยกตามช่วงคอลัมน์](https://reference.aspose.com/slides/php-java/aspose.slides/cell/splitbycolspan/) เพื่อแยกตามขอบคอลัมน์
 
-โค้ด PHP นี้แสดงกระบวนการที่อธิบาย:
+อาร์กิวเมนต์ `index` นับแถวในส่วนบนหรือคอลัมน์ในส่วนซ้ายของการแยก; มีค่าอ้างอิงจากพื้นที่ที่รวม:
+
+- แยกแถว: `0 < index <` [รับช่วงแถว](https://reference.aspose.com/slides/php-java/aspose.slides/cell/getrowspan/).
+- แยกคอลัมน์: `0 < index <` [รับช่วงคอลัมน์](https://reference.aspose.com/slides/php-java/aspose.slides/cell/getcolspan/).
+
+ตัวอย่างคาดว่างานนำเสนอมีตารางเป็นรูปทรงแรกบนสไลด์แรก โดย `(1, 2)` และ `(1, 3)` ถูกรวมแนวตั้ง เริ่มจากตำแหน่งล่าง ใช้ [ดัชนีคอลัมน์แรก](https://reference.aspose.com/slides/php-java/aspose.slides/cell/getfirstcolumnindex/) และ [ดัชนีแถวแรก](https://reference.aspose.com/slides/php-java/aspose.slides/cell/getfirstrowindex/) เพื่อหาตำแหน่งต้น แล้วตรวจสอบทั้งสองช่วง `splitByRowSpan(1)` จะแยกแถว 2 และ 3 สำหรับชื่อสินค้า สำหรับการรวมแนวนอนสองคอลัมน์ ให้ใช้ `splitByColSpan(1)` แทน
 
 ```php
-  # สร้างอินสแตนซ์ของคลาส Presentation ที่แทนไฟล์ PPTX
-  $pres = new Presentation();
-  try {
-    # เข้าถึงสไลด์แรก
-    $sld = $pres->getSlides()->get_Item(0);
-    # กำหนดคอลัมน์พร้อมความกว้างและแถวพร้อมความสูง
-    $dblCols = array(70, 70, 70, 70 );
-    $dblRows = array(70, 70, 70, 70 );
-    # เพิ่มรูปร่างตารางลงในสไลด์
-    $tbl = $sld->getShapes()->addTable(100, 50, $dblCols, $dblRows);
-    # กำหนดรูปแบบขอบสำหรับแต่ละเซลล์
-    foreach($tbl->getRows() as $row) {
-      foreach($row as $cell) {
-        $cell->getCellFormat()->getBorderTop()->getFillFormat()->setFillType(FillType::Solid);
-        $cell->getCellFormat()->getBorderTop()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-        $cell->getCellFormat()->getBorderTop()->setWidth(5);
-        $cell->getCellFormat()->getBorderBottom()->getFillFormat()->setFillType(FillType::Solid);
-        $cell->getCellFormat()->getBorderBottom()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-        $cell->getCellFormat()->getBorderBottom()->setWidth(5);
-        $cell->getCellFormat()->getBorderLeft()->getFillFormat()->setFillType(FillType::Solid);
-        $cell->getCellFormat()->getBorderLeft()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-        $cell->getCellFormat()->getBorderLeft()->setWidth(5);
-        $cell->getCellFormat()->getBorderRight()->getFillFormat()->setFillType(FillType::Solid);
-        $cell->getCellFormat()->getBorderRight()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-        $cell->getCellFormat()->getBorderRight()->setWidth(5);
-      }
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("table_template.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $table = $slide->getShapes()->get_Item(0);
+
+    $selectedCell = $table->get_Item(1, 3);
+    $firstColumnIndex = java_values($selectedCell->getFirstColumnIndex());
+    $firstRowIndex = java_values($selectedCell->getFirstRowIndex());
+    $mergedCell = $table->get_Item($firstColumnIndex, $firstRowIndex);
+
+    if (java_values($mergedCell->isMergedCell()) && java_values($mergedCell->getRowSpan()) == 2 && java_values($mergedCell->getColSpan()) == 1)
+    {
+        $mergedCell->splitByRowSpan(1);
+
+        // ดึงเซลล์ที่ได้จากตารางหลังจากแยกออก.
+        $upperCell = $table->get_Item($firstColumnIndex, $firstRowIndex);
+        $lowerCell = $table->get_Item($firstColumnIndex, $firstRowIndex + 1);
+        echo "Upper cell merged: " . (java_values($upperCell->isMergedCell()) ? "true" : "false") . PHP_EOL;
+        echo "Lower cell merged: " . (java_values($lowerCell->isMergedCell()) ? "true" : "false") . PHP_EOL;
+
+        $upperCell->getTextFrame()->setText("Product A");
+        $lowerCell->getTextFrame()->setText("Product B");
+
+        $presentation->save("split_template.pptx", SaveFormat::Pptx);
     }
-    # รวมเซลล์ (1, 1) x (2, 1)
-    $tbl->mergeCells($tbl->get_Item(1, 1), $tbl->get_Item(2, 1), false);
-    # รวมเซลล์ (1, 2) x (2, 2)
-    $tbl->mergeCells($tbl->get_Item(1, 2), $tbl->get_Item(2, 2), false);
-    # แยกเซลล์ (1, 1)
-    $tbl->get_Item(1, 1)->splitByWidth($tbl->get_Item(2, 1)->getWidth() / 2);
-    # บันทึกไฟล์ PPTX ลงดิสก์
-    $pres->save("SplitCells_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
+    else
+    {
+        echo "Select a merged region spanning exactly two rows and one column." . PHP_EOL;
     }
-  }
+} finally {
+    $presentation->dispose();
+}
 ```
+
+กริดของตารางและดัชนีเซลล์โดยรอบคงเดิม ให้ดึงเซลล์ที่แยกออกมาด้วยพิกัดของมัน; ในที่นี้ทั้งสองเซลล์มีช่วงเป็น 1 และ [เซลล์ที่รวม](https://reference.aspose.com/slides/php-java/aspose.slides/cell/ismergedcell/) แสดง `false`. พื้นที่ใหญ่กว่าอาจยังคงรวมบางส่วนหลังจากการแยกหนึ่งครั้ง
+
+ข้อความและรูปแบบเดิมยังคงอยู่ในเซลล์บน (หรือซ้าย); เซลล์ใหม่เป็นค่าว่างแต่สืบทอดรูปแบบเซลล์เช่น การเติม, เส้นขอบ, และระยะขอบ เติมข้อความลงในเซลล์หลังการแยกและตั้งค่าการจัดรูปแบบข้อความที่ต้องการอย่างชัดเจน
+
+งานนำเสนอที่บันทึกมีเซลล์ "Product A" และ "Product B" แยกจากกันโดยคงรูปแบบเซลล์ของเทมเพลตไว้ ดูที่ [อ้างอิง Cell API](https://reference.aspose.com/slides/php-java/aspose.slides/cell/) สำหรับรายละเอียด
 
 ## **เปลี่ยนสีพื้นหลังของเซลล์ตาราง**
 
-โค้ด PHP นี้แสดงวิธีเปลี่ยนสีพื้นหลังของเซลล์ตาราง:
+ตัวอย่างนี้สร้างตารางที่มีคอลัมน์ขนาด 150 จุดและแถวขนาด 50 จุด ใช้ [กำหนดประเภทการเติม](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/setfilltype/) เพื่อเลือกการเติมทึบและตั้งค่าสีที่ได้จาก [รับสีเติมแบบทึบ](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/getsolidfillcolor/) เป็นสีแดงสำหรับเซลล์ `(2, 3)`, ซึ่งอยู่ในคอลัมน์ที่สามและแถวที่สี่
 
 ```php
-  $presentation = new Presentation();
-  try {
+use aspose\slides\FillType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
     $slide = $presentation->getSlides()->get_Item(0);
-    $dblCols = array(150, 150, 150, 150 );
-    $dblRows = array(50, 50, 50, 50, 50 );
-    # สร้างตารางใหม่
-    $table = $slide->getShapes()->addTable(50, 50, $dblCols, $dblRows);
-    # ตั้งค่าสีพื้นหลังสำหรับเซลล์
+
+    $columnWidths = [ 150, 150, 150, 150 ];
+    $rowHeights = [ 50, 50, 50, 50, 50 ];
+    $table = $slide->getShapes()->addTable(50, 50, $columnWidths, $rowHeights);
+
     $cell = $table->get_Item(2, 3);
     $cell->getCellFormat()->getFillFormat()->setFillType(FillType::Solid);
     $cell->getCellFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
+
     $presentation->save("cell_background_color.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($presentation)) {
-      $presentation->dispose();
-    }
-  }
+} finally {
+    $presentation->dispose();
+}
 ```
 
 ## **เพิ่มรูปภาพภายในเซลล์ตาราง**
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/php-java/aspose.slides/Presentation) 
-2. ดึงอ้างอิงสไลด์ผ่านดัชนีของมัน 
-3. กำหนดอาเรย์ของคอลัมน์พร้อมความกว้าง 
-4. กำหนดอาเรย์ของแถวพร้อมความสูง 
-5. เพิ่มตารางลงในสไลด์ผ่านเมธอด [AddTable](https://reference.aspose.com/slides/th/php-java/aspose.slides/shapecollection/#addTable) 
-6. สร้างอ็อบเจ็กต์ `Images` เพื่อเก็บไฟล์รูปภาพ 
-7. เพิ่มรูปภาพ `IImage` ไปยังอ็อบเจ็กต์ `IPPImage` 
-8. ตั้งค่า `FillFormat` ของเซลล์ตารางเป็น `Picture` 
-9. เพิ่มรูปภาพลงในเซลล์แรกของตาราง 
-10. บันทึกงานนำเสนอที่แก้ไขเป็นไฟล์ PPTX
 
-โค้ด PHP นี้แสดงวิธีวางรูปภาพภายในเซลล์ตารางเมื่อสร้างตาราง:
+วางภาพอินพุตในโฟลเดอร์ทำงานก่อนรันตัวอย่างนี้ โปรแกรมโหลดภาพด้วย [จากไฟล์](https://reference.aspose.com/slides/php-java/aspose.slides/images/#fromFile) และเพิ่มเข้าไปในคอลเลกชันภาพของงานนำเสนอด้วย [เพิ่มรูปภาพ](https://reference.aspose.com/slides/php-java/aspose.slides/imagecollection/addimage/). จากนั้นกำหนดภาพให้กับการเติมรูปภาพของเซลล์ `(0, 0)`, เซลล์แรกของตาราง
+
+[ขยาย](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillmode/) ทำให้ภาพขยายเต็มเซลล์ซึ่งอาจเปลี่ยนสัดส่วนของภาพ ความกว้างคอลัมน์และความสูงแถวระบุเป็นจุด ภาพที่โหลดแล้วจะถูกลบในบล็อก `finally` หลังจากเพิ่มเข้าไปในงานนำเสนอ
 
 ```php
-  # สร้างอินสแตนซ์ของคลาส Presentation ที่แทนไฟล์ PPTX
-  $pres = new Presentation();
-  try {
-    # เข้าถึงสไลด์แรก
-    $islide = $pres->getSlides()->get_Item(0);
-    # กำหนดคอลัมน์พร้อมความกว้างและแถวพร้อมความสูง
-    $dblCols = array(150, 150, 150, 150 );
-    $dblRows = array(100, 100, 100, 100, 90 );
-    # เพิ่มรูปร่างตารางลงในสไลด์
-    $tbl = $islide->getShapes()->addTable(50, 50, $dblCols, $dblRows);
-    # สร้างอ็อบเจ็กต์ IPPImage ด้วยไฟล์ภาพ
-    $picture;
-    $image = Images->fromFile("image.jpg");
+use aspose\slides\FillType;
+use aspose\slides\Images;
+use aspose\slides\PictureFillMode;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $columnWidths = [ 150, 150, 150, 150 ];
+    $rowHeights = [ 100, 100, 100, 100, 90 ];
+    $table = $slide->getShapes()->addTable(50, 50, $columnWidths, $rowHeights);
+
+    $image = Images::fromFile("aspose_logo.jpg");
     try {
-      $picture = $pres->getImages()->addImage($image);
+        $ppImage = $presentation->getImages()->addImage($image);
     } finally {
-      if (!java_is_null($image)) {
         $image->dispose();
-      }
     }
-    # เพิ่มภาพลงในเซลล์ตารางที่แรก
-    $cellFormat = $tbl->get_Item(0, 0)->getCellFormat();
-    $cellFormat::getFillFormat()->setFillType(FillType::Picture);
-    $cellFormat::getFillFormat()->getPictureFillFormat()->setPictureFillMode(PictureFillMode->Stretch);
-    $cellFormat::getFillFormat()->getPictureFillFormat()->getPicture()->setImage($picture);
-    # บันทึกไฟล์ PPTX ลงดิสก์
-    $pres->save("Image_In_TableCell_out.pptx", SaveFormat::Pptx);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $table->get_Item(0, 0)->getCellFormat()->getFillFormat()->setFillType(FillType::Picture);
+    $table->get_Item(0, 0)->getCellFormat()->getFillFormat()->getPictureFillFormat()->setPictureFillMode(PictureFillMode::Stretch);
+    $table->get_Item(0, 0)->getCellFormat()->getFillFormat()->getPictureFillFormat()->getPicture()->setImage($ppImage);
+
+    $presentation->save("table_cell_with_image.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **FAQ**
+## **คำถามที่พบบ่อย**
 
-**ฉันสามารถตั้งความหนาและสไตล์ของเส้นที่แตกต่างสำหรับแต่ละด้านของเซลล์เดียวได้ไหม?**
+**Can I set different line thicknesses and styles for different sides of a single cell?**
 
-ได้. ขอบ[top](https://reference.aspose.com/slides/th/php-java/aspose.slides/cellformat/getbordertop/)/[bottom](https://reference.aspose.com/slides/th/php-java/aspose.slides/cellformat/getborderbottom/)/[left](https://reference.aspose.com/slides/th/php-java/aspose.slides/cellformat/getborderleft/)/[right](https://reference.aspose.com/slides/th/php-java/aspose.slides/cellformat/getborderright/) มีคุณสมบัติเสียแยกกัน ดังนั้นความหนาและสไตล์ของแต่ละด้านจึงสามารถแตกต่างกันได้ สิ่งนี้สอดคล้องกับการควบคุมขอบตามด้านของเซลล์ที่แสดงในบทความ
+Yes. The [บน](https://reference.aspose.com/slides/php-java/aspose.slides/cellformat/getbordertop/)/[ล่าง](https://reference.aspose.com/slides/php-java/aspose.slides/cellformat/getborderbottom/)/[ซ้าย](https://reference.aspose.com/slides/php-java/aspose.slides/cellformat/getborderleft/)/[ขวา](https://reference.aspose.com/slides/php-java/aspose.slides/cellformat/getborderright/) borders have separate properties, so the thickness and style of each side can differ.
 
-**ถ้าฉันเปลี่ยนขนาดคอลัมน์/แถวหลังจากตั้งรูปภาพเป็นพื้นหลังของเซลล์ จะเกิดอะไรขึ้นกับรูปภาพ?**
+**What happens to the image if I change the column/row size after setting a picture as the cell’s background?**
 
-พฤติกรรมขึ้นอยู่กับ [fill mode](https://reference.aspose.com/slides/th/php-java/aspose.slides/picturefillmode/) (stretch/tile) หากใช้การยืดรูปภาพจะปรับให้พอดีกับเซลล์ใหม่; หากใช้การทำซ้ำ (tile) ช่องภาพจะถูกคำนวณใหม่ บทความกล่าวถึงโหมดการแสดงผลรูปภาพในเซลล์
+The behavior depends on the [โหมดการเติม](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillmode/) (stretch/tile). With stretching, the image adjusts to the new cell; with tiling, the tiles are recalculated.
 
-**ฉันสามารถกำหนดไฮเปอร์ลิงก์ให้กับเนื้อหาทั้งหมดของเซลล์ได้หรือไม่?**
+**Can I assign a hyperlink to all the content of a cell?**
 
-[Hyperlinks](/slides/th/php-java/manage-hyperlinks/) สามารถตั้งได้ที่ระดับข้อความ (portion) ภายในเฟรมข้อความของเซลล์หรือที่ระดับของตาราง/รูปร่างทั้งหมด ในการปฏิบัติคุณจะกำหนดลิงก์ให้กับส่วนย่อยหรือทั้งหมดของข้อความในเซลล์
+[ไฮเปอร์ลิงก์](/slides/th/php-java/manage-hyperlinks/) are set at the text (portion) level inside the cell’s text frame or at the level of the entire table/shape. In practice, you assign the link to a portion or to all the text in the cell.
 
-**ฉันสามารถตั้งฟอนต์ที่แตกต่างภายในเซลล์เดียวได้หรือไม่?**
+**Can I set different fonts within a single cell?**
 
-ได้. เฟรมข้อความของเซลล์รองรับ [portions](https://reference.aspose.com/slides/th/php-java/aspose.slides/portion/) (run) ที่มีการจัดรูปแบบแยกกัน—ฟอนต์, สไตล์, ขนาด, และสี.
+Yes. A cell’s text frame supports [ส่วนย่อย](https://reference.aspose.com/slides/php-java/aspose.slides/portion/) (runs) with independent formatting—font family, style, size, and color.

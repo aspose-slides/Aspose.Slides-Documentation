@@ -15,307 +15,265 @@ keywords:
 - bản trình chiếu
 - PHP
 - Aspose.Slides
-description: "Quản lý các ô bảng trong PowerPoint một cách dễ dàng với Aspose.Slides cho PHP. Nắm vững việc truy cập, sửa đổi và tạo kiểu các ô nhanh chóng để tự động hóa slide liền mạch."
+description: "Quản lý các ô bảng PowerPoint trong PHP: xác định các ô đã hợp nhất, xóa viền, tách ô, và thiết lập màu nền cùng hình ảnh với Aspose.Slides cho PHP qua Java."
 ---
 ## **Tổng quan**
 
-Aspose.Slides cho phép bạn truy cập và sửa đổi các ô bảng trong bản trình chiếu PowerPoint. Bài viết này giải thích cách xác định các ô bảng đã hợp nhất, xóa viền ô, làm việc với đánh số ô sau khi hợp nhất hoặc tách ô, thay đổi màu nền của ô, và chèn hình ảnh vào trong ô bảng. Các ví dụ cho thấy cách tạo hoặc mở một bản trình chiếu, lấy bảng từ một slide, cập nhật định dạng ô qua các thuộc tính ô, và lưu bản trình chiếu đã sửa đổi thành tệp PPTX.
+Aspose.Slides cho phép bạn truy cập và chỉnh sửa các ô bảng trong bản trình chiếu PowerPoint. Bài viết này giải thích cách xác định các ô bảng đã hợp nhất, xóa viền ô, làm việc với đánh số ô sau khi hợp nhất hoặc tách ô, thay đổi màu nền của ô, và chèn hình ảnh vào trong một ô bảng. Các ví dụ cho thấy cách tạo hoặc mở một bản trình chiếu, lấy bảng từ một slide, cập nhật định dạng ô thông qua các thuộc tính ô, và lưu bản trình chiếu đã sửa đổi dưới dạng tệp PPTX.
+
+Aspose.Slides sử dụng chỉ mục bắt đầu từ 0 để truy cập các ô bảng theo thứ tự `(column, row)`.
 
 ## **Xác định ô bảng đã hợp nhất**
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/php-java/aspose.slides/Presentation).
-2. Lấy bảng từ slide đầu tiên. 
-3. Duyệt qua các hàng và cột của bảng để tìm các ô đã hợp nhất.
-4. In ra thông báo khi phát hiện các ô đã hợp nhất.
 
-Đoạn mã PHP này cho bạn thấy cách xác định các ô bảng đã hợp nhất trong một bản trình chiếu:
+Ví dụ mở một bản trình chiếu hiện có và truy cập shape đầu tiên trên slide đầu tiên như một bảng. Giả sử slide và shape tồn tại và shape là một bảng. Sau đó vòng lặp qua tất cả các hàng và cột và sử dụng [isMergedCell](https://reference.aspose.com/slides/php-java/aspose.slides/cell/ismergedcell/) để xác định các ô trong vùng đã hợp nhất. Đối với mỗi kết quả khớp, nó in tọa độ ô theo thứ tự `row;column`, [getRowSpan](https://reference.aspose.com/slides/php-java/aspose.slides/cell/getrowspan/), [getColSpan](https://reference.aspose.com/slides/php-java/aspose.slides/cell/getcolspan/), và tọa độ bắt đầu của vùng, [getFirstRowIndex](https://reference.aspose.com/slides/php-java/aspose.slides/cell/getfirstrowindex/) và [getFirstColumnIndex](https://reference.aspose.com/slides/php-java/aspose.slides/cell/getfirstcolumnindex/).
 
 ```php
-  $pres = new Presentation("SomePresentationWithTable.pptx");
-  try {
-    $table = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0);// giả sử Slide#0.Shape#0 là một bảng
+use aspose\slides\Presentation;
 
-    for($i = 0; $i < java_values($table->getRows()->size()) ; $i++) {
-      for($j = 0; $j < java_values($table->getColumns()->size()) ; $j++) {
-        $currentCell = $table->getRows()->get_Item($i)->get_Item($j);
-        if ($currentCell->isMergedCell()) {
-          echo(sprintf("Cell %d;%d is a part of merged cell with RowSpan=%d and ColSpan=%d starting from Cell %d;%d.", $i, $j, $currentCell->getRowSpan(), $currentCell->getColSpan(), $currentCell->getFirstRowIndex(), $currentCell->getFirstColumnIndex()));
+$presentation = new Presentation("presentation_with_table.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $table = $slide->getShapes()->get_Item(0);
+
+    $rowCount = java_values($table->getRows()->size());
+    for ($rowIndex = 0; $rowIndex < $rowCount; $rowIndex++)
+    {
+        $columnCount = java_values($table->getColumns()->size());
+        for ($columnIndex = 0; $columnIndex < $columnCount; $columnIndex++)
+        {
+            $cell = $table->get_Item($columnIndex, $rowIndex);
+            if (java_values($cell->isMergedCell()))
+            {
+                printf("Cell %d;%d belongs to a merged region with RowSpan=%d and ColSpan=%d starting at %d;%d.\n", $rowIndex, $columnIndex, java_values($cell->getRowSpan()), java_values($cell->getColSpan()), java_values($cell->getFirstRowIndex()), java_values($cell->getFirstColumnIndex()));
+            }
         }
-      }
     }
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+} finally {
+    $presentation->dispose();
+}
 ```
 
 ## **Xóa viền ô bảng**
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/php-java/aspose.slides/Presentation).
-2. Lấy tham chiếu tới một slide thông qua chỉ mục của nó. 
-3. Định nghĩa một mảng các cột với chiều rộng.
-4. Định nghĩa một mảng các hàng với chiều cao.
-5. Thêm một bảng vào slide thông qua phương thức [addTable](https://reference.aspose.com/slides/vi/php-java/aspose.slides/shapecollection/#addTable).
-6. Duyệt qua từng ô để xóa viền trên, dưới, phải và trái.
-7. Lưu bản trình chiếu đã sửa đổi thành tệp PPTX.
 
-Đoạn mã PHP này cho bạn thấy cách xóa viền khỏi các ô bảng:
+Tạo một [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) và thêm một bảng vào slide đầu tiên của nó bằng [addTable](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addtable/). Độ rộng cột, chiều cao hàng và vị trí bảng được chỉ định bằng điểm. Ví dụ đặt tất cả bốn viền ô thành [FillType::NoFill](https://reference.aspose.com/slides/php-java/aspose.slides/filltype/), khiến chúng trở nên vô hình.
 
 ```php
-  # Khởi tạo lớp Presentation đại diện cho tệp PPTX
-  $pres = new Presentation();
-  try {
-    # Truy cập slide đầu tiên
-    $sld = $pres->getSlides()->get_Item(0);
-    # Xác định các cột với độ rộng và các hàng với chiều cao
-    $dblCols = array(50, 50, 50, 50 );
-    $dblRows = array(50, 30, 30, 30, 30 );
-    # Thêm hình dạng bảng vào slide
-    $tbl = $sld->getShapes()->addTable(100, 50, $dblCols, $dblRows);
-    # Đặt định dạng viền cho mỗi ô
-    foreach($tbl->getRows() as $row) {
-      foreach($row as $cell) {
-        $cell->getCellFormat()->getBorderTop()->getFillFormat()->setFillType(FillType::NoFill);
-        $cell->getCellFormat()->getBorderBottom()->getFillFormat()->setFillType(FillType::NoFill);
-        $cell->getCellFormat()->getBorderLeft()->getFillFormat()->setFillType(FillType::NoFill);
-        $cell->getCellFormat()->getBorderRight()->getFillFormat()->setFillType(FillType::NoFill);
-      }
-    }
-    # Ghi tệp PPTX ra đĩa
-    $pres->save("table_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
+use aspose\slides\FillType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
 
-## **Đánh số trong các ô đã hợp nhất**
-Nếu chúng ta hợp nhất 2 cặp ô (1, 1) x (2, 1) và (1, 2) x (2, 2), bảng kết quả sẽ được đánh số. Đoạn mã PHP này minh họa quy trình:
-
-```php
-  # Khởi tạo lớp Presentation đại diện cho tệp PPTX
-  $pres = new Presentation();
-  try {
-    # Truy cập slide đầu tiên
-    $sld = $pres->getSlides()->get_Item(0);
-    # Xác định các cột với độ rộng và các hàng với chiều cao
-    $dblCols = array(70, 70, 70, 70 );
-    $dblRows = array(70, 70, 70, 70 );
-    # Thêm hình dạng bảng vào slide
-    $tbl = $sld->getShapes()->addTable(100, 50, $dblCols, $dblRows);
-    # Đặt định dạng viền cho mỗi ô
-    foreach($tbl->getRows() as $row) {
-      foreach($row as $cell) {
-        $cell->getCellFormat()->getBorderTop()->getFillFormat()->setFillType(FillType::Solid);
-        $cell->getCellFormat()->getBorderTop()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-        $cell->getCellFormat()->getBorderTop()->setWidth(5);
-        $cell->getCellFormat()->getBorderBottom()->getFillFormat()->setFillType(FillType::Solid);
-        $cell->getCellFormat()->getBorderBottom()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-        $cell->getCellFormat()->getBorderBottom()->setWidth(5);
-        $cell->getCellFormat()->getBorderLeft()->getFillFormat()->setFillType(FillType::Solid);
-        $cell->getCellFormat()->getBorderLeft()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-        $cell->getCellFormat()->getBorderLeft()->setWidth(5);
-        $cell->getCellFormat()->getBorderRight()->getFillFormat()->setFillType(FillType::Solid);
-        $cell->getCellFormat()->getBorderRight()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-        $cell->getCellFormat()->getBorderRight()->setWidth(5);
-      }
-    }
-    # Hợp nhất các ô (1, 1) x (2, 1)
-    $tbl->mergeCells($tbl->get_Item(1, 1), $tbl->get_Item(2, 1), false);
-    # Hợp nhất các ô (1, 2) x (2, 2)
-    $tbl->mergeCells($tbl->get_Item(1, 2), $tbl->get_Item(2, 2), false);
-    $pres->save("MergeCells_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-Sau đó chúng ta tiếp tục hợp nhất các ô bằng cách hợp nhất (1, 1) và (1, 2). Kết quả là một bảng chứa một ô hợp nhất lớn ở trung tâm:
-
-```php
-  # Khởi tạo lớp Presentation đại diện cho tệp PPTX
-  $pres = new Presentation();
-  try {
-    # Truy cập slide đầu tiên
-    $sld = $pres->getSlides()->get_Item(0);
-    # Xác định các cột với độ rộng và các hàng với chiều cao
-    $dblCols = array(70, 70, 70, 70 );
-    $dblRows = array(70, 70, 70, 70 );
-    # Thêm hình dạng bảng vào slide
-    $tbl = $sld->getShapes()->addTable(100, 50, $dblCols, $dblRows);
-    # Đặt định dạng viền cho mỗi ô
-    foreach($tbl->getRows() as $row) {
-      foreach($row as $cell) {
-        $cell->getCellFormat()->getBorderTop()->getFillFormat()->setFillType(FillType::Solid);
-        $cell->getCellFormat()->getBorderTop()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-        $cell->getCellFormat()->getBorderTop()->setWidth(5);
-        $cell->getCellFormat()->getBorderBottom()->getFillFormat()->setFillType(FillType::Solid);
-        $cell->getCellFormat()->getBorderBottom()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-        $cell->getCellFormat()->getBorderBottom()->setWidth(5);
-        $cell->getCellFormat()->getBorderLeft()->getFillFormat()->setFillType(FillType::Solid);
-        $cell->getCellFormat()->getBorderLeft()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-        $cell->getCellFormat()->getBorderLeft()->setWidth(5);
-        $cell->getCellFormat()->getBorderRight()->getFillFormat()->setFillType(FillType::Solid);
-        $cell->getCellFormat()->getBorderRight()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-        $cell->getCellFormat()->getBorderRight()->setWidth(5);
-      }
-    }
-    # Hợp nhất các ô (1, 1) x (2, 1)
-    $tbl->mergeCells($tbl->get_Item(1, 1), $tbl->get_Item(2, 1), false);
-    # Hợp nhất các ô (1, 2) x (2, 2)
-    $tbl->mergeCells($tbl->get_Item(1, 2), $tbl->get_Item(2, 2), false);
-    # Hợp nhất các ô (1, 1) x (1, 2)
-    $tbl->mergeCells($tbl->get_Item(1, 1), $tbl->get_Item(1, 2), true);
-    # Ghi tệp PPTX ra đĩa
-    $pres->save("MergeCells_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-## **Đánh số trong ô đã tách**
-Trong các ví dụ trước, khi các ô bảng được hợp nhất, hệ thống đánh số trong các ô còn lại không thay đổi.
-
-Lần này, chúng ta lấy một bảng thông thường (bảng không có ô hợp nhất) và sau đó tách ô (1,1) để tạo ra một bảng đặc biệt. Bạn có thể chú ý đến cách đánh số của bảng này, có thể có vẻ lạ. Tuy nhiên, đó là cách Microsoft PowerPoint đánh số các ô bảng và Aspose.Slides cũng làm tương tự.
-
-Đoạn mã PHP này minh họa quy trình chúng tôi mô tả:
-
-```php
-  # Khởi tạo lớp Presentation đại diện cho tệp PPTX
-  $pres = new Presentation();
-  try {
-    # Truy cập slide đầu tiên
-    $sld = $pres->getSlides()->get_Item(0);
-    # Xác định các cột với độ rộng và các hàng với chiều cao
-    $dblCols = array(70, 70, 70, 70 );
-    $dblRows = array(70, 70, 70, 70 );
-    # Thêm hình dạng bảng vào slide
-    $tbl = $sld->getShapes()->addTable(100, 50, $dblCols, $dblRows);
-    # Đặt định dạng viền cho mỗi ô
-    foreach($tbl->getRows() as $row) {
-      foreach($row as $cell) {
-        $cell->getCellFormat()->getBorderTop()->getFillFormat()->setFillType(FillType::Solid);
-        $cell->getCellFormat()->getBorderTop()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-        $cell->getCellFormat()->getBorderTop()->setWidth(5);
-        $cell->getCellFormat()->getBorderBottom()->getFillFormat()->setFillType(FillType::Solid);
-        $cell->getCellFormat()->getBorderBottom()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-        $cell->getCellFormat()->getBorderBottom()->setWidth(5);
-        $cell->getCellFormat()->getBorderLeft()->getFillFormat()->setFillType(FillType::Solid);
-        $cell->getCellFormat()->getBorderLeft()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-        $cell->getCellFormat()->getBorderLeft()->setWidth(5);
-        $cell->getCellFormat()->getBorderRight()->getFillFormat()->setFillType(FillType::Solid);
-        $cell->getCellFormat()->getBorderRight()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-        $cell->getCellFormat()->getBorderRight()->setWidth(5);
-      }
-    }
-    # Hợp nhất các ô (1, 1) x (2, 1)
-    $tbl->mergeCells($tbl->get_Item(1, 1), $tbl->get_Item(2, 1), false);
-    # Hợp nhất các ô (1, 2) x (2, 2)
-    $tbl->mergeCells($tbl->get_Item(1, 2), $tbl->get_Item(2, 2), false);
-    # Tách ô (1, 1)
-    $tbl->get_Item(1, 1)->splitByWidth($tbl->get_Item(2, 1)->getWidth() / 2);
-    # Ghi tệp PPTX ra đĩa
-    $pres->save("SplitCells_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-## **Thay đổi màu nền của ô bảng**
-
-Đoạn mã PHP này cho bạn thấy cách thay đổi màu nền của một ô bảng:
-
-```php
-  $presentation = new Presentation();
-  try {
+$presentation = new Presentation();
+try {
     $slide = $presentation->getSlides()->get_Item(0);
-    $dblCols = array(150, 150, 150, 150 );
-    $dblRows = array(50, 50, 50, 50, 50 );
-    # tạo một bảng mới
-    $table = $slide->getShapes()->addTable(50, 50, $dblCols, $dblRows);
-    # đặt màu nền cho một ô
+
+    $columnWidths = [ 50, 50, 50, 50 ];
+    $rowHeights = [ 50, 30, 30, 30, 30 ];
+    $table = $slide->getShapes()->addTable(100, 50, $columnWidths, $rowHeights);
+
+    for ($rowIndex = 0; $rowIndex < java_values($table->getRows()->size()); $rowIndex++) {
+        for ($columnIndex = 0; $columnIndex < java_values($table->getColumns()->size()); $columnIndex++) {
+            $cell = $table->get_Item($columnIndex, $rowIndex);
+            $cell->getCellFormat()->getBorderTop()->getFillFormat()->setFillType(FillType::NoFill);
+            $cell->getCellFormat()->getBorderBottom()->getFillFormat()->setFillType(FillType::NoFill);
+            $cell->getCellFormat()->getBorderLeft()->getFillFormat()->setFillType(FillType::NoFill);
+            $cell->getCellFormat()->getBorderRight()->getFillFormat()->setFillType(FillType::NoFill);
+        }
+    }
+
+    $presentation->save("table.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+## **Hợp nhất các ô bảng**
+
+Sử dụng [mergeCells](https://reference.aspose.com/slides/php-java/aspose.slides/table/mergecells/) để kết hợp một phạm vi hình chữ nhật của các ô bảng thành một ô. Xác định các ô ở góc trên‑trái và góc dưới‑phải của phạm vi. Đối số cuối cùng kiểm soát việc hợp nhất có thể bao gồm các ô ngoài phạm vi đã chỉ định hay không; `false` giữ hợp nhất trong phạm vi đó.
+
+Ví dụ tạo một bảng 4x4 với các cột và hàng có độ rộng/chiều cao 70 điểm, sau đó hợp nhất bốn ô trung tâm từ `(1, 1)` đến `(2, 2)`. Ô kết quả chiếm hai cột và hai hàng, trong khi lưới cơ bản của bảng vẫn giữ bốn cột và bốn hàng. Để truy cập nội dung hoặc định dạng của ô đã hợp nhất, sử dụng vị trí trên‑trái của nó: `$table->get_Item(1, 1)` trong ví dụ này. Các vị trí khác trong phạm vi hợp nhất vẫn là một phần của lưới bảng, vì vậy chỉ mục của các ô ngoài phạm vi không thay đổi.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $columnWidths = [ 70, 70, 70, 70 ];
+    $rowHeights = [ 70, 70, 70, 70 ];
+    $table = $slide->getShapes()->addTable(100, 50, $columnWidths, $rowHeights);
+
+    $table->mergeCells($table->get_Item(1, 1), $table->get_Item(2, 2), false);
+
+    $presentation->save("merged_cells.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+## **Tách các ô bảng**
+
+Việc hợp nhất các ô trong ví dụ trước giữ nguyên lưới bảng. Tách một ô có thể tạo thêm một cột lưới mới và thay đổi chỉ mục cột của các ô ở phía bên phải. Aspose.Slides tuân theo mô hình lưới bảng của PowerPoint.
+
+Ví dụ này tạo một bảng 4x4 với các cột và hàng 70 điểm và gọi [splitByWidth](https://reference.aspose.com/slides/php-java/aspose.slides/cell/splitbywidth/) trên ô `(1, 1)`. Một nửa độ rộng 70 điểm của ô được truyền vào để tạo hai ô có độ rộng bằng nhau.
+
+Sau khi tách, hai nửa được truy cập dưới dạng `$table->get_Item(1, 1)` và `$table->get_Item(2, 1)`. Lưới bảng bây giờ có năm cột: các ô ban đầu ở cột 2 và 3 di chuyển đến cột 3 và 4, tương ứng. Chỉ mục hàng giữ nguyên. Sử dụng các chỉ mục cột đã cập nhật khi truy cập các ô sau khi tách.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $columnWidths = [ 70, 70, 70, 70 ];
+    $rowHeights = [ 70, 70, 70, 70 ];
+    $table = $slide->getShapes()->addTable(100, 50, $columnWidths, $rowHeights);
+
+    $table->get_Item(1, 1)->splitByWidth(java_values($table->get_Item(1, 1)->getWidth()) / 2);
+
+    $presentation->save("split_cells.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+### **Tách các ô đã hợp nhất theo chiều hàng hoặc cột**
+
+Để chuẩn bị các ô mẫu đã hợp nhất cho việc điền dữ liệu, sử dụng [splitByRowSpan](https://reference.aspose.com/slides/php-java/aspose.slides/cell/splitbyrowspan/) để tách dọc theo ranh giới hàng hiện có, hoặc [splitByColSpan](https://reference.aspose.com/slides/php-java/aspose.slides/cell/splitbycolspan/) để tách dọc theo ranh giới cột.
+
+Tham số `index` đếm số hàng ở phần trên hoặc số cột ở phần trái của phần tách; nó tương đối với vùng đã hợp nhất:
+
+- Tách hàng: `0 < index <` [getRowSpan](https://reference.aspose.com/slides/php-java/aspose.slides/cell/getrowspan/).
+- Tách cột: `0 < index <` [getColSpan](https://reference.aspose.com/slides/php-java/aspose.slides/cell/getcolspan/).
+
+Ví dụ giả định bản trình chiếu có một bảng là shape đầu tiên trên slide đầu tiên, với các ô `(1, 2)` và `(1, 3)` hợp nhất theo chiều dọc. Bắt đầu từ vị trí dưới, nó sử dụng [getFirstColumnIndex](https://reference.aspose.com/slides/php-java/aspose.slides/cell/getfirstcolumnindex/) và [getFirstRowIndex](https://reference.aspose.com/slides/php-java/aspose.slides/cell/getfirstrowindex/) để xác định nguồn gốc và kiểm tra cả hai span. `splitByRowSpan(1)` sau đó tách các hàng 2 và 3 cho tên sản phẩm. Đối với một hợp nhất ngang gồm hai cột, sử dụng `splitByColSpan(1)` thay thế.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("table_template.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $table = $slide->getShapes()->get_Item(0);
+
+    $selectedCell = $table->get_Item(1, 3);
+    $firstColumnIndex = java_values($selectedCell->getFirstColumnIndex());
+    $firstRowIndex = java_values($selectedCell->getFirstRowIndex());
+    $mergedCell = $table->get_Item($firstColumnIndex, $firstRowIndex);
+
+    if (java_values($mergedCell->isMergedCell()) && java_values($mergedCell->getRowSpan()) == 2 && java_values($mergedCell->getColSpan()) == 1)
+    {
+        $mergedCell->splitByRowSpan(1);
+
+        // Lấy các ô kết quả từ bảng sau khi tách.
+        $upperCell = $table->get_Item($firstColumnIndex, $firstRowIndex);
+        $lowerCell = $table->get_Item($firstColumnIndex, $firstRowIndex + 1);
+        echo "Upper cell merged: " . (java_values($upperCell->isMergedCell()) ? "true" : "false") . PHP_EOL;
+        echo "Lower cell merged: " . (java_values($lowerCell->isMergedCell()) ? "true" : "false") . PHP_EOL;
+
+        $upperCell->getTextFrame()->setText("Product A");
+        $lowerCell->getTextFrame()->setText("Product B");
+
+        $presentation->save("split_template.pptx", SaveFormat::Pptx);
+    }
+    else
+    {
+        echo "Select a merged region spanning exactly two rows and one column." . PHP_EOL;
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+Lưới bảng và các chỉ mục ô xung quanh vẫn không thay đổi. Lấy các ô kết quả bằng tọa độ của chúng; ở đây, cả hai đều có span bằng 1 và [isMergedCell](https://reference.aspose.com/slides/php-java/aspose.slides/cell/ismergedcell/) in ra `false`. Các vùng lớn hơn có thể vẫn còn một phần hợp nhất sau một lần tách.
+
+Văn bản gốc và định dạng của nó vẫn ở ô trên (hoặc bên trái); ô mới rỗng nhưng kế thừa định dạng ô như màu nền, viền và khoảng lề. Điền dữ liệu vào các ô sau khi tách và đặt bất kỳ định dạng văn bản nào cần thiết một cách rõ ràng.
+
+Bản trình chiếu đã lưu chứa các ô riêng biệt "Product A" và "Product B" với định dạng ô của mẫu được giữ lại. Xem [Cell API Reference](https://reference.aspose.com/slides/php-java/aspose.slides/cell/) để biết chi tiết.
+
+## **Thay đổi màu nền ô bảng**
+
+Ví dụ này tạo một bảng với các cột 150 điểm và các hàng 50 điểm. Nó sử dụng [setFillType](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/setfilltype/) để chọn một màu nền đặc và đặt màu trả về bởi [getSolidFillColor](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/getsolidfillcolor/) thành màu đỏ cho ô `(2, 3)`, ở cột thứ ba và hàng thứ tư.
+
+```php
+use aspose\slides\FillType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $columnWidths = [ 150, 150, 150, 150 ];
+    $rowHeights = [ 50, 50, 50, 50, 50 ];
+    $table = $slide->getShapes()->addTable(50, 50, $columnWidths, $rowHeights);
+
     $cell = $table->get_Item(2, 3);
     $cell->getCellFormat()->getFillFormat()->setFillType(FillType::Solid);
     $cell->getCellFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
+
     $presentation->save("cell_background_color.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($presentation)) {
-      $presentation->dispose();
-    }
-  }
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **Thêm hình ảnh vào trong ô bảng**
+## **Thêm hình ảnh vào bên trong ô bảng**
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/php-java/aspose.slides/Presentation).
-2. Lấy tham chiếu tới một slide thông qua chỉ mục của nó.
-3. Định nghĩa một mảng các cột với chiều rộng.
-4. Định nghĩa một mảng các hàng với chiều cao.
-5. Thêm một bảng vào slide thông qua phương thức [AddTable](https://reference.aspose.com/slides/vi/php-java/aspose.slides/shapecollection/#addTable).
-6. Tạo một đối tượng `Images` để chứa tệp hình ảnh.
-7. Thêm hình ảnh `IImage` vào đối tượng `IPPImage`.
-8. Đặt `FillFormat` cho ô bảng thành `Picture`.
-9. Thêm hình ảnh vào ô đầu tiên của bảng.
-10. Lưu bản trình chiếu đã sửa đổi thành tệp PPTX
+Đặt hình ảnh đầu vào trong thư mục làm việc trước khi chạy ví dụ này. Nó tải hình ảnh bằng [Images::fromFile](https://reference.aspose.com/slides/php-java/aspose.slides/images/#fromFile) và thêm nó vào bộ sưu tập hình ảnh của bản trình chiếu bằng [addImage](https://reference.aspose.com/slides/php-java/aspose.slides/imagecollection/addimage/). Sau đó nó gán hình ảnh vào nền hình ảnh của ô `(0, 0)`, ô đầu tiên trong bảng.
 
-Đoạn mã PHP này cho bạn thấy cách chèn hình ảnh vào trong một ô bảng khi tạo bảng:
+[PictureFillMode::Stretch](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillmode/) kéo dài hình ảnh để lấp đầy ô, có thể thay đổi tỷ lệ khung hình của nó. Độ rộng cột và chiều cao hàng được tính bằng điểm. Hình ảnh đã tải sẽ được giải phóng trong khối `finally` sau khi nó được thêm vào bản trình chiếu.
 
 ```php
-  # Khởi tạo lớp Presentation đại diện cho tệp PPTX
-  $pres = new Presentation();
-  try {
-    # Truy cập slide đầu tiên
-    $islide = $pres->getSlides()->get_Item(0);
-    # Xác định các cột với độ rộng và các hàng với chiều cao
-    $dblCols = array(150, 150, 150, 150 );
-    $dblRows = array(100, 100, 100, 100, 90 );
-    # Thêm hình dạng bảng vào slide
-    $tbl = $islide->getShapes()->addTable(50, 50, $dblCols, $dblRows);
-    # Tạo đối tượng IPPImage bằng tệp hình ảnh
-    $picture;
-    $image = Images->fromFile("image.jpg");
+use aspose\slides\FillType;
+use aspose\slides\Images;
+use aspose\slides\PictureFillMode;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $columnWidths = [ 150, 150, 150, 150 ];
+    $rowHeights = [ 100, 100, 100, 100, 90 ];
+    $table = $slide->getShapes()->addTable(50, 50, $columnWidths, $rowHeights);
+
+    $image = Images::fromFile("aspose_logo.jpg");
     try {
-      $picture = $pres->getImages()->addImage($image);
+        $ppImage = $presentation->getImages()->addImage($image);
     } finally {
-      if (!java_is_null($image)) {
         $image->dispose();
-      }
     }
-    # Thêm hình ảnh vào ô bảng đầu tiên
-    $cellFormat = $tbl->get_Item(0, 0)->getCellFormat();
-    $cellFormat::getFillFormat()->setFillType(FillType::Picture);
-    $cellFormat::getFillFormat()->getPictureFillFormat()->setPictureFillMode(PictureFillMode->Stretch);
-    $cellFormat::getFillFormat()->getPictureFillFormat()->getPicture()->setImage($picture);
-    # Lưu tệp PPTX vào đĩa
-    $pres->save("Image_In_TableCell_out.pptx", SaveFormat::Pptx);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $table->get_Item(0, 0)->getCellFormat()->getFillFormat()->setFillType(FillType::Picture);
+    $table->get_Item(0, 0)->getCellFormat()->getFillFormat()->getPictureFillFormat()->setPictureFillMode(PictureFillMode::Stretch);
+    $table->get_Item(0, 0)->getCellFormat()->getFillFormat()->getPictureFillFormat()->getPicture()->setImage($ppImage);
+
+    $presentation->save("table_cell_with_image.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
 ## **Câu hỏi thường gặp**
 
-**Tôi có thể đặt độ dày và kiểu đường viền khác nhau cho từng cạnh của một ô duy nhất không?**
+**Có thể đặt độ dày và kiểu đường viền khác nhau cho từng phía của một ô duy nhất không?**
 
-Có. Các viền [top](https://reference.aspose.com/slides/vi/php-java/aspose.slides/cellformat/getbordertop/)/[bottom](https://reference.aspose.com/slides/vi/php-java/aspose.slides/cellformat/getborderbottom/)/[left](https://reference.aspose.com/slides/vi/php-java/aspose.slides/cellformat/getborderleft/)/[right](https://reference.aspose.com/slides/vi/php-java/aspose.slides/cellformat/getborderright/) có các thuộc tính riêng, vì vậy độ dày và kiểu của mỗi cạnh có thể khác nhau. Điều này hợp lý dựa trên việc điều khiển viền theo từng cạnh cho một ô được trình bày trong bài viết.
+Đúng. Các viền [top](https://reference.aspose.com/slides/php-java/aspose.slides/cellformat/getbordertop/)/[bottom](https://reference.aspose.com/slides/php-java/aspose.slides/cellformat/getborderbottom/)/[left](https://reference.aspose.com/slides/php-java/aspose.slides/cellformat/getborderleft/)/[right](https://reference.aspose.com/slides/php-java/aspose.slides/cellformat/getborderright/) có các thuộc tính riêng, vì vậy độ dày và kiểu của mỗi phía có thể khác nhau.
 
 **Điều gì sẽ xảy ra với hình ảnh nếu tôi thay đổi kích thước cột/hàng sau khi đã đặt hình ảnh làm nền cho ô?**
 
-Hành vi phụ thuộc vào [fill mode](https://reference.aspose.com/slides/vi/php-java/aspose.slides/picturefillmode/) (stretch/tile). Khi kéo dãn, hình ảnh sẽ điều chỉnh theo ô mới; khi lát, các ô ảnh sẽ được tính lại. Bài viết đề cập đến các chế độ hiển thị hình ảnh trong ô.
+Hành vi phụ thuộc vào [fill mode](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillmode/). Khi kéo dài, hình ảnh sẽ điều chỉnh theo ô mới; khi lặp (tile), các ô lặp sẽ được tính lại.
 
-**Tôi có thể gán siêu liên kết cho toàn bộ nội dung của một ô không?**
+**Có thể gán siêu liên kết cho toàn bộ nội dung của một ô không?**
 
-[Hyperlinks](/slides/vi/php-java/manage-hyperlinks/) được đặt ở mức văn bản (phần) bên trong khung văn bản của ô hoặc ở mức toàn bộ bảng/hình. Trong thực tế, bạn gán liên kết cho một phần hoặc cho toàn bộ văn bản trong ô.
+[Hyperlinks](/slides/vi/php-java/manage-hyperlinks/) được đặt ở mức độ văn bản (phần) bên trong khung văn bản của ô hoặc ở mức độ toàn bộ bảng/shape. Trong thực tế, bạn gán liên kết cho một phần hoặc cho toàn bộ văn bản trong ô.
 
-**Tôi có thể đặt phông chữ khác nhau trong cùng một ô không?**
+**Có thể đặt các phông chữ khác nhau trong một ô duy nhất không?**
 
-Có. Khung văn bản của ô hỗ trợ [portions](https://reference.aspose.com/slides/vi/php-java/aspose.slides/portion/) (run) với định dạng độc lập—gia đình phông, kiểu, kích thước và màu sắc.
+Đúng. Khung văn bản của ô hỗ trợ [portions](https://reference.aspose.com/slides/php-java/aspose.slides/portion/) (các đoạn) với định dạng độc lập—gia đình phông chữ, kiểu, kích thước và màu.

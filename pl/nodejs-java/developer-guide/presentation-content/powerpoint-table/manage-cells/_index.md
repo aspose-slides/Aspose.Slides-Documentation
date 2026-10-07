@@ -1,6 +1,6 @@
 ---
-title: Zarządzanie komórkami tabeli w prezentacjach przy użyciu JavaScript
-linktitle: Zarządzanie komórkami
+title: Zarządzaj komórkami tabeli w prezentacjach przy użyciu JavaScript
+linktitle: Zarządzaj komórkami
 type: docs
 weight: 30
 url: /pl/nodejs-java/manage-cells/
@@ -16,314 +16,256 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Zarządzaj komórkami tabeli w PowerPoint przy użyciu Aspose.Slides dla Node.js. Opanuj szybki dostęp, modyfikację i stylizację komórek, aby zapewnić płynną automatyzację slajdów."
+description: "Zarządzaj komórkami tabeli PowerPoint w JavaScript: identyfikuj scalone komórki, usuwaj obramowania, dziel komórki oraz ustawiaj kolory tła i obrazy przy użyciu Aspose.Slides dla Node.js za pomocą Java."
 ---
 ## **Przegląd**
 
-Aspose.Slides umożliwia dostęp i modyfikację komórek tabeli w prezentacjach PowerPoint. Ten artykuł wyjaśnia, jak zidentyfikować połączone komórki tabeli, usunąć obramowanie komórek, pracować z numeracją komórek po scaleniu lub podziale, zmienić kolor tła komórki oraz dodać obraz wewnątrz komórki tabeli. Przykłady pokazują, jak utworzyć lub otworzyć prezentację, pobrać tabelę ze slajdu, zaktualizować formatowanie komórek za pomocą właściwości komórki oraz zapisać zmodyfikowaną prezentację jako plik PPTX.
+Aspose.Slides umożliwia dostęp i modyfikację komórek tabel w prezentacjach PowerPoint. Ten artykuł wyjaśnia, jak identyfikować scalone komórki tabel, usuwać obramowania komórek, pracować z numeracją komórek po scaleniu lub podzieleniu, zmienić kolor tła komórki oraz dodać obraz wewnątrz komórki tabeli. Przykłady pokazują, jak tworzyć lub otwierać prezentację, pobrać tabelę ze slajdu, zaktualizować formatowanie komórek poprzez właściwości komórek oraz zapisać zmodyfikowaną prezentację jako plik PPTX.
 
-## **Identyfikacja połączonych komórek tabeli**
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/Presentation).
-2. Pobierz tabelę z pierwszego slajdu. 
-3. Iteruj po wierszach i kolumnach tabeli, aby znaleźć połączone komórki.
-4. Wypisz komunikat, gdy zostaną znalezione połączone komórki.
+Aspose.Slides używa indeksów zerowych do dostępu do komórek tabel w kolejności `(column, row)`.
 
-Ten kod JavaScript pokazuje, jak zidentyfikować połączone komórki tabeli w prezentacji:
+## **Zidentyfikuj scaloną komórkę tabeli**
+
+Przykład otwiera istniejącą prezentację i uzyskuje dostęp do pierwszego kształtu na pierwszym slajdzie jako tabeli. Zakłada, że slajd i kształt istnieją oraz że kształt jest tabelą. Następnie iteruje przez wszystkie wiersze i kolumny i używa [isMergedCell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/ismergedcell/) do identyfikacji komórek w scalonych regionach. Dla każdego dopasowania wypisuje współrzędne komórki w kolejności `row;column`, [getRowSpan](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/getrowspan/), [getColSpan](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/getcolspan/) oraz początkowe współrzędne regionu, [getFirstRowIndex](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/getfirstrowindex/) i [getFirstColumnIndex](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/getfirstcolumnindex/).
 
 ```javascript
-var pres = new aspose.slides.Presentation("SomePresentationWithTable.pptx");
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation("presentation_with_table.pptx");
 try {
-    var table = pres.getSlides().get_Item(0).getShapes().get_Item(0);// zakładając, że Slide#0.Shape#0 jest tabelą
-    for (var i = 0; i < table.getRows().size(); i++) {
-        for (var j = 0; j < table.getColumns().size(); j++) {
-            var currentCell = table.getRows().get_Item(i).get_Item(j);
-            if (currentCell.isMergedCell()) {
-                console.log(java.callStaticMethodSync("java.lang.String", "format", "Cell %d;%d is a part of merged cell with RowSpan=%d and ColSpan=%d starting from Cell %d;%d.", i, j, currentCell.getRowSpan(), currentCell.getColSpan(), currentCell.getFirstRowIndex(), currentCell.getFirstColumnIndex()));
+    const slide = presentation.getSlides().get_Item(0);
+    const table = slide.getShapes().get_Item(0);
+
+    const rowCount = table.getRows().size();
+    for (let rowIndex = 0; rowIndex < rowCount; rowIndex++) {
+        const columnCount = table.getColumns().size();
+        for (let columnIndex = 0; columnIndex < columnCount; columnIndex++) {
+            const cell = table.get_Item(columnIndex, rowIndex);
+            if (cell.isMergedCell()) {
+                console.log("Cell %d;%d belongs to a merged region with RowSpan=%d and ColSpan=%d starting at %d;%d.", rowIndex, columnIndex, cell.getRowSpan(), cell.getColSpan(), cell.getFirstRowIndex(), cell.getFirstColumnIndex());
             }
         }
     }
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Usuwanie obramowań komórek tabeli**
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/Presentation).
-2. Uzyskaj referencję do slajdu przez jego indeks. 
-3. Zdefiniuj tablicę kolumn z szerokością.
-4. Zdefiniuj tablicę wierszy z wysokością.
-5. Dodaj tabelę do slajdu przy użyciu metody [addTable](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/ShapeCollection#addTable-float-float-double:A-double:A-).
-6. Iteruj po każdej komórce, aby usunąć górne, dolne, prawe i lewe obramowania.
-7. Zapisz zmodyfikowaną prezentację jako plik PPTX.
+## **Usuń obramowania komórek tabeli**
 
-Ten kod JavaScript pokazuje, jak usunąć obramowania z komórek tabeli:
+Utwórz [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) i dodaj tabelę do jej pierwszego slajdu za pomocą [addTable](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/addtable/). Szerokości kolumn, wysokości wierszy i pozycja tabeli są określone w punktach. Przykład ustawia wszystkie cztery obramowania komórek na [FillType.NoFill](https://reference.aspose.com/slides/nodejs-java/aspose.slides/filltype/), czyniąc je niewidocznymi.
 
 ```javascript
-// Tworzy instancję klasy Presentation, która reprezentuje plik PPTX
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // Uzyskuje dostęp do pierwszego slajdu
-    var sld = pres.getSlides().get_Item(0);
-    // Definiuje kolumny o podanych szerokościach i wiersze o podanych wysokościach
-    var dblCols = java.newArray("double", [50, 50, 50, 50]);
-    var dblRows = java.newArray("double", [50, 30, 30, 30, 30]);
-    // Dodaje kształt tabeli do slajdu
-    var tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
-    // Ustawia format obramowania dla każdej komórki
-    for (let i = 0; i < tbl.getRows().size(); i++) {
-        const row = tbl.getRows().get_Item(i);
-        for (let j = 0; j < row.size(); j++) {
-            const cell = row.get_Item(j);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const columnWidths = java.newArray("double", [50, 50, 50, 50]);
+    const rowHeights = java.newArray("double", [50, 30, 30, 30, 30]);
+    const table = slide.getShapes().addTable(100, 50, columnWidths, rowHeights);
+
+    for (let rowIndex = 0; rowIndex < table.getRows().size(); rowIndex++) {
+        const row = table.getRows().get_Item(rowIndex);
+        for (let columnIndex = 0; columnIndex < row.size(); columnIndex++) {
+            const cell = row.get_Item(columnIndex);
             cell.getCellFormat().getBorderTop().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
             cell.getCellFormat().getBorderBottom().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
             cell.getCellFormat().getBorderLeft().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
             cell.getCellFormat().getBorderRight().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
         }
     }
-    // Zapisuje plik PPTX na dysku
-    pres.save("table_out.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("table.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Numeracja w połączonych komórkach**
-Jeśli połączymy 2 pary komórek (1, 1) x (2, 1) oraz (1, 2) x (2, 2), powstała tabela będzie numerowana. Ten kod JavaScript demonstruje proces:
+## **Scal komórki tabeli**
+
+Użyj [mergeCells](https://reference.aspose.com/slides/nodejs-java/aspose.slides/table/mergecells/), aby połączyć prostokątny zakres komórek tabeli w jedną komórkę. Określ komórki w lewym górnym i prawym dolnym rogu zakresu. Ostatni argument kontroluje, czy scalanie może obejmować komórki poza określonym zakresem; `false` utrzymuje scalenie w obrębie tego zakresu.
+
+Przykład tworzy tabelę 4x4 z kolumnami i wierszami o szerokości 70 punktów, a następnie scala cztery środkowe komórki od `(1, 1)` do `(2, 2)`. Powstała komórka zajmuje dwie kolumny i dwa wiersze, podczas gdy podstawowa siatka tabeli zachowuje cztery kolumny i cztery wiersze. Aby uzyskać dostęp do zawartości lub formatowania scalonej komórki, użyj jej pozycji w lewym górnym rogu: `table.get_Item(1, 1)` w tym przykładzie. Pozostałe pozycje w scalonym zakresie pozostają częścią siatki tabeli, więc indeksy komórek poza zakresem się nie zmieniają.
 
 ```javascript
-// Tworzy instancję klasy Presentation, która reprezentuje plik PPTX
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // Uzyskuje dostęp do pierwszego slajdu
-    var sld = pres.getSlides().get_Item(0);
-    // Definiuje kolumny o podanych szerokościach i wiersze o podanych wysokościach
-    var dblCols = java.newArray("double", [70, 70, 70, 70]);
-    var dblRows = java.newArray("double", [70, 70, 70, 70]);
-    // Dodaje kształt tabeli do slajdu
-    var tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
-    // Ustawia format obramowania dla każdej komórki
-    for (let i = 0; i < tbl.getRows().size(); i++) {
-        const row = tbl.getRows().get_Item(i);
-        for (let j = 0; j < row.size(); j++) {
-            const cell = row.get_Item(j);
-            cell.getCellFormat().getBorderTop().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-            cell.getCellFormat().getBorderTop().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-            cell.getCellFormat().getBorderTop().setWidth(5);
-            cell.getCellFormat().getBorderBottom().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-            cell.getCellFormat().getBorderBottom().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-            cell.getCellFormat().getBorderBottom().setWidth(5);
-            cell.getCellFormat().getBorderLeft().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-            cell.getCellFormat().getBorderLeft().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-            cell.getCellFormat().getBorderLeft().setWidth(5);
-            cell.getCellFormat().getBorderRight().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-            cell.getCellFormat().getBorderRight().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-            cell.getCellFormat().getBorderRight().setWidth(5);
-        }
-    }
-    // Łączy komórki (1, 1) x (2, 1)
-    tbl.mergeCells(tbl.get_Item(1, 1), tbl.get_Item(2, 1), false);
-    // Łączy komórki (1, 2) x (2, 2)
-    tbl.mergeCells(tbl.get_Item(1, 2), tbl.get_Item(2, 2), false);
-    pres.save("MergeCells_out.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const columnWidths = java.newArray("double", [70, 70, 70, 70]);
+    const rowHeights = java.newArray("double", [70, 70, 70, 70]);
+    const table = slide.getShapes().addTable(100, 50, columnWidths, rowHeights);
+
+    table.mergeCells(table.get_Item(1, 1), table.get_Item(2, 2), false);
+
+    presentation.save("merged_cells.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-Następnie dalej łączymy komórki, scalając (1, 1) i (1, 2). Wynikiem jest tabela zawierająca dużą połączoną komórkę w jej centrum:
+## **Podziel komórki tabeli**
+
+Scalanie komórek w poprzednim przykładzie zachowuje siatkę tabeli. Podzielenie komórki może wprowadzić nową kolumnę w siatce i zmienić indeksy kolumn komórek po jej prawej stronie. Aspose.Slides stosuje model siatki tabeli PowerPointa.
+
+Ten przykład tworzy tabelę 4x4 z kolumnami i wierszami o szerokości 70 punktów i wywołuje [splitByWidth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/splitbywidth/) na komórce `(1, 1)`. Połowa szerokości 70 punktów tej komórki jest używana do utworzenia dwóch komórek o równej szerokości.
+
+Po tym podziale dwie połówki są dostępne jako `table.get_Item(1, 1)` i `table.get_Item(2, 1)`. Siatka tabeli ma teraz pięć kolumn: komórki pierwotnie w kolumnach 2 i 3 przechodzą do kolumn 3 i 4, odpowiednio. Indeksy wierszy pozostają niezmienione. Używaj tych zaktualizowanych indeksów kolumn przy dostępie do komórek po podziale.
 
 ```javascript
-// Tworzy instancję klasy Presentation, która reprezentuje plik PPTX
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // Uzyskuje dostęp do pierwszego slajdu
-    var sld = pres.getSlides().get_Item(0);
-    // Definiuje kolumny o podanych szerokościach i wiersze o podanych wysokościach
-    var dblCols = java.newArray("double", [70, 70, 70, 70]);
-    var dblRows = java.newArray("double", [70, 70, 70, 70]);
-    // Dodaje kształt tabeli do slajdu
-    var tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
-    // Ustawia format obramowania dla każdej komórki
-    for (let i = 0; i < tbl.getRows().size(); i++) {
-        const row = tbl.getRows().get_Item(i);
-        for (let j = 0; j < row.size(); j++) {
-            const cell = row.get_Item(j);
-            cell.getCellFormat().getBorderTop().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-            cell.getCellFormat().getBorderTop().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-            cell.getCellFormat().getBorderTop().setWidth(5);
-            cell.getCellFormat().getBorderBottom().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-            cell.getCellFormat().getBorderBottom().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-            cell.getCellFormat().getBorderBottom().setWidth(5);
-            cell.getCellFormat().getBorderLeft().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-            cell.getCellFormat().getBorderLeft().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-            cell.getCellFormat().getBorderLeft().setWidth(5);
-            cell.getCellFormat().getBorderRight().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-            cell.getCellFormat().getBorderRight().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-            cell.getCellFormat().getBorderRight().setWidth(5);
-        }
-    }
-    // Łączy komórki (1, 1) x (2, 1)
-    tbl.mergeCells(tbl.get_Item(1, 1), tbl.get_Item(2, 1), false);
-    // Łączy komórki (1, 2) x (2, 2)
-    tbl.mergeCells(tbl.get_Item(1, 2), tbl.get_Item(2, 2), false);
-    // Łączy komórki (1, 1) x (1, 2)
-    tbl.mergeCells(tbl.get_Item(1, 1), tbl.get_Item(1, 2), true);
-    // Zapisuje plik PPTX na dysku
-    pres.save("MergeCells_out.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const columnWidths = java.newArray("double", [70, 70, 70, 70]);
+    const rowHeights = java.newArray("double", [70, 70, 70, 70]);
+    const table = slide.getShapes().addTable(100, 50, columnWidths, rowHeights);
+
+    table.get_Item(1, 1).splitByWidth(table.get_Item(1, 1).getWidth() / 2);
+
+    presentation.save("split_cells.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Numeracja w podzielonej komórce**
-W poprzednich przykładach, gdy komórki tabeli były łączone, numeracja lub system numeracji w pozostałych komórkach nie ulegał zmianie. 
+### **Podziel scalone komórki według zakresu wierszy lub kolumn**
 
-Tym razem bierzemy zwykłą tabelę (tabelę bez połączonych komórek), a następnie próbujemy podzielić komórkę (1,1), aby uzyskać specjalną tabelę. Warto zwrócić uwagę na numerację tej tabeli, która może wydawać się dziwna. Jednak tak właśnie Microsoft PowerPoint numeruje komórki tabeli i Aspose.Slides postępuje tak samo. 
+Aby przygotować scalone komórki szablonu do wypełniania danymi, użyj [splitByRowSpan](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/splitbyrowspan/) do podziału wzdłuż istniejącej granicy wiersza lub [splitByColSpan](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/splitbycolspan/) do podziału wzdłuż granicy kolumny.
 
-Ten kod JavaScript demonstruje opisany przez nas proces:
+Argument `index` liczy wiersze w górnej części lub kolumny w lewej części podziału; jest on względny względem scalonego regionu:
+- Podział wiersza: `0 < index <` [getRowSpan](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/getrowspan/).
+- Podział kolumny: `0 < index <` [getColSpan](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/getcolspan/).
+
+Przykład zakłada, że prezentacja ma tabelę jako pierwszy kształt na pierwszym slajdzie, przy czym `(1, 2)` i `(1, 3)` są scalone pionowo. Zaczynając od niższej pozycji, używa [getFirstColumnIndex](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/getfirstcolumnindex/) i [getFirstRowIndex](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/getfirstrowindex/) aby zlokalizować początek i sprawdza oba zakresy. `splitByRowSpan(1)` następnie oddziela wiersze 2 i 3 dla nazw produktów. Dla poziomego scalenia dwóch kolumn, użyj `splitByColSpan(1)` zamiast tego.
 
 ```javascript
-// Tworzy instancję klasy Presentation, która reprezentuje plik PPTX
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation("table_template.pptx");
 try {
-    // Uzyskuje dostęp do pierwszego slajdu
-    var sld = pres.getSlides().get_Item(0);
-    // Definiuje kolumny o podanych szerokościach i wiersze o podanych wysokościach
-    var dblCols = java.newArray("double", [70, 70, 70, 70]);
-    var dblRows = java.newArray("double", [70, 70, 70, 70]);
-    // Dodaje kształt tabeli do slajdu
-    var tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
-    // Ustawia format obramowania dla każdej komórki
-    for (let i = 0; i < tbl.getRows().size(); i++) {
-        const row = tbl.getRows().get_Item(i);
-        for (let j = 0; j < row.size(); j++) {
-            const cell = row.get_Item(j);
-            cell.getCellFormat().getBorderTop().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-            cell.getCellFormat().getBorderTop().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-            cell.getCellFormat().getBorderTop().setWidth(5);
-            cell.getCellFormat().getBorderBottom().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-            cell.getCellFormat().getBorderBottom().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-            cell.getCellFormat().getBorderBottom().setWidth(5);
-            cell.getCellFormat().getBorderLeft().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-            cell.getCellFormat().getBorderLeft().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-            cell.getCellFormat().getBorderLeft().setWidth(5);
-            cell.getCellFormat().getBorderRight().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-            cell.getCellFormat().getBorderRight().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-            cell.getCellFormat().getBorderRight().setWidth(5);
-        }
+    const slide = presentation.getSlides().get_Item(0);
+    const table = slide.getShapes().get_Item(0);
+
+    const selectedCell = table.get_Item(1, 3);
+    const firstColumnIndex = selectedCell.getFirstColumnIndex();
+    const firstRowIndex = selectedCell.getFirstRowIndex();
+    const mergedCell = table.get_Item(firstColumnIndex, firstRowIndex);
+
+    if (mergedCell.isMergedCell() && mergedCell.getRowSpan() == 2 && mergedCell.getColSpan() == 1) {
+        mergedCell.splitByRowSpan(1);
+
+        // Pobierz powstałe komórki z tabeli po podziale.
+        const upperCell = table.get_Item(firstColumnIndex, firstRowIndex);
+        const lowerCell = table.get_Item(firstColumnIndex, firstRowIndex + 1);
+        console.log("Upper cell merged: " + upperCell.isMergedCell());
+        console.log("Lower cell merged: " + lowerCell.isMergedCell());
+
+        upperCell.getTextFrame().setText("Product A");
+        lowerCell.getTextFrame().setText("Product B");
+
+        presentation.save("split_template.pptx", aspose.slides.SaveFormat.Pptx);
+    } else {
+        console.log("Select a merged region spanning exactly two rows and one column.");
     }
-    // Łączy komórki (1, 1) x (2, 1)
-    tbl.mergeCells(tbl.get_Item(1, 1), tbl.get_Item(2, 1), false);
-    // Łączy komórki (1, 2) x (2, 2)
-    tbl.mergeCells(tbl.get_Item(1, 2), tbl.get_Item(2, 2), false);
-    // Dzieli komórkę (1, 1)
-    tbl.get_Item(1, 1).splitByWidth(tbl.get_Item(2, 1).getWidth() / 2);
-    // Zapisuje plik PPTX na dysku
-    pres.save("SplitCells_out.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Zmiana koloru tła komórki tabeli**
+Siatka tabeli i otaczające indeksy komórek pozostają niezmienione. Pobierz powstałe komórki według ich współrzędnych; tutaj obie mają zakres 1 i [isMergedCell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/ismergedcell/) zwraca `false`. Większe regiony mogą pozostać częściowo scalone po jednym podziale.
 
-Ten kod JavaScript pokazuje, jak zmienić kolor tła komórki tabeli:
+Oryginalny tekst i jego formatowanie pozostają w górnej (lub lewej) komórce; nowa komórka jest pusta, ale dziedziczy formatowanie komórki, takie jak wypełnienie, obramowania i marginesy. Wypełnij komórki po podziale i ustaw wszelkie wymagane formatowanie tekstu explicite.
+
+Zapisana prezentacja zawiera oddzielne komórki "Product A" i "Product B" z zachowanym formatowaniem komórek szablonu. Zobacz [Cell API Reference](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/) po więcej szczegółów.
+
+## **Zmień kolor tła komórki tabeli**
+
+Ten przykład tworzy tabelę z kolumnami o szerokości 150 punktów i wierszami o wysokości 50 punktów. Używa [setFillType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fillformat/setfilltype/) aby wybrać wypełnienie jednolite i ustawia kolor zwrócony przez [getSolidFillColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fillformat/getsolidfillcolor/) na czerwony dla komórki `(2, 3)`, w trzeciej kolumnie i czwartym wierszu.
 
 ```javascript
-var presentation = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var slide = presentation.getSlides().get_Item(0);
-    var dblCols = java.newArray("double", [150, 150, 150, 150]);
-    var dblRows = java.newArray("double", [50, 50, 50, 50, 50]);
-    // utwórz nową tabelę
-    var table = slide.getShapes().addTable(50, 50, dblCols, dblRows);
-    // ustaw kolor tła dla komórki
-    var cell = table.get_Item(2, 3);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const columnWidths = java.newArray("double", [150, 150, 150, 150]);
+    const rowHeights = java.newArray("double", [50, 50, 50, 50, 50]);
+    const table = slide.getShapes().addTable(50, 50, columnWidths, rowHeights);
+
+    const cell = table.get_Item(2, 3);
     cell.getCellFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     cell.getCellFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
+
     presentation.save("cell_background_color.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (presentation != null) {
-        presentation.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Dodanie obrazu wewnątrz komórki tabeli**
+## **Dodaj obraz wewnątrz komórki tabeli**
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/Presentation).
-2. Uzyskaj referencję do slajdu przez jego indeks.
-3. Zdefiniuj tablicę kolumn z szerokością.
-4. Zdefiniuj tablicę wierszy z wysokością.
-5. Dodaj tabelę do slajdu przy użyciu metody [addTable](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/ShapeCollection#addTable-float-float-double:A-double:A-).
-6. Utwórz obiekt `Images`, aby przechować plik obrazu.
-7. Dodaj obraz `IImage` do obiektu `PPImage`.
-8. Ustaw `FillFormat` dla komórki tabeli na `Picture`.
-9. Dodaj obraz do pierwszej komórki tabeli.
-10. Zapisz zmodyfikowaną prezentację jako plik PPTX.
+Umieść obraz wejściowy w katalogu roboczym przed uruchomieniem tego przykładu. Ładuje obraz za pomocą [Images.fromFile](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Images#fromFile), a następnie dodaje go do kolekcji obrazów prezentacji przy użyciu [addImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagecollection/addimage/). Następnie przypisuje obraz do wypełnienia obrazu w komórce `(0, 0)`, czyli pierwszej komórce w tabeli.
 
-Ten kod JavaScript pokazuje, jak umieścić obraz wewnątrz komórki tabeli przy tworzeniu tabeli:
+[PictureFillMode.Stretch](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillmode/) rozciąga obraz, aby wypełnić komórkę, co może zmienić jej proporcje. Szerokości kolumn i wysokości wierszy są podane w punktach. Załadowany obraz jest zwalniany w bloku `finally` po jego dodaniu do prezentacji.
 
 ```javascript
-// Tworzy instancję klasy Presentation, która reprezentuje plik PPTX
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // Uzyskuje dostęp do pierwszego slajdu
-    var islide = pres.getSlides().get_Item(0);
-    // Definiuje kolumny o podanych szerokościach i wiersze o podanych wysokościach
-    var dblCols = java.newArray("double", [150, 150, 150, 150]);
-    var dblRows = java.newArray("double", [100, 100, 100, 100, 90]);
-    // Dodaje kształt tabeli do slajdu
-    var tbl = islide.getShapes().addTable(50, 50, dblCols, dblRows);
-    // Tworzy obiekt PPImage przy użyciu pliku obrazu
-    var picture;
-    var image = aspose.slides.Images.fromFile("image.jpg");
+    const slide = presentation.getSlides().get_Item(0);
+
+    const columnWidths = java.newArray("double", [150, 150, 150, 150]);
+    const rowHeights = java.newArray("double", [100, 100, 100, 100, 90]);
+    const table = slide.getShapes().addTable(50, 50, columnWidths, rowHeights);
+
+    let ppImage;
+    const image = aspose.slides.Images.fromFile("aspose_logo.jpg");
     try {
-        picture = pres.getImages().addImage(image);
+        ppImage = presentation.getImages().addImage(image);
     } finally {
-        if (image != null) {
-            image.dispose();
-        }
+        image.dispose();
     }
-    // Dodaje obraz do pierwszej komórki tabeli
-    var cellFormat = tbl.get_Item(0, 0).getCellFormat();
-    cellFormat.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Picture));
-    cellFormat.getFillFormat().getPictureFillFormat().setPictureFillMode(aspose.slides.PictureFillMode.Stretch);
-    cellFormat.getFillFormat().getPictureFillFormat().getPicture().setImage(picture);
-    // Zapisuje plik PPTX na dysku
-    pres.save("Image_In_TableCell_out.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
+
+    table.get_Item(0, 0).getCellFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Picture));
+    table.get_Item(0, 0).getCellFormat().getFillFormat().getPictureFillFormat().setPictureFillMode(aspose.slides.PictureFillMode.Stretch);
+    table.get_Item(0, 0).getCellFormat().getFillFormat().getPictureFillFormat().getPicture().setImage(ppImage);
+
+    presentation.save("table_cell_with_image.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
 ## **FAQ**
 
-**Czy mogę ustawić różne grubości linii i style dla różnych boków jednej komórki?**
+**Czy mogę ustawić różne grubości linii i style dla różnych stron jednej komórki?**
 
-Tak. Granice [górna](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/cellformat/getbordertop/)/[dolna](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/cellformat/getborderbottom/)/[lewa](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/cellformat/getborderleft/)/[prawa](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/cellformat/getborderright/) mają oddzielne właściwości, więc grubość i styl każdej z nich mogą się różnić. Wynika to logicznie z kontroli granic po stronie każdej komórki wykazanej w artykule.
+Tak. Obramowania [górna](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cellformat/getbordertop/)/[dolna](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cellformat/getborderbottom/)/[lewa](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cellformat/getborderleft/)/[prawa](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cellformat/getborderright/) są oddzielnymi właściwościami, więc grubość i styl każdej strony mogą się różnić.
 
-**Co się stanie z obrazem, jeśli zmienię rozmiar kolumny/wiersza po ustawieniu obrazu jako tło komórki?**
+**Co się stanie z obrazem, jeśli zmienię rozmiar kolumny/wiersza po ustawieniu obrazu jako tła komórki?**
 
-Zachowanie zależy od [trybu wypełnienia](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/picturefillmode/) (rozciąganie/kafelkowanie). Przy rozciąganiu obraz dopasowuje się do nowej komórki; przy kafelkowaniu kafelki są ponownie obliczane. Artykuł wspomina o trybach wyświetlania obrazu w komórce.
+Zachowanie zależy od [tryb wypełnienia](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillmode/) (stretch/tile). Przy rozciąganiu obraz dostosowuje się do nowej komórki; przy kafelkowaniu kafelki są przeliczane.
 
 **Czy mogę przypisać hiperłącze do całej zawartości komórki?**
 
-[Hyperlinki](/slides/pl/nodejs-java/manage-hyperlinks/) są ustawiane na poziomie tekstu (fragmentu) wewnątrz ramki tekstowej komórki lub na poziomie całej tabeli/kształtu. W praktyce przypisujesz link do fragmentu lub do całego tekstu w komórce.
+[Hiperłącza](/slides/pl/nodejs-java/manage-hyperlinks/) są ustawiane na poziomie tekstu (fragmentu) wewnątrz ramki tekstowej komórki lub na poziomie całej tabeli/kształtu. W praktyce przypisujesz link do fragmentu lub do całego tekstu w komórce.
 
 **Czy mogę ustawić różne czcionki w jednej komórce?**
 
-Tak. Ramka tekstowa komórki obsługuje [fragmenty](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/portion/) (runy) z niezależnym formatowaniem — rodzinę czcionki, styl, rozmiar i kolor.
+Tak. Ramka tekstowa komórki obsługuje [fragmenty](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portion/) (runs) z niezależnym formatowaniem — rodzina czcionki, styl, rozmiar i kolor.

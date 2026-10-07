@@ -1,312 +1,272 @@
 ---
-title: Zellen verwalten
+title: Tabellenzellen in Präsentationen mit JavaScript verwalten
+linktitle: Zellen verwalten
 type: docs
 weight: 30
 url: /de/nodejs-java/manage-cells/
-keywords: "Tabelle, zusammengeführte Zellen, geteilte Zellen, Bild in Tabellenzelle, Java, Aspose.Slides für Node.js via Java"
-description: "Tabellenzellen in PowerPoint-Präsentationen in JavaScript"
+keywords:
+- Tabellenzelle
+- Zellen zusammenführen
+- Rahmen entfernen
+- Zelle aufteilen
+- Bild in Zelle
+- Hintergrundfarbe
+- PowerPoint
+- Präsentation
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Verwalten Sie PowerPoint-Tabellenzellen in JavaScript: Identifizieren Sie zusammengeführte Zellen, entfernen Sie Rahmen, teilen Sie Zellen und setzen Sie Hintergrundfarben sowie Bilder mit Aspose.Slides für Node.js via Java."
 ---
+## **Übersicht**
 
-## **Zusammengeführte Tabellenzelle identifizieren**
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation)‑Klasse.  
-2. Holen Sie die Tabelle von der ersten Folie.  
-3. Iterieren Sie über die Zeilen und Spalten der Tabelle, um zusammengeführte Zellen zu finden.  
-4. Geben Sie eine Meldung aus, wenn zusammengeführte Zellen gefunden werden.  
+Aspose.Slides ermöglicht den Zugriff auf Tabellenzellen in PowerPoint‑Präsentationen und deren Bearbeitung. Dieser Artikel erklärt, wie man zusammengeführte Tabellenzellen identifiziert, Zellrahmen entfernt, mit Zellnummerierung nach dem Zusammenführen oder Aufteilen von Zellen arbeitet, die Hintergrundfarbe einer Zelle ändert und ein Bild innerhalb einer Tabellenzelle hinzufügt. Die Beispiele zeigen, wie man eine Präsentation erstellt oder öffnet, eine Tabelle aus einer Folie erhält, die Zellformatierung über Zelleigenschaften aktualisiert und die geänderte Präsentation als PPTX‑Datei speichert.
 
-Dieser JavaScript‑Code zeigt Ihnen, wie Sie zusammengeführte Tabellenzellen in einer Präsentation identifizieren:
+Aspose.Slides verwendet nullbasierte Indizes, um Tabellenzellen in der Reihenfolge `(Spalte, Zeile)` zu adressieren.
+
+## **Identifizieren einer zusammengeführten Tabellenzelle**
+
+Das Beispiel öffnet eine vorhandene Präsentation und greift auf das erste Shape auf der ersten Folie als Tabelle zu. Es wird vorausgesetzt, dass die Folie und das Shape existieren und dass das Shape eine Tabelle ist. Anschließend werden alle Zeilen und Spalten durchlaufen und [isMergedCell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/ismergedcell/) verwendet, um Zellen in zusammengeführten Bereichen zu identifizieren. Für jede Übereinstimmung gibt das Beispiel die Zellkoordinaten in der Reihenfolge `Zeile;Spalte` aus, [getRowSpan](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/getrowspan/), [getColSpan](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/getcolspan/), sowie die Startkoordinaten des Bereichs, [getFirstRowIndex](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/getfirstrowindex/) und [getFirstColumnIndex](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/getfirstcolumnindex/).
+
 ```javascript
-var pres = new aspose.slides.Presentation("SomePresentationWithTable.pptx");
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation("presentation_with_table.pptx");
 try {
-    var table = pres.getSlides().get_Item(0).getShapes().get_Item(0);// Annahme: Slide#0.Shape#0 ist eine Tabelle
-    for (var i = 0; i < table.getRows().size(); i++) {
-        for (var j = 0; j < table.getColumns().size(); j++) {
-            var currentCell = table.getRows().get_Item(i).get_Item(j);
-            if (currentCell.isMergedCell()) {
-                console.log(java.callStaticMethodSync("java.lang.String", "format", "Cell %d;%d is a part of merged cell with RowSpan=%d and ColSpan=%d starting from Cell %d;%d.", i, j, currentCell.getRowSpan(), currentCell.getColSpan(), currentCell.getFirstRowIndex(), currentCell.getFirstColumnIndex()));
+    const slide = presentation.getSlides().get_Item(0);
+    const table = slide.getShapes().get_Item(0);
+
+    const rowCount = table.getRows().size();
+    for (let rowIndex = 0; rowIndex < rowCount; rowIndex++) {
+        const columnCount = table.getColumns().size();
+        for (let columnIndex = 0; columnIndex < columnCount; columnIndex++) {
+            const cell = table.get_Item(columnIndex, rowIndex);
+            if (cell.isMergedCell()) {
+                console.log("Cell %d;%d belongs to a merged region with RowSpan=%d and ColSpan=%d starting at %d;%d.", rowIndex, columnIndex, cell.getRowSpan(), cell.getColSpan(), cell.getFirstRowIndex(), cell.getFirstColumnIndex());
             }
         }
     }
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+## **Entfernen von Tabellenzellenrahmen**
 
-## **Tabellenzellenrahmen entfernen**
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation)‑Klasse.  
-2. Holen Sie sich eine Referenz auf eine Folie über ihren Index.  
-3. Definieren Sie ein Array von Spalten mit Breite.  
-4. Definieren Sie ein Array von Zeilen mit Höhe.  
-5. Fügen Sie der Folie über die Methode [addTable](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ShapeCollection#addTable-float-float-double:A-double:A-) eine Tabelle hinzu.  
-6. Iterieren Sie über jede Zelle, um die oberen, unteren, rechten und linken Ränder zu löschen.  
-7. Speichern Sie die bearbeitete Präsentation als PPTX‑Datei.  
+Erstellen Sie ein [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) und fügen Sie seiner ersten Folie mit [addTable](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/addtable/) eine Tabelle hinzu. Spaltenbreiten, Zeilenhöhen und die Tabellenposition werden in Punkten angegeben. Das Beispiel setzt alle vier Zellrahmen auf [FillType.NoFill](https://reference.aspose.com/slides/nodejs-java/aspose.slides/filltype/), wodurch sie unsichtbar werden.
 
-Dieser JavaScript‑Code zeigt Ihnen, wie Sie die Rahmen von Tabellenzellen entfernen:
 ```javascript
-// Instanziert die Presentation‑Klasse, die eine PPTX‑Datei darstellt
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // Greift auf die erste Folie zu
-    var sld = pres.getSlides().get_Item(0);
-    // Definiert Spalten mit Breiten und Zeilen mit Höhen
-    var dblCols = java.newArray("double", [50, 50, 50, 50]);
-    var dblRows = java.newArray("double", [50, 30, 30, 30, 30]);
-    // Fügt der Folie ein Tabellenelement hinzu
-    var tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
-    // Setzt das Rahmenformat für jede Zelle
-    for (let i = 0; i < tbl.getRows().size(); i++) {
-        const row = tbl.getRows().get_Item(i);
-        for (let j = 0; j < row.size(); j++) {
-            const cell = row.get_Item(j);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const columnWidths = java.newArray("double", [50, 50, 50, 50]);
+    const rowHeights = java.newArray("double", [50, 30, 30, 30, 30]);
+    const table = slide.getShapes().addTable(100, 50, columnWidths, rowHeights);
+
+    for (let rowIndex = 0; rowIndex < table.getRows().size(); rowIndex++) {
+        const row = table.getRows().get_Item(rowIndex);
+        for (let columnIndex = 0; columnIndex < row.size(); columnIndex++) {
+            const cell = row.get_Item(columnIndex);
             cell.getCellFormat().getBorderTop().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
             cell.getCellFormat().getBorderBottom().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
             cell.getCellFormat().getBorderLeft().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
             cell.getCellFormat().getBorderRight().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
         }
     }
-    // Schreibt die PPTX‑Datei auf die Festplatte
-    pres.save("table_out.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("table.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+## **Zusammenführen von Tabellenzellen**
 
-## **Nummerierung in zusammengeführten Zellen**
-Wenn wir 2 Paare von Zellen (1, 1) × (2, 1) und (1, 2) × (2, 2) zusammenführen, wird die resultierende Tabelle nummeriert. Dieser JavaScript‑Code demonstriert den Vorgang:
+Verwenden Sie [mergeCells](https://reference.aspose.com/slides/nodejs-java/aspose.slides/table/mergecells/), um einen rechteckigen Bereich von Tabellenzellen zu einer einzigen Zelle zu kombinieren. Geben Sie die Zellen an den oberen linken und unteren rechten Ecken des Bereichs an. Das letzte Argument steuert, ob das Zusammenführen Zellen außerhalb des angegebenen Bereichs einschließen darf; `false` hält das Zusammenführen innerhalb dieses Bereichs.
+
+Das Beispiel erstellt eine 4 × 4‑Tabelle mit 70‑Punkt‑Spalten und -Zeilen und führt dann die vier zentralen Zellen von `(1, 1)` bis `(2, 2)` zusammen. Die resultierende Zelle erstreckt sich über zwei Spalten und zwei Zeilen, während das zugrunde liegende Raster der Tabelle vier Spalten und vier Zeilen beibehält. Um auf den Inhalt oder die Formatierung der zusammengeführten Zelle zuzugreifen, verwenden Sie ihre obere linke Position: `table.get_Item(1, 1)` in diesem Beispiel. Die anderen Positionen im zusammengeführten Bereich bleiben Teil des Tabellengitters, sodass die Indizes von Zellen außerhalb des Bereichs unverändert bleiben.
+
 ```javascript
-// Instanziert die Presentation-Klasse, die eine PPTX-Datei darstellt
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // Greift auf die erste Folie zu
-    var sld = pres.getSlides().get_Item(0);
-    // Definiert Spalten mit Breiten und Zeilen mit Höhen
-    var dblCols = java.newArray("double", [70, 70, 70, 70]);
-    var dblRows = java.newArray("double", [70, 70, 70, 70]);
-    // Fügt der Folie ein Tabellenelement hinzu
-    var tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
-    // Setzt das Rahmenformat für jede Zelle
-    for (let i = 0; i < tbl.getRows().size(); i++) {
-        const row = tbl.getRows().get_Item(i);
-        for (let j = 0; j < row.size(); j++) {
-            const cell = row.get_Item(j);
-            cell.getCellFormat().getBorderTop().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-            cell.getCellFormat().getBorderTop().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-            cell.getCellFormat().getBorderTop().setWidth(5);
-            cell.getCellFormat().getBorderBottom().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-            cell.getCellFormat().getBorderBottom().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-            cell.getCellFormat().getBorderBottom().setWidth(5);
-            cell.getCellFormat().getBorderLeft().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-            cell.getCellFormat().getBorderLeft().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-            cell.getCellFormat().getBorderLeft().setWidth(5);
-            cell.getCellFormat().getBorderRight().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-            cell.getCellFormat().getBorderRight().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-            cell.getCellFormat().getBorderRight().setWidth(5);
-        }
-    }
-    // Führt Zellen (1, 1) x (2, 1) zusammen
-    tbl.mergeCells(tbl.get_Item(1, 1), tbl.get_Item(2, 1), false);
-    // Führt Zellen (1, 2) x (2, 2) zusammen
-    tbl.mergeCells(tbl.get_Item(1, 2), tbl.get_Item(2, 2), false);
-    pres.save("MergeCells_out.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const columnWidths = java.newArray("double", [70, 70, 70, 70]);
+    const rowHeights = java.newArray("double", [70, 70, 70, 70]);
+    const table = slide.getShapes().addTable(100, 50, columnWidths, rowHeights);
+
+    table.mergeCells(table.get_Item(1, 1), table.get_Item(2, 2), false);
+
+    presentation.save("merged_cells.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+## **Aufteilen von Tabellenzellen**
 
-Wir führen danach die Zellen weiter zusammen, indem wir (1, 1) und (1, 2) zusammenführen. Das Ergebnis ist eine Tabelle mit einer großen zusammengeführten Zelle in der Mitte:
+Das Zusammenführen von Zellen im vorherigen Beispiel erhält das Tabellenraster. Das Aufteilen einer Zelle kann eine neue Rasterspalte einführen und die Spaltenindizes der Zellen rechts davon ändern. Aspose.Slides folgt dem Tabellenrastermodell von PowerPoint.
+
+Dieses Beispiel erstellt eine 4 × 4‑Tabelle mit 70‑Punkt‑Spalten und -Zeilen und ruft [splitByWidth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/splitbywidth/) für die Zelle `(1, 1)` auf. Die Hälfte der 70‑Punkt‑Breite der Zelle wird übergeben, um zwei gleich breite Zellen zu erzeugen.
+
+Nach diesem Aufteilen werden die beiden Hälften über `table.get_Item(1, 1)` und `table.get_Item(2, 1)` adressiert. Das Tabellengitter besitzt nun fünf Spalten: Zellen, die ursprünglich in den Spalten 2 und 3 lagen, verschieben sich zu Spalten 3 bzw. 4. Zeilenindizes bleiben unverändert. Verwenden Sie diese aktualisierten Spaltenindizes, wenn Sie nach dem Aufteilen auf Zellen zugreifen.
+
 ```javascript
-// Instanziert die Presentation‑Klasse, die eine PPTX‑Datei darstellt
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // Greift auf die erste Folie zu
-    var sld = pres.getSlides().get_Item(0);
-    // Definiert Spalten mit Breiten und Zeilen mit Höhen
-    var dblCols = java.newArray("double", [70, 70, 70, 70]);
-    var dblRows = java.newArray("double", [70, 70, 70, 70]);
-    // Fügt der Folie ein Tabellenelement hinzu
-    var tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
-    // Setzt das Rahmenformat für jede Zelle
-    for (let i = 0; i < tbl.getRows().size(); i++) {
-        const row = tbl.getRows().get_Item(i);
-        for (let j = 0; j < row.size(); j++) {
-            const cell = row.get_Item(j);
-            cell.getCellFormat().getBorderTop().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-            cell.getCellFormat().getBorderTop().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-            cell.getCellFormat().getBorderTop().setWidth(5);
-            cell.getCellFormat().getBorderBottom().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-            cell.getCellFormat().getBorderBottom().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-            cell.getCellFormat().getBorderBottom().setWidth(5);
-            cell.getCellFormat().getBorderLeft().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-            cell.getCellFormat().getBorderLeft().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-            cell.getCellFormat().getBorderLeft().setWidth(5);
-            cell.getCellFormat().getBorderRight().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-            cell.getCellFormat().getBorderRight().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-            cell.getCellFormat().getBorderRight().setWidth(5);
-        }
-    }
-    // Fügt Zellen (1, 1) x (2, 1) zusammen
-    tbl.mergeCells(tbl.get_Item(1, 1), tbl.get_Item(2, 1), false);
-    // Fügt Zellen (1, 2) x (2, 2) zusammen
-    tbl.mergeCells(tbl.get_Item(1, 2), tbl.get_Item(2, 2), false);
-    // Fügt Zellen (1, 1) x (1, 2) zusammen
-    tbl.mergeCells(tbl.get_Item(1, 1), tbl.get_Item(1, 2), true);
-    // Schreibt die PPTX‑Datei auf die Festplatte
-    pres.save("MergeCells_out.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const columnWidths = java.newArray("double", [70, 70, 70, 70]);
+    const rowHeights = java.newArray("double", [70, 70, 70, 70]);
+    const table = slide.getShapes().addTable(100, 50, columnWidths, rowHeights);
+
+    table.get_Item(1, 1).splitByWidth(table.get_Item(1, 1).getWidth() / 2);
+
+    presentation.save("split_cells.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+### **Aufteilen zusammengeführter Zellen nach Zeilen‑ oder Spaltenbereich**
 
-## **Nummerierung in geteilten Zellen**
-Im vorherigen Beispiel wurde bei zusammengeführten Tabellenzellen das Nummerierungssystem in den anderen Zellen nicht verändert.  
+Um zusammengeführte Vorlagenzellen für die Datenbefüllung vorzubereiten, verwenden Sie [splitByRowSpan](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/splitbyrowspan/), um entlang einer bestehenden Zeilengrenze zu teilen, oder [splitByColSpan](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/splitbycolspan/), um entlang einer Spaltengrenze zu teilen.
 
-Dieses Mal nehmen wir eine reguläre Tabelle (eine Tabelle ohne zusammengeführte Zellen) und teilen dann Zelle (1,1), um eine spezielle Tabelle zu erhalten. Achten Sie auf die Nummerierung dieser Tabelle, die eventuell seltsam erscheint. Das ist jedoch die Art und Weise, wie Microsoft PowerPoint Tabellenzellen nummeriert und Aspose.Slides dasselbe tut.  
+Das Argument `index` zählt Zeilen im oberen Teil bzw. Spalten im linken Teil des Aufteilens; es ist relativ zum zusammengeführten Bereich:
 
-Dieser JavaScript‑Code demonstriert den beschriebenen Vorgang:
+- Zeilenaufteilung: `0 < index <` [getRowSpan](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/getrowspan/).
+- Spaltenaufteilung: `0 < index <` [getColSpan](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/getcolspan/).
+
+Das Beispiel geht davon aus, dass die Präsentation auf der ersten Folie als erstes Shape eine Tabelle enthält, wobei die Zellen `(1, 2)` und `(1, 3)` vertikal zusammengeführt sind. Ausgehend vom unteren Teil verwendet es [getFirstColumnIndex](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/getfirstcolumnindex/) und [getFirstRowIndex](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/getfirstrowindex/), um den Ursprung zu ermitteln, und prüft beide Spannen. `splitByRowSpan(1)` trennt dann die Zeilen 2 und 3 für Produktnamen. Für eine horizontale Zweispalten‑Zusammenführung verwenden Sie stattdessen `splitByColSpan(1)`.
+
 ```javascript
-// Instanziert die Presentation-Klasse, die eine PPTX-Datei darstellt
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation("table_template.pptx");
 try {
-    // Greift auf die erste Folie zu
-    var sld = pres.getSlides().get_Item(0);
-    // Definiert Spalten mit Breiten und Zeilen mit Höhen
-    var dblCols = java.newArray("double", [70, 70, 70, 70]);
-    var dblRows = java.newArray("double", [70, 70, 70, 70]);
-    // Fügt der Folie ein Tabellenelement hinzu
-    var tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
-    // Setzt das Rahmenformat für jede Zelle
-    for (let i = 0; i < tbl.getRows().size(); i++) {
-        const row = tbl.getRows().get_Item(i);
-        for (let j = 0; j < row.size(); j++) {
-            const cell = row.get_Item(j);
-            cell.getCellFormat().getBorderTop().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-            cell.getCellFormat().getBorderTop().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-            cell.getCellFormat().getBorderTop().setWidth(5);
-            cell.getCellFormat().getBorderBottom().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-            cell.getCellFormat().getBorderBottom().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-            cell.getCellFormat().getBorderBottom().setWidth(5);
-            cell.getCellFormat().getBorderLeft().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-            cell.getCellFormat().getBorderLeft().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-            cell.getCellFormat().getBorderLeft().setWidth(5);
-            cell.getCellFormat().getBorderRight().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-            cell.getCellFormat().getBorderRight().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-            cell.getCellFormat().getBorderRight().setWidth(5);
-        }
+    const slide = presentation.getSlides().get_Item(0);
+    const table = slide.getShapes().get_Item(0);
+
+    const selectedCell = table.get_Item(1, 3);
+    const firstColumnIndex = selectedCell.getFirstColumnIndex();
+    const firstRowIndex = selectedCell.getFirstRowIndex();
+    const mergedCell = table.get_Item(firstColumnIndex, firstRowIndex);
+
+    if (mergedCell.isMergedCell() && mergedCell.getRowSpan() == 2 && mergedCell.getColSpan() == 1) {
+        mergedCell.splitByRowSpan(1);
+
+        // Die resultierenden Zellen aus der Tabelle nach dem Aufteilen abrufen.
+        const upperCell = table.get_Item(firstColumnIndex, firstRowIndex);
+        const lowerCell = table.get_Item(firstColumnIndex, firstRowIndex + 1);
+        console.log("Upper cell merged: " + upperCell.isMergedCell());
+        console.log("Lower cell merged: " + lowerCell.isMergedCell());
+
+        upperCell.getTextFrame().setText("Product A");
+        lowerCell.getTextFrame().setText("Product B");
+
+        presentation.save("split_template.pptx", aspose.slides.SaveFormat.Pptx);
+    } else {
+        console.log("Select a merged region spanning exactly two rows and one column.");
     }
-    // Fügt Zellen (1, 1) x (2, 1) zusammen
-    tbl.mergeCells(tbl.get_Item(1, 1), tbl.get_Item(2, 1), false);
-    // Fügt Zellen (1, 2) x (2, 2) zusammen
-    tbl.mergeCells(tbl.get_Item(1, 2), tbl.get_Item(2, 2), false);
-    // Teilt Zelle (1, 1)
-    tbl.get_Item(1, 1).splitByWidth(tbl.get_Item(2, 1).getWidth() / 2);
-    // Schreibt die PPTX-Datei auf die Festplatte
-    pres.save("SplitCells_out.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+Das Tabellengitter und die umliegenden Zellindizes bleiben unverändert. Rufen Sie die resultierenden Zellen über ihre Koordinaten ab; beide haben eine Spanne von 1 und [isMergedCell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/ismergedcell/) liefert `false`. Größere Bereiche können nach einem Aufteilen teilweise zusammengeführt bleiben.
 
-## **Tabellenzellen‑Hintergrundfarbe ändern**
-Dieser JavaScript‑Code zeigt Ihnen, wie Sie die Hintergrundfarbe einer Tabellenzelle ändern:
+Der ursprüngliche Text und seine Formatierung verbleiben in der oberen (bzw. linken) Zelle; die neue Zelle ist leer, erbt jedoch Zellformatierungen wie Füllung, Rahmen und Ränder. Befüllen Sie die Zellen nach dem Aufteilen und setzen Sie bei Bedarf die Textformatierung explizit.
+
+Die gespeicherte Präsentation enthält separate Zellen „Produkt A“ und „Produkt B“ mit dem ursprünglichen Zellformat. Siehe die [Cell API Reference](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/) für Details.
+
+## **Ändern der Tabellenzellen-Hintergrundfarbe**
+
+Dieses Beispiel erstellt eine Tabelle mit 150‑Punkt‑Spalten und 50‑Punkt‑Zeilen. Es verwendet [setFillType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fillformat/setfilltype/), um eine Vollfüllung auszuwählen, und setzt die über [getSolidFillColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fillformat/getsolidfillcolor/) zurückgegebene Farbe für die Zelle `(2, 3)` (dritte Spalte, vierte Zeile) auf Rot.
+
 ```javascript
-var presentation = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var slide = presentation.getSlides().get_Item(0);
-    var dblCols = java.newArray("double", [150, 150, 150, 150]);
-    var dblRows = java.newArray("double", [50, 50, 50, 50, 50]);
-    // erstelle eine neue Tabelle
-    var table = slide.getShapes().addTable(50, 50, dblCols, dblRows);
-    // setze die Hintergrundfarbe für eine Zelle
-    var cell = table.get_Item(2, 3);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const columnWidths = java.newArray("double", [150, 150, 150, 150]);
+    const rowHeights = java.newArray("double", [50, 50, 50, 50, 50]);
+    const table = slide.getShapes().addTable(50, 50, columnWidths, rowHeights);
+
+    const cell = table.get_Item(2, 3);
     cell.getCellFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     cell.getCellFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
+
     presentation.save("cell_background_color.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (presentation != null) {
-        presentation.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+## **Ein Bild in einer Tabellenzelle hinzufügen**
 
-## **Bild in Tabellenzelle einfügen**
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation)‑Klasse.  
-2. Holen Sie sich eine Referenz auf eine Folie über ihren Index.  
-3. Definieren Sie ein Array von Spalten mit Breite.  
-4. Definieren Sie ein Array von Zeilen mit Höhe.  
-5. Fügen Sie der Folie über die Methode [addTable](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ShapeCollection#addTable-float-float-double:A-double:A-) eine Tabelle hinzu.  
-6. Erstellen Sie ein `Images`‑Objekt, um die Bilddatei zu halten.  
-7. Fügen Sie das `IImage`‑Bild zum `PPImage`‑Objekt hinzu.  
-8. Setzen Sie das `FillFormat` der Tabellenzelle auf `Picture`.  
-9. Fügen Sie das Bild zur ersten Zelle der Tabelle hinzu.  
-10. Speichern Sie die bearbeitete Präsentation als PPTX‑Datei.  
+Legen Sie das Eingabebild vor dem Ausführen dieses Beispiels in das Arbeitsverzeichnis. Das Bild wird mit [Images.fromFile](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Images#fromFile) geladen und mit [addImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagecollection/addimage/) zur Bildsammlung der Präsentation hinzugefügt. Anschließend wird das Bild dem Bildfüllmodus der Zelle `(0, 0)`, also der ersten Zelle der Tabelle, zugewiesen.
 
-Dieser JavaScript‑Code zeigt Ihnen, wie Sie ein Bild in eine Tabellenzelle einfügen, wenn Sie eine Tabelle erstellen:
+[PictureFillMode.Stretch](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillmode/) streckt das Bild, sodass die Zelle vollständig gefüllt wird, was das Seitenverhältnis ändern kann. Spaltenbreiten und Zeilenhöhen werden in Punkten angegeben. Das geladene Bild wird in einem `finally`‑Block nach dem Hinzufügen zur Präsentation freigegeben.
+
 ```javascript
-// Instanziert die Presentation-Klasse, die eine PPTX-Datei darstellt
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // Greift auf die erste Folie zu
-    var islide = pres.getSlides().get_Item(0);
-    // Definiert Spalten mit Breiten und Zeilen mit Höhen
-    var dblCols = java.newArray("double", [150, 150, 150, 150]);
-    var dblRows = java.newArray("double", [100, 100, 100, 100, 90]);
-    // Fügt ein Tabellenelement zur Folie hinzu
-    var tbl = islide.getShapes().addTable(50, 50, dblCols, dblRows);
-    // Erzeugt ein PPImage-Objekt aus der Bilddatei
-    var picture;
-    var image = aspose.slides.Images.fromFile("image.jpg");
+    const slide = presentation.getSlides().get_Item(0);
+
+    const columnWidths = java.newArray("double", [150, 150, 150, 150]);
+    const rowHeights = java.newArray("double", [100, 100, 100, 100, 90]);
+    const table = slide.getShapes().addTable(50, 50, columnWidths, rowHeights);
+
+    let ppImage;
+    const image = aspose.slides.Images.fromFile("aspose_logo.jpg");
     try {
-        picture = pres.getImages().addImage(image);
+        ppImage = presentation.getImages().addImage(image);
     } finally {
-        if (image != null) {
-            image.dispose();
-        }
+        image.dispose();
     }
-    // Fügt das Bild zur ersten Tabellenzelle hinzu
-    var cellFormat = tbl.get_Item(0, 0).getCellFormat();
-    cellFormat.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Picture));
-    cellFormat.getFillFormat().getPictureFillFormat().setPictureFillMode(aspose.slides.PictureFillMode.Stretch);
-    cellFormat.getFillFormat().getPictureFillFormat().getPicture().setImage(picture);
-    // Speichert die PPTX-Datei auf dem Datenträger
-    pres.save("Image_In_TableCell_out.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
+
+    table.get_Item(0, 0).getCellFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Picture));
+    table.get_Item(0, 0).getCellFormat().getFillFormat().getPictureFillFormat().setPictureFillMode(aspose.slides.PictureFillMode.Stretch);
+    table.get_Item(0, 0).getCellFormat().getFillFormat().getPictureFillFormat().getPicture().setImage(ppImage);
+
+    presentation.save("table_cell_with_image.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
-
 
 ## **FAQ**
 
-**Kann ich unterschiedliche Linienstärken und -stile für verschiedene Seiten einer einzelnen Zelle festlegen?**  
+**Kann ich für die einzelnen Seiten einer einzelnen Zelle unterschiedliche Linienstärken und -stile festlegen?**
 
-Ja. Die [top](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cellformat/getbordertop/)/[bottom](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cellformat/getborderbottom/)/[left](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cellformat/getborderleft/)/[right](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cellformat/getborderright/)‑Ränder besitzen separate Eigenschaften, sodass die Dicke und der Stil jeder Seite unterschiedlich sein können. Dies ergibt sich logisch aus der im Artikel gezeigten per‑Seite‑Rand‑Steuerung für eine Zelle.
+Ja. Die [top](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cellformat/getbordertop/)/[bottom](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cellformat/getborderbottom/)/[left](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cellformat/getborderleft/)/[right](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cellformat/getborderright/)‑Rahmen besitzen separate Eigenschaften, sodass die Stärke und der Stil jeder Seite unterschiedlich sein können.
 
-**Was passiert mit dem Bild, wenn ich die Spalten‑/Zeilengröße ändere, nachdem ich ein Bild als Hintergrund der Zelle festgelegt habe?**  
+**Was passiert mit dem Bild, wenn ich die Spalten‑/Zeilengröße ändere, nachdem ich ein Bild als Hintergrund der Zelle festgelegt habe?**
 
-Das Verhalten hängt vom [fill mode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillmode/) (stretch/tile) ab. Beim Dehnen passt sich das Bild der neuen Zelle an; beim Kacheln werden die Kacheln neu berechnet. Der Artikel erwähnt die Bildanzeigemodi in einer Zelle.
+Das Verhalten hängt vom [fill mode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillmode/) (stretch/tile) ab. Beim Stretchen passt sich das Bild der neuen Zelle an, beim Kacheln werden die Kacheln neu berechnet.
 
-**Kann ich einem gesamten Zelleninhalt einen Hyperlink zuweisen?**  
+**Kann ich einem gesamten Zellinhalt einen Hyperlink zuweisen?**
 
-[Hyperlinks](/slides/de/nodejs-java/manage-hyperlinks/) werden auf Textebene (Portion) innerhalb des Textrahmens der Zelle oder auf Ebene der gesamten Tabelle/Form gesetzt. In der Praxis weisen Sie den Link einer Portion oder dem gesamten Text in der Zelle zu.
+[Hyperlinks](/slides/de/nodejs-java/manage-hyperlinks/) werden auf Textebene (Portion) innerhalb des Textfelds der Zelle oder auf Ebene der gesamten Tabelle/des Shapes gesetzt. In der Praxis weisen Sie den Link einer Portion oder dem gesamten Text in der Zelle zu.
 
-**Kann ich innerhalb einer einzelnen Zelle unterschiedliche Schriftarten festlegen?**  
+**Kann ich innerhalb einer einzelnen Zelle verschiedene Schriftarten festlegen?**
 
-Ja. Der Textrahmen einer Zelle unterstützt [portions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portion/) (Runs) mit unabhängiger Formatierung – Schriftfamilie, Stil, Größe und Farbe.
+Ja. Das Textfeld einer Zelle unterstützt [portions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portion/) (Laufs), die unabhängig formatiert werden können – Schriftfamilie, Stil, Größe und Farbe.

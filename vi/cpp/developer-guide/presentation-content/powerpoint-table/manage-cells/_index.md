@@ -1,367 +1,337 @@
 ---
-title: Quản lý các ô bảng trong bản trình bày bằng C++
+title: Quản lý các ô bảng trong bài thuyết trình bằng C++
 linktitle: Quản lý Ô
 type: docs
 weight: 30
 url: /vi/cpp/manage-cells/
 keywords:
 - ô bảng
-- hợp nhất ô
+- gộp ô
 - xóa viền
 - tách ô
 - hình ảnh trong ô
 - màu nền
 - PowerPoint
-- bản trình bày
+- bài thuyết trình
 - C++
 - Aspose.Slides
-description: "Quản lý các ô bảng trong PowerPoint một cách dễ dàng với Aspose.Slides cho C++. Thành thạo việc truy cập, chỉnh sửa và tạo kiểu cho các ô nhanh chóng để tự động hoá slide liền mạch."
+description: "Quản lý các ô bảng PowerPoint trong C++: xác định các ô đã gộp, xóa viền, tách ô, và đặt màu nền cùng hình ảnh bằng Aspose.Slides cho C++."
 ---
 ## **Tổng quan**
 
-Aspose.Slides cho phép bạn truy cập và chỉnh sửa các ô bảng trong bản trình bày PowerPoint. Bài viết này giải thích cách xác định các ô bảng đã hợp nhất, xóa viền ô, làm việc với việc đánh số ô sau khi hợp nhất hoặc tách ô, thay đổi màu nền của ô và thêm hình ảnh bên trong ô bảng. Các ví dụ cho thấy cách tạo hoặc mở một bản trình bày, lấy bảng từ một slide, cập nhật định dạng ô thông qua các thuộc tính của ô, và lưu bản trình bày đã chỉnh sửa dưới dạng file PPTX.
+Aspose.Slides cho phép bạn truy cập và sửa đổi các ô bảng trong bài thuyết trình PowerPoint. Bài viết này giải thích cách xác định các ô bảng đã được gộp, xóa đường viền ô, làm việc với số thứ tự ô sau khi gộp hoặc tách ô, thay đổi màu nền của ô và thêm hình ảnh vào bên trong một ô bảng. Các ví dụ cho thấy cách tạo hoặc mở một bài thuyết trình, lấy bảng từ một slide, cập nhật định dạng ô qua các thuộc tính của ô, và lưu bài thuyết trình đã sửa đổi dưới dạng tệp PPTX.
 
-## **Xác định ô đã hợp nhất**
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/cpp/class/aspose.slides.presentation).
-2. Lấy bảng từ slide đầu tiên. 
-3. Duyệt qua các hàng và cột của bảng để tìm các ô đã hợp nhất.
-4. In ra thông báo khi phát hiện ô đã hợp nhất.
+Aspose.Slides sử dụng chỉ mục bắt đầu từ 0 để truy cập các ô bảng theo thứ tự `(cột, hàng)`.
 
-Đoạn mã C++ này cho bạn thấy cách xác định các ô bảng đã hợp nhất trong một bản trình bày:
+## **Xác định ô bảng đã gộp**
 
-``` cpp
-auto pres = System::MakeObject<Presentation>(u"SomePresentationWithTable.pptx");
-auto table = System::AsCast<ITable>(pres->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0));
+Ví dụ mở một bài thuyết trình hiện có và truy cập hình dạng đầu tiên trên slide đầu tiên dưới dạng bảng. Giả sử slide và hình dạng tồn tại và hình dạng là một bảng. Sau đó vòng lặp qua tất cả các hàng và cột và sử dụng [get_IsMergedCell](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_ismergedcell/) để xác định các ô trong vùng đã gộp. Đối với mỗi kết quả khớp, nó in tọa độ ô theo thứ tự `hàng;cột`, [get_RowSpan](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_rowspan/), [get_ColSpan](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_colspan/), và tọa độ bắt đầu của vùng, [get_FirstRowIndex](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_firstrowindex/) và [get_FirstColumnIndex](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_firstcolumnindex/).
 
-// assuming that Slide#0.Shape#0 is a table
-for (int32_t i = 0; i < table->get_Rows()->get_Count(); i++)
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <DOM/Table/ICell.h>
+#include <system/smart_ptr.h>
+#include <DOM/Table/IRowCollection.h>
+#include <DOM/Table/IColumnCollection.h>
+#include <system/console.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"presentation_with_table.pptx");
+auto slide = presentation->get_Slide(0);
+auto table = ExplicitCast<ITable>(slide->get_Shape(0));
+
+auto rowCount = table->get_Rows()->get_Count();
+for (auto rowIndex = 0; rowIndex < rowCount; rowIndex++)
 {
-    for (int32_t j = 0; j < table->get_Columns()->get_Count(); j++)
+    auto columnCount = table->get_Columns()->get_Count();
+    for (auto columnIndex = 0; columnIndex < columnCount; columnIndex++)
     {
-        auto currentCell = table->get_Rows()->idx_get(i)->idx_get(j);
-        if (currentCell->get_IsMergedCell())
+        auto cell = table->idx_get(columnIndex, rowIndex);
+        if (cell->get_IsMergedCell())
         {
-            Console::WriteLine(String::Format(u"Cell {0};{1} is a part of merged cell with RowSpan={2} and ColSpan={3} starting from Cell {4};{5}.", 
-                i, j, currentCell->get_RowSpan(), currentCell->get_ColSpan(), currentCell->get_FirstRowIndex(), currentCell->get_FirstColumnIndex()));
+            Console::WriteLine(u"Cell {0};{1} belongs to a merged region with RowSpan={2} and ColSpan={3} starting at {4};{5}.", rowIndex, columnIndex, cell->get_RowSpan(), cell->get_ColSpan(), cell->get_FirstRowIndex(), cell->get_FirstColumnIndex());
         }
     }
 }
 ```
 
-## **Xóa viền ô bảng**
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/cpp/class/aspose.slides.presentation).
-2. Lấy tham chiếu của slide thông qua chỉ mục của nó. 
-3. Xác định một mảng các cột với độ rộng.
-4. Xác định một mảng các hàng với chiều cao.
-5. Thêm một bảng vào slide bằng phương thức `AddTable`.
-6. Duyệt qua mọi ô để xóa viền trên, dưới, phải và trái.
-7. Lưu bản trình bày đã chỉnh sửa dưới dạng file PPTX.
+## **Xóa đường viền ô bảng**
 
-Đoạn mã C++ này cho bạn thấy cách xóa viền khỏi các ô bảng:
+Tạo một [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) và thêm một bảng vào slide đầu tiên của nó bằng [AddTable](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addtable/). Độ rộng cột, chiều cao hàng và vị trí bảng được chỉ định bằng điểm. Ví dụ đặt cả bốn đường viền ô thành [FillType::NoFill](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/), làm chúng ẩn đi.
 
-``` cpp
-// Khởi tạo lớp Presentation đại diện cho tệp PPTX
-auto pres = MakeObject<Presentation>();
-// Truy cập slide đầu tiên
-auto sld = pres->get_Slides()->idx_get(0);
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <DOM/Table/ICell.h>
+#include <system/smart_ptr.h>
+#include <DOM/FillType.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/Table/ICellFormat.h>
+#include <DOM/Table/IRow.h>
+#include <DOM/Table/IRowCollection.h>
+#include <system/enumerator_adapter.h>
+#include <Export/SaveFormat.h>
+#include <system/array.h>
 
-// Định nghĩa các cột với độ rộng và các hàng với chiều cao
-auto dblCols = MakeArray<double>({ 50, 50, 50, 50 });
-auto dblRows = MakeArray<double>({ 50, 30, 30, 30, 30 });
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-// Thêm hình dạng bảng vào slide
-auto tbl = sld->get_Shapes()->AddTable(100.0f, 50.0f, dblCols, dblRows);
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-// Đặt định dạng viền cho mỗi ô
-for (const auto& row : System::IterateOver(tbl->get_Rows()))
-{
-    for (const auto& cell : System::IterateOver(row))
+auto columnWidths = MakeArray<double>({50, 50, 50, 50});
+auto rowHeights = MakeArray<double>({50, 30, 30, 30, 30});
+auto table = slide->get_Shapes()->AddTable(100, 50, columnWidths, rowHeights);
+
+for (const auto& row : IterateOver(table->get_Rows()))
+    for (const auto& cell : IterateOver(row))
     {
         cell->get_CellFormat()->get_BorderTop()->get_FillFormat()->set_FillType(FillType::NoFill);
         cell->get_CellFormat()->get_BorderBottom()->get_FillFormat()->set_FillType(FillType::NoFill);
         cell->get_CellFormat()->get_BorderLeft()->get_FillFormat()->set_FillType(FillType::NoFill);
         cell->get_CellFormat()->get_BorderRight()->get_FillFormat()->set_FillType(FillType::NoFill);
     }
-}
 
-// Ghi tệp PPTX ra đĩa
-pres->Save(u"table_out.pptx", SaveFormat::Pptx);
+presentation->Save(u"table.pptx", SaveFormat::Pptx);
 ```
 
-## **Đánh số trong ô đã hợp nhất**
-Nếu chúng ta hợp nhất 2 cặp ô (1, 1) x (2, 1) và (1, 2) x (2, 2), bảng kết quả sẽ được đánh số. Đoạn mã C# này minh họa quy trình:
+## **Gộp ô bảng**
 
-```c++
-const String outPath = u"../out/MergeCells_out.pptx";
+Sử dụng [MergeCells](https://reference.aspose.com/slides/cpp/aspose.slides/itable/mergecells/) để kết hợp một phạm vi hình chữ nhật các ô bảng thành một ô duy nhất. Xác định các ô ở góc trên‑trái và góc dưới‑phải của phạm vi. Tham số cuối cùng điều khiển việc gộp có cho phép bao gồm các ô ngoài phạm vi đã chỉ định hay không; `false` giữ việc gộp trong phạm vi đó.
 
-// Tải bản trình bày mong muốn
-SharedPtr<Presentation> pres = MakeObject<Presentation>();
+Ví dụ tạo một bảng 4×4 với các cột và hàng có độ rộng 70 điểm, sau đó gộp bốn ô trung tâm từ `(1, 1)` tới `(2, 2)`. Ô kết quả trải qua hai cột và hai hàng, trong khi lưới cơ bản của bảng vẫn giữ bốn cột và bốn hàng. Để truy cập nội dung hoặc định dạng của ô đã gộp, sử dụng vị trí trên‑trái của nó: `table->idx_get(1, 1)` trong ví dụ này. Các vị trí khác trong phạm vi gộp vẫn là một phần của lưới bảng, vì vậy chỉ mục của các ô ngoài phạm vi không thay đổi.
 
-// Truy cập slide đầu tiên
-SharedPtr<ISlide> islide = pres->get_Slides()->idx_get(0);
-
-// Định nghĩa các cột với độ rộng và các hàng với chiều cao
-System::ArrayPtr<double> dblCols = System::MakeObject<System::Array<double>>(4, 70);
-System::ArrayPtr<double> dblRows = System::MakeObject<System::Array<double>>(4, 70);
-
-// Thêm hình dạng bảng vào slide
-SharedPtr<ITable> table = islide->get_Shapes()->AddTable(100, 50, dblCols, dblRows);
-
-
-// Đặt định dạng viền cho mỗi ô
-for (int x = 0; x < table->get_Rows()->get_Count(); x++)
-{
-    SharedPtr<IRow> row = table->get_Rows()->idx_get(x);
-    for (int y = 0; y < row->get_Count(); y++)
-    {
-        SharedPtr<ICell> cell = row->idx_get(y);
-
-        cell->get_BorderTop()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderTop()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderTop()->set_Width(5);
-
-        cell->get_BorderBottom()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderBottom()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderBottom()->set_Width(5);
-
-        cell->get_BorderLeft()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderLeft()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderLeft()->set_Width(5);
-
-        cell->get_BorderRight()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderRight()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderRight()->set_Width(5);
-
-    }
-
-}
-// Hợp nhất các ô (1, 1) x (2, 1)
-table->MergeCells(table->idx_get(1, 1), table->idx_get(2, 1), false);
-
-// Hợp nhất các ô (1, 2) x (2, 2)
-table->MergeCells(table->idx_get(1, 2), table->idx_get(2, 2), false);
-
-
-// Lưu tệp PPTX ra đĩa
-pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
-```
-
-Sau đó chúng ta tiếp tục hợp nhất các ô bằng cách hợp nhất (1, 1) và (1, 2). Kết quả là một bảng chứa một ô hợp nhất lớn ở trung tâm: 
-
-```c++
-// Đường dẫn tới thư mục tài liệu.
-const String outPath = u"../out/MergeCells_out.pptx";
-
-// Tải bản trình bày mong muốn
-SharedPtr<Presentation> pres = MakeObject<Presentation>();
-
-// Truy cập slide đầu tiên
-SharedPtr<ISlide> islide = pres->get_Slides()->idx_get(0);
-
-// Định nghĩa các cột với độ rộng và các hàng với chiều cao
-System::ArrayPtr<double> dblCols = System::MakeObject<System::Array<double>>(4, 70);
-System::ArrayPtr<double> dblRows = System::MakeObject<System::Array<double>>(4, 70);
-
-// Thêm hình dạng bảng vào slide
-SharedPtr<ITable> table = islide->get_Shapes()->AddTable(100, 50, dblCols, dblRows);
-
-
-// Đặt định dạng viền cho mỗi ô
-for (int x = 0; x < table->get_Rows()->get_Count(); x++)
-{
-    SharedPtr<IRow> row = table->get_Rows()->idx_get(x);
-    for (int y = 0; y < row->get_Count(); y++)
-    {
-        SharedPtr<ICell> cell = row->idx_get(y);
-
-        cell->get_BorderTop()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderTop()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderTop()->set_Width(5);
-
-        cell->get_BorderBottom()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderBottom()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderBottom()->set_Width(5);
-
-        cell->get_BorderLeft()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderLeft()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderLeft()->set_Width(5);
-
-        cell->get_BorderRight()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderRight()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderRight()->set_Width(5);
-
-    }
-
-}
-
-// Hợp nhất các ô (1, 1) x (2, 1)
-table->MergeCells(table->idx_get(1, 1), table->idx_get(2, 1), false);
-
-// Hợp nhất các ô (1, 2) x (2, 2)
-table->MergeCells(table->idx_get(1, 2), table->idx_get(2, 2), false);
-
-
-// Lưu tệp PPTX ra đĩa
-pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
-```
-
-## **Đánh số trong ô đã tách**
-Trong các ví dụ trước, khi các ô bảng được hợp nhất, hệ thống đánh số hoặc đánh số trong các ô khác không thay đổi. 
-
-Lần này, chúng ta lấy một bảng thông thường (bảng không có ô hợp nhất) và sau đó cố gắng tách ô (1,1) để tạo ra một bảng đặc biệt. Bạn có thể muốn chú ý đến cách đánh số của bảng này, có thể sẽ có vẻ lạ. Tuy nhiên, đó là cách Microsoft PowerPoint đánh số các ô bảng và Aspose.Slides cũng làm tương tự. 
-
-Đoạn mã C++ này minh họa quy trình mà chúng tôi mô tả:
-
-```c++
-// Đường dẫn tới thư mục tài liệu.
-const String outPath = u"../out/CellSplit_out.pptx";
-
-// Tải bản trình bày mong muốn
-SharedPtr<Presentation> pres = MakeObject<Presentation>();
-
-// Truy cập slide đầu tiên
-SharedPtr<ISlide> islide = pres->get_Slides()->idx_get(0);
-
-// Định nghĩa các cột với độ rộng và các hàng với chiều cao
-System::ArrayPtr<double> dblCols = System::MakeObject<System::Array<double>>(4, 70);
-System::ArrayPtr<double> dblRows = System::MakeObject<System::Array<double>>(4, 70);
-
-// Thêm hình dạng bảng vào slide
-SharedPtr<ITable> table = islide->get_Shapes()->AddTable(100, 50, dblCols, dblRows);
-
-
-// Đặt định dạng viền cho mỗi ô
-for (int x = 0; x < table->get_Rows()->get_Count(); x++)
-{
-    SharedPtr<IRow> row = table->get_Rows()->idx_get(x);
-    for (int y = 0; y < row->get_Count(); y++)
-    {
-        SharedPtr<ICell> cell = row->idx_get(y);
-
-        cell->get_BorderTop()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderTop()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderTop()->set_Width(5);
-
-        cell->get_BorderBottom()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderBottom()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderBottom()->set_Width(5);
-
-        cell->get_BorderLeft()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderLeft()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderLeft()->set_Width(5);
-
-        cell->get_BorderRight()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderRight()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderRight()->set_Width(5);
-
-    }
-
-}
-
-// Hợp nhất các ô (1, 1) x (2, 1)
-table->MergeCells(table->idx_get(1, 1), table->idx_get(2, 1), false);
-
-// Hợp nhất các ô (1, 2) x (2, 2)
-table->MergeCells(table->idx_get(1, 2), table->idx_get(2, 2), false);
-
-// tách ô (1, 1). 
-table->idx_get(1, 1)->SplitByWidth(table->idx_get(2, 1)->get_Width() / 2);
-
-// Lưu tệp PPTX ra đĩa
-pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
-```
-
-## **Thay đổi màu nền ô bảng**
-
-Đoạn mã C++ này cho bạn thấy cách thay đổi màu nền của một ô bảng:
-
-``` cpp
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <DOM/Table/ICell.h>
+#include <system/smart_ptr.h>
+#include <Export/SaveFormat.h>
+#include <system/array.h>
 
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
-using namespace System::Drawing;
+using namespace System;
 
-auto presentation = System::MakeObject<Presentation>();
-auto slide = presentation->get_Slides()->idx_get(0);
-        
-auto dblCols = System::MakeArray<double>({150, 150, 150, 150});
-auto dblRows = System::MakeArray<double>({50, 50, 50, 50, 50});
-        
-// tạo một bảng mới
-auto table = slide->get_Shapes()->AddTable(50.0f, 50.0f, dblCols, dblRows);
-        
-// đặt màu nền cho một ô 
-System::SharedPtr<ICell> cell = table->idx_get(2, 3);
-cell->get_CellFormat()->get_FillFormat()->set_FillType(Aspose::Slides::FillType::Solid);
-cell->get_CellFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        
-presentation->Save(u"cell_background_color.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
+auto columnWidths = MakeArray<double>({70, 70, 70, 70});
+auto rowHeights = MakeArray<double>({70, 70, 70, 70});
+auto table = slide->get_Shapes()->AddTable(100, 50, columnWidths, rowHeights);
+
+table->MergeCells(table->idx_get(1, 1), table->idx_get(2, 2), false);
+
+presentation->Save(u"merged_cells.pptx", SaveFormat::Pptx);
 ```
 
-## **Thêm hình ảnh vào trong ô bảng**
-1. Tạo một thể hiện của lớp `Presentation`.
-2. Lấy tham chiếu của slide thông qua chỉ mục của nó.
-3. Xác định một mảng các cột với độ rộng.
-4. Xác định một mảng các hàng với chiều cao.
-5. Thêm một bảng vào slide bằng phương thức `AddTable`. 
-6. Tạo một đối tượng `Bitmap` để chứa tệp hình ảnh.
-7. Thêm hình bitmap vào đối tượng `IPPImage`.
-8. Đặt `FillFormat` cho Ô Bảng thành `Picture`.
-9. Thêm hình ảnh vào ô đầu tiên của bảng.
-10. Lưu bản trình bày đã chỉnh sửa dưới dạng file PPTX
+## **Tách ô bảng**
 
-Đoạn mã C# này cho bạn thấy cách đặt một hình ảnh vào trong ô bảng khi tạo bảng:
+Việc gộp ô trong ví dụ trước giữ nguyên lưới của bảng. Tách một ô có thể tạo thêm một cột lưới mới và thay đổi chỉ mục cột của các ô ở bên phải nó. Aspose.Slides tuân theo mô hình lưới bảng của PowerPoint.
 
-```c++
-// Đường dẫn tới thư mục tài liệu.
-const String outPath = u"../out/Image_In_TableCell_out.pptx";
-const String ImagePath = u"../templates/Tulips.jpg";
+Ví dụ này tạo một bảng 4×4 với các cột và hàng 70 điểm và gọi [SplitByWidth](https://reference.aspose.com/slides/cpp/aspose.slides/icell/splitbywidth/) trên ô `(1, 1)`. Một nửa độ rộng 70 điểm của ô được truyền vào để tạo hai ô có độ rộng bằng nhau.
 
-// Tải bản trình bày mong muốn
-SharedPtr<Presentation> pres = MakeObject<Presentation>();
+Sau khi tách, hai nửa được truy cập dưới dạng `table->idx_get(1, 1)` và `table->idx_get(2, 1)`. Lưới bảng hiện có năm cột: các ô ban đầu ở cột 2 và 3 dịch sang cột 3 và 4 tương ứng. Các chỉ mục hàng không đổi. Hãy sử dụng các chỉ mục cột đã cập nhật khi truy cập các ô sau khi tách.
 
-// Truy cập slide đầu tiên
-SharedPtr<ISlide> islide = pres->get_Slides()->idx_get(0);
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <DOM/Table/ICell.h>
+#include <system/smart_ptr.h>
+#include <Export/SaveFormat.h>
+#include <system/array.h>
 
-// Định nghĩa các cột với độ rộng và các hàng với chiều cao
-System::ArrayPtr<double> dblCols = System::MakeObject<System::Array<double>>(4, 150);
-System::ArrayPtr<double> dblRows = System::MakeObject<System::Array<double>>(4, 100);
-System::ArrayPtr<double> total_for_Cat = System::MakeObject<System::Array<double>>(5, 0);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-// Thêm hình dạng bảng vào slide
-auto tbl = islide->get_Shapes()->AddTable(50, 50, dblCols, dblRows);
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-// Lấy hình ảnh
-auto img = Images::FromFile(ImagePath);
+auto columnWidths = MakeArray<double>({70, 70, 70, 70});
+auto rowHeights = MakeArray<double>({70, 70, 70, 70});
+auto table = slide->get_Shapes()->AddTable(100, 50, columnWidths, rowHeights);
 
-// Thêm hình ảnh vào bộ sưu tập hình ảnh của bản trình bày
-SharedPtr<IPPImage> imgx = pres->get_Images()->AddImage(img);
+table->idx_get(1, 1)->SplitByWidth(table->idx_get(1, 1)->get_Width() / 2);
 
+presentation->Save(u"split_cells.pptx", SaveFormat::Pptx);
+```
 
-// Thêm hình ảnh vào ô bảng đầu tiên
-tbl->idx_get(0, 0)->get_FillFormat()->set_FillType(FillType::Picture);
-tbl->idx_get(0, 0)->get_FillFormat()->get_PictureFillFormat()->set_PictureFillMode(PictureFillMode::Stretch);
-tbl->idx_get(0, 0)->get_FillFormat()->get_PictureFillFormat()->get_Picture()->set_Image(imgx);
+### **Tách các ô đã gộp theo chiều hàng hoặc cột**
 
-// Lưu tệp PPTX ra đĩa
-pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
+Để chuẩn bị các ô mẫu đã gộp cho việc chèn dữ liệu, sử dụng [SplitByRowSpan](https://reference.aspose.com/slides/cpp/aspose.slides/icell/splitbyrowspan/) để tách theo ranh giới hàng hiện có, hoặc [SplitByColSpan](https://reference.aspose.com/slides/cpp/aspose.slides/icell/splitbycolspan/) để tách theo ranh giới cột.
+
+Tham số `index` đếm các hàng ở phần trên hoặc các cột ở phần trái của phần tách; nó tương đối với vùng đã gộp:
+
+- Tách hàng: `0 < index <` [get_RowSpan](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_rowspan/).
+- Tách cột: `0 < index <` [get_ColSpan](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_colspan/).
+
+Ví dụ giả định một bài thuyết trình có một bảng là hình dạng đầu tiên trên slide đầu tiên, với các ô `(1, 2)` và `(1, 3)` đã được gộp theo chiều dọc. Bắt đầu từ vị trí dưới cùng, nó sử dụng [get_FirstColumnIndex](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_firstcolumnindex/) và [get_FirstRowIndex](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_firstrowindex/) để xác định nguồn gốc và kiểm tra cả hai span. `SplitByRowSpan(1)` sau đó tách các hàng 2 và 3 cho tên sản phẩm. Đối với một vùng gộp ngang hai cột, hãy dùng `SplitByColSpan(1)` thay thế.
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <DOM/Table/ICell.h>
+#include <system/smart_ptr.h>
+#include <DOM/ITextFrame.h>
+#include <system/console.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"table_template.pptx");
+auto slide = presentation->get_Slide(0);
+auto table = ExplicitCast<ITable>(slide->get_Shape(0));
+
+auto selectedCell = table->idx_get(1, 3);
+auto firstColumnIndex = selectedCell->get_FirstColumnIndex();
+auto firstRowIndex = selectedCell->get_FirstRowIndex();
+auto mergedCell = table->idx_get(firstColumnIndex, firstRowIndex);
+
+if (mergedCell->get_IsMergedCell() && mergedCell->get_RowSpan() == 2 && mergedCell->get_ColSpan() == 1)
+{
+    mergedCell->SplitByRowSpan(1);
+
+    // Lấy các ô kết quả từ bảng sau khi tách.
+    auto upperCell = table->idx_get(firstColumnIndex, firstRowIndex);
+    auto lowerCell = table->idx_get(firstColumnIndex, firstRowIndex + 1);
+    Console::WriteLine(u"Upper cell merged: {0}", upperCell->get_IsMergedCell());
+    Console::WriteLine(u"Lower cell merged: {0}", lowerCell->get_IsMergedCell());
+
+    upperCell->get_TextFrame()->set_Text(u"Product A");
+    lowerCell->get_TextFrame()->set_Text(u"Product B");
+
+    presentation->Save(u"split_template.pptx", SaveFormat::Pptx);
+}
+else
+{
+    Console::WriteLine(u"Select a merged region spanning exactly two rows and one column.");
+}
+```
+
+Lưới bảng và các chỉ mục ô xung quanh không thay đổi. Lấy các ô kết quả bằng tọa độ của chúng; ở đây, cả hai đều có span bằng 1 và [get_IsMergedCell](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_ismergedcell/) in ra `False`. Các vùng lớn hơn có thể vẫn còn một phần được gộp sau một lần tách.
+
+Văn bản gốc và định dạng của nó vẫn còn trong ô trên (hoặc trái); ô mới sẽ trống nhưng kế thừa định dạng ô như màu nền, đường viền và lề. Hãy chèn nội dung vào các ô sau khi tách và đặt bất kỳ định dạng văn bản nào cần thiết một cách rõ ràng.
+
+Bài thuyết trình đã lưu chứa các ô “Product A” và “Product B” riêng biệt với định dạng ô mẫu được giữ lại. Xem [Cell API Reference](https://reference.aspose.com/slides/cpp/aspose.slides/cell/) để biết chi tiết.
+
+## **Thay đổi màu nền ô bảng**
+
+Ví dụ này tạo một bảng với các cột 150 điểm và các hàng 50 điểm. Nó sử dụng [set_FillType](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/set_filltype/) để chọn màu nền đặc và [get_SolidFillColor](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/get_solidfillcolor/) để truy cập màu và đặt nó là màu đỏ cho ô `(2, 3)`, nằm ở cột thứ ba và hàng thứ tư.
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <DOM/Table/ICell.h>
+#include <system/smart_ptr.h>
+#include <DOM/FillType.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/Table/ICellFormat.h>
+#include <drawing/color.h>
+#include <Export/SaveFormat.h>
+#include <system/array.h>
+
+using namespace System::Drawing;
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto columnWidths = MakeArray<double>({150, 150, 150, 150});
+auto rowHeights = MakeArray<double>({50, 50, 50, 50, 50});
+auto table = slide->get_Shapes()->AddTable(50, 50, columnWidths, rowHeights);
+
+auto cell = table->idx_get(2, 3);
+cell->get_CellFormat()->get_FillFormat()->set_FillType(FillType::Solid);
+cell->get_CellFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Red());
+
+presentation->Save(u"cell_background_color.pptx", SaveFormat::Pptx);
+```
+
+## **Thêm hình ảnh vào bên trong ô bảng**
+
+Đặt hình ảnh đầu vào vào thư mục làm việc trước khi chạy ví dụ này. Nó tải hình ảnh bằng [Images::FromFile](https://reference.aspose.com/slides/cpp/aspose.slides/images/fromfile/) và thêm nó vào bộ sưu tập ảnh của bài thuyết trình bằng [AddImage](https://reference.aspose.com/slides/cpp/aspose.slides/iimagecollection/addimage/). Sau đó gán hình ảnh cho phần fill hình ảnh của ô `(0, 0)`, ô đầu tiên trong bảng.
+
+[PictureFillMode::Stretch](https://reference.aspose.com/slides/cpp/aspose.slides/picturefillmode/) kéo dài hình ảnh để lấp đầy ô, có thể làm thay đổi tỷ lệ khung hình. Độ rộng cột và chiều cao hàng được tính bằng điểm. Hình ảnh đã tải sẽ được giải phóng sau khi đã được thêm vào bài thuyết trình.
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <DOM/Table/ICell.h>
+#include <system/smart_ptr.h>
+#include <DOM/FillType.h>
+#include <DOM/IImageCollection.h>
+#include <IImage.h>
+#include <DOM/IPPImage.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/ISlidesPicture.h>
+#include <DOM/PictureFillMode.h>
+#include <DOM/Table/ICellFormat.h>
+#include <Util/Images.h>
+#include <Export/SaveFormat.h>
+#include <system/array.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto columnWidths = MakeArray<double>({150, 150, 150, 150});
+auto rowHeights = MakeArray<double>({100, 100, 100, 100, 90});
+auto table = slide->get_Shapes()->AddTable(50, 50, columnWidths, rowHeights);
+
+auto image = Images::FromFile(u"aspose_logo.jpg");
+auto ppImage = presentation->get_Images()->AddImage(image);
+image->Dispose();
+
+table->idx_get(0, 0)->get_CellFormat()->get_FillFormat()->set_FillType(FillType::Picture);
+table->idx_get(0, 0)->get_CellFormat()->get_FillFormat()->get_PictureFillFormat()->set_PictureFillMode(PictureFillMode::Stretch);
+table->idx_get(0, 0)->get_CellFormat()->get_FillFormat()->get_PictureFillFormat()->get_Picture()->set_Image(ppImage);
+
+presentation->Save(u"table_cell_with_image.pptx", SaveFormat::Pptx);
 ```
 
 ## **Câu hỏi thường gặp**
 
-**Có thể đặt độ dày và kiểu đường viền khác nhau cho các phía của một ô duy nhất không?**
+**Tôi có thể đặt độ dày và kiểu đường viền khác nhau cho từng mặt của một ô duy nhất không?**
 
-Đúng. Các viền [top](https://reference.aspose.com/slides/vi/cpp/aspose.slides/cellformat/get_bordertop/)/[bottom](https://reference.aspose.com/slides/vi/cpp/aspose.slides/cellformat/get_borderbottom/)/[left](https://reference.aspose.com/slides/vi/cpp/aspose.slides/cellformat/get_borderleft/)/[right](https://reference.aspose.com/slides/vi/cpp/aspose.slides/cellformat/get_borderright/) có các thuộc tính riêng, vì vậy độ dày và kiểu của mỗi phía có thể khác nhau. Điều này hợp lý dựa trên việc kiểm soát viền từng phía cho một ô được trình bày trong bài viết.
+Có. Các đường viền [top](https://reference.aspose.com/slides/cpp/aspose.slides/cellformat/get_bordertop/)/[bottom](https://reference.aspose.com/slides/cpp/aspose.slides/cellformat/get_borderbottom/)/[left](https://reference.aspose.com/slides/cpp/aspose.slides/cellformat/get_borderleft/)/[right](https://reference.aspose.com/slides/cpp/aspose.slides/cellformat/get_borderright/) có các thuộc tính riêng, vì vậy độ dày và kiểu của mỗi mặt có thể khác nhau.
 
-**Điều gì xảy ra với hình ảnh nếu tôi thay đổi kích thước cột/hàng sau khi đặt một hình ảnh làm nền cho ô?**
+**Nếu tôi thay đổi kích thước cột/hàng sau khi đặt một hình ảnh làm nền cho ô, hình ảnh sẽ xảy ra gì?**
 
-Hành vi phụ thuộc vào [fill mode](https://reference.aspose.com/slides/vi/cpp/aspose.slides/picturefillmode/) (stretch/tile). Khi kéo dãn, hình ảnh sẽ điều chỉnh theo ô mới; khi lát, các ô ảnh sẽ được tính lại. Bài viết đề cập đến các chế độ hiển thị hình ảnh trong ô.
+Hành vi phụ thuộc vào [fill mode](https://reference.aspose.com/slides/cpp/aspose.slides/picturefillmode/) (stretch/tile). Khi kéo dài, hình ảnh sẽ điều chỉnh theo ô mới; khi lặp, các ô lặp sẽ được tính lại.
 
-**Có thể gán siêu liên kết cho toàn bộ nội dung của một ô không?**
+**Tôi có thể gắn siêu liên kết cho toàn bộ nội dung của một ô không?**
 
-[Hyperlinks](/slides/vi/cpp/manage-hyperlinks/) được đặt ở mức độ văn bản (phần) bên trong khung văn bản của ô hoặc ở mức độ toàn bộ bảng/hình dạng. Trong thực tế, bạn gán liên kết cho một phần hoặc cho toàn bộ văn bản trong ô.
+[Hyperlinks](/slides/vi/cpp/manage-hyperlinks/) được đặt ở mức đoạn văn bản (portion) bên trong khung văn bản của ô hoặc ở mức toàn bộ bảng/hình dạng. Thực tế, bạn gắn liên kết cho một đoạn hoặc cho toàn bộ văn bản trong ô.
 
-**Có thể đặt các phông chữ khác nhau trong một ô duy nhất không?**
+**Tôi có thể đặt các phông chữ khác nhau trong một ô duy nhất không?**
 
-Đúng. Khung văn bản của ô hỗ trợ [portions](https://reference.aspose.com/slides/vi/cpp/aspose.slides/portion/) (run) với định dạng độc lập — họ phông chữ, kiểu, kích thước và màu.
+Có. Khung văn bản của ô hỗ trợ [portions](https://reference.aspose.com/slides/cpp/aspose.slides/portion/) (các run) với định dạng độc lập—gia đình phông, kiểu, kích thước và màu.

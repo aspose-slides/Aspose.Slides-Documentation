@@ -15,69 +15,60 @@ keywords:
 - presentatie
 - Java
 - Aspose.Slides
-description: "Beheer tabelcellen moeiteloos in PowerPoint met Aspose.Slides voor Java. Leer snel toegang, wijziging en opmaak van cellen voor naadloze dia‑automatisering."
+description: "Beheer PowerPoint-tabelcellen in Java: identificeer samengevoegde cellen, verwijder randen, split cellen, en stel achtergrondkleuren en afbeeldingen in met Aspose.Slides voor Java."
 ---
 ## **Overzicht**
 
-Aspose.Slides stelt u in staat om tabelcellen in PowerPoint‑presentaties te benaderen en te wijzigen. Dit artikel legt uit hoe u samengevoegde tabelcellen kunt identificeren, celranden kunt verwijderen, kunt werken met celnummering na het samenvoegen of splitsen van cellen, de achtergrondkleur van een cel kunt wijzigen en een afbeelding in een tabelcel kunt toevoegen. De voorbeelden laten zien hoe u een presentatie maakt of opent, een tabel van een dia haalt, de celopmaak via cel‑eigenschappen bijwerkt en de gewijzigde presentatie opslaat als een PPTX‑bestand.
+Aspose.Slides stelt u in staat om tabelcellen in PowerPoint‑presentaties te benaderen en te wijzigen. Dit artikel legt uit hoe u samengevoegde tabelcellen kunt identificeren, celranden kunt verwijderen, met celnummering kunt werken na het samenvoegen of splitsen van cellen, de achtergrondkleur van een cel kunt wijzigen en een afbeelding in een tabelcel kunt toevoegen. De voorbeelden laten zien hoe u een presentatie kunt maken of openen, een tabel van een dia kunt krijgen, celopmaak via cel‑eigenschappen kunt bijwerken en de aangepaste presentatie kunt opslaan als PPTX‑bestand.
 
-## **Identificeer een samengevoegde tabelcel**
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/java/com.aspose.slides/Presentation) klasse aan.  
-2. Haal de tabel op van de eerste dia.  
-3. Itereer door de rijen en kolommen van de tabel om samengevoegde cellen te vinden.  
-4. Print een bericht wanneer samengevoegde cellen worden gevonden.  
+Aspose.Slides gebruikt nul‑gebaseerde indexen om tabelcellen te benaderen in de volgorde `(column, row)`.
 
-Deze Java‑code laat zien hoe u samengevoegde tabelcellen in een presentatie kunt identificeren:
+## **Een samengevoegde tabelcel identificeren**
+
+Het voorbeeld opent een bestaande presentatie en benadert de eerste vorm op de eerste dia als een tabel. Er wordt aangenomen dat de dia en de vorm bestaan en dat de vorm een tabel is. Vervolgens wordt door alle rijen en kolommen gelopen en wordt [isMergedCell](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#isMergedCell--) gebruikt om cellen in samengevoegde gebieden te identificeren. Voor elke overeenkomst wordt de celcoördinaat in `row;column`‑volgorde afgedrukt, evenals [getRowSpan](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#getRowSpan--), [getColSpan](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#getColSpan--) en de startcoördinaten van het gebied, [getFirstRowIndex](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#getFirstRowIndex--) en [getFirstColumnIndex](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#getFirstColumnIndex--).
 
 ```java
-Presentation pres = new Presentation("SomePresentationWithTable.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("presentation_with_table.pptx");
 try {
-    ITable table = (ITable)pres.getSlides().get_Item(0).getShapes().get_Item(0); // ervan uitgaande dat Slide#0.Shape#0 een tabel is
-    for (int i = 0; i < table.getRows().size(); i++)
+    ISlide slide = presentation.getSlides().get_Item(0);
+    ITable table = (ITable) slide.getShapes().get_Item(0);
+
+    int rowCount = table.getRows().size();
+    for (int rowIndex = 0; rowIndex < rowCount; rowIndex++)
     {
-        for (int j = 0; j < table.getColumns().size(); j++)
+        int columnCount = table.getColumns().size();
+        for (int columnIndex = 0; columnIndex < columnCount; columnIndex++)
         {
-            ICell currentCell = table.getRows().get_Item(i).get_Item(j);
-            if (currentCell.isMergedCell())
+            ICell cell = table.get_Item(columnIndex, rowIndex);
+            if (cell.isMergedCell())
             {
-                System.out.println(String.format("Cell %d;%d is a part of merged cell with RowSpan=%d and ColSpan=%d starting from Cell %d;%d.",
-                        i, j, currentCell.getRowSpan(), currentCell.getColSpan(), currentCell.getFirstRowIndex(), currentCell.getFirstColumnIndex()));
+                System.out.printf("Cell %d;%d belongs to a merged region with RowSpan=%d and ColSpan=%d starting at %d;%d.%n", rowIndex, columnIndex, cell.getRowSpan(), cell.getColSpan(), cell.getFirstRowIndex(), cell.getFirstColumnIndex());
             }
         }
     }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Tabelcelranden verwijderen**
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/java/com.aspose.slides/Presentation) klasse aan.  
-2. Haal een referentie naar een dia op via de index.  
-3. Definieer een array van kolommen met breedte.  
-4. Definieer een array van rijen met hoogte.  
-5. Voeg een tabel toe aan de dia via de [addTable](https://reference.aspose.com/slides/nl/java/com.aspose.slides/IShapeCollection#addTable-float-float-double:A-double:A-) methode.  
-6. Itereer door elke cel om de boven‑, onder‑, rechts‑ en linkerranden te wissen.  
-7. Sla de gewijzigde presentatie op als een PPTX‑bestand.  
+## **Randen van tabelcellen verwijderen**
 
-Deze Java‑code laat zien hoe u de randen van tabelcellen kunt verwijderen:
+Maak een [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) aan en voeg een tabel toe aan de eerste dia met [addTable](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addTable-float-float-double---double---). De kolombreedtes, rijhoogtes en de positie van de tabel worden gespecificeerd in points. Het voorbeeld stelt alle vier de celranden in op [FillType.NoFill](https://reference.aspose.com/slides/java/com.aspose.slides/filltype/), waardoor ze onzichtbaar worden.
 
 ```java
-// Maakt een instantie van de Presentation‑klasse die een PPTX‑bestand voorstelt
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    // Benadert de eerste dia
-    Slide sld = (Slide)pres.getSlides().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Definieert kolommen met breedtes en rijen met hoogtes
-    double[] dblCols = { 50, 50, 50, 50 };
-    double[] dblRows = { 50, 30, 30, 30, 30 };
+    double[] columnWidths = { 50, 50, 50, 50 };
+    double[] rowHeights = { 50, 30, 30, 30, 30 };
+    ITable table = slide.getShapes().addTable(100, 50, columnWidths, rowHeights);
 
-    // Voegt een tabelvorm toe aan de dia
-    ITable tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
-
-    // Stelt het randformaat in voor elke cel
-    for (IRow row : tbl.getRows())
-    {
+    for (IRow row : table.getRows())
         for (ICell cell : row)
         {
             cell.getCellFormat().getBorderTop().getFillFormat().setFillType(FillType.NoFill);
@@ -85,256 +76,177 @@ try {
             cell.getCellFormat().getBorderLeft().getFillFormat().setFillType(FillType.NoFill);
             cell.getCellFormat().getBorderRight().getFillFormat().setFillType(FillType.NoFill);
         }
-    }
 
-    // Schrijft de PPTX naar schijf
-    pres.save("table_out.pptx", SaveFormat.Pptx);
+    presentation.save("table.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Nummering in samengevoegde cellen**
-Als we twee paren cellen (1, 1) x (2, 1) en (1, 2) x (2, 2) samenvoegen, wordt de resulterende tabel genummerd. Deze Java‑code demonstreert het proces:
+## **Tabelcellen samenvoegen**
+
+Gebruik [mergeCells](https://reference.aspose.com/slides/java/com.aspose.slides/itable/#mergeCells-com.aspose.slides.ICell-com.aspose.slides.ICell-boolean-) om een rechthoekig bereik van tabelcellen te combineren tot één cel. Geef de cellen op in de linkerboven‑ en rechteronderhoek van het bereik. Het laatste argument bepaalt of de samenvoeging cellen buiten het opgegeven bereik mag omvatten; `false` houdt de samenvoeging binnen dat bereik.
+
+Het voorbeeld maakt een 4‑bij‑4 tabel met kolommen en rijen van 70 points, en voegt vervolgens de vier centrale cellen samen van `(1, 1)` tot `(2, 2)`. De resulterende cel beslaat twee kolommen en twee rijen, terwijl het onderliggende raster van de tabel vier kolommen en vier rijen behoudt. Om de inhoud of opmaak van de samengevoegde cel te benaderen, gebruik je de positie linkerboven: `table.get_Item(1, 1)` in dit voorbeeld. De andere posities in het samengevoegde bereik blijven deel uitmaken van het tabelraster, zodat de indexen van cellen buiten het bereik niet veranderen.
 
 ```java
-// Instantieert de Presentation‑klasse die een PPTX‑bestand voorstelt
-Presentation pres = new Presentation();
-try {
-    // Benadert de eerste dia
-    ISlide sld = pres.getSlides().get_Item(0);
+import com.aspose.slides.*;
 
-    // Definieert kolommen met breedtes en rijen met hoogtes
-    double[] dblCols = { 70, 70, 70, 70 };
-    double[] dblRows = { 70, 70, 70, 70 };
-
-    // Voegt een tabelvorm toe aan de dia
-    ITable tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
-
-    // Stelt het randformaat in voor elke cel
-    for (IRow row : tbl.getRows())
-    {
-        for (ICell cell : row)
-        {
-            cell.getCellFormat().getBorderTop().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderTop().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderTop().setWidth(5);
-
-            cell.getCellFormat().getBorderBottom().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderBottom().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderBottom().setWidth(5);
-
-            cell.getCellFormat().getBorderLeft().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderLeft().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderLeft().setWidth(5);
-
-            cell.getCellFormat().getBorderRight().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderRight().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderRight().setWidth(5);
-        }
-    }
-
-    // Voegt cellen (1, 1) x (2, 1) samen
-    tbl.mergeCells(tbl.get_Item(1, 1), tbl.get_Item(2, 1), false);
-
-    // Voegt cellen (1, 2) x (2, 2) samen
-    tbl.mergeCells(tbl.get_Item(1, 2), tbl.get_Item(2, 2), false);
-
-    pres.save("MergeCells_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-Vervolgens voegen we de cellen verder samen door (1, 1) en (1, 2) te combineren. Het resultaat is een tabel met een grote samengevoegde cel in het midden:
-
-```java
-// Instantieert de Presentation‑klasse die een PPTX‑bestand voorstelt
-Presentation pres = new Presentation();
-try {
-    // Benadert de eerste dia
-    ISlide sld = pres.getSlides().get_Item(0);
-
-    // Definieert kolommen met breedtes en rijen met hoogtes
-    double[] dblCols = { 70, 70, 70, 70 };
-    double[] dblRows = { 70, 70, 70, 70 };
-
-    // Voegt een tabelvorm toe aan de dia
-    ITable tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
-
-    // Stelt het randformaat in voor elke cel
-    for (IRow row : tbl.getRows())
-    {
-        for (ICell cell : row)
-        {
-            cell.getCellFormat().getBorderTop().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderTop().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderTop().setWidth(5);
-
-            cell.getCellFormat().getBorderBottom().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderBottom().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderBottom().setWidth(5);
-
-            cell.getCellFormat().getBorderLeft().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderLeft().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderLeft().setWidth(5);
-
-            cell.getCellFormat().getBorderRight().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderRight().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderRight().setWidth(5);
-        }
-    }
-
-    // Voegt cellen (1, 1) x (2, 1) samen
-    tbl.mergeCells(tbl.get_Item(1, 1), tbl.get_Item(2, 1), false);
-
-    // Voegt cellen (1, 2) x (2, 2) samen
-    tbl.mergeCells(tbl.get_Item(1, 2), tbl.get_Item(2, 2), false);
-
-    // Voegt cellen (1, 1) x (1, 2) samen
-    tbl.mergeCells(tbl.get_Item(1, 1), tbl.get_Item(1, 2), true);
-    
-	// Schrijft het PPTX‑bestand naar schijf
-    pres.save("MergeCells_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Nummering in een gesplitste cel**
-Bij eerdere voorbeelden werden, wanneer tabelcellen samengevoegd werden, de nummering of het talstelsel in andere cellen niet aangepast.  
-
-Deze keer nemen we een gewone tabel (een tabel zonder samengevoegde cellen) en proberen vervolgens cel (1,1) te splitsen om een speciale tabel te verkrijgen. Let op de nummering van deze tabel, die wellicht vreemd lijkt. Echter, dit is de manier waarop Microsoft PowerPoint tabelcellen nummeren en Aspose.Slides doet hetzelfde.  
-
-Deze Java‑code demonstreert het beschreven proces:
-
-```java
-// Instantieert de Presentation‑klasse die een PPTX‑bestand voorstelt
-Presentation pres = new Presentation();
-try {
-    // Benadert de eerste dia
-    ISlide sld = pres.getSlides().get_Item(0);
-
-    // Definieert kolommen met breedtes en rijen met hoogtes
-    double[] dblCols = { 70, 70, 70, 70 };
-    double[] dblRows = { 70, 70, 70, 70 };
-
-    // Voegt een tabelvorm toe aan de dia
-    ITable tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
-
-    // Stelt het randformaat in voor elke cel
-    for (IRow row : tbl.getRows())
-    {
-        for (ICell cell : row)
-        {
-            cell.getCellFormat().getBorderTop().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderTop().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderTop().setWidth(5);
-
-            cell.getCellFormat().getBorderBottom().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderBottom().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderBottom().setWidth(5);
-
-            cell.getCellFormat().getBorderLeft().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderLeft().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderLeft().setWidth(5);
-
-            cell.getCellFormat().getBorderRight().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderRight().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderRight().setWidth(5);
-        }
-    }
-
-    // Voegt cellen (1, 1) x (2, 1) samen
-    tbl.mergeCells(tbl.get_Item(1, 1), tbl.get_Item(2, 1), false);
-
-    // Voegt cellen (1, 2) x (2, 2) samen
-    tbl.mergeCells(tbl.get_Item(1, 2), tbl.get_Item(2, 2), false);
-
-    // Splitst cel (1, 1)
-    tbl.get_Item(1, 1).splitByWidth(tbl.get_Item(2, 1).getWidth() / 2);
-
-    // Schrijft het PPTX‑bestand naar schijf
-    pres.save("SplitCells_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **De achtergrondkleur van een tabelcel wijzigen**
-
-Deze Java‑code laat zien hoe u de achtergrondkleur van een tabelcel kunt wijzigen:
-
-```java
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    double[] dblCols = { 150, 150, 150, 150 };
-    double[] dblRows = { 50, 50, 50, 50, 50 };
+    double[] columnWidths = { 70, 70, 70, 70 };
+    double[] rowHeights = { 70, 70, 70, 70 };
+    ITable table = slide.getShapes().addTable(100, 50, columnWidths, rowHeights);
 
-    // maak een nieuwe tabel
-    ITable table = slide.getShapes().addTable(50, 50, dblCols, dblRows);
+    table.mergeCells(table.get_Item(1, 1), table.get_Item(2, 2), false);
 
-    // stel de achtergrondkleur voor een cel in
+    presentation.save("merged_cells.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Tabelcellen splitsen**
+
+Het samenvoegen van cellen in het vorige voorbeeld behoudt het raster van de tabel. Het splitsen van een cel kan een nieuwe rasterkolom introduceren en de kolomindexen van de cellen rechts ervan wijzigen. Aspose.Slides volgt het rastermodel voor tabellen van PowerPoint.
+
+Dit voorbeeld maakt een 4‑bij‑4 tabel met kolommen en rijen van 70 points en roept [splitByWidth](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#splitByWidth-double-) aan op cel `(1, 1)`. De helft van de 70‑point breedte van de cel wordt doorgegeven om twee even brede cellen te maken.
+
+Nadat deze splitsing is uitgevoerd, worden de twee helften benaderd als `table.get_Item(1, 1)` en `table.get_Item(2, 1)`. Het tabelraster heeft nu vijf kolommen: cellen die oorspronkelijk in kolommen 2 en 3 stonden, verplaatsen zich naar respectievelijk kolommen 3 en 4. De rij‑indexen blijven ongewijzigd. Gebruik deze bijgewerkte kolomindexen bij het benaderen van cellen na de splitsing.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    double[] columnWidths = { 70, 70, 70, 70 };
+    double[] rowHeights = { 70, 70, 70, 70 };
+    ITable table = slide.getShapes().addTable(100, 50, columnWidths, rowHeights);
+
+    table.get_Item(1, 1).splitByWidth(table.get_Item(1, 1).getWidth() / 2);
+
+    presentation.save("split_cells.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+### **Samengevoegde cellen splitsen op rij‑ of kolom‑span**
+
+Om samengevoegde sjablooncellen voor gegevensvulling voor te bereiden, gebruik je [splitByRowSpan](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#splitByRowSpan-int-) om langs een bestaande rij‑grens te splitsen, of [splitByColSpan](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#splitByColSpan-int-) om langs een kolom‑grens te splitsen.
+
+Het argument `index` telt rijen in het bovenste deel of kolommen in het linkerdeel van de splitsing; het is relatief ten opzichte van het samengevoegde gebied:
+
+- Rij‑splitsing: `0 < index <` [getRowSpan](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#getRowSpan--).
+- Kolom‑splitsing: `0 < index <` [getColSpan](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#getColSpan--).
+
+Het voorbeeld gaat ervan uit dat een presentatie een tabel heeft als de eerste vorm op de eerste dia, met `(1, 2)` en `(1, 3)` verticaal samengevoegd. Beginnend vanaf de onderste positie gebruikt het [getFirstColumnIndex](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#getFirstColumnIndex--) en [getFirstRowIndex](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#getFirstRowIndex--) om de oorsprong te lokaliseren en controleert beide spans. `splitByRowSpan(1)` scheidt vervolgens rijen 2 en 3 voor productnamen. Voor een horizontale samenvoeging van twee kolommen, gebruik `splitByColSpan(1)`.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("table_template.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    ITable table = (ITable) slide.getShapes().get_Item(0);
+
+    ICell selectedCell = table.get_Item(1, 3);
+    int firstColumnIndex = selectedCell.getFirstColumnIndex();
+    int firstRowIndex = selectedCell.getFirstRowIndex();
+    ICell mergedCell = table.get_Item(firstColumnIndex, firstRowIndex);
+
+    if (mergedCell.isMergedCell() && mergedCell.getRowSpan() == 2 && mergedCell.getColSpan() == 1)
+    {
+        mergedCell.splitByRowSpan(1);
+
+        // Haal de resulterende cellen uit de tabel op na het splitsen.
+        ICell upperCell = table.get_Item(firstColumnIndex, firstRowIndex);
+        ICell lowerCell = table.get_Item(firstColumnIndex, firstRowIndex + 1);
+        System.out.println("Upper cell merged: " + upperCell.isMergedCell());
+        System.out.println("Lower cell merged: " + lowerCell.isMergedCell());
+
+        upperCell.getTextFrame().setText("Product A");
+        lowerCell.getTextFrame().setText("Product B");
+
+        presentation.save("split_template.pptx", SaveFormat.Pptx);
+    }
+    else
+    {
+        System.out.println("Select a merged region spanning exactly two rows and one column.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Het tabelraster en de omringende cel‑indexen blijven ongewijzigd. Haal de resulterende cellen op via hun coördinaten; hier hebben beide een span van 1 en [isMergedCell](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#isMergedCell--) geeft `false` terug. Grotere gebieden kunnen deels samengevoegd blijven na één splitsing.
+
+De oorspronkelijke tekst en opmaak blijven in de bovenste (of linker) cel; de nieuwe cel is leeg maar erft de celopmaak zoals vulling, randen en marges. Vul de cellen na het splitsen en stel eventuele vereiste tekstopmaak expliciet in.
+
+De opgeslagen presentatie bevat afzonderlijke “Product A”- en “Product B”-cellen met de cellopmaak van het sjabloon behouden. Zie de [Cell API Reference](https://reference.aspose.com/slides/java/com.aspose.slides/cell/) voor details.
+
+## **De achtergrondkleur van de tabelcel wijzigen**
+
+Dit voorbeeld maakt een tabel met kolommen van 150 points en rijen van 50 points. Het gebruikt [setFillType](https://reference.aspose.com/slides/java/com.aspose.slides/ifillformat/#setFillType-byte-) om een effen vulling te selecteren en stelt de kleur die door [getSolidFillColor](https://reference.aspose.com/slides/java/com.aspose.slides/ifillformat/#getSolidFillColor--) wordt geretourneerd in op rood voor cel `(2, 3)`, in de derde kolom en vierde rij.
+
+```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    double[] columnWidths = { 150, 150, 150, 150 };
+    double[] rowHeights = { 50, 50, 50, 50, 50 };
+    ITable table = slide.getShapes().addTable(50, 50, columnWidths, rowHeights);
+
     ICell cell = table.get_Item(2, 3);
     cell.getCellFormat().getFillFormat().setFillType(FillType.Solid);
     cell.getCellFormat().getFillFormat().getSolidFillColor().setColor(Color.RED);
 
     presentation.save("cell_background_color.pptx", SaveFormat.Pptx);
 } finally {
-    if (presentation != null) presentation.dispose();
+    presentation.dispose();
 }
 ```
 
 ## **Een afbeelding in een tabelcel toevoegen**
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/java/com.aspose.slides/Presentation) klasse aan.  
-2. Haal een referentie naar een dia op via de index.  
-3. Definieer een array van kolommen met breedte.  
-4. Definieer een array van rijen met hoogte.  
-5. Voeg een tabel toe aan de dia via de [AddTable](https://reference.aspose.com/slides/nl/java/com.aspose.slides/IShapeCollection#addTable-float-float-double:A-double:A-) methode.  
-6. Maak een `Images`‑object aan om het afbeeldingsbestand op te slaan.  
-7. Voeg de `IImage`‑afbeelding toe aan het `IPPImage`‑object.  
-8. Stel de `FillFormat` voor de tabelcel in op `Picture`.  
-9. Voeg de afbeelding toe aan de eerste cel van de tabel.  
-10. Sla de gewijzigde presentatie op als een PPTX‑bestand  
 
-Deze Java‑code laat zien hoe u bij het maken van een tabel een afbeelding in een tabelcel kunt plaatsen:
+Plaats de invoerafbeelding in de werkdirectory voordat u dit voorbeeld uitvoert. Het laad de afbeelding met [Images.fromFile](https://reference.aspose.com/slides/java/com.aspose.slides/images/#fromFile-java.lang.String-) en voegt deze toe aan de afbeeldingscollectie van de presentatie met [addImage](https://reference.aspose.com/slides/java/com.aspose.slides/iimagecollection/#addImage-com.aspose.slides.IImage-). Vervolgens wordt de afbeelding toegewezen aan de picture‑fill van cel `(0, 0)`, de eerste cel in de tabel.
+
+[PictureFillMode.Stretch](https://reference.aspose.com/slides/java/com.aspose.slides/picturefillmode/) strekt de afbeelding uit om de cel te vullen, wat de beeldverhouding kan wijzigen. Kolombreedtes en rijhoogtes zijn in points. De geladen afbeelding wordt in een `finally`‑blok verwijderd nadat deze aan de presentatie is toegevoegd.
 
 ```java
-// Instantieert de Presentation‑klasse die een PPTX‑bestand voorstelt
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    // Benadert de eerste dia
-    ISlide islide = pres.getSlides().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    
+    double[] columnWidths = { 150, 150, 150, 150 };
+    double[] rowHeights = { 100, 100, 100, 100, 90 };
+    ITable table = slide.getShapes().addTable(50, 50, columnWidths, rowHeights);
 
-    // Definieert kolommen met breedtes en rijen met hoogtes
-    double[] dblCols = {150, 150, 150, 150};
-    double[] dblRows = {100, 100, 100, 100, 90};
-
-    // Voegt een tabelvorm toe aan de dia
-    ITable tbl = islide.getShapes().addTable(50, 50, dblCols, dblRows);
-
-    // Maak een IPPImage‑object aan met het afbeeldingsbestand
-    IPPImage picture;
-    IImage image = Images.fromFile("image.jpg");
+    IPPImage ppImage;
+    IImage image = Images.fromFile("aspose_logo.jpg");
     try {
-        picture = pres.getImages().addImage(image);
+        ppImage = presentation.getImages().addImage(image);
     } finally {
-        if (image != null) image.dispose();
+        image.dispose();
     }
 
-    // Voegt de afbeelding toe aan de eerste tabelcel
-    ICellFormat cellFormat = tbl.get_Item(0, 0).getCellFormat();
-    cellFormat.getFillFormat().setFillType(FillType.Picture);
-    cellFormat.getFillFormat().getPictureFillFormat().setPictureFillMode(PictureFillMode.Stretch);
-    cellFormat.getFillFormat().getPictureFillFormat().getPicture().setImage(picture);
+    table.get_Item(0, 0).getCellFormat().getFillFormat().setFillType(FillType.Picture);
+    table.get_Item(0, 0).getCellFormat().getFillFormat().getPictureFillFormat().setPictureFillMode(PictureFillMode.Stretch);
+    table.get_Item(0, 0).getCellFormat().getFillFormat().getPictureFillFormat().getPicture().setImage(ppImage);
 
-    // Slaat het PPTX‑bestand op naar schijf
-    pres.save("Image_In_TableCell_out.pptx", SaveFormat.Pptx);
-} catch (IOException e) {
+    presentation.save("table_cell_with_image.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
@@ -342,16 +254,16 @@ try {
 
 **Kan ik verschillende lijndiktes en stijlen instellen voor verschillende zijden van één cel?**
 
-Ja. De [top](https://reference.aspose.com/slides/nl/java/com.aspose.slides/cellformat/#getBorderTop--)/[bottom](https://reference.aspose.com/slides/nl/java/com.aspose.slides/cellformat/#getBorderBottom--)/[left](https://reference.aspose.com/slides/nl/java/com.aspose.slides/cellformat/#getBorderLeft--)/[right](https://reference.aspose.com/slides/nl/java/com.aspose.slides/cellformat/#getBorderRight--) randen hebben afzonderlijke eigenschappen, zodat de dikte en stijl van elke zijde kan verschillen. Dit volgt logisch uit de per‑zijde randbesturing voor een cel die in het artikel wordt gedemonstreerd.
+Ja. De [boven](https://reference.aspose.com/slides/java/com.aspose.slides/cellformat/#getBorderTop--)/[onder](https://reference.aspose.com/slides/java/com.aspose.slides/cellformat/#getBorderBottom--)/[links](https://reference.aspose.com/slides/java/com.aspose.slides/cellformat/#getBorderLeft--)/[rechts](https://reference.aspose.com/slides/java/com.aspose.slides/cellformat/#getBorderRight--) randen hebben afzonderlijke eigenschappen, zodat de dikte en stijl van elke zijde kan verschillen.
 
 **Wat gebeurt er met de afbeelding als ik de kolom‑/rij‑grootte wijzig nadat ik een afbeelding als achtergrond van de cel heb ingesteld?**
 
-Het gedrag hangt af van de [fill mode](https://reference.aspose.com/slides/nl/java/com.aspose.slides/picturefillmode/) (stretch/tile). Bij uitrekken past de afbeelding zich aan de nieuwe cel aan; bij betegeling worden de tegels opnieuw berekend. Het artikel noemt de weergavemodi van afbeeldingen in een cel.
+Het gedrag hangt af van de [vullingsmodus](https://reference.aspose.com/slides/java/com.aspose.slides/picturefillmode/) (stretch/tile). Bij stretching past de afbeelding zich aan de nieuwe cel aan; bij tiling worden de tegels opnieuw berekend.
 
 **Kan ik een hyperlink toewijzen aan alle inhoud van een cel?**
 
-[Hyperlinks](/slides/nl/java/manage-hyperlinks/) worden ingesteld op tekst‑(portion)niveau binnen het tekstframe van de cel of op het niveau van de volledige tabel/vorm. In de praktijk wijst u de link toe aan een gedeelte of aan alle tekst in de cel.
+[Hyperlinks](/slides/nl/java/manage-hyperlinks/) worden ingesteld op tekst‑ (gedeelte) niveau binnen het tekstframe van de cel of op het niveau van de hele tabel/vorm. In de praktijk wijs je de link toe aan een gedeelte of aan alle tekst in de cel.
 
-**Kan ik verschillende lettertypes binnen één cel instellen?**
+**Kan ik verschillende lettertypen instellen binnen één cel?**
 
-Ja. Het tekstframe van een cel ondersteunt [portions](https://reference.aspose.com/slides/nl/java/com.aspose.slides/portion/) (runs) met onafhankelijke opmaak — lettertypefamilie, stijl, grootte en kleur.
+Ja. Het tekstframe van een cel ondersteunt [gedeelten](https://reference.aspose.com/slides/java/com.aspose.slides/portion/) (runs) met onafhankelijke opmaak—lettertypefamilie, stijl, grootte en kleur.

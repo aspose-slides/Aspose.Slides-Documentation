@@ -1,12 +1,12 @@
 ---
-title: จัดการเซลล์ตารางในงานนำเสนอโดยใช้ Python
+title: จัดการเซลล์ตารางในงานนำเสนอด้วย Python
 linktitle: จัดการเซลล์
 type: docs
 weight: 30
 url: /th/python-java/manage-cells/
 keywords:
 - เซลล์ตาราง
-- รวมเซลล์
+- ผสานเซลล์
 - ลบขอบ
 - แยกเซลล์
 - รูปภาพในเซลล์
@@ -15,20 +15,17 @@ keywords:
 - งานนำเสนอ
 - Python
 - Aspose.Slides
-description: "จัดการเซลล์ตารางใน PowerPoint อย่างง่ายดายด้วย Aspose.Slides สำหรับ Python ผ่าน Java. เชี่ยวชาญการเข้าถึง, แก้ไข, และจัดรูปแบบเซลล์อย่างรวดเร็วเพื่อการอัตโนมัติของสไลด์อย่างราบรื่น."
+description: "จัดการเซลล์ตาราง PowerPoint ด้วย Python: ระบุเซลล์ที่ผสาน, ลบขอบ, แยกเซลล์, และตั้งค่าสีพื้นหลังและรูปภาพด้วย Aspose.Slides สำหรับ Python ผ่าน Java."
 ---
 ## **ภาพรวม**
 
-Aspose.Slides ช่วยให้คุณสามารถเข้าถึงและแก้ไขเซลล์ของตารางในงานนำเสนอ PowerPoint ได้ บทความนี้อธิบายวิธีการระบุเซลล์ตารางที่รวมกัน, ลบขอบเซลล์, ทำงานกับการจัดเลขลำดับของเซลล์หลังจากการรวมหรือแยกเซลล์, เปลี่ยนสีพื้นหลังของเซลล์, และเพิ่มรูปภาพภายในเซลล์ของตาราง ตัวอย่างจะแสดงวิธีสร้างหรือเปิดงานนำเสนอ, รับตารางจากสไลด์, ปรับรูปแบบเซลล์ผ่านคุณสมบัติของเซลล์, และบันทึกงานนำเสนอที่แก้ไขเป็นไฟล์ PPTX
+Aspose.Slides ให้คุณเข้าถึงและแก้ไขเซลล์ตารางในงานนำเสนอ PowerPoint บทความนี้อธิบายวิธีระบุเซลล์ตารางที่ผสาน, ลบขอบเซลล์, ทำงานกับการกำหนดหมายเลขเซลล์หลังจากการผสานหรือการแยกเซลล์, เปลี่ยนสีพื้นหลังของเซลล์, และเพิ่มรูปภาพภายในเซลล์ตาราง ตัวอย่างแสดงวิธีสร้างหรือเปิดงานนำเสนอ, ดึงตารางจากสไลด์, ปรับรูปแบบเซลล์ผ่านคุณสมบัติของเซลล์, และบันทึกงานนำเสนอที่แก้ไขเป็นไฟล์ PPTX
 
-## **ระบุเซลล์ตารางที่รวมกัน**
+Aspose.Slides ใช้อินเด็กซ์เริ่มจากศูนย์ในการเข้าถึงเซลล์ตารางตามลำดับ `(column, row)`.
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/python-java/aspose.slides/presentation/) 
-2. ดึงตารางจากสไลด์แรก
-3. วนซ้ำแถวและคอลัมน์ของตารางเพื่อค้นหาเซลล์ที่รวมกัน
-4. พิมพ์ข้อความเมื่อพบเซลล์ที่รวมกัน
+## **ระบุเซลล์ตารางที่ผสาน**
 
-โค้ด Python นี้แสดงวิธีระบุเซลล์ตารางที่รวมกันในงานนำเสนอ:
+ตัวอย่างนี้เปิดงานนำเสนอที่มีอยู่และเข้าถึงรูปทรงแรกบนสไลด์แรกเป็นตาราง มันสมมติว่ามีสไลด์และรูปทรงอยู่และรูปทรงเป็นตาราง จากนั้นวนลูปผ่านแถวและคอลัมน์ทั้งหมดและใช้ [isMergedCell](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#isMergedCell) เพื่อระบุเซลล์ในพื้นที่ที่ผสาน สำหรับแต่ละผลการจับคู่ มันพิมพ์พิกัดเซลล์ในลำดับ `row;column`, [getRowSpan](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#getRowSpan), [getColSpan](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#getColSpan), และพิกัดเริ่มต้นของพื้นที่, [getFirstRowIndex](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#getFirstRowIndex) และ [getFirstColumnIndex](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#getFirstColumnIndex).
 
 ```python
 import jpype
@@ -37,36 +34,27 @@ import asposeslides
 if not jpype.isJVMStarted():
     jpype.startJVM()
 
-from asposeslides.api import Presentation, Table
+from asposeslides.api import Presentation
 
-presentation = Presentation("SomePresentationWithTable.pptx")
+presentation = Presentation("presentation_with_table.pptx")
 try:
-    # สมมติว่า shape แรกบนสไลด์แรกเป็นตาราง.
-    shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0)
-    if isinstance(shape, Table):
-        table = shape
-        for i in range(table.getRows().size()):
-            for j in range(table.getColumns().size()):
-                current_cell = table.getRows().get_Item(i).get_Item(j)
-                if current_cell.isMergedCell():
-                    print(f"Cell {i};{j} is part of a merged cell with RowSpan={current_cell.getRowSpan()} and ColSpan={current_cell.getColSpan()} starting from Cell {current_cell.getFirstRowIndex()};{current_cell.getFirstColumnIndex()}.")
-    else:
-        print("The first shape is not a table.")
+    slide = presentation.getSlides().get_Item(0)
+    table = slide.getShapes().get_Item(0)
+
+    row_count = table.getRows().size()
+    for row_index in range(row_count):
+        column_count = table.getColumns().size()
+        for column_index in range(column_count):
+            cell = table.get_Item(column_index, row_index)
+            if cell.isMergedCell():
+                print(f"Cell {row_index};{column_index} belongs to a merged region with RowSpan={cell.getRowSpan()} and ColSpan={cell.getColSpan()} starting at {cell.getFirstRowIndex()};{cell.getFirstColumnIndex()}.")
 finally:
     presentation.dispose()
 ```
 
-## **ลบขอบเซลล์ของตาราง**
+## **ลบขอบเซลล์ตาราง**
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/python-java/aspose.slides/presentation/) 
-2. ดึงอ้างอิงสไลด์ตามดัชนี
-3. กำหนดรายการความกว้างของคอลัมน์
-4. กำหนดรายการความสูงของแถว
-5. เพิ่มตารางลงในสไลด์โดยใช้เมธอด [addTable](https://reference.aspose.com/slides/th/python-java/aspose.slides/shapecollection/#addTable) 
-6. วนซ้ำทุกเซลล์เพื่อลบขอบบน, ล่าง, ขวา, และซ้าย
-7. บันทึกงานนำเสนอที่แก้ไขเป็นไฟล์ PPTX
-
-โค้ด Python นี้แสดงวิธีลบขอบจากเซลล์ตาราง:
+สร้าง [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) และเพิ่มตารางไปยังสไลด์แรกด้วย [addTable](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addTable) ความกว้างของคอลัมน์, ความสูงของแถว, และตำแหน่งของตารางถูกกำหนดเป็นหน่วยจุด ตัวอย่างตั้งค่าขอบเซลล์สี่ด้านทั้งหมดเป็น [FillType.NoFill](https://reference.aspose.com/slides/python-java/aspose.slides/filltype/), ทำให้มองไม่เห็น.
 
 ```python
 import jpype
@@ -79,17 +67,12 @@ from asposeslides.api import Presentation, FillType, SaveFormat
 
 presentation = Presentation()
 try:
-    # เข้าถึงสไลด์แรก.
     slide = presentation.getSlides().get_Item(0)
 
-    # กำหนดความกว้างของคอลัมน์และความสูงของแถว.
     column_widths = [50, 50, 50, 50]
     row_heights = [50, 30, 30, 30, 30]
-
-    # เพิ่มตารางลงในสไลด์.
     table = slide.getShapes().addTable(100, 50, column_widths, row_heights)
 
-    # ตั้งค่ารูปแบบขอบสำหรับแต่ละเซลล์.
     for row in table.getRows():
         for cell in row:
             cell.getCellFormat().getBorderTop().getFillFormat().setFillType(FillType.NoFill)
@@ -97,71 +80,16 @@ try:
             cell.getCellFormat().getBorderLeft().getFillFormat().setFillType(FillType.NoFill)
             cell.getCellFormat().getBorderRight().getFillFormat().setFillType(FillType.NoFill)
 
-    # บันทึกงานนำเสนอเป็นไฟล์ PPTX.
-    presentation.save("table_out.pptx", SaveFormat.Pptx)
+    presentation.save("table.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-## **การจัดเลขลำดับในเซลล์ที่รวมกัน**
+## **ผสานเซลล์ตาราง**
 
-หากเรารวมเซลล์สองคู่ คือ (1, 1) กับ (2, 1) และ (1, 2) กับ (2, 2) ตารางที่ได้จะยังคงรักษาการจัดเลขลำดับของเซลล์ไว้ โค้ด Python นี้สาธิตขั้นตอนดังกล่าว:
+ใช้ [mergeCells](https://reference.aspose.com/slides/python-java/aspose.slides/table/#mergeCells) เพื่อรวมช่วงสี่เหลี่ยมของเซลล์ตารางให้เป็นเซลล์เดียว ระบุเซลล์ที่มุมซ้ายบนและมุมขวาล่างของช่วง อากิวเมนต์สุดท้ายควบคุมว่าการผสานอาจรวมถึงเซลล์นอกช่วงที่กำหนดหรือไม่; `False` ทำให้การผสานอยู่ภายในช่วงนั้น.
 
-```python
-import jpype
-import asposeslides
-
-if not jpase.isJVMStarted():
-    jpype.startJVM()
-
-from asposeslides.api import Presentation, FillType, SaveFormat
-from java.awt import Color
-
-presentation = Presentation()
-try:
-    # เข้าถึงสไลด์แรก.
-    slide = presentation.getSlides().get_Item(0)
-
-    # กำหนดความกว้างของคอลัมน์และความสูงของแถว.
-    column_widths = [70, 70, 70, 70]
-    row_heights = [70, 70, 70, 70]
-
-    # เพิ่มตารางลงในสไลด์.
-    table = slide.getShapes().addTable(100, 50, column_widths, row_heights)
-
-    # ตั้งค่ารูปแบบขอบสำหรับแต่ละเซลล์.
-    for row in table.getRows():
-        for cell in row:
-            cell.getCellFormat().getBorderTop().getFillFormat().setFillType(FillType.Solid)
-            cell.getCellFormat().getBorderTop().getFillFormat().getSolidFillColor().setColor(Color.RED)
-            cell.getCellFormat().getBorderTop().setWidth(5)
-
-            cell.getCellFormat().getBorderBottom().getFillFormat().setFillType(FillType.Solid)
-            cell.getCellFormat().getBorderBottom().getFillFormat().getSolidFillColor().setColor(Color.RED)
-            cell.getCellFormat().getBorderBottom().setWidth(5)
-
-            cell.getCellFormat().getBorderLeft().getFillFormat().setFillType(FillType.Solid)
-            cell.getCellFormat().getBorderLeft().getFillFormat().getSolidFillColor().setColor(Color.RED)
-            cell.getCellFormat().getBorderLeft().setWidth(5)
-
-            cell.getCellFormat().getBorderRight().getFillFormat().setFillType(FillType.Solid)
-            cell.getCellFormat().getBorderRight().getFillFormat().getSolidFillColor().setColor(Color.RED)
-            cell.getCellFormat().getBorderRight().setWidth(5)
-
-
-    # รวมเซลล์ (1, 1) และ (2, 1).
-    table.mergeCells(table.get_Item(1, 1), table.get_Item(2, 1), False)
-
-    # รวมเซลล์ (1, 2) และ (2, 2).
-    table.mergeCells(table.get_Item(1, 2), table.get_Item(2, 2), False)
-
-    # บันทึกงานนำเสนอเป็นไฟล์ PPTX.
-    presentation.save("MergeCells_out.pptx", SaveFormat.Pptx)
-finally:
-    presentation.dispose()
-```
-
-จากนั้นเราจะรวมเซลล์ต่อไปโดยรวม (1, 1) กับ (1, 2) ผลลัพธ์คือ ตารางที่มีเซลล์ใหญ่ที่รวมกันอยู่ตรงกลาง:
+ตัวอย่างสร้างตาราง 4x4 ด้วยคอลัมน์และแถวขนาด 70 จุด แล้วผสานสี่เซลล์กึ่งกลางจาก `(1, 1)` ถึง `(2, 2)` เซลล์ที่ได้ครอบคลุมสองคอลัมน์และสองแถว ส่วนกริดฐานของตารางยังคงมีสี่คอลัมน์และสี่แถว เพื่อเข้าถึงเนื้อหา หรือรูปแบบของเซลล์ที่ผสาน ให้ใช้ตำแหน่งมุมซ้ายบน: `table.get_Item(1, 1)` ในตัวอย่างนี้ ตำแหน่งอื่นในช่วงที่ผสานยังคงเป็นส่วนหนึ่งของกริดตาราง ดังนั้นดัชนีของเซลล์นอกช่วงจะไม่เปลี่ยนแปลง.
 
 ```python
 import jpype
@@ -170,63 +98,30 @@ import asposeslides
 if not jpype.isJVMStarted():
     jpype.startJVM()
 
-from asposeslides.api import Presentation, FillType, SaveFormat
-from java.awt import Color
+from asposeslides.api import Presentation, SaveFormat
 
 presentation = Presentation()
 try:
-    # เข้าถึงสไลด์แรก.
     slide = presentation.getSlides().get_Item(0)
 
-    # กำหนดความกว้างของคอลัมน์และความสูงของแถว.
     column_widths = [70, 70, 70, 70]
     row_heights = [70, 70, 70, 70]
-
-    # เพิ่มตารางลงในสไลด์.
     table = slide.getShapes().addTable(100, 50, column_widths, row_heights)
 
-    # ตั้งค่ารูปแบบขอบสำหรับแต่ละเซลล์.
-    for row in table.getRows():
-        for cell in row:
-            cell.getCellFormat().getBorderTop().getFillFormat().setFillType(FillType.Solid)
-            cell.getCellFormat().getBorderTop().getFillFormat().getSolidFillColor().setColor(Color.RED)
-            cell.getCellFormat().getBorderTop().setWidth(5)
+    table.mergeCells(table.get_Item(1, 1), table.get_Item(2, 2), False)
 
-            cell.getCellFormat().getBorderBottom().getFillFormat().setFillType(FillType.Solid)
-            cell.getCellFormat().getBorderBottom().getFillFormat().getSolidFillColor().setColor(Color.RED)
-            cell.getCellFormat().getBorderBottom().setWidth(5)
-
-            cell.getCellFormat().getBorderLeft().getFillFormat().setFillType(FillType.Solid)
-            cell.getCellFormat().getBorderLeft().getFillFormat().getSolidFillColor().setColor(Color.RED)
-            cell.getCellFormat().getBorderLeft().setWidth(5)
-
-            cell.getCellFormat().getBorderRight().getFillFormat().setFillType(FillType.Solid)
-            cell.getCellFormat().getBorderRight().getFillFormat().getSolidFillColor().setColor(Color.RED)
-            cell.getCellFormat().getBorderRight().setWidth(5)
-
-
-    # รวมเซลล์ (1, 1) และ (2, 1).
-    table.mergeCells(table.get_Item(1, 1), table.get_Item(2, 1), False)
-
-    # รวมเซลล์ (1, 2) และ (2, 2).
-    table.mergeCells(table.get_Item(1, 2), table.get_Item(2, 2), False)
-
-    # รวมเซลล์ (1, 1) และ (1, 2).
-    table.mergeCells(table.get_Item(1, 1), table.get_Item(1, 2), True)
-
-    # บันทึกงานนำเสนอเป็นไฟล์ PPTX.
-    presentation.save("MergeCells_out.pptx", SaveFormat.Pptx)
+    presentation.save("merged_cells.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-## **การจัดเลขลำดับในเซลล์ที่แยก**
+## **แยกเซลล์ตาราง**
 
-ในตัวอย่างก่อนหน้า การรวมเซลล์ตารางไม่ได้เปลี่ยนการจัดเลขลำดับของเซลล์อื่น ๆ
+การผสานเซลล์ในตัวอย่างก่อนหน้ารักษาโครงสร้างกริดของตาราง การแยกเซลล์อาจทำให้เกิดคอลัมน์กริดใหม่และเปลี่ยนดัชนีคอลัมน์ของเซลล์ทางขวา Aspose.Slides ปฏิบัติตามโมเดลกริดของตารางใน PowerPoint.
 
-ครั้งนี้ เราจะใช้ตารางปกติ (ตารางที่ไม่มีเซลล์รวม) แล้วลองแยกเซลล์ (1, 1) เพื่อให้ได้ตารางพิเศษ คุณอาจต้องใส่ใจการจัดเลขลำดับของตารางนี้ซึ่งอาจดูแปลก แต่เป็นวิธีที่ Microsoft PowerPoint จัดเลขลำดับเซลล์ตารางและ Aspose.Slides ทำเช่นเดียวกัน
+ตัวอย่างนี้สร้างตาราง 4x4 ด้วยคอลัมน์และแถวขนาด 70 จุดและเรียกใช้ [splitByWidth](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#splitByWidth) บนเซลล์ `(1, 1)` ครึ่งหนึ่งของความกว้าง 70 จุดของเซลล์จะถูกส่งเพื่อสร้างเซลล์สองเซลล์ที่มีความกว้างเท่ากัน.
 
-โค้ด Python นี้แสดงกระบวนการที่อธิบายไว้:
+หลังจากการแยกนี้ ครึ่งสองส่วนจะเข้าถึงได้โดยใช้ `table.get_Item(1, 1)` และ `table.get_Item(2, 1)` ตารางกริดตอนนี้มีห้าคอลัมน์: เซลล์ที่อยู่เดิมในคอลัมน์ 2 และ 3 จะย้ายไปที่คอลัมน์ 3 และ 4 ตามลำดับ ดัชนีแถวคงเหมือนเดิม ใช้ดัชนีคอลัมน์ที่อัปเดตนี้เมื่อเข้าถึงเซลล์หลังจากการแยก.
 
 ```python
 import jpype
@@ -235,53 +130,80 @@ import asposeslides
 if not jpype.isJVMStarted():
     jpype.startJVM()
 
-from asposeslides.api import Presentation, FillType, SaveFormat
-from java.awt import Color
+from asposeslides.api import Presentation, SaveFormat
 
 presentation = Presentation()
 try:
-    # เข้าถึงสไลด์แรก.
     slide = presentation.getSlides().get_Item(0)
 
-    # กำหนดความกว้างของคอลัมน์และความสูงของแถว.
     column_widths = [70, 70, 70, 70]
     row_heights = [70, 70, 70, 70]
-
-    # เพิ่มตารางลงในสไลด์.
     table = slide.getShapes().addTable(100, 50, column_widths, row_heights)
 
-    # ตั้งค่ารูปแบบขอบสำหรับแต่ละเซลล์.
-    for row in table.getRows():
-        for cell in row:
-            cell.getCellFormat().getBorderTop().getFillFormat().setFillType(FillType.Solid)
-            cell.getCellFormat().getBorderTop().getFillFormat().getSolidFillColor().setColor(Color.RED)
-            cell.getCellFormat().getBorderTop().setWidth(5)
+    table.get_Item(1, 1).splitByWidth(table.get_Item(1, 1).getWidth() / 2)
 
-            cell.getCellFormat().getBorderBottom().getFillFormat().setFillType(FillType.Solid)
-            cell.getCellFormat().getBorderBottom().getFillFormat().getSolidFillColor().setColor(Color.RED)
-            cell.getCellFormat().getBorderBottom().setWidth(5)
-
-            cell.getCellFormat().getBorderLeft().getFillFormat().setFillType(FillType.Solid)
-            cell.getCellFormat().getBorderLeft().getFillFormat().getSolidFillColor().setColor(Color.RED)
-            cell.getCellFormat().getBorderLeft().setWidth(5)
-
-            cell.getCellFormat().getBorderRight().getFillFormat().setFillType(FillType.Solid)
-            cell.getCellFormat().getBorderRight().getFillFormat().getSolidFillColor().setColor(Color.RED)
-            cell.getCellFormat().getBorderRight().setWidth(5)
-
-
-    # แบ่งเซลล์ (1, 1).
-    table.get_Item(1, 1).splitByWidth(table.get_Item(2, 1).getWidth() / 2)
-
-    # บันทึกงานนำเสนอเป็นไฟล์ PPTX.
-    presentation.save("SplitCells_out.pptx", SaveFormat.Pptx)
+    presentation.save("split_cells.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
+
+### **แยกเซลล์ที่ผสานตามช่วงแถวหรือคอลัมน์**
+
+เพื่อเตรียมเซลล์แม่แบบที่ผสานสำหรับการป้อนข้อมูล ใช้ [splitByRowSpan](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#splitByRowSpan) เพื่อแยกตามเส้นขอบแถวที่มีอยู่ หรือใช้ [splitByColSpan](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#splitByColSpan) เพื่อแยกตามเส้นขอบคอลัมน์.
+
+อากิวเมนต์ `index` จะนับแถวในส่วนบนหรือคอลัมน์ในส่วนซ้ายของการแยก; มันอ้างอิงต่อพื้นที่ที่ผสาน:
+- การแยกแถว: `0 < index <` [getRowSpan](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#getRowSpan).
+- การแยกคอลัมน์: `0 < index <` [getColSpan](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#getColSpan).
+
+ตัวอย่างคาดว่าการนำเสนอมีตารางเป็นรูปทรงแรกบนสไลด์แรก โดยมีเซลล์ `(1, 2)` และ `(1, 3)` ผสานแนวตั้ง เริ่มจากตำแหน่งด้านล่าง มันใช้ [getFirstColumnIndex](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#getFirstColumnIndex) และ [getFirstRowIndex](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#getFirstRowIndex) เพื่อหาตำแหน่งเริ่มต้นและตรวจสอบทั้งสองช่วง `splitByRowSpan(1)` จากนั้นจะแยกแถว 2 และ 3 สำหรับชื่อสินค้า สำหรับการผสานแนวนอนสองคอลัมน์ ให้ใช้ `splitByColSpan(1)` แทน.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import Presentation, SaveFormat
+
+presentation = Presentation("table_template.pptx")
+try:
+    slide = presentation.getSlides().get_Item(0)
+    table = slide.getShapes().get_Item(0)
+
+    selected_cell = table.get_Item(1, 3)
+    first_column_index = selected_cell.getFirstColumnIndex()
+    first_row_index = selected_cell.getFirstRowIndex()
+    merged_cell = table.get_Item(first_column_index, first_row_index)
+
+    if merged_cell.isMergedCell() and merged_cell.getRowSpan() == 2 and merged_cell.getColSpan() == 1:
+        merged_cell.splitByRowSpan(1)
+
+        # ดึงเซลล์ผลลัพธ์จากตารางหลังจากการแยก.
+        upper_cell = table.get_Item(first_column_index, first_row_index)
+        lower_cell = table.get_Item(first_column_index, first_row_index + 1)
+        print(f"Upper cell merged: {upper_cell.isMergedCell()}")
+        print(f"Lower cell merged: {lower_cell.isMergedCell()}")
+
+        upper_cell.getTextFrame().setText("Product A")
+        lower_cell.getTextFrame().setText("Product B")
+
+        presentation.save("split_template.pptx", SaveFormat.Pptx)
+    else:
+        print("Select a merged region spanning exactly two rows and one column.")
+finally:
+    presentation.dispose()
+```
+
+กริดของตารางและดัชนีเซลล์โดยรอบคงเดิม ดึงเซลล์ที่ได้โดยใช้พิกัดของมัน; ที่นี่ทั้งสองมีช่วงเป็น 1 และ [isMergedCell](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#isMergedCell) จะพิมพ์ `False`. พื้นที่ที่ใหญ่กว่าสามารถคงอยู่เป็นการผสานบางส่วนหลังจากการแยกหนึ่งครั้ง.
+
+ข้อความต้นฉบับและรูปแบบของมันคงอยู่ในเซลล์บน (หรือซ้าย); เซลล์ใหม่จะว่างเปล่าแต่สืบทอดรูปแบบเซลล์เช่น การเติม, ขอบ, และระยะขอบ. เติมข้อมูลในเซลล์หลังจากการแยกและตั้งค่าการจัดรูปแบบข้อความที่ต้องการอย่างชัดเจน.
+
+การบันทึกงานนำเสนอจะมีเซลล์แยก "Product A" และ "Product B" พร้อมรูปแบบเซลล์จากแม่แบบที่คงไว้ ดูที่ [Cell API Reference](https://reference.aspose.com/slides/python-java/aspose.slides/cell/) สำหรับรายละเอียด.
 
 ## **เปลี่ยนสีพื้นหลังของเซลล์ตาราง**
 
-โค้ด Python นี้แสดงวิธีเปลี่ยนสีพื้นหลังของเซลล์ตาราง:
+ตัวอย่างนี้สร้างตารางที่มีคอลัมน์ขนาด 150 จุดและแถวขนาด 50 จุด ใช้ [setFillType](https://reference.aspose.com/slides/python-java/aspose.slides/fillformat/#setFillType) เพื่อเลือกการเติมแบบทึบและตั้งค่าสีที่ได้จาก [getSolidFillColor](https://reference.aspose.com/slides/python-java/aspose.slides/fillformat/#getSolidFillColor) เป็นสีแดงสำหรับเซลล์ `(2, 3)` ซึ่งอยู่ในคอลัมน์ที่สามและแถวที่สี่.
 
 ```python
 import jpype
@@ -295,22 +217,16 @@ from java.awt import Color
 
 presentation = Presentation()
 try:
-    # เข้าถึงสไลด์แรก.
     slide = presentation.getSlides().get_Item(0)
 
-    # กำหนดความกว้างของคอลัมน์และความสูงของแถว.
     column_widths = [150, 150, 150, 150]
     row_heights = [50, 50, 50, 50, 50]
-
-    # เพิ่มตารางลงในสไลด์.
     table = slide.getShapes().addTable(50, 50, column_widths, row_heights)
 
-    # ตั้งค่าสีพื้นหลังให้กับเซลล์.
     cell = table.get_Item(2, 3)
     cell.getCellFormat().getFillFormat().setFillType(FillType.Solid)
     cell.getCellFormat().getFillFormat().getSolidFillColor().setColor(Color.RED)
 
-    # บันทึกงานนำเสนอเป็นไฟล์ PPTX.
     presentation.save("cell_background_color.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
@@ -318,18 +234,9 @@ finally:
 
 ## **เพิ่มรูปภาพภายในเซลล์ตาราง**
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/python-java/aspose.slides/presentation/) 
-2. ดึงอ้างอิงสไลด์ตามดัชนี
-3. กำหนดรายการความกว้างของคอลัมน์
-4. กำหนดรายการความสูงของแถว
-5. เพิ่มตารางลงในสไลด์โดยใช้เมธอด [addTable](https://reference.aspose.com/slides/th/python-java/aspose.slides/shapecollection/#addTable) 
-6. โหลดไฟล์รูปภาพด้วยเมธอด [Images.fromFile](https://reference.aspose.com/slides/th/python-java/aspose.slides/images/#fromFile) 
-7. เพิ่มรูปภาพลงในงานนำเสนอเพื่อสร้างอ็อบเจกต์ [PPImage](https://reference.aspose.com/slides/th/python-java/aspose.slides/ppimage/) 
-8. ตั้งค่า FillFormat ของเซลล์ตารางให้เป็น [FillType.Picture](https://reference.aspose.com/slides/th/python-java/aspose.slides/filltype/#Picture) 
-9. เพิ่มรูปภาพลงในเซลล์แรกของตาราง
-10. บันทึกงานนำเสนอที่แก้ไขเป็นไฟล์ PPTX
+วางรูปภาพต้นทางในไดเรกทอรีการทำงานก่อนรันตัวอย่างนี้ มันโหลดรูปภาพด้วย [Images.fromFile](https://reference.aspose.com/slides/python-java/aspose.slides/images/#fromFile) และเพิ่มลงในคอล렉ชันรูปภาพของงานนำเสนอด้วย [addImage](https://reference.aspose.com/slides/python-java/aspose.slides/imagecollection/#addImage) จากนั้นกำหนดรูปภาพให้กับการเติมภาพของเซลล์ `(0, 0)` ซึ่งเป็นเซลล์แรกในตาราง.
 
-โค้ด Python นี้แสดงวิธีวางรูปภาพภายในเซลล์ตารางเมื่อสร้างตาราง:
+[PictureFillMode.Stretch](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillmode/) ยืดรูปภาพเพื่อเติมเซลล์ ซึ่งอาจทำให้สัดส่วนเปลี่ยนแปลง ความกว้างของคอลัมน์และความสูงของแถวเป็นหน่วยจุด รูปภาพที่โหลดจะถูกทำลายในบล็อก `finally` หลังจากที่เพิ่มลงในงานนำเสนอ.
 
 ```python
 import jpype
@@ -342,49 +249,41 @@ from asposeslides.api import Presentation, Images, FillType, PictureFillMode, Sa
 
 presentation = Presentation()
 try:
-    # เข้าถึงสไลด์แรก.
     slide = presentation.getSlides().get_Item(0)
 
-    # กำหนดความกว้างของคอลัมน์และความสูงของแถว.
     column_widths = [150, 150, 150, 150]
     row_heights = [100, 100, 100, 100, 90]
-
-    # เพิ่มตารางลงในสไลด์.
     table = slide.getShapes().addTable(50, 50, column_widths, row_heights)
 
-    # สร้างภาพงานนำเสนอจากไฟล์ภาพ.
-    image = Images.fromFile("image.jpg")
+    image = Images.fromFile("aspose_logo.jpg")
     try:
-        picture = presentation.getImages().addImage(image)
+        presentation_image = presentation.getImages().addImage(image)
     finally:
         image.dispose()
 
-    # เพิ่มภาพลงในเซลล์แรกของตาราง.
-    cell_format = table.get_Item(0, 0).getCellFormat()
-    cell_format.getFillFormat().setFillType(FillType.Picture)
-    cell_format.getFillFormat().getPictureFillFormat().setPictureFillMode(PictureFillMode.Stretch)
-    cell_format.getFillFormat().getPictureFillFormat().getPicture().setImage(picture)
+    table.get_Item(0, 0).getCellFormat().getFillFormat().setFillType(FillType.Picture)
+    table.get_Item(0, 0).getCellFormat().getFillFormat().getPictureFillFormat().setPictureFillMode(PictureFillMode.Stretch)
+    table.get_Item(0, 0).getCellFormat().getFillFormat().getPictureFillFormat().getPicture().setImage(presentation_image)
 
-    # บันทึกงานนำเสนอเป็นไฟล์ PPTX.
-    presentation.save("Image_In_TableCell_out.pptx", SaveFormat.Pptx)
+    presentation.save("table_cell_with_image.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-## **FAQ**
+## **คำถามที่พบบ่อย**
 
-**ฉันสามารถกำหนดความหนาและสไตล์ของเส้นขอบแยกต่างหากสำหรับแต่ละด้านของเซลล์เดียวได้หรือไม่?**
+**ฉันสามารถกำหนดความหนาและสไตล์ของเส้นที่แตกต่างกันสำหรับแต่ละด้านของเซลล์เดียวได้หรือไม่?**
 
-ได้. ขอบ [top](https://reference.aspose.com/slides/th/python-java/aspose.slides/cellformat/#getBorderTop)/[bottom](https://reference.aspose.com/slides/th/python-java/aspose.slides/cellformat/#getBorderBottom)/[left](https://reference.aspose.com/slides/th/python-java/aspose.slides/cellformat/#getBorderLeft)/[right](https://reference.aspose.com/slides/th/python-java/aspose.slides/cellformat/#getBorderRight) มีคุณสมบัติเสริมแยกกัน ทำให้ความหนาและสไตล์ของแต่ละด้านสามารถแตกต่างกันได้ ซึ่งสอดคล้องกับการควบคุมขอบแยกด้านของเซลล์ที่แสดงในบทความ
+ใช่. ขอบ [top](https://reference.aspose.com/slides/python-java/aspose.slides/cellformat/#getBorderTop)/[bottom](https://reference.aspose.com/slides/python-java/aspose.slides/cellformat/#getBorderBottom)/[left](https://reference.aspose.com/slides/python-java/aspose.slides/cellformat/#getBorderLeft)/[right](https://reference.aspose.com/slides/python-java/aspose.slides/cellformat/#getBorderRight) มีคุณสมบัติเสียแยกกัน ดังนั้นความหนาและสไตล์ของแต่ละด้านจึงสามารถแตกต่างกันได้.
 
-**ถ้าฉันเปลี่ยนขนาดคอลัมน์/แถวหลังจากตั้งรูปภาพเป็นพื้นหลังของเซลล์ จะเกิดอะไรขึ้นกับรูปภาพ?**
+**ภาพจะเกิดอะไรขึ้นหากฉันเปลี่ยนขนาดคอลัมน์/แถวหลังจากตั้งรูปภาพเป็นพื้นหลังของเซลล์?**
 
-พฤติกรรมขึ้นกับ [fill mode](https://reference.aspose.com/slides/th/python-java/aspose.slides/picturefillmode/) (stretch/tile) หากเป็นการยืดรูปภาพจะปรับให้ตรงกับเซลล์ใหม่; หากเป็นแบบ tile รูปภาพจะถูกคำนวณใหม่ตามขนาดใหม่ บทความได้อธิบายโหมดการแสดงผลรูปภาพในเซลล์
+พฤติกรรมขึ้นอยู่กับ [fill mode](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillmode/) (stretch/tile) หากยืดรูปภาพจะปรับให้เข้ากับเซลล์ใหม่; หากเป็นการทำเป็นกระเบื้อง (tile) กระเบื้องจะถูกคำนวนใหม่.
 
 **ฉันสามารถกำหนดไฮเปอร์ลิงก์ให้กับเนื้อหาทั้งหมดของเซลล์ได้หรือไม่?**
 
-[Hyperlinks](/slides/th/python-java/manage-hyperlinks/) สามารถตั้งที่ระดับส่วนข้อความ (portion) ภายในกรอบข้อความของเซลล์ หรือที่ระดับตาราง/รูปร่างทั้งหมด ในทางปฏิบัติ คุณจะกำหนดลิงก์ให้กับส่วนหนึ่งหรือกับข้อความทั้งหมดในเซลล์
+[Hyperlinks](/slides/th/python-java/manage-hyperlinks/) ถูกตั้งค่าที่ระดับข้อความ (portion) ภายในกรอบข้อความของเซลล์หรือที่ระดับของตาราง/รูปร่างทั้งหมด ในทางปฏิบัติ คุณกำหนดลิงก์ให้กับส่วนหนึ่งหรือกับข้อความทั้งหมดในเซลล์.
 
-**ฉันสามารถกำหนดฟอนท์ที่แตกต่างกันภายในเซลล์เดียวได้หรือไม่?**
+**ฉันสามารถกำหนดฟอนต์ที่แตกต่างกันภายในเซลล์เดียวได้หรือไม่?**
 
-ได้. กรอบข้อความของเซลล์สนับสนุน [portions](https://reference.aspose.com/slides/th/python-java/aspose.slides/portion/) (run) ที่มีการจัดรูปแบบอิสระ ได้แก่ แบบอักษร, สไตล์, ขนาดและสี.
+ใช่. กรอบข้อความของเซลล์รองรับ [portions](https://reference.aspose.com/slides/python-java/aspose.slides/portion/) (run) ที่มีการจัดรูปแบบอิสระ—ครอบครัวฟอนต์, สไตล์, ขนาด, และสี.

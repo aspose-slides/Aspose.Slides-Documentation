@@ -1,6 +1,6 @@
 ---
-title: Zarządzanie komórkami tabeli w prezentacjach przy użyciu Javy
-linktitle: Zarządzaj komórkami
+title: "Zarządzanie komórkami tabel w prezentacjach przy użyciu Java"
+linktitle: "Zarządzaj komórkami"
 type: docs
 weight: 30
 url: /pl/java/manage-cells/
@@ -15,69 +15,60 @@ keywords:
 - prezentacja
 - Java
 - Aspose.Slides
-description: "Bezproblemowo zarządzaj komórkami tabeli w programie PowerPoint przy użyciu Aspose.Slides dla Javy. Opanuj szybki dostęp, modyfikację i stylizację komórek, aby uzyskać płynną automatyzację slajdów."
+description: "Zarządzaj komórkami tabel PowerPoint w Java: identyfikuj połączone komórki, usuwaj obramowania, dziel komórki oraz ustawiaj kolory tła i obrazy przy użyciu Aspose.Slides for Java."
 ---
 ## **Przegląd**
 
-Aspose.Slides pozwala na dostęp i modyfikację komórek tabeli w prezentacjach PowerPoint. Ten artykuł wyjaśnia, jak zidentyfikować scalone komórki tabeli, usunąć obramowania komórek, pracować z numeracją komórek po scaleniu lub podzieleniu, zmienić kolor tła komórki oraz dodać obraz wewnątrz komórki tabeli. Przykłady pokazują, jak utworzyć lub otworzyć prezentację, pobrać tabelę ze slajdu, zaktualizować formatowanie komórek przy użyciu właściwości komórek oraz zapisać zmodyfikowaną prezentację jako plik PPTX.
+Aspose.Slides umożliwia dostęp i modyfikację komórek tabel w prezentacjach PowerPoint. Ten artykuł wyjaśnia, jak zidentyfikować połączone komórki tabel, usunąć obramowania komórek, pracować z numeracją komórek po scaleniu lub podzieleniu komórek, zmienić kolor tła komórki oraz dodać obraz wewnątrz komórki tabeli. Przykłady pokazują, jak utworzyć lub otworzyć prezentację, pobrać tabelę ze slajdu, zaktualizować formatowanie komórek za pomocą właściwości komórek oraz zapisać zmodyfikowaną prezentację jako plik PPTX.
 
-## **Identyfikacja scalonej komórki tabeli**
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/java/com.aspose.slides/Presentation).
-2. Pobierz tabelę z pierwszego slajdu.
-3. Iteruj przez wiersze i kolumny tabeli, aby znaleźć scalone komórki.
-4. Wydrukuj komunikat, gdy zostaną znalezione scalone komórki.
+Aspose.Slides używa indeksów zaczynających się od zera do dostępu do komórek tabel w kolejności `(column, row)`.
 
-Ten kod Java pokazuje, jak zidentyfikować scalone komórki tabeli w prezentacji:
+## **Identyfikacja połączonej komórki tabeli**
+
+Przykład otwiera istniejącą prezentację i uzyskuje dostęp do pierwszego kształtu na pierwszym slajdzie jako tabeli. Zakłada, że slajd i kształt istnieją oraz że kształt jest tabelą. Następnie iteruje przez wszystkie wiersze i kolumny i używa [isMergedCell](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#isMergedCell--) do identyfikacji komórek w połączonych obszarach. Dla każdego dopasowania wypisuje współrzędne komórki w kolejności `row;column`, [getRowSpan](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#getRowSpan--), [getColSpan](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#getColSpan--) oraz początkowe współrzędne regionu, [getFirstRowIndex](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#getFirstRowIndex--) i [getFirstColumnIndex](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#getFirstColumnIndex--).
 
 ```java
-Presentation pres = new Presentation("SomePresentationWithTable.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("presentation_with_table.pptx");
 try {
-    ITable table = (ITable)pres.getSlides().get_Item(0).getShapes().get_Item(0); // zakładając, że Slide#0.Shape#0 jest tabelą
-    for (int i = 0; i < table.getRows().size(); i++)
+    ISlide slide = presentation.getSlides().get_Item(0);
+    ITable table = (ITable) slide.getShapes().get_Item(0);
+
+    int rowCount = table.getRows().size();
+    for (int rowIndex = 0; rowIndex < rowCount; rowIndex++)
     {
-        for (int j = 0; j < table.getColumns().size(); j++)
+        int columnCount = table.getColumns().size();
+        for (int columnIndex = 0; columnIndex < columnCount; columnIndex++)
         {
-            ICell currentCell = table.getRows().get_Item(i).get_Item(j);
-            if (currentCell.isMergedCell())
+            ICell cell = table.get_Item(columnIndex, rowIndex);
+            if (cell.isMergedCell())
             {
-                System.out.println(String.format("Cell %d;%d is a part of merged cell with RowSpan=%d and ColSpan=%d starting from Cell %d;%d.",
-                        i, j, currentCell.getRowSpan(), currentCell.getColSpan(), currentCell.getFirstRowIndex(), currentCell.getFirstColumnIndex()));
+                System.out.printf("Cell %d;%d belongs to a merged region with RowSpan=%d and ColSpan=%d starting at %d;%d.%n", rowIndex, columnIndex, cell.getRowSpan(), cell.getColSpan(), cell.getFirstRowIndex(), cell.getFirstColumnIndex());
             }
         }
     }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
 ## **Usuwanie obramowań komórek tabeli**
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/java/com.aspose.slides/Presentation).
-2. Uzyskaj odwołanie do slajdu za pomocą jego indeksu.
-3. Zdefiniuj tablicę kolumn z szerokością.
-4. Zdefiniuj tablicę wierszy z wysokością.
-5. Dodaj tabelę do slajdu przy użyciu metody [addTable](https://reference.aspose.com/slides/pl/java/com.aspose.slides/IShapeCollection#addTable-float-float-double:A-double:A-).
-6. Iteruj przez każdą komórkę, aby wyczyścić górne, dolne, prawe i lewe obramowania.
-7. Zapisz zmodyfikowaną prezentację jako plik PPTX.
 
-Ten kod Java pokazuje, jak usunąć obramowania z komórek tabeli:
+Utwórz [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) i dodaj tabelę do pierwszego slajdu za pomocą [addTable](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addTable-float-float-double---double---). Szerokości kolumn, wysokości wierszy i pozycja tabeli są określone w punktach. Przykład ustawia wszystkie cztery obramowania komórek na [FillType.NoFill](https://reference.aspose.com/slides/java/com.aspose.slides/filltype/), czyniąc je niewidocznymi.
 
 ```java
-// Tworzy instancję klasy Presentation, która reprezentuje plik PPTX
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    // Uzyskuje dostęp do pierwszego slajdu
-    Slide sld = (Slide)pres.getSlides().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Definiuje kolumny z szerokościami i wiersze z wysokościami
-    double[] dblCols = { 50, 50, 50, 50 };
-    double[] dblRows = { 50, 30, 30, 30, 30 };
+    double[] columnWidths = { 50, 50, 50, 50 };
+    double[] rowHeights = { 50, 30, 30, 30, 30 };
+    ITable table = slide.getShapes().addTable(100, 50, columnWidths, rowHeights);
 
-    // Dodaje kształt tabeli do slajdu
-    ITable tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
-
-    // Ustawia format obramowania dla każdej komórki
-    for (IRow row : tbl.getRows())
-    {
+    for (IRow row : table.getRows())
         for (ICell cell : row)
         {
             cell.getCellFormat().getBorderTop().getFillFormat().setFillType(FillType.NoFill);
@@ -85,257 +76,177 @@ try {
             cell.getCellFormat().getBorderLeft().getFillFormat().setFillType(FillType.NoFill);
             cell.getCellFormat().getBorderRight().getFillFormat().setFillType(FillType.NoFill);
         }
-    }
 
-    // Zapisuje plik PPTX na dysk
-    pres.save("table_out.pptx", SaveFormat.Pptx);
+    presentation.save("table.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Numeracja w scalonych komórkach**
-Jeśli scalimy 2 pary komórek (1, 1) x (2, 1) i (1, 2) x (2, 2), powstała tabela będzie numerowana. Ten kod Java demonstruje proces:
+## **Scalanie komórek tabeli**
+
+Użyj [mergeCells](https://reference.aspose.com/slides/java/com.aspose.slides/itable/#mergeCells-com.aspose.slides.ICell-com.aspose.slides.ICell-boolean-) , aby połączyć prostokątny zakres komórek tabeli w jedną komórkę. Określ komórki w lewym górnym i prawym dolnym rogu zakresu. Ostatni argument kontroluje, czy scalanie może obejmować komórki poza określonym zakresem; `false` utrzymuje scalanie w ramach tego zakresu.
+
+Przykład tworzy tabelę 4‑na‑4 z kolumnami i wierszami o szerokości 70 punktów, a następnie scala cztery środkowe komórki od `(1, 1)` do `(2, 2)`. Powstała komórka zajmuje dwie kolumny i dwa wiersze, podczas gdy podstawowa siatka tabeli zachowuje cztery kolumny i cztery wiersze. Aby uzyskać dostęp do zawartości lub formatowania połączonej komórki, użyj jej lewego górnego położenia: `table.get_Item(1, 1)` w tym przykładzie. Pozostałe pozycje w połączonym zakresie pozostają częścią siatki tabeli, więc indeksy komórek poza zakresem nie ulegają zmianie.
 
 ```java
-// Tworzy instancję klasy Presentation, która reprezentuje plik PPTX
-Presentation pres = new Presentation();
-try {
-    // Uzyskuje dostęp do pierwszego slajdu
-    ISlide sld = pres.getSlides().get_Item(0);
+import com.aspose.slides.*;
 
-    // Definiuje kolumny o szerokościach i wiersze o wysokościach
-    double[] dblCols = { 70, 70, 70, 70 };
-    double[] dblRows = { 70, 70, 70, 70 };
-
-    // Dodaje kształt tabeli do slajdu
-    ITable tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
-
-    // Ustawia format obramowania dla każdej komórki
-    for (IRow row : tbl.getRows())
-    {
-        for (ICell cell : row)
-        {
-            cell.getCellFormat().getBorderTop().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderTop().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderTop().setWidth(5);
-
-            cell.getCellFormat().getBorderBottom().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderBottom().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderBottom().setWidth(5);
-
-            cell.getCellFormat().getBorderLeft().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderLeft().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderLeft().setWidth(5);
-
-            cell.getCellFormat().getBorderRight().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderRight().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderRight().setWidth(5);
-        }
-    }
-
-    // Scala komórki (1, 1) x (2, 1)
-    tbl.mergeCells(tbl.get_Item(1, 1), tbl.get_Item(2, 1), false);
-
-    // Scala komórki (1, 2) x (2, 2)
-    tbl.mergeCells(tbl.get_Item(1, 2), tbl.get_Item(2, 2), false);
-
-    pres.save("MergeCells_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-Następnie scalamy dalej komórki, łącząc (1, 1) i (1, 2). Wynikiem jest tabela zawierająca dużą scaloną komórkę w jej centrum:
-
-```java
-// Tworzy instancję klasy Presentation, która reprezentuje plik PPTX
-Presentation pres = new Presentation();
-try {
-    // Uzyskuje dostęp do pierwszego slajdu
-    ISlide sld = pres.getSlides().get_Item(0);
-
-    // Definiuje kolumny o szerokościach i wiersze o wysokościach
-    double[] dblCols = { 70, 70, 70, 70 };
-    double[] dblRows = { 70, 70, 70, 70 };
-
-    // Dodaje kształt tabeli do slajdu
-    ITable tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
-
-    // Ustawia format obramowania dla każdej komórki
-    for (IRow row : tbl.getRows())
-    {
-        for (ICell cell : row)
-        {
-            cell.getCellFormat().getBorderTop().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderTop().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderTop().setWidth(5);
-
-            cell.getCellFormat().getBorderBottom().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderBottom().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderBottom().setWidth(5);
-
-            cell.getCellFormat().getBorderLeft().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderLeft().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderLeft().setWidth(5);
-
-            cell.getCellFormat().getBorderRight().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderRight().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderRight().setWidth(5);
-        }
-    }
-
-    // Scala komórki (1, 1) x (2, 1)
-    tbl.mergeCells(tbl.get_Item(1, 1), tbl.get_Item(2, 1), false);
-
-    // Scala komórki (1, 2) x (2, 2)
-    tbl.mergeCells(tbl.get_Item(1, 2), tbl.get_Item(2, 2), false);
-
-    // Scala komórki (1, 1) x (1, 2)
-    tbl.mergeCells(tbl.get_Item(1, 1), tbl.get_Item(1, 2), true);
-    
-	// Zapisuje plik PPTX na dysk
-    pres.save("MergeCells_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Numeracja w podzielonej komórce**
-W poprzednich przykładach, gdy komórki tabeli były scalane, numeracja lub system numeracji w innych komórkach nie zmienił się. 
-
-Tym razem bierzemy zwykłą tabelę (tabelę bez scalonych komórek) i próbujemy podzielić komórkę (1,1), aby uzyskać specjalną tabelę. Możesz zwrócić uwagę na numerację tej tabeli, która może wydawać się dziwna. Jednak tak Microsoft PowerPoint numeruje komórki tabeli i Aspose.Slides robi to samo.
-
-Ten kod Java demonstruje opisany proces:
-
-```java
-// Tworzy instancję klasy Presentation, która reprezentuje plik PPTX
-Presentation pres = new Presentation();
-try {
-    // Uzyskuje dostęp do pierwszego slajdu
-    ISlide sld = pres.getSlides().get_Item(0);
-
-    // Definiuje kolumny o szerokościach i wiersze o wysokościach
-    double[] dblCols = { 70, 70, 70, 70 };
-    double[] dblRows = { 70, 70, 70, 70 };
-
-    // Dodaje kształt tabeli do slajdu
-    ITable tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
-
-    // Ustawia format obramowania dla każdej komórki
-    for (IRow row : tbl.getRows())
-    {
-        for (ICell cell : row)
-        {
-            cell.getCellFormat().getBorderTop().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderTop().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderTop().setWidth(5);
-
-            cell.getCellFormat().getBorderBottom().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderBottom().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderBottom().setWidth(5);
-
-            cell.getCellFormat().getBorderLeft().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderLeft().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderLeft().setWidth(5);
-
-            cell.getCellFormat().getBorderRight().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderRight().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderRight().setWidth(5);
-        }
-    }
-
-    // Scala komórki (1, 1) x (2, 1)
-    tbl.mergeCells(tbl.get_Item(1, 1), tbl.get_Item(2, 1), false);
-
-    // Scala komórki (1, 2) x (2, 2)
-    tbl.mergeCells(tbl.get_Item(1, 2), tbl.get_Item(2, 2), false);
-
-    // Dzieli komórkę (1, 1)
-    tbl.get_Item(1, 1).splitByWidth(tbl.get_Item(2, 1).getWidth() / 2);
-
-    //Zapisuje plik PPTX na dysk
-    pres.save("SplitCells_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Zmiana koloru tła komórki tabeli**
-
-Ten kod Java pokazuje, jak zmienić kolor tła komórki tabeli:
-
-```java
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    double[] dblCols = { 150, 150, 150, 150 };
-    double[] dblRows = { 50, 50, 50, 50, 50 };
+    double[] columnWidths = { 70, 70, 70, 70 };
+    double[] rowHeights = { 70, 70, 70, 70 };
+    ITable table = slide.getShapes().addTable(100, 50, columnWidths, rowHeights);
 
-    // utwórz nową tabelę
-    ITable table = slide.getShapes().addTable(50, 50, dblCols, dblRows);
+    table.mergeCells(table.get_Item(1, 1), table.get_Item(2, 2), false);
 
-    // ustaw kolor tła dla komórki 
+    presentation.save("merged_cells.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Rozdzielanie komórek tabeli**
+
+Scalanie komórek w poprzednim przykładzie zachowuje siatkę tabeli. Rozdzielenie komórki może wprowadzić nową kolumnę siatki i zmienić indeksy kolumn komórek po jej prawej stronie. Aspose.Slides stosuje się do modelu siatki tabel PowerPointa.
+
+Ten przykład tworzy tabelę 4‑na‑4 z kolumnami i wierszami o szerokości 70 punktów i wywołuje [splitByWidth](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#splitByWidth-double-) na komórce `(1, 1)`. Połowa szerokości 70‑punktowej komórki jest przekazywana w celu utworzenia dwóch komórek o równej szerokości.
+
+Po tym podziale obie połowy są dostępne jako `table.get_Item(1, 1)` i `table.get_Item(2, 1)`. Siatka tabeli ma teraz pięć kolumn: komórki pierwotnie w kolumnach 2 i 3 przenoszone są odpowiednio do kolumn 3 i 4. Indeksy wierszy pozostają niezmienione. Użyj tych zaktualizowanych indeksów kolumn przy dostępie do komórek po podziale.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    double[] columnWidths = { 70, 70, 70, 70 };
+    double[] rowHeights = { 70, 70, 70, 70 };
+    ITable table = slide.getShapes().addTable(100, 50, columnWidths, rowHeights);
+
+    table.get_Item(1, 1).splitByWidth(table.get_Item(1, 1).getWidth() / 2);
+
+    presentation.save("split_cells.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+### **Rozdzielanie połączonych komórek według zakresu wiersza lub kolumny**
+
+Aby przygotować połączone komórki szablonu do wypełnienia danymi, użyj [splitByRowSpan](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#splitByRowSpan-int-) do podziału wzdłuż istniejącej granicy wiersza lub [splitByColSpan](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#splitByColSpan-int-) do podziału wzdłuż granicy kolumny.
+
+Argument `index` liczy wiersze w górnej części lub kolumny w lewej części podziału; jest względny względem połączonego regionu:
+
+- Podział wiersza: `0 < index <` [getRowSpan](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#getRowSpan--).
+- Podział kolumny: `0 < index <` [getColSpan](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#getColSpan--).
+
+Przykład zakłada, że prezentacja ma tabelę jako pierwszy kształt na pierwszym slajdzie, przy czym `(1, 2)` i `(1, 3)` są połączone pionowo. Zaczynając od niższej pozycji, używa [getFirstColumnIndex](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#getFirstColumnIndex--) i [getFirstRowIndex](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#getFirstRowIndex--) do określenia punktu początkowego i sprawdza oba zakresy. `splitByRowSpan(1)` oddziela następnie wiersze 2 i 3 dla nazw produktów. W przypadku poziomego połączenia dwóch kolumn użyj `splitByColSpan(1)` zamiast tego.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("table_template.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    ITable table = (ITable) slide.getShapes().get_Item(0);
+
+    ICell selectedCell = table.get_Item(1, 3);
+    int firstColumnIndex = selectedCell.getFirstColumnIndex();
+    int firstRowIndex = selectedCell.getFirstRowIndex();
+    ICell mergedCell = table.get_Item(firstColumnIndex, firstRowIndex);
+
+    if (mergedCell.isMergedCell() && mergedCell.getRowSpan() == 2 && mergedCell.getColSpan() == 1)
+    {
+        mergedCell.splitByRowSpan(1);
+
+        // Pobierz powstałe komórki z tabeli po podziale.
+        ICell upperCell = table.get_Item(firstColumnIndex, firstRowIndex);
+        ICell lowerCell = table.get_Item(firstColumnIndex, firstRowIndex + 1);
+        System.out.println("Upper cell merged: " + upperCell.isMergedCell());
+        System.out.println("Lower cell merged: " + lowerCell.isMergedCell());
+
+        upperCell.getTextFrame().setText("Product A");
+        lowerCell.getTextFrame().setText("Product B");
+
+        presentation.save("split_template.pptx", SaveFormat.Pptx);
+    }
+    else
+    {
+        System.out.println("Select a merged region spanning exactly two rows and one column.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Siatka tabeli oraz otaczające indeksy komórek pozostają niezmienione. Pobierz powstałe komórki według ich współrzędnych; tutaj obie mają zakres 1, a [isMergedCell](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#isMergedCell--) zwraca `false`. Większe obszary mogą pozostać częściowo połączone po jednym podziale.
+
+Oryginalny tekst i jego formatowanie pozostają w górnej (lub lewej) komórce; nowa komórka jest pusta, ale odziedzicza formatowanie komórki, takie jak wypełnienie, obramowania i marginesy. Wypełnij komórki po podziale i ustaw wszelkie wymagane formatowanie tekstu explicite.
+
+Zapisana prezentacja zawiera osobne komórki „Product A” i „Product B” z zachowanym formatowaniem komórek szablonu. Zobacz [Cell API Reference](https://reference.aspose.com/slides/java/com.aspose.slides/cell/) po więcej szczegółów.
+
+## **Zmienianie koloru tła komórki tabeli**
+
+Ten przykład tworzy tabelę z kolumnami o szerokości 150 punktów i wierszami o wysokości 50 punktów. Używa [setFillType](https://reference.aspose.com/slides/java/com.aspose.slides/ifillformat/#setFillType-byte-) do wybrania jednolitego wypełnienia i ustawia kolor zwracany przez [getSolidFillColor](https://reference.aspose.com/slides/java/com.aspose.slides/ifillformat/#getSolidFillColor--) na czerwony dla komórki `(2, 3)`, w trzeciej kolumnie i czwartym wierszu.
+
+```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    double[] columnWidths = { 150, 150, 150, 150 };
+    double[] rowHeights = { 50, 50, 50, 50, 50 };
+    ITable table = slide.getShapes().addTable(50, 50, columnWidths, rowHeights);
+
     ICell cell = table.get_Item(2, 3);
     cell.getCellFormat().getFillFormat().setFillType(FillType.Solid);
     cell.getCellFormat().getFillFormat().getSolidFillColor().setColor(Color.RED);
 
     presentation.save("cell_background_color.pptx", SaveFormat.Pptx);
 } finally {
-    if (presentation != null) presentation.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Dodanie obrazu wewnątrz komórki tabeli**
+## **Dodawanie obrazu wewnątrz komórki tabeli**
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/java/com.aspose.slides/Presentation).
-2. Uzyskaj odwołanie do slajdu za pomocą jego indeksu.
-3. Zdefiniuj tablicę kolumn z szerokością.
-4. Zdefiniuj tablicę wierszy z wysokością.
-5. Dodaj tabelę do slajdu przy użyciu metody [AddTable](https://reference.aspose.com/slides/pl/java/com.aspose.slides/IShapeCollection#addTable-float-float-double:A-double:A-).
-6. Utwórz obiekt `Images`, aby przechowywać plik obrazu.
-7. Dodaj obraz `IImage` do obiektu `IPPImage`.
-8. Ustaw `FillFormat` dla komórki tabeli na `Picture`.
-9. Dodaj obraz do pierwszej komórki tabeli.
-10. Zapisz zmodyfikowaną prezentację jako plik PPTX
+Umieść wejściowy obraz w katalogu roboczym przed uruchomieniem tego przykładu. Ładuje obraz za pomocą [Images.fromFile](https://reference.aspose.com/slides/java/com.aspose.slides/images/#fromFile-java.lang.String-) i dodaje go do kolekcji obrazów prezentacji przy użyciu [addImage](https://reference.aspose.com/slides/java/com.aspose.slides/iimagecollection/#addImage-com.aspose.slides.IImage-). Następnie przypisuje obraz do wypełnienia graficznego komórki `(0, 0)`, pierwszej komórki w tabeli.
 
-Ten kod Java pokazuje, jak umieścić obraz wewnątrz komórki tabeli podczas tworzenia tabeli:
+[PictureFillMode.Stretch](https://reference.aspose.com/slides/java/com.aspose.slides/picturefillmode/) rozciąga obraz, aby wypełnić komórkę, co może zmienić jej proporcje. Szerokości kolumn i wysokości wierszy podawane są w punktach. Załadowany obraz jest zwalniany w bloku `finally` po jego dodaniu do prezentacji.
 
 ```java
-// Tworzy instancję klasy Presentation, która reprezentuje plik PPTX
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    // Uzyskuje dostęp do pierwszego slajdu
-    ISlide islide = pres.getSlides().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    
+    double[] columnWidths = { 150, 150, 150, 150 };
+    double[] rowHeights = { 100, 100, 100, 100, 90 };
+    ITable table = slide.getShapes().addTable(50, 50, columnWidths, rowHeights);
 
-    // Definiuje kolumny o szerokościach i wiersze o wysokościach
-    double[] dblCols = {150, 150, 150, 150};
-    double[] dblRows = {100, 100, 100, 100, 90};
-
-    // Dodaje kształt tabeli do slajdu
-    ITable tbl = islide.getShapes().addTable(50, 50, dblCols, dblRows);
-
-    // Tworzy obiekt IPPImage przy użyciu pliku obrazu
-    IPPImage picture;
-    IImage image = Images.fromFile("image.jpg");
+    IPPImage ppImage;
+    IImage image = Images.fromFile("aspose_logo.jpg");
     try {
-        picture = pres.getImages().addImage(image);
+        ppImage = presentation.getImages().addImage(image);
     } finally {
-        if (image != null) image.dispose();
+        image.dispose();
     }
 
-    // Dodaje obraz do pierwszej komórki tabeli
-    ICellFormat cellFormat = tbl.get_Item(0, 0).getCellFormat();
-    cellFormat.getFillFormat().setFillType(FillType.Picture);
-    cellFormat.getFillFormat().getPictureFillFormat().setPictureFillMode(PictureFillMode.Stretch);
-    cellFormat.getFillFormat().getPictureFillFormat().getPicture().setImage(picture);
+    table.get_Item(0, 0).getCellFormat().getFillFormat().setFillType(FillType.Picture);
+    table.get_Item(0, 0).getCellFormat().getFillFormat().getPictureFillFormat().setPictureFillMode(PictureFillMode.Stretch);
+    table.get_Item(0, 0).getCellFormat().getFillFormat().getPictureFillFormat().getPicture().setImage(ppImage);
 
-    // Zapisuje plik PPTX na dysk
-    pres.save("Image_In_TableCell_out.pptx", SaveFormat.Pptx);
-} catch (IOException e) {
+    presentation.save("table_cell_with_image.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
@@ -343,11 +254,11 @@ try {
 
 **Czy mogę ustawić różne grubości linii i style dla różnych stron jednej komórki?**
 
-Tak. Obramowania [górne](https://reference.aspose.com/slides/pl/java/com.aspose.slides/cellformat/#getBorderTop--)/[dolne](https://reference.aspose.com/slides/pl/java/com.aspose.slides/cellformat/#getBorderBottom--)/[lewe](https://reference.aspose.com/slides/pl/java/com.aspose.slides/cellformat/#getBorderLeft--)/[prawe](https://reference.aspose.com/slides/pl/java/com.aspose.slides/cellformat/#getBorderRight--) mają oddzielne właściwości, więc grubość i styl każdej strony mogą się różnić. Wynika to logicznie z kontrolowania obramowań po stronie dla komórki, jak pokazano w artykule.
+Tak. Obramowania [top](https://reference.aspose.com/slides/java/com.aspose.slides/cellformat/#getBorderTop--)/[bottom](https://reference.aspose.com/slides/java/com.aspose.slides/cellformat/#getBorderBottom--)/[left](https://reference.aspose.com/slides/java/com.aspose.slides/cellformat/#getBorderLeft--)/[right](https://reference.aspose.com/slides/java/com.aspose.slides/cellformat/#getBorderRight--) mają oddzielne właściwości, więc grubość i styl każdej strony mogą się różnić.
 
 **Co się stanie z obrazem, jeśli zmienię rozmiar kolumny/wiersza po ustawieniu obrazu jako tła komórki?**
 
-Zachowanie zależy od [trybu wypełniania](https://reference.aspose.com/slides/pl/java/com.aspose.slides/picturefillmode/) (rozciąganie/kafelkowanie). przy rozciąganiu obraz dopasowuje się do nowej komórki; przy kafelkowaniu kafelki są przeliczane. W artykule wymieniono tryby wyświetlania obrazu w komórce.
+Zachowanie zależy od [fill mode](https://reference.aspose.com/slides/java/com.aspose.slides/picturefillmode/) (stretch/tile). Przy rozciąganiu obraz dostosowuje się do nowej komórki; przy kafelkowaniu kafelki są przeliczane.
 
 **Czy mogę przypisać hiperłącze do całej zawartości komórki?**
 
@@ -355,4 +266,4 @@ Zachowanie zależy od [trybu wypełniania](https://reference.aspose.com/slides/p
 
 **Czy mogę ustawić różne czcionki w jednej komórce?**
 
-Tak. Ramka tekstowa komórki obsługuje [fragmenty](https://reference.aspose.com/slides/pl/java/com.aspose.slides/portion/) (runs) z niezależnym formatowaniem — rodzina czcionki, styl, rozmiar i kolor.
+Tak. Ramka tekstowa komórki obsługuje [portions](https://reference.aspose.com/slides/java/com.aspose.slides/portion/) (fragmenty) z niezależnym formatowaniem — rodzina czcionki, styl, rozmiar i kolor.

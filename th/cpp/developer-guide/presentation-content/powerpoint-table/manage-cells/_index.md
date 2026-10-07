@@ -7,7 +7,7 @@ url: /th/cpp/manage-cells/
 keywords:
 - เซลล์ตาราง
 - รวมเซลล์
-- ลบเส้นขอบ
+- ลบกรอบ
 - แยกเซลล์
 - รูปภาพในเซลล์
 - สีพื้นหลัง
@@ -15,353 +15,322 @@ keywords:
 - งานนำเสนอ
 - C++
 - Aspose.Slides
-description: "จัดการเซลล์ตารางใน PowerPoint อย่างง่ายดายด้วย Aspose.Slides สำหรับ C++. เรียนรู้การเข้าถึง, แก้ไข, และจัดรูปแบบเซลล์อย่างรวดเร็วเพื่อการทำอัตโนมัติของสไลด์ที่ราบรื่น."
+description: "จัดการเซลล์ตาราง PowerPoint ด้วย C++: ระบุเซลล์ที่รวม, ลบกรอบ, แยกเซลล์, และตั้งค่าสีพื้นหลังและรูปภาพด้วย Aspose.Slides สำหรับ C++."
 ---
 ## **ภาพรวม**
 
-Aspose.Slides ช่วยให้คุณเข้าถึงและแก้ไขเซลล์ตารางในงานนำเสนอ PowerPoint บทความนี้อธิบายวิธีระบุเซลล์ตารางที่รวมกัน การลบเส้นขอบเซลล์ การจัดการเลขลำดับของเซลล์หลังจากการรวมหรือแยกเซลล์ การเปลี่ยนสีพื้นหลังของเซลล์ และการเพิ่มรูปภาพภายในเซลล์ตาราง ตัวอย่างแสดงวิธีสร้างหรือเปิดงานนำเสนอ รับตารางจากสไลด์ ปรับรูปแบบเซลล์ผ่านคุณสมบัติของเซลล์ และบันทึกงานนำเสนอที่แก้ไขเป็นไฟล์ PPTX
+Aspose.Slides ช่วยให้คุณเข้าถึงและแก้ไขเซลล์ตารางในงานนำเสนอ PowerPoint ได้ บทความนี้อธิบายวิธีระบุเซลล์ตารางที่รวมกัน การลบกรอบเซลล์ การทำงานกับการนับหมายเลขเซลล์หลังจากการรวมหรือแยกเซลล์ การเปลี่ยนสีพื้นหลังของเซลล์ และการเพิ่มรูปภาพเข้าไปในเซลล์ตาราง ตัวอย่างแสดงวิธีสร้างหรือเปิดงานนำเสนอ ดึงตารางจากสไลด์ ปรับรูปแบบเซลล์ผ่านคุณสมบัติของเซลล์ และบันทึกงานนำเสนอที่แก้ไขเป็นไฟล์ PPTX
+Aspose.Slides ใช้ดัชนีเริ่มจากศูนย์เพื่อเข้าถึงเซลล์ตารางตามลำดับ `(column, row)`.
 
-## **ระบุเซลล์ที่รวมกัน**
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/cpp/class/aspose.slides.presentation).
-2. รับตารางจากสไลด์แรก. 
-3. วนซ้ำผ่านแถวและคอลัมน์ของตารางเพื่อค้นหาเซลล์ที่รวมกัน.
-4. พิมพ์ข้อความเมื่อพบเซลล์ที่รวมกัน.
+## **ระบุเซลล์ตารางที่รวมกัน**
 
-โค้ด C++ นี้แสดงวิธีระบุเซลล์ตารางที่รวมกันในงานนำเสนอ:
+ตัวอย่างเปิดงานนำเสนอที่มีอยู่และเข้าถึงรูปร่างแรกบนสไลด์แรกเป็นตาราง มันสมมติว่ามีสไลด์และรูปร่างอยู่และรูปร่างเป็นตาราง จากนั้นวนซ้ำผ่านทุกแถวและคอลัมน์และใช้ [get_IsMergedCell](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_ismergedcell/) เพื่อระบุเซลล์ในพื้นที่ที่รวมกัน สำหรับแต่ละผลลัพธ์ จะพิมพ์พิกัดเซลล์ในลำดับ `row;column`, [get_RowSpan](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_rowspan/), [get_ColSpan](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_colspan/), และพิกัดเริ่มต้นของพื้นที่, [get_FirstRowIndex](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_firstrowindex/) และ [get_FirstColumnIndex](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_firstcolumnindex/).
 
-``` cpp
-auto pres = System::MakeObject<Presentation>(u"SomePresentationWithTable.pptx");
-auto table = System::AsCast<ITable>(pres->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0));
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <DOM/Table/ICell.h>
+#include <system/smart_ptr.h>
+#include <DOM/Table/IRowCollection.h>
+#include <DOM/Table/IColumnCollection.h>
+#include <system/console.h>
 
-// assuming that Slide#0.Shape#0 is a table
-for (int32_t i = 0; i < table->get_Rows()->get_Count(); i++)
+using namespace Aspose::Slides;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"presentation_with_table.pptx");
+auto slide = presentation->get_Slide(0);
+auto table = ExplicitCast<ITable>(slide->get_Shape(0));
+
+auto rowCount = table->get_Rows()->get_Count();
+for (auto rowIndex = 0; rowIndex < rowCount; rowIndex++)
 {
-    for (int32_t j = 0; j < table->get_Columns()->get_Count(); j++)
+    auto columnCount = table->get_Columns()->get_Count();
+    for (auto columnIndex = 0; columnIndex < columnCount; columnIndex++)
     {
-        auto currentCell = table->get_Rows()->idx_get(i)->idx_get(j);
-        if (currentCell->get_IsMergedCell())
+        auto cell = table->idx_get(columnIndex, rowIndex);
+        if (cell->get_IsMergedCell())
         {
-            Console::WriteLine(String::Format(u"Cell {0};{1} is a part of merged cell with RowSpan={2} and ColSpan={3} starting from Cell {4};{5}.", 
-                i, j, currentCell->get_RowSpan(), currentCell->get_ColSpan(), currentCell->get_FirstRowIndex(), currentCell->get_FirstColumnIndex()));
+            Console::WriteLine(u"Cell {0};{1} belongs to a merged region with RowSpan={2} and ColSpan={3} starting at {4};{5}.", rowIndex, columnIndex, cell->get_RowSpan(), cell->get_ColSpan(), cell->get_FirstRowIndex(), cell->get_FirstColumnIndex());
         }
     }
 }
 ```
 
-## **ลบเส้นขอบเซลล์ตาราง**
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/cpp/class/aspose.slides.presentation).
-2. รับอ้างอิงสไลด์ผ่านดัชนี. 
-3. กำหนดอาร์เรย์ของคอลัมน์พร้อมความกว้าง.
-4. กำหนดอาร์เรย์ของแถวพร้อมความสูง.
-5. เพิ่มตารางลงในสไลด์ผ่านเมธอด `AddTable`.
-6. วนซ้ำผ่านทุกเซลล์เพื่อลบเส้นขอบด้านบน, ล่าง, ขวา, และซ้าย.
-7. บันทึกงานนำเสนอที่แก้ไขเป็นไฟล์ PPTX.
+## **ลบกรอบเซลล์ตาราง**
 
-โค้ด C++ นี้แสดงวิธีลบเส้นขอบจากเซลล์ตาราง:
+สร้าง [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) และเพิ่มตารางไปยังสไลด์แรกด้วย [AddTable](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addtable/)。 ความกว้างของคอลัมน์, ความสูงของแถว, และตำแหน่งของตารางระบุเป็นจุด ตัวอย่างตั้งค่ากรอบเซลล์สี่ด้านทั้งหมดเป็น [FillType::NoFill](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/), ทำให้มองไม่เห็น.
 
-``` cpp
-// สร้างอินสแตนซ์ของคลาส Presentation ที่เป็นตัวแทนไฟล์ PPTX
-auto pres = MakeObject<Presentation>();
-// เข้าถึงสไลด์แรก
-auto sld = pres->get_Slides()->idx_get(0);
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <DOM/Table/ICell.h>
+#include <system/smart_ptr.h>
+#include <DOM/FillType.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/Table/ICellFormat.h>
+#include <DOM/Table/IRow.h>
+#include <DOM/Table/IRowCollection.h>
+#include <system/enumerator_adapter.h>
+#include <Export/SaveFormat.h>
+#include <system/array.h>
 
-// กำหนดคอลัมน์ด้วยความกว้างและแถวด้วยความสูง
-auto dblCols = MakeArray<double>({ 50, 50, 50, 50 });
-auto dblRows = MakeArray<double>({ 50, 30, 30, 30, 30 });
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-// เพิ่มรูปร่างตารางลงในสไลด์
-auto tbl = sld->get_Shapes()->AddTable(100.0f, 50.0f, dblCols, dblRows);
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-// ตั้งค่ารูปแบบเส้นขอบสำหรับแต่ละเซลล์
-for (const auto& row : System::IterateOver(tbl->get_Rows()))
-{
-    for (const auto& cell : System::IterateOver(row))
+auto columnWidths = MakeArray<double>({50, 50, 50, 50});
+auto rowHeights = MakeArray<double>({50, 30, 30, 30, 30});
+auto table = slide->get_Shapes()->AddTable(100, 50, columnWidths, rowHeights);
+
+for (const auto& row : IterateOver(table->get_Rows()))
+    for (const auto& cell : IterateOver(row))
     {
         cell->get_CellFormat()->get_BorderTop()->get_FillFormat()->set_FillType(FillType::NoFill);
         cell->get_CellFormat()->get_BorderBottom()->get_FillFormat()->set_FillType(FillType::NoFill);
         cell->get_CellFormat()->get_BorderLeft()->get_FillFormat()->set_FillType(FillType::NoFill);
         cell->get_CellFormat()->get_BorderRight()->get_FillFormat()->set_FillType(FillType::NoFill);
     }
-}
 
-// บันทึกไฟล์ PPTX ไปยังดิสก์
-pres->Save(u"table_out.pptx", SaveFormat::Pptx);
+presentation->Save(u"table.pptx", SaveFormat::Pptx);
 ```
 
-## **การทำเลขลำดับในเซลล์ที่รวมกัน**
+## **รวมเซลล์ตาราง**
 
-หากเรารวมเซลล์ 2 คู่ (1, 1) x (2, 1) และ (1, 2) x (2, 2) ตารางที่ได้จะมีการจัดลำดับเลข. โค้ด C# นี้แสดงกระบวนการ:
+ใช้ [MergeCells](https://reference.aspose.com/slides/cpp/aspose.slides/itable/mergecells/) เพื่อรวมช่วงสี่เหลี่ยมของเซลล์ตารางเป็นเซลล์เดียว ระบุเซลล์ที่มุมซ้ายบนและมุมขวาล่างของช่วง อากิวเมนต์สุดท้ายควบคุมว่าการรวมอาจรวมเซลล์นอกช่วงที่ระบุหรือไม่; `false` จะทำให้การรวมอยู่ภายในช่วงนั้น
 
-```c++
-const String outPath = u"../out/MergeCells_out.pptx";
+ตัวอย่างสร้างตาราง 4x4 ที่มีคอลัมน์และแถวขนาด 70 จุด จากนั้นรวมเซลล์กลางสี่เซลล์จาก `(1, 1)` ถึง `(2, 2)` เซลล์ที่ได้จะครอบคลุมสองคอลัมน์และสองแถว ในขณะที่กริดพื้นฐานของตารางยังคงมีสี่คอลัมน์และสี่แถว เพื่อเข้าถึงเนื้อหา或รูปแบบของเซลล์ที่รวม ให้ใช้ตำแหน่งมุมซ้ายบน: `table->idx_get(1, 1)` ในตัวอย่างนี้ ตำแหน่งอื่นในช่วงที่รวมยังคงเป็นส่วนหนึ่งของกริดตาราง ดังนั้นดัชนีของเซลล์นอกช่วงจะไม่เปลี่ยน
 
-// โหลดงานนำเสนอที่ต้องการ
-SharedPtr<Presentation> pres = MakeObject<Presentation>();
-
-// เข้าถึงสไลด์แรก
-SharedPtr<ISlide> islide = pres->get_Slides()->idx_get(0);
-
-// กำหนดคอลัมน์ด้วยความกว้างและแถวด้วยความสูง
-System::ArrayPtr<double> dblCols = System::MakeObject<System::Array<double>>(4, 70);
-System::ArrayPtr<double> dblRows = System::MakeObject<System::Array<double>>(4, 70);
-
-// เพิ่มรูปร่างตารางลงในสไลด์
-SharedPtr<ITable> table = islide->get_Shapes()->AddTable(100, 50, dblCols, dblRows);
-
-
-// ตั้งค่ารูปแบบเส้นขอบสำหรับแต่ละเซลล์
-for (int x = 0; x < table->get_Rows()->get_Count(); x++)
-{
-    SharedPtr<IRow> row = table->get_Rows()->idx_get(x);
-    for (int y = 0; y < row->get_Count(); y++)
-    {
-        SharedPtr<ICell> cell = row->idx_get(y);
-
-        cell->get_BorderTop()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderTop()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderTop()->set_Width(5);
-
-        cell->get_BorderBottom()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderBottom()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderBottom()->set_Width(5);
-
-        cell->get_BorderLeft()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderLeft()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderLeft()->set_Width(5);
-
-        cell->get_BorderRight()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderRight()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderRight()->set_Width(5);
-
-    }
-
-}
-// รวมเซลล์ (1, 1) x (2, 1)
-table->MergeCells(table->idx_get(1, 1), table->idx_get(2, 1), false);
-
-// รวมเซลล์ (1, 2) x (2, 2)
-table->MergeCells(table->idx_get(1, 2), table->idx_get(2, 2), false);
-
-
-// บันทึกไฟล์ PPTX ไปยังดิสก์
-pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
-```
-
-จากนั้นเราจะรวมเซลล์เพิ่มเติมโดยการรวม (1, 1) และ (1, 2) ผลลัพธ์คือตารางที่มีเซลล์รวมขนาดใหญ่ตรงกลาง: 
-
-```c++
-// พาธไปยังไดเรกทอรีของเอกสาร
-const String outPath = u"../out/MergeCells_out.pptx";
-
-// โหลดงานนำเสนอที่ต้องการ
-SharedPtr<Presentation> pres = MakeObject<Presentation>();
-
-// เข้าถึงสไลด์แรก
-SharedPtr<ISlide> islide = pres->get_Slides()->idx_get(0);
-
-// กำหนดคอลัมน์ด้วยความกว้างและแถวด้วยความสูง
-System::ArrayPtr<double> dblCols = System::MakeObject<System::Array<double>>(4, 70);
-System::ArrayPtr<double> dblRows = System::MakeObject<System::Array<double>>(4, 70);
-
-// เพิ่มรูปร่างตารางลงในสไลด์
-SharedPtr<ITable> table = islide->get_Shapes()->AddTable(100, 50, dblCols, dblRows);
-
-
-// ตั้งค่ารูปแบบเส้นขอบสำหรับแต่ละเซลล์
-for (int x = 0; x < table->get_Rows()->get_Count(); x++)
-{
-    SharedPtr<IRow> row = table->get_Rows()->idx_get(x);
-    for (int y = 0; y < row->get_Count(); y++)
-    {
-        SharedPtr<ICell> cell = row->idx_get(y);
-
-        cell->get_BorderTop()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderTop()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderTop()->set_Width(5);
-
-        cell->get_BorderBottom()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderBottom()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderBottom()->set_Width(5);
-
-        cell->get_BorderLeft()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderLeft()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderLeft()->set_Width(5);
-
-        cell->get_BorderRight()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderRight()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderRight()->set_Width(5);
-
-    }
-
-}
-
-// รวมเซลล์ (1, 1) x (2, 1)
-table->MergeCells(table->idx_get(1, 1), table->idx_get(2, 1), false);
-
-// รวมเซลล์ (1, 2) x (2, 2)
-table->MergeCells(table->idx_get(1, 2), table->idx_get(2, 2), false);
-
-
-// บันทึกไฟล์ PPTX ไปยังดิสก์
-pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
-```
-
-## **การทำเลขลำดับในเซลล์ที่แยกออก**
-
-ในตัวอย่างก่อนหน้าเมื่อเซลล์ตารางถูกรวมกัน ระบบการจัดลำดับหรือเลขในเซลล์อื่นไม่ได้เปลี่ยนแปลง. ครั้งนี้เราจะใช้ตารางปกติ (ตารางที่ไม่มีเซลล์ที่รวม) แล้วลองแยกเซลล์ (1,1) เพื่อให้ได้ตารางที่พิเศษ คุณอาจต้องใส่ใจการจัดลำดับเลขของตารางนี้ซึ่งอาจดูแปลก แต่เป็นวิธีที่ Microsoft PowerPoint จัดลำดับเลขเซลล์ตารางและ Aspose.Slides ทำเช่นเดียวกัน. 
-
-โค้ด C++ นี้แสดงกระบวนการที่อธิบายไว้:
-
-```c++
-// พาธไปยังไดเรกทอรีของเอกสาร.
-const String outPath = u"../out/CellSplit_out.pptx";
-
-// โหลดงานนำเสนอที่ต้องการ
-SharedPtr<Presentation> pres = MakeObject<Presentation>();
-
-// เข้าถึงสไลด์แรก
-SharedPtr<ISlide> islide = pres->get_Slides()->idx_get(0);
-
-// กำหนดคอลัมน์ด้วยความกว้างและแถวด้วยความสูง
-System::ArrayPtr<double> dblCols = System::MakeObject<System::Array<double>>(4, 70);
-System::ArrayPtr<double> dblRows = System::MakeObject<System::Array<double>>(4, 70);
-
-// เพิ่มรูปร่างตารางลงในสไลด์
-SharedPtr<ITable> table = islide->get_Shapes()->AddTable(100, 50, dblCols, dblRows);
-
-
-// ตั้งค่ารูปแบบเส้นขอบสำหรับแต่ละเซลล์
-for (int x = 0; x < table->get_Rows()->get_Count(); x++)
-{
-    SharedPtr<IRow> row = table->get_Rows()->idx_get(x);
-    for (int y = 0; y < row->get_Count(); y++)
-    {
-        SharedPtr<ICell> cell = row->idx_get(y);
-
-        cell->get_BorderTop()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderTop()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderTop()->set_Width(5);
-
-        cell->get_BorderBottom()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderBottom()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderBottom()->set_Width(5);
-
-        cell->get_BorderLeft()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderLeft()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderLeft()->set_Width(5);
-
-        cell->get_BorderRight()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderRight()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderRight()->set_Width(5);
-
-    }
-
-}
-
-// รวมเซลล์ (1, 1) x (2, 1)
-table->MergeCells(table->idx_get(1, 1), table->idx_get(2, 1), false);
-
-// รวมเซลล์ (1, 2) x (2, 2)
-table->MergeCells(table->idx_get(1, 2), table->idx_get(2, 2), false);
-
-// แยกเซลล์ (1, 1). 
-table->idx_get(1, 1)->SplitByWidth(table->idx_get(2, 1)->get_Width() / 2);
-
-// บันทึกไฟล์ PPTX ไปยังดิสก์
-pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
-```
-
-## **เปลี่ยนสีพื้นหลังของเซลล์ตาราง**
-
-โค้ด C++ นี้แสดงวิธีเปลี่ยนสีพื้นหลังของเซลล์ตาราง:
-
-``` cpp
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <DOM/Table/ICell.h>
+#include <system/smart_ptr.h>
+#include <Export/SaveFormat.h>
+#include <system/array.h>
 
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto columnWidths = MakeArray<double>({70, 70, 70, 70});
+auto rowHeights = MakeArray<double>({70, 70, 70, 70});
+auto table = slide->get_Shapes()->AddTable(100, 50, columnWidths, rowHeights);
+
+table->MergeCells(table->idx_get(1, 1), table->idx_get(2, 2), false);
+
+presentation->Save(u"merged_cells.pptx", SaveFormat::Pptx);
+```
+
+## **แยกเซลล์ตาราง**
+
+การรวมเซลล์ในตัวอย่างก่อนหน้านี้ทำให้กริดของตารางคงเดิม การแยกเซลล์สามารถสร้างคอลัมน์กริดใหม่และเปลี่ยนดัชนีคอลัมน์ของเซลล์ที่อยู่ทางขวา Aspose.Slides ปฏิบัติตามโมเดลกริดของตารางใน PowerPoint.
+
+ตัวอย่างนี้สร้างตาราง 4x4 ที่มีคอลัมน์และแถวขนาด 70 จุดและเรียก [SplitByWidth](https://reference.aspose.com/slides/cpp/aspose.slides/icell/splitbywidth/) บนเซลล์ `(1, 1)` ครึ่งหนึ่งของความกว้าง 70 จุดของเซลล์จะถูกนำไปสร้างเซลล์สองเซลล์ที่ความกว้างเท่ากัน.
+
+หลังจากการแยกนี้ ครึ่งสองส่วนจะเข้าถึงได้โดยใช้ `table->idx_get(1, 1)` และ `table->idx_get(2, 1)` ตารางกริดตอนนี้มีห้าคอลัมน์: เซลล์ที่เคยอยู่ในคอลัมน์ 2 และ 3 จะย้ายไปที่คอลัมน์ 3 และ 4 ตามลำดับ ดัชนีแถวคงที่ ใช้ดัชนีคอลัมน์ที่อัปเดตนี้เมื่อเข้าถึงเซลล์หลังจากการแยก.
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <DOM/Table/ICell.h>
+#include <system/smart_ptr.h>
+#include <Export/SaveFormat.h>
+#include <system/array.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto columnWidths = MakeArray<double>({70, 70, 70, 70});
+auto rowHeights = MakeArray<double>({70, 70, 70, 70});
+auto table = slide->get_Shapes()->AddTable(100, 50, columnWidths, rowHeights);
+
+table->idx_get(1, 1)->SplitByWidth(table->idx_get(1, 1)->get_Width() / 2);
+
+presentation->Save(u"split_cells.pptx", SaveFormat::Pptx);
+```
+
+### **แยกเซลล์ที่รวมตามช่วงแถวหรือคอลัมน์**
+
+เพื่อเตรียมเซลล์แม่แบบที่รวมไว้สำหรับการเติมข้อมูล ให้ใช้ [SplitByRowSpan](https://reference.aspose.com/slides/cpp/aspose.slides/icell/splitbyrowspan/) เพื่อแยกตามเส้นแบ่งแถวที่มีอยู่ หรือใช้ [SplitByColSpan](https://reference.aspose.com/slides/cpp/aspose.slides/icell/splitbycolspan/) เพื่อแยกตามเส้นแบ่งคอลัมน์
+
+`index` เป็นอากิวเมนต์ที่นับจำนวนแถวในส่วนบนหรือคอลัมน์ในส่วนซ้ายของการแยก; มันสัมพันธ์กับพื้นที่ที่รวมไว้:
+
+- การแยกแถว: `0 < index <` [get_RowSpan](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_rowspan/).
+- การแยกคอลัมน์: `0 < index <` [get_ColSpan](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_colspan/).
+
+ตัวอย่างคาดว่าการนำเสนอมีตารางเป็นรูปร่างแรกบนสไลด์แรก โดยที่เซลล์ `(1, 2)` และ `(1, 3)` ถูกรวมกันในแนวตั้ง. เริ่มจากตำแหน่งล่าง มันใช้ [get_FirstColumnIndex](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_firstcolumnindex/) และ [get_FirstRowIndex](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_firstrowindex/) เพื่อค้นหาตำแหน่งต้นกำเนิดและตรวจสอบทั้งสองช่วง. จากนั้น `SplitByRowSpan(1)` แยกแถว 2 และ 3 เพื่อชื่อตัวสินค้า. หากต้องการรวมสองคอลัมน์ในแนวนอน ให้ใช้ `SplitByColSpan(1)` แทน.
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <DOM/Table/ICell.h>
+#include <system/smart_ptr.h>
+#include <DOM/ITextFrame.h>
+#include <system/console.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"table_template.pptx");
+auto slide = presentation->get_Slide(0);
+auto table = ExplicitCast<ITable>(slide->get_Shape(0));
+
+auto selectedCell = table->idx_get(1, 3);
+auto firstColumnIndex = selectedCell->get_FirstColumnIndex();
+auto firstRowIndex = selectedCell->get_FirstRowIndex();
+auto mergedCell = table->idx_get(firstColumnIndex, firstRowIndex);
+
+if (mergedCell->get_IsMergedCell() && mergedCell->get_RowSpan() == 2 && mergedCell->get_ColSpan() == 1)
+{
+    mergedCell->SplitByRowSpan(1);
+
+    // ดึงเซลล์ที่ได้จากตารางหลังจากการแยก.
+    auto upperCell = table->idx_get(firstColumnIndex, firstRowIndex);
+    auto lowerCell = table->idx_get(firstColumnIndex, firstRowIndex + 1);
+    Console::WriteLine(u"Upper cell merged: {0}", upperCell->get_IsMergedCell());
+    Console::WriteLine(u"Lower cell merged: {0}", lowerCell->get_IsMergedCell());
+
+    upperCell->get_TextFrame()->set_Text(u"Product A");
+    lowerCell->get_TextFrame()->set_Text(u"Product B");
+
+    presentation->Save(u"split_template.pptx", SaveFormat::Pptx);
+}
+else
+{
+    Console::WriteLine(u"Select a merged region spanning exactly two rows and one column.");
+}
+```
+
+กริดของตารางและดัชนีเซลล์โดยรอบคงเดิม. ดึงเซลล์ที่ได้โดยใช้พิกัดของมัน; ในที่นี้ ทั้งสองมีช่วงเป็น 1 และ [get_IsMergedCell](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_ismergedcell/) พิมพ์ `False`. พื้นที่ที่ใหญ่กว่าอาจยังคงรวมกันบางส่วนหลังจากการแยกหนึ่งครั้ง.
+
+ข้อความต้นฉบับและรูปแบบของมันคงอยู่ในเซลล์บน (หรือซ้าย); เซลล์ใหม่เป็นค่าว่างแต่สืบทอดรูปแบบเซลล์เช่นการเติม, กรอบ, และระยะขอบ. เติมข้อมูลในเซลล์หลังจากการแยกและตั้งค่าการจัดรูปแบบข้อความที่ต้องการอย่างชัดเจน.
+
+งานนำเสนอที่บันทึกจะมีเซลล์ "Product A" และ "Product B" แยกกันพร้อมกับรูปแบบเซลล์ตามแม่แบบที่คงไว้ ดูที่ [Cell API Reference](https://reference.aspose.com/slides/cpp/aspose.slides/cell/) สำหรับรายละเอียด.
+
+## **เปลี่ยนสีพื้นหลังของเซลล์ตาราง**
+
+ตัวอย่างนี้สร้างตารางที่มีคอลัมน์ขนาด 150 จุดและแถวขนาด 50 จุด ใช้ [set_FillType](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/set_filltype/) เพื่อเลือกการเติมแบบสีทึบและ [get_SolidFillColor](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/get_solidfillcolor/) เพื่อเข้าถึงสีเติมและตั้งค่าเป็นสีแดงสำหรับเซลล์ `(2, 3)`, ซึ่งอยู่ในคอลัมน์ที่สามและแถวที่สี่.
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <DOM/Table/ICell.h>
+#include <system/smart_ptr.h>
+#include <DOM/FillType.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/Table/ICellFormat.h>
+#include <drawing/color.h>
+#include <Export/SaveFormat.h>
+#include <system/array.h>
+
 using namespace System::Drawing;
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-auto presentation = System::MakeObject<Presentation>();
-auto slide = presentation->get_Slides()->idx_get(0);
-        
-auto dblCols = System::MakeArray<double>({150, 150, 150, 150});
-auto dblRows = System::MakeArray<double>({50, 50, 50, 50, 50});
-        
-// สร้างตารางใหม่
-auto table = slide->get_Shapes()->AddTable(50.0f, 50.0f, dblCols, dblRows);
-        
-// set the background color for a cell 
-System::SharedPtr<ICell> cell = table->idx_get(2, 3);
-cell->get_CellFormat()->get_FillFormat()->set_FillType(Aspose::Slides::FillType::Solid);
-cell->get_CellFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        
-presentation->Save(u"cell_background_color.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
+auto columnWidths = MakeArray<double>({150, 150, 150, 150});
+auto rowHeights = MakeArray<double>({50, 50, 50, 50, 50});
+auto table = slide->get_Shapes()->AddTable(50, 50, columnWidths, rowHeights);
+
+auto cell = table->idx_get(2, 3);
+cell->get_CellFormat()->get_FillFormat()->set_FillType(FillType::Solid);
+cell->get_CellFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Red());
+
+presentation->Save(u"cell_background_color.pptx", SaveFormat::Pptx);
 ```
 
 ## **เพิ่มรูปภาพภายในเซลล์ตาราง**
-1. สร้างอินสแตนซ์ของคลาส `Presentation`.
-2. รับอ้างอิงสไลด์ผ่านดัชนี.
-3. กำหนดอาร์เรย์ของคอลัมน์พร้อมความกว้าง.
-4. กำหนดอาร์เรย์ของแถวพร้อมความสูง.
-5. เพิ่มตารางลงในสไลด์ผ่านเมธอด `AddTable`. 
-6. สร้างอ็อบเจกต์ `Bitmap` เพื่อเก็บไฟล์ภาพ.
-7. เพิ่มภาพบิตแมพลงในอ็อบเจกต์ `IPPImage`.
-8. ตั้งค่า `FillFormat` ของเซลล์ตารางเป็น `Picture`.
-9. เพิ่มภาพลงในเซลล์แรกของตาราง.
-10. บันทึกงานนำเสนอที่แก้ไขเป็นไฟล์ PPTX
 
-โค้ด C# นี้แสดงวิธีใส่รูปภาพภายในเซลล์ตารางเมื่อสร้างตาราง:
+วางรูปภาพที่ต้องการในไดเรกทอรีทำงานก่อนรันตัวอย่างนี้ มันโหลดรูปภาพด้วย [Images::FromFile](https://reference.aspose.com/slides/cpp/aspose.slides/images/fromfile/) และเพิ่มลงในคอลเลกชันรูปภาพของงานนำเสนอด้วย [AddImage](https://reference.aspose.com/slides/cpp/aspose.slides/iimagecollection/addimage/). จากนั้นกำหนดรูปภาพให้กับการเติมรูปภาพของเซลล์ `(0, 0)`, เซลล์แรกของตาราง.
 
-```c++
-// พาธไปยังไดเรกทอรีของเอกสาร.
-const String outPath = u"../out/Image_In_TableCell_out.pptx";
-const String ImagePath = u"../templates/Tulips.jpg";
+[PictureFillMode::Stretch](https://reference.aspose.com/slides/cpp/aspose.slides/picturefillmode/) ขยายรูปภาพให้เต็มเซลล์ ซึ่งอาจเปลี่ยนอัตราส่วนของมัน ความกว้างของคอลัมน์และความสูงของแถวระบุเป็นจุด รูปภาพที่โหลดจะถูกทำลายหลังจากที่ได้ถูกเพิ่มลงในงานนำเสนอแล้ว.
 
-// โหลดงานนำเสนอที่ต้องการ
-SharedPtr<Presentation> pres = MakeObject<Presentation>();
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <DOM/Table/ICell.h>
+#include <system/smart_ptr.h>
+#include <DOM/FillType.h>
+#include <DOM/IImageCollection.h>
+#include <IImage.h>
+#include <DOM/IPPImage.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/ISlidesPicture.h>
+#include <DOM/PictureFillMode.h>
+#include <DOM/Table/ICellFormat.h>
+#include <Util/Images.h>
+#include <Export/SaveFormat.h>
+#include <system/array.h>
 
-// เข้าถึงสไลด์แรก
-SharedPtr<ISlide> islide = pres->get_Slides()->idx_get(0);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-// กำหนดคอลัมน์ด้วยความกว้างและแถวด้วยความสูง
-System::ArrayPtr<double> dblCols = System::MakeObject<System::Array<double>>(4, 150);
-System::ArrayPtr<double> dblRows = System::MakeObject<System::Array<double>>(4, 100);
-System::ArrayPtr<double> total_for_Cat = System::MakeObject<System::Array<double>>(5, 0);
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-// เพิ่มรูปร่างตารางลงในสไลด์
-auto tbl = islide->get_Shapes()->AddTable(50, 50, dblCols, dblRows);
+auto columnWidths = MakeArray<double>({150, 150, 150, 150});
+auto rowHeights = MakeArray<double>({100, 100, 100, 100, 90});
+auto table = slide->get_Shapes()->AddTable(50, 50, columnWidths, rowHeights);
 
-// ดึงรูปภาพ
-auto img = Images::FromFile(ImagePath);
+auto image = Images::FromFile(u"aspose_logo.jpg");
+auto ppImage = presentation->get_Images()->AddImage(image);
+image->Dispose();
 
-// เพิ่มรูปภาพลงในคอลเลกชันรูปภาพของงานนำเสนอ
-SharedPtr<IPPImage> imgx = pres->get_Images()->AddImage(img);
+table->idx_get(0, 0)->get_CellFormat()->get_FillFormat()->set_FillType(FillType::Picture);
+table->idx_get(0, 0)->get_CellFormat()->get_FillFormat()->get_PictureFillFormat()->set_PictureFillMode(PictureFillMode::Stretch);
+table->idx_get(0, 0)->get_CellFormat()->get_FillFormat()->get_PictureFillFormat()->get_Picture()->set_Image(ppImage);
 
-
-// เพิ่มรูปภาพลงในเซลล์ตารางแรก
-tbl->idx_get(0, 0)->get_FillFormat()->set_FillType(FillType::Picture);
-tbl->idx_get(0, 0)->get_FillFormat()->get_PictureFillFormat()->set_PictureFillMode(PictureFillMode::Stretch);
-tbl->idx_get(0, 0)->get_FillFormat()->get_PictureFillFormat()->get_Picture()->set_Image(imgx);
-
-// บันทึกไฟล์ PPTX ไปยังดิสก์
-pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
+presentation->Save(u"table_cell_with_image.pptx", SaveFormat::Pptx);
 ```
 
-## **FAQ**
+## **คำถามที่พบบ่อย**
 
-**ฉันสามารถกำหนดความหนาและสไตล์ของเส้นต่างกันสำหรับด้านแต่ละด้านของเซลล์เดียวได้ไหม?**
+**ฉันสามารถกำหนดความหนาและสไตล์ของเส้นที่ต่างกันสำหรับด้านต่าง ๆ ของเซลล์เดียวได้หรือไม่?**
 
-ได้. เส้นขอบ [top](https://reference.aspose.com/slides/th/cpp/aspose.slides/cellformat/get_bordertop/)/[bottom](https://reference.aspose.com/slides/th/cpp/aspose.slides/cellformat/get_borderbottom/)/[left](https://reference.aspose.com/slides/th/cpp/aspose.slides/cellformat/get_borderleft/)/[right](https://reference.aspose.com/slides/th/cpp/aspose.slides/cellformat/get_borderright/) มีคุณสมบัติเพียกัน ทำให้ความหนาและสไตล์ของแต่ละด้านสามารถแตกต่างกันได้ นี้สอดคล้องกับการควบคุมเส้นขอบแบบแยกด้านสำหรับเซลล์ที่แสดงในบทความ.
+ได้. กรอบ [top](https://reference.aspose.com/slides/cpp/aspose.slides/cellformat/get_bordertop/)/[bottom](https://reference.aspose.com/slides/cpp/aspose.slides/cellformat/get_borderbottom/)/[left](https://reference.aspose.com/slides/cpp/aspose.slides/cellformat/get_borderleft/)/[right](https://reference.aspose.com/slides/cpp/aspose.slides/cellformat/get_borderright/) มีคุณสมบัติเฉพาะของแต่ละด้าน ดังนั้นความหนาและสไตล์ของแต่ละด้านสามารถแตกต่างกันได้.
 
-**เกิดอะไรขึ้นกับภาพหากฉันเปลี่ยนขนาดคอลัมน์/แถวหลังจากตั้งรูปภาพเป็นพื้นหลังของเซลล์?**
+**จะเกิดอะไรขึ้นกับรูปภาพหากฉันเปลี่ยนขนาดคอลัมน์/แถวหลังจากตั้งรูปภาพเป็นพื้นหลังของเซลล์?**
 
-พฤติกรรมขึ้นกับ [fill mode](https://reference.aspose.com/slides/th/cpp/aspose.slides/picturefillmode/) (stretch/tile) หากกำหนดให้ขยายภาพจะปรับให้เข้ากับเซลล์ใหม่; หากกำหนดให้ทำกระเบื้องภาพจะถูกคำนวณใหม่ บทความกล่าวถึงโหมดการแสดงผลของภาพในเซลล์.
+พฤติกรรมขึ้นอยู่กับ [fill mode](https://reference.aspose.com/slides/cpp/aspose.slides/picturefillmode/) (stretch/tile). หากใช้การขยาย, รูปภาพจะปรับให้เข้ากับเซลล์ใหม่; หากใช้การปูกระเบียง, แผ่นลายจะถูกคำนวณใหม่.
 
 **ฉันสามารถกำหนดไฮเปอร์ลิงก์ให้กับเนื้อหาทั้งหมดของเซลล์ได้หรือไม่?**
 
-[Hyperlinks](/slides/th/cpp/manage-hyperlinks/) ถูกกำหนดที่ระดับข้อความ (portion) ภายในเฟรมข้อความของเซลล์หรือที่ระดับของตาราง/รูปร่างทั้งหมด ในการใช้งานจริงคุณจะกำหนดลิงก์ให้กับส่วนหนึ่งหรือให้กับข้อความทั้งหมดในเซลล์.
+[Hyperlinks](/slides/th/cpp/manage-hyperlinks/) ถูกตั้งค่าในระดับข้อความ (portion) ภายในกรอบข้อความของเซลล์หรือในระดับของตาราง/รูปร่างทั้งหมด ในการใช้งานจริง คุณกำหนดลิงก์ให้กับส่วนหนึ่งหรือกับข้อความทั้งหมดในเซลล์.
 
-**ฉันสามารถตั้งฟอนต์ที่แตกต่างกันภายในเซลล์เดียวได้หรือไม่?**
+**ฉันสามารถกำหนดแบบอักษรที่แตกต่างกันภายในเซลล์เดียวได้หรือไม่?**
 
-ได้. เฟรมข้อความของเซลล์สนับสนุน [portions](https://reference.aspose.com/slides/th/cpp/aspose.slides/portion/) (runs) ที่มีการจัดรูปแบบอิสระ—แบบอักษร, สไตล์, ขนาด, และสี.
+ได้. กรอบข้อความของเซลล์รองรับ [portions](https://reference.aspose.com/slides/cpp/aspose.slides/portion/) (runs) ที่มีการจัดรูปแบบอิสระ—ฟอนต์, สไตล์, ขนาด, และสี.

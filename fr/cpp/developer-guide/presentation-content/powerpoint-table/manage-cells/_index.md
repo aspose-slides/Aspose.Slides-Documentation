@@ -6,357 +6,332 @@ weight: 30
 url: /fr/cpp/manage-cells/
 keywords:
 - cellule de tableau
-- fusionner les cellules
+- fusion de cellules
 - supprimer la bordure
-- scinder la cellule
+- division de cellules
 - image dans la cellule
 - couleur d'arrière-plan
 - PowerPoint
 - présentation
 - C++
 - Aspose.Slides
-description: "Gérez facilement les cellules de tableau dans PowerPoint avec Aspose.Slides pour C++. Maîtrisez l'accès, la modification et le style des cellules rapidement pour une automatisation fluide des diapositives."
+description: "Gérez les cellules de tableau PowerPoint en C++: identifiez les cellules fusionnées, supprimez les bordures, scindez les cellules, et définissez les couleurs d'arrière-plan et les images avec Aspose.Slides pour C++."
 ---
+## **Vue d'ensemble**
 
-## **Identifier une cellule fusionnée**
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
-2. Récupérez le tableau de la première diapositive.
-3. Parcourez les lignes et colonnes du tableau pour trouver les cellules fusionnées.
-4. Affichez un message lorsque des cellules fusionnées sont trouvées.
+Aspose.Slides vous permet d'accéder aux cellules de tableau et de les modifier dans les présentations PowerPoint. Cet article explique comment identifier les cellules de tableau fusionnées, supprimer les bordures des cellules, travailler avec la numérotation des cellules après fusion ou séparation, changer la couleur d'arrière-plan d'une cellule et ajouter une image à l'intérieur d'une cellule de tableau. Les exemples montrent comment créer ou ouvrir une présentation, obtenir un tableau à partir d'une diapositive, mettre à jour le formatage des cellules via les propriétés des cellules et enregistrer la présentation modifiée au format PPTX.
 
-Ce code C++ vous montre comment identifier les cellules de tableau fusionnées dans une présentation :
-``` cpp
-auto pres = System::MakeObject<Presentation>(u"SomePresentationWithTable.pptx");
-auto table = System::AsCast<ITable>(pres->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0));
+Aspose.Slides utilise des indices zéro-bas pour accéder aux cellules de tableau dans l'ordre `(column, row)`.
 
-// en supposant que Slide#0.Shape#0 est un tableau
-for (int32_t i = 0; i < table->get_Rows()->get_Count(); i++)
+## **Identifier une cellule de tableau fusionnée**
+
+L'exemple ouvre une présentation existante et accède à la première forme de la première diapositive en tant que tableau. Il suppose que la diapositive et la forme existent et que la forme est un tableau. Il parcourt ensuite toutes les lignes et colonnes et utilise [get_IsMergedCell](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_ismergedcell/) pour identifier les cellules dans les régions fusionnées. Pour chaque correspondance, il affiche les coordonnées de la cellule dans l'ordre `row;column`, [get_RowSpan](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_rowspan/), [get_ColSpan](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_colspan/), et les coordonnées de départ de la région, [get_FirstRowIndex](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_firstrowindex/) et [get_FirstColumnIndex](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_firstcolumnindex/).
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <DOM/Table/ICell.h>
+#include <system/smart_ptr.h>
+#include <DOM/Table/IRowCollection.h>
+#include <DOM/Table/IColumnCollection.h>
+#include <system/console.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"presentation_with_table.pptx");
+auto slide = presentation->get_Slide(0);
+auto table = ExplicitCast<ITable>(slide->get_Shape(0));
+
+auto rowCount = table->get_Rows()->get_Count();
+for (auto rowIndex = 0; rowIndex < rowCount; rowIndex++)
 {
-    for (int32_t j = 0; j < table->get_Columns()->get_Count(); j++)
+    auto columnCount = table->get_Columns()->get_Count();
+    for (auto columnIndex = 0; columnIndex < columnCount; columnIndex++)
     {
-        auto currentCell = table->get_Rows()->idx_get(i)->idx_get(j);
-        if (currentCell->get_IsMergedCell())
+        auto cell = table->idx_get(columnIndex, rowIndex);
+        if (cell->get_IsMergedCell())
         {
-            Console::WriteLine(String::Format(u"Cell {0};{1} is a part of merged cell with RowSpan={2} and ColSpan={3} starting from Cell {4};{5}.", 
-                i, j, currentCell->get_RowSpan(), currentCell->get_ColSpan(), currentCell->get_FirstRowIndex(), currentCell->get_FirstColumnIndex()));
+            Console::WriteLine(u"Cell {0};{1} belongs to a merged region with RowSpan={2} and ColSpan={3} starting at {4};{5}.", rowIndex, columnIndex, cell->get_RowSpan(), cell->get_ColSpan(), cell->get_FirstRowIndex(), cell->get_FirstColumnIndex());
         }
     }
 }
 ```
 
+## **Supprimer les bordures des cellules de tableau**
 
-## **Supprimer les bordures des cellules du tableau**
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
-2. Obtenez la référence d’une diapositive via son indice.
-3. Définissez un tableau de colonnes avec leur largeur.
-4. Définissez un tableau de lignes avec leur hauteur.
-5. Ajoutez un tableau à la diapositive à l’aide de la méthode `AddTable`.
-6. Parcourez chaque cellule pour effacer les bordures supérieure, inférieure, droite et gauche.
-7. Enregistrez la présentation modifiée au format PPTX.
+Créez une [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) et ajoutez un tableau à la première diapositive avec [AddTable](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addtable/). Les largeurs de colonnes, hauteurs de lignes et la position du tableau sont spécifiées en points. L'exemple définit les quatre bordures de la cellule sur [FillType::NoFill](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/), les rendant invisibles.
 
-Ce code C++ vous montre comment supprimer les bordures des cellules du tableau :
-``` cpp
-// Instancie la classe Presentation qui représente un fichier PPTX
-auto pres = MakeObject<Presentation>();
-// Accède à la première diapositive
-auto sld = pres->get_Slides()->idx_get(0);
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <DOM/Table/ICell.h>
+#include <system/smart_ptr.h>
+#include <DOM/FillType.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/Table/ICellFormat.h>
+#include <DOM/Table/IRow.h>
+#include <DOM/Table/IRowCollection.h>
+#include <system/enumerator_adapter.h>
+#include <Export/SaveFormat.h>
+#include <system/array.h>
 
-// Définit les colonnes avec leurs largeurs et les lignes avec leurs hauteurs
-auto dblCols = MakeArray<double>({ 50, 50, 50, 50 });
-auto dblRows = MakeArray<double>({ 50, 30, 30, 30, 30 });
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-// Ajoute une forme de tableau à la diapositive
-auto tbl = sld->get_Shapes()->AddTable(100.0f, 50.0f, dblCols, dblRows);
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-// Définit le format de bordure pour chaque cellule
-for (const auto& row : System::IterateOver(tbl->get_Rows()))
-{
-    for (const auto& cell : System::IterateOver(row))
+auto columnWidths = MakeArray<double>({50, 50, 50, 50});
+auto rowHeights = MakeArray<double>({50, 30, 30, 30, 30});
+auto table = slide->get_Shapes()->AddTable(100, 50, columnWidths, rowHeights);
+
+for (const auto& row : IterateOver(table->get_Rows()))
+    for (const auto& cell : IterateOver(row))
     {
         cell->get_CellFormat()->get_BorderTop()->get_FillFormat()->set_FillType(FillType::NoFill);
         cell->get_CellFormat()->get_BorderBottom()->get_FillFormat()->set_FillType(FillType::NoFill);
         cell->get_CellFormat()->get_BorderLeft()->get_FillFormat()->set_FillType(FillType::NoFill);
         cell->get_CellFormat()->get_BorderRight()->get_FillFormat()->set_FillType(FillType::NoFill);
     }
-}
 
-// Enregistre le fichier PPTX sur le disque
-pres->Save(u"table_out.pptx", SaveFormat::Pptx);
+presentation->Save(u"table.pptx", SaveFormat::Pptx);
 ```
 
+## **Fusionner des cellules de tableau**
 
-## **Numérotation dans les cellules fusionnées**
-Si nous fusionnons 2 paires de cellules (1, 1) x (2, 1) et (1, 2) x (2, 2), le tableau résultant sera numéroté. Ce code C# démontre le processus :
-```c++
-const String outPath = u"../out/MergeCells_out.pptx";
+Utilisez [MergeCells](https://reference.aspose.com/slides/cpp/aspose.slides/itable/mergecells/) pour combiner une plage rectangulaire de cellules de tableau en une seule cellule. Spécifiez les cellules aux coins supérieur gauche et inférieur droit de la plage. Le dernier argument contrôle si la fusion peut inclure des cellules en dehors de la plage spécifiée ; `false` maintient la fusion à l'intérieur de cette plage.
 
-// Charge la présentation souhaitée
-SharedPtr<Presentation> pres = MakeObject<Presentation>();
+L'exemple crée un tableau 4 × 4 avec des colonnes et des lignes de 70 points, puis fusionne les quatre cellules centrales de `(1, 1)` à `(2, 2)`. La cellule résultante s'étend sur deux colonnes et deux lignes, tandis que la grille sous‑jacente du tableau conserve quatre colonnes et quatre lignes. Pour accéder au contenu ou au formatage de la cellule fusionnée, utilisez sa position supérieure gauche : `table->idx_get(1, 1)` dans cet exemple. Les autres positions de la plage fusionnée restent parties de la grille du tableau, de sorte que les indices des cellules en dehors de la plage ne changent pas.
 
-// Accède à la première diapositive
-SharedPtr<ISlide> islide = pres->get_Slides()->idx_get(0);
-
-// Définit les colonnes avec leurs largeurs et les lignes avec leurs hauteurs
-System::ArrayPtr<double> dblCols = System::MakeObject<System::Array<double>>(4, 70);
-System::ArrayPtr<double> dblRows = System::MakeObject<System::Array<double>>(4, 70);
-
-// Ajoute une forme de tableau à la diapositive
-SharedPtr<ITable> table = islide->get_Shapes()->AddTable(100, 50, dblCols, dblRows);
-
-
-// Définit le format de bordure pour chaque cellule
-for (int x = 0; x < table->get_Rows()->get_Count(); x++)
-{
-    SharedPtr<IRow> row = table->get_Rows()->idx_get(x);
-    for (int y = 0; y < row->get_Count(); y++)
-    {
-        SharedPtr<ICell> cell = row->idx_get(y);
-
-        cell->get_BorderTop()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderTop()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderTop()->set_Width(5);
-
-        cell->get_BorderBottom()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderBottom()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderBottom()->set_Width(5);
-
-        cell->get_BorderLeft()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderLeft()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderLeft()->set_Width(5);
-
-        cell->get_BorderRight()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderRight()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderRight()->set_Width(5);
-
-    }
-
-}
-// Fusionne les cellules (1, 1) x (2, 1)
-table->MergeCells(table->idx_get(1, 1), table->idx_get(2, 1), false);
-
-// Fusionne les cellules (1, 2) x (2, 2)
-table->MergeCells(table->idx_get(1, 2), table->idx_get(2, 2), false);
-
-
-// Enregistre le fichier PPTX sur le disque
-pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
-```
-
-
-Nous fusionnons ensuite davantage les cellules en fusionnant (1, 1) et (1, 2). Le résultat est un tableau contenant une grande cellule fusionnée au centre :
-```c++
-// Le chemin du répertoire des documents.
-const String outPath = u"../out/MergeCells_out.pptx";
-
-// Charge la présentation souhaitée
-SharedPtr<Presentation> pres = MakeObject<Presentation>();
-
-// Accède à la première diapositive
-SharedPtr<ISlide> islide = pres->get_Slides()->idx_get(0);
-
-// Définit les colonnes avec leurs largeurs et les lignes avec leurs hauteurs
-System::ArrayPtr<double> dblCols = System::MakeObject<System::Array<double>>(4, 70);
-System::ArrayPtr<double> dblRows = System::MakeObject<System::Array<double>>(4, 70);
-
-// Ajoute une forme de tableau à la diapositive
-SharedPtr<ITable> table = islide->get_Shapes()->AddTable(100, 50, dblCols, dblRows);
-
-
-// Définit le format de bordure pour chaque cellule
-for (int x = 0; x < table->get_Rows()->get_Count(); x++)
-{
-    SharedPtr<IRow> row = table->get_Rows()->idx_get(x);
-    for (int y = 0; y < row->get_Count(); y++)
-    {
-        SharedPtr<ICell> cell = row->idx_get(y);
-
-        cell->get_BorderTop()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderTop()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderTop()->set_Width(5);
-
-        cell->get_BorderBottom()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderBottom()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderBottom()->set_Width(5);
-
-        cell->get_BorderLeft()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderLeft()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderLeft()->set_Width(5);
-
-        cell->get_BorderRight()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderRight()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderRight()->set_Width(5);
-
-    }
-
-}
-
-// Fusionne les cellules (1, 1) x (2, 1)
-table->MergeCells(table->idx_get(1, 1), table->idx_get(2, 1), false);
-
-// Fusionne les cellules (1, 2) x (2, 2)
-table->MergeCells(table->idx_get(1, 2), table->idx_get(2, 2), false);
-
-
-// Enregistre le fichier PPTX sur le disque
-pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
-```
-
-
-## **Numérotation dans une cellule scindée**
-Dans les exemples précédents, lorsque des cellules de tableau étaient fusionnées, la numérotation ou le système de numération dans les autres cellules ne changeait pas.
-
-Cette fois‑ci, nous prenons un tableau régulier (un tableau sans cellules fusionnées) puis nous essayons de scinder la cellule (1,1) pour obtenir un tableau spécial. Vous pouvez prêter attention à la numérotation de ce tableau, qui peut sembler étrange. Cependant, c’est ainsi que Microsoft PowerPoint numérote les cellules de tableau et Aspose.Slides fait de même.
-
-Ce code C++ démontre le processus décrit :
-```c++
-// Le chemin du répertoire des documents.
-const String outPath = u"../out/CellSplit_out.pptx";
-
-// Charge la présentation souhaitée
-SharedPtr<Presentation> pres = MakeObject<Presentation>();
-
-// Accède à la première diapositive
-SharedPtr<ISlide> islide = pres->get_Slides()->idx_get(0);
-
-// Définit les colonnes avec leurs largeurs et les lignes avec leurs hauteurs
-System::ArrayPtr<double> dblCols = System::MakeObject<System::Array<double>>(4, 70);
-System::ArrayPtr<double> dblRows = System::MakeObject<System::Array<double>>(4, 70);
-
-// Ajoute une forme de tableau à la diapositive
-SharedPtr<ITable> table = islide->get_Shapes()->AddTable(100, 50, dblCols, dblRows);
-
-
-// Définit le format de bordure pour chaque cellule
-for (int x = 0; x < table->get_Rows()->get_Count(); x++)
-{
-    SharedPtr<IRow> row = table->get_Rows()->idx_get(x);
-    for (int y = 0; y < row->get_Count(); y++)
-    {
-        SharedPtr<ICell> cell = row->idx_get(y);
-
-        cell->get_BorderTop()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderTop()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderTop()->set_Width(5);
-
-        cell->get_BorderBottom()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderBottom()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderBottom()->set_Width(5);
-
-        cell->get_BorderLeft()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderLeft()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderLeft()->set_Width(5);
-
-        cell->get_BorderRight()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderRight()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderRight()->set_Width(5);
-
-    }
-
-}
-
-// Fusionne les cellules (1, 1) x (2, 1)
-table->MergeCells(table->idx_get(1, 1), table->idx_get(2, 1), false);
-
-// Fusionne les cellules (1, 2) x (2, 2)
-table->MergeCells(table->idx_get(1, 2), table->idx_get(2, 2), false);
-
-// Divise la cellule (1, 1).
-table->idx_get(1, 1)->SplitByWidth(table->idx_get(2, 1)->get_Width() / 2);
-
-// Enregistre le fichier PPTX sur le disque
-pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
-```
-
-
-## **Modifier la couleur d'arrière-plan de la cellule du tableau**
-Ce code C++ vous montre comment changer la couleur d'arrière-plan d’une cellule de tableau :
-``` cpp
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <DOM/Table/ICell.h>
+#include <system/smart_ptr.h>
+#include <Export/SaveFormat.h>
+#include <system/array.h>
 
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
-using namespace System::Drawing;
+using namespace System;
 
-auto presentation = System::MakeObject<Presentation>();
-auto slide = presentation->get_Slides()->idx_get(0);
-        
-auto dblCols = System::MakeArray<double>({150, 150, 150, 150});
-auto dblRows = System::MakeArray<double>({50, 50, 50, 50, 50});
-        
-        // crée un nouveau tableau
-auto table = slide->get_Shapes()->AddTable(50.0f, 50.0f, dblCols, dblRows);
-        
-        // définir la couleur d'arrière‑plan d'une cellule
-System::SharedPtr<ICell> cell = table->idx_get(2, 3);
-cell->get_CellFormat()->get_FillFormat()->set_FillType(Aspose::Slides::FillType::Solid);
-cell->get_CellFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        
-presentation->Save(u"cell_background_color.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
+auto columnWidths = MakeArray<double>({70, 70, 70, 70});
+auto rowHeights = MakeArray<double>({70, 70, 70, 70});
+auto table = slide->get_Shapes()->AddTable(100, 50, columnWidths, rowHeights);
+
+table->MergeCells(table->idx_get(1, 1), table->idx_get(2, 2), false);
+
+presentation->Save(u"merged_cells.pptx", SaveFormat::Pptx);
 ```
 
+## **Diviser les cellules de tableau**
+
+La fusion des cellules dans l'exemple précédent préserve la grille du tableau. Diviser une cellule peut introduire une nouvelle colonne de grille et modifier les indices de colonne des cellules situées à droite. Aspose.Slides suit le modèle de grille de tableau de PowerPoint.
+
+Cet exemple crée un tableau 4 × 4 avec des colonnes et des lignes de 70 points et appelle [SplitByWidth](https://reference.aspose.com/slides/cpp/aspose.slides/icell/splitbywidth/) sur la cellule `(1, 1)`. La moitié de la largeur de 70 points de la cellule est utilisée pour créer deux cellules de largeur égale.
+
+Après cette division, les deux moitiés sont accessibles via `table->idx_get(1, 1)` et `table->idx_get(2, 1)`. La grille du tableau possède maintenant cinq colonnes : les cellules initialement dans les colonnes 2 et 3 se déplacent respectivement vers les colonnes 3 et 4. Les indices de ligne restent inchangés. Utilisez ces nouveaux indices de colonne lorsque vous accédez aux cellules après la division.
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <DOM/Table/ICell.h>
+#include <system/smart_ptr.h>
+#include <Export/SaveFormat.h>
+#include <system/array.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto columnWidths = MakeArray<double>({70, 70, 70, 70});
+auto rowHeights = MakeArray<double>({70, 70, 70, 70});
+auto table = slide->get_Shapes()->AddTable(100, 50, columnWidths, rowHeights);
+
+table->idx_get(1, 1)->SplitByWidth(table->idx_get(1, 1)->get_Width() / 2);
+
+presentation->Save(u"split_cells.pptx", SaveFormat::Pptx);
+```
+
+### **Diviser les cellules fusionnées par étendue de ligne ou de colonne**
+
+Pour préparer des cellules de modèle fusionnées à la population de données, utilisez [SplitByRowSpan](https://reference.aspose.com/slides/cpp/aspose.slides/icell/splitbyrowspan/) pour découper le long d'une frontière de ligne existante, ou [SplitByColSpan](https://reference.aspose.com/slides/cpp/aspose.slides/icell/splitbycolspan/) pour découper le long d'une frontière de colonne.
+
+L'argument `index` compte les lignes dans la partie supérieure ou les colonnes dans la partie gauche de la division ; il est relatif à la région fusionnée :
+
+- Fractionnement de ligne : `0 < index <` [get_RowSpan](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_rowspan/).
+- Fractionnement de colonne : `0 < index <` [get_ColSpan](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_colspan/).
+
+L'exemple suppose qu'une présentation possède un tableau comme première forme sur la première diapositive, avec `(1, 2)` et `(1, 3)` fusionnés verticalement. En partant de la position inférieure, il utilise [get_FirstColumnIndex](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_firstcolumnindex/) et [get_FirstRowIndex](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_firstrowindex/) pour localiser l'origine et vérifie les deux étendues. `SplitByRowSpan(1)` sépare alors les lignes 2 et 3 pour les noms de produits. Pour une fusion horizontale de deux colonnes, utilisez `SplitByColSpan(1)` à la place.
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <DOM/Table/ICell.h>
+#include <system/smart_ptr.h>
+#include <DOM/ITextFrame.h>
+#include <system/console.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"table_template.pptx");
+auto slide = presentation->get_Slide(0);
+auto table = ExplicitCast<ITable>(slide->get_Shape(0));
+
+auto selectedCell = table->idx_get(1, 3);
+auto firstColumnIndex = selectedCell->get_FirstColumnIndex();
+auto firstRowIndex = selectedCell->get_FirstRowIndex();
+auto mergedCell = table->idx_get(firstColumnIndex, firstRowIndex);
+
+if (mergedCell->get_IsMergedCell() && mergedCell->get_RowSpan() == 2 && mergedCell->get_ColSpan() == 1)
+{
+    mergedCell->SplitByRowSpan(1);
+
+    // Récupérer les cellules résultantes du tableau après la division.
+    auto upperCell = table->idx_get(firstColumnIndex, firstRowIndex);
+    auto lowerCell = table->idx_get(firstColumnIndex, firstRowIndex + 1);
+    Console::WriteLine(u"Upper cell merged: {0}", upperCell->get_IsMergedCell());
+    Console::WriteLine(u"Lower cell merged: {0}", lowerCell->get_IsMergedCell());
+
+    upperCell->get_TextFrame()->set_Text(u"Product A");
+    lowerCell->get_TextFrame()->set_Text(u"Product B");
+
+    presentation->Save(u"split_template.pptx", SaveFormat::Pptx);
+}
+else
+{
+    Console::WriteLine(u"Select a merged region spanning exactly two rows and one column.");
+}
+```
+
+La grille du tableau et les indices des cellules environnantes restent inchangés. Récupérez les cellules résultantes par leurs coordonnées ; ici, les deux ont une étendue de 1 et [get_IsMergedCell](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_ismergedcell/) indique `False`. Des régions plus grandes peuvent rester partiellement fusionnées après une division.
+
+Le texte original et son formatage restent dans la cellule supérieure (ou gauche) ; la nouvelle cellule est vide mais hérite du formatage de la cellule comme le remplissage, les bordures et les marges. Remplissez les cellules après la division et définissez explicitement tout formatage de texte requis.
+
+La présentation enregistrée contient des cellules séparées « Product A » et « Product B » avec le formatage du modèle conservé. Consultez la [Cell API Reference](https://reference.aspose.com/slides/cpp/aspose.slides/cell/) pour plus de détails.
+
+## **Modifier la couleur d'arrière-plan d'une cellule de tableau**
+
+Cet exemple crée un tableau avec des colonnes de 150 points et des lignes de 50 points. Il utilise [set_FillType](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/set_filltype/) pour sélectionner un remplissage uni et [get_SolidFillColor](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/get_solidfillcolor/) pour accéder à la couleur de remplissage et la définir sur rouge pour la cellule `(2, 3)`, dans la troisième colonne et la quatrième ligne.
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <DOM/Table/ICell.h>
+#include <system/smart_ptr.h>
+#include <DOM/FillType.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/Table/ICellFormat.h>
+#include <drawing/color.h>
+#include <Export/SaveFormat.h>
+#include <system/array.h>
+
+using namespace System::Drawing;
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto columnWidths = MakeArray<double>({150, 150, 150, 150});
+auto rowHeights = MakeArray<double>({50, 50, 50, 50, 50});
+auto table = slide->get_Shapes()->AddTable(50, 50, columnWidths, rowHeights);
+
+auto cell = table->idx_get(2, 3);
+cell->get_CellFormat()->get_FillFormat()->set_FillType(FillType::Solid);
+cell->get_CellFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Red());
+
+presentation->Save(u"cell_background_color.pptx", SaveFormat::Pptx);
+```
 
 ## **Ajouter une image à l'intérieur d'une cellule de tableau**
-1. Créez une instance de la classe `Presentation`.
-2. Obtenez la référence d’une diapositive via son indice.
-3. Définissez un tableau de colonnes avec leur largeur.
-4. Définissez un tableau de lignes avec leur hauteur.
-5. Ajoutez un tableau à la diapositive à l’aide de la méthode `AddTable`.
-6. Créez un objet `Bitmap` pour contenir le fichier image.
-7. Ajoutez l'image bitmap à l'objet `IPPImage`.
-8. Définissez le `FillFormat` de la cellule du tableau sur `Picture`.
-9. Ajoutez l'image à la première cellule du tableau.
-10. Enregistrez la présentation modifiée au format PPTX
 
-Ce code C# vous montre comment placer une image à l'intérieur d'une cellule de tableau lors de la création d'un tableau :
-```c++
-// Le chemin du répertoire des documents.
-const String outPath = u"../out/Image_In_TableCell_out.pptx";
-const String ImagePath = u"../templates/Tulips.jpg";
+Placez l'image d'entrée dans le répertoire de travail avant d'exécuter cet exemple. Elle charge l'image avec [Images::FromFile](https://reference.aspose.com/slides/cpp/aspose.slides/images/fromfile/) et l'ajoute à la collection d'images de la présentation avec [AddImage](https://reference.aspose.com/slides/cpp/aspose.slides/iimagecollection/addimage/). Elle assigne ensuite l'image au remplissage image de la cellule `(0, 0)`, la première cellule du tableau.
 
-// Charge la présentation souhaitée
-SharedPtr<Presentation> pres = MakeObject<Presentation>();
+[PictureFillMode::Stretch](https://reference.aspose.com/slides/cpp/aspose.slides/picturefillmode/) étire l'image pour remplir la cellule, ce qui peut modifier son ratio d'aspect. Les largeurs de colonnes et les hauteurs de lignes sont exprimées en points. L'image chargée est libérée après avoir été ajoutée à la présentation.
 
-// Accède à la première diapositive
-SharedPtr<ISlide> islide = pres->get_Slides()->idx_get(0);
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <DOM/Table/ICell.h>
+#include <system/smart_ptr.h>
+#include <DOM/FillType.h>
+#include <DOM/IImageCollection.h>
+#include <IImage.h>
+#include <DOM/IPPImage.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/ISlidesPicture.h>
+#include <DOM/PictureFillMode.h>
+#include <DOM/Table/ICellFormat.h>
+#include <Util/Images.h>
+#include <Export/SaveFormat.h>
+#include <system/array.h>
 
-// Définit les colonnes avec leurs largeurs et les lignes avec leurs hauteurs
-System::ArrayPtr<double> dblCols = System::MakeObject<System::Array<double>>(4, 150);
-System::ArrayPtr<double> dblRows = System::MakeObject<System::Array<double>>(4, 100);
-System::ArrayPtr<double> total_for_Cat = System::MakeObject<System::Array<double>>(5, 0);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-// Ajoute une forme de tableau à la diapositive
-auto tbl = islide->get_Shapes()->AddTable(50, 50, dblCols, dblRows);
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-// Obtient l'image
-auto img = Images::FromFile(ImagePath);
+auto columnWidths = MakeArray<double>({150, 150, 150, 150});
+auto rowHeights = MakeArray<double>({100, 100, 100, 100, 90});
+auto table = slide->get_Shapes()->AddTable(50, 50, columnWidths, rowHeights);
 
-// Ajoute une image à la collection d'images de la présentation
-SharedPtr<IPPImage> imgx = pres->get_Images()->AddImage(img);
+auto image = Images::FromFile(u"aspose_logo.jpg");
+auto ppImage = presentation->get_Images()->AddImage(image);
+image->Dispose();
 
-// Ajoute l'image à la première cellule du tableau
-tbl->idx_get(0, 0)->get_FillFormat()->set_FillType(FillType::Picture);
-tbl->idx_get(0, 0)->get_FillFormat()->get_PictureFillFormat()->set_PictureFillMode(PictureFillMode::Stretch);
-tbl->idx_get(0, 0)->get_FillFormat()->get_PictureFillFormat()->get_Picture()->set_Image(imgx);
+table->idx_get(0, 0)->get_CellFormat()->get_FillFormat()->set_FillType(FillType::Picture);
+table->idx_get(0, 0)->get_CellFormat()->get_FillFormat()->get_PictureFillFormat()->set_PictureFillMode(PictureFillMode::Stretch);
+table->idx_get(0, 0)->get_CellFormat()->get_FillFormat()->get_PictureFillFormat()->get_Picture()->set_Image(ppImage);
 
-// Enregistre le fichier PPTX sur le disque
-pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
+presentation->Save(u"table_cell_with_image.pptx", SaveFormat::Pptx);
 ```
-
 
 ## **FAQ**
 
-**Puis-je définir des épaisseurs et des styles de ligne différents pour chaque côté d’une seule cellule ?**
+**Puis-je définir des épaisseurs et styles de ligne différents pour chaque côté d'une même cellule ?**
 
-Oui. Les bordures [top](https://reference.aspose.com/slides/cpp/aspose.slides/cellformat/get_bordertop/)/[bottom](https://reference.aspose.com/slides/cpp/aspose.slides/cellformat/get_borderbottom/)/[left](https://reference.aspose.com/slides/cpp/aspose.slides/cellformat/get_borderleft/)/[right](https://reference.aspose.com/slides/cpp/aspose.slides/cellformat/get_borderright/) ont des propriétés distinctes, de sorte que l’épaisseur et le style de chaque côté peuvent différer. Cela découle logiquement du contrôle de bordure par côté d’une cellule démontré dans l’article.
+Oui. Les bordures [top](https://reference.aspose.com/slides/cpp/aspose.slides/cellformat/get_bordertop/)/[bottom](https://reference.aspose.com/slides/cpp/aspose.slides/cellformat/get_borderbottom/)/[left](https://reference.aspose.com/slides/cpp/aspose.slides/cellformat/get_borderleft/)/[right](https://reference.aspose.com/slides/cpp/aspose.slides/cellformat/get_borderright/) possèdent des propriétés distinctes, de sorte que l'épaisseur et le style de chaque côté peuvent différer.
 
-**Que se passe-t-il pour l’image si je change la taille de la colonne/ligne après avoir défini une image comme arrière‑plan de la cellule ?**
+**Que se passe-t-il pour l'image si je modifie la taille de la colonne/ligne après avoir défini une image comme arrière-plan de la cellule ?**
 
-Le comportement dépend du [fill mode](https://reference.aspose.com/slides/cpp/aspose.slides/picturefillmode/) (stretch/tile). Avec l’étirement, l’image s’ajuste à la nouvelle cellule ; avec le carrelage, les tuiles sont recalculées. L’article mentionne les modes d’affichage de l’image dans une cellule.
+Le comportement dépend du [fill mode](https://reference.aspose.com/slides/cpp/aspose.slides/picturefillmode/) (stretch/tile). En mode étirement, l'image s'ajuste à la nouvelle cellule ; en mode mosaïque, les tuiles sont recalculées.
 
-**Puis‑je affecter un hyperlien à tout le contenu d’une cellule ?**
+**Puis-je attribuer un hyperlien à tout le contenu d'une cellule ?**
 
-Les [Hyperlinks](/slides/fr/cpp/manage-hyperlinks/) sont définis au niveau du texte (portion) à l’intérieur du cadre de texte de la cellule ou au niveau de la table/forme entière. En pratique, vous affectez le lien à une portion ou à tout le texte de la cellule.
+[Hyperlinks](/slides/fr/cpp/manage-hyperlinks/) sont définis au niveau du texte (portion) à l'intérieur du cadre texte de la cellule ou au niveau de l'ensemble du tableau/forme. En pratique, vous attribuez le lien à une portion ou à l'ensemble du texte de la cellule.
 
-**Puis‑je définir des polices différentes au sein d’une même cellule ?**
+**Puis-je définir des polices différentes au sein d'une même cellule ?**
 
-Oui. Le cadre de texte d’une cellule prend en charge les [portions](https://reference.aspose.com/slides/cpp/aspose.slides/portion/) (runs) avec une mise en forme indépendante — famille de police, style, taille et couleur.
+Oui. Le cadre texte d'une cellule prend en charge les [portions](https://reference.aspose.com/slides/cpp/aspose.slides/portion/) (runs) avec un formatage indépendant — famille de police, style, taille et couleur.

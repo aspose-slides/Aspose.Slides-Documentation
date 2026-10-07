@@ -6,78 +6,55 @@ weight: 30
 url: /ar/python-net/manage-cells/
 keywords:
 - خلية جدول
-- دمج خلايا
+- دمج الخلايا
 - إزالة الحدود
 - تقسيم الخلية
 - صورة داخل الخلية
 - لون الخلفية
 - PowerPoint
-- OpenDocument
 - عرض تقديمي
 - Python
 - Aspose.Slides
-description: "إدارة خلايا الجداول بسهولة في PowerPoint وOpenDocument باستخدام Aspose.Slides لبايثون عبر .NET. إتقان الوصول إلى الخلايا وتعديلها وتنسيقها بسرعة لتفعيل أتمتة الشرائح بسلاسة."
+description: "إدارة خلايا الجداول في PowerPoint باستخدام بايثون: تحديد الخلايا المدمجة، إزالة الحدود، تقسيم الخلايا، وتعيين ألوان الخلفية والصور باستخدام Aspose.Slides للبايثون عبر .NET."
 ---
-
 ## **نظرة عامة**
 
-توضح هذه المقالة كيفية العمل مع خلايا الجداول في العروض التقديمية باستخدام Aspose.Slides. ستتعلم كيفية اكتشاف الخلايا المدمجة، مسح أو تخصيص حدود الخلايا، وفهم كيفية ترقيم PowerPoint للخلايا بعد عمليات الدمج والتقسيم حتى تتمكن من توقع الفهرسة في التخطيطات المعقدة. تُظهر المقالة أيضًا مهام التنسيق الشائعة—مثل تغيير تعبئة خلفية الخلية—وتظهر كيفية وضع صورة مباشرة داخل خلية جدول باستخدام إعدادات تعبئة الصورة. كل سيناريو يرافقه أمثلة مختصرة بلغة Python تقوم بإنشاء أو تعديل الجداول ثم حفظ العرض المحدث، بحيث يمكنك تعديل الشفرات لتناسب شرائحك بسرعة.
+يتيح لك Aspose.Slides الوصول إلى خلايا الجداول وتعديلها في عروض PowerPoint. يوضح هذا المقال كيفية تحديد خلايا الجدول المدمجة، وإزالة حدود الخلية، والعمل بأرقام الخلايا بعد دمجها أو تقسيمها، وتغيير لون خلفية الخلية، وإضافة صورة داخل خلية الجدول. تُظهر الأمثلة كيفية إنشاء أو فتح عرض تقديمي، الحصول على جدول من شريحة، تحديث تنسيق الخلية عبر خصائص الخلية، وحفظ العرض المعدل كملف PPTX.
 
-## **تحديد خلايا الجدول المدمجة**
+يستخدم Aspose.Slides مؤشرات تبدأ من الصفر. تُكتب الإحداثيات في هذه المقالة على الشكل `(column, row)`.
 
-غالبًا ما تحتوي الجداول على خلايا مدمجة للرؤوس أو لتجميع البيانات ذات الصلة. في هذا القسم، ستتعرف على كيفية تحديد ما إذا كانت خلية معينة تنتمي إلى منطقة مدمجة وكيفية الإشارة إلى الخلية الرئيسية (الزاوية العلوية اليسرى) حتى تتمكن من قراءة أو تنسيق الكتلة بأكملها بشكل موحد.
+## **تحديد خلية جدول مدمجة**
 
-1. إنشاء مثال من فئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) .
-1. الحصول على الجدول من الشريحة الأولى.
-1. التنقل عبر صفوف وأعمدة الجدول للعثور على الخلايا المدمجة.
-1. طباعة رسالة عند العثور على خلايا مدمجة.
+يفتح المثال عرضًا تقديميًا موجودًا ويصل إلى الشكل الأول في الشريحة الأولى كجدول. يفترض أن الشريحة والشكل موجودان وأن الشكل هو جدول. ثم يتنقل عبر جميع الصفوف والأعمدة ويستخدم [is_merged_cell](https://reference.aspose.com/slides/python-net/aspose.slides/cell/is_merged_cell/) لتحديد الخلايا في المناطق المدمجة. لكل مطابقة، يطبع إحداثيات الخلية بترتيب `row;column`، و[row_span](https://reference.aspose.com/slides/python-net/aspose.slides/cell/row_span/)، و[col_span](https://reference.aspose.com/slides/python-net/aspose.slides/cell/col_span/)، وإحداثيات بدء المنطقة، و[first_row_index](https://reference.aspose.com/slides/python-net/aspose.slides/cell/first_row_index/) و[first_column_index](https://reference.aspose.com/slides/python-net/aspose.slides/cell/first_column_index/).
 
-الكود Python التالي يحدد خلايا الجدول المدمجة في عرض تقديمي:
-```py
+```python
 import aspose.slides as slides
 
 with slides.Presentation("presentation_with_table.pptx") as presentation:
-    # بافتراض أن الشكل الأول على الشريحة الأولى هو جدول.
-    table = presentation.slides[0].shapes[0]
+    slide = presentation.slides[0]
+    table = slide.shapes[0]
 
     for row_index in range(len(table.rows)):
         for column_index in range(len(table.columns)):
             cell = table.rows[row_index][column_index]
             if cell.is_merged_cell:
-                print("Cell ({}, {}) is part of a merged region with a row span of {} and a column span of {}, starting from cell ({}, {}).".format(
-                    row_index, column_index, cell.row_span, cell.col_span, cell.first_row_index, cell.first_column_index))
+                print(f"Cell {row_index};{column_index} belongs to a merged region with row_span={cell.row_span} and col_span={cell.col_span} starting at {cell.first_row_index};{cell.first_column_index}.")
 ```
 
+## **إزالة حدود خلية الجدول**
 
-## **إزالة حدود خلايا الجدول**
+إنشاء [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) وإضافة جدول إلى شريحته الأولى باستخدام [add_table](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_table/). تُحدد عرض الأعمدة، ارتفاع الصفوف، وموقع الجدول بالنقاط. يقوم المثال بتعيين جميع الحدود الأربعة للخلية إلى [FillType.NO_FILL](https://reference.aspose.com/slides/python-net/aspose.slides/filltype/)، مما يجعلها غير مرئية.
 
-أحيانًا تشتت حدود الجدول الانتباه عن المحتوى أو تخلق فوضى بصرية. يوضح هذا القسم كيفية إزالة الحدود من الخلايا المحددة—أو من جوانب محددة للخلية—حتى تحصل على تخطيط أنظف ويتماشى بشكل أفضل مع تصميم شريحتك.
-
-1. إنشاء مثال من فئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) .
-1. الحصول على الشريحة بواسطة فهرسها.
-1. تعريف مصفوفة لعرض الأعمدة.
-1. تعريف مصفوفة لارتفاع الصفوف.
-1. إضافة جدول إلى الشريحة باستخدام طريقة [add_table](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_table/) .
-1. التنقل عبر كل خلية لمسح الحدود العلوية والسفلية واليسرى واليمنى.
-1. حفظ العرض المعدل كملف PPTX.
-
-الكود Python التالي يوضح كيفية إزالة الحدود من خلايا الجدول:
 ```python
 import aspose.slides as slides
 
-# إنشاء كائن من فئة Presentation التي تمثل ملف PPTX.
 with slides.Presentation() as presentation:
-    # الوصول إلى الشريحة الأولى.
     slide = presentation.slides[0]
 
-    # تعريف الأعمدة بعرضها والصفوف بارتفاعها.
     column_widths = [50, 50, 50, 50]
     row_heights = [50, 30, 30, 30, 30]
+    table = slide.shapes.add_table(100, 50, column_widths, row_heights)
 
-    # إضافة شكل جدول إلى الشريحة.
-    table = slide.shapes.add_table(50, 50, column_widths, row_heights)
-
-    # مسح تعبئة الحدود لكل خلية.
     for row in table.rows:
         for cell in row:
             cell.cell_format.border_top.fill_format.fill_type = slides.FillType.NO_FILL
@@ -85,103 +62,103 @@ with slides.Presentation() as presentation:
             cell.cell_format.border_left.fill_format.fill_type = slides.FillType.NO_FILL
             cell.cell_format.border_right.fill_format.fill_type = slides.FillType.NO_FILL
 
-    # حفظ ملف PPTX على القرص.
     presentation.save("table.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **دمج خلايا الجدول**
 
-## **الترقيم في الخلايا المدمجة**
+استخدام [merge_cells](https://reference.aspose.com/slides/python-net/aspose.slides/table/merge_cells/) لدمج نطاق مستطيل من خلايا الجدول في خلية واحدة. حدد الخلايا في الزاوية العليا اليسرى والسفلى اليمنى للنطاق. المتغير الأخير يتحكم فيما إذا كان الدمج قد يشمل خلايا خارج النطاق المحدد؛ `False` يبقي الدمج داخل ذلك النطاق.
 
-إذا دمجت زوجين من الخلايا—على سبيل المثال، (1, 1) × (2, 1) و(1, 2) × (2, 2)—ستحتفظ الجدول الناتج بنفس ترقيم الخلايا كما لو لم يتم الدمج. الكود Python التالي يوضح هذا السلوك:
+ينشئ المثال جدولًا 4×4 بأعمدة وصفوف بطول 70 نقطة، ثم يدمج الخلايا المركزية الأربعة من `(1, 1)` حتى `(2, 2)`. تمتد الخلية الناتجة على عمودين وصفين، بينما يظل شبكة الجدول الأساسية مكوّنة من أربعة أعمدة وأربعة صفوف. للوصول إلى محتوى أو تنسيق الخلية المدمجة، استخدم موقعها العلوي الأيسر: `table.rows[1][1]` في هذا المثال. تبقى المواقع الأخرى في النطاق المدمج جزءًا من شبكة الجدول، لذا لا تتغير مؤشرات الخلايا خارج النطاق.
+
 ```python
 import aspose.slides as slides
 
-# إنشاء كائن من فئة Presentation التي تمثل ملف PPTX.
 with slides.Presentation() as presentation:
-    # الوصول إلى الشريحة الأولى.
     slide = presentation.slides[0]
 
-    # تعريف الأعمدة بعرضها والصفوف بارتفاعها.
     column_widths = [70, 70, 70, 70]
     row_heights = [70, 70, 70, 70]
+    table = slide.shapes.add_table(100, 50, column_widths, row_heights)
 
-    # إضافة شكل جدول إلى الشريحة.
-    table = slide.shapes.add_table(50, 50, column_widths, row_heights)
+    table.merge_cells(table.rows[1][1], table.rows[2][2], False)
 
-    # دمج الخلايا (1,1) و (2,1).
-    table.merge_cells(table.rows[1][1], table.rows[2][1], False)
-
-    # دمج الخلايا (1, 2) و (2, 2).
-    table.merge_cells(table.rows[1][2], table.rows[2][2], False)
-
-    # طباعة مؤشرات الخلايا.
-    for row_index in range(len(table.rows)):
-        for column_index in range(len(table.rows[row_index])):
-            cell = table.rows[row_index][column_index]
-            print(f"{cell.first_row_index, cell.first_column_index} ", end="")
-        print()
-
-    # حفظ ملف PPTX على القرص.
     presentation.save("merged_cells.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **تقسيم خلايا الجدول**
 
-الإخراج:
-```text
-(0, 0) (0, 1) (0, 2) (0, 3) 
-(1, 0) (1, 1) (1, 2) (1, 3) 
-(2, 0) (1, 1) (1, 2) (2, 3) 
-(3, 0) (3, 1) (3, 2) (3, 3)
-```
+يحافظ دمج الخلايا في المثال السابق على شبكة الجدول. قد يؤدي تقسيم خلية إلى إضافة عمود شبكة جديد وتغيير مؤشرات الأعمدة للخلايا التي على يمينها. يتبع Aspose.Slides نموذج شبكة جدول PowerPoint.
 
+ينشئ هذا المثال جدولًا 4×4 بأعمدة وصفوف بطول 70 نقطة ويستدعي [split_by_width](https://reference.aspose.com/slides/python-net/aspose.slides/cell/split_by_width/) على الخلية `(1, 1)`. يتم تمرير نصف عرض الخلية البالغ 70 نقطة لإنشاء خليتين بعرض متساوٍ.
 
-## **الترقيم في الخلايا المقسمة**
+بعد هذا التقسيم، يتم الوصول إلى النصفين عبر `table.rows[1][1]` و`table.rows[1][2]`. أصبحت شبكة الجدول الآن تتألف من خمسة أعمدة: تنتقل الخلايا الأصلية في الأعمدة 2 و3 إلى الأعمدة 3 و4 على التوالي. تبقى مؤشرات الصفوف دون تغيير. استخدم مؤشرات الأعمدة المحدثة عند الوصول إلى الخلايا بعد التقسيم.
 
-في المثال السابق، عندما تم دمج خلايا الجدول، لم يتغير الترقيم في الخلايا الأخرى. هذه المرة، ننشئ جدولًا عاديًا (بدون خلايا مدمجة) ثم نقسم الخلية (1, 1) لننتج جدولًا خاصًا. انتبه إلى ترقيم هذا الجدول—قد يبدو غير مألوف. ومع ذلك، هذا هو طريقة ترقيم Microsoft PowerPoint لخلايا الجداول، ويتبع Aspose.Slides نفس السلوك.
-
-الكود Python التالي يوضح هذا السلوك:
 ```python
 import aspose.slides as slides
 
-# إنشاء كائن من فئة Presentation التي تمثل ملف PPTX.
 with slides.Presentation() as presentation:
-    # الوصول إلى الشريحة الأولى.
     slide = presentation.slides[0]
 
-    # تعريف عرض الأعمدة وارتفاع الصفوف.
     column_widths = [70, 70, 70, 70]
     row_heights = [70, 70, 70, 70]
+    table = slide.shapes.add_table(100, 50, column_widths, row_heights)
 
-    # إضافة شكل جدول إلى الشريحة.
-    table = slide.shapes.add_table(50, 50, column_widths, row_heights)
+    table.rows[1][1].split_by_width(table.rows[1][1].width / 2)
 
-    # تقسيم الخلية (1, 1).
-    table.rows[1][1].split_by_width(table.rows[2][1].width / 2)
-
-    # طباعة مؤشرات الخلايا.
-    for row_index in range(len(table.rows)):
-        for column_index in range(len(table.rows[row_index])):
-            cell = table.rows[row_index][column_index]
-            print(f"{cell.first_row_index, cell.first_column_index} ", end="")
-        print()
-
-    # حفظ ملف PPTX على القرص.
     presentation.save("split_cells.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+### **تقسيم الخلايا المدمجة حسب امتداد الصف أو العمود**
 
-الإخراج:
-```text
-(0, 0) (0, 1) (0, 1) (0, 3) (0, 4) 
-(1, 0) (1, 1) (1, 2) (1, 3) (1, 4) 
-(2, 0) (2, 1) (2, 1) (2, 3) (2, 4) 
-(3, 0) (3, 1) (3, 1) (3, 3) (3, 4) 
+لتحضير خلايا القالب المدمجة لتعبئة البيانات، استخدم [split_by_row_span](https://reference.aspose.com/slides/python-net/aspose.slides/cell/split_by_row_span/) لتقسيم على طول حد صف موجود، أو [split_by_col_span](https://reference.aspose.com/slides/python-net/aspose.slides/cell/split_by_col_span/) لتقسيم على طول حد عمود.
+
+يحسب معامل `index` الصفوف في الجزء العلوي أو الأعمدة في الجزء الأيسر من التقسيم؛ وهو نسبي للمنطقة المدمجة:
+
+- تقسيم الصف: `0 < index <` [row_span](https://reference.aspose.com/slides/python-net/aspose.slides/cell/row_span/).
+- تقسيم العمود: `0 < index <` [col_span](https://reference.aspose.com/slides/python-net/aspose.slides/cell/col_span/).
+
+يفترض المثال وجود عرض تقديمي يحتوي على جدول كالشكل الأول في الشريحة الأولى، مع دمج الخلايا `(1, 2)` و`(1, 3)` عموديًا. يبدأ من الموقع الأسفل، ويستخدم [first_column_index](https://reference.aspose.com/slides/python-net/aspose.slides/cell/first_column_index/) و[first_row_index](https://reference.aspose.com/slides/python-net/aspose.slides/cell/first_row_index/) لتحديد الأصل ويتحقق من كلا الامتدادين. ثم يقوم `split_by_row_span` بمعامل 1 بفصل الصفين 2 و3 لأسماء المنتجات. لدمج أفقي بعمودين، استخدم `split_by_col_span` بمعامل 1 بدلاً من ذلك.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("table_template.pptx") as presentation:
+    slide = presentation.slides[0]
+    table = slide.shapes[0]
+
+    selected_cell = table.rows[3][1]
+    first_column_index = selected_cell.first_column_index
+    first_row_index = selected_cell.first_row_index
+    merged_cell = table.rows[first_row_index][first_column_index]
+
+    if merged_cell.is_merged_cell and merged_cell.row_span == 2 and merged_cell.col_span == 1:
+        merged_cell.split_by_row_span(1)
+
+        # استرجع الخلايا الناتجة من الجدول بعد التقسيم.
+        upper_cell = table.rows[first_row_index][first_column_index]
+        lower_cell = table.rows[first_row_index + 1][first_column_index]
+        print(f"Upper cell merged: {upper_cell.is_merged_cell}")
+        print(f"Lower cell merged: {lower_cell.is_merged_cell}")
+
+        upper_cell.text_frame.text = "Product A"
+        lower_cell.text_frame.text = "Product B"
+
+        presentation.save("split_template.pptx", slides.export.SaveFormat.PPTX)
+    else:
+        print("Select a merged region spanning exactly two rows and one column.")
 ```
 
+تظل شبكة الجدول ومؤشرات الخلايا المجاورة دون تغيير. استرجع الخلايا الناتجة بإحداثياتها؛ هنا، كلاهما يمتد إلى 1 وتطبع [is_merged_cell](https://reference.aspose.com/slides/python-net/aspose.slides/cell/is_merged_cell/) قيمة `False`. يمكن أن تظل المناطق الأكبر مدمجة جزئيًا بعد تقسيم واحد.
+
+يبقى النص الأصلي وتنسيقه في الخلية العلوية (أو اليسرى)؛ الخلية الجديدة تكون فارغة لكنها تورث تنسيق الخلية مثل التعبئة والحدود والهوامش. قم بتعبئة الخلايا بعد التقسيم وتعيين أي تنسيق نص مطلوب صراحة.
+
+العرض التقديمي المحفوظ يحتوي على خلايا "Product A" و"Product B" منفصلة مع الحفاظ على تنسيق خلية القالب. راجع [Cell API Reference](https://reference.aspose.com/slides/python-net/aspose.slides/cell/) للمزيد من التفاصيل.
 
 ## **تغيير لون خلفية خلية الجدول**
 
-مثال Python التالي يوضح كيفية تغيير لون خلفية خلية الجدول:
+ينشئ هذا المثال جدولًا بأعمدة بطول 150 نقطة وصفوف بطول 50 نقطة. يضبط [fill_type](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/fill_type/) على ثابت و[solid_fill_color](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/solid_fill_color/) إلى اللون الأحمر للخلية `(2, 3)`, في العمود الثالث والصف الرابع.
+
 ```python
 import aspose.pydrawing as draw
 import aspose.slides as slides
@@ -191,79 +168,56 @@ with slides.Presentation() as presentation:
 
     column_widths = [150, 150, 150, 150]
     row_heights = [50, 50, 50, 50, 50]
-
-    # إنشاء جدول جديد.
     table = slide.shapes.add_table(50, 50, column_widths, row_heights)
 
-    # تعيين لون الخلفية لخلية.
-    cell = table.rows[2][3]
+    cell = table.rows[3][2]
     cell.cell_format.fill_format.fill_type = slides.FillType.SOLID
     cell.cell_format.fill_format.solid_fill_color.color = draw.Color.red
 
     presentation.save("cell_background_color.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **إضافة صورة داخل خلية جدول**
 
-## **إدراج صور في خلايا الجدول**
+ضع صورة الإدخال في دليل العمل قبل تشغيل هذا المثال. يقوم بتحميل الصورة باستخدام [Images.from_file](https://reference.aspose.com/slides/python-net/aspose.slides/images/from_file/) ويضيفها إلى مجموعة صور العرض التقديمي عبر [add_image](https://reference.aspose.com/slides/python-net/aspose.slides/imagecollection/add_image/). ثم يعين الصورة إلى تعبئة الصورة للخلية `(0, 0)`, الخلية الأولى في الجدول.
 
-يظهر هذا القسم كيفية إدراج صورة في خلية جدول باستخدام Aspose.Slides. يغطي تطبيق تعبئة صورة على الخلية المستهدفة وتكوين خيارات العرض مثل التمدد أو التكرار.
+يمدد [PictureFillMode.STRETCH](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillmode/) الصورة لملء الخلية، مما قد يغير نسبة أبعادها. تُحدد أعمدة العرض وارتفاع الصفوف بالنقاط. تُصرف الصورة المحمَّلة تلقائيًا عند انتهاء كتلة `with`.
 
-1. إنشاء مثال من فئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) .
-1. الحصول على مرجع شريحة بواسطة فهرستها.
-1. تعريف مصفوفة لعرض الأعمدة.
-1. تعريف مصفوفة لارتفاع الصفوف.
-1. إضافة جدول إلى الشريحة باستخدام طريقة [add_table](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_table/) .
-1. تحميل الصورة من ملف.
-1. إضافة الصورة إلى مجموعة صور العرض للحصول على كائن [PPImage](https://reference.aspose.com/slides/python-net/aspose.slides/ppimage/) .
-1. ضبط خاصية [FillType](https://reference.aspose.com/slides/python-net/aspose.slides/filltype/) للخلية إلى `PICTURE`.
-1. تطبيق الصورة على خلية الجدول واختيار وضع التعبئة (مثال: `STRETCH`).
-1. حفظ العرض كملف PPTX.
-
-الكود Python التالي يوضح كيفية وضع صورة داخل خلية جدول عند إنشاء جدول:
 ```python
 import aspose.slides as slides
 
-# إنشاء كائن Presentation.
 with slides.Presentation() as presentation:
-    # الوصول إلى الشريحة الأولى.
     slide = presentation.slides[0]
 
-    # تعريف عرض الأعمدة وارتفاع الصفوف.
     column_widths = [150, 150, 150, 150]
-    row_heights = [100, 100, 100, 100]
-
-    # إضافة شكل جدول إلى الشريحة.
+    row_heights = [100, 100, 100, 100, 90]
     table = slide.shapes.add_table(50, 50, column_widths, row_heights)
 
-    # تحميل الصورة وإضافتها إلى العرض للحصول على PPImage.
-    with slides.Images.from_file("image.png") as source_image:
-        image = presentation.images.add_image(source_image)
+    with slides.Images.from_file("aspose_logo.jpg") as image:
+        presentation_image = presentation.images.add_image(image)
 
-    # تطبيق الصورة على خلية الجدول الأولى.
     cell = table.rows[0][0]
     cell.cell_format.fill_format.fill_type = slides.FillType.PICTURE
     cell.cell_format.fill_format.picture_fill_format.picture_fill_mode = slides.PictureFillMode.STRETCH
-    cell.cell_format.fill_format.picture_fill_format.picture.image = image
+    cell.cell_format.fill_format.picture_fill_format.picture.image = presentation_image
 
-    # حفظ العرض على القرص.
-    presentation.save("image_in_table_cell.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("table_cell_with_image.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **FAQ**
 
-## **الأسئلة المتكررة**
+**هل يمكنني تعيين سماكات وأنماط خطوط مختلفة لجوانب خلية واحدة؟**
 
-**هل يمكنني ضبط سماكات وأنماط الخطوط المختلفة لجوانب خلية واحدة؟**
+نعم. للحدود العليا [top](https://reference.aspose.com/slides/python-net/aspose.slides/cellformat/border_top/)، السفلية [bottom](https://reference.aspose.com/slides/python-net/aspose.slides/cellformat/border_bottom/)، اليسرى [left](https://reference.aspose.com/slides/python-net/aspose.slides/cellformat/border_left/)، واليمنى [right](https://reference.aspose.com/slides/python-net/aspose.slides/cellformat/border_right/) خصائص منفصلة، لذا يمكن أن تختلف السماكة والنمط لكل جانب.
 
-نعم. حدود [العلوية](https://reference.aspose.com/slides/python-net/aspose.slides/cellformat/border_top/)/[السفلية](https://reference.aspose.com/slides/python-net/aspose.slides/cellformat/border_bottom/)/[اليسرى](https://reference.aspose.com/slides/python-net/aspose.slides/cellformat/border_left/)/[اليمنى](https://reference.aspose.com/slides/python-net/aspose.slides/cellformat/border_right/) لها خصائص منفصلة، لذلك يمكن أن تختلف السماكة والنمط لكل جانب. هذا يتبع من التحكم في الحدود الجانبية للخلية كما هو موضح في المقالة.
+**ماذا يحدث للصورة إذا غيرت حجم العمود/الصف بعد تعيين صورة كخلفية للخلية؟**
 
-**ماذا يحدث للصورة إذا قمت بتغيير حجم العمود/الصف بعد تعيين صورة كخلفية للخلية؟**
+السلوك يعتمد على [fill mode](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillmode/) (تمدد/تكرار). عند التمدد، تضبط الصورة لتناسب الخلية الجديدة؛ عند التكرار، تُعاد حساب مربعات التكرار.
 
-السلوك يعتمد على [وضع التعبئة](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillmode/) (تمدد/تكرار). مع التمدد، تتكيف الصورة مع الخلية الجديدة؛ ومع التكرار، يتم إعادة حساب البلاطات. المقالة تشير إلى أوضاع عرض الصورة داخل الخلية.
+**هل يمكنني إرفاق رابط تشعبي لكامل محتوى الخلية؟**
 
-**هل يمكنني إرفاق ارتباط تشعبي بكل محتوى الخلية؟**
-
-يتم تعيين [الارتباطات التشعبية](/slides/ar/python-net/manage-hyperlinks/) على مستوى النص (القطعة) داخل إطار نص الخلية أو على مستوى الجدول/الشكل بالكامل. عمليًا، يمكنك ربط الجزء أو جميع النص في الخلية.
+يتم ضبط [Hyperlinks](/slides/ar/python-net/manage-hyperlinks/) على مستوى الجزء النصي داخل إطار نص الخلية أو على مستوى الجدول/الشكل بأكمله. عمليًا، يمكنك إرفاق الرابط إلى جزء أو إلى كل النص داخل الخلية.
 
 **هل يمكنني تعيين خطوط مختلفة داخل خلية واحدة؟**
 
-نعم. يدعم إطار نص الخلية [القطع](https://reference.aspose.com/slides/python-net/aspose.slides/portion/) (runs) التي لها تنسيق مستقل—عائلة الخط، النمط، الحجم، واللون.
+نعم. يدعم إطار نص الخلية [portions](https://reference.aspose.com/slides/python-net/aspose.slides/portion/) (تشغيلات) بتنسيق مستقل—عائلة الخط، النمط، الحجم، واللون.

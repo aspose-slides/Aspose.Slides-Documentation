@@ -6,8 +6,8 @@ weight: 30
 url: /th/androidjava/manage-cells/
 keywords:
 - เซลล์ตาราง
-- รวมเซลล์
-- ลบเส้นขอบ
+- ผสานเซลล์
+- ลบขอบ
 - แยกเซลล์
 - รูปภาพในเซลล์
 - สีพื้นหลัง
@@ -16,69 +16,60 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "จัดการเซลล์ตารางใน PowerPoint อย่างง่ายดายด้วย Aspose.Slides สำหรับ Android ผ่าน Java. เชี่ยวชาญการเข้าถึง, แก้ไขและจัดรูปแบบเซลล์อย่างรวดเร็วเพื่อการทำงานอัตโนมัติของสไลด์อย่างราบรื่น."
+description: "จัดการเซลล์ตาราง PowerPoint บน Android: ระบุเซลล์ที่ผสาน, ลบขอบ, แยกเซลล์, และตั้งค่าสีพื้นหลังและรูปภาพด้วย Aspose.Slides สำหรับ Android ผ่าน Java."
 ---
 ## **ภาพรวม**
 
-Aspose.Slides ให้คุณเข้าถึงและแก้ไขเซลล์ของตารางในงานนำเสนอ PowerPoint บทความนี้อธิบายวิธีระบุเซลล์ตารางที่รวมกันแล้ว, ลบเส้นขอบของเซลล์, ทำงานกับการกำหนดหมายเลขเซลล์หลังจากการรวมหรือการแยกเซลล์, เปลี่ยนสีพื้นหลังของเซลล์, และเพิ่มรูปภาพภายในเซลล์ตาราง ตัวอย่างจะแสดงวิธีสร้างหรือเปิดงานนำเสนอ, ดึงตารางจากสไลด์, ปรับรูปแบบเซลล์ผ่านคุณสมบัติของเซลล์, และบันทึกงานนำเสนอที่แก้ไขเป็นไฟล์ PPTX
+Aspose.Slides ให้คุณเข้าถึงและแก้ไขเซลล์ตารางในงานนำเสนอ PowerPoint บทความนี้อธิบายวิธีระบุเซลล์ตารางที่ผสาน, ลบขอบเซลล์, ทำงานกับหมายเลขเซลล์หลังจากการผสานหรือแยกเซลล์, เปลี่ยนสีพื้นหลังของเซลล์, และเพิ่มรูปภาพภายในเซลล์ตาราง ตัวอย่างแสดงวิธีสร้างหรือเปิดงานนำเสนอ, ดึงตารางจากสไลด์, ปรับรูปแบบเซลล์ผ่านคุณสมบัติของเซลล์, และบันทึกงานนำเสนอที่แก้ไขเป็นไฟล์ PPTX
 
-## **ระบุตารางที่รวมเซลล์**
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/Presentation)
-2. ดึงตารางจากสไลด์แรก
-3. วนลูปผ่านแถวและคอลัมน์ของตารางเพื่อค้นหาเซลล์ที่รวมกัน
-4. พิมพ์ข้อความเมื่อพบเซลล์ที่รวมกัน
+Aspose.Slides ใช้ดัชนีเริ่มจากศูนย์เพื่อเข้าถึงเซลล์ตารางตามลำดับ `(column, row)`.
 
-โค้ด Java นี้แสดงวิธีระบุตารางที่รวมเซลล์ในงานนำเสนอ:
+## **ระบุเซลล์ตารางที่ผสาน**
+
+ตัวอย่างเปิดงานนำเสนอที่มีอยู่และเข้าถึงรูปร่างแรกบนสไลด์แรกเป็นตาราง สมมติว่าสไลด์และรูปร่างมีอยู่และรูปร่างเป็นตาราง จากนั้นวนลูปผ่านแถวและคอลัมน์ทั้งหมดและใช้ [isMergedCell](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#isMergedCell--) เพื่อระบุเซลล์ในพื้นที่ที่ผสาน สำหรับแต่ละผลลัพธ์จะพิมพ์พิกัดเซลล์ในรูปแบบ `row;column`, [getRowSpan](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#getRowSpan--), [getColSpan](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#getColSpan--), และพิกัดเริ่มต้นของพื้นที่, [getFirstRowIndex](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#getFirstRowIndex--) และ [getFirstColumnIndex](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#getFirstColumnIndex--).
 
 ```java
-Presentation pres = new Presentation("SomePresentationWithTable.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("presentation_with_table.pptx");
 try {
-    ITable table = (ITable)pres.getSlides().get_Item(0).getShapes().get_Item(0); // สมมติว่า Slide#0.Shape#0 เป็นตาราง
-    for (int i = 0; i < table.getRows().size(); i++)
+    ISlide slide = presentation.getSlides().get_Item(0);
+    ITable table = (ITable) slide.getShapes().get_Item(0);
+
+    int rowCount = table.getRows().size();
+    for (int rowIndex = 0; rowIndex < rowCount; rowIndex++)
     {
-        for (int j = 0; j < table.getColumns().size(); j++)
+        int columnCount = table.getColumns().size();
+        for (int columnIndex = 0; columnIndex < columnCount; columnIndex++)
         {
-            ICell currentCell = table.getRows().get_Item(i).get_Item(j);
-            if (currentCell.isMergedCell())
+            ICell cell = table.get_Item(columnIndex, rowIndex);
+            if (cell.isMergedCell())
             {
-                System.out.println(String.format("Cell %d;%d is a part of merged cell with RowSpan=%d and ColSpan=%d starting from Cell %d;%d.",
-                        i, j, currentCell.getRowSpan(), currentCell.getColSpan(), currentCell.getFirstRowIndex(), currentCell.getFirstColumnIndex()));
+                System.out.printf("Cell %d;%d belongs to a merged region with RowSpan=%d and ColSpan=%d starting at %d;%d.%n", rowIndex, columnIndex, cell.getRowSpan(), cell.getColSpan(), cell.getFirstRowIndex(), cell.getFirstColumnIndex());
             }
         }
     }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **ลบเส้นขอบของเซลล์ตาราง**
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/Presentation)
-2. ดึงอ้างอิงสไลด์ผ่านดัชนีของมัน
-3. กำหนดอาเรย์ของคอลัมน์พร้อมความกว้าง
-4. กำหนดอาเรย์ของแถวพร้อมความสูง
-5. เพิ่มตารางลงในสไลด์ผ่านเมธอด [addTable](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/IShapeCollection#addTable-float-float-double:A-double:A-)
-6. วนลูปผ่านทุกเซลล์เพื่อลบเส้นขอบบน, ล่าง, ขวาและซ้าย
-7. บันทึกงานนำเสนอที่แก้ไขเป็นไฟล์ PPTX
+## **ลบขอบเซลล์ตาราง**
 
-โค้ด Java นี้แสดงวิธีลบเส้นขอบจากเซลล์ตาราง:
+สร้าง [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) และเพิ่มตารางลงบนสไลด์แรกด้วย [addTable](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addTable-float-float-double---double---). ความกว้างของคอลัมน์, ความสูงของแถว, และตำแหน่งของตารางระบุเป็นจุด ตัวอย่างกำหนดขอบเซลล์สี่ด้านทั้งหมดให้เป็น [FillType.NoFill](https://reference.aspose.com/slides/androidjava/com.aspose.slides/filltype/), ทำให้ขอบไม่ปรากฏ
 
 ```java
-// สร้างอินสแตนซ์ของคลาส Presentation ที่แสดงไฟล์ PPTX
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    // เข้าถึงสไลด์แรก
-    Slide sld = (Slide)pres.getSlides().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // กำหนดคอลัมน์พร้อมความกว้างและแถวพร้อมความสูง
-    double[] dblCols = { 50, 50, 50, 50 };
-    double[] dblRows = { 50, 30, 30, 30, 30 };
+    double[] columnWidths = { 50, 50, 50, 50 };
+    double[] rowHeights = { 50, 30, 30, 30, 30 };
+    ITable table = slide.getShapes().addTable(100, 50, columnWidths, rowHeights);
 
-    // เพิ่มรูปร่างตารางลงในสไลด์
-    ITable tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
-
-    // ตั้งค่ารูปแบบเส้นขอบสำหรับแต่ละเซลล์
-    for (IRow row : tbl.getRows())
-    {
+    for (IRow row : table.getRows())
         for (ICell cell : row)
         {
             cell.getCellFormat().getBorderTop().getFillFormat().setFillType(FillType.NoFill);
@@ -86,274 +77,194 @@ try {
             cell.getCellFormat().getBorderLeft().getFillFormat().setFillType(FillType.NoFill);
             cell.getCellFormat().getBorderRight().getFillFormat().setFillType(FillType.NoFill);
         }
-    }
 
-    // เขียนไฟล์ PPTX ไปยังดิสก์
-    pres.save("table_out.pptx", SaveFormat.Pptx);
+    presentation.save("table.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **การกำหนดหมายเลขในเซลล์ที่รวมกัน**
-หากเรารวมเซลล์ 2 คู่ (1,1) x (2,1) และ (1,2) x (2,2) ตารางที่ได้จะมีการกำหนดหมายเลข โค้ด Java นี้แสดงกระบวนการ:
+## **ผสานเซลล์ตาราง**
+
+ใช้ [mergeCells](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itable/#mergeCells-com.aspose.slides.ICell-com.aspose.slides.ICell-boolean-) เพื่อรวมช่วงสี่เหลี่ยมของเซลล์ตารางให้เป็นเซลล์เดียว ระบุตำแหน่งเซลล์ที่มุมซ้ายบนและมุมขวาล่างของช่วง ตัวเลือกสุดท้ายควบคุมว่าการผสานอาจรวมเซลล์ที่อยู่นอกช่วงที่ระบุหรือไม่; `false` จะทำให้การผสานคงอยู่ภายในช่วงนั้น
+
+ตัวอย่างสร้างตาราง 4x4 ที่คอลัมน์และแถวมีขนาด 70 จุด แล้วผสานเซลล์ศูนย์กลางสี่เซลล์จาก `(1, 1)` ถึง `(2, 2)`. เซลล์ที่ได้ครอบคลุมสองคอลัมน์และสองแถว ในขณะที่กริดของตารางยังคงมีสี่คอลัมน์และสี่แถว เพื่อเข้าถึงเนื้อหาหรือรูปแบบของเซลล์ที่ผสานให้ใช้ตำแหน่งมุมซ้ายบน: `table.get_Item(1, 1)` ในตัวอย่างนี้ ตำแหน่งอื่นในช่วงที่ผสานยังคงเป็นส่วนของกริดตาราง ดังนั้นดัชนีของเซลล์นอกช่วงจะไม่เปลี่ยนแปลง
 
 ```java
-// สร้างอินสแตนซ์ของคลาส Presentation ที่แสดงไฟล์ PPTX
-Presentation pres = new Presentation();
-try {
-    // เข้าถึงสไลด์แรก
-    ISlide sld = pres.getSlides().get_Item(0);
+import com.aspose.slides.*;
 
-    // กำหนดคอลัมน์พร้อมความกว้างและแถวพร้อมความสูง
-    double[] dblCols = { 70, 70, 70, 70 };
-    double[] dblRows = { 70, 70, 70, 70 };
-
-    // เพิ่มรูปร่างตารางลงในสไลด์
-    ITable tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
-
-    // ตั้งค่ารูปแบบเส้นขอบสำหรับแต่ละเซลล์
-    for (IRow row : tbl.getRows())
-    {
-        for (ICell cell : row)
-        {
-            cell.getCellFormat().getBorderTop().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderTop().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderTop().setWidth(5);
-
-            cell.getCellFormat().getBorderBottom().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderBottom().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderBottom().setWidth(5);
-
-            cell.getCellFormat().getBorderLeft().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderLeft().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderLeft().setWidth(5);
-
-            cell.getCellFormat().getBorderRight().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderRight().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderRight().setWidth(5);
-        }
-    }
-
-    // รวมเซลล์ (1, 1) x (2, 1)
-    tbl.mergeCells(tbl.get_Item(1, 1), tbl.get_Item(2, 1), false);
-
-    // รวมเซลล์ (1, 2) x (2, 2)
-    tbl.mergeCells(tbl.get_Item(1, 2), tbl.get_Item(2, 2), false);
-
-    pres.save("MergeCells_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-จากนั้นเราเพิ่มการรวมเซลล์ต่อโดยการรวม (1,1) กับ (1,2) ผลลัพธ์คือ جدول يحتوي على خلية مدمجة كبيرة في وسطه:
-
-```java
-// สร้างอินสแตนซ์ของคลาส Presentation ที่แสดงไฟล์ PPTX
-Presentation pres = new Presentation();
-try {
-    // เข้าถึงสไลด์แรก
-    ISlide sld = pres.getSlides().get_Item(0);
-
-    // กำหนดคอลัมน์พร้อมความกว้างและแถวพร้อมความสูง
-    double[] dblCols = { 70, 70, 70, 70 };
-    double[] dblRows = { 70, 70, 70, 70 };
-
-    // เพิ่มรูปร่างตารางลงในสไลด์
-    ITable tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
-
-    // ตั้งค่ารูปแบบเส้นขอบสำหรับแต่ละเซลล์
-    for (IRow row : tbl.getRows())
-    {
-        for (ICell cell : row)
-        {
-            cell.getCellFormat().getBorderTop().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderTop().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderTop().setWidth(5);
-
-            cell.getCellFormat().getBorderBottom().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderBottom().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderBottom().setWidth(5);
-
-            cell.getCellFormat().getBorderLeft().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderLeft().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderLeft().setWidth(5);
-
-            cell.getCellFormat().getBorderRight().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderRight().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderRight().setWidth(5);
-        }
-    }
-
-    // รวมเซลล์ (1, 1) x (2, 1)
-    tbl.mergeCells(tbl.get_Item(1, 1), tbl.get_Item(2, 1), false);
-
-    // รวมเซลล์ (1, 2) x (2, 2)
-    tbl.mergeCells(tbl.get_Item(1, 2), tbl.get_Item(2, 2), false);
-
-    // รวมเซลล์ (1, 1) x (1, 2)
-    tbl.mergeCells(tbl.get_Item(1, 1), tbl.get_Item(1, 2), true);
-    
-	// เขียนไฟล์ PPTX ไปยังดิสก์
-    pres.save("MergeCells_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **การกำหนดหมายเลขในเซลล์ที่แยกออก**
-ในตัวอย่างก่อนหน้าเมื่อเซลล์ตารางถูกรวมกัน ระบบการนับหรือหมายเลขในเซลล์อื่น ๆ ไม่เปลี่ยนแปลง
-
-ครั้งนี้เราจะใช้ตารางปกติ (ตารางที่ไม่มีเซลล์รวม) แล้วทำการแยกเซลล์ (1,1) เพื่อสร้างตารางพิเศษ คุณอาจสังเกตการกำหนดหมายเลขของตารางนี้ที่ดูแปลก แต่นั่นเป็นวิธีที่ Microsoft PowerPoint จัดหมายเลขเซลล์ตารางและ Aspose.Slides ทำเช่นเดียวกัน
-
-โค้ด Java นี้แสดงกระบวนการที่อธิบายไว้:
-
-```java
-// สร้างอินสแตนซ์ของคลาส Presentation ที่แสดงไฟล์ PPTX
-Presentation pres = new Presentation();
-try {
-    // เข้าถึงสไลด์แรก
-    ISlide sld = pres.getSlides().get_Item(0);
-
-    // กำหนดคอลัมน์พร้อมความกว้างและแถวพร้อมความสูง
-    double[] dblCols = { 70, 70, 70, 70 };
-    double[] dblRows = { 70, 70, 70, 70 };
-
-    // เพิ่มรูปร่างตารางลงในสไลด์
-    ITable tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
-
-    // ตั้งค่ารูปแบบเส้นขอบสำหรับแต่ละเซลล์
-    for (IRow row : tbl.getRows())
-    {
-        for (ICell cell : row)
-        {
-            cell.getCellFormat().getBorderTop().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderTop().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderTop().setWidth(5);
-
-            cell.getCellFormat().getBorderBottom().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderBottom().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderBottom().setWidth(5);
-
-            cell.getCellFormat().getBorderLeft().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderLeft().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderLeft().setWidth(5);
-
-            cell.getCellFormat().getBorderRight().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderRight().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderRight().setWidth(5);
-        }
-    }
-
-    // รวมเซลล์ (1, 1) x (2, 1)
-    tbl.mergeCells(tbl.get_Item(1, 1), tbl.get_Item(2, 1), false);
-
-    // รวมเซลล์ (1, 2) x (2, 2)
-    tbl.mergeCells(tbl.get_Item(1, 2), tbl.get_Item(2, 2), false);
-
-    // แยกเซลล์ (1, 1)
-    tbl.get_Item(1, 1).splitByWidth(tbl.get_Item(2, 1).getWidth() / 2);
-
-    //เขียนไฟล์ PPTX ไปยังดิสก์
-    pres.save("SplitCells_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **เปลี่ยนสีพื้นหลังของเซลล์ตาราง**
-
-โค้ด Java นี้แสดงวิธีเปลี่ยนสีพื้นหลังของเซลล์ตาราง:
-
-```java
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    double[] dblCols = { 150, 150, 150, 150 };
-    double[] dblRows = { 50, 50, 50, 50, 50 };
+    double[] columnWidths = { 70, 70, 70, 70 };
+    double[] rowHeights = { 70, 70, 70, 70 };
+    ITable table = slide.getShapes().addTable(100, 50, columnWidths, rowHeights);
 
-    // สร้างตารางใหม่
-    ITable table = slide.getShapes().addTable(50, 50, dblCols, dblRows);
+    table.mergeCells(table.get_Item(1, 1), table.get_Item(2, 2), false);
 
-    // ตั้งค่าสีพื้นหลังสำหรับเซลล์ 
+    presentation.save("merged_cells.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **แยกเซลล์ตาราง**
+
+การผสานเซลล์ในตัวอย่างก่อนหน้าให้กริดของตารางคงที่ การแยกเซลล์อาจทำให้เกิดคอลัมน์กริดใหม่และเปลี่ยนดัชนีคอลัมน์ของเซลล์ที่อยู่ทางขวา Aspose.Slides ปฏิบัติตามโมเดลกริดของ PowerPoint
+
+ตัวอย่างนี้สร้างตาราง 4x4 ที่คอลัมน์และแถวมีขนาด 70 จุดและเรียกใช้ [splitByWidth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#splitByWidth-double-) กับเซลล์ `(1, 1)`. ครึ่งหนึ่งของความกว้าง 70 จุดของเซลล์จะถูกใช้เพื่อสร้างเซลล์ที่มีความกว้างเท่ากันสองเซลล์
+
+หลังจากแยกแล้ว ครึ่งสองส่วนจะเข้าถึงได้โดยใช้ `table.get_Item(1, 1)` และ `table.get_Item(2, 1)`. กริดของตารางขณะนี้มีห้าคอลัมน์: เซลล์ที่อยู่ในคอลัมน์ 2 และ 3 เดิมจะย้ายไปยังคอลัมน์ 3 และ 4 ตามลำดับ ดัชนีแถวไม่เปลี่ยนแปลง ใช้ดัชนีคอลัมน์ที่อัปเดตนี้เมื่อเข้าถึงเซลล์หลังการแยก
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    double[] columnWidths = { 70, 70, 70, 70 };
+    double[] rowHeights = { 70, 70, 70, 70 };
+    ITable table = slide.getShapes().addTable(100, 50, columnWidths, rowHeights);
+
+    table.get_Item(1, 1).splitByWidth(table.get_Item(1, 1).getWidth() / 2);
+
+    presentation.save("split_cells.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+### **แยกเซลล์ที่ผสานตามแถวหรือคอลัมน์**
+
+เพื่อเตรียมเซลล์เทมเพลตที่ผสานไว้สำหรับการเติมข้อมูล ให้ใช้ [splitByRowSpan](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#splitByRowSpan-int-) เพื่อแยกตามเส้นขอบแถวที่มีอยู่ หรือใช้ [splitByColSpan](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#splitByColSpan-int-) เพื่อแยกตามเส้นขอบคอลัมน์
+
+อาร์กิวเมนต์ `index` นับแถวในส่วนบนหรือคอลัมน์ในส่วนซ้ายของการแยก; ค่าจะสัมพันธ์กับพื้นที่ที่ผสาน:
+
+- การแยกแถว: `0 < index <` [getRowSpan](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#getRowSpan--).
+- การแยกคอลัมน์: `0 < index <` [getColSpan](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#getColSpan--).
+
+ตัวอย่างคาดว่ามีงานนำเสนอที่มีตารางเป็นรูปร่างแรกบนสไลด์แรก โดยมีเซลล์ `(1, 2)` และ `(1, 3)` ผสานกันในแนวตั้ง เริ่มจากตำแหน่งล่างสุด ใช้ [getFirstColumnIndex](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#getFirstColumnIndex--) และ [getFirstRowIndex](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#getFirstRowIndex--) เพื่อหาตำแหน่งต้นทางและตรวจสอบทั้งสองช่วง `splitByRowSpan(1)` จะทำการแยกแถวที่ 2 และ 3 สำหรับชื่อสินค้า สำหรับการผสานสองคอลัมน์ในแนวนอนให้ใช้ `splitByColSpan(1)` แทน
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("table_template.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    ITable table = (ITable) slide.getShapes().get_Item(0);
+
+    ICell selectedCell = table.get_Item(1, 3);
+    int firstColumnIndex = selectedCell.getFirstColumnIndex();
+    int firstRowIndex = selectedCell.getFirstRowIndex();
+    ICell mergedCell = table.get_Item(firstColumnIndex, firstRowIndex);
+
+    if (mergedCell.isMergedCell() && mergedCell.getRowSpan() == 2 && mergedCell.getColSpan() == 1)
+    {
+        mergedCell.splitByRowSpan(1);
+
+        // ดึงเซลล์ที่ได้จากตารางหลังการแยก.
+        ICell upperCell = table.get_Item(firstColumnIndex, firstRowIndex);
+        ICell lowerCell = table.get_Item(firstColumnIndex, firstRowIndex + 1);
+        System.out.println("Upper cell merged: " + upperCell.isMergedCell());
+        System.out.println("Lower cell merged: " + lowerCell.isMergedCell());
+
+        upperCell.getTextFrame().setText("Product A");
+        lowerCell.getTextFrame().setText("Product B");
+
+        presentation.save("split_template.pptx", SaveFormat.Pptx);
+    }
+    else
+    {
+        System.out.println("Select a merged region spanning exactly two rows and one column.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+กริดของตารางและดัชนีเซลล์รอบข้างคงที่ ดึงเซลล์ที่ได้โดยใช้พิกัด; ตัวอย่างนี้ทั้งสองเซลล์มีช่วงเป็น 1 และ [isMergedCell](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#isMergedCell--) จะพิมพ์ `false`. พื้นที่ที่ใหญ่ขึ้นอาจยังคงผสานบางส่วนหลังการแยกหนึ่งครั้ง
+
+ข้อความและรูปแบบดั้งเดิมยังคงอยู่ในเซลล์บน (หรือซ้าย); เซลล์ใหม่จะว่างเปล่าแต่รับมรดกรูปแบบเซลล์ เช่น การเติม, ขอบ, และระยะขอบ เติมข้อความลงในเซลล์หลังการแยกและตั้งค่าการจัดรูปแบบข้อความที่ต้องการอย่างชัดเจน
+
+งานนำเสนอที่บันทึกไว้จะมีเซลล์ “Product A” และ “Product B” แยกจากกันโดยคงรูปแบบเซลล์ของเทมเพลตไว้ ดูที่ [Cell API Reference](https://reference.aspose.com/slides/androidjava/com.aspose.slides/cell/) สำหรับรายละเอียด
+
+## **เปลี่ยนสีพื้นหลังของเซลล์ตาราง**
+
+ตัวอย่างนี้สร้างตารางที่คอลัมน์มีขนาด 150 จุดและแถวมีขนาด 50 จุด ใช้ [setFillType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifillformat/#setFillType-byte-) เพื่อเลือกการเติมแบบทึบและตั้งค่าสีที่ได้จาก [getSolidFillColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifillformat/#getSolidFillColor--) เป็นสีแดงสำหรับเซลล์ `(2, 3)`, ที่คอลัมน์ที่สามและแถวที่สี่
+
+```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    double[] columnWidths = { 150, 150, 150, 150 };
+    double[] rowHeights = { 50, 50, 50, 50, 50 };
+    ITable table = slide.getShapes().addTable(50, 50, columnWidths, rowHeights);
+
     ICell cell = table.get_Item(2, 3);
     cell.getCellFormat().getFillFormat().setFillType(FillType.Solid);
     cell.getCellFormat().getFillFormat().getSolidFillColor().setColor(Color.RED);
 
     presentation.save("cell_background_color.pptx", SaveFormat.Pptx);
 } finally {
-    if (presentation != null) presentation.dispose();
+    presentation.dispose();
 }
 ```
 
 ## **เพิ่มรูปภาพภายในเซลล์ตาราง**
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/Presentation)
-2. ดึงอ้างอิงสไลด์ผ่านดัชนีของมัน
-3. กำหนดอาเรย์ของคอลัมน์พร้อมความกว้าง
-4. กำหนดอาเรย์ของแถวพร้อมความสูง
-5. เพิ่มตารางลงในสไลด์ผ่านเมธอด [AddTable](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/IShapeCollection#addTable-float-float-double:A-double:A-)
-6. สร้างอ็อบเจกต์ `Images` เพื่อถือไฟล์รูปภาพ
-7. เพิ่มรูปภาพ `IImage` ไปยังอ็อบเจกต์ `IPPImage`
-8. ตั้งค่า `FillFormat` ของเซลล์ตารางเป็น `Picture`
-9. เพิ่มรูปภาพลงในเซลล์แรกของตาราง
-10. บันทึกงานนำเสนอที่แก้ไขเป็นไฟล์ PPTX
+วางรูปภาพต้นฉบับในไดเรกทอรีทำงานก่อนรันตัวอย่างนี้ โปรแกรมจะโหลดรูปภาพด้วย [Images.fromFile](https://reference.aspose.com/slides/androidjava/com.aspose.slides/images/#fromFile-java.lang.String-) และเพิ่มลงในคอลเลกชันภาพของงานนำเสนอด้วย [addImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimagecollection/#addImage-com.aspose.slides.IImage-). จากนั้นจะกำหนดรูปภาพให้กับการเติมรูปภาพของเซลล์ `(0, 0)`, เซลล์แรกของตาราง
 
-โค้ด Java นี้แสดงวิธีใส่รูปภาพภายในเซลล์ตารางเมื่อสร้างตาราง:
+[PictureFillMode.Stretch](https://reference.aspose.com/slides/androidjava/com.aspose.slides/picturefillmode/) จะยืดรูปภาพให้เต็มเซลล์ซึ่งอาจทำให้สัดส่วนเปลี่ยนแปลง ความกว้างของคอลัมน์และความสูงของแถวเป็นหน่วยจุด รูปภาพที่โหลดจะถูกทำลายในบล็อก `finally` หลังจากเพิ่มลงในงานนำเสนอ
 
 ```java
-// สร้างอินสแตนซ์ของคลาส Presentation ที่แสดงไฟล์ PPTX
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    // เข้าถึงสไลด์แรก
-    ISlide islide = pres.getSlides().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // กำหนดคอลัมน์พร้อมความกว้างและแถวพร้อมความสูง
-    double[] dblCols = {150, 150, 150, 150};
-    double[] dblRows = {100, 100, 100, 100, 90};
+    double[] columnWidths = { 150, 150, 150, 150 };
+    double[] rowHeights = { 100, 100, 100, 100, 90 };
+    ITable table = slide.getShapes().addTable(50, 50, columnWidths, rowHeights);
 
-    // เพิ่มรูปร่างตารางลงในสไลด์
-    ITable tbl = islide.getShapes().addTable(50, 50, dblCols, dblRows);
-
-    // สร้างอ็อบเจกต์ IPPImage โดยใช้ไฟล์รูปภาพ
-    IPPImage picture;
-    IImage image = Images.fromFile("image.jpg");
+    IPPImage ppImage;
+    IImage image = Images.fromFile("aspose_logo.jpg");
     try {
-        picture = pres.getImages().addImage(image);
+        ppImage = presentation.getImages().addImage(image);
     } finally {
-        if (image != null) image.dispose();
+        image.dispose();
     }
 
-    // เพิ่มรูปภาพไปยังเซลล์ตารางแรก
-    ICellFormat cellFormat = tbl.get_Item(0, 0).getCellFormat();
-    cellFormat.getFillFormat().setFillType(FillType.Picture);
-    cellFormat.getFillFormat().getPictureFillFormat().setPictureFillMode(PictureFillMode.Stretch);
-    cellFormat.getFillFormat().getPictureFillFormat().getPicture().setImage(picture);
+    table.get_Item(0, 0).getCellFormat().getFillFormat().setFillType(FillType.Picture);
+    table.get_Item(0, 0).getCellFormat().getFillFormat().getPictureFillFormat().setPictureFillMode(PictureFillMode.Stretch);
+    table.get_Item(0, 0).getCellFormat().getFillFormat().getPictureFillFormat().getPicture().setImage(ppImage);
 
-    // บันทึกไฟล์ PPTX ไปยังดิสก์
-    pres.save("Image_In_TableCell_out.pptx", SaveFormat.Pptx);
-} catch (IOException e) {
+    presentation.save("table_cell_with_image.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **FAQ**
+## **คำถามที่พบบ่อย**
 
-**ฉันสามารถตั้งค่าความหนาและสไตล์เส้นที่ต่างกันสำหรับด้านต่าง ๆ ของเซลล์เดียวได้หรือไม่?**
+**ฉันสามารถตั้งความหนาและสไตล์เส้นที่แตกต่างกันสำหรับแต่ละด้านของเซลล์เดียวได้หรือไม่?**
 
-ได้. เส้นขอบ [top](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/cellformat/#getBorderTop--)/[bottom](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/cellformat/#getBorderBottom--)/[left](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/cellformat/#getBorderLeft--)/[right](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/cellformat/#getBorderRight--) มีคุณสมบัติแยกกัน จึงสามารถกำหนดความหนาและสไตล์ของแต่ละด้านให้ต่างกันได้ ซึ่งสอดคล้องกับการควบคุมเส้นขอบฝ่ายละด้านสำหรับเซลล์ที่แสดงในบทความนี้
+ใช่. ขอบ [ด้านบน](https://reference.aspose.com/slides/androidjava/com.aspose.slides/cellformat/#getBorderTop--)/[ด้านล่าง](https://reference.aspose.com/slides/androidjava/com.aspose.slides/cellformat/#getBorderBottom--)/[ด้านซ้าย](https://reference.aspose.com/slides/androidjava/com.aspose.slides/cellformat/#getBorderLeft--)/[ด้านขวา](https://reference.aspose.com/slides/androidjava/com.aspose.slides/cellformat/#getBorderRight--) มีคุณสมบัติแยกกัน จึงสามารถกำหนดความหนาและสไตล์ของแต่ละด้านได้ต่างกัน
 
-**ภาพจะเกิดอะไรขึ้นถ้าฉันเปลี่ยนขนาดคอลัมน์/แถวหลังจากตั้งรูปภาพเป็นพื้นหลังของเซลล์?**
+**จะเกิดอะไรขึ้นกับรูปภาพหากฉันเปลี่ยนขนาดคอลัมน์/แถวหลังจากตั้งรูปเป็นพื้นหลังของเซลล์?**
 
-พฤติกรรมขึ้นกับ [fill mode](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/picturefillmode/) (stretch/tile) หากใช้การยืดรูปภาพจะปรับตามเซลล์ใหม่; หากใช้การเรียงกระเบื้องจะคำนวณกระเบื้องใหม่ บทความได้อธิบายโหมดการแสดงภาพในเซลล์แล้ว
+พฤติจะแตกต่างกันตาม [โหมดเติม](https://reference.aspose.com/slides/androidjava/com.aspose.slides/picturefillmode/) (stretch/tile). หากใช้การยืดรูปภาพจะปรับให้พอดีกับเซลล์ใหม่; หากใช้การเรียงซ้ำ (tiling) จะคำนวณเซลล์ใหม่อีกครั้ง
 
 **ฉันสามารถกำหนดไฮเปอร์ลิงก์ให้กับเนื้อหาทั้งหมดของเซลล์ได้หรือไม่?**
 
-[Hyperlinks](/slides/th/androidjava/manage-hyperlinks/) ถูกตั้งค่าในระดับข้อความ (portion) ภายในเฟรมข้อความของเซลล์หรือในระดับตาราง/รูปทั้งหมด ในการปฏิบัติคุณอาจกำหนดลิงก์ให้กับส่วนใดส่วนหนึ่งหรือให้กับข้อความทั้งหมดในเซลล์
+[ไฮเปอร์ลิงก์](/slides/th/androidjava/manage-hyperlinks/) จะถูกตั้งระดับข้อความ (portion) ภายในกรอบข้อความของเซลล์หรือระดับของตาราง/รูปร่างทั้งหมด ในการปฏิบัติคุณจะกำหนดลิงก์ให้กับส่วนหรือกับข้อความทั้งหมดในเซลล์
 
-**ฉันสามารถตั้งแบบอักษรที่ต่างกันภายในเซลล์เดียวได้หรือไม่?**
+**ฉันสามารถตั้งแบบอักษรที่แตกต่างกันภายในเซลล์เดียวได้หรือไม่?**
 
-ได้. เฟรมข้อความของเซลล์รองรับ [portions](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/portion/) (run) ที่มีการจัดรูปแบบอิสระ—ครอบครัวแบบอักษร, สไตล์, ขนาดและสี.
+ใช่. กรอบข้อความของเซลล์รองรับ [ส่วน](https://reference.aspose.com/slides/androidjava/com.aspose.slides/portion/) (run) ที่มีการฟอร์แมตอิสระ — ฟอนต์, สไตล์, ขนาด และสี.

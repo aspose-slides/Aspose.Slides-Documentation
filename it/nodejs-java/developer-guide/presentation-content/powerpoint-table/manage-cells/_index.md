@@ -1,11 +1,11 @@
 ---
-title: Gestisci le celle della tabella nelle presentazioni usando JavaScript
-linktitle: Gestisci Celle
+title: Gestire le celle della tabella nelle presentazioni con JavaScript
+linktitle: Gestire le celle
 type: docs
 weight: 30
 url: /it/nodejs-java/manage-cells/
 keywords:
-- cella di tabella
+- cella della tabella
 - unire celle
 - rimuovere bordo
 - dividere cella
@@ -16,314 +16,257 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Gestisci le celle delle tabelle in PowerPoint con Aspose.Slides per Node.js. Impara ad accedere, modificare e formattare le celle rapidamente per un'automazione delle diapositive senza interruzioni."
+description: "Gestire le celle delle tabelle PowerPoint in JavaScript: individuare le celle unite, rimuovere i bordi, dividere le celle e impostare colori di sfondo e immagini con Aspose.Slides per Node.js via Java."
 ---
 ## **Panoramica**
 
-Aspose.Slides consente di accedere e modificare le celle delle tabelle nelle presentazioni PowerPoint. Questo articolo spiega come identificare le celle della tabella unite, rimuovere i bordi delle celle, gestire la numerazione delle celle dopo l’unione o la separazione, modificare il colore di sfondo di una cella e aggiungere un’immagine all’interno di una cella di una tabella. Gli esempi mostrano come creare o aprire una presentazione, ottenere una tabella da una diapositiva, aggiornare la formattazione delle celle tramite le proprietà della cella e salvare la presentazione modificata come file PPTX.
+Aspose.Slides consente di accedere e modificare le celle delle tabelle nelle presentazioni PowerPoint. Questo articolo spiega come individuare le celle di tabella unite, rimuovere i bordi delle celle, gestire la numerazione delle celle dopo l’unione o la divisione delle celle, cambiare il colore di sfondo di una cella e aggiungere un’immagine all’interno di una cella di tabella. Gli esempi mostrano come creare o aprire una presentazione, ottenere una tabella da una diapositiva, aggiornare la formattazione delle celle tramite le proprietà della cella e salvare la presentazione modificata come file PPTX.
 
-## **Identificare le celle unite della tabella**
-1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/Presentation).
-2. Ottieni la tabella dalla prima diapositiva. 
-3. Itera tra le righe e le colonne della tabella per trovare le celle unite.
-4. Stampa un messaggio quando vengono trovate celle unite.
+Aspose.Slides utilizza indici basati su zero per accedere alle celle della tabella nell'ordine `(colonna, riga)`.
 
-Questo codice JavaScript mostra come identificare le celle unite di una tabella in una presentazione:
+## **Identificare una cella di tabella unita**
+
+L'esempio apre una presentazione esistente e accede alla prima forma nella prima diapositiva come tabella. Assume che la diapositiva e la forma esistano e che la forma sia una tabella. Quindi itera attraverso tutte le righe e colonne e utilizza [isMergedCell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/ismergedcell/) per individuare le celle nelle regioni unite. Per ogni corrispondenza, stampa le coordinate della cella nell'ordine `row;column`, [getRowSpan](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/getrowspan/), [getColSpan](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/getcolspan/), e le coordinate iniziali della regione, [getFirstRowIndex](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/getfirstrowindex/) e [getFirstColumnIndex](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/getfirstcolumnindex/).
 
 ```javascript
-var pres = new aspose.slides.Presentation("SomePresentationWithTable.pptx");
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation("presentation_with_table.pptx");
 try {
-    var table = pres.getSlides().get_Item(0).getShapes().get_Item(0);// presumendo che Slide#0.Shape#0 sia una tabella
-    for (var i = 0; i < table.getRows().size(); i++) {
-        for (var j = 0; j < table.getColumns().size(); j++) {
-            var currentCell = table.getRows().get_Item(i).get_Item(j);
-            if (currentCell.isMergedCell()) {
-                console.log(java.callStaticMethodSync("java.lang.String", "format", "Cell %d;%d is a part of merged cell with RowSpan=%d and ColSpan=%d starting from Cell %d;%d.", i, j, currentCell.getRowSpan(), currentCell.getColSpan(), currentCell.getFirstRowIndex(), currentCell.getFirstColumnIndex()));
+    const slide = presentation.getSlides().get_Item(0);
+    const table = slide.getShapes().get_Item(0);
+
+    const rowCount = table.getRows().size();
+    for (let rowIndex = 0; rowIndex < rowCount; rowIndex++) {
+        const columnCount = table.getColumns().size();
+        for (let columnIndex = 0; columnIndex < columnCount; columnIndex++) {
+            const cell = table.get_Item(columnIndex, rowIndex);
+            if (cell.isMergedCell()) {
+                console.log("Cell %d;%d belongs to a merged region with RowSpan=%d and ColSpan=%d starting at %d;%d.", rowIndex, columnIndex, cell.getRowSpan(), cell.getColSpan(), cell.getFirstRowIndex(), cell.getFirstColumnIndex());
             }
         }
     }
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Rimuovere il bordo delle celle della tabella**
-1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/Presentation).
-2. Ottieni il riferimento a una diapositiva tramite il suo indice. 
-3. Definisci un array di colonne con larghezza.
-4. Definisci un array di righe con altezza.
-5. Aggiungi una tabella alla diapositiva mediante il metodo [addTable](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/ShapeCollection#addTable-float-float-double:A-double:A-).
-6. Itera su ogni cella per cancellare i bordi superiore, inferiore, destro e sinistro.
-7. Salva la presentazione modificata come file PPTX.
+## **Rimuovere i bordi delle celle della tabella**
 
-Questo codice JavaScript mostra come rimuovere i bordi dalle celle di una tabella:
+Creare una [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) e aggiungere una tabella alla sua prima diapositiva con [addTable](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/addtable/). Le larghezze delle colonne, le altezze delle righe e la posizione della tabella sono specificate in punti. L'esempio imposta tutti e quattro i bordi della cella su [FillType.NoFill](https://reference.aspose.com/slides/nodejs-java/aspose.slides/filltype/), rendendoli invisibili.
 
 ```javascript
-// Istanzia la classe Presentation che rappresenta un file PPTX
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // Accede alla prima diapositiva
-    var sld = pres.getSlides().get_Item(0);
-    // Definisce le colonne con larghezze e le righe con altezze
-    var dblCols = java.newArray("double", [50, 50, 50, 50]);
-    var dblRows = java.newArray("double", [50, 30, 30, 30, 30]);
-    // Aggiunge la forma tabella alla diapositiva
-    var tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
-    // Imposta il formato del bordo per ogni cella
-    for (let i = 0; i < tbl.getRows().size(); i++) {
-        const row = tbl.getRows().get_Item(i);
-        for (let j = 0; j < row.size(); j++) {
-            const cell = row.get_Item(j);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const columnWidths = java.newArray("double", [50, 50, 50, 50]);
+    const rowHeights = java.newArray("double", [50, 30, 30, 30, 30]);
+    const table = slide.getShapes().addTable(100, 50, columnWidths, rowHeights);
+
+    for (let rowIndex = 0; rowIndex < table.getRows().size(); rowIndex++) {
+        const row = table.getRows().get_Item(rowIndex);
+        for (let columnIndex = 0; columnIndex < row.size(); columnIndex++) {
+            const cell = row.get_Item(columnIndex);
             cell.getCellFormat().getBorderTop().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
             cell.getCellFormat().getBorderBottom().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
             cell.getCellFormat().getBorderLeft().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
             cell.getCellFormat().getBorderRight().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
         }
     }
-    // Scrive il PPTX su disco
-    pres.save("table_out.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("table.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Numerazione nelle celle unite**
-Se uniamo 2 coppie di celle (1, 1) × (2, 1) e (1, 2) × (2, 2), la tabella risultante sarà numerata. Questo codice JavaScript dimostra il processo:
+## **Unire le celle della tabella**
+
+Usare [mergeCells](https://reference.aspose.com/slides/nodejs-java/aspose.slides/table/mergecells/) per combinare un intervallo rettangolare di celle della tabella in una singola cella. Specificare le celle negli angoli superiore sinistro e inferiore destro dell'intervallo. L'ultimo argomento controlla se l'unione possa includere celle al di fuori dell'intervallo specificato; `false` mantiene l'unione all'interno di quell'intervallo.
+
+L'esempio crea una tabella 4x4 con colonne e righe da 70 punti, quindi unisce le quattro celle centrali da `(1, 1)` a `(2, 2)`. La cella risultante occupa due colonne e due righe, mentre la griglia sottostante della tabella mantiene quattro colonne e quattro righe. Per accedere al contenuto o alla formattazione della cella unita, utilizzare la sua posizione superiore sinistra: `table.get_Item(1, 1)` in questo esempio. Le altre posizioni nell'intervallo unito rimangono parte della griglia della tabella, quindi gli indici delle celle al di fuori dell'intervallo non cambiano.
 
 ```javascript
-// Istanzia la classe Presentation che rappresenta un file PPTX
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // Accede alla prima diapositiva
-    var sld = pres.getSlides().get_Item(0);
-    // Definisce le colonne con larghezze e le righe con altezze
-    var dblCols = java.newArray("double", [70, 70, 70, 70]);
-    var dblRows = java.newArray("double", [70, 70, 70, 70]);
-    // Aggiunge una forma tabella alla diapositiva
-    var tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
-    // Imposta il formato del bordo per ogni cella
-    for (let i = 0; i < tbl.getRows().size(); i++) {
-        const row = tbl.getRows().get_Item(i);
-        for (let j = 0; j < row.size(); j++) {
-            const cell = row.get_Item(j);
-            cell.getCellFormat().getBorderTop().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-            cell.getCellFormat().getBorderTop().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-            cell.getCellFormat().getBorderTop().setWidth(5);
-            cell.getCellFormat().getBorderBottom().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-            cell.getCellFormat().getBorderBottom().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-            cell.getCellFormat().getBorderBottom().setWidth(5);
-            cell.getCellFormat().getBorderLeft().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-            cell.getCellFormat().getBorderLeft().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-            cell.getCellFormat().getBorderLeft().setWidth(5);
-            cell.getCellFormat().getBorderRight().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-            cell.getCellFormat().getBorderRight().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-            cell.getCellFormat().getBorderRight().setWidth(5);
-        }
-    }
-    // Unisce le celle (1, 1) x (2, 1)
-    tbl.mergeCells(tbl.get_Item(1, 1), tbl.get_Item(2, 1), false);
-    // Unisce le celle (1, 2) x (2, 2)
-    tbl.mergeCells(tbl.get_Item(1, 2), tbl.get_Item(2, 2), false);
-    pres.save("MergeCells_out.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const columnWidths = java.newArray("double", [70, 70, 70, 70]);
+    const rowHeights = java.newArray("double", [70, 70, 70, 70]);
+    const table = slide.getShapes().addTable(100, 50, columnWidths, rowHeights);
+
+    table.mergeCells(table.get_Item(1, 1), table.get_Item(2, 2), false);
+
+    presentation.save("merged_cells.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-Successivamente uniamo ulteriormente le celle unendo (1, 1) e (1, 2). Il risultato è una tabella contenente una grande cella unita al centro:
+## **Dividere le celle della tabella**
+
+Unire le celle nell'esempio precedente conserva la griglia della tabella. Dividere una cella può introdurre una nuova colonna nella griglia e modificare gli indici di colonna delle celle alla sua destra. Aspose.Slides segue il modello di griglia delle tabelle di PowerPoint.
+
+Questo esempio crea una tabella 4x4 con colonne e righe da 70 punti e chiama [splitByWidth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/splitbywidth/) sulla cella `(1, 1)`. Metà della larghezza di 70 punti della cella viene passata per creare due celle di larghezza uguale.
+
+Dopo questa divisione, le due metà sono accessibili come `table.get_Item(1, 1)` e `table.get_Item(2, 1)`. La griglia della tabella ora ha cinque colonne: le celle originariamente nelle colonne 2 e 3 si spostano rispettivamente alle colonne 3 e 4. Gli indici delle righe rimangono invariati. Utilizzare questi indici di colonna aggiornati quando si accede alle celle dopo la divisione.
 
 ```javascript
-// Istanzia la classe Presentation che rappresenta un file PPTX
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // Accede alla prima diapositiva
-    var sld = pres.getSlides().get_Item(0);
-    // Definisce le colonne con larghezze e le righe con altezze
-    var dblCols = java.newArray("double", [70, 70, 70, 70]);
-    var dblRows = java.newArray("double", [70, 70, 70, 70]);
-    // Aggiunge una forma tabella alla diapositiva
-    var tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
-    // Imposta il formato del bordo per ogni cella
-    for (let i = 0; i < tbl.getRows().size(); i++) {
-        const row = tbl.getRows().get_Item(i);
-        for (let j = 0; j < row.size(); j++) {
-            const cell = row.get_Item(j);
-            cell.getCellFormat().getBorderTop().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-            cell.getCellFormat().getBorderTop().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-            cell.getCellFormat().getBorderTop().setWidth(5);
-            cell.getCellFormat().getBorderBottom().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-            cell.getCellFormat().getBorderBottom().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-            cell.getCellFormat().getBorderBottom().setWidth(5);
-            cell.getCellFormat().getBorderLeft().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-            cell.getCellFormat().getBorderLeft().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-            cell.getCellFormat().getBorderLeft().setWidth(5);
-            cell.getCellFormat().getBorderRight().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-            cell.getCellFormat().getBorderRight().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-            cell.getCellFormat().getBorderRight().setWidth(5);
-        }
-    }
-    // Unisce le celle (1, 1) x (2, 1)
-    tbl.mergeCells(tbl.get_Item(1, 1), tbl.get_Item(2, 1), false);
-    // Unisce le celle (1, 2) x (2, 2)
-    tbl.mergeCells(tbl.get_Item(1, 2), tbl.get_Item(2, 2), false);
-    // Unisce le celle (1, 1) x (1, 2)
-    tbl.mergeCells(tbl.get_Item(1, 1), tbl.get_Item(1, 2), true);
-    // Scrive il file PPTX su disco
-    pres.save("MergeCells_out.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const columnWidths = java.newArray("double", [70, 70, 70, 70]);
+    const rowHeights = java.newArray("double", [70, 70, 70, 70]);
+    const table = slide.getShapes().addTable(100, 50, columnWidths, rowHeights);
+
+    table.get_Item(1, 1).splitByWidth(table.get_Item(1, 1).getWidth() / 2);
+
+    presentation.save("split_cells.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Numerazione nelle celle separate**
-Negli esempi precedenti, quando le celle della tabella venivano unite, la numerazione o il sistema numerico nelle altre celle non cambiava.  
+### **Dividi le celle unite per estensione di riga o colonna**
 
-Questa volta prendiamo una tabella normale (una tabella senza celle unite) e poi proviamo a dividere la cella (1,1) per ottenere una tabella speciale. Potresti notare che la numerazione di questa tabella può apparire strana. Tuttavia, è il modo in cui Microsoft PowerPoint numera le celle della tabella e Aspose.Slides fa la stessa cosa.  
+Per preparare le celle modello unite per la popolazione dei dati, utilizzare [splitByRowSpan](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/splitbyrowspan/) per dividere lungo un confine di riga esistente, oppure [splitByColSpan](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/splitbycolspan/) per dividere lungo un confine di colonna.
 
-Questo codice JavaScript dimostra il processo descritto:
+L'argomento `index` conta le righe nella parte superiore o le colonne nella parte sinistra della divisione; è relativo alla regione unita:
+
+- Divisione per riga: `0 < index <` [getRowSpan](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/getrowspan/).
+- Divisione per colonna: `0 < index <` [getColSpan](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/getcolspan/).
+
+L'esempio prevede che una presentazione abbia una tabella come prima forma nella prima diapositiva, con `(1, 2)` e `(1, 3)` uniti verticalmente. Partendo dalla posizione inferiore, utilizza [getFirstColumnIndex](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/getfirstcolumnindex/) e [getFirstRowIndex](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/getfirstrowindex/) per individuare l'origine e verifica entrambe le estensioni. `splitByRowSpan(1)` separa quindi le righe 2 e 3 per i nomi dei prodotti. Per un'unione orizzontale di due colonne, utilizzare invece `splitByColSpan(1)`.
 
 ```javascript
-// Istanzia la classe Presentation che rappresenta un file PPTX
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation("table_template.pptx");
 try {
-    // Accede alla prima diapositiva
-    var sld = pres.getSlides().get_Item(0);
-    // Definisce le colonne con larghezze e le righe con altezze
-    var dblCols = java.newArray("double", [70, 70, 70, 70]);
-    var dblRows = java.newArray("double", [70, 70, 70, 70]);
-    // Aggiunge una forma tabella alla diapositiva
-    var tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
-    // Imposta il formato del bordo per ogni cella
-    for (let i = 0; i < tbl.getRows().size(); i++) {
-        const row = tbl.getRows().get_Item(i);
-        for (let j = 0; j < row.size(); j++) {
-            const cell = row.get_Item(j);
-            cell.getCellFormat().getBorderTop().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-            cell.getCellFormat().getBorderTop().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-            cell.getCellFormat().getBorderTop().setWidth(5);
-            cell.getCellFormat().getBorderBottom().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-            cell.getCellFormat().getBorderBottom().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-            cell.getCellFormat().getBorderBottom().setWidth(5);
-            cell.getCellFormat().getBorderLeft().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-            cell.getCellFormat().getBorderLeft().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-            cell.getCellFormat().getBorderLeft().setWidth(5);
-            cell.getCellFormat().getBorderRight().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-            cell.getCellFormat().getBorderRight().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-            cell.getCellFormat().getBorderRight().setWidth(5);
-        }
+    const slide = presentation.getSlides().get_Item(0);
+    const table = slide.getShapes().get_Item(0);
+
+    const selectedCell = table.get_Item(1, 3);
+    const firstColumnIndex = selectedCell.getFirstColumnIndex();
+    const firstRowIndex = selectedCell.getFirstRowIndex();
+    const mergedCell = table.get_Item(firstColumnIndex, firstRowIndex);
+
+    if (mergedCell.isMergedCell() && mergedCell.getRowSpan() == 2 && mergedCell.getColSpan() == 1) {
+        mergedCell.splitByRowSpan(1);
+
+        // Recupera le celle risultanti dalla tabella dopo la divisione.
+        const upperCell = table.get_Item(firstColumnIndex, firstRowIndex);
+        const lowerCell = table.get_Item(firstColumnIndex, firstRowIndex + 1);
+        console.log("Upper cell merged: " + upperCell.isMergedCell());
+        console.log("Lower cell merged: " + lowerCell.isMergedCell());
+
+        upperCell.getTextFrame().setText("Product A");
+        lowerCell.getTextFrame().setText("Product B");
+
+        presentation.save("split_template.pptx", aspose.slides.SaveFormat.Pptx);
+    } else {
+        console.log("Select a merged region spanning exactly two rows and one column.");
     }
-    // Unisce le celle (1, 1) x (2, 1)
-    tbl.mergeCells(tbl.get_Item(1, 1), tbl.get_Item(2, 1), false);
-    // Unisce le celle (1, 2) x (2, 2)
-    tbl.mergeCells(tbl.get_Item(1, 2), tbl.get_Item(2, 2), false);
-    // Divide la cella (1, 1)
-    tbl.get_Item(1, 1).splitByWidth(tbl.get_Item(2, 1).getWidth() / 2);
-    // Scrive il file PPTX su disco
-    pres.save("SplitCells_out.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Modificare il colore di sfondo di una cella della tabella**
+La griglia della tabella e gli indici delle celle circostanti rimangono invariati. Recuperare le celle risultanti tramite le loro coordinate; in questo caso, entrambe hanno estensioni pari a 1 e [isMergedCell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/ismergedcell/) stampa `false`. Regioni più ampie possono rimanere parzialmente unite dopo una singola divisione.
 
-Questo codice JavaScript mostra come modificare il colore di sfondo di una cella della tabella:
+Il testo originale e la sua formattazione rimangono nella cella superiore (o sinistra); la nuova cella è vuota ma eredita la formattazione della cella come riempimento, bordi e margini. Popolare le celle dopo la divisione e impostare esplicitamente qualsiasi formattazione del testo richiesta.
+
+La presentazione salvata contiene celle separate "Product A" e "Product B" con la formattazione delle celle del modello mantenuta. Vedere il [Riferimento API Cell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/) per i dettagli.
+
+## **Modificare il colore di sfondo della cella della tabella**
+
+Questo esempio crea una tabella con colonne da 150 punti e righe da 50 punti. Utilizza [setFillType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fillformat/setfilltype/) per selezionare un riempimento solido e imposta il colore restituito da [getSolidFillColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fillformat/getsolidfillcolor/) su rosso per la cella `(2, 3)`, nella terza colonna e quarta riga.
 
 ```javascript
-var presentation = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var slide = presentation.getSlides().get_Item(0);
-    var dblCols = java.newArray("double", [150, 150, 150, 150]);
-    var dblRows = java.newArray("double", [50, 50, 50, 50, 50]);
-    // crea una nuova tabella
-    var table = slide.getShapes().addTable(50, 50, dblCols, dblRows);
-    // imposta il colore di sfondo per una cella
-    var cell = table.get_Item(2, 3);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const columnWidths = java.newArray("double", [150, 150, 150, 150]);
+    const rowHeights = java.newArray("double", [50, 50, 50, 50, 50]);
+    const table = slide.getShapes().addTable(50, 50, columnWidths, rowHeights);
+
+    const cell = table.get_Item(2, 3);
     cell.getCellFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     cell.getCellFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
+
     presentation.save("cell_background_color.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (presentation != null) {
-        presentation.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
 ## **Aggiungere un'immagine all'interno di una cella della tabella**
 
-1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/Presentation).
-2. Ottieni il riferimento a una diapositiva tramite il suo indice.
-3. Definisci un array di colonne con larghezza.
-4. Definisci un array di righe con altezza.
-5. Aggiungi una tabella alla diapositiva mediante il metodo [addTable](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/ShapeCollection#addTable-float-float-double:A-double:A-).
-6. Crea un oggetto `Images` per contenere il file immagine.
-7. Aggiungi l'immagine `IImage` all'oggetto `PPImage`.
-8. Imposta il `FillFormat` per la cella della tabella su `Picture`.
-9. Inserisci l'immagine nella prima cella della tabella.
-10. Salva la presentazione modificata come file PPTX
+Posizionare l'immagine di input nella directory di lavoro prima di eseguire questo esempio. Carica l'immagine con [Images.fromFile](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Images#fromFile) e la aggiunge alla collezione di immagini della presentazione con [addImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagecollection/addimage/). Quindi assegna l'immagine al riempimento immagine della cella `(0, 0)`, la prima cella della tabella.
 
-Questo codice JavaScript mostra come inserire un'immagine all'interno di una cella della tabella durante la creazione della tabella:
+[PictureFillMode.Stretch](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillmode/) allunga l'immagine per riempire la cella, il che può modificare il suo rapporto d'aspetto. Le larghezze delle colonne e le altezze delle righe sono in punti. L'immagine caricata viene eliminata in un blocco `finally` dopo essere stata aggiunta alla presentazione.
 
 ```javascript
-// Istanzia la classe Presentation che rappresenta un file PPTX
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // Accede alla prima diapositiva
-    var islide = pres.getSlides().get_Item(0);
-    // Definisce le colonne con larghezze e le righe con altezze
-    var dblCols = java.newArray("double", [150, 150, 150, 150]);
-    var dblRows = java.newArray("double", [100, 100, 100, 100, 90]);
-    // Aggiunge una forma tabella alla diapositiva
-    var tbl = islide.getShapes().addTable(50, 50, dblCols, dblRows);
-    // Crea un oggetto PPImage usando il file immagine
-    var picture;
-    var image = aspose.slides.Images.fromFile("image.jpg");
+    const slide = presentation.getSlides().get_Item(0);
+
+    const columnWidths = java.newArray("double", [150, 150, 150, 150]);
+    const rowHeights = java.newArray("double", [100, 100, 100, 100, 90]);
+    const table = slide.getShapes().addTable(50, 50, columnWidths, rowHeights);
+
+    let ppImage;
+    const image = aspose.slides.Images.fromFile("aspose_logo.jpg");
     try {
-        picture = pres.getImages().addImage(image);
+        ppImage = presentation.getImages().addImage(image);
     } finally {
-        if (image != null) {
-            image.dispose();
-        }
+        image.dispose();
     }
-    // Aggiunge l'immagine alla prima cella della tabella
-    var cellFormat = tbl.get_Item(0, 0).getCellFormat();
-    cellFormat.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Picture));
-    cellFormat.getFillFormat().getPictureFillFormat().setPictureFillMode(aspose.slides.PictureFillMode.Stretch);
-    cellFormat.getFillFormat().getPictureFillFormat().getPicture().setImage(picture);
-    // Salva il file PPTX su disco
-    pres.save("Image_In_TableCell_out.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
+
+    table.get_Item(0, 0).getCellFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Picture));
+    table.get_Item(0, 0).getCellFormat().getFillFormat().getPictureFillFormat().setPictureFillMode(aspose.slides.PictureFillMode.Stretch);
+    table.get_Item(0, 0).getCellFormat().getFillFormat().getPictureFillFormat().getPicture().setImage(ppImage);
+
+    presentation.save("table_cell_with_image.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
 ## **FAQ**
 
-**Posso impostare spessori e stili di linea diversi per i lati di una singola cella?**
+**Posso impostare spessori e stili di linea diversi per i diversi lati di una singola cella?**
 
-Sì. I bordi [superiore](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/cellformat/getbordertop/)/[inferiore](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/cellformat/getborderbottom/)/[sinistro](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/cellformat/getborderleft/)/[destro](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/cellformat/getborderright/) hanno proprietà separate, quindi lo spessore e lo stile di ciascun lato possono differire. Ciò segue logicamente il controllo dei bordi per lato di una cella dimostrato nell'articolo.
+Sì. I bordi [superiore](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cellformat/getbordertop/)/[inferiore](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cellformat/getborderbottom/)/[sinistra](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cellformat/getborderleft/)/[destra](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cellformat/getborderright/) hanno proprietà separate, quindi lo spessore e lo stile di ciascun lato possono differire.
 
-** Cosa succede all'immagine se modifico la dimensione della colonna/riga dopo aver impostato un'immagine come sfondo della cella?**
+**Cosa succede all'immagine se modifico la dimensione della colonna/riga dopo aver impostato un'immagine come sfondo della cella?**
 
-Il comportamento dipende dalla [modalità di riempimento](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/picturefillmode/) (stretch/tile). Con lo stretching, l'immagine si adatta alla nuova cella; con il tiling, le piastrelle vengono ricalcolate. L'articolo descrive le modalità di visualizzazione dell'immagine in una cella.
+Il comportamento dipende dal [fill mode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillmode/) (stretch/tile). Con lo stretching, l'immagine si adatta alla nuova cella; con il tiling, le tessere vengono ricalcolate.
 
-**Posso assegnare un collegamento ipertestuale a tutto il contenuto di una cella?**
+**Posso assegnare un hyperlink a tutto il contenuto di una cella?**
 
-[Iperlink](/slides/it/nodejs-java/manage-hyperlinks/) vengono impostati a livello di porzione di testo all'interno del riquadro di testo della cella oppure a livello dell'intera tabella/forma. In pratica, assegni il collegamento a una porzione o a tutto il testo nella cella.
+[Collegamenti ipertestuali](/slides/it/nodejs-java/manage-hyperlinks/) sono impostati a livello di testo (porzione) all'interno del frame di testo della cella o a livello dell'intera tabella/forma. In pratica, si assegna il collegamento a una porzione o a tutto il testo nella cella.
 
-**Posso impostare font diversi all'interno di una singola cella?**
+**Posso impostare caratteri diversi all'interno di una singola cella?**
 
-Sì. Il riquadro di testo di una cella supporta [segmenti](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/portion/) (run) con formattazione indipendente—famiglia del font, stile, dimensione e colore.
+Sì. Il frame di testo di una cella supporta le [porzioni](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portion/) (run) con formattazione indipendente—famiglia di caratteri, stile, dimensione e colore.

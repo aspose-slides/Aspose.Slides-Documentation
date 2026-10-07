@@ -1,5 +1,5 @@
 ---
-title: 在演示文稿中使用 C++ 管理表格单元格
+title: 使用 C++ 管理演示文稿中的表格单元格
 linktitle: 管理单元格
 type: docs
 weight: 30
@@ -9,355 +9,329 @@ keywords:
 - 合并单元格
 - 删除边框
 - 拆分单元格
-- 单元格中的图片
+- 单元格中的图像
 - 背景颜色
 - PowerPoint
 - 演示文稿
 - C++
 - Aspose.Slides
-description: "使用 Aspose.Slides for C++，轻松管理 PowerPoint 中的表格单元格。快速掌握访问、修改和样式设置，实现无缝幻灯片自动化。"
+description: "使用 C++ 管理 PowerPoint 表格单元格：识别合并单元格、删除边框、拆分单元格，并使用 Aspose.Slides for C++ 设置背景颜色和图像。"
 ---
+## **概述**
 
-## **识别合并单元格**
-1. 创建 [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) 类的实例。  
-2. 从第一张幻灯片获取表格。  
-3. 遍历表格的行和列以查找合并的单元格。  
-4. 找到合并单元格时打印消息。  
+Aspose.Slides 允许您在 PowerPoint 演示文稿中访问和修改表格单元格。本文介绍了如何识别合并的表格单元格、删除单元格边框、在合并或拆分单元格后处理单元格编号、更改单元格的背景颜色以及在表格单元格内添加图像。示例展示了如何创建或打开演示文稿、从幻灯片获取表格、通过单元格属性更新单元格格式，并将修改后的演示文稿保存为 PPTX 文件。
 
-下面的 C++ 代码演示如何在演示文稿中识别合并的表格单元格：  
-``` cpp
-auto pres = System::MakeObject<Presentation>(u"SomePresentationWithTable.pptx");
-auto table = System::AsCast<ITable>(pres->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0));
+Aspose.Slides 使用从零开始的索引，以 `(column, row)` 的顺序访问表格单元格。
 
-// assuming that Slide#0.Shape#0 is a table
-for (int32_t i = 0; i < table->get_Rows()->get_Count(); i++)
+## **识别合并的表格单元格**
+
+该示例打开现有演示文稿，并将第一张幻灯片上的第一个形状作为表格访问。它假设幻灯片和形状存在且该形状是表格。然后遍历所有行和列，并使用[get_IsMergedCell](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_ismergedcell/)来识别合并区域中的单元格。对于每个匹配项，它以`row;column`顺序打印单元格坐标、[get_RowSpan](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_rowspan/)、[get_ColSpan](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_colspan/)，以及区域的起始坐标，[get_FirstRowIndex](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_firstrowindex/) 和 [get_FirstColumnIndex](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_firstcolumnindex/)。
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <DOM/Table/ICell.h>
+#include <system/smart_ptr.h>
+#include <DOM/Table/IRowCollection.h>
+#include <DOM/Table/IColumnCollection.h>
+#include <system/console.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"presentation_with_table.pptx");
+auto slide = presentation->get_Slide(0);
+auto table = ExplicitCast<ITable>(slide->get_Shape(0));
+
+auto rowCount = table->get_Rows()->get_Count();
+for (auto rowIndex = 0; rowIndex < rowCount; rowIndex++)
 {
-    for (int32_t j = 0; j < table->get_Columns()->get_Count(); j++)
+    auto columnCount = table->get_Columns()->get_Count();
+    for (auto columnIndex = 0; columnIndex < columnCount; columnIndex++)
     {
-        auto currentCell = table->get_Rows()->idx_get(i)->idx_get(j);
-        if (currentCell->get_IsMergedCell())
+        auto cell = table->idx_get(columnIndex, rowIndex);
+        if (cell->get_IsMergedCell())
         {
-            Console::WriteLine(String::Format(u"Cell {0};{1} is a part of merged cell with RowSpan={2} and ColSpan={3} starting from Cell {4};{5}.", 
-                i, j, currentCell->get_RowSpan(), currentCell->get_ColSpan(), currentCell->get_FirstRowIndex(), currentCell->get_FirstColumnIndex()));
+            Console::WriteLine(u"Cell {0};{1} belongs to a merged region with RowSpan={2} and ColSpan={3} starting at {4};{5}.", rowIndex, columnIndex, cell->get_RowSpan(), cell->get_ColSpan(), cell->get_FirstRowIndex(), cell->get_FirstColumnIndex());
         }
     }
 }
 ```
 
+## **删除表格单元格边框**
 
-## **移除表格单元格边框**
-1. 创建 [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) 类的实例。  
-2. 通过索引获取幻灯片的引用。  
-3. 定义列宽数组。  
-4. 定义行高数组。  
-5. 通过 `AddTable` 方法向幻灯片添加表格。  
-6. 遍历每个单元格，清除上、下、左、右四边的边框。  
-7. 将修改后的演示文稿保存为 PPTX 文件。  
+创建一个[Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/)并使用[AddTable](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addtable/)在其第一张幻灯片上添加表格。列宽、行高和表格位置均以点为单位指定。示例将所有四条单元格边框设置为[FillType::NoFill](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/)，使其不可见。
 
-下面的 C++ 代码演示如何移除表格单元格的边框：  
-``` cpp
-// 实例化表示 PPTX 文件的 Presentation 类
-auto pres = MakeObject<Presentation>();
-// 访问第一张幻灯片
-auto sld = pres->get_Slides()->idx_get(0);
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <DOM/Table/ICell.h>
+#include <system/smart_ptr.h>
+#include <DOM/FillType.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/Table/ICellFormat.h>
+#include <DOM/Table/IRow.h>
+#include <DOM/Table/IRowCollection.h>
+#include <system/enumerator_adapter.h>
+#include <Export/SaveFormat.h>
+#include <system/array.h>
 
-// 定义列宽和行高
-auto dblCols = MakeArray<double>({ 50, 50, 50, 50 });
-auto dblRows = MakeArray<double>({ 50, 30, 30, 30, 30 });
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-// 向幻灯片添加表格形状
-auto tbl = sld->get_Shapes()->AddTable(100.0f, 50.0f, dblCols, dblRows);
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-// 为每个单元格设置边框格式
-for (const auto& row : System::IterateOver(tbl->get_Rows()))
-{
-    for (const auto& cell : System::IterateOver(row))
+auto columnWidths = MakeArray<double>({50, 50, 50, 50});
+auto rowHeights = MakeArray<double>({50, 30, 30, 30, 30});
+auto table = slide->get_Shapes()->AddTable(100, 50, columnWidths, rowHeights);
+
+for (const auto& row : IterateOver(table->get_Rows()))
+    for (const auto& cell : IterateOver(row))
     {
         cell->get_CellFormat()->get_BorderTop()->get_FillFormat()->set_FillType(FillType::NoFill);
         cell->get_CellFormat()->get_BorderBottom()->get_FillFormat()->set_FillType(FillType::NoFill);
         cell->get_CellFormat()->get_BorderLeft()->get_FillFormat()->set_FillType(FillType::NoFill);
         cell->get_CellFormat()->get_BorderRight()->get_FillFormat()->set_FillType(FillType::NoFill);
     }
-}
 
-// 将 PPTX 文件写入磁盘
-pres->Save(u"table_out.pptx", SaveFormat::Pptx);
+presentation->Save(u"table.pptx", SaveFormat::Pptx);
 ```
 
+## **合并表格单元格**
 
-## **合并单元格中的编号**
-如果我们合并两对单元格 (1,1)×(2,1) 和 (1,2)×(2,2)，得到的表格将会编号。下面的 C# 代码演示了该过程：  
-```c++
-const String outPath = u"../out/MergeCells_out.pptx";
+使用[MergeCells](https://reference.aspose.com/slides/cpp/aspose.slides/itable/mergecells/)将矩形范围的表格单元格合并为一个单元格。指定范围左上角和右下角的单元格。最后一个参数控制合并是否可以包含指定范围之外的单元格；`false` 将合并限制在该范围内。
 
-// Loads the desired the presentation
-SharedPtr<Presentation> pres = MakeObject<Presentation>();
+该示例创建一个 4×4 的表格，列宽和行高均为 70 点，然后将 `(1, 1)` 到 `(2, 2)` 的四个中心单元格合并。结果单元格跨越两列两行，而表格的底层网格仍保留四列四行。要访问合并单元格的内容或格式，在本例中使用其左上位置：`table->idx_get(1, 1)`。合并范围内的其他位置仍然是表格网格的一部分，因此范围之外单元格的索引保持不变。
 
-// Accesses the first slide
-SharedPtr<ISlide> islide = pres->get_Slides()->idx_get(0);
-
-// Defines columns with widths and rows with heights
-System::ArrayPtr<double> dblCols = System::MakeObject<System::Array<double>>(4, 70);
-System::ArrayPtr<double> dblRows = System::MakeObject<System::Array<double>>(4, 70);
-
-// Adds a table shape to the slide
-SharedPtr<ITable> table = islide->get_Shapes()->AddTable(100, 50, dblCols, dblRows);
-
-
-// Sets the border format for each cell
-for (int x = 0; x < table->get_Rows()->get_Count(); x++)
-{
-    SharedPtr<IRow> row = table->get_Rows()->idx_get(x);
-    for (int y = 0; y < row->get_Count(); y++)
-    {
-        SharedPtr<ICell> cell = row->idx_get(y);
-
-        cell->get_BorderTop()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderTop()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderTop()->set_Width(5);
-
-        cell->get_BorderBottom()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderBottom()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderBottom()->set_Width(5);
-
-        cell->get_BorderLeft()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderLeft()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderLeft()->set_Width(5);
-
-        cell->get_BorderRight()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderRight()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderRight()->set_Width(5);
-
-    }
-
-}
-// Merges cells (1, 1) x (2, 1)
-table->MergeCells(table->idx_get(1, 1), table->idx_get(2, 1), false);
-
-// Merges cells (1, 2) x (2, 2)
-table->MergeCells(table->idx_get(1, 2), table->idx_get(2, 2), false);
-
-
-// Saves the PPTX file to Disk
-pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
-```
-
-
-随后我们进一步合并 (1,1) 和 (1,2) 单元格。结果是在表格中心出现一个大型合并单元格：  
-```c++
-// 文档目录的路径。
-const String outPath = u"../out/MergeCells_out.pptx";
-
-// 加载所需的演示文稿
-SharedPtr<Presentation> pres = MakeObject<Presentation>();
-
-// 访问第一张幻灯片
-SharedPtr<ISlide> islide = pres->get_Slides()->idx_get(0);
-
-// 定义列宽和行高
-System::ArrayPtr<double> dblCols = System::MakeObject<System::Array<double>>(4, 70);
-System::ArrayPtr<double> dblRows = System::MakeObject<System::Array<double>>(4, 70);
-
-// 向幻灯片添加表格形状
-SharedPtr<ITable> table = islide->get_Shapes()->AddTable(100, 50, dblCols, dblRows);
-
-
-// 为每个单元格设置边框格式
-for (int x = 0; x < table->get_Rows()->get_Count(); x++)
-{
-    SharedPtr<IRow> row = table->get_Rows()->idx_get(x);
-    for (int y = 0; y < row->get_Count(); y++)
-    {
-        SharedPtr<ICell> cell = row->idx_get(y);
-
-        cell->get_BorderTop()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderTop()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderTop()->set_Width(5);
-
-        cell->get_BorderBottom()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderBottom()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderBottom()->set_Width(5);
-
-        cell->get_BorderLeft()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderLeft()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderLeft()->set_Width(5);
-
-        cell->get_BorderRight()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderRight()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderRight()->set_Width(5);
-
-    }
-
-}
-
-// 合并单元格 (1, 1) x (2, 1)
-table->MergeCells(table->idx_get(1, 1), table->idx_get(2, 1), false);
-
-// 合并单元格 (1, 2) x (2, 2)
-table->MergeCells(table->idx_get(1, 2), table->idx_get(2, 2), false);
-
-
-// 将 PPTX 文件保存到磁盘
-pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
-```
-
-
-## **拆分单元格中的编号**
-在前面的示例中，表格单元格被合并后，其他单元格的编号体系保持不变。
-
-这一次，我们使用一个普通表格（即没有合并单元格的表格），将单元格 (1,1) 拆分，以得到一个特殊的表格。请注意该表格的编号方式，这可能看起来有些奇怪。不过，这正是 Microsoft PowerPoint 对表格单元格进行编号的方式，Aspose.Slides 与其保持一致。
-
-下面的 C++ 代码演示了上述过程：  
-```c++
-// 文档目录的路径。
-const String outPath = u"../out/CellSplit_out.pptx";
-
-// 加载所需的演示文稿
-SharedPtr<Presentation> pres = MakeObject<Presentation>();
-
-// 访问第一张幻灯片
-SharedPtr<ISlide> islide = pres->get_Slides()->idx_get(0);
-
-// 定义列宽和行高
-System::ArrayPtr<double> dblCols = System::MakeObject<System::Array<double>>(4, 70);
-System::ArrayPtr<double> dblRows = System::MakeObject<System::Array<double>>(4, 70);
-
-// 向幻灯片添加表格形状
-SharedPtr<ITable> table = islide->get_Shapes()->AddTable(100, 50, dblCols, dblRows);
-
-
-// 为每个单元格设置边框格式
-for (int x = 0; x < table->get_Rows()->get_Count(); x++)
-{
-    SharedPtr<IRow> row = table->get_Rows()->idx_get(x);
-    for (int y = 0; y < row->get_Count(); y++)
-    {
-        SharedPtr<ICell> cell = row->idx_get(y);
-
-        cell->get_BorderTop()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderTop()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderTop()->set_Width(5);
-
-        cell->get_BorderBottom()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderBottom()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderBottom()->set_Width(5);
-
-        cell->get_BorderLeft()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderLeft()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderLeft()->set_Width(5);
-
-        cell->get_BorderRight()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderRight()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderRight()->set_Width(5);
-
-    }
-
-}
-
-// 合并单元格 (1, 1) x (2, 1)
-table->MergeCells(table->idx_get(1, 1), table->idx_get(2, 1), false);
-
-// 合并单元格 (1, 2) x (2, 2)
-table->MergeCells(table->idx_get(1, 2), table->idx_get(2, 2), false);
-
-// 拆分单元格 (1, 1)。 
-table->idx_get(1, 1)->SplitByWidth(table->idx_get(2, 1)->get_Width() / 2);
-
-// 将 PPTX 文件保存到磁盘
-pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
-```
-
-
-## **更改表格单元格背景颜色**
-
-下面的 C++ 代码演示如何更改表格单元格的背景颜色：  
 ```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <DOM/Table/ICell.h>
+#include <system/smart_ptr.h>
+#include <Export/SaveFormat.h>
+#include <system/array.h>
 
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto columnWidths = MakeArray<double>({70, 70, 70, 70});
+auto rowHeights = MakeArray<double>({70, 70, 70, 70});
+auto table = slide->get_Shapes()->AddTable(100, 50, columnWidths, rowHeights);
+
+table->MergeCells(table->idx_get(1, 1), table->idx_get(2, 2), false);
+
+presentation->Save(u"merged_cells.pptx", SaveFormat::Pptx);
+```
+
+## **拆分表格单元格**
+
+在前面的示例中合并单元格后，表格的网格保持不变。拆分单元格可能会在网格中引入新列，并更改其右侧单元格的列索引。Aspose.Slides 遵循 PowerPoint 的表格网格模型。
+
+此示例创建一个 4×4 的表格，列宽和行高均为 70 点，并对单元格 `(1, 1)` 调用[SplitByWidth](https://reference.aspose.com/slides/cpp/aspose.slides/icell/splitbywidth/)。将单元格 70 点宽度的一半传入，以创建两个等宽单元格。
+
+拆分后，这两个半单元格分别通过 `table->idx_get(1, 1)` 和 `table->idx_get(2, 1)` 访问。表格网格现在有五列：原本位于第 2 列和第 3 列的单元格分别移动到第 3 列和第 4 列。行索引保持不变。拆分后访问单元格时请使用更新后的列索引。
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <DOM/Table/ICell.h>
+#include <system/smart_ptr.h>
+#include <Export/SaveFormat.h>
+#include <system/array.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto columnWidths = MakeArray<double>({70, 70, 70, 70});
+auto rowHeights = MakeArray<double>({70, 70, 70, 70});
+auto table = slide->get_Shapes()->AddTable(100, 50, columnWidths, rowHeights);
+
+table->idx_get(1, 1)->SplitByWidth(table->idx_get(1, 1)->get_Width() / 2);
+
+presentation->Save(u"split_cells.pptx", SaveFormat::Pptx);
+```
+
+### **按行或列跨度拆分合并的单元格**
+
+要为数据填充准备合并的模板单元格，可使用[SplitByRowSpan](https://reference.aspose.com/slides/cpp/aspose.slides/icell/splitbyrowspan/)沿现有行边界拆分，或使用[SplitByColSpan](https://reference.aspose.com/slides/cpp/aspose.slides/icell/splitbycolspan/)沿列边界拆分。
+
+`index` 参数计数的是拆分上部的行数或左侧的列数，相对于合并区域：
+
+- 行拆分：`0 < index <`[get_RowSpan](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_rowspan/)。
+- 列拆分：`0 < index <`[get_ColSpan](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_colspan/)。
+
+示例假设演示文稿的第一张幻灯片的第一个形状是表格，并且 `(1, 2)` 与 `(1, 3)` 垂直合并。从下部位置开始，使用[get_FirstColumnIndex](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_firstcolumnindex/) 和 [get_FirstRowIndex](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_firstrowindex/) 定位起始点并检查两个跨距。`SplitByRowSpan(1)` 将第 2 行和第 3 行分离，用于产品名称。对于水平的两列合并，则使用 `SplitByColSpan(1)`。
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <DOM/Table/ICell.h>
+#include <system/smart_ptr.h>
+#include <DOM/ITextFrame.h>
+#include <system/console.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"table_template.pptx");
+auto slide = presentation->get_Slide(0);
+auto table = ExplicitCast<ITable>(slide->get_Shape(0));
+
+auto selectedCell = table->idx_get(1, 3);
+auto firstColumnIndex = selectedCell->get_FirstColumnIndex();
+auto firstRowIndex = selectedCell->get_FirstRowIndex();
+auto mergedCell = table->idx_get(firstColumnIndex, firstRowIndex);
+
+if (mergedCell->get_IsMergedCell() && mergedCell->get_RowSpan() == 2 && mergedCell->get_ColSpan() == 1)
+{
+    mergedCell->SplitByRowSpan(1);
+
+    // 检索拆分后表格中得到的单元格。
+    auto upperCell = table->idx_get(firstColumnIndex, firstRowIndex);
+    auto lowerCell = table->idx_get(firstColumnIndex, firstRowIndex + 1);
+    Console::WriteLine(u"Upper cell merged: {0}", upperCell->get_IsMergedCell());
+    Console::WriteLine(u"Lower cell merged: {0}", lowerCell->get_IsMergedCell());
+
+    upperCell->get_TextFrame()->set_Text(u"Product A");
+    lowerCell->get_TextFrame()->set_Text(u"Product B");
+
+    presentation->Save(u"split_template.pptx", SaveFormat::Pptx);
+}
+else
+{
+    Console::WriteLine(u"Select a merged region spanning exactly two rows and one column.");
+}
+```
+
+表格网格及其周围的单元格索引保持不变。通过坐标检索得到的单元格均具有跨距 1，且[get_IsMergedCell](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_ismergedcell/)返回 `False`。更大的区域在一次拆分后仍可能部分保留合并状态。
+
+原始文本及其格式仍保留在上（或左）单元格中；新单元格为空，但继承填充、边框和边距等单元格格式。拆分后填写单元格内容，并显式设置任何所需的文本格式。
+
+保存后的演示文稿包含独立的 “Product A” 与 “Product B” 单元格，且保留了模板单元格的格式。有关详细信息，请参阅[Cell API Reference](https://reference.aspose.com/slides/cpp/aspose.slides/cell/)。
+
+## **更改表格单元格背景颜色**
+
+本示例创建一个列宽 150 点、行高 50 点的表格。它使用[set_FillType](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/set_filltype/)选择实色填充，并使用[get_SolidFillColor](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/get_solidfillcolor/)获取填充颜色，将 `(2, 3)`（第 3 列第 4 行）的单元格填充为红色。
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <DOM/Table/ICell.h>
+#include <system/smart_ptr.h>
+#include <DOM/FillType.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/Table/ICellFormat.h>
+#include <drawing/color.h>
+#include <Export/SaveFormat.h>
+#include <system/array.h>
+
 using namespace System::Drawing;
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-auto presentation = System::MakeObject<Presentation>();
-auto slide = presentation->get_Slides()->idx_get(0);
-        
-auto dblCols = System::MakeArray<double>({150, 150, 150, 150});
-auto dblRows = System::MakeArray<double>({50, 50, 50, 50, 50});
-        
-// 创建新表格
-auto table = slide->get_Shapes()->AddTable(50.0f, 50.0f, dblCols, dblRows);
-        
-// 设置单元格的背景颜色
-System::SharedPtr<ICell> cell = table->idx_get(2, 3);
-cell->get_CellFormat()->get_FillFormat()->set_FillType(Aspose::Slides::FillType::Solid);
-cell->get_CellFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        
-presentation->Save(u"cell_background_color.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
+auto columnWidths = MakeArray<double>({150, 150, 150, 150});
+auto rowHeights = MakeArray<double>({50, 50, 50, 50, 50});
+auto table = slide->get_Shapes()->AddTable(50, 50, columnWidths, rowHeights);
+
+auto cell = table->idx_get(2, 3);
+cell->get_CellFormat()->get_FillFormat()->set_FillType(FillType::Solid);
+cell->get_CellFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Red());
+
+presentation->Save(u"cell_background_color.pptx", SaveFormat::Pptx);
 ```
 
+## **在表格单元格内添加图像**
 
-## **在表格单元格中添加图片**
-1. 创建 `Presentation` 类的实例。  
-2. 通过索引获取幻灯片的引用。  
-3. 定义列宽数组。  
-4. 定义行高数组。  
-5. 通过 `AddTable` 方法向幻灯片添加表格。  
-6. 创建 `Bitmap` 对象以保存图片文件。  
-7. 将位图图片添加到 `IPPImage` 对象。  
-8. 将单元格的 `FillFormat` 设置为 `Picture`。  
-9. 将图片添加到表格的第一个单元格。  
-10. 将修改后的演示文稿保存为 PPTX 文件。  
+在运行本示例之前，将输入图像放置在工作目录中。示例使用[Images::FromFile](https://reference.aspose.com/slides/cpp/aspose.slides/images/fromfile/)加载图像，并通过[AddImage](https://reference.aspose.com/slides/cpp/aspose.slides/iimagecollection/addimage/)将其添加到演示文稿的图像集合中。随后将该图像分配给单元格 `(0, 0)`（表格的第一个单元格）的图片填充。
 
-下面的 C# 代码演示在创建表格时如何在表格单元格中放置图片：  
-```c++
-// 文档目录的路径。
-const String outPath = u"../out/Image_In_TableCell_out.pptx";
-const String ImagePath = u"../templates/Tulips.jpg";
+[PictureFillMode::Stretch](https://reference.aspose.com/slides/cpp/aspose.slides/picturefillmode/)会将图像拉伸以填满单元格，可能会改变其宽高比。列宽和行高均以点为单位。加载的图像在添加到演示文稿后即被释放。
 
-// 加载所需的演示文稿
-SharedPtr<Presentation> pres = MakeObject<Presentation>();
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <DOM/Table/ICell.h>
+#include <system/smart_ptr.h>
+#include <DOM/FillType.h>
+#include <DOM/IImageCollection.h>
+#include <IImage.h>
+#include <DOM/IPPImage.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/ISlidesPicture.h>
+#include <DOM/PictureFillMode.h>
+#include <DOM/Table/ICellFormat.h>
+#include <Util/Images.h>
+#include <Export/SaveFormat.h>
+#include <system/array.h>
 
-// 访问第一张幻灯片
-SharedPtr<ISlide> islide = pres->get_Slides()->idx_get(0);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-// 定义列宽和行高
-System::ArrayPtr<double> dblCols = System::MakeObject<System::Array<double>>(4, 150);
-System::ArrayPtr<double> dblRows = System::MakeObject<System::Array<double>>(4, 100);
-System::ArrayPtr<double> total_for_Cat = System::MakeObject<System::Array<double>>(5, 0);
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-// 向幻灯片添加表格形状
-auto tbl = islide->get_Shapes()->AddTable(50, 50, dblCols, dblRows);
+auto columnWidths = MakeArray<double>({150, 150, 150, 150});
+auto rowHeights = MakeArray<double>({100, 100, 100, 100, 90});
+auto table = slide->get_Shapes()->AddTable(50, 50, columnWidths, rowHeights);
 
-// 获取图片
-auto img = Images::FromFile(ImagePath);
+auto image = Images::FromFile(u"aspose_logo.jpg");
+auto ppImage = presentation->get_Images()->AddImage(image);
+image->Dispose();
 
-// 将图片添加到演示文稿的图像集合中
-SharedPtr<IPPImage> imgx = pres->get_Images()->AddImage(img);
+table->idx_get(0, 0)->get_CellFormat()->get_FillFormat()->set_FillType(FillType::Picture);
+table->idx_get(0, 0)->get_CellFormat()->get_FillFormat()->get_PictureFillFormat()->set_PictureFillMode(PictureFillMode::Stretch);
+table->idx_get(0, 0)->get_CellFormat()->get_FillFormat()->get_PictureFillFormat()->get_Picture()->set_Image(ppImage);
 
-// 将图片添加到第一个表格单元格
-tbl->idx_get(0, 0)->get_FillFormat()->set_FillType(FillType::Picture);
-tbl->idx_get(0, 0)->get_FillFormat()->get_PictureFillFormat()->set_PictureFillMode(PictureFillMode::Stretch);
-tbl->idx_get(0, 0)->get_FillFormat()->get_PictureFillFormat()->get_Picture()->set_Image(imgx);
-
-// 将 PPTX 文件保存到磁盘
-pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
+presentation->Save(u"table_cell_with_image.pptx", SaveFormat::Pptx);
 ```
 
+## **常见问题**
 
-## **常见问题解答**
+**我可以为单个单元格的不同边设置不同的线条粗细和样式吗？**
 
-**我可以为单个单元格的不同边设置不同的线粗和样式吗？**
+是的。[上边缘](https://reference.aspose.com/slides/cpp/aspose.slides/cellformat/get_bordertop/)/[下边缘](https://reference.aspose.com/slides/cpp/aspose.slides/cellformat/get_borderbottom/)/[左边缘](https://reference.aspose.com/slides/cpp/aspose.slides/cellformat/get_borderleft/)/[右边缘](https://reference.aspose.com/slides/cpp/aspose.slides/cellformat/get_borderright/)边框各自拥有独立的属性，因此每一侧的粗细和样式可以不同。
 
-可以。上[borderTop](https://reference.aspose.com/slides/cpp/aspose.slides/cellformat/get_bordertop/)、下[borderBottom](https://reference.aspose.com/slides/cpp/aspose.slides/cellformat/get_borderbottom/)、左[borderLeft](https://reference.aspose.com/slides/cpp/aspose.slides/cellformat/get_borderleft/)和右[borderRight](https://reference.aspose.com/slides/cpp/aspose.slides/cellformat/get_borderright/)边框都有独立的属性，因此每一侧的粗细和样式可以不同。这与文章中演示的针对单元格每侧边框的控制逻辑一致。
+**如果在将图片设为单元格背景后更改列/行大小，图像会怎样？**
 
-**如果在将图片设为单元格背景后修改列/行大小，图片会怎样？**
+行为取决于[填充模式](https://reference.aspose.com/slides/cpp/aspose.slides/picturefillmode/)(stretch/tile)。使用拉伸时，图像会根据新的单元格大小进行调整；使用平铺时，会重新计算平铺方式。
 
-行为取决于[填充模式](https://reference.aspose.com/slides/cpp/aspose.slides/picturefillmode/)（stretch/tile）。拉伸模式下，图片会随新单元格大小调整；平铺模式下，平铺会重新计算。文章中提到了单元格内图片的显示模式。
+**我可以为单元格的全部内容分配超链接吗？**
 
-**我能为单元格的所有内容分配超链接吗？**
+[超链接](/slides/zh/cpp/manage-hyperlinks/)是在单元格文本框的文字（段落）级别或整个表格/形状级别上设置的。实际上，您可以将链接分配给段落或单元格中的全部文字。
 
-[超链接](/slides/zh/cpp/manage-hyperlinks/)可以在单元格文本框的文字（portion）层级上设置，也可以在整个表格/形状层级上设置。实际操作中，你可以将链接分配给文字的某一部分或整个单元格的全部文字。
+**我可以在单个单元格内设置不同的字体吗？**
 
-**我可以在单个单元格内使用不同的字体吗？**
-
-可以。单元格的文本框支持[段落](https://reference.aspose.com/slides/cpp/aspose.slides/portion/)（run）拥有独立的格式——包括字体族、样式、大小和颜色。
+可以。单元格的文本框支持[段落](https://reference.aspose.com/slides/cpp/aspose.slides/portion/)（run），每个段落可以拥有独立的字体系列、样式、大小和颜色。

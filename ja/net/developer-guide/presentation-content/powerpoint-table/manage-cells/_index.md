@@ -1,14 +1,14 @@
 ---
-title: ".NET でのプレゼンテーションにおけるテーブルセルの管理"
-linktitle: "セルの管理"
+title: .NET でプレゼンテーションのテーブルセルを管理する
+linktitle: セルの管理
 type: docs
 weight: 30
 url: /ja/net/manage-cells/
 keywords:
 - テーブルセル
-- 結合セル
-- 境界線を削除
-- セルを分割
+- セルの結合
+- 境界線の削除
+- セルの分割
 - セル内の画像
 - 背景色
 - PowerPoint
@@ -16,324 +16,230 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides for .NET を使用して、PowerPoint のテーブルセルを簡単に管理できます。セルへのアクセス、変更、スタイリングを迅速に習得し、シームレスなスライド自動化を実現します。"
+description: "Aspose.Slides for .NET を使用して、C# で PowerPoint のテーブルセルを管理します。結合セルの特定、境界線の削除、セルの分割、背景色や画像の設定が可能です。"
 ---
+## **概要**
 
-## **結合されたテーブルセルの識別**
+Aspose.Slides を使用すると、PowerPoint プレゼンテーション内のテーブルセルにアクセスして変更できます。この記事では、結合されたテーブルセルの識別、セルの枠線の削除、結合または分割後のセル番号の取り扱い、セルの背景色の変更、テーブルセル内への画像の追加方法を解説します。例では、プレゼンテーションの作成またはオープン、スライドからテーブルを取得、セルプロパティを介したセル書式設定の更新、変更されたプレゼンテーションを PPTX ファイルとして保存する手順を示します。
 
-1. [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) クラスのインスタンスを作成します。
-2. 最初のスライドからテーブルを取得します。
-3. テーブルの行と列を反復処理して結合セルを探します。
-4. 結合セルが見つかったときにメッセージを出力します。
+Aspose.Slides は、テーブルセルにゼロベースのインデックスで `(column, row)` の順序でアクセスします。
 
-この C# コードは、プレゼンテーション内で結合されたテーブルセルを識別する方法を示しています:
-```c#
-using (Presentation pres = new Presentation("SomePresentationWithTable.pptx"))
+## **結合されたテーブルセルを識別する**
+
+この例は既存のプレゼンテーションを開き、最初のスライドの最初のシェイプをテーブルとして取得します。スライドとシェイプが存在し、シェイプがテーブルであることを前提としています。その後、すべての行と列を反復し、[IsMergedCell](https://reference.aspose.com/slides/net/aspose.slides/icell/ismergedcell/) を使用して結合領域内のセルを識別します。該当するセルが見つかると、`row;column` の順序でセル座標、[RowSpan](https://reference.aspose.com/slides/net/aspose.slides/icell/rowspan/)、[ColSpan](https://reference.aspose.com/slides/net/aspose.slides/icell/colspan/)、および領域の開始座標である [FirstRowIndex](https://reference.aspose.com/slides/net/aspose.slides/icell/firstrowindex/) と [FirstColumnIndex](https://reference.aspose.com/slides/net/aspose.slides/icell/firstcolumnindex/) を出力します。
+
+```csharp
+using System;
+using Aspose.Slides;
+
+using var presentation = new Presentation("presentation_with_table.pptx");
+var slide = presentation.Slides[0];
+var table = (ITable) slide.Shapes[0];
+
+var rowCount = table.Rows.Count;
+for (var rowIndex = 0; rowIndex < rowCount; rowIndex++)
 {
-    ITable table = pres.Slides[0].Shapes[0] as ITable; // Slide#0.Shape#0 がテーブルであると想定しています
-    for (int i = 0; i < table.Rows.Count; i++)
+    var columnCount = table.Columns.Count;
+    for (var columnIndex = 0; columnIndex < columnCount; columnIndex++)
     {
-        for (int j = 0; j < table.Columns.Count; j++)
+        var cell = table[columnIndex, rowIndex];
+        if (cell.IsMergedCell)
         {
-            ICell currentCell = table.Rows[i][j];
-            if (currentCell.IsMergedCell)
-            {
-                Console.WriteLine(string.Format("Cell {0};{1} is a part of merged cell with RowSpan={2} and ColSpan={3} starting from Cell {4};{5}.",
-                                  i, j, currentCell.RowSpan, currentCell.ColSpan, currentCell.FirstRowIndex, currentCell.FirstColumnIndex));
-
-
-            }
+            Console.WriteLine($"Cell {rowIndex};{columnIndex} belongs to a merged region with RowSpan={cell.RowSpan} and ColSpan={cell.ColSpan} starting at {cell.FirstRowIndex};{cell.FirstColumnIndex}.");
         }
     }
 }
 ```
-
 
 ## **テーブルセルの枠線を削除する**
-1. `Presentation` クラスのインスタンスを作成します。
-2. インデックスを使用してスライドの参照を取得します。
-3. 幅を指定した列の配列を定義します。
-4. 高さを指定した行の配列を定義します。
-5. `AddTable` メソッドを使用してスライドにテーブルを追加します。
-6. すべてのセルを反復処理し、上、下、右、左の枠線をクリアします。
-7. 変更されたプレゼンテーションを PPTX ファイルとして保存します。
 
-この C# コードは、テーブルセルの枠線を削除する方法を示しています:
-```c#
-// PPTX ファイルを表す Presentation クラスのインスタンスを作成します
-using (Presentation pres = new Presentation())
-{
-   // 最初のスライドにアクセスします
-    Slide sld = (Slide)pres.Slides[0];
+[Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) を作成し、[AddTable](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addtable/) を使用して最初のスライドにテーブルを追加します。列幅、行高さ、テーブル位置はポイントで指定します。この例では、4 つのセル枠線すべてを [FillType.NoFill](https://reference.aspose.com/slides/net/aspose.slides/filltype/) に設定し、枠線を非表示にします。
 
-    // 列の幅と行の高さを定義します
-    double[] dblCols = { 50, 50, 50, 50 };
-    double[] dblRows = { 50, 30, 30, 30, 30 };
+```csharp
+using Aspose.Slides;
 
-    // スライドにテーブル形状を追加します
-    ITable tbl = sld.Shapes.AddTable(100, 50, dblCols, dblRows);
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    // 各セルの枠線フォーマットを設定します
-    foreach (IRow row in tbl.Rows)
-        foreach (ICell cell in row)
-        {
-            cell.CellFormat.BorderTop.FillFormat.FillType = FillType.NoFill;
-            cell.CellFormat.BorderBottom.FillFormat.FillType = FillType.NoFill;
-            cell.CellFormat.BorderLeft.FillFormat.FillType = FillType.NoFill;
-            cell.CellFormat.BorderRight.FillFormat.FillType = FillType.NoFill;
-        }
+double[] columnWidths = { 50, 50, 50, 50 };
+double[] rowHeights = { 50, 30, 30, 30, 30 };
+var table = slide.Shapes.AddTable(100, 50, columnWidths, rowHeights);
 
-    // PPTX ファイルを書き込みます
-    pres.Save("table_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
-}
-```
-
-
-## **結合セルにおける番号付け**
-2 つのセルペア (1, 1) x (2, 1) と (1, 2) x (2, 2) を結合すると、結果のテーブルに番号が付けられます。この C# コードはそのプロセスを示しています:
-```c#
-// PPTX ファイルを表す Presentation クラスのインスタンスを作成します
-using (Presentation presentation = new Presentation())
-{
-    // 最初のスライドにアクセスします
-    ISlide sld = presentation.Slides[0];
-
-    // 列の幅と行の高さを定義します
-    double[] dblCols = { 70, 70, 70, 70 };
-    double[] dblRows = { 70, 70, 70, 70 };
-
-    // スライドにテーブル形状を追加します
-    ITable tbl = sld.Shapes.AddTable(100, 50, dblCols, dblRows);
-
-    // 各セルの枠線フォーマットを設定します
-    foreach (IRow row in tbl.Rows)
+foreach (var row in table.Rows)
+    foreach (var cell in row)
     {
-        foreach (ICell cell in row)
-        {
-            cell.CellFormat.BorderTop.FillFormat.FillType = FillType.Solid;
-            cell.CellFormat.BorderTop.FillFormat.SolidFillColor.Color = Color.Red;
-            cell.CellFormat.BorderTop.Width = 5;
-
-            cell.CellFormat.BorderBottom.FillFormat.FillType = FillType.Solid;
-            cell.CellFormat.BorderBottom.FillFormat.SolidFillColor.Color = Color.Red;
-            cell.CellFormat.BorderBottom.Width = 5;
-
-            cell.CellFormat.BorderLeft.FillFormat.FillType = FillType.Solid;
-            cell.CellFormat.BorderLeft.FillFormat.SolidFillColor.Color = Color.Red;
-            cell.CellFormat.BorderLeft.Width = 5;
-
-            cell.CellFormat.BorderRight.FillFormat.FillType = FillType.Solid;
-            cell.CellFormat.BorderRight.FillFormat.SolidFillColor.Color = Color.Red;
-            cell.CellFormat.BorderRight.Width = 5;
-        }
+        cell.CellFormat.BorderTop.FillFormat.FillType = FillType.NoFill;
+        cell.CellFormat.BorderBottom.FillFormat.FillType = FillType.NoFill;
+        cell.CellFormat.BorderLeft.FillFormat.FillType = FillType.NoFill;
+        cell.CellFormat.BorderRight.FillFormat.FillType = FillType.NoFill;
     }
 
-    // セル (1, 1) と (2, 1) を結合します
-    tbl.MergeCells(tbl[1, 1], tbl[2, 1], false);
-
-    // セル (1, 2) と (2, 2) を結合します
-    tbl.MergeCells(tbl[1, 2], tbl[2, 2], false);
-
-    presentation.Save("MergeCells_out.pptx", SaveFormat.Pptx);
-}
+presentation.Save("table.pptx", SaveFormat.Pptx);
 ```
 
+## **テーブルセルを結合する**
 
-次に、(1, 1) と (1, 2) を結合してさらにセルを結合します。その結果、中央に大きな結合セルを含むテーブルが得られます: 
-```c#
-// PPTX ファイルを表す Presentation クラスのインスタンスを作成します
-using (Presentation presentation = new Presentation())
+[MergeCells](https://reference.aspose.com/slides/net/aspose.slides/itable/mergecells/) を使用して、矩形領域のテーブルセルを 1 つのセルに結合します。結合範囲の左上と右下のセルを指定します。最後の引数は、指定範囲外のセルを結合に含めるかどうかを制御します。`false` を指定すると、結合は範囲内に留まります。
+
+この例では、列幅・行高さが 70 ポイントの 4×4 テーブルを作成し、`(1, 1)` から `(2, 2)` の 4 つの中心セルを結合します。結果のセルは 2 列と 2 行にまたがりますが、テーブルの基礎グリッドは 4 列 4 行のままです。結合セルの内容や書式にアクセスするには、左上の位置 `table[1, 1]` を使用します。結合範囲内の他の位置はテーブルグリッドの一部であるため、範囲外のセルインデックスは変更されません。
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+double[] columnWidths = { 70, 70, 70, 70 };
+double[] rowHeights = { 70, 70, 70, 70 };
+var table = slide.Shapes.AddTable(100, 50, columnWidths, rowHeights);
+
+table.MergeCells(table[1, 1], table[2, 2], false);
+
+presentation.Save("merged_cells.pptx", SaveFormat.Pptx);
+```
+
+## **テーブルセルを分割する**
+
+前述の例でセルを結合すると、テーブルのグリッドは保持されます。セルを分割すると、新しいグリッド列が追加され、右側のセルの列インデックスが変更されることがあります。Aspose.Slides は PowerPoint のテーブルグリッドモデルに従います。
+
+この例では、列幅・行高さが 70 ポイントの 4×4 テーブルを作成し、セル `(1, 1)` に対して [SplitByWidth](https://reference.aspose.com/slides/net/aspose.slides/icell/splitbywidth/) を呼び出します。セルの幅 70 ポイントの半分を渡して、幅が等しい 2 つのセルを作成します。
+
+分割後、2 つの半分は `table[1, 1]` と `table[2, 1]` としてアクセスできます。テーブルグリッドは現在 5 列になり、元々列 2 と列 3 にあったセルはそれぞれ列 3 と列 4 に移動します。行インデックスは変わりません。分割後にセルにアクセスする際は、更新された列インデックスを使用してください。
+
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+double[] columnWidths = { 70, 70, 70, 70 };
+double[] rowHeights = { 70, 70, 70, 70 };
+var table = slide.Shapes.AddTable(100, 50, columnWidths, rowHeights);
+
+table[1, 1].SplitByWidth(table[1, 1].Width / 2);
+
+presentation.Save("split_cells.pptx", SaveFormat.Pptx);
+```
+
+### **行または列のスパンで結合セルを分割する**
+
+データ入力のために結合テンプレートセルを準備する場合、既存の行境界に沿って分割するには [SplitByRowSpan](https://reference.aspose.com/slides/net/aspose.slides/icell/splitbyrowspan/) を、列境界に沿って分割するには [SplitByColSpan](https://reference.aspose.com/slides/net/aspose.slides/icell/splitbycolspan/) を使用します。
+
+`index` 引数は、分割の上部部分の行または左側部分の列をカウントし、結合領域に対して相対的です：
+
+- Row split: `0 < index <` [RowSpan](https://reference.aspose.com/slides/net/aspose.slides/icell/rowspan/)。
+- Column split: `0 < index <` [ColSpan](https://reference.aspose.com/slides/net/aspose.slides/icell/colspan/)。
+
+この例は、最初のスライドの最初のシェイプがテーブルであり、`(1, 2)` と `(1, 3)` が縦に結合されていることを前提としています。下側の位置から開始し、[FirstColumnIndex](https://reference.aspose.com/slides/net/aspose.slides/icell/firstcolumnindex/) と [FirstRowIndex](https://reference.aspose.com/slides/net/aspose.slides/icell/firstrowindex/) を使用して起点を特定し、両方のスパンを確認します。`SplitByRowSpan(1)` は製品名用に行 2 と行 3 を分離します。横方向の 2 列結合の場合は、代わりに `SplitByColSpan(1)` を使用します。
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("table_template.pptx");
+var slide = presentation.Slides[0];
+var table = (ITable) slide.Shapes[0];
+
+var selectedCell = table[1, 3];
+var firstColumnIndex = selectedCell.FirstColumnIndex;
+var firstRowIndex = selectedCell.FirstRowIndex;
+var mergedCell = table[firstColumnIndex, firstRowIndex];
+
+if (mergedCell.IsMergedCell && mergedCell.RowSpan == 2 && mergedCell.ColSpan == 1)
 {
-    // 最初のスライドにアクセスします
-    ISlide slide = presentation.Slides[0];
+    mergedCell.SplitByRowSpan(1);
 
-    // 列の幅と行の高さを定義します
-    double[] dblCols = { 70, 70, 70, 70 };
-    double[] dblRows = { 70, 70, 70, 70 };
+    // 分割後にテーブルから得られるセルを取得します。
+    var upperCell = table[firstColumnIndex, firstRowIndex];
+    var lowerCell = table[firstColumnIndex, firstRowIndex + 1];
+    Console.WriteLine($"Upper cell merged: {upperCell.IsMergedCell}");
+    Console.WriteLine($"Lower cell merged: {lowerCell.IsMergedCell}");
 
-    // スライドにテーブル形状を追加します
-    ITable table = slide.Shapes.AddTable(100, 50, dblCols, dblRows);
+    upperCell.TextFrame.Text = "Product A";
+    lowerCell.TextFrame.Text = "Product B";
 
-    // 各セルの枠線フォーマットを設定します
-    foreach (IRow row in table.Rows)
-    {
-        foreach (ICell cell in row)
-        {
-            cell.CellFormat.BorderTop.FillFormat.FillType = FillType.Solid;
-            cell.CellFormat.BorderTop.FillFormat.SolidFillColor.Color = Color.Red;
-            cell.CellFormat.BorderTop.Width = 5;
-
-            cell.CellFormat.BorderBottom.FillFormat.FillType = FillType.Solid;
-            cell.CellFormat.BorderBottom.FillFormat.SolidFillColor.Color = Color.Red;
-            cell.CellFormat.BorderBottom.Width = 5;
-
-            cell.CellFormat.BorderLeft.FillFormat.FillType = FillType.Solid;
-            cell.CellFormat.BorderLeft.FillFormat.SolidFillColor.Color = Color.Red;
-            cell.CellFormat.BorderLeft.Width = 5;
-
-            cell.CellFormat.BorderRight.FillFormat.FillType = FillType.Solid;
-            cell.CellFormat.BorderRight.FillFormat.SolidFillColor.Color = Color.Red;
-            cell.CellFormat.BorderRight.Width = 5;
-
-        }
-    }
-
-    // セル (1, 1) と (2, 1) を結合します
-    table.MergeCells(table[1, 1], table[2, 1], false);
-
-    // セル (1, 2) と (2, 2) を結合します
-    table.MergeCells(table[1, 2], table[2, 2], false);
-
-    // セル (1, 1) と (1, 2) を結合します
-    table.MergeCells(table[1, 1], table[1, 2], true);
-
-    // PPTX ファイルを書き込みます
-    presentation.Save("MergeCells1_out.pptx", SaveFormat.Pptx);
+    presentation.Save("split_template.pptx", SaveFormat.Pptx);
 }
-```
-
-
-## **分割セルにおける番号付け**
-前の例では、テーブルセルが結合されたとき、他のセルの番号付けや番号体系は変わりませんでした。
-
-今回は、結合セルのない通常のテーブルを使用し、セル (1,1) を分割して特別なテーブルを作成します。このテーブルの番号付けは奇妙に見えるかもしれませんが、これは Microsoft PowerPoint がテーブルセルに付与する番号付けの方式であり、Aspose.Slides も同様です。
-
-この C# コードは、上記の手順を示しています:
-```c#
-// PPTX ファイルを表す Presentation クラスのインスタンスを作成します
-using (Presentation presentation = new Presentation())
+else
 {
-    // 最初のスライドにアクセスします
-    ISlide slide = presentation.Slides[0];
-
-    // 列の幅と行の高さを定義します
-    double[] dblCols = { 70, 70, 70, 70 };
-    double[] dblRows = { 70, 70, 70, 70 };
-
-    // スライドにテーブル形状を追加します
-    ITable table = slide.Shapes.AddTable(100, 50, dblCols, dblRows);
-
-    // 各セルの枠線フォーマットを設定します
-    foreach (IRow row in table.Rows)
-    {
-        foreach (ICell cell in row)
-        {
-            cell.CellFormat.BorderTop.FillFormat.FillType = FillType.Solid;
-            cell.CellFormat.BorderTop.FillFormat.SolidFillColor.Color = Color.Red;
-            cell.CellFormat.BorderTop.Width = 5;
-
-            cell.CellFormat.BorderBottom.FillFormat.FillType = FillType.Solid;
-            cell.CellFormat.BorderBottom.FillFormat.SolidFillColor.Color = Color.Red;
-            cell.CellFormat.BorderBottom.Width = 5;
-
-            cell.CellFormat.BorderLeft.FillFormat.FillType = FillType.Solid;
-            cell.CellFormat.BorderLeft.FillFormat.SolidFillColor.Color = Color.Red;
-            cell.CellFormat.BorderLeft.Width = 5;
-
-            cell.CellFormat.BorderRight.FillFormat.FillType = FillType.Solid;
-            cell.CellFormat.BorderRight.FillFormat.SolidFillColor.Color = Color.Red;
-            cell.CellFormat.BorderRight.Width = 5;
-
-        }
-    }
-
-    // セル (1, 1) と (2, 1) を結合します
-    table.MergeCells(table[1, 1], table[2, 1], false);
-
-    // セル (1, 2) と (2, 2) を結合します
-    table.MergeCells(table[1, 2], table[2, 2], false);
-
-    // セル (1, 1) を分割します。 
-    table[1, 1].SplitByWidth(table[2, 1].Width / 2);
-
-    // PPTX ファイルを書き込みます
-    presentation.Save("CellSplit_out.pptx", SaveFormat.Pptx);
+    Console.WriteLine("Select a merged region spanning exactly two rows and one column.");
 }
 ```
 
+テーブルグリッドと周囲のセルインデックスは変更されません。結果のセルは座標で取得できます。ここでは両方ともスパンが 1 であり、[IsMergedCell](https://reference.aspose.com/slides/net/aspose.slides/icell/ismergedcell/) は `False` を返します。1 回の分割後も、より大きな領域は部分的に結合されたままにすることができます。
+
+元のテキストと書式は上部（または左側）のセルに残り、新しいセルは空ですが、塗りつぶし、枠線、余白などのセル書式を継承します。分割後にセルにテキストを入力し、必要なテキスト書式を明示的に設定してください。
+
+保存されたプレゼンテーションには、テンプレートのセル書式が保持されたまま「Product A」および「Product B」セルが個別に存在します。詳細は [Cell API Reference](https://reference.aspose.com/slides/net/aspose.slides/cell/) を参照してください。
 
 ## **テーブルセルの背景色を変更する**
 
-この C# コードは、テーブルセルの背景色を変更する方法を示しています:
-```c#
-using (Presentation presentation = new Presentation())
-{
-    ISlide slide = presentation.Slides[0];
+この例では、列幅 150 ポイント、行高さ 50 ポイントのテーブルを作成します。セル `(2, 3)`（3 列目・4 行目）に対して、[FillType](https://reference.aspose.com/slides/net/aspose.slides/ifillformat/filltype/) を solid に、[SolidFillColor](https://reference.aspose.com/slides/net/aspose.slides/ifillformat/solidfillcolor/) を赤に設定します。
 
-    double[] dblCols = { 150, 150, 150, 150 };
-    double[] dblRows = { 50, 50, 50, 50, 50 };
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-    // 新しいテーブルを作成します
-    ITable table = slide.Shapes.AddTable(50, 50, dblCols, dblRows);
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    // セルの背景色を設定します
-    ICell cell = table[2, 3];
-    cell.CellFormat.FillFormat.FillType = FillType.Solid;
-    cell.CellFormat.FillFormat.SolidFillColor.Color = Color.Red;
+double[] columnWidths = { 150, 150, 150, 150 };
+double[] rowHeights = { 50, 50, 50, 50, 50 };
+var table = slide.Shapes.AddTable(50, 50, columnWidths, rowHeights);
 
-    presentation.Save("cell_background_color.pptx", SaveFormat.Pptx);
-}
+var cell = table[2, 3];
+cell.CellFormat.FillFormat.FillType = FillType.Solid;
+cell.CellFormat.FillFormat.SolidFillColor.Color = Color.Red;
+
+presentation.Save("cell_background_color.pptx", SaveFormat.Pptx);
 ```
-
 
 ## **テーブルセル内に画像を追加する**
 
-1. `Presentation` クラスのインスタンスを作成します。
-2. インデックスを使用してスライドの参照を取得します。
-3. 幅を指定した列の配列を定義します。
-4. 高さを指定した行の配列を定義します。
-5. `AddTable` メソッドを使用してスライドにテーブルを追加します。
-6. `Bitmap` オブジェクトを作成して画像ファイルを保持します。
-7. `IPPImage` オブジェクトにビットマップ画像を追加します。
-8. テーブルセルの `FillFormat` を `Picture` に設定します。
-9. 画像をテーブルの最初のセルに追加します。
-10. 変更されたプレゼンテーションを PPTX ファイルとして保存します。
+このサンプルを実行する前に、入力画像を作業ディレクトリに配置してください。画像は [Images.FromFile](https://reference.aspose.com/slides/net/aspose.slides/images/fromfile/) で読み込み、[AddImage](https://reference.aspose.com/slides/net/aspose.slides/iimagecollection/addimage/) を使用してプレゼンテーションの画像コレクションに追加します。その後、画像をテーブルの最初のセル `(0, 0)` のピクチャーフィルとして割り当てます。
 
-この C# コードは、テーブル作成時にテーブルセル内に画像を配置する方法を示しています:
-```c#
-// PPTX ファイルを表す Presentation クラスのインスタンスを作成します
-using (Presentation presentation = new Presentation())
-{
-    // 最初のスライドにアクセスします
-    ISlide slide = presentation.Slides[0];
+[PictureFillMode.Stretch](https://reference.aspose.com/slides/net/aspose.slides/picturefillmode/) は画像をセル全体に伸ばすので、アスペクト比が変わる可能性があります。列幅と行高さはポイント単位です。読み込んだ画像は using 宣言により自動的に破棄されます。
 
-    // 列の幅と行の高さを定義します
-    double[] dblCols = { 150, 150, 150, 150 };
-    double[] dblRows = { 100, 100, 100, 100, 90 };
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-    // スライドにテーブル形状を追加します
-    ITable table = slide.Shapes.AddTable(50, 50, dblCols, dblRows);
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    // ファイルから画像を読み込み、プレゼンテーションのリソースに追加します
-    IImage image = Images.FromFile("aspose-logo.jpg");
-    IPPImage ppImage = presentation.Images.AddImage(image);
-    image.Dispose();
+double[] columnWidths = { 150, 150, 150, 150 };
+double[] rowHeights = { 100, 100, 100, 100, 90 };
+var table = slide.Shapes.AddTable(50, 50, columnWidths, rowHeights);
 
-    // 画像を最初のテーブルセルに追加します
-    table[0, 0].CellFormat.FillFormat.FillType = FillType.Picture;
-    table[0, 0].CellFormat.FillFormat.PictureFillFormat.PictureFillMode = PictureFillMode.Stretch;
-    table[0, 0].CellFormat.FillFormat.PictureFillFormat.Picture.Image = ppImage;
+using var image = Images.FromFile("aspose_logo.jpg");
+var ppImage = presentation.Images.AddImage(image);
 
-    // PPTX ファイルをディスクに保存します
-    presentation.Save("Image_In_TableCell_out.pptx", SaveFormat.Pptx);
-}
+table[0, 0].CellFormat.FillFormat.FillType = FillType.Picture;
+table[0, 0].CellFormat.FillFormat.PictureFillFormat.PictureFillMode = PictureFillMode.Stretch;
+table[0, 0].CellFormat.FillFormat.PictureFillFormat.Picture.Image = ppImage;
+
+presentation.Save("table_cell_with_image.pptx", SaveFormat.Pptx);
 ```
-
 
 ## **FAQ**
 
-**単一セルの各辺に異なる線の太さやスタイルを設定できますか？**
+**単一のセルの各側面に対して異なる線の太さやスタイルを設定できますか？**
 
-はい。 [top](https://reference.aspose.com/slides/net/aspose.slides/cellformat/bordertop/)/[bottom](https://reference.aspose.com/slides/net/aspose.slides/cellformat/borderbottom/)/[left](https://reference.aspose.com/slides/net/aspose.slides/cellformat/borderleft/)/[right](https://reference.aspose.com/slides/net/aspose.slides/cellformat/borderright/) の枠線は個別のプロパティを持つため、各辺の太さやスタイルを別々に設定できます。これは、セルの各辺の枠線制御がこの記事で示されている論理的な流れに従っています。
+はい。[top](https://reference.aspose.com/slides/net/aspose.slides/cellformat/bordertop/)/[bottom](https://reference.aspose.com/slides/net/aspose.slides/cellformat/borderbottom/)/[left](https://reference.aspose.com/slides/net/aspose.slides/cellformat/borderleft/)/[right](https://reference.aspose.com/slides/net/aspose.slides/cellformat/borderright/) の枠線は個別のプロパティを持つため、各側面の太さやスタイルを異なる設定にできます。
 
-**画像をセルの背景として設定した後に列/行のサイズを変更すると画像はどうなりますか？**
+**セルの背景に画像を設定した後、列/行サイズを変更すると画像はどうなりますか？**
 
-動作は [fill mode](https://reference.aspose.com/slides/net/aspose.slides/picturefillmode/)（stretch/​tile）に依存します。ストレッチの場合、画像は新しいセルに合わせて調整されます。タイルの場合、タイルは再計算されます。この記事ではセル内の画像表示モードについて言及しています。
+動作は [fill mode](https://reference.aspose.com/slides/net/aspose.slides/picturefillmode/)（stretch/​tile）に依存します。stretch を使用すると、画像は新しいセルサイズに合わせて調整されます。tile を使用すると、タイルが再計算されます。
 
-**セル内のすべてのコンテンツにハイパーリンクを割り当てられますか？**
+**セル内のすべてのコンテンツにハイパーリンクを割り当てることはできますか？**
 
-[Hyperlinks](/slides/ja/net/manage-hyperlinks/) はセルのテキストフレーム内のテキスト（部分）レベルまたはテーブル/シェイプ全体レベルで設定されます。実際には、部分またはセル内のすべてのテキストにリンクを割り当てます。
+[Hyperlinks](/slides/ja/net/manage-hyperlinks/) はセルのテキストフレーム内のテキスト（ポーション）レベル、またはテーブル/シェイプ全体のレベルで設定されます。実務では、ポーション単位またはセル内すべてのテキストに対してリンクを設定します。
 
 **単一セル内で異なるフォントを設定できますか？**
 
-はい。セルのテキストフレームは、フォントファミリ、スタイル、サイズ、カラーなどを個別に設定できる [portions](https://reference.aspose.com/slides/net/aspose.slides/portion/)（ラン）をサポートしています。
+はい。セルのテキストフレームは、フォントファミリ、スタイル、サイズ、カラーを個別に指定できる [portions](https://reference.aspose.com/slides/net/aspose.slides/portion/)（ラン）をサポートしています。

@@ -1,5 +1,5 @@
 ---
-title: Zarządzanie komórkami tabel w prezentacjach przy użyciu C++
+title: Zarządzaj komórkami tabel w prezentacjach przy użyciu C++
 linktitle: Zarządzaj komórkami
 type: docs
 weight: 30
@@ -15,353 +15,323 @@ keywords:
 - prezentacja
 - C++
 - Aspose.Slides
-description: "Bezproblemowo zarządzaj komórkami tabel w PowerPoint przy użyciu Aspose.Slides dla C++. Opanuj szybki dostęp, modyfikację i stylizację komórek, aby uzyskać płynną automatyzację slajdów."
+description: "Zarządzaj komórkami tabel PowerPoint w C++: identyfikuj scalone komórki, usuwaj obramowania, dziel komórki oraz ustaw kolory tła i obrazy przy użyciu Aspose.Slides dla C++."
 ---
 ## **Przegląd**
 
-Aspose.Slides umożliwia dostęp i modyfikację komórek tabel w prezentacjach PowerPoint. Ten artykuł wyjaśnia, jak zidentyfikować scalone komórki tabel, usunąć obramowania komórek, pracować z numeracją komórek po scaleniu lub podziale, zmienić kolor tła komórki oraz dodać obraz wewnątrz komórki tabeli. Przykłady pokazują, jak utworzyć lub otworzyć prezentację, pobrać tabelę ze slajdu, zaktualizować formatowanie komórek poprzez ich właściwości oraz zapisać zmodyfikowaną prezentację jako plik PPTX.
+Aspose.Slides pozwala na dostęp i modyfikację komórek tabel w prezentacjach PowerPoint. Ten artykuł wyjaśnia, jak zidentyfikować scalone komórki tabel, usunąć obramowania komórek, pracować z numeracją komórek po scaleniu lub podzieleniu komórek, zmienić tło komórki i dodać obraz wewnątrz komórki tabeli. Przykłady pokazują, jak utworzyć lub otworzyć prezentację, pobrać tabelę ze slajdu, zaktualizować formatowanie komórek poprzez właściwości komórek i zapisać zmodyfikowaną prezentację jako plik PPTX.
 
-## **Identyfikacja scalonej komórki**
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.presentation).
-2. Pobierz tabelę z pierwszego slajdu. 
-3. Przejdź przez wiersze i kolumny tabeli, aby znaleźć scalone komórki.
-4. Wypisz komunikat, gdy zostaną znalezione scalone komórki.
+Aspose.Slides używa indeksów zerowych do dostępu do komórek tabel w kolejności `(column, row)`.
 
-Ten kod C++ pokazuje, jak zidentyfikować scalone komórki tabel w prezentacji:
+## **Zidentyfikuj scaloną komórkę tabeli**
 
-``` cpp
-auto pres = System::MakeObject<Presentation>(u"SomePresentationWithTable.pptx");
-auto table = System::AsCast<ITable>(pres->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0));
+Przykład otwiera istniejącą prezentację i uzyskuje dostęp do pierwszego kształtu na pierwszym slajdzie jako tabeli. Zakłada, że slajd i kształt istnieją oraz że kształt jest tabelą. Następnie iteruje przez wszystkie wiersze i kolumny i używa [get_IsMergedCell](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_ismergedcell/) do identyfikacji komórek w scalonych obszarach. Dla każdego dopasowania wypisuje współrzędne komórki w kolejności `row;column`, [get_RowSpan](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_rowspan/), [get_ColSpan](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_colspan/), oraz początkowe współrzędne regionu, [get_FirstRowIndex](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_firstrowindex/) i [get_FirstColumnIndex](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_firstcolumnindex/).
 
-// zakładając, że Slide#0.Shape#0 jest tabelą
-for (int32_t i = 0; i < table->get_Rows()->get_Count(); i++)
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <DOM/Table/ICell.h>
+#include <system/smart_ptr.h>
+#include <DOM/Table/IRowCollection.h>
+#include <DOM/Table/IColumnCollection.h>
+#include <system/console.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"presentation_with_table.pptx");
+auto slide = presentation->get_Slide(0);
+auto table = ExplicitCast<ITable>(slide->get_Shape(0));
+
+auto rowCount = table->get_Rows()->get_Count();
+for (auto rowIndex = 0; rowIndex < rowCount; rowIndex++)
 {
-    for (int32_t j = 0; j < table->get_Columns()->get_Count(); j++)
+    auto columnCount = table->get_Columns()->get_Count();
+    for (auto columnIndex = 0; columnIndex < columnCount; columnIndex++)
     {
-        auto currentCell = table->get_Rows()->idx_get(i)->idx_get(j);
-        if (currentCell->get_IsMergedCell())
+        auto cell = table->idx_get(columnIndex, rowIndex);
+        if (cell->get_IsMergedCell())
         {
-            Console::WriteLine(String::Format(u"Cell {0};{1} is a part of merged cell with RowSpan={2} and ColSpan={3} starting from Cell {4};{5}.", 
-                i, j, currentCell->get_RowSpan(), currentCell->get_ColSpan(), currentCell->get_FirstRowIndex(), currentCell->get_FirstColumnIndex()));
+            Console::WriteLine(u"Cell {0};{1} belongs to a merged region with RowSpan={2} and ColSpan={3} starting at {4};{5}.", rowIndex, columnIndex, cell->get_RowSpan(), cell->get_ColSpan(), cell->get_FirstRowIndex(), cell->get_FirstColumnIndex());
         }
     }
 }
 ```
 
-## **Usuwanie obramowań komórek tabeli**
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.presentation).
-2. Pobierz odniesienie do slajdu przez jego indeks. 
-3. Zdefiniuj tablicę kolumn z szerokością.
-4. Zdefiniuj tablicę wierszy z wysokością.
-5. Dodaj tabelę do slajdu metodą `AddTable`.
-6. Przejdź przez każdą komórkę, aby usunąć górne, dolne, prawe i lewe obramowanie.
-7. Zapisz zmodyfikowaną prezentację jako plik PPTX.
+## **Usuń obramowania komórek tabeli**
 
-Ten kod C++ pokazuje, jak usunąć obramowania z komórek tabeli:
+Utwórz [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) i dodaj tabelę do jej pierwszego slajdu przy użyciu [AddTable](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addtable/). Szerokości kolumn, wysokości wierszy oraz pozycja tabeli są określone w punktach. Przykład ustawia wszystkie cztery obramowania komórek na [FillType::NoFill](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/), czyniąc je niewidocznymi.
 
-``` cpp
-// Tworzy instancję klasy Presentation reprezentującej plik PPTX
-auto pres = MakeObject<Presentation>();
-// Uzyskuje dostęp do pierwszego slajdu
-auto sld = pres->get_Slides()->idx_get(0);
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <DOM/Table/ICell.h>
+#include <system/smart_ptr.h>
+#include <DOM/FillType.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/Table/ICellFormat.h>
+#include <DOM/Table/IRow.h>
+#include <DOM/Table/IRowCollection.h>
+#include <system/enumerator_adapter.h>
+#include <Export/SaveFormat.h>
+#include <system/array.h>
 
-// Definiuje kolumny o określonych szerokościach i wiersze o określonych wysokościach
-auto dblCols = MakeArray<double>({ 50, 50, 50, 50 });
-auto dblRows = MakeArray<double>({ 50, 30, 30, 30, 30 });
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-// Dodaje kształt tabeli do slajdu
-auto tbl = sld->get_Shapes()->AddTable(100.0f, 50.0f, dblCols, dblRows);
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-// Ustawia format obramowania dla każdej komórki
-for (const auto& row : System::IterateOver(tbl->get_Rows()))
-{
-    for (const auto& cell : System::IterateOver(row))
+auto columnWidths = MakeArray<double>({50, 50, 50, 50});
+auto rowHeights = MakeArray<double>({50, 30, 30, 30, 30});
+auto table = slide->get_Shapes()->AddTable(100, 50, columnWidths, rowHeights);
+
+for (const auto& row : IterateOver(table->get_Rows()))
+    for (const auto& cell : IterateOver(row))
     {
         cell->get_CellFormat()->get_BorderTop()->get_FillFormat()->set_FillType(FillType::NoFill);
         cell->get_CellFormat()->get_BorderBottom()->get_FillFormat()->set_FillType(FillType::NoFill);
         cell->get_CellFormat()->get_BorderLeft()->get_FillFormat()->set_FillType(FillType::NoFill);
         cell->get_CellFormat()->get_BorderRight()->get_FillFormat()->set_FillType(FillType::NoFill);
     }
-}
 
-// Zapisuje plik PPTX na dysku
-pres->Save(u"table_out.pptx", SaveFormat::Pptx);
+presentation->Save(u"table.pptx", SaveFormat::Pptx);
 ```
 
-## **Numeracja w scalonych komórkach**
-Jeśli scalimy 2 pary komórek (1, 1) x (2, 1) i (1, 2) x (2, 2), powstała tabela będzie ponumerowana. Ten kod C# demonstruje ten proces:
+## **Scal komórki tabeli**
 
-```c++
-const String outPath = u"../out/MergeCells_out.pptx";
+Użyj [MergeCells](https://reference.aspose.com/slides/cpp/aspose.slides/itable/mergecells/) , aby połączyć prostokątny zakres komórek tabeli w jedną komórkę. Określ komórki w lewym górnym i prawym dolnym rogu zakresu. Ostatni argument kontroluje, czy scalanie może obejmować komórki poza określonym zakresem; `false` utrzymuje scalanie w ramach tego zakresu.
 
-// Wczytuje żądaną prezentację
-SharedPtr<Presentation> pres = MakeObject<Presentation>();
+Przykład tworzy tabelę 4x4 z kolumnami i wierszami o szerokości 70 punktów, a następnie scala cztery centralne komórki od `(1, 1)` do `(2, 2)`. Powstała komórka zajmuje dwie kolumny i dwa wiersze, podczas gdy podstawowa siatka tabeli zachowuje cztery kolumny i cztery wiersze. Aby uzyskać dostęp do zawartości lub formatowania scalonej komórki, użyj jej pozycji w lewym górnym rogu: `table->idx_get(1, 1)` w tym przykładzie. Pozostałe pozycje w scalonym zakresie pozostają częścią siatki tabeli, więc indeksy komórek poza zakresem nie zmieniają się.
 
-// Uzyskuje dostęp do pierwszego slajdu
-SharedPtr<ISlide> islide = pres->get_Slides()->idx_get(0);
-
-// Definiuje kolumny o określonych szerokościach i wiersze o określonych wysokościach
-System::ArrayPtr<double> dblCols = System::MakeObject<System::Array<double>>(4, 70);
-System::ArrayPtr<double> dblRows = System::MakeObject<System::Array<double>>(4, 70);
-
-// Dodaje kształt tabeli do slajdu
-SharedPtr<ITable> table = islide->get_Shapes()->AddTable(100, 50, dblCols, dblRows);
-
-
-// Ustawia format obramowania dla każdej komórki
-for (int x = 0; x < table->get_Rows()->get_Count(); x++)
-{
-    SharedPtr<IRow> row = table->get_Rows()->idx_get(x);
-    for (int y = 0; y < row->get_Count(); y++)
-    {
-        SharedPtr<ICell> cell = row->idx_get(y);
-
-        cell->get_BorderTop()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderTop()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderTop()->set_Width(5);
-
-        cell->get_BorderBottom()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderBottom()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderBottom()->set_Width(5);
-
-        cell->get_BorderLeft()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderLeft()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderLeft()->set_Width(5);
-
-        cell->get_BorderRight()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderRight()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderRight()->set_Width(5);
-
-    }
-
-}
-// Scala komórki (1, 1) x (2, 1)
-table->MergeCells(table->idx_get(1, 1), table->idx_get(2, 1), false);
-
-// Scala komórki (1, 2) x (2, 2)
-table->MergeCells(table->idx_get(1, 2), table->idx_get(2, 2), false);
-
-
-// Zapisuje plik PPTX na dysku
-pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
-```
-
-Następnie scalamy komórki dalej, scalając (1, 1) i (1, 2). Wynikiem jest tabela zawierająca dużą scaloną komórkę w środku:
-
-```c++
-// Ścieżka do katalogu dokumentów.
-const String outPath = u"../out/MergeCells_out.pptx";
-
-// Wczytuje żądaną prezentację
-SharedPtr<Presentation> pres = MakeObject<Presentation>();
-
-// Uzyskuje dostęp do pierwszego slajdu
-SharedPtr<ISlide> islide = pres->get_Slides()->idx_get(0);
-
-// Definiuje kolumny o określonych szerokościach i wiersze o określonych wysokościach
-System::ArrayPtr<double> dblCols = System::MakeObject<System::Array<double>>(4, 70);
-System::ArrayPtr<double> dblRows = System::MakeObject<System::Array<double>>(4, 70);
-
-// Dodaje kształt tabeli do slajdu
-SharedPtr<ITable> table = islide->get_Shapes()->AddTable(100, 50, dblCols, dblRows);
-
-
-// Ustawia format obramowania dla każdej komórki
-for (int x = 0; x < table->get_Rows()->get_Count(); x++)
-{
-    SharedPtr<IRow> row = table->get_Rows()->idx_get(x);
-    for (int y = 0; y < row->get_Count(); y++)
-    {
-        SharedPtr<ICell> cell = row->idx_get(y);
-
-        cell->get_BorderTop()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderTop()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderTop()->set_Width(5);
-
-        cell->get_BorderBottom()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderBottom()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderBottom()->set_Width(5);
-
-        cell->get_BorderLeft()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderLeft()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderLeft()->set_Width(5);
-
-        cell->get_BorderRight()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderRight()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderRight()->set_Width(5);
-
-    }
-
-}
-
-// Scala komórki (1, 1) x (2, 1)
-table->MergeCells(table->idx_get(1, 1), table->idx_get(2, 1), false);
-
-// Scala komórki (1, 2) x (2, 2)
-table->MergeCells(table->idx_get(1, 2), table->idx_get(2, 2), false);
-
-
-// Zapisuje plik PPTX na dysku
-pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
-```
-
-## **Numeracja w podzielonej komórce**
-W poprzednich przykładach, gdy komórki tabeli były scalane, numeracja w pozostałych komórkach nie ulegała zmianie. 
-
-Tym razem bierzemy zwykłą tabelę (bez scalonych komórek) i dzielimy komórkę (1,1), aby uzyskać specjalną tabelę. Zwróć uwagę na numerację tej tabeli, która może wydawać się nietypowa. Tak jednak numeruje komórki Microsoft PowerPoint, a Aspose.Slides zachowuje się tak samo. 
-
-Ten kod C++ demonstruje opisany proces:
-
-```c++
-// Ścieżka do katalogu dokumentów.
-const String outPath = u"../out/CellSplit_out.pptx";
-
-// Wczytuje żądaną prezentację
-SharedPtr<Presentation> pres = MakeObject<Presentation>();
-
-// Uzyskuje dostęp do pierwszego slajdu
-SharedPtr<ISlide> islide = pres->get_Slides()->idx_get(0);
-
-// Definiuje kolumny o szerokościach i wiersze o wysokościach
-System::ArrayPtr<double> dblCols = System::MakeObject<System::Array<double>>(4, 70);
-System::ArrayPtr<double> dblRows = System::MakeObject<System::Array<double>>(4, 70);
-
-// Dodaje kształt tabeli do slajdu
-SharedPtr<ITable> table = islide->get_Shapes()->AddTable(100, 50, dblCols, dblRows);
-
-
-// Ustawia format obramowania dla każdej komórki
-for (int x = 0; x < table->get_Rows()->get_Count(); x++)
-{
-    SharedPtr<IRow> row = table->get_Rows()->idx_get(x);
-    for (int y = 0; y < row->get_Count(); y++)
-    {
-        SharedPtr<ICell> cell = row->idx_get(y);
-
-        cell->get_BorderTop()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderTop()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderTop()->set_Width(5);
-
-        cell->get_BorderBottom()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderBottom()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderBottom()->set_Width(5);
-
-        cell->get_BorderLeft()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderLeft()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderLeft()->set_Width(5);
-
-        cell->get_BorderRight()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderRight()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderRight()->set_Width(5);
-
-    }
-
-}
-
-// Scala komórki (1, 1) x (2, 1)
-table->MergeCells(table->idx_get(1, 1), table->idx_get(2, 1), false);
-
-// Scala komórki (1, 2) x (2, 2)
-table->MergeCells(table->idx_get(1, 2), table->idx_get(2, 2), false);
-
-// Dzieli komórkę (1, 1). 
-table->idx_get(1, 1)->SplitByWidth(table->idx_get(2, 1)->get_Width() / 2);
-
-// Zapisuje plik PPTX na dysku
-pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
-```
-
-## **Zmiana koloru tła komórki tabeli**
-
-Ten kod C++ pokazuje, jak zmienić kolor tła komórki tabeli:
-
-``` cpp
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <DOM/Table/ICell.h>
+#include <system/smart_ptr.h>
+#include <Export/SaveFormat.h>
+#include <system/array.h>
 
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
-using namespace System::Drawing;
+using namespace System;
 
-auto presentation = System::MakeObject<Presentation>();
-auto slide = presentation->get_Slides()->idx_get(0);
-        
-auto dblCols = System::MakeArray<double>({150, 150, 150, 150});
-auto dblRows = System::MakeArray<double>({50, 50, 50, 50, 50});
-        
-// utwórz nową tabelę
-auto table = slide->get_Shapes()->AddTable(50.0f, 50.0f, dblCols, dblRows);
-        
-// set the background color for a cell 
-System::SharedPtr<ICell> cell = table->idx_get(2, 3);
-cell->get_CellFormat()->get_FillFormat()->set_FillType(Aspose::Slides::FillType::Solid);
-cell->get_CellFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        
-presentation->Save(u"cell_background_color.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
+auto columnWidths = MakeArray<double>({70, 70, 70, 70});
+auto rowHeights = MakeArray<double>({70, 70, 70, 70});
+auto table = slide->get_Shapes()->AddTable(100, 50, columnWidths, rowHeights);
+
+table->MergeCells(table->idx_get(1, 1), table->idx_get(2, 2), false);
+
+presentation->Save(u"merged_cells.pptx", SaveFormat::Pptx);
 ```
 
-## **Dodanie obrazu wewnątrz komórki tabeli**
-1. Utwórz instancję klasy `Presentation`.
-2. Pobierz odniesienie do slajdu przez jego indeks.
-3. Zdefiniuj tablicę kolumn z szerokością.
-4. Zdefiniuj tablicę wierszy z wysokością.
-5. Dodaj tabelę do slajdu metodą `AddTable`. 
-6. Utwórz obiekt `Bitmap`, aby przechować plik obrazu.
-7. Dodaj obraz bitmapowy do obiektu `IPPImage`.
-8. Ustaw `FillFormat` dla komórki tabeli na `Picture`.
-9. Dodaj obraz do pierwszej komórki tabeli.
-10. Zapisz zmodyfikowaną prezentację jako plik PPTX
+## **Podziel komórki tabeli**
 
-Ten kod C# pokazuje, jak umieścić obraz wewnątrz komórki tabeli podczas tworzenia tabeli:
+Scalanie komórek w poprzednim przykładzie zachowuje siatkę tabeli. Podzielenie komórki może wprowadzić nową kolumnę siatki i zmienić indeksy kolumn komórek po jej prawej stronie. Aspose.Slides stosuje się do modelu siatki tabeli PowerPoint.
 
-```c++
-// Ścieżka do katalogu dokumentów.
-const String outPath = u"../out/Image_In_TableCell_out.pptx";
-const String ImagePath = u"../templates/Tulips.jpg";
+Ten przykład tworzy tabelę 4x4 z kolumnami i wierszami o szerokości 70 punktów i wywołuje [SplitByWidth](https://reference.aspose.com/slides/cpp/aspose.slides/icell/splitbywidth/) na komórce `(1, 1)`. Połowa szerokości komórki 70 punktów jest przekazywana, aby utworzyć dwie komórki o równej szerokości.
 
-// Wczytuje żądaną prezentację
-SharedPtr<Presentation> pres = MakeObject<Presentation>();
+Po tym podziale dwie połówki są dostępne jako `table->idx_get(1, 1)` i `table->idx_get(2, 1)`. Siatka tabeli ma teraz pięć kolumn: komórki pierwotnie w kolumnach 2 i 3 przestawiają się do kolumn 3 i 4, odpowiednio. Indeksy wierszy pozostają niezmienione. Używaj tych zaktualizowanych indeksów kolumn przy dostępie do komórek po podziale.
 
-// Uzyskuje dostęp do pierwszego slajdu
-SharedPtr<ISlide> islide = pres->get_Slides()->idx_get(0);
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <DOM/Table/ICell.h>
+#include <system/smart_ptr.h>
+#include <Export/SaveFormat.h>
+#include <system/array.h>
 
-// Definiuje kolumny o szerokościach i wiersze o wysokościach
-System::ArrayPtr<double> dblCols = System::MakeObject<System::Array<double>>(4, 150);
-System::ArrayPtr<double> dblRows = System::MakeObject<System::Array<double>>(4, 100);
-System::ArrayPtr<double> total_for_Cat = System::MakeObject<System::Array<double>>(5, 0);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-// Dodaje kształt tabeli do slajdu
-auto tbl = islide->get_Shapes()->AddTable(50, 50, dblCols, dblRows);
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-// Pobiera obraz
-auto img = Images::FromFile(ImagePath);
+auto columnWidths = MakeArray<double>({70, 70, 70, 70});
+auto rowHeights = MakeArray<double>({70, 70, 70, 70});
+auto table = slide->get_Shapes()->AddTable(100, 50, columnWidths, rowHeights);
 
-// Dodaje obraz do kolekcji obrazów prezentacji
-SharedPtr<IPPImage> imgx = pres->get_Images()->AddImage(img);
+table->idx_get(1, 1)->SplitByWidth(table->idx_get(1, 1)->get_Width() / 2);
 
+presentation->Save(u"split_cells.pptx", SaveFormat::Pptx);
+```
 
-// Dodaje obraz do pierwszej komórki tabeli
-tbl->idx_get(0, 0)->get_FillFormat()->set_FillType(FillType::Picture);
-tbl->idx_get(0, 0)->get_FillFormat()->get_PictureFillFormat()->set_PictureFillMode(PictureFillMode::Stretch);
-tbl->idx_get(0, 0)->get_FillFormat()->get_PictureFillFormat()->get_Picture()->set_Image(imgx);
+### **Podziel scalone komórki według zakresu wiersza lub kolumny**
 
-// Zapisuje plik PPTX na dysku
-pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
+Aby przygotować scalone komórki szablonu do wypełniania danymi, użyj [SplitByRowSpan](https://reference.aspose.com/slides/cpp/aspose.slides/icell/splitbyrowspan/) , aby podzielić wzdłuż istniejącej granicy wiersza, lub [SplitByColSpan](https://reference.aspose.com/slides/cpp/aspose.slides/icell/splitbycolspan/) , aby podzielić wzdłuż granicy kolumny.
+
+Argument `index` liczy wiersze w górnej części lub kolumny w lewej części podziału; jest względny względem scalonego regionu:
+
+- Row split: `0 < index <` [get_RowSpan](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_rowspan/).
+- Column split: `0 < index <` [get_ColSpan](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_colspan/).
+
+Przykład zakłada, że prezentacja ma tabelę jako pierwszy kształt na pierwszym slajdzie, z komórkami `(1, 2)` i `(1, 3)` scalonymi pionowo. Rozpoczynając od niższej pozycji, używa [get_FirstColumnIndex](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_firstcolumnindex/) i [get_FirstRowIndex](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_firstrowindex/), aby zlokalizować początek i sprawdza oba zakresy. `SplitByRowSpan(1)` następnie oddziela wiersze 2 i 3 dla nazw produktów. Dla poziomego scalania dwóch kolumn użyj `SplitByColSpan(1)` zamiast tego.
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <DOM/Table/ICell.h>
+#include <system/smart_ptr.h>
+#include <DOM/ITextFrame.h>
+#include <system/console.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"table_template.pptx");
+auto slide = presentation->get_Slide(0);
+auto table = ExplicitCast<ITable>(slide->get_Shape(0));
+
+auto selectedCell = table->idx_get(1, 3);
+auto firstColumnIndex = selectedCell->get_FirstColumnIndex();
+auto firstRowIndex = selectedCell->get_FirstRowIndex();
+auto mergedCell = table->idx_get(firstColumnIndex, firstRowIndex);
+
+if (mergedCell->get_IsMergedCell() && mergedCell->get_RowSpan() == 2 && mergedCell->get_ColSpan() == 1)
+{
+    mergedCell->SplitByRowSpan(1);
+
+    // Pobierz powstałe komórki z tabeli po podziale.
+    auto upperCell = table->idx_get(firstColumnIndex, firstRowIndex);
+    auto lowerCell = table->idx_get(firstColumnIndex, firstRowIndex + 1);
+    Console::WriteLine(u"Upper cell merged: {0}", upperCell->get_IsMergedCell());
+    Console::WriteLine(u"Lower cell merged: {0}", lowerCell->get_IsMergedCell());
+
+    upperCell->get_TextFrame()->set_Text(u"Product A");
+    lowerCell->get_TextFrame()->set_Text(u"Product B");
+
+    presentation->Save(u"split_template.pptx", SaveFormat::Pptx);
+}
+else
+{
+    Console::WriteLine(u"Select a merged region spanning exactly two rows and one column.");
+}
+```
+
+Siatka tabeli i otaczające indeksy komórek pozostają niezmienione. Pobierz powstałe komórki po ich współrzędnych; tutaj obie mają zakresy równe 1 i [get_IsMergedCell](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_ismergedcell/) wypisuje `False`. Większe regiony mogą pozostać częściowo scalone po jednym podziale.
+
+Oryginalny tekst i jego formatowanie pozostają w górnej (lub lewej) komórce; nowa komórka jest pusta, ale dziedziczy formatowanie komórki, takie jak wypełnienie, obramowania i marginesy. Wypełnij komórki po podziale i ustaw wszelkie wymagane formatowanie tekstu explicite.
+
+Zapisana prezentacja zawiera osobne komórki "Product A" i "Product B" z zachowanym formatowaniem komórek szablonu. Zobacz [Cell API Reference](https://reference.aspose.com/slides/cpp/aspose.slides/cell/) po szczegóły.
+
+## **Zmień kolor tła komórki tabeli**
+
+Ten przykład tworzy tabelę z kolumnami o szerokości 150 punktów i wierszami o wysokości 50 punktów. Używa [set_FillType](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/set_filltype/) , aby wybrać jednolite wypełnienie oraz [get_SolidFillColor](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/get_solidfillcolor/) , aby uzyskać kolor wypełnienia i ustawić go na czerwony dla komórki `(2, 3)`, w trzeciej kolumnie i czwartym wierszu.
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <DOM/Table/ICell.h>
+#include <system/smart_ptr.h>
+#include <DOM/FillType.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/Table/ICellFormat.h>
+#include <drawing/color.h>
+#include <Export/SaveFormat.h>
+#include <system/array.h>
+
+using namespace System::Drawing;
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto columnWidths = MakeArray<double>({150, 150, 150, 150});
+auto rowHeights = MakeArray<double>({50, 50, 50, 50, 50});
+auto table = slide->get_Shapes()->AddTable(50, 50, columnWidths, rowHeights);
+
+auto cell = table->idx_get(2, 3);
+cell->get_CellFormat()->get_FillFormat()->set_FillType(FillType::Solid);
+cell->get_CellFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Red());
+
+presentation->Save(u"cell_background_color.pptx", SaveFormat::Pptx);
+```
+
+## **Dodaj obraz wewnątrz komórki tabeli**
+
+Umieść obraz wejściowy w katalogu roboczym przed uruchomieniem tego przykładu. Ładuje obraz przy użyciu [Images::FromFile](https://reference.aspose.com/slides/cpp/aspose.slides/images/fromfile/) , i dodaje go do kolekcji obrazów prezentacji za pomocą [AddImage](https://reference.aspose.com/slides/cpp/aspose.slides/iimagecollection/addimage/). Następnie przypisuje obraz do wypełnienia obrazu komórki `(0, 0)`, pierwszej komórki w tabeli.
+
+[PictureFillMode::Stretch](https://reference.aspose.com/slides/cpp/aspose.slides/picturefillmode/) rozciąga obraz, aby wypełnić komórkę, co może zmienić jej proporcje. Szerokości kolumn i wysokości wierszy są podane w punktach. Załadowany obraz jest zwalniany po dodaniu go do prezentacji.
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <DOM/Table/ICell.h>
+#include <system/smart_ptr.h>
+#include <DOM/FillType.h>
+#include <DOM/IImageCollection.h>
+#include <IImage.h>
+#include <DOM/IPPImage.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/ISlidesPicture.h>
+#include <DOM/PictureFillMode.h>
+#include <DOM/Table/ICellFormat.h>
+#include <Util/Images.h>
+#include <Export/SaveFormat.h>
+#include <system/array.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto columnWidths = MakeArray<double>({150, 150, 150, 150});
+auto rowHeights = MakeArray<double>({100, 100, 100, 100, 90});
+auto table = slide->get_Shapes()->AddTable(50, 50, columnWidths, rowHeights);
+
+auto image = Images::FromFile(u"aspose_logo.jpg");
+auto ppImage = presentation->get_Images()->AddImage(image);
+image->Dispose();
+
+table->idx_get(0, 0)->get_CellFormat()->get_FillFormat()->set_FillType(FillType::Picture);
+table->idx_get(0, 0)->get_CellFormat()->get_FillFormat()->get_PictureFillFormat()->set_PictureFillMode(PictureFillMode::Stretch);
+table->idx_get(0, 0)->get_CellFormat()->get_FillFormat()->get_PictureFillFormat()->get_Picture()->set_Image(ppImage);
+
+presentation->Save(u"table_cell_with_image.pptx", SaveFormat::Pptx);
 ```
 
 ## **FAQ**
 
-**Czy mogę ustawić różne grubości i style linii dla różnych stron jednej komórki?**
+**Can I set different line thicknesses and styles for different sides of a single cell?**
 
-Tak. Obramowania [górne](https://reference.aspose.com/slides/pl/cpp/aspose.slides/cellformat/get_bordertop/),[dolne](https://reference.aspose.com/slides/pl/cpp/aspose.slides/cellformat/get_borderbottom/),[lewe](https://reference.aspose.com/slides/pl/cpp/aspose.slides/cellformat/get_borderleft/),[prawe](https://reference.aspose.com/slides/pl/cpp/aspose.slides/cellformat/get_borderright/) mają osobne właściwości, więc grubość i styl każdej strony mogą się różnić. Wynika to z kontrolowania obramowań po stronie w artykule.
+Tak. Obramowania [top](https://reference.aspose.com/slides/cpp/aspose.slides/cellformat/get_bordertop/)/[bottom](https://reference.aspose.com/slides/cpp/aspose.slides/cellformat/get_borderbottom/)/[left](https://reference.aspose.com/slides/cpp/aspose.slides/cellformat/get_borderleft/)/[right](https://reference.aspose.com/slides/cpp/aspose.slides/cellformat/get_borderright/) mają oddzielne właściwości, więc grubość i styl każdej strony mogą się różnić.
 
-**Co się stanie z obrazem, jeśli zmienię rozmiar kolumny/wiersza po ustawieniu obrazu jako tła komórki?**
+**What happens to the image if I change the column/row size after setting a picture as the cell’s background?**
 
-Zachowanie zależy od [trybu wypełniania](https://reference.aspose.com/slides/pl/cpp/aspose.slides/picturefillmode/) (stretch/tile). Przy rozciąganiu obraz dopasowuje się do nowej komórki; przy kafelkowaniu kafelki są przeliczane. Artykuł wspomina o trybach wyświetlania obrazu w komórce.
+Zachowanie zależy od [fill mode](https://reference.aspose.com/slides/cpp/aspose.slides/picturefillmode/) (stretch/tile). Przy rozciąganiu obraz dostosowuje się do nowej komórki; przy kafelkowaniu kafelki są przeliczane.
 
-**Czy mogę przypisać hiperłącze do całej treści komórki?**
+**Can I assign a hyperlink to all the content of a cell?**
 
-[Hyperlinks](/slides/pl/cpp/manage-hyperlinks/) są ustawiane na poziomie fragmentu tekstu wewnątrz ramki tekstowej komórki lub na poziomie całej tabeli/kształtu. W praktyce przypisujesz link do fragmentu lub do całego tekstu w komórce.
+[Hyperlinks](/slides/pl/cpp/manage-hyperlinks/) są ustawiane na poziomie tekstu (fragmentu) wewnątrz ramki tekstowej komórki lub na poziomie całej tabeli/kształtu. W praktyce przypisujesz link do fragmentu lub do całego tekstu w komórce.
 
-**Czy mogę ustawić różne czcionki w jednej komórce?**
+**Can I set different fonts within a single cell?**
 
-Tak. Ramka tekstowa komórki obsługuje [portiony](https://reference.aspose.com/slides/pl/cpp/aspose.slides/portion/) (uruchomienia) z niezależnym formatowaniem — rodziną czcionki, stylem, rozmiarem i kolorem.
+Tak. Ramka tekstowa komórki obsługuje [portions](https://reference.aspose.com/slides/cpp/aspose.slides/portion/) , czyli fragmenty (runy) z niezależnym formatowaniem — rodzina czcionki, styl, rozmiar i kolor.
