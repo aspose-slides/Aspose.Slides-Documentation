@@ -77,10 +77,10 @@ presentation->Save(u"MyPresentation.pptx", SaveFormat::Pptx);
 
 Du kan också använda Aspose.Slides för att konvertera HTML till andra populära filformat: 
 
-* [HTML till bild](https://products.aspose.com/slides/sv/cpp/conversion/html-to-image/)
-* [HTML till JPG](https://products.aspose.com/slides/sv/cpp/conversion/html-to-jpg/)
-* [HTML till XML](https://products.aspose.com/slides/sv/cpp/conversion/html-to-xml/)
-* [HTML till TIFF](https://products.aspose.com/slides/sv/cpp/conversion/html-to-tiff/)
+* [HTML till bild](https://products.aspose.com/slides/cpp/conversion/html-to-image/)
+* [HTML till JPG](https://products.aspose.com/slides/cpp/conversion/html-to-jpg/)
+* [HTML till XML](https://products.aspose.com/slides/cpp/conversion/html-to-xml/)
+* [HTML till TIFF](https://products.aspose.com/slides/cpp/conversion/html-to-tiff/)
 
 {{% /alert %}}
 
