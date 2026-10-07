@@ -74,10 +74,10 @@ presentation->Save(u"MyPresentation.pptx", SaveFormat::Pptx);
 {{% alert title="توجه" color="warning" %}} 
 همچنین می‌توانید از Aspose.Slides برای تبدیل HTML به دیگر فرمت‌های محبوب استفاده کنید: 
 
-* [HTML به تصویر](https://products.aspose.com/slides/fa/cpp/conversion/html-to-image/)  
-* [HTML به JPG](https://products.aspose.com/slides/fa/cpp/conversion/html-to-jpg/)  
-* [HTML به XML](https://products.aspose.com/slides/fa/cpp/conversion/html-to-xml/)  
-* [HTML به TIFF](https://products.aspose.com/slides/fa/cpp/conversion/html-to-tiff/)  
+* [HTML به تصویر](https://products.aspose.com/slides/cpp/conversion/html-to-image/)  
+* [HTML به JPG](https://products.aspose.com/slides/cpp/conversion/html-to-jpg/)  
+* [HTML به XML](https://products.aspose.com/slides/cpp/conversion/html-to-xml/)  
+* [HTML به TIFF](https://products.aspose.com/slides/cpp/conversion/html-to-tiff/)  
 
 {{% /alert %}}
 

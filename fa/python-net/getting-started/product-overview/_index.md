@@ -145,7 +145,7 @@ Aspose پشتیبانی فنی نامحدود و رایگان برای تمام 
 
 |**منبع**|**توضیح**|
 | :- | :- |
-|[صفحه اصلی Aspose.Slides برای Python از طریق .NET]((https://products.aspose.com/slides/fa/python-net/))|صفحه اصلی محصول.|
+|[صفحه اصلی Aspose.Slides برای Python از طریق .NET](https://products.aspose.com/slides/fa/python-net/)|صفحه اصلی محصول.|
 |[وبلاگ Aspose.Slide]((https://blog.aspose.com/category/slides/fa/))|به‌طور منظم این صفحه را برای اطلاعات درباره نسخه‌های جدید و نکات مفید Aspose.Slides بررسی کنید.|
 |[دانلود Aspose.Slides برای Python از طریق .NET]((https://pypi.org/project/aspose.slides/))|آخرین نسخه Aspose.Slides را اینجا دانلود کنید. ما به‌طور مکرر نسخه‌های جدید منتشر می‌کنیم.|
 |[انجمن پشتیبانی Aspose.Slides]((https://forum.aspose.com/c/slides/fa/11))|سؤالات و مشکلات خود را اینجا ارسال کنید برای دریافت راه‌حل سریع.|
