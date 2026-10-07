@@ -18,58 +18,58 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Yeni bir .NET projesinden Aspose.Slides ile kaydedilen ilk sunuma giden yol: gereksinimleri kontrol edin, paketi kurun, ilk programı çalıştırın ve ortak görevlerle devam edin."
+description: "Yeni bir .NET projesinden Aspose.Slides ile ilk kaydedilen sunuma giden yol: gereksinimleri kontrol edin, paketi kurun, ilk programı çalıştırın ve yaygın görevlerle devam edin."
 ---
 ## **Genel Bakış**
 
-Aşağıdaki dört adımı sırayla uygulayın. Her adım ne yapılacağını belirtir ve ayrıntılı makaleye bağlanır. Değerlendirme, lisanslama ve destek adımlardan sonra ele alınır.
+Aşağıdaki dört adımı sırayla uygulayın. Her adım ne yapılacağını adlandırır ve ayrıntılı makaleye bağlanır. Değerlendirme, lisanslama ve destek adımlardan sonra ele alınır.
 
 ## **Adım 1: Sistem Gereksinimlerini Kontrol Edin**
 
-Aspose.Slides for .NET Windows, Linux ve macOS üzerinde çalışır. [Sistem Gereksinimleri](/slides/tr/net/system-requirements/) her paketin desteklediği işletim sistemlerini ve .NET sürümlerini, ayrıca Linux için gereken ek kütüphaneleri listeler.
+[Aspose.Slides for .NET](https://products.aspose.com/slides/net/) Windows, Linux ve macOS üzerinde çalışır. [Sistem Gereksinimleri](/slides/tr/net/system-requirements/) her paketin desteklediği işletim sistemlerini ve .NET sürümlerini, Linux için ek olarak gereken kitaplıkları listeler.
 
 ## **Adım 2: Paketi Yükleyin**
 
-Aspose.Slides for .NET, aynı sınıfları sağlayan iki paket olarak NuGet üzerinden dağıtılır. Projenize birini ekleyin:
+Aspose.Slides for .NET iki paket aracılığıyla NuGet üzerinden dağıtılır; aynı sınıfları sağlar. Projenize bunlardan birini ekleyin:
 
-- Windows’da: `dotnet add package Aspose.Slides.NET`
-- Linux ve macOS’da: `dotnet add package Aspose.Slides.NET6.CrossPlatform`. Linux’da önce `fontconfig` kütüphanesini kurun.
-- Alpine Linux’da ve glibc sürümü 2.23 (x64) veya 2.39 (ARM64)’ten eski olan Linux sistemlerinde: `Aspose.Slides.NET`, `libgdiplus` kütüphanesi kurulu olmak şartıyla.
+- Windows'ta: `dotnet add package Aspose.Slides.NET`
+- Linux ve macOS'ta: `dotnet add package Aspose.Slides.NET6.CrossPlatform`. Linux'ta önce `fontconfig` kitaplığını kurun.
+- Alpine Linux'ta ve glibc'si 2.23 (x64) veya 2.39 (ARM64) sürümünden daha eski olan Linux sistemlerinde: `Aspose.Slides.NET`, `libgdiplus` kitaplığı kurularak.
 
-[Kurulum](/slides/tr/net/installation/) Linux komutlarını, Aspose.Slides.NET’in Linux’da ihtiyaç duyduğu ek başlangıç ayarını ve Visual Studio adımlarını verir.
+[Kurulum](/slides/tr/net/installation/) Linux komutlarını, Aspose.Slides.NET'in Linux'ta ihtiyaç duyduğu ekstra başlangıç ayarını ve Visual Studio adımlarını içerir.
 
 ## **Adım 3: İlk Sunumunuzu Oluşturun**
 
-[Aspose.Slides for .NET ana sayfasındaki hızlı başlangıç](/slides/tr/net/#your-first-presentation) tam bir konsol programıdır: bir slayta metin kutusu ekler ve sunumu PPTX dosyası olarak kaydeder. [Sunum Oluşturma](/slides/tr/net/create-presentation/) aynı adımları daha ayrıntılı açıklar, mevcut bir sunumu açma ve başka bir formatta kaydetme yöntemlerini gösterir.
+[Aspose.Slides for .NET ana sayfasındaki hızlı başlangıç](/slides/tr/net/#your-first-presentation) tam bir konsol programıdır: bir slayta metin kutusu ekler ve sunumu PPTX dosyası olarak kaydeder. [Sunum Oluşturma](/slides/tr/net/create-presentation/) aynı adımları daha ayrıntılı açıklar ve mevcut bir sunumu açıp başka bir biçimde kaydetmeyi gösterir.
 
-## **Adım 4: Ortak Görevlerle Devam Edin**
+## **Adım 4: Yaygın Görevlerle Devam Edin**
 
-- [Bir Sunumu Aç](/slides/tr/net/open-presentation/)
-- [Bir Sunumu Kaydet](/slides/tr/net/save-presentation/)
-- [Sunumu PDF'ye Dönüştür](/slides/tr/net/convert-powerpoint-to-pdf/)
-- [Slaytları Görüntü Olarak İşle](/slides/tr/net/convert-slide/)
+- [Sunum Aç](/slides/tr/net/open-presentation/)
+- [Sunumu Kaydet](/slides/tr/net/save-presentation/)
+- [Sunumu PDF'e Dönüştür](/slides/tr/net/convert-powerpoint-to-pdf/)
+- [Slaytları Görüntü Olarak Oluştur](/slides/tr/net/convert-slide/)
 - [Sunum Metnini Düzenle](/slides/tr/net/manage-text/)
-- [Slayt öğesine göre örnekler](/slides/tr/net/examples/)
+- [Slayt Öğesine Göre Örnekler](/slides/tr/net/examples/)
 
-## **Değerlendir ve Lisansla**
+## **Değerlendirme ve Lisanslama**
 
-Lisans olmadan, Aspose.Slides değerlendirme modunda çalışır: kaydettiği her slayta filigran ekler ve sunumlardan okunan metni keser.
+Lisans olmadan Aspose.Slides değerlendirme modunda çalışır: kaydedilen her slayta filigran ekler ve sunumlardan okunan metni keser.
 
-- [Aspose.Slides'i Değerlendir](/slides/tr/net/evaluate-aspose-slides/) değerlendirme sınırlamalarını ve geçici bir lisans talep etme yolunu açıklar.
+- [Aspose.Slides'i Değerlendirin](/slides/tr/net/evaluate-aspose-slides/) değerlendirme sınırlamalarını ve geçici lisans talep etme sürecini açıklar.
 - [Lisanslama](/slides/tr/net/licensing/) bir lisansı dosyadan, akıştan veya gömülü kaynaktan nasıl uygulayacağınızı gösterir.
-- [Ölçülen Lisanslama](/slides/tr/net/metered-licensing/) kullanıma göre faturalandırılan lisanslamayı kapsar.
-- [Desteklenen Dosya Formatları](/slides/tr/net/supported-file-formats/) Aspose.Slides’in yükleyip kaydedebildiği formatları listeler.
+- [Ölçülen Lisanslama](/slides/tr/net/metered-licensing/) kullanım bazlı faturalandırılan lisanslamayı kapsar.
+- [Desteklenen Dosya Formatları](/slides/tr/net/supported-file-formats/) Aspose.Slides'in yükleyip kaydedebileceği formatları listeler.
 
 ## **Yardım Alın**
 
-[Ürün Desteği](/slides/tr/net/product-support/) ücretsiz destek forumunda ([https://forum.aspose.com/c/slides/11](https://forum.aspose.com/c/slides/11)) nasıl soru sorulacağını ve bir sorunu bildirirken nelere yer vermeniz gerektiğini açıklar.
+[Ürün Desteği](/slides/tr/net/product-support/) ücretsiz destek forumunda ([ücretsiz destek forumu](https://forum.aspose.com/c/slides/11)) nasıl soru sorulacağını ve bir sorunu rapor ederken ne eklemeniz gerektiğini açıklar.
 
 ## **SSS**
 
-**Microsoft PowerPoint yüklü olmak zorunda mı?**
+**Microsoft PowerPoint'in yüklü olması gerekiyor mu?**
 
-Hayır. Aspose.Slides sunum dosyalarını kendisi okur ve yazar; PowerPoint kullanmaz, bu yüzden sunucularda ve Linux üzerinde de çalışır.
+Hayır. Aspose.Slides sunum dosyalarını kendisi okur ve yazar; PowerPoint kullanmaz, bu nedenle sunucularda ve Linux'ta da çalışır.
 
 **.NET Framework uygulaması için hangi paketi kullanmalıyım?**
 
-Aspose.Slides.NET. .NET Framework 4.6.2 ve sonrası, .NET 6 ve sonrası, .NET Standard 2.0 için derlemeler içerir. Aspose.Slides.NET6.CrossPlatform .NET 6 veya sonraki sürümleri gerektirir.
+Aspose.Slides.NET. .NET Framework 4.6.2 ve üzeri, .NET 6 ve üzeri ve .NET Standard 2.0 için derlemeler içerir. Aspose.Slides.NET6.CrossPlatform .NET 6 veya üzeri gerekir.

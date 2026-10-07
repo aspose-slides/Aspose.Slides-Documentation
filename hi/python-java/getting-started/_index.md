@@ -1,16 +1,52 @@
 ---
-title: शुरूआत
+title: प्रारम्भ
 type: docs
-description: "इस परिचय को उपयोग करके Aspose.Slides for Python via Java की मूलभूत बातों को समझें और अपने व्यवसाय के लिए Aspose.Slides के मूल्य को महसूस करना शुरू करें।"
 weight: 10
 url: /hi/python-java/getting-started/
+keywords:
+- प्रारम्भ
+- स्थापना
+- सिस्टम आवश्यकताएँ
+- लाइसेंसिंग
+- PowerPoint
+- प्रस्तुति
+- Python
+- Java
+- Aspose.Slides
+description: "Aspose.Slides for Python via Java के साथ शुरू करें: आवश्यकताओं की समीक्षा करें, लाइब्रेरी स्थापित करें, समर्थित फ़ॉर्मेट और विशेषताओं का अन्वेषण करें, और एक लाइसेंस लागू करें।"
 ---
-This **शुरूआत** page introduces you to Aspose.Slides fundamentals. If you are using Aspose.Slides for the first time, you can review the product's basic requirements and its capabilities quickly from this page.
+## **अवलोकन**
 
-- [**उत्पाद अवलोकन**](/slides/hi/python-java/product-overview/) – Aspose.Slides for Python via Java लाइब्रेरी के बारे में सामान्य जानकारी प्रदान करता है
-- [**समर्थित फ़ाइल स्वरूप**](/slides/hi/python-java/supported-file-formats/) – समर्थित फ़ाइल स्वरूपों के बारे में जानकारी देता है
-- [**फ़ीचर अवलोकन**](/slides/hi/python-java/features-overview/) – यह जानकारी देता है कि किसी दस्तावेज़ को लोड या सहेजते समय कौन‑सी सुविधाएँ समर्थित हैं
-- [**सिस्टम आवश्यकताएँ**](/slides/hi/python-java/system-requirements/) – सिस्टम और विकास पर्यावरण की आवश्यकताओं के बारे में जानकारी प्रदान करता है
-- [**सीमाएँ और API अंतर**](/slides/hi/python-java/limitations-and-api-differences/) – उत्पाद की सीमाओं और API अंतर के बारे में जानकारी देता है
-- [**लाइसेंसिंग और सदस्यता**](/slides/hi/python-java/licensing) – लाइसेंस लागू करने और कई Aspose उत्पादों का उपयोग करने के बारे में जानकारी देता है
-- [**स्थापना**](/slides/hi/python-java/installation/) – Aspose.Slides को स्थापित करने के बारे में जानकारी देता है।
+यह अनुभाग आपको अपने पर्यावरण को तैयार करने और [Aspose.Slides for Python via Java](https://products.aspose.com/slides/python-java/) का उपयोग प्रारम्भ करने में मदद करता है। नीचे दिए गए सेटअप चरणों का पालन करें, फिर लाइब्रेरी की क्षमताओं और आपके प्रोजेक्ट से संबंधित मार्गदर्शन का अन्वेषण करें।
+
+## **लाइब्रेरी सेट अप करें**
+
+1. ऑपरेटिंग सिस्टम, Python, Java, और JPype की आवश्यकताओं की जांच के लिए [सिस्टम आवश्यकताएँ](/slides/hi/python-java/system-requirements/) देखें।
+2. आवश्यक पैकेज स्थापित करने और एक उदाहरण के साथ सेटअप को सत्यापित करने के लिए [स्थापना](/slides/hi/python-java/installation/) गाइड का पालन करें।
+3. मूल्यांकन सीमाओं और अस्थायी लाइसेंस विकल्पों को समझने के लिए [Aspose.Slides का मूल्यांकन](/slides/hi/python-java/evaluate-aspose-slides/) पढ़ें।
+4. अपना लाइसेंस लागू करने के लिए [लाइसेंसिंग](/slides/hi/python-java/licensing/) गाइड का पालन करें।
+
+## **विशेषताएँ और संगतता का अन्वेषण करें**
+
+- [उत्पाद अवलोकन](/slides/hi/python-java/product-overview/) लाइब्रेरी और उसकी प्रस्तुति प्रसंस्करण क्षमताओं का परिचय देता है।
+- [समर्थित फ़ाइल फ़ॉर्मेट](/slides/hi/python-java/supported-file-formats/) लोड, आयात, सहेजने और निर्यात करने के लिए उपलब्ध फ़ॉर्मेट की सूची देता है।
+- [विशेषताओं का सारांश](/slides/hi/python-java/features-overview/) रूपांतरण, रेंडरिंग, संपादन और स्वरूपण विशेषताओं का सारांश प्रस्तुत करता है।
+- [सीमाएँ और API अंतर](/slides/hi/python-java/limitations-and-api-differences/) Python से Java API का उपयोग करते समय विचार करने योग्य सीमाओं और अंतर को समझाता है।
+
+## **सहायता प्राप्त करें**
+
+समस्या निवारण मार्गदर्शन, मुद्दा रिपोर्ट करने के निर्देश, और अतिरिक्त संसाधनों के लिंक के लिए देखें [उत्पाद समर्थन](/slides/hi/python-java/product-support/)।
+
+## **अक्सर पूछे जाने वाले प्रश्न**
+
+**यदि मैंने कभी Aspose.Slides for Python via Java का उपयोग नहीं किया है तो मुझे कहाँ से शुरू करना चाहिए?**
+
+उपर्युक्त लिंक किए गए सिस्टम आवश्यकताएँ और स्थापना गाइड से शुरू करें। स्थापना गाइड में एक उदाहरण सम्मिलित है जिसे आप अपने पर्यावरण को सत्यापित करने के लिए चला सकते हैं।
+
+**लाइब्रेरी मेरे प्रस्तुति फ़ॉर्मेट का समर्थन करती है या नहीं, मैं कहाँ जांच सकता हूँ?**
+
+इनपुट और आउटपुट फ़ॉर्मेट जांचने के लिए समर्थन फ़ाइल फ़ॉर्मेट का उपयोग करें, फिर अपनी कार्य के लिए उपलब्ध संचालन के लिये विशेषताओं के सारांश को देखें।
+
+**Python के लिए Java उदाहरणों को अनुकूलित करने से पहले मुझे क्या पढ़ना चाहिए?**
+
+Python के माध्यम से Java में आयात, संसाधन सफाई, और फ़ाइल हैंडलिंग पर मार्गदर्शन के लिये सीमाएँ और API अंतर पढ़ें।

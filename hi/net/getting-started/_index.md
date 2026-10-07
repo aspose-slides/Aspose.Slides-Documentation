@@ -1,75 +1,75 @@
 ---
-title: शुरू करना
+title: "शुरूआत"
 type: docs
 weight: 10
 url: /hi/net/getting-started/
 keywords:
-- शुरूआत
-- सिस्टम आवश्यकताएँ
-- स्थापना
-- पहला प्रस्तुतीकरण
+- "शुरूआत"
+- "सिस्टम आवश्यकताएँ"
+- "स्थापना"
+- "पहली प्रस्तुति"
 - NuGet
-- PPT प्रसंस्करण
-- PPTX प्रसंस्करण
-- ODP प्रसंस्करण
+- "PPT प्रसंस्करण"
+- "PPTX प्रसंस्करण"
+- "ODP प्रसंस्करण"
 - PowerPoint
 - OpenDocument
-- प्रस्तुतीकरण
+- "प्रस्तुति"
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides के साथ एक नए .NET प्रोजेक्ट से पहली सहेजी गई प्रस्तुतीकरण तक का मार्ग: आवश्यकताओं की जांच करें, पैकेज स्थापित करें, पहला प्रोग्राम चलाएँ, और सामान्य कार्यों के साथ आगे बढ़ें।"
+description: "Aspose.Slides के साथ एक नए .NET प्रोजेक्ट से पहली सहेजी गई प्रस्तुति तक का मार्ग: आवश्यकताओं की जाँच करें, पैकेज स्थापित करें, पहला प्रोग्राम चलाएँ, और सामान्य कार्यों के साथ जारी रखें।"
 ---
-## **Overview**
+## **अवलोकन**
 
-नीचे चार चरणों को क्रमवार पूरा करें। प्रत्येक चरण यह बताता है कि क्या करना है और विस्तृत जानकारी वाला लेख से लिंक करता है। मूल्यांकन, लाइसेंसिंग, और समर्थन चरणों के बाद कवर किए गए हैं।
+नीचे चार चरणों को क्रम में पूरा करें। प्रत्येक चरण में किया जाने वाला कार्य बताया गया है और विस्तृत लेख से लिंक किया गया है। मूल्यांकन, लाइसेंसिंग और सहायता चरणों के बाद कवर किए गए हैं।
 
-## **Step 1: Check the System Requirements**
+## **चरण 1: सिस्टम आवश्यकताओं की जाँच**
 
-Aspose.Slides for .NET Windows, Linux, और macOS पर चलता है। [System Requirements](/slides/hi/net/system-requirements/) प्रत्येक पैकेज द्वारा समर्थित ऑपरेटिंग सिस्टम और .NET संस्करणों की सूची देता है, तथा Linux को अतिरिक्त रूप से जिन लाइब्रेरीज़ की आवश्यकता होती है।
+[Aspose.Slides for .NET](https://products.aspose.com/slides/net/) Windows, Linux, और macOS पर चलता है। [सिस्टम आवश्यकताएँ](/slides/hi/net/system-requirements/) प्रत्येक पैकेज द्वारा समर्थित ऑपरेटिंग सिस्टम और .NET संस्करणों की सूची देता है, तथा अतिरिक्त रूप से Linux को आवश्यक लाइब्रेरीज़ को भी दर्शाता है।
 
-## **Step 2: Install the Package**
+## **चरण 2: पैकेज स्थापित करें**
 
-Aspose.Slides for .NET NuGet के माध्यम से दो पैकेजों के रूप में वितरित किया जाता है जो समान क्लासेज़ प्रदान करते हैं। इनमें से एक को अपने प्रोजेक्ट में जोड़ें:
+Aspose.Slides for .NET NuGet द्वारा दो पैकेजों के रूप में वितरित किया जाता है जो समान क्लासेज़ प्रदान करते हैं। इनमे से एक को अपने प्रोजेक्ट में जोड़ें:
 
 - Windows पर: `dotnet add package Aspose.Slides.NET`
-- Linux और macOS पर: `dotnet add package Aspose.Slides.NET6.CrossPlatform`. Linux पर पहले `fontconfig` लाइब्रेरी स्थापित करें।
-- Alpine Linux पर, और उन Linux सिस्टम्स पर जिनकी glibc 2.23 (x64) या 2.39 (ARM64) से पुरानी है: Aspose.Slides.NET, साथ में `libgdiplus` लाइब्रेरी स्थापित हो।
+- Linux और macOS पर: `dotnet add package Aspose.Slides.NET6.CrossPlatform`. Linux पर, पहले `fontconfig` लाइब्रेरी स्थापित करें।
+- Alpine Linux पर, और उन Linux सिस्टम्स पर जिनकी glibc 2.23 (x64) या 2.39 (ARM64) से पुरानी है: Aspose.Slides.NET, जिसमें `libgdiplus` लाइब्रेरी स्थापित हो।
 
-[स्थापना](/slides/hi/net/installation/) Linux कमांड्स, अतिरिक्त स्टार्टअप सेटिंग जो Aspose.Slides.NET को Linux पर चाहिए, और Visual Studio के चरण देता है।
+[स्थापना](/slides/hi/net/installation/) Linux कमांड्स, Linux पर Aspose.Slides.NET को आवश्यक अतिरिक्त स्टार्टअप सेटिंग, और Visual Studio के चरण प्रदान करता है।
 
-## **Step 3: Create Your First Presentation**
+## **चरण 3: अपनी पहली प्रस्तुति बनाएँ**
 
-[Aspose.Slides for .NET होम पेज पर त्वरित प्रारंभ](/slides/hi/net/#your-first-presentation) एक पूर्ण कंसोल प्रोग्राम है: यह स्लाइड में टेक्स्ट बॉक्स जोड़ता है और प्रेजेंटेशन को PPTX फ़ाइल के रूप में सहेजता है। [प्रेजेंटेशन बनाएं](/slides/hi/net/create-presentation/) वही चरण अधिक विस्तार से समझाता है और दिखाता है कि मौजूदा प्रेजेंटेशन को कैसे खोलें और उसे किसी अन्य फ़ॉर्मेट में सहेजें।
+[Aspose.Slides for .NET मुख्य पृष्ठ पर क्विक स्टार्ट](/slides/hi/net/#your-first-presentation) एक पूर्ण कंसोल प्रोग्राम है: यह स्लाइड में एक टेक्स्ट बॉक्स जोड़ता है और प्रस्तुति को PPTX फ़ाइल के रूप में सहेजता है। [प्रस्तुतियों को बनाएँ](/slides/hi/net/create-presentation/) उसी चरणों को अधिक विस्तार से समझाता है और यह दिखाता है कि मौजूदा प्रस्तुति को कैसे खोलें और उसे किसी अन्य फ़ॉर्मेट में कैसे सहेजें।
 
-## **Step 4: Continue with Common Tasks**
+## **चरण 4: सामान्य कार्यों के साथ जारी रखें**
 
-- [प्रेजेंटेशन खोलें](/slides/hi/net/open-presentation/)
-- [प्रेजेंटेशन सहेजें](/slides/hi/net/save-presentation/)
-- [प्रेजेंटेशन को PDF में कन्वर्ट करें](/slides/hi/net/convert-powerpoint-to-pdf/)
-- [स्लाइड को छवियों के रूप में रेंडर करें](/slides/hi/net/convert-slide/)
-- [प्रेजेंटेशन टेक्स्ट संपादित करें](/slides/hi/net/manage-text/)
-- [स्लाइड तत्व द्वारा उदाहरण](/slides/hi/net/examples/)
+- [प्रस्तुति खोलें](/slides/hi/net/open-presentation/)
+- [प्रस्तुति सहेजें](/slides/hi/net/save-presentation/)
+- [प्रस्तुति को PDF में परिवर्तित करें](/slides/hi/net/convert-powerpoint-to-pdf/)
+- [स्लाइड्स को छवियों के रूप में रेंडर करें](/slides/hi/net/convert-slide/)
+- [प्रस्तुति पाठ संपादित करें](/slides/hi/net/manage-text/)
+- [स्लाइड तत्व के अनुसार उदाहरण](/slides/hi/net/examples/)
 
-## **Evaluate and License**
+## **मूल्यांकन और लाइसेंस**
 
-बिना लाइसेंस के, Aspose.Slides मूल्यांकन मोड में चलता है: यह प्रत्येक सहेजी गई स्लाइड पर वॉटरमार्क जोड़ता है और प्रेजेंटेशन से पढ़ा गया टेक्स्ट काट देता है।
+लाइसेंस के बिना, Aspose.Slides मूल्यांकन मोड में चलता है: यह सहेजी गई प्रत्येक स्लाइड में वॉटरमार्क जोड़ता है और प्रस्तुतियों से पढ़े गए पाठ को काट देता है।
 
-- [Aspose.Slides का मूल्यांकन](/slides/hi/net/evaluate-aspose-slides/) मूल्यांकन सीमाओं और अस्थायी लाइसेंस का अनुरोध कैसे करें, यह बताता है।
-- [लाइसेंसिंग](/slides/hi/net/licensing/) फ़ाइल, स्ट्रीम, या एम्बेडेड रिसोर्स से लाइसेंस कैसे लागू करें, दिखाता है।
-- [मापक लाइसेंसिंग](/slides/hi/net/metered-licensing/) उपयोग के आधार पर बिलिंग वाली लाइसेंसिंग को कवर करता है।
-- [समर्थित फ़ाइल फ़ॉर्मेट](/slides/hi/net/supported-file-formats/) Aspose.Slides द्वारा लोड और सहेजे जा सकने वाले फ़ॉर्मेट की सूची देता है।
+- [Aspose.Slides का मूल्यांकन](/slides/hi/net/evaluate-aspose-slides/) मूल्यांकन सीमाओं और अस्थायी लाइसेंस का अनुरोध कैसे करें, इसे वर्णित करता है।
+- [लाइसेंसिंग](/slides/hi/net/licensing/) फ़ाइल, स्ट्रीम, या एंबेडेड रिसोर्स से लाइसेंस कैसे लागू करें, यह दर्शाता है।
+- [मीटरड लाइसेंसिंग](/slides/hi/net/metered-licensing/) उपयोग के आधार पर बिलिंग होने वाले लाइसेंसिंग को कवर करता है।
+- [समर्थित फ़ाइल स्वरूप](/slides/hi/net/supported-file-formats/) उन फ़ॉर्मैट्स की सूची देता है जिन्हें Aspose.Slides लोड और सहेज सकता है।
 
-## **Get Help**
+## **सहायता प्राप्त करें**
 
-[उत्पाद समर्थन](/slides/hi/net/product-support/) बताता है कि [निःशुल्क समर्थन फ़ोरम](https://forum.aspose.com/c/slides/11) पर प्रश्न कैसे पूछें और समस्या रिपोर्ट करते समय क्या शामिल करना चाहिए।
+[उत्पाद समर्थन](/slides/hi/net/product-support/) यह समझाता है कि [नि:शुल्क समर्थन फोरम](https://forum.aspose.com/c/slides/11) पर प्रश्न कैसे पूछें और समस्या रिपोर्ट करते समय क्या शामिल करना चाहिए।
 
-## **FAQ**
+## **अक्सर पूछे जाने वाले प्रश्न**
 
-**क्या मुझे Microsoft PowerPoint इंस्टॉल करना आवश्यक है?**
+**क्या मुझे Microsoft PowerPoint स्थापित करने की आवश्यकता है?**
 
-नहीं। Aspose.Slides स्वयं प्रेजेंटेशन फ़ाइलें पढ़ता और लिखता है और PowerPoint का उपयोग नहीं करता, इसलिए यह सर्वरों और Linux पर भी चलता है।
+नहीं। Aspose.Slides स्वयं प्रस्तुति फ़ाइलें पढ़ता और लिखता है और PowerPoint का उपयोग नहीं करता, इसलिए यह सर्वरों और Linux पर भी चल सकता है।
 
-**मैं कौन सा पैकेज .NET Framework एप्लिकेशन के लिए उपयोग करूँ?**
+**.NET Framework एप्लिकेशन के लिए मुझे कौन सा पैकेज उपयोग करना चाहिए?**
 
-Aspose.Slides.NET। इसमें .NET Framework 4.6.2 और बाद के संस्करण, .NET 6 और बाद के संस्करण, और .NET Standard 2.0 के लिए बिल्ड शामिल हैं। Aspose.Slides.NET6.CrossPlatform को .NET 6 या उससे नवीनतम की आवश्यकता होती है।
+Aspose.Slides.NET। इसमें .NET Framework 4.6.2 और बाद के संस्करणों, .NET 6 और बाद के संस्करणों, तथा .NET Standard 2.0 के लिए बिल्ड शामिल हैं। Aspose.Slides.NET6.CrossPlatform को .NET 6 या बाद का संस्करण चाहिए।
