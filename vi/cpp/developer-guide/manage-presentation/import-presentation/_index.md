@@ -74,10 +74,10 @@ presentation->Save(u"MyPresentation.pptx", SaveFormat::Pptx);
 {{% alert title="Note" color="warning" %}} 
 Bạn cũng có thể sử dụng Aspose.Slides để chuyển đổi HTML sang các định dạng tệp phổ biến khác: 
 
-* [HTML sang hình ảnh](https://products.aspose.com/slides/vi/cpp/conversion/html-to-image/)
-* [HTML sang JPG](https://products.aspose.com/slides/vi/cpp/conversion/html-to-jpg/)
-* [HTML sang XML](https://products.aspose.com/slides/vi/cpp/conversion/html-to-xml/)
-* [HTML sang TIFF](https://products.aspose.com/slides/vi/cpp/conversion/html-to-tiff/)
+* [HTML sang hình ảnh](https://products.aspose.com/slides/cpp/conversion/html-to-image/)
+* [HTML sang JPG](https://products.aspose.com/slides/cpp/conversion/html-to-jpg/)
+* [HTML sang XML](https://products.aspose.com/slides/cpp/conversion/html-to-xml/)
+* [HTML sang TIFF](https://products.aspose.com/slides/cpp/conversion/html-to-tiff/)
 
 {{% /alert %}}
 
