@@ -74,10 +74,10 @@ presentation->Save(u"MyPresentation.pptx", SaveFormat::Pptx);
 {{% alert title="注意" color="warning" %}} 
 您也可以使用 Aspose.Slides 將 HTML 轉換為其他常見檔案格式： 
 
-* [HTML to image](https://products.aspose.com/slides/zh-hant/cpp/conversion/html-to-image/)
-* [HTML to JPG](https://products.aspose.com/slides/zh-hant/cpp/conversion/html-to-jpg/)
-* [HTML to XML](https://products.aspose.com/slides/zh-hant/cpp/conversion/html-to-xml/)
-* [HTML to TIFF](https://products.aspose.com/slides/zh-hant/cpp/conversion/html-to-tiff/)
+* [HTML to image](https://products.aspose.com/slides/cpp/conversion/html-to-image/)
+* [HTML to JPG](https://products.aspose.com/slides/cpp/conversion/html-to-jpg/)
+* [HTML to XML](https://products.aspose.com/slides/cpp/conversion/html-to-xml/)
+* [HTML to TIFF](https://products.aspose.com/slides/cpp/conversion/html-to-tiff/)
 
 {{% /alert %}}
 
