@@ -77,10 +77,10 @@ presentation->Save(u"MyPresentation.pptx", SaveFormat::Pptx);
 
 Az Aspose.Slides-t más népszerű fájlformátumokra is használhatja a HTML konvertálásához: 
 
-* [HTML képre](https://products.aspose.com/slides/hu/cpp/conversion/html-to-image/)
-* [HTML JPG‑re](https://products.aspose.com/slides/hu/cpp/conversion/html-to-jpg/)
-* [HTML XML‑re](https://products.aspose.com/slides/hu/cpp/conversion/html-to-xml/)
-* [HTML TIFF‑re](https://products.aspose.com/slides/hu/cpp/conversion/html-to-tiff/)
+* [HTML képre](https://products.aspose.com/slides/cpp/conversion/html-to-image/)
+* [HTML JPG‑re](https://products.aspose.com/slides/cpp/conversion/html-to-jpg/)
+* [HTML XML‑re](https://products.aspose.com/slides/cpp/conversion/html-to-xml/)
+* [HTML TIFF‑re](https://products.aspose.com/slides/cpp/conversion/html-to-tiff/)
 
 {{% /alert %}}
 
