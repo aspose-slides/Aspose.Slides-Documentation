@@ -1,44 +1,44 @@
 ---
-title: Beheer diagramgegevensreeksen in presentaties in PHP
-linktitle: Datareeksen
+title: Beheer diagramreeksgegevens in presentaties in PHP
+linktitle: Gegevensreeksen
 type: docs
 url: /nl/php-java/chart-series/
 keywords:
 - diagramreeks
-- reeks overlap
+- reeks overlapping
 - reeks kleur
-- reeksnaam
+- reeks naam
 - datapunt
-- werkmapcel
+- werkboekcel
 - reeks tussenruimte
 - negatieve waarde
 - PowerPoint
 - presentatie
 - PHP
 - Aspose.Slides
-description: "Leer hoe u diagramreeksen, datapunten, werkmapcellen, opmaak, overlap, tussenruimte en negatieve waarden in presentaties kunt beheren met PHP."
+description: "Leer hoe u diagramreeksen, datapunten, werkboekcellen, opmaak, overlapping, tussenruimtebreedte en negatieve waarden in presentaties met PHP kunt beheren."
 ---
 ## **Overzicht**
 
-Een diagram slaat de weergegeven gegevens op in een chart‑data‑werkmap. Een [ChartSeries](https://reference.aspose.com/slides/nl/php-java/aspose.slides/chartseries/) vertegenwoordigt één set gerelateerde waarden, en elk [ChartDataPoint](https://reference.aspose.com/slides/nl/php-java/aspose.slides/chartdatapoint/) in de reeks verwijst naar één of meer werkmapcellen. [ChartCategory](https://reference.aspose.com/slides/nl/php-java/aspose.slides/chartcategory/)‑objecten leveren de labels of groepeerwaarden die door de reeksen gedeeld worden. De reeksnaam, categorieën en puntwaarden zijn daardoor gekoppeld aan [ChartDataCell](https://reference.aspose.com/slides/nl/php-java/aspose.slides/chartdatacell/)‑objecten in plaats van alleen als weergavetekst te worden opgeslagen.
+Een diagram slaat zijn weergegeven gegevens op in een chart‑data‑werkboek. Een [ChartSeries](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/) vertegenwoordigt één set gerelateerde waarden, en elk [ChartDataPoint](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/) in de reeks verwijst naar één of meer werkboekcellen. [ChartCategory](https://reference.aspose.com/slides/php-java/aspose.slides/chartcategory/)-objecten leveren de labels of groeperingswaarden die door de reeksen worden gedeeld. De reeksennaam, categorieën en puntwaarden zijn daarom gekoppeld aan [ChartDataCell](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatacell/)-objecten in plaats van alleen als weergavetekst opgeslagen.
 
-Voor een typische categorie‑diagram gebruikt de standaardwerkmap rij 0 voor reeksnamen, kolom 0 voor categorienamen en de overige cellen voor reekswaarden. Werkblad‑, rij‑ en kolom‑indexen die aan [ChartDataWorkbook.getCell](https://reference.aspose.com/slides/nl/php-java/aspose.slides/chartdataworkbook/#getCell) worden doorgegeven, zijn nul‑gebaseerd. Deze indeling is bruikbaar wanneer je een diagram met standaardgegevens maakt, maar ga niet ervan uit dat elk bestaand diagram het gebruikt. Voor een geladen presentatie inspecteer je de cellen die door de reeksen, categorieën en gegevenspunten worden geraadpleegd voordat je werkmapwaarden wijzigt.
+Voor een typische categorie‑grafiek gebruikt het standaard‑werkboek rij 0 voor reeksenamen, kolom 0 voor categorienamen en de resterende cellen voor reeksenwaarden. Werkblad‑, rij‑ en kolom‑indexen die aan [ChartDataWorkbook.getCell](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/#getCell) worden doorgegeven, zijn nul‑gebaseerd. Deze indeling is handig wanneer u een diagram met standaardgegevens maakt, maar ga er niet van uit dat elk bestaand diagram deze indeling hanteert. Voor een geladen presentatie, inspecteer de cellen waarnaar de reeks, categorieën en datapunten verwijzen voordat u werkboekwaarden wijzigt.
 
-Diagraminstellingen hebben drie verschillende scopes:
+Instellingen voor diagrammen hebben drie verschillende scopes:
 
-- Instellingen op reeksniveau, zoals [ChartSeries.getFormat](https://reference.aspose.com/slides/nl/php-java/aspose.slides/chartseries/#getFormat), bieden de standaardweergave voor alle punten in één reeks.
-- Instellingen per gegevenspunt, zoals [ChartDataPoint.getFormat](https://reference.aspose.com/slides/nl/php-java/aspose.slides/chartdatapoint/#getFormat), overschrijven de reeksweergave voor één punt.
-- Groepsinstellingen gelden voor compatibele reeksen die tot dezelfde [ChartSeriesGroup](https://reference.aspose.com/slides/nl/php-java/aspose.slides/chartseriesgroup/) behoren. Toegang tot de groep krijg je via [ChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/nl/php-java/aspose.slides/chartseries/#getParentSeriesGroup) wanneer je opties moet instellen zoals overlap of tussenruimte.
+- Instellingen op serieniveau, zoals [ChartSeries.getFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/#getFormat), bieden de standaardweergave voor alle punten in één reeks.  
+- Instellingen op datapuntniveau, zoals [ChartDataPoint.getFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/#getFormat), overschrijven de weergave van de reeks voor één punt.  
+- Groepsinstellingen zijn van toepassing op compatibele reeksen die tot dezelfde [ChartSeriesGroup](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/) behoren. Toegang tot de groep via [ChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/#getParentSeriesGroup) wanneer u opties zoals overlapping of tussenruimtebreedte moet instellen.
 
-Wanneer er geen expliciete punt‑ of reeks‑vulling is ingesteld, bepalen de diagramstijl en het thema het automatische uiterlijk. Wanneer zowel reeks‑ als punt‑opmaak aanwezig zijn, heeft de punt‑opmaak voorrang voor dat punt.
+Wanneer geen expliciete punt‑ of reeksvulling is ingesteld, bepalen de diagramstijl en het thema het automatische uiterlijk. Wanneer zowel reeks‑ als punt‑formattering aanwezig zijn, heeft de punt‑formattering voorrang voor dat punt.
 
-![diagram‑reeks‑powerpoint](chart-series-powerpoint.png)
+![chart-series-powerpoint](chart-series-powerpoint.png)
 
-## **Overlap van de diagramreeks instellen**
+## **Instellen van de Overlapping van de Grafiekreeks**
 
-[ChartSeries.getOverlap](https://reference.aspose.com/slides/nl/php-java/aspose.slides/chartseries/#getOverlap) geeft aan hoeveel balken of kolommen overlappen in een 2D‑diagram, van –100 tot 100 percent. Het is een alleen‑lezen projectie van de instelling in de bovenliggende reeksgroep. Gebruik [ChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/nl/php-java/aspose.slides/chartseriesgroup/#setOverlap) om elke compatibele reeks in die groep bij te werken. Deze optie geldt voor diagramtypen die gegroepeerde balken of kolommen weergeven; hij heeft geen invloed op niet‑gerelateerde reeksgroepen in een combinatie‑diagram.
+[ChartSeries.getOverlap](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/#getOverlap) geeft aan hoeveel balken of kolommen overlappen in een 2D‑diagram, van –100 tot 100 procent. Het is een alleen‑lezen projectie van de instelling op de bovenliggende reeksgroep. Gebruik [ChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/#setOverlap) om elke compatibele reeks in die groep bij te werken. Deze optie is van toepassing op diagramtypen die gegroepeerde balken of kolommen weergeven; hij heeft geen invloed op niet‑gerelateerde reeksgroepen in een combinatiediagram.
 
-Het volgende voorbeeld stelt de overlap in voor de groep die de eerste reeks bevat:
+Het volgende voorbeeld stelt de overlapping in voor de groep die de eerste reeks bevat:
 
 ```php
 $firstSlideIndex = 0;
@@ -65,11 +65,11 @@ try {
 
 Het resultaat:
 
-![De reeks‑overlap](series_overlap.png)
+![The series overlap](series_overlap.png)
 
-## **Kleur van de reeksvulling wijzigen**
+## **Wijzig de Opvulkleur van de Reeks**
 
-Gebruik [ChartSeries.getFormat](https://reference.aspose.com/slides/nl/php-java/aspose.slides/chartseries/#getFormat) om de standaardvulling voor een gehele reeks in te stellen. Als een punt al een expliciete vulling heeft, overschrijft de [ChartDataPoint.getFormat](https://reference.aspose.com/slides/nl/php-java/aspose.slides/chartdatapoint/#getFormat)‑instelling de reeksvulling voor dat punt.
+Gebruik [ChartSeries.getFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/#getFormat) om de standaardvulling voor een volledige reeks in te stellen. Als een punt al een expliciete vulling heeft, overschrijft de [ChartDataPoint.getFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/#getFormat)-instelling de reeksvulling voor dat punt.
 
 Het volgende voorbeeld past een egale blauwe vulling toe op de eerste reeks:
 
@@ -98,11 +98,11 @@ try {
 
 Het resultaat:
 
-![De kleur van de reeks](series_color.png)
+![The color of the series](series_color.png)
 
-## **Naam van de reeks wijzigen**
+## **Wijzig de Naam van de Reeks**
 
-Een reeksnaam wordt opgeslagen in de diagram‑datwerkmap en normaal weergegeven in de legenda. In de standaardwerkmap die voor een gegroepeerde kolomdiagram wordt aangemaakt, bevindt cel B1 zich op rij 0, kolom 1 en bevat de naam van de eerste reeks. De benoemde variabelen in het volgende voorbeeld maken die structuur expliciet:
+Een reeksennaam wordt opgeslagen in het diagram‑data‑werkboek en wordt normaal gesproken in de legenda weergegeven. In het standaard‑werkboek dat wordt aangemaakt voor een gegroepeerd kolomdiagram, bevindt cel B1 zich op rij 0, kolom 1 en bevat de naam van de eerste reeks. De benoemde variabelen in het volgende voorbeeld maken die structuur expliciet:
 
 ```php
 $firstSlideIndex = 0;
@@ -128,7 +128,7 @@ try {
 }
 ```
 
-Je kunt ook de cel bijwerken die al wordt gerefereerd door [ChartSeries.getName](https://reference.aspose.com/slides/nl/php-java/aspose.slides/chartseries/#getName). Deze aanpak vermijdt aannames over een specifieke rij en kolom in een bestaand diagram:
+U kunt ook de cel bijwerken die al wordt verwezen door [ChartSeries.getName](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/#getName). Deze benadering voorkomt dat u een bepaalde rij en kolom in een bestaand diagram aanneemt:
 
 ```php
 $firstSlideIndex = 0;
@@ -155,13 +155,65 @@ try {
 
 Het resultaat:
 
-![De reeksnaam](series_name.png)
+![The series name](series_name.png)
 
-## **Automatische reeksvulkleur ophalen**
+### **Maak een Reeks met een Naam uit Meerdere Cellen**
 
-[ChartSeries.getAutomaticSeriesColor](https://reference.aspose.com/slides/nl/php-java/aspose.slides/chartseries/#getAutomaticSeriesColor) retourneert de kleur die wordt berekend op basis van de reeks‑index en de diagramstijl. Dit is de kleur die wordt gebruikt wanneer de reeks‑vulling niet expliciet is gedefinieerd. Het aanroepen van de methode leest de berekende kleur; hij wijst geen nieuwe vulling toe.
+Een samengestelde reeksennaam is handig wanneer een productnaam en een rapportageperiode in afzonderlijke werkboekcellen zijn opgeslagen. Bijvoorbeeld, u kunt `Product A` in B1 en `2026` in C1 combineren tot één reeksennaam terwijl beide delen gekoppeld blijven aan hun broncellen.
 
-Het volgende voorbeeld drukt de automatische kleur van elke standaardreeks af:
+Gebruik [ChartDataWorkbook::getCellCollection](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/#getCellCollection) om het naam‑bereik op te halen en geef die collectie door aan [ChartSeriesCollection::add](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriescollection/#add). Het argument `skipHiddenCells` bepaalt of verborgen cellen worden meegenomen: `true` sluit ze uit, `false` neemt ze op. Dit voorbeeld gebruikt `false` om elke cel in het naam‑bereik op te nemen.
+
+Het volgende voorbeeld maakt een presentatie met één reeks en twee datapunten. Cellen B1:C1 leveren alleen de reeksennaam; A2:A3 leveren de categorielabels, en B2:B3 leveren de numerieke waarden.
+
+```php
+use aspose\slides\ChartType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 620, 180);
+
+    $chart->getChartData()->getSeries()->clear();
+    $chart->getChartData()->getCategories()->clear();
+    $chart->setLegend(true);
+
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
+    $workbook->clear(0);
+
+    // Deze twee cellen leveren de reeksennaam.
+    $workbook->getCell(0, 0, 1, "Product A");
+    $workbook->getCell(0, 0, 2, "2026");
+    $nameCells = $workbook->getCellCollection('Sheet1!$B$1:$C$1', false);
+    $series = $chart->getChartData()->getSeries()->add($nameCells, ChartType::ClusteredColumn);
+
+    // Aparte cellen leveren de categorieën en numerieke datapunten.
+    $northCategory = $workbook->getCell(0, 1, 0, "North");
+    $southCategory = $workbook->getCell(0, 2, 0, "South");
+    $chart->getChartData()->getCategories()->add($northCategory);
+    $chart->getChartData()->getCategories()->add($southCategory);
+    $northValue = $workbook->getCell(0, 1, 1, 120);
+    $southValue = $workbook->getCell(0, 2, 1, 150);
+    $series->getDataPoints()->addDataPointForBarSeries($northValue);
+    $series->getDataPoints()->addDataPointForBarSeries($southValue);
+
+    $presentation->save("composite_series_name.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+De resulterende reeksennaam is `Product A 2026`, met een spatie tussen de twee celwaarden. De legenda toont dit als één vermelding voor beide kolommen. De afbeelding hieronder illustreert het resultaat:
+
+![Column chart with North and South values and the composite series name Product A 2026 in the legend](composite_series_name.png)
+
+## **Haal de Automatische Opvulkleur van de Reeks Op**
+
+[ChartSeries.getAutomaticSeriesColor](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/#getAutomaticSeriesColor) retourneert de kleur die is berekend op basis van de reeksenindex en de diagramstijl. Dit is de kleur die wordt gebruikt wanneer de reeksvulling niet expliciet is gedefinieerd. Het aanroepen van de methode leest de berekende kleur; hij wijst geen nieuwe vulling toe.
+
+Het volgende voorbeeld geeft de automatische kleur van elke standaardreeks weer:
 
 ```php
 $firstSlideIndex = 0;
@@ -198,11 +250,11 @@ Series 2: java.awt.Color[r=155,g=187,b=89]
 
 De exacte kleuren hangen af van de diagramstijl en het thema.
 
-## **Invulkleur omkeren voor een diagramreeks**
+## **Stel Inverterende Opvulkleur In voor een Grafiekreeks**
 
-Voor balk‑, kolom‑ en bubbelreeksen kan [ChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/nl/php-java/aspose.slides/chartseries/#setInvertIfNegative) negatieve waarden met een andere vulling weergeven. Stel de reguliere reeksvulling in op egaal, schakel inversie in en wijs de negatieve‑waarde‑kleur toe via [ChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/nl/php-java/aspose.slides/chartseries/#getInvertedSolidFillColor). Negatieve getallen blijven ongewijzigd in de werkmap; alleen hun weergavekleur verandert.
+Voor balk‑, kolom‑ en bubbelformats kunnen [ChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/#setInvertIfNegative) negatieve waarden met een andere vulling weergeven. Stel de reguliere reeksvulling in op egaal, schakel inversie in en ken de negatieve‑waarde‑kleur toe via [ChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/#getInvertedSolidFillColor). Negatieve getallen blijven ongewijzigd in het werkboek; alleen hun weergavekleur verandert.
 
-Het volgende voorbeeld vervangt de standaarddiagramgegevens door één reeks. Werkbladrij 0 bevat de reeksnaam, kolom 0 bevat categorienamen en kolom 1 bevat de waarden:
+Het volgende voorbeeld vervangt de standaarddiagramgegevens door één reeks. Werkblad‑rij 0 bevat de reeksennaam, kolom 0 bevat categorienamen, en kolom 1 bevat de waarden:
 
 ```php
 $firstSlideIndex = 0;
@@ -260,9 +312,9 @@ try {
 
 Het resultaat:
 
-![De omgekeerde egale vulling](inverted_solid_fill_color.png)
+![The inverted solid fill color](inverted_solid_fill_color.png)
 
-Je kunt inversie voor één punt inschakelen via [ChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/nl/php-java/aspose.slides/chartdatapoint/#setInvertIfNegative). In het volgende voorbeeld is inversie uitgeschakeld voor de reeks en alleen ingeschakeld voor het geselecteerde punt. Het punt krijgt ook een negatieve waarde zodat het effect zichtbaar is:
+U kunt inversie voor één punt inschakelen via [ChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/#setInvertIfNegative). In het volgende voorbeeld is inversie uitgeschakeld voor de reeks en alleen ingeschakeld voor het geselecteerde punt. Het punt krijgt tevens een negatieve waarde, zodat het effect zichtbaar is:
 
 ```php
 $firstSlideIndex = 0;
@@ -296,11 +348,11 @@ try {
 }
 ```
 
-## **Specifieke gegevenspuntwaarde wissen**
+## **Verwijder een Specifieke Datapuntwaarde**
 
-Om één punt leeg te maken zonder de andere punten te verwijderen, stel je de onderliggende werkmapcel in op `null`. Voor een kolomdiagram is de weergegeven waarde beschikbaar via [ChartDataPoint.getValue](https://reference.aspose.com/slides/nl/php-java/aspose.slides/chartdatapoint/#getValue). Het gegevenspunt blijft op dezelfde categorielocatie staan, maar het diagram behandelt de waarde als leeg volgens de instelling voor lege waarden van het diagram.
+Om één punt leeg te maken zonder de andere punten te verwijderen, stelt u de onderliggende werkboekcel in op `null`. Voor een kolomdiagram is de weergegeven waarde beschikbaar via [ChartDataPoint.getValue](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/#getValue). Het datapunt blijft op dezelfde categorielocatie, maar het diagram behandelt zijn waarde als leeg volgens de instellingen voor lege waarden van het diagram.
 
-Het volgende voorbeeld wist alleen het tweede punt in de eerste reeks:
+Het volgende voorbeeld verwijdert alleen het tweede punt in de eerste reeks:
 
 ```php
 $firstSlideIndex = 0;
@@ -325,17 +377,17 @@ try {
 }
 ```
 
-Scatter‑diagrammen gebruiken aparte X‑ en Y‑cellen, en bubbel‑diagrammen gebruiken ook een grootte‑cel. Wis alleen de cel die de waarde representeert die je wilt verwijderen. Roep [ChartDataPointCollection.clear](https://reference.aspose.com/slides/nl/php-java/aspose.slides/chartdatapointcollection/#clear) niet aan wanneer je de andere punten wilt behouden, want die methode verwijdert elk gegevenspunt uit de collectie.
+Spreidingsdiagrammen gebruiken aparte X‑ en Y‑cellen, en bubbeldiagrammen gebruiken ook een groottecel. Verwijder alleen de cel die de waarde vertegenwoordigt die u wilt weghalen. Roep [ChartDataPointCollection.clear](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapointcollection/#clear) niet aan wanneer u de andere punten wilt behouden, want die methode verwijdert elk datapunt uit de collectie.
 
-## **Weergave van lege cellen regelen**
+## **Beheer de Weergave van Lege Cellen**
 
-Verborgen cellen die waarden bevatten vormen een ander geval dan lege cellen. Zie [Include Data from Hidden Rows and Columns](/slides/nl/php-java/chart-workbook/#include-data-from-hidden-rows-and-columns) om gegevens uit verborgen werkbladrijen en –kolommen op te nemen of uit te sluiten.
+Verborgen cellen die waarden bevatten vormen een apart geval ten opzichte van lege cellen. Zie [Include Data from Hidden Rows and Columns](/slides/nl/php-java/chart-workbook/#include-data-from-hidden-rows-and-columns) voor het opnemen of uitsluiten van gegevens uit verborgen rijen en kolommen.
 
-Een lege werkmapcel staat voor ontbrekende gegevens; een cel met `0` staat voor een bekende numerieke waarde. Roep [ChartDataCell::setValue](https://reference.aspose.com/slides/nl/php-java/aspose.slides/chartdatacell/#setValue) aan met `null` om een cel leeg te maken. Een numerieke nul blijft een nul, ongeacht de instelling voor lege cellen.
+Een lege werkboekcel vertegenwoordigt ontbrekende gegevens; een cel met `0` vertegenwoordigt een bekende numerieke waarde. Roep [ChartDataCell::setValue](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatacell/#setValue) aan met `null` om een cel leeg te maken. Een numerieke nul blijft een nul, ongeacht de instelling voor lege cellen.
 
-Gebruik [Chart::setDisplayBlanksAs](https://reference.aspose.com/slides/nl/php-java/aspose.slides/chart/#setDisplayBlanksAs) om te kiezen hoe het diagram lege cellen weergeeft. Deze instelling geldt voor het gehele diagram. Hij verandert hoe lege waarden worden geplot, zonder de lege werkmapcel te vullen met nul of een geïnterpoleerde waarde.
+Gebruik [Chart::setDisplayBlanksAs](https://reference.aspose.com/slides/php-java/aspose.slides/chart/#setDisplayBlanksAs) om te kiezen hoe het diagram lege cellen weergeeft. Deze instelling geldt voor het gehele diagram. Hij verandert hoe lege waarden worden uitgezet, zonder de lege werkboekcel te vullen met nul of een geïnterpoleerde waarde.
 
-Het volgende zelfstandige voorbeeld maakt een lijndiagram met één reeks, wist de waarde voor Dag 3 en slaat hetzelfde diagram op met elke modus. Er is geen invoerbestand nodig. De [ChartDataWorkbook](https://reference.aspose.com/slides/nl/php-java/aspose.slides/chartdataworkbook/) gebruikt werkblad 0, kolom 0 voor categorielabels en kolom 1 voor waarden; rij 0 bevat de reeksnaam. De uiteindelijke gegevens zijn `10, 20, empty, 30, 40`.
+Het volgende zelfstandige voorbeeld maakt een lijndiagram met één reeks, maakt de waarde voor Dag 3 leeg en slaat hetzelfde diagram op met elke modus. Er is geen invoerbestand vereist. De [ChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/) gebruikt werkblad 0, kolom 0 voor categorielabels en kolom 1 voor waarden; rij 0 bevat de reeksennaam. De uiteindelijke gegevens zijn `10, 20, leeg, 30, 40`.
 
 ```php
 use aspose\slides\ChartType;
@@ -365,7 +417,7 @@ try {
         $series->getDataPoints()->addDataPointForLineSeries($valueCell);
     }
 
-    // Laat dag 3 echt leeg, terwijl de categorie en het datapunt behouden blijven.
+    // Laat dag 3 werkelijk leeg, terwijl de categorie en het datapunt behouden blijven.
     $workbook->getCell(0, 3, 1)->setValue(null);
 
     $modes = [DisplayBlanksAsType::Gap, DisplayBlanksAsType::Zero, DisplayBlanksAsType::Span];
@@ -379,19 +431,19 @@ try {
 }
 ```
 
-Elk uitvoerbestand slaat de vóór het opslaan toegewezen modus op: `empty_cells_Gap.pptx`, `empty_cells_Zero.pptx` en `empty_cells_Span.pptx`. Om slechts één versie op te slaan, wijs je de gewenste modus toe en sla je de presentatie één keer op in plaats van over de modi te itereren.
+Elke uitvoerbestand slaat de modus op die vóór het opslaan is toegewezen: `empty_cells_Gap.pptx`, `empty_cells_Zero.pptx` en `empty_cells_Span.pptx`. Om slechts één versie op te slaan, wijs de gewenste modus toe en sla de presentatie één keer op in plaats van over de modi te itereren.
 
-De vergelijking hieronder toont dezelfde gegevens in alle drie de bestanden. Dag 3 is in elke werkmap leeg:
+De vergelijking hieronder toont dezelfde gegevens in alle drie de bestanden. Dag 3 is in elk geval leeg in het werkboek:
 
-![Lijndiagrammen met identieke gegevens: Gap onderbreekt de lijn op Dag 3, Zero laat de lijn naar nul zakken, en Span verbindt Dag 2 met Dag 4.](display_blanks_as.png)
+![Line charts with identical data: Gap breaks the line at Day 3, Zero drops the line to zero, and Span connects Day 2 to Day 4.](display_blanks_as.png)
 
-Het zichtbare effect hangt af van het diagramtype. Een lijndiagram maakt alle drie de modi gemakkelijk vergelijkbaar. Balk‑ en kolomdiagrammen hebben geen lijn die over een ontbrekende categorie kan verbinden, dus `Span` kan het verbindingssegment niet produceren dat hierboven wordt getoond; een ontbrekende kolom en een nul‑hoogte kolom kunnen er ook gelijk uitzien. Evenzo heeft een scatter‑diagram met alleen markeringen geen verbindingslijn. Verwacht geen drie verschillende resultaten voor elk diagramtype; controleer de uitvoer voor het type dat je gebruikt.
+Het zichtbare effect hangt af van het diagramtype. Een lijndiagram maakt het makkelijk om de drie modi te vergelijken. Balk‑ en kolomdiagrammen hebben geen lijn om te verbinden over een ontbrekende categorie, dus `Span` kan het verbindingssegment niet genereren zoals hierboven weergegeven; een ontbrekende kolom en een kolom met nulhoogte kunnen er ook gelijk uitzien. Evenzo heeft een spreidingsdiagram met alleen markeringen geen verbindingslijn. Verwacht niet drie verschillende resultaten voor elk diagramtype; controleer de output voor het type dat u gebruikt.
 
-## **Tussenruimte (gap width) van de reeks instellen**
+## **Stel de Tussenruimtebreedte van de Reeks In**
 
-De tussenruimte is de ruimte tussen aangrenzende balk‑ of kolomclusters, uitgedrukt als een percentage van de balk‑ of kolombreedte. Net als overlap behoort deze aan de bovenliggende reeksgroep en niet aan één reeks. Roep [ChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/nl/php-java/aspose.slides/chartseriesgroup/#setGapWidth) één keer aan voor de groep. Een hogere waarde creëert meer ruimte tussen clusters; een lagere waarde maakt ze dichter.
+Tussenruimtebreedte is de ruimte tussen aangrenzende balk‑ of kolomclusters, uitgedrukt als een percentage van de balk‑ of kolombreedte. Net als overlapping behoort deze instelling tot de bovenliggende reeksgroep in plaats van tot één reeks. Roep [ChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/#setGapWidth) één keer aan voor de groep. Een grotere waarde creëert meer ruimte tussen clusters; een kleinere waarde maakt ze dichter.
 
-Het volgende voorbeeld wijzigt de tussenruimte en slaat alleen de uiteindelijke presentatie op:
+Het volgende voorbeeld wijzigt de tussenruimtebreedte en slaat alleen de uiteindelijke presentatie op:
 
 ```php
 $firstSlideIndex = 0;
@@ -417,46 +469,46 @@ try {
 
 Het resultaat:
 
-![De tussenruimte](gap_width.png)
+![The gap width](gap_width.png)
 
 ## **FAQ**
 
 **Welke diagramtypen ondersteunen gegevensreeksen?**
 
-Alle diagramtypen die door de [ChartType](https://reference.aspose.com/slides/nl/php-java/aspose.slides/charttype/)‑enumeratie worden vertegenwoordigd, gebruiken diagramgegevens, maar hun reeksen hebben niet allemaal dezelfde waardestructuur of instellingen. Bijvoorbeeld, categorie‑diagrammen gebruiken categorieën en waarden, scatter‑diagrammen gebruiken X‑ en Y‑waarden, en bubbel‑diagrammen voegen bubbelgroottes toe. Gebruik de methode voor het maken van gegevenspunten die past bij het type reeks. Opties zoals overlap en tussenruimte gelden alleen voor compatibele balk‑ of kolomgroepen.
+Alle diagramtypen die worden vertegenwoordigd door de [ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/)-enumeratie gebruiken diagramgegevens, maar hun reeksen hebben niet allemaal dezelfde waardestructuur of instellingen. Bijvoorbeeld, categoriediagrammen gebruiken categorieën en waarden, spreidingsdiagrammen gebruiken X‑ en Y‑waarden, en bubbeldiagrammen voegen bubbelgroottes toe. Gebruik de methode voor het maken van datapunten die overeenkomt met het type reeks. Opties zoals overlapping en tussenruimtebreedte zijn alleen van toepassing op compatibele balk‑ of kolomgroepen.
 
-**Wat is een diagramreeks‑groep?**
+**Wat is een grafiekreeks‑groep?**
 
-Een [ChartSeriesGroup](https://reference.aspose.com/slides/nl/php-java/aspose.slides/chartseriesgroup/) bevat compatibele reeksen die groeps‑niveau plotinstellingen delen. Een combinatie‑diagram kan meer dan één groep bevatten, dus het wijzigen van de groep die via één reeks wordt bereikt, wijzigt niet noodzakelijk elke reeks in het diagram.
+Een [ChartSeriesGroup](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/) bevat compatibele reeksen die groeps‑niveau plot‑instellingen delen. Een combinatiediagram kan meer dan één groep bevatten, dus het wijzigen van de groep die via één reeks wordt bereikt, verandert niet noodzakelijk elke reeks in het diagram.
 
 **Bevat een nieuw aangemaakt diagram standaardgegevens?**
 
-Ja. Standaard creëert [ShapeCollection.addChart](https://reference.aspose.com/slides/nl/php-java/aspose.slides/shapecollection/#addChart) voorbeeldreeksen,‑categorieën en -waarden. Je kunt die cellen bewerken of zowel de reeks‑ als de categorieverzamelingen wissen voordat je een volledig aangepaste gegevensset toevoegt. Een overload kan ook een diagram zonder standaardgegevens maken.
+Ja. Standaard maakt [ShapeCollection.addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#addChart) voorbeeldreeksen, -categorieën en -waarden aan. U kunt die cellen bewerken of zowel de reeksen‑ als de categorie‑collecties wissen voordat u een volledig aangepast gegevensset toevoegt. Een overload kan ook een diagram zonder standaardgegevens maken.
 
-**Hoe zijn diagramobjecten gekoppeld aan werkmapcellen?**
+**Hoe zijn diagramobjecten gekoppeld aan werkboekcellen?**
 
-Reeksnamen, categorielabels en waarden van gegevenspunten refereren aan cellen in een [ChartDataWorkbook](https://reference.aspose.com/slides/nl/php-java/aspose.slides/chartdataworkbook/). Het veranderen van een gerefereerde cel werkt het overeenkomstige diagramonderdeel bij. Wanneer je aangepaste gegevens bouwt, houd je de rijen met categorieën en de rijen met reeks‑waarden op één lijn zodat elk punt onder de bedoelde categorie wordt geplot.
+Reeksenamen, categorielabels en datapuntwaarden verwijzen naar cellen in een [ChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/). Het wijzigen van een verwijzende cel werkt het overeenkomstige diagramonderdeel bij. Wanneer u aangepaste gegevens bouwt, houd dan de categorierijen en reeksen‑waardereeksen op elkaar afgestemd zodat elk punt onder de beoogde categorie wordt uitgezet.
 
 **Hoe wis ik één punt in plaats van de hele reeks?**
 
-Stel de betreffende waarde‑cel in op `null` om de positie van het punt in de categorie behouden als een leeg punt. Gebruik [ChartDataPointCollection.clear](https://reference.aspose.com/slides/nl/php-java/aspose.slides/chartdatapointcollection/#clear) alleen wanneer je alle punten uit die reeks wilt verwijderen. Als je ook categorieën verwijdert, werk je elke reeks bij zodat hun waarden blijven aansluiten op de categorieverzameling.
+Stel de betreffende waarde‑cel in op `null` om de positie van de categorie te behouden als een leeg punt. Gebruik [ChartDataPointCollection.clear](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapointcollection/#clear) alleen wanneer u alle punten uit die reeks wilt verwijderen. Als u ook categorieën verwijdert, werk dan elke reeks bij zodat hun waarden op één lijn blijven met de categorieverzameling.
 
 **Hoe worden lege punten weergegeven?**
 
-Het resultaat hangt af van het diagramtype en de via [Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/nl/php-java/aspose.slides/chart/#setDisplayBlanksAs) geconfigureerde waarde. Ondersteunde diagrammen kunnen lege waarden weergeven als gaten, als nul‑waarden of door aangrenzende punten te verbinden. Kies de instelling die past bij de betekenis van ontbrekende gegevens in je presentatie. Zie [Control the Display of Empty Cells](#control-the-display-of-empty-cells) voor een volledig voorbeeld en visuele vergelijking.
+Het resultaat hangt af van het diagramtype en de waarde die is geconfigureerd via [Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/php-java/aspose.slides/chart/#setDisplayBlanksAs). Ondersteunde diagrammen kunnen lege waarden weergeven als gaten, als nulwaarden of door naburige punten te verbinden. Kies de instelling die overeenkomt met de betekenis van ontbrekende gegevens in uw presentatie. Zie [Control the Display of Empty Cells](#control-the-display-of-empty-cells) voor een compleet voorbeeld en visueel vergelijk.
 
 **Hoe worden negatieve waarden opgemaakt?**
 
-Voor ondersteunde balk‑, kolom‑ en bubbelreeksen roep je [ChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/nl/php-java/aspose.slides/chartseries/#setInvertIfNegative) aan en stel je de kleur in die wordt geretourneerd door [ChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/nl/php-java/aspose.slides/chartseries/#getInvertedSolidFillColor). Je kunt het gedrag voor een individueel punt overschrijven met [ChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/nl/php-java/aspose.slides/chartdatapoint/#setInvertIfNegative). Deze methoden beïnvloeden de opmaak, niet de opgeslagen numerieke waarden.
+Voor ondersteunde balk‑, kolom‑ en bubbelformats, roep [ChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/#setInvertIfNegative) aan en stel de kleur in die wordt geretourneerd door [ChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/#getInvertedSolidFillColor). U kunt het gedrag voor een individueel punt overschrijven met [ChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/#setInvertIfNegative). Deze methoden beïnvloeden alleen de opmaak, niet de opgeslagen numerieke waarden.
 
-**Welke opmaak heeft voorrang wanneer zowel een reeks als een punt zijn opgemaakt?**
+**Welke opmaak wint wanneer zowel een reeks als een punt zijn opgemaakt?**
 
-Expliciete punt‑opmaak heeft voorrang voor dat punt. Andere punten blijven de expliciete reeks‑opmaak gebruiken of, wanneer de reeks‑opmaak niet gedefinieerd is, de automatische diagramstijl en het thema. Groepsinstellingen zoals overlap en tussenruimte regelen de layout en vormen geen punt‑niveau opmaak‑overschrijvingen.
+Expliciete datapunt‑opmaak heeft voorrang voor dat punt. Andere punten blijven de expliciete reeks‑opmaak gebruiken of, wanneer de reeks‑opmaak niet is gedefinieerd, de automatische diagramstijl en het thema. Groepsinstellingen zoals overlapping en tussenruimtebreedte regelen de lay‑out en zijn geen point‑level opmaak‑overschrijvingen.
 
 **Is er een limiet aan het aantal reeksen dat een diagram kan bevatten?**
 
-Aspose.Slides legt geen afzonderlijke vaste limiet voor het aantal reeksen op. In de praktijk bepalen bestands‑beperkingen, beschikbaar geheugen, render‑tijd en leesbaarheid van het diagram een praktisch limiet.
+Aspose.Slides legt geen afzonderlijke vaste limiet op voor het aantal reeksen. In de praktijk bepalen bestandsbeperkingen van de presentatie, beschikbare geheugen, render‑tijd en leesbaarheid van het diagram een praktisch limiet.
 
-**Wat moet ik aanpassen wanneer kolommen te dicht bij of te ver van elkaar staan?**
+**Wat moet ik aanpassen wanneer kolommen te dicht bij elkaar of te ver uit elkaar staan?**
 
-Roep [ChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/nl/php-java/aspose.slides/chartseriesgroup/#setGapWidth) aan op de juiste bovenliggende reeksgroep. Verhoog de waarde om de ruimte tussen clusters te vergroten, of verlaag deze om de clusters dichter bij elkaar te brengen.
+Roep [ChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/#setGapWidth) aan op de juiste bovenliggende reeksgroep. Vergroot de waarde om de ruimte tussen clusters te verbreden, of verklein de waarde om de clusters dichter bij elkaar te brengen.

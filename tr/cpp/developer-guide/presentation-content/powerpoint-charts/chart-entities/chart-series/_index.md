@@ -1,11 +1,11 @@
 ---
-title: C++ ile Sunumlarda Grafik Veri Serilerini Yönetme
+title: C++'ta Sunumlarda Grafik Veri Serilerini Yönetme
 linktitle: Veri Serileri
 type: docs
 url: /tr/cpp/chart-series/
 keywords:
 - grafik serileri
-- seri çakışması
+- seri örtüşmesi
 - seri rengi
 - kategori rengi
 - seri adı
@@ -15,29 +15,29 @@ keywords:
 - sunum
 - C++
 - Aspose.Slides
-description: "C++ ile sunumlarda grafik serilerini, veri noktalarını, çalışma kitabı hücrelerini, biçimlendirmeyi, çakışmayı, boşluk genişliğini ve negatif değerleri nasıl yöneteceğinizi öğrenin."
+description: "C++ ile sunumlarda grafik serileri, veri noktaları, çalışma kitabı hücreleri, biçimlendirme, örtüşme, boşluk genişliği ve negatif değerleri nasıl yöneteceğinizi öğrenin."
 ---
 ## **Genel Bakış**
 
-Bir grafik, çizilen verileri bir grafik veri çalışma kitabında saklar. Bir [IChartSeries](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/ichartseries/) bir dizi ilgili değeri temsil eder ve serideki her [IChartDataPoint](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/ichartdatapoint/) bir veya daha fazla çalışma kitabı hücresine başvurur. [IChartCategory](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/ichartcategory/) nesneleri, seri tarafından paylaşılan etiketleri veya grup değerlerini sağlar. Seri adı, kategoriler ve nokta değerleri bu nedenle yalnızca görüntü metni olarak saklanmak yerine [IChartDataCell](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/ichartdatacell/) nesnelerine bağlanır.
+Bir grafik, çizilen verilerini bir grafik veri çalışma kitabında depolar. Bir [IChartSeries](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/) bir dizi ilgili değeri temsil eder ve serideki her [IChartDataPoint](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapoint/) bir veya daha fazla çalışma kitabı hücresine başvurur. [IChartCategory](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartcategory/) nesneleri, seri tarafından paylaşılan etiketleri veya gruplama değerlerini sağlar. Bu nedenle seri adı, kategoriler ve nokta değerleri yalnızca görüntü metni olarak depolanmak yerine [IChartDataCell](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatacell/) nesnelerine bağlanır.
 
-Tipik bir kategori grafiği için, varsayılan çalışma kitabı satır 0ʼı seri adları için, sütun 0ʼı kategori adları için ve kalan hücreleri seri değerleri için kullanır. [IChartDataWorkbook::GetCell](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/ichartdataworkbook/getcell/) yöntemine geçirilen çalışma sayfası, satır ve sütun dizinleri sıfır‑tabanlıdır. Bu düzen, varsayılan verilerle bir grafik oluşturduğunuzda kullanışlıdır, ancak mevcut her grafiğin bunu kullandığını varsaymayın. Yüklenmiş bir sunum için, çalışma kitabı değerlerini değiştirmeden önce seriler, kategoriler ve veri noktaları tarafından başvurulan hücreleri inceleyin.
+Tipik bir kategori grafiği için, varsayılan çalışma kitabı satır 0'ı seri adları için, sütun 0'ı kategori adları için ve kalan hücreleri seri değerleri için kullanır. [IChartDataWorkbook::GetCell](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/getcell/) metoduna geçirilen çalışma sayfası, satır ve sütun dizinleri sıfır tabanlıdır. Bu düzen, varsayılan verilerle bir grafik oluştururken faydalıdır, ancak mevcut her grafiğin bunu kullandığını varsaymayın. Yüklenmiş bir sunumda, çalışma kitabı değerlerini değiştirmeden önce seriler, kategoriler ve veri noktaları tarafından başvurulan hücreleri inceleyin.
 
-Grafik ayarlarının üç ayrı kapsamı vardır:
+Grafik ayarlarının üç farklı kapsamı vardır:
 
-- Seri‑düzeyi ayarlar, örneğin [IChartSeries::get_Format](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/ichartseries/get_format/), bir serideki tüm noktalar için varsayılan görünümü sağlar.
-- Veri‑nokta ayarları, örneğin [IChartDataPoint::get_Format](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/ichartdatapoint/get_format/), tek bir nokta için serinin görünümünü geçersiz kılar.
-- Grup ayarları, aynı [IChartSeriesGroup](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/ichartseriesgroup/) içinde bulunan uyumlu serilere uygulanır. Örtüşme veya boşluk genişliği gibi seçenekleri ayarlamanız gerektiğinde, grup üzerinden [IChartSeries::get_ParentSeriesGroup](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/ichartseries/get_parentseriesgroup/) yöntemini kullanın.
+- Seri düzeyindeki ayarlar, örneğin [IChartSeries::get_Format](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_format/) gibi, bir serideki tüm noktalar için varsayılan görünümü sağlar.
+- Veri noktası ayarları, örneğin [IChartDataPoint::get_Format](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapoint/get_format/) gibi, bir nokta için seri görünümünü geçersiz kılar.
+- Grup ayarları, aynı [IChartSeriesGroup](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/) ait uyumlu serilere uygulanır. Örtüşme veya boşluk genişliği gibi seçenekleri ayarlamanız gerektiğinde grup, [IChartSeries::get_ParentSeriesGroup](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_parentseriesgroup/) aracılığıyla erişilir.
 
-Açıkça bir nokta veya seri doldurması ayarlanmamışsa, grafik stili ve teması otomatik görünümü belirler. Hem seri hem de nokta biçimlendirmesi mevcut olduğunda, nokta biçimlendirmesi o nokta için önceliklidir.
+Açıkça bir nokta ya da seri dolgusu ayarlanmamışsa, grafik stili ve teması otomatik görünümü belirler. Hem seri hem de nokta biçimlendirmesi mevcut olduğunda, nokta biçimlendirmesi o nokta için önceliklidir.
 
-![grafik-seri-powerpoint](chart-series-powerpoint.png)
+![grafik-serisi-powerpoint](chart-series-powerpoint.png)
 
-## **Grafik Serisi Çakışmasını Ayarlama**
+## **Grafik Serisi Örtüşmesini Ayarlama**
 
-[IChartSeries::get_Overlap](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/ichartseries/get_overlap/) 2D bir grafikte çubukların veya sütunların ne kadar çakıştığını – % -100 ile % 100 arasında – raporlar. Bu, üst seri grubu üzerindeki ayarın yalnızca okunabilir bir yansıtmasıdır. O gruptaki tüm uyumlu serileri güncellemek için [IChartSeriesGroup::set_Overlap](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/ichartseriesgroup/set_overlap/) metodunu çağırın. Bu seçenek, gruplanmış çubuk veya sütun gösteren grafik türlerine uygulanır; bir birleşik grafikteki ilgisiz seri gruplarını etkilemez.
+[IChartSeries::get_Overlap](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_overlap/) 2B bir grafikte çubukların veya sütunların ne kadar örtüştüğünü yüzde ‑100 ile 100 arasında raporlar. Bu, üst seri grubundaki ayarın yalnızca okunabilir bir yansımasıdır. O gruptaki uyumlu tüm serileri güncellemek için [IChartSeriesGroup::set_Overlap](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/set_overlap/) çağırın. Bu seçenek, gruplanmış çubuk veya sütun gösteren grafik türlerine uygulanır; birleşik bir grafikte ilgili olmayan seri gruplarını etkilemez.
 
-Aşağıdaki örnek, ilk seriyi içeren grup için çakışmayı ayarlar:
+Aşağıdaki örnek, ilk seriyi içeren grup için örtüşmeyi ayarlar:
 
 ```cpp
 #include <cstdint>
@@ -77,13 +77,13 @@ presentation->Dispose();
 
 Sonuç:
 
-![Seri çakışması](series_overlap.png)
+![Seri örtüşmesi](series_overlap.png)
 
-## **Seri Doldurma Rengini Değiştirme**
+## **Seri Dolgu Rengini Değiştir**
 
-Tüm bir seri için varsayılan doldurmayı ayarlamak üzere [IChartSeries::get_Format](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/ichartseries/get_format/) yöntemini kullanın. Bir noktanın açıkça bir doldurması varsa, onun [IChartDataPoint::get_Format](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/ichartdatapoint/get_format/) ayarı, o nokta için serinin doldurmasını geçersiz kılar.
+[Tüm seri için varsayılan dolguyu ayarlamak için [IChartSeries::get_Format](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_format/) kullanın. Bir noktanın zaten açık bir dolgusu varsa, onun [IChartDataPoint::get_Format](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapoint/get_format/) ayarı, o nokta için seri dolgusunu geçersiz kılar.
 
-Aşağıdaki örnek, ilk seriye katı mavi bir doldurma uygular:
+Aşağıdaki örnek, ilk seriye katı mavi dolgu uygular:
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -128,11 +128,11 @@ presentation->Dispose();
 
 Sonuç:
 
-![Seri rengi](series_color.png)
+![Serinin rengi](series_color.png)
 
-## **Seri Adını Değiştirme**
+## **Seri Adını Değiştir**
 
-Seri adı grafik veri çalışma kitabında saklanır ve genellikle lejende görüntülenir. Küme sütun grafiği için oluşturulan varsayılan çalışma kitabında, B1 hücresi satır 0, sütun 1 konumunda olup ilk serinin adını içerir. Aşağıdaki örnekteki adlandırılmış sabitler bu yapıyı açıkça gösterir:
+Seri adı grafik veri çalışma kitabında depolanır ve genellikle legendde gösterilir. Küme sütun grafiği için oluşturulan varsayılan çalışma kitabında, B1 hücresi satır 0, sütun 1 konumunda olup ilk serinin adını içerir. Aşağıdaki örnekteki adlandırılmış sabitler bu yapıyı netleştirir:
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -173,7 +173,7 @@ presentation->Save(u"series_name.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Ayrıca, [IChartSeries::get_Name](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/ichartseries/get_name/) tarafından zaten başvurulan hücreyi güncelleyebilirsiniz. Bu yaklaşım, mevcut bir grafikte belirli bir satır ve sütun varsayımından kaçınır:
+Ayrıca [IChartSeries::get_Name](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_name/) tarafından zaten başvurulan hücreyi güncelleyebilirsiniz. Bu yaklaşım, mevcut bir grafikte belirli bir satır ve sütun varsayımını önler:
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -222,11 +222,87 @@ Sonuç:
 
 ![Seri adı](series_name.png)
 
-## **Otomatik Seri Doldurma Rengini Alma**
+### **Birden Çok Hücreden Oluşan Bir Seri Adı Oluşturma**
 
-[IChartSeries::GetAutomaticSeriesColor](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/ichartseries/getautomaticseriescolor/) metodu, seri dizini ve grafik stilinden hesaplanan rengi döndürür. Bu, seri doldurması açıkça tanımlanmamış olduğunda kullanılan renktir. Metodu çağırmak yalnızca hesaplanan rengi okur; yeni bir doldurma atamaz.
+Ürün adı ve raporlama dönemi ayrı hücrelerde saklanıyorsa bile birleştirilmiş seri adı yararlı olabilir. Örneğin, B1'deki `Product A` ile C1'deki `2026` değerlerini tek bir seri adı olarak birleştirip her iki kısmın da kaynak hücrelerine bağlı kalabilirsiniz.
 
-Aşağıdaki örnek, her varsayılan serinin otomatik rengini yazdırır:
+[İsim aralığını almak için IChartDataWorkbook::GetCellCollection](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/getcellcollection/) kullanın, ardından bu koleksiyonu [IChartSeriesCollection::Add](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriescollection/add/) metoduna geçirin. `skipHiddenCells` argümanı gizli hücrelerin dahil edilip edilmeyeceğini kontrol eder: `true` hariç tutar, `false` dahil eder. Bu örnek, isim aralığındaki tüm hücreleri dahil etmek için `false` kullanır.
+
+Aşağıdaki örnek, bir seri ve iki veri noktası içeren bir sunum oluşturur. B1:C1 yalnızca seri adını sağlarken, A2:A3 kategori etiketlerini, B2:B3 ise sayısal değerleri sağlar.
+
+```cpp
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartCellCollection.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataCell.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/object_ext.h>
+#include <system/shared_ptr.h>
+#include <system/string.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using System::ObjectExt;
+using System::String;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 50.0f, 50.0f, 620.0f, 180.0f);
+auto chartData = chart->get_ChartData();
+
+chartData->get_Series()->Clear();
+chartData->get_Categories()->Clear();
+chart->set_HasLegend(true);
+
+auto workbook = chartData->get_ChartDataWorkbook();
+workbook->Clear(0);
+
+// Bu iki hücre seri adını sağlar.
+auto productName = ObjectExt::Box<String>(u"Product A");
+auto reportingPeriod = ObjectExt::Box<String>(u"2026");
+workbook->GetCell(0, 0, 1, productName);
+workbook->GetCell(0, 0, 2, reportingPeriod);
+auto nameCells = workbook->GetCellCollection(u"Sheet1!$B$1:$C$1", false);
+auto series = chartData->get_Series()->Add(nameCells, ChartType::ClusteredColumn);
+
+// Ayrı hücreler kategorileri ve sayısal veri noktalarını sağlar.
+auto northLabel = ObjectExt::Box<String>(u"North");
+auto southLabel = ObjectExt::Box<String>(u"South");
+auto northCategory = workbook->GetCell(0, 1, 0, northLabel);
+auto southCategory = workbook->GetCell(0, 2, 0, southLabel);
+chartData->get_Categories()->Add(northCategory);
+chartData->get_Categories()->Add(southCategory);
+auto northAmount = ObjectExt::Box<int>(120);
+auto southAmount = ObjectExt::Box<int>(150);
+auto northValue = workbook->GetCell(0, 1, 1, northAmount);
+auto southValue = workbook->GetCell(0, 2, 1, southAmount);
+series->get_DataPoints()->AddDataPointForBarSeries(northValue);
+series->get_DataPoints()->AddDataPointForBarSeries(southValue);
+
+presentation->Save(u"composite_series_name.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+Ortaya çıkan seri adı `Product A 2026`dır; iki hücre değeri arasında bir boşluk bulunur. Legend bu iki sütun için tek bir giriş olarak gösterir. Sonuç aşağıdaki görselde gösterilmiştir:
+
+![North ve South değerleri ile karma seri adı Product A 2026 içeren sütun grafiği](composite_series_name.png)
+
+## **Otomatik Seri Dolgu Rengini Al**
+
+[IChartSeries::GetAutomaticSeriesColor](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/getautomaticseriescolor/) metodu, seri indeksi ve grafik stilinden hesaplanan rengi döndürür. Bu, seri dolgu açıkça tanımlanmadığında kullanılan renktir. Metodu çağırmak sadece hesaplanan rengi okur; yeni bir dolgu atamaz.
+
+Aşağıdaki örnek, her varsayılan seri için otomatik rengi yazdırır:
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -276,13 +352,13 @@ Series 1: ffc0504d
 Series 2: ff9bbb59
 ```
 
-Kesin renkler grafik stili ve temaya bağlıdır.
+Tam rengi, grafik stiline ve temaya bağlıdır.
 
-## **Bir Grafik Serisi İçin Ters Doldurma Rengini Ayarlama**
+## **Bir Grafik Serisi için Ters Dolgu Rengini Ayarla**
 
-Çubuk, sütun ve balon serileri için, [IChartSeries::set_InvertIfNegative](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/ichartseries/set_invertifnegative/) negatif değerleri farklı bir doldurma ile gösterebilir. Normal seri doldurmasını katı olarak ayarlayın, terslemeyi etkinleştirin ve negatif değer rengini [IChartSeries::get_InvertedSolidFillColor](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/ichartseries/get_invertedsolidfillcolor/) aracılığıyla atayın. Negatif sayılar çalışma kitabında değişmeden kalır; yalnızca görüntü rengi değişir.
+Çubuk, sütun ve balon serileri için, [IChartSeries::set_InvertIfNegative](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/set_invertifnegative/) negatif değerleri farklı bir dolgu ile gösterebilir. Normal seri dolgusunu katı olarak ayarlayın, terslemeyi etkinleştirin ve negatif değer rengini [IChartSeries::get_InvertedSolidFillColor](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_invertedsolidfillcolor/) aracılığıyla atayın. Negatif sayılar çalışma kitabında değişmez; yalnızca görüntü rengi değişir.
 
-Aşağıdaki örnek, varsayılan grafik verisini tek bir seri ile değiştirir. Çalışma sayfası satır 0 serinin adını, sütun 0 kategori adlarını ve sütun 1 değerleri içerir:
+Aşağıdaki örnek, varsayılan grafik verisini bir seriyle değiştirir. Çalışma sayfası satır 0 seri adını, sütun 0 kategori adlarını ve sütun 1 değerleri içerir:
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -370,9 +446,9 @@ presentation->Dispose();
 
 Sonuç:
 
-![Ters katı doldurma rengi](inverted_solid_fill_color.png)
+![Ters çevrilmiş katı dolgu rengi](inverted_solid_fill_color.png)
 
-Bir nokta için terslemeyi [IChartDataPoint::set_InvertIfNegative](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/ichartdatapoint/set_invertifnegative/) ile etkinleştirebilirsiniz. Aşağıdaki örnekte, tersleme seride devre dışı bırakılır ve yalnızca seçilen noktada etkinleştirilir. Noktaya ayrıca negatif bir değer atanır, böylece etki görülür:
+Bir nokta için terslemeyi [IChartDataPoint::set_InvertIfNegative](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapoint/set_invertifnegative/) ile etkinleştirebilirsiniz. Aşağıdaki örnekte, seri için tersleme devre dışı bırakılır ve yalnızca seçili nokta için etkinleştirilir. Etkinliği göstermek için nokta aynı zamanda negatif bir değer alır:
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -430,11 +506,11 @@ presentation->Save(u"data_point_invert_color_if_negative.pptx", SaveFormat::Pptx
 presentation->Dispose();
 ```
 
-## **Belirli Bir Veri Noktası Değerini Temizleme**
+## **Belirli Bir Veri Noktası Değerini Temizle**
 
-Diğer noktaları kaldırmadan bir noktayı boş bırakmak için, onu destekleyen çalışma kitabı hücresini `nullptr` olarak ayarlayın. Sütun grafiği için, çizilen değer [IChartDataPoint::get_YValue](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/ichartdatapoint/get_yvalue/) üzerinden alınabilir. Veri noktası aynı kategori konumunda kalır, ancak grafik boş‑değer ayarlarına göre değeri boş olarak kabul eder.
+Diğer noktaları kaldırmadan bir noktayı boş bırakmak için, onun arka plan hücresini `nullptr` olarak ayarlayın. Sütun grafiğinde, çizilen değer [IChartDataPoint::get_YValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapoint/get_yvalue/) üzerinden erişilebilir. Veri noktası aynı kategori konumunda kalır, ancak grafik değeri boş olarak kabul eder.
 
-Aşağıdaki örnek, ilk seride yalnızca ikinci noktayı temizler:
+Aşağıdaki örnek, ilk serideki yalnızca ikinci noktayı temizler:
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -473,17 +549,17 @@ presentation->Save(u"clear_data_point_value.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Dağılım grafiklerinde ayrı X ve Y hücreleri, balon grafiklerinde ise bir boyut hücresi bulunur. Kaldırmak istediğiniz değeri temsil eden hücreyi yalnızca o hücreyi temizleyin. Diğer noktaları korumak istediğinizde [IChartDataPointCollection::Clear](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/ichartdatapointcollection/clear/) metodunu çağırmayın; bu metod koleksiyondaki tüm veri noktalarını siler.
+Dağılma (scatter) grafiklerinde X ve Y hücreleri ayrı, balon grafiklerinde ise bir boyut hücresi eklenir. Kaldırmak istediğiniz değeri temsil eden hücreyi yalnızca temizleyin. Diğer noktaları korumak istiyorsanız [IChartDataPointCollection::Clear](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapointcollection/clear/) metodunu çağırmayın; bu metod koleksiyondaki tüm veri noktalarını siler.
 
-## **Boş Hücrelerin Görüntülenmesini Kontrol Etme**
+## **Boş Hücrelerin Görüntülenmesini Kontrol Et**
 
-Değer içeren gizli hücreler, boş hücrelerden ayrı bir durum oluşturur. Gizli çalışma sayfası satır ve sütunlarından veri eklemek veya çıkarmak için **[Gizli Satırlar ve Sütunlardan Veri Eklemek](/slides/tr/cpp/chart-workbook/#include-data-from-hidden-rows-and-columns)** konusuna bakın.
+Değer içeren gizli hücreler, boş hücrelerden farklı bir durum oluşturur. Gizli çalışma sayfası satır ve sütunlarından veri dahil etmek ya da hariç tutmak için [Include Data from Hidden Rows and Columns](/slides/tr/cpp/chart-workbook/#include-data-from-hidden-rows-and-columns) bölümüne bakın.
 
-Boş bir çalışma kitabı hücresi eksik veriyi temsil eder; `0` içeren bir hücre ise bilinen bir sayısal değerdir. Bir hücreyi boş hâle getirmek için [IChartDataCell::set_Value](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/ichartdatacell/set_value/) metodunu `nullptr` ile çağırın. Sayısal sıfır, boş‑hücre ayarından bağımsız olarak sıfır olarak kalır.
+Boş bir çalışma kitabı hücresi eksik veriyi temsil eder; `0` içeren bir hücre bilinen sayısal değeri temsil eder. Bir hücreyi boş yapmak için [IChartDataCell::set_Value](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatacell/set_value/) metoduna `nullptr` geçirin. Sayısal sıfır, boş hücre ayarından bağımsız olarak sıfır olarak kalır.
 
-Grafiğin boş hücreleri nasıl göstereceğini seçmek için [IChart::set_DisplayBlanksAs](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/ichart/set_displayblanksas/) metodunu kullanın. Bu ayar tüm grafik için geçerlidir. Boşlukların nasıl çizileceğini değiştirir; boş çalışma kitabı hücresi sıfır ya da ara değerle doldurulmaz.
+[İçindeki boş hücrelerin nasıl görüntüleneceğini seçmek için IChart::set_DisplayBlanksAs](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/set_displayblanksas/) metodunu kullanın. Bu ayar tüm grafik için geçerlidir ve boşlukların nasıl çizileceğini değiştirir; boş hücreyi sıfır ya da ara bir değerle doldurmaz.
 
-Aşağıdaki bağımsız örnek, bir çizgi grafik oluşturur, 3. Gün için değeri temizler ve aynı grafiği her bir modda kaydeder. Giriş dosyası gerekmez. [IChartDataWorkbook](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/ichartdataworkbook/) çalışma sayfası 0, kategori etiketleri için sütun 0 ve değerler için sütun 1 kullanır; satır 0 serinin adını tutar. Nihai veri `10, 20, empty, 30, 40` şeklindedir.
+Aşağıdaki bağımsız örnek, bir satır grafik oluşturur, Gün 3 için değeri siler ve her moda göre aynı grafiği kaydeder. Giriş dosyası gerekmez. [IChartDataWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/) çalışma sayfası 0, kategori etiketleri için sütun 0, değerler için sütun 1 ve satır 0 seri adını tutar. Son veri `10, 20, empty, 30, 40` şeklindedir.
 
 ```cpp
 #include <array>
@@ -537,7 +613,7 @@ for (auto i = 0; i < values.size(); i++)
     series->get_DataPoints()->AddDataPointForLineSeries(valueCell);
 }
 
-// 3. günü gerçekten boş bırak, ancak kategorisini ve veri noktasını tut.
+// Day 3'ü gerçekten boş bırak, kategori ve veri noktasını koruyarak.
 workbook->GetCell(0, 3, 1)->set_Value(nullptr);
 
 auto modes = std::array<DisplayBlanksAsType, 3>{DisplayBlanksAsType::Gap, DisplayBlanksAsType::Zero, DisplayBlanksAsType::Span};
@@ -551,17 +627,17 @@ for (auto mode : modes)
 presentation->Dispose();
 ```
 
-Her çıktı dosyası, kaydetmeden önce atanan modu içerir: `empty_cells_Gap.pptx`, `empty_cells_Zero.pptx` ve `empty_cells_Span.pptx`. Yalnızca bir sürüm kaydetmek isterseniz, istediğiniz modu atayın ve sunumu bir kez kaydedin; tüm modlar üzerinde döngü yapmayın.
+Her çıktı dosyası, kaydetmeden önce atanan modu yansıtır: `empty_cells_Gap.pptx`, `empty_cells_Zero.pptx` ve `empty_cells_Span.pptx`. Tek bir sürüm kaydetmek isterseniz, istenen modu atayın ve sunumu bir kez kaydedin.
 
-Aşağıdaki karşılaştırma, aynı verinin üç dosyada nasıl göründüğünü gösterir. 3. Gün her durumda çalışma kitabında boştur:
+Aşağıdaki karşılaştırma aynı veriyi üç dosyada gösterir. Gün 3, çalışma kitabında her durumda boştur:
 
-![Aynı veriyle çizgi grafikler: Gap modu 3. Gün'de çizgiyi keser, Zero modu çizgiyi sıfıra düşürür, Span modu Gün 2'yi Gün 4'e bağlar.](display_blanks_as.png)
+![Gün 3 boş olduğunda çizgilerin nasıl davrandığını gösteren karşılaştırma: Gap çizgiyi keser, Zero çizgiyi sıfıra düşürür, Span Gün 2'yi Gün 4'e bağlar.](display_blanks_as.png)
 
-Görünür etki grafik türüne bağlıdır. Çizgi grafiği üç modu da kolayca karşılaştırır. Çubuk ve sütun grafiklerinde eksik bir kategori arasında bağlayacak bir çizgi olmadığından, `Span` yukarıdaki bağlayıcı segmenti oluşturamaz; eksik bir sütun ve sıfır‑yükseklikli bir sütun da benzer görünebilir. Benzer şekilde, yalnızca işaretçilerle bir dağılım grafiğinde de bağlayıcı çizgi yoktur. Her grafik türü için üç ayrı sonuç beklemeyin; kullandığınız tür için çıktıyı kontrol edin.
+Görünüm etkisi grafik türüne bağlıdır. Çizgi grafiği üç modu da net bir şekilde karşılaştırır. Çubuk ve sütun grafiklerinde eksik bir kategoriye bağlanacak bir çizgi bulunmadığından `Span` bu bölümü oluşturamaz; eksik bir sütun ve sıfır yüksekliğinde bir sütun da benzer görünebilir. Benzer şekilde, yalnızca işaretçileri olan bir dağılım grafiğinde de bağlantı çizgisi yoktur. Her grafik türü için üç ayrı sonuç beklemeyin; kullandığınız türün çıktısını kontrol edin.
 
-## **Seri Boşluk Genişliğini Ayarlama**
+## **Seri Boşluk Genişliğini Ayarla**
 
-Boşluk genişliği, yan yana çubuk veya sütun kümeleri arasındaki boşluk olup çubuk veya sütun genişliğinin yüzdesi olarak ifade edilir. Çakışma gibi, bu da bir seriye değil, üst seri grubuna aittir. Grup için bir kez [IChartSeriesGroup::set_GapWidth](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/ichartseriesgroup/set_gapwidth/) metodunu çağırın. Daha büyük bir değer kümeler arasındaki boşluğu artırır; daha küçük bir değer ise onları daha sıklaştırır.
+Boşluk genişliği, yan yana çubuk veya sütun kümeleri arasındaki boşluk olup, çubuk veya sütun genişliğinin yüzde olarak ifadesidir. Örtüşme gibi, bu ayar tek bir seri yerine üst seri grubuna aittir. Grup için bir kez [IChartSeriesGroup::set_GapWidth](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/set_gapwidth/) çağırın. Daha büyük bir değer kümeler arasındaki boşluğu artırır; daha küçük bir değer onları daha sıklaştırır.
 
 Aşağıdaki örnek boşluk genişliğini değiştirir ve yalnızca son sunumu kaydeder:
 
@@ -606,42 +682,32 @@ Sonuç:
 
 ## **SSS**
 
-**Hangi grafik türleri veri serilerini destekler?**
+**Hangi grafik türleri veri serilerini destekler?**  
+[Tüm grafik türleri](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/) `ChartType` enumu tarafından temsil edilen veri kullanır, ancak serileri aynı değer yapısına veya ayarlara sahip olmayabilir. Örneğin, kategori grafikleri kategori ve değer kullanırken, dağılım grafikleri X ve Y değerlerini, balon grafikleri ise balon boyutlarını ekler. Seri tipine uygun veri nokta oluşturma yöntemini kullanın. Örtüşme ve boşluk genişliği gibi seçenekler yalnızca uyumlu çubuk veya sütun gruplarına uygulanır.
 
-[ChartType](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/charttype/) enum’unda yer alan tüm grafik türleri veri kullanır, ancak serileri aynı değer yapısına veya ayarlara sahip değildir. Örneğin, kategori grafikleri kategoriler ve değerler kullanır, dağılım grafikleri X ve Y değerleri, balon grafikleri ise balon boyutları ekler. Seri türüne uygun veri‑nokta oluşturma metodunu kullanın. Çakışma ve boşluk genişliği gibi seçenekler yalnızca uyumlu çubuk veya sütun gruplarına uygulanır.
+**Grafik seri grubu nedir?**  
+[IChartSeriesGroup](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/) aynı grup seviyesindeki çizim ayarlarını paylaşan uyumlu serileri içerir. Bir birleşik grafik birden fazla grup barındırabilir; bir seriden erişilen grup ayarını değiştirmek, grafikteki diğer serileri otomatik olarak etkilemez.
 
-**Grafik serisi grubu nedir?**
+**Yeni oluşturulan bir grafikte varsayılan veri bulunur mu?**  
+Evet. Varsayılan olarak, [IShapeCollection::AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) örnek seriler, kategoriler ve değerler oluşturur. Bu hücreleri düzenleyebilir veya tamamen özel bir veri kümesi eklemeden önce serileri ve kategori koleksiyonlarını temizleyebilirsiniz. Bir aşırı yükleme, varsayılan veri olmadan da grafik oluşturabilir.
 
-[IChartSeriesGroup](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/ichartseriesgroup/) aynı grup‑düzeyi çizim ayarlarını paylaşan uyumlu serileri içerir. Bir birleşik grafik birden fazla grup içerebilir; bu yüzden bir seriden ulaşılan grup ayarını değiştirmek, grafikteki tüm serileri zorunlu olarak etkilemez.
+**Grafik nesneleri çalışma kitabı hücrelerine nasıl bağlanır?**  
+Seri adları, kategori etiketleri ve veri noktası değerleri bir [IChartDataWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/) içindeki hücrelere başvurur. Başvurulan bir hücreyi değiştirmek ilgili grafik öğesini günceller. Özel veri oluştururken, her noktanın istenen kategori altında çizildiğinden emin olmak için kategori satırları ile seri‑değer satırlarını hizalı tutun.
 
-**Yeni oluşturulan bir grafik varsayılan veri içerir mi?**
+**Bir bütün seriyi değil tek bir noktayı nasıl temizlerim?**  
+İlgili değer hücresini `nullptr` olarak ayarlayın; bu, noktanın kategori konumunu boş bir nokta olarak tutar. [IChartDataPointCollection::Clear](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapointcollection/clear/) metodunu yalnızca serideki tüm noktaları kaldırmak istediğinizde çağırın. Kategorileri de kaldırıyorsanız, her serinin değerlerini kategori koleksiyonuyla hizalı kalacak şekilde güncelleyin.
 
-Evet. Varsayılan olarak, [IShapeCollection::AddChart](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ishapecollection/addchart/) örnek seriler, kategoriler ve değerler oluşturur. Bu hücreleri düzenleyebilir veya tamamen özel bir veri kümesi eklemeden önce serileri ve kategori koleksiyonlarını temizleyebilirsiniz. Bir aşırı yük de varsayılan veri olmadan bir grafik oluşturabilir.
+**Boş noktalar nasıl görüntülenir?**  
+Sonuç, grafik türüne ve [IChart::get_DisplayBlanksAs](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_displayblanksas/) ayarına bağlıdır. Desteklenen grafikler boşluk, sıfır değeri ya da komşu noktaları bağlayarak boşları gösterebilir. Sunumunuzdaki eksik verinin anlamına en uygun ayarı seçin. Tam örnek ve görsel karşılaştırma için **[Boş Hücrelerin Görüntülenmesini Kontrol Et](#control-the-display-of-empty-cells)** bölümüne bakın.
 
-**Grafik nesneleri çalışma kitabı hücrelerine nasıl bağlanır?**
+**Negatif değerler nasıl biçimlendirilir?**  
+Desteklenen çubuk, sütun ve balon serileri için [IChartSeries::set_InvertIfNegative](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/set_invertifnegative/) çağırın ve rengi [IChartSeries::get_InvertedSolidFillColor](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_invertedsolidfillcolor/) üzerinden atayın. Bireysel bir nokta için davranışı [IChartDataPoint::set_InvertIfNegative](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapoint/set_invertifnegative/) ile geçersiz kılabilirsiniz. Bu metodlar yalnızca biçimlendirmeyi etkiler; saklanan sayısal değerler değişmez.
 
-Seri adları, kategori etiketleri ve veri‑nokta değerleri, bir [IChartDataWorkbook](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/ichartdataworkbook/) içindeki hücrelere başvurur. Başvurulan bir hücre değiştirildiğinde ilgili grafik öğesi güncellenir. Özel veri oluştururken, her noktanın istenen kategori altında çizildiğinden emin olmak için kategori satırları ve seri‑değer satırlarını hizalı tutun.
+**Seri ve nokta aynı anda biçimlendirilirse hangisi kazanır?**  
+Açık veri noktası biçimlendirmesi o nokta için önceliklidir. Diğer noktalar açık seri formatını ya da tanımlı değilse otomatik grafik stili ve temasını kullanır. Örtüşme ve boşluk genişliği gibi grup ayarları düzeni kontrol eder ve nokta‑seviyesindeki biçimlendirmeyi geçersiz kılmaz.
 
-**Bir serinin tümünü değil, yalnızca tek bir noktayı nasıl temizlerim?**
+**Bir grafiğin içerebileceği seri sayısına bir limit var mı?**  
+Aspose.Slides ayrı bir sabit seri sayısı sınırı koymaz. Pratikte, sunum dosyası kısıtlamaları, kullanılabilir bellek, oluşturma süresi ve grafik okunabilirliği faydalı bir limit belirler.
 
-İlgili değer hücresini `nullptr` olarak ayarlayın; böylece noktanın kategori konumu boş bir nokta olarak kalır. [IChartDataPointCollection::Clear](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/ichartdatapointcollection/clear/) metodunu yalnızca serideki tüm noktaları kaldırmak istediğinizde çağırın. Kategorileri de kaldırıyorsanız, serilerin değerlerini kategori koleksiyonuyla hizalı tutmak için her birini güncelleyin.
-
-**Boş noktalar nasıl görüntülenir?**
-
-Sonuç, grafik türüne ve [IChart::get_DisplayBlanksAs](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/ichart/get_displayblanksas/) ayarına bağlıdır. Desteklenen grafikler, boşlukları boşluk (gap), sıfır (zero) ya da komşu noktaları bağlayarak gösterebilir. Sunumunuzda eksik verinin anlamına en uygun ayarı seçin. Tam örnek ve görsel karşılaştırma için **[Boş Hücrelerin Görüntülenmesini Kontrol Etme](#control-the-display-of-empty-cells)** bölümüne bakın.
-
-**Negatif değerler nasıl biçimlendirilir?**
-
-Desteklenen çubuk, sütun ve balon serileri için, [IChartSeries::set_InvertIfNegative](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/ichartseries/set_invertifnegative/) metodunu çağırın ve rengi [IChartSeries::get_InvertedSolidFillColor](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/ichartseries/get_invertedsolidfillcolor/) ile ayarlayın. Bireysel bir nokta için davranışı [IChartDataPoint::set_InvertIfNegative](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/ichartdatapoint/set_invertifnegative/) ile geçersiz kılabilirsiniz. Bu metodlar biçimlendirmeyi etkiler; saklanan sayısal değerleri değiştirmez.
-
-**Seri ve nokta aynı anda biçimlendirilirse hangisi kazanır?**
-
-Açıkça ayarlanmış veri‑nokta biçimlendirmesi, o nokta için önceliklidir. Diğer noktalar, serinin açıkça tanımlı formatını ya da tanımlı değilse otomatik grafik stil ve temasını kullanır. Çakışma ve boşluk genişliği gibi grup ayarları yerleşimi kontrol eder; nokta‑düzeyinde bir biçimlendirme geçersiz kılmaz.
-
-**Bir grafikte kaç seriye izin verilir?**
-
-Aspose.Slides ayrı bir sabit seri sayısı sınırı koymaz. Uygulamada, sunum dosyası kısıtlamaları, kullanılabilir bellek, render süresi ve grafik okunabilirliği pratik bir sınır belirler.
-
-**Sütunlar çok yaklaşıktaysa ya da çok uzaktaysa ne yapılmalı?**
-
-Uygun üst seri grubu üzerinde [IChartSeriesGroup::set_GapWidth](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/ichartseriesgroup/set_gapwidth/) metodunu çağırın. Değeri artırmak kümeler arasındaki boşluğu genişletir, azaltmak ise kümeleri birbirine yaklaştırır.
+**Sütunlar çok yakın veya çok uzak olduğunda ne yapmalıyım?**  
+Uygun üst seri grubunda [IChartSeriesGroup::set_GapWidth](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/set_gapwidth/) metodunu kullanın. Değeri artırmak kümeler arasındaki boşluğu genişletir, azaltmak ise kümeleri birbirine yakınlaştırır.

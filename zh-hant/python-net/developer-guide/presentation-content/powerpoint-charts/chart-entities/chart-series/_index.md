@@ -1,5 +1,5 @@
 ---
-title: 在 Python 中管理簡報的圖表資料系列
+title: 在 Python 簡報中管理圖表資料系列
 linktitle: 資料系列
 type: docs
 url: /zh-hant/python-net/chart-series/
@@ -15,29 +15,29 @@ keywords:
 - 簡報
 - Python
 - Aspose.Slides
-description: "學習如何在簡報中使用 Python 管理圖表系列、資料點、工作簿儲存格、格式設定、重疊、間距寬度，以及負值。"
+description: "了解如何使用 Python 在簡報中管理圖表系列、資料點、工作簿儲存格、格式設定、重疊、間距寬度以及負值。"
 ---
-## **概覽**
+## **概觀**
 
-圖表將其繪製的資料儲存在圖表資料工作簿中。一個 [ChartSeries] 代表一組相關的值，而系列中的每個 [ChartDataPoint] 皆參照一個或多個工作簿儲存格。[ChartCategory] 物件提供系列共用的標籤或分組值。因此，系列名稱、類別與點值會連結到 [ChartDataCell] 物件，而非僅以顯示文字儲存。
+A chart stores its plotted data in a chart data workbook. A [ChartSeries](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/) represents one set of related values, and each [ChartDataPoint](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapoint/) in the series refers to one or more workbook cells. [ChartCategory](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartcategory/) objects provide the labels or grouping values shared by the series. The series name, categories, and point values are therefore connected to [ChartDataCell](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatacell/) objects rather than stored only as display text.
 
-對於一般的類別圖表，預設工作簿使用第 0 列作為系列名稱，第 0 行作為類別名稱，其餘儲存格則放置系列數值。傳遞給 [ChartDataWorkbook.get_cell] 的工作表、列與欄索引都是從零開始。此布局在建立具有預設資料的圖表時很有用，但不要假設所有現有圖表皆使用此布局。對於已載入的簡報，請先檢查系列、類別與資料點所參照的儲存格，再變更工作簿的值。
+對於典型的類別圖表，預設工作簿使用第 0 列儲存系列名稱，第 0 欄儲存類別名稱，其餘儲存格則放置系列值。傳遞給 [ChartDataWorkbook.get_cell](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/get_cell/) 的工作表、列和欄索引都是從 0 開始。此布局在建立預設資料圖表時很有用，但請不要假設所有既有圖表皆使用此布局。對於已載入的簡報，請在變更工作簿值之前先檢查系列、類別與資料點所參照的儲存格。
 
 圖表設定有三種不同的範圍：
 
-- 系列層級設定，例如 [ChartSeries.format]，提供單一系列中所有點的預設外觀。
-- 資料點層級設定，例如 [ChartDataPoint.format]，會覆寫單一點的系列外觀。
-- 群組設定套用於屬於相同 [ChartSeriesGroup] 的相容系列。當需要設定諸如重疊或間距寬度等選項時，請透過 [ChartSeries.parent_series_group] 取得該群組。
+- 系列層級設定，例如 [ChartSeries.format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/format/)，為單一系列的所有資料點提供預設外觀。
+- 資料點層級設定，例如 [ChartDataPoint.format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapoint/format/)，會覆寫該系列的外觀僅針對單一資料點。
+- 群組設定套用於屬於相同 [ChartSeriesGroup](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/) 的相容系列。需要設定重疊或間距寬度等選項時，請透過 [ChartSeries.parent_series_group](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/parent_series_group/) 取得群組。
 
-當未設定明確的點或系列填色時，圖表樣式與佈景主題會決定自動外觀。當系列與點的格式皆存在時，點的格式會優先於該點。
+當未明確設定資料點或系列的填色時，圖表樣式與佈景主題會決定自動外觀。當同時存在系列與資料點格式時，資料點格式具有優先權。
 
-![chart-series-powerpoint](chart-series-powerpoint.png)
+![圖表系列 PowerPoint](chart-series-powerpoint.png)
 
-## **設定圖表系列的重疊**
+## **設定圖表系列重疊**
 
-[ChartSeries.overlap] 報告 2D 圖表中長條或柱狀的重疊程度，範圍從 -100% 到 100%。它是對父系列群組設定的唯讀投影。設定 [ChartSeriesGroup.overlap] 可更新該群組中所有相容系列。此選項套用於顯示分組長條或柱狀的圖表類型；對組合圖表中不相關的系列群組不會產生影響。
+[ChartSeries.overlap](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/overlap/) 會報告 2D 圖表中長條或柱狀的重疊程度，範圍從 -100% 到 100%。它是父系列群組設定的唯讀投射。設定 [ChartSeriesGroup.overlap](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/overlap/) 以更新該群組內所有相容的系列。此選項僅適用於顯示分組長條或柱狀的圖表類型；對組合圖表中不相關的系列群組不會產生影響。
 
-以下範例設定包含第一個系列的群組的重疊值：
+以下範例設定包含第一個系列的群組的重疊：
 
 ```py
 import aspose.slides as slides
@@ -61,13 +61,13 @@ with slides.Presentation() as presentation:
 
 結果：
 
-![系列的重疊](series_overlap.png)
+![系列重疊](series_overlap.png)
 
 ## **變更系列填色**
 
-使用 [ChartSeries.format] 為整個系列設定預設填色。如果某個點已設定明確的填色，則其 [ChartDataPoint.format] 設定會覆寫該點的系列填色。
+使用 [ChartSeries.format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/format/) 為整個系列設定預設填色。如果資料點已具備明確填色，其 [ChartDataPoint.format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapoint/format/) 設定會覆寫該系列的填色。
 
-以下範例將實心藍色填入第一個系列：
+以下範例將第一個系列套用實心藍色填色：
 
 ```py
 import aspose.pydrawing as drawing
@@ -91,11 +91,11 @@ with slides.Presentation() as presentation:
 
 結果：
 
-![系列的顏色](series_color.png)
+![系列顏色](series_color.png)
 
 ## **變更系列名稱**
 
-系列名稱儲存在圖表資料工作簿中，通常會顯示在圖例中。在為叢集柱狀圖建立的預設工作簿中，儲存格 B1 位於第 0 列、第 1 欄，且包含第一個系列的名稱。以下範例中的命名常數明確表示該結構：
+系列名稱儲存在圖表資料工作簿中，通常顯示於圖例。預設用於叢集柱狀圖的工作簿中，儲存格 B1 位於第 0 列第 1 欄，內含第一個系列的名稱。下列範例中的具名常數明確說明了此結構：
 
 ```py
 import aspose.slides as slides
@@ -118,7 +118,7 @@ with slides.Presentation() as presentation:
     presentation.save("series_name.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-您也可以更新 [ChartSeries.name] 已參照的儲存格。此方法避免在現有圖表中假設特定的列與欄。
+您也可以直接更新由 [ChartSeries.name](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/name/) 參照的儲存格。此作法避免在既有圖表中假設特定的列與欄：
 
 ```py
 import aspose.slides as slides
@@ -144,9 +144,56 @@ with slides.Presentation() as presentation:
 
 ![系列名稱](series_name.png)
 
+### **建立由多個儲存格組成的系列名稱**
+
+當產品名稱與報告期間分別儲存在不同工作簿儲存格時，組合系列名稱會很有用。例如，您可以將 B1 中的 `Product A` 與 C1 中的 `2026` 合併為單一系列名稱，同時保持兩部分皆連結至其來源儲存格。
+
+使用 [ChartDataWorkbook.get_cell_collection](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/get_cell_collection/) 取得名稱範圍，然後將該集合傳遞給 [ChartSeriesCollection.add](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriescollection/add/)。`skip_hidden_cells` 參數控制是否包含隱藏儲存格：`True` 會排除，`False` 會包含。本例使用 `False` 以包含名稱範圍內的所有儲存格。
+
+以下範例建立一個包含一個系列與兩個資料點的簡報。儲存格 B1:C1 只提供系列名稱；A2:A3 提供類別標籤，B2:B3 提供數值。
+
+```py
+import aspose.slides as slides
+import aspose.slides.charts as charts
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 620, 180)
+
+    chart.chart_data.series.clear()
+    chart.chart_data.categories.clear()
+    chart.has_legend = True
+
+    workbook = chart.chart_data.chart_data_workbook
+    workbook.clear(0)
+
+    # 這兩個儲存格提供系列名稱。
+    workbook.get_cell(0, 0, 1, "Product A")
+    workbook.get_cell(0, 0, 2, "2026")
+    name_cells = workbook.get_cell_collection("Sheet1!$B$1:$C$1", False)
+    series = chart.chart_data.series.add(name_cells, charts.ChartType.CLUSTERED_COLUMN)
+
+    # 分別的儲存格提供類別和數值資料點。
+    north_category = workbook.get_cell(0, 1, 0, "North")
+    south_category = workbook.get_cell(0, 2, 0, "South")
+    chart.chart_data.categories.add(north_category)
+    chart.chart_data.categories.add(south_category)
+    north_value = workbook.get_cell(0, 1, 1, 120)
+    south_value = workbook.get_cell(0, 2, 1, 150)
+    series.data_points.add_data_point_for_bar_series(north_value)
+    series.data_points.add_data_point_for_bar_series(south_value)
+
+    presentation.save("composite_series_name.pptx", slides.export.SaveFormat.PPTX)
+```
+
+產生的系列名稱為 `Product A 2026`，兩個儲存格值之間有一個空格。圖例會將其顯示為兩欄的單一條目。下圖是從已儲存的簡報匯出的圖像：
+
+![具有北部與南部值且圖例中顯示組合系列名稱 Product A 2026 的柱狀圖](composite_series_name.png)
+
 ## **取得自動系列填色**
 
-[ChartSeries.get_automatic_series_color] 回傳根據系列索引與圖表樣式計算出的顏色。這是系列填色未明確定義時使用的顏色。呼叫此方法會取得計算出的顏色；不會指派新的填色。
+[ChartSeries.get_automatic_series_color](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/get_automatic_series_color/) 會回傳依系列索引與圖表樣式計算出的顏色。這是系列填色未明確定義時所使用的顏色。呼叫此方法僅會讀取計算出的顏色，不會指派新的填色。
 
 以下範例列印每個預設系列的自動顏色：
 
@@ -176,13 +223,13 @@ Series 1: ffc0504d
 Series 2: ff9bbb59
 ```
 
-確切的顏色取決於圖表樣式與佈景主題。
+實際顏色取決於圖表樣式與佈景主題。
 
-## **設定圖表系列的反轉填色**
+## **為圖表系列設定負值反轉填色**
 
-對於長條、柱狀與氣泡系列，[ChartSeries.invert_if_negative] 可以以不同的填色顯示負值。將一般系列填色設定為實心，啟用反轉，並透過 [ChartSeries.inverted_solid_fill_color] 指定負值的顏色。負數在工作簿中保持不變；僅其顯示顏色會改變。
+對於長條、柱狀與氣泡系列，[ChartSeries.invert_if_negative](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/invert_if_negative/) 可在負值時使用不同的填色。將一般系列填色設定為實心，啟用反轉，並透過 [ChartSeries.inverted_solid_fill_color](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/inverted_solid_fill_color/) 指定負值顏色。負數在工作簿中保持不變，僅變更其顯示顏色。
 
-以下範例以單一系列取代預設圖表資料。工作表第 0 列包含系列名稱，第 0 欄包含類別名稱，第 1 欄包含值：
+以下範例以單一系列取代預設圖表資料。工作表第 0 列為系列名稱，第 0 欄為類別名稱，第 1 欄為數值：
 
 ```py
 import aspose.pydrawing as drawing
@@ -235,9 +282,9 @@ with slides.Presentation() as presentation:
 
 結果：
 
-![反轉的實心填色](inverted_solid_fill_color.png)
+![反轉實心填色](inverted_solid_fill_color.png)
 
-您可以透過 [ChartDataPoint.invert_if_negative] 為單一點啟用反轉。在以下範例中，系列的反轉被停用，且僅對所選點啟用。該點同時被賦予負值，以便看到效果：
+您也可以針對單一資料點啟用反轉，方法是使用 [ChartDataPoint.invert_if_negative](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapoint/invert_if_negative/)。以下範例在系列層面停用反轉，僅為選取的資料點啟用，同時將該點的值設為負數，以便看見效果：
 
 ```py
 import aspose.pydrawing as drawing
@@ -270,9 +317,9 @@ with slides.Presentation() as presentation:
 
 ## **清除特定資料點的值**
 
-若要讓某一點變為空白而不移除其他點，請將其對應的工作簿儲存格設定為 `None`。對於柱狀圖，可透過 [ChartDataPoint.value] 取得繪製的值。資料點仍保留在相同的類別位置，但圖表會依據其空白值設定將該值視為空白。
+若要讓單一資料點變為空白而不移除其他資料點，請將其對應的工作簿儲存格設為 `None`。對於柱狀圖，繪製的值可透過 [ChartDataPoint.value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapoint/value/) 取得。資料點仍保留在相同的類別位置，但圖表會根據空白值設定將其視為空白。
 
-以下範例僅清除第一個系列中的第二個點：
+以下範例僅清除第一個系列的第二個資料點：
 
 ```py
 import aspose.slides as slides
@@ -294,17 +341,17 @@ with slides.Presentation() as presentation:
     presentation.save("clear_data_point_value.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-散布圖使用分離的 X 與 Y 儲存格，氣泡圖亦使用大小儲存格。僅清除代表您欲移除之數值的儲存格。若想保留其他點，請勿呼叫 [ChartDataPointCollection.clear]，因為該方法會從集合中移除所有資料點。
+散佈圖使用獨立的 X 與 Y 儲存格，氣泡圖亦使用大小儲存格。僅清除您欲移除之值所對應的儲存格。若只想保留其他資料點，請勿呼叫 [ChartDataPointCollection.clear](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapointcollection/clear/)，因為該方法會移除該系列中的所有資料點。
 
-## **控制空儲存格的顯示**
+## **控制空儲存格的顯示方式**
 
-含有值的隱藏儲存格與空儲存格是不同的情況。若要包含或排除來自隱藏工作表列與欄的資料，請參閱 [Include Data from Hidden Rows and Columns](/slides/zh-hant/python-net/chart-workbook/#include-data-from-hidden-rows-and-columns)。
+包含值的隱藏儲存格屬於與空儲存格不同的情況。若要包含或排除來自隱藏工作表列與欄的資料，請參考 [Include Data from Hidden Rows and Columns](/slides/zh-hant/python-net/chart-workbook/#include-data-from-hidden-rows-and-columns)。
 
-空的工作簿儲存格代表缺少的資料；而包含 `0` 的儲存格則代表已知的數值。將 [ChartDataCell.value] 設為 `None` 即可使儲存格變為空白。無論空儲存格設定為何，數值零皆保持為零。
+空的工作簿儲存格代表遺失資料；含有 `0` 的儲存格則代表已知的數值。將 [ChartDataCell.value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatacell/value/) 設為 `None` 可使儲存格為空。數值零無論空白儲存格設定為何，都仍保持為零。
 
-使用 [Chart.display_blanks_as] 來選擇圖表如何顯示空儲存格。此設定套用於整個圖表，會改變空白的繪製方式，而不會以零或插值填入空的工作簿儲存格。
+使用 [Chart.display_blanks_as](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/display_blanks_as/) 來選擇圖表如何顯示空儲存格。此設定套用於整個圖表，會改變空白的繪製方式，而不會將空的工作簿儲存格填入零或插值。
 
-以下獨立範例建立一個含單一系列的折線圖，清除第 3 天的值，並以每種模式保存相同的圖表。無需輸入檔案。[ChartDataWorkbook] 使用工作表 0、欄 0 作為類別標籤，欄 1 作為數值；第 0 列保存系列名稱。最終資料為 `10, 20, empty, 30, 40`。
+以下自包含範例建立一個只有一個系列的折線圖，清除第 3 天的值，並以每種模式儲存同一圖表。此範例不需要輸入檔案。[ChartDataWorkbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/) 使用工作表 0，第 0 欄作為類別標籤，第 1 欄作為數值；第 0 列保存系列名稱。最終資料為 `10, 20, empty, 30, 40`。
 
 ```py
 import aspose.slides as slides
@@ -339,19 +386,19 @@ with slides.Presentation() as presentation:
         presentation.save(f"empty_cells_{mode_name}.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-每個輸出檔案會在儲存前記錄所指定的模式：`empty_cells_Gap.pptx`、`empty_cells_Zero.pptx`、`empty_cells_Span.pptx`。若只想保存單一版本，請指派所需的模式，並僅保存簡報一次，而非遍歷所有模式。
+每個輸出檔案在儲存前會使用相應的模式命名：`empty_cells_Gap.pptx`、`empty_cells_Zero.pptx` 與 `empty_cells_Span.pptx`。若只想產生單一版本，請在儲存簡報前設定所需模式，然後僅儲存一次即可，而不必遍歷所有模式。
 
-以下比較顯示三個檔案內相同的資料。第 3 天在工作簿中皆為空白：
+下圖比較了三個檔案中相同的資料。第 3 天在工作簿中皆為空：
 
-![相同資料的折線圖：Gap 在第 3 天斷開線條，Zero 將線條降至零，Span 則將第 2 天與第 4 天相連。](display_blanks_as.png)
+![折線圖中相同資料的顯示差異：Gap 在第 3 天斷開線段，Zero 使線段跌至零，Span 將第 2 天與第 4 天連接起來。](display_blanks_as.png)
 
-可見效果取決於圖表類型。折線圖能輕易比較三種模式。長條圖與柱狀圖沒有線條可跨過缺少的類別，因此 `SPAN` 無法產生上圖所示的連接段落；缺少的柱狀與零高度的柱狀也可能看起來相似。同樣地，只有標記的散布圖也沒有連接線。不要期望每種圖表類型都有三個明顯不同的結果；請檢查您使用的圖表類型的輸出。
+可視化效果取決於圖表類型。折線圖易於比較三種模式；長條與柱狀圖沒有連線可跨過缺失的類別，因此 `SPAN` 無法產生上述連接段落；缺少的柱與零高度的柱也可能看起來相似。類似地，只有標記的散佈圖也沒有連線。不要期望每種圖表類型都能得到三種明顯不同的結果；請自行檢查所使用圖表的輸出。
 
 ## **設定系列間距寬度**
 
-間距寬度是相鄰長條或柱狀叢集之間的空間，以長條或柱狀寬度的百分比表示。與重疊相同，它屬於父系列群組，而非單一系列。對該群組設定一次 [ChartSeriesGroup.gap_width] 即可。較大的數值會在叢集之間產生較多空間，較小的數值則使其更緊密。
+間距寬度是相鄰長條或柱狀叢集之間的空間，表示為長條或柱狀寬度的百分比。與重疊類似，它屬於父系列群組而非單一系列。對群組一次設定 [ChartSeriesGroup.gap_width](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/gap_width/) 即可。較大的值會在叢集之間產生更多空間，較小的值則使其更緊密。
 
-以下範例變更間距寬度，並僅保存最終的簡報：
+以下範例變更間距寬度並僅儲存最終的簡報：
 
 ```py
 import aspose.slides as slides
@@ -376,44 +423,44 @@ with slides.Presentation() as presentation:
 
 ![間距寬度](gap_width.png)
 
-## **FAQ**
+## **常見問題**
 
-**哪種類型的圖表支援資料系列？**
+**哪些圖表類型支援資料系列？**
 
-所有由 [ChartType] 列舉表示的圖表類型皆使用圖表資料，但其系列並不全部具有相同的值結構或設定。例如，類別圖表使用類別與值，散布圖使用 X 與 Y 值，氣泡圖則加入氣泡大小。請使用與系列類型相符的資料點建立方法。諸如重疊與間距寬度等選項僅適用於相容的長條或柱狀群組。
+所有由 [ChartType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttype/) 列舉的圖表類型皆使用圖表資料，但其系列並非全部具備相同的值結構或設定。例如，類別圖使用類別與值，散佈圖使用 X 與 Y 值，氣泡圖則額外使用氣泡大小。請使用與系列類型相符的資料點建立方法。重疊與間距寬度等選項僅套用於相容的長條或柱狀群組。
 
 **什麼是圖表系列群組？**
 
-[ChartSeriesGroup] 包含相容的系列，這些系列共享群組層級的繪圖設定。組合圖表可以包含多個群組，因此透過某一系列取得的群組變更不一定會影響圖表中的所有系列。
+[ChartSeriesGroup](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/) 包含共享群組層級繪圖設定的相容系列。組合圖表可能包含多個群組，因此透過單一系列取得的群組設定不一定會影響圖表中的所有系列。
 
 **新建立的圖表是否包含預設資料？**
 
-是。預設情況下，[ShapeCollection.add_chart] 會建立範例系列、類別與數值。您可以編輯這些儲存格，或在加入完全自訂的資料集之前清除系列與類別集合。亦可使用另一個重載建立不含預設資料的圖表。
+是。預設情況下，[ShapeCollection.add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) 會建立範例系列、類別與值。您可以編輯這些儲存格，或在加入完全自訂的資料集之前先清除系列與類別集合。也可使用其他重載建立不帶預設資料的圖表。
 
-**圖表物件如何與工作簿儲存格連結？**
+**圖表物件如何與工作簿儲存格相連？**
 
-系列名稱、類別標籤與資料點值皆參照 [ChartDataWorkbook] 中的儲存格。變更參照的儲存格會更新相應的圖表元素。建立自訂資料時，請保持類別列與系列值列對齊，使每個點都繪製在預期的類別之下。
+系列名稱、類別標籤與資料點值皆參照 [ChartDataWorkbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/) 中的儲存格。變更參照的儲存格會更新對應的圖表元素。建立自訂資料時，請保持類別列與系列值列對齊，以確保每個點均繪製於正確的類別下。
 
-**如何只清除一個點而非整個系列？**
+**如何只清除單一資料點而不是整個系列？**
 
-將相關的值儲存格設為 `None`，即可保留該點的類別位置作為空白點。僅在想要移除該系列所有點時才使用 [ChartDataPointCollection.clear]。如果同時移除類別，請更新所有系列，使其數值仍與類別集合保持對齊。
+將相關的值儲存格設為 `None`，即可保留該點的類別位置作為空白點。僅在需要移除該系列所有點時才使用 [ChartDataPointCollection.clear](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapointcollection/clear/)。如果同時移除類別，請確保所有系列的值仍與類別集合保持對齊。
 
-**空點如何顯示？**
+**空白點會如何顯示？**
 
-結果取決於圖表類型與 [Chart.display_blanks_as]。支援的圖表可以將空白顯示為間隙、零值或連接相鄰點。請選擇與簡報中遺漏資料意涵相符的設定。參見 [控制空儲存格的顯示](#control-the-display-of-empty-cells) 以取得完整範例與視覺比較。
+結果取決於圖表類型與 [Chart.display_blanks_as](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/display_blanks_as/)。支援的圖表可以將空白顯示為間隔、零值或連接相鄰點。選擇最符合您簡報中遺失資料意義的設定。完整範例與視覺比較請參閱 [控制空儲存格的顯示方式](#control-the-display-of-empty-cells)。
 
-**負值如何格式化？**
+**負值的格式如何設定？**
 
-對於支援的長條、柱狀與氣泡系列，啟用 [ChartSeries.invert_if_negative] 並設定 [ChartSeries.inverted_solid_fill_color]。您也可以使用 [ChartDataPoint.invert_if_negative] 為單一點覆寫此行為。這些屬性影響格式化，而非儲存的數值。
+對於支援的長條、柱狀與氣泡系列，啟用 [ChartSeries.invert_if_negative](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/invert_if_negative/) 並設定 [ChartSeries.inverted_solid_fill_color](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/inverted_solid_fill_color/)。您也可以使用 [ChartDataPoint.invert_if_negative](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapoint/invert_if_negative/) 為單一資料點覆寫此行為。這些屬性僅影響格式，不會改變儲存的數值。
 
-**當系列和點都設定格式時，哪個優先？**
+**當系列與資料點同時設定格式時，哪個會生效？**
 
-對於該點，明確的資料點格式會優先。其他點則繼續使用明確的系列格式，或在未定義系列格式時使用自動圖表樣式與佈景主題。群組屬性（如重疊與間距寬度）控制版面配置，並非點層級格式的覆寫。
+明確的資料點格式優先套用於該點。其他點仍會使用明確的系列格式，或在未定義系列格式時使用自動圖表樣式與佈景主題。群組屬性（如重疊與間距寬度）控制版面配置，並非資料點層級的格式覆寫。
 
-**圖表的系列數量有上限嗎？**
+**圖表可容納的系列數量是否有限制？**
 
-Aspose.Slides 並未設定固定的系列數量上限。實務上，簡報檔案的限制、可用記憶體、渲染時間與圖表可讀性會決定實際可接受的上限。
+Aspose.Slides 本身並未設定固定的系列數量上限。實務上，簡報檔案大小、可用記憶體、渲染時間與圖表可讀性等因素會決定實際可用的上限。
 
-**當柱狀太靠近或太分散時該如何調整？**
+**當柱狀圖的柱子過於靠近或過於分散時，我該如何調整？**
 
-在適當的父系列群組上設定 [ChartSeriesGroup.gap_width]。增加數值可擴大叢集之間的間距，減少則可使叢集更靠近。
+對適當的父系列群組設定 [ChartSeriesGroup.gap_width](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/gap_width/)。將值調高會增加叢集之間的間距，調低則會讓叢集更緊湊。

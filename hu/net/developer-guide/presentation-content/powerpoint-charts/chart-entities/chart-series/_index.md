@@ -1,6 +1,6 @@
 ---
-title: Diagram adatsorozatok kezelése prezentációkban .NET-ben
-linktitle: Adatsorozatok
+title: Diagram adat sorozatok kezelése prezentációkban .NET-ben
+linktitle: Adat sorozatok
 type: docs
 url: /hu/net/chart-series/
 keywords:
@@ -16,29 +16,29 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Ismerje meg, hogyan kezelheti a diagram sorozatokat, adatpontokat, munkafüzet cellákat, formázást, átfedést, hézag szélességet és a negatív értékeket a prezentációkban C#-val."
+description: "Ismerje meg, hogyan kezelheti a diagram sorozatokat, adatpontokat, munkafüzetcellákat, formázást, átfedést, hézagszélességet és negatív értékeket prezentációkban C#-val."
 ---
 ## **Áttekintés**
 
-Egy diagram a megjelenített adatokat egy diagramadat‑munkafüzetben tárolja. Egy [IChartSeries](https://reference.aspose.com/slides/hu/net/aspose.slides.charts/ichartseries/) egy kapcsolódó értékcsoportot képvisel, és a sorozat minden [IChartDataPoint](https://reference.aspose.com/slides/hu/net/aspose.slides.charts/ichartdatapoint/) egy vagy több munkafüzet‑cellára hivatkozik. Az [IChartCategory](https://reference.aspose.com/slides/hu/net/aspose.slides.charts/ichartcategory/) objektumok a sorozatok által megosztott címkéket vagy csoportosítási értékeket biztosítják. A sorozat neve, a kategóriák és a pontértékek ezért [IChartDataCell](https://reference.aspose.com/slides/hu/net/aspose.slides.charts/ichartdatacell/) objektumokhoz kapcsolódnak, nem csak megjelenő szövegként tárolódnak.
+A diagram a megjelenített adatait egy diagramadat-munkafüzetben tárolja. Egy [IChartSeries](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/) egy kapcsolódó értékkészletet képvisel, és a sorozatban lévő minden [IChartDataPoint](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/) egy vagy több munkafüzetcellára hivatkozik. Az [IChartCategory](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartcategory/) objektumok a sorozatok által megosztott címkéket vagy csoportosítási értékeket biztosítják. A sorozat neve, a kategóriák és a pontértékek ezért [IChartDataCell](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatacell/) objektumokhoz kapcsolódnak, nem csak megjelenítési szövegként tárolódnak.
 
-Hagyományos kategória diagram esetén az alapértelmezett munkafüzet a 0‑s sort használja a sorozatnevekre, a 0‑s oszlopot a kategórianévre, a többi cellát pedig a sorozatértékekre. A [IChartDataWorkbook.GetCell](https://reference.aspose.com/slides/hu/net/aspose.slides.charts/ichartdataworkbook/getcell/) számára megadott munkalap‑, sor‑ és oszlopszámok nullától indulnak. Ez a kialakítás hasznos, amikor alapértelmezett adatokkal hoz létre egy diagramot, de ne feltételezze, hogy minden meglévő diagram ezt használja. Betöltött prezentáció esetén ellenőrizze a sorozatok, kategóriák és adatpontok által hivatkozott cellákat a munkafüzet értékeinek módosítása előtt.
+Tipikus kategória-diagram esetén az alapértelmezett munkafüzet a 0. sort használja a sorozatneveknek, a 0. oszlopot a kategórianévnek, a maradék cellákat pedig a sorozatértékeknek. A [IChartDataWorkbook.GetCell](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/getcell/)‑nek átadott munkalap-, sor- és oszlopindexek nullával kezdődnek. Ez a felépítés akkor hasznos, amikor egy diagramot alapértelmezett adatokkal hoz létre, de ne tételezze fel, hogy minden létező diagram ezt használja. Betöltött prezentáció esetén ellenőrizze a sorozatok, kategóriák és adatpontok által hivatkozott cellákat, mielőtt a munkafüzet értékeit módosítaná.
 
-A diagram beállításainak három különböző hatóköre van:
+A diagram beállításai három különböző szintet érintenek:
 
-- Sorozatszintű beállítások, például a [IChartSeries.Format](https://reference.aspose.com/slides/hu/net/aspose.slides.charts/ichartseries/format/) alapértelmezett megjelenést biztosítanak egy sorozat összes pontjának.
-- Adatpont szintű beállítások, például a [IChartDataPoint.Format](https://reference.aspose.com/slides/hu/net/aspose.slides.charts/ichartdatapoint/format/) felülírják a sorozat megjelenését egy pontnál.
-- Csoportbeállítások a kompatibilis sorozatokra vonatkoznak, amelyek ugyanahhoz az [IChartSeriesGroup](https://reference.aspose.com/slides/hu/net/aspose.slides.charts/ichartseriesgroup/) tartoznak. A csoportot a [IChartSeries.ParentSeriesGroup](https://reference.aspose.com/slides/hu/net/aspose.slides.charts/ichartseries/parentseriesgroup/) segítségével érheti el, ha például az átfedés vagy a hézag szélesség beállítására van szükség.
+- Sorozat szintű beállítások, például az [IChartSeries.Format](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/format/) biztosítja az alapértelmezett megjelenést a sorozaton belül minden ponthoz.
+- Adatpont szintű beállítások, például az [IChartDataPoint.Format](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/format/) felülírja a sorozat megjelenését egy adott ponton.
+- Csoport beállítások a kompatibilis sorozatokra, amelyek ugyanahhoz az [IChartSeriesGroup](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/) tartoznak. A csoportot a [IChartSeries.ParentSeriesGroup](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/parentseriesgroup/)‑on keresztül érheti el, ha például átfedés vagy hézagszélesség beállítására van szükség.
 
-Amikor nincs explicit pont‑ vagy sorozat‑kitöltés beállítva, a diagram stílusa és témája határozza meg az automatikus megjelenést. Ha mind a sorozati, mind a pontformázás jelen van, a pontformázás felülbírálja a sorozati beállítást az adott pontnál.
+Ha nincs kifejezetten beállított pont- vagy sorozatkitöltés, a diagramstílus és a téma határozza meg az automatikus megjelenést. Ha mind a sorozat, mind a pont formázása jelen van, a pont formázása élvez elsőbbséget az adott pontra.
 
-![Diagram sorozat PowerPoint](chart-series-powerpoint.png)
+![chart-series-powerpoint](chart-series-powerpoint.png)
 
 ## **A diagram sorozat átfedésének beállítása**
 
-[IChartSeries.Overlap](https://reference.aspose.com/slides/hu/net/aspose.slides.charts/ichartseries/overlap/) megadja, hogy a sávok vagy oszlopok mennyire átfedik egymást egy 2D diagramon, -100‑tól 100‑ig százalékban. Ez egy csak olvasható leképezése a szülő sorozatcsoport beállításának. Az [IChartSeriesGroup.Overlap](https://reference.aspose.com/slides/hu/net/aspose.slides.charts/ichartseriesgroup/overlap/) beállításával frissítheti a csoport összes kompatibilis sorozatát. Ez az opció olyan diagramtípusokra vonatkozik, amelyek csoportosított sávokat vagy oszlopokat jelenítenek meg; nem érinti a kombinációs diagramokban lévő nem kapcsolódó sorozatcsoportokat.
+[IChartSeries.Overlap](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/overlap/) azt jelzi, hogy a 2D diagram oszlopai vagy sávjai mennyire fednek át egymást, -100 és 100 százalék között. Ez csak egy olvasható leképezése a szülő sorozatcsoport beállításának. Állítsa be az [IChartSeriesGroup.Overlap](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/overlap/) értékét, hogy frissítse az összes kompatibilis sorozatot ebben a csoportban. Ez a lehetőség a csoportos oszlop- vagy sávdiagramokra vonatkozik; a kombinációs diagramokhoz nem kapcsolódó sorozatcsoportokat ez nem befolyásolja.
 
-A következő példa beállítja az átfedést azon csoportban, amely az első sorozatot tartalmazza:
+Az alábbi példa beállítja az átfedést az első sorozatot tartalmazó csoportban:
 
 ```cs
 using Aspose.Slides;
@@ -52,7 +52,7 @@ const sbyte overlapPercent = 30;
 using var presentation = new Presentation();
 var slide = presentation.Slides[firstSlideIndex];
 
-// Az új diagram mintasorozatokat, kategóriákat és értékeket tartalmaz.
+// Az új diagram minta sorozatokat, kategóriákat és értékeket tartalmaz.
 var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
 
 var series = chart.ChartData.Series[firstSeriesIndex];
@@ -63,13 +63,13 @@ presentation.Save("series_overlap.pptx", SaveFormat.Pptx);
 
 Az eredmény:
 
-![A sorozat átfedése](series_overlap.png)
+![The series overlap](series_overlap.png)
 
 ## **A sorozat kitöltőszínének módosítása**
 
-Használja a [IChartSeries.Format](https://reference.aspose.com/slides/hu/net/aspose.slides.charts/ichartseries/format/) a teljes sorozat alapértelmezett kitöltésének beállításához. Ha egy pont már rendelkezik explicit kitöltéssel, annak [IChartDataPoint.Format](https://reference.aspose.com/slides/hu/net/aspose.slides.charts/ichartdatapoint/format/) beállítása felülírja a sorozati kitöltést az adott pontnál.
+Az [IChartSeries.Format](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/format/) használatával állítható be a teljes sorozatra vonatkozó alapértelmezett kitöltés. Ha egy pont már rendelkezik kifejezett kitöltéssel, annak [IChartDataPoint.Format](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/format/) beállítása felülírja a sorozat kitöltését az adott ponton.
 
-A következő példa szilárd kék kitöltést alkalmaz az első sorozatra:
+Az alábbi példa szilárd kék kitöltést alkalmaz az első sorozatra:
 
 ```cs
 using System.Drawing;
@@ -94,11 +94,11 @@ presentation.Save("series_color.pptx", SaveFormat.Pptx);
 
 Az eredmény:
 
-![A sorozat színe](series_color.png)
+![The color of the series](series_color.png)
 
 ## **A sorozat nevének módosítása**
 
-A sorozat neve a diagram adat‑munkafüzetben tárolódik, és általában a jelmagyarázatban jelenik meg. Az alapértelmezett munkafüzet, amely a csoportosított oszlopdiagramhoz készül, a B1 cella a 0‑s sorban és az 1‑s oszlopban található, és az első sorozat nevét tartalmazza. Az alábbi példa elnevezett állandói ezt a struktúrát teszik egyértelművé:
+A sorozat neve a diagramadat-munkafüzetben tárolódik, és általában a jelmagyarázatban jelenik meg. Az alapértelmezett munkafüzetben, amely egy klaszterezett oszlopdiagramhoz jön létre, a B1 cella (0. sor, 1. oszlop) tartalmazza az első sorozat nevét. Az alábbi példában a névkonstansok egyértelművé teszik ezt a felépítést:
 
 ```cs
 using Aspose.Slides;
@@ -122,7 +122,7 @@ seriesNameCell.Value = "Revenue";
 presentation.Save("series_name.pptx", SaveFormat.Pptx);
 ```
 
-A [IChartSeries.Name](https://reference.aspose.com/slides/hu/net/aspose.slides.charts/ichartseries/name/) által már hivatkozott cellát is frissítheti. Ez a megközelítés elkerüli egy adott sor és oszlop feltételezését egy meglévő diagramon:
+Frissítheti azt a cellát is, amelyet már az [IChartSeries.Name](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/name/) hivatkozik. Ez a megközelítés elkerüli a konkrét sor- és oszlopszám feltételezését egy meglévő diagram esetén:
 
 ```cs
 using Aspose.Slides;
@@ -147,13 +147,61 @@ presentation.Save("series_name.pptx", SaveFormat.Pptx);
 
 Az eredmény:
 
-![A sorozat neve](series_name.png)
+![The series name](series_name.png)
 
-## **Az automatikus sorozatkitöltő szín lekérése**
+### **Sorozat létrehozása több cellából álló névvel**
 
-[IChartSeries.GetAutomaticSeriesColor](https://reference.aspose.com/slides/hu/net/aspose.slides.charts/ichartseries/getautomaticseriescolor/) visszaadja a sorozat indexéből és a diagram stílusából kiszámított színt. Ez a szín akkor kerül felhasználásra, ha a sorozat kitöltése nincs explicit módon meghatározva. A metódus meghívása csak kiolvassa a számított színt; nem állít be új kitöltést.
+Összetett sorozatnév akkor hasznos, ha egy termék neve és a jelentési időszak külön munkafüzetcellákban van tárolva. Például a `Product A` B1‑ben és a `2026` C1‑ben kombinálható egyetlen sorozatnévvé, miközben mindkét rész továbbra is hivatkozik a forráscellákra.
 
-A következő példa kiírja minden alapértelmezett sorozat automatikus színét:
+Használja a [IChartDataWorkbook.GetCellCollection](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/getcellcollection/) metódust a névtartomány lekéréséhez, majd adja át ezt a gyűjteményt a [IChartSeriesCollection.Add](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriescollection/add/)‑nek. A `skipHiddenCells` argumentum határozza meg, hogy a rejtett cellák bele legyenek-e vonva: `true` kizárja őket, `false` pedig beleveszi. Ez a példa `false`‑t használ, hogy minden cellát felvegye a névtartományba.
+
+Az alábbi példa egy prezentációt hoz létre egy sorozattal és két adatponttal. A B1:C1 cellák csak a sorozat nevét szolgáltatják; az A2:A3 a kategóriacímkéket, a B2:B3 a numerikus értékeket tartalmazza.
+
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 620, 180);
+
+chart.ChartData.Series.Clear();
+chart.ChartData.Categories.Clear();
+chart.HasLegend = true;
+
+var workbook = chart.ChartData.ChartDataWorkbook;
+workbook.Clear(0);
+
+// Ez a két cella biztosítja a sorozat nevét.
+workbook.GetCell(0, 0, 1, "Product A");
+workbook.GetCell(0, 0, 2, "2026");
+var nameCells = workbook.GetCellCollection("Sheet1!$B$1:$C$1", skipHiddenCells: false);
+var series = chart.ChartData.Series.Add(nameCells, ChartType.ClusteredColumn);
+
+// Különálló cellák biztosítják a kategóriákat és a numerikus adatpontokat.
+var northCategory = workbook.GetCell(0, 1, 0, "North");
+var southCategory = workbook.GetCell(0, 2, 0, "South");
+chart.ChartData.Categories.Add(northCategory);
+chart.ChartData.Categories.Add(southCategory);
+var northValue = workbook.GetCell(0, 1, 1, 120);
+var southValue = workbook.GetCell(0, 2, 1, 150);
+series.DataPoints.AddDataPointForBarSeries(northValue);
+series.DataPoints.AddDataPointForBarSeries(southValue);
+
+presentation.Save("composite_series_name.pptx", SaveFormat.Pptx);
+```
+
+Az eredményül kapott sorozatnév `Product A 2026`, a két cellaérték között egy szóközzel. A jelmagyarázat egy bejegyzésként jeleníti meg mindkét oszlopot. Az alábbi kép a mentett prezentációból származik:
+
+![Column chart with North and South values and the composite series name Product A 2026 in the legend](composite_series_name.png)
+
+## **Az automatikus sorozatkitöltőszín lekérdezése**
+
+[IChartSeries.GetAutomaticSeriesColor](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/getautomaticseriescolor/) visszaadja a sorozatindex és a diagramstílus alapján kiszámított színt. Ez a szín akkor kerül felhasználásra, amikor a sorozat kitöltése nincs kifejezetten definiálva. A metódushívás csak a kiszámított színt olvassa, nem állít be új kitöltést.
+
+Az alábbi példa kiírja minden alapértelmezett sorozat automatikus színét:
 
 ```cs
 using System;
@@ -176,7 +224,7 @@ for (var seriesIndex = 0; seriesIndex < seriesCount; seriesIndex++)
 }
 ```
 
-Példa kimenet az alapértelmezett diagram stílushoz:
+A alapértelmezett diagramstílusra vonatkozó minta kimenet:
 
 ```text
 Series 0: ff4f81bd
@@ -184,13 +232,13 @@ Series 1: ffc0504d
 Series 2: ff9bbb59
 ```
 
-A pontos színek a diagram stílusától és témájától függenek.
+A pontos színek a diagramstílustól és a témától függenek.
 
-## **Invert (fordított) kitöltőszín beállítása egy diagram sorozathoz**
+## **Inverz kitöltőszín beállítása egy diagram sorozathoz**
 
-Osáleg, oszlopsorozat és buborék sorozatok esetén az [IChartSeries.InvertIfNegative](https://reference.aspose.com/slides/hu/net/aspose.slides.charts/ichartseries/invertifnegative/) negatív értékeket másik kitöltéssel jeleníthet meg. Állítsa be a szabályos sorozat kitöltést szilárdra, engedélyezze a fordítást, és adja meg a negatív érték színét az [IChartSeries.InvertedSolidFillColor](https://reference.aspose.com/slides/hu/net/aspose.slides.charts/ichartseries/invertedsolidfillcolor/) segítségével. A negatív számok a munkafüzetben változatlanok maradnak; csak a megjelenítési színük módosul.
+Oszlop-, sáv- és buborék-sorozatok esetén az [IChartSeries.InvertIfNegative](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/invertifnegative/) használatával a negatív értékek másik kitöltéssel jeleníthetők meg. Állítsa be a normál sorozatkitöltést szilárdra, engedélyezze az inverziót, és adja meg a negatív érték színét az [IChartSeries.InvertedSolidFillColor](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/invertedsolidfillcolor/) segítségével. A negatív számok a munkafüzetben változatlanok maradnak; csak a megjelenítési színük változik.
 
-A következő példa az alapértelmezett diagram adatot egy sorozatra cseréli. A munkalap 0‑s sorában a sorozat neve van, az 0‑s oszlopban a kategória nevek, az 1‑s oszlopban az értékek:
+Az alábbi példa a diagram adatainak helyettesítésével egy sorozatot hoz létre. A munkalap 0. sora tartalmazza a sorozatnevét, az 0. oszlop a kategórianév, az 1. oszlop pedig az értékeket:
 
 ```cs
 using System.Drawing;
@@ -245,9 +293,9 @@ presentation.Save("inverted_solid_fill_color.pptx", SaveFormat.Pptx);
 
 Az eredmény:
 
-![A fordított szilárd kitöltő szín](inverted_solid_fill_color.png)
+![The inverted solid fill color](inverted_solid_fill_color.png)
 
-Az [IChartDataPoint.InvertIfNegative](https://reference.aspose.com/slides/hu/net/aspose.slides.charts/ichartdatapoint/invertifnegative/) segítségével egy pontnál engedélyezheti a fordítást. A következő példában a sorozatra le van tiltva a fordítás, és csak a kiválasztott pontnál van engedélyezve. A pontnak negatív értéket is adunk, hogy a hatás látható legyen:
+Inverziót egy adott pontra is beállíthatja az [IChartDataPoint.InvertIfNegative](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/invertifnegative/)‑val. Az alábbi példában a sorozatnál inverzió ki van kapcsolva, csak a kiválasztott pontnál van engedélyezve. A pontot negatív értékkel is ellátjuk, hogy a hatás látható legyen:
 
 ```cs
 using System.Drawing;
@@ -279,11 +327,11 @@ dataPoint.InvertIfNegative = true;
 presentation.Save("data_point_invert_color_if_negative.pptx", SaveFormat.Pptx);
 ```
 
-## **Egy konkrét adatpont értékének törlése**
+## **Egy adott adatpont értékének törlése**
 
-Ahhoz, hogy egy pontot üresen hagyjon a többi pont eltávolítása nélkül, állítsa a hozzá tartozó munkafüzet‑cellát `null`‑ra. Oszlopdiagram esetén a megjelenített érték az [IChartDataPoint.YValue](https://reference.aspose.com/slides/hu/net/aspose.slides.charts/ichartdatapoint/yvalue/) segítségével érhető el. Az adatpont ugyanazon kategória pozícióban marad, de a diagram a beállított üres‑érték szabályok szerint üresnek kezeli az értékét.
+Egy pont kiürítéséhez a többi pont eltávolítása nélkül, állítsa a mögöttes munkafüzetcellát `null`‑ra. Oszlopdiagram esetén a megjelenített érték a [IChartDataPoint.YValue](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/yvalue/)‑on keresztül érhető el. Az adatpont a ugyanazon kategória pozícióban marad, de a diagram a beállított üres-érték opciók szerint a pontot üresnek tekinti.
 
-A következő példa csak a második pontot törli az első sorozatban:
+Az alábbi példa csak a második pontot törli az első sorozatban:
 
 ```cs
 using Aspose.Slides;
@@ -306,17 +354,17 @@ dataPoint.YValue.AsCell.Value = null;
 presentation.Save("clear_data_point_value.pptx", SaveFormat.Pptx);
 ```
 
-A szórásdiagram külön X és Y cellákat használ, a buborékdiagram pedig egy méretcellát. Csak azt a cellát törölje, amely a törölni kívánt értéket képviseli. Ne hívja a [IChartDataPointCollection.Clear](https://reference.aspose.com/slides/hu/net/aspose.slides.charts/ichartdatapointcollection/clear/)‑t, ha a többi pontot megtartani szeretné, mivel ez a metódus az összes adatpontot eltávolítja a gyűjteményből.
+A szórt diagramok külön X és Y cellákat használnak, a buborék diagramok emellett egy méretcellát is. Csak azt a cellát törölje, amely a ténylegesen eltávolítandó értéket tartalmazza. Ne hívja meg a [IChartDataPointCollection.Clear](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapointcollection/clear/)‑t, ha a többi pontot megtartja, mert ez a metódus az összes adatpontot eltávolítja a gyűjteményből.
 
-## **Az üres cellák megjelenítésének vezérlése**
+## **Az üres cellák megjelenítésének szabályozása**
 
-A rejtett, értéket tartalmazó cellák külön esetet képeznek az üres celláktól. A rejtett munkalap‑sorok és -oszlopok adatait tartalmazó vagy kizáró információkért lásd a [Include Data from Hidden Rows and Columns](/slides/hu/net/chart-workbook/#include-data-from-hidden-rows-and-columns) oldalát.
+A rejtett, de értéket tartalmazó cellák külön esetet képeznek az üres celláktól. A rejtett munkalapsorok és oszlopok adatainak belefoglalásáról vagy kizárásáról lásd a [Include Data from Hidden Rows and Columns](/slides/hu/net/chart-workbook/#include-data-from-hidden-rows-and-columns) oldalt.
 
-Egy üres munkafüzet‑cellát hiányzó adatként értelmeznek; egy `0` értékű cella ismert numerikus értéket jelent. Állítsa az [IChartDataCell.Value](https://reference.aspose.com/slides/hu/net/aspose.slides.charts/ichartdatacell/value/)‑t `null`‑ra, hogy a cella üres legyen. A numerikus nulla továbbra is nulla marad, függetlenül az üres‑cellá beállítástól.
+Egy üres munkafüzetcellát hiányzó adatként kezelünk; egy `0` értékű cella ismert numerikus értéket jelent. Állítsa a [IChartDataCell.Value](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatacell/value/) értékét `null`‑ra, hogy a cella üres legyen. A numerikus nulla minden esetben null marad, függetlenül az üres cella beállítástól.
 
-Használja a [IChart.DisplayBlanksAs](https://reference.aspose.com/slides/hu/net/aspose.slides.charts/ichart/displayblanksas/)‑t, hogy kiválassza, a diagram hogyan jelenítse meg az üres cellákat. Ez a beállítás a teljes diagramra vonatkozik. Megváltoztatja az üresek ábrázolását anélkül, hogy az üres munkafüzet‑cellát nullával vagy interpolált értékkel töltené fel.
+Használja az [IChart.DisplayBlanksAs](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/displayblanksas/)‑t annak kiválasztására, hogy a diagram hogyan jelenítse meg az üres cellákat. Ez a beállítás a teljes diagramra vonatkozik, és megváltoztatja, hogyan kerülnek ábrázolásra a hiányzó értékek, anélkül hogy a munkafüzetcellát nullára vagy interpolált értékre töltené fel.
 
-A következő önálló példa egy vonaldiagramot hoz létre egy sorozattal, a 3. nap értékét törli, és a diagramot minden móddal elmenti. Bemeneti fájlra nincs szükség. A [IChartDataWorkbook](https://reference.aspose.com/slides/hu/net/aspose.slides.charts/ichartdataworkbook/) a 0‑s munkalapot, a 0‑s oszlopot a kategória címkéknek, az 1‑s oszlopot az értékeknek használja; a 0‑s sor a sorozat nevét tartalmazza. A végső adatok: `10, 20, empty, 30, 40`.
+Az alábbi önálló példa egy vonaldiagramot hoz létre egy sorozattal, törli a 3. nap értékét, és minden módot elment a diagramra. Bemeneti fájlra nincs szükség. Az [IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/) a 0‑s munkalapot, az 0‑s oszlopot használja a kategóriacímkéknek, az 1‑s oszlopot az értékeknek; a 0‑s sor a sorozatnevet tartalmazza. A végső adat: `10, 20, empty, 30, 40`.
 
 ```cs
 using Aspose.Slides;
@@ -345,7 +393,7 @@ for (var i = 0; i < values.Length; i++)
     series.DataPoints.AddDataPointForLineSeries(valueCell);
 }
 
-// A 3. napot valóban üresen hagyjuk, miközben megtartjuk a kategóriáját és adatpontját.
+// Hagyja a 3. napot valóban üresen, miközben megtartja a kategóriáját és az adatpontját.
 workbook.GetCell(0, 3, 1).Value = null;
 
 var modes = new[] { DisplayBlanksAsType.Gap, DisplayBlanksAsType.Zero, DisplayBlanksAsType.Span };
@@ -356,19 +404,19 @@ foreach (var mode in modes)
 }
 ```
 
-Minden kimeneti fájl a mentés előtt beállított módot tárolja: `empty_cells_Gap.pptx`, `empty_cells_Zero.pptx` és `empty_cells_Span.pptx`. Ha csak egy verziót szeretne menteni, állítsa be a kívánt módot, és egyszer mentse a prezentációt a módok iterálása helyett.
+Minden kimeneti fájl a mentés előtt beállított módot tartalmazza: `empty_cells_Gap.pptx`, `empty_cells_Zero.pptx` és `empty_cells_Span.pptx`. Ha csak egy verzióra van szüksége, állítsa be a kívánt módot, és egyszer mentse a prezentációt a módok ciklikus végrehajtása helyett.
 
 Az alábbi összehasonlítás ugyanazt az adatot mutatja mindhárom fájlban. A 3. nap minden esetben üres a munkafüzetben:
 
-![Vonaldiagramok azonos adatokkal: Gap szakítja a vonalat a 3. napnál, Zero a vonalat nullára húzza, Span összeköti a 2. és 4. napot.](display_blanks_as.png)
+![Line charts with identical data: Gap breaks the line at Day 3, Zero drops the line to zero, and Span connects Day 2 to Day 4.](display_blanks_as.png)
 
-A látható hatás a diagram típusától függ. A vonaldiagram minden három módot könnyen összehasonlíthatóvá tesz. Az oszlop- és sávdiagramoknak nincs vonala, amely összekötné a hiányzó kategóriát, így a `Span` nem tudja létrehozni a fent látható összekötő szegmenst; egy hiányzó oszlop és egy nulla magasságú oszlop is hasonlóan nézhet ki. Hasonlóképpen a csak jelölőkkel rendelkező szórásdiagramnak sincs kapcsolódó vonala. Ne várjon három különálló eredményt minden diagramtípusra; ellenőrizze a kimenetet a használt típushoz.
+A látható hatás a diagram típustól függ. Egy vonaldiagram jól összehasonlítható mindhárom módot. Oszlop- és sávdiagramok esetén nincs vonal, amely összekötné a hiányzó kategóriát, így a `Span` nem hoz létre összekötő szegmenst; egy hiányzó oszlop és egy nulla magasságú oszlop is hasonlóan nézhet ki. Hasonlóképpen egy szórt diagram csak jelölőkkel nincs összekötő vonala. Ne várjon három különálló eredményt minden diagramtípusra; ellenőrizze a kimenetet az adott típusra vonatkozóan.
 
-## **A sorozat hézag szélességének beállítása**
+## **A sorozat hézagszélességének beállítása**
 
-A hézag szélessége a szomszédos sáv- vagy oszlopszövetek közötti távolság, amely a sáv vagy oszlop szélességének százalékában van megadva. Az átfedéshez hasonlóan a szülő sorozatcsoporthoz tartozik, nem egyetlen sorozathoz. A [IChartSeriesGroup.GapWidth](https://reference.aspose.com/slides/hu/net/aspose.slides.charts/ichartseriesgroup/gapwidth/) beállítható egyszer a csoporthoz. A nagyobb érték nagyobb távolságot eredményez a klaszterek között; a kisebb érték sűrűbbé teszi azokat.
+A hézagszélesség a szomszédos sáv‑ vagy oszlopcsoportok közötti térköz, amely a sáv vagy oszlop szélességének százalékában van kifejezve. Az átfedéshez hasonlóan ez a szülő sorozatcsoport szintjén van, nem egyetlen sorozatnál. Állítsa be egyszer a [IChartSeriesGroup.GapWidth](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/gapwidth/) értékét a csoport számára. A nagyobb érték nagyobb távolságot hoz létre a csoportok között; a kisebb érték sűrűbb klasztereket eredményez.
 
-A következő példa megváltoztatja a hézag szélességét, és csak a végső prezentációt menti:
+Az alábbi példa módosítja a hézagszélességet, és csak a végső prezentációt menti el:
 
 ```cs
 using Aspose.Slides;
@@ -392,46 +440,46 @@ presentation.Save("gap_width_30.pptx", SaveFormat.Pptx);
 
 Az eredmény:
 
-![A hézag szélessége](gap_width.png)
+![The gap width](gap_width.png)
 
 ## **GYIK**
 
-**Mely diagramtípusok támogatják az adat‑sorozatokat?**
+**Mely diagramtípusok támogatják az adat sorozatokat?**
 
-Az [ChartType](https://reference.aspose.com/slides/hu/net/aspose.slides.charts/charttype/) felsorolásban szereplő összes diagramtípus használ diagramadatot, de sorozataik nem rendelkeznek ugyanazzal az értékstruktúrával vagy beállításokkal. Például a kategóriadiagramok kategóriákat és értékeket használnak, a szórásdiagramok X és Y értékeket, a buborékdiagramok pedig buborékméreteket adnak. Használja a sorozattípussal megegyező adatpont‑létrehozási módszert. Az átfedés és a hézag szélesség opciók csak kompatibilis sáv‑ vagy oszlopsorozatokra vonatkoznak.
+Az összes, a [ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) felsorolásban szereplő diagramtípus használ diagramadatot, de sorozataik nem mindegyiknek azonos értékstruktúrája vagy beállítása. Például a kategória-diagramok kategóriákat és értékeket használnak, a szórt diagramok X és Y értékeket, a buborék diagramok pedig buborékméreteket adnak hozzá. Használja a sorozattípusnak megfelelő adatpont létrehozási módszert. Az olyan opciók, mint az átfedés és a hézagszélesség, csak kompatibilis sáv‑ vagy oszlopcsoportokra vonatkoznak.
 
 **Mi az a diagram sorozatcsoport?**
 
-Az [IChartSeriesGroup](https://reference.aspose.com/slides/hu/net/aspose.slides.charts/ichartseriesgroup/) kompatibilis sorozatokat tartalmaz, amelyek közös csoport‑szintű ábrázolási beállításokat osztanak meg. Egy kombinációs diagram több csoportot is tartalmazhat, ezért egy sorozaton keresztül elért csoport megváltoztatása nem feltétlenül módosítja a diagram összes sorozatát.
+Az [IChartSeriesGroup](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/) kompatibilis sorozatokat tartalmaz, amelyek közös csoportszintű ábrázolási beállításokat osztanak meg. Egy kombinációs diagram több csoportot is tartalmazhat, ezért egy sorozaton keresztül elérhető csoport módosítása nem feltétlenül érinti a diagram minden sorozatát.
 
-**Tartalmaz egy újonnan létrehozott diagram alapértelmezett adatokat?**
+**Egy újonnan létrehozott diagram tartalmaz-e alapértelmezett adatokat?**
 
-Igen. Alapértelmezés szerint az [IShapeCollection.AddChart](https://reference.aspose.com/slides/hu/net/aspose.slides/ishapecollection/addchart/) mintasorozatokat, kategóriákat és értékeket hoz létre. Ezeket a cellákat szerkesztheti, vagy a sorozat- és kategóriagyűjteményeket kiürítheti, mielőtt teljesen egyedi adatkészletet adna hozzá. Egy túlterhelés lehetővé teszi, hogy a diagramot alapértelmezett adatok nélkül hozza létre.
+Igen. Alapértelmezés szerint az [IShapeCollection.AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) mintasorozatokat, kategóriákat és értékeket hoz létre. Ezeket a cellákat szerkesztheti, vagy a sorozat‑ és kategória‑gyűjteményeket törölheti, mielőtt teljesen egyedi adatkészletet adna hozzá. Egy túlterhelés (overload) segítségével diagramot is létrehozhat alapértelmezett adatok nélkül.
 
-**Hogyan kapcsolódnak a diagramobjektumok a munkafüzet celláihoz?**
+**Hogyan kapcsolódnak a diagramobjektumok a munkafüzetcellákhoz?**
 
-A sorozatnevek, kategória címkék és adatpont értékek egy [IChartDataWorkbook](https://reference.aspose.com/slides/hu/net/aspose.slides.charts/ichartdataworkbook/) celláira hivatkoznak. Egy hivatkozott cella módosítása frissíti a megfelelő diagramelemet. Egyedi adatok készítésekor tartsa összehangoltan a kategóriasorokat és a sorozat‑érték sorokat, hogy minden pont a kívánt kategória alá kerüljön.
+A sorozatnevek, a kategória címkék és az adatpont értékek az [IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/) celláira hivatkoznak. Egy hivatkozott cella módosítása frissíti a megfelelő diagramelemet. Egyedi adat építésekor tartsa a kategória‑sorokat és a sorozat‑érték‑sorokat összehangoltan, hogy minden pont a megfelelő kategória alatt jelenjen meg.
 
-**Hogyan törlök egyetlen pontot a teljes sorozat helyett?**
+**Hogyan töröljek egy pontot anélkül, hogy az egész sorozatot törölném?**
 
-Állítsa a megfelelő értékcellát `null`‑ra, hogy a pont kategória‑pozíciója üres pontként megmaradjon. A [IChartDataPointCollection.Clear](https://reference.aspose.com/slides/hu/net/aspose.slides.charts/ichartdatapointcollection/clear/)‑t csak akkor használja, ha az adott sorozat összes pontját el akarja távolítani. Ha a kategóriákat is törli, frissítse minden sorozatot, hogy az értékek továbbra is a kategóriagyűjteménnyel legyenek összehangolva.
+Állítsa a releváns értékcellát `null`‑ra, hogy a pont kategóriahelye megmaradjon üres pontként. A [IChartDataPointCollection.Clear](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapointcollection/clear/)‑t csak akkor használja, ha az adott sorozat összes pontját el szeretné távolítani. Ha a kategóriákat is eltávolítja, minden sorozatot frissítenie kell, hogy értékeik továbbra is a kategória‑gyűjteménnyel legyenek összhangban.
 
 **Hogyan jelennek meg az üres pontok?**
 
-A végeredmény a diagram típusától és a [IChart.DisplayBlanksAs](https://reference.aspose.com/slides/hu/net/aspose.slides.charts/ichart/displayblanksas/) beállítástól függ. A támogatott diagramok az üreseket megjeleníthetik hézagokként, null értékekként vagy a szomszédos pontok összekapcsolásával. Válassza ki azt a beállítást, amely megfelel a hiányzó adatok jelentésének a prezentációban. Tekintse meg a [Control the Display of Empty Cells](#control-the-display-of-empty-cells) szekciót a teljes példáért és vizuális összehasonlításért.
+Az eredmény a diagramtípustól és az [IChart.DisplayBlanksAs](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/displayblanksas/) beállítástól függ. A támogatott diagramok megjeleníthetik az üresekülött hézagokként, nullaként vagy a szomszédos pontok összekapcsolásával. Válassza ki a prezentációjában a hiányzó adat jelentésének megfelelő beállítást. Tekintse meg az [Az üres cellák megjelenítésének szabályozása](#control-the-display-of-empty-cells) részt a teljes példáért és vizuális összehasonlításért.
 
 **Hogyan formázódnak a negatív értékek?**
 
-Támogatott sáv-, oszlop- és buborék sorozatok esetén engedélyezze az [IChartSeries.InvertIfNegative](https://reference.aspose.com/slides/hu/net/aspose.slides.charts/ichartseries/invertifnegative/)‑t, és állítsa be az [IChartSeries.InvertedSolidFillColor](https://reference.aspose.com/slides/hu/net/aspose.slides.charts/ichartseries/invertedsolidfillcolor/)‑t. Egy egyedi pontnál a viselkedést felülírhatja a [IChartDataPoint.InvertIfNegative](https://reference.aspose.com/slides/hu/net/aspose.slides.charts/ichartdatapoint/invertifnegative/)‑val. Ezek a tulajdonságok a formázásra hatnak, nem a tárolt numerikus értékekre.
+A támogatott sáv-, oszlop- és buborék‑sorozatok esetén engedélyezze az [IChartSeries.InvertIfNegative](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/invertifnegative/)‑t, és állítsa be az [IChartSeries.InvertedSolidFillColor](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/invertedsolidfillcolor/)‑t. Egy adott pont viselkedését felülírhatja az [IChartDataPoint.InvertIfNegative](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/invertifnegative/)‑val. Ezek a tulajdonságok a formázást befolyásolják, nem a tárolt numerikus értékeket.
 
 **Melyik formázás nyer, ha egy sorozat és egy pont is formázva van?**
 
-Az explicit adatpont‑formázás felülbírálja a sorozati formázást az adott pontnál. A többi pont továbbra is az explicit sorozati formátumot vagy, ha a sorozati formátum nincs definiálva, az automatikus diagramstílust és témát használja. A csoport‑tulajdonságok, mint az átfedés és a hézag szélesség, a elrendezést szabályozzák, és nem pont‑szintű formázási felülírások.
+A kifejezett adatpont‑formázás elsőbbséget élvez az adott pontra. A többi pont továbbra is a kifejezett sorozat‑formázást vagy, ha az nincs definiálva, az automatikus diagramstílust és témát használja. A csoport‑tulajdonságok, mint az átfedés és a hézagszélesség, az elrendezést szabályozzák, és nem pont‑szintű formázási felülírások.
 
-**Van korláta, hogy hány sorozatot tartalmazhat egy diagram?**
+**Van-e határ arra, hogy hány sorozatot tartalmazhat egy diagram?**
 
-Az Aspose.Slides nem szab ki különálló, rögzített sorozatszám‑korlátot. Gyakorlatban a prezentáció fájlkorlátai, a rendelkezésre álló memória, a renderelési idő és a diagram olvashatósága határozza meg az ésszerű limitet.
+Az Aspose.Slides nem alkalmaz különálló, rögzített sorozatszám‑korlátot. Gyakorlatilag a prezentációfájl korlátai, a rendelkezésre álló memória, a renderelési idő és a diagram olvashatósága határozza meg az ésszerű határt.
 
-**Mit kell módosítanom, ha az oszlopok túl közel vagy túl messze vannak egymástól?**
+**Mit kell módosítanom, ha az oszlopok túl közel vagy túl távol vannak egymástól?**
 
-Állítsa be a megfelelő szülő sorozatcsoporton a [IChartSeriesGroup.GapWidth](https://reference.aspose.com/slides/hu/net/aspose.slides.charts/ichartseriesgroup/gapwidth/)‑t. Növelje az értéket a klaszterek közti távolság bővítéséhez, vagy csökkentse, hogy a klaszterek közelebb kerüljenek egymáshoz.
+Állítsa be a megfelelő szülő sorozatcsoport [IChartSeriesGroup.GapWidth](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/gapwidth/) értékét. Növelje az értéket a csoportok közötti térköz bővítéséhez, vagy csökkentse azt a csoportok közelebb hozásához.

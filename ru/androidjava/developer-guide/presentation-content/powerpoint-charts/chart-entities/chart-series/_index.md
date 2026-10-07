@@ -1,16 +1,16 @@
 ---
-title: Управление сериями данных диаграммы в презентациях на Android
+title: Управление данными серий диаграмм в презентациях на Android
 linktitle: Серии данных
 type: docs
 url: /ru/androidjava/chart-series/
 keywords:
-- серии диаграммы
-- перекрытие серий
+- серия диаграммы
+- перекрытие серии
 - цвет серии
 - имя серии
 - точка данных
 - ячейка рабочей книги
-- промежуток между сериями
+- промежуток серии
 - отрицательное значение
 - PowerPoint
 - презентация
@@ -21,23 +21,23 @@ description: "Узнайте, как управлять сериями диаг�
 ---
 ## **Обзор**
 
-Диаграмма хранит данные в рабочей книге данных диаграммы. [IChartSeries](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ichartseries/) представляет один набор связанных значений, и каждый [IChartDataPoint](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ichartdatapoint/) в серии ссылается на одну или несколько ячеек рабочей книги. Объекты [IChartCategory](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ichartcategory/) предоставляют метки или группирующие значения, общие для серий. Поэтому имя серии, категории и значения точек привязаны к объектам [IChartDataCell](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ichartdatacell/), а не хранятся только как отображаемый текст.
+Диаграмма хранит построенные данные в рабочей книге данных диаграммы. [IChartSeries](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/) представляет один набор связанных значений, а каждый [IChartDataPoint](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/) в серии ссылается на одну или несколько ячеек рабочей книги. Объекты [IChartCategory](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartcategory/) предоставляют метки или группирующие значения, общие для серий. Имя серии, категории и значения точек поэтому связаны с объектами [IChartDataCell](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatacell/), а не только хранятся как отображаемый текст.
 
-Для типичной диаграммы категорий рабочая книга по умолчанию использует строку 0 для имён серий, столбец 0 для имён категорий и остальные ячейки для значений серий. Индексы листа, строки и столбца, передаваемые в [IChartDataWorkbook.getCell](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ichartdataworkbook/#getCell-int-int-int-), начинаются с 0. Такое расположение удобно при создании диаграммы с данными по умолчанию, но не следует полагать, что каждый существующий график использует его. Для загруженной презентации проверьте ячейки, на которые ссылаются серии, категории и точки данных, прежде чем менять значения в рабочей книге.
+Для типичной диаграммы категорий рабочая книга по умолчанию использует строку 0 для имён серий, столбец 0 для имён категорий и остальные ячейки для значений серий. Индексы листа, строки и столбца, передаваемые в [IChartDataWorkbook.getCell](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/#getCell-int-int-int-), начинаются с 0. Такой макет удобен при создании диаграммы с данными по умолчанию, но не следует полагаться, что каждая существующая диаграмма использует его. Для загруженной презентации проверьте ячейки, на которые ссылаются серии, категории и точки данных, прежде чем изменять значения в рабочей книге.
 
-Настройки диаграммы имеют три разных уровня:
+Настройки диаграммы имеют три разных уровня области действия:
 
-- Настройки уровня серии, такие как [IChartSeries.getFormat](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ichartseries/#getFormat--), задают внешний вид всех точек в одной серии.
-- Настройки отдельной точки, такие как [IChartDataPoint.getFormat](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ichartdatapoint/#getFormat--), переопределяют внешний вид серии для одной точки.
-- Настройки группы применяются к совместимым сериям, принадлежащим одному [IChartSeriesGroup](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ichartseriesgroup/). Доступ к группе осуществляется через [IChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ichartseries/#getParentSeriesGroup--) при необходимости задать параметры, такие как перекрытие или ширина промежутка.
+- Настройки уровня серии, такие как [IChartSeries.getFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getFormat--), задают оформление по умолчанию для всех точек в одной серии.
+- Настройки точек данных, такие как [IChartDataPoint.getFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/#getFormat--), переопределяют оформление серии для одной точки.
+- Настройки группы применяются к совместимым сериям, принадлежащим одному [IChartSeriesGroup](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/). Обратитесь к группе через [IChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getParentSeriesGroup--), когда нужно задать такие параметры, как перекрытие или ширина промежутка.
 
-Когда явное заливание точки или серии не задано, стиль и тема диаграммы определяют автоматический внешний вид. Когда присутствует как форматирование серии, так и точки, форматирование точки имеет приоритет для этой точки.
+Если явное заливание точки или серии не задано, стиль и тема диаграммы определяют автоматическое оформление. Когда присутствует как оформление серии, так и оформление точки, оформление точки имеет приоритет для этой точки.
 
 ![chart-series-powerpoint](chart-series-powerpoint.png)
 
-## **Установка перекрытия серий диаграммы**
+## **Установить перекрытие серии диаграммы**
 
-[IChartSeries.getOverlap](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ichartseries/#getOverlap--) сообщает, насколько столбцы или полосы перекрываются в 2‑D диаграмме, от -100 до 100 процентов. Это только чтение проекции параметра в родительской группе серий. Используйте [IChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ichartseriesgroup/#setOverlap-byte-) для обновления всех совместимых серий в этой группе. Эта опция применяется к типам диаграмм, отображающим сгруппированные полосы или столбцы; она не влияет на несвязанные группы серий в комбинированной диаграмме.
+[IChartSeries.getOverlap](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getOverlap--) сообщает, насколько столбцы или бары перекрываются в 2‑D‑диаграмме, в диапазоне от -100 до 100 процентов. Это только чтение проекции настройки в родительской группе серий. Используйте [IChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/#setOverlap-byte-), чтобы обновить каждую совместимую серию в этой группе. Эта опция применяется к типам диаграмм, показывающим сгруппированные бары или столбцы; она не затрагивает несвязанные группы серий в комбинированной диаграмме.
 
 Следующий пример задаёт перекрытие для группы, содержащей первую серию:
 
@@ -52,7 +52,7 @@ Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(firstSlideIndex);
 
-    // Новая диаграмма содержит образцовые серии, категории и значения.
+    // Новая диаграмма содержит примерные серии, категории и значения.
     IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
 
     IChartSeries series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
@@ -68,9 +68,9 @@ try {
 
 ![The series overlap](series_overlap.png)
 
-## **Изменение цвета заливки серии**
+## **Изменить цвет заливки серии**
 
-Используйте [IChartSeries.getFormat](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ichartseries/#getFormat--) для установки заливки по умолчанию для всей серии. Если у точки уже задана явная заливка, её настройка [IChartDataPoint.getFormat](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ichartdatapoint/#getFormat--) переопределяет заливку серии для этой точки.
+Используйте [IChartSeries.getFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getFormat--) для задания заливки по умолчанию для всей серии. Если у точки уже задана явная заливка, её настройка [IChartDataPoint.getFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/#getFormat--) переопределяет заливку серии для этой точки.
 
 Следующий пример применяет сплошную синюю заливку к первой серии:
 
@@ -101,9 +101,9 @@ try {
 
 ![The color of the series](series_color.png)
 
-## **Изменение имени серии**
+## **Изменить имя серии**
 
-Имя серии хранится в рабочей книге данных диаграммы и обычно отображается в легенде. В рабочей книге по умолчанию для кластеризованной столбчатой диаграммы ячейка B1 находится в строке 0, столбце 1 и содержит имя первой серии. Именованные константы в следующем примере делают эту структуру явной:
+Имя серии хранится в рабочей книге данных диаграммы и обычно отображается в легенде. В рабочей книге по умолчанию для кластерной столбчатой диаграммы ячейка B1 находится в строке 0, столбце 1 и содержит имя первой серии. Именованные константы в следующем примере делают эту структуру явной:
 
 ```java
 import com.aspose.slides.*;
@@ -129,7 +129,7 @@ try {
 }
 ```
 
-Вы также можете обновить ячейку, уже возвращённую [IChartSeries.getName](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ichartseries/#getName--). Такой подход избавляет от предположений о конкретных строке и столбце в существующей диаграмме:
+Вы также можете обновить ячейку, уже ссылку на которую имеет [IChartSeries.getName](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getName--). Этот подход избавляет от предположений о конкретных строках и столбцах в существующей диаграмме:
 
 ```java
 import com.aspose.slides.*;
@@ -158,9 +158,59 @@ try {
 
 ![The series name](series_name.png)
 
-## **Получение автоматического цвета заливки серии**
+### **Создать серию с именем из нескольких ячеек**
 
-[IChartSeries.getAutomaticSeriesColor](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ichartseries/#getAutomaticSeriesColor--) возвращает цвет, рассчитанный из индекса серии и стиля диаграммы, в виде целого Android ARGB. Это тот цвет, который используется, когда заливка серии не определена явно. Вызов метода только считывает рассчитанный цвет; он не задаёт новую заливку.
+Составное имя серии полезно, когда название продукта и отчётный период хранятся в разных ячейках рабочей книги. Например, можно объединить `Product A` в B1 и `2026` в C1 в одно имя серии, оставив обе части связанными с их исходными ячейками.
+
+Используйте [IChartDataWorkbook.getCellCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/#getCellCollection-java.lang.String-boolean-) для получения диапазона имён, затем передайте эту коллекцию в [IChartSeriesCollection.add](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriescollection/#add-com.aspose.slides.IChartCellCollection-int-). Параметр `skipHiddenCells` контролирует, включать ли скрытые ячейки: `true` — исключает, `false` — включает. В этом примере используется `false`, чтобы включить каждую ячейку в диапазоне имён.
+
+Следующий пример создаёт презентацию с одной серией и двумя точками данных. Ячейки B1:C1 предоставляют только имя серии; A2:A3 — метки категорий, а B2:B3 — числовые значения.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 620, 180);
+
+    chart.getChartData().getSeries().clear();
+    chart.getChartData().getCategories().clear();
+    chart.setLegend(true);
+
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.clear(0);
+
+    // Эти две ячейки задают имя серии.
+    workbook.getCell(0, 0, 1, "Product A");
+    workbook.getCell(0, 0, 2, "2026");
+    IChartCellCollection nameCells = workbook.getCellCollection("Sheet1!$B$1:$C$1", false);
+    IChartSeries series = chart.getChartData().getSeries().add(nameCells, ChartType.ClusteredColumn);
+
+    // Отдельные ячейки задают категории и числовые точки данных.
+    IChartDataCell northCategory = workbook.getCell(0, 1, 0, "North");
+    IChartDataCell southCategory = workbook.getCell(0, 2, 0, "South");
+    chart.getChartData().getCategories().add(northCategory);
+    chart.getChartData().getCategories().add(southCategory);
+    IChartDataCell northValue = workbook.getCell(0, 1, 1, 120);
+    IChartDataCell southValue = workbook.getCell(0, 2, 1, 150);
+    series.getDataPoints().addDataPointForBarSeries(northValue);
+    series.getDataPoints().addDataPointForBarSeries(southValue);
+
+    presentation.save("composite_series_name.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Полученное имя серии — `Product A 2026`, с пробелом между значениями двух ячеек. Легенда отображает его как одну запись для обоих столбцов. Ниже изображён результат:
+
+![Column chart with North and South values and the composite series name Product A 2026 in the legend](composite_series_name.png)
+
+## **Получить автоматический цвет заливки серии**
+
+[IChartSeries.getAutomaticSeriesColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getAutomaticSeriesColor--) возвращает цвет, вычисленный на основе индекса серии и стиля диаграммы, в виде Android ARGB‑целого. Это цвет, используемый, когда заливка серии не определена явно. Вызов метода лишь читает вычисленный цвет; он не задаёт новую заливку.
 
 Следующий пример выводит целочисленное значение автоматического цвета для каждой серии по умолчанию:
 
@@ -188,11 +238,11 @@ try {
 
 Точные целочисленные значения зависят от стиля и темы диаграммы.
 
-## **Установка инвертированного цвета заливки для серии диаграммы**
+## **Установить инвертированный цвет заливки для серии диаграммы**
 
-Для столбчатых, колонных и пузырьковых серий [IChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ichartseries/#setInvertIfNegative-boolean-) позволяет отображать отрицательные значения другим цветом. Установите обычную заливку серии как сплошную, включите инверсию и задайте цвет отрицательного значения через [IChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ichartseries/#getInvertedSolidFillColor--). Отрицательные числа в рабочей книге остаются без изменений; изменяется только их цвет отображения.
+Для баров, столбцов и пузырьковых серий [IChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#setInvertIfNegative-boolean-) может отображать отрицательные значения другой заливкой. Установите обычную заливку серии сплошной, включите инверсию и задайте цвет отрицательного значения через [IChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getInvertedSolidFillColor--). Отрицательные числа остаются без изменений в рабочей книге; меняется лишь их цвет отображения.
 
-Следующий пример заменяет данные диаграммы данными одной серии. Строка 0 листа содержит имя серии, столбец 0 — имена категорий, столбец 1 — значения:
+Следующий пример заменяет данные диаграммы по умолчанию одной серией. Строка 0 листа содержит имя серии, столбец 0 — имена категорий, столбец 1 — значения:
 
 ```java
 import com.aspose.slides.*;
@@ -251,7 +301,7 @@ try {
 
 ![The inverted solid fill color](inverted_solid_fill_color.png)
 
-Вы можете включить инверсию для отдельной точки через [IChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ichartdatapoint/#setInvertIfNegative-boolean-). В следующем примере инверсия отключена для серии и включена только для выбранной точки. Точке также присваивается отрицательное значение, чтобы эффект был виден:
+Можно включить инверсию для одной точки через [IChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/#setInvertIfNegative-boolean-). В следующем примере инверсия отключена для серии и включена только для выбранной точки. Точке также задаётся отрицательное значение, чтобы эффект был видим:
 
 ```java
 import com.aspose.slides.*;
@@ -285,9 +335,9 @@ try {
 }
 ```
 
-## **Очистка конкретного значения точки данных**
+## **Очистить конкретное значение точки данных**
 
-Чтобы сделать одну точку пустой, не удаляя остальные, задайте её ячейке в рабочей книге значение `null`. Для столбчатой диаграммы plotted‑значение доступно через [IChartDataPoint.getValue](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ichartdatapoint/#getValue--). Точка остаётся в той же позиции категории, но диаграмма рассматривает её значение как пустое согласно настройкам отображения пустых значений.
+Чтобы сделать одну точку пустой, не удаляя остальные, задайте её ячейке в рабочей книге значение `null`. Для столбчатой диаграммы построенное значение доступно через [IChartDataPoint.getValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/#getValue--). Точка остаётся на той же позиции категории, но диаграмма рассматривает её значение как пустое в соответствии с настройками обработки пустых значений.
 
 Следующий пример очищает только вторую точку в первой серии:
 
@@ -314,17 +364,17 @@ try {
 }
 ```
 
-Диаграммы разброса используют отдельные ячейки X и Y, а пузырьковые добавляют ячейку размера. Очищайте только ту ячейку, которая представляет значение, которое хотите удалить. Не вызывайте [IChartDataPointCollection.clear](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ichartdatapointcollection/#clear--) при желании сохранить остальные точки, поскольку этот метод удаляет все точки из коллекции.
+Диаграммы разброса используют отдельные ячейки X и Y, а пузырьковые диаграммы также используют ячейку размера. Очищайте только ту ячейку, которая представляет значение, которое вы хотите удалить. Не вызывайте [IChartDataPointCollection.clear](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapointcollection/#clear--), если хотите сохранить остальные точки, поскольку этот метод удаляет все точки из коллекции.
 
 ## **Управление отображением пустых ячеек**
 
-Скрытые ячейки, содержащие значения, — отдельный случай от пустых ячеек. Чтобы включать или исключать данные из скрытых строк и столбцов листа, см. [Включить данные из скрытых строк и столбцов](/slides/ru/androidjava/chart-workbook/#include-data-from-hidden-rows-and-columns).
+Скрытые ячейки, содержащие значения, — отдельный случай от пустых ячеек. Чтобы включать или исключать данные из скрытых строк и столбцов листа, см. [Include Data from Hidden Rows and Columns](/slides/ru/androidjava/chart-workbook/#include-data-from-hidden-rows-and-columns).
 
-Пустая ячейка рабочей книги представляет отсутствующие данные; ячейка, содержащая `0`, представляет известное числовое значение. Вызовите [IChartDataCell.setValue](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ichartdatacell/#setValue-java.lang.Object-) с `null`, чтобы сделать ячейку пустой. Числовой ноль остаётся нулём независимо от настройки отображения пустых ячеек.
+Пустая ячейка рабочей книги представляет отсутствие данных; ячейка, содержащая `0`, представляет известное числовое значение. Вызовите [IChartDataCell.setValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatacell/#setValue-java.lang.Object-) с `null`, чтобы сделать ячейку пустой. Числовой ноль остаётся нулём независимо от настройки пустой ячейки.
 
-Используйте [IChart.setDisplayBlanksAs](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ichart/#setDisplayBlanksAs-int-) для выбора способа отображения пустых ячеек. Эта настройка применяется ко всей диаграмме. Она меняет способ построения пустот без заполнения пустой ячейки нулём или интерполированным значением.
+Используйте [IChart.setDisplayBlanksAs](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#setDisplayBlanksAs-int-) для выбора способа отображения пустых ячеек диаграммой. Эта настройка применяется ко всей диаграмме. Она изменяет способ построения пустот без заполнения пустой ячейки нулём или интерполированным значением.
 
-Следующий автономный пример создаёт линейную диаграмму с одной серией, очищает значение для третьего дня и сохраняет диаграмму в каждом режиме. Входной файл не требуется. [IChartDataWorkbook](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ichartdataworkbook/) использует лист 0, столбец 0 для меток категорий и столбец 1 для значений; строка 0 хранит имя серии. Окончательные данные: `10, 20, empty, 30, 40`.
+Следующий автономный пример создаёт линейную диаграмму с одной серией, очищает значение для 3‑го дня и сохраняет диаграмму в каждом режиме. Входной файл не требуется. [IChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/) использует лист 0, столбец 0 для меток категорий и столбец 1 для значений; строка 0 содержит имя серии. Окончательные данные: `10, 20, empty, 30, 40`.
 
 ```java
 import com.aspose.slides.*;
@@ -351,7 +401,7 @@ try {
         series.getDataPoints().addDataPointForLineSeries(valueCell);
     }
 
-    // Оставить третий день действительно пустым, сохранив его категорию и точку данных.
+    // Оставить 3‑й день действительно пустым, при этом сохранять его категорию и точку данных.
     workbook.getCell(0, 3, 1).setValue(null);
 
     int[] modes = { DisplayBlanksAsType.Gap, DisplayBlanksAsType.Zero, DisplayBlanksAsType.Span };
@@ -365,19 +415,19 @@ try {
 }
 ```
 
-Каждый файл‑вывод сохраняет режим, выбранный перед сохранением: `empty_cells_Gap.pptx`, `empty_cells_Zero.pptx` и `empty_cells_Span.pptx`. Чтобы сохранить только одну версию, задайте нужный режим и сохраните презентацию один раз вместо перебора режимов.
+Каждый выходной файл сохраняет режим, выбранный перед сохранением: `empty_cells_Gap.pptx`, `empty_cells_Zero.pptx` и `empty_cells_Span.pptx`. Чтобы сохранить только одну версию, задайте нужный режим и сохраните презентацию один раз, вместо перебора режимов.
 
-Сравнение ниже показывает одинаковые данные во всех трёх файлах. День 3 пуст во всех рабочих книгах:
+Сравнение ниже показывает одинаковые данные во всех трёх файлах. День 3 пуст в рабочей книге во всех случаях:
 
 ![Line charts with identical data: Gap breaks the line at Day 3, Zero drops the line to zero, and Span connects Day 2 to Day 4.](display_blanks_as.png)
 
-Видимый эффект зависит от типа диаграммы. Линейная диаграмма позволяет легко сравнивать все три режима. Для столбчатых и колонных диаграмм нет линии, соединяющей пропущенную категорию, поэтому `Span` не может создать соединительный отрезок, показанный выше; отсутствующий столбец и столбец нулевой высоты могут выглядеть одинаково. Аналогично, диаграмма разброса только с маркерами не имеет соединительной линии. Не ожидайте три разных результата для каждого типа диаграммы; проверяйте вывод для используемого типа.
+Видимый эффект зависит от типа диаграммы. Линейная диаграмма позволяет легко сравнивать все три режима. Бар‑ и столбчатые диаграммы не имеют линии, соединяющей пропущенную категорию, поэтому `Span` не может создать соединительный сегмент, показанный выше; отсутствующий столбец и столбец нулевой высоты могут выглядеть одинаково. Аналогично, диаграмма разброса только с маркерами не имеет соединительной линии. Не ожидайте три разных результата для каждого типа диаграммы; проверьте вывод для используемого типа.
 
-## **Установка ширины промежутка между сериями**
+## **Установить ширину промежутка между сериями**
 
-Ширина промежутка — пространство между соседними кластерами столбцов или полос, выраженное в процентах от их ширины. Как и перекрытие, она принадлежит родительской группе серий, а не отдельной серии. Вызовите [IChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ichartseriesgroup/#setGapWidth-int-) один раз для группы. Большее значение создаёт больше пространства между кластерами; меньшее — делает их плотнее.
+Ширина промежутка — это пространство между соседними кластерами баров или столбцов, выраженное в процентах от ширины бара или столбца. Как и перекрытие, она относится к родительской группе серий, а не к отдельной серии. Вызовите [IChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/#setGapWidth-int-) один раз для группы. Большее значение создаёт больше пространства между кластерами; меньшее значение делает их плотнее.
 
-Следующий пример меняет ширину промежутка и сохраняет только окончательную презентацию:
+Следующий пример меняет ширину промежутка и сохраняет только финальную презентацию:
 
 ```java
 import com.aspose.slides.*;
@@ -409,40 +459,40 @@ try {
 
 **Какие типы диаграмм поддерживают серии данных?**
 
-Все типы диаграмм, представленные перечислением [ChartType](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/charttype/), используют данные диаграммы, но их серии не имеют одинаковой структуры значений или настроек. Например, диаграммы категорий используют категории и значения, диаграммы разброса — X и Y, а пузырьковые добавляют размеры пузырей. Используйте метод создания точек данных, соответствующий типу серии. Параметры, такие как перекрытие и ширина промежутка, применимы только к совместимым группам столбцов или полос.
+Все типы диаграмм, представленные перечислением [ChartType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/), используют данные диаграммы, но их серии не имеют одинаковой структуры значений или настроек. Например, категориальные диаграммы используют категории и значения, диаграммы разброса — X и Y, а пузырьковые диаграммы добавляют размеры пузырей. Используйте метод создания точек данных, соответствующий типу серии. Параметры, такие как перекрытие и ширина промежутка, применимы только к совместимым группам баров или столбцов.
 
 **Что такое группа серий диаграммы?**
 
-[IChartSeriesGroup](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ichartseriesgroup/) содержит совместимые серии, которые разделяют настройки построения уровня группы. Комбинированная диаграмма может содержать более одной группы, поэтому изменение группы, полученной через одну серию, не обязательно изменит все серии в диаграмме.
+[IChartSeriesGroup](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/) содержит совместимые серии, которые разделяют настройки построения уровня группы. Комбинированная диаграмма может содержать более одной группы, поэтому изменение группы, достигнутой через одну серию, не обязательно меняет все серии в диаграмме.
 
-**Создаёт ли новая диаграмма данные по умолчанию?**
+**Создаёт ли вновь созданная диаграмма данные по умолчанию?**
 
-Да. По умолчанию [IShapeCollection.addChart](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) создаёт примерные серии, категории и значения. Вы можете изменить эти ячейки или очистить коллекции серий и категорий перед добавлением полностью пользовательского набора данных. Существуют перегрузки, позволяющие создать диаграмму без данных по умолчанию.
+Да. По умолчанию [IShapeCollection.addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) создаёт примерные серии, категории и значения. Вы можете отредактировать эти ячейки или очистить коллекции серий и категорий перед добавлением полностью пользовательского набора данных. Существует перегрузка, позволяющая создать диаграмму без данных по умолчанию.
 
 **Как объекты диаграммы связаны с ячейками рабочей книги?**
 
-Имена серий, метки категорий и значения точек данных ссылаются на ячейки в [IChartDataWorkbook](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ichartdataworkbook/). Изменение ссылки ячейки обновляет соответствующий элемент диаграммы. При построении пользовательских данных сохраняйте выравнивание строк категорий и строк значений серий, чтобы каждая точка была построена под нужной категорией.
+Имена серий, метки категорий и значения точек данных ссылаются на ячейки в [IChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/). Изменение ссылки ячейки обновляет соответствующий элемент диаграммы. При построении пользовательских данных сохраняйте выравнивание строк категорий и строк значений серий, чтобы каждая точка строилась под нужной категорией.
 
 **Как очистить одну точку, а не всю серию?**
 
-Задайте соответствующей ячейке значение `null`, чтобы сохранить позицию категории точки как пустой. Используйте [IChartDataPointCollection.clear](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ichartdatapointcollection/#clear--) только когда хотите удалить все точки из серии. Если вы также удаляете категории, обновите каждую серию, чтобы их значения оставались выровненными с коллекцией категорий.
+Установите соответствующую ячейку значения в `null`, чтобы точка оставалась в позиции категории как пустая точка. Используйте [IChartDataPointCollection.clear](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapointcollection/#clear--) только когда нужно удалить все точки из серии. Если вы также удаляете категории, обновите каждую серию, чтобы их значения оставались согласованными с коллекцией категорий.
 
 **Как отображаются пустые точки?**
 
-Результат зависит от типа диаграммы и значения, установленного через [IChart.setDisplayBlanksAs](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ichart/#setDisplayBlanksAs-int-). Поддерживаемые диаграммы могут показывать пустоты как разрывы, как нулевые значения или соединяя соседние точки. Выберите настройку, соответствующую смыслу отсутствующих данных в вашей презентации. См. [Управление отображением пустых ячеек](#control-the-display-of-empty-cells) для полного примера и визуального сравнения.
+Результат зависит от типа диаграммы и настройки, заданной через [IChart.setDisplayBlanksAs](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#setDisplayBlanksAs-int-). Поддерживаемые диаграммы могут показывать пустоты как разрывы, как нулевые значения или соединяя соседние точки. Выберите настройку, соответствующую смыслу отсутствующих данных в вашей презентации. См. [Control the Display of Empty Cells](#control-the-display-of-empty-cells) для полного примера и визуального сравнения.
 
 **Как форматируются отрицательные значения?**
 
-Для поддерживаемых столбчатых, колонных и пузырьковых серий вызовите [IChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ichartseries/#setInvertIfNegative-boolean-) и задайте цвет, возвращаемый [IChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ichartseries/#getInvertedSolidFillColor--). Вы можете переопределить поведение для отдельной точки через [IChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ichartdatapoint/#setInvertIfNegative-boolean-). Эти методы влияют на форматирование, а не на хранимые числовые значения.
+Для поддерживаемых баров, столбцов и пузырьковых серий вызовите [IChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#setInvertIfNegative-boolean-) и задайте цвет, возвращаемый [IChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getInvertedSolidFillColor--). Для отдельной точки поведение можно переопределить с помощью [IChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/#setInvertIfNegative-boolean-). Эти методы влияют только на оформление, а не на сохранённые числовые значения.
 
-**Какой формат выигрывает, если форматированы и серия, и точка?**
+**Какой формат имеет приоритет, когда и серия, и точка отформатированы?**
 
-Явное форматирование точки имеет приоритет для этой точки. Другие точки продолжают использовать явный формат серии или, если формат серии не определён, автоматический стиль и тему диаграммы. Настройки группы, такие как перекрытие и ширина промежутка, управляют расположением и не являются переопределениями форматирования уровня точки.
+Явное форматирование точки имеет приоритет для этой точки. Другие точки продолжают использовать явный формат серии или, при отсутствии формата серии, автоматический стиль и тему диаграммы. Настройки группы, такие как перекрытие и ширина промежутка, управляют расположением и не являются переопределяющими форматирование точек.
 
-**Существует ли ограничение на количество серий в диаграмме?**
+**Есть ли ограничение на количество серий в диаграмме?**
 
-Aspose.Slides не налагает отдельного фиксированного ограничения на количество серий. На практике ограничения файлов презентации, доступная память, время рендеринга и читаемость диаграммы определяют практический предел.
+Aspose.Slides не накладывает отдельного фиксированного ограничения на количество серий. На практике ограничения задаются размером файла презентации, доступной памятью, временем рендеринга и читаемостью диаграммы.
 
-**Что изменить, если столбцы слишком близко или слишком далеко друг от друга?**
+**Что менять, если столбцы слишком близко или слишком далеко друг от друга?**
 
-Вызовите [IChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ichartseriesgroup/#setGapWidth-int-) для соответствующей родительской группы серий. Увеличьте значение, чтобы расширить пространство между кластерами, или уменьшите его, чтобы собрать кластеры ближе.
+Вызовите [IChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/#setGapWidth-int-) для соответствующей родительской группы серий. Увеличьте значение, чтобы расширить пространство между кластерами, или уменьшите его, чтобы сблизить кластеры.

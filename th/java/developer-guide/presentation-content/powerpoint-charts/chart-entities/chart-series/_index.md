@@ -1,11 +1,11 @@
 ---
-title: จัดการชุดข้อมูลแผนภูมิในงานนำเสนอด้วย Java
+title: จัดการชุดข้อมูลแผนภูมิในการนำเสนอด้วย Java
 linktitle: ชุดข้อมูล
 type: docs
 url: /th/java/chart-series/
 keywords:
 - ชุดข้อมูลแผนภูมิ
-- การทับของชุด
+- การทับซ้อนของชุด
 - สีของชุด
 - ชื่อชุด
 - จุดข้อมูล
@@ -16,29 +16,29 @@ keywords:
 - การนำเสนอ
 - Java
 - Aspose.Slides
-description: "เรียนรู้วิธีจัดการชุดข้อมูลแผนภูมิ, จุดข้อมูล, เซลล์สมุดงาน, การจัดรูปแบบ, การทับ, ความกว้างช่องว่าง, และค่าติดลบในงานนำเสนอด้วย Java."
+description: "เรียนรู้วิธีจัดการชุดข้อมูลแผนภูมิ, จุดข้อมูล, เซลล์สมุดงาน, การจัดรูปแบบ, การทับซ้อน, ความกว้างช่องว่าง, และค่าติดลบในการนำเสนอด้วย Java."
 ---
 ## **ภาพรวม**
 
-แผนภูมิจะเก็บข้อมูลที่พล็อตไว้ในสมุดงานข้อมูลของแผนภูมิ ตัว[IChartSeries](https://reference.aspose.com/slides/th/java/com.aspose.slides/ichartseries/) แทนชุดค่าที่เกี่ยวข้องหนึ่งชุด และแต่ละ[IChartDataPoint](https://reference.aspose.com/slides/th/java/com.aspose.slides/ichartdatapoint/) ในชุดจะอ้างอิงถึงหนึ่งหรือหลายเซลล์ของสมุดงาน วัตถุ[IChartCategory](https://reference.aspose.com/slides/th/java/com.aspose.slides/ichartcategory/) ให้ป้ายกำกับหรือค่ากลุ่มที่ใช้ร่วมกันระหว่างชุด ชื่อชุด, หมวดหมู่ และค่าจุดจึงเชื่อมต่อกับวัตถุ[IChartDataCell](https://reference.aspose.com/slides/th/java/com.aspose.slides/ichartdatacell/) แทนที่จะเก็บเป็นข้อความแสดงผลเท่านั้น
+แผนภูมิจะเก็บข้อมูลที่วาดไว้ในสมุดงานข้อมูลแผนภูมิ. An [IChartSeries](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/) represents one set of related values, and each [IChartDataPoint](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapoint/) in the series refers to one or more workbook cells. [IChartCategory](https://reference.aspose.com/slides/java/com.aspose.slides/ichartcategory/) objects provide the labels or grouping values shared by the series. The series name, categories, and point values are therefore connected to [IChartDataCell](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatacell/) objects rather than stored only as display text.
 
-สำหรับแผนภูมิเกรดประเภททั่วไป สมุดงานเริ่มต้นจะใช้แถว 0 สำหรับชื่อชุด, คอลัมน์ 0 สำหรับชื่อหมวดหมู่, และเซลล์ที่เหลือสำหรับค่าชุด ดัชนีของแผ่นงาน, แถว, และคอลัมน์ที่ส่งให้[IChartDataWorkbook.getCell](https://reference.aspose.com/slides/th/java/com.aspose.slides/ichartdataworkbook/#getCell-int-int-int-) เป็นศูนย์ (0‑based) รูปแบบนี้เป็นประโยชน์เมื่อคุณสร้างแผนภูมิด้วยข้อมูลเริ่มต้น แต่ไม่ควรสมมติว่าแผนภูมิที่มีอยู่ทั้งหมดใช้รูปแบบนี้ สำหรับการนำเสนอก่อนหน้า ให้ตรวจสอบเซลล์ที่ชุด, หมวดหมู่, และจุดข้อมูลอ้างอิง ก่อนที่จะเปลี่ยนค่าในสมุดงาน
+สำหรับแผนภูมิประเภทหมวดหมู่ทั่วไป สมุดงานค่าเริ่มต้นจะใช้แถว 0 สำหรับชื่อชุด, คอลัมน์ 0 สำหรับชื่อหมวดหมู่, และเซลล์ที่เหลือสำหรับค่าชุด. ตัวชี้ตำแหน่ง Worksheet, row, และ column ที่ส่งไปยัง [IChartDataWorkbook.getCell](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/#getCell-int-int-int-) เป็นแบบศูนย์ต้น. การจัดวางนี้มีประโยชน์เมื่อคุณสร้างแผนภูมิด้วยข้อมูลค่าเริ่มต้น, แต่ไม่ควรสันนิษฐานว่าทุกแผนภูมิที่มีอยู่ใช้แบบนี้. สำหรับงานนำเสนอที่โหลดแล้ว, ตรวจสอบเซลล์ที่อ้างอิงโดยชุด, หมวดหมู่, และจุดข้อมูลก่อนทำการเปลี่ยนแปลงค่าในสมุดงาน.
 
-การตั้งค่าแผนภูมิมีสามระดับที่แตกต่างกัน:
+การตั้งค่าแผนภูมิมีสามระดับแตกต่างกัน:
 
-- การตั้งค่าระดับชุด เช่น[IChartSeries.getFormat](https://reference.aspose.com/slides/th/java/com.aspose.slides/ichartseries/#getFormat--) ให้ลักษณะเริ่มต้นสำหรับทุกจุดในชุดเดียว
-- การตั้งค่าระดับจุดข้อมูล เช่น[IChartDataPoint.getFormat](https://reference.aspose.com/slides/th/java/com.aspose.slides/ichartdatapoint/#getFormat--) จะลบล้างลักษณะของชุดสำหรับจุดเดียว
-- การตั้งค่าระดับกลุ่มจะใช้กับชุดที่เข้ากันได้ซึ่งอยู่ใน[IChartSeriesGroup](https://reference.aspose.com/slides/th/java/com.aspose.slides/ichartseriesgroup/) เดียวกัน ให้เข้าถึงกลุ่มผ่าน[IChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/th/java/com.aspose.slides/ichartseries/#getParentSeriesGroup--) เมื่อคุณต้องการตั้งค่าตัวเลือกเช่นการทับหรือความกว้างของช่องว่าง
+- การตั้งค่าระดับชุด, เช่น [IChartSeries.getFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#getFormat--) ให้การแสดงผลพื้นฐานสำหรับทุกจุดในชุดหนึ่ง.
+- การตั้งค่าระดับจุดข้อมูล, เช่น [IChartDataPoint.getFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapoint/#getFormat--) จะลบล้างการแสดงผลของชุดสำหรับจุดเดียว.
+- การตั้งค่ากลุ่มใช้กับชุดที่เข้ากันได้ซึ่งอยู่ใน [IChartSeriesGroup](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriesgroup/). เข้าถึงกลุ่มผ่าน [IChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#getParentSeriesGroup--) เมื่อคุณต้องการตั้งค่าตัวเลือกเช่นการทับซ้อนหรือความกว้างช่องว่าง.
 
-เมื่อไม่มีการกำหนดสีเติมจุดหรือชุดอย่างชัดเจน สไตล์และธีมของแผนภูมิจะกำหนดลักษณะที่ปรากฏอัตโนมัติ เมื่อมีการกำหนดรูปแบบทั้งชุดและจุดพร้อมกัน รูปแบบจุดจะมีความสำคัญเหนือรูปแบบชุดสำหรับจุดนั้น
+เมื่อไม่ได้ตั้งค่าสีเติมจุดหรือชุดอย่างชัดเจน, สไตล์และธีมของแผนภูมิจะกำหนดการแสดงผลอัตโนมัติ. เมื่อทั้งการจัดรูปแบบของชุดและจุดมีอยู่, การจัดรูปแบบของจุดจะมีสิทธิ์เหนือสำหรับจุดนั้น.
 
-![chart-series-powerpoint](chart-series-powerpoint.png)
+![แผนภูมิ series PowerPoint](chart-series-powerpoint.png)
 
-## **ตั้งค่าการทับของชุดแผนภูมิ**
+## **ตั้งค่าการทับซ้อนของชุดแผนภูมิ**
 
-[IChartSeries.getOverlap](https://reference.aspose.com/slides/th/java/com.aspose.slides/ichartseries/#getOverlap--) รายงานว่าบาร์หรือคอลัมน์ทับกันเท่าใดในแผนภูมิ 2D ตั้งแต่ -100 ถึง 100 เปอร์เซ็นต์ เป็นการอ่านค่าแบบอ่าน‑อย่างของการตั้งค่าในกลุ่มชุดแม่ ใช้[IChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/th/java/com.aspose.slides/ichartseriesgroup/#setOverlap-byte-) เพื่ออัปเดตทุกชุดที่เข้ากันได้ในกลุ่มนั้น ตัวเลือกนี้ใช้กับประเภทแผนภูมิที่แสดงบาร์หรือคอลัมน์เป็นกลุ่ม; จะไม่มีผลต่อกลุ่มชุดที่ไม่เกี่ยวข้องในแผนภูมิแบบผสม
+[IChartSeries.getOverlap](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#getOverlap--) รายงานว่าบาร์หรือคอลัมน์ทับซ้อนกันเท่าไหร่ในแผนภูมิ 2D, ตั้งแต่ -100 ถึง 100 เปอร์เซ็นต์. มันเป็นการฉายภาพแบบอ่านอย่างเดียวของการตั้งค่าในกลุ่มชุดแม่. ใช้ [IChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriesgroup/#setOverlap-byte-) เพื่ออัปเดตทุกชุดที่เข้ากันได้ในกลุ่มนั้น. ตัวเลือกนี้ใช้กับประเภทแผนภูมิที่แสดงบาร์หรือคอลัมน์กลุ่ม; จะไม่ส่งผลต่อกลุ่มชุดที่ไม่เกี่ยวข้องในแผนภูมิแบบผสม.
 
-ตัวอย่างต่อไปนี้ตั้งค่าการทับสำหรับกลุ่มที่มีชุดแรก:
+ตัวอย่างต่อไปนี้ตั้งค่าการทับซ้อนสำหรับกลุ่มที่มีชุดแรกอยู่ในนั้น:
 
 ```java
 import com.aspose.slides.*;
@@ -51,7 +51,7 @@ Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(firstSlideIndex);
 
-    // แผนภูมิใหม่มีชุดตัวอย่าง, หมวดหมู่, และค่า
+    // แผนภูมิใหม่มีชุดตัวอย่าง, หมวดหมู่, และค่า.
     IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
 
     IChartSeries series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
@@ -65,13 +65,13 @@ try {
 
 ผลลัพธ์:
 
-![The series overlap](series_overlap.png)
+![การทับซ้อนของชุด](series_overlap.png)
 
 ## **เปลี่ยนสีเติมของชุด**
 
-ใช้[IChartSeries.getFormat](https://reference.aspose.com/slides/th/java/com.aspose.slides/ichartseries/#getFormat--) เพื่อตั้งค่าสีเติมเริ่มต้นสำหรับชุดทั้งหมด หากจุดหนึ่งมีการกำหนดสีเติมโดยชัดเจน การตั้งค่า[IChartDataPoint.getFormat](https://reference.aspose.com/slides/th/java/com.aspose.slides/ichartdatapoint/#getFormat--) ของจุดนั้นจะลบล้างสีเติมของชุดสำหรับจุดนั้น
+ใช้ [IChartSeries.getFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#getFormat--) เพื่อกำหนดสีเติมค่าเริ่มต้นสำหรับชุดทั้งหมด. หากจุดมีสีเติมที่กำหนดไว้แล้ว, การตั้งค่า [IChartDataPoint.getFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapoint/#getFormat--) จะลบล้างสีเติมของชุดสำหรับจุดนั้น.
 
-ตัวอย่างต่อไปนี้ใช้สีเติมสีน้ำเงินทึบกับชุดแรก:
+ตัวอย่างต่อไปนี้ใช้สีเติมแบบทึบสีฟ้าสำหรับชุดแรก:
 
 ```java
 import com.aspose.slides.*;
@@ -98,11 +98,11 @@ try {
 
 ผลลัพธ์:
 
-![The color of the series](series_color.png)
+![สีของชุด](series_color.png)
 
 ## **เปลี่ยนชื่อชุด**
 
-ชื่อชุดถูกเก็บไว้ในสมุดงานข้อมูลของแผนภูมิและโดยปกติจะแสดงในคำอธิบาย (legend) ในสมุดงานเริ่มต้นที่สร้างสำหรับแผนภูมิคอลัมน์แบบกลุ่ม เซลล์ B1 อยู่ที่แถว 0, คอลัมน์ 1 และมีชื่อของชุดแรก ค่าคงที่ที่ตั้งชื่อในตัวอย่างต่อไปนี้ทำให้โครงสร้างนี้ชัดเจน:
+ชื่อชุดจะถูกเก็บในสมุดงานข้อมูลแผนภูมิและทั่วไปจะแสดงใน legend. ในสมุดงานค่าเริ่มต้นที่สร้างสำหรับแผนภูมิคอลัมน์แบบกลุ่ม, เซลล์ B1 อยู่ที่แถว 0, คอลัมน์ 1 และมีชื่อของชุดแรก. ค่าคงที่ที่ระบุชื่อในตัวอย่างต่อไปนี้ทำให้โครงสร้างดังกล่าวชัดเจน:
 
 ```java
 import com.aspose.slides.*;
@@ -128,7 +128,7 @@ try {
 }
 ```
 
-คุณยังสามารถอัปเดตเซลล์ที่[IChartSeries.getName](https://reference.aspose.com/slides/th/java/com.aspose.slides/ichartseries/#getName--) อ้างอิงอยู่ วิธีนี้ช่วยหลีกเลี่ยงการสมมติแถวและคอลัมน์เฉพาะในแผนภูมิที่มีอยู่:
+คุณยังสามารถอัปเดตเซลล์ที่อ้างอิงโดย [IChartSeries.getName](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#getName--) ได้. วิธีนี้หลีกเลี่ยงการสันนิษฐานแถวและคอลัมน์เฉพาะในแผนภูมิที่มีอยู่:
 
 ```java
 import com.aspose.slides.*;
@@ -155,13 +155,63 @@ try {
 
 ผลลัพธ์:
 
-![The series name](series_name.png)
+![ชื่อชุด](series_name.png)
+
+### **สร้างชุดด้วยชื่อจากหลายเซลล์**
+
+ชื่อชุดแบบประกอบมีประโยชน์เมื่อชื่อผลิตภัณฑ์และช่วงเวลารายงานถูกเก็บในเซลล์สมุดงานแยกกัน. ตัวอย่างเช่น, คุณสามารถรวม `Product A` ใน B1 และ `2026` ใน C1 ให้เป็นชื่อชุดเดียว while keeping both parts linked to their source cells.
+
+ใช้ [IChartDataWorkbook.getCellCollection](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/#getCellCollection-java.lang.String-boolean-) เพื่อดึงช่วงชื่อ, แล้วส่งคอลเลกชันนั้นให้กับ [IChartSeriesCollection.add](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriescollection/#add-com.aspose.slides.IChartCellCollection-int-). พารามิเตอร์ `skipHiddenCells` ควบคุมว่าจะรวมเซลล์ที่ซ่อนอยู่หรือไม่: `true` จะไม่รวม, `false` จะรวม. ตัวอย่างนี้ใช้ `false` เพื่อรวมทุกเซลล์ในช่วงชื่อ.
+
+ตัวอย่างต่อไปนี้สร้างงานนำเสนอที่มีชุดหนึ่งและจุดข้อมูลสองจุด. เซลล์ B1:C1 ให้เฉพาะชื่อชุด; A2:A3 ให้ป้ายหมวดหมู่, และ B2:B3 ให้ค่าตัวเลข.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 620, 180);
+
+    chart.getChartData().getSeries().clear();
+    chart.getChartData().getCategories().clear();
+    chart.setLegend(true);
+
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.clear(0);
+
+    // เซลล์สองเซลล์นี้ให้ชื่อชุด.
+    workbook.getCell(0, 0, 1, "Product A");
+    workbook.getCell(0, 0, 2, "2026");
+    IChartCellCollection nameCells = workbook.getCellCollection("Sheet1!$B$1:$C$1", false);
+    IChartSeries series = chart.getChartData().getSeries().add(nameCells, ChartType.ClusteredColumn);
+
+    // เซลล์แยกกันให้ค่าหมวดหมู่และจุดข้อมูลเชิงตัวเลข.
+    IChartDataCell northCategory = workbook.getCell(0, 1, 0, "North");
+    IChartDataCell southCategory = workbook.getCell(0, 2, 0, "South");
+    chart.getChartData().getCategories().add(northCategory);
+    chart.getChartData().getCategories().add(southCategory);
+    IChartDataCell northValue = workbook.getCell(0, 1, 1, 120);
+    IChartDataCell southValue = workbook.getCell(0, 2, 1, 150);
+    series.getDataPoints().addDataPointForBarSeries(northValue);
+    series.getDataPoints().addDataPointForBarSeries(southValue);
+
+    presentation.save("composite_series_name.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+ชื่อชุดที่ได้คือ `Product A 2026`, มีช่องว่างระหว่างสองค่าจากเซลล์. Legend แสดงเป็นรายการเดียวสำหรับทั้งสองคอลัมน์. ภาพด้านล่างอธิบายผลลัพธ์:
+
+![แผนภูมิคอลัมน์ที่มีค่า North และ South และชื่อชุดผสม Product A 2026 ใน legend](composite_series_name.png)
 
 ## **รับสีเติมอัตโนมัติของชุด**
 
-[IChartSeries.getAutomaticSeriesColor](https://reference.aspose.com/slides/th/java/com.aspose.slides/ichartseries/#getAutomaticSeriesColor--) คืนค่าสีที่คำนวณจากดัชนีชุดและสไตล์ของแผนภูมิ นี่คือสีที่ใช้เมื่อสีเติมของชุดไม่ได้กำหนดอย่างชัดเจน การเรียกเมธอดนี้จะอ่านสีที่คำนวณเท่านั้น; ไม่ได้กำหนดสีเติมใหม่
+[IChartSeries.getAutomaticSeriesColor](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#getAutomaticSeriesColor--) คืนค่าสีที่คำนวณจากดัชนีชุดและสไตล์แผนภูมิ. นี้คือสีที่ใช้เมื่อสีเติมของชุดไม่ได้กำหนดอย่างชัดเจน. การเรียกเมธ็อดนี้อ่านสีที่คำนวณได้; แต่ไม่กำหนดสีเติมใหม่.
 
-ตัวอย่างต่อไปนี้พิมพ์สีอัตโนมัติของแต่ละชุดเริ่มต้น:
+ตัวอย่างต่อไปนี้พิมพ์สีอัตโนมัติของแต่ละชุดค่าเริ่มต้น:
 
 ```java
 import com.aspose.slides.*;
@@ -186,7 +236,7 @@ try {
 }
 ```
 
-ผลลัพธ์ตัวอย่างสำหรับสไตล์แผนภูมิเริ่มต้น:
+ผลลัพธ์ตัวอย่างสำหรับสไตล์แผนภูมิค่าเริ่มต้น:
 
 ```text
 Series 0: java.awt.Color[r=79,g=129,b=189]
@@ -194,13 +244,13 @@ Series 1: java.awt.Color[r=192,g=80,b=77]
 Series 2: java.awt.Color[r=155,g=187,b=89]
 ```
 
-สีที่ได้ขึ้นอยู่กับสไตล์และธีมของแผนภูมิ
+สีที่แน่นอนขึ้นอยู่กับสไตล์และธีมของแผนภูมิ.
 
-## **ตั้งค่าสีเติมกลับด้านสำหรับชุดแผนภูมิ**
+## **ตั้งค่าสีเติมกลับสำหรับชุดแผนภูมิ**
 
-สำหรับชุดบาร์, คอลัมน์, และบับเบิล, [IChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/th/java/com.aspose.slides/ichartseries/#setInvertIfNegative-boolean-) สามารถแสดงค่าลบด้วยสีเติมที่ต่างออกไป ตั้งค่าสีเติมปกติให้เป็นสีทึบ, เปิดใช้งานการกลับด้าน, และกำหนดสีค่าลบผ่าน[IChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/th/java/com.aspose.slides/ichartseries/#getInvertedSolidFillColor--) ค่าตัวเลขลบจะไม่ถูกเปลี่ยนในสมุดงาน; เพียงแค่สีที่แสดงจะเปลี่ยน
+สำหรับชุดประเภทบาร์, คอลัมน์, และบับเบิล, [IChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#setInvertIfNegative-boolean-) สามารถแสดงค่าติดลบด้วยสีเติมที่ต่างออกไป. ตั้งค่าสีเติมของชุดปกติเป็นแบบทึบ, เปิดใช้งานการกลับสี, และกำหนดสีค่าติดลบผ่าน [IChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#getInvertedSolidFillColor--). ตัวเลขติดลบจะไม่เปลี่ยนในสมุดงาน; มีเพียงสีที่แสดงที่เปลี่ยน.
 
-ตัวอย่างต่อไปนี้แทนที่ข้อมูลแผนภูมิเริ่มต้นด้วยชุดเดียว แถว 0 ของแผ่นงานมีชื่อชุด, คอลัมน์ 0 มีชื่อหมวดหมู่, และคอลัมน์ 1 มีค่าต่าง ๆ:
+ตัวอย่างต่อไปนี้แทนที่ข้อมูลแผนภูมิค่าเริ่มต้นด้วยชุดหนึ่ง. แถว 0 ของ Worksheet มีชื่อชุด, คอลัมน์ 0 มีชื่อหมวดหมู่, คอลัมน์ 1 มีค่าต่างๆ:
 
 ```java
 import com.aspose.slides.*;
@@ -257,9 +307,9 @@ try {
 
 ผลลัพธ์:
 
-![The inverted solid fill color](inverted_solid_fill_color.png)
+![สีเติมกลับแบบทึบ](inverted_solid_fill_color.png)
 
-คุณสามารถเปิดการกลับด้านสำหรับจุดเดียวผ่าน[IChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/th/java/com.aspose.slides/ichartdatapoint/#setInvertIfNegative-boolean-) ตัวอย่างต่อไปนี้ปิดการกลับด้านสำหรับชุดและเปิดใช้เฉพาะจุดที่เลือก จุดนั้นยังถูกกำหนดค่าเป็นค่าลบเพื่อให้เห็นผล:
+คุณสามารถเปิดการกลับสีสำหรับจุดเดียวผ่าน [IChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapoint/#setInvertIfNegative-boolean-). ในตัวอย่างต่อไปนี้, การกลับสีถูกปิดสำหรับชุดและเปิดเฉพาะสำหรับจุดที่เลือก. จุดนั้นยังถูกกำหนดค่าติดลบเพื่อให้เห็นผล:
 
 ```java
 import com.aspose.slides.*;
@@ -295,9 +345,9 @@ try {
 
 ## **ล้างค่าจุดข้อมูลเฉพาะ**
 
-เพื่อทำให้จุดหนึ่งว่างเปล่าโดยไม่ลบจุดอื่น ให้ตั้งค่าเซลล์สมุดงานที่สนับสนุนจุดนั้นเป็น `null` สำหรับแผนภูมิคอลัมน์ ค่าที่พล็อตได้สามารถเข้าถึงได้ผ่าน[IChartDataPoint.getValue](https://reference.aspose.com/slides/th/java/com.aspose.slides/ichartdatapoint/#getValue--) จุดข้อมูลจะคงตำแหน่งหมวดหมู่เดิมอยู่ แต่แผนภูมิจะถือค่าของมันเป็นค่าว่างตามการตั้งค่าค่าว่างของแผนภูมิ
+เพื่อทำให้จุดหนึ่งว่างโดยไม่ลบจุดอื่น, ตั้งค่าเซลล์ในสมุดงานที่เป็นพื้นหลังของจุดนั้นเป็น `null`. สำหรับแผนภูมิคอลัมน์, ค่าที่วาดได้สามารถเข้าถึงได้ผ่าน [IChartDataPoint.getValue](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapoint/#getValue--). จุดข้อมูลจะคงอยู่ที่ตำแหน่งหมวดหมู่เดิม, แต่แผนภูมิจัดการค่าของมันเป็นค่าว่างตามการตั้งค่าค่าว่างของแผนภูมิ.
 
-ตัวอย่างต่อไปนี้ล้างเฉพาะจุดที่สองในชุดแรก:
+ตัวอย่างต่อไปนี้ลบเฉพาะจุดที่สองในชุดแรก:
 
 ```java
 import com.aspose.slides.*;
@@ -322,17 +372,17 @@ try {
 }
 ```
 
-แผนภูมิกระจาย (scatter) ใช้เซลล์ X และ Y แยกกัน, และแผนภูมิบับเบิลยังใช้เซลล์ขนาดด้วย ให้ล้างเฉพาะเซลล์ที่แทนค่าที่คุณต้องการลบ อย่าเรียก[IChartDataPointCollection.clear](https://reference.aspose.com/slides/th/java/com.aspose.slides/ichartdatapointcollection/#clear--) เมื่อต้องการคงจุดอื่นไว้ เพราะเมธอดนี้จะลบจุดข้อมูลทั้งหมดจากคอลเลกชัน
+แผนภูมิสแคตเตอร์ใช้เซลล์ X และ Y แยกกัน, และแผนภูมิบับเบิลยังใช้เซลล์ขนาดด้วย. ให้ลบเฉพาะเซลล์ที่แทนค่าที่คุณต้องการลบ. อย่าเรียก [IChartDataPointCollection.clear](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapointcollection/#clear--) เมื่อคุณต้องการเก็บจุดอื่นไว้, เพราะเมธ็อดนั้นจะลบจุดข้อมูลทั้งหมดจากคอลเลกชัน.
 
-## **ควบคุมการแสดงผลของเซลล์ว่าง**
+## **ควบคุมการแสดงเซลล์ว่าง**
 
-เซลล์ที่ซ่อนอยู่ซึ่งมีค่าเป็นกรณีแยกจากเซลล์ว่างเปล่า เพื่อรวมหรือยกเว้นข้อมูลจากแถวและคอลัมน์ที่ซ่อนอยู่ของแผ่นงาน โปรดดู[Include Data from Hidden Rows and Columns](/slides/th/java/chart-workbook/#include-data-from-hidden-rows-and-columns)
+เซลล์ที่ซ่อนอยู่และมีค่าเป็นกรณีแยกจากเซลล์ว่าง. เพื่อรวมหรือแยกข้อมูลจากแถวและคอลัมน์ที่ซ่อนอยู่, ดู [รวมข้อมูลจากแถวและคอลัมน์ที่ซ่อนอยู่](/slides/th/java/chart-workbook/#include-data-from-hidden-rows-and-columns).
 
-เซลล์สมุดงานที่ว่างเปล่าจะแทนข้อมูลที่หายไป; เซลล์ที่มีค่า `0` แทนค่าตัวเลขที่ทราบแล้ว เรียก[IChartDataCell.setValue](https://reference.aspose.com/slides/th/java/com.aspose.slides/ichartdatacell/#setValue-java.lang.Object-) ด้วย `null` เพื่อทำให้เซลล์ว่าง ค่าศูนย์ยังคงเป็นศูนย์ไม่ว่าการตั้งค่าเซลล์ว่างจะเป็นอย่างไร
+เซลล์สมุดงานว่างแสดงถึงข้อมูลที่หายไป; เซลล์ที่มี `0` แสดงถึงค่าตัวเลขที่ทราบ. เรียก [IChartDataCell.setValue](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatacell/#setValue-java.lang.Object-) พร้อม `null` เพื่อทำให้เซลล์ว่าง. ศูนย์ตัวเลขจะคงเป็นศูนย์ไม่ว่าการตั้งค่าเซลล์ว่างเป็นอย่างไร.
 
-ใช้[IChart.setDisplayBlanksAs](https://reference.aspose.com/slides/th/java/com.aspose.slides/ichart/#setDisplayBlanksAs-int-) เพื่อเลือกวิธีที่แผนภูมิแสดงเซลล์ว่าง การตั้งค่านี้ใช้กับแผนภูมิกทั้งหมดและจะเปลี่ยนวิธีการพล็อตค่าว่างโดยไม่ต้องเติมศูนย์หรือค่าประมาณในเซลล์ว่าง
+ใช้ [IChart.setDisplayBlanksAs](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#setDisplayBlanksAs-int-) เพื่อเลือกว่แผนภูมิจะแสดงเซลล์ว่างอย่างไร. การตั้งค่านี้ใช้กับแผนภูมิเจทั้งหมด. มันเปลี่ยนวิธีการวาดค่าที่ว่างโดยไม่เติมค่า 0 หรือค่าประมาณในเซลล์สมุดงานว่าง.
 
-ตัวอย่างต่อไปนี้สร้างแผนภูมิเส้นที่มีชุดเดียว, ล้างค่าของ Day 3, แล้วบันทึกแผนภูมิเดียวกันในแต่ละโหมด ไม่ต้องใช้ไฟล์อินพุต[IChartDataWorkbook](https://reference.aspose.com/slides/th/java/com.aspose.slides/ichartdataworkbook/) ใช้แผ่นงาน 0, คอลัมน์ 0 สำหรับป้ายหมวดหมู่, คอลัมน์ 1 สำหรับค่า; แถว 0 เก็บชื่อชุด ข้อมูลสุดท้ายคือ `10, 20, empty, 30, 40`
+ตัวอย่างต่อไปนี้สร้างแผนภูมิเส้นที่มีชุดหนึ่ง, ลบค่าของ Day 3, และบันทึกแผนภูมิเดียวกันในแต่ละโหมด. ไม่ต้องใช้ไฟล์อินพุต. [IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/) ใช้ Worksheet 0, คอลัมน์ 0 สำหรับป้ายหมวดหมู่, และคอลัมน์ 1 สำหรับค่า; แถว 0 เก็บชื่อชุด. ข้อมูลสุดท้ายคือ `10, 20, empty, 30, 40`.
 
 ```java
 import com.aspose.slides.*;
@@ -359,7 +409,7 @@ try {
         series.getDataPoints().addDataPointForLineSeries(valueCell);
     }
 
-    // ปล่อยให้วัน 3 เป็นค่าว่างจริง ๆ ขณะยังคงหมวดหมู่และจุดข้อมูลไว้
+    // ปล่อยให้ Day 3 เป็นค่าว่างจริง ๆ ในขณะที่ยังคงรักษาหมวดหมู่และจุดข้อมูลไว้
     workbook.getCell(0, 3, 1).setValue(null);
 
     int[] modes = { DisplayBlanksAsType.Gap, DisplayBlanksAsType.Zero, DisplayBlanksAsType.Span };
@@ -373,19 +423,19 @@ try {
 }
 ```
 
-แต่ละไฟล์ผลลัพธ์จะบันทึกโหมดที่กำหนดก่อนบันทึก: `empty_cells_Gap.pptx`, `empty_cells_Zero.pptx`, และ `empty_cells_Span.pptx` หากต้องการบันทึกเพียงเวอร์ชันเดียว ให้กำหนดโหมดที่ต้องการแล้วบันทึกงานนำเสนอหนึ่งครั้งแทนการวนลูปผ่านโหมดทั้งหมด
+แต่ละไฟล์ผลลัพธ์จะบันทึกโหมดที่กำหนดก่อนบันทึก: `empty_cells_Gap.pptx`, `empty_cells_Zero.pptx`, และ `empty_cells_Span.pptx`. หากต้องการบันทึกเวอร์ชันเดียว, กำหนดโหมดที่ต้องการและบันทึกงานนำเสนอครั้งเดียวแทนการวนลูปตามโหมด.
 
-การเปรียบเทียบด้านล่างแสดงข้อมูลเดียวกันในทั้งสามไฟล์ Day 3 จะว่างเปล่าในสมุดงานในทุกกรณี:
+การเปรียบเทียบด้านล่างแสดงข้อมูลเดียวกันในไฟล์ทั้งสาม. Day 3 จะว่างในสมุดงานในทุกกรณี:
 
-![Line charts with identical data: Gap breaks the line at Day 3, Zero drops the line to zero, and Span connects Day 2 to Day 4.](display_blanks_as.png)
+![แผนภูมิเส้นที่มีข้อมูลเดียวกัน: Gap ทำให้เส้นแยกที่ Day 3, Zero ทำให้เส้นลดลงเป็นศูนย์, และ Span เชื่อม Day 2 ไปยัง Day 4.](display_blanks_as.png)
 
-ผลลัพธ์ที่มองเห็นขึ้นอยู่กับประเภทแผนภูมิ แผนภูมิเส้นทำให้เปรียบเทียบทั้งสามโหมดได้ง่าย ส่วนแผนภูมิแท่งและคอลัมน์ไม่มีเส้นเชื่อมต่อข้ามหมวดหมู่ที่หายไป ดังนั้น `Span` ไม่สามารถสร้างส่วนเชื่อมตามที่แสดงได้; คอลัมน์ที่หายไปและคอลัมน์สูงศูนย์อาจดูเหมือนกันได้เช่นกัน เช่นเดียวกับแผนภูมิกระจายที่มีเพียงมาร์คเกอร์จะไม่มีเส้นเชื่อมต่อ อย่าคาดหวังผลลัพธ์ที่แตกต่างกันสามแบบสำหรับทุกประเภทแผนภูมิ; ควรตรวจสอบผลลัพธ์สำหรับประเภทที่คุณใช้
+ผลลัพธ์ที่มองเห็นขึ้นอยู่กับประเภทแผนภูมิ. แผนภูมิเส้นทำให้สามโหมดเปรียบเทียบได้ง่าย. แผนภูมิแท่งและคอลัมน์ไม่มีเส้นเชื่อมข้ามหมวดหมู่ที่หายไป, ดังนั้น `Span` ไม่สามารถสร้างส่วนเชื่อมที่แสดงด้านบน; คอลัมน์ที่หายและคอลัมน์สูงศูนย์อาจดูคล้ายกัน. เช่นเดียวกับแผนภูมิสแคตเตอร์ที่มีเพียงมาร์คเกอร์ก็ไม่มีเส้นเชื่อม. อย่าคาดหวังผลลัพธ์ที่แตกต่างสามแบบสำหรับทุกประเภทแผนภูมิ; ตรวจสอบผลลัพธ์สำหรับประเภทที่คุณใช้.
 
 ## **ตั้งค่าความกว้างช่องว่างของชุด**
 
-ความกว้างช่องว่างคือช่องว่างระหว่างกลุ่มบาร์หรือคอลัมน์ที่อยู่ติดกัน แสดงเป็นเปอร์เซ็นต์ของความกว้างบาร์หรือคอลัมน์ เช่นเดียวกับการทับ มันเป็นของกลุ่มชุดแม่ ไม่ใช่ของชุดเดียว เรียก[IChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/th/java/com.aspose.slides/ichartseriesgroup/#setGapWidth-int-) ครั้งเดียวสำหรับกลุ่ม ค่าใหญ่จะทำให้มีช่องว่างระหว่างกลุ่มมากขึ้น; ค่าเล็กจะทำให้กลุ่มแน่นขึ้น
+ความกว้างช่องว่างคือพื้นที่ระหว่างคลัสเตอร์บาร์หรือคอลัมน์ที่อยู่ติดกัน, แสดงเป็นเปอร์เซ็นต์ของความกว้างบาร์หรือคอลัมน์. เช่นเดียวกับการทับซ้อน, มันเป็นของกลุ่มชุดแม่ ไม่ได้เป็นของชุดเดียว. เรียก [IChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriesgroup/#setGapWidth-int-) ครั้งเดียวสำหรับกลุ่ม. ค่าใหญ่ทำให้มีพื้นที่ระหว่างคลัสเตอร์มากขึ้น; ค่าน้อยทำให้คลัสเตอร์หนาแน่นขึ้น.
 
-ตัวอย่างต่อไปนี้เปลี่ยนความกว้างช่องว่างและบันทึกเพียงงานนำเสนอสุดท้าย:
+ตัวอย่างต่อไปนี้เปลี่ยนความกว้างช่องว่างและบันทึกเฉพาะงานนำเสนอสุดท้าย:
 
 ```java
 import com.aspose.slides.*;
@@ -411,46 +461,46 @@ try {
 
 ผลลัพธ์:
 
-![The gap width](gap_width.png)
+![ความกว้างช่องว่าง](gap_width.png)
 
 ## **คำถามที่พบบ่อย**
 
-**ประเภทแผนภูมิใดบ้างที่สนับสนุนชุดข้อมูล?**
+**ประเภทแผนภูมิใดที่รองรับชุดข้อมูล?**
 
-ทุกประเภทแผนภูมิที่แสดงในตัวนับ[ChartType](https://reference.aspose.com/slides/th/java/com.aspose.slides/charttype/) จะใช้ข้อมูลแผนภูมิ แต่ชุดของแต่ละประเภทไม่ได้มีโครงสร้างค่าหรือการตั้งค่าเดียวกัน ตัวอย่างเช่น แผนภูมิเกรดใช้หมวดหมู่และค่า, แผนภูมิกระจายใช้ค่า X และ Y, และแผนภูมิบับเบิลเพิ่มขนาดบับเบิล ใช้วิธีการสร้างจุดข้อมูลที่ตรงกับประเภทชุด การตั้งค่าเช่นการทับและความกว้างช่องว่างใช้ได้เฉพาะกับกลุ่มบาร์หรือคอลัมน์ที่เข้ากันได้
+All chart types represented by the [ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/) enumeration use chart data, but their series do not all have the same value structure or settings. For example, category charts use categories and values, scatter charts use X and Y values, and bubble charts add bubble sizes. Use the data-point creation method that matches the series type. Options such as overlap and gap width apply only to compatible bar or column groups.
 
 **กลุ่มชุดแผนภูมิคืออะไร?**
 
-[IChartSeriesGroup](https://reference.aspose.com/slides/th/java/com.aspose.slides/ichartseriesgroup/) มีชุดที่เข้ากันได้ซึ่งแชร์การตั้งค่าการพล็อตระดับกลุ่ม แผนภูมิแบบผสมอาจมีมากกว่าหนึ่งกลุ่ม ดังนั้นการเปลี่ยนกลุ่มผ่านชุดหนึ่งอาจไม่เปลี่ยนทุกชุดในแผนภูมิ
+An [IChartSeriesGroup](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriesgroup/) contains compatible series that share group-level plotting settings. A combination chart can contain more than one group, so changing the group reached through one series does not necessarily change every series in the chart.
 
-**แผนภูมิใหม่ที่สร้างขึ้นมามีข้อมูลเริ่มต้นหรือไม่?**
+**แผนภูมิที่สร้างใหม่มีข้อมูลค่าเริ่มต้นหรือไม่?**
 
-มี ทั้ง[IShapeCollection.addChart](https://reference.aspose.com/slides/th/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) โดยค่าเริ่มต้นจะสร้างชุดตัวอย่าง, หมวดหมู่, และค่า คุณสามารถแก้ไขเซลล์เหล่านั้นหรือทำความสะอาดคอลเลกชันชุดและหมวดหมู่ก่อนเพิ่มชุดข้อมูลที่กำหนดเองได้ อีกทางหนึ่งอาจใช้โอเวอร์โหลดเพื่อสร้างแผนภูมิที่ไม่มีข้อมูลเริ่มต้น
+Yes. By default, [IShapeCollection.addChart](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) creates sample series, categories, and values. You can edit those cells or clear both the series and category collections before adding a completely custom data set. An overload can also create a chart without default data.
 
 **วัตถุแผนภูมิเชื่อมต่อกับเซลล์สมุดงานอย่างไร?**
 
-ชื่อชุด, ป้ายหมวดหมู่, และค่าจุดข้อมูลอ้างอิงถึงเซลล์ใน[IChartDataWorkbook](https://reference.aspose.com/slides/th/java/com.aspose.slides/ichartdataworkbook/) การเปลี่ยนแปลงเซลล์ที่อ้างอิงจะอัปเดตองค์ประกอบแผนภูมิกที่สอดคล้องกัน เมื่อคุณสร้างข้อมูลแบบกำหนดเอง ให้รักษาแถวหมวดหมู่และแถวค่าชุดให้สอดคล้องกันเพื่อให้จุดแต่ละจุดพล็อตใต้หมวดหมู่ที่ต้องการ
+Series names, category labels, and data-point values reference cells in an [IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/). Changing a referenced cell updates the corresponding chart element. When you build custom data, keep category rows and series-value rows aligned so that each point is plotted under the intended category.
 
-**จะล้างจุดเดียวแทนที่จะล้างทั้งชุดอย่างไร?**
+**จะลบจุดเดียวแทนการลบชุดทั้งหมดอย่างไร?**
 
-ตั้งค่าเซลล์ค่าที่เกี่ยวข้องเป็น `null` เพื่อให้ตำแหน่งหมวดหมู่ของจุดคงอยู่เป็นจุดว่าง ใช้[IChartDataPointCollection.clear](https://reference.aspose.com/slides/th/java/com.aspose.slides/ichartdatapointcollection/#clear--) เฉพาะเมื่อคุณต้องการลบจุดทั้งหมดจากชุดนั้น หากคุณลบหมวดหมู่ด้วย ต้องอัปเดตทุกชุดเพื่อให้ค่าของพวกเขายังคงสอดคล้องกับคอลเลกชันหมวดหมู่
+Set the relevant value cell to `null` to retain the point's category position as an empty point. Use [IChartDataPointCollection.clear](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapointcollection/#clear--) only when you intend to remove all points from that series. If you also remove categories, update every series so their values remain aligned with the category collection.
 
-**จุดว่างแสดงผลอย่างไร?**
+**จุดว่างจะแสดงอย่างไร?**
 
-ผลลัพธ์ขึ้นอยู่กับประเภทแผนภูมิและค่าที่กำหนดผ่าน[IChart.setDisplayBlanksAs](https://reference.aspose.com/slides/th/java/com.aspose.slides/ichart/#setDisplayBlanksAs-int-) แผนภูมิที่รองรับสามารถแสดงค่าว่างเป็นช่องว่าง, เป็นค่าศูนย์, หรือโดยเชื่อมจุดข้างเคียง เลือกการตั้งค่าที่สอดคล้องกับความหมายของข้อมูลที่หายไปในงานนำเสนอของคุณ ดู[Control the Display of Empty Cells](#control-the-display-of-empty-cells) เพื่อดูตัวอย่างสมบูรณ์และการเปรียบเทียบภาพ
+The result depends on the chart type and the value configured through [IChart.setDisplayBlanksAs](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#setDisplayBlanksAs-int-). Supported charts can display blanks as gaps, as zero values, or by connecting neighboring points. Choose the setting that matches the meaning of missing data in your presentation. See [ควบคุมการแสดงเซลล์ว่าง](#control-the-display-of-empty-cells) for a complete example and visual comparison.
 
 **ค่าติดลบถูกจัดรูปแบบอย่างไร?**
 
-สำหรับชุดบาร์, คอลัมน์, และบับเบิลที่รองรับ ให้เรียก[IChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/th/java/com.aspose.slides/ichartseries/#setInvertIfNegative-boolean-) และตั้งค่าสีที่ได้จาก[IChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/th/java/com.aspose.slides/ichartseries/#getInvertedSolidFillColor--) คุณสามารถลบล้างพฤติกรรมสำหรับจุดเดี่ยวด้วย[IChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/th/java/com.aspose.slides/ichartdatapoint/#setInvertIfNegative-boolean-) วิธีเหล่านี้มีผลต่อการจัดรูปแบบ ไม่ได้เปลี่ยนค่าตัวเลขที่จัดเก็บ
+For supported bar, column, and bubble series, call [IChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#setInvertIfNegative-boolean-) and set the color returned by [IChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#getInvertedSolidFillColor--). You can override the behavior for an individual point with [IChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapoint/#setInvertIfNegative-boolean-). These methods affect formatting, not the stored numeric values.
 
-**เมื่อทั้งชุดและจุดถูกจัดรูปแบบแล้ว รูปแบบใดชนะ?**
+**การจัดรูปแบบใดชนะเมื่อทั้งชุดและจุดถูกจัดรูปแบบ?**
 
-รูปแบบจุดข้อมูลที่ระบุอย่างชัดเจนจะมีลำดับความสำคัญเหนือรูปแบบชุดสำหรับจุดนั้น จุดอื่น ๆ จะใช้รูปแบบชุดที่ระบุ หรือหากไม่มีการกำหนดรูปแบบชุด จะใช้สไตล์และธีมของแผนภูมิกอัตโนมัติ การตั้งค่ากลุ่มเช่นการทับและความกว้างช่องว่างควบคุมการจัดวางและไม่ใช่การลบล้างรูปแบบระดับจุด
+Explicit data-point formatting takes precedence for that point. Other points continue to use the explicit series format or, when the series format is not defined, the automatic chart style and theme. Group settings such as overlap and gap width control layout and are not point-level formatting overrides.
 
-**แผนภูมิสามารถมีชุดได้กี่ชุดสูงสุด?**
+**มีขีดจำกัดจำนวนชุดที่แผนภูมิสามารถมีได้หรือไม่?**
 
-Aspose.Slides ไม่ได้กำหนดขีดจำกัดจำนวนชุดแบบคงที่ อย่างไรก็ตาม ขีดจำกัดจริงจะขึ้นอยู่กับข้อจำกัดของไฟล์นำเสนอ, หน่วยความจำที่มี, เวลาเรนเดอร์, และความอ่านง่ายของแผนภูมิ
+Aspose.Slides does not impose a separate fixed series-count limit. In practice, presentation file constraints, available memory, rendering time, and chart readability determine a useful limit.
 
-**ควรทำอย่างไรเมื่อคอลัมน์ใกล้กันเกินไปหรือห่างกันเกินไป?**
+**ควรเปลี่ยนอะไรเมื่อคอลัมน์ใกล้กันเกินไปหรือห่างกันเกินไป?**
 
-เรียก[IChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/th/java/com.aspose.slides/ichartseriesgroup/#setGapWidth-int-) บนกลุ่มชุดแม่ที่เหมาะสม เพิ่มค่าจะทำให้ช่องว่างระหว่างกลุ่มกว้างขึ้น, ลดค่าจะทำให้กลุ่มเข้ากันใกล้ขึ้น
+Call [IChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriesgroup/#setGapWidth-int-) on the appropriate parent series group. Increase the value to widen the space between clusters, or decrease it to bring the clusters closer together.

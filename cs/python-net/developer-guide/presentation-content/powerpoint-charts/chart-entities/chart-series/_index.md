@@ -1,43 +1,43 @@
 ---
-title: Správa datových sérií diagramu v prezentacích v Pythonu
-linktitle: Datové série
+title: Spravovat řady grafu v prezentacích v Pythonu
+linktitle: Datové řady
 type: docs
 url: /cs/python-net/chart-series/
 keywords:
-- série diagramu
-- překrytí sérií
-- barva série
+- řada grafu
+- překrytí řad
+- barva řady
 - barva kategorie
-- název série
+- název řady
 - datový bod
-- mezera série
+- mezera mezi řadami
 - PowerPoint
 - prezentace
 - Python
 - Aspose.Slides
-description: "Zjistěte, jak spravovat série diagramů, datové body, buňky pracovního sešitu, formátování, překrytí, šířku mezery a záporné hodnoty v prezentacích pomocí Pythonu."
+description: "Naučte se, jak spravovat řady grafu, datové body, buňky pracovního sešitu, formátování, překrytí, šířku mezery a záporné hodnoty v prezentacích pomocí Pythonu."
 ---
 ## **Přehled**
 
-Diagram ukládá svá vykreslená data do sešitu dat diagramu. [ChartSeries](https://reference.aspose.com/slides/cs/python-net/aspose.slides.charts/chartseries/) představuje jednu sadu souvisejících hodnot a každý [ChartDataPoint](https://reference.aspose.com/slides/cs/python-net/aspose.slides.charts/chartdatapoint/) v sérii odkazuje na jednu nebo více buněk sešitu. Objekt [ChartCategory](https://reference.aspose.com/slides/cs/python-net/aspose.slides.charts/chartcategory/) poskytuje popisky nebo skupinové hodnoty sdílené sériemi. Název série, kategorie a hodnoty bodů jsou proto propojeny s objekty [ChartDataCell](https://reference.aspose.com/slides/cs/python-net/aspose.slides.charts/chartdatacell/), místo aby byly uloženy pouze jako zobrazovaný text.
+Graf ukládá svá vykreslená data do pracovního sešitu grafových dat. [ChartSeries](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/) představuje jednu sadu souvisejících hodnot a každá [ChartDataPoint](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapoint/) v řadě odkazuje na jednu nebo více buněk sešitu. Objekt [ChartCategory](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartcategory/) poskytuje popisky nebo hodnoty seskupení sdílené řadami. Název řady, kategorie a hodnoty bodů jsou tedy napojeny na objekty [ChartDataCell](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatacell/), nikoli uloženy pouze jako zobrazovaný text.
 
-Pro typický kategoriální diagram výchozí sešit používá řádek 0 pro názvy sérií, sloupec 0 pro názvy kategorií a zbývající buňky pro hodnoty sérií. Indexy listu, řádku a sloupce předávané metodě [ChartDataWorkbook.get_cell](https://reference.aspose.com/slides/cs/python-net/aspose.slides.charts/chartdataworkbook/get_cell/) jsou nulové‑založené. Toto rozvržení je užitečné, když vytváříte diagram s výchozími daty, ale nepředpokládejte, že každý existující diagram jej používá. Pro načtenou prezentaci si před změnou hodnot sešitu prohlédněte buňky, na které odkazují série, kategorie a datové body.
+Pro typický kategoriální graf výchozí sešit používá řádek 0 pro názvy řad, sloupec 0 pro názvy kategorií a zbývající buňky pro hodnoty řad. Indexy listu, řádku a sloupce předávané metodě [ChartDataWorkbook.get_cell](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/get_cell/) jsou nulové. Toto uspořádání je užitečné při vytváření grafu s výchozími daty, ale nepředpokládejte, že každé existující graf takto funguje. U načtené prezentace si před změnou hodnot v sešitu prohlédněte buňky, na které odkazují řady, kategorie a datové body.
 
-Nastavení diagramu má tři různé úrovně:
+Nastavení grafu mají tři různé úrovně:
 
-- Nastavení na úrovni série, např. [ChartSeries.format](https://reference.aspose.com/slides/cs/python-net/aspose.slides.charts/chartseries/format/), poskytuje výchozí vzhled pro všechny body v jedné sérii.
-- Nastavení datového bodu, např. [ChartDataPoint.format](https://reference.aspose.com/slides/cs/python-net/aspose.slides.charts/chartdatapoint/format/), přepíše vzhled série pro jeden bod.
-- Skupinová nastavení se vztahují na kompatibilní série, které patří do stejné [ChartSeriesGroup](https://reference.aspose.com/slides/cs/python-net/aspose.slides.charts/chartseriesgroup/). Skupinu získáte přes [ChartSeries.parent_series_group](https://reference.aspose.com/slides/cs/python-net/aspose.slides.charts/chartseries/parent_series_group/), když potřebujete nastavit například překrytí nebo šířku mezery.
+- Nastavení na úrovni řady, například [ChartSeries.format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/format/), poskytuje výchozí vzhled pro všechny body v jedné řadě.
+- Nastavení datového bodu, například [ChartDataPoint.format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapoint/format/), přepíše vzhled řady pro konkrétní bod.
+- Skupinová nastavení se vztahují na kompatibilní řady patřící do stejné [ChartSeriesGroup](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/). Přístup ke skupině získáte pomocí [ChartSeries.parent_series_group](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/parent_series_group/), když potřebujete nastavit například překrytí nebo šířku mezery.
 
-Když není explicitně nastaven výplň bodu ani série, určuje automatický vzhled styl a motiv diagramu. Když jsou současně přítomny formátování série i bodu, formátování bodu má přednost pro daný bod.
+Když není explicitně nastaveno vyplnění bodu ani řady, určuje automatický vzhled styl a motiv grafu. Když jsou přítomny jak formátování řady, tak bodu, formátování bodu má přednost pro daný bod.
 
 ![chart-series-powerpoint](chart-series-powerpoint.png)
 
-## **Nastavení překrytí sérií diagramu**
+## **Nastavení překrytí řady grafu**
 
-[ChartSeries.overlap](https://reference.aspose.com/slides/cs/python-net/aspose.slides.charts/chartseries/overlap/) udává, o kolik procent se překrývají pruhy nebo sloupce v 2D diagramu, v rozmezí -100 až 100 %. Jedná se o jen‑čtení projekci nastavení v nadřazené skupině sérií. Nastavte [ChartSeriesGroup.overlap](https://reference.aspose.com/slides/cs/python-net/aspose.slides.charts/chartseriesgroup/overlap/) pro aktualizaci všech kompatibilních sérií v této skupině. Tato možnost se vztahuje na typy diagramů, které zobrazují seskupené pruhy nebo sloupce; neovlivní nesouvisející skupiny sérií v kombinovaném diagramu.
+[ChartSeries.overlap](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/overlap/) udává, jak moc se překrývají pruhy nebo sloupce ve 2D grafu, v rozmezí -100 až 100 procent. Jedná se o jen‑čtení projekci nastavení v nadřazené skupině řad. Nastavte [ChartSeriesGroup.overlap](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/overlap/) pro aktualizaci všech kompatibilních řad v dané skupině. Tato možnost se vztahuje k typům grafů, které zobrazují seskupené pruhy nebo sloupce; neovlivní nesouvisející skupiny řad v kombinovaném grafu.
 
-Následující příklad nastaví překrytí pro skupinu, která obsahuje první sérii:
+Následující příklad nastaví překrytí pro skupinu, která obsahuje první řadu:
 
 ```py
 import aspose.slides as slides
@@ -50,7 +50,7 @@ overlap_percent = 30
 with slides.Presentation() as presentation:
     slide = presentation.slides[first_slide_index]
 
-    # Nový diagram obsahuje ukázkové série, kategorie a hodnoty.
+    # Nový graf obsahuje ukázkové řady, kategorie a hodnoty.
     chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 20, 20, 500, 200)
 
     series = chart.chart_data.series[first_series_index]
@@ -63,11 +63,11 @@ Výsledek:
 
 ![The series overlap](series_overlap.png)
 
-## **Změna barvy výplně série**
+## **Změna barvy vyplnění řady**
 
-Pomocí [ChartSeries.format](https://reference.aspose.com/slides/cs/python-net/aspose.slides.charts/chartseries/format/) můžete nastavit výchozí výplň pro celou sérii. Pokud má bod již explicitní výplň, jeho nastavení [ChartDataPoint.format](https://reference.aspose.com/slides/cs/python-net/aspose.slides.charts/chartdatapoint/format/) přepíše výplň série pro tento bod.
+Použijte [ChartSeries.format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/format/) k nastavení výchozího vyplnění celé řady. Pokud má bod již explicitní vyplnění, jeho nastavení [ChartDataPoint.format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapoint/format/) přepíše vyplnění řady pro tento bod.
 
-Následující příklad použije plnou modrou výplň na první sérii:
+Následující příklad použije jednotné modré vyplnění na první řadu:
 
 ```py
 import aspose.pydrawing as drawing
@@ -93,9 +93,9 @@ Výsledek:
 
 ![The color of the series](series_color.png)
 
-## **Změna názvu série**
+## **Změna názvu řady**
 
-Název série je uložen v sešitu dat diagramu a obvykle se zobrazuje v legendě. Ve výchozím sešitu vytvořeném pro seskupený sloupcový diagram je buňka B1 v řádku 0, sloupci 1 a obsahuje název první série. Pojmenované konstanty v následujícím příkladu tuto strukturu explicitně uvádějí:
+Název řady je uložen v pracovním sešitu grafu a obvykle se zobrazuje v legendě. Ve výchozím sešitu vytvořeném pro sloupcový graf s seskupením je buňka B1 v řádku 0, sloupci 1 a obsahuje název první řady. Pojmenované konstanty v následujícím příkladu tuto strukturu explicitně uvádějí:
 
 ```py
 import aspose.slides as slides
@@ -118,7 +118,7 @@ with slides.Presentation() as presentation:
     presentation.save("series_name.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Můžete také aktualizovat buňku, na kterou již odkazuje [ChartSeries.name](https://reference.aspose.com/slides/cs/python-net/aspose.slides.charts/chartseries/name/). Tento přístup eliminuje předpokládání konkrétního řádku a sloupce v existujícím diagramu:
+Můžete také aktualizovat buňku, na kterou již odkazuje [ChartSeries.name](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/name/). Tento přístup se vyhýbá předpokladu konkrétního řádku a sloupce v existujícím grafu:
 
 ```py
 import aspose.slides as slides
@@ -144,11 +144,58 @@ Výsledek:
 
 ![The series name](series_name.png)
 
-## **Získání automatické barvy výplně série**
+### **Vytvoření řady s názvem ze více buněk**
 
-[ChartSeries.get_automatic_series_color](https://reference.aspose.com/slides/cs/python-net/aspose.slides.charts/chartseries/get_automatic_series_color/) vrací barvu vypočítanou z indexu série a stylu diagramu. Jedná se o barvu použitou, když není výplň série explicitně definována. Volání metody pouze načte vypočítanou barvu; nepřiřadí novou výplň.
+Kompozitní název řady se hodí, když jsou název produktu a období zprávy uloženy v oddělených buňkách sešitu. Například můžete sloučit `Product A` v B1 a `2026` v C1 do jednoho názvu řady a zároveň ponechat oba díly propojené se svými zdrojovými buňkami.
 
-Následující příklad vytiskne automatickou barvu každé výchozí série:
+Použijte [ChartDataWorkbook.get_cell_collection](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/get_cell_collection/) k načtení rozsahu názvu, poté tuto kolekci předávejte metodě [ChartSeriesCollection.add](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriescollection/add/). Argument `skip_hidden_cells` určuje, zda se zahrnou skryté buňky: `True` je vyloučí, `False` zahrne. V tomto příkladu je použito `False`, aby se zahrnuly všechny buňky v rozsahu názvu.
+
+Následující příklad vytvoří prezentaci s jednou řadou a dvěma datovými body. Buňky B1:C1 dodávají jen název řady; A2:A3 poskytují popisky kategorií a B2:B3 číselné hodnoty.
+
+```py
+import aspose.slides as slides
+import aspose.slides.charts as charts
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 620, 180)
+
+    chart.chart_data.series.clear()
+    chart.chart_data.categories.clear()
+    chart.has_legend = True
+
+    workbook = chart.chart_data.chart_data_workbook
+    workbook.clear(0)
+
+    # Tyto dvě buňky poskytují název řady.
+    workbook.get_cell(0, 0, 1, "Product A")
+    workbook.get_cell(0, 0, 2, "2026")
+    name_cells = workbook.get_cell_collection("Sheet1!$B$1:$C$1", False)
+    series = chart.chart_data.series.add(name_cells, charts.ChartType.CLUSTERED_COLUMN)
+
+    # Samostatné buňky poskytují kategorie a číselné datové body.
+    north_category = workbook.get_cell(0, 1, 0, "North")
+    south_category = workbook.get_cell(0, 2, 0, "South")
+    chart.chart_data.categories.add(north_category)
+    chart.chart_data.categories.add(south_category)
+    north_value = workbook.get_cell(0, 1, 1, 120)
+    south_value = workbook.get_cell(0, 2, 1, 150)
+    series.data_points.add_data_point_for_bar_series(north_value)
+    series.data_points.add_data_point_for_bar_series(south_value)
+
+    presentation.save("composite_series_name.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Výsledný název řady je `Product A 2026`, s mezerou mezi hodnotami dvou buněk. Legenda jej zobrazuje jako jediný záznam pro oba sloupce. Obrázek níže byl vygenerován ze uložené prezentace:
+
+![Column chart with North and South values and the composite series name Product A 2026 in the legend](composite_series_name.png)
+
+## **Získání automatické barvy vyplnění řady**
+
+[ChartSeries.get_automatic_series_color](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/get_automatic_series_color/) vrací barvu vypočítanou z indexu řady a stylu grafu. Jedná se o barvu použitou, když vyplnění řady není explicitně definováno. Volání metody pouze načte vypočítanou barvu; nenastavuje nové vyplnění.
+
+Následující příklad vypíše automatickou barvu každé výchozí řady:
 
 ```py
 import aspose.slides as slides
@@ -168,7 +215,7 @@ with slides.Presentation() as presentation:
         print(f"Series {series_index}: {automatic_color.name}")
 ```
 
-Ukázkový výstup pro výchozí styl diagramu:
+Ukázkový výstup pro výchozí styl grafu:
 
 ```text
 Series 0: ff4f81bd
@@ -176,13 +223,13 @@ Series 1: ffc0504d
 Series 2: ff9bbb59
 ```
 
-Přesné barvy závisí na stylu a motivu diagramu.
+Přesné barvy závisí na stylu a motivu grafu.
 
-## **Nastavení převrácené barvy výplně pro sérii diagramu**
+## **Nastavení inverzní barvy vyplnění pro řadu grafu**
 
-Pro pruhové, sloupcové a bublinové série může [ChartSeries.invert_if_negative](https://reference.aspose.com/slides/cs/python-net/aspose.slides.charts/chartseries/invert_if_negative/) zobrazovat záporné hodnoty jinou výplní. Nastavte běžnou výplň série na plnou, povolte převrácení a přiřaďte barvu záporných hodnot pomocí [ChartSeries.inverted_solid_fill_color](https://reference.aspose.com/slides/cs/python-net/aspose.slides.charts/chartseries/inverted_solid_fill_color/). Záporná čísla v sešitu zůstávají beze změny; mění se jen jejich zobrazovaná barva.
+U pruhových, sloupcových a bublinových řad může [ChartSeries.invert_if_negative](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/invert_if_negative/) zobrazit záporné hodnoty jiným vyplněním. Nastavte běžné vyplnění řady na jednotné, povolte inverzi a přiřaďte barvu záporných hodnot pomocí [ChartSeries.inverted_solid_fill_color](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/inverted_solid_fill_color/). Záporná čísla zůstávají v sešitu beze změny; mění se jen jejich barva při zobrazení.
 
-Následující příklad nahradí výchozí data diagramu jednou sérií. Řádek 0 listu obsahuje název série, sloupec 0 obsahuje názvy kategorií a sloupec 1 obsahuje hodnoty:
+Následující příklad nahradí výchozí data grafu jednou řadou. Řádek 0 listu obsahuje název řady, sloupec 0 názvy kategorií a sloupec 1 hodnoty:
 
 ```py
 import aspose.pydrawing as drawing
@@ -237,7 +284,7 @@ Výsledek:
 
 ![The inverted solid fill color](inverted_solid_fill_color.png)
 
-Převrácení můžete povolit pro jeden bod pomocí [ChartDataPoint.invert_if_negative](https://reference.aspose.com/slides/cs/python-net/aspose.slides.charts/chartdatapoint/invert_if_negative/). V následujícím příkladu je převrácení deaktivováno pro sérii a povoleno pouze pro vybraný bod. Bod také dostane zápornou hodnotu, aby byl efekt viditelný:
+Inverzi můžete povolit jen pro jeden bod pomocí [ChartDataPoint.invert_if_negative](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapoint/invert_if_negative/). V následujícím příkladu je inverze vypnuta pro řadu a povolena jen pro vybraný bod. Bod má také přiřazenou zápornou hodnotu, aby byl efekt viditelný:
 
 ```py
 import aspose.pydrawing as drawing
@@ -270,9 +317,9 @@ with slides.Presentation() as presentation:
 
 ## **Vymazání konkrétní hodnoty datového bodu**
 
-Chcete‑li učinit jeden bod prázdným, aniž byste odstranili ostatní body, nastavte jeho podpůrnou buňku sešitu na `None`. U sloupcového diagramu je vykreslená hodnota dostupná přes [ChartDataPoint.value](https://reference.aspose.com/slides/cs/python-net/aspose.slides.charts/chartdatapoint/value/). Datový bod zůstane na stejné pozici kategorie, ale diagram s ním zachází jako s prázdným podle nastavení prázdných hodnot diagramu.
+Chcete‑li učinit jeden bod prázdným, aniž byste odstraňovali ostatní body, nastavte buňku v pozadí na `None`. U sloupcového grafu je vykreslená hodnota dostupná přes [ChartDataPoint.value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapoint/value/). Datový bod zůstane na stejné pozici kategorie, ale graf jej bude považovat za prázdný dle nastavení prázdných hodnot grafu.
 
-Následující příklad vymaže pouze druhý bod v první sérii:
+Následující příklad vymaže jen druhý bod v první řadě:
 
 ```py
 import aspose.slides as slides
@@ -294,17 +341,17 @@ with slides.Presentation() as presentation:
     presentation.save("clear_data_point_value.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Rozptylové diagramy používají samostatné buňky X a Y, bublinové diagramy také buňku velikosti. Vymažte jen buňku, která představuje hodnotu, kterou chcete odstranit. Nepoužívejte [ChartDataPointCollection.clear](https://reference.aspose.com/slides/cs/python-net/aspose.slides.charts/chartdatapointcollection/clear/), pokud chcete zachovat ostatní body, protože tato metoda odstraní všechny datové body ze sbírky.
+Grafy rozptylu používají oddělené buňky X a Y a bublinové grafy také buňku velikosti. Vymažte jen buňku, která představuje hodnotu, kterou chcete odstranit. Nepoužívejte [ChartDataPointCollection.clear](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapointcollection/clear/), pokud chcete zachovat ostatní body, protože tato metoda odstraní všechny datové body ze sbírky.
 
 ## **Řízení zobrazení prázdných buněk**
 
-Skryté buňky, které obsahují hodnoty, jsou odlišným případem než prázdné buňky. Pro zahrnutí nebo vyloučení dat ze skrytých řádků a sloupců listu viz [Include Data from Hidden Rows and Columns](/slides/cs/python-net/chart-workbook/#include-data-from-hidden-rows-and-columns).
+Skryté buňky obsahující hodnoty jsou odlišný případ od prázdných buněk. Pro zahrnutí nebo vyloučení dat ze skrytých řádků a sloupců listu viz [Include Data from Hidden Rows and Columns](/slides/cs/python-net/chart-workbook/#include-data-from-hidden-rows-and-columns).
 
-Prázdná buňka sešitu představuje chybějící data; buňka obsahující `0` představuje známou číselnou hodnotu. Nastavte [ChartDataCell.value](https://reference.aspose.com/slides/cs/python-net/aspose.slides.charts/chartdatacell/value/) na `None`, aby buňka byla prázdná. Číselná nula zůstane nulou bez ohledu na nastavení prázdných buněk.
+Prázdná buňka pracovního sešitu představuje chybějící data; buňka obsahující `0` představuje známou číselnou hodnotu. Nastavte [ChartDataCell.value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatacell/value/) na `None`, aby buňka byla prázdná. Číselná nula zůstává nulou bez ohledu na nastavení prázdných buněk.
 
-Pomocí [Chart.display_blanks_as](https://reference.aspose.com/slides/cs/python-net/aspose.slides.charts/chart/display_blanks_as/) vyberte, jak má diagram zobrazovat prázdné buňky. Toto nastavení platí pro celý diagram. Mění způsob vykreslování mezer, aniž by prázdná buňka sešitu byla vyplněna nulou nebo interpolovanou hodnotou.
+Použijte [Chart.display_blanks_as](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/display_blanks_as/) pro výběr, jak graf zobrazuje prázdné buňky. Toto nastavení se vztahuje na celý graf. Mění způsob, jak jsou mezery vykresleny, aniž by se prázdná buňka vyplňovala nulou nebo interpolovanou hodnotou.
 
-Následující samostatný příklad vytvoří čárový diagram s jednou sérií, vymaže hodnotu pro Den 3 a uloží diagram ve všech třech režimech. Vstupní soubor není vyžadován. [ChartDataWorkbook](https://reference.aspose.com/slides/cs/python-net/aspose.slides.charts/chartdataworkbook/) používá list 0, sloupec 0 pro popisky kategorií a sloupec 1 pro hodnoty; řádek 0 obsahuje název série. Konečná data jsou `10, 20, empty, 30, 40`.
+Následující samostatný příklad vytvoří čárový graf s jednou řadou, vymaže hodnotu pro den 3 a uloží tři verze grafu, každou s jiným režimem. Nevstupní soubor není vyžadován. [ChartDataWorkbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/) používá list 0, sloupec 0 pro popisky kategorií a sloupec 1 pro hodnoty; řádek 0 obsahuje název řady. Konečná data jsou `10, 20, empty, 30, 40`.
 
 ```py
 import aspose.slides as slides
@@ -330,7 +377,7 @@ with slides.Presentation() as presentation:
         value_cell = workbook.get_cell(0, i + 1, 1, value)
         series.data_points.add_data_point_for_line_series(value_cell)
 
-    # Nechá Day 3 skutečně prázdný, přičemž zachová jeho kategorii a datový bod.
+    # Nechte den 3 skutečně prázdný, přičemž zachovejte jeho kategorii a datový bod.
     workbook.get_cell(0, 3, 1).value = None
 
     modes = [("Gap", charts.DisplayBlanksAsType.GAP), ("Zero", charts.DisplayBlanksAsType.ZERO), ("Span", charts.DisplayBlanksAsType.SPAN)]
@@ -339,19 +386,19 @@ with slides.Presentation() as presentation:
         presentation.save(f"empty_cells_{mode_name}.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Každý výstupní soubor ukládá režim nastavený před uložením: `empty_cells_Gap.pptx`, `empty_cells_Zero.pptx` a `empty_cells_Span.pptx`. Pro uložení jen jedné verze nastavte požadovaný režim a prezentaci uložte jednou místo iterace přes režimy.
+Každý výstupní soubor ukládá režim přiřazený před uložením: `empty_cells_Gap.pptx`, `empty_cells_Zero.pptx` a `empty_cells_Span.pptx`. Pro uložení pouze jedné verze nastavte požadovaný režim a prezentaci uložte jednou místo iterace přes režimy.
 
-Níže uvedené srovnání ukazuje stejná data ve všech třech souborech. Den 3 je v sešitu v každém případě prázdný:
+Porovnání níže ukazuje stejná data ve všech třech souborech. Den 3 je ve všech případech v sešitu prázdný:
 
 ![Line charts with identical data: Gap breaks the line at Day 3, Zero drops the line to zero, and Span connects Day 2 to Day 4.](display_blanks_as.png)
 
-Viditelný efekt závisí na typu diagramu. Čárový diagram usnadňuje porovnání všech tří režimů. Pruhové a sloupcové diagramy nemají čáru, která by propojila chybějící kategorii, takže `SPAN` nemůže vytvořit spojující úsek, jak je ukázáno výše; chybějící sloupec a sloupec o výšce nula mohou vypadat podobně. Podobně rozptylový diagram jen s body nemá žádnou spojující čáru. Neočekávejte tři odlišné výsledky pro každý typ diagramu; vždy zkontrolujte výstup pro konkrétní typ, který používáte.
+Viditelný efekt závisí na typu grafu. Čárový graf umožňuje snadno porovnat všechny tři režimy. Pruhové a sloupcové grafy nemají čáru, kterou by se dalo spojit přes chybějící kategorii, takže `SPAN` nedokáže vytvořit spojovací úsek, který je na výše uvedeném obrázku; chybějící sloupec a sloupec s nulovou výškou mohou vypadat podobně. Podobně scatter graf s jen značkami nemá spojovací čáru. Neočekávejte tři odlišné výsledky u každého typu grafu; ověřte výstup pro konkrétní typ, který používáte.
 
-## **Nastavení šířky mezery mezi sériemi**
+## **Nastavení šířky mezery mezi řadami**
 
-Šířka mezery je prostor mezi sousedními seskupeními pruhů nebo sloupců, vyjádřený v procentech šířky pruhu nebo sloupce. Stejně jako překrytí patří k nadřazené skupině sérií, nikoli k jedné sérii. Nastavte [ChartSeriesGroup.gap_width](https://reference.aspose.com/slides/cs/python-net/aspose.slides.charts/chartseriesgroup/gap_width/) jednou pro celou skupinu. Větší hodnota vytvoří více prostoru mezi seskupeními; menší hodnota je učiní hustšími.
+Šířka mezery je prostor mezi sousedními seskupeními pruhů nebo sloupců, vyjádřený v procentech šířky pruhu nebo sloupce. Podobně jako překrytí patří k nadřazené skupině řad, nikoli k jedné řadě. Nastavte [ChartSeriesGroup.gap_width](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/gap_width/) jednou pro skupinu. Větší hodnota vytvoří větší prostor mezi seskupeními; menší hodnota je učiní hustšími.
 
-Následující příklad změní šířku mezery a uloží pouze konečnou prezentaci:
+Následující příklad změní šířku mezery a uloží pouze finální prezentaci:
 
 ```py
 import aspose.slides as slides
@@ -376,44 +423,44 @@ Výsledek:
 
 ![The gap width](gap_width.png)
 
-## **FAQ**
+## **Často kladené otázky**
 
-**Které typy diagramů podporují datové série?**
+**Které typy grafů podporují datové řady?**
 
-Všechny typy diagramů reprezentované výčtem [ChartType](https://reference.aspose.com/slides/cs/python-net/aspose.slides.charts/charttype/) používají data diagramu, ale jejich série nemají všechny stejnou strukturu hodnot nebo nastavení. Například kategoriální diagramy používají kategorie a hodnoty, rozptylové diagramy používají hodnoty X a Y a bublinové diagramy přidávají velikosti bublin. Použijte metodu vytvoření datového bodu, která odpovídá typu série. Možnosti jako překrytí a šířka mezery platí jen pro kompatibilní skupiny pruhů nebo sloupců.
+Všechny typy grafů reprezentované výčtem [ChartType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttype/) používají grafová data, ale jejich řady nemají vždy stejnou strukturu hodnot nebo nastavení. Například kategoriální grafy používají kategorie a hodnoty, scatter grafy používají X a Y hodnoty a bublinové grafy přidávají velikosti bublin. Použijte metodu tvorby datových bodů, která odpovídá typu řady. Možnosti jako překrytí a šířka mezery se vztahují jen na kompatibilní pruhové nebo sloupcové skupiny.
 
-**Co je skupina sérií diagramu?**
+**Co je skupina řad grafu?**
 
-[ChartSeriesGroup](https://reference.aspose.com/slides/cs/python-net/aspose.slides.charts/chartseriesgroup/) obsahuje kompatibilní série, které sdílejí nastavení úrovně skupiny. Kombinovaný diagram může obsahovat více než jednu skupinu, takže změna skupiny dosažené přes jednu sérii nemusí nutně změnit všechny série v diagramu.
+[ChartSeriesGroup](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/) obsahuje kompatibilní řady, které sdílejí nastavení plotování na úrovni skupiny. Kombinovaný graf může obsahovat více než jednu skupinu, takže změna skupiny dosažená přes jednu řadu nemusí nutně změnit všechny řady v grafu.
 
-**Obsahuje nově vytvořený diagram výchozí data?**
+**Obsahuje nově vytvořený graf výchozí data?**
 
-Ano. Ve výchozím nastavení metoda [ShapeCollection.add_chart](https://reference.aspose.com/slides/cs/python-net/aspose.slides/shapecollection/add_chart/) vytváří ukázkové série, kategorie a hodnoty. Můžete tyto buňky upravit nebo vymazat jak série, tak sbírky kategorií před přidáním zcela vlastního datového souboru. Přetížená metoda může také vytvořit diagram bez výchozích dat.
+Ano. Ve výchozím nastavení metoda [ShapeCollection.add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) vytvoří ukázkové řady, kategorie a hodnoty. Můžete tyto buňky upravit nebo vymazat jak řady, tak i kolekce kategorií před tím, než přidáte zcela vlastní datovou sadu. Přetížená verze může také vytvořit graf bez výchozích dat.
 
-**Jak jsou objekty diagramu propojeny s buňkami sešitu?**
+**Jak jsou grafové objekty napojeny na buňky pracovního sešitu?**
 
-Názvy sérií, popisky kategorií a hodnoty datových bodů odkazují na buňky v [ChartDataWorkbook](https://reference.aspose.com/slides/cs/python-net/aspose.slides.charts/chartdataworkbook/). Změna odkazované buňky aktualizuje odpovídající prvek diagramu. Při vytváření vlastních dat udržujte řádky kategorií a řádky hodnot sérií zarovnané tak, aby každý bod byl vykreslen pod zamýšlenou kategorií.
+Názvy řad, popisky kategorií a hodnoty datových bodů odkazují na buňky v [ChartDataWorkbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/). Změna odkazované buňky aktualizuje odpovídající prvek grafu. Při tvorbě vlastních dat udržujte řádky kategorií a řádky hodnot řad zarovnané, aby každý bod byl vykreslen pod požadovanou kategorií.
 
-**Jak vymazat jen jeden bod místo celé série?**
+**Jak vymazat jeden bod místo celé řady?**
 
-Nastavte příslušnou buňku s hodnotou na `None`, aby bod zůstal na své pozici kategorie jako prázdný bod. Použijte [ChartDataPointCollection.clear](https://reference.aspose.com/slides/cs/python-net/aspose.slides.charts/chartdatapointcollection/clear/) pouze v případě, že chcete odstranit všechny body z dané série. Pokud také odstraňujete kategorie, aktualizujte všechny série, aby jejich hodnoty zůstaly zarovnané s kolekcí kategorií.
+Nastavte příslušnou buňku hodnoty na `None`, aby bod zachoval svou pozici kategorie jako prázdný bod. Používejte [ChartDataPointCollection.clear](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapointcollection/clear/) pouze tehdy, když chcete odstranit všechny body z dané řady. Pokud také odstraňujete kategorie, aktualizujte všechny řady, aby jejich hodnoty zůstaly zarovnané s kolekcí kategorií.
 
-**Jak jsou prázdné body zobrazovány?**
+**Jak jsou prázdné body zobrazeny?**
 
-Výsledek závisí na typu diagramu a na [Chart.display_blanks_as](https://reference.aspose.com/slides/cs/python-net/aspose.slides.charts/chart/display_blanks_as/). Podporované diagramy mohou zobrazovat prázdné hodnoty jako mezery, jako nuly nebo spojením sousedních bodů. Zvolte nastavení, které odpovídá významu chybějících dat ve vaší prezentaci. Viz část **Řízení zobrazení prázdných buněk** pro kompletní příklad a vizuální srovnání.
+Výsledek závisí na typu grafu a na [Chart.display_blanks_as](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/display_blanks_as/). Podporované grafy mohou zobrazovat mezery jako prázdná místa, jako nulové hodnoty nebo spojením sousedních bodů. Vyberte nastavení, které odpovídá významu chybějících dat ve vaší prezentaci. Viz sekce [Control the Display of Empty Cells](#control-the-display-of-empty-cells) pro úplný příklad a vizuální srovnání.
 
 **Jak jsou formátovány záporné hodnoty?**
 
-U podporovaných pruhových, sloupcových a bublinových sérií povolte [ChartSeries.invert_if_negative](https://reference.aspose.com/slides/cs/python-net/aspose.slides.charts/chartseries/invert_if_negative/) a nastavte [ChartSeries.inverted_solid_fill_color](https://reference.aspose.com/slides/cs/python-net/aspose.slides.charts/chartseries/inverted_solid_fill_color/). Chování můžete přepsat pro jednotlivý bod pomocí [ChartDataPoint.invert_if_negative](https://reference.aspose.com/slides/cs/python-net/aspose.slides.charts/chartdatapoint/invert_if_negative/). Tyto vlastnosti ovlivňují formátování, ne uložené číselné hodnoty.
+U podporovaných pruhových, sloupcových a bublinových řad povolte [ChartSeries.invert_if_negative](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/invert_if_negative/) a nastavte [ChartSeries.inverted_solid_fill_color](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/inverted_solid_fill_color/). Chování můžete přepsat pro jednotlivý bod pomocí [ChartDataPoint.invert_if_negative](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapoint/invert_if_negative/). Tyto vlastnosti ovlivňují formátování, ne uložené číselné hodnoty.
 
-**Které formátování má přednost, když je série i bod formátován?**
+**Které formátování má přednost, pokud jsou formátovány jak řada, tak bod?**
 
-Explicitní formátování datového bodu má přednost pro tento bod. Ostatní body pokračují v používání explicitního formátu série nebo, pokud není definován, automatického stylu a motivu diagramu. Skupinové vlastnosti, jako překrytí a šířka mezery, řídí rozvržení a nejsou přepisovány na úrovni bodu.
+Explicitní formátování datového bodu má přednost pro daný bod. Ostatní body nadále používají explicitní formát řady nebo, pokud není definován, automatický styl a motiv grafu. Vlastnosti skupiny jako překrytí a šířka mezery řídí rozvržení a nejsou formátovacími přepsáními na úrovni bodu.
 
-**Existuje limit počtu sérií, které může diagram obsahovat?**
+**Existuje limit počtu řad, které může graf obsahovat?**
 
-Aspose.Slides neuvádí samostatný pevný limit počtu sérií. V praxi limit určuje omezení souboru prezentace, dostupná paměť, doba vykreslování a čitelnost diagramu.
+Aspose.Slides neukládá pevný omezený limit počtu řad. V praxi určují omezení velikosti souboru prezentace, dostupná paměť, doba renderování a čitelnost grafu praktické limity.
 
-**Co změnit, když jsou sloupce příliš blízko nebo příliš daleko od sebe?**
+**Co změnit, když jsou sloupce příliš blízko sebe nebo příliš daleko?**
 
-Nastavte [ChartSeriesGroup.gap_width](https://reference.aspose.com/slides/cs/python-net/aspose.slides.charts/chartseriesgroup/gap_width/) na příslušné nadřazené skupině sérií. Zvýšením hodnoty rozšíříte prostor mezi seskupeními, snížením jej přiblížíte.
+Nastavte [ChartSeriesGroup.gap_width](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/gap_width/) na příslušné nadřazené skupině řad. Zvyšte hodnotu pro rozšíření prostoru mezi seskupeními nebo ji snižte, aby se seskupení přiblížila.
