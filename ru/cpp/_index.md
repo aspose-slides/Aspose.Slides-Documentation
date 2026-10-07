@@ -1,6 +1,6 @@
 ---
-title: Aspose.Slides for C++
-second_title: Aspose.Slides for C++
+title: Aspose.Slides для C++
+second_title: Aspose.Slides для C++
 type: docs
 weight: 30
 url: /ru/cpp/
@@ -12,14 +12,14 @@ keywords:
 - OpenDocument
 - C++
 - Aspose.Slides
-description: "Начните здесь: установите Aspose.Slides для C++, создайте первую презентацию и найдите руководства по типовым задачам, справочник API и поддержку."
+description: "Начните здесь: установите Aspose.Slides for C++, создайте первую презентацию и найдите руководства по общим задачам, справочник API и поддержку."
 is_root: true
 ---
 <img src="home_1.png" alt="Aspose.Slides for C++" align="left" style="width:110px; margin: 0 30px 20px 0"/>
 
-Aspose.Slides for C++ — это нативная C++ библиотека для создания, чтения, редактирования и конвертации презентаций PowerPoint и OpenDocument без Microsoft PowerPoint или автоматизации Office.
+Aspose.Slides for C++ — это нативная библиотека C++ для создания, чтения, редактирования и конвертации презентаций PowerPoint и OpenDocument без Microsoft PowerPoint или автоматизации Office.
 
-Она загружает и сохраняет файлы PPT, PPTX, PPS, POT и ODP, включая версии с макросами и шаблоны, и экспортирует в PDF, XPS, HTML, SVG, TIFF, Markdown и изображения.
+Библиотека загружает и сохраняет файлы PPT, PPTX, PPS, POT и ODP, включая варианты с макросами и шаблоны, а также экспортирует в PDF, XPS, HTML, SVG, TIFF, Markdown и изображения.
 
 <div style="clear:both"></div>
 
@@ -35,7 +35,7 @@ Aspose.Slides for C++ — это нативная C++ библиотека дл�
 <li><a href="/slides/ru/cpp/create-presentation/">Создайте свою первую презентацию</a></li>
 <li><a href="/slides/ru/cpp/getting-started/">Руководство по началу работы</a></li>
 </ul>
-<p>ОЦЕНИТЬ</p>
+<p>ОЦЕНКА</p>
 <ul>
 <li><a href="/slides/ru/cpp/supported-file-formats/">Поддерживаемые форматы файлов</a></li>
 <li><a href="/slides/ru/cpp/evaluate-aspose-slides/">Ограничения пробной версии</a></li>
@@ -58,8 +58,8 @@ Aspose.Slides for C++ — это нативная C++ библиотека дл�
 <li><a href="/slides/ru/cpp/powerpoint-charts/">Диаграммы</a></li>
 <li><a href="/slides/ru/cpp/powerpoint-animation/">Анимации</a></li>
 <li><a href="/slides/ru/cpp/manage-media-files/">Аудио и видео</a></li>
-<li><a href="/slides/ru/cpp/presentation-design/">Дизайн слайдов</a></li>
-<li><a href="/slides/ru/cpp/merge-presentation/">Объединить презентации</a></li>
+<li><a href="/slides/ru/cpp/presentation-design/">Дизайн слайда</a></li>
+<li><a href="/slides/ru/cpp/merge-presentation/">Объединение презентаций</a></li>
 </ul>
 <p>ПРИМЕРЫ</p>
 <ul>
@@ -68,13 +68,14 @@ Aspose.Slides for C++ — это нативная C++ библиотека дл�
 </ul>
 </div>
 <div class="col-md-4">
-<p><b>Справка &amp; Поддержка</b></p>
+<p><b>Справка и поддержка</b></p>
 <hr>
-<p>СПРАВКА</p>
+<p>СПРАВОЧНИК</p>
 <ul>
 <li><a href="https://reference.aspose.com/slides/cpp/">Справочник API</a></li>
 <li><a href="https://releases.aspose.com/slides/cpp/release-notes/">Примечания к выпуску</a></li>
 <li><a href="/slides/ru/cpp/known-issues/">Известные проблемы</a></li>
+<li><a href="https://products.aspose.com/slides/cpp/">Страница продукта</a></li>
 <li><a href="https://releases.aspose.com/slides/cpp/">Скачать</a></li>
 </ul>
 <p>ПОДДЕРЖКА</p>
@@ -89,15 +90,15 @@ Aspose.Slides for C++ — это нативная C++ библиотека дл�
 
 ## **Ваша первая презентация**
 
-В Windows создайте проект C++ **Console App** в Visual Studio и установите пакет NuGet с помощью консоли диспетчера пакетов (**Tools** > **NuGet Package Manager** > **Package Manager Console**):
+В Windows создайте проект C++ **Console App** в Visual Studio и установите пакет NuGet в консоли диспетчера пакетов (**Tools** > **NuGet Package Manager** > **Package Manager Console**):
 
 ```powershell
 Install-Package Aspose.Slides.Cpp
 ```
 
-В Linux загрузите ZIP‑пакет для Linux и настройте проект CMake, описанный в разделе [Установка](/slides/ru/cpp/installation/#linux).
+В Linux скачайте ZIP‑пакет для Linux и настройте проект CMake, описанный в [Установка](/slides/ru/cpp/installation/#linux).
 
-Затем используйте этот код в качестве основного исходного файла программы. Он создает презентацию с одним текстовым полем и сохраняет её:
+Затем используйте этот код в качестве основного исходного файла программы. Он создаёт презентацию с одним текстовым полем и сохраняет её:
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -133,4 +134,4 @@ cmake --build build
 ./build/hello
 ```
 
-Программа сохраняет *hello.pptx* с одним слайдом, содержащим текстовое поле. Без лицензии сохранённый файл будет помечен отметкой оценки — смотрите [Лицензирование](/slides/ru/cpp/licensing/). Для получения дополнительных способов создания и заполнения презентации см. [Создание презентаций](/slides/ru/cpp/create-presentation/).
+Программа сохраняет *hello.pptx* с одним слайдом, содержащим текстовое поле. Без лицензии сохранённый файл содержит водяной знак оценки — см. [Лицензирование](/slides/ru/cpp/licensing/). Чтобы узнать о дополнительных способах создания и заполнения презентации, см. [Создание презентаций](/slides/ru/cpp/create-presentation/).

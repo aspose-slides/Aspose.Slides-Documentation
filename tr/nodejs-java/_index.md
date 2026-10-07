@@ -5,7 +5,7 @@ type: docs
 weight: 47
 url: /tr/nodejs-java/
 keywords:
-- belgelendirme
+- belgeler
 - sunum işleme
 - sunum dönüşümü
 - PowerPoint
@@ -13,14 +13,14 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Buradan başlayın: Aspose.Slides for Node.js via Java'ı kurun, ilk sunumu oluşturun ve ortak görevler, API referansı ve destek kılavuzlarını bulun."
+description: "Buradan başlayın: Aspose.Slides for Node.js via Java'ı kurun, ilk sunumunuzu oluşturun ve ortak görevler, API referansı ve destek için kılavuzları bulun."
 is_root: true
 ---
 <img src="aspose_slides-for-nodejs-via-java.png" alt="Aspose.Slides for Node.js via Java" align="left" style="width:110px; margin: 0 30px 20px 0"/>
 
-Aspose.Slides for Node.js via Java, Microsoft PowerPoint olmadan Node.js uygulamalarında PowerPoint ve OpenDocument sunumları oluşturmak, okumak, düzenlemek ve dönüştürmek için bir kütüphanedir.
+Aspose.Slides for Node.js via Java, Microsoft PowerPoint olmadan Node.js uygulamalarında PowerPoint ve OpenDocument sunumlarını oluşturmak, okumak, düzenlemek ve dönüştürmek için bir kütüphanedir.
 
-PPT, PPTX, PPS, POT ve ODP dosyalarını, makro etkin ve şablon varyantları dahil olmak üzere yükler ve kaydeder; ayrıca PDF, XPS, HTML, SVG, TIFF, Markdown ve görsellere aktarır.
+PPT, PPTX, PPS, POT ve ODP dosyalarını, makro etkin ve şablon varyantları dahil olmak üzere yükleyip kaydeder ve PDF, XPS, HTML, SVG, TIFF, Markdown ve görüntü formatlarına dışa aktarır.
 
 <div style="clear:both"></div>
 
@@ -28,7 +28,7 @@ PPT, PPTX, PPS, POT ve ODP dosyalarını, makro etkin ve şablon varyantları da
 
 <div class="row">
 <div class="col-md-4">
-<p><b>Başlayın</b></p>
+<p><b>Başlarken</b></p>
 <hr>
 <p>BAŞLANGIÇ</p>
 <ul>
@@ -44,23 +44,23 @@ PPT, PPTX, PPS, POT ve ODP dosyalarını, makro etkin ve şablon varyantları da
 </ul>
 </div>
 <div class="col-md-4">
-<p><b>Slides ile Oluşturun</b></p>
+<p><b>Slaytlarla Oluşturun</b></p>
 <hr>
 <p>ORTAK GÖREVLER</p>
 <ul>
-<li><a href="/slides/tr/nodejs-java/open-presentation/">Sunumu aç</a></li>
-<li><a href="/slides/tr/nodejs-java/save-presentation/">Sunumu kaydet</a></li>
-<li><a href="/slides/tr/nodejs-java/convert-powerpoint-to-pdf/">PDF'ye dönüştür</a></li>
-<li><a href="/slides/tr/nodejs-java/convert-slide/">Slaytları görüntü olarak oluştur</a></li>
-<li><a href="/slides/tr/nodejs-java/manage-text/">Metin ve şekilleri düzenle</a></li>
+<li><a href="/slides/tr/nodejs-java/open-presentation/">Bir sunumu açın</a></li>
+<li><a href="/slides/tr/nodejs-java/save-presentation/">Bir sunumu kaydedin</a></li>
+<li><a href="/slides/tr/nodejs-java/convert-powerpoint-to-pdf/">PDF'e dönüştürün</a></li>
+<li><a href="/slides/tr/nodejs-java/convert-slide/">Slaytları görüntü olarak işleyin</a></li>
+<li><a href="/slides/tr/nodejs-java/manage-text/">Metin ve şekilleri düzenleyin</a></li>
 </ul>
 <p>SLAYT İŞ AKIŞLARI</p>
 <ul>
-<li><a href="/slides/tr/nodejs-java/powerpoint-charts/">Grafikler</a></li>
+<li><a href="/slides/tr/nodejs-java/powerpoint-charts/">Grafik</a></li>
 <li><a href="/slides/tr/nodejs-java/powerpoint-animation/">Animasyonlar</a></li>
 <li><a href="/slides/tr/nodejs-java/manage-media-files/">Ses ve video</a></li>
 <li><a href="/slides/tr/nodejs-java/presentation-design/">Slayt tasarımı</a></li>
-<li><a href="/slides/tr/nodejs-java/merge-presentation/">Sunumları birleştir</a></li>
+<li><a href="/slides/tr/nodejs-java/merge-presentation/">Sunumları birleştirin</a></li>
 </ul>
 <p>ÖRNEKLER</p>
 <ul>
@@ -75,12 +75,13 @@ PPT, PPTX, PPS, POT ve ODP dosyalarını, makro etkin ve şablon varyantları da
 <li><a href="https://reference.aspose.com/slides/nodejs-java/">API referansı</a></li>
 <li><a href="https://releases.aspose.com/slides/nodejs-java/release-notes/">Sürüm notları</a></li>
 <li><a href="/slides/tr/nodejs-java/known-issues/">Bilinen sorunlar</a></li>
+<li><a href="https://products.aspose.com/slides/nodejs-java/">Ürün sayfası</a></li>
 <li><a href="https://releases.aspose.com/slides/nodejs-java/">İndir</a></li>
 </ul>
 <p>DESTEK</p>
 <ul>
 <li><a href="https://forum.aspose.com/c/slides/11">Ücretsiz destek forumu</a></li>
-<li><a href="https://helpdesk.aspose.com/">Ücretli destek masası</a></li>
+<li><a href="https://helpdesk.aspose.com/">Ücretli destek hizmet masası</a></li>
 </ul>
 </div>
 </div>
@@ -89,7 +90,7 @@ PPT, PPTX, PPS, POT ve ODP dosyalarını, makro etkin ve şablon varyantları da
 
 ## **İlk sunumunuz**
 
-Node.js 20 veya daha yeni bir sürümünün yanı sıra, paket bir Java Development Kit (JDK), Python ve bir C++ derleme araç zincirine ihtiyaç duyar, çünkü npm kurulum sırasında `java` köprüsünü derler. Her işletim sistemi için adımları görmek üzere [Installation](/slides/tr/nodejs-java/installation/) sayfasına bakın. Ardından bir proje oluşturup paketi npm'den kurun:
+Node.js 20 veya daha yeni bir sürümünün yanı sıra, paket bir Java Geliştirme Kiti (JDK), Python ve C++ yapı araç zincirine ihtiyaç duyar, çünkü npm kurulum sırasında `java` köprüsünü derler. Her işletim sistemi için adımları görmek üzere [Kurulum](/slides/tr/nodejs-java/installation/) sayfasına bakın. Ardından bir proje oluşturun ve paketi npm üzerinden kurun:
 
 ```bash
 mkdir hello-slides
@@ -113,8 +114,8 @@ try {
     presentation.dispose();
 }
 
-// Aspose.Slides, Node.js'in çalışmasını sürdüren bir Java sanal makinesinde çalışır, bu yüzden işlemi açıkça sonlandırın.
+// Aspose.Slides, Node.js'i çalışır durumda tutan bir Java sanal makinesinde çalışır, bu yüzden süreci açıkça sonlandırın.
 process.exit(0);
 ```
 
-`node hello.js` ile çalıştırın. Betik, bir metin kutusu içeren bir slayt ile *hello.pptx* dosyasını kaydeder. Lisans olmadan, kaydedilen dosya bir değerlendirme filigranı taşır — [Licensing](/slides/tr/nodejs-java/licensing/) sayfasına bakın. Bir sunumu oluşturmanın ve doldurmanın daha fazla yolu için [Create Presentations](/slides/tr/nodejs-java/create-presentation/) bakın.
+`node hello.js` ile çalıştırın. Betik, bir metin kutusu içeren bir slaytla *hello.pptx* dosyasını kaydeder. Lisans olmadan, kaydedilen dosya bir değerlendirme filigranı içerir — [Lisanslama](/slides/tr/nodejs-java/licensing/) sayfasına bakın. Sunum oluşturma ve doldurma hakkında daha fazla yöntem için [Sunum Oluşturma](/slides/tr/nodejs-java/create-presentation/) sayfasına göz atın.

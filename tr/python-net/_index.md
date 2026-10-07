@@ -9,24 +9,24 @@ keywords:
 - Aspose.Slides for Python
 - Python için PowerPoint otomasyonu
 - Python PPT kütüphanesi
-- Python ile PowerPoint'i PDF'e dışa aktar
-- Python ile PowerPoint'i SVG'e dışa aktar
-- Python ile PowerPoint düzenleme
+- Python ile PowerPoint'i PDF olarak dışa aktar
+- Python ile PowerPoint'i SVG olarak dışa aktar
+- Python'da PowerPoint'i düzenle
 - Microsoft Office olmadan Python PowerPoint
-- Python ile PPTX yönetme
+- Python ile PPTX yönet
 - Python ile slayt önizleme
-- Python ile slaytlara ses ekleme
+- Python ile slaytlara ses ekle
 - PowerPoint
 - OpenDocument
 - Python
 - Aspose.Slides
-description: "Buradan başlayın: Aspose.Slides for Python via .NET'ı kurun, ilk sunumunuzu oluşturun ve ortak görevler, API referansı ve destek için kılavuzları bulun."
+description: "Buradan başlayın: Aspose.Slides for Python via .NET'i kurun, ilk sunumu oluşturun ve yaygın görevler, API referansı ve destek için kılavuzları bulun."
 ---
-<img src="aspose_slides-for-python.png" alt="Aspose.Slides for Python via .NET" align="left" style="width:110px; margin: 0 30px 20px 0"/>
+<img src="aspose_slides-for-python.png" alt="Aspose.Slides Python için .NET üzerinden" align="left" style="width:110px; margin: 0 30px 20px 0"/>
 
-Aspose.Slides for Python via .NET, Microsoft PowerPoint veya Microsoft Office olmadan PowerPoint ve OpenDocument sunumları oluşturmak, okumak, düzenlemek ve dönüştürmek için bir Python kütüphanesidir.
+Aspose.Slides for Python via .NET, Microsoft PowerPoint veya Microsoft Office gerektirmeden PowerPoint ve OpenDocument sunumları oluşturmak, okumak, düzenlemek ve dönüştürmek için bir Python kütüphanesidir.
 
-PPT, PPTX, PPS, POT ve ODP dosyalarını, makro‑destekli ve şablon varyantları dahil olmak üzere yükler ve kaydeder; ayrıca PDF, XPS, HTML, SVG, TIFF, Markdown ve görüntü formatlarına dışa aktarır.
+PPT, PPTX, PPS, POT ve ODP formatlarını, makro etkin ve şablon çeşitlerini de içerecek şekilde yükler ve kaydeder ve PDF, XPS, HTML, SVG, TIFF, Markdown ve görüntüler formatına dışa aktarır.
 
 <div style="clear:both"></div>
 
@@ -36,13 +36,13 @@ PPT, PPTX, PPS, POT ve ODP dosyalarını, makro‑destekli ve şablon varyantlar
 <div class="col-md-4">
 <p><b>Başlarken</b></p>
 <hr>
-<p>BAŞLAMA REHBERİ</p>
+<p>BAŞLANGIÇ</p>
 <ul>
 <li><a href="/slides/tr/python-net/installation/">Kurulum</a></li>
 <li><a href="/slides/tr/python-net/create-presentation/">İlk sunumunuzu oluşturun</a></li>
 <li><a href="/slides/tr/python-net/getting-started/">Başlangıç kılavuzu</a></li>
 </ul>
-<p>DEĞERLENDİRME</p>
+<p>DEĞERLENDİR</p>
 <ul>
 <li><a href="/slides/tr/python-net/supported-file-formats/">Desteklenen dosya formatları</a></li>
 <li><a href="/slides/tr/python-net/evaluate-aspose-slides/">Deneme sınırlamaları</a></li>
@@ -50,15 +50,15 @@ PPT, PPTX, PPS, POT ve ODP dosyalarını, makro‑destekli ve şablon varyantlar
 </ul>
 </div>
 <div class="col-md-4">
-<p><b>Slides ile Geliştirin</b></p>
+<p><b>Slides ile Oluşturun</b></p>
 <hr>
 <p>ORTAK GÖREVLER</p>
 <ul>
-<li><a href="/slides/tr/python-net/open-presentation/">Sunumu açın</a></li>
-<li><a href="/slides/tr/python-net/save-presentation/">Sunumu kaydedin</a></li>
-<li><a href="/slides/tr/python-net/convert-powerpoint-to-pdf/">PDF’ye dönüştürün</a></li>
-<li><a href="/slides/tr/python-net/convert-slide/">Slaytları görsel olarak render edin</a></li>
-<li><a href="/slides/tr/python-net/manage-text/">Metin ve şekilleri düzenleyin</a></li>
+<li><a href="/slides/tr/python-net/open-presentation/">Bir sunumu aç</a></li>
+<li><a href="/slides/tr/python-net/save-presentation/">Bir sunumu kaydet</a></li>
+<li><a href="/slides/tr/python-net/convert-powerpoint-to-pdf/">PDF'ye dönüştür</a></li>
+<li><a href="/slides/tr/python-net/convert-slide/">Slaytları görüntü olarak oluştur</a></li>
+<li><a href="/slides/tr/python-net/manage-text/">Metin ve şekilleri düzenle</a></li>
 </ul>
 <p>SLAYT İŞ AKIŞLARI</p>
 <ul>
@@ -66,12 +66,12 @@ PPT, PPTX, PPS, POT ve ODP dosyalarını, makro‑destekli ve şablon varyantlar
 <li><a href="/slides/tr/python-net/powerpoint-animation/">Animasyonlar</a></li>
 <li><a href="/slides/tr/python-net/manage-media-files/">Ses ve video</a></li>
 <li><a href="/slides/tr/python-net/presentation-design/">Slayt tasarımı</a></li>
-<li><a href="/slides/tr/python-net/merge-presentation/">Sunumları birleştirin</a></li>
+<li><a href="/slides/tr/python-net/merge-presentation/">Sunumları birleştir</a></li>
 </ul>
 <p>ÖRNEKLER</p>
 <ul>
 <li><a href="/slides/tr/python-net/examples/">Slayt öğesine göre örnekler</a></li>
-<li><a href="https://github.com/aspose-slides/Aspose.Slides-for-Python-via-.NET">GitHub’daki örnekler</a></li>
+<li><a href="https://github.com/aspose-slides/Aspose.Slides-for-Python-via-.NET">GitHub'da örnekler</a></li>
 </ul>
 </div>
 <div class="col-md-4">
@@ -81,12 +81,13 @@ PPT, PPTX, PPS, POT ve ODP dosyalarını, makro‑destekli ve şablon varyantlar
 <ul>
 <li><a href="https://reference.aspose.com/slides/python-net/">API referansı</a></li>
 <li><a href="https://releases.aspose.com/slides/python-net/release-notes/">Sürüm notları</a></li>
+<li><a href="https://products.aspose.com/slides/python-net/">Ürün sayfası</a></li>
 <li><a href="https://releases.aspose.com/slides/python-net/">İndir</a></li>
 </ul>
 <p>DESTEK</p>
 <ul>
 <li><a href="https://forum.aspose.com/c/slides/11">Ücretsiz destek forumu</a></li>
-<li><a href="https://helpdesk.aspose.com/">Ücretli destek hizmeti</a></li>
+<li><a href="https://helpdesk.aspose.com/">Ücretli destek yardım masası</a></li>
 </ul>
 </div>
 </div>
@@ -95,20 +96,20 @@ PPT, PPTX, PPS, POT ve ODP dosyalarını, makro‑destekli ve şablon varyantlar
 
 ## **İlk sunumunuz**
 
-Paketi PyPI’dan kurun:
+Paketi PyPI'dan kurun:
 
 ```bash
 pip install aspose.slides
 ```
 
-Paket, kullandığı .NET çalışma zamanını içerdiği için .NET kurmanız gerekmez. Linux’da ayrıca libgdiplus ve ICU kütüphanelerini kurun; Debian ya da Ubuntu sistem Python’u kullanıyorsanız komutu bir sanal ortamda çalıştırın. macOS’da ek gereksinimler bulunmakta ve kurulum burada doğrulanmamıştır. Komutlar, macOS gereksinimleri ve desteklenen Python sürümleri için [Kurulum](/slides/tr/python-net/installation/) sayfasına bakın.
+Paket, kullandığı .NET çalışma zamanı dahildir, bu yüzden .NET kurmanıza gerek yoktur. Linux'ta ayrıca libgdiplus ve ICU kütüphanelerini kurun ve Debian veya Ubuntu'nun sistem Python'u ile bir sanal ortamda komutu çalıştırın. macOS için ek önkoşullar vardır ve burada kurulumu doğrulamadık. Komutlar, macOS önkoşulları ve desteklenen Python sürümleri için [Kurulum](/slides/tr/python-net/installation/) sayfasına bakın.
 
 Bu kodu *hello.py* olarak kaydedin:
 
 ```py
 import aspose.slides as slides
 
-# Sunum dosyasını temsil eden Presentation sınıfının bir örneğini oluşturun.
+# Sunum dosyasını temsil eden Presentation sınıfını örnekleyin.
 with slides.Presentation() as presentation:
     # İlk slaytı alın.
     slide = presentation.slides[0]
@@ -117,8 +118,8 @@ with slides.Presentation() as presentation:
     auto_shape = slide.shapes.add_auto_shape(slides.ShapeType.CLOUD, 20, 20, 200, 80)
     auto_shape.text_frame.text = "Hello, Aspose!"
 
-    # Sunumu bir PPTX dosyası olarak kaydedin.
+    # Sunumu PPTX dosyası olarak kaydedin.
     presentation.save("new_presentation.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-`python hello.py` komutuyla çalıştırın. Betik, geçerli klasörde bir slayt içeren *new_presentation.pptx* dosyasını kaydeder; slayt bulut şeklinde bir nesne taşır ve içinde “Hello, Aspose!” yazar. Lisans olmadan kaydedilen dosya bir değerlendirme filigranı taşır — detaylar için [Lisanslama](/slides/tr/python-net/licensing/) sayfasına bakın. Sunum oluşturma ve doldurma hakkında daha fazla bilgi için [Sunum Oluşturma](/slides/tr/python-net/create-presentation/) sayfasına göz atın.
+`python hello.py` ile çalıştırın. Betik, geçerli klasöre *new_presentation.pptx* dosyasını kaydeder; bir slayt, üzerinde "Hello, Aspose!" yazan bir bulut şekli içerir. Lisans olmadan, kaydedilen dosya bir değerlendirme filigranı taşır — [Lisanslama](/slides/tr/python-net/licensing/) bölümüne bakın. Sunum oluşturma ve doldurma hakkında daha fazla yöntem için [Sunum Oluşturma](/slides/tr/python-net/create-presentation/) sayfasına bakın.

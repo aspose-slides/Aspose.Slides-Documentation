@@ -13,14 +13,14 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Empieza aquí: instala Aspose.Slides para Node.js a través de Java, crea una primera presentación y encuentra las guías para tareas comunes, la referencia de API y el soporte."
+description: "Comienza aquí: instala Aspose.Slides para Node.js a través de Java, crea una primera presentación y encuentra las guías para tareas comunes, la referencia de la API y el soporte."
 is_root: true
 ---
 <img src="aspose_slides-for-nodejs-via-java.png" alt="Aspose.Slides para Node.js a través de Java" align="left" style="width:110px; margin: 0 30px 20px 0"/>
 
-Aspose.Slides for Node.js via Java es una biblioteca para crear, leer, editar y convertir presentaciones de PowerPoint y OpenDocument en aplicaciones Node.js, sin Microsoft PowerPoint.
+Aspose.Slides para Node.js a través de Java es una biblioteca para crear, leer, editar y convertir presentaciones de PowerPoint y OpenDocument en aplicaciones Node.js, sin necesidad de Microsoft PowerPoint.
 
-Carga y guarda archivos PPT, PPTX, PPS, POT y ODP, incluidas variantes con macros y plantillas, y exporta a PDF, XPS, HTML, SVG, TIFF, Markdown e imágenes.
+Carga y guarda archivos PPT, PPTX, PPS, POT y ODP, incluidas las variantes con macros y plantillas, y exporta a PDF, XPS, HTML, SVG, TIFF, Markdown e imágenes.
 
 <div style="clear:both"></div>
 
@@ -28,23 +28,23 @@ Carga y guarda archivos PPT, PPTX, PPS, POT y ODP, incluidas variantes con macro
 
 <div class="row">
 <div class="col-md-4">
-<p><b>Comenzar</b></p>
+<p><b>Primeros pasos</b></p>
 <hr>
 <p>COMENZANDO</p>
 <ul>
 <li><a href="/slides/es/nodejs-java/installation/">Instalación</a></li>
 <li><a href="/slides/es/nodejs-java/create-presentation/">Crea tu primera presentación</a></li>
-<li><a href="/slides/es/nodejs-java/getting-started/">Guía de inicio</a></li>
+<li><a href="/slides/es/nodejs-java/getting-started/">Guía de inicio rápido</a></li>
 </ul>
 <p>EVALUAR</p>
 <ul>
 <li><a href="/slides/es/nodejs-java/supported-file-formats/">Formatos de archivo compatibles</a></li>
-<li><a href="/slides/es/nodejs-java/evaluate-aspose-slides/">Limitaciones de la prueba</a></li>
-<li><a href="/slides/es/nodejs-java/licensing/">Licencias</a></li>
+<li><a href="/slides/es/nodejs-java/evaluate-aspose-slides/">Limitaciones de la versión de prueba</a></li>
+<li><a href="/slides/es/nodejs-java/licensing/">Licenciamiento</a></li>
 </ul>
 </div>
 <div class="col-md-4">
-<p><b>Crear con Slides</b></p>
+<p><b>Desarrollar con Slides</b></p>
 <hr>
 <p>TAREAS COMUNES</p>
 <ul>
@@ -64,17 +64,18 @@ Carga y guarda archivos PPT, PPTX, PPS, POT y ODP, incluidas variantes con macro
 </ul>
 <p>EJEMPLOS</p>
 <ul>
-<li><a href="/slides/es/nodejs-java/examples/">Ejemplos por elemento de diapositiva</a></li>
+<li><a href="/slides/es/nodejs-java/examples/">Ejemplos por elemento de la diapositiva</a></li>
 </ul>
 </div>
 <div class="col-md-4">
-<p><b>Referencia &amp; Soporte</b></p>
+<p><b>Referencia y soporte</b></p>
 <hr>
 <p>REFERENCIA</p>
 <ul>
-<li><a href="https://reference.aspose.com/slides/nodejs-java/">Referencia de API</a></li>
+<li><a href="https://reference.aspose.com/slides/nodejs-java/">Referencia de la API</a></li>
 <li><a href="https://releases.aspose.com/slides/nodejs-java/release-notes/">Notas de la versión</a></li>
 <li><a href="/slides/es/nodejs-java/known-issues/">Problemas conocidos</a></li>
+<li><a href="https://products.aspose.com/slides/nodejs-java/">Página del producto</a></li>
 <li><a href="https://releases.aspose.com/slides/nodejs-java/">Descarga</a></li>
 </ul>
 <p>SOPORTE</p>
@@ -89,7 +90,7 @@ Carga y guarda archivos PPT, PPTX, PPS, POT y ODP, incluidas variantes con macro
 
 ## **Tu primera presentación**
 
-Además de Node.js 20 o superior, el paquete necesita un Java Development Kit (JDK), Python y una cadena de herramientas de compilación C++, porque npm compila su puente `java` durante la instalación. Consulte [Instalación](/slides/es/nodejs-java/installation/) para los pasos en cada sistema operativo. Luego cree un proyecto e instale el paquete desde npm:
+Además de Node.js 20 o posterior, el paquete necesita un Kit de Desarrollo de Java (JDK), Python y una cadena de herramientas de compilación C++, ya que npm compila su puente `java` durante la instalación. Consulta [Installation](/slides/es/nodejs-java/installation/) para los pasos en cada sistema operativo. Después crea un proyecto e instala el paquete desde npm:
 
 ```bash
 mkdir hello-slides
@@ -98,7 +99,7 @@ npm init -y
 npm install aspose.slides.via.java
 ```
 
-Guarde este código como *hello.js* en la carpeta del proyecto:
+Guarda este código como *hello.js* en la carpeta del proyecto:
 
 ```javascript
 const asposeSlides = require("aspose.slides.via.java");
@@ -113,8 +114,8 @@ try {
     presentation.dispose();
 }
 
-// Aspose.Slides se ejecuta en una máquina virtual Java que mantiene Node.js en ejecución, por lo que se debe finalizar el proceso explícitamente.
+// Aspose.Slides se ejecuta en una máquina virtual Java que mantiene Node.js en ejecución, por lo que hay que terminar el proceso explícitamente.
 process.exit(0);
 ```
 
-Ejecutelo con `node hello.js`. El script guarda *hello.pptx* con una diapositiva que contiene un cuadro de texto. Sin una licencia, el archivo guardado lleva una marca de agua de evaluación — vea [Licencias](/slides/es/nodejs-java/licensing/). Para más formas de crear y rellenar una presentación, vea [Crear presentaciones](/slides/es/nodejs-java/create-presentation/).
+Ejecuta `node hello.js`. El script guarda *hello.pptx* con una diapositiva que contiene un cuadro de texto. Sin una licencia, el archivo guardado lleva una marca de agua de evaluación — consulta [Licensing](/slides/es/nodejs-java/licensing/). Para más formas de crear y rellenar una presentación, consulta [Create Presentations](/slides/es/nodejs-java/create-presentation/).

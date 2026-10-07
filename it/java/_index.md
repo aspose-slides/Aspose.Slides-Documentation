@@ -6,18 +6,18 @@ weight: 20
 url: /it/java/
 keywords:
 - documentazione
-- elaborazione delle presentazioni
-- conversione delle presentazioni
+- elaborazione presentazioni
+- conversione presentazioni
 - PowerPoint
 - OpenDocument
 - Java
 - Aspose.Slides
-description: "Inizia qui: installa Aspose.Slides per Java, crea una prima presentazione e trova le guide per le attività comuni, il riferimento API e il supporto."
+description: "Inizia qui: installa Aspose.Slides per Java, crea una prima presentazione e trova le guide per attività comuni, distribuzione e riferimento API."
 is_root: true
 ---
 <img src="home_1.png" alt="Aspose.Slides for Java" align="left" style="width:110px; margin: 0 30px 20px 0"/>
 
-Aspose.Slides per Java è una libreria di classi per creare, leggere, modificare e convertire presentazioni PowerPoint e OpenDocument in applicazioni Java, senza Microsoft PowerPoint.
+Aspose.Slides for Java è una libreria di classi per creare, leggere, modificare e convertire presentazioni PowerPoint e OpenDocument in applicazioni Java, senza Microsoft PowerPoint.
 
 Carica e salva PPT, PPTX, PPS, POT e ODP, incluse le varianti con macro e i modelli, ed esporta in PDF, XPS, HTML, SVG, TIFF, Markdown e immagini.
 
@@ -33,13 +33,15 @@ Carica e salva PPT, PPTX, PPS, POT e ODP, incluse le varianti con macro e i mode
 <ul>
 <li><a href="/slides/it/java/installation/">Installazione</a></li>
 <li><a href="/slides/it/java/create-presentation/">Crea la tua prima presentazione</a></li>
-<li><a href="/slides/it/java/getting-started/">Guida per iniziare</a></li>
+<li><a href="/slides/it/java/system-requirements/">Requisiti di sistema</a></li>
+<li><a href="/slides/it/java/getting-started/">Guida introduttiva</a></li>
 </ul>
-<p>VALUTA</p>
+<p>VALUTARE</p>
 <ul>
 <li><a href="/slides/it/java/supported-file-formats/">Formati di file supportati</a></li>
-<li><a href="/slides/it/java/evaluate-aspose-slides/">Limitazioni della versione di prova</a></li>
-<li><a href="/slides/it/java/licensing/">Licenze</a></li>
+<li><a href="/slides/it/java/features-overview/">Panoramica delle funzionalità</a></li>
+<li><a href="/slides/it/java/evaluate-aspose-slides/">Limitazioni della prova</a></li>
+<li><a href="/slides/it/java/licensing/">Licenza</a></li>
 </ul>
 </div>
 <div class="col-md-4">
@@ -50,7 +52,7 @@ Carica e salva PPT, PPTX, PPS, POT e ODP, incluse le varianti con macro e i mode
 <li><a href="/slides/it/java/open-presentation/">Apri una presentazione</a></li>
 <li><a href="/slides/it/java/save-presentation/">Salva una presentazione</a></li>
 <li><a href="/slides/it/java/convert-powerpoint-to-pdf/">Converti in PDF</a></li>
-<li><a href="/slides/it/java/convert-slide/">Rendi le diapositive come immagini</a></li>
+<li><a href="/slides/it/java/convert-slide/">Genera le diapositive come immagini</a></li>
 <li><a href="/slides/it/java/manage-text/">Modifica testo e forme</a></li>
 </ul>
 <p>FLUSSI DI LAVORO SLIDES</p>
@@ -68,13 +70,22 @@ Carica e salva PPT, PPTX, PPS, POT e ODP, incluse le varianti con macro e i mode
 </ul>
 </div>
 <div class="col-md-4">
-<p><b>Riferimento &amp; Supporto</b></p>
+<p><b>Distribuzione &amp; Supporto</b></p>
 <hr>
+<p>DISTRIBUZIONE</p>
+<ul>
+<li><a href="/slides/it/java/system-requirements/#linux">Prerequisiti per Linux</a></li>
+<li><a href="/slides/it/java/how-to-run-aspose-slides-in-docker/">Esegui in Docker</a></li>
+<li><a href="/slides/it/java/deploy-fonts/">Font</a></li>
+<li><a href="/slides/it/java/security/">Sicurezza</a></li>
+</ul>
 <p>RIFERIMENTO</p>
 <ul>
 <li><a href="https://reference.aspose.com/slides/java/">Riferimento API</a></li>
 <li><a href="https://releases.aspose.com/slides/java/release-notes/">Note di rilascio</a></li>
 <li><a href="/slides/it/java/known-issues/">Problemi noti</a></li>
+<li><a href="/slides/it/java/api-limitations/">Limiti dei metadati di output</a></li>
+<li><a href="https://products.aspose.com/slides/java/">Pagina prodotto</a></li>
 <li><a href="https://releases.aspose.com/slides/java/">Download</a></li>
 </ul>
 <p>SUPPORTO</p>
@@ -87,9 +98,11 @@ Carica e salva PPT, PPTX, PPS, POT e ODP, incluse le varianti con macro e i mode
 
 ------
 
+<a name="your-first-presentation"></a>
+
 ## **La tua prima presentazione**
 
-Aspose.Slides per Java è pubblicato nel repository Maven di Aspose, non in Maven Central. Crea una cartella per un progetto Maven e salva questo *pom.xml* al suo interno. Dichiarà il repository, aggiungerà la libreria e specificherà la classe da eseguire:
+Aspose.Slides for Java è pubblicato nel repository Maven di Aspose, non su Maven Central. Crea una cartella per un progetto Maven e salva questo *pom.xml* al suo interno. Dichiara il repository, aggiunge la libreria e indica la classe da eseguire:
 
 ```xml
 <project xmlns="http://maven.apache.org/POM/4.0.0">
@@ -165,4 +178,4 @@ Quindi, con JDK 11 o versioni successive e Apache Maven installati, esegui quest
 mvn compile exec:java
 ```
 
-Il programma salva *new_presentation.pptx* nella cartella del progetto, con una diapositiva contenente una forma a nuvola con testo. Su Linux, fontconfig e almeno un font devono essere installati; consulta [Installazione](/slides/it/java/installation/#linux). Senza licenza, il file salvato contiene una filigrana di valutazione — vedi [Licenza](/slides/it/java/licensing/). Per ulteriori modi di creare e riempire una presentazione, consulta [Crea presentazioni](/slides/it/java/create-presentation/).
+Il programma salva *new_presentation.pptx* nella cartella del progetto, con una diapositiva contenente una forma a nuvola con testo. Su Linux, fontconfig e almeno un font devono essere installati; vedi [Installazione](/slides/it/java/installation/#linux). Senza licenza, il file salvato contiene un filigrana di valutazione — vedi [Licenza](/slides/it/java/licensing/). Per ulteriori modi di creare e riempire una presentazione, vedi [Crea presentazioni](/slides/it/java/create-presentation/).

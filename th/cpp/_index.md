@@ -1,25 +1,25 @@
 ---
-title: Aspose.Slides สำหรับ C++
-second_title: Aspose.Slides สำหรับ C++
+title: Aspose.Slides for C++
+second_title: Aspose.Slides for C++
 type: docs
 weight: 30
 url: /th/cpp/
 keywords:
 - เอกสาร
-- การประมวลผลงานนำเสนอ
-- การแปลงงานนำเสนอ
+- การประมวลผลการนำเสนอ
+- การแปลงการนำเสนอ
 - PowerPoint
 - OpenDocument
 - C++
 - Aspose.Slides
-description: "เริ่มต้นที่นี่: ติดตั้ง Aspose.Slides for C++ สร้างงานนำเสนอแรก และค้นหาคู่มือสำหรับงานทั่วไป อ้างอิง API และการสนับสนุน."
+description: "เริ่มต้นที่นี่: ติดตั้ง Aspose.Slides for C++, สร้างงานนำเสนอแรก, และค้นหาคู่มือสำหรับงานทั่วไป, เอกสารอ้างอิง API และการสนับสนุน."
 is_root: true
 ---
 <img src="home_1.png" alt="Aspose.Slides for C++" align="left" style="width:110px; margin: 0 30px 20px 0"/>
 
-Aspose.Slides for C++ เป็นไลบรารี C++ เนทีฟสำหรับสร้าง อ่าน แก้ไข และแปลงงานนำเสนอ PowerPoint และ OpenDocument โดยไม่ต้องใช้ Microsoft PowerPoint หรือ Office Automation.
+Aspose.Slides for C++ เป็นไลบรารี C++ เนทีฟสำหรับการสร้าง, อ่าน, แก้ไข และแปลงงานนำเสนอ PowerPoint และ OpenDocument โดยไม่ต้องใช้ Microsoft PowerPoint หรือ Office Automation.
 
-ไลบรารีนี้สามารถโหลดและบันทึกไฟล์ PPT, PPTX, PPS, POT และ ODP รวมถึงรูปแบบที่มีแมโครและเทมเพลตต่าง ๆ และสามารถส่งออกเป็น PDF, XPS, HTML, SVG, TIFF, Markdown และรูปภาพได้.
+มันสามารถโหลดและบันทึกไฟล์ PPT, PPTX, PPS, POT และ ODP, รวมถึงรูปแบบที่เปิดใช้งานมาโครและเทมเพลต, และส่งออกเป็น PDF, XPS, HTML, SVG, TIFF, Markdown และรูปภาพ.
 
 <div style="clear:both"></div>
 
@@ -50,10 +50,10 @@ Aspose.Slides for C++ เป็นไลบรารี C++ เนทีฟส�
 <li><a href="/slides/th/cpp/open-presentation/">เปิดงานนำเสนอ</a></li>
 <li><a href="/slides/th/cpp/save-presentation/">บันทึกงานนำเสนอ</a></li>
 <li><a href="/slides/th/cpp/convert-powerpoint-to-pdf/">แปลงเป็น PDF</a></li>
-<li><a href="/slides/th/cpp/convert-slide/">เรนเดอร์สไลด์เป็นภาพ</a></li>
+<li><a href="/slides/th/cpp/convert-slide/">แสดงสไลด์เป็นรูปภาพ</a></li>
 <li><a href="/slides/th/cpp/manage-text/">แก้ไขข้อความและรูปทรง</a></li>
 </ul>
-<p>เวิร์กโฟลว์ของ Slides</p>
+<p>ขั้นตอนการทำงานของ Slides</p>
 <ul>
 <li><a href="/slides/th/cpp/powerpoint-charts/">แผนภูมิ</a></li>
 <li><a href="/slides/th/cpp/powerpoint-animation/">การเคลื่อนไหว</a></li>
@@ -63,24 +63,25 @@ Aspose.Slides for C++ เป็นไลบรารี C++ เนทีฟส�
 </ul>
 <p>ตัวอย่าง</p>
 <ul>
-<li><a href="/slides/th/cpp/examples/">ตัวอย่างตามส่วนประกอบของสไลด์</a></li>
+<li><a href="/slides/th/cpp/examples/">ตัวอย่างตามองค์ประกอบสไลด์</a></li>
 <li><a href="https://github.com/aspose-slides/Aspose.Slides-for-C">ตัวอย่างบน GitHub</a></li>
 </ul>
 </div>
 <div class="col-md-4">
-<p><b>อ้างอิงและสนับสนุน</b></p>
+<p><b>อ้างอิง &amp; สนับสนุน</b></p>
 <hr>
 <p>อ้างอิง</p>
 <ul>
 <li><a href="https://reference.aspose.com/slides/cpp/">เอกสารอ้างอิง API</a></li>
-<li><a href="https://releases.aspose.com/slides/cpp/release-notes/">บันทึกการอัปเดต</a></li>
+<li><a href="https://releases.aspose.com/slides/cpp/release-notes/">บันทึกการปล่อยเวอร์ชัน</a></li>
 <li><a href="/slides/th/cpp/known-issues/">ปัญหาที่ทราบ</a></li>
+<li><a href="https://products.aspose.com/slides/cpp/">หน้าผลิตภัณฑ์</a></li>
 <li><a href="https://releases.aspose.com/slides/cpp/">ดาวน์โหลด</a></li>
 </ul>
 <p>สนับสนุน</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/11">ฟอรัมสนับสนุนฟรี</a></li>
-<li><a href="https://helpdesk.aspose.com/">ศูนย์ช่วยเหลือสนับสนุนแบบชำระเงิน</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">ฟอรั่มสนับสนุนฟรี</a></li>
+<li><a href="https://helpdesk.aspose.com/">ศูนย์ช่วยเหลือสนับสนุนแบบเสียค่าใช้จ่าย</a></li>
 </ul>
 </div>
 </div>
@@ -89,15 +90,15 @@ Aspose.Slides for C++ เป็นไลบรารี C++ เนทีฟส�
 
 ## **งานนำเสนอแรกของคุณ**
 
-บน Windows ให้สร้างโครงการ **Console App** C++ ใน Visual Studio และติดตั้งแพ็กเกจ NuGet ผ่าน Package Manager Console (**Tools** > **NuGet Package Manager** > **Package Manager Console**):
+บน Windows, สร้างโปรเจกต์ C++ **Console App** ใน Visual Studio และติดตั้งแพคเกจ NuGet ผ่าน Package Manager Console (**Tools** > **NuGet Package Manager** > **Package Manager Console**):
 
 ```powershell
 Install-Package Aspose.Slides.Cpp
 ```
 
-บน Linux ให้ดาวน์โหลดแพ็กเกจ ZIP สำหรับ Linux และตั้งค่าโปรเจกต์ CMake ตามที่อธิบายในหน้า [Installation](/slides/th/cpp/installation/#linux).
+บน Linux, ดาวน์โหลดแพคเกจ ZIP สำหรับ Linux และตั้งค่าโปรเจกต์ CMake ตามที่อธิบายใน [การติดตั้ง](/slides/th/cpp/installation/#linux).
 
-จากนั้นใช้โค้ดนี้เป็นไฟล์ซอร์สหลักของโปรแกรม มันจะสร้างงานนำเสนอที่มีกล่องข้อความหนึ่งกล่องและบันทึกไฟล์:
+จากนั้นใช้โค้ดนี้เป็นไฟล์ซอร์สหลักของโปรแกรม มันสร้างงานนำเสนอที่มีช่องข้อความหนึ่งและบันทึกไว้:
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -125,7 +126,7 @@ int main()
 }
 ```
 
-เพื่อเรียกใช้บน Windows ให้เลือกแพลตฟอร์ม **x64** ในแถบเครื่องมือและกด **Ctrl+F5**. บน Linux ให้บันทึกเป็น *main.cpp* ในโฟลเดอร์โปรเจกต์ จากนั้นคอมไพล์และรันที่นั่น:
+ในการรันบน Windows, เลือกแพลตฟอร์ม **x64** ในแถบเครื่องมือและกด **Ctrl+F5**. บน Linux, บันทึกเป็น *main.cpp* ในโฟลเดอร์โปรเจกต์, แล้วทำการคอมไพล์และรันที่นั่น:
 
 ```bash
 cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
@@ -133,4 +134,4 @@ cmake --build build
 ./build/hello
 ```
 
-โปรแกรมบันทึกไฟล์ *hello.pptx* ที่มีสไลด์หนึ่งสไลด์ซึ่งมีกล่องข้อความ หากไม่มีลิขสิทธิ์ ไฟล์ที่บันทึกจะมีลายน้ำการประเมิน — ดูที่ [Licensing](/slides/th/cpp/licensing/). สำหรับวิธีเพิ่มเติมในการสร้างและเติมเนื้อหาในงานนำเสนอ โปรดดูที่ [Create Presentations](/slides/th/cpp/create-presentation/).
+โปรแกรมบันทึกไฟล์ *hello.pptx* ที่มีสไลด์หนึ่งซึ่งมีช่องข้อความ หากไม่มีใบอนุญาตไฟล์ที่บันทึกจะมีลายน้ำการประเมิน — ดูที่ [การให้สิทธิ์ใช้งาน](/slides/th/cpp/licensing/). สำหรับวิธีเพิ่มเติมในการสร้างและเติมข้อมูลในงานนำเสนอ, ดูที่ [สร้างงานนำเสนอ](/slides/th/cpp/create-presentation/).

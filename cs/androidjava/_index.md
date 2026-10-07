@@ -1,26 +1,26 @@
 ---
-title: Aspose.Slides for Android via Java
-second_title: Aspose.Slides for Android
+title: Aspose.Slides pro Android pomocí Javy
+second_title: Aspose.Slides pro Android
 type: docs
 weight: 40
 url: /cs/androidjava/
 keywords:
 - dokumentace
 - zpracování prezentací
-- převod prezentací
+- konverze prezentací
 - PowerPoint
 - OpenDocument
 - Android
 - Java
 - Aspose.Slides
-description: "Začněte zde: přidejte Aspose.Slides for Android via Java do své aplikace, vytvořte první prezentaci a najděte průvodce pro běžné úkoly, referenci API a podporu."
+description: "Začněte zde: přidejte Aspose.Slides pro Android pomocí Javy do své aplikace, vytvořte první prezentaci a najděte průvodce pro běžné úkoly, referenční API a podporu."
 is_root: true
 ---
 <img src="home_1.png" alt="Aspose.Slides for Android via Java" align="left" style="width:110px; margin: 0 30px 20px 0"/>
 
-Aspose.Slides for Android via Java je knihovna tříd pro vytváření, čtení, úpravy a převod prezentací PowerPoint a OpenDocument v aplikacích Android, bez Microsoft PowerPoint.
+Aspose.Slides for Android via Java je knihovna tříd pro vytváření, čtení, úpravu a převod prezentací PowerPoint a OpenDocument v Android aplikacích, bez Microsoft PowerPoint.
 
-Načítá a ukládá soubory PPT, PPTX, PPS, POT a ODP, včetně variant s makry a šablon, a exportuje do PDF, XPS, HTML, SVG, TIFF, Markdown a obrázků.
+Načítá a ukládá soubory PPT, PPTX, PPS, POT a ODP, včetně variant s makry a šablonami, a exportuje do PDF, XPS, HTML, SVG, TIFF, Markdown a obrázků.
 
 <div style="clear:both"></div>
 
@@ -30,23 +30,23 @@ Načítá a ukládá soubory PPT, PPTX, PPS, POT a ODP, včetně variant s makry
 <div class="col-md-4">
 <p><b>Začínáme</b></p>
 <hr>
-<p>ZAČÁTEK</p>
+<p>Začínáme</p>
 <ul>
 <li><a href="/slides/cs/androidjava/install-aspose-slides-for-android-via-java/">Instalace</a></li>
 <li><a href="/slides/cs/androidjava/create-presentation/">Vytvořte svou první prezentaci</a></li>
-<li><a href="/slides/cs/androidjava/getting-started/">Průvodce začátkem</a></li>
+<li><a href="/slides/cs/androidjava/getting-started/">Průvodce pro začátek</a></li>
 </ul>
-<p>HODNOCENÍ</p>
+<p>EVALUACE</p>
 <ul>
 <li><a href="/slides/cs/androidjava/supported-file-formats/">Podporované formáty souborů</a></li>
-<li><a href="/slides/cs/androidjava/evaluate-aspose-slides/">Omezení verze trial</a></li>
+<li><a href="/slides/cs/androidjava/evaluate-aspose-slides/">Omezení trial verze</a></li>
 <li><a href="/slides/cs/androidjava/licensing/">Licencování</a></li>
 </ul>
 </div>
 <div class="col-md-4">
-<p><b>Vytvářejte pomocí Slides</b></p>
+<p><b>Vytvářejte s Slides</b></p>
 <hr>
-<p>Běžné úkoly</p>
+<p>OBECNÉ ÚKOLY</p>
 <ul>
 <li><a href="/slides/cs/androidjava/open-presentation/">Otevřít prezentaci</a></li>
 <li><a href="/slides/cs/androidjava/save-presentation/">Uložit prezentaci</a></li>
@@ -54,7 +54,7 @@ Načítá a ukládá soubory PPT, PPTX, PPS, POT a ODP, včetně variant s makry
 <li><a href="/slides/cs/androidjava/convert-slide/">Vykreslit snímky jako obrázky</a></li>
 <li><a href="/slides/cs/androidjava/manage-text/">Upravit text a tvary</a></li>
 </ul>
-<p>Pracovní postupy Slides</p>
+<p>WORKFLOWY SLIDES</p>
 <ul>
 <li><a href="/slides/cs/androidjava/powerpoint-charts/">Grafy</a></li>
 <li><a href="/slides/cs/androidjava/powerpoint-animation/">Animace</a></li>
@@ -68,19 +68,20 @@ Načítá a ukládá soubory PPT, PPTX, PPS, POT a ODP, včetně variant s makry
 </ul>
 </div>
 <div class="col-md-4">
-<p><b>Reference &amp; Podpora</b></p>
+<p><b>Reference a podpora</b></p>
 <hr>
-<p>REFERENCE</p>
+<p>REFERENČNÍ</p>
 <ul>
 <li><a href="https://reference.aspose.com/slides/androidjava/">Reference API</a></li>
 <li><a href="https://releases.aspose.com/slides/androidjava/release-notes/">Poznámky k vydání</a></li>
 <li><a href="/slides/cs/androidjava/known-issues/">Známé problémy</a></li>
-<li><a href="https://releases.aspose.com/slides/androidjava/">Stažení</a></li>
+<li><a href="https://products.aspose.com/slides/android-java/">Produktová stránka</a></li>
+<li><a href="https://releases.aspose.com/slides/androidjava/">Stáhnout</a></li>
 </ul>
-<p>PODPOŘA</p>
+<p>PODPORA</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/11">Bezplatné fórum podpory</a></li>
-<li><a href="https://helpdesk.aspose.com/">Placená podpora</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">Fórum zdarma</a></li>
+<li><a href="https://helpdesk.aspose.com/">Placená podpora helpdesk</a></li>
 </ul>
 </div>
 </div>
@@ -89,7 +90,7 @@ Načítá a ukládá soubory PPT, PPTX, PPS, POT a ODP, včetně variant s makry
 
 ## **Vaše první prezentace**
 
-Knihovna pochází z Maven repozitáře Aspose. Nové projekty Android Studio již obsahují blok `dependencyResolutionManagement` v *settings.gradle.kts*. Přidejte řádek `maven` zobrazený níže do bloku `repositories` uvnitř něj, místo vložení druhého bloku:
+Knihovna pochází z Maven repozitáře společnosti Aspose. Nové projekty Android Studio již mají blok `dependencyResolutionManagement` v *settings.gradle.kts*. Přidejte řádek `maven` uvedený níže do bloku `repositories` uvnitř něj, místo vkládání druhého bloku:
 
 ```kotlin
 dependencyResolutionManagement {
@@ -110,4 +111,4 @@ dependencies {
 }
 ```
 
-[Instalace](/slides/cs/androidjava/install-aspose-slides-for-android-via-java/) pokrývá Groovy skripty sestavení, ruční JAR soubor a jak vybrat verzi. Kód pro vaši první prezentaci najdete na [Vytvořte prezentace](/slides/cs/androidjava/create-presentation/): přidá textové pole do snímku a uloží prezentaci do úložiště vaší aplikace. Tento příklad byl zkompilován a zabalen do APK; nebyl spuštěn na zařízení. Bez licence mají uložené prezentace vodotisk evaluace — viz [Licencování](/slides/cs/androidjava/licensing/).
+[Instalace](/slides/cs/androidjava/install-aspose-slides-for-android-via-java/) pokrývá skripty Groovy, ruční JAR soubor a jak vybrat verzi. Kód vaší první prezentace je na [Vytvořit prezentace](/slides/cs/androidjava/create-presentation/): přidá textové pole na snímek a uloží prezentaci do úložiště vaší aplikace. Tento ukázkový kód byl zkompilován a vytvořen jako APK; nebyl spuštěn na zařízení. Bez licence mají uložené prezentace vodoznak pro hodnocení — viz [Licencování](/slides/cs/androidjava/licensing/).

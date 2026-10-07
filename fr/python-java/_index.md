@@ -10,7 +10,7 @@ keywords:
 - Bibliothèque PowerPoint Python
 - gérer des présentations PowerPoint en Python
 - lire et écrire PowerPoint en Python
-- modifier des diapositives PowerPoint en Python
+- modifier les diapositives PowerPoint en Python
 - exporter PowerPoint en PDF en Python
 - exporter PowerPoint en SVG en Python
 - prévisualiser les diapositives en Python
@@ -19,13 +19,13 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Commencez ici : installez Aspose.Slides pour Python via Java, créez une première présentation, et trouvez les guides pour les tâches courantes, la référence API et le support."
+description: "Commencez ici: installez Aspose.Slides pour Python via Java, créez une première présentation, et trouvez les guides pour les tâches courantes, la référence API et le support."
 ---
-<img src="aspose_slides-for-python-via-java.png" alt="Aspose.Slides for Python via Java" align="left" style="width:110px; margin: 0 30px 20px 0"/>
+<img src="aspose_slides-for-python-via-java.png" alt="Aspose.Slides pour Python via Java" align="left" style="width:110px; margin: 0 30px 20px 0"/>
 
 Aspose.Slides for Python via Java est une bibliothèque permettant de créer, lire, modifier et convertir des présentations PowerPoint et OpenDocument dans des applications Python, sans Microsoft PowerPoint ; elle exécute le moteur Java Aspose.Slides dans votre processus Python via JPype.
 
-Elle charge et enregistre les formats PPT, PPTX, PPS, POT et ODP, y compris les variantes macro‑activées et les modèles, et exporte vers PDF, XPS, HTML, SVG, TIFF, Markdown et images.
+Elle charge et enregistre les fichiers PPT, PPTX, PPS, POT et ODP, y compris les variantes avec macros et les modèles, et exporte vers PDF, XPS, HTML, SVG, TIFF, Markdown et images.
 
 <div style="clear:both"></div>
 
@@ -65,7 +65,7 @@ Elle charge et enregistre les formats PPT, PPTX, PPS, POT et ODP, y compris les 
 <li><a href="/slides/fr/python-java/powerpoint-animation/">Animations</a></li>
 <li><a href="/slides/fr/python-java/manage-media-files/">Audio et vidéo</a></li>
 <li><a href="/slides/fr/python-java/presentation-design/">Conception de diapositives</a></li>
-<li><a href="/slides/fr/python-java/merge-presentation/">Fusionner des présentations</a></li>
+<li><a href="/slides/fr/python-java/merge-presentation/">Fusionner les présentations</a></li>
 </ul>
 <p>EXEMPLES</p>
 <ul>
@@ -73,19 +73,20 @@ Elle charge et enregistre les formats PPT, PPTX, PPS, POT et ODP, y compris les 
 </ul>
 </div>
 <div class="col-md-4">
-<p><b>Référence &amp; Assistance</b></p>
+<p><b>Référence &amp; Support</b></p>
 <hr>
 <p>RÉFÉRENCE</p>
 <ul>
 <li><a href="https://reference.aspose.com/slides/python-java/">Référence API</a></li>
 <li><a href="https://releases.aspose.com/slides/python-java/release-notes/">Notes de version</a></li>
 <li><a href="/slides/fr/python-java/known-issues/">Problèmes connus</a></li>
-<li><a href="https://releases.aspose.com/slides/python-java/">Téléchargement</a></li>
+<li><a href="https://products.aspose.com/slides/python-java/">Page produit</a></li>
+<li><a href="https://releases.aspose.com/slides/python-java/">Télécharger</a></li>
 </ul>
 <p>SUPPORT</p>
 <ul>
 <li><a href="https://forum.aspose.com/c/slides/11">Forum d'assistance gratuit</a></li>
-<li><a href="https://helpdesk.aspose.com/">Service d'assistance payant</a></li>
+<li><a href="https://helpdesk.aspose.com/">Assistance payante</a></li>
 </ul>
 </div>
 </div>
@@ -111,26 +112,26 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import Presentation, SaveFormat, ShapeType
 
-# Créez une présentation avec une diapositive vierge.
+# Créer une présentation avec une diapositive vierge.
 presentation = Presentation()
 try:
-    # Obtenez la première diapositive.
+    # Obtenir la première diapositive.
     slide = presentation.getSlides().get_Item(0)
 
-    # Ajoutez une forme nuage et définissez son texte.
+    # Ajouter une forme nuage et définir son texte.
     auto_shape = slide.getShapes().addAutoShape(ShapeType.Cloud, 20, 20, 200, 80)
     auto_shape.getTextFrame().setText("Hello, Aspose!")
 
-    # Enregistrez la présentation au format PPTX.
+    # Enregistrer la présentation au format PPTX.
     presentation.save("new_presentation.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-Exécutez‑le dans le même environnement virtuel :
+Exécutez-le dans le même environnement virtuel :
 
 ```sh
 python hello.py
 ```
 
-Le script enregistre *new_presentation.pptx* avec une diapositive contenant une forme nuage avec le texte « Hello, Aspose! ». Sans licence, le fichier enregistré comporte également un filigrane d'évaluation — voir [Licensing](/slides/fr/python-java/licensing/). Pour plus de méthodes de création et de remplissage d'une présentation, consultez [Create Presentations](/slides/fr/python-java/create-presentation/).
+Le script enregistre *new_presentation.pptx* avec une diapositive contenant une forme nuage avec le texte "Hello, Aspose!". Sans licence, le fichier enregistré comporte également un filigrane d'évaluation — voir [Licence](/slides/fr/python-java/licensing/). Pour d'autres manières de créer et remplir une présentation, voir [Créer des présentations](/slides/fr/python-java/create-presentation/).

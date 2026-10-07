@@ -8,13 +8,13 @@ is_root: true
 keywords:
 - Aspose.Slides for Python via Java
 - Python PowerPoint kitaplığı
-- Python'da PowerPoint sunumlarını yönet
-- Python'da PowerPoint okuyup yaz
-- Python'da PowerPoint slaytlarını düzenle
-- Python'da PowerPoint'i PDF olarak dışa aktar
-- Python'da PowerPoint'i SVG olarak dışa aktar
-- Python'da slaytları ön izleme
-- Python'da slaytlara ses ve video ekle
+- Python'da PowerPoint sunumlarını yönetin
+- Python'da PowerPoint oku ve yaz
+- Python'da PowerPoint slaytlarını düzenleyin
+- Python'da PowerPoint'i PDF'e dışa aktar
+- Python'da PowerPoint'i SVG'ye dışa aktar
+- Python'da slaytları önizleyin
+- Python'da slaytlara ses ve video ekleyin
 - Microsoft Office olmadan PowerPoint
 - Python
 - Java
@@ -23,9 +23,9 @@ description: "Buradan başlayın: Aspose.Slides for Python via Java'ı kurun, il
 ---
 <img src="aspose_slides-for-python-via-java.png" alt="Aspose.Slides for Python via Java" align="left" style="width:110px; margin: 0 30px 20px 0"/>
 
-Aspose.Slides for Python via Java, Microsoft PowerPoint olmadan Python uygulamalarında PowerPoint ve OpenDocument sunumları oluşturmak, okumak, düzenlemek ve dönüştürmek için bir kütüphanedir; JPype aracılığıyla Python işleminizde Aspose.Slides Java motorunu çalıştırır.
+Aspose.Slides for Python via Java, Microsoft PowerPoint olmadan Python uygulamalarında PowerPoint ve OpenDocument sunumları oluşturmak, okumak, düzenlemek ve dönüştürmek için bir kütüphanedir; JPype aracılığıyla Python sürecinizde Aspose.Slides Java motorunu çalıştırır.
 
-PPT, PPTX, PPS, POT ve ODP formatlarını, makro etkin ve şablon çeşitlerini yükler ve kaydeder; ayrıca PDF, XPS, HTML, SVG, TIFF, Markdown ve görüntü formatlarına dışa aktarır.
+Makro kullanan ve şablon varyantları dahil olmak üzere PPT, PPTX, PPS, POT ve ODP dosyalarını yükler ve kaydeder, ayrıca PDF, XPS, HTML, SVG, TIFF, Markdown ve görüntülere dışa aktarır.
 
 <div style="clear:both"></div>
 
@@ -33,13 +33,13 @@ PPT, PPTX, PPS, POT ve ODP formatlarını, makro etkin ve şablon çeşitlerini 
 
 <div class="row">
 <div class="col-md-4">
-<p><b>Başlarken</b></p>
+<p><b>Başlayın</b></p>
 <hr>
 <p>BAŞLANGIÇ</p>
 <ul>
 <li><a href="/slides/tr/python-java/installation/">Kurulum</a></li>
 <li><a href="/slides/tr/python-java/create-presentation/">İlk sunumunuzu oluşturun</a></li>
-<li><a href="/slides/tr/python-java/getting-started/">Başlangıç rehberi</a></li>
+<li><a href="/slides/tr/python-java/getting-started/">Başlangıç kılavuzu</a></li>
 </ul>
 <p>DEĞERLENDİR</p>
 <ul>
@@ -53,19 +53,19 @@ PPT, PPTX, PPS, POT ve ODP formatlarını, makro etkin ve şablon çeşitlerini 
 <hr>
 <p>ORTAK GÖREVLER</p>
 <ul>
-<li><a href="/slides/tr/python-java/open-presentation/">Sunumu aç</a></li>
-<li><a href="/slides/tr/python-java/save-presentation/">Sunumu kaydet</a></li>
-<li><a href="/slides/tr/python-java/convert-powerpoint-to-pdf/">PDF'ye dönüştür</a></li>
-<li><a href="/slides/tr/python-java/convert-slide/">Slaytları resim olarak işleme</a></li>
-<li><a href="/slides/tr/python-java/manage-text/">Metin ve şekilleri düzenle</a></li>
+<li><a href="/slides/tr/python-java/open-presentation/">Bir sunumu açın</a></li>
+<li><a href="/slides/tr/python-java/save-presentation/">Bir sunumu kaydedin</a></li>
+<li><a href="/slides/tr/python-java/convert-powerpoint-to-pdf/">PDF'ye dönüştürün</a></li>
+<li><a href="/slides/tr/python-java/convert-slide/">Slaytları görsel olarak render edin</a></li>
+<li><a href="/slides/tr/python-java/manage-text/">Metin ve şekilleri düzenleyin</a></li>
 </ul>
-<p>SLAYT İŞ AKIŞLARI</p>
+<p>SLIDES İŞ AKIŞLARI</p>
 <ul>
 <li><a href="/slides/tr/python-java/powerpoint-charts/">Grafikler</a></li>
 <li><a href="/slides/tr/python-java/powerpoint-animation/">Animasyonlar</a></li>
 <li><a href="/slides/tr/python-java/manage-media-files/">Ses ve video</a></li>
 <li><a href="/slides/tr/python-java/presentation-design/">Slayt tasarımı</a></li>
-<li><a href="/slides/tr/python-java/merge-presentation/">Sunumları birleştir</a></li>
+<li><a href="/slides/tr/python-java/merge-presentation/">Sunumları birleştirin</a></li>
 </ul>
 <p>ÖRNEKLER</p>
 <ul>
@@ -80,12 +80,13 @@ PPT, PPTX, PPS, POT ve ODP formatlarını, makro etkin ve şablon çeşitlerini 
 <li><a href="https://reference.aspose.com/slides/python-java/">API referansı</a></li>
 <li><a href="https://releases.aspose.com/slides/python-java/release-notes/">Sürüm notları</a></li>
 <li><a href="/slides/tr/python-java/known-issues/">Bilinen sorunlar</a></li>
-<li><a href="https://releases.aspose.com/slides/python-java/">İndir</a></li>
+<li><a href="https://products.aspose.com/slides/python-java/">Ürün sayfası</a></li>
+<li><a href="https://releases.aspose.com/slides/python-java/">İndirme</a></li>
 </ul>
 <p>DESTEK</p>
 <ul>
 <li><a href="https://forum.aspose.com/c/slides/11">Ücretsiz destek forumu</a></li>
-<li><a href="https://helpdesk.aspose.com/">Ücretli destek hizmet masası</a></li>
+<li><a href="https://helpdesk.aspose.com/">Ücretli destek yardım masası</a></li>
 </ul>
 </div>
 </div>
@@ -94,24 +95,24 @@ PPT, PPTX, PPS, POT ve ODP formatlarını, makro etkin ve şablon çeşitlerini 
 
 ## **İlk sunumunuz**
 
-Python ve bir JDK kurun, `JAVA_HOME` değişkenini ayarlayın ve [Kurulum](/slides/tr/python-java/installation/) bölümünde açıklandığı gibi sanal ortam oluşturup etkinleştirin. Ardından PyPI'dan JPype ve Aspose.Slides'i yükleyin:
+Python ve bir JDK kurun, `JAVA_HOME` ayarlayın ve [Kurulum](/slides/tr/python-java/installation/) bölümünde açıklandığı gibi bir sanal ortam oluşturup etkinleştirin. Ardından JPype ve Aspose.Slides'ı PyPI'dan kurun:
 
 ```sh
 python -m pip install JPype1 aspose-slides-java
 ```
 
-Bu kodu *hello.py* olarak kaydedin. Bu, Java Sanal Makinesini başlatır, yeni bir sunumun ilk slaytına metinli bir bulut şekli ekler ve sunumu kaydeder:
+*hello.py* olarak kaydedin. Bu, Java Sanal Makinesini başlatır, yeni bir sunumun ilk slaytına metin içeren bir bulut şekli ekler ve sunumu kaydeder:
 
 ```python
 import jpype
 import asposeslides
 
-if not jpype.isJVMStarted():
+if not jpode.isJVMStarted():
     jpype.startJVM()
 
 from asposeslides.api import Presentation, SaveFormat, ShapeType
 
-# Bir boş slayt ile bir sunum oluştur.
+# Bir sunum oluştur ve bir boş slayt ekle.
 presentation = Presentation()
 try:
     # İlk slaytı al.
@@ -133,4 +134,4 @@ Aynı sanal ortamda çalıştırın:
 python hello.py
 ```
 
-Betik, “Hello, Aspose!” metniyle bulut şekli içeren bir slaytı *new_presentation.pptx* olarak kaydeder. Lisans olmadan kaydedilen dosya bir değerlendirme filigranı taşır — [Lisanslama](/slides/tr/python-java/licensing/) bölümüne bakın. Sunum oluşturmak ve doldurmak için daha fazla yöntem görmek isterseniz [Sunum Oluşturma](/slides/tr/python-java/create-presentation/) sayfasına bakın.
+Komut dosyası, "Hello, Aspose!" metniyle bir bulut şekli içeren bir slaytı olan *new_presentation.pptx* dosyasını kaydeder. Lisans olmadan, kaydedilen dosya ayrıca bir değerlendirme filigranı içerir — [Lisanslama](/slides/tr/python-java/licensing/) bölümüne bakın. Sunum oluşturmak ve doldurmak için daha fazla yol için [Sunumları Oluştur](/slides/tr/python-java/create-presentation/) bölümüne bakın.

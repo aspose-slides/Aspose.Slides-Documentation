@@ -6,8 +6,8 @@ weight: 45
 url: /sv/php-java/
 keywords:
 - dokumentation
-- presentation bearbetning
-- presentation konvertering
+- presentationbearbetning
+- presentationkonvertering
 - PowerPoint
 - OpenDocument
 - PHP
@@ -17,9 +17,9 @@ is_root: true
 ---
 <img src="aspose_slides-for-php-via-java.png" alt="Aspose.Slides för PHP via Java" align="left" style="width:110px; margin: 0 30px 20px 0"/>
 
-Aspose.Slides för PHP via Java är ett klassbibliotek för att skapa, läsa, redigera och konvertera PowerPoint‑ och OpenDocument‑presentationer i PHP‑applikationer, utan Microsoft PowerPoint eller Office‑automation.
+Aspose.Slides för PHP via Java är ett klassbibliotek för att skapa, läsa, redigera och konvertera PowerPoint- och OpenDocument-presentationer i PHP‑applikationer, utan Microsoft PowerPoint eller Office‑automation.
 
-Den laddar och sparar PPT, PPTX, PPS, POT och ODP, inklusive makro‑aktiverade och mall‑varianter, och exporterar till PDF, XPS, HTML, SVG, TIFF, Markdown och bilder.
+Det laddar och sparar PPT, PPTX, PPS, POT och ODP, inklusive makro‑aktiverade och mallvarianter, och exporterar till PDF, XPS, HTML, SVG, TIFF, Markdown och bilder.
 
 <div style="clear:both"></div>
 
@@ -33,37 +33,37 @@ Den laddar och sparar PPT, PPTX, PPS, POT och ODP, inklusive makro‑aktiverade 
 <ul>
 <li><a href="/slides/sv/php-java/installation/">Installation</a></li>
 <li><a href="/slides/sv/php-java/create-presentation/">Skapa din första presentation</a></li>
-<li><a href="/slides/sv/php-java/getting-started/">Kom‑igång‑guide</a></li>
+<li><a href="/slides/sv/php-java/getting-started/">Kom igång guide</a></li>
 </ul>
 <p>UTVÄRDERA</p>
 <ul>
-<li><a href="/slides/sv/php-java/supported-file-formats/">Stödda filformat</a></li>
-<li><a href="/slides/sv/php-java/evaluate-aspose-slides/">Begränsningar för provversion</a></li>
+<li><a href="/slides/sv/php-java/supported-file-formats/">Filformat som stöds</a></li>
+<li><a href="/slides/sv/php-java/evaluate-aspose-slides/">Begränsningar i provversionen</a></li>
 <li><a href="/slides/sv/php-java/licensing/">Licensiering</a></li>
 </ul>
 </div>
 <div class="col-md-4">
 <p><b>Bygg med Slides</b></p>
 <hr>
-<p>VANLIGA UPPGIFTER</p>
+<p>ALLMÄNNA UPPGIFTER</p>
 <ul>
 <li><a href="/slides/sv/php-java/open-presentation/">Öppna en presentation</a></li>
 <li><a href="/slides/sv/php-java/save-presentation/">Spara en presentation</a></li>
 <li><a href="/slides/sv/php-java/convert-powerpoint-to-pdf/">Konvertera till PDF</a></li>
-<li><a href="/slides/sv/php-java/convert-slide/">Rendera bilder som bilder</a></li>
+<li><a href="/slides/sv/php-java/convert-slide/">Rendera bildspel som bilder</a></li>
 <li><a href="/slides/sv/php-java/manage-text/">Redigera text och former</a></li>
 </ul>
-<p>SLIDES ARBETSFÖRLOP</p>
+<p>SLIDES‑FLÖDEN</p>
 <ul>
 <li><a href="/slides/sv/php-java/powerpoint-charts/">Diagram</a></li>
 <li><a href="/slides/sv/php-java/powerpoint-animation/">Animationer</a></li>
 <li><a href="/slides/sv/php-java/manage-media-files/">Audio och video</a></li>
 <li><a href="/slides/sv/php-java/presentation-design/">Slide‑design</a></li>
-<li><a href="/slides/sv/php-java/merge-presentation/">Sammanfoga presentationer</a></li>
+<li><a href="/slides/sv/php-java/merge-presentation/">Slå ihop presentationer</a></li>
 </ul>
 <p>EXEMPEL</p>
 <ul>
-<li><a href="/slides/sv/php-java/examples/">Exempel per slide‑element</a></li>
+<li><a href="/slides/sv/php-java/examples/">Exempel efter bild‑element</a></li>
 </ul>
 </div>
 <div class="col-md-4">
@@ -74,6 +74,7 @@ Den laddar och sparar PPT, PPTX, PPS, POT och ODP, inklusive makro‑aktiverade 
 <li><a href="https://reference.aspose.com/slides/php-java/">API‑referens</a></li>
 <li><a href="https://releases.aspose.com/slides/php-java/release-notes/">Versionsanteckningar</a></li>
 <li><a href="/slides/sv/php-java/known-issues/">Kända problem</a></li>
+<li><a href="https://products.aspose.com/slides/php-java/">Produktsida</a></li>
 <li><a href="https://releases.aspose.com/slides/php-java/">Ladda ner</a></li>
 </ul>
 <p>SUPPORT</p>
@@ -88,7 +89,7 @@ Den laddar och sparar PPT, PPTX, PPS, POT och ODP, inklusive makro‑aktiverade 
 
 ## **Din första presentation**
 
-Aspose.Slides för PHP via Java kör på Java i Apache Tomcat, och dina PHP‑skript når den via PHP/Java Bridge. [Installation](/slides/sv/php-java/installation/) installerar PHP 8.3 eller tidigare, Java, Tomcat och bryggan, och installerar sedan paketet från Packagist i en projektmapp:
+Aspose.Slides för PHP via Java körs på Java inuti Apache Tomcat, och dina PHP‑skript når den via PHP/Java Bridge. [Installation](/slides/sv/php-java/installation/) installerar PHP 8.3 eller tidigare, Java, Tomcat och bryggan, och installerar sedan paketet från Packagist i en projektmapp:
 
 ```bash
 composer require aspose/slides
@@ -99,7 +100,7 @@ Kopiera sedan paketets JAR‑fil till bryggan och starta om Tomcat, som i steg 4
 ```php
 <?php
 require_once("http://localhost:8080/JavaBridge/java/Java.inc");
-require_once(__DIR__ . "/vendor/aspose/slides/sv/lib/aspose.slides.php");
+require_once(__DIR__ . "/vendor/aspose/slides/lib/aspose.slides.php");
 
 use aspose\slides\Presentation;
 use aspose\slides\SaveFormat;
@@ -116,4 +117,4 @@ try {
 }
 ```
 
-Skriptet sparar *hello.pptx* bredvid sig själv, med en slide som innehåller en textruta. Utan licens innehåller den sparade filen ett utvärderings‑vattenstämpel — se [Licensiering](/slides/sv/php-java/licensing/). För fler sätt att skapa och fylla en presentation, se [Create Presentations](/slides/sv/php-java/create-presentation/).
+Scriptet sparar *hello.pptx* bredvid sig själv, med en bild som innehåller en textruta. Utan licens innehåller den sparade filen ett utvärderings‑vattenstämpel — se [Licensing](/slides/sv/php-java/licensing/). För fler sätt att skapa och fylla en presentation, se [Create Presentations](/slides/sv/php-java/create-presentation/).

@@ -1,6 +1,6 @@
 ---
-title: Aspose.Slides for JasperReports
-second_title: Aspose.Slides for JasperReports
+title: Aspose.Slides för JasperReports
+second_title: Aspose.Slides för JasperReports
 type: docs
 weight: 70
 url: /sv/jasperreports/
@@ -14,12 +14,12 @@ keywords:
 - PPTX
 - Java
 - Aspose.Slides
-description: "Börja här: installera Aspose.Slides for JasperReports, exportera en första rapport till PowerPoint, och hitta guiderna för export, JasperReports Server-integration och support."
+description: "Börja här: installera Aspose.Slides för JasperReports, exportera en första rapport till PowerPoint, och hitta guiderna för export, JasperReports Server‑integration och support."
 is_root: true
 ---
 <img src="home_1.png" alt="Aspose.Slides for JasperReports" align="left" style="width:110px; margin: 0 30px 20px 0"/>
 
-Aspose.Slides for JasperReports lägger till PowerPoint‑exportörer i JasperReports Library och JasperReports Server, så att Java‑applikationer och rapportservrar kan spara ifyllda rapporter som presentationer utan Microsoft PowerPoint.
+Aspose.Slides for JasperReports lägger till PowerPoint‑exportörer till JasperReports Library och JasperReports Server, så att Java‑applikationer och rapportservrar kan spara ifyllda rapporter som presentationer utan Microsoft PowerPoint.
 
 Den exporterar en ifylld rapport till PPT och PPTX, en bild per rapportsida, samt till PDF och HTML.
 
@@ -31,7 +31,7 @@ Den exporterar en ifylld rapport till PPT och PPTX, en bild per rapportsida, sam
 <div class="col-md-4">
 <p><b>Kom igång</b></p>
 <hr>
-<p>KOM IGÅNG</p>
+<p>GETTING STARTED</p>
 <ul>
 <li><a href="/slides/sv/jasperreports/installing-aspose-slides-for-jasperreports/">Installation</a></li>
 <li><a href="/slides/sv/jasperreports/product-overview/">Produktöversikt</a></li>
@@ -41,7 +41,7 @@ Den exporterar en ifylld rapport till PPT och PPTX, en bild per rapportsida, sam
 <p>UTVÄRDERA</p>
 <ul>
 <li><a href="/slides/sv/jasperreports/supported-file-formats/">Stödda filformat</a></li>
-<li><a href="/slides/sv/jasperreports/evaluate-aspose-slides/">Begränsningar i provversion</a></li>
+<li><a href="/slides/sv/jasperreports/evaluate-aspose-slides/">Begränsningar för provversion</a></li>
 <li><a href="/slides/sv/jasperreports/licensing/">Licensiering</a></li>
 </ul>
 </div>
@@ -51,20 +51,21 @@ Den exporterar en ifylld rapport till PPT och PPTX, en bild per rapportsida, sam
 <p>EXPORTERA</p>
 <ul>
 <li><a href="/slides/sv/jasperreports/ppt-pptx-pdf-and-html-export/">Exportera till PPT, PPTX, PDF och HTML</a></li>
-<li><a href="/slides/sv/jasperreports/ppt-pptx-pdf-and-html-export/#map-fonts">Kartlägg teckensnitt</a></li>
+<li><a href="/slides/sv/jasperreports/ppt-pptx-pdf-and-html-export/#map-fonts">Mappa teckensnitt</a></li>
 <li><a href="/slides/sv/jasperreports/integration-with-jasperserver/">JasperReports Server‑integration</a></li>
 </ul>
 <p>EXEMPEL</p>
 <ul>
-<li><a href="/slides/sv/jasperreports/demos-setup/">Demoprojekt</a></li>
+<li><a href="/slides/sv/jasperreports/demos-setup/">Demo‑projekt</a></li>
 </ul>
 </div>
 <div class="col-md-4">
-<p><b>Referens &amp; Support</b></p>
+<p><b>Referens &amp; support</b></p>
 <hr>
 <p>REFERENS</p>
 <ul>
-<li><a href="https://releases.aspose.com/slides/jasperreport/release-notes/">Versionsnoteringar</a></li>
+<li><a href="https://releases.aspose.com/slides/jasperreport/release-notes/">Versionsanteckningar</a></li>
+<li><a href="https://products.aspose.com/slides/jasperreports/">Produktsida</a></li>
 <li><a href="https://releases.aspose.com/slides/jasperreport/">Nedladdning</a></li>
 </ul>
 <p>SUPPORT</p>
@@ -81,15 +82,15 @@ Den exporterar en ifylld rapport till PPT och PPTX, en bild per rapportsida, sam
 
 Dessa steg kompilerar en enradig rapport, fyller den och exporterar den till PPTX med JasperReports 6.16.0 från Maven Central. Du behöver JDK 11 eller senare samt Apache Maven.
 
-1. Ladda ner ZIP‑filen från [download page](https://releases.aspose.com/slides/jasperreport/) och packa upp den. Dess *lib*-mapp har en underkatalog per JasperReports‑versionsintervall, och varje underkatalog innehåller JAR‑filen för det intervallet. För JasperReports 6.16.0, kopiera *lib/JasperReports 6.5.0 - 6.16.0 (JDK 1.6)/aspose.slides.jasperreports.library-26.6.jar* till en tom projektmapp.
+1. Ladda ner ZIP‑filen från [download page](https://releases.aspose.com/slides/jasperreport/) och packa upp den. Dess *lib*-mapp har en undermapp per intervall av JasperReports‑versioner, och varje mapp innehåller JAR‑filen för det intervallet. För JasperReports 6.16.0, kopiera *lib/JasperReports 6.5.0 - 6.16.0 (JDK 1.6)/aspose.slides.jasperreports.library-26.6.jar* till en tom projektmapp.
 
-2. JAR‑filen finns i ZIP‑filen istället för i ett Maven‑arkiv, så installera den i ditt lokala Maven‑arkiv. Kör följande kommando i projektmappen:
+2. JAR‑filen finns i ZIP‑filen snarare än i ett Maven‑förråd, så installera den i ditt lokala Maven‑förråd. Kör detta kommando i projektmappen:
 
 ```bash
 mvn install:install-file "-Dfile=aspose.slides.jasperreports.library-26.6.jar" "-DgroupId=com.aspose" "-DartifactId=aspose-slides-jasperreports" "-Dversion=26.6" "-Dpackaging=jar"
 ```
 
-3. Spara denna *pom.xml* i projektmappen. Den lägger till JasperReports 6.16.0 och den installerade JAR‑filen samt anger vilken klass som ska köras. JasperReports 6.16.0 deklarerar en uppdaterad iText‑build som inte finns i Maven Central, så filen utesluter den; Aspose‑exportörerna kräver den inte.
+3. Spara denna *pom.xml* i projektmappen. Den lägger till JasperReports 6.16.0 och den JAR‑fil du installerade, samt anger klassen som ska köras. JasperReports 6.16.0 deklarerar en patchad iText‑build som inte finns på Maven Central, så filen exkluderar den; Aspose‑exportörerna behöver den inte.
 
 ```xml
 <project xmlns="http://maven.apache.org/POM/4.0.0">
@@ -135,7 +136,7 @@ mvn install:install-file "-Dfile=aspose.slides.jasperreports.library-26.6.jar" "
 </project>
 ```
 
-4. Spara denna rapportdesign som *hello.jrxml* i projektmappen. Den skriver ut en rad text i titelbandet:
+4. Spara denna rapportdesign som *hello.jrxml* i projektmappen. Den skriver ut en rad text i titelfältet:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -186,10 +187,10 @@ public class HelloExport {
 }
 ```
 
-6. Kör följande kommando i projektmappen:
+6. Kör detta kommando i projektmappen:
 
 ```bash
 mvn compile exec:java
 ```
 
-Programmet sparar *hello.pptx* i projektmappen, med en bild som innehåller rapportens text. Kompilatorn påpekar att koden använder ett föråldrat API: exportörerna tar sin in‑ och utdata via `JRExporterParameter` och accepterar inte den nyare konfigurationen `setExporterInput` och `setExporterOutput`. På Linux måste fontconfig och minst ett teckensnitt vara installerade, annars misslyckas ifyllandet av rapporten. Utan licens får varje bild ett utvärderingsvattenstämpel i mitten — se [Licensing](/slides/sv/jasperreports/licensing/). För export till PPT, PDF eller HTML, se [PPT, PPTX, PDF and HTML Export](/slides/sv/jasperreports/ppt-pptx-pdf-and-html-export/).
+Programmet sparar *hello.pptx* i projektmappen, med en bild som innehåller rapportens text. Kompilatorn påpekar att koden använder ett föråldrat API: exportörerna tar sin in‑ och utdata via `JRExporterParameter`, och de accepterar inte den nyare konfigurationen `setExporterInput` och `setExporterOutput`. På Linux måste fontconfig och minst ett teckensnitt vara installerade, annars misslyckas ifyllningen av rapporten. Utan licens får varje bild ett evalueringsvattenmärke i mitten — se [Licensiering](/slides/sv/jasperreports/licensing/). För att exportera till PPT, PDF eller HTML, se [PPT, PPTX, PDF och HTML‑export](/slides/sv/jasperreports/ppt-pptx-pdf-and-html-export/).

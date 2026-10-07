@@ -1,26 +1,26 @@
 ---
-title: Aspose.Slides for Node.js via Java
-second_title: Aspose.Slides for Node.js
+title: Aspose.Slides pro Node.js přes Java
+second_title: Aspose.Slides pro Node.js
 type: docs
 weight: 47
 url: /cs/nodejs-java/
 keywords:
 - dokumentace
 - zpracování prezentací
-- převod prezentací
+- konverze prezentací
 - PowerPoint
 - OpenDocument
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Začněte zde: nainstalujte Aspose.Slides for Node.js via Java, vytvořte první prezentaci a najděte průvodce pro běžné úkoly, API reference a podporu."
+description: "Začněte zde: nainstalujte Aspose.Slides for Node.js via Java, vytvořte první prezentaci a najděte průvodce pro běžné úkoly, referenci API a podporu."
 is_root: true
 ---
 <img src="aspose_slides-for-nodejs-via-java.png" alt="Aspose.Slides for Node.js via Java" align="left" style="width:110px; margin: 0 30px 20px 0"/>
 
-Aspose.Slides for Node.js via Java je knihovna pro vytváření, čtení, úpravy a převod prezentací PowerPoint a OpenDocument v aplikacích Node.js, bez potřeby Microsoft PowerPoint.
+Aspose.Slides for Node.js via Java je knihovna pro vytváření, čtení, úpravu a konverzi prezentací PowerPoint a OpenDocument v aplikacích Node.js, bez Microsoft PowerPoint.
 
-Načítá a ukládá PPT, PPTX, PPS, POT a ODP, včetně variant s makry a šablonami, a exportuje do PDF, XPS, HTML, SVG, TIFF, Markdown a obrázků.
+Načítá a ukládá soubory PPT, PPTX, PPS, POT a ODP, včetně variant s makry a šablon, a exportuje do PDF, XPS, HTML, SVG, TIFF, Markdown a obrázků.
 
 <div style="clear:both"></div>
 
@@ -30,13 +30,13 @@ Načítá a ukládá PPT, PPTX, PPS, POT a ODP, včetně variant s makry a šabl
 <div class="col-md-4">
 <p><b>Začínáme</b></p>
 <hr>
-<p>GETTING STARTED</p>
+<p>ZAHÁJENÍ PRÁCE</p>
 <ul>
 <li><a href="/slides/cs/nodejs-java/installation/">Instalace</a></li>
-<li><a href="/slides/cs/nodejs-java/create-presentation/">Vytvořte svou první prezentaci</a></li>
-<li><a href="/slides/cs/nodejs-java/getting-started/">Průvodce pro začátečníky</a></li>
+<li><a href="/slides/cs/nodejs-java/create-presentation/">Vytvořte první prezentaci</a></li>
+<li><a href="/slides/cs/nodejs-java/getting-started/">Průvodce zahájením</a></li>
 </ul>
-<p>EVALUATE</p>
+<p>HODNOCENÍ</p>
 <ul>
 <li><a href="/slides/cs/nodejs-java/supported-file-formats/">Podporované formáty souborů</a></li>
 <li><a href="/slides/cs/nodejs-java/evaluate-aspose-slides/">Omezení zkušební verze</a></li>
@@ -44,9 +44,9 @@ Načítá a ukládá PPT, PPTX, PPS, POT a ODP, včetně variant s makry a šabl
 </ul>
 </div>
 <div class="col-md-4">
-<p><b>Práce se Slides</b></p>
+<p><b>Vytvářejte pomocí Slides</b></p>
 <hr>
-<p>COMMON TASKS</p>
+<p>OBVYKLÉ ÚKOLY</p>
 <ul>
 <li><a href="/slides/cs/nodejs-java/open-presentation/">Otevřít prezentaci</a></li>
 <li><a href="/slides/cs/nodejs-java/save-presentation/">Uložit prezentaci</a></li>
@@ -54,7 +54,7 @@ Načítá a ukládá PPT, PPTX, PPS, POT a ODP, včetně variant s makry a šabl
 <li><a href="/slides/cs/nodejs-java/convert-slide/">Vykreslit snímky jako obrázky</a></li>
 <li><a href="/slides/cs/nodejs-java/manage-text/">Upravit text a tvary</a></li>
 </ul>
-<p>SLIDES WORKFLOWS</p>
+<p>PROCESY SLIDES</p>
 <ul>
 <li><a href="/slides/cs/nodejs-java/powerpoint-charts/">Grafy</a></li>
 <li><a href="/slides/cs/nodejs-java/powerpoint-animation/">Animace</a></li>
@@ -62,34 +62,35 @@ Načítá a ukládá PPT, PPTX, PPS, POT a ODP, včetně variant s makry a šabl
 <li><a href="/slides/cs/nodejs-java/presentation-design/">Návrh snímků</a></li>
 <li><a href="/slides/cs/nodejs-java/merge-presentation/">Sloučit prezentace</a></li>
 </ul>
-<p>EXAMPLES</p>
+<p>PŘÍKLADY</p>
 <ul>
 <li><a href="/slides/cs/nodejs-java/examples/">Příklady podle prvků snímku</a></li>
 </ul>
 </div>
 <div class="col-md-4">
-<p><b>Reference a podpora</b></p>
+<p><b>Reference &amp; podpora</b></p>
 <hr>
 <p>REFERENCE</p>
 <ul>
 <li><a href="https://reference.aspose.com/slides/nodejs-java/">API reference</a></li>
 <li><a href="https://releases.aspose.com/slides/nodejs-java/release-notes/">Poznámky k vydání</a></li>
 <li><a href="/slides/cs/nodejs-java/known-issues/">Známé problémy</a></li>
+<li><a href="https://products.aspose.com/slides/nodejs-java/">Stránka produktu</a></li>
 <li><a href="https://releases.aspose.com/slides/nodejs-java/">Stáhnout</a></li>
 </ul>
-<p>SUPPORT</p>
+<p>PODPOŘA</p>
 <ul>
 <li><a href="https://forum.aspose.com/c/slides/11">Bezplatné fórum podpory</a></li>
-<li><a href="https://helpdesk.aspose.com/">Placená podpora (helpdesk)</a></li>
+<li><a href="https://helpdesk.aspose.com/">Placená podpora helpdesk</a></li>
 </ul>
 </div>
 </div>
 
 ------
 
-## **Your first presentation**
+## **Vaše první prezentace**
 
-Kromě Node.js 20 nebo novějšího balíček vyžaduje Java Development Kit (JDK), Python a C++ build toolchain, protože npm během instalace kompiluje svůj most `java`. Viz [Installation](/slides/cs/nodejs-java/installation/) pro kroky na každém operačním systému. Pak vytvořte projekt a nainstalujte balíček z npm:
+Kromě Node.js 20 nebo novějšího balíček vyžaduje JDK (Java Development Kit), Python a C++ build toolchain, protože npm během instalace kompiluje svůj `java` bridge. Viz [Instalace](/slides/cs/nodejs-java/installation/) pro kroky na každém operačním systému. Poté vytvořte projekt a nainstalujte balíček z npm:
 
 ```bash
 mkdir hello-slides
@@ -98,7 +99,7 @@ npm init -y
 npm install aspose.slides.via.java
 ```
 
-Uložte tento kód jako *hello.js* ve složce projektu:
+Uložte tento kód jako *hello.js* do složky projektu:
 
 ```javascript
 const asposeSlides = require("aspose.slides.via.java");
@@ -113,8 +114,8 @@ try {
     presentation.dispose();
 }
 
-// Aspose.Slides běží v Java virtuálním stroji, který udržuje Node.js běžící, takže proces ukončete explicitně.
+// Aspose.Slides běží v Java virtuálním stroji, který udržuje běh Node.js, takže ukončete proces explicitně.
 process.exit(0);
 ```
 
-Spusťte jej příkazem `node hello.js`. Skript uloží *hello.pptx* s jedním snímkem obsahujícím textové pole. Bez licence obsahuje uložený soubor evaluační vodoznak — viz [Licensing](/slides/cs/nodejs-java/licensing/). Další způsoby, jak vytvořit a naplnit prezentaci, najdete v [Create Presentations](/slides/cs/nodejs-java/create-presentation/).
+Spusťte jej pomocí `node hello.js`. Skript uloží *hello.pptx* s jedním snímkem obsahujícím textové pole. Bez licence má uložený soubor vodotisk hodnocení — viz [Licencování](/slides/cs/nodejs-java/licensing/). Pro více způsobů, jak vytvořit a naplnit prezentaci, viz [Vytváření prezentací](/slides/cs/nodejs-java/create-presentation/).

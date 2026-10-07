@@ -1,26 +1,26 @@
 ---
-title: Aspose.Slides Androidra Java segítségével
-second_title: Aspose.Slides Androidra
+title: Aspose.Slides Android számára Java-val
+second_title: Aspose.Slides Android számára
 type: docs
 weight: 40
 url: /hu/androidjava/
 keywords:
 - dokumentáció
-- bemutatófeldolgozás
-- bemutatókonverzió
+- prezentáció feldolgozás
+- prezentáció konvertálás
 - PowerPoint
 - OpenDocument
 - Android
 - Java
 - Aspose.Slides
-description: "Kezdje itt: adja hozzá az Aspose.Slides for Android via Java könyvtárat az alkalmazásához, hozzon létre egy első bemutatót, és találja meg az általános feladatok útmutatóit, az API-referenciát és a támogatást."
+description: "Kezdje itt: adja hozzá az Aspose.Slides Androidhoz Java-val könyvtárat az alkalmazásához, hozza létre az első prezentációt, és találja meg az útmutatókat a gyakori feladatokhoz, az API referenciához és a támogatáshoz."
 is_root: true
 ---
 <img src="home_1.png" alt="Aspose.Slides for Android via Java" align="left" style="width:110px; margin: 0 30px 20px 0"/>
 
-Az Aspose.Slides for Android via Java egy osztálykönyvtár a PowerPoint és OpenDocument bemutatók létrehozásához, olvasásához, szerkesztéséhez és konvertálásához Android-alkalmazásokban, a Microsoft PowerPoint nélkül.
+Az Aspose.Slides for Android via Java egy osztálykönyvtár PowerPoint és OpenDocument előadások létrehozásához, olvasásához, szerkesztéséhez és átalakításához Android alkalmazásokban, a Microsoft PowerPoint nélkül.
 
-Betölti és menti a PPT, PPTX, PPS, POT és ODP formátumokat, beleértve a makróval rendelkező és sablonváltozatokat is, valamint exportál PDF, XPS, HTML, SVG, TIFF, Markdown és képek formátumba.
+Betölti és menti a PPT, PPTX, PPS, POT és ODP formátumokat, beleértve a makróval ellátott és sablonváltozatokat, és exportál PDF, XPS, HTML, SVG, TIFF, Markdown és képek formátumba.
 
 <div style="clear:both"></div>
 
@@ -28,39 +28,39 @@ Betölti és menti a PPT, PPTX, PPS, POT és ODP formátumokat, beleértve a mak
 
 <div class="row">
 <div class="col-md-4">
-<p><b>Első lépések</b></p>
+<p><b>Get Started</b></p>
 <hr>
 <p>ELKEZDÉS</p>
 <ul>
 <li><a href="/slides/hu/androidjava/install-aspose-slides-for-android-via-java/">Telepítés</a></li>
-<li><a href="/slides/hu/androidjava/create-presentation/">Készítse el első bemutatóját</a></li>
-<li><a href="/slides/hu/androidjava/getting-started/">Első lépések útmutató</a></li>
+<li><a href="/slides/hu/androidjava/create-presentation/">Hozza létre első előadását</a></li>
+<li><a href="/slides/hu/androidjava/getting-started/">Első lépések útmutatója</a></li>
 </ul>
 <p>ÉRTÉKELÉS</p>
 <ul>
 <li><a href="/slides/hu/androidjava/supported-file-formats/">Támogatott fájlformátumok</a></li>
-<li><a href="/slides/hu/androidjava/evaluate-aspose-slides/">Próbaidőkorlátok</a></li>
+<li><a href="/slides/hu/androidjava/evaluate-aspose-slides/">Próba korlátai</a></li>
 <li><a href="/slides/hu/androidjava/licensing/">Licencelés</a></li>
 </ul>
 </div>
 <div class="col-md-4">
-<p><b>Készítés Slides-szel</b></p>
+<p><b>Build with Slides</b></p>
 <hr>
-<p>ÁLTALÁNOS FELADATOK</p>
+<p>ÁLTALAN FELADATOK</p>
 <ul>
-<li><a href="/slides/hu/androidjava/open-presentation/">Bemutató megnyitása</a></li>
-<li><a href="/slides/hu/androidjava/save-presentation/">Bemutató mentése</a></li>
-<li><a href="/slides/hu/androidjava/convert-powerpoint-to-pdf/">PDF-re konvertálás</a></li>
-<li><a href="/slides/hu/androidjava/convert-slide/">Diaok képként megjelenítése</a></li>
+<li><a href="/slides/hu/androidjava/open-presentation/">Előadás megnyitása</a></li>
+<li><a href="/slides/hu/androidjava/save-presentation/">Előadás mentése</a></li>
+<li><a href="/slides/hu/androidjava/convert-powerpoint-to-pdf/">PDF-be konvertálás</a></li>
+<li><a href="/slides/hu/androidjava/convert-slide/">Dia renderelése képeként</a></li>
 <li><a href="/slides/hu/androidjava/manage-text/">Szöveg és alakzatok szerkesztése</a></li>
 </ul>
-<p>DIÁK MUNKAFOLYAMA</p>
+<p>SLIDE MUNKAÁRAMOK</p>
 <ul>
 <li><a href="/slides/hu/androidjava/powerpoint-charts/">Diagramok</a></li>
 <li><a href="/slides/hu/androidjava/powerpoint-animation/">Animációk</a></li>
 <li><a href="/slides/hu/androidjava/manage-media-files/">Hang és videó</a></li>
 <li><a href="/slides/hu/androidjava/presentation-design/">Dia tervezés</a></li>
-<li><a href="/slides/hu/androidjava/merge-presentation/">Bemutatók egyesítése</a></li>
+<li><a href="/slides/hu/androidjava/merge-presentation/">Előadások egyesítése</a></li>
 </ul>
 <p>PÉLDÁK</p>
 <ul>
@@ -68,28 +68,29 @@ Betölti és menti a PPT, PPTX, PPS, POT és ODP formátumokat, beleértve a mak
 </ul>
 </div>
 <div class="col-md-4">
-<p><b>Referenciák és támogatás</b></p>
+<p><b>Reference &amp; Support</b></p>
 <hr>
 <p>REFERENCIA</p>
 <ul>
 <li><a href="https://reference.aspose.com/slides/androidjava/">API referencia</a></li>
-<li><a href="https://releases.aspose.com/slides/androidjava/release-notes/">Kiadási megjegyzések</a></li>
+<li><a href="https://releases.aspose.com/slides/androidjava/release-notes/">Kiadási jegyzetek</a></li>
 <li><a href="/slides/hu/androidjava/known-issues/">Ismert problémák</a></li>
+<li><a href="https://products.aspose.com/slides/android-java/">Termékoldal</a></li>
 <li><a href="https://releases.aspose.com/slides/androidjava/">Letöltés</a></li>
 </ul>
 <p>TÁMOGATÁS</p>
 <ul>
 <li><a href="https://forum.aspose.com/c/slides/11">Ingyenes támogatási fórum</a></li>
-<li><a href="https://helpdesk.aspose.com/">Fizetős támogatási helpdesk</a></li>
+<li><a href="https://helpdesk.aspose.com/">Fizetett támogatási helpdesk</a></li>
 </ul>
 </div>
 </div>
 
 ------
 
-## **Az első bemutatója**
+## **Az első előadás**
 
-A könyvtár az Aspose Maven tárolójából származik. Az új Android Studio projektek már tartalmazzák a `dependencyResolutionManagement` blokkot a *settings.gradle.kts* fájlban. Adja hozzá az alább látható `maven` sort a `repositories` blokkhoz, ahelyett, hogy egy második blokkot illesztene be:
+A könyvtár az Aspose Maven tárolójából származik. Az új Android Studio projektek már tartalmaznak egy `dependencyResolutionManagement` blokkot a *settings.gradle.kts* fájlban. Adja hozzá az alább látható `maven` sort a `repositories` blokkba, ahelyett, hogy egy második blokkot illesztene be:
 
 ```kotlin
 dependencyResolutionManagement {
@@ -110,4 +111,4 @@ dependencies {
 }
 ```
 
-[Telepítés](/slides/hu/androidjava/install-aspose-slides-for-android-via-java/) lefedi a Groovy build szkripteket, a manuális JAR fájlt, és azt, hogyan válasszon verziót. A kód az első bemutatóhoz a [Bemutatók létrehozása](/slides/hu/androidjava/create-presentation/) linken található: hozzáad egy szövegdobozt egy diához, és elmenti a bemutatót az alkalmazás tárhelyére. Ez a példa le lett fordítva és APK-ba építve; még nem futtatott eszközön. Licenc nélkül a mentett bemutatók értékelési vízjelet tartalmaznak — lásd [Licencelés](/slides/hu/androidjava/licensing/).
+[Telepítés](/slides/hu/androidjava/install-aspose-slides-for-android-via-java/) kiterjed a Groovy build szkriptekre, a kézi JAR fájlra, és arra, hogyan válasszon verziót. Az első előadás kódja a [Előadások létrehozása](/slides/hu/androidjava/create-presentation/): hozzáad egy szövegmezőt egy diára, és elmenti az előadást az alkalmazás tárolójába. Ez a minta le lett fordítva és APK-ba építve; még nem futtatott eszközön. Licenc nélkül a mentett előadások értékelési vízjelet tartalmaznak — lásd a [Licencelés](/slides/hu/androidjava/licensing/).

@@ -12,14 +12,14 @@ keywords:
 - OpenDocument
 - Java
 - Aspose.Slides
-description: "ここから始めてください: Aspose.Slides for Java をインストールし、最初のプレゼンテーションを作成し、共通タスクのガイド、API リファレンス、サポートを見つけましょう。"
+description: "ここから開始: Aspose.Slides for Java をインストールし、最初のプレゼンテーションを作成し、一般的なタスク、デプロイ、API リファレンスのガイドを見つけましょう。"
 is_root: true
 ---
 <img src="home_1.png" alt="Aspose.Slides for Java" align="left" style="width:110px; margin: 0 30px 20px 0"/>
 
-Aspose.Slides for Java は、Microsoft PowerPoint を使用せずに、Java アプリケーションで PowerPoint と OpenDocument のプレゼンテーションを作成、読み取り、編集、変換するためのクラス ライブラリです。
+Aspose.Slides for Java は、Microsoft PowerPoint を使用せずに Java アプリケーションで PowerPoint および OpenDocument のプレゼンテーションを作成、読み取り、編集、変換できるクラス ライブラリです。
 
-マクロ対応やテンプレート バリエーションを含む PPT、PPTX、PPS、POT、ODP を読み込みおよび保存し、PDF、XPS、HTML、SVG、TIFF、Markdown、画像へエクスポートします。
+PPT、PPTX、PPS、POT、ODP を読み書きでき、マクロ有効版やテンプレート版もサポートし、PDF、XPS、HTML、SVG、TIFF、Markdown、画像へのエクスポートが可能です。
 
 <div style="clear:both"></div>
 
@@ -27,19 +27,21 @@ Aspose.Slides for Java は、Microsoft PowerPoint を使用せずに、Java ア�
 
 <div class="row">
 <div class="col-md-4">
-<p><b>開始する</b></p>
+<p><b>はじめに</b></p>
 <hr>
-<p>開始ガイド</p>
+<p>開始方法</p>
 <ul>
 <li><a href="/slides/ja/java/installation/">インストール</a></li>
-<li><a href="/slides/ja/java/create-presentation/">最初のプレゼンテーションを作成する</a></li>
-<li><a href="/slides/ja/java/getting-started/">開始ガイド</a></li>
+<li><a href="/slides/ja/java/create-presentation/">最初のプレゼンテーションの作成</a></li>
+<li><a href="/slides/ja/java/system-requirements/">システム要件</a></li>
+<li><a href="/slides/ja/java/getting-started/">はじめにガイド</a></li>
 </ul>
 <p>評価</p>
 <ul>
 <li><a href="/slides/ja/java/supported-file-formats/">サポートされているファイル形式</a></li>
+<li><a href="/slides/ja/java/features-overview/">機能概要</a></li>
 <li><a href="/slides/ja/java/evaluate-aspose-slides/">試用版の制限</a></li>
-<li><a href="/slides/ja/java/licensing/">ライセンス情報</a></li>
+<li><a href="/slides/ja/java/licensing/">ライセンス</a></li>
 </ul>
 </div>
 <div class="col-md-4">
@@ -48,10 +50,10 @@ Aspose.Slides for Java は、Microsoft PowerPoint を使用せずに、Java ア�
 <p>共通タスク</p>
 <ul>
 <li><a href="/slides/ja/java/open-presentation/">プレゼンテーションを開く</a></li>
-<li><a href="/slides/ja/java/save-presentation/">プレゼンテーションを保存する</a></li>
-<li><a href="/slides/ja/java/convert-powerpoint-to-pdf/">PDF に変換する</a></li>
-<li><a href="/slides/ja/java/convert-slide/">スライドを画像としてレンダリングする</a></li>
-<li><a href="/slides/ja/java/manage-text/">テキストと図形を編集する</a></li>
+<li><a href="/slides/ja/java/save-presentation/">プレゼンテーションを保存</a></li>
+<li><a href="/slides/ja/java/convert-powerpoint-to-pdf/">PDF に変換</a></li>
+<li><a href="/slides/ja/java/convert-slide/">スライドを画像としてレンダリング</a></li>
+<li><a href="/slides/ja/java/manage-text/">テキストとシェイプの編集</a></li>
 </ul>
 <p>Slides ワークフロー</p>
 <ul>
@@ -59,37 +61,48 @@ Aspose.Slides for Java は、Microsoft PowerPoint を使用せずに、Java ア�
 <li><a href="/slides/ja/java/powerpoint-animation/">アニメーション</a></li>
 <li><a href="/slides/ja/java/manage-media-files/">音声と動画</a></li>
 <li><a href="/slides/ja/java/presentation-design/">スライド デザイン</a></li>
-<li><a href="/slides/ja/java/merge-presentation/">プレゼンテーションを結合する</a></li>
+<li><a href="/slides/ja/java/merge-presentation/">プレゼンテーションの結合</a></li>
 </ul>
-<p>サンプル</p>
+<p>例</p>
 <ul>
-<li><a href="/slides/ja/java/examples/">スライド要素別サンプル</a></li>
-<li><a href="https://github.com/aspose-slides/Aspose.Slides-for-Java">GitHub のサンプル</a></li>
+<li><a href="/slides/ja/java/examples/">スライド要素別の例</a></li>
+<li><a href="https://github.com/aspose-slides/Aspose.Slides-for-Java">GitHub の例</a></li>
 </ul>
 </div>
 <div class="col-md-4">
-<p><b>リファレンス &amp; サポート</b></p>
+<p><b>導入とサポート</b></p>
 <hr>
+<p>導入</p>
+<ul>
+<li><a href="/slides/ja/java/system-requirements/#linux">Linux の前提条件</a></li>
+<li><a href="/slides/ja/java/how-to-run-aspose-slides-in-docker/">Docker で実行</a></li>
+<li><a href="/slides/ja/java/deploy-fonts/">フォント</a></li>
+<li><a href="/slides/ja/java/security/">セキュリティ</a></li>
+</ul>
 <p>リファレンス</p>
 <ul>
 <li><a href="https://reference.aspose.com/slides/java/">API リファレンス</a></li>
 <li><a href="https://releases.aspose.com/slides/java/release-notes/">リリース ノート</a></li>
 <li><a href="/slides/ja/java/known-issues/">既知の問題</a></li>
+<li><a href="/slides/ja/java/api-limitations/">出力メタデータの制限</a></li>
+<li><a href="https://products.aspose.com/slides/java/">製品ページ</a></li>
 <li><a href="https://releases.aspose.com/slides/java/">ダウンロード</a></li>
 </ul>
 <p>サポート</p>
 <ul>
 <li><a href="https://forum.aspose.com/c/slides/11">無料サポート フォーラム</a></li>
-<li><a href="https://helpdesk.aspose.com/">有料サポート ヘルプデスク</a></li>
+<li><a href="https://helpdesk.aspose.com/">有料サポート デスク</a></li>
 </ul>
 </div>
 </div>
 
 ------
 
+<a name="your-first-presentation"></a>
+
 ## **最初のプレゼンテーション**
 
-Aspose.Slides for Java は Maven Central ではなく Aspose の独自 Maven リポジトリで公開されています。Maven プロジェクト用のフォルダーを作成し、*pom.xml* をその中に保存します。このファイルはリポジトリを宣言し、ライブラリを追加し、実行するクラスを指定します：
+Aspose.Slides for Java は Maven Central ではなく Aspose の独自 Maven リポジトリに公開されています。Maven プロジェクト用のフォルダーを作成し、*pom.xml* をその中に保存します。このファイルはリポジトリを宣言し、ライブラリを追加し、実行クラスを指定します。
 
 ```xml
 <project xmlns="http://maven.apache.org/POM/4.0.0">
@@ -146,7 +159,7 @@ public class HelloSlides {
             // 最初のスライドを取得します。
             ISlide slide = presentation.getSlides().get_Item(0);
 
-            // 雲形状を追加し、その中にテキストを設定します。
+            // 雲形状を追加し、テキストを配置します。
             IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Cloud, 20, 20, 200, 80);
             autoShape.getTextFrame().setText("Hello, Aspose!");
 
@@ -159,10 +172,10 @@ public class HelloSlides {
 }
 ```
 
-次に、JDK 11 以降と Apache Maven がインストールされている状態で、プロジェクト フォルダー内で次のコマンドを実行します：
+次に、JDK 11 以降と Apache Maven がインストールされている環境で、プロジェクト フォルダー内で以下のコマンドを実行します：
 
 ```bash
 mvn compile exec:java
 ```
 
-このプログラムはプロジェクト フォルダーに *new_presentation.pptx* を保存し、テキスト付きの雲形状を持つスライドが 1 枚含まれます。Linux では fontconfig と少なくとも 1 つのフォントがインストールされている必要があります；[インストール](/slides/ja/java/installation/#linux) を参照してください。ライセンスがない場合、保存されたファイルには評価用の透かしが付加されます — [ライセンス情報](/slides/ja/java/licensing/) を参照してください。プレゼンテーションの作成や内容の設定の詳細については、[プレゼンテーションの作成](/slides/ja/java/create-presentation/) をご覧ください。
+プログラムはプロジェクト フォルダーに *new_presentation.pptx* を保存し、テキストを含む雲形状のスライドが 1 枚作成されます。Linux 環境では fontconfig と少なくとも 1 つのフォントがインストールされている必要があります。詳細は [Installation](/slides/ja/java/installation/#linux) を参照してください。ライセンスがない場合、保存されたファイルには評価用の透かしが付加されます — 詳細は [Licensing](/slides/ja/java/licensing/) をご覧ください。プレゼンテーションの作成と内容の追加に関するその他の方法は、[Create Presentations](/slides/ja/java/create-presentation/) を参照してください。

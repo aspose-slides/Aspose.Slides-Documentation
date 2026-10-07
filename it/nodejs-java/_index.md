@@ -1,26 +1,26 @@
 ---
-title: Aspose.Slides per Node.js tramite Java
+title: Aspose.Slides per Node.js via Java
 second_title: Aspose.Slides per Node.js
 type: docs
 weight: 47
 url: /it/nodejs-java/
 keywords:
 - documentazione
-- elaborazione presentazioni
-- conversione presentazioni
+- elaborazione di presentazioni
+- conversione di presentazioni
 - PowerPoint
 - OpenDocument
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Inizia qui: installa Aspose.Slides per Node.js tramite Java, crea una prima presentazione e trova le guide per le attività comuni, il riferimento API e il supporto."
+description: "Inizia qui: installa Aspose.Slides per Node.js via Java, crea una prima presentazione e trova le guide per le attività comuni, il riferimento API e il supporto."
 is_root: true
 ---
-<img src="aspose_slides-for-nodejs-via-java.png" alt="Aspose.Slides per Node.js tramite Java" align="left" style="width:110px; margin: 0 30px 20px 0"/>
+<img src="aspose_slides-for-nodejs-via-java.png" alt="Aspose.Slides per Node.js via Java" align="left" style="width:110px; margin: 0 30px 20px 0"/>
 
-Aspose.Slides per Node.js tramite Java è una libreria per creare, leggere, modificare e convertire presentazioni PowerPoint e OpenDocument in applicazioni Node.js, senza Microsoft PowerPoint.
+Aspose.Slides per Node.js via Java è una libreria per creare, leggere, modificare e convertire presentazioni PowerPoint e OpenDocument in applicazioni Node.js, senza Microsoft PowerPoint.
 
-Carica e salva file PPT, PPTX, PPS, POT e ODP, comprese le varianti con macro e modello, ed esporta in PDF, XPS, HTML, SVG, TIFF, Markdown e immagini.
+Carica e salva PPT, PPTX, PPS, POT e ODP, incluse le varianti con macro e i modelli, ed esporta in PDF, XPS, HTML, SVG, TIFF, Markdown e immagini.
 
 <div style="clear:both"></div>
 
@@ -30,13 +30,13 @@ Carica e salva file PPT, PPTX, PPS, POT e ODP, comprese le varianti con macro e 
 <div class="col-md-4">
 <p><b>Inizia</b></p>
 <hr>
-<p>INIZIARE</p>
+<p>INIZIO</p>
 <ul>
 <li><a href="/slides/it/nodejs-java/installation/">Installazione</a></li>
 <li><a href="/slides/it/nodejs-java/create-presentation/">Crea la tua prima presentazione</a></li>
 <li><a href="/slides/it/nodejs-java/getting-started/">Guida introduttiva</a></li>
 </ul>
-<p>VALUTARE</p>
+<p>VALUTAZIONE</p>
 <ul>
 <li><a href="/slides/it/nodejs-java/supported-file-formats/">Formati di file supportati</a></li>
 <li><a href="/slides/it/nodejs-java/evaluate-aspose-slides/">Limitazioni della versione di prova</a></li>
@@ -44,17 +44,17 @@ Carica e salva file PPT, PPTX, PPS, POT e ODP, comprese le varianti con macro e 
 </ul>
 </div>
 <div class="col-md-4">
-<p><b>Costruisci con Slides</b></p>
+<p><b>Crea con Slides</b></p>
 <hr>
-<p>COMPITI COMUNI</p>
+<p>ATTIVITÀ COMUNI</p>
 <ul>
 <li><a href="/slides/it/nodejs-java/open-presentation/">Apri una presentazione</a></li>
 <li><a href="/slides/it/nodejs-java/save-presentation/">Salva una presentazione</a></li>
 <li><a href="/slides/it/nodejs-java/convert-powerpoint-to-pdf/">Converti in PDF</a></li>
-<li><a href="/slides/it/nodejs-java/convert-slide/">Renderizza diapositive come immagini</a></li>
+<li><a href="/slides/it/nodejs-java/convert-slide/">Rendi le diapositive come immagini</a></li>
 <li><a href="/slides/it/nodejs-java/manage-text/">Modifica testo e forme</a></li>
 </ul>
-<p>FLUSSI DI LAVORO DI SLIDES</p>
+<p>FLUSSI DI LAVORO CON SLIDES</p>
 <ul>
 <li><a href="/slides/it/nodejs-java/powerpoint-charts/">Grafici</a></li>
 <li><a href="/slides/it/nodejs-java/powerpoint-animation/">Animazioni</a></li>
@@ -75,6 +75,7 @@ Carica e salva file PPT, PPTX, PPS, POT e ODP, comprese le varianti con macro e 
 <li><a href="https://reference.aspose.com/slides/nodejs-java/">Riferimento API</a></li>
 <li><a href="https://releases.aspose.com/slides/nodejs-java/release-notes/">Note di rilascio</a></li>
 <li><a href="/slides/it/nodejs-java/known-issues/">Problemi noti</a></li>
+<li><a href="https://products.aspose.com/slides/nodejs-java/">Pagina del prodotto</a></li>
 <li><a href="https://releases.aspose.com/slides/nodejs-java/">Download</a></li>
 </ul>
 <p>SUPPORTO</p>
@@ -89,7 +90,7 @@ Carica e salva file PPT, PPTX, PPS, POT e ODP, comprese le varianti con macro e 
 
 ## **La tua prima presentazione**
 
-Oltre a Node.js 20 o versioni successive, il pacchetto richiede un Java Development Kit (JDK), Python e un toolchain di compilazione C++, perché npm compila il suo bridge `java` durante l'installazione. Vedi [Installazione](/slides/it/nodejs-java/installation/) per i passaggi su ogni sistema operativo. Quindi crea un progetto e installa il pacchetto da npm:
+Oltre a Node.js 20 o versioni successive, il pacchetto richiede un Java Development Kit (JDK), Python e una toolchain di compilazione C++, perché npm compila il suo bridge `java` durante l'installazione. Vedi [Installazione](/slides/it/nodejs-java/installation/) per i passaggi su ciascun sistema operativo. Quindi crea un progetto e installa il pacchetto da npm:
 
 ```bash
 mkdir hello-slides
@@ -113,8 +114,8 @@ try {
     presentation.dispose();
 }
 
-// Aspose.Slides gira in una macchina virtuale Java che mantiene Node.js in esecuzione, quindi termina esplicitamente il processo.
+// Aspose.Slides viene eseguito in una macchina virtuale Java che mantiene Node.js in esecuzione, quindi termina esplicitamente il processo.
 process.exit(0);
 ```
 
-Eseguilo con `node hello.js`. Lo script salva *hello.pptx* con una diapositiva contenente una casella di testo. Senza licenza, il file salvato contiene un marchio di valutazione — vedi [Licenze](/slides/it/nodejs-java/licensing/). Per ulteriori modi di creare e popolare una presentazione, vedi [Crea Presentazioni](/slides/it/nodejs-java/create-presentation/).
+Eseguilo con `node hello.js`. Lo script salva *hello.pptx* con una diapositiva contenente una casella di testo. Senza licenza, il file salvato contiene un marchio d'acqua di valutazione — vedi [Licenze](/slides/it/nodejs-java/licensing/). Per ulteriori modalità di creazione e popolamento di una presentazione, vedi [Crea presentazioni](/slides/it/nodejs-java/create-presentation/).

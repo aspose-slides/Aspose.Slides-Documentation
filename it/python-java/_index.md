@@ -7,25 +7,25 @@ url: /it/python-java/
 is_root: true
 keywords:
 - Aspose.Slides per Python via Java
-- libreria PowerPoint per Python
+- Libreria PowerPoint per Python
 - gestire presentazioni PowerPoint in Python
 - leggere e scrivere PowerPoint in Python
 - modificare diapositive PowerPoint in Python
 - esportare PowerPoint in PDF in Python
 - esportare PowerPoint in SVG in Python
-- anteprima diapositive in Python
+- visualizzare in anteprima le diapositive in Python
 - aggiungere audio e video alle diapositive in Python
 - PowerPoint senza Microsoft Office
 - Python
 - Java
 - Aspose.Slides
-description: "Inizia qui: installa Aspose.Slides per Python via Java, crea una prima presentazione e trova le guide per le operazioni comuni, il riferimento API e il supporto."
+description: "Inizia qui: installa Aspose.Slides per Python via Java, crea una prima presentazione e trova le guide per attività comuni, il riferimento API e il supporto."
 ---
 <img src="aspose_slides-for-python-via-java.png" alt="Aspose.Slides per Python via Java" align="left" style="width:110px; margin: 0 30px 20px 0"/>
 
-Aspose.Slides per Python via Java è una libreria per creare, leggere, modificare e convertire presentazioni PowerPoint e OpenDocument in applicazioni Python, senza Microsoft PowerPoint; esegue il motore Aspose.Slides Java nel tuo processo Python tramite JPype.
+Aspose.Slides per Python via Java è una libreria per creare, leggere, modificare e convertire presentazioni PowerPoint e OpenDocument in applicazioni Python, senza Microsoft PowerPoint; esegue il motore Java di Aspose.Slides nel tuo processo Python tramite JPype.
 
-Carica e salva PPT, PPTX, PPS, POT e ODP, inclusi i formati abilitati alle macro e le varianti modello, ed esporta in PDF, XPS, HTML, SVG, TIFF, Markdown e immagini.
+Carica e salva file PPT, PPTX, PPS, POT e ODP, incluse le varianti con macro e i modelli, ed esporta in PDF, XPS, HTML, SVG, TIFF, Markdown e immagini.
 
 <div style="clear:both"></div>
 
@@ -43,7 +43,7 @@ Carica e salva PPT, PPTX, PPS, POT e ODP, inclusi i formati abilitati alle macro
 </ul>
 <p>VALUTA</p>
 <ul>
-<li><a href="/slides/it/python-java/supported-file-formats/">Formati file supportati</a></li>
+<li><a href="/slides/it/python-java/supported-file-formats/">Formati di file supportati</a></li>
 <li><a href="/slides/it/python-java/evaluate-aspose-slides/">Limitazioni della versione di prova</a></li>
 <li><a href="/slides/it/python-java/licensing/">Licenze</a></li>
 </ul>
@@ -56,15 +56,15 @@ Carica e salva PPT, PPTX, PPS, POT e ODP, inclusi i formati abilitati alle macro
 <li><a href="/slides/it/python-java/open-presentation/">Apri una presentazione</a></li>
 <li><a href="/slides/it/python-java/save-presentation/">Salva una presentazione</a></li>
 <li><a href="/slides/it/python-java/convert-powerpoint-to-pdf/">Converti in PDF</a></li>
-<li><a href="/slides/it/python-java/convert-slide/">Rendi le diapositive come immagini</a></li>
+<li><a href="/slides/it/python-java/convert-slide/">Renderizza le diapositive come immagini</a></li>
 <li><a href="/slides/it/python-java/manage-text/">Modifica testo e forme</a></li>
 </ul>
-<p>FLUSSI DI LAVORO DI SLIDE</p>
+<p>FLUSSI DI LAVORO DI SLIDES</p>
 <ul>
 <li><a href="/slides/it/python-java/powerpoint-charts/">Grafici</a></li>
 <li><a href="/slides/it/python-java/powerpoint-animation/">Animazioni</a></li>
 <li><a href="/slides/it/python-java/manage-media-files/">Audio e video</a></li>
-<li><a href="/slides/it/python-java/presentation-design/">Design delle diapositive</a></li>
+<li><a href="/slides/it/python-java/presentation-design/">Progettazione delle diapositive</a></li>
 <li><a href="/slides/it/python-java/merge-presentation/">Unisci presentazioni</a></li>
 </ul>
 <p>ESEMPI</p>
@@ -80,12 +80,13 @@ Carica e salva PPT, PPTX, PPS, POT e ODP, inclusi i formati abilitati alle macro
 <li><a href="https://reference.aspose.com/slides/python-java/">Riferimento API</a></li>
 <li><a href="https://releases.aspose.com/slides/python-java/release-notes/">Note di rilascio</a></li>
 <li><a href="/slides/it/python-java/known-issues/">Problemi noti</a></li>
+<li><a href="https://products.aspose.com/slides/python-java/">Pagina prodotto</a></li>
 <li><a href="https://releases.aspose.com/slides/python-java/">Download</a></li>
 </ul>
-<p>ASSISTENZA</p>
+<p>SUPPORTO</p>
 <ul>
 <li><a href="https://forum.aspose.com/c/slides/11">Forum di supporto gratuito</a></li>
-<li><a href="https://helpdesk.aspose.com/">Helpdesk di supporto a pagamento</a></li>
+<li><a href="https://helpdesk.aspose.com/">Help desk di supporto a pagamento</a></li>
 </ul>
 </div>
 </div>
@@ -127,10 +128,10 @@ finally:
     presentation.dispose()
 ```
 
-Eseguilo nello stesso ambiente virtuale:
+Esegui il codice nello stesso ambiente virtuale:
 
 ```sh
 python hello.py
 ```
 
-Lo script salva *new_presentation.pptx* con una diapositiva contenente una forma a nuvola con il testo "Hello, Aspose!". Senza licenza, il file salvato presenta anche un watermark di valutazione — vedi la [Licenza](/slides/it/python-java/licensing/). Per ulteriori modalità di creazione e compilazione di una presentazione, vedi [Crea presentazioni](/slides/it/python-java/create-presentation/).
+Lo script salva *new_presentation.pptx* con una diapositiva contenente una forma a nuvola con il testo "Hello, Aspose!". Senza licenza, il file salvato include anche una filigrana di valutazione — vedi [Licenze](/slides/it/python-java/licensing/). Per ulteriori modi di creare e riempire una presentazione, consulta [Crea Presentazioni](/slides/it/python-java/create-presentation/).

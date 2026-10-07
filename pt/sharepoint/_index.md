@@ -1,17 +1,17 @@
 ---
-title: Aspose.Slides for SharePoint
-second_title: Aspose.Slides for SharePoint
+title: Aspose.Slides para SharePoint
+second_title: Aspose.Slides para SharePoint
 type: docs
 weight: 60
 url: /pt/sharepoint/
 keywords:
-- documentação
-- conversão de apresentações
-- PowerPoint
-- SharePoint
-- biblioteca de documentos
-- solução farm
-- Aspose.Slides
+  - documentação
+  - conversão de apresentação
+  - PowerPoint
+  - SharePoint
+  - biblioteca de documentos
+  - solução farm
+  - Aspose.Slides
 description: "Comece aqui: instale o Aspose.Slides for SharePoint em uma farm SharePoint, converta uma primeira apresentação para PDF em uma biblioteca de documentos e encontre as páginas sobre formatos, licenciamento, ativação e suporte."
 is_root: true
 ---
@@ -29,7 +29,7 @@ Ele converte arquivos PPT e PPTX para PDF, TIFF, XPS, HTML, SWF e ODP, e para os
 <div class="col-md-4">
 <p><b>Começar</b></p>
 <hr>
-<p>COMEÇANDO</p>
+<p>INICIANDO</p>
 <ul>
 <li><a href="/slides/pt/sharepoint/installing-aspose-slides-for-sharepoint/">Instalação</a></li>
 <li><a href="/slides/pt/sharepoint/deployment-and-activation/">Implantação e ativação da solução</a></li>
@@ -53,11 +53,12 @@ Ele converte arquivos PPT e PPTX para PDF, TIFF, XPS, HTML, SWF e ODP, e para os
 </ul>
 </div>
 <div class="col-md-4">
-<p><b>Referência &amp; Suporte</b></p>
+<p><b>Referência e Suporte</b></p>
 <hr>
 <p>REFERÊNCIA</p>
 <ul>
 <li><a href="https://releases.aspose.com/slides/sharepoint/release-notes/">Notas de versão</a></li>
+<li><a href="https://products.aspose.com/slides/sharepoint/">Página do produto</a></li>
 <li><a href="https://releases.aspose.com/slides/sharepoint/">Download</a></li>
 </ul>
 <p>SUPORTE</p>
@@ -72,12 +73,12 @@ Ele converte arquivos PPT e PPTX para PDF, TIFF, XPS, HTML, SWF e ODP, e para os
 
 ## **Sua primeira exportação**
 
-Aspose.Slides for SharePoint é instalado uma vez na farm e então usado em qualquer biblioteca de documentos onde foi ativado:
+Aspose.Slides for SharePoint é instalado uma única vez na farm e então usado em qualquer biblioteca de documentos onde estiver ativado:
 
-1. Baixe o arquivo ZIP da [página de download](https://releases.aspose.com/slides/sharepoint/) e extraia-o em um servidor da sua farm SharePoint.  
-2. Execute o programa de instalação correspondente à sua versão do SharePoint: *Setup2007.exe*, *Setup2010.exe*, *Setup2013.exe*, *Setup2016.exe* ou *Setup2019.exe*. Use uma conta que possa instalar e implantar soluções SharePoint. Aceite o acordo de licença, selecione as coleções de sites nas quais ativar o recurso e deixe a instalação implantar a solução. Cada tela é descrita em [Instalação](/slides/pt/sharepoint/installing-aspose-slides-for-sharepoint/).  
-3. Abra uma biblioteca de documentos em uma dessas coleções de sites, abra o menu de um arquivo PPT ou PPTX e selecione **Convert via Aspose.Slides**. No SharePoint 2007, o item de menu se chama **Convert with Aspose.Slides**.  
-4. Em **Convert to**, selecione **PDF - Adobe Portable Document**. Altere o nome do arquivo de destino e a pasta se necessário, e clique em **Convert**.  
+1. Baixe o arquivo ZIP na [página de download](https://releases.aspose.com/slides/sharepoint/) e descompacte-o em um servidor da sua farm SharePoint.  
+2. Execute o programa de instalação correspondente à sua versão do SharePoint: *Setup2007.exe*, *Setup2010.exe*, *Setup2013.exe*, *Setup2016.exe* ou *Setup2019.exe*. Use uma conta que possa instalar e implantar soluções SharePoint. Aceite o contrato de licença, selecione as coleções de sites nas quais ativar o recurso e deixe a instalação implantar a solução. Cada tela é descrita em [Instalação](/slides/pt/sharepoint/installing-aspose-slides-for-sharepoint/).  
+3. Abra uma biblioteca de documentos em uma dessas coleções de sites, abra o menu de um arquivo PPT ou PPTX e selecione **Converter via Aspose.Slides**. No SharePoint 2007, o item de menu se chama **Converter com Aspose.Slides**.  
+4. Em **Convert to**, selecione **PDF - Adobe Portable Document**. Alterne o nome do arquivo de destino e a pasta se necessário e clique em **Convert**.  
 5. Quando a conversão for concluída, clique em **Destination Library** para abrir a pasta que contém o novo arquivo PDF.
 
-Sem uma licença, o arquivo convertido contém uma marca d'água de avaliação — veja [Licenciamento](/slides/pt/sharepoint/installing-aspose-slides-for-sharepoint-license/). Para os mesmos passos com capturas de tela, veja [Convertendo documentos Microsoft PowerPoint em outros formatos](/slides/pt/sharepoint/converting-microsoft-powerpoint-documents-into-other-formats/).
+Sem uma licença, o arquivo convertido contém uma marca d’água de avaliação — veja [Licenciamento](/slides/pt/sharepoint/installing-aspose-slides-for-sharepoint-license/). Para os mesmos passos com capturas de tela, veja [Convertendo documentos do Microsoft PowerPoint para outros formatos](/slides/pt/sharepoint/converting-microsoft-powerpoint-documents-into-other-formats/).

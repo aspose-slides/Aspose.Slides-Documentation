@@ -13,8 +13,8 @@ keywords:
 - редактирование слайдов PowerPoint в Python
 - экспорт PowerPoint в PDF в Python
 - экспорт PowerPoint в SVG в Python
-- просмотр слайдов в Python
-- добавление аудио и видео на слайды в Python
+- предварительный просмотр слайдов в Python
+- добавление аудио и видео в слайды в Python
 - PowerPoint без Microsoft Office
 - Python
 - Java
@@ -23,9 +23,9 @@ description: "Начните здесь: установите Aspose.Slides дл
 ---
 <img src="aspose_slides-for-python-via-java.png" alt="Aspose.Slides for Python via Java" align="left" style="width:110px; margin: 0 30px 20px 0"/>
 
-Aspose.Slides for Python via Java — это библиотека для создания, чтения, редактирования и конвертации презентаций PowerPoint и OpenDocument в приложениях Python без Microsoft PowerPoint; она запускает движок Aspose.Slides Java в вашем процессе Python через JPype.
+Aspose.Slides for Python via Java — это библиотека для создания, чтения, редактирования и конвертирования презентаций PowerPoint и OpenDocument в Python‑приложениях без Microsoft PowerPoint; она запускает движок Aspose.Slides Java в вашем процессе Python через JPype.
 
-Библиотека загружает и сохраняет файлы PPT, PPTX, PPS, POT и ODP, включая варианты с макросами и шаблоны, а также экспортирует в PDF, XPS, HTML, SVG, TIFF, Markdown и изображения.
+Он загружает и сохраняет файлы PPT, PPTX, PPS, POT и ODP, включая версии с макросами и шаблоны, и экспортирует в PDF, XPS, HTML, SVG, TIFF, Markdown и изображения.
 
 <div style="clear:both"></div>
 
@@ -35,7 +35,7 @@ Aspose.Slides for Python via Java — это библиотека для соз�
 <div class="col-md-4">
 <p><b>Начало работы</b></p>
 <hr>
-<p>НАЧАЛО РАБОТЫ</p>
+<p>НАЧАТЬ РАБОТУ</p>
 <ul>
 <li><a href="/slides/ru/python-java/installation/">Установка</a></li>
 <li><a href="/slides/ru/python-java/create-presentation/">Создайте свою первую презентацию</a></li>
@@ -49,17 +49,17 @@ Aspose.Slides for Python via Java — это библиотека для соз�
 </ul>
 </div>
 <div class="col-md-4">
-<p><b>Создание с Slides</b></p>
+<p><b>Создание с помощью Slides</b></p>
 <hr>
 <p>ОБЩИЕ ЗАДАЧИ</p>
 <ul>
 <li><a href="/slides/ru/python-java/open-presentation/">Открыть презентацию</a></li>
 <li><a href="/slides/ru/python-java/save-presentation/">Сохранить презентацию</a></li>
 <li><a href="/slides/ru/python-java/convert-powerpoint-to-pdf/">Конвертировать в PDF</a></li>
-<li><a href="/slides/ru/python-java/convert-slide/">Отрисовать слайды как изображения</a></li>
-<li><a href="/slides/ru/python-java/manage-text/">Редактировать текст и формы</a></li>
+<li><a href="/slides/ru/python-java/convert-slide/">Отображать слайды как изображения</a></li>
+<li><a href="/slides/ru/python-java/manage-text/">Редактировать текст и фигуры</a></li>
 </ul>
-<p>РАБОЧИЕ ПРОЦЕССЫ SLIDES</p>
+<p>РАБОЧИЕ ПРОЦЕССЫ</p>
 <ul>
 <li><a href="/slides/ru/python-java/powerpoint-charts/">Диаграммы</a></li>
 <li><a href="/slides/ru/python-java/powerpoint-animation/">Анимации</a></li>
@@ -73,18 +73,19 @@ Aspose.Slides for Python via Java — это библиотека для соз�
 </ul>
 </div>
 <div class="col-md-4">
-<p><b>Справка и поддержка</b></p>
+<p><b>Справка &amp; Поддержка</b></p>
 <hr>
-<p>СПРАВКА</p>
+<p>СПРАВОЧНИК</p>
 <ul>
 <li><a href="https://reference.aspose.com/slides/python-java/">Справочник API</a></li>
 <li><a href="https://releases.aspose.com/slides/python-java/release-notes/">Примечания к выпуску</a></li>
 <li><a href="/slides/ru/python-java/known-issues/">Известные проблемы</a></li>
+<li><a href="https://products.aspose.com/slides/python-java/">Страница продукта</a></li>
 <li><a href="https://releases.aspose.com/slides/python-java/">Скачать</a></li>
 </ul>
 <p>ПОДДЕРЖКА</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/11">Форум бесплатной поддержки</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">Бесплатный форум поддержки</a></li>
 <li><a href="https://helpdesk.aspose.com/">Платный центр поддержки</a></li>
 </ul>
 </div>
@@ -94,13 +95,13 @@ Aspose.Slides for Python via Java — это библиотека для соз�
 
 ## **Ваша первая презентация**
 
-Установите Python и JDK, задайте переменную `JAVA_HOME` и создайте и активируйте виртуальное окружение, как описано в [Installation](/slides/ru/python-java/installation/). Затем установите JPype и Aspose.Slides из PyPI:
+Установите Python и JDK, задайте `JAVA_HOME` и создайте и активируйте виртуальное окружение, как описано в [Installation](/slides/ru/python-java/installation/). Затем установите JPype и Aspose.Slides из PyPI:
 
 ```sh
 python -m pip install JPype1 aspose-slides-java
 ```
 
-Сохраните этот код как *hello.py*. Он запускает виртуальную машину Java, добавляет облачную форму с текстом на первый слайд новой презентации и сохраняет её:
+Сохраните этот код как *hello.py*. Он запускает виртуальную машину Java, добавляет облако с текстом на первый слайд новой презентации и сохраняет презентацию:
 
 ```python
 import jpype
@@ -117,7 +118,7 @@ try:
     # Получить первый слайд.
     slide = presentation.getSlides().get_Item(0)
 
-    # Добавить облачную форму и установить её текст.
+    # Добавить форму облака и установить её текст.
     auto_shape = slide.getShapes().addAutoShape(ShapeType.Cloud, 20, 20, 200, 80)
     auto_shape.getTextFrame().setText("Hello, Aspose!")
 
@@ -133,4 +134,4 @@ finally:
 python hello.py
 ```
 
-Скрипт сохраняет *new_presentation.pptx* с одним слайдом, содержащим облачную форму и текст «Hello, Aspose!». Без лицензии сохранённый файл также содержит водяной знак оценки — см. [Licensing](/slides/ru/python-java/licensing/). Для получения дополнительных способов создания и заполнения презентации см. [Create Presentations](/slides/ru/python-java/create-presentation/).
+Скрипт сохраняет *new_presentation.pptx* с одним слайдом, содержащим облако с текстом "Hello, Aspose!". Без лицензии сохранённый файл также содержит водяной знак оценки — смотрите [Лицензирование](/slides/ru/python-java/licensing/). Для получения дополнительных способов создания и заполнения презентации см. [Создание презентаций](/slides/ru/python-java/create-presentation/).

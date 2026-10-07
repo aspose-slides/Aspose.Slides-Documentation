@@ -1,6 +1,6 @@
 ---
-title: Aspose.Slides für C++
-second_title: Aspose.Slides für C++
+title: Aspose.Slides for C++
+second_title: Aspose.Slides for C++
 type: docs
 weight: 30
 url: /de/cpp/
@@ -12,14 +12,14 @@ keywords:
 - OpenDocument
 - C++
 - Aspose.Slides
-description: "Starten Sie hier: Installieren Sie Aspose.Slides für C++, erstellen Sie eine erste Präsentation und finden Sie die Anleitungen für gängige Aufgaben, die API-Referenz und den Support."
+description: "Hier starten: Installieren Sie Aspose.Slides for C++, erstellen Sie eine erste Präsentation und finden Sie die Anleitungen für gängige Aufgaben, die API‑Referenz und den Support."
 is_root: true
 ---
 <img src="home_1.png" alt="Aspose.Slides for C++" align="left" style="width:110px; margin: 0 30px 20px 0"/>
 
-Aspose.Slides for C++ ist eine native C++-Bibliothek zum Erstellen, Lesen, Bearbeiten und Konvertieren von PowerPoint- und OpenDocument-Präsentationen, ohne Microsoft PowerPoint oder Office‑Automation.
+Aspose.Slides for C++ ist eine native C++‑Bibliothek zum Erstellen, Lesen, Bearbeiten und Konvertieren von PowerPoint‑ und OpenDocument‑Präsentationen, ohne Microsoft PowerPoint oder Office‑Automatisierung.
 
-Sie lädt und speichert PPT, PPTX, PPS, POT und ODP, einschließlich makroaktivierter und Vorlagenvarianten, und exportiert nach PDF, XPS, HTML, SVG, TIFF, Markdown und Bildern.
+Sie lädt und speichert PPT, PPTX, PPS, POT und ODP, einschließlich makrofähiger und Vorlagen‑Varianten, und exportiert in PDF, XPS, HTML, SVG, TIFF, Markdown und Bilder.
 
 <div style="clear:both"></div>
 
@@ -35,7 +35,7 @@ Sie lädt und speichert PPT, PPTX, PPS, POT und ODP, einschließlich makroaktivi
 <li><a href="/slides/de/cpp/create-presentation/">Erstellen Sie Ihre erste Präsentation</a></li>
 <li><a href="/slides/de/cpp/getting-started/">Leitfaden für den Einstieg</a></li>
 </ul>
-<p>EVALUIEREN</p>
+<p>BEWERTEN</p>
 <ul>
 <li><a href="/slides/de/cpp/supported-file-formats/">Unterstützte Dateiformate</a></li>
 <li><a href="/slides/de/cpp/evaluate-aspose-slides/">Einschränkungen der Testversion</a></li>
@@ -43,12 +43,12 @@ Sie lädt und speichert PPT, PPTX, PPS, POT und ODP, einschließlich makroaktivi
 </ul>
 </div>
 <div class="col-md-4">
-<p><b>Entwickeln mit Slides</b></p>
+<p><b>Mit Slides entwickeln</b></p>
 <hr>
 <p>ALLGEMEINE AUFGABEN</p>
 <ul>
-<li><a href="/slides/de/cpp/open-presentation/">Eine Präsentation öffnen</a></li>
-<li><a href="/slides/de/cpp/save-presentation/">Eine Präsentation speichern</a></li>
+<li><a href="/slides/de/cpp/open-presentation/">Präsentation öffnen</a></li>
+<li><a href="/slides/de/cpp/save-presentation/">Präsentation speichern</a></li>
 <li><a href="/slides/de/cpp/convert-powerpoint-to-pdf/">In PDF konvertieren</a></li>
 <li><a href="/slides/de/cpp/convert-slide/">Folien als Bilder rendern</a></li>
 <li><a href="/slides/de/cpp/manage-text/">Text und Formen bearbeiten</a></li>
@@ -72,15 +72,16 @@ Sie lädt und speichert PPT, PPTX, PPS, POT und ODP, einschließlich makroaktivi
 <hr>
 <p>REFERENZ</p>
 <ul>
-<li><a href="https://reference.aspose.com/slides/cpp/">API-Referenz</a></li>
+<li><a href="https://reference.aspose.com/slides/cpp/">API‑Referenz</a></li>
 <li><a href="https://releases.aspose.com/slides/cpp/release-notes/">Versionshinweise</a></li>
 <li><a href="/slides/de/cpp/known-issues/">Bekannte Probleme</a></li>
-<li><a href="https://releases.aspose.com/slides/cpp/">Herunterladen</a></li>
+<li><a href="https://products.aspose.com/slides/cpp/">Produktseite</a></li>
+<li><a href="https://releases.aspose.com/slides/cpp/">Download</a></li>
 </ul>
-<p>UNTERSTÜTZUNG</p>
+<p>SUPPORT</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/11">Kostenloses Support-Forum</a></li>
-<li><a href="https://helpdesk.aspose.com/">Kostenpflichtiger Support-Helpdesk</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">Kostenloses Support‑Forum</a></li>
+<li><a href="https://helpdesk.aspose.com/">Kostenpflichtiger Support‑Helpdesk</a></li>
 </ul>
 </div>
 </div>
@@ -89,7 +90,7 @@ Sie lädt und speichert PPT, PPTX, PPS, POT und ODP, einschließlich makroaktivi
 
 ## **Ihre erste Präsentation**
 
-Unter Windows erstellen Sie ein C++ **Console App**‑Projekt in Visual Studio und installieren das NuGet‑Paket in der Package‑Manager‑Konsole (**Tools** > **NuGet Package Manager** > **Package Manager Console**):
+Unter Windows erstellen Sie ein C++ **Console App**‑Projekt in Visual Studio und installieren das NuGet‑Paket in der Paket‑Manager‑Konsole (**Tools** > **NuGet Package Manager** > **Package Manager Console**):
 
 ```powershell
 Install-Package Aspose.Slides.Cpp
@@ -97,7 +98,7 @@ Install-Package Aspose.Slides.Cpp
 
 Unter Linux laden Sie das Linux‑ZIP‑Paket herunter und richten das in [Installation](/slides/de/cpp/installation/#linux) beschriebene CMake‑Projekt ein.
 
-Verwenden Sie dann diesen Code als Haupt-Quellcodedatei Ihres Programms. Er erstellt eine Präsentation mit einem Textfeld und speichert sie:
+Verwenden Sie dann diesen Code als Haupt‑Quelldatei Ihres Programms. Er erstellt eine Präsentation mit einer Textbox und speichert sie:
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -125,7 +126,7 @@ int main()
 }
 ```
 
-Um es unter Windows auszuführen, wählen Sie die **x64**‑Plattform in der Symbolleiste und drücken **Strg+F5**. Unter Linux speichern Sie es als *main.cpp* im Projektordner, bauen es dort und führen es aus:
+Um es unter Windows auszuführen, wählen Sie die **x64**‑Plattform in der Symbolleiste und drücken **Ctrl+F5**. Unter Linux speichern Sie es als *main.cpp* im Projektordner, bauen es dort und führen es aus:
 
 ```bash
 cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
@@ -133,4 +134,4 @@ cmake --build build
 ./build/hello
 ```
 
-Das Programm speichert *hello.pptx* mit einer Folie, die ein Textfeld enthält. Ohne Lizenz enthält die gespeicherte Datei ein Evaluationswasserzeichen — siehe [Lizenzierung](/slides/de/cpp/licensing/). Weitere Möglichkeiten zum Erstellen und Befüllen einer Präsentation finden Sie unter [Präsentationen erstellen](/slides/de/cpp/create-presentation/).
+Das Programm speichert *hello.pptx* mit einer Folie, die eine Textbox enthält. Ohne Lizenz enthält die gespeicherte Datei ein Evaluierungs‑Wasserzeichen – siehe [Licensing](/slides/de/cpp/licensing/). Weitere Möglichkeiten zum Erstellen und Befüllen einer Präsentation finden Sie unter [Create Presentations](/slides/de/cpp/create-presentation/).

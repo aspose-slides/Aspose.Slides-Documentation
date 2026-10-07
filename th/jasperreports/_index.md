@@ -1,11 +1,11 @@
 ---
-title: Aspose.Slides for JasperReports
-second_title: Aspose.Slides for JasperReports
+title: Aspose.Slides สำหรับ JasperReports
+second_title: Aspose.Slides สำหรับ JasperReports
 type: docs
 weight: 70
 url: /th/jasperreports/
 keywords:
-- เอกสารประกอบ
+- เอกสาร
 - JasperReports
 - JasperReports Server
 - การส่งออกรายงาน
@@ -14,14 +14,14 @@ keywords:
 - PPTX
 - Java
 - Aspose.Slides
-description: "เริ่มต้นที่นี่: ติดตั้ง Aspose.Slides for JasperReports, ส่งออกรายงานแรกเป็น PowerPoint, และหาคู่มือสำหรับการส่งออก, การบูรณาการ JasperReports Server และการสนับสนุน."
+description: "เริ่มต้นที่นี่: ติดตั้ง Aspose.Slides for JasperReports, ส่งออกรายงานแรกเป็น PowerPoint, และค้นหาคู่มือสำหรับการส่งออก, การบูรณาการกับ JasperReports Server และการสนับสนุน."
 is_root: true
 ---
-<img src="home_1.png" alt="Aspose.Slides for JasperReports" align="left" style="width:110px; margin: 0 30px 20px 0"/>
+<img src="home_1.png" alt="Aspose.Slides สำหรับ JasperReports" align="left" style="width:110px; margin: 0 30px 20px 0"/>
 
-Aspose.Slides for JasperReports เพิ่มตัวส่งออก PowerPoint ให้กับ JasperReports Library และ JasperReports Server ทำให้แอปพลิเคชัน Java และเซิร์ฟเวอร์รายงานสามารถบันทึกรายงานที่เติมข้อมูลแล้วเป็นงานพรีเซนเทชันโดยไม่ต้องใช้ Microsoft PowerPoint.
+Aspose.Slides for JasperReports เพิ่มตัวส่งออก PowerPoint ให้กับ JasperReports Library และ JasperReports Server เพื่อให้แอปพลิเคชัน Java และเซิร์ฟเวอร์รายงานสามารถบันทึกรายงานที่เติมข้อมูลแล้วเป็นงานนำเสนอได้โดยไม่ต้องใช้ Microsoft PowerPoint
 
-มันส่งออกรายงานที่เติมข้อมูลแล้วเป็น PPT และ PPTX หนึ่งสไลด์ต่อหนึ่งหน้าในรายงาน รวมถึง PDF และ HTML ด้วย.
+มันส่งออกรายงานที่เติมข้อมูลแล้วเป็น PPT และ PPTX หนึ่งสไลด์ต่อหนึ่งหน้ารายงาน รวมถึง PDF และ HTML ด้วย
 
 <div style="clear:both"></div>
 
@@ -29,20 +29,20 @@ Aspose.Slides for JasperReports เพิ่มตัวส่งออก Power
 
 <div class="row">
 <div class="col-md-4">
-<p><b>เริ่มต้น</b></p>
+<p><b>เริ่มต้นใช้งาน</b></p>
 <hr>
-<p>เริ่มต้นใช้งาน</p>
+<p>เริ่มต้น</p>
 <ul>
 <li><a href="/slides/th/jasperreports/installing-aspose-slides-for-jasperreports/">การติดตั้ง</a></li>
 <li><a href="/slides/th/jasperreports/product-overview/">ภาพรวมของผลิตภัณฑ์</a></li>
 <li><a href="/slides/th/jasperreports/system-requirements/">ข้อกำหนดของระบบ</a></li>
 <li><a href="/slides/th/jasperreports/getting-started/">คู่มือเริ่มต้น</a></li>
 </ul>
-<p>ประเมินผล</p>
+<p>ประเมิน</p>
 <ul>
 <li><a href="/slides/th/jasperreports/supported-file-formats/">รูปแบบไฟล์ที่รองรับ</a></li>
-<li><a href="/slides/th/jasperreports/evaluate-aspose-slides/">ข้อจำกัดของเวอร์ชันทดลอง</a></li>
-<li><a href="/slides/th/jasperreports/licensing/">ไลเซนส์</a></li>
+<li><a href="/slides/th/jasperreports/evaluate-aspose-slides/">ข้อจำกัดของรุ่นทดลอง</a></li>
+<li><a href="/slides/th/jasperreports/licensing/">การให้สิทธิ์</a></li>
 </ul>
 </div>
 <div class="col-md-4">
@@ -51,8 +51,8 @@ Aspose.Slides for JasperReports เพิ่มตัวส่งออก Power
 <p>ส่งออก</p>
 <ul>
 <li><a href="/slides/th/jasperreports/ppt-pptx-pdf-and-html-export/">ส่งออกเป็น PPT, PPTX, PDF และ HTML</a></li>
-<li><a href="/slides/th/jasperreports/ppt-pptx-pdf-and-html-export/#map-fonts">แมปฟอนต์</a></li>
-<li><a href="/slides/th/jasperreports/integration-with-jasperserver/">การรวมกับ JasperReports Server</a></li>
+<li><a href="/slides/th/jasperreports/ppt-pptx-pdf-and-html-export/#map-fonts">แมปแบบอักษร</a></li>
+<li><a href="/slides/th/jasperreports/integration-with-jasperserver/">การบูรณาการกับ JasperReports Server</a></li>
 </ul>
 <p>ตัวอย่าง</p>
 <ul>
@@ -60,36 +60,37 @@ Aspose.Slides for JasperReports เพิ่มตัวส่งออก Power
 </ul>
 </div>
 <div class="col-md-4">
-<p><b>อ้างอิงและสนับสนุน</b></p>
+<p><b>อ้างอิงและการสนับสนุน</b></p>
 <hr>
 <p>อ้างอิง</p>
 <ul>
-<li><a href="https://releases.aspose.com/slides/jasperreport/release-notes/">บันทึกเวอร์ชัน</a></li>
+<li><a href="https://releases.aspose.com/slides/jasperreport/release-notes/">บันทึกการปล่อย</a></li>
+<li><a href="https://products.aspose.com/slides/jasperreports/">หน้าผลิตภัณฑ์</a></li>
 <li><a href="https://releases.aspose.com/slides/jasperreport/">ดาวน์โหลด</a></li>
 </ul>
-<p>สนับสนุน</p>
+<p>การสนับสนุน</p>
 <ul>
 <li><a href="https://forum.aspose.com/c/slides/11">ฟอรั่มสนับสนุนฟรี</a></li>
-<li><a href="https://helpdesk.aspose.com/">ศูนย์ช่วยเหลือสนับสนุนแบบชำระเงิน</a></li>
+<li><a href="https://helpdesk.aspose.com/">ศูนย์ช่วยเหลือแบบจ่ายเงิน</a></li>
 </ul>
 </div>
 </div>
 
 ------
 
-## **การส่งออกครั้งแรกของคุณ**
+## **การส่งออกแรกของคุณ**
 
-These steps compile a one-line report, fill it, and export it to PPTX with JasperReports 6.16.0 from Maven Central. You need JDK 11 or later and Apache Maven.
+ขั้นตอนเหล่านี้จะคอมไพล์รายงานบรรทัดเดียว เติมข้อมูลและส่งออกเป็น PPTX ด้วย JasperReports 6.16.0 จาก Maven Central คุณต้องมี JDK 11 หรือใหม่กว่าและ Apache Maven
 
-1. ดาวน์โหลดไฟล์ ZIP จาก [download page](https://releases.aspose.com/slides/jasperreport/) แล้วแตกไฟล์ โฟลเดอร์ *lib* มีโฟลเดอร์ย่อยหนึ่งโฟลเดอร์ต่อช่วงเวอร์ชันของ JasperReports และแต่ละโฟลเดอร์เก็บไฟล์ jar สำหรับช่วงนั้น สำหรับ JasperReports 6.16.0 ให้คัดลอก *lib/JasperReports 6.5.0 - 6.16.0 (JDK 1.6)/aspose.slides.jasperreports.library-26.6.jar* ไปยังโฟลเดอร์โครงการที่ว่างเปล่า.
+1. ดาวน์โหลด ZIP จาก [หน้าดาวน์โหลด](https://releases.aspose.com/slides/jasperreport/) แล้วคลายไฟล์ โฟลเดอร์ *lib* มีโฟลเดอร์ย่อยหนึ่งโฟลเดอร์ต่อช่วงเวอร์ชันของ JasperReports และแต่ละโฟลเดอร์บรรจุ jar สำหรับช่วงนั้น สำหรับ JasperReports 6.16.0 ให้คัดลอก *lib/JasperReports 6.5.0 - 6.16.0 (JDK 1.6)/aspose.slides.jasperreports.library-26.6.jar* ไปยังโฟลเดอร์โครงการที่ว่าง
 
-2. ไฟล์ jar อยู่ใน ZIP แทนที่จะมาจากที่เก็บ Maven ดังนั้นให้ติดตั้งลงในที่เก็บ Maven ท้องถิ่นของคุณ รันคำสั่งต่อไปนี้ในโฟลเดอร์โครงการ:
+2. jar จะมาพร้อมกับ ZIP แทนที่จะมาจากรีโพสทอรี Maven ดังนั้นให้ติดตั้งลงในรีโพสทอรี Maven ท้องถิ่นของคุณ รันคำสั่งนี้ในโฟลเดอร์โครงการ:
 
 ```bash
 mvn install:install-file "-Dfile=aspose.slides.jasperreports.library-26.6.jar" "-DgroupId=com.aspose" "-DartifactId=aspose-slides-jasperreports" "-Dversion=26.6" "-Dpackaging=jar"
 ```
 
-3. บันทึก *pom.xml* นี้ในโฟลเดอร์โครงการ มันจะเพิ่ม JasperReports 6.16.0 และไฟล์ jar ที่คุณติดตั้งไว้ พร้อมระบุคลาสที่จะเรียกใช้ JasperReports 6.16.0 กำหนดการสร้าง iText ที่แก้ไขแล้วซึ่งไม่มีใน Maven Central ดังนั้นไฟล์จึงไม่รวมไว้; ตัวส่งออกของ Aspose ไม่จำเป็นต้องใช้.
+3. บันทึก *pom.xml* นี้ในโฟลเดอร์โครงการ มันจะเพิ่ม JasperReports 6.16.0 และ jar ที่คุณติดตั้งไว้ และระบุคลาสที่จะทำงาน JasperReports 6.16.0 ประกาศการสร้าง iText ที่ปรับแก้แล้วซึ่งไม่มีใน Maven Central ดังนั้นไฟล์จึงไม่รวมไว้; ตัวส่งออกของ Aspose ไม่ต้องการมัน
 
 ```xml
 <project xmlns="http://maven.apache.org/POM/4.0.0">
@@ -135,7 +136,7 @@ mvn install:install-file "-Dfile=aspose.slides.jasperreports.library-26.6.jar" "
 </project>
 ```
 
-4. บันทึกการออกแบบรายงานนี้เป็น *hello.jrxml* ในโฟลเดอร์โครงการ มันจะแสดงข้อความหนึ่งบรรทัดในแถบหัวเรื่อง:
+4. บันทึกการออกแบบรายงานนี้เป็น *hello.jrxml* ในโฟลเดอร์โครงการ มันจะแสดงข้อความบรรทัดเดียวในแถบหัวเรื่อง:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -158,7 +159,7 @@ mvn install:install-file "-Dfile=aspose.slides.jasperreports.library-26.6.jar" "
 </jasperReport>
 ```
 
-5. บันทึกโค้ดนี้เป็น *src/main/java/HelloExport.java* โค้ดจะคอมไพล์การออกแบบ เติมข้อมูลด้วยเรคคอร์ดว่างหนึ่งรายการ และส่งออกรายการผลลัพธ์ด้วย `ASPptxExporter`:
+5. บันทึกโค้ดนี้เป็น *src/main/java/HelloExport.java* มันจะคอมไพล์การออกแบบ เติมข้อมูลด้วยระเบียนเปล่าหนึ่งรายการ และส่งออกผลลัพธ์ด้วย `ASPptxExporter`:
 
 ```java
 import java.util.HashMap;
@@ -173,11 +174,11 @@ import net.sf.jasperreports.engine.JasperReport;
 
 public class HelloExport {
     public static void main(String[] args) throws Exception {
-        // คอมไพล์การออกแบบรายงานและเติมด้วยระเบียนว่างหนึ่งรายการ.
+        // คอมไพล์การออกแบบรายงานและเติมด้วยบันทึกเปล่า 1 รายการ.
         JasperReport report = JasperCompileManager.compileReport("hello.jrxml");
         JasperPrint jasperPrint = JasperFillManager.fillReport(report, new HashMap<String, Object>(), new JREmptyDataSource());
 
-        // ส่งออกรายงานที่เติมแล้วเป็น PPTX.
+        // ส่งออกรายงานที่เติมข้อมูลแล้วเป็น PPTX.
         ASPptxExporter exporter = new ASPptxExporter();
         exporter.setParameter(JRExporterParameter.JASPER_PRINT, jasperPrint);
         exporter.setParameter(JRExporterParameter.OUTPUT_FILE_NAME, "hello.pptx");
@@ -192,4 +193,4 @@ public class HelloExport {
 mvn compile exec:java
 ```
 
-โปรแกรมจะบันทึก *hello.pptx* ในโฟลเดอร์โครงการ พร้อมสไลด์หนึ่งสไลด์ที่บรรจุตข้อความของรายงาน คอมไพล์เดอร์ระบุว่าโค้ดใช้ API ที่เลิกใช้แล้ว: ตัวส่งออกรับอินพุตและเอาต์พุตผ่าน `JRExporterParameter` และไม่รองรับการกำหนดค่า `setExporterInput` และ `setExporterOutput` รุ่นใหม่ บน Linux ต้องติดตั้ง fontconfig และอย่างน้อยหนึ่งฟอนต์ มิฉะนั้นการเติมข้อมูลรายงานจะล้มเหลว หากไม่มีไลเซนส์ แต่ละสไลด์จะมีลายน้ำการประเมินผลอยู่ที่ศูนย์กลาง — ดูที่ [Licensing](/slides/th/jasperreports/licensing/). เพื่อส่งออกเป็น PPT, PDF หรือ HTML ดูที่ [PPT, PPTX, PDF and HTML Export](/slides/th/jasperreports/ppt-pptx-pdf-and-html-export/).
+โปรแกรมจะบันทึก *hello.pptx* ในโฟลเดอร์โครงการ โดยมีสไลด์หนึ่งสไลด์ที่เก็บข้อความของรายงาน ตัวคอมไพเลอร์แจ้งว่าโค้ดใช้ API ที่เลิกใช้แล้ว: ตัวส่งออกรับอินพุตและเอาต์พุตผ่าน `JRExporterParameter` และไม่รับการกำหนดค่าใหม่ `setExporterInput` และ `setExporterOutput` บน Linux จำเป็นต้องติดตั้ง fontconfig และอย่างน้อยหนึ่งแบบอักษร มิฉะนั้นการเติมข้อมูลรายงานจะล้มเหลว หากไม่มีใบอนุญาตแต่ละสไลด์จะมีลายน้ำการประเมินที่ศูนย์กลาง — ดูที่ [การให้สิทธิ์](/slides/th/jasperreports/licensing/). เพื่อส่งออกเป็น PPT, PDF หรือ HTML ให้ดูที่ [การส่งออก PPT, PPTX, PDF และ HTML](/slides/th/jasperreports/ppt-pptx-pdf-and-html-export/).

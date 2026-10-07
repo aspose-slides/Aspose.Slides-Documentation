@@ -5,7 +5,7 @@ type: docs
 weight: 10
 url: /zh-hant/net/
 keywords:
-- 文件說明
+- 文件
 - 簡報處理
 - 簡報轉換
 - PowerPoint
@@ -13,14 +13,14 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "從這裡開始：安裝 Aspose.Slides for .NET，建立第一個簡報，並找尋常見任務、部署以及 API 參考的指南。"
+description: "從此開始：安裝 Aspose.Slides for .NET，建立第一個簡報，並找到常見任務、部署以及 API 參考的指南。"
 is_root: true
 ---
 <img src="home_1.png" alt="Aspose.Slides for .NET" align="left" style="width:110px; margin: 0 30px 20px 0"/>
 
-Aspose.Slides for .NET 是一個類別庫，用於在 .NET 應用程式中建立、讀取、編輯和轉換 PowerPoint 與 OpenDocument 簡報，無需 Microsoft PowerPoint 或 Office 自動化。
+Aspose.Slides for .NET 是一個類別庫，用於在 .NET 應用程式中建立、讀取、編輯和轉換 PowerPoint 以及 OpenDocument 簡報，無需 Microsoft PowerPoint 或 Office Automation。
 
-它可載入與保存 PPT、PPTX、PPS、POT 以及 ODP，包含巨集啟用和範本變體，並匯出為 PDF、XPS、HTML、SVG、TIFF、Markdown 與圖像。
+它能載入與儲存 PPT、PPTX、PPS、POT 與 ODP，包含啟用巨集與範本的變體，並可匯出為 PDF、XPS、HTML、SVG、TIFF、Markdown 與影像。
 
 <div style="clear:both"></div>
 
@@ -30,7 +30,7 @@ Aspose.Slides for .NET 是一個類別庫，用於在 .NET 應用程式中建立
 <div class="col-md-4">
 <p><b>開始使用</b></p>
 <hr>
-<p>開始上手</p>
+<p>開始入門</p>
 <ul>
 <li><a href="/slides/zh-hant/net/installation/">安裝</a></li>
 <li><a href="/slides/zh-hant/net/create-presentation/">建立您的第一個簡報</a></li>
@@ -40,9 +40,9 @@ Aspose.Slides for .NET 是一個類別庫，用於在 .NET 應用程式中建立
 <p>評估</p>
 <ul>
 <li><a href="/slides/zh-hant/net/supported-file-formats/">支援的檔案格式</a></li>
-<li><a href="/slides/zh-hant/net/features-overview/">功能概覽</a></li>
+<li><a href="/slides/zh-hant/net/features-overview/">功能總覽</a></li>
 <li><a href="/slides/zh-hant/net/evaluate-aspose-slides/">試用限制</a></li>
-<li><a href="/slides/zh-hant/net/licensing/">授權方式</a></li>
+<li><a href="/slides/zh-hant/net/licensing/">授權</a></li>
 </ul>
 </div>
 <div class="col-md-4">
@@ -53,7 +53,7 @@ Aspose.Slides for .NET 是一個類別庫，用於在 .NET 應用程式中建立
 <li><a href="/slides/zh-hant/net/open-presentation/">開啟簡報</a></li>
 <li><a href="/slides/zh-hant/net/save-presentation/">儲存簡報</a></li>
 <li><a href="/slides/zh-hant/net/convert-powerpoint-to-pdf/">轉換為 PDF</a></li>
-<li><a href="/slides/zh-hant/net/convert-slide/">將投影片渲染為圖像</a></li>
+<li><a href="/slides/zh-hant/net/convert-slide/">將投影片渲染為影像</a></li>
 <li><a href="/slides/zh-hant/net/manage-text/">編輯文字與圖形</a></li>
 </ul>
 <p>Slides 工作流程</p>
@@ -86,6 +86,7 @@ Aspose.Slides for .NET 是一個類別庫，用於在 .NET 應用程式中建立
 <li><a href="https://releases.aspose.com/slides/net/release-notes/">版本說明</a></li>
 <li><a href="/slides/zh-hant/net/known-issues/">已知問題</a></li>
 <li><a href="/slides/zh-hant/net/api-limitations/">輸出中繼資料限制</a></li>
+<li><a href="https://products.aspose.com/slides/net/">產品頁面</a></li>
 <li><a href="https://releases.aspose.com/slides/net/">下載</a></li>
 </ul>
 <p>支援</p>
@@ -100,19 +101,19 @@ Aspose.Slides for .NET 是一個類別庫，用於在 .NET 應用程式中建立
 
 <a name="your-first-presentation"></a>
 
-## **您的第一個投影片**
+## **您的第一個簡報**
 
-使用 .NET SDK 6 或更高版本建立一個主控台應用程式：
+使用 .NET SDK 6 或更新版本建立一個主控台應用程式：
 
 ```bash
 dotnet new console -n HelloSlides
 cd HelloSlides
 ```
 
-然後為您的平台加入一個套件：
+然後為您的平台新增一個套件：
 
-- 在 Windows 上: `dotnet add package Aspose.Slides.NET`
-- 在 Linux 和 macOS 上: `dotnet add package Aspose.Slides.NET6.CrossPlatform` — 請參閱[安裝](/slides/zh-hant/net/installation/) 了解 Linux 的先決條件，以及哪些系統需要使用 Aspose.Slides.NET。
+- On Windows: `dotnet add package Aspose.Slides.NET`
+- On Linux and macOS: `dotnet add package Aspose.Slides.NET6.CrossPlatform` — see [安裝](/slides/zh-hant/net/installation/) for the Linux prerequisite and for the systems that need Aspose.Slides.NET instead.
 
 將 *Program.cs* 的內容取代為以下程式碼，然後執行 `dotnet run`：
 
@@ -127,4 +128,4 @@ shape.TextFrame.Text = "Hello, Aspose.Slides!";
 presentation.Save("hello.pptx", SaveFormat.Pptx);
 ```
 
-此程式會儲存一個包含文字方塊的單一投影片至 *hello.pptx*。若未取得授權，儲存的檔案會帶有評估水印 — 請參閱[授權方式](/slides/zh-hant/net/licensing/)。欲了解更多建立與填充簡報的方法，請參閱[建立簡報](/slides/zh-hant/net/create-presentation/)。
+此程式會將 *hello.pptx* 儲存為含有一張投影片與文字方塊的檔案。若未取得授權，儲存的檔案會帶有評估浮水印 — see [授權](/slides/zh-hant/net/licensing/). 若想了解更多建立與填充簡報的方法，請參閱 [建立簡報](/slides/zh-hant/net/create-presentation/).

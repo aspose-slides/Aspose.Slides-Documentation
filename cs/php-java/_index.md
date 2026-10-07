@@ -12,12 +12,12 @@ keywords:
 - OpenDocument
 - PHP
 - Aspose.Slides
-description: "Začněte zde: nainstalujte Aspose.Slides pro PHP přes Java, vytvořte první prezentaci a najděte průvodce pro běžné úkoly, referenční API a podporu."
+description: "Začněte zde: nainstalujte Aspose.Slides pro PHP přes Java, vytvořte první prezentaci a najděte návody pro běžné úkoly, referenční API a podporu."
 is_root: true
 ---
 <img src="aspose_slides-for-php-via-java.png" alt="Aspose.Slides for PHP via Java" align="left" style="width:110px; margin: 0 30px 20px 0"/>
 
-Aspose.Slides for PHP via Java je knihovna tříd pro vytváření, čtení, úpravu a konverzi prezentací PowerPoint a OpenDocument v aplikacích PHP, bez Microsoft PowerPoint nebo Office Automation.
+Aspose.Slides for PHP via Java je knihovna tříd pro vytváření, čtení, úpravu a konverzi prezentací PowerPoint a OpenDocument v PHP aplikacích, bez Microsoft PowerPoint nebo automatizace Office.
 
 Načítá a ukládá soubory PPT, PPTX, PPS, POT a ODP, včetně variant s makry a šablon, a exportuje do PDF, XPS, HTML, SVG, TIFF, Markdown a obrázků.
 
@@ -29,21 +29,21 @@ Načítá a ukládá soubory PPT, PPTX, PPS, POT a ODP, včetně variant s makry
 <div class="col-md-4">
 <p><b>Začínáme</b></p>
 <hr>
-<p>ZAČÁTEK</p>
+<p>ZAČÍNÁME</p>
 <ul>
 <li><a href="/slides/cs/php-java/installation/">Instalace</a></li>
 <li><a href="/slides/cs/php-java/create-presentation/">Vytvořte svou první prezentaci</a></li>
-<li><a href="/slides/cs/php-java/getting-started/">Průvodce pro začátečníky</a></li>
+<li><a href="/slides/cs/php-java/getting-started/">Průvodce pro začátek</a></li>
 </ul>
-<p>EVALUACE</p>
+<p>HODNOCENÍ</p>
 <ul>
 <li><a href="/slides/cs/php-java/supported-file-formats/">Podporované formáty souborů</a></li>
 <li><a href="/slides/cs/php-java/evaluate-aspose-slides/">Omezení zkušební verze</a></li>
-<li><a href="/slides/cs/php-java/licensing/">Licence</a></li>
+<li><a href="/slides/cs/php-java/licensing/">Licencování</a></li>
 </ul>
 </div>
 <div class="col-md-4">
-<p><b>Vytvořte pomocí Slides</b></p>
+<p><b>Stavět pomocí Slides</b></p>
 <hr>
 <p>OBECNÉ ÚKOLY</p>
 <ul>
@@ -53,17 +53,17 @@ Načítá a ukládá soubory PPT, PPTX, PPS, POT a ODP, včetně variant s makry
 <li><a href="/slides/cs/php-java/convert-slide/">Vykreslit snímky jako obrázky</a></li>
 <li><a href="/slides/cs/php-java/manage-text/">Upravit text a tvary</a></li>
 </ul>
-<p>PRACOVNÍ PROCESY SLIDES</p>
+<p>PRACOVNÍ TOKY SLIDES</p>
 <ul>
 <li><a href="/slides/cs/php-java/powerpoint-charts/">Grafy</a></li>
 <li><a href="/slides/cs/php-java/powerpoint-animation/">Animace</a></li>
 <li><a href="/slides/cs/php-java/manage-media-files/">Audio a video</a></li>
-<li><a href="/slides/cs/php-java/presentation-design/">Návrh snímků</a></li>
+<li><a href="/slides/cs/php-java/presentation-design/">Design snímků</a></li>
 <li><a href="/slides/cs/php-java/merge-presentation/">Sloučit prezentace</a></li>
 </ul>
 <p>PŘÍKLADY</p>
 <ul>
-<li><a href="/slides/cs/php-java/examples/">Příklady podle prvku snímku</a></li>
+<li><a href="/slides/cs/php-java/examples/">Příklady podle prvků snímků</a></li>
 </ul>
 </div>
 <div class="col-md-4">
@@ -74,12 +74,13 @@ Načítá a ukládá soubory PPT, PPTX, PPS, POT a ODP, včetně variant s makry
 <li><a href="https://reference.aspose.com/slides/php-java/">Reference API</a></li>
 <li><a href="https://releases.aspose.com/slides/php-java/release-notes/">Poznámky k vydání</a></li>
 <li><a href="/slides/cs/php-java/known-issues/">Známé problémy</a></li>
+<li><a href="https://products.aspose.com/slides/php-java/">Stránka produktu</a></li>
 <li><a href="https://releases.aspose.com/slides/php-java/">Stáhnout</a></li>
 </ul>
 <p>PODPOŘA</p>
 <ul>
 <li><a href="https://forum.aspose.com/c/slides/11">Bezplatné fórum podpory</a></li>
-<li><a href="https://helpdesk.aspose.com/">Placená podpora helpdesk</a></li>
+<li><a href="https://helpdesk.aspose.com/">Placená podpora – helpdesk</a></li>
 </ul>
 </div>
 </div>
@@ -88,18 +89,18 @@ Načítá a ukládá soubory PPT, PPTX, PPS, POT a ODP, včetně variant s makry
 
 ## **Vaše první prezentace**
 
-Aspose.Slides for PHP via Java běží na Javě uvnitř Apache Tomcat a vaše PHP skripty k němu přistupují prostřednictvím PHP/Java Bridge. [Instalace](/slides/cs/php-java/installation/) připraví PHP 8.3 nebo starší, Javu, Tomcat a most, a poté nainstaluje balíček z Packagist do složky projektu:
+Aspose.Slides for PHP via Java běží na Javě uvnitř Apache Tomcat a vaše PHP skripty k němu přistupují přes PHP/Java Bridge. [Instalace](/slides/cs/php-java/installation/) nastaví PHP 8.3 nebo starší, Javu, Tomcat a most a poté nainstaluje balíček z Packagist do složky projektu:
 
 ```bash
 composer require aspose/slides
 ```
 
-Poté zkopírujte JAR soubor balíčku do mostu a restartujte Tomcat, jako v kroku 4 [Instalace na Linuxu](/slides/cs/php-java/installation/#install-on-linux) nebo kroku 6 [Instalace na Windows](/slides/cs/php-java/installation/#install-on-windows). S běžícím Tomcatem uložte tento skript jako *hello.php* do složky projektu a spusťte `php hello.php`:
+Poté zkopírujte JAR soubor balíčku do mostu a restartujte Tomcat, stejně jako v kroku 4 [Instalace na Linuxu](/slides/cs/php-java/installation/#install-on-linux) nebo kroku 6 [Instalace na Windows](/slides/cs/php-java/installation/#install-on-windows). S běžícím Tomcatem uložte tento skript jako *hello.php* do složky projektu a spusťte `php hello.php`:
 
 ```php
 <?php
 require_once("http://localhost:8080/JavaBridge/java/Java.inc");
-require_once(__DIR__ . "/vendor/aspose/slides/cs/lib/aspose.slides.php");
+require_once(__DIR__ . "/vendor/aspose/slides/lib/aspose.slides.php");
 
 use aspose\slides\Presentation;
 use aspose\slides\SaveFormat;
@@ -116,4 +117,4 @@ try {
 }
 ```
 
-Script uloží *hello.pptx* vedle sebe, s jedním snímkem obsahujícím textové pole. Bez licence má uložený soubor vodoznak evaluace — viz [Licence](/slides/cs/php-java/licensing/). Pro další způsoby tvorby a vyplnění prezentace viz [Vytvoření prezentací](/slides/cs/php-java/create-presentation/).
+Skript uloží *hello.pptx* vedle sebe, s jedním snímkem obsahujícím textové pole. Bez licence obsahuje uložený soubor vodoznak pro hodnocení — viz [Licencování](/slides/cs/php-java/licensing/). Pro více způsobů, jak vytvořit a vyplnit prezentaci, viz [Vytvoření prezentací](/slides/cs/php-java/create-presentation/).

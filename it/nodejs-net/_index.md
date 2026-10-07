@@ -6,19 +6,19 @@ weight: 47
 url: /it/nodejs-net/
 keywords:
 - documentazione
-- elaborazione delle presentazioni
-- conversione delle presentazioni
+- elaborazione presentazioni
+- conversione presentazioni
 - PowerPoint
 - OpenDocument
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Inizia qui: installa Aspose.Slides per Node.js via .NET, crea una prima presentazione e trova le guide per attività comuni, licenze, riferimento API e supporto."
+description: "Inizia qui: installa Aspose.Slides per Node.js via .NET, crea una prima presentazione e trovi le guide per attività comuni, licenze, riferimento API e supporto."
 is_root: true
 ---
 <img src="aspose_slides-for-nodejs-via-net.png" alt="Aspose.Slides per Node.js via .NET" align="left" style="width:110px; margin: 0 30px 20px 0"/>
 
-Aspose.Slides per Node.js via .NET è una libreria per creare, leggere, modificare e convertire presentazioni PowerPoint e OpenDocument in applicazioni Node.js, senza Microsoft PowerPoint o Office Automation. Esegue Aspose.Slides per .NET tramite il bridge edge‑js, quindi la sua API JavaScript replica l'API .NET, con nomi dei membri in camelCase.
+Aspose.Slides per Node.js via .NET è una libreria per creare, leggere, modificare e convertire presentazioni PowerPoint e OpenDocument in applicazioni Node.js, senza Microsoft PowerPoint o Office Automation. Esegue Aspose.Slides per .NET tramite il bridge edge-js, quindi la sua API JavaScript rispecchia l'API .NET, con nomi dei membri in camelCase.
 
 Carica e salva PPT, PPTX, PPS, POT e ODP, incluse le varianti con macro e i modelli, ed esporta in PDF, XPS, HTML, TIFF, Markdown e immagini.
 
@@ -30,16 +30,16 @@ Carica e salva PPT, PPTX, PPS, POT e ODP, incluse le varianti con macro e i mode
 <div class="col-md-4">
 <p><b>Inizia</b></p>
 <hr>
-<p>PRIMI PASSI</p>
+<p>INIZIO</p>
 <ul>
 <li><a href="/slides/it/nodejs-net/installation/">Installazione</a></li>
 <li><a href="/slides/it/nodejs-net/create-presentation/">Crea la tua prima presentazione</a></li>
 <li><a href="/slides/it/nodejs-net/developer-guide/">Guida per sviluppatori</a></li>
 </ul>
-<p>VALUTA</p>
+<p>VALUTAZIONE</p>
 <ul>
 <li><a href="/slides/it/nodejs-net/evaluate-aspose-slides/">Limitazioni della versione di prova</a></li>
-<li><a href="/slides/it/nodejs-net/licensing/">Licenza</a></li>
+<li><a href="/slides/it/nodejs-net/licensing/">Licenze</a></li>
 </ul>
 </div>
 <div class="col-md-4">
@@ -54,12 +54,13 @@ Carica e salva PPT, PPTX, PPS, POT e ODP, incluse le varianti con macro e i mode
 </ul>
 </div>
 <div class="col-md-4">
-<p><b>Riferimento e Supporto</b></p>
+<p><b>Riferimento &amp; Supporto</b></p>
 <hr>
 <p>RIFERIMENTO</p>
 <ul>
 <li><a href="https://reference.aspose.com/slides/net/">Riferimento API .NET</a></li>
 <li><a href="https://releases.aspose.com/slides/nodejs-net/release-notes/">Note di rilascio</a></li>
+<li><a href="https://products.aspose.com/slides/nodejs-net/">Pagina del prodotto</a></li>
 <li><a href="https://releases.aspose.com/slides/nodejs-net/">Download</a></li>
 </ul>
 <p>SUPPORTO</p>
@@ -74,7 +75,7 @@ Carica e salva PPT, PPTX, PPS, POT e ODP, incluse le varianti con macro e i mode
 
 ## **La tua prima presentazione**
 
-Hai bisogno di Node.js 22 o 24 e del .NET SDK 8 o successivo; Linux richiede anche alcuni pacchetti di sistema. [Installation](/slides/it/nodejs-net/installation/) elenca tutto e le piattaforme testate. Crea un progetto, aggiungi un override che indica a npm quale versione di edge‑js installare e installa il pacchetto:
+È necessario Node.js 22 o 24 e il .NET SDK 8 o successivo; Linux richiede inoltre alcuni pacchetti di sistema. [Installazione](/slides/it/nodejs-net/installation/) elenca questi e le piattaforme testate. Crea un progetto, aggiungi un override che indica a npm quale versione di edge-js installare, e installa il pacchetto:
 
 ```sh
 mkdir hello-slides
@@ -84,7 +85,7 @@ npm pkg set overrides.edge-js=26.1.0
 npm install aspose.slides.via.net
 ```
 
-Una volta per macchina, ripristina i pacchetti .NET da cui dipende la libreria. Salva il file `deps.csproj` da [Restore the .NET Dependencies](/slides/it/nodejs-net/installation/#restore-the-net-dependencies) in una cartella `deps` all'interno della cartella del progetto, quindi esegui:
+Una volta per macchina, ripristina i pacchetti .NET da cui dipende la libreria. Salva il file `deps.csproj` da [Ripristina le dipendenze .NET](/slides/it/nodejs-net/installation/#restore-the-net-dependencies) in una cartella `deps` all'interno della cartella del progetto, quindi esegui:
 
 ```sh
 dotnet restore deps/deps.csproj
@@ -101,7 +102,7 @@ const presentation = new Presentation();
 try {
     const slide = presentation.slides.get(0);
 
-    // La posizione e le dimensioni sono in punti (1/72 di pollice): x, y, larghezza, altezza.
+    // Posizione e dimensione sono in punti (1/72 di pollice): x, y, larghezza, altezza.
     const rectangle = slide.shapes.addAutoShape(ShapeType.Rectangle, 50, 50, 400, 100);
     rectangle.addTextFrame("Hello, World!");
 
@@ -119,4 +120,4 @@ Eseguilo dalla cartella del progetto:
 node hello.js
 ```
 
-Lo script stampa `Saved hello.pptx` e salva *hello.pptx* con una diapositiva contenente un rettangolo con il testo. Senza licenza, il file salvato contiene un marchio di valutazione — vedi [Licensing](/slides/it/nodejs-net/licensing/). Per altri modi di creare e compilare una presentazione, vedi [Create a Presentation](/slides/it/nodejs-net/create-presentation/).
+Lo script stampa `Saved hello.pptx` e salva *hello.pptx* con una diapositiva contenente un rettangolo con il testo. Senza licenza, il file salvato presenta una filigrana di valutazione — vedi [Licenze](/slides/it/nodejs-net/licensing/). Per ulteriori modi di creare e riempire una presentazione, vedi [Crea una presentazione](/slides/it/nodejs-net/create-presentation/).

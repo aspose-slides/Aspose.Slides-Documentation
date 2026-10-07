@@ -1,6 +1,6 @@
 ---
-title: Aspose.Slides pro Java
-second_title: Aspose.Slides pro Java
+title: Aspose.Slides for Java
+second_title: Aspose.Slides for Java
 type: docs
 weight: 20
 url: /cs/java/
@@ -12,14 +12,14 @@ keywords:
 - OpenDocument
 - Java
 - Aspose.Slides
-description: "Začněte zde: nainstalujte Aspose.Slides pro Java, vytvořte první prezentaci a najděte návody na běžné úkoly, API reference a podporu."
+description: "Začněte zde: nainstalujte Aspose.Slides for Java, vytvořte první prezentaci a najděte průvodce pro běžné úkoly, nasazení a referenční dokumentaci API."
 is_root: true
 ---
 <img src="home_1.png" alt="Aspose.Slides for Java" align="left" style="width:110px; margin: 0 30px 20px 0"/>
 
-Aspose.Slides for Java je knihovna tříd pro vytváření, čtení, úpravu a převod prezentací PowerPoint a OpenDocument v aplikacích Java, bez Microsoft PowerPoint.
+Aspose.Slides for Java je knihovna tříd pro vytváření, čtení, editaci a konverzi prezentací PowerPoint a OpenDocument v Java aplikacích, bez Microsoft PowerPoint.
 
-Načítá a ukládá PPT, PPTX, PPS, POT a ODP, včetně variant s makry a šablon, a exportuje do PDF, XPS, HTML, SVG, TIFF, Markdown a obrázků.
+Načítá a ukládá soubory PPT, PPTX, PPS, POT a ODP, včetně variant s makry a šablon, a exportuje do PDF, XPS, HTML, SVG, TIFF, Markdown a obrázků.
 
 <div style="clear:both"></div>
 
@@ -29,67 +29,80 @@ Načítá a ukládá PPT, PPTX, PPS, POT a ODP, včetně variant s makry a šabl
 <div class="col-md-4">
 <p><b>Začínáme</b></p>
 <hr>
-<p>Jak začít</p>
+<p>ZAČÁTEK</p>
 <ul>
 <li><a href="/slides/cs/java/installation/">Instalace</a></li>
 <li><a href="/slides/cs/java/create-presentation/">Vytvořte svou první prezentaci</a></li>
+<li><a href="/slides/cs/java/system-requirements/">Systémové požadavky</a></li>
 <li><a href="/slides/cs/java/getting-started/">Průvodce pro začátečníky</a></li>
 </ul>
-<p>Vyzkoušení</p>
+<p>EVALUACE</p>
 <ul>
 <li><a href="/slides/cs/java/supported-file-formats/">Podporované formáty souborů</a></li>
+<li><a href="/slides/cs/java/features-overview/">Přehled funkcí</a></li>
 <li><a href="/slides/cs/java/evaluate-aspose-slides/">Omezení zkušební verze</a></li>
 <li><a href="/slides/cs/java/licensing/">Licencování</a></li>
 </ul>
 </div>
 <div class="col-md-4">
-<p><b>Vytvářejte s Slides</b></p>
+<p><b>Vytvářejte pomocí Slides</b></p>
 <hr>
-<p>Běžné úkoly</p>
+<p>OBECNÉ ÚKOLY</p>
 <ul>
 <li><a href="/slides/cs/java/open-presentation/">Otevřít prezentaci</a></li>
 <li><a href="/slides/cs/java/save-presentation/">Uložit prezentaci</a></li>
 <li><a href="/slides/cs/java/convert-powerpoint-to-pdf/">Převést do PDF</a></li>
-<li><a href="/slides/cs/java/convert-slide/">Vykreslovat snímky jako obrázky</a></li>
+<li><a href="/slides/cs/java/convert-slide/">Vykreslit snímky jako obrázky</a></li>
 <li><a href="/slides/cs/java/manage-text/">Upravit text a tvary</a></li>
 </ul>
-<p>Workflowy Slides</p>
+<p>PRACOVNÍ PROCESY</p>
 <ul>
 <li><a href="/slides/cs/java/powerpoint-charts/">Grafy</a></li>
 <li><a href="/slides/cs/java/powerpoint-animation/">Animace</a></li>
 <li><a href="/slides/cs/java/manage-media-files/">Audio a video</a></li>
-<li><a href="/slides/cs/java/presentation-design/">Design snímků</a></li>
+<li><a href="/slides/cs/java/presentation-design/">Návrh snímků</a></li>
 <li><a href="/slides/cs/java/merge-presentation/">Sloučit prezentace</a></li>
 </ul>
-<p>Příklady</p>
+<p>PŘÍKLADY</p>
 <ul>
-<li><a href="/slides/cs/java/examples/">Příklady podle prvků snímku</a></li>
+<li><a href="/slides/cs/java/examples/">Příklady podle prvku snímku</a></li>
 <li><a href="https://github.com/aspose-slides/Aspose.Slides-for-Java">Příklady na GitHubu</a></li>
 </ul>
 </div>
 <div class="col-md-4">
-<p><b>Reference a podpora</b></p>
+<p><b>Nasazení a podpora</b></p>
 <hr>
-<p>Reference</p>
+<p>NASAZENÍ</p>
 <ul>
-<li><a href="https://reference.aspose.com/slides/java/">API reference</a></li>
+<li><a href="/slides/cs/java/system-requirements/#linux">Požadavky pro Linux</a></li>
+<li><a href="/slides/cs/java/how-to-run-aspose-slides-in-docker/">Spustit v Dockeru</a></li>
+<li><a href="/slides/cs/java/deploy-fonts/">Písma</a></li>
+<li><a href="/slides/cs/java/security/">Zabezpečení</a></li>
+</ul>
+<p>REFERENCE</p>
+<ul>
+<li><a href="https://reference.aspose.com/slides/java/">Reference API</a></li>
 <li><a href="https://releases.aspose.com/slides/java/release-notes/">Poznámky k vydání</a></li>
 <li><a href="/slides/cs/java/known-issues/">Známé problémy</a></li>
+<li><a href="/slides/cs/java/api-limitations/">Omezení výstupních metadat</a></li>
+<li><a href="https://products.aspose.com/slides/java/">Stránka produktu</a></li>
 <li><a href="https://releases.aspose.com/slides/java/">Stáhnout</a></li>
 </ul>
-<p>Podpora</p>
+<p>PODPORA</p>
 <ul>
 <li><a href="https://forum.aspose.com/c/slides/11">Bezplatné fórum podpory</a></li>
-<li><a href="https://helpdesk.aspose.com/">Placená podpora (helpdesk)</a></li>
+<li><a href="https://helpdesk.aspose.com/">Placený podpůrný helpdesk</a></li>
 </ul>
 </div>
 </div>
 
 ------
 
+<a name="your-first-presentation"></a>
+
 ## **Vaše první prezentace**
 
-Aspose.Slides for Java je publikováno v Maven repozitáři společnosti Aspose, nikoli v Maven Central. Vytvořte složku pro Maven projekt a uložte do ní tento *pom.xml*. Definuje repozitář, přidá knihovnu a určuje třídu k spuštění:
+Aspose.Slides for Java je zveřejněn v Maven úložišti společnosti Aspose, nikoli v Maven Central. Vytvořte složku pro Maven projekt a uložte do ní tento *pom.xml*. Definuje úložiště, přidá knihovnu a určuje třídu, která se má spustit:
 
 ```xml
 <project xmlns="http://maven.apache.org/POM/4.0.0">
@@ -140,7 +153,7 @@ import com.aspose.slides.*;
 
 public class HelloSlides {
     public static void main(String[] args) {
-        // Vytvořte prezentaci. Už obsahuje jeden prázdný snímek.
+        // Vytvořte prezentaci. Již obsahuje jeden prázdný snímek.
         Presentation presentation = new Presentation();
         try {
             // Získejte první snímek.
@@ -159,10 +172,10 @@ public class HelloSlides {
 }
 ```
 
-Poté, s nainstalovaným JDK 11 nebo novějším a Apache Maven, spusťte v adresáři projektu tento příkaz:
+Poté, s nainstalovaným JDK 11 nebo novějším a Apache Maven, spusťte tento příkaz ve složce projektu:
 
 ```bash
 mvn compile exec:java
 ```
 
-Program uloží *new_presentation.pptx* do adresáře projektu, se snímkem obsahujícím tvar mraku s textem. Na Linuxu musí být nainstalován fontconfig a alespoň jeden font; viz [Installation](/slides/cs/java/installation/#linux). Bez licence obsahuje uložený soubor vodoznak zkušební verze — viz [Licensing](/slides/cs/java/licensing/). Další způsoby, jak vytvořit a naplnit prezentaci, najdete v [Create Presentations](/slides/cs/java/create-presentation/).
+Program uloží *new_presentation.pptx* do složky projektu, s jedním snímkem obsahujícím tvar mraku s textem. Na Linuxu musí být nainstalován fontconfig a alespoň jeden font; viz [Installation](/slides/cs/java/installation/#linux). Bez licence bude uložený soubor obsahovat vodotisk pro hodnocení — viz [Licensing](/slides/cs/java/licensing/). Pro další možnosti, jak vytvořit a vyplnit prezentaci, viz [Create Presentations](/slides/cs/java/create-presentation/).

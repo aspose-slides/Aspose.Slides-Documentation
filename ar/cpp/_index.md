@@ -1,25 +1,25 @@
 ---
-title: Aspose.Slides لـ C++
-second_title: Aspose.Slides لـ C++
+title: Aspose.Slides for C++
+second_title: Aspose.Slides for C++
 type: docs
 weight: 30
 url: /ar/cpp/
 keywords:
 - توثيق
-- معالجة العروض
-- تحويل العروض
+- معالجة العروض التقديمية
+- تحويل العروض التقديمية
 - PowerPoint
 - OpenDocument
 - C++
 - Aspose.Slides
-description: "ابدأ هنا: ثبّت Aspose.Slides للـ C++، أنشئ أول عرض تقديمي، وابحث عن الأدلة للمهام الشائعة، ومرجع API والدعم."
+description: "ابدأ هنا: ثبّت Aspose.Slides for C++، أنشئ أول عرض تقديمي، واعثر على الأدلة للمهام الشائعة، ومرجع API والدعم."
 is_root: true
 ---
 <img src="home_1.png" alt="Aspose.Slides for C++" align="left" style="width:110px; margin: 0 30px 20px 0"/>
 
-Aspose.Slides for C++ هي مكتبة C++ أصلية لإنشاء، قراءة، تعديل وتحويل عروض PowerPoint وOpenDocument، بدون الحاجة إلى Microsoft PowerPoint أو أتمتة Office.
+Aspose.Slides for C++ هي مكتبة C++ أصلية لإنشاء وقراءة وتعديل وتحويل عروض PowerPoint وOpenDocument، دون الحاجة إلى Microsoft PowerPoint أو أتمتة Office.
 
-تقوم بتحميل وحفظ PPT، PPTX، PPS، POT وODP، بما في ذلك الإصدارات التي تدعم الماكرو والقوالب، وتصدّر إلى PDF، XPS، HTML، SVG، TIFF، Markdown والصور.
+تقوم بتحميل وحفظ صيغ PPT وPPTX وPPS وPOT وODP، بما في ذلك الإصدارات التي تدعم الماكرو والقوالب، وتصدّر إلى PDF وXPS وHTML وSVG وTIFF وMarkdown والصور.
 
 <div style="clear:both"></div>
 
@@ -27,9 +27,9 @@ Aspose.Slides for C++ هي مكتبة C++ أصلية لإنشاء، قراءة،
 
 <div class="row">
 <div class="col-md-4">
-<p><b>البدء</b></p>
+<p><b>ابدأ</b></p>
 <hr>
-<p>بدء الاستخدام</p>
+<p>البدء</p>
 <ul>
 <li><a href="/slides/ar/cpp/installation/">التثبيت</a></li>
 <li><a href="/slides/ar/cpp/create-presentation/">إنشاء أول عرض تقديمي لك</a></li>
@@ -39,7 +39,7 @@ Aspose.Slides for C++ هي مكتبة C++ أصلية لإنشاء، قراءة،
 <ul>
 <li><a href="/slides/ar/cpp/supported-file-formats/">تنسيقات الملفات المدعومة</a></li>
 <li><a href="/slides/ar/cpp/evaluate-aspose-slides/">قيود النسخة التجريبية</a></li>
-<li><a href="/slides/ar/cpp/licensing/">الترخيص</a></li>
+<li><a href="/slides/ar/cpp/licensing/">التراخيص</a></li>
 </ul>
 </div>
 <div class="col-md-4">
@@ -50,15 +50,15 @@ Aspose.Slides for C++ هي مكتبة C++ أصلية لإنشاء، قراءة،
 <li><a href="/slides/ar/cpp/open-presentation/">فتح عرض تقديمي</a></li>
 <li><a href="/slides/ar/cpp/save-presentation/">حفظ عرض تقديمي</a></li>
 <li><a href="/slides/ar/cpp/convert-powerpoint-to-pdf/">تحويل إلى PDF</a></li>
-<li><a href="/slides/ar/cpp/convert-slide/">تصدير الشرائح كصور</a></li>
-<li><a href="/slides/ar/cpp/manage-text/">تحرير النص والأشكال</a></li>
+<li><a href="/slides/ar/cpp/convert-slide/">تحويل الشرائح إلى صور</a></li>
+<li><a href="/slides/ar/cpp/manage-text/">تحرير النصوص والأشكال</a></li>
 </ul>
 <p>سير عمل Slides</p>
 <ul>
-<li><a href="/slides/ar/cpp/powerpoint-charts/">الرسوم البيانية</a></li>
+<li><a href="/slides/ar/cpp/powerpoint-charts/">المخططات</a></li>
 <li><a href="/slides/ar/cpp/powerpoint-animation/">الرسوم المتحركة</a></li>
 <li><a href="/slides/ar/cpp/manage-media-files/">الصوت والفيديو</a></li>
-<li><a href="/slides/ar/cpp/presentation-design/">تصميم الشريحة</a></li>
+<li><a href="/slides/ar/cpp/presentation-design/">تصميم الشرائح</a></li>
 <li><a href="/slides/ar/cpp/merge-presentation/">دمج العروض التقديمية</a></li>
 </ul>
 <p>الأمثلة</p>
@@ -75,12 +75,13 @@ Aspose.Slides for C++ هي مكتبة C++ أصلية لإنشاء، قراءة،
 <li><a href="https://reference.aspose.com/slides/cpp/">مرجع API</a></li>
 <li><a href="https://releases.aspose.com/slides/cpp/release-notes/">ملاحظات الإصدار</a></li>
 <li><a href="/slides/ar/cpp/known-issues/">المشكلات المعروفة</a></li>
+<li><a href="https://products.aspose.com/slides/cpp/">صفحة المنتج</a></li>
 <li><a href="https://releases.aspose.com/slides/cpp/">التنزيل</a></li>
 </ul>
 <p>الدعم</p>
 <ul>
 <li><a href="https://forum.aspose.com/c/slides/11">منتدى الدعم المجاني</a></li>
-<li><a href="https://helpdesk.aspose.com/">مكتب المساعدة للدعم المدفوع</a></li>
+<li><a href="https://helpdesk.aspose.com/">مكتب مساعدة الدعم المدفوع</a></li>
 </ul>
 </div>
 </div>
@@ -89,16 +90,14 @@ Aspose.Slides for C++ هي مكتبة C++ أصلية لإنشاء، قراءة،
 
 ## **أول عرض تقديمي لك**
 
-في نظام Windows، أنشئ مشروع C++ **Console App** في Visual Studio وقم بتثبيت حزمة NuGet عبر Package Manager Console (**Tools** > **NuGet Package Manager** > **Package Manager Console**):
-
+في نظام Windows، أنشئ مشروع **Console App** بلغة C++ في Visual Studio وقم بتثبيت حزمة NuGet عبر نافذة Package Manager Console (**Tools** > **NuGet Package Manager** > **Package Manager Console**):
 ```powershell
 Install-Package Aspose.Slides.Cpp
 ```
 
-في نظام Linux، قم بتحميل حزمة ZIP للـ Linux وقم بإعداد مشروع CMake الموضح في [التثبيت](/slides/ar/cpp/installation/#linux).
+في نظام Linux، نزّل حزمة ZIP الخاصة بـ Linux وأعد إعداد مشروع CMake الوارد في [التثبيت](/slides/ar/cpp/installation/#linux).
 
-ثم استخدم هذا الشيفرة كملف المصدر الرئيسي لبرنامجك. تنشئ عرض تقديمي بجهة نص واحدة وتحفظه:
-
+بعد ذلك استخدم هذا الكود كملف المصدر الرئيسي لبرنامجك. يقوم بإنشاء عرض تقديمي يحتوي على صندوق نص واحد ويحفظه:
 ```cpp
 #include <DOM/Presentation.h>
 #include <DOM/ISlide.h>
@@ -125,12 +124,11 @@ int main()
 }
 ```
 
-لتشغيله على Windows، اختر منصة **x64** من شريط الأدوات واضغط **Ctrl+F5**. على Linux، احفظه كـ *main.cpp* في مجلد المشروع، ثم ابنِه وشغّله هناك:
-
+لتشغيله على Windows، اختر منصة **x64** من شريط الأدوات واضغط **Ctrl+F5**. على Linux، احفظه كملف *main.cpp* في مجلد المشروع، ثم ابنِه وشغّله هناك:
 ```bash
 cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
 cmake --build build
 ./build/hello
 ```
 
-يحفظ البرنامج *hello.pptx* بشريحة واحدة تحتوي على جهة نص. بدون ترخيص، يحمل الملف المحفوظ علامة مائية تجريبية — انظر [الترخيص](/slides/ar/cpp/licensing/). لمزيد من الطرق لإنشاء وتعبئة عرض تقديمي، انظر [إنشاء عروض تقديمية](/slides/ar/cpp/create-presentation/).
+يقوم البرنامج بحفظ *hello.pptx* مع شريحة واحدة تحتوي على صندوق نص. بدون ترخيص، يحتوي الملف المحفوظ على علامة مائية تجريبية — راجع [التراخيص](/slides/ar/cpp/licensing/). لمزيد من الطرق لإنشاء وتعبئة عرض تقديمي، راجع [إنشاء العروض التقديمية](/slides/ar/cpp/create-presentation/).

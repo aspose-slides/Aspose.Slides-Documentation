@@ -13,14 +13,14 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Begin hier: installeer Aspose.Slides voor Node.js via Java, maak een eerste presentatie en vind de handleidingen voor algemene taken, de API‑referentie en ondersteuning."
+description: "Begin hier: installeer Aspose.Slides voor Node.js via Java, maak een eerste presentatie, en vind de handleidingen voor veelvoorkomende taken, de API-referentie en ondersteuning."
 is_root: true
 ---
-<img src="aspose_slides-for-nodejs-via-java.png" alt="Aspose.Slides voor Node.js via Java" align="left" style="width:110px; margin: 0 30px 20px 0"/>
+<img src="aspose_slides-for-nodejs-via-java.png" alt="Aspose.Slides for Node.js via Java" align="left" style="width:110px; margin: 0 30px 20px 0"/>
 
-Aspose.Slides voor Node.js via Java is een bibliotheek voor het maken, lezen, bewerken en converteren van PowerPoint‑ en OpenDocument‑presentaties in Node.js‑applicaties, zonder Microsoft PowerPoint.
+Aspose.Slides for Node.js via Java is een bibliotheek voor het maken, lezen, bewerken en converteren van PowerPoint- en OpenDocument‑presentaties in Node.js‑toepassingen, zonder Microsoft PowerPoint.
 
-Het laadt en slaat PPT, PPTX, PPS, POT en ODP op, inclusief macro‑ondersteunde en sjabloonvarianten, en exporteert naar PDF, XPS, HTML, SVG, TIFF, Markdown en afbeeldingen.
+Het laadt en slaat PPT, PPTX, PPS, POT en ODP op, inclusief macro‑ingeschakelde en sjabloonvarianten, en exporteert naar PDF, XPS, HTML, SVG, TIFF, Markdown en afbeeldingen.
 
 <div style="clear:both"></div>
 
@@ -30,16 +30,16 @@ Het laadt en slaat PPT, PPTX, PPS, POT en ODP op, inclusief macro‑ondersteunde
 <div class="col-md-4">
 <p><b>Aan de slag</b></p>
 <hr>
-<p>AAN DE SLAG</p>
+<p>Eerste stappen</p>
 <ul>
 <li><a href="/slides/nl/nodejs-java/installation/">Installatie</a></li>
 <li><a href="/slides/nl/nodejs-java/create-presentation/">Maak uw eerste presentatie</a></li>
-<li><a href="/slides/nl/nodejs-java/getting-started/">Startgids</a></li>
+<li><a href="/slides/nl/nodejs-java/getting-started/">Gids voor eerste stappen</a></li>
 </ul>
 <p>EVALUEREN</p>
 <ul>
 <li><a href="/slides/nl/nodejs-java/supported-file-formats/">Ondersteunde bestandsformaten</a></li>
-<li><a href="/slides/nl/nodejs-java/evaluate-aspose-slides/">Beperkingen van de proefversie</a></li>
+<li><a href="/slides/nl/nodejs-java/evaluate-aspose-slides/">Beperkingen van proefversie</a></li>
 <li><a href="/slides/nl/nodejs-java/licensing/">Licenties</a></li>
 </ul>
 </div>
@@ -50,9 +50,9 @@ Het laadt en slaat PPT, PPTX, PPS, POT en ODP op, inclusief macro‑ondersteunde
 <ul>
 <li><a href="/slides/nl/nodejs-java/open-presentation/">Open een presentatie</a></li>
 <li><a href="/slides/nl/nodejs-java/save-presentation/">Sla een presentatie op</a></li>
-<li><a href="/slides/nl/nodejs-java/convert-powerpoint-to-pdf/">Converteer naar PDF</a></li>
-<li><a href="/slides/nl/nodejs-java/convert-slide/">Render dia's als afbeeldingen</a></li>
-<li><a href="/slides/nl/nodejs-java/manage-text/">Bewerk tekst en vormen</a></li>
+<li><a href="/slides/nl/nodejs-java/convert-powerpoint-to-pdf/">Converteren naar PDF</a></li>
+<li><a href="/slides/nl/nodejs-java/convert-slide/">Renderen van dia's als afbeeldingen</a></li>
+<li><a href="/slides/nl/nodejs-java/manage-text/">Tekst en vormen bewerken</a></li>
 </ul>
 <p>SLIDES‑WERKSTROMEN</p>
 <ul>
@@ -64,17 +64,18 @@ Het laadt en slaat PPT, PPTX, PPS, POT en ODP op, inclusief macro‑ondersteunde
 </ul>
 <p>VOORBEELDEN</p>
 <ul>
-<li><a href="/slides/nl/nodejs-java/examples/">Voorbeelden per slide‑element</a></li>
+<li><a href="/slides/nl/nodejs-java/examples/">Voorbeelden per dia‑element</a></li>
 </ul>
 </div>
 <div class="col-md-4">
-<p><b>Referentie &amp; Ondersteuning</b></p>
+<p><b>Referentie &amp; ondersteuning</b></p>
 <hr>
 <p>REFERENTIE</p>
 <ul>
-<li><a href="https://reference.aspose.com/slides/nodejs-java/">API-referentie</a></li>
+<li><a href="https://reference.aspose.com/slides/nodejs-java/">API‑referentie</a></li>
 <li><a href="https://releases.aspose.com/slides/nodejs-java/release-notes/">Release‑opmerkingen</a></li>
 <li><a href="/slides/nl/nodejs-java/known-issues/">Bekende problemen</a></li>
+<li><a href="https://products.aspose.com/slides/nodejs-java/">Productpagina</a></li>
 <li><a href="https://releases.aspose.com/slides/nodejs-java/">Download</a></li>
 </ul>
 <p>ONDERSTEUNING</p>
@@ -89,7 +90,7 @@ Het laadt en slaat PPT, PPTX, PPS, POT en ODP op, inclusief macro‑ondersteunde
 
 ## **Uw eerste presentatie**
 
-Naast Node.js 20 of hoger heeft het pakket een Java Development Kit (JDK), Python en een C++‑build‑toolchain nodig, omdat npm tijdens de installatie de `java`‑bridge compileert. Zie [Installation](/slides/nl/nodejs-java/installation/) voor de stappen per besturingssysteem. Maak daarna een project aan en installeer het pakket via npm:
+Naast Node.js 20 of hoger vereist het pakket een Java Development Kit (JDK), Python en een C++‑build‑toolchain, omdat npm tijdens de installatie zijn `java`‑bridge compileert. Zie [Installation](/slides/nl/nodejs-java/installation/) voor de stappen per besturingssysteem. Maak vervolgens een project en installeer het pakket via npm:
 
 ```bash
 mkdir hello-slides
@@ -113,8 +114,8 @@ try {
     presentation.dispose();
 }
 
-// Aspose.Slides draait in een Java-virtual machine die Node.js actief houdt, dus beëindig het proces expliciet.
+// Aspose.Slides draait in een Java-virtualmachine die Node.js laat draaien, dus beëindig het proces expliciet.
 process.exit(0);
 ```
 
-Voer het uit met `node hello.js`. Het script slaat *hello.pptx* op met één dia die een tekstvak bevat. Zonder licentie bevat het opgeslagen bestand een evaluatiewatermerk — zie [Licensing](/slides/nl/nodejs-java/licensing/). Voor meer manieren om een presentatie te maken en te vullen, zie [Create Presentations](/slides/nl/nodejs-java/create-presentation/).
+Voer het uit met `node hello.js`. Het script slaat *hello.pptx* op met één dia met een tekstvak. Zonder licentie bevat het opgeslagen bestand een evaluatiewatermerk — zie [Licentie](/slides/nl/nodejs-java/licensing/). Voor meer manieren om een presentatie te maken en te vullen, zie [Presentaties maken](/slides/nl/nodejs-java/create-presentation/).

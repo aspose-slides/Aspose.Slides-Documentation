@@ -12,14 +12,14 @@ keywords:
 - OpenDocument
 - C++
 - Aspose.Slides
-description: "Mulai di sini: instal Aspose.Slides for C++, buat presentasi pertama, dan temukan panduan untuk tugas umum, referensi API, dan dukungan."
+description: "Mulailah di sini: instal Aspose.Slides for C++, buat presentasi pertama, dan temukan panduan untuk tugas umum, referensi API, dan dukungan."
 is_root: true
 ---
 <img src="home_1.png" alt="Aspose.Slides for C++" align="left" style="width:110px; margin: 0 30px 20px 0"/>
 
-Aspose.Slides for C++ adalah pustaka C++ native untuk membuat, membaca, mengedit, dan mengkonversi presentasi PowerPoint dan OpenDocument, tanpa Microsoft PowerPoint atau Office Automation.
+Aspose.Slides for C++ adalah perpustakaan C++ native untuk membuat, membaca, mengedit, dan mengonversi presentasi PowerPoint dan OpenDocument, tanpa Microsoft PowerPoint atau Otomasi Office.
 
-Pustaka ini memuat dan menyimpan PPT, PPTX, PPS, POT, dan ODP, termasuk varian yang mendukung makro dan templat, serta mengekspor ke PDF, XPS, HTML, SVG, TIFF, Markdown, dan gambar.
+Ia memuat dan menyimpan PPT, PPTX, PPS, POT, dan ODP, termasuk varian yang mendukung makro dan templat, serta mengekspor ke PDF, XPS, HTML, SVG, TIFF, Markdown, dan gambar.
 
 <div style="clear:both"></div>
 
@@ -38,7 +38,7 @@ Pustaka ini memuat dan menyimpan PPT, PPTX, PPS, POT, dan ODP, termasuk varian y
 <p>EVALUASI</p>
 <ul>
 <li><a href="/slides/id/cpp/supported-file-formats/">Format file yang didukung</a></li>
-<li><a href="/slides/id/cpp/evaluate-aspose-slides/">Batasan trial</a></li>
+<li><a href="/slides/id/cpp/evaluate-aspose-slides/">Batasan percobaan</a></li>
 <li><a href="/slides/id/cpp/licensing/">Lisensi</a></li>
 </ul>
 </div>
@@ -63,7 +63,7 @@ Pustaka ini memuat dan menyimpan PPT, PPTX, PPS, POT, dan ODP, termasuk varian y
 </ul>
 <p>CONTOH</p>
 <ul>
-<li><a href="/slides/id/cpp/examples/">Contoh per elemen slide</a></li>
+<li><a href="/slides/id/cpp/examples/">Contoh berdasarkan elemen slide</a></li>
 <li><a href="https://github.com/aspose-slides/Aspose.Slides-for-C">Contoh di GitHub</a></li>
 </ul>
 </div>
@@ -75,6 +75,7 @@ Pustaka ini memuat dan menyimpan PPT, PPTX, PPS, POT, dan ODP, termasuk varian y
 <li><a href="https://reference.aspose.com/slides/cpp/">Referensi API</a></li>
 <li><a href="https://releases.aspose.com/slides/cpp/release-notes/">Catatan rilis</a></li>
 <li><a href="/slides/id/cpp/known-issues/">Masalah yang diketahui</a></li>
+<li><a href="https://products.aspose.com/slides/cpp/">Halaman produk</a></li>
 <li><a href="https://releases.aspose.com/slides/cpp/">Unduh</a></li>
 </ul>
 <p>DUKUNGAN</p>
@@ -97,7 +98,7 @@ Install-Package Aspose.Slides.Cpp
 
 Di Linux, unduh paket ZIP Linux dan siapkan proyek CMake yang dijelaskan dalam [Instalasi](/slides/id/cpp/installation/#linux).
 
-Kemudian gunakan kode ini sebagai file sumber utama program Anda. Kode ini membuat presentasi dengan satu kotak teks dan menyimpannya:
+Kemudian gunakan kode ini sebagai berkas sumber utama program Anda. Kode ini membuat presentasi dengan satu kotak teks dan menyimpannya:
 
 ```cpp
 #include <DOM/Presentation.h>

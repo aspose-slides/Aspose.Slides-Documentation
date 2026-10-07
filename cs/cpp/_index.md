@@ -1,6 +1,6 @@
 ---
-title: Aspose.Slides pro C++
-second_title: Aspose.Slides pro C++
+title: Aspose.Slides for C++
+second_title: Aspose.Slides for C++
 type: docs
 weight: 30
 url: /cs/cpp/
@@ -12,14 +12,14 @@ keywords:
 - OpenDocument
 - C++
 - Aspose.Slides
-description: "Začněte zde: nainstalujte Aspose.Slides pro C++, vytvořte první prezentaci a najděte průvodce pro běžné úkoly, referenční API a podporu."
+description: "Začněte zde: nainstalujte Aspose.Slides for C++, vytvořte první prezentaci a najděte návody pro běžné úkoly, referenci API a podporu."
 is_root: true
 ---
 <img src="home_1.png" alt="Aspose.Slides for C++" align="left" style="width:110px; margin: 0 30px 20px 0"/>
 
 Aspose.Slides for C++ je nativní knihovna C++ pro vytváření, čtení, úpravu a konverzi prezentací PowerPoint a OpenDocument, bez Microsoft PowerPoint nebo Office Automation.
 
-Načítá a ukládá PPT, PPTX, PPS, POT a ODP, včetně variant s makry a šablon, a exportuje do PDF, XPS, HTML, SVG, TIFF, Markdownu a obrázků.
+Načítá a ukládá soubory PPT, PPTX, PPS, POT a ODP, včetně variant s makry a šablon, a exportuje do PDF, XPS, HTML, SVG, TIFF, Markdown a obrázků.
 
 <div style="clear:both"></div>
 
@@ -33,9 +33,9 @@ Načítá a ukládá PPT, PPTX, PPS, POT a ODP, včetně variant s makry a šabl
 <ul>
 <li><a href="/slides/cs/cpp/installation/">Instalace</a></li>
 <li><a href="/slides/cs/cpp/create-presentation/">Vytvořte svou první prezentaci</a></li>
-<li><a href="/slides/cs/cpp/getting-started/">Průvodce pro začátečníky</a></li>
+<li><a href="/slides/cs/cpp/getting-started/">Průvodce začátkem</a></li>
 </ul>
-<p>HODNOCENÍ</p>
+<p>OHODNIT</p>
 <ul>
 <li><a href="/slides/cs/cpp/supported-file-formats/">Podporované formáty souborů</a></li>
 <li><a href="/slides/cs/cpp/evaluate-aspose-slides/">Omezení zkušební verze</a></li>
@@ -43,7 +43,7 @@ Načítá a ukládá PPT, PPTX, PPS, POT a ODP, včetně variant s makry a šabl
 </ul>
 </div>
 <div class="col-md-4">
-<p><b>Vytvářejte pomocí Slides</b></p>
+<p><b>Vytváření pomocí Slides</b></p>
 <hr>
 <p>OBECNÉ ÚKOLY</p>
 <ul>
@@ -53,7 +53,7 @@ Načítá a ukládá PPT, PPTX, PPS, POT a ODP, včetně variant s makry a šabl
 <li><a href="/slides/cs/cpp/convert-slide/">Vykreslit snímky jako obrázky</a></li>
 <li><a href="/slides/cs/cpp/manage-text/">Upravit text a tvary</a></li>
 </ul>
-<p>WORKFLOWY SLIDES</p>
+<p>PRACOVNÍ POSTUPY</p>
 <ul>
 <li><a href="/slides/cs/cpp/powerpoint-charts/">Grafy</a></li>
 <li><a href="/slides/cs/cpp/powerpoint-animation/">Animace</a></li>
@@ -63,7 +63,7 @@ Načítá a ukládá PPT, PPTX, PPS, POT a ODP, včetně variant s makry a šabl
 </ul>
 <p>PŘÍKLADY</p>
 <ul>
-<li><a href="/slides/cs/cpp/examples/">Příklady podle prvků snímku</a></li>
+<li><a href="/slides/cs/cpp/examples/">Příklady podle prvku snímku</a></li>
 <li><a href="https://github.com/aspose-slides/Aspose.Slides-for-C">Příklady na GitHubu</a></li>
 </ul>
 </div>
@@ -72,15 +72,16 @@ Načítá a ukládá PPT, PPTX, PPS, POT a ODP, včetně variant s makry a šabl
 <hr>
 <p>REFERENCE</p>
 <ul>
-<li><a href="https://reference.aspose.com/slides/cpp/">API reference</a></li>
+<li><a href="https://reference.aspose.com/slides/cpp/">Referencia API</a></li>
 <li><a href="https://releases.aspose.com/slides/cpp/release-notes/">Poznámky k vydání</a></li>
 <li><a href="/slides/cs/cpp/known-issues/">Známé problémy</a></li>
+<li><a href="https://products.aspose.com/slides/cpp/">Stránka produktu</a></li>
 <li><a href="https://releases.aspose.com/slides/cpp/">Stáhnout</a></li>
 </ul>
-<p>PODPORA</p>
+<p>PODPOŘA</p>
 <ul>
 <li><a href="https://forum.aspose.com/c/slides/11">Bezplatné fórum podpory</a></li>
-<li><a href="https://helpdesk.aspose.com/">Placená podpora (helpdesk)</a></li>
+<li><a href="https://helpdesk.aspose.com/">Placená podpora helpdesk</a></li>
 </ul>
 </div>
 </div>
@@ -89,15 +90,15 @@ Načítá a ukládá PPT, PPTX, PPS, POT a ODP, včetně variant s makry a šabl
 
 ## **Vaše první prezentace**
 
-Na Windows vytvořte projekt C++ **Console App** ve Visual Studio a nainstalujte balíček NuGet v konzole správce balíčků (**Tools** > **NuGet Package Manager** > **Package Manager Console**):
+Ve Windows vytvořte projekt C++ **Console App** ve Visual Studio a nainstalujte balíček NuGet v konzoli Správce balíčků (**Tools** > **NuGet Package Manager** > **Package Manager Console**):
 
 ```powershell
 Install-Package Aspose.Slides.Cpp
 ```
 
-Na Linuxu si stáhněte ZIP balíček pro Linux a nastavte projekt CMake popsaný v [Installation](/slides/cs/cpp/installation/#linux).
+V Linuxu stáhněte balíček ZIP pro Linux a nastavte projekt CMake popsaný v [Instalace](/slides/cs/cpp/installation/#linux).
 
-Pak použijte tento kód jako hlavní soubor programu. Vytvoří prezentaci s jedním textovým polem a uloží ji:
+Poté použijte tento kód jako hlavní zdrojový soubor programu. Vytvoří prezentaci s jedním textovým polem a uloží ji:
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -125,7 +126,7 @@ int main()
 }
 ```
 
-Pro spuštění na Windows vyberte platformu **x64** v nástrojové liště a stiskněte **Ctrl+F5**. Na Linuxu uložte jako *main.cpp* ve složce projektu, poté jej sestavte a spusťte:
+Pro spuštění ve Windows vyberte platformu **x64** v nástrojové liště a stiskněte **Ctrl+F5**. V Linuxu jej uložte jako *main.cpp* ve složce projektu, poté jej sestavte a spusťte:
 
 ```bash
 cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
@@ -133,4 +134,4 @@ cmake --build build
 ./build/hello
 ```
 
-Program uloží *hello.pptx* s jedním snímkem obsahujícím textové pole. Bez licence obsahuje uložený soubor vodoznak pro hodnocení — viz [Licensing](/slides/cs/cpp/licensing/). Další způsoby, jak vytvořit a naplnit prezentaci, najdete v [Create Presentations](/slides/cs/cpp/create-presentation/).
+Program uloží *hello.pptx* s jedním snímkem obsahujícím textové pole. Bez licence obsahuje uložený soubor vodoznak hodnocení — viz [Licencování](/slides/cs/cpp/licensing/). Pro další způsoby, jak vytvářet a naplňovat prezentaci, viz [Vytvoření prezentací](/slides/cs/cpp/create-presentation/).

@@ -13,14 +13,14 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Empieza aquí: instala Aspose.Slides para .NET, crea una primera presentación y encuentra las guías para tareas comunes, despliegue y la referencia de la API."
+description: "Comienza aquí: instala Aspose.Slides para .NET, crea una primera presentación y encuentra las guías para tareas comunes, despliegue y la referencia de la API."
 is_root: true
 ---
 <img src="home_1.png" alt="Aspose.Slides for .NET" align="left" style="width:110px; margin: 0 30px 20px 0"/>
 
-Aspose.Slides for .NET es una biblioteca de clases para crear, leer, editar y convertir presentaciones de PowerPoint y OpenDocument en aplicaciones .NET, sin Microsoft PowerPoint ni automatización de Office.
+Aspose.Slides for .NET es una biblioteca de clases para crear, leer, editar y convertir presentaciones PowerPoint y OpenDocument en aplicaciones .NET, sin Microsoft PowerPoint ni Automatización de Office.
 
-Carga y guarda archivos PPT, PPTX, PPS, POT y ODP, incluidas las variantes con macros y de plantilla, y exporta a PDF, XPS, HTML, SVG, TIFF, Markdown e imágenes.
+Carga y guarda archivos PPT, PPTX, PPS, POT y ODP, incluidas las variantes con macros y plantillas, y exporta a PDF, XPS, HTML, SVG, TIFF, Markdown e imágenes.
 
 <div style="clear:both"></div>
 
@@ -39,10 +39,10 @@ Carga y guarda archivos PPT, PPTX, PPS, POT y ODP, incluidas las variantes con m
 </ul>
 <p>EVALUAR</p>
 <ul>
-<li><a href="/slides/es/net/supported-file-formats/">Formatos de archivo admitidos</a></li>
+<li><a href="/slides/es/net/supported-file-formats/">Formatos de archivo compatibles</a></li>
 <li><a href="/slides/es/net/features-overview/">Resumen de características</a></li>
-<li><a href="/slides/es/net/evaluate-aspose-slides/">Limitaciones de la versión de prueba</a></li>
-<li><a href="/slides/es/net/licensing/">Licencias</a></li>
+<li><a href="/slides/es/net/evaluate-aspose-slides/">Limitaciones de la prueba</a></li>
+<li><a href="/slides/es/net/licensing/">Licenciamiento</a></li>
 </ul>
 </div>
 <div class="col-md-4">
@@ -86,12 +86,13 @@ Carga y guarda archivos PPT, PPTX, PPS, POT y ODP, incluidas las variantes con m
 <li><a href="https://releases.aspose.com/slides/net/release-notes/">Notas de la versión</a></li>
 <li><a href="/slides/es/net/known-issues/">Problemas conocidos</a></li>
 <li><a href="/slides/es/net/api-limitations/">Limitaciones de metadatos de salida</a></li>
-<li><a href="https://releases.aspose.com/slides/net/">Descargar</a></li>
+<li><a href="https://products.aspose.com/slides/net/">Página del producto</a></li>
+<li><a href="https://releases.aspose.com/slides/net/">Descarga</a></li>
 </ul>
 <p>SOPORTE</p>
 <ul>
 <li><a href="https://forum.aspose.com/c/slides/11">Foro de soporte gratuito</a></li>
-<li><a href="https://helpdesk.aspose.com/">Servicio de asistencia de soporte de pago</a></li>
+<li><a href="https://helpdesk.aspose.com/">Helpdesk de soporte de pago</a></li>
 </ul>
 </div>
 </div>
@@ -109,10 +110,10 @@ dotnet new console -n HelloSlides
 cd HelloSlides
 ```
 
-Luego añade un paquete para tu plataforma:
+Luego agrega un paquete para tu plataforma:
 
 - En Windows: `dotnet add package Aspose.Slides.NET`
-- En Linux y macOS: `dotnet add package Aspose.Slides.NET6.CrossPlatform` — consulta [Instalación](/slides/es/net/installation/) para el requisito previo de Linux y para los sistemas que necesiten Aspose.Slides.NET en su lugar.
+- En Linux y macOS: `dotnet add package Aspose.Slides.NET6.CrossPlatform` — see [Instalación](/slides/es/net/installation/) for the Linux prerequisite and for the systems that need Aspose.Slides.NET instead.
 
 Reemplaza el contenido de *Program.cs* con este código y ejecuta `dotnet run`:
 
@@ -127,4 +128,4 @@ shape.TextFrame.Text = "Hello, Aspose.Slides!";
 presentation.Save("hello.pptx", SaveFormat.Pptx);
 ```
 
-El programa guarda *hello.pptx* con una diapositiva que contiene un cuadro de texto. Sin una licencia, el archivo guardado lleva una marca de agua de evaluación — consulta [Licencias](/slides/es/net/licensing/). Para más formas de crear y rellenar una presentación, consulta [Crear Presentaciones](/slides/es/net/create-presentation/).
+El programa guarda *hello.pptx* con una diapositiva que contiene un cuadro de texto. Sin una licencia, el archivo guardado lleva una marca de agua de evaluación — ver [Licenciamiento](/slides/es/net/licensing/). Para más formas de crear y rellenar una presentación, consulta [Crear presentaciones](/slides/es/net/create-presentation/).

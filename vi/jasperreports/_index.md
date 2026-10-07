@@ -19,9 +19,9 @@ is_root: true
 ---
 <img src="home_1.png" alt="Aspose.Slides for JasperReports" align="left" style="width:110px; margin: 0 30px 20px 0"/>
 
-Aspose.Slides for JasperReports bổ sung các công cụ xuất PowerPoint cho JasperReports Library và JasperReports Server, cho phép các ứng dụng Java và máy chủ báo cáo lưu các báo cáo đã điền dưới dạng bản trình chiếu mà không cần Microsoft PowerPoint.
+Aspose.Slides for JasperReports thêm các trình xuất PowerPoint vào JasperReports Library và JasperReports Server, để các ứng dụng Java và máy chủ báo cáo có thể lưu các báo cáo đã đầy dữ liệu dưới dạng bản trình chiếu mà không cần Microsoft PowerPoint.
 
-Nó xuất một báo cáo đã điền sang PPT và PPTX, một slide cho mỗi trang báo cáo, và cũng hỗ trợ PDF và HTML.
+Nó xuất một báo cáo đã đầy dữ liệu sang PPT và PPTX, một slide cho mỗi trang báo cáo, và cũng sang PDF và HTML.
 
 <div style="clear:both"></div>
 
@@ -41,7 +41,7 @@ Nó xuất một báo cáo đã điền sang PPT và PPTX, một slide cho mỗi
 <p>ĐÁNH GIÁ</p>
 <ul>
 <li><a href="/slides/vi/jasperreports/supported-file-formats/">Định dạng tệp được hỗ trợ</a></li>
-<li><a href="/slides/vi/jasperreports/evaluate-aspose-slides/">Giới hạn dùng thử</a></li>
+<li><a href="/slides/vi/jasperreports/evaluate-aspose-slides/">Giới hạn bản thử nghiệm</a></li>
 <li><a href="/slides/vi/jasperreports/licensing/">Cấp phép</a></li>
 </ul>
 </div>
@@ -56,7 +56,7 @@ Nó xuất một báo cáo đã điền sang PPT và PPTX, một slide cho mỗi
 </ul>
 <p>VÍ DỤ</p>
 <ul>
-<li><a href="/slides/vi/jasperreports/demos-setup/">Dự án mẫu</a></li>
+<li><a href="/slides/vi/jasperreports/demos-setup/">Dự án demo</a></li>
 </ul>
 </div>
 <div class="col-md-4">
@@ -65,6 +65,7 @@ Nó xuất một báo cáo đã điền sang PPT và PPTX, một slide cho mỗi
 <p>THAM KHẢO</p>
 <ul>
 <li><a href="https://releases.aspose.com/slides/jasperreport/release-notes/">Ghi chú phát hành</a></li>
+<li><a href="https://products.aspose.com/slides/jasperreports/">Trang sản phẩm</a></li>
 <li><a href="https://releases.aspose.com/slides/jasperreport/">Tải xuống</a></li>
 </ul>
 <p>HỖ TRỢ</p>
@@ -79,17 +80,17 @@ Nó xuất một báo cáo đã điền sang PPT và PPTX, một slide cho mỗi
 
 ## **Lần xuất đầu tiên của bạn**
 
-Các bước này biên dịch một báo cáo một dòng, điền dữ liệu và xuất nó ra PPTX bằng JasperReports 6.16.0 từ Maven Central. Bạn cần JDK 11 trở lên và Apache Maven.
+Các bước này biên dịch một báo cáo một dòng, điền dữ liệu và xuất nó sang PPTX với JasperReports 6.16.0 từ Maven Central. Bạn cần JDK 11 trở lên và Apache Maven.
 
-1. Tải xuống tệp ZIP từ [trang tải xuống](https://releases.aspose.com/slides/jasperreport/) và giải nén. Thư mục *lib* của nó có một thư mục con cho mỗi dải phiên bản JasperReports, và mỗi thư mục chứa jar tương ứng. Đối với JasperReports 6.16.0, sao chép *lib/JasperReports 6.5.0 - 6.16.0 (JDK 1.6)/aspose.slides.jasperreports.library-26.6.jar* vào một thư mục dự án trống.
+1. Tải xuống file ZIP từ [trang tải xuống](https://releases.aspose.com/slides/jasperreport/) và giải nén. Thư mục *lib* của nó có một thư mục con cho mỗi dải phiên bản JasperReports, và mỗi thư mục chứa file jar cho dải đó. Đối với JasperReports 6.16.0, sao chép *lib/JasperReports 6.5.0 - 6.16.0 (JDK 1.6)/aspose.slides.jasperreports.library-26.6.jar* vào một thư mục dự án trống.
 
-2. Jar có trong tệp ZIP thay vì từ một kho Maven, vì vậy cài đặt nó vào kho Maven nội bộ của bạn. Chạy lệnh sau trong thư mục dự án:
+2. File jar được cung cấp trong file ZIP thay vì từ kho Maven, vì vậy hãy cài đặt nó vào kho Maven cục bộ của bạn. Chạy lệnh này trong thư mục dự án:
 
 ```bash
 mvn install:install-file "-Dfile=aspose.slides.jasperreports.library-26.6.jar" "-DgroupId=com.aspose" "-DartifactId=aspose-slides-jasperreports" "-Dversion=26.6" "-Dpackaging=jar"
 ```
 
-3. Lưu *pom.xml* này vào thư mục dự án. Nó thêm JasperReports 6.16.0 và jar bạn đã cài đặt, và chỉ định lớp để chạy. JasperReports 6.16.0 khai báo một bản iText đã được vá mà không có trên Maven Central, vì vậy tệp loại trừ nó; các trình xuất Aspose không cần nó.
+3. Lưu *pom.xml* này vào thư mục dự án. Nó thêm JasperReports 6.16.0 và file jar bạn đã cài đặt, và chỉ định lớp sẽ chạy. JasperReports 6.16.0 khai báo một bản iText đã được vá mà không có trên Maven Central, vì vậy tệp này loại bỏ nó; các trình xuất Aspose không cần nó.
 
 ```xml
 <project xmlns="http://maven.apache.org/POM/4.0.0">
@@ -135,7 +136,7 @@ mvn install:install-file "-Dfile=aspose.slides.jasperreports.library-26.6.jar" "
 </project>
 ```
 
-4. Lưu thiết kế báo cáo này dưới tên *hello.jrxml* trong thư mục dự án. Nó in một dòng văn bản trong dải tiêu đề:
+4. Lưu thiết kế báo cáo này dưới dạng *hello.jrxml* trong thư mục dự án. Nó in một dòng văn bản trong dải tiêu đề:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -158,7 +159,7 @@ mvn install:install-file "-Dfile=aspose.slides.jasperreports.library-26.6.jar" "
 </jasperReport>
 ```
 
-5. Lưu mã này dưới tên *src/main/java/HelloExport.java*. Nó biên dịch thiết kế, điền một bản ghi trống và xuất kết quả bằng `ASPptxExporter`:
+5. Lưu mã này dưới dạng *src/main/java/HelloExport.java*. Nó biên dịch thiết kế, điền dữ liệu bằng một bản ghi rỗng, và xuất kết quả bằng `ASPptxExporter`:
 
 ```java
 import java.util.HashMap;
@@ -173,7 +174,7 @@ import net.sf.jasperreports.engine.JasperReport;
 
 public class HelloExport {
     public static void main(String[] args) throws Exception {
-        // Biên dịch thiết kế báo cáo và điền một bản ghi trống.
+        // Biên dịch thiết kế báo cáo và điền dữ liệu bằng một bản ghi trống.
         JasperReport report = JasperCompileManager.compileReport("hello.jrxml");
         JasperPrint jasperPrint = JasperFillManager.fillReport(report, new HashMap<String, Object>(), new JREmptyDataSource());
 
@@ -192,4 +193,4 @@ public class HelloExport {
 mvn compile exec:java
 ```
 
-Chương trình lưu *hello.pptx* trong thư mục dự án, với một slide chứa văn bản của báo cáo. Trình biên dịch ghi chú rằng mã sử dụng API đã lỗi thời: các trình xuất nhận đầu vào và đầu ra thông qua `JRExporterParameter`, và chúng không chấp nhận cấu hình mới `setExporterInput` và `setExporterOutput`. Trên Linux, phải cài đặt fontconfig và ít nhất một phông chữ, nếu không việc điền báo cáo sẽ thất bại. Không có giấy phép, mỗi slide sẽ có dấu nước đánh giá ở trung tâm — xem [Cấp phép](/slides/vi/jasperreports/licensing/). Để xuất sang PPT, PDF hoặc HTML, xem [Xuất PPT, PPTX, PDF và HTML](/slides/vi/jasperreports/ppt-pptx-pdf-and-html-export/).
+Chương trình lưu *hello.pptx* trong thư mục dự án, với một slide chứa văn bản của báo cáo. Trình biên dịch ghi chú rằng mã sử dụng một API đã lỗi thời: các trình xuất nhận đầu vào và đầu ra qua `JRExporterParameter`, và chúng không chấp nhận cấu hình mới `setExporterInput` và `setExporterOutput`. Trên Linux, phải cài đặt fontconfig và ít nhất một phông chữ, nếu không việc điền báo cáo sẽ thất bại. Không có giấy phép, mỗi slide sẽ có một watermark đánh giá ở trung tâm — xem [Licensing](/slides/vi/jasperreports/licensing/). Để xuất sang PPT, PDF hoặc HTML, xem [PPT, PPTX, PDF and HTML Export](/slides/vi/jasperreports/ppt-pptx-pdf-and-html-export/).

@@ -12,14 +12,14 @@ keywords:
 - OpenDocument
 - C++
 - Aspose.Slides
-description: "여기에서 시작하십시오: Aspose.Slides for C++를 설치하고 첫 번째 프레젠테이션을 만든 다음 일반 작업, API 참조 및 지원에 대한 가이드를 찾으십시오."
+description: "여기서 시작하세요: Aspose.Slides for C++를 설치하고 첫 번째 프레젠테이션을 만든 다음 일반 작업 가이드, API 참조 및 지원을 찾으세요."
 is_root: true
 ---
 <img src="home_1.png" alt="Aspose.Slides for C++" align="left" style="width:110px; margin: 0 30px 20px 0"/>
 
-Aspose.Slides for C++은 Microsoft PowerPoint 또는 Office Automation 없이 PowerPoint 및 OpenDocument 프레젠테이션을 만들고, 읽고, 편집하고 변환할 수 있는 네이티브 C++ 라이브러리입니다.
+Aspose.Slides for C++는 Microsoft PowerPoint 또는 Office 자동화 없이 PowerPoint 및 OpenDocument 프레젠테이션을 만들고, 읽고, 편집하고 변환할 수 있는 네이티브 C++ 라이브러리입니다.
 
-매크로 사용 및 템플릿 변형을 포함한 PPT, PPTX, PPS, POT 및 ODP를 로드하고 저장하며, PDF, XPS, HTML, SVG, TIFF, Markdown 및 이미지로 내보낼 수 있습니다.
+마크로가 포함된 파일 및 템플릿 변형을 포함한 PPT, PPTX, PPS, POT 및 ODP를 로드하고 저장하며, PDF, XPS, HTML, SVG, TIFF, Markdown 및 이미지로 내보낼 수 있습니다.
 
 <div style="clear:both"></div>
 
@@ -32,18 +32,18 @@ Aspose.Slides for C++은 Microsoft PowerPoint 또는 Office Automation 없이 Po
 <p>시작하기</p>
 <ul>
 <li><a href="/slides/ko/cpp/installation/">설치</a></li>
-<li><a href="/slides/ko/cpp/create-presentation/">첫 프레젠테이션 만들기</a></li>
+<li><a href="/slides/ko/cpp/create-presentation/">첫 번째 프레젠테이션 만들기</a></li>
 <li><a href="/slides/ko/cpp/getting-started/">시작 가이드</a></li>
 </ul>
 <p>평가</p>
 <ul>
-<li><a href="/slides/ko/cpp/supported-file-formats/">지원되는 파일 형식</a></li>
-<li><a href="/slides/ko/cpp/evaluate-aspose-slides/">체험판 제한 사항</a></li>
+<li><a href="/slides/ko/cpp/supported-file-formats/">지원 파일 형식</a></li>
+<li><a href="/slides/ko/cpp/evaluate-aspose-slides/">평가판 제한 사항</a></li>
 <li><a href="/slides/ko/cpp/licensing/">라이선스</a></li>
 </ul>
 </div>
 <div class="col-md-4">
-<p><b>Slides 로 빌드</b></p>
+<p><b>Slides로 빌드하기</b></p>
 <hr>
 <p>일반 작업</p>
 <ul>
@@ -72,9 +72,10 @@ Aspose.Slides for C++은 Microsoft PowerPoint 또는 Office Automation 없이 Po
 <hr>
 <p>참조</p>
 <ul>
-<li><a href="https://reference.aspose.com/slides/cpp/">API 레퍼런스</a></li>
+<li><a href="https://reference.aspose.com/slides/cpp/">API 참조</a></li>
 <li><a href="https://releases.aspose.com/slides/cpp/release-notes/">릴리스 노트</a></li>
 <li><a href="/slides/ko/cpp/known-issues/">알려진 문제</a></li>
+<li><a href="https://products.aspose.com/slides/cpp/">제품 페이지</a></li>
 <li><a href="https://releases.aspose.com/slides/cpp/">다운로드</a></li>
 </ul>
 <p>지원</p>
@@ -89,15 +90,15 @@ Aspose.Slides for C++은 Microsoft PowerPoint 또는 Office Automation 없이 Po
 
 ## **첫 번째 프레젠테이션**
 
-Windows에서 Visual Studio로 C++ **Console App** 프로젝트를 만든 다음 패키지 관리자 콘솔(**Tools** > **NuGet Package Manager** > **Package Manager Console**)에서 NuGet 패키지를 설치합니다:
+Windows에서는 Visual Studio에서 C++ **Console App** 프로젝트를 만들고 패키지 관리자 콘솔(**Tools** > **NuGet Package Manager** > **Package Manager Console**)에서 NuGet 패키지를 설치합니다:
 
 ```powershell
 Install-Package Aspose.Slides.Cpp
 ```
 
-Linux에서는 Linux ZIP 패키지를 다운로드하고 [Installation](/slides/ko/cpp/installation/#linux)에서 설명하는 CMake 프로젝트를 설정합니다.
+Linux에서는 Linux ZIP 패키지를 다운로드하고 [설치](/slides/ko/cpp/installation/#linux)에서 설명된 CMake 프로젝트를 설정합니다.
 
-그런 다음 이 코드를 프로그램의 메인 소스 파일로 사용합니다. 하나의 텍스트 상자가 있는 프레젠테이션을 생성하고 저장합니다:
+그런 다음 이 코드를 프로그램의 메인 소스 파일로 사용하십시오. 이 코드는 텍스트 상자 하나가 있는 프레젠테이션을 만들고 저장합니다:
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -125,7 +126,7 @@ int main()
 }
 ```
 
-Windows에서 실행하려면 도구 모음에서 **x64** 플랫폼을 선택하고 **Ctrl+F5**를 누릅니다. Linux에서는 프로젝트 폴더에 *main.cpp* 로 저장한 뒤 빌드하고 실행합니다:
+Windows에서 실행하려면 도구 모음에서 **x64** 플랫폼을 선택하고 **Ctrl+F5**를 누릅니다. Linux에서는 프로젝트 폴더에 *main.cpp*로 저장한 후 빌드하고 실행합니다:
 
 ```bash
 cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
@@ -133,4 +134,4 @@ cmake --build build
 ./build/hello
 ```
 
-프로그램은 텍스트 상자를 포함한 하나의 슬라이드를 가진 *hello.pptx* 파일을 저장합니다. 라이선스가 없으면 저장된 파일에 평가용 워터마크가 표시됩니다 — [Licensing](/slides/ko/cpp/licensing/)을 확인하십시오. 프레젠테이션을 만들고 채우는 다른 방법은 [Create Presentations](/slides/ko/cpp/create-presentation/)를 참조하세요.
+이 프로그램은 텍스트 상자가 있는 슬라이드 하나를 포함한 *hello.pptx* 파일을 저장합니다. 라이선스가 없으면 저장된 파일에 평가 워터마크가 표시됩니다 — [라이선스](/slides/ko/cpp/licensing/)를 참조하십시오. 프레젠테이션을 만들고 채우는 추가 방법은 [프레젠테이션 만들기](/slides/ko/cpp/create-presentation/)를 확인하세요.

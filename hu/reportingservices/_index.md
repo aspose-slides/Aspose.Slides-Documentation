@@ -1,26 +1,26 @@
 ---
-title: Aspose.Slides a Reporting Services-hez
-second_title: Aspose.Slides a Reporting Services-hez
+title: Aspose.Slides a Jelentésszolgáltatásokhoz
+second_title: Aspose.Slides a Jelentésszolgáltatásokhoz
 type: docs
 weight: 50
 url: /hu/reportingservices/
 keywords:
 - dokumentáció
-- SQL Server Reporting Services
+- SQL Server jelentésszolgáltatások
 - SSRS
-- Power BI Report Server
+- Power BI jelentéskiszolgáló
 - lapozott jelentések
 - RDL
 - PowerPoint exportálás
 - Aspose.Slides
-description: "Kezdje itt: telepítse az Aspose.Slides for Reporting Services-t, exportáljon egy első jelentést PowerPointba, és találja meg az export formátumokat, a rendszerkövetelményeket és a támogatást."
+description: "Kezdje itt: telepítse az Aspose.Slides for Reporting Services-t, exportálja az első jelentést PowerPointba, és tekintse meg az export formátumokat, rendszerkövetelményeket és a támogatást."
 is_root: true
 ---
-<img src="home_1.png" alt="Aspose.Slides a Reporting Services-hez" align="left" style="width:110px; margin: 0 30px 20px 0"/>
+<img src="home_1.png" alt="Aspose.Slides for Reporting Services" align="left" style="width:110px; margin: 0 30px 20px 0"/>
 
-Aspose.Slides for Reporting Services egy renderelési kiterjesztés a Microsoft SQL Server Reporting Services-hez és a Power BI Report Server-hez, amely a prezentációs formátumokat adja hozzá a lapozott (RDL) jelentések exportlistájához, Microsoft PowerPoint nélkül a szerveren.
+Az Aspose.Slides for Reporting Services egy renderelő kiterjesztés a Microsoft SQL Server Reporting Services és a Power BI Report Server számára, amely a lapozott (RDL) jelentések exportlistájához hozzáadja a prezentációs formátumokat, anélkül hogy a szerveren telepítve lenne a Microsoft PowerPoint.
 
-Képes a jelentéseket PPT, PPTX, PPS és PPSX prezentációkba és diavetítésekbe, ODP-be és XPS-be exportálni.
+Jelentéseket exportál PPT, PPTX, PPS és PPSX prezentációkba és diavetítésekbe, ODP-be, valamint XPS-be.
 
 <div style="clear:both"></div>
 
@@ -28,15 +28,15 @@ Képes a jelentéseket PPT, PPTX, PPS és PPSX prezentációkba és diavetítés
 
 <div class="row">
 <div class="col-md-4">
-<p><b>Első lépések</b></p>
+<p><b>Kezdés</b></p>
 <hr>
 <p>ELKEZDÉS</p>
 <ul>
 <li><a href="/slides/hu/reportingservices/installing-aspose-slides-for-reporting-services/">Telepítés</a></li>
 <li><a href="/slides/hu/reportingservices/system-requirements/">Rendszerkövetelmények</a></li>
 <li><a href="/slides/hu/reportingservices/install-with-msi-installer/">Telepítés MSI telepítővel</a></li>
-<li><a href="/slides/hu/reportingservices/install-manually/">Kézi telepítés</a></li>
-<li><a href="/slides/hu/reportingservices/power-bi/">Telepítés Power BI Report Server-re</a></li>
+<li><a href="/slides/hu/reportingservices/install-manually/">Manuális telepítés</a></li>
+<li><a href="/slides/hu/reportingservices/power-bi/">Telepítés a Power BI Report Server-re</a></li>
 </ul>
 <p>ÉRTÉKELÉS</p>
 <ul>
@@ -48,28 +48,29 @@ Képes a jelentéseket PPT, PPTX, PPS és PPSX prezentációkba és diavetítés
 <div class="col-md-4">
 <p><b>Építés Slides-szel</b></p>
 <hr>
-<p>Exportálás</p>
+<p>EXPORTÁLÁS</p>
 <ul>
-<li><a href="/slides/hu/reportingservices/support-for-embedding-audio-in-presentation/">Hang beágyazása PPTX kimenetbe</a></li>
-<li><a href="/slides/hu/reportingservices/paginated-reports/">Lapozott jelentések a Power BI Report Builder-ből</a></li>
+<li><a href="/slides/hu/reportingservices/support-for-embedding-audio-in-presentation/">Audio beágyazása PPTX kimenetbe</a></li>
+<li><a href="/slides/hu/reportingservices/paginated-reports/">Lapozott jelentések a Power BI Report Builderből</a></li>
 </ul>
-<p>Példák</p>
+<p>PÉLDÁK</p>
 <ul>
-<li><a href="/slides/hu/reportingservices/sample-reports-gallery/">Minta jelentések galéria</a></li>
+<li><a href="/slides/hu/reportingservices/sample-reports-gallery/">Minta jelentések galériája</a></li>
 </ul>
 </div>
 <div class="col-md-4">
-<p><b>Referenciák &amp; Támogatás</b></p>
+<p><b>Referencia &amp; Támogatás</b></p>
 <hr>
-<p>Referenciák</p>
+<p>REFERENCIA</p>
 <ul>
 <li><a href="https://releases.aspose.com/slides/reportingservices/release-notes/">Kiadási megjegyzések</a></li>
+<li><a href="https://products.aspose.com/slides/reporting-services/">Termékoldal</a></li>
 <li><a href="https://releases.aspose.com/slides/reportingservices/">Letöltés</a></li>
 </ul>
 <p>TÁMOGATÁS</p>
 <ul>
 <li><a href="https://forum.aspose.com/c/slides/11">Ingyenes támogatási fórum</a></li>
-<li><a href="https://helpdesk.aspose.com/">Fizetős támogatási helpdesk</a></li>
+<li><a href="https://helpdesk.aspose.com/">Fizetett támogatási helpdesk</a></li>
 </ul>
 </div>
 </div>
@@ -78,13 +79,13 @@ Képes a jelentéseket PPT, PPTX, PPS és PPSX prezentációkba és diavetítés
 
 ## **Az első exportja**
 
-Nincs kódrészlet, amelyet írni kellene: telepíti a kiterjesztést a jelentésszerveren, és formátumai megjelennek minden lapozott jelentés exportlistájában azon a szerveren.
+Nincs kód, amit írni kell: telepíti a kiterjesztést a jelentéskiszolgálóra, és a formátumai megjelennek minden lapozott jelentés exportlistájában azon a kiszolgálón.
 
-1. Ellenőrizze, hogy a jelentésszerver megfelel a [rendszerkövetelményeknek](/slides/hu/reportingservices/system-requirements/), beleértve a .NET Framework 3.5-öt.
-1. A [letöltési oldalról](https://releases.aspose.com/slides/reportingservices/) töltse le az MSI telepítőt, *Aspose.Slides for Reporting Services*. Ha kézzel szeretne telepíteni, töltse le a ZIP csomagot, *Aspose.Slides for Reporting Services (DLLs Only)*.
-1. Telepítse a kiterjesztést a jelentésszerveren: futtassa az MSI-t rendszergazdaként, ahogyan az [Telepítés MSI telepítővel](/slides/hu/reportingservices/install-with-msi-installer/) le van írva, vagy kövesse a [Kézi telepítés](/slides/hu/reportingservices/install-manually/) útmutatót a ZIP csomaghoz.
-1. Böngészőben nyissa meg a jelentésszerver webes portálját (Report Manager a SQL Server 2014-es és korábbi verziókon). Alapértelmezés szerint címe `https://<ComputerName>/reports`.
-1. Nyisson meg egy lapozott jelentést. A jelentés eszköztárában nyissa meg az **Export** listát, és válassza a **PPTX – PowerPoint 2007 Presentation via Aspose.Slides** elemet. Ha az eszköztárnak külön **Export** gombja van – ahogyan a Report Manager esetén –, válassza azt.
+1. Ellenőrizze, hogy a jelentéskiszolgáló megfelel a [rendszerkövetelmények](/slides/hu/reportingservices/system-requirements/) követelményeinek, beleértve a .NET Framework 3.5-öt.
+1. A [letöltési oldal](https://releases.aspose.com/slides/reportingservices/)ról töltse le az MSI telepítőt, *Aspose.Slides for Reporting Services*. A kézi telepítéshez töltse le a ZIP csomagot, *Aspose.Slides for Reporting Services (DLLs Only)*.
+1. Telepítse a kiterjesztést a jelentéskiszolgálóra: futtassa az MSI-t rendszergazdaként, ahogy az [Telepítés MSI telepítővel](/slides/hu/reportingservices/install-with-msi-installer/) leírásában szerepel, vagy kövesse a [Manuális telepítés](/slides/hu/reportingservices/install-manually/) útmutatót a ZIP csomaghoz.
+1. A böngészőben nyissa meg a jelentéskiszolgáló webes portálját (Report Manager a SQL Server 2014 és korábbi verziókon). Alapértelmezés szerint a címe `https://<ComputerName>/reports`.
+1. Nyisson meg egy lapozott jelentést. A jelentés eszköztárán nyissa meg az **Export** listát, és válassza ki a **PPTX - PowerPoint 2007 Presentation via Aspose.Slides** elemet. Ha az eszköztárban van külön **Export** gomb, mint a Report Managerben, válassza ki azt.
 1. Nyissa meg vagy mentse a böngésző által letöltött PPTX fájlt.
 
-Licenc nélkül az exportált prezentáció értékelési vízjelet tartalmaz – lásd a [Licencelés](/slides/hu/reportingservices/license-aspose-slides-for-reporting-services/) oldalt. A listában szereplő többi formátumhoz lásd a [Támogatott fájlformátumok](/slides/hu/reportingservices/supported-file-formats/) oldalt.
+Licenc nélkül az exportált prezentáció értékelési vízjelet tartalmaz — lásd a [Licencelés](/slides/hu/reportingservices/license-aspose-slides-for-reporting-services/) oldalt. A többi formátumhoz az exportlistában, lásd a [Támogatott fájlformátumok](/slides/hu/reportingservices/supported-file-formats/) oldalt.

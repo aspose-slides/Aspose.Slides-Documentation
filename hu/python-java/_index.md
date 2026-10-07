@@ -1,31 +1,31 @@
 ---
-title: "Aspose.Slides Pythonhoz Java-n keresztül"
-second_title: "Aspose.Slides Pythonhoz"
+title: Aspose.Slides for Python via Java
+second_title: Aspose.Slides for Python
 type: docs
 weight: 47
 url: /hu/python-java/
 is_root: true
 keywords:
-- "Aspose.Slides Pythonhoz Java-n keresztül"
-- "Python PowerPoint könyvtár"
-- "PowerPoint prezentációk kezelése Pythonban"
-- "PowerPoint olvasása és írása Pythonban"
-- "PowerPoint diák szerkesztése Pythonban"
-- "PowerPoint exportálása PDF-be Pythonban"
-- "PowerPoint exportálása SVG-be Pythonban"
-- "Diák előnézete Pythonban"
-- "Hang és videó hozzáadása diákhoz Pythonban"
-- "PowerPoint Microsoft Office nélkül"
-- "Python"
-- "Java"
-- "Aspose.Slides"
-description: "Kezdje itt: telepítse az Aspose.Slides for Python via Java könyvtárat, hozza létre az első prezentációt, és keresse meg az útmutatókat a gyakori feladatokhoz, az API referenciához és a támogatáshoz."
+- Aspose.Slides for Python via Java
+- Python PowerPoint könyvtár
+- PowerPoint prezentációk kezelése Pythonban
+- PowerPoint olvasása és írása Pythonban
+- PowerPoint diák szerkesztése Pythonban
+- PowerPoint exportálása PDF-be Pythonban
+- PowerPoint exportálása SVG-be Pythonban
+- diák előnézete Pythonban
+- hang és videó hozzáadása diákhoz Pythonban
+- PowerPoint a Microsoft Office nélkül
+- Python
+- Java
+- Aspose.Slides
+description: "Kezdje itt: telepítse az Aspose.Slides for Python via Java-t, hozza létre az első prezentációt, és találja meg a gyakori feladatok útmutatóit, az API-referenciát és a támogatást."
 ---
 <img src="aspose_slides-for-python-via-java.png" alt="Aspose.Slides for Python via Java" align="left" style="width:110px; margin: 0 30px 20px 0"/>
 
-Az Aspose.Slides for Python via Java egy könyvtár PowerPoint és OpenDocument prezentációk létrehozásához, olvasásához, szerkesztéséhez és konvertálásához Python alkalmazásokban, a Microsoft PowerPoint nélkül; a Java Aspose.Slides motorját futtatja a Python folyamatban a JPype segítségével.
+Az Aspose.Slides for Python via Java egy könyvtár a PowerPoint és OpenDocument prezentációk létrehozásához, olvasásához, szerkesztéséhez és átalakításához Python alkalmazásokban, a Microsoft PowerPoint nélkül; a JPype-on keresztül a Python folyamatban futtatja az Aspose.Slides Java motorját.
 
-Támogatja a PPT, PPTX, PPS, POT és ODP fájlok betöltését és mentését, beleértve a makrókkal ellátott és sablonváltozatokat is, valamint exportál PDF, XPS, HTML, SVG, TIFF, Markdown és képek formátumokba.
+Betölti és menti a PPT, PPTX, PPS, POT és ODP fájlokat, beleértve a makróval ellátott és sablon változatokat is, és exportál PDF, XPS, HTML, SVG, TIFF, Markdown és képek formátumba.
 
 <div style="clear:both"></div>
 
@@ -33,13 +33,13 @@ Támogatja a PPT, PPTX, PPS, POT és ODP fájlok betöltését és mentését, b
 
 <div class="row">
 <div class="col-md-4">
-<p><b>Kezdő lépések</b></p>
+<p><b>Kezdés</b></p>
 <hr>
-<p>ELKEZDÉS</p>
+<p>ELSŐ LÉPÉSEK</p>
 <ul>
 <li><a href="/slides/hu/python-java/installation/">Telepítés</a></li>
-<li><a href="/slides/hu/python-java/create-presentation/">Készítsd el az első prezentációdat</a></li>
-<li><a href="/slides/hu/python-java/getting-started/">Kezdő útmutató</a></li>
+<li><a href="/slides/hu/python-java/create-presentation/">Az első prezentáció létrehozása</a></li>
+<li><a href="/slides/hu/python-java/getting-started/">Első lépések útmutatója</a></li>
 </ul>
 <p>ÉRTÉKELÉS</p>
 <ul>
@@ -49,58 +49,59 @@ Támogatja a PPT, PPTX, PPS, POT és ODP fájlok betöltését és mentését, b
 </ul>
 </div>
 <div class="col-md-4">
-<p><b>Készítés a Slides-szel</b></p>
+<p><b>Készítés Slides használatával</b></p>
 <hr>
 <p>ÁLTALÁNOS FELADATOK</p>
 <ul>
 <li><a href="/slides/hu/python-java/open-presentation/">Prezentáció megnyitása</a></li>
 <li><a href="/slides/hu/python-java/save-presentation/">Prezentáció mentése</a></li>
-<li><a href="/slides/hu/python-java/convert-powerpoint-to-pdf/">Konvertálás PDF-be</a></li>
-<li><a href="/slides/hu/python-java/convert-slide/">Dia renderelése képeként</a></li>
+<li><a href="/slides/hu/python-java/convert-powerpoint-to-pdf/">Átalakítás PDF-be</a></li>
+<li><a href="/slides/hu/python-java/convert-slide/">Dia renderelése képként</a></li>
 <li><a href="/slides/hu/python-java/manage-text/">Szöveg és alakzatok szerkesztése</a></li>
 </ul>
-<p>SLIDES MUNKAFOLYAMOK</p>
+<p>DIÁK MUNKAFOLYAMOK</p>
 <ul>
 <li><a href="/slides/hu/python-java/powerpoint-charts/">Diagramok</a></li>
 <li><a href="/slides/hu/python-java/powerpoint-animation/">Animációk</a></li>
-<li><a href="/slides/hu/python-java/manage-media-files/">Audio és videó</a></li>
+<li><a href="/slides/hu/python-java/manage-media-files/">Hang és videó</a></li>
 <li><a href="/slides/hu/python-java/presentation-design/">Dia tervezés</a></li>
 <li><a href="/slides/hu/python-java/merge-presentation/">Prezentációk egyesítése</a></li>
 </ul>
-<p>PELDÁK</p>
+<p>PELTÁK</p>
 <ul>
-<li><a href="/slides/hu/python-java/examples/">Példák diaelemek szerint</a></li>
+<li><a href="/slides/hu/python-java/examples/">Példák diaelemenként</a></li>
 </ul>
 </div>
 <div class="col-md-4">
-<p><b>Referenciák és támogatás</b></p>
+<p><b>Referencia és Támogatás</b></p>
 <hr>
 <p>REFERENCIA</p>
 <ul>
-<li><a href="https://reference.aspose.com/slides/python-java/">API referenciák</a></li>
+<li><a href="https://reference.aspose.com/slides/python-java/">API referencia</a></li>
 <li><a href="https://releases.aspose.com/slides/python-java/release-notes/">Kiadási megjegyzések</a></li>
-<li><a href="/slides/hu/python-java/known-issues/">Ismert hibák</a></li>
+<li><a href="/slides/hu/python-java/known-issues/">Ismert problémák</a></li>
+<li><a href="https://products.aspose.com/slides/python-java/">Termékoldal</a></li>
 <li><a href="https://releases.aspose.com/slides/python-java/">Letöltés</a></li>
 </ul>
 <p>TÁMOGATÁS</p>
 <ul>
 <li><a href="https://forum.aspose.com/c/slides/11">Ingyenes támogatói fórum</a></li>
-<li><a href="https://helpdesk.aspose.com/">Fizetős támogatási helpdesk</a></li>
+<li><a href="https://helpdesk.aspose.com/">Fizetett támogatási helpdesk</a></li>
 </ul>
 </div>
 </div>
 
 ------
 
-## **Az első prezentációd**
+## **Az első prezentációja**
 
-Telepítsd a Python-t és egy JDK-t, állítsd be a `JAVA_HOME` környezeti változót, majd hozd létre és aktiváld a virtuális környezetet a [Installation](/slides/hu/python-java/installation/) útmutató szerint. Ezután telepítsd a JPype-ot és az Aspose.Slides-et a PyPI-ról:
+Telepítse a Pythont és egy JDK-t, állítsa be a `JAVA_HOME` változót, és hozza létre és aktiválja a virtuális környezetet a [Installation](/slides/hu/python-java/installation/) útmutatóban leírtak szerint. Ezután telepítse a JPype-ot és az Aspose.Slides-t a PyPI-ról:
 
 ```sh
 python -m pip install JPype1 aspose-slides-java
 ```
 
-Mentse el ezt a kódot *hello.py* néven. Elindítja a Java Virtual Machine-et, felvesz egy felhő alakzatot szöveggel az új prezentáció első diájára, és menti a prezentációt:
+Kód mentse *hello.py* néven. Elindítja a Java virtuális gépet, egy felhő alakzatot szöveggel ad hozzá az új prezentáció első diájához, és elmenti a prezentációt:
 
 ```python
 import jpype
@@ -114,10 +115,10 @@ from asposeslides.api import Presentation, SaveFormat, ShapeType
 # Készítsen egy prezentációt egy üres diával.
 presentation = Presentation()
 try:
-    # Szerezze meg az első diát.
+    # Lekéri az első diát.
     slide = presentation.getSlides().get_Item(0)
 
-    # Adjon hozzá egy felhő alakzatot és állítsa be a szövegét.
+    # Hozzáad egy felhő alakzatot, és beállítja a szövegét.
     auto_shape = slide.getShapes().addAutoShape(ShapeType.Cloud, 20, 20, 200, 80)
     auto_shape.getTextFrame().setText("Hello, Aspose!")
 
@@ -133,4 +134,4 @@ Futtassa ugyanabban a virtuális környezetben:
 python hello.py
 ```
 
-A szkript *new_presentation.pptx*-t ment egy diával, amely egy felhő alakzatot tartalmaz a "Hello, Aspose!" szöveggel. Licenc nélkül a mentett fájl értékelő vízjelet is tartalmaz — lásd a [Licensing](/slides/hu/python-java/licensing/) oldalt. További módok a prezentációk létrehozására és kitöltésére a [Create Presentations](/slides/hu/python-java/create-presentation/) oldalon találhatók.
+A szkript elmenti a *new_presentation.pptx*-t, amely egy diát tartalmaz, azon egy felhő alakzat a "Hello, Aspose!" szöveggel. Licenc nélkül a mentett fájl értékelési vízjel is tartalmaz — lásd a [Licensing](/slides/hu/python-java/licensing/) oldalt. További módszerekért a prezentáció létrehozására és kitöltésére lásd a [Create Presentations](/slides/hu/python-java/create-presentation/) oldalt.

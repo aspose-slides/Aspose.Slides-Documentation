@@ -1,6 +1,6 @@
 ---
-title: Aspose.Slides para Reporting Services
-second_title: Aspose.Slides para Reporting Services
+title: Aspose.Slides for Reporting Services
+second_title: Aspose.Slides for Reporting Services
 type: docs
 weight: 50
 url: /pt/reportingservices/
@@ -11,16 +11,16 @@ keywords:
 - Power BI Report Server
 - relatórios paginados
 - RDL
-- exportação para PowerPoint
+- exportação PowerPoint
 - Aspose.Slides
 description: "Comece aqui: instale o Aspose.Slides for Reporting Services, exporte um primeiro relatório para PowerPoint e encontre os formatos de exportação, requisitos do sistema e suporte."
 is_root: true
 ---
 <img src="home_1.png" alt="Aspose.Slides for Reporting Services" align="left" style="width:110px; margin: 0 30px 20px 0"/>
 
-Aspose.Slides for Reporting Services é uma extensão de renderização para Microsoft SQL Server Reporting Services e Power BI Report Server que adiciona formatos de apresentação à lista de exportação de relatórios paginados (RDL), sem o Microsoft PowerPoint no servidor.
+Aspose.Slides for Reporting Services é uma extensão de renderização para Microsoft SQL Server Reporting Services e Power BI Report Server que adiciona formatos de apresentação à lista de exportação de relatórios paginados (RDL), sem necessidade do Microsoft PowerPoint no servidor.
 
-Ele exporta relatórios para apresentações PPT, PPTX, PPS e PPSX, para apresentações de slides, para ODP e para XPS.
+Ele exporta relatórios para apresentações e apresentações de slides PPT, PPTX, PPS e PPSX, para ODP e para XPS.
 
 <div style="clear:both"></div>
 
@@ -30,7 +30,7 @@ Ele exporta relatórios para apresentações PPT, PPTX, PPS e PPSX, para apresen
 <div class="col-md-4">
 <p><b>Começar</b></p>
 <hr>
-<p>COMEÇANDO</p>
+<p>INICIANDO</p>
 <ul>
 <li><a href="/slides/pt/reportingservices/installing-aspose-slides-for-reporting-services/">Instalação</a></li>
 <li><a href="/slides/pt/reportingservices/system-requirements/">Requisitos do sistema</a></li>
@@ -64,6 +64,7 @@ Ele exporta relatórios para apresentações PPT, PPTX, PPS e PPSX, para apresen
 <p>REFERÊNCIA</p>
 <ul>
 <li><a href="https://releases.aspose.com/slides/reportingservices/release-notes/">Notas de versão</a></li>
+<li><a href="https://products.aspose.com/slides/reporting-services/">Página do produto</a></li>
 <li><a href="https://releases.aspose.com/slides/reportingservices/">Download</a></li>
 </ul>
 <p>SUPORTE</p>
@@ -78,13 +79,13 @@ Ele exporta relatórios para apresentações PPT, PPTX, PPS e PPSX, para apresen
 
 ## **Sua primeira exportação**
 
-Não há código a ser escrito: você instala a extensão no servidor de relatórios, e seus formatos aparecem na lista de exportação de todos os relatórios paginados nesse servidor.
+Não há código a ser escrito: você instala a extensão no servidor de relatórios, e seus formatos aparecem na lista de exportação de cada relatório paginado nesse servidor.
 
 1. Verifique se o servidor de relatórios atende aos [requisitos do sistema](/slides/pt/reportingservices/system-requirements/), incluindo .NET Framework 3.5.
-1. Na [página de download](https://releases.aspose.com/slides/reportingservices/), baixe o instalador MSI, *Aspose.Slides for Reporting Services*. Para instalar manualmente, baixe o pacote ZIP, *Aspose.Slides for Reporting Services (DLLs Only)*.
-1. Instale a extensão no servidor de relatórios: execute o MSI como administrador, conforme descrito em [Instalar com o instalador MSI](/slides/pt/reportingservices/install-with-msi-installer/), ou siga [Instalar manualmente](/slides/pt/reportingservices/install-manually/) para o pacote ZIP.
-1. Em um navegador, abra o portal web do servidor de relatórios (Report Manager no SQL Server 2014 e anteriores). Por padrão, o endereço é `https://<ComputerName>/reports`.
-1. Abra um relatório paginado. Na barra de ferramentas do relatório, abra a lista **Exportar** e selecione **PPTX - PowerPoint 2007 Presentation via Aspose.Slides**. Se a barra de ferramentas tiver um botão **Exportar** separado, como faz o Report Manager, selecione‑o.
-1. Abra ou salve o arquivo PPTX que o navegador baixou.
+2. Na [página de download](https://releases.aspose.com/slides/reportingservices/), baixe o instalador MSI, *Aspose.Slides for Reporting Services*. Para instalar manualmente, baixe o pacote ZIP, *Aspose.Slides for Reporting Services (DLLs Only)*.
+3. Instale a extensão no servidor de relatórios: execute o MSI como administrador, conforme descrito em [Instalar com o instalador MSI](/slides/pt/reportingservices/install-with-msi-installer/), ou siga [Instalar manualmente](/slides/pt/reportingservices/install-manually/) para o pacote ZIP.
+4. Em um navegador, abra o portal web do servidor de relatórios (Report Manager no SQL Server 2014 e anteriores). Por padrão, seu endereço é `https://<ComputerName>/reports`.
+5. Abra um relatório paginado. Na barra de ferramentas do relatório, abra a lista **Export** e selecione **PPTX - PowerPoint 2007 Presentation via Aspose.Slides**. Se a barra de ferramentas tiver um botão **Export** separado, como faz o Report Manager, selecione‑o.
+6. Abra ou salve o arquivo PPTX que o navegador baixa.
 
-Sem uma licença, a apresentação exportada exibe uma marca d'água de avaliação — veja [Licenciamento](/slides/pt/reportingservices/license-aspose-slides-for-reporting-services/). Para os outros formatos na lista de exportação, veja [Formatos de arquivo suportados](/slides/pt/reportingservices/supported-file-formats/).
+Sem licença, a apresentação exportada contém uma marca d'água de avaliação — veja [Licenciamento](/slides/pt/reportingservices/license-aspose-slides-for-reporting-services/). Para os outros formatos na lista de exportação, veja [Formatos de arquivo suportados](/slides/pt/reportingservices/supported-file-formats/).

@@ -1,6 +1,6 @@
 ---
-title: Aspose.Slides for Android via Java
-second_title: Aspose.Slides for Android
+title: Android용 Java에서 Aspose.Slides
+second_title: Android용 Aspose.Slides
 type: docs
 weight: 40
 url: /ko/androidjava/
@@ -13,14 +13,14 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "여기에서 시작하십시오: 앱에 Aspose.Slides for Android via Java를 추가하고, 첫 번째 프레젠테이션을 만든 다음, 일반 작업 가이드, API 참조 및 지원 정보를 찾으십시오."
+description: "여기서 시작하세요: 앱에 Aspose.Slides for Android via Java를 추가하고 첫 번째 프레젠테이션을 만든 다음 일반 작업 가이드, API 참조 및 지원 정보를 찾으세요."
 is_root: true
 ---
 <img src="home_1.png" alt="Aspose.Slides for Android via Java" align="left" style="width:110px; margin: 0 30px 20px 0"/>
 
-Aspose.Slides for Android via Java는 Microsoft PowerPoint 없이 Android 애플리케이션에서 PowerPoint 및 OpenDocument 프레젠테이션을 만들고, 읽고, 편집하고 변환할 수 있는 클래스 라이브러리입니다.
+Aspose.Slides for Android via Java는 Android 애플리케이션에서 Microsoft PowerPoint 없이 PowerPoint 및 OpenDocument 프레젠테이션을 생성, 읽기, 편집 및 변환하기 위한 클래스 라이브러리입니다.
 
-이 라이브러리는 매크로 지원 및 템플릿 변형을 포함한 PPT, PPTX, PPS, POT 및 ODP 파일을 로드하고 저장하며, PDF, XPS, HTML, SVG, TIFF, Markdown 및 이미지 형식으로 내보낼 수 있습니다.
+매크로 사용 가능 및 템플릿 변형을 포함한 PPT, PPTX, PPS, POT 및 ODP를 로드하고 저장하며, PDF, XPS, HTML, SVG, TIFF, Markdown 및 이미지로 내보냅니다.
 
 <div style="clear:both"></div>
 
@@ -30,21 +30,21 @@ Aspose.Slides for Android via Java는 Microsoft PowerPoint 없이 Android 애플
 <div class="col-md-4">
 <p><b>시작하기</b></p>
 <hr>
-<p>시작 안내</p>
+<p>시작하기</p>
 <ul>
 <li><a href="/slides/ko/androidjava/install-aspose-slides-for-android-via-java/">설치</a></li>
 <li><a href="/slides/ko/androidjava/create-presentation/">첫 프레젠테이션 만들기</a></li>
-<li><a href="/slides/ko/androidjava/getting-started/">시작 가이드</a></li>
+<li><a href="/slides/ko/androidjava/getting-started/">시작하기 가이드</a></li>
 </ul>
 <p>평가</p>
 <ul>
 <li><a href="/slides/ko/androidjava/supported-file-formats/">지원 파일 형식</a></li>
-<li><a href="/slides/ko/androidjava/evaluate-aspose-slides/">평가판 제한 사항</a></li>
+<li><a href="/slides/ko/androidjava/evaluate-aspose-slides/">평가 버전 제한 사항</a></li>
 <li><a href="/slides/ko/androidjava/licensing/">라이선스</a></li>
 </ul>
 </div>
 <div class="col-md-4">
-<p><b>Slides로 빌드</b></p>
+<p><b>Slides와 빌드</b></p>
 <hr>
 <p>일반 작업</p>
 <ul>
@@ -75,6 +75,7 @@ Aspose.Slides for Android via Java는 Microsoft PowerPoint 없이 Android 애플
 <li><a href="https://reference.aspose.com/slides/androidjava/">API 참조</a></li>
 <li><a href="https://releases.aspose.com/slides/androidjava/release-notes/">릴리스 노트</a></li>
 <li><a href="/slides/ko/androidjava/known-issues/">알려진 문제</a></li>
+<li><a href="https://products.aspose.com/slides/android-java/">제품 페이지</a></li>
 <li><a href="https://releases.aspose.com/slides/androidjava/">다운로드</a></li>
 </ul>
 <p>지원</p>
@@ -89,7 +90,7 @@ Aspose.Slides for Android via Java는 Microsoft PowerPoint 없이 Android 애플
 
 ## **첫 번째 프레젠테이션**
 
-이 라이브러리는 Aspose의 Maven 저장소에서 제공됩니다. 새 Android Studio 프로젝트에는 이미 *settings.gradle.kts*에 `dependencyResolutionManagement` 블록이 포함되어 있습니다. 두 번째 블록을 붙여넣는 대신 아래에 표시된 `maven` 라인을 해당 블록의 `repositories` 섹션에 추가하십시오:
+이 라이브러리는 Aspose의 Maven 저장소에서 제공합니다. 새로운 Android Studio 프로젝트에는 이미 *settings.gradle.kts*에 `dependencyResolutionManagement` 블록이 포함되어 있습니다. 두 번째 블록을 붙여넣는 대신 아래에 표시된 `maven` 라인을 해당 `repositories` 블록에 추가하십시오:
 
 ```kotlin
 dependencyResolutionManagement {
@@ -110,4 +111,4 @@ dependencies {
 }
 ```
 
-[Installation](/slides/ko/androidjava/install-aspose-slides-for-android-via-java/)은 Groovy 빌드 스크립트, 수동 JAR 파일 및 버전 선택 방법을 다룹니다. 첫 번째 프레젠테이션에 대한 코드는 [Create Presentations](/slides/ko/androidjava/create-presentation/)에 있습니다. 이 코드는 슬라이드에 텍스트 상자를 추가하고 프레젠테이션을 앱의 저장소에 저장합니다. 해당 샘플은 컴파일되어 APK로 빌드되었지만 디바이스에서는 실행되지 않았습니다. 라이선스가 없으면 저장된 프레젠테이션에 평가 워터마크가 표시됩니다 — 자세한 내용은 [Licensing](/slides/ko/androidjava/licensing/)를 참조하십시오.
+[설치](/slides/ko/androidjava/install-aspose-slides-for-android-via-java/)는 Groovy 빌드 스크립트, 수동 JAR 파일 및 버전 선택 방법을 다룹니다. 첫 번째 프레젠테이션에 대한 코드는 [프레젠테이션 만들기](/slides/ko/androidjava/create-presentation/)에 있습니다: 슬라이드에 텍스트 상자를 추가하고 프레젠테이션을 앱의 저장소에 저장합니다. 해당 샘플은 APK로 컴파일 및 빌드되었으며, 디바이스에서 실행되지 않았습니다. 라이선스 없이 저장된 프레젠테이션에는 평가 워터마크가 포함됩니다 — 자세한 내용은 [라이선스](/slides/ko/androidjava/licensing/)를 참조하십시오.

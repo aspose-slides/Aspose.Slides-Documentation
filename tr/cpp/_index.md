@@ -5,21 +5,21 @@ type: docs
 weight: 30
 url: /tr/cpp/
 keywords:
-- belgeler
-- sunum işleme
-- sunum dönüştürme
-- PowerPoint
-- OpenDocument
-- C++
-- Aspose.Slides
-description: "Başlangıç: Aspose.Slides for C++'ı kurun, ilk bir sunum oluşturun ve ortak görevler, API referansı ve destek için kılavuzları bulun."
+  - belgeler
+  - sunum işleme
+  - sunum dönüştürme
+  - PowerPoint
+  - OpenDocument
+  - C++
+  - Aspose.Slides
+description: "Buradan başlayın: Aspose.Slides for C++'ı kurun, ilk sunumunuzu oluşturun ve ortak görevler, API referansı ve destek için kılavuzları bulun."
 is_root: true
 ---
 <img src="home_1.png" alt="Aspose.Slides for C++" align="left" style="width:110px; margin: 0 30px 20px 0"/>
 
-Aspose.Slides for C++ Microsoft PowerPoint veya Office Automation olmadan PowerPoint ve OpenDocument sunumları oluşturmak, okumak, düzenlemek ve dönüştürmek için yerel bir C++ kitaplığıdır.
+Aspose.Slides for C++ Microsoft PowerPoint veya Office Automation olmadan PowerPoint ve OpenDocument sunumları oluşturmak, okumak, düzenlemek ve dönüştürmek için yerel bir C++ kütüphanesidir.
 
-PPT, PPTX, PPS, POT ve ODP dosyalarını, makro etkin ve şablon varyantları dahil olmak üzere yükler ve kaydeder; ayrıca PDF, XPS, HTML, SVG, TIFF, Markdown ve görüntülere dışa aktarır.
+Makro destekli ve şablon varyantları da dahil olmak üzere PPT, PPTX, PPS, POT ve ODP dosyalarını yükler ve kaydeder; ayrıca PDF, XPS, HTML, SVG, TIFF, Markdown ve görüntülere dışa aktarır.
 
 <div style="clear:both"></div>
 
@@ -29,13 +29,13 @@ PPT, PPTX, PPS, POT ve ODP dosyalarını, makro etkin ve şablon varyantları da
 <div class="col-md-4">
 <p><b>Başlarken</b></p>
 <hr>
-<p>GETTING STARTED</p>
+<p>BAŞLANGIÇ</p>
 <ul>
 <li><a href="/slides/tr/cpp/installation/">Kurulum</a></li>
 <li><a href="/slides/tr/cpp/create-presentation/">İlk sunumunuzu oluşturun</a></li>
-<li><a href="/slides/tr/cpp/getting-started/">Başlangıç rehberi</a></li>
+<li><a href="/slides/tr/cpp/getting-started/">Başlangıç kılavuzu</a></li>
 </ul>
-<p>EVALUATE</p>
+<p>DEĞERLENDİR</p>
 <ul>
 <li><a href="/slides/tr/cpp/supported-file-formats/">Desteklenen dosya biçimleri</a></li>
 <li><a href="/slides/tr/cpp/evaluate-aspose-slides/">Deneme sınırlamaları</a></li>
@@ -43,17 +43,17 @@ PPT, PPTX, PPS, POT ve ODP dosyalarını, makro etkin ve şablon varyantları da
 </ul>
 </div>
 <div class="col-md-4">
-<p><b>Kaydırıcılarla Oluştur</b></p>
+<p><b>Slides ile Oluşturun</b></p>
 <hr>
 <p>ORTAK GÖREVLER</p>
 <ul>
-<li><a href="/slides/tr/cpp/open-presentation/">Bir sunumu aç</a></li>
-<li><a href="/slides/tr/cpp/save-presentation/">Bir sunumu kaydet</a></li>
-<li><a href="/slides/tr/cpp/convert-powerpoint-to-pdf/">PDF'e dönüştür</a></li>
-<li><a href="/slides/tr/cpp/convert-slide/">Slaytları resim olarak işleme</a></li>
+<li><a href="/slides/tr/cpp/open-presentation/">Sunum aç</a></li>
+<li><a href="/slides/tr/cpp/save-presentation/">Sunumu kaydet</a></li>
+<li><a href="/slides/tr/cpp/convert-powerpoint-to-pdf/">PDF'ye dönüştür</a></li>
+<li><a href="/slides/tr/cpp/convert-slide/">Slaytları görüntü olarak işleme</a></li>
 <li><a href="/slides/tr/cpp/manage-text/">Metin ve şekilleri düzenle</a></li>
 </ul>
-<p>SLAYT İŞ AKIŞLARI</p>
+<p>SLIDES İŞ AKIŞLARI</p>
 <ul>
 <li><a href="/slides/tr/cpp/powerpoint-charts/">Grafikler</a></li>
 <li><a href="/slides/tr/cpp/powerpoint-animation/">Animasyonlar</a></li>
@@ -64,23 +64,24 @@ PPT, PPTX, PPS, POT ve ODP dosyalarını, makro etkin ve şablon varyantları da
 <p>ÖRNEKLER</p>
 <ul>
 <li><a href="/slides/tr/cpp/examples/">Slayt öğesine göre örnekler</a></li>
-<li><a href="https://github.com/aspose-slides/Aspose.Slides-for-C">GitHub üzerindeki örnekler</a></li>
+<li><a href="https://github.com/aspose-slides/Aspose.Slides-for-C">GitHub'daki örnekler</a></li>
 </ul>
 </div>
 <div class="col-md-4">
 <p><b>Referans &amp; Destek</b></p>
 <hr>
-<p>REFERANSLAR</p>
+<p>REFERANS</p>
 <ul>
 <li><a href="https://reference.aspose.com/slides/cpp/">API referansı</a></li>
 <li><a href="https://releases.aspose.com/slides/cpp/release-notes/">Sürüm notları</a></li>
 <li><a href="/slides/tr/cpp/known-issues/">Bilinen sorunlar</a></li>
+<li><a href="https://products.aspose.com/slides/cpp/">Ürün sayfası</a></li>
 <li><a href="https://releases.aspose.com/slides/cpp/">İndir</a></li>
 </ul>
 <p>DESTEK</p>
 <ul>
 <li><a href="https://forum.aspose.com/c/slides/11">Ücretsiz destek forumu</a></li>
-<li><a href="https://helpdesk.aspose.com/">Ücretli destek hizmet masası</a></li>
+<li><a href="https://helpdesk.aspose.com/">Ücretli destek yardım masası</a></li>
 </ul>
 </div>
 </div>
@@ -89,7 +90,7 @@ PPT, PPTX, PPS, POT ve ODP dosyalarını, makro etkin ve şablon varyantları da
 
 ## **İlk sunumunuz**
 
-Windows'ta, Visual Studio'da bir C++ **Console App** projesi oluşturun ve NuGet paketini Package Manager Console (**Tools** > **NuGet Package Manager** > **Package Manager Console**) üzerinden yükleyin:
+Windows'ta, Visual Studio'da bir C++ **Console App** projesi oluşturun ve Paket Yöneticisi Konsolu'nda (**Tools** > **NuGet Package Manager** > **Package Manager Console**) NuGet paketini yükleyin:
 
 ```powershell
 Install-Package Aspose.Slides.Cpp
@@ -125,7 +126,7 @@ int main()
 }
 ```
 
-Windows'ta çalıştırmak için, araç çubuğunda **x64** platformunu seçin ve **Ctrl+F5** tuşlarına basın. Linux'ta, proje klasöründe *main.cpp* olarak kaydedin, ardından burada derleyip çalıştırın:
+Windows'ta çalıştırmak için araç çubuğunda **x64** platformunu seçin ve **Ctrl+F5** tuşlarına basın. Linux'ta, proje klasöründe *main.cpp* olarak kaydedin, ardından orada derleyip çalıştırın:
 
 ```bash
 cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
@@ -133,4 +134,4 @@ cmake --build build
 ./build/hello
 ```
 
-Program, bir metin kutusu içeren bir slayt ile *hello.pptx* dosyasını kaydeder. Lisans olmadan, kaydedilen dosya bir değerlendirme filigranı taşır — [Lisanslama](/slides/tr/cpp/licensing/) bölümüne bakın. Sunum oluşturma ve doldurma hakkında daha fazla bilgi için [Sunum Oluşturma](/slides/tr/cpp/create-presentation/) sayfasına bakın.
+Program, bir metin kutusu içeren bir slaytla *hello.pptx* dosyasını kaydeder. Lisans olmadan, kaydedilen dosya bir değerlendirme filigranı içerir — [Lisanslama](/slides/tr/cpp/licensing/) bölümüne bakın. Sunum oluşturma ve doldurma yöntemleri hakkında daha fazla bilgi için [Sunum Oluşturma](/slides/tr/cpp/create-presentation/) bölümüne göz atın.

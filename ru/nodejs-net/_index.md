@@ -7,7 +7,7 @@ url: /ru/nodejs-net/
 keywords:
 - документация
 - обработка презентаций
-- преобразование презентаций
+- конверсия презентаций
 - PowerPoint
 - OpenDocument
 - Node.js
@@ -16,11 +16,11 @@ keywords:
 description: "Начните здесь: установите Aspose.Slides for Node.js via .NET, создайте первую презентацию и найдите руководства по общим задачам, лицензированию, справочнику API и поддержке."
 is_root: true
 ---
-<img src="aspose_slides-for-nodejs-via-net.png" alt="Aspose.Slides для Node.js через .NET" align="left" style="width:110px; margin: 0 30px 20px 0"/>
+<img src="aspose_slides-for-nodejs-via-net.png" alt="Aspose.Slides for Node.js via .NET" align="left" style="width:110px; margin: 0 30px 20px 0"/>
 
-Aspose.Slides for Node.js via .NET — это библиотека для создания, чтения, редактирования и преобразования презентаций PowerPoint и OpenDocument в приложениях Node.js, без Microsoft PowerPoint или автоматизации Office. Она запускает Aspose.Slides for .NET через мост edge-js, поэтому её JavaScript API отражает .NET API с именами членов в camelCase.
+Aspose.Slides for Node.js via .NET — это библиотека для создания, чтения, редактирования и конвертирования презентаций PowerPoint и OpenDocument в приложениях Node.js, без Microsoft PowerPoint или автоматизации Office. Она запускает Aspose.Slides for .NET через мост edge-js, поэтому её JavaScript API отражает .NET API с именами членов в стиле camelCase.
 
-Библиотека загружает и сохраняет файлы PPT, PPTX, PPS, POT и ODP, включая варианты с макросами и шаблоны, а также экспортирует в PDF, XPS, HTML, TIFF, Markdown и изображения.
+Она загружает и сохраняет файлы PPT, PPTX, PPS, POT и ODP, включая версии с макросами и шаблоны, а также экспортирует в PDF, XPS, HTML, TIFF, Markdown и изображения.
 
 <div style="clear:both"></div>
 
@@ -28,53 +28,54 @@ Aspose.Slides for Node.js via .NET — это библиотека для соз
 
 <div class="row">
 <div class="col-md-4">
-<p><b>Начало работы</b></p>
+<p><b>Get Started</b></p>
 <hr>
-<p>НАЧАЛО РАБОТЫ</p>
+<p>GETTING STARTED</p>
 <ul>
-<li><a href="/slides/ru/nodejs-net/installation/">Установка</a></li>
-<li><a href="/slides/ru/nodejs-net/create-presentation/">Создайте свою первую презентацию</a></li>
-<li><a href="/slides/ru/nodejs-net/developer-guide/">Руководство разработчика</a></li>
+<li><a href="/slides/ru/nodejs-net/installation/">Installation</a></li>
+<li><a href="/slides/ru/nodejs-net/create-presentation/">Create your first presentation</a></li>
+<li><a href="/slides/ru/nodejs-net/developer-guide/">Developer guide</a></li>
 </ul>
-<p>ОЦЕНИТЬ</p>
+<p>EVALUATE</p>
 <ul>
-<li><a href="/slides/ru/nodejs-net/evaluate-aspose-slides/">Ограничения пробной версии</a></li>
-<li><a href="/slides/ru/nodejs-net/licensing/">Лицензирование</a></li>
+<li><a href="/slides/ru/nodejs-net/evaluate-aspose-slides/">Trial limitations</a></li>
+<li><a href="/slides/ru/nodejs-net/licensing/">Licensing</a></li>
 </ul>
 </div>
 <div class="col-md-4">
-<p><b>Создание с Slides</b></p>
+<p><b>Build with Slides</b></p>
 <hr>
-<p>ОБЩИЕ ЗАДАЧИ</p>
+<p>COMMON TASKS</p>
 <ul>
-<li><a href="/slides/ru/nodejs-net/open-presentation/">Открыть и сохранить презентацию</a></li>
-<li><a href="/slides/ru/nodejs-net/convert-powerpoint-to-pdf/">Преобразовать в PDF</a></li>
-<li><a href="/slides/ru/nodejs-net/convert-slide/">Отрисовать слайды как изображения</a></li>
-<li><a href="/slides/ru/nodejs-net/manage-text/">Редактировать текст</a></li>
+<li><a href="/slides/ru/nodejs-net/open-presentation/">Open and save a presentation</a></li>
+<li><a href="/slides/ru/nodejs-net/convert-powerpoint-to-pdf/">Convert to PDF</a></li>
+<li><a href="/slides/ru/nodejs-net/convert-slide/">Render slides as images</a></li>
+<li><a href="/slides/ru/nodejs-net/manage-text/">Edit text</a></li>
 </ul>
 </div>
 <div class="col-md-4">
-<p><b>Справка &amp; Поддержка</b></p>
+<p><b>Reference &amp; Support</b></p>
 <hr>
-<p>СПРАВОЧНИК</p>
+<p>REFERENCE</p>
 <ul>
-<li><a href="https://reference.aspose.com/slides/net/">Справочник .NET API</a></li>
-<li><a href="https://releases.aspose.com/slides/nodejs-net/release-notes/">Примечания к выпуску</a></li>
-<li><a href="https://releases.aspose.com/slides/nodejs-net/">Скачать</a></li>
+<li><a href="https://reference.aspose.com/slides/net/">.NET API reference</a></li>
+<li><a href="https://releases.aspose.com/slides/nodejs-net/release-notes/">Release notes</a></li>
+<li><a href="https://products.aspose.com/slides/nodejs-net/">Product page</a></li>
+<li><a href="https://releases.aspose.com/slides/nodejs-net/">Download</a></li>
 </ul>
-<p>ПОДДЕРЖКА</p>
+<p>SUPPORT</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/11">Бесплатный форум поддержки</a></li>
-<li><a href="https://helpdesk.aspose.com/">Платный центр поддержки</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">Free support forum</a></li>
+<li><a href="https://helpdesk.aspose.com/">Paid support helpdesk</a></li>
 </ul>
 </div>
 </div>
 
 ------
 
-## **Ваша первая презентация**
+## **Your first presentation**
 
-Вам требуется Node.js 22 или 24 и .NET SDK 8 или новее; для Linux также необходимы несколько системных пакетов. [Установка](/slides/ru/nodejs-net/installation/) перечисляет их и проверенные платформы. Создайте проект, добавьте переопределение, которое указывает npm, какую версию edge-js установить, и установите пакет:
+Вам нужны Node.js 22 или 24 и .NET SDK 8 или новее; для Linux также требуются несколько системных пакетов. [Installation](/slides/ru/nodejs-net/installation/) перечисляет их и платформы, которые были протестированы. Создайте проект, добавьте переопределение, которое указывает npm, какую версию edge-js установить, и установите пакет:
 
 ```sh
 mkdir hello-slides
@@ -84,7 +85,7 @@ npm pkg set overrides.edge-js=26.1.0
 npm install aspose.slides.via.net
 ```
 
-Один раз на машину восстановите пакеты .NET, от которых зависит библиотека. Сохраните файл `deps.csproj` из [Восстановить зависимости .NET](/slides/ru/nodejs-net/installation/#restore-the-net-dependencies) в папку `deps` внутри папки проекта, затем выполните:
+Один раз на машину, восстановите .NET‑пакеты, от которых зависит библиотека. Сохраните файл `deps.csproj` из [Restore the .NET Dependencies](/slides/ru/nodejs-net/installation/#restore-the-net-dependencies) в папку `deps` внутри папки проекта, затем выполните:
 
 ```sh
 dotnet restore deps/deps.csproj
@@ -119,4 +120,4 @@ try {
 node hello.js
 ```
 
-Скрипт выводит `Saved hello.pptx` и сохраняет *hello.pptx* с одним слайдом, содержащим прямоугольник с текстом. Без лицензии сохранённый файл содержит водяной знак оценки — см. [Лицензирование](/slides/ru/nodejs-net/licensing/). Для получения дополнительных способов создания и заполнения презентации см. [Создание презентации](/slides/ru/nodejs-net/create-presentation/).
+Скрипт выводит `Saved hello.pptx` и сохраняет *hello.pptx* с одним слайдом, содержащим прямоугольник с текстом. Без лицензии сохранённый файл содержит водяной знак оценки — см. [Licensing](/slides/ru/nodejs-net/licensing/). Чтобы узнать о дополнительных способах создания и заполнения презентации, см. [Create a Presentation](/slides/ru/nodejs-net/create-presentation/).

@@ -11,7 +11,7 @@ keywords:
 - Βιβλιοθήκη Python PPT
 - Εξαγωγή PowerPoint σε PDF με Python
 - Εξαγωγή PowerPoint σε SVG με Python
-- Επεξεργασία PowerPoint σε Python
+- Επεξεργασία PowerPoint με Python
 - PowerPoint Python χωρίς Microsoft Office
 - Διαχείριση PPTX με Python
 - Προεπισκόπηση διαφανειών με Python
@@ -20,11 +20,11 @@ keywords:
 - OpenDocument
 - Python
 - Aspose.Slides
-description: "Ξεκινήστε εδώ: εγκαταστήστε το Aspose.Slides για Python μέσω .NET, δημιουργήστε την πρώτη παρουσίαση και βρείτε οδηγούς για κοινές εργασίες, την τεκμηρίωση API και την υποστήριξη."
+description: "Ξεκινήστε εδώ: εγκαταστήστε το Aspose.Slides για Python μέσω .NET, δημιουργήστε την πρώτη παρουσίαση και βρείτε τους οδηγούς για κοινές εργασίες, την αναφορά API και την υποστήριξη."
 ---
-<img src="aspose_slides-for-python.png" alt="Aspose.Slides for Python via .NET" align="left" style="width:110px; margin: 0 30px 20px 0"/>
+<img src="aspose_slides-for-python.png" alt="Aspose.Slides για Python μέσω .NET" align="left" style="width:110px; margin: 0 30px 20px 0"/>
 
-Aspose.Slides for Python via .NET είναι μια βιβλιοθήκη Python για δημιουργία, ανάγνωση, επεξεργασία και μετατροπή παρουσιάσεων PowerPoint και OpenDocument, χωρίς το Microsoft PowerPoint ή το Microsoft Office.
+Aspose.Slides for Python via .NET είναι μια βιβλιοθήκη Python για δημιουργία, ανάγνωση, επεξεργασία και μετατροπή παρουσιάσεων PowerPoint και OpenDocument, χωρίς Microsoft PowerPoint ή Microsoft Office.
 
 Φορτώνει και αποθηκεύει αρχεία PPT, PPTX, PPS, POT και ODP, συμπεριλαμβανομένων των εκδόσεων με μακροεντολές και προτύπων, και εξάγει σε PDF, XPS, HTML, SVG, TIFF, Markdown και εικόνες.
 
@@ -36,7 +36,7 @@ Aspose.Slides for Python via .NET είναι μια βιβλιοθήκη Python 
 <div class="col-md-4">
 <p><b>Ξεκινήστε</b></p>
 <hr>
-<p>ΞΕΚΙΝΗΣΗ</p>
+<p>ΞΕΚΙΝΑΤΕ</p>
 <ul>
 <li><a href="/slides/el/python-net/installation/">Εγκατάσταση</a></li>
 <li><a href="/slides/el/python-net/create-presentation/">Δημιουργήστε την πρώτη σας παρουσίαση</a></li>
@@ -50,9 +50,9 @@ Aspose.Slides for Python via .NET είναι μια βιβλιοθήκη Python 
 </ul>
 </div>
 <div class="col-md-4">
-<p><b>Δημιουργήστε με Slides</b></p>
+<p><b>Δημιουργία με Slides</b></p>
 <hr>
-<p>ΣΥΝΗΘΕΣ ΕΡΓΑ</p>
+<p>ΚΟΜΜΟΝΕΣ ΕΡΓΑΣΙΕΣ</p>
 <ul>
 <li><a href="/slides/el/python-net/open-presentation/">Άνοιγμα παρουσίασης</a></li>
 <li><a href="/slides/el/python-net/save-presentation/">Αποθήκευση παρουσίασης</a></li>
@@ -60,12 +60,12 @@ Aspose.Slides for Python via .NET είναι μια βιβλιοθήκη Python 
 <li><a href="/slides/el/python-net/convert-slide/">Απόδοση διαφανειών ως εικόνες</a></li>
 <li><a href="/slides/el/python-net/manage-text/">Επεξεργασία κειμένου και σχημάτων</a></li>
 </ul>
-<p>ΡΟΟΙ ΕΡΓΑΣΙΑΣ ΣΛΑΙΔΩΝ</p>
+<p>ΡΟΩΣ ΔΙΑΔΙΚΑΣΙΩΝ</p>
 <ul>
 <li><a href="/slides/el/python-net/powerpoint-charts/">Διαγράμματα</a></li>
 <li><a href="/slides/el/python-net/powerpoint-animation/">Κινούμενα γραφικά</a></li>
 <li><a href="/slides/el/python-net/manage-media-files/">Ήχος και βίντεο</a></li>
-<li><a href="/slides/el/python-net/presentation-design/">Σχεδίαση διαφάνειας</a></li>
+<li><a href="/slides/el/python-net/presentation-design/">Σχεδιασμός διαφανειών</a></li>
 <li><a href="/slides/el/python-net/merge-presentation/">Συγχώνευση παρουσιάσεων</a></li>
 </ul>
 <p>ΠΑΡΑΔΕΙΓΜΑΤΑ</p>
@@ -79,14 +79,15 @@ Aspose.Slides for Python via .NET είναι μια βιβλιοθήκη Python 
 <hr>
 <p>ΑΝΑΦΟΡΑ</p>
 <ul>
-<li><a href="https://reference.aspose.com/slides/python-net/">Τεκμηρίωση API</a></li>
+<li><a href="https://reference.aspose.com/slides/python-net/">Αναφορά API</a></li>
 <li><a href="https://releases.aspose.com/slides/python-net/release-notes/">Σημειώσεις έκδοσης</a></li>
+<li><a href="https://products.aspose.com/slides/python-net/">Σελίδα προϊόντος</a></li>
 <li><a href="https://releases.aspose.com/slides/python-net/">Λήψη</a></li>
 </ul>
 <p>ΥΠΟΣΤΗΡΙΞΗ</p>
 <ul>
 <li><a href="https://forum.aspose.com/c/slides/11">Δωρεάν φόρουμ υποστήριξης</a></li>
-<li><a href="https://helpdesk.aspose.com/">Πληρωμένη εξυπηρέτηση υποστήριξης</a></li>
+<li><a href="https://helpdesk.aspose.com/">Τμήμα υποστήριξης επί πληρωμή</a></li>
 </ul>
 </div>
 </div>
@@ -101,16 +102,16 @@ Aspose.Slides for Python via .NET είναι μια βιβλιοθήκη Python 
 pip install aspose.slides
 ```
 
-Το πακέτο περιλαμβάνει το .NET runtime που χρησιμοποιεί, έτσι δεν χρειάζεται να εγκαταστήσετε .NET. Σε Linux, εγκαταστήστε επίσης τις βιβλιοθήκες libgdiplus και ICU, και με το σύστημα Python του Debian ή Ubuntu, εκτελέστε την εντολή σε ένα εικονικό περιβάλλον. Το macOS έχει περαιτέρω προαπαιτούμενα, και δεν έχουμε ελέγξει την εγκατάσταση εκεί. Δείτε [Installation](/slides/el/python-net/installation/) για τις εντολές, τα προαπαιτούμενα του macOS και τις υποστηριζόμενες εκδόσεις Python.
+Το πακέτο περιλαμβάνει το .NET runtime που χρησιμοποιεί, επομένως δεν χρειάζεται να εγκαταστήσετε .NET. Σε Linux, εγκαταστήστε επίσης τις βιβλιοθήκες libgdiplus και ICU, και με το σύστημα Python του Debian ή Ubuntu, εκτελέστε την εντολή σε εικονικό περιβάλλον. Το macOS έχει περαιτέρω προαπαιτούμενα, και δεν έχουμε επαληθεύσει την εγκατάσταση εκεί. Δείτε [Εγκατάσταση](/slides/el/python-net/installation/) για τις εντολές, τα προαπαιτούμενα του macOS και τις υποστηριζόμενες εκδόσεις Python.
 
 Αποθηκεύστε αυτόν τον κώδικα ως *hello.py*:
 
 ```py
 import aspose.slides as slides
 
-# Δημιουργήστε την κλάση Presentation που αντιπροσωπεύει ένα αρχείο παρουσίασης.
+# Δημιουργήστε ένα αντικείμενο της κλάσης Presentation που αντιπροσωπεύει ένα αρχείο παρουσίασης.
 with slides.Presentation() as presentation:
-    # Αποκτήστε την πρώτη διαφάνεια.
+    # Πάρτε την πρώτη διαφάνεια.
     slide = presentation.slides[0]
 
     # Προσθέστε ένα αυτόματο σχήμα τύπου CLOUD.
@@ -121,4 +122,4 @@ with slides.Presentation() as presentation:
     presentation.save("new_presentation.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Τρέξτε το με `python hello.py`. Το σενάριο αποθηκεύει *new_presentation.pptx* στον τρέχοντα φάκελο, με μια διαφάνεια που περιέχει ένα σχήμα σύννεφου με την ένδειξη "Hello, Aspose!". Χωρίς άδεια, το αποθηκευμένο αρχείο φέρει υδατογράφημα αξιολόγησης — δείτε [Αδειοδότηση](/slides/el/python-net/licensing/). Για περισσότερους τρόπους δημιουργίας και γεμίσματος μιας παρουσίασης, δείτε [Δημιουργία παρουσιάσεων](/slides/el/python-net/create-presentation/).
+Εκτελέστε το με `python hello.py`. Το σενάριο αποθηκεύει *new_presentation.pptx* στον τρέχοντα φάκελο, με μια διαφάνεια που περιέχει ένα σχήμα σύννεφου με κείμενο "Hello, Aspose!". Χωρίς άδεια, το αποθηκευμένο αρχείο περιλαμβάνει υδατογράφημα αξιολόγησης — δείτε [Αδειοδότηση](/slides/el/python-net/licensing/). Για περισσότερους τρόπους δημιουργίας και συμπλήρωσης μιας παρουσίασης, δείτε [Δημιουργία παρουσιάσεων](/slides/el/python-net/create-presentation/).

@@ -12,14 +12,14 @@ keywords:
 - OpenDocument
 - Java
 - Aspose.Slides
-description: "从这里开始：安装 Aspose.Slides for Java，创建第一个演示文稿，并查找常见任务指南、API 参考和支持。"
+description: "从这里开始：安装 Aspose.Slides for Java，创建第一个演示文稿，并查找常见任务、部署以及 API 参考的指南。"
 is_root: true
 ---
 <img src="home_1.png" alt="Aspose.Slides for Java" align="left" style="width:110px; margin: 0 30px 20px 0"/>
 
 Aspose.Slides for Java 是一个类库，用于在 Java 应用程序中创建、读取、编辑和转换 PowerPoint 和 OpenDocument 演示文稿，无需 Microsoft PowerPoint。
 
-它可以加载和保存 PPT、PPTX、PPS、POT 和 ODP，包括支持宏的和模板变体，并可导出为 PDF、XPS、HTML、SVG、TIFF、Markdown 和图像。
+它可以加载和保存 PPT、PPTX、PPS、POT 和 ODP，包括带宏的和模板变体，并导出为 PDF、XPS、HTML、SVG、TIFF、Markdown 和图像。
 
 <div style="clear:both"></div>
 
@@ -29,17 +29,19 @@ Aspose.Slides for Java 是一个类库，用于在 Java 应用程序中创建、
 <div class="col-md-4">
 <p><b>快速入门</b></p>
 <hr>
-<p>入门指南</p>
+<p>入门</p>
 <ul>
 <li><a href="/slides/zh/java/installation/">安装</a></li>
 <li><a href="/slides/zh/java/create-presentation/">创建您的第一个演示文稿</a></li>
+<li><a href="/slides/zh/java/system-requirements/">系统要求</a></li>
 <li><a href="/slides/zh/java/getting-started/">入门指南</a></li>
 </ul>
 <p>评估</p>
 <ul>
 <li><a href="/slides/zh/java/supported-file-formats/">支持的文件格式</a></li>
+<li><a href="/slides/zh/java/features-overview/">功能概览</a></li>
 <li><a href="/slides/zh/java/evaluate-aspose-slides/">试用限制</a></li>
-<li><a href="/slides/zh/java/licensing/">许可</a></li>
+<li><a href="/slides/zh/java/licensing/">授权</a></li>
 </ul>
 </div>
 <div class="col-md-4">
@@ -68,13 +70,22 @@ Aspose.Slides for Java 是一个类库，用于在 Java 应用程序中创建、
 </ul>
 </div>
 <div class="col-md-4">
-<p><b>参考与支持</b></p>
+<p><b>部署和支持</b></p>
 <hr>
+<p>部署</p>
+<ul>
+<li><a href="/slides/zh/java/system-requirements/#linux">Linux 前置条件</a></li>
+<li><a href="/slides/zh/java/how-to-run-aspose-slides-in-docker/">在 Docker 中运行</a></li>
+<li><a href="/slides/zh/java/deploy-fonts/">字体</a></li>
+<li><a href="/slides/zh/java/security/">安全性</a></li>
+</ul>
 <p>参考</p>
 <ul>
 <li><a href="https://reference.aspose.com/slides/java/">API 参考</a></li>
 <li><a href="https://releases.aspose.com/slides/java/release-notes/">发行说明</a></li>
 <li><a href="/slides/zh/java/known-issues/">已知问题</a></li>
+<li><a href="/slides/zh/java/api-limitations/">输出元数据限制</a></li>
+<li><a href="https://products.aspose.com/slides/java/">产品页面</a></li>
 <li><a href="https://releases.aspose.com/slides/java/">下载</a></li>
 </ul>
 <p>支持</p>
@@ -87,9 +98,11 @@ Aspose.Slides for Java 是一个类库，用于在 Java 应用程序中创建、
 
 ------
 
+<a name="your-first-presentation"></a>
+
 ## **您的第一个演示文稿**
 
-Aspose.Slides for Java 在 Aspose 自己的 Maven 仓库中发布，而不是在 Maven Central。为 Maven 项目创建一个文件夹，并将此 *pom.xml* 保存到该文件夹中。它声明了仓库，添加了库，并指定要运行的类：
+Aspose.Slides for Java 发布在 Aspose 自己的 Maven 仓库中，而不在 Maven Central。为 Maven 项目创建一个文件夹并将此 *pom.xml* 保存其中。它声明了仓库、添加了库，并指定要运行的类：
 
 ```xml
 <project xmlns="http://maven.apache.org/POM/4.0.0">
@@ -140,13 +153,13 @@ import com.aspose.slides.*;
 
 public class HelloSlides {
     public static void main(String[] args) {
-        // 创建一个演示文稿。它已经包含一个空幻灯片。
+        // 创建演示文稿。它已经包含一个空幻灯片。
         Presentation presentation = new Presentation();
         try {
             // 获取第一张幻灯片。
             ISlide slide = presentation.getSlides().get_Item(0);
 
-            // 添加一个云形状并在其中放入文本。
+            // 添加云形状并在其中放置文本。
             IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Cloud, 20, 20, 200, 80);
             autoShape.getTextFrame().setText("Hello, Aspose!");
 
@@ -159,10 +172,10 @@ public class HelloSlides {
 }
 ```
 
-然后，在已安装 JDK 11 或更高版本以及 Apache Maven 的情况下，在项目文件夹中运行以下命令：
+然后，在安装了 JDK 11 或更高版本和 Apache Maven 的情况下，在项目文件夹中运行以下命令：
 
 ```bash
 mvn compile exec:java
 ```
 
-程序将在项目文件夹中保存 *new_presentation.pptx*，其中包含一个带有文本的云形状幻灯片。在 Linux 上，必须安装 fontconfig 并至少安装一种字体；请参阅[Installation](/slides/zh/java/installation/#linux)。如果没有许可证，保存的文件会带有评估水印——请参阅[Licensing](/slides/zh/java/licensing/)。更多创建和填充演示文稿的方法，请参阅[Create Presentations](/slides/zh/java/create-presentation/).
+该程序会在项目文件夹中保存 *new_presentation.pptx*，其中包含一个包含文本的云形状幻灯片。在 Linux 上，必须安装 fontconfig 并至少一种字体；请参阅 [安装](/slides/zh/java/installation/#linux)。未获取许可证时，保存的文件会带有评估水印 —— 请参阅 [授权](/slides/zh/java/licensing/)。有关创建和填充演示文稿的更多方法，请参阅 [创建演示文稿](/slides/zh/java/create-presentation/).

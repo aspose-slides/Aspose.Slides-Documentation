@@ -1,27 +1,27 @@
 ---
-title: Aspose.Slides for JasperReports
-second_title: Aspose.Slides for JasperReports
+title: Aspose.Slides 適用於 JasperReports
+second_title: Aspose.Slides 適用於 JasperReports
 type: docs
 weight: 70
 url: /zh-hant/jasperreports/
 keywords:
 - 文件說明
 - JasperReports
-- JasperReports Server
+- JasperReports 伺服器
 - 報表匯出
 - PowerPoint
 - PPT
 - PPTX
 - Java
 - Aspose.Slides
-description: "從此開始：安裝 Aspose.Slides for JasperReports，將第一個報表匯出為 PowerPoint，並找到有關匯出、JasperReports Server 整合與支援的指南。"
+description: "從這裡開始：安裝 Aspose.Slides for JasperReports、將第一份報表匯出為 PowerPoint，並查找匯出、JasperReports Server 整合與支援的指南。"
 is_root: true
 ---
 <img src="home_1.png" alt="Aspose.Slides for JasperReports" align="left" style="width:110px; margin: 0 30px 20px 0"/>
 
-Aspose.Slides for JasperReports 為 JasperReports Library 與 JasperReports Server 添加了 PowerPoint 匯出功能，使 Java 應用程式和報表伺服器能在未安裝 Microsoft PowerPoint 的情況下，將已填寫的報表儲存為簡報。
+Aspose.Slides for JasperReports 為 JasperReports Library 與 JasperReports Server 新增 PowerPoint 匯出功能，讓 Java 應用程式與報表伺服器能將已填寫的報表儲存為簡報，而不需要 Microsoft PowerPoint。
 
-它可以將已填寫的報表匯出為 PPT 和 PPTX（每個報表頁對應一張投影片），同時也支援匯出為 PDF 和 HTML。
+它可以將已填寫的報表匯出為 PPT 與 PPTX（每頁報表對應一張投影片），同時也支援匯出為 PDF 與 HTML。
 
 <div style="clear:both"></div>
 
@@ -31,22 +31,22 @@ Aspose.Slides for JasperReports 為 JasperReports Library 與 JasperReports Serv
 <div class="col-md-4">
 <p><b>開始使用</b></p>
 <hr>
-<p>快速入門</p>
+<p>開始使用</p>
 <ul>
 <li><a href="/slides/zh-hant/jasperreports/installing-aspose-slides-for-jasperreports/">安裝</a></li>
-<li><a href="/slides/zh-hant/jasperreports/product-overview/">產品概觀</a></li>
+<li><a href="/slides/zh-hant/jasperreports/product-overview/">產品概覽</a></li>
 <li><a href="/slides/zh-hant/jasperreports/system-requirements/">系統需求</a></li>
-<li><a href="/slides/zh-hant/jasperreports/getting-started/">入門指南</a></li>
+<li><a href="/slides/zh-hant/jasperreports/getting-started/">快速入門指南</a></li>
 </ul>
 <p>評估</p>
 <ul>
 <li><a href="/slides/zh-hant/jasperreports/supported-file-formats/">支援的檔案格式</a></li>
-<li><a href="/slides/zh-hant/jasperreports/evaluate-aspose-slides/">試用版限制</a></li>
-<li><a href="/slides/zh-hant/jasperreports/licensing/">授權資訊</a></li>
+<li><a href="/slides/zh-hant/jasperreports/evaluate-aspose-slides/">試用限制</a></li>
+<li><a href="/slides/zh-hant/jasperreports/licensing/">授權</a></li>
 </ul>
 </div>
 <div class="col-md-4">
-<p><b>使用 Slides 開發</b></p>
+<p><b>使用 Slides 建置</b></p>
 <hr>
 <p>匯出</p>
 <ul>
@@ -65,6 +65,7 @@ Aspose.Slides for JasperReports 為 JasperReports Library 與 JasperReports Serv
 <p>參考</p>
 <ul>
 <li><a href="https://releases.aspose.com/slides/jasperreport/release-notes/">發行說明</a></li>
+<li><a href="https://products.aspose.com/slides/jasperreports/">產品頁面</a></li>
 <li><a href="https://releases.aspose.com/slides/jasperreport/">下載</a></li>
 </ul>
 <p>支援</p>
@@ -77,19 +78,19 @@ Aspose.Slides for JasperReports 為 JasperReports Library 與 JasperReports Serv
 
 ------
 
-## **您的第一次匯出**
+## **您的首次匯出**
 
-以下步驟會編譯一個單行報表、填入資料，並使用來自 Maven Central 的 JasperReports 6.16.0 匯出為 PPTX。您需要 JDK 11 或更新版本，以及 Apache Maven。
+以下步驟會編譯一個單行報表、填充資料，並使用 JasperReports 6.16.0 從 Maven Central 匯出為 PPTX。您需要 JDK 11 或更高版本以及 Apache Maven。
 
-1. 從[下載頁面](https://releases.aspose.com/slides/jasperreport/)下載 ZIP 並解壓縮。其 *lib* 資料夾依 JasperReports 版本區間劃分子資料夾，每個子資料夾內包含該區間的 jar。針對 JasperReports 6.16.0，將 *lib/JasperReports 6.5.0 - 6.16.0 (JDK 1.6)/aspose.slides.jasperreports.library-26.6.jar* 複製到空的專案資料夾中。
+1. 從[下載頁面](https://releases.aspose.com/slides/jasperreport/)下載 ZIP 並解壓縮。其 *lib* 資料夾內依 JasperReports 版本區間劃分子資料夾，每個子資料夾存放對應版本的 jar。對於 JasperReports 6.16.0，將 *lib/JasperReports 6.5.0 - 6.16.0 (JDK 1.6)/aspose.slides.jasperreports.library-26.6.jar* 複製到空的專案資料夾中。
 
-2. jar 包隨 ZIP 一併提供，並未上傳至 Maven 儲存庫，請將其安裝至本機 Maven 儲存庫。於專案資料夾執行以下指令：
+2. jar 包隨 ZIP 提供而非 Maven 倉庫，請將其安裝到本機 Maven 倉庫。於專案資料夾執行以下指令：
 
 ```bash
 mvn install:install-file "-Dfile=aspose.slides.jasperreports.library-26.6.jar" "-DgroupId=com.aspose" "-DartifactId=aspose-slides-jasperreports" "-Dversion=26.6" "-Dpackaging=jar"
 ```
 
-3. 將此 *pom.xml* 儲存於專案資料夾。它會加入 JasperReports 6.16.0 與您先前安裝的 jar，並指定要執行的類別。JasperReports 6.16.0 宣告了一個未在 Maven Central 上的修補版 iText，因此此檔案會將其排除；Aspose 匯出器不需要它。
+3. 將此 *pom.xml* 儲存於專案資料夾。它會加入 JasperReports 6.16.0 以及您剛安裝的 jar，並指定要執行的類別。JasperReports 6.16.0 宣告了未在 Maven Central 上的 iText 修補版本，因此此檔案會排除該依賴；Aspose 匯出程式不需要它。
 
 ```xml
 <project xmlns="http://maven.apache.org/POM/4.0.0">
@@ -135,7 +136,7 @@ mvn install:install-file "-Dfile=aspose.slides.jasperreports.library-26.6.jar" "
 </project>
 ```
 
-4. 將此報表設計儲存為 *hello.jrxml*，放在專案資料夾中。它會在標題區段列印一行文字：
+4. 將此報表設計儲存為 *hello.jrxml*，放在專案資料夾中。它會在標題區段印出一行文字：
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -158,7 +159,7 @@ mvn install:install-file "-Dfile=aspose.slides.jasperreports.library-26.6.jar" "
 </jasperReport>
 ```
 
-5. 將此程式碼儲存為 *src/main/java/HelloExport.java*。程式會編譯設計、以一筆空記錄填充，並使用 `ASPptxExporter` 匯出結果：
+5. 將此程式碼儲存為 *src/main/java/HelloExport.java*。它會編譯設計、以一筆空記錄填充，並使用 `ASPptxExporter` 匯出結果：
 
 ```java
 import java.util.HashMap;
@@ -192,4 +193,4 @@ public class HelloExport {
 mvn compile exec:java
 ```
 
-程式會在專案資料夾中產生 *hello.pptx*，其中的唯一投影片包含報表文字。編譯器會指出此程式碼使用了已棄用的 API：匯出器透過 `JRExporterParameter` 接收輸入與輸出，且不接受較新的 `setExporterInput` 與 `setExporterOutput` 設定。在 Linux 上必須安裝 fontconfig 與至少一種字型，否則填充報表會失敗。未授權時，每張投影片的中心會出現評估水印——請參閱[授權](/slides/zh-hant/jasperreports/licensing/)。若要匯出為 PPT、PDF 或 HTML，請參閱[PPT、PPTX、PDF 與 HTML 匯出](/slides/zh-hant/jasperreports/ppt-pptx-pdf-and-html-export/).
+程式會在專案資料夾中產生 *hello.pptx*，其中包含一張顯示報表文字的投影片。編譯器會提示此程式碼使用了已棄用的 API：匯出程式透過 `JRExporterParameter` 接收輸入與輸出，且不支援較新的 `setExporterInput` 與 `setExporterOutput` 設定。在 Linux 上必須安裝 fontconfig 並至少一種字型，否則填充報表會失敗。若未取得授權，每張投影片的中心會顯示評估水印 — 請參閱[授權](/slides/zh-hant/jasperreports/licensing/)。若要匯出為 PPT、PDF 或 HTML，請參閱[PPT、PPTX、PDF 與 HTML 匯出](/slides/zh-hant/jasperreports/ppt-pptx-pdf-and-html-export/).

@@ -6,21 +6,21 @@ weight: 40
 url: /pt/androidjava/
 keywords:
 - documentação
-- processamento de apresentações
-- conversão de apresentações
+- processamento de apresentação
+- conversão de apresentação
 - PowerPoint
 - OpenDocument
 - Android
 - Java
 - Aspose.Slides
-description: "Comece aqui: adicione Aspose.Slides for Android via Java ao seu aplicativo, crie a primeira apresentação e encontre os guias para tarefas comuns, a referência da API e o suporte."
+description: "Comece aqui: adicione Aspose.Slides for Android via Java ao seu aplicativo, crie uma primeira apresentação e encontre os guias para tarefas comuns, a referência da API e o suporte."
 is_root: true
 ---
 <img src="home_1.png" alt="Aspose.Slides for Android via Java" align="left" style="width:110px; margin: 0 30px 20px 0"/>
 
 Aspose.Slides for Android via Java é uma biblioteca de classes para criar, ler, editar e converter apresentações PowerPoint e OpenDocument em aplicativos Android, sem o Microsoft PowerPoint.
 
-Ela carrega e salva PPT, PPTX, PPS, POT e ODP, incluindo variantes com macros e de modelo, e exporta para PDF, XPS, HTML, SVG, TIFF, Markdown e imagens.
+Ele carrega e salva PPT, PPTX, PPS, POT e ODP, incluindo variantes habilitadas para macro e modelos, e exporta para PDF, XPS, HTML, SVG, TIFF, Markdown e imagens.
 
 <div style="clear:both"></div>
 
@@ -30,7 +30,7 @@ Ela carrega e salva PPT, PPTX, PPS, POT e ODP, incluindo variantes com macros e 
 <div class="col-md-4">
 <p><b>Começar</b></p>
 <hr>
-<p>COMECANDO</p>
+<p>COMECE</p>
 <ul>
 <li><a href="/slides/pt/androidjava/install-aspose-slides-for-android-via-java/">Instalação</a></li>
 <li><a href="/slides/pt/androidjava/create-presentation/">Crie sua primeira apresentação</a></li>
@@ -38,13 +38,13 @@ Ela carrega e salva PPT, PPTX, PPS, POT e ODP, incluindo variantes com macros e 
 </ul>
 <p>AVALIAR</p>
 <ul>
-<li><a href="/slides/pt/androidjava/supported-file-formats/">Formatos de arquivo suportados</a></li>
+<li><a href="/slides/pt/androidjava/supported-file-formats/">Formatos de arquivos suportados</a></li>
 <li><a href="/slides/pt/androidjava/evaluate-aspose-slides/">Limitações da avaliação</a></li>
 <li><a href="/slides/pt/androidjava/licensing/">Licenciamento</a></li>
 </ul>
 </div>
 <div class="col-md-4">
-<p><b>Desenvolva com Slides</b></p>
+<p><b>Construa com Slides</b></p>
 <hr>
 <p>TAREFAS COMUNS</p>
 <ul>
@@ -54,7 +54,7 @@ Ela carrega e salva PPT, PPTX, PPS, POT e ODP, incluindo variantes com macros e 
 <li><a href="/slides/pt/androidjava/convert-slide/">Renderizar slides como imagens</a></li>
 <li><a href="/slides/pt/androidjava/manage-text/">Editar texto e formas</a></li>
 </ul>
-<p>FLUXOS DE TRABALHO DO SLIDES</p>
+<p>FLUXOS DE SLIDES</p>
 <ul>
 <li><a href="/slides/pt/androidjava/powerpoint-charts/">Gráficos</a></li>
 <li><a href="/slides/pt/androidjava/powerpoint-animation/">Animações</a></li>
@@ -64,7 +64,7 @@ Ela carrega e salva PPT, PPTX, PPS, POT e ODP, incluindo variantes com macros e 
 </ul>
 <p>EXEMPLOS</p>
 <ul>
-<li><a href="/slides/pt/androidjava/examples/">Exemplos por elemento do slide</a></li>
+<li><a href="/slides/pt/androidjava/examples/">Exemplos por elemento de slide</a></li>
 </ul>
 </div>
 <div class="col-md-4">
@@ -75,6 +75,7 @@ Ela carrega e salva PPT, PPTX, PPS, POT e ODP, incluindo variantes com macros e 
 <li><a href="https://reference.aspose.com/slides/androidjava/">Referência da API</a></li>
 <li><a href="https://releases.aspose.com/slides/androidjava/release-notes/">Notas de versão</a></li>
 <li><a href="/slides/pt/androidjava/known-issues/">Problemas conhecidos</a></li>
+<li><a href="https://products.aspose.com/slides/android-java/">Página do produto</a></li>
 <li><a href="https://releases.aspose.com/slides/androidjava/">Download</a></li>
 </ul>
 <p>SUPORTE</p>
@@ -110,4 +111,4 @@ dependencies {
 }
 ```
 
-[Installation](/slides/pt/androidjava/install-aspose-slides-for-android-via-java/) aborda scripts de construção Groovy, o arquivo JAR manual e como escolher uma versão. O código da sua primeira apresentação está em [Create Presentations](/slides/pt/androidjava/create-presentation/): ele adiciona uma caixa de texto a um slide e salva a apresentação no armazenamento do seu aplicativo. Essa amostra foi compilada e criada em um APK; não foi executada em um dispositivo. Sem uma licença, as apresentações salvas exibem uma marca d'água de avaliação — veja [Licensing](/slides/pt/androidjava/licensing/).
+[Instalação](/slides/pt/androidjava/install-aspose-slides-for-android-via-java/) cobre scripts de build Groovy, o arquivo JAR manual e como escolher uma versão. O código para sua primeira apresentação está em [Criar apresentações](/slides/pt/androidjava/create-presentation/): ele adiciona uma caixa de texto a um slide e salva a apresentação no armazenamento do seu aplicativo. Essa amostra foi compilada e construída em um APK; não foi executada em um dispositivo. Sem uma licença, as apresentações salvas apresentam uma marca d'água de avaliação — veja [Licenciamento](/slides/pt/androidjava/licensing/).

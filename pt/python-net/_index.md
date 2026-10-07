@@ -7,26 +7,26 @@ url: /pt/python-net/
 is_root: true
 keywords:
 - Aspose.Slides para Python
-- Automação PowerPoint Python
-- Biblioteca PPT Python
-- Exportar PowerPoint para PDF Python
-- Exportar PowerPoint para SVG Python
+- Automação de PowerPoint com Python
+- Biblioteca PPT para Python
+- Exportar PowerPoint para PDF com Python
+- Exportar PowerPoint para SVG com Python
 - Editar PowerPoint em Python
 - PowerPoint Python sem Microsoft Office
 - Gerenciar PPTX com Python
-- Pré-visualização de slides Python
-- Python adiciona áudio aos slides
+- Visualização de slides em Python
+- Adicionar áudio a slides com Python
 - PowerPoint
 - OpenDocument
 - Python
 - Aspose.Slides
-description: "Comece aqui: instale Aspose.Slides for Python via .NET, crie uma primeira apresentação e encontre os guias para tarefas comuns, a referência da API e o suporte."
+description: "Comece aqui: instale Aspose.Slides para Python via .NET, crie sua primeira apresentação e encontre os guias para tarefas comuns, a referência da API e o suporte."
 ---
-<img src="aspose_slides-for-python.png" alt="Aspose.Slides for Python via .NET" align="left" style="width:110px; margin: 0 30px 20px 0"/>
+<img src="aspose_slides-for-python.png" alt="Aspose.Slides para Python via .NET" align="left" style="width:110px; margin: 0 30px 20px 0"/>
 
-Aspose.Slides for Python via .NET é uma biblioteca Python para criar, ler, editar e converter apresentações PowerPoint e OpenDocument, sem o Microsoft PowerPoint ou o Microsoft Office.
+Aspose.Slides para Python via .NET é uma biblioteca Python para criar, ler, editar e converter apresentações PowerPoint e OpenDocument, sem precisar do Microsoft PowerPoint ou do Microsoft Office.
 
-Ele carrega e salva PPT, PPTX, PPS, POT e ODP, incluindo variantes habilitadas para macro e modelos, e exporta para PDF, XPS, HTML, SVG, TIFF, Markdown e imagens.
+Ele carrega e salva PPT, PPTX, PPS, POT e ODP, incluindo variantes com macros e modelos, e exporta para PDF, XPS, HTML, SVG, TIFF, Markdown e imagens.
 
 <div style="clear:both"></div>
 
@@ -36,11 +36,11 @@ Ele carrega e salva PPT, PPTX, PPS, POT e ODP, incluindo variantes habilitadas p
 <div class="col-md-4">
 <p><b>Começar</b></p>
 <hr>
-<p>COMO INICIAR</p>
+<p>INICIANDO</p>
 <ul>
 <li><a href="/slides/pt/python-net/installation/">Instalação</a></li>
 <li><a href="/slides/pt/python-net/create-presentation/">Crie sua primeira apresentação</a></li>
-<li><a href="/slides/pt/python-net/getting-started/">Guia de início</a></li>
+<li><a href="/slides/pt/python-net/getting-started/">Guia de início rápido</a></li>
 </ul>
 <p>AVALIAR</p>
 <ul>
@@ -50,7 +50,7 @@ Ele carrega e salva PPT, PPTX, PPS, POT e ODP, incluindo variantes habilitadas p
 </ul>
 </div>
 <div class="col-md-4">
-<p><b>Construir com Slides</b></p>
+<p><b>Desenvolver com Slides</b></p>
 <hr>
 <p>TAREFAS COMUNS</p>
 <ul>
@@ -60,12 +60,12 @@ Ele carrega e salva PPT, PPTX, PPS, POT e ODP, incluindo variantes habilitadas p
 <li><a href="/slides/pt/python-net/convert-slide/">Renderizar slides como imagens</a></li>
 <li><a href="/slides/pt/python-net/manage-text/">Editar texto e formas</a></li>
 </ul>
-<p>Fluxos de trabalho do Slides</p>
+<p>FLUXOS DE TRABALHO DO SLIDES</p>
 <ul>
 <li><a href="/slides/pt/python-net/powerpoint-charts/">Gráficos</a></li>
 <li><a href="/slides/pt/python-net/powerpoint-animation/">Animações</a></li>
 <li><a href="/slides/pt/python-net/manage-media-files/">Áudio e vídeo</a></li>
-<li><a href="/slides/pt/python-net/presentation-design/">Design de slides</a></li>
+<li><a href="/slides/pt/python-net/presentation-design/">Design de slide</a></li>
 <li><a href="/slides/pt/python-net/merge-presentation/">Mesclar apresentações</a></li>
 </ul>
 <p>EXEMPLOS</p>
@@ -80,13 +80,14 @@ Ele carrega e salva PPT, PPTX, PPS, POT e ODP, incluindo variantes habilitadas p
 <p>REFERÊNCIA</p>
 <ul>
 <li><a href="https://reference.aspose.com/slides/python-net/">Referência da API</a></li>
-<li><a href="https://releases.aspose.com/slides/python-net/release-notes/">Notas de lançamento</a></li>
+<li><a href="https://releases.aspose.com/slides/python-net/release-notes/">Notas de versão</a></li>
+<li><a href="https://products.aspose.com/slides/python-net/">Página do produto</a></li>
 <li><a href="https://releases.aspose.com/slides/python-net/">Download</a></li>
 </ul>
 <p>SUPORTE</p>
 <ul>
 <li><a href="https://forum.aspose.com/c/slides/11">Fórum de suporte gratuito</a></li>
-<li><a href="https://helpdesk.aspose.com/">Central de suporte pago</a></li>
+<li><a href="https://helpdesk.aspose.com/">Helpdesk de suporte pago</a></li>
 </ul>
 </div>
 </div>
@@ -101,7 +102,7 @@ Instale o pacote a partir do PyPI:
 pip install aspose.slides
 ```
 
-O pacote inclui o runtime .NET que utiliza, portanto você não precisa instalar o .NET. No Linux, também instale as bibliotecas libgdiplus e ICU, e com o Python do sistema do Debian ou Ubuntu, execute o comando em um ambiente virtual. O macOS tem pré-requisitos adicionais, e não verificamos a instalação nele. Consulte [Instalação](/slides/pt/python-net/installation/) para os comandos, os pré-requisitos do macOS e as versões do Python suportadas.
+O pacote inclui o runtime .NET que ele usa, portanto você não precisa instalar o .NET. No Linux, também instale as bibliotecas libgdiplus e ICU, e com o Python do sistema do Debian ou Ubuntu, execute o comando em um ambiente virtual. O macOS tem pré‑requisitos adicionais, e não verificamos a instalação nele. Consulte [Instalação](/slides/pt/python-net/installation/) para os comandos, os pré‑requisitos do macOS e as versões do Python suportadas.
 
 Salve este código como *hello.py*:
 
@@ -113,12 +114,12 @@ with slides.Presentation() as presentation:
     # Obter o primeiro slide.
     slide = presentation.slides[0]
 
-    # Adicionar uma auto‑forma do tipo CLOUD.
+    # Adicionar uma forma automática do tipo CLOUD.
     auto_shape = slide.shapes.add_auto_shape(slides.ShapeType.CLOUD, 20, 20, 200, 80)
     auto_shape.text_frame.text = "Hello, Aspose!"
 
-    # Salvar a apresentação como um arquivo PPTX.
+    # Salvar a apresentação como arquivo PPTX.
     presentation.save("new_presentation.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Execute‑o com `python hello.py`. O script salva *new_presentation.pptx* na pasta atual, com um slide contendo uma forma de nuvem que exibe "Hello, Aspose!". Sem uma licença, o arquivo salvo contém uma marca d'água de avaliação — veja [Licenciamento](/slides/pt/python-net/licensing/). Para mais maneiras de criar e preencher uma apresentação, veja [Criar apresentações](/slides/pt/python-net/create-presentation/).
+Execute‑o com `python hello.py`. O script salva *new_presentation.pptx* na pasta atual, com um slide contendo uma forma de nuvem que exibe "Hello, Aspose!". Sem uma licença, o arquivo salvo recebe uma marca d'água de avaliação — veja [Licenciamento](/slides/pt/python-net/licensing/). Para mais maneiras de criar e preencher uma apresentação, veja [Criar apresentações](/slides/pt/python-net/create-presentation/).

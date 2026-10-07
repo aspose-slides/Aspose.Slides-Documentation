@@ -16,7 +16,7 @@ description: "Начните здесь: выберите свою платфо�
 
 Aspose.Slides — набор библиотек для создания, чтения, редактирования и конвертации презентаций PowerPoint и OpenDocument без Microsoft PowerPoint.
 
-Она доступна для .NET, Java, Android, C++, Python, Node.js и PHP, а также в виде плагинов, экспортирующих отчёты из JasperReports и Reporting Services в PowerPoint и конвертирующих презентации в SharePoint.
+Она доступна для .NET, Java, Android, C++, Python, Node.js и PHP, а также в виде плагинов, которые экспортируют отчёты из JasperReports и Reporting Services в PowerPoint и конвертируют презентации в SharePoint.
 
 <div style="clear:both"></div>
 
@@ -28,16 +28,16 @@ Aspose.Slides — набор библиотек для создания, чте�
 <hr>
 <p>.NET</p>
 <ul>
-<li><a href="/slides/ru/net/"><b>Aspose.Slides for .NET</b></a><br>Для приложений .NET.<br><small><a href="/slides/ru/net/installation/">Установка</a> · <a href="/slides/ru/net/getting-started/">Начало работы</a> · <a href="https://reference.aspose.com/slides/net/">Справочник API</a> · <a href="https://releases.aspose.com/slides/net/release-notes/">Примечания к выпуску</a></small></li>
+<li><a href="/slides/ru/net/"><b>Aspose.Slides for .NET</b></a><br>Для приложений .NET.<br><small><a href="/slides/ru/net/installation/">Установка</a> · <a href="/slides/ru/net/getting-started/">Начало работы</a> · <a href="https://reference.aspose.com/slides/net/">Справочник API</a> · <a href="https://releases.aspose.com/slides/net/release-notes/">Примечания к выпуску</a> · <a href="https://products.aspose.com/slides/net/">Страница продукта</a></small></li>
 </ul>
 <p>JAVA</p>
 <ul>
-<li><a href="/slides/ru/java/"><b>Aspose.Slides for Java</b></a><br>Для приложений Java.<br><small><a href="/slides/ru/java/installation/">Установка</a> · <a href="/slides/ru/java/getting-started/">Начало работы</a> · <a href="https://reference.aspose.com/slides/java/">Справочник API</a> · <a href="https://releases.aspose.com/slides/java/release-notes/">Примечания к выпуску</a></small></li>
-<li><a href="/slides/ru/androidjava/"><b>Aspose.Slides for Android via Java</b></a><br>Для приложений Android.<br><small><a href="/slides/ru/androidjava/install-aspose-slides-for-android-via-java/">Установка</a> · <a href="/slides/ru/androidjava/getting-started/">Начало работы</a> · <a href="https://reference.aspose.com/slides/androidjava/">Справочник API</a> · <a href="https://releases.aspose.com/slides/androidjava/release-notes/">Примечания к выпуску</a></small></li>
+<li><a href="/slides/ru/java/"><b>Aspose.Slides for Java</b></a><br>Для приложений Java.<br><small><a href="/slides/ru/java/installation/">Установка</a> · <a href="/slides/ru/java/getting-started/">Начало работы</a> · <a href="https://reference.aspose.com/slides/java/">Справочник API</a> · <a href="https://releases.aspose.com/slides/java/release-notes/">Примечания к выпуску</a> · <a href="https://products.aspose.com/slides/java/">Страница продукта</a></small></li>
+<li><a href="/slides/ru/androidjava/"><b>Aspose.Slides for Android via Java</b></a><br>Для приложений Android.<br><small><a href="/slides/ru/androidjava/install-aspose-slides-for-android-via-java/">Установка</a> · <a href="/slides/ru/androidjava/getting-started/">Начало работы</a> · <a href="https://reference.aspose.com/slides/androidjava/">Справочник API</a> · <a href="https://releases.aspose.com/slides/androidjava/release-notes/">Примечания к выпуску</a> · <a href="https://products.aspose.com/slides/android-java/">Страница продукта</a></small></li>
 </ul>
 <p>C++</p>
 <ul>
-<li><a href="/slides/ru/cpp/"><b>Aspose.Slides for C++</b></a><br>Для приложений C++.<br><small><a href="/slides/ru/cpp/installation/">Установка</a> · <a href="/slides/ru/cpp/getting-started/">Начало работы</a> · <a href="https://reference.aspose.com/slides/cpp/">Справочник API</a> · <a href="https://releases.aspose.com/slides/cpp/release-notes/">Примечания к выпуску</a></small></li>
+<li><a href="/slides/ru/cpp/"><b>Aspose.Slides for C++</b></a><br>Для приложений C++.<br><small><a href="/slides/ru/cpp/installation/">Установка</a> · <a href="/slides/ru/cpp/getting-started/">Начало работы</a> · <a href="https://reference.aspose.com/slides/cpp/">Справочник API</a> · <a href="https://releases.aspose.com/slides/cpp/release-notes/">Примечания к выпуску</a> · <a href="https://products.aspose.com/slides/cpp/">Страница продукта</a></small></li>
 </ul>
 </div>
 <div class="col-md-4">
@@ -45,30 +45,30 @@ Aspose.Slides — набор библиотек для создания, чте�
 <hr>
 <p>PYTHON</p>
 <ul>
-<li><a href="/slides/ru/python-net/"><b>Aspose.Slides for Python via .NET</b></a><br>Включает используемую среду .NET.<br><small><a href="/slides/ru/python-net/installation/">Установка</a> · <a href="/slides/ru/python-net/getting-started/">Начало работы</a> · <a href="https://reference.aspose.com/slides/python-net/">Справочник API</a> · <a href="https://releases.aspose.com/slides/python-net/release-notes/">Примечания к выпуску</a></small></li>
-<li><a href="/slides/ru/python-java/"><b>Aspose.Slides for Python via Java</b></a><br>Запускает Java‑библиотеку через JPype.<br><small><a href="/slides/ru/python-java/installation/">Установка</a> · <a href="/slides/ru/python-java/getting-started/">Начало работы</a> · <a href="https://reference.aspose.com/slides/python-java/">Справочник API</a> · <a href="https://releases.aspose.com/slides/python-java/release-notes/">Примечания к выпуску</a></small></li>
+<li><a href="/slides/ru/python-net/"><b>Aspose.Slides for Python via .NET</b></a><br>Включает используемую .NET runtime.<br><small><a href="/slides/ru/python-net/installation/">Установка</a> · <a href="/slides/ru/python-net/getting-started/">Начало работы</a> · <a href="https://reference.aspose.com/slides/python-net/">Справочник API</a> · <a href="https://releases.aspose.com/slides/python-net/release-notes/">Примечания к выпуску</a> · <a href="https://products.aspose.com/slides/python-net/">Страница продукта</a></small></li>
+<li><a href="/slides/ru/python-java/"><b>Aspose.Slides for Python via Java</b></a><br>Запускает библиотеку Java через JPype.<br><small><a href="/slides/ru/python-java/installation/">Установка</a> · <a href="/slides/ru/python-java/getting-started/">Начало работы</a> · <a href="https://reference.aspose.com/slides/python-java/">Справочник API</a> · <a href="https://releases.aspose.com/slides/python-java/release-notes/">Примечания к выпуску</a> · <a href="https://products.aspose.com/slides/python-java/">Страница продукта</a></small></li>
 </ul>
 <p>NODE.JS</p>
 <ul>
-<li><a href="/slides/ru/nodejs-java/"><b>Aspose.Slides for Node.js via Java</b></a><br>Запускает Java‑библиотеку в JVM.<br><small><a href="/slides/ru/nodejs-java/installation/">Установка</a> · <a href="/slides/ru/nodejs-java/getting-started/">Начало работы</a> · <a href="https://reference.aspose.com/slides/nodejs-java/">Справочник API</a> · <a href="https://releases.aspose.com/slides/nodejs-java/release-notes/">Примечания к выпуску</a></small></li>
-<li><a href="/slides/ru/nodejs-net/"><b>Aspose.Slides for Node.js via .NET</b></a><br>Запускает .NET‑библиотеку через edge‑js.<br><small><a href="/slides/ru/nodejs-net/installation/">Установка</a> · <a href="/slides/ru/nodejs-net/developer-guide/">Руководство разработчика</a> · <a href="/slides/ru/nodejs-net/api-reference/">Справочник API</a> · <a href="https://releases.aspose.com/slides/nodejs-net/release-notes/">Примечания к выпуску</a></small></li>
+<li><a href="/slides/ru/nodejs-java/"><b>Aspose.Slides for Node.js via Java</b></a><br>Запускает библиотеку Java в виртуальной машине Java.<br><small><a href="/slides/ru/nodejs-java/installation/">Установка</a> · <a href="/slides/ru/nodejs-java/getting-started/">Начало работы</a> · <a href="https://reference.aspose.com/slides/nodejs-java/">Справочник API</a> · <a href="https://releases.aspose.com/slides/nodejs-java/release-notes/">Примечания к выпуску</a> · <a href="https://products.aspose.com/slides/nodejs-java/">Страница продукта</a></small></li>
+<li><a href="/slides/ru/nodejs-net/"><b>Aspose.Slides for Node.js via .NET</b></a><br>Запускает .NET библиотеку через edge-js.<br><small><a href="/slides/ru/nodejs-net/installation/">Установка</a> · <a href="/slides/ru/nodejs-net/developer-guide/">Руководство разработчика</a> · <a href="/slides/ru/nodejs-net/api-reference/">Справочник API</a> · <a href="https://releases.aspose.com/slides/nodejs-net/release-notes/">Примечания к выпуску</a> · <a href="https://products.aspose.com/slides/nodejs-net/">Страница продукта</a></small></li>
 </ul>
 <p>PHP</p>
 <ul>
-<li><a href="/slides/ru/php-java/"><b>Aspose.Slides for PHP via Java</b></a><br>Вызывает Java‑библиотеку через PHP/Java Bridge.<br><small><a href="/slides/ru/php-java/installation/">Установка</a> · <a href="/slides/ru/php-java/getting-started/">Начало работы</a> · <a href="https://reference.aspose.com/slides/php-java/">Справочник API</a> · <a href="https://releases.aspose.com/slides/php-java/release-notes/">Примечания к выпуску</a></small></li>
+<li><a href="/slides/ru/php-java/"><b>Aspose.Slides for PHP via Java</b></a><br>Вызывает библиотеку Java через PHP/Java Bridge.<br><small><a href="/slides/ru/php-java/installation/">Установка</a> · <a href="/slides/ru/php-java/getting-started/">Начало работы</a> · <a href="https://reference.aspose.com/slides/php-java/">Справочник API</a> · <a href="https://releases.aspose.com/slides/php-java/release-notes/">Примечания к выпуску</a> · <a href="https://products.aspose.com/slides/php-java/">Страница продукта</a></small></li>
 </ul>
 </div>
 <div class="col-md-4">
-<p><b>Плагины для отчётов и SharePoint</b></p>
+<p><b>Плагины для отчетов и SharePoint</b></p>
 <hr>
-<p>REPORTING</p>
+<p>ОТЧЕТЫ</p>
 <ul>
-<li><a href="/slides/ru/jasperreports/"><b>Aspose.Slides for JasperReports</b></a><br>Экспортирует отчёты JasperReports в PowerPoint.<br><small><a href="/slides/ru/jasperreports/installing-aspose-slides-for-jasperreports/">Установка</a> · <a href="https://releases.aspose.com/slides/jasperreport/release-notes/">Примечания к выпуску</a></small></li>
-<li><a href="/slides/ru/reportingservices/"><b>Aspose.Slides for Reporting Services</b></a><br>Экспортирует отчёты SQL Server Reporting Services в PowerPoint.<br><small><a href="/slides/ru/reportingservices/installing-aspose-slides-for-reporting-services/">Установка</a> · <a href="https://releases.aspose.com/slides/reportingservices/release-notes/">Примечания к выпуску</a></small></li>
+<li><a href="/slides/ru/jasperreports/"><b>Aspose.Slides for JasperReports</b></a><br>Экспортирует отчёты JasperReports в PowerPoint.<br><small><a href="/slides/ru/jasperreports/installing-aspose-slides-for-jasperreports/">Установка</a> · <a href="https://releases.aspose.com/slides/jasperreport/release-notes/">Примечания к выпуску</a> · <a href="https://products.aspose.com/slides/jasperreports/">Страница продукта</a></small></li>
+<li><a href="/slides/ru/reportingservices/"><b>Aspose.Slides for Reporting Services</b></a><br>Экспортирует отчёты SQL Server Reporting Services в PowerPoint.<br><small><a href="/slides/ru/reportingservices/installing-aspose-slides-for-reporting-services/">Установка</a> · <a href="https://releases.aspose.com/slides/reportingservices/release-notes/">Примечания к выпуску</a> · <a href="https://products.aspose.com/slides/reporting-services/">Страница продукта</a></small></li>
 </ul>
 <p>SHAREPOINT</p>
 <ul>
-<li><a href="/slides/ru/sharepoint/"><b>Aspose.Slides for SharePoint</b></a><br>Конвертирует презентации на сайтах SharePoint.<br><small><a href="/slides/ru/sharepoint/installing-aspose-slides-for-sharepoint/">Установка</a> · <a href="https://releases.aspose.com/slides/sharepoint/release-notes/">Примечания к выпуску</a></small></li>
+<li><a href="/slides/ru/sharepoint/"><b>Aspose.Slides for SharePoint</b></a><br>Конвертирует презентации на сайтах SharePoint.<br><small><a href="/slides/ru/sharepoint/installing-aspose-slides-for-sharepoint/">Установка</a> · <a href="https://releases.aspose.com/slides/sharepoint/release-notes/">Примечания к выпуску</a> · <a href="https://products.aspose.com/slides/sharepoint/">Страница продукта</a></small></li>
 </ul>
 </div>
 </div>

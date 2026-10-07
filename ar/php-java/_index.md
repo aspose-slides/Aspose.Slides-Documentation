@@ -1,6 +1,6 @@
 ---
-title: Aspose.Slides لـ PHP عبر Java
-second_title: Aspose.Slides لـ PHP
+title: Aspose.Slides للـ PHP عبر Java
+second_title: Aspose.Slides للـ PHP
 type: docs
 weight: 45
 url: /ar/php-java/
@@ -12,14 +12,14 @@ keywords:
 - OpenDocument
 - PHP
 - Aspose.Slides
-description: "ابدأ هنا: قم بتثبيت Aspose.Slides لـ PHP عبر Java، أنشئ أول عرض تقديمي، واعثر على الأدلة للمهام الشائعة، ومرجع API، والدعم."
+description: "ابدأ هنا: ثبّت Aspose.Slides للـ PHP عبر Java، أنشئ عرضًا تقديميًا أولًا، واعثر على الأدلة للمهام الشائعة، ومرجع API والدعم."
 is_root: true
 ---
-<img src="aspose_slides-for-php-via-java.png" alt="Aspose.Slides for PHP عبر Java" align="left" style="width:110px; margin: 0 30px 20px 0"/>
+<img src="aspose_slides-for-php-via-java.png" alt="Aspose.Slides for PHP via Java" align="left" style="width:110px; margin: 0 30px 20px 0"/>
 
-Aspose.Slides for PHP عبر Java هي مكتبة فئات لإنشاء وقراءة وتحرير وتحويل عروض PowerPoint وOpenDocument في تطبيقات PHP، دون الحاجة إلى Microsoft PowerPoint أو أتمتة Office.
+Aspose.Slides for PHP via Java هي مكتبة فئات لإنشاء وقراءة وتعديل وتحويل عروض PowerPoint وOpenDocument في تطبيقات PHP، دون الحاجة إلى Microsoft PowerPoint أو Office Automation.
 
-تدعم تحميل وحفظ صيغ PPT وPPTX وPPS وPOT وODP، بما في ذلك المتغيرات المدعومة بالماكرو والقوالب، وتصدير إلى PDF وXPS وHTML وSVG وTIFF وMarkdown والصور.
+تقوم بتحميل وحفظ صيغ PPT وPPTX وPPS وPOT وODP، بما في ذلك المتغيرات المدعومة بالماكرو والقوالب، وتصدير إلى PDF وXPS وHTML وSVG وTIFF وMarkdown والصور.
 
 <div style="clear:both"></div>
 
@@ -32,30 +32,30 @@ Aspose.Slides for PHP عبر Java هي مكتبة فئات لإنشاء وقرا
 <p>البدء</p>
 <ul>
 <li><a href="/slides/ar/php-java/installation/">التثبيت</a></li>
-<li><a href="/slides/ar/php-java/create-presentation/">إنشاء عرضك التقديمي الأول</a></li>
+<li><a href="/slides/ar/php-java/create-presentation/">إنشاء العرض التقديمي الأول لك</a></li>
 <li><a href="/slides/ar/php-java/getting-started/">دليل البدء</a></li>
 </ul>
 <p>التقييم</p>
 <ul>
-<li><a href="/slides/ar/php-java/supported-file-formats/">الصيغ المدعومة</a></li>
-<li><a href="/slides/ar/php-java/evaluate-aspose-slides/">قيود النسخة التجريبية</a></li>
+<li><a href="/slides/ar/php-java/supported-file-formats/">صيغ الملفات المدعومة</a></li>
+<li><a href="/slides/ar/php-java/evaluate-aspose-slides/">قيود التجربة</a></li>
 <li><a href="/slides/ar/php-java/licensing/">الترخيص</a></li>
 </ul>
 </div>
 <div class="col-md-4">
-<p><b>إنشاء باستخدام Slides</b></p>
+<p><b>البناء باستخدام Slides</b></p>
 <hr>
 <p>المهام الشائعة</p>
 <ul>
 <li><a href="/slides/ar/php-java/open-presentation/">فتح عرض تقديمي</a></li>
 <li><a href="/slides/ar/php-java/save-presentation/">حفظ عرض تقديمي</a></li>
 <li><a href="/slides/ar/php-java/convert-powerpoint-to-pdf/">تحويل إلى PDF</a></li>
-<li><a href="/slides/ar/php-java/convert-slide/">تحويل الشرائح إلى صور</a></li>
+<li><a href="/slides/ar/php-java/convert-slide/">عرض الشرائح كصور</a></li>
 <li><a href="/slides/ar/php-java/manage-text/">تحرير النص والأشكال</a></li>
 </ul>
-<p>سير عمل Slides</p>
+<p>سير عمل الشرائح</p>
 <ul>
-<li><a href="/slides/ar/php-java/powerpoint-charts/">المخططات</a></li>
+<li><a href="/slides/ar/php-java/powerpoint-charts/">الرسوم البيانية</a></li>
 <li><a href="/slides/ar/php-java/powerpoint-animation/">الرسوم المتحركة</a></li>
 <li><a href="/slides/ar/php-java/manage-media-files/">الصوت والفيديو</a></li>
 <li><a href="/slides/ar/php-java/presentation-design/">تصميم الشريحة</a></li>
@@ -72,34 +72,35 @@ Aspose.Slides for PHP عبر Java هي مكتبة فئات لإنشاء وقرا
 <p>المرجع</p>
 <ul>
 <li><a href="https://reference.aspose.com/slides/php-java/">مرجع API</a></li>
-<li><a href="https://releases.aspose.com/slides/php-java/release-notes/">ملاحظات الإصدار</a></li>
-<li><a href="/slides/ar/php-java/known-issues/">المشكلات المعروفة</a></li>
-<li><a href="https://releases.aspose.com/slides/php-java/">تحميل</a></li>
+<li><a href="https://releases.aspose.com/slides/php-java/release-notes/">ملاحظات الإصدارات</a></li>
+<li><a href="/slides/ar/php-java/known-issues/">القضايا المعروفة</a></li>
+<li><a href="https://products.aspose.com/slides/php-java/">صفحة المنتج</a></li>
+<li><a href="https://releases.aspose.com/slides/php-java/">تنزيل</a></li>
 </ul>
 <p>الدعم</p>
 <ul>
 <li><a href="https://forum.aspose.com/c/slides/11">منتدى الدعم المجاني</a></li>
-<li><a href="https://helpdesk.aspose.com/">مكتب المساعدة للدعم المدفوع</a></li>
+<li><a href="https://helpdesk.aspose.com/">مكتب مساعدة الدعم المدفوع</a></li>
 </ul>
 </div>
 </div>
 
 ------
 
-## **العرض التقديمي الأول لك**
+## **العرض التقديمي الأول الخاص بك**
 
-Aspose.Slides for PHP عبر Java تعمل على Java داخل Apache Tomcat، وتصل إليها سكريبتات PHP عبر PHP/Java Bridge. [التثبيت](/slides/ar/php-java/installation/) تقوم بإعداد PHP 8.3 أو أقدم، وJava، وTomcat والجسر، ثم تثبت الحزمة من Packagist في مجلد المشروع:
+Aspose.Slides for PHP via Java يعمل على Java داخل Apache Tomcat، وتصل إليه سكريبتات PHP عبر PHP/Java Bridge. [التثبيت](/slides/ar/php-java/installation/) يجهز PHP 8.3 أو أقدم، Java، Tomcat والجسر، ثم يثبت الحزمة من Packagist في مجلد المشروع:
 
 ```bash
 composer require aspose/slides
 ```
 
-بعد ذلك انسخ ملف JAR الخاص بالحزمة إلى الجسر وأعد تشغيل Tomcat، كما هو موضح في الخطوة 4 من [التثبيت على لينكس](/slides/ar/php-java/installation/#install-on-linux) أو الخطوة 6 من [التثبيت على ويندوز](/slides/ar/php-java/installation/#install-on-windows). مع تشغيل Tomcat، احفظ هذا السكريبت باسم *hello.php* في مجلد المشروع وشغّله باستخدام `php hello.php`:
+ثم انسخ ملف JAR الخاص بالحزمة إلى الجسر وأعد تشغيل Tomcat، كما في الخطوة 4 من [التثبيت على لينكس](/slides/ar/php-java/installation/#install-on-linux) أو الخطوة 6 من [التثبيت على ويندوز](/slides/ar/php-java/installation/#install-on-windows). مع تشغيل Tomcat، احفظ هذا السكريبت باسم *hello.php* في مجلد المشروع وشغّـل `php hello.php`:
 
 ```php
 <?php
 require_once("http://localhost:8080/JavaBridge/java/Java.inc");
-require_once(__DIR__ . "/vendor/aspose/slides/ar/lib/aspose.slides.php");
+require_once(__DIR__ . "/vendor/aspose/slides/lib/aspose.slides.php");
 
 use aspose\slides\Presentation;
 use aspose\slides\SaveFormat;
@@ -116,4 +117,4 @@ try {
 }
 ```
 
-يقوم السكريبت بحفظ *hello.pptx* بجواره، مع شريحة واحدة تحتوي على مربع نص. بدون ترخيص، يحتوي الملف المحفوظ على علامة مائية للتقييم — راجع [الترخيص](/slides/ar/php-java/licensing/). لمزيد من الطرق لإنشاء وتعبئة عرض تقديمي، انظر [إنشاء عروض تقديمية](/slides/ar/php-java/create-presentation/).
+يحفظ السكريبت *hello.pptx* بجوار نفسه، مع شريحة واحدة تحتوي على مربع نص. بدون ترخيص، يحمل الملف المحفوظ علامة مائية تقييم — انظر [الترخيص](/slides/ar/php-java/licensing/). لمزيد من الطرق لإنشاء وتعبئة عرض تقديمي، راجع [إنشاء عروض تقديمية](/slides/ar/php-java/create-presentation/).

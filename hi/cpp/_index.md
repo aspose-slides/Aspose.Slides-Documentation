@@ -5,21 +5,21 @@ type: docs
 weight: 30
 url: /hi/cpp/
 keywords:
-  - दस्तावेज़ीकरण
-  - प्रस्तुति प्रसंस्करण
-  - प्रस्तुति रूपांतरण
-  - PowerPoint
-  - OpenDocument
-  - C++
-  - Aspose.Slides
-description: "यहाँ से शुरू करें: Aspose.Slides for C++ स्थापित करें, पहली प्रस्तुति बनाएं, और सामान्य कार्यों के लिए मार्गदर्शिकाएँ, API संदर्भ और समर्थन देखें।"
+- दस्तावेज़ीकरण
+- प्रस्तुति प्रसंस्करण
+- प्रस्तुति रूपांतरण
+- PowerPoint
+- OpenDocument
+- C++
+- Aspose.Slides
+description: "शुरू करें: Aspose.Slides for C++ स्थापित करें, पहला प्रस्तुतीकरण बनाएं, और सामान्य कार्यों के लिए गाइड, API संदर्भ और समर्थन खोजें।"
 is_root: true
 ---
 <img src="home_1.png" alt="Aspose.Slides for C++" align="left" style="width:110px; margin: 0 30px 20px 0"/>
 
-Aspose.Slides for C++ एक मूल C++ लाइब्रेरी है जो PowerPoint और OpenDocument प्रस्तुतियों को बनाने, पढ़ने, संपादित करने और रूपांतरित करने के लिए उपयोग होती है, बिना Microsoft PowerPoint या Office Automation के।
+Aspose.Slides for C++ एक मूल C++ लाइब्रेरी है जो PowerPoint और OpenDocument प्रस्तुतियों को बनाने, पढ़ने, संपादित करने और परिवर्तित करने के लिए उपयोग की जाती है, बिना Microsoft PowerPoint या Office Automation के।
 
-यह PPT, PPTX, PPS, POT और ODP को लोड और सहेजता है, जिसमें मैक्रो‑सक्षम और टेम्पलेट वेरिएंट शामिल हैं, और PDF, XPS, HTML, SVG, TIFF, Markdown और इमेजेज में एक्सपोर्ट करता है।
+यह PPT, PPTX, PPS, POT और ODP फ़ाइलों को लोड और सहेजती है, जिसमें मैक्रो-सक्षम और टेम्प्लेट वेरिएंट शामिल हैं, और PDF, XPS, HTML, SVG, TIFF, Markdown और छवियों में निर्यात करती है।
 
 <div style="clear:both"></div>
 
@@ -29,16 +29,16 @@ Aspose.Slides for C++ एक मूल C++ लाइब्रेरी है �
 <div class="col-md-4">
 <p><b>शुरू करें</b></p>
 <hr>
-<p>शुरुआत</p>
+<p>शुरूआत</p>
 <ul>
 <li><a href="/slides/hi/cpp/installation/">स्थापना</a></li>
-<li><a href="/slides/hi/cpp/create-presentation/">अपनी पहली प्रस्तुति बनाएं</a></li>
-<li><a href="/slides/hi/cpp/getting-started/">शुरु होने के लिए गाइड</a></li>
+<li><a href="/slides/hi/cpp/create-presentation/">अपना पहला प्रस्तुतीकरण बनाएं</a></li>
+<li><a href="/slides/hi/cpp/getting-started/">शुरूआत गाइड</a></li>
 </ul>
 <p>मूल्यांकन</p>
 <ul>
-<li><a href="/slides/hi/cpp/supported-file-formats/">समर्थित फ़ाइल स्वरूप</a></li>
-<li><a href="/slides/hi/cpp/evaluate-aspose-slides/">ट्रायल सीमाएं</a></li>
+<li><a href="/slides/hi/cpp/supported-file-formats/">समर्थित फ़ाइल फ़ॉर्मेट</a></li>
+<li><a href="/slides/hi/cpp/evaluate-aspose-slides/">ट्रायल सीमाएँ</a></li>
 <li><a href="/slides/hi/cpp/licensing/">लाइसेंसिंग</a></li>
 </ul>
 </div>
@@ -47,19 +47,19 @@ Aspose.Slides for C++ एक मूल C++ लाइब्रेरी है �
 <hr>
 <p>सामान्य कार्य</p>
 <ul>
-<li><a href="/slides/hi/cpp/open-presentation/">प्रेजेंटेशन खोलें</a></li>
-<li><a href="/slides/hi/cpp/save-presentation/">प्रेजेंटेशन सहेजें</a></li>
-<li><a href="/slides/hi/cpp/convert-powerpoint-to-pdf/">PDF में रूपांतरित करें</a></li>
-<li><a href="/slides/hi/cpp/convert-slide/">स्लाइड्स को इमेजेस के रूप में रेंडर करें</a></li>
-<li><a href="/slides/hi/cpp/manage-text/">टेक्स्ट और शैलियां संपादित करें</a></li>
+<li><a href="/slides/hi/cpp/open-presentation/">प्रस्तुतीकरण खोलें</a></li>
+<li><a href="/slides/hi/cpp/save-presentation/">प्रस्तुतीकरण सहेजें</a></li>
+<li><a href="/slides/hi/cpp/convert-powerpoint-to-pdf/">PDF में परिवर्तित करें</a></li>
+<li><a href="/slides/hi/cpp/convert-slide/">स्लाइड को छवि के रूप में रेंडर करें</a></li>
+<li><a href="/slides/hi/cpp/manage-text/">पाठ और आकृतियों को संपादित करें</a></li>
 </ul>
-<p>Slides वर्कफ़्लो</p>
+<p>Slides कार्यप्रवाह</p>
 <ul>
 <li><a href="/slides/hi/cpp/powerpoint-charts/">चार्ट</a></li>
 <li><a href="/slides/hi/cpp/powerpoint-animation/">एनिमेशन</a></li>
 <li><a href="/slides/hi/cpp/manage-media-files/">ऑडियो और वीडियो</a></li>
 <li><a href="/slides/hi/cpp/presentation-design/">स्लाइड डिज़ाइन</a></li>
-<li><a href="/slides/hi/cpp/merge-presentation/">प्रेजेंटेशन मर्ज करें</a></li>
+<li><a href="/slides/hi/cpp/merge-presentation/">प्रस्तुतीकरण को मिलाएँ</a></li>
 </ul>
 <p>उदाहरण</p>
 <ul>
@@ -75,19 +75,20 @@ Aspose.Slides for C++ एक मूल C++ लाइब्रेरी है �
 <li><a href="https://reference.aspose.com/slides/cpp/">API संदर्भ</a></li>
 <li><a href="https://releases.aspose.com/slides/cpp/release-notes/">रिलीज़ नोट्स</a></li>
 <li><a href="/slides/hi/cpp/known-issues/">ज्ञात समस्याएँ</a></li>
+<li><a href="https://products.aspose.com/slides/cpp/">उत्पाद पृष्ठ</a></li>
 <li><a href="https://releases.aspose.com/slides/cpp/">डाउनलोड</a></li>
 </ul>
 <p>समर्थन</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/11">नि:शुल्क सहायता फोरम</a></li>
-<li><a href="https://helpdesk.aspose.com/">भुगतान आधारित सहायता डेस्क</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">मुफ़्त समर्थन फ़ोरम</a></li>
+<li><a href="https://helpdesk.aspose.com/">भुगतान समर्थन हेल्पडेस्क</a></li>
 </ul>
 </div>
 </div>
 
 ------
 
-## **आपकी पहली प्रस्तुति**
+## **आपका पहला प्रस्तुतीकरण**
 
 Windows पर, Visual Studio में एक C++ **Console App** प्रोजेक्ट बनाएं और पैकेज मैनेजर कंसोल में NuGet पैकेज स्थापित करें (**Tools** > **NuGet Package Manager** > **Package Manager Console**):
 
@@ -95,9 +96,9 @@ Windows पर, Visual Studio में एक C++ **Console App** प्रो�
 Install-Package Aspose.Slides.Cpp
 ```
 
-Linux पर, Linux ZIP पैकेज डाउनलोड करें और [स्थापना](/slides/hi/cpp/installation/#linux) में वर्णित CMake प्रोजेक्ट सेट अप करें।
+Linux पर, Linux ZIP पैकेज डाउनलोड करें और [स्थापना](/slides/hi/cpp/installation/#linux) में वर्णित CMake प्रोजेक्ट सेटअप करें।
 
-फिर इस कोड को अपने प्रोग्राम की मुख्य स्रोत फ़ाइल के रूप में उपयोग करें। यह एक टेक्स्ट बॉक्स वाली प्रस्तुति बनाता है और उसे सहेजता है:
+फिर इस कोड को अपने प्रोग्राम की मुख्य स्रोत फ़ाइल के रूप में प्रयोग करें। यह एक टेक्स्ट बॉक्स वाले प्रस्तुतीकरण को बनाता है और उसे सहेजता है:
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -125,7 +126,7 @@ int main()
 }
 ```
 
-Windows पर इसे चलाने के लिए, टूलबार में **x64** प्लेटफ़ॉर्म चुनें और **Ctrl+F5** दबाएँ। Linux पर, इसे *main.cpp* के रूप में प्रोजेक्ट फ़ोल्डर में सहेजें, फिर वहाँ बनाकर चलाएँ:
+Windows पर इसे चलाने के लिए, टूलबार में **x64** प्लेटफ़ॉर्म चुनें और **Ctrl+F5** दबाएँ। Linux पर, इसे प्रोजेक्ट फ़ोल्डर में *main.cpp* के रूप में सहेजें, फिर वहाँ बिल्ड और चलाएँ:
 
 ```bash
 cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
@@ -133,4 +134,4 @@ cmake --build build
 ./build/hello
 ```
 
-प्रोग्राम *hello.pptx* को एक स्लाइड के साथ सहेजता है जिसमें एक टेक्स्ट बॉक्स होता है। बिना लाइसेंस के, सहेजी गई फ़ाइल में मूल्यांकन वॉटरमार्क रहता है — देखें [लाइसेंसिंग](/slides/hi/cpp/licensing/). अधिक तरीकों से प्रस्तुति बनाने और भरने के लिए, देखें [प्रेजेंटेशन बनाना](/slides/hi/cpp/create-presentation/).
+प्रोग्राम *hello.pptx* को एक स्लाइड के साथ सहेजता है जिसमें एक टेक्स्ट बॉक्स होता है। बिना लाइसेंस के, सहेजी गई फ़ाइल में मूल्यांकन वाटरमार्क होता है — देखें [लाइसेंसिंग](/slides/hi/cpp/licensing/)। प्रस्तुतीकरण बनाने और भरने के और तरीकों के लिए देखें [प्रस्तुतीकरण बनाएं](/slides/hi/cpp/create-presentation/).

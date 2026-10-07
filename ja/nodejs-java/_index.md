@@ -5,7 +5,7 @@ type: docs
 weight: 47
 url: /ja/nodejs-java/
 keywords:
-- ドキュメンテーション
+- ドキュメント
 - プレゼンテーション処理
 - プレゼンテーション変換
 - PowerPoint
@@ -13,14 +13,14 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "まずはここから: Aspose.Slides for Node.js via Java をインストールし、最初のプレゼンテーションを作成し、一般的なタスク、API リファレンス、サポートに関するガイドを見つけましょう。"
+description: "ここから始めましょう: Java 経由の Node.js 用 Aspose.Slides をインストールし、最初のプレゼンテーションを作成し、一般的なタスク、API リファレンス、サポートに関するガイドを見つけましょう。"
 is_root: true
 ---
 <img src="aspose_slides-for-nodejs-via-java.png" alt="Aspose.Slides for Node.js via Java" align="left" style="width:110px; margin: 0 30px 20px 0"/>
 
-Aspose.Slides for Node.js via Java は、Microsoft PowerPoint を使用せずに、Node.js アプリケーションで PowerPoint および OpenDocument プレゼンテーションを作成、読み取り、編集、変換できるライブラリです。
+Aspose.Slides for Node.js via Java は、Microsoft PowerPoint を使用せずに、Node.js アプリケーションで PowerPoint および OpenDocument プレゼンテーションの作成、読み取り、編集、変換を行うためのライブラリです。
 
-PPT、PPTX、PPS、POT、ODP をマクロ対応やテンプレートバリアントを含めて読み書きでき、PDF、XPS、HTML、SVG、TIFF、Markdown、画像へエクスポートします。
+マクロ対応やテンプレートバリアントを含む PPT、PPTX、PPS、POT、ODP を読み込みおよび保存し、PDF、XPS、HTML、SVG、TIFF、Markdown、画像へエクスポートします。
 
 <div style="clear:both"></div>
 
@@ -28,7 +28,7 @@ PPT、PPTX、PPS、POT、ODP をマクロ対応やテンプレートバリアン
 
 <div class="row">
 <div class="col-md-4">
-<p><b>開始する</b></p>
+<p><b>はじめに</b></p>
 <hr>
 <p>はじめに</p>
 <ul>
@@ -39,7 +39,7 @@ PPT、PPTX、PPS、POT、ODP をマクロ対応やテンプレートバリアン
 <p>評価</p>
 <ul>
 <li><a href="/slides/ja/nodejs-java/supported-file-formats/">サポートされているファイル形式</a></li>
-<li><a href="/slides/ja/nodejs-java/evaluate-aspose-slides/">トライアルの制限</a></li>
+<li><a href="/slides/ja/nodejs-java/evaluate-aspose-slides/">試用版の制限</a></li>
 <li><a href="/slides/ja/nodejs-java/licensing/">ライセンス</a></li>
 </ul>
 </div>
@@ -52,15 +52,15 @@ PPT、PPTX、PPS、POT、ODP をマクロ対応やテンプレートバリアン
 <li><a href="/slides/ja/nodejs-java/save-presentation/">プレゼンテーションを保存</a></li>
 <li><a href="/slides/ja/nodejs-java/convert-powerpoint-to-pdf/">PDF に変換</a></li>
 <li><a href="/slides/ja/nodejs-java/convert-slide/">スライドを画像としてレンダリング</a></li>
-<li><a href="/slides/ja/nodejs-java/manage-text/">テキストと図形の編集</a></li>
+<li><a href="/slides/ja/nodejs-java/manage-text/">テキストとシェイプを編集</a></li>
 </ul>
-<p>Slides ワークフロー</p>
+<p>Slides のワークフロー</p>
 <ul>
 <li><a href="/slides/ja/nodejs-java/powerpoint-charts/">チャート</a></li>
 <li><a href="/slides/ja/nodejs-java/powerpoint-animation/">アニメーション</a></li>
 <li><a href="/slides/ja/nodejs-java/manage-media-files/">オーディオとビデオ</a></li>
 <li><a href="/slides/ja/nodejs-java/presentation-design/">スライドデザイン</a></li>
-<li><a href="/slides/ja/nodejs-java/merge-presentation/">プレゼンテーションのマージ</a></li>
+<li><a href="/slides/ja/nodejs-java/merge-presentation/">プレゼンテーションの結合</a></li>
 </ul>
 <p>例</p>
 <ul>
@@ -75,12 +75,13 @@ PPT、PPTX、PPS、POT、ODP をマクロ対応やテンプレートバリアン
 <li><a href="https://reference.aspose.com/slides/nodejs-java/">API リファレンス</a></li>
 <li><a href="https://releases.aspose.com/slides/nodejs-java/release-notes/">リリースノート</a></li>
 <li><a href="/slides/ja/nodejs-java/known-issues/">既知の問題</a></li>
+<li><a href="https://products.aspose.com/slides/nodejs-java/">製品ページ</a></li>
 <li><a href="https://releases.aspose.com/slides/nodejs-java/">ダウンロード</a></li>
 </ul>
 <p>サポート</p>
 <ul>
 <li><a href="https://forum.aspose.com/c/slides/11">無料サポートフォーラム</a></li>
-<li><a href="https://helpdesk.aspose.com/">有料サポートヘルプデスク</a></li>
+<li><a href="https://helpdesk.aspose.com/">有料サポートデスク</a></li>
 </ul>
 </div>
 </div>
@@ -89,7 +90,7 @@ PPT、PPTX、PPS、POT、ODP をマクロ対応やテンプレートバリアン
 
 ## **最初のプレゼンテーション**
 
-Node.js 20 以降に加えて、このパッケージは Java Development Kit (JDK)、Python、C++ ビルドツールチェーンが必要です。npm がインストール時に `java` ブリッジをコンパイルするためです。各 OS の手順については[Installation](/slides/ja/nodejs-java/installation/)をご確認ください。その後、プロジェクトを作成し npm からパッケージをインストールします：
+Node.js 20 以降に加えて、このパッケージは Java Development Kit (JDK)、Python、C++ ビルドツールチェーンが必要です。npm がインストール時に `java` ブリッジをコンパイルするためです。各 OS の手順については[インストール](/slides/ja/nodejs-java/installation/)をご覧ください。その後、プロジェクトを作成し、npm からパッケージをインストールします：
 
 ```bash
 mkdir hello-slides
@@ -98,7 +99,7 @@ npm init -y
 npm install aspose.slides.via.java
 ```
 
-このコードをプロジェクトフォルダーに *hello.js* として保存してください：
+このコードをプロジェクトフォルダ内に *hello.js* として保存してください：
 
 ```javascript
 const asposeSlides = require("aspose.slides.via.java");
@@ -113,8 +114,8 @@ try {
     presentation.dispose();
 }
 
-// Aspose.Slides は Java 仮想マシン上で実行され、Node.js を継続させるため、プロセスを明示的に終了させます。
+// Aspose.Slides は Java 仮想マシン上で実行され、Node.js が継続して動作するため、プロセスを明示的に終了させます。
 process.exit(0);
 ```
 
-`node hello.js` で実行します。このスクリプトはテキストボックスを含む 1 枚のスライドを持つ *hello.pptx* を保存します。ライセンスがない場合、保存されたファイルには評価用の透かしが入ります — 詳しくは[Licensing](/slides/ja/nodejs-java/licensing/)をご覧ください。プレゼンテーションの作成や内容の入力についての他の方法は[Create Presentations](/slides/ja/nodejs-java/create-presentation/)をご参照ください。
+`node hello.js` で実行します。このスクリプトはテキストボックスを含む 1 枚のスライドを持つ *hello.pptx* を保存します。ライセンスがない場合、保存されたファイルには評価用の透かしが入ります — [ライセンス](/slides/ja/nodejs-java/licensing/) を参照してください。プレゼンテーションの作成と編集の詳細については、[プレゼンテーションの作成](/slides/ja/nodejs-java/create-presentation/) をご覧ください。
