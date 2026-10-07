@@ -27,7 +27,7 @@ Work through the four steps below in order. Each step names what to do and links
 
 ## **Step 1: Check the System Requirements**
 
-Aspose.Slides for .NET runs on Windows, Linux, and macOS. [System Requirements](/slides/net/system-requirements/) lists the operating systems and .NET versions that each package supports, and the libraries that Linux needs in addition.
+[Aspose.Slides for .NET](https://products.aspose.com/slides/net/) runs on Windows, Linux, and macOS. [System Requirements](/slides/net/system-requirements/) lists the operating systems and .NET versions that each package supports, and the libraries that Linux needs in addition.
 
 ## **Step 2: Install the Package**
 
