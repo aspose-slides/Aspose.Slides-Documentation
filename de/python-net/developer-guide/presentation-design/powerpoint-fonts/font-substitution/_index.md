@@ -1,14 +1,14 @@
 ---
-title: Font-Substitution in Präsentationen mit Python konfigurieren
-linktitle: Font-Substitution
+title: Schriftart-Substitution in Präsentationen mit Python konfigurieren
+linktitle: Schriftart-Substitution
 type: docs
 weight: 70
 url: /de/python-net/font-substitution/
 keywords:
 - Schriftart
-- Schriftart ersetzen
+- Ersetzungsschriftart
 - Schriftart-Substitution
-- Schriftart austauschen
+- Schriftart ersetzen
 - Schriftart-Ersetzung
 - Substitutionsregel
 - Ersetzungsregel
@@ -17,19 +17,21 @@ keywords:
 - Präsentation
 - Python
 - Aspose.Slides
-description: "Konfigurieren Sie Schriftart-Substitutionsregeln und prüfen Sie substituierte Schriftarten in Aspose.Slides für Python über .NET beim Rendern oder Konvertieren von PowerPoint- und OpenDocument-Präsentationen."
+description: "Konfigurieren Sie Schriftart-Substitutionsregeln und prüfen Sie ersetzte Schriftarten in Aspose.Slides für Python über .NET beim Rendern oder Konvertieren von PowerPoint- und OpenDocument-Präsentationen."
 ---
 ## **Übersicht**
 
-Font substitution ermöglicht es Aspose.Slides, eine verfügbare Schriftart anstelle einer nicht zugänglichen Schriftart zu verwenden, wenn eine Präsentation gerendert oder konvertiert wird. Die Substitution wirkt sich auf die gerenderte Ausgabe aus; sie ändert nicht die Schriftart, die dem Präsentationsinhalt zugewiesen ist.
+Font substitution allows Aspose.Slides to use an available font in place of a font that cannot be accessed when a presentation is rendered or converted. The substitution affects the rendered output; it does not change the font assigned to the presentation content.
 
-Sie können festlegen, welche Schriftart verwendet werden soll, wenn eine bestimmte Schriftart nicht verfügbar ist, und Sie können die Substitutionen einsehen, die Aspose.Slides während des Renderns vornimmt. Dies hilft, die Ausgabe über Umgebungen mit unterschiedlichen installierten Schriftarten hinweg konsistent zu halten.
+Sie können die zu verwendende Schriftart definieren, wenn eine bestimmte Schriftart nicht verfügbar ist, und die Substitutionen prüfen, die Aspose.Slides beim Rendern vornimmt. Das hilft, die Ausgabe über Umgebungen mit unterschiedlichen installierten Schriftarten hinweg konsistent zu halten.
 
-## **Abrufen von Font Substitutions**
+If a font is available but has no dedicated bold typeface, see [Schriftarten ohne dedizierten Fettschrifttyp behandeln](/slides/de/python-net/convert-powerpoint-to-pdf/#handle-fonts-without-a-dedicated-bold-typeface). That section explains how to rasterize the affected text during PDF export and the consequences for text selection, searching, and scaling.
 
-Verwenden Sie die [FontsManager.get_substitutions](https://reference.aspose.com/slides/de/python-net/aspose.slides/fontsmanager/get_substitutions/)‑Methode, um zu ermitteln, welche Schriftarten beim Rendern der Präsentation substituiert werden. Die Methode gibt [FontSubstitutionInfo](https://reference.aspose.com/slides/de/python-net/aspose.slides/fontsubstitutioninfo/)‑Objekte zurück, die den ursprünglichen und den substituierten Schriftartnamen identifizieren.
+## **Schriftart‑Substitutionen abrufen**
 
-Das folgende Python‑Beispiel listet alle Font Substitutions für eine Präsentation auf:
+Use the [FontsManager.get_substitutions](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/get_substitutions/) method to determine which fonts will be substituted when the presentation is rendered. The method returns [FontSubstitutionInfo](https://reference.aspose.com/slides/python-net/aspose.slides/fontsubstitutioninfo/) objects that identify the original and substituted font names.
+
+Das folgende Python‑Beispiel listet alle Schriftart‑Substitutionen für eine Präsentation auf:
 
 ```python
 import aspose.slides as slides
@@ -39,15 +41,15 @@ with slides.Presentation("Presentation.pptx") as presentation:
         print(f"{substitution.original_font_name} -> {substitution.substituted_font_name}")
 ```
 
-## **Abrufen von Font Substitutions für ausgewählte Folien**
+## **Schriftart‑Substitutionen für ausgewählte Folien abrufen**
 
-Verwenden Sie [FontsManager.get_substitutions](https://reference.aspose.com/slides/de/python-net/aspose.slides/fontsmanager/get_substitutions/) mit einer Liste von Folien‑Indizes, um nur die Substitutionen zu prüfen, die zum Rendern bestimmter Folien erforderlich sind. Dies ist nützlich, wenn Sie einen Teil einer Präsentation rendern oder exportieren, eine große Präsentation schrittweise überprüfen, Folien finden möchten, die von nicht verfügbaren Schriftarten abhängen, ein minimales Schriftpaket für einen Server oder Container vorbereiten oder Rendering‑Unterschiede diagnostizieren wollen, ohne unverwandte Folien zu verarbeiten.
+Use [FontsManager.get_substitutions](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/get_substitutions/) with a list of slide indexes to inspect only the substitutions required to render specific slides. This is useful when you are rendering or exporting part of a presentation, checking a large presentation incrementally, locating slides that depend on unavailable fonts, preparing a minimal font package for a server or container, or diagnosing rendering differences without processing unrelated slides.
 
-Die Liste enthält ein‑basiert nummerierte Folien‑Indizes: `1` bezeichnet die erste Folie. Im Gegensatz dazu ist die [Presentation.slides](https://reference.aspose.com/slides/de/python-net/aspose.slides/presentation/slides/de/)‑Sammlung nullbasiert, sodass dieselbe Folie über `presentation.slides[0]` angesprochen wird. Beachten Sie diesen Unterschied beim Erstellen der Liste, um Off‑by‑One‑Fehler zu vermeiden.
+The list contains one-based slide indexes: `1` identifies the first slide. By contrast, the [Presentation.slides](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/slides/) collection is zero-based, so that same slide is accessed as `presentation.slides[0]`. Keep this difference in mind when building the list to avoid off-by-one errors.
 
-Rufen Sie die Methode über die [Presentation.fonts_manager](https://reference.aspose.com/slides/de/python-net/aspose.slides/presentation/fonts_manager/)‑Eigenschaft auf. Sie gibt nur die Substitutionen zurück, die beim Rendern der ausgewählten Folien ermittelt wurden. Jedes Ergebnis ist ein [FontSubstitutionInfo](https://reference.aspose.com/slides/de/python-net/aspose.slides/fontsubstitutioninfo/)‑Objekt, das den ursprünglichen und den substituierten Schriftartnamen enthält. Das Ergebnis spiegelt die aktuelle Schriftumgebung, konfigurierte Fallback‑Regeln, in einer [IFontSubstRuleCollection](https://reference.aspose.com/slides/de/python-net/aspose.slides/ifontsubstrulecollection/) gespeicherte Substitutionsregeln und [extern geladene Schriftarten](/slides/de/python-net/custom-font/) wider.
+Call the method through the [Presentation.fonts_manager](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/fonts_manager/) property. It returns only the substitutions determined while rendering the selected slides. Each result is a [FontSubstitutionInfo](https://reference.aspose.com/slides/python-net/aspose.slides/fontsubstitutioninfo/) object containing the original and substituted font names. The result reflects the current font environment, configured fallback rules, substitution rules stored in an [IFontSubstRuleCollection](https://reference.aspose.com/slides/python-net/aspose.slides/ifontsubstrulecollection/), and [externally loaded fonts](/slides/de/python-net/custom-font/).
 
-Die gleiche Substitution kann von mehr als einer ausgewählten Folie benötigt werden. Deduplizieren Sie die Ergebnisse, wenn Sie ein Schrift‑Inventar oder einen Preflight‑Bericht erstellen. Das folgende Beispiel gibt jede zurückgegebene Substitution aus und erstellt anschließend eine sortierte Liste eindeutiger Schriftzuordnungen:
+The same substitution can be required by more than one selected slide. Deduplicate the results when you create a font inventory or preflight report. The following example reports every returned substitution and then creates a sorted list of unique font mappings:
 
 ```python
 import aspose.slides as slides
@@ -69,25 +71,25 @@ with slides.Presentation("Presentation.pptx") as presentation:
         print(entry)
 ```
 
-Die [FontsManager](https://reference.aspose.com/slides/de/python-net/aspose.slides/fontsmanager/)‑Klasse stellt beide Varianten der Methode bereit. Wählen Sie je nach Umfang des Rendering‑Vorgangs:
+The [FontsManager](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/) class provides both forms of the method. Choose one according to the scope of the rendering operation:
 
-| Methodenaufruf | Verwenden Sie sie, wenn |
+| Methodaufruf | Verwendung |
 |---|---|
-| [get_substitutions](https://reference.aspose.com/slides/de/python-net/aspose.slides/fontsmanager/get_substitutions/) ohne Argumente | Sie Substitutionen für die gesamte Präsentation benötigen. |
-| [get_substitutions](https://reference.aspose.com/slides/de/python-net/aspose.slides/fontsmanager/get_substitutions/) mit einer Liste von Folien‑Indizes | Sie Substitutionen für einen ausgewählten Bereich, eine inkrementelle Prüfung oder einen Teil‑Export benötigen. |
+| [get_substitutions](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/get_substitutions/) with no arguments | Sie benötigen Substitutionen für die gesamte Präsentation. |
+| [get_substitutions](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/get_substitutions/) with a list of slide indexes | Sie benötigen Substitutionen für einen ausgewählten Bereich, inkrementelle Prüfung oder Teil‑Export. |
 
-## **Festlegen von Font Substitution Rules**
+## **Schriftart‑Substitutionsregeln festlegen**
 
-Um die Schriftart anzugeben, die Aspose.Slides verwenden soll, wenn eine Quellschriftart nicht verfügbar ist:
+To specify the font that Aspose.Slides should use when a source font is unavailable:
 
-1. Laden Sie die Präsentation.
-2. Erstellen Sie Schriftart‑Definitionen für die Quell‑ und Ersatzschriftarten.
-3. Erstellen Sie eine [FontSubstRule](https://reference.aspose.com/slides/de/python-net/aspose.slides/fontsubstrule/) mit der [WHEN_INACCESSIBLE](https://reference.aspose.com/slides/de/python-net/aspose.slides/fontsubstcondition/)‑Bedingung.
-4. Fügen Sie die Regel zu einer [FontSubstRuleCollection](https://reference.aspose.com/slides/de/python-net/aspose.slides/fontsubstrulecollection/) hinzu.
-5. Weisen Sie die Sammlung der [FontsManager.font_subst_rule_list](https://reference.aspose.com/slides/de/python-net/aspose.slides/fontsmanager/font_subst_rule_list/)‑Eigenschaft zu.
-6. Rendern oder konvertieren Sie die Präsentation.
+1. Load the presentation.
+2. Create font definitions for the source and substitute fonts.
+3. Create a [FontSubstRule](https://reference.aspose.com/slides/python-net/aspose.slides/fontsubstrule/) with the [WHEN_INACCESSIBLE](https://reference.aspose.com/slides/python-net/aspose.slides/fontsubstcondition/) condition.
+4. Add the rule to a [FontSubstRuleCollection](https://reference.aspose.com/slides/python-net/aspose.slides/fontsubstrulecollection/).
+5. Assign the collection to the [FontsManager.font_subst_rule_list](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/font_subst_rule_list/) property.
+6. Render or convert the presentation.
 
-Das folgende Python‑Beispiel substituiert `Arial` für `SomeRareFont`, wenn `SomeRareFont` nicht verfügbar ist, und rendert anschließend die erste Folie, um das Ergebnis zu überprüfen. Die Ersatzschriftart muss für Aspose.Slides verfügbar sein.
+The following Python example substitutes `Arial` for `SomeRareFont` when `SomeRareFont` is unavailable, and then renders the first slide to verify the result. The substitute font must be available to Aspose.Slides.
 
 ```python
 import aspose.slides as slides
@@ -106,45 +108,45 @@ with slides.Presentation("Fonts.pptx") as presentation:
 ```
 
 {{% alert color="info" title="Note" %}}
-Für eine bedingungslose Änderung der in einer gesamten Präsentation verwendeten Schriftarten siehe [Font Replacement](/slides/de/python-net/font-replacement/).
+For an unconditional change to the fonts used throughout a presentation, see [Font Replacement](/slides/de/python-net/font-replacement/).
 {{% /alert %}}
 
-## **Einschränkungen für Math‑Equation‑Schriftarten**
+## **Einschränkungen für Schriftarten von mathematischen Gleichungen**
 
-Font Substitution Rules sind Teil des standardmäßigen Schriftart‑Auswahlprozesses, der beim Rendern und Konvertieren verwendet wird. Sie funktionieren für normalen Text, wenn Aspose.Slides eine nicht zugängliche Schriftart durch die in einer Regel angegebene verfügbare Schriftart ersetzen kann.
+Font substitution rules are part of the standard font selection process used during rendering and conversion. They work for regular text when Aspose.Slides can replace an inaccessible font with the available font specified by a rule.
 
-Office‑Math‑Gleichungen haben eine zusätzliche Anforderung. Verwendet eine Gleichung **Cambria Math**, muss Aspose.Slides genau diese Schriftart zur Berechnung und zum Rendern des Gleichungs‑Layouts bereitstehen. Eine Regel, die eine andere mathematische Schriftart wie **STIX Two Math** substituiert, kann **Cambria Math** für diesen Zweck nicht ersetzen, und das Rendering meldet möglicherweise weiterhin, dass **Cambria Math** erforderlich ist.
+Office Math equations have an additional requirement. If an equation uses **Cambria Math**, Aspose.Slides may need that exact font to calculate and render the equation layout. A rule that substitutes another math font, such as **STIX Two Math**, cannot replace **Cambria Math** for this purpose, and rendering may still report that **Cambria Math** is required.
 
-Um eine solche Präsentation zu rendern oder zu konvertieren, stellen Sie **Cambria Math** Aspose.Slides zur Verfügung. Installieren Sie sie im Betriebssystem oder laden Sie sie als [external font](/slides/de/python-net/custom-font/) laden.
+To render or convert such a presentation, make **Cambria Math** available to Aspose.Slides. Install it in the operating system or load it as an [external font](/slides/de/python-net/custom-font/).
 
-Diese Einschränkung gilt für das Gleichungs‑Layout. Die oben beschriebenen Substitutionsregeln gelten weiterhin für normalen Präsentationstext.
+This limitation applies to equation layout. The substitution rules described above still apply to regular presentation text.
 
 ## **FAQ**
 
-**Was ist der Unterschied zwischen Font Replacement und Font Substitution?**
+**Was ist der Unterschied zwischen Schriftarten‑Ersetzung und Schriftarten‑Substitution?**
 
-[Font replacement](/slides/de/python-net/font-replacement/) ändert bewusst eine Schriftart durch eine andere in der gesamten Präsentation. Font substitution wählt eine Schriftart für die gerenderte Ausgabe, wenn die konfigurierte Bedingung erfüllt ist, z. B. wenn die ursprüngliche Schriftart nicht verfügbar ist.
+[Font replacement](/slides/de/python-net/font-replacement/) ändert bewusst eine Schriftart überall in der Präsentation zu einer anderen. Schriftarten‑Substitution wählt eine Schriftart für die gerenderte Ausgabe, wenn die konfigurierte Bedingung erfüllt ist, etwa wenn die Originalschriftart nicht verfügbar ist.
 
 **Wann werden Substitutionsregeln angewendet?**
 
-Die Regeln nehmen am [font selection sequence](/slides/de/python-net/font-selection-sequence/)‑Prozess während Rendering und Konvertierung teil. Mit `WHEN_INACCESSIBLE` wird eine Regel nur verwendet, wenn Aspose.Slides nicht auf die Quellschriftart zugreifen kann.
+Die Regeln nehmen am [font selection sequence](/slides/de/python-net/font-selection-sequence/) während Rendering und Konvertierung teil. Mit `WHEN_INACCESSIBLE` wird eine Regel nur verwendet, wenn Aspose.Slides nicht auf die Quellschriftart zugreifen kann.
 
-**Was passiert, wenn eine Schriftart fehlt und keine Substitutionsregel konfiguriert ist?**
+**Was geschieht, wenn eine Schriftart fehlt und keine Substitutionsregel konfiguriert ist?**
 
-Aspose.Slides wählt die am nächsten liegende verfügbare Schriftart gemäß seinem Schriftart‑Auswahlprozess. Das Ergebnis hängt von den im Runtime‑Umfeld verfügbaren Schriftarten ab.
+Aspose.Slides wählt die am besten passende verfügbare Schriftart gemäß seinem Auswahlprozess. Das Ergebnis hängt von den im Laufzeit‑Umfeld installierten Schriftarten ab.
 
-**Kann ich externe Schriftarten laden, um Substitution zu vermeiden?**
+**Kann ich externe Schriftarten laden, um Substitutionen zu vermeiden?**
 
-Ja. Sie können [external fonts](/slides/de/python-net/custom-font/) laden, damit Aspose.Slides sie beim Rendering und bei der Konvertierung verwenden kann.
+Ja. Sie können [load external fonts](/slides/de/python-net/custom-font/) sodass Aspose.Slides sie beim Rendering und bei der Konvertierung verwenden kann.
 
-**Stellt Aspose Schriftarten mit der Bibliothek bereit?**
+**Verteilt Aspose Schriftarten mit der Bibliothek?**
 
 Nein. Sie sind dafür verantwortlich, Schriftarten bereitzustellen und deren Lizenzen einzuhalten.
 
-**Können sich Substitutionsergebnisse zwischen Windows, Linux und macOS unterscheiden?**
+**Können Substitutionsresultate zwischen Windows, Linux und macOS variieren?**
 
-Ja. Installierte Schriftarten und Suchpfade unterscheiden sich je nach Betriebssystem, sodass eine auf einem Rechner verfügbare Schriftart auf einem anderen substituiert werden muss.
+Ja. Installierte Schriftarten und Suchpfade unterscheiden sich je nach Betriebssystem, sodass eine Schriftart auf einem Rechner verfügbar sein kann, auf einem anderen jedoch substituiert werden muss.
 
-**Wie kann ich die Schriftartauswahl bei Stapelkonvertierungen konsistent halten?**
+**Wie kann ich die Schriftartauswahl bei Batch‑Konvertierungen konsistent halten?**
 
-Verwenden Sie dieselben Schriftdateien und -versionen auf jedem Rechner oder Container, [laden Sie erforderliche externe Schriftarten](/slides/de/python-net/custom-font/) und [betten Sie Schriftarten ein](/slides/de/python-net/embedded-font/), sofern die Lizenz dies zulässt. Sie können außerdem vor dem Export [FontsManager.get_substitutions](https://reference.aspose.com/slides/de/python-net/aspose.slides/fontsmanager/get_substitutions/) aufrufen, um unerwartete Substitutionen zu erkennen.
+Verwenden Sie dieselben Schriftdateien und -versionen auf jeder Maschine oder jedem Container, [load required external fonts](/slides/de/python-net/custom-font/), und [embed fonts](/slides/de/python-net/embedded-font/), wenn die Lizenz es zulässt. Sie können auch vor dem Export [FontsManager.get_substitutions](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/get_substitutions/) aufrufen, um unerwartete Substitutionen zu erkennen.

@@ -6,9 +6,9 @@ weight: 70
 url: /sv/python-net/font-substitution/
 keywords:
 - teckensnitt
-- ersättnings-teckensnitt
-- teckensnittssubstitution
 - ersätta teckensnitt
+- teckensnittssubstitution
+- byta teckensnitt
 - teckensnittsersättning
 - substitutionsregel
 - ersättningsregel
@@ -17,17 +17,19 @@ keywords:
 - presentation
 - Python
 - Aspose.Slides
-description: "Konfigurera regler för teckensnittssubstitution och inspektera ersatta teckensnitt i Aspose.Slides för Python via .NET när du renderar eller konverterar PowerPoint- och OpenDocument-presentationer."
+description: "Konfigurera teckensnittssubstitutionsregler och granska substituerade teckensnitt i Aspose.Slides för Python via .NET när du renderar eller konverterar PowerPoint- och OpenDocument-presentationer."
 ---
 ## **Översikt**
 
-Fontsubstitution låter Aspose.Slides använda ett tillgängligt teckensnitt i stället för ett teckensnitt som inte kan nås när en presentation renderas eller konverteras. Substitutionen påverkar det renderade resultatet; den ändrar inte teckensnittet som är tilldelat presentationsinnehållet.
+Font substitution gör att Aspose.Slides kan använda ett tillgängligt teckensnitt i stället för ett teckensnitt som inte kan nås när en presentation renderas eller konverteras. Substitutionen påverkar det renderade resultatet; den ändrar inte det teckensnitt som tilldelats presentationsinnehållet.
 
-Du kan definiera vilket teckensnitt som ska användas när ett visst teckensnitt är otillgängligt, och du kan inspektera de substitutioner som Aspose.Slides kommer att göra under rendering. Detta hjälper till att hålla utskriften konsekvent över miljöer med olika installerade teckensnitt.
+Du kan definiera vilket teckensnitt som ska användas när ett visst teckensnitt är otillgängligt, och du kan inspektera de substitutioner som Aspose.Slides kommer att göra under rendering. Detta hjälper till att hålla utdata konsekvent över miljöer med olika installerade teckensnitt.
+
+Om ett teckensnitt är tillgängligt men saknar en dedikerad fet stil, se [Hantera teckensnitt utan en dedikerad fet stil](/slides/sv/python-net/convert-powerpoint-to-pdf/#handle-fonts-without-a-dedicated-bold-typeface). Det avsnittet förklarar hur man rasteriserar den påverkade texten under PDF‑export och vilka konsekvenser det har för textmarkering, sökning och skalning.
 
 ## **Hämta teckensnittssubstitutioner**
 
-Använd metoden [FontsManager.get_substitutions](https://reference.aspose.com/slides/sv/python-net/aspose.slides/fontsmanager/get_substitutions/) för att avgöra vilka teckensnitt som kommer att substitueras när presentationen renderas. Metoden returnerar [FontSubstitutionInfo](https://reference.aspose.com/slides/sv/python-net/aspose.slides/fontsubstitutioninfo/)‑objekt som identifierar de ursprungliga och ersatta teckensnittsnamnen.
+Använd metoden [FontsManager.get_substitutions](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/get_substitutions/) för att avgöra vilka teckensnitt som kommer att substitueras när presentationen renderas. Metoden returnerar [FontSubstitutionInfo](https://reference.aspose.com/slides/python-net/aspose.slides/fontsubstitutioninfo/)‑objekt som identifierar de ursprungliga och substituerade teckensnittsnamnen.
 
 Följande Python‑exempel listar alla teckensnittssubstitutioner för en presentation:
 
@@ -41,13 +43,13 @@ with slides.Presentation("Presentation.pptx") as presentation:
 
 ## **Hämta teckensnittssubstitutioner för valda bilder**
 
-Använd [FontsManager.get_substitutions](https://reference.aspose.com/slides/sv/python-net/aspose.slides/fontsmanager/get_substitutions/) med en lista över bildindex för att inspektera endast de substitutioner som krävs för att rendera specifika bilder. Detta är användbart när du renderar eller exporterar en del av en presentation, kontrollerar en stor presentation inkrementellt, lokaliserar bilder som beror på otillgängliga teckensnitt, förbereder ett minimalt teckensnittspaket för en server eller container, eller diagnostiserar renderingsskillnader utan att bearbeta orelaterade bilder.
+Använd [FontsManager.get_substitutions](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/get_substitutions/) med en lista av bildindex för att endast inspektera de substitutioner som krävs för att rendera specifika bilder. Detta är användbart när du renderar eller exporterar en del av en presentation, kontrollerar en stor presentation inkrementellt, lokaliserar bilder som beror på otillgängliga teckensnitt, förbereder ett minimalt teckensnittspaket för en server eller behållare, eller diagnostiserar renderingsskillnader utan att bearbeta orelaterade bilder.
 
-Listan innehåller ett‑baserade bildindex: `1` identifierar den första bilden. Till skillnad från så är samlingen [Presentation.slides](https://reference.aspose.com/slides/sv/python-net/aspose.slides/presentation/slides/sv/) noll‑baserad, så samma bild nås som `presentation.slides[0]`. Håll denna skillnad i åtanke när du bygger listan för att undvika fel med ett index.
+Listan innehåller ett‑baserade bildindex: `1` identifierar den första bilden. Till skillnad från det är samlingen [Presentation.slides](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/slides/) noll‑baserad, så samma bild nås som `presentation.slides[0]`. Ha detta i åtanke när du bygger listan för att undvika fel med ett‑off‑ett‑fel.
 
-Anropa metoden via egenskapen [Presentation.fonts_manager](https://reference.aspose.com/slides/sv/python-net/aspose.slides/presentation/fonts_manager/). Den returnerar endast de substitutioner som bestäms under rendering av de valda bilderna. Varje resultat är ett [FontSubstitutionInfo](https://reference.aspose.com/slides/sv/python-net/aspose.slides/fontsubstitutioninfo/)‑objekt som innehåller de ursprungliga och ersatta teckensnittsnamnen. Resultatet speglar den aktuella teckensnitts­miljön, konfigurerade reservregler, substitutionsregler lagrade i en [IFontSubstRuleCollection](https://reference.aspose.com/slides/sv/python-net/aspose.slides/ifontsubstrulecollection/), och [externally loaded fonts](/slides/sv/python-net/custom-font/).
+Kalla på metoden via egenskapen [Presentation.fonts_manager](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/fonts_manager/) . Den returnerar endast de substitutioner som fastställts under rendering av de valda bilderna. Varje resultat är ett [FontSubstitutionInfo](https://reference.aspose.com/slides/python-net/aspose.slides/fontsubstitutioninfo/)‑objekt som innehåller de ursprungliga och substituerade teckensnittsnamnen. Resultatet återspeglar den aktuella teckensnittsmiljön, konfigurerade reservregler, substitutionsregler som lagras i en [IFontSubstRuleCollection](https://reference.aspose.com/slides/python-net/aspose.slides/ifontsubstrulecollection/), och [externt inlästa teckensnitt](/slides/sv/python-net/custom-font/).
 
-Samma substitution kan krävas av mer än en vald bild. Dedupliera resultaten när du skapar ett teckensnitts‑inventarium eller en preflight‑rapport. Följande exempel rapporterar varje returnerad substitution och skapar sedan en sorterad lista med unika teckensnittsmappningar:
+Den samma substitutionen kan krävas av mer än en vald bild. Avduplicera resultaten när du skapar ett teckensnittsinventarium eller en förhandsgranskningsrapport. Följande exempel rapporterar varje returnerad substitution och skapar sedan en sorterad lista över unika teckensnittsmappningar:
 
 ```python
 import aspose.slides as slides
@@ -69,25 +71,25 @@ with slides.Presentation("Presentation.pptx") as presentation:
         print(entry)
 ```
 
-Klassen [FontsManager](https://reference.aspose.com/slides/sv/python-net/aspose.slides/fontsmanager/) erbjuder båda formerna av metoden. Välj den som passar omfattningen av renderingsoperationen:
+Klassen [FontsManager](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/) tillhandahåller båda formerna av metoden. Välj en enligt omfattningen av renderingsoperationen:
 
 | Metodanrop | Använd när |
 |---|---|
-| [get_substitutions](https://reference.aspose.com/slides/sv/python-net/aspose.slides/fontsmanager/get_substitutions/) with no arguments | Du behöver substitutioner för hela presentationen. |
-| [get_substitutions](https://reference.aspose.com/slides/sv/python-net/aspose.slides/fontsmanager/get_substitutions/) with a list of slide indexes | Du behöver substitutioner för ett valt område, inkrementell kontroll eller partiell export. |
+| [get_substitutions](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/get_substitutions/) with no arguments | Du behöver substitutioner för hela presentationen. |
+| [get_substitutions](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/get_substitutions/) with a list of slide indexes | Du behöver substitutioner för ett valt intervall, inkrementell kontroll eller partiell export. |
 
 ## **Ange teckensnittssubstitutionsregler**
 
-För att specificera vilket teckensnitt Aspose.Slides ska använda när ett källteckensnitt är otillgängligt:
+För att ange vilket teckensnitt Aspose.Slides ska använda när ett källteckensnitt är otillgängligt:
 
 1. Läs in presentationen.
-2. Skapa teckensnittsdefinitioner för käll- och ersättningsteckensnittet.
-3. Skapa en [FontSubstRule](https://reference.aspose.com/slides/sv/python-net/aspose.slides/fontsubstrule/) med villkoret [WHEN_INACCESSIBLE](https://reference.aspose.com/slides/sv/python-net/aspose.slides/fontsubstcondition/).
-4. Lägg till regeln i en [FontSubstRuleCollection](https://reference.aspose.com/slides/sv/python-net/aspose.slides/fontsubstrulecollection/).
-5. Tilldela samlingen till egenskapen [FontsManager.font_subst_rule_list](https://reference.aspose.com/slides/sv/python-net/aspose.slides/fontsmanager/font_subst_rule_list/).
+2. Skapa teckensnittsdefinitioner för käll‑ och substitutteckensnitten.
+3. Skapa en [FontSubstRule](https://reference.aspose.com/slides/python-net/aspose.slides/fontsubstrule/) med villkoret [WHEN_INACCESSIBLE](https://reference.aspose.com/slides/python-net/aspose.slides/fontsubstcondition/).
+4. Lägg till regeln i en [FontSubstRuleCollection](https://reference.aspose.com/slides/python-net/aspose.slides/fontsubstrulecollection/).
+5. Tilldela samlingen till egenskapen [FontsManager.font_subst_rule_list](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/font_subst_rule_list/).
 6. Rendera eller konvertera presentationen.
 
-Följande Python‑exempel substituerar `Arial` för `SomeRareFont` när `SomeRareFont` är otillgängligt, och renderar sedan den första bilden för att verifiera resultatet. Ersättningsteckensnittet måste vara tillgängligt för Aspose.Slides.
+Följande Python‑exempel substituerar `Arial` för `SomeRareFont` när `SomeRareFont` är otillgängligt, och renderar sedan den första bilden för att verifiera resultatet. Det substituterade teckensnittet måste vara tillgängligt för Aspose.Slides.
 
 ```python
 import aspose.slides as slides
@@ -106,45 +108,45 @@ with slides.Presentation("Fonts.pptx") as presentation:
 ```
 
 {{% alert color="info" title="Note" %}}
-För en ovillkorlig förändring av teckensnitten som används i hela presentationen, se [Font Replacement](/slides/sv/python-net/font-replacement/).
+För en ovillkorlig ändring av de teckensnitt som används i hela en presentation, se [Teckensnittsersättning](/slides/sv/python-net/font-replacement/).
 {{% /alert %}}
 
-## **Begränsningar för matematiska ekvationsteckensnitt**
+## **Begränsningar för matematiska ekvations‑teckensnitt**
 
-Substitutionsregler för teckensnitt är en del av den standardiserade teckensnittsvalprocessen som används under rendering och konvertering. De fungerar för vanlig text när Aspose.Slides kan ersätta ett otillgängligt teckensnitt med det tillgängliga teckensnitt som anges i en regel.
+Teckensnittssubstitutionsregler är en del av den standardiserade teckensnittsväljarprocessen som används under rendering och konvertering. De fungerar för vanlig text när Aspose.Slides kan ersätta ett otillgängligt teckensnitt med det tillgängliga teckensnitt som anges i en regel.
 
-Office Math‑ekvationer har ett extra krav. Om en ekvation använder **Cambria Math**, kan Aspose.Slides behöva just det teckensnittet för att beräkna och rendera ekvationslayouten. En regel som substituerar ett annat matematiskt teckensnitt, såsom **STIX Two Math**, kan inte ersätta **Cambria Math** för detta ändamål, och rendering kan fortfarande rapportera att **Cambria Math** krävs.
+Office‑Math‑ekvationer har ett ytterligare krav. Om en ekvation använder **Cambria Math**, kan Aspose.Slides behöva exakt det teckensnittet för att beräkna och rendera ekvationslayouten. En regel som substituerar ett annat matematiskt teckensnitt, såsom **STIX Two Math**, kan inte ersätta **Cambria Math** för detta ändamål, och rendering kan fortfarande rapportera att **Cambria Math** krävs.
 
-För att rendera eller konvertera en sådan presentation, gör **Cambria Math** tillgängligt för Aspose.Slides. Installera det i operativsystemet eller ladda det som ett [external font](/slides/sv/python-net/custom-font/).
+För att rendera eller konvertera en sådan presentation, gör **Cambria Math** tillgängligt för Aspose.Slides. Installera det i operativsystemet eller läs in det som ett [externt teckensnitt](/slides/sv/python-net/custom-font/).
 
 Denna begränsning gäller för ekvationslayout. Substitutionsreglerna som beskrivits ovan gäller fortfarande för vanlig presentations‑text.
 
 ## **Vanliga frågor**
 
-**Vad är skillnaden mellan font replacement och font substitution?**
+**Vad är skillnaden mellan teckensnittsersättning och teckensnittssubstitution?**
 
-[Font replacement](/slides/sv/python-net/font-replacement/) ändrar avsiktligt ett teckensnitt till ett annat genom hela presentationen. Font substitution väljer ett teckensnitt för renderad output när det konfigurerade villkoret är uppfyllt, till exempel när det ursprungliga teckensnittet är otillgängligt.
+[Teckensnittsersättning](/slides/sv/python-net/font-replacement/) ändrar avsiktligt ett teckensnitt till ett annat i hela presentationen. Teckensnittssubstitution väljer ett teckensnitt för den renderade utskriften när det konfigurerade villkoret är uppfyllt, exempelvis när det ursprungliga teckensnittet är otillgängligt.
 
 **När tillämpas substitutionsregler?**
 
-Reglerna deltar i [font selection sequence](/slides/sv/python-net/font-selection-sequence/) under rendering och konvertering. Med `WHEN_INACCESSIBLE` används en regel endast när Aspose.Slides inte kan komma åt källteckensnittet.
+Reglerna deltar i [teckensnittsväljarsekvensen](/slides/sv/python-net/font-selection-sequence/) under rendering och konvertering. Med `WHEN_INACCESSIBLE` används en regel endast när Aspose.Slides inte kan komma åt källteckensnittet.
 
 **Vad händer när ett teckensnitt saknas och ingen substitutionsregel är konfigurerad?**
 
-Aspose.Slides väljer det närmaste tillgängliga teckensnittet enligt sin teckensnittsväljsprocess. Resultatet beror på vilka teckensnitt som finns i körningsmiljön.
+Aspose.Slides väljer det närmaste tillgängliga teckensnittet enligt sin teckensnittsväljarprocess. Resultatet beror på vilka teckensnitt som finns i körmiljön.
 
-**Kan jag ladda externa teckensnitt för att undvika substitution?**
+**Kan jag ladda in externa teckensnitt för att undvika substitution?**
 
-Ja. Du kan [load external fonts](/slides/sv/python-net/custom-font/) så att Aspose.Slides kan använda dem under rendering och konvertering.
+Ja. Du kan [ladda in externa teckensnitt](/slides/sv/python-net/custom-font/) så att Aspose.Slides kan använda dem under rendering och konvertering.
 
 **Distribuerar Aspose teckensnitt med biblioteket?**
 
-Nej. Du ansvarar för att tillhandahålla teckensnitt och för att följa deras licenser.
+Nej. Du är ansvarig för att tillhandahålla teckensnitt och följa deras licenser.
 
 **Kan substitutionsresultat skilja sig mellan Windows, Linux och macOS?**
 
-Ja. Installerade teckensnitt och sökvägar för teckensnitt varierar mellan operativsystem, så ett teckensnitt som är tillgängligt på en maskin kan kräva substitution på en annan.
+Ja. Installerade teckensnitt och sökvägar för teckensnitt skiljer sig åt mellan operativsystem, så ett teckensnitt som är tillgängligt på en maskin kan kräva substitution på en annan.
 
-**Hur kan jag göra teckensnittsväljning konsekvent i batch‑konverteringar?**
+**Hur kan jag göra teckensnittsväljning konsekvent i batchkonverteringar?**
 
-Använd samma teckensnittsfiler och versioner på varje maskin eller container, [load required external fonts](/slides/sv/python-net/custom-font/), och [embed fonts](/slides/sv/python-net/embedded-font/) när licensen tillåter det. Du kan också anropa [FontsManager.get_substitutions](https://reference.aspose.com/slides/sv/python-net/aspose.slides/fontsmanager/get_substitutions/) före export för att identifiera oväntade substitutioner.
+Använd samma teckensnittsfiler och versioner på varje maskin eller behållare, [ladda in erforderliga externa teckensnitt](/slides/sv/python-net/custom-font/), och [bädda in teckensnitt](/slides/sv/python-net/embedded-font/) när licensen tillåter. Du kan också anropa [FontsManager.get_substitutions](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/get_substitutions/) före export för att identifiera oväntade substitutioner.

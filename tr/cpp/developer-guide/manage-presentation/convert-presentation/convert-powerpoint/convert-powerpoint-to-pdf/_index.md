@@ -1,14 +1,14 @@
 ---
-title: C++'ta PPT ve PPTX'i PDF'ye Dönüştürme [Gelişmiş Özellikler Dahil]
+title: C++'ta PPT ve PPTX'i PDF'ye Dönüştür [Gelişmiş Özellikler Dahildir]
 linktitle: PowerPoint'ten PDF'ye
 type: docs
 weight: 40
 url: /tr/cpp/convert-powerpoint-to-pdf/
 keywords:
-- PowerPoint dönüştür
+- PowerPoint'i dönüştür
 - sunumu dönüştür
 - PowerPoint'ten PDF'ye
-- sunumu PDF'ye
+- sunumdan PDF'ye
 - PPT'den PDF'ye
 - PPT'yi PDF'ye dönüştür
 - PPTX'ten PDF'ye
@@ -28,43 +28,43 @@ description: "Aspose.Slides kullanarak C++'ta PowerPoint PPT/PPTX'i yüksek kali
 ---
 ## **Genel Bakış**
 
-PowerPoint sunumlarını (PPT, PPTX, ODP vb.) C++'ta PDF formatına dönüştürmek, farklı cihazlarda uyumluluk ve sunumunuzun düzeni ile biçimlendirmesini koruma gibi bir dizi avantaj sağlar. Bu kılavuz, sunumları PDF belgelerine dönüştürmeyi, görüntü kalitesini kontrol etmek için çeşitli seçenekleri kullanmayı, gizli slaytları eklemeyi, PDF dosyalarına parola koruması eklemeyi, font ikamelerini tespit etmeyi, dönüşüm için belirli slaytları seçmeyi ve çıktı belgelerine uyumluluk standartları uygulamayı gösterir.
+C++'ta PowerPoint sunumlarını (PPT, PPTX, ODP vb.) PDF formatına dönüştürmek, farklı cihazlarda uyumluluk ve sunumunuzun düzeni ile biçimlendirmesinin korunması gibi birçok avantaj sağlar. Bu kılavuz, sunumları PDF belgelerine nasıl dönüştüreceğinizi, görüntü kalitesini kontrol etmek için çeşitli seçenekleri nasıl kullanacağınızı, gizli slaytları dahil etmeyi, PDF dosyalarını şifrelemeyi, yazı tipi değiştirmelerini tespit etmeyi, dönüştürme için belirli slaytları seçmeyi ve çıktılara uyumluluk standartlarını uygulamayı gösterir.
 
-## **PowerPoint'ten PDF'ye Dönüştürmeler**
+## **PowerPoint'ten PDF'ye Dönüşümler**
 
-Aspose.Slides kullanarak aşağıdaki biçimlerdeki sunumları PDF'ye dönüştürebilirsiniz:
+Aspose.Slides kullanarak aşağıdaki formatlardaki sunumları PDF'ye dönüştürebilirsiniz:
 
 * **PPT**
 * **PPTX**
 * **ODP**
 
-Bir sunumu PDF'ye dönüştürmek için dosya adını [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) sınıfına argüman olarak aktarın ve ardından sunumu [Save](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/save/) yöntemiyle PDF olarak kaydedin. [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) sınıfı, tipik olarak bir sunumu PDF'ye dönüştürmek için kullanılan [Save](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/save/) metodunu ortaya çıkarır.
+Bir sunumu PDF'ye dönüştürmek için dosya adını [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) sınıfına argüman olarak geçirin ve ardından bir [Save](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/save/) yöntemi kullanarak sunumu PDF olarak kaydedin. [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) sınıfı, genellikle bir sunumu PDF'ye dönüştürmek için kullanılan [Save](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/save/) yöntemini ortaya çıkarır.
 
 {{% alert color="info" title="Note" %}}
-Aspose.Slides for C++ çıktı belgelerine API bilgisi ve sürüm numarasını ekler. Örneğin, bir sunumu PDF'ye dönüştürürken Aspose.Slides Application alanını "*Aspose.Slides*" ve PDF Producer alanını "*Aspose.Slides v XX.XX*" şeklinde doldurur. **Not** Aspose.Slides'in bu bilgiyi çıktı belgelerinden değiştirmesini veya kaldırmasını sağlayamazsınız.
+Aspose.Slides for C++, çıktıya API bilgisi ve sürüm numarasını ekler. Örneğin, bir sunumu PDF'ye dönüştürürken, Aspose.Slides Application alanını "*Aspose.Slides*" ve PDF Producer alanını "*Aspose.Slides v XX.XX*" biçiminde doldurur. **Not** Aspose.Slides'in bu bilgiyi çıktılardan değiştirmesini veya kaldırmasını isteyemezsiniz.
 {{% /alert %}}
 
-Aspose.Slides şunları dönüştürmenize olanak tanır:
+Aspose.Slides, şunları dönüştürmenize olanak tanır:
 
 * Tüm sunumları PDF'ye
 * Bir sunumdan belirli slaytları PDF'ye
 
-Aspose.Slides sunumları PDF olarak dışa aktarır ve ortaya çıkan PDF'lerin orijinal sunumlarla yakından eşleşmesini sağlar. Dönüşüm sırasında öğeler ve öznitelikler doğru bir şekilde işlenir, bunlar şunları içerir:
+Aspose.Slides sunumları PDF'ye dışa aktarır ve ortaya çıkan PDF'lerin orijinal sunumlarla yakından eşleşmesini sağlar. Dönüştürmede öğeler ve öznitelikler doğru bir şekilde işlenir, şunlar dahil:
 
 * Görseller
 * Metin kutuları ve şekiller
-* Metin biçimlendirmesi
-* Paragraf biçimlendirmesi
+* Metin biçimlendirme
+* Paragraf biçimlendirme
 * Köprüler
-* Üstbilgi ve altbilgi
+* Üstbilgiler ve altbilgiler
 * Madde işaretleri
 * Tablolar
 
-## **PowerPoint'ten PDF'ye Dönüştürme**
+## **PowerPoint'i PDF'ye Dönüştür**
 
-Varsayılan seçenekleri kullanan standart PowerPoint‑to‑PDF dönüşüm süreci, en yüksek kalite seviyelerinde optimal ayarlarla sağlanan bir PDF üretmeye çalışır.
+Standard PowerPoint'ten PDF'ye dönüşüm süreci varsayılan seçenekleri kullanır. Bu durumda, Aspose.Slides sağlanan sunumu en yüksek kalite seviyelerinde optimal ayarlarla PDF'ye dönüştürmeye çalışır.
 
-Aşağıdaki örnek, bir sunumu yükler ve tüm görünür slaytları varsayılan dışa aktarma ayarlarıyla PDF olarak kaydeder.
+Aşağıdaki örnek bir sunumu yükler ve varsayılan dışa aktarma ayarlarını kullanarak tüm görünür slaytları PDF olarak kaydeder.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -81,16 +81,18 @@ presentation->Dispose();
 ```
 
 {{% alert color="info" title="Note" %}}
-Aspose, sunum‑to‑PDF dönüşüm sürecini gösteren ücretsiz bir çevrimiçi [**PowerPoint PDF dönüştürücü**](https://products.aspose.app/slides/conversion/ppt-to-pdf) sunar. Buradaki prosedürün canlı bir uygulamasını test etmek için bu dönüştürücüyü kullanabilirsiniz.
+Aspose, sunumdan PDF'ye dönüşüm sürecini gösteren ücretsiz bir çevrimiçi [**PowerPoint'ten PDF'ye dönüştürücü**](https://products.aspose.app/slides/conversion/ppt-to-pdf) sunar. Burada açıklanan prosedürün canlı bir uygulaması için bu dönüştürücüyle bir test yapabilirsiniz.
 {{% /alert %}}
 
-## **PowerPoint'ten PDF'ye Seçeneklerle Dönüştürme**
+## **PowerPoint'i PDF'ye Seçeneklerle Dönüştür**
 
-Aspose.Slides, sonuç PDF'yi özelleştirmenize, PDF'yi parola ile kilitlemenize veya dönüşüm sürecinin nasıl ilerleyeceğini belirlemenize olanak tanıyan [PdfOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/) sınıfı altındaki özel seçenekler sağlar.
+Aspose.Slides, sonuç PDF'yi özelleştirmenizi, PDF'yi bir şifreyle kilitlemenizi veya dönüşüm sürecinin nasıl ilerleyeceğini belirlemenizi sağlayan [PdfOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/) sınıfı altındaki özel seçenekler—özellikler—sunar.
 
-### **PowerPoint'ten PDF'ye Özel Seçeneklerle Dönüştürme**
+### **PowerPoint'i PDF'ye Özel Seçeneklerle Dönüştür**
 
-Özel dönüşüm seçenekleri ile raster görüntüler için tercih ettiğiniz kalite ayarını tanımlayabilir, metafile'ların nasıl işleneceğini belirtebilir, metin sıkıştırma seviyesi ayarlayabilir, görüntüler için DPI yapılandırabilir ve daha fazlasını yapabilirsiniz.
+Özel dönüşüm seçeneklerini kullanarak, raster görüntüler için tercih ettiğiniz kalite ayarını belirleyebilir, metafile'ların nasıl işleneceğini belirtebilir, metin için sıkıştırma seviyesini ayarlayabilir, görüntüler için DPI yapılandırabilir ve daha fazlasını yapabilirsiniz.
+
+Aşağıdaki örnek, JPEG kalitesi 90, görüntü çözünürlüğü 300 DPI, metafile'lar PNG olarak kaydedilen ve Flate metin sıkıştırması kullanılan PDF 1.5'e bir sunumu dışa aktarır.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -118,11 +120,11 @@ presentation->Dispose();
 
 ### **Gömülü OLE Dosyalarını PDF Ekleri Olarak Koru**
 
-Bir sunum gömülü bir Excel çalışma kitabı içeriyorsa, PDF alıcılarının yalnızca slaytları değil aynı zamanda çalışma kitabının verilerine de erişmesini isteyebilirsiniz. Gömülü OLE dosyalarını sonuç PDF'de ek olarak tutmak için `true` ile [PdfOptions::set_IncludeOleData](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/set_includeoledata/) metodunu çağırın.
+Bir sunum gömülü bir Excel çalışma kitabı içeriyorsa, PDF alıcılarının çalışma kitabının verilerine erişmesini ve slaytları görüntülemesini isteyebilirsiniz. Gömülü OLE dosyalarını sonuç PDF'de ek olarak korumak için `true` ile [PdfOptions::set_IncludeOleData](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/set_includeoledata/) metodunu çağırın.
 
-Varsayılan değer `false`'dır: OLE nesnesinin ön izleme resmi veya simgesi PDF sayfasında görüntülenir, ancak gömülü dosya ek olarak eklenmez. Seçeneği `true` olarak ayarlamak ayrıca dosya verilerini de ekler. Ön izleme yalnızca görsel bir temsildir; ek, alıcıların gömülü dosyayı ayrı ayrı açıp kaydetmesini sağlar. OLE nesnesi PDF sayfasında etkileşimli bir Excel çalışma sayfasına dönüşmez.
+Varsayılan değer `false`'tur: OLE nesnesinin ön izleme görüntüsü veya simgesi PDF sayfasında renderlanır, ancak gömülü dosya ek olarak dahil edilmez. Seçeneği `true` olarak ayarlamak, dosya verilerini ek olarak ekler. Ön izleme görsel bir temsil olarak kalır; ek, alıcıların gömülü dosyayı ayrı ayrı açıp kaydetmesini sağlar. OLE nesnesi PDF sayfasında etkileşimli bir Excel çalışma sayfasına dönüşmez.
 
-Aşağıdaki örnek, zaten gömülü bir Excel çalışma kitabı içeren bir sunumu yükler ve bu çalışma kitabı ekli olarak PDF'ye dışa aktarır.
+Aşağıdaki örnek, içinde gömülü bir Excel çalışma kitabı bulunan bir sunumu yükler ve çalışma kitabı ekli şekilde PDF'ye dışa aktarır.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -144,17 +146,19 @@ presentation->Dispose();
 
 Sonucu kontrol etmek için:
 
-1. PDF'yi dosya eklerini destekleyen bir görüntüleyicide (ör. Adobe Acrobat Reader) açın.
+1. Adobe Acrobat Reader gibi dosya eklerini destekleyen bir görüntüleyicide dışa aktarılan PDF'yi açın.
 2. Görüntüleyicinin **Attachments** panelini açın ve gömülü çalışma kitabını bulun.
-3. Eki kaydedin ve Excel'de açarak verileri inceleyin ya da görüntüleyici izin veriyorsa doğrudan açın. PDF sayfasındaki ön izleme ekten ayrı bir öğedir.
+3. Ek'i kaydedin ve verilerini incelemek için Excel'de açın, ya da görüntüleyici izin veriyorsa doğrudan açın. PDF sayfasındaki ön izleme ek'ten ayrı bir öğedir.
 
 {{% alert color="info" title="Note" %}}
-PDF/A standartları ekler üzerinde kısıtlamalar getirir: PDF/A-1 gömülü dosyaları yasaklar, PDF/A-2 yalnızca PDF/A eklerine izin verir ve PDF/A-3 Excel çalışma kitapları dahil diğer dosya türlerine izin verir. Bu kısıtlamalar standartların gereklilikleridir, Aspose.Slides'e özgü bir sınırlama değildir. Bu örnek varsayılan PDF uyumluluk ayarını kullanır ve PDF/A dışa aktarımını göstermez.
+PDF/A standartları ekler üzerinde kısıtlamalar getirir: PDF/A-1 gömülü dosyaları yasaklar, PDF/A-2 yalnızca PDF/A eklerine izin verir ve PDF/A-3 Excel çalışma kitapları dahil diğer dosya türlerine izin verir. Bunlar standartların gereklilikleridir, Aspose.Slides'e özgü kısıtlamalar değildir. Bu örnek, varsayılan PDF uyumluluk ayarını kullanır ve PDF/A dışa aktarımını göstermez.
 {{% /alert %}}
 
-### **PowerPoint'ten PDF'ye Gizli Slaytlarla Dönüştürme**
+### **PowerPoint'i Gizli Slaytlarla PDF'ye Dönüştür**
 
-Bir sunum gizli slaytlar içeriyorsa, gizli slaytları sonuç PDF'de sayfa olarak eklemek için [PdfOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/) sınıfındaki [set_ShowHiddenSlides](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/set_showhiddenslides/) metodunu kullanabilirsiniz.
+Bir sunum gizli slaytlar içeriyorsa, gizli slaytları sonuç PDF'de sayfa olarak eklemek için [PdfOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/) sınıfındaki [set_ShowHiddenSlides](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/set_showhiddenslides/) yöntemini kullanabilirsiniz.
+
+Aşağıdaki örnek, gizli slaytları dahil ederek bir sunumu PDF'ye dışa aktarır.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -174,9 +178,9 @@ presentation->Save(u"PowerPoint-to-PDF.pdf", SaveFormat::Pdf, pdfOptions);
 presentation->Dispose();
 ```
 
-### **PowerPoint'ten Parola Korumalı PDF'ye Dönüştürme**
+### **PowerPoint'i Şifre Koramlı PDF'ye Dönüştür**
 
-Aşağıdaki örnek, `password` parolası ile açılması gereken bir PDF'ye sunumu dışa aktarır. Erişim izinleri, yüksek kalite baskı dahil olmak üzere baskıya izin verir.
+Aşağıdaki örnek, açmak için `password` şifresini gerektiren bir PDF'ye sunumu dışa aktarır. Erişim izinleri, yüksek kaliteli baskı dahil olmak üzere yazdırmaya izin verir.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -198,11 +202,11 @@ presentation->Save(u"PPTX-to-PDF.pdf", SaveFormat::Pdf, pdfOptions);
 presentation->Dispose();
 ```
 
-### **Font İkamelerini Algıla**
+### **Yazı Tipi Değiştirmelerini Algıla**
 
-Aspose.Slides, [PdfOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/) sınıfı altındaki [set_WarningCallback](https://reference.aspose.com/slides/cpp/aspose.slides.export/saveoptions/set_warningcallback/) metodunu sağlayarak sunum‑to‑PDF dönüşüm sürecinde font ikamelerini algılamanızı sağlar.
+Aspose.Slides, sunumdan PDF'ye dönüşüm sürecinde yazı tipi değiştirmelerini algılamanızı sağlayan [PdfOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/) sınıfı altındaki [set_WarningCallback](https://reference.aspose.com/slides/cpp/aspose.slides.export/saveoptions/set_warningcallback/) metodunu sunar.
 
-Aşağıdaki örnek, bir sunumu PDF olarak dışa aktarır ve font ikameleriyle ilgili uyarıları konsola yazar. Uyarı yalnızca mevcut olmayan bir font dışa aktarım sırasında ikame edildiğinde basılır.
+Aşağıdaki örnek, bir sunumu PDF'ye dışa aktarır ve yazı tipi değiştirme uyarılarını konsola yazdırır. Bir uyarı yalnızca mevcut olmayan bir yazı tipi dışa aktarım sırasında değiştirildiğinde yazdırılır.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -244,12 +248,46 @@ presentation->Dispose();
 ```
 
 {{% alert color="info" title="Note" %}}
-Font ikameleri hakkında daha fazla bilgi için [Font İkamesi](/slides/tr/cpp/font-substitution/) makalesine bakın.
+Yazı tipi değiştirmeleri hakkında daha fazla bilgi için, [Yazı Tipi Değiştirme](/slides/tr/cpp/font-substitution/) makalesine bakın.
 {{% /alert %}}
 
-## **PowerPoint'ten Seçili Slaytları PDF'ye Dönüştürme**
+### **Ayrı Bir Kalın Yazı Tipi Olmayan Yazı Tiplerini İşle**
 
-Aşağıdaki örnek, bir sunumdan 1 ve 3 numaralı slaytları PDF'ye dışa aktarır. Bu dizi içindeki slayt numaraları bir‑tabanlıdır ve giriş sunumu en az üç slayt içermelidir.
+Bir sunum, yazı tipinde ayrı bir kalın karakter seti olmasa bile metoda kalın biçimlendirme uygulayabilir. Metin, normal glifleri yapay olarak kalınlaştıran sentetik kalınlaştırma sayesinde yine de kalın görünebilir. Bu metin PDF'de çok ağır görünürse veya istenen görünümden farklıysa, [PdfOptions::set_RasterizeUnsupportedFontStyles](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/set_rasterizeunsupportedfontstyles/) metodunu `true` ile çağırmayı deneyin. Bu seçenek, etkilenmiş metni PDF dışa aktarımı sırasında bitmap olarak işler ve bazı yazı tiplerinde görünümünü iyileştirebilir. Varsayılan değeri `false`'tur.
+
+Örnek sunum, aynı yazı tipine uygulanmış kalın biçimlendirmeli bir metin kutusu ve normal metinli bir metin kutusu olmak üzere iki metin kutusu içerir; bu yazı tipinin ayrı bir kalın karakter seti yoktur. Aşağıdaki örnek, sunumu yükler, desteklenmeyen yazı tipi stillerinin rasterleştirilmesini etkinleştirir ve PDF'ye dışa aktarır:
+
+```cpp
+#include <DOM/Presentation.h>
+#include <Export/PdfOptions.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto pdfOptions = MakeObject<PdfOptions>();
+pdfOptions->set_RasterizeUnsupportedFontStyles(true);
+
+auto presentation = MakeObject<Presentation>(u"unsupported-bold.pptx");
+presentation->Save(u"rasterized.pdf", SaveFormat::Pdf, pdfOptions);
+presentation->Dispose();
+```
+
+Aşağıdaki ön izlemeler, seçeneğin devre dışı ve etkin olduğu çıktıyı gösterir. Bu örnekte, seçeneği devre dışı bıraktığınızda kalın metnin çizgileri daha kalındır. Seçeneği etkinleştirdiğinizde çizgileri daha ince olur; normal metin değişmez. Sunumunuz için ayarı seçmeden önce sonuçları karşılaştırın.
+
+| Seçenek devre dışı (`false`, varsayılan) | Seçenek etkin (`true`) |
+|---|---|
+| ![PDF with unsupported font style rasterization disabled](unsupported-bold-disabled.png) | ![PDF with unsupported font style rasterization enabled](unsupported-bold-enabled.png) |
+
+Bu örnekte, seçeneği etkinleştirmek yalnızca kalın metni bitmap'e dönüştürür: OCR olmadan seçilemez, kopyalanamaz veya metin olarak aranamaz ve kenarları %800 yakınlaştırmada daha yumuşak görünür. Normal metin arama yapılabilir olarak kalır. Seçenek devre dışı bırakıldığında, her iki dize de metin olarak kalır.
+
+Bu seçenek, yazı tipinde ayrı bir kalın karakter seti olmadığında kalın olarak biçimlendirilmiş metni rasterleştirir. [Yazı Tipi Değiştirme](/slides/tr/cpp/font-substitution/) ise orijinal yazı tipi mevcut olmadığında başka bir yazı tipi seçer.
+
+## **PowerPoint'ten Seçili Slaytları PDF'ye Dönüştür**
+
+Aşağıdaki örnek, bir sunumdan 1 ve 3 numaralı slaytları PDF'ye dışa aktarır. Bu dizi içindeki slayt numaraları birden başlar ve giriş sunumu en az üç slayt içermelidir.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -267,9 +305,9 @@ presentation->Save(u"PPTX-to-PDF.pdf", slides, SaveFormat::Pdf);
 presentation->Dispose();
 ```
 
-## **PowerPoint'ten Özel Slayt Boyutuyla PDF'ye Dönüştürme**
+## **PowerPoint'i Özel Slayt Boyutu ile PDF'ye Dönüştür**
 
-Aşağıdaki örnek, bir sunumun ilk slaytını 612 × 792 nokta (8.5 × 11 inç) boyutunda yeni bir sunuma kopyalar. Slayt içeriği ölçeklenerek sığdırılır ve tek slayt PDF olarak dışa aktarılır.
+Aşağıdaki örnek, bir sunumun ilk slaytını 612 × 792 puan (8.5 × 11 inç) slayt boyutuna sahip yeni bir sunuma kopyalar. Slayt içeriğini sığacak şekilde ölçeklendirir ve tek slaytı PDF'ye dışa aktarır.
 
 ```cpp
 #include <DOM/ISlideCollection.h>
@@ -303,9 +341,9 @@ resizedPresentation->Dispose();
 presentation->Dispose();
 ```
 
-## **Not Slaytı Görünümünde PowerPoint'ten PDF'ye Dönüştürme**
+## **PowerPoint'i Not Slaytı Görünümünde PDF'ye Dönüştür**
 
-Aşağıdaki örnek, bir sunumu PDF'ye dışa aktarır ve her slaytın notlarını slaytın altında yerleştirir. Sonucu görmek için not içeren bir sunum kullanın.
+Aşağıdaki örnek, bir sunumu PDF'ye dışa aktarır ve her slaytın konuşmacı notlarını slaytın altında yerleştirir. Sonucu görmek için konuşmacı notları içeren bir sunum kullanın.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -330,11 +368,11 @@ presentation->Save(u"PDF_with_notes.pdf", SaveFormat::Pdf, pdfOptions);
 presentation->Dispose();
 ```
 
-## **PDF için Erişilebilirlik ve Uyumluluk Standartları**
+## **PDF İçin Erişilebilirlik ve Uyumluluk Standartları**
 
-Aspose.Slides, [Web Content Accessibility Guidelines (**WCAG**)](https://www.w3.org/TR/WCAG-TECHS/pdf.html) ile uyumlu bir dönüşüm prosedürü kullanmanıza olanak tanır. PowerPoint belgesini PDF'ye dışa aktarırken şu uyumluluk standartlarından herhangi birini kullanabilirsiniz: **PDF/A1a**, **PDF/A1b** ve **PDF/UA**.
+Aspose.Slides, [Web İçerik Erişilebilirlik Yönergeleri (**WCAG**)](https://www.w3.org/TR/WCAG-TECHS/pdf.html) ile uyumlu bir dönüşüm prosedürü kullanmanıza olanak tanır. Bir PowerPoint belgesini PDF'ye bu uyumluluk standartlarından herhangi birini kullanarak dışa aktarabilirsiniz: **PDF/A1a**, **PDF/A1b**, ve **PDF/UA**.
 
-Bu C++ kodu, farklı uyumluluk standartlarına göre birden çok PDF oluşturan bir PowerPoint‑to‑PDF dönüşüm sürecini gösterir:
+Bu C++ kodu, farklı uyumluluk standartlarına göre birden fazla PDF üreten bir PowerPoint'ten PDF'ye dönüşüm sürecini gösterir:
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -367,32 +405,27 @@ presentation->Dispose();
 ```
 
 {{% alert color="info" title="Note" %}}
-Aspose.Slides PDF dönüşüm işlemlerini destekler ve PDF dosyalarını popüler dosya biçimlerine dönüştürmenize olanak tanır. [PDF'den HTML'e](https://products.aspose.com/slides/cpp/conversion/pdf-to-html/), [PDF'den görüntüye](https://products.aspose.com/slides/cpp/conversion/pdf-to-image/), [PDF'den JPG'e](https://products.aspose.com/slides/cpp/conversion/pdf-to-jpg/) ve [PDF'den PNG'e](https://products.aspose.com/slides/cpp/conversion/pdf-to-png/) dönüşümleri gerçekleştirebilirsiniz. Özel biçimlere yönelik diğer PDF dönüşüm işlemleri—[PDF'den SVG'e](https://products.aspose.com/slides/cpp/conversion/pdf-to-svg/), [PDF'den TIFF'e](https://products.aspose.com/slides/cpp/conversion/pdf-to-tiff/), ve [PDF'den XML'e](https://products.aspose.com/slides/cpp/conversion/pdf-to-xml/)—da desteklenir.
+Aspose.Slides, PDF dosyalarını popüler dosya formatlarına dönüştürmenizi sağlayan PDF dönüşüm işlemlerini destekler. [PDF to HTML](https://products.aspose.com/slides/cpp/conversion/pdf-to-html/), [PDF to image](https://products.aspose.com/slides/cpp/conversion/pdf-to-image/), [PDF to JPG](https://products.aspose.com/slides/cpp/conversion/pdf-to-jpg/), ve [PDF to PNG](https://products.aspose.com/slides/cpp/conversion/pdf-to-png/) dönüşümlerini gerçekleştirebilirsiniz. Özelleşmiş formatlara PDF dönüşüm işlemleri—[PDF to SVG](https://products.aspose.com/slides/cpp/conversion/pdf-to-svg/), [PDF to TIFF](https://products.aspose.com/slides/cpp/conversion/pdf-to-tiff/), ve [PDF to XML](https://products.aspose.com/slides/cpp/conversion/pdf-to-xml/)—da desteklenir.
 {{% /alert %}}
 
-> **Not:** PDF/UA'ya dışa aktarırken Aspose.Slides, SmartArt, grafikler ve formüller gibi karmaşık grafikleri tek bir şekil olarak ele alır. Bireysel yol öğeleri ayrı içerik olarak korunmaz ve artefakt olarak işaretlenebilir; alternatif metin yalnızca bütün şekil için sağlanır.
+> **Not:** PDF/UA'ya dışa aktarırken, Aspose.Slides SmartArt, grafikler ve formüller gibi karmaşık grafikleri tek bir şekil olarak ele alır. Tek tek yol öğeleri ayrı içerik olarak korunmaz ve artefakt olarak işaretlenebilir; alternatif metin yalnızca bütün şekil için sağlanır.
 
 ## **SSS**
 
-**Birden çok PowerPoint dosyasını toplu olarak PDF'ye dönüştürebilir miyim?**
+**Birden fazla PowerPoint dosyasını toplu olarak PDF'ye dönüştürebilir miyim?**  
+Evet, Aspose.Slides birden fazla PPT veya PPTX dosyasının toplu olarak PDF'ye dönüştürülmesini destekler. Dosyalarınız üzerinde döngü kurarak dönüşüm sürecini programlı olarak uygulayabilirsiniz.
 
-Evet, Aspose.Slides birden çok PPT veya PPTX dosyasının PDF'ye toplu dönüşümünü destekler. Dosyalarınızı döngü içinde işleyerek dönüşüm sürecini programlı olarak uygulayabilirsiniz.
+**Dönüştürülen PDF'yi şifrelemek mümkün mü?**  
+Evet. Dönüşüm sürecinde şifre belirlemek ve erişim izinlerini tanımlamak için [PdfOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/) sınıfını kullanın.
 
-**Dönüştürülen PDF'yi parola ile korumak mümkün mü?**
+**Gizli slaytları PDF'ye nasıl eklerim?**  
+Sonuç PDF'ye gizli slaytları eklemek için [PdfOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/) sınıfındaki [set_ShowHiddenSlides](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/set_showhiddenslides/) yöntemini kullanın.
 
-Evet. Dönüşüm sırasında bir parola ayarlamak ve erişim izinlerini tanımlamak için [PdfOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/) sınıfını kullanabilirsiniz.
+**Aspose.Slides PDF'de yüksek görüntü kalitesini koruyabilir mi?**  
+Evet, PDF'nizde yüksek kaliteli görüntüler sağlamak için [PdfOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/) sınıfındaki [set_JpegQuality](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/set_jpegquality/) ve [set_SufficientResolution](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/set_sufficientresolution/) gibi yöntemleri kullanarak görüntü kalitesini kontrol edebilirsiniz.
 
-**Gizli slaytları PDF'ye nasıl ekleyebilirim?**
-
-Gizli slaytları sonuç PDF'ye dahil etmek için [PdfOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/) sınıfındaki [set_ShowHiddenSlides](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/set_showhiddenslides/) metodunu kullanın.
-
-**Aspose.Slides PDF'de yüksek görüntü kalitesini koruyabilir mi?**
-
-Evet, [set_JpegQuality](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/set_jpegquality/) ve [set_SufficientResolution](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/set_sufficientresolution/) gibi metodları [PdfOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/) sınıfında kullanarak PDF'nizde yüksek kalite görüntüler sağlayabilirsiniz.
-
-**Aspose.Slides PDF/A uyumluluk standartlarını destekliyor mu?**
-
-Evet, Aspose.Slides PDF/A1a, PDF/A1b ve PDF/UA gibi çeşitli standartlara uygun PDF'ler dışa aktararak belgelerinizin erişilebilirlik ve arşivleme gereksinimlerini karşılamasını sağlar.
+**Aspose.Slides PDF/A uyumluluk standartlarını destekliyor mu?**  
+Evet, Aspose.Slides PDF/A1a, PDF/A1b ve PDF/UA gibi çeşitli standartlara uygun PDF'ler dışa aktarmanıza izin verir; böylece belgeleriniz erişilebilirlik ve arşivleme gereksinimlerini karşılar.
 
 ## **Ek Kaynaklar**
 

@@ -1,15 +1,15 @@
 ---
-title: กำหนดการแทนที่แบบอักษรในการนำเสนอด้วย Java
-linktitle: การแทนที่แบบอักษร
+title: กำหนดการแทนที่ฟอนต์ในการนำเสนอโดยใช้ Java
+linktitle: การแทนที่ฟอนต์
 type: docs
 weight: 70
 url: /th/java/font-substitution/
 keywords:
-- แบบอักษร
-- แบบอักษรทดแทน
-- การแทนที่แบบอักษร
-- เปลี่ยนแบบอักษร
-- การเปลี่ยนแบบอักษร
+- ฟอนต์
+- ฟอนต์ทดแทน
+- การแทนที่ฟอนต์
+- เปลี่ยนฟอนต์
+- การเปลี่ยนฟอนต์
 - กฎการแทนที่
 - กฎการเปลี่ยน
 - PowerPoint
@@ -17,19 +17,21 @@ keywords:
 - การนำเสนอ
 - Java
 - Aspose.Slides
-description: "กำหนดกฎการแทนที่แบบอักษรและตรวจสอบแบบอักษรที่ถูกแทนที่ใน Aspose.Slides สำหรับ Java เมื่อทำการเรนเดอร์หรือแปลงการนำเสนอ PowerPoint และ OpenDocument"
+description: "กำหนดกฎการแทนที่ฟอนต์และตรวจสอบฟอนต์ที่ถูกแทนที่ใน Aspose.Slides สำหรับ Java ขณะเรนเดอร์หรือแปลงการนำเสนอ PowerPoint และ OpenDocument"
 ---
 ## **ภาพรวม**
 
-การแทนที่แบบอักษรช่วยให้ Aspose.Slides ใช้แบบอักษรที่มีอยู่แทนแบบอักษรที่ไม่สามารถเข้าถึงได้เมื่อการนำเสนอถูกเรนเดอร์หรือแปลง การแทนที่นี้มีผลต่อเอาต์พุตที่เรนเดอร์เท่านั้น; ไม่เปลี่ยนแบบอักษรที่กำหนดให้กับเนื้อหาการนำเสนอ
+การแทนที่ฟอนต์ทำให้ Aspose.Slides ใช้ฟอนต์ที่มีอยู่แทนฟอนต์ที่ไม่สามารถเข้าถึงได้เมื่อการนำเสนอถูกเรนเดอร์หรือแปลง การแทนที่มีผลต่อผลลัพธ์ที่เรนเดอร์; ไม่ได้เปลี่ยนฟอนต์ที่กำหนดให้กับเนื้อหาในงานนำเสนอ
 
-คุณสามารถกำหนดแบบอักษรที่จะใช้เมื่อแบบอักษรเฉพาะบางตัวไม่พร้อมใช้งานและคุณสามารถตรวจสอบการแทนที่ที่ Aspose.Slides จะทำระหว่างการเรนเดอร์ได้ สิ่งนี้ช่วยให้เอาต์พุตคงที่ระหว่างสภาพแวดล้อมที่มีแบบอักษรติดตั้งต่างกัน
+คุณสามารถกำหนดฟอนต์ที่จะใช้เมื่อฟอนต์บางตัวไม่มีอยู่ได้ และคุณสามารถตรวจสอบการแทนที่ที่ Aspose.Slides จะทำระหว่างการเรนเดอร์ได้ สิ่งนี้ช่วยให้ผลลัพธ์คงที่ในสภาพแวดล้อมที่มีฟอนต์ติดตั้งต่างกัน
 
-## **รับการแทนที่แบบอักษร**
+หากฟอนต์มีอยู่แต่ไม่มีตัวหนาที่กำหนดเฉพาะ ดู [จัดการฟอนต์ที่ไม่มีตัวหนาที่กำหนดเฉพาะ](/slides/th/java/convert-powerpoint-to-pdf/#handle-fonts-without-a-dedicated-bold-typeface). ส่วนนี้อธิบายวิธีการแรสเตอร์ข้อความที่ได้รับผลกระทบระหว่างการส่งออกเป็น PDF และผลกระทบต่อการเลือกข้อความ, การค้นหา, และการปรับขนาด
 
-ใช้เมธอด [IFontsManager.getSubstitutions](https://reference.aspose.com/slides/th/java/com.aspose.slides/ifontsmanager/#getSubstitutions--) เพื่อกำหนดว่าแบบอักษรใดจะถูกแทนที่เมื่อการนำเสนอถูกเรนเดอร์ เมธอดนี้คืนค่าออบเจกต์ [FontSubstitutionInfo](https://reference.aspose.com/slides/th/java/com.aspose.slides/fontsubstitutioninfo/) ที่ระบุชื่อแบบอักษรต้นฉบับและแบบอักษรที่แทนที่
+## **รับการแทนที่ฟอนต์**
 
-ตัวอย่าง Java ด้านล่างแสดงรายการการแทนที่แบบอักษรทั้งหมดสำหรับการนำเสนอ:
+ใช้เมธอด [IFontsManager.getSubstitutions](https://reference.aspose.com/slides/java/com.aspose.slides/ifontsmanager/#getSubstitutions--) เพื่อกำหนดว่าฟอนต์ใดจะถูกแทนที่เมื่อการนำเสนอถูกเรนเดอร์ เมธอดนี้คืนค่าอ็อบเจกต์ [FontSubstitutionInfo](https://reference.aspose.com/slides/java/com.aspose.slides/fontsubstitutioninfo/) ที่ระบุชื่อฟอนต์ต้นแบบและฟอนต์ที่แทนที่
+
+ตัวอย่าง Java ด้านล่างนี้แสดงรายการการแทนที่ฟอนต์ทั้งหมดสำหรับการนำเสนอ:
 
 ```java
 import com.aspose.slides.FontSubstitutionInfo;
@@ -45,15 +47,15 @@ try {
 }
 ```
 
-## **รับการแทนที่แบบอักษรสำหรับสไลด์ที่เลือก**
+## **รับการแทนที่ฟอนต์สำหรับสไลด์ที่เลือก**
 
-ใช้เมธอดโอเวอร์โหลดของ [IFontsManager.getSubstitutions](https://reference.aspose.com/slides/th/java/com.aspose.slides/ifontsmanager/#getSubstitutions-int---) พร้อมอาร์กิวเมนต์ `int[] slides` เพื่อสอบถามการแทนที่ที่จำเป็นต่อการเรนเดอร์สไลด์เฉพาะ ซึ่งมีประโยชน์เมื่อคุณกำลังเรนเดอร์หรือส่งออกส่วนของการนำเสนอ, ตรวจสอบการนำเสนอขนาดใหญ่แบบเพิ่มขึ้น, ค้นหาสไลด์ที่พึ่งพาแบบอักษรที่ไม่พร้อมใช้งาน, เตรียมแพกเกจแบบอักษรขนาดเล็กสำหรับเซิร์ฟเวอร์หรือคอนเทนเนอร์, หรือวินิจฉัยความแตกต่างในการเรนเดอร์โดยไม่ต้องประมวลผลสไลด์ที่ไม่เกี่ยวข้อง
+ใช้เมธอด overload [IFontsManager.getSubstitutions](https://reference.aspose.com/slides/java/com.aspose.slides/ifontsmanager/#getSubstitutions-int---) พร้อมอาร์กิวเมนต์ `int[] slides` เพื่อดูการแทนที่ที่จำเป็นต่อการเรนเดอร์สไลด์เฉพาะอย่างเท่านั้น สิ่งนี้มีประโยชน์เมื่อคุณกำลังเรนเดอร์หรือส่งออกส่วนของการนำเสนอ, ตรวจสอบการนำเสนอขนาดใหญ่แบบเพิ่มทีละส่วน, ค้นหาสไลด์ที่พึ่งพาฟอนต์ที่ไม่มีอยู่, เตรียมแพคเกจฟอนต์ขนาดเล็กสำหรับเซิร์ฟเวอร์หรือคอนเทนเนอร์, หรือวินิจฉัยความแตกต่างของการเรนเดอร์โดยไม่ต้องประมวลผลสไลด์ที่ไม่เกี่ยวข้อง
 
-`array` slides มีดัชนีสไลด์เริ่มจากหนึ่ง: `1` หมายถึงสไลด์แรก ในทางกลับกัน ตัวเข้าถึงคอลเลกชัน [Presentation.getSlides](https://reference.aspose.com/slides/th/java/com.aspose.slides/presentation/#getSlides--) ใช้ดัชนีเริ่มจากศูนย์ ดังนั้นสไลด์เดียวกันจะเข้าถึงได้โดยใช้ `presentation.getSlides().get_Item(0)` จำไว้ความแตกต่างนี้เมื่อสร้างอาร์เรย์เพื่อหลีกเลี่ยงข้อผิดพลาด off-by-one
+อาร์เรย์ `slides` มีดัชนีสไลด์แบบ 1‑based: `1` หมายถึงสไลด์แรก ในทางตรงกันข้าม ตัวเข้าถึงคอลเลกชัน [Presentation.getSlides](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getSlides--) ใช้การจัดทำดัชนีแบบ 0‑based ดังนั้นสไลด์เดียวกันจะถูกเข้าถึงเป็น `presentation.getSlides().get_Item(0)`. โปรดคำนึงถึงความแตกต่างนี้เมื่อสร้างอาร์เรย์เพื่อหลีกเลี่ยงข้อผิดพลาด off‑by‑one
 
-เรียกโอเวอร์โหลดผ่านเมธอด [Presentation.getFontsManager](https://reference.aspose.com/slides/th/java/com.aspose.slides/presentation/#getFontsManager--) จะคืนค่าเฉพาะการแทนที่ที่กำหนดขณะเรนเดอร์สไลด์ที่เลือก ผลลัพธ์แต่ละรายการเป็นออบเจกต์ [FontSubstitutionInfo](https://reference.aspose.com/slides/th/java/com.aspose.slides/fontsubstitutioninfo/) ประกอบด้วยชื่อแบบอักษรต้นฉบับและแบบอักษรที่แทนที่ ผลลัพธ์สะท้อนสภาพแวดล้อมแบบอักษรปัจจุบัน, กฎ fallback ที่กำหนด, กฎการแทนที่ที่เก็บใน [IFontSubstRuleCollection](https://reference.aspose.com/slides/th/java/com.aspose.slides/ifontsubstrulecollection/), และ [แบบอักษรที่โหลดภายนอก](/slides/th/java/custom-font/)
+เรียก overload ผ่านเมธอด [Presentation.getFontsManager](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getFontsManager--) ซึ่งจะคืนค่าการแทนที่ที่กำหนดระหว่างการเรนเดอร์สไลด์ที่เลือกเท่านั้น แต่ละผลลัพธ์เป็นอ็อบเจกต์ [FontSubstitutionInfo](https://reference.aspose.com/slides/java/com.aspose.slides/fontsubstitutioninfo/) ที่มีชื่อฟอนต์ต้นแบบและฟอนต์ที่แทนที่ ผลลัพธ์สะท้อนสภาพแวดล้อมฟอนต์ปัจจุบัน, กฎ fallback ที่กำหนด, และ [ฟอนต์ที่โหลดจากภายนอก](/slides/th/java/custom-font/). กฎการแทนที่ที่เก็บไว้ใน [IFontSubstRuleCollection](https://reference.aspose.com/slides/java/com.aspose.slides/ifontsubstrulecollection/) จะถูกนำไปใช้เมื่อการนำเสนอถูกเรนเดอร์ แต่ผลลัพธ์จะไม่แสดงรายการกฎเหล่านั้น; ให้ตรวจสอบฟอนต์ในไฟล์ผลลัพธ์แทน
 
-การแทนที่เดียวกันอาจจำเป็นสำหรับสไลด์ที่เลือกหลายสไลด์ ให้ทำการลบซ้ำผลลัพธ์เมื่อคุณสร้างรายการแบบอักษรหรือรายงาน preflight ตัวอย่างต่อไปนี้รายงานการแทนที่ทุกรายการที่คืนค่าแล้วสร้างรายการเรียงลำดับของการแมปแบบอักษรที่ไม่ซ้ำกัน:
+การแทนที่เดียวกันอาจจำเป็นสำหรับสไลด์ที่เลือกหลายสไลด์ ให้ลบรายการซ้ำออกเมื่อคุณสร้างรายการตรวจสอบฟอนต์หรือรายงาน preflight ตัวอย่างต่อไปนี้รายงานการแทนที่ที่ส่งคืนทั้งหมดแล้วสร้างรายการจัดเรียงของการแมปฟอนต์ที่ไม่ซ้ำ:
 
 ```java
 import com.aspose.slides.FontSubstitutionInfo;
@@ -91,25 +93,25 @@ try {
 }
 ```
 
-อินเทอร์เฟซ [IFontsManager](https://reference.aspose.com/slides/th/java/com.aspose.slides/ifontsmanager/) ให้โอเวอร์โหลดทั้งสองแบบ เลือกใช้ตามขอบเขตของการดำเนินการเรนเดอร์:
+อินเทอร์เฟซ [IFontsManager](https://reference.aspose.com/slides/java/com.aspose.slides/ifontsmanager/) มี overload ทั้งสองแบบ ให้เลือกตามขอบเขตของการเรนเดอร์:
 
-| โอเวอร์โหลด | ใช้เมื่อ |
+| Overload | ใช้เมื่อ |
 |---|---|
-| [getSubstitutions](https://reference.aspose.com/slides/th/java/com.aspose.slides/ifontsmanager/#getSubstitutions--) โดยไม่มีอาร์กิวเมนต์ | คุณต้องการการแทนที่สำหรับการนำเสนอทั้งหมด. |
-| [getSubstitutions](https://reference.aspose.com/slides/th/java/com.aspose.slides/ifontsmanager/#getSubstitutions-int---) พร้อม `int[] slides` | คุณต้องการการแทนที่สำหรับช่วงที่เลือก, การตรวจสอบแบบเพิ่มขึ้น, หรือการส่งออกบางส่วน. |
+| [getSubstitutions](https://reference.aspose.com/slides/java/com.aspose.slides/ifontsmanager/#getSubstitutions--) with no arguments | คุณต้องการการแทนที่สำหรับการนำเสนอทั้งหมด |
+| [getSubstitutions](https://reference.aspose.com/slides/java/com.aspose.slides/ifontsmanager/#getSubstitutions-int---) with `int[] slides` | คุณต้องการการแทนที่สำหรับช่วงที่เลือก, การตรวจสอบแบบเพิ่มทีละส่วน, หรือการส่งออกบางส่วน |
 
-## **กำหนดกฎการแทนที่แบบอักษร**
+## **ตั้งค่ากฎการแทนที่ฟอนต์**
 
-เพื่อระบุแบบอักษรที่ Aspose.Slides ควรใช้เมื่อแบบอักษรต้นทางไม่พร้อมใช้งาน:
+เพื่อระบุฟอนต์ที่ Aspose.Slides ควรใช้เมื่อฟอนต์ต้นฉบับไม่มีอยู่:
 
 1. โหลดการนำเสนอ
-2. สร้างการกำหนดแบบอักษรสำหรับแบบอักษรต้นทางและแบบอักษรแทนที่
-3. สร้างอ็อบเจกต์ [FontSubstRule](https://reference.aspose.com/slides/th/java/com.aspose.slides/fontsubstrule/) พร้อมเงื่อนไข [WhenInaccessible](https://reference.aspose.com/slides/th/java/com.aspose.slides/fontsubstcondition/)
-4. เพิ่มกฎลงใน [FontSubstRuleCollection](https://reference.aspose.com/slides/th/java/com.aspose.slides/fontsubstrulecollection/)
-5. กำหนดคอลเลกชันโดยใช้เมธอด [FontsManager.setFontSubstRuleList](https://reference.aspose.com/slides/th/java/com.aspose.slides/fontsmanager/#setFontSubstRuleList-com.aspose.slides.IFontSubstRuleCollection-)
+2. สร้างการกำหนดฟอนต์สำหรับฟอนต์ต้นฉบับและฟอนต์ทดแทน
+3. สร้าง [FontSubstRule](https://reference.aspose.com/slides/java/com.aspose.slides/fontsubstrule/) ด้วยเงื่อนไข [WhenInaccessible](https://reference.aspose.com/slides/java/com.aspose.slides/fontsubstcondition/)
+4. เพิ่มกฎเข้าไปใน [FontSubstRuleCollection](https://reference.aspose.com/slides/java/com.aspose.slides/fontsubstrulecollection/)
+5. กำหนดคอลเลกชันโดยใช้เมธอด [FontsManager.setFontSubstRuleList](https://reference.aspose.com/slides/java/com.aspose.slides/fontsmanager/#setFontSubstRuleList-com.aspose.slides.IFontSubstRuleCollection-)
 6. เรนเดอร์หรือแปลงการนำเสนอ
 
-ตัวอย่าง Java ด้านล่างแทนที่ `Arial` ด้วย `SomeRareFont` เมื่อ `SomeRareFont` ไม่พร้อมใช้งาน และจากนั้นเรนเดอร์สไลด์แรกเพื่อยืนยันผลลัพธ์ แบบอักษรแทนที่ต้องมีอยู่ใน Aspose.Slides.
+ตัวอย่าง Java ด้านล่างนี้แทนที่ `Arial` ด้วย `SomeRareFont` เมื่อ `SomeRareFont` ไม่มีอยู่ แล้วเรนเดอร์สไลด์แรกเพื่อยืนยันผลลัพธ์ ฟอนต์ทดแทนต้องมีอยู่ใน Aspose.Slides
 
 ```java
 import com.aspose.slides.FontData;
@@ -145,45 +147,45 @@ try {
 ```
 
 {{% alert color="info" title="Note" %}}
-สำหรับการเปลี่ยนแปลงแบบไม่มีเงื่อนไขต่อแบบอักษรที่ใช้ทั่วทั้งการนำเสนอ ดูที่ [Font Replacement](/slides/th/java/font-replacement/).
+สำหรับการเปลี่ยนแปลงฟอนต์โดยไม่มีเงื่อนไขทั่วทั้งการนำเสนอ ดู [Font Replacement](/slides/th/java/font-replacement/).
 {{% /alert %}}
 
-## **ข้อจำกัดสำหรับแบบอักษรสมการคณิตศาสตร์**
+## **ข้อจำกัดสำหรับฟอนต์สมการคณิตศาสตร์**
 
-กฎการแทนที่แบบอักษรเป็นส่วนหนึ่งของกระบวนการเลือกแบบอักษรมาตรฐานที่ใช้ระหว่างการเรนเดอร์และการแปลง พวกมันทำงานได้กับข้อความปกติเมื่อ Aspose.Slides สามารถแทนที่แบบอักษรที่ไม่สามารถเข้าถึงได้ด้วยแบบอักษรที่พร้อมใช้งานตามกฎ
+กฎการแทนที่ฟอนต์เป็นส่วนหนึ่งของกระบวนการเลือกฟอนต์มาตรฐานที่ใช้ระหว่างการเรนเดอร์และการแปลง พวกมันทำงานได้กับข้อความปกติเมื่อ Aspose.Slides สามารถแทนที่ฟอนต์ที่เข้าถึงไม่ได้ด้วยฟอนต์ที่กำหนดโดยกฎ
 
-สมการ Office Math มีข้อกำหนดเพิ่มเติม หากสมการใช้ **Cambria Math** Aspose.Slides อาจต้องการแบบอักษรนั้นอย่างตรงเพื่อคำนวณและเรนเดอร์เลย์เอาต์ของสมการ กฎที่แทนที่ด้วยแบบอักษรคณิตศาสตร์อื่น เช่น **STIX Two Math** ไม่สามารถแทนที่ **Cambria Math** สำหรับจุดประสงค์นี้ได้และการเรนเดอร์อาจยังรายงานว่าต้องการ **Cambria Math**
+สมการ Office Math มีข้อกำหนดเพิ่มเติม หากสมการใช้ **Cambria Math** Aspose.Slides อาจต้องการฟอนต์นั้นอย่างแม่นยำเพื่อคำนวณและเรนเดอร์เค้าโครงสมการ กฎที่แทนที่ฟอนต์คณิตศาสตร์อื่น เช่น **STIX Two Math** ไม่สามารถแทนที่ **Cambria Math** เพื่อจุดประสงค์นี้ได้ และการเรนเดอร์อาจยังรายงานว่าต้องการ **Cambria Math** อยู่
 
-เพื่อเรนเดอร์หรือแปลงการนำเสนอแบบนี้ ให้ทำให้ **Cambria Math** พร้อมใช้งานใน Aspose.Slides ติดตั้งมันในระบบปฏิบัติการหรือโหลดเป็น [external font](/slides/th/java/custom-font/).
+เพื่อเรนเดอร์หรือแปลงการนำเสนอเช่นนี้ ให้ทำให้ **Cambria Math** มีอยู่ใน Aspose.Slides ติดตั้งมันในระบบปฏิบัติการหรือโหลดเป็น [ฟอนต์ภายนอก](/slides/th/java/custom-font/)
 
-ข้อจำกัดนี้ใช้กับเลย์เอาต์ของสมการ กฎการแทนที่ที่อธิบายไว้ข้างต้นยังคงใช้กับข้อความปกติของการนำเสนอ
+ข้อจำกัดนี้ใช้กับการจัดเค้าโครงสมการ กฎการแทนที่ที่อธิบายข้างต้นยังคงใช้กับข้อความปกติในงานนำเสนอ
 
 ## **คำถามที่พบบ่อย**
 
-**ความแตกต่างระหว่างการเปลี่ยนแบบอักษร (font replacement) กับการแทนที่แบบอักษร (font substitution) คืออะไร?**
+**ความแตกต่างระหว่างการแทนที่ฟอนต์และการแทนที่ฟอนต์คืออะไร?**
 
-[Font replacement](/slides/th/java/font-replacement/) ทำการเปลี่ยนแบบอักษรหนึ่งเป็นอีกแบบหนึ่งทั่วทั้งการนำเสนอโดยตั้งใจ การแทนที่แบบอักษรจะเลือกแบบอักษรสำหรับเอาต์พุตที่เรนเดอร์เมื่อเงื่อนไขที่กำหนดตรงตาม เช่น เมื่อแบบอักษรต้นฉบับไม่พร้อมใช้งาน
+[Font replacement](/slides/th/java/font-replacement/) เปลี่ยนฟอนต์หนึ่งเป็นอีกฟอนต์หนึ่งทั่วทั้งการนำเสนอโดยตั้งใจ การแทนที่ฟอนต์จะเลือกฟอนต์สำหรับผลลัพธ์ที่เรนเดอร์เมื่อเงื่อนไขที่กำหนดตรง, เช่น เมื่อฟอนต์ต้นแบบไม่มีอยู่
 
-**กฎการแทนที่จะถูกนำไปใช้เมื่อใด?**
+**กฎการแทนที่ฟอนต์ทำงานเมื่อใด?**
 
-กฎเหล่านี้เข้าร่วมใน [ลำดับการเลือกแบบอักษร](/slides/th/java/font-selection-sequence/) ระหว่างการเรนเดอร์และการแปลง โดยเมื่อใช้ `WhenInaccessible` กฎจะถูกใช้เฉพาะเมื่อ Aspose.Slides ไม่สามารถเข้าถึงแบบอักษรต้นทาง
+กฎเหล่านี้เข้าร่วมใน [ลำดับการเลือกฟอนต์](/slides/th/java/font-selection-sequence/) ระหว่างการเรนเดอร์และการแปลง กับ `WhenInaccessible` กฎจะใช้เฉพาะเมื่อ Aspose.Slides ไม่สามารถเข้าถึงฟอนต์ต้นแบบได้
 
-**จะเกิดอะไรขึ้นเมื่อแบบอักษรหายไปและไม่มีการกำหนดกฎการแทนที่?**
+**จะเกิดอะไรขึ้นเมื่อฟอนต์หายและไม่มีการกำหนดกฎการแทนที่?**
 
-Aspose.Slides จะเลือกแบบอักษรที่ใกล้เคียงที่สุดที่มีอยู่ตามกระบวนการเลือกแบบอักษรของมัน ผลลัพธ์ขึ้นอยู่กับแบบอักษรที่มีอยู่ในสภาพแวดล้อมการทำงาน
+Aspose.Slides จะเลือกฟอนต์ที่ใกล้เคียงที่สุดตามกระบวนการเลือกฟอนต์ของมัน ผลลัพธ์ขึ้นอยู่กับฟอนต์ที่มีในสภาพแวดล้อมรันไทม์
 
-**ฉันสามารถโหลดแบบอักษรภายนอกเพื่อหลีกเลี่ยงการแทนที่ได้หรือไม่?**
+**ฉันสามารถโหลดฟอนต์ภายนอกเพื่อหลีกเลี่ยงการแทนที่ได้หรือไม่?**
 
-ได้ คุณสามารถ [load external fonts](/slides/th/java/custom-font/) เพื่อให้ Aspose.Slides ใช้ได้ระหว่างการเรนเดอร์และการแปลง
+ได้ คุณสามารถ [โหลดฟอนต์ภายนอก](/slides/th/java/custom-font/) เพื่อให้ Aspose.Slides ใช้งานได้ระหว่างการเรนเดอร์และการแปลง
 
-**Aspose แจกจ่ายแบบอักษรมาพร้อมกับไลบรารีหรือไม่?**
+**Aspose แจกจ่ายฟอนต์พร้อมกับไลบรารีหรือไม่?**
 
-ไม่ คุณเป็นผู้รับผิดชอบในการจัดหาแบบอักษรและปฏิบัติตามใบอนุญาตของแบบอักษรเหล่านั้น
+ไม่ คุณต้องรับผิดชอบในการจัดหาและปฏิบัติตามใบอนุญาตของฟอนต์
 
-**ผลการแทนที่อาจแตกต่างระหว่าง Windows, Linux, และ macOS ได้หรือไม่?**
+**ผลลัพธ์การแทนที่อาจแตกต่างระหว่าง Windows, Linux และ macOS หรือไม่?**
 
-ใช่ แบบอักษรที่ติดตั้งและตำแหน่งการค้นหาแบบอักษรจะแตกต่างกันตามระบบปฏิบัติการ ดังนั้นแบบอักษรที่มีอยู่ในเครื่องหนึ่งอาจต้องการการแทนที่ในเครื่องอื่น
+ใช่ ฟอนต์ที่ติดตั้งและตำแหน่งการค้นหาฟอนต์ต่างกันตามระบบปฏิบัติการ ดังนั้นฟอนต์ที่มีในเครื่องหนึ่งอาจต้องการการแทนที่ในเครื่องอื่น
 
-**ฉันจะทำให้การเลือกแบบอักษรสอดคล้องกันในการแปลงแบบชุดได้อย่างไร?**
+**ฉันจะทำให้การเลือกฟอนต์สม่ำเสมอในการแปลงแบบกลุ่มได้อย่างไร?**
 
-ใช้ไฟล์แบบอักษรและเวอร์ชันเดียวกันบนทุกเครื่องหรือคอนเทนเนอร์, [load required external fonts](/slides/th/java/custom-font/), และ [embed fonts](/slides/th/java/embedded-font/) เมื่อใบอนุญาตอนุญาต คุณยังสามารถเรียก [IFontsManager.getSubstitutions](https://reference.aspose.com/slides/th/java/com.aspose.slides/ifontsmanager/#getSubstitutions--) ก่อนการส่งออกเพื่อระบุการแทนที่ที่คาดไม่ถึง
+ใช้ไฟล์ฟอนต์และเวอร์ชันเดียวกันบนทุกเครื่องหรือคอนเทนเนอร์, [โหลดฟอนต์ภายนอกที่จำเป็น](/slides/th/java/custom-font/), และ [ฝังฟอนต์](/slides/th/java/embedded-font/) เมื่อใบอนญาติอนุญาต คุณยังสามารถเรียก [IFontsManager.getSubstitutions](https://reference.aspose.com/slides/java/com.aspose.slides/ifontsmanager/#getSubstitutions--) ก่อนการส่งออกเพื่อระบุการแทนที่ที่คาดไม่ถึง.

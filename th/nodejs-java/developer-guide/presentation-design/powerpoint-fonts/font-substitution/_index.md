@@ -1,5 +1,5 @@
 ---
-title: กำหนดค่าการแทนที่แบบอักษรในงานนำเสนอโดยใช้ JavaScript
+title: กำหนดการแทนที่แบบอักษรในงานนำเสนอโดยใช้ JavaScript
 linktitle: การแทนที่แบบอักษร
 type: docs
 weight: 70
@@ -18,19 +18,21 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "กำหนดค่ากฎการแทนที่แบบอักษรและตรวจสอบแบบอักษรที่ถูกแทนที่ใน Aspose.Slides สำหรับ Node.js ผ่าน Java เมื่อทำการเรนเดอร์หรือแปลงงานนำเสนอ PowerPoint และ OpenDocument"
+description: "กำหนดกฎการแทนที่แบบอักษรและตรวจสอบแบบอักษรที่ถูกแทนที่ใน Aspose.Slides สำหรับ Node.js ผ่าน Java เมื่อทำการแสดงผลหรือแปลงงานนำเสนอ PowerPoint และ OpenDocument."
 ---
 ## **ภาพรวม**
 
-การแทนที่แบบอักษรทำให้ Aspose.Slides ใช้แบบอักษรที่มีอยู่แทนแบบอักษรที่ไม่สามารถเข้าถึงได้เมื่อทำการเรนเดอร์หรือแปลงงานนำเสนอ การแทนที่จะมีผลต่อผลลัพธ์ที่เรนเดอร์; แต่ไม่ได้เปลี่ยนแบบอักษรที่กำหนดให้กับเนื้อหาของงานนำเสนอ
+การแทนที่แบบอักษรทำให้ Aspose.Slides สามารถใช้แบบอักษรที่มีอยู่แทนแบบอักษรที่ไม่สามารถเข้าถึงได้เมื่อทำการแสดงหรือแปลงงานนำเสนอ การแทนที่จะส่งผลต่อผลลัพธ์ที่แสดง; ไม่ได้เปลี่ยนแบบอักษรที่กำหนดให้กับเนื้อหาในงานนำเสนอ
 
-คุณสามารถกำหนดแบบอักษรที่ใช้เมื่อแบบอักษรบางตัวไม่มีอยู่ได้ และคุณสามารถตรวจสอบการแทนที่ที่ Aspose.Slides จะทำระหว่างการเรนเดอร์ ซึ่งช่วยให้ผลลัพธ์คงที่เมื่อติดตั้งแบบอักษรต่างกันในแต่ละสภาพแวดล้อม
+คุณสามารถกำหนดแบบอักษรที่จะใช้เมื่อแบบอักษรใดแบบอักษรก็ไม่มีอยู่ได้ และคุณสามารถตรวจสอบการแทนที่ที่ Aspose.Slides จะทำระหว่างการแสดงผล สิ่งนี้ช่วยให้ผลลัพธ์คงที่ข้ามสภาพแวดล้อมที่มีแบบอักษรที่ติดตั้งแตกต่างกัน
+
+หากแบบอักษรมีอยู่แต่ไม่มีรูปแบบหนาที่แยกออกมา ดูที่ [จัดการแบบอักษรที่ไม่มีรูปแบบหนาแยก](/slides/th/nodejs-java/convert-powerpoint-to-pdf/#handle-fonts-without-a-dedicated-bold-typeface). ส่วนนั้นอธิบายวิธีการเรสเตอร์ข้อความที่ได้รับผลกระทบระหว่างการส่งออกเป็น PDF และผลกระทบต่อการเลือกข้อความ การค้นหา และการปรับขนาด
 
 ## **รับการแทนที่แบบอักษร**
 
-ใช้เมธอด [FontsManager.getSubstitutions](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/fontsmanager/getsubstitutions/) เพื่อตรวจสอบว่าแบบอักษรใดจะถูกแทนที่เมื่อทำการเรนเดอร์งานนำเสนอ เมธอดจะคืนค่าอ็อบเจ็กต์ [FontSubstitutionInfo](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/fontsubstitutioninfo/) ที่ระบุชื่อแบบอักษรต้นฉบับและแบบอักษรที่แทนที่
+ใช้เมธอด [FontsManager.getSubstitutions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fontsmanager/getsubstitutions/) เพื่อกำหนดว่ากรณีใดแบบอักษรจะถูกแทนที่เมื่อทำการแสดงผลงานนำเสนอ เมธอดนี้คืนค่าออบเจ็กต์ [FontSubstitutionInfo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fontsubstitutioninfo/) ที่ระบุชื่อแบบอักษรต้นฉบับและแบบอักษรที่ถูกแทน
 
-ตัวอย่าง JavaScript ต่อไปนี้แสดงการแสดงรายการการแทนที่แบบอักษรทั้งหมดสำหรับงานนำเสนอ:
+ตัวอย่าง JavaScript ต่อไปนี้แสดงรายการการแทนที่แบบอักษรทั้งหมดสำหรับงานนำเสนอ:
 
 ```javascript
 var aspose = aspose || {};
@@ -50,15 +52,15 @@ try {
 
 ## **รับการแทนที่แบบอักษรสำหรับสไลด์ที่เลือก**
 
-ใช้เมธอดโอเวอร์โหลดของ [FontsManager.getSubstitutions](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/fontsmanager/getsubstitutions/) พร้อมอาร์เรย์ของดัชนีสไลด์เพื่อดูการแทนที่ที่จำเป็นสำหรับการเรนเดอร์สไลด์เฉพาะ ช่วยเมื่อต้องเรนเดอร์หรือส่งออกบางส่วนของงานนำเสนอ ตรวจสอบงานนำเสนอขนาดใหญ่แบบเป็นขั้นเป็นตอน ค้นหาสไลด์ที่พึ่งพาแบบอักษรที่ไม่มีอยู่ เตรียมชุดแบบอักษรขั้นต่ำสำหรับเซิร์ฟเวอร์หรือคอนเทนเนอร์ หรือวินิจฉัยความแตกต่างของการเรนเดอร์โดยไม่ต้องประมวลผลสไลด์ที่ไม่เกี่ยวข้อง
+ใช้เมธอด overload ของ [FontsManager.getSubstitutions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fontsmanager/getsubstitutions/) พร้อมอาร์เรย์ของดัชนีสไลด์เพื่อสำรวจเฉพาะการแทนที่ที่จำเป็นสำหรับการแสดงสไลด์เฉพาะ นี่เป็นประโยชน์เมื่อคุณกำลังแสดงหรือส่งออกส่วนของงานนำเสนอ, ตรวจสอบงานนำเสนอที่ใหญ่เป็นขั้น ๆ, ค้นหาสไลด์ที่พึ่งพาแบบอักษรที่ไม่มี, เตรียมแพคเกจแบบอักษรขั้นต่ำสำหรับเซิร์ฟเวอร์หรือคอนเทนเนอร์, หรือวินิจฉัยความแตกต่างในการแสดงโดยไม่ต้องประมวลผลสไลด์ที่ไม่เกี่ยวข้อง
 
-โอเวอร์โหลดนี้ต้องการพารามิเตอร์ primitive ของ Java `int[]` สร้างด้วย `java.newArray("int", [...])`; อาร์เรย์ JavaScript ปกติจะถูกแปลงเป็น `Integer[]` ซึ่งไม่ตรงกับโอเวอร์โหลดนี้
+overload นี้คาดหวังอาเรย์พื้นฐานของ Java `int[]`. สร้างด้วย `java.newArray("int", [...])`; อาเรย์ JavaScript ธรรมดาจะถูกแปลงเป็น `Integer[]` และไม่ตรงกับ overload นี้
 
-อาร์เรย์จะประกอบด้วยดัชนีสไลด์แบบหนึ่ง‑ฐาน: `1` ระบุสไลด์แรก ในขณะที่ตัวเข้าถึงคอลเลกชัน [Presentation.getSlides](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/presentation/getslides/) ใช้การนับแบบศูนย์‑ฐาน จึงต้องเข้าถึงสไลด์เดียวกันด้วย `presentation.getSlides().get_Item(0)` โปรดระวังความแตกต่างนี้เมื่อตั้งค่าอาร์เรย์เพื่อหลีกเลี่ยงข้อผิดพลาด off‑by‑one
+อาเรย์นี้ประกอบด้วยดัชนีสไลด์ที่เริ่มนับจากหนึ่ง: `1` ระบุสไลด์แรก ในทางตรงกันข้าม, ตัวเข้าถึงคอลเลกชัน [Presentation.getSlides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/getslides/) ใช้การนับจากศูนย์ ดังนั้นสไลด์เดียวกันจะเข้าถึงเป็น `presentation.getSlides().get_Item(0)`. จำความแตกต่างนี้เมื่อตั้งค่าอาเรย์เพื่อหลีกเลี่ยงข้อผิดพลาด off-by-one
 
-เรียกโอเวอร์โหลดผ่าน [Presentation.getFontsManager](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/presentation/getfontsmanager/) จะคืนค่าการแทนที่ที่กำหนดระหว่างการเรนเดอร์สไลด์ที่เลือก ผลลัพธ์แต่ละรายการเป็นอ็อบเจ็กต์ [FontSubstitutionInfo](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/fontsubstitutioninfo/) ซึ่งมีชื่อแบบอักษรต้นฉบับและแบบอักษรที่แทนที่ ผลลัพธ์สะท้อนสภาพแวดล้อมแบบอักษรปัจจุบัน กฎ fallback ที่กำหนดไว้ กฎการแทนที่ที่เก็บใน [FontSubstRuleCollection](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/fontsubstrulecollection/) และ [แบบอักษรที่โหลดจากภายนอก](/slides/th/nodejs-java/custom-font/)
+เรียก overload ผ่าน [Presentation.getFontsManager](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/getfontsmanager/). เมธอดนี้คืนค่าการแทนที่ที่กำหนดระหว่างการแสดงสไลด์ที่เลือกเท่านั้น แต่ละผลลัพธ์คือออบเจ็กต์ [FontSubstitutionInfo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fontsubstitutioninfo/) ที่บรรจุชื่อแบบอักษรต้นฉบับและแบบอักษรที่ถูกแทน ที่ผลลัพธ์สะท้อนสภาพแวดล้อมแบบอักษรปัจจุบัน, กฎ fallback ที่กำหนด, กฎการแทนที่ที่เก็บไว้ใน [FontSubstRuleCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fontsubstrulecollection/), และ [แบบอักษรที่โหลดจากภายนอก](/slides/th/nodejs-java/custom-font/).
 
-การแทนที่เดียวกันอาจจำเป็นสำหรับสไลด์ที่เลือกหลายสไลด์ ให้ทำการกำจัดรายการซ้ำเมื่อสร้างฐานข้อมูลแบบอักษรหรือรายงาน preflight ตัวอย่างต่อไปนี้แสดงการรายงานการแทนที่ที่คืนค่าแล้วและสร้างรายการจัดเรียงตามลำดับของการแมปแบบอักษรที่ไม่ซ้ำกัน:
+การแทนที่เดียวกันอาจจำเป็นสำหรับหลายสไลด์ที่เลือก ให้กำจัดรายการซ้ำเมื่อคุณสร้างรายการแบบอักษรหรือรายงาน preflight ตัวอย่างต่อไปนี้รายงานการแทนที่ที่คืนค่าทุกรายการและจากนั้นสร้างรายการเรียงลำดับของการแมปแบบอักษรที่ไม่ซ้ำ:
 
 ```javascript
 var aspose = aspose || {};
@@ -95,25 +97,25 @@ try {
 }
 ```
 
-คลาส [FontsManager](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/fontsmanager/) มีโอเวอร์โหลดทั้งสองแบบ เลือกใช้งานตามขอบเขตของการเรนเดอร์:
+คลาส [FontsManager](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fontsmanager/) มี overload ทั้งสอง ให้เลือกตามขอบเขตของการดำเนินการแสดงผล:
 
-| Overload | Use it when |
+| Overload | ใช้เมื่อ |
 |---|---|
-| [getSubstitutions](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/fontsmanager/getsubstitutions/) with no arguments | You need substitutions for the entire presentation. |
-| [getSubstitutions](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/fontsmanager/getsubstitutions/) with a Java `int[]` of slide indexes | You need substitutions for a selected range, incremental check, or partial export. |
+| [getSubstitutions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fontsmanager/getsubstitutions/) with no arguments | คุณต้องการการแทนที่สำหรับงานนำเสนอทั้งหมด. |
+| [getSubstitutions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fontsmanager/getsubstitutions/) with a Java `int[]` of slide indexes | คุณต้องการการแทนที่สำหรับช่วงที่เลือก, การตรวจสอบแบบเพิ่มขั้น, หรือการส่งออกบางส่วน. |
 
-## **กำหนดกฎการแทนที่แบบอักษร**
+## **ตั้งกฎการแทนที่แบบอักษร**
 
 เพื่อระบุแบบอักษรที่ Aspose.Slides ควรใช้เมื่อแบบอักษรต้นทางไม่มีอยู่:
 
 1. โหลดงานนำเสนอ
-2. สร้างการกำหนดแบบอักษรสำหรับแบบอักษรต้นทางและแบบอักษรแทนที่
-3. สร้างอ็อบเจ็กต์ [FontSubstRule](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/fontsubstrule/) พร้อมเงื่อนไข [WhenInaccessible](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/fontsubstcondition/)
-4. เพิ่มกฎลงใน [FontSubstRuleCollection](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/fontsubstrulecollection/)
-5. กำหนดคอลเลกชันโดยใช้เมธอด [FontsManager.setFontSubstRuleList](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/fontsmanager/setfontsubstrulelist/)
-6. เรนเดอร์หรือแปลงงานนำเสนอ
+2. สร้างการกำหนดแบบอักษรสำหรับแบบอักษรต้นทางและแบบอักษรทดแทน
+3. สร้าง [FontSubstRule](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fontsubstrule/) พร้อมเงื่อนไข [WhenInaccessible](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fontsubstcondition/)
+4. เพิ่มกฎไปยัง [FontSubstRuleCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fontsubstrulecollection/)
+5. กำหนดคอลเลกชันโดยใช้เมธอด [FontsManager.setFontSubstRuleList](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fontsmanager/setfontsubstrulelist/)
+6. แสดงหรือแปลงงานนำเสนอ
 
-ตัวอย่าง JavaScript ต่อไปนี้แทนที่ `Arial` ด้วย `SomeRareFont` เมื่อ `SomeRareFont` ไม่มีอยู่ แล้วเรนเดอร์สไลด์แรกเพื่อตรวจสอบผลลัพธ์ แบบอักษรแทนที่ต้องพร้อมใช้งานสำหรับ Aspose.Slides
+ตัวอย่าง JavaScript ต่อไปนี้แทนที่ `Arial` แทน `SomeRareFont` เมื่อ `SomeRareFont` ไม่มีอยู่, จากนั้นแสดงสไลด์แรกเพื่อยืนยันผลลัพธ์ แบบอักษรทดแทนต้องมีใน Aspose.Slides
 
 ```javascript
 var aspose = aspose || {};
@@ -140,46 +142,46 @@ try {
 }
 ```
 
-{{% alert color="info" title="Note" %}}
-สำหรับการเปลี่ยนแปลงแบบไม่มีเงื่อนไขทั่วงานนำเสนอทั้งหมด ให้ดูที่ [Font Replacement](/slides/th/nodejs-java/font-replacement/)
+{{% alert color="info" title="หมายเหตุ" %}}
+หากต้องการเปลี่ยนแบบอักษรโดยไม่มีเงื่อนไขทั่วทั้งงานนำเสนอ, ดูที่ [การเปลี่ยนแบบอักษร](/slides/th/nodejs-java/font-replacement/).
 {{% /alert %}}
 
 ## **ข้อจำกัดสำหรับแบบอักษรสมการคณิตศาสตร์**
 
-กฎการแทนที่แบบอักษรเป็นส่วนหนึ่งของกระบวนการเลือกแบบอักษรมาตรฐานที่ใช้ระหว่างการเรนเดอร์และการแปลง ทำงานได้สำหรับข้อความทั่วไปเมื่อ Aspose.Slides สามารถเปลี่ยนแบบอักษรที่เข้าถึงไม่ได้ให้เป็นแบบอักษรที่กำหนดในกฎได้
+กฎการแทนที่แบบอักษรเป็นส่วนหนึ่งของกระบวนการเลือกแบบอักษรมาตรฐานที่ใช้ระหว่างการแสดงผลและการแปลง พวกมันทำงานได้สำหรับข้อความทั่วไปเมื่อ Aspose.Slides สามารถแทนที่แบบอักษรที่เข้าถึงไม่ได้ด้วยแบบอักษรที่มีตามที่กฎระบุ
 
-สมการ Office Math มีความต้องการเพิ่มเติม หากสมการใช้ **Cambria Math** Aspose.Slides อาจต้องการแบบอักษรนั้นอย่างแม่นยำเพื่อคำนวณและเรนเดอร์รูปแบบสมการ กฎที่แทนที่ด้วยแบบอักษรคณิตศาสตร์อื่นเช่น **STIX Two Math** ไม่สามารถแทนที่ **Cambria Math** ได้ และการเรนเดอร์อาจยังคงแจ้งว่าต้องการ **Cambria Math**
+สมการ Office Math มีข้อกำหนดเพิ่มเติม หากสมการใช้ **Cambria Math**, Aspose.Slides อาจต้องการแบบอักษรนั้นอย่างแม่นยำเพื่อคำนวณและแสดงเลย์เอาต์ของสมการ กฎที่แทนที่ด้วยแบบอักษรคณิตศาสตร์อื่น เช่น **STIX Two Math**, ไม่สามารถแทนที่ **Cambria Math** เพื่อจุดประสงค์นี้ได้ และการแสดงอาจยังรายงานว่าต้องใช้ **Cambria Math**
 
-เพื่อเรนเดอร์หรือแปลงงานนำเสนอดังกล่าว ให้ทำให้ **Cambria Math** พร้อมใช้งานกับ Aspose.Slides ติดตั้งในระบบปฏิบัติการหรือโหลดเป็น [แบบอักษรภายนอก](/slides/th/nodejs-java/custom-font/)
+เพื่อแสดงหรือแปลงงานนำเสนอเช่นนี้ ให้ทำให้ **Cambria Math** มีอยู่ใน Aspose.Slides ติดตั้งในระบบปฏิบัติการหรือโหลดเป็น [แบบอักษรภายนอก](/slides/th/nodejs-java/custom-font/).
 
-ข้อจำกัดนี้ใช้กับการจัดรูปแบบสมการเท่านั้น กฎการแทนที่ที่อธิบายข้างต้นยังคงใช้กับข้อความทั่วไปในงานนำเสนอ
+ข้อจำกัดนี้ใช้กับการจัดวางสมการ กฎการแทนที่ที่อธิบายข้างต้นยังคงใช้กับข้อความทั่วไปในงานนำเสนอ
 
-## **FAQ**
+## **คำถามที่พบบ่อย**
 
-**What is the difference between font replacement and font substitution?**
+**ความแตกต่างระหว่างการเปลี่ยนแบบอักษรและการแทนที่แบบอักษรคืออะไร?**
 
-[Font replacement](/slides/th/nodejs-java/font-replacement/) เปลี่ยนแบบอักษรหนึ่งเป็นอีกแบบหนึ่งทั่วงานนำเสนออย่างเจตนา ส่วนการแทนที่แบบอักษรเลือกแบบอักษรสำหรับผลลัพธ์ที่เรนเดอร์เมื่อเงื่อนไขที่กำหนดเป็นจริง เช่น เมื่อแบบอักษรต้นฉบับไม่มีอยู่
+[การเปลี่ยนแบบอักษร](/slides/th/nodejs-java/font-replacement/) เปลี่ยนแบบอักษรหนึ่งเป็นอีกแบบหนึ่งโดยตั้งใจตลอดงานนำเสนอ การแทนที่แบบอักษรเลือกแบบอักษรสำหรับผลลัพธ์ที่แสดงเมื่อเงื่อนไขที่กำหนดเป็นจริง เช่น เมื่อแบบอักษรต้นฉบับไม่มีอยู่
 
-**When are substitution rules applied?**
+**กฎการแทนที่ถูกนำไปใช้เมื่อใด?**
 
-กฎจะเข้าร่วมใน [font selection sequence](/slides/th/nodejs-java/font-selection-sequence/) ระหว่างการเรนเดอร์และการแปลง ด้วย `WhenInaccessible` กฎจะใช้เฉพาะเมื่อ Aspose.Slides ไม่สามารถเข้าถึงแบบอักษรต้นทางได้
+กฎเหล่านี้มีส่วนร่วมใน [ลำดับการเลือกแบบอักษร](/slides/th/nodejs-java/font-selection-sequence/) ระหว่างการแสดงผลและการแปลง โดยใช้ `WhenInaccessible`, กฎจะใช้เฉพาะเมื่อ Aspose.Slides ไม่สามารถเข้าถึงแบบอักษรต้นทาง
 
-**What happens when a font is missing and no substitution rule is configured?**
+**จะเกิดอะไรขึ้นเมื่อแบบอักษรหายไปและไม่มีการกำหนดกฎการแทนที่?**
 
-Aspose.Slides จะเลือกแบบอักษรที่ใกล้เคียงที่สุดที่มีอยู่ตามกระบวนการเลือกแบบอักษร ผลลัพธ์ขึ้นอยู่กับแบบอักษรที่มีในสภาพแวดล้อมการทำงาน
+Aspose.Slides จะเลือกแบบอักษรที่ใกล้เคียงที่สุดที่มีอยู่ตามกระบวนการเลือกแบบอักษรของมัน ผลลัพธ์ขึ้นอยู่กับแบบอักษรที่มีในสภาพแวดล้อมการทำงาน
 
-**Can I load external fonts to avoid substitution?**
+**ฉันสามารถโหลดแบบอักษรภายนอกเพื่อหลีกเลี่ยงการแทนที่ได้หรือไม่?**
 
-ได้ คุณสามารถ [load external fonts](/slides/th/nodejs-java/custom-font/) เพื่อให้ Aspose.Slides ใช้งานได้ระหว่างการเรนเดอร์และการแปลง
+ได้ คุณสามารถ [โหลดแบบอักษรภายนอก](/slides/th/nodejs-java/custom-font/) เพื่อให้ Aspose.Slides ใช้ระหว่างการแสดงผลและการแปลง
 
-**Does Aspose distribute fonts with the library?**
+**Aspose แจกจ่ายแบบอักษรมาพร้อมกับไลบรารีหรือไม่?**
 
-ไม่ คุณต้องรับผิดชอบในการจัดหาแบบอักษรและปฏิบัติตามเงื่อนไขลิขสิทธิ์ของแบบอักษรเหล่านั้น
+ไม่ คุณเป็นผู้รับผิดชอบในการจัดหาแบบอักษรและปฏิบัติตามใบอนุญาตของพวกมัน
 
-**Can substitution results differ between Windows, Linux, and macOS?**
+**ผลลัพธ์การแทนที่อาจแตกต่างระหว่าง Windows, Linux, และ macOS หรือไม่?**
 
-ได้ แบบอักษรที่ติดตั้งและตำแหน่งการค้นหาแบบอักษรต่างกันตามระบบปฏิบัติการ ดังนั้นแบบอักษรที่มีในเครื่องหนึ่งอาจต้องแทนที่ในเครื่องอื่น
+ใช่ แบบอักษรที่ติดตั้งและตำแหน่งค้นหาแบบอักษรแตกต่างกันตามระบบปฏิบัติการ ดังนั้นแบบอักษรที่มีในเครื่องหนึ่งอาจต้องการการแทนที่ในเครื่องอื่น
 
-**How can I make font selection consistent in batch conversions?**
+**ฉันจะทำให้การเลือกแบบอักษรสอดคล้องกันในการแปลงแบบกลุ่มได้อย่างไร?**
 
-ใช้ไฟล์แบบอักษรและเวอร์ชันเดียวกันบนทุกเครื่องหรือคอนเทนเนอร์ [load required external fonts](/slides/th/nodejs-java/custom-font/) และ [embed fonts](/slides/th/nodejs-java/embedded-font/) เมื่อใบอนุญาตอนุญาต คุณยังสามารถเรียกใช้ [FontsManager.getSubstitutions](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/fontsmanager/getsubstitutions/) ก่อนส่งออกเพื่อระบุการแทนที่ที่ไม่คาดคิด
+ใช้ไฟล์และเวอร์ชันแบบอักษรเดียวกันบนทุกเครื่องหรือคอนเทนเนอร์, [โหลดแบบอักษรภายนอกที่จำเป็น](/slides/th/nodejs-java/custom-font/), และ [ฝังแบบอักษร](/slides/th/nodejs-java/embedded-font/) เมื่อใบอนุญาตอนุญาต คุณยังสามารถเรียก [FontsManager.getSubstitutions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fontsmanager/getsubstitutions/) ก่อนการส่งออกเพื่อระบุการแทนที่ที่ไม่คาดคิด

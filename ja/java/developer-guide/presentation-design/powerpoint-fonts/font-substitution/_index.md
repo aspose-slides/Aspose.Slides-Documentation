@@ -1,35 +1,37 @@
 ---
-title: Java を使用したプレゼンテーションでのフォント置換の設定
+title: Java を使用したプレゼンテーションのフォント置換の構成
 linktitle: フォント置換
 type: docs
 weight: 70
 url: /ja/java/font-substitution/
 keywords:
 - フォント
-- 代替フォント
+- 置換フォント
 - フォント置換
 - フォントの置換
 - フォント置換
-- 置換規則
-- 置換規則
+- 置換ルール
+- 置換ルール
 - PowerPoint
 - OpenDocument
 - プレゼンテーション
 - Java
 - Aspose.Slides
-description: "PowerPoint および OpenDocument プレゼンテーションをレンダリングまたは変換する際に、Aspose.Slides for Java でフォント置換規則を設定し、置換されたフォントを確認します。"
+description: "PowerPoint および OpenDocument プレゼンテーションのレンダリングまたは変換時に、Aspose.Slides for Java でフォント置換ルールを構成し、置換されたフォントを確認します。"
 ---
 ## **概要**
 
-フォント置換を使用すると、Aspose.Slides はプレゼンテーションのレンダリングまたは変換時にアクセスできないフォントの代わりに利用可能なフォントを使用できます。置換はレンダリングされた出力に影響しますが、プレゼンテーションコンテンツに割り当てられたフォントは変更されません。
+フォント置換により、Aspose.Slides はプレゼンテーションのレンダリングまたは変換時にアクセスできないフォントの代わりに利用可能なフォントを使用できます。置換はレンダリングされた出力に影響しますが、プレゼンテーション コンテンツに割り当てられたフォントは変更されません。
 
-特定のフォントが利用できない場合に使用するフォントを定義でき、また、Aspose.Slides がレンダリング時に行う置換を確認できます。これにより、インストールされているフォントが異なる環境間でも出力を一貫させることができます。
+特定のフォントが利用できない場合に使用するフォントを定義でき、Aspose.Slides がレンダリング中に行う置換を確認できます。これにより、インストールされているフォントが異なる環境間でも出力を一貫させることができます。
+
+フォントは利用可能だが専用の太字タイプフェイスがない場合は、[専用の太字フォントがない場合のフォント処理](/slides/ja/java/convert-powerpoint-to-pdf/#handle-fonts-without-a-dedicated-bold-typeface)をご覧ください。そのセクションでは、PDF エクスポート時に対象テキストをラスタライズする方法と、テキスト選択、検索、スケーリングへの影響が説明されています。
 
 ## **フォント置換の取得**
 
-プレゼンテーションがレンダリングされる際にどのフォントが置換されるかを判定するには、[IFontsManager.getSubstitutions](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ifontsmanager/#getSubstitutions--) メソッドを使用します。このメソッドは、元のフォント名と置換後のフォント名を示す [FontSubstitutionInfo](https://reference.aspose.com/slides/ja/java/com.aspose.slides/fontsubstitutioninfo/) オブジェクトを返します。
+[IFontsManager.getSubstitutions](https://reference.aspose.com/slides/java/com.aspose.slides/ifontsmanager/#getSubstitutions--) メソッドを使用して、プレゼンテーションがレンダリングされる際にどのフォントが置換されるかを判定します。このメソッドは、元のフォント名と置換後のフォント名を示す [FontSubstitutionInfo](https://reference.aspose.com/slides/java/com.aspose.slides/fontsubstitutioninfo/) オブジェクトを返します。
 
-次の Java の例は、プレゼンテーションのすべてのフォント置換を一覧表示します。
+次の Java の例は、プレゼンテーションに対するすべてのフォント置換を一覧表示します。
 
 ```java
 import com.aspose.slides.FontSubstitutionInfo;
@@ -45,15 +47,15 @@ try {
 }
 ```
 
-## **選択スライドのフォント置換の取得**
+## **選択したスライドのフォント置換の取得**
 
-`int[] slides` 引数を指定した [IFontsManager.getSubstitutions](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ifontsmanager/#getSubstitutions-int---) のオーバーロードを使用すると、特定のスライドをレンダリングする際に必要な置換のみを検査できます。これは、プレゼンテーションの一部をレンダリングまたはエクスポートする場合、巨大なプレゼンテーションを増分チェックする場合、利用できないフォントに依存するスライドを特定する場合、サーバーまたはコンテナ向けに最小限のフォントパッケージを準備する場合、または無関係なスライドを処理せずにレンダリングの差異を診断する場合に便利です。
+`int[] slides` 引数を使用した [IFontsManager.getSubstitutions](https://reference.aspose.com/slides/java/com.aspose.slides/ifontsmanager/#getSubstitutions-int---) のオーバーロードを利用すると、特定のスライドのレンダリングに必要な置換のみを調べることができます。これは、プレゼンテーションの一部をレンダリングまたはエクスポートする場合や、大規模なプレゼンテーションを段階的にチェックする場合、利用できないフォントに依存するスライドを特定する場合、サーバーまたはコンテナ用に最小限のフォント パッケージを用意する場合、または無関係なスライドを処理せずにレンダリングの差異を診断する場合に便利です。
 
-`slides` 配列は 1 から始まるスライドインデックスを含みます：`1` は最初のスライドを表します。対照的に、[Presentation.getSlides](https://reference.aspose.com/slides/ja/java/com.aspose.slides/presentation/#getSlides--) コレクションアクセサは 0 ベースのインデックスを使用するため、同じスライドは `presentation.getSlides().get_Item(0)` としてアクセスされます。配列を作成するときはこの違いを念頭に置き、オフバイワンエラーを防いでください。
+`slides` 配列は 1 から始まるスライド インデックスを含みます：`1` は最初のスライドを指します。対照的に、[Presentation.getSlides](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getSlides--) コレクション アクセサはゼロベースのインデックスを使用するため、同じスライドは `presentation.getSlides().get_Item(0)` としてアクセスされます。配列を作成する際はこの違いに注意し、オフバイワン エラーを防いでください。
 
-このオーバーロードは [Presentation.getFontsManager](https://reference.aspose.com/slides/ja/java/com.aspose.slides/presentation/#getFontsManager--) メソッド経由で呼び出します。選択したスライドのレンダリング中に決定された置換のみを返します。各結果は元のフォント名と置換後のフォント名を含む [FontSubstitutionInfo](https://reference.aspose.com/slides/ja/java/com.aspose.slides/fontsubstitutioninfo/) オブジェクトです。結果は現在のフォント環境、設定されたフォールバック規則、[IFontSubstRuleCollection](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ifontsubstrulecollection/) に格納された置換規則、および [externally loaded fonts](/slides/ja/java/custom-font/) を反映します。
+[Presentation.getFontsManager](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getFontsManager--) メソッドを通じてオーバーロードを呼び出します。これにより、選択したスライドのレンダリング中に決定された置換のみが返されます。各結果は元のフォント名と置換後のフォント名を含む [FontSubstitutionInfo](https://reference.aspose.com/slides/java/com.aspose.slides/fontsubstitutioninfo/) オブジェクトです。結果は現在のフォント環境、構成されたフォールバック ルール、および [外部読み込みフォント](/slides/ja/java/custom-font/) を反映します。[IFontSubstRuleCollection](https://reference.aspose.com/slides/java/com.aspose.slides/ifontsubstrulecollection/) に保存された置換ルールはプレゼンテーションのレンダリング時に適用されますが、結果には一覧表示されません。代わりに出力ファイル内のフォントを確認してください。
 
-同じ置換が複数の選択スライドで必要になることがあります。フォントインベントリやプリフライトレポートを作成する際は結果を重複除去してください。次の例は、返されたすべての置換を報告し、その後一意のフォントマッピングのソートリストを作成します。
+同じ置換が複数の選択スライドで必要になることがあります。フォント インベントリやプリフライト レポートを作成する際は結果を重複除去してください。次の例は返されたすべての置換を報告し、次に一意のフォント マッピングのソート済みリストを作成します。
 
 ```java
 import com.aspose.slides.FontSubstitutionInfo;
@@ -91,25 +93,25 @@ try {
 }
 ```
 
-[IFontsManager](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ifontsmanager/) インターフェイスは両方のオーバーロードを提供します。レンダリング操作の対象範囲に応じて選択してください。
+[IFontsManager](https://reference.aspose.com/slides/java/com.aspose.slides/ifontsmanager/) インターフェイスは両方のオーバーロードを提供します。レンダリング操作の対象範囲に合わせて選択してください。
 
-| オーバーロード | 使用シーン |
+| オーバーロード | 使用する場合 |
 |---|---|
-| [getSubstitutions](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ifontsmanager/#getSubstitutions--)（引数なし） | プレゼンテーション全体の置換が必要な場合。 |
-| [getSubstitutions](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ifontsmanager/#getSubstitutions-int---)（`int[] slides`） | 選択範囲、増分チェック、または部分エクスポートの置換が必要な場合。 |
+| [getSubstitutions](https://reference.aspose.com/slides/java/com.aspose.slides/ifontsmanager/#getSubstitutions--)（引数なし） | プレゼンテーション全体の置換が必要なとき |
+| [getSubstitutions](https://reference.aspose.com/slides/java/com.aspose.slides/ifontsmanager/#getSubstitutions-int---)（`int[] slides`） | 選択範囲、増分チェック、または部分エクスポートの置換が必要なとき |
 
-## **フォント置換規則の設定**
+## **フォント置換ルールの設定**
 
-元フォントが利用できないときに Aspose.Slides が使用すべきフォントを指定するには、次の手順に従います。
+ソース フォントが利用できない場合に Aspose.Slides が使用すべきフォントを指定する手順：
 
 1. プレゼンテーションをロードします。
-2. 元フォントと代替フォントの定義を作成します。
-3. [WhenInaccessible](https://reference.aspose.com/slides/ja/java/com.aspose.slides/fontsubstcondition/) 条件で [FontSubstRule](https://reference.aspose.com/slides/ja/java/com.aspose.slides/fontsubstrule/) を作成します。
-4. ルールを [FontSubstRuleCollection](https://reference.aspose.com/slides/ja/java/com.aspose.slides/fontsubstrulecollection/) に追加します。
-5. [FontsManager.setFontSubstRuleList](https://reference.aspose.com/slides/ja/java/com.aspose.slides/fontsmanager/#setFontSubstRuleList-com.aspose.slides.IFontSubstRuleCollection-) メソッドを使用してコレクションを割り当てます。
+2. ソース フォントと置換フォントの定義を作成します。
+3. [FontSubstRule](https://reference.aspose.com/slides/java/com.aspose.slides/fontsubstrule/) を [WhenInaccessible](https://reference.aspose.com/slides/java/com.aspose.slides/fontsubstcondition/) 条件で作成します。
+4. ルールを [FontSubstRuleCollection](https://reference.aspose.com/slides/java/com.aspose.slides/fontsubstrulecollection/) に追加します。
+5. [FontsManager.setFontSubstRuleList](https://reference.aspose.com/slides/java/com.aspose.slides/fontsmanager/#setFontSubstRuleList-com.aspose.slides.IFontSubstRuleCollection-) メソッドを使用してコレクションを割り当てます。
 6. プレゼンテーションをレンダリングまたは変換します。
 
-次の Java の例は、`SomeRareFont` が利用できないときに `Arial` を代替フォントとして使用し、結果を確認するために最初のスライドをレンダリングします。代替フォントは Aspose.Slides が利用できる状態である必要があります。
+次の Java の例は、`SomeRareFont` が利用できない場合に `Arial` を置換フォントとして使用し、最初のスライドをレンダリングして結果を検証します。置換フォントは Aspose.Slides が使用できる状態である必要があります。
 
 ```java
 import com.aspose.slides.FontData;
@@ -145,38 +147,45 @@ try {
 ```
 
 {{% alert color="info" title="Note" %}}
-プレゼンテーション全体で使用されるフォントを無条件に変更する場合は、[Font Replacement](/slides/ja/java/font-replacement/) を参照してください。
+プレゼンテーション全体で使用されるフォントを無条件に変更する場合は、[フォント置換](/slides/ja/java/font-replacement/)をご覧ください。
 {{% /alert %}}
 
 ## **数式フォントの制限**
 
-フォント置換規則は、レンダリングおよび変換時に使用される標準的なフォント選択プロセスの一部です。規則は、アクセスできないフォントを規則で指定された利用可能なフォントに置き換えることができる通常のテキストに対して機能します。
+フォント置換ルールは、レンダリングおよび変換時に使用される標準的なフォント選択プロセスの一部です。アクセスできないフォントをルールで指定された利用可能なフォントに置き換えられる場合、通常のテキストで機能します。
 
-Office Math の数式には追加の要件があります。数式が **Cambria Math** を使用している場合、Aspose.Slides はレイアウト計算とレンダリングのためにその正確なフォントが必要になることがあります。**STIX Two Math** のような別の数式フォントに置換する規則は **Cambria Math** の代替にはなりません。そのため、レンダリングは依然として **Cambria Math** が必要であると報告する可能性があります。
+Office Math の数式には追加の要件があります。数式で **Cambria Math** を使用している場合、Aspose.Slides はレイアウト計算とレンダリングのために正確にそのフォントが必要になることがあります。**STIX Two Math** など別の数式フォントに置き換えるルールはこの目的では **Cambria Math** を置き換えることができず、レンダリング時に **Cambria Math** が必要であると報告される可能性があります。
 
-そのようなプレゼンテーションをレンダリングまたは変換するには、**Cambria Math** を Aspose.Slides が利用できるようにしてください。OS にインストールするか、[外部フォント](/slides/ja/java/custom-font/) としてロードします。
+このようなプレゼンテーションをレンダリングまたは変換するには、**Cambria Math** を Aspose.Slides が利用できるようにしてください。オペレーティングシステムにインストールするか、[外部フォント](/slides/ja/java/custom-font/)としてロードします。
 
-この制限は数式レイアウトにのみ適用されます。上記の置換規則は通常のプレゼンテーションテキストには引き続き適用されます。
+この制限は数式レイアウトにのみ適用されます。上記の置換ルールは通常のプレゼンテーションテキストには引き続き適用されます。
 
-## **FAQ**
+## **よくある質問**
 
-**フォント置換とフォント置換規則の違いは何ですか？**  
-[Font replacement](/slides/ja/java/font-replacement/) はプレゼンテーション全体であるフォントを別のフォントに意図的に変更します。フォント置換は、元のフォントが利用できないなど設定条件が満たされたときに、レンダリング出力用のフォントを選択します。
+**フォント置換とフォント置換（Replacement）の違いは何ですか？**
 
-**置換規則はいつ適用されますか？**  
-規則はレンダリングおよび変換時の [フォント選択シーケンス](/slides/ja/java/font-selection-sequence/) に参加します。`WhenInaccessible` が指定されている場合、Aspose.Slides が元フォントにアクセスできないときにのみ規則が使用されます。
+[フォント置換](/slides/ja/java/font-replacement/) はプレゼンテーション全体でフォントを意図的に別のフォントに変更します。フォント置換は、元のフォントが利用できないなど、設定された条件が満たされたときにレンダリング出力用のフォントを選択します。
 
-**フォントが欠落していて置換規則が設定されていない場合はどうなりますか？**  
+**置換ルールはいつ適用されますか？**
+
+ルールはレンダリングおよび変換時の [フォント選択シーケンス](/slides/ja/java/font-selection-sequence/) に参加します。`WhenInaccessible` を使用した場合、ソース フォントにアクセスできないときだけルールが適用されます。
+
+**フォントが欠落していて置換ルールが設定されていない場合はどうなりますか？**
+
 Aspose.Slides はフォント選択プロセスに基づき、利用可能な最も近いフォントを選択します。結果は実行時環境にインストールされているフォントに依存します。
 
-**外部フォントをロードすれば置換を回避できますか？**  
-はい。[外部フォント](/slides/ja/java/custom-font/) をロードすれば、レンダリングや変換時にそれらを使用できます。
+**置換を回避するために外部フォントをロードできますか？**
 
-**Aspose はライブラリにフォントを同梱していますか？**  
-いいえ。フォントの提供とライセンス遵守はユーザーの責任です。
+はい。[外部フォントをロード](/slides/ja/java/custom-font/) して、レンダリングおよび変換時に Aspose.Slides が使用できるようにできます。
 
-**Windows、Linux、macOS 間で置換結果が異なることがありますか？**  
-あります。OS ごとにインストールされているフォントや検索パスが異なるため、あるマシンで利用できるフォントが別のマシンでは置換対象になることがあります。
+**Aspose はライブラリと共にフォントを配布していますか？**
 
-**バッチ変換でフォント選択を一貫させるにはどうすればよいですか？**  
-すべてのマシンまたはコンテナで同じフォントファイルとバージョンを使用し、必要な外部フォントを [ロード](/slides/ja/java/custom-font/) し、ライセンスが許可する場合は [フォント埋め込み](/slides/ja/java/embedded-font/) を行います。また、エクスポート前に [IFontsManager.getSubstitutions](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ifontsmanager/#getSubstitutions--) を呼び出して予期しない置換を特定することもできます。
+いいえ。フォントの提供およびライセンス遵守はユーザーの責任です。
+
+**Windows、Linux、macOS 間で置換結果が異なることがありますか？**
+
+はい。インストールされているフォントやフォント検索場所は OS によって異なるため、あるマシンで利用できるフォントが別のマシンでは置換が必要になることがあります。
+
+**バッチ変換でフォント選択を一貫させるにはどうすればよいですか？**
+
+すべてのマシンまたはコンテナで同じフォント ファイルとバージョンを使用し、[必要な外部フォントをロード](/slides/ja/java/custom-font/)し、ライセンスが許可する場合は [フォントを埋め込む](/slides/ja/java/embedded-font/)ことが推奨されます。また、エクスポート前に [IFontsManager.getSubstitutions](https://reference.aspose.com/slides/java/com.aspose.slides/ifontsmanager/#getSubstitutions--) を呼び出して予期しない置換を特定することもできます。

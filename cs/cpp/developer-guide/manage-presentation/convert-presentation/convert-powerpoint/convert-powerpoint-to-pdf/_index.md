@@ -1,18 +1,18 @@
 ---
-title: Převod PPT a PPTX do PDF v C++ [Obsahuje pokročilé funkce]
+title: Převod PPT a PPTX do PDF v C++ [Zahrnuty pokročilé funkce]
 linktitle: PowerPoint do PDF
 type: docs
 weight: 40
 url: /cs/cpp/convert-powerpoint-to-pdf/
 keywords:
-- převést PowerPoint
-- převést prezentaci
+- převod PowerPointu
+- převod prezentace
 - PowerPoint do PDF
 - prezentace do PDF
 - PPT do PDF
-- převést PPT do PDF
+- převod PPT do PDF
 - PPTX do PDF
-- převést PPTX do PDF
+- převod PPTX do PDF
 - uložit PowerPoint jako PDF
 - uložit PPT jako PDF
 - uložit PPTX jako PDF
@@ -24,47 +24,47 @@ keywords:
 - PDF/UA
 - C++
 - Aspose.Slides
-description: "Převést PowerPoint PPT/PPTX na vysoce kvalitní, prohledávatelné PDF v C++ pomocí Aspose.Slides, s rychlými příklady kódu a pokročilými možnostmi převodu."
+description: "Převod PowerPoint PPT/PPTX do vysoce kvalitních, prohledávatelných PDF v C++ pomocí Aspose.Slides, s rychlými ukázkami kódu a pokročilými možnostmi konverze."
 ---
 ## **Přehled**
 
-Převod prezentací PowerPoint (PPT, PPTX, ODP atd.) do formátu PDF v C++ nabízí několik výhod, včetně kompatibility napříč různými zařízeními a zachování rozvržení a formátování vaší prezentace. Tento průvodce ukazuje, jak převést prezentace do PDF dokumentů, použít různé možnosti pro řízení kvality obrázků, zahrnout skryté snímky, chránit PDF soubory heslem, detekovat náhrady písem, vybrat konkrétní snímky pro převod a aplikovat standardy souladu na výstupní dokumenty.
+Konverze prezentací PowerPoint (PPT, PPTX, ODP atd.) do formátu PDF v C++ nabízí několik výhod, včetně kompatibility napříč různými zařízeními a zachování rozvržení a formátování vaší prezentace. Tento průvodce ukazuje, jak převést prezentace do PDF dokumentů, použít různé možnosti pro kontrolu kvality obrázků, zahrnout skryté snímky, chránit PDF soubory heslem, detekovat substituce fontů, vybrat konkrétní snímky pro konverzi a aplikovat standardy souladu na výstupní dokumenty.
 
-## **Převody PowerPoint do PDF**
+## **Konverze PowerPointu do PDF**
 
-Using Aspose.Slides, you can convert presentations in the following formats to PDF:
+Pomocí Aspose.Slides můžete převést prezentace v následujících formátech do PDF:
 
 * **PPT**
 * **PPTX**
 * **ODP**
 
-Pro převod prezentace do PDF předávejte název souboru jako argument do třídy [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) a poté uložte prezentaci jako PDF pomocí metody [Save](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/save/). Třída [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) poskytuje metodu [Save](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/save/), která se typicky používá k převodu prezentace do PDF.
+Pro převod prezentace do PDF předáte název souboru jako argument třídě [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) a poté uložíte prezentaci jako PDF pomocí metody [Save](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/save/). Třída [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) poskytuje metodu [Save](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/save/), která se typicky používá k převodu prezentace do PDF.
 
 {{% alert color="info" title="Note" %}}
-Aspose.Slides pro C++ vkládá informace o svém API a číslo verze do výstupních dokumentů. Například při převodu prezentace do PDF Aspose.Slides vyplňuje pole Application hodnotou "*Aspose.Slides*" a pole PDF Producer hodnotou ve formátu "*Aspose.Slides v XX.XX*". **Note** že nemůžete Aspose.Slides instruovat, aby tuto informaci ve výstupních dokumentech změnil nebo odstranil.
+Aspose.Slides pro C++ vkládá informace o svém API a číslo verze do výstupních dokumentů. Například při převodu prezentace do PDF Aspose.Slides vyplní pole Application hodnotou "*Aspose.Slides*" a pole PDF Producer hodnotou ve formátu "*Aspose.Slides v XX.XX*". **Poznámka** že nemůžete instruovat Aspose.Slides, aby tuto informaci ve výstupních dokumentech změnilo nebo odstranilo.
 {{% /alert %}}
 
-Aspose.Slides umožňuje převádět:
+Aspose.Slides vám umožňuje převádět:
 
 * Celé prezentace do PDF
 * Konkrétní snímky z prezentace do PDF
 
-Aspose.Slides exportuje prezentace do PDF, což zajišťuje, že výsledné PDF úzce odpovídají originálním prezentacím. Prvky a atributy jsou při převodu renderovány přesně, včetně:
+Aspose.Slides exportuje prezentace do PDF, přičemž výsledné PDF úzce odpovídají původním prezentacím. Prvky a atributy jsou během převodu vykresleny přesně, včetně:
 
 * Obrázky
-* Textové rámečky a tvary
+* Textová pole a tvary
 * Formátování textu
 * Formátování odstavců
-* Hypertextové odkazy
-* Záhlaví a zápatí
+* Hyperlinky
+* Záhlaví a patičky
 * Odrážky
 * Tabulky
 
-## **Převod PowerPoint do PDF**
+## **Převod PowerPointu do PDF**
 
-Standardní proces převodu PowerPoint do PDF používá výchozí možnosti. V tomto případě se Aspose.Slides pokouší převést poskytnutou prezentaci do PDF pomocí optimálního nastavení na nejvyšších úrovních kvality.
+Standardní proces konverze PowerPointu do PDF používá výchozí možnosti. V tomto případě se Aspose.Slides snaží převést zadanou prezentaci do PDF pomocí optimálního nastavení s maximálními úrovněmi kvality.
 
-Následující příklad načte prezentaci a uloží všechny viditelné snímky do PDF pomocí výchozího nastavení exportu.
+V následujícím příkladu se načte prezentace a uloží všechny viditelné snímky do PDF pomocí výchozího nastavení exportu.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -81,16 +81,18 @@ presentation->Dispose();
 ```
 
 {{% alert color="info" title="Note" %}}
-Aspose nabízí bezplatný online [**PowerPoint do PDF převaděč**](https://products.aspose.app/slides/conversion/ppt-to-pdf), který demonstruje proces převodu prezentace do PDF. Můžete spustit test s tímto převaděčem pro živou implementaci zde popsaného postupu.
+Aspose nabízí zdarma online [**PowerPoint do PDF převodník**](https://products.aspose.app/slides/conversion/ppt-to-pdf) který demonstruje proces převodu prezentace do PDF. Můžete spustit test s tímto převodníkem pro živou implementaci zde popsaného postupu.
 {{% /alert %}}
 
-## **Převod PowerPoint do PDF s možnostmi**
+## **Převod PowerPointu do PDF s možnostmi**
 
-Aspose.Slides poskytuje vlastní možnosti — vlastnosti ve třídě [PdfOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/) — které vám umožní přizpůsobit výsledné PDF, uzamknout PDF heslem nebo určit, jak má proces převodu pokračovat.
+Aspose.Slides poskytuje vlastní možnosti — vlastnosti ve třídě [PdfOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/), které umožňují přizpůsobit výsledné PDF, uzamknout PDF heslem nebo určit, jak má proces konverze probíhat.
 
-### **Převod PowerPoint do PDF s vlastním nastavením**
+### **Převod PowerPointu do PDF s vlastními možnostmi**
 
-Pomocí vlastních možností převodu můžete definovat preferované nastavení kvality rastrových obrázků, určit, jak mají být zpracovávány metafily, nastavit úroveň komprese textu, konfigurovat DPI pro obrázky a další.
+Při použití vlastních možností konverze můžete definovat preferované nastavení kvality rastrů, určit, jak mají být metafily zpracovány, nastavit úroveň komprese textu, konfigurovat DPI pro obrázky a další.
+
+Následující příklad exportuje prezentaci do PDF 1.5 s kvalitou JPEG nastavenou na 90, rozlišením obrázků 300 DPI, metafily uloženými jako PNG a kompresí textu Flate.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -118,9 +120,11 @@ presentation->Dispose();
 
 ### **Zachovat vložené OLE soubory jako přílohy PDF**
 
-Pokud prezentace obsahuje vloženou sešit Excel, můžete chtít, aby příjemci PDF mohli přistupovat k datům sešitu i prohlížet snímky. Zavolejte [PdfOptions::set_IncludeOleData](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/set_includeoledata/) s `true`, aby se vložené OLE soubory zachovaly jako přílohy ve výsledném PDF.
+Pokud prezentace obsahuje vložený sešit Excelu, můžete chtít, aby příjemci PDF mohli přistupovat k datům sešitu i zobrazovat snímky. Zavolejte [PdfOptions::set_IncludeOleData](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/set_includeoledata/) s hodnotou `true`, aby se vložené OLE soubory zachovaly jako přílohy v výsledném PDF.
 
-Výchozí hodnota je `false`: náhledový obrázek nebo ikona OLE objektu je vykreslena na stránce PDF, ale jeho vložený soubor není zahrnut jako příloha. Nastavením možnosti na `true` se souborová data také zahrnou. Náhled zůstává vizuální reprezentací; příloha umožní příjemcům otevřít nebo uložit vložený soubor samostatně. OLE objekt se nezmění na interaktivní list Excelu na stránce PDF.
+Výchozí hodnota je `false`: náhledový obrázek nebo ikona OLE objektu je vykreslena na stránce PDF, ale jeho vložený soubor není zahrnut jako příloha. Nastavením volby na `true` se navíc zahrnou data souboru. Náhled zůstává vizuální reprezentací; příloha umožní příjemcům otevřít nebo uložit vložený soubor samostatně. OLE objekt se nezmění na interaktivní list Excelu na stránce PDF.
+
+V následujícím příkladu se načte prezentace, která již obsahuje vložený sešit Excelu, a exportuje se do PDF se sešitem připojeným.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -142,17 +146,19 @@ presentation->Dispose();
 
 Pro kontrolu výsledku:
 
-1. Otevřete exportované PDF v prohlížeči, který podporuje souborové přílohy, např. Adobe Acrobat Reader.
-2. Otevřete panel **Attachments** prohlížeče a najděte vložený sešit.
-3. Uložte přílohu a otevřete ji v Excelu pro kontrolu dat, nebo ji otevřete přímo, pokud to prohlížeč umožňuje. Náhled na stránce PDF je oddělený od přílohy.
+1. Otevřete exportovaný PDF v prohlížeči, který podporuje souborové přílohy, např. Adobe Acrobat Reader.
+2. Otevřete panel **Přílohy** prohlížeče a najděte vložený sešit.
+3. Uložte přílohu a otevřete ji v Excelu pro prohlédnutí dat, nebo ji otevřete přímo, pokud to prohlížeč umožňuje. Náhled na stránce PDF je oddělený od přílohy.
 
 {{% alert color="info" title="Note" %}}
-Standardy PDF/A ukládají omezení na přílohy: PDF/A-1 zakazuje vložené soubory, PDF/A-2 povoluje pouze přílohy PDF/A a PDF/A-3 povoluje další typy souborů, včetně sešitů Excel. Jedná se o požadavky standardů, ne o omezení specifická pro Aspose.Slides. Tento příklad používá výchozí nastavení souladu PDF a neukazuje export PDF/A.
+Standardy PDF/A ukládají omezení na přílohy: PDF/A-1 zakazuje vložené soubory, PDF/A-2 umožňuje jen přílohy PDF/A a PDF/A-3 povoluje jiné typy souborů, včetně sešitů Excelu. Jedná se o požadavky standardů, ne o omezení specifická pro Aspose.Slides. Tento příklad používá výchozí nastavení souladu PDF a neukazuje export PDF/A.
 {{% /alert %}}
 
-### **Převod PowerPoint do PDF se skrytými snímky**
+### **Převod PowerPointu do PDF se skrytými snímky**
 
 Pokud prezentace obsahuje skryté snímky, můžete použít metodu [set_ShowHiddenSlides](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/set_showhiddenslides/) ze třídy [PdfOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/), aby se skryté snímky zahrnuly jako stránky ve výsledném PDF.
+
+Následující příklad exportuje prezentaci do PDF, včetně všech skrytých snímků.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -172,9 +178,9 @@ presentation->Save(u"PowerPoint-to-PDF.pdf", SaveFormat::Pdf, pdfOptions);
 presentation->Dispose();
 ```
 
-### **Převod PowerPoint do PDF chráněného heslem**
+### **Převod PowerPointu do PDF chráněného heslem**
 
-Následující příklad exportuje prezentaci do PDF, který vyžaduje heslo `password` pro otevření. Přístupová oprávnění umožňují tisk, včetně tisku vysoké kvality.
+Následující příklad exportuje prezentaci do PDF, který vyžaduje heslo `password` pro otevření. Oprávnění přístupu umožňují tisk, včetně tisku ve vysoké kvalitě.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -196,11 +202,11 @@ presentation->Save(u"PPTX-to-PDF.pdf", SaveFormat::Pdf, pdfOptions);
 presentation->Dispose();
 ```
 
-### **Detekce náhrad písem**
+### **Detekce substitucí fontů**
 
-Aspose.Slides poskytuje metodu [set_WarningCallback](https://reference.aspose.com/slides/cpp/aspose.slides.export/saveoptions/set_warningcallback/) pod třídou [PdfOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/), která vám umožní detekovat náhrady písem během procesu převodu prezentace do PDF.
+Aspose.Slides poskytuje metodu [set_WarningCallback](https://reference.aspose.com/slides/cpp/aspose.slides.export/saveoptions/set_warningcallback/) ve třídě [PdfOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/), která umožňuje detekovat substituce fontů během procesu konverze prezentace do PDF.
 
-Následující příklad exportuje prezentaci do PDF a vypíše varování o náhradě písem do konzole. Varování je vytištěno pouze když je během exportu nahrazen nepřístupný font.
+Následující příklad exportuje prezentaci do PDF a vypisuje varování o substituci fontů do konzole. Varování se vypíše jen tehdy, když je během exportu nahrazen nedostupný font.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -242,12 +248,46 @@ presentation->Dispose();
 ```
 
 {{% alert color="info" title="Note" %}}
-Pro více informací o náhradě písem viz článek [Náhrada písma](/slides/cs/cpp/font-substitution/).
+Pro více informací o substituci fontů si přečtěte článek [Substituce fontů](/slides/cs/cpp/font-substitution/).
 {{% /alert %}} 
 
-## **Převod vybraných snímků z PowerPoint do PDF**
+### **Zpracování fontů bez dedikovaného tučného řezu**
 
-Následující příklad exportuje snímky 1 a 3 z prezentace do PDF. Čísla snímků v tomto poli jsou jednoslovná (one-based), a vstupní prezentace musí obsahovat alespoň tři snímky.
+Prezentace může použít tučné formátování textu i přesto, že její font nemá dedikovaný tučný styl. Text se může i tak jevit tučně díky syntetickému ztuštění, které uměle zahušťuje běžné glyfy. Pokud takový text vypadá příliš těžce nebo jinak odlišně od zamýšleného vzhledu v PDF, zkuste zavolat [PdfOptions::set_RasterizeUnsupportedFontStyles](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/set_rasterizeunsupportedfontstyles/) s hodnotou `true`. Tato volba během exportu PDF vykreslí dotčený text jako bitmapu a může zlepšit jeho vzhled u některých fontů. Výchozí hodnota je `false`.
+
+Ukázková prezentace obsahuje dvě textová pole: jedno s běžným textem a jedno s tučným formátováním aplikovaným na stejný font, který nemá dedikovaný tučný styl. Následující příklad načte prezentaci, povolí rasterizaci nepodporovaných stylů fontu a exportuje ji do PDF:
+
+```cpp
+#include <DOM/Presentation.h>
+#include <Export/PdfOptions.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto pdfOptions = MakeObject<PdfOptions>();
+pdfOptions->set_RasterizeUnsupportedFontStyles(true);
+
+auto presentation = MakeObject<Presentation>(u"unsupported-bold.pptx");
+presentation->Save(u"rasterized.pdf", SaveFormat::Pdf, pdfOptions);
+presentation->Dispose();
+```
+
+Následující náhledy ukazují výstup s vypnutou a zapnutou volbou. V tomto příkladu má tučný text těžší tahy při vypnuté volbě. Při zapnuté volbě jsou tahy lehčí; běžný text zůstává nezměněn. Porovnejte výsledky před výběrem nastavení pro vaši prezentaci.
+
+| Volba vypnuta (`false`, výchozí) | Volba zapnuta (`true`) |
+|---|---|
+| ![PDF s rasterizací nepodporovaného stylu fontu vypnutá](unsupported-bold-disabled.png) | ![PDF s rasterizací nepodporovaného stylu fontu zapnutá](unsupported-bold-enabled.png) |
+
+V tomto příkladu povolení volby převede pouze tučný text na bitmapu: nelze jej vybrat, kopírovat ani vyhledávat jako text bez OCR a jeho hrany vypadají při 800 % přiblížení měkce. Běžný text zůstává prohledávatelný. Při vypnuté volbě zůstávají oba řetězce jako text.
+
+Tato volba rasterizuje text formátovaný jako tučný, pokud jeho font nemá dedikovaný tučný styl. [Substituce fontů](/slides/cs/cpp/font-substitution/) místo toho vybere jiný font, když originál není dostupný.
+
+## **Převod vybraných snímků z PowerPointu do PDF**
+
+Následující příklad exportuje snímky 1 a 3 z prezentace do PDF. Čísla snímků v tomto poli jsou číslována od jedné a vstupní prezentace musí obsahovat alespoň tři snímky.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -265,9 +305,9 @@ presentation->Save(u"PPTX-to-PDF.pdf", slides, SaveFormat::Pdf);
 presentation->Dispose();
 ```
 
-## **Převod PowerPoint do PDF s vlastním rozměrem snímku**
+## **Převod PowerPointu do PDF s vlastní velikostí snímku**
 
-Následující příklad zkopíruje první snímek z prezentace do nové prezentace s velikostí snímku 612 × 792 bodů (8,5 × 11 palců). Obsah snímku se přizpůsobí tak, aby se vešel, a exportuje jediný snímek do PDF.
+Následující příklad zkopíruje první snímek z prezentace do nové prezentace s velikostí snímku 612 × 792 bodů (8,5 × 11 palců). Obsah snímku se přizpůsobí a exportuje se jediný snímek do PDF.
 
 ```cpp
 #include <DOM/ISlideCollection.h>
@@ -301,9 +341,9 @@ resizedPresentation->Dispose();
 presentation->Dispose();
 ```
 
-## **Převod PowerPoint do PDF v zobrazení poznámkových snímků**
+## **Převod PowerPointu do PDF v zobrazení poznámek ke snímkům**
 
-Následující příklad exportuje prezentaci do PDF, přičemž umístí poznámky řečníka každého snímku pod samotný snímek. Použijte prezentaci obsahující poznámky řečníka, aby bylo vidět výsledek.
+Následující příklad exportuje prezentaci do PDF, přičemž poznámky přednášejícího ke každému snímku umístí pod snímek. Použijte prezentaci obsahující poznámky přednášejícího, abyste viděli výsledek.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -330,7 +370,9 @@ presentation->Dispose();
 
 ## **Standardy přístupnosti a souladu pro PDF**
 
-Aspose.Slides vám umožňuje použít postup převodu, který je v souladu s [Web Content Accessibility Guidelines (**WCAG**)](https://www.w3.org/TR/WCAG-TECHS/pdf.html). Můžete exportovat dokument PowerPoint do PDF pomocí některého z těchto standardů souladu: **PDF/A1a**, **PDF/A1b** a **PDF/UA**.
+Aspose.Slides vám umožňuje použít postup konverze, který splňuje [Web Content Accessibility Guidelines (**WCAG**)](https://www.w3.org/TR/WCAG-TECHS/pdf.html). Můžete exportovat dokument PowerPoint do PDF s použitím libovolného z těchto standardů souladu: **PDF/A1a**, **PDF/A1b** a **PDF/UA**.
+
+C++ kód ukazuje proces konverze PowerPointu do PDF, který vytváří několik PDF podle různých standardů souladu:
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -363,35 +405,35 @@ presentation->Dispose();
 ```
 
 {{% alert color="info" title="Note" %}}
-Aspose.Slides podporuje operace převodu PDF, což vám umožňuje převádět soubory PDF do populárních formátů. Můžete provést [PDF do HTML](https://products.aspose.com/slides/cpp/conversion/pdf-to-html/), [PDF do obrázku](https://products.aspose.com/slides/cpp/conversion/pdf-to-image/), [PDF do JPG](https://products.aspose.com/slides/cpp/conversion/pdf-to-jpg/), a [PDF do PNG](https://products.aspose.com/slides/cpp/conversion/pdf-to-png/) převody. Další operace převodu PDF do specializovaných formátů — [PDF do SVG](https://products.aspose.com/slides/cpp/conversion/pdf-to-svg/), [PDF do TIFF](https://products.aspose.com/slides/cpp/conversion/pdf-to-tiff/), a [PDF do XML](https://products.aspose.com/slides/cpp/conversion/pdf-to-xml/) — jsou také podporovány.
+Aspose.Slides podporuje operace převodu PDF, což vám umožňuje převádět PDF soubory do populárních formátů. Můžete provádět převody [PDF do HTML](https://products.aspose.com/slides/cpp/conversion/pdf-to-html/), [PDF do obrázku](https://products.aspose.com/slides/cpp/conversion/pdf-to-image/), [PDF do JPG](https://products.aspose.com/slides/cpp/conversion/pdf-to-jpg/), a [PDF do PNG](https://products.aspose.com/slides/cpp/conversion/pdf-to-png/). Další převody PDF do specializovaných formátů — [PDF do SVG](https://products.aspose.com/slides/cpp/conversion/pdf-to-svg/), [PDF do TIFF](https://products.aspose.com/slides/cpp/conversion/pdf-to-tiff/), a [PDF do XML](https://products.aspose.com/slides/cpp/conversion/pdf-to-xml/) — jsou také podporovány.
 {{% /alert %}}
 
-> **Note:** Při exportu do PDF/UA Aspose.Slides zachází s komplexní grafikou jako SmartArt, diagramy a vzorce jako s jedním obrazem. Individuální prvky cesty nejsou zachovány jako samostatný obsah a mohou být označeny jako artefakty; alternativní text je poskytován pouze pro celý obraz.
+> **Poznámka:** Při exportu do PDF/UA Aspose.Slides zachází s komplexní grafikou, jako jsou SmartArt, grafy a vzorce, jako s jednou figurou. Jednotlivé elementy cesty nejsou zachovány jako samostatný obsah a mohou být označeny jako artefakty; alternativní text je poskytnut jen pro celou figuru.
 
-## **FAQ**
+## **Často kladené otázky**
 
 **Mohu hromadně převádět více souborů PowerPoint do PDF?**
 
-Ano, Aspose.Slides podporuje hromadný převod více souborů PPT nebo PPTX do PDF. Můžete iterovat přes své soubory a programově aplikovat proces převodu.
+Ano, Aspose.Slides podporuje dávkovou konverzi více souborů PPT nebo PPTX do PDF. Můžete iterovat přes své soubory a aplikovat proces konverze programově.
 
-**Je možné chránit převod PDF heslem?**
+**Je možné PDF po převodu chránit heslem?**
 
-Ano. Použijte třídu [PdfOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/) k nastavení hesla a definování přístupových oprávnění během procesu převodu.
+Ano. Použijte třídu [PdfOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/) k nastavení hesla a definování oprávnění přístupu během procesu konverze.
 
-**Jak zahrnu skryté snímky do PDF?**
+**Jak zahrnout skryté snímky do PDF?**
 
 Použijte metodu [set_ShowHiddenSlides](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/set_showhiddenslides/) ve třídě [PdfOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/), aby se skryté snímky zahrnuly do výsledného PDF.
 
-**Dokáže Aspose.Slides udržet vysokou kvalitu obrázků v PDF?**
+**Může Aspose.Slides zachovat vysokou kvalitu obrázků v PDF?**
 
-Ano, můžete řídit kvalitu obrázků pomocí metod jako [set_JpegQuality](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/set_jpegquality/) a [set_SufficientResolution](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/set_sufficientresolution/) ve třídě [PdfOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/), abyste zajistili vysoce kvalitní obrázky ve vašem PDF.
+Ano, můžete ovládat kvalitu obrázků pomocí metod jako [set_JpegQuality](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/set_jpegquality/) a [set_SufficientResolution](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/set_sufficientresolution/) ve třídě [PdfOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/), abyste zajistili vysoce kvalitní obrázky ve vašem PDF.
 
 **Podporuje Aspose.Slides standardy souladu PDF/A?**
 
-Ano, Aspose.Slides vám umožňuje exportovat PDF, která splňují různé standardy, včetně PDF/A1a, PDF/A1b a PDF/UA, což zajišťuje, že vaše dokumenty splňují požadavky na přístupnost a archivaci.
+Ano, Aspose.Slides vám umožňuje exportovat PDF, která splňují různé standardy, včetně PDF/A1a, PDF/A1b a PDF/UA, čímž zajišťují, že vaše dokumenty vyhovují požadavkům na přístupnost a archivaci.
 
 ## **Další zdroje**
 
-- [Aspose.Slides pro C++ Dokumentace](/slides/cs/cpp/)
-- [Aspose.Slides pro C++ API reference](https://reference.aspose.com/slides/cpp/)
-- [Aspose Bezplatné online převaděče](https://products.aspose.app/slides/conversion)
+- [Dokumentace Aspose.Slides pro C++](/slides/cs/cpp/)
+- [API reference Aspose.Slides pro C++](https://reference.aspose.com/slides/cpp/)
+- [Aspose zdarma online převodníky](https://products.aspose.app/slides/conversion)

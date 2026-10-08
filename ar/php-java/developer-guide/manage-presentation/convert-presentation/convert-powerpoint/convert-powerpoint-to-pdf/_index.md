@@ -1,34 +1,34 @@
 ---
-title: "تحويل PPT و PPTX إلى PDF في PHP [الميزات المتقدمة مشمولة]"
-linktitle: "PowerPoint إلى PDF"
+title: تحويل PPT و PPTX إلى PDF في PHP [يتضمن ميزات متقدمة]
+linktitle: PowerPoint إلى PDF
 type: docs
 weight: 40
 url: /ar/php-java/convert-powerpoint-to-pdf/
 keywords:
-- "تحويل PowerPoint"
-- "تحويل العرض التقديمي"
-- "PowerPoint إلى PDF"
-- "العرض التقديمي إلى PDF"
-- "PPT إلى PDF"
-- "تحويل PPT إلى PDF"
-- "PPTX إلى PDF"
-- "تحويل PPTX إلى PDF"
-- "حفظ PowerPoint كـ PDF"
-- "حفظ PPT كـ PDF"
-- "حفظ PPTX كـ PDF"
-- "تصدير PPT إلى PDF"
-- "تصدير PPTX إلى PDF"
-- "مرفق"
+- تحويل PowerPoint
+- تحويل العرض التقديمي
+- PowerPoint إلى PDF
+- العرض التقديمي إلى PDF
+- PPT إلى PDF
+- تحويل PPT إلى PDF
+- PPTX إلى PDF
+- تحويل PPTX إلى PDF
+- حفظ PowerPoint كـ PDF
+- حفظ PPT كـ PDF
+- حفظ PPTX كـ PDF
+- تصدير PPT إلى PDF
+- تصدير PPTX إلى PDF
+- مرفق
 - PDF/A1a
 - PDF/A1b
 - PDF/UA
 - PHP
 - Aspose.Slides
-description: "تحويل PowerPoint PPT/PPTX إلى ملفات PDF عالية الجودة وقابلة للبحث في PHP باستخدام Aspose.Slides، مع أمثلة كود سريعة وخيارات تحويل متقدمة."
+description: "تحويل ملفات PowerPoint PPT/PPTX إلى ملفات PDF عالية الجودة وقابلة للبحث في PHP باستخدام Aspose.Slides، مع أمثلة كود سريعة وخيارات تحويل متقدمة."
 ---
 ## **نظرة عامة**
 
-تحويل عروض PowerPoint (PPT و PPTX و ODP وغيرها) إلى صيغة PDF في PHP يقدم عدة مزايا، بما في ذلك التوافق عبر الأجهزة المختلفة والحفاظ على تخطيط وتنسيق العرض التقديمي الخاص بك. يوضح هذا الدليل كيفية تحويل العروض إلى مستندات PDF، واستخدام خيارات متعددة للتحكم في جودة الصور، وتضمين الشرائح المخفية، وحماية ملفات PDF بكلمة مرور، واكتشاف استبدالات الخطوط، واختيار شرائح محددة للتحويل، وتطبيق معايير الالتزام على المستندات الناتجة.
+يوفر تحويل عروض PowerPoint (PPT، PPTX، ODP، إلخ) إلى صيغة PDF باستخدام PHP عدة مزايا، بما في ذلك التوافق عبر الأجهزة المختلفة والحفاظ على تخطيط وتنسيق العرض التقديمي. يوضح هذا الدليل كيفية تحويل العروض إلى مستندات PDF، واستخدام خيارات مختلفة للتحكم في جودة الصور، وإدراج الشرائح المخفية، وحماية ملفات PDF بكلمة مرور، واكتشاف استبدالات الخطوط، واختيار شرائح معينة للتحويل، وتطبيق معايير الامتثال على المستندات الناتجة.
 
 ## **تحويلات PowerPoint إلى PDF**
 
@@ -38,30 +38,33 @@ description: "تحويل PowerPoint PPT/PPTX إلى ملفات PDF عالية ا
 * **PPTX**
 * **ODP**
 
-لتحويل عرض تقديمي إلى PDF، مرّر اسم الملف كمعامل إلى الصنف [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) ثم احفظ العرض كملف PDF باستخدام طريقة [save](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#save). الصنف [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) يوفّر طريقة [save](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#save) التي تُستخدم عادةً لتحويل العرض إلى PDF.
+لتحويل عرض تقديمي إلى PDF، قم بتمرير اسم الملف كمعامل إلى فئة [العرض التقديمي](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) ثم احفظ العرض كملف PDF باستخدام طريقة [حفظ](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/save/). فئة [العرض التقديمي](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) تعرض طريقة [حفظ](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/save/) التي تُستخدم عادةً لتحويل العرض التقديمي إلى PDF.
 
 {{% alert color="info" title="Note" %}}
-يضيف Aspose.Slides for PHP via Java معلومات API ورقم الإصدار إلى المستندات الناتجة. على سبيل المثال، عند تحويل عرض تقديمي إلى PDF، يملأ Aspose.Slides حقل Application بـ "*Aspose.Slides*" وحقل PDF Producer بقيمة على الشكل "*Aspose.Slides v XX.XX*". **ملاحظة** أنك لا تستطيع توجيه Aspose.Slides لتغيير أو إزالة هذه المعلومات من المستندات الناتجة.
+
+Aspose.Slides for PHP via Java يدرج معلومات API ورقم الإصدار في المستندات الناتجة. على سبيل المثال، عند تحويل عرض تقديمي إلى PDF، تقوم Aspose.Slides بملء حقل Application بـ "*Aspose.Slides*" وحقل PDF Producer بقيمة بصيغة "*Aspose.Slides v XX.XX*". **ملاحظة** أنه لا يمكنك إرشاد Aspose.Slides لتغيير أو إزالة هذه المعلومات من المستندات الناتجة.
+
 {{% /alert %}}
 
-يتيح Aspose.Slides لك تحويل:
-* العروض الكاملة إلى PDF
-* شرائح محددة من عرض تقديمي إلى PDF
+تسمح لك Aspose.Slides بـ:
 
-يصدّر Aspose.Slides العروض إلى PDF، مع ضمان أن تكون ملفات PDF الناتجة مطابقة للعرض الأصلي قدر الإمكان. يتم عرض العناصر والسمات بدقة في عملية التحويل، بما في ذلك:
+* تحويل العروض بالكامل إلى PDF
+* تحويل شرائح معينة من العرض إلى PDF
+
+تُصدّر Aspose.Slides العروض إلى PDF، مع ضمان تطابق ملفات PDF الناتجة مع العروض الأصلية بأكبر قدر ممكن. يتم عرض العناصر والسمات بدقة خلال التحويل، بما في ذلك:
 
 * الصور
-* مربعات النص والأشكال
+* صناديق النص والأشكال
 * تنسيق النص
 * تنسيق الفقرات
 * الروابط التشعبية
 * رؤوس وتذييلات الصفحات
-* القوئم النقطية
+* النقاط التعداد
 * الجداول
 
 ## **تحويل PowerPoint إلى PDF**
 
-تستخدم عملية التحويل القياسية من PowerPoint إلى PDF الخيارات الافتراضية. في هذه الحالة، يحاول Aspose.Slides تحويل العرض المقدم إلى PDF باستخدام إعدادات مثالية بأعلى مستويات الجودة.
+تستخدم عملية التحويل القياسية من PowerPoint إلى PDF الخيارات الافتراضية. في هذه الحالة، تحاول Aspose.Slides تحويل العرض المقدم إلى PDF باستخدام إعدادات مثالية عند أقصى مستويات الجودة.
 
 المثال التالي يحمل عرضًا تقديميًا ويحفظ جميع الشرائح الظاهرة إلى PDF باستخدام إعدادات التصدير الافتراضية.
 
@@ -78,18 +81,20 @@ try {
 ```
 
 {{% alert color="info" title="Note" %}}
-يوفر Aspose أداة مجانية على الإنترنت [**محول PowerPoint إلى PDF**](https://products.aspose.app/slides/conversion/ppt-to-pdf) تظهر عملية تحويل العرض إلى PDF. يمكنك تشغيل اختبار باستخدام هذا المحول لتجربة تنفيذ العملية مباشرة.
+
+تُقدم Aspose أداة تحويل مجانية على الإنترنت تُدعى [**محول PowerPoint إلى PDF**](https://products.aspose.app/slides/conversion/ppt-to-pdf) تُظهر عملية تحويل العرض إلى PDF. يمكنك تشغيل اختبار باستخدام هذا المحول لرؤية التنفيذ الفعلي للإجراءات الموضحة هنا.
+
 {{% /alert %}}
 
-## **تحويل PowerPoint إلى PDF مع الخيارات**
+## **تحويل PowerPoint إلى PDF مع خيارات**
 
-يوفر Aspose.Slides خيارات مخصصة—خصائص ضمن الصنف [PdfOptions](https://reference.aspose.com/slides/php-java/aspose.slides/pdfoptions/)—تتيح لك تخصيص ملف PDF الناتج، أو قفل PDF بكلمة مرور، أو تحديد كيفية سير عملية التحويل.
+توفر Aspose.Slides خيارات مخصصة—خصائص ضمن فئة [PdfOptions](https://reference.aspose.com/slides/php-java/aspose.slides/pdfoptions/)—تتيح لك تخصيص ملف PDF الناتج، قفل PDF بكلمة مرور، أو تحديد كيفية سير عملية التحويل.
 
 ### **تحويل PowerPoint إلى PDF مع خيارات مخصصة**
 
-باستخدام خيارات التحويل المخصصة، يمكنك تحديد إعداد الجودة المفضلة للصور النقطية، وتحديد كيفية التعامل مع ملفات الميتا، وتعيين مستوى ضغط النص، وتكوين DPI للصور، وأكثر من ذلك.
+باستخدام خيارات تحويل مخصصة، يمكنك تحديد إعداد الجودة المفضل للصور النقطية، وتحديد طريقة معالجة ملفات الميتا، وتعيين مستوى ضغط النص، وتكوين DPI للصور، وأكثر.
 
-المثال التالي يصدر عرضًا تقديميًا إلى PDF 1.5 مع ضبط جودة JPEG إلى 90، ودقة الصورة إلى 300 DPI، وحفظ ملفات الميتا كـ PNG، وضغط نص Flate.
+المثال التالي يصدر عرضًا تقديميًا إلى PDF 1.5 بجودة JPEG تبلغ 90، ودقة الصورة 300 DPI، وحفظ ملفات الميتا بصيغة PNG، وضغط نص Flate.
 
 ```php
 use aspose\slides\PdfCompliance;
@@ -113,13 +118,13 @@ try {
 }
 ```
 
-### **الحفاظ على ملفات OLE المضمنة كمرفقات PDF**
+### **الحفاظ على ملفات OLE المدمجة كمرفقات PDF**
 
-إذا كان العرض يحتوي على دفتر عمل Excel مضمّن، قد ترغب في أن يتمكن مستلمو PDF من الوصول إلى بيانات دفتر العمل بالإضافة إلى مشاهدة الشرائح. استدعِ [setIncludeOleData](https://reference.aspose.com/slides/php-java/aspose.slides/pdfoptions/#setIncludeOleData) مع `true` للحفاظ على ملفات OLE المضمنة كمرفقات في PDF الناتج.
+إذا كان العرض يحتوي على مصنف Excel مدمج، قد ترغب في تمكين مستلمي PDF من الوصول إلى بيانات المصنف بالإضافة إلى عرض الشرائح. استدعِ [setIncludeOleData](https://reference.aspose.com/slides/php-java/aspose.slides/pdfoptions/) مع `true` للحفاظ على ملفات OLE المدمجة كمرفقات في PDF الناتج.
 
-القيمة الافتراضية هي `false`: يتم عرض صورة المعاينة أو الأيقونة لكائن OLE على صفحة PDF، لكن ملفه المضمّن لا يُدرج كمرفق. ضبط الخيار على `true` يضيف بيانات الملف كمرفق. تظل المعاينة تمثيلًا بصريًا؛ أما المرفق فيتيح للمستلمين فتح أو حفظ الملف المضمّن بشكل منفصل. لا يتحول كائن OLE إلى ورقة عمل Excel تفاعلية داخل صفحة PDF.
+القيمة الافتراضية هي `false`: يتم عرض صورة معاينة كائن OLE أو أيقونته على صفحة PDF، لكن ملفه المدمج غير مضمن كمرفق. ضبط الخيار على `true` يضيف بيانات الملف كمرفق. تظل المعاينة تمثيلًا بصريًا؛ المرفق يتيح للمستلمين فتح الملف المدمج أو حفظه منفصلًا. لا يتحول كائن OLE إلى ورقة عمل Excel تفاعلية على صفحة PDF.
 
-المثال التالي يحمل عرضًا تقديميًا يحتوي بالفعل على دفتر عمل Excel مضمّن ويصدّره إلى PDF مع إرفاق دفتر العمل.
+المثال التالي يحمل عرضًا تقديميًا يحتوي بالفعل على مصنف Excel مدمج ويصدّره إلى PDF مع إرفاق المصنف.
 
 ```php
 use aspose\slides\PdfOptions;
@@ -139,19 +144,21 @@ try {
 
 للتحقق من النتيجة:
 
-1. افتح ملف PDF المُصدّر في عارض يدعم المرفقات، مثل Adobe Acrobat Reader.
-2. افتح لوحة **Attachments** في العارض وحدد دفتر العمل المضمّن.
-3. احفظ المرفق وافتحه في Excel لتفحص بياناته، أو افتحه مباشرة إذا سمح العارض بذلك. المعاينة على صفحة PDF منفصلة عن المرفق.
+1. افتح ملف PDF المصدر في عارض يدعم المرفقات، مثل Adobe Acrobat Reader.
+2. افتح لوحة **المرفقات** في العارض وحدد المصنف المدمج.
+3. احفظ المرفق وافتحه في Excel لفحص البيانات، أو افتحه مباشرة إذا سمح العارض بذلك. المعاينة على صفحة PDF منفصلة عن المرفق.
 
 {{% alert color="info" title="Note" %}}
-تفرض معايير PDF/A قيودًا على المرفقات: PDF/A-1 يمنع الملفات المضمنة، PDF/A-2 يسمح فقط بمرفقات PDF/A، وPDF/A-3 يسمح بأنواع ملفات أخرى بما فيها دفاتر Excel. هذه متطلبات المعايير، ليست قيودًا خاصة بـ Aspose.Slides. يستخدم هذا المثال الإعداد الافتراضي للامتثال إلى PDF ولا يوضح تصدير PDF/A.
+
+تفرض معايير PDF/A قيودًا على المرفقات: PDF/A-1 يحظر الملفات المدمجة، PDF/A-2 يسمح فقط بمرفقات PDF/A، وPDF/A-3 يسمح بأنواع ملفات أخرى بما فيها مصنفات Excel. هذه متطلبات المعايير وليست قيودًا خاصة بـ Aspose.Slides. يستخدم هذا المثال إعداد الامتثال الافتراضي ولا يُظهر تصدير PDF/A.
+
 {{% /alert %}}
 
 ### **تحويل PowerPoint إلى PDF مع الشرائح المخفية**
 
-إذا كان العرض يحتوي على شرائح مخفية، يمكنك استخدام طريقة [setShowHiddenSlides](https://reference.aspose.com/slides/php-java/aspose.slides/pdfoptions/#setShowHiddenSlides) من الصنف [PdfOptions](https://reference.aspose.com/slides/php-java/aspose.slides/pdfoptions/) لتضمين الشرائح المخفية كصفحات في PDF الناتج.
+إذا كان العرض يحتوي على شرائح مخفية، يمكنك استخدام طريقة [setShowHiddenSlides](https://reference.aspose.com/slides/php-java/aspose.slides/pdfoptions/setshowhiddenslides/) من فئة [PdfOptions](https://reference.aspose.com/slides/php-java/aspose.slides/pdfoptions/) لإدراج الشرائح المخفية كصفحات في PDF الناتج.
 
-المثال التالي يصدر عرضًا تقديميًا إلى PDF مع تضمين أي شرائح مخفية.
+المثال التالي يصدر عرضًا تقديميًا إلى PDF متضمنًا أي شرائح مخفية.
 
 ```php
 use aspose\slides\PdfOptions;
@@ -171,7 +178,7 @@ try {
 
 ### **تحويل PowerPoint إلى PDF محمي بكلمة مرور**
 
-المثال التالي يصدر عرضًا تقديميًا إلى PDF يتطلب كلمة المرور `password` لفتحه. تسمح أذونات الوصول بالطباعة، بما فيها الطباعة عالية الجودة.
+المثال التالي يُصدر عرضًا تقديميًا إلى PDF يتطلب كلمة المرور `password` للفتح. تسمح أذونات الوصول بالطباعة، بما فيها الطباعة عالية الجودة.
 
 ```php
 use aspose\slides\PdfAccessPermissions;
@@ -193,9 +200,9 @@ try {
 
 ### **اكتشاف استبدالات الخطوط**
 
-يوفر Aspose.Slides طريقة [setWarningCallback](https://reference.aspose.com/slides/php-java/aspose.slides/saveoptions/#setWarningCallback) ضمن الصنف [PdfOptions](https://reference.aspose.com/slides/php-java/aspose.slides/pdfoptions/) لتتيح لك اكتشاف استبدالات الخطوط أثناء عملية تحويل العرض إلى PDF.
+توفر Aspose.Slides طريقة [setWarningCallback](https://reference.aspose.com/slides/php-java/aspose.slides/saveoptions/) ضمن فئة [PdfOptions](https://reference.aspose.com/slides/php-java/aspose.slides/pdfoptions/) تمكنك من اكتشاف استبدالات الخطوط أثناء عملية تحويل العرض إلى PDF.
 
-المثال التالي يصدر عرضًا تقديميًا إلى PDF ويطبع تحذيرات استبدال الخطوط إلى وحدة التحكم. تُطبع التحذيرات فقط عندما يتم استبدال خط غير متوفر أثناء التصدير.
+المثال التالي يصدر عرضًا تقديميًا إلى PDF ويطبع تحذيرات استبدال الخطوط إلى وحدة التحكم. يُطبع التحذير فقط عندما يتم استبدال خط غير متوفر أثناء التصدير.
 
 ```php
 use aspose\slides\PdfOptions;
@@ -229,12 +236,46 @@ try {
 ```
 
 {{% alert color="info" title="Note" %}}
-لمزيد من المعلومات حول استبدال الخطوط، راجع مقال [Font Substitution](/slides/ar/php-java/font-substitution/).
+
+للمزيد من المعلومات حول استبدال الخطوط، راجع مقال [استبدال الخطوط](/slides/ar/php-java/font-substitution/).
+
 {{% /alert %}} 
 
-## **تحويل شرائح مختارة من PowerPoint إلى PDF**
+### **معالجة الخطوط دون نوع خط غامق مخصص**
 
-المثال التالي يصدر الشرائح 1 و 3 من عرض تقديمي إلى PDF. أرقام الشرائح في هذا المصفوفة تبدأ من الواحد، ويجب أن يحتوي العرض المدخل على ثلاث شرائح على الأقل.
+يمكن للعرض تطبيق تنسيق غامق على النص حتى عندما لا يتوفر للخط نوع غامق مخصص. يظل النص يبدو غامقًا من خلال "الغامق الاصطناعي"، الذي يجعل الحروف العادية أكثر سمكًا. عندما يبدو هذا النص ثقيلًا جدًا أو يختلف عن المظهر المقصود في PDF، جرب استدعاء [PdfOptions::setRasterizeUnsupportedFontStyles](https://reference.aspose.com/slides/php-java/aspose.slides/pdfoptions/) مع `true`. هذا الخيار يرسم النص المتأثر كصورة نقطية أثناء تصدير PDF ويمكن أن يحسن مظهره لبعض الخطوط. القيمة الافتراضية هي `false`.
+
+العرض التجريبي يحتوي على صندوقي نص: أحدهما بنص عادي والآخر بنص غامق بنفس الخط الذي لا يتوفر له نوع غامق مخصص. المثال التالي يحمل العرض، ويفعّل تحويل أنماط الخط غير المدعومة إلى نقطية، ويصدّره إلى PDF:
+
+```php
+use aspose\slides\PdfOptions;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$pdfOptions = new PdfOptions();
+$pdfOptions->setRasterizeUnsupportedFontStyles(true);
+
+$presentation = new Presentation("unsupported-bold.pptx");
+try {
+    $presentation->save("rasterized.pdf", SaveFormat::Pdf, $pdfOptions);
+} finally {
+    $presentation->dispose();
+}
+```
+
+المعاينات التالية تُظهر النتيجة مع تعطيل الخيار ومع تفعيل الخيار. في هذا المثال، يحتوي النص الغامق على خطوط أثقل عندما يكون الخيار معطلًا. مع تفعيل الخيار، تصبح خطوطه أخف؛ النص العادي يبقى دون تغيير. قارن النتائج قبل اختيار الإعداد لعرضك.
+
+| الخيار معطل (`false`، الافتراضي) | الخيار مفعّل (`true`) |
+|---|---|
+| ![PDF مع تعطيل تحويل نمط الخط غير المدعوم إلى نقطية](unsupported-bold-disabled.png) | ![PDF مع تمكين تحويل نمط الخط غير المدعوم إلى نقطية](unsupported-bold-enabled.png) |
+
+في هذا المثال، يؤدي تفعيل الخيار إلى تحويل النص الغامق فقط إلى صورة نقطية: لا يمكن تحديده أو نسخه أو البحث فيه كنص دون OCR، وتظهر حدوده أكثر نعومة عند تكبير 800٪. يبقى النص العادي قابلاً للبحث. مع تعطيل الخيار، يبقى كلا السلسلتين نصًا.
+
+هذا الخيار يحول النص المنسق كغامق عندما لا يتوفر للخط نوع غامق مخصص. بدلاً من ذلك، تقوم [استبدال الخطوط](/slides/ar/php-java/font-substitution/) باختيار خط آخر عندما يكون الأصلي غير متاح.
+
+## **تحويل شرائح محددة من PowerPoint إلى PDF**
+
+المثال التالي يصدر الشريحة 1 و3 من عرض تقديمي إلى PDF. أرقام الشرائح في هذا المصفوفة تبدأ من الواحد، ويجب أن يحتوي العرض المدخل على ثلاث شرائح على الأقل.
 
 ```php
 use aspose\slides\Presentation;
@@ -249,9 +290,9 @@ try {
 }
 ```
 
-## **تحويل PowerPoint إلى PDF مع حجم شريحة مخصص**
+## **تحويل PowerPoint إلى PDF بحجم شريحة مخصص**
 
-المثال التالي ينسخ الشريحة الأولى من عرض تقديمي إلى عرض تقديمي جديد بحجم شريحة 612 × 792 نقطة (8.5 × 11 بوصة). يتم تعديل محتوى الشريحة لتناسب الحجم ويصدر الشريحة الواحدة إلى PDF.
+المثال التالي ينسخ الشريحة الأولى من عرض تقديمي إلى عرض تقديمي جديد بحجم شريحة 612 × 792 نقطة (8.5 × 11 بوصة). يقوم بتكبير محتوى الشريحة ليناسب الحجم ويصدّر الشريحة الوحيدة إلى PDF.
 
 ```php
 use aspose\slides\Presentation;
@@ -269,7 +310,7 @@ try {
     $slide = $presentation->getSlides()->get_Item(0);
     $resizedPresentation->getSlides()->insertClone(0, $slide);
 
-    // إزالة الشريحة الفارغة التي تم إنشاء العرض التقديمي الجديد بها.
+    // إزالة الشريحة الفارغة التي تم إنشاء العرض الجديد معها.
     $resizedPresentation->getSlides()->removeAt(1);
 
     $resizedPresentation->save("PDF_with_custom_slide_size.pdf", SaveFormat::Pdf);
@@ -279,9 +320,9 @@ try {
 }
 ```
 
-## **تحويل PowerPoint إلى PDF في عرض ملاحظات الشريحة**
+## **تحويل PowerPoint إلى PDF في وضع ملاحظات الشريحة**
 
-المثال التالي يصدر عرضًا تقديميًا إلى PDF، حيث يتم وضع ملاحظات المتحدث أسفل كل شريحة. استخدم عرضًا يحتوي على ملاحظات المتحدث لرؤية النتيجة.
+المثال التالي يصدر عرضًا تقديميًا إلى PDF، حيث يتم وضع ملاحظات المتحدث أسفل كل شريحة. استخدم عرضًا يتضمن ملاحظات المتحدث لرؤية النتيجة.
 
 ```php
 use aspose\slides\NotesCommentsLayoutingOptions;
@@ -304,11 +345,11 @@ try {
 }
 ```
 
-## **معايير الوصول والامتثال لملفات PDF**
+## **إمكانية الوصول ومعايير الامتثال للـ PDF**
 
-يتيح Aspose.Slides لك اتباع إجراء تحويل يتوافق مع [إرشادات إمكانية الوصول لمحتوى الويب (**WCAG**)](https://www.w3.org/TR/WCAG-TECHS/pdf.html). يمكنك تصدير مستند PowerPoint إلى PDF باستخدام أي من معايير الامتثال التالية: **PDF/A1a**، **PDF/A1b**، و **PDF/UA**.
+تسمح لك Aspose.Slides باستخدام إجراء تحويل يتوافق مع [إرشادات إمكانية الوصول لمحتوى الويب (**WCAG**)](https://www.w3.org/TR/WCAG-TECHS/pdf.html). يمكنك تصدير مستند PowerPoint إلى PDF باستخدام أي من معايير الامتثال التالية: **PDF/A1a**، **PDF/A1b**، و**PDF/UA**.
 
-يعرض هذا الشيفرة عملية تحويل PowerPoint إلى PDF تنتج ملفات PDF متعددة بناءً على معايير الامتثال المختلفة:
+هذا الكود يوضح عملية تحويل PowerPoint إلى PDF تنتج ملفات PDF متعددة بناءً على معايير امتثال مختلفة:
 
 ```php
 $presentation = new Presentation("pres.pptx");
@@ -329,30 +370,37 @@ try {
 ```
 
 {{% alert color="info" title="Note" %}}
-يدعم Aspose.Slides عمليات تحويل PDF، مما يتيح لك تحويل ملفات PDF إلى صيغ ملفات شائعة. يمكنك إجراء التحويلات التالية: [PDF to HTML](https://products.aspose.com/slides/php-java/conversion/pdf-to-html/)، [PDF to image](https://products.aspose.com/slides/php-java/conversion/pdf-to-image/)، [PDF to JPG](https://products.aspose.com/slides/php-java/conversion/pdf-to-jpg/)، و[PDF to PNG](https://products.aspose.com/slides/php-java/conversion/pdf-to-png/). كما تُدعم عمليات تحويل PDF إلى صيغ متخصصة—[PDF to SVG](https://products.aspose.com/slides/php-java/conversion/pdf-to-svg/)، [PDF to TIFF](https://products.aspose.com/slides/php-java/conversion/pdf-to-tiff/)، و[PDF to XML](https://products.aspose.com/slides/php-java/conversion/pdf-to-xml/)—أيضًا.
+
+تدعم Aspose.Slides عمليات تحويل PDF، مما يتيح لك تحويل ملفات PDF إلى تنسيقات ملفات شائعة. يمكنك تنفيذ التحويلات التالية: [PDF إلى HTML](https://products.aspose.com/slides/php-java/conversion/pdf-to-html/)، [PDF إلى صورة](https://products.aspose.com/slides/php-java/conversion/pdf-to-image/)، [PDF إلى JPG](https://products.aspose.com/slides/php-java/conversion/pdf-to-jpg/)، و[PDF إلى PNG](https://products.aspose.com/slides/php-java/conversion/pdf-to-png/). تدعم أيضًا عمليات تحويل PDF إلى تنسيقات متخصصة—[PDF إلى SVG](https://products.aspose.com/slides/php-java/conversion/pdf-to-svg/)، [PDF إلى TIFF](https://products.aspose.com/slides/php-java/conversion/pdf-to-tiff/)، و[PDF إلى XML](https://products.aspose.com/slides/php-java/conversion/pdf-to-xml/)—.
+
 {{% /alert %}}
 
-> **ملاحظة:** عند التصدير إلى PDF/UA، يتعامل Aspose.Slides مع الرسومات المعقدة مثل SmartArt، المخططات، والصيغ ككائن واحد. لا يتم حفظ العناصر الفردية للمسار كمحتوى منفصل وقد تُصنَّف كعناصر صناعية؛ النص البديل يُقدَّم فقط للكائن بأكمله.
+> **ملاحظة:** عند التصدير إلى PDF/UA، تتعامل Aspose.Slides مع الرسومات المعقدة مثل SmartArt والرسوم البيانية والصيغ ككائن واحد. لا تُحافظ عناصر المسار الفردية كمحتوى منفصل وقد يُصنَّف كـ "ملحقات"؛ يتم توفير النص البديل فقط للكائن بالكامل.
 
 ## **الأسئلة المتكررة**
 
-**هل يمكنني تحويل عدة ملفات PowerPoint إلى PDF دفعة واحدة؟**  
-نعم، يدعم Aspose.Slides تحويل دفعة من ملفات PPT أو PPTX إلى PDF. يمكنك تكرار الملفات وتطبيق عملية التحويل برمجياً.
+**هل يمكنني تحويل عدة ملفات PowerPoint إلى PDF دفعة واحدة؟**
 
-**هل يمكن حماية PDF الناتج بكلمة مرور؟**  
-نعم. استخدم الصنف [PdfOptions](https://reference.aspose.com/slides/php-java/aspose.slides/pdfoptions/) لتعيين كلمة مرور وتحديد أذونات الوصول أثناء عملية التحويل.
+نعم، يدعم Aspose.Slides التحويل المجمع لملفات PPT أو PPTX متعددة إلى PDF. يمكنك تكرار ملفاتك وتطبيق عملية التحويل برمجيًا.
 
-**كيف يمكن تضمين الشرائح المخفية في PDF؟**  
-استدعِ [setShowHiddenSlides](https://reference.aspose.com/slides/php-java/aspose.slides/pdfoptions/#setShowHiddenSlides) مع `true` في الصنف [PdfOptions](https://reference.aspose.com/slides/php-java/aspose.slides/pdfoptions/) لتضمين الشرائح المخفية في PDF الناتج.
+**هل يمكن حماية PDF المُحوّل بكلمة مرور؟**
 
-**هل يحتفظ Aspose.Slides بجودة الصورة العالية في PDF؟**  
-نعم، يمكنك التحكم في جودة الصورة باستخدام أساليب مثل [setJpegQuality](https://reference.aspose.com/slides/php-java/aspose.slides/pdfoptions/#setJpegQuality) و[setSufficientResolution](https://reference.aspose.com/slides/php-java/aspose.slides/pdfoptions/#setSufficientResolution) في الصنف [PdfOptions](https://reference.aspose.com/slides/php-java/aspose.slides/pdfoptions/) لضمان صور عالية الجودة في PDF الخاص بك.
+نعم. استخدم فئة [PdfOptions](https://reference.aspose.com/slides/php-java/aspose.slides/pdfoptions/) لتعيين كلمة مرور وتعريف أذونات الوصول أثناء عملية التحويل.
 
-**هل يدعم Aspose.Slides معايير الامتثال PDF/A؟**  
-نعم، يتيح Aspose.Slides لك تصدير PDFs تتوافق مع [معايير مختلفة](https://reference.aspose.com/slides/php-java/aspose.slides/pdfcompliance/)، بما فيها PDF/A1a، PDF/A1b، وPDF/UA، مما يضمن أن مستنداتك تلبي متطلبات الوصول والأرشفة.
+**كيف يمكنني تضمين الشرائح المخفية في PDF؟**
+
+استدعِ [setShowHiddenSlides](https://reference.aspose.com/slides/php-java/aspose.slides/pdfoptions/setshowhiddenslides/) مع `true` في فئة [PdfOptions](https://reference.aspose.com/slides/php-java/aspose.slides/pdfoptions/) لتضمين الشرائح المخفية في PDF الناتج.
+
+**هل يمكن لـ Aspose.Slides الحفاظ على جودة الصور العالية في PDF؟**
+
+نعم، يمكنك التحكم في جودة الصورة باستخدام طرق مثل [setJpegQuality](https://reference.aspose.com/slides/php-java/aspose.slides/pdfoptions/setjpegquality/) و[setSufficientResolution](https://reference.aspose.com/slides/php-java/aspose.slides/pdfoptions/setsufficientresolution/) في فئة [PdfOptions](https://reference.aspose.com/slides/php-java/aspose.slides/pdfoptions/) لضمان صور عالية الجودة في PDF الخاص بك.
+
+**هل يدعم Aspose.Slides معايير الامتثال PDF/A؟**
+
+نعم، تتيح لك Aspose.Slides تصدير PDFs تتوافق مع [معايير مختلفة](https://reference.aspose.com/slides/php-java/aspose.slides/pdfcompliance/)، بما في ذلك PDF/A1a، PDF/A1b، وPDF/UA، مما يضمن أن مستنداتك تلبي متطلبات إمكانية الوصول والأرشفة.
 
 ## **موارد إضافية**
 
-- [توثيق Aspose.Slides لـ PHP عبر Java](/slides/ar/php-java/)
-- [مرجع API لـ Aspose.Slides لـ PHP عبر Java](https://reference.aspose.com/slides/php-java/)
-- [محولات مجانية على الإنترنت من Aspose](https://products.aspose.app/slides/conversion)
+- [توثيق Aspose.Slides for PHP via Java](/slides/ar/php-java/)
+- [مرجع API لـ Aspose.Slides for PHP via Java](https://reference.aspose.com/slides/php-java/)
+- [محولات Aspose المجانية على الإنترنت](https://products.aspose.app/slides/conversion)

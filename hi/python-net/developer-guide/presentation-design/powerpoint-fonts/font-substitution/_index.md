@@ -17,19 +17,21 @@ keywords:
 - प्रस्तुति
 - Python
 - Aspose.Slides
-description: "PowerPoint और OpenDocument प्रस्तुतियों को रेंडर या रूपांतरित करते समय .NET के माध्यम से Python के लिए Aspose.Slides में फ़ॉन्ट प्रतिस्थापन नियम कॉन्फ़िगर करें और प्रतिस्थापित फ़ॉन्टों की जाँच करें।"
+description: "PowerPoint और OpenDocument प्रस्तुतियों को रेंडर या कनवर्ट करते समय .NET के माध्यम से Python के लिए Aspose.Slides में फ़ॉन्ट प्रतिस्थापन नियम कॉन्फ़िगर करें और प्रतिस्थापित फ़ॉन्ट्स की जाँच करें।"
 ---
-## **परिचय**
+## **अवलोकन**
 
-फ़ॉन्ट प्रतिस्थापन Aspose.Slides को प्रस्तुति को रेंडर या रूपांतरित करते समय उपलब्ध फ़ॉन्ट को उपयोग करने की अनुमति देता है जब मूल फ़ॉन्ट तक पहुँच नहीं पा रहे हों। प्रतिस्थापन रेंडर किए गए आउटपुट को प्रभावित करता है; यह प्रस्तुति सामग्री को सौंपे गए फ़ॉन्ट को नहीं बदलता।
+Font substitution Aspose.Slides को प्रस्तुति को रेंडर या परिवर्तित करते समय किसी अनुपलब्ध फ़ॉन्ट के स्थान पर उपलब्ध फ़ॉन्ट का उपयोग करने देता है। प्रतिस्थापन रेंडर किए गए आउटपुट को प्रभावित करता है; यह प्रस्तुति की सामग्री को सौंपे गए फ़ॉन्ट को नहीं बदलता।
 
-आप एक विशिष्ट फ़ॉन्ट अनुपलब्ध होने पर उपयोग करने वाले फ़ॉन्ट को परिभाषित कर सकते हैं, और आप रेंडरिंग के दौरान Aspose.Slides द्वारा किए जाने वाले प्रतिस्थापनों की जाँच कर सकते हैं। यह विभिन्न स्थापित फ़ॉन्ट वाले वातावरणों में आउटपुट को सुसंगत रखने में मदद करता है।
+आप एक विशेष फ़ॉन्ट उपलब्ध न होने पर उपयोग करने के लिए फ़ॉन्ट निर्धारित कर सकते हैं, और आप Aspose.Slides द्वारा रेंडरिंग के दौरान किए जाने वाले प्रतिस्थापनों की जाँच कर सकते हैं। यह विभिन्न स्थापित फ़ॉन्ट वाले परिवेशों में आउटपुट को सुसंगत रखने में मदद करता है।
+
+यदि कोई फ़ॉन्ट उपलब्ध है लेकिन उसका समर्पित बॉल्ड टाइपफ़ेस नहीं है, तो देखें [समर्पित बॉल्ड टाइपफ़ेस के बिना फ़ॉन्ट को संभालना](/slides/hi/python-net/convert-powerpoint-to-pdf/#handle-fonts-without-a-dedicated-bold-typeface)। वह अनुभाग PDF निर्यात के दौरान प्रभावित पाठ को रास्टराइज़ करने और पाठ चयन, खोज, तथा स्केलेशन पर उसके परिणामों को समझाता है।
 
 ## **फ़ॉन्ट प्रतिस्थापन प्राप्त करें**
 
-प्रस्तुति रेंडर होने पर कौन‑से फ़ॉन्ट प्रतिस्थापित किए जाएंगे, यह निर्धारित करने के लिए [FontsManager.get_substitutions](https://reference.aspose.com/slides/hi/python-net/aspose.slides/fontsmanager/get_substitutions/) मेथड का उपयोग करें। यह मेथड [FontSubstitutionInfo](https://reference.aspose.com/slides/hi/python-net/aspose.slides/fontsubstitutioninfo/) वस्तुएँ लौटाता है जो मूल और प्रतिस्थापित फ़ॉन्ट नामों की पहचान करती हैं।
+Use the [FontsManager.get_substitutions](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/get_substitutions/) method to determine which fonts will be substituted when the presentation is rendered. The method returns [FontSubstitutionInfo](https://reference.aspose.com/slides/python-net/aspose.slides/fontsubstitutioninfo/) objects that identify the original and substituted font names.
 
-निम्नलिखित Python उदाहरण प्रस्तुति के सभी फ़ॉन्ट प्रतिस्थापन को सूचीबद्ध करता है:
+The following Python example lists all font substitutions for a presentation:
 
 ```python
 import aspose.slides as slides
@@ -39,15 +41,15 @@ with slides.Presentation("Presentation.pptx") as presentation:
         print(f"{substitution.original_font_name} -> {substitution.substituted_font_name}")
 ```
 
-## **चयनित स्लाइडों के लिए फ़ॉन्ट प्रतिस्थापन प्राप्त करें**
+## **चयनित स्लाइड्स के लिए फ़ॉन्ट प्रतिस्थापन प्राप्त करें**
 
-विशिष्ट स्लाइडों को रेंडर करने के लिए आवश्यक केवल प्रतिस्थापनों को जाँचने हेतु [FontsManager.get_substitutions](https://reference.aspose.com/slides/hi/python-net/aspose.slides/fontsmanager/get_substitutions/) को स्लाइड अनुक्रमों की सूची के साथ उपयोग करें। यह उपयोगी है जब आप प्रस्तुति का कोई भाग रेंडर या निर्यात कर रहे हों, बड़े प्रस्तुति को क्रमिक रूप से जांच रहे हों, ऐसे स्लाइडों को खोज रहे हों जो अनुपलब्ध फ़ॉन्ट पर निर्भर हों, सर्वर या कंटेनर के लिए न्यूनतम फ़ॉन्ट पैकेज तैयार कर रहे हों, या गैर‑संबंधित स्लाइडों को प्रोसेस किए बिना रेंडरिंग अंतर का निदान करना चाहते हों।
+Use [FontsManager.get_substitutions](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/get_substitutions/) with a list of slide indexes to inspect only the substitutions required to render specific slides. This is useful when you are rendering or exporting part of a presentation, checking a large presentation incrementally, locating slides that depend on unavailable fonts, preparing a minimal font package for a server or container, or diagnosing rendering differences without processing unrelated slides.
 
-सूची में एक‑आधारित स्लाइड अनुक्रम होते हैं: `1` पहला स्लाइड दर्शाता है। इसके विपरीत, [Presentation.slides](https://reference.aspose.com/slides/hi/python-net/aspose.slides/presentation/slides/hi/) संग्रह शून्य‑आधारित है, इसलिए वही स्लाइड `presentation.slides[0]` के रूप में पहुँचा जाता है। इस अंतर को सूची बनाते समय ध्यान में रखें ताकि ऑफ‑बाय‑वन त्रुटियों से बचा जा सके।
+The list contains one-based slide indexes: `1` identifies the first slide. By contrast, the [Presentation.slides](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/slides/) collection is zero-based, so that same slide is accessed as `presentation.slides[0]`. Keep this difference in mind when building the list to avoid off-by-one errors.
 
-मेथड को [Presentation.fonts_manager](https://reference.aspose.com/slides/hi/python-net/aspose.slides/presentation/fonts_manager/) प्रॉपर्टी के माध्यम से कॉल करें। यह केवल चयनित स्लाइडों को रेंडर करने के दौरान निर्धारित प्रतिस्थापन लौटाता है। प्रत्येक परिणाम एक [FontSubstitutionInfo](https://reference.aspose.com/slides/hi/python-net/aspose.slides/fontsubstitutioninfo/) वस्तु है जिसमें मूल और प्रतिस्थापित फ़ॉन्ट नाम शामिल होते हैं। परिणाम वर्तमान फ़ॉन्ट वातावरण, कॉन्फ़िगर किए गए फ़ॉलबैक नियम, एक [IFontSubstRuleCollection](https://reference.aspose.com/slides/hi/python-net/aspose.slides/ifontsubstrulecollection/) में संग्रहीत प्रतिस्थापन नियम, और [बाहरी रूप से लोड किए गए फ़ॉन्ट](/slides/hi/python-net/custom-font/) को प्रतिबिंबित करता है।
+Call the method through the [Presentation.fonts_manager](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/fonts_manager/) property. It returns only the substitutions determined while rendering the selected slides. Each result is a [FontSubstitutionInfo](https://reference.aspose.com/slides/python-net/aspose.slides/fontsubstitutioninfo/) object containing the original and substituted font names. The result reflects the current font environment, configured fallback rules, substitution rules stored in an [IFontSubstRuleCollection](https://reference.aspose.com/slides/python-net/aspose.slides/ifontsubstrulecollection/), and [externally loaded fonts](/slides/hi/python-net/custom-font/).
 
-एक ही प्रतिस्थापन कई चयनित स्लाइडों द्वारा आवश्यक हो सकता है। फ़ॉन्ट इन्वेंटरी या प्री‑फ़्लाइट रिपोर्ट बनाते समय परिणामों को डिडुप्लिकेट करें। निम्नलिखित उदाहरण प्रत्येक लौटाए गए प्रतिस्थापन को रिपोर्ट करता है और फिर अद्वितीय फ़ॉन्ट मैपिंग की क्रमबद्ध सूची बनाता है:
+The same substitution can be required by more than one selected slide. Deduplicate the results when you create a font inventory or preflight report. The following example reports every returned substitution and then creates a sorted list of unique font mappings:
 
 ```python
 import aspose.slides as slides
@@ -69,25 +71,25 @@ with slides.Presentation("Presentation.pptx") as presentation:
         print(entry)
 ```
 
-[FontsManager](https://reference.aspose.com/slides/hi/python-net/aspose.slides/fontsmanager/) क्लास मेथड के दोनों रूप प्रदान करता है। रेंडरिंग ऑपरेशन के दायरे के अनुसार एक चुनें:
+The [FontsManager](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/) class provides both forms of the method. Choose one according to the scope of the rendering operation:
 
 | मेथड कॉल | कब उपयोग करें |
 |---|---|
-| [get_substitutions](https://reference.aspose.com/slides/hi/python-net/aspose.slides/fontsmanager/get_substitutions/) बिना तर्कों के | आपको पूरे प्रस्तुति के लिए प्रतिस्थापन चाहिए। |
-| [get_substitutions](https://reference.aspose.com/slides/hi/python-net/aspose.slides/fontsmanager/get_substitutions/) स्लाइड अनुक्रमों की सूची के साथ | आपको चयनित रेंज, क्रमिक जांच, या भागीय निर्यात के लिए प्रतिस्थापन चाहिए। |
+| [get_substitutions](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/get_substitutions/) कोई आर्ग्यूमेंट नहीं | आपको पूरी प्रस्तुति के लिए प्रतिस्थापन चाहिए। |
+| [get_substitutions](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/get_substitutions/) स्लाइड सूचकांकों की सूची के साथ | आपको चयनित रेंज, क्रमिक जाँच, या भागिक निर्यात के लिए प्रतिस्थापन चाहिए। |
 
-## **फ़ॉन्ट प्रतिस्थापन नियम सेट करें**
+## **फ़ॉन्ट प्रतिस्थापन नियम निर्धारित करें**
 
-जब स्रोत फ़ॉन्ट अनुपलब्ध हो, तब Aspose.Slides को कौन‑सा फ़ॉन्ट उपयोग करना चाहिए, इसे निर्दिष्ट करने के लिए:
+To specify the font that Aspose.Slides should use when a source font is unavailable:
 
-1. प्रस्तुति लोड करें।  
-2. स्रोत और प्रतिस्थापन फ़ॉन्ट के लिए फ़ॉन्ट परिभाषाएँ बनाएँ।  
-3. [FontSubstRule](https://reference.aspose.com/slides/hi/python-net/aspose.slides/fontsubstrule/) को [WHEN_INACCESSIBLE](https://reference.aspose.com/slides/hi/python-net/aspose.slides/fontsubstcondition/) शर्त के साथ बनाएँ।  
-4. नियम को एक [FontSubstRuleCollection](https://reference.aspose.com/slides/hi/python-net/aspose.slides/fontsubstrulecollection/) में जोड़ें।  
-5. संग्रह को [FontsManager.font_subst_rule_list](https://reference.aspose.com/slides/hi/python-net/aspose.slides/fontsmanager/font_subst_rule_list/) प्रॉपर्टी को असाइन करें।  
-6. प्रस्तुति को रेंडर या रूपांतरित करें।
+1. Load the presentation.  
+2. Create font definitions for the source and substitute fonts.  
+3. Create a [FontSubstRule](https://reference.aspose.com/slides/python-net/aspose.slides/fontsubstrule/) को [WHEN_INACCESSIBLE](https://reference.aspose.com/slides/python-net/aspose.slides/fontsubstcondition/) स्थिति के साथ बनाएँ।  
+4. Add the rule to a [FontSubstRuleCollection](https://reference.aspose.com/slides/python-net/aspose.slides/fontsubstrulecollection/).  
+5. Assign the collection to the [FontsManager.font_subst_rule_list](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/font_subst_rule_list/) प्रॉपर्टी को असाइन करें।  
+6. Render or convert the presentation.
 
-निम्नलिखित Python उदाहरण `SomeRareFont` अनुपलब्ध होने पर `Arial` को प्रतिस्थापित करता है, और फिर परिणाम की पुष्टि के लिए पहला स्लाइड रेंडर करता है। प्रतिस्थापन फ़ॉन्ट Aspose.Slides के लिए उपलब्ध होना चाहिए।
+The following Python example substitutes `Arial` for `SomeRareFont` when `SomeRareFont` is unavailable, and then renders the first slide to verify the result. The substitute font must be available to Aspose.Slides.
 
 ```python
 import aspose.slides as slides
@@ -106,45 +108,38 @@ with slides.Presentation("Fonts.pptx") as presentation:
 ```
 
 {{% alert color="info" title="Note" %}}
-पूरी प्रस्तुति में उपयोग किए जाने वाले फ़ॉन्ट को बिना शर्त बदलने के लिए, देखें [Font Replacement](/slides/hi/python-net/font-replacement/)।
+फ़ॉन्ट्स में एक शर्तरहित परिवर्तन के लिए, देखें [फ़ॉन्ट प्रतिस्थापन](/slides/hi/python-net/font-replacement/)।
 {{% /alert %}}
 
-## **गणित समीकरण फ़ॉन्टों के लिए सीमाएं**
+## **गणित समीकरण फ़ॉन्ट्स के लिए सीमाएँ**
 
-फ़ॉन्ट प्रतिस्थापन नियम रेंडरिंग और रूपांतरण के दौरान उपयोग की जाने वाली मानक फ़ॉन्ट चयन प्रक्रिया का हिस्सा हैं। वे सामान्य टेक्स्ट के लिए काम करते हैं जब Aspose.Slides एक अनुपलब्ध फ़ॉन्ट को नियम द्वारा निर्दिष्ट उपलब्ध फ़ॉन्ट से बदल सकता है।
+Font substitution rules are part of the standard font selection process used during rendering and conversion. They work for regular text when Aspose.Slides can replace an inaccessible font with the available font specified by a rule.
 
-Office Math समीकरणों में अतिरिक्त आवश्यकता होती है। यदि किसी समीकरण में **Cambria Math** उपयोग किया गया है, तो समीकरण लेआउट की गणना और रेंडर करने के लिए Aspose.Slides को उसी फ़ॉन्ट की आवश्यकता हो सकती है। कोई भी नियम जो किसी अन्य गणित फ़ॉन्ट, जैसे **STIX Two Math**, को प्रतिस्थापित करता है, वह इस उद्देश्य के लिए **Cambria Math** को बदल नहीं सकता, और रेंडरिंग अभी भी रिपोर्ट कर सकती है कि **Cambria Math** आवश्यक है।
+Office Math equations have an additional requirement. If an equation uses **Cambria Math**, Aspose.Slides may need that exact font to calculate and render the equation layout. A rule that substitutes another math font, such as **STIX Two Math**, cannot replace **Cambria Math** for this purpose, and rendering may still report that **Cambria Math** is required.
 
-ऐसी प्रस्तुति को रेंडर या रूपांतरित करने के लिए, **Cambria Math** को Aspose.Slides के लिए उपलब्ध कराएँ। इसे ऑपरेटिंग सिस्टम में स्थापित करें या एक [बाहरी फ़ॉन्ट](/slides/hi/python-net/custom-font/) के रूप में लोड करें।
+To render or convert such a presentation, make **Cambria Math** available to Aspose.Slides. Install it in the operating system or load it as an [external font](/slides/hi/python-net/custom-font/).
 
-यह सीमा समीकरण लेआउट पर लागू होती है। ऊपर वर्णित प्रतिस्थापन नियम सामान्य प्रस्तुति टेक्स्ट पर अभी भी लागू होते हैं।
+This limitation applies to equation layout. The substitution rules described above still apply to regular presentation text.
 
 ## **अक्सर पूछे जाने वाले प्रश्न**
 
-**फ़ॉन्ट प्रतिस्थापन और फ़ॉन्ट प्रतिस्थापन (substitution) में क्या अंतर है?**
+**फ़ॉन्ट रिप्लेसमेंट और फ़ॉन्ट प्रतिस्थापन में क्या अंतर है?**  
+[Font replacement](/slides/hi/python-net/font-replacement/) प्रस्तुति के पूरे भाग में एक फ़ॉन्ट को दूसरे से जानबूझकर बदलता है। फ़ॉन्ट प्रतिस्थापन तब रेंडर किए गए आउटपुट के लिए फ़ॉन्ट चुनता है जब निर्धारित शर्त पूरी होती है, जैसे कि मूल फ़ॉन्ट अनुपलब्ध हो।
 
-[Font replacement](/slides/hi/python-net/font-replacement/) प्रस्तुति में एक फ़ॉन्ट को पूरे दस्तावेज़ में दूसरे फ़ॉन्ट से जानबूझकर बदलता है। फ़ॉन्ट प्रतिस्थापन रेंडर किए गए आउटपुट के लिए एक फ़ॉन्ट चुनता है जब कॉन्फ़िगर की गई शर्त पूरी होती है, जैसे मूल फ़ॉन्ट अनुपलब्ध हो।
+**प्रतिस्थापन नियम कब लागू होते हैं?**  
+The rules participate in the [font selection sequence](/slides/hi/python-net/font-selection-sequence/) during rendering and conversion. With `WHEN_INACCESSIBLE`, a rule is used only when Aspose.Slides cannot access the source font.
 
-**प्रतिस्थापन नियम कब लागू होते हैं?**
+**जब फ़ॉन्ट गायब हो और कोई प्रतिस्थापन नियम कॉन्फ़िगर न हो तो क्या होता है?**  
+Aspose.Slides फ़ॉन्ट चयन प्रक्रिया के अनुसार सबसे नज़दीकी उपलब्ध फ़ॉन्ट चुनता है। परिणाम रनटाइम पर्यावरण में उपलब्ध फ़ॉन्ट्स पर निर्भर करता है।
 
-नियम रेंडरिंग और रूपांतरण के दौरान [फ़ॉन्ट चयन अनुक्रम](/slides/hi/python-net/font-selection-sequence/) में भाग लेते हैं। `WHEN_INACCESSIBLE` के साथ, नियम केवल तब उपयोग होता है जब Aspose.Slides स्रोत फ़ॉन्ट तक पहुँच नहीं पाता।
+**क्या मैं प्रतिस्थापन से बचने के लिए बाहरी फ़ॉन्ट लोड कर सकता हूँ?**  
+हाँ। आप [load external fonts](/slides/hi/python-net/custom-font/) कर सकते हैं ताकि Aspose.Slides रेंडरिंग और परिवर्तनों के दौरान उनका उपयोग कर सके।
 
-**जब फ़ॉन्ट अनुपलब्ध हो और कोई प्रतिस्थापन नियम कॉन्फ़िगर न हो तो क्या होता है?**
+**क्या Aspose लाइब्रेरी के साथ फ़ॉन्ट वितरित करता है?**  
+नहीं। फ़ॉन्ट प्रदान करना और उनके लाइसेंस का पालन करना आपकी ज़िम्मेदारी है।
 
-Aspose.Slides अपने फ़ॉन्ट चयन प्रक्रिया के अनुसार सबसे नज़दीकी उपलब्ध फ़ॉन्ट चुनता है। परिणाम रन‑टाइम वातावरण में उपलब्ध फ़ॉन्ट पर निर्भर करता है।
+**क्या प्रतिस्थापन परिणाम Windows, Linux और macOS के बीच अलग हो सकते हैं?**  
+हाँ। स्थापित फ़ॉन्ट और फ़ॉन्ट खोज स्थान ऑपरेटिंग सिस्टम पर निर्भर करते हैं, इसलिए एक मशीन पर उपलब्ध फ़ॉन्ट दूसरी पर प्रतिस्थापन की आवश्यकता पैदा कर सकता है।
 
-**क्या मैं बाहरी फ़ॉन्ट लोड करके प्रतिस्थापन से बच सकता हूँ?**
-
-हाँ। आप [बाहरी फ़ॉन्ट लोड](/slides/hi/python-net/custom-font/) कर सकते हैं ताकि Aspose.Slides उन्हें रेंडरिंग और रूपांतरण के दौरान उपयोग कर सके।
-
-**क्या Aspose लाइब्रेरी के साथ फ़ॉन्ट वितरित करता है?**
-
-नहीं। फ़ॉन्ट प्रदान करने और उनके लाइसेंस का पालन करने की जिम्मेदारी आपके ऊपर है।
-
-**क्या प्रतिस्थापन परिणाम Windows, Linux और macOS में अलग हो सकते हैं?**
-
-हाँ। स्थापित फ़ॉन्ट और फ़ॉन्ट खोज स्थान ऑपरेटिंग सिस्टम के अनुसार भिन्न होते हैं, इसलिए एक मशीन पर उपलब्ध फ़ॉन्ट दूसरी पर प्रतिस्थापन की आवश्यकता बना सकता है।
-
-**बैच रूपांतरण में फ़ॉन्ट चयन को सुसंगत कैसे रखें?**
-
-प्रत्येक मशीन या कंटेनर पर समान फ़ॉन्ट फ़ाइलें और संस्करण उपयोग करें, [आवश्यक बाहरी फ़ॉन्ट लोड](/slides/hi/python-net/custom-font/) करें, और लाइसेंस अनुमति होने पर [फ़ॉन्ट एम्बेड](/slides/hi/python-net/embedded-font/) करें। निर्यात से पहले अप्रत्याशित प्रतिस्थापनों की पहचान के लिए आप [FontsManager.get_substitutions](https://reference.aspose.com/slides/hi/python-net/aspose.slides/fontsmanager/get_substitutions/) भी कॉल कर सकते हैं।
+**बैच रूपांतरण में फ़ॉन्ट चयन को सुसंगत कैसे रखें?**  
+हर मशीन या कंटेनर पर वही फ़ॉन्ट फ़ाइलें और संस्करण उपयोग करें, [load required external fonts](/slides/hi/python-net/custom-font/) और [embed fonts](/slides/hi/python-net/embedded-font/) लाइसेंस की अनुमति के साथ करें। आप निर्यात से पहले [FontsManager.get_substitutions](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/get_substitutions/) को कॉल करके अप्रत्याशित प्रतिस्थापन पहचान सकते हैं।

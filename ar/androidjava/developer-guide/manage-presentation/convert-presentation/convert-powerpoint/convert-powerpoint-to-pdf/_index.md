@@ -1,5 +1,5 @@
 ---
-title: تحويل PPT و PPTX إلى PDF على Android [يتضمن ميزات متقدمة]
+title: تحويل PPT و PPTX إلى PDF على Android [مع ميزات متقدمة]
 linktitle: PowerPoint إلى PDF
 type: docs
 weight: 40
@@ -25,47 +25,45 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "تحويل PowerPoint PPT/PPTX إلى ملفات PDF عالية الجودة وقابلة للبحث في Java باستخدام Aspose.Slides لـ Android، مع أمثلة شفرة سريعة وخيارات تحويل متقدمة."
+description: "تحويل PowerPoint PPT/PPTX إلى ملفات PDF عالية الجودة وقابلة للبحث في Java باستخدام Aspose.Slides لنظام Android، مع أمثلة شفرة سريعة وخيارات تحويل متقدمة."
 ---
 ## **نظرة عامة**
 
-تحويل عروض PowerPoint (PPT، PPTX، ODP، إلخ) إلى تنسيق PDF على نظام Android يوفر العديد من الفوائد، بما في ذلك التوافق عبر الأجهزة المختلفة والحفاظ على تخطيط وتنسيق العرض التقديمي الخاص بك. يوضح هذا الدليل كيفية تحويل العروض إلى مستندات PDF، واستخدام خيارات متنوعة للتحكم في جودة الصورة، تضمين الشرائح المخفية، حماية ملفات PDF بكلمة مرور، اكتشاف استبدالات الخطوط، اختيار شرائح محددة للتحويل، وتطبيق معايير الامتثال على المستندات الناتجة.
+تحويل عروض PowerPoint (PPT، PPTX، ODP، إلخ) إلى تنسيق PDF على نظام Android يوفر عدة مزايا، بما في ذلك التوافق عبر الأجهزة المختلفة والحفاظ على تخطيط وتنسيق عرضك التقديمي. يوضح هذا الدليل كيفية تحويل العروض إلى مستندات PDF، واستخدام خيارات مختلفة للتحكم في جودة الصور، وتضمين الشرائح المخفية، وحماية ملفات PDF بكلمة مرور، واكتشاف استبدال الخطوط، وتحديد شرائح معينة للتحويل، وتطبيق معايير الامتثال على المستندات الناتجة.
 
-## **تحويل PowerPoint إلى PDF**
+## **تحويلات PowerPoint إلى PDF**
 
-باستخدام Aspose.Slides، يمكنك تحويل العروض التقديمية بالتنسيقات التالية إلى PDF:
+باستخدام Aspose.Slides، يمكنك تحويل العروض بالتنسيقات التالية إلى PDF:
 
 * **PPT**
 * **PPTX**
 * **ODP**
 
-لتحويل عرض تقديمي إلى PDF، مرر اسم الملف كمعامل إلى فئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) ثم احفظ العرض التقديمي كملف PDF باستخدام طريقة [save](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#save-java.lang.String-int-). تعرض فئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) طريقة [save](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#save-java.lang.String-int-) التي تُستخدم عادةً لتحويل عرض تقديمي إلى PDF.
+لتحويل عرض تقديمي إلى PDF، قم بتمرير اسم الملف كمعامل إلى فئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) ثم احفظ العرض بصيغة PDF باستخدام طريقة [save](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#save-java.lang.String-int-). تعرض فئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) طريقة [save](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#save-java.lang.String-int-) التي تُستخدم عادةً لتحويل عرض تقديمي إلى PDF.
 
 {{% alert color="info" title="Note" %}}
-Aspose.Slides for Android via Java يدرج معلومات API ورقم الإصدار الخاص به في المستندات الناتجة. على سبيل المثال، عند تحويل عرض تقديمي إلى PDF، يملأ Aspose.Slides حقل Application بـ "*Aspose.Slides*" وحقل PDF Producer بقيمة بصيغة "*Aspose.Slides v XX.XX*". **ملاحظة** أنك لا تستطيع إرشاد Aspose.Slides لتغيير أو إزالة هذه المعلومات من المستندات الناتجة.
+يضيف Aspose.Slides for Android via Java معلومات واجهة برمجة التطبيقات ورقم الإصدار إلى المستندات الناتجة. على سبيل المثال، عند تحويل عرض تقديمي إلى PDF، يقوم Aspose.Slides بملء حقل Application بـ "*Aspose.Slides*" وحقل PDF Producer بقيمة بصيغة "*Aspose.Slides v XX.XX*". **ملاحظة** أنه لا يمكنك إرشاد Aspose.Slides لتغيير أو إزالة هذه المعلومات من المستندات الناتجة.
 {{% /alert %}}
 
-Aspose.Slides يتيح لك تحويل:
+يسمح لك Aspose.Slides بالتحويل:
 
-* كل العروض التقديمية إلى PDF
+* العروض الكاملة إلى PDF
 * شرائح محددة من عرض تقديمي إلى PDF
 
-Aspose.Slides يصدر العروض التقديمية إلى PDF، مما يضمن أن ملفات PDF الناتجة تطابق العروض الأصلية بشكل وثيق. يتم عرض العناصر والسمات بدقة أثناء التحويل، بما في ذلك:
+يصدر Aspose.Slides العروض إلى PDF، مما يضمن أن ملفات PDF الناتجة تتطابق بشكل كبير مع العروض الأصلية. يتم عرض العناصر والسمات بدقة في التحويل، بما في ذلك:
 
 * الصور
-* صناديق النص والأشكال
+* مربعات النص والأشكال
 * تنسيق النص
-* تنسيق الفقرة
+* تنسيق الفقرات
 * الروابط التشعبية
-* الترويسات والهوامش
+* الترويسات والتذييلات
 * النقاط
 * الجداول
 
 ## **تحويل PowerPoint إلى PDF**
 
-تستخدم عملية تحويل PowerPoint إلى PDF القياسية خيارات افتراضية. في هذه الحالة، يحاول Aspose.Slides تحويل العرض المقدم إلى PDF باستخدام إعدادات مثالية بأعلى مستويات الجودة.
-
-المثال التالي يقوم بتحميل عرض تقديمي ويحفظ جميع الشرائح الظاهرة إلى PDF باستخدام إعدادات التصدير الافتراضية.
+تستخدم عملية التحويل القياسية من PowerPoint إلى PDF الخيارات الافتراضية. في هذه الحالة، يحاول Aspose.Slides تحويل العرض المقدم إلى PDF باستخدام إعدادات مثالية بأعلى مستويات الجودة. المثال التالي يقوم بتحميل عرض تقديمي ويحفظ جميع الشرائح المرئية إلى PDF باستخدام إعدادات التصدير الافتراضية.
 
 ```java
 import com.aspose.slides.*;
@@ -79,18 +77,18 @@ try {
 ```
 
 {{% alert color="info" title="Note" %}}
-Aspose يقدم أداة تحويل مجانية عبر الإنترنت من [**PowerPoint إلى PDF**](https://products.aspose.app/slides/conversion/ppt-to-pdf) التي توضح عملية تحويل العرض إلى PDF. يمكنك إجراء اختبار باستخدام هذه الأداة لتنفيذ عملي للخطوات الموصوفة هنا.
+يوفر Aspose محولًا مجانيًا عبر الإنترنت [**محول PowerPoint إلى PDF**](https://products.aspose.app/slides/conversion/ppt-to-pdf) يوضح عملية تحويل العرض إلى PDF. يمكنك تشغيل اختبار باستخدام هذا المحول لتطبيق حي للإجراء الموصوف هنا.
 {{% /alert %}}
 
 ## **تحويل PowerPoint إلى PDF مع خيارات**
 
-Aspose.Slides يوفر خيارات مخصصة — خصائص داخل فئة [PdfOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/pdfoptions/) — التي تسمح لك بتخصيص PDF الناتج، قفل PDF بكلمة مرور، أو تحديد كيفية سير عملية التحويل.
+يوفر Aspose.Slides خيارات مخصصة—خصائص تحت فئة [PdfOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/pdfoptions/)—تتيح لك تخصيص PDF الناتج، أو قفل PDF بكلمة مرور، أو تحديد كيفية سير عملية التحويل.
 
 ### **تحويل PowerPoint إلى PDF مع خيارات مخصصة**
 
-باستخدام خيارات التحويل المخصصة، يمكنك تحديد إعداد الجودة المفضلة للصور النقطية، تحديد كيفية معالجة ملفات الميتا، ضبط مستوى ضغط النص، تكوين DPI للصور، والمزيد.
+باستخدام خيارات التحويل المخصصة، يمكنك تحديد إعداد الجودة المفضل للصور النقطية، وتحديد كيفية معالجة ملفات الميتا، وتعيين مستوى الضغط للنص، وتكوين DPI للصور، والمزيد.
 
-المثال التالي يصدر عرضاً تقديمياً إلى PDF 1.5 مع جودة JPEG مضبوطة على 90، ودقة الصورة على 300 DPI، وحفظ ملفات الميتا كـ PNG، وضغط نص Flate.
+المثال التالي يصدر عرضًا إلى PDF 1.5 مع جودة JPEG محددة إلى 90، ودقة الصورة إلى 300 DPI، وحفظ ملفات الميتا كـ PNG، وضغط نص Flate.
 
 ```java
 import com.aspose.slides.*;
@@ -111,13 +109,13 @@ try {
 }
 ```
 
-### **حفظ ملفات OLE المدمجة كمرفقات PDF**
+### **حفظ ملفات OLE المضمنة كمرفقات PDF**
 
-إذا كان العرض يحتوي على دفتر عمل Excel مدمج، قد ترغب في أن يتمكن مستلمو PDF من الوصول إلى بيانات دفتر العمل بالإضافة إلى عرض الشرائح. استدعِ [setIncludeOleData](https://reference.aspose.com/slides/androidjava/com.aspose.slides/pdfoptions/#setIncludeOleData-boolean-) مع `true` لحفظ ملفات OLE المدمجة كمرفقات في PDF الناتج.
+إذا كان العرض يحتوي على دفتر عمل Excel مضمّن، قد ترغب في أن يتمكن مستلمو PDF من الوصول إلى بيانات دفتر العمل بالإضافة إلى عرض الشرائح. استدعِ [setIncludeOleData](https://reference.aspose.com/slides/androidjava/com.aspose.slides/pdfoptions/#setIncludeOleData-boolean-) مع `true` للحفاظ على ملفات OLE المضمّنة كمرفقات في PDF الناتج.
 
-القيمة الافتراضية هي `false`: يتم عرض صورة المعاينة أو الأيقونة لكائن OLE على صفحة PDF، لكن الملف المدمج غير مشمول كمرفق. ضبط الخيار على `true` يضيف بيانات الملف كذلك. تبقى المعاينة تمثيلًا بصريًا؛ المرفق يتيح للمستلمين فتح أو حفظ الملف المدمج بشكل منفصل. كائن OLE لا يتحول إلى ورقة عمل Excel تفاعلية على صفحة PDF.
+القيمة الافتراضية هي `false`: يتم عرض صورة المعاينة أو أيقونة كائن OLE على صفحة PDF، لكن ملفه المضمّن غير مشمول كمرفق. ضبط الخيار على `true` يضيف بيانات الملف أيضًا. تظل المعاينة تمثيلًا بصريًا؛ يسمح المرفق للمستلمين بفتح أو حفظ الملف المضمّن بشكل منفصل. لا يتحول كائن OLE إلى ورقة عمل Excel تفاعلية على صفحة PDF.
 
-المثال التالي يقوم بتحميل عرض يحتوي بالفعل على دفتر عمل Excel مدمج ويصدره إلى PDF مع إرفاق دفتر العمل.
+المثال التالي يقوم بتحميل عرض يحتوي بالفعل على دفتر عمل Excel مضمّن ويصدره إلى PDF مع إرفاق دفتر العمل.
 
 ```java
 import com.aspose.slides.*;
@@ -134,20 +132,19 @@ try {
 ```
 
 للتحقق من النتيجة:
-
-1. افتح ملف PDF المُصدَر في عارض يدعم المرفقات، مثل Adobe Acrobat Reader.
-2. افتح لوحة **Attachments** في العارض وحدد موقع دفتر العمل المدمج.
-3. احفظ المرفق وافتحه في Excel لفحص بياناته، أو افتحه مباشرة إذا سمح العارض بذلك. المعاينة على صفحة PDF منفصلة عن المرفق.
+1. افتح ملف PDF المُصدر في عارض يدعم مرفقات الملفات، مثل Adobe Acrobat Reader.
+2. افتح لوحة **المرفقات** في العارض وحدد موقع دفتر العمل المضمّن.
+3. احفظ المرفق وافتحه في Excel لتفحص بياناته، أو افتحه مباشرة إذا سمح العارض بذلك. المعاينة على صفحة PDF منفصلة عن المرفق.
 
 {{% alert color="info" title="Note" %}}
-معايير PDF/A تفرض قيودًا على المرفقات: PDF/A-1 يمنع الملفات المدمجة، PDF/A-2 يسمح فقط بمرفقات PDF/A، وPDF/A-3 يسمح بأنواع ملفات أخرى، بما في ذلك دفاتر عمل Excel. هذه متطلبات المعايير، غير أنها قيود خاصة بـ Aspose.Slides. يستخدم هذا المثال إعداد الامتثال الافتراضي لـ PDF ولا يوضح تصدير PDF/A.
+تفرض معايير PDF/A قيودًا على المرفقات: PDF/A-1 تحظر الملفات المضمّنة، PDF/A-2 تسمح فقط بمرفقات PDF/A، وPDF/A-3 تسمح بأنواع ملفات أخرى، بما في ذلك دفاتر عمل Excel. هذه متطلبات المعايير، وليست قيودًا خاصة بـ Aspose.Slides. يستخدم هذا المثال الإعداد الافتراضي للامتثال للـ PDF ولا يوضح تصدير PDF/A.
 {{% /alert %}}
 
 ### **تحويل PowerPoint إلى PDF مع الشرائح المخفية**
 
 إذا كان العرض يحتوي على شرائح مخفية، يمكنك استخدام طريقة [setShowHiddenSlides](https://reference.aspose.com/slides/androidjava/com.aspose.slides/pdfoptions/#setShowHiddenSlides-boolean-) من فئة [PdfOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/pdfoptions/) لتضمين الشرائح المخفية كصفحات في PDF الناتج.
 
-المثال التالي يصدر عرضاً تقديمياً إلى PDF، بما في ذلك أي شرائح مخفية.
+المثال التالي يصدر عرضًا إلى PDF مع تضمين أي شرائح مخفية.
 
 ```java
 import com.aspose.slides.*;
@@ -165,7 +162,7 @@ try {
 
 ### **تحويل PowerPoint إلى PDF محمي بكلمة مرور**
 
-المثال التالي يصدر عرضاً تقديمياً إلى PDF يتطلب كلمة المرور `password` للفتح. تسمح أذونات الوصول بالطباعة، بما في ذلك الطباعة عالية الجودة.
+المثال التالي يصدر عرضًا إلى PDF يتطلب كلمة المرور `password` للفتح. تسمح أذونات الوصول بالطباعة، بما في ذلك الطباعة عالية الجودة.
 
 ```java
 import com.aspose.slides.*;
@@ -182,11 +179,11 @@ try {
 }
 ```
 
-### **اكتشاف استبدال الخطوط**
+### **اكتشاف استبدالات الخطوط**
 
-Aspose.Slides يوفر طريقة [setWarningCallback](https://reference.aspose.com/slides/androidjava/com.aspose.slides/saveoptions/#setWarningCallback-com.aspose.slides.IWarningCallback-) ضمن فئة [PdfOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/pdfoptions/)، مما يتيح لك اكتشاف استبدالات الخطوط أثناء عملية تحويل العرض إلى PDF.
+يوفر Aspose.Slides طريقة [setWarningCallback](https://reference.aspose.com/slides/androidjava/com.aspose.slides/saveoptions/#setWarningCallback-com.aspose.slides.IWarningCallback-) ضمن فئة [PdfOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/pdfoptions/)، مما يتيح لك اكتشاف استبدالات الخطوط أثناء عملية تحويل العرض إلى PDF.
 
-المثال التالي يصدر عرضاً تقديمياً إلى PDF ويطبع تحذيرات استبدال الخطوط إلى وحدة التحكم. يتم طباعة تحذير فقط عندما يتم استبدال خط غير متوفر أثناء التصدير.
+المثال التالي يصدر عرضًا إلى PDF ويطبع تحذيرات استبدال الخطوط في وحدة التحكم. يتم طباعة التحذير فقط عندما يتم استبدال خط غير متوفر أثناء التصدير.
 
 ```java
 import com.aspose.slides.*;
@@ -212,12 +209,44 @@ try {
 ```
 
 {{% alert color="info" title="Note" %}}
-لمزيد من المعلومات حول استبدال الخطوط، راجع مقالة [Font Substitution](/slides/ar/androidjava/font-substitution/).
-{{% /alert %}} 
+لمزيد من المعلومات حول استبدال الخطوط، راجع مقالة [استبدال الخطوط](/slides/ar/androidjava/font-substitution/).
+{{% /alert %}}
+
+### **معالجة الخطوط بدون نوع خط عريض مخصص**
+
+يمكن للعرض تطبيق تنسيق عريض على النص حتى عندما لا يحتوي الخط على نوع عريض مخصص. يمكن أن يظهر النص عريضًا عبر التسمك الصناعي، الذي يزيد من سمك الحروف العادية. عندما يبدو النص ثقيلًا جدًا أو يختلف عن الشكل المقصود في PDF، جرّب استدعاء [PdfOptions.setRasterizeUnsupportedFontStyles](https://reference.aspose.com/slides/androidjava/com.aspose.slides/pdfoptions/#setRasterizeUnsupportedFontStyles-boolean-) مع `true`. هذا الخيار يعرض النص المتأثر كصورة نقطية أثناء تصدير PDF ويمكن أن يحسن مظهره لبعض الخطوط. القيمة الافتراضية هي `false`.
+
+يتضمن العرض النموذجي مربعين للنص: أحدهما نص عادي والآخر بنمط عريض يُطبق على نفس الخط الذي لا يملك نوعًا عريضًا مخصصًا. المثال التالي يحمل العرض، يفعّل تحويل الأنماط غير المدعومة إلى نقطية، ويصدره إلى PDF:
+
+```java
+import com.aspose.slides.PdfOptions;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+
+PdfOptions pdfOptions = new PdfOptions();
+pdfOptions.setRasterizeUnsupportedFontStyles(true);
+
+Presentation presentation = new Presentation("unsupported-bold.pptx");
+try {
+    presentation.save("rasterized.pdf", SaveFormat.Pdf, pdfOptions);
+} finally {
+    presentation.dispose();
+}
+```
+
+العروض التالية تُظهر النتيجة مع تعطيل الخيار والنتيجة مع تفعيل الخيار. في هذا المثال، يحتوي النص العريض على خطوط أثقل عندما يكون الخيار معطلًا. مع تفعيل الخيار، تكون خطوطه أخف؛ النص العادي يبقى دون تغيير. قارن النتائج قبل اختيار الإعداد لعرضك.
+
+| الخيار معطل (`false`, الافتراضي) | الخيار مفعّل (`true`) |
+|---|---|
+| ![PDF with unsupported font style rasterization disabled](unsupported-bold-disabled.png) | ![PDF with unsupported font style rasterization enabled](unsupported-bold-enabled.png) |
+
+في هذا المثال، يغيّر تفعيل الخيار النص العريض فقط إلى صورة نقطية: لا يمكن تحديده أو نسخه أو البحث فيه كنص دون OCR، وتظهر حوافه أكثر نعومة عند تكبير 800٪. يبقى النص العادي قابلاً للبحث. مع تعطيل الخيار، يبقى كلا السلسلتين نصًا.
+
+هذا الخيار يحول النص المُنسق كعريض إلى نقطية عندما لا يمتلك الخط نوعًا عريضًا مخصصًا. [استبدال الخطوط](/slides/ar/androidjava/font-substitution/) يختار بدلاً من ذلك خطًا آخر عندما يكون الأصلي غير متوفر.
 
 ## **تحويل الشرائح المحددة من PowerPoint إلى PDF**
 
-المثال التالي يصدر الشرائح 1 و3 من عرض تقديمي إلى PDF. أرقام الشرائح في هذا المصفوفة تبدأ من الواحد، ويجب أن يحتوي العرض المدخل على ثلاث شرائح على الأقل.
+المثال التالي يصدر الشرائح 1 و 3 من عرض إلى PDF. أرقام الشرائح في هذا المصفوفة تبدأ من الواحد، ويجب أن يحتوي العرض المدخل على ثلاث شرائح على الأقل.
 
 ```java
 import com.aspose.slides.*;
@@ -233,7 +262,7 @@ try {
 
 ## **تحويل PowerPoint إلى PDF بحجم شريحة مخصص**
 
-المثال التالي ينسخ الشريحة الأولى من عرض تقديمي إلى عرض جديد بحجم شريحة 612 × 792 نقطة (8.5 × 11 بوصة). يضبط محتوى الشريحة ليتناسب ويصدر الشريحة الواحدة إلى PDF.
+المثال التالي ينسخ الشريحة الأولى من عرض إلى عرض جديد بحجم شريحة 612 × 792 نقطة (8.5 × 11 بوصة). يقوم بتوسيع محتوى الشريحة ليتناسب ثم يصدر الشريحة الواحدة إلى PDF.
 
 ```java
 import com.aspose.slides.*;
@@ -260,9 +289,9 @@ try {
 }
 ```
 
-## **تحويل PowerPoint إلى PDF في وضع ملاحظات الشريحة**
+## **تحويل PowerPoint إلى PDF في عرض ملاحظات الشريحة**
 
-المثال التالي يصدر عرضاً تقديمياً إلى PDF، بوضع ملاحظات المتحدث لكل شريحة أسفل الشريحة. استخدم عرضاً يحتوي على ملاحظات المتحدث لرؤية النتيجة.
+المثال التالي يصدر عرضًا إلى PDF، حيث يضع ملاحظات المتحدث لكل شريحة أسفل الشريحة. استخدم عرضًا يحتوي على ملاحظات المتحدث لتشاهد النتيجة.
 
 ```java
 import com.aspose.slides.*;
@@ -281,11 +310,9 @@ try {
 }
 ```
 
-## **معايير الوصول والامتثال لملفات PDF**
+## **معايير الوصول والامتثال لملف PDF**
 
-Aspose.Slides يتيح لك استخدام إجراء تحويل يتوافق مع [إرشادات إمكانية الوصول لمحتوى الويب (**WCAG**)](https://www.w3.org/TR/WCAG-TECHS/pdf.html). يمكنك تصدير مستند PowerPoint إلى PDF باستخدام أي من معايير الامتثال هذه: **PDF/A1a**، **PDF/A1b**، و**PDF/UA**.
-
-هذا الكود يوضح عملية تحويل PowerPoint إلى PDF تنتج عدة ملفات PDF بناءً على معايير امتثال مختلفة:
+يتيح لك Aspose.Slides استخدام إجراء تحويل يتوافق مع [إرشادات وصول محتوى الويب (**WCAG**)](https://www.w3.org/TR/WCAG-TECHS/pdf.html). يمكنك تصدير مستند PowerPoint إلى PDF باستخدام أي من معايير الامتثال التالية: **PDF/A1a**، **PDF/A1b**، و**PDF/UA**.
 
 ```java
 import com.aspose.slides.*;
@@ -308,32 +335,27 @@ try {
 ```
 
 {{% alert color="info" title="Note" %}}
-Aspose.Slides يدعم عمليات تحويل PDF، مما يتيح لك تحويل ملفات PDF إلى صيغ شائعة. يمكنك إجراء تحويلات [PDF إلى HTML](https://products.aspose.com/slides/java/conversion/pdf-to-html/)، [PDF إلى صورة](https://products.aspose.com/slides/java/conversion/pdf-to-image/)، [PDF إلى JPG](https://products.aspose.com/slides/java/conversion/pdf-to-jpg/)، و[PDF إلى PNG](https://products.aspose.com/slides/java/conversion/pdf-to-png/). عمليات تحويل PDF إلى صيغ متخصصة أخرى — [PDF إلى SVG](https://products.aspose.com/slides/java/conversion/pdf-to-svg/)، [PDF إلى TIFF](https://products.aspose.com/slides/java/conversion/pdf-to-tiff/)، و[PDF إلى XML](https://products.aspose.com/slides/java/conversion/pdf-to-xml/) — مدعومة أيضاً.
+يدعم Aspose.Slides عمليات تحويل PDF، مما يسمح لك بتحويل ملفات PDF إلى صيغ شائعة. يمكنك إجراء تحويلات [PDF إلى HTML](https://products.aspose.com/slides/java/conversion/pdf-to-html/)، [PDF إلى صورة](https://products.aspose.com/slides/java/conversion/pdf-to-image/)، [PDF إلى JPG](https://products.aspose.com/slides/java/conversion/pdf-to-jpg/)، و[PDF إلى PNG](https://products.aspose.com/slides/java/conversion/pdf-to-png/). عمليات تحويل PDF إلى صيغ متخصصة أخرى—[PDF إلى SVG](https://products.aspose.com/slides/java/conversion/pdf-to-svg/)، [PDF إلى TIFF](https://products.aspose.com/slides/java/conversion/pdf-to-tiff/)، و[PDF إلى XML](https://products.aspose.com/slides/java/conversion/pdf-to-xml/)—مدعومة أيضًا.
 {{% /alert %}}
 
-> **ملاحظة:** عند التصدير إلى PDF/UA، يتعامل Aspose.Slides مع الرسومات المعقدة مثل SmartArt والرسوم البيانية والمعادلات ككائن واحد. لا يتم الحفاظ على عناصر المسار الفردية كمحتوى منفصل وقد تُوضع كـ artifacts؛ النص البديل يُقدَّم فقط للكائن بالكامل.
+> **ملاحظة:** عند التصدير إلى PDF/UA، يعامل Aspose.Slides الرسومات المعقدة مثل SmartArt والرسوم البيانية والصيغ ككائن واحد. لا يتم الاحتفاظ بعناصر المسار الفردية كمحتوى منفصل وقد تُصنف كملفات أثرية؛ يتم توفير النص البديل فقط للكائن بالكامل.
 
-## **FAQ**
+## **الأسئلة الشائعة**
 
-**هل يمكنني تحويل ملفات PowerPoint متعددة إلى PDF دفعة واحدة؟**
+**هل يمكنني تحويل ملفات PowerPoint متعددة إلى PDF بشكل جماعي؟**  
+نعم، يدعم Aspose.Slides التحويل الدفعي لعدة ملفات PPT أو PPTX إلى PDF. يمكنك المرور على ملفاتك وتطبيق عملية التحويل برمجياً.
 
-نعم، يدعم Aspose.Slides التحويل الدفعي لعدة ملفات PPT أو PPTX إلى PDF. يمكنك التجول عبر ملفاتك وتطبيق عملية التحويل برمجياً.
-
-**هل يمكن حماية PDF المحول بكلمة مرور؟**
-
+**هل يمكن حماية PDF الناتج بكلمة مرور؟**  
 نعم. استخدم فئة [PdfOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/pdfoptions/) لتعيين كلمة مرور وتحديد أذونات الوصول أثناء عملية التحويل.
 
-**كيف يمكنني تضمين الشرائح المخفية في PDF؟**
-
+**كيف يمكنني تضمين الشرائح المخفية في PDF؟**  
 استدعِ [setShowHiddenSlides](https://reference.aspose.com/slides/androidjava/com.aspose.slides/pdfoptions/#setShowHiddenSlides-boolean-) مع `true` في فئة [PdfOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/pdfoptions/) لتضمين الشرائح المخفية في PDF الناتج.
 
-**هل يمكن لـ Aspose.Slides الحفاظ على جودة صورة عالية في PDF؟**
+**هل يمكن لـ Aspose.Slides الحفاظ على جودة صورة عالية في PDF؟**  
+نعم، يمكنك التحكم في جودة الصورة باستخدام طرق مثل [setJpegQuality](https://reference.aspose.com/slides/androidjava/com.aspose.slides/pdfoptions/#setJpegQuality-byte-) و[setSufficientResolution](https://reference.aspose.com/slides/androidjava/com.aspose.slides/pdfoptions/#setSufficientResolution-float-) في فئة [PdfOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/pdfoptions/) لضمان صور عالية الجودة في PDF.
 
-نعم، يمكنك التحكم في جودة الصورة باستخدام طرق مثل [setJpegQuality](https://reference.aspose.com/slides/androidjava/com.aspose.slides/pdfoptions/#setJpegQuality-byte-) و[setSufficientResolution](https://reference.aspose.com/slides/androidjava/com.aspose.slides/pdfoptions/#setSufficientResolution-float-) في فئة [PdfOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/pdfoptions/) لضمان صور عالية الجودة في PDF الخاص بك.
-
-**هل يدعم Aspose.Slides معايير الامتثال PDF/A؟**
-
-نعم، يتيح لك Aspose.Slides تصدير ملفات PDF متوافقة مع [معايير مختلفة](https://reference.aspose.com/slides/androidjava/com.aspose.slides/pdfcompliance/)، بما في ذلك PDF/A1a، PDF/A1b، وPDF/UA، مما يضمن أن مستنداتك تلبي متطلبات الوصول والأرشفة.
+**هل يدعم Aspose.Slides معايير الامتثال PDF/A؟**  
+نعم، يسمح Aspose.Slides لك بتصدير ملفات PDF تتوافق مع [معايير مختلفة](https://reference.aspose.com/slides/androidjava/com.aspose.slides/pdfcompliance/)، بما في ذلك PDF/A1a وPDF/A1b وPDF/UA، مما يضمن أن مستنداتك تفي بمتطلبات الوصول والأرشفة.
 
 ## **موارد إضافية**
 

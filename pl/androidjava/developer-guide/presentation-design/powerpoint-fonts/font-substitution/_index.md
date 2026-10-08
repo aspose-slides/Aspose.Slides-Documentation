@@ -1,36 +1,38 @@
 ---
-title: Konfigurowanie podstawiania czcionek w prezentacjach na Androidzie
-linktitle: Podstawianie czcionek
+title: Konfiguracja zastąpień czcionek w prezentacjach na Androidzie
+linktitle: Zastąpienie czcionki
 type: docs
 weight: 70
 url: /pl/androidjava/font-substitution/
 keywords:
 - czcionka
-- czcionka zamienna
-- podstawianie czcionek
-- zamiana czcionki
+- czcionka zastępcza
 - zastąpienie czcionki
-- reguła podstawienia
+- zamiana czcionki
+- wymiana czcionki
 - reguła zastąpienia
+- reguła wymiany
 - PowerPoint
 - OpenDocument
 - prezentacja
 - Android
 - Java
 - Aspose.Slides
-description: "Konfiguruj reguły podstawiania czcionek i sprawdzaj podstawione czcionki w Aspose.Slides dla Androida przy użyciu Javy podczas renderowania lub konwersji prezentacji."
+description: "Skonfiguruj reguły zastąpień czcionek i sprawdź zastąpione czcionki w Aspose.Slides dla Androida za pomocą Javy podczas renderowania lub konwertowania prezentacji."
 ---
 ## **Przegląd**
 
-Podstawianie czcionek umożliwia Aspose.Slides użycie dostępnej czcionki zamiast czcionki, której nie można uzyskać podczas renderowania lub konwersji prezentacji. Podstawienie dotyczy wyjściowego renderowanego wyniku; nie zmienia ono czcionki przypisanej do treści prezentacji.
+Zastąpienie czcionki pozwala Aspose.Slides używać dostępnej czcionki zamiast czcionki, której nie można uzyskać podczas renderowania lub konwersji prezentacji. Zastąpienie wpływa na renderowany wynik; nie zmienia czcionki przypisanej do zawartości prezentacji.
 
-Możesz określić czcionkę, której używać, gdy dana czcionka jest niedostępna, oraz możesz sprawdzić podstawienia, które Aspose.Slides wykona podczas renderowania. Pomaga to utrzymać spójność wyjścia na różnych urządzeniach z Androidem i w środowiskach z różnymi dostępnymi czcionkami.
+Możesz zdefiniować czcionkę, którą należy używać, gdy dana czcionka jest niedostępna, oraz możesz przeglądać zastąpienia, które Aspose.Slides wykona podczas renderowania. Pomaga to zachować spójność wyjścia na różnych urządzeniach z systemem Android i w środowiskach z różnymi dostępnymi czcionkami.
 
-## **Pobieranie podstawień czcionek**
+Jeśli czcionka jest dostępna, ale nie ma dedykowanej pogrubionej odmiany, zobacz [Obsługa czcionek bez dedykowanej pogrubionej odmiany](/slides/pl/androidjava/convert-powerpoint-to-pdf/#handle-fonts-without-a-dedicated-bold-typeface). Ta sekcja wyjaśnia, jak rasteryzować dotknięty tekst podczas eksportu do PDF i konsekwencje dla zaznaczania tekstu, wyszukiwania i skalowania.
 
-Użyj metody [IFontsManager.getSubstitutions](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ifontsmanager/#getSubstitutions--) aby określić, które czcionki zostaną podstawione podczas renderowania prezentacji. Metoda zwraca obiekty [FontSubstitutionInfo](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/fontsubstitutioninfo/), które określają nazwy oryginalnej i podstawionej czcionki.
+## **Uzyskiwanie zastąpień czcionek**
 
-Przykład poniżej w języku Java wyświetla wszystkie podstawienia czcionek dla prezentacji:
+Użyj metody [IFontsManager.getSubstitutions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifontsmanager/#getSubstitutions--) aby określić, które czcionki będą zastępowane podczas renderowania prezentacji. Metoda zwraca obiekty [FontSubstitutionInfo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/fontsubstitutioninfo/), które identyfikują oryginalne i zastąpione nazwy czcionek.
+
+Poniższy przykład w języku Java wymienia wszystkie zastąpienia czcionek dla prezentacji:
 
 ```java
 import com.aspose.slides.FontSubstitutionInfo;
@@ -46,15 +48,15 @@ try {
 }
 ```
 
-## **Pobieranie podstawień czcionek dla wybranych slajdów**
+## **Uzyskiwanie zastąpień czcionek dla wybranych slajdów**
 
-Użyj przeciążenia [IFontsManager.getSubstitutions](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ifontsmanager/#getSubstitutions-int---) z argumentem `int[] slides`, aby sprawdzić tylko podstawienia niezbędne do renderowania konkretnych slajdów. Jest to przydatne, gdy renderujesz lub eksportujesz część prezentacji, sprawdzasz dużą prezentację partiami, lokalizujesz slajdy zależne od niedostępnych czcionek, przygotowujesz minimalny pakiet czcionek dla aplikacji Android lub diagnozujesz różnice w renderowaniu bez przetwarzania niepowiązanych slajdów.
+Użyj przeciążenia [IFontsManager.getSubstitutions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifontsmanager/#getSubstitutions-int---) z argumentem `int[] slides`, aby sprawdzić tylko zastąpienia wymagane do renderowania konkretnych slajdów. Jest to przydatne, gdy renderujesz lub eksportujesz część prezentacji, sprawdzasz dużą prezentację iteracyjnie, lokalizujesz slajdy zależne od niedostępnych czcionek, przygotowujesz minimalny pakiet czcionek dla aplikacji Android lub diagnozujesz różnice w renderowaniu bez przetwarzania niepowiązanych slajdów.
 
-Tablica `slides` zawiera indeksy slajdów numerowane od jedynki: `1` oznacza pierwszy slajd. Natomiast dostęp do kolekcji [Presentation.getSlides](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/presentation/#getSlides--) używa indeksowania zerowego, więc ten sam slajd można uzyskać jako `presentation.getSlides().get_Item(0)`. Pamiętaj o tej różnicy przy tworzeniu tablicy, aby uniknąć błędów o jeden.
+Tablica `slides` zawiera indeksy slajdów liczone od jedynki: `1` określa pierwszy slajd. Natomiast dostęp do kolekcji [Presentation.getSlides](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getSlides--) używa indeksowania zerowego, więc ten sam slajd jest dostępny jako `presentation.getSlides().get_Item(0)`. Pamiętaj o tej różnicy przy budowaniu tablicy, aby uniknąć błędów o jeden.
 
-Wywołaj przeciążenie za pomocą metody [Presentation.getFontsManager](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/presentation/#getFontsManager--). Zwraca ona tylko podstawienia określone podczas renderowania wybranych slajdów. Każdy wynik jest obiektem [FontSubstitutionInfo](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/fontsubstitutioninfo/), zawierającym nazwę oryginalnej i podstawionej czcionki. Wynik odzwierciedla aktualne środowisko czcionek, skonfigurowane reguły awaryjne, reguły podstawień zapisane w [IFontSubstRuleCollection](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ifontsubstrulecollection/), oraz [zewnętrznie ładowane czcionki](/slides/pl/androidjava/custom-font/).
+Wywołaj przeciążenie za pomocą metody [Presentation.getFontsManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getFontsManager--). Zwraca ona tylko zastąpienia określone podczas renderowania wybranych slajdów. Każdy wynik jest obiektem [FontSubstitutionInfo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/fontsubstitutioninfo/), zawierającym oryginalną i zastąpioną nazwę czcionki. Wynik odzwierciedla bieżące środowisko czcionek, skonfigurowane reguły awaryjne, reguły zastąpień przechowywane w [IFontSubstRuleCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifontsubstrulecollection/), oraz [zewnętrznie załadowane czcionki](/slides/pl/androidjava/custom-font/).
 
-To samo podstawienie może być wymagane przez więcej niż jeden wybrany slajd. Usuń duplikaty wyników podczas tworzenia inwentaryzacji czcionek lub raportu wstępnego. Poniższy przykład wyświetla każde zwrócone podstawienie, a następnie tworzy posortowaną listę unikalnych mapowań czcionek:
+To samo zastąpienie może być wymagane przez więcej niż jeden wybrany slajd. Usuń duplikaty wyników podczas tworzenia inwentarza czcionek lub raportu przedprodukcyjnego. Poniższy przykład zgłasza każde zwrócone zastąpienie, a następnie tworzy posortowaną listę unikalnych mapowań czcionek:
 
 ```java
 import com.aspose.slides.FontSubstitutionInfo;
@@ -92,25 +94,25 @@ try {
 }
 ```
 
-Interfejs [IFontsManager](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ifontsmanager/) udostępnia oba przeciążenia. Wybierz odpowiednie w zależności od zakresu operacji renderowania:
+Interfejs [IFontsManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifontsmanager/) udostępnia oba przeciążenia. Wybierz jedno w zależności od zakresu operacji renderowania:
 
 | Przeciążenie | Kiedy używać |
 |---|---|
-| [getSubstitutions](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ifontsmanager/#getSubstitutions--) bez argumentów | Potrzebujesz podstawień dla całej prezentacji. |
-| [getSubstitutions](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ifontsmanager/#getSubstitutions-int---) z `int[] slides` | Potrzebujesz podstawień dla wybranego zakresu, kontroli przyrostowej lub częściowego eksportu. |
+| [getSubstitutions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifontsmanager/#getSubstitutions--) with no arguments | Potrzebujesz zastąpień dla całej prezentacji. |
+| [getSubstitutions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifontsmanager/#getSubstitutions-int---) with `int[] slides` | Potrzebujesz zastąpień dla wybranego zakresu, sprawdzenia iteracyjnego lub częściowego eksportu. |
 
-## **Ustawianie reguł podstawień czcionek**
+## **Ustaw reguły zastąpień czcionek**
 
-Aby określić czcionkę, której Aspose.Slides powinien używać, gdy czcionka źródłowa jest niedostępna:
+Aby określić czcionkę, której Aspose.Slides ma używać, gdy czcionka źródłowa jest niedostępna:
 
 1. Wczytaj prezentację.
-2. Utwórz definicje czcionek dla czcionki źródłowej i podstawiającej.
-3. Utwórz [FontSubstRule](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/fontsubstrule/) z warunkiem [WhenInaccessible](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/fontsubstcondition/).
-4. Dodaj regułę do [FontSubstRuleCollection](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/fontsubstrulecollection/).
-5. Przypisz kolekcję przy użyciu metody [FontsManager.setFontSubstRuleList](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/fontsmanager/#setFontSubstRuleList-com.aspose.slides.IFontSubstRuleCollection-).
+2. Utwórz definicje czcionek dla czcionki źródłowej i zastępczej.
+3. Utwórz [FontSubstRule](https://reference.aspose.com/slides/androidjava/com.aspose.slides/fontsubstrule/) z warunkiem [WhenInaccessible](https://reference.aspose.com/slides/androidjava/com.aspose.slides/fontsubstcondition/).
+4. Dodaj regułę do [FontSubstRuleCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/fontsubstrulecollection/).
+5. Przypisz kolekcję za pomocą metody [FontsManager.setFontSubstRuleList](https://reference.aspose.com/slides/androidjava/com.aspose.slides/fontsmanager/#setFontSubstRuleList-com.aspose.slides.IFontSubstRuleCollection-).
 6. Renderuj lub konwertuj prezentację.
 
-Poniższy przykład w Java podstawia `Arial` zamiast `SomeRareFont`, gdy `SomeRareFont` jest niedostępny, a następnie renderuje pierwszy slajd, aby zweryfikować wynik. Czcionka podstawiająca musi być dostępna dla Aspose.Slides.
+Poniższy przykład w języku Java zastępuje `Arial` czcionką `SomeRareFont`, gdy `SomeRareFont` jest niedostępna, a następnie renderuje pierwszy slajd, aby zweryfikować wynik. Zastępcza czcionka musi być dostępna dla Aspose.Slides.
 
 ```java
 import com.aspose.slides.FontData;
@@ -149,42 +151,42 @@ try {
 Aby bezwarunkowo zmienić czcionki używane w całej prezentacji, zobacz [Font Replacement](/slides/pl/androidjava/font-replacement/).
 {{% /alert %}}
 
-## **Ograniczenia dotyczące czcionek równań matematycznych**
+## **Ograniczenia dla czcionek równań matematycznych**
 
-Reguły podstawień czcionek są częścią standardowego procesu wyboru czcionki używanego podczas renderowania i konwersji. Działają one dla zwykłego tekstu, gdy Aspose.Slides może zastąpić niedostępną czcionkę czcionką wskazaną w regule.
+Reguły zastąpień czcionek są częścią standardowego procesu wyboru czcionek używanego podczas renderowania i konwersji. Działają dla zwykłego tekstu, gdy Aspose.Slides może zamienić niedostępną czcionkę na dostępną czcionkę określoną w regule.
 
-Równania Office Math mają dodatkowy wymóg. Jeśli równanie używa **Cambria Math**, Aspose.Slides może potrzebować dokładnie tej czcionki do obliczenia i renderowania układu równania. Reguła podstawiająca inną czcionkę matematyczną, taką jak **STIX Two Math**, nie może zastąpić **Cambria Math** w tym celu i renderowanie może nadal zgłaszać, że **Cambria Math** jest wymagana.
+Równania Office Math mają dodatkowy wymóg. Jeśli równanie używa **Cambria Math**, Aspose.Slides może potrzebować tej dokładnej czcionki do obliczenia i renderowania układu równania. Reguła, która zastępuje inną czcionkę matematyczną, taką jak **STIX Two Math**, nie może zastąpić **Cambria Math** w tym celu, a renderowanie może nadal zgłaszać, że **Cambria Math** jest wymagana.
 
-Aby renderować lub konwertować taką prezentację, udostępnij **Cambria Math** Aspose.Slides. Wczytaj ją jako [zewnętrzną czcionkę](/slides/pl/androidjava/custom-font/), aby aplikacja mogła jej używać podczas renderowania i konwersji.
+Aby renderować lub konwertować taką prezentację, udostępnij **Cambria Math** Aspose.Slides. Załaduj ją jako [zewnętrzną czcionkę](/slides/pl/androidjava/custom-font/), aby aplikacja mogła używać jej podczas renderowania i konwersji.
 
-To ograniczenie dotyczy układu równań. Opisane powyżej reguły podstawień nadal obowiązują dla zwykłego tekstu prezentacji.
+Ograniczenie to dotyczy układu równań. Opisane powyżej reguły zastąpień nadal obowiązują dla zwykłego tekstu w prezentacji.
 
 ## **FAQ**
 
-**Jaka jest różnica między zamianą czcionki a podstawianiem czcionki?**
+**Jaka jest różnica między zamianą czcionki a zastąpieniem czcionki?**
 
-[Font replacement](/slides/pl/androidjava/font-replacement/) celowo zmienia jedną czcionkę na inną w całej prezentacji. Podstawianie czcionki wybiera czcionkę dla renderowanego wyniku, gdy spełniony jest skonfigurowany warunek, np. gdy oryginalna czcionka jest niedostępna.
+[Font replacement](/slides/pl/androidjava/font-replacement/) celowo zmienia jedną czcionkę na inną w całej prezentacji. Zastąpienie czcionki wybiera czcionkę dla renderowanego wyniku, gdy spełniony jest skonfigurowany warunek, np. gdy oryginalna czcionka jest niedostępna.
 
-**Kiedy stosowane są reguły podstawień?**
+**Kiedy stosowane są reguły zastąpień?**
 
-Reguły uczestniczą w [sekwencji wyboru czcionki](/slides/pl/androidjava/font-selection-sequence/) podczas renderowania i konwersji. Przy `WhenInaccessible` reguła jest używana tylko wtedy, gdy Aspose.Slides nie może uzyskać dostępu do czcionki źródłowej.
+Reguły uczestniczą w [font selection sequence](/slides/pl/androidjava/font-selection-sequence/) podczas renderowania i konwersji. Przy `WhenInaccessible` reguła jest używana tylko wtedy, gdy Aspose.Slides nie może uzyskać dostępu do czcionki źródłowej.
 
-**Co się dzieje, gdy czcionka jest brakująca i nie skonfigurowano reguły podstawienia?**
+**Co się dzieje, gdy czcionka jest brakująca i nie skonfigurowano reguły zastąpienia?**
 
-Aspose.Slides wybiera najbliższą dostępną czcionkę zgodnie ze swoim procesem wyboru czcionek. Wynik zależy od czcionek dostępnych w środowisku wykonawczym.
+Aspose.Slides wybiera najbliższą dostępną czcionkę zgodnie ze swoim procesem wyboru czcionek. Wynik zależy od czcionek dostępnych w środowisku uruchomieniowym.
 
-**Czy mogę wczytać zewnętrzne czcionki, aby uniknąć podstawień?**
+**Czy mogę załadować zewnętrzne czcionki, aby uniknąć zastąpienia?**
 
-Tak. Możesz [wczytać zewnętrzne czcionki](/slides/pl/androidjava/custom-font/), aby Aspose.Slides mógł ich używać podczas renderowania i konwersji.
+Tak. Możesz [załadować zewnętrzne czcionki](/slides/pl/androidjava/custom-font/) aby Aspose.Slides mógł ich używać podczas renderowania i konwersji.
 
-**Czy Aspose dystrybuuje czcionki razem z biblioteką?**
+**Czy Aspose dostarcza czcionki wraz z biblioteką?**
 
-Nie. To Ty jesteś odpowiedzialny za dostarczenie czcionek i przestrzeganie ich licencji.
+Nie. Odpowiedzialność za dostarczanie czcionek i przestrzeganie ich licencji spoczywa na Tobie.
 
-**Czy wyniki podstawień mogą różnić się między urządzeniami z Androidem?**
+**Czy wyniki zastąpień mogą się różnić między urządzeniami z Androidem?**
 
-Tak. Dostępne czcionki systemowe mogą się różnić w zależności od wersji Androida, urządzenia i producenta, więc czcionka dostępna w jednym środowisku może wymagać podstawienia w innym.
+Tak. Dostępne czcionki systemowe mogą się różnić w zależności od wersji Androida, urządzeń i producentów, więc czcionka dostępna w jednym środowisku może wymagać zastąpienia w innym.
 
 **Jak zapewnić spójny wybór czcionek na różnych urządzeniach z Androidem?**
 
-Dołącz te same wymagane pliki czcionek do aplikacji, [wczytaj je jako zewnętrzne czcionki](/slides/pl/androidjava/custom-font/) i [osadź czcionki](/slides/pl/androidjava/embedded-font/), gdy licencja na to pozwala. Możesz także wywołać [IFontsManager.getSubstitutions](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ifontsmanager/#getSubstitutions--) przed eksportem, aby wykryć nieoczekiwane podstawienia.
+Zaprojektuj tę samą wymaganą paczkę czcionek w aplikacji, [załadować je jako zewnętrzne czcionki](/slides/pl/androidjava/custom-font/) i [osadzić czcionki](/slides/pl/androidjava/embedded-font/) gdy licencja na to pozwala. Możesz także wywołać [IFontsManager.getSubstitutions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifontsmanager/#getSubstitutions--) przed eksportem, aby wykryć nieoczekiwane zastąpienia.

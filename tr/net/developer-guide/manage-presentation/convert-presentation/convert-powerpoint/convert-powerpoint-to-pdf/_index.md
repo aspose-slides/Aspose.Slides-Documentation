@@ -1,35 +1,35 @@
 ---
-title: PPT ve PPTX'i .NET'te PDF'e Dönüştürme [Gelişmiş Özellikler Dahildir]
-linktitle: PowerPoint'ten PDF'e
+title: "PPT ve PPTX'i .NET'te PDF'ye Dönüştür [Gelişmiş Özellikler Dahildir]"
+linktitle: "PowerPoint'ten PDF'ye"
 type: docs
 weight: 40
 url: /tr/net/convert-powerpoint-to-pdf/
 keywords:
-- PowerPoint'i dönüştür
-- sunumu dönüştür
-- PowerPoint'ten PDF'e
-- sunumu PDF'e
-- PPT'yi PDF'e
-- PPT'yi PDF'e dönüştür
-- PPTX'i PDF'e
-- PPTX'i PDF'e dönüştür
-- PowerPoint'i PDF olarak kaydet
-- PPT'yi PDF olarak kaydet
-- PPTX'i PDF olarak kaydet
-- PPT'yi PDF'e dışa aktar
-- PPTX'i PDF'e dışa aktar
-- ek
-- PDF/A1a
-- PDF/A1b
-- PDF/UA
-- .NET
-- C#
-- Aspose.Slides
-description: "Aspose.Slides kullanarak .NET'te PowerPoint PPT/PPTX'i yüksek kaliteli, aranabilir PDF'lere dönüştürün; hızlı C# kod örnekleri ve gelişmiş dönüşüm seçenekleri içerir."
+- "PowerPoint'i dönüştür"
+- "sunumu dönüştür"
+- "PowerPoint'ten PDF'ye"
+- "sunumu PDF'ye"
+- "PPT'yi PDF'ye"
+- "PPT'yi PDF'ye dönüştür"
+- "PPTX'i PDF'ye"
+- "PPTX'i PDF'ye dönüştür"
+- "PowerPoint'i PDF olarak kaydet"
+- "PPT'yi PDF olarak kaydet"
+- "PPTX'i PDF olarak kaydet"
+- "PPT'yi PDF'ye dışa aktar"
+- "PPTX'i PDF'ye dışa aktar"
+- "ek"
+- "PDF/A1a"
+- "PDF/A1b"
+- "PDF/UA"
+- ".NET"
+- "C#"
+- "Aspose.Slides"
+description: "Aspose.Slides kullanarak .NET'te PowerPoint PPT/PPTX'i yüksek kaliteli, aranabilir PDF'lere dönüştürün; hızlı C# kod örnekleri ve gelişmiş dönüşüm seçenekleriyle."
 ---
 ## **Genel Bakış**
 
-PowerPoint sunumlarını (PPT, PPTX, ODP vb.) C# içinde PDF formatına dönüştürmek, farklı cihazlar arasında uyumluluk ve sunumunuzun düzeni ile biçimlendirmesinin korunması gibi çeşitli avantajlar sağlar. Bu kılavuz, sunumları PDF belgelerine nasıl dönüştüreceğinizi, görüntü kalitesini kontrol etmek için çeşitli seçenekleri nasıl kullanacağınızı, gizli slaytları dahil etmeyi, PDF dosyalarını parola ile korumayı, font ikamelerini tespit etmeyi, dönüştürme için belirli slaytları seçmeyi ve çıktı belgelerine uyumluluk standartlarını uygulamayı gösterir.
+PowerPoint sunumlarını (PPT, PPTX, ODP vb.) C# ile PDF formatına dönüştürmek, farklı cihazlarda uyumluluk ve sunumunuzun düzeni ile biçimlendirmesini koruma gibi çeşitli avantajlar sağlar. Bu kılavuz, sunumları PDF belgelerine nasıl dönüştüreceğinizi, görüntü kalitesini kontrol etmek için çeşitli seçenekleri kullanmayı, gizli slaytları eklemeyi, PDF dosyalarını parola ile korumayı, yazı tipi ikamelerini tespit etmeyi, dönüştürme için belirli slaytları seçmeyi ve çıktı belgelerine uyumluluk standartları uygulamayı gösterir.
 
 ## **PowerPoint'ten PDF'ye Dönüşümler**
 
@@ -39,33 +39,33 @@ Aspose.Slides kullanarak aşağıdaki formatlardaki sunumları PDF'ye dönüşt�
 * **PPTX**
 * **ODP**
 
-Bir sunumu PDF'ye dönüştürmek için dosya adını [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) sınıfına bir argüman olarak geçirin ve ardından sunumu PDF olarak [Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/) yöntemiyle kaydedin. [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) sınıfı, genellikle bir sunumu PDF'ye dönüştürmek için kullanılan [Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/) yöntemini sunar.
+Bir sunumu PDF'ye dönüştürmek için, dosya adını [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) sınıfına argüman olarak geçin ve ardından sunumu bir [Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/) yöntemiyle PDF olarak kaydedin. [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) sınıfı, genellikle bir sunumu PDF'ye dönüştürmek için kullanılan [Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/) yöntemini sunar.
 
 {{% alert color="info" title="Note" %}}
-Aspose.Slides for .NET, API bilgilerini ve sürüm numarasını çıktı belgelerine ekler. Örneğin, bir sunumu PDF'ye dönüştürürken Aspose.Slides, Application alanını "*Aspose.Slides*" ve PDF Producer alanını "*Aspose.Slides v XX.XX*" biçiminde bir değerle doldurur. **Not** bu bilgiyi çıktı belgelerinden değiştiremez veya kaldıramazsınız.
+Aspose.Slides for .NET, çıktı belgelerine API bilgilerini ve sürüm numarasını ekler. Örneğin, bir sunumu PDF'ye dönüştürürken, Aspose.Slides Application alanını "*Aspose.Slides*" ve PDF Producer alanını "*Aspose.Slides v XX.XX*" biçiminde bir değerle doldurur. **Not** ki Aspose.Slides'e bu bilgileri çıktı belgelerinden değiştirmesini veya kaldırmasını söyleyemezsiniz.
 {{% /alert %}}
 
-Aspose.Slides şu dönüşümleri yapmanıza olanak tanır:
+Aspose.Slides size şunları dönüştürme imkanı verir:
 
 * Tüm sunumları PDF'ye
 * Bir sunumdan belirli slaytları PDF'ye
 
-Aspose.Slides, sunumları PDF'ye dışa aktarır ve ortaya çıkan PDF'lerin orijinal sunumlara yakından eşleşmesini sağlar. Dönüşüm sırasında öğeler ve öznitelikler doğru bir şekilde işlenir, şunlar dahil:
+Aspose.Slides sunumları PDF olarak dışa aktarır ve ortaya çıkan PDF'lerin orijinal sunumlara çok yakın olmasını sağlar. Dönüşüm sırasında öğeler ve öznitelikler doğru bir şekilde işlenir, şunlar dahil:
 
-* Görüntüler
+* Görseller
 * Metin kutuları ve şekiller
-* Metin biçimlendirmesi
-* Paragraf biçimlendirmesi
+* Metin biçimlendirme
+* Paragraf biçimlendirme
 * Köprüler
-* Üst ve alt bilgi
+* Üstbilgi ve altbilgi
 * Madde işaretleri
 * Tablolar
 
-## **PowerPoint'i PDF'ye Dönüştürme**
+## **PowerPoint'i PDF'ye Dönüştür**
 
-Standart PowerPoint‑to‑PDF dönüşüm süreci, varsayılan seçenekleri kullanır. Bu durumda Aspose.Slides, sağlanan sunumu en yüksek kalite seviyelerinde optimal ayarlarla PDF'ye dönüştürmeye çalışır.
+Standart PowerPoint'ten PDF'ye dönüşüm süreci varsayılan seçenekleri kullanır. Bu durumda, Aspose.Slides sağlanan sunumu en yüksek kalite seviyelerinde optimal ayarlarla PDF'ye dönüştürmeye çalışır.
 
-Aşağıdaki örnek bir sunumu yükler ve varsayılan dışa aktarma ayarlarıyla tüm görünür slaytları PDF'ye kaydeder.
+Aşağıdaki örnek bir sunumu yükler ve varsayılan dışa aktarma ayarlarını kullanarak tüm görünür slaytları PDF olarak kaydeder.
 
 ```csharp
 using Aspose.Slides;
@@ -76,16 +76,18 @@ presentation.Save("PDF-result.pdf", SaveFormat.Pdf);
 ```
 
 {{% alert color="info" title="Note" %}}
-Aspose, sunum‑PDF dönüşüm sürecini gösteren ücretsiz bir çevrimiçi [**PowerPoint PDF dönüştürücü**](https://products.aspose.app/slides/conversion/ppt-to-pdf) sunar. Buradaki prosedürün canlı bir uygulamasını test etmek için bu dönüştürücüyü kullanabilirsiniz.
+Aspose, sunumu PDF'ye dönüştürme sürecini gösteren ücretsiz bir çevrimiçi [**PowerPoint to PDF dönüştürücü**](https://products.aspose.app/slides/conversion/ppt-to-pdf) sunar. Burada açıklanan prosedürün canlı bir uygulamasını test etmek için bu dönüştürücüyü kullanabilirsiniz.
 {{% /alert %}}
 
-## **PowerPoint'i Seçeneklerle PDF'ye Dönüştürme**
+## **PowerPoint'i PDF'ye Seçeneklerle Dönüştür**
 
-Aspose.Slides, ortaya çıkan PDF'yi özelleştirmenize, PDF'yi bir parola ile kilitlemenize veya dönüşüm sürecinin nasıl ilerleyeceğini belirtmenize olanak tanıyan özelleştirilmiş seçenekler—[PdfOptions](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/) sınıfının özellikleri—sağlar.
+Aspose.Slides, sonuç PDF'yi özelleştirmenizi, PDF'yi bir parola ile kilitlemenizi veya dönüşüm sürecinin nasıl ilerleyeceğini belirtmenizi sağlayan özel seçenekler—[PdfOptions](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/) sınıfının özellikleri—sağlar.
 
-### **PowerPoint'i Özelleştirilmiş Seçeneklerle PDF'ye Dönüştürme**
+### **PowerPoint'i PDF'ye Özel Seçeneklerle Dönüştür**
 
-Özelleştirilmiş dönüşüm seçeneklerini kullanarak raster görüntüler için tercih ettiğiniz kalite ayarını tanımlayabilir, metafile'ların nasıl işleneceğini belirleyebilir, metin için sıkıştırma seviyesini ayarlayabilir, görüntüler için DPI yapılandırabilir ve daha fazlasını yapabilirsiniz.
+Özel dönüşüm seçeneklerini kullanarak, raster görüntüler için tercih ettiğiniz kalite ayarını belirleyebilir, metafile'ların nasıl işleneceğini belirtebilir, metin için bir sıkıştırma seviyesi ayarlayabilir, görüntüler için DPI yapılandırabilir ve daha fazlasını yapabilirsiniz.
+
+Aşağıdaki örnek, JPEG kalitesi 90 olarak ayarlanmış, görüntü çözünürlüğü 300 DPI, metafile'lar PNG olarak kaydedilmiş ve Flate metin sıkıştırması kullanılan bir PDF 1.5'e sunumu dışa aktarır.
 
 ```csharp
 using Aspose.Slides;
@@ -104,13 +106,13 @@ using var presentation = new Presentation("PowerPoint.pptx");
 presentation.Save("PowerPoint-to-PDF.pdf", SaveFormat.Pdf, pdfOptions);
 ```
 
-### **Gömülü OLE Dosyalarını PDF Ekleri Olarak Korumak**
+### **Gömülü OLE Dosyalarını PDF Ekleri Olarak Koru**
 
-Bir sunumda gömülü bir Excel çalışma kitabı bulunuyorsa, PDF alıcılarının slaytları görmesinin yanı sıra çalışma kitabının verilerine de erişmesini isteyebilirsiniz. Gömülü OLE dosyalarını sonuç PDF'de ek olarak korumak için [PdfOptions.IncludeOleData](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/includeoledata/) özelliğini `true` olarak ayarlayın.
+Bir sunum gömülü bir Excel çalışma kitabı içeriyorsa, PDF alıcılarının hem slaytları görüp hem de çalışma kitabının verilerine erişmesini isteyebilirsiniz. Gömülü OLE dosyalarını sonuç PDF'de ek olarak korumak için [PdfOptions.IncludeOleData](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/includeoledata/) özelliğini `true` olarak ayarlayın.
 
-Varsayılan değer `false`'tir: OLE nesnesinin önizleme görüntüsü veya simgesi PDF sayfasına işlenir, ancak gömülü dosya ek olarak dahil edilmez. Bu seçeneği `true` yaparsanız dosya verileri de eklenir. Önizleme görsel bir temsil olmaya devam eder; ek, alıcıların gömülü dosyayı ayrı olarak açmasına veya kaydetmesine izin verir. OLE nesnesi PDF sayfasında etkileşimli bir Excel çalışma sayfasına dönüşmez.
+Varsayılan değer `false`'tır: OLE nesnesinin ön izleme resmi veya simgesi PDF sayfasında görüntülenir, ancak gömülü dosya ek olarak dahil edilmez. Seçeneği `true` olarak ayarlamak, dosya verilerini ek olarak ekler. Ön izleme görsel bir temsil olarak kalır; ek, alıcıların gömülü dosyayı ayrı olarak açmasına veya kaydetmesine izin verir. OLE nesnesi PDF sayfasında etkileşimli bir Excel çalışma sayfası haline gelmez.
 
-Aşağıdaki örnek, zaten gömülü bir Excel çalışma kitabı içeren bir sunumu yükler ve çalışma kitabı ekli olarak PDF'ye dışa aktarır.
+Aşağıdaki örnek, içinde zaten gömülü bir Excel çalışma kitabı bulunan bir sunumu yükler ve çalışma kitabı ekli olarak PDF'ye dışa aktarır.
 
 ```csharp
 using Aspose.Slides;
@@ -124,17 +126,19 @@ presentation.Save("presentation.pdf", SaveFormat.Pdf, pdfOptions);
 
 Sonucu kontrol etmek için:
 
-1. PDF'yi, Adobe Acrobat Reader gibi dosya eklerini destekleyen bir görüntüleyicide açın.
-2. Görüntüleyicinin **Ekler** panelini açın ve gömülü çalışma kitabını bulun.
-3. Ek'i kaydedin ve verilerini incelemek için Excel'de açın, ya da görüntüleyici izin veriyorsa doğrudan açın. PDF sayfasındaki önizleme ek'ten ayrı bir görseldir.
+1. Adobe Acrobat Reader gibi dosya eklerini destekleyen bir görüntüleyicide dışa aktarılan PDF'yi açın.
+2. Görüntüleyicinin **Attachments** (Ekler) panelini açın ve gömülü çalışma kitabını bulun.
+3. Ek'i kaydedin ve verilerini incelemek için Excel'de açın, ya da görüntüleyici izin veriyorsa doğrudan açın. PDF sayfasındaki ön izleme ekten ayrı bir öğedir.
 
 {{% alert color="info" title="Note" %}}
-PDF/A standartları ekler üzerinde sınırlamalar getirir: PDF/A-1 gömülü dosyaları yasaklar, PDF/A-2 yalnızca PDF/A eklerine izin verir ve PDF/A-3 Excel çalışma kitapları dahil diğer dosya türlerine izin verir. Bunlar standartların gereksinimleridir, Aspose.Slides'e özgü kısıtlamalar değildir. Bu örnek, varsayılan PDF uyumluluk ayarını kullanır ve PDF/A dışa aktarmayı göstermez.
+PDF/A standartları eklerle ilgili kısıtlamalar getirir: PDF/A-1 gömülü dosyaları yasaklar, PDF/A-2 yalnızca PDF/A eklerine izin verir ve PDF/A-3 Excel çalışma kitapları dahil diğer dosya türlerine izin verir. Bunlar standartların gereklilikleridir, Aspose.Slides'e özgü kısıtlamalar değildir. Bu örnek, varsayılan PDF uyumluluk ayarını kullanır ve PDF/A dışa aktarımını göstermez.
 {{% /alert %}}
 
-### **Gizli Slaytlarla PowerPoint'i PDF'ye Dönüştürme**
+### **Gizli Slaytlarla PowerPoint'i PDF'ye Dönüştür**
 
-Bir sunum gizli slaytlar içeriyorsa, sonuç PDF'de gizli slaytları sayfa olarak eklemek için [ShowHiddenSlides](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/showhiddenslides/) özelliğini [PdfOptions](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/) sınıfından kullanabilirsiniz.
+Bir sunum gizli slaytlar içeriyorsa, [PdfOptions](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/) sınıfındaki [ShowHiddenSlides](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/showhiddenslides/) özelliğini kullanarak gizli slaytları sonuç PDF'de sayfa olarak ekleyebilirsiniz.
+
+Aşağıdaki örnek, gizli slaytları da dahil ederek bir sunumu PDF'ye dışa aktarır.
 
 ```csharp
 using Aspose.Slides;
@@ -147,9 +151,9 @@ using var presentation = new Presentation("PowerPoint.pptx");
 presentation.Save("PowerPoint-to-PDF.pdf", SaveFormat.Pdf, pdfOptions);
 ```
 
-### **Parola Korumalı PDF Olarak PowerPoint'i Dönüştürme**
+### **Parola Korunmuş PDF Olarak PowerPoint'i Dönüştür**
 
-Aşağıdaki örnek, açmak için `password` parolasını gerektiren ve erişim izinlerinin yüksek kalite baskıyı da kapsayan bir PDF olarak sunumu dışa aktarır.
+Aşağıdaki örnek, açmak için `password` parolasını gerektiren bir PDF'ye sunumu dışa aktarır. Erişim izinleri, yüksek kaliteli baskı dahil olmak üzere yazdırmaya izin verir.
 
 ```csharp
 using Aspose.Slides;
@@ -163,11 +167,11 @@ using var presentation = new Presentation("PowerPoint.pptx");
 presentation.Save("PPTX-to-PDF.pdf", SaveFormat.Pdf, pdfOptions);
 ```
 
-### **Font İkamelerini Tespit Etme**
+### **Yazı Tipi İkamelerini Algıla**
 
-Aspose.Slides, sunum‑PDF dönüşüm sürecinde font ikamelerini tespit etmenizi sağlayan [WarningCallback](https://reference.aspose.com/slides/net/aspose.slides.export/saveoptions/warningcallback/) özelliğini [PdfOptions](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/) sınıfı altında sunar.
+Aspose.Slides, sunumu PDF'ye dönüştürme sürecinde yazı tipi ikamelerini algılamanızı sağlayan [PdfOptions](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/) sınıfı altındaki [WarningCallback](https://reference.aspose.com/slides/net/aspose.slides.export/saveoptions/warningcallback/) özelliğini sunar.
 
-Aşağıdaki örnek bir sunumu PDF'ye dışa aktarır ve font ikame uyarılarını konsola yazdırır. Yalnızca bulunamayan bir font dışa aktarım sırasında ikame edildiğinde bir uyarı basılır.
+Aşağıdaki örnek, bir sunumu PDF'ye dışa aktarır ve konsola yazı tipi ikamesi uyarılarını yazar. İkame yalnızca kullanılabilir olmayan bir yazı tipi dışa aktarım sırasında değiştirildiğinde uyarı verilir.
 
 ```csharp
 using Aspose.Slides;
@@ -196,12 +200,41 @@ class FontSubstitutionHandler : IWarningCallback
 ```
 
 {{% alert color="info" title="Note" %}}
-Font ikameleri hakkında daha fazla bilgi için [Font İkamesi](/slides/tr/net/font-substitution/) makalesine bakın.
-{{% /alert %}} 
+Yazı tipi ikameleri hakkında daha fazla bilgi için [Font Substitution](/slides/tr/net/font-substitution/) makalesine bakın.
+{{% /alert %}}
 
-## **PowerPoint'ten Seçilen Slaytları PDF'ye Dönüştürme**
+### **Ayrı Bold Yazı Tipi Olmayan Yazı Tiplerini İşleyin**
 
-Aşağıdaki örnek, bir sunumun 1 ve 3 numaralı slaytlarını PDF'ye dışa aktarır. Bu dizi içindeki slayt numaraları bir‑tabanlıdır ve giriş sunumunda en az üç slayt bulunmalıdır.
+Bir sunum, yazı tipinin ayrı bir bold çeşidi olmasa bile metne bold biçimlendirme uygulayabilir. Metin, normal glifleri yapay olarak kalınlaştıran sentetik bold ile yine de bold görünebilir. Bu metin PDF'de çok ağır görünüyorsa veya beklenen görünümden farklı ise, [PdfOptions.RasterizeUnsupportedFontStyles](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/rasterizeunsupportedfontstyles/) özelliğini `true` olarak ayarlamayı deneyin. Bu seçenek, etkilenen metni PDF dışa aktarımı sırasında bir bitmap olarak işler ve belirli yazı tipleri için görünümünü iyileştirebilir. Varsayılan değeri `false`dır.
+
+Örnek sunum, aynı yazı tipine uygulanan bir normal metin kutusu ve ayrı bir bold çeşidi olmayan aynı yazı tipine bold biçimlendirme uygulanmış bir metin kutusu olmak üzere iki metin kutusu içerir. Aşağıdaki örnek sunumu yükler, desteklenmeyen yazı tipi stillerinin rasterleştirilmesini etkinleştirir ve PDF'ye dışa aktarır:
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+var pdfOptions = new PdfOptions
+{
+    RasterizeUnsupportedFontStyles = true
+};
+
+using var presentation = new Presentation("unsupported-bold.pptx");
+presentation.Save("rasterized.pdf", SaveFormat.Pdf, pdfOptions);
+```
+
+Aşağıdaki ön izlemeler, seçeneğin devre dışı ve etkin olduğu çıktıyı gösterir. Bu örnekte, seçenek devre dışıyken bold metin daha kalın çizgilere sahip. Seçenek etkin olduğunda çizgileri daha ince olur; normal metin değişmez. Sunumunuz için ayarı seçmeden önce sonuçları karşılaştırın.
+
+| Seçenek devre dışı (`false`, varsayılan) | Seçenek etkin (`true`) |
+|---|---|
+| ![PDF with unsupported font style rasterization disabled](unsupported-bold-disabled.png) | ![PDF with unsupported font style rasterization enabled](unsupported-bold-enabled.png) |
+
+Bu örnekte, seçeneğin etkinleştirilmesi sadece bold metni bir bitmap'e dönüştürür: OCR olmadan seçilemez, kopyalanamaz veya metin olarak aranamaz ve kenarları %800 yakınlaştırmada daha yumuşak görünür. Normal metin aranabilir kalır. Seçenek devre dışıyken, iki metin de metin olarak kalır.
+
+Bu seçenek, yazı tipinin ayrı bir bold çeşidi olmadığında bold olarak biçimlendirilmiş metni rasterleştirir. [Font substitution](/slides/tr/net/font-substitution/) ise orijinal mevcut olmadığında başka bir yazı tipi seçer.
+
+## **PowerPoint'ten Seçilen Slaytları PDF'ye Dönüştür**
+
+Aşağıdaki örnek, bir sunumdan 1 ve 3 numaralı slaytları PDF'ye dışa aktarır. Bu dizideki slayt numaraları 1'den başlar ve giriş sunumu en az üç slayt içermelidir.
 
 ```csharp
 using Aspose.Slides;
@@ -212,9 +245,9 @@ var slides = new[] { 1, 3 };
 presentation.Save("PPTX-to-PDF.pdf", slides, SaveFormat.Pdf);
 ```
 
-## **PowerPoint'i Özelleştirilmiş Slayt Boyutu ile PDF'ye Dönüştürme**
+## **PowerPoint'i PDF'ye Özel Slayt Boyutu ile Dönüştür**
 
-Aşağıdaki örnek, bir sunumun ilk slaytını 612 × 792 puan (8,5 × 11 inç) boyutunda yeni bir sunuma kopyalar, slayt içeriğini sığacak şekilde ölçeklendirir ve tek slaytı PDF'ye dışa aktarır.
+Aşağıdaki örnek, bir sunumdan ilk slaytı 612 × 792 puan (8.5 × 11 inç) slayt boyutuna sahip yeni bir sunuma kopyalar. Slayt içeriğini sığacak şekilde ölçeklendirir ve tek slaytı PDF'ye dışa aktarır.
 
 ```csharp
 using Aspose.Slides;
@@ -235,9 +268,9 @@ resizedPresentation.Slides.RemoveAt(1);
 resizedPresentation.Save("PDF_with_custom_slide_size.pdf", SaveFormat.Pdf);
 ```
 
-## **Not Slaytı Görünümünde PowerPoint'i PDF'ye Dönüştürme**
+## **Not Slaytı Görünümünde PowerPoint'i PDF'ye Dönüştür**
 
-Aşağıdaki örnek bir sunumu PDF'ye dışa aktarır; her slaytın konuşmacı notları slaytın altında yer alır. Sonucu görmek için konuşmacı notları içeren bir sunum kullanın.
+Aşağıdaki örnek, bir sunumu PDF'ye dışa aktarır ve her slaytın konuşmacı notlarını slaytın altına yerleştirir. Sonucu görmek için konuşmacı notları içeren bir sunum kullanın.
 
 ```csharp
 using Aspose.Slides;
@@ -255,11 +288,11 @@ using var presentation = new Presentation("NotesFile.pptx");
 presentation.Save("PDF_with_notes.pdf", SaveFormat.Pdf, pdfOptions);
 ```
 
-## **PDF İçin Erişilebilirlik ve Uyumluluk Standartları**
+## **PDF için Erişilebilirlik ve Uyumluluk Standartları**
 
-Aspose.Slides, [Web Content Accessibility Guidelines (**WCAG**)](https://www.w3.org/TR/WCAG-TECHS/pdf.html) standardına uygun bir dönüşüm prosedürü kullanmanıza olanak tanır. Bir PowerPoint belgesini aşağıdaki uyumluluk standartlarından herhangi birini kullanarak PDF'ye dışa aktarabilirsiniz: **PDF/A1a**, **PDF/A1b** ve **PDF/UA**.
+Aspose.Slides, [Web Content Accessibility Guidelines (**WCAG**)](https://www.w3.org/TR/WCAG-TECHS/pdf.html) ile uyumlu bir dönüşüm prosedürü kullanmanıza olanak tanır. Bir PowerPoint belgesini PDF'ye, **PDF/A1a**, **PDF/A1b** ve **PDF/UA** gibi uyumluluk standartlarından herhangi birini kullanarak dışa aktarabilirsiniz.
 
-Bu C# kodu, farklı uyumluluk standartlarına göre birden fazla PDF üreten bir PowerPoint‑PDF dönüşüm sürecini gösterir:
+Bu C# kodu, farklı uyumluluk standartlarına göre birden fazla PDF üreten PowerPoint'ten PDF'ye dönüşüm sürecini gösterir:
 
 ```csharp
 using Aspose.Slides;
@@ -284,35 +317,35 @@ presentation.Save("pres-ua-compliance.pdf", SaveFormat.Pdf, new PdfOptions
 ```
 
 {{% alert color="info" title="Note" %}}
-Aspose.Slides PDF dönüşüm işlemlerini destekler ve PDF dosyalarını popüler dosya formatlarına dönüştürmenize izin verir. [PDF to HTML](https://products.aspose.com/slides/net/conversion/pdf-to-html/), [PDF to image](https://products.aspose.com/slides/net/conversion/pdf-to-image/), [PDF to JPG](https://products.aspose.com/slides/net/conversion/pdf-to-jpg/) ve [PDF to PNG](https://products.aspose.com/slides/net/conversion/pdf-to-png/) dönüşümlerini gerçekleştirebilirsiniz. Ayrıca, [PDF to SVG](https://products.aspose.com/slides/net/conversion/pdf-to-svg/), [PDF to TIFF](https://products.aspose.com/slides/net/conversion/pdf-to-tiff/) ve [PDF to XML](https://products.aspose.com/slides/net/conversion/pdf-to-xml/) gibi özel formatlara yönelik PDF dönüşüm işlemleri de desteklenir.
+Aspose.Slides PDF dönüşüm işlemlerini destekler ve PDF dosyalarını popüler dosya formatlarına dönüştürmenize olanak tanır. [PDF to HTML](https://products.aspose.com/slides/net/conversion/pdf-to-html/), [PDF to image](https://products.aspose.com/slides/net/conversion/pdf-to-image/), [PDF to JPG](https://products.aspose.com/slides/net/conversion/pdf-to-jpg/) ve [PDF to PNG](https://products.aspose.com/slides/net/conversion/pdf-to-png/) dönüşümlerini gerçekleştirebilirsiniz. [PDF to SVG](https://products.aspose.com/slides/net/conversion/pdf-to-svg/), [PDF to TIFF](https://products.aspose.com/slides/net/conversion/pdf-to-tiff/) ve [PDF to XML](https://products.aspose.com/slides/net/conversion/pdf-to-xml/) gibi özel formatlara PDF dönüşüm işlemleri de desteklenir.
 {{% /alert %}}
 
-> **Not:** PDF/UA'ya dışa aktarırken Aspose.Slides, SmartArt, grafikler ve formüller gibi karmaşık grafik öğelerini tek bir şekil olarak işler. Bireysel yol öğeleri ayrı içerik olarak korunmaz ve artefakt olarak işaretlenebilir; alternatif metin yalnızca bütün şekil için sağlanır.
+> **Not:** PDF/UA'ya dışa aktarırken, Aspose.Slides SmartArt, grafikler ve formüller gibi karmaşık grafikleri tek bir şekil olarak ele alır. Bireysel yol öğeleri ayrı içerik olarak korunmaz ve artefakt olarak işaretlenebilir; alternatif metin yalnızca bütün şekil için sağlanır.
 
-## **SSS**
+## **FAQ**
 
 **Birden fazla PowerPoint dosyasını toplu olarak PDF'ye dönüştürebilir miyim?**
 
-Evet, Aspose.Slides birden fazla PPT veya PPTX dosyasını toplu olarak PDF'ye dönüştürmeyi destekler. Dosyalarınızın üzerinden döngüyle geçerek dönüşüm sürecini programatik olarak uygulayabilirsiniz.
+Evet, Aspose.Slides birden fazla PPT veya PPTX dosyasını PDF'ye toplu olarak dönüştürmeyi destekler. Dosyalarınızda döngü kurarak dönüşüm sürecini programlı olarak uygulayabilirsiniz.
 
 **Dönüştürülen PDF'yi parola ile korumak mümkün mü?**
 
-Evet. Dönüşüm sürecinde bir parola ayarlamak ve erişim izinlerini tanımlamak için [PdfOptions](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/) sınıfını kullanabilirsiniz.
+Evet. Dönüşüm sürecinde bir parola ayarlamak ve erişim izinlerini tanımlamak için [PdfOptions](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/) sınıfını kullanın.
 
-**Gizli slaytları PDF'ye nasıl dahil edebilirim?**
+**PDF'ye gizli slaytları nasıl eklerim?**
 
-Gizli slaytları sonuç PDF'ye eklemek için [PdfOptions](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/) sınıfındaki [ShowHiddenSlides](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/showhiddenslides/) özelliğini `true` olarak ayarlayın.
+[PdfOptions](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/) sınıfındaki [ShowHiddenSlides](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/showhiddenslides/) özelliğini `true` olarak ayarlayarak gizli slaytları sonuç PDF'ye dahil edin.
 
 **Aspose.Slides PDF'de yüksek görüntü kalitesini koruyabilir mi?**
 
-Evet, [PdfOptions](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/) sınıfındaki [JpegQuality](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/jpegquality/) ve [SufficientResolution](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/sufficientresolution/) gibi özellikleri ayarlayarak PDF'nizde yüksek kaliteli görüntüler elde edebilirsiniz.
+Evet, PDF'nizde yüksek kaliteli görüntüler sağlamak için [PdfOptions](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/) sınıfındaki [JpegQuality](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/jpegquality/) ve [SufficientResolution](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/sufficientresolution/) gibi özellikleri ayarlayarak görüntü kalitesini kontrol edebilirsiniz.
 
 **Aspose.Slides PDF/A uyumluluk standartlarını destekliyor mu?**
 
-Evet, Aspose.Slides PDF/A1a, PDF/A1b ve PDF/UA dahil olmak üzere çeşitli standartlara uygun PDF'ler dışa aktarabilir; bu sayede belgeleriniz erişilebilirlik ve arşivleme gereksinimlerini karşılar.
+Evet, Aspose.Slides, PDF/A1a, PDF/A1b ve PDF/UA dahil olmak üzere çeşitli standartlarla uyumlu PDF'ler dışa aktarmanıza olanak tanır ve belgelerinizin erişilebilirlik ve arşivleme gereksinimlerini karşılamasını sağlar.
 
 ## **Ek Kaynaklar**
 
-- [Aspose.Slides for .NET Belgeleri](/slides/tr/net/)
+- [Aspose.Slides for .NET Dokümantasyonu](/slides/tr/net/)
 - [Aspose.Slides for .NET API Referansı](https://reference.aspose.com/slides/net/)
 - [Aspose Ücretsiz Çevrimiçi Dönüştürücüler](https://products.aspose.app/slides/conversion)

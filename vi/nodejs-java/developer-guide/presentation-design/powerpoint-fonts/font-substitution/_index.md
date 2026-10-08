@@ -1,6 +1,6 @@
 ---
-title: Cấu hình Thay thế Phông chữ trong Bản trình chiếu bằng JavaScript
-linktitle: Thay thế Phông chữ
+title: Cấu hình thay thế phông chữ trong bản trình bày bằng JavaScript
+linktitle: Thay thế phông chữ
 type: docs
 weight: 70
 url: /vi/nodejs-java/font-substitution/
@@ -9,28 +9,30 @@ keywords:
 - phông chữ thay thế
 - thay thế phông chữ
 - thay đổi phông chữ
-- thay đổi phông chữ
+- thay thế phông chữ
 - quy tắc thay thế
 - quy tắc thay đổi
 - PowerPoint
 - OpenDocument
-- bản trình chiếu
+- bản trình bày
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Cấu hình các quy tắc thay thế phông chữ và kiểm tra các phông chữ đã được thay thế trong Aspose.Slides cho Node.js thông qua Java khi kết xuất hoặc chuyển đổi các bản trình chiếu PowerPoint và OpenDocument."
+description: "Cấu hình các quy tắc thay thế phông chữ và kiểm tra các phông chữ đã được thay thế trong Aspose.Slides cho Node.js bằng Java khi hiển thị hoặc chuyển đổi các bản trình bày PowerPoint và OpenDocument."
 ---
 ## **Tổng quan**
 
-Thay thế phông chữ cho phép Aspose.Slides sử dụng một phông chữ có sẵn thay cho phông chữ không thể truy cập khi bản trình chiếu được kết xuất hoặc chuyển đổi. Việc thay thế ảnh hưởng đến đầu ra đã kết xuất; nó không thay đổi phông chữ được gán cho nội dung bản trình chiếu.
+Thay thế phông chữ cho phép Aspose.Slides sử dụng một phông chữ có sẵn thay cho phông chữ không thể truy cập khi một bản trình bày được hiển thị hoặc chuyển đổi. Việc thay thế ảnh hưởng đến đầu ra đã được hiển thị; nó không thay đổi phông chữ được gán cho nội dung bản trình bày.
 
-Bạn có thể xác định phông chữ sẽ sử dụng khi một phông chữ cụ thể không khả dụng, và bạn có thể kiểm tra các phép thay thế mà Aspose.Slides sẽ thực hiện trong quá trình kết xuất. Điều này giúp duy trì sự nhất quán của đầu ra trên các môi trường có các phông chữ đã cài đặt khác nhau.
+Bạn có thể xác định phông chữ sẽ dùng khi một phông chữ cụ thể không có sẵn và có thể kiểm tra các phép thay thế mà Aspose.Slides sẽ thực hiện trong quá trình hiển thị. Điều này giúp duy trì độ nhất quán của đầu ra trên các môi trường có các phông chữ đã cài đặt khác nhau.
+
+Nếu một phông chữ có sẵn nhưng không có kiểu đậm riêng, xem [Handle Fonts Without a Dedicated Bold Typeface](/slides/vi/nodejs-java/convert-powerpoint-to-pdf/#handle-fonts-without-a-dedicated-bold-typeface). Phần đó giải thích cách raster hoá văn bản bị ảnh hưởng trong quá trình xuất PDF và các hậu quả đối với việc chọn văn bản, tìm kiếm và phóng to/thu nhỏ.
 
 ## **Lấy các phép thay thế phông chữ**
 
-Sử dụng phương thức [FontsManager.getSubstitutions](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/fontsmanager/getsubstitutions/) để xác định những phông chữ sẽ được thay thế khi bản trình chiếu được kết xuất. Phương thức trả về các đối tượng [FontSubstitutionInfo](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/fontsubstitutioninfo/) xác định tên phông chữ gốc và phông chữ thay thế.
+Sử dụng phương thức [FontsManager.getSubstitutions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fontsmanager/getsubstitutions/) để xác định những phông chữ nào sẽ được thay thế khi bản trình bày được hiển thị. Phương thức trả về các đối tượng [FontSubstitutionInfo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fontsubstitutioninfo/) mô tả tên phông chữ gốc và phông chữ đã được thay thế.
 
-Ví dụ JavaScript sau liệt kê tất cả các phép thay thế phông chữ cho một bản trình chiếu:
+Ví dụ JavaScript dưới đây liệt kê tất cả các phép thay thế phông chữ cho một bản trình bày:
 
 ```javascript
 var aspose = aspose || {};
@@ -50,15 +52,15 @@ try {
 
 ## **Lấy các phép thay thế phông chữ cho các slide đã chọn**
 
-Sử dụng phương thức [FontsManager.getSubstitutions](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/fontsmanager/getsubstitutions/) quá tải với một mảng chỉ mục slide để kiểm tra chỉ các phép thay thế cần thiết cho việc kết xuất các slide cụ thể. Điều này hữu ích khi bạn đang kết xuất hoặc xuất khẩu một phần của bản trình chiếu, kiểm tra một bản trình chiếu lớn một cách tăng dần, xác định các slide phụ thuộc vào phông chữ không khả dụng, chuẩn bị một gói phông chữ tối thiểu cho máy chủ hoặc container, hoặc chẩn đoán sự khác nhau trong việc kết xuất mà không xử lý các slide không liên quan.
+Sử dụng phương thức overload của [FontsManager.getSubstitutions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fontsmanager/getsubstitutions/) với một mảng các chỉ số slide để chỉ kiểm tra các phép thay thế cần thiết cho việc hiển thị các slide cụ thể. Điều này hữu ích khi bạn đang hiển thị hoặc xuất một phần của bản trình bày, kiểm tra một bản trình bày lớn một cách tăng dần, xác định các slide phụ thuộc vào phông chữ không có sẵn, chuẩn bị một gói phông chữ tối thiểu cho máy chủ hoặc container, hoặc chẩn đoán sự khác nhau trong việc hiển thị mà không xử lý các slide không liên quan.
 
-Quá tải này yêu cầu một kiểu nguyên thủy Java `int[]`. Tạo nó bằng `java.newArray("int", [...])`; một mảng JavaScript thuần sẽ được chuyển thành `Integer[]` và không khớp với quá tải này.
+Overload này yêu cầu một primitive Java `int[]`. Tạo nó bằng `java.newArray("int", [...])`; một mảng JavaScript thông thường sẽ được chuyển thành `Integer[]` và không khớp với overload này.
 
-Mảng chứa các chỉ mục slide tính từ một: `1` xác định slide đầu tiên. Ngược lại, bộ truy cập bộ sưu tập [Presentation.getSlides](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/presentation/getslides/) sử dụng chỉ mục bắt đầu từ không, vì vậy slide đó được truy cập bằng `presentation.getSlides().get_Item(0)`. Hãy ghi nhớ sự khác biệt này khi xây dựng mảng để tránh lỗi lệch chỉ mục.
+Mảng chứa các chỉ số slide tính từ 1: `1` đại diện cho slide đầu tiên. Ngược lại, accessor bộ sưu tập [Presentation.getSlides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/getslides/) sử dụng chỉ số bắt đầu từ 0, vì vậy slide tương tự được truy cập bằng `presentation.getSlides().get_Item(0)`. Hãy nhớ sự khác biệt này khi xây dựng mảng để tránh lỗi off-by-one.
 
-Gọi quá tải thông qua [Presentation.getFontsManager](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/presentation/getfontsmanager/). Nó trả về chỉ các phép thay thế được xác định trong khi kết xuất các slide đã chọn. Mỗi kết quả là một đối tượng [FontSubstitutionInfo](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/fontsubstitutioninfo/) chứa tên phông chữ gốc và phông chữ thay thế. Kết quả phản ánh môi trường phông chữ hiện tại, các quy tắc dự phòng đã cấu hình, các quy tắc thay thế được lưu trong một [FontSubstRuleCollection](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/fontsubstrulecollection/), và [phông chữ được tải bên ngoài](/slides/vi/nodejs-java/custom-font/).
+Gọi overload thông qua [Presentation.getFontsManager](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/getfontsmanager/). Nó chỉ trả về các phép thay thế được xác định trong khi hiển thị các slide đã chọn. Mỗi kết quả là một đối tượng [FontSubstitutionInfo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fontsubstitutioninfo/) chứa tên phông chữ gốc và phông chữ đã được thay thế. Kết quả phản ánh môi trường phông chữ hiện tại, các quy tắc fallback đã cấu hình, các quy tắc thay thế lưu trong một [FontSubstRuleCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fontsubstrulecollection/), và [các phông chữ được tải bên ngoài](/slides/vi/nodejs-java/custom-font/).
 
-Một phép thay thế giống nhau có thể được yêu cầu bởi hơn một slide đã chọn. Hãy loại bỏ trùng lặp các kết quả khi bạn tạo danh mục phông chữ hoặc báo cáo preflight. Ví dụ sau báo cáo mỗi phép thay thế được trả về và sau đó tạo một danh sách đã sắp xếp các ánh xạ phông chữ duy nhất:
+Một phép thay thế có thể được yêu cầu bởi nhiều slide đã chọn. Hãy loại bỏ trùng lặp kết quả khi bạn tạo bản kiểm kê phông chữ hoặc báo cáo preflight. Ví dụ dưới đây báo cáo mỗi phép thay thế được trả về và sau đó tạo một danh sách đã sắp xếp các ánh xạ phông chữ duy nhất:
 
 ```javascript
 var aspose = aspose || {};
@@ -95,25 +97,25 @@ try {
 }
 ```
 
-Lớp [FontsManager](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/fontsmanager/) cung cấp cả hai quá tải. Chọn một trong số chúng tùy theo phạm vi của hoạt động kết xuất:
+Lớp [FontsManager](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fontsmanager/) cung cấp cả hai overload. Chọn một trong số chúng tùy theo phạm vi của hoạt động hiển thị:
 
-| Overload | Use it when |
+| Overload | Khi nào sử dụng |
 |---|---|
-| [getSubstitutions](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/fontsmanager/getsubstitutions/) with no arguments | Bạn cần các phép thay thế cho toàn bộ bản trình chiếu. |
-| [getSubstitutions](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/fontsmanager/getsubstitutions/) with a Java `int[]` of slide indexes | Bạn cần các phép thay thế cho một phạm vi đã chọn, kiểm tra tăng dần, hoặc xuất một phần. |
+| [getSubstitutions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fontsmanager/getsubstitutions/) không có đối số | Bạn cần các phép thay thế cho toàn bộ bản trình bày. |
+| [getSubstitutions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fontsmanager/getsubstitutions/) với một `int[]` Java chứa các chỉ số slide | Bạn cần các phép thay thế cho một phạm vi đã chọn, kiểm tra tăng dần, hoặc xuất một phần. |
 
-## **Thiết lập quy tắc thay thế phông chữ**
+## **Đặt quy tắc thay thế phông chữ**
 
-Để chỉ định phông chữ mà Aspose.Slides nên sử dụng khi phông chữ nguồn không khả dụng:
+Để chỉ định phông chữ mà Aspose.Slides nên sử dụng khi một phông chữ nguồn không có sẵn:
 
-1. Tải bản trình chiếu.
+1. Tải bản trình bày.
 2. Tạo định nghĩa phông chữ cho phông chữ nguồn và phông chữ thay thế.
-3. Tạo một [FontSubstRule](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/fontsubstrule/) với điều kiện [WhenInaccessible](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/fontsubstcondition/).
-4. Thêm quy tắc vào một [FontSubstRuleCollection](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/fontsubstrulecollection/).
-5. Gán bộ sưu tập bằng cách sử dụng phương thức [FontsManager.setFontSubstRuleList](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/fontsmanager/setfontsubstrulelist/).
-6. Kết xuất hoặc chuyển đổi bản trình chiếu.
+3. Tạo một [FontSubstRule](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fontsubstrule/) với điều kiện [WhenInaccessible](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fontsubstcondition/).
+4. Thêm quy tắc vào một [FontSubstRuleCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fontsubstrulecollection/).
+5. Gán bộ sưu tập bằng cách sử dụng phương thức [FontsManager.setFontSubstRuleList](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fontsmanager/setfontsubstrulelist/).
+6. Hiển thị hoặc chuyển đổi bản trình bày.
 
-Ví dụ JavaScript sau thay thế `Arial` cho `SomeRareFont` khi `SomeRareFont` không khả dụng, và sau đó kết xuất slide đầu tiên để xác nhận kết quả. Phông chữ thay thế phải có sẵn cho Aspose.Slides.
+Ví dụ JavaScript dưới đây thay thế `Arial` cho `SomeRareFont` khi `SomeRareFont` không có sẵn, và sau đó hiển thị slide đầu tiên để xác minh kết quả. Phông chữ thay thế phải có sẵn cho Aspose.Slides.
 
 ```javascript
 var aspose = aspose || {};
@@ -141,45 +143,45 @@ try {
 ```
 
 {{% alert color="info" title="Note" %}}
-Để thay đổi không có điều kiện các phông chữ được sử dụng trong toàn bộ bản trình chiếu, xem [Font Replacement](/slides/vi/nodejs-java/font-replacement/).
+Đối với việc thay đổi không điều kiện các phông chữ được sử dụng trong toàn bộ bản trình bày, xem [Font Replacement](/slides/vi/nodejs-java/font-replacement/).
 {{% /alert %}}
 
-## **Giới hạn đối với phông chữ phương trình toán học**
+## **Hạn chế cho phông chữ công thức Toán học**
 
-Các quy tắc thay thế phông chữ là một phần của quy trình lựa chọn phông chữ chuẩn được sử dụng trong quá trình kết xuất và chuyển đổi. Chúng hoạt động cho văn bản thông thường khi Aspose.Slides có thể thay thế một phông chữ không truy cập được bằng phông chữ khả dụng đã chỉ định trong quy tắc.
+Quy tắc thay thế phông chữ là một phần của quy trình chọn phông chữ chuẩn được sử dụng trong quá trình hiển thị và chuyển đổi. Chúng hoạt động cho văn bản thường khi Aspose.Slides có thể thay thế một phông chữ không truy cập được bằng phông chữ có sẵn được chỉ định trong quy tắc.
 
-Các phương trình Office Math có yêu cầu bổ sung. Nếu một phương trình sử dụng **Cambria Math**, Aspose.Slides có thể cần chính phông chữ đó để tính toán và kết xuất bố cục phương trình. Một quy tắc thay thế bằng một phông chữ toán học khác, chẳng hạn **STIX Two Math**, không thể thay thế **Cambria Math** cho mục đích này, và việc kết xuất vẫn có thể báo rằng **Cambria Math** là bắt buộc.
+Các công thức Office Math có yêu cầu bổ sung. Nếu một công thức sử dụng **Cambria Math**, Aspose.Slides có thể cần chính xác phông chữ đó để tính toán và hiển thị bố cục công thức. Một quy tắc thay thế bằng một phông chữ toán khác, chẳng hạn như **STIX Two Math**, không thể thay thế **Cambria Math** cho mục đích này, và việc hiển thị vẫn có thể báo cáo rằng **Cambria Math** là bắt buộc.
 
-Để kết xuất hoặc chuyển đổi bản trình chiếu như vậy, hãy làm cho **Cambria Math** có sẵn cho Aspose.Slides. Cài đặt nó trong hệ điều hành hoặc tải nó như một [phông chữ bên ngoài](/slides/vi/nodejs-java/custom-font/).
+Để hiển thị hoặc chuyển đổi bản trình bày như vậy, hãy cung cấp **Cambria Math** cho Aspose.Slides. Cài đặt nó trong hệ điều hành hoặc tải nó như một [phông chữ bên ngoài](/slides/vi/nodejs-java/custom-font/).
 
-Giới hạn này áp dụng cho bố cục phương trình. Các quy tắc thay thế mô tả ở trên vẫn áp dụng cho văn bản thông thường trong bản trình chiếu.
+Hạn chế này áp dụng cho việc bố cục công thức. Các quy tắc thay thế được mô tả ở trên vẫn áp dụng cho văn bản thường trong bản trình bày.
 
-## **Câu hỏi thường gặp**
+## **FAQ**
 
-**Sự khác nhau giữa thay thế phông chữ và thay thế phông chữ tạm thời là gì?**
+**Sự khác nhau giữa thay thế phông chữ và thay thế (replacement) phông chữ là gì?**
 
-[Font replacement](/slides/vi/nodejs-java/font-replacement/) thay đổi có chủ đích một phông chữ thành một phông chữ khác trên toàn bộ bản trình chiếu. Thay thế phông chữ (font substitution) chọn một phông chữ cho đầu ra đã kết xuất khi điều kiện được cấu hình được đáp ứng, chẳng hạn khi phông chữ gốc không khả dụng.
+[Font replacement](/slides/vi/nodejs-java/font-replacement/) thay đổi có chủ ý một phông chữ sang phông chữ khác trên toàn bộ bản trình bày. Thay thế phông chữ chỉ chọn một phông chữ cho đầu ra đã hiển thị khi điều kiện đã cấu hình được đáp ứng, chẳng hạn như khi phông chữ gốc không có sẵn.
 
 **Khi nào các quy tắc thay thế được áp dụng?**
 
-Các quy tắc tham gia vào [font selection sequence](/slides/vi/nodejs-java/font-selection-sequence/) trong quá trình kết xuất và chuyển đổi. Với `WhenInaccessible`, quy tắc chỉ được sử dụng khi Aspose.Slides không thể truy cập phông chữ nguồn.
+Các quy tắc tham gia vào [font selection sequence](/slides/vi/nodejs-java/font-selection-sequence/) trong quá trình hiển thị và chuyển đổi. Với `WhenInaccessible`, một quy tắc chỉ được dùng khi Aspose.Slides không thể truy cập phông chữ nguồn.
 
-**Đi gì sẽ xảy ra khi một phông chữ bị thiếu và không có quy tắc thay thế nào được cấu hình?**
+**Điều gì xảy ra khi một phông chữ thiếu và không có quy tắc thay thế nào được cấu hình?**
 
-Aspose.Slides sẽ chọn phông chữ khả dụng gần nhất theo quy trình lựa chọn phông chữ của nó. Kết quả phụ thuộc vào các phông chữ có sẵn trong môi trường runtime.
+Aspose.Slides sẽ chọn phông chữ gần nhất có sẵn dựa trên quy trình chọn phông chữ của nó. Kết quả phụ thuộc vào các phông chữ có trong môi trường thời gian chạy.
 
 **Tôi có thể tải phông chữ bên ngoài để tránh việc thay thế không?**
 
-Có. Bạn có thể [load external fonts](/slides/vi/nodejs-java/custom-font/) để Aspose.Slides có thể sử dụng chúng trong quá trình kết xuất và chuyển đổi.
+Có. Bạn có thể [load external fonts](/slides/vi/nodejs-java/custom-font/) để Aspose.Slides có thể sử dụng chúng trong quá trình hiển thị và chuyển đổi.
 
-**Aspose có phân phối phông chữ đi kèm với thư viện không?**
+**Aspose có phân phối phông chữ cùng với thư viện không?**
 
-Không. Bạn chịu trách nhiệm cung cấp phông chữ và tuân thủ các giấy phép của chúng.
+Không. Bạn chịu trách nhiệm cung cấp phông chữ và tuân thủ giấy phép của chúng.
 
 **Kết quả thay thế có thể khác nhau giữa Windows, Linux và macOS không?**
 
-Có. Các phông chữ đã cài đặt và vị trí tìm kiếm phông chữ khác nhau theo hệ điều hành, vì vậy một phông chữ có sẵn trên máy này có thể yêu cầu thay thế trên máy khác.
+Có. Các phông chữ đã cài đặt và vị trí tìm kiếm phông chữ khác nhau tùy theo hệ điều hành, vì vậy một phông chữ có sẵn trên máy này có thể cần được thay thế trên máy khác.
 
-**Làm thế nào để tôi có thể đồng nhất việc chọn phông chữ trong các chuyển đổi hàng loạt?**
+**Làm sao để làm cho việc chọn phông chữ nhất quán trong quá trình chuyển đổi hàng loạt?**
 
-Sử dụng cùng các tệp phông chữ và phiên bản trên mọi máy hoặc container, [load required external fonts](/slides/vi/nodejs-java/custom-font/), và [embed fonts](/slides/vi/nodejs-java/embedded-font/) khi giấy phép cho phép. Bạn cũng có thể gọi [FontsManager.getSubstitutions](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/fontsmanager/getsubstitutions/) trước khi xuất để xác định các phép thay thế không mong muốn.
+Sử dụng cùng các tệp phông chữ và phiên bản trên mọi máy hoặc container, [load required external fonts](/slides/vi/nodejs-java/custom-font/), và [embed fonts](/slides/vi/nodejs-java/embedded-font/) khi giấy phép cho phép. Bạn cũng có thể gọi [FontsManager.getSubstitutions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fontsmanager/getsubstitutions/) trước khi xuất để xác định các phép thay thế không mong muốn.

@@ -1,5 +1,5 @@
 ---
-title: Převést PPT a PPTX do PDF v Pythonu přes Java [Obsahuje pokročilé funkce]
+title: Převod PPT a PPTX do PDF v Pythonu přes Java [Zahrnuty pokročilé funkce]
 linktitle: PowerPoint do PDF
 type: docs
 weight: 40
@@ -25,11 +25,11 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Převést PowerPoint PPT/PPTX na vysoce kvalitní, prohledávatelné PDF v Pythonu přes Java pomocí Aspose.Slides, s rychlými ukázkami kódu a pokročilými možnostmi převodu."
+description: "Převod PowerPoint PPT/PPTX do vysoce kvalitních, prohledávatelných PDF v Pythonu přes Java pomocí Aspose.Slides, s rychlými ukázkami kódu a pokročilými možnostmi převodu."
 ---
 ## **Přehled**
 
-Převod prezentací PowerPoint (PPT, PPTX, ODP atd.) do formátu PDF v Pythonu přes Java nabízí několik výhod, včetně kompatibility napříč různými zařízeními a zachování rozvržení a formátování vaší prezentace. Tento průvodce ukazuje, jak převést prezentace do PDF dokumentů, použít různé možnosti pro kontrolu kvality obrázků, zahrnout skryté snímky, chránit PDF soubory heslem, detekovat náhrady písem, vybrat konkrétní snímky pro převod a aplikovat standardy souladu na výstupní dokumenty.
+Převod prezentací PowerPoint (PPT, PPTX, ODP atd.) do formátu PDF v Pythonu přes Java nabízí několik výhod, včetně kompatibility napříč různými zařízeními a zachování rozvržení a formátování vaší prezentace. Tento průvodce ukazuje, jak převádět prezentace do PDF dokumentů, používat různé možnosti pro řízení kvality obrázků, zahrnout skryté snímky, chránit PDF soubory heslem, detekovat substituce písem, vybrat konkrétní snímky pro převod a aplikovat standardy souladu na výstupní dokumenty.
 
 ## **Převody PowerPoint do PDF**
 
@@ -39,21 +39,23 @@ Pomocí Aspose.Slides můžete převádět prezentace v následujících formát
 * **PPTX**
 * **ODP**
 
-Pro převod prezentace do PDF předáte název souboru jako argument třídě [Prezentace](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) a poté uložíte prezentaci jako PDF pomocí metody [uložit](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#save). Třída [Prezentace](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) poskytuje metodu [uložit](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#save), která se obvykle používá pro převod prezentace do PDF.
+Pro převod prezentace do PDF předáte název souboru jako argument třídě [Prezentace](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) a poté prezentaci uložíte jako PDF pomocí metody [uložit](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#save). Třída [Prezentace](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) poskytuje metodu [uložit](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#save), která se typicky používá k převodu prezentace do PDF.
 
 {{% alert color="info" title="Note" %}}
-Aspose.Slides pro Python přes Java vkládá informace o svém API a číslo verze do výstupních dokumentů. Například při převodu prezentace do PDF Aspose.Slides vyplní pole Application hodnotou "*Aspose.Slides*" a pole PDF Producer hodnotou ve formátu "*Aspose.Slides v XX.XX*". **Poznámka** že nemůžete Aspose.Slides instruovat, aby tuto informaci ve výstupních dokumentech změnil nebo odstranil.
+
+Aspose.Slides for Python via Java vkládá informace o své API a verzi do výstupních dokumentů. Například při převodu prezentace do PDF Aspose.Slides vyplní pole Application hodnotou "*Aspose.Slides*" a pole PDF Producer hodnotou ve tvaru "*Aspose.Slides v XX.XX*". **Poznámka**: nemůžete Aspose.Slides instruovat, aby tuto informaci ve výstupních dokumentech změnilo nebo odstranilo.
+
 {{% /alert %}}
 
-Aspose.Slides vám umožňuje převést:
+Aspose.Slides umožňuje převádět:
 
 * Celé prezentace do PDF
-* Vybrané snímky z prezentace do PDF
+* konkrétní snímky z prezentace do PDF
 
-Aspose.Slides exportuje prezentace do PDF a zajišťuje, že vzniklé PDF úzce odpovídají původním prezentacím. Prvky a atributy jsou při převodu vykresleny přesně, včetně:
+Aspose.Slides exportuje prezentace do PDF tak, aby výsledná PDF úzce odpovídala původním prezentacím. Prvky a vlastnosti jsou během převodu vykresleny přesně, včetně:
 
 * Obrázky
-* Textová pole a tvary
+* Textové rámečky a tvary
 * Formátování textu
 * Formátování odstavců
 * Hyperlinky
@@ -61,11 +63,11 @@ Aspose.Slides exportuje prezentace do PDF a zajišťuje, že vzniklé PDF úzce 
 * Odrážky
 * Tabulky
 
-## **Převést PowerPoint do PDF**
+## **Převod PowerPoint do PDF**
 
-Standardní převod používá výchozí nastavení exportu PDF. Použijte vlastní možnosti, když potřebujete řídit kvalitu obrázků, obsah stránek nebo soulad PDF.
+Standardní převod používá výchozí nastavení exportu PDF. Použijte vlastní možnosti, když potřebujete řídit kvalitu obrázků, obsah stránky nebo soulad PDF.
 
-Nainstalujte [Aspose.Slides pro Python přes Java](/slides/cs/python-java/installation/) a kompatibilní Java runtime před spuštěním příkladů. Každý příklad načítá `presentation.pptx` z aktuálního pracovního adresáře; nahraďte jej vaším souborem PPT, PPTX nebo ODP. Spusťte JVM jednou na každý proces Pythonu.
+Nainstalujte [Aspose.Slides for Python via Java](/slides/cs/python-java/installation/) a kompatibilní běhové prostředí Java před spuštěním příkladů. Každý příklad načítá `presentation.pptx` z aktuálního pracovního adresáře; nahraďte jej svým souborem PPT, PPTX nebo ODP. JVM spustíte jednou na jeden proces Pythonu.
 
 Následující příklad načte prezentaci a uloží všechny viditelné snímky do PDF pomocí výchozího nastavení exportu.
 
@@ -86,16 +88,20 @@ finally:
 ```
 
 {{% alert color="info" title="Note" %}}
-Aspose nabízí bezplatný online [**PowerPoint na PDF převodník**](https://products.aspose.app/slides/conversion/ppt-to-pdf), který demonstruje proces převodu prezentace do PDF. Můžete spustit test s tímto převodníkem pro živou implementaci popsaného postupu.
+
+Aspose nabízí zdarma online [**konvertor PowerPoint do PDF**](https://products.aspose.app/slides/conversion/ppt-to-pdf), který demonstruje proces převodu prezentace do PDF. Tento konvertor můžete použít k testování živé implementace popsaného postupu.
+
 {{% /alert %}}
 
-## **Převést PowerPoint do PDF s možnostmi**
+## **Převod PowerPoint do PDF s možnostmi**
 
-Aspose.Slides poskytuje vlastní možnosti – vlastnosti pod třídou [PdfOptions](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/) – které vám umožňují přizpůsobit výsledné PDF, uzamknout PDF heslem nebo určit, jak má proces převodu probíhat.
+Aspose.Slides poskytuje vlastní možnosti — vlastnosti třídy [PdfOptions](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/) — které vám umožní přizpůsobit výsledné PDF, uzamknout PDF heslem nebo určit, jak má převod probíhat.
 
-### **Převést PowerPoint do PDF s vlastními možnostmi**
+### **Převod PowerPoint do PDF s vlastními možnostmi**
 
-Použitím vlastních možností převodu můžete definovat preferované nastavení kvality rastrových obrázků, určit, jak mají být zpracovávány metafily, nastavit úroveň komprese textu, konfigurovat DPI pro obrázky a další.
+Pomocí vlastních možností převodu můžete definovat preferované nastavení kvality rastru obrázků, určit, jak se mají zacházet s metafily, nastavit úroveň komprese textu, konfigurovat DPI pro obrázky a další.
+
+Následující příklad exportuje prezentaci do PDF 1.5 s nastavenou JPEG kvalitou 90, rozlišením obrázku 300 DPI, metafily uloženými jako PNG a kompresí textu Flate.
 
 ```python
 import jpype
@@ -120,13 +126,13 @@ finally:
     presentation.dispose()
 ```
 
-### **Zachovat vložené OLE soubory jako přílohy PDF**
+### **Zachování vložených OLE souborů jako příloh PDF**
 
-Pokud prezentace obsahuje vložený sešit Excel, můžete chtít, aby příjemci PDF mohli přistupovat k datům sešitu i zobrazovat snímky. Zavolejte [setIncludeOleData](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/#setIncludeOleData) s hodnotou `True`, aby se vložené OLE soubory zachovaly jako přílohy v výsledném PDF.
+Pokud prezentace obsahuje vložený Excel sešit, můžete chtít, aby příjemci PDF mohli přistupovat k datům sešitu i k zobrazení snímků. Zavolejte [setIncludeOleData](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/#setIncludeOleData) s hodnotou `True` a zachováte vložené OLE soubory jako přílohy ve výsledném PDF.
 
-Výchozí hodnota je `False`: náhledový obrázek nebo ikona OLE objektu je vykreslen na stránce PDF, ale jeho vložený soubor není zahrnut jako příloha. Nastavením možnosti na `True` se navíc zahrnou data souboru. Náhled zůstává vizuální reprezentací; příloha umožňuje příjemcům otevřít nebo uložit vložený soubor samostatně. OLE objekt se nestane interaktivním listem Excelu na stránce PDF.
+Výchozí hodnota je `False`: náhledový obrázek nebo ikona OLE objektu je vykreslena na stránce PDF, ale vložený soubor není zahrnut jako příloha. Nastavení na `True` navíc zahrne i data souboru. Náhled zůstává vizuální reprezentací; příloha umožní příjemcům otevřít nebo uložit vložený soubor samostatně. OLE objekt se nestane interaktivním listem Excelu na stránce PDF.
 
-Následující příklad načte prezentaci, která již obsahuje vložený sešit Excel, a exportuje ji do PDF s přiloženým sešitem.
+Následující příklad načte prezentaci, která již obsahuje vložený Excel sešit, a exportuje ji do PDF s přiloženým sešitem.
 
 ```python
 import jpype
@@ -149,19 +155,21 @@ finally:
 
 Pro kontrolu výsledku:
 
-1. Otevřete exportované PDF v prohlížeči, který podporuje souborové přílohy, například Adobe Acrobat Reader.
-2. Otevřete panel **Přílohy** prohlížeče a najděte vložený sešit.
+1. Otevřete exportované PDF v prohlížeči, který podporuje souborové přílohy, např. Adobe Acrobat Reader.
+2. Otevřete panel **Přílohy** a najděte vložený sešit.
 3. Uložte přílohu a otevřete ji v Excelu pro kontrolu dat, nebo ji otevřete přímo, pokud to prohlížeč umožňuje. Náhled na stránce PDF je oddělený od přílohy.
 
 {{% alert color="info" title="Note" %}}
-Standardy PDF/A ukládají omezení na přílohy: PDF/A-1 zakazuje vložené soubory, PDF/A-2 povoluje pouze přílohy PDF/A a PDF/A-3 povoluje jiné typy souborů, včetně sešitů Excel. Jedná se o požadavky standardů, nikoli omezení specifická pro Aspose.Slides. Tento příklad používá výchozí nastavení souladu PDF a neukazuje export do PDF/A.
+
+Standardy PDF/A ukládají omezení na přílohy: PDF/A‑1 zakazuje vložené soubory, PDF/A‑2 povoluje pouze přílohy PDF/A a PDF/A‑3 povoluje i jiné typy souborů, včetně Excel sešitů. Jedná se o požadavky standardů, ne omezení specifická pro Aspose.Slides. Tento příklad používá výchozí nastavení souladu PDF a neukazuje export PDF/A.
+
 {{% /alert %}}
 
-### **Převést PowerPoint do PDF s skrytými snímky**
+### **Převod PowerPoint do PDF se skrytými snímky**
 
-Pokud prezentace obsahuje skryté snímky, můžete použít metodu [setShowHiddenSlides](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/#setShowHiddenSlides) ze třídy [PdfOptions](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/), aby se skryté snímky zahrnuly jako stránky ve výsledném PDF.
+Pokud prezentace obsahuje skryté snímky, můžete použít metodu [setShowHiddenSlides](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/#setShowHiddenSlides) ze třídy [PdfOptions](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/) a zahrnout skryté snímky jako stránky ve výsledném PDF.
 
-Následující příklad exportuje prezentaci do PDF včetně všech skrytých snímků.
+Následující příklad exportuje prezentaci do PDF, včetně všech skrytých snímků.
 
 ```python
 import jpype
@@ -182,9 +190,9 @@ finally:
     presentation.dispose()
 ```
 
-### **Převést PowerPoint do PDF chráněného heslem**
+### **Převod PowerPoint do PDF chráněného heslem**
 
-Následující příklad exportuje prezentaci do PDF, který vyžaduje heslo `password` k otevření. Oprávnění přístupu umožňují tisk, včetně tisku ve vysoké kvalitě.
+Následující příklad exportuje prezentaci do PDF, který vyžaduje heslo `password` pro otevření. Přístupová oprávnění umožňují tisk, včetně tisku vysoké kvality.
 
 ```python
 import jpype
@@ -206,11 +214,11 @@ finally:
     presentation.dispose()
 ```
 
-### **Detekovat náhrady písem**
+### **Detekce substitucí písem**
 
-Aspose.Slides poskytuje metodu [setWarningCallback](https://reference.aspose.com/slides/python-java/aspose.slides/saveoptions/#setWarningCallback) pod třídou [PdfOptions](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/), která vám umožní detekovat náhrady písem během procesu převodu prezentace do PDF.
+Aspose.Slides poskytuje metodu [setWarningCallback](https://reference.aspose.com/slides/python-java/aspose.slides/saveoptions/#setWarningCallback) ve třídě [PdfOptions](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/), která vám umožní detekovat substituce písem během procesu převodu prezentace do PDF.
 
-Následující příklad exportuje prezentaci do PDF a vypíše varování o náhradách písem do konzoly. Varování se vypíše pouze tehdy, když je během exportu nahrazen nedostupný font. Použijte proxy JPype pro přijímání varovných zpětných volání z Java API. Před kontrolou předpony převeďte řetězec popisu z Java na řetězec v Pythonu:
+Následující příklad exportuje prezentaci do PDF a vypisuje varování o substituci písem do konzole. Varování se vypíše pouze tehdy, když je během exportu použito nedostupné písmo. Použijte proxy JPype pro příjem varování z Java API. Před kontrolou prefixu převeďte popis řetězce z Java na Python řetězec:
 
 ```python
 import jpype
@@ -243,12 +251,49 @@ finally:
 ```
 
 {{% alert color="info" title="Note" %}}
-Pro více informací o náhradě písem viz článek [Náhrada písma](/slides/cs/python-java/font-substitution/).
+
+Více informací o substituci písem najdete v článku [Substituce písem](/slides/cs/python-java/font-substitution/).
+
 {{% /alert %}}
 
-## **Převést vybrané snímky z PowerPointu do PDF**
+### **Zpracování písem bez dedikovaného tučného řezu**
 
-Čísla snímků předávaná metodě [Presentation.save](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#save) jsou číslována od jedné. Tento příklad exportuje snímky 1 a 3, pokud oba existují:
+Prezentace může použít tučné formátování textu, i když dané písmo nemá vlastní tučný řez. Text se může i tak jevit tučně díky syntetickému ztučnění, které uměle zahušťuje běžné glyphy. Když takový text v PDF vypadá příliš těžko nebo jinak neodpovídá zamýšlenému vzhledu, zkuste zavolat [PdfOptions.setRasterizeUnsupportedFontStyles](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/#setRasterizeUnsupportedFontStyles) s hodnotou `True`. Tato volba při exportu PDF vykreslí postižený text jako bitmapu a může zlepšit jeho vzhled u některých písem. Výchozí hodnota je `False`.
+
+Ukázková prezentace obsahuje dva textové rámečky: jeden s běžným textem a druhý s tučným formátováním stejného písma, které nemá dedikovaný tučný řez. Následující příklad načte prezentaci, povolí rasterizaci nepodporovaných stylů písma a exportuje ji do PDF:
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import PdfOptions, Presentation, SaveFormat
+
+pdf_options = PdfOptions()
+pdf_options.setRasterizeUnsupportedFontStyles(True)
+
+presentation = Presentation("unsupported-bold.pptx")
+try:
+    presentation.save("rasterized.pdf", SaveFormat.Pdf, pdf_options)
+finally:
+    presentation.dispose()
+```
+
+Následující náhledy ukazují výstup s vypnutou a zapnutou volbou. V tomto příkladu má tučný text těžší tahy při vypnuté volbě. Po zapnutí jsou tahy lehčí; běžný text zůstává nezměněn. Porovnejte výsledky před tím, než si zvolíte nastavení pro svou prezentaci.
+
+| Volba vypnuta (`False`, výchozí) | Volba zapnuta (`True`) |
+|---|---|
+| ![PDF s rasterizací nepodporovaného stylu písma vypnutá](unsupported-bold-disabled.png) | ![PDF s rasterizací nepodporovaného stylu písma zapnutá](unsupported-bold-enabled.png) |
+
+V tomto příkladu zapnutí volby převádí pouze tučný text na bitmapu: nelze jej vybrat, kopírovat ani vyhledávat jako text bez OCR a hrany se při 800 % přiblížení jeví měkčeji. Běžný text zůstává vyhledávatelný. Při vypnuté volbě zůstávají oba řetězce jako text.
+
+Tato volba rasterizuje text formátovaný jako tučný, pokud písmo nemá vlastní tučný řez. [Substituce písem](/slides/cs/python-java/font-substitution/) místo toho vybere jiné písmo, když originál není k dispozici.
+
+## **Převod vybraných snímků z PowerPoint do PDF**
+
+Čísla snímků předávaná metodě [Presentation.save](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#save) jsou 1‑základní. Tento příklad exportuje snímky 1 a 3, pokud oba existují:
 
 ```python
 import jpype
@@ -267,16 +312,16 @@ finally:
     presentation.dispose()
 ```
 
-## **Převést PowerPoint do PDF s vlastní velikostí snímku**
+## **Převod PowerPoint do PDF s vlastní velikostí snímku**
 
-Tento příklad exportuje první snímek na stránku o rozměrech 612 × 792 bodů (US Letter). Klonuje snímek do nové prezentace s určenou velikostí a přizpůsobí obsah snímku tak, aby se vešel.
+Tento příklad exportuje první snímek na stránku o rozměrech 612 × 792 bodů (US Letter). Klonuje snímek do nové prezentace se zadanou velikostí a škáluje obsah snímku, aby se vešel.
 
 ```python
 import jpype
 import asposeslides
 
 if not jpype.isJVMStarted():
-    jpace.startJVM()
+    jpype.startJVM()
 
 from asposeslides.api import Presentation, SaveFormat, SlideSizeScaleType
 
@@ -287,7 +332,7 @@ try:
     slide = presentation.getSlides().get_Item(0)
     resized_presentation.getSlides().insertClone(0, slide)
 
-    # Odebrat prázdný snímek, který byl vytvořen při vytvoření nové prezentace.
+    # Odstraňte prázdný snímek, se kterým byla nová prezentace vytvořena.
     resized_presentation.getSlides().removeAt(1)
 
     resized_presentation.save("presentation-custom-size.pdf", SaveFormat.Pdf)
@@ -296,9 +341,9 @@ finally:
     resized_presentation.dispose()
 ```
 
-## **Převést PowerPoint do PDF v zobrazení poznámek ke snímkům**
+## **Převod PowerPoint do PDF v zobrazení poznámek ke snímkům**
 
-Následující příklad exportuje prezentaci do PDF a umístí poznámky přednášejícího každého snímku pod snímek. Použijte prezentaci obsahující poznámky přednášejícího, abyste viděli výsledek.
+Následující příklad exportuje prezentaci do PDF a umístí poznámky přednášejícího pod každý snímek. Použijte prezentaci obsahující poznámky přednášejícího, abyste viděli výsledek.
 
 ```python
 import jpype
@@ -322,11 +367,11 @@ finally:
     presentation.dispose()
 ```
 
-## **Standardy přístupnosti a souladu pro PDF**
+## **Přístupnost a standardy souladu pro PDF**
 
-Při tvorbě přístupných PDF se řiďte [Směrnicemi pro přístupnost webového obsahu (**WCAG**)](https://www.w3.org/TR/WCAG-TECHS/pdf.html). Použijte [PdfOptions.setCompliance](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/#setCompliance) k výběru výstupního standardu: **PDF/A1a**, **PDF/A1b** a **PDF/UA**.
+Při tvorbě přístupných PDF konzultujte [Web Content Accessibility Guidelines (**WCAG**)](https://www.w3.org/TR/WCAG-TECHS/pdf.html). Pomocí [PdfOptions.setCompliance](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/#setCompliance) vyberte výstupní standard: **PDF/A1a**, **PDF/A1b** a **PDF/UA**.
 
-Tento kód demonstruje proces převodu PowerPoint do PDF, který vytváří více PDF podle různých standardů souladu:
+Tento kód demonstruje proces převodu PowerPoint do PDF, který vytváří několik PDF podle různých standardů souladu:
 
 ```python
 import jpype
@@ -353,32 +398,32 @@ finally:
     presentation.dispose()
 ```
 
-> **Poznámka:** Při exportu do PDF/UA Aspose.Slides zachází s komplexní grafikou, jako jsou SmartArt, diagramy a vzorce, jako s jedinou figurou. Jednotlivé elementy cesty nejsou zachovány jako samostatný obsah a mohou být označeny jako artefakty; alternativní text je poskytován pouze pro celou figuru.
+> **Poznámka:** Při exportu do PDF/UA Aspose.Slides zachází se složitou grafikou, jako jsou SmartArt, grafy a vzorce, jako s jednou figurou. Jednotlivé elementy cesty nejsou zachovány jako samostatný obsah a mohou být označeny jako artefakty; alternativní text je poskytován pouze pro celou figuru.
 
-## **Často kladené otázky**
+## **Často kladené dotazy**
 
-**Mohu hromadně převést více souborů PowerPoint do PDF?**
+**Mohu hromadně převádět více souborů PowerPoint do PDF?**
 
-Ano, Aspose.Slides podporuje hromadný převod více souborů PPT nebo PPTX do PDF. Můžete procházet své soubory a programově aplikovat proces převodu.
+Ano, Aspose.Slides podporuje hromadný převod více souborů PPT nebo PPTX do PDF. Můžete iterovat přes své soubory a programově aplikovat proces převodu.
 
-**Je možné chránit převodní PDF heslem?**
+**Je možné zabezpečit převodní PDF heslem?**
 
-Ano. Použijte třídu [PdfOptions](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/) k nastavení hesla a definování oprávnění přístupu během procesu převodu.
+Ano. Použijte třídu [PdfOptions](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/) k nastavení hesla a definování přístupových oprávnění během převodu.
 
 **Jak zahrnout skryté snímky do PDF?**
 
-Zavolejte [setShowHiddenSlides](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/#setShowHiddenSlides) s hodnotou `True` ve třídě [PdfOptions](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/), aby se skryté snímky zahrnuly do výsledného PDF.
+Zavolejte [setShowHiddenSlides](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/#setShowHiddenSlides) s hodnotou `True` ve třídě [PdfOptions](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/) a zahrňte skryté snímky do výsledného PDF.
 
 **Dokáže Aspose.Slides udržet vysokou kvalitu obrázků v PDF?**
 
-Ano, můžete řídit kvalitu obrázků pomocí metod jako [setJpegQuality](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/#setJpegQuality) a [setSufficientResolution](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/#setSufficientResolution) ve třídě [PdfOptions](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/), abyste zajistili vysoce kvalitní obrázky ve vašem PDF.
+Ano, kvalitu obrázků můžete řídit pomocí metod jako [setJpegQuality](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/#setJpegQuality) a [setSufficientResolution](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/#setSufficientResolution) ve třídě [PdfOptions](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/), abyste zajistili vysokou kvalitu obrázků ve vašem PDF.
 
 **Podporuje Aspose.Slides standardy souladu PDF/A?**
 
-Ano, Aspose.Slides vám umožňuje exportovat PDF, které splňují [různé standardy](https://reference.aspose.com/slides/python-java/aspose.slides/pdfcompliance/), včetně PDF/A1a, PDF/A1b a PDF/UA, pro přístupnost nebo archivaci. Vyberte vhodný standard a zkontrolujte výstup podle vašich požadavků.
+Ano, Aspose.Slides vám umožňuje exportovat PDF, která splňují [různé standardy](https://reference.aspose.com/slides/python-java/aspose.slides/pdfcompliance/), včetně PDF/A1a, PDF/A1b a PDF/UA, pro přístupnost nebo archivaci. Vyberte vhodný standard a zkontrolujte výstup podle svých požadavků.
 
 ## **Další zdroje**
 
-- [Dokumentace Aspose.Slides pro Python přes Java](/slides/cs/python-java/)
-- [API reference Aspose.Slides pro Python přes Java](https://reference.aspose.com/slides/python-java/)
-- [Bezplatné online převodníky Aspose](https://products.aspose.app/slides/conversion)
+- [Aspose.Slides for Python via Java Dokumentace](/slides/cs/python-java/)
+- [Aspose.Slides for Python via Java API Reference](https://reference.aspose.com/slides/python-java/)
+- [Aspose Free Online Converters](https://products.aspose.app/slides/conversion)

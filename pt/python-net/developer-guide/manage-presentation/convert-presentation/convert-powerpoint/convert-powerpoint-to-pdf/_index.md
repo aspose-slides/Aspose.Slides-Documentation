@@ -7,24 +7,24 @@ url: /pt/python-net/convert-powerpoint-to-pdf/
 aliases:
   - /python-net/convert-to-pdf/
 keywords:
-  - converter PowerPoint
-  - apresentação
-  - PowerPoint para PDF
-  - PPT para PDF
-  - PPTX para PDF
-  - salvar PowerPoint como PDF
-  - anexo
-  - PDF/A1a
-  - PDF/A1b
-  - PDF/UA
-  - Python
-  - Aspose.Slides para Python
-description: "Guia passo a passo para converter PPT, PPTX e ODP em PDFs de alta qualidade e conformes com WCAG em Python com Aspose.Slides — inclui proteção por senha, seleção de slides e controle de qualidade de imagem."
+- converter PowerPoint
+- apresentação
+- PowerPoint para PDF
+- PPT para PDF
+- PPTX para PDF
+- salvar PowerPoint como PDF
+- anexo
+- PDF/A1a
+- PDF/A1b
+- PDF/UA
+- Python
+- Aspose.Slides for Python
+description: "Guia passo a passo para converter PPT, PPTX e ODP em PDFs de alta qualidade e compatíveis com WCAG em Python com Aspose.Slides — inclui proteção por senha, seleção de slides e controle de qualidade de imagem."
 showReadingTime: true
 ---
 ## **Visão geral**
 
-Convertendo apresentações do PowerPoint (PPT, PPTX, ODP) para formato PDF em Python oferece várias vantagens, incluindo garantir compatibilidade entre diferentes dispositivos e preservar o layout e a formatação da sua apresentação. Este guia demonstra como converter apresentações para documentos PDF, utilizar várias opções para controlar a qualidade da imagem, incluir slides ocultos, proteger documentos PDF com senha, detectar substituições de fontes, selecionar slides específicos para conversão e aplicar padrões de conformidade aos documentos de saída.
+Converter apresentações do PowerPoint (PPT, PPTX, ODP) para PDF em Python oferece várias vantagens, incluindo garantir compatibilidade entre diferentes dispositivos e preservar o layout e a formatação da sua apresentação. Este guia demonstra como converter apresentações para documentos PDF, utilizar diversas opções para controlar a qualidade de imagem, incluir slides ocultos, proteger PDFs com senha, detectar substituições de fontes, selecionar slides específicos para conversão e aplicar padrões de conformidade aos documentos de saída.
 
 ## **Conversões de PowerPoint para PDF**
 
@@ -36,8 +36,10 @@ Usando Aspose.Slides, você pode converter apresentações nesses formatos para 
 
 Para converter uma apresentação para PDF em Python, basta passar o nome do arquivo como argumento para a classe [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) e então salvar a apresentação como PDF usando o método [save](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/save/). A classe [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) expõe o método [save](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/save/) que normalmente é usado para converter uma apresentação para PDF.
 
-{{% alert color="info" title="Note" %}}
-Aspose.Slides for Python insere suas informações de API e número de versão nos documentos de saída. Por exemplo, ao converter uma apresentação para PDF, Aspose.Slides for Python preenche o campo Application com o valor '*Aspose.Slides*' e o campo PDF Producer com um valor no formato '*Aspose.Slides v XX.XX*'. **Note** que você não pode instruir o Aspose.Slides for Python a mudar ou remover estas informações dos documentos de saída.
+{{% alert color="info" title="Nota" %}}
+
+Aspose.Slides for Python insere suas informações de API e número da versão nos documentos de saída. Por exemplo, ao converter uma apresentação para PDF, Aspose.Slides for Python preenche o campo Application com o valor '*Aspose.Slides*' e o campo PDF Producer com um valor no formato '*Aspose.Slides v XX.XX*'. **Nota** que não é possível instruir o Aspose.Slides for Python a alterar ou remover essas informações dos documentos de saída.
+
 {{% /alert %}}
 
 Aspose.Slides permite que você converta:
@@ -69,19 +71,21 @@ with slides.Presentation("PowerPoint.ppt") as presentation:
     presentation.save("PPT-to-PDF.pdf", slides.export.SaveFormat.PDF)
 ```
 
-{{% alert color="info" title="Note" %}}
-Aspose oferece um conversor online gratuito [**Conversor de PowerPoint para PDF**](https://products.aspose.app/slides/conversion/ppt-to-pdf) que demonstra o processo de conversão de apresentação para PDF. Para uma implementação ao vivo do procedimento descrito aqui, você pode fazer um teste com o conversor.
+{{% alert color="info" title="Nota" %}}
+
+A Aspose oferece um [**conversor de PowerPoint para PDF**](https://products.aspose.app/slides/conversion/ppt-to-pdf) gratuito online que demonstra o processo de conversão de apresentação para PDF. Para uma implementação ao vivo do procedimento descrito aqui, você pode fazer um teste com o conversor.
+
 {{% /alert %}}
 
 ## **Converter PowerPoint para PDF com Opções**
 
-Aspose.Slides fornece opções personalizadas — propriedades da classe [PdfOptions](https://reference.aspose.com/slides/python-net/aspose.slides.export/pdfoptions/) — que permitem personalizar o PDF (resultante do processo de conversão), bloquear o PDF com uma senha ou até especificar como o processo de conversão deve ocorrer.
+Aspose.Slides fornece opções personalizadas — propriedades da classe [PdfOptions](https://reference.aspose.com/slides/python-net/aspose.slides.export/pdfoptions/) — que permitem personalizar o PDF (resultado do processo de conversão), bloquear o PDF com senha ou até mesmo especificar como o processo de conversão deve ser executado.
 
 ### **Converter PowerPoint para PDF com Opções Personalizadas**
 
-Usando opções de conversão personalizadas, você pode definir sua configuração de qualidade preferida para imagens raster, especificar como arquivos metafile devem ser tratados, definir um nível de compressão para texto, definir DPI para imagens, etc.
+Usando opções de conversão personalizadas, você pode definir sua configuração de qualidade preferida para imagens raster, especificar como metafiles devem ser tratados, definir um nível de compressão para texto, definir DPI para imagens etc.
 
-O exemplo a seguir exporta uma apresentação para PDF 1.5 com qualidade JPEG definida em 90, resolução de imagem configurada em 300 DPI, metafiles salvos como PNG e compressão de texto Flate.
+O exemplo a seguir exporta uma apresentação para PDF 1.5 com qualidade JPEG definida em 90, resolução de imagem em 300 DPI, metafiles salvos como PNG e compressão de texto Flate.
 
 ```python
 import aspose.slides as slides
@@ -99,11 +103,11 @@ with slides.Presentation("PowerPoint.pptx") as presentation:
 
 ### **Preservar Arquivos OLE Incorporados como Anexos PDF**
 
-Se uma apresentação contém uma pasta de trabalho do Excel incorporada, você pode desejar que os destinatários do PDF acessem os dados da pasta de trabalho além de visualizar os slides. Defina [PdfOptions.include_ole_data](https://reference.aspose.com/slides/python-net/aspose.slides.export/pdfoptions/include_ole_data/) como `True` para preservar arquivos OLE incorporados como anexos no PDF resultante.
+Se uma apresentação contém uma pasta de trabalho Excel incorporada, você pode querer que os destinatários do PDF acessem os dados da pasta de trabalho além de visualizar os slides. Defina [PdfOptions.include_ole_data](https://reference.aspose.com/slides/python-net/aspose.slides.export/pdfoptions/include_ole_data/) como `True` para preservar arquivos OLE incorporados como anexos no PDF resultante.
 
-O valor padrão é `False`: a imagem de pré-visualização ou ícone do objeto OLE é renderizado na página PDF, mas seu arquivo incorporado não é incluído como anexo. Definir a opção como `True` inclui adicionalmente os dados do arquivo. A pré-visualização continua sendo uma representação visual; o anexo permite que os destinatários abram ou salvem o arquivo incorporado separadamente. O objeto OLE não se transforma em uma planilha interativa do Excel na página PDF.
+O valor padrão é `False`: a imagem de visualização ou ícone do objeto OLE é renderizado na página PDF, mas seu arquivo incorporado não é incluído como anexo. Definir a opção como `True` inclui adicionalmente os dados do arquivo. A visualização permanece uma representação visual; o anexo permite que os destinatários abram ou salvem o arquivo incorporado separadamente. O objeto OLE não se torna uma planilha Excel interativa na página PDF.
 
-O exemplo a seguir carrega uma apresentação que já contém uma pasta de trabalho do Excel incorporada e a exporta para PDF com a pasta de trabalho anexada.
+O exemplo a seguir carrega uma apresentação que já contém uma pasta de trabalho Excel incorporada e a exporta para PDF com a pasta de trabalho anexada.
 
 ```python
 import aspose.slides as slides
@@ -117,12 +121,14 @@ with slides.Presentation("presentation.pptx") as presentation:
 
 Para verificar o resultado:
 
-1. Abra o PDF exportado em um visualizador que suporte anexos de arquivos, como o Adobe Acrobat Reader.
+1. Abra o PDF exportado em um visualizador que suporte anexos de arquivo, como o Adobe Acrobat Reader.
 2. Abra o painel **Attachments** do visualizador e localize a pasta de trabalho incorporada.
-3. Salve o anexo e abra‑o no Excel para inspecionar seus dados, ou abra‑o diretamente se o visualizador permitir. A pré-visualização na página PDF é separada do anexo.
+3. Salve o anexo e abra-o no Excel para inspecionar seus dados, ou abra-o diretamente se o visualizador permitir. A visualização na página PDF é separada do anexo.
 
-{{% alert color="info" title="Note" %}}
-Os padrões PDF/A impõem restrições aos anexos: PDF/A-1 proíbe arquivos incorporados, PDF/A-2 permite apenas anexos PDF/A, e PDF/A-3 permite outros tipos de arquivos, incluindo pastas de trabalho do Excel. Estas são exigências dos padrões, não restrições específicas ao Aspose.Slides. Este exemplo usa a configuração padrão de conformidade PDF e não demonstra exportação PDF/A.
+{{% alert color="info" title="Nota" %}}
+
+Os padrões PDF/A impõem restrições sobre anexos: PDF/A‑1 proíbe arquivos incorporados, PDF/A‑2 permite apenas anexos PDF/A e PDF/A‑3 permite outros tipos de arquivo, incluindo pastas de trabalho Excel. Essas são exigências dos padrões, não restrições específicas do Aspose.Slides. Este exemplo usa a configuração padrão de conformidade PDF e não demonstra exportação PDF/A.
+
 {{% /alert %}}
 
 ### **Converter PowerPoint para PDF com Slides Ocultos**
@@ -141,9 +147,9 @@ with slides.Presentation("PowerPoint.pptx") as presentation:
     presentation.save("PowerPoint-to-PDF.pdf", slides.export.SaveFormat.PDF, pdf_options)
 ```
 
-### **Converter PowerPoint para PDF Protegido por Senha**
+### **Converter PowerPoint para um PDF Protegido por Senha**
 
-O exemplo a seguir exporta uma apresentação para um PDF que requer a senha `password` para ser aberto. As permissões de acesso permitem impressão, incluindo impressão de alta qualidade.
+O exemplo a seguir exporta uma apresentação para um PDF que exige a senha `password` para ser aberto. As permissões de acesso permitem impressão, incluindo impressão de alta qualidade.
 
 ```python
 import aspose.slides as slides
@@ -156,7 +162,33 @@ with slides.Presentation("PowerPoint.pptx") as presentation:
     presentation.save("PPTX-to-PDF.pdf", slides.export.SaveFormat.PDF, pdf_options)
 ```
 
-## **Converter Slides Selecionados no PowerPoint para PDF**
+### **Manipular Fontes sem Tipo de Letra Negrito Dedicado**
+
+Uma apresentação pode aplicar formatação em negrito a um texto mesmo quando sua fonte não possui um tipo de letra negrito dedicado. O texto ainda pode aparecer em negrito por meio de negrito sintético, que engrossa artificialmente os glifos regulares. Quando esse texto parece muito pesado ou diferente da aparência pretendida no PDF, tente definir [PdfOptions.rasterize_unsupported_font_styles](https://reference.aspose.com/slides/python-net/aspose.slides.export/pdfoptions/rasterize_unsupported_font_styles/) como `True`. Essa opção renderiza o texto afetado como bitmap durante a exportação para PDF e pode melhorar sua aparência para certas fontes. Seu valor padrão é `False`.
+
+A apresentação de exemplo contém duas caixas de texto: uma com texto normal e outra com formatação em negrito aplicada à mesma fonte, que não possui tipo de letra negrito dedicado. O exemplo a seguir carrega a apresentação, habilita a rasterização de estilos de fonte não suportados e a exporta para PDF:
+
+```python
+import aspose.slides as slides
+
+pdf_options = slides.export.PdfOptions()
+pdf_options.rasterize_unsupported_font_styles = True
+
+with slides.Presentation("unsupported-bold.pptx") as presentation:
+    presentation.save("rasterized.pdf", slides.export.SaveFormat.PDF, pdf_options)
+```
+
+As pré‑visualizações a seguir mostram a saída desativada e a saída ativada. Neste exemplo, o texto em negrito tem traços mais espessos com a opção desativada. Com a opção ativada, seus traços são mais leves; o texto regular permanece inalterado. Compare os resultados antes de escolher a configuração para sua apresentação.
+
+| Opção desativada (`False`, o padrão) | Opção ativada (`True`) |
+|---|---|
+| ![PDF with unsupported font style rasterization disabled](unsupported-bold-disabled.png) | ![PDF with unsupported font style rasterization enabled](unsupported-bold-enabled.png) |
+
+Neste exemplo, habilitar a opção converte apenas o texto em negrito em bitmap: ele não pode ser selecionado, copiado ou pesquisado como texto sem OCR, e suas bordas parecem mais suaves em zoom de 800 %. O texto regular permanece pesquisável. Com a opção desativada, ambas as cadeias permanecem como texto.
+
+Esta opção rasteriza texto formatado como negrito quando sua fonte não tem tipo de letra negrito dedicado. [Font substitution](/slides/pt/python-net/font-substitution/) em vez disso seleciona outra fonte quando a original não está disponível.
+
+## **Converter Slides Selecionados do PowerPoint para PDF**
 
 O exemplo a seguir exporta os slides 1 e 3 de uma apresentação para PDF. Os números dos slides neste array são baseados em 1, e a apresentação de entrada deve conter ao menos três slides.
 
@@ -170,7 +202,7 @@ with slides.Presentation("PowerPoint.pptx") as presentation:
 
 ## **Converter PowerPoint para PDF com Tamanho de Slide Personalizado**
 
-O exemplo a seguir copia o primeiro slide de uma apresentação para uma nova apresentação com tamanho de slide de 612 × 792 pontos (8,5 × 11 polegadas). Ele redimensiona o conteúdo do slide para caber e exporta o slide único para PDF.
+O exemplo a seguir copia o primeiro slide de uma apresentação para uma nova apresentação com tamanho de slide de 612 × 792 pontos (8,5 × 11 polegadas). Ele escala o conteúdo do slide para caber e exporta o slide único para PDF.
 
 ```python
 import aspose.slides as slides
@@ -184,13 +216,13 @@ with slides.Presentation("SelectedSlides.pptx") as presentation:
         slide = presentation.slides[0]
         resized_presentation.slides.insert_clone(0, slide)
 
-        # Remova o slide em branco que a nova apresentação foi criada com.
+        # Remover o slide em branco criado na nova apresentação.
         resized_presentation.slides.remove_at(1)
 
         resized_presentation.save("PDF_with_custom_slide_size.pdf", slides.export.SaveFormat.PDF)
 ```
 
-## **Converter PowerPoint para PDF na Visualização de Slides de Notas**
+## **Converter PowerPoint para PDF no modo de Notas de Slide**
 
 O exemplo a seguir exporta uma apresentação para PDF, colocando as notas do apresentador de cada slide abaixo do slide. Use uma apresentação que contenha notas do apresentador para ver o resultado.
 
@@ -205,11 +237,11 @@ with slides.Presentation("NotesFile.pptx") as presentation:
     presentation.save("Pdf_Notes_out.pdf", slides.export.SaveFormat.PDF, pdf_options)
 ```
 
-## **Padrões de Acessibilidade e Conformidade para PDF**
+## **Acessibilidade e Padrões de Conformidade para PDF**
 
-Aspose.Slides permite que você use um procedimento de conversão que esteja em conformidade com as [Diretrizes de Acessibilidade de Conteúdo Web (**WCAG**)](https://www.w3.org/TR/WCAG-TECHS/pdf.html). Você pode exportar um documento PowerPoint para PDF usando qualquer um destes padrões de conformidade: **PDF/A1a**, **PDF/A1b** e **PDF/UA**.
+Aspose.Slides permite que você use um procedimento de conversão que esteja em conformidade com as [Diretrizes de Acessibilidade de Conteúdo Web (**WCAG**)](https://www.w3.org/TR/WCAG-TECHS/pdf.html). Você pode exportar um documento PowerPoint para PDF usando qualquer um desses padrões de conformidade: **PDF/A1a**, **PDF/A1b** e **PDF/UA**.
 
-Este código Python demonstra uma operação de conversão de PowerPoint para PDF na qual múltiplos PDFs baseados em diferentes padrões de conformidade são obtidos:
+Este código Python demonstra uma operação de conversão de PowerPoint para PDF na qual vários PDFs baseados em diferentes padrões de conformidade são obtidos:
 
 ```python
 import aspose.slides as slides
@@ -228,48 +260,50 @@ options.compliance = slides.export.PdfCompliance.PDF_UA
 pres.save("pres-ua-compliance.pdf", slides.export.SaveFormat.PDF, options)
 ```
 
-{{% alert color="info" title="Note" %}}
-O suporte do Aspose.Slides para operações de conversão de PDF permite que você converta PDF para os formatos de arquivo mais populares. Você pode fazer conversões de [PDF para HTML](https://products.aspose.com/slides/python-net/conversion/pdf-to-html/), [PDF para imagem](https://products.aspose.com/slides/python-net/conversion/pdf-to-image/), [PDF para JPG](https://products.aspose.com/slides/python-net/conversion/pdf-to-jpg/), e [PDF para PNG](https://products.aspose.com/slides/python-net/conversion/pdf-to-png/). Outras operações de conversão de PDF para formatos especializados — [PDF para SVG](https://products.aspose.com/slides/python-net/conversion/pdf-to-svg/), [PDF para TIFF](https://products.aspose.com/slides/python-net/conversion/pdf-to-tiff/), e [PDF para XML](https://products.aspose.com/slides/python-net/conversion/pdf-to-xml/) — também são suportadas.
+{{% alert color="info" title="Nota" %}}
+
+O suporte do Aspose.Slides para operações de conversão de PDF permite que você converta PDF para os formatos de arquivo mais populares. Você pode fazer [PDF to HTML](https://products.aspose.com/slides/python-net/conversion/pdf-to-html/), [PDF to image](https://products.aspose.com/slides/python-net/conversion/pdf-to-image/), [PDF to JPG](https://products.aspose.com/slides/python-net/conversion/pdf-to-jpg/) e [PDF to PNG](https://products.aspose.com/slides/python-net/conversion/pdf-to-png/) conversões. Outras operações de conversão de PDF para formatos especializados — [PDF to SVG](https://products.aspose.com/slides/python-net/conversion/pdf-to-svg/), [PDF to TIFF](https://products.aspose.com/slides/python-net/conversion/pdf-to-tiff/), e [PDF to XML](https://products.aspose.com/slides/python-net/conversion/pdf-to-xml/) — também são suportadas.
+
 {{% /alert %}}
 
-> **Nota:** Ao exportar para PDF/UA, o Aspose.Slides trata gráficos complexos como SmartArt, gráficos e fórmulas como uma única figura. Elementos de caminho individuais não são preservados como conteúdo separado e podem ser marcados como artefatos; texto alternativo é fornecido apenas para a figura inteira.
+> **Nota:** Ao exportar para PDF/UA, o Aspose.Slides trata gráficos complexos como SmartArt, diagramas e fórmulas como uma única figura. Elementos individuais de caminho não são preservados como conteúdo separado e podem ser marcados como artefatos; texto alternativo é fornecido apenas para a figura completa.
 
 ## **FAQ**
 
 **O Aspose.Slides for Python pode remover as informações da aplicação do PDF?**
 
-Não, o Aspose.Slides for Python inclui automaticamente as informações da API e o número da versão no PDF de saída. Essas informações não podem ser modificadas ou removidas.
+Não, o Aspose.Slides for Python inclui automaticamente informações da API e o número da versão no PDF de saída. Essas informações não podem ser modificadas ou removidas.
 
-**Como incluo apenas slides específicos na conversão para PDF?**
+**Como incluir apenas slides específicos na conversão para PDF?**
 
 Você pode especificar os índices dos slides que deseja converter passando um array de posições de slides para o método [save](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/save/).
 
 **É possível proteger o PDF com senha durante a conversão?**
 
-Sim, você pode definir uma senha e especificar permissões de acesso usando a classe [PdfOptions](https://reference.aspose.com/slides/python-net/aspose.slides.export/pdfoptions/) antes de salvar a apresentação como PDF.
+Sim, você pode definir uma senha e definir permissões de acesso usando a classe [PdfOptions](https://reference.aspose.com/slides/python-net/aspose.slides.export/pdfoptions/) antes de salvar a apresentação como PDF.
 
-**O Aspose.Slides suporta converter PDF para outros formatos?**
+**O Aspose.Slides suporta a conversão de PDF para outros formatos?**
 
-Sim, o Aspose.Slides suporta converter PDFs para formatos como HTML, formatos de imagem (JPG, PNG), SVG, TIFF e XML.
+Sim, o Aspose.Slides suporta a conversão de PDFs para formatos como HTML, formatos de imagem (JPG, PNG), SVG, TIFF e XML.
 
-**Como posso garantir que meu PDF esteja em conformidade com os padrões de acessibilidade?**
+**Como garantir que meu PDF esteja em conformidade com padrões de acessibilidade?**
 
 Defina a propriedade [compliance](https://reference.aspose.com/slides/python-net/aspose.slides.export/pdfoptions/compliance/) em [PdfOptions](https://reference.aspose.com/slides/python-net/aspose.slides.export/pdfoptions/) para padrões como `PDF_A1A`, `PDF_A1B` ou `PDF_UA` para garantir a conformidade com as diretrizes de acessibilidade.
 
 **Posso incluir slides ocultos na saída PDF?**
 
-Sim, ao definir a propriedade [show_hidden_slides](https://reference.aspose.com/slides/python-net/aspose.slides.export/pdfoptions/show_hidden_slides/) em [PdfOptions](https://reference.aspose.com/slides/python-net/aspose.slides.export/pdfoptions/) como `True`, os slides ocultos serão incluídos no PDF.
+Sim, definindo a propriedade [show_hidden_slides](https://reference.aspose.com/slides/python-net/aspose.slides.export/pdfoptions/show_hidden_slides/) em [PdfOptions](https://reference.aspose.com/slides/python-net/aspose.slides.export/pdfoptions/) como `True`, os slides ocultos serão incluídos no PDF.
 
-**Como ajusto a qualidade e a resolução da imagem durante a conversão?**
+**Como ajustar a qualidade e a resolução de imagem durante a conversão?**
 
 Use as propriedades [jpeg_quality](https://reference.aspose.com/slides/python-net/aspose.slides.export/pdfoptions/jpeg_quality/) e [sufficient_resolution](https://reference.aspose.com/slides/python-net/aspose.slides.export/pdfoptions/sufficient_resolution/) em [PdfOptions](https://reference.aspose.com/slides/python-net/aspose.slides.export/pdfoptions/) para controlar a qualidade e a resolução da imagem no PDF resultante.
 
 **O Aspose.Slides lida automaticamente com substituições de fontes?**
 
-O Aspose.Slides detecta substituições de fontes durante a conversão, e você pode trat‑‑las usando a propriedade `warning_callback` em `SaveOptions` (atualmente limitada).
+O Aspose.Slides detecta substituições de fontes durante a conversão, e você pode tratá‑las usando a propriedade `warning_callback` em `SaveOptions` (atualmente limitado).
 
-## **Recursos Adicionais**
+## **Recursos adicionais**
 
-- [Documentação do Aspose.Slides para Python via .NET](/slides/pt/python-net/)
-- [Referência da API Aspose.Slides](https://reference.aspose.com/slides/python-net/)
-- [Conversores Online Gratuitos da Aspose](https://products.aspose.app/slides/conversion)
+- [Aspose.Slides for Python via .NET Documentation](/slides/pt/python-net/)
+- [Aspose.Slides API Reference](https://reference.aspose.com/slides/python-net/)
+- [Aspose Free Online Converters](https://products.aspose.app/slides/conversion)

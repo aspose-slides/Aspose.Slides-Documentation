@@ -6,28 +6,30 @@ weight: 70
 url: /it/python-net/font-substitution/
 keywords:
 - carattere
-- font sostitutivo
-- sostituzione dei caratteri
-- sostituzione carattere
+- carattere sostitutivo
+- sostituzione del carattere
+- sostituire il carattere
 - sostituzione del carattere
 - regola di sostituzione
-- regola di rimpiazzo
+- regola di sostituzione
 - PowerPoint
 - OpenDocument
 - presentazione
 - Python
 - Aspose.Slides
-description: "Configura le regole di sostituzione dei caratteri e ispeziona i caratteri sostituiti in Aspose.Slides per Python tramite .NET durante il rendering o la conversione di presentazioni PowerPoint e OpenDocument."
+description: "Configura le regole di sostituzione dei caratteri e ispeziona i caratteri sostituiti in Aspose.Slides per Python tramite .NET quando si renderizzano o convertono presentazioni PowerPoint e OpenDocument."
 ---
 ## **Panoramica**
 
-La sostituzione dei caratteri consente ad Aspose.Slides di usare un carattere disponibile al posto di un carattere che non può essere accesso quando una presentazione viene renderizzata o convertita. La sostituzione influisce sull'output renderizzato; non modifica il carattere assegnato al contenuto della presentazione.
+La sostituzione dei caratteri consente ad Aspose.Slides di utilizzare un carattere disponibile al posto di un carattere a cui non è possibile accedere quando una presentazione viene renderizzata o convertita. La sostituzione influenza l'output renderizzato; non modifica il carattere assegnato al contenuto della presentazione.
 
-È possibile definire il carattere da utilizzare quando un determinato carattere non è disponibile e si possono ispezionare le sostituzioni che Aspose.Slides effettuerà durante il rendering. Questo aiuta a mantenere coerente l'output tra ambienti con diversi caratteri installati.
+È possibile definire il carattere da utilizzare quando un determinato carattere non è disponibile e si possono esaminare le sostituzioni che Aspose.Slides effettuerà durante il rendering. Questo aiuta a mantenere l'output coerente tra ambienti con diversi caratteri installati.
+
+Se un carattere è disponibile ma non dispone di un tipo **bold** dedicato, vedere [Gestire i caratteri senza un tipo **bold** dedicato](/slides/it/python-net/convert-powerpoint-to-pdf/#handle-fonts-without-a-dedicated-bold-typeface). Quella sezione spiega come rasterizzare il testo interessato durante l'esportazione in PDF e le conseguenze per la selezione del testo, la ricerca e il ridimensionamento.
 
 ## **Ottenere le sostituzioni dei caratteri**
 
-Usa il metodo [FontsManager.get_substitutions](https://reference.aspose.com/slides/it/python-net/aspose.slides/fontsmanager/get_substitutions/) per determinare quali caratteri verranno sostituiti quando la presentazione viene renderizzata. Il metodo restituisce oggetti [FontSubstitutionInfo](https://reference.aspose.com/slides/it/python-net/aspose.slides/fontsubstitutioninfo/) che identificano i nomi del carattere originale e di quello sostituito.
+Utilizzare il metodo [FontsManager.get_substitutions](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/get_substitutions/) per determinare quali caratteri saranno sostituiti quando la presentazione viene renderizzata. Il metodo restituisce oggetti [FontSubstitutionInfo](https://reference.aspose.com/slides/python-net/aspose.slides/fontsubstitutioninfo/) che identificano i nomi del carattere originale e di quello sostituito.
 
 Il seguente esempio Python elenca tutte le sostituzioni dei caratteri per una presentazione:
 
@@ -41,13 +43,13 @@ with slides.Presentation("Presentation.pptx") as presentation:
 
 ## **Ottenere le sostituzioni dei caratteri per le diapositive selezionate**
 
-Usa [FontsManager.get_substitutions](https://reference.aspose.com/slides/it/python-net/aspose.slides/fontsmanager/get_substitutions/) con un elenco di indici di diapositiva per ispezionare solo le sostituzioni necessarie a renderizzare diapositive specifiche. Questo è utile quando si renderizza o si esporta una parte di una presentazione, si verifica una presentazione grande in modo incrementale, si individuano diapositive che dipendono da caratteri non disponibili, si prepara un pacchetto di caratteri minimo per un server o contenitore, o si diagnosticano differenze di rendering senza elaborare diapositive non correlate.
+Utilizzare [FontsManager.get_substitutions](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/get_substitutions/) con un elenco di indici di diapositive per esaminare solo le sostituzioni necessarie a renderizzare diapositive specifiche. Questo è utile quando si rende o si esporta una parte di una presentazione, si verifica una presentazione di grandi dimensioni in modo incrementale, si individuano diapositive che dipendono da caratteri non disponibili, si prepara un pacchetto di caratteri minimo per un server o un container, o si diagnosticano differenze di rendering senza elaborare diapositive non correlate.
 
-L'elenco contiene indici di diapositiva basati su 1: `1` identifica la prima diapositiva. Al contrario, la collezione [Presentation.slides](https://reference.aspose.com/slides/it/python-net/aspose.slides/presentation/slides/it/) è indicizzata a partire da 0, quindi la stessa diapositiva è accessibile come `presentation.slides[0]`. Tieni presente questa differenza quando costruisci l'elenco per evitare errori di offset.
+L'elenco contiene indici diapositive basati su 1: `1` identifica la prima diapositiva. Al contrario, la collezione [Presentation.slides](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/slides/) è basata su 0, quindi la stessa diapositiva è accessibile come `presentation.slides[0]`. Tenere presente questa differenza quando si costruisce l'elenco per evitare errori di scostamento di uno.
 
-Chiama il metodo tramite la proprietà [Presentation.fonts_manager](https://reference.aspose.com/slides/it/python-net/aspose.slides/presentation/fonts_manager/). Restituisce solo le sostituzioni determinate durante il rendering delle diapositive selezionate. Ogni risultato è un oggetto [FontSubstitutionInfo](https://reference.aspose.com/slides/it/python-net/aspose.slides/fontsubstitutioninfo/) contenente i nomi del carattere originale e di quello sostituito. Il risultato riflette l'ambiente dei caratteri corrente, le regole di fallback configurate, le regole di sostituzione memorizzate in una [IFontSubstRuleCollection](https://reference.aspose.com/slides/it/python-net/aspose.slides/ifontsubstrulecollection/), e [external fonts](/slides/it/python-net/custom-font/).
+Chiamare il metodo tramite la proprietà [Presentation.fonts_manager](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/fonts_manager/). Restituisce solo le sostituzioni determinate durante il rendering delle diapositive selezionate. Ogni risultato è un oggetto [FontSubstitutionInfo](https://reference.aspose.com/slides/python-net/aspose.slides/fontsubstitutioninfo/) che contiene i nomi del carattere originale e di quello sostituito. Il risultato riflette l'ambiente dei caratteri corrente, le regole di fallback configurate, le regole di sostituzione memorizzate in una [IFontSubstRuleCollection](https://reference.aspose.com/slides/python-net/aspose.slides/ifontsubstrulecollection/) e i [caratteri caricati esternamente](/slides/it/python-net/custom-font/).
 
-La stessa sostituzione può essere necessaria per più di una diapositiva selezionata. De‑duplica i risultati quando crei un inventario dei caratteri o un rapporto di preflight. Il seguente esempio riporta ogni sostituzione restituita e poi crea un elenco ordinato di mappature di caratteri uniche:
+La stessa sostituzione può essere richiesta da più di una diapositiva selezionata. Rimuovere i duplicati dai risultati quando si crea un inventario dei caratteri o un rapporto di preflight. Il seguente esempio riporta ogni sostituzione restituita e quindi crea un elenco ordinato di associazioni di caratteri uniche:
 
 ```python
 import aspose.slides as slides
@@ -69,25 +71,25 @@ with slides.Presentation("Presentation.pptx") as presentation:
         print(entry)
 ```
 
-La classe [FontsManager](https://reference.aspose.com/slides/it/python-net/aspose.slides/fontsmanager/) fornisce entrambe le forme del metodo. Scegli quella più adatta al raggio d'azione dell'operazione di rendering:
+La classe [FontsManager](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/) fornisce entrambe le forme del metodo. Scegli una in base all'ambito dell'operazione di rendering:
 
-| Chiamata del metodo | Quando usarla |
+| Metodo | Quando usarlo |
 |---|---|
-| [get_substitutions](https://reference.aspose.com/slides/it/python-net/aspose.slides/fontsmanager/get_substitutions/) senza argomenti | Hai bisogno di sostituzioni per l'intera presentazione. |
-| [get_substitutions](https://reference.aspose.com/slides/it/python-net/aspose.slides/fontsmanager/get_substitutions/) con un elenco di indici di diapositiva | Hai bisogno di sostituzioni per un intervallo selezionato, controllo incrementale o esportazione parziale. |
+| [get_substitutions](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/get_substitutions/) senza argomenti | Hai bisogno delle sostituzioni per l'intera presentazione. |
+| [get_substitutions](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/get_substitutions/) con un elenco di indici di diapositive | Hai bisogno delle sostituzioni per un intervallo selezionato, controllo incrementale o esportazione parziale. |
 
-## **Definire le regole di sostituzione dei caratteri**
+## **Impostare le regole di sostituzione dei caratteri**
 
 Per specificare il carattere che Aspose.Slides deve utilizzare quando un carattere sorgente non è disponibile:
 
-1. Carica la presentazione.
-2. Crea le definizioni dei caratteri per il carattere sorgente e quello sostitutivo.
-3. Crea una [FontSubstRule](https://reference.aspose.com/slides/it/python-net/aspose.slides/fontsubstrule/) con la condizione [WHEN_INACCESSIBLE](https://reference.aspose.com/slides/it/python-net/aspose.slides/fontsubstcondition/).
-4. Aggiungi la regola a una [FontSubstRuleCollection](https://reference.aspose.com/slides/it/python-net/aspose.slides/fontsubstrulecollection/).
-5. Assegna la collezione alla proprietà [FontsManager.font_subst_rule_list](https://reference.aspose.com/slides/it/python-net/aspose.slides/fontsmanager/font_subst_rule_list/).
-6. Renderizza o converti la presentazione.
+1. Caricare la presentazione.
+2. Creare definizioni di carattere per i caratteri sorgente e sostitutivo.
+3. Creare una [FontSubstRule](https://reference.aspose.com/slides/python-net/aspose.slides/fontsubstrule/) con la condizione [WHEN_INACCESSIBLE](https://reference.aspose.com/slides/python-net/aspose.slides/fontsubstcondition/).
+4. Aggiungere la regola a una [FontSubstRuleCollection](https://reference.aspose.com/slides/python-net/aspose.slides/fontsubstrulecollection/).
+5. Assegnare la collezione alla proprietà [FontsManager.font_subst_rule_list](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/font_subst_rule_list/).
+6. Renderizzare o convertire la presentazione.
 
-Il seguente esempio Python sostituisce `Arial` per `SomeRareFont` quando `SomeRareFont` non è disponibile, e quindi renderizza la prima diapositiva per verificare il risultato. Il carattere sostitutivo deve essere disponibile per Aspose.Slides.
+Il seguente esempio Python sostituisce `Arial` con `SomeRareFont` quando `SomeRareFont` non è disponibile, e quindi renderizza la prima diapositiva per verificare il risultato. Il carattere sostitutivo deve essere disponibile per Aspose.Slides.
 
 ```python
 import aspose.slides as slides
@@ -106,36 +108,36 @@ with slides.Presentation("Fonts.pptx") as presentation:
 ```
 
 {{% alert color="info" title="Note" %}}
-Per una modifica incondizionata dei caratteri usati in tutta la presentazione, vedere [Font Replacement](/slides/it/python-net/font-replacement/).
+Per una modifica incondizionata dei caratteri utilizzati in tutta la presentazione, vedere [Sostituzione dei caratteri](/slides/it/python-net/font-replacement/).
 {{% /alert %}}
 
 ## **Limitazioni per i caratteri delle equazioni matematiche**
 
 Le regole di sostituzione dei caratteri fanno parte del processo standard di selezione dei caratteri utilizzato durante il rendering e la conversione. Funzionano per il testo normale quando Aspose.Slides può sostituire un carattere inaccessibile con il carattere disponibile specificato da una regola.
 
-Le equazioni Office Math hanno un requisito aggiuntivo. Se un'equazione utilizza **Cambria Math**, Aspose.Slides potrebbe aver bisogno di quel carattere esatto per calcolare e renderizzare il layout dell'equazione. Una regola che sostituisce un altro carattere matematico, come **STIX Two Math**, non può sostituire **Cambria Math** a questo scopo, e il rendering potrebbe comunque segnalare che **Cambria Math** è necessario.
+Le equazioni Office Math hanno un requisito aggiuntivo. Se un'equazione utilizza **Cambria Math**, Aspose.Slides potrebbe necessitare di quel carattere esatto per calcolare e renderizzare il layout dell'equazione. Una regola che sostituisce un altro carattere matematico, come **STIX Two Math**, non può sostituire **Cambria Math** a questo scopo, e il rendering potrebbe comunque segnalare che **Cambria Math** è richiesto.
 
-Per renderizzare o convertire una tale presentazione, rendi **Cambria Math** disponibile per Aspose.Slides. Installalo nel sistema operativo o caricalo come [external font](/slides/it/python-net/custom-font/).
+Per renderizzare o convertire una tale presentazione, rendere **Cambria Math** disponibile per Aspose.Slides. Installarla nel sistema operativo o caricarla come un [carattere esterno](/slides/it/python-net/custom-font/).
 
-Questa limitazione si applica al layout delle equazioni. Le regole di sostituzione descritte sopra continuano ad applicarsi al testo normale della presentazione.
+Questa limitazione si applica al layout delle equazioni. Le regole di sostituzione descritte sopra si applicano ancora al testo normale della presentazione.
 
 ## **FAQ**
 
-**Qual è la differenza tra font replacement e font substitution?**
+**Qual è la differenza tra sostituzione dei caratteri e sostituzione dei font?**
 
-[Font replacement](/slides/it/python-net/font-replacement/) modifica intenzionalmente un carattere in un altro in tutta la presentazione. La sostituzione dei caratteri seleziona un carattere per l'output renderizzato quando viene soddisfatta la condizione configurata, ad esempio quando il carattere originale non è disponibile.
+[**Sostituzione dei caratteri**](/slides/it/python-net/font-replacement/) cambia intenzionalmente un carattere con un altro in tutta la presentazione. La sostituzione dei caratteri seleziona un carattere per l'output renderizzato quando la condizione configurata è soddisfatta, ad esempio quando il carattere originale non è disponibile.
 
 **Quando vengono applicate le regole di sostituzione?**
 
-Le regole partecipano alla [font selection sequence](/slides/it/python-net/font-selection-sequence/) durante il rendering e la conversione. Con `WHEN_INACCESSIBLE`, una regola è utilizzata solo quando Aspose.Slides non può accedere al carattere sorgente.
+Le regole partecipano alla [sequenza di selezione dei caratteri](/slides/it/python-net/font-selection-sequence/) durante il rendering e la conversione. Con `WHEN_INACCESSIBLE`, una regola viene utilizzata solo quando Aspose.Slides non può accedere al carattere sorgente.
 
-**Cosa succede quando un carattere è mancante e non è configurata alcuna regola di sostituzione?**
+**Cosa succede quando un carattere manca e non è configurata alcuna regola di sostituzione?**
 
 Aspose.Slides seleziona il carattere disponibile più vicino secondo il suo processo di selezione dei caratteri. Il risultato dipende dai caratteri disponibili nell'ambiente di runtime.
 
 **Posso caricare caratteri esterni per evitare la sostituzione?**
 
-Sì. È possibile [load external fonts](/slides/it/python-net/custom-font/) affinché Aspose.Slides possa usarli durante il rendering e la conversione.
+Sì. È possibile [caricare caratteri esterni](/slides/it/python-net/custom-font/) così Aspose.Slides può usarli durante il rendering e la conversione.
 
 **Aspose distribuisce i caratteri con la libreria?**
 
@@ -143,8 +145,8 @@ No. Sei responsabile di fornire i caratteri e di rispettare le loro licenze.
 
 **I risultati della sostituzione possono differire tra Windows, Linux e macOS?**
 
-Sì. I caratteri installati e le posizioni di ricerca dei caratteri variano a seconda del sistema operativo, quindi un carattere disponibile su una macchina potrebbe richiedere una sostituzione su un'altra.
+Sì. I caratteri installati e i percorsi di ricerca dei caratteri differiscono a seconda del sistema operativo, quindi un carattere disponibile su una macchina può richiedere sostituzione su un'altra.
 
-**Come posso rendere la selezione dei caratteri coerente nelle conversioni batch?**
+**Come posso rendere coerente la selezione dei caratteri nelle conversioni batch?**
 
-Utilizza gli stessi file e versioni dei caratteri su ogni macchina o container, [load required external fonts](/slides/it/python-net/custom-font/), e [embed fonts](/slides/it/python-net/embedded-font/) quando le licenze lo permettono. È inoltre possibile chiamare [FontsManager.get_substitutions](https://reference.aspose.com/slides/it/python-net/aspose.slides/fontsmanager/get_substitutions/) prima dell'esportazione per identificare sostituzioni inaspettate.
+Utilizzare gli stessi file di caratteri e versioni su ogni macchina o container, [caricare i caratteri esterni richiesti](/slides/it/python-net/custom-font/) e [incorporare i caratteri](/slides/it/python-net/embedded-font/) quando le licenze lo consentono. È inoltre possibile chiamare [FontsManager.get_substitutions](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/get_substitutions/) prima dell'esportazione per identificare sostituzioni inattese.

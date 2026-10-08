@@ -6,12 +6,12 @@ weight: 70
 url: /pl/cpp/font-substitution/
 keywords:
 - czcionka
-- zastępcza czcionka
+- czcionka zastępcza
 - zastępowanie czcionek
-- zamiana czcionki
 - zastąpienie czcionki
+- zamiana czcionki
 - reguła zastępowania
-- reguła zastąpienia
+- reguła zamiany
 - PowerPoint
 - OpenDocument
 - prezentacja
@@ -21,15 +21,17 @@ description: "Skonfiguruj reguły zastępowania czcionek i sprawdź zastąpione 
 ---
 ## **Przegląd**
 
-Zastępowanie czcionek umożliwia Aspose.Slides użycie dostępnej czcionki zamiast czcionki, do której nie można uzyskać dostępu podczas renderowania lub konwertowania prezentacji. Zastąpienie wpływa na renderowany wynik; nie zmienia czcionki przypisanej do zawartości prezentacji.
+Zastępowanie czcionek umożliwia Aspose.Slides użycie dostępnej czcionki zamiast czcionki, do której nie można uzyskać dostępu podczas renderowania lub konwersji prezentacji. Zastąpienie wpływa na wyjście renderowane; nie zmienia ono czcionki przypisanej do treści prezentacji.
 
-Możesz określić czcionkę, która ma być używana, gdy dana czcionka jest niedostępna, oraz możesz sprawdzić, jakie zastąpienia Aspose.Slides zastosuje podczas renderowania. Pomaga to utrzymać spójność wyjścia w środowiskach z różnymi zainstalowanymi czcionkami.
+Możesz określić czcionkę, która zostanie użyta, gdy konkretna czcionka jest niedostępna, oraz możesz sprawdzić zastąpienia, które Aspose.Slides wykona podczas renderowania. Pomaga to utrzymać spójność wyników w środowiskach z różnymi zainstalowanymi czcionkami.
+
+Jeśli czcionka jest dostępna, ale nie ma dedykowanego pogrubionego kroju, zobacz [Obsługa czcionek bez dedykowanego pogrubionego kroju](/slides/pl/cpp/convert-powerpoint-to-pdf/#handle-fonts-without-a-dedicated-bold-typeface). Ten rozdział wyjaśnia, jak rasteryzować dotknięty tekst podczas eksportu do PDF oraz konsekwencje dla zaznaczania tekstu, wyszukiwania i skalowania.
 
 ## **Pobieranie zastąpień czcionek**
 
-Użyj metody [IFontsManager::GetSubstitutions](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ifontsmanager/getsubstitutions/) aby określić, które czcionki zostaną zastąpione podczas renderowania prezentacji. Metoda zwraca obiekty [FontSubstitutionInfo](https://reference.aspose.com/slides/pl/cpp/aspose.slides/fontsubstitutioninfo/), które identyfikują oryginalną i zastąpioną nazwę czcionki.
+Użyj metody [IFontsManager::GetSubstitutions](https://reference.aspose.com/slides/cpp/aspose.slides/ifontsmanager/getsubstitutions/), aby określić, które czcionki zostaną zastąpione podczas renderowania prezentacji. Metoda zwraca obiekty [FontSubstitutionInfo](https://reference.aspose.com/slides/cpp/aspose.slides/fontsubstitutioninfo/), które identyfikują oryginalne i zastąpione nazwy czcionek.
 
-Poniższy przykład w C++ wymienia wszystkie zastąpienia czcionek dla prezentacji:
+Poniższy przykład w C++ wypisuje wszystkie zastąpienia czcionek w prezentacji:
 
 ```cpp
 #include <DOM/FontSubstitutionInfo.h>
@@ -52,13 +54,13 @@ presentation->Dispose();
 
 ## **Pobieranie zastąpień czcionek dla wybranych slajdów**
 
-Użyj przeciążenia [IFontsManager::GetSubstitutions](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ifontsmanager/getsubstitutions/) z argumentem `System::ArrayPtr<int32_t> slides`, aby sprawdzić tylko te zastąpienia, które są wymagane do renderowania konkretnych slajdów. Jest to przydatne, gdy renderujesz lub eksportujesz część prezentacji, sprawdzasz dużą prezentację przyrostowo, lokalizujesz slajdy zależne od niedostępnych czcionek, przygotowujesz minimalny pakiet czcionek dla serwera lub kontenera albo diagnozujesz różnice w renderowaniu bez przetwarzania niepowiązanych slajdów.
+Użyj przeciążenia [IFontsManager::GetSubstitutions](https://reference.aspose.com/slides/cpp/aspose.slides/ifontsmanager/getsubstitutions/) z argumentem `System::ArrayPtr<int32_t> slides`, aby sprawdzić tylko zastąpienia wymagane do renderowania konkretnych slajdów. Jest to przydatne, gdy renderujesz lub eksportujesz część prezentacji, sprawdzasz dużą prezentację stopniowo, lokalizujesz slajdy zależne od niedostępnych czcionek, przygotowujesz minimalny pakiet czcionek dla serwera lub kontenera albo diagnozujesz różnice w renderowaniu bez przetwarzania niepowiązanych slajdów.
 
-Tablica `slides` zawiera indeksy slajdów liczone od jedynki: `1` identyfikuje pierwszy slajd. Natomiast metoda [Presentation::get_Slide](https://reference.aspose.com/slides/pl/cpp/aspose.slides/presentation/get_slide/) używa indeksu zerowego, więc ten sam slajd jest dostępny jako `presentation->get_Slide(0)`. Pamiętaj o tej różnicy przy budowaniu tablicy, aby uniknąć błędów o jeden.
+Tablica `slides` zawiera indeksy slajdów liczone od 1: `1` identyfikuje pierwszy slajd. Natomiast metoda [Presentation::get_Slide](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_slide/) używa indeksu zerowego, więc ten sam slajd jest dostępny jako `presentation->get_Slide(0)`. Pamiętaj o tej różnicy przy budowaniu tablicy, aby uniknąć błędów „off‑by‑one”.
 
-Wywołaj przeciążenie przez metodę [Presentation::get_FontsManager](https://reference.aspose.com/slides/pl/cpp/aspose.slides/presentation/get_fontsmanager/). Zwraca ona tylko zastąpienia określone podczas renderowania wybranych slajdów. Każdy wynik to obiekt [FontSubstitutionInfo](https://reference.aspose.com/slides/pl/cpp/aspose.slides/fontsubstitutioninfo/) zawierający oryginalną i zastąpioną nazwę czcionki. Wynik odzwierciedla aktualne środowisko czcionek, skonfigurowane reguły awaryjne, reguły zastąpień zapisane w [IFontSubstRuleCollection](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ifontsubstrulecollection/) oraz [zewnętrznie ładowane czcionki](/slides/pl/cpp/custom-font/).
+Wywołaj przeciążenie za pośrednictwem metody [Presentation::get_FontsManager](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_fontsmanager/). Zwraca ona tylko zastąpienia określone podczas renderowania wybranych slajdów. Każdy wynik to obiekt [FontSubstitutionInfo](https://reference.aspose.com/slides/cpp/aspose.slides/fontsubstitutioninfo/), zawierający oryginalną i zastąpioną nazwę czcionki. Wynik odzwierciedla bieżące środowisko czcionek, skonfigurowane zasady awaryjne, zasady zastąpień przechowywane w [IFontSubstRuleCollection](https://reference.aspose.com/slides/cpp/aspose.slides/ifontsubstrulecollection/), oraz [zewnętrznie załadowane czcionki](/slides/pl/cpp/custom-font/).
 
-To samo zastąpienie może być wymagane przez więcej niż jeden wybrany slajd. Usuń duplikaty wyników, gdy tworzysz inwentaryzację czcionek lub raport weryfikacyjny. Poniższy przykład wypisuje każde zwrócone zastąpienie, a następnie tworzy posortowaną listę unikalnych mapowań czcionek:
+To samo zastąpienie może być wymagane przez więcej niż jeden wybrany slajd. Usuń duplikaty wyników, gdy tworzysz inwentaryzację czcionek lub raport wstępny. Poniższy przykład zgłasza każde zwrócone zastąpienie, a następnie tworzy posortowaną listę unikalnych mapowań czcionek:
 
 ```cpp
 #include <DOM/FontSubstitutionInfo.h>
@@ -97,22 +99,22 @@ for (auto&& entry : sortedPreflightEntries)
 presentation->Dispose();
 ```
 
-Interfejs [IFontsManager](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ifontsmanager/) udostępnia oba przeciążenia. Wybierz jedno odpowiednie do zakresu operacji renderowania:
+Interfejs [IFontsManager](https://reference.aspose.com/slides/cpp/aspose.slides/ifontsmanager/) udostępnia oba przeciążenia. Wybierz jedno w zależności od zakresu operacji renderowania:
 
 | Przeciążenie | Użyj, gdy |
 |---|---|
-| [GetSubstitutions](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ifontsmanager/getsubstitutions/) bez argumentów | Potrzebujesz zastąpień dla całej prezentacji. |
-| [GetSubstitutions](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ifontsmanager/getsubstitutions/) z `System::ArrayPtr<int32_t> slides` | Potrzebujesz zastąpień dla wybranego zakresu, sprawdzenia przyrostowego lub częściowego eksportu. |
+| [GetSubstitutions](https://reference.aspose.com/slides/cpp/aspose.slides/ifontsmanager/getsubstitutions/) bez argumentów | Potrzebujesz zastąpień dla całej prezentacji. |
+| [GetSubstitutions](https://reference.aspose.com/slides/cpp/aspose.slides/ifontsmanager/getsubstitutions/) z `System::ArrayPtr<int32_t> slides` | Potrzebujesz zastąpień dla wybranego zakresu, sprawdzenia przyrostowego lub częściowego eksportu. |
 
 ## **Ustawianie reguł zastępowania czcionek**
 
-Aby określić czcionkę, której Aspose.Slides ma używać, gdy źródłowa czcionka jest niedostępna:
+Aby określić czcionkę, której Aspose.Slides ma używać, gdy czcionka źródłowa jest niedostępna:
 
 1. Załaduj prezentację.  
 2. Utwórz definicje czcionek dla czcionki źródłowej i zastępczej.  
-3. Utwórz [FontSubstRule](https://reference.aspose.com/slides/pl/cpp/aspose.slides/fontsubstrule/) z warunkiem [WhenInaccessible](https://reference.aspose.com/slides/pl/cpp/aspose.slides/fontsubstcondition/).  
-4. Dodaj regułę do [FontSubstRuleCollection](https://reference.aspose.com/slides/pl/cpp/aspose.slides/fontsubstrulecollection/).  
-5. Przypisz kolekcję, używając metody [IFontsManager::set_FontSubstRuleList](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ifontsmanager/set_fontsubstrulelist/).  
+3. Utwórz [FontSubstRule](https://reference.aspose.com/slides/cpp/aspose.slides/fontsubstrule/) ze warunkiem [WhenInaccessible](https://reference.aspose.com/slides/cpp/aspose.slides/fontsubstcondition/).  
+4. Dodaj regułę do [FontSubstRuleCollection](https://reference.aspose.com/slides/cpp/aspose.slides/fontsubstrulecollection/).  
+5. Przypisz kolekcję przy użyciu metody [IFontsManager::set_FontSubstRuleList](https://reference.aspose.com/slides/cpp/aspose.slides/ifontsmanager/set_fontsubstrulelist/).  
 6. Renderuj lub konwertuj prezentację.
 
 Poniższy przykład w C++ zastępuje `Arial` czcionką `SomeRareFont`, gdy `SomeRareFont` jest niedostępna, a następnie renderuje pierwszy slajd w celu weryfikacji wyniku. Zastępcza czcionka musi być dostępna dla Aspose.Slides.
@@ -148,17 +150,15 @@ image->Dispose();
 presentation->Dispose();
 ```
 
-{{% alert color="info" title="Note" %}}
-
-Aby bezwarunkowo zmienić czcionki używane w całej prezentacji, zobacz [Font Replacement](/slides/pl/cpp/font-replacement/).
-
+{{% alert color="info" title="Uwaga" %}}
+Dla bezwarunkowej zmiany czcionek używanych w całej prezentacji zobacz [Zastąpienie czcionek](/slides/pl/cpp/font-replacement/).
 {{% /alert %}}
 
 ## **Ograniczenia dotyczące czcionek równań matematycznych**
 
-Reguły zastępowania czcionek są częścią standardowego procesu wyboru czcionki używanego podczas renderowania i konwersji. Działają dla zwykłego tekstu, gdy Aspose.Slides może zamienić niedostępną czcionkę na dostępną określoną w regule.
+Reguły zastępowania czcionek są częścią standardowego procesu wyboru czcionek używanego podczas renderowania i konwersji. Działają one dla zwykłego tekstu, gdy Aspose.Slides może zamienić niedostępną czcionkę na dostępną czcionkę określoną w regule.
 
-Równania Office Math mają dodatkowy wymóg. Jeśli równanie używa **Cambria Math**, Aspose.Slides może potrzebować tej dokładnej czcionki do obliczenia i renderowania układu równania. Reguła, która zastępuje inną czcionkę matematyczną, taką jak **STIX Two Math**, nie może zastąpić **Cambria Math** w tym celu i renderowanie może nadal zgłaszać, że **Cambria Math** jest wymagana.
+Równania Office Math mają dodatkowy wymóg. Jeśli równanie używa **Cambria Math**, Aspose.Slides może potrzebować dokładnie tej czcionki do obliczenia i wyrenderowania układu równania. Reguła, która zastępuje inną czcionkę matematyczną, taką jak **STIX Two Math**, nie może zastąpić **Cambria Math** w tym celu i renderowanie może nadal zgłaszać potrzebę **Cambria Math**.
 
 Aby renderować lub konwertować taką prezentację, udostępnij **Cambria Math** Aspose.Slides. Zainstaluj ją w systemie operacyjnym lub załaduj jako [zewnętrzną czcionkę](/slides/pl/cpp/custom-font/).
 
@@ -166,30 +166,30 @@ To ograniczenie dotyczy układu równań. Reguły zastępowania opisane powyżej
 
 ## **FAQ**
 
-**Jaka jest różnica między zamianą czcionki a jej zastępowaniem?**
+**Jaka jest różnica między zastąpieniem czcionki a jej zamianą?**
 
-[Font replacement](/slides/pl/cpp/font-replacement/) celowo zmienia jedną czcionkę na inną w całej prezentacji. Zastępowanie czcionki wybiera czcionkę dla renderowanego wyniku, gdy spełniony jest skonfigurowany warunek, np. gdy oryginalna czcionka jest niedostępna.
+[Zastąpienie czcionki](/slides/pl/cpp/font-replacement/) zmienia jedną czcionkę na inną w całej prezentacji. Zastąpienie wybiera czcionkę dla wyjścia renderowanego, gdy spełniony jest skonfigurowany warunek, np. gdy oryginalna czcionka jest niedostępna.
 
 **Kiedy stosowane są reguły zastępowania?**
 
-Reguły uczestniczą w [sekwencji wyboru czcionki](/slides/pl/cpp/font-selection-sequence/) podczas renderowania i konwersji. Przy warunku `WhenInaccessible` reguła jest używana tylko wtedy, gdy Aspose.Slides nie może uzyskać dostępu do czcionki źródłowej.
+Reguły uczestniczą w [sekwencji wyboru czcionki](/slides/pl/cpp/font-selection-sequence/) podczas renderowania i konwersji. Z warunkiem `WhenInaccessible` reguła jest używana tylko wtedy, gdy Aspose.Slides nie może uzyskać dostępu do czcionki źródłowej.
 
 **Co się dzieje, gdy czcionka jest brakująca i nie skonfigurowano reguły zastępowania?**
 
 Aspose.Slides wybiera najbliższą dostępną czcionkę zgodnie ze swoim procesem wyboru czcionek. Wynik zależy od czcionek dostępnych w środowisku uruchomieniowym.
 
-**Czy mogę załadować zewnętrzne czcionki, aby uniknąć zastępowania?**
+**Czy mogę załadować czcionki zewnętrzne, aby uniknąć zastąpienia?**
 
-Tak. Możesz [załadować zewnętrzne czcionki](/slides/pl/cpp/custom-font/), aby Aspose.Slides mogła ich używać podczas renderowania i konwersji.
+Tak. Możesz [załadować czcionki zewnętrzne](/slides/pl/cpp/custom-font/), aby Aspose.Slides mogło ich używać podczas renderowania i konwersji.
 
-**Czy Aspose dystrybuuje czcionki razem z biblioteką?**
+**Czy Aspose dystrybuuje czcionki wraz z biblioteką?**
 
-Nie. Odpowiedzialność za dostarczenie czcionek i przestrzeganie ich licencji spoczywa na użytkowniku.
+Nie. Odpowiedzialność za dostarczenie czcionek i przestrzeganie ich licencji spoczywa na Tobie.
 
-**Czy wyniki zastępowania mogą się różnić między Windows, Linux i macOS?**
+**Czy wyniki zastąpienia mogą się różnić między systemami Windows, Linux i macOS?**
 
-Tak. Zainstalowane czcionki i lokalizacje wyszukiwania czcionek różnią się w zależności od systemu operacyjnego, więc czcionka dostępna na jednym komputerze może wymagać zastąpienia na innym.
+Tak. Zainstalowane czcionki i lokalizacje ich wyszukiwania różnią się w zależności od systemu operacyjnego, więc czcionka dostępna na jednej maszynie może wymagać zastąpienia na innej.
 
-**Jak zapewnić spójny wybór czcionek w konwersjach wsadowych?**
+**Jak zapewnić spójność wyboru czcionek w konwersjach wsadowych?**
 
-Używaj tych samych plików czcionek i ich wersji na każdym komputerze lub w każdym kontenerze, [ładuj wymagane czcionki zewnętrzne](/slides/pl/cpp/custom-font/), oraz [osadzaj czcionki](/slides/pl/cpp/embedded-font/), gdy licencja to pozwala. Możesz także wywołać [IFontsManager::GetSubstitutions](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ifontsmanager/getsubstitutions/) przed eksportem, aby zidentyfikować nieoczekiwane zastąpienia.
+Używaj tych samych plików i wersji czcionek na każdej maszynie lub w kontenerze, [załaduj wymagane czcionki zewnętrzne](/slides/pl/cpp/custom-font/), oraz [osadź czcionki](/slides/pl/cpp/embedded-font/), gdy licencja na to zezwala. Możesz także wywołać [IFontsManager::GetSubstitutions](https://reference.aspose.com/slides/cpp/aspose.slides/ifontsmanager/getsubstitutions/) przed eksportem, aby zidentyfikować nieoczekiwane zastąpienia.

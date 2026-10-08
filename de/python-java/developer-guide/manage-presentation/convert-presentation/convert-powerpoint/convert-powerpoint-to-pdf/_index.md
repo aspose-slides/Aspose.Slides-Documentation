@@ -1,5 +1,5 @@
 ---
-title: PPT und PPTX in PDF konvertieren in Python über Java [Erweiterte Funktionen enthalten]
+title: PPT und PPTX in PDF konvertieren in Python via Java [Erweiterte Funktionen enthalten]
 linktitle: PowerPoint zu PDF
 type: docs
 weight: 40
@@ -16,8 +16,8 @@ keywords:
 - PowerPoint als PDF speichern
 - PPT als PDF speichern
 - PPTX als PDF speichern
-- PPT nach PDF exportieren
-- PPTX nach PDF exportieren
+- PPT zu PDF exportieren
+- PPTX zu PDF exportieren
 - Anhang
 - PDF/A1a
 - PDF/A1b
@@ -25,13 +25,13 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "PowerPoint PPT/PPTX in hochwertige, durchsuchbare PDFs in Python über Java mit Aspose.Slides konvertieren, mit schnellen Codebeispielen und erweiterten Konvertierungsoptionen."
+description: "PowerPoint PPT/PPTX in hochwertige, durchsuchbare PDFs in Python via Java mit Aspose.Slides konvertieren, inklusive schneller Codebeispiele und erweiterter Konvertierungsoptionen."
 ---
-## **Übersicht**
+## **Überblick**
 
-Das Konvertieren von PowerPoint‑Präsentationen (PPT, PPTX, ODP usw.) in das PDF‑Format in Python über Java bietet mehrere Vorteile, darunter Kompatibilität auf verschiedenen Geräten und die Erhaltung des Layouts und der Formatierung Ihrer Präsentation. Dieser Leitfaden zeigt, wie Präsentationen in PDF‑Dokumente konvertiert werden, wie verschiedene Optionen zur Steuerung der Bildqualität verwendet werden, wie versteckte Folien einbezogen, PDF‑Dateien passwortgeschützt, Schriftart‑Ersetzungen erkannt, bestimmte Folien für die Konvertierung ausgewählt und Compliance‑Standards auf Ausgabedokumente angewendet werden.
+Die Konvertierung von PowerPoint‑Präsentationen (PPT, PPTX, ODP usw.) in das PDF‑Format in Python via Java bietet mehrere Vorteile, darunter Kompatibilität über verschiedene Geräte hinweg und die Bewahrung des Layouts sowie der Formatierung Ihrer Präsentation. Dieser Leitfaden zeigt, wie Präsentationen in PDF‑Dokumente konvertiert werden, wie verschiedene Optionen zur Steuerung der Bildqualität genutzt werden, wie ausgeblendete Folien einbezogen, PDF‑Dateien passwortgeschützt, Font‑Ersetzungen erkannt, bestimmte Folien zur Konvertierung ausgewählt und Compliance‑Standards auf Ausgabedokumente angewendet werden.
 
-## **PowerPoint-zu-PDF-Konvertierungen**
+## **PowerPoint‑zu‑PDF‑Konvertierungen**
 
 Mit Aspose.Slides können Sie Präsentationen in den folgenden Formaten in PDF konvertieren:
 
@@ -39,20 +39,20 @@ Mit Aspose.Slides können Sie Präsentationen in den folgenden Formaten in PDF k
 * **PPTX**
 * **ODP**
 
-Um eine Präsentation in PDF zu konvertieren, übergeben Sie den Dateinamen als Argument an die [Präsentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/)-Klasse und speichern die Präsentation anschließend mit der [save](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#save)-Methode als PDF. Die [Präsentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/)-Klasse stellt die [save](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#save)-Methode bereit, die typischerweise zum Konvertieren einer Präsentation in PDF verwendet wird.
+Um eine Präsentation in PDF zu konvertieren, übergeben Sie den Dateinamen als Argument an die [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/)‑Klasse und speichern Sie die Präsentation anschließend mit der [save](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#save)‑Methode als PDF. Die [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/)‑Klasse stellt die [save](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#save)‑Methode bereit, die typischerweise zur Konvertierung einer Präsentation in PDF verwendet wird.
 
 {{% alert color="info" title="Note" %}}
 
-Aspose.Slides für Python über Java fügt seinen API‑Informationen und die Versionsnummer in Ausgabedokumente ein. Beispielsweise füllt Aspose.Slides beim Konvertieren einer Präsentation in PDF das Feld „Application“ mit „*Aspose.Slides*“ und das Feld „PDF Producer“ mit einem Wert in der Form „*Aspose.Slides v XX.XX*“. **Hinweis**: Sie können Aspose.Slides nicht anweisen, diese Informationen aus Ausgabedokumenten zu ändern oder zu entfernen.
+Aspose.Slides for Python via Java fügt seine API‑Informationen und Versionsnummer in Ausgabedokumente ein. Beispielweise wird beim Konvertieren einer Präsentation zu PDF das Feld **Application** mit "*Aspose.Slides*" und das Feld **PDF Producer** mit einem Wert in der Form "*Aspose.Slides v XX.XX*" befüllt. **Hinweis**: Sie können Aspose.Slides nicht anweisen, diese Informationen aus Ausgabedokumenten zu entfernen oder zu ändern.
 
 {{% /alert %}}
 
-Aspose.Slides ermöglicht Ihnen das Konvertieren:
+Aspose.Slides ermöglicht Ihnen, folgendes zu konvertieren:
 
-* Gesamte Präsentationen zu PDF
-* Bestimmte Folien einer Präsentation zu PDF
+* gesamte Präsentationen zu PDF
+* ausgewählte Folien einer Präsentation zu PDF
 
-Aspose.Slides exportiert Präsentationen nach PDF und sorgt dafür, dass die resultierenden PDFs den Originalpräsentationen sehr nahe kommen. Elemente und Attribute werden bei der Konvertierung exakt wiedergegeben, darunter:
+Aspose.Slides exportiert Präsentationen nach PDF und sorgt dafür, dass die resultierenden PDFs der Originalpräsentation möglichst nahe kommen. Elemente und Attribute werden bei der Konvertierung exakt wiedergegeben, darunter:
 
 * Bilder
 * Textfelder und Formen
@@ -65,9 +65,9 @@ Aspose.Slides exportiert Präsentationen nach PDF und sorgt dafür, dass die res
 
 ## **PowerPoint zu PDF konvertieren**
 
-Die Standardkonvertierung verwendet die Standard‑PDF‑Export‑Einstellungen. Verwenden Sie benutzerdefinierte Optionen, wenn Sie die Bildqualität, den Seiteninhalt oder die PDF‑Compliance steuern müssen.
+Die Standardkonvertierung verwendet die voreingestellten PDF‑Export‑Einstellungen. Verwenden Sie benutzerdefinierte Optionen, wenn Sie die Bildqualität, den Seiteninhalt oder die PDF‑Compliance steuern müssen.
 
-Installieren Sie [Aspose.Slides für Python über Java](/slides/de/python-java/installation/) und eine kompatible Java‑Runtime, bevor Sie die Beispiele ausführen. Jedes Beispiel liest `presentation.pptx` aus dem aktuellen Arbeitsverzeichnis; ersetzen Sie es durch Ihre PPT‑, PPTX‑ oder ODP‑Datei. Starten Sie die JVM einmal pro Python‑Prozess.
+Installieren Sie [Aspose.Slides for Python via Java](/slides/de/python-java/installation/) und eine kompatible Java‑Runtime, bevor Sie die Beispiele ausführen. Jedes Beispiel liest `presentation.pptx` aus dem aktuellen Arbeitsverzeichnis; ersetzen Sie es durch Ihre PPT‑, PPTX‑ oder ODP‑Datei. Starten Sie die JVM einmal pro Python‑Prozess.
 
 Das folgende Beispiel lädt eine Präsentation und speichert alle sichtbaren Folien mit den Standard‑Export‑Einstellungen als PDF.
 
@@ -89,19 +89,19 @@ finally:
 
 {{% alert color="info" title="Note" %}}
 
-Aspose bietet einen kostenlosen Online‑[**PowerPoint‑zu‑PDF‑Konverter**](https://products.aspose.app/slides/conversion/ppt-to-pdf), der den Präsentation‑zu‑PDF‑Konvertierungsprozess demonstriert. Sie können mit diesem Konverter einen Testlauf für eine Live‑Implementierung des hier beschriebenen Verfahrens durchführen.
+Aspose bietet einen kostenlosen Online-[**PowerPoint‑zu‑PDF‑Konverter**](https://products.aspose.app/slides/conversion/ppt-to-pdf), der den Konvertierungsprozess von Präsentation zu PDF demonstriert. Sie können mit diesem Konverter einen Testlauf für die hier beschriebene Implementierung durchführen.
 
 {{% /alert %}}
 
-## **PowerPoint zu PDF mit Optionen**
+## **PowerPoint zu PDF konvertieren mit Optionen**
 
-Aspose.Slides stellt benutzerdefinierte Optionen – Eigenschaften der [PdfOptions](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/)-Klasse – bereit, mit denen Sie das resultierende PDF anpassen, das PDF mit einem Passwort schützen oder festlegen können, wie der Konvertierungsprozess ablaufen soll.
+Aspose.Slides stellt benutzerdefinierte Optionen — Eigenschaften der [PdfOptions](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/)-Klasse — bereit, mit denen Sie das resultierende PDF anpassen, das PDF mit einem Passwort schützen oder das Vorgehen der Konvertierung festlegen können.
 
-### **PowerPoint zu PDF mit benutzerdefinierten Optionen**
+### **PowerPoint zu PDF konvertieren mit benutzerdefinierten Optionen**
 
-Mit benutzerdefinierten Konvertierungsoptionen können Sie die bevorzugte Qualitätsstufe für Rasterbilder festlegen, bestimmen, wie Metadateien behandelt werden, ein Komprimierungsniveau für Text setzen, DPI für Bilder konfigurieren und mehr.
+Mit benutzerdefinierten Konvertierungsoptionen können Sie Ihre bevorzugte Qualitätsstufe für Rasterbilder festlegen, bestimmen, wie Metadateien behandelt werden, ein Kompressionsniveau für Text setzen, DPI für Bilder konfigurieren und mehr.
 
-Das folgende Beispiel exportiert eine Präsentation zu PDF 1.5 mit einer JPEG‑Qualität von 90, einer Bildauflösung von 300 DPI, Metadateien als PNG und Flate‑Textkompression.
+Das folgende Beispiel exportiert eine Präsentation zu PDF 1.5 mit JPEG‑Qualität 90, Bildauflösung 300 DPI, Metadateien als PNG und Flate‑Textkompression.
 
 ```python
 import jpype
@@ -128,11 +128,11 @@ finally:
 
 ### **Eingebettete OLE‑Dateien als PDF‑Anhänge erhalten**
 
-Enthält eine Präsentation ein eingebettetes Excel‑Arbeitsbuch, können Sie PDF‑Empfängern den Zugriff auf die Daten des Arbeitsbuchs sowie die Ansicht der Folien ermöglichen. Rufen Sie [setIncludeOleData](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/#setIncludeOleData) mit `True` auf, um eingebettete OLE‑Dateien als Anhänge im resultierenden PDF zu erhalten.
+Enthält eine Präsentation ein eingebettetes Excel‑Arbeitsbuch, möchten Sie möglicherweise, dass PDF‑Empfänger sowohl auf die Daten des Arbeitsbuchs als auch auf die Folien zugreifen können. Rufen Sie [setIncludeOleData](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/#setIncludeOleData) mit `True` auf, um eingebettete OLE‑Dateien als Anhänge im resultierenden PDF zu erhalten.
 
-Der Standardwert ist `False`: Das Vorschaubild bzw. das Symbol des OLE‑Objekts wird auf der PDF‑Seite gerendert, aber die eingebettete Datei wird nicht als Anhang beigefügt. Durch Setzen der Option auf `True` wird die Dateidaten zusätzlich beigefügt. Die Vorschau bleibt eine visuelle Darstellung; der Anhang ermöglicht es Empfängern, die eingebettete Datei separat zu öffnen oder zu speichern. Das OLE‑Objekt wird nicht zu einem interaktiven Excel‑Arbeitsblatt auf der PDF‑Seite.
+Der Standardwert ist `False`: Das Vorschaubild oder Symbol des OLE‑Objekts wird auf der PDF‑Seite dargestellt, die eingebettete Datei jedoch nicht als Anhang beigefügt. Wird die Option auf `True` gesetzt, wird zusätzlich die Dateidaten beigefügt. Die Vorschau bleibt eine visuelle Darstellung; der Anhang ermöglicht Empfängern das separate Öffnen oder Speichern der eingebetteten Datei. Das OLE‑Objekt wird nicht zu einem interaktiven Excel‑Arbeitsblatt auf der PDF‑Seite.
 
-Das folgende Beispiel lädt eine Präsentation, die bereits ein eingebettetes Excel‑Arbeitsbuch enthält, und exportiert sie zu PDF mit dem angehängten Arbeitsbuch.
+Das folgende Beispiel lädt eine Präsentation, die bereits ein eingebettetes Excel‑Arbeitsbuch enthält, und exportiert sie zu PDF mit dem Arbeitsbuch als Anhang.
 
 ```python
 import jpype
@@ -153,7 +153,7 @@ finally:
     presentation.dispose()
 ```
 
-Um das Ergebnis zu überprüfen:
+So überprüfen Sie das Ergebnis:
 
 1. Öffnen Sie das exportierte PDF in einem Viewer, der Dateianhänge unterstützt, z. B. Adobe Acrobat Reader.
 2. Öffnen Sie das **Attachments**‑Panel des Viewers und suchen Sie das eingebettete Arbeitsbuch.
@@ -161,15 +161,15 @@ Um das Ergebnis zu überprüfen:
 
 {{% alert color="info" title="Note" %}}
 
-Die PDF/A‑Standards setzen Einschränkungen für Anhänge: PDF/A‑1 verbietet eingebettete Dateien, PDF/A‑2 erlaubt nur PDF/A‑Anhänge, und PDF/A‑3 erlaubt weitere Dateitypen, einschließlich Excel‑Arbeitsbüchern. Dies sind Anforderungen der Standards, keine spezifischen Einschränkungen von Aspose.Slides. Dieses Beispiel verwendet die Standard‑PDF‑Compliance‑Einstellung und demonstriert keinen PDF/A‑Export.
+Die PDF/A‑Standards legen Beschränkungen für Anhänge fest: PDF/A‑1 verbietet eingebettete Dateien, PDF/A‑2 erlaubt nur PDF/A‑Anhänge und PDF/A‑3 erlaubt andere Dateitypen, darunter Excel‑Arbeitsbücher. Diese Vorgaben stammen aus den Standards, nicht aus einer Einschränkung von Aspose.Slides. Dieses Beispiel verwendet die Standard‑PDF‑Compliance‑Einstellung und demonstriert keinen PDF/A‑Export.
 
 {{% /alert %}}
 
-### **PowerPoint zu PDF mit versteckten Folien**
+### **PowerPoint zu PDF konvertieren mit ausgeblendeten Folien**
 
-Enthält eine Präsentation versteckte Folien, können Sie die Methode [setShowHiddenSlides](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/#setShowHiddenSlides) der [PdfOptions](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/)-Klasse verwenden, um die versteckten Folien als Seiten im resultierenden PDF einzubeziehen.
+Enthält eine Präsentation ausgeblendete Folien, können Sie die Methode [setShowHiddenSlides](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/#setShowHiddenSlides) der [PdfOptions](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/)-Klasse verwenden, um die ausgeblendeten Folien als Seiten im resultierenden PDF einzubeziehen.
 
-Das folgende Beispiel exportiert eine Präsentation zu PDF und schließt dabei alle versteckten Folien ein.
+Das folgende Beispiel exportiert eine Präsentation zu PDF und schließt dabei alle ausgeblendeten Folien ein.
 
 ```python
 import jpype
@@ -214,11 +214,11 @@ finally:
     presentation.dispose()
 ```
 
-### **Schriftart‑Ersetzungen erkennen**
+### **Font‑Ersetzungen erkennen**
 
-Aspose.Slides stellt die Methode [setWarningCallback](https://reference.aspose.com/slides/python-java/aspose.slides/saveoptions/#setWarningCallback) in der [PdfOptions](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/)-Klasse zur Verfügung, mit der Sie Schriftart‑Ersetzungen während des Präsentation‑zu‑PDF‑Konvertierungsprozesses erkennen können.
+Aspose.Slides stellt die Methode [setWarningCallback](https://reference.aspose.com/slides/python-java/aspose.slides/saveoptions/#setWarningCallback) der [PdfOptions](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/)-Klasse bereit, mit der Sie Font‑Ersetzungen während des Präsentation‑zu‑PDF‑Konvertierungsprozesses erkennen können.
 
-Das folgende Beispiel exportiert eine Präsentation zu PDF und gibt Schriftart‑Ersetzungs‑Warnungen in der Konsole aus. Eine Warnung wird nur ausgegeben, wenn während des Exports eine nicht verfügbare Schriftart ersetzt wird. Verwenden Sie einen JPype‑Proxy, um Warn‑Callbacks aus der Java‑API zu erhalten. Konvertieren Sie den Java‑Beschreibungs‑String in einen Python‑String, bevor Sie dessen Präfix prüfen:
+Das folgende Beispiel exportiert eine Präsentation zu PDF und gibt Font‑Ersetzungs‑Warnungen auf der Konsole aus. Eine Warnung wird nur dann ausgegeben, wenn während des Exports eine nicht verfügbare Schriftart ersetzt wird. Verwenden Sie einen JPype‑Proxy, um Warn‑Callbacks aus der Java‑API zu erhalten. Konvertieren Sie den Java‑Beschreibungstext vor der Prüfung seines Präfixes in einen Python‑String:
 
 ```python
 import jpype
@@ -252,13 +252,48 @@ finally:
 
 {{% alert color="info" title="Note" %}}
 
-Weitere Informationen zu Schriftart‑Ersetzungen finden Sie im Artikel [Schriftart‑Ersetzung](/slides/de/python-java/font-substitution/).
+Weitere Informationen zu Font‑Ersetzungen finden Sie im Artikel [Font Substitution](/slides/de/python-java/font-substitution/).
 
 {{% /alert %}}
 
-## **PowerPoint‑Folien auswählen und zu PDF konvertieren**
+### **Umgang mit Schriften ohne eigene fette Schriftart**
 
-Die an [Presentation.save](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#save) übergebenen Foliennummern sind 1‑basiert. Dieses Beispiel exportiert die Folien 1 und 3, sofern beide vorhanden sind:
+Eine Präsentation kann fetten Text anwenden, selbst wenn die verwendete Schriftart keine eigene fette Variante besitzt. Der Text kann dann synthetisch fett dargestellt werden, indem die regulären Glyphen künstlich verdickt werden. Wenn dieser Text im PDF zu schwer wirkt oder vom gewünschten Erscheinungsbild abweicht, rufen Sie [PdfOptions.setRasterizeUnsupportedFontStyles](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/#setRasterizeUnsupportedFontStyles) mit `True` auf. Diese Option rendert den betroffenen Text als Bitmap während des PDF‑Exports und kann das Aussehen bestimmter Schriften verbessern. Der Standardwert ist `False`.
+
+Die Beispielpräsentation enthält zwei Textfelder: eines mit normalem Text und eines, bei dem dieselbe Schriftart fett formatiert ist, obwohl sie keine eigene fette Variante besitzt. Das folgende Beispiel lädt die Präsentation, aktiviert die Rasterisierung nicht‑unterstützter Schriftstile und exportiert sie zu PDF:
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import PdfOptions, Presentation, SaveFormat
+
+pdf_options = PdfOptions()
+pdf_options.setRasterizeUnsupportedFontStyles(True)
+
+presentation = Presentation("unsupported-bold.pptx")
+try:
+    presentation.save("rasterized.pdf", SaveFormat.Pdf, pdf_options)
+finally:
+    presentation.dispose()
+```
+
+Die folgenden Vorschaubilder zeigen das Ergebnis mit deaktivierter bzw. aktivierter Option. In diesem Beispiel hat der fette Text bei deaktivierter Option schwerere Striche. Bei aktivierter Option sind die Striche leichter; der normale Text bleibt unverändert. Vergleichen Sie die Ergebnisse, bevor Sie die Einstellung für Ihre Präsentation wählen.
+
+| Option deaktiviert (`False`, Standard) | Option aktiviert (`True`) |
+|---|---|
+| ![PDF with unsupported font style rasterization disabled](unsupported-bold-disabled.png) | ![PDF with unsupported font style rasterization enabled](unsupported-bold-enabled.png) |
+
+In diesem Beispiel führt das Aktivieren der Option dazu, dass nur der fette Text in eine Bitmap umgewandelt wird: Er kann nicht mehr ausgewählt, kopiert oder ohne OCR durchsucht werden, und seine Kanten wirken bei 800 % Zoom weicher. Der normale Text bleibt durchsuchbar. Bei deaktivierter Option bleiben beide Zeichenketten als Text erhalten.
+
+Diese Option rastert Text, der als fett formatiert ist, wenn die Schriftart keine eigene fette Variante bietet. [Font substitution](/slides/de/python-java/font-substitution/) wählt stattdessen eine andere Schriftart, wenn die Originalschrift nicht verfügbar ist.
+
+## **Ausgewählte Folien aus PowerPoint zu PDF konvertieren**
+
+Folienzahlen, die an [Presentation.save](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#save) übergeben werden, sind 1‑basiert. Dieses Beispiel exportiert die Folien 1 und 3, sofern beide existieren:
 
 ```python
 import jpype
@@ -277,9 +312,9 @@ finally:
     presentation.dispose()
 ```
 
-## **PowerPoint zu PDF mit benutzerdefinierter Foliengröße**
+## **PowerPoint zu PDF konvertieren mit benutzerdefinierter Foliengröße**
 
-Dieses Beispiel exportiert die erste Folie auf einer Seite mit den Maßen 612 × 792 Punkt (US‑Letter). Es klont die Folie in eine neue Präsentation mit der angegebenen Größe und skaliert den Folieninhalt, damit er passt.
+Dieses Beispiel exportiert die erste Folie auf einer Seite mit den Maßen 612 × 792 Punkte (US‑Letter). Es klont die Folie in eine neue Präsentation mit der angegebenen Größe und skaliert den Folieninhalt, damit er passt.
 
 ```python
 import jpype
@@ -297,7 +332,7 @@ try:
     slide = presentation.getSlides().get_Item(0)
     resized_presentation.getSlides().insertClone(0, slide)
 
-    # Entfernt die leere Folie, die bei der Erstellung der neuen Präsentation entstanden ist.
+    # Entferne die leere Folie, die bei der Erstellung der neuen Präsentation hinzugefügt wurde.
     resized_presentation.getSlides().removeAt(1)
 
     resized_presentation.save("presentation-custom-size.pdf", SaveFormat.Pdf)
@@ -306,7 +341,7 @@ finally:
     resized_presentation.dispose()
 ```
 
-## **PowerPoint zu PDF in Notiz‑Folien‑Ansicht**
+## **PowerPoint zu PDF in Notizfolien‑Ansicht konvertieren**
 
 Das folgende Beispiel exportiert eine Präsentation zu PDF und platziert die Sprecher‑Notizen jeder Folie unterhalb der Folie. Verwenden Sie eine Präsentation mit Sprecher‑Notizen, um das Ergebnis zu sehen.
 
@@ -334,9 +369,9 @@ finally:
 
 ## **Barrierefreiheit und Compliance‑Standards für PDF**
 
-Beim Erstellen barrierefreier PDFs konsultieren Sie die [Web Content Accessibility Guidelines (**WCAG**)](https://www.w3.org/TR/WCAG-TECHS/pdf.html). Verwenden Sie [PdfOptions.setCompliance](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/#setCompliance), um einen Ausgabestandard auszuwählen: **PDF/A1a**, **PDF/A1b** und **PDF/UA**.
+Wenn Sie barrierefreie PDFs erstellen, konsultieren Sie die [Web Content Accessibility Guidelines (**WCAG**)](https://www.w3.org/TR/WCAG-TECHS/pdf.html). Verwenden Sie [PdfOptions.setCompliance](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/#setCompliance), um einen Ausgabestandard zu wählen: **PDF/A1a**, **PDF/A1b** und **PDF/UA**.
 
-Dieser Code demonstriert einen PowerPoint‑zu‑PDF‑Konvertierungsprozess, der mehrere PDFs basierend auf unterschiedlichen Compliance‑Standards erzeugt:
+Der folgende Code demonstriert einen PowerPoint‑zu‑PDF‑Konvertierungsprozess, der mehrere PDFs basierend auf unterschiedlichen Compliance‑Standards erzeugt:
 
 ```python
 import jpype
@@ -363,21 +398,21 @@ finally:
     presentation.dispose()
 ```
 
-> **Hinweis:** Beim Export zu PDF/UA behandelt Aspose.Slides komplexe Grafiken wie SmartArt, Diagramme und Formeln als einzelne Figur. Einzelne Pfadelemente werden nicht als separater Inhalt erhalten und können als Artefakte markiert werden; alternativer Text wird nur für die gesamte Figur bereitgestellt.
+> **Hinweis:** Beim Export nach PDF/UA behandelt Aspose.Slides komplexe Grafiken wie SmartArt, Diagramme und Formeln als einzelne Figur. Einzelne Pfadelemente werden nicht als separater Inhalt erhalten und können als Artefakte markiert werden; alternativ‑Text wird nur für die gesamte Figur bereitgestellt.
 
 ## **FAQ**
 
-**Kann ich mehrere PowerPoint‑Dateien gleichzeitig in PDF konvertieren?**
+**Kann ich mehrere PowerPoint‑Dateien massenhaft zu PDF konvertieren?**
 
-Ja, Aspose.Slides unterstützt die Stapelkonvertierung mehrerer PPT‑ oder PPTX‑Dateien zu PDF. Sie können Ihre Dateien iterativ verarbeiten und den Konvertierungsprozess programmatisch anwenden.
+Ja, Aspose.Slides unterstützt die Stapelkonvertierung mehrerer PPT‑ oder PPTX‑Dateien zu PDF. Sie können Ihre Dateien iterativ durchlaufen und den Konvertierungsprozess programmgesteuert anwenden.
 
-**Ist es möglich, das konvertierte PDF zu passwortschützen?**
+**Ist es möglich, das konvertierte PDF mit einem Passwort zu schützen?**
 
-Ja. Verwenden Sie die [PdfOptions](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/)-Klasse, um ein Passwort festzulegen und Zugriffsrechte während des Konvertierungsprozesses zu definieren.
+Ja. Verwenden Sie die [PdfOptions](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/)-Klasse, um ein Passwort zu setzen und Zugriffsrechte während des Konvertierungsprozesses zu definieren.
 
-**Wie füge ich versteckte Folien in das PDF ein?**
+**Wie kann ich ausgeblendete Folien in das PDF einbinden?**
 
-Rufen Sie [setShowHiddenSlides](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/#setShowHiddenSlides) mit `True` in der [PdfOptions](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/)-Klasse auf, um versteckte Folien im resultierenden PDF zu integrieren.
+Rufen Sie [setShowHiddenSlides](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/#setShowHiddenSlides) mit `True` in der [PdfOptions](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/)-Klasse auf, um ausgeblendete Folien im resultierenden PDF zu berücksichtigen.
 
 **Kann Aspose.Slides eine hohe Bildqualität im PDF beibehalten?**
 
@@ -385,10 +420,10 @@ Ja, Sie können die Bildqualität steuern, indem Sie Methoden wie [setJpegQualit
 
 **Unterstützt Aspose.Slides PDF/A‑Compliance‑Standards?**
 
-Ja, Aspose.Slides ermöglicht den Export von PDFs, die den [verschiedenen Standards](https://reference.aspose.com/slides/python-java/aspose.slides/pdfcompliance/) entsprechen, einschließlich PDF/A1a, PDF/A1b und PDF/UA, für Barrierefreiheit oder Archivierung. Wählen Sie den passenden Standard und prüfen Sie die Ausgabe anhand Ihrer Anforderungen.
+Ja, Aspose.Slides ermöglicht den Export von PDFs, die den [verschiedenen Standards](https://reference.aspose.com/slides/python-java/aspose.slides/pdfcompliance/) entsprechen, einschließlich PDF/A1a, PDF/A1b und PDF/UA, für Barrierefreiheit oder Archivierung. Wählen Sie den passenden Standard und prüfen Sie das Ergebnis gemäß Ihren Anforderungen.
 
-## **Weitere Ressourcen**
+## **Zusätzliche Ressourcen**
 
-- [Aspose.Slides für Python über Java Documentation](/slides/de/python-java/)
-- [Aspose.Slides für Python über Java API Reference](https://reference.aspose.com/slides/python-java/)
+- [Aspose.Slides for Python via Java Documentation](/slides/de/python-java/)
+- [Aspose.Slides for Python via Java API Reference](https://reference.aspose.com/slides/python-java/)
 - [Aspose Free Online Converters](https://products.aspose.app/slides/conversion)

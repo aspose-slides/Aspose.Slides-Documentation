@@ -1,5 +1,5 @@
 ---
-title: PPT és PPTX konvertálása PDF-be JavaScriptben [Fejlett funkciók beépítve]
+title: PPT és PPTX konvertálása PDF-be JavaScript-ben [Haladó funkciók benne]
 linktitle: PowerPoint PDF-re
 type: docs
 weight: 40
@@ -10,9 +10,9 @@ keywords:
 - PowerPoint PDF-re
 - prezentáció PDF-re
 - PPT PDF-re
-- PPT PDF-re konvertálása
+- PPT konvertálása PDF-be
 - PPTX PDF-re
-- PPTX PDF-re konvertálása
+- PPTX konvertálása PDF-be
 - PowerPoint mentése PDF-ként
 - PPT mentése PDF-ként
 - PPTX mentése PDF-ként
@@ -25,34 +25,32 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Konvertálja a PowerPoint PPT/PPTX fájlokat magas minőségű, kereshető PDF-ekké az Aspose.Slides for Node.js használatával, gyors kódrészletekkel és fejlett konvertálási beállításokkal."
+description: "Konvertálja a PowerPoint PPT/PPTX fájlokat magas minőségű, kereshető PDF-ekre az Aspose.Slides for Node.js használatával, gyors kódpéldákkal és haladó konverziós beállításokkal."
 ---
 ## **Áttekintés**
 
-A PowerPoint és OpenDocument prezentációk (PPT, PPTX, ODP stb.) PDF formátumba konvertálása JavaScriptben számos előnnyel jár, többek között különböző eszközök közötti kompatibilitással és a prezentáció elrendezésének, formázásának megőrzésével. Ez az útmutató bemutatja, hogyan lehet a prezentációkat PDF dokumentumokká konvertálni, különböző beállításokkal szabályozni a képek minőségét, belefoglalni a rejtett diákot, jelszóval védeni a PDF fájlokat, észlelni a betűkészlet‑helyettesítéseket, kiválasztani konkrét diákokat a konvertáláshoz, valamint megfelelési szabványokat alkalmazni a kimeneti dokumentumokon.
+PowerPoint és OpenDocument prezentációk (PPT, PPTX, ODP stb.) PDF formátumba konvertálása JavaScript-ben több előnnyel jár, többek között különböző eszközök közötti kompatibilitással és a prezentáció elrendezésének és formázásának megőrzésével. Ez az útmutató bemutatja, hogyan konvertálhatók a prezentációk PDF dokumentumokká, hogyan használhatók különféle lehetőségek a képek minőségének szabályozásához, hogyan vehetők bele a rejtett diák, hogyan lehet jelszóval védeni a PDF fájlokat, hogyan lehet felismerni a betűkészlet-helyettesítéseket, hogyan választhatók ki konkrét diák a konvertáláshoz, és hogyan alkalmazhatók megfelelőségi szabványok a kimeneti dokumentumokra.
 
 ## **PowerPoint PDF konverziók**
 
-Az Aspose.Slides segítségével a következő formátumú prezentációkat konvertálhatja PDF‑re:
+Az Aspose.Slides segítségével a következő formátumú prezentációkat konvertálhatja PDF-be:
 
 * **PPT**
 * **PPTX**
 * **ODP**
 
-A prezentáció PDF‑re konvertálásához adja át a fájlnevet argumentumként a [Prezentáció](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) osztálynak, majd mentse a prezentációt PDF‑ként a [mentés](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/#save) metódussal. A [Prezentáció](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) osztály biztosítja a [mentés](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/#save) metódust, amelyet általában a prezentáció PDF‑re konvertálásához használnak.
+A prezentáció PDF‑be konvertálásához adja át a fájl nevét argumentumként a [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) osztálynak, majd mentse a prezentációt PDF‑ként a [save](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/save/) metódussal. A [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) osztály elérhetővé teszi a [save](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/save/) metódust, amelyet általában a prezentáció PDF‑be konvertálására használnak.
 
-{{% alert color="info" title="Note" %}}
-
-Az Aspose.Slides for Node.js via Java beilleszti API‑információit és verziószámát a kimeneti dokumentumokba. Például egy prezentáció PDF‑re konvertálásakor az Aspose.Slides kitölti az Application mezőt a "*Aspose.Slides*" értékkel, a PDF Producer mezőt pedig "*Aspose.Slides v XX.XX*" formában. **Megjegyzés**: nem adható ki utasítás az Aspose.Slides számára, hogy ezt az információt megváltoztassa vagy eltávolítsa a kimeneti dokumentumokból.
-
+{{% alert color="info" title="Megjegyzés" %}}
+Aspose.Slides for Node.js via Java inserts its API information and version number into output documents. For example, when converting a presentation to PDF, Aspose.Slides populates the Application field with "*Aspose.Slides*" and the PDF Producer field with a value in "*Aspose.Slides v XX.XX*" form. **Megjegyzés** that you cannot instruct Aspose.Slides to change or remove this information from output documents.
 {{% /alert %}}
 
-Az Aspose.Slides lehetővé teszi a következőket:
+Aspose.Slides lehetővé teszi a következő konvertálását:
 
-* Teljes prezentációk PDF‑re konvertálása
-* Kiválasztott diák PDF‑re konvertálása
+* Teljes prezentációk PDF‑be
+* A prezentáció egyes diái PDF‑be
 
-Az Aspose.Slides exportálja a prezentációkat PDF‑be, biztosítva, hogy a létrejövő PDF‑k szorosan megegyezzenek az eredeti prezentációkkal. A konverzió során a következő elemek és attribútumok pontosan jelennek meg:
+Aspose.Slides exportálja a prezentációkat PDF‑be, biztosítva, hogy a kapott PDF‑ek szorosan megegyezzenek az eredeti prezentációkkal. A konverzió során pontosan jelennek meg az elemek és attribútumok, többek között:
 
 * Képek
 * Szövegdobozok és alakzatok
@@ -65,9 +63,9 @@ Az Aspose.Slides exportálja a prezentációkat PDF‑be, biztosítva, hogy a l�
 
 ## **PowerPoint PDF konvertálása**
 
-Az alapértelmezett PowerPoint‑PDF konverzió a standard beállításokat használja. Ebben az esetben az Aspose.Slides a lehető legmagasabb minőségi szintekkel, optimális beállításokkal próbálja meg a prezentációt PDF‑re alakítani.
+Az alapértelmezett PowerPoint‑PDF konverziós folyamat az alapbeállításokat használja. Ebben az esetben az Aspose.Slides a megadott prezentációt a legoptimálisabb beállításokkal, a maximális minőségi szinteken konvertálja PDF‑be.
 
-Az alábbi példa betölti egy prezentációt, és az összes látható diát PDF‑be menti az alapértelmezett exportbeállításokkal.
+Az alábbi példa betölt egy prezentációt, és az alapértelmezett exportbeállításokkal menti az összes látható diát PDF‑be.
 
 ```js
 var aspose = aspose || {};
@@ -81,19 +79,17 @@ try {
 }
 ```
 
-{{% alert color="info" title="Note" %}}
-
-Az Aspose ingyenes online [**PowerPoint PDF konvertert**](https://products.aspose.app/slides/conversion/ppt-to-pdf) kínál, amely bemutatja a prezentáció‑PDF konvertálási folyamatot. Ezzel a konverterrel tesztelhet egy élő megvalósítást az itt leírt eljárásra.
-
+{{% alert color="info" title="Megjegyzés" %}}
+Aspose ingyenes online [**PowerPoint PDF konvertáló**](https://products.aspose.app/slides/conversion/ppt-to-pdf) szolgáltatást kínál, amely bemutatja a prezentáció‑PDF konvertálási folyamatot. Tesztelheti ezt a konvertálót a leírt eljárás valós időben történő megvalósításához.
 {{% /alert %}}
 
 ## **PowerPoint PDF konvertálása beállításokkal**
 
-Az Aspose.Slides egyedi beállításokat (a [PdfOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfoptions/) osztály tulajdonságait) biztosít, amelyekkel testreszabhatja a kimeneti PDF‑et, jelszóval védezheti azt, vagy meghatározhatja a konvertálási folyamat módját.
+Az Aspose.Slides egyéni beállításokat—tulajdonságokat a [PdfOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfoptions/) osztályban—biztosít, amelyekkel testreszabhatja a kapott PDF‑et, jelszóval zárolhatja a PDF‑et, vagy meghatározhatja, hogyan haladjon a konverziós folyamat.
 
-### **PowerPoint PDF konvertálása egyedi beállításokkal**
+### **PowerPoint PDF konvertálása egyéni beállításokkal**
 
-Egyedi konvertálási beállítások segítségével meghatározhatja a raszteres képek kívánt minőségét, megadhatja a metafájlok kezelését, beállíthatja a szöveg tömörítési szintjét, konfigurálhatja a DPI‑t képekhez, stb.
+Az egyéni konvertálási beállításokkal meghatározhatja a raszteres képek kívánt minőségi beállítását, megadhatja a metafájlok kezelésének módját, beállíthatja a szöveg tömörítési szintjét, konfigurálhatja a képek DPI‑jét, és egyebeket.
 
 ```js
 var aspose = aspose || {};
@@ -115,13 +111,13 @@ try {
 }
 ```
 
-### **Beágyazott OLE fájlok megőrzése PDF mellékletként**
+### **Beágyazott OLE fájlok megőrzése PDF mellékletekként**
 
-Ha a prezentáció beágyazott Excel‑könyvtárat tartalmaz, a PDF‑beli címzetteknek is hozzá kell férniük a könyvtár adataihoz, miközben a diák megtekinthetők. Hívja meg a [setIncludeOleData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfoptions/#setIncludeOleData) metódust `true`‑val, hogy a beágyazott OLE fájlok mellékletként maradjanak a létrehozott PDF‑ben.
+Ha egy prezentáció beágyazott Excel munkafüzetet tartalmaz, akkor előfordulhat, hogy a PDF‑felhasználóknak szeretné hozzáférni a munkafüzet adataihoz, valamint megtekinteni a diákat. Hívja meg a [setIncludeOleData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfoptions/) metódust `true` értékkel, hogy a beágyazott OLE fájlok mellékletek legyenek a kapott PDF‑ben.
 
-Az alapértelmezett érték `false`: az OLE‑objektum előnézeti képe vagy ikonja megjelenik a PDF‑oldalon, de a beágyazott fájl nem kerül mellékletként. A `true` beállítás további fájladatot is belevesz. Az előnézet továbbra is vizuális ábrázolás marad; a melléklet lehetővé teszi a címzettek számára, hogy a beágyazott fájlt külön megnyissák vagy lementsék. Az OLE‑objektum nem alakul interaktív Excel‑munkalappá a PDF‑oldalon.
+Az alapértelmezett érték `false`: az OLE objektum előnézeti képe vagy ikonjának megjelenése a PDF‑oldalon történik, de a beágyazott fájl nem kerül mellékletként hozzáadásra. Az opció `true`‑ra állítása továbbiként hozzáadja a fájl adatát. Az előnézet vizuális ábrázolás marad; a melléklet lehetővé teszi a felhasználók számára a beágyazott fájl különálló megnyitását vagy mentését. Az OLE objektum nem válik interaktív Excel munkalappá a PDF‑oldalon.
 
-Az alábbi példa betölt egy már beágyazott Excel‑könyvtárat tartalmazó prezentációt, és PDF‑be exportálja a könyvtárral együtt.
+A mintaprezentáció két szövegdobozt tartalmaz: egyet normál szöveggel, egyet ugyanarra a betűkészletre alkalmazott félkövér formázással, amelynek nincs dedikált félkövér változata. Az alábbi példa betölti a prezentációt, engedélyezi a nem támogatott betűkészlet‑stílusok rasterizálását, és PDF‑be exportálja:
 
 ```js
 var aspose = aspose || {};
@@ -140,19 +136,19 @@ try {
 
 Az eredmény ellenőrzéséhez:
 
-1. Nyissa meg az exportált PDF‑et egy olyan megjelenítőben, amely támogatja a fájlmellékleteket, például az Adobe Acrobat Reader‑ben.
-2. Nyissa meg a megjelenítő **Mellékletek** paneljét, és keresse meg a beágyazott könyvtárat.
-3. Mentse a mellékletet, és nyissa meg Excelben az adatok ellenőrzéséhez, vagy nyissa meg közvetlenül, ha a megjelenítő engedélyezi. Az előnézet a PDF‑oldalon különálló a mellékletől.
+1. Nyissa meg az exportált PDF‑et egy olyan megjelenítőben, amely támogatja a fájl mellékleteket, például az Adobe Acrobat Reader‑ben.
+2. Nyissa meg a megjelenítő **Attachments** (Mellékletek) paneljét, és keresse meg a beágyazott munkafüzetet.
+3. Mentse a mellékletet, és nyissa meg Excelben az adatok megtekintéséhez, vagy közvetlenül nyissa meg, ha a megjelenítő engedélyezi. Az előnézet a PDF‑oldalon különálló a melléklettől.
 
-{{% alert color="info" title="Note" %}}
-
-A PDF/A szabványok korlátozzák a mellékleteket: a PDF/A‑1 tiltja a beágyazott fájlokat, a PDF/A‑2 csak PDF/A mellékleteket engedélyez, a PDF/A‑3 pedig más fájltípusokat, így az Excel‑könyvtárakat is. Ezek a szabvány követelményei, nem az Aspose.Slides által bevezetett korlátozások. Ez a példa az alapértelmezett PDF megfelelési beállítást használja, és nem demonstrál PDF/A exportot.
-
+{{% alert color="info" title="Megjegyzés" %}}
+PDF/A szabványok meghatározzák a mellékletekre vonatkozó korlátozásokat: a PDF/A-1 tiltja a beágyazott fájlokat, a PDF/A-2 csak PDF/A mellékleteket engedélyez, a PDF/A-3 pedig egyéb fájltípusokat, köztük az Excel munkafüzeteket is megenged. Ezek a szabványok követelményei, nem az Aspose.Slides saját korlátozásai. Ez a példa az alapértelmezett PDF megfelelőségi beállítást használja, és nem demonstrálja a PDF/A exportálást.
 {{% /alert %}}
 
-### **PowerPoint PDF konvertálása rejtett diák használatával**
+### **PowerPoint PDF konvertálása rejtett diák felhasználásával**
 
-Ha a prezentáció rejtett diákot tartalmaz, a [setShowHiddenSlides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfoptions/#setShowHiddenSlides) metódust a [PdfOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfoptions/) osztályból használva a rejtett diák is megjelennek a kimeneti PDF‑ben.
+Ha egy prezentáció rejtett diákot tartalmaz, a [setShowHiddenSlides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfoptions/setshowhiddenslides/) metódust a [PdfOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfoptions/) osztályból használva belefoglalhatja a rejtett diát a kapott PDF oldalai közé.
+
+Az alábbi példa exportál egy prezentációt PDF‑be, beleértve az esetleges rejtett diákot is.
 
 ```js
 var aspose = aspose || {};
@@ -169,9 +165,9 @@ try {
 }
 ```
 
-### **PowerPoint PDF konvertálása jelszóval védett PDF‑re**
+### **PowerPoint PDF konvertálása jelszóval védett PDF‑ké**
 
-Az alábbi példa egy PDF‑et hoz létre, amely megnyitásához a `password` jelszó szükséges. A hozzáférési engedélyek megengedik a nyomtatást, köztük a magas minőségű nyomtatást.
+Az alábbi példa egy prezentációt olyan PDF‑be exportál, amely megnyitásához a `password` jelszó szükséges. A hozzáférési jogosultságok engedélyezik a nyomtatást, beleértve a magas minőségű nyomtatást.
 
 ```js
 var aspose = aspose || {};
@@ -189,9 +185,11 @@ try {
 }
 ```
 
-### **Betűkészlet‑helyettesítések észlelése**
+### **Betűkészlet-helyettesítések észlelése**
 
-Az Aspose.Slides a [setWarningCallback](https://reference.aspose.com/slides/nodejs-java/aspose.slides/saveoptions/#setWarningCallback) metódust a [PdfOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfoptions/) osztály alatt biztosítja, amely lehetővé teszi a betűkészlet‑helyettesítések észlelését a prezentáció‑PDF konvertálási folyamat során.
+Aspose.Slides a [setWarningCallback](https://reference.aspose.com/slides/nodejs-java/aspose.slides/saveoptions/) metódust a [PdfOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfoptions/) osztályban biztosítja, lehetővé téve a betűkészlet-helyettesítések észlelését a prezentáció‑PDF konverziós folyamat során.
+
+Az alábbi példa egy prezentációt PDF‑be exportál, és a konzolra írja a betűkészlet-helyettesítési figyelmeztetéseket. Figyelmeztetés csak akkor kerül kiírásra, ha egy nem elérhető betűkészletet helyettesítenek az exportálás során.
 
 ```js
 var aspose = aspose || {};
@@ -218,15 +216,44 @@ try {
 }
 ```
 
-{{% alert color="info" title="Note" %}}
+{{% alert color="info" title="Megjegyzés" %}}
+További információk a betűkészlet‑helyettesítésről: lásd a [Betűkészlet‑helyettesítés](/slides/hu/nodejs-java/font-substitution/) cikket.
+{{% /alert %}}
 
-A betűkészlet‑helyettesítésekkel kapcsolatos további információkért lásd a [Betűkészlet helyettesítése](/slides/hu/nodejs-java/font-substitution/) cikket.
+### **Kezelje a betűkészleteket, amelyeknek nincs dedikált félkövér változata**
 
-{{% /alert %}} 
+A prezentáció képes félkövér formázást alkalmazni a szövegre akkor is, ha a betűkészletnek nincs dedikált félkövér változata. A szöveg szintetikus félkövérrel is megjelenhet, amely mesterségesen vastagabbá teszi a normál glifeket. Ha ez a szöveg túl nehéznek vagy egyébként eltérőnek tűnik a kívánt PDF‑megjelenéshez képest, próbálja meg hívni a [PdfOptions.setRasterizeUnsupportedFontStyles](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfoptions/) metódust `true` értékkel. Ez az opció a PDF exportálás során bitmapként rendereli az érintett szöveget, és bizonyos betűkészletek esetén javíthatja a megjelenést. Alapértelmezett értéke `false`.
+
+A mintaprezentáció két szövegdobozt tartalmaz: egyet normál szöveggel és egyet ugyanarra a betűkészletre alkalmazott félkövér formázással, amelynek nincs dedikált félkövér változata. Az alábbi példa betölti a prezentációt, engedélyezi a nem támogatott betűkészlet‑stílusok rasterizálását, és PDF‑be exportálja:
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+let pdfOptions = new aspose.slides.PdfOptions();
+pdfOptions.setRasterizeUnsupportedFontStyles(true);
+
+let presentation = new aspose.slides.Presentation("unsupported-bold.pptx");
+try {
+    presentation.save("rasterized.pdf", aspose.slides.SaveFormat.Pdf, pdfOptions);
+} finally {
+    presentation.dispose();
+}
+```
+
+A következő előnézetek a letiltott és az engedélyezett kimenetet mutatják. Ebben a példában a félkövér szöveg nehezebb vonalakkal jelenik meg, ha az opció le van tiltva. Az opció engedélyezése esetén a vonalak vékonyabbak; a normál szöveg változatlan marad. Hasonlítsa össze az eredményeket, mielőtt beállítaná a prezentációnál.
+
+| Letiltott opció (`false`, az alapértelmezett) | Engedélyezett opció (`true`) |
+|---|---|
+| ![PDF a nem támogatott betűkészlet‑stílus rasterizálásával letiltva](unsupported-bold-disabled.png) | ![PDF a nem támogatott betűkészlet‑stílus rasterizálásával engedélyezve](unsupported-bold-enabled.png) |
+
+Ebben a példában az opció engedélyezése csak a félkövér szöveget bitmapté alakítja: nem lehet kijelölni, másolni vagy szövegként keresni OCR nélkül, és a szélei lágyabbak 800 %-os nagyítással. A normál szöveg továbbra is kereshető. Ha az opció ki van kapcsolva, mindkét karakterlánc szöveg marad.
+
+Ez az opció a félkövérként formázott szöveget rasterizálja, ha a betűkészletnek nincs dedikált félkövér változata. A [Betűkészlet‑helyettesítés](/slides/hu/nodejs-java/font-substitution/) ehelyett egy másik betűkészletet választ, ha az eredeti nem elérhető.
 
 ## **Kiválasztott diák konvertálása PowerPoint‑ból PDF‑be**
 
-Az alábbi példa a prezentáció 1. és 3. diaját exportálja PDF‑be. A tömbben szereplő diaszámok egy‑alapúak, és a bemeneti prezentációnak legalább három diával kell rendelkeznie.
+Az alábbi példa a prezentáció 1. és 3. diáját exportálja PDF‑be. A tömbben szereplő diák száma egyalapú, és a bemeneti prezentációnak legalább három diával kell rendelkeznie.
 
 ```js
 var aspose = aspose || {};
@@ -244,7 +271,7 @@ try {
 
 ## **PowerPoint PDF konvertálása egyedi dia mérettel**
 
-Az alábbi példa az első diát egy új prezentációba másolja, amelynek dia mérete 612 × 792 pont (8,5 × 11 inch). A tartalmat átméretezi a megfelelő illeszkedéshez, és az egyetlen diát PDF‑be exportálja.
+Az alábbi példa a prezentáció első diáját átmásolja egy új prezentációba, amelynek dia mérete 612 × 792 pont (8,5 × 11 hüvelyk). A dia tartalmát átméretezi, hogy illeszkedjen, és az egyetlen diát PDF‑be exportálja.
 
 ```js
 var aspose = aspose || {};
@@ -261,7 +288,7 @@ try {
     let slide = presentation.getSlides().get_Item(0);
     resizedPresentation.getSlides().insertClone(0, slide);
 
-    // Távolítsa el az új prezentáció által létrehozott üres diát.
+    // Távolítsa el a létrehozott új prezentáció üres diáját.
     resizedPresentation.getSlides().removeAt(1);
 
     resizedPresentation.save("PDF_with_custom_slide_size.pdf", aspose.slides.SaveFormat.Pdf);
@@ -271,9 +298,9 @@ try {
 }
 ```
 
-## **PowerPoint PDF konvertálása jegyzet dianézetben**
+## **PowerPoint PDF konvertálása jegyzet diák nézetben**
 
-Az alábbi példa a prezentációt PDF‑be exportálja, minden dia előadói jegyzeteit a dia alá helyezve. A hatást egy olyan prezentációval láthatja, amely tartalmaz előadói jegyzeteket.
+Az alábbi példa egy prezentációt PDF‑be exportál, minden dia előadói jegyzeteit a dia alatt elhelyezve. Használjon előadói jegyzeteket tartalmazó prezentációt a megjelenítéshez.
 
 ```js
 var aspose = aspose || {};
@@ -295,7 +322,9 @@ try {
 
 ## **PDF hozzáférhetőség és megfelelőségi szabványok**
 
-Az Aspose.Slides lehetővé teszi, hogy olyan konvertálási eljárást használjon, amely megfelel a [Web Content Accessibility Guidelines (**WCAG**)](https://www.w3.org/TR/WCAG-TECHS/pdf.html) szabványnak. A PowerPoint dokumentumot bármelyik következő megfelelőségi szabvánnyal exportálhatja PDF‑be: **PDF/A1a**, **PDF/A1b** és **PDF/UA**.
+Az Aspose.Slides lehetővé teszi egy olyan konverziós eljárás használatát, amely megfelel a [Web Content Accessibility Guidelines (**WCAG**)](https://www.w3.org/TR/WCAG-TECHS/pdf.html) szabványnak. A PowerPoint dokumentumot PDF‑be exportálhatja a következő megfelelőségi szabványok bármelyikével: **PDF/A1a**, **PDF/A1b**, és **PDF/UA**.
+
+Ez a kód bemutat egy PowerPoint‑PDF konverziós folyamatot, amely különböző megfelelőségi szabványok alapján több PDF‑et hoz létre:
 
 ```js
 var aspose = aspose || {};
@@ -318,38 +347,36 @@ try {
 }
 ```
 
-{{% alert color="info" title="Note" %}}
-
-Az Aspose.Slides támogatja a PDF konvertálási műveleteket, lehetővé téve, hogy a PDF‑eket népszerű fájlformátumokra konvertálja. Végrehajthatja a [PDF‑t HTML‑re](https://products.aspose.com/slides/nodejs-java/conversion/pdf-to-html/), [PDF‑t JPG‑re](https://products.aspose.com/slides/nodejs-java/conversion/pdf-to-jpg/) és [PDF‑t PNG‑re](https://products.aspose.com/slides/nodejs-java/conversion/pdf-to-png/) konverziókat. Egyéb, speciális formátumokra irányuló PDF konvertálások – például a [PDF‑t SVG‑re](https://products.aspose.com/slides/nodejs-java/conversion/pdf-to-svg/), [PDF‑t TIFF‑re](https://products.aspose.com/slides/nodejs-java/conversion/pdf-to-tiff/) – szintén támogatottak.
-
+{{% alert color="info" title="Megjegyzés" %}}
+Az Aspose.Slides támogatja a PDF konverziós műveleteket, lehetővé téve a PDF fájlok konvertálását népszerű formátumokba. Végrehajthatja a [PDF to HTML](https://products.aspose.com/slides/nodejs-java/conversion/pdf-to-html/), [PDF to JPG](https://products.aspose.com/slides/nodejs-java/conversion/pdf-to-jpg/), és a [PDF to PNG](https://products.aspose.com/slides/nodejs-java/conversion/pdf-to-png/) konverziókat. Egyéb PDF konverziós műveletek speciális formátumokba – [PDF to SVG](https://products.aspose.com/slides/nodejs-java/conversion/pdf-to-svg/), [PDF to TIFF](https://products.aspose.com/slides/nodejs-java/conversion/pdf-to-tiff/) – szintén támogatottak.
 {{% /alert %}}
 
-> **Megjegyzés:** PDF/UA exportálásakor az Aspose.Slides a komplex grafikákat, mint a SmartArt, diagramok és képletek, egyetlen alakzattá alakítja. Az egyedi útvonal‑elemek nem maradnak meg különálló tartalomként, és lehet, hogy csak artefaktumokként jelennek meg; az alternatív szöveg csak az egész alakzatra vonatkozik.
+> **Megjegyzés:** PDF/UA exportálásakor az Aspose.Slides összetett grafikákat, például SmartArt, diagramokat és képleteket egyetlen alakzatként kezel. Az egyedi útvonal elemek nem maradnak meg különálló tartalomként, és artefaktumokként jelölhetők; alternatív szöveg csak az egész alakzatra vonatkozik.
 
 ## **GYIK**
 
-**Több PowerPoint‑fájlt konvertálhatok egyszerre PDF‑re?**
+**Konvertálhatok több PowerPoint fájlt PDF‑be egyszerre?**
 
-Igen, az Aspose.Slides támogatja a több PPT vagy PPTX fájl kötegelt konvertálását PDF‑re. A fájlokon iterálva programozottan alkalmazhatja a konvertálási folyamatot.
+Igen, az Aspose.Slides támogatja több PPT vagy PPTX fájl kötegelt konvertálását PDF‑be. A fájlokat ciklikusan bejárva programozottan alkalmazhatja a konverziós folyamatot.
 
-**Lehet a konvertált PDF‑et jelszóval védeni?**
+**Lehet jelszóval védeni a konvertált PDF‑et?**
 
-Igen. Használja a [PdfOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfoptions/) osztályt a jelszó beállításához és a hozzáférési engedélyek meghatározásához a konvertálás során.
+Igen. A konverziós folyamat során a [PdfOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfoptions/) osztály segítségével állíthat be jelszót és meghatározhatja a hozzáférési jogosultságokat.
 
 **Hogyan foglalhatom bele a rejtett diákot a PDF‑be?**
 
-Hívja meg a [setShowHiddenSlides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfoptions/#setShowHiddenSlides) metódust `true`‑val a [PdfOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfoptions/) osztályban a rejtett diák kimeneti PDF‑be való belefoglalásához.
+Hívja meg a [setShowHiddenSlides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfoptions/setshowhiddenslides/) metódust `true` értékkel a [PdfOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfoptions/) osztályban, hogy a rejtett diák a kapott PDF‑ben is megjelenjenek.
 
-**Az Aspose.Slides képes magas képméret‑minőséget fenntartani a PDF‑ben?**
+**Meg tudja az Aspose.Slides fenntartani a képek magas minőségét a PDF‑ben?**
 
-Igen, a képminőséget a [setJpegQuality](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfoptions/#setJpegQuality) és a [setSufficientResolution](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfoptions/#setSufficientResolution) metódusokkal szabályozhatja a [PdfOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfoptions/) osztályban, így biztosítva a magas minőségű képeket a PDF‑jében.
+Igen, a képek minőségét a [PdfOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfoptions/) osztályban található [setJpegQuality](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfoptions/setjpegquality/) és [setSufficientResolution](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfoptions/setsufficientresolution/) metódusok használatával szabályozhatja, hogy a PDF‑jében magas minőségű képek legyenek.
 
-**Az Aspose.Slides támogatja a PDF/A megfelelőségi szabványokat?**
+**Támogatja az Aspose.Slides a PDF/A megfelelőségi szabványokat?**
 
-Igen, az Aspose.Slides lehetővé teszi, hogy olyan PDF‑eket exportáljon, amelyek megfelelnek a [különböző szabványoknak](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfcompliance/), beleértve a PDF/A1a, PDF/A1b és PDF/UA szabványokat, ezzel biztosítva a dokumentumok hozzáférhetőségét és archiválási követelményeit.
+Igen, az Aspose.Slides lehetővé teszi olyan PDF‑ek exportálását, amelyek megfelelnek a [különféle szabványoknak](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfcompliance/), beleértve a PDF/A1a, PDF/A1b és PDF/UA szabványokat, ezáltal biztosítva, hogy dokumentumai megfeleljenek a hozzáférhetőségi és archiválási követelményeknek.
 
 ## **További források**
 
-- [Aspose.Slides Node.js‑Java dokumentáció](/slides/hu/nodejs-java/)
-- [Aspose.Slides Node.js‑Java API‑referencia](https://reference.aspose.com/slides/nodejs-java/)
-- [Aspose Ingyenes Online Átalakítók](https://products.aspose.app/slides/conversion)
+- [Aspose.Slides Node.js for Java dokumentáció](/slides/hu/nodejs-java/)
+- [Aspose.Slides Node.js for Java API referencia](https://reference.aspose.com/slides/nodejs-java/)
+- [Aspose ingyenes online konvertálók](https://products.aspose.app/slides/conversion)

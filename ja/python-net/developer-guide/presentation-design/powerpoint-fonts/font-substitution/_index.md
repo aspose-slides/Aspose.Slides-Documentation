@@ -1,14 +1,14 @@
 ---
-title: Python を使用したプレゼンテーションのフォント置換の構成
+title: Pythonでプレゼンテーションのフォント置換を構成する
 linktitle: フォント置換
 type: docs
 weight: 70
 url: /ja/python-net/font-substitution/
 keywords:
 - フォント
-- 代替フォント
+- 置換フォント
 - フォント置換
-- フォント置換
+- フォントの置き換え
 - フォント置換
 - 置換ルール
 - 置換ルール
@@ -17,19 +17,21 @@ keywords:
 - プレゼンテーション
 - Python
 - Aspose.Slides
-description: "PowerPoint および OpenDocument プレゼンテーションをレンダリングまたは変換する際に、.NET を介して Python 用 Aspose.Slides のフォント置換ルールを構成し、置換されたフォントを確認します。"
+description: "PowerPoint と OpenDocument のプレゼンテーションをレンダリングまたは変換する際に、.NET 経由で Python 用 Aspose.Slides のフォント置換ルールを構成し、置換されたフォントを確認します。"
 ---
 ## **概要**
 
-フォント置換を使用すると、プレゼンテーションのレンダリングまたは変換時にアクセスできないフォントの代わりに、使用可能なフォントを Aspose.Slides が使用できるようになります。置換はレンダリングされた出力にのみ影響し、プレゼンテーション コンテンツに割り当てられたフォントは変更されません。
+フォント置換により、Aspose.Slides はプレゼンテーションのレンダリングまたは変換時にアクセスできないフォントの代わりに利用可能なフォントを使用できます。置換はレンダリングされた出力に影響しますが、プレゼンテーション コンテンツに割り当てられたフォントは変更されません。
 
-特定のフォントが利用できない場合に使用するフォントを定義でき、Aspose.Slides がレンダリング中に行う置換を確認できます。これにより、インストールされているフォントが異なる環境間でも出力を一貫させることができます。
+特定のフォントが利用できない場合に使用するフォントを定義でき、Aspose.Slides がレンダリング中に行う置換を確認できます。これにより、インストールされているフォントが異なる環境間で出力を一貫させることができます。
+
+フォントが利用可能だが専用の太字書体がない場合は、[専用の太字フォントがない場合のフォントの扱い](/slides/ja/python-net/convert-powerpoint-to-pdf/#handle-fonts-without-a-dedicated-bold-typeface)をご覧ください。このセクションでは、PDF エクスポート時に影響を受けたテキストをラスタライズする方法と、テキスト選択、検索、スケーリングへの影響について説明しています。
 
 ## **フォント置換の取得**
 
-Use the [FontsManager.get_substitutions](https://reference.aspose.com/slides/ja/python-net/aspose.slides/fontsmanager/get_substitutions/) method to determine which fonts will be substituted when the presentation is rendered. The method returns [FontSubstitutionInfo](https://reference.aspose.com/slides/ja/python-net/aspose.slides/fontsubstitutioninfo/) objects that identify the original and substituted font names.
+プレゼンテーションがレンダリングされる際にどのフォントが置換されるかを判断するには、[FontsManager.get_substitutions](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/get_substitutions/) メソッドを使用します。このメソッドは、元のフォント名と置換後のフォント名を示す [FontSubstitutionInfo](https://reference.aspose.com/slides/python-net/aspose.slides/fontsubstitutioninfo/) オブジェクトを返します。
 
-The following Python example lists all font substitutions for a presentation:
+以下の Python の例は、プレゼンテーションのすべてのフォント置換を一覧表示します。
 
 ```python
 import aspose.slides as slides
@@ -39,15 +41,15 @@ with slides.Presentation("Presentation.pptx") as presentation:
         print(f"{substitution.original_font_name} -> {substitution.substituted_font_name}")
 ```
 
-## **選択スライドのフォント置換の取得**
+## **選択したスライドのフォント置換の取得**
 
-Use [FontsManager.get_substitutions](https://reference.aspose.com/slides/ja/python-net/aspose.slides/fontsmanager/get_substitutions/) with a list of slide indexes to inspect only the substitutions required to render specific slides. This is useful when you are rendering or exporting part of a presentation, checking a large presentation incrementally, locating slides that depend on unavailable fonts, preparing a minimal font package for a server or container, or diagnosing rendering differences without processing unrelated slides.
+スライド インデックスのリストとともに [FontsManager.get_substitutions](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/get_substitutions/) を使用すると、特定のスライドのレンダリングに必要な置換のみを確認できます。これは、プレゼンテーションの一部をレンダリングまたはエクスポートする場合や、大規模なプレゼンテーションを段階的にチェックする場合、利用できないフォントに依存するスライドを特定する場合、サーバーまたはコンテナ用に最小限のフォント パッケージを準備する場合、または無関係なスライドを処理せずにレンダリングの差異を診断する場合に便利です。
 
-The list contains one-based slide indexes: `1` identifies the first slide. By contrast, the [Presentation.slides](https://reference.aspose.com/slides/ja/python-net/aspose.slides/presentation/slides/ja/) collection is zero-based, so that same slide is accessed as `presentation.slides[0]`. Keep this difference in mind when building the list to avoid off‑by‑one errors.
+リストには 1 ベースのスライド インデックスが含まれます：`1` は最初のスライドを示します。対照的に、[Presentation.slides](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/slides/) コレクションは 0 ベースであるため、同じスライドは `presentation.slides[0]` としてアクセスされます。リストを作成する際はこの違いに留意し、オフバイワン エラーを防いでください。
 
-Call the method through the [Presentation.fonts_manager](https://reference.aspose.com/slides/ja/python-net/aspose.slides/presentation/fonts_manager/) property. It returns only the substitutions determined while rendering the selected slides. Each result is a [FontSubstitutionInfo](https://reference.aspose.com/slides/ja/python-net/aspose.slides/fontsubstitutioninfo/) object containing the original and substituted font names. The result reflects the current font environment, configured fallback rules, substitution rules stored in an [IFontSubstRuleCollection](https://reference.aspose.com/slides/ja/python-net/aspose.slides/ifontsubstrulecollection/), and [externally loaded fonts](/slides/ja/python-net/custom-font/).
+メソッドは [Presentation.fonts_manager](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/fonts_manager/) プロパティ経由で呼び出します。選択したスライドのレンダリング中に決定された置換のみを返します。各結果は元のフォント名と置換後のフォント名を含む [FontSubstitutionInfo](https://reference.aspose.com/slides/python-net/aspose.slides/fontsubstitutioninfo/) オブジェクトです。結果は現在のフォント環境、構成されたフォールバック ルール、[IFontSubstRuleCollection](https://reference.aspose.com/slides/python-net/aspose.slides/ifontsubstrulecollection/) に格納された置換ルール、および [externally loaded fonts](/slides/ja/python-net/custom-font/) を反映します。
 
-The same substitution can be required by more than one selected slide. Deduplicate the results when you create a font inventory or preflight report. The following example reports every returned substitution and then creates a sorted list of unique font mappings:
+同じ置換が複数の選択スライドで必要になることがあります。フォント インベントリや事前チェック レポートを作成する際は、結果の重複を除去してください。以下の例は、返されたすべての置換を報告し、ユニークなフォント マッピングのソート済みリストを作成します。
 
 ```python
 import aspose.slides as slides
@@ -69,25 +71,25 @@ with slides.Presentation("Presentation.pptx") as presentation:
         print(entry)
 ```
 
-The [FontsManager](https://reference.aspose.com/slides/ja/python-net/aspose.slides/fontsmanager/) class provides both forms of the method. Choose one according to the scope of the rendering operation:
+[FontsManager](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/) クラスは、メソッドの両方の形式を提供します。レンダリング操作の範囲に応じていずれかを選択してください：
 
-| Method call | Use it when |
+| メソッド呼び出し | 使用シーン |
 |---|---|
-| [get_substitutions](https://reference.aspose.com/slides/ja/python-net/aspose.slides/fontsmanager/get_substitutions/) with no arguments | You need substitutions for the entire presentation. |
-| [get_substitutions](https://reference.aspose.com/slides/ja/python-net/aspose.slides/fontsmanager/get_substitutions/) with a list of slide indexes | You need substitutions for a selected range, incremental check, or partial export. |
+| [get_substitutions](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/get_substitutions/) 引数なし | プレゼンテーション全体の置換が必要な場合。 |
+| [get_substitutions](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/get_substitutions/) スライド インデックスのリストを指定 | 選択した範囲、インクリメンタル チェック、または部分エクスポートの置換が必要な場合。 |
 
 ## **フォント置換ルールの設定**
 
-To specify the font that Aspose.Slides should use when a source font is unavailable:
+ソース フォントが利用できない場合に Aspose.Slides が使用すべきフォントを指定するには、以下の手順を実行します：
 
-1. Load the presentation.  
-2. Create font definitions for the source and substitute fonts.  
-3. Create a [FontSubstRule](https://reference.aspose.com/slides/ja/python-net/aspose.slides/fontsubstrule/) with the [WHEN_INACCESSIBLE](https://reference.aspose.com/slides/ja/python-net/aspose.slides/fontsubstcondition/) condition.  
-4. Add the rule to a [FontSubstRuleCollection](https://reference.aspose.com/slides/ja/python-net/aspose.slides/fontsubstrulecollection/).  
-5. Assign the collection to the [FontsManager.font_subst_rule_list](https://reference.aspose.com/slides/ja/python-net/aspose.slides/fontsmanager/font_subst_rule_list/) property.  
-6. Render or convert the presentation.
+1. プレゼンテーションを読み込みます。
+2. ソース フォントと置換フォントのフォント定義を作成します。
+3. [WHEN_INACCESSIBLE](https://reference.aspose.com/slides/python-net/aspose.slides/fontsubstcondition/) 条件を使用して [FontSubstRule](https://reference.aspose.com/slides/python-net/aspose.slides/fontsubstrule/) を作成します。
+4. ルールを [FontSubstRuleCollection](https://reference.aspose.com/slides/python-net/aspose.slides/fontsubstrulecollection/) に追加します。
+5. コレクションを [FontsManager.font_subst_rule_list](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/font_subst_rule_list/) プロパティに割り当てます。
+6. プレゼンテーションをレンダリングまたは変換します。
 
-The following Python example substitutes `Arial` for `SomeRareFont` when `SomeRareFont` is unavailable, and then renders the first slide to verify the result. The substitute font must be available to Aspose.Slides.
+以下の Python の例は、`SomeRareFont` が利用できない場合に `Arial` に置換し、結果を確認するために最初のスライドをレンダリングします。置換フォントは Aspose.Slides が利用できる必要があります。
 
 ```python
 import aspose.slides as slides
@@ -109,42 +111,42 @@ with slides.Presentation("Fonts.pptx") as presentation:
 プレゼンテーション全体で使用されるフォントを無条件に変更する場合は、[Font Replacement](/slides/ja/python-net/font-replacement/) を参照してください。
 {{% /alert %}}
 
-## **数式フォントの制限事項**
+## **数式フォントの制限**
 
-Font substitution rules are part of the standard font selection process used during rendering and conversion. They work for regular text when Aspose.Slides can replace an inaccessible font with the available font specified by a rule.
+フォント置換ルールは、レンダリングおよび変換時に使用される標準的なフォント選択プロセスの一部です。ルールで指定された利用可能なフォントにアクセスできないフォントを置換できる場合、通常のテキストに対して機能します。
 
-Office Math equations have an additional requirement. If an equation uses **Cambria Math**, Aspose.Slides may need that exact font to calculate and render the equation layout. A rule that substitutes another math font, such as **STIX Two Math**, cannot replace **Cambria Math** for this purpose, and rendering may still report that **Cambria Math** is required.
+Office Math の数式には追加の要件があります。数式が **Cambria Math** を使用している場合、Aspose.Slides はその正確なフォントが数式レイアウトの計算およびレンダリングに必要になることがあります。**STIX Two Math** のような別の数式フォントに置換するルールは、この目的で **Cambria Math** を置換できず、レンダリングは依然として **Cambria Math** が必要であると報告する可能性があります。
 
-To render or convert such a presentation, make **Cambria Math** available to Aspose.Slides. Install it in the operating system or load it as an [external font](/slides/ja/python-net/custom-font/).
+このようなプレゼンテーションをレンダリングまたは変換するには、**Cambria Math** を Aspose.Slides が利用できるようにしてください。オペレーティングシステムにインストールするか、[external font](/slides/ja/python-net/custom-font/) としてロードします。
 
-This limitation applies to equation layout. The substitution rules described above still apply to regular presentation text.
+この制限は数式レイアウトに適用されます。上記の置換ルールは通常のプレゼンテーション テキストには引き続き適用されます。
 
 ## **よくある質問**
 
-**フォント置換とフォント置換（replacement）の違いは何ですか？**  
+**フォント置換（置き換え）とフォント置換（サブスティテューション）の違いは何ですか？**
 
-[Font replacement](/slides/ja/python-net/font-replacement/) はプレゼンテーション全体でフォントを別のフォントに意図的に変更します。フォント置換は、元のフォントが利用できないなどの条件が満たされたときに、レンダリングされた出力用にフォントを選択します。
+[Font replacement](/slides/ja/python-net/font-replacement/) は、プレゼンテーション全体でフォントを意図的に別のフォントに変更します。フォント置換は、元のフォントが利用できないなど、設定された条件が満たされたときに、レンダリングされた出力用のフォントを選択します。
 
-**置換ルールはいつ適用されますか？**  
+**置換ルールはいつ適用されますか？**
 
-ルールはレンダリングおよび変換時の[font selection sequence](/slides/ja/python-net/font-selection-sequence/)に参加します。`WHEN_INACCESSIBLE` の場合、ソースフォントにアクセスできないときのみルールが使用されます。
+これらのルールは、レンダリングおよび変換中の [font selection sequence](/slides/ja/python-net/font-selection-sequence/) に参加します。`WHEN_INACCESSIBLE` を使用した場合、ルールは Aspose.Slides がソース フォントにアクセスできないときのみ使用されます。
 
-**フォントが欠落していて置換ルールが設定されていない場合、何が起こりますか？**  
+**フォントが欠落しており、置換ルールが設定されていない場合はどうなりますか？**
 
-Aspose.Slides はフォント選択プロセスに従って最も近い利用可能なフォントを選択します。結果はランタイム環境にインストールされているフォントに依存します。
+Aspose.Slides はフォント選択プロセスに従って、最も近い利用可能なフォントを選択します。結果は実行環境で利用可能なフォントに依存します。
 
-**外部フォントをロードして置換を回避できますか？**  
+**置換を回避するために外部フォントをロードできますか？**
 
-はい。[外部フォントをロード](/slides/ja/python-net/custom-font/) すれば、レンダリングおよび変換時に Aspose.Slides がそれらを使用できます。
+はい。Aspose.Slides がレンダリングおよび変換時に使用できるよう、[外部フォントをロード](/slides/ja/python-net/custom-font/) できます。
 
-**Aspose はライブラリにフォントを同梱していますか？**  
+**Aspose はライブラリにフォントを同梱していますか？**
 
 いいえ。フォントの提供とライセンス遵守はユーザーの責任です。
 
-**Windows、Linux、macOS 間で置換結果が異なることはありますか？**  
+**置換結果は Windows、Linux、macOS で異なる可能性がありますか？**
 
-はい。各 OS のインストールフォント及びフォント検索パスが異なるため、あるマシンで利用できるフォントが別のマシンでは置換が必要になることがあります。
+はい。インストールされているフォントやフォント検索場所は OS により異なるため、あるマシンで利用可能なフォントが別のマシンでは置換が必要になることがあります。
 
-**バッチ変換でフォント選択を一貫させるにはどうすればよいですか？**  
+**バッチ変換でフォント選択を一貫させるにはどうすればよいですか？**
 
-すべてのマシンまたはコンテナで同一のフォントファイルとバージョンを使用し、[必要な外部フォントをロード](/slides/ja/python-net/custom-font/)し、ライセンスが許可する場合は[フォントを埋め込む](/slides/ja/python-net/embedded-font/)ことを推奨します。また、エクスポート前に [FontsManager.get_substitutions](https://reference.aspose.com/slides/ja/python-net/aspose.slides/fontsmanager/get_substitutions/) を呼び出して予期しない置換を特定できます。
+すべてのマシンまたはコンテナで同じフォント ファイルとバージョンを使用し、[必要な外部フォントをロード](/slides/ja/python-net/custom-font/)し、ライセンスが許可する場合は [フォントを埋め込む](/slides/ja/python-net/embedded-font/) ことが重要です。また、エクスポート前に [FontsManager.get_substitutions](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/get_substitutions/) を呼び出して予期しない置換を特定することもできます。

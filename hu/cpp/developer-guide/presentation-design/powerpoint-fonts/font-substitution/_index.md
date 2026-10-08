@@ -17,19 +17,22 @@ keywords:
 - prezentáció
 - C++
 - Aspose.Slides
-description: "Állítsa be a betűtípus helyettesítési szabályokat, és vizsgálja meg az Aspose.Slides for C++ által használt helyettesített betűtípusokat PowerPoint és OpenDocument prezentációk renderelése vagy konvertálása során."
+description: "Állítsa be a betűtípus helyettesítési szabályokat, és ellenőrizze a helyettesített betűtípusokat az Aspose.Slides for C++ könyvtárban PowerPoint és OpenDocument prezentációk renderelése vagy konvertálása során."
 ---
 ## **Áttekintés**
 
-A betűtípus helyettesítés lehetővé teszi az Aspose.Slides számára, hogy egy elérhető betűtípust használjon egy olyan betűtípussal helyettesítve, amelyet nem lehet elérni a bemutató renderelése vagy konvertálása során. A helyettesítés a megjelenített kimenetet érinti; nem változtatja meg a bemutató tartalmához rendelt betűtípust.
+A betűtípus helyettesítés lehetővé teszi az Aspose.Slides számára, hogy egy elérhető betűtípust használjon egy olyan betűtípus helyett, amelyhez a prezentáció renderelése vagy konvertálása során nem fér hozzá. A helyettesítés a renderelt kimenetet érinti; nem módosítja a prezentáció tartalmához rendelt betűtípust.
 
-Megadhatja a használni kívánt betűtípust, ha egy adott betűtípus nem érhető el, és megtekintheti az Aspose.Slides által a renderelés során végrehajtott helyettesítéseket. Ez segít a kimenetet konzisztens módon tartani különböző, eltérő telepített betűtípusokkal rendelkező környezetekben.
+Meghatározhatja, hogy melyik betűtípust kell használni, ha egy adott betűtípus nem áll rendelkezésre, illetve megtekintheti a helyettesítéseket, amelyeket az Aspose.Slides a renderelés során végez. Ez segít egységes kimenetet biztosítani a különböző, eltérő betűtípusokkal rendelkező környezetekben.
 
-## **Betűtípus helyettesítések lekérése**
+Ha egy betűtípus elérhető, de nincs hozzá dedikált félkövér változat, lásd a [Handle Fonts Without a Dedicated Bold Typeface](/slides/hu/cpp/convert-powerpoint-to-pdf/#handle-fonts-without-a-dedicated-bold-typeface) szakaszt. Ott leírják, hogyan lehet raszterizálni a befolyásolt szöveget PDF‑exportálás során, és milyen hatásai vannak a szövegkijelölésnek, keresésnek és méretezésnek.
 
-Használja az [IFontsManager::GetSubstitutions](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ifontsmanager/getsubstitutions/) metódust annak meghatározásához, mely betűtípusok lesznek helyettesítve a bemutató renderelésekor. A metódus [FontSubstitutionInfo](https://reference.aspose.com/slides/hu/cpp/aspose.slides/fontsubstitutioninfo/) objektumokat ad vissza, amelyek az eredeti és a helyettesített betűtípus neveket tartalmazzák.
+## **Betűtípus helyettesítések lekérdezése**
 
-Az alábbi C++ példa felsorolja az összes betűtípus helyettesítést egy bemutatóhoz:
+Használja a [IFontsManager::GetSubstitutions](https://reference.aspose.com/slides/cpp/aspose.slides/ifontsmanager/getsubstitutions/) metódust annak meghatározásához, mely betűtípusok lesznek helyettesítve a prezentáció renderelésekor. A metódus [FontSubstitutionInfo](https://reference.aspose.com/slides/cpp/aspose.slides/fontsubstitutioninfo/) objektumokat ad vissza, amelyek az eredeti és a helyettesített betűtípus neveket tartalmazzák.
+
+A következő C++ példa felsorolja az összes betűtípus helyettesítést egy prezentációhoz:
+
 ```cpp
 #include <DOM/FontSubstitutionInfo.h>
 #include <DOM/IFontsManager.h>
@@ -49,15 +52,16 @@ for (auto&& substitution : presentation->get_FontsManager()->GetSubstitutions())
 presentation->Dispose();
 ```
 
-## **Betűtípus helyettesítések lekérése a kiválasztott diákra**
+## **Betűtípus helyettesítések lekérdezése a kiválasztott diákhoz**
 
-Használja az [IFontsManager::GetSubstitutions](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ifontsmanager/getsubstitutions/) túlterhelését egy `System::ArrayPtr<int32_t> slides` argumentummal, hogy csak a konkrét diák rendereléséhez szükséges helyettesítéseket tekintse meg. Ez akkor hasznos, ha a bemutató egy részét rendereli vagy exportálja, nagy bemutatót inkrementálisan ellenőriz, olyan diát keres, amelyek nem elérhető betűtípusoktól függenek, minimális betűtípuscsomagot készít szerver vagy konténer számára, vagy a renderelési különbségeket diagnosztizálja a nem releváns diák feldolgozása nélkül.
+Használja a [IFontsManager::GetSubstitutions](https://reference.aspose.com/slides/cpp/aspose.slides/ifontsmanager/getsubstitutions/) túlterhelést a `System::ArrayPtr<int32_t> slides` argumentummal, hogy csak a kiválasztott diák rendereléséhez szükséges helyettesítéseket vizsgálja. Ez akkor hasznos, ha a prezentáció egy részét rendereli vagy exportálja, fokozatosan ellenőrzi egy nagy prezentációt, azonosítja a nem elérhető betűtípusokra támaszkodó diákat, minimális betűtípuscsomagot készít szerverhez vagy konténerhez, vagy a renderelési eltéréseket a nem releváns diák feldolgozása nélkül szeretné diagnosztizálni.
 
-A `slides` tömb egy‑bázisú diaindexeket tartalmaz: `1` az első diát jelöli. Ezzel szemben a [Presentation::get_Slide](https://reference.aspose.com/slides/hu/cpp/aspose.slides/presentation/get_slide/) metódus null‑bázisú indexet használ, ezért ugyanaz a dia `presentation->get_Slide(0)` formában érhető el. Tartsa szem előtt ezt a különbséget a tömb felépítésekor, hogy elkerülje az egy‑indexes eltérést.
+A `slides` tömb egy‑alapú diavetítési indexeket tartalmaz: az `1` az első diát jelöli. Ezzel szemben a [Presentation::get_Slide](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_slide/) metódus nulla‑alapú indexet használ, így ugyanaz a dia `presentation->get_Slide(0)`‑ként érhető el. Építse fel a tömböt ennek a különbségnek a figyelembevételével, hogy elkerülje az egy‑eltéréses hibákat.
 
-Hívja a túlterhelést a [Presentation::get_FontsManager](https://reference.aspose.com/slides/hu/cpp/aspose.slides/presentation/get_fontsmanager/) metóduson keresztül. Ez csak a kiválasztott diák renderelése során meghatározott helyettesítéseket adja vissza. Minden eredmény egy [FontSubstitutionInfo](https://reference.aspose.com/slides/hu/cpp/aspose.slides/fontsubstitutioninfo/) objektum, amely az eredeti és a helyettesített betűtípus neveket tartalmazza. Az eredmény tükrözi a jelenlegi betűtípus környezetet, a beállított tartalék szabályokat, az [IFontSubstRuleCollection](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ifontsubstrulecollection/)‑ben tárolt helyettesítési szabályokat, valamint a [külsőleg betöltött betűtípusokat](/slides/hu/cpp/custom-font/).
+Hívja meg a túlterhelést a [Presentation::get_FontsManager](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_fontsmanager/) metóduson keresztül. Ez csak azokat a helyettesítéseket adja vissza, amelyeket a kiválasztott diák renderelése közben határozott meg. Minden eredmény egy [FontSubstitutionInfo](https://reference.aspose.com/slides/cpp/aspose.slides/fontsubstitutioninfo/) objektum, amely az eredeti és a helyettesített betűtípus neveket tartalmazza. Az eredmény tükrözi a jelenlegi betűtípus‑környezetet, a konfigurált visszaeső szabályokat, az [IFontSubstRuleCollection](https://reference.aspose.com/slides/cpp/aspose.slides/ifontsubstrulecollection/)‑ben tárolt helyettesítési szabályokat, valamint a [külső betöltött betűtípusokat](/slides/hu/cpp/custom-font/).
 
-Ugyanaz a helyettesítés több mint egy kiválasztott dián is szükséges lehet. Szűrje le a duplikátumokat, amikor betűtípus leltárt vagy előellenőrző jelentést készít. Az alábbi példa minden visszakapott helyettesítést jelent, majd egy rendezett listát hoz létre az egyedi betűtípus leképezésekről:
+Ugyanaz a helyettesítés több mint egy kiválasztott dia esetén is szükséges lehet. Szűrje le az eredményeket, amikor betűtípus‑leltárt vagy preflight jelentést készít. A következő példa minden visszaadott helyettesítést jelent, majd egy rendezett listát hoz létre az egyedi betűtípus‑leképezésekről:
+
 ```cpp
 #include <DOM/FontSubstitutionInfo.h>
 #include <DOM/IFontsManager.h>
@@ -95,25 +99,26 @@ for (auto&& entry : sortedPreflightEntries)
 presentation->Dispose();
 ```
 
-Az [IFontsManager](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ifontsmanager/) interfész mindkét túlterhelést biztosítja. Válasszon egyet a renderelési művelet körének megfelelően:
+Az [IFontsManager](https://reference.aspose.com/slides/cpp/aspose.slides/ifontsmanager/) felület mindkét túlterhelést biztosítja. Válassza ki a megfelelőt a renderelési művelet hatókörének megfelelően:
 
-| Túlterhelés | Használja akkor, amikor |
+| Túlterhelés | Használat esetén |
 |---|---|
-| [GetSubstitutions](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ifontsmanager/getsubstitutions/) argumentumok nélkül | Az egész bemutatóhoz szükséges helyettesítésekre van szükség. |
-| [GetSubstitutions](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ifontsmanager/getsubstitutions/) `System::ArrayPtr<int32_t> slides` argumentummal | Kiválasztott tartomány, inkrementális ellenőrzés vagy részleges export esetén szükséges helyettesítésekre van szükség. |
+| [GetSubstitutions](https://reference.aspose.com/slides/cpp/aspose.slides/ifontsmanager/getsubstitutions/) argumentumok nélkül | Ha a teljes prezentációhoz szükséges helyettesítések. |
+| [GetSubstitutions](https://reference.aspose.com/slides/cpp/aspose.slides/ifontsmanager/getsubstitutions/) `System::ArrayPtr<int32_t> slides` argumentummal | Ha egy kiválasztott tartományhoz, fokozatos ellenőrzéshez vagy részleges exportáláshoz szükséges helyettesítések. |
 
 ## **Betűtípus helyettesítési szabályok beállítása**
 
-Az Aspose.Slides által egy forrás betűtípus hiányában használandó betűtípus megadásához:
+A forrásbetűtípus hiányában az Aspose.Slides által használandó betűtípus megadásához:
 
-1. Töltse be a bemutatót.  
-2. Hozzon létre betűtípusdefiníciókat a forrás és helyettesítő betűtípusokhoz.  
-3. Hozzon létre egy [FontSubstRule](https://reference.aspose.com/slides/hu/cpp/aspose.slides/fontsubstrule/) objektumot a [WhenInaccessible](https://reference.aspose.com/slides/hu/cpp/aspose.slides/fontsubstcondition/) feltétellel.  
-4. Adja hozzá a szabályt egy [FontSubstRuleCollection](https://reference.aspose.com/slides/hu/cpp/aspose.slides/fontsubstrulecollection/) gyűjteményhez.  
-5. Rendelje hozzá a gyűjteményt az [IFontsManager::set_FontSubstRuleList](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ifontsmanager/set_fontsubstrulelist/) metódus használatával.  
-6. Renderelje vagy konvertálja a bemutatót.
+1. Töltse be a prezentációt.
+2. Hozzon létre betűtípus‑definíciókat a forrás‑ és a helyettesítő betűtípusokhoz.
+3. Hozzon létre egy [FontSubstRule](https://reference.aspose.com/slides/cpp/aspose.slides/fontsubstrule/) objektumot a [WhenInaccessible](https://reference.aspose.com/slides/cpp/aspose.slides/fontsubstcondition/) feltétellel.
+4. Adja hozzá a szabályt egy [FontSubstRuleCollection](https://reference.aspose.com/slides/cpp/aspose.slides/fontsubstrulecollection/) példányhoz.
+5. Rendelje hozzá a gyűjteményt az [IFontsManager::set_FontSubstRuleList](https://reference.aspose.com/slides/cpp/aspose.slides/ifontsmanager/set_fontsubstrulelist/) metódus használatával.
+6. Renderelje vagy konvertálja a prezentációt.
 
-Az alábbi C++ példa a `SomeRareFont` helyett `Arial`-t használ, ha a `SomeRareFont` nem elérhető, majd rendereli az első diát az eredmény ellenőrzéséhez. A helyettesítő betűtípusnak elérhetőnek kell lennie az Aspose.Slides számára.
+A következő C++ példa a `Arial`‑t helyettesíti a `SomeRareFont`‑nal, ha az utóbbi nem áll rendelkezésre, majd rendereli az első diát a végeredmény ellenőrzéséhez. A helyettesítő betűtípusnak elérhetőnek kell lennie az Aspose.Slides számára.
+
 ```cpp
 #include <DOM/FontSubstCondition.h>
 #include <DOM/Fonts/FontData.h>
@@ -145,41 +150,46 @@ image->Dispose();
 presentation->Dispose();
 ```
 
-{{% alert color="info" title="Megjegyzés" %}}
-Az egész bemutatóban használt betűtípusok feltétel nélküli módosításához tekintse meg a [Font Replacement](/slides/hu/cpp/font-replacement/) oldalt.
+{{% alert color="info" title="Note" %}}
+Az egész prezentációban alkalmazott betűtípusok feltétel nélküli módosításához lásd a [Font Replacement](/slides/hu/cpp/font-replacement/) szakaszt.
 {{% /alert %}}
 
-## **Korlátozások a matematikai egyenlet betűtípusoknál**
+## **Korlátozások a matematikai egyenlet‑betűtípusokra**
 
-A betűtípus helyettesítési szabályok a renderelés és konvertálás során használt szabványos betűtípus kiválasztási folyamat részei. Reguláris szövegnél akkor működnek, ha az Aspose.Slides egy nem elérhető betűtípust a szabály által megadott elérhető betűtípussal helyettesít.
+A betűtípus helyettesítési szabályok a szabványos betűtípus‑kiválasztási folyamat részei, amely a renderelés és a konvertálás során használatos. Rendszeres szövegre működnek, amikor az Aspose.Slides egy nem elérhető betűtípust a szabályban megadott elérhető betűtípussal helyettesíthet.
 
-Az Office Math egyenleteknek további követelményük van. Ha egy egyenlet **Cambria Math** betűtípust használ, az Aspose.Slidesnek pontosan ezt a betűtípust szüksége lehet az egyenlet elrendezésének kiszámításához és rendereléséhez. Olyan szabály, amely egy másik matematikai betűtípust, például **STIX Two Math**-ot helyettesít, nem tudja helyettesíteni a **Cambria Math**-ot ebben a célban, és a renderelés továbbra is azt jelezheti, hogy **Cambria Math** szükséges.
+Az Office Math egyenleteknek további követelményük van. Ha egy egyenlet **Cambria Math**‑ot használ, az Aspose.Slides pontosan ezt a betűtípust igényelheti az egyenlet elrendezésének kiszámításához és rendereléséhez. Egy másik matematikai betűtípust (például **STIX Two Math**) helyettesítő szabály nem cserélheti le a **Cambria Math**‑ot, és a renderelés továbbra is azt jelezheti, hogy a **Cambria Math** szükséges.
 
-Az ilyen bemutató rendereléséhez vagy konvertálásához tegye elérhetővé a **Cambria Math** betűtípust az Aspose.Slides számára. Telepítse a rendszerbe, vagy töltse be [külső betűtípusként](/slides/hu/cpp/custom-font/).
+Az ilyen prezentáció rendereléséhez vagy konvertálásához tegye elérhetővé a **Cambria Math**‑ot az Aspose.Slides számára. Telepítse a rendszerbe, vagy töltse be egy [külső betűtípusként](/slides/hu/cpp/custom-font/).
 
-Ez a korlátozás az egyenlet elrendezésére vonatkozik. A fent leírt helyettesítési szabályok továbbra is érvényesek a bemutató szokásos szövegére.
+Ez a korlátozás az egyenlet‑elrendezésre vonatkozik. A fent leírt helyettesítési szabályok továbbra is érvényesek a prezentáció szokásos szövegeire.
 
 ## **GYIK**
 
-**Mi a különbség a betűtípus csere és a betűtíp
+**Mi a különbség a betűtípus‑cserélés és a betűtípus‑helyettesítés között?**
 
-us helyettesítés között?**  
-[Font replacement](/slides/hu/cpp/font-replacement/) szándékosan megváltoztat egy betűtípust egy másikra a teljes bemutató során. A betűtípus helyettesítés egy betűtípust választ a renderelt kimenethez, amikor a konfigurált feltétel teljesül, például ha az eredeti betűtípus nem érhető el.
+A [Font replacement](/slides/hu/cpp/font-replacement/) szándékosan megváltoztat egy betűtípust egy másikra a teljes prezentáció során. A betűtípus‑helyettesítés a renderelt kimenethez választ betűtípust, ha a konfigurált feltétel teljesül, például ha az eredeti betűtípus nem érhető el.
 
-**Mikor alkalmazzák a helyettesítési szabályokat?**  
-A szabályok részt vesznek a [betűtípus kiválasztási sorozat](/slides/hu/cpp/font-selection-sequence/) során a renderelés és konvertálás alatt. A `WhenInaccessible` esetén a szabály csak akkor használatos, ha az Aspose.Slides nem tudja elérni a forrás betűtípust.
+**Mikor alkalmazzák a helyettesítési szabályokat?**
 
-**Mi történik, ha egy betűtípus hiányzik és nincs beállítva helyettesítési szabály?**  
-Az Aspose.Slides a legközelebbi elérhető betűtípust választja a betűtípus kiválasztási folyamata szerint. Az eredmény a futási környezetben elérhető betűtípusoktól függ.
+A szabályok részt vesznek a [font selection sequence](/slides/hu/cpp/font-selection-sequence/) folyamatában renderelés és konvertálás közben. A `WhenInaccessible` esetén a szabály csak akkor használatos, ha az Aspose.Slides nem tudja elérni a forrás‑betűtípust.
 
-**Betölthetek külső betűtípusokat a helyettesítés elkerülése érdekében?**  
-Igen. [Betöltheti a külső betűtípusokat](/slides/hu/cpp/custom-font/), hogy az Aspose.Slides a renderelés és konvertálás során használhassa őket.
+**Mi történik, ha egy betűtípus hiányzik, és nincs konfigurálva helyettesítési szabály?**
 
-**Terjeszti-e az Aspose a betűtípusokat a könyvtárral együtt?**  
-Nem. Ön felelős a betűtípusok biztosításáért és a licencfeltételek betartásáért.
+Az Aspose.Slides a legközelebbi elérhető betűtípust választja a betűtípus‑kiválasztási folyamata szerint. Az eredmény a futásidő környezetben elérhető betűtípusoktól függ.
 
-**Eltérhetnek-e a helyettesítési eredmények Windows, Linux és macOS között?**  
-Igen. A telepített betűtípusok és a betűtípus keresési helyek operációs rendszerenként eltérnek, így egy gépen elérhető betűtípus egy másikon helyettesítést igényelhet.
+**Betölthetek külső betűtípusokat a helyettesítés elkerülése érdekében?**
 
-**Hogyan tehetem a betűtípus választást konzisztenssé kötegelt konverziókban?**  
-Használja ugyanazokat a betűtípus fájlokat és verziókat minden gépen vagy konténeren, [töltse be a szükséges külső betűtípusokat](/slides/hu/cpp/custom-font/), és [ágyazza be a betűtípusokat](/slides/hu/cpp/embedded-font/) ahol a licenc engedélyezi. Emellett meghívhatja az [IFontsManager::GetSubstitutions](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ifontsmanager/getsubstitutions/) metódust exportálás előtt, hogy azonosítsa a váratlan helyettesítéseket.
+Igen. [Load external fonts](/slides/hu/cpp/custom-font/) segítségével az Aspose.Slides használhatja őket renderelés és konvertálás során.
+
+**Az Aspose terjeszti a betűtípusokat a könyvtárral együtt?**
+
+Nem. A betűtípusok biztosításáért és a licencfeltételek betartásáért Ön felel.
+
+**A helyettesítési eredmények eltérhetnek Windows, Linux és macOS között?**
+
+Igen. A telepített betűtípusok és a betűtípus‑keresési helyek operációs rendszer szerint változnak, ezért egy gépen elérhető betűtípus másik gépen helyettesítést igényelhet.
+
+**Hogyan tehetem a betűtípus‑kiválasztást konzisztenssé kötegelt konvertálásoknál?**
+
+Használjon azonos betűtárgy‑fájlokat és verziókat minden gépen vagy konténerben, [load required external fonts](/slides/hu/cpp/custom-font/), és [embed fonts](/slides/hu/cpp/embedded-font/) amikor a licenc megengedi. A [IFontsManager::GetSubstitutions](https://reference.aspose.com/slides/cpp/aspose.slides/ifontsmanager/getsubstitutions/) meghívásával exportálás előtt azonosíthatja a váratlan helyettesítéseket.

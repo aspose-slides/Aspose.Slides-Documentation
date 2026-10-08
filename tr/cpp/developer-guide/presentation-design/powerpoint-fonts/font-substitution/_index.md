@@ -1,5 +1,5 @@
 ---
-title: C++ Sunumlarında Yazı Tipi İkamesi Yapılandırma
+title: C++ Sunumlarında Yazı Tipi İkamesini Yapılandırma
 linktitle: Yazı Tipi İkamesi
 type: docs
 weight: 70
@@ -8,7 +8,7 @@ keywords:
 - yazı tipi
 - ikame yazı tipi
 - yazı tipi ikamesi
-- yazı tipi değiştirme
+- yazı tipini değiştirme
 - yazı tipi değiştirme
 - ikame kuralı
 - değiştirme kuralı
@@ -17,19 +17,21 @@ keywords:
 - sunum
 - C++
 - Aspose.Slides
-description: "PowerPoint ve OpenDocument sunumlarını işleme veya dönüştürme sırasında C++ için Aspose.Slides'te yazı tipi ikame kurallarını yapılandırın ve ikame edilen yazı tiplerini inceleyin."
+description: "PowerPoint ve OpenDocument sunumlarını render ederken veya dönüştürürken, C++ için Aspose.Slides içinde yazı tipi ikame kurallarını yapılandırın ve ikame edilen yazı tiplerini inceleyin."
 ---
 ## **Genel Bakış**
 
-Yazı tipi ikamesi, Aspose.Slides'in bir sunum işlenirken veya dönüştürülürken erişilemeyen bir yazı tipi yerine kullanılabilir bir yazı tipini kullanmasını sağlar. İkame, işlenen çıktıyı etkiler; sunum içeriğine atanmış olan yazı tipini değiştirmez.
+Yazı tipi ikamesi, Aspose.Slides'ın bir sunum render edilip dönüştürülürken erişilemeyen bir yazı tipinin yerine mevcut bir yazı tipini kullanmasını sağlar. İkame, oluşturulan çıktıyı etkiler; sunum içeriğine atanmış yazı tipini değiştirmez.
 
-Belirli bir yazı tipi kullanılamadığında hangi yazı tipinin kullanılacağını tanımlayabilir ve Aspose.Slides’in işleme sırasında yapacağı ikameleri inceleyebilirsiniz. Bu, farklı yüklü yazı tiplerine sahip ortamlar arasında çıktının tutarlı kalmasına yardımcı olur.
+Belirli bir yazı tipi kullanılamadığında hangi yazı tipinin kullanılacağını tanımlayabilir ve Aspose.Slides'ın render sırasında yapacağı ikameleri inceleyebilirsiniz. Bu, farklı yüklü yazı tiplerine sahip ortamlarda çıktının tutarlı kalmasına yardımcı olur.
 
-## **Yazı Tipi İkame Listeleme**
+Bir yazı tipi mevcut ancak özel bir kalın (bold) yüzeye sahip değilse, [Özel Kalın Yazı Tipi Olmayan Yazı Tiplerini Ele Al](/slides/tr/cpp/convert-powerpoint-to-pdf/#handle-fonts-without-a-dedicated-bold-typeface) bölümüne bakın. Bu bölüm, PDF dışa aktarımı sırasında etkilenen metnin rasterleştirilmesi ve metin seçimi, arama ve ölçeklendirme üzerindeki sonuçlarını açıklar.
 
-Sunum işlenirken hangi yazı tiplerinin ikame edileceğini belirlemek için [IFontsManager::GetSubstitutions](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ifontsmanager/getsubstitutions/) yöntemini kullanın. Yöntem, özgün ve ikame edilen yazı tipi adlarını belirten [FontSubstitutionInfo](https://reference.aspose.com/slides/tr/cpp/aspose.slides/fontsubstitutioninfo/) nesnelerini döndürür.
+## **Yazı Tipi İkame Listesini Al**
 
-Aşağıdaki C++ örneği bir sunum için tüm yazı tipi ikamelerini listeler:
+[IFontsManager::GetSubstitutions](https://reference.aspose.com/slides/cpp/aspose.slides/ifontsmanager/getsubstitutions/) yöntemi, sunum render edildiğinde hangi yazı tiplerinin ikame edileceğini belirlemenizi sağlar. Yöntem, orijinal ve ikame yazı tipi adlarını tanımlayan [FontSubstitutionInfo](https://reference.aspose.com/slides/cpp/aspose.slides/fontsubstitutioninfo/) nesnelerini döndürür.
+
+Aşağıdaki C++ örneği, bir sunum için tüm yazı tipi ikamelerini listeler:
 
 ```cpp
 #include <DOM/FontSubstitutionInfo.h>
@@ -50,15 +52,15 @@ for (auto&& substitution : presentation->get_FontsManager()->GetSubstitutions())
 presentation->Dispose();
 ```
 
-## **Seçili Slaytlar İçin Yazı Tipi İkame Listeleme**
+## **Seçili Slaytlar İçin Yazı Tipi İkame Listesini Al**
 
-Belirli slaytların işlenmesi için gereken ikameleri yalnızca incelemek istediğinizde, `System::ArrayPtr<int32_t> slides` parametresiyle [IFontsManager::GetSubstitutions](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ifontsmanager/getsubstitutions/) aşırı yüklemesini kullanın. Bu, bir sunumun yalnız bir bölümünü işlerken, büyük bir sunumu kademeli olarak kontrol ederken, erişilemeyen yazı tiplerine bağlı slaytları bulurken, bir sunucu ya da konteyner için minimal bir yazı tipi paketi hazırlarken veya ilgili olmayan slaytları işlemeden işleme farklılıklarını teşhis ederken kullanışlıdır.
+[IFontsManager::GetSubstitutions](https://reference.aspose.com/slides/cpp/aspose.slides/ifontsmanager/getsubstitutions/) metodunu `System::ArrayPtr<int32_t> slides` bağımsız değişkeniyle birlikte kullanarak yalnızca belirli slaytların render edilmesi için gereken ikameleri inceleyebilirsiniz. Bu, bir sunumun yalnızca bir bölümünü render ya da dışa aktarırken, büyük bir sunumu artımlı olarak kontrol ederken, kullanılamayan yazı tiplerine bağımlı slaytları bulurken, bir sunucu ya da konteyner için minimal bir yazı tipi paketi hazırlarken ya da ilgisiz slaytları işlemeye gerek kalmadan render farklılıklarını teşhis ederken faydalıdır.
 
-`slides` dizisi bir‑tabanlı slayt indeksleri içerir: `1` ilk slaytı tanımlar. Buna karşılık, [Presentation::get_Slide](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/get_slide/) yöntemi sıfır‑tabanlı bir indeks kullanır; aynı slayta `presentation->get_Slide(0)` ile ulaşılır. Dizi oluştururken bu farkı göz önünde bulundurarak bir‑off‑by‑one hatası yapmamaya dikkat edin.
+`slides` dizisi, bir‑bazlı slayt indeksleri içerir: `1` ilk slaytı tanımlar. Buna karşılık, [Presentation::get_Slide](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_slide/) yöntemi sıfır‑bazlı bir indeks kullanır; aynı slayt `presentation->get_Slide(0)` ile erişilir. Dizi oluştururken bu farkı akılda tutarak bir‑off‑by‑one hatasından kaçının.
 
-Aşırı yüklemeyi, [Presentation::get_FontsManager](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/get_fontsmanager/) yöntemi üzerinden çağırın. Yalnızca seçili slaytların işlenmesi sırasında belirlenen ikameleri döndürür. Her sonuç, özgün ve ikame edilen yazı tipi adlarını içeren bir [FontSubstitutionInfo](https://reference.aspose.com/slides/tr/cpp/aspose.slides/fontsubstitutioninfo/) nesnesidir. Sonuç, geçerli yazı tipi ortamını, yapılandırılmış geri dönüş kurallarını, bir [IFontSubstRuleCollection](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ifontsubstrulecollection/) içinde depolanan ikame kurallarını ve [dışarıdan yüklenen yazı tiplerini](/slides/tr/cpp/custom-font/) yansıtır.
+Bu aşırı yüklemeyi, [Presentation::get_FontsManager](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_fontsmanager/) yöntemi üzerinden çağırın. Yöntem, yalnızca seçili slaytlar render edilirken belirlenen ikameleri döndürür. Her sonuç, orijinal ve ikame yazı tipi adlarını içeren bir [FontSubstitutionInfo](https://reference.aspose.com/slides/cpp/aspose.slides/fontsubstitutioninfo/) nesnesidir. Sonuç, mevcut yazı tipi ortamını, yapılandırılmış yedekleme kurallarını, bir [IFontSubstRuleCollection](https://reference.aspose.com/slides/cpp/aspose.slides/ifontsubstrulecollection/) içinde depolanan ikame kurallarını ve [harici yüklenen yazı tiplerini](/slides/tr/cpp/custom-font/) yansıtır.
 
-Aynı ikame birden fazla seçili slayt tarafından istenebilir. Bir yazı tipi envanteri ya da ön‑uç raporu oluştururken sonuçları tekilleştirin. Aşağıdaki örnek, döndürülen her ikameyi raporlar ve ardından benzersiz yazı tipi eşlemelerinin sıralı bir listesini oluşturur:
+Aynı ikame birden fazla seçili slayt tarafından istenebilir. Bir yazı tipi envanteri veya ön uç raporu oluştururken sonuçları tekilleştirin. Aşağıdaki örnek, döndürülen her ikameyi raporlar ve ardından benzersiz yazı tipi eşlemelerinin sıralı bir listesini oluşturur:
 
 ```cpp
 #include <DOM/FontSubstitutionInfo.h>
@@ -97,25 +99,25 @@ for (auto&& entry : sortedPreflightEntries)
 presentation->Dispose();
 ```
 
-[IFontsManager](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ifontsmanager/) arabirimi her iki aşırı yüklemeyi de sağlar. İşleme kapsamına göre birini seçin:
+[IFontsManager](https://reference.aspose.com/slides/cpp/aspose.slides/ifontsmanager/) arabirimi her iki aşırı yüklemeyi de sağlar. Render işleminin kapsamına göre birini seçin:
 
 | Aşırı Yükleme | Ne zaman kullanılır |
 |---|---|
-| [GetSubstitutions](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ifontsmanager/getsubstitutions/) parametresiz | Tüm sunum için ikameler gerektiyse. |
-| [GetSubstitutions](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ifontsmanager/getsubstitutions/) `System::ArrayPtr<int32_t> slides` ile | Seçili bir aralık, kademeli kontrol ya da kısmi dışa aktarma gerektiğinde. |
+| [GetSubstitutions](https://reference.aspose.com/slides/cpp/aspose.slides/ifontsmanager/getsubstitutions/) bağımsız değişken olmadan | Tüm sunum için ikameler gerekirken. |
+| [GetSubstitutions](https://reference.aspose.com/slides/cpp/aspose.slides/ifontsmanager/getsubstitutions/) `System::ArrayPtr<int32_t> slides` ile | Seçili bir aralık, artımlı kontrol veya kısmi dışa aktarım gerektiğinde. |
 
-## **Yazı Tipi İkame Kurallarını Belirleme**
+## **Yazı Tipi İkame Kurallarını Ayarla**
 
-Kaynak bir yazı tipi kullanılamadığında Aspose.Slides’in hangi yazı tipini kullanması gerektiğini belirtmek için:
+Kaynak bir yazı tipi kullanılamadığında Aspose.Slides'ın hangi yazı tipini kullanacağını belirtmek için:
 
-1. Sunumu yükleyin.  
-2. Kaynak ve ikame yazı tipleri için yazı tipi tanımları oluşturun.  
-3. [WhenInaccessible](https://reference.aspose.com/slides/tr/cpp/aspose.slides/fontsubstcondition/) koşuluyla bir [FontSubstRule](https://reference.aspose.com/slides/tr/cpp/aspose.slides/fontsubstrule/) oluşturun.  
-4. Kuralı bir [FontSubstRuleCollection](https://reference.aspose.com/slides/tr/cpp/aspose.slides/fontsubstrulecollection/) içine ekleyin.  
-5. Koleksiyonu, [IFontsManager::set_FontSubstRuleList](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ifontsmanager/set_fontsubstrulelist/) yöntemiyle atayın.  
-6. Sunumu işleyin veya dönüştürün.
+1. Sunumu yükleyin.
+2. Kaynak ve ikame yazı tipleri için tanımlar oluşturun.
+3. [WhenInaccessible](https://reference.aspose.com/slides/cpp/aspose.slides/fontsubstcondition/) koşuluyla bir [FontSubstRule](https://reference.aspose.com/slides/cpp/aspose.slides/fontsubstrule/) oluşturun.
+4. Kuralı bir [FontSubstRuleCollection](https://reference.aspose.com/slides/cpp/aspose.slides/fontsubstrulecollection/) içine ekleyin.
+5. Koleksiyonu, [IFontsManager::set_FontSubstRuleList](https://reference.aspose.com/slides/cpp/aspose.slides/ifontsmanager/set_fontsubstrulelist/) yöntemiyle atayın.
+6. Sunumu render edin veya dönüştürün.
 
-Aşağıdaki C++ örneği, `SomeRareFont` kullanılamadığında `Arial` ile ikame eder ve ardından ilk slaytı işleyerek sonucu doğrular. İkame edilen yazı tipinin Aspose.Slides tarafından erişilebilir olması gerekir.
+Aşağıdaki C++ örneği, `SomeRareFont` kullanılamadığında `Arial` yazı tipini ikame eder ve ardından sonucu doğrulamak için ilk slaytı render eder. İkame yazı tipi Aspose.Slides tarafından erişilebilir olmalıdır.
 
 ```cpp
 #include <DOM/FontSubstCondition.h>
@@ -149,38 +151,45 @@ presentation->Dispose();
 ```
 
 {{% alert color="info" title="Note" %}}
-Tüm sunum boyunca kullanılan yazı tiplerinde koşulsuz bir değişiklik yapmak için [Yazı Tipi Değiştirme](/slides/tr/cpp/font-replacement/) bölümüne bakın.
+Sunum boyunca kullanılan yazı tiplerinde koşulsuz bir değişiklik için [Yazı Tipi Değiştirme](/slides/tr/cpp/font-replacement/) bölümüne bakın.
 {{% /alert %}}
 
-## **Matematik Denklemleri Yazı Tipleri İçin Kısıtlamalar**
+## **Matematik Denklemi Yazı Tipleri İçin Sınırlamalar**
 
-Yazı tipi ikame kuralları, işleme ve dönüştürme sırasında kullanılan standart yazı tipi seçme sürecinin bir parçasıdır. Aspose.Slides, bir kuralda belirtilen kullanılabilir bir yazı tipiyle erişilemeyen bir yazı tipini değiştirirken normal metin için çalışır.
+Yazı tipi ikame kuralları, render ve dönüşüm sırasında kullanılan standart yazı tipi seçim sürecinin bir parçasıdır. Aspose.Slides bir erişilemeyen yazı tipini kuralda belirtilen mevcut bir yazı tipiyle değiştirebildiğinde normal metin için çalışırlar.
 
-Office Math denklemlerinin ek bir gereksinimi vardır. Bir denklem **Cambria Math** kullanıyorsa, Aspose.Slides, denklem düzenini hesaplamak ve işlemek için o tam yazı tipine ihtiyaç duyabilir. **STIX Two Math** gibi başka bir matematik yazı tipine ikame eden bir kural, **Cambria Math**'i bu amaçla değiştiremez ve işleme hâlâ **Cambria Math**'in gerekli olduğunu bildirebilir.
+Office Math denklemlerinin ek bir gereksinimi vardır. Bir denklem **Cambria Math** kullanıyorsa, Aspose.Slides bu denklemin yerleşimini hesaplamak ve render etmek için tam olarak bu yazı tipine ihtiyaç duyabilir. **STIX Two Math** gibi başka bir matematik yazı tipine ikame eden bir kural, bu amaç için **Cambria Math**'i değiştiremez ve render hâlâ **Cambria Math**'in gerekli olduğunu bildirebilir.
 
-Böyle bir sunumu işlemek veya dönüştürmek için **Cambria Math**'i Aspose.Slides’e sunun. İşletim sistemine kurun ya da bir [dış yazı tipi](/slides/tr/cpp/custom-font/) olarak yükleyin.
+Böyle bir sunumu render ya da dönüştürmek için **Cambria Math**'i Aspose.Slides'a erişilebilir hâle getirin. İşletim sistemine kurun veya bir [harici yazı tipi](/slides/tr/cpp/custom-font/) olarak yükleyin.
 
-Bu sınırlama yalnızca denklem düzeni için geçerlidir. Yukarıda açıklanan ikame kuralları hâlâ normal sunum metni için uygulanır.
+Bu sınırlama sadece denklem yerleşimini kapsar. Yukarıda açıklanan ikame kuralları normal sunum metni için hâlâ geçerlidir.
 
 ## **SSS**
 
-**Yazı tipi değiştirme ile ikame arasındaki fark nedir?**  
-[Font replacement](/slides/tr/cpp/font-replacement/) tüm sunum boyunca bir yazı tipini kasıtlı olarak diğerine değiştirir. Yazı tipi ikamesi, özgün yazı tipi kullanılamadığında gibi yapılandırılmış bir koşul gerçekleştiğinde işlenen çıktının kullandığı bir yazı tipini seçer.
+**Yazı tipi değiştirme ile ikame arasındaki fark nedir?**
 
-**İkame kuralları ne zaman uygulanır?**  
-Kurallar, işleme ve dönüştürme sırasında [font selection sequence](/slides/tr/cpp/font-selection-sequence/) içinde yer alır. `WhenInaccessible` ile bir kural yalnızca Aspose.Slides kaynak yazı tipine erişemediğinde kullanılır.
+[Font replacement](/slides/tr/cpp/font-replacement/) sunum boyunca bir yazı tipini diğerine kasıtlı olarak değiştirir. Yazı tipi ikamesi, yapılandırılan koşul sağlandığında (örneğin, orijinal yazı tipi kullanılamadığında) render edilen çıktı için bir yazı tipi seçer.
 
-**Bir yazı tipi eksik olduğunda ve ikame kuralı yapılandırılmadığında ne olur?**  
-Aspose.Slides, font seçim sürecine göre en yakın mevcut yazı tipini seçer. Sonuç, çalışma zaman ortamında bulunan yazı tiplerine bağlıdır.
+**İkame kuralları ne zaman uygulanır?**
 
-**İkameyi önlemek için dış yazı tipleri yükleyebilir miyim?**  
-Evet. [Load external fonts](/slides/tr/cpp/custom-font/) sayesinde Aspose.Slides, işleme ve dönüştürme sırasında bunları kullanabilir.
+Kurallar, render ve dönüşüm sırasında [font selection sequence](/slides/tr/cpp/font-selection-sequence/) içinde yer alır. `WhenInaccessible` ile bir kural, Aspose.Slides kaynak yazı tipine erişemediğinde kullanılır.
 
-**Aspose, kütüphane ile birlikte yazı tiplerini dağıtıyor mu?**  
-Hayır. Yazı tiplerini sağlayan ve lisanslarına uyan sizsiniz.
+**Bir yazı tipi eksik olduğunda ve ikame kuralı yapılandırılmadığında ne olur?**
 
-**İkame sonuçları Windows, Linux ve macOS arasında farklılık gösterebilir mi?**  
-Evet. Yüklenen yazı tipleri ve arama konumları işletim sistemine göre değişir; bir makinede bulunan bir yazı tipi başka birinde ikame gerektirebilir.
+Aspose.Slides, font seçme sürecine göre en yakın mevcut yazı tipini seçer. Sonuç, çalışma zaman ortamında mevcut olan yazı tiplerine bağlıdır.
 
-**Toplu dönüştürmelerde yazı tipi seçiminde tutarlılığı nasıl sağlayabilirim?**  
-Tüm makine veya konteynerlerde aynı yazı tipi dosyalarını ve sürümlerini kullanın, [gerekli dış yazı tiplerini](/slides/tr/cpp/custom-font/) yükleyin ve lisans izin veriyorsa [yazı tiplerini gömün](/slides/tr/cpp/embedded-font/). Ayrıca, dışa aktarmadan önce beklenmeyen ikameleri tespit etmek için [IFontsManager::GetSubstitutions](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ifontsmanager/getsubstitutions/) yöntemini çağırabilirsiniz.
+**İkameyi önlemek için harici yazı tipleri yükleyebilir miyim?**
+
+Evet. Aspose.Slides'ın render ve dönüşüm sırasında kullanabilmesi için [harici yazı tipleri yükleyebilirsiniz](/slides/tr/cpp/custom-font/).
+
+**Aspose kütüphane ile birlikte yazı tipleri dağıtıyor mu?**
+
+Hayır. Yazı tiplerini siz temin etmek ve lisans şartlarına uymakla sorumlusunuz.
+
+**İkame sonuçları Windows, Linux ve macOS arasında farklılık gösterebilir mi?**
+
+Evet. Yüklü yazı tipleri ve arama konumları işletim sistemine göre değişir; bir makinede mevcut olan bir yazı tipi başka bir makinede ikame gerektirebilir.
+
+**Toplu dönüşümlerde font seçimini nasıl tutarlı hâle getirebilirim?**
+
+Her makine ya da konteynerde aynı yazı tipi dosyalarını ve sürümlerini kullanın, [gerekli harici yazı tiplerini yükleyin](/slides/tr/cpp/custom-font/) ve lisans izin veriyorsa [yazı tiplerini gömün](/slides/tr/cpp/embedded-font/). Ayrıca dışa aktarmadan önce beklenmeyen ikameleri belirlemek için [IFontsManager::GetSubstitutions](https://reference.aspose.com/slides/cpp/aspose.slides/ifontsmanager/getsubstitutions/) çağırabilirsiniz.

@@ -1,6 +1,6 @@
 ---
 title: تكوين استبدال الخطوط في العروض التقديمية باستخدام PHP
-linktitle: استبدال الخطوط
+linktitle: استبدال الخط
 type: docs
 weight: 70
 url: /ar/php-java/font-substitution/
@@ -17,19 +17,21 @@ keywords:
 - عرض تقديمي
 - PHP
 - Aspose.Slides
-description: "تكوين قواعد استبدال الخطوط وفحص الخطوط المستبدلة في Aspose.Slides لـ PHP عبر Java عند عرض أو تحويل عروض PowerPoint و OpenDocument."
+description: "تكوين قواعد استبدال الخطوط وفحص الخطوط المستبدلة في Aspose.Slides للـ PHP عبر Java عند عرض أو تحويل عروض PowerPoint وOpenDocument."
 ---
 ## **نظرة عامة**
 
-استبدال الخطوط يسمح لـ Aspose.Slides باستخدام خط متاح بدلاً من الخط الذي لا يمكن الوصول إليه عند عرض أو تحويل العرض التقديمي. يؤثر الاستبدال على المخرجات المعروضة؛ ولا يغير الخط المعين لمحتوى العرض التقديمي.
+يتيح استبدال الخطوط ل Aspose.Slides استخدام خط متاح بدلاً من خط لا يمكن الوصول إليه عند عرض أو تحويل العرض التقديمي. يؤثر الاستبدال على الإخراج المعروض؛ لكنه لا يغير الخط المعين لمحتوى العرض التقديمي.
 
-يمكنك تعريف الخط الذي سيُستخدم عندما يكون خط معين غير متوفر، ويمكنك فحص الاستبدالات التي سيجريها Aspose.Slides أثناء العرض. يساعد ذلك في الحفاظ على اتساق المخرجات عبر بيئات مختلفة تحتوي على خطوط مثبتة مختلفة.
+يمكنك تحديد الخط الذي سيُستخدم عندما يكون خط معين غير متوفر، ويمكنك فحص الاستبدالات التي سيجريها Aspose.Slides أثناء العرض. يساعد ذلك في الحفاظ على اتساق الإخراج عبر بيئات تختلف في الخطوط المثبتة.
 
-## **الحصول على استبدالات الخطوط**
+إذا كان الخط متوفرًا لكن لا يملك قالبًا عريضًا مخصصًا، راجع [معالجة الخطوط بدون قالب عريض مخصص](/slides/ar/php-java/convert-powerpoint-to-pdf/#handle-fonts-without-a-dedicated-bold-typeface). يوضح ذلك القسم كيفية تحويل النص المتأثر إلى صورة أثناء تصدير PDF والعواقب على اختيار النص والبحث والتكبير.
 
-استخدم طريقة [FontsManager::getSubstitutions](https://reference.aspose.com/slides/ar/php-java/aspose.slides/fontsmanager/getsubstitutions/) لتحديد الخطوط التي ستُستبدل عند عرض العرض التقديمي. تُعيد الطريقة كائنات [FontSubstitutionInfo](https://reference.aspose.com/slides/ar/php-java/aspose.slides/fontsubstitutioninfo/) التي تحدد أسماء الخط الأصلي والمستبدل.
+## **الحصول على استبدالات الخط**
 
-المثال التالي بلغة PHP يسرد جميع استبدالات الخطوط لعرض تقديمي:
+استخدم طريقة [FontsManager::getSubstitutions](https://reference.aspose.com/slides/php-java/aspose.slides/fontsmanager/getsubstitutions/) لتحديد الخطوط التي سيتم استبدالها عند عرض العرض التقديمي. تُعيد الطريقة كائنات [FontSubstitutionInfo](https://reference.aspose.com/slides/php-java/aspose.slides/fontsubstitutioninfo/) التي تحدد أسماء الخط الأصلي والخط المستبدل.
+
+المثال التالي بلغة PHP يعرض جميع استبدالات الخطوط لعرض تقديمي:
 
 ```php
 use aspose\slides\Presentation;
@@ -52,15 +54,15 @@ try {
 }
 ```
 
-## **الحصول على استبدالات الخطوط للشرائح المحددة**
+## **الحصول على استبدالات الخط للشرائح المحددة**
 
-استخدم التحميل الزائد للطريقة [FontsManager::getSubstitutions](https://reference.aspose.com/slides/ar/php-java/aspose.slides/fontsmanager/getsubstitutions/) مع معلمة `int[] slides` لتفحص فقط الاستبدالات المطلوبة لعرض شرائح معينة. يكون ذلك مفيدًا عند عرض أو تصدير جزء من عرض تقديمي، أو فحص عرض تقديمي كبير بشكل تدريجي، أو تحديد الشرائح التي تعتمد على خطوط غير متوفرة، أو إعداد حزمة خطوط قليلة الحجم لخادم أو حاوية، أو تشخيص اختلافات العرض دون معالجة الشرائح غير المتعلقة.
+استخدم نسخة طريقة [FontsManager::getSubstitutions](https://reference.aspose.com/slides/php-java/aspose.slides/fontsmanager/getsubstitutions/) التي تستقبل معامل `int[] slides` لفحص الاستبدالات المطلوبة فقط لتصوير شرائح معينة. يكون هذا مفيدًا عندما تقوم بعرض أو تصدير جزء من عرض تقديمي، أو فحص عرض تقديمي كبير على دفعات، أو تحديد الشرائح التي تعتمد على خطوط غير متوفرة، أو إعداد حزمة خطوط مصغرة لخادم أو حاوية، أو تشخيص اختلافات العرض دون معالجة الشرائح غير ذات الصلة.
 
-مصفوفة `slides` تحتوي على فهارس شرائح تبدأ من الواحد: `1` يحدد الشريحة الأولى. بالمقابل، يستخدم المستدعي [Presentation::getSlides](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentation/#getSlides) فهرسة تبدأ من الصفر، لذا يتم الوصول إلى نفس الشريحة عبر `$presentation->getSlides()->get_Item(0)`. احتفظ بهذا الاختلاف في الاعتبار عند بناء المصفوفة لتجنب أخطاء الفهرسة.
+يحتوي مصفوفة `slides` على فهارس شرائح تبدأ من الواحد: `1` يحدد الشريحة الأولى. بالمقابل، يستخدم المستدعي [Presentation::getSlides](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/getslides/) فهارس تبدأ من الصفر، لذا يمكن الوصول إلى نفس الشريحة كـ `$presentation->getSlides()->get_Item(0)`. احرص على مراعاة هذا الاختلاف عند بناء المصفوفة لتجنب أخطاء الفهرسة.
 
-استدعِ التحميل الزائد عبر طريقة [Presentation::getFontsManager](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentation/#getFontsManager). تُعيد الطريقة فقط الاستبدالات التي تم تحديدها أثناء عرض الشرائح المحددة. كل نتيجة هي كائن [FontSubstitutionInfo](https://reference.aspose.com/slides/ar/php-java/aspose.slides/fontsubstitutioninfo/) يحتوي على أسماء الخط الأصلي والمستبدل. تعكس النتيجة بيئة الخط الحالية، وقواعد الاحتياطي المُكوَّنة، وقواعد الاستبدال المخزنة في [FontSubstRuleCollection](https://reference.aspose.com/slides/ar/php-java/aspose.slides/fontsubstrulecollection/)، و[الخطوط المحملة خارجيًا](/slides/ar/php-java/custom-font/).
+استدعِ النسخة عبر طريقة [Presentation::getFontsManager](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/getfontsmanager/). تُعيد فقط الاستبدالات التي تم تحديدها أثناء عرض الشرائح المحددة. كل نتيجة هي كائن [FontSubstitutionInfo](https://reference.aspose.com/slides/php-java/aspose.slides/fontsubstitutioninfo/) يحتوي على أسماء الخط الأصلي والخط المستبدل. تعكس النتيجة بيئة الخط الحالية، وقواعد الاحتياط المكوّنة، وقواعد الاستبدال المخزنة في [FontSubstRuleCollection](https://reference.aspose.com/slides/php-java/aspose.slides/fontsubstrulecollection/)، و[الخطوط المحملة خارجيًا](/slides/ar/php-java/custom-font/).
 
-قد يتطلب نفس الاستبدال أكثر من شريحة محددة. قم بإزالة التكرارات من النتائج عند إنشاء جرد للخطوط أو تقرير فحص مسبق. المثال التالي يُظهر كل استبدال تم إرجاعه ثم ينشئ قائمة مرتبة للترجمات الفريدة للخطوط:
+قد يتطلب نفس الاستبدال أكثر من شريحة محددة. قم بإزالة التكرارات من النتائج عند إنشاء جرد الخطوط أو تقرير الفحص المسبق. يعرض المثال التالي كل استبدال تم إرجاعه ثم ينشئ قائمة مرتبة لتعيينات الخطوط الفريدة:
 
 ```php
 use aspose\slides\Presentation;
@@ -103,23 +105,23 @@ try {
 }
 ```
 
-توفر فئة [FontsManager](https://reference.aspose.com/slides/ar/php-java/aspose.slides/fontsmanager/) كلا التحميلين الزائدين. اختر أحدهما وفقًا لنطاق عملية العرض:
+توفر فئة [FontsManager](https://reference.aspose.com/slides/php-java/aspose.slides/fontsmanager/) كلا النسختين. اختر واحدة وفقًا لنطاق عملية العرض:
 
-| التحميل الزائد | متى يُستخدم |
+| النسخة | متى تستخدمه |
 |---|---|
-| [getSubstitutions](https://reference.aspose.com/slides/ar/php-java/aspose.slides/fontsmanager/getsubstitutions/) بدون معلمات | تحتاج استبدالات للعرض التقديمي بأكمله. |
-| [getSubstitutions](https://reference.aspose.com/slides/ar/php-java/aspose.slides/fontsmanager/getsubstitutions/) مع `int[] slides` | تحتاج استبدالات لنطاق محدد، فحص تدريجي، أو تصدير جزئي. |
+| [getSubstitutions](https://reference.aspose.com/slides/php-java/aspose.slides/fontsmanager/getsubstitutions/) مع عدم وجود معاملات | تحتاج إلى استبدالات للعرض التقديمي بأكمله. |
+| [getSubstitutions](https://reference.aspose.com/slides/php-java/aspose.slides/fontsmanager/getsubstitutions/) مع `int[] slides` | تحتاج إلى استبدالات لنطاق محدد، أو فحص تدريجي، أو تصدير جزئي. |
 
-## **تعيين قواعد استبدال الخطوط**
+## **تحديد قواعد استبدال الخط**
 
-لتحديد الخط الذي يجب على Aspose.Slides استخدامه عندما يكون الخط المصدر غير متوفر:
+لتحديد الخط الذي يجب أن يستخدمه Aspose.Slides عندما يكون الخط المصدر غير متوفر:
 
-1. حمِّل العرض التقديمي.
-2. أنشئ تعريفات الخط للخط المصدر والبديل.
-3. أنشئ [FontSubstRule](https://reference.aspose.com/slides/ar/php-java/aspose.slides/fontsubstrule/) مع شرط [WhenInaccessible](https://reference.aspose.com/slides/ar/php-java/aspose.slides/fontsubstcondition/).
-4. أضف القاعدة إلى [FontSubstRuleCollection](https://reference.aspose.com/slides/ar/php-java/aspose.slides/fontsubstrulecollection/).
-5. عيّن المجموعة باستخدام طريقة [FontsManager::setFontSubstRuleList](https://reference.aspose.com/slides/ar/php-java/aspose.slides/fontsmanager/setfontsubstrulelist/).
-6. اعرض أو حوِّل العرض التقديمي.
+1. حمّل العرض التقديمي.  
+2. أنشئ تعريفات للخط المصدر والبديل.  
+3. أنشئ [FontSubstRule](https://reference.aspose.com/slides/php-java/aspose.slides/fontsubstrule/) باستخدام الشرط [WhenInaccessible](https://reference.aspose.com/slides/php-java/aspose.slides/fontsubstcondition/).  
+4. أضف القاعدة إلى [FontSubstRuleCollection](https://reference.aspose.com/slides/php-java/aspose.slides/fontsubstrulecollection/).  
+5. عيّن المجموعة باستخدام طريقة [FontsManager::setFontSubstRuleList](https://reference.aspose.com/slides/php-java/aspose.slides/fontsmanager/setfontsubstrulelist/).  
+6. اعرض أو حوّل العرض التقديمي.
 
 المثال التالي بلغة PHP يستبدل `Arial` بـ `SomeRareFont` عندما يكون `SomeRareFont` غير متوفر، ثم يعرض الشريحة الأولى للتحقق من النتيجة. يجب أن يكون الخط البديل متوفرًا لـ Aspose.Slides.
 
@@ -152,39 +154,39 @@ try {
 }
 ```
 
-{{% alert color="info" title="ملاحظة" %}}
-لتغيير غير مشروط للخطوط المستخدمة في جميع أنحاء العرض التقديمي، راجع [Font Replacement](/slides/ar/php-java/font-replacement/).
+{{% alert color="info" title="Note" %}}
+لإجراء تغيير غير مشروط على الخطوط المستخدمة عبر كامل العرض التقديمي، راجع [استبدال الخط](/slides/ar/php-java/font-replacement/).
 {{% /alert %}}
 
 ## **القيود على خطوط المعادلات الرياضية**
 
-قواعد استبدال الخطوط هي جزء من عملية اختيار الخط القياسية المستخدمة أثناء العرض والتحويل. تعمل للنص العادي عندما يمكن لـ Aspose.Slides استبدال خط غير متاح بالخط المتاح المحدد بواسطة قاعدة.
+قواعد استبدال الخطوف هي جزء من عملية اختيار الخط القياسية المستخدمة أثناء العرض والتحويل. تعمل مع النص العادي عندما يتمكن Aspose.Slides من استبدال خط غير متاح بالخط المتاح المحدد بواسطة قاعدة.
 
-للمعادلات في Office Math متطلبات إضافية. إذا استخدمت المعادلة **Cambria Math**، قد تحتاج Aspose.Slides إلى هذا الخط بالضبط لحساب وعرض تخطيط المعادلة. لا يمكن لقاعدة تستبدل بخط رياضي آخر، مثل **STIX Two Math**, استبدال **Cambria Math** لهذا الغرض، وقد يظل العرض يُشير إلى أن **Cambria Math** مطلوب.
+تحتاج معادلات Office Math إلى شرط إضافي. إذا استخدمت معادلة **Cambria Math**، قد تحتاج Aspose.Slides إلى هذا الخط بالضبط لحساب وعرض تخطيط المعادلة. لا يمكن لقاعدة تستبدل بخط رياضي آخر مثل **STIX Two Math** أن تحل محل **Cambria Math** لهذا الغرض، وقد لا يزال العرض يشير إلى أن **Cambria Math** مطلوب.
 
-للعرض أو تحويل مثل هذا العرض، اجعل **Cambria Math** متاحًا لـ Aspose.Slides. قم بتثبيته في نظام التشغيل أو حمّله ك[خط خارجي](/slides/ar/php-java/custom-font/).
+لعرض أو تحويل مثل هذا العرض التقديمي، احرص على توفر **Cambria Math** لـ Aspose.Slides. ثبّته في نظام التشغيل أو حمّله كـ [خط خارجي](/slides/ar/php-java/custom-font/).
 
-هذا القيد يقتصر على تخطيط المعادلات. لا تزال قواعد الاستبدال المذكورة أعلاه تنطبق على نص العرض التقديمي العادي.
+هذا القيد ينطبق على تخطيط المعادلات. لا تزال قواعد الاستبدال المذكورة أعلاه تنطبق على نص العرض التقديمي العادي.
 
-## **الأسئلة المتداولة**
+## **الأسئلة الشائعة**
 
-**ما الفرق بين استبدال الخط واستبداله؟**  
-[Font replacement](/slides/ar/php-java/font-replacement/) يغيّر خطًا إلى آخر عبر العرض التقديمي بأكمله بشكل متعمد. يستبدال الخط يختار خطًا للمخرجات المعروضة عندما يتحقق الشرط المحدد، مثل عدم توفر الخط الأصلي.
+**ما الفرق بين استبدال الخط واستبدال الخطوط؟**  
+يقوم [استبدال الخط](/slides/ar/php-java/font-replacement/) بتغيير مقصود لخط واحد إلى آخر عبر كامل العرض التقديمي. أما استبدال الخطوف فيختار خطًا للإخراج المعروض عندما يتحقق الشرط المكوّن، مثل عدم توفر الخط الأصلي.
 
-**متى تُطبق قواعد الاستبدال؟**  
-تشارك القواعد في [font selection sequence](/slides/ar/php-java/font-selection-sequence/) أثناء العرض والتحويل. مع `WhenInaccessible`، تُستخدم القاعدة فقط عندما لا يستطيع Aspose.Slides الوصول إلى الخط المصدر.
+**متى يتم تطبيق قواعد الاستبدال؟**  
+تشارك القواعد في [سلسلة اختيار الخط](/slides/ar/php-java/font-selection-sequence/) أثناء العرض والتحويل. مع `WhenInaccessible`، تُستخدم القاعدة فقط عندما لا يتمكن Aspose.Slides من الوصول إلى الخط المصدر.
 
-**ماذا يحدث عندما يكون الخط مفقودًا ولا توجد قاعدة استبدال مُكوَّنة؟**  
-يقوم Aspose.Slides باختيار أقرب خط متاح وفقًا لعملية اختيار الخط الخاصة به. تعتمد النتيجة على الخطوط المتوفرة في بيئة وقت التشغيل.
+**ماذا يحدث عندما يكون الخط مفقودًا ولا توجد قاعدة استبدال مكوّنة؟**  
+يقوم Aspose.Slides باختيار أقرب خط متاح وفقًا لعملية اختيار الخط الخاصة به. تعتمد النتيجة على الخطوط المتوفرة في بيئة التنفيذ.
 
 **هل يمكنني تحميل خطوط خارجية لتجنب الاستبدال؟**  
-نعم. يمكنك [load external fonts](/slides/ar/php-java/custom-font/) حتى يستخدمها Aspose.Slides أثناء العرض والتحويل.
+نعم. يمكنك [تحميل خطوط خارجية](/slides/ar/php-java/custom-font/) لكي يتمكن Aspose.Slides من استخدامها أثناء العرض والتحويل.
 
 **هل توزع Aspose الخطوط مع المكتبة؟**  
 لا. أنت المسؤول عن توفير الخطوط والامتثال لتراخيصها.
 
 **هل يمكن أن تختلف نتائج الاستبدال بين Windows و Linux و macOS؟**  
-نعم. تختلف الخطوط المثبتة ومواقع البحث عن الخط حسب نظام التشغيل، لذا قد يتطلب خط متاح على جهاز ما استبدالًا على جهاز آخر.
+نعم. تختلف الخطوط المثبتة ومواقع البحث عن الخطوط حسب نظام التشغيل، لذا قد يتطلب خط متوفر على جهاز واحد استبدالًا على جهاز آخر.
 
-**كيف يمكنني جعل اختيار الخط موحدًا في التحويلات الجماعية؟**  
-استخدم نفس ملفات الخطوط والإصدارات على كل جهاز أو حاوية، [load required external fonts](/slides/ar/php-java/custom-font/)، و[embed fonts](/slides/ar/php-java/embedded-font/) عندما تسمح الرخصة. يمكنك أيضًا استدعاء [FontsManager::getSubstitutions](https://reference.aspose.com/slides/ar/php-java/aspose.slides/fontsmanager/getsubstitutions/) قبل التصدير لتحديد الاستبدالات غير المتوقعة.
+**كيف يمكنني جعل اختيار الخط متسقًا في عمليات التحويل الجماعية؟**  
+استخدم نفس ملفات الخطوط وإصداراتها على كل جهاز أو حاوية، [حمّل الخطوط الخارجية المطلوبة](/slides/ar/php-java/custom-font/)، و[ضمّن الخطوط](/slides/ar/php-java/embedded-font/) عندما تسمح التراخيص. يمكنك أيضًا استدعاء [FontsManager::getSubstitutions](https://reference.aspose.com/slides/php-java/aspose.slides/fontsmanager/getsubstitutions/) قبل التصدير لتحديد الاستبدالات غير المتوقعة.

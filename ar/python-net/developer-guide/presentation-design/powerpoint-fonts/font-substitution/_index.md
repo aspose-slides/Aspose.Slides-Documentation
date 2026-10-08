@@ -1,6 +1,6 @@
 ---
-title: تكوين استبدال الخط في العروض التقديمية باستخدام Python
-linktitle: استبدال الخط
+title: تكوين استبدال الخطوط في العروض التقديمية باستخدام بايثون
+linktitle: استبدال الخطوط
 type: docs
 weight: 70
 url: /ar/python-net/font-substitution/
@@ -17,19 +17,21 @@ keywords:
 - عرض تقديمي
 - Python
 - Aspose.Slides
-description: "تكوين قواعد استبدال الخط وفحص الخطوط المستبدلة في Aspose.Slides للغة Python عبر .NET عند عرض أو تحويل عروض PowerPoint وOpenDocument."
+description: "تكوين قواعد استبدال الخطوط وفحص الخطوط المستبدلة في Aspose.Slides لبايثون عبر .NET عند عرض أو تحويل عروض PowerPoint وOpenDocument."
 ---
 ## **نظرة عامة**
 
-يسمح استبدال الخطوط لـ Aspose.Slides باستخدام خط متاح بدلاً من الخط الذي لا يمكن الوصول إليه عند عرض أو تحويل العرض التقديمي. يؤثر الاستبدال على النتيجة المعروضة؛ ولا يغيّر الخط المعين لمحتوى العرض.
+تتيح استبدال الخطوط (Font substitution) لـ Aspose.Slides استعمال خط متاح بدلاً من خط لا يمكن الوصول إليه عند عرض أو تحويل العرض التقديمي. يؤثر الاستبدال على المخرجات المعروضة؛ ولا يغير الخط المعين لمحتوى العرض التقديمي.
 
-يمكنك تحديد الخط الذي سيُستخدم عندما يكون خط معين غير متوفر، ويمكنك فحص الاستبدالات التي سيجريها Aspose.Slides أثناء العرض. يساعد ذلك في الحفاظ على ثبات الإخراج عبر بيئات مختلفة تحتوي على خطوط مثبتة مختلفة.
+يمكنك تحديد الخط الذي سيُستخدم عندما يكون خط معين غير متوفر، ويمكنك فحص الاستبدالات التي سيجريها Aspose.Slides أثناء العرض. يساعد ذلك في الحفاظ على اتساق المخرجات عبر بيئات مختلفة ذات خطوط مثبتة مختلفة.
+
+إذا كان الخط متوفرًا لكنه لا يحتوي على نمط غامق مخصص، راجع [معالجة الخطوط التي لا تحتوي على نوع غامق مخصص](/slides/ar/python-net/convert-powerpoint-to-pdf/#handle-fonts-without-a-dedicated-bold-typeface). يشرح ذلك كيفية تحويل النص المتأثر إلى صورة أثناء تصدير PDF والعواقب على اختيار النص والبحث والتكبير.
 
 ## **الحصول على استبدالات الخطوط**
 
-استخدم طريقة [FontsManager.get_substitutions](https://reference.aspose.com/slides/ar/python-net/aspose.slides/fontsmanager/get_substitutions/) لتحديد الخطوط التي سيتم استبدالها عند عرض العرض التقديمي. تُعيد الطريقة كائنات [FontSubstitutionInfo](https://reference.aspose.com/slides/ar/python-net/aspose.slides/fontsubstitutioninfo/) التي تحدد أسماء الخط الأصلي والمستبدل.
+استخدم طريقة [FontsManager.get_substitutions](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/get_substitutions/) لتحديد الخطوط التي سيتم استبدالها عندما يُعرض العرض التقديمي. تُعيد الطريقة كائنات [FontSubstitutionInfo](https://reference.aspose.com/slides/python-net/aspose.slides/fontsubstitutioninfo/) التي تحدد أسماء الخط الأصلي والبديل.
 
-المثال التالي بلغة Python يسرد جميع استبدالات الخطوط لعرض تقديمي:
+المثال التالي بلغة Python يسرد جميع استبدالات الخطوط لعروض تقديمية:
 
 ```python
 import aspose.slides as slides
@@ -41,13 +43,13 @@ with slides.Presentation("Presentation.pptx") as presentation:
 
 ## **الحصول على استبدالات الخطوط للشرائح المحددة**
 
-استخدم [FontsManager.get_substitutions](https://reference.aspose.com/slides/ar/python-net/aspose.slides/fontsmanager/get_substitutions/) مع قائمة بمؤشرات الشرائح لفحص الاستبدالات المطلوبة فقط لعرض شرائح محددة. هذا مفيد عندما تقوم بعرض أو تصدير جزء من العرض، أو فحص عرض كبير بشكل متدرج، أو تحديد الشرائح التي تعتمد على خطوط غير متوفرة، أو إعداد حزمة خطوط حد أدنى لخادم أو حاوية، أو تشخيص اختلافات العرض دون معالجة الشرائح غير المتعلقة.
+استخدم [FontsManager.get_substitutions](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/get_substitutions/) مع قائمة من فهارس الشرائح لفحص الاستبدالات المطلوبة فقط لعرض شرائح معينة. هذا مفيد عندما تقوم بعرض أو تصدير جزء من العرض، أو فحص عرض كبير بصورة متدرجة، أو تحديد الشرائح التي تعتمد على خطوط غير متوفرة، أو إعداد حزمة خطوط حد أدنى للخادم أو الحاوية، أو تشخيص اختلافات العرض دون معالجة الشرائح غير ذات الصلة.
 
-تحتوي القائمة على مؤشرات شرائح تبدأ من الواحد: `1` يحدد الشريحة الأولى. بالمقابل، مجموعة [Presentation.slides](https://reference.aspose.com/slides/ar/python-net/aspose.slides/presentation/slides/ar/) تبدأ من الصفر، لذا يتم الوصول إلى نفس الشريحة كـ `presentation.slides[0]`. ضع في اعتبارك هذا الاختلاف عند بناء القائمة لتجنب أخطاء الإزاحة.
+تحتوي القائمة على فهارس شرائح تبدأ من الواحد: `1` يحدد الشريحة الأولى. بالمقابل، مجموعة [Presentation.slides](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/slides/) صفرية الفهرس، لذا تُ accessed نفس الشريحة كـ `presentation.slides[0]`. احرص على مراعاة هذا الاختلاف عند بناء القائمة لتجنب أخطاء الإزاحة.
 
-استدعِ الطريقة عبر خاصية [Presentation.fonts_manager](https://reference.aspose.com/slides/ar/python-net/aspose.slides/presentation/fonts_manager/). تُعيد فقط الاستبدالات التي تم تحديدها أثناء عرض الشرائح المختارة. كل نتيجة هي كائن [FontSubstitutionInfo](https://reference.aspose.com/slides/ar/python-net/aspose.slides/fontsubstitutioninfo/) يحتوي على أسماء الخط الأصلي والمستبدل. تعكس النتيجة بيئة الخط الحالية، وقواعد الاحتياطي المكوّنة، وقواعد الاستبدال المخزنة في [IFontSubstRuleCollection](https://reference.aspose.com/slides/ar/python-net/aspose.slides/ifontsubstrulecollection/)، و[الخطوط المحمَّلة خارجيًا](/slides/ar/python-net/custom-font/).
+استدعِ الطريقة عبر خاصية [Presentation.fonts_manager](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/fonts_manager/). تُعيد فقط الاستبدالات المحددة أثناء عرض الشرائح المختارة. كل نتيجة هي كائن [FontSubstitutionInfo](https://reference.aspose.com/slides/python-net/aspose.slides/fontsubstitutioninfo/) يحتوي على أسماء الخط الأصلي والبديل. تعكس النتيجة بيئة الخط الحالية، وقواعد الاستfallback المكوَّنة، وقواعد الاستبدال المخزنة في [IFontSubstRuleCollection](https://reference.aspose.com/slides/python-net/aspose.slides/ifontsubstrulecollection/)، و[الخطوط المحمّلة خارجيًا](/slides/ar/python-net/custom-font/).
 
-قد يتطلب نفس الاستبدال أكثر من شريحة مختارة. قم بإزالة التكرارات عند إنشاء جرد الخطوط أو تقرير الفحص المسبق. المثال التالي يعلن كل استبدال تم إرجاعه ثم يُنشئ قائمة مرتبة بخرائط الخطوط الفريدة:
+قد يتطلب نفس الاستبدال أكثر من شريحة مختارة. احذف التكرارات عند إنشاء جرد خطوط أو تقرير فحص مسبق. المثال التالي يورد كل استبدال تم إرجاعه ثم يُنشئ قائمة مرتبة من تعيينات الخطوط الفريدة:
 
 ```python
 import aspose.slides as slides
@@ -69,23 +71,23 @@ with slides.Presentation("Presentation.pptx") as presentation:
         print(entry)
 ```
 
-فئة [FontsManager](https://reference.aspose.com/slides/ar/python-net/aspose.slides/fontsmanager/) توفر كلا الشكلين من الطريقة. اختر ما يناسب نطاق عملية العرض:
+توفر فئة [FontsManager](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/) كلتا الصيغتين للطريقة. اختر واحدة وفق نطاق عملية العرض:
 
-| طريقة الاستدعاء | استخدامها عندما |
+| استدعاء الطريقة | استخدمه عندما |
 |---|---|
-| [get_substitutions] بدون أي معلمات | تحتاج إلى استبدالات لكامل العرض التقديمي. |
-| [get_substitutions] مع قائمة مؤشرات شرائح | تحتاج إلى استبدالات لنطاق مختار، فحص متدرج، أو تصدير جزئي. |
+| [get_substitutions](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/get_substitutions/) بدون معلمات | تحتاج إلى استبدالات للعرض التقديمي بأكمله. |
+| [get_substitutions](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/get_substitutions/) مع قائمة فهارس الشرائح | تحتاج إلى استبدالات لنطاق مختار، فحص متدرج، أو تصدير جزئي. |
 
-## **تحديد قواعد استبدال الخط**
+## **تحديد قواعد استبدال الخطوط**
 
-لتحديد الخط الذي يجب أن يستخدمه Aspose.Slides عندما يكون الخط المصدر غير متوفر:
+لتحديد الخط الذي يجب أن يستخدمه Aspose.Slides عندما يكون الخط الأصلي غير متوفر:
 
-1. تحميل العرض التقديمي.
-2. إنشاء تعريفات الخط للخط المصدر والبديل.
-3. إنشاء كائن [FontSubstRule](https://reference.aspose.com/slides/ar/python-net/aspose.slides/fontsubstrule/) مع شرط [WHEN_INACCESSIBLE](https://reference.aspose.com/slides/ar/python-net/aspose.slides/fontsubstcondition/).
-4. إضافة القاعدة إلى مجموعة [FontSubstRuleCollection](https://reference.aspose.com/slides/ar/python-net/aspose.slides/fontsubstrulecollection/).
-5. تعيين المجموعة إلى خاصية [FontsManager.font_subst_rule_list](https://reference.aspose.com/slides/ar/python-net/aspose.slides/fontsmanager/font_subst_rule_list/).
-6. عرض أو تحويل العرض التقديمي.
+1. حمّل العرض التقديمي.  
+2. أنشئ تعريفات للخط الأصلي والبديل.  
+3. أنشئ [FontSubstRule](https://reference.aspose.com/slides/python-net/aspose.slides/fontsubstrule/) باستخدام الشرط [WHEN_INACCESSIBLE](https://reference.aspose.com/slides/python-net/aspose.slides/fontsubstcondition/).  
+4. أضف القاعدة إلى [FontSubstRuleCollection](https://reference.aspose.com/slides/python-net/aspose.slides/fontsubstrulecollection/).  
+5. عيّن المجموعة إلى خاصية [FontsManager.font_subst_rule_list](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/font_subst_rule_list/).  
+6. اعرض أو حول العرض التقديمي.
 
 المثال التالي بلغة Python يستبدل `Arial` بـ `SomeRareFont` عندما يكون `SomeRareFont` غير متوفر، ثم يعرض الشريحة الأولى للتحقق من النتيجة. يجب أن يكون الخط البديل متاحًا لـ Aspose.Slides.
 
@@ -106,45 +108,38 @@ with slides.Presentation("Fonts.pptx") as presentation:
 ```
 
 {{% alert color="info" title="Note" %}}
-لإجراء تغيير غير مشروط على الخطوط المستخدمة في جميع أنحاء العرض، راجع [Font Replacement](/slides/ar/python-net/font-replacement/).
+لتغيير غير مشروط للخطوط المستخدمة عبر العرض بأكمله، راجع [استبدال الخطوط](/slides/ar/python-net/font-replacement/).
 {{% /alert %}}
 
 ## **القيود على خطوط معادلات الرياضيات**
 
-قواعد استبدال الخطوط هي جزء من عملية اختيار الخط القياسية المستخدمة أثناء العرض والتحويل. تعمل بالنسبة للنص العادي عندما يمكن لـ Aspose.Slides استبدال الخط غير المتاح بالخط المتاح المحدد في القاعدة.
+قواعد استبدال الخطوط هي جزء من عملية اختيار الخط القياسية المستخدمة أثناء العرض والتحويل. تعمل للكتابة العادية عندما يستطيع Aspose.Slides استبدال خط غير قابل للوصول بالخط المتاح المحدد في القاعدة.
 
-تتطلب معادلات Office Math شرطًا إضافيًا. إذا استخدمت المعادلة **Cambria Math**، قد تحتاج Aspose.Slides إلى هذا الخط بالضبط لحساب وعرض تخطيط المعادلة. لا يمكن لقاعدة تستبدل بخط رياضي آخر مثل **STIX Two Math** استبدال **Cambria Math** لهذا الغرض، وقد يظل العرض يُظهر أن **Cambria Math** مطلوب.
+معادلات Office Math لها متطلب إضافي. إذا استخدمت المعادلة **Cambria Math**، قد يحتاج Aspose.Slides إلى هذا الخط بالضبط لحساب وعرض تخطيط المعادلة. لا يمكن لقاعدة تستبدل بخط رياضي آخر مثل **STIX Two Math** أن تحل محل **Cambria Math** لهذا الغرض، وقد يظل العرض يُبلغ أن **Cambria Math** مطلوب.
 
 للعرض أو التحويل لمثل هذا العرض، اجعل **Cambria Math** متاحًا لـ Aspose.Slides. ثبّته في نظام التشغيل أو حمّله كـ [خط خارجي](/slides/ar/python-net/custom-font/).
 
-تنطبق هذه القاعدة على تخطيط المعادلات فقط. ما زالت قواعد الاستبدال المذكورة أعلاه سارية على النص العادي في العرض.
+تنطبق هذه القيد على تخطيط المعادلات. لا يزال بإمكان قواعد الاستبدال المذكورة أعلاه العمل على النص العادي في العرض التقديمي.
 
 ## **الأسئلة المتكررة**
 
-**ما الفرق بين استبدال الخط واستبداله؟**
+**ما الفرق بين استبدال الخط واستبدال الخطوط؟**  
+[استبدال الخطوط](/slides/ar/python-net/font-replacement/) يغيّر خطًا إلى آخر في جميع أنحاء العرض بشكل متعمد. استبدال الخط يختار خطًا للمخرجات المعروضة عندما يتحقق الشرط المُكوَّن، مثل عدم توفر الخط الأصلي.
 
-[Font replacement](/slides/ar/python-net/font-replacement/) يغيّر الخط بشكل متعمد عبر العرض بأكمله. استبدال الخط يختار خطًا للنتيجة المعروضة عندما يتحقق الشرط المحدد، مثل عدم توفر الخط الأصلي.
+**متى يتم تطبيق قواعد الاستبدال؟**  
+تشارك القواعد في [تسلسل اختيار الخط](/slides/ar/python-net/font-selection-sequence/) أثناء العرض والتحويل. مع `WHEN_INACCESSIBLE`، تُستَخدم القاعدة فقط عندما لا يستطيع Aspose.Slides الوصول إلى الخط الأصلي.
 
-**متى تُطبق قواعد الاستبدال؟**
+**ماذا يحدث إذا كان الخط مفقودًا ولا توجد قاعدة استبدال مُكوَّنة؟**  
+يختار Aspose.Slides أقرب خط متاح وفق عملية اختيار الخط الخاصة به. النتيجة تعتمد على الخطوط المتوفرة في بيئة وقت التشغيل.
 
-تشارك القواعد في [سلسلة اختيار الخط](/slides/ar/python-net/font-selection-sequence/) أثناء العرض والتحويل. مع `WHEN_INACCESSIBLE`، تُستخدم القاعدة فقط عندما لا تستطيع Aspose.Slides الوصول إلى الخط المصدر.
+**هل يمكنني تحميل خطوط خارجية لتجنب الاستبدال؟**  
+نعم. يمكنك [تحميل خطوط خارجية](/slides/ar/python-net/custom-font/) بحيث يستخدمها Aspose.Slides أثناء العرض والتحويل.
 
-**ماذا يحدث عندما يكون الخط مفقودًا ولا توجد قاعدة استبدال مُكوَّنة؟**
-
-تختار Aspose.Slides أقرب خط متاح وفقًا لعملية اختيار الخط الخاصة بها. تعتمد النتيجة على الخطوط المتوفرة في بيئة التنفيذ.
-
-**هل يمكنني تحميل خطوط خارجية لتجنب الاستبدال؟**
-
-نعم. يمكنك [تحميل خطوط خارجية](/slides/ar/python-net/custom-font/) حتى يستخدمها Aspose.Slides أثناء العرض والتحويل.
-
-**هل توزع Aspose الخطوط مع المكتبة؟**
-
+**هل توزع Aspose الخطوط مع المكتبة؟**  
 لا. أنت المسؤول عن توفير الخطوط والامتثال لتراخيصها.
 
-**هل قد تختلف نتائج الاستبدال بين Windows وLinux وmacOS؟**
+**هل يمكن أن تختلف نتائج الاستبدال بين Windows وLinux وmacOS؟**  
+نعم. تختلف الخطوط المثبتة ومواقع بحث الخط حسب نظام التشغيل، لذا قد يتطلب خط متاح على جهاز ما استبدالًا على جهاز آخر.
 
-نعم. تختلف الخطوط المثبتة ومواقع البحث حسب نظام التشغيل، لذا قد يكون خط متاح على جهاز ما ويحتاج إلى استبدال على جهاز آخر.
-
-**كيف يمكن جعل اختيار الخط موحدًا في التحويلات الجماعية؟**
-
-استخدم نفس ملفات الخط وإصداراتها على كل جهاز أو حاوية، [حمّل الخطوط الخارجية المطلوبة](/slides/ar/python-net/custom-font/)، و[ضمّن الخطوط](/slides/ar/python-net/embedded-font/) عندما تسمح الرخص. يمكنك أيضًا استدعاء [FontsManager.get_substitutions](https://reference.aspose.com/slides/ar/python-net/aspose.slides/fontsmanager/get_substitutions/) قبل التصدير لتحديد الاستبدالات غير المتوقعة.
+**كيف يمكن جعل اختيار الخط متسقًا في التحويلات الدفعية؟**  
+استخدم نفس ملفات الخط وإصداراته على كل جهاز أو حاوية، [حمّل الخطوط الخارجية المطلوبة](/slides/ar/python-net/custom-font/)، و[ضمّ الخطوط](/slides/ar/python-net/embedded-font/) عندما تسمح التراخيص. يمكنك أيضًا استدعاء [FontsManager.get_substitutions](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/get_substitutions/) قبل التصدير لتحديد الاستبدالات غير المتوقعة.

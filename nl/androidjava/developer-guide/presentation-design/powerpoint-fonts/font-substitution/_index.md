@@ -1,15 +1,15 @@
 ---
-title: Lettertypevervanging configureren in presentaties op Android
-linktitle: Lettertypevervanging
+title: Lettertype‑substitutie configureren in presentaties op Android
+linktitle: Lettertype‑substitutie
 type: docs
 weight: 70
 url: /nl/androidjava/font-substitution/
 keywords:
 - lettertype
 - vervangend lettertype
-- lettertypevervanging
+- lettertype‑substitutie
 - lettertype vervangen
-- lettertypevervanging
+- lettertype‑vervanging
 - substitutieregel
 - vervangingsregel
 - PowerPoint
@@ -18,19 +18,21 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Configureer lettertype‑substitutieregels en controleer de vervangen lettertypen in Aspose.Slides voor Android via Java bij het renderen of converteren van presentaties."
+description: "Configureer regels voor lettertype‑substitutie en inspecteer ge‑substitueerde lettertypen in Aspose.Slides voor Android via Java bij het renderen of converteren van presentaties."
 ---
 ## **Overzicht**
 
-Lettertypevervanging maakt het mogelijk voor Aspose.Slides om een beschikbaar lettertype te gebruiken ter vervanging van een lettertype dat niet toegankelijk is wanneer een presentatie wordt gerenderd of geconverteerd. De vervanging heeft invloed op de gerenderde output; het wijzigt niet het lettertype dat aan de inhoud van de presentatie is toegewezen.
+Lettertype‑substitutie stelt Aspose.Slides in staat een beschikbaar lettertype te gebruiken in plaats van een lettertype dat niet toegankelijk is wanneer een presentatie wordt gerenderd of geconverteerd. De substitutie heeft invloed op de gegenereerde uitvoer; het wijzigt niet het lettertype dat aan de presentatietekst is toegewezen.
 
-U kunt het te gebruiken lettertype definiëren wanneer een bepaald lettertype niet beschikbaar is, en u kunt de vervangingen inspecteren die Aspose.Slides zal uitvoeren tijdens het renderen. Dit helpt om de output consistent te houden op Android-apparaten en in omgevingen met verschillende beschikbare lettertypen.
+U kunt het te gebruiken lettertype definiëren wanneer een specifiek lettertype niet beschikbaar is, en u kunt de substituties bekijken die Aspose.Slides tijdens het renderen zal uitvoeren. Dit helpt om de uitvoer consistent te houden op Android‑apparaten en omgevingen met verschillende beschikbare lettertypen.
 
-## **Lettertypevervangingen ophalen**
+Als een lettertype beschikbaar is maar geen eigen vet typeface heeft, zie dan [Lettertypen zonder eigen vet typeface](/slides/nl/androidjava/convert-powerpoint-to-pdf/#handle-fonts-without-a-dedicated-bold-typeface). Die sectie legt uit hoe u de betreffende tekst rastert tijdens PDF‑export en welke gevolgen dat heeft voor tekstselectie, zoeken en schalen.
 
-Gebruik de [IFontsManager.getSubstitutions](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ifontsmanager/#getSubstitutions--) methode om te bepalen welke lettertypen zullen worden vervangen wanneer de presentatie wordt gerenderd. De methode retourneert [FontSubstitutionInfo](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/fontsubstitutioninfo/) objecten die de oorspronkelijke en vervangende lettertype‑namen identificeren.
+## **Lettertype‑substituties ophalen**
 
-Het volgende Java‑voorbeeld geeft alle lettertypevervangingen voor een presentatie weer:
+Gebruik de [IFontsManager.getSubstitutions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifontsmanager/#getSubstitutions--)‑methode om te bepalen welke lettertypen worden vervangen wanneer de presentatie wordt gerenderd. De methode retourneert [FontSubstitutionInfo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/fontsubstitutioninfo/)‑objecten die de oorspronkelijke en vervangende lettertype‑namen identificeren.
+
+Het volgende Java‑voorbeeld geeft alle lettertype‑substituties voor een presentatie weer:
 
 ```java
 import com.aspose.slides.FontSubstitutionInfo;
@@ -46,15 +48,15 @@ try {
 }
 ```
 
-## **Lettertypevervangingen ophalen voor geselecteerde dia's**
+## **Lettertype‑substituties ophalen voor geselecteerde dia’s**
 
-Gebruik de [IFontsManager.getSubstitutions](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ifontsmanager/#getSubstitutions-int---) overload met een `int[] slides`‑argument om alleen de vervangingen te inspecteren die nodig zijn om specifieke dia's te renderen. Dit is nuttig wanneer u een deel van een presentatie rendert of exporteert, een grote presentatie incrementeel controleert, dia's zoekt die afhankelijk zijn van niet‑beschikbare lettertypen, een minimaal lettertype‑pakket voor een Android‑app voorbereidt, of renderingsverschillen diagnosticeert zonder niet‑relevante dia's te verwerken.
+Gebruik de [IFontsManager.getSubstitutions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifontsmanager/#getSubstitutions-int---)‑overload met een `int[] slides`‑argument om alleen de substituties te inspecteren die nodig zijn om specifieke dia’s te renderen. Dit is nuttig wanneer u een deel van een presentatie rendert of exporteert, een grote presentatie incrementeel controleert, dia’s zoekt die afhankelijk zijn van ontbrekende lettertypen, een minimale lettertype‑package voor een Android‑app voorbereidt, of weergaveverschillen diagnosticeert zonder ongerelateerde dia’s te verwerken.
 
-De `slides`‑array bevat één‑gebaseerde dia‑indexen: `1` identificeert de eerste dia. In tegenstelling tot de [Presentation.getSlides](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/presentation/#getSlides--) collectie‑toegangs­methode die nul‑gebaseerde indexering gebruikt, wordt diezelfde dia bereikt via `presentation.getSlides().get_Item(0)`. Houd dit verschil in gedachten bij het samenstellen van de array om off‑by‑one‑fouten te vermijden.
+De `slides`‑array bevat één‑gebaseerde dia‑indexen: `1` identificeert de eerste dia. Daarentegen gebruikt de [Presentation.getSlides](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getSlides--)‑collectietoegang nulgebaseerde indexering, zodat dezelfde dia wordt benaderd als `presentation.getSlides().get_Item(0)`. Houd dit verschil in gedachten bij het bouwen van de array om “off‑by‑one” fouten te vermijden.
 
-Roep de overload aan via de [Presentation.getFontsManager](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/presentation/#getFontsManager--) methode. Deze retourneert alleen de vervangingen die tijdens het renderen van de geselecteerde dia's werden bepaald. Elk resultaat is een [FontSubstitutionInfo](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/fontsubstitutioninfo/) object dat de oorspronkelijke en vervangende lettertype‑namen bevat. Het resultaat weerspiegelt de huidige lettertype‑omgeving, geconfigureerde fallback‑regels, vervangingsregels opgeslagen in een [IFontSubstRuleCollection](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ifontsubstrulecollection/), en [extern geladen lettertypen](/slides/nl/androidjava/custom-font/).
+Roep de overload aan via de [Presentation.getFontsManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getFontsManager--)‑methode. Deze retourneert alleen de substituties die zijn bepaald tijdens het renderen van de geselecteerde dia’s. Elk resultaat is een [FontSubstitutionInfo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/fontsubstitutioninfo/)‑object dat de oorspronkelijke en vervangende lettertype‑namen bevat. Het resultaat weerspiegelt de huidige lettertype‑omgeving, geconfigureerde fallback‑regels, substitutieregels opgeslagen in een [IFontSubstRuleCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifontsubstrulecollection/), en [extern geladen lettertypen](/slides/nl/androidjava/custom-font/).
 
-Dezelfde vervanging kan nodig zijn voor meer dan één geselecteerde dia. Dupliceer de resultaten niet wanneer u een lettertype‑inventaris of preflight‑rapport opstelt. Het volgende voorbeeld rapporteert elke geretourneerde vervanging en maakt vervolgens een gesorteerde lijst van unieke lettertype‑toewijzingen:
+Dezelfde substitutie kan vereist zijn door meer dan één geselecteerde dia. Dupliceer de resultaten niet wanneer u een lettertype‑inventaris of pre‑flight‑rapport maakt. Het volgende voorbeeld geeft elke geretourneerde substitutie weer en maakt vervolgens een gesorteerde lijst van unieke lettertype‑koppelingen:
 
 ```java
 import com.aspose.slides.FontSubstitutionInfo;
@@ -92,25 +94,25 @@ try {
 }
 ```
 
-De [IFontsManager](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ifontsmanager/) interface biedt beide overloads. Kies er één op basis van de reikwijdte van de render‑operatie:
+De [IFontsManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifontsmanager/)‑interface biedt beide overloads. Kies er één op basis van de reikwijdte van de render‑operatie:
 
-| Overload | Use it when |
+| Overload | Gebruik wanneer |
 |---|---|
-| [getSubstitutions](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ifontsmanager/#getSubstitutions--) with no arguments | U heeft vervangingen nodig voor de gehele presentatie. |
-| [getSubstitutions](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ifontsmanager/#getSubstitutions-int---) with `int[] slides` | U heeft vervangingen nodig voor een geselecteerd bereik, incrementele controle, of gedeeltelijke export. |
+| [getSubstitutions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifontsmanager/#getSubstitutions--) zonder argumenten | U hebt substituties nodig voor de volledige presentatie. |
+| [getSubstitutions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifontsmanager/#getSubstitutions-int---) met `int[] slides` | U hebt substituties nodig voor een geselecteerd bereik, incrementele controle of gedeeltelijke export. |
 
-## **Lettertypevervangingsregels instellen**
+## **Lettertype‑substitutieregels instellen**
 
 Om het lettertype op te geven dat Aspose.Slides moet gebruiken wanneer een bronlettertype niet beschikbaar is:
 
 1. Laad de presentatie.
 2. Maak lettertype‑definities voor het bron‑ en vervangende lettertype.
-3. Maak een [FontSubstRule](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/fontsubstrule/) met de [WhenInaccessible](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/fontsubstcondition/) voorwaarde.
-4. Voeg de regel toe aan een [FontSubstRuleCollection](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/fontsubstrulecollection/).
-5. Wijs de collectie toe via de [FontsManager.setFontSubstRuleList](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/fontsmanager/#setFontSubstRuleList-com.aspose.slides.IFontSubstRuleCollection-) methode.
+3. Maak een [FontSubstRule](https://reference.aspose.com/slides/androidjava/com.aspose.slides/fontsubstrule/) met de [WhenInaccessible](https://reference.aspose.com/slides/androidjava/com.aspose.slides/fontsubstcondition/)‑conditie.
+4. Voeg de regel toe aan een [FontSubstRuleCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/fontsubstrulecollection/).
+5. Wijs de collectie toe via de [FontsManager.setFontSubstRuleList](https://reference.aspose.com/slides/androidjava/com.aspose.slides/fontsmanager/#setFontSubstRuleList-com.aspose.slides.IFontSubstRuleCollection-)‑methode.
 6. Render of converteer de presentatie.
 
-Het volgende Java‑voorbeeld vervangt `SomeRareFont` door `Arial` wanneer `SomeRareFont` niet beschikbaar is, en rendert vervolgens de eerste dia om het resultaat te verifiëren. Het vervangende lettertype moet beschikbaar zijn voor Aspose.Slides.
+Het volgende Java‑voorbeeld vervangt `Arial` door `SomeRareFont` wanneer `SomeRareFont` niet beschikbaar is, en rendert vervolgens de eerste dia om het resultaat te verifiëren. Het vervangende lettertype moet beschikbaar zijn voor Aspose.Slides.
 
 ```java
 import com.aspose.slides.FontData;
@@ -146,45 +148,45 @@ try {
 ```
 
 {{% alert color="info" title="Note" %}}
-Voor een onvoorwaardelijke wijziging van de lettertypen die in een volledige presentatie worden gebruikt, zie [Lettertypevervanging](/slides/nl/androidjava/font-replacement/).
+Voor een onvoorwaardelijke wijziging van de lettertypen die door de hele presentatie worden gebruikt, zie [Lettertypevervanging](/slides/nl/androidjava/font-replacement/).
 {{% /alert %}}
 
-## **Beperkingen voor wiskundige vergelijking‑lettertypen**
+## **Beperkingen voor wiskundige‑equatie‑lettertypen**
 
-Lettertypevervangingsregels maken onderdeel uit van het standaard lettertype‑selectieproces dat tijdens het renderen en converteren wordt gebruikt. Ze werken voor gewone tekst wanneer Aspose.Slides een ontoegankelijk lettertype kan vervangen door het beschikbare lettertype dat in een regel is gespecificeerd.
+Lettertype‑substitutieregels maken deel uit van het standaardlettertype‑selectieproces dat wordt gebruikt tijdens renderen en converteren. Ze werken voor gewone tekst wanneer Aspose.Slides een ontoegankelijk lettertype kan vervangen door het beschikbare lettertype dat in een regel is opgegeven.
 
-Office‑Math‑vergelijkingen hebben een extra vereiste. Als een vergelijking **Cambria Math** gebruikt, kan Aspose.Slides dat exacte lettertype nodig hebben om de lay‑out van de vergelijking te berekenen en te renderen. Een regel die een ander wiskundig lettertype vervangt, zoals **STIX Two Math**, kan **Cambria Math** niet vervangen voor dit doel, en het renderen kan nog steeds melden dat **Cambria Math** vereist is.
+Office‑Math‑equaties hebben een extra eis. Als een vergelijking **Cambria Math** gebruikt, heeft Aspose.Slides dat exacte lettertype nodig om de lay‑out van de vergelijking te berekenen en te renderen. Een regel die een ander wiskundig lettertype vervangt, zoals **STIX Two Math**, kan **Cambria Math** hiervoor niet vervangen, en de rendering kan nog steeds melden dat **Cambria Math** vereist is.
 
-Om zo'n presentatie te renderen of te converteren, maak **Cambria Math** beschikbaar voor Aspose.Slides. Laad het als een [extern lettertype](/slides/nl/androidjava/custom-font/) zodat de applicatie het tijdens het renderen en converteren kan gebruiken.
+Om zo’n presentatie te renderen of te converteren, maakt u **Cambria Math** beschikbaar voor Aspose.Slides. Laad het als een [extern lettertype](/slides/nl/androidjava/custom-font/) zodat de toepassing het kan gebruiken tijdens renderen en converteren.
 
-Deze beperking geldt voor de lay‑out van de vergelijking. De hierboven beschreven vervangingsregels blijven van toepassing op gewone presentatietekst.
+Deze beperking heeft betrekking op de lay‑out van vergelijkingen. De hierboven beschreven substitutieregels blijven wel van toepassing op reguliere presentatietekst.
 
-## **Veelgestelde vragen**
+## **FAQ**
 
 **Wat is het verschil tussen lettertypevervanging en lettertype‑substitutie?**
 
-[Lettertypevervanging](/slides/nl/androidjava/font-replacement/) verandert bewust één lettertype in de hele presentatie naar een ander. Lettertype‑substitutie kiest een lettertype voor de gerenderde output wanneer aan de geconfigureerde voorwaarde is voldaan, bijvoorbeeld wanneer het oorspronkelijke lettertype niet beschikbaar is.
+[Lettertypevervanging](/slides/nl/androidjava/font-replacement/) verandert bewust één lettertype in een ander door de hele presentatie heen. Lettertype‑substitutie kiest een lettertype voor de gerenderde uitvoer wanneer aan de geconfigureerde voorwaarde wordt voldaan, bijvoorbeeld wanneer het oorspronkelijke lettertype niet beschikbaar is.
 
 **Wanneer worden substitutieregels toegepast?**
 
-De regels nemen deel aan de [lettertype‑selectiesequentie](/slides/nl/androidjava/font-selection-sequence/) tijdens het renderen en converteren. Met `WhenInaccessible` wordt een regel alleen gebruikt wanneer Aspose.Slides geen toegang heeft tot het bronlettertype.
+De regels nemen deel aan de [lettertype‑selectiesequentie](/slides/nl/androidjava/font-selection-sequence/) tijdens renderen en converteren. Met `WhenInaccessible` wordt een regel alleen gebruikt wanneer Aspose.Slides geen toegang heeft tot het bronlettertype.
 
-**Wat gebeurt er wanneer een lettertype ontbreekt en er geen substitutieregel is geconfigureerd?**
+**Wat gebeurt er als een lettertype ontbreekt en er geen substitutieregel is geconfigureerd?**
 
-Aspose.Slides kiest het dichtstbijzijnde beschikbare lettertype volgens zijn lettertype‑selectieproces. Het resultaat hangt af van de lettertypen die beschikbaar zijn in de runtime‑omgeving.
+Aspose.Slides selecteert het meest overeenkomende beschikbare lettertype volgens zijn lettertype‑selectieproces. Het resultaat hangt af van de lettertypen die beschikbaar zijn in de runtime‑omgeving.
 
 **Kan ik externe lettertypen laden om substitutie te voorkomen?**
 
-Ja. U kunt [externe lettertypen laden](/slides/nl/androidjava/custom-font/) zodat Aspose.Slides ze kan gebruiken tijdens het renderen en converteren.
+Ja. U kunt [externe lettertypen laden](/slides/nl/androidjava/custom-font/) zodat Aspose.Slides ze kan gebruiken tijdens renderen en converteren.
 
-**Distributeert Aspose lettertypen met de bibliotheek?**
+**Distribueert Aspose lettertypen met de bibliotheek?**
 
 Nee. U bent verantwoordelijk voor het leveren van lettertypen en het naleven van hun licenties.
 
 **Kunnen substitutieresultaten verschillen tussen Android‑apparaten?**
 
-Ja. Beschikbare systeemlettertypen kunnen verschillen tussen Android‑versies, apparaten en leveranciers, dus een lettertype dat in de ene omgeving beschikbaar is, kan in een andere omgeving substitutie vereisen.
+Ja. Beschikbare systeemlettertypen kunnen verschillen tussen Android‑versies, apparaten en fabrikanten, waardoor een lettertype dat in de ene omgeving beschikbaar is, in een andere moet worden vervangen.
 
 **Hoe kan ik de lettertype‑selectie consistent maken over Android‑apparaten heen?**
 
-Pakketteer dezelfde vereiste lettertypebestanden met de applicatie, [laad ze als externe lettertypen](/slides/nl/androidjava/custom-font/), en [lettertypen insluiten](/slides/nl/androidjava/embedded-font/) wanneer de licentie dit toestaat. U kunt ook [IFontsManager.getSubstitutions](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ifontsmanager/#getSubstitutions--) aanroepen vóór export om onverwachte substituties te identificeren.
+Pakte dezelfde vereiste lettertype‑bestanden met de toepassing, [laadt ze als externe lettertypen](/slides/nl/androidjava/custom-font/), en [embed lettertypen](/slides/nl/androidjava/embedded-font/) wanneer licenties dit toelaten. U kunt ook [IFontsManager.getSubstitutions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifontsmanager/#getSubstitutions--) aanroepen vóór export om onverwachte substituties te identificeren.

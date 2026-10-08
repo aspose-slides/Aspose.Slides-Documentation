@@ -1,5 +1,5 @@
 ---
-title: Konversi PPT dan PPTX ke PDF di .NET [Fitur Lanjutan Disertakan]
+title: Konversi PPT dan PPTX ke PDF di .NET [Fitur Lanjutan Termasuk]
 linktitle: PowerPoint ke PDF
 type: docs
 weight: 40
@@ -29,7 +29,7 @@ description: "Konversi PowerPoint PPT/PPTX ke PDF berkualitas tinggi dan dapat d
 ---
 ## **Gambaran Umum**
 
-Mengonversi presentasi PowerPoint (PPT, PPTX, ODP, dll.) ke format PDF dalam C# menawarkan beberapa kelebihan, termasuk kompatibilitas pada berbagai perangkat dan mempertahankan tata letak serta pemformatan presentasi Anda. Panduan ini menunjukkan cara mengonversi presentasi ke dokumen PDF, menggunakan berbagai opsi untuk mengontrol kualitas gambar, menyertakan slide tersembunyi, melindungi PDF dengan kata sandi, mendeteksi substitusi font, memilih slide tertentu untuk konversi, dan menerapkan standar kepatuhan pada dokumen keluaran.
+Mengonversi presentasi PowerPoint (PPT, PPTX, ODP, dll.) menjadi format PDF di C# menawarkan beberapa keuntungan, termasuk kompatibilitas lintas perangkat dan mempertahankan tata letak serta format presentasi Anda. Panduan ini menunjukkan cara mengonversi presentasi ke dokumen PDF, menggunakan berbagai opsi untuk mengontrol kualitas gambar, menyertakan slide tersembunyi, melindungi file PDF dengan kata sandi, mendeteksi substitusi font, memilih slide tertentu untuk konversi, dan menerapkan standar kepatuhan pada dokumen output.
 
 ## **Konversi PowerPoint ke PDF**
 
@@ -39,16 +39,18 @@ Dengan Aspose.Slides, Anda dapat mengonversi presentasi dalam format berikut ke 
 * **PPTX**
 * **ODP**
 
-Untuk mengonversi sebuah presentasi ke PDF, berikan nama file sebagai argumen ke kelas [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) lalu simpan presentasi sebagai PDF menggunakan metode [Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/). Kelas [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) menyediakan metode [Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/) yang biasanya digunakan untuk mengonversi presentasi ke PDF.
+Untuk mengonversi presentasi ke PDF, berikan nama file sebagai argumen ke kelas [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) dan kemudian simpan presentasi sebagai PDF menggunakan metode [Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/). Kelas [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) menyediakan metode [Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/) yang biasanya digunakan untuk mengonversi presentasi ke PDF.
 
-{{% alert color="info" title="Note" %}}
-Aspose.Slides untuk .NET menyisipkan informasi API dan nomor versinya ke dalam dokumen keluaran. Misalnya, saat mengonversi presentasi ke PDF, Aspose.Slides mengisi bidang Application dengan "*Aspose.Slides*" dan bidang PDF Producer dengan nilai dalam format "*Aspose.Slides v XX.XX*". **Catatan** bahwa Anda tidak dapat menginstruksikan Aspose.Slides untuk mengubah atau menghapus informasi ini dari dokumen keluaran.
+{{% alert color="info" title="Catatan" %}}
+
+Aspose.Slides untuk .NET menyisipkan informasi API dan nomor versinya ke dalam dokumen output. Misalnya, saat mengonversi presentasi ke PDF, Aspose.Slides mengisi bidang Application dengan "*Aspose.Slides*" dan bidang PDF Producer dengan nilai dalam format "*Aspose.Slides v XX.XX*". **Catatan** bahwa Anda tidak dapat menginstruksikan Aspose.Slides untuk mengubah atau menghapus informasi ini dari dokumen output.
+
 {{% /alert %}}
 
 Aspose.Slides memungkinkan Anda mengonversi:
 
 * Seluruh presentasi ke PDF
-* Slide tertentu dari presentasi ke PDF
+* Slide tertentu dari sebuah presentasi ke PDF
 
 Aspose.Slides mengekspor presentasi ke PDF, memastikan PDF yang dihasilkan sangat mirip dengan presentasi asli. Elemen dan atribut dirender secara akurat dalam konversi, termasuk:
 
@@ -58,12 +60,12 @@ Aspose.Slides mengekspor presentasi ke PDF, memastikan PDF yang dihasilkan sanga
 * Pemformatan paragraf
 * Tautan hiper
 * Header dan footer
-* Bulatan
+* Bulet
 * Tabel
 
 ## **Konversi PowerPoint ke PDF**
 
-Proses konversi standar PowerPoint‑ke‑PDF menggunakan opsi default. Dalam hal ini, Aspose.Slides berusaha mengonversi presentasi yang diberikan ke PDF dengan pengaturan optimal pada tingkat kualitas maksimum.
+Proses konversi standar PowerPoint‑ke‑PDF menggunakan opsi default. Dalam kasus ini, Aspose.Slides mencoba mengonversi presentasi yang diberikan ke PDF dengan pengaturan optimal pada tingkat kualitas maksimum.
 
 Contoh berikut memuat sebuah presentasi dan menyimpan semua slide yang terlihat ke PDF menggunakan pengaturan ekspor default.
 
@@ -75,17 +77,21 @@ using var presentation = new Presentation("PowerPoint.ppt");
 presentation.Save("PDF-result.pdf", SaveFormat.Pdf);
 ```
 
-{{% alert color="info" title="Note" %}}
-Aspose menawarkan **PowerPoint to PDF converter** gratis secara daring [**PowerPoint to PDF converter**](https://products.aspose.app/slides/conversion/ppt-to-pdf) yang mendemonstrasikan proses konversi presentasi ke PDF. Anda dapat menjalankan tes dengan konverter ini untuk implementasi langsung prosedur yang dijelaskan di sini.
+{{% alert color="info" title="Catatan" %}}
+
+Aspose menawarkan konverter daring gratis [**PowerPoint to PDF converter**](https://products.aspose.app/slides/conversion/ppt-to-pdf) yang memperagakan proses konversi presentasi ke PDF. Anda dapat menguji konverter ini untuk melihat implementasi langsung prosedur yang dijelaskan di sini.
+
 {{% /alert %}}
 
 ## **Konversi PowerPoint ke PDF dengan Opsi**
 
-Aspose.Slides menyediakan opsi kustom—properti di bawah kelas [PdfOptions](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/)—yang memungkinkan Anda menyesuaikan PDF yang dihasilkan, mengunci PDF dengan kata sandi, atau menentukan cara proses konversi harus berlangsung.
+Aspose.Slides menyediakan opsi khusus—properti di bawah kelas [PdfOptions](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/)—yang memungkinkan Anda menyesuaikan PDF yang dihasilkan, mengunci PDF dengan kata sandi, atau menentukan cara proses konversi berlangsung.
 
 ### **Konversi PowerPoint ke PDF dengan Opsi Kustom**
 
-Dengan opsi konversi kustom, Anda dapat menentukan pengaturan kualitas gambar raster yang diinginkan, menentukan cara penanganan metafile, mengatur tingkat kompresi untuk teks, mengonfigurasi DPI untuk gambar, dan lain‑lain.
+Dengan opsi konversi kustom, Anda dapat menentukan pengaturan kualitas yang diinginkan untuk gambar raster, menentukan cara penanganan metafile, mengatur tingkat kompresi untuk teks, mengonfigurasi DPI untuk gambar, dan lain‑lain.
+
+Contoh berikut mengekspor sebuah presentasi ke PDF 1.5 dengan kualitas JPEG 90, resolusi gambar 300 DPI, metafile disimpan sebagai PNG, dan kompresi teks Flate.
 
 ```csharp
 using Aspose.Slides;
@@ -104,13 +110,13 @@ using var presentation = new Presentation("PowerPoint.pptx");
 presentation.Save("PowerPoint-to-PDF.pdf", SaveFormat.Pdf, pdfOptions);
 ```
 
-### **Pertahankan File OLE yang Disematkan sebagai Lampiran PDF**
+### **Menyimpan File OLE Tertanam sebagai Lampiran PDF**
 
-Jika sebuah presentasi berisi buku kerja Excel yang disematkan, Anda mungkin ingin penerima PDF dapat mengakses data buku kerja tersebut serta melihat slide. Atur [PdfOptions.IncludeOleData](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/includeoledata/) ke `true` untuk mempertahankan file OLE yang disematkan sebagai lampiran dalam PDF yang dihasilkan.
+Jika sebuah presentasi berisi workbook Excel yang tertanam, Anda mungkin ingin penerima PDF dapat mengakses data workbook tersebut serta melihat slide. Atur [PdfOptions.IncludeOleData](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/includeoledata/) ke `true` untuk menyimpan file OLE tertanam sebagai lampiran dalam PDF yang dihasilkan.
 
-Nilai defaultnya adalah `false`: gambar pratinjau atau ikon objek OLE dirender pada halaman PDF, tetapi file yang disematkan tidak termasuk sebagai lampiran. Menetapkan opsi ke `true` juga menyertakan data file. Pratinjau tetap menjadi representasi visual; lampiran memungkinkan penerima membuka atau menyimpan file yang disematkan secara terpisah. Objek OLE tidak menjadi lembar kerja Excel interaktif pada halaman PDF.
+Nilai default adalah `false`: gambar pratinjau atau ikon objek OLE ditampilkan pada halaman PDF, tetapi file tertanam tidak disertakan sebagai lampiran. Mengatur opsi ke `true` juga menyertakan data file. Pratinjau tetap menjadi representasi visual; lampiran memungkinkan penerima membuka atau menyimpan file tertanam secara terpisah. Objek OLE tidak menjadi lembar kerja Excel interaktif pada halaman PDF.
 
-Contoh berikut memuat sebuah presentasi yang sudah berisi buku kerja Excel yang disematkan dan mengekspornya ke PDF dengan buku kerja terlampir.
+Contoh berikut memuat sebuah presentasi yang sudah berisi workbook Excel tertanam dan mengekspornya ke PDF dengan workbook terlampir.
 
 ```csharp
 using Aspose.Slides;
@@ -124,17 +130,21 @@ presentation.Save("presentation.pdf", SaveFormat.Pdf, pdfOptions);
 
 Untuk memeriksa hasilnya:
 
-1. Buka PDF yang diekspor di penampil yang mendukung lampiran file, seperti Adobe Acrobat Reader.
-2. Buka panel **Attachments** penampil dan temukan buku kerja yang disematkan.
+1. Buka PDF yang diekspor dengan penampil yang mendukung lampiran file, seperti Adobe Acrobat Reader.
+2. Buka panel **Attachments** penampil dan temukan workbook yang tertanam.
 3. Simpan lampiran dan buka di Excel untuk memeriksa datanya, atau buka langsung jika penampil mengizinkannya. Pratinjau pada halaman PDF terpisah dari lampiran.
 
-{{% alert color="info" title="Note" %}}
-Standar PDF/A memberlakukan pembatasan pada lampiran: PDF/A‑1 melarang file yang disematkan, PDF/A‑2 hanya mengizinkan lampiran PDF/A, dan PDF/A‑3 mengizinkan tipe file lain, termasuk buku kerja Excel. Ini merupakan persyaratan standar, bukan pembatasan khusus Aspose.Slides. Contoh ini menggunakan pengaturan kepatuhan PDF default dan tidak mendemonstrasikan ekspor PDF/A.
+{{% alert color="info" title="Catatan" %}}
+
+Standar PDF/A memberlakukan batasan pada lampiran: PDF/A‑1 melarang file tertanam, PDF/A‑2 hanya mengizinkan lampiran PDF/A, dan PDF/A‑3 mengizinkan tipe file lain, termasuk workbook Excel. Ini merupakan persyaratan standar, bukan batasan khusus Aspose.Slides. Contoh ini menggunakan pengaturan kepatuhan PDF default dan tidak memperagakan ekspor PDF/A.
+
 {{% /alert %}}
 
 ### **Konversi PowerPoint ke PDF dengan Slide Tersembunyi**
 
 Jika sebuah presentasi berisi slide tersembunyi, Anda dapat menggunakan properti [ShowHiddenSlides](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/showhiddenslides/) dari kelas [PdfOptions](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/) untuk menyertakan slide tersembunyi sebagai halaman dalam PDF yang dihasilkan.
+
+Contoh berikut mengekspor sebuah presentasi ke PDF, termasuk semua slide tersembunyi.
 
 ```csharp
 using Aspose.Slides;
@@ -149,7 +159,7 @@ presentation.Save("PowerPoint-to-PDF.pdf", SaveFormat.Pdf, pdfOptions);
 
 ### **Konversi PowerPoint ke PDF yang Dilindungi Kata Sandi**
 
-Contoh berikut mengekspor sebuah presentasi ke PDF yang memerlukan kata sandi `password` untuk dibuka. Izin akses memungkinkan pencetakan, termasuk pencetakan berkualitas tinggi.
+Contoh berikut mengekspor sebuah presentasi ke PDF yang memerlukan kata sandi `password` untuk dibuka. Izin akses memperbolehkan pencetakan, termasuk pencetakan kualitas tinggi.
 
 ```csharp
 using Aspose.Slides;
@@ -163,11 +173,11 @@ using var presentation = new Presentation("PowerPoint.pptx");
 presentation.Save("PPTX-to-PDF.pdf", SaveFormat.Pdf, pdfOptions);
 ```
 
-### **Deteksi Substitusi Font**
+### **Mendeteksi Substitusi Font**
 
 Aspose.Slides menyediakan properti [WarningCallback](https://reference.aspose.com/slides/net/aspose.slides.export/saveoptions/warningcallback/) di bawah kelas [PdfOptions](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/) yang memungkinkan Anda mendeteksi substitusi font selama proses konversi presentasi ke PDF.
 
-Contoh berikut mengekspor sebuah presentasi ke PDF dan mencetak peringatan substitusi font ke konsol. Peringatan dicetak hanya ketika font yang tidak tersedia disubstitusi selama ekspor.
+Contoh berikut mengekspor sebuah presentasi ke PDF dan mencetak peringatan substitusi font ke konsol. Peringatan dicetak hanya ketika font yang tidak tersedia digantikan selama ekspor.
 
 ```csharp
 using Aspose.Slides;
@@ -195,13 +205,44 @@ class FontSubstitutionHandler : IWarningCallback
 }
 ```
 
-{{% alert color="info" title="Note" %}}
+{{% alert color="info" title="Catatan" %}}
+
 Untuk informasi lebih lanjut tentang substitusi font, lihat artikel [Font Substitution](/slides/id/net/font-substitution/).
+
 {{% /alert %}} 
 
-## **Konversi Slide Pilihan dari PowerPoint ke PDF**
+### **Menangani Font Tanpa Gaya Tebal Khusus**
 
-Contoh berikut mengekspor slide 1 dan 3 dari sebuah presentasi ke PDF. Nomor slide dalam array ini berbasis satu, dan presentasi masukan harus berisi setidaknya tiga slide.
+Sebuah presentasi dapat menerapkan format tebal pada teks meskipun fontnya tidak memiliki gaya tebal khusus. Teks tersebut tetap dapat tampak tebal melalui bold sintetis, yang secara artifisial menebalkan glif reguler. Ketika teks tersebut terlihat terlalu berat atau berbeda dari tampilan yang diinginkan dalam PDF, coba atur [PdfOptions.RasterizeUnsupportedFontStyles](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/rasterizeunsupportedfontstyles/) ke `true`. Opsi ini merender teks yang terkena sebagai bitmap selama ekspor PDF dan dapat meningkatkan penampilannya untuk font tertentu. Nilai defaultnya adalah `false`.
+
+Presentasi contoh berisi dua kotak teks: satu dengan teks biasa dan satu dengan format tebal yang diterapkan pada font yang sama, yang tidak memiliki gaya tebal khusus. Contoh berikut memuat presentasi, mengaktifkan rasterisasi gaya font yang tidak didukung, dan mengekspornya ke PDF:
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+var pdfOptions = new PdfOptions
+{
+    RasterizeUnsupportedFontStyles = true
+};
+
+using var presentation = new Presentation("unsupported-bold.pptx");
+presentation.Save("rasterized.pdf", SaveFormat.Pdf, pdfOptions);
+```
+
+Pratinjau berikut menunjukkan output dengan opsi nonaktif dan aktif. Pada contoh ini, teks tebal memiliki goresan yang lebih berat dengan opsi nonaktif. Dengan opsi aktif, goresannya lebih ringan; teks biasa tidak berubah. Bandingkan hasilnya sebelum memilih pengaturan untuk presentasi Anda.
+
+| Opsi nonaktif (`false`, default) | Opsi aktif (`true`) |
+|---|---|
+| ![PDF with unsupported font style rasterization disabled](unsupported-bold-disabled.png) | ![PDF with unsupported font style rasterization enabled](unsupported-bold-enabled.png) |
+
+Dalam contoh ini, mengaktifkan opsi mengubah hanya teks tebal menjadi bitmap: tidak dapat dipilih, disalin, atau dicari sebagai teks tanpa OCR, dan tepinya tampak lebih lembut pada zoom 800 %. Teks biasa tetap dapat dicari. Dengan opsi nonaktif, kedua string tetap berupa teks.
+
+Opsi ini merasterisasi teks yang diformat tebal ketika font tidak memiliki gaya tebal khusus. [Font substitution](/slides/id/net/font-substitution/) justru memilih font lain ketika font asli tidak tersedia.
+
+## **Konversi Slide Terpilih dari PowerPoint ke PDF**
+
+Contoh berikut mengekspor slide 1 dan 3 dari sebuah presentasi ke PDF. Nomor slide dalam array ini berbasis satu, dan presentasi input harus berisi setidaknya tiga slide.
 
 ```csharp
 using Aspose.Slides;
@@ -214,7 +255,7 @@ presentation.Save("PPTX-to-PDF.pdf", slides, SaveFormat.Pdf);
 
 ## **Konversi PowerPoint ke PDF dengan Ukuran Slide Kustom**
 
-Contoh berikut menyalin slide pertama dari sebuah presentasi ke dalam presentasi baru dengan ukuran slide 612 × 792 poin (8,5 × 11 inci). Ia menskala konten slide agar pas dan mengekspor slide tunggal ke PDF.
+Contoh berikut menyalin slide pertama dari sebuah presentasi ke presentasi baru dengan ukuran slide 612 × 792 point (8,5 × 11 inci). Ia menskalakan konten slide agar sesuai dan mengekspor slide tunggal ke PDF.
 
 ```csharp
 using Aspose.Slides;
@@ -255,11 +296,11 @@ using var presentation = new Presentation("NotesFile.pptx");
 presentation.Save("PDF_with_notes.pdf", SaveFormat.Pdf, pdfOptions);
 ```
 
-## **Standar Aksesibilitas dan Kepatuhan untuk PDF**
+## **Aksesibilitas dan Standar Kepatuhan untuk PDF**
 
-Aspose.Slides memungkinkan Anda menggunakan prosedur konversi yang mematuhi [Web Content Accessibility Guidelines (**WCAG**)](https://www.w3.org/TR/WCAG-TECHS/pdf.html). Anda dapat mengekspor dokumen PowerPoint ke PDF menggunakan salah satu standar kepatuhan ini: **PDF/A1a**, **PDF/A1b**, dan **PDF/UA**.
+Aspose.Slides memungkinkan Anda menggunakan prosedur konversi yang mematuhi [Web Content Accessibility Guidelines (**WCAG**)](https://www.w3.org/TR/WCAG-TECHS/pdf.html). Anda dapat mengekspor dokumen PowerPoint ke PDF menggunakan salah satu standar kepatuhan berikut: **PDF/A1a**, **PDF/A1b**, dan **PDF/UA**.
 
-Kode C# ini mendemonstrasikan proses konversi PowerPoint‑ke‑PDF yang menghasilkan beberapa PDF berdasarkan standar kepatuhan yang berbeda:
+Kode C# berikut memperagakan proses konversi PowerPoint‑ke‑PDF yang menghasilkan beberapa PDF berdasarkan standar kepatuhan yang berbeda:
 
 ```csharp
 using Aspose.Slides;
@@ -283,29 +324,31 @@ presentation.Save("pres-ua-compliance.pdf", SaveFormat.Pdf, new PdfOptions
 });
 ```
 
-{{% alert color="info" title="Note" %}}
-Aspose.Slides mendukung operasi konversi PDF, memungkinkan Anda mengonversi file PDF ke format file populer. Anda dapat melakukan konversi [PDF to HTML](https://products.aspose.com/slides/net/conversion/pdf-to-html/), [PDF to image](https://products.aspose.com/slides/net/conversion/pdf-to-image/), [PDF to JPG](https://products.aspose.com/slides/net/conversion/pdf-to-jpg/), dan [PDF to PNG](https://products.aspose.com/slides/net/conversion/pdf-to-png/). Operasi konversi PDF ke format khusus lainnya—[PDF to SVG](https://products.aspose.com/slides/net/conversion/pdf-to-svg/), [PDF to TIFF](https://products.aspose.com/slides/net/conversion/pdf-to-tiff/), dan [PDF to XML](https://products.aspose.com/slides/net/conversion/pdf-to-xml/)—juga didukung.
+{{% alert color="info" title="Catatan" %}}
+
+Aspose.Slides mendukung operasi konversi PDF, memungkinkan Anda mengonversi file PDF ke format file populer. Anda dapat melakukan konversi [PDF to HTML](https://products.aspose.com/slides/net/conversion/pdf-to-html/), [PDF to image](https://products.aspose.com/slides/net/conversion/pdf-to-image/), [PDF to JPG](https://products.aspose.com/slides/net/conversion/pdf-to-jpg/), dan [PDF to PNG](https://products.aspose.com/slides/net/conversion/pdf-to-png/). Operasi konversi PDF lainnya ke format khusus—[PDF to SVG](https://products.aspose.com/slides/net/conversion/pdf-to-svg/), [PDF to TIFF](https://products.aspose.com/slides/net/conversion/pdf-to-tiff/), dan [PDF to XML](https://products.aspose.com/slides/net/conversion/pdf-to-xml/)—juga didukung.
+
 {{% /alert %}}
 
-> **Catatan:** Saat mengekspor ke PDF/UA, Aspose.Slides memperlakukan grafik kompleks seperti SmartArt, diagram, dan formula sebagai satu gambar tunggal. Elemen jalur individu tidak dipertahankan sebagai konten terpisah dan dapat ditandai sebagai artefak; teks alternatif hanya disediakan untuk seluruh gambar.
+> **Catatan:** Saat mengekspor ke PDF/UA, Aspose.Slides memperlakukan grafik kompleks seperti SmartArt, bagan, dan rumus sebagai satu gambar tunggal. Elemen jalur individu tidak dipertahankan sebagai konten terpisah dan dapat ditandai sebagai artifact; teks alternatif hanya disediakan untuk seluruh gambar.
 
 ## **FAQ**
 
-**Apakah saya dapat mengonversi banyak file PowerPoint ke PDF secara massal?**
+**Apakah saya dapat mengonversi banyak file PowerPoint ke PDF sekaligus?**
 
-Ya, Aspose.Slides mendukung konversi batch banyak file PPT atau PPTX ke PDF. Anda dapat mengiterasi file Anda dan menerapkan proses konversi secara programatis.
+Ya, Aspose.Slides mendukung konversi batch banyak file PPT atau PPTX ke PDF. Anda dapat mengulangi file‑file Anda dan menerapkan proses konversi secara programatis.
 
-**Apakah memungkinkan melindungi PDF yang telah dikonversi dengan kata sandi?**
+**Apakah memungkinkan melindungi PDF yang dikonversi dengan kata sandi?**
 
-Ya. Gunakan kelas [PdfOptions](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/) untuk mengatur kata sandi dan mendefinisikan izin akses selama proses konversi.
+Ya. Gunakan kelas [PdfOptions](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/) untuk menetapkan kata sandi dan mendefinisikan izin akses selama proses konversi.
 
 **Bagaimana cara menyertakan slide tersembunyi dalam PDF?**
 
-Atur properti [ShowHiddenSlides](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/showhiddenslides/) dalam kelas [PdfOptions](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/) ke `true` untuk menyertakan slide tersembunyi dalam PDF yang dihasilkan.
+Atur properti [ShowHiddenSlides](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/showhiddenslides/) pada kelas [PdfOptions](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/) ke `true` untuk menyertakan slide tersembunyi dalam PDF yang dihasilkan.
 
 **Apakah Aspose.Slides dapat mempertahankan kualitas gambar tinggi dalam PDF?**
 
-Ya, Anda dapat mengontrol kualitas gambar dengan mengatur properti seperti [JpegQuality](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/jpegquality/) dan [SufficientResolution](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/sufficientresolution/) dalam kelas [PdfOptions](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/) untuk memastikan gambar berkualitas tinggi dalam PDF Anda.
+Ya, Anda dapat mengontrol kualitas gambar dengan mengatur properti seperti [JpegQuality](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/jpegquality/) dan [SufficientResolution](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/sufficientresolution/) pada kelas [PdfOptions](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/) untuk memastikan gambar beresolusi tinggi dalam PDF Anda.
 
 **Apakah Aspose.Slides mendukung standar kepatuhan PDF/A?**
 

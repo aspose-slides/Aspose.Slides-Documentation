@@ -1,32 +1,32 @@
 ---
-title: Μετατροπή PPT & PPTX σε PDF με Python | Προχωρημένες Επιλογές
-linktitle: PowerPoint σε PDF
+title: "Μετατροπή PPT & PPTX σε PDF με Python | Προηγμένες επιλογές"
+linktitle: "PowerPoint σε PDF"
 type: docs
 weight: 40
 url: /el/python-net/convert-powerpoint-to-pdf/
 aliases:
   - /python-net/convert-to-pdf/
 keywords:
-- μετατροπή PowerPoint
-- παρουσίαση
-- PowerPoint σε PDF
-- PPT σε PDF
-- PPTX σε PDF
-- αποθήκευση PowerPoint ως PDF
-- συνημμένο
+- "μετατροπή PowerPoint"
+- "παρουσίαση"
+- "PowerPoint σε PDF"
+- "PPT σε PDF"
+- "PPTX σε PDF"
+- "αποθήκευση PowerPoint ως PDF"
+- "συνημμένο"
 - PDF/A1a
 - PDF/A1b
 - PDF/UA
 - Python
-- Aspose.Slides for Python
-description: "Οδηγός βήμα‑βήμα για τη μετατροπή PPT, PPTX και ODP σε PDF υψηλής ποιότητας, συμβατά με WCAG, με την Python και το Aspose.Slides—συμπεριλαμβάνει προστασία με κωδικό πρόσβασης, επιλογή διαφανειών και έλεγχο ποιότητας εικόνας."
+- "Aspose.Slides for Python"
+description: "Οδηγός βήμα‑βήμα για τη μετατροπή PPT, PPTX και ODP σε PDFs υψηλής ποιότητας, συμβατών με WCAG, με Python και Aspose.Slides—περιλαμβάνει προστασία με κωδικό, επιλογή διαφανειών και έλεγχο ποιότητας εικόνας."
 showReadingTime: true
 ---
 ## **Επισκόπηση**
 
-Η μετατροπή παρουσιάσεων PowerPoint (PPT, PPTX, ODP) σε μορφή PDF με την Python προσφέρει πολλά πλεονεκτήματα, συμπεριλαμβανομένης της διασφάλισης συμβατότητας σε διαφορετικές συσκευές και της διατήρησης της διάταξης και της μορφοποίησης της παρουσίασής σας. Αυτός ο οδηγός δείχνει πώς να μετατρέψετε παρουσιάσεις σε έγγραφα PDF, να χρησιμοποιήσετε διάφορες επιλογές για το έλεγχο της ποιότητας εικόνας, να συμπεριλάβετε κρυφές διαφάνειες, να προστατέψετε με κωδικό πρόσβασης τα έγγραφα PDF, να ανιχνεύσετε αντικαταστάσεις γραμματοσειρών, να επιλέξετε συγκεκριμένες διαφάνειες για μετατροπή και να εφαρμόσετε πρότυπα συμμόρφωσης στα παραγόμενα έγγραφα.
+Η μετατροπή παρουσιάσεων PowerPoint (PPT, PPTX, ODP) σε μορφή PDF με Python προσφέρει αρκετά πλεονεκτήματα, συμπεριλαμβανομένης της εξασφάλισης συμβατότητας μεταξύ διαφορετικών συσκευών και της διατήρησης της διάταξης και της μορφοποίησης της παρουσίασής σας. Αυτός ο οδηγός δείχνει πώς να μετατρέψετε παρουσιάσεις σε έγγραφα PDF, να χρησιμοποιήσετε διάφορες επιλογές για έλεγχο της ποιότητας εικόνας, να συμπεριλάβετε κρυμμένες διαφάνειες, να προστατέψετε με κωδικό πρόσβασης τα έγγραφα PDF, να εντοπίσετε υποκαταστάσεις γραμματοσειρών, να επιλέξετε συγκεκριμένες διαφάνειες για μετατροπή και να εφαρμόσετε πρότυπα συμμόρφωσης στα παραγόμενα έγγραφα.
 
-## **Μετατροπές PowerPoint σε PDF**
+## **PowerPoint to PDF Conversions**
 
 Χρησιμοποιώντας το Aspose.Slides, μπορείτε να μετατρέψετε παρουσιάσεις σε αυτές τις μορφές σε PDF:
 
@@ -34,31 +34,31 @@ showReadingTime: true
 * **PPTX**
 * **ODP**
 
-Για να μετατρέψετε μια παρουσίαση σε PDF με την Python, αρκεί να περάσετε το όνομα του αρχείου ως όρισμα στην κλάση [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) και στη συνέχεια να αποθηκεύσετε την παρουσίαση ως PDF χρησιμοποιώντας τη μέθοδο [save](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/save/). Η κλάση [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) εκθέτει τη μέθοδο [save](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/save/) που συνήθως χρησιμοποιείται για τη μετατροπή μιας παρουσίασης σε PDF.
+Για να μετατρέψετε μια παρουσίαση σε PDF με Python, αρκεί να περάσετε το όνομα του αρχείου ως όρισμα στην κλάση [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) και στη συνέχεια να αποθηκεύσετε την παρουσίαση ως PDF χρησιμοποιώντας τη μέθοδο [save](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/save/). Η κλάση [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) εκθέτει τη μέθοδο [save](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/save/) η οποία χρησιμοποιείται συνήθως για τη μετατροπή μιας παρουσίασης σε PDF.
 
 {{% alert color="info" title="Note" %}}
-Το Aspose.Slides για Python προσθέτει τις πληροφορίες του API και τον αριθμό έκδοσης στα παραγόμενα έγγραφα. Για παράδειγμα, όταν μετατρέπει μια παρουσίαση σε PDF, το Aspose.Slides για Python συμπληρώνει το πεδίο Application με την τιμή '*Aspose.Slides*' και το πεδίο PDF Producer με μια τιμή στη μορφή '*Aspose.Slides v XX.XX*'. **Σημειώστε** ότι δεν μπορείτε να ζητήσετε από το Aspose.Slides για Python να αλλάξει ή να αφαιρέσει αυτές τις πληροφορίες από τα παραγόμενα έγγραφα.
+Aspose.Slides για Python εισάγει τις πληροφορίες API του και τον αριθμό έκδοσης στα παραγόμενα έγγραφα. Για παράδειγμα, όταν μετατρέπει μια παρουσίαση σε PDF, το Aspose.Slides για Python γεμίζει το πεδίο Application με την τιμή '*Aspose.Slides*' και το πεδίο PDF Producer με τιμή σε μορφή '*Aspose.Slides v XX.XX*'. **Note** ότι δεν μπορείτε να υποδείξετε στο Aspose.Slides για Python να αλλάξει ή να αφαιρέσει αυτές τις πληροφορίες από τα παραγόμενα έγγραφα.
 {{% /alert %}}
 
-Το Aspose.Slides σας επιτρέπει να μετατρέψετε:
+Aspose.Slides σας επιτρέπει να μετατρέψετε:
 
 * Ολόκληρες παρουσιάσεις σε PDF
 * Συγκεκριμένες διαφάνειες σε μια παρουσίαση σε PDF
 
-Το Aspose.Slides εξάγει παρουσιάσεις σε PDF, διασφαλίζοντας ότι το περιεχόμενο των παραγόμενων PDF ταιριάζει στενά με τις αρχικές παρουσιάσεις. Τα στοιχεία και τα χαρακτηριστικά αποδίδονται με ακρίβεια κατά τη μετατροπή, συμπεριλαμβανομένων:
+Το Aspose.Slides εξάγει παρουσιάσεις σε PDF, διασφαλίζοντας ότι τα περιεχόμενα των προκύπτοντων PDFs ταιριάζουν στενά με τις αρχικές παρουσιάσεις. Τα στοιχεία και οι ιδιότητες αποδίδονται ακρίβεια κατά τη μετατροπή, συμπεριλαμβανομένων:
 
 * Εικόνες
-* Κουτιά κειμένου και σχήματα
+* Πλαίσια κειμένου και σχήματα
 * Μορφοποίηση κειμένου
-* Μορφοποίηση παραγράφων
-* Υπερσυνδέσεις
+* Μορφοποίηση παραγράφου
+* Υπερσυνδέσμους
 * Κεφαλίδες και υποσέλιδα
-* Κουκίδες
+* Κουκκίδες
 * Πίνακες
 
-## **Μετατροπή PowerPoint σε PDF**
+## **Convert PowerPoint to PDF**
 
-Η τυπική διαδικασία μετατροπής PowerPoint σε PDF χρησιμοποιεί προεπιλεγμένες επιλογές. Σε αυτήν την περίπτωση, το Aspose.Slides προσπαθεί να μετατρέψει την παρεχόμενη παρουσίαση σε PDF χρησιμοποιώντας βέλτιστες ρυθμίσεις στα μέγιστα επίπεδα ποιότητας.
+Η τυπική διαδικασία μετατροπής PowerPoint‑to‑PDF χρησιμοποιεί τις προεπιλεγμένες επιλογές. Σε αυτήν την περίπτωση, το Aspose.Slides προσπαθεί να μετατρέψει την παρεχόμενη παρουσίαση σε PDF χρησιμοποιώντας βέλτιστες ρυθμίσεις στα μέγιστα επίπεδα ποιότητας.
 
 Το παρακάτω παράδειγμα φορτώνει μια παρουσίαση και αποθηκεύει όλες τις ορατές διαφάνειες σε PDF χρησιμοποιώντας τις προεπιλεγμένες ρυθμίσεις εξαγωγής.
 
@@ -70,18 +70,18 @@ with slides.Presentation("PowerPoint.ppt") as presentation:
 ```
 
 {{% alert color="info" title="Note" %}}
-Το Aspose παρέχει έναν δωρεάν διαδικτυακό [**μετατροπέα PowerPoint σε PDF**](https://products.aspose.app/slides/conversion/ppt-to-pdf) που επιδεικνύει τη διαδικασία μετατροπής παρουσίασης σε PDF. Για μια ζωντανή υλοποίηση της διαδικασίας που περιγράφεται εδώ, μπορείτε να κάνετε μια δοκιμή με τον μετατροπέα.
+Aspose παρέχει έναν δωρεάν διαδικτυακό [**Μετατροπέας PowerPoint σε PDF**](https://products.aspose.app/slides/conversion/ppt-to-pdf) που δείχνει τη διαδικασία μετατροπής παρουσίασης σε PDF. Για μια ζωντανή υλοποίηση της διαδικασίας που περιγράφεται εδώ, μπορείτε να κάνετε ένα τεστ με το μετατροπέα.
 {{% /alert %}}
 
-## **Μετατροπή PowerPoint σε PDF με Επιλογές**
+## **Convert PowerPoint to PDF with Options**
 
-Το Aspose.Slides παρέχει προσαρμοσμένες επιλογές—ιδιότητες στην κλάση [PdfOptions](https://reference.aspose.com/slides/python-net/aspose.slides.export/pdfoptions/)—που σας επιτρέπουν να προσαρμόσετε το PDF (που προκύπτει από τη διαδικασία μετατροπής), να κλειδώσετε το PDF με κωδικό πρόσβασης ή ακόμη και να καθορίσετε πώς θα γίνει η διαδικασία μετατροπής.
+Το Aspose.Slides παρέχει προσαρμοσμένες επιλογές—ιδιότητες κάτω από την κλάση [PdfOptions](https://reference.aspose.com/slides/python-net/aspose.slides.export/pdfoptions/)—που σας επιτρέπουν να προσαρμόσετε το PDF (που προκύπτει από τη διαδικασία μετατροπής), να κλειδώσετε το PDF με κωδικό πρόσβασης ή ακόμη και να καθορίσετε πώς πρέπει να εκτελείται η διαδικασία μετατροπής.
 
-### **Μετατροπή PowerPoint σε PDF με Προσαρμοσμένες Επιλογές**
+### **Convert PowerPoint to PDF with Custom Options**
 
-Χρησιμοποιώντας προσαρμοσμένες επιλογές μετατροπής, μπορείτε να ορίσετε την προτιμώμενη ρύθμιση ποιότητας για ραστερ εικόνες, να καθορίσετε πώς θα χειρίζονται τα μετααρχεία, να ορίσετε επίπεδο συμπίεσης για κείμενο, DPI για εικόνες κ.λπ.
+Χρησιμοποιώντας προσαρμοσμένες επιλογές μετατροπής, μπορείτε να ορίσετε την προτιμώμενη ρύθμιση ποιότητας για raster εικόνες, να καθορίσετε πώς θα αντιμετωπίζονται τα metafiles, να ορίσετε επίπεδο συμπίεσης για το κείμενο, να ορίσετε DPI για τις εικόνες κ.λπ.
 
-Το παρακάτω παράδειγμα εξάγει μια παρουσίαση σε PDF 1.5 με ποιότητα JPEG 90, ανάλυση εικόνας 300 DPI, μετααρχεία αποθηκευμένα ως PNG και συμπίεση κειμένου Flate.
+Το παρακάτω παράδειγμα εξάγει μια παρουσίαση σε PDF 1.5 με ποιότητα JPEG 90, ανάλυση εικόνας 300 DPI, metafiles αποθηκευμένα ως PNG και συμπίεση κειμένου Flate.
 
 ```python
 import aspose.slides as slides
@@ -97,13 +97,13 @@ with slides.Presentation("PowerPoint.pptx") as presentation:
     presentation.save("PowerPoint-to-PDF.pdf", slides.export.SaveFormat.PDF, pdf_options)
 ```
 
-### **Διατήρηση Ενσωματωμένων Αρχείων OLE ως Συνημμένα PDF**
+### **Preserve Embedded OLE Files as PDF Attachments**
 
-Εάν μια παρουσίαση περιέχει ενσωματωμένο βιβλίο εργασίας Excel, μπορεί να θέλετε οι αποδέκτες του PDF να έχουν πρόσβαση στα δεδομένα του βιβλίου εργασίας καθώς και να βλέπουν τις διαφάνειες. Ορίστε το [PdfOptions.include_ole_data](https://reference.aspose.com/slides/python-net/aspose.slides.export/pdfoptions/include_ole_data/) σε `True` για να διατηρήσετε τα ενσωματωμένα αρχεία OLE ως συνημμένα στο παραγόμενο PDF.
+Εάν μια παρουσίαση περιέχει ενσωματωμένο βιβλίο εργασίας Excel, μπορεί να θέλετε οι παραλήπτες του PDF να έχουν πρόσβαση στα δεδομένα του βιβλίου εργασίας καθώς και να βλέπουν τις διαφάνειες. Ορίστε το [PdfOptions.include_ole_data](https://reference.aspose.com/slides/python-net/aspose.slides.export/pdfoptions/include_ole_data/) σε `True` για να διατηρήσετε τα ενσωματωμένα αρχεία OLE ως συνημμένα στο παραγόμενο PDF.
 
-Η προεπιλεγμένη τιμή είναι `False`: η προεπισκόπηση εικόνας ή το εικονίδιο του αντικειμένου OLE αποτυπώνεται στη σελίδα PDF, αλλά το ενσωματωμένο αρχείο δεν συμπεριλαμβάνεται ως συνημμένο. Ορίζοντας την επιλογή σε `True` συμπεριλαμβάνει επιπλέον τα δεδομένα του αρχείου. Η προεπισκόπηση παραμένει οπτική αναπαράσταση· το συνημμένο επιτρέπει στους αποδέκτες να ανοίξουν ή να αποθηκεύσουν το ενσωματωμένο αρχείο χωριστά. Το αντικείμενο OLE δεν γίνεται διαδραστικό φύλλο Excel στη σελίδα PDF.
+Η προεπιλεγμένη τιμή είναι `False`: η εικόνα προεπισκόπησης ή το εικονίδιο του αντικειμένου OLE αποδίδεται στη σελίδα PDF, αλλά το ενσωματωμένο αρχείο δεν περιλαμβάνεται ως συνημμένο. Ορίζοντας την επιλογή σε `True` περιλαμβάνει επιπλέον τα δεδομένα του αρχείου. Η προεπισκόπηση παραμένει οπτική αναπαράσταση· το συνημμένο επιτρέπει στους παραλήπτες να ανοίξουν ή να αποθηκεύσουν το ενσωματωμένο αρχείο ξεχωριστά. Το αντικείμενο OLE δεν μετατρέπεται σε διαδραστικό φύλλο Excel στη σελίδα PDF.
 
-Το παρακάτω παράδειγμα φορτώνει μια παρουσίαση που ήδη περιέχει ενσωματωμένο βιβλίο εργασίας Excel και την εξάγει σε PDF με το βιβλίο εργασίας συνημμένο.
+Το παρακάτω παράδειγμα φορτώνει μια παρουσίαση που ήδη περιέχει ενσωματωμένο βιβλίο εργασίας Excel και την εξάγει σε PDF με το βιβλίο εργασίας προσαρτημένο.
 
 ```python
 import aspose.slides as slides
@@ -117,19 +117,19 @@ with slides.Presentation("presentation.pptx") as presentation:
 
 Για να ελέγξετε το αποτέλεσμα:
 
-1. Ανοίξτε το εξαγόμενο PDF σε έναν προβολέα που υποστηρίζει συνημμένα αρχεία, όπως το Adobe Acrobat Reader.
-2. Ανοίξτε το πάνελ **Attachments** του προβολέα και εντοπίστε το ενσωματωμένο βιβλίο εργασίας.
-3. Αποθηκεύστε το συνημμένο και ανοίξτε το στο Excel για να ελέγξετε τα δεδομένα του, ή ανοίξτε το απευθείας εάν ο προβολέας το επιτρέπει. Η προεπισκόπηση στη σελίδα PDF είναι ξεχωριστή από το συνημμένο.
+1. Ανοίξτε το εξαγόμενο PDF σε προβολή που υποστηρίζει συνημμένα αρχεία, όπως το Adobe Acrobat Reader.
+2. Ανοίξτε το πάνελ **Attachments** του προγράμματος προβολής και εντοπίστε το ενσωματωμένο βιβλίο εργασίας.
+3. Αποθηκεύστε το συνημμένο και ανοίξτε το στο Excel για να ελέγξετε τα δεδομένα του, ή ανοίξτε το απευθείας αν το πρόγραμμα προβολής το επιτρέπει. Η προεπισκόπηση στη σελίδα PDF είναι ξεχωριστή από το συνημμένο.
 
 {{% alert color="info" title="Note" %}}
-Τα πρότυπα PDF/A επιβάλλουν περιορισμούς στα συνημμένα: το PDF/A-1 απαγορεύει ενσωματωμένα αρχεία, το PDF/A-2 επιτρέπει μόνο συνημμένα PDF/A, και το PDF/A-3 επιτρέπει άλλους τύπους αρχείων, συμπεριλαμβανομένων βιβλίων εργασίας Excel. Πρόκειται για απαιτήσεις των προτύπων, όχι περιορισμούς ειδικά για το Aspose.Slides. Αυτό το παράδειγμα χρησιμοποιεί την προεπιλεγμένη ρύθμιση συμμόρφωσης PDF και δεν δείχνει εξαγωγή PDF/A.
+Τα πρότυπα PDF/A επιβάλλουν περιορισμούς στα συνημμένα: το PDF/A‑1 απαγορεύει ενσωματωμένα αρχεία, το PDF/A‑2 επιτρέπει μόνο συνημμένα PDF/A, και το PDF/A‑3 επιτρέπει άλλους τύπους αρχείων, συμπεριλαμβανομένων βιβλίων εργασίας Excel. Αυτές είναι απαιτήσεις των προτύπων, όχι περιορισμοί ειδικοί του Aspose.Slides. Αυτό το παράδειγμα χρησιμοποιεί την προεπιλεγμένη ρύθμιση συμμόρφωσης PDF και δεν δείχνει εξαγώγιση PDF/A.
 {{% /alert %}}
 
-### **Μετατροπή PowerPoint σε PDF με Κρυφές Διαφάνειες**
+### **Convert PowerPoint to PDF with Hidden Slides**
 
-Εάν μια παρουσίαση περιέχει κρυφές διαφάνειες, μπορείτε να χρησιμοποιήσετε μια προσαρμοσμένη επιλογή—την ιδιότητα [show_hidden_slides](https://reference.aspose.com/slides/python-net/aspose.slides.export/pdfoptions/show_hidden_slides/) από την κλάση [PdfOptions](https://reference.aspose.com/slides/python-net/aspose.slides.export/pdfoptions/)—για να ζητήσετε από το Aspose.Slides να συμπεριλάβει τις κρυφές διαφάνειες ως σελίδες στο παραγόμενο PDF.
+Εάν μια παρουσίαση περιέχει κρυμμένες διαφάνειες, μπορείτε να χρησιμοποιήσετε μια προσαρμοσμένη επιλογή—την ιδιότητα [show_hidden_slides](https://reference.aspose.com/slides/python-net/aspose.slides.export/pdfoptions/show_hidden_slides/) από την κλάση [PdfOptions](https://reference.aspose.com/slides/python-net/aspose.slides.export/pdfoptions/)—για να υποδείξετε στο Aspose.Slides να συμπεριλάβει τις κρυμμένες διαφάνειες ως σελίδες στο παραγόμενο PDF.
 
-Το παρακάτω παράδειγμα εξάγει μια παρουσίαση σε PDF, συμπεριλαμβανομένων τυχόν κρυφών διαφανειών.
+Το παρακάτω παράδειγμα εξάγει μια παρουσίαση σε PDF, συμπεριλαμβανομένων τυχόν κρυμμένων διαφανειών.
 
 ```python
 import aspose.slides as slides
@@ -141,9 +141,9 @@ with slides.Presentation("PowerPoint.pptx") as presentation:
     presentation.save("PowerPoint-to-PDF.pdf", slides.export.SaveFormat.PDF, pdf_options)
 ```
 
-### **Μετατροπή PowerPoint σε PDF με Κωδικό Πρόσβασης**
+### **Convert PowerPoint to a Password-Protected PDF**
 
-Το παρακάτω παράδειγμα εξάγει μια παρουσίαση σε PDF που απαιτεί τον κωδικό `password` για άνοιγμα. Τα δικαιώματα πρόσβασης επιτρέπουν εκτύπωση, συμπεριλαμβανομένης εκτύπωσης υψηλής ποιότητας.
+Το παρακάτω παράδειγμα εξάγει μια παρουσίαση σε PDF που απαιτεί τον κωδικό `password` για να ανοίξει. Οι άδειες πρόσβασης επιτρέπουν εκτύπωση, συμπεριλαμβανομένης της εκτύπωσης υψηλής ποιότητας.
 
 ```python
 import aspose.slides as slides
@@ -156,9 +156,35 @@ with slides.Presentation("PowerPoint.pptx") as presentation:
     presentation.save("PPTX-to-PDF.pdf", slides.export.SaveFormat.PDF, pdf_options)
 ```
 
-## **Μετατροπή Επιλεγμένων Διαφανειών σε PowerPoint σε PDF**
+### **Handle Fonts Without a Dedicated Bold Typeface**
 
-Το παρακάτω παράδειγμα εξάγει τις διαφάνειες 1 και 3 από μια παρουσίαση σε PDF. Οι αριθμοί διαφανειών σε αυτόν τον πίνακα ξεκινούν από το 1, και η είσοδος παρουσίασης πρέπει να περιέχει τουλάχιστον τρεις διαφάνειες.
+Μια παρουσίαση μπορεί να εφαρμόσει έντονη μορφοποίηση σε κείμενο ακόμα και όταν η γραμματοσειρά της δεν διαθέτει αφιερωμένη έντονη γραμματοσειρά. Το κείμενο μπορεί να εμφανίζεται έντονο μέσω συνθετικής έντονης γραφής, η οποία παχύνει τεχνητά τα κανονικά γλύφους. Όταν αυτό το κείμενο φαίνεται πολύ βαρύ ή διαφορετικό από το επιθυμητό στην PDF, δοκιμάστε να ορίσετε το [PdfOptions.rasterize_unsupported_font_styles](https://reference.aspose.com/slides/python-net/aspose.slides.export/pdfoptions/rasterize_unsupported_font_styles/) σε `True`. Αυτή η επιλογή αποδίδει το επηρεασμένο κείμενο ως bitmap κατά την εξαγωγή PDF και μπορεί να βελτιώσει την εμφάνισή του για ορισμένες γραμματοσειρές. Η προεπιλεγμένη τιμή είναι `False`.
+
+Η δείγμα παρουσίαση περιέχει δύο πλαίσια κειμένου: ένα με κανονικό κείμενο και ένα με έντονη μορφοποίηση στην ίδια γραμματοσειρά, η οποία δεν διαθέτει αφιερωμένη έντονη γραμματοσειρά. Το παρακάτω παράδειγμα φορτώνει την παρουσίαση, ενεργοποιεί τη rasterization των μη υποστηριζόμενων στυλ γραμματοσειράς και την εξάγει σε PDF:
+
+```python
+import aspose.slides as slides
+
+pdf_options = slides.export.PdfOptions()
+pdf_options.rasterize_unsupported_font_styles = True
+
+with slides.Presentation("unsupported-bold.pptx") as presentation:
+    presentation.save("rasterized.pdf", slides.export.SaveFormat.PDF, pdf_options)
+```
+
+Οι παρακάτω προεπισκοπήσεις δείχνουν την έξοδο με την επιλογή απενεργοποιημένη και ενεργοποιημένη. Σε αυτό το παράδειγμα, το έντονο κείμενο έχει πιο παχιές γραμμές με την επιλογή απενεργοποιημένη. Με την επιλογή ενεργοποιημένη, οι γραμμές του είναι πιο ελαφριές· το κανονικό κείμενο παραμένει αμετάβλητο. Συγκρίνετε τα αποτελέσματα πριν επιλέξετε τη ρύθμιση για την παρουσίασή σας.
+
+| Option disabled (`False`, the default) | Option enabled (`True`) |
+|---|---|
+| ![PDF με απενεργοποιημένη rasterization μη υποστηριζόμενου στυλ γραμματοσειράς](unsupported-bold-disabled.png) | ![PDF με ενεργοποιημένη rasterization μη υποστηριζόμενου στυλ γραμματοσειράς](unsupported-bold-enabled.png) |
+
+Σε αυτό το παράδειγμα, η ενεργοποίηση της επιλογής μετατρέπει μόνο το έντονο κείμενο σε bitmap: δεν μπορεί να επιλεγεί, αντιγραφεί ή αναζητηθεί ως κείμενο χωρίς OCR, και οι άκρες του φαίνονται πιο απαλές σε ζουμ 800 %. Το κανονικό κείμενο παραμένει αναζητήσιμο. Με την επιλογή απενεργοποιημένη, και τα δύο κείμενα παραμένουν κείμενο.
+
+Αυτή η επιλογή rasterizes κείμενο μορφοποιημένο ως έντονο όταν η γραμματοσειρά του δεν έχει αφιερωμένη έντονη γραμματοσειρά. Η [Αντικατάσταση γραμματοσειράς](/slides/el/python-net/font-substitution/) επιλέγει εναλλακτική γραμματοσειρά όταν η αρχική δεν είναι διαθέσιμη.
+
+## **Convert Selected Slides in PowerPoint to PDF**
+
+Το παρακάτω παράδειγμα εξάγει τις διαφάνειες 1 και 3 από μια παρουσίαση σε PDF. Οι αριθμοί διαφανειών σε αυτόν τον πίνακα είναι 1‑βασισμένοι και η είσοδος παρουσίασης πρέπει να περιέχει τουλάχιστον τρεις διαφάνειες.
 
 ```python
 import aspose.slides as slides
@@ -168,9 +194,9 @@ with slides.Presentation("PowerPoint.pptx") as presentation:
     presentation.save("PPTX-to-PDF.pdf", slide_numbers, slides.export.SaveFormat.PDF)
 ```
 
-## **Μετατροπή PowerPoint σε PDF με Προσαρμοσμένο Μέγεθος Διαφάνειας**
+## **Convert PowerPoint to PDF with Custom Slide Size**
 
-Το παρακάτω παράδειγμα αντιγράφει την πρώτη διαφάνεια από μια παρουσίαση σε μια νέα παρουσίαση με μέγεθος διαφάνειας 612 × 792 σημεία (8,5 × 11 ίντσες). Κάνει κλιμάκωση του περιεχομένου της διαφάνειας ώστε να χωράει και εξάγει τη μοναδική διαφάνεια σε PDF.
+Το παρακάτω παράδειγμα αντιγράφει την πρώτη διαφάνεια από μια παρουσίαση σε μια νέα παρουσίαση με μέγεθος διαφάνειας 612 × 792 points (8,5 × 11 ίντσες). Κλιμακώνει το περιεχόμενο της διαφάνειας ώστε να ταιριάζει και εξάγει τη μοναδική διαφάνεια σε PDF.
 
 ```python
 import aspose.slides as slides
@@ -184,15 +210,15 @@ with slides.Presentation("SelectedSlides.pptx") as presentation:
         slide = presentation.slides[0]
         resized_presentation.slides.insert_clone(0, slide)
 
-        # Αφαιρέστε τη κενή διαφάνεια που δημιουργήθηκε με τη νέα παρουσίαση.
+        # Καταργήστε τη κενή διαφάνεια που δημιουργήθηκε με τη νέα παρουσίαση.
         resized_presentation.slides.remove_at(1)
 
         resized_presentation.save("PDF_with_custom_slide_size.pdf", slides.export.SaveFormat.PDF)
 ```
 
-## **Μετατροπή PowerPoint σε PDF σε Προβολή Σημειώσεων Διαφάνειας**
+## **Convert PowerPoint to PDF in Notes Slide View**
 
-Το παρακάτω παράδειγμα εξάγει μια παρουσίαση σε PDF, τοποθετώντας τις σημειώσεις ομιλητή κάθε διαφάνειας κάτω από τη διαφάνεια. Χρησιμοποιήστε μια παρουσίαση που περιέχει σημειώσεις ομιλητή για να δείτε το αποτέλεσμα.
+Το παρακάτω παράδειγμα εξάγει μια παρουσίαση σε PDF, τοποθετώντας τις σημειώσεις του ομιλητή κάτω από κάθε διαφάνεια. Χρησιμοποιήστε μια παρουσίαση που περιέχει σημειώσεις ομιλητή για να δείτε το αποτέλεσμα.
 
 ```python
 import aspose.slides as slides
@@ -205,11 +231,11 @@ with slides.Presentation("NotesFile.pptx") as presentation:
     presentation.save("Pdf_Notes_out.pdf", slides.export.SaveFormat.PDF, pdf_options)
 ```
 
-## **Πρότυπα Προσβασιμότητας και Συμμόρφωσης για PDF**
+## **Accessibility and Compliance Standards for PDF**
 
-Το Aspose.Slides σας επιτρέπει να χρησιμοποιήσετε μια διαδικασία μετατροπής που συμμορφώνεται με τις [Οδηγίες Προσβασιμότητας Περιεχομένου Ιστού (**WCAG**)](https://www.w3.org/TR/WCAG-TECHS/pdf.html). Μπορείτε να εξάγετε ένα έγγραφο PowerPoint σε PDF χρησιμοποιώντας οποιοδήποτε από αυτά τα πρότυπα συμμόρφωσης: **PDF/A1a**, **PDF/A1b**, και **PDF/UA**.
+Το Aspose.Slides σας επιτρέπει να χρησιμοποιήσετε μια διαδικασία μετατροπής που συμμορφώνεται με τις [Web Content Accessibility Guidelines (**WCAG**)](https://www.w3.org/TR/WCAG-TECHS/pdf.html). Μπορείτε να εξάγετε ένα έγγραφο PowerPoint σε PDF χρησιμοποιώντας οποιοδήποτε από αυτά τα πρότυπα συμμόρφωσης: **PDF/A1a**, **PDF/A1b**, και **PDF/UA**.
 
-Αυτός ο κώδικας Python δείχνει μια λειτουργία μετατροπής PowerPoint σε PDF στην οποία λαμβάνονται πολλαπλά PDF βάσει διαφορετικών προτύπων συμμόρφωσης:
+Αυτός ο κώδικας Python δείχνει μια λειτουργία μετατροπής PowerPoint σε PDF στην οποία λαμβάνονται πολλαπλά PDFs με διαφορετικά πρότυπα συμμόρφωσης:
 
 ```python
 import aspose.slides as slides
@@ -229,47 +255,47 @@ pres.save("pres-ua-compliance.pdf", slides.export.SaveFormat.PDF, options)
 ```
 
 {{% alert color="info" title="Note" %}}
-Η υποστήριξη του Aspose.Slides για λειτουργίες μετατροπής PDF σάς επιτρέπει να μετατρέψετε PDF στις πιο δημοφιλείς μορφές αρχείων. Μπορείτε να κάνετε μετατροπές [PDF σε HTML](https://products.aspose.com/slides/python-net/conversion/pdf-to-html/), [PDF σε εικόνα](https://products.aspose.com/slides/python-net/conversion/pdf-to-image/), [PDF σε JPG](https://products.aspose.com/slides/python-net/conversion/pdf-to-jpg/), και [PDF σε PNG](https://products.aspose.com/slides/python-net/conversion/pdf-to-png/). Άλλες λειτουργίες μετατροπής PDF σε εξειδικευμένες μορφές—[PDF σε SVG](https://products.aspose.com/slides/python-net/conversion/pdf-to-svg/), [PDF σε TIFF](https://products.aspose.com/slides/python-net/conversion/pdf-to-tiff/), και [PDF σε XML](https://products.aspose.com/slides/python-net/conversion/pdf-to-xml/)—υποστηρίζονται επίσης.
+Η υποστήριξη του Aspose.Slides για λειτουργίες μετατροπής PDF σας επιτρέπει να μετατρέψετε PDF σε τις πιο δημοφιλείς μορφές αρχείων. Μπορείτε να κάνετε [PDF σε HTML](https://products.aspose.com/slides/python-net/conversion/pdf-to-html/), [PDF σε εικόνα](https://products.aspose.com/slides/python-net/conversion/pdf-to-image/), [PDF σε JPG](https://products.aspose.com/slides/python-net/conversion/pdf-to-jpg/), και [PDF σε PNG](https://products.aspose.com/slides/python-net/conversion/pdf-to-png/) μετατροπές. Άλλες λειτουργίες μετατροπής PDF σε εξειδικευμένες μορφές—[PDF σε SVG](https://products.aspose.com/slides/python-net/conversion/pdf-to-svg/), [PDF σε TIFF](https://products.aspose.com/slides/python-net/conversion/pdf-to-tiff/), και [PDF σε XML](https://products.aspose.com/slides/python-net/conversion/pdf-to-xml/)—επίσης υποστηρίζονται.
 {{% /alert %}}
 
-> **Σημείωση:** Κατά την εξαγωγή σε PDF/UA, το Aspose.Slides αντιμετωπίζει σύνθετα γραφικά όπως SmartArt, διαγράμματα και τύπους ως ένα ενιαίο στοιχείο. Τα μεμονωμένα στοιχεία διαδρομής δεν διατηρούνται ως ξεχωριστό περιεχόμενο και μπορεί να χαρακτηριστούν ως αντικείμενα τέχνης· το εναλλακτικό κείμενο παρέχεται μόνο για ολόκληρο το στοιχείο.
+> **Note:** Όταν εξάγετε σε PDF/UA, το Aspose.Slides αντιμετωπίζει πολύπλογα γραφικά όπως SmartArt, διαγράμματα και τύπους ως ένα ενιαίο σχήμα. Τα μεμονωμένα στοιχεία μονοπατιού δεν διατηρούνται ως ξεχωριστό περιεχόμενο και μπορεί να χαρακτηριστούν ως τεχνουργήματα· το εναλλακτικό κείμενο παρέχεται μόνο για το σύνολο του σχήματος.
 
-## **ΣΥΧΝΑ ΕΡΩΤΗΜΑΤΑ**
+## **Συχνές Ερωτήσεις**
 
 **Μπορεί το Aspose.Slides για Python να αφαιρέσει τις πληροφορίες εφαρμογής από το PDF;**
 
-Όχι, το Aspose.Slides για Python συμπεριλαμβάνει αυτόματα τις πληροφορίες του API και τον αριθμό έκδοσης στο εξαγόμενο PDF. Αυτές οι πληροφορίες δεν μπορούν να τροποποιηθούν ή να αφαιρεθούν.
+Όχι, το Aspose.Slides για Python αυτόματα συμπεριλαμβάνει πληροφορίες API και τον αριθμό έκδοσης στο παραγόμενο PDF. Αυτές οι πληροφορίες δεν μπορούν να τροποποιηθούν ή να αφαιρεθούν.
 
 **Πώς μπορώ να συμπεριλάβω μόνο συγκεκριμένες διαφάνειες στη μετατροπή PDF;**
 
-Μπορείτε να καθορίσετε τα ευρετήρια των διαφανειών που θέλετε να μετατρέψετε περνώντας έναν πίνακα θέσεων διαφανειών στη μέθοδο [save](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/save/).
+Μπορείτε να καθορίσετε τις θέσεις διαφανειών που θέλετε να μετατρέψετε περνώντας έναν πίνακα θέσεων διαφανειών στη μέθοδο [save](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/save/).
 
-**Μπορεί να προστατευτεί με κωδικό πρόσβασης το PDF κατά τη μετατροπή;**
+**Είναι δυνατόν να προστατεύσετε με κωδικό πρόσβασης το PDF κατά τη μετατροπή;**
 
-Ναι, μπορείτε να ορίσετε κωδικό πρόσβασης και να καθορίσετε δικαιώματα πρόσβασης χρησιμοποιώντας την κλάση [PdfOptions](https://reference.aspose.com/slides/python-net/aspose.slides.export/pdfoptions/) πριν αποθηκεύσετε την παρουσίαση ως PDF.
+Ναι, μπορείτε να ορίσετε κωδικό πρόσβασης και να ορίσετε άδειες πρόσβασης χρησιμοποιώντας την κλάση [PdfOptions](https://reference.aspose.com/slides/python-net/aspose.slides.export/pdfoptions/) πριν αποθηκεύσετε την παρουσίαση ως PDF.
 
-**Υποστηρίζει το Aspose.Slides τη μετατροπή PDF σε άλλες μορφές;**
+**Το Aspose.Slides υποστηρίζει τη μετατροπή PDF σε άλλες μορφές;**
 
 Ναι, το Aspose.Slides υποστηρίζει τη μετατροπή PDF σε μορφές όπως HTML, μορφές εικόνας (JPG, PNG), SVG, TIFF και XML.
 
-**Πώς μπορώ να διασφαλίσω ότι το PDF μου συμμορφώνεται με τα πρότυπα προσβασιμότητας;**
+**Πώς μπορώ να εξασφαλίσω ότι το PDF μου συμμορφώνεται με πρότυπα προσβασιμότητας;**
 
-Ορίστε την ιδιότητα [compliance](https://reference.aspose.com/slides/python-net/aspose.slides.export/pdfoptions/compliance/) στην κλάση [PdfOptions](https://reference.aspose.com/slides/python-net/aspose.slides.export/pdfoptions/) σε πρότυπα όπως `PDF_A1A`, `PDF_A1B` ή `PDF_UA` για να διασφαλίσετε τη συμμόρφωση με τις οδηγίες προσβασιμότητας.
+Ορίστε την ιδιότητα [compliance](https://reference.aspose.com/slides/python-net/aspose.slides.export/pdfoptions/compliance/) στην κλάση [PdfOptions](https://reference.aspose.com/slides/python-net/aspose.slides.export/pdfoptions/) σε πρότυπα όπως `PDF_A1A`, `PDF_A1B` ή `PDF_UA` για να εξασφαλίσετε τη συμμόρφωση με τις οδηγίες προσβασιμότητας.
 
-**Μπορώ να συμπεριλάβω κρυφές διαφάνειες στην έξοδο PDF;**
+**Μπορώ να συμπεριλάβω κρυμμένες διαφάνειες στην έξοδο PDF;**
 
-Ναι, ορίζοντας την ιδιότητα [show_hidden_slides](https://reference.aspose.com/slides/python-net/aspose.slides.export/pdfoptions/show_hidden_slides/) στην κλάση [PdfOptions](https://reference.aspose.com/slides/python-net/aspose.slides.export/pdfoptions/) σε `True`, οι κρυφές διαφάνειες θα συμπεριληφθούν στο PDF.
+Ναι, ορίζοντας την ιδιότητα [show_hidden_slides](https://reference.aspose.com/slides/python-net/aspose.slides.export/pdfoptions/show_hidden_slides/) στην κλάση [PdfOptions](https://reference.aspose.com/slides/python-net/aspose.slides.export/pdfoptions/) σε `True`, οι κρυμμένες διαφάνειες θα συμπεριληφθούν στο PDF.
 
-**Πώς μπορώ να ρυθμίσω την ποιότητα και την ανάλυση εικόνας κατά τη μετατροπή;**
+**Πώς ρυθμίζω την ποιότητα και την ανάλυση εικόνας κατά τη μετατροπή;**
 
 Χρησιμοποιήστε τις ιδιότητες [jpeg_quality](https://reference.aspose.com/slides/python-net/aspose.slides.export/pdfoptions/jpeg_quality/) και [sufficient_resolution](https://reference.aspose.com/slides/python-net/aspose.slides.export/pdfoptions/sufficient_resolution/) στην κλάση [PdfOptions](https://reference.aspose.com/slides/python-net/aspose.slides.export/pdfoptions/) για να ελέγξετε την ποιότητα και την ανάλυση εικόνας στο παραγόμενο PDF.
 
-**Ανιχνεύει το Aspose.Slides αυτόματα αντικαταστάσεις γραμματοσειρών;**
+**Το Aspose.Slides διαχειρίζεται αυτόματα τις υποκαταστάσεις γραμματοσειρών;**
 
-Το Aspose.Slides ανιχνεύει αντικαταστάσεις γραμματοσειρών κατά τη μετατροπή, και μπορείτε να τις διαχειριστείτε χρησιμοποιώντας την ιδιότητα `warning_callback` στην `SaveOptions` (προς το παρόν περιορισμένη).
+Το Aspose.Slides εντοπίζει τις υποκαταστάσεις γραμματοσειράς κατά τη μετατροπή και μπορείτε να τις διαχειριστείτε χρησιμοποιώντας την ιδιότητα `warning_callback` στην `SaveOptions` (προς το παρόν περιορισμένη).
 
-## **Επιπλέον Πόροι**
+## **Additional Resources**
 
-- [Aspose.Slides για Python μέσω .NET Τεκμηρίωση](/slides/el/python-net/)
+- [Τεκμηρίωση Aspose.Slides για Python μέσω .NET](/slides/el/python-net/)
 - [Αναφορά API Aspose.Slides](https://reference.aspose.com/slides/python-net/)
-- [Δωρεάν Online Μετατροπείς Aspose](https://products.aspose.app/slides/conversion)
+- [Δωρεάν διαδικτυακοί μετατροπείς Aspose](https://products.aspose.app/slides/conversion)

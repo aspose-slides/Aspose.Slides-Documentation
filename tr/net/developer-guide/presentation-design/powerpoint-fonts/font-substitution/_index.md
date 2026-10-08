@@ -9,7 +9,7 @@ keywords:
 - ikame yazı tipi
 - yazı tipi ikamesi
 - yazı tipi değiştirme
-- yazı tipi değişimi
+- yazı tipi yer değiştirme
 - ikame kuralı
 - değiştirme kuralı
 - PowerPoint
@@ -18,20 +18,21 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "PowerPoint ve OpenDocument sunumlarını render ederken veya dönüştürürken .NET için Aspose.Slides'de yazı tipi ikamesi kurallarını yapılandırın ve ikâmelenen yazı tiplerini inceleyin."
+description: "Aspose.Slides for .NET ile PowerPoint ve OpenDocument sunumlarını oluştururken veya dönüştürürken yazı tipi ikame kurallarını yapılandırın ve ikame edilen yazı tiplerini inceleyin."
 ---
-## **Genel Bakış**
+## **Overview**
 
-Yazı tipi ikamesi, Aspose.Slides'in bir sunum render edildiğinde veya dönüştürüldüğünde erişilemeyen bir yazı tipi yerine kullanılabilir bir yazı tipini kullanmasını sağlar. İkame, oluşturulan çıktıyı etkiler; sunum içeriğine atanmış yazı tipini değiştirmez.
+Yazı tipi ikamesi, Aspose.Slides'in bir sunum oluşturulurken veya dönüştürülürken erişilemeyen bir yazı tipinin yerine kullanılabilir bir yazı tipini kullanmasını sağlar. İkame, oluşturulan çıktıyı etkiler; sunum içeriğine atanan yazı tipini değiştirmez.
 
-Belirli bir yazı tipi kullanılabilir olmadığında kullanılacak yazı tipini tanımlayabilir ve Aspose.Slides'in render sırasında yapacağı ikameleri inceleyebilirsiniz. Bu, farklı yüklü yazı tiplerine sahip ortamlar arasında çıktının tutarlı kalmasına yardımcı olur.
+Belirli bir yazı tipi kullanılamadığında kullanılacak yazı tipini tanımlayabilir ve Aspose.Slides'in oluşturma sırasında yapacağı ikameleri inceleyebilirsiniz. Bu, farklı yüklü yazı tiplerine sahip ortamlar arasında çıktının tutarlı kalmasına yardımcı olur.
 
-## **Yazı Tipi Değiştiricilerini Al**
+Bir yazı tipi mevcut ancak özel bir kalın yazı tipi yoksa, [Yüksek Kaliteli Bir Bold Yazı Tipi Olmayan Yazı Tiplerini Yönet](/slides/tr/net/convert-powerpoint-to-pdf/#handle-fonts-without-a-dedicated-bold-typeface) bölümüne bakın. Bu bölüm, PDF dışa aktarımı sırasında etkilenen metnin nasıl rasterleştirileceğini ve metin seçimi, arama ve ölçeklendirme üzerindeki sonuçları açıklar.
 
-Render sırasında hangi yazı tiplerinin ikâmeleneceğini belirlemek için [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/) metodunu kullanın. Metot, orijinal ve ikâmelenen yazı tipi adlarını belirten [FontSubstitutionInfo](https://reference.aspose.com/slides/net/aspose.slides/fontsubstitutioninfo/) nesneleri döndürür.
+## **Get Font Substitutions**
+
+Sunum oluşturulduğunda hangi yazı tiplerinin ikame edileceğini belirlemek için [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/) yöntemini kullanın. Yöntem, orijinal ve ikame edilen yazı tipi adlarını tanımlayan [FontSubstitutionInfo](https://reference.aspose.com/slides/net/aspose.slides/fontsubstitutioninfo/) nesnelerini döndürür.
 
 Aşağıdaki C# örneği bir sunum için tüm yazı tipi ikamelerini listeler:
-
 ```csharp
 using System;
 using Aspose.Slides;
@@ -44,16 +45,15 @@ foreach (var substitution in presentation.FontsManager.GetSubstitutions())
 }
 ```
 
-## **Seçili Slaytlar İçin Yazı Tipi Değiştiricilerini Al**
+## **Get Font Substitutions for Selected Slides**
 
-Belirli slaytları render etmek için gereken ikameleri yalnızca incelemek amacıyla, `int[] slides` parametresiyle birlikte [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/) aşırı yüklemesini kullanın. Bu, bir sunumun bir kısmını render ederken veya dışa aktarırken, büyük bir sunumu artımlı olarak kontrol ederken, erişilemeyen yazı tiplerine bağlı slaytları bulurken, bir sunucu ya da konteyner için minimal bir yazı tipi paketi hazırlarken veya ilgili olmayan slaytları işlemeye gerek kalmadan render farklarını teşhis ederken kullanışlıdır.
+[IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/) aşırı yüklemesini `int[] slides` argümanı ile kullanarak yalnızca belirli slaytların oluşturulması için gereken ikameleri inceleyebilirsiniz. Bu, bir sunumun bir bölümünü oluştururken veya dışa aktarırken, büyük bir sunumu aşamalı olarak kontrol ederken, kullanılamayan yazı tiplerine bağımlı slaytları bulurken, bir sunucu veya konteyner için minimal bir yazı tipi paketi hazırlarken veya ilgili olmayan slaytları işlemadan oluşturma farklarını teşhis ederken faydalıdır.
 
-`slides` dizisi bir‑tabanlı slayt indeksleri içerir: `1` ilk slaytı gösterir. Buna karşılık, [Presentation.Slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/slides/) koleksiyon indisleyicisi sıfır‑tabanlıdır; aynı slayta `presentation.Slides[0]` ile erişilir. Tek‑off‑by‑one hataları önlemek için dizi oluştururken bu farkı aklınızda bulundurun.
+`slides` dizisi bir‑bazlı slayt indeksleri içerir: `1` ilk slaytı tanımlar. Buna karşılık, [Presentation.Slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/slides/) koleksiyon indeksleyicisi sıfır‑bazlıdır, bu nedenle aynı slayt `presentation.Slides[0]` olarak erişilir. Dizi oluştururken bu farkı akılda tutun ve bir‑bir hatasından kaçının.
 
-Aşırı yüklemeyi [Presentation.FontsManager](https://reference.aspose.com/slides/net/aspose.slides/presentation/fontsmanager/) özelliği üzerinden çağırın. Seçili slaytlar render edilirken belirlenen ikameler döndürülür. Her sonuç, orijinal ve ikâmelenen yazı tipi adlarını içeren bir [FontSubstitutionInfo](https://reference.aspose.com/slides/net/aspose.slides/fontsubstitutioninfo/) nesnesidir. Sonuç, geçerli yazı tipi ortamını ve [dışarıdan yüklenen yazı tiplerini](/slides/tr/net/custom-font/) yansıtır. [IFontSubstRuleCollection](https://reference.aspose.com/slides/net/aspose.slides/ifontsubstrulecollection/) içinde depolanan ikame kuralları render çıktısını değiştirir ancak sonuçta gösterilmez.
+Bu aşırı yüklemeyi [Presentation.FontsManager](https://reference.aspose.com/slides/net/aspose.slides/presentation/fontsmanager/) özelliği üzerinden çağırın. Yalnızca seçilen slaytların oluşturulması sırasında belirlenen ikameleri döndürür. Her sonuç, orijinal ve ikame edilen yazı tipi adlarını içeren bir [FontSubstitutionInfo](https://reference.aspose.com/slides/net/aspose.slides/fontsubstitutioninfo/) nesnesidir. Sonuç, mevcut yazı tipi ortamını ve [dışarıdan yüklenen yazı tipleri](/slides/tr/net/custom-font/) yansıtıyor. [IFontSubstRuleCollection](https://reference.aspose.com/slides/net/aspose.slides/ifontsubstrulecollection/) içinde depolanan ikame kuralları oluşturulan çıktıyı değiştirir ancak sonuçta yansıtılmaz.
 
-Aynı ikame birden çok seçili slayt tarafından istenebilir. Bir yazı tipi envanteri ya da ön uç raporu oluştururken sonuçları tekilleştirin. Aşağıdaki örnek, dönen her ikameyi raporlar ve ardından benzersiz yazı tipi eşlemelerinin sıralı bir listesini oluşturur:
-
+Aynı ikame, birden fazla seçili slayt tarafından gerekli olabilir. Bir yazı tipi envanteri veya ön uç raporu oluştururken sonuçları tekilleştirin. Aşağıdaki örnek her dönen ikameyi raporlar ve ardından benzersiz yazı tipi eşlemelerinin sıralı bir listesini oluşturur:
 ```csharp
 using System;
 using System.Linq;
@@ -81,26 +81,24 @@ foreach (var entry in sortedPreflightEntries)
 }
 ```
 
-[IFontsManager](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/) arabirimi her iki aşırı yüklemeyi de sağlar. Render işleminin kapsamına göre birini seçin:
+[IFontsManager](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/) arayüzü her iki aşırı yüklemeyi de sağlar. Oluşturma işleminin kapsamına göre birini seçin:
 
 | Aşırı Yükleme | Ne zaman kullanılır |
 |---|---|
-| [GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/) parametresiz | Tüm sunum için ikameler gerekirken. |
-| [GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/) `int[] slides` ile | Seçili bir aralık, artımlı kontrol veya kısmi dışa aktarım için ikameler gerekirken. |
+| [GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/) with no arguments | Sunumun tamamı için ikamelere ihtiyacınız varsa. |
+| [GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/) with `int[] slides` | Seçili bir aralık, aşamalı kontrol veya kısmi dışa aktarma için ikamelere ihtiyacınız varsa. |
 
-## **Yazı Tipi İkame Kurallarını Belirleme**
+## **Set Font Substitution Rules**
 
-Kaynak bir yazı tipi kullanılamadığında Aspose.Slides'in hangi yazı tipini kullanması gerektiğini belirtmek için:
+Kaynak bir yazı tipi kullanılamadığında Aspose.Slides'in kullanması gereken yazı tipini belirtmek için:
+1. Sunumu yükleyin.
+2. Kaynak ve ikame yazı tipleri için yazı tipi tanımları oluşturun.
+3. [WhenInaccessible](https://reference.aspose.com/slides/net/aspose.slides/fontsubstcondition/) koşulu ile bir [FontSubstRule](https://reference.aspose.com/slides/net/aspose.slides/fontsubstrule/) oluşturun.
+4. Kuralı bir [FontSubstRuleCollection](https://reference.aspose.com/slides/net/aspose.slides/fontsubstrulecollection/) içine ekleyin.
+5. Koleksiyonu [FontsManager.FontSubstRuleList](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/fontsubstrulelist/) özelliğine atayın.
+6. Sunumu oluşturun veya dönüştürün.
 
-1. Sunumu yükleyin.  
-2. Kaynak ve ikâmelenecek yazı tipleri için tanımlar oluşturun.  
-3. [WhenInaccessible](https://reference.aspose.com/slides/net/aspose.slides/fontsubstcondition/) koşuluyla bir [FontSubstRule](https://reference.aspose.com/slides/net/aspose.slides/fontsubstrule/) oluşturun.  
-4. Kuralı bir [FontSubstRuleCollection](https://reference.aspose.com/slides/net/aspose.slides/fontsubstrulecollection/) içine ekleyin.  
-5. Koleksiyonu [FontsManager.FontSubstRuleList](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/fontsubstrulelist/) özelliğine atayın.  
-6. Sunumu render edin veya dönüştürün.
-
-Aşağıdaki C# örneği, `SomeRareFont` kullanılamadığında `Arial` ile ikâmelendirir ve ardından ilk slaytı render ederek sonucu doğrular. İkâmel yazı tipinin Aspose.Slides tarafından erişilebilir olması gerekir.
-
+Aşağıdaki C# örneği, `SomeRareFont` kullanılamadığında `Arial`ı ikame eder ve ardından sonucu doğrulamak için ilk slaytı oluşturur. İkame yazı tipi Aspose.Slides için mevcut olmalıdır.
 ```csharp
 using Aspose.Slides;
 
@@ -119,45 +117,38 @@ image.Save("slide.jpg", ImageFormat.Jpeg);
 ```
 
 {{% alert color="info" title="Note" %}}
-Bir sunum boyunca kullanılan tüm yazı tiplerini koşulsuz olarak değiştirmek için [Yazı Tipi Değiştirme](/slides/tr/net/font-replacement/) bölümüne bakın.
+Bir sunum boyunca kullanılan yazı tiplerinde koşulsuz bir değişiklik için, [Yazı Tipi Değiştirme](/slides/tr/net/font-replacement/) bölümüne bakın.
 {{% /alert %}}
 
-## **Matematik Denklemi Yazı Tipleri İçin Sınırlamalar**
+## **Limitations for Math Equation Fonts**
 
-Yazı tipi ikame kuralları, render ve dönüştürme sırasında kullanılan standart yazı tipi seçim sürecinin bir parçasıdır. Bir kural, erişilemeyen bir yazı tipini belirtilen başka bir yazı tipi ile değiştirebildiğinde, normal metin için çalışır.
+Yazı tipi ikame kuralları, oluşturma ve dönüştürme sırasında kullanılan standart yazı tipi seçim sürecinin bir parçasıdır. Aspose.Slides, erişilemeyen bir yazı tipini kural tarafından belirtilen mevcut yazı tipi ile değiştirebildiğinde, bu kurallar normal metin için çalışır.
 
-Office Math denklemlerinin ek bir gereksinimi vardır. Bir denklem **Cambria Math** kullandığında, Aspose.Slides denklemin düzenini hesaplamak ve render etmek için tam olarak bu yazı tipine ihtiyaç duyabilir. **STIX Two Math** gibi başka bir matematik yazı tipiyle ikâmelenen bir kural, bu amaçla **Cambria Math** yerine geçemez; render hâlâ **Cambria Math**'in gerekli olduğunu raporlayabilir.
+Office Math denklemlerinin ek bir gereksinimi vardır. Bir denklem **Cambria Math** kullanıyorsa, Aspose.Slides bu denklemin yerleşimini hesaplamak ve oluşturmak için tam olarak bu yazı tipine ihtiyaç duyabilir. **STIX Two Math** gibi başka bir matematik yazı tipini ikame eden bir kural, bu amaçla **Cambria Math**'i değiştiremez ve oluşturma hâlâ **Cambria Math** gerektiğini bildirebilir.
 
-Böyle bir sunumu render ya da dönüştürmek için **Cambria Math**'i Aspose.Slides'e erişilebilir kılın. İşletim sistemine kurun ya da bir [dış yazı tipi](/slides/tr/net/custom-font/) olarak yükleyin.
+Böyle bir sunumu oluşturmak veya dönüştürmek için, **Cambria Math**'i Aspose.Slides için kullanılabilir hâle getirin. İşletim sistemine yükleyin veya bir [dış yazı tipi](/slides/tr/net/custom-font/) olarak yükleyin.
 
-Bu sınırlama yalnızca denklem düzeni için geçerlidir. Yukarıda açıklanan ikame kuralları, normal sunum metni için hâlâ uygulanır.
+Bu sınırlama denklem yerleşimine uygulanır. Yukarıda açıklanan ikame kuralları normal sunum metni için hâlâ geçerlidir.
 
 ## **SSS**
 
-**Yazı tipi değiştirme ile ikame arasındaki fark nedir?**
+**Yazı tipi değiştirme ile yazı tipi ikamesi arasındaki fark nedir?**  
+[Yazı tipi değiştirme](/slides/tr/net/font-replacement/) sunum boyunca bir yazı tipini bilinçli olarak başka birine değiştirir. Yazı tipi ikamesi, yapılandırılmış koşul karşılandığında, örneğin orijinal yazı tipi kullanılamadığında, oluşturulan çıktı için bir yazı tipi seçer.
 
-[Font replacement](/slides/tr/net/font-replacement/) sunum boyunca bir yazı tipini kasıtlı olarak başka birine değiştirir. Yazı tipi ikamesi, orijinal yazı tipi erişilemez olduğunda gibi, yapılandırılan koşul gerçekleştiğinde render çıktısı için bir yazı tipi seçer.
+**İkame kuralları ne zaman uygulanır?**  
+Kurallar, oluşturma ve dönüştürme sırasında [yazı tipi seçim sırası](/slides/tr/net/font-selection-sequence/) içinde yer alır. `WhenInaccessible` ile bir kural yalnızca Aspose.Slides kaynak yazı tipine erişemediğinde kullanılır.
 
-**İkame kuralları ne zaman uygulanır?**
+**Bir yazı tipi eksik olduğunda ve hiçbir ikame kuralı yapılandırılmadığında ne olur?**  
+Aspose.Slides, yazı tipi seçim sürecine göre en yakın mevcut yazı tipini seçer. Sonuç, çalışma zamanı ortamında mevcut olan yazı tiplerine bağlıdır.
 
-Kurallar, render ve dönüştürme sırasında [font selection sequence](/slides/tr/net/font-selection-sequence/) sürecine katılır. `WhenInaccessible` kullanıldığında, kural yalnızca Aspose.Slides kaynak yazı tipine erişemediğinde devreye girer.
+**İkameyi önlemek için dış yazı tipleri yükleyebilir miyim?**  
+Evet. Aspose.Slides'in oluşturma ve dönüştürme sırasında kullanabilmesi için [dış yazı tipleri yükleyin](/slides/tr/net/custom-font/).
 
-**Bir yazı tipi eksik ve ikame kuralı yapılandırılmamışsa ne olur?**
+**Aspose kütüphane ile birlikte yazı tiplerini dağıtıyor mu?**  
+Hayır. Yazı tiplerini sağlamaktan ve lisanslarına uymaktan siz sorumlusunuz.
 
-Aspose.Slides, font seçim sürecine göre en uygun mevcut yazı tipini seçer. Sonuç, çalışma zaman ortamında bulunan yazı tiplerine bağlıdır.
+**İkame sonuçları Windows, Linux ve macOS arasında farklılık gösterebilir mi?**  
+Evet. Yüklü yazı tipleri ve yazı tipi arama konumları işletim sistemine göre değişir, bu nedenle bir makinede mevcut olan bir yazı tipi diğerinde ikame gerekebilir.
 
-**İkameyi önlemek için dış yazı tipleri yükleyebilir miyim?**
-
-Evet. Render ve dönüştürme sırasında Aspose.Slides'in kullanabilmesi için [dış yazı tipleri yükleyebilirsiniz](/slides/tr/net/custom-font/).
-
-**Aspose, kütüphane ile birlikte yazı tipleri dağıtıyor mu?**
-
-Hayır. Yazı tiplerini sağlamaktan ve lisans koşullarına uymaktan siz sorumlusunuz.
-
-**İkame sonuçları Windows, Linux ve macOS arasında farklılık gösterebilir mi?**
-
-Evet. Yüklü yazı tipleri ve arama konumları işletim sistemine göre değişir; bir makinede mevcut olan bir yazı tipi, diğerinde ikame gerektirebilir.
-
-**Toplu dönüşümlerde yazı tipi seçimini tutarlı nasıl yapabilirim?**
-
-Her makine veya konteynerde aynı yazı tipi dosyalarını ve sürümlerini kullanın, [gerekli dış yazı tiplerini yükleyin](/slides/tr/net/custom-font/), ve lisans izin veriyorsa [yazı tiplerini gömün](/slides/tr/net/embedded-font/). Ayrıca dışa aktarmadan önce beklenmeyen ikameleri tespit etmek için [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/) metodunu çağırabilirsiniz.
+**Toplu dönüşümlerde yazı tipi seçimini tutarlı nasıl yapabilirim?**  
+Her makine veya konteynerde aynı yazı tipi dosyalarını ve sürümlerini kullanın, [gerekli dış yazı tiplerini yükleyin](/slides/tr/net/custom-font/) ve lisans izin veriyorsa [yazı tiplerini göm](/slides/tr/net/embedded-font/). Ayrıca dışa aktarmadan önce beklenmeyen ikameleri belirlemek için [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/) yöntemini çağırabilirsiniz.

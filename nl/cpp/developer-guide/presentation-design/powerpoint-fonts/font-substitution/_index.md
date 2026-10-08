@@ -1,35 +1,37 @@
 ---
-title: Lettertype‑substitutie configureren in presentaties in C++
-linktitle: Lettertype‑substitutie
+title: Lettertypevervanging configureren in presentaties met C++
+linktitle: Lettertypevervanging
 type: docs
 weight: 70
 url: /nl/cpp/font-substitution/
 keywords:
 - lettertype
 - vervangend lettertype
-- lettertype‑substitutie
+- lettertypevervanging
 - lettertype vervangen
-- lettertype‑vervanging
-- substitutieregel
+- vervanging van lettertype
+- vervangingsregel
 - vervangingsregel
 - PowerPoint
 - OpenDocument
 - presentatie
 - C++
 - Aspose.Slides
-description: "Configureer regels voor lettertype‑substitutie en inspecteer vervangende lettertypen in Aspose.Slides voor C++ bij het renderen of converteren van PowerPoint‑ en OpenDocument‑presentaties."
+description: "Configureer lettertypevervangingsregels en inspecteer de vervangen lettertypes in Aspose.Slides voor C++ bij het renderen of converteren van PowerPoint- en OpenDocument‑presentaties."
 ---
 ## **Overzicht**
 
-Lettertype‑substitutie stelt Aspose.Slides in staat om een beschikbaar lettertype te gebruiken in plaats van een lettertype dat niet toegankelijk is wanneer een presentatie wordt gerenderd of geconverteerd. De substitutie heeft invloed op de gerenderde output; het wijzigt het aan de presentatie toegewezen lettertype niet.
+Lettertypevervanging stelt Aspose.Slides in staat een beschikbaar lettertype te gebruiken in plaats van een lettertype dat niet toegankelijk is wanneer een presentatie wordt gerenderd of geconverteerd. De vervanging beïnvloedt de gerenderde uitvoer; het wijzigt het aan de presentatie toegewezen lettertype niet.
 
-U kunt het te gebruiken lettertype definiëren wanneer een bepaald lettertype niet beschikbaar is, en u kunt de substituties inspecteren die Aspose.Slides tijdens het renderen zal uitvoeren. Dit helpt de output consistent te houden tussen omgevingen met verschillende geïnstalleerde lettertypen.
+U kunt het te gebruiken lettertype definiëren wanneer een specifiek lettertype niet beschikbaar is, en u kunt de vervangingen die Aspose.Slides tijdens het renderen zal toepassen inspecteren. Dit helpt de uitvoer consistent te houden tussen omgevingen met verschillende geïnstalleerde lettertypes.
 
-## **Lettertype‑substituties ophalen**
+Als een lettertype beschikbaar is maar geen specifiek vet lettertype heeft, zie [Lettertypes zonder een specifiek vet lettertype behandelen](/slides/nl/cpp/convert-powerpoint-to-pdf/#handle-fonts-without-a-dedicated-bold-typeface). Die sectie legt uit hoe de getroffen tekst te rasteren tijdens PDF‑export en de gevolgen voor tekstselectie, zoeken en schalen.
 
-Gebruik de [IFontsManager::GetSubstitutions](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ifontsmanager/getsubstitutions/)‑methode om te bepalen welke lettertypen worden vervangen wanneer de presentatie wordt gerenderd. De methode retourneert [FontSubstitutionInfo](https://reference.aspose.com/slides/nl/cpp/aspose.slides/fontsubstitutioninfo/)-objecten die de oorspronkelijke en vervangende lettertype‑namen identificeren.
+## **Lettertypevervangingen ophalen**
 
-Het volgende C++‑voorbeeld geeft alle lettertype‑substituties voor een presentatie weer:
+Gebruik de [IFontsManager::GetSubstitutions](https://reference.aspose.com/slides/cpp/aspose.slides/ifontsmanager/getsubstitutions/)‑methode om te bepalen welke lettertypes worden vervangen wanneer de presentatie wordt gerenderd. De methode retourneert [FontSubstitutionInfo](https://reference.aspose.com/slides/cpp/aspose.slides/fontsubstitutioninfo/)‑objecten die de oorspronkelijke en vervangen lettertype‑namen identificeren.
+
+Het volgende C++‑voorbeeld geeft alle lettertypevervangingen voor een presentatie weer:
 
 ```cpp
 #include <DOM/FontSubstitutionInfo.h>
@@ -50,15 +52,15 @@ for (auto&& substitution : presentation->get_FontsManager()->GetSubstitutions())
 presentation->Dispose();
 ```
 
-## **Lettertype‑substituties voor geselecteerde dia's ophalen**
+## **Lettertypevervangingen ophalen voor geselecteerde dia's**
 
-Gebruik de [IFontsManager::GetSubstitutions](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ifontsmanager/getsubstitutions/)‑overload met een `System::ArrayPtr<int32_t> slides`‑argument om alleen de substituties te bekijken die nodig zijn om specifieke dia's te renderen. Dit is handig wanneer u een deel van een presentatie rendert of exporteert, een grote presentatie incrementeel controleert, dia's zoekt die afhankelijk zijn van niet‑beschikbare lettertypen, een minimale lettertype‑pakket voor een server of container voorbereidt, of renderingsverschillen diagnosticeert zonder ongerelateerde dia's te verwerken.
+Gebruik de [IFontsManager::GetSubstitutions](https://reference.aspose.com/slides/cpp/aspose.slides/ifontsmanager/getsubstitutions/)‑overload met een `System::ArrayPtr<int32_t> slides`‑argument om alleen de vervangingen te inspecteren die nodig zijn om specifieke dia's te renderen. Dit is handig wanneer u een deel van een presentatie rendert of exporteert, een grote presentatie incrementeel controleert, dia's locateert die afhankelijk zijn van niet‑beschikbare lettertypes, een minimaal lettertype‑pakket voorbereidt voor een server of container, of weergaveverschillen diagnosticeert zonder irrelevante dia's te verwerken.
 
-De `slides`‑array bevat één‑gebaseerde dia‑indexen: `1` identificeert de eerste dia. Daarentegen gebruikt de [Presentation::get_Slide](https://reference.aspose.com/slides/nl/cpp/aspose.slides/presentation/get_slide/)‑methode een nul‑gebaseerde index, zodat dezelfde dia wordt benaderd als `presentation->get_Slide(0)`. Houd dit verschil in gedachten bij het samenstellen van de array om off‑by‑one‑fouten te voorkomen.
+`slides`‑array bevat één‑gebaseerde dia‑indexen: `1` identificeert de eerste dia. In tegenstelling hiermee gebruikt de [Presentation::get_Slide](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_slide/)‑methode een nul‑gebaseerde index, zodat dezelfde dia wordt benaderd als `presentation->get_Slide(0)`. Houd dit verschil in gedachten bij het opbouwen van de array om off‑by‑one‑fouten te vermijden.
 
-Roep de overload aan via de [Presentation::get_FontsManager](https://reference.aspose.com/slides/nl/cpp/aspose.slides/presentation/get_fontsmanager/)‑methode. Deze retourneert alleen de substituties die tijdens het renderen van de geselecteerde dia's zijn bepaald. Elk resultaat is een [FontSubstitutionInfo](https://reference.aspose.com/slides/nl/cpp/aspose.slides/fontsubstitutioninfo/)-object dat de oorspronkelijke en vervangende lettertype‑namen bevat. Het resultaat weerspiegelt de huidige lettertype‑omgeving, geconfigureerde fallback‑regels, substitutieregels opgeslagen in een [IFontSubstRuleCollection](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ifontsubstrulecollection/), en [extern geladen lettertypen](/slides/nl/cpp/custom-font/).
+Roep de overload aan via de [Presentation::get_FontsManager](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_fontsmanager/)‑methode. Deze retourneert alleen de vervangingen die bepaald zijn tijdens het renderen van de geselecteerde dia's. Elk resultaat is een [FontSubstitutionInfo](https://reference.aspose.com/slides/cpp/aspose.slides/fontsubstitutioninfo/)‑object dat de oorspronkelijke en vervangen lettertype‑namen bevat. Het resultaat weerspiegelt de huidige lettertype‑omgeving, geconfigureerde fallback‑regels, vervangingsregels opgeslagen in een [IFontSubstRuleCollection](https://reference.aspose.com/slides/cpp/aspose.slides/ifontsubstrulecollection/), en [extern geladen lettertypes](/slides/nl/cpp/custom-font/).
 
-Dezelfde substitutie kan door meer dan één geselecteerde dia vereist zijn. Dupliceer de resultaten niet wanneer u een lettertype‑inventaris of pre‑flight‑rapport maakt. Het volgende voorbeeld geeft elke geretourneerde substitutie weer en maakt vervolgens een gesorteerde lijst van unieke lettertype‑koppelingen:
+Dezelfde substitutie kan door meer dan één geselecteerde dia vereist zijn. Dedupliceer de resultaten wanneer u een lettertype‑inventaris of pre‑flight‑rapport maakt. Het volgende voorbeeld rapporteert elke geretourneerde substitutie en maakt daarna een gesorteerde lijst van unieke lettertype‑toewijzingen:
 
 ```cpp
 #include <DOM/FontSubstitutionInfo.h>
@@ -97,23 +99,23 @@ for (auto&& entry : sortedPreflightEntries)
 presentation->Dispose();
 ```
 
-De [IFontsManager](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ifontsmanager/) interface biedt beide overloads. Kies er één op basis van de reikwijdte van de renderoperatie:
+De [IFontsManager](https://reference.aspose.com/slides/cpp/aspose.slides/ifontsmanager/)‑interface biedt beide overloads. Kies er één op basis van de reikwijdte van de render‑operatie:
 
-| Overload | Use it when |
+| Overload | Wanneer te gebruiken |
 |---|---|
-| [GetSubstitutions](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ifontsmanager/getsubstitutions/) with no arguments | U heeft substituties nodig voor de volledige presentatie. |
-| [GetSubstitutions](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ifontsmanager/getsubstitutions/) with `System::ArrayPtr<int32_t> slides` | U heeft substituties nodig voor een geselecteerd bereik, incrementele controle, of gedeeltelijke export. |
+| [GetSubstitutions](https://reference.aspose.com/slides/cpp/aspose.slides/ifontsmanager/getsubstitutions/) with no arguments | U heeft vervangingen nodig voor de volledige presentatie. |
+| [GetSubstitutions](https://reference.aspose.com/slides/cpp/aspose.slides/ifontsmanager/getsubstitutions/) with `System::ArrayPtr<int32_t> slides` | U heeft vervangingen nodig voor een geselecteerd bereik, incrementele controle, of gedeeltelijke export. |
 
-## **Lettertype‑substitutieregels instellen**
+## **Lettertypevervangingsregels instellen**
 
 Om het lettertype op te geven dat Aspose.Slides moet gebruiken wanneer een bronlettertype niet beschikbaar is:
 
 1. Laad de presentatie.
 2. Maak lettertype‑definities voor het bron‑ en vervangende lettertype.
-3. Maak een [FontSubstRule](https://reference.aspose.com/slides/nl/cpp/aspose.slides/fontsubstrule/) aan met de [WhenInaccessible](https://reference.aspose.com/slides/nl/cpp/aspose.slides/fontsubstcondition/)‑voorwaarde.
-4. Voeg de regel toe aan een [FontSubstRuleCollection](https://reference.aspose.com/slides/nl/cpp/aspose.slides/fontsubstrulecollection/).
-5. Wijs de collectie toe via de [IFontsManager::set_FontSubstRuleList](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ifontsmanager/set_fontsubstrulelist/)‑methode.
-6. Render of converteer de presentatie.
+3. Maak een [FontSubstRule](https://reference.aspose.com/slides/cpp/aspose.slides/fontsubstrule/) met de [WhenInaccessible](https://reference.aspose.com/slides/cpp/aspose.slides/fontsubstcondition/)‑conditie.
+4. Voeg de regel toe aan een [FontSubstRuleCollection](https://reference.aspose.com/slides/cpp/aspose.slides/fontsubstrulecollection/).
+5. Wijs de collectie toe met de [IFontsManager::set_FontSubstRuleList](https://reference.aspose.com/slides/cpp/aspose.slides/ifontsmanager/set_fontsubstrulelist/)‑methode.
+6. Render de presentatie of converteer deze.
 
 Het volgende C++‑voorbeeld vervangt `Arial` door `SomeRareFont` wanneer `SomeRareFont` niet beschikbaar is, en rendert vervolgens de eerste dia om het resultaat te verifiëren. Het vervangende lettertype moet beschikbaar zijn voor Aspose.Slides.
 
@@ -149,45 +151,45 @@ presentation->Dispose();
 ```
 
 {{% alert color="info" title="Note" %}}
-Voor een onvoorwaardelijke wijziging van de lettertypen die door een hele presentatie worden gebruikt, zie [Font Replacement](/slides/nl/cpp/font-replacement/).
+Voor een onvoorwaardelijke wijziging van de in een presentatie gebruikte lettertypes, zie [Lettertypevervanging](/slides/nl/cpp/font-replacement/).
 {{% /alert %}}
 
-## **Beperkingen voor wiskundige vergelijking‑lettertypen**
+## **Beperkingen voor wiskundige vergelijking lettertypes**
 
-Lettertype‑substitutieregels maken deel uit van het standaardlettertype‑selectieproces dat tijdens het renderen en converteren wordt gebruikt. Ze werken voor gewone tekst wanneer Aspose.Slides een ontoegankelijk lettertype kan vervangen door het beschikbare lettertype dat door een regel is gespecificeerd.
+Lettertypevervangingsregels maken deel uit van het standaard lettertype‑selectieproces dat tijdens het renderen en converteren wordt gebruikt. Ze werken voor reguliere tekst wanneer Aspose.Slides een ontoegankelijk lettertype kan vervangen door het beschikbare lettertype dat in een regel is opgegeven.
 
-Office Math‑vergelijkingen hebben een extra vereiste. Als een vergelijking **Cambria Math** gebruikt, kan Aspose.Slides dat exacte lettertype nodig hebben om de lay‑out van de vergelijking te berekenen en te renderen. Een regel die een ander wiskundig lettertype vervangt, zoals **STIX Two Math**, kan **Cambria Math** voor dit doel niet vervangen, en renderen kan nog steeds aangeven dat **Cambria Math** vereist is.
+Office Math‑vergelijkingen hebben een extra eis. Als een vergelijking **Cambria Math** gebruikt, kan Aspose.Slides dat exacte lettertype nodig hebben om de lay‑out van de vergelijking te berekenen en te renderen. Een regel die een ander wiskundig lettertype vervangt, zoals **STIX Two Math**, kan **Cambria Math** niet voor dit doel vervangen, en de weergave kan nog steeds aangeven dat **Cambria Math** vereist is.
 
-Om zo’n presentatie te renderen of converteren, maak **Cambria Math** beschikbaar voor Aspose.Slides. Installeer het in het besturingssysteem of laad het als een [extern lettertype](/slides/nl/cpp/custom-font/).
+Om zo'n presentatie te renderen of te converteren, zorg ervoor dat **Cambria Math** beschikbaar is voor Aspose.Slides. Installeer het in het besturingssysteem of laad het als een [extern lettertype](/slides/nl/cpp/custom-font/).
 
-Deze beperking geldt voor de lay‑out van vergelijkingen. De hierboven beschreven substitutieregels blijven van toepassing op gewone presentatie‑tekst.
+Deze beperking geldt voor de lay‑out van de vergelijking. De hierboven beschreven vervangingsregels blijven van toepassing op reguliere presentatietekst.
 
 ## **FAQ**
 
-**Wat is het verschil tussen font replacement en font substitution?**
+**Wat is het verschil tussen lettertypevervanging en lettertypevervanging (substitutie)?**
 
-[Font replacement](/slides/nl/cpp/font-replacement/) wijzigt opzettelijk één lettertype naar een ander door de hele presentatie heen. Font substitution selecteert een lettertype voor de gerenderde output wanneer aan de geconfigureerde voorwaarde wordt voldaan, bijvoorbeeld wanneer het oorspronkelijke lettertype niet beschikbaar is.
+[Lettertypevervanging](/slides/nl/cpp/font-replacement/) verandert opzettelijk één lettertype in een ander door de hele presentatie heen. Lettertypevervanging selecteert een lettertype voor de gerenderde uitvoer wanneer aan de geconfigureerde voorwaarde wordt voldaan, zoals wanneer het oorspronkelijke lettertype niet beschikbaar is.
 
 **Wanneer worden substitutieregels toegepast?**
 
-De regels maken deel uit van de [font selection sequence](/slides/nl/cpp/font-selection-sequence/) tijdens het renderen en converteren. Met `WhenInaccessible` wordt een regel alleen gebruikt wanneer Aspose.Slides geen toegang heeft tot het bronlettertype.
+De regels maken deel uit van de [lettertype‑selectiereeks](/slides/nl/cpp/font-selection-sequence/) tijdens het renderen en converteren. Met `WhenInaccessible` wordt een regel alleen gebruikt wanneer Aspose.Slides geen toegang heeft tot het bronlettertype.
 
-**Wat gebeurt er wanneer een lettertype ontbreekt en er geen substitutieregel is geconfigureerd?**
+**Wat gebeurt er als een lettertype ontbreekt en er geen substitutieregel is geconfigureerd?**
 
-Aspose.Slides kiest het dichtstbijzijnde beschikbare lettertype volgens zijn lettertype‑selectieproces. Het resultaat hangt af van de lettertypen die beschikbaar zijn in de runtime‑omgeving.
+Aspose.Slides selecteert het meest passende beschikbare lettertype volgens zijn lettertype‑selectieproces. Het resultaat hangt af van de in de runtime‑omgeving beschikbare lettertypes.
 
-**Kan ik externe lettertypen laden om substitutie te voorkomen?**
+**Kan ik externe lettertypes laden om vervanging te vermijden?**
 
-Ja. U kunt [extern lettertypen laden](/slides/nl/cpp/custom-font/) zodat Aspose.Slides ze kan gebruiken tijdens het renderen en converteren.
+Ja. U kunt [externe lettertypes laden](/slides/nl/cpp/custom-font/) zodat Aspose.Slides ze kan gebruiken tijdens het renderen en converteren.
 
-**Distribueert Aspose lettertypen met de bibliotheek?**
+**Distribueert Aspose lettertypes mee met de bibliotheek?**
 
-Nee. U bent verantwoordelijk voor het leveren van lettertypen en het naleven van hun licenties.
+Nee. U bent verantwoordelijk voor het leveren van lettertypes en het naleven van hun licenties.
 
 **Kunnen substitutieresultaten verschillen tussen Windows, Linux en macOS?**
 
-Ja. Geïnstalleerde lettertypen en zoeklocaties voor lettertypen verschillen per besturingssysteem, waardoor een lettertype dat op de ene machine beschikbaar is, op een andere kan moeten worden vervangen.
+Ja. Geïnstalleerde lettertypes en zoeklocaties voor lettertypes verschillen per besturingssysteem, zodat een lettertype dat op de ene machine beschikbaar is, op een andere machine mogelijk vervangen moet worden.
 
-**Hoe kan ik de lettertype‑selectie consistent maken bij batch‑conversies?**
+**Hoe kan ik de lettertype‑selectie consistent maken bij batchconversies?**
 
-Gebruik dezelfde lettertype‑bestanden en -versies op elke machine of container, [laad vereiste externe lettertypen](/slides/nl/cpp/custom-font/), en [embed lettertypen](/slides/nl/cpp/embedded-font/) wanneer de licentie dit toestaat. U kunt ook [IFontsManager::GetSubstitutions](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ifontsmanager/getsubstitutions/) aanroepen vóór export om onverwachte substituties te identificeren.
+Gebruik dezelfde lettertypebestanden en -versies op elke machine of container, [vereiste externe lettertypes laden](/slides/nl/cpp/custom-font/), en [lettertypes insluiten](/slides/nl/cpp/embedded-font/) wanneer de licentie dit toestaat. U kunt ook [IFontsManager::GetSubstitutions](https://reference.aspose.com/slides/cpp/aspose.slides/ifontsmanager/getsubstitutions/) aanroepen vóór export om onverwachte substituties te identificeren.
