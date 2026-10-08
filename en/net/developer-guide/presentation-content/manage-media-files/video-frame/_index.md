@@ -9,7 +9,7 @@ keywords:
 - create video
 - embed video
 - extract video
-- retrive video
+- retrieve video
 - video frame
 - web source
 - PowerPoint
@@ -23,129 +23,152 @@ description: "Learn to programmatically add and extract video frames in PowerPoi
 
 ## **Introduction**
 
-A well-placed video in a presentation can make your message more compelling and increase engagement levels with your audience. 
+Videos can help explain ideas and engage an audience. Aspose.Slides for .NET lets you add video frames to slides, adjust playback settings, manage captions, and extract embedded video data.
 
-PowerPoint allows you to add videos to a slide in a presentation in two ways:
+PowerPoint supports local videos and links to online videos, such as YouTube videos.
 
-* Add or embed a local video (stored on your machine)
-* Add an online video (from a web source such as YouTube).
-
-To allow you to add videos (video objects) to a presentation, Aspose.Slides provides the [IVideo](https://reference.aspose.com/slides/net/aspose.slides/ivideo/) interface, [IVideoFrame](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/) interface, and other relevant types. 
+To represent video data and video frames, Aspose.Slides provides the [IVideo](https://reference.aspose.com/slides/net/aspose.slides/ivideo/) interface, [IVideoFrame](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/) interface, and other relevant types.
 
 ## **Create an Embedded Video Frame**
 
-If the video file you want to add to your slide is stored locally, you can create a video frame to embed the video in your presentation. 
+If the video file you want to add to your slide is stored locally, you can create a video frame to embed the video in your presentation.
 
-1. Create an instance of the [Presentation ](https://reference.aspose.com/slides/net/aspose.slides/presentation)class.
-1. Get a slide's reference through its index. 
-1. Add an [IVideo](https://reference.aspose.com/slides/net/aspose.slides/ivideo/) object and pass the video file path to embed the video with the presentation. 
-1. Add an [IVideoFrame](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/) object to create a frame for the video.  
-1. Save the modified presentation. 
+This example embeds a local video on the first slide of an existing presentation and saves the result. Frame coordinates and dimensions are in points. The stream stays open until saving finishes because [LoadingStreamBehavior.KeepLocked](https://reference.aspose.com/slides/net/aspose.slides/loadingstreambehavior/) keeps it locked while the presentation uses it.
 
-This C# code shows you how to add a video stored locally to a presentation:
-
-```c#
+```csharp
+using System.IO;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-// Instantiates the Presentation class
-using (Presentation pres = new Presentation("pres.pptx"))
-{
-    // Loads the video
-    using (FileStream fileStream = new FileStream("Wildlife.mp4", FileMode.Open, FileAccess.Read))
-    {
-        IVideo video = pres.Videos.AddVideo(fileStream, LoadingStreamBehavior.KeepLocked);
-        
-        // Gets the first slide and adds a videoframe
-        pres.Slides[0].Shapes.AddVideoFrame(10, 10, 150, 250, video);
-        
-        // Saves the presentation to disk
-        pres.Save("pres-with-video.pptx", SaveFormat.Pptx);
-    }
-}
-```
-Alternatively, you can add a video by passing its file path directly to the [AddVideoFrame](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addvideoframe/) method:
+using var presentation = new Presentation("presentation.pptx");
+var slide = presentation.Slides[0];
 
-``` csharp
-using Aspose.Slides;
+using var videoStream = File.OpenRead("video.mp4");
+var video = presentation.Videos.AddVideo(videoStream, LoadingStreamBehavior.KeepLocked);
+slide.Shapes.AddVideoFrame(10, 10, 150, 250, video);
 
-using (Presentation pres = new Presentation())
-{
-    ISlide sld = pres.Slides[0];
-    IVideoFrame vf = sld.Shapes.AddVideoFrame(50, 150, 300, 150, "video1.avi");
-}
+presentation.Save("embedded_video.pptx", SaveFormat.Pptx);
 ```
 
+You can also pass a local video path directly to [AddVideoFrame](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addvideoframe/). This example embeds the video on the first slide of a new presentation. The video must remain accessible until the presentation is saved.
 
-## **Create a Video Frame with Video from a Web Source**
-Newer versions of Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) support online videos in presentations. If the video you want to use is available online (e.g. on YouTube), you can add it to your presentation through its web link.
-
-1. Create an instance of [Presentation ](https://reference.aspose.com/slides/net/aspose.slides/presentation)class
-1. Get a slide's reference through its index. 
-1. Add an [IVideo](https://reference.aspose.com/slides/net/aspose.slides/ivideo/) object and pass the link to the video.
-1. Set a thumbnail for the video frame. 
-1. Save the presentation. 
-
-This C# code shows you how to add a video from the web to a slide in a PowerPoint presentation:
-
-```c#
-using System.Net;
-using Aspose.Slides;
-using Aspose.Slides.Export;
-
-public static void Run()
-{
-    // Instantiates a Presentation object that represents a presentation file 
-    using (Presentation pres = new Presentation())
-    {
-        AddVideoFromYouTube(pres, "Tj75Arhq5ho");
-        pres.Save("AddVideoFrameFromWebSource_out.pptx", SaveFormat.Pptx);
-    }
-}
-
-private static void AddVideoFromYouTube(Presentation pres, string videoId)
-{
-    // Adds a VideoFrame
-    IVideoFrame videoFrame = pres.Slides[0].Shapes.AddVideoFrame(10, 10, 427, 240, "https://www.youtube.com/embed/" + videoId);
-    videoFrame.PlayMode = VideoPlayModePreset.Auto;
-
-    // Loads thumbnail
-    using (WebClient client = new WebClient())
-    {
-        string thumbnailUri = "http://img.youtube.com/vi/" + videoId + "/hqdefault.jpg";
-        videoFrame.PictureFormat.Picture.Image = pres.Images.AddImage(client.DownloadData(thumbnailUri));
-    }
-}
-```
-
-## **Trim a Video Frame**
-
-Aspose.Slides allows you to control which part of a video is played by setting the trim-from-start and trim-from-end values through [IVideoFrame.TrimFromStart](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/trimfromstart/) and [IVideoFrame.TrimFromEnd](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/trimfromend/). Both values are specified in milliseconds and define how much time is skipped from the beginning and end of the video, respectively. These settings change the video playback settings in the presentation; they do not cut or otherwise modify the embedded video binary data.
-
-**Set Trim Settings**
-
-To create a video frame and set its trim settings:
-
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) class.
-1. Add an [IVideo](https://reference.aspose.com/slides/net/aspose.slides/ivideo/) object to the presentation.
-1. Add an [IVideoFrame](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/) object to a slide.
-1. Set the trim-from-start and trim-from-end values through [IVideoFrame.TrimFromStart](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/trimfromstart/) and [IVideoFrame.TrimFromEnd](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/trimfromend/).
-1. Save the modified presentation.
-
-The following code example skips the first 2.5 seconds and the last second of an embedded video during playback:
-
-```cs
+```csharp
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
 using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+slide.Shapes.AddVideoFrame(50, 150, 300, 150, "video.avi");
+
+presentation.Save("video_from_path.pptx", SaveFormat.Pptx);
+```
+
+## **Create a Video Frame with Video from a Web Source**
+
+Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) supports online videos in presentations. You can create a video frame that links to an online video, such as a YouTube video.
+
+This example adds a YouTube video link and thumbnail to the first slide. Replace the video identifier to use another video. The [PlayMode](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/playmode/) setting requests automatic playback. Downloading the thumbnail and playing the video require internet access. The presentation viewer must also support online video playback.
+
+```csharp
+using System.Net.Http;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+using var httpClient = new HttpClient();
+
+var videoId = "aqz-KE-bpKQ";
+var videoUrl = $"https://www.youtube.com/embed/{videoId}";
+var videoFrame = slide.Shapes.AddVideoFrame(10, 10, 427, 240, videoUrl);
+videoFrame.PlayMode = VideoPlayModePreset.Auto;
+
+var thumbnailUrl = $"https://img.youtube.com/vi/{videoId}/hqdefault.jpg";
+var thumbnailData = httpClient.GetByteArrayAsync(thumbnailUrl).GetAwaiter().GetResult();
+var thumbnail = presentation.Images.AddImage(thumbnailData);
+videoFrame.PictureFormat.Picture.Image = thumbnail;
+
+presentation.Save("online_video.pptx", SaveFormat.Pptx);
+```
+
+## **Play a Video in Full-Screen Mode**
+
+In a training presentation, you can play a software demonstration in full-screen mode so the audience can see the details. Set [FullScreenMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/fullscreenmode/) to `true` to enable this behavior during playback.
+
+This example opens a presentation, finds the first [IVideoFrame](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/) on the first slide, and enables full-screen playback. The input presentation must contain at least one slide with an existing video frame on the first slide.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("training.pptx");
+var slide = presentation.Slides[0];
+
+foreach (var shape in slide.Shapes)
+{
+    if (shape is IVideoFrame videoFrame)
+    {
+        videoFrame.FullScreenMode = true;
+        break;
+    }
+}
+
+presentation.Save("full_screen_video.pptx", SaveFormat.Pptx);
+```
+
+Full-screen playback controls how the video is displayed. Independently, [PlayMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playmode/) controls whether it starts automatically or on click, and [PlayLoopMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playloopmode/) controls whether it repeats. To choose the start behavior, set the playback mode to [VideoPlayModePreset.Auto or VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/net/aspose.slides/videoplaymodepreset/). The example preserves the existing start and loop settings.
+
+## **Rewind a Video After Playback**
+
+In a training presentation, returning a demonstration video to its beginning makes it ready for the presenter to play again. Set [RewindVideo](https://reference.aspose.com/slides/net/aspose.slides/videoframe/rewindvideo/) to `true` to return the video to the beginning after playback finishes.
+
+This example opens a presentation, finds the first [IVideoFrame](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/) on the first slide, and enables rewinding. It disables looping so playback can finish and sets playback to start on click. The input presentation must contain at least one slide with an existing video frame on the first slide.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("training.pptx");
+var slide = presentation.Slides[0];
+
+foreach (var shape in slide.Shapes)
+{
+    if (shape is IVideoFrame videoFrame)
+    {
+        videoFrame.RewindVideo = true;
+        videoFrame.PlayLoopMode = false;
+        videoFrame.PlayMode = VideoPlayModePreset.OnClick;
+        break;
+    }
+}
+
+presentation.Save("rewind_video.pptx", SaveFormat.Pptx);
+```
+
+Rewinding returns the video to its beginning without starting it again. In contrast, enabling [PlayLoopMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playloopmode/) repeats playback automatically. Keep looping disabled when you want the video to finish and remain ready to replay. [PlayMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playmode/) independently controls automatic or on-click startup; this example uses [VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/net/aspose.slides/videoplaymodepreset/) so the presenter controls when playback starts. Set the playback mode after the loop setting, as shown in the example. Rewinding works independently of [FullScreenMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/fullscreenmode/).
+
+## **Trim a Video Frame**
+
+Use [IVideoFrame.TrimFromStart](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/trimfromstart/) and [IVideoFrame.TrimFromEnd](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/trimfromend/) to skip part of the beginning or end of a video during playback. Both values are in milliseconds. Trimming changes playback settings without modifying the embedded video data.
+
+**Set Trim Settings**
+
+This example embeds a local video and skips the first 2.5 seconds and the last second during playback. Use a video longer than 3.5 seconds so a playable segment remains.
+
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
 var videoData = File.ReadAllBytes("video.mp4");
 var video = presentation.Videos.AddVideo(videoData);
 
-var slide = presentation.Slides[0];
 var videoFrame = slide.Shapes.AddVideoFrame(50, 50, 640, 360, video);
-
 videoFrame.TrimFromStart = 2500f;
 videoFrame.TrimFromEnd = 1000f;
 
@@ -154,26 +177,21 @@ presentation.Save("video_with_trim.pptx", SaveFormat.Pptx);
 
 **Read Trim Settings**
 
-To inspect existing trim settings, load a presentation, find an [IVideoFrame](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/) object among the shapes on the first slide, and read the values through [IVideoFrame.TrimFromStart](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/trimfromstart/) and [IVideoFrame.TrimFromEnd](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/trimfromend/).
+This example prints the trim values of the first video frame on the first slide in milliseconds. The presentation must contain at least one slide. If that slide has no video frame, nothing is printed. The preceding example produces values of 2500 and 1000.
 
-The following code example finds the first video frame on the first slide and reports its trim settings in milliseconds:
-
-```cs
+```csharp
+using System;
 using Aspose.Slides;
 
 using var presentation = new Presentation("video_with_trim.pptx");
-
 var slide = presentation.Slides[0];
+
 foreach (var shape in slide.Shapes)
 {
     if (shape is IVideoFrame videoFrame)
     {
-        var trimFromStart = videoFrame.TrimFromStart;
-        var trimFromEnd = videoFrame.TrimFromEnd;
-
-        Console.WriteLine($"Trim from start: {trimFromStart} ms");
-        Console.WriteLine($"Trim from end: {trimFromEnd} ms");
-
+        Console.WriteLine($"Trim from start: {videoFrame.TrimFromStart} ms");
+        Console.WriteLine($"Trim from end: {videoFrame.TrimFromEnd} ms");
         break;
     }
 }
@@ -185,150 +203,127 @@ Aspose.Slides allows you to manage closed captions for video frames in PowerPoin
 
 **Add Captions to a Video Frame**
 
-To add captions to a video frame:
+This example embeds a local video and adds a WebVTT caption track labeled English. The caption timestamps should match the video. The saved presentation includes both the video and its captions.
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) class.
-1. Add a video to the presentation.
-1. Add an [IVideoFrame](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/) object to a slide.
-1. Use the [CaptionTracks](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/captiontracks/) collection to add a WebVTT caption track.
-1. Save the modified presentation.
-
-The following code shows you how to add captions to a video frame:
-
-```cs
+```csharp
+using System.IO;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-using (Presentation presentation = new Presentation())
-{
-    byte[] videoData = File.ReadAllBytes("video.mp4");
-    IVideo video = presentation.Videos.AddVideo(videoData);
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    ISlide slide = presentation.Slides[0];
-    IVideoFrame videoFrame = slide.Shapes.AddVideoFrame(0, 0, 100, 100, video);
+var videoData = File.ReadAllBytes("video.mp4");
+var video = presentation.Videos.AddVideo(videoData);
 
-    // Adds a new captions track from a WebVTT file.
-    videoFrame.CaptionTracks.Add("English", "track.vtt");
+var videoFrame = slide.Shapes.AddVideoFrame(0, 0, 100, 100, video);
+videoFrame.CaptionTracks.Add("English", "track.vtt");
 
-    presentation.Save("video_with_captions.pptx", SaveFormat.Pptx);
-}
+presentation.Save("video_with_captions.pptx", SaveFormat.Pptx);
 ```
 
 The [ICaptionsCollection](https://reference.aspose.com/slides/net/aspose.slides/icaptionscollection/) interface also provides an overload that lets you add captions from a stream.
 
 **Extract Captions from a Video Frame**
 
-To extract captions from a video frame:
+This example saves all caption tracks from video frames on the first slide as separate WebVTT files. Sequential numbers keep the output files distinct. The console reports the number of extracted tracks. The presentation must contain at least one slide.
 
-1. Load the presentation that contains the video.
-1. Find the target [IVideoFrame](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/) object.
-1. Iterate through the [CaptionTracks](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/captiontracks/) collection.
-1. Save each caption track to a `.vtt` file.
-
-The following code shows you how to extract captions from a video frame:
-
-```cs
+```csharp
+using System;
+using System.IO;
 using Aspose.Slides;
 
-using (Presentation presentation = new Presentation("video_with_captions.pptx"))
+using var presentation = new Presentation("video_with_captions.pptx");
+var slide = presentation.Slides[0];
+
+var trackCount = 0;
+foreach (var shape in slide.Shapes)
 {
-    ISlide slide = presentation.Slides[0];
-    foreach (IShape shape in slide.Shapes)
+    if (shape is IVideoFrame videoFrame)
     {
-        if (shape is IVideoFrame videoFrame)
+        foreach (var captionTrack in videoFrame.CaptionTracks)
         {
-            foreach (ICaptions captionTrack in videoFrame.CaptionTracks)
-            {
-                // Saves the captions track to a WebVTT file.
-                string filePath = $"{captionTrack.CaptionId}.vtt";
-                File.WriteAllBytes(filePath, captionTrack.BinaryData);
-            }
+            trackCount++;
+            var outputPath = $"captions_{trackCount}.vtt";
+            File.WriteAllBytes(outputPath, captionTrack.BinaryData);
         }
     }
 }
+
+Console.WriteLine($"Caption tracks extracted: {trackCount}");
 ```
 
 Each [ICaptions](https://reference.aspose.com/slides/net/aspose.slides/icaptions/) object exposes the caption identifier, label, binary data, and caption text as a UTF-8 string.
 
 **Remove Captions from a Video Frame**
 
-To remove captions from a video frame:
+This example removes all captions from the video frame at the first shape position on the first slide and saves the result. It assumes that the slide and shape exist and that the shape is a video frame.
 
-1. Load the presentation that contains the video.
-1. Get the target [IVideoFrame](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/) object.
-1. Remove caption tracks from the [CaptionTracks](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/captiontracks/) collection.
-1. Save the modified presentation.
-
-The following code shows you how to remove all captions from a video frame:
-
-```cs
+```csharp
+using System;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-using (Presentation presentation = new Presentation("video_with_captions.pptx"))
-{
-    ISlide slide = presentation.Slides[0];
-    IVideoFrame videoFrame = slide.Shapes[0] as IVideoFrame;
+using var presentation = new Presentation("video_with_captions.pptx");
+var slide = presentation.Slides[0];
 
-    // Removes all captions from the video frame.
-    videoFrame.CaptionTracks.Clear();
+var videoFrame = (IVideoFrame) slide.Shapes[0];
+videoFrame.CaptionTracks.Clear();
 
-    presentation.Save("video_without_captions.pptx", SaveFormat.Pptx);
-}
+presentation.Save("video_without_captions.pptx", SaveFormat.Pptx);
 ```
 
 If you need to remove only one caption track, use the [Remove](https://reference.aspose.com/slides/net/aspose.slides/captionscollection/remove/) or [RemoveAt](https://reference.aspose.com/slides/net/aspose.slides/captionscollection/removeat/) methods instead of [Clear](https://reference.aspose.com/slides/net/aspose.slides/captionscollection/clear/).
 
 ## **Extract Video from a Slide**
+
 Besides adding videos to slides, Aspose.Slides allows you to extract videos embedded in presentations.
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class to load the presentation containing the video. 
-2. Iterate through all the [ISlide](https://reference.aspose.com/slides/net/aspose.slides/islide) objects.
-3. Iterate through all the [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape) objects to find a [VideoFrame](https://reference.aspose.com/slides/net/aspose.slides/videoframe). 
-4. Save the video to disk.
+This example extracts embedded videos from every slide into separate, numbered binary files. Linked videos are skipped because they have no embedded data. The console prints each video’s MIME type and the total count. Output uses the generic `.bin` extension; change it to match the reported media type when needed.
 
-This C# code shows you how to extract the video on a presentation slide:
-
-```c#
+```csharp
+using System;
+using System.IO;
 using Aspose.Slides;
 
-// Instantiates a Presentation object that represents a presentation file 
-Presentation presentation = new Presentation("Video.pptx");
+using var presentation = new Presentation("presentation_with_videos.pptx");
 
-// Iterates through slides
-foreach (ISlide slide in presentation.Slides)
+var videoCount = 0;
+foreach (var slide in presentation.Slides)
 {
-    // Iterates through shapes
-    foreach (IShape shape in presentation.Slides[0].Shapes)
+    foreach (var shape in slide.Shapes)
     {
-        // Saves video to disk once VideoFrame containing video is found
-        if (shape is VideoFrame)
+        if (shape is IVideoFrame videoFrame)
         {
-            IVideoFrame vf = shape as IVideoFrame;
-            String type = vf.EmbeddedVideo.ContentType;
-            int ss = type.LastIndexOf('/');
-            type = type.Remove(0, type.LastIndexOf('/') + 1);
-            Byte[] buffer = vf.EmbeddedVideo.BinaryData;
-            using (FileStream stream = new FileStream("NewVideo_out." + type, FileMode.Create, FileAccess.Write, FileShare.Read))
-            {                                                     
-                stream.Write(buffer, 0, buffer.Length);
+            var video = videoFrame.EmbeddedVideo;
+            if (video == null)
+            {
+                Console.WriteLine("Skipped a linked video: no embedded data is available.");
+                continue;
             }
+
+            videoCount++;
+            var outputPath = $"extracted_video_{videoCount}.bin";
+            File.WriteAllBytes(outputPath, video.BinaryData);
+            Console.WriteLine($"Video {videoCount}: {video.ContentType}");
         }
     }
 }
+
+Console.WriteLine($"Embedded videos extracted: {videoCount}");
 ```
 
 ## **FAQ**
 
-**Which video playback parameters can be changed for a VideoFrame?**
+**Which video playback parameters can be changed for a video frame?**
 
 You can control the [playback mode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playmode/) (auto or on click) and [looping](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playloopmode/). These options are available via the [VideoFrame](https://reference.aspose.com/slides/net/aspose.slides/videoframe/) object's properties.
 
 **Does adding a video affect the PPTX file size?**
 
-Yes. When you embed a local video, the binary data is included in the document, so the presentation size grows in proportion to the file size. When you add an online video, a link and a thumbnail are embedded, so the size increase is smaller.
+Yes. When you embed a local video, the binary data is included in the document, so the presentation size grows in proportion to the file size. When you link to an online video and add a thumbnail, the presentation stores the link and preview image rather than the video data, so the size increase is usually smaller.
 
-**Can I replace the video in an existing VideoFrame without changing its position and size?**
+**Can I replace the video in an existing video frame without changing its position and size?**
 
 Yes. You can swap the [video content](https://reference.aspose.com/slides/net/aspose.slides/videoframe/embeddedvideo/) within the frame while preserving the shape's geometry; this is a common scenario for updating media in an existing layout.
 
