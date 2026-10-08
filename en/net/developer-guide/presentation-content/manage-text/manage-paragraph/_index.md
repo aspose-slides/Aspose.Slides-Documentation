@@ -524,6 +524,21 @@ With this text and these dimensions, narrowing the shape increases the line coun
 
 The line count alone does not determine whether text overflows its container. The available height, line heights, paragraph and line spacing, and autofit behavior also matter; even a single line can exceed the available width when wrapping is disabled.
 
+### Adjust Text Autofit and Paragraph Spacing
+
+When adding HTML content, PowerPoint may automatically reduce the font size and line spacing. To keep the original spacing after upgrading to newer Aspose.Slides versions, set the text frame autofit type to **None** and, if needed, decrease the paragraph `SpaceAfter` value.
+
+```csharp
+// Disable automatic autofit for the text frame
+textFrame.TextFrameFormat.AutofitType = TextAutofitType.None;
+
+// Reduce space after the paragraph (e.g., -10 points) to tighten line spacing
+foreach (IParagraph paragraph in textFrame.Paragraphs)
+{
+    paragraph.ParagraphFormat.SpaceAfter = -10;
+}
+```
+
 ## **Import and Export Paragraph Content**
 
 ### **Import HTML Text into Paragraphs**
