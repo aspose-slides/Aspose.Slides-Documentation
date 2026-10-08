@@ -26,6 +26,8 @@ Font substitution allows Aspose.Slides to use an available font in place of a fo
 
 You can define the font to use when a particular font is unavailable, and you can inspect the substitutions that Aspose.Slides will make during rendering. This helps keep output consistent across environments with different installed fonts.
 
+If a font is available but has no dedicated bold typeface, see [Handle Fonts Without a Dedicated Bold Typeface](/slides/python-net/convert-powerpoint-to-pdf/#handle-fonts-without-a-dedicated-bold-typeface). That section explains how to rasterize the affected text during PDF export and the consequences for text selection, searching, and scaling.
+
 ## **Get Font Substitutions**
 
 Use the [FontsManager.get_substitutions](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/get_substitutions/) method to determine which fonts will be substituted when the presentation is rendered. The method returns [FontSubstitutionInfo](https://reference.aspose.com/slides/python-net/aspose.slides/fontsubstitutioninfo/) objects that identify the original and substituted font names.

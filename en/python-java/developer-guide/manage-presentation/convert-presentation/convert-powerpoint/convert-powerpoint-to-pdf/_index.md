@@ -257,6 +257,41 @@ For more information on font substitution, see the [Font Substitution](/slides/p
 
 {{% /alert %}}
 
+### **Handle Fonts Without a Dedicated Bold Typeface**
+
+A presentation can apply bold formatting to text even when its font has no dedicated bold typeface. The text can still appear bold through synthetic bolding, which artificially thickens the regular glyphs. When that text looks too heavy or otherwise differs from the intended appearance in PDF, try calling [PdfOptions.setRasterizeUnsupportedFontStyles](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/#setRasterizeUnsupportedFontStyles) with `True`. This option renders the affected text as a bitmap during PDF export and can improve its appearance for certain fonts. Its default value is `False`.
+
+The sample presentation contains two text boxes: one with regular text and one with bold formatting applied to the same font, which has no dedicated bold typeface. The following example loads the presentation, enables rasterization of unsupported font styles, and exports it to PDF:
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import PdfOptions, Presentation, SaveFormat
+
+pdf_options = PdfOptions()
+pdf_options.setRasterizeUnsupportedFontStyles(True)
+
+presentation = Presentation("unsupported-bold.pptx")
+try:
+    presentation.save("rasterized.pdf", SaveFormat.Pdf, pdf_options)
+finally:
+    presentation.dispose()
+```
+
+The following previews show the disabled output and the enabled output. In this example, the bold text has heavier strokes with the option disabled. With the option enabled, its strokes are lighter; the regular text is unchanged. Compare the results before choosing the setting for your presentation.
+
+| Option disabled (`False`, the default) | Option enabled (`True`) |
+|---|---|
+| ![PDF with unsupported font style rasterization disabled](unsupported-bold-disabled.png) | ![PDF with unsupported font style rasterization enabled](unsupported-bold-enabled.png) |
+
+In this example, enabling the option turns only the bold text into a bitmap: it cannot be selected, copied, or searched as text without OCR, and its edges appear softer at 800% zoom. The regular text remains searchable. With the option disabled, both strings remain text.
+
+This option rasterizes text formatted as bold when its font has no dedicated bold typeface. [Font substitution](/slides/python-java/font-substitution/) instead selects another font when the original is unavailable.
+
 ## **Convert Selected Slides from PowerPoint to PDF**
 
 Slide numbers passed to [Presentation.save](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#save) are 1-based. This example exports slides 1 and 3 when both exist:

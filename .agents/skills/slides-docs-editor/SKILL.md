@@ -11,8 +11,9 @@ description: Edit, review, translate, or validate Aspose.Slides Hugo documentati
    [code-samples.md](references/code-samples.md).
 4. When adding or changing code fences, or validating samples, read
    [validation.md](references/validation.md). Load only the platform references routed by these files.
-5. Run `ruby tools/docs-check.rb --links <article...>` for every changed article; add `--external`
-   when HTTP(S) links are present.
+5. Check article structure and local links according to `article-format.md`. For HTTP(S) links,
+   read [link-checking.md](references/link-checking.md) and run the Python checker for every
+   changed article. Do not use the Ruby validator.
 6. Report only changed files, checks performed, and unresolved issues; do not paste full files,
    diffs, or successful command logs. For changed code, follow the validation reporting rules;
    otherwise state `code unchanged`.

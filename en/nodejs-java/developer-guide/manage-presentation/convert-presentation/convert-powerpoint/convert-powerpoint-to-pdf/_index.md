@@ -40,7 +40,7 @@ Using Aspose.Slides, you can convert presentations in the following formats to P
 * **PPTX**
 * **ODP**
 
-To convert a presentation to PDF, pass the file name as an argument to the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) class and then save the presentation as a PDF using a [save](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/#save) method. The [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) class exposes the [save](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/#save) method that is typically used to convert a presentation to PDF.
+To convert a presentation to PDF, pass the file name as an argument to the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) class and then save the presentation as a PDF using a [save](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/save/) method. The [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) class exposes the [save](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/save/) method that is typically used to convert a presentation to PDF.
 
 {{% alert color="info" title="Note" %}}
 
@@ -120,7 +120,7 @@ try {
 
 ### **Preserve Embedded OLE Files as PDF Attachments**
 
-If a presentation contains an embedded Excel workbook, you may want PDF recipients to access the workbook's data as well as view the slides. Call [setIncludeOleData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfoptions/#setIncludeOleData) with `true` to preserve embedded OLE files as attachments in the resulting PDF.
+If a presentation contains an embedded Excel workbook, you may want PDF recipients to access the workbook's data as well as view the slides. Call [setIncludeOleData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfoptions/) with `true` to preserve embedded OLE files as attachments in the resulting PDF.
 
 The default value is `false`: the OLE object's preview image or icon is rendered on the PDF page, but its embedded file is not included as an attachment. Setting the option to `true` additionally includes the file data. The preview remains a visual representation; the attachment lets recipients open or save the embedded file separately. The OLE object does not become an interactive Excel worksheet on the PDF page.
 
@@ -155,7 +155,7 @@ The PDF/A standards impose restrictions on attachments: PDF/A-1 prohibits embedd
 
 ### **Convert PowerPoint to PDF with Hidden Slides**
 
-If a presentation contains hidden slides, you can use the [setShowHiddenSlides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfoptions/#setShowHiddenSlides) method from the [PdfOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfoptions/) class to include the hidden slides as pages in the resulting PDF.
+If a presentation contains hidden slides, you can use the [setShowHiddenSlides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfoptions/setshowhiddenslides/) method from the [PdfOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfoptions/) class to include the hidden slides as pages in the resulting PDF.
 
 The following example exports a presentation to PDF, including any hidden slides.
 
@@ -196,7 +196,7 @@ try {
 
 ### **Detect Font Substitutions**
 
-Aspose.Slides provides the [setWarningCallback](https://reference.aspose.com/slides/nodejs-java/aspose.slides/saveoptions/#setWarningCallback) method under the [PdfOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfoptions/) class, enabling you to detect font substitutions during the presentation-to-PDF conversion process.
+Aspose.Slides provides the [setWarningCallback](https://reference.aspose.com/slides/nodejs-java/aspose.slides/saveoptions/) method under the [PdfOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfoptions/) class, enabling you to detect font substitutions during the presentation-to-PDF conversion process.
 
 The following example exports a presentation to PDF and prints font substitution warnings to the console. A warning is printed only when an unavailable font is substituted during export.
 
@@ -230,6 +230,37 @@ try {
 For more information on font substitution, see the [Font Substitution](/slides/nodejs-java/font-substitution/) article.
 
 {{% /alert %}} 
+
+### **Handle Fonts Without a Dedicated Bold Typeface**
+
+A presentation can apply bold formatting to text even when its font has no dedicated bold typeface. The text can still appear bold through synthetic bolding, which artificially thickens the regular glyphs. When that text looks too heavy or otherwise differs from the intended appearance in PDF, try calling [PdfOptions.setRasterizeUnsupportedFontStyles](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfoptions/) with `true`. This option renders the affected text as a bitmap during PDF export and can improve its appearance for certain fonts. Its default value is `false`.
+
+The sample presentation contains two text boxes: one with regular text and one with bold formatting applied to the same font, which has no dedicated bold typeface. The following example loads the presentation, enables rasterization of unsupported font styles, and exports it to PDF:
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+let pdfOptions = new aspose.slides.PdfOptions();
+pdfOptions.setRasterizeUnsupportedFontStyles(true);
+
+let presentation = new aspose.slides.Presentation("unsupported-bold.pptx");
+try {
+    presentation.save("rasterized.pdf", aspose.slides.SaveFormat.Pdf, pdfOptions);
+} finally {
+    presentation.dispose();
+}
+```
+
+The following previews show the disabled output and the enabled output. In this example, the bold text has heavier strokes with the option disabled. With the option enabled, its strokes are lighter; the regular text is unchanged. Compare the results before choosing the setting for your presentation.
+
+| Option disabled (`false`, the default) | Option enabled (`true`) |
+|---|---|
+| ![PDF with unsupported font style rasterization disabled](unsupported-bold-disabled.png) | ![PDF with unsupported font style rasterization enabled](unsupported-bold-enabled.png) |
+
+In this example, enabling the option turns only the bold text into a bitmap: it cannot be selected, copied, or searched as text without OCR, and its edges appear softer at 800% zoom. The regular text remains searchable. With the option disabled, both strings remain text.
+
+This option rasterizes text formatted as bold when its font has no dedicated bold typeface. [Font substitution](/slides/nodejs-java/font-substitution/) instead selects another font when the original is unavailable.
 
 ## **Convert Selected Slides from PowerPoint to PDF**
 
@@ -347,11 +378,11 @@ Yes. Use the [PdfOptions](https://reference.aspose.com/slides/nodejs-java/aspose
 
 **How do I include hidden slides in the PDF?**
 
-Call [setShowHiddenSlides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfoptions/#setShowHiddenSlides) with `true` in the [PdfOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfoptions/) class to include hidden slides in the resulting PDF.
+Call [setShowHiddenSlides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfoptions/setshowhiddenslides/) with `true` in the [PdfOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfoptions/) class to include hidden slides in the resulting PDF.
 
 **Can Aspose.Slides maintain high image quality in the PDF?**
 
-Yes, you can control image quality by using methods such as [setJpegQuality](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfoptions/#setJpegQuality) and [setSufficientResolution](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfoptions/#setSufficientResolution) in the [PdfOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfoptions/) class to ensure high-quality images in your PDF.
+Yes, you can control image quality by using methods such as [setJpegQuality](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfoptions/setjpegquality/) and [setSufficientResolution](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfoptions/setsufficientresolution/) in the [PdfOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfoptions/) class to ensure high-quality images in your PDF.
 
 **Does Aspose.Slides support PDF/A compliance standards?**
 
