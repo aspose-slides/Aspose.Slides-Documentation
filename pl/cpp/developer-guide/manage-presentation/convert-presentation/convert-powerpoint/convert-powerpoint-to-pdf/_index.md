@@ -1,5 +1,5 @@
 ---
-title: Konwertuj PPT i PPTX do PDF w C++ [Zawarte Zaawansowane Funkcje]
+title: Konwertuj PPT i PPTX do PDF w C++ [Zawarte funkcje zaawansowane]
 linktitle: PowerPoint do PDF
 type: docs
 weight: 40
@@ -24,11 +24,11 @@ keywords:
 - PDF/UA
 - C++
 - Aspose.Slides
-description: "Konwertuj PowerPoint PPT/PPTX do wysokiej jakości, przeszukiwalnych plików PDF w C++ przy użyciu Aspose.Slides, z szybkim przykładem kodu i zaawansowanymi opcjami konwersji."
+description: "Konwertuj prezentacje PowerPoint PPT/PPTX do wysokiej jakości, przeszukiwalnych plików PDF w C++ przy użyciu Aspose.Slides, z szybkimi przykładami kodu i zaawansowanymi opcjami konwersji."
 ---
 ## **Przegląd**
 
-Konwertowanie prezentacji PowerPoint (PPT, PPTX, ODP itp.) do formatu PDF w języku C++ oferuje kilka zalet, w tym kompatybilność z różnymi urządzeniami oraz zachowanie układu i formatowania prezentacji. Ten przewodnik pokazuje, jak konwertować prezentacje do dokumentów PDF, używać różnych opcji kontrolowania jakości obrazu, włączać ukryte slajdy, zabezpieczać pliki PDF hasłem, wykrywać zamiany czcionek, wybierać określone slajdy do konwersji oraz stosować standardy zgodności w dokumentach wyjściowych.
+Konwertowanie prezentacji PowerPoint (PPT, PPTX, ODP itp.) do formatu PDF w C++ oferuje kilka korzyści, w tym kompatybilność z różnymi urządzeniami oraz zachowanie układu i formatowania prezentacji. Niniejszy przewodnik pokazuje, jak konwertować prezentacje do dokumentów PDF, używać różnych opcji kontrolujących jakość obrazu, uwzględniać ukryte slajdy, zabezpieczać pliki PDF hasłem, wykrywać podstawienia czcionek, wybierać konkretne slajdy do konwersji oraz stosować standardy zgodności w dokumentach wyjściowych.
 
 ## **Konwersje PowerPoint do PDF**
 
@@ -38,33 +38,35 @@ Korzystając z Aspose.Slides, możesz konwertować prezentacje w następujących
 * **PPTX**
 * **ODP**
 
-Aby skonwertować prezentację do PDF, przekaż nazwę pliku jako argument do klasy [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) i następnie zapisz prezentację jako PDF, używając metody [Save](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/save/). Klasa [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) udostępnia metodę [Save](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/save/), która zazwyczaj służy do konwersji prezentacji do PDF.
+Aby skonwertować prezentację do PDF, przekaż nazwę pliku jako argument do klasy [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) i następnie zapisz prezentację jako PDF przy użyciu metody [Save](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/save/). Klasa [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) udostępnia metodę [Save](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/save/), która zazwyczaj jest używana do konwersji prezentacji do PDF.
 
 {{% alert color="info" title="Note" %}}
-Aspose.Slides dla C++ wstawia informacje o API oraz numer wersji do dokumentów wyjściowych. Na przykład podczas konwersji prezentacji do PDF, Aspose.Slides wypełnia pole Application wartością „*Aspose.Slides*”, a pole PDF Producer wartością w formacie „*Aspose.Slides v XX.XX*”. **Uwaga** że nie można nakazać Aspose.Slides zmienić ani usunąć tych informacji z dokumentów wyjściowych.
+
+Aspose.Slides for C++ wstawia informacje o swojej API oraz numer wersji do dokumentów wyjściowych. Na przykład podczas konwersji prezentacji do PDF Aspose.Slides wypełnia pole Application wartością "*Aspose.Slides*" oraz pole PDF Producer wartością w formacie "*Aspose.Slides v XX.XX*". **Uwaga**, nie możesz nakazać Aspose.Slides zmiany lub usunięcia tych informacji z dokumentów wyjściowych.
+
 {{% /alert %}}
 
 Aspose.Slides umożliwia konwersję:
 
-* Całe prezentacje do PDF
-* Poszczególne slajdy z prezentacji do PDF
+* Całych prezentacji do PDF
+* Konkretnego slajdu (lub slajdów) z prezentacji do PDF
 
-Aspose.Slides eksportuje prezentacje do PDF, zapewniając, że powstałe pliki PDF ściśle odpowiadają oryginalnym prezentacjom. Elementy i atrybuty są renderowane dokładnie podczas konwersji, w tym:
+Aspose.Slides eksportuje prezentacje do PDF, zapewniając, że powstałe pliki PDF bardzo dokładnie odzwierciedlają oryginalne prezentacje. Elementy i atrybuty są renderowane precyzyjnie podczas konwersji, w tym:
 
 * Obrazy
 * Pola tekstowe i kształty
 * Formatowanie tekstu
-* Formatowanie akapitu
-* Hiperdłącza
+* Formatowanie akapitów
+* Hyperlinki
 * Nagłówki i stopki
-* Punktory
+* Wypunktowania
 * Tabele
 
 ## **Konwertuj PowerPoint do PDF**
 
-Standardowy proces konwersji PowerPoint do PDF używa domyślnych opcji. W tym przypadku Aspose.Slides próbuje konwertować podaną prezentację do PDF, używając optymalnych ustawień przy maksymalnych poziomach jakości.
+Standardowy proces konwersji PowerPoint‑do‑PDF używa domyślnych opcji. W takim przypadku Aspose.Slides próbuje skonwertować podaną prezentację do PDF przy użyciu optymalnych ustawień i maksymalnej jakości.
 
-Poniższy przykład ładuje prezentację i zapisuje wszystkie widoczne slajdy do PDF, używając domyślnych ustawień eksportu.
+Poniższy przykład wczytuje prezentację i zapisuje wszystkie widoczne slajdy do PDF używając domyślnych ustawień eksportu.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -81,16 +83,18 @@ presentation->Dispose();
 ```
 
 {{% alert color="info" title="Note" %}}
-Aspose oferuje bezpłatny internetowy [**konwerter PowerPoint do PDF**](https://products.aspose.app/slides/conversion/ppt-to-pdf), który demonstruje proces konwersji prezentacji do PDF. Możesz przeprowadzić test z użyciem tego konwertera, aby zobaczyć działanie opisanego tutaj procesu.
+
+Aspose oferuje darmowy internetowy [**konwerter PowerPoint do PDF**](https://products.aspose.app/slides/conversion/ppt-to-pdf), który demonstruje proces konwersji prezentacji do PDF. Możesz przetestować ten konwerter, aby zobaczyć działanie procedury opisanej tutaj.
+
 {{% /alert %}}
 
 ## **Konwertuj PowerPoint do PDF z opcjami**
 
-Aspose.Slides udostępnia niestandardowe opcje — właściwości w klasie [PdfOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/) — które pozwalają dostosować powstały PDF, zabezpieczyć PDF hasłem lub określić, jak ma przebiegać proces konwersji.
+Aspose.Slides udostępnia własne opcje — właściwości klasy [PdfOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/) — które pozwalają dostosować wynikowy PDF, zabezpieczyć PDF hasłem lub określić, jak ma przebiegać proces konwersji.
 
 ### **Konwertuj PowerPoint do PDF z niestandardowymi opcjami**
 
-Korzystając z niestandardowych opcji konwersji, możesz określić preferowane ustawienie jakości dla obrazów rastrowych, określić sposób obsługi metaplików, ustawić poziom kompresji tekstu, skonfigurować DPI dla obrazów i wiele innych.
+Korzystając z własnych opcji konwersji, możesz określić preferowane ustawienie jakości dla obrazów rastrowych, zdefiniować sposób obsługi metaplików, ustawić poziom kompresji tekstu, skonfigurować DPI dla obrazów i nie tylko.
 
 Poniższy przykład eksportuje prezentację do PDF 1.5 z jakością JPEG ustawioną na 90, rozdzielczością obrazu 300 DPI, metaplikami zapisywanymi jako PNG oraz kompresją tekstu Flate.
 
@@ -120,11 +124,11 @@ presentation->Dispose();
 
 ### **Zachowaj osadzone pliki OLE jako załączniki PDF**
 
-Jeśli prezentacja zawiera osadzony skoroszyt Excel, możesz chcieć, aby odbiorcy PDF mogli uzyskać dostęp do danych skoroszytu oraz przeglądać slajdy. Wywołaj [PdfOptions::set_IncludeOleData](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/set_includeoledata/) z wartością `true`, aby zachować osadzone pliki OLE jako załączniki w powstałym PDF.
+Jeśli prezentacja zawiera osadzony skoroszyt Excel, możesz chcieć, aby odbiorcy PDF mieli dostęp do danych skoroszytu oraz mogli przeglądać slajdy. Wywołaj [PdfOptions::set_IncludeOleData](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/set_includeoledata/) z wartością `true`, aby zachować osadzone pliki OLE jako załączniki w wynikowym PDF.
 
-Domyślną wartością jest `false`: podgląd obrazu lub ikona obiektu OLE jest renderowana na stronie PDF, ale jego osadzony plik nie jest dołączany jako załącznik. Ustawienie opcji na `true` dodatkowo dołącza dane pliku. Podgląd pozostaje wizualną reprezentacją; załącznik umożliwia odbiorcom otwarcie lub zapisanie osadzonego pliku osobno. Obiekt OLE nie staje się interaktywnym arkuszem Excel na stronie PDF.
+Domyślna wartość to `false`: podglądowy obraz lub ikona obiektu OLE jest renderowana na stronie PDF, ale osadzony plik nie jest dołączany jako załącznik. Ustawienie opcji na `true` dodatkowo dołącza dane pliku. Podgląd pozostaje wizualną reprezentacją; załącznik umożliwia odbiorcom otwarcie lub zapisanie osadzonego pliku osobno. Obiekt OLE nie staje się interaktywnym arkuszem Excel na stronie PDF.
 
-Poniższy przykład ładuje prezentację, która już zawiera osadzony skoroszyt Excel, i eksportuje ją do PDF z dołączonym skoroszytem.
+Poniższy przykład wczytuje prezentację już zawierającą osadzony skoroszyt Excel i eksportuje ją do PDF z załączonym skoroszytem.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -146,17 +150,19 @@ presentation->Dispose();
 
 Aby sprawdzić wynik:
 
-1. Otwórz wyeksportowany PDF w przeglądarce obsługującej załączniki, takiej jak Adobe Acrobat Reader.
-2. Otwórz panel **Attachments** przeglądarki i zlokalizuj osadzony skoroszyt.
-3. Zapisz załącznik i otwórz go w Excelu, aby sprawdzić jego dane, lub otwórz go bezpośrednio, jeśli przeglądarka na to pozwala. Podgląd na stronie PDF jest oddzielny od załącznika.
+1. Otwórz wyeksportowany PDF w przeglądarce obsługującej załączniki, np. Adobe Acrobat Reader.
+2. Otwórz panel **Attachments** i zlokalizuj osadzony skoroszyt.
+3. Zapisz załącznik i otwórz go w Excelu, aby sprawdzić dane, lub otwórz go bezpośrednio, jeśli przeglądarka na to pozwala. Podgląd na stronie PDF jest oddzielny od załącznika.
 
 {{% alert color="info" title="Note" %}}
-Standardy PDF/A nakładają ograniczenia dotyczące załączników: PDF/A-1 zakazuje osadzonych plików, PDF/A-2 zezwala tylko na załączniki PDF/A, a PDF/A-3 dopuszcza inne typy plików, w tym skoroszyty Excel. Są to wymogi standardów, a nie ograniczenia specyficzne dla Aspose.Slides. Ten przykład używa domyślnego ustawienia zgodności PDF i nie demonstruje eksportu PDF/A.
+
+Standardy PDF/A nakładają ograniczenia na załączniki: PDF/A‑1 zabrania osadzania plików, PDF/A‑2 zezwala wyłącznie na załączniki PDF/A, a PDF/A‑3 dopuszcza inne typy plików, w tym skoroszyty Excel. Są to wymogi standardów, a nie ograniczenia specyficzne dla Aspose.Slides. Ten przykład używa domyślnego ustawienia zgodności PDF i nie demonstruje eksportu PDF/A.
+
 {{% /alert %}}
 
 ### **Konwertuj PowerPoint do PDF z ukrytymi slajdami**
 
-Jeśli prezentacja zawiera ukryte slajdy, możesz użyć metody [set_ShowHiddenSlides](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/set_showhiddenslides/) z klasy [PdfOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/), aby uwzględnić ukryte slajdy jako strony w powstałym PDF.
+Jeśli prezentacja zawiera ukryte slajdy, możesz użyć metody [set_ShowHiddenSlides](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/set_showhiddenslides/) klasy [PdfOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/), aby włączyć ukryte slajdy jako strony w wynikowym PDF.
 
 Poniższy przykład eksportuje prezentację do PDF, uwzględniając wszystkie ukryte slajdy.
 
@@ -180,7 +186,7 @@ presentation->Dispose();
 
 ### **Konwertuj PowerPoint do PDF zabezpieczonego hasłem**
 
-Poniższy przykład eksportuje prezentację do PDF, które wymaga hasła `password` do otwarcia. Uprawnienia dostępu umożliwiają drukowanie, w tym drukowanie w wysokiej jakości.
+Poniższy przykład eksportuje prezentację do PDF, który wymaga hasła `password` przy otwieraniu. Uprawnienia dostępu zezwalają na drukowanie, w tym drukowanie w wysokiej jakości.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -202,11 +208,11 @@ presentation->Save(u"PPTX-to-PDF.pdf", SaveFormat::Pdf, pdfOptions);
 presentation->Dispose();
 ```
 
-### **Wykryj zamiany czcionek**
+### **Wykryj podstawienia czcionek**
 
-Aspose.Slides udostępnia metodę [set_WarningCallback](https://reference.aspose.com/slides/cpp/aspose.slides.export/saveoptions/set_warningcallback/) w klasie [PdfOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/), umożliwiającą wykrywanie zamian czcionek podczas procesu konwersji prezentacji do PDF.
+Aspose.Slides udostępnia metodę [set_WarningCallback](https://reference.aspose.com/slides/cpp/aspose.slides.export/saveoptions/set_warningcallback/) klasy [PdfOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/), umożliwiającą wykrycie podstawień czcionek podczas procesu konwersji prezentacji do PDF.
 
-Poniższy przykład eksportuje prezentację do PDF i wypisuje ostrzeżenia o zamianie czcionek w konsoli. Ostrzeżenie jest wypisywane tylko wtedy, gdy podczas eksportu zostanie zastąpiona niedostępna czcionka.
+Poniższy przykład eksportuje prezentację do PDF i wypisuje ostrzeżenia o podstawieniach czcionek na konsolę. Ostrzeżenie jest wypisywane tylko wtedy, gdy podczas eksportu zostaje zastąpiona niedostępna czcionka.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -248,12 +254,48 @@ presentation->Dispose();
 ```
 
 {{% alert color="info" title="Note" %}}
-Aby uzyskać więcej informacji o zamianie czcionek, zobacz artykuł [Zamiana czcionek](/slides/pl/cpp/font-substitution/).
-{{% /alert %}}
+
+Więcej informacji o podstawieniach czcionek znajdziesz w artykule [Font Substitution](/slides/pl/cpp/font-substitution/).
+
+{{% /alert %}} 
+
+### **Obsługa czcionek bez dedykowanego kroju pogrubionego**
+
+Prezentacja może stosować pogrubienie tekstu, nawet jeśli czcionka nie posiada dedykowanego kroju pogrubionego. Tekst może wyglądać na pogrubiony dzięki syntetycznemu pogrubieniu, które sztucznie zagęszcza zwykłe glify. Gdy taki tekst wydaje się zbyt ciężki lub inaczej wygląda niż zamierzono w PDF, spróbuj wywołać [PdfOptions::set_RasterizeUnsupportedFontStyles](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/set_rasterizeunsupportedfontstyles/) z wartością `true`. Opcja ta renderuje dotknięty tekst jako bitmapę podczas eksportu do PDF i może poprawić jego wygląd dla niektórych czcionek. Domyślna wartość to `false`.
+
+Przykładowa prezentacja zawiera dwa pola tekstowe: jedno z tekstem zwykłym i drugie z pogrubionym formatowaniem tej samej czcionki, która nie ma dedykowanego kroju pogrubionego. Poniższy przykład wczytuje prezentację, włącza rasteryzację nieobsługiwanych stylów czcionek i eksportuje ją do PDF:
+
+```cpp
+#include <DOM/Presentation.h>
+#include <Export/PdfOptions.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto pdfOptions = MakeObject<PdfOptions>();
+pdfOptions->set_RasterizeUnsupportedFontStyles(true);
+
+auto presentation = MakeObject<Presentation>(u"unsupported-bold.pptx");
+presentation->Save(u"rasterized.pdf", SaveFormat::Pdf, pdfOptions);
+presentation->Dispose();
+```
+
+Poniższe podglądy przedstawiają wynik przy wyłączonej i włączonej opcji. W tym przykładzie tekst pogrubiony ma cięższe linie przy wyłączonej opcji. Po włączeniu opcji jego linie są lżejsze; tekst zwykły pozostaje niezmieniony. Porównaj wyniki przed podjęciem decyzji o ustawieniu dla własnej prezentacji.
+
+| Opcja wyłączona (`false`, domyślna) | Opcja włączona (`true`) |
+|---|---|
+| ![PDF with unsupported font style rasterization disabled](unsupported-bold-disabled.png) | ![PDF with unsupported font style rasterization enabled](unsupported-bold-enabled.png) |
+
+W tym przykładzie włączenie opcji przekształca wyłącznie pogrubiony tekst w bitmapę: nie może być zaznaczony, kopiowany ani przeszukiwany jako tekst bez OCR, a jego krawędzie wyglądają miękko przy 800 % powiększeniu. Tekst zwykły pozostaje przeszukiwalny. Przy wyłączonej opcji oba ciągi pozostają tekstem.
+
+Ta opcja rasteryzuje tekst sformatowany jako pogrubiony, gdy jego czcionka nie ma dedykowanego kroju pogrubionego. [Font substitution](/slides/pl/cpp/font-substitution/) zamiast tego wybiera inną czcionkę, gdy oryginalna jest niedostępna.
 
 ## **Konwertuj wybrane slajdy z PowerPoint do PDF**
 
-Poniższy przykład eksportuje slajdy 1 i 3 z prezentacji do PDF. Numery slajdów w tej tablicy są numerowane od jednego, a wejściowa prezentacja musi zawierać co najmniej trzy slajdy.
+Poniższy przykład eksportuje slajdy 1 i 3 z prezentacji do PDF. Numery slajdów w tej tablicy są numerowane od 1, a prezentacja wejściowa musi zawierać co najmniej trzy slajdy.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -271,9 +313,9 @@ presentation->Save(u"PPTX-to-PDF.pdf", slides, SaveFormat::Pdf);
 presentation->Dispose();
 ```
 
-## **Konwertuj PowerPoint do PDF z własnym rozmiarem slajdu**
+## **Konwertuj PowerPoint do PDF z niestandardowym rozmiarem slajdu**
 
-Poniższy przykład kopiuje pierwszy slajd z prezentacji do nowej prezentacji o rozmiarze slajdu 612 × 792 punktów (8,5 × 11 cali). Skaluje zawartość slajdu, aby dopasować ją, i eksportuje pojedynczy slajd do PDF.
+Poniższy przykład kopiuje pierwszy slajd z prezentacji do nowej prezentacji o rozmiarze slajdu 612 × 792 punktów (8,5 × 11 cali). Skaluję zawartość slajdu, aby pasowała, i eksportuję pojedynczy slajd do PDF.
 
 ```cpp
 #include <DOM/ISlideCollection.h>
@@ -309,7 +351,7 @@ presentation->Dispose();
 
 ## **Konwertuj PowerPoint do PDF w widoku notatek slajdu**
 
-Poniższy przykład eksportuje prezentację do PDF, umieszczając notatki prelegenta każdego slajdu pod slajdem. Użyj prezentacji zawierającej notatki prelegenta, aby zobaczyć rezultat.
+Poniższy przykład eksportuje prezentację do PDF, umieszczając notatki prelegenta każdego slajdu pod samym slajdem. Użyj prezentacji zawierającej notatki prelegenta, aby zobaczyć rezultat.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -334,11 +376,11 @@ presentation->Save(u"PDF_with_notes.pdf", SaveFormat::Pdf, pdfOptions);
 presentation->Dispose();
 ```
 
-## **Standardy dostępności i zgodności PDF**
+## **Dostępność i standardy zgodności dla PDF**
 
-Aspose.Slides umożliwia użycie procedury konwersji, która jest zgodna z [Wytyczne dostępności treści internetowych (**WCAG**)](https://www.w3.org/TR/WCAG-TECHS/pdf.html). Możesz eksportować dokument PowerPoint do PDF, używając dowolnego z tych standardów zgodności: **PDF/A1a**, **PDF/A1b** i **PDF/UA**.
+Aspose.Slides pozwala używać procedury konwersji zgodnej z [Web Content Accessibility Guidelines (**WCAG**)](https://www.w3.org/TR/WCAG-TECHS/pdf.html). Możesz eksportować dokument PowerPoint do PDF przy użyciu dowolnego z tych standardów zgodności: **PDF/A1a**, **PDF/A1b** i **PDF/UA**.
 
-Ten kod C++ demonstruje proces konwersji PowerPoint do PDF, który generuje wiele plików PDF w oparciu o różne standardy zgodności:
+Ten kod C++ demonstruje proces konwersji PowerPoint‑do‑PDF, który tworzy wiele plików PDF na podstawie różnych standardów zgodności:
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -371,10 +413,12 @@ presentation->Dispose();
 ```
 
 {{% alert color="info" title="Note" %}}
-Aspose.Slides obsługuje operacje konwersji PDF, umożliwiając konwersję plików PDF do popularnych formatów. Możesz wykonać konwersje [PDF do HTML](https://products.aspose.com/slides/cpp/conversion/pdf-to-html/), [PDF do obrazu](https://products.aspose.com/slides/cpp/conversion/pdf-to-image/), [PDF do JPG](https://products.aspose.com/slides/cpp/conversion/pdf-to-jpg/), oraz [PDF do PNG](https://products.aspose.com/slides/cpp/conversion/pdf-to-png/). Inne operacje konwersji PDF do specjalistycznych formatów — [PDF do SVG](https://products.aspose.com/slides/cpp/conversion/pdf-to-svg/), [PDF do TIFF](https://products.aspose.com/slides/cpp/conversion/pdf-to-tiff/), i [PDF do XML](https://products.aspose.com/slides/cpp/conversion/pdf-to-xml/) — są również obsługiwane.
+
+Aspose.Slides obsługuje operacje konwersji PDF, umożliwiając konwersję plików PDF do popularnych formatów. Możesz wykonać konwersje [PDF to HTML](https://products.aspose.com/slides/cpp/conversion/pdf-to-html/), [PDF to image](https://products.aspose.com/slides/cpp/conversion/pdf-to-image/), [PDF to JPG](https://products.aspose.com/slides/cpp/conversion/pdf-to-jpg/) i [PDF to PNG](https://products.aspose.com/slides/cpp/conversion/pdf-to-png/). Inne operacje konwersji PDF do formatów specjalistycznych — [PDF to SVG](https://products.aspose.com/slides/cpp/conversion/pdf-to-svg/), [PDF to TIFF](https://products.aspose.com/slides/cpp/conversion/pdf-to-tiff/), oraz [PDF to XML](https://products.aspose.com/slides/cpp/conversion/pdf-to-xml/) — są również wspierane.
+
 {{% /alert %}}
 
-> **Uwaga:** Podczas eksportu do PDF/UA Aspose.Slides traktuje złożone grafiki, takie jak SmartArt, wykresy i formuły, jako jedną figurę. Poszczególne elementy ścieżek nie są zachowywane jako oddzielna zawartość i mogą być oznaczone jako artefakty; alternatywny tekst jest dostarczany tylko dla całej figury.
+> **Uwaga:** Podczas eksportu do PDF/UA, Aspose.Slides traktuje złożoną grafikę, taką jak SmartArt, wykresy i formuły, jako jedną figurę. Poszczególne elementy ścieżki nie są zachowywane jako oddzielna treść i mogą być oznaczone jako artefakty; tekst alternatywny jest dostarczany wyłącznie dla całej figury.
 
 ## **FAQ**
 
@@ -382,24 +426,24 @@ Aspose.Slides obsługuje operacje konwersji PDF, umożliwiając konwersję plik�
 
 Tak, Aspose.Slides obsługuje konwersję wsadową wielu plików PPT lub PPTX do PDF. Możesz iterować po swoich plikach i programowo zastosować proces konwersji.
 
-**Czy można zabezpieczyć konwertowany PDF hasłem?**
+**Czy istnieje możliwość zabezpieczenia konwertowanego PDF hasłem?**
 
 Tak. Użyj klasy [PdfOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/), aby ustawić hasło i określić uprawnienia dostępu podczas procesu konwersji.
 
-**Jak włączyć ukryte slajdy w PDF?**
+**Jak uwzględnić ukryte slajdy w PDF?**
 
-Użyj metody [set_ShowHiddenSlides](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/set_showhiddenslides/) w klasie [PdfOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/), aby włączyć ukryte slajdy w powstałym PDF.
+Użyj metody [set_ShowHiddenSlides](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/set_showhiddenslides/) w klasie [PdfOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/), aby włączyć ukryte slajdy w wynikowym PDF.
 
-**Czy Aspose.Slides może utrzymać wysoką jakość obrazu w PDF?**
+**Czy Aspose.Slides utrzymuje wysoką jakość obrazów w PDF?**
 
-Tak, możesz kontrolować jakość obrazu, używając metod takich jak [set_JpegQuality](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/set_jpegquality/) i [set_SufficientResolution](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/set_sufficientresolution/) w klasie [PdfOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/), aby zapewnić wysokiej jakości obrazy w swoim PDF.
+Tak, możesz kontrolować jakość obrazów, używając metod takich jak [set_JpegQuality](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/set_jpegquality/) i [set_SufficientResolution](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/set_sufficientresolution/) w klasie [PdfOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/), aby zapewnić wysoką jakość obrazów w swoim PDF.
 
 **Czy Aspose.Slides obsługuje standardy zgodności PDF/A?**
 
-Tak, Aspose.Slides umożliwia eksport PDF, które są zgodne z różnymi standardami, w tym PDF/A1a, PDF/A1b i PDF/UA, zapewniając, że dokumenty spełniają wymagania dotyczące dostępności i archiwizacji.
+Tak, Aspose.Slides pozwala eksportować PDF, które spełniają różne standardy, w tym PDF/A1a, PDF/A1b i PDF/UA, zapewniając, że Twoje dokumenty spełniają wymogi dostępności i archiwizacji.
 
 ## **Dodatkowe zasoby**
 
-- [Dokumentacja Aspose.Slides dla C++](/slides/pl/cpp/)
-- [Odniesienie API Aspose.Slides dla C++](https://reference.aspose.com/slides/cpp/)
-- [Bezpłatne konwertery online Aspose](https://products.aspose.app/slides/conversion)
+- [Aspose.Slides for C++ Documentation](/slides/pl/cpp/)
+- [Aspose.Slides for C++ API Reference](https://reference.aspose.com/slides/cpp/)
+- [Aspose Free Online Converters](https://products.aspose.app/slides/conversion)

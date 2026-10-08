@@ -1,5 +1,5 @@
 ---
-title: Python ile Sunumlarda Yazı Tipi İkamesini Yapılandırma
+title: Python ile Sunumlarda Yazı Tipi İkamesi Yapılandırma
 linktitle: Yazı Tipi İkamesi
 type: docs
 weight: 70
@@ -8,8 +8,8 @@ keywords:
 - yazı tipi
 - ikame yazı tipi
 - yazı tipi ikamesi
-- yazı tipini değiştirme
 - yazı tipi değiştirme
+- yazı tipi değişimi
 - ikame kuralı
 - değiştirme kuralı
 - PowerPoint
@@ -17,19 +17,21 @@ keywords:
 - sunum
 - Python
 - Aspose.Slides
-description: "Python için .NET üzerinden Aspose.Slides'ta PowerPoint ve OpenDocument sunumlarını render ederken veya dönüştürürken yazı tipi ikame kurallarını yapılandırın ve ikame edilen yazı tiplerini inceleyin."
+description: ".NET üzerinden Python için Aspose.Slides'te PowerPoint ve OpenDocument sunumlarını oluştururken veya dönüştürürken yazı tipi ikame kurallarını yapılandırın ve ikame edilen yazı tiplerini inceleyin."
 ---
 ## **Genel Bakış**
 
-Yazı tipi ikamesi, Aspose.Slides'ın bir sunum render edildiğinde veya dönüştürüldüğünde erişilemeyen bir yazı tipinin yerine kullanılabilir bir yazı tipini kullanmasını sağlar. İkame, render edilen çıktıyı etkiler; sunum içeriğine atanmış yazı tipini değiştirmez.
+Yazı tipi ikamesi, Aspose.Slides'in bir sunum oluşturulurken veya dönüştürülürken erişilemeyen bir yazı tipinin yerine mevcut bir yazı tipini kullanmasını sağlar. İkame, oluşturulan çıktıyı etkiler; sunum içeriğine atanmış yazı tipini değiştirmez.
 
-Belirli bir yazı tipi kullanılamadığında kullanılacak yazı tipini tanımlayabilir ve Aspose.Slides'ın render sırasında yapacağı ikameleri inceleyebilirsiniz. Bu, farklı yüklü yazı tiplerine sahip ortamlar arasında çıktının tutarlı kalmasına yardımcı olur.
+Belirli bir yazı tipi kullanılamadığında hangi yazı tipinin kullanılacağını tanımlayabilir ve Aspose.Slides'in oluşturma sırasında yapacağı ikameleri inceleyebilirsiniz. Bu, farklı kurulmuş yazı tiplerine sahip ortamlar arasında çıktının tutarlı kalmasına yardımcı olur.
 
-## **Yazı Tipi İkamesini Al**
+Eğer bir yazı tipi mevcut ancak ayrı bir kalın yazı tipi yoksa, [Ayırdedilmiş Kalın Yazı Tipi Olmayan Yazı Tiplerini İşleme](/slides/tr/python-net/convert-powerpoint-to-pdf/#handle-fonts-without-a-dedicated-bold-typeface) bölümüne bakın. Bu bölüm, PDF dışa aktarımı sırasında etkilenen metnin rasterleştirilmesini ve metin seçimi, arama ve ölçeklendirme üzerindeki sonuçlarını açıklar.
 
-Yazı tiplerinin sunum render edildiğinde hangi ikameler yapılacağını belirlemek için [FontsManager.get_substitutions](https://reference.aspose.com/slides/tr/python-net/aspose.slides/fontsmanager/get_substitutions/) yöntemini kullanın. Yöntem, özgün ve ikame edilen yazı tipi adlarını tanımlayan [FontSubstitutionInfo](https://reference.aspose.com/slides/tr/python-net/aspose.slides/fontsubstitutioninfo/) nesnelerini döndürür.
+## **Yazı Tipi İkamesi Al**
 
-İşte bir sunum için tüm yazı tipi ikamelerini listeleyen Python örneği:
+Sunum oluşturulduğunda hangi yazı tiplerinin ikame edileceğini belirlemek için [FontsManager.get_substitutions](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/get_substitutions/) metodunu kullanın. Metod, orijinal ve ikame edilen yazı tipi adlarını tanımlayan [FontSubstitutionInfo](https://reference.aspose.com/slides/python-net/aspose.slides/fontsubstitutioninfo/) nesnelerini döndürür.
+
+Aşağıdaki Python örneği bir sunum için tüm yazı tipi ikamelerini listeler:
 
 ```python
 import aspose.slides as slides
@@ -39,15 +41,15 @@ with slides.Presentation("Presentation.pptx") as presentation:
         print(f"{substitution.original_font_name} -> {substitution.substituted_font_name}")
 ```
 
-## **Seçili Slaytlar İçin Yazı Tipi İkamesini Al**
+## **Seçili Slaytlar İçin Yazı Tipi İkamesi Al**
 
-Belirli slaytları render etmek için gereken ikameleri yalnızca incelemek amacıyla bir slayt indeks listesiyle [FontsManager.get_substitutions](https://reference.aspose.com/slides/tr/python-net/aspose.slides/fontsmanager/get_substitutions/) yöntemini kullanın. Bu, bir sunumun bir kısmını render ederken veya dışa aktarırken, büyük bir sunumu artımlı olarak kontrol ederken, mevcut olmayan yazı tiplerine bağımlı slaytları bulurken, bir sunucu veya konteyner için minimal bir yazı tipi paketi hazırlarken ya da alakasız slaytları işlemeden render farklarını teşhis ederken faydalıdır.
+[FontsManager.get_substitutions](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/get_substitutions/) metodunu slayt indeksleri listesiyle kullanarak yalnızca belirli slaytların oluşturulması için gerekli ikameleri inceleyebilirsiniz. Bu, bir sunumun bir kısmını oluştururken veya dışa aktarırken, büyük bir sunumu artırımlı olarak kontrol ederken, kullanılmayan yazı tiplerine bağımlı slaytları bulurken, bir sunucu veya konteyner için minimal bir yazı tipi paketi hazırlarken veya ilgili olmayan slaytları işlemeye gerek kalmadan oluşturma farklarını teşhis ederken faydalıdır.
 
-Liste, bir‑tabanlı slayt indeksleri içerir: `1` ilk slaytı gösterir. Buna karşılık, [Presentation.slides](https://reference.aspose.com/slides/tr/python-net/aspose.slides/presentation/slides/tr/) koleksiyonu sıfır‑tabanlıdır, bu yüzden aynı slayt `presentation.slides[0]` şeklinde erişilir. Tek‑off‑by‑one hatalarını önlemek için listeyi oluştururken bu farkı akılda tutun.
+Liste, bir‑tabanlı slayt indeksleri içerir: `1` ilk slaytı gösterir. Buna karşılık, [Presentation.slides](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/slides/) koleksiyonu sıfır‑tabanlıdır, bu yüzden aynı slayta `presentation.slides[0]` ile erişilir. Tek bir kaydırma hatasını önlemek için listeyi oluştururken bu farkı aklınızda tutun.
 
-Yöntemi, [Presentation.fonts_manager](https://reference.aspose.com/slides/tr/python-net/aspose.slides/presentation/fonts_manager/) özelliği üzerinden çağırın. Yalnızca seçili slaytların render edilmesi sırasında belirlenen ikameleri döndürür. Her sonuç, özgün ve ikame edilen yazı tipi adlarını içeren bir [FontSubstitutionInfo](https://reference.aspose.com/slides/tr/python-net/aspose.slides/fontsubstitutioninfo/) nesnesidir. Sonuç, mevcut yazı tipi ortamını, yapılandırılmış geri dönüş kurallarını, bir [IFontSubstRuleCollection](https://reference.aspose.com/slides/tr/python-net/aspose.slides/ifontsubstrulecollection/) içinde saklanan ikame kurallarını ve [harici olarak yüklenen yazı tiplerini](/slides/tr/python-net/custom-font/) yansıtır.
+Metodu [Presentation.fonts_manager](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/fonts_manager/) özelliği üzerinden çağırın. Yalnızca seçili slaytların oluşturulması sırasında belirlenen ikameleri döndürür. Her sonuç, orijinal ve ikame edilen yazı tipi adlarını içeren bir [FontSubstitutionInfo](https://reference.aspose.com/slides/python-net/aspose.slides/fontsubstitutioninfo/) nesnesidir. Sonuç, mevcut yazı tipi ortamını, yapılandırılmış geri dönüş kurallarını, bir [IFontSubstRuleCollection](https://reference.aspose.com/slides/python-net/aspose.slides/ifontsubstrulecollection/) içinde depolanan ikame kurallarını ve [harici yüklenmiş yazı tipleri](/slides/tr/python-net/custom-font/) içermektedir.
 
-Aynı ikame birden fazla seçili slayt tarafından gerekebilir. Yazı tipi envanteri ya da ön uç raporu oluştururken sonuçları tekilleştirin. Aşağıdaki örnek, döndürülen her ikameyi raporlar ve ardından benzersiz yazı tipi eşlemelerinin sıralı bir listesini oluşturur:
+Aynı ikame birden fazla seçili slayt tarafından talep edilebilir. Bir yazı tipi envanteri veya önkontrol raporu oluştururken sonuçları tekilleştirin. Aşağıdaki örnek her döndürülen ikameyi raporlar ve ardından benzersiz yazı tipi eşlemelerinin sıralı bir listesini oluşturur:
 
 ```python
 import aspose.slides as slides
@@ -69,25 +71,25 @@ with slides.Presentation("Presentation.pptx") as presentation:
         print(entry)
 ```
 
-[FontsManager](https://reference.aspose.com/slides/tr/python-net/aspose.slides/fontsmanager/) sınıfı, yöntemin her iki biçimini de sağlar. Render işleminin kapsamına göre birini seçin:
+[FontsManager](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/) sınıfı her iki metod biçimini de sağlar. Oluşturma işleminin kapsamına göre birini seçin:
 
 | Metod çağrısı | Ne zaman kullanılır |
 |---|---|
-| [get_substitutions](https://reference.aspose.com/slides/tr/python-net/aspose.slides/fontsmanager/get_substitutions/) hiçbir argüman olmadan | Tüm sunum için ikamelere ihtiyacınız olduğunda. |
-| [get_substitutions](https://reference.aspose.com/slides/tr/python-net/aspose.slides/fontsmanager/get_substitutions/) slayt indekslerinin bir listesiyle | Seçili bir aralık, artımlı kontrol veya kısmi dışa aktarım için ikamelere ihtiyacınız olduğunda. |
+| [get_substitutions](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/get_substitutions/) argümansız | Sunumun tamamı için ikameler gerekirken |
+| [get_substitutions](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/get_substitutions/) slayt indeks listesiyle | Seçili bir aralık, artımlı kontrol veya kısmi dışa aktarım gerektiğinde |
 
-## **Yazı Tipi İkame Kurallarını Ayarla**
+## **Yazı Tipi İkame Kurallarını Belirleme**
 
-Bir kaynak yazı tipi mevcut olmadığında Aspose.Slides'ın kullanması gereken yazı tipini belirtmek için:
+Kaynak bir yazı tipi kullanılamadığında Aspose.Slides'in hangi yazı tipini kullanması gerektiğini belirtmek için:
 
 1. Sunumu yükleyin.
 2. Kaynak ve ikame yazı tipleri için yazı tipi tanımları oluşturun.
-3. [WHEN_INACCESSIBLE](https://reference.aspose.com/slides/tr/python-net/aspose.slides/fontsubstcondition/) koşuluyla bir [FontSubstRule](https://reference.aspose.com/slides/tr/python-net/aspose.slides/fontsubstrule/) oluşturun.
-4. Kuralı bir [FontSubstRuleCollection](https://reference.aspose.com/slides/tr/python-net/aspose.slides/fontsubstrulecollection/) içine ekleyin.
-5. Koleksiyonu [FontsManager.font_subst_rule_list](https://reference.aspose.com/slides/tr/python-net/aspose.slides/fontsmanager/font_subst_rule_list/) özelliğine atayın.
-6. Sunumu render edin veya dönüştürün.
+3. [WHEN_INACCESSIBLE](https://reference.aspose.com/slides/python-net/aspose.slides/fontsubstcondition/) koşuluyla bir [FontSubstRule](https://reference.aspose.com/slides/python-net/aspose.slides/fontsubstrule/) oluşturun.
+4. Kuralı bir [FontSubstRuleCollection](https://reference.aspose.com/slides/python-net/aspose.slides/fontsubstrulecollection/) içine ekleyin.
+5. Koleksiyonu [FontsManager.font_subst_rule_list](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/font_subst_rule_list/) özelliğine atayın.
+6. Sunumu oluşturun veya dönüştürün.
 
-Aşağıdaki Python örneği, `SomeRareFont` mevcut olmadığında `Arial` ile ikame eder ve ardından sonucu doğrulamak için ilk slaytı render eder. İkame yazı tipi Aspose.Slides için kullanılabilir olmalıdır.
+Aşağıdaki Python örneği `SomeRareFont` kullanılamadığında `Arial` ile ikame eder ve ardından ilk slaytı oluşturup sonucu doğrular. İkame edilen yazı tipinin Aspose.Slides tarafından erişilebilir olması gerekir.
 
 ```python
 import aspose.slides as slides
@@ -105,39 +107,46 @@ with slides.Presentation("Fonts.pptx") as presentation:
         image.save("slide.jpg", slides.ImageFormat.JPEG)
 ```
 
-{{% alert color="info" title="Note" %}}
-Bir sunum boyunca kullanılan yazı tiplerinde koşulsuz bir değişiklik için, [Font Replacement](/slides/tr/python-net/font-replacement/) bölümüne bakın.
+{{% alert color="info" title="Not" %}}
+Sunum boyunca kullanılan yazı tiplerinde koşulsuz bir değişiklik için, [Yazı Tipi Değiştirme](/slides/tr/python-net/font-replacement/) bölümüne bakın.
 {{% /alert %}}
 
-## **Matematik Denklemi Yazı Tipleri için Sınırlamalar**
+## **Matematik Denklemi Yazı Tipleri İçin Sınırlamalar**
 
-Yazı tipi ikame kuralları, render ve dönüşüm sırasında kullanılan standart yazı tipi seçim sürecinin bir parçasıdır. Bir kural tarafından belirtilen kullanılabilir bir yazı tipiyle erişilemeyen bir yazı tipi değiştirilebildiğinde, kurallar normal metin için çalışır.
+Yazı tipi ikame kuralları, oluşturma ve dönüştürme sırasında kullanılan standart yazı tipi seçim sürecinin bir parçasıdır. Aspose.Slides bir erişilemeyen yazı tipini kural tarafından belirtilen mevcut yazı tipiyle değiştirebildiğinde, normal metin için çalışırlar.
 
-Office Math denklemlerinin ek bir gereksinimi vardır. Bir denklem **Cambria Math** kullanıyorsa, Aspose.Slides denklemin düzenini hesaplamak ve render etmek için o kesin yazı tipine ihtiyaç duyabilir. **STIX Two Math** gibi başka bir matematik yazı tipini ikame eden bir kural, bu amaçla **Cambria Math**'i değiştiremez ve render hâlâ **Cambria Math**'in gerekli olduğunu bildirebilir.
+Office Math denklemlerinin ek bir gereksinimi vardır. Bir denklem **Cambria Math** kullanıyorsa, Aspose.Slides denklemin düzenini hesaplamak ve oluşturmak için o tam yazı tipine ihtiyaç duyabilir. **STIX Two Math** gibi başka bir matematik yazı tipini ikame eden bir kural **Cambria Math**'ı bu amaçla değiştiremez ve oluşturma hâlâ **Cambria Math**'ın gerekli olduğunu bildirebilir.
 
-Bu tür bir sunumu render etmek veya dönüştürmek için **Cambria Math**'i Aspose.Slides için kullanılabilir hâle getirin. İşletim sistemine kurun ya da bir [harici yazı tipi](/slides/tr/python-net/custom-font/) olarak yükleyin.
+Böyle bir sunumu oluşturmak veya dönüştürmek için **Cambria Math**'ı Aspose.Slides'e erişilebilir kılın. İşletim sistemine yükleyin veya bir [harici yazı tipi](/slides/tr/python-net/custom-font/) olarak yükleyin.
 
-Bu sınırlama denklem düzeni için geçerlidir. Yukarıda açıklanan ikame kuralları normal sunum metni için hâlâ geçerlidir.
+Bu sınırlama yalnızca denklem düzeni için geçerlidir. Yukarıda açıklanan ikame kuralları normal sunum metni için hâlâ geçerlidir.
 
 ## **SSS**
 
-**Yazı Tipi Değiştirme ile Yazı Tipi İkamesi arasındaki fark nedir?**  
-[Font replacement](/slides/tr/python-net/font-replacement/) sunum boyunca bir yazı tipini başka birine kasıtlı olarak değiştirir. Yazı tipi ikamesi, yapılandırılmış koşul karşılandığında (örneğin, özgün yazı tipi mevcut olmadığında) render edilen çıktı için bir yazı tipi seçer.
+**Yazı tipi değiştirme ile yazı tipi ikamesi arasındaki fark nedir?**
 
-**İkame kuralları ne zaman uygulanır?**  
-Kurallar, render ve dönüşüm sırasında [font selection sequence](/slides/tr/python-net/font-selection-sequence/) sürecine katılır. `WHEN_INACCESSIBLE` ile bir kural, yalnızca Aspose.Slides kaynak yazı tipine erişemediğinde kullanılır.
+[Font replacement](/slides/tr/python-net/font-replacement/) sunum boyunca bir yazı tipini bilinçli olarak başka birine değiştirir. Yazı tipi ikamesi, orijinal yazı tipi kullanılamadığında yapılandırılmış koşul karşılandığında oluşturulan çıktı için bir yazı tipi seçer.
 
-**Bir yazı tipi eksik olduğunda ve hiçbir ikame kuralı yapılandırılmadığında ne olur?**  
-Aspose.Slides, font seçim sürecine göre en yakın mevcut yazı tipini seçer. Sonuç, çalışma zamanındaki mevcut yazı tiplerine bağlıdır.
+**İkame kuralları ne zaman uygulanır?**
 
-**Harici yazı tipleri yükleyerek ikameyi önleyebilir miyim?**  
-Evet. Aspose.Slides'ın render ve dönüşüm sırasında kullanabilmesi için [harici yazı tipleri](/slides/tr/python-net/custom-font/) yükleyebilirsiniz.
+Kurallar, oluşturma ve dönüştürme sırasında [font selection sequence](/slides/tr/python-net/font-selection-sequence/) içinde yer alır. `WHEN_INACCESSIBLE` koşulu, Aspose.Slides kaynak yazı tipine erişemediğinde sadece o zaman kullanılır.
 
-**Aspose kütüphane ile birlikte yazı tipleri dağıtıyor mu?**  
-Hayır. Yazı tiplerini sağlamak ve lisanslarına uymak sizin sorumluluğunuzdadır.
+**Bir yazı tipi eksik ve ikame kuralı yapılandırılmamışsa ne olur?**
 
-**İkame sonuçları Windows, Linux ve macOS arasında farklılık gösterebilir mi?**  
-Evet. Yüklü yazı tipleri ve yazı tipi arama konumları işletim sistemine göre değişir, bu yüzden bir makinede mevcut olan bir yazı tipi diğerinde ikame gerektirebilir.
+Aspose.Slides, yazı tipi seçim sürecine göre mevcut en yakın yazı tipini seçer. Sonuç, çalışma zaman ortamındaki mevcut yazı tiplerine bağlıdır.
 
-**Toplu dönüşümlerde yazı tipi seçiminde tutarlılığı nasıl sağlayabilirim?**  
-Aynı yazı tipi dosyalarını ve sürümlerini her makine ya da konteynerde kullanın, gerekli [harici yazı tiplerini](/slides/tr/python-net/custom-font/) yükleyin ve lisans izin veriyorsa [yazı tiplerini gömmeyi](/slides/tr/python-net/embedded-font/) yapın. Ayrıca, beklenmeyen ikameleri tespit etmek için dışa aktarmadan önce [FontsManager.get_substitutions](https://reference.aspose.com/slides/tr/python-net/aspose.slides/fontsmanager/get_substitutions/) çağırabilirsiniz.
+**İkameyi önlemek için harici yazı tipleri yükleyebilir miyim?**
+
+Evet. Aspose.Slides'in oluşturma ve dönüştürme sırasında kullanabilmesi için [harici yazı tipleri yükleyebilir](/slides/tr/python-net/custom-font/) gibi.
+
+**Aspose, kütüphane ile birlikte yazı tipleri dağıtıyor mu?**
+
+Hayır. Yazı tiplerini temin etmek ve lisanslarına uymak sizin sorumluluğunuzdadır.
+
+**İkame sonuçları Windows, Linux ve macOS arasında farklılık gösterebilir mi?**
+
+Evet. Yüklü yazı tipleri ve yazı tipi arama konumları işletim sistemine göre değişir; bir makinede mevcut bir yazı tipi başka birinde ikame gerektirebilir.
+
+**Toplu dönüşümlerde yazı tipi seçiminde tutarlılık nasıl sağlanır?**
+
+Her makine veya konteynerde aynı yazı tipi dosyalarını ve sürümlerini kullanın, [gerekli harici yazı tiplerini yükleyin](/slides/tr/python-net/custom-font/) ve lisans izin veriyorsa [yazı tiplerini gömün](/slides/tr/python-net/embedded-font/). Export öncesinde beklenmedik ikameleri belirlemek için [FontsManager.get_substitutions](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/get_substitutions/) metodunu çağırabilirsiniz.

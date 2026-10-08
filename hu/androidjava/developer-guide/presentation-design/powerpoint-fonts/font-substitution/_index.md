@@ -1,36 +1,38 @@
 ---
-title: Betűtípus-helyettesítés beállítása a prezentációkban Androidon
-linktitle: Betűtípus-helyettesítés
+title: Betűtípuscsere konfigurálása Androidon lévő prezentációkban
+linktitle: Betűtípuscsere
 type: docs
 weight: 70
 url: /hu/androidjava/font-substitution/
 keywords:
 - betűtípus
 - helyettesítő betűtípus
-- betűtípus-helyettesítés
+- betűtípuscsere
 - betűtípus cseréje
-- betűtípus csere
+- betűtípuscsere
 - helyettesítési szabály
-- csereszabály
+- csere szabály
 - PowerPoint
 - OpenDocument
 - prezentáció
 - Android
 - Java
 - Aspose.Slides
-description: "Állítsa be a betűtípus-helyettesítési szabályokat, és vizsgálja meg a helyettesített betűtípusokat az Aspose.Slides for Androidban Java segítségével a prezentációk renderelése vagy konvertálása során."
+description: "Állítsa be a betűtípuscsere szabályait, és ellenőrizze a helyettesített betűtípusokat az Aspose.Slides for Android-ban Java használatával a prezentációk renderelése vagy konvertálása során."
 ---
 ## **Áttekintés**
 
-A betűtípus-helyettesítés lehetővé teszi az Aspose.Slides számára, hogy egy elérhető betűtípust használjon egy nem hozzáférhető betűtípus helyett, amikor egy prezentációt renderelnek vagy konvertálnak. A helyettesítés a renderelt kimenetet érinti; nem módosítja a prezentáció tartalmához rendelt betűtípust.
+A betűtípuscsere lehetővé teszi, hogy az Aspose.Slides egy elérhető betűtípust használjon egy nem hozzáférhető betűtípus helyett, amikor a prezentációt renderelik vagy konvertálják. A csere a renderelt kimenetet érinti; nem változtatja meg a prezentáció tartalmához rendelt betűtípust.
 
-Megadhatja a használandó betűtípust, ha egy adott betűtípus nem érhető el, és megtekintheti az Aspose.Slides által a renderelés során végrehajtott helyettesítéseket. Ez segít a kimenetet következetesen tartani az Android eszközök és a különböző elérhető betűtípusokkal rendelkező környezetek között.
+Megadhatja a használni kívánt betűtípust, ha egy adott betűtípus nem érhető el, és megtekintheti az Aspose.Slides által a renderelés során alkalmazott helyettesítéseket. Ez segít a kimenetet konzisztens módon tartani különböző Android-eszközök és eltérő elérhető betűtípusok környezetében.
 
-## **Betűtípus-helyettesítések lekérése**
+Ha a betűtípus elérhető, de nincs dedikált félkövér változata, tekintse meg a [A dedikált félkövér betűtípus nélküli betűtípusok kezelése](/slides/hu/androidjava/convert-powerpoint-to-pdf/#handle-fonts-without-a-dedicated-bold-typeface) szakaszt. Ez a szakasz elmagyarázza, hogyan lehet raszterizálni az érintett szöveget a PDF exportálása során, valamint a szövegkijelölésre, keresésre és méretezésre gyakorolt hatásokat.
 
-Használja az [IFontsManager.getSubstitutions](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ifontsmanager/#getSubstitutions--) metódust annak meghatározásához, hogy mely betűtípusok lesznek helyettesítve a prezentáció renderelésekor. A metódus [FontSubstitutionInfo](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/fontsubstitutioninfo/) objektumokat ad vissza, amelyek az eredeti és a helyettesített betűtípusok neveit azonosítják.
+## **Betűtípuscsere lekérése**
 
-Az alábbi Java példa felsorolja a prezentáció összes betűtípus-helyettesítését:
+Használja a [IFontsManager.getSubstitutions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifontsmanager/#getSubstitutions--) metódust annak meghatározására, hogy mely betűtípusok lesznek helyettesítve a prezentáció renderelésekor. A metódus [FontSubstitutionInfo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/fontsubstitutioninfo/) objektumokat ad vissza, amelyek az eredeti és helyettesített betűtípusneveket azonosítják.
+
+A következő Java példa felsorolja a prezentáció összes betűtípuscsere beállítását:
 
 ```java
 import com.aspose.slides.FontSubstitutionInfo;
@@ -46,15 +48,15 @@ try {
 }
 ```
 
-## **Kijelölt diák betűtípus-helyettesítéseinek lekérése**
+## **Kiválasztott diák betűtípuscsere lekérése**
 
-Használja az [IFontsManager.getSubstitutions](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ifontsmanager/#getSubstitutions-int---) túlterhelést egy `int[] slides` argumentummal, hogy csak a konkrét diák rendereléséhez szükséges helyettesítéseket vizsgálja. Ez akkor hasznos, amikor a prezentáció egy részét rendereli vagy exportálja, fokozatosan ellenőrzi egy nagy prezentációt, olyan diákot keres, amelyek nem elérhető betűtípusoktól függenek, egy Android alkalmazáshoz minimális betűtípus-csomagot készít, vagy a renderelési különbségeket diagnosztizálja anélkül, hogy a nem releváns diákra feldolgozást végezne.
+Használja a [IFontsManager.getSubstitutions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifontsmanager/#getSubstitutions-int---) túlterhelést `int[] slides` argumentummal, hogy csak a konkrét diák rendereléséhez szükséges helyettesítéseket vizsgálja. Ez akkor hasznos, ha a prezentáció egy részét rendereli vagy exportálja, egy nagy prezentációt inkrementálisan ellenőriz, olyan diákra szeretne rámutatni, amelyek nem elérhető betűtípusoktól függenek, egy minimális betűtípuscsomagot szeretne előkészíteni egy Android‑alkalmazáshoz, vagy a renderelési különbségeket anélkül diagnosztizálja, hogy a nem releváns diákokat feldolgozná.
 
-`slides` tömb egy alapú diák indexeket tartalmaz: `1` az első diát jelöli. Ezzel szemben a [Presentation.getSlides](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentation/#getSlides--) gyűjtemény hozzáférő nulla-alapú indexelést használ, így ugyanaz a dia `presentation.getSlides().get_Item(0)`-ként érhető el. Tartsa ezt a különbséget szem előtt a tömb építésekor, hogy elkerülje az egyes eltolódásokat.
+A `slides` tömb egy‑alapú diákindexeket tartalmaz: a `1` az első diát jelöli. Ezzel szemben a [Presentation.getSlides](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getSlides--) gyűjteményelérő nullálo‑alapú indexelést használ, így ugyanaz a dia a `presentation.getSlides().get_Item(0)` kifejezéssel érhető el. Tartsa szem előtt ezt a különbséget a tömb felépítésekor, hogy elkerülje a „+1” hibákat.
 
-Hívja meg a túlterhelést a [Presentation.getFontsManager](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentation/#getFontsManager--) metóduson keresztül. Ez csak a kiválasztott diák renderelése során meghatározott helyettesítéseket adja vissza. Minden eredmény egy [FontSubstitutionInfo](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/fontsubstitutioninfo/) objektum, amely tartalmazza az eredeti és a helyettesített betűtípus nevét. Az eredmény tükrözi a jelenlegi betűtípus-környezetet, a konfigurált tartalék szabályokat, az [IFontSubstRuleCollection](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ifontsubstrulecollection/) tárolt helyettesítési szabályokat, valamint a [külsőleg betöltött betűtípusokat](/slides/hu/androidjava/custom-font/).
+Hívja meg a túlterhelést a [Presentation.getFontsManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getFontsManager--) metóduson keresztül. Ez csak a kiválasztott diák renderelése közben meghatározott helyettesítéseket adja vissza. Minden eredmény egy [FontSubstitutionInfo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/fontsubstitutioninfo/) objektum, amely az eredeti és helyettesített betűtípusneveket tartalmazza. Az eredmény tükrözi az aktuális betűtípus‑környezetet, a beállított tartalék‑szabályokat, a [IFontSubstRuleCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifontsubstrulecollection/)‑ben tárolt helyettesítési szabályokat, valamint a [külső betűtípusok](/slides/hu/androidjava/custom-font/) betöltését.
 
-Ugyanaz a helyettesítés több, mint egy kiválasztott dián is szükséges lehet. Szűrje le a duplikált eredményeket, amikor betűtípus-inventárt vagy előellenőrzési jelentést készít. Az alábbi példa minden visszaadott helyettesítést jelent, majd létrehozza a egyedi betűtípus leképezések rendezett listáját:
+Ugyanaz a helyettesítés több kiválasztott dián is szükséges lehet. Szűrje ki a duplikált elemeket, amikor betűtípus‑készletet vagy előellenőrző jelentést készít. A következő példa minden visszaadott helyettesítést jelent, majd egy rendezett listát hoz létre az egyedi betűtípusleképezésekről:
 
 ```java
 import com.aspose.slides.FontSubstitutionInfo;
@@ -92,25 +94,25 @@ try {
 }
 ```
 
-Az [IFontsManager](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ifontsmanager/) interfész mindkét túlterhelést biztosítja. Válasszon egyet a renderelési művelet hatóköre szerint:
+Az [IFontsManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifontsmanager/) felület mindkét túlterhelést biztosítja. Válassza ki a renderelési művelet kiterjedése szerint:
 
-| Túlterhelés | Mikor használja |
+| Túlterhelés | Használja, ha |
 |---|---|
-| [getSubstitutions](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ifontsmanager/#getSubstitutions--) argumentumok nélkül | Ha a teljes prezentáció helyettesítéseire van szükség. |
-| [getSubstitutions](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ifontsmanager/#getSubstitutions-int---) `int[] slides` argumentummal | Ha egy kijelölt tartomány, fokozatos ellenőrzés vagy részleges export helyettesítéseire van szükség. |
+| [getSubstitutions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifontsmanager/#getSubstitutions--) with no arguments | A teljes prezentációhoz szüksége van helyettesítésekre. |
+| [getSubstitutions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifontsmanager/#getSubstitutions-int---) with `int[] slides` | Kiválasztott tartományhoz, inkrementális ellenőrzéshez vagy részleges exportáláshoz szüksége van helyettesítésekre. |
 
-## **Betűtípus-helyettesítési szabályok beállítása**
+## **Betűtípuscsere szabályok beállítása**
 
-A betűtípus megadásához, amelyet az Aspose.Slides használjon, ha a forrás betűtípus nem érhető el:
+A forrás‑betűtípus nem elérhető esetén a következő lépésekkel adhatja meg, hogy az Aspose.Slides mely betűtípust használja:
 
 1. Töltse be a prezentációt.  
-2. Hozzon létre betűtípus-definíciókat a forrás és helyettesítő betűtípusokhoz.  
-3. Hozzon létre egy [FontSubstRule](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/fontsubstrule/) elemet a [WhenInaccessible](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/fontsubstcondition/) feltétellel.  
-4. Adja hozzá a szabályt egy [FontSubstRuleCollection](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/fontsubstrulecollection/) gyűjteményhez.  
-5. A gyűjteményt rendelje hozzá a [FontsManager.setFontSubstRuleList](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/fontsmanager/#setFontSubstRuleList-com.aspose.slides.IFontSubstRuleCollection-) metódussal.  
+2. Hozzon létre betűtípusdefiníciókat a forrás- és helyettesítő betűtípusokhoz.  
+3. Hozzon létre egy [FontSubstRule](https://reference.aspose.com/slides/androidjava/com.aspose.slides/fontsubstrule/) objektumot a [WhenInaccessible](https://reference.aspose.com/slides/androidjava/com.aspose.slides/fontsubstcondition/) feltétellel.  
+4. Adja hozzá a szabályt egy [FontSubstRuleCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/fontsubstrulecollection/) gyűjteményhez.  
+5. Rendelje hozzá a gyűjteményt a [FontsManager.setFontSubstRuleList](https://reference.aspose.com/slides/androidjava/com.aspose.slides/fontsmanager/#setFontSubstRuleList-com.aspose.slides.IFontSubstRuleCollection-) metódus használatával.  
 6. Renderelje vagy konvertálja a prezentációt.
 
-Az alábbi Java példa a `Arial` betűtípust helyettesíti a `SomeRareFont` helyett, amikor a `SomeRareFont` nem érhető el, majd rendereli az első diát a végeredmény ellenőrzéséhez. A helyettesítő betűtípusnak elérhetőnek kell lennie az Aspose.Slides számára.
+A következő Java példa a `Arial` betűtípust helyettesíti a `SomeRareFont`‑nal, ha a `SomeRareFont` nem érhető el, majd rendereli az első diát az eredmény ellenőrzéséhez. A helyettesítő betűtípust az Aspose.Slides‑nek elérhetőnek kell lennie.
 
 ```java
 import com.aspose.slides.FontData;
@@ -146,38 +148,45 @@ try {
 ```
 
 {{% alert color="info" title="Note" %}}
-Az egész prezentációban használt betűtípusok feltétel nélküli módosításához lásd a [Font Replacement](/slides/hu/androidjava/font-replacement/) oldalt.
+A prezentáció során használt betűtípusok feltétel nélküli megváltoztatásához tekintse meg a [Betűtípuscsere](/slides/hu/androidjava/font-replacement/) oldalt.
 {{% /alert %}}
 
-## **Korlátozások a matematikai egyenlet betűtípusokra**
+## **Matematikai egyenlet betűtípusok korlátai**
 
-A betűtípus‑helyettesítési szabályok a renderelés és konverzió során használt szabványos betűtípus‑kiválasztási folyamat részei. Rendszeres szövegnél akkor működnek, ha az Aspose.Slides egy nem elérhető betűtípust a szabály által meghatározott elérhető betűtípussal tud helyettesíteni.
+A betűtípushelyettesítési szabályok a renderelés és konverzió alatt használt szabványos betűtípus‑kiválasztási folyamat részei. Rendszeres szövegre akkor működnek, amikor az Aspose.Slides egy nem elérhető betűtípust kicserél a szabály által megadott elérhető betűtípusra.
 
-Az Office Math egyenleteknek további követelményük van. Ha egy egyenlet **Cambria Math** betűtípust használ, az Aspose.Slidesnek pontosan ezt a betűtípust kell rendelkezésre állnia az egyenlet elrendezésének kiszámításához és rendereléséhez. Egy olyan szabály, amely egy másik matematikai betűtípust, például a **STIX Two Math**‑ot helyettesíti, nem helyettesítheti a **Cambria Math**‑ot ebben a célban, és a renderelés továbbra is jelezheti, hogy **Cambria Math** szükséges.
+Az Office Math egyenleteknek további követelményük van. Ha egy egyenlet **Cambria Math**‑ot használ, az Aspose.Slidesnek lehet, hogy pontosan ezt a betűtípust kell használnia az egyenlet elrendezésének kiszámításához és rendereléséhez. Egy másik matematikai betűtípust (például **STIX Two Math**) helyettesítő szabály nem cserélheti le **Cambria Math**‑ot erre a célra, és a renderelés továbbra is jelentheti, hogy **Cambria Math** szükséges.
 
-Az ilyen prezentáció rendereléséhez vagy konvertálásához tegye a **Cambria Math** betűtípust elérhetővé az Aspose.Slides számára. Töltse be külső betűtípusként ([external font](/slides/hu/androidjava/custom-font/)), hogy az alkalmazás a renderelés és konverzió során használhassa.
+Az ilyen prezentáció rendereléséhez vagy konvertálásához tegye **Cambria Math**‑ot elérhetővé az Aspose.Slides számára. Töltse be külső betűtípusként egy [external font](/slides/hu/androidjava/custom-font/)‑ként, hogy az alkalmazás használni tudja a renderelés és konverzió során.
 
-Ez a korlátozás az egyenletelrendezésre vonatkozik. A fent leírt helyettesítési szabályok továbbra is érvényesek a prezentáció szokásos szövegére.
+Ez a korlátozás az egyenletelrendezésre vonatkozik. A fent leírt helyettesítési szabályok továbbra is érvényesek a szabályos prezentációs szövegre.
 
 ## **GYIK**
 
-**Mi a különbség a betűtípus-csere és a betűtípus-helyettesítés között?**  
-A [Font replacement](/slides/hu/androidjava/font-replacement/) szándékosan megváltoztat egy betűtípust egy másikra a teljes prezentációban. A betűtípus-helyettesítés egy betűtípust választ a renderelt kimenethez, amikor a konfigurált feltétel teljesül, például ha az eredeti betűtípus nem érhető el.
+**Mi a különbség a betűtípuscsere és a betűtípus helyettesítés között?**
 
-**Mikor kerülnek alkalmazásra a helyettesítési szabályok?**  
-A szabályok a [font selection sequence](/slides/hu/androidjava/font-selection-sequence/) részeként vesznek részt a renderelés és konverzió során. A `WhenInaccessible` esetén a szabály csak akkor használatos, amikor az Aspose.Slides nem tud hozzáférni a forrás betűtípushoz.
+[Betűtípuscsere](/slides/hu/androidjava/font-replacement/) szándékosan megváltoztat egy betűtípust egy másikra a teljes prezentáció során. A betűtípus helyettesítés a renderelt kimenethez választ betűtípust, amikor a beállított feltétel teljesül, például ha az eredeti betűtípus nem érhető el.
 
-**Mi történik, ha egy betűtípus hiányzik és nincs beállítva helyettesítési szabály?**  
-Az Aspose.Slides a legközelebbi elérhető betűtípust választja ki a betűtípus‑kiválasztási folyamata szerint. Az eredmény a futási környezetben elérhető betűtípusoktól függ.
+**Mikor alkalmazzák a helyettesítési szabályokat?**
 
-**Betölthetek külső betűtípusokat a helyettesítés elkerüléséhez?**  
-Igen. [Külső betűtípusok](/slides/hu/androidjava/custom-font/) betöltésével az Aspose.Slides használhatja azokat a renderelés és konverzió során.
+A szabályok részt vesznek a [betűtípus kiválasztási sorozat](/slides/hu/androidjava/font-selection-sequence/) során a renderelés és konverzió közben. A `WhenInaccessible` esetén a szabály csak akkor használatos, amikor az Aspose.Slides nem fér hozzá a forrás betűtípushoz.
 
-**Az Aspose terjeszt‑e betűtípusokat a könyvtárral?**  
-Nem. Ön felelős a betűtípusok biztosításáért és azok licencfeltételeinek betartásáért.
+**Mi történik, ha egy betűtípus hiányzik és nincs beállítva helyettesítési szabály?**
 
-**Eltérhetnek a helyettesítési eredmények az Android eszközök között?**  
-Igen. Az elérhető rendszerbetűtípusok különbözhetnek Android verziók, eszközök és gyártók között, ezért egy környezetben elérhető betűtípus egy másikban helyettesítést igényelhet.
+Az Aspose.Slides a legközelebbi elérhető betűtípust választja a betűtípus kiválasztási folyamata alapján. Az eredmény a futási környezetben elérhető betűtípusoktól függ.
 
-**Hogyan tehetem következetessé a betűtípus kiválasztását Android eszközök között?**  
-Csomagolja ugyanazokat a szükséges betűtípus‑fájlokat az alkalmazásba, [töltse be őket külső betűtípusként](/slides/hu/androidjava/custom-font/), és [ágyazza be a betűtípusokat](/slides/hu/androidjava/embedded-font/) a licenc engedélyezése esetén. Emellett az exportálás előtt meghívhatja az [IFontsManager.getSubstitutions](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ifontsmanager/#getSubstitutions--) metódust, hogy azonosítsa a váratlan helyettesítéseket.
+**Betölthetek külső betűtípusokat a helyettesítés elkerüléséhez?**
+
+Igen. Betöltheti a [külső betűtípusokat](/slides/hu/androidjava/custom-font/), hogy az Aspose.Slides használhassa őket a renderelés és konverzió során.
+
+**Az Aspose a betűtípusokat a könyvtárral együtt terjeszti?**
+
+Nem. Ön felelős a betűtípusok biztosításáért és a licencek betartásáért.
+
+**Eltérhetnek a helyettesítési eredmények Android-eszközök között?**
+
+Igen. Az elérhető rendszerbetűtípusok eltérhetnek Android‑verziók, eszközök és gyártók között, így egy környezetben elérhető betűtípus egy másikban helyettesítést igényelhet.
+
+**Hogyan tehetem a betűtípus kiválasztását konzisztenssé Android-eszközök között?**
+
+Csomagolja be a szükséges betűtípusfájlokat az alkalmazással, [töltse be őket külső betűtípusként](/slides/hu/androidjava/custom-font/), és [ágyazza be a betűtípusokat](/slides/hu/androidjava/embedded-font/) ha a licencek engedélyezik. Emellett hívhatja a [IFontsManager.getSubstitutions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifontsmanager/#getSubstitutions--) metódust exportálás előtt, hogy azonosítsa a váratlan helyettesítéseket.

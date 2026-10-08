@@ -1,35 +1,37 @@
 ---
-title: "Konfigurieren der Schriftart‑Ersetzung in Präsentationen in C++"
-linktitle: "Schriftart‑Ersetzung"
+title: Schriftart-Substitution in Präsentationen in C++
+linktitle: Schriftart-Substitution
 type: docs
 weight: 70
 url: /de/cpp/font-substitution/
 keywords:
 - Schriftart
+- ersetzende Schriftart
+- Schriftart-Substitution
 - Schriftart ersetzen
-- Schriftart‑Ersetzung
-- Schriftart ersetzen
-- Schriftart‑Austausch
+- Schriftart-Ersetzung
+- Substitutionsregel
 - Ersetzungsregel
-- Austauschregel
 - PowerPoint
 - OpenDocument
 - Präsentation
 - C++
 - Aspose.Slides
-description: "Konfigurieren Sie Schriftart‑Ersetzungsregeln und prüfen Sie ersetzte Schriftarten in Aspose.Slides für C++, wenn Sie PowerPoint‑ und OpenDocument‑Präsentationen rendern oder konvertieren."
+description: "Konfigurieren Sie Schriftart-Substitutionsregeln und prüfen Sie substituierte Schriftarten in Aspose.Slides für C++ beim Rendern oder Konvertieren von PowerPoint- und OpenDocument-Präsentationen."
 ---
-## **Übersicht**
+## **Überblick**
 
-Die Schriftart-Ersetzung ermöglicht es Aspose.Slides, eine verfügbare Schriftart anstelle einer nicht zugänglichen Schriftart zu verwenden, wenn eine Präsentation gerendert oder konvertiert wird. Die Ersetzung wirkt sich nur auf die gerenderte Ausgabe aus; sie ändert nicht die der Präsentation zugewiesene Schriftart.
+Font substitution ermöglicht es Aspose.Slides, eine verfügbare Schriftart anstelle einer nicht zugänglichen Schriftart zu verwenden, wenn eine Präsentation gerendert oder konvertiert wird. Die Substitution wirkt sich auf die gerenderte Ausgabe aus; sie ändert nicht die der Präsentationsinhalte zugewiesene Schriftart.
 
-Sie können die zu verwendende Schriftart festlegen, wenn eine bestimmte Schriftart nicht verfügbar ist, und Sie können die Ersetzungen einsehen, die Aspose.Slides beim Rendern vornimmt. Das hilft, die Ausgabe in Umgebungen mit unterschiedlichen installierten Schriftarten konsistent zu halten.
+Sie können die Schriftart festlegen, die verwendet werden soll, wenn eine bestimmte Schriftart nicht verfügbar ist, und Sie können die Substitutionen einsehen, die Aspose.Slides während des Renderns vornehmen wird. Dies hilft, die Ausgabe über Umgebungen mit unterschiedlichen installierten Schriftarten hinweg konsistent zu halten.
 
-## **Schriftart‑Ersetzungen abrufen**
+Wenn eine Schriftart verfügbar ist, aber keinen dedizierten Fettschriftstil besitzt, siehe [Handle Fonts Without a Dedicated Bold Typeface](/slides/de/cpp/convert-powerpoint-to-pdf/#handle-fonts-without-a-dedicated-bold-typeface). Dieser Abschnitt erklärt, wie der betroffene Text beim PDF‑Export gerastert wird und welche Folgen das für Textauswahl, Suche und Skalierung hat.
 
-Verwenden Sie die [IFontsManager::GetSubstitutions](https://reference.aspose.com/slides/de/cpp/aspose.slides/ifontsmanager/getsubstitutions/)‑Methode, um zu ermitteln, welche Schriftarten beim Rendern der Präsentation ersetzt werden. Die Methode liefert [FontSubstitutionInfo](https://reference.aspose.com/slides/de/cpp/aspose.slides/fontsubstitutioninfo/)‑Objekte, die den Original‑ und den ersetzten Schriftartnamen enthalten.
+## **Schriftart-Substitutionen abrufen**
 
-Das folgende C++‑Beispiel listet alle Schriftart‑Ersetzungen für eine Präsentation auf:
+Verwenden Sie die [IFontsManager::GetSubstitutions](https://reference.aspose.com/slides/cpp/aspose.slides/ifontsmanager/getsubstitutions/)‑Methode, um zu bestimmen, welche Schriftarten bei der Wiedergabe der Präsentation substituiert werden. Die Methode gibt [FontSubstitutionInfo](https://reference.aspose.com/slides/cpp/aspose.slides/fontsubstitutioninfo/)‑Objekte zurück, die den ursprünglichen und den ersetzten Schriftartnamen angeben.
+
+Das folgende C++‑Beispiel listet alle Schriftart‑Substitutionen für eine Präsentation auf:
 
 ```cpp
 #include <DOM/FontSubstitutionInfo.h>
@@ -50,15 +52,15 @@ for (auto&& substitution : presentation->get_FontsManager()->GetSubstitutions())
 presentation->Dispose();
 ```
 
-## **Schriftart‑Ersetzungen für ausgewählte Folien abrufen**
+## **Schriftart-Substitutionen für ausgewählte Folien abrufen**
 
-Verwenden Sie die Überladung von [IFontsManager::GetSubstitutions](https://reference.aspose.com/slides/de/cpp/aspose.slides/ifontsmanager/getsubstitutions/) mit dem Argument `System::ArrayPtr<int32_t> slides`, um nur die Ersetzungen zu prüfen, die zum Rendern bestimmter Folien benötigt werden. Das ist nützlich, wenn Sie Teil einer Präsentation rendern oder exportieren, eine große Präsentation inkrementell prüfen, Folien finden möchten, die von nicht verfügbaren Schriftarten abhängen, ein minimales Schriftarten‑Paket für einen Server oder Container vorbereiten oder Rendering‑Unterschiede diagnostizieren wollen, ohne irrelevante Folien zu verarbeiten.
+Verwenden Sie die [IFontsManager::GetSubstitutions](https://reference.aspose.com/slides/cpp/aspose.slides/ifontsmanager/getsubstitutions/)‑Überladung mit einem `System::ArrayPtr<int32_t> slides`‑Argument, um nur die Substitutionen zu inspizieren, die zum Rendern bestimmter Folien erforderlich sind. Dies ist nützlich, wenn Sie einen Teil einer Präsentation rendern oder exportieren, eine große Präsentation inkrementell prüfen, Folien finden, die von nicht verfügbaren Schriftarten abhängen, ein minimales Schriftartpaket für einen Server oder Container vorbereiten oder Rendering‑Unterschiede diagnostizieren möchten, ohne nicht betroffene Folien zu verarbeiten.
 
-Das `slides`‑Array enthält ein‑basierte Folien‑Indizes: `1` bezeichnet die erste Folie. Im Gegensatz dazu verwendet die [Presentation::get_Slide](https://reference.aspose.com/slides/de/cpp/aspose.slides/presentation/get_slide/)‑Methode einen nullbasierten Index, sodass dieselbe Folie über `presentation->get_Slide(0)` aufgerufen wird. Berücksichtigen Sie diesen Unterschied beim Aufbau des Arrays, um Off‑by‑One‑Fehler zu vermeiden.
+Das `slides`‑Array enthält ein‑basiert indizierte Folien: `1` identifiziert die erste Folie. Im Gegensatz dazu verwendet die [Presentation::get_Slide](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_slide/)‑Methode einen nullbasierten Index, sodass dieselbe Folie mit `presentation->get_Slide(0)` zugänglich ist. Beachten Sie diesen Unterschied beim Erstellen des Arrays, um Off‑by‑One‑Fehler zu vermeiden.
 
-Rufen Sie die Überladung über die [Presentation::get_FontsManager](https://reference.aspose.com/slides/de/cpp/aspose.slides/presentation/get_fontsmanager/)‑Methode auf. Sie liefert nur die Ersetzungen, die beim Rendern der ausgewählten Folien ermittelt wurden. Jeder Rückgabewert ist ein [FontSubstitutionInfo](https://reference.aspose.com/slides/de/cpp/aspose.slides/fontsubstitutioninfo/)‑Objekt, das den Original‑ und den ersetzten Schriftartnamen enthält. Das Ergebnis spiegelt die aktuelle Schriftumgebung, konfigurierte Fallback‑Regeln, Ersetzungsregeln, die in einer [IFontSubstRuleCollection](https://reference.aspose.com/slides/de/cpp/aspose.slides/ifontsubstrulecollection/) gespeichert sind, sowie [extern geladene Schriftarten](/slides/de/cpp/custom-font/) wider.
+Rufen Sie die Überladung über die [Presentation::get_FontsManager](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_fontsmanager/)‑Methode auf. Sie gibt nur die Substitutionen zurück, die beim Rendern der ausgewählten Folien bestimmt wurden. Jedes Ergebnis ist ein [FontSubstitutionInfo](https://reference.aspose.com/slides/cpp/aspose.slides/fontsubstitutioninfo/)‑Objekt, das den ursprünglichen und den ersetzten Schriftartnamen enthält. Das Ergebnis spiegelt die aktuelle Schriftumgebung, konfigurierte Fallback‑Regeln, in einer [IFontSubstRuleCollection](https://reference.aspose.com/slides/cpp/aspose.slides/ifontsubstrulecollection/) gespeicherte Substitutionsregeln und [extern geladene Schriftarten](/slides/de/cpp/custom-font/) wider.
 
-Die gleiche Ersetzung kann von mehr als einer ausgewählten Folie benötigt werden. Deduplizieren Sie die Ergebnisse, wenn Sie ein Schriftarten‑Inventar oder einen Preflight‑Report erstellen. Das folgende Beispiel gibt jede zurückgegebene Ersetzung aus und erstellt anschließend eine sortierte Liste eindeutiger Schriftzuordnungen:
+Die gleiche Substitution kann von mehr als einer ausgewählten Folie benötigt werden. Deduplizieren Sie die Ergebnisse, wenn Sie ein Schriftinventar oder einen Preflight‑Report erstellen. Das folgende Beispiel gibt jede zurückgegebene Substitution aus und erstellt anschließend eine sortierte Liste eindeutiger Schriftzuordnungen:
 
 ```cpp
 #include <DOM/FontSubstitutionInfo.h>
@@ -97,25 +99,25 @@ for (auto&& entry : sortedPreflightEntries)
 presentation->Dispose();
 ```
 
-Die Schnittstelle [IFontsManager](https://reference.aspose.com/slides/de/cpp/aspose.slides/ifontsmanager/) bietet beide Überladungen. Wählen Sie diejenige, die dem Umfang des Rendering‑Vorgangs entspricht:
+Die [IFontsManager](https://reference.aspose.com/slides/cpp/aspose.slides/ifontsmanager/)‑Schnittstelle bietet beide Überladungen. Wählen Sie je nach Umfang des Rendering‑Vorgangs:
 
 | Überladung | Verwenden, wenn |
 |---|---|
-| [GetSubstitutions](https://reference.aspose.com/slides/de/cpp/aspose.slides/ifontsmanager/getsubstitutions/) ohne Argumente | Sie Ersetzungen für die gesamte Präsentation benötigen. |
-| [GetSubstitutions](https://reference.aspose.com/slides/de/cpp/aspose.slides/ifontsmanager/getsubstitutions/) mit `System::ArrayPtr<int32_t> slides` | Sie Ersetzungen für einen ausgewählten Bereich, eine inkrementelle Prüfung oder einen Teil‑Export benötigen. |
+| [GetSubstitutions](https://reference.aspose.com/slides/cpp/aspose.slides/ifontsmanager/getsubstitutions/) ohne Argumente | Sie benötigen Substitutionen für die gesamte Präsentation. |
+| [GetSubstitutions](https://reference.aspose.com/slides/cpp/aspose.slides/ifontsmanager/getsubstitutions/) mit `System::ArrayPtr<int32_t> slides` | Sie benötigen Substitutionen für einen ausgewählten Bereich, inkrementelle Prüfung oder Teil‑Export. |
 
-## **Schriftart‑Ersetzungsregeln festlegen**
+## **Schriftart-Substitutionsregeln festlegen**
 
-Um anzugeben, welche Schriftart Aspose.Slides verwenden soll, wenn eine Quellschriftart nicht verfügbar ist:
+Um die Schriftart anzugeben, die Aspose.Slides verwenden soll, wenn eine Quellschriftart nicht verfügbar ist:
 
 1. Laden Sie die Präsentation.
-2. Erzeugen Sie Schriftart‑Definitionen für die Quell‑ und Ersatzschriftart.
-3. Erstellen Sie ein [FontSubstRule](https://reference.aspose.com/slides/de/cpp/aspose.slides/fontsubstrule/) mit der Bedingung [WhenInaccessible](https://reference.aspose.com/slides/de/cpp/aspose.slides/fontsubstcondition/).
-4. Fügen Sie die Regel einer [FontSubstRuleCollection](https://reference.aspose.com/slides/de/cpp/aspose.slides/fontsubstrulecollection/) hinzu.
-5. Weisen Sie die Sammlung über die Methode [IFontsManager::set_FontSubstRuleList](https://reference.aspose.com/slides/de/cpp/aspose.slides/ifontsmanager/set_fontsubstrulelist/) zu.
+2. Erstellen Sie Schriftart‑Definitionen für die Quell‑ und Ersatzschriftarten.
+3. Erzeugen Sie ein [FontSubstRule](https://reference.aspose.com/slides/cpp/aspose.slides/fontsubstrule/) mit der [WhenInaccessible](https://reference.aspose.com/slides/cpp/aspose.slides/fontsubstcondition/)‑Bedingung.
+4. Fügen Sie die Regel einer [FontSubstRuleCollection](https://reference.aspose.com/slides/cpp/aspose.slides/fontsubstrulecollection/) hinzu.
+5. Ordnen Sie die Sammlung über die [IFontsManager::set_FontSubstRuleList](https://reference.aspose.com/slides/cpp/aspose.slides/ifontsmanager/set_fontsubstrulelist/)‑Methode zu.
 6. Rendern oder konvertieren Sie die Präsentation.
 
-Das folgende C++‑Beispiel ersetzt `Arial` durch `SomeRareFont`, wenn `SomeRareFont` nicht verfügbar ist, und rendert anschließend die erste Folie, um das Ergebnis zu prüfen. Die Ersatzschriftart muss für Aspose.Slides verfügbar sein.
+Das folgende C++‑Beispiel substituiert `Arial` für `SomeRareFont`, wenn `SomeRareFont` nicht verfügbar ist, und rendert anschließend die erste Folie, um das Ergebnis zu überprüfen. Die Ersatzschriftart muss für Aspose.Slides verfügbar sein.
 
 ```cpp
 #include <DOM/FontSubstCondition.h>
@@ -148,46 +150,46 @@ image->Dispose();
 presentation->Dispose();
 ```
 
-{{% alert color="info" title="Hinweis" %}}
-Für eine bedingungslose Änderung der in einer Präsentation verwendeten Schriftarten siehe [Font Replacement](/slides/de/cpp/font-replacement/).
+{{% alert color="info" title="Note" %}}
+Für eine bedingungslose Änderung der in einer gesamten Präsentation verwendeten Schriftarten siehe [Font Replacement](/slides/de/cpp/font-replacement/).
 {{% /alert %}}
 
-## **Einschränkungen für mathematische Formelschriftarten**
+## **Einschränkungen für Mathegleichungs‑Schriftarten**
 
-Schriftart‑Ersetzungsregeln sind Teil des regulären Schriftart‑Auswahlprozesses, der beim Rendering und bei der Konvertierung verwendet wird. Sie funktionieren für normalen Text, wenn Aspose.Slides eine nicht zugängliche Schriftart durch die in einer Regel angegebene verfügbare Schriftart ersetzen kann.
+Schriftart‑Substitutionsregeln sind Teil des standardisierten Schriftartauswahlprozesses, der beim Rendern und Konvertieren verwendet wird. Sie funktionieren für regulären Text, wenn Aspose.Slides eine nicht zugängliche Schriftart durch die in einer Regel angegebene verfügbare Schriftart ersetzen kann.
 
-Office‑Math‑Gleichungen haben eine zusätzliche Anforderung. Wenn eine Gleichung **Cambria Math** verwendet, muss Aspose.Slides exakt diese Schriftart zur Berechnung und zum Rendering des Gleichungs‑Layouts zur Verfügung stehen. Eine Regel, die eine andere mathematische Schriftart, wie **STIX Two Math**, ersetzt, kann **Cambria Math** dafür nicht ersetzen, und das Rendering meldet möglicherweise weiterhin, dass **Cambria Math** erforderlich ist.
+Office‑Math‑Gleichungen haben eine zusätzliche Anforderung. Wenn eine Gleichung **Cambria Math** verwendet, muss Aspose.Slides genau diese Schriftart zum Berechnen und Rendern des Gleichungs‑Layouts besitzen. Eine Regel, die eine andere mathematische Schriftart wie **STIX Two Math** substituiert, kann **Cambria Math** für diesen Zweck nicht ersetzen, und das Rendering meldet möglicherweise weiterhin, dass **Cambria Math** erforderlich ist.
 
-Um eine solche Präsentation zu rendern oder zu konvertieren, stellen Sie **Cambria Math** Aspose.Slides bereit. Installieren Sie sie im Betriebssystem oder laden Sie sie als [externe Schriftart](/slides/de/cpp/custom-font/) geladen.
+Um eine solche Präsentation zu rendern oder zu konvertieren, stellen Sie **Cambria Math** Aspose.Slides zur Verfügung. Installieren Sie sie im Betriebssystem oder laden Sie sie als [external font](/slides/de/cpp/custom-font/) ​laden.
 
-Diese Einschränkung gilt nur für das Gleichungs‑Layout. Die oben beschriebenen Ersetzungsregeln gelten weiterhin für normalen Präsentationstext.
+Diese Einschränkung gilt für das Gleichungs‑Layout. Die oben beschriebenen Substitutionsregeln gelten weiterhin für regulären Präsentationstext.
 
 ## **FAQ**
 
-**Worin besteht der Unterschied zwischen Font Replacement und Font Substitution?**
+**Was ist der Unterschied zwischen Font Replacement und Font Substitution?**
 
-[Font replacement](/slides/de/cpp/font-replacement/) ändert bewusst eine Schriftart überall in der Präsentation zu einer anderen. Font substitution wählt eine Schriftart für die gerenderte Ausgabe, wenn die konfigurierte Bedingung erfüllt ist, z. B. wenn die Originalschriftart nicht verfügbar ist.
+[Font replacement](/slides/de/cpp/font-replacement/) ändert bewusst eine Schriftart durch eine andere in der gesamten Präsentation. Font substitution wählt eine Schriftart für die gerenderte Ausgabe, wenn die konfigurierte Bedingung erfüllt ist, beispielsweise wenn die Originalschriftart nicht verfügbar ist.
 
-**Wann werden Ersetzungsregeln angewendet?**
+**Wann werden Substitutionsregeln angewendet?**
 
-Die Regeln nehmen am [font selection sequence](/slides/de/cpp/font-selection-sequence/) während Rendering und Konvertierung teil. Bei `WhenInaccessible` wird eine Regel nur verwendet, wenn Aspose.Slides nicht auf die Quellschriftart zugreifen kann.
+Die Regeln nehmen am [font selection sequence](/slides/de/cpp/font-selection-sequence/)‑Prozess während Rendern und Konvertieren teil. Bei `WhenInaccessible` wird eine Regel nur verwendet, wenn Aspose.Slides nicht auf die Quellschriftart zugreifen kann.
 
-**Was passiert, wenn eine Schriftart fehlt und keine Ersetzungsregel konfiguriert ist?**
+**Was passiert, wenn eine Schriftart fehlt und keine Substitutionsregel konfiguriert ist?**
 
-Aspose.Slides wählt die am nächsten liegende verfügbare Schriftart gemäß seinem Schriftart‑Auswahlprozess. Das Ergebnis hängt von den im Laufzeit‑Umfeld verfügbaren Schriftarten ab.
+Aspose.Slides wählt die am besten geeignete verfügbare Schriftart gemäß seines Schriftartauswahlprozesses. Das Ergebnis hängt von den im Laufzeit‑Umfeld installierten Schriftarten ab.
 
-**Kann ich externe Schriftarten laden, um Ersetzungen zu vermeiden?**
+**Kann ich externe Schriftarten laden, um Substitutionen zu vermeiden?**
 
-Ja. Sie können [externe Schriftarten laden](/slides/de/cpp/custom-font/), damit Aspose.Slides sie beim Rendering und bei der Konvertierung verwenden kann.
+Ja. Sie können [load external fonts](/slides/de/cpp/custom-font/) ​laden, damit Aspose.Slides sie beim Rendern und Konvertieren verwenden kann.
 
-**Liefert Aspose die Schriftarten mit der Bibliothek aus?**
+**Stellt Aspose Schriftarten mit der Bibliothek bereit?**
 
-Nein. Sie sind dafür verantwortlich, die Schriftarten bereitzustellen und deren Lizenzbedingungen einzuhalten.
+Nein. Sie sind dafür verantwortlich, Schriftarten bereitzustellen und deren Lizenzbedingungen einzuhalten.
 
-**Können sich Ersetzungsergebnisse zwischen Windows, Linux und macOS unterscheiden?**
+**Können Substitutionsergebnisse zwischen Windows, Linux und macOS variieren?**
 
-Ja. Installierte Schriftarten und Suchpfade für Schriftarten unterscheiden sich je nach Betriebssystem, sodass eine Schriftart, die auf einem Rechner verfügbar ist, auf einem anderen ersetzt werden muss.
+Ja. Installierte Schriftarten und Suchpfade für Schriftarten unterscheiden sich je nach Betriebssystem, sodass eine Schriftart, die auf einem Rechner verfügbar ist, auf einem anderen substituiert werden muss.
 
 **Wie kann ich die Schriftartauswahl bei Stapelkonvertierungen konsistent halten?**
 
-Verwenden Sie dieselben Schriftdateien und -versionen auf jedem Rechner oder Container, [laden Sie erforderliche externe Schriftarten](/slides/de/cpp/custom-font/) und [betten Sie Schriftarten ein](/slides/de/cpp/embedded-font/), sofern die Lizenz dies zulässt. Sie können außerdem vor dem Export [IFontsManager::GetSubstitutions](https://reference.aspose.com/slides/de/cpp/aspose.slides/ifontsmanager/getsubstitutions/) aufrufen, um unerwartete Ersetzungen zu erkennen.
+Verwenden Sie dieselben Schriftdateien und -versionen auf jedem Rechner oder Container, [load required external fonts](/slides/de/cpp/custom-font/), und [embed fonts](/slides/de/cpp/embedded-font/), sofern die Lizenz dies zulässt. Sie können außerdem vor dem Export [IFontsManager::GetSubstitutions](https://reference.aspose.com/slides/cpp/aspose.slides/ifontsmanager/getsubstitutions/) ​aufrufen, um unerwartete Substitutionen zu erkennen.

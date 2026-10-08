@@ -1,5 +1,5 @@
 ---
-title: Configurar sustitución de fuentes en presentaciones con Python
+title: Configurar la sustitución de fuentes en presentaciones con Python
 linktitle: Sustitución de fuentes
 type: docs
 weight: 70
@@ -9,7 +9,7 @@ keywords:
 - fuente sustituta
 - sustitución de fuentes
 - reemplazar fuente
-- reemplazo de fuente
+- reemplazo de fuentes
 - regla de sustitución
 - regla de reemplazo
 - PowerPoint
@@ -17,17 +17,19 @@ keywords:
 - presentación
 - Python
 - Aspose.Slides
-description: "Configure reglas de sustitución de fuentes e inspeccione las fuentes sustituidas en Aspose.Slides para Python mediante .NET al renderizar o convertir presentaciones de PowerPoint y OpenDocument."
+description: "Configure reglas de sustitución de fuentes e inspeccione las fuentes sustituidas en Aspose.Slides para Python a través de .NET al renderizar o convertir presentaciones de PowerPoint y OpenDocument."
 ---
-## **Visión general**
+## **Descripción general**
 
-La sustitución de fuentes permite a Aspose.Slides usar una fuente disponible en lugar de una que no se pueda acceder cuando se renderiza o convierte una presentación. La sustitución afecta al resultado renderizado; no cambia la fuente asignada al contenido de la presentación.
+La sustitución de fuentes permite a Aspose.Slides utilizar una fuente disponible en lugar de una fuente que no puede accederse cuando una presentación se renderiza o convierte. La sustitución afecta a la salida renderizada; no cambia la fuente asignada al contenido de la presentación.
 
-Puede definir la fuente que se usará cuando una fuente determinada no esté disponible, y puede inspeccionar las sustituciones que Aspose.Slides realizará durante el renderizado. Esto ayuda a mantener la salida coherente en entornos con fuentes instaladas diferentes.
+Puede definir la fuente que se debe usar cuando una fuente concreta no está disponible, y puede inspeccionar las sustituciones que Aspose.Slides realizará durante el renderizado. Esto ayuda a mantener la salida coherente en entornos con diferentes fuentes instaladas.
+
+Si una fuente está disponible pero no tiene una tipografía negrita dedicada, consulte [Gestionar fuentes sin una tipografía negrita dedicada](/slides/es/python-net/convert-powerpoint-to-pdf/#handle-fonts-without-a-dedicated-bold-typeface). Esa sección explica cómo rasterizar el texto afectado durante la exportación a PDF y las consecuencias para la selección de texto, la búsqueda y el escalado.
 
 ## **Obtener sustituciones de fuentes**
 
-Utilice el método [FontsManager.get_substitutions](https://reference.aspose.com/slides/es/python-net/aspose.slides/fontsmanager/get_substitutions/) para determinar qué fuentes se sustituirán cuando la presentación se renderice. El método devuelve objetos [FontSubstitutionInfo](https://reference.aspose.com/slides/es/python-net/aspose.slides/fontsubstitutioninfo/) que identifican los nombres de fuente originales y sustituidos.
+Utilice el método [FontsManager.get_substitutions](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/get_substitutions/) para determinar qué fuentes serán sustituidas cuando la presentación se renderice. El método devuelve objetos [FontSubstitutionInfo](https://reference.aspose.com/slides/python-net/aspose.slides/fontsubstitutioninfo/) que identifican los nombres de la fuente original y la sustituta.
 
 El siguiente ejemplo en Python enumera todas las sustituciones de fuentes para una presentación:
 
@@ -41,13 +43,13 @@ with slides.Presentation("Presentation.pptx") as presentation:
 
 ## **Obtener sustituciones de fuentes para diapositivas seleccionadas**
 
-Utilice [FontsManager.get_substitutions](https://reference.aspose.com/slides/es/python-net/aspose.slides/fontsmanager/get_substitutions/) con una lista de índices de diapositivas para inspeccionar solo las sustituciones necesarias para renderizar diapositivas específicas. Esto es útil cuando renderiza o exporta parte de una presentación, verifica una presentación grande de forma incremental, localiza diapositivas que dependen de fuentes no disponibles, prepara un paquete mínimo de fuentes para un servidor o contenedor, o diagnostica diferencias de renderizado sin procesar diapositivas no relacionadas.
+Utilice [FontsManager.get_substitutions](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/get_substitutions/) con una lista de índices de diapositivas para inspeccionar solo las sustituciones necesarias para renderizar diapositivas específicas. Esto es útil cuando renderiza o exporta parte de una presentación, revisa una presentación grande de forma incremental, localiza diapositivas que dependen de fuentes no disponibles, prepara un paquete mínimo de fuentes para un servidor o contenedor, o diagnostica diferencias de renderizado sin procesar diapositivas no relacionadas.
 
-La lista contiene índices de diapositivas basados en uno: `1` identifica la primera diapositiva. En contraste, la colección [Presentation.slides](https://reference.aspose.com/slides/es/python-net/aspose.slides/presentation/slides/es/) está basada en cero, de modo que la misma diapositiva se accede como `presentation.slides[0]`. Tenga presente esta diferencia al construir la lista para evitar errores por desplazamiento.
+La lista contiene índices de diapositivas basados en uno: `1` identifica la primera diapositiva. En contraste, la colección [Presentation.slides](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/slides/) está basada en cero, de modo que la misma diapositiva se accede como `presentation.slides[0]`. Tenga presente esta diferencia al crear la lista para evitar errores de desplazamiento.
 
-Llame al método a través de la propiedad [Presentation.fonts_manager](https://reference.aspose.com/slides/es/python-net/aspose.slides/presentation/fonts_manager/). Devuelve solo las sustituciones determinadas mientras se renderizan las diapositivas seleccionadas. Cada resultado es un objeto [FontSubstitutionInfo](https://reference.aspose.com/slides/es/python-net/aspose.slides/fontsubstitutioninfo/) que contiene los nombres de fuente original y sustituto. El resultado refleja el entorno de fuentes actual, las reglas de reserva configuradas, las reglas de sustitución almacenadas en una [IFontSubstRuleCollection](https://reference.aspose.com/slides/es/python-net/aspose.slides/ifontsubstrulecollection/), y [fuentes cargadas externamente](/slides/es/python-net/custom-font/).
+Llame al método a través de la propiedad [Presentation.fonts_manager](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/fonts_manager/). Devuelve solo las sustituciones determinadas al renderizar las diapositivas seleccionadas. Cada resultado es un objeto [FontSubstitutionInfo](https://reference.aspose.com/slides/python-net/aspose.slides/fontsubstitutioninfo/) que contiene los nombres de la fuente original y la sustituta. El resultado refleja el entorno de fuentes actual, las reglas de reserva configuradas, las reglas de sustitución almacenadas en una [IFontSubstRuleCollection](https://reference.aspose.com/slides/python-net/aspose.slides/ifontsubstrulecollection/), y [fuentes cargadas externamente](/slides/es/python-net/custom-font/).
 
-La misma sustitución puede ser requerida por más de una diapositiva seleccionada. Elimine duplicados de los resultados cuando cree un inventario de fuentes o un informe de pre‑vuelo. El siguiente ejemplo informa cada sustitución devuelta y luego crea una lista ordenada de asignaciones de fuentes únicas:
+La misma sustitución puede ser requerida por más de una diapositiva seleccionada. Desduplicar los resultados cuando cree un inventario de fuentes o un informe de pre‑vuelo. El siguiente ejemplo informa cada sustitución devuelta y luego crea una lista ordenada de asignaciones de fuentes únicas:
 
 ```python
 import aspose.slides as slides
@@ -69,23 +71,23 @@ with slides.Presentation("Presentation.pptx") as presentation:
         print(entry)
 ```
 
-La clase [FontsManager](https://reference.aspose.com/slides/es/python-net/aspose.slides/fontsmanager/) proporciona ambas formas del método. Elija una según el alcance de la operación de renderizado:
+La clase [FontsManager](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/) proporciona ambas formas del método. Elija una según el alcance de la operación de renderizado:
 
-| Llamada al método | Úselo cuando |
+| Llamada al método | Usar cuando |
 |---|---|
-| [get_substitutions](https://reference.aspose.com/slides/es/python-net/aspose.slides/fontsmanager/get_substitutions/) sin argumentos | Necesita sustituciones para toda la presentación. |
-| [get_substitutions](https://reference.aspose.com/slides/es/python-net/aspose.slides/fontsmanager/get_substitutions/) con una lista de índices de diapositivas | Necesita sustituciones para un rango seleccionado, verificación incremental o exportación parcial. |
+| [get_substitutions](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/get_substitutions/) sin argumentos | Necesite sustituciones para toda la presentación. |
+| [get_substitutions](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/get_substitutions/) con una lista de índices de diapositivas | Necesite sustituciones para un rango seleccionado, una comprobación incremental o una exportación parcial. |
 
 ## **Establecer reglas de sustitución de fuentes**
 
 Para especificar la fuente que Aspose.Slides debe usar cuando una fuente origen no está disponible:
 
-1. Cargue la presentación.  
-2. Cree definiciones de fuentes para la fuente origen y la sustituta.  
-3. Cree una [FontSubstRule](https://reference.aspose.com/slides/es/python-net/aspose.slides/fontsubstrule/) con la condición [WHEN_INACCESSIBLE](https://reference.aspose.com/slides/es/python-net/aspose.slides/fontsubstcondition/).  
-4. Añada la regla a una [FontSubstRuleCollection](https://reference.aspose.com/slides/es/python-net/aspose.slides/fontsubstrulecollection/).  
-5. Asigne la colección a la propiedad [FontsManager.font_subst_rule_list](https://reference.aspose.com/slides/es/python-net/aspose.slides/fontsmanager/font_subst_rule_list/).  
-6. Renderice o convierta la presentación.
+1. Cargar la presentación.
+2. Crear definiciones de fuentes para la fuente origen y la fuente sustituta.
+3. Crear un [FontSubstRule](https://reference.aspose.com/slides/python-net/aspose.slides/fontsubstrule/) con la condición [WHEN_INACCESSIBLE](https://reference.aspose.com/slides/python-net/aspose.slides/fontsubstcondition/).
+4. Añadir la regla a una [FontSubstRuleCollection](https://reference.aspose.com/slides/python-net/aspose.slides/fontsubstrulecollection/).
+5. Asignar la colección a la propiedad [FontsManager.font_subst_rule_list](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/font_subst_rule_list/).
+6. Renderizar o convertir la presentación.
 
 El siguiente ejemplo en Python sustituye `Arial` por `SomeRareFont` cuando `SomeRareFont` no está disponible, y luego renderiza la primera diapositiva para verificar el resultado. La fuente sustituta debe estar disponible para Aspose.Slides.
 
@@ -105,31 +107,31 @@ with slides.Presentation("Fonts.pptx") as presentation:
         image.save("slide.jpg", slides.ImageFormat.JPEG)
 ```
 
-{{% alert color="info" title="Nota" %}}
-Para un cambio incondicional de las fuentes usadas en toda la presentación, consulte [Font Replacement](/slides/es/python-net/font-replacement/).
+{{% alert color="info" title="Note" %}}
+Para un cambio incondicional de las fuentes utilizadas en toda la presentación, consulte [Reemplazo de fuentes](/slides/es/python-net/font-replacement/).
 {{% /alert %}}
 
 ## **Limitaciones para fuentes de ecuaciones matemáticas**
 
 Las reglas de sustitución de fuentes forman parte del proceso estándar de selección de fuentes utilizado durante el renderizado y la conversión. Funcionan para texto normal cuando Aspose.Slides puede reemplazar una fuente inaccesible por la fuente disponible especificada en una regla.
 
-Las ecuaciones de Office Math tienen un requisito adicional. Si una ecuación usa **Cambria Math**, Aspose.Slides puede necesitar esa fuente exacta para calcular y renderizar la disposición de la ecuación. Una regla que sustituya otra fuente matemática, como **STIX Two Math**, no puede reemplazar **Cambria Math** para este propósito, y el renderizado puede seguir indicando que **Cambria Math** es requerida.
+Las ecuaciones de Office Math tienen un requisito adicional. Si una ecuación utiliza **Cambria Math**, Aspose.Slides puede necesitar esa fuente exacta para calcular y renderizar la disposición de la ecuación. Una regla que sustituya otra fuente matemática, como **STIX Two Math**, no puede reemplazar **Cambria Math** para este fin, y el renderizado puede seguir indicando que **Cambria Math** es necesaria.
 
-Para renderizar o convertir dicha presentación, haga que **Cambria Math** esté disponible para Aspose.Slides. Instálela en el sistema operativo o cárguela como una [fuente externa](/slides/es/python-net/custom-font/).
+Para renderizar o convertir una presentación de este tipo, haga que **Cambria Math** esté disponible para Aspose.Slides. Instálela en el sistema operativo o cárguela como una [fuente externa](/slides/es/python-net/custom-font/).
 
 Esta limitación se aplica a la disposición de ecuaciones. Las reglas de sustitución descritas arriba siguen aplicándose al texto normal de la presentación.
 
 ## **Preguntas frecuentes**
 
-**¿Cuál es la diferencia entre reemplazo de fuente y sustitución de fuente?**
+**¿Cuál es la diferencia entre reemplazo de fuentes y sustitución de fuentes?**
 
 [Font replacement](/slides/es/python-net/font-replacement/) cambia intencionalmente una fuente por otra en toda la presentación. La sustitución de fuentes selecciona una fuente para la salida renderizada cuando se cumple la condición configurada, como cuando la fuente original no está disponible.
 
 **¿Cuándo se aplican las reglas de sustitución?**
 
-Las reglas participan en la [secuencia de selección de fuentes](/slides/es/python-net/font-selection-sequence/) durante el renderizado y la conversión. Con `WHEN_INACCESSIBLE`, una regla se utiliza sólo cuando Aspose.Slides no puede acceder a la fuente origen.
+Las reglas participan en la [secuencia de selección de fuentes](/slides/es/python-net/font-selection-sequence/) durante el renderizado y la conversión. Con `WHEN_INACCESSIBLE`, una regla se usa solo cuando Aspose.Slides no puede acceder a la fuente origen.
 
-**¿Qué ocurre cuando falta una fuente y no hay una regla de sustitución configurada?**
+**¿Qué ocurre cuando falta una fuente y no hay ninguna regla de sustitución configurada?**
 
 Aspose.Slides selecciona la fuente disponible más cercana según su proceso de selección de fuentes. El resultado depende de las fuentes disponibles en el entorno de ejecución.
 
@@ -139,12 +141,12 @@ Sí. Puede [cargar fuentes externas](/slides/es/python-net/custom-font/) para qu
 
 **¿Aspose distribuye fuentes con la biblioteca?**
 
-No. Usted es responsable de proporcionar las fuentes y cumplir con sus licencias.
+No. Usted es responsable de proporcionar las fuentes y de cumplir con sus licencias.
 
 **¿Pueden los resultados de sustitución diferir entre Windows, Linux y macOS?**
 
 Sí. Las fuentes instaladas y las ubicaciones de búsqueda de fuentes difieren según el sistema operativo, por lo que una fuente disponible en una máquina puede requerir sustitución en otra.
 
-**¿Cómo puedo lograr una selección de fuentes coherente en conversiones por lotes?**
+**¿Cómo puedo conseguir que la selección de fuentes sea coherente en conversiones por lotes?**
 
-Utilice los mismos archivos y versiones de fuentes en cada máquina o contenedor, [cargue las fuentes externas necesarias](/slides/es/python-net/custom-font/), y [incorpore fuentes](/slides/es/python-net/embedded-font/) cuando la licencia lo permita. También puede llamar a [FontsManager.get_substitutions](https://reference.aspose.com/slides/es/python-net/aspose.slides/fontsmanager/get_substitutions/) antes de la exportación para identificar sustituciones inesperadas.
+Utilice los mismos archivos y versiones de fuentes en cada máquina o contenedor, [cargue las fuentes externas necesarias](/slides/es/python-net/custom-font/), y [incorpore fuentes](/slides/es/python-net/embedded-font/) cuando las licencias lo permitan. También puede llamar a [FontsManager.get_substitutions](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/get_substitutions/) antes de la exportación para identificar sustituciones inesperadas.

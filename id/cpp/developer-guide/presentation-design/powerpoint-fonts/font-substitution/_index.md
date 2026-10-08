@@ -17,17 +17,19 @@ keywords:
 - presentasi
 - C++
 - Aspose.Slides
-description: "Konfigurasikan aturan substitusi font dan inspeksi font yang disubstitusi di Aspose.Slides untuk C++ saat merender atau mengonversi presentasi PowerPoint dan OpenDocument."
+description: "Konfigurasi aturan substitusi font dan periksa font yang disubstitusi dalam Aspose.Slides untuk C++ saat merender atau mengonversi presentasi PowerPoint dan OpenDocument."
 ---
 ## **Gambaran Umum**
 
-Penggantian font memungkinkan Aspose.Slides menggunakan font yang tersedia sebagai pengganti font yang tidak dapat diakses saat presentasi dirender atau dikonversi. Penggantian ini memengaruhi output yang dirender; tidak mengubah font yang ditetapkan pada konten presentasi.
+Penggantian font memungkinkan Aspose.Slides menggunakan font yang tersedia sebagai pengganti font yang tidak dapat diakses ketika sebuah presentasi dirender atau dikonversi. Penggantian memengaruhi output yang dirender; tidak mengubah font yang ditetapkan pada konten presentasi.
 
-Anda dapat menentukan font yang akan digunakan ketika font tertentu tidak tersedia, dan dapat memeriksa substitusi yang akan dilakukan Aspose.Slides selama proses rendering. Hal ini membantu menjaga konsistensi output di berbagai lingkungan dengan font yang terpasang berbeda.
+Anda dapat menentukan font yang akan digunakan ketika font tertentu tidak tersedia, dan Anda dapat memeriksa penggantian yang akan dilakukan Aspose.Slides selama proses rendering. Ini membantu menjaga konsistensi output di antara lingkungan dengan font yang terpasang berbeda.
+
+Jika sebuah font tersedia tetapi tidak memiliki tipe tebal khusus, lihat [Menangani Font Tanpa Tipe Tebal Khusus](/slides/id/cpp/convert-powerpoint-to-pdf/#handle-fonts-without-a-dedicated-bold-typeface). Bagian tersebut menjelaskan cara meraster teks yang terkena dampak selama ekspor PDF serta konsekuensinya bagi pemilihan teks, pencarian, dan penskalaan.
 
 ## **Dapatkan Substitusi Font**
 
-Gunakan metode [IFontsManager::GetSubstitutions](https://reference.aspose.com/slides/id/cpp/aspose.slides/ifontsmanager/getsubstitutions/) untuk menentukan font mana yang akan disubstitusi ketika presentasi dirender. Metode ini mengembalikan objek [FontSubstitutionInfo](https://reference.aspose.com/slides/id/cpp/aspose.slides/fontsubstitutioninfo/) yang mengidentifikasi nama font asli dan font pengganti.
+Gunakan metode [IFontsManager::GetSubstitutions](https://reference.aspose.com/slides/cpp/aspose.slides/ifontsmanager/getsubstitutions/) untuk menentukan font mana yang akan diganti ketika presentasi dirender. Metode ini mengembalikan objek [FontSubstitutionInfo](https://reference.aspose.com/slides/cpp/aspose.slides/fontsubstitutioninfo/) yang mengidentifikasi nama font asli dan font pengganti.
 
 Contoh C++ berikut menampilkan semua substitusi font untuk sebuah presentasi:
 
@@ -52,13 +54,13 @@ presentation->Dispose();
 
 ## **Dapatkan Substitusi Font untuk Slide yang Dipilih**
 
-Gunakan overload [IFontsManager::GetSubstitutions](https://reference.aspose.com/slides/id/cpp/aspose.slides/ifontsmanager/getsubstitutions/) dengan argumen `System::ArrayPtr<int32_t> slides` untuk memeriksa hanya substitusi yang diperlukan untuk merender slide tertentu. Ini berguna saat Anda merender atau mengekspor sebagian presentasi, memeriksa presentasi besar secara bertahap, menemukan slide yang bergantung pada font yang tidak tersedia, menyiapkan paket font minimal untuk server atau kontainer, atau mendiagnosis perbedaan rendering tanpa memproses slide yang tidak terkait.
+Gunakan overload [IFontsManager::GetSubstitutions](https://reference.aspose.com/slides/cpp/aspose.slides/ifontsmanager/getsubstitutions/) dengan argumen `System::ArrayPtr<int32_t> slides` untuk memeriksa hanya substitusi yang diperlukan untuk merender slide tertentu. Ini berguna saat Anda merender atau mengekspor bagian dari presentasi, memeriksa presentasi besar secara inkremental, menemukan slide yang bergantung pada font yang tidak tersedia, menyiapkan paket font minimal untuk server atau kontainer, atau mendiagnosis perbedaan rendering tanpa memproses slide yang tidak terkait.
 
-Array `slides` berisi indeks slide berbasis satu: `1` mengidentifikasi slide pertama. Sebaliknya, metode [Presentation::get_Slide](https://reference.aspose.com/slides/id/cpp/aspose.slides/presentation/get_slide/) menggunakan indeks berbasis nol, sehingga slide yang sama diakses sebagai `presentation->get_Slide(0)`. Ingat perbedaan ini saat membangun array untuk menghindari kesalahan satu indeks.
+Array `slides` berisi indeks slide berbasis satu: `1` mengidentifikasi slide pertama. Sebaliknya, metode [Presentation::get_Slide](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_slide/) menggunakan indeks berbasis nol, sehingga slide yang sama diakses sebagai `presentation->get_Slide(0)`. Ingat perbedaan ini saat membangun array untuk menghindari kesalahan satu indeks.
 
-Panggil overload tersebut melalui metode [Presentation::get_FontsManager](https://reference.aspose.com/slides/id/cpp/aspose.slides/presentation/get_fontsmanager/). Metode ini hanya mengembalikan substitusi yang ditentukan selama merender slide yang dipilih. Setiap hasil adalah objek [FontSubstitutionInfo](https://reference.aspose.com/slides/id/cpp/aspose.slides/fontsubstitutioninfo/) yang berisi nama font asli dan pengganti. Hasil tersebut mencerminkan lingkungan font saat ini, aturan fallback yang dikonfigurasi, aturan substitusi yang disimpan dalam sebuah [IFontSubstRuleCollection](https://reference.aspose.com/slides/id/cpp/aspose.slides/ifontsubstrulecollection/), dan [font yang dimuat secara eksternal](/slides/id/cpp/custom-font/).
+Panggil overload melalui metode [Presentation::get_FontsManager](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_fontsmanager/). Metode ini hanya mengembalikan substitusi yang ditentukan selama rendering slide yang dipilih. Setiap hasil adalah objek [FontSubstitutionInfo](https://reference.aspose.com/slides/cpp/aspose.slides/fontsubstitutioninfo/) yang berisi nama font asli dan pengganti. Hasil mencerminkan lingkungan font saat ini, aturan fallback yang dikonfigurasi, aturan substitusi yang disimpan dalam [IFontSubstRuleCollection](https://reference.aspose.com/slides/cpp/aspose.slides/ifontsubstrulecollection/), dan [font yang dimuat secara eksternal](/slides/id/cpp/custom-font/).
 
-Substitusi yang sama dapat diperlukan oleh lebih dari satu slide yang dipilih. Hilangkan duplikasi hasil ketika Anda membuat inventaris font atau laporan preflight. Contoh berikut melaporkan setiap substitusi yang dikembalikan dan kemudian membuat daftar terurut dari pemetaan font unik:
+Substitusi yang sama dapat diperlukan oleh lebih dari satu slide yang dipilih. Hilangkan duplikat hasil ketika Anda membuat inventaris font atau laporan prapenerbangan. Contoh berikut melaporkan setiap substitusi yang dikembalikan dan kemudian membuat daftar terurut pemetaan font unik:
 
 ```cpp
 #include <DOM/FontSubstitutionInfo.h>
@@ -97,12 +99,12 @@ for (auto&& entry : sortedPreflightEntries)
 presentation->Dispose();
 ```
 
-Antarmuka [IFontsManager](https://reference.aspose.com/slides/id/cpp/aspose.slides/ifontsmanager/) menyediakan kedua overload. Pilih salah satu sesuai dengan ruang lingkup operasi rendering:
+Antarmuka [IFontsManager](https://reference.aspose.com/slides/cpp/aspose.slides/ifontsmanager/) menyediakan kedua overload. Pilih salah satu sesuai ruang lingkup operasi rendering:
 
-| Overload | Gunakan ketika |
+| Overload | Gunakan bila |
 |---|---|
-| [GetSubstitutions](https://reference.aspose.com/slides/id/cpp/aspose.slides/ifontsmanager/getsubstitutions/) with no arguments | Anda memerlukan substitusi untuk seluruh presentasi. |
-| [GetSubstitutions](https://reference.aspose.com/slides/id/cpp/aspose.slides/ifontsmanager/getsubstitutions/) with `System::ArrayPtr<int32_t> slides` | Anda memerlukan substitusi untuk rentang terpilih, pemeriksaan bertahap, atau ekspor parsial. |
+| [GetSubstitutions](https://reference.aspose.com/slides/cpp/aspose.slides/ifontsmanager/getsubstitutions/) tanpa argumen | Anda memerlukan substitusi untuk seluruh presentasi. |
+| [GetSubstitutions](https://reference.aspose.com/slides/cpp/aspose.slides/ifontsmanager/getsubstitutions/) dengan `System::ArrayPtr<int32_t> slides` | Anda memerlukan substitusi untuk rentang terpilih, pemeriksaan inkremental, atau ekspor parsial. |
 
 ## **Atur Aturan Substitusi Font**
 
@@ -110,12 +112,12 @@ Untuk menentukan font yang harus digunakan Aspose.Slides ketika font sumber tida
 
 1. Muat presentasi.
 2. Buat definisi font untuk font sumber dan font pengganti.
-3. Buat sebuah [FontSubstRule](https://reference.aspose.com/slides/id/cpp/aspose.slides/fontsubstrule/) dengan kondisi [WhenInaccessible](https://reference.aspose.com/slides/id/cpp/aspose.slides/fontsubstcondition/).
-4. Tambahkan aturan ke dalam sebuah [FontSubstRuleCollection](https://reference.aspose.com/slides/id/cpp/aspose.slides/fontsubstrulecollection/).
-5. Tetapkan koleksi dengan menggunakan metode [IFontsManager::set_FontSubstRuleList](https://reference.aspose.com/slides/id/cpp/aspose.slides/ifontsmanager/set_fontsubstrulelist/).
+3. Buat [FontSubstRule](https://reference.aspose.com/slides/cpp/aspose.slides/fontsubstrule/) dengan kondisi [WhenInaccessible](https://reference.aspose.com/slides/cpp/aspose.slides/fontsubstcondition/).
+4. Tambahkan aturan ke [FontSubstRuleCollection](https://reference.aspose.com/slides/cpp/aspose.slides/fontsubstrulecollection/).
+5. Tetapkan koleksi dengan menggunakan metode [IFontsManager::set_FontSubstRuleList](https://reference.aspose.com/slides/cpp/aspose.slides/ifontsmanager/set_fontsubstrulelist/).
 6. Render atau konversi presentasi.
 
-Contoh C++ berikut menggantikan `Arial` untuk `SomeRareFont` ketika `SomeRareFont` tidak tersedia, dan kemudian merender slide pertama untuk memverifikasi hasilnya. Font pengganti harus tersedia untuk Aspose.Slides.
+Contoh C++ berikut menggantikan `Arial` untuk `SomeRareFont` ketika `SomeRareFont` tidak tersedia, lalu merender slide pertama untuk memverifikasi hasilnya. Font pengganti harus tersedia untuk Aspose.Slides.
 
 ```cpp
 #include <DOM/FontSubstCondition.h>
@@ -149,45 +151,38 @@ presentation->Dispose();
 ```
 
 {{% alert color="info" title="Note" %}}
-Untuk perubahan tanpa syarat pada font yang digunakan di seluruh presentasi, lihat [Penggantian Font](/slides/id/cpp/font-replacement/).
+Untuk perubahan font secara tidak bersyarat di seluruh presentasi, lihat [Penggantian Font](/slides/id/cpp/font-replacement/).
 {{% /alert %}}
 
 ## **Batasan untuk Font Persamaan Matematika**
 
-Aturan substitusi font merupakan bagian dari proses pemilihan font standar yang digunakan selama rendering dan konversi. Aturan ini berfungsi untuk teks biasa ketika Aspose.Slides dapat mengganti font yang tidak dapat diakses dengan font yang tersedia sesuai aturan.
+Aturan substitusi font merupakan bagian dari proses pemilihan font standar yang digunakan selama rendering dan konversi. Mereka berfungsi untuk teks biasa ketika Aspose.Slides dapat mengganti font yang tidak dapat diakses dengan font yang tersedia sesuai aturan.
 
-Persamaan Office Math memiliki persyaratan tambahan. Jika sebuah persamaan menggunakan **Cambria Math**, Aspose.Slides mungkin memerlukan font tersebut secara tepat untuk menghitung dan merender tata letak persamaan. Aturan yang menggantikan dengan font matematika lain, seperti **STIX Two Math**, tidak dapat menggantikan **Cambria Math** untuk tujuan ini, dan rendering masih dapat melaporkan bahwa **Cambria Math** diperlukan.
+Persamaan Office Math memiliki persyaratan tambahan. Jika sebuah persamaan menggunakan **Cambria Math**, Aspose.Slides mungkin memerlukan font tersebut secara tepat untuk menghitung dan merender tata letak persamaan. Aturan yang menggantikan font matematika lain, seperti **STIX Two Math**, tidak dapat menggantikan **Cambria Math** untuk tujuan ini, dan rendering masih dapat melaporkan bahwa **Cambria Math** diperlukan.
 
 Untuk merender atau mengonversi presentasi semacam itu, pastikan **Cambria Math** tersedia untuk Aspose.Slides. Instal font tersebut di sistem operasi atau muat sebagai [font eksternal](/slides/id/cpp/custom-font/).
 
-Batasan ini berlaku pada tata letak persamaan. Aturan substitusi yang dijelaskan di atas tetap berlaku untuk teks presentasi biasa.
+Batasan ini berlaku untuk tata letak persamaan. Aturan substitusi yang dijelaskan di atas tetap berlaku untuk teks presentasi biasa.
 
 ## **FAQ**
 
-**Apa perbedaan antara penggantian font dan substitusi font?**
+**Apa perbedaan antara penggantian font dan substitusi font?**  
+[Penggantian font](/slides/id/cpp/font-replacement/) secara sengaja mengubah satu font menjadi font lain di seluruh presentasi. Substitusi font memilih font untuk output yang dirender ketika kondisi yang dikonfigurasi terpenuhi, misalnya ketika font asli tidak tersedia.
 
-[Penggantian Font](/slides/id/cpp/font-replacement/) secara sengaja mengubah satu font menjadi font lain di seluruh presentasi. Substitusi font memilih font untuk output yang dirender ketika kondisi yang dikonfigurasi terpenuhi, seperti ketika font asli tidak tersedia.
+**Kapan aturan substitusi diterapkan?**  
+Aturan berpartisipasi dalam [urutan pemilihan font](/slides/id/cpp/font-selection-sequence/) selama rendering dan konversi. Dengan `WhenInaccessible`, sebuah aturan hanya digunakan ketika Aspose.Slides tidak dapat mengakses font sumber.
 
-**Kapan aturan substitusi diterapkan?**
+**Apa yang terjadi bila sebuah font hilang dan tidak ada aturan substitusi yang dikonfigurasi?**  
+Aspose.Slides memilih font yang paling mendekati yang tersedia menurut proses pemilihan fontnya. Hasilnya bergantung pada font yang tersedia di lingkungan runtime.
 
-Aturan berpartisipasi dalam [urutan pemilihan font](/slides/id/cpp/font-selection-sequence/) selama rendering dan konversi. Dengan `WhenInaccessible`, aturan hanya digunakan ketika Aspose.Slides tidak dapat mengakses font sumber.
-
-**Apa yang terjadi ketika sebuah font hilang dan tidak ada aturan substitusi yang dikonfigurasi?**
-
-Aspose.Slides memilih font terdekat yang tersedia berdasarkan proses pemilihan fontnya. Hasilnya bergantung pada font yang tersedia di lingkungan runtime.
-
-**Apakah saya dapat memuat font eksternal untuk menghindari substitusi?**
-
+**Bisakah saya memuat font eksternal untuk menghindari substitusi?**  
 Ya. Anda dapat [memuat font eksternal](/slides/id/cpp/custom-font/) sehingga Aspose.Slides dapat menggunakannya selama rendering dan konversi.
 
-**Apakah Aspose mendistribusikan font bersama perpustakaan?**
+**Apakah Aspose mendistribusikan font bersama pustaka?**  
+Tidak. Anda bertanggung jawab menyediakan font dan mematuhi lisensi mereka.
 
-Tidak. Anda bertanggung jawab menyediakan font dan mematuhi lisensinya.
-
-**Apakah hasil substitusi dapat berbeda antara Windows, Linux, dan macOS?**
-
+**Apakah hasil substitusi dapat berbeda antara Windows, Linux, dan macOS?**  
 Ya. Font yang terpasang dan lokasi pencarian font berbeda per sistem operasi, sehingga font yang tersedia di satu mesin mungkin memerlukan substitusi di mesin lain.
 
-**Bagaimana cara membuat pemilihan font konsisten dalam konversi batch?**
-
-Gunakan file font dan versi yang sama pada setiap mesin atau kontainer, [muat font eksternal yang diperlukan](/slides/id/cpp/custom-font/), dan [sematkan font](/slides/id/cpp/embedded-font/) bila lisensi mengizinkan. Anda juga dapat memanggil [IFontsManager::GetSubstitutions](https://reference.aspose.com/slides/id/cpp/aspose.slides/ifontsmanager/getsubstitutions/) sebelum ekspor untuk mengidentifikasi substitusi yang tidak diharapkan.
+**Bagaimana cara membuat pemilihan font konsisten dalam konversi batch?**  
+Gunakan file dan versi font yang sama pada setiap mesin atau kontainer, [muat font eksternal yang diperlukan](/slides/id/cpp/custom-font/), dan [sematkan font](/slides/id/cpp/embedded-font/) bila lisensi mengizinkan. Anda juga dapat memanggil [IFontsManager::GetSubstitutions](https://reference.aspose.com/slides/cpp/aspose.slides/ifontsmanager/getsubstitutions/) sebelum ekspor untuk mengidentifikasi substitusi yang tidak diharapkan.

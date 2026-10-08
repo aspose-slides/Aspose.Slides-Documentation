@@ -18,17 +18,19 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: تكوين قواعد استبدال الخطوط وفحص الخطوط المستبدلة في Aspose.Slides لنظام Android عبر Java عند تصيير أو تحويل العروض التقديمية.
+description: "قم بتكوين قواعد استبدال الخطوط وتفقد الخطوط المستبدلة في Aspose.Slides for Android عبر Java عند عرض أو تحويل العروض التقديمية."
 ---
 ## **نظرة عامة**
 
-يسمح استبدال الخطوط لـ Aspose.Slides باستخدام خط متاح بدلاً من خط لا يمكن الوصول إليه عند تصيير أو تحويل عرض تقديمي. يؤثر الاستبدال على الإخراج المصور؛ ولا يغيّر الخط المعين لمحتوى العرض.
+تسمح استبدال الخطوط لـ Aspose.Slides باستخدام خط متاح بدلاً من الخط الذي لا يمكن الوصول إليه عند عرض أو تحويل العرض التقديمي. يؤثر الاستبدال على المخرجات المعروضة؛ ولا يغيّر الخط المعين لمحتوى العرض التقديمي.
 
-يمكنك تحديد الخط الذي سيُستخدم عندما يكون خط معين غير متاح، ويمكنك فحص الاستبدالات التي سيجريها Aspose.Slides أثناء التصيير. يساعد هذا في الحفاظ على تساوق الإخراج عبر أجهزة Android والبيئات التي تحتوي على خطوط مختلفة.
+يمكنك تحديد الخط الذي سيُستخدم عندما يكون خط معين غير متاح، ويمكنك فحص الاستبدالات التي سيجريها Aspose.Slides أثناء العرض. يساعد ذلك على الحفاظ على تناسق المخرجات عبر أجهزة Android والبيئات ذات الخطوط المتاحة المختلفة.
+
+إذا كان الخط متاحًا ولكنه لا يحتوي على نوع عريض مخصص، راجع [معالجة الخطوط بدون خط عريض مخصص](/slides/ar/androidjava/convert-powerpoint-to-pdf/#handle-fonts-without-a-dedicated-bold-typeface). يشرح هذا القسم كيفية تحويل النص المتأثر إلى نقطية أثناء تصدير PDF والعواقب على تحديد النص، والبحث، وتغيير الحجم.
 
 ## **الحصول على استبدالات الخطوط**
 
-استخدم طريقة [IFontsManager.getSubstitutions](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ifontsmanager/#getSubstitutions--) لتحديد الخطوط التي سيتم استبدالها عند تصيير العرض. تُرجع الطريقة كائنات [FontSubstitutionInfo](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/fontsubstitutioninfo/) التي تحدد أسماء الخط الأصلي والمستبدل.
+استخدم طريقة [IFontsManager.getSubstitutions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifontsmanager/#getSubstitutions--) لتحديد الخطوط التي سيتم استبدالها عند عرض العرض التقديمي. تُرجع الطريقة كائنات [FontSubstitutionInfo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/fontsubstitutioninfo/) التي تحدد أسماء الخط الأصلي والمستبدل.
 
 المثال التالي بلغة Java يسرد جميع استبدالات الخطوط لعرض تقديمي:
 
@@ -48,13 +50,13 @@ try {
 
 ## **الحصول على استبدالات الخطوط للشرائح المحددة**
 
-استخدم نسخة طريقة [IFontsManager.getSubstitutions](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ifontsmanager/#getSubstitutions-int---) التي تستقبل وسيط `int[] slides` لفحص الاستبدالات المطلوبة فقط لتصيير شرائح معينة. يُفيد ذلك عندما تقوم بتصيير أو تصدير جزء من العرض، أو فحص عرض تقديمي كبير تدريجيًا، أو تحديد الشرائح التي تعتمد على خطوط غير متاحة، أو إعداد حزمة خطوط قليلة لتطبيق Android، أو تشخيص اختلافات التصيير دون معالجة الشرائح غير ذات الصلة.
+استخدم التحميل الزائد لـ [IFontsManager.getSubstitutions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifontsmanager/#getSubstitutions-int---) مع وسيط `int[] slides` لفحص الاستبدالات المطلوبة فقط لعرض شرائح معينة. هذا مفيد عند عرض أو تصدير جزء من العرض، أو فحص عرض تقديمي كبير بشكل تدريجي، أو تحديد الشرائح التي تعتمد على خطوط غير متاحة، أو إعداد حزمة خطوط صغرى لتطبيق Android، أو تشخيص اختلافات العرض دون معالجة الشرائح غير ذات الصلة.
 
-مصفوفة `slides` تحتوي على فهارس شرائح تبدأ من الواحد: `1` يحدد الشريحة الأولى. بالمقابل، يستخدم موصل مجموعة [Presentation.getSlides](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentation/#getSlides--) فهرسة تبدأ من الصفر، لذا تُستدعى نفس الشريحة كـ `presentation.getSlides().get_Item(0)`. احرص على مراعاة هذا الاختلاف عند بناء المصفوفة لتجنب أخطاء الإزاحة.
+يحتوي مصفوفة `slides` على فهارس الشرائح بدءًا من الواحد: `1` يحدد الشريحة الأولى. بالمقابل، يستخدم ما يحصل عليه من [Presentation.getSlides](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getSlides--) فهارس صفرية، لذا يتم الوصول إلى نفس الشريحة عبر `presentation.getSlides().get_Item(0)`. احرص على أخذ هذا الاختلاف في الاعتبار عند بناء المصفوفة لتجنب أخطاء الإزاحة بمقدار واحد.
 
-استدعِ النسخة عبر طريقة [Presentation.getFontsManager](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentation/#getFontsManager--) . تُرجع فقط الاستبدالات التي تم تحديدها أثناء تصيير الشرائح المختارة. كل نتيجة هي كائن [FontSubstitutionInfo](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/fontsubstitutioninfo/) يحتوي على أسماء الخط الأصلي والمستبدل. تعكس النتيجة بيئة الخط الحالية، وقواعد السقوط المكوَّنة، وقواعد الاستبدال المخزنة في [IFontSubstRuleCollection](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ifontsubstrulecollection/)، و[الخطوط المحملة خارجياً](/slides/ar/androidjava/custom-font/).
+استدعِ التحميل الزائد عبر طريقة [Presentation.getFontsManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getFontsManager--) . تُرجع الطريقة الاستبدالات التي تم تحديدها أثناء عرض الشرائح المحددة فقط. كل نتيجة هي كائن [FontSubstitutionInfo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/fontsubstitutioninfo/) يحتوي على أسماء الخط الأصلي والمستبدل. تعكس النتيجة بيئة الخط الحالية، وقواعد fallback المكوَّنة، وقواعد الاستبدال المخزنة في [IFontSubstRuleCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifontsubstrulecollection/)، و[الخطوط التي تم تحميلها خارجيًا](/slides/ar/androidjava/custom-font/).
 
-قد تحتاج نفس الاستبدالية إلى أكثر من شريحة مختارة. قم بإزالة التكرارات عند إنشاء جرد للخطوط أو تقرير ما قبل الطيران. المثال التالي يُبلغ عن كل استبدال مُرجع ثم يُنشئ قائمة مرتبة من تعيينات الخطوط الفريدة:
+يمكن أن يتطلب نفس الاستبدال أكثر من شريحة محددة. احذف التكرارات عند إنشاء جرد للخطوط أو تقرير الفحص المسبق. المثال التالي يُظهر كل استبدال تم إرجاعه ثم ينشئ قائمة مرتبة لتعيينات الخطوط الفريدة:
 
 ```java
 import com.aspose.slides.FontSubstitutionInfo;
@@ -92,25 +94,25 @@ try {
 }
 ```
 
-توفر الواجهة [IFontsManager](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ifontsmanager/) كلا النسختين. اختر واحدة حسب نطاق عملية التصيير:
+توفر واجهة [IFontsManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifontsmanager/) كلا التحميلين الزائدين. اختر أحدهما وفقًا لنطاق عملية العرض:
 
-| الإصدار | متى تستخدمه |
+| التحميل الزائد | استخدمه عندما |
 |---|---|
-| [getSubstitutions](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ifontsmanager/#getSubstitutions--) بدون وسائط | عندما تحتاج إلى استبدالات للعرض التقديمي بأكمله. |
-| [getSubstitutions](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ifontsmanager/#getSubstitutions-int---) مع `int[] slides` | عندما تحتاج إلى استبدالات لنطاق محدد، أو فحص تدريجي، أو تصدير جزئي. |
+| [getSubstitutions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifontsmanager/#getSubstitutions--) بدون وسيطات | تحتاج إلى استبدالات للعرض التقديمي بالكامل. |
+| [getSubstitutions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifontsmanager/#getSubstitutions-int---) مع `int[] slides` | تحتاج إلى استبدالات لنطاق مختار، أو فحص تدريجي، أو تصدير جزئي. |
 
-## **تحديد قواعد استبدال الخطوط**
+## **تعيين قواعد استبدال الخطوط**
 
 لتحديد الخط الذي يجب أن يستخدمه Aspose.Slides عندما يكون الخط المصدر غير متاح:
 
-1. حمّل العرض التقديمي.
-2. أنشئ تعريفات الخط للخط المصدر والبديل.
-3. أنشئ [FontSubstRule](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/fontsubstrule/) مع شرط [WhenInaccessible](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/fontsubstcondition/).
-4. أضف القاعدة إلى [FontSubstRuleCollection](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/fontsubstrulecollection/).
-5. عيّن المجموعة باستخدام طريقة [FontsManager.setFontSubstRuleList](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/fontsmanager/#setFontSubstRuleList-com.aspose.slides.IFontSubstRuleCollection-).
-6. قم بتصيير أو تحويل العرض التقديمي.
+1. حمِّل العرض التقديمي.  
+2. أنشئ تعريفات للخط المصدر والبديل.  
+3. أنشئ كائنًا من النوع [FontSubstRule](https://reference.aspose.com/slides/androidjava/com.aspose.slides/fontsubstrule/) مع الشرط [WhenInaccessible](https://reference.aspose.com/slides/androidjava/com.aspose.slides/fontsubstcondition/).  
+4. أضف القاعدة إلى [FontSubstRuleCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/fontsubstrulecollection/).  
+5. عيّن المجموعة باستخدام طريقة [FontsManager.setFontSubstRuleList](https://reference.aspose.com/slides/androidjava/com.aspose.slides/fontsmanager/#setFontSubstRuleList-com.aspose.slides.IFontSubstRuleCollection-).  
+6. اعرض أو حوّل العرض التقديمي.
 
-المثال التالي بلغة Java يستبدل `Arial` بـ `SomeRareFont` عندما يكون `SomeRareFont` غير متاح، ثم يصيّر الشريحة الأولى للتحقق من النتيجة. يجب أن يكون الخط البديل متاحًا لـ Aspose.Slides.
+المثال التالي بلغة Java يستبدل `Arial` بـ `SomeRareFont` عندما يكون `SomeRareFont` غير متاح، ثم يعرض الشريحة الأولى للتحقق من النتيجة. يجب أن يكون الخط البديل متاحًا لـ Aspose.Slides.
 
 ```java
 import com.aspose.slides.FontData;
@@ -145,39 +147,46 @@ try {
 }
 ```
 
-{{% alert color="info" title="ملاحظة" %}}
-لإجراء تغيير غير مشروط على الخطوط المستخدمة في جميع أنحاء عرض تقديمي، راجع [Font Replacement](/slides/ar/androidjava/font-replacement/).
+{{% alert color="info" title="Note" %}}
+لإجراء تغيير غير مشروط على الخطوط المستخدمة في جميع أنحاء العرض التقديمي، راجع [استبدال الخط](/slides/ar/androidjava/font-replacement/).
 {{% /alert %}}
 
-## **القيود على خطوط معادلات الرياضيات**
+## **القيود على خطوط المعادلات الرياضية**
 
-قواعد استبدال الخطوط هي جزء من عملية اختيار الخط القياسية المستخدمة أثناء التصيير والتحويل. تعمل للنص العادي عندما يستطيع Aspose.Slides استبدال خط غير متاح بالخط المتاح المحدد في القاعدة.
+قواعد استبدال الخطوط هي جزء من عملية اختيار الخط القياسية المستخدمة أثناء العرض والتحويل. تعمل مع النص العادي عندما يستطيع Aspose.Slides استبدال خط غير قابل للوصول بخط متاح محدد بالقاعدة.
 
-معادلات Office Math لديها مطلب إضافي. إذا استخدمت المعادلة **Cambria Math**، قد يحتاج Aspose.Slides إلى هذا الخط بالضبط لحساب وتصيير تخطيط المعادلة. لا يمكن لقاعدة تستبدل بخط رياضي آخر مثل **STIX Two Math** أن تحل محل **Cambria Math** لهذا الغرض، وقد يستمر التصيير في الإبلاغ بأن **Cambria Math** مطلوب.
+المعادلات الرياضية في Office Math لديها متطلب إضافي. إذا استخدمت المعادلة **Cambria Math**، قد يحتاج Aspose.Slides إلى ذلك الخط بالضبط لحساب وعرض تخطيط المعادلة. لا يمكن لقاعدة تستبدل بخط رياضي آخر مثل **STIX Two Math** أن تحل محل **Cambria Math** لهذا الغرض، وقد يستمر العرض في الإبلاغ عن ضرورة وجود **Cambria Math**.
 
-لتصيير أو تحويل مثل هذا العرض، اجعل **Cambria Math** متاحًا لـ Aspose.Slides. حمّله كـ [خط خارجي](/slides/ar/androidjava/custom-font/) حتى يتمكن التطبيق من استخدامه أثناء التصيير والتحويل.
+للعرض أو التحويل لمثل هذا العرض، اجعل **Cambria Math** متاحًا لـ Aspose.Slides. حمّله كـ [خط خارجي](/slides/ar/androidjava/custom-font/) حتى يتمكن التطبيق من استخدامه أثناء العرض والتحويل.
 
-تنطبق هذه القيود على تخطيط المعادلات فقط. لا تزال قواعد الاستبدال المذكورة أعلاه سارية للنص العادي في العرض.
+تنطبق هذه القيود على تخطيط المعادلات فقط. لا تزال قواعد الاستبدال الموصوفة أعلاه سارية على النص العادي في العرض التقديمي.
 
-## **FAQ**
+## **الأسئلة المتكررة**
 
-**ما الفرق بين استبدال الخط واستبدال الخطوط؟**  
-[Font replacement](/slides/ar/androidjava/font-replacement/) يغيّر خطًا واحدًا بآخر في جميع أنحاء العرض بنيةً متعمدة. استبدال الخطوط يختار خطًا للإخراج المصور عندما يتحقق الشرط المكوّن، مثل عدم توفر الخط الأصلي.
+**ما الفرق بين استبدال الخط واستبدال الخطوط؟**
 
-**متى يتم تطبيق قواعد الاستبدال؟**  
-تشارك القواعد في [تسلسل اختيار الخط](/slides/ar/androidjava/font-selection-sequence/) أثناء التصيير والتحويل. مع `WhenInaccessible` تُستخدم القاعدة فقط عندما لا يستطيع Aspose.Slides الوصول إلى الخط المصدر.
+[استبدال الخط](/slides/ar/androidjava/font-replacement/) يغيّر خطًا بآخر عبر كامل العرض التقديمي بشكل متعمد. استبدال الخط يختار خطًا للمخرجات المعروضة عندما يتحقق الشرط المكوَّن، مثل عدم توفر الخط الأصلي.
 
-**ماذا يحدث عندما يكون الخط مفقودًا ولا توجد قاعدة استبدال مُكوَّنة؟**  
+**متى تُطبق قواعد الاستبدال؟**
+
+تشارك القواعد في [تسلسل اختيار الخط](/slides/ar/androidjava/font-selection-sequence/) أثناء العرض والتحويل. مع `WhenInaccessible`، تُستخدم القاعدة فقط عندما لا يستطيع Aspose.Slides الوصول إلى الخط المصدر.
+
+**ماذا يحدث عندما يكون الخط مفقودًا ولا توجد قاعدة استبدال مكوَّنة؟**
+
 يختار Aspose.Slides أقرب خط متاح وفقًا لعملية اختيار الخط الخاصة به. تعتمد النتيجة على الخطوط المتوفرة في بيئة التشغيل.
 
-**هل يمكنني تحميل خطوط خارجية لتجنب الاستبدال؟**  
-نعم. يمكنك [تحميل خطوط خارجية](/slides/ar/androidjava/custom-font/) حتى يتمكن Aspose.Slides من استخدامها أثناء التصيير والتحويل.
+**هل يمكنني تحميل خطوط خارجية لتجنب الاستبدال؟**
 
-**هل تقوم Aspose بتوزيع الخطوط مع المكتبة؟**  
-لا. تتحمل مسؤولية توفير الخطوط والامتثال لتراخيصها.
+نعم. يمكنك [تحميل خطوط خارجية](/slides/ar/androidjava/custom-font/) بحيث يتمكن Aspose.Slides من استخدامها أثناء العرض والتحويل.
 
-**هل يمكن أن تختلف نتائج الاستبدال بين أجهزة Android؟**  
-نعم. قد تختلف الخطوط النظامية المتاحة بين إصدارات Android، والأجهزة، والموردين، لذا قد يحتاج خط متاح في بيئة إلى استبدال في أخرى.
+**هل توزع Aspose الخطوط مع المكتبة؟**
 
-**كيف يمكنني جعل اختيار الخط ثابتًا عبر أجهزة Android؟**  
-احزم ملفات الخط المطلوبة مع التطبيق، [حمّلها كخطوط خارجية](/slides/ar/androidjava/custom-font/)، و[ضمّن الخطوط](/slides/ar/androidjava/embedded-font/) عندما تسمح التراخيص. يمكنك أيضًا استدعاء [IFontsManager.getSubstitutions](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ifontsmanager/#getSubstitutions--) قبل التصدير لتحديد الاستبدالات غير المتوقعة.
+لا. أنت المسؤول عن توفير الخطوط والامتثال لتراخيصها.
+
+**هل يمكن أن تختلف نتائج الاستبدال بين أجهزة Android؟**
+
+نعم. قد تختلف الخطوط النظامية المتاحة بين إصدارات Android، والأجهزة، والمصنعين، لذا قد يتطلب خط متاح في بيئة ما استبدالًا في بيئة أخرى.
+
+**كيف يمكن جعل اختيار الخط متسقًا عبر أجهزة Android؟**
+
+احزم ملفات الخط المطلوبة نفسها مع التطبيق، [حمّلها كخطوط خارجية](/slides/ar/androidjava/custom-font/)، و[ضمن الخطوط](/slides/ar/androidjava/embedded-font/) عندما تسمح الرخصة. يمكنك أيضًا استدعاء [IFontsManager.getSubstitutions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifontsmanager/#getSubstitutions--) قبل التصدير لتحديد الاستبدالات غير المتوقعة.

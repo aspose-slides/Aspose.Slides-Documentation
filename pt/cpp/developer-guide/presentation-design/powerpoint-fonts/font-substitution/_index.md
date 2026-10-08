@@ -1,6 +1,6 @@
 ---
 title: Configurar substituição de fontes em apresentações em C++
-linktitle: Substituição de fontes
+linktitle: Substituição de Fontes
 type: docs
 weight: 70
 url: /pt/cpp/font-substitution/
@@ -17,17 +17,19 @@ keywords:
 - apresentação
 - C++
 - Aspose.Slides
-description: "Configure regras de substituição de fontes e inspecione as fontes substituídas no Aspose.Slides para C++ ao renderizar ou converter apresentações PowerPoint e OpenDocument."
+description: "Configure regras de substituição de fontes e inspeccione fontes substituídas no Aspose.Slides para C++ ao renderizar ou converter apresentações PowerPoint e OpenDocument."
 ---
 ## **Visão geral**
 
 A substituição de fontes permite que o Aspose.Slides use uma fonte disponível no lugar de uma fonte que não pode ser acessada quando uma apresentação é renderizada ou convertida. A substituição afeta a saída renderizada; não altera a fonte atribuída ao conteúdo da apresentação.
 
-Você pode definir a fonte a ser usada quando uma fonte específica não está disponível e pode inspecionar as substituições que o Aspose.Slides fará durante a renderização. Isso ajuda a manter a saída consistente em ambientes com fontes instaladas diferentes.
+Você pode definir a fonte a ser usada quando uma fonte específica não está disponível e pode inspecionar as substituições que o Aspose.Slides fará durante a renderização. Isso ajuda a manter a saída consistente em ambientes com diferentes fontes instaladas.
+
+Se uma fonte está disponível, mas não possui um tipo de negrito dedicado, veja [Manipular fontes sem um tipo de negrito dedicado](/slides/pt/cpp/convert-powerpoint-to-pdf/#handle-fonts-without-a-dedicated-bold-typeface). Essa seção explica como rasterizar o texto afetado durante a exportação para PDF e as consequências para seleção de texto, pesquisa e dimensionamento.
 
 ## **Obter substituições de fontes**
 
-Use o método [IFontsManager::GetSubstitutions](https://reference.aspose.com/slides/pt/cpp/aspose.slides/ifontsmanager/getsubstitutions/) para determinar quais fontes serão substituídas quando a apresentação for renderizada. O método retorna objetos [FontSubstitutionInfo](https://reference.aspose.com/slides/pt/cpp/aspose.slides/fontsubstitutioninfo/) que identificam os nomes de fonte originais e substituídos.
+Use o método [IFontsManager::GetSubstitutions](https://reference.aspose.com/slides/cpp/aspose.slides/ifontsmanager/getsubstitutions/) para determinar quais fontes serão substituídas quando a apresentação for renderizada. O método retorna objetos [FontSubstitutionInfo](https://reference.aspose.com/slides/cpp/aspose.slides/fontsubstitutioninfo/) que identificam os nomes das fontes originais e substituídas.
 
 O exemplo C++ a seguir lista todas as substituições de fontes para uma apresentação:
 
@@ -52,13 +54,13 @@ presentation->Dispose();
 
 ## **Obter substituições de fontes para slides selecionados**
 
-Use a sobrecarga do método [IFontsManager::GetSubstitutions](https://reference.aspose.com/slides/pt/cpp/aspose.slides/ifontsmanager/getsubstitutions/) com um argumento `System::ArrayPtr<int32_t> slides` para inspecionar apenas as substituições necessárias para renderizar slides específicos. Isso é útil quando você está renderizando ou exportando parte de uma apresentação, verificando uma grande apresentação incrementalmente, localizando slides que dependem de fontes indisponíveis, preparando um pacote mínimo de fontes para um servidor ou contêiner, ou diagnosticando diferenças de renderização sem processar slides não relacionados.
+Use a sobrecarga do [IFontsManager::GetSubstitutions](https://reference.aspose.com/slides/cpp/aspose.slides/ifontsmanager/getsubstitutions/) com um argumento `System::ArrayPtr<int32_t> slides` para inspecionar apenas as substituições necessárias para renderizar slides específicos. Isso é útil quando você está renderizando ou exportando parte de uma apresentação, verificando uma grande apresentação de forma incremental, localizando slides que dependem de fontes indisponíveis, preparando um pacote mínimo de fontes para um servidor ou contêiner, ou diagnosticando diferenças de renderização sem processar slides não relacionados.
 
-A matriz `slides` contém índices de slides baseados em 1: `1` identifica o primeiro slide. Em contraste, o método [Presentation::get_Slide](https://reference.aspose.com/slides/pt/cpp/aspose.slides/presentation/get_slide/) usa um índice baseado em 0, de modo que o mesmo slide é acessado como `presentation->get_Slide(0)`. Lembre-se dessa diferença ao construir a matriz para evitar erros de deslocamento.
+A matriz `slides` contém índices de slides baseados em 1: `1` identifica o primeiro slide. Em contraste, o método [Presentation::get_Slide](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_slide/) usa um índice baseado em zero, de modo que o mesmo slide é acessado como `presentation->get_Slide(0)`. Mantenha essa diferença em mente ao construir a matriz para evitar erros de deslocamento.
 
-Chame a sobrecarga através do método [Presentation::get_FontsManager](https://reference.aspose.com/slides/pt/cpp/aspose.slides/presentation/get_fontsmanager/). Ele retorna apenas as substituições determinadas enquanto renderiza os slides selecionados. Cada resultado é um objeto [FontSubstitutionInfo](https://reference.aspose.com/slides/pt/cpp/aspose.slides/fontsubstitutioninfo/) contendo os nomes de fonte originais e substituídos. O resultado reflete o ambiente de fontes atual, regras de fallback configuradas, regras de substituição armazenadas em uma [IFontSubstRuleCollection](https://reference.aspose.com/slides/pt/cpp/aspose.slides/ifontsubstrulecollection/), e [fonts carregados externamente](/slides/pt/cpp/custom-font/).
+Chame a sobrecarga através do método [Presentation::get_FontsManager](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_fontsmanager/). Ele retorna apenas as substituições determinadas durante a renderização dos slides selecionados. Cada resultado é um objeto [FontSubstitutionInfo](https://reference.aspose.com/slides/cpp/aspose.slides/fontsubstitutioninfo/) contendo os nomes das fontes original e substituta. O resultado reflete o ambiente de fontes atual, as regras de fallback configuradas, as regras de substituição armazenadas em uma [IFontSubstRuleCollection](https://reference.aspose.com/slides/cpp/aspose.slides/ifontsubstrulecollection/), e [fontes carregadas externamente](/slides/pt/cpp/custom-font/).
 
-A mesma substituição pode ser exigida por mais de um slide selecionado. Desduplicar os resultados ao criar um inventário de fontes ou relatório de pré‑verificação. O exemplo a seguir relata cada substituição retornada e, em seguida, cria uma lista ordenada de mapeamentos de fontes únicos:
+A mesma substituição pode ser necessária em mais de um slide selecionado. Desduplicar os resultados ao criar um inventário de fontes ou um relatório de pré‑verificação. O exemplo a seguir relata cada substituição retornada e, em seguida, cria uma lista ordenada de mapeamentos de fontes exclusivos:
 
 ```cpp
 #include <DOM/FontSubstitutionInfo.h>
@@ -97,25 +99,25 @@ for (auto&& entry : sortedPreflightEntries)
 presentation->Dispose();
 ```
 
-A interface [IFontsManager](https://reference.aspose.com/slides/pt/cpp/aspose.slides/ifontsmanager/) fornece ambas as sobrecargas. Escolha uma de acordo com o escopo da operação de renderização:
+A interface [IFontsManager](https://reference.aspose.com/slides/cpp/aspose.slides/ifontsmanager/) fornece ambas as sobrecargas. Escolha uma de acordo com o escopo da operação de renderização:
 
 | Sobrecarga | Quando usar |
 |---|---|
-| [GetSubstitutions](https://reference.aspose.com/slides/pt/cpp/aspose.slides/ifontsmanager/getsubstitutions/) with no arguments | Você precisa de substituições para toda a apresentação. |
-| [GetSubstitutions](https://reference.aspose.com/slides/pt/cpp/aspose.slides/ifontsmanager/getsubstitutions/) with `System::ArrayPtr<int32_t> slides` | Você precisa de substituições para um intervalo selecionado, verificação incremental ou exportação parcial. |
+| [GetSubstitutions](https://reference.aspose.com/slides/cpp/aspose.slides/ifontsmanager/getsubstitutions/) sem argumentos | Você precisa de substituições para toda a apresentação. |
+| [GetSubstitutions](https://reference.aspose.com/slides/cpp/aspose.slides/ifontsmanager/getsubstitutions/) com `System::ArrayPtr<int32_t> slides` | Você precisa de substituições para um intervalo selecionado, verificação incremental ou exportação parcial. |
 
 ## **Definir regras de substituição de fontes**
 
-Para especificar a fonte que o Aspose.Slides deve usar quando uma fonte de origem não está disponível:
+Para especificar a fonte que o Aspose.Slides deve usar quando uma fonte de origem está indisponível:
 
 1. Carregue a apresentação.
-2. Crie definições de fontes para as fontes de origem e substituta.
-3. Crie uma [FontSubstRule](https://reference.aspose.com/slides/pt/cpp/aspose.slides/fontsubstrule/) com a condição [WhenInaccessible](https://reference.aspose.com/slides/pt/cpp/aspose.slides/fontsubstcondition/).
-4. Adicione a regra a uma [FontSubstRuleCollection](https://reference.aspose.com/slides/pt/cpp/aspose.slides/fontsubstrulecollection/).
-5. Atribua a coleção usando o método [IFontsManager::set_FontSubstRuleList](https://reference.aspose.com/slides/pt/cpp/aspose.slides/ifontsmanager/set_fontsubstrulelist/).
+2. Crie definições de fonte para as fontes de origem e substituta.
+3. Crie um [FontSubstRule](https://reference.aspose.com/slides/cpp/aspose.slides/fontsubstrule/) com a condição [WhenInaccessible](https://reference.aspose.com/slides/cpp/aspose.slides/fontsubstcondition/).
+4. Adicione a regra a uma [FontSubstRuleCollection](https://reference.aspose.com/slides/cpp/aspose.slides/fontsubstrulecollection/).
+5. Atribua a coleção usando o método [IFontsManager::set_FontSubstRuleList](https://reference.aspose.com/slides/cpp/aspose.slides/ifontsmanager/set_fontsubstrulelist/).
 6. Renderize ou converta a apresentação.
 
-O exemplo C++ a seguir substitui `Arial` por `SomeRareFont` quando `SomeRareFont` não está disponível e, em seguida, renderiza o primeiro slide para verificar o resultado. A fonte substituta deve estar disponível para o Aspose.Slides.
+O exemplo C++ a seguir substitui `Arial` por `SomeRareFont` quando `SomeRareFont` está indisponível e, em seguida, renderiza o primeiro slide para verificar o resultado. A fonte substituta deve estar disponível para o Aspose.Slides.
 
 ```cpp
 #include <DOM/FontSubstCondition.h>
@@ -149,45 +151,38 @@ presentation->Dispose();
 ```
 
 {{% alert color="info" title="Note" %}}
-Para uma alteração incondicional das fontes usadas em toda a apresentação, consulte [Font Replacement](/slides/pt/cpp/font-replacement/).
+Para uma alteração incondicional nas fontes usadas em toda a apresentação, veja [Substituição de fontes](/slides/pt/cpp/font-replacement/).
 {{% /alert %}}
 
 ## **Limitações para fontes de equações matemáticas**
 
-As regras de substituição de fontes fazem parte do processo padrão de seleção de fontes usado durante a renderização e conversão. Elas funcionam para texto comum quando o Aspose.Slides pode substituir uma fonte inacessível pela fonte disponível especificada por uma regra.
+As regras de substituição de fontes fazem parte do processo padrão de seleção de fontes usado durante a renderização e conversão. Elas funcionam para texto normal quando o Aspose.Slides pode substituir uma fonte inacessível pela fonte disponível especificada por uma regra.
 
-Equações do Office Math têm um requisito adicional. Se uma equação usa **Cambria Math**, o Aspose.Slides pode precisar exatamente dessa fonte para calcular e renderizar o layout da equação. Uma regra que substitui outra fonte matemática, como **STIX Two Math**, não pode substituir **Cambria Math** para esse propósito, e a renderização ainda pode relatar que **Cambria Math** é necessária.
+Equações do Office Math têm um requisito adicional. Se uma equação usa **Cambria Math**, o Aspose.Slides pode precisar dessa fonte exata para calcular e renderizar o layout da equação. Uma regra que substitui outra fonte matemática, como **STIX Two Math**, não pode substituir **Cambria Math** para esse fim, e a renderização ainda pode relatar que **Cambria Math** é necessária.
 
-Para renderizar ou converter essa apresentação, disponibilize **Cambria Math** ao Aspose.Slides. Instale-a no sistema operacional ou carregue-a como uma [font externa](/slides/pt/cpp/custom-font/).
+Para renderizar ou converter tal apresentação, torne **Cambria Math** disponível ao Aspose.Slides. Instale-a no sistema operacional ou carregue-a como uma [fonte externa](/slides/pt/cpp/custom-font/).
 
-Essa limitação aplica‑se ao layout da equação. As regras de substituição descritas acima continuam a ser aplicadas ao texto regular da apresentação.
+Essa limitação se aplica ao layout da equação. As regras de substituição descritas acima ainda se aplicam ao texto regular da apresentação.
 
-## **FAQ**
+## **Perguntas frequentes**
 
-**Qual é a diferença entre substituição de fonte e substituição de fontes?**
+**Qual é a diferença entre substituição de fontes e substituição de fontes (replacement)?**  
+[Substituição de fontes](/slides/pt/cpp/font-replacement/) altera intencionalmente uma fonte por outra em toda a apresentação. A substituição de fontes seleciona uma fonte para a saída renderizada quando a condição configurada é atendida, como quando a fonte original está indisponível.
 
-[Font replacement](/slides/pt/cpp/font-replacement/) altera intencionalmente uma fonte por outra em toda a apresentação. A substituição de fontes seleciona uma fonte para a saída renderizada quando a condição configurada é atendida, como quando a fonte original não está disponível.
+**Quando as regras de substituição são aplicadas?**  
+As regras participam da [sequência de seleção de fontes](/slides/pt/cpp/font-selection-sequence/) durante a renderização e conversão. Com `WhenInaccessible`, uma regra é usada apenas quando o Aspose.Slides não consegue acessar a fonte de origem.
 
-**Quando as regras de substituição são aplicadas?**
-
-As regras participam da [sequência de seleção de fontes](/slides/pt/cpp/font-selection-sequence/) durante a renderização e conversão. Com `WhenInaccessible`, uma regra é usada somente quando o Aspose.Slides não consegue acessar a fonte de origem.
-
-**O que acontece quando uma fonte está ausente e nenhuma regra de substituição está configurada?**
-
+**O que acontece quando uma fonte está ausente e nenhuma regra de substituição está configurada?**  
 O Aspose.Slides seleciona a fonte disponível mais próxima de acordo com seu processo de seleção de fontes. O resultado depende das fontes disponíveis no ambiente de tempo de execução.
 
-**Posso carregar fontes externas para evitar substituição?**
-
+**Posso carregar fontes externas para evitar a substituição?**  
 Sim. Você pode [carregar fontes externas](/slides/pt/cpp/custom-font/) para que o Aspose.Slides as use durante a renderização e conversão.
 
-**A Aspose distribui fontes com a biblioteca?**
+**A Aspose distribui fontes com a biblioteca?**  
+Não. Você é responsável por fornecer as fontes e por cumprir suas licenças.
 
-Não. Você é responsável por fornecer as fontes e cumprir suas licenças.
+**Os resultados de substituição podem diferir entre Windows, Linux e macOS?**  
+Sim. As fontes instaladas e os locais de pesquisa de fontes diferem por sistema operacional, de modo que uma fonte disponível em uma máquina pode precisar de substituição em outra.
 
-**Os resultados de substituição podem diferir entre Windows, Linux e macOS?**
-
-Sim. Fontes instaladas e locais de pesquisa de fontes diferem entre sistemas operacionais, de modo que uma fonte disponível em uma máquina pode exigir substituição em outra.
-
-**Como posso tornar a seleção de fontes consistente em conversões em lote?**
-
-Use os mesmos arquivos de fontes e versões em todas as máquinas ou contêineres, [carregue as fontes externas necessárias](/slides/pt/cpp/custom-font/), e [incorpore fontes](/slides/pt/cpp/embedded-font/) quando as licenças permitirem. Você também pode chamar [IFontsManager::GetSubstitutions](https://reference.aspose.com/slides/pt/cpp/aspose.slides/ifontsmanager/getsubstitutions/) antes da exportação para identificar substituições inesperadas.
+**Como garantir que a seleção de fontes seja consistente em conversões em lote?**  
+Use os mesmos arquivos e versões de fontes em todas as máquinas ou contêineres, [carregue as fontes externas necessárias](/slides/pt/cpp/custom-font/), e [incorpore fontes](/slides/pt/cpp/embedded-font/) quando a licença permitir. Você também pode chamar [IFontsManager::GetSubstitutions](https://reference.aspose.com/slides/cpp/aspose.slides/ifontsmanager/getsubstitutions/) antes da exportação para identificar substituições inesperadas.

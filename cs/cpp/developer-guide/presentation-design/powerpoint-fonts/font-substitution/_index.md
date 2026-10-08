@@ -1,35 +1,37 @@
 ---
-title: Konfigurace náhrady fontů v prezentacích v C++
-linktitle: Náhrada fontů
+title: Konfigurace náhrady písem v prezentacích v C++
+linktitle: Náhrada písem
 type: docs
 weight: 70
 url: /cs/cpp/font-substitution/
 keywords:
-- font
-- náhradní font
-- náhrada fontu
-- nahrazení fontu
-- nahrazení fontu
+- písmo
+- náhradní písmo
+- náhrada písma
+- nahrazení písma
+- nahrazení písma
 - pravidlo náhrady
-- pravidlo nahrazení
+- pravidlo výměny
 - PowerPoint
 - OpenDocument
 - prezentace
 - C++
 - Aspose.Slides
-description: "Konfigurujte pravidla náhrady fontů a prohlédněte si nahrazené fonty v Aspose.Slides pro C++, při vykreslování nebo konverzi prezentací PowerPoint a OpenDocument."
+description: "Konfigurujte pravidla náhrady písem a prohlédněte si nahrazená písma v Aspose.Slides pro C++ při vykreslování nebo převodu prezentací PowerPoint a OpenDocument."
 ---
 ## **Přehled**
 
-Náhrada fontů umožňuje Aspose.Slides použít dostupný font místo fontu, který nelze získat při vykreslování nebo konverzi prezentace. Náhrada ovlivňuje vykreslený výstup; nemění font přiřazený k obsahu prezentace.
+Náhrada písma umožňuje Aspose.Slides použít dostupné písmo místo písma, ke kterému nelze získat přístup při vykreslování nebo převodu prezentace. Náhrada ovlivňuje vykreslený výstup; nemění písmo přiřazené k obsahu prezentace.
 
-Můžete definovat font, který se použije, když je konkrétní font nedostupný, a můžete si prohlédnout náhrady, které Aspose.Slides během vykreslování provede. To pomáhá udržet výstup konzistentní v různých prostředích s různými nainstalovanými fonty.
+Můžete definovat písmo, které se má použít, když je konkrétní písmo nedostupné, a můžete prohlédnout náhrady, které Aspose.Slides provede během vykreslování. To pomáhá udržet výstup konzistentní napříč prostředími s různými nainstalovanými písmy.
 
-## **Získat náhrady fontů**
+Pokud je písmo dostupné, ale nemá dedikovaný tučný řez, viz [Zpracování písem bez dedikovaného tučného řezu](/slides/cs/cpp/convert-powerpoint-to-pdf/#handle-fonts-without-a-dedicated-bold-typeface). Tato sekce vysvětluje, jak během exportu do PDF převést dotčený text na rastrový a jaké jsou důsledky pro výběr textu, vyhledávání a škálování.
 
-Použijte metodu [IFontsManager::GetSubstitutions](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ifontsmanager/getsubstitutions/) k určení, které fonty budou při vykreslování prezentace nahrazeny. Metoda vrací objekty [FontSubstitutionInfo](https://reference.aspose.com/slides/cs/cpp/aspose.slides/fontsubstitutioninfo/), které identifikují původní a nahrazené názvy fontů.
+## **Získat náhrady písem**
 
-Následující příklad v C++ vypisuje všechny náhrady fontů pro prezentaci:
+Použijte metodu [IFontsManager::GetSubstitutions](https://reference.aspose.com/slides/cpp/aspose.slides/ifontsmanager/getsubstitutions/) k určení, která písma budou nahrazena při vykreslení prezentace. Metoda vrací objekty [FontSubstitutionInfo](https://reference.aspose.com/slides/cpp/aspose.slides/fontsubstitutioninfo/), které identifikují původní a nahrazené názvy písem.
+
+Následující příklad v C++ vypisuje všechny náhrady písem pro prezentaci:
 
 ```cpp
 #include <DOM/FontSubstitutionInfo.h>
@@ -50,15 +52,15 @@ for (auto&& substitution : presentation->get_FontsManager()->GetSubstitutions())
 presentation->Dispose();
 ```
 
-## **Získat náhrady fontů pro vybrané snímky**
+## **Získat náhrady písem pro vybrané snímky**
 
-Použijte přetížení [IFontsManager::GetSubstitutions](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ifontsmanager/getsubstitutions/) s argumentem `System::ArrayPtr<int32_t> slides` k prohlédnutí pouze náhrad potřebných pro vykreslení konkrétních snímků. To je užitečné, když vykreslujete nebo exportujete část prezentace, kontrolujete velkou prezentaci postupně, vyhledáváte snímky, které závisí na nedostupných fontech, připravujete minimální balíček fontů pro server nebo kontejner, nebo diagnostikujete rozdíly ve vykreslování bez zpracování nesouvisejících snímků.
+Použijte přetížení [IFontsManager::GetSubstitutions](https://reference.aspose.com/slides/cpp/aspose.slides/ifontsmanager/getsubstitutions/) s argumentem `System::ArrayPtr<int32_t> slides` k prohlédnutí pouze náhrad potřebných pro vykreslení konkrétních snímků. To je užitečné, když vykreslujete nebo exportujete část prezentace, kontrolujete velkou prezentaci postupně, hledáte snímky, které závisí na nedostupných písmech, připravujete minimální balíček písem pro server nebo kontejner, nebo diagnostikujete rozdíly ve vykreslování bez zpracování nesouvisejících snímků.
 
-Pole `slides` obsahuje jednorozměrné indexy snímků začínající od jedné: `1` označuje první snímek. Naopak metoda [Presentation::get_Slide](https://reference.aspose.com/slides/cs/cpp/aspose.slides/presentation/get_slide/) používá indexování od nuly, takže stejný snímek je přístupný jako `presentation->get_Slide(0)`. Mějte tento rozdíl na paměti při vytváření pole, abyste se vyhnuli chybám o jeden.
+Pole `slides` obsahuje jednorozměrné indexy snímků počínaje jednou: `1` označuje první snímek. Naopak metoda [Presentation::get_Slide](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_slide/) používá nulový index, takže stejný snímek se získá jako `presentation->get_Slide(0)`. Při vytváření pole mějte tento rozdíl na paměti, abyste předešli chybám o jeden.
 
-Volání přetížení přes metodu [Presentation::get_FontsManager](https://reference.aspose.com/slides/cs/cpp/aspose.slides/presentation/get_fontsmanager/) vrátí pouze náhrady určené při vykreslování vybraných snímků. Každý výsledek je objekt [FontSubstitutionInfo](https://reference.aspose.com/slides/cs/cpp/aspose.slides/fontsubstitutioninfo/) obsahující původní a nahrazené názvy fontů. Výsledek odráží aktuální prostředí fontů, nakonfigurovaná pravidla náhrad, pravidla náhrad uložená v [IFontSubstRuleCollection](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ifontsubstrulecollection/) a [externě načtené fonty](/slides/cs/cpp/custom-font/).
+Zavolejte přetížení pomocí metody [Presentation::get_FontsManager](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_fontsmanager/). Vrátí pouze náhrady určené během vykreslování vybraných snímků. Každý výsledek je objekt [FontSubstitutionInfo](https://reference.aspose.com/slides/cpp/aspose.slides/fontsubstitutioninfo/), který obsahuje původní a nahrazené názvy písem. Výsledek odráží aktuální prostředí písem, nakonfigurovaná pravidla pro záložní písma, pravidla náhrady uložená v [IFontSubstRuleCollection](https://reference.aspose.com/slides/cpp/aspose.slides/ifontsubstrulecollection/) a [externě načtená písma](/slides/cs/cpp/custom-font/).
 
-Stejná náhrada může být vyžadována více než jedním vybraným snímkem. Při vytváření inventáře fontů nebo preflight reportu odstraňte duplicitní výsledky. Následující příklad hlásí každou vrácenou náhradu a poté vytváří seřazený seznam jedinečných mapování fontů:
+Stejná náhrada může být vyžadována více než jedním vybraným snímkem. Při vytváření inventáře písem nebo předletového reportu deduplikujte výsledky. Následující příklad vypisuje každou vrácenou náhradu a poté vytváří seřazený seznam unikátních mapování písem:
 
 ```cpp
 #include <DOM/FontSubstitutionInfo.h>
@@ -97,23 +99,25 @@ for (auto&& entry : sortedPreflightEntries)
 presentation->Dispose();
 ```
 
-Rozhraní [IFontsManager](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ifontsmanager/) poskytuje obě přetížení. Vyberte to, které odpovídá rozsahu vykreslovací operace:
+Rozhraní [IFontsManager](https://reference.aspose.com/slides/cpp/aspose.slides/ifontsmanager/) poskytuje obě přetížení. Vyberte jedno podle rozsahu vykreslovací operace:
 
-| Přetížení | Kdy použít |
+| Přetížení | Použít, když |
 |---|---|
-| [GetSubstitutions](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ifontsmanager/getsubstitutions/) bez argumentů | Potřebujete náhrady pro celou prezentaci. |
-| [GetSubstitutions](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ifontsmanager/getsubstitutions/) s `System::ArrayPtr<int32_t> slides` | Potřebujete náhrady pro vybraný rozsah, postupnou kontrolu nebo částečný export. |
+| [GetSubstitutions](https://reference.aspose.com/slides/cpp/aspose.slides/ifontsmanager/getsubstitutions/) with no arguments | Potřebujete náhrady pro celou prezentaci. |
+| [GetSubstitutions](https://reference.aspose.com/slides/cpp/aspose.slides/ifontsmanager/getsubstitutions/) with `System::ArrayPtr<int32_t> slides` | Potřebujete náhrady pro vybraný rozsah, postupnou kontrolu nebo částečný export. |
 
-## **Nastavení pravidel náhrady fontů**
+## **Nastavit pravidla náhrady písem**
 
-1. Načtěte prezentaci.  
-2. Vytvořte definice fontů pro zdrojový a náhradní font.  
-3. Vytvořte [FontSubstRule](https://reference.aspose.com/slides/cs/cpp/aspose.slides/fontsubstrule/) s podmínkou [WhenInaccessible](https://reference.aspose.com/slides/cs/cpp/aspose.slides/fontsubstcondition/).  
-4. Přidejte pravidlo do [FontSubstRuleCollection](https://reference.aspose.com/slides/cs/cpp/aspose.slides/fontsubstrulecollection/).  
-5. Přiřaďte kolekci pomocí metody [IFontsManager::set_FontSubstRuleList](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ifontsmanager/set_fontsubstrulelist/).  
-6. Vykreslete nebo konvertujte prezentaci.
+Pro určení písma, které má Aspose.Slides použít, když je zdrojové písmo nedostupné:
 
-Následující příklad v C++ nahrazuje `Arial` za `SomeRareFont`, když je `SomeRareFont` nedostupný, a poté vykreslí první snímek pro ověření výsledku. Náhradní font musí být dostupný pro Aspose.Slides.
+1. Načtěte prezentaci.
+2. Vytvořte definice písem pro zdrojové a náhradní písmo.
+3. Vytvořte [FontSubstRule](https://reference.aspose.com/slides/cpp/aspose.slides/fontsubstrule/) s podmínkou [WhenInaccessible](https://reference.aspose.com/slides/cpp/aspose.slides/fontsubstcondition/).
+4. Přidejte pravidlo do [FontSubstRuleCollection](https://reference.aspose.com/slides/cpp/aspose.slides/fontsubstrulecollection/).
+5. Přiřaďte kolekci pomocí metody [IFontsManager::set_FontSubstRuleList](https://reference.aspose.com/slides/cpp/aspose.slides/ifontsmanager/set_fontsubstrulelist/).
+6. Vykreslete nebo převeďte prezentaci.
+
+Následující příklad v C++ nahrazuje `Arial` za `SomeRareFont`, když je `SomeRareFont` nedostupné, a poté vykresluje první snímek k ověření výsledku. Náhradní písmo musí být pro Aspose.Slides dostupné.
 
 ```cpp
 #include <DOM/FontSubstCondition.h>
@@ -146,46 +150,46 @@ image->Dispose();
 presentation->Dispose();
 ```
 
-{{% alert color="info" title="Poznámka" %}}
-Pro neomezenou změnu fontů používaných v celé prezentaci viz [Náhrada fontů](/slides/cs/cpp/font-replacement/).
+{{% alert color="info" title="Note" %}}
+Pro neomezenou změnu písem použitých v celé prezentaci viz [Nahrazení písma](/slides/cs/cpp/font-replacement/).
 {{% /alert %}}
 
-## **Omezení pro fonty matematických rovnic**
+## **Omezení pro písma matematických rovnic**
 
-Pravidla náhrady fontů jsou součástí standardního procesu výběru fontů používaného během vykreslování a konverze. Fungují pro běžný text, když Aspose.Slides může nahradit nedostupný font dostupným fontem určeným pravidlem.
+Pravidla náhrady písem jsou součástí standardního procesu výběru písma používaného při vykreslování a převodu. Fungují pro běžný text, když Aspose.Slides může nahradit nedostupné písmo dostupným písmem určeným pravidlem.
 
-Rovnice Office Math mají další požadavek. Pokud rovnice používá **Cambria Math**, Aspose.Slides může potřebovat právě tento font pro výpočet a vykreslení rozvržení rovnice. Pravidlo, které nahrazuje jiný matematický font, například **STIX Two Math**, nemůže nahradit **Cambria Math** pro tento účel a vykreslování může stále uvádět, že **Cambria Math** je vyžadován.
+Rovnice Office Math mají další požadavek. Pokud rovnice používá **Cambria Math**, Aspose.Slides může potřebovat právě toto písmo k výpočtu a vykreslení rozvržení rovnice. Pravidlo, které nahrazuje jiné matematické písmo, například **STIX Two Math**, nemůže nahradit **Cambria Math** pro tento účel a vykreslování může stále hlásit, že **Cambria Math** je vyžadováno.
 
-Pro vykreslení nebo konverzi takové prezentace zajistěte, aby **Cambria Math** byl dostupný pro Aspose.Slides. Nainstalujte jej v operačním systému nebo jej načtěte jako [externí font](/slides/cs/cpp/custom-font/).
+Pro vykreslení nebo převod takové prezentace zajistěte, aby bylo **Cambria Math** dostupné pro Aspose.Slides. Nainstalujte jej v operačním systému nebo jej načtěte jako [externí písmo](/slides/cs/cpp/custom-font/).
 
-Toto omezení se vztahuje na rozvržení rovnic. Popsaná pravidla náhrady stále platí pro běžný text v prezentaci.
+Toto omezení platí pro rozvržení rovnic. Výše popsaná pravidla náhrady stále platí pro běžný text prezentace.
 
 ## **Často kladené otázky**
 
-**Jaký je rozdíl mezi nahrazením fontu a substitucí fontu?**
+**Jaký je rozdíl mezi nahrazením písma a náhradou písma?**
 
-[Náhrada fontů](/slides/cs/cpp/font-replacement/) záměrně mění jeden font na jiný v celé prezentaci. Substituce fontu vybere font pro vykreslený výstup, když je splněna nakonfigurovaná podmínka, například když je původní font nedostupný.
+[Nahrazení písma](/slides/cs/cpp/font-replacement/) úmyslně mění jedno písmo na jiné v celé prezentaci. Náhrada písma vybírá písmo pro vykreslený výstup, když je splněna nakonfigurovaná podmínka, například když je původní písmo nedostupné.
 
-**Kdy se pravidla substituce aplikují?**
+**Kdy se pravidla náhrady používají?**
 
-Pravidla se podílejí na [sekvenci výběru fontu](/slides/cs/cpp/font-selection-sequence/) během vykreslování a konverze. S podmínkou `WhenInaccessible` se pravidlo použije jen tehdy, když Aspose.Slides nemůže získat zdrojový font.
+Pravidla se podílejí na [sekvence výběru písma](/slides/cs/cpp/font-selection-sequence/) během vykreslování a převodu. S `WhenInaccessible` se pravidlo použije pouze tehdy, když Aspose.Slides nemůže získat přístup ke zdrojovému písmu.
 
-**Co se stane, když font chybí a není nakonfigurováno žádné pravidlo náhrady?**
+**Co se stane, když chybí písmo a není nakonfigurováno žádné pravidlo náhrady?**
 
-Aspose.Slides vybere nejbližší dostupný font podle svého procesu výběru fontu. Výsledek závisí na fontech dostupných v běhovém prostředí.
+Aspose.Slides vybere nejbližší dostupné písmo podle svého procesu výběru písma. Výsledek závisí na písmenech dostupných v runtime prostředí.
 
-**Mohu načíst externí fonty, abych se vyhnul/a náhradě?**
+**Mohu načíst externí písma, aby se předešlo náhradě?**
 
-Ano. Můžete [načíst externí fonty](/slides/cs/cpp/custom-font/), aby je Aspose.Slides mohl používat během vykreslování a konverze.
+Ano. Můžete [načíst externí písma](/slides/cs/cpp/custom-font/), aby je Aspose.Slides mohl použít během vykreslování a převodu.
 
-**Distribuuje Aspose fonty spolu s knihovnou?**
+**Distribuuje Aspose písma spolu s knihovnou?**
 
-Ne. Vy jste zodpovědní za poskytování fontů a dodržování jejich licencí.
+Ne. Vy jste zodpovědní za poskytování písem a dodržování jejich licencí.
 
 **Mohou se výsledky náhrady lišit mezi Windows, Linux a macOS?**
 
-Ano. Instalované fonty a umístění vyhledávání fontů se liší podle operačního systému, takže font dostupný na jednom počítači může vyžadovat náhradu na jiném.
+Ano. Instalovaná písma a umístění pro vyhledávání písem se liší podle operačního systému, takže písmo dostupné na jednom počítači může vyžadovat náhradu na jiném.
 
-**Jak mohu zajistit konzistentní výběr fontů při hromadných konverzích?**
+**Jak zajistit konzistentní výběr písem při dávkových převodech?**
 
-Používejte stejné soubory fontů a jejich verze na každém stroji nebo kontejneru, [načtěte požadované externí fonty](/slides/cs/cpp/custom-font/) a [vložte fonty](/slides/cs/cpp/embedded-font/) pokud licence to povoluje. Můžete také zavolat [IFontsManager::GetSubstitutions](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ifontsmanager/getsubstitutions/) před exportem, abyste identifikovali nečekané náhrady.
+Používejte stejné soubory písem a jejich verze na každém stroji nebo kontejneru, [načtěte požadovaná externí písma](/slides/cs/cpp/custom-font/) a [vložit písma](/slides/cs/cpp/embedded-font/) pokud licence dovolí. Můžete také před exportem zavolat [IFontsManager::GetSubstitutions](https://reference.aspose.com/slides/cpp/aspose.slides/ifontsmanager/getsubstitutions/) pro identifikaci neočekávaných náhrad.

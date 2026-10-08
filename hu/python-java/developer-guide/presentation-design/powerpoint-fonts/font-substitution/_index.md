@@ -1,36 +1,39 @@
 ---
-title: Betűtípus-helyettesítés konfigurálása bemutatókban Python segítségével Java-n keresztül
-linktitle: Betűtípus helyettesítés
+title: Betűtípus-helyettesítés beállítása prezentációkban Python használatával Java-n keresztül
+linktitle: Betűtípus-helyettesítés
 type: docs
 weight: 70
 url: /hu/python-java/font-substitution/
 keywords:
 - betűtípus
 - helyettesítő betűtípus
-- betűtípus helyettesítés
+- betűtípus-helyettesítés
 - betűtípus cseréje
-- betűtípus csere
+- betűtípus-csere
 - helyettesítési szabály
-- cserélési szabály
+- csereszabály
 - PowerPoint
 - OpenDocument
-- bemutató
+- prezentáció
 - Python
 - Java
 - Aspose.Slides
-description: "Betűtípus-helyettesítési szabályok konfigurálása és a helyettesített betűtípusok ellenőrzése az Aspose.Slides Python verziójában Java-n keresztül a PowerPoint és OpenDocument bemutatók renderelése vagy konvertálása során."
+description: "Konfigurálja a betűtípus-helyettesítési szabályokat, és ellenőrizze a helyettesített betűtípusokat az Aspose.Slides for Python via Java-ben PowerPoint és OpenDocument prezentációk renderingja vagy konvertálása során."
 ---
 ## **Áttekintés**
 
-A betűtípus-helyettesítés lehetővé teszi az Aspose.Slides számára, hogy egy elérhető betűtípust használjon egy nem hozzáférhető betűtípus helyett, amikor egy bemutatót renderelnek vagy konvertálnak. A helyettesítés a renderelt kimenetet érinti; nem módosítja a bemutató tartalmához rendelt betűtípust.
+A betűtípus‑helyettesítés lehetővé teszi, hogy az Aspose.Slides egy elérhető betűtípust használjon egy olyan betűtípus helyett, amelyet a prezentáció megjelenítése vagy konvertálása során nem lehet elérni. A helyettesítés a rendering eredményét érinti; nem módosítja a prezentáció tartalmához rendelt betűtípust.
 
-Megadhatja a használni kívánt betűtípust, ha egy adott betűtípus nem érhető el, és megtekintheti az Aspose.Slides által a renderelés során végrehajtott helyettesítéseket. Ez segít a kimenetet konzisztensnek tartani különböző, eltérő betűtípusokkal rendelkező környezetekben.
+Meghatározhatja, hogy mely betűtípust kell használni, ha egy adott betűtípus nem érhető el, és ellenőrizheti a Aspose.Slides által a rendering során alkalmazott helyettesítéseket. Ez segít egységes kimenetet biztosítani különböző környezetekben, ahol eltérő betűtípusok vannak telepítve.
 
-## **Betűtípus-helyettesítések lekérése**
+Ha egy betűtípus elérhető, de nincs számára dedikált félkövér változat, tekintse meg a [Handle Fonts Without a Dedicated Bold Typeface](/slides/hu/python-java/convert-powerpoint-to-pdf/#handle-fonts-without-a-dedicated-bold-typeface) című szakaszt. Ebben a szakaszban leírják, hogyan kell rasterizálni az érintett szöveget PDF‑exportáláskor, valamint az ennek szövegkijelölésre, keresésre és méretezésre gyakorolt hatásait.
 
-Használja a [FontsManager.getSubstitutions](https://reference.aspose.com/slides/hu/python-java/aspose.slides/fontsmanager/#getSubstitutions) módszert annak meghatározásához, mely betűtípusok lesznek helyettesítve a bemutató renderelésekor. A metódus [FontSubstitutionInfo](https://reference.aspose.com/slides/hu/python-java/aspose.slides/fontsubstitutioninfo/) objektumokat ad vissza, amelyek az eredeti és a helyettesített betűtípusok nevét azonosítják.
+## **Betűtípus‑helyettesítések lekérése**
 
-A következő Python példa felsorolja az összes betűtípus-helyettesítést egy bemutatóhoz:
+Használja a [FontsManager.getSubstitutions](https://reference.aspose.com/slides/python-java/aspose.slides/fontsmanager/#getSubstitutions) metódust annak meghatározásához, mely betűtípusok lesznek helyettesítve a prezentáció rendering során. A metódus [FontSubstitutionInfo](https://reference.aspose.com/slides/python-java/aspose.slides/fontsubstitutioninfo/) objektumokat ad vissza, amelyek az eredeti és a helyettesített betűtípusneveket tartalmazzák.
+
+Az alábbi Python‑példa felsorolja az összes betűtípus‑helyettesítést egy prezentációhoz:
+
 ```python
 import jpype
 import asposeslides
@@ -48,15 +51,16 @@ finally:
     presentation.dispose()
 ```
 
-## **Kijelölt diák betűtípus-helyettesítéseinek lekérése**
+## **Betűtípus‑helyettesítések lekérése a kiválasztott diákra**
 
-Használja a [FontsManager.getSubstitutions](https://reference.aspose.com/slides/hu/python-java/aspose.slides/fontsmanager/#getSubstitutions) túltöltést egy Java egész szám tömb argumentummal, hogy csak a konkrét diák rendereléséhez szükséges helyettesítéseket ellenőrizze. Ez akkor hasznos, amikor a bemutató egy részét rendereli vagy exportálja, nagy bemutatót fokozatosan ellenőriz, olyan diákot keres, amelyek nem elérhető betűtípusokra támaszkodnak, egy minimális betűtípuscsomagot készít szerverhez vagy konténerhez, vagy a renderelési különbségeket diagnosztizálja anélkül, hogy a nem releváns diák feldolgozásra kerülnének.
+Használja a [FontsManager.getSubstitutions](https://reference.aspose.com/slides/python-java/aspose.slides/fontsmanager/#getSubstitutions) túlterhelést Java‑egész számú tömb argumentummal, hogy csak a kiválasztott diák megjelenítéséhez szükséges helyettesítéseket ellenőrizze. Ez hasznos, ha a prezentáció egy részét rendereli vagy exportálja, fokozatosan ellenőrzi a nagy prezentációt, olyan diákokat keres, amelyek nem elérhető betűtípusokra támaszkodnak, vagy minimális betűtípus‑csomagot szeretne előkészíteni egy szerverhez vagy konténerhez, illetve a rendering‑különbségek diagnosztizálásához anélkül, hogy a nem releváns diákokat feldolgozná.
 
-`slides` tömb egy‑alapú diaindexeket tartalmaz: `1` az első diát jelöli. Ezzel ellentétben a [Presentation.getSlides](https://reference.aspose.com/slides/hu/python-java/aspose.slides/presentation/#getSlides) gyűjttár‑hozzáférő null‑alapú indexelést használ, így ugyanaz a dia így érhető el: `presentation.getSlides().get_Item(0)`. Tartsa szem előtt ezt a különbséget a tömb építésekor, hogy elkerülje az egy‑off hibákat.
+A `slides` tömb egy‑bázisú dia‑indexeket tartalmaz: a `1` az első diát jelöli. Ezzel szemben a [Presentation.getSlides](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#getSlides) gyűjteményelérő null‑bázisú indexelést használ, így ugyanaz a dia a `presentation.getSlides().get_Item(0)` kifejezéssel érhető el. Tartsa észben ezt a különbséget a tömb összeállításakor, hogy elkerülje az off‑by‑one hibákat.
 
-Hívja meg a túltöltést a [Presentation.getFontsManager](https://reference.aspose.com/slides/hu/python-java/aspose.slides/presentation/#getFontsManager) módszeren keresztül. Ez csak a kiválasztott diák renderelése során meghatározott helyettesítéseket adja vissza. Minden eredmény egy [FontSubstitutionInfo](https://reference.aspose.com/slides/hu/python-java/aspose.slides/fontsubstitutioninfo/) objektum, amely az eredeti és a helyettesített betűtípusok nevét tartalmazza. Az eredmény tükrözi a jelenlegi betűtípus‑környezetet, a beállított tartalék‑szabályokat, a [FontSubstRuleCollection](https://reference.aspose.com/slides/hu/python-java/aspose.slides/fontsubstrulecollection/)‑ban tárolt helyettesítési szabályokat, valamint a [külsőleg betöltött betűtípusok](/slides/hu/python-java/custom-font/) betűtípusokat.
+Hívja a túlterhelést a [Presentation.getFontsManager](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#getFontsManager) metóduson keresztül. Csak a kiválasztott diák renderelése közben meghatározott helyettesítéseket adja vissza. Minden eredmény egy [FontSubstitutionInfo](https://reference.aspose.com/slides/python-java/aspose.slides/fontsubstitutioninfo/) objektum, amely az eredeti és a helyettesített betűtípusneveket tartalmazza. Az eredmény tükrözi a jelenlegi betűtípus‑környezetet, a konfigurált visszaeső szabályokat, a [FontSubstRuleCollection](https://reference.aspose.com/slides/python-java/aspose.slides/fontsubstrulecollection/)‑ben tárolt helyettesítési szabályokat és a [externally loaded fonts](/slides/hu/python-java/custom-font/) listáját.
 
-Ugyanaz a helyettesítés több mint egy kijelölt dián is szükséges lehet. Szűrje ki a duplikátumokat, amikor betűtípus‑készletet vagy előellenőrző jelentést készít. A következő példa minden visszaadott helyettesítést jelent, majd egy rendezett listát hoz létre az egyedi betűtípus leképezésekről:
+Ugyanaz a helyettesítés több, mint egy kiválasztott diához is szükséges lehet. Szűrje le a duplikátumokat, amikor betűtípus‑leltárt vagy pre‑flight jelentést készít. Az alábbi példa minden visszaadott helyettesítést jelent, majd egy rendezett listát hoz létre az egyedi betűtípus‑leképezésekről:
+
 ```python
 import jpype
 import asposeslides
@@ -87,25 +91,26 @@ finally:
     presentation.dispose()
 ```
 
-A [FontsManager](https://reference.aspose.com/slides/hu/python-java/aspose.slides/fontsmanager/) osztály mindkét túltöltést biztosítja. Válasszon egyet a renderelési művelet hatóköre szerint:
+A [FontsManager](https://reference.aspose.com/slides/python-java/aspose.slides/fontsmanager/) osztály mindkét túlterhelést biztosítja. Válassza a megfelelőt a rendering művelet hatókörétől függően:
 
-| Túlterhelés | Használja amikor |
+| Metódus | Használja, ha |
 |---|---|
-| [getSubstitutions](https://reference.aspose.com/slides/hu/python-java/aspose.slides/fontsmanager/#getSubstitutions) with no arguments | A teljes bemutatóhoz szükséges helyettesítéseket szeretné. |
-| [getSubstitutions](https://reference.aspose.com/slides/hu/python-java/aspose.slides/fontsmanager/#getSubstitutions) with a Java integer array | Kijelölt tartományhoz, fokozatos ellenőrzéshez vagy részleges exportáláshoz szükséges helyettesítéseket szeretne. |
+| [getSubstitutions](https://reference.aspose.com/slides/python-java/aspose.slides/fontsmanager/#getSubstitutions) argumentumok nélkül | Az egész prezentációhoz szükséges helyettesítések. |
+| [getSubstitutions](https://reference.aspose.com/slides/python-java/aspose.slides/fontsmanager/#getSubstitutions) Java‑egész számú tömbbel | Kiválasztott tartományhoz, fokozatos ellenőrzéshez vagy részleges exportáláshoz szükséges helyettesítések. |
 
-## **Betűtípus-helyettesítési szabályok beállítása**
+## **Betűtípus‑helyettesítési szabályok beállítása**
 
-A betűtípus megadásához, amelyet az Aspose.Slidesnek kell használnia, ha a forrás betűtípus nem érhető el:
+Ahhoz, hogy meghatározza, mely betűtípust használja az Aspose.Slides egy forrás‑betűtípus hiánya esetén:
 
-1. Töltse be a bemutatót.
-2. Hozzon létre betűtípus‑definíciókat a forrás- és helyettesítő betűtípusokhoz.
-3. Hozzon létre egy [FontSubstRule](https://reference.aspose.com/slides/hu/python-java/aspose.slides/fontsubstrule/) szabályt a [WhenInaccessible](https://reference.aspose.com/slides/hu/python-java/aspose.slides/fontsubstcondition/#WhenInaccessible) feltétellel.
-4. Adja hozzá a szabályt egy [FontSubstRuleCollection](https://reference.aspose.com/slides/hu/python-java/aspose.slides/fontsubstrulecollection/) gyűjteményhez.
-5. Rendelje hozzá a gyűjteményt a [FontsManager.setFontSubstRuleList](https://reference.aspose.com/slides/hu/python-java/aspose.slides/fontsmanager/#setFontSubstRuleList) módszerrel.
-6. Renderelje vagy konvertálja a bemutatót.
+1. Töltse be a prezentációt.
+2. Hozzon létre betűtípus‑definíciókat a forrás és a helyettesítő betűtípusokhoz.
+3. Hozzon létre egy [FontSubstRule](https://reference.aspose.com/slides/python-java/aspose.slides/fontsubstrule/) objektumot a [WhenInaccessible](https://reference.aspose.com/slides/python-java/aspose.slides/fontsubstcondition/#WhenInaccessible) feltétellel.
+4. Adja hozzá a szabályt egy [FontSubstRuleCollection](https://reference.aspose.com/slides/python-java/aspose.slides/fontsubstrulecollection/) gyűjteményhez.
+5. Rendelje hozzá a gyűjteményt a [FontsManager.setFontSubstRuleList](https://reference.aspose.com/slides/python-java/aspose.slides/fontsmanager/#setFontSubstRuleList) metódussal.
+6. Renderelje vagy konvertálja a prezentációt.
 
-A következő Python példa a `SomeRareFont` nem elérhetősége esetén az `Arial` betűtípust helyettesíti, majd rendereli az első diát az eredmény ellenőrzéséhez. A helyettesítő betűtípust az Aspose.Slidesnek elérhetőnek kell lennie.
+Az alábbi Python‑példa a `Arial`‑t helyettesíti a `SomeRareFont`‑nal, amikor a `SomeRareFont` nem elérhető, majd rendereli az első diát a végeredmény ellenőrzéséhez. A helyettesítő betűtípusnak elérhetőnek kell lennie az Aspose.Slides számára.
+
 ```python
 import jpype
 import asposeslides
@@ -134,46 +139,46 @@ finally:
     presentation.dispose()
 ```
 
-{{% alert color="info" title="Megjegyzés" %}}
-A bemutató során használt betűtípusok feltétlen módosításához lásd a [Betűtípus csere](/slides/hu/python-java/font-replacement/) oldalt.
+{{% alert color="info" title="Note" %}}
+Az egész prezentációban használt betűtípusok feltétel nélküli módosításához lásd a [Font Replacement](/slides/hu/python-java/font-replacement/).
 {{% /alert %}}
 
-## **Korlátozások a matematikai egyenlet betűtípusoknál**
+## **Matematikai egyenlet‑betűtípusok korlátozásai**
 
-A helyettesítési szabályok a renderelés és konverzió során használt szabványos betűtípus‑kiválasztási folyamat részei. Rendszeres szövegnél működnek, amikor az Aspose.Slides egy nem elérhető betűtípust a szabály által meghatározott elérhető betűtípussal helyettesíti.
+A betűtípus‑helyettesítési szabályok a rendering és konvertálás során használt standard betűtípus‑kiválasztási folyamat részei. Szokásos szövegre működnek, amikor az Aspose.Slides helyettesítheti a nem elérhető betűtípust a szabályban megadott elérhető betűtípussal.
 
-Az Office Math egyenleteknek további követelményük van. Ha egy egyenlet **Cambria Math** betűtípust használ, az Aspose.Slidesnek pontosan ezt a betűtípust kell rendelkezésre állnia az egyenlet elrendezésének kiszámításához és rendereléséhez. Egy olyan szabály, amely egy másik matematikai betűtípust, például a **STIX Two Math**‑ot helyettesíti, nem tudja helyettesíteni a **Cambria Math**‑ot erre a célra, és a renderelés továbbra is jelezheti, hogy a **Cambria Math** szükséges.
+Az Office Math egyenleteknek további követelményük van. Ha egy egyenlet **Cambria Math**‑ot használ, az Aspose.Slidesnek pontosan ezt a betűtípust kell rendelkezésre állnia az egyenlet elrendezésének kiszámításához és rendereléséhez. Egy másik matematikai betűtípust, például **STIX Two Math**‑ot helyettesítő szabály nem tudja felváltani a **Cambria Math**‑ot, ezért a rendering továbbra is jelezheti, hogy a **Cambria Math**‑ra van szükség.
 
-Az ilyen bemutató rendereléséhez vagy konvertálásához tegye a **Cambria Math** betűtípust az Aspose.Slides számára elérhetővé. Telepítse azt az operációs rendszerben vagy töltse be egy [külső betűtípusként](/slides/hu/python-java/custom-font/) .
+Ilyen prezentáció rendereléséhez vagy konvertálásához tegye a **Cambria Math** betűtípust elérhetővé az Aspose.Slides számára. Telepítse a rendszerben, vagy töltse be egy [external font](/slides/hu/python-java/custom-font/)‑ként.
 
-Ez a korlátozás az egyenletelrendezésre vonatkozik. A fent leírt helyettesítési szabályok továbbra is érvényesek a bemutató normál szövegére.
+Ez a korlátozás az egyenlet‑elrendezésre vonatkozik. A fent leírt helyettesítési szabályok továbbra is érvényesek a szokásos prezentáció‑szövegre.
 
 ## **GYIK**
 
-**Mi a különbség a betűtípus csere és a betűtípus helyettesítés között?**
+**Mi a különbség a betűtípus‑cseréhez és a betűtípus‑helyettesítéshez?**
 
-[Betűtípus csere](/slides/hu/python-java/font-replacement/) szándékosan megváltoztat egy betűtípust egy másikra a teljes bemutatóban. A betűtípus‑helyettesítés egy betűtípust választ a renderelt kimenethez, amikor a beállított feltétel teljesül, például ha az eredeti betűtípus nem érhető el.
+[Font replacement](/slides/hu/python-java/font-replacement/) szándékosan megváltoztat egy betűtípust egy másikra a teljes prezentációban. A betűtípus‑helyettesítés pedig a renderelt kimenethez választ betűtípust, amikor a konfigurált feltétel teljesül, például ha az eredeti betűtípus nem elérhető.
 
 **Mikor alkalmazzák a helyettesítési szabályokat?**
 
-A szabályok a renderelés és konverzió során a [betűtípus‑kiválasztási sorozat](/slides/hu/python-java/font-selection-sequence/) résztvevői. A `WhenInaccessible` esetén a szabály csak akkor használatos, ha az Aspose.Slides nem fér hozzá a forrás betűtípushoz.
+A szabályok részt vesznek a [font selection sequence](/slides/hu/python-java/font-selection-sequence/) folyamatában rendering és konvertálás közben. A `WhenInaccessible` szabály csak akkor kerül használatra, amikor az Aspose.Slides nem tudja elérni a forrás‑betűtípust.
 
-**Mi történik, ha egy betűtípus hiányzik, és nincs beállítva helyettesítési szabály?**
+**Mi történik, ha egy betűtípus hiányzik, és nincs konfigurálva helyettesítési szabály?**
 
-Az Aspose.Slides a legközelebbi elérhető betűtípust választja a betűtípus‑kiválasztási folyamata szerint. Az eredmény a futási környezetben elérhető betűtípusoktól függ.
+Az Aspose.Slides a legközelebbi elérhető betűtípust választja a betűtípus‑kiválasztási folyamata alapján. Az eredmény a futásidejű környezetben elérhető betűtípusoktól függ.
 
 **Betölthetek külső betűtípusokat a helyettesítés elkerüléséhez?**
 
-Igen. [Külső betűtípusok betöltése](/slides/hu/python-java/custom-font/) lehetővé teszi, hogy az Aspose.Slides használja őket a renderelés és konverzió során.
+Igen. Betöltheti a [external fonts](/slides/hu/python-java/custom-font/)‑t, hogy az Aspose.Slides használni tudja őket rendering és konvertálás közben.
 
-**Terjeszti-e az Aspose a betűtípusokat a könyvtárral együtt?**
+**Az Aspose terjeszti a betűtípusokat a könyvtárral együtt?**
 
-Nem. Önnek kell biztosítania a betűtípusokat és betartania azok licencfeltételeit.
+Nem. Ön felelős a betűtípusok biztosításáért és a licencfeltételek betartásáért.
 
-**Eltérhetnek-e a helyettesítési eredmények Windows, Linux és macOS között?**
+**Eltérhetnek a helyettesítési eredmények Windows, Linux és macOS között?**
 
-Igen. A telepített betűtípusok és a betűtípus‑keresési helyek operációs rendszerenként eltérnek, így egy gépen elérhető betűtípus egy másik gépen helyettesítést igényelhet.
+Igen. A telepített betűtípusok és a betűtípus‑keresési helyek operációs rendszerenként eltérnek, ezért egy gépen elérhető betűtípus egy másikon helyettesítést igényelhet.
 
 **Hogyan tehetem a betűtípus‑kiválasztást konzisztenssé kötegelt konverziók során?**
 
-Használjon ugyanazokat a betűtípus‑fájlokat és verziókat minden gépen vagy konténeren, [töltse be a szükséges külső betűtípusokat](/slides/hu/python-java/custom-font/), és [betűtípusok beágyazása](/slides/hu/python-java/embedded-font/) amikor a licenc megengedi. Ezen felül meghívhatja a [FontsManager.getSubstitutions](https://reference.aspose.com/slides/hu/python-java/aspose.slides/fontsmanager/#getSubstitutions) metódust exportálás előtt az előre nem várt helyettesítések azonosításához.
+Használja ugyanazokat a betűtáfileket és verziókat minden gépen vagy konténeren, [load required external fonts](/slides/hu/python-java/custom-font/), és [embed fonts](/slides/hu/python-java/embedded-font/) ha a licenc megengedi. Emellett hívhatja a [FontsManager.getSubstitutions](https://reference.aspose.com/slides/python-java/aspose.slides/fontsmanager/#getSubstitutions) metódust exportálás előtt, hogy azonosítsa a nem várt helyettesítéseket.

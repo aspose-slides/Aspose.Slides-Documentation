@@ -1,15 +1,15 @@
 ---
-title: กำหนดค่าการแทนที่แบบอักษรในการนำเสนอบน Android
+title: กำหนดการแทนที่แบบอักษรในการนำเสนอบน Android
 linktitle: การแทนที่แบบอักษร
 type: docs
 weight: 70
 url: /th/androidjava/font-substitution/
 keywords:
 - แบบอักษร
-- แทนที่แบบอักษร
+- แบบอักษรสำรอง
 - การแทนที่แบบอักษร
-- เปลี่ยนแบบอักษร
 - การเปลี่ยนแบบอักษร
+- การแทนที่แบบอักษร
 - กฎการแทนที่
 - กฎการเปลี่ยน
 - PowerPoint
@@ -18,19 +18,21 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "กำหนดกฎการแทนที่แบบอักษรและตรวจสอบแบบอักษรที่ถูกแทนที่ใน Aspose.Slides สำหรับ Android ผ่าน Java เมื่อทำการเรนเดอร์หรือแปลงการนำเสนอ"
+description: "กำหนดกฎการแทนที่แบบอักษรและตรวจสอบแบบอักษรที่ถูกแทนที่ใน Aspose.Slides สำหรับ Android ผ่าน Java ขณะเรนเดอร์หรือแปลงการนำเสนอ."
 ---
 ## **ภาพรวม**
 
-การแทนที่แบบอักษรทำให้ Aspose.Slides ใช้แบบอักษรที่มีอยู่แทนแบบอักษรที่ไม่สามารถเข้าถึงได้เมื่อการนำเสนอถูกเรนเดอร์หรือแปลง การแทนที่มีผลต่อผลลัพธ์ที่เรนเดอร์; มันไม่ได้เปลี่ยนแบบอักษรที่กำหนดให้กับเนื้อหาการนำเสนอ
+การแทนที่แบบอักษร (Font substitution) ทำให้ Aspose.Slides สามารถใช้แบบอักษรที่มีอยู่แทนแบบอักษรที่ไม่สามารถเข้าถึงได้เมื่อการนำเสนอถูกเรนเดอร์หรือแปลง การแทนที่ส่งผลต่อผลลัพธ์ที่เรนเดอร์เท่านั้น; มิได้เปลี่ยนแบบอักษรที่กำหนดให้กับเนื้อหาการนำเสนอ
 
-คุณสามารถกำหนดแบบอักษรที่ใช้เมื่อแบบอักษรบางตัวไม่พร้อมใช้งานและคุณสามารถตรวจสอบการแทนที่ที่ Aspose.Slides จะทำในระหว่างการเรนเดอร์ได้ สิ่งนี้ช่วยให้ผลลัพธ์คงที่ในอุปกรณ์ Android และสภาพแวดล้อมที่มีแบบอักษรที่มีให้แตกต่างกัน
+คุณสามารถกำหนดแบบอักษรที่จะใช้เมื่อแบบอักษรเฉพาะไม่มีให้ใช้งาน และสามารถตรวจสอบการแทนที่ที่ Aspose.Slides จะทำระหว่างการเรนเดอร์ได้ สิ่งนี้ช่วยให้ผลลัพธ์คงที่ในอุปกรณ์ Android และสภาพแวดล้อมที่มีแบบอักษรต่างกัน
+
+หากแบบอักษรพร้อมใช้งานแต่ไม่มีตัวหนาแบบเฉพาะ, ดูที่ [Handle Fonts Without a Dedicated Bold Typeface](/slides/th/androidjava/convert-powerpoint-to-pdf/#handle-fonts-without-a-dedicated-bold-typeface). ส่วนนั้นอธิบายวิธีทำให้ข้อความที่ได้รับผลกระทบเป็น raster ระหว่างการส่งออกเป็น PDF และผลกระทบต่อการเลือกข้อความ, การค้นหา, และการขยายขนาด
 
 ## **รับการแทนที่แบบอักษร**
 
-ใช้เมธอด [IFontsManager.getSubstitutions](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ifontsmanager/#getSubstitutions--) เพื่อตรวจสอบว่าแบบอักษรใดจะถูกแทนที่เมื่อการนำเสนอถูกเรนเดอร์ เมธอดนี้ส่งคืนอ็อบเจ็กต์ [FontSubstitutionInfo](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/fontsubstitutioninfo/) ที่ระบุชื่อแบบอักษรต้นฉบับและแบบอักษรที่แทนที่
+ใช้เมธอด [IFontsManager.getSubstitutions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifontsmanager/#getSubstitutions--) เพื่อกำหนดว่าแบบอักษรใดจะถูกแทนที่เมื่อการนำเสนอถูกเรนเดอร์ เมธอดจะคืนค่าอ็อบเจ็กต์ [FontSubstitutionInfo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/fontsubstitutioninfo/) ที่ระบุชื่อแบบอักษรต้นฉบับและแบบอักษรที่แทนที่
 
-ตัวอย่าง Java ด้านล่างแสดงรายการการแทนที่แบบอักษรทั้งหมดสำหรับการนำเสนอ:
+ตัวอย่าง Java ด้านล่างแสดงการแสดงรายการการแทนที่แบบอักษรทั้งหมดสำหรับการนำเสนอหนึ่งชุด:
 
 ```java
 import com.aspose.slides.FontSubstitutionInfo;
@@ -48,13 +50,13 @@ try {
 
 ## **รับการแทนที่แบบอักษรสำหรับสไลด์ที่เลือก**
 
-ใช้เมธอดโอเวอร์โหลด [IFontsManager.getSubstitutions](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ifontsmanager/#getSubstitutions-int---) พร้อมอาร์กิวเมนต์ `int[] slides` เพื่อทำการตรวจสอบการแทนที่ที่จำเป็นสำหรับการเรนเดอร์สไลด์เฉพาะเท่านั้น สิ่งนี้มีประโยชน์เมื่อคุณกำลังเรนเดอร์หรือส่งออกส่วนหนึ่งของการนำเสนอ, ตรวจสอบการนำเสนอขนาดใหญ่เป็นขั้น ๆ, ค้นหาสไลด์ที่ขึ้นกับแบบอักษรที่ไม่มี, เตรียมแพคเกจแบบอักษรขนาดเล็กสำหรับแอป Android, หรือวินิจฉัยความแตกต่างของการเรนเดอร์โดยไม่ต้องประมวลผลสไลด์ที่ไม่เกี่ยวข้อง
+ใช้เมธอดโอเวอร์โหลดของ [IFontsManager.getSubstitutions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifontsmanager/#getSubstitutions-int---) พร้อมอาร์กิวเมนต์ `int[] slides` เพื่อดูการแทนที่ที่จำเป็นต่อการเรนเดอร์สไลด์เฉพาะส่วน วิธีนี้เป็นประโยชน์เมื่อคุณกำลังเรนเดอร์หรือส่งออกบางส่วนของการนำเสนอ, ตรวจสอบการนำเสนอขนาดใหญ่เป็นขั้น ๆ, ค้นหาสไลด์ที่พึ่งพาแบบอักษรที่ไม่มี, เตรียมชุดแบบอักษรขั้นต่ำสำหรับแอป Android, หรือวินิจฉัยความแตกต่างของการเรนเดอร์โดยไม่ต้องประมวลผลสไลด์ที่ไม่เกี่ยวข้อง
 
-อาร์เรย์ `slides` มีดัชนีสไลด์เริ่มจากหนึ่ง: `1` ระบุสไลด์แรก ในทางตรงกันข้าม ตัวเข้าถึงคอลเลกชัน [Presentation.getSlides](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/presentation/#getSlides--) ใช้ดัชนีเริ่มจากศูนย์ ดังนั้นสไลด์เดียวกันจะถูกเข้าถึงเป็น `presentation.getSlides().get_Item(0)` ให้คำนึงถึงความแตกต่างนี้เมื่อสร้างอาร์เรย์เพื่อหลีกเลี่ยงข้อผิดพลาด off-by-one
+อาเรย์ `slides` มีดัชนีสไลด์แบบหนึ่ง‑ฐาน: `1` ระบุสไลด์แรก ในทางตรงกันข้าม ตัวเข้าถึงคอลเลกชัน [Presentation.getSlides](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getSlides--) ใช้การจัดทำดัชนีแบบศูนย์‑ฐาน ดังนั้นสไลด์เดียวกันจะเข้าถึงได้เป็น `presentation.getSlides().get_Item(0)`. ควรคำนึงถึงความต่างนี้เมื่อสร้างอาเรย์เพื่อหลีกเลี่ยงข้อผิดพลาด off‑by‑one
 
-เรียกใช้โอเวอร์โหลดผ่านเมธอด [Presentation.getFontsManager](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/presentation/#getFontsManager--) มันจะส่งคืนการแทนที่เท่านั้นที่กำหนดขณะเรนเดอร์สไลด์ที่เลือก แต่ละผลลัพธ์เป็นอ็อบเจ็กต์ [FontSubstitutionInfo](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/fontsubstitutioninfo/) ที่มีชื่อแบบอักษรต้นฉบับและแบบอักษรที่แทนที่ ผลลัพธ์นี้สะท้อนสภาพแวดล้อมแบบอักษรปัจจุบัน, กฎการสำรองที่กำหนด, กฎการแทนที่ที่เก็บไว้ใน [IFontSubstRuleCollection](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ifontsubstrulecollection/), และ [externally loaded fonts](/slides/th/androidjava/custom-font/)
+เรียกโอเวอร์โหลดผ่านเมธอด [Presentation.getFontsManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getFontsManager--) จะคืนค่าการแทนที่ที่กำหนดไว้ขณะเรนเดอร์สไลด์ที่เลือก ผลลัพธ์แต่ละรายการเป็นอ็อบเจ็กต์ [FontSubstitutionInfo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/fontsubstitutioninfo/) ที่บรรจุชื่อแบบอักษรต้นฉบับและแบบอักษรที่แทนที่ ผลลัพธ์สะท้อนสภาพแวดล้อมแบบอักษรปัจจุบัน, กฎ fallback ที่กำหนด, กฎการแทนที่ที่จัดเก็บใน [IFontSubstRuleCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifontsubstrulecollection/), และ [แบบอักษรที่โหลดจากภายนอก](/slides/th/androidjava/custom-font/)
 
-การแทนที่เดียวกันอาจจำเป็นต้องใช้ในสไลด์ที่เลือกหลายสไลด์ ให้ลบข้อมูลซ้ำออกเมื่อคุณสร้างรายการตรวจสอบแบบอักษรหรือรายงาน preflight ตัวอย่างต่อไปนี้รายงานการแทนที่ที่ส่งคืนทั้งหมดและจากนั้นสร้างรายการที่เรียงลำดับของการแมปแบบอักษรที่ไม่ซ้ำกัน:
+การแทนที่เดียวกันอาจจำเป็นสำหรับสไลด์ที่เลือกหลายสไลด์ ให้ทำการกำจัดรายการซ้ำเมื่อคุณสร้างรายการแบบอักษรหรือรายงาน preflight ตัวอย่างต่อไปนี้รายงานการแทนที่ที่คืนค่าทั้งหมดและจากนั้นสร้างรายการแบบอักษรที่ไม่ซ้ำกันเรียงตามลำดับ:
 
 ```java
 import com.aspose.slides.FontSubstitutionInfo;
@@ -92,25 +94,25 @@ try {
 }
 ```
 
-อินเทอร์เฟซ [IFontsManager](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ifontsmanager/) ให้โอเวอร์โหลดทั้งสองแบบ เลือกแบบที่เหมาะกับขอบเขตของการดำเนินการเรนเดอร์:
+อินเทอร์เฟซ [IFontsManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifontsmanager/) มีโอเวอร์โหลดทั้งสองแบบ ให้เลือกใช้ตามขอบเขตของการดำเนินการเรนเดอร์:
 
-| โอเวอร์โหลด | ใช้เมื่อ |
+| Overload | Use it when |
 |---|---|
-| [getSubstitutions](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ifontsmanager/#getSubstitutions--) with no arguments | คุณต้องการการแทนที่สำหรับการนำเสนอทั้งหมด |
-| [getSubstitutions](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ifontsmanager/#getSubstitutions-int---) with `int[] slides` | คุณต้องการการแทนที่สำหรับช่วงที่เลือก, การตรวจสอบเป็นขั้น ๆ, หรือการส่งออกบางส่วน |
+| [getSubstitutions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifontsmanager/#getSubstitutions--) with no arguments | คุณต้องการการแทนที่สำหรับการนำเสนอทั้งหมด |
+| [getSubstitutions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifontsmanager/#getSubstitutions-int---) with `int[] slides` | คุณต้องการการแทนที่สำหรับช่วงที่เลือก, การตรวจสอบแบบเพิ่มขึ้น, หรือการส่งออกบางส่วน |
 
-## **ตั้งกฎการแทนที่แบบอักษร**
+## **กำหนดกฎการแทนที่แบบอักษร**
 
-เพื่อระบุแบบอักษรที่ Aspose.Slides ควรใช้เมื่อแบบอักษรต้นทางไม่พร้อมใช้งาน:
+เพื่อระบุแบบอักษรที่ Aspose.Slides ควรใช้เมื่อแบบอักษรต้นทางไม่มีให้ใช้งาน:
 
-1. โหลดการนำเสนอ.
-2. สร้างการกำหนดแบบอักษรสำหรับแบบอักษรต้นทางและแบบอักษรแทนที่.
-3. สร้าง [FontSubstRule](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/fontsubstrule/) พร้อมเงื่อนไข [WhenInaccessible](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/fontsubstcondition/).
-4. เพิ่มกฎลงใน [FontSubstRuleCollection](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/fontsubstrulecollection/).
-5. กำหนดคอลเลกชันด้วยการใช้เมธอด [FontsManager.setFontSubstRuleList](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/fontsmanager/#setFontSubstRuleList-com.aspose.slides.IFontSubstRuleCollection-).
-6. เรนเดอร์หรือแปลงการนำเสนอ.
+1. โหลดการนำเสนอ
+2. สร้างการกำหนดแบบอักษรสำหรับแบบอักษรต้นทางและแบบอักษรสำรอง
+3. สร้างอ็อบเจ็กต์ [FontSubstRule](https://reference.aspose.com/slides/androidjava/com.aspose.slides/fontsubstrule/) พร้อมเงื่อนไข [WhenInaccessible](https://reference.aspose.com/slides/androidjava/com.aspose.slides/fontsubstcondition/)
+4. เพิ่มกฎลงใน [FontSubstRuleCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/fontsubstrulecollection/)
+5. กำหนดคอลเลกชันโดยใช้เมธอด [FontsManager.setFontSubstRuleList](https://reference.aspose.com/slides/androidjava/com.aspose.slides/fontsmanager/#setFontSubstRuleList-com.aspose.slides.IFontSubstRuleCollection-) 
+6. เรนเดอร์หรือแปลงการนำเสนอ
 
-ตัวอย่าง Java ด้านล่างแทนที่ `Arial` ด้วย `SomeRareFont` เมื่อ `SomeRareFont` ไม่พร้อมใช้งาน และจากนั้นเรนเดอร์สไลด์แรกเพื่อยืนยันผลลัพธ์ แบบอักษรแทนที่ต้องมีอยู่ใน Aspose.Slides.
+ตัวอย่าง Java ด้านล่างแทนที่ `Arial` ด้วย `SomeRareFont` เมื่อ `SomeRareFont` ไม่มีให้ใช้งาน แล้วเรนเดอร์สไลด์แรกเพื่อยืนยันผลลัพธ์ แบบอักษรสำรองต้องพร้อมใช้งานใน Aspose.Slides
 
 ```java
 import com.aspose.slides.FontData;
@@ -146,38 +148,45 @@ try {
 ```
 
 {{% alert color="info" title="Note" %}}
-สำหรับการเปลี่ยนแปลงแบบไม่มีเงื่อนไขต่อแบบอักษรที่ใช้ทั่วทั้งการนำเสนอ ดูที่ [Font Replacement](/slides/th/androidjava/font-replacement/).
+สำหรับการเปลี่ยนแปลงแบบไม่มีเงื่อนไขทั่วทั้งการนำเสนอ, ดูที่ [Font Replacement](/slides/th/androidjava/font-replacement/) 
 {{% /alert %}}
 
 ## **ข้อจำกัดสำหรับแบบอักษรสมการคณิตศาสตร์**
 
-กฎการแทนที่แบบอักษรเป็นส่วนหนึ่งของกระบวนการเลือกแบบอักษรมาตรฐานที่ใช้ระหว่างการเรนเดอร์และการแปลง พวกมันทำงานสำหรับข้อความทั่วไปเมื่อ Aspose.Slides สามารถแทนที่แบบอักษรที่ไม่เข้าถึงได้ด้วยแบบอักษรที่มีตามที่กฎระบุ
+กฎการแทนที่แบบอักษรเป็นส่วนหนึ่งของกระบวนการเลือกแบบอักษรมาตรฐานที่ใช้ระหว่างการเรนเดอร์และการแปลง พวกมันทำงานได้กับข้อความทั่วไปเมื่อ Aspose.Slides สามารถแทนที่แบบอักษรที่เข้าถึงไม่ได้ด้วยแบบอักษรที่กำหนดในกฎ
 
-สมการ Office Math มีข้อกำหนดเพิ่มเติม หากสมการใช้ **Cambria Math**, Aspose.Slides อาจต้องการแบบอักษรนั้นอย่างแม่นยำเพื่อคำนวณและเรนเดอร์เลย์เอาต์ของสมการ กฎที่แทนที่ด้วยแบบอักษรคณิตศาสตร์อื่นเช่น **STIX Two Math** ไม่สามารถแทนที่ **Cambria Math** เพื่อวัตถุประสงค์นี้ได้ และการเรนเดอร์อาจยังคงรายงานว่าต้องการ **Cambria Math**
+สมการ Office Math มีความต้องการเพิ่มเติม หากสมการใช้ **Cambria Math**, Aspose.Slides อาจจำเป็นต้องใช้แบบอักษรนั้นอย่างแม่นยำเพื่อคำนวนและเรนเดอร์รูปแบบสมการ กฎที่แทนที่ด้วยแบบอักษรคณิตศาสตร์อื่น เช่น **STIX Two Math** ไม่สามารถแทนที่ **Cambria Math** ได้ และการเรนเดอร์อาจยังรายงานว่าต้องการ **Cambria Math**
 
-เพื่อเรนเดอร์หรือแปลงการนำเสนอแบบนี้ ให้ทำให้ **Cambria Math** พร้อมใช้งานใน Aspose.Slides โหลดเป็น [external font](/slides/th/androidjava/custom-font/) เพื่อให้แอปพลิเคชันใช้ได้ระหว่างการเรนเดอร์และการแปลง
+เพื่อเรนเดอร์หรือแปลงการนำเสนอแบบนี้ ให้ทำให้ **Cambria Math** พร้อมใช้งานใน Aspose.Slides โหลดเป็น [แบบอักษรภายนอก](/slides/th/androidjava/custom-font/) เพื่อให้แอปสามารถใช้ระหว่างการเรนเดอร์และการแปลง
 
-ข้อจำกัดนี้ใช้กับเลย์เอาต์ของสมการ กฎการแทนที่ที่อธิบายข้างต้นยังคงใช้กับข้อความทั่วไปของการนำเสนอ
+ข้อจำกัดนี้ใช้กับการจัดรูปแบบสมการเท่านั้น กฎการแทนที่ที่อธิบายด้านบนยังคงใช้ได้กับข้อความทั่วไปในการนำเสนอ
 
-## **คำถามที่พบบ่อย**
+## **FAQ**
 
-**ความแตกต่างระหว่างการแทนที่แบบอักษรและการแทนที่แบบอักษรคืออะไร?**  
-[Font replacement](/slides/th/androidjava/font-replacement/) เปลี่ยนแบบอักษรหนึ่งเป็นอีกแบบหนึ่งโดยเจตนาในทั่วทั้งการนำเสนอ การแทนที่แบบอักษรเลือกแบบอักษรสำหรับผลลัพธ์ที่เรนเดอร์เมื่อเงื่อนไขที่กำหนดถูกตรงกัน เช่น เมื่อแบบอักษรต้นฉบับไม่พร้อมใช้งาน
+**ความแตกต่างระหว่างการเปลี่ยนแบบอักษรและการแทนที่แบบอักษรคืออะไร?**
 
-**กฎการแทนที่ใช้เมื่อใด?**  
-กฎเหล่านี้เข้าร่วมใน [font selection sequence](/slides/th/androidjava/font-selection-sequence/) ระหว่างการเรนเดอร์และการแปลง เมื่อใช้ `WhenInaccessible` กฎจะใช้เฉพาะเมื่อตัว Aspose.Slides ไม่สามารถเข้าถึงแบบอักษรต้นฉบับได้
+[Font replacement](/slides/th/androidjava/font-replacement/) เปลี่ยนแบบอักษรหนึ่งเป็นอีกแบบหนึ่งทั่วทั้งการนำเสนอ การแทนที่แบบอักษรเลือกแบบอักษรสำหรับผลลัพธ์ที่เรนเดอร์เมื่อเงื่อนไขที่กำหนดตรงตามที่ตั้งค่าไว้ เช่น เมื่อแบบอักษรต้นฉบับไม่มีให้ใช้งาน
 
-**จะเกิดอะไรขึ้นเมื่อแบบอักษรหายไปและไม่มีการกำหนดกฎการแทนที่?**  
-Aspose.Slides จะเลือกแบบอักษรที่ใกล้เคียงที่สุดที่มีอยู่ตามกระบวนการเลือกแบบอักษรของมัน ผลลัพธ์ขึ้นอยู่กับแบบอักษรที่มีในสภาพแวดล้อมรันไทม์
+**กฎการแทนที่ทำงานเมื่อใด?**
 
-**ฉันสามารถโหลดแบบอักษรภายนอกเพื่อหลีกเลี่ยงการแทนที่ได้ไหม?**  
-ได้ คุณสามารถ [load external fonts](/slides/th/androidjava/custom-font/) เพื่อให้ Aspose.Slides ใช้ได้ระหว่างการเรนเดอร์และการแปลง
+กฎเหล่านี้เข้าร่วมใน [font selection sequence](/slides/th/androidjava/font-selection-sequence/) ระหว่างการเรนเดอร์และการแปลง ด้วย `WhenInaccessible` กฎจะใช้เฉพาะเมื่อ Aspose.Slides ไม่สามารถเข้าถึงแบบอักษรต้นทางได้
 
-**Aspose แจกจ่ายแบบอักษรมาพร้อมกับไลบรารีหรือไม่?**  
-ไม่ คุณเป็นผู้รับผิดชอบในการจัดหาแบบอักษรและปฏิบัติตามเงื่อนไขการใช้สิทธิ์ของแบบอักษรเหล่านั้น
+**จะเกิดอะไรขึ้นเมื่อแบบอักษรหายและไม่มีการกำหนดกฎการแทนที่?**
 
-**ผลลัพธ์การแทนที่อาจแตกต่างระหว่างอุปกรณ์ Android หรือไม่?**  
-ใช่ แบบอักษรระบบที่มีอาจแตกต่างระหว่างเวอร์ชัน Android, อุปกรณ์และผู้ผลิต ดังนั้นแบบอักษรที่มีในสภาพแวดล้อมหนึ่งอาจต้องการการแทนที่ในอีกสภาพแวดล้อมหนึ่ง
+Aspose.Slides จะเลือกแบบอักษรที่ใกล้เคียงที่สุดตามกระบวนการเลือกแบบอักษร ผลลัพธ์ขึ้นกับแบบอักษรที่มีในสภาพแวดล้อมรันไทม์
 
-**ฉันจะทำให้การเลือกแบบอักษรสอดคล้องกันทั่วอุปกรณ์ Android อย่างไร?**  
-รวมไฟล์แบบอักษรที่จำเป็นเดียวกันไว้กับแอปพลิเคชัน, [load them as external fonts](/slides/th/androidjava/custom-font/), และ [embed fonts](/slides/th/androidjava/embedded-font/) เมื่อได้รับอนุญาตตามสัญญาอนุญาต คุณยังสามารถเรียก [IFontsManager.getSubstitutions](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ifontsmanager/#getSubstitutions--) ก่อนการส่งออกเพื่อระบุการแทนที่ที่ไม่คาดคิด.
+**ฉันสามารถโหลดแบบอักษรภายนอกเพื่อหลีกเลี่ยงการแทนที่ได้หรือไม่?**
+
+ได้ คุณสามารถ [load external fonts](/slides/th/androidjava/custom-font/) เพื่อให้ Aspose.Slides ใช้ระหว่างการเรนเดอร์และการแปลง
+
+**Aspose แจกจ่ายแบบอักษรมาพร้อมไลบรารีหรือไม่?**
+
+ไม่ คุณต้องรับผิดชอบในการจัดหาแบบอักษรและปฏิบัติตามข้อตกลงลิขสิทธิ์ของแต่ละแบบอักษร
+
+**ผลลัพธ์การแทนที่อาจแตกต่างระหว่างอุปกรณ์ Android หรือไม่?**
+
+ได้ แบบอักษรระบบที่พร้อมใช้งานอาจแตกต่างระหว่างเวอร์ชัน Android, อุปกรณ์, และผู้ผลิต ดังนั้นแบบอักษรที่มีในสภาพแวดล้อมหนึ่งอาจต้องการการแทนที่ในอีกสภาพแวดล้อมหนึ่ง
+
+**ฉันจะทำให้การเลือกแบบอักษรสอดคล้องกันข้ามอุปกรณ์ Android อย่างไร?**
+
+แพคไฟล์แบบอักษรที่จำเป็นเดียวกันกับแอป, [load them as external fonts](/slides/th/androidjava/custom-font/), และ [embed fonts](/slides/th/androidjava/embedded-font/) เมื่ออนุญาตตามลิขสิทธิ์ คุณยังสามารถเรียก [IFontsManager.getSubstitutions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifontsmanager/#getSubstitutions--) ก่อนการส่งออกเพื่อระบุการแทนที่ที่ไม่คาดคิดได้.

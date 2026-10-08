@@ -1,35 +1,37 @@
 ---
-title: 使用 Java 配置投影片中的字型替代
-linktitle: 字型替代
+title: 使用 Java 在簡報中設定字體替代
+linktitle: 字體替代
 type: docs
 weight: 70
 url: /zh-hant/java/font-substitution/
 keywords:
-- 字型
-- 替代字型
-- 字型替代
-- 取代字型
-- 字型取代
+- 字體
+- 替代字體
+- 字體替代
+- 取代字體
+- 字體取代
 - 替代規則
 - 取代規則
 - PowerPoint
 - OpenDocument
-- 投影片
+- 簡報
 - Java
 - Aspose.Slides
-description: "在渲染或轉換 PowerPoint 與 OpenDocument 投影片時，於 Aspose.Slides for Java 中設定字型替代規則並檢查被替代的字型。"
+description: "在渲染或轉換 PowerPoint 與 OpenDocument 簡報時，於 Aspose.Slides for Java 中設定字體替代規則並檢查已替代的字體。"
 ---
 ## **概述**
 
-字型替代允許 Aspose.Slides 在呈現或轉換投影片時，使用可用的字型來取代無法存取的字型。此替代會影響渲染後的輸出；不會更改投影片內容所指派的字型。
+字體替代允許 Aspose.Slides 在呈現或轉換簡報時，使用可用的字體來取代無法存取的字體。替代會影響已渲染的輸出；但不會更改簡報內容所指定的字體。
 
-您可以在特定字型不可用時定義要使用的字型，並且可以檢視 Aspose.Slides 在渲染過程中將會進行的替代。這有助於在安裝字型不同的環境中保持輸出的一致性。
+您可以定義當特定字體不可用時使用的字體，並且可以檢視 Aspose.Slides 在渲染過程中將進行的替代。這有助於在安裝字體不同的環境中保持輸出的一致性。
 
-## **取得字型替代**
+如果字體可用但沒有專用的粗體字形，請參閱[處理沒有專用粗體字體的字體](/slides/zh-hant/java/convert-powerpoint-to-pdf/#handle-fonts-without-a-dedicated-bold-typeface)。該部分說明了在 PDF 匯出期間如何光柵化受影響的文字以及對文字選取、搜尋和縮放的影響。
 
-使用 [IFontsManager.getSubstitutions](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ifontsmanager/#getSubstitutions--) 方法來判斷在渲染投影片時會替代哪些字型。該方法會回傳 [FontSubstitutionInfo](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/fontsubstitutioninfo/) 物件，說明原始字型與替代字型的名稱。
+## **取得字體替代**
 
-以下 Java 範例會列出投影片的所有字型替代：
+使用[IFontsManager.getSubstitutions](https://reference.aspose.com/slides/java/com.aspose.slides/ifontsmanager/#getSubstitutions--) 方法來判斷簡報渲染時會替代哪些字體。該方法回傳[FontSubstitutionInfo](https://reference.aspose.com/slides/java/com.aspose.slides/fontsubstitutioninfo/) 物件，指出原始字體與替代字體名稱。
+
+以下 Java 範例列出所有簡報的字體替代：
 
 ```java
 import com.aspose.slides.FontSubstitutionInfo;
@@ -45,15 +47,15 @@ try {
 }
 ```
 
-## **取得選取投影片的字型替代**
+## **取得已選取投影片的字體替代**
 
-使用帶有 `int[] slides` 參數的 [IFontsManager.getSubstitutions](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ifontsmanager/#getSubstitutions-int---) 之多載，僅檢查特定投影片所需的替代。這在您僅渲染或匯出投影片的一部分、逐步檢查大型投影片、找出依賴不可用字型的投影片、為伺服器或容器準備最小字型套件，或在不處理無關投影片的情況下診斷渲染差異時非常有用。
+使用帶有 `int[] slides` 參數的[IFontsManager.getSubstitutions](https://reference.aspose.com/slides/java/com.aspose.slides/ifontsmanager/#getSubstitutions-int---) 重載，以僅檢視渲染特定投影片所需的替代。這在以下情況很有用：渲染或匯出簡報的部分內容、逐步檢查大型簡報、找出依賴不可用字體的投影片、為伺服器或容器準備最小字體套件，或在不處理不相關投影片的情況下診斷渲染差異。
 
-`slides` 陣列採用一位基底的投影片索引：`1` 代表第一張投影片。相較之下，[Presentation.getSlides](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/presentation/#getSlides--) 集合存取子使用零基底索引，因此同一張投影片須寫成 `presentation.getSlides().get_Item(0)`。建立陣列時請留意此差異，以免產生錯誤的索引。
+`slides` 陣列使用以 1 為起點的投影片索引：`1` 代表第一張投影片。相較之下，[Presentation.getSlides](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getSlides--) 集合存取子使用零基索引，因此相同的投影片須以 `presentation.getSlides().get_Item(0)` 來存取。建立陣列時請記住此差異，以免產生遺漏或多算一的錯誤。
 
-透過 [Presentation.getFontsManager](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/presentation/#getFontsManager--) 方法呼叫此多載。它僅回傳在渲染所選投影片時確定的替代。每個結果都是包含原始與替代字型名稱的 [FontSubstitutionInfo](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/fontsubstitutioninfo/) 物件。結果會反映目前的字型環境、已設定的備援規則、儲存在 [IFontSubstRuleCollection](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ifontsubstrulecollection/) 中的替代規則，以及 [外部載入的字型](/slides/zh-hant/java/custom-font/)。
+透過[Presentation.getFontsManager](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getFontsManager--) 方法呼叫此重載。它僅回傳在渲染已選取投影片時決定的替代。每個結果都是包含原始與替代字體名稱的[FontSubstitutionInfo](https://reference.aspose.com/slides/java/com.aspose.slides/fontsubstitutioninfo/) 物件。結果反映目前的字體環境、已設定的備援規則，以及[外部載入的字體](/slides/zh-hant/java/custom-font/)。存放於[IFontSubstRuleCollection](https://reference.aspose.com/slides/java/com.aspose.slides/ifontsubstrulecollection/) 的替代規則會在簡報渲染時套用，但結果不會列出它們；請改為檢查輸出檔案中的字體。
 
-相同的替代可能被多個選取投影片所需要。在建立字型清單或前置檢查報告時，請去除重複項目。以下範例會報告每個回傳的替代，然後產生唯一字型映射的排序清單：
+相同的替代可能會被多個已選取的投影片需求。建立字體清單或預檢報告時請去除重複結果。以下範例會列出每個回傳的替代，然後建立唯一字體對映的排序清單：
 
 ```java
 import com.aspose.slides.FontSubstitutionInfo;
@@ -91,25 +93,25 @@ try {
 }
 ```
 
-[IFontsManager](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ifontsmanager/) 介面同時提供兩種多載，請依渲染作業的範圍選擇使用：
+[IFontsManager](https://reference.aspose.com/slides/java/com.aspose.slides/ifontsmanager/) 介面提供兩種重載。請依據渲染操作的範圍選擇使用：
 
-| 重載 | 使用時機 |
+| 重載 | 使用情境 |
 |---|---|
-| [getSubstitutions](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ifontsmanager/#getSubstitutions--)（無參數） | 需要取得整份投影片的字型替代。 |
-| [getSubstitutions](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ifontsmanager/#getSubstitutions-int---)（`int[] slides`） | 需取得選取範圍、增量檢查或部分匯出的字型替代。 |
+| [getSubstitutions](https://reference.aspose.com/slides/java/com.aspose.slides/ifontsmanager/#getSubstitutions--)（無參數） | 您需要整個簡報的字體替代。 |
+| [getSubstitutions](https://reference.aspose.com/slides/java/com.aspose.slides/ifontsmanager/#getSubstitutions-int---)（帶 `int[] slides`） | 您需要針對選取範圍、增量檢查或部分匯出的字體替代。 |
 
-## **設定字型替代規則**
+## **設定字體替代規則**
 
-若要指定 Aspose.Slides 在來源字型不可用時應使用的字型：
+若要指定當來源字體不可用時 Aspose.Slides 應使用的字體：
 
-1. 載入投影片檔案。  
-2. 為來源字型與替代字型建立字型定義。  
-3. 使用 [WhenInaccessible](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/fontsubstcondition/) 條件建立一個 [FontSubstRule](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/fontsubstrule/)。  
-4. 將規則加入 [FontSubstRuleCollection](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/fontsubstrulecollection/)。  
-5. 透過 [FontsManager.setFontSubstRuleList](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/fontsmanager/#setFontSubstRuleList-com.aspose.slides.IFontSubstRuleCollection-) 方法指派該集合。  
-6. 渲染或轉換投影片。
+1. 載入簡報。
+2. 為來源字體與替代字體建立字體定義。
+3. 建立帶有[WhenInaccessible](https://reference.aspose.com/slides/java/com.aspose.slides/fontsubstcondition/) 條件的[FontSubstRule](https://reference.aspose.com/slides/java/com.aspose.slides/fontsubstrule/)。
+4. 將此規則加入[FontSubstRuleCollection](https://reference.aspose.com/slides/java/com.aspose.slides/fontsubstrulecollection/)。
+5. 使用[FontsManager.setFontSubstRuleList](https://reference.aspose.com/slides/java/com.aspose.slides/fontsmanager/#setFontSubstRuleList-com.aspose.slides.IFontSubstRuleCollection-) 方法指派該集合。
+6. 渲染或轉換簡報。
 
-以下 Java 範例在 `SomeRareFont` 不可用時以 `Arial` 替代，並渲染第一張投影片以驗證結果。替代字型必須對 Aspose.Slides 可用。
+以下 Java 範例在 `SomeRareFont` 不可用時將 `Arial` 替代為 `SomeRareFont`，然後渲染第一張投影片以驗證結果。替代字體必須對 Aspose.Slides 可用。
 
 ```java
 import com.aspose.slides.FontData;
@@ -145,38 +147,45 @@ try {
 ```
 
 {{% alert color="info" title="Note" %}}
-若要無條件變更整份投影片所使用的字型，請參閱 [字型取代](/slides/zh-hant/java/font-replacement/)。
+若要無條件變更整個簡報中使用的字體，請參閱[字體取代](/slides/zh-hant/java/font-replacement/)。
 {{% /alert %}}
 
-## **數學方程式字型的限制**
+## **數學方程式字體的限制**
 
-字型替代規則是渲染與轉換過程中標準字型選擇程序的一部分。它們適用於一般文字，當 Aspose.Slides 能以規則指定的可用字型取代無法存取的字型時即可運作。
+字體替代規則是渲染與轉換過程中使用的標準字體選擇程序的一部分。當 Aspose.Slides 能以規則指定的可用字體替代無法存取的字體時，該規則對一般文字有效。
 
-Office Math 方程式則有額外需求。若方程式使用 **Cambria Math**，Aspose.Slides 可能需要該精確字型才能計算與渲染方程式版面。將 **Cambria Math** 替代為其他數學字型（例如 **STIX Two Math**）的規則無法取代 **Cambria Math**，渲染仍可能顯示需要 **Cambria Math**。
+Office Math 方程式有額外的需求。如果方程式使用 **Cambria Math**，Aspose.Slides 可能需要該精確字體才能計算與渲染方程式版面。將其他數學字體（例如 **STIX Two Math**）作為替代的規則無法取代 **Cambria Math**，渲染仍可能報告需要 **Cambria Math**。
 
-若要渲染或轉換此類投影片，請確保 **Cambria Math** 可供 Aspose.Slides 使用。可在作業系統中安裝或作為 [外部字型](/slides/zh-hant/java/custom-font/) 載入。
+若要渲染或轉換此類簡報，請確保 **Cambria Math** 可供 Aspose.Slides 使用。可在作業系統中安裝，或以[外部字體](/slides/zh-hant/java/custom-font/) 載入。
 
-此限制僅針對方程式版面。上述替代規則仍適用於一般投影片文字。
+此限制適用於方程式版面。上述的替代規則仍適用於一般簡報文字。
 
 ## **常見問題**
 
-**字型取代與字型替代有何不同？**  
-[字型取代](/slides/zh-hant/java/font-replacement/) 會刻意將整份投影片的某個字型改為另一個字型。字型替代則在渲染輸出時，根據條件（例如原始字型不可用）選擇可用字型。
+**字體取代與字體替代有何差異？**
 
-**替代規則何時套用？**  
-規則參與渲染與轉換期間的 [字型選擇序列](/slides/zh-hant/java/font-selection-sequence/)。使用 `WhenInaccessible` 時，規則僅在 Aspose.Slides 無法存取來源字型時才會被使用。
+[字體取代](/slides/zh-hant/java/font-replacement/) 會有意在整個簡報中將一種字體變更為另一種字體。字體替代則在符合設定條件時（例如原始字體不可用）為已渲染的輸出選擇字體。
 
-**若缺少字型且未設定替代規則會發生什麼？**  
-Aspose.Slides 會依照其字型選擇程序挑選最接近的可用字型。結果取決於執行環境中可用的字型。
+**什麼時候會套用替代規則？**
 
-**我可以載入外部字型以避免替代嗎？**  
-可以。您可以 [載入外部字型](/slides/zh-hant/java/custom-font/)，讓 Aspose.Slides 在渲染與轉換時使用它們。
+這些規則在渲染與轉換期間參與[字體選擇序列](/slides/zh-hant/java/font-selection-sequence/)。使用 `WhenInaccessible` 時，規則僅在 Aspose.Slides 無法存取來源字體時使用。
 
-**Aspose 是否隨函式庫分發字型？**  
-不會。字型的提供與授權須由您自行負責。
+**如果字體缺失且未配置替代規則，會發生什麼情況？**
 
-**替代結果會在 Windows、Linux 與 macOS 之間不同嗎？**  
-會。不同作業系統的已安裝字型與搜尋位置各異，某台機器可用的字型在另一台機器上可能需要替代。
+Aspose.Slides 會依其字體選擇流程選取最接近的可用字體。結果取決於執行環境中可用的字體。
 
-**如何在大量批次轉換時保持字型選擇一致？**  
-在每台機器或容器上使用相同的字型檔案與版本，[載入必要的外部字型](/slides/zh-hant/java/custom-font/)，並在授權允許時 [嵌入字型](/slides/zh-hant/java/embedded-font/)。也可以在匯出前呼叫 [IFontsManager.getSubstitutions](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ifontsmanager/#getSubstitutions--) 以偵測意外的替代情況。
+**我可以載入外部字體以避免替代嗎？**
+
+可以。您可以[載入外部字體](/slides/zh-hant/java/custom-font/)，讓 Aspose.Slides 在渲染與轉換時使用它們。
+
+**Aspose 會隨程式庫一起分發字體嗎？**
+
+不會。字體須由使用者自行提供，且需遵守其授權條款。
+
+**替代結果會在 Windows、Linux 與 macOS 之間有所不同嗎？**
+
+會。不同作業系統的已安裝字體與字體搜尋位置不同，因此在某台機器上可用的字體，可能在其他機器上需進行替代。
+
+**如何在批次轉換中保持字體選擇的一致性？**
+
+在每台機器或容器上使用相同的字體檔案與版本，[載入必要的外部字體](/slides/zh-hant/java/custom-font/)，並在授權允許時[嵌入字體](/slides/zh-hant/java/embedded-font/)。亦可在匯出前呼叫[IFontsManager.getSubstitutions](https://reference.aspose.com/slides/java/com.aspose.slides/ifontsmanager/#getSubstitutions--) 以偵測意外的替代情況。

@@ -1,35 +1,37 @@
 ---
-title: Konfigurace substituce písma v prezentacích s Pythonem
-linktitle: Substituce písma
+title: "Konfigurace náhrady písem v prezentacích pomocí Pythonu"
+linktitle: "Náhrada písem"
 type: docs
 weight: 70
 url: /cs/python-net/font-substitution/
 keywords:
-- písmo
-- náhradní písmo
-- substituce písma
-- nahrazení písma
-- výměna písma
-- pravidlo substituce
-- pravidlo nahrazení
-- PowerPoint
-- OpenDocument
-- prezentace
-- Python
-- Aspose.Slides
-description: "Konfigurujte pravidla substituce písma a prohlížejte substituovaná písma v Aspose.Slides pro Python přes .NET při vykreslování nebo konverzi prezentací PowerPoint a OpenDocument."
+- "písmo"
+- "náhradní písmo"
+- "náhrada písma"
+- "nahrazení písma"
+- "nahrazení písma"
+- "pravidlo náhrady"
+- "pravidlo nahrazení"
+- "PowerPoint"
+- "OpenDocument"
+- "prezentace"
+- "Python"
+- "Aspose.Slides"
+description: "Konfigurujte pravidla náhrady písem a prohlédněte náhradní písma v Aspose.Slides pro Python pomocí .NET při vykreslování nebo převodu prezentací PowerPoint a OpenDocument."
 ---
 ## **Přehled**
 
-Substituce písem umožňuje Aspose.Slides použít dostupné písmo místo písma, které není přístupné při vykreslování nebo konverzi prezentace. Substituce ovlivňuje výstup vykresleného obrazu; nemění písmo přiřazené obsahu prezentace.
+Náhrada písma umožňuje Aspose.Slides použít dostupné písmo místo písma, ke kterému nelze přistupovat při vykreslování nebo převodu prezentace. Náhrada ovlivňuje vykreslený výstup; nemění písmo přiřazené k obsahu prezentace.
 
-Můžete definovat písmo, které se má použít, když je konkrétní písmo nedostupné, a můžete prozkoumat substituce, které Aspose.Slides během vykreslování provede. To pomáhá udržet výstup konzistentní napříč prostředími s různě nainstalovanými písmy.
+Můžete definovat písmo, které se použije, když je konkrétní písmo nedostupné, a můžete si prohlédnout náhrady, které Aspose.Slides během vykreslování provede. To pomáhá udržet výstup konzistentní napříč prostředími s různě nainstalovanými písmy.
 
-## **Získání substitucí písem**
+Pokud je písmo dostupné, ale nemá dedikovaný tučný řez, viz [Zpracování písem bez dedikovaného tučného řezu](/slides/cs/python-net/convert-powerpoint-to-pdf/#handle-fonts-without-a-dedicated-bold-typeface). Tato sekce vysvětluje, jak během exportu PDF rasterizovat ovlivněný text a jaké jsou důsledky pro výběr textu, vyhledávání a škálování.
 
-Použijte [FontsManager.get_substitutions](https://reference.aspose.com/slides/cs/python-net/aspose.slides/fontsmanager/get_substitutions/) metodu k určení, která písma budou substituována při vykreslení prezentace. Metoda vrací objekty [FontSubstitutionInfo](https://reference.aspose.com/slides/cs/python-net/aspose.slides/fontsubstitutioninfo/), které identifikují původní a substituované názvy písem.
+## **Získání náhrad písem**
 
-Následující příklad v jazyce Python vypisuje všechny substituce písem pro prezentaci:
+Použijte metodu [FontsManager.get_substitutions](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/get_substitutions/) k určení, která písma budou nahrazena při vykreslení prezentace. Metoda vrací objekty [FontSubstitutionInfo](https://reference.aspose.com/slides/python-net/aspose.slides/fontsubstitutioninfo/), které identifikují původní a nahrazené názvy písem.
+
+Následující příklad v Pythonu vypisuje všechny náhrady písem pro prezentaci:
 
 ```python
 import aspose.slides as slides
@@ -39,15 +41,15 @@ with slides.Presentation("Presentation.pptx") as presentation:
         print(f"{substitution.original_font_name} -> {substitution.substituted_font_name}")
 ```
 
-## **Získání substitucí písem pro vybrané snímky**
+## **Získání náhrad písem pro vybrané snímky**
 
-Použijte [FontsManager.get_substitutions](https://reference.aspose.com/slides/cs/python-net/aspose.slides/fontsmanager/get_substitutions/) se seznamem indexů snímků, abyste zkontrolovali pouze substituce potřebné pro vykreslení konkrétních snímků. To je užitečné při vykreslování nebo exportu části prezentace, inkrementální kontrole velké prezentace, vyhledávání snímků závislých na nedostupných písmech, přípravě minimálního balíčku písem pro server nebo kontejner, nebo diagnostice rozdílů ve vykreslování bez zpracování nesouvisejících snímků.
+Použijte [FontsManager.get_substitutions](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/get_substitutions/) se seznamem indexů snímků k prohlédnutí pouze náhrad potřebných k vykreslení konkrétních snímků. To je užitečné, když vykreslujete nebo exportujete část prezentace, provádíte postupnou kontrolu velké prezentace, hledáte snímky, které závisí na nedostupných písmech, připravujete minimální balíček písem pro server nebo kontejner, nebo diagnostikujete rozdíly ve vykreslování bez zpracování nesouvisejících snímků.
 
-Seznam obsahuje jednorozměrné indexy snímků: `1` identifikuje první snímek. Naproti tomu kolekce [Presentation.slides](https://reference.aspose.com/slides/cs/python-net/aspose.slides/presentation/slides/cs/) je indexována od nuly, takže stejný snímek je přístupný jako `presentation.slides[0]`. Pamatujte na tento rozdíl při sestavování seznamu, abyste se vyhnuli chybám o jeden.
+Seznam obsahuje indexy snímků začínající od jedné: `1` označuje první snímek. Naproti tomu je kolekce [Presentation.slides](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/slides/) indexována od nuly, takže stejný snímek je přístupný jako `presentation.slides[0]`. Mějte tento rozdíl na paměti při sestavování seznamu, abyste se vyhnuli chybám o jeden.
 
-Volání metody provádějte přes vlastnost [Presentation.fonts_manager](https://reference.aspose.com/slides/cs/python-net/aspose.slides/presentation/fonts_manager/). Vrací pouze substituce určené během vykreslování vybraných snímků. Každý výsledek je objekt [FontSubstitutionInfo](https://reference.aspose.com/slides/cs/python-net/aspose.slides/fontsubstitutioninfo/), který obsahuje původní a substituovaný název písma. Výsledek odráží aktuální prostředí písem, nakonfigurovaná pravidla záložních písem, pravidla substituce uložená v [IFontSubstRuleCollection](https://reference.aspose.com/slides/cs/python-net/aspose.slides/ifontsubstrulecollection/) a [externě načtená písma](/slides/cs/python-net/custom-font/).
+Metodu zavolejte přes vlastnost [Presentation.fonts_manager](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/fonts_manager/). Vrátí pouze náhrady určené během vykreslování vybraných snímků. Každý výsledek je objekt [FontSubstitutionInfo](https://reference.aspose.com/slides/python-net/aspose.slides/fontsubstitutioninfo/), který obsahuje původní a nahrazené názvy písem. Výsledek odráží aktuální prostředí písem, nakonfigurovaná pravidla záložních písem, pravidla náhrad uložená v [IFontSubstRuleCollection](https://reference.aspose.com/slides/python-net/aspose.slides/ifontsubstrulecollection/), a [externě načtená písma](/slides/cs/python-net/custom-font/).
 
-Stejná substituce může být požadována více než jedním vybraným snímkem. Při tvorbě inventáře písem nebo preflight zprávy deduplikujte výsledky. Následující příklad vypisuje každou vrácenou substituci a poté vytváří setříděný seznam unikátních mapování písem:
+Stejná náhrada může být vyžadována více než jedním vybraným snímkem. Při tvorbě inventáře písem nebo preflight zprávy odstraňte duplicitní výsledky. Následující příklad vypisuje každou vrácenou náhradu a poté vytváří seřazený seznam unikátních mapování písem:
 
 ```python
 import aspose.slides as slides
@@ -69,25 +71,25 @@ with slides.Presentation("Presentation.pptx") as presentation:
         print(entry)
 ```
 
-Třída [FontsManager](https://reference.aspose.com/slides/cs/python-net/aspose.slides/fontsmanager/) poskytuje obě formy metody. Vyberte si podle rozsahu operace vykreslování:
+Třída [FontsManager](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/) poskytuje obě formy metody. Vyberte jednu podle rozsahu vykreslovací operace:
 
-| Volání metody | Použijte, když |
+| Volání metody | Použít kdy |
 |---|---|
-| [get_substitutions](https://reference.aspose.com/slides/cs/python-net/aspose.slides/fontsmanager/get_substitutions/) bez argumentů | Potřebujete substituce pro celou prezentaci. |
-| [get_substitutions](https://reference.aspose.com/slides/cs/python-net/aspose.slides/fontsmanager/get_substitutions/) se seznamem indexů snímků | Potřebujete substituce pro vybraný rozsah, inkrementální kontrolu nebo částečný export. |
+| [get_substitutions](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/get_substitutions/) with no arguments | Potřebujete náhrady pro celou prezentaci. |
+| [get_substitutions](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/get_substitutions/) with a list of slide indexes | Potřebujete náhrady pro vybraný rozsah, postupnou kontrolu nebo částečný export. |
 
-## **Nastavení pravidel substituce písem**
+## **Nastavení pravidel náhrady písem**
 
-Pro specifikaci písma, které má Aspose.Slides použít, když je zdrojové písmo nedostupné:
+Pro určení písma, které by mělo Aspose.Slides použít, když je zdrojové písmo nedostupné:
 
-1. Načtěte prezentaci.  
-2. Vytvořte definice písem pro zdrojové a náhradní písmo.  
-3. Vytvořte [FontSubstRule](https://reference.aspose.com/slides/cs/python-net/aspose.slides/fontsubstrule/) s podmínkou [WHEN_INACCESSIBLE](https://reference.aspose.com/slides/cs/python-net/aspose.slides/fontsubstcondition/).  
-4. Přidejte pravidlo do [FontSubstRuleCollection](https://reference.aspose.com/slides/cs/python-net/aspose.slides/fontsubstrulecollection/).  
-5. Přiřaďte kolekci k vlastnosti [FontsManager.font_subst_rule_list](https://reference.aspose.com/slides/cs/python-net/aspose.slides/fontsmanager/font_subst_rule_list/).  
-6. Vykreslete nebo konvertujte prezentaci.
+1. Načtěte prezentaci.
+2. Vytvořte definice písem pro zdrojové a náhradní písmo.
+3. Vytvořte [FontSubstRule](https://reference.aspose.com/slides/python-net/aspose.slides/fontsubstrule/) s podmínkou [WHEN_INACCESSIBLE](https://reference.aspose.com/slides/python-net/aspose.slides/fontsubstcondition/).
+4. Přidejte pravidlo do [FontSubstRuleCollection](https://reference.aspose.com/slides/python-net/aspose.slides/fontsubstrulecollection/).
+5. Přiřaďte kolekci k vlastnosti [FontsManager.font_subst_rule_list](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/font_subst_rule_list/).
+6. Vykreslete nebo převedete prezentaci.
 
-Následující příklad v jazyce Python substituuje `Arial` za `SomeRareFont`, když je `SomeRareFont` nedostupné, a poté vykreslí první snímek pro ověření výsledku. Náhradní písmo musí být dostupné pro Aspose.Slides.
+Následující příklad v Pythonu nahradí `Arial` za `SomeRareFont`, když je `SomeRareFont` nedostupné, a poté vykreslí první snímek k ověření výsledku. Náhradní písmo musí být pro Aspose.Slides dostupné.
 
 ```python
 import aspose.slides as slides
@@ -105,46 +107,46 @@ with slides.Presentation("Fonts.pptx") as presentation:
         image.save("slide.jpg", slides.ImageFormat.JPEG)
 ```
 
-{{% alert color="info" title="Poznámka" %}}
-Pro necondiční změnu písem použitých v celé prezentaci, viz [Nahrazení písem](/slides/cs/python-net/font-replacement/).
+{{% alert color="info" title="Note" %}}
+Pro bezpodmínečnou změnu písem použitých v celé prezentaci viz [Nahrazení písem](/slides/cs/python-net/font-replacement/).
 {{% /alert %}}
 
 ## **Omezení pro písma matematických rovnic**
 
-Pravidla substituce písem jsou součástí standardního procesu výběru písem používaného během vykreslování a konverze. Fungují pro běžný text, když Aspose.Slides může nahradit nedostupné písmo dostupným písmem určeným pravidlem.
+Pravidla náhrady písem jsou součástí standardního procesu výběru písma používaného během vykreslování a převodu. Fungují pro běžný text, když Aspose.Slides dokáže nahradit nedostupné písmo dostupným písmem určeným pravidlem.
 
-Matematické rovnice Office Math mají další požadavek. Pokud rovnice používá **Cambria Math**, Aspose.Slides může potřebovat právě toto písmo k výpočtu a vykreslení rozvržení rovnice. Pravidlo, které substituuje jiné matematické písmo, například **STIX Two Math**, nemůže nahradit **Cambria Math** pro tento účel, a při vykreslování se může nadále uvádět, že **Cambria Math** je vyžadováno.
+Rovnice Office Math mají dodatečný požadavek. Pokud rovnice používá **Cambria Math**, Aspose.Slides může potřebovat právě toto písmo k výpočtu a vykreslení rozvržení rovnice. Pravidlo, které nahrazuje jiným matematickým písmem, například **STIX Two Math**, nemůže nahradit **Cambria Math** pro tento účel a vykreslování může stále hlásit, že **Cambria Math** je vyžadováno.
 
-Pro vykreslení nebo konverzi takové prezentace zajistěte, aby bylo **Cambria Math** dostupné pro Aspose.Slides. Nainstalujte jej v operačním systému nebo jej načtěte jako [externí písmo](/slides/cs/python-net/custom-font/).
+Pro vykreslení nebo převod takové prezentace zpřístupněte **Cambria Math** pro Aspose.Slides. Nainstalujte jej v operačním systému nebo jej načtěte jako [externí písmo](/slides/cs/python-net/custom-font/).
 
-Toto omezení se vztahuje na rozvržení rovnic. Pravidla substituce popsaná výše se i nadále vztahují na běžný text prezentace.
+Toto omezení se vztahuje na rozvržení rovnic. Výše popsaná pravidla náhrady se stále vztahují na běžný text prezentace.
 
 ## **Často kladené otázky**
 
-**Jaký je rozdíl mezi nahrazením písma a substitucí písma?**
+**Jaký je rozdíl mezi nahrazením písem a náhradou písem?**
 
-[Font replacement](/slides/cs/python-net/font-replacement/) úmyslně mění jedno písmo na jiné v celé prezentaci. Substituce písma vybírá písmo pro vykreslený výstup, když je splněna nakonfigurovaná podmínka, například když je původní písmo nedostupné.
+[Nahrazení písem](/slides/cs/python-net/font-replacement/) úmyslně mění jedno písmo na jiné v celé prezentaci. Náhrada písem vybírá písmo pro vykreslený výstup, když je splněna nakonfigurovaná podmínka, například když je původní písmo nedostupné.
 
-**Kdy se pravidla substituce aplikují?**
+**Kdy se pravidla náhrady používají?**
 
-Pravidla se podílejí na [sekvenci výběru písem](/slides/cs/python-net/font-selection-sequence/) během vykreslování a konverze. S podmínkou `WHEN_INACCESSIBLE` se pravidlo používá pouze tehdy, když Aspose.Slides nemůže získat přístup ke zdrojovému písmu.
+Pravidla se podílejí na [sekvenci výběru písma](/slides/cs/python-net/font-selection-sequence/) během vykreslování a převodu. S podmínkou `WHEN_INACCESSIBLE` je pravidlo použito pouze tehdy, když Aspose.Slides nemůže získat přístup ke zdrojovému písmu.
 
-**Co se stane, když písmo chybí a není nakonfigurováno žádné pravidlo substituce?**
+**Co se stane, když písmo chybí a není nakonfigurováno žádné pravidlo náhrady?**
 
-Aspose.Slides vybere nejbližší dostupné písmo podle svého procesu výběru písem. Výsledek závisí na písmech dostupných v běhovém prostředí.
+Aspose.Slides vybere nejbližší dostupné písmo podle svého procesu výběru písma. Výsledek závisí na písmenech dostupných v běhovém prostředí.
 
-**Mohu načíst externí písma, abych se vyhnul substituci?**
+**Mohu načíst externí písma, aby se předešlo náhradě?**
 
-Ano. Můžete [načíst externí písma](/slides/cs/python-net/custom-font/), aby je Aspose.Slides mohl použít během vykreslování a konverze.
+Ano. Můžete [načíst externí písma](/slides/cs/python-net/custom-font/), aby je Aspose.Slides mohl použít během vykreslování a převodu.
 
-**Distribuuje Aspose písma spolu s knihovnou?**
+**Distribuuje Aspose písma s knihovnou?**
 
-Ne. Za poskytování písem a dodržování jejich licencí jste zodpovědní vy.
+Ne. Za poskytování písem a dodržování jejich licencí jste zodpovědní.
 
-**Mohou se výsledky substituce lišit mezi Windows, Linux a macOS?**
+**Mohou se výsledky náhrady lišit mezi Windows, Linux a macOS?**
 
-Ano. Instalovaná písma a umístění vyhledávání písem se liší podle operačního systému, takže písmo dostupné na jednom počítači může vyžadovat substituci na jiném.
+Ano. Instalovaná písma a umístění pro vyhledávání písem se liší podle operačního systému, takže písmo dostupné na jednom počítači může vyžadovat náhradu na jiném.
 
-**Jak zajistit konzistentní výběr písem při hromadných konverzích?**
+**Jak zajistit konzistentní výběr písma při dávkových převodech?**
 
-Používejte stejné soubory písem a jejich verze na každém stroji nebo kontejneru, [načtěte požadovaná externí písma](/slides/cs/python-net/custom-font/), a [vložená písma](/slides/cs/python-net/embedded-font/) pokud licence umožňuje. Můžete také před exportem volat [FontsManager.get_substitutions](https://reference.aspose.com/slides/cs/python-net/aspose.slides/fontsmanager/get_substitutions/) pro identifikaci neočekávaných substitucí.
+Používejte stejné soubory písem a jejich verze na každém počítači nebo kontejneru, [načtěte požadovaná externí písma](/slides/cs/python-net/custom-font/) a [vkládejte písma](/slides/cs/python-net/embedded-font/) pokud licence umožňuje. Můžete také zavolat [FontsManager.get_substitutions](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/get_substitutions/) před exportem, abyste identifikovali nečekané náhrady.

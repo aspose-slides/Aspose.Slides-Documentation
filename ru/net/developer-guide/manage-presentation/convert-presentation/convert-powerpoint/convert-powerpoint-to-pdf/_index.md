@@ -1,18 +1,18 @@
 ---
-title: "Конвертация PPT и PPTX в PDF в .NET [Включены расширенные функции]"
-linktitle: "PowerPoint в PDF"
+title: Преобразование PPT и PPTX в PDF в .NET [включены расширенные функции]
+linktitle: PowerPoint в PDF
 type: docs
 weight: 40
 url: /ru/net/convert-powerpoint-to-pdf/
 keywords:
-- конвертировать PowerPoint
-- конвертировать презентацию
+- преобразовать PowerPoint
+- преобразовать презентацию
 - PowerPoint в PDF
-- презентация в PDF
+- презентацию в PDF
 - PPT в PDF
-- конвертировать PPT в PDF
+- преобразовать PPT в PDF
 - PPTX в PDF
-- конвертировать PPTX в PDF
+- преобразовать PPTX в PDF
 - сохранить PowerPoint как PDF
 - сохранить PPT как PDF
 - сохранить PPTX как PDF
@@ -25,47 +25,43 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Конвертируйте PowerPoint PPT/PPTX в высококачественные, индексируемые PDF в .NET с помощью Aspose.Slides, используя быстрые примеры кода на C# и расширенные параметры конвертации."
+description: "Преобразуйте PowerPoint PPT/PPTX в высококачественные, индексируемые PDF в .NET с помощью Aspose.Slides, используя быстрые примеры кода на C# и расширенные параметры преобразования."
 ---
 ## **Обзор**
 
-Преобразование презентаций PowerPoint (PPT, PPTX, ODP и т.д.) в формат PDF на C# предоставляет несколько преимуществ, включая совместимость с различными устройствами и сохранение макета и форматирования вашей презентации. Это руководство демонстрирует, как преобразовать презентации в PDF‑документы, использовать различные параметры для контроля качества изображений, включать скрытые слайды, защищать PDF‑файлы паролем, обнаруживать замену шрифтов, выбирать конкретные слайды для конвертации и применять стандарты соответствия к выводимым документам.
+Преобразование презентаций PowerPoint (PPT, PPTX, ODP и т.д.) в формат PDF в C# предоставляет несколько преимуществ, включая совместимость с различными устройствами и сохранение макета и форматирования вашей презентации. Это руководство демонстрирует, как преобразовать презентации в PDF‑документы, использовать различные параметры для управления качеством изображений, включать скрытые слайды, защищать PDF‑файлы паролем, обнаруживать замену шрифтов, выбирать отдельные слайды для преобразования и применять стандарты соответствия к результирующим документам.
 
-## **Конвертация PowerPoint в PDF**
+## **Преобразования PowerPoint в PDF**
 
-С помощью Aspose.Slides вы можете конвертировать презентации следующих форматов в PDF:
+Используя Aspose.Slides, вы можете конвертировать презентации в следующих форматах в PDF:
 
 * **PPT**
 * **PPTX**
 * **ODP**
 
-Чтобы конвертировать презентацию в PDF, передайте имя файла в качестве аргумента классу [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) и затем сохраните презентацию как PDF с помощью метода [Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/). Класс [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) предоставляет метод [Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/), который обычно используется для конвертации презентации в PDF.
+Чтобы преобразовать презентацию в PDF, передайте имя файла в качестве аргумента классу [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) и затем сохраните презентацию как PDF с помощью метода [Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/). Класс [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) предоставляет метод [Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/), который обычно используется для преобразования презентации в PDF.
 
 {{% alert color="info" title="Note" %}}
-
-Aspose.Slides for .NET вставляет информацию о своем API и номер версии в выводимые документы. Например, при конвертации презентации в PDF Aspose.Slides заполняет поле Application значением "*Aspose.Slides*" и поле PDF Producer значением вида "*Aspose.Slides v XX.XX*". **Note** что вы не можете заставить Aspose.Slides изменить или удалить эту информацию из выводимых документов.
-
+Aspose.Slides for .NET вставляет информацию о своём API и номер версии в выходные документы. Например, при преобразовании презентации в PDF Aspose.Slides заполняет поле Application значением "*Aspose.Slides*", а поле PDF Producer значением в форме "*Aspose.Slides v XX.XX*". **Примечание**: вы не можете указать Aspose.Slides изменить или удалить эту информацию из выходных документов.
 {{% /alert %}}
 
-Aspose.Slides позволяет конвертировать:
+Aspose.Slides позволяет вам преобразовывать:
+* Полные презентации в PDF
+* Определённые слайды из презентации в PDF
 
-* Весь набор слайдов в PDF
-* Конкретные слайды из презентации в PDF
-
-Aspose.Slides экспортирует презентации в PDF, обеспечивая тесное соответствие полученных PDF оригинальным презентациям. Элементы и атрибуты отображаются точно при конвертации, включая:
-
+Aspose.Slides экспортирует презентации в PDF, обеспечивая точное соответствие получаемых PDF оригинальным презентациям. Элементы и атрибуты отображаются точно при преобразовании, включая:
 * Изображения
 * Текстовые блоки и фигуры
 * Форматирование текста
 * Форматирование абзацев
 * Гиперссылки
 * Колонтитулы
-* Маркеры
+* Маркированные списки
 * Таблицы
 
-## **Конвертация PowerPoint в PDF**
+## **Преобразование PowerPoint в PDF**
 
-Стандартный процесс конвертации PowerPoint в PDF использует параметры по умолчанию. В этом случае Aspose.Slides пытается преобразовать предоставленную презентацию в PDF, используя оптимальные настройки на максимальном уровне качества.
+Стандартный процесс преобразования PowerPoint в PDF использует параметры по умолчанию. В этом случае Aspose.Slides пытается преобразовать предоставленную презентацию в PDF, используя оптимальные настройки с максимальными уровнями качества.
 
 В следующем примере загружается презентация и сохраняются все видимые слайды в PDF с использованием настроек экспорта по умолчанию.
 
@@ -78,20 +74,18 @@ presentation.Save("PDF-result.pdf", SaveFormat.Pdf);
 ```
 
 {{% alert color="info" title="Note" %}}
-
-Aspose предлагает бесплатный онлайн‑инструмент [**PowerPoint to PDF converter**](https://products.aspose.app/slides/conversion/ppt-to-pdf), демонстрирующий процесс конвертации презентации в PDF. Вы можете протестировать этот конвертер для живой реализации описанной здесь процедуры.
-
+Aspose предоставляет бесплатный онлайн [**Конвертер PowerPoint в PDF**](https://products.aspose.app/slides/conversion/ppt-to-pdf), демонстрирующий процесс преобразования презентации в PDF. Вы можете выполнить тест с этим конвертером для практической реализации описанной здесь процедуры.
 {{% /alert %}}
 
-## **Конвертация PowerPoint в PDF с параметрами**
+## **Преобразование PowerPoint в PDF с параметрами**
 
-Aspose.Slides предоставляет настраиваемые параметры — свойства класса [PdfOptions](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/) — которые позволяют настроить получаемый PDF, защитить PDF паролем или указать, как должен происходить процесс конвертации.
+Aspose.Slides предоставляет пользовательские параметры — свойства класса [PdfOptions](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/), которые позволяют настроить результирующий PDF, защитить PDF паролем или указать, как должен проходить процесс преобразования.
 
-### **Конвертация PowerPoint в PDF с пользовательскими параметрами**
+### **Преобразование PowerPoint в PDF с пользовательскими параметрами**
 
-Используя пользовательские параметры конвертации, вы можете задать предпочтительные настройки качества растровых изображений, определить способ обработки метафайлов, установить уровень сжатия текста, настроить DPI для изображений и многое другое.
+Используя пользовательские параметры преобразования, вы можете задать предпочтительные настройки качества растровых изображений, указать способ обработки метафайлов, установить уровень сжатия текста, настроить DPI для изображений и многое другое.
 
-В следующем примере презентация экспортируется в PDF 1.5 с качеством JPEG, установленным в 90, разрешением изображения 300 DPI, метафайлы сохраняются как PNG, а текст сжимается с помощью Flate.
+В следующем примере презентация экспортируется в PDF 1.5 с качеством JPEG, установленным на 90, разрешением изображения 300 DPI, метафайлы сохраняются как PNG и используется сжатие текста Flate.
 
 ```csharp
 using Aspose.Slides;
@@ -110,13 +104,13 @@ using var presentation = new Presentation("PowerPoint.pptx");
 presentation.Save("PowerPoint-to-PDF.pdf", SaveFormat.Pdf, pdfOptions);
 ```
 
-### **Сохранение вложенных OLE‑файлов как вложений PDF**
+### **Сохранить вложенные OLE‑файлы в виде вложений PDF**
 
-Если презентация содержит вложенную книгу Excel, вы можете захотеть, чтобы получатели PDF могли получить доступ к данным книги, а также просматривать слайды. Установите [PdfOptions.IncludeOleData](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/includeoledata/) в `true`, чтобы сохранить вложенные OLE‑файлы в виде вложений в результирующем PDF.
+Если презентация содержит встроенную книгу Excel, вы можете захотеть, чтобы получатели PDF могли получить доступ к данным книги, а также просматривать слайды. Установите [PdfOptions.IncludeOleData](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/includeoledata/) в `true`, чтобы сохранить вложенные OLE‑файлы в виде вложений в результирующем PDF.
 
-Значение по умолчанию — `false`: превью‑изображение или значок OLE‑объекта отображается на странице PDF, но его вложенный файл не включается как вложение. При установке параметра в `true` файл также включается в виде вложения. Превью остаётся визуальным представлением; вложение позволяет получателям открыть или сохранить вложенный файл отдельно. OLE‑объект не превращается в интерактивный лист Excel на странице PDF.
+Значение по умолчанию — `false`: изображение предварительного просмотра OLE‑объекта или его значок отображаются на странице PDF, но встроенный файл не включается как вложение. Установка параметра в `true` дополнительно включает данные файла. Предпросмотр остаётся визуальным представлением; вложение позволяет получателям открывать или сохранять встроенный файл отдельно. OLE‑объект не превращается в интерактивный лист Excel на странице PDF.
 
-В следующем примере загружается презентация, уже содержащая вложенную книгу Excel, и экспортируется в PDF с прикреплённой книгой.
+В следующем примере загружается презентация, уже содержащая встроенную книгу Excel, и экспортируется в PDF с прикреплённой книгой.
 
 ```csharp
 using Aspose.Slides;
@@ -129,22 +123,19 @@ presentation.Save("presentation.pdf", SaveFormat.Pdf, pdfOptions);
 ```
 
 Чтобы проверить результат:
-
-1. Откройте экспортированный PDF в просмотрщике, поддерживающем вложения, например в Adobe Acrobat Reader.
-2. Откройте панель **Attachments** и найдите вложенную книгу.
-3. Сохраните вложение и откройте его в Excel для просмотра данных, либо откройте напрямую, если просмотрщик это позволяет. Превью на странице PDF отделено от вложения.
+1. Откройте экспортированный PDF в просмотрщике, поддерживающем вложения файлов, например Adobe Acrobat Reader.
+2. Откройте панель **Вложения** в просмотрщике и найдите встроенную книгу.
+3. Сохраните вложение и откройте его в Excel, чтобы проверить данные, или откройте его напрямую, если просмотрщик позволяет. Предпросмотр на странице PDF отделён от вложения.
 
 {{% alert color="info" title="Note" %}}
-
-Стандарты PDF/A налагают ограничения на вложения: PDF/A‑1 запрещает вложенные файлы, PDF/A‑2 допускает только вложения PDF/A, а PDF/A‑3 допускает другие типы файлов, включая книги Excel. Это требования стандартов, а не ограничения, специфичные для Aspose.Slides. Пример использует настройку соответствия PDF по умолчанию и не демонстрирует экспорт PDF/A.
-
+Стандарты PDF/A накладывают ограничения на вложения: PDF/A-1 запрещает встроенные файлы, PDF/A-2 допускает только вложения PDF/A, а PDF/A-3 допускает другие типы файлов, включая книги Excel. Это требования стандартов, а не ограничения, специфичные для Aspose.Slides. В этом примере используется настройка соответствия PDF по умолчанию и не демонстрируется экспорт PDF/A.
 {{% /alert %}}
 
-### **Конвертация PowerPoint в PDF с скрытыми слайдами**
+### **Преобразование PowerPoint в PDF с скрытыми слайдами**
 
-Если презентация содержит скрытые слайды, вы можете использовать свойство [ShowHiddenSlides](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/showhiddenslides/) класса [PdfOptions](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/) для включения скрытых слайдов в виде страниц в результирующий PDF.
+Если презентация содержит скрытые слайды, вы можете использовать свойство [ShowHiddenSlides](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/showhiddenslides/) класса [PdfOptions](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/), чтобы включить скрытые слайды как страницы в результирующий PDF.
 
-В следующем примере презентация экспортируется в PDF, включая все скрытые слайды.
+В следующем примере презентация экспортируется в PDF с включением всех скрытых слайдов.
 
 ```csharp
 using Aspose.Slides;
@@ -157,7 +148,7 @@ using var presentation = new Presentation("PowerPoint.pptx");
 presentation.Save("PowerPoint-to-PDF.pdf", SaveFormat.Pdf, pdfOptions);
 ```
 
-### **Конвертация PowerPoint в защищённый паролем PDF**
+### **Преобразование PowerPoint в PDF, защищённый паролем**
 
 В следующем примере презентация экспортируется в PDF, который требует пароль `password` для открытия. Права доступа позволяют печать, включая печать высокого качества.
 
@@ -173,11 +164,11 @@ using var presentation = new Presentation("PowerPoint.pptx");
 presentation.Save("PPTX-to-PDF.pdf", SaveFormat.Pdf, pdfOptions);
 ```
 
-### **Обнаружение замены шрифтов**
+### **Обнаружение замен шрифтов**
 
-Aspose.Slides предоставляет свойство [WarningCallback](https://reference.aspose.com/slides/net/aspose.slides.export/saveoptions/warningcallback/) в классе [PdfOptions](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/), позволяющее обнаруживать замену шрифтов во время процесса конвертации презентации в PDF.
+Aspose.Slides предоставляет свойство [WarningCallback](https://reference.aspose.com/slides/net/aspose.slides.export/saveoptions/warningcallback/) класса [PdfOptions](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/), позволяющее обнаружить замену шрифтов во время процесса преобразования презентации в PDF.
 
-В следующем примере презентация экспортируется в PDF, а предупреждения о замене шрифтов выводятся в консоль. Предупреждение печатается только когда недоступный шрифт заменяется во время экспорта.
+В следующем примере презентация экспортируется в PDF, а предупреждения о замене шрифтов выводятся в консоль. Предупреждение выводится только при замене недоступного шрифта во время экспорта.
 
 ```csharp
 using Aspose.Slides;
@@ -206,14 +197,41 @@ class FontSubstitutionHandler : IWarningCallback
 ```
 
 {{% alert color="info" title="Note" %}}
-
-Для получения дополнительной информации о замене шрифтов см. статью [Font Substitution](/slides/ru/net/font-substitution/).
-
+Для получения дополнительной информации о замене шрифтов см. статью [Замена шрифтов](/slides/ru/net/font-substitution/).
 {{% /alert %}} 
 
-## **Конвертация выбранных слайдов PowerPoint в PDF**
+### **Обработка шрифтов без отдельного жирного начертания**
 
-В следующем примере экспортируются слайды 1 и 3 из презентации в PDF. Номера слайдов в этом массиве начинаются с единицы, и исходная презентация должна содержать как минимум три слайда.
+Презентация может применять жирное форматирование к тексту, даже если у шрифта нет отдельного жирного начертания. Текст всё равно может выглядеть жирным за счёт синтетического жирного начертания, которое искусственно утолщает обычные глифы. Если такой текст выглядит слишком тяжёлым или иначе отличается от ожидаемого вида в PDF, попробуйте установить [PdfOptions.RasterizeUnsupportedFontStyles](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/rasterizeunsupportedfontstyles/) в `true`. Этот параметр рендерит затронутый текст как растровое изображение во время экспорта PDF и может улучшить его отображение для некоторых шрифтов. Значение по умолчанию — `false`.
+
+Пример презентации содержит два текстовых блока: один с обычным текстом и один с применённым жирным форматом к тем же шрифту, у которого нет отдельного жирного начертания. В следующем примере презентация загружается, включается растрирование неподдерживаемых стилей шрифтов, и экспортируется в PDF:
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+var pdfOptions = new PdfOptions
+{
+    RasterizeUnsupportedFontStyles = true
+};
+
+using var presentation = new Presentation("unsupported-bold.pptx");
+presentation.Save("rasterized.pdf", SaveFormat.Pdf, pdfOptions);
+```
+
+Ниже показаны предварительные просмотры вывода с отключённым и включённым параметром. В этом примере жирный текст имеет более тяжёлые штрихи при отключённом параметре. При включённом параметре его штрихи становятся легче; обычный текст остаётся без изменений. Сравните результаты перед тем, как выбрать настройку для вашей презентации.
+
+| Параметр отключён (`false`, по умолчанию) | Параметр включён (`true`) |
+|---|---|
+| ![PDF with unsupported font style rasterization disabled](unsupported-bold-disabled.png) | ![PDF with unsupported font style rasterization enabled](unsupported-bold-enabled.png) |
+
+В этом примере включение параметра превращает только жирный текст в растр: его нельзя выделить, скопировать или искать как текст без OCR, а его края выглядят мягче при увеличении 800 %. Обычный текст остаётся доступным для поиска. При отключённом параметре оба текста остаются текстовыми.
+
+Этот параметр растрирует текст, отформатированный как жирный, когда у шрифта нет отдельного жирного начертания. Вместо этого [Замена шрифтов](/slides/ru/net/font-substitution/) выбирает другой шрифт, когда оригинал недоступен.
+
+## **Преобразование выбранных слайдов из PowerPoint в PDF**
+
+В следующем примере экспортируются слайды 1 и 3 из презентации в PDF. Номера слайдов в этом массиве начинаются с единицы, и входная презентация должна содержать как минимум три слайда.
 
 ```csharp
 using Aspose.Slides;
@@ -224,9 +242,9 @@ var slides = new[] { 1, 3 };
 presentation.Save("PPTX-to-PDF.pdf", slides, SaveFormat.Pdf);
 ```
 
-## **Конвертация PowerPoint в PDF с пользовательским размером слайда**
+## **Преобразование PowerPoint в PDF с пользовательским размером слайда**
 
-В следующем примере первый слайд презентации копируется в новую презентацию с размером слайда 612 × 792 пунктов (8,5 × 11 дюймов). Содержимое слайда масштабируется под размер и экспортируется в PDF как один слайд.
+В следующем примере первый слайд из презентации копируется в новую презентацию с размером слайда 612 × 792 пунктов (8,5 × 11 дюймов). Содержимое слайда масштабируется под размер и экспортируется как один слайд в PDF.
 
 ```csharp
 using Aspose.Slides;
@@ -247,9 +265,9 @@ resizedPresentation.Slides.RemoveAt(1);
 resizedPresentation.Save("PDF_with_custom_slide_size.pdf", SaveFormat.Pdf);
 ```
 
-## **Конвертация PowerPoint в PDF в режиме заметок к слайдам**
+## **Преобразование PowerPoint в PDF в представлении слайдов с нотами**
 
-В следующем примере презентация экспортируется в PDF, размещая заметки докладчика под каждым слайдом. Используйте презентацию, содержащую заметки докладчика, чтобы увидеть результат.
+В следующем примере презентация экспортируется в PDF, размещая заметки докладчика каждого слайда под самим слайдом. Используйте презентацию, содержащую заметки докладчика, чтобы увидеть результат.
 
 ```csharp
 using Aspose.Slides;
@@ -267,11 +285,9 @@ using var presentation = new Presentation("NotesFile.pptx");
 presentation.Save("PDF_with_notes.pdf", SaveFormat.Pdf, pdfOptions);
 ```
 
-## **Доступность и стандарты соответствия PDF**
+## **Стандарты доступности и соответствия для PDF**
 
-Aspose.Slides позволяет выполнять конвертацию, соответствующую [Web Content Accessibility Guidelines (**WCAG**)](https://www.w3.org/TR/WCAG-TECHS/pdf.html). Вы можете экспортировать документ PowerPoint в PDF, используя любой из следующих стандартов соответствия: **PDF/A1a**, **PDF/A1b** и **PDF/UA**.
-
-Этот C#‑код демонстрирует процесс конвертации PowerPoint в PDF, создающий несколько PDF‑файлов на основе разных стандартов соответствия:
+Aspose.Slides позволяет использовать процедуру преобразования, соответствующую [Руководствам по доступности веб‑контента (**WCAG**)](https://www.w3.org/TR/WCAG-TECHS/pdf.html). Вы можете экспортировать документ PowerPoint в PDF, используя любой из этих стандартов соответствия: **PDF/A1a**, **PDF/A1b** и **PDF/UA**.
 
 ```csharp
 using Aspose.Slides;
@@ -296,37 +312,30 @@ presentation.Save("pres-ua-compliance.pdf", SaveFormat.Pdf, new PdfOptions
 ```
 
 {{% alert color="info" title="Note" %}}
-
-Aspose.Slides поддерживает операции конвертации PDF, позволяя преобразовывать PDF‑файлы в популярные форматы. Вы можете выполнять конвертации [PDF to HTML](https://products.aspose.com/slides/net/conversion/pdf-to-html/), [PDF to image](https://products.aspose.com/slides/net/conversion/pdf-to-image/), [PDF to JPG](https://products.aspose.com/slides/net/conversion/pdf-to-jpg/) и [PDF to PNG](https://products.aspose.com/slides/net/conversion/pdf-to-png/). Другие операции конвертации PDF в специализированные форматы — [PDF to SVG](https://products.aspose.com/slides/net/conversion/pdf-to-svg/), [PDF to TIFF](https://products.aspose.com/slides/net/conversion/pdf-to-tiff/) и [PDF to XML](https://products.aspose.com/slides/net/conversion/pdf-to-xml/) — также поддерживаются.
-
+Aspose.Slides поддерживает операции преобразования PDF, позволяя конвертировать PDF‑файлы в популярные форматы. Вы можете выполнить преобразования [PDF в HTML](https://products.aspose.com/slides/net/conversion/pdf-to-html/), [PDF в изображение](https://products.aspose.com/slides/net/conversion/pdf-to-image/), [PDF в JPG](https://products.aspose.com/slides/net/conversion/pdf-to-jpg/) и [PDF в PNG](https://products.aspose.com/slides/net/conversion/pdf-to-png/). Другие операции преобразования PDF в специализированные форматы — [PDF в SVG](https://products.aspose.com/slides/net/conversion/pdf-to-svg/), [PDF в TIFF](https://products.aspose.com/slides/net/conversion/pdf-to-tiff/) и [PDF в XML](https://products.aspose.com/slides/net/conversion/pdf-to-xml/) — также поддерживаются.
 {{% /alert %}}
 
-> **Note:** При экспорте в PDF/UA Aspose.Slides рассматривает сложную графику, такую как SmartArt, диаграммы и формулы, как единую фигуру. Отдельные элементы пути не сохраняются как отдельный контент и могут быть помечены как артефакты; альтернативный текст предоставляется только для всей фигуры.
+> **Примечание:** При экспорте в PDF/UA Aspose.Slides рассматривает сложную графику, такую как SmartArt, диаграммы и формулы, как единую фигуру. Отдельные элементы пути не сохраняются как отдельный контент и могут быть помечены как артефакты; альтернативный текст предоставляется только для всей фигуры.
 
 ## **FAQ**
 
-**Можно ли конвертировать несколько файлов PowerPoint в PDF пакетно?**
+**Можно ли конвертировать несколько файлов PowerPoint в PDF пакетно?**  
+Да, Aspose.Slides поддерживает пакетное преобразование нескольких файлов PPT или PPTX в PDF. Вы можете перебрать файлы и программно применить процесс преобразования.
 
-Да, Aspose.Slides поддерживает пакетную конвертацию нескольких файлов PPT или PPTX в PDF. Вы можете перебрать свои файлы и программно применить процесс конвертации.
+**Можно ли защитить полученный PDF паролем?**  
+Да. Используйте класс [PdfOptions](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/) для установки пароля и определения прав доступа во время процесса преобразования.
 
-**Можно ли защитить полученный PDF паролем?**
-
-Да. Используйте класс [PdfOptions](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/) для установки пароля и определения прав доступа во время процесса конвертации.
-
-**Как включить скрытые слайды в PDF?**
-
+**Как включить скрытые слайды в PDF?**  
 Установите свойство [ShowHiddenSlides](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/showhiddenslides/) в классе [PdfOptions](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/) в `true`, чтобы включить скрытые слайды в результирующий PDF.
 
-**Может ли Aspose.Slides сохранять высокое качество изображений в PDF?**
+**Может ли Aspose.Slides сохранять высокое качество изображений в PDF?**  
+Да, вы можете контролировать качество изображений, задавая свойства, такие как [JpegQuality](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/jpegquality/) и [SufficientResolution](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/sufficientresolution/), в классе [PdfOptions](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/), чтобы обеспечить высококачественные изображения в вашем PDF.
 
-Да, вы можете контролировать качество изображений, задав свойства такие как [JpegQuality](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/jpegquality/) и [SufficientResolution](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/sufficientresolution/) в классе [PdfOptions](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/) для обеспечения высококачественных изображений в вашем PDF.
-
-**Поддерживает ли Aspose.Slides стандарты соответствия PDF/A?**
-
-Да, Aspose.Slides позволяет экспортировать PDF, соответствующие различным стандартам, включая PDF/A1a, PDF/A1b и PDF/UA, обеспечивая соответствие ваших документов требованиям доступности и архивирования.
+**Поддерживает ли Aspose.Slides стандарты соответствия PDF/A?**  
+Да, Aspose.Slides позволяет экспортировать PDF, соответствующие различным стандартам, включая PDF/A1a, PDF/A1b и PDF/UA, гарантируя, что ваши документы соответствуют требованиям доступности и архивирования.
 
 ## **Дополнительные ресурсы**
 
-- [Aspose.Slides for .NET Documentation](/slides/ru/net/)
-- [Aspose.Slides for .NET API Reference](https://reference.aspose.com/slides/net/)
-- [Aspose Free Online Converters](https://products.aspose.app/slides/conversion)
+- [Документация Aspose.Slides для .NET](/slides/ru/net/)
+- [Справочник API Aspose.Slides для .NET](https://reference.aspose.com/slides/net/)
+- [Бесплатные онлайн‑конвертеры Aspose](https://products.aspose.app/slides/conversion)

@@ -9,28 +9,30 @@ keywords:
 - náhradní písmo
 - náhrada písma
 - nahrazení písma
-- nahrazení písma
+- výměna písma
 - pravidlo náhrady
-- pravidlo nahrazení
+- pravidlo výměny
 - PowerPoint
 - OpenDocument
 - prezentace
 - Android
 - Java
 - Aspose.Slides
-description: "Konfigurujte pravidla náhrady písma a kontrolujte nahrazená písma v Aspose.Slides pro Android pomocí jazyka Java při vykreslování nebo převodu prezentací."
+description: "Konfigurujte pravidla náhrady písma a prohlédněte si náhradní písma v Aspose.Slides pro Android pomocí Javy při vykreslování nebo konverzi prezentací."
 ---
 ## **Přehled**
 
-Náhrada písma umožňuje aplikaci Aspose.Slides použít dostupné písmo místo písma, které nelze při vykreslování nebo převodu prezentace získat. Náhrada ovlivňuje výstupní vykreslený obsah; nemění písmo přiřazené obsahu prezentace.
+Náhrada písma umožňuje Aspose.Slides použít dostupné písmo místo písma, které nelze při vykreslování nebo konverzi prezentace získat. Náhrada ovlivňuje vykreslený výstup; nemění písmo přiřazené k obsahu prezentace.
 
-Můžete definovat písmo, které se použije, když je konkrétní písmo nedostupné, a můžete prozkoumat náhrady, které Aspose.Slides provede během vykreslování. To pomáhá udržet výstup konzistentní napříč Android zařízeními a prostředími s různými dostupnými písmy.
+Můžete definovat písmo, které se použije, když je konkrétní písmo nedostupné, a můžete prohlédnout náhrady, které Aspose.Slides během vykreslování provede. To pomáhá udržet výstup konzistentní napříč Android zařízeními a prostředími s různými dostupnými písmy.
 
-## **Získání náhrad písma**
+Pokud je písmo dostupné, ale nemá samostatnou tučnou variantu, podívejte se na [Zpracování písem bez samostatné tučné varianty](/slides/cs/androidjava/convert-powerpoint-to-pdf/#handle-fonts-without-a-dedicated-bold-typeface). Tato část vysvětluje, jak během exportu do PDF rasterizovat postižený text a jaké jsou následky pro výběr textu, vyhledávání a škálování.
 
-Použijte metodu [IFontsManager.getSubstitutions](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ifontsmanager/#getSubstitutions--) k určení, která písma budou při vykreslení prezentace nahrazena. Metoda vrací objekty [FontSubstitutionInfo](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/fontsubstitutioninfo/), které identifikují původní a náhradní názvy písem.
+## **Získání náhrad písem**
 
-Následující Java příklad vypíše všechny náhrady písem pro prezentaci:
+Použijte metodu [IFontsManager.getSubstitutions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifontsmanager/#getSubstitutions--) k určení, která písma budou při vykreslování prezentace nahrazena. Metoda vrací objekty [FontSubstitutionInfo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/fontsubstitutioninfo/), které identifikují původní a náhradní názvy písem.
+
+Následující příklad v jazyce Java vypisuje všechny náhrady písem pro prezentaci:
 
 ```java
 import com.aspose.slides.FontSubstitutionInfo;
@@ -46,15 +48,15 @@ try {
 }
 ```
 
-## **Získání náhrad písma pro vybrané snímky**
+## **Získání náhrad písem pro vybrané snímky**
 
-Použijte přetížení [IFontsManager.getSubstitutions](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ifontsmanager/#getSubstitutions-int---) s argumentem `int[] slides` k prozkoumání pouze náhrad potřebných pro vykreslení konkrétních snímků. To je užitečné, když vykreslujete nebo exportujete část prezentace, kontrolujete velkou prezentaci po částech, hledáte snímky závislé na nedostupných písmech, připravujete minimální balíček písem pro Android aplikaci nebo diagnostikujete rozdíly ve vykreslování bez zpracování nesouvisejících snímků.
+Použijte přetížení [IFontsManager.getSubstitutions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifontsmanager/#getSubstitutions-int---) s argumentem `int[] slides` k prohlédnutí pouze náhrad potřebných pro vykreslení konkrétních snímků. To je užitečné, když vykreslujete nebo exportujete část prezentace, postupně kontrolujete velkou prezentaci, hledáte snímky závislé na nedostupných písmech, připravujete minimální balíček písem pro Android aplikaci nebo diagnostikujete rozdíly ve vykreslování bez zpracování nesouvisejících snímků.
 
-Pole `slides` obsahuje jednorozměrné indexy snímků začínající od 1: `1` označuje první snímek. Na rozdíl od toho kolekční přístup [Presentation.getSlides](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/presentation/#getSlides--) používá nulové indexování, takže stejný snímek se získá jako `presentation.getSlides().get_Item(0)`. Mějte tento rozdíl na paměti při vytváření pole, aby nedošlo k chybě o jeden.
+`Pole `slides` obsahuje jednojmenné (one‑based) indexy snímků: `1` označuje první snímek. Naopak přístup k kolekci [Presentation.getSlides](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getSlides--) používá nulové (zero‑based) indexování, takže stejný snímek je přístupný jako `presentation.getSlides().get_Item(0)`. Mějte tento rozdíl na paměti při vytváření pole, aby nedošlo k chybě o jednu.
 
-Volání přetížení provedete přes metodu [Presentation.getFontsManager](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/presentation/#getFontsManager--). Vrací pouze náhrady určené během vykreslování vybraných snímků. Každý výsledek je objekt [FontSubstitutionInfo](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/fontsubstitutioninfo/), který obsahuje původní a náhradní název písma. Výsledek odráží aktuální písmenové prostředí, nakonfigurovaná pravidla záložních písem, pravidla náhrady uložená v [IFontSubstRuleCollection](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ifontsubstrulecollection/), a [externě načtená písma](/slides/cs/androidjava/custom-font/).
+Vyvolejte přetížení přes metodu [Presentation.getFontsManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getFontsManager--). Vrátí pouze náhrady určené během vykreslování vybraných snímků. Každý výsledek je objekt [FontSubstitutionInfo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/fontsubstitutioninfo/), který obsahuje původní a náhradní název písma. Výsledek odráží aktuální prostředí písem, nakonfigurovaná pravidla náhrad, pravidla náhrad uložená v [IFontSubstRuleCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifontsubstrulecollection/), a [externě načtená písma](/slides/cs/androidjava/custom-font/).
 
-Stejná náhrada může být požadována více než jedním vybraným snímkem. Při tvorbě inventáře písem nebo předběžné zprávy odstraňte duplicitní výsledky. Následující příklad vypíše každou vrácenou náhradu a poté vytvoří seřazený seznam unikátních mapování písem:
+Stejná náhrada může být vyžadována více než jedním vybraným snímkem. Při tvorbě inventáře písem nebo preflight zprávy výsledek deduplikujte. Následující příklad hlásí každou vrácenou náhradu a poté vytváří seřazený seznam unikátních mapování písem:
 
 ```java
 import com.aspose.slides.FontSubstitutionInfo;
@@ -92,25 +94,25 @@ try {
 }
 ```
 
-Rozhraní [IFontsManager](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ifontsmanager/) poskytuje obě přetížení. Vyberte si podle rozsahu vykreslovací operace:
+Rozhraní [IFontsManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifontsmanager/) poskytuje obě přetížení. Vyberte si podle rozsahu vykreslovací operace:
 
 | Přetížení | Použijte, když |
 |---|---|
-| [getSubstitutions](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ifontsmanager/#getSubstitutions--) bez argumentů | Potřebujete náhrady pro celou prezentaci. |
-| [getSubstitutions](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ifontsmanager/#getSubstitutions-int---) s `int[] slides` | Potřebujete náhrady pro vybraný rozsah, inkrementální kontrolu nebo částečný export. |
+| [getSubstitutions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifontsmanager/#getSubstitutions--) bez argumentů | Potřebujete náhrady pro celou prezentaci. |
+| [getSubstitutions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifontsmanager/#getSubstitutions-int---) s `int[] slides` | Potřebujete náhrady pro vybraný rozsah, inkrementální kontrolu nebo částečný export. |
 
 ## **Nastavení pravidel náhrady písma**
 
-Pro určení písma, které má Aspose.Slides použít, když je zdrojové písmo nedostupné:
+Jak specifikovat písmo, které má Aspose.Slides použít, když je zdrojové písmo nedostupné:
 
-1. Načtěte prezentaci.  
-2. Vytvořte definice písem pro zdrojové a náhradní písmo.  
-3. Vytvořte [FontSubstRule](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/fontsubstrule/) s podmínkou [WhenInaccessible](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/fontsubstcondition/).  
-4. Přidejte pravidlo do [FontSubstRuleCollection](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/fontsubstrulecollection/).  
-5. Přiřaďte kolekci pomocí metody [FontsManager.setFontSubstRuleList](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/fontsmanager/#setFontSubstRuleList-com.aspose.slides.IFontSubstRuleCollection-).  
-6. Vykreslete nebo převádějte prezentaci.
+1. Načtěte prezentaci.
+2. Vytvořte definice písem pro zdrojové a náhradní písmo.
+3. Vytvořte [FontSubstRule](https://reference.aspose.com/slides/androidjava/com.aspose.slides/fontsubstrule/) s podmínkou [WhenInaccessible](https://reference.aspose.com/slides/androidjava/com.aspose.slides/fontsubstcondition/).
+4. Přidejte pravidlo do [FontSubstRuleCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/fontsubstrulecollection/).
+5. Přiřaďte kolekci pomocí metody [FontsManager.setFontSubstRuleList](https://reference.aspose.com/slides/androidjava/com.aspose.slides/fontsmanager/#setFontSubstRuleList-com.aspose.slides.IFontSubstRuleCollection-).
+6. Vykreslete nebo konvertujte prezentaci.
 
-Následující Java příklad nahradí `Arial` za `SomeRareFont`, když je `SomeRareFont` nedostupné, a poté vykreslí první snímek pro ověření výsledku. Náhradní písmo musí být pro Aspose.Slides dostupné.
+Následující příklad v jazyce Java nahrazuje `Arial` za `SomeRareFont`, když je `SomeRareFont` nedostupný, a poté vykresluje první snímek k ověření výsledku. Náhradní písmo musí být pro Aspose.Slides dostupné.
 
 ```java
 import com.aspose.slides.FontData;
@@ -145,39 +147,39 @@ try {
 }
 ```
 
-{{% alert color="info" title="Poznámka" %}}
-Pro neomezenou změnu písem používaných v celé prezentaci viz [Font Replacement](/slides/cs/androidjava/font-replacement/).
+{{% alert color="info" title="Note" %}}
+Pro nepodmíněnou změnu písem použitých v celé prezentaci se podívejte na [Nahrazení písem](/slides/cs/androidjava/font-replacement/).
 {{% /alert %}}
 
 ## **Omezení pro písma matematických rovnic**
 
-Pravidla náhrady písma jsou součástí standardního procesu výběru písma používaného během vykreslování a převodu. Fungují pro běžný text, když Aspose.Slides může nahradit nedostupné písmo dostupným písmem definovaným pravidlem.
+Pravidla náhrady písem jsou součástí standardního procesu výběru písem používaného během vykreslování a konverze. Fungují pro běžný text, pokud Aspose.Slides může nahradit nedostupné písmo dostupným písmem určeným pravidlem.
 
-Matematické rovnice Office Math mají další požadavek. Pokud rovnice používá **Cambria Math**, může Aspose.Slides potřebovat právě toto písmo k výpočtu a vykreslení rozvržení rovnice. Pravidlo, které nahrazuje jiné matematické písmo, např. **STIX Two Math**, nemůže nahradit **Cambria Math** pro tento účel a vykreslování může stále hlásit, že **Cambria Math** je vyžadováno.
+Rovnice Office Math mají další požadavek. Pokud rovnice používá **Cambria Math**, Aspose.Slides může potřebovat právě toto písmo k výpočtu a vykreslení rozložení rovnice. Pravidlo, které nahrazuje jiné matematické písmo, například **STIX Two Math**, nemůže nahradit **Cambria Math** pro tento účel a vykreslování může i nadále hlásit, že **Cambria Math** je vyžadováno.
 
-Pro vykreslení nebo převod takové prezentace zajistěte, aby bylo **Cambria Math** dostupné pro Aspose.Slides. Načtěte jej jako [externí písmo](/slides/cs/androidjava/custom-font/), aby aplikace mohla použít jej během vykreslování a převodu.
+Pro vykreslení nebo konverzi takové prezentace zajistěte, aby bylo **Cambria Math** dostupné pro Aspose.Slides. Načtěte jej jako [externí písmo](/slides/cs/androidjava/custom-font/), aby jej aplikace mohla použít během vykreslování a konverze.
 
-Toto omezení se vztahuje na rozvržení rovnice. Pravidla náhrady popsaná výše stále platí pro běžný text v prezentaci.
+Toto omezení se vztahuje na rozložení rovnic. Výše popsaná pravidla náhrady se i nadále vztahují na běžný text prezentace.
 
 ## **Často kladené otázky**
 
 **Jaký je rozdíl mezi nahrazením písma a náhradou písma?**  
-[Font replacement](/slides/cs/androidjava/font-replacement/) úmyslně mění jedno písmo na jiné v celé prezentaci. Náhrada písma vybírá písmo pro vykreslený výstup, když je splněna konfigurací definovaná podmínka, například když je původní písmo nedostupné.
+[Nahrazení písma](/slides/cs/androidjava/font-replacement/) úmyslně mění jedno písmo na jiné v celé prezentaci. Náhrada písma vybírá písmo pro vykreslený výstup, když je splněna nakonfigurovaná podmínka, například když je původní písmo nedostupné.
 
 **Kdy se pravidla náhrady aplikují?**  
-Pravidla se podílejí na [font selection sequence](/slides/cs/androidjava/font-selection-sequence/) během vykreslování a převodu. S podmínkou `WhenInaccessible` se pravidlo použije pouze tehdy, když Aspose.Slides nemůže získat zdrojové písmo.
+Pravidla se podílejí na [sekvenci výběru písma](/slides/cs/androidjava/font-selection-sequence/) během vykreslování a konverze. S `WhenInaccessible` se pravidlo použije pouze tehdy, když Aspose.Slides nemůže získat přístup ke zdrojovému písmu.
 
-**Co se stane, když písmo chybí a není nastaveno žádné pravidlo náhrady?**  
-Aspose.Slides vybere nejbližší dostupné písmo podle svého procesu výběru písem. Výsledek závisí na písech dostupných v runtime prostředí.
+**Co se stane, když písmo chybí a není nakonfigurováno žádné pravidlo náhrady?**  
+Aspose.Slides vybere nejbližší dostupné písmo podle svého procesu výběru písem. Výsledek závisí na písmenech dostupných v běhovém prostředí.
 
-**Mohu načíst externí písma, abych se vyhnul náhradě?**  
-Ano. Můžete [načíst externí písma](/slides/cs/androidjava/custom-font/), aby je Aspose.Slides mohl použít během vykreslování a převodu.
+**Mohu načíst externí písma, aby se zabránilo náhradě?**  
+Ano. Můžete [načíst externí písma](/slides/cs/androidjava/custom-font/), aby je Aspose.Slides mohl použít během vykreslování a konverze.
 
-**Distribuuje Aspose písma spolu s knihovnou?**  
+**Distribuuje Aspose písma s knihovnou?**  
 Ne. Za poskytování písem a dodržování jejich licencí jste odpovědní vy.
 
 **Mohou se výsledky náhrady lišit mezi Android zařízeními?**  
-Ano. Dostupná systémová písma se mohou lišit podle verze Androidu, zařízení a výrobce, takže písmo dostupné v jednom prostředí může vyžadovat náhradu v jiném.
+Ano. Dostupná systémová písma se mohou lišit mezi verzemi Androidu, zařízeními a výrobci, takže písmo dostupné v jednom prostředí může v jiném vyžadovat náhradu.
 
 **Jak mohu zajistit konzistentní výběr písem napříč Android zařízeními?**  
-Zabalte stejné požadované soubory písem s aplikací, [načtěte je jako externí písma](/slides/cs/androidjava/custom-font/) a [vložená písma](/slides/cs/androidjava/embedded-font/) pokud licence dovolí. Můžete také před exportem vyvolat [IFontsManager.getSubstitutions](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ifontsmanager/#getSubstitutions--) a identifikovat neočekávané náhrady.
+Zabalte stejné požadované soubory písem do aplikace, [načtěte je jako externí písma](/slides/cs/androidjava/custom-font/) a [vložte písma](/slides/cs/androidjava/embedded-font/) když licence dovolí. Můžete také před exportem zavolat [IFontsManager.getSubstitutions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifontsmanager/#getSubstitutions--) k identifikaci neočekávaných náhrad.

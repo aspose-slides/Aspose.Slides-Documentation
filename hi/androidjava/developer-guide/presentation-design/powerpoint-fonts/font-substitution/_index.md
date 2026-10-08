@@ -14,23 +14,25 @@ keywords:
 - बदलाव नियम
 - PowerPoint
 - OpenDocument
-- प्रस्तुतिकरण
+- प्रस्तुति
 - Android
 - Java
 - Aspose.Slides
-description: "रेंडरिंग या प्रस्तुतियों को परिवर्तित करते समय Java के माध्यम से Android के लिए Aspose.Slides में फ़ॉन्ट प्रतिस्थापन नियम कॉन्फ़िगर करें और प्रतिस्थापित फ़ॉन्ट की जाँच करें।"
+description: "प्रस्तुति को रेंडर या कनवर्ट करते समय Java के माध्यम से Android के लिए Aspose.Slides में फ़ॉन्ट प्रतिस्थापन नियम कॉन्फ़िगर करें और प्रतिस्थापित फ़ॉन्ट की जाँच करें।"
 ---
 ## **परिचय**
 
-फ़ॉन्ट प्रतिस्थापन Aspose.Slides को किसी उपलब्ध फ़ॉन्ट का उपयोग करने की अनुमति देता है जब प्रस्तुतिकरण को रेंडर या परिवर्तित किया जाता है और मूल फ़ॉन्ट उपलब्ध नहीं होता। प्रतिस्थापन रेंडर किए गए आउटपुट को प्रभावित करता है; यह प्रस्तुतिकरण की सामग्री को असाइन किए गए फ़ॉन्ट को नहीं बदलता।
+फ़ॉन्ट प्रतिस्थापन Aspose.Slides को प्रस्तुति को रेंडर या कनवर्ट करते समय उन फ़ॉन्टों की जगह उपलब्ध फ़ॉन्ट का उपयोग करने देता है जिन्हें एक्सेस नहीं किया जा सकता। प्रतिस्थापन रेंडर किए गए आउटपुट को प्रभावित करता है; यह प्रस्तुति की सामग्री को सौंपे गए फ़ॉन्ट को नहीं बदलता।
 
-आप किसी विशिष्ट फ़ॉन्ट के अनुपलब्ध होने पर उपयोग करने के लिए फ़ॉन्ट निर्धारित कर सकते हैं, और आप Aspose.Slides द्वारा रेंडरिंग के दौरान किए जाने वाले प्रतिस्थापनों की जाँच कर सकते हैं। यह विभिन्न Android डिवाइसों और विभिन्न उपलब्ध फ़ॉन्ट वाले वातावरणों में आउटपुट को सुसंगत रखने में मदद करता है।
+आप किसी विशिष्ट फ़ॉन्ट के अनुपलब्ध होने पर उपयोग करने के लिए फ़ॉन्ट निर्धारित कर सकते हैं, और Aspose.Slides द्वारा रेंडरिंग के दौरान किए गए प्रतिस्थापनों का निरीक्षण कर सकते हैं। यह Android डिवाइसों और विभिन्न उपलब्ध फ़ॉन्ट वाले वातावरणों में आउटपुट को सुसंगत रखने में मदद करता है।
+
+यदि कोई फ़ॉन्ट उपलब्ध है लेकिन उसकी समर्पित बोल्ड टाइपफ़ेस नहीं है, तो देखें [समर्पित बोल्ड टाइपफ़ेस के बिना फ़ॉन्ट संभालें](/slides/hi/androidjava/convert-powerpoint-to-pdf/#handle-fonts-without-a-dedicated-bold-typeface)। वह अनुभाग PDF निर्यात के दौरान प्रभावित टेक्स्ट को रास्टराइज़ करने और टेक्स्ट चयन, खोज और स्केलिंग पर प्रभावों को समझाता है।
 
 ## **फ़ॉन्ट प्रतिस्थापन प्राप्त करें**
 
-उपलब्ध फ़ॉन्ट को निर्धारित करने के लिए जब प्रस्तुतिकरण रेंडर किया जाता है तो कौन‑से फ़ॉन्ट प्रतिस्थापित किए जाएंगे, [IFontsManager.getSubstitutions](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ifontsmanager/#getSubstitutions--) मेथड का उपयोग करें। यह मेथड [FontSubstitutionInfo](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/fontsubstitutioninfo/) ऑब्जेक्ट लौटाता है जो मूल और प्रतिस्थापित फ़ॉन्ट नामों की पहचान करता है।
+प्रस्तुति रेंडर होने पर कौन से फ़ॉन्ट प्रतिस्थापित किए जाएंगे, यह निर्धारित करने के लिए [IFontsManager.getSubstitutions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifontsmanager/#getSubstitutions--) मेथड का उपयोग करें। यह मेथड मूल और प्रतिस्थापित फ़ॉन्ट नामों की पहचान करने वाले [FontSubstitutionInfo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/fontsubstitutioninfo/) ऑब्जेक्ट लौटाता है।
 
-निम्नलिखित Java उदाहरण एक प्रस्तुतिकरण के सभी फ़ॉन्ट प्रतिस्थापन को सूचीबद्ध करता है:
+निम्नलिखित Java उदाहरण प्रस्तुति के सभी फ़ॉन्ट प्रतिस्थापनों को सूचीबद्ध करता है:
 
 ```java
 import com.aspose.slides.FontSubstitutionInfo;
@@ -46,15 +48,15 @@ try {
 }
 ```
 
-## **चयनित स्लाइड्स के लिए फ़ॉन्ट प्रतिस्थापन प्राप्त करें**
+## **चुने हुए स्लाइड्स के लिए फ़ॉन्ट प्रतिस्थापन प्राप्त करें**
 
-`int[] slides` आर्ग्यूमेंट के साथ [IFontsManager.getSubstitutions](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ifontsmanager/#getSubstitutions-int---) ओवरलोड का उपयोग करके आप केवल उन स्लाइड्स के लिए आवश्यक प्रतिस्थापनों की जाँच कर सकते हैं जिन्हें आप रेंडर करना चाहते हैं। यह तब उपयोगी होता है जब आप प्रस्तुतिकरण के किसी हिस्से को रेंडर या निर्यात कर रहे हों, बड़े प्रस्तुतिकरण को क्रमिक रूप से जांच रहे हों, उन स्लाइड्स को ढूँढ़ रहे हों जिनके लिए अनुपलब्ध फ़ॉन्ट की आवश्यकता है, Android एप्लिकेशन के लिए न्यूनतम फ़ॉन्ट पैकेज तैयार कर रहे हों, या असंबंधित स्लाइड्स को प्रोसेस किए बिना रेंडरिंग अंतर को निदान करना चाहते हों।
+विशिष्ट स्लाइड्स को रेंडर करने के लिए आवश्यक प्रतिस्थापनों का निरीक्षण करने हेतु `int[] slides` आर्ग्यूमेंट के साथ [IFontsManager.getSubstitutions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifontsmanager/#getSubstitutions-int---) ओवरलोड का उपयोग करें। यह उपयोगी है जब आप प्रस्तुति का भाग रेंडर या एक्सपोर्ट कर रहे हों, बड़े प्रस्तुति को चरणबद्ध जांच रहे हों, उन स्लाइड्स को खोज रहे हों जो अनुपलब्ध फ़ॉन्ट पर निर्भर हैं, Android ऐप के लिए न्यूनतम फ़ॉन्ट पैकेज तैयार कर रहे हों, या अप्रासंगिक स्लाइड्स को प्रोसेस किए बिना रेंडरिंग अंतर का निदान कर रहे हों।
 
-`slides` एरे में एक‑आधारित स्लाइड इंडेक्स होते हैं: `1` पहला स्लाइड दर्शाता है। इसके विपरीत, [Presentation.getSlides](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/presentation/#getSlides--) संग्रह एक्सेसर शून्य‑आधारित इंडेक्सिंग का उपयोग करता है, इसलिए वही स्लाइड `presentation.getSlides().get_Item(0)` के रूप में पहुंचा जाता है। एरे बनाते समय इस अंतर को ध्यान में रखें ताकि ऑफ‑बाय‑वन त्रुटियों से बचा जा सके।
+`slides` ऐरे एक-आधारित स्लाइड सूचकांक रखता है: `1` पहला स्लाइड दर्शाता है। इसके विपरीत, [Presentation.getSlides](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getSlides--) कलेक्शन एक्सेसर शून्य-आधारित इंडेक्सिंग का उपयोग करता है, इसलिए वही स्लाइड `presentation.getSlides().get_Item(0)` के रूप में पहुँचा जाता है। ऐरे बनाते समय इस अंतर को ध्यान में रखें ताकि ऑफ‑बाइ‑वन त्रुटियों से बचा जा सके।
 
-ओवरलोड को [Presentation.getFontsManager](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/presentation/#getFontsManager--) मेथड के माध्यम से कॉल करें। यह केवल चयनित स्लाइड्स को रेंडर करते समय निर्धारित किए गए प्रतिस्थापन लौटाता है। प्रत्येक परिणाम एक [FontSubstitutionInfo](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/fontsubstitutioninfo/) ऑब्जेक्ट होता है जिसमें मूल और प्रतिस्थापित फ़ॉन्ट नाम होते हैं। परिणाम वर्तमान फ़ॉन्ट वातावरण, कॉन्फ़िगर किए गए फ़ॉलबैक नियम, [IFontSubstRuleCollection](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ifontsubstrulecollection/) में संग्रहीत प्रतिस्थापन नियम, और [बाहरी रूप से लोड किए गए फ़ॉन्ट](/slides/hi/androidjava/custom-font/) को प्रतिबिंबित करता है।
+[Presentation.getFontsManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getFontsManager--) मेथड के माध्यम से ओवरलोड को कॉल करें। यह केवल चुनी गई स्लाइड्स के रेंडरिंग के दौरान निर्धारित प्रतिस्थापन लौटाता है। प्रत्येक परिणाम एक [FontSubstitutionInfo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/fontsubstitutioninfo/) ऑब्जेक्ट होता है जिसमें मूल और प्रतिस्थापित फ़ॉन्ट नाम होते हैं। परिणाम वर्तमान फ़ॉन्ट वातावरण, कॉन्फ़िगर किए गए फॉलबैक नियमों, एक [IFontSubstRuleCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifontsubstrulecollection/) में संग्रहीत प्रतिस्थापन नियमों, और [externally loaded fonts](/slides/hi/androidjava/custom-font/) को दर्शाता है।
 
-एक ही प्रतिस्थापन एक से अधिक चयनित स्लाइड द्वारा आवश्यक हो सकता है। फ़ॉन्ट इन्वेंट्री या प्री‑फ़्लाइट रिपोर्ट बनाते समय परिणामों को डिडुप्लिकेट करें। निम्नलिखित उदाहरण प्रत्येक लौटाए गए प्रतिस्थापन को रिपोर्ट करता है और फिर अद्वितीय फ़ॉन्ट मैपिंग की क्रमबद्ध सूची बनाता है:
+एक ही प्रतिस्थापन एक से अधिक चुनी हुई स्लाइड द्वारा आवश्यक हो सकता है। फ़ॉन्ट इन्वेंटरी या प्री‑फ़्लाइट रिपोर्ट बनाते समय परिणामों को डिडुप्लीकेट करें। निम्नलिखित उदाहरण प्रत्येक लौटाए गए प्रतिस्थापन को रिपोर्ट करता है और फिर अद्वितीय फ़ॉन्ट मैपिंग की सॉर्टेड सूची बनाता है:
 
 ```java
 import com.aspose.slides.FontSubstitutionInfo;
@@ -92,25 +94,25 @@ try {
 }
 ```
 
-[IFontsManager](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ifontsmanager/) इंटरफ़ेस दोनों ओवरलोड प्रदान करता है। रेंडरिंग ऑपरेशन के दायरे के अनुसार एक चुनें:
+[IFontsManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifontsmanager/) इंटरफ़ेस दोनों ओवरलोड प्रदान करता है। रेंडरिंग ऑपरेशन के दायरे के अनुसार एक चुनें:
 
 | ओवरलोड | कब उपयोग करें |
 |---|---|
-| [getSubstitutions](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ifontsmanager/#getSubstitutions--) बिना आर्ग्यूमेंट के | आपको पूरी प्रस्तुतिकरण के लिए प्रतिस्थापन चाहिए। |
-| [getSubstitutions](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ifontsmanager/#getSubstitutions-int---) `int[] slides` के साथ | आपको चयनित रेंज, क्रमिक जांच, या आंशिक निर्यात के लिए प्रतिस्थापन चाहिए। |
+| [getSubstitutions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifontsmanager/#getSubstitutions--) बिना आर्ग्यूमेंट के | आपको पूरे प्रस्तुति के लिए प्रतिस्थापन चाहिए। |
+| [getSubstitutions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifontsmanager/#getSubstitutions-int---) `int[] slides` के साथ | आपको चयनित रेंज, चरणबद्ध जाँच, या आंशिक निर्यात के लिए प्रतिस्थापन चाहिए। |
 
-## **फ़ॉन्ट प्रतिस्थापन नियम निर्धारित करें**
+## **फ़ॉन्ट प्रतिस्थापन नियम सेट करें**
 
-जब स्रोत फ़ॉन्ट उपलब्ध नहीं हो तो Aspose.Slides को उपयोग करने के लिए फ़ॉन्ट निर्दिष्ट करने के लिए:
+जब स्रोत फ़ॉन्ट अनुपलब्ध हो, तो Aspose.Slides को उपयोग करने वाले फ़ॉन्ट को निर्दिष्ट करने के लिए:
 
-1. प्रस्तुतिकरण लोड करें।
-2. स्रोत और प्रतिस्थापित फ़ॉन्ट के लिए फ़ॉन्ट परिभाषाएँ बनाएं।
-3. [WhenInaccessible](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/fontsubstcondition/) शर्त के साथ एक [FontSubstRule](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/fontsubstrule/) बनाएं।
-4. नियम को एक [FontSubstRuleCollection](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/fontsubstrulecollection/) में जोड़ें।
-5. संग्रह को [FontsManager.setFontSubstRuleList](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/fontsmanager/#setFontSubstRuleList-com.aspose.slides.IFontSubstRuleCollection-) मेथड द्वारा असाइन करें।
-6. प्रस्तुतिकरण को रेंडर या परिवर्तित करें।
+1. प्रस्तुति लोड करें।
+2. स्रोत और प्रतिस्थापन फ़ॉन्ट के लिए फ़ॉन्ट परिभाषाएँ बनाएं।
+3. [WhenInaccessible](https://reference.aspose.com/slides/androidjava/com.aspose.slides/fontsubstcondition/) स्थिति के साथ एक [FontSubstRule](https://reference.aspose.com/slides/androidjava/com.aspose.slides/fontsubstrule/) बनाएं।
+4. नियम को एक [FontSubstRuleCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/fontsubstrulecollection/) में जोड़ें।
+5. [FontsManager.setFontSubstRuleList](https://reference.aspose.com/slides/androidjava/com.aspose.slides/fontsmanager/#setFontSubstRuleList-com.aspose.slides.IFontSubstRuleCollection-) मेथड का उपयोग करके कलेक्शन असाइन करें।
+6. प्रस्तुति को रेंडर या कनवर्ट करें।
 
-निम्नलिखित Java उदाहरण `SomeRareFont` अनुपलब्ध होने पर `Arial` को प्रतिस्थापित करता है, और फिर परिणाम सत्यापित करने के लिए पहला स्लाइड रेंडर करता है। प्रतिस्थापित फ़ॉन्ट Aspose.Slides के लिए उपलब्ध होना चाहिए।
+निम्नलिखित Java उदाहरण `SomeRareFont` अनुपलब्ध होने पर `Arial` को प्रतिस्थापित करता है, और फिर परिणाम की पुष्टि के लिए पहला स्लाइड रेंडर करता है। प्रतिस्थापित फ़ॉन्ट Aspose.Slides के लिए उपलब्ध होना चाहिए।
 
 ```java
 import com.aspose.slides.FontData;
@@ -146,45 +148,45 @@ try {
 ```
 
 {{% alert color="info" title="Note" %}}
-पूरे प्रस्तुतिकरण में उपयोग किए जाने वाले फ़ॉन्ट को बिना शर्त बदलने के लिए, देखें [Font Replacement](/slides/hi/androidjava/font-replacement/)।
+पूरे प्रस्तुति में उपयोग किए जाने वाले फ़ॉन्ट को बिना शर्त बदलने के लिए देखें [Font Replacement](/slides/hi/androidjava/font-replacement/)।
 {{% /alert %}}
 
-## **गणित समीकरण फ़ॉन्ट के लिए सीमाएँ**
+## **मैथ समीकरण फ़ॉन्ट्स के लिए सीमाएँ**
 
-फ़ॉन्ट प्रतिस्थापन नियम रेंडरिंग और रूपांतरण के दौरान उपयोग की जाने वाली मानक फ़ॉन्ट चयन प्रक्रिया का हिस्सा हैं। ये सामान्य पाठ के लिए काम करते हैं जब Aspose.Slides अनुपलब्ध फ़ॉन्ट को नियत फ़ॉन्ट से बदल सकता है।
+फ़ॉन्ट प्रतिस्थापन नियम रेंडरिंग और कन्वर्ज़न के दौरान उपयोग की जाने वाली मानक फ़ॉन्ट चयन प्रक्रिया का हिस्सा हैं। वे तब काम करते हैं जब Aspose.Slides नियम द्वारा निर्दिष्ट उपलब्ध फ़ॉन्ट के साथ अपर्याप्त फ़ॉन्ट को बदल सकता है।
 
-Office Math समीकरणों की एक अतिरिक्त आवश्यकता होती है। यदि कोई समीकरण **Cambria Math** का उपयोग करता है, तो Aspose.Slides को समीकरण लेआउट की गणना और रेंडरिंग के लिए ठीक वही फ़ॉन्ट चाहिए हो सकता है। एक नियम जो किसी अन्य गणित फ़ॉन्ट, जैसे **STIX Two Math**, को प्रतिस्थापित करता है, वह इस प्रयोजन के लिए **Cambria Math** की जगह नहीं ले सकता, और रेंडरिंग अभी भी यह रिपोर्ट कर सकता है कि **Cambria Math** आवश्यक है।
+Office Math समीकरणों के लिए अतिरिक्त आवश्यकता होती है। यदि कोई समीकरण **Cambria Math** का उपयोग करता है, तो Aspose.Slides को समीकरण लेआउट की गणना और रेंडर करने के लिए उसी फ़ॉन्ट की आवश्यकता हो सकती है। किसी अन्य गणित फ़ॉन्ट, जैसे **STIX Two Math**, को प्रतिस्थापित करने वाला नियम इस उद्देश्य के लिए **Cambria Math** को बदल नहीं सकता, और रेंडरिंग फिर भी रिपोर्ट कर सकती है कि **Cambria Math** आवश्यक है।
 
-ऐसे प्रस्तुतिकरण को रेंडर या रूपांतरित करने के लिए, **Cambria Math** को Aspose.Slides के लिए उपलब्ध कराएं। इसे एक [बाहरी फ़ॉन्ट](/slides/hi/androidjava/custom-font/) के रूप में लोड करें ताकि एप्लिकेशन रेंडरिंग और रूपांतरण के दौरान इसका उपयोग कर सके।
+ऐसी प्रस्तुति को रेंडर या कनवर्ट करने के लिए, **Cambria Math** को Aspose.Slides के लिए उपलब्ध बनाएं। इसे एक [external font](/slides/hi/androidjava/custom-font/) के रूप में लोड करें ताकि एप्लिकेशन रेंडरिंग और कन्वर्ज़न के दौरान इसका उपयोग कर सके।
 
-यह सीमा केवल समीकरण लेआउट पर लागू होती है। ऊपर वर्णित प्रतिस्थापन नियम सामान्य प्रस्तुति पाठ पर अभी भी लागू होते हैं।
+यह सीमा समीकरण लेआउट पर लागू होती है। ऊपर वर्णित प्रतिस्थापन नियम सामान्य प्रस्तुति टेक्स्ट पर अभी भी लागू होते हैं।
 
 ## **अक्सर पूछे जाने वाले प्रश्न**
 
-**फ़ॉन्ट प्रतिस्थापन और फ़ॉन्ट प्रतिस्थापन (replacement) में क्या अंतर है?**
+**फ़ॉन्ट प्रतिस्थापन और फ़ॉन्ट प्रतिस्थापन (substitution) में अंतर क्या है?**
 
-[Font replacement](/slides/hi/androidjava/font-replacement/) पूरे प्रस्तुतिकरण में एक फ़ॉन्ट को दूसरे में इरादतन बदलता है। फ़ॉन्ट प्रतिस्थापन तब रेंडर किए गए आउटपुट के लिए फ़ॉन्ट चुनता है जब कॉन्फ़िगर की गई शर्त पूरी होती है, जैसे मूल फ़ॉन्ट उपलब्ध नहीं होने पर।
+[Font replacement](/slides/hi/androidjava/font-replacement/) प्रस्तुति में एक फ़ॉन्ट को जानबूझकर दूसरे फ़ॉन्ट से बदलता है। फ़ॉन्ट प्रतिस्थापन तब रेंडर किए गए आउटपुट के लिए फ़ॉन्ट चुनता है जब कॉन्फ़िगर किया गया शर्त पूरी होती है, जैसे मूल फ़ॉन्ट उपलब्ध न हो।
 
 **प्रतिस्थापन नियम कब लागू होते हैं?**
 
-इन नियमों का भाग [फ़ॉन्ट चयन क्रम](/slides/hi/androidjava/font-selection-sequence/) में रेंडरिंग और रूपांतरण के दौरान होता है। `WhenInaccessible` के साथ, नियम केवल तभी उपयोग किया जाता है जब Aspose.Slides स्रोत फ़ॉन्ट तक पहुँच नहीं सकता।
+ये नियम रेंडरिंग और कन्वर्ज़न के दौरान [font selection sequence](/slides/hi/androidjava/font-selection-sequence/) में भाग लेते हैं। `WhenInaccessible` के साथ, नियम केवल तब उपयोग किया जाता है जब Aspose.Slides स्रोत फ़ॉन्ट तक पहुंच नहीं पा रहा हो।
 
 **जब फ़ॉन्ट अनुपलब्ध हो और कोई प्रतिस्थापन नियम कॉन्फ़िगर न हो तो क्या होता है?**
 
-Aspose.Slides अपने फ़ॉन्ट चयन प्रक्रिया के अनुसार सबसे निकटतम उपलब्ध फ़ॉन्ट चुनता है। परिणाम रन‑टाइम वातावरण में उपलब्ध फ़ॉन्ट पर निर्भर करता है।
+Aspose.Slides अपने फ़ॉन्ट चयन प्रक्रिया के अनुसार सबसे निकटतम उपलब्ध फ़ॉन्ट चुनता है। परिणाम रन‑टाइम पर्यावरण में उपलब्ध फ़ॉन्ट पर निर्भर करता है।
 
 **क्या मैं प्रतिस्थापन से बचने के लिए बाहरी फ़ॉन्ट लोड कर सकता हूँ?**
 
-हाँ। आप [बाहरी फ़ॉन्ट लोड कर सकते हैं](/slides/hi/androidjava/custom-font/) ताकि Aspose.Slides उन्हें रेंडरिंग और रूपांतरण के दौरान उपयोग कर सके।
+हाँ। आप [load external fonts](/slides/hi/androidjava/custom-font/) कर सकते हैं ताकि Aspose.Slides रेंडरिंग और कन्वर्ज़न के दौरान उनका उपयोग कर सके।
 
 **क्या Aspose लाइब्रेरी के साथ फ़ॉन्ट वितरित करता है?**
 
-नहीं। फ़ॉन्ट प्रदान करना और उनके लाइसेंस का पालन करना आपका उत्तरदायित्व है।
+नहीं। फ़ॉन्ट प्रदान करने और उनके लाइसेंस का अनुपालन करने की जिम्मेदारी आपके ऊपर है।
 
-**क्या प्रतिस्थापन परिणाम Android डिवाइसों के बीच अलग हो सकते हैं?**
+**क्या प्रतिस्थापन परिणाम Android डिवाइसों के बीच भिन्न हो सकते हैं?**
 
-हाँ। विभिन्न Android संस्करणों, डिवाइसों और विक्रेताओं में उपलब्ध सिस्टम फ़ॉन्ट अलग हो सकते हैं, इसलिए एक वातावरण में उपलब्ध फ़ॉन्ट दूसरे में प्रतिस्थापन की आवश्यकता पड़ सकती है।
+हाँ। उपलब्ध सिस्टम फ़ॉन्ट Android संस्करण, डिवाइस और विक्रेताओं के बीच भिन्न हो सकते हैं, इसलिए एक पर्यावरण में उपलब्ध फ़ॉन्ट दूसरे में प्रतिस्थापन की आवश्यकता पड़ सकती है।
 
-**मैं Android डिवाइसों के बीच फ़ॉन्ट चयन को सुसंगत कैसे बना सकता हूँ?**
+**मैं Android डिवाइसों में फ़ॉन्ट चयन को सुसंगत कैसे बनाऊँ?**
 
-आवश्यक फ़ॉन्ट फ़ाइलें एप्लिकेशन के साथ समान रूप से पैकेज करें, उन्हें [बाहरी फ़ॉन्ट के रूप में लोड करें](/slides/hi/androidjava/custom-font/), और लाइसेंस की अनुमति होने पर [फ़ॉन्ट एम्बेड करें](/slides/hi/androidjava/embedded-font/)। निर्यात से पहले अप्रत्याशित प्रतिस्थापनों की पहचान करने के लिए आप [IFontsManager.getSubstitutions](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ifontsmanager/#getSubstitutions--) को भी कॉल कर सकते हैं।
+एक ही आवश्यक फ़ॉन्ट फ़ाइलों को एप्लिकेशन के साथ पैकेज करें, लाइसेंस की अनुमति होने पर उन्हें [load them as external fonts](/slides/hi/androidjava/custom-font/) और [embed fonts](/slides/hi/androidjava/embedded-font/) करें। आप निर्यात से पहले अनपेक्षित प्रतिस्थापनों की पहचान करने के लिए [IFontsManager.getSubstitutions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifontsmanager/#getSubstitutions--) भी कॉल कर सकते हैं।

@@ -1,23 +1,23 @@
 ---
-title: PPT és PPTX konvertálása PDF-be .NET környezetben [Haladó funkciókkal]
-linktitle: PowerPoint PDF-be
+title: PPT és PPTX konvertálása PDF‑be .NET‑ben [Haladó funkciók beépítve]
+linktitle: PowerPoint PDF‑re
 type: docs
 weight: 40
 url: /hu/net/convert-powerpoint-to-pdf/
 keywords:
 - PowerPoint konvertálása
 - prezentáció konvertálása
-- PowerPoint PDF-be
-- prezentáció PDF-be
-- PPT PDF-be
-- PPT konvertálása PDF-be
-- PPTX PDF-be
-- PPTX konvertálása PDF-be
-- PowerPoint mentése PDF-ként
-- PPT mentése PDF-ként
-- PPTX mentése PDF-ként
-- PPT exportálása PDF-be
-- PPTX exportálása PDF-be
+- PowerPoint PDF‑re
+- prezentáció PDF‑be
+- PPT PDF‑be
+- PPT konvertálása PDF‑be
+- PPTX PDF‑be
+- PPTX konvertálása PDF‑be
+- PowerPoint mentése PDF‑ként
+- PPT mentése PDF‑ként
+- PPTX mentése PDF‑ként
+- PPT exportálása PDF‑be
+- PPTX exportálása PDF‑be
 - melléklet
 - PDF/A1a
 - PDF/A1b
@@ -25,47 +25,47 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "PowerPoint PPT/PPTX konvertálása magas minőségű, kereshető PDF-ekké .NET-ben az Aspose.Slides használatával, gyors C# kódpéldákkal és haladó konvertálási beállításokkal."
+description: "PowerPoint PPT/PPTX konvertálása magas minőségű, kereshető PDF‑ekre .NET‑ben az Aspose.Slides használatával, gyors C# kódrészletekkel és haladó konverziós beállításokkal."
 ---
 ## **Áttekintés**
 
-PowerPoint előadás (PPT, PPTX, ODP stb.) PDF formátumba konvertálása C#-ban számos előnnyel jár, többek között a különböző eszközök közötti kompatibilitás és a bemutató elrendezésének és formázásának megőrzése. Ez az útmutató bemutatja, hogyan konvertálhatók az előadások PDF dokumentumokká, hogyan használhatók különböző opciók a képminőség szabályozásához, a rejtett diák bevonásához, a PDF fájlok jelszóval való védelméhez, a betűtípus helyettesítések észleléséhez, adott diák kiválasztásához a konvertáláshoz, és hogyan alkalmazhatók megfelelőségi szabványok a kimeneti dokumentumokra.
+A PowerPoint‑prezentációk (PPT, PPTX, ODP stb.) PDF formátumba konvertálása C#‑ban számos előnnyel jár, többek között különböző eszközök közötti kompatibilitással és a prezentáció elrendezésének és formázásának megőrzésével. Ez az útmutató bemutatja, hogyan konvertálhatók a prezentációk PDF‑dokumentumokká, hogyan használhatók különböző beállítások a képek minőségének szabályozására, rejtett diák beillesztésére, PDF‑fájlok jelszóval való védelmére, betűkészlet‑helyettesítések észlelésére, adott diák kiválasztására a konvertáláshoz, valamint megfelelőségi szabványok alkalmazására a kimeneti dokumentumoknál.
 
-## **PowerPoint PDF-konvertálások**
+## **PowerPoint PDF konverziók**
 
-Az Aspose.Slides használatával a következő formátumú előadásokat konvertálhatja PDF-be:
+Az Aspose.Slides segítségével a következő formátumú prezentációkat konvertálhatja PDF‑be:
 
 * **PPT**
 * **PPTX**
 * **ODP**
 
-Az előadás PDF-be konvertálásához adja át a fájlnevet argumentumként a [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) osztálynak, majd mentse el az előadást PDF-ként a [Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/) metódus segítségével. A [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) osztály a [Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/) metódust teszi elérhetővé, amelyet általában az előadás PDF-be konvertálásához használnak.
+A prezentáció PDF‑be konvertálásához adja át a fájl nevét argumentumként a [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) osztálynak, majd mentse a prezentációt PDF‑ként a [Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/) metódussal. A [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) osztály elérhetővé teszi a [Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/) metódust, amely általában a prezentáció PDF‑re konvertálásához használatos.
 
 {{% alert color="info" title="Note" %}}
-Aspose.Slides for .NET beilleszti az API-információkat és a verziószámot a kimeneti dokumentumokba. Például egy előadás PDF-be konvertálásakor az Aspose.Slides az Application mezőt a „*Aspose.Slides*” értékkel, a PDF Producer mezőt pedig a „*Aspose.Slides v XX.XX*” formátummal tölti ki. **Megjegyzés**: nem utasíthatja meg az Aspose.Slides-t, hogy módosítsa vagy eltávolítsa ezeket az információkat a kimeneti dokumentumokból.
+Aspose.Slides for .NET beilleszti az API‑információkat és a verziószámot a kimeneti dokumentumokba. Például, amikor egy prezentációt PDF‑re konvertál, az Aspose.Slides a **Application** mezőt "*Aspose.Slides*" értékkel, a PDF Producer mezőt "*Aspose.Slides v XX.XX*" formában tölti ki. **Megjegyzés**, hogy nem utasíthatja az Aspose.Slides‑t arra, hogy ezt az információt módosítsa vagy eltávolítsa a kimeneti dokumentumokból.
 {{% /alert %}}
 
 Aspose.Slides lehetővé teszi, hogy konvertáljon:
 
-* Az egész előadást PDF-be
-* Kiválasztott diákat az előadásból PDF-be
+* Teljes prezentációk PDF‑re
+* Kijelölt diák egy prezentációból PDF‑re
 
-Aspose.Slides exportálja az előadásokat PDF-be, biztosítva, hogy a létrehozott PDF-ek szorosan megegyezzenek az eredeti előadásokkal. Az elemek és attribútumok pontosan jelennek meg a konvertálás során, többek között:
+Az Aspose.Slides a prezentációkat PDF‑be exportálja, biztosítva, hogy a létrejövő PDF‑ek szorosan megfeleljenek az eredeti prezentációknak. Az elemek és attribútumok pontosan jelennek meg a konverzió során, többek között:
 
 * Képek
-* Szövegdobozok és alakzatok
+* Szövegmezők és alakzatok
 * Szövegformázás
 * Bekezdésformázás
 * Hiperhivatkozások
-* Fejek és láblécek
+* Fejlécek és láblécek
 * Felsorolásjelek
 * Táblázatok
 
-## **PowerPoint PDF-be konvertálása**
+## **PowerPoint PDF konvertálása**
 
-A szabványos PowerPoint-PDF konvertálási folyamat az alapértelmezett beállításokat használja. Ebben az esetben az Aspose.Slides a lehető legoptimálisabb beállításokkal, a legmagasabb minőségi szinteken próbálja konvertálni a megadott előadást PDF-be.
+A szabványos PowerPoint‑PDF konvertálási folyamat alapértelmezett opciókat használ. Ebben az esetben az Aspose.Slides az optimális beállításokkal, a legmagasabb minőségi szinteken próbálja meg a megadott prezentációt PDF‑re konvertálni.
 
-A következő példa betölt egy előadást, és az alapértelmezett exportbeállításokkal menti a látható diák mindegyikét PDF-be.
+Az alábbi példa betölt egy prezentációt, és az alapértelmezett exportbeállításokkal menti az összes látható diát PDF‑be.
 
 ```csharp
 using Aspose.Slides;
@@ -76,18 +76,18 @@ presentation.Save("PDF-result.pdf", SaveFormat.Pdf);
 ```
 
 {{% alert color="info" title="Note" %}}
-Az Aspose ingyenes online [**PowerPoint PDF konvertert**](https://products.aspose.app/slides/conversion/ppt-to-pdf) kínál, amely bemutatja az előadás-PDF konvertálási folyamatot. Tesztelheti ezt a konvertálót a leírt eljárás élő megvalósításához.
+Az Aspose ingyenes online [**PowerPoint PDF konvertáló**](https://products.aspose.app/slides/conversion/ppt-to-pdf) demonstrálja a prezentáció‑PDF konvertálási folyamatot. A konverterrel tesztelhet a leírt eljárás valós idejű megvalósítását.
 {{% /alert %}}
 
-## **PowerPoint PDF-be konvertálás opciókkal**
+## **PowerPoint PDF konvertálása opciókkal**
 
-Az Aspose.Slides egyedi beállításokat—a [PdfOptions](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/) osztály alatt található tulajdonságokat—biztosít, amelyek lehetővé teszik a kimeneti PDF testreszabását, jelszóval való zárolását, vagy a konvertálási folyamat menetének meghatározását.
+Az Aspose.Slides egyéni opciókat – a [PdfOptions](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/) osztály tulajdonságait – biztosít, amelyekkel testreszabhatja a létrehozott PDF‑et, jelszóval zárolhatja azt, vagy meghatározhatja a konvertálási folyamat menetének részleteit.
 
-### **PowerPoint PDF-be konvertálás egyedi opciókkal**
+### **PowerPoint PDF konvertálása egyéni opciókkal**
 
-Egyedi konvertálási opciókkal meghatározhatja a raszteres képek kívánt minőségi beállítását, megadhatja, hogyan kezelje a metafájlokat, beállíthatja a szöveg tömörítési szintjét, konfigurálhatja a képek DPI értékét, és még sok mást.
+Egyéni konvertálási opciók használatával megadhatja a raster‑képek kívánt minőségi beállítását, meghatározhatja a metafájlok kezelését, beállíthatja a szöveg tömörítési szintjét, konfigúrálhatja a DPI‑t a képekhez és még sok mást.
 
-A következő példa egy előadást exportál PDF 1.5 formátumba, JPEG minőséget 90-re állítva, képfelbontást 300 DPI-re, a metafájlokat PNG-ként mentve, valamint Flate szövegtömörítéssel.
+Az alábbi példa PDF 1.5‑re exportál egy prezentációt, a JPEG‑minőséget 90‑re, a képfelbontást 300 DPI‑ra állítja, a metafájlokat PNG‑ként menti, és Flate szövegtömörítést alkalmaz.
 
 ```csharp
 using Aspose.Slides;
@@ -106,13 +106,13 @@ using var presentation = new Presentation("PowerPoint.pptx");
 presentation.Save("PowerPoint-to-PDF.pdf", SaveFormat.Pdf, pdfOptions);
 ```
 
-### **Beágyazott OLE fájlok megőrzése PDF mellékletként**
+### **Beágyazott OLE‑fájlok megőrzése PDF mellékletekként**
 
-Ha egy előadás beágyazott Excel-munkafüzetet tartalmaz, előfordulhat, hogy a PDF fogadója szeretné elérni a munkafüzet adatait, valamint megtekinteni a diákot. Állítsa a [PdfOptions.IncludeOleData](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/includeoledata/) értékét `true`-ra, hogy a beágyazott OLE fájlok mellékletként megmaradjanak a létrehozott PDF-ben.
+Ha egy prezentáció beágyazott Excel‑munkafüzetet tartalmaz, a PDF‑átvevőknek szeretné, ha a munkafüzet adatai is elérhetők lennének a diákképek mellett. Állítsa a [PdfOptions.IncludeOleData](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/includeoledata/) tulajdonságot `true`‑ra a beágyazott OLE‑fájlok mellékletekként történő megőrzéséhez a kimeneti PDF‑ben.
 
-Az alapértelmezett érték `false`: az OLE objektum előnézeti képe vagy ikonját a PDF oldalon megjeleníti, de a beágyazott fájl nem kerül mellékletként hozzáadásra. A `true` beállításával a fájl adatai is mellékletként kerülnek bele. Az előnézet vizuális ábrázolás marad; a melléklet lehetővé teszi a fogadó számára, hogy külön nyissa meg vagy mentse a beágyazott fájlt. Az OLE objektum nem válik interaktív Excel munkalappá a PDF oldalon.
+Az alapértelmezett érték `false`: az OLE‑objektum előnézeti képe vagy ikonja megjelenik a PDF‑oldalon, de a beágyazott fájl nem kerül mellékletként csatolásra. A `true` beállítás további fájladatot is csatol. Az előnézet továbbra is vizuális ábrázolás marad; a melléklet lehetővé teszi, hogy a felhasználók külön megnyissák vagy elmentsék a beágyazott fájlt. Az OLE‑objektum nem válik interaktív Excel‑munkalappá a PDF‑oldalon.
 
-A következő példa betölt egy előadást, amely már tartalmaz beágyazott Excel-munkafüzetet, és azt PDF-be exportálja a munkafüzet mellékletként csatolva.
+Az alábbi példa betölt egy olyan prezentációt, amely már tartalmaz beágyazott Excel‑munkafüzetet, és a munkafüzetet mellékletként csatolva exportál PDF‑be.
 
 ```csharp
 using Aspose.Slides;
@@ -126,19 +126,19 @@ presentation.Save("presentation.pdf", SaveFormat.Pdf, pdfOptions);
 
 Az eredmény ellenőrzéséhez:
 
-1. Nyissa meg az exportált PDF-et egy olyan megjelenítőben, amely támogatja a fájl mellékleteket, például az Adobe Acrobat Readerben.
+1. Nyissa meg a kiexportált PDF‑et egy, a fájlmellékleteket támogató megjelenítőben, például az Adobe Acrobat Readerben.
 2. Nyissa meg a megjelenítő **Mellékletek** paneljét, és keresse meg a beágyazott munkafüzetet.
-3. Mentse el a mellékletet, és nyissa meg Excelben az adatok ellenőrzéséhez, vagy közvetlenül nyissa meg, ha a megjelenítő ezt engedélyezi. Az előnézet a PDF oldalon különálló a melléklettől.
+3. Mentse a mellékletet, és nyissa meg Excelben az adatainak ellenőrzéséhez, vagy közvetlenül nyissa meg, ha a megjelenítő ezt megengedi. Az előnézet a PDF‑oldalon különálló a melléklettől.
 
 {{% alert color="info" title="Note" %}}
-A PDF/A szabványok korlátozásokat vezetnek be a mellékletekre: a PDF/A-1 tiltja a beágyazott fájlokat, a PDF/A-2 csak PDF/A mellékleteket engedélyez, a PDF/A-3 pedig más fájltípusok, például Excel-munkafüzetek használatát is megengedi. Ezek a szabványok követelményei, nem az Aspose.Slides-specifikus korlátozások. Ez a példa az alapértelmezett PDF-megfelelőségi beállítást használja, és nem mutat be PDF/A exportot.
+A PDF/A szabványok a mellékletekre vonatkozó korlátozásokat tartalmaznak: a PDF/A‑1 tiltja a beágyazott fájlokat, a PDF/A‑2 csak PDF/A mellékleteket enged meg, a PDF/A‑3 pedig más fájltípusokat, köztük Excel‑munkafüzeteket is. Ezek a szabványok követelményei, nem az Aspose.Slides specifikus korlátozásai. Ez a példa az alapértelmezett PDF‑megfelelőségi beállítást használja, és nem demonstrál PDF/A exportot.
 {{% /alert %}}
 
-### **PowerPoint PDF-be konvertálás rejtett diákkal**
+### **PowerPoint PDF konvertálása rejtett diák használatával**
 
-Ha egy előadás rejtett diákat tartalmaz, a [ShowHiddenSlides](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/showhiddenslides/) tulajdonságot a [PdfOptions](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/) osztályban használva a rejtett diák a létrehozott PDF oldalaként is megjelennek.
+Ha egy prezentáció rejtett diákot tartalmaz, használhatja a [ShowHiddenSlides](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/showhiddenslides/) tulajdonságot a [PdfOptions](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/) osztályból, hogy a rejtett diák is oldalként szerepeljenek a kimeneti PDF‑ben.
 
-A következő példa egy előadást exportál PDF-be, beleértve az összes rejtett diát.
+Az alábbi példa rejtett diák beillesztésével exportál egy prezentációt PDF‑be.
 
 ```csharp
 using Aspose.Slides;
@@ -151,9 +151,9 @@ using var presentation = new Presentation("PowerPoint.pptx");
 presentation.Save("PowerPoint-to-PDF.pdf", SaveFormat.Pdf, pdfOptions);
 ```
 
-### **PowerPoint PDF-re jelszóval védett konvertálás**
+### **PowerPoint PDF konvertálása jelszóval védett PDF‑be**
 
-A következő példa egy előadást exportál egy PDF-be, amely a `password` jelszó megadása nélkül nem nyitható meg. A hozzáférési jogosultságok engedélyezik a nyomtatást, beleértve a magas minőségű nyomtatást.
+Az alábbi példa egy PDF‑be exportál egy prezentációt, amelynek megnyitásához a `password` jelszó szükséges. A hozzáférési jogosultságok engedélyezik a nyomtatást, beleértve a magas minőségű nyomtatást is.
 
 ```csharp
 using Aspose.Slides;
@@ -167,11 +167,11 @@ using var presentation = new Presentation("PowerPoint.pptx");
 presentation.Save("PPTX-to-PDF.pdf", SaveFormat.Pdf, pdfOptions);
 ```
 
-### **Betűtípus helyettesítések észlelése**
+### **Betűkészlethelyettesítések észlelése**
 
-Az Aspose.Slides a [PdfOptions](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/) osztály alatt a [WarningCallback](https://reference.aspose.com/slides/net/aspose.slides.export/saveoptions/warningcallback/) tulajdonságot biztosítja, amely lehetővé teszi a betűtípus helyettesítések észlelését a prezentáció-PDF konvertálási folyamat során.
+Az Aspose.Slides a [WarningCallback](https://reference.aspose.com/slides/net/aspose.slides.export/saveoptions/warningcallback/) tulajdonságot biztosítja a [PdfOptions](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/) osztály alatt, így a prezentáció‑PDF konvertálás során észlelheti a betűkészlet‑helyettesítéseket.
 
-A következő példa egy előadást exportál PDF-be, és a betűtípus helyettesítési figyelmeztetéseket a konzolra írja ki. Figyelmeztetés csak akkor kerül kiírásra, ha egy nem elérhető betűtípust helyettesítenek az export során.
+Az alábbi példa PDF‑be exportál egy prezentációt, és a betűkészlet‑helyettesítési figyelmeztetéseket a konzolra írja. Figyelmeztetés csak akkor jelenik meg, ha egy nem elérhető betűkészlet helyettesítésre kerül az export során.
 
 ```csharp
 using Aspose.Slides;
@@ -200,12 +200,41 @@ class FontSubstitutionHandler : IWarningCallback
 ```
 
 {{% alert color="info" title="Note" %}}
-A betűtípus helyettesítésről további információkért tekintse meg a [Betűtípus helyettesítés](/slides/hu/net/font-substitution/) cikket.
+További információk a betűkészlethelyettesítésekről a [Betűkészlet helyettesítés](/slides/hu/net/font-substitution/) cikkben találhatók.
 {{% /alert %}} 
 
-## **Kiválasztott diák PowerPointból PDF-be konvertálása**
+### **Kezelés olyan betűtípusok esetén, amelyeknek nincs dedikált félkövér változat**
 
-A következő példa az előadás 1-es és 3-as diáit exportálja PDF-be. A tömbben szereplő diák számozása egytől indul, és a bemeneti előadásnak legalább három diát kell tartalmaznia.
+Egy prezentáció alkalmazhat félkövér formázást olyan szövegre is, amelynek betűtípusa nincs dedikált félkövér változattal. A szöveg ilyenkor szintetikus félkövérré válik, ami mesterségesen vastagabbá teszi a normál glifeket. Ha ez a szöveg túl nehéznek vagy a PDF‑ben nem a kívánt módon jelenik meg, próbálja meg beállítani a [PdfOptions.RasterizeUnsupportedFontStyles](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/rasterizeunsupportedfontstyles/) tulajdonságot `true`‑ra. Ez a beállítás a nem támogatott félkövér betűstílusú szöveget bitmapként rendereli a PDF exportálásakor, és bizonyos betűtípusok esetén javíthat a megjelenésén. Alapértelmezett értéke `false`.
+
+A minta prezentáció két szövegmezőt tartalmaz: egyet normál szöveggel, egyet pedig ugyanazon betűtípus félkövér formázásával, amelynek nincs dedikált félkövér változata. Az alábbi példa betölti a prezentációt, engedélyezi a nem támogatott betűstílusok rasterizálását, és PDF‑be exportálja:
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+var pdfOptions = new PdfOptions
+{
+    RasterizeUnsupportedFontStyles = true
+};
+
+using var presentation = new Presentation("unsupported-bold.pptx");
+presentation.Save("rasterized.pdf", SaveFormat.Pdf, pdfOptions);
+```
+
+Az alábbi előnézetek a letiltott és az engedélyezett kimenetet mutatják. Ebben a példában a félkövér szöveg vastagabb vonalakkal jelenik meg a letiltott opció esetén. Az opció engedélyezése esetén a vonalak vékonyabbak; a normál szöveg változatlan marad. Hasonlítsa össze az eredményeket, mielőtt kiválasztaná a beállítást a saját prezentációjához.
+
+| Opció letiltva (`false`, az alapértelmezett) | Opció engedélyezve (`true`) |
+|---|---|
+| ![PDF with unsupported font style rasterization disabled](unsupported-bold-disabled.png) | ![PDF with unsupported font style rasterization enabled](unsupported-bold-enabled.png) |
+
+Ebben a példában az opció engedélyezése csak a félkövér szöveget alakítja bitmapbé: nem jelölhető ki, másolható vagy kereshető szövegként OCR nélkül, és a szélei lágyabbak 800 %‑os nagyításnál. A normál szöveg továbbra is kereshető marad. A letiltott opcióval mindkét karakterlánc szöveg marad.
+
+Ez az opció rasterizálja a félkövérként formázott szöveget, ha a betűtípusa nincs dedikált félkövér változattal. A [Betűkészlet helyettesítés](/slides/hu/net/font-substitution/) ehelyett egy másik betűtípust választ, ha az eredeti nem érhető el.
+
+## **Kijelölt diák konvertálása PowerPointból PDF‑be**
+
+Az alábbi példa a 1. és 3. diát exportálja egy prezentációból PDF‑be. A tömbben szereplő diaszámok 1‑től indulnak, és a bemeneti prezentációnak legalább három diát kell tartalmaznia.
 
 ```csharp
 using Aspose.Slides;
@@ -216,9 +245,9 @@ var slides = new[] { 1, 3 };
 presentation.Save("PPTX-to-PDF.pdf", slides, SaveFormat.Pdf);
 ```
 
-## **PowerPoint PDF-be konvertálás egyedi diamérettel**
+## **PowerPoint PDF konvertálása egyéni diaképpel**
 
-A következő példa az előadás első diáját egy új előadásba másolja, amelynek diamérete 612 × 792 pont (8,5 × 11 hüvelyk). A diatartalmat méretezve illeszti, és az egyetlen diát PDF-be exportálja.
+Az alábbi példa az első diát egy új prezentációba másolja, amelynek diamérete 612 × 792 pont (8,5 × 11 hüvelyk). A dia tartalmát átméretezi, hogy illeszkedjen, és az egyetlen diát PDF‑be exportálja.
 
 ```csharp
 using Aspose.Slides;
@@ -239,9 +268,9 @@ resizedPresentation.Slides.RemoveAt(1);
 resizedPresentation.Save("PDF_with_custom_slide_size.pdf", SaveFormat.Pdf);
 ```
 
-## **PowerPoint PDF-re konvertálás jegyzet diáknézetben**
+## **PowerPoint PDF konvertálása jegyzet dianézetben**
 
-A következő példa egy előadást exportál PDF-be, minden dia előadó megjegyzéseit a dia alá helyezve. A megjelenítéshez használjon előadást, amely tartalmaz előadó megjegyzéseket.
+Az alábbi példa egy prezentációt exportál PDF‑be, minden dia előadói jegyzeteit a dia alá helyezve. A megtekintéshez használjon olyan prezentációt, amely előadói jegyzeteket tartalmaz.
 
 ```csharp
 using Aspose.Slides;
@@ -259,11 +288,11 @@ using var presentation = new Presentation("NotesFile.pptx");
 presentation.Save("PDF_with_notes.pdf", SaveFormat.Pdf, pdfOptions);
 ```
 
-## **PDF akadálymentességi és megfelelőségi szabványok**
+## **PDF hozzáférhetőség és megfelelőségi szabványok**
 
-Az Aspose.Slides lehetővé teszi olyan konvertálási eljárás használatát, amely megfelel a [Web Content Accessibility Guidelines (**WCAG**)](https://www.w3.org/TR/WCAG-TECHS/pdf.html) szabványnak. A PowerPoint dokumentumot PDF-be exportálhatja a következő megfelelőségi szabványok bármelyikével: **PDF/A1a**, **PDF/A1b**, és **PDF/UA**.
+Az Aspose.Slides lehetővé teszi olyan konvertálási eljárás használatát, amely megfelel a [Web Content Accessibility Guidelines (**WCAG**)](https://www.w3.org/TR/WCAG-TECHS/pdf.html) szabványnak. A PowerPoint‑dokumentumot PDF‑be exportálhatja a következő megfelelőségi szabványok valamelyikével: **PDF/A1a**, **PDF/A1b** és **PDF/UA**.
 
-Ez a C# kód bemutat egy PowerPoint-PDF konvertálási folyamatot, amely a különböző megfelelőségi szabványok alapján több PDF-et hoz létre:
+Ez a C# kód egy PowerPoint‑PDF konvertálási folyamatot mutat be, amely különböző szabványok szerint több PDF‑et hoz létre:
 
 ```csharp
 using Aspose.Slides;
@@ -288,35 +317,30 @@ presentation.Save("pres-ua-compliance.pdf", SaveFormat.Pdf, new PdfOptions
 ```
 
 {{% alert color="info" title="Note" %}}
-Az Aspose.Slides támogatja a PDF konverziós műveleteket, lehetővé téve a PDF fájlok népszerű formátumokba történő átalakítását. Végrehajtható a [PDF HTML-re](https://products.aspose.com/slides/net/conversion/pdf-to-html/), [PDF képre](https://products.aspose.com/slides/net/conversion/pdf-to-image/), [PDF JPG-re](https://products.aspose.com/slides/net/conversion/pdf-to-jpg/), és a [PDF PNG-re](https://products.aspose.com/slides/net/conversion/pdf-to-png/) konverzió. A PDF más speciális formátumokra történő konvertálását is támogatja—[PDF SVG-re](https://products.aspose.com/slides/net/conversion/pdf-to-svg/), [PDF TIFF-re](https://products.aspose.com/slides/net/conversion/pdf-to-tiff/), és a [PDF XML-re](https://products.aspose.com/slides/net/conversion/pdf-to-xml/)—.
+Az Aspose.Slides PDF konvertálási műveleteket támogat, lehetővé téve a PDF‑fájlok konvertálását népszerű formátumokra. Végrehajthatja a [PDF HTML‑re](https://products.aspose.com/slides/net/conversion/pdf-to-html/), [PDF képre](https://products.aspose.com/slides/net/conversion/pdf-to-image/), [PDF JPG‑re](https://products.aspose.com/slides/net/conversion/pdf-to-jpg/), és [PDF PNG‑re](https://products.aspose.com/slides/net/conversion/pdf-to-png/) konverziókat. Más, speciális formátumokra történő PDF konvertálások – [PDF SVG‑re](https://products.aspose.com/slides/net/conversion/pdf-to-svg/), [PDF TIFF‑re](https://products.aspose.com/slides/net/conversion/pdf-to-tiff/), és [PDF XML‑re](https://products.aspose.com/slides/net/conversion/pdf-to-xml/) – szintén támogatottak.
 {{% /alert %}}
 
-> **Megjegyzés:** PDF/UA exportálásakor az Aspose.Slides a komplex grafikákat, például a SmartArt-ot, diagramokat és képleteket egyetlen alakzatként kezeli. Az egyedi útvonal elemek nem maradnak meg különálló tartalomként, és jelölve lehetnek műtárgyként; alternatív szöveg csak az egész alakzatra vonatkozik.
-
+> **Megjegyzés:** PDF/UA exportálásakor az Aspose.Slides a komplex grafikákat, például a SmartArt‑et, diagramokat és képleteket egyetlen ábraként kezeli. Az egyedi útvonal‑elemek nem maradnak meg külön tartalomként, és esetleg artefaktusként kerülnek jelölésre; alternatív szöveg csak a teljes ábrához kerül.
+ 
 ## **GYIK**
 
-**Több PowerPoint fájlt konvertálhatok egyszerre PDF-be?**
+**Konvertálhatok több PowerPoint fájlt PDF‑be egyszerre?**  
+Igen, az Aspose.Slides támogatja a több PPT vagy PPTX fájl kötegelt PDF‑be konvertálását. Programozottan bejárhatja a fájlokat, és alkalmazhatja a konvertálási folyamatot.
 
-Igen, az Aspose.Slides támogatja több PPT vagy PPTX fájl kötegelt konvertálását PDF-be. A fájlokon iterálhat, és programozott módon alkalmazhatja a konvertálási folyamatot.
+**Lehet jelszóval védeni a konvertált PDF‑et?**  
+Igen. Használja a [PdfOptions](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/) osztályt a jelszó beállításához és a hozzáférési jogosultságok meghatározásához a konvertálás során.
 
-**Lehetséges jelszóval védeni a konvertált PDF-et?**
+**Hogyan tudom a rejtett diákot is beletenni a PDF‑be?**  
+Állítsa a [ShowHiddenSlides](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/showhiddenslides/) tulajdonságot a [PdfOptions](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/) osztályban `true`‑ra a rejtett diák kimeneti PDF‑be való belefoglalásához.
 
-Igen. Használja a [PdfOptions](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/) osztályt a jelszó megadásához és a hozzáférési jogosultságok meghatározásához a konvertálási folyamat során.
+**Tudja az Aspose.Slides megőrizni a magas képminőséget a PDF‑ben?**  
+Igen, a képminőséget szabályozhatja a [JpegQuality](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/jpegquality/) és a [SufficientResolution](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/sufficientresolution/) tulajdonságok beállításával a [PdfOptions](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/) osztályban, biztosítva a magas minőségű képeket a PDF‑ben.
 
-**Hogyan vonhatom be a rejtett diák PDF-be?**
-
-Állítsa a [ShowHiddenSlides](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/showhiddenslides/) tulajdonságot a [PdfOptions](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/) osztályban `true`-ra, hogy a rejtett diák a létrehozott PDF-be kerüljenek.
-
-**Az Aspose.Slides képes magas képminőséget biztosítani a PDF-ben?**
-
-Igen, a képminőséget szabályozhatja olyan tulajdonságok beállításával, mint a [JpegQuality](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/jpegquality/) és a [SufficientResolution](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/sufficientresolution/) a [PdfOptions](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/) osztályban, hogy a PDF-ben magas minőségű képek legyenek.
-
-**Az Aspose.Slides támogatja a PDF/A megfelelőségi szabványokat?**
-
-Igen, az Aspose.Slides lehetővé teszi olyan PDF-ek exportálását, amelyek megfelelnek különféle szabványoknak, többek között a PDF/A1a, PDF/A1b és PDF/UA szabványoknak, biztosítva, hogy dokumentumai megfeleljenek az akadálymentességi és archiválási követelményeknek.
+**Támogatja az Aspose.Slides a PDF/A megfelelőségi szabványokat?**  
+Igen, az Aspose.Slides lehetővé teszi, hogy olyan PDF‑eket exportáljon, amelyek megfelelnek a különböző szabványoknak, beleértve a PDF/A1a, PDF/A1b és PDF/UA szabványokat, ezáltal biztosítva a dokumentumok hozzáférhetőségi és archiválási követelményeit.
 
 ## **További források**
 
 - [Aspose.Slides .NET dokumentáció](/slides/hu/net/)
-- [Aspose.Slides .NET API hivatkozás](https://reference.aspose.com/slides/net/)
+- [Aspose.Slides .NET API referencia](https://reference.aspose.com/slides/net/)
 - [Aspose ingyenes online konvertálók](https://products.aspose.app/slides/conversion)
