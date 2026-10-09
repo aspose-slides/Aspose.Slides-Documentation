@@ -16,67 +16,63 @@ keywords:
 - ट्री मैप चार्ट
 - स्टॉक चार्ट
 - बॉक्स एंड व्हिस्कर चार्ट
-- फ़नल चार्ट
+- फनल चार्ट
 - सनबर्स्ट चार्ट
 - हिस्टोग्राम चार्ट
 - रेडार चार्ट
-- मल्टीकैटेगॉरी चार्ट
+- मल्टी-कैटेगरी चार्ट
 - PowerPoint
-- प्रेज़ेंटेशन
+- प्रस्तुति
 - Java
 - Aspose.Slides
 description: "Aspose.Slides for Java का उपयोग करके PowerPoint प्रस्तुतियों में चार्ट बनाएं और अनुकूलित करें। Java में व्यावहारिक कोड उदाहरणों के साथ चार्ट जोड़ें, फ़ॉर्मेट करें और संपादित करें।"
 ---
-## **सारांश**
+## **अवलोकन**
 
-यह लेख Aspose.Slides का उपयोग करके चार्ट बनाने और अनुकूलित करने के लिए एक व्यापक गाइड प्रदान करता है। आप सीखेंगे कि कैसे प्रोग्रामेटिक रूप से स्लाइड में चार्ट जोड़ें, उसे डेटा से भरें, और विभिन्न फ़ॉर्मेटिंग विकल्प लागू करके अपनी विशिष्ट डिजाइन आवश्यकताओं के अनुसार समायोजित करें। लेख में विस्तृत कोड उदाहरण प्रत्येक चरण को दर्शाते हैं, प्रस्तुति और चार्ट ऑब्जेक्ट को प्रारम्भ करने से लेकर सीरीज़, अक्ष और लेजेंड को कॉन्फ़िगर करने तक। इस गाइड का पालन करके आप अपनी एप्लिकेशन में डायनेमिक चार्ट जनरेशन को एकीकृत करने की ठोस समझ प्राप्त करेंगे, जिससे डेटा‑आधारित प्रस्तुतियों को बनाना सरल हो जाएगा।
+यह लेख Aspose.Slides का उपयोग करके चार्ट बनाने और अनुकूलित करने के लिए एक व्यापक मार्गदर्शिका प्रदान करता है। आप सीखेंगे कि प्रोग्रामेटिक रूप से स्लाइड पर चार्ट कैसे जोड़ें, उसे डेटा से भरें, और विभिन्न फॉर्मेटिंग विकल्पों को लागू करके अपने विशिष्ट डिजाइन आवश्यकताओं से मेल खाएँ। लेख में विस्तृत कोड उदाहरण प्रत्येक चरण को दर्शाते हैं, प्रस्तुति और चार्ट ऑब्जेक्ट को इनिशियलाइज़ करने से लेकर सीरीज़, एक्सिस और लेजेंड कॉन्फ़िगर करने तक। इस मार्गदर्शिका का पालन करके आप अपने अनुप्रयोगों में डायनैमिक चार्ट जनरेशन को एकीकृत करने की ठोस समझ प्राप्त करेंगे, जो डेटा-ड्रिवन प्रस्तुतियों को बनाने की प्रक्रिया को सरल बनाता है।
 
-## **चार्ट बनाएं**
+## **चार्ट बनाएँ**
 
-चार्ट लोगों को डेटा को शीघ्रता से दृश्य करने और ऐसी अंतर्दृष्टि प्राप्त करने में मदद करते हैं, जो तालिका या स्प्रेडशीट से तुरंत स्पष्ट नहीं होतीं।
+चार्ट लोगों को डेटा को जल्दी से दृश्य रूप में प्रस्तुत करने और ऐसी अंतर्दृष्टि प्राप्त करने में मदद करते हैं जो तालिका या स्प्रेडशीट से तुरंत स्पष्ट नहीं होती।
 
 **चार्ट क्यों बनाएं?**
 
-चार्ट का उपयोग करके आप:
+* प्रस्तुति में एक ही स्लाइड पर बड़ी मात्रा में डेटा को एकत्रित, संक्षिप्त या सारांशित करें
+* डेटा में पैटर्न और रुझानों को उजागर करें
+* समय के साथ या किसी विशिष्ट माप इकाई के सापेक्ष डेटा की दिशा और गति का अनुमान लगाएँ
+* आउट्लायर, असमानताएँ, विचलन, त्रुटियाँ, बेतुका डेटा आदि की पहचान करें
+* जटिल डेटा को संप्रेषित या प्रस्तुत करें
 
-* एक ही स्लाइड पर बड़ी मात्रा में डेटा को समेकित, संक्षिप्त या सारांशित कर सकते हैं
-* डेटा में पैटर्न और रुझान उजागर कर सकते हैं
-* समय के साथ या किसी विशेष माप इकाई के सापेक्ष डेटा की दिशा और गति का अनुमान लगा सकते हैं
-* अपवाद, विचलन, त्रुटियां, निरर्थक डेटा आदि पहचान सकते हैं
-* जटिल डेटा को संप्रेषित या प्रस्तुत कर सकते हैं
-
-PowerPoint में आप *Insert* फ़ंक्शन के द्वारा कई प्रकार के चार्ट टेम्पलेट बना सकते हैं। Aspose.Slides का उपयोग करके आप नियमित चार्ट (लोकप्रिय चार्ट प्रकारों पर आधारित) और कस्टम चार्ट दोनों बना सकते हैं।
+PowerPoint में आप *Insert* फ़ंक्शन के माध्यम से चार्ट बना सकते हैं, जो कई प्रकार के चार्ट डिज़ाइन करने के लिए टेम्पलेट प्रदान करता है। Aspose.Slides का उपयोग करके आप सामान्य चार्ट (प्रसिद्ध चार्ट प्रकारों पर आधारित) और कस्टम चार्ट दोनों बना सकते हैं।
 
 {{% alert color="info" title="Note" %}}
-चार्ट बनाने के लिए, [ChartType](https://reference.aspose.com/slides/hi/java/com.aspose.slides/charttype/) क्लास का उपयोग करें। इस क्लास के फ़ील्ड विभिन्न चार्ट प्रकारों से मेल खाते हैं।
+चार्ट बनाने के लिए, [ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/) क्लास का उपयोग करें। इस क्लास में मौजूद फ़ील्ड विभिन्न चार्ट प्रकारों से मेल खाते हैं।
 {{% /alert %}}
 
-### **क्लस्टर्ड कॉलम चार्ट बनाएं**
+### **क्लस्टर्ड कॉलम चार्ट बनाएँ**
 
-यह अनुभाग Aspose.Slides का उपयोग करके क्लस्टर्ड कॉलम चार्ट बनाने की विधि समझाता है। आप एक प्रस्तुति को प्रारम्भ करना, चार्ट जोड़ना, और शीर्षक, डेटा, सीरीज़, श्रेणियां और शैली जैसी तत्वों को अनुकूलित करना सीखेंगे। नीचे दिए चरणों का पालन करके देखें कि एक मानक क्लस्टर्ड कॉलम चार्ट कैसे उत्पन्न होता है:
+यह अनुभाग Aspose.Slides का उपयोग करके क्लस्टर्ड कॉलम चार्ट बनाने की प्रक्रिया समझाता है। आप सीखेंगे कि प्रस्तुति को इनिशियलाइज़ करें, चार्ट जोड़ें, और इसका शीर्षक, डेटा, सीरीज़, श्रेणियाँ और स्टाइलिंग जैसे तत्वों को अनुकूलित करें। नीचे दिए गए चरणों का पालन करके देखें कि एक मानक क्लस्टर्ड कॉलम चार्ट कैसे उत्पन्न होता है:
 
-1. [Presentation](https://reference.aspose.com/slides/hi/java/com.aspose.slides/presentation) क्लास का एक उदाहरण बनाएं।
-1. उसके इंडेक्स से स्लाइड का संदर्भ प्राप्त करें।
-1. कुछ डेटा के साथ एक चार्ट जोड़ें और `ChartType.ClusteredColumn` प्रकार निर्दिष्ट करें।
-1. चार्ट में एक शीर्षक जोड़ें।
-1. चार्ट की डेटा वर्कशीट तक पहुंचें।
-1. सभी डिफ़ॉल्ट सीरीज़ और श्रेणियों को साफ़ करें।
-1. नई सीरीज़ और श्रेणियां जोड़ें।
-1. चार्ट सीरीज़ के लिए नया डेटा जोड़ें।
-1. चार्ट सीरीज़ पर एक भराव रंग लागू करें।
-1. चार्ट सीरीज़ में लेबल जोड़ें।
-1. संशोधित प्रस्तुति को PPTX फ़ाइल के रूप में सहेजें।
-
-यह C# कोड क्लस्टर्ड कॉलम चार्ट बनाने को दर्शाता है:
+1. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation) क्लास का एक इंस्टेंस बनाएँ।
+2. इंडेक्स का उपयोग करके स्लाइड का रेफ़रेंस प्राप्त करें।
+3. कुछ डेटा के साथ एक चार्ट जोड़ें और `ChartType.ClusteredColumn` प्रकार निर्दिष्ट करें।
+4. चार्ट में एक शीर्षक जोड़ें।
+5. चार्ट के डेटा वर्कशीट तक पहुँचें।
+6. सभी डिफ़ॉल्ट सीरीज़ और श्रेणियों को साफ़ करें।
+7. नई सीरीज़ और श्रेणियाँ जोड़ें।
+8. चार्ट सीरीज़ के लिए नया चार्ट डेटा जोड़ें।
+9. चार्ट सीरीज़ पर एक फ़िल रंग लागू करें।
+10. चार्ट सीरीज़ में लेबल जोड़ें।
+11. संशोधित प्रस्तुति को PPTX फ़ाइल के रूप में सहेजें।
 
 ```java
 import com.aspose.slides.*;
 import java.awt.Color;
 
-// एक प्रस्तुति क्लास का उदाहरण बनाता है जो PPTX फ़ाइल का प्रतिनिधित्व करती है
+// एक प्रस्तुति क्लास का इंस्टेंस बनाता है जो PPTX फ़ाइल का प्रतिनिधित्व करता है
 Presentation pres = new Presentation();
 try {
-    // पहली स्लाइड तक पहुँचता है
+    // पहले स्लाइड तक पहुँचता है
     ISlide sld = pres.getSlides().get_Item(0);
     
     // डिफ़ॉल्ट डेटा के साथ एक चार्ट जोड़ता है
@@ -94,7 +90,7 @@ try {
     // चार्ट डेटा वर्कशीट प्राप्त करता है
     IChartDataWorkbook fact = chart.getChartData().getChartDataWorkbook();
     
-    // डिफ़ॉल्ट जेनरेटेड सीरीज़ और श्रेणियों को हटाता है
+    // डिफ़ॉल्ट उत्पन्न सीरीज़ और श्रेणियों को हटाता है
     chart.getChartData().getSeries().clear();
     chart.getChartData().getCategories().clear();
     int s = chart.getChartData().getSeries().size();
@@ -104,7 +100,7 @@ try {
     chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 1, "Series 1"),chart.getType());
     chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 2, "Series 2"),chart.getType());
     
-    // नई श्रेणियां जोड़ता है
+    // नई श्रेणियाँ जोड़ता है
     chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 1, 0, "Caetegoty 1"));
     chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 2, 0, "Caetegoty 2"));
     chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 3, 0, "Caetegoty 3"));
@@ -112,29 +108,29 @@ try {
     // पहली चार्ट सीरीज़ लेता है
     IChartSeries series = chart.getChartData().getSeries().get_Item(0);
     
-    // अब सीरीज़ डेटा को भरता है
+    // अब सीरीज़ डेटा भरता है
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 1, 20));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 50));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 30));
     
-    // सीरीज़ के लिए भराव रंग सेट करता है
+    // सीरीज़ के लिए भरने का रंग सेट करता है
     series.getFormat().getFill().setFillType(FillType.Solid);
     series.getFormat().getFill().getSolidFillColor().setColor(Color.RED);
     
     // दूसरी चार्ट सीरीज़ लेता है
     series = chart.getChartData().getSeries().get_Item(1);
     
-    // सीरीज़ डेटा को भरता है
+    // सीरीज़ डेटा भरता है
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 2, 30));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 2, 10));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 2, 60));
     
-    // सीरीज़ के लिए भराव रंग सेट करता है
+    // सीरीज़ के लिए भरने का रंग सेट करता है
     series.getFormat().getFill().setFillType(FillType.Solid);
     series.getFormat().getFill().getSolidFillColor().setColor(Color.GREEN);
     
-    //नए सीरीज़ के लिए प्रत्येक श्रेणी के लिए कस्टम लेबल बनाएं
-    // पहला लेबल श्रेणी नाम दिखाने के लिए सेट करता है
+    // नई सीरीज़ के लिए प्रत्येक श्रेणी के लिए कस्टम लेबल बनाता है
+    // पहले लेबल को श्रेणी नाम दिखाने के लिए सेट करता है
     IDataLabel lbl = series.getDataPoints().get_Item(0).getLabel();
     lbl.getDataLabelFormat().setShowCategoryName(true);
     
@@ -154,31 +150,29 @@ try {
 }
 ```
 
-### **स्कैटर चार्ट बनाएं**
+### **स्कैटर चार्ट बनाएँ**
 
-स्कैटर चार्ट (जिसे स्कैटर प्लॉट या X‑Y ग्राफ़ भी कहा जाता है) अक्सर दो चर के बीच पैटर्न या सहसंबंध की जांच के लिए उपयोग किए जाते हैं।
+स्कैटर चार्ट (जिसे स्कैटर प्लॉट या x-y ग्राफ़ भी कहा जाता है) अक्सर दो चर के बीच पैटर्न की जांच या सहसंबंध दिखाने के लिए उपयोग किए जाते हैं।
 
-स्कैटर चार्ट का उपयोग करें जब:
+स्कैटर चार्ट का उपयोग तब करें जब:
 
 * आपके पास युग्मित संख्यात्मक डेटा हो
-* दो चर एक दूसरे के साथ सुगमता से जुड़ते हों
-* आप यह निर्धारित करना चाहें कि दो चर संबंधित हैं या नहीं
-* आपके पास एक स्वतंत्र चर हो जिसके लिए निर्भर चर के कई मान हों
+* दो चर हों जो आपस में अच्छी तरह से युग्मित हों
+* आप यह निर्धारित करना चाहते हों कि दो चर संबंधित हैं या नहीं
+* आपके पास एक स्वतंत्र चर हो जिसके लिए निर्भरशील चर के कई मान हों
 
-1. [Create Clustered Column Charts](#create-clustered-column-charts) अनुभाग में बताये चरणों का पालन करें।
-2. तीसरे चरण में, कुछ डेटा के साथ एक चार्ट जोड़ें और अपने चार्ट प्रकार को नीचे दिए विकल्पों में से चुनें:
-   1. [ChartType.ScatterWithMarkers](https://reference.aspose.com/slides/hi/java/com.aspose.slides/charttype/#ScatterWithMarkers) - _एक स्कैटर चार्ट का प्रतिनिधित्व करता है।_
-   2. [ChartType.ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/hi/java/com.aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - _कर्व द्वारा जुड़ा स्कैटर चार्ट, डेटा मार्कर के साथ।_
-   3. [ChartType.ScatterWithSmoothLines](https://reference.aspose.com/slides/hi/java/com.aspose.slides/charttype/#ScatterWithSmoothLines) - _कर्व द्वारा जुड़ा स्कैटर चार्ट, बिना डेटा मार्कर के।_
-   4. [ChartType.ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/hi/java/com.aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _सीधी रेखाओं द्वारा जुड़ा स्कैटर चार्ट, डेटा मार्कर के साथ।_
-   5. [ChartType.ScatterWithStraightLines](https://reference.aspose.com/slides/hi/java/com.aspose.slides/charttype/#ScatterWithStraightLines) - _सीधी रेखाओं द्वारा जुड़ा स्कैटर चार्ट, बिना डेटा मार्कर के।_
-
-यह Java कोड प्रत्येक सीरीज़ के लिए अलग-अलग मार्कर के साथ स्कैटर चार्ट बनाने को दर्शाता है:
+1. [Create Clustered Column Charts](#create-clustered-column-charts) में दिए गए चरणों का पालन करें।
+2. तीसरे चरण के लिए, कुछ डेटा के साथ एक चार्ट जोड़ें और अपने चार्ट प्रकार को निम्नलिखित में से एक निर्धारित करें:
+   1. [ChartType.ScatterWithMarkers](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#ScatterWithMarkers) - _स्कैटर चार्ट का प्रतिनिधित्व करता है।_
+   2. [ChartType.ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - _वक्रों द्वारा जुड़े स्कैटर चार्ट को दर्शाता है, जिसमें डेटा मार्कर होते हैं।_
+   3. [ChartType.ScatterWithSmoothLines](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#ScatterWithSmoothLines) - _वक्रों द्वारा जुड़े स्कैटर चार्ट को दर्शाता है, बिना डेटा मार्कर के।_
+   4. [ChartType.ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _रेखाओं द्वारा जुड़े स्कैटर चार्ट को दर्शाता है, जिसमें डेटा मार्कर होते हैं।_
+   5. [ChartType.ScatterWithStraightLines](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#ScatterWithStraightLines) - _रेखाओं द्वारा जुड़े स्कैटर चार्ट को दर्शाता है, बिना डेटा मार्कर के।_
 
 ```java
 import com.aspose.slides.*;
 
-// एक प्रस्तुति क्लास का उदाहरण बनाता है जो PPTX फ़ाइल का प्रतिनिधित्व करती है
+// एक प्रस्तुति क्लास का इंस्टेंस बनाता है जो PPTX फ़ाइल का प्रतिनिधित्व करता है
 Presentation pres = new Presentation();
 try {
     // पहली स्लाइड तक पहुँचता है
@@ -219,7 +213,7 @@ try {
     // दूसरी चार्ट सीरीज़ लेता है
     series = chart.getChartData().getSeries().get_Item(1);
     
-    // वहां नया बिंदु (5:2) जोड़ता है
+    // वहाँ नया बिंदु (5:2) जोड़ता है
     series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 2, 3, 5), fact.getCell(defaultWorksheetIndex, 2, 4, 2));
     
     // नया बिंदु (3:1) जोड़ता है
@@ -241,36 +235,34 @@ try {
 }
 ```
 
-### **पाई चार्ट बनाएं**
+### **पाई चार्ट बनाएँ**
 
-पाई चार्ट डेटा में भाग‑से‑समग्र संबंध दिखाने के लिए सबसे उपयुक्त होते हैं, विशेष रूप से जब डेटा में श्रेणीबद्ध लेबल के साथ संख्यात्मक मान हों। हालांकि, यदि आपके डेटा में कई भाग या लेबल हों, तो बार चार्ट उपयोग करने पर विचार करें।
+पाई चार्ट डेटा में भाग-से-समग्र संबंध दर्शाने के लिए सबसे उपयुक्त होते हैं, विशेषकर जब डेटा में श्रेणीय लेबल और संख्यात्मक मान हों। हालांकि, यदि आपके डेटा में कई भाग या लेबल हों, तो आपको बार चार्ट उपयोग करने पर विचार करना चाहिए।
 
-1. [Presentation](https://reference.aspose.com/slides/hi/java/com.aspose.slides/presentation/) क्लास का एक उदाहरण बनाएं।
-2. उसके इंडेक्स से स्लाइड का संदर्भ प्राप्त करें।
-3. डिफ़ॉल्ट डेटा के साथ एक चार्ट जोड़ें और [ChartType.Pie](https://reference.aspose.com/slides/hi/java/com.aspose.slides/charttype/#Pie) प्रकार निर्दिष्ट करें।
-4. चार्ट डेटा वर्कबुक [IChartDataWorkbook](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ichartdataworkbook/) तक पहुंचें।
+1. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) क्लास का एक इंस्टेंस बनाएँ।
+2. इंडेक्स का उपयोग करके स्लाइड का रेफ़रेंस प्राप्त करें।
+3. डिफ़ॉल्ट डेटा के साथ एक चार्ट जोड़ें और [ChartType.Pie](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#Pie) प्रकार निर्दिष्ट करें।
+4. चार्ट डेटा वर्कबुक [IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/) तक पहुँचें।
 5. डिफ़ॉल्ट सीरीज़ और श्रेणियों को साफ़ करें।
-6. नई सीरीज़ और श्रेणियां जोड़ें।
-7. चार्ट सीरीज़ के लिए नया डेटा जोड़ें।
-8. चार्ट के बिंदुओं को जोड़ें और पाई चार्ट के सेक्टरों के लिए कस्टम रंग लागू करें।
+6. नई सीरीज़ और श्रेणियाँ जोड़ें।
+7. चार्ट सीरीज़ के लिए नया चार्ट डेटा जोड़ें।
+8. चार्ट के लिए नई पॉइंट्स जोड़ें और पाई चार्ट के सेक्टरों के लिए कस्टम रंग लागू करें।
 9. सीरीज़ के लिए लेबल सेट करें।
-10. सीरीज़ लेबल के लिए लीडर लाइनों को सक्षम करें।
-11. पाई चार्ट सेक्टरों के लिए घूर्णन कोण सेट करें।
+10. सीरीज़ लेबल के लिए लीडर लाइनें सक्षम करें।
+11. पाई चार्ट सेक्टरों के लिए घूर्णन कोन सेट करें।
 12. संशोधित प्रस्तुति को PPTX फ़ाइल के रूप में सहेजें।
-
-यह Java कोड पाई चार्ट बनाने को दर्शाता है:
 
 ```java
 import com.aspose.slides.*;
 import java.awt.Color;
 
-// PPTX फ़ाइल का प्रतिनिधित्व करने वाली प्रस्तुति क्लास का उदाहरण बनाता है
+// एक प्रस्तुति क्लास का इंस्टेंस बनाता है जो PPTX फ़ाइल का प्रतिनिधित्व करता है
 Presentation pres = new Presentation();
 try {
     // पहली स्लाइड तक पहुँचता है
     ISlide slides = pres.getSlides().get_Item(0);
     
-    // डिफ़ॉल्ट डेटा के साथ चार्ट जोड़ता है
+    // डिफ़ॉल्ट डेटा के साथ एक चार्ट जोड़ता है
     IChart chart = slides.getShapes().addChart(ChartType.Pie, 100, 100, 400, 400);
     
     // चार्ट शीर्षक सेट करता है
@@ -285,11 +277,11 @@ try {
     // चार्ट डेटा वर्कशीट प्राप्त करता है
     IChartDataWorkbook fact = chart.getChartData().getChartDataWorkbook();
     
-    // डिफ़ॉल्ट जेनरेटेड सीरीज़ और श्रेणियों को हटाता है
+    // डिफ़ॉल्ट उत्पन्न सीरीज़ और श्रेणियों को हटाता है
     chart.getChartData().getSeries().clear();
     chart.getChartData().getCategories().clear();
     
-    // नई श्रेणियां जोड़ता है
+    // नई श्रेणियाँ जोड़ता है
     chart.getChartData().getCategories().add(fact.getCell(0, 1, 0, "First Qtr"));
     chart.getChartData().getCategories().add(fact.getCell(0, 2, 0, "2nd Qtr"));
     chart.getChartData().getCategories().add(fact.getCell(0, 3, 0, "3rd Qtr"));
@@ -297,13 +289,13 @@ try {
     // नई सीरीज़ जोड़ता है
     IChartSeries series = chart.getChartData().getSeries().add(fact.getCell(0, 0, 1, "Series 1"), chart.getType());
     
-    // सीरीज़ डेटा को भरता है
+    //सीरीज़ डेटा भरता है
     series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 1, 1, 20));
     series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 50));
     series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 30));
     
-    // नई संस्करण में काम नहीं करता
-    // नई बिंदु जोड़ रहा है और सेक्टर रंग सेट कर रहा है
+    // नई संस्करण में कार्य नहीं कर रहा है
+    // नई पॉइंट्स जोड़ना और सेक्टर रंग सेट करना
     // series.IsColorVaried = true;
     chart.getChartData().getSeriesGroups().get_Item(0).setColorVaried(true);
     
@@ -340,7 +332,7 @@ try {
     point2.getFormat().getLine().setStyle(LineStyle.ThinThin);
     point2.getFormat().getLine().setDashStyle(LineDashStyle.LargeDashDotDot);
     
-    // नई सीरीज़ के लिए प्रत्येक श्रेणी के कस्टम लेबल बनाता है
+    // नई सीरीज़ के प्रत्येक श्रेणी के लिए कस्टम लेबल बनाता है
     IDataLabel lbl1 = series.getDataPoints().get_Item(0).getLabel();
     
     // lbl.ShowCategoryName = true;
@@ -368,16 +360,14 @@ try {
 }
 ```
 
-### **लाइन चार्ट बनाएं**
+### **लाइन चार्ट बनाएँ**
 
-लाइन चार्ट (जिसे लाइन ग्राफ़ भी कहा जाता है) उन स्थितियों में सबसे उपयुक्त होते हैं जहाँ आप समय के साथ मानों में परिवर्तन दिखाना चाहते हैं। लाइन चार्ट का उपयोग करके आप एक साथ बड़ी मात्रा में डेटा की तुलना, समय के साथ रुझान ट्रैक, डेटा सीरीज़ में विसंगतियों को उजागर, आदि कर सकते हैं।
+लाइन चार्ट (जिसे लाइन ग्राफ़ भी कहा जाता है) उन स्थितियों में सबसे उपयुक्त होते हैं जहाँ आप समय के साथ मान में परिवर्तन दिखाना चाहते हैं। लाइन चार्ट का उपयोग करके आप एक साथ बड़ी मात्रा में डेटा की तुलना कर सकते हैं, समय के साथ परिवर्तन और रुझान ट्रैक कर सकते हैं, डेटा सीरीज़ में विसंगतियों को उजागर कर सकते हैं, आदि।
 
-1. [Presentation](https://reference.aspose.com/slides/hi/java/com.aspose.slides/presentation/) क्लास का एक उदाहरण बनाएं।
-1. उसके इंडेक्स से स्लाइड का संदर्भ प्राप्त करें।
-1. डिफ़ॉल्ट डेटा के साथ एक चार्ट जोड़ें और [ChartType.Line](https://reference.aspose.com/slides/hi/java/com.aspose.slides/charttype/#Line) प्रकार निर्दिष्ट करें।
-1. संशोधित प्रस्तुति को PPTX फ़ाइल के रूप में सहेजें।
-
-यह Java कोड लाइन चार्ट बनाने को दर्शाता है:
+1. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) क्लास का एक इंस्टेंस बनाएँ।
+2. इंडेक्स का उपयोग करके स्लाइड का रेफ़रेंस प्राप्त करें।
+3. डिफ़ॉल्ट डेटा के साथ एक चार्ट जोड़ें और [ChartType.Line](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#Line) प्रकार निर्दिष्ट करें।
+4. संशोधित प्रस्तुति को PPTX फ़ाइल के रूप में सहेजें।
 
 ```java
 import com.aspose.slides.*;
@@ -392,7 +382,7 @@ try {
 }
 ```
 
-डिफ़ॉल्ट रूप से, लाइन चार्ट में बिंदु सीधे सतत रेखाओं से जुड़े होते हैं। यदि आप बिंदुओं को डैश द्वारा जोड़ना चाहते हैं, तो निम्न प्रकार से अपने वांछित डैश प्रकार को निर्दिष्ट कर सकते हैं:
+डिफ़ॉल्ट रूप से, लाइन चार्ट में बिंदु सीधे निरंतर रेखाओं द्वारा जुड़े होते हैं। यदि आप बिंदुओं को डैश द्वारा जोड़ना चाहते हैं, तो आप अपना पसंदीदा डैश प्रकार निम्नानुसार निर्दिष्ट कर सकते हैं:
 
 ```java
 import com.aspose.slides.*;
@@ -412,20 +402,18 @@ try {
 }
 ```
 
-### **ट्री मैप चार्ट बनाएं**
+### **ट्री मैप चार्ट बनाएँ**
 
-ट्री मैप चार्ट बिक्री डेटा के लिए सबसे उपयुक्त होते हैं जब आप डेटा श्रेणियों के सापेक्ष आकार दिखाना चाहते हैं और प्रत्येक श्रेणी के भीतर बड़े योगदानकर्ताओं पर जल्दी ध्यान आकर्षित करना चाहते हैं।
+ट्री मैप चार्ट बिक्री डेटा के लिए सबसे उपयुक्त होते हैं जब आप डेटा श्रेणियों के सापेक्ष आकार दिखाना चाहते हों और प्रत्येक श्रेणी में बड़े योगदानकर्ता आइटम्स पर जल्दी ध्यान आकर्षित करना चाहते हों।
 
-1. [Presentation](https://reference.aspose.com/slides/hi/java/com.aspose.slides/presentation/) क्लास का एक उदाहरण बनाएं।
-2. उसके इंडेक्स से स्लाइड का संदर्भ प्राप्त करें।
-3. डिफ़ॉल्ट डेटा के साथ एक चार्ट जोड़ें और [ChartType.Treemap](https://reference.aspose.com/slides/hi/java/com.aspose.slides/charttype/#Treemap) प्रकार निर्दिष्ट करें।
-4. चार्ट डेटा वर्कबुक [IChartDataWorkbook](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ichartdataworkbook/) तक पहुंचें।
+1. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) क्लास का एक इंस्टेंस बनाएँ।
+2. इंडेक्स का उपयोग करके स्लाइड का रेफ़रेंस प्राप्त करें।
+3. डिफ़ॉल्ट डेटा के साथ एक चार्ट जोड़ें और [ChartType.Treemap](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#Treemap) प्रकार निर्दिष्ट करें।
+4. चार्ट डेटा वर्कबुक [IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/) तक पहुँचें।
 5. डिफ़ॉल्ट सीरीज़ और श्रेणियों को साफ़ करें।
-6. नई सीरीज़ और श्रेणियां जोड़ें।
-7. चार्ट सीरीज़ के लिए नया डेटा जोड़ें।
+6. नई सीरीज़ और श्रेणियाँ जोड़ें।
+7. चार्ट सीरीज़ के लिए नया चार्ट डेटा जोड़ें।
 8. संशोधित प्रस्तुति को PPTX फ़ाइल के रूप में सहेजें।
-
-यह Java कोड ट्री मैप चार्ट बनाने को दर्शाता है:
 
 ```java
 import com.aspose.slides.*;
@@ -482,19 +470,17 @@ try {
 }
 ```
 
-### **स्टॉक चार्ट बनाएं**
+### **स्टॉक चार्ट बनाएँ**
 
-1. [Presentation](https://reference.aspose.com/slides/hi/java/com.aspose.slides/presentation/) क्लास का एक उदाहरण बनाएं।
-2. उसके इंडेक्स से स्लाइड का संदर्भ प्राप्त करें।
-3. डिफ़ॉल्ट डेटा के साथ एक चार्ट जोड़ें और [ChartType.OpenHighLowClose](https://reference.aspose.com/slides/hi/java/com.aspose.slides/charttype/#OpenHighLowClose) प्रकार निर्दिष्ट करें।
-4. चार्ट डेटा वर्कबुक [IChartDataWorkbook](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ichartdataworkbook/) तक पहुंचें।
+1. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) क्लास का एक इंस्टेंस बनाएँ।
+2. इंडेक्स का उपयोग करके स्लाइड का रेफ़रेंस प्राप्त करें।
+3. डिफ़ॉल्ट डेटा के साथ एक चार्ट जोड़ें और [ChartType.OpenHighLowClose](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#OpenHighLowClose) प्रकार निर्दिष्ट करें।
+4. चार्ट डेटा वर्कबुक [IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/) तक पहुँचें।
 5. डिफ़ॉल्ट सीरीज़ और श्रेणियों को साफ़ करें।
-6. नई सीरीज़ और श्रेणियां जोड़ें।
-7. चार्ट सीरीज़ के लिए नया डेटा जोड़ें।
-8. हाई‑लो लाइनों का फॉर्मेट निर्दिष्ट करें।
+6. नई सीरीज़ और श्रेणियाँ जोड़ें।
+7. चार्ट सीरीज़ के लिए नया चार्ट डेटा जोड़ें।
+8. हाई-लो लाइनों के फॉर्मेट को निर्दिष्ट करें।
 9. संशोधित प्रस्तुति को PPTX फ़ाइल के रूप में सहेजें।
-
-यह Java कोड स्टॉक चार्ट बनाने को दर्शाता है:
 
 ```java
 import com.aspose.slides.*;
@@ -552,18 +538,16 @@ try {
 }
 ```
 
-### **बॉक्स एंड व्हिस्कर चार्ट बनाएं**
+### **बॉक्स एण्ड व्हिस्कर चार्ट बनाएँ**
 
-1. [Presentation](https://reference.aspose.com/slides/hi/java/com.aspose.slides/presentation/) क्लास का एक उदाहरण बनाएं।
-2. उसके इंडेक्स से स्लाइड का संदर्भ प्राप्त करें।
-3. डिफ़ॉल्ट डेटा के साथ एक चार्ट जोड़ें और [ChartType.BoxAndWhisker](https://reference.aspose.com/slides/hi/java/com.aspose.slides/charttype/#BoxAndWhisker) प्रकार निर्दिष्ट करें।
-4. चार्ट डेटा वर्कबुक [IChartDataWorkbook](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ichartdataworkbook/) तक पहुंचें।
+1. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) क्लास का एक इंस्टेंस बनाएँ।
+2. इंडेक्स का उपयोग करके स्लाइड का रेफ़रेंस प्राप्त करें।
+3. डिफ़ॉल्ट डेटा के साथ एक चार्ट जोड़ें और [ChartType.BoxAndWhisker](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#BoxAndWhisker) प्रकार निर्दिष्ट करें।
+4. चार्ट डेटा वर्कबुक [IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/) तक पहुँचें।
 5. डिफ़ॉल्ट सीरीज़ और श्रेणियों को साफ़ करें।
-6. नई सीरीज़ और श्रेणियां जोड़ें।
-7. चार्ट सीरीज़ के लिए नया डेटा जोड़ें।
+6. नई सीरीज़ और श्रेणियाँ जोड़ें।
+7. चार्ट सीरीज़ के लिए नया चार्ट डेटा जोड़ें।
 8. संशोधित प्रस्तुति को PPTX फ़ाइल के रूप में सहेजें।
-
-यह Java कोड बॉक्स एंड व्हिस्कर चार्ट बनाने को दर्शाता है:
 
 ```java
 import com.aspose.slides.*;
@@ -605,14 +589,12 @@ try {
 }
 ```
 
-### **फ़नल चार्ट बनाएं**
+### **फनल चार्ट बनाएँ**
 
-1. [Presentation](https://reference.aspose.com/slides/hi/java/com.aspose.slides/presentation/) क्लास का एक उदाहरण बनाएं।
-2. उसके इंडेक्स से स्लाइड का संदर्भ प्राप्त करें।
-3. डिफ़ॉल्ट डेटा के साथ एक चार्ट जोड़ें और [ChartType.Funnel](https://reference.aspose.com/slides/hi/java/com.aspose.slides/charttype/#Funnel) प्रकार निर्दिष्ट करें।
+1. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) क्लास का एक इंस्टेंस बनाएँ।
+2. इंडेक्स का उपयोग करके स्लाइड का रेफ़रेंस प्राप्त करें।
+3. डिफ़ॉल्ट डेटा के साथ एक चार्ट जोड़ें और [ChartType.Funnel](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#Funnel) प्रकार निर्दिष्ट करें।
 4. संशोधित प्रस्तुति को PPTX फ़ाइल के रूप में सहेजें।
-
-यह Java कोड फ़नल चार्ट बनाने को दर्शाता है:
 
 ```java
 import com.aspose.slides.*;
@@ -649,14 +631,12 @@ try {
 }
 ```
 
-### **सनबर्स्ट चार्ट बनाएं**
+### **सनबर्स्ट चार्ट बनाएँ**
 
-1. [Presentation](https://reference.aspose.com/slides/hi/java/com.aspose.slides/presentation/) क्लास का एक उदाहरण बनाएं।
-2. उसके इंडेक्स से स्लाइड का संदर्भ प्राप्त करें।
-3. डिफ़ॉल्ट डेटा के साथ एक चार्ट जोड़ें और [ChartType.Sunburst](https://reference.aspose.com/slides/hi/java/com.aspose.slides/charttype/#Sunburst) प्रकार निर्दिष्ट करें।
+1. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) क्लास का एक इंस्टेंस बनाएँ।
+2. इंडेक्स का उपयोग करके स्लाइड का रेफ़रेंस प्राप्त करें।
+3. डिफ़ॉल्ट डेटा के साथ एक चार्ट जोड़ें और [ChartType.Sunburst](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#Sunburst) प्रकार निर्दिष्ट करें।
 4. संशोधित प्रस्तुति को PPTX फ़ाइल के रूप में सहेजें।
-
-यह Java कोड सनबर्स्ट चार्ट बनाने को दर्शाता है:
 
 ```java
 import com.aspose.slides.*;
@@ -711,17 +691,15 @@ try {
 }
 ```
 
-### **हिस्टोग्राम चार्ट बनाएं**
+### **हिस्टोग्राम चार्ट बनाएँ**
 
-1. [Presentation](https://reference.aspose.com/slides/hi/java/com.aspose.slides/presentation/) क्लास का एक उदाहरण बनाएं।
-2. उसके इंडेक्स से स्लाइड का संदर्भ प्राप्त करें।
-3. डिफ़ॉल्ट डेटा के साथ एक चार्ट जोड़ें और [ChartType.Histogram](https://reference.aspose.com/slides/hi/java/com.aspose.slides/charttype/#Histogram) प्रकार निर्दिष्ट करें।
-4. चार्ट डेटा वर्कबुक [IChartDataWorkbook](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ichartdataworkbook/) तक पहुंचें।
+1. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) क्लास का एक इंस्टेंस बनाएँ।
+2. इंडेक्स का उपयोग करके स्लाइड का रेफ़रेंस प्राप्त करें।
+3. डिफ़ॉल्ट डेटा के साथ एक चार्ट जोड़ें और [ChartType.Histogram](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#Histogram) प्रकार निर्दिष्ट करें।
+4. चार्ट डेटा वर्कबुक [IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/) तक पहुँचें।
 5. डिफ़ॉल्ट सीरीज़ और श्रेणियों को साफ़ करें।
-6. नई सीरीज़ और श्रेणियां जोड़ें।
+6. नई सीरीज़ और श्रेणियाँ जोड़ें।
 7. संशोधित प्रस्तुति को PPTX फ़ाइल के रूप में सहेजें।
-
-यह Java कोड हिस्टोग्राम चार्ट बनाने को दर्शाता है:
 
 ```java
 import com.aspose.slides.*;
@@ -751,14 +729,12 @@ try {
 }
 ```
 
-### **रेडार चार्ट बनाएं**
+### **रेडार चार्ट बनाएँ**
 
-1. [Presentation](https://reference.aspose.com/slides/hi/java/com.aspose.slides/presentation/) क्लास का एक उदाहरण बनाएं।
-2. उसके इंडेक्स से स्लाइड का संदर्भ प्राप्त करें।
-3. कुछ डेटा के साथ एक चार्ट जोड़ें और अपने वांछित चार्ट प्रकार को चुनें ([ChartType.Radar](https://reference.aspose.com/slides/hi/java/com.aspose.slides/charttype/#Radar) इस मामले में)।
+1. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) क्लास का एक इंस्टेंस बनाएँ।
+2. इंडेक्स का उपयोग करके स्लाइड का रेफ़रेंस प्राप्त करें।
+3. कुछ डेटा के साथ एक चार्ट जोड़ें और इस मामले में अपने पसंदीदा चार्ट प्रकार के रूप में [ChartType.Radar](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#Radar) निर्दिष्ट करें।
 4. संशोधित प्रस्तुति को PPTX फ़ाइल के रूप में सहेजें।
-
-यह Java कोड रेडार चार्ट बनाने को दर्शाता है:
 
 ```java
 import com.aspose.slides.*;
@@ -772,18 +748,16 @@ try {
 }
 ```
 
-### **मल्टी‑कैटेगॉरी चार्ट बनाएं**
+### **मल्टी-कैटेगरी चार्ट बनाएँ**
 
-1. [Presentation](https://reference.aspose.com/slides/hi/java/com.aspose.slides/presentation/) क्लास का एक उदाहरण बनाएं।
-2. उसके इंडेक्स से स्लाइड का संदर्भ प्राप्त करें।
-3. डिफ़ॉल्ट डेटा के साथ एक चार्ट जोड़ें और [ChartType.ClusteredColumn](https://reference.aspose.com/slides/hi/java/com.aspose.slides/charttype/#ClusteredColumn) प्रकार निर्दिष्ट करें।
-4. चार्ट डेटा वर्कबुक [IChartDataWorkbook](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ichartdataworkbook/) तक पहुंचें।
+1. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) क्लास का एक इंस्टेंस बनाएँ।
+2. इंडेक्स का उपयोग करके स्लाइड का रेफ़रेंस प्राप्त करें।
+3. डिफ़ॉल्ट डेटा के साथ एक चार्ट जोड़ें और [ChartType.ClusteredColumn](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#ClusteredColumn) प्रकार निर्दिष्ट करें।
+4. चार्ट डेटा वर्कबुक [IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/) तक पहुँचें।
 5. डिफ़ॉल्ट सीरीज़ और श्रेणियों को साफ़ करें।
-6. नई सीरीज़ और श्रेणियां जोड़ें।
-7. चार्ट सीरीज़ के लिए नया डेटा जोड़ें।
+6. नई सीरीज़ और श्रेणियाँ जोड़ें।
+7. चार्ट सीरीज़ के लिए नया चार्ट डेटा जोड़ें।
 8. संशोधित प्रस्तुति को PPTX फ़ाइल के रूप में सहेजें।
-
-यह Java कोड मल्टी‑कैटेगॉरी चार्ट बनाने को दर्शाता है:
 
 ```java
 import com.aspose.slides.*;
@@ -834,11 +808,9 @@ try {
 }
 ```
 
-### **मैप चार्ट बनाएं**
+### **मैप चार्ट बनाएँ**
 
-मैप चार्ट भौगोलिक डेटा को दृश्य बनाते हैं और क्षेत्रों के बीच मानों की तुलना करने में मदद करते हैं।
-
-यह Java कोड मैप चार्ट बनाने को दर्शाता है:
+मैप चार्ट भौगोलिक डेटा को विज़ुअलाइज़ करते हैं और विभिन्न क्षेत्रों में मानों की तुलना करने में मदद करते हैं।
 
 ```java
 import com.aspose.slides.*;
@@ -852,13 +824,13 @@ try {
 }
 ```
 
-### **कॉम्बिनेशन चार्ट बनाएं**
+### **कॉम्बिनेशन चार्ट बनाएँ**
 
-कॉम्बिनेशन चार्ट (या कॉम्बो चार्ट) एक ही ग्राफ़ में दो या अधिक चार्ट प्रकारों को मिलाता है। यह चार्ट आपको दो या अधिक डेटा सेटों के बीच अंतर को उजागर, तुलना या जांचने की सुविधा देता है, जिससे उनके बीच संबंधों की पहचान आसान हो जाती है।
+एक कॉम्बिनेशन चार्ट (या कॉम्बो चार्ट) दो या अधिक चार्ट प्रकारों को एक ही ग्राफ़ में जोड़ता है। यह चार्ट आपको दो या अधिक डेटा सेट्स के बीच अंतर को हाइलाइट, तुलना या परीक्षण करने की अनुमति देता है, जिससे आप उनके बीच संबंध पहचान सकते हैं।
 
-![कॉम्बिनेशन चार्ट](combination_chart.png)
+![The combination chart](combination_chart.png)
 
-निम्नलिखित Java कोड ऊपर दिखाए गए कॉम्बिनेशन चार्ट को PowerPoint प्रस्तुति में बनाने को दर्शाता है:
+निम्नलिखित Java कोड दिखाता है कि ऊपर दिखाए गए कॉम्बिनेशन चार्ट को PowerPoint प्रस्तुति में कैसे बनाया जाए:
 
 ```java
 import com.aspose.slides.*;
@@ -885,7 +857,7 @@ static void createComboChart() {
 static IChart createChartWithFirstSeries(ISlide slide) {
     IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
 
-    // चार्ट शीर्षक सेट करें।
+    // चार्ट शीर्षक सेट करें.
     chart.setTitle(true);
     chart.getChartTitle().addTextFrameForOverriding("Chart Title");
     chart.getChartTitle().setOverlay(false);
@@ -894,24 +866,24 @@ static IChart createChartWithFirstSeries(ISlide slide) {
     titleFormat.setFontBold(NullableBool.False);
     titleFormat.setFontHeight(18f);
 
-    // चार्ट लेजेंड सेट करें।
+    // चार्ट लेजेंड सेट करें.
     chart.getLegend().setPosition(LegendPositionType.Bottom);
     chart.getLegend().getTextFormat().getPortionFormat().setFontHeight(12f);
 
-    // डिफ़ॉल्ट जेनरेटेड सीरीज़ और श्रेणियों को हटाएँ।
+    // डिफ़ॉल्ट उत्पन्न सीरीज़ और श्रेणियों को हटाएं.
     chart.getChartData().getSeries().clear();
     chart.getChartData().getCategories().clear();
 
     int worksheetIndex = 0;
     IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
 
-    // नई श्रेणियां जोड़ें।
+    // नई श्रेणियाँ जोड़ें.
     chart.getChartData().getCategories().add(workbook.getCell(worksheetIndex, 1, 0, "Category 1"));
     chart.getChartData().getCategories().add(workbook.getCell(worksheetIndex, 2, 0, "Category 2"));
     chart.getChartData().getCategories().add(workbook.getCell(worksheetIndex, 3, 0, "Category 3"));
     chart.getChartData().getCategories().add(workbook.getCell(worksheetIndex, 4, 0, "Category 4"));
 
-    // पहली सीरीज़ जोड़ें।
+    // पहली सीरीज़ जोड़ें.
     IChartDataCell seriesNameCell = workbook.getCell(worksheetIndex, 0, 1, "Series 1");
     IChartSeries series = chart.getChartData().getSeries().add(seriesNameCell, chart.getType());
 
@@ -958,28 +930,28 @@ static void addThirdSeriesToChart(IChart chart) {
 }
 
 static void setPrimaryAxesFormat(IChart chart) {
-    // क्षैतिज अक्ष सेट करें।
+    // क्षैतिज अक्ष सेट करें.
     IAxis horizontalAxis = chart.getAxes().getHorizontalAxis();
     horizontalAxis.getTextFormat().getPortionFormat().setFontHeight(12f);
     horizontalAxis.getFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
 
     setAxisTitle(horizontalAxis, "X Axis");
 
-    // लंबवत अक्ष सेट करें।
+    // लंबवत अक्ष सेट करें.
     IAxis verticalAxis = chart.getAxes().getVerticalAxis();
     verticalAxis.getTextFormat().getPortionFormat().setFontHeight(12f);
     verticalAxis.getFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
 
     setAxisTitle(verticalAxis, "Y Axis 1");
 
-    // लंबवत प्रमुख ग्रिडलाइन रंग सेट करें।
+    // लंबवत प्रमुख ग्रिडलाइन का रंग सेट करें.
     ILineFillFormat majorGridLinesFormat = verticalAxis.getMajorGridLinesFormat().getLine().getFillFormat();
     majorGridLinesFormat.setFillType(FillType.Solid);
     majorGridLinesFormat.getSolidFillColor().setColor(new Color(217, 217, 217));
 }
 
 static void setSecondaryAxesFormat(IChart chart) {
-    // द्वितीयक क्षैतिज अक्ष सेट करें।
+    // द्वितीयक क्षैतिज अक्ष सेट करें.
     IAxis secondaryHorizontalAxis = chart.getAxes().getSecondaryHorizontalAxis();
     secondaryHorizontalAxis.setPosition(AxisPositionType.Bottom);
     secondaryHorizontalAxis.setCrossType(CrossesType.Maximum);
@@ -987,7 +959,7 @@ static void setSecondaryAxesFormat(IChart chart) {
     secondaryHorizontalAxis.getMajorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
     secondaryHorizontalAxis.getMinorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
 
-    // द्वितीयक लंबवत अक्ष सेट करें।
+    // द्वितीयक लंबवत अक्ष सेट करें.
     IAxis secondaryVerticalAxis = chart.getAxes().getSecondaryVerticalAxis();
     secondaryVerticalAxis.setPosition(AxisPositionType.Right);
     secondaryVerticalAxis.getTextFormat().getPortionFormat().setFontHeight(12f);
@@ -1010,15 +982,13 @@ static void setAxisTitle(IAxis axis, String axisTitle) {
 
 ## **चार्ट अपडेट करें**
 
-1. उस प्रस्तुति का प्रतिनिधित्व करने वाले [Presentation](https://reference.aspose.com/slides/hi/java/com.aspose.slides/presentation/) क्लास का एक उदाहरण बनाएं जिसमें वह चार्ट हो जिसे आप अपडेट करना चाहते हैं।
-2. उसके इंडेक्स से स्लाइड का संदर्भ प्राप्त करें।
-3. सभी आकारों (shapes) में घूमकर इच्छित चार्ट खोजें।
-4. चार्ट की डेटा वर्कशीट तक पहुंचें।
+1. उस प्रस्तुति के लिए [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) क्लास का एक इंस्टेंस बनाएँ जो उस चार्ट को रखती है जिसे आप अपडेट करना चाहते हैं।
+2. इंडेक्स का उपयोग करके स्लाइड का रेफ़रेंस प्राप्त करें।
+3. सभी शेप्स के माध्यम से पार करता हुआ इच्छित चार्ट खोजें।
+4. चार्ट के डेटा वर्कशीट तक पहुँचें।
 5. सीरीज़ मान बदलकर चार्ट डेटा सीरीज़ को संशोधित करें।
-6. नई सीरीज़ जोड़ें और उसका डेटा भरें।
+6. एक नई सीरीज़ जोड़ें और उसके डेटा को भरें।
 7. संशोधित प्रस्तुति को PPTX फ़ाइल के रूप में सहेजें।
-
-यह Java कोड चार्ट को अपडेट करने को दर्शाता है:
 
 ```java
 import com.aspose.slides.*;
@@ -1038,15 +1008,15 @@ try {
     // चार्ट डेटा वर्कशीट प्राप्त कर रहा है
     IChartDataWorkbook fact = chart.getChartData().getChartDataWorkbook();
 
-    // चार्ट की श्रेणी नाम बदल रहा है
+    // चार्ट श्रेणी नाम बदल रहा है
     fact.getCell(defaultWorksheetIndex, 1, 0, "Modified Category 1");
     fact.getCell(defaultWorksheetIndex, 2, 0, "Modified Category 2");
 
     // पहली चार्ट सीरीज़ लें
     IChartSeries series = chart.getChartData().getSeries().get_Item(0);
 
-    // अब सीरीज़ डेटा अपडेट कर रहे हैं
-    fact.getCell(defaultWorksheetIndex, 0, 1, "New_Series1"); // सीरीज़ नाम बदल रहा है
+    // अब सीरीज़ डेटा को अपडेट कर रहा है
+    fact.getCell(defaultWorksheetIndex, 0, 1, "New_Series1");// सीरीज़ का नाम बदल रहा है
     series.getDataPoints().get_Item(0).getValue().setData(90);
     series.getDataPoints().get_Item(1).getValue().setData(123);
     series.getDataPoints().get_Item(2).getValue().setData(44);
@@ -1054,19 +1024,19 @@ try {
     // दूसरी चार्ट सीरीज़ लें
     series = chart.getChartData().getSeries().get_Item(1);
 
-    // अब सीरीज़ डेटा अपडेट कर रहे हैं
-    fact.getCell(defaultWorksheetIndex, 0, 2, "New_Series2"); // सीरीज़ नाम बदल रहा है
+    // अब सीरीज़ डेटा को अपडेट कर रहा है
+    fact.getCell(defaultWorksheetIndex, 0, 2, "New_Series2");// सीरीज़ का नाम बदल रहा है
     series.getDataPoints().get_Item(0).getValue().setData(23);
     series.getDataPoints().get_Item(1).getValue().setData(67);
     series.getDataPoints().get_Item(2).getValue().setData(99);
 
-    // अब, नई सीरीज़ जोड़ रहे हैं
+    // अब, नई सीरीज़ जोड़ रहा है
     chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 3, "Series 3"), chart.getType());
 
     // तीसरी चार्ट सीरीज़ लें
     series = chart.getChartData().getSeries().get_Item(2);
 
-    // अब सीरीज़ डेटा भर रहे हैं
+    // अब सीरीज़ डेटा भर रहा है
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 3, 20));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 3, 50));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 3, 30));
@@ -1082,20 +1052,20 @@ try {
 
 ## **चार्ट के लिए डेटा रेंज सेट करें**
 
-एक चार्ट के लिए डेटा रेंज सेट करने के चरण इस प्रकार हैं:
+एक चार्ट की डेटा रेंज प्राप्त करने के लिए, देखें [एक चार्ट की डेटा रेंज प्राप्त करें](/slides/hi/java/chart-workbook/#retrieve-a-charts-data-range)।
 
-1. उस प्रस्तुति का प्रतिनिधित्व करने वाले [Presentation](https://reference.aspose.com/slides/hi/java/com.aspose.slides/presentation/) क्लास का एक उदाहरण बनाएं जिसमें वह चार्ट हो।
-2. उसके इंडेक्स से स्लाइड का संदर्भ प्राप्त करें।
-3. सभी आकारों (shapes) में घूमकर इच्छित चार्ट खोजें।
-4. चार्ट डेटा तक पहुंचें और रेंज सेट करें।
+चार्ट के लिए डेटा रेंज सेट करने के लिए, निम्न कार्य करें:
+
+1. उस प्रस्तुति के लिए [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) क्लास का एक इंस्टेंस बनाएँ जो उस चार्ट को रखती है।
+2. इंडेक्स का उपयोग करके स्लाइड का रेफ़रेंस प्राप्त करें।
+3. सभी शेप्स के माध्यम से पार करता हुआ इच्छित चार्ट खोजें।
+4. चार्ट डेटा तक पहुँचें और रेंज सेट करें।
 5. संशोधित प्रस्तुति को PPTX फ़ाइल के रूप में सहेजें।
-
-यह Java कोड चार्ट के लिए डेटा रेंज सेट करने को दर्शाता है:
 
 ```java
 import com.aspose.slides.*;
 
-// चार्ट वाले प्रस्तुति को खोलता है
+// उस प्रस्तुति को खोलता है जिसमें चार्ट है
 Presentation pres = new Presentation("ExistingChart.pptx");
 try {
     ISlide slide = pres.getSlides().get_Item(0);
@@ -1111,9 +1081,7 @@ try {
 
 ## **चार्ट में डिफ़ॉल्ट मार्कर उपयोग करें**
 
-जब आप चार्ट में डिफ़ॉल्ट मार्कर उपयोग करते हैं, तो प्रत्येक चार्ट सीरीज़ को स्वचालित रूप से अलग मार्कर प्रतीक मिल जाता है।
-
-यह Java कोड चार्ट सीरीज़ मार्कर को स्वचालित रूप से सेट करने को दर्शाता है:
+जब आप चार्ट में डिफ़ॉल्ट मार्कर का उपयोग करते हैं, तो प्रत्येक चार्ट सीरीज़ को स्वचालित रूप से एक अलग मार्कर प्रतीक मिल जाता है।
 
 ```java
 import com.aspose.slides.*;
@@ -1140,10 +1108,10 @@ try {
     series.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 4, 1, null));
 
     chart.getChartData().getSeries().add(fact.getCell(0, 0, 2, "Series 2"), chart.getType());
-    //दूसरी चार्ट सीरीज़ लें
+    // दूसरी चार्ट सीरीज़ लें
     IChartSeries series2 = chart.getChartData().getSeries().get_Item(1);
 
-    //अब सीरीज़ डेटा भर रहा है
+    // अब सीरीज़ डेटा भर रहा है
     series2.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 1, 2, 30));
     series2.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 2, 2, 10));
     series2.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 3, 2, 60));
@@ -1160,18 +1128,18 @@ try {
 
 ## **अक्सर पूछे जाने वाले प्रश्न**
 
-**Aspose.Slides कौन से चार्ट प्रकारों का समर्थन करता है?**
+**Aspose.Slides द्वारा कौन से चार्ट प्रकार समर्थित हैं?**
 
-Aspose.Slides कई प्रकार के [chart types](https://reference.aspose.com/slides/hi/java/com.aspose.slides/charttype/) का समर्थन करता है, जिनमें बार, लाइन, पाई, एरिया, स्कैटर, हिस्टोग्राम, रेडार और अनेक अन्य शामिल हैं। यह लचीलापन आपको अपने डेटा विज़ुअलाइज़ेशन आवश्यकताओं के लिए सबसे उपयुक्त चार्ट प्रकार चुनने की अनुमति देता है।
+Aspose.Slides कई प्रकार के [चार्ट प्रकार](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/) का समर्थन करता है, जिसमें बार, लाइन, पाई, एरिया, स्कैटर, हिस्टोग्राम, रेडार आदि शामिल हैं। यह लचीलापन आपको अपने डेटा विज़ुअलाइज़ेशन आवश्यकताओं के अनुसार सबसे उपयुक्त चार्ट प्रकार चुनने की अनुमति देता है।
 
 **मैं स्लाइड में नया चार्ट कैसे जोड़ूँ?**
 
-एक चार्ट जोड़ने के लिए, पहले आप [Presentation](https://reference.aspose.com/slides/hi/java/com.aspose.slides/presentation/) क्लास का एक उदाहरण बनाते हैं, इच्छित स्लाइड को उसके इंडेक्स से प्राप्त करते हैं, और फिर चार्ट जोड़ने की विधि को कॉल करके चार्ट प्रकार और प्रारम्भिक डेटा निर्दिष्ट करते हैं। यह प्रक्रिया चार्ट को सीधे आपकी प्रस्तुति में सम्मिलित करती है।
+चार्ट जोड़ने के लिए, पहले आप [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) क्लास का एक इंस्टेंस बनाते हैं, इच्छित स्लाइड को उसके इंडेक्स से प्राप्त करते हैं, और फिर चार्ट जोड़ने की मेथड को कॉल करते हैं, जिसमें चार्ट प्रकार और प्रारंभिक डेटा निर्दिष्ट होते हैं। यह प्रक्रिया चार्ट को सीधे आपकी प्रस्तुति में एकीकृत करती है।
 
-**मैं चार्ट में प्रदर्शित डेटा को कैसे अपडेट करूँ?**
+**मैं किसी चार्ट में प्रदर्शित डेटा को कैसे अपडेट करूँ?**
 
-आप चार्ट डेटा को उसकी डेटा वर्कबुक ([IChartDataWorkbook](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ichartdataworkbook/)) तक पहुंचकर, किसी भी डिफ़ॉल्ट सीरीज़ और श्रेणियों को साफ़ करके, और अपनी कस्टम डेटा जोड़कर अपडेट कर सकते हैं। इससे आप नवीनतम डेटा को प्रतिबिंबित करने के लिए चार्ट को पुनः ताज़ा कर सकते हैं।
+आप चार्ट का डेटा उसके डेटा वर्कबुक ([IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/)) तक पहुँचकर, किसी भी डिफ़ॉल्ट सीरीज़ और श्रेणियों को साफ़ करके, और फिर अपना कस्टम डेटा जोड़कर अपडेट कर सकते हैं। यह आपको नवीनतम डेटा को दर्शाने के लिए चार्ट को रीफ़्रेश करने की अनुमति देता है।
 
-**क्या मैं चार्ट की उपस्थिति को अनुकूलित कर सकता हूँ?**
+**क्या चार्ट की उपस्थिति को अनुकूलित करना संभव है?**
 
-हाँ, Aspose.Slides व्यापक अनुकूलन विकल्प प्रदान करता है। आप रंग, फ़ॉन्ट, लेबल, लेजेंड और अन्य [formatting elements](/slides/hi/java/chart-entities/) को संशोधित करके चार्ट की उपस्थिति को अपनी विशिष्ट डिजाइन आवश्यकताओं के अनुसार तैयार कर सकते हैं।
+हाँ, Aspose.Slides विस्तृत कस्टमाइजेशन विकल्प प्रदान करता है। आप रंग, फ़ॉन्ट, लेबल, लेजेंड और अन्य [फ़ॉर्मेटिंग तत्व](/slides/hi/java/chart-entities/) को संशोधित करके चार्ट की उपस्थिति को अपने विशिष्ट डिजाइन आवश्यकताओं के अनुसार अनुकूलित कर सकते हैं।

@@ -1,5 +1,5 @@
 ---
-title: Vytvoření nebo aktualizace grafů v prezentacích PowerPoint v JavaScriptu
+title: Vytvoření nebo aktualizace grafů v PowerPoint prezentacích v JavaScriptu
 linktitle: Vytvořit nebo aktualizovat grafy
 type: docs
 weight: 10
@@ -10,65 +10,65 @@ keywords:
 - upravit graf
 - změnit graf
 - aktualizovat graf
-- rozptýlený graf
+- bodový graf
 - koláčový graf
 - čárový graf
-- stromová mapa
+- stromový mapový graf
 - akciový graf
 - krabicový a vousový graf
-- trychový graf
-- sluneční paprskový graf
+- trychtýřový graf
+- sluneční graf
 - histogramový graf
 - radarový graf
-- vícekategoriový graf
+- vícekategoriální graf
 - PowerPoint
 - prezentace
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: Vytvářejte a přizpůsobujte grafy v prezentacích PowerPoint pomocí Aspose.Slides pro Node.js. Přidávejte, formátujte a upravujte grafy s praktickými ukázkami kódu v JavaScriptu.
+description: "Vytvářejte a přizpůsobujte grafy v PowerPoint prezentacích pomocí Aspose.Slides pro Node.js. Přidávejte, formátujte a upravujte grafy s praktickými ukázkami kódu v JavaScriptu."
 ---
 ## **Přehled**
 
-Tento článek poskytuje komplexní průvodce tím, jak vytvářet a přizpůsobovat grafy pomocí Aspose.Slides. Naučíte se, jak programově přidat graf na snímek, naplnit jej daty a použít různé možnosti formátování, aby odpovídaly vašim konkrétním návrhovým požadavkům. V celém článku podrobné ukázky kódu ilustrují každý krok, od inicializace prezentace a objektu grafu po konfiguraci řad, os a legend. Dodržením tohoto průvodce získáte solidní pochopení, jak integrovat dynamické generování grafů do aplikací a zjednodušit proces vytváření datově řízených prezentací.
+Tento článek poskytuje komplexní návod, jak vytvořit a přizpůsobit grafy pomocí Aspose.Slides. Naučíte se, jak programově přidat graf na snímek, naplnit jej daty a použít různé možnosti formátování, aby vyhovoval vašim konkrétním požadavkům na design. V celém článku podrobné ukázky kódu ilustrují každý krok, od inicializace prezentace a objektu grafu až po konfiguraci sérií, os a legend. Dodržením tohoto návodu získáte solidní pochopení, jak integrovat dynamické vytváření grafů do vašich aplikací a zjednodušit proces tvorby prezentací založených na datech.
 
 ## **Vytvoření grafu**
 
-Grafy pomáhají lidem rychle vizualizovat data a získat poznatky, které nemusí být okamžitě zřejmé z tabulky nebo tabulkového kalkulátoru.
+Grafy pomáhají lidem rychle vizualizovat data a získat poznatky, které z tabulky nebo tabulkového kalkulátoru nemusí být okamžitě patrné.
 
 **Proč vytvářet grafy?**
 
 Používáním grafů můžete:
 
-* agregovat, zhutňovat nebo shrnout velké množství dat na jediném snímku v prezentaci
-* odhalit vzory a trendy v datech
-* odhadnout směr a dynamiku dat v průběhu času nebo vzhledem k konkrétní jednotce měření
-* identifikovat odlehlé hodnoty, odchylky, chyby, nesmyslná data atd.
-* komunikovat nebo představovat složitá data
+* agregovat, zhušťovat nebo shrnovat velké množství dat na jediném snímku v prezentaci
+* odhalit vzorce a trendy v datech
+* odhadnout směr a dynamiku dat v čase nebo vzhledem k určité jednotce měření
+* zaznamenat odlehlé hodnoty, anomálie, odchylky, chyby, nesmyslná data apod.
+* komunikovat nebo prezentovat složitá data
 
-V PowerPointu můžete vytvářet grafy pomocí funkce *Insert*, která poskytuje šablony pro navrhování mnoha typů grafů. Pomocí Aspose.Slides můžete vytvářet jak běžné grafy (založené na populárních typech grafů), tak vlastní grafy.
+V PowerPointu můžete grafy vytvářet pomocí funkce *Insert*, která poskytuje šablony pro navrhování mnoha typů grafů. Pomocí Aspose.Slides můžete vytvářet jak běžné grafy (založené na populárních typech), tak vlastní grafy.
 
-{{% alert color="info" title="Note" %}}
-Pro vytváření grafů použijte třídu [ChartType](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/charttype/). Pole v této třídě odpovídají různým typům grafů.
+{{% alert color="info" title="Poznámka" %}}
+Pro vytvoření grafů použijte třídu [ChartType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/) . Pole v této třídě odpovídají různým typům grafů.
 {{% /alert %}}
 
 ### **Vytvoření seskupených sloupcových grafů**
 
-V této sekci se vysvětluje, jak vytvořit seskupené sloupcové grafy pomocí Aspose.Slides. Naučíte se inicializovat prezentaci, přidat graf a přizpůsobit jeho prvky, jako jsou název, data, řady, kategorie a stylování. Postupujte podle níže uvedených kroků a uvidíte, jak se vytvoří standardní seskupený sloupcový graf:
+Tato sekce vysvětluje, jak vytvořit seskupené sloupcové grafy pomocí Aspose.Slides. Naučíte se inicializovat prezentaci, přidat graf a přizpůsobit jeho prvky, jako jsou název, data, řady, kategorie a stylování. Postupujte podle níže uvedených kroků a uvidíte, jak se vytvoří standardní seskupený sloupcový graf:
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/presentation) .
+1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation) .
 1. Získejte odkaz na snímek pomocí jeho indexu.
-1. Přidejte graf s některými daty a specifikujte typ `ChartType.ClusteredColumn` .
-1. Přidejte název do grafu.
-1. Získejte přístup k datovému listu grafu.
+1. Přidejte graf s některými daty a určete typ `ChartType.ClusteredColumn` .
+1. Přidejte grafu název.
+1. Získejte přístup k datové tabulce grafu.
 1. Vymažte všechny výchozí řady a kategorie.
 1. Přidejte nové řady a kategorie.
-1. Přidejte nová data do řad grafu.
-1. Aplikujte výplňovou barvu na řady grafu.
+1. Přidejte nová data grafu pro řady.
+1. Použijte barvu výplně na řady grafu.
 1. Přidejte popisky k řadám grafu.
 1. Uložte upravenou prezentaci jako soubor PPTX.
 
-Tento C# kód demonstruje, jak vytvořit seskupený sloupcový graf:
+Tento kód JavaScript ukazuje, jak vytvořit seskupený sloupcový graf:
 
 ```javascript
 var aspose = aspose || {};
@@ -78,7 +78,7 @@ const java = require("java");
 // Vytvoří instanci třídy prezentace, která představuje soubor PPTX
 var pres = new aspose.slides.Presentation();
 try {
-    // Přistupuje k prvnímu snímku
+    // Přistoupí k prvnímu snímku
     var sld = pres.getSlides().get_Item(0);
     // Přidá graf s výchozími daty
     var chart = sld.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 0, 0, 500, 500);
@@ -87,13 +87,13 @@ try {
     chart.getChartTitle().addTextFrameForOverriding("Sample Title");
     chart.getChartTitle().getTextFrameForOverriding().getTextFrameFormat().setCenterText(java.newByte(aspose.slides.NullableBool.True));
     chart.getChartTitle().setHeight(20);
-    // Nastaví, aby první řada zobrazovala hodnoty
+    // Nastaví první řadu tak, aby zobrazovala hodnoty
     chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowValue(true);
     // Nastaví index pro list dat grafu
     var defaultWorksheetIndex = 0;
     // Získá list dat grafu
     var fact = chart.getChartData().getChartDataWorkbook();
-    // Smaže výchozí vygenerované řady a kategorie
+    // Odstraní výchozí vygenerované řady a kategorie
     chart.getChartData().getSeries().clear();
     chart.getChartData().getCategories().clear();
     var s = chart.getChartData().getSeries().size();
@@ -123,8 +123,8 @@ try {
     // Nastaví barvu výplně pro řadu
     series.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
     series.getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GREEN"));
-    // Vytvoří vlastní popisky pro každou kategorii nové řady
-    // Nastaví, aby první popisek zobrazoval název kategorie
+    // Vytvoří vlastní popisky pro každou kategorii pro novou řadu
+    // Nastaví první popisek tak, aby zobrazoval název kategorie
     var lbl = series.getDataPoints().get_Item(0).getLabel();
     lbl.getDataLabelFormat().setShowCategoryName(true);
     lbl = series.getDataPoints().get_Item(1).getLabel();
@@ -143,26 +143,26 @@ try {
 }
 ```
 
-### **Vytvoření rozptýlených grafů**
+### **Vytvoření bodových grafů**
 
-Rozptýlené grafy (také známé jako rozptylové diagramy nebo grafy x‑y) se často používají k ověření vzorů nebo demonstraci korelací mezi dvěma proměnnými.
+Bodové grafy (známé také jako scatter plots nebo x‑y grafy) se často používají k ověření vzorců nebo k demonstraci korelací mezi dvěma proměnnými.
 
-Použijte rozptýlený graf když:
+Použijte bodový graf, když:
 
 * máte spárovaná číselná data
-* máte dvě proměnné, které dobře spolu souvisejí
-* chcete zjistit, zda jsou dvě proměnné vzájemně související
+* máte dvě proměnné, které spolu dobře souvisí
+* chcete zjistit, zda jsou dvě proměnné navzájem propojené
 * máte nezávislou proměnnou, která má pro závislou proměnnou více hodnot
 
-1. Postupujte podle kroků v [Create Clustered Column Charts](#create-clustered-column-charts) .
-2. Pro třetí krok přidejte graf s některými daty a specifikujte typ grafu jako jeden z následujících:
-   1. [ChartType.ScatterWithMarkers](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/charttype/#ScatterWithMarkers) - _Representuje rozptýlený graf s značkami._
-   2. [ChartType.ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - _Representuje rozptýlený graf spojený křivkami se značkami dat._
-   3. [ChartType.ScatterWithSmoothLines](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/charttype/#ScatterWithSmoothLines) - _Representuje rozptýlený graf spojený křivkami bez značek dat._
-   4. [ChartType.ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _Representuje rozptýlený graf spojený čarami se značkami dat._
-   5. [ChartType.ScatterWithStraightLines](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/charttype/#ScatterWithStraightLines) - _Representuje rozptýlený graf spojený čarami bez značek dat._
+1. Postupujte podle kroků v [Vytvoření seskupených sloupcových grafů](#create-clustered-column-charts) .
+2. Ve třetím kroku přidejte graf s některými daty a určete typ grafu jako jeden z následujících:
+   1. [ChartType.ScatterWithMarkers](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#ScatterWithMarkers) - _Representuje bodový graf._
+   2. [ChartType.ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - _Representuje bodový graf spojený křivkami s datovými značkami._
+   3. [ChartType.ScatterWithSmoothLines](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#ScatterWithSmoothLines) - _Representuje bodový graf spojený křivkami bez datových značek._
+   4. [ChartType.ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _Representuje bodový graf spojený úsečkami s datovými značkami._
+   5. [ChartType.ScatterWithStraightLines](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#ScatterWithStraightLines) - _Representuje bodový graf spojený úsečkami bez datových značek._
 
-Tento JavaScript kód ukazuje, jak vytvořit rozptýlený graf s různými značkami pro každou řadu:
+Tento kód JavaScript ukazuje, jak vytvořit bodový graf s různými značkami pro každou řadu:
 
 ```javascript
 var aspose = aspose || {};
@@ -179,7 +179,7 @@ try {
     var defaultWorksheetIndex = 0;
     // Získá list dat grafu
     var fact = chart.getChartData().getChartDataWorkbook();
-    // Odstraní ukázkovou řadu
+    // Odstraní demonstrační řady
     chart.getChartData().getSeries().clear();
     // Přidá nové řady
     chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 1, 1, "Series 1"), chart.getType());
@@ -197,7 +197,7 @@ try {
     series.getMarker().setSymbol(aspose.slides.MarkerStyleType.Star);
     // Získá druhou řadu grafu
     series = chart.getChartData().getSeries().get_Item(1);
-    // Přidá nový bod (5:2) tam
+    // Přidá nový bod (5:2) zde
     series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 2, 3, 5), fact.getCell(defaultWorksheetIndex, 2, 4, 2));
     // Přidá nový bod (3:1)
     series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 3, 3, 3), fact.getCell(defaultWorksheetIndex, 3, 4, 1));
@@ -218,22 +218,22 @@ try {
 
 ### **Vytvoření koláčových grafů**
 
-Koláčové grafy se nejlépe používají k zobrazení vztahu část‑celku v datech, zejména když data obsahují kategoriální štítky s číselnými hodnotami. Pokud však vaše data obsahují mnoho částí nebo štítků, můžete zvážit použití sloupcového grafu.
+Koláčové grafy jsou nejvhodnější pro zobrazení vztahu část‑celku v datech, zejména když data obsahují kategoriální štítky s číselnými hodnotami. Pokud však vaše data obsahují mnoho částí nebo štítků, může být vhodnější použít sloupcový graf.
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/presentation/) .
+1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) .
 2. Získejte odkaz na snímek pomocí jeho indexu.
-3. Přidejte graf s výchozími daty a zvolte typ [ChartType.Pie](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/charttype/#Pie) .
-4. Získejte přístup k sešitu dat grafu [ChartDataWorkbook](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/chartdataworkbook/) .
+3. Přidejte graf s výchozími daty a určete typ [ChartType.Pie](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#Pie) .
+4. Získejte přístup k sešitu dat grafu [ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/) .
 5. Vymažte výchozí řady a kategorie.
 6. Přidejte nové řady a kategorie.
-7. Přidejte nová data řady grafu.
+7. Přidejte nová data grafu pro řady.
 8. Přidejte nové body do grafu a aplikujte vlastní barvy na sektory koláčového grafu.
 9. Nastavte popisky pro řady.
-10. Povolit čáry vedoucí k popiskům řad.
-11. Nastavte úhel otočení sektorů koláčového grafu.
+10. Povolit čáry ukazatele (leader lines) pro popisky řad.
+11. Nastavte úhel rotace pro sektory koláčového grafu.
 12. Uložte upravenou prezentaci jako soubor PPTX.
 
-Tento JavaScript kód ukazuje, jak vytvořit koláčový graf:
+Tento kód JavaScript ukazuje, jak vytvořit koláčový graf:
 
 ```javascript
 var aspose = aspose || {};
@@ -252,13 +252,13 @@ try {
     chart.getChartTitle().getTextFrameForOverriding().getTextFrameFormat().setCenterText(java.newByte(aspose.slides.NullableBool.True));
     chart.getChartTitle().setHeight(20);
     chart.setTitle(true);
-    // Nastaví, aby první řada zobrazovala hodnoty
+    // Nastaví první řadu, aby zobrazovala hodnoty
     chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowValue(true);
-    // Nastaví index pro list dat grafu
+    // Nastaví index listu dat grafu
     var defaultWorksheetIndex = 0;
     // Získá list dat grafu
     var fact = chart.getChartData().getChartDataWorkbook();
-    // Smaže výchozí vygenerované řady a kategorie
+    // Odstraní výchozí vygenerované řady a kategorie
     chart.getChartData().getSeries().clear();
     chart.getChartData().getCategories().clear();
     // Přidá nové kategorie
@@ -271,7 +271,7 @@ try {
     series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 1, 1, 20));
     series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 50));
     series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 30));
-    // Nefunguje v nové verzi
+    // Nepracuje v nové verzi
     // Přidání nových bodů a nastavení barvy sektoru
     // series.IsColorVaried = true;
     chart.getChartData().getSeriesGroups().get_Item(0).setColorVaried(true);
@@ -315,7 +315,7 @@ try {
     lbl3.getDataLabelFormat().setShowPercentage(true);
     // Zobrazí vodící čáry pro graf
     series.getLabels().getDefaultDataLabelFormat().setShowLeaderLines(true);
-    // Nastaví úhel otočení sektorů koláčového grafu
+    // Nastaví úhel rotace pro sektory koláčového grafu
     chart.getChartData().getSeriesGroups().get_Item(0).setFirstSliceAngle(180);
     // Uloží prezentaci s grafem
     pres.save("PieChart_out.pptx", aspose.slides.SaveFormat.Pptx);
@@ -328,18 +328,18 @@ try {
 
 ### **Vytvoření čárových grafů**
 
-Čárové grafy (také známé jako spojnicové diagramy) se nejlépe hodí v situacích, kdy chcete demonstrovat změny hodnoty v průběhu času. Pomocí čárového grafu můžete najednou porovnat velké množství dat, sledovat změny a trendy v čase, zvýraznit anomálie v datových řadách a další.
+Čárové grafy (známé také jako line graphs) jsou nejvhodnější v situacích, kdy chcete zobrazit změny hodnot v čase. Pomocí čárového grafu můžete najednou porovnat velké množství dat, sledovat změny a trendy v čase, zvýraznit anomálie v řadách a další.
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/presentation/) .
+1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) .
 1. Získejte odkaz na snímek pomocí jeho indexu.
-1. Přidejte graf s výchozím daty a specifikujte typ [ChartType.Line](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/charttype/#Line) .
-1. Získejte přístup k sešitu dat grafu ([ChartDataWorkbook](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/chartdataworkbook/) ).
+1. Přidejte graf s výchozími daty a určete typ [ChartType.Line](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#Line) .
+1. Získejte přístup k sešitu dat grafu ([ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/)) .
 1. Vymažte výchozí řady a kategorie.
 1. Přidejte nové řady a kategorie.
-1. Přidejte nová data řady grafu.
+1. Přidejte nová data grafu pro řady.
 1. Uložte upravenou prezentaci jako soubor PPTX.
 
-Tento JavaScript kód ukazuje, jak vytvořit čárový graf:
+Tento kód JavaScript ukazuje, jak vytvořit čárový graf:
 
 ```javascript
 var aspose = aspose || {};
@@ -356,7 +356,7 @@ try {
 }
 ```
 
-Ve výchozím nastavení jsou body v čárovém grafu spojeny přímými souvislými čarami. Pokud chcete, aby byly body spojeny čárami, můžete specifikovat preferovaný typ čáry následovně:
+Ve výchozím nastavení jsou body v čárovém grafu spojeny přímými souvislými čarami. Pokud chcete, aby byly body spojeny čárkovanými čarami, můžete specifikovat preferovaný typ čáry následujícím způsobem:
 
 ```javascript
 var aspose = aspose || {};
@@ -378,20 +378,20 @@ try {
 }
 ```
 
-### **Vytvoření grafů typu stromová mapa**
+### **Vytvoření stromových mapových grafů**
 
-Grafy stromové mapy jsou nejvhodnější pro prodejní data, když chcete zobrazit relativní velikost kategorií dat a rychle upoutat pozornost na položky, které jsou v rámci každé kategorie velkými přispěvateli.
+Stromové mapové grafy jsou nejvhodnější pro prodejní data, když chcete zobrazit relativní velikost datových kategorií a rychle upoutat pozornost na položky, které jsou velkými přispěvateli v rámci každé kategorie.
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/presentation/) .
+1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) .
 2. Získejte odkaz na snímek pomocí jeho indexu.
-3. Přidejte graf s výchozími daty a specifikujte typ [ChartType.Treemap](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/charttype/#Treemap) .
-4. Získejte přístup k sešitu dat grafu [ChartDataWorkbook](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/chartdataworkbook/) .
+3. Přidejte graf s výchozími daty a určete typ [ChartType.Treemap](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#Treemap) .
+4. Získejte přístup k sešitu dat grafu [ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/) .
 5. Vymažte výchozí řady a kategorie.
 6. Přidejte nové řady a kategorie.
-7. Přidejte nová data řady grafu.
+7. Přidejte nová data grafu pro řady.
 8. Uložte upravenou prezentaci jako soubor PPTX.
 
-Tento JavaScript kód ukazuje, jak vytvořit stromovou mapu:
+Tento kód JavaScript ukazuje, jak vytvořit stromový mapový graf:
 
 ```javascript
 var aspose = aspose || {};
@@ -441,17 +441,17 @@ try {
 
 ### **Vytvoření akciových grafů**
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/presentation/) .
+1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) .
 2. Získejte odkaz na snímek pomocí jeho indexu.
-3. Přidejte graf s výchozími daty a specifikujte typ [ChartType.OpenHighLowClose](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/charttype/#OpenHighLowClose) .
-4. Získejte přístup k sešitu dat grafu [ChartDataWorkbook](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/chartdataworkbook/) .
+3. Přidejte graf s výchozími daty a určete typ [ChartType.OpenHighLowClose](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#OpenHighLowClose) .
+4. Získejte přístup k sešitu dat grafu [ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/) .
 5. Vymažte výchozí řady a kategorie.
 6. Přidejte nové řady a kategorie.
-7. Přidejte nová data řady grafu.
-8. Specifikujte formát čar high‑low.
+7. Přidejte nová data grafu pro řady.
+8. Specifikujte formát čar vysokých‑nízkých (high‑low) .
 9. Uložte upravenou prezentaci jako soubor PPTX.
 
-Tento JavaScript kód ukazuje, jak vytvořit akciový graf:
+Tento kód JavaScript ukazuje, jak vytvořit akciový graf:
 
 ```javascript
 var aspose = aspose || {};
@@ -505,16 +505,16 @@ try {
 
 ### **Vytvoření krabicových a vousových grafů**
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/presentation/) .
+1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) .
 2. Získejte odkaz na snímek pomocí jeho indexu.
-3. Přidejte graf s výchozími daty a specifikujte typ [ChartType.BoxAndWhisker](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/charttype/#BoxAndWhisker) .
-4. Získejte přístup k sešitu dat grafu [ChartDataWorkbook](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/chartdataworkbook/) .
+3. Přidejte graf s výchozími daty a určete typ [ChartType.BoxAndWhisker](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#BoxAndWhisker) .
+4. Získejte přístup k sešitu dat grafu [ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/) .
 5. Vymažte výchozí řady a kategorie.
 6. Přidejte nové řady a kategorie.
-7. Přidejte nová data řady grafu.
+7. Přidejte nová data grafu pro řady.
 8. Uložte upravenou prezentaci jako soubor PPTX.
 
-Tento JavaScript kód ukazuje, jak vytvořit krabicový a vousový graf:
+Tento kód JavaScript ukazuje, jak vytvořit krabicový a vousový graf:
 
 ```javascript
 var aspose = aspose || {};
@@ -553,14 +553,14 @@ try {
 }
 ```
 
-### **Vytvoření trychových grafů**
+### **Vytvoření trychtýřových grafů**
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/presentation/) .
+1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) .
 2. Získejte odkaz na snímek pomocí jeho indexu.
-3. Přidejte graf s výchozími daty a specifikujte typ [ChartType.Funnel](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/charttype/#Funnel) .
+3. Přidejte graf s výchozími daty a určete typ [ChartType.Funnel](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#Funnel) .
 4. Uložte upravenou prezentaci jako soubor PPTX.
 
-Tento JavaScript kód ukazuje, jak vytvořit trychový graf:
+Tento kód JavaScript ukazuje, jak vytvořit trychtýřový graf:
 
 ```javascript
 var aspose = aspose || {};
@@ -594,14 +594,14 @@ try {
 }
 ```
 
-### **Vytvoření slunečních paprskových grafů**
+### **Vytvoření slunečních grafů**
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/presentation/) .
+1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) .
 2. Získejte odkaz na snímek pomocí jeho indexu.
-3. Přidejte graf s výchozími daty a specifikujte typ [ChartType.Sunburst](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/charttype/#Sunburst) .
+3. Přidejte graf s výchozími daty a určete typ [ChartType.Sunburst](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#Sunburst) .
 4. Uložte upravenou prezentaci jako soubor PPTX.
 
-Tento JavaScript kód ukazuje, jak vytvořit sluneční paprskový graf:
+Tento kód JavaScript ukazuje, jak vytvořit sluneční graf:
 
 ```javascript
 var aspose = aspose || {};
@@ -650,15 +650,15 @@ try {
 
 ### **Vytvoření histogramových grafů**
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/presentation/) .
+1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) .
 2. Získejte odkaz na snímek pomocí jeho indexu.
-3. Přidejte graf s výchozími daty a specifikujte typ [ChartType.Histogram](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/charttype/#Histogram) .
-4. Získejte přístup k sešitu dat grafu [ChartDataWorkbook](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/chartdataworkbook/) .
+3. Přidejte graf s výchozími daty a určete typ [ChartType.Histogram](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#Histogram) .
+4. Získejte přístup k sešitu dat grafu [ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/) .
 5. Vymažte výchozí řady a kategorie.
 6. Přidejte nové řady a kategorie.
 7. Uložte upravenou prezentaci jako soubor PPTX.
 
-Tento JavaScript kód ukazuje, jak vytvořit histogramový graf:
+Tento kód JavaScript ukazuje, jak vytvořit histogramový graf:
 
 ```javascript
 var aspose = aspose || {};
@@ -682,12 +682,12 @@ chart.getAxes().getHorizontalAxis().setAggregationType(aspose.slides.AxisAggrega
 
 ### **Vytvoření radarových grafů**
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/presentation/) .
+1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) .
 2. Získejte odkaz na snímek pomocí jeho indexu.
-3. Přidejte graf s některými daty a specifikujte preferovaný typ grafu ([ChartType.Radar](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/charttype/#Radar) v tomto případě).
+3. Přidejte graf s některými daty a určete preferovaný typ grafu ([ChartType.Radar](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#Radar) v tomto případě) .
 4. Uložte upravenou prezentaci jako soubor PPTX.
 
-Tento JavaScript kód ukazuje, jak vytvořit radarový graf:
+Tento kód JavaScript ukazuje, jak vytvořit radarový graf:
 
 ```javascript
 var aspose = aspose || {};
@@ -704,18 +704,18 @@ try {
 }
 ```
 
-### **Vytvoření vícekategoriových grafů**
+### **Vytvoření vícekategoriálních grafů**
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/presentation/) .
+1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) .
 2. Získejte odkaz na snímek pomocí jeho indexu.
-3. Přidejte graf s výchozími daty a specifikujte typ [ChartType.ClusteredColumn](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/charttype/#ClusteredColumn) .
-4. Získejte přístup k sešitu dat grafu [ChartDataWorkbook](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/chartdataworkbook/) .
+3. Přidejte graf s výchozími daty a určete typ [ChartType.ClusteredColumn](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#ClusteredColumn) .
+4. Získejte přístup k sešitu dat grafu [ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/) .
 5. Vymažte výchozí řady a kategorie.
 6. Přidejte nové řady a kategorie.
-7. Přidejte nová data řady grafu.
+7. Přidejte nová data grafu pro řady.
 8. Uložte upravenou prezentaci jako soubor PPTX.
 
-Tento JavaScript kód ukazuje, jak vytvořit graf s více kategoriemi:
+Tento kód JavaScript ukazuje, jak vytvořit vícekategoriální graf:
 
 ```javascript
 var aspose = aspose || {};
@@ -741,7 +741,7 @@ try {
     category = ch.getChartData().getCategories().add(fact.getCell(0, "c8", "G"));
     category.getGroupingLevels().setGroupingItem(1, "Group4");
     category = ch.getChartData().getCategories().add(fact.getCell(0, "c9", "H"));
-    // Přidání řady
+    // Přidání řad
     var series = ch.getChartData().getSeries().add(fact.getCell(0, "D1", "Series 1"), aspose.slides.ChartType.ClusteredColumn);
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, "D2", 10));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, "D3", 20));
@@ -762,9 +762,9 @@ try {
 
 ### **Vytvoření mapových grafů**
 
-Mapové grafy vizualizují geografická data a pomáhají porovnávat hodnoty napříč regiony.
+Mapové grafy vizualizují geografická data a pomáhají porovnávat hodnoty mezi regiony.
 
-Tento JavaScript kód ukazuje, jak vytvořit mapový graf:
+Tento kód JavaScript ukazuje, jak vytvořit mapový graf:
 
 ```javascript
 var aspose = aspose || {};
@@ -783,11 +783,11 @@ try {
 
 ### **Vytvoření kombinovaných grafů**
 
-Kombinovaný graf (nebo combo graf) kombinuje dva nebo více typů grafů v jednom diagramu. Tento graf vám umožňuje zvýraznit, porovnat nebo prozkoumat rozdíly mezi dvěma či více datovými sadami, což vám pomáhá identifikovat vztahy mezi nimi.
+Kombinovaný graf (nebo combo graf) kombinuje dva nebo více typů grafů v jednom diagramu. Tento graf vám umožní zvýraznit, porovnat nebo prozkoumat rozdíly mezi dvěma nebo více datovými sadami, což vám pomůže identifikovat vztahy mezi nimi.
 
 ![Kombinovaný graf](combination_chart.png)
 
-Následující JavaScript kód ukazuje, jak vytvořit kombinovaný graf zobrazený výše v prezentaci PowerPoint:
+Následující kód JavaScript ukazuje, jak vytvořit výše uvedený kombinovaný graf v PowerPoint prezentaci:
 
 ```js
 var aspose = aspose || {};
@@ -940,15 +940,15 @@ function setAxisTitle(axis, axisTitle) {
 
 ## **Aktualizace grafů**
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/presentation/) , která představuje prezentaci obsahující graf, který chcete aktualizovat.
+1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) představující prezentaci, která obsahuje graf, který chcete aktualizovat.
 2. Získejte odkaz na snímek pomocí jeho indexu.
-3. Procházejte všechny tvary a najděte požadovaný graf.
-4. Získejte přístup k datovému listu grafu.
-5. Modifikujte řadu dat grafu změnou hodnot řady.
+3. Projděte všechny tvary a najděte požadovaný graf.
+4. Získejte přístup k datové tabulce grafu.
+5. Modifikujte řady dat grafu změnou hodnot řad.
 6. Přidejte novou řadu a naplňte ji daty.
 7. Uložte upravenou prezentaci jako soubor PPTX.
 
-Tento JavaScript kód ukazuje, jak aktualizovat graf:
+Tento kód JavaScript ukazuje, jak aktualizovat graf:
 
 ```javascript
 var aspose = aspose || {};
@@ -962,30 +962,30 @@ try {
     var chart = sld.getShapes().get_Item(0);
     // Nastavení indexu listu dat grafu
     var defaultWorksheetIndex = 0;
-    // Získání listu dat grafu
+    // Získání pracovního listu dat grafu
     var fact = chart.getChartData().getChartDataWorkbook();
     // Změna názvu kategorie grafu
     fact.getCell(defaultWorksheetIndex, 1, 0, "Modified Category 1");
     fact.getCell(defaultWorksheetIndex, 2, 0, "Modified Category 2");
-    // Získání první řady grafu
+    // Vezmout první řadu grafu
     var series = chart.getChartData().getSeries().get_Item(0);
-    // Aktualizace dat řady
-    fact.getCell(defaultWorksheetIndex, 0, 1, "New_Series1"); // Modifikace názvu řady
+    // Nyní aktualizace dat řady
+    fact.getCell(defaultWorksheetIndex, 0, 1, "New_Series1"); // Změna názvu řady
     series.getDataPoints().get_Item(0).getValue().setData(90);
     series.getDataPoints().get_Item(1).getValue().setData(123);
     series.getDataPoints().get_Item(2).getValue().setData(44);
-    // Získání druhé řady grafu
+    // Vezmout druhou řadu grafu
     series = chart.getChartData().getSeries().get_Item(1);
-    // Aktualizace dat řady
-    fact.getCell(defaultWorksheetIndex, 0, 2, "New_Series2"); // Modifikace názvu řady
+    // Nyní aktualizace dat řady
+    fact.getCell(defaultWorksheetIndex, 0, 2, "New_Series2"); // Změna názvu řady
     series.getDataPoints().get_Item(0).getValue().setData(23);
     series.getDataPoints().get_Item(1).getValue().setData(67);
     series.getDataPoints().get_Item(2).getValue().setData(99);
-    // Přidání nové řady
+    // Nyní přidání nové řady
     chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 3, "Series 3"), chart.getType());
-    // Získání třetí řady grafu
+    // Vezmout třetí řadu grafu
     series = chart.getChartData().getSeries().get_Item(2);
-    // Naplnění dat řady
+    // Nyní naplňování dat řady
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 3, 20));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 3, 50));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 3, 30));
@@ -1001,15 +1001,17 @@ try {
 
 ## **Nastavení rozsahu dat pro graf**
 
-Pro nastavení rozsahu dat pro graf proveďte následující:
+Chcete‑li zjistit rozsah, který již používá existující graf, podívejte se na [Získání rozsahu dat grafu](/slides/cs/nodejs-java/chart-workbook/#retrieve-a-charts-data-range) .
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/presentation/) , která představuje prezentaci obsahující graf.
+Pro nastavení rozsahu dat pro graf postupujte takto:
+
+1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) představující prezentaci, která obsahuje graf.
 2. Získejte odkaz na snímek pomocí jeho indexu.
-3. Procházejte všechny tvary a najděte požadovaný graf.
+3. Projděte všechny tvary a najděte požadovaný graf.
 4. Získejte přístup k datům grafu a nastavte rozsah.
 5. Uložte upravenou prezentaci jako soubor PPTX.
 
-Tento JavaScript kód ukazuje, jak nastavit rozsah dat pro graf:
+Tento kód JavaScript ukazuje, jak nastavit rozsah dat pro graf:
 
 ```javascript
 var aspose = aspose || {};
@@ -1030,9 +1032,9 @@ try {
 
 ## **Použití výchozích značek v grafech**
 
-Používáte-li výchozí značky v grafech, každá řada grafu automaticky získá jiný symbol značky.
+Když použijete výchozí značky v grafech, každá řada grafu automaticky získá jiný symbol značky.
 
-Tento JavaScript kód ukazuje, jak automaticky nastavit značku řady grafu:
+Tento kód JavaScript ukazuje, jak automaticky nastavit značku řady grafu:
 
 ```javascript
 var aspose = aspose || {};
@@ -1056,9 +1058,9 @@ try {
     chart.getChartData().getCategories().add(fact.getCell(0, 4, 0, "C4"));
     series.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 4, 1, null));
     chart.getChartData().getSeries().add(fact.getCell(0, 0, 2, "Series 2"), chart.getType());
-    // Získání druhé řady grafu
+    // Vezměte druhou řadu grafu
     var series2 = chart.getChartData().getSeries().get_Item(1);
-    // Nyní naplňování dat řady
+    // Nyní naplňuji data řady
     series2.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 1, 2, 30));
     series2.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 2, 2, 10));
     series2.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 3, 2, 60));
@@ -1073,20 +1075,20 @@ try {
 }
 ```
 
-## **Často kladené otázky**
+## **FAQ**
 
-**Jaké typy grafů podporuje Aspose.Slides?**
+**Jaké typy grafů jsou podporovány v Aspose.Slides?**
 
-Aspose.Slides podporuje širokou škálu [chart types](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/charttype/), včetně sloupcových, čárových, koláčových, plošných, rozptýlených, histogramových, radarových a mnoha dalších. Tato flexibilita vám umožňuje vybrat nejvhodnější typ grafu pro vaše potřeby vizualizace dat.
+Aspose.Slides podporuje širokou škálu [typů grafů](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/), včetně sloupcových, čárových, koláčových, plošných, bodových, histogramových, radarových a mnoha dalších. Tato flexibilita vám umožní vybrat nejvhodnější typ grafu pro potřeby vizualizace vašich dat.
 
-**Jak mohu přidat nový graf na snímek?**
+**Jak přidám nový graf na snímek?**
 
-Chcete‑li přidat graf, nejprve vytvoříte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/presentation/), načtete požadovaný snímek pomocí jeho indexu a poté zavoláte metodu pro přidání grafu, přičemž uvedete typ grafu a počáteční data. Tento proces integruje graf přímo do vaší prezentace.
+Nejprve vytvoříte instanci třídy [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) , načtete požadovaný snímek pomocí jeho indexu a poté zavoláte metodu pro přidání grafu, přičemž určíte typ grafu a počáteční data. Tento proces integruje graf přímo do vaší prezentace.
 
 **Jak mohu aktualizovat data zobrazovaná v grafu?**
 
-Data grafu můžete aktualizovat přístupem k jeho sešitu dat ([ChartDataWorkbook](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/chartdataworkbook/)), vymazáním výchozích řad a kategorií a následným přidáním vlastních dat. To vám umožní programově obnovit graf tak, aby odrážel nejnovější data.
+Data grafu můžete aktualizovat tak, že získáte přístup k jeho sešitu dat ([ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/)), vymažete jakékoli výchozí řady a kategorie a poté přidáte vlastní data. To vám umožní programově obnovit graf tak, aby odrážel nejnovější data.
 
 **Je možné přizpůsobit vzhled grafu?**
 
-Ano, Aspose.Slides poskytuje rozsáhlé možnosti přizpůsobení. Můžete měnit barvy, písma, popisky, legendy a další [formatting elements](/slides/cs/nodejs-java/chart-entities/), aby vzhled grafu odpovídal vašim konkrétním návrhovým požadavkům.
+Ano, Aspose.Slides poskytuje rozsáhlé možnosti přizpůsobení. Můžete měnit barvy, písma, popisky, legendy a další [formátovací prvky](/slides/cs/nodejs-java/chart-entities/) tak, aby vzhled grafu odpovídal vašim konkrétním požadavkům na design.

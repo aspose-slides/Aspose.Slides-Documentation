@@ -1,72 +1,70 @@
 ---
-title: Buat atau Perbarui Diagram Presentasi PowerPoint dengan Python
-linktitle: Buat atau Perbarui Diagram
+title: Buat atau Perbarui Grafik Presentasi PowerPoint di Python
+linktitle: Buat atau Perbarui Grafik
 type: docs
 weight: 10
 url: /id/python-java/create-chart/
 keywords:
-- tambahkan diagram
-- buat diagram
-- edit diagram
-- ubah diagram
-- perbarui diagram
-- diagram sebar
-- diagram lingkaran
-- diagram garis
-- diagram peta pohon
-- diagram saham
-- diagram kotak dan garis bulu
-- diagram corong
-- diagram sunburst
-- diagram histogram
-- diagram radar
-- diagram multi kategori
+- menambahkan grafik
+- membuat grafik
+- mengedit grafik
+- mengubah grafik
+- memperbarui grafik
+- grafik sebar
+- grafik pai
+- grafik garis
+- grafik peta pohon
+- grafik saham
+- grafik box and whisker
+- grafik corong
+- grafik sunburst
+- grafik histogram
+- grafik radar
+- grafik multi‑kategori
 - PowerPoint
 - presentasi
 - Python
 - Java
 - Aspose.Slides
-description: "Buat dan sesuaikan diagram dalam presentasi PowerPoint menggunakan Aspose.Slides untuk Python via Java. Tambahkan, format, dan edit diagram dengan contoh kode praktis dalam Python."
+description: "Buat dan sesuaikan grafik dalam presentasi PowerPoint menggunakan Aspose.Slides untuk Python via Java. Tambahkan, format, dan edit grafik dengan contoh kode praktis dalam Python."
 ---
 ## **Gambaran Umum**
 
-Artikel ini menyediakan panduan komprehensif tentang cara membuat dan menyesuaikan diagram menggunakan Aspose.Slides. Anda akan mempelajari cara menambahkan diagram secara programatik ke slide, mengisinya dengan data, dan menerapkan berbagai opsi pemformatan untuk menyesuaikan dengan kebutuhan desain spesifik Anda. Sepanjang artikel, contoh kode terperinci menggambarkan setiap langkah, mulai dari menginisialisasi presentasi dan objek diagram hingga mengkonfigurasi seri, sumbu, dan legenda. Dengan mengikuti panduan ini, Anda akan memperoleh pemahaman yang kuat tentang cara mengintegrasikan pembuatan diagram dinamis ke dalam aplikasi Anda, mempermudah proses pembuatan presentasi berbasis data.
+Artikel ini menyediakan panduan komprehensif tentang cara membuat dan menyesuaikan grafik menggunakan Aspose.Slides. Anda akan belajar cara menambahkan grafik secara programatik ke slide, mengisi data, dan menerapkan berbagai opsi pemformatan untuk menyesuaikan dengan kebutuhan desain spesifik Anda. Sepanjang artikel, contoh kode terperinci menggambarkan setiap langkah, mulai dari menginisialisasi presentasi dan objek grafik hingga mengkonfigurasi seri, sumbu, dan legenda. Dengan mengikuti panduan ini, Anda akan memperoleh pemahaman yang kuat tentang cara mengintegrasikan pembuatan grafik dinamis ke dalam aplikasi Anda, menyederhanakan proses pembuatan presentasi berbasis data.
 
-## **Buat Diagram**
+## **Buat Grafik**
 
-Diagram membantu orang dengan cepat memvisualisasikan data dan memperoleh wawasan yang mungkin tidak langsung terlihat dari tabel atau spreadsheet.
+Grafik membantu orang dengan cepat memvisualisasikan data dan memperoleh wawasan yang mungkin tidak langsung terlihat dari tabel atau lembar kerja.
 
-**Mengapa Membuat Diagram?**
+**Mengapa Membuat Grafik?**
 
-* mengagregasi, menyederhanakan, atau merangkum sejumlah besar data pada satu slide dalam presentasi
+* mengagregasi, merangkum, atau menyederhanakan sejumlah besar data pada satu slide dalam presentasi
 * menampilkan pola dan tren dalam data
-* menyimpulkan arah dan momentum data seiring waktu atau relatif terhadap unit pengukuran tertentu
+* menyimpulkan arah dan momentum data seiring waktu atau terhadap unit pengukuran tertentu
 * mengidentifikasi outlier, penyimpangan, deviasi, kesalahan, data yang tidak masuk akal, dll.
-* mengkomunikasikan atau menyajikan data kompleks
+* mengkomunikasikan atau menyajikan data yang kompleks
 
-Di PowerPoint, Anda dapat membuat diagram melalui fungsi *Insert*, yang menyediakan templat untuk merancang banyak jenis diagram. Dengan Aspose.Slides, Anda dapat membuat diagram reguler (berdasarkan tipe diagram populer) maupun diagram kustom.
+Di PowerPoint, Anda dapat membuat grafik melalui fungsi *Insert*, yang menyediakan templat untuk merancang berbagai jenis grafik. Dengan menggunakan Aspose.Slides, Anda dapat membuat grafik reguler (berdasarkan jenis grafik populer) dan grafik kustom.
 
 {{% alert color="info" title="Note" %}}
-Untuk membuat diagram, gunakan kelas [ChartType](https://reference.aspose.com/slides/id/python-java/aspose.slides/charttype/). Field dalam kelas ini sesuai dengan berbagai tipe diagram.
+Untuk membuat grafik, gunakan kelas [ChartType](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/) . Field dalam kelas ini sesuai dengan berbagai jenis grafik.
 {{% /alert %}}
 
-### **Buat Diagram Kolom Berkelompok**
+### **Buat Grafik Kolom Berkelompok**
 
-Bagian ini menjelaskan cara membuat diagram kolom berkelompok menggunakan Aspose.Slides. Anda akan belajar menginisialisasi sebuah presentasi, menambahkan diagram, dan menyesuaikan elemen-elemennya seperti judul, data, seri, kategori, dan gaya. Ikuti langkah-langkah di bawah ini untuk melihat bagaimana diagram kolom berkelompok standar dihasilkan:
+Bagian ini menjelaskan cara membuat grafik kolom berkelompok menggunakan Aspose.Slides. Anda akan belajar menginisialisasi presentasi, menambahkan grafik, dan menyesuaikan elemen‑elemen seperti judul, data, seri, kategori, dan gaya. Ikuti langkah‑langkah di bawah ini untuk melihat bagaimana grafik kolom berkelompok standar dihasilkan:
 
-1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentation).
-2. Dapatkan referensi ke slide menggunakan indeksnya.
-3. Tambahkan diagram dengan beberapa data dan tentukan tipe `ChartType.ClusteredColumn`.
-4. Tambahkan judul ke diagram.
-5. Akses lembar kerja data diagram.
-6. Hapus semua seri dan kategori default.
+1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation) .
+2. Dapatkan referensi ke slide menggunakan indeknya.
+3. Tambahkan grafik dengan beberapa data dan tentukan tipe `ChartType.ClusteredColumn` .
+4. Tambahkan judul ke grafik.
+5. Akses lembar kerja data grafik.
+6. Bersihkan semua seri dan kategori default.
 7. Tambahkan seri dan kategori baru.
-8. Tambahkan data diagram baru untuk seri diagram.
-9. Terapkan warna isi pada seri diagram.
-10. Tambahkan label ke seri diagram.
+8. Tambahkan data grafik baru untuk seri grafik.
+9. Terapkan warna isi ke seri grafik.
+10. Tambahkan label ke seri grafik.
 11. Simpan presentasi yang dimodifikasi sebagai file PPTX.
-
-Kode C# berikut menunjukkan cara membuat diagram kolom berkelompok:
 
 ```python
 import jpype
@@ -85,19 +83,19 @@ try:
     # Mengakses slide pertama
     slide = presentation.getSlides().get_Item(0)
 
-    # Menambahkan diagram dengan data defaultnya
+    # Menambahkan grafik dengan data defaultnya
     chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 0, 0, 500, 500)
 
-    # Mengatur Judul diagram
+    # Menetapkan Judul grafik
     chart.getChartTitle().addTextFrameForOverriding("Sample Title")
     chart.getChartTitle().getTextFrameForOverriding().getTextFrameFormat().setCenterText(NullableBool.True_)
     chart.getChartTitle().setHeight(20)
     chart.setTitle(True)
 
-    # Mengatur indeks untuk lembar data diagram
+    # Menetapkan indeks untuk lembar data grafik
     default_worksheet_index = 0
 
-    # Mendapatkan lembar kerja data diagram
+    # Mendapatkan WorkSheet data grafik
     workbook = chart.getChartData().getChartDataWorkbook()
 
     # Menghapus seri dan kategori default yang dihasilkan
@@ -118,7 +116,7 @@ try:
     cell = workbook.getCell(default_worksheet_index, 3, 0, "Category 3")
     chart.getChartData().getCategories().add(cell)
 
-    # Mengambil seri diagram pertama
+    # Mengambil seri grafik pertama
     series = chart.getChartData().getSeries().get_Item(0)
 
     # Sekarang mengisi data seri
@@ -129,11 +127,11 @@ try:
     cell = workbook.getCell(default_worksheet_index, 3, 1, 30)
     series.getDataPoints().addDataPointForBarSeries(cell)
 
-    # Mengatur warna isi untuk seri
+    # Menetapkan warna isi untuk seri
     series.getFormat().getFill().setFillType(FillType.Solid)
     series.getFormat().getFill().getSolidFillColor().setColor(Color.RED)
 
-    # Mengambil seri diagram kedua
+    # Mengambil seri grafik kedua
     series = chart.getChartData().getSeries().get_Item(1)
 
     # Mengisi data seri
@@ -144,12 +142,12 @@ try:
     cell = workbook.getCell(default_worksheet_index, 3, 2, 60)
     series.getDataPoints().addDataPointForBarSeries(cell)
 
-    # Mengatur warna isi untuk seri
+    # Menetapkan warna isi untuk seri
     series.getFormat().getFill().setFillType(FillType.Solid)
     series.getFormat().getFill().getSolidFillColor().setColor(Color.GREEN)
 
-    #Buat label khusus untuk setiap kategori pada seri baru
-    # Mengatur label pertama untuk menampilkan nama Kategori
+    #Membuat label khusus untuk setiap kategori pada seri baru
+    # Menetapkan label pertama untuk menampilkan nama Kategori
     label = series.getDataPoints().get_Item(0).getLabel()
     label.getDataLabelFormat().setShowCategoryName(True)
 
@@ -162,32 +160,30 @@ try:
     label.getDataLabelFormat().setShowSeriesName(True)
     label.getDataLabelFormat().setSeparator("/")
 
-    # Menyimpan presentasi dengan diagram
+    # Menyimpan presentasi dengan grafik
     presentation.save("output.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-### **Buat Diagram Sebar**
+### **Buat Grafik Sebar**
 
-Diagram sebar (juga dikenal sebagai scatter plot atau grafik x‑y) sering digunakan untuk memeriksa pola atau menunjukkan korelasi antara dua variabel.
+Grafik sebar (juga dikenal sebagai plot sebar atau grafik x‑y) sering digunakan untuk memeriksa pola atau menunjukkan korelasi antara dua variabel.
 
-Gunakan diagram sebar ketika:
+Gunakan grafik sebar ketika:
 
 * Anda memiliki data numerik berpasangan
-* Anda memiliki dua variabel yang saling berpasangan dengan baik
-* Anda ingin menentukan apakah dua variabel terkait
+* Anda memiliki dua variabel yang cocok bersama
+* Anda ingin menentukan apakah dua variabel berhubungan
 * Anda memiliki variabel independen yang memiliki banyak nilai untuk variabel dependen
 
-1. Ikuti langkah-langkah dalam [Create Clustered Column Charts](#create-clustered-column-charts).
-2. Untuk langkah ketiga, tambahkan diagram dengan beberapa data dan tentukan tipe diagram Anda sebagai salah satu berikut:
-   1. [ChartType.ScatterWithMarkers](https://reference.aspose.com/slides/id/python-java/aspose.slides/charttype/#ScatterWithMarkers) - _Mewakili diagram sebar._
-   2. [ChartType.ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/id/python-java/aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - _Mewakili diagram sebar yang terhubung oleh kurva, dengan penanda data._
-   3. [ChartType.ScatterWithSmoothLines](https://reference.aspose.com/slides/id/python-java/aspose.slides/charttype/#ScatterWithSmoothLines) - _Mewakili diagram sebar yang terhubung oleh kurva, tanpa penanda data._
-   4. [ChartType.ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/id/python-java/aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _Mewakili diagram sebar yang terhubung oleh garis lurus, dengan penanda data._
-   5. [ChartType.ScatterWithStraightLines](https://reference.aspose.com/slides/id/python-java/aspose.slides/charttype/#ScatterWithStraightLines) - _Mewakili diagram sebar yang terhubung oleh garis lurus, tanpa penanda data._
-
-Kode Python berikut menunjukkan cara membuat diagram sebar dengan penanda berbeda untuk setiap seri:
+1. Ikuti langkah‑langkah dalam [Buat Grafik Kolom Berkelompok](#buat-grafik-kolom-berkelompok) .
+2. Pada langkah ketiga, tambahkan grafik dengan beberapa data dan pilih tipe grafik Anda sebagai salah satu berikut:
+   1. [ChartType.ScatterWithMarkers](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/#ScatterWithMarkers) - _Mewakili grafik sebar._
+   2. [ChartType.ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - _Mewakili grafik sebar yang dihubungkan oleh kurva, dengan penanda data._
+   3. [ChartType.ScatterWithSmoothLines](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/#ScatterWithSmoothLines) - _Mewakili grafik sebar yang dihubungkan oleh kurva, tanpa penanda data._
+   4. [ChartType.ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _Mewakili grafik sebar yang dihubungkan oleh garis, dengan penanda data._
+   5. [ChartType.ScatterWithStraightLines](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/#ScatterWithStraightLines) - _Mewakili grafik sebar yang dihubungkan oleh garis, tanpa penanda data._
 
 ```python
 import jpype
@@ -204,13 +200,13 @@ try:
     # Mengakses slide pertama
     slide = presentation.getSlides().get_Item(0)
 
-    # Membuat diagram default
+    # Membuat grafik default
     chart = slide.getShapes().addChart(ChartType.ScatterWithSmoothLines, 0, 0, 400, 400)
 
-    # Mendapatkan indeks lembar kerja data diagram default
+    # Mendapatkan indeks lembar kerja data grafik default
     default_worksheet_index = 0
 
-    # Mendapatkan lembar kerja data diagram
+    # Mendapatkan lembar kerja data grafik
     workbook = chart.getChartData().getChartDataWorkbook()
 
     # Menghapus seri demo
@@ -222,7 +218,7 @@ try:
     cell = workbook.getCell(default_worksheet_index, 1, 3, "Series 2")
     chart.getChartData().getSeries().add(cell, chart.getType())
 
-    # Mengambil seri diagram pertama
+    # Mengambil seri grafik pertama
     series = chart.getChartData().getSeries().get_Item(0)
 
     # Menambahkan titik baru (1:3) ke seri
@@ -238,11 +234,11 @@ try:
     # Mengubah tipe seri
     series.setType(ChartType.ScatterWithStraightLinesAndMarkers)
 
-    # Mengubah penanda seri diagram
+    # Mengubah penanda seri grafik
     series.getMarker().setSize(10)
     series.getMarker().setSymbol(MarkerStyleType.Star)
 
-    # Mengambil seri diagram kedua
+    # Mengambil seri grafik kedua
     series = chart.getChartData().getSeries().get_Item(1)
 
     # Menambahkan titik baru (5:2) di sana
@@ -265,7 +261,7 @@ try:
     y_cell = workbook.getCell(default_worksheet_index, 5, 4, 1)
     series.getDataPoints().addDataPointForScatterSeries(x_cell, y_cell)
 
-    # Mengubah penanda seri diagram
+    # Mengubah penanda seri grafik
     series.getMarker().setSize(10)
     series.getMarker().setSymbol(MarkerStyleType.Circle)
 
@@ -274,24 +270,22 @@ finally:
     presentation.dispose()
 ```
 
-### **Buat Diagram Lingkaran**
+### **Buat Grafik Pai**
 
-Diagram lingkaran paling cocok untuk menampilkan hubungan bagian–ke‑seluruh dalam data, terutama ketika data berisi label kategori dengan nilai numerik. Namun, jika data Anda memiliki banyak bagian atau label, Anda mungkin ingin mempertimbangkan menggunakan diagram batang sebagai gantinya.
+Grafik pai paling baik digunakan untuk menunjukkan hubungan bagian‑dengan‑keseluruhan dalam data, terutama ketika data berisi label kategori dengan nilai numerik. Namun, jika data Anda memiliki banyak bagian atau label, Anda mungkin ingin mempertimbangkan menggunakan grafik batang sebagai gantinya.
 
-1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentation/).
-2. Dapatkan referensi ke slide menggunakan indeksnya.
-3. Tambahkan diagram dengan data default dan tentukan tipe [ChartType.Pie](https://reference.aspose.com/slides/id/python-java/aspose.slides/charttype/#Pie).
-4. Akses buku kerja data diagram [ChartDataWorkbook](https://reference.aspose.com/slides/id/python-java/aspose.slides/chartdataworkbook/).
-5. Hapus seri dan kategori default.
+1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) .
+2. Dapatkan referensi ke slide menggunakan indeknya.
+3. Tambahkan grafik dengan data default dan pilih tipe [ChartType.Pie](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/#Pie) .
+4. Akses workbook data grafik [ChartDataWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdataworkbook/) .
+5. Bersihkan seri dan kategori default.
 6. Tambahkan seri dan kategori baru.
-7. Tambahkan data diagram baru untuk seri diagram.
-8. Tambahkan poin baru untuk diagram dan terapkan warna kustom untuk sektor diagram lingkaran.
+7. Tambahkan data grafik baru untuk seri grafik.
+8. Tambahkan poin baru untuk grafik dan terapkan warna kustom untuk sektor grafik pai.
 9. Atur label untuk seri.
-10. Aktifkan garis penghubung untuk label seri.
-11. Atur sudut rotasi untuk sektor diagram lingkaran.
+10. Aktifkan garis penunjuk untuk label seri.
+11. Atur sudut rotasi untuk sektor grafik pai.
 12. Simpan presentasi yang dimodifikasi sebagai file PPTX.
-
-Kode Python berikut menunjukkan cara membuat diagram lingkaran:
 
 ```python
 import jpype
@@ -310,19 +304,19 @@ try:
     # Mengakses slide pertama
     slide = presentation.getSlides().get_Item(0)
 
-    # Menambahkan diagram dengan data default
+    # Menambahkan grafik dengan data default
     chart = slide.getShapes().addChart(ChartType.Pie, 100, 100, 400, 400)
 
-    # Mengatur Judul diagram
+    # Menetapkan Judul grafik
     chart.getChartTitle().addTextFrameForOverriding("Sample Title")
     chart.getChartTitle().getTextFrameForOverriding().getTextFrameFormat().setCenterText(NullableBool.True_)
     chart.getChartTitle().setHeight(20)
     chart.setTitle(True)
 
-    # Mengatur indeks untuk lembar data diagram
+    # Menetapkan indeks untuk lembar data grafik
     default_worksheet_index = 0
 
-    # Mendapatkan lembar kerja data diagram
+    # Mendapatkan lembar kerja data grafik
     workbook = chart.getChartData().getChartDataWorkbook()
 
     # Menghapus seri dan kategori default yang dihasilkan
@@ -356,7 +350,7 @@ try:
     point.getFormat().getFill().setFillType(FillType.Solid)
     point.getFormat().getFill().getSolidFillColor().setColor(Color.CYAN)
 
-    # Mengatur batas sektor
+    # Menetapkan tepi sektor
     point.getFormat().getLine().getFillFormat().setFillType(FillType.Solid)
     point.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.GRAY)
     point.getFormat().getLine().setWidth(3.0)
@@ -367,7 +361,7 @@ try:
     second_point.getFormat().getFill().setFillType(FillType.Solid)
     second_point.getFormat().getFill().getSolidFillColor().setColor(Color.ORANGE)
 
-    # Mengatur batas sektor
+    # Menetapkan tepi sektor
     second_point.getFormat().getLine().getFillFormat().setFillType(FillType.Solid)
     second_point.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.BLUE)
     second_point.getFormat().getLine().setWidth(3.0)
@@ -378,7 +372,7 @@ try:
     third_point.getFormat().getFill().setFillType(FillType.Solid)
     third_point.getFormat().getFill().getSolidFillColor().setColor(Color.YELLOW)
 
-    # Mengatur batas sektor
+    # Menetapkan tepi sektor
     third_point.getFormat().getLine().getFillFormat().setFillType(FillType.Solid)
     third_point.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.RED)
     third_point.getFormat().getLine().setWidth(2.0)
@@ -399,28 +393,26 @@ try:
     third_label.getDataLabelFormat().setShowSeriesName(True)
     third_label.getDataLabelFormat().setShowPercentage(True)
 
-    # Menampilkan Garis Pemimpin untuk Diagram
+    # Menampilkan Leader Lines untuk Grafik
     series.getLabels().getDefaultDataLabelFormat().setShowLeaderLines(True)
 
-    # Mengatur Sudut Rotasi untuk Sektor Diagram Lingkaran
+    # Menetapkan Sudut Rotasi untuk Sektor Grafik Pai
     chart.getChartData().getSeriesGroups().get_Item(0).setFirstSliceAngle(180)
 
-    # Menyimpan presentasi dengan diagram
+    # Menyimpan presentasi dengan grafik
     presentation.save("PieChart_out.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-### **Buat Diagram Garis**
+### **Buat Grafik Garis**
 
-Diagram garis (juga dikenal sebagai grafik garis) paling cocok untuk situasi dimana Anda ingin menunjukkan perubahan nilai seiring waktu. Dengan diagram garis, Anda dapat membandingkan sejumlah besar data sekaligus, melacak perubahan dan tren seiring waktu, menyoroti anomali dalam seri data, dan lainnya.
+Grafik garis (juga dikenal sebagai grafik linier) paling baik digunakan dalam situasi di mana Anda ingin menunjukkan perubahan nilai seiring waktu. Dengan grafik garis, Anda dapat membandingkan sejumlah besar data sekaligus, melacak perubahan dan tren dari waktu ke waktu, menyoroti anomali dalam seri data, dan lainnya.
 
-1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentation).
-2. Dapatkan referensi ke slide menggunakan indeksnya.
-3. Tambahkan diagram dengan data default dan tentukan tipe [ChartType.Line](https://reference.aspose.com/slides/id/python-java/aspose.slides/charttype/#Line).
-4. Simpan presentasi yang dimodifikasi sebagai file PPTX.
-
-Kode Python berikut menunjukkan cara membuat diagram garis:
+1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) .
+1. Dapatkan referensi ke slide menggunakan indeknya.
+1. Tambahkan grafik dengan data default dan pilih tipe [ChartType.Line](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/#Line) .
+1. Simpan presentasi yang dimodifikasi sebagai file PPTX.
 
 ```python
 import jpype
@@ -440,7 +432,7 @@ finally:
     presentation.dispose()
 ```
 
-Secara default, titik pada diagram garis dihubungkan oleh garis lurus kontinu. Jika Anda ingin titik‑titik tersebut dihubungkan dengan garis putus‑putus, Anda dapat menentukan tipe garis putus‑putus yang diinginkan sebagai berikut:
+Secara default, titik‑titik pada grafik garis dihubungkan oleh garis lurus berkelanjutan. Jika Anda ingin titik‑titik dihubungkan oleh garis putus‑putus, Anda dapat menentukan jenis dash yang diinginkan sebagai berikut:
 
 ```python
 import jpype
@@ -463,20 +455,18 @@ finally:
     presentation.dispose()
 ```
 
-### **Buat Diagram Peta Pohon**
+### **Buat Grafik Peta Pohon**
 
-Diagram peta pohon paling cocok untuk data penjualan ketika Anda ingin menampilkan ukuran relatif kategori data dan dengan cepat menarik perhatian ke item yang merupakan kontributor besar dalam setiap kategori.
+Grafik peta pohon paling baik digunakan untuk data penjualan ketika Anda ingin menunjukkan ukuran relatif kategori data dan dengan cepat menarik perhatian ke item yang menjadi kontributor besar dalam tiap kategori.
 
-1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentation).
-2. Dapatkan referensi ke slide menggunakan indeksnya.
-3. Tambahkan diagram dengan data default dan tentukan tipe [ChartType.Treemap](https://reference.aspose.com/slides/id/python-java/aspose.slides/charttype/#Treemap).
-4. Akses buku kerja data diagram [ChartDataWorkbook](https://reference.aspose.com/slides/id/python-java/aspose.slides/chartdataworkbook/).
-5. Hapus seri dan kategori default.
+1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) .
+2. Dapatkan referensi ke slide menggunakan indeknya.
+3. Tambahkan grafik dengan data default dan pilih tipe [ChartType.Treemap](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/#Treemap) .
+4. Akses workbook data grafik [ChartDataWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdataworkbook/) .
+5. Bersihkan seri dan kategori default.
 6. Tambahkan seri dan kategori baru.
-7. Tambahkan data diagram baru untuk seri diagram.
+7. Tambahkan data grafik baru untuk seri grafik.
 8. Simpan presentasi yang dimodifikasi sebagai file PPTX.
-
-Kode Python berikut menunjukkan cara membuat diagram peta pohon:
 
 ```python
 import jpype
@@ -554,19 +544,17 @@ finally:
     presentation.dispose()
 ```
 
-### **Buat Diagram Saham**
+### **Buat Grafik Saham**
 
-1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentation).
-2. Dapatkan referensi ke slide menggunakan indeksnya.
-3. Tambahkan diagram dengan data default dan tentukan tipe [ChartType.OpenHighLowClose](https://reference.aspose.com/slides/id/python-java/aspose.slides/charttype/#OpenHighLowClose).
-4. Akses buku kerja data diagram [ChartDataWorkbook](https://reference.aspose.com/slides/id/python-java/aspose.slides/chartdataworkbook/).
-5. Hapus seri dan kategori default.
+1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) .
+2. Dapatkan referensi ke slide menggunakan indeknya.
+3. Tambahkan grafik dengan data default dan pilih tipe [ChartType.OpenHighLowClose](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/#OpenHighLowClose) .
+4. Akses workbook data grafik [ChartDataWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdataworkbook/) .
+5. Bersihkan seri dan kategori default.
 6. Tambahkan seri dan kategori baru.
-7. Tambahkan data diagram baru untuk seri diagram.
+7. Tambahkan data grafik baru untuk seri grafik.
 8. Tentukan format garis high‑low.
 9. Simpan presentasi yang dimodifikasi sebagai file PPTX.
-
-Kode Python berikut menunjukkan cara membuat diagram saham:
 
 ```python
 import jpype
@@ -646,18 +634,16 @@ finally:
     presentation.dispose()
 ```
 
-### **Buat Diagram Kotak dan Garis Bulu**
+### **Buat Grafik BoxAndWhisker**
 
-1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentation).
-2. Dapatkan referensi ke slide menggunakan indeksnya.
-3. Tambahkan diagram dengan data default dan tentukan tipe [ChartType.BoxAndWhisker](https://reference.aspose.com/slides/id/python-java/aspose.slides/charttype/#BoxAndWhisker).
-4. Akses buku kerja data diagram [ChartDataWorkbook](https://reference.aspose.com/slides/id/python-java/aspose.slides/chartdataworkbook/).
-5. Hapus seri dan kategori default.
+1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) .
+2. Dapatkan referensi ke slide menggunakan indeknya.
+3. Tambahkan grafik dengan data default dan pilih tipe [ChartType.BoxAndWhisker](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/#BoxAndWhisker) .
+4. Akses workbook data grafik [ChartDataWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdataworkbook/) .
+5. Bersihkan seri dan kategori default.
 6. Tambahkan seri dan kategori baru.
-7. Tambahkan data diagram baru untuk seri diagram.
+7. Tambahkan data grafik baru untuk seri grafik.
 8. Simpan presentasi yang dimodifikasi sebagai file PPTX.
-
-Kode Python berikut menunjukkan cara membuat diagram kotak dan garis bulu:
 
 ```python
 import jpype
@@ -716,14 +702,12 @@ finally:
     presentation.dispose()
 ```
 
-### **Buat Diagram Corong**
+### **Buat Grafik Corong**
 
-1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentation).
-2. Dapatkan referensi ke slide menggunakan indeksnya.
-3. Tambahkan diagram dengan data default dan tentukan tipe [ChartType.Funnel](https://reference.aspose.com/slides/id/python-java/aspose.slides/charttype/#Funnel).
+1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) .
+2. Dapatkan referensi ke slide menggunakan indeknya.
+3. Tambahkan grafik dengan data default dan pilih tipe [ChartType.Funnel](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/#Funnel) .
 4. Simpan presentasi yang dimodifikasi sebagai file PPTX.
-
-Kode Python berikut menunjukkan cara membuat diagram corong:
 
 ```python
 import jpype
@@ -777,14 +761,12 @@ finally:
     presentation.dispose()
 ```
 
-### **Buat Diagram Sunburst**
+### **Buat Grafik Sunburst**
 
-1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentation).
-2. Dapatkan referensi ke slide menggunakan indeksnya.
-3. Tambahkan diagram dengan data default dan tentukan tipe [ChartType.Sunburst](https://reference.aspose.com/slides/id/python-java/aspose.slides/charttype/#Sunburst).
+1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) .
+2. Dapatkan referensi ke slide menggunakan indeknya.
+3. Tambahkan grafik dengan data default dan pilih tipe [ChartType.Sunburst](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/#Sunburst) .
 4. Simpan presentasi yang dimodifikasi sebagai file PPTX.
-
-Kode Python berikut menunjukkan cara membuat diagram sunburst:
 
 ```python
 import jpype
@@ -860,17 +842,15 @@ finally:
     presentation.dispose()
 ```
 
-### **Buat Diagram Histogram**
+### **Buat Grafik Histogram**
 
-1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentation).
-2. Dapatkan referensi ke slide menggunakan indeksnya.
-3. Tambahkan diagram dengan data default dan tentukan tipe [ChartType.Histogram](https://reference.aspose.com/slides/id/python-java/aspose.slides/charttype/#Histogram).
-4. Akses buku kerja data diagram [ChartDataWorkbook](https://reference.aspose.com/slides/id/python-java/aspose.slides/chartdataworkbook/).
-5. Hapus seri dan kategori default.
+1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) .
+2. Dapatkan referensi ke slide menggunakan indeknya.
+3. Tambahkan grafik dengan data default dan pilih tipe [ChartType.Histogram](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/#Histogram) .
+4. Akses workbook data grafik [ChartDataWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdataworkbook/) .
+5. Bersihkan seri dan kategori default.
 6. Tambahkan seri dan kategori baru.
 7. Simpan presentasi yang dimodifikasi sebagai file PPTX.
-
-Kode Python berikut menunjukkan cara membuat diagram histogram:
 
 ```python
 import jpype
@@ -911,14 +891,12 @@ finally:
     presentation.dispose()
 ```
 
-### **Buat Diagram Radar**
+### **Buat Grafik Radar**
 
-1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentation).
-2. Dapatkan referensi ke slide menggunakan indeksnya.
-3. Tambahkan diagram dengan beberapa data dan tentukan tipe diagram yang diinginkan ([ChartType.Radar](https://reference.aspose.com/slides/id/python-java/aspose.slides/charttype/#Radar) dalam kasus ini).
+1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) .
+2. Dapatkan referensi ke slide menggunakan indeknya.
+3. Tambahkan grafik dengan beberapa data dan pilih tipe grafik yang diinginkan ([ChartType.Radar](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/#Radar) dalam kasus ini) .
 4. Simpan presentasi yang dimodifikasi sebagai file PPTX.
-
-Kode Python berikut menunjukkan cara membuat diagram radar:
 
 ```python
 import jpype
@@ -937,18 +915,16 @@ finally:
     presentation.dispose()
 ```
 
-### **Buat Diagram Multi‑Kategori**
+### **Buat Grafik Multi‑Kategori**
 
-1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentation).
-2. Dapatkan referensi ke slide menggunakan indeksnya.
-3. Tambahkan diagram dengan data default dan tentukan tipe [ChartType.ClusteredColumn](https://reference.aspose.com/slides/id/python-java/aspose.slides/charttype/#ClusteredColumn).
-4. Akses buku kerja data diagram [ChartDataWorkbook](https://reference.aspose.com/slides/id/python-java/aspose.slides/chartdataworkbook/).
-5. Hapus seri dan kategori default.
+1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) .
+2. Dapatkan referensi ke slide menggunakan indeknya.
+3. Tambahkan grafik dengan data default dan pilih tipe [ChartType.ClusteredColumn](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/#ClusteredColumn) .
+4. Akses workbook data grafik [ChartDataWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdataworkbook/) .
+5. Bersihkan seri dan kategori default.
 6. Tambahkan seri dan kategori baru.
-7. Tambahkan data diagram baru untuk seri diagram.
+7. Tambahkan data grafik baru untuk seri grafik.
 8. Simpan presentasi yang dimodifikasi sebagai file PPTX.
-
-Kode Python berikut menunjukkan cara membuat diagram multi‑kategori:
 
 ```python
 import jpype
@@ -1014,17 +990,15 @@ try:
     cell = workbook.getCell(default_worksheet_index, "D9", 80)
     series.getDataPoints().addDataPointForBarSeries(cell)
 
-    # Simpan presentasi dengan diagram
+    # Simpan presentasi dengan grafik
     presentation.save("AsposeChart_out.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-### **Buat Diagram Peta**
+### **Buat Grafik Peta**
 
-Diagram peta memvisualisasikan data geografis dan membantu membandingkan nilai antar wilayah.
-
-Kode Python berikut menunjukkan cara membuat diagram peta:
+Grafik peta memvisualisasikan data geografis dan membantu membandingkan nilai antar wilayah.
 
 ```python
 import jpype
@@ -1043,13 +1017,13 @@ finally:
     presentation.dispose()
 ```
 
-### **Buat Diagram Kombinasi**
+### **Buat Grafik Kombinasi**
 
-Diagram kombinasi (atau combo chart) menggabungkan dua atau lebih tipe diagram dalam satu grafik. Diagram ini memungkinkan Anda menyoroti, membandingkan, atau memeriksa perbedaan antara dua atau lebih set data, membantu mengidentifikasi hubungan di antara mereka.
+Grafik kombinasi (atau combo chart) menggabungkan dua atau lebih tipe grafik dalam satu grafik. Grafik ini memungkinkan Anda menyoroti, membandingkan, atau memeriksa perbedaan antara dua atau lebih set data, membantu mengidentifikasi hubungan di antaranya.
 
-![Diagram kombinasi](combination_chart.png)
+![Grafik kombinasi](combination_chart.png)
 
-Kode Python berikut menunjukkan cara membuat diagram kombinasi yang ditampilkan di atas dalam presentasi PowerPoint:
+Kode Python berikut memperlihatkan cara membuat grafik kombinasi yang ditampilkan di atas dalam sebuah presentasi PowerPoint:
 
 ```python
 import jpype
@@ -1081,7 +1055,7 @@ def create_combo_chart():
 def create_chart_with_first_series(slide):
     chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400)
 
-    # Atur judul diagram.
+    # Atur judul grafik.
     chart.setTitle(True)
     chart.getChartTitle().addTextFrameForOverriding("Chart Title")
     chart.getChartTitle().setOverlay(False)
@@ -1090,7 +1064,7 @@ def create_chart_with_first_series(slide):
     title_format.setFontBold(NullableBool.False_)
     title_format.setFontHeight(18.0)
 
-    # Atur legenda diagram.
+    # Atur legenda grafik.
     chart.getLegend().setPosition(LegendPositionType.Bottom)
     chart.getLegend().getTextFormat().getPortionFormat().setFontHeight(12.0)
 
@@ -1217,17 +1191,15 @@ def set_axis_title(axis, axis_title):
 create_combo_chart()
 ```
 
-## **Perbarui Diagram**
+## **Perbarui Grafik**
 
-1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentation/) yang mewakili presentasi yang berisi diagram yang ingin Anda perbarui.
-2. Dapatkan referensi ke slide menggunakan indeksnya.
-3. Jelajahi semua bentuk untuk menemukan diagram yang diinginkan.
-4. Akses lembar kerja data diagram.
-5. Ubah seri data diagram dengan mengubah nilai seri.
+1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) yang mewakili presentasi berisi grafik yang ingin Anda perbarui.
+2. Dapatkan referensi ke slide menggunakan indeknya.
+3. Telusuri semua shape untuk menemukan grafik yang diinginkan.
+4. Akses worksheet data grafik.
+5. Modifikasi seri data grafik dengan mengubah nilai seri.
 6. Tambahkan seri baru dan isi datanya.
 7. Simpan presentasi yang dimodifikasi sebagai file PPTX.
-
-Kode Python berikut menunjukkan cara memperbarui diagram:
 
 ```python
 import jpype
@@ -1238,26 +1210,26 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import ChartType, Presentation, SaveFormat
 
-# Membuka presentasi yang berisi diagram yang akan diperbarui
+# Membuka presentasi yang berisi grafik yang akan diperbarui
 presentation = Presentation("ExistingChart.pptx")
 try:
     # Mengakses slide pertama
     slide = presentation.getSlides().get_Item(0)
 
-    # Mengambil diagram dari slide
+    # Mengambil grafik dari slide
     chart = slide.getShapes().get_Item(0)
 
-    # Mengatur indeks lembar data diagram
+    # Menetapkan indeks lembar data grafik
     default_worksheet_index = 0
 
-    # Mendapatkan lembar kerja data diagram
+    # Mendapatkan lembar kerja data grafik
     workbook = chart.getChartData().getChartDataWorkbook()
 
-    # Mengubah Nama Kategori diagram
+    # Mengubah Nama Kategori grafik
     workbook.getCell(default_worksheet_index, 1, 0, "Modified Category 1")
     workbook.getCell(default_worksheet_index, 2, 0, "Modified Category 2")
 
-    # Mengambil seri diagram pertama
+    # Mengambil seri grafik pertama
     series = chart.getChartData().getSeries().get_Item(0)
 
     # Sekarang memperbarui data seri
@@ -1266,7 +1238,7 @@ try:
     series.getDataPoints().get_Item(1).getValue().setData(123)
     series.getDataPoints().get_Item(2).getValue().setData(44)
 
-    # Mengambil seri diagram Kedua
+    # Mengambil seri grafik kedua
     series = chart.getChartData().getSeries().get_Item(1)
 
     # Sekarang memperbarui data seri
@@ -1279,7 +1251,7 @@ try:
     cell = workbook.getCell(default_worksheet_index, 0, 3, "Series 3")
     chart.getChartData().getSeries().add(cell, chart.getType())
 
-    # Mengambil seri diagram ketiga
+    # Mengambil seri grafik ketiga
     series = chart.getChartData().getSeries().get_Item(2)
 
     # Sekarang mengisi data seri
@@ -1292,21 +1264,23 @@ try:
 
     chart.setType(ChartType.ClusteredCylinder)
 
-    # Simpan presentasi dengan diagram
+    # Simpan presentasi dengan grafik
     presentation.save("AsposeChartModified_out.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-## **Atur Rentang Data untuk Diagram**
+## **Atur Rentang Data untuk Grafik**
 
-1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentation/) yang mewakili presentasi yang berisi diagram.
-2. Dapatkan referensi ke slide menggunakan indeksnya.
-3. Jelajahi semua bentuk untuk menemukan diagram yang diinginkan.
-4. Akses data diagram dan tetapkan rentangnya.
+Untuk memeriksa rentang yang sudah digunakan oleh grafik yang ada, lihat [Mengambil Rentang Data Grafik](/slides/id/python-java/chart-workbook/#retrieve-a-charts-data-range) .
+
+Untuk mengatur rentang data bagi sebuah grafik, lakukan hal berikut:
+
+1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) yang mewakili presentasi berisi grafik.
+2. Dapatkan referensi ke slide menggunakan indeknya.
+3. Telusuri semua shape untuk menemukan grafik yang diinginkan.
+4. Akses data grafik dan atur rentangnya.
 5. Simpan presentasi yang dimodifikasi sebagai file PPTX.
-
-Kode Python berikut menunjukkan cara mengatur rentang data untuk diagram:
 
 ```python
 import jpype
@@ -1317,7 +1291,7 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import Presentation, SaveFormat
 
-# Membuka presentasi yang berisi diagram
+# Membuka presentasi yang berisi grafik
 presentation = Presentation("ExistingChart.pptx")
 try:
     slide = presentation.getSlides().get_Item(0)
@@ -1330,11 +1304,9 @@ finally:
     presentation.dispose()
 ```
 
-## **Gunakan Penanda Default dalam Diagram**
+## **Gunakan Penanda Default dalam Grafik**
 
-Ketika Anda menggunakan penanda default dalam diagram, setiap seri diagram secara otomatis mendapatkan simbol penanda yang berbeda.
-
-Kode Python berikut menunjukkan cara mengatur penanda seri diagram secara otomatis:
+Saat Anda menggunakan penanda default dalam grafik, setiap seri grafik secara otomatis mendapatkan simbol penanda yang berbeda.
 
 ```python
 import jpype
@@ -1377,7 +1349,7 @@ try:
 
     cell = workbook.getCell(0, 0, 2, "Series 2")
     chart.getChartData().getSeries().add(cell, chart.getType())
-    #Ambil seri diagram kedua
+    #Ambil seri grafik kedua
     second_series = chart.getChartData().getSeries().get_Item(1)
 
     #Sekarang mengisi data seri
@@ -1400,18 +1372,18 @@ finally:
 
 ## **FAQ**
 
-**Tipe diagram apa yang didukung oleh Aspose.Slides?**
+**Jenis grafik apa yang didukung oleh Aspose.Slides?**
 
-Aspose.Slides mendukung berbagai macam [tipe diagram](https://reference.aspose.com/slides/id/python-java/aspose.slides/charttype/), termasuk batang, garis, lingkaran, area, sebar, histogram, radar, dan banyak lagi. Fleksibilitas ini memungkinkan Anda memilih tipe diagram yang paling sesuai untuk kebutuhan visualisasi data Anda.
+Aspose.Slides mendukung beragam [jenis grafik](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/) , termasuk bar, line, pie, area, scatter, histogram, radar, dan banyak lagi. Fleksibilitas ini memungkinkan Anda memilih jenis grafik yang paling tepat untuk kebutuhan visualisasi data Anda.
 
-**Bagaimana cara menambahkan diagram baru ke slide?**
+**Bagaimana cara menambahkan grafik baru ke slide?**
 
-Untuk menambahkan diagram, pertama-tama Anda membuat instance kelas [Presentation](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentation/), mengambil slide yang diinginkan menggunakan indeksnya, lalu memanggil metode untuk menambahkan diagram, menentukan tipe diagram dan data awal. Proses ini mengintegrasikan diagram langsung ke dalam presentasi Anda.
+Untuk menambahkan grafik, pertama buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) , ambil slide yang diinginkan menggunakan indeknya, lalu panggil metode untuk menambahkan grafik, menentukan tipe grafik dan data awal. Proses ini mengintegrasikan grafik langsung ke dalam presentasi Anda.
 
-**Bagaimana saya dapat memperbarui data yang ditampilkan dalam diagram?**
+**Bagaimana saya dapat memperbarui data yang ditampilkan dalam grafik?**
 
-Anda dapat memperbarui data diagram dengan mengakses buku kerja data ([ChartDataWorkbook](https://reference.aspose.com/slides/id/python-java/aspose.slides/chartdataworkbook/)), menghapus semua seri dan kategori default, lalu menambahkan data khusus Anda. Hal ini memungkinkan Anda menyegarkan diagram agar mencerminkan data terbaru.
+Anda dapat memperbarui data grafik dengan mengakses workbook datanya ([ChartDataWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdataworkbook/) ), membersihkan semua seri dan kategori default, lalu menambahkan data khusus Anda. Hal ini memungkinkan Anda menyegarkan grafik agar mencerminkan data terbaru.
 
-**Apakah memungkinkan untuk menyesuaikan tampilan diagram?**
+**Apakah memungkinkan untuk menyesuaikan tampilan grafik?**
 
-Ya, Aspose.Slides menyediakan opsi penyesuaian yang luas. Anda dapat mengubah warna, font, label, legenda, dan elemen [pemformatan](/slides/id/python-java/chart-entities/) lainnya untuk menyesuaikan tampilan diagram sesuai dengan kebutuhan desain spesifik Anda.
+Ya, Aspose.Slides menyediakan opsi penyesuaian yang luas. Anda dapat mengubah warna, font, label, legenda, dan elemen [formatting](/slides/id/python-java/chart-entities/) lainnya untuk menyesuaikan tampilan grafik dengan kebutuhan desain spesifik Anda.

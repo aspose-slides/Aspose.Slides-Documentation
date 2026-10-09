@@ -1,137 +1,137 @@
 ---
-title: Utwórz lub zaktualizuj wykresy w prezentacji PowerPoint w PHP
-linktitle: Utwórz lub zaktualizuj wykresy
+title: Utworzenie lub aktualizacja wykresów w prezentacji PowerPoint w PHP
+linktitle: Utworzenie lub aktualizacja wykresów
 type: docs
 weight: 10
 url: /pl/php-java/create-chart/
 keywords:
-- dodać wykres
-- utworzyć wykres
-- edytować wykres
-- zmienić wykres
-- zaktualizować wykres
+- dodaj wykres
+- utwórz wykres
+- edytuj wykres
+- zmień wykres
+- zaktualizuj wykres
 - wykres punktowy
 - wykres kołowy
 - wykres liniowy
 - wykres mapy drzewa
 - wykres giełdowy
-- wykres pudełkowy i wąsowy
+- wykres pudełkowy i wąsy
 - wykres lejkowy
 - wykres promieniowy
 - wykres histogramu
 - wykres radarowy
-- wykres wielokategorowy
+- wykres wielokategorii
 - PowerPoint
 - prezentacja
 - PHP
 - Aspose.Slides
-description: "Twórz i dostosowuj wykresy w prezentacjach PowerPoint przy użyciu Aspose.Slides dla PHP poprzez Java. Dodawaj, formatuj i edytuj wykresy przy pomocy praktycznych przykładów kodu."
+description: "Twórz i dostosowuj wykresy w prezentacjach PowerPoint przy użyciu Aspose.Slides dla PHP poprzez Javę. Dodawaj, formatuj i edytuj wykresy, korzystając z praktycznych przykładów kodu."
 ---
 ## **Przegląd**
 
-Ten artykuł zawiera kompleksowy przewodnik, jak tworzyć i dostosowywać wykresy przy użyciu Aspose.Slides. Dowiesz się, jak programowo dodać wykres do slajdu, wypełnić go danymi oraz zastosować różne opcje formatowania, aby dopasować go do konkretnych wymagań projektowych. W całym artykule szczegółowe przykłady kodu ilustrują każdy krok, od inicjalizacji prezentacji i obiektu wykresu po konfigurowanie serii, osi i legend. Postępując zgodnie z tym przewodnikiem, zdobędziesz solidną wiedzę na temat integracji dynamicznego generowania wykresów w aplikacjach, upraszczając proces tworzenia prezentacji opartych na danych.
+Ten artykuł zapewnia kompleksowy przewodnik, jak tworzyć i dostosowywać wykresy przy użyciu Aspose.Slides. Dowiesz się, jak programowo dodać wykres do slajdu, wypełnić go danymi oraz zastosować różne opcje formatowania, aby spełnić określone wymagania projektowe. W całym artykule szczegółowe przykłady kodu ilustrują każdy krok, od inicjalizacji prezentacji i obiektu wykresu po konfigurację serii, osi i legend. Postępując zgodnie z tym przewodnikiem, zdobędziesz solidną wiedzę na temat integracji dynamicznego generowania wykresów w aplikacjach, upraszczając proces tworzenia prezentacji opartych na danych.
 
-## **Tworzenie wykresu**
+## **Utworzenie wykresu**
 
-Wykresy pomagają szybko wizualizować dane i uzyskać wnioski, które nie są od razu oczywiste z tabeli lub arkusza kalkulacyjnego.
+Wykresy pomagają szybko wizualizować dane i uzyskać wnioski, które nie są od razu oczywiste w tabeli lub arkuszu kalkulacyjnym.
 
 **Dlaczego tworzyć wykresy?**
 
 Korzystając z wykresów, możesz:
 
-* zagregować, skondensować lub podsumować duże ilości danych na jednym slajdzie prezentacji
-* uwidocznić wzorce i trendy w danych
-* wywnioskować kierunek i dynamikę danych w czasie lub względem określonej jednostki pomiarowej
-* zauważyć odchylenia, anomalie, błędy, nielogiczne dane itp.
-* przekazać lub przedstawić złożone dane
+* agregować, kondensować lub podsumowywać duże ilości danych na jednym slajdzie prezentacji
+* ujawniać wzorce i trendy w danych
+* wyznaczać kierunek i dynamikę danych w czasie lub w odniesieniu do określonej jednostki miary
+* wykrywać odstające wartości, aberracje, odchylenia, błędy, nielogiczne dane itp.
+* komunikować lub prezentować złożone dane
 
-W programie PowerPoint wykresy można tworzyć za pomocą funkcji *Insert*, która udostępnia szablony do projektowania wielu typów wykresów. Korzystając z Aspose.Slides, możesz tworzyć zarówno standardowe wykresy (oparte na popularnych typach) jak i wykresy niestandardowe.
+W programie PowerPoint możesz tworzyć wykresy za pomocą funkcji *Wstaw*, która zapewnia szablony do projektowania wielu rodzajów wykresów. Korzystając z Aspose.Slides, możesz tworzyć zarówno standardowe wykresy (oparte na popularnych typach) jak i wykresy niestandardowe.
 
 {{% alert color="info" title="Uwaga" %}}
 
-Aby tworzyć wykresy, użyj klasy [ChartType](https://reference.aspose.com/slides/pl/php-java/aspose.slides/charttype/). Pola w tej klasie odpowiadają różnym typom wykresów.
+Aby tworzyć wykresy, użyj klasy [ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/). Pola w tej klasie odpowiadają różnym typom wykresów.
 
 {{% /alert %}}
 
-### **Tworzenie wykresów kolumnowych skumulowanych**
+### **Utworzenie wykresów kolumnowych grupowanych**
 
-Ten fragment opisuje, jak tworzyć wykresy kolumnowe skumulowane przy użyciu Aspose.Slides. Dowiesz się, jak zainicjować prezentację, dodać wykres i dostosować jego elementy, takie jak tytuł, dane, serie, kategorie i stylizację. Postępuj zgodnie z poniższymi krokami, aby zobaczyć, jak generowany jest standardowy wykres kolumnowy skumulowany:
+W tej sekcji wyjaśniamy, jak tworzyć wykresy kolumnowe grupowane przy użyciu Aspose.Slides. Nauczysz się inicjalizować prezentację, dodać wykres i dostosować jego elementy, takie jak tytuł, dane, serie, kategorie i styl. Postępuj zgodnie z poniższymi krokami, aby zobaczyć, jak generowany jest standardowy wykres kolumnowy grupowany:
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/php-java/aspose.slides/presentation).
-1. Pobierz odwołanie do slajdu za pomocą jego indeksu.
-1. Dodaj wykres z danymi i określ typ `ChartType::ClusteredColumn`.
-1. Dodaj tytuł wykresu.
+1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) .
+1. Uzyskaj odniesienie do slajdu przy użyciu jego indeksu.
+1. Dodaj wykres z pewnymi danymi i określ typ `ChartType::ClusteredColumn` .
+1. Dodaj tytuł do wykresu.
 1. Uzyskaj dostęp do arkusza danych wykresu.
 1. Wyczyść wszystkie domyślne serie i kategorie.
 1. Dodaj nowe serie i kategorie.
-1. Dodaj nowe dane wykresu dla serii.
-1. Zastosuj kolor wypełnienia dla serii wykresu.
+1. Dodaj nowe dane do serii wykresu.
+1. Zastosuj kolor wypełnienia do serii wykresu.
 1. Dodaj etykiety do serii wykresu.
 1. Zapisz zmodyfikowaną prezentację jako plik PPTX.
 
-Ten kod C# pokazuje, jak utworzyć wykres kolumnowy skumulowany:
+Ten kod C# demonstruje, jak utworzyć wykres kolumnowy grupowany:
 
 ```php
-  # Instancjonuje klasę prezentacji reprezentującą plik PPTX
+  # Instantiates a presentation class that represents a PPTX file
   $pres = new Presentation();
   try {
-    # Uzyskuje dostęp do pierwszego slajdu
+    # Accesses the first slide
     $sld = $pres->getSlides()->get_Item(0);
-    # Dodaje wykres z domyślnymi danymi
+    # Adds a chart with its default data
     $chart = $sld->getShapes()->addChart(ChartType::ClusteredColumn, 0, 0, 500, 500);
-    # Ustawia tytuł wykresu
+    # Sets the chart Title
     $chart->getChartTitle()->addTextFrameForOverriding("Sample Title");
     $chart->getChartTitle()->getTextFrameForOverriding()->getTextFrameFormat()->setCenterText(NullableBool::True);
     $chart->getChartTitle()->setHeight(20);
     $chart->hasTitle();
-    # Ustawia pierwszą serię, aby wyświetlała wartości
+    # Sets the first series to show values
     $chart->getChartData()->getSeries()->get_Item(0)->getLabels()->getDefaultDataLabelFormat()->setShowValue(true);
-    # Ustawia indeks arkusza danych wykresu
+    # Sets the index for the chart data sheet
     $defaultWorksheetIndex = 0;
-    # Pobiera arkusz danych wykresu
+    # Gets the chart data WorkSheet
     $fact = $chart->getChartData()->getChartDataWorkbook();
-    # Usuwa domyślnie wygenerowane serie i kategorie
+    # Deletes the default generated series and categories
     $chart->getChartData()->getSeries()->clear();
     $chart->getChartData()->getCategories()->clear();
     $s = $chart->getChartData()->getSeries()->size();
     $s = $chart->getChartData()->getCategories()->size();
-    # Dodaje nowe serie
+    # Adds new series
     $chart->getChartData()->getSeries()->add($fact->getCell($defaultWorksheetIndex, 0, 1, "Series 1"), $chart->getType());
     $chart->getChartData()->getSeries()->add($fact->getCell($defaultWorksheetIndex, 0, 2, "Series 2"), $chart->getType());
-    # Dodaje nowe kategorie
+    # Adds new categories
     $chart->getChartData()->getCategories()->add($fact->getCell($defaultWorksheetIndex, 1, 0, "Caetegoty 1"));
     $chart->getChartData()->getCategories()->add($fact->getCell($defaultWorksheetIndex, 2, 0, "Caetegoty 2"));
     $chart->getChartData()->getCategories()->add($fact->getCell($defaultWorksheetIndex, 3, 0, "Caetegoty 3"));
-    # Pobiera pierwszą serię wykresu
+    # Takes the first chart series
     $series = $chart->getChartData()->getSeries()->get_Item(0);
-    # Teraz wypełnia dane serii
+    # Now populates the series data
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 1, 1, 20));
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 2, 1, 50));
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 3, 1, 30));
-    # Ustawia kolor wypełnienia dla serii
+    # Sets the fill color for series
     $series->getFormat()->getFill()->setFillType(FillType::Solid);
     $series->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-    # Pobiera drugą serię wykresu
+    # Takes the second chart series
     $series = $chart->getChartData()->getSeries()->get_Item(1);
-    # Wypełnia dane serii
+    # Populates series data
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 1, 2, 30));
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 2, 2, 10));
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 3, 2, 60));
-    # Ustawia kolor wypełnienia dla serii
+    # Sets the fill color for the series
     $series->getFormat()->getFill()->setFillType(FillType::Solid);
     $series->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->GREEN);
-    # Tworzy niestandardowe etykiety dla każdej kategorii nowej serii
-    # Ustawia pierwszą etykietę, aby wyświetlała nazwę kategorii
+    # Create custom labels for each categories for the new series
+    # Sets the first label to show Category name
     $lbl = $series->getDataPoints()->get_Item(0)->getLabel();
     $lbl->getDataLabelFormat()->setShowCategoryName(true);
     $lbl = $series->getDataPoints()->get_Item(1)->getLabel();
     $lbl->getDataLabelFormat()->setShowSeriesName(true);
-    # Wyświetla wartość dla trzeciej etykiety
+    # Shows value for the third label
     $lbl = $series->getDataPoints()->get_Item(2)->getLabel();
     $lbl->getDataLabelFormat()->setShowValue(true);
     $lbl->getDataLabelFormat()->setShowSeriesName(true);
     $lbl->getDataLabelFormat()->setSeparator("/");
-    # Zapisuje prezentację z wykresem
+    # Saves the presentation with chart
     $pres->save("output.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -140,29 +140,29 @@ Ten kod C# pokazuje, jak utworzyć wykres kolumnowy skumulowany:
   }
 ```
 
-### **Tworzenie wykresów punktowych**
+### **Utworzenie wykresów punktowych**
 
-Wykresy punktowe (znane także jako wykresy rozrzutu lub wykresy x‑y) są często używane do sprawdzania wzorców lub wykazywania korelacji między dwiema zmiennymi.
+Wykresy punktowe (znane również jako wykresy rozrzutu lub wykresy x‑y) są często używane do sprawdzania wzorców lub wykazywania korelacji między dwoma zmiennymi.
 
-Użyj wykresu punktowego, gdy:
+Używaj wykresu punktowego, gdy:
 
 * masz sparowane dane liczbowe
 * masz dwie zmienne, które dobrze ze sobą współgrają
 * chcesz określić, czy dwie zmienne są ze sobą powiązane
-* masz zmienną niezależną o wielu wartościach dla zmiennej zależnej
+* masz zmienną niezależną, która ma wiele wartości dla zmiennej zależnej
 
-1. Postępuj zgodnie z krokami w sekcji [Create Clustered Column Charts](#create-clustered-column-charts).
-2. W trzecim kroku dodaj wykres z danymi i określ typ wykresu jako jeden z poniższych:
-   1. [ChartType::ScatterWithMarkers](https://reference.aspose.com/slides/pl/php-java/aspose.slides/charttype/#ScatterWithMarkers) - _Reprezentuje wykres punktowy._
-   2. [ChartType::ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/pl/php-java/aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - _Reprezentuje wykres punktowy połączony krzywymi, z markerami danych._
-   3. [ChartType::ScatterWithSmoothLines](https://reference.aspose.com/slides/pl/php-java/aspose.slides/charttype/#ScatterWithSmoothLines) - _Reprezentuje wykres punktowy połączony krzywymi, bez markerów danych._
-   4. [ChartType::ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/pl/php-java/aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _Reprezentuje wykres punktowy połączony liniami, z markerami danych._
-   5. [ChartType::ScatterWithStraightLines](https://reference.aspose.com/slides/pl/php-java/aspose.slides/charttype/#ScatterWithStraightLines) - _Reprezentuje wykres punktowy połączony liniami, bez markerów danych._
+1. Postępuj zgodnie z krokami w sekcji [Create Clustered Column Charts](#create-clustered-column-charts) .
+2. W trzecim kroku dodaj wykres z pewnymi danymi i określ typ wykresu jako jeden z następujących:
+   1. [ChartType::ScatterWithMarkers](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#ScatterWithMarkers) - _Reprezentuje wykres punktowy z markerami._
+   2. [ChartType::ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - _Reprezentuje wykres punktowy połączony krzywymi, z markerami danych._
+   3. [ChartType::ScatterWithSmoothLines](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#ScatterWithSmoothLines) - _Reprezentuje wykres punktowy połączony krzywymi, bez markerów danych._
+   4. [ChartType::ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _Reprezentuje wykres punktowy połączony liniami, z markerami danych._
+   5. [ChartType::ScatterWithStraightLines](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#ScatterWithStraightLines) - _Reprezentuje wykres punktowy połączony liniami, bez markerów danych._
 
 Ten kod PHP pokazuje, jak utworzyć wykres punktowy z różnymi markerami dla każdej serii:
 
 ```php
-  # Tworzy instancję klasy prezentacji reprezentującej plik PPTX
+  # Tworzy instancję klasy prezentacji, która reprezentuje plik PPTX
   $pres = new Presentation();
   try {
     # Uzyskuje dostęp do pierwszego slajdu
@@ -173,7 +173,7 @@ Ten kod PHP pokazuje, jak utworzyć wykres punktowy z różnymi markerami dla ka
     $defaultWorksheetIndex = 0;
     # Pobiera arkusz danych wykresu
     $fact = $chart->getChartData()->getChartDataWorkbook();
-    # Usuwa przykładowe serie
+    # Usuwa serię demonstracyjną
     $chart->getChartData()->getSeries()->clear();
     # Dodaje nowe serie
     $chart->getChartData()->getSeries()->add($fact->getCell($defaultWorksheetIndex, 1, 1, "Series 1"), $chart->getType());
@@ -191,7 +191,7 @@ Ten kod PHP pokazuje, jak utworzyć wykres punktowy z różnymi markerami dla ka
     $series->getMarker()->setSymbol(MarkerStyleType::Star);
     # Pobiera drugą serię wykresu
     $series = $chart->getChartData()->getSeries()->get_Item(1);
-    # Dodaje nowy punkt (5:2) w tej serii
+    # Dodaje nowy punkt (5:2) tam
     $series->getDataPoints()->addDataPointForScatterSeries($fact->getCell($defaultWorksheetIndex, 2, 3, 5), $fact->getCell($defaultWorksheetIndex, 2, 4, 2));
     # Dodaje nowy punkt (3:1)
     $series->getDataPoints()->addDataPointForScatterSeries($fact->getCell($defaultWorksheetIndex, 3, 3, 3), $fact->getCell($defaultWorksheetIndex, 3, 4, 1));
@@ -210,27 +210,27 @@ Ten kod PHP pokazuje, jak utworzyć wykres punktowy z różnymi markerami dla ka
   }
 ```
 
-### **Tworzenie wykresów kołowych**
+### **Utworzenie wykresów kołowych**
 
-Wykresy kołowe najlepiej służą do przedstawiania relacji część‑całość w danych, szczególnie gdy dane zawierają kategorie z wartościami liczbowymi. Jeśli jednak Twoje dane zawierają wiele części lub etykiet, rozważ użycie wykresu słupkowego.
+Wykresy kołowe najlepiej służą do pokazania relacji części do całości w danych, szczególnie gdy dane zawierają etykiety kategoryczne z wartościami liczbowymi. Jednak jeśli Twoje dane zawierają wiele części lub etykiet, rozważ użycie wykresu słupkowego.
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/php-java/aspose.slides/presentation/) .
-2. Pobierz odwołanie do slajdu za pomocą jego indeksu.
-3. Dodaj wykres z domyślnymi danymi i określ typ [ChartType::Pie](https://reference.aspose.com/slides/pl/php-java/aspose.slides/charttype/#Pie) .
-4. Uzyskaj dostęp do skoroszytu danych wykresu [ChartDataWorkbook](https://reference.aspose.com/slides/pl/php-java/aspose.slides/chartdataworkbook/) .
+1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) .
+2. Uzyskaj odniesienie do slajdu przy użyciu jego indeksu.
+3. Dodaj wykres z domyślnymi danymi i określ typ [ChartType::Pie](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#Pie) .
+4. Uzyskaj dostęp do skoroszytu danych wykresu [ChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/) .
 5. Wyczyść domyślne serie i kategorie.
 6. Dodaj nowe serie i kategorie.
-7. Dodaj nowe dane wykresu dla serii.
-8. Dodaj nowe punkty do wykresu i zastosuj własne kolory sektorów wykresu kołowego.
+7. Dodaj nowe dane do serii wykresu.
+8. Dodaj nowe punkty do wykresu i zastosuj niestandardowe kolory sektorów wykresu kołowego.
 9. Ustaw etykiety dla serii.
-10. Włącz linie pomocnicze dla etykiet serii.
+10. Włącz linie prowadzące dla etykiet serii.
 11. Ustaw kąt obrotu sektorów wykresu kołowego.
 12. Zapisz zmodyfikowaną prezentację jako plik PPTX.
 
 Ten kod PHP pokazuje, jak utworzyć wykres kołowy:
 
 ```php
-  # Tworzy instancję klasy prezentacji reprezentującej plik PPTX
+  # Tworzy instancję klasy prezentacji, która reprezentuje plik PPTX
   $pres = new Presentation();
   try {
     # Uzyskuje dostęp do pierwszego slajdu
@@ -244,7 +244,7 @@ Ten kod PHP pokazuje, jak utworzyć wykres kołowy:
     $chart->setTitle(true);
     # Ustawia pierwszą serię, aby wyświetlała wartości
     $chart->getChartData()->getSeries()->get_Item(0)->getLabels()->getDefaultDataLabelFormat()->setShowValue(true);
-    # Ustawia indeks arkusza danych wykresu
+    # Ustawia indeks dla arkusza danych wykresu
     $defaultWorksheetIndex = 0;
     # Pobiera arkusz danych wykresu
     $fact = $chart->getChartData()->getChartDataWorkbook();
@@ -255,14 +255,14 @@ Ten kod PHP pokazuje, jak utworzyć wykres kołowy:
     $chart->getChartData()->getCategories()->add($fact->getCell(0, 1, 0, "First Qtr"));
     $chart->getChartData()->getCategories()->add($fact->getCell(0, 2, 0, "2nd Qtr"));
     $chart->getChartData()->getCategories()->add($fact->getCell(0, 3, 0, "3rd Qtr"));
-    # Dodaje nową serię
+    # Dodaje nowe serie
     $series = $chart->getChartData()->getSeries()->add($fact->getCell(0, 0, 1, "Series 1"), $chart->getType());
     # Wypełnia dane serii
     $series->getDataPoints()->addDataPointForPieSeries($fact->getCell($defaultWorksheetIndex, 1, 1, 20));
     $series->getDataPoints()->addDataPointForPieSeries($fact->getCell($defaultWorksheetIndex, 2, 1, 50));
     $series->getDataPoints()->addDataPointForPieSeries($fact->getCell($defaultWorksheetIndex, 3, 1, 30));
     # Nie działa w nowej wersji
-    # Adding new points and setting sector color
+    # Dodawanie nowych punktów i ustawianie koloru sektora
     # series.IsColorVaried = true;
     $chart->getChartData()->getSeriesGroups()->get_Item(0)->setColorVaried(true);
     $point = $series->getDataPoints()->get_Item(0);
@@ -292,7 +292,7 @@ Ten kod PHP pokazuje, jak utworzyć wykres kołowy:
     $point2->getFormat()->getLine()->setWidth(2.0);
     $point2->getFormat()->getLine()->setStyle(LineStyle->ThinThin);
     $point2->getFormat()->getLine()->setDashStyle(LineDashStyle->LargeDashDotDot);
-    # Tworzy niestandardowe etykiety dla każdej kategorii nowej serii
+    # Tworzy niestandardowe etykiety dla każdej kategorii w nowej serii
     $lbl1 = $series->getDataPoints()->get_Item(0)->getLabel();
     # lbl.ShowCategoryName = true;
     $lbl1->getDataLabelFormat()->setShowValue(true);
@@ -303,7 +303,7 @@ Ten kod PHP pokazuje, jak utworzyć wykres kołowy:
     $lbl3 = $series->getDataPoints()->get_Item(2)->getLabel();
     $lbl3->getDataLabelFormat()->setShowSeriesName(true);
     $lbl3->getDataLabelFormat()->setShowPercentage(true);
-    # Wyświetla linie prowadzące dla wykresu
+    # Wyświetla linie prowadzące wykresu
     $series->getLabels()->getDefaultDataLabelFormat()->setShowLeaderLines(true);
     # Ustawia kąt obrotu sektorów wykresu kołowego
     $chart->getChartData()->getSeriesGroups()->get_Item(0)->setFirstSliceAngle(180);
@@ -316,17 +316,17 @@ Ten kod PHP pokazuje, jak utworzyć wykres kołowy:
   }
 ```
 
-### **Tworzenie wykresów liniowych**
+### **Utworzenie wykresów liniowych**
 
-Wykresy liniowe (znane także jako wykresy liniowe) najlepiej sprawdzają się w sytuacjach, gdy chcesz pokazać zmiany wartości w czasie. Dzięki wykresowi liniowemu możesz jednocześnie porównać dużą ilość danych, śledzić zmiany i trendy w czasie, uwidocznić anomalie w seriach danych i wiele więcej.
+Wykresy liniowe (znane również jako wykresy liniowe) najlepiej sprawdzają się w sytuacjach, gdy chcesz pokazać zmiany wartości w czasie. Korzystając z wykresu liniowego, możesz jednocześnie porównać dużą ilość danych, śledzić zmiany i trendy w czasie, podkreślać anomalie w seriach danych i nie tylko.
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/php-java/aspose.slides/presentation/) .
-1. Pobierz odwołanie do slajdu za pomocą jego indeksu.
-1. Dodaj wykres z domyślnymi danymi i określ typ [ChartType::Line](https://reference.aspose.com/slides/pl/php-java/aspose.slides/charttype/#Line) .
-1. Uzyskaj dostęp do skoroszytu danych wykresu ([ChartDataWorkbook](https://reference.aspose.com/slides/pl/php-java/aspose.slides/chartdataworkbook/)) .
+1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) .
+1. Uzyskaj odniesienie do slajdu przy użyciu jego indeksu.
+1. Dodaj wykres z domyślnymi danymi i określ typ [ChartType::Line](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#Line) .
+1. Uzyskaj dostęp do skoroszytu danych wykresu ([ChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/) ) .
 1. Wyczyść domyślne serie i kategorie.
 1. Dodaj nowe serie i kategorie.
-1. Dodaj nowe dane wykresu dla serii.
+1. Dodaj nowe dane do serii wykresu.
 1. Zapisz zmodyfikowaną prezentację jako plik PPTX.
 
 Ten kod PHP pokazuje, jak utworzyć wykres liniowy:
@@ -343,7 +343,7 @@ Ten kod PHP pokazuje, jak utworzyć wykres liniowy:
   }
 ```
 
-Domyślnie punkty na wykresie liniowym są łączone prostymi liniami ciągłymi. Jeśli chcesz, aby punkty były łączone kreskami, możesz określić preferowany typ kreski w następujący sposób:
+Domyślnie punkty na wykresie liniowym są łączone prostymi ciągłymi liniami. Jeśli chcesz, aby punkty były łączone kreskami, możesz określić preferowany typ kreski w następujący sposób:
 
 ```php
   $pres = new Presentation();
@@ -361,17 +361,17 @@ Domyślnie punkty na wykresie liniowym są łączone prostymi liniami ciągłymi
   }
 ```
 
-### **Tworzenie wykresów mapy drzewa**
+### **Utworzenie wykresów mapy drzewa**
 
-Wykresy mapy drzewa najlepiej sprawdzają się w danych sprzedażowych, gdy chcesz pokazać względny rozmiar kategorii danych i szybko zwrócić uwagę na pozycje, które są dużymi wkładaczami w każdej kategorii.
+Wykresy mapy drzewa najlepiej sprawdzają się przy danych sprzedażowych, gdy chcesz pokazać względny rozmiar kategorii danych i szybko zwrócić uwagę na elementy będące dużymi wkładami w każdej kategorii.
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/php-java/aspose.slides/presentation/) .
-2. Pobierz odwołanie do slajdu za pomocą jego indeksu.
-3. Dodaj wykres z domyślnymi danymi i określ typ [ChartType::Treemap](https://reference.aspose.com/slides/pl/php-java/aspose.slides/charttype/#Treemap) .
-4. Uzyskaj dostęp do skoroszytu danych wykresu [ChartDataWorkbook](https://reference.aspose.com/slides/pl/php-java/aspose.slides/chartdataworkbook/) .
+1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) .
+2. Uzyskaj odniesienie do slajdu przy użyciu jego indeksu.
+3. Dodaj wykres z domyślnymi danymi i określ typ [ChartType::Treemap](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#Treemap) .
+4. Uzyskaj dostęp do skoroszytu danych wykresu [ChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/) .
 5. Wyczyść domyślne serie i kategorie.
 6. Dodaj nowe serie i kategorie.
-7. Dodaj nowe dane wykresu dla serii.
+7. Dodaj nowe dane do serii wykresu.
 8. Zapisz zmodyfikowaną prezentację jako plik PPTX.
 
 Ten kod PHP pokazuje, jak utworzyć wykres mapy drzewa:
@@ -419,16 +419,16 @@ Ten kod PHP pokazuje, jak utworzyć wykres mapy drzewa:
   }
 ```
 
-### **Tworzenie wykresów giełdowych**
+### **Utworzenie wykresów giełdowych**
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/php-java/aspose.slides/presentation/) .
-2. Pobierz odwołanie do slajdu za pomocą jego indeksu.
-3. Dodaj wykres z domyślnymi danymi i określ typ [ChartType::OpenHighLowClose](https://reference.aspose.com/slides/pl/php-java/aspose.slides/charttype/#OpenHighLowClose) .
-4. Uzyskaj dostęp do skoroszytu danych wykresu [ChartDataWorkbook](https://reference.aspose.com/slides/pl/php-java/aspose.slides/chartdataworkbook/) .
+1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) .
+2. Uzyskaj odniesienie do slajdu przy użyciu jego indeksu.
+3. Dodaj wykres z domyślnymi danymi i określ typ [ChartType::OpenHighLowClose](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#OpenHighLowClose) .
+4. Uzyskaj dostęp do skoroszytu danych wykresu [ChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/) .
 5. Wyczyść domyślne serie i kategorie.
 6. Dodaj nowe serie i kategorie.
-7. Dodaj nowe dane wykresu dla serii.
-8. Określ format linii wysokich‑niskich.
+7. Dodaj nowe dane do serii wykresu.
+8. Określ format linii high‑low.
 9. Zapisz zmodyfikowaną prezentację jako plik PPTX.
 
 Ten kod PHP pokazuje, jak utworzyć wykres giełdowy:
@@ -477,18 +477,18 @@ Ten kod PHP pokazuje, jak utworzyć wykres giełdowy:
   }
 ```
 
-### **Tworzenie wykresów pudełkowo‑wąsowych**
+### **Utworzenie wykresów pudełkowych i wąsów**
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/php-java/aspose.slides/presentation/) .
-2. Pobierz odwołanie do slajdu za pomocą jego indeksu.
-3. Dodaj wykres z domyślnymi danymi i określ typ [ChartType::BoxAndWhisker](https://reference.aspose.com/slides/pl/php-java/aspose.slides/charttype/#BoxAndWhisker) .
-4. Uzyskaj dostęp do skoroszytu danych wykresu [ChartDataWorkbook](https://reference.aspose.com/slides/pl/php-java/aspose.slides/chartdataworkbook/) .
+1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) .
+2. Uzyskaj odniesienie do slajdu przy użyciu jego indeksu.
+3. Dodaj wykres z domyślnymi danymi i określ typ [ChartType::BoxAndWhisker](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#BoxAndWhisker) .
+4. Uzyskaj dostęp do skoroszytu danych wykresu [ChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/) .
 5. Wyczyść domyślne serie i kategorie.
 6. Dodaj nowe serie i kategorie.
-7. Dodaj nowe dane wykresu dla serii.
+7. Dodaj nowe dane do serii wykresu.
 8. Zapisz zmodyfikowaną prezentację jako plik PPTX.
 
-Ten kod PHP pokazuje, jak utworzyć wykres pudełkowo‑wąsowy:
+Ten kod PHP pokazuje, jak utworzyć wykres pudełkowy i wąsy:
 
 ```php
   $pres = new Presentation();
@@ -524,11 +524,11 @@ Ten kod PHP pokazuje, jak utworzyć wykres pudełkowo‑wąsowy:
   }
 ```
 
-### **Tworzenie wykresów lejkowych**
+### **Utworzenie wykresów lejkowych**
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/php-java/aspose.slides/presentation/) .
-2. Pobierz odwołanie do slajdu za pomocą jego indeksu.
-3. Dodaj wykres z domyślnymi danymi i określ typ [ChartType::Funnel](https://reference.aspose.com/slides/pl/php-java/aspose.slides/charttype/#Funnel) .
+1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) .
+2. Uzyskaj odniesienie do slajdu przy użyciu jego indeksu.
+3. Dodaj wykres z domyślnymi danymi i określ typ [ChartType::Funnel](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#Funnel) .
 4. Zapisz zmodyfikowaną prezentację jako plik PPTX.
 
 Ten kod PHP pokazuje, jak utworzyć wykres lejkowy:
@@ -562,11 +562,11 @@ Ten kod PHP pokazuje, jak utworzyć wykres lejkowy:
   }
 ```
 
-### **Tworzenie wykresów promieniowych**
+### **Utworzenie wykresów promieniowych**
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/php-java/aspose.slides/presentation/) .
-2. Pobierz odwołanie do slajdu za pomocą jego indeksu.
-3. Dodaj wykres z domyślnymi danymi i określ typ [ChartType::Sunburst](https://reference.aspose.com/slides/pl/php-java/aspose.slides/charttype/#Sunburst) .
+1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) .
+2. Uzyskaj odniesienie do slajdu przy użyciu jego indeksu.
+3. Dodaj wykres z domyślnymi danymi i określ typ [ChartType::Sunburst](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#Sunburst) .
 4. Zapisz zmodyfikowaną prezentację jako plik PPTX.
 
 Ten kod PHP pokazuje, jak utworzyć wykres promieniowy:
@@ -613,12 +613,12 @@ Ten kod PHP pokazuje, jak utworzyć wykres promieniowy:
   }
 ```
 
-### **Tworzenie wykresów histogramu**
+### **Utworzenie wykresów histogramów**
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/php-java/aspose.slides/presentation/) .
-2. Pobierz odwołanie do slajdu za pomocą jego indeksu.
-3. Dodaj wykres z domyślnymi danymi i określ typ [ChartType::Histogram](https://reference.aspose.com/slides/pl/php-java/aspose.slides/charttype/#Histogram) .
-4. Uzyskaj dostęp do skoroszytu danych wykresu [ChartDataWorkbook](https://reference.aspose.com/slides/pl/php-java/aspose.slides/chartdataworkbook/) .
+1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) .
+2. Uzyskaj odniesienie do slajdu przy użyciu jego indeksu.
+3. Dodaj wykres z domyślnymi danymi i określ typ [ChartType::Histogram](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#Histogram) .
+4. Uzyskaj dostęp do skoroszytu danych wykresu [ChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/) .
 5. Wyczyść domyślne serie i kategorie.
 6. Dodaj nowe serie i kategorie.
 7. Zapisz zmodyfikowaną prezentację jako plik PPTX.
@@ -640,13 +640,14 @@ Ten kod PHP pokazuje, jak utworzyć wykres histogramu:
   $series->getDataPoints()->addDataPointForHistogramSeries($wb->getCell(0, "A5", -23));
   $series->getDataPoints()->addDataPointForHistogramSeries($wb->getCell(0, "A6", 16));
   $chart->getAxes()->getHorizontalAxis()->setAggregationType(AxisAggregationType::Automatic);
+
 ```
 
-### **Tworzenie wykresów radarowych**
+### **Utworzenie wykresów radarowych**
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/php-java/aspose.slides/presentation/) .
-2. Pobierz odwołanie do slajdu za pomocą jego indeksu.
-3. Dodaj wykres z danymi i określ preferowany typ wykresu ([ChartType::Radar](https://reference.aspose.com/slides/pl/php-java/aspose.slides/charttype/#Radar) w tym przypadku).
+1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) .
+2. Uzyskaj odniesienie do slajdu przy użyciu jego indeksu.
+3. Dodaj wykres z pewnymi danymi i określ preferowany typ wykresu ([ChartType::Radar](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#Radar) w tym przypadku).
 4. Zapisz zmodyfikowaną prezentację jako plik PPTX.
 
 Ten kod PHP pokazuje, jak utworzyć wykres radarowy:
@@ -663,18 +664,18 @@ Ten kod PHP pokazuje, jak utworzyć wykres radarowy:
   }
 ```
 
-### **Tworzenie wykresów wielokategorii**
+### **Utworzenie wykresów wielokategorii**
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/php-java/aspose.slides/presentation/) .
-2. Pobierz odwołanie do slajdu za pomocą jego indeksu.
-3. Dodaj wykres z domyślnymi danymi i określ typ [ChartType::ClusteredColumn](https://reference.aspose.com/slides/pl/php-java/aspose.slides/charttype/#ClusteredColumn) .
-4. Uzyskaj dostęp do skoroszytu danych wykresu [ChartDataWorkbook](https://reference.aspose.com/slides/pl/php-java/aspose.slides/chartdataworkbook/) .
+1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) .
+2. Uzyskaj odniesienie do slajdu przy użyciu jego indeksu.
+3. Dodaj wykres z domyślnymi danymi i określ typ [ChartType::ClusteredColumn](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#ClusteredColumn) .
+4. Uzyskaj dostęp do skoroszytu danych wykresu [ChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/) .
 5. Wyczyść domyślne serie i kategorie.
 6. Dodaj nowe serie i kategorie.
-7. Dodaj nowe dane wykresu dla serii.
+7. Dodaj nowe dane do serii wykresu.
 8. Zapisz zmodyfikowaną prezentację jako plik PPTX.
 
-Ten kod PHP pokazuje, jak utworzyć wykres wielokategorowy:
+Ten kod PHP pokazuje, jak utworzyć wykres wielokategorii:
 
 ```php
   $pres = new Presentation();
@@ -716,7 +717,7 @@ Ten kod PHP pokazuje, jak utworzyć wykres wielokategorowy:
   }
 ```
 
-### **Tworzenie wykresów mapowych**
+### **Utworzenie wykresów mapowych**
 
 Wykresy mapowe wizualizują dane geograficzne i pomagają porównywać wartości w różnych regionach.
 
@@ -734,13 +735,13 @@ Ten kod PHP pokazuje, jak utworzyć wykres mapowy:
   }
 ```
 
-### **Tworzenie wykresów kombinowanych**
+### **Utworzenie wykresów kombinowanych**
 
-Wykres kombinowany (lub wykres combo) łączy dwa lub więcej typów wykresów w jednym wykresie. Umożliwia podkreślenie, porównanie lub zbadanie różnic między dwoma lub większą liczbą zestawów danych, pomagając zidentyfikować ich wzajemne zależności.
+Wykres kombinowany (lub wykres combo) łączy dwa lub więcej typów wykresów w jednym diagramie. Ten wykres pozwala wyróżniać, porównywać lub analizować różnice między dwoma lub więcej zestawami danych, pomagając zidentyfikować zależności między nimi.
 
 ![The combination chart](combination_chart.png)
 
-Poniższy kod PHP pokazuje, jak stworzyć wykres kombinowany przedstawiony powyżej w prezentacji PowerPoint:
+Poniższy kod PHP pokazuje, jak utworzyć powyższy wykres kombinowany w prezentacji PowerPoint:
 
 ```php
 function createComboChart() {
@@ -858,7 +859,7 @@ function setPrimaryAxesFormat($chart) {
 }
 
 function setSecondaryAxesFormat($chart) {
-    // Ustaw drugorzędną oś poziomą.
+    // Ustaw drugą oś poziomą.
     $secondaryHorizontalAxis = $chart->getAxes()->getSecondaryHorizontalAxis();
     $secondaryHorizontalAxis->setPosition(AxisPositionType::Bottom);
     $secondaryHorizontalAxis->setCrossType(CrossesType::Maximum);
@@ -866,7 +867,7 @@ function setSecondaryAxesFormat($chart) {
     $secondaryHorizontalAxis->getMajorGridLinesFormat()->getLine()->getFillFormat()->setFillType(FillType::NoFill);
     $secondaryHorizontalAxis->getMinorGridLinesFormat()->getLine()->getFillFormat()->setFillType(FillType::NoFill);
 
-    // Ustaw drugorzędną oś pionową.
+    // Ustaw drugą oś pionową.
     $secondaryVerticalAxis = $chart->getAxes()->getSecondaryVerticalAxis();
     $secondaryVerticalAxis->setPosition(AxisPositionType::Right);
     $secondaryVerticalAxis->getTextFormat()->getPortionFormat()->setFontHeight(12);
@@ -889,8 +890,8 @@ function setAxisTitle($axis, $axisTitle) {
 
 ## **Aktualizacja wykresów**
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/php-java/aspose.slides/presentation/) reprezentującej prezentację zawierającą wykres, który chcesz zaktualizować.
-2. Pobierz odwołanie do slajdu za pomocą jego indeksu.
+1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) reprezentującej prezentację zawierającą wykres, który chcesz zaktualizować.
+2. Uzyskaj odniesienie do slajdu przy użyciu jego indeksu.
 3. Przejdź przez wszystkie kształty, aby znaleźć żądany wykres.
 4. Uzyskaj dostęp do arkusza danych wykresu.
 5. Zmodyfikuj serie danych wykresu, zmieniając wartości serii.
@@ -915,7 +916,7 @@ Ten kod PHP pokazuje, jak zaktualizować wykres:
     $fact->getCell($defaultWorksheetIndex, 2, 0, "Modified Category 2");
     # Pobierz pierwszą serię wykresu
     $series = $chart->getChartData()->getSeries()->get_Item(0);
-    # Teraz aktualizowanie danych serii
+    # Teraz aktualizacja danych serii
     $fact->getCell($defaultWorksheetIndex, 0, 1, "New_Series1");// Modyfikowanie nazwy serii
 
     $series->getDataPoints()->get_Item(0)->getValue()->setData(90);
@@ -923,13 +924,13 @@ Ten kod PHP pokazuje, jak zaktualizować wykres:
     $series->getDataPoints()->get_Item(2)->getValue()->setData(44);
     # Pobierz drugą serię wykresu
     $series = $chart->getChartData()->getSeries()->get_Item(1);
-    # Teraz aktualizowanie danych serii
+    # Teraz aktualizacja danych serii
     $fact->getCell($defaultWorksheetIndex, 0, 2, "New_Series2");// Modyfikowanie nazwy serii
 
     $series->getDataPoints()->get_Item(0)->getValue()->setData(23);
     $series->getDataPoints()->get_Item(1)->getValue()->setData(67);
     $series->getDataPoints()->get_Item(2)->getValue()->setData(99);
-    # Teraz dodawanie nowej serii
+    # Teraz, dodawanie nowej serii
     $chart->getChartData()->getSeries()->add($fact->getCell($defaultWorksheetIndex, 0, 3, "Series 3"), $chart->getType());
     # Pobierz trzecią serię wykresu
     $series = $chart->getChartData()->getSeries()->get_Item(2);
@@ -947,12 +948,14 @@ Ten kod PHP pokazuje, jak zaktualizować wykres:
   }
 ```
 
-## **Ustawianie zakresu danych dla wykresu**
+## **Ustawienie zakresu danych dla wykresu**
+
+Aby sprawdzić zakres już używany przez istniejący wykres, zobacz [Retrieve a Chart's Data Range](/slides/pl/php-java/chart-workbook/#retrieve-a-charts-data-range) .
 
 Aby ustawić zakres danych dla wykresu, wykonaj następujące czynności:
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/php-java/aspose.slides/presentation/) reprezentującej prezentację zawierającą wykres.
-2. Pobierz odwołanie do slajdu za pomocą jego indeksu.
+1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) reprezentującej prezentację zawierającą wykres.
+2. Uzyskaj odniesienie do slajdu przy użyciu jego indeksu.
 3. Przejdź przez wszystkie kształty, aby znaleźć żądany wykres.
 4. Uzyskaj dostęp do danych wykresu i ustaw zakres.
 5. Zapisz zmodyfikowaną prezentację jako plik PPTX.
@@ -967,15 +970,15 @@ Ten kod PHP pokazuje, jak ustawić zakres danych dla wykresu:
     $chart->getChartData()->setRange("Sheet1!A1:B4");
     $pres->save("SetDataRange_out.pptx", SaveFormat::Pptx);
   } finally {
-    if (!java_is_null($pres)) {
+    if (!java_is??? null($pres)) {
       $pres->dispose();
     }
   }
 ```
 
-## **Używanie domyślnych markerów w wykresach**
+## **Użycie domyślnych markerów w wykresach**
 
-Kiedy używasz domyślnych markerów w wykresach, każda seria wykresu automatycznie otrzymuje inny symbol markera.
+Gdy używasz domyślnych markerów w wykresach, każda seria wykresu automatycznie otrzymuje inny symbol markera.
 
 Ten kod PHP pokazuje, jak automatycznie ustawić marker serii wykresu:
 
@@ -1019,16 +1022,16 @@ Ten kod PHP pokazuje, jak automatycznie ustawić marker serii wykresu:
 
 **Jakie typy wykresów są obsługiwane przez Aspose.Slides?**
 
-Aspose.Slides obsługuje szeroką gamę [typów wykresów](https://reference.aspose.com/slides/pl/php-java/aspose.slides/charttype/), w tym słupkowe, liniowe, kołowe, obszarowe, punktowe, histogramy, radarowe i wiele innych. Ta elastyczność pozwala wybrać najbardziej odpowiedni typ wykresu do potrzeb wizualizacji danych.
+Aspose.Slides obsługuje szeroką gamę [chart types](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/), w tym słupkowe, liniowe, kołowe, powierzchniowe, punktowe, histogramy, radarowe i wiele innych. Ta elastyczność pozwala wybrać najbardziej odpowiedni typ wykresu do potrzeb wizualizacji danych.
 
 **Jak dodać nowy wykres do slajdu?**
 
-Aby dodać wykres, najpierw utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/php-java/aspose.slides/presentation/), pobierz żądany slajd za pomocą jego indeksu, a następnie wywołaj metodę dodawania wykresu, określając typ wykresu i początkowe dane. Proces ten integruje wykres bezpośrednio w Twojej prezentacji.
+Aby dodać wykres, najpierw tworzysz instancję klasy [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) , pobierasz żądany slajd przy użyciu jego indeksu, a następnie wywołujesz metodę dodającą wykres, określając typ wykresu i początkowe dane. Proces ten integruje wykres bezpośrednio z prezentacją.
 
 **Jak mogę zaktualizować dane wyświetlane w wykresie?**
 
-Możesz zaktualizować dane wykresu, uzyskując dostęp do jego skoroszytu danych ([ChartDataWorkbook](https://reference.aspose.com/slides/pl/php-java/aspose.slides/chartdataworkbook/)), wyczyszczając domyślne serie i kategorie, a następnie dodając własne dane. Dzięki temu wykres odzwierciedli najnowsze informacje.
+Możesz zaktualizować dane wykresu, uzyskując dostęp do jego skoroszytu danych ([ChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/)), wyczyszczając domyślne serie i kategorie, a następnie dodając własne dane. Umożliwia to odświeżenie wykresu, aby odzwierciedlał najnowsze informacje.
 
 **Czy można dostosować wygląd wykresu?**
 
-Tak, Aspose.Slides oferuje rozbudowane opcje dostosowywania. Możesz modyfikować kolory, czcionki, etykiety, legendy oraz inne [elementy formatowania](/slides/pl/php-java/chart-entities/), aby dopasować wygląd wykresu do konkretnych wymagań projektowych.
+Tak, Aspose.Slides oferuje rozbudowane opcje dostosowywania. Możesz modyfikować kolory, czcionki, etykiety, legendy oraz inne [formatting elements](/slides/pl/php-java/chart-entities/) aby dopasować wygląd wykresu do konkretnych wymagań projektowych.

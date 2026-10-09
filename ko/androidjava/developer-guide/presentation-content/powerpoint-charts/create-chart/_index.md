@@ -1,12 +1,12 @@
 ---
-title: Android에서 PowerPoint 프레젠테이션 차트 만들기 또는 업데이트
-linktitle: 차트 만들기 또는 업데이트
+title: Android에서 PowerPoint 프레젠테이션 차트 생성 또는 업데이트
+linktitle: 차트 생성 또는 업데이트
 type: docs
 weight: 10
 url: /ko/androidjava/create-chart/
 keywords:
 - 차트 추가
-- 차트 만들기
+- 차트 생성
 - 차트 편집
 - 차트 변경
 - 차트 업데이트
@@ -20,57 +20,55 @@ keywords:
 - 선버스트 차트
 - 히스토그램 차트
 - 레이더 차트
-- 다중 범주 차트
+- 다중 카테고리 차트
 - PowerPoint
 - 프레젠테이션
 - Android
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Android를 사용하여 PowerPoint 프레젠테이션에서 차트를 만들고 사용자 지정합니다. 실용적인 Java 코드 예제로 차트를 추가, 서식 지정 및 편집합니다."
+description: "Android용 Aspose.Slides를 사용하여 PowerPoint 프레젠테이션에서 차트를 만들고 사용자 지정합니다. 실용적인 Java 코드 예제로 차트를 추가하고 서식 지정하며 편집합니다."
 ---
 ## **개요**
 
-이 문서는 Aspose.Slides를 사용하여 차트를 만들고 사용자 지정하는 방법에 대한 종합적인 가이드를 제공합니다. 슬라이드에 차트를 프로그래밍으로 추가하고, 데이터를 채우며, 특정 디자인 요구 사항에 맞게 다양한 서식 옵션을 적용하는 방법을 배웁니다. 문서 전반에 걸쳐 자세한 코드 예제가 각 단계를 설명합니다(프레젠테이션 및 차트 객체 초기화, 시리즈, 축, 레전드 구성 등). 이 가이드를 따라 하면 동적 차트 생성을 애플리케이션에 통합하는 방법을 확실히 이해하게 되어 데이터 기반 프레젠테이션을 효율적으로 만들 수 있습니다.
+이 문서는 Aspose.Slides를 사용하여 차트를 만들고 사용자 지정하는 방법에 대한 포괄적인 가이드를 제공합니다. 슬라이드에 차트를 프로그래밍 방식으로 추가하고, 데이터를 채우며, 특정 디자인 요구 사항에 맞게 다양한 서식 옵션을 적용하는 방법을 배웁니다. 문서 전체에 걸쳐 프레젠테이션 및 차트 개체 초기화부터 시리즈, 축, 범례 구성까지 각 단계를 설명하는 자세한 코드 예제가 포함되어 있습니다. 이 가이드를 따르면 동적인 차트 생성을 애플리케이션에 통합하는 방법을 확실히 이해하게 되어 데이터 기반 프레젠테이션을 보다 효율적으로 만들 수 있습니다.
 
 ## **차트 만들기**
 
-차트는 데이터를 빠르게 시각화하고 표나 스프레드시트에서 바로 떠오르지 않을 수 있는 통찰력을 얻는 데 도움이 됩니다.
+차트는 데이터를 빠르게 시각화하고 표나 스프레드시트에서 즉시 드러나지 않을 수 있는 인사이트를 얻는 데 도움을 줍니다.
 
 **차트를 만들어야 하는 이유**
 
-차트를 사용하면 다음을 수행할 수 있습니다.
+차트를 사용하면 다음을 할 수 있습니다.
 
-* 프레젠테이션의 단일 슬라이드에 대량의 데이터를 집계·축소·요약
+* 단일 슬라이드에 대량의 데이터를 집계·축소·요약
 * 데이터의 패턴과 추세 노출
-* 시간 경과 또는 특정 측정 단위에 따른 데이터의 방향과 모멘텀 추정
-* 이상값·편차·오류·비논리적 데이터 등 식별
-* 복잡한 데이터를 효과적으로 전달·프레젠테이션
+* 시간 경과 또는 특정 측정 단위에 대한 데이터 방향과 모멘텀 추론
+* 이상값·오류·비논리적 데이터 등 식별
+* 복잡한 데이터 전달·프레젠테이션
 
-PowerPoint에서는 *Insert* 기능을 통해 다양한 차트 템플릿을 이용해 차트를 만들 수 있습니다. Aspose.Slides를 사용하면 일반 차트(일반적인 차트 유형 기반)와 사용자 정의 차트를 모두 만들 수 있습니다.
+PowerPoint에서는 *Insert* 기능을 통해 다양한 차트 템플릿을 사용해 차트를 만들 수 있습니다. Aspose.Slides를 사용하면 일반 차트(대중적인 차트 유형 기반)와 사용자 정의 차트를 모두 만들 수 있습니다.
 
-{{% alert color="info" title="참고" %}}
-
-차트를 만들려면 [ChartType](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/charttype/) 클래스를 사용합니다. 이 클래스의 필드는 다양한 차트 유형에 대응합니다.
-
+{{% alert color="info" title="Note" %}}
+차트를 만들려면 [ChartType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/) 클래스를 사용합니다. 이 클래스의 필드는 다양한 차트 유형에 해당합니다.
 {{% /alert %}}
 
 ### **군집 세로 막대 차트 만들기**
 
-이 섹션에서는 Aspose.Slides를 사용해 군집 세로 막대 차트를 만드는 방법을 설명합니다. 프레젠테이션을 초기화하고, 차트를 추가한 뒤, 제목, 데이터, 시리즈, 범주, 스타일 등을 사용자 지정하는 방법을 배웁니다. 아래 단계를 따라 표준 군집 세로 막대 차트가 생성되는 과정을 확인하십시오.
+이 섹션에서는 Aspose.Slides를 사용해 군집 세로 막대 차트를 만드는 방법을 설명합니다. 프레젠테이션을 초기화하고 차트를 추가한 뒤 제목, 데이터, 시리즈, 카테고리 및 스타일을 사용자 지정하는 방법을 배웁니다. 아래 단계를 따라 표준 군집 세로 막대 차트가 생성되는 과정을 확인하세요.
 
-1. [Presentation](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/presentation) 클래스의 인스턴스를 생성합니다.
+1. [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation) 클래스의 인스턴스를 생성합니다.
 1. 인덱스를 사용해 슬라이드에 대한 참조를 가져옵니다.
-1. 데이터를 포함한 차트를 추가하고 `ChartType.ClusteredColumn` 유형을 지정합니다.
+1. `ChartType.ClusteredColumn` 유형을 지정하고 일부 데이터를 포함한 차트를 추가합니다.
 1. 차트에 제목을 추가합니다.
 1. 차트의 데이터 워크시트에 접근합니다.
-1. 기본 시리즈와 범주를 모두 삭제합니다.
-1. 새 시리즈와 범주를 추가합니다.
-1. 차트 시리즈에 새 차트 데이터를 추가합니다.
+1. 모든 기본 시리즈와 카테고리를 삭제합니다.
+1. 새 시리즈와 카테고리를 추가합니다.
+1. 차트 시리즈에 대한 새 차트 데이터를 추가합니다.
 1. 차트 시리즈에 채우기 색을 적용합니다.
 1. 차트 시리즈에 레이블을 추가합니다.
 1. 수정된 프레젠테이션을 PPTX 파일로 저장합니다.
 
-다음 C# 코드는 군집 세로 막대 차트를 만드는 예제입니다:
+다음 C# 코드는 군집 세로 막대 차트를 만드는 방법을 보여줍니다:
 
 ```java
 import com.aspose.slides.*;
@@ -82,7 +80,7 @@ try {
     // 첫 번째 슬라이드에 접근합니다
     ISlide sld = pres.getSlides().get_Item(0);
     
-    // 기본 데이터와 함께 차트를 추가합니다
+    // 기본 데이터가 포함된 차트를 추가합니다
     IChart chart = sld.getShapes().addChart(ChartType.ClusteredColumn, 0, 0, 500, 500);
     
     // 차트 제목을 설정합니다
@@ -97,7 +95,7 @@ try {
     // 차트 데이터 워크시트를 가져옵니다
     IChartDataWorkbook fact = chart.getChartData().getChartDataWorkbook();
     
-    // 기본으로 생성된 시리즈와 범주를 삭제합니다
+    // 기본으로 생성된 시리즈와 카테고리를 삭제합니다
     chart.getChartData().getSeries().clear();
     chart.getChartData().getCategories().clear();
     int s = chart.getChartData().getSeries().size();
@@ -107,7 +105,7 @@ try {
     chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 1, "Series 1"),chart.getType());
     chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 2, "Series 2"),chart.getType());
     
-    // 새 범주를 추가합니다
+    // 새 카테고리를 추가합니다
     chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 1, 0, "Caetegoty 1"));
     chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 2, 0, "Caetegoty 2"));
     chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 3, 0, "Caetegoty 3"));
@@ -136,8 +134,8 @@ try {
     series.getFormat().getFill().setFillType(FillType.Solid);
     series.getFormat().getFill().getSolidFillColor().setColor(Color.GREEN);
     
-    //새 시리즈의 각 범주에 대한 사용자 정의 레이블을 생성합니다
-    // 첫 번째 레이블에 범주 이름을 표시하도록 설정합니다
+    //Create 새 시리즈의 각 카테고리에 대한 사용자 정의 레이블을 생성합니다
+    // 첫 번째 레이블에 카테고리 이름을 표시하도록 설정합니다
     IDataLabel lbl = series.getDataPoints().get_Item(0).getLabel();
     lbl.getDataLabelFormat().setShowCategoryName(true);
     
@@ -150,7 +148,7 @@ try {
     lbl.getDataLabelFormat().setShowSeriesName(true);
     lbl.getDataLabelFormat().setSeparator("/");
     
-    // 차트가 포함된 프레젠테이션을 저장합니다
+    // 차트를 포함한 프레젠테이션을 저장합니다
     pres.save("output.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
@@ -158,22 +156,22 @@ try {
 ```
 
 ### **산점도 차트 만들기**
-산점도 차트(또는 x‑y 그래프)는 두 변수 간의 패턴이나 상관관계를 확인할 때 자주 사용됩니다.
+산점도 차트(또는 스캐터 플롯·x‑y 그래프)는 두 변수 간의 패턴을 확인하거나 상관관계를 보여줄 때 자주 사용됩니다.
 
-산점도 차트를 사용해야 할 상황:
+다음 상황에서 산점도 차트를 사용하십시오.
 
-* 쌍을 이루는 숫자 데이터가 있는 경우
-* 두 변수가 서로 잘 짝을 이루는 경우
+* 쌍으로 된 숫자 데이터가 있는 경우
+* 두 변수가 서로 잘 맞는 경우
 * 두 변수 간의 연관성을 판단하고 싶은 경우
-* 종속 변수에 대해 여러 값을 갖는 독립 변수가 있는 경우
+* 종속 변수가 여러 값을 갖는 독립 변수가 있는 경우
 
-1. [군집 세로 막대 차트 만들기](#create-clustered-column-charts) 섹션의 단계를 따릅니다.
-2. 세 번째 단계에서 차트를 추가하면서 차트 유형을 다음 중 하나로 지정합니다.
-   1. [ChartType.ScatterWithMarkers](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/charttype/#ScatterWithMarkers) - _산점도 차트를 나타냅니다._
-   2. [ChartType.ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - _곡선으로 연결되고 데이터 마커가 포함된 산점도 차트를 나타냅니다._
-   3. [ChartType.ScatterWithSmoothLines](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/charttype/#ScatterWithSmoothLines) - _곡선으로 연결되지만 데이터 마커가 없는 산점도 차트를 나타냅니다._
-   4. [ChartType.ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _직선으로 연결되고 데이터 마커가 포함된 산점도 차트를 나타냅니다._
-   5. [ChartType.ScatterWithStraightLines](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/charttype/#ScatterWithStraightLines) - _직선으로 연결되지만 데이터 마커가 없는 산점도 차트를 나타냅니다._
+1. [Create Clustered Column Charts](#create-clustered-column-charts) 섹션의 단계를 따릅니다.
+2. 세 번째 단계에서 차트를 추가하고 차트 유형을 다음 중 하나로 지정합니다.
+   1. [ChartType.ScatterWithMarkers](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/#ScatterWithMarkers) - _산점도 차트를 나타냅니다._
+   2. [ChartType.ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - _곡선으로 연결된 산점도 차트이며 데이터 마커가 있습니다._
+   3. [ChartType.ScatterWithSmoothLines](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/#ScatterWithSmoothLines) - _곡선으로 연결된 산점도 차트이며 데이터 마커가 없습니다._
+   4. [ChartType.ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _직선으로 연결된 산점도 차트이며 데이터 마커가 있습니다._
+   5. [ChartType.ScatterWithStraightLines](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/#ScatterWithStraightLines) - _직선으로 연결된 산점도 차트이며 데이터 마커가 없습니다._
 
 다음 Java 코드는 각 시리즈마다 다른 마커를 사용해 산점도 차트를 만드는 방법을 보여줍니다:
 
@@ -205,7 +203,7 @@ try {
     // 첫 번째 차트 시리즈를 가져옵니다
     IChartSeries series = chart.getChartData().getSeries().get_Item(0);
     
-    // 시리즈에 새로운 포인트 (1:3)를 추가합니다
+    // 시리즈에 새 포인트 (1:3)를 추가합니다
     series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 1), fact.getCell(defaultWorksheetIndex, 2, 2, 3));
     
     // 새 포인트 (2:10)를 추가합니다
@@ -221,7 +219,7 @@ try {
     // 두 번째 차트 시리즈를 가져옵니다
     series = chart.getChartData().getSeries().get_Item(1);
     
-    // 그곳에 새로운 포인트 (5:2)를 추가합니다
+    // 해당 위치에 새 포인트 (5:2)를 추가합니다
     series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 2, 3, 5), fact.getCell(defaultWorksheetIndex, 2, 4, 2));
     
     // 새 포인트 (3:1)를 추가합니다
@@ -245,22 +243,22 @@ try {
 
 ### **원형 차트 만들기**
 
-원형 차트는 데이터의 전체 대비 일부를 보여줄 때 가장 적합합니다. 특히 범주형 레이블에 숫자 값이 매핑된 경우에 유용합니다. 다만 레이블이 많거나 파트가 많을 경우에는 막대 차트를 고려하는 것이 좋습니다.
+원형 차트는 데이터의 전체 대비 부분 관계를 보여줄 때 가장 적합합니다. 특히 범주형 레이블에 숫자 값이 있는 경우에 유용합니다. 데이터에 많은 파트나 레이블이 포함된 경우에는 막대 차트를 고려하는 것이 좋습니다.
 
-1. [Presentation](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/presentation/) 클래스의 인스턴스를 생성합니다.
+1. [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) 클래스의 인스턴스를 생성합니다.
 2. 인덱스를 사용해 슬라이드에 대한 참조를 가져옵니다.
-3. 기본 데이터를 사용해 차트를 추가하고 [ChartType.Pie](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/charttype/#Pie) 유형을 지정합니다.
-4. 차트 데이터 워크북인 [IChartDataWorkbook](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/ichartdataworkbook/)에 접근합니다.
-5. 기본 시리즈와 범주를 삭제합니다.
-6. 새 시리즈와 범주를 추가합니다.
-7. 차트 시리즈에 새 차트 데이터를 추가합니다.
-8. 차트의 각 섹터에 사용자 정의 색을 적용합니다.
+3. 기본 데이터를 사용해 차트를 추가하고 [ChartType.Pie](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/#Pie) 유형을 지정합니다.
+4. 차트 데이터 워크북 [IChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/)에 접근합니다.
+5. 기본 시리즈와 카테고리를 삭제합니다.
+6. 새 시리즈와 카테고리를 추가합니다.
+7. 차트 시리즈에 대한 새 차트 데이터를 추가합니다.
+8. 차트에 새로운 포인트를 추가하고 원형 차트 섹터에 사용자 지정 색상을 적용합니다.
 9. 시리즈에 레이블을 설정합니다.
 10. 시리즈 레이블에 리더 라인을 활성화합니다.
 11. 원형 차트 섹터의 회전 각도를 설정합니다.
 12. 수정된 프레젠테이션을 PPTX 파일로 저장합니다.
 
-다음 Java 코드는 원형 차트를 만드는 예제입니다:
+다음 Java 코드는 원형 차트를 만드는 방법을 보여줍니다:
 
 ```java
 import com.aspose.slides.*;
@@ -272,7 +270,7 @@ try {
     // 첫 번째 슬라이드에 접근합니다
     ISlide slides = pres.getSlides().get_Item(0);
     
-    // 기본 데이터와 함께 차트를 추가합니다
+    // 기본 데이터가 포함된 차트를 추가합니다
     IChart chart = slides.getShapes().addChart(ChartType.Pie, 100, 100, 400, 400);
     
     // 차트 제목을 설정합니다
@@ -287,11 +285,11 @@ try {
     // 차트 데이터 워크시트를 가져옵니다
     IChartDataWorkbook fact = chart.getChartData().getChartDataWorkbook();
     
-    // 기본으로 생성된 시리즈와 범주를 삭제합니다
+    // 기본 생성된 시리즈와 카테고리를 삭제합니다
     chart.getChartData().getSeries().clear();
     chart.getChartData().getCategories().clear();
     
-    // 새 범주를 추가합니다
+    // 새 카테고리를 추가합니다
     chart.getChartData().getCategories().add(fact.getCell(0, 1, 0, "First Qtr"));
     chart.getChartData().getCategories().add(fact.getCell(0, 2, 0, "2nd Qtr"));
     chart.getChartData().getCategories().add(fact.getCell(0, 3, 0, "3rd Qtr"));
@@ -342,7 +340,7 @@ try {
     point2.getFormat().getLine().setStyle(LineStyle.ThinThin);
     point2.getFormat().getLine().setDashStyle(LineDashStyle.LargeDashDotDot);
     
-    // 새 시리즈의 각 범주에 대한 사용자 정의 레이블을 생성합니다
+    // 새 시리즈의 각 카테고리에 대한 사용자 정의 레이블을 생성합니다
     IDataLabel lbl1 = series.getDataPoints().get_Item(0).getLabel();
     
     // lbl.ShowCategoryName = true;
@@ -357,13 +355,13 @@ try {
     lbl3.getDataLabelFormat().setShowSeriesName(true);
     lbl3.getDataLabelFormat().setShowPercentage(true);
     
-    // 차트에 리더 라인을 표시합니다
+    // 차트에 대한 리더 라인을 표시합니다
     series.getLabels().getDefaultDataLabelFormat().setShowLeaderLines(true);
     
-    // 파이 차트 섹터의 회전 각도를 설정합니다
+    // 원형 차트 섹터의 회전 각도를 설정합니다
     chart.getChartData().getSeriesGroups().get_Item(0).setFirstSliceAngle(180);
     
-    // 차트를 포함한 프레젠테이션을 저장합니다
+    // 차트가 포함된 프레젠테이션을 저장합니다
     pres.save("PieChart_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
@@ -372,14 +370,14 @@ try {
 
 ### **선 차트 만들기**
 
-선 차트(또는 선 그래프)는 시간에 따른 값 변화를 보여줄 때 가장 적합합니다. 선 차트를 사용하면 방대한 데이터를 한 번에 비교하고, 시간에 따른 변동·추세를 추적하며, 데이터 시리즈의 이상값을 강조하는 등 다양한 작업이 가능합니다.
+선 차트(또는 라인 그래프)는 시간 경과에 따른 값 변화를 보여줄 때 가장 적합합니다. 선 차트를 사용하면 대량의 데이터를 한 번에 비교하고, 추세를 추적하며, 데이터 시리즈의 이상 현상을 강조할 수 있습니다.
 
-1. [Presentation](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/presentation/) 클래스의 인스턴스를 생성합니다.
+1. [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) 클래스의 인스턴스를 생성합니다.
 1. 인덱스를 사용해 슬라이드에 대한 참조를 가져옵니다.
-1. 기본 데이터를 사용해 차트를 추가하고 [ChartType.Line](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/charttype/#Line) 유형을 지정합니다.
+1. 기본 데이터를 사용해 차트를 추가하고 [ChartType.Line](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/#Line) 유형을 지정합니다.
 1. 수정된 프레젠테이션을 PPTX 파일로 저장합니다.
 
-다음 Java 코드는 선 차트를 만드는 예제입니다:
+다음 Java 코드는 선 차트를 만드는 방법을 보여줍니다:
 
 ```java
 import com.aspose.slides.*;
@@ -394,7 +392,7 @@ try {
 }
 ```
 
-기본적으로 선 차트의 포인트는 직선으로 연결됩니다. 점을 점선으로 연결하고 싶다면 아래와 같이 원하는 대시 유형을 지정하면 됩니다:
+기본적으로 선 차트의 포인트는 직선으로 연결됩니다. 포인트를 점선으로 연결하려면 다음과 같이 원하는 대시 유형을 지정합니다:
 
 ```java
 import com.aspose.slides.*;
@@ -414,18 +412,18 @@ try {
 
 ### **트리맵 차트 만들기**
 
-트리맵 차트는 각 카테고리 내에서 큰 기여자를 빠르게 강조하고 싶을 때, 특히 매출 데이터의 상대적인 크기를 보여줄 때 유용합니다.
+트리맵 차트는 각 카테고리 내에서 큰 기여자를 빠르게 강조하면서 데이터 카테고리의 상대적 크기를 보여줄 때 적합합니다.
 
-1. [Presentation](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/presentation/) 클래스의 인스턴스를 생성합니다.
+1. [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) 클래스의 인스턴스를 생성합니다.
 2. 인덱스를 사용해 슬라이드에 대한 참조를 가져옵니다.
-3. 기본 데이터를 사용해 차트를 추가하고 [ChartType.Treemap](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/charttype/#Treemap) 유형을 지정합니다.
-4. 차트 데이터 워크북인 [IChartDataWorkbook](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/ichartdataworkbook/)에 접근합니다.
-5. 기본 시리즈와 범주를 삭제합니다.
-6. 새 시리즈와 범주를 추가합니다.
-7. 차트 시리즈에 새 차트 데이터를 추가합니다.
+3. 기본 데이터를 사용해 차트를 추가하고 [ChartType.Treemap](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/#Treemap) 유형을 지정합니다.
+4. 차트 데이터 워크북 [IChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/)에 접근합니다.
+5. 기본 시리즈와 카테고리를 삭제합니다.
+6. 새 시리즈와 카테고리를 추가합니다.
+7. 차트 시리즈에 대한 새 차트 데이터를 추가합니다.
 8. 수정된 프레젠테이션을 PPTX 파일로 저장합니다.
 
-다음 Java 코드는 트리맵 차트를 만드는 예제입니다:
+다음 Java 코드는 트리맵 차트를 만드는 방법을 보여줍니다:
 
 ```java
 import com.aspose.slides.*;
@@ -439,7 +437,7 @@ try {
     IChartDataWorkbook wb = chart.getChartData().getChartDataWorkbook();
     wb.clear(0);
 
-    //브랜치 1
+    //분기 1
     IChartCategory leaf = chart.getChartData().getCategories().add(wb.getCell(0, "C1", "Leaf1"));
     leaf.getGroupingLevels().setGroupingItem(1, "Stem1");
     leaf.getGroupingLevels().setGroupingItem(2, "Branch1");
@@ -451,7 +449,7 @@ try {
 
     chart.getChartData().getCategories().add(wb.getCell(0, "C4", "Leaf4"));
 
-    //브랜치 2
+    //분기 2
     leaf = chart.getChartData().getCategories().add(wb.getCell(0, "C5", "Leaf5"));
     leaf.getGroupingLevels().setGroupingItem(1, "Stem3");
     leaf.getGroupingLevels().setGroupingItem(2, "Branch2");
@@ -484,17 +482,17 @@ try {
 
 ### **주식 차트 만들기**
 
-1. [Presentation](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/presentation/) 클래스의 인스턴스를 생성합니다.
+1. [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) 클래스의 인스턴스를 생성합니다.
 2. 인덱스를 사용해 슬라이드에 대한 참조를 가져옵니다.
-3. 기본 데이터를 사용해 차트를 추가하고 [ChartType.OpenHighLowClose](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/charttype/#OpenHighLowClose) 유형을 지정합니다.
-4. 차트 데이터 워크북인 [IChartDataWorkbook](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/ichartdataworkbook/)에 접근합니다.
-5. 기본 시리즈와 범주를 삭제합니다.
-6. 새 시리즈와 범주를 추가합니다.
-7. 차트 시리즈에 새 차트 데이터를 추가합니다.
-8. 고·저선 형식을 지정합니다.
+3. 기본 데이터를 사용해 차트를 추가하고 [ChartType.OpenHighLowClose](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/#OpenHighLowClose) 유형을 지정합니다.
+4. 차트 데이터 워크북 [IChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/)에 접근합니다.
+5. 기본 시리즈와 카테고리를 삭제합니다.
+6. 새 시리즈와 카테고리를 추가합니다.
+7. 차트 시리즈에 대한 새 차트 데이터를 추가합니다.
+8. 고저선 형식을 지정합니다.
 9. 수정된 프레젠테이션을 PPTX 파일로 저장합니다.
 
-다음 Java 코드는 주식 차트를 만드는 예제입니다:
+다음 Java 코드는 주식 차트를 만드는 방법을 보여줍니다:
 
 ```java
 import com.aspose.slides.*;
@@ -554,16 +552,16 @@ try {
 
 ### **상자·수염 차트 만들기**
 
-1. [Presentation](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/presentation/) 클래스의 인스턴스를 생성합니다.
+1. [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) 클래스의 인스턴스를 생성합니다.
 2. 인덱스를 사용해 슬라이드에 대한 참조를 가져옵니다.
-3. 기본 데이터를 사용해 차트를 추가하고 [ChartType.BoxAndWhisker](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/charttype/#BoxAndWhisker) 유형을 지정합니다.
-4. 차트 데이터 워크북인 [IChartDataWorkbook](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/ichartdataworkbook/)에 접근합니다.
-5. 기본 시리즈와 범주를 삭제합니다.
-6. 새 시리즈와 범주를 추가합니다.
-7. 차트 시리즈에 새 차트 데이터를 추가합니다.
+3. 기본 데이터를 사용해 차트를 추가하고 [ChartType.BoxAndWhisker](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/#BoxAndWhisker) 유형을 지정합니다.
+4. 차트 데이터 워크북 [IChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/)에 접근합니다.
+5. 기본 시리즈와 카테고리를 삭제합니다.
+6. 새 시리즈와 카테고리를 추가합니다.
+7. 차트 시리즈에 대한 새 차트 데이터를 추가합니다.
 8. 수정된 프레젠테이션을 PPTX 파일로 저장합니다.
 
-다음 Java 코드는 상자·수염 차트를 만드는 예제입니다:
+다음 Java 코드는 상자·수염 차트를 만드는 방법을 보여줍니다:
 
 ```java
 import com.aspose.slides.*;
@@ -607,12 +605,12 @@ try {
 
 ### **퍼널 차트 만들기**
 
-1. [Presentation](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/presentation/) 클래스의 인스턴스를 생성합니다.
+1. [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) 클래스의 인스턴스를 생성합니다.
 2. 인덱스를 사용해 슬라이드에 대한 참조를 가져옵니다.
-3. 기본 데이터를 사용해 차트를 추가하고 [ChartType.Funnel](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/charttype/#Funnel) 유형을 지정합니다.
+3. 기본 데이터를 사용해 차트를 추가하고 [ChartType.Funnel](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/#Funnel) 유형을 지정합니다.
 4. 수정된 프레젠테이션을 PPTX 파일로 저장합니다.
 
-다음 Java 코드는 퍼널 차트를 만드는 예제입니다:
+다음 Java 코드는 퍼널 차트를 만드는 방법을 보여줍니다:
 
 ```java
 import com.aspose.slides.*;
@@ -651,12 +649,12 @@ try {
 
 ### **선버스트 차트 만들기**
 
-1. [Presentation](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/presentation/) 클래스의 인스턴스를 생성합니다.
+1. [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) 클래스의 인스턴스를 생성합니다.
 2. 인덱스를 사용해 슬라이드에 대한 참조를 가져옵니다.
-3. 기본 데이터를 사용해 차트를 추가하고 [ChartType.Sunburst](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/charttype/#Sunburst) 유형을 지정합니다.
+3. 기본 데이터를 사용해 차트를 추가하고 [ChartType.Sunburst](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/#Sunburst) 유형을 지정합니다.
 4. 수정된 프레젠테이션을 PPTX 파일로 저장합니다.
 
-다음 Java 코드는 선버스트 차트를 만드는 예제입니다:
+다음 Java 코드는 선버스트 차트를 만드는 방법을 보여줍니다:
 
 ```java
 import com.aspose.slides.*;
@@ -670,7 +668,7 @@ try {
     IChartDataWorkbook wb = chart.getChartData().getChartDataWorkbook();
     wb.clear(0);
 
-    //브랜치 1
+    //분기 1
     IChartCategory leaf = chart.getChartData().getCategories().add(wb.getCell(0, "C1", "Leaf1"));
     leaf.getGroupingLevels().setGroupingItem(1, "Stem1");
     leaf.getGroupingLevels().setGroupingItem(2, "Branch1");
@@ -682,7 +680,7 @@ try {
 
     chart.getChartData().getCategories().add(wb.getCell(0, "C4", "Leaf4"));
 
-    //브랜치 2
+    //분기 2
     leaf = chart.getChartData().getCategories().add(wb.getCell(0, "C5", "Leaf5"));
     leaf.getGroupingLevels().setGroupingItem(1, "Stem3");
     leaf.getGroupingLevels().setGroupingItem(2, "Branch2");
@@ -713,15 +711,15 @@ try {
 
 ### **히스토그램 차트 만들기**
 
-1. [Presentation](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/presentation/) 클래스의 인스턴스를 생성합니다.
+1. [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) 클래스의 인스턴스를 생성합니다.
 2. 인덱스를 사용해 슬라이드에 대한 참조를 가져옵니다.
-3. 기본 데이터를 사용해 차트를 추가하고 [ChartType.Histogram](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/charttype/#Histogram) 유형을 지정합니다.
-4. 차트 데이터 워크북인 [IChartDataWorkbook](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/ichartdataworkbook/)에 접근합니다.
-5. 기본 시리즈와 범주를 삭제합니다.
-6. 새 시리즈와 범주를 추가합니다.
+3. 기본 데이터를 사용해 차트를 추가하고 [ChartType.Histogram](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/#Histogram) 유형을 지정합니다.
+4. 차트 데이터 워크북 [IChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/)에 접근합니다.
+5. 기본 시리즈와 카테고리를 삭제합니다.
+6. 새 시리즈와 카테고리를 추가합니다.
 7. 수정된 프레젠테이션을 PPTX 파일로 저장합니다.
 
-다음 Java 코드는 히스토그램 차트를 만드는 예제입니다:
+다음 Java 코드는 히스토그램 차트를 만드는 방법을 보여줍니다:
 
 ```java
 import com.aspose.slides.*;
@@ -753,12 +751,12 @@ try {
 
 ### **레이더 차트 만들기**
 
-1. [Presentation](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/presentation/) 클래스의 인스턴스를 생성합니다.
+1. [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) 클래스의 인스턴스를 생성합니다.
 2. 인덱스를 사용해 슬라이드에 대한 참조를 가져옵니다.
-3. 데이터를 포함한 차트를 추가하고 원하는 차트 유형([ChartType.Radar](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/charttype/#Radar))을 지정합니다.
+3. 일부 데이터를 사용해 차트를 추가하고 원하는 차트 유형([ChartType.Radar](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/#Radar))을 지정합니다.
 4. 수정된 프레젠테이션을 PPTX 파일로 저장합니다.
 
-다음 Java 코드는 레이더 차트를 만드는 예제입니다:
+다음 Java 코드는 레이더 차트를 만드는 방법을 보여줍니다:
 
 ```java
 import com.aspose.slides.*;
@@ -772,18 +770,18 @@ try {
 }
 ```
 
-### **다중 범주 차트 만들기**
+### **다중 카테고리 차트 만들기**
 
-1. [Presentation](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/presentation/) 클래스의 인스턴스를 생성합니다.
+1. [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) 클래스의 인스턴스를 생성합니다.
 2. 인덱스를 사용해 슬라이드에 대한 참조를 가져옵니다.
-3. 기본 데이터를 사용해 차트를 추가하고 [ChartType.ClusteredColumn](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/charttype/#ClusteredColumn) 유형을 지정합니다.
-4. 차트 데이터 워크북인 [IChartDataWorkbook](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/ichartdataworkbook/)에 접근합니다.
-5. 기본 시리즈와 범주를 삭제합니다.
-6. 새 시리즈와 범주를 추가합니다.
-7. 차트 시리즈에 새 차트 데이터를 추가합니다.
+3. 기본 데이터를 사용해 차트를 추가하고 [ChartType.ClusteredColumn](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/#ClusteredColumn) 유형을 지정합니다.
+4. 차트 데이터 워크북 [IChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/)에 접근합니다.
+5. 기본 시리즈와 카테고리를 삭제합니다.
+6. 새 시리즈와 카테고리를 추가합니다.
+7. 차트 시리즈에 대한 새 차트 데이터를 추가합니다.
 8. 수정된 프레젠테이션을 PPTX 파일로 저장합니다.
 
-다음 Java 코드는 다중 범주 차트를 만드는 예제입니다:
+다음 Java 코드는 다중 카테고리 차트를 만드는 방법을 보여줍니다:
 
 ```java
 import com.aspose.slides.*;
@@ -827,7 +825,7 @@ try {
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, "D8", 70));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, "D9", 80));
     
-    // 차트를 포함한 프레젠테이션 저장
+    // 차트가 포함된 프레젠테이션 저장
     pres.save("AsposeChart_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
@@ -838,7 +836,7 @@ try {
 
 지도 차트는 지리적 데이터를 시각화하고 지역별 값을 비교하는 데 도움이 됩니다.
 
-다음 Java 코드는 지도 차트를 만드는 예제입니다:
+다음 Java 코드는 지도 차트를 만드는 방법을 보여줍니다:
 
 ```java
 import com.aspose.slides.*;
@@ -854,7 +852,7 @@ try {
 
 ### **복합 차트 만들기**
 
-복합 차트(또는 콤보 차트)는 하나의 그래프에 두 개 이상의 차트 유형을 결합합니다. 이 차트를 사용하면 두 개 이상의 데이터 세트를 강조·비교·분석하여 그 사이의 관계를 파악할 수 있습니다.
+복합 차트(또는 콤보 차트)는 하나의 그래프에 두 개 이상의 차트 유형을 결합합니다. 이 차트를 사용하면 여러 데이터 세트 간의 차이점을 강조·비교·검토하여 관계를 식별할 수 있습니다.
 
 ![The combination chart](combination_chart.png)
 
@@ -894,18 +892,18 @@ static IChart createChartWithFirstSeries(ISlide slide) {
     titleFormat.setFontBold(NullableBool.False);
     titleFormat.setFontHeight(18f);
 
-    // 차트 레전드를 설정합니다.
+    // 차트 범례를 설정합니다.
     chart.getLegend().setPosition(LegendPositionType.Bottom);
     chart.getLegend().getTextFormat().getPortionFormat().setFontHeight(12f);
 
-    // 기본으로 생성된 시리즈와 카테고리를 삭제합니다.
+    // 기본 생성된 시리즈와 카테고리를 삭제합니다.
     chart.getChartData().getSeries().clear();
     chart.getChartData().getCategories().clear();
 
     int worksheetIndex = 0;
     IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
 
-    // 새로운 카테고리를 추가합니다.
+    // 새 카테고리를 추가합니다.
     chart.getChartData().getCategories().add(workbook.getCell(worksheetIndex, 1, 0, "Category 1"));
     chart.getChartData().getCategories().add(workbook.getCell(worksheetIndex, 2, 0, "Category 2"));
     chart.getChartData().getCategories().add(workbook.getCell(worksheetIndex, 3, 0, "Category 3"));
@@ -958,28 +956,28 @@ static void addThirdSeriesToChart(IChart chart) {
 }
 
 static void setPrimaryAxesFormat(IChart chart) {
-    // 수평 축을 설정합니다.
+    // 가로 축을 설정합니다.
     IAxis horizontalAxis = chart.getAxes().getHorizontalAxis();
     horizontalAxis.getTextFormat().getPortionFormat().setFontHeight(12f);
     horizontalAxis.getFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
 
     setAxisTitle(horizontalAxis, "X Axis");
 
-    // 수직 축을 설정합니다.
+    // 세로 축을 설정합니다.
     IAxis verticalAxis = chart.getAxes().getVerticalAxis();
     verticalAxis.getTextFormat().getPortionFormat().setFontHeight(12f);
     verticalAxis.getFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
 
     setAxisTitle(verticalAxis, "Y Axis 1");
 
-    // 수직 주요 격자선 색상을 설정합니다.
+    // 세로 주요 눈금선 색상을 설정합니다.
     ILineFillFormat majorGridLinesFormat = verticalAxis.getMajorGridLinesFormat().getLine().getFillFormat();
     majorGridLinesFormat.setFillType(FillType.Solid);
     majorGridLinesFormat.getSolidFillColor().setColor(new Color(217, 217, 217));
 }
 
 static void setSecondaryAxesFormat(IChart chart) {
-    // 보조 수평 축을 설정합니다.
+    // 보조 가로 축을 설정합니다.
     IAxis secondaryHorizontalAxis = chart.getAxes().getSecondaryHorizontalAxis();
     secondaryHorizontalAxis.setPosition(AxisPositionType.Bottom);
     secondaryHorizontalAxis.setCrossType(CrossesType.Maximum);
@@ -987,7 +985,7 @@ static void setSecondaryAxesFormat(IChart chart) {
     secondaryHorizontalAxis.getMajorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
     secondaryHorizontalAxis.getMinorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
 
-    // 보조 수직 축을 설정합니다.
+    // 보조 세로 축을 설정합니다.
     IAxis secondaryVerticalAxis = chart.getAxes().getSecondaryVerticalAxis();
     secondaryVerticalAxis.setPosition(AxisPositionType.Right);
     secondaryVerticalAxis.getTextFormat().getPortionFormat().setFontHeight(12f);
@@ -1010,20 +1008,20 @@ static void setAxisTitle(IAxis axis, String axisTitle) {
 
 ## **차트 업데이트**
 
-1. 차트를 포함하고 있는 프레젠테이션을 나타내는 [Presentation](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/presentation/) 클래스의 인스턴스를 생성합니다.
+1. 차트를 업데이트하려는 프레젠테이션을 나타내는 [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) 클래스의 인스턴스를 생성합니다.
 2. 인덱스를 사용해 슬라이드에 대한 참조를 가져옵니다.
-3. 모든 도형을 순회하여 원하는 차트를 찾습니다.
+3. 모든 모양을 탐색해 원하는 차트를 찾습니다.
 4. 차트 데이터 워크시트에 접근합니다.
-5. 시리즈 값을 변경하여 차트 데이터 시리즈를 수정합니다.
+5. 시리즈 값을 변경해 차트 데이터 시리즈를 수정합니다.
 6. 새 시리즈를 추가하고 데이터를 채웁니다.
 7. 수정된 프레젠테이션을 PPTX 파일로 저장합니다.
 
-다음 Java 코드는 차트를 업데이트하는 예제입니다:
+다음 Java 코드는 차트를 업데이트하는 방법을 보여줍니다:
 
 ```java
 import com.aspose.slides.*;
 
-// 차트를 포함하고 있는 프레젠테이션을 엽니다
+// 업데이트할 차트가 포함된 프레젠테이션을 엽니다
 Presentation pres = new Presentation("ExistingChart.pptx");
 try {
     // 첫 번째 슬라이드에 접근합니다
@@ -1046,7 +1044,7 @@ try {
     IChartSeries series = chart.getChartData().getSeries().get_Item(0);
 
     // 이제 시리즈 데이터를 업데이트합니다
-    fact.getCell(defaultWorksheetIndex, 0, 1, "New_Series1");// 시리즈 이름을 수정합니다
+    fact.getCell(defaultWorksheetIndex, 0, 1, "New_Series1"); // 시리즈 이름을 수정합니다
     series.getDataPoints().get_Item(0).getValue().setData(90);
     series.getDataPoints().get_Item(1).getValue().setData(123);
     series.getDataPoints().get_Item(2).getValue().setData(44);
@@ -1055,12 +1053,12 @@ try {
     series = chart.getChartData().getSeries().get_Item(1);
 
     // 이제 시리즈 데이터를 업데이트합니다
-    fact.getCell(defaultWorksheetIndex, 0, 2, "New_Series2");// 시리즈 이름을 수정합니다
+    fact.getCell(defaultWorksheetIndex, 0, 2, "New_Series2"); // 시리즈 이름을 수정합니다
     series.getDataPoints().get_Item(0).getValue().setData(23);
     series.getDataPoints().get_Item(1).getValue().setData(67);
     series.getDataPoints().get_Item(2).getValue().setData(99);
 
-    // 이제 새로운 시리즈를 추가합니다
+    // 이제 새 시리즈를 추가합니다
     chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 3, "Series 3"), chart.getType());
 
     // 세 번째 차트 시리즈를 가져옵니다
@@ -1073,7 +1071,7 @@ try {
 
     chart.setType(ChartType.ClusteredCylinder);
 
-    // 차트를 포함한 프레젠테이션을 저장합니다
+    // 차트가 포함된 프레젠테이션을 저장합니다
     pres.save("AsposeChartModified_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
@@ -1082,20 +1080,22 @@ try {
 
 ## **차트 데이터 범위 설정**
 
-차트의 데이터 범위를 설정하려면 다음과 같이 합니다:
+기존 차트가 사용 중인 범위를 확인하려면 [Retrieve a Chart's Data Range](/slides/ko/androidjava/chart-workbook/#retrieve-a-charts-data-range)를 참조하십시오.
 
-1. 차트를 포함하는 프레젠테이션을 나타내는 [Presentation](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/presentation/) 클래스의 인스턴스를 생성합니다.
+차트의 데이터 범위를 설정하려면 다음을 수행합니다.
+
+1. 차트를 포함한 프레젠테이션을 나타내는 [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) 클래스의 인스턴스를 생성합니다.
 2. 인덱스를 사용해 슬라이드에 대한 참조를 가져옵니다.
-3. 모든 도형을 순회하여 원하는 차트를 찾습니다.
-4. 차트 데이터를 접근하고 범위를 설정합니다.
+3. 모든 모양을 탐색해 원하는 차트를 찾습니다.
+4. 차트 데이터를 접근해 범위를 설정합니다.
 5. 수정된 프레젠테이션을 PPTX 파일로 저장합니다.
 
-다음 Java 코드는 차트의 데이터 범위를 설정하는 예제입니다:
+다음 Java 코드는 차트의 데이터 범위를 설정하는 방법을 보여줍니다:
 
 ```java
 import com.aspose.slides.*;
 
-// 차트를 포함하고 있는 프레젠테이션을 엽니다
+// 차트가 포함된 프레젠테이션을 엽니다
 Presentation pres = new Presentation("ExistingChart.pptx");
 try {
     ISlide slide = pres.getSlides().get_Item(0);
@@ -1109,9 +1109,9 @@ try {
 }
 ```
 
-## **차트에 기본 마커 사용**
+## **차트에서 기본 마커 사용**
 
-차트에 기본 마커를 사용하면 각 시리즈에 자동으로 서로 다른 마커 기호가 적용됩니다.
+차트에 기본 마커를 사용하면 각 차트 시리즈에 자동으로 다른 마커 기호가 할당됩니다.
 
 다음 Java 코드는 차트 시리즈 마커를 자동으로 설정하는 방법을 보여줍니다:
 
@@ -1140,10 +1140,10 @@ try {
     series.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 4, 1, null));
 
     chart.getChartData().getSeries().add(fact.getCell(0, 0, 2, "Series 2"), chart.getType());
-    //두 번째 차트 시리즈를 가져옵니다
+    // 두 번째 차트 시리즈를 가져옵니다
     IChartSeries series2 = chart.getChartData().getSeries().get_Item(1);
 
-    //이제 시리즈 데이터를 채웁니다
+    // 이제 시리즈 데이터를 채웁니다
     series2.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 1, 2, 30));
     series2.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 2, 2, 10));
     series2.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 3, 2, 60));
@@ -1160,18 +1160,18 @@ try {
 
 ## **FAQ**
 
-**Aspose.Slides에서 지원하는 차트 유형은 무엇인가요?**
+**Aspose.Slides에서 지원하는 차트 유형은 무엇입니까?**
 
-Aspose.Slides는 바 차트, 선 차트, 원형 차트, 영역 차트, 산점도, 히스토그램, 레이더 등 다양한 [차트 유형](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/charttype/)을 지원합니다. 이를 통해 데이터 시각화 요구에 가장 적합한 차트 유형을 선택할 수 있습니다.
+Aspose.Slides는 바, 선, 원형, 영역, 산점도, 히스토그램, 레이더 등 다양한 [chart types](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/)을 지원합니다. 이를 통해 데이터 시각화 요구에 가장 적합한 차트 유형을 선택할 수 있습니다.
 
-**슬라이드에 새로운 차트를 추가하려면 어떻게 해야 하나요?**
+**슬라이드에 새 차트를 추가하려면 어떻게 해야 하나요?**
 
-차트를 추가하려면 먼저 [Presentation](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/presentation/) 클래스의 인스턴스를 만든 뒤, 인덱스로 원하는 슬라이드를 가져오고, 차트 추가 메서드를 호출하면서 차트 유형과 초기 데이터를 지정하면 됩니다. 이렇게 하면 차트가 프레젠테이션에 직접 삽입됩니다.
+새 차트를 추가하려면 먼저 [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) 클래스의 인스턴스를 만들고, 인덱스로 원하는 슬라이드를 검색한 뒤 차트를 추가하는 메서드를 호출하면서 차트 유형과 초기 데이터를 지정합니다. 이렇게 하면 차트가 바로 프레젠테이션에 삽입됩니다.
 
 **차트에 표시되는 데이터를 어떻게 업데이트할 수 있나요?**
 
-차트의 데이터를 업데이트하려면 차트의 데이터 워크북([IChartDataWorkbook](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/ichartdataworkbook/))에 접근한 뒤, 기본 시리즈와 범주를 삭제하고 사용자 정의 데이터를 추가하면 됩니다. 이를 통해 최신 데이터를 반영하도록 차트를 새로 고칠 수 있습니다.
+차트의 데이터를 업데이트하려면 차트 데이터 워크북([IChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/))에 접근하고, 기본 시리즈와 카테고리를 삭제한 뒤 사용자 지정 데이터를 추가하면 됩니다. 이를 통해 최신 데이터를 반영하도록 차트를 새로 고칠 수 있습니다.
 
-**차트의 외관을 커스터마이즈할 수 있나요?**
+**차트 외형을 사용자 지정할 수 있나요?**
 
-네, Aspose.Slides는 풍부한 커스터마이징 옵션을 제공합니다. 색상, 글꼴, 레이블, 레전드 및 기타 [서식 요소](/slides/ko/androidjava/chart-entities/)를 수정하여 차트를 원하는 디자인 요구 사항에 맞게 조정할 수 있습니다.
+예, Aspose.Slides는 광범위한 사용자 지정 옵션을 제공합니다. 색상, 글꼴, 레이블, 범례 및 기타 [formatting elements](/slides/ko/androidjava/chart-entities/)을 수정해 차트를 원하는 디자인 요구 사항에 맞출 수 있습니다.

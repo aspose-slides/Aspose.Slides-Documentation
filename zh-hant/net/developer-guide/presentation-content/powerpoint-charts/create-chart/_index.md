@@ -11,13 +11,13 @@ keywords:
 - 變更圖表
 - 更新圖表
 - 散佈圖
-- 圓形圖
+- 圓餅圖
 - 折線圖
 - 樹狀圖
 - 股票圖表
-- 箱形圖與鬚圖
+- 箱形圖與鬚狀圖
 - 漏斗圖
-- 旭日圖
+- 日晷圖
 - 直方圖
 - 雷達圖
 - 多類別圖表
@@ -26,44 +26,49 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "在 PowerPoint 簡報中使用 Aspose.Slides for .NET 建立與自訂圖表。透過實用的 C# 程式碼範例，新增、格式化與編輯圖表。"
+description: "使用 Aspose.Slides for .NET 在 PowerPoint 簡報中建立與自訂圖表。透過實用的 C# 程式碼範例，新增、格式化與編輯圖表。"
 ---
 ## **概觀**
 
-本文提供了使用 Aspose.Slides for .NET 建立和自訂圖表的完整指南。您將學習如何以程式方式將圖表加入投影片、填入資料，並套用各種格式選項以符合特定設計需求。整篇文章皆以詳細的程式碼範例說明每一步，從初始化簡報與圖表物件到設定序列、座標軸與圖例。遵循本指南，您將能深入了解如何在 .NET 應用程式中整合動態圖表產生，簡化建立以資料為驅動的簡報的流程。
+本文提供了一份完整的指南，說明如何使用 Aspose.Slides for .NET 建立與自訂圖表。您將學習如何以程式方式將圖表加入投影片、填入資料，並套用各種格式設定以符合特定的設計需求。整篇文章皆以詳細的程式碼範例說明每一步，從初始化簡報與圖表物件，到設定系列、坐標軸與圖例。依照本指南操作，您將能熟悉在 .NET 應用程式中整合動態圖表產生，簡化製作資料驅動式簡報的流程。
 
 ## **建立圖表**
 
-圖表可協助使用者快速視覺化資料，並獲得在表格或試算表中不易立即看出的洞見。
+圖表可協助使用者快速視覺化資料，並發掘在表格或試算表中不易察覺的資訊。
 
 **為什麼要建立圖表？**
 
-* 在單一投影片中彙總、濃縮或摘要大量資料；
-* 揭示資料中的模式與趨勢；
-* 推斷資料隨時間或特定測量單位的方向與動向；
-* 辨識異常值、偏差、錯誤以及不合邏輯的資料；
-* 傳達或展示複雜資料。
+使用圖表，您可以：
 
-在 PowerPoint 中，可透過 *Insert* 功能建立圖表，該功能提供多種圖表樣板供設計使用。使用 Aspose.Slides，您可以建立一般圖表（基於常見圖表類型）與自訂圖表。
+* 在單一投影片中彙總、濃縮或摘要大量資料；
+* 暴露資料中的模式與趨勢；
+* 推斷資料隨時間或特定單位的走向與動能；
+* 偵測離群值、異常、偏差、錯誤與無意義的資料；
+* 傳達或呈現複雜資料。
+
+在 PowerPoint 中，您可以透過 *Insert* 功能建立圖表，該功能提供多種圖表範本。使用 Aspose.Slides，您可以建立一般圖表（基於常見圖表類型）以及自訂圖表。
 
 {{% alert color="info" %}} 
-使用位於 [Aspose.Slides.Charts](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.charts/) 命名空間下的 [ChartType](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.charts/charttype/) 列舉。此列舉中的值對應不同的圖表類型。{{% /alert %}} 
+使用位於 [Aspose.Slides.Charts](https://reference.aspose.com/slides/net/aspose.slides.charts/) 命名空間的 [ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) 列舉。此列舉中的值對應不同的圖表類型。
+{{% /alert %}} 
 
 ### **建立叢集直條圖**
 
-本節說明如何使用 Aspose.Slides for .NET 建立叢集直條圖。您將學會初始化簡報、加入圖表，並自訂如標題、資料、序列、類別與樣式等元素。請依照以下步驟，了解如何產生標準的叢集直條圖：
+本節說明如何使用 Aspose.Slides for .NET 建立叢集直條圖。您將學習初始化簡報、加入圖表，並自訂標題、資料、系列、類別與樣式。依照下列步驟即可產生標準的叢集直條圖：
 
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/presentation) 類別的實例。
-1. 使用索引取得投影片的參考。
-1. 加入含有資料的圖表，並指定 `ChartType.ClusteredColumn` 類型。
-1. 為圖表新增標題。
-1. 存取圖表的資料工作表。
-1. 清除所有預設的序列與類別。
+1. 建立 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) 類別的實例。
+1. 依索引取得投影片參考。
+1. 加入圖表並指定 `ChartType.ClusteredColumn` 類型，同時提供部分資料。
+1. 為圖表加入標題。
+1. 取用圖表的資料工作表。
+1. 清除所有預設的系列與類別。
 1. 新增系列與類別。
-1. 為圖表序列加入新資料。
-1. 套用填色至圖表序列。
-1. 為圖表序列新增標籤。
-1. 將修改後的簡報另存為 PPTX 檔案。
+1. 為圖表系列新增資料。
+1. 為圖表系列套用填色。
+1. 為圖表系列新增標籤。
+1. 將修改後的簡報儲存為 PPTX 檔案。
+
+以下 C# 程式碼示範如何建立叢集直條圖：
 
 ```c#
 using System.Drawing;
@@ -71,180 +76,188 @@ using Aspose.Slides;
 using Aspose.Slides.Charts;
 using Aspose.Slides.Export;
 
-// 建立 Presentation 類別的實例。
+//    // 實例化 Presentation 類別.
 using (Presentation presentation = new Presentation())
 {
-    // 取得第一張投影片。
+    //    // 取得第一張投影片.
     ISlide slide = presentation.Slides[0];
 
-    // 新增具有預設資料的叢集直條圖。
+    //    // 加入具有預設資料的叢集直條圖.
     IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 300);
 
-    // 設定圖表標題。
+    //    // 設定圖表標題.
     chart.ChartTitle.AddTextFrameForOverriding("Sample Title");
     chart.ChartTitle.TextFrameForOverriding.TextFrameFormat.CenterText = NullableBool.True;
     chart.ChartTitle.Height = 20;
     chart.HasTitle = true;
 
-    // 設定圖表資料工作表的索引。
+    //    // 設定圖表資料工作表的索引.
     int worksheetIndex = 0;
 
-    // 取得圖表資料工作簿。
+    //    // 取得圖表資料工作簿.
     IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
 
-    // 刪除預設產生的序列與類別。
+    //    // 刪除預設產生的系列和類別.
     chart.ChartData.Series.Clear();
     chart.ChartData.Categories.Clear();
 
-    // 新增序列。
+    //    // 新增系列.
     chart.ChartData.Series.Add(workbook.GetCell(worksheetIndex, 0, 1, "Series 1"), chart.Type);
     chart.ChartData.Series.Add(workbook.GetCell(worksheetIndex, 0, 2, "Series 2"), chart.Type);
 
-    // 新增類別。
+    //    // 新增類別.
     chart.ChartData.Categories.Add(workbook.GetCell(worksheetIndex, 1, 0, "Category 1"));
     chart.ChartData.Categories.Add(workbook.GetCell(worksheetIndex, 2, 0, "Category 2"));
     chart.ChartData.Categories.Add(workbook.GetCell(worksheetIndex, 3, 0, "Category 3"));
 
-    // 取得第一個圖表序列。
+    //    // 取得第一個圖表系列.
     IChartSeries series = chart.ChartData.Series[0];
 
-    // 填入序列資料。
+    //    // 填入系列資料.
     series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 1, 1, 20));
     series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 2, 1, 50));
     series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 3, 1, 30));
 
-    // 設定序列的填色。
+    //    // 設定系列的填色.
     series.Format.Fill.FillType = FillType.Solid;
     series.Format.Fill.SolidFillColor.Color = Color.Red;
 
-    // 取得第二個圖表序列。
+    //    // 取得第二個圖表系列.
     series = chart.ChartData.Series[1];
 
-    // 填入序列資料。
+    //    // 填入系列資料.
     series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 1, 2, 30));
     series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 2, 2, 10));
     series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 3, 2, 60));
 
-    // 設定序列的填色。
+    //    // 設定系列的填色.
     series.Format.Fill.FillType = FillType.Solid;
     series.Format.Fill.SolidFillColor.Color = Color.Green;
 
-    // 設定第一個標籤顯示類別名稱。
+    //    // 設定第一個標籤顯示類別名稱.
     IDataLabel label = series.DataPoints[0].Label;
     label.DataLabelFormat.ShowCategoryName = true;
 
     label = series.DataPoints[1].Label;
     label.DataLabelFormat.ShowSeriesName = true;
 
-    // 設定序列在第三個標籤上顯示值。
+    //    // 設定系列在第三個標籤上顯示數值.
     label = series.DataPoints[2].Label;
     label.DataLabelFormat.ShowValue = true;
     label.DataLabelFormat.ShowSeriesName = true;
     label.DataLabelFormat.Separator = "/";
 
-    // 將簡報儲存為 PPTX 檔案。
+    //    // 將簡報儲存為 PPTX 檔案.
     presentation.Save("AsposeChart_out.pptx", SaveFormat.Pptx);
 }
 ```
 
-![叢集直條圖](clustered_column_chart.png)
+結果如下：
+
+![The Clustered Column chart](clustered_column_chart.png)
 
 ### **建立散佈圖**
 
-散佈圖（亦稱散點圖或 x‑y 圖）常用於檢查模式或顯示兩個變數之間的相關性。
+散佈圖（亦稱散點圖或 x‑y 圖）常用於檢查兩個變數之間的模式或相關性。
 
-使用散佈圖時：
+在以下情境使用散佈圖：
 
-* 您擁有成對的數值資料。
-* 您有兩個相互配對的變數。
+* 您有成對的數值資料。
+* 您有兩個變數彼此關聯緊密。
 * 您想判斷兩個變數是否相關。
-* 您有獨立變數對因變數有多個值。
+* 您有一個自變數，其對應多個因變數值。
+
+以下 C# 程式碼示範如何以不同的標記系列建立散佈圖：
 
 ```c#
 using Aspose.Slides;
 using Aspose.Slides.Charts;
 using Aspose.Slides.Export;
 
-// 實例化 Presentation 類別。
+// 實例化 Presentation 類別.
 using (Presentation presentation = new Presentation())
 {
-    // 取得第一張投影片。
+    // 存取第一張投影片.
     ISlide slide = presentation.Slides[0];
 
-    // 建立預設散佈圖。
+    // 建立預設的散佈圖.
     IChart chart = slide.Shapes.AddChart(ChartType.ScatterWithSmoothLines, 20, 20, 500, 300);
 
-    // 設定圖表資料工作表的索引。
+    // 設定圖表資料工作表的索引.
     int worksheetIndex = 0;
 
-    // 取得圖表資料工作簿。
+    // 取得圖表資料工作簿.
     IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
 
-    // 刪除預設序列。
+    // 刪除預設系列.
     chart.ChartData.Series.Clear();
 
-    // 新增序列。
+    // 新增系列.
     chart.ChartData.Series.Add(workbook.GetCell(worksheetIndex, 1, 1, "Series 1"), chart.Type);
     chart.ChartData.Series.Add(workbook.GetCell(worksheetIndex, 1, 3, "Series 2"), chart.Type);
 
-    // 取得第一個圖表序列。
+    // 取得第一個圖表系列.
     IChartSeries series = chart.ChartData.Series[0];
 
-    // 在序列中加入新點 (1:3)。
+    // 為系列新增一個點 (1:3)。
     series.DataPoints.AddDataPointForScatterSeries(workbook.GetCell(worksheetIndex, 2, 1, 1), workbook.GetCell(worksheetIndex, 2, 2, 3));
 
-    // 加入新點 (2:10)。
+    // 為系列新增一個點 (2:10)。
     series.DataPoints.AddDataPointForScatterSeries(workbook.GetCell(worksheetIndex, 3, 1, 2), workbook.GetCell(worksheetIndex, 3, 2, 10));
 
-    // 變更序列類型。
+    // 變更系列類型.
     series.Type = ChartType.ScatterWithStraightLinesAndMarkers;
 
-    // 變更圖表序列的標記。
+    // 變更圖表系列的標記.
     series.Marker.Size = 10;
     series.Marker.Symbol = MarkerStyleType.Star;
 
-    // 取得第二個圖表序列。
+    // 取得第二個圖表系列.
     series = chart.ChartData.Series[1];
 
-    // 在圖表序列中加入新點 (5:2)。
+    // 為圖表系列新增一個點 (5:2)。
     series.DataPoints.AddDataPointForScatterSeries(workbook.GetCell(worksheetIndex, 2, 3, 5), workbook.GetCell(worksheetIndex, 2, 4, 2));
 
-    // 加入新點 (3:1)。
+    // 為圖表系列新增一個點 (3:1)。
     series.DataPoints.AddDataPointForScatterSeries(workbook.GetCell(worksheetIndex, 3, 3, 3), workbook.GetCell(worksheetIndex, 3, 4, 1));
 
-    // 加入新點 (2:2)。
+    // 為圖表系列新增一個點 (2:2)。
     series.DataPoints.AddDataPointForScatterSeries(workbook.GetCell(worksheetIndex, 4, 3, 2), workbook.GetCell(worksheetIndex, 4, 4, 2));
 
-    // 加入新點 (5:1)。
+    // 為圖表系列新增一個點 (5:1)。
     series.DataPoints.AddDataPointForScatterSeries(workbook.GetCell(worksheetIndex, 5, 3, 5), workbook.GetCell(worksheetIndex, 5, 4, 1));
 
-    // 變更圖表序列的標記。
+    // 變更圖表系列的標記.
     series.Marker.Size = 10;
     series.Marker.Symbol = MarkerStyleType.Circle;
 
-    // 將簡報儲存為 PPTX 檔案。
+    // 將簡報儲存為 PPTX 檔案.
     presentation.Save("AsposeChart_out.pptx", SaveFormat.Pptx);
 }
 ```
 
-![散佈圖](scatter_chart.png)
+結果如下：
 
-### **建立圓形圖**
+![The Scatter chart](scatter_chart.png)
 
-圓形圖最適合顯示資料的部分與整體關係，尤其當資料包含類別標籤及數值時。但若資料包含太多部分或標籤，建議改用長條圖。
+### **建立圓餅圖**
 
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/presentation) 類別的實例。
-1. 使用索引取得投影片的參考。
-1. 加入預設資料的圖表，並指定 `ChartType.Pie` 類型。
-1. 存取圖表的資料工作簿（[IChartDataWorkbook](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.charts/ichartdataworkbook/)）。
-1. 清除預設的序列與類別。
+圓餅圖最適合用來顯示資料的部分與整體關係，特別是當資料包含類別標籤與數值時。若資料包含過多部份或標籤，建議改用長條圖。
+
+1. 建立 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) 類別的實例。
+1. 依索引取得投影片參考。
+1. 加入圖表並指定 `ChartType.Pie` 類型，使用預設資料。
+1. 取用圖表的資料工作簿（[IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)）。
+1. 清除預設的系列與類別。
 1. 新增系列與類別。
-1. 為圖表系列加入新資料。
-1. 為圖表新增點，並為圓形圖的扇區套用自訂顏色。
-1. 設定系列的標籤。
+1. 為圖表系列新增資料。
+1. 為圓餅圖的各區段新增點並套用自訂顏色。
+1. 為系列設定標籤。
 1. 為系列標籤啟用引線。
-1. 設定圓形圖的旋轉角度。
-1. 將修改後的簡報另存為 PPTX 檔案。
+1. 設定圓餅圖的旋轉角度。
+1. 將修改後的簡報儲存為 PPTX 檔案。
+
+以下 C# 程式碼示範如何建立圓餅圖：
 
 ```c#
 using System.Drawing;
@@ -252,55 +265,55 @@ using Aspose.Slides;
 using Aspose.Slides.Charts;
 using Aspose.Slides.Export;
 
-// 實例化 Presentation 類別。
+// 實例化 Presentation 類別.
 using (Presentation presentation = new Presentation())
 {
-    // 取得第一張投影片。
+    // 取得第一張投影片.
     ISlide slide = presentation.Slides[0];
 
-    // 新增圖表並使用其預設資料。
+    // 加入具預設資料的圖表.
     IChart chart = slide.Shapes.AddChart(ChartType.Pie, 20, 20, 500, 300);
 
-    // 設定圖表標題。
+    // 設定圖表標題.
     chart.ChartTitle.AddTextFrameForOverriding("Sample Title");
     chart.ChartTitle.TextFrameForOverriding.TextFrameFormat.CenterText = NullableBool.True;
     chart.ChartTitle.Height = 20;
     chart.HasTitle = true;
 
-    // 設定第一個序列顯示數值。
+    // 設定第一個系列顯示數值.
     chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
 
-    // 設定圖表資料工作表的索引。
+    // 設定圖表資料工作表的索引.
     int worksheetIndex = 0;
 
-    // 取得圖表資料工作簿。
+    // 取得圖表資料工作簿.
     IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
 
-    // 刪除預設產生的序列與類別。
+    // 刪除預設產生的系列與類別.
     chart.ChartData.Series.Clear();
     chart.ChartData.Categories.Clear();
 
-    // 新增類別。
+    // 新增類別.
     chart.ChartData.Categories.Add(workbook.GetCell(0, 1, 0, "1st Qtr"));
     chart.ChartData.Categories.Add(workbook.GetCell(0, 2, 0, "2nd Qtr"));
     chart.ChartData.Categories.Add(workbook.GetCell(0, 3, 0, "3rd Qtr"));
 
-    // 新增序列。
+    // 新增系列.
     IChartSeries series = chart.ChartData.Series.Add(workbook.GetCell(0, 0, 1, "Series 1"), chart.Type);
 
-    // 填充序列資料。
+    // 填入系列資料.
     series.DataPoints.AddDataPointForPieSeries(workbook.GetCell(worksheetIndex, 1, 1, 20));
     series.DataPoints.AddDataPointForPieSeries(workbook.GetCell(worksheetIndex, 2, 1, 50));
     series.DataPoints.AddDataPointForPieSeries(workbook.GetCell(worksheetIndex, 3, 1, 30));
 
-    // 設定區塊顏色。
+    // 設定扇區顏色.
     chart.ChartData.SeriesGroups[0].IsColorVaried = true;
 
     IChartDataPoint point = series.DataPoints[0];
     point.Format.Fill.FillType = FillType.Solid;
     point.Format.Fill.SolidFillColor.Color = Color.Cyan;
 
-    // 設定區塊邊框。
+    // 設定扇區邊框.
     point.Format.Line.FillFormat.FillType = FillType.Solid;
     point.Format.Line.FillFormat.SolidFillColor.Color = Color.Gray;
     point.Format.Line.Width = 3.0;
@@ -311,7 +324,7 @@ using (Presentation presentation = new Presentation())
     point1.Format.Fill.FillType = FillType.Solid;
     point1.Format.Fill.SolidFillColor.Color = Color.Brown;
 
-    // 設定區塊邊框。
+    // 設定扇區邊框.
     point1.Format.Line.FillFormat.FillType = FillType.Solid;
     point1.Format.Line.FillFormat.SolidFillColor.Color = Color.Blue;
     point1.Format.Line.Width = 3.0;
@@ -322,14 +335,14 @@ using (Presentation presentation = new Presentation())
     point2.Format.Fill.FillType = FillType.Solid;
     point2.Format.Fill.SolidFillColor.Color = Color.Coral;
 
-    // 設定區塊邊框。
+    // 設定扇區邊框.
     point2.Format.Line.FillFormat.FillType = FillType.Solid;
     point2.Format.Line.FillFormat.SolidFillColor.Color = Color.Red;
     point2.Format.Line.Width = 2.0;
     point2.Format.Line.Style = LineStyle.ThinThin;
     point2.Format.Line.DashStyle = LineDashStyle.LargeDashDotDot;
 
-    // 為新序列的每個類別建立自訂標籤。
+    // 為新系列的每個類別建立自訂標籤.
     IDataLabel label1 = series.DataPoints[0].Label;
 
     label1.DataLabelFormat.ShowValue = true;
@@ -343,31 +356,35 @@ using (Presentation presentation = new Presentation())
     label3.DataLabelFormat.ShowSeriesName = true;
     label3.DataLabelFormat.ShowPercentage = true;
 
-    // 設定序列在圖表中顯示引線。
+    // 設定系列顯示圖表的引線.
     series.Labels.DefaultDataLabelFormat.ShowLeaderLines = true;
 
-    // 設定圓形圖區塊的旋轉角度。
+    // 設定圓餅圖扇區的旋轉角度.
     chart.ChartData.SeriesGroups[0].FirstSliceAngle = 180;
 
-    // 將簡報儲存為 PPTX 檔案。
+    // 將簡報儲存為 PPTX 檔案.
     presentation.Save("PieChart_out.pptx", SaveFormat.Pptx);
 }
 ```
 
-![圓形圖](pie_chart.png)
+結果如下：
+
+![The Pie chart](pie_chart.png)
 
 ### **建立折線圖**
 
-折線圖（也稱為線圖）最適合用於顯示隨時間變化的值。使用折線圖，您可以一次比較大量資料、追蹤時間趨勢、突顯資料序列中的異常等。
+折線圖（亦稱折線圖）最適合用於說明隨時間變化的數值。使用折線圖，您可以一次比較大量資料、追蹤時間趨勢、突顯資料系列的異常等。
 
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/presentation) 類別的實例。
-1. 使用索引取得投影片的參考。
-1. 加入預設資料的圖表，並指定 `ChartType.Line` 類型。
-1. 存取圖表的資料工作簿（[IChartDataWorkbook](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.charts/ichartdataworkbook/)）。
-1. 清除預設的序列與類別。
+1. 建立 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) 類別的實例。
+1. 依索引取得投影片參考。
+1. 加入圖表並指定 `ChartType.Line` 類型，使用預設資料。
+1. 取用圖表的資料工作簿（[IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)）。
+1. 清除預設的系列與類別。
 1. 新增系列與類別。
-1. 為圖表系列加入新資料。
-1. 將修改後的簡報另存為 PPTX 檔案。
+1. 為圖表系列新增資料。
+1. 將修改後的簡報儲存為 PPTX 檔案。
+
+以下 C# 程式碼示範如何建立折線圖：
 
 ```c#
 using Aspose.Slides;
@@ -382,7 +399,7 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-預設情況下，折線圖的點會以直線連接。若希望以虛線連接，請如下指定虛線類型：
+預設情況下，折線圖的點會以直線相連。若要改為虛線，可使用下列程式碼指定虛線類型：
 
 ```c#
 using Aspose.Slides;
@@ -399,20 +416,24 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-![折線圖](line_chart.png)
+結果如下：
+
+![The Line chart](line_chart.png)
 
 ### **建立樹狀圖**
 
-樹狀圖最適合用於銷售資料，可顯示資料類別的相對大小，並迅速將注意力聚焦於各類別中貢獻較大的項目。
+樹狀圖最適合用於銷售資料，能顯示資料類別的相對大小，並快速將注意力聚焦於每個類別中貢獻較大的項目。
 
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/presentation) 類別的實例。
-1. 使用索引取得投影片的參考。
-1. 加入預設資料的圖表，並指定 `ChartType.Treemap` 類型。
-1. 存取圖表的資料工作簿（[IChartDataWorkbook](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.charts/ichartdataworkbook/)）。
-1. 清除預設的序列與類別。
+1. 建立 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) 類別的實例。
+1. 依索引取得投影片參考。
+1. 加入圖表並指定 `ChartType.Treemap` 類型，使用預設資料。
+1. 取用圖表的資料工作簿（[IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)）。
+1. 清除預設的系列與類別。
 1. 新增系列與類別。
-1. 為圖表系列加入新資料。
-1. 將修改後的簡報另存為 PPTX 檔案。
+1. 為圖表系列新增資料。
+1. 將修改後的簡報儲存為 PPTX 檔案。
+
+以下 C# 程式碼示範如何建立樹狀圖：
 
 ```c#
 using Aspose.Slides;
@@ -469,21 +490,25 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-![樹狀圖](treemap_chart.png)
+結果如下：
+
+![The Treemap chart](treemap_chart.png)
 
 ### **建立股票圖表**
 
-股票圖表用於顯示開盤、最高、最低、收盤等金融資料，協助分析市場趨勢與波動，提供投資人與分析師做出明智決策所需的關鍵見解。
+股票圖表用於顯示開盤、最高、最低與收盤價格等金融資料，協助分析市場趨勢與波動程度，提供投資人與分析師做出決策所需的關鍵資訊。
 
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/presentation) 類別的實例。
-1. 使用索引取得投影片的參考。
-1. 加入預設資料的圖表，並指定 `ChartType.OpenHighLowClose` 類型。
-1. 存取圖表的資料工作簿（[IChartDataWorkbook](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.charts/ichartdataworkbook/)）。
-1. 清除預設的序列與類別。
+1. 建立 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) 類別的實例。
+1. 依索引取得投影片參考。
+1. 加入圖表並指定 `ChartType.OpenHighLowClose` 類型，使用預設資料。
+1. 取用圖表的資料工作簿（[IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)）。
+1. 清除預設的系列與類別。
 1. 新增系列與類別。
-1. 為圖表系列加入新資料。
-1. 指定 HiLowLines 格式。
-1. 將修改後的簡報另存為 PPTX 檔案。
+1. 為圖表系列新增資料。
+1. 設定 HiLowLines 格式。
+1. 將修改後的簡報儲存為 PPTX 檔案。
+
+以下 C# 程式碼示範如何建立股票圖表：
 
 ```c#
 using Aspose.Slides;
@@ -539,20 +564,24 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-![股票圖表](stock_chart.png)
+結果如下：
 
-### **建立箱形圖與鬚圖**
+![The Stock chart](stock_chart.png)
 
-箱形圖與鬚圖用於以統計要點（如中位數、四分位數與可能的離群值）呈現資料分佈。它們在探索性資料分析與統計研究中特別有用，可快速了解資料變異性並辨識異常。
+### **建立箱形圖與鬚狀圖**
 
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/presentation) 類別的實例。
-1. 使用索引取得投影片的參考。
-1. 加入預設資料的圖表，並指定 `ChartType.BoxAndWhisker` 類型。
-1. 存取圖表的資料工作簿（[IChartDataWorkbook](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.charts/ichartdataworkbook/)）。
-1. 清除預設的序列與類別。
+箱形圖與鬚狀圖用於顯示資料的分佈情形，彙總出中位數、四分位數與可能的離群值等統計資訊，對於探索性資料分析與統計研究特別有幫助，可快速了解資料變異程度並偵測異常。
+
+1. 建立 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) 類別的實例。
+1. 依索引取得投影片參考。
+1. 加入圖表並指定 `ChartType.BoxAndWhisker` 類型，使用預設資料。
+1. 取用圖表的資料工作簿（[IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)）。
+1. 清除預設的系列與類別。
 1. 新增系列與類別。
-1. 為圖表系列加入新資料。
-1. 將修改後的簡報另存為 PPTX 檔案。
+1. 為圖表系列新增資料。
+1. 將修改後的簡報儲存為 PPTX 檔案。
+
+以下 C# 程式碼示範如何建立箱形圖與鬚狀圖：
 
 ```c#
 using Aspose.Slides;
@@ -596,12 +625,14 @@ using (Presentation presentation = new Presentation())
 
 ### **建立漏斗圖**
 
-漏斗圖用於視覺化具階段性的流程，隨每一步驟資料量逐漸減少，特別適合分析轉換率、找出瓶頸，及追蹤銷售或行銷流程的效率。
+漏斗圖用於視覺化具有連續階段的流程，資料量會隨每一步驟的推進而遞減，特別適合分析轉換率、找出瓶頸，或追蹤銷售與行銷流程的效率。
 
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/presentation) 類別的實例。
-1. 使用索引取得投影片的參考。
-1. 加入預設資料的圖表，並指定 `ChartType.Funnel` 類型。
-1. 將修改後的簡報另存為 PPTX 檔案。
+1. 建立 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) 類別的實例。
+1. 依索引取得投影片參考。
+1. 加入圖表並指定 `ChartType.Funnel` 類型，使用預設資料。
+1. 將修改後的簡報儲存為 PPTX 檔案。
+
+以下 C# 程式碼示範如何建立漏斗圖：
 
 ```c#
 using Aspose.Slides;
@@ -637,16 +668,20 @@ using (Presentation presentation = new Presentation("test.pptx"))
 }
 ```
 
-![漏斗圖](funnel_chart.png)
+結果如下：
 
-### **建立旭日圖**
+![The Funnel chart](funnel_chart.png)
 
-旭日圖用於視覺化階層資料，將層級以同心環方式呈現，可說明部份與整體之間的關係，且適合以緊湊的方式展示巢狀類別與子類別。
+### **建立日晷圖**
 
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/presentation) 類別的實例。
-1. 使用索引取得投影片的參考。
-1. 加入預設資料的圖表，並指定 `ChartType.Sunburst` 類型。
-1. 將修改後的簡報另存為 PPTX 檔案。
+日晷圖用於視覺化階層資料，將層級以同心環方式呈現，能說明部分與整體之間的關係，且適合以緊湊的格式展示巢狀類別與子類別。
+
+1. 建立 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) 類別的實例。
+1. 依索引取得投影片參考。
+1. 加入圖表並指定 `ChartType.Sunburst` 類型，使用預設資料。
+1. 將修改後的簡報儲存為 PPTX 檔案。
+
+以下 C# 程式碼示範如何建立日晷圖：
 
 ```c#
 using Aspose.Slides;
@@ -701,19 +736,23 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-![旭日圖](sunburst_chart.png)
+結果如下：
+
+![The Sunburst chart](sunburst_chart.png)
 
 ### **建立直方圖**
 
-直方圖用於透過將數值分組為區間或箱子來呈現數值資料的分佈，能協助辨識頻率、偏斜、散佈等模式，並偵測資料集中的離群值。
+直方圖用於以區間或箱子方式展示數值資料的分佈情形，常用於辨識資料頻率、偏斜與離散程度，並協助偵測資料集中的離群值。
 
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/presentation) 類別的實例。
-1. 使用索引取得投影片的參考。
-1. 加入含有資料的圖表，並指定 `ChartType.Histogram` 類型。
-1. 存取圖表資料工作簿（[IChartDataWorkbook](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.charts/ichartdataworkbook/)）。
-1. 清除預設的序列與類別。
+1. 建立 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) 類別的實例。
+1. 依索引取得投影片參考。
+1. 加入圖表並指定 `ChartType.Histogram` 類型，提供部分資料。
+1. 取用圖表資料工作簿（[IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)）。
+1. 清除預設的系列與類別。
 1. 新增系列與類別。
-1. 將修改後的簡報另存為 PPTX 檔案。
+1. 將修改後的簡報儲存為 PPTX 檔案。
+
+以下 C# 程式碼示範如何建立直方圖：
 
 ```c#
 using Aspose.Slides;
@@ -743,16 +782,20 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-![直方圖](histogram_chart.png)
+結果如下：
+
+![The Histogram chart](histogram_chart.png)
 
 ### **建立雷達圖**
 
-雷達圖用於在二維平面上顯示多變量資料，方便同時比較多個變數，常用於辨識多項績效指標或屬性間的模式、強項與弱項。
+雷達圖用於在二維平面上展示多變量資料，可同時比較多個變數，特別適合用來識別績效指標或屬性之間的模式、強項與弱點。
 
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/presentation) 類別的實例。
-1. 使用索引取得投影片的參考。
-1. 加入含有資料的圖表，並指定 `ChartType.Radar` 類型。
-1. 將修改後的簡報另存為 PPTX 檔案。
+1. 建立 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) 類別的實例。
+1. 依索引取得投影片參考。
+1. 加入圖表並指定 `ChartType.Radar` 類型，提供部分資料。
+1. 將修改後的簡報儲存為 PPTX 檔案。
+
+以下 C# 程式碼示範如何建立雷達圖：
 
 ```c#
 using Aspose.Slides;
@@ -766,20 +809,24 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-![雷達圖](radar_chart.png)
+結果如下：
+
+![The Radar chart](radar_chart.png)
 
 ### **建立多類別圖表**
 
-多類別圖表用於顯示涉及多個類別分組的資料，讓使用者可同時在多維度上比較值，對於分析複雜多層資料集的趨勢與關係特別有幫助。
+多類別圖表用於顯示涉及多個類別分組的資料，可同時在多維度上比較數值，對於分析複雜且多層次的資料集非常有幫助。
 
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/presentation) 類別的實例。
-1. 使用索引取得投影片的參考。
-1. 加入預設資料的圖表，並指定 `ChartType.ClusteredColumn` 類型。
-1. 存取圖表的資料工作簿（[IChartDataWorkbook](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.charts/ichartdataworkbook/)）。
-1. 清除預設的序列與類別。
+1. 建立 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) 類別的實例。
+1. 依索引取得投影片參考。
+1. 加入圖表並指定 `ChartType.ClusteredColumn` 類型，使用預設資料。
+1. 取用圖表的資料工作簿（[IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)）。
+1. 清除預設的系列與類別。
 1. 新增系列與類別。
-1. 為圖表系列加入新資料。
-1. 將修改後的簡報另存為 PPTX 檔案。
+1. 為圖表系列新增資料。
+1. 將修改後的簡報儲存為 PPTX 檔案。
+
+以下 C# 程式碼示範如何建立多類別圖表：
 
 ```c#
 using Aspose.Slides;
@@ -815,7 +862,7 @@ using (Presentation presentation = new Presentation())
     category.GroupingLevels.SetGroupingItem(1, "Group4");
     category = chart.ChartData.Categories.Add(workbook.GetCell(0, "c9", "H"));
 
-    // 新增序列。
+    // 新增系列。
     IChartSeries series = chart.ChartData.Series.Add(workbook.GetCell(0, "D1", "Series 1"), ChartType.ClusteredColumn);
 
     series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, "D2", 10));
@@ -832,9 +879,15 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-![多類別圖表](multi_category_chart.png)
+結果如下：
+
+![The multi category chart](multi_category_chart.png)
 
 ### **建立地圖圖表**
+
+地圖圖表用於透過國家、州或城市等特定位置呈現地理資料，對於分析區域趨勢、人口統計或空間分佈非常實用，且能以直觀且具視覺衝擊力的方式呈現。
+
+以下 C# 程式碼示範如何建立地圖圖表：
 
 ```c#
 using Aspose.Slides;
@@ -848,18 +901,21 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-![地圖圖表](map_chart.png)
+結果如下：
+
+![The Map chart](map_chart.png)
 
 {{% alert color="info" %}} 
-上圖顯示已在 PowerPoint 中開啟的已儲存簡報。Aspose.Slides 能正確寫入地圖圖表及其資料，但本身不繪製地圖圖表：當包含地圖圖表的投影片渲染為影像或轉換為 PDF 或 SVG 時，圖表區域會是空白。相同投影片中的其他形狀不受影響。{{% /alert %}} 
+上圖顯示已在 PowerPoint 中開啟的儲存簡報。Aspose.Slides 正確寫入地圖圖表與其資料，但本身不會繪製地圖圖表：當包含地圖圖表的投影片被轉換為影像或 PDF、SVG 時，圖表區域會呈現空白。其他形狀不受影響。
+{{% /alert %}} 
 
 ### **建立組合圖表**
 
-組合圖表（或稱 combo 圖表）在同一圖形中結合兩種或以上的圖表類型。此圖表可讓您突顯、比較或檢視多個資料集之間的差異，協助辨識它們之間的關係。
+組合圖（或稱 Combo 圖）將兩種或以上的圖表類型合併於同一圖形中。此圖表可讓您突顯、比較或檢視多組資料之間的差異，協助辨識它們之間的關係。
 
-![組合圖表](combination_chart.png)
+![The combination chart](combination_chart.png)
 
-以下 C# 程式碼示範如何在 PowerPoint 簡報中建立如上所示的組合圖表：
+以下 C# 程式碼示範如何在 PowerPoint 簡報中建立如上圖所示的組合圖：
 
 ```c#
 using System.Drawing;
@@ -900,7 +956,7 @@ private static IChart CreateChartWithFirstSeries(ISlide slide)
     chart.Legend.Position = LegendPositionType.Bottom;
     chart.Legend.TextFormat.PortionFormat.FontHeight = 12f;
 
-    // 刪除預設產生的序列與類別
+    // 刪除預設產生的系列和類別
     chart.ChartData.Series.Clear();
     chart.ChartData.Categories.Clear();
 
@@ -913,7 +969,7 @@ private static IChart CreateChartWithFirstSeries(ISlide slide)
     chart.ChartData.Categories.Add(workbook.GetCell(worksheetIndex, 3, 0, "Category 3"));
     chart.ChartData.Categories.Add(workbook.GetCell(worksheetIndex, 4, 0, "Category 4"));
 
-    // 新增第一個序列
+    // 新增第一個系列
     IChartSeries series = chart.ChartData.Series.Add(
         workbook.GetCell(worksheetIndex, 0, 1, "Series 1"), chart.Type);
 
@@ -1017,15 +1073,17 @@ private static void SetAxisTitle(IAxis axis, string axisTitle)
 
 ## **更新圖表**
 
-Aspose.Slides for .NET 讓您能透過修改圖表資料、格式與樣式來更新 PowerPoint 圖表。此功能簡化了讓簡報保持動態內容的流程，並確保圖表正確反映最新資料與視覺標準。
+Aspose.Slides for .NET 讓您能透過修改圖表資料、格式與樣式來更新 PowerPoint 圖表。此功能簡化了讓簡報隨動態內容保持最新的程序，確保圖表能正確反映最新資料與視覺標準。
 
-1. 實例化代表含有圖表之簡報的 [Presentation](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/presentation) 類別。
-1. 使用索引取得投影片的參考。
+1. 實例化代表包含圖表之簡報的 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) 類別。
+1. 依索引取得投影片參考。
 1. 遍歷所有形狀以找出圖表。
-1. 存取圖表的資料工作表。
-1. 透過變更序列值來修改圖表資料系列。
+1. 取用圖表的資料工作表。
+1. 透過變更系列值來修改圖表資料系列。
 1. 新增系列並填入資料。
-1. 將修改後的簡報另存為 PPTX 檔案。
+1. 將修改後的簡報儲存為 PPTX 檔案。
+
+以下 C# 程式碼示範如何更新圖表：
 
 ```c#
 using Aspose.Slides;
@@ -1034,48 +1092,48 @@ using Aspose.Slides.Export;
 
 const string chartName = "My chart";
 
-// 實例化代表 PPTX 檔案的 Presentation 類別。
+// 實例化代表 PPTX 檔案的 Presentation 類別.
 using (Presentation presentation = new Presentation("ExistingChart.pptx"))
 {
-    // 取得第一張投影片。
+    // 取得第一張投影片.
     ISlide slide = presentation.Slides[0];
 
     foreach (IShape shape in slide.Shapes)
     {
         if (shape is IChart chart && chart.Name == chartName)
         {
-            // 設定圖表資料工作表的索引。
+            // 設定圖表資料工作表的索引.
             int worksheetIndex = 0;
 
-            // 取得圖表資料工作簿。
+            // 取得圖表資料工作簿.
             IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
 
-            // 變更圖表類別名稱。
+            // 變更圖表類別名稱.
             workbook.GetCell(worksheetIndex, 1, 0, "Modified Category 1");
             workbook.GetCell(worksheetIndex, 2, 0, "Modified Category 2");
 
-            // 取得第一個圖表序列。
+            // 取得第一個圖表系列.
             IChartSeries series = chart.ChartData.Series[0];
 
-            // 更新序列資料。
-            workbook.GetCell(worksheetIndex, 0, 1, "New_Series 1"); // 修改系列名稱。
+            // 更新系列資料.
+            workbook.GetCell(worksheetIndex, 0, 1, "New_Series 1"); // 修改系列名稱.
             series.DataPoints[0].Value.Data = 90;
             series.DataPoints[1].Value.Data = 123;
             series.DataPoints[2].Value.Data = 44;
 
-            // 取得第二個圖表序列。
+            // 取得第二個圖表系列.
             series = chart.ChartData.Series[1];
 
-            // 更新序列資料。
-            workbook.GetCell(worksheetIndex, 0, 2, "New_Series 2"); // 修改系列名稱。
+            // 更新系列資料.
+            workbook.GetCell(worksheetIndex, 0, 2, "New_Series 2"); // 修改系列名稱.
             series.DataPoints[0].Value.Data = 23;
             series.DataPoints[1].Value.Data = 67;
             series.DataPoints[2].Value.Data = 99;
 
-            // 新增系列。
+            // 新增一個系列.
             series = chart.ChartData.Series.Add(workbook.GetCell(worksheetIndex, 0, 3, "Series 3"), chart.Type);
 
-            // 填入系列資料。
+            // 填入系列資料.
             series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 1, 3, 20));
             series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 2, 3, 50));
             series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 3, 3, 30));
@@ -1084,20 +1142,24 @@ using (Presentation presentation = new Presentation("ExistingChart.pptx"))
         }
     }
 
-    // 儲存包含圖表的簡報。
+    // 儲存包含圖表的簡報.
     presentation.Save("AsposeChartModified_out.pptx", SaveFormat.Pptx);
 }
 ```
 
-## **設定圖表的資料範圍**
+## **為圖表設定資料範圍**
 
-Aspose.Slides for .NET 提供彈性，可從工作表中定義特定資料範圍作為圖表資料的來源。這表示您可直接將工作表的某一部分對映至圖表，控制哪些儲存格貢獻於圖表的系列與類別。如此一來，您即可輕鬆更新並同步圖表與工作表的最新資料變更，確保 PowerPoint 簡報呈現當前且正確的資訊。
+若要檢視現有圖表已使用的範圍，請參考 [Retrieve a Chart's Data Range](/slides/zh-hant/net/chart-workbook/#retrieve-a-charts-data-range)。
 
-1. 實例化代表含有圖表之簡報的 [Presentation](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/presentation) 類別。
-1. 使用索引取得投影片的參考。
+Aspose.Slides for .NET 提供彈性，允許您從工作表中指定特定資料範圍作為圖表資料來源。這代表您可以直接將工作表的某一區塊對映到圖表，控制哪些儲存格會貢獻給圖表的系列與類別。如此一來，您即可輕鬆更新與同步圖表，確保 PowerPoint 簡報即時反映工作表的最新資訊。
+
+1. 實例化代表包含圖表之簡報的 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) 類別。
+1. 依索引取得投影片參考。
 1. 遍歷所有形狀以找出圖表。
-1. 存取圖表資料並設定範圍。
-1. 將修改後的簡報另存為 PPTX 檔案。
+1. 取用圖表資料並設定範圍。
+1. 將修改後的簡報儲存為 PPTX 檔案。
+
+以下 C# 程式碼示範如何為圖表設定資料範圍：
 
 ```c#
 using Aspose.Slides;
@@ -1106,10 +1168,10 @@ using Aspose.Slides.Export;
 
 const string chartName = "My chart";
 
-// 實例化代表 PPTX 檔案的 Presentation 類別。
+// 實例化代表 PPTX 檔案的 Presentation 類別.
 using (Presentation presentation = new Presentation("ExistingChart.pptx"))
 {
-    // 取得第一張投影片。
+    // 取得第一張投影片.
     ISlide slide = presentation.Slides[0];
 
     foreach (IShape shape in slide.Shapes)
@@ -1126,7 +1188,9 @@ using (Presentation presentation = new Presentation("ExistingChart.pptx"))
 
 ## **在圖表中使用預設標記**
 
-在圖表中使用預設標記時，每個圖表系列會自動取得不同的預設標記符號。
+使用預設標記時，系統會自動為每個圖表系列分配不同的預設標記符號。
+
+以下 C# 程式碼示範如何自動為圖表系列設定標記：
 
 ```c#
 using Aspose.Slides;
@@ -1176,16 +1240,16 @@ using (Presentation presentation = new Presentation())
 
 **Aspose.Slides for .NET 支援哪些圖表類型？**
 
-Aspose.Slides for .NET 支援廣泛的圖表類型，包括長條圖、折線圖、圓形圖、面積圖、散點圖、直方圖、雷達圖等，讓您能依資料視覺化需求選擇最適合的圖表類型。
+Aspose.Slides for .NET 支援多種圖表類型，包含長條圖、折線圖、圓餅圖、區域圖、散佈圖、直方圖、雷達圖等。此彈性讓您能依資料視覺化需求選擇最適合的圖表類型。
 
-**如何在投影片中加入新圖表？**
+**如何將新圖表加入投影片？**
 
-首先建立 [Presentation](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/presentation) 類別的實例，使用索引取得目標投影片，然後呼叫加入圖表的方法，並指定圖表類型與初始資料。此流程會將圖表直接整合至您的簡報中。
+加入圖表的步驟為：先建立 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) 實例，依索引取得目標投影片，然後呼叫加入圖表的方法，指定圖表類型與初始資料，即可將圖表直接嵌入簡報。
 
-**如何更新圖表中顯示的資料？**
+**我要如何更新圖表中顯示的資料？**
 
-您可存取圖表的資料工作簿（[IChartDataWorkbook](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.charts/ichartdataworkbook/)），清除預設的系列與類別，接著加入自訂資料。如此即可以程式方式重新整理圖表，呈現最新資料。
+您可透過取得圖表的資料工作簿（[IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)），清除預設的系列與類別，然後加入自訂資料，以程式方式刷新圖表，使其反映最新資料。
 
 **是否可以自訂圖表的外觀？**
 
-是的，Aspose.Slides for .NET 提供豐富的自訂選項。您可以修改顏色、字型、標籤、圖例及其他格式元素，以符合特定的設計需求。
+可以，Aspose.Slides for .NET 提供豐富的自訂選項，您可以修改顏色、字型、標籤、圖例以及其他格式設定，以符合特定的設計需求。

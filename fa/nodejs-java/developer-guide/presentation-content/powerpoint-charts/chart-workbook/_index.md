@@ -1,50 +1,50 @@
 ---
-title: مدیریت کتاب‌کارهای نمودار در ارائه‌ها با استفاده از JavaScript
+title: مدیریت کتاب‌کارهای نمودار در ارائه‌ها با استفاده از جاوااسکریپت
 linktitle: کتاب‌کار نمودار
 type: docs
 weight: 70
 url: /fa/nodejs-java/chart-workbook/
 keywords:
 - کتاب‌کار نمودار
-- داده‌های نمودار
+- داده نمودار
 - سلول کتاب‌کار
 - برچسب داده
-- برگه کاری
+- ورق کاری
 - منبع داده
 - کتاب‌کار خارجی
 - داده خارجی
 - کش نمودار
-- بازیابی کتاب‌کار
+- بازسازی کتاب‌کار
 - PowerPoint
 - ارائه
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Aspose.Slides برای Node.js via Java را کشف کنید: به راحتی کتاب‌کارهای نمودار را در فرمت‌های PowerPoint و OpenDocument مدیریت کنید تا داده‌های ارائه خود را ساده‌سازی کنید."
+description: "Aspose.Slides برای Node.js از طریق Java را کشف کنید: به راحتی کتاب‌کارهای نمودار را در فرمت‌های PowerPoint و OpenDocument مدیریت کنید تا داده‌های ارائهٔ خود را بهینه کنید."
 ---
-## **مرور کلی**
+## **بررسی کلی**
 
-این مقاله نحوه کار با کتاب‌کارهای نمودار در Aspose.Slides را توضیح می‌دهد. نشان می‌دهد چگونه می‌توان داده‌های نمودار را از طریق جریان‌های کتاب‌کار خواند و نوشت، از سلول‌های کتاب‌کار به عنوان برچسب‌های داده نمودار استفاده کرد، به مجموعه‌های برگه کاری دسترسی پیدا کرد و نوع منبع داده برای مقادیر نمودار را مشخص کرد.
+این مقاله نحوه کار با کتاب‌کارهای نمودار در Aspose.Slides را توضیح می‌دهد. نشان می‌دهد چگونه می‌توان داده‌های نمودار را از طریق جریان‌های کتاب‌کار خواند و نوشت، از سلول‌های کتاب‌کار به عنوان برچسب‌های دادهٔ نمودار استفاده کرد، به مجموعه‌های شیت دسترسی یافت و نوع منبع داده برای مقادیر نمودار را مشخص کرد.
 
-همچنین کار با کتاب‌کارهای خارجی به عنوان منابع داده نمودار را پوشش می‌دهد. مثال‌ها نشان می‌دهند چگونه یک کتاب‌کار خارجی ایجاد و اختصاص داده می‌شود، مسیر کتاب‌کار خارجی مرتبط با یک نمودار بازیابی می‌شود و داده‌های نمودار زمانی که کتاب‌کار موجود باشد ویرایش می‌گردد.
+همچنین کار با کتاب‌کارهای خارجی به عنوان منابع دادهٔ نمودار را پوشش می‌دهد. مثال‌ها نشان می‌دهند چگونه یک کتاب‌کار خارجی ایجاد و اختصاص داده شود، مسیر یک کتاب‌کار خارجی مرتبط با یک نمودار بازیابی شود و داده‌های نمودار هنگام در دسترس بودن کتاب‌کار ویرایش گردد.
 
-برای سلول‌های کتاب‌کار که نمایانگر داده‌های گمشده هستند، به بخش [Control the Display of Empty Cells](/slides/fa/nodejs-java/chart-series/) مراجعه کنید تا تفاوت بین یک سلول خالی و صفر را ببینید و مقایسه‌ای خطی از حالت‌های نمایش موجود در نمودار را مشاهده کنید.
+برای سلول‌های کتاب‌کار که نشان‌دهندهٔ دادهٔ گمشده هستند، به [Control the Display of Empty Cells](/slides/fa/nodejs-java/chart-series/) برای تفاوت بین سلول خالی و صفر و مقایسهٔ نمودار خطی حالت‌های نمایش موجود مراجعه کنید.
 
-## **شامل کردن داده‌ها از ردیف‌ها و ستون‌های مخفی**
+## **درج داده‌ها از ردیف‌ها و ستون‌های مخفی**
 
-از [Chart.setPlotVisibleCellsOnly](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/chart/#setPlotVisibleCellsOnly) برای کنترل اینکه آیا یک نمودار داده‌ها را از ردیف‌ها و ستون‌های مخفی برگه کاری ترسیم می‌کند یا خیر استفاده کنید. آن را به `true` تنظیم کنید تا فقط سلول‌های قابل مشاهده ترسیم شوند، یا به `false` تا هر دو سلول قابل مشاهده و مخفی شامل شوند. این تنظیم فقط ترسیم نمودار را کنترل می‌کند؛ ردیف‌ها یا ستون‌های برگه کاری را مخفی یا نمایان نمی‌کند.
+از [Chart.setPlotVisibleCellsOnly](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#setPlotVisibleCellsOnly) برای کنترل این‌که آیا یک نمودار داده‌ها را از ردیف‌ها و ستون‌های مخفی شیت رسم کند یا نه استفاده کنید. مقدار `true` باعث می‌شود تنها سلول‌های قابل مشاهده رسم شوند و مقدار `false` هر دو سلول قابل مشاهده و مخفی را شامل می‌شود. این تنظیم فقط بر رسم نمودار تأثیر دارد؛ ردیف‌ها یا ستون‌های شیت را مخفی یا نمایان نمی‌کند.
 
-فایل [hidden-source-data.pptx](hidden-source-data.pptx) را دانلود کنید و در دایرکتوری کاری قرار دهید. اولین اسلاید آن شامل یک نمودار ستونی به عنوان اولین شکل است. برگه کاری تعبیه‌شده، `Sheet1`، دامنه منبع زیر را دارد: `A1:C4`. ردیف 3 و ستون C مخفی هستند، اما سلول‌های آن‌ها هنوز مقدار دارند.
+[پرزنتیشن نمونه](hidden-source-data.pptx) شامل یک نمودار ستونی به عنوان اولین شکل در اولین اسلاید آن است. شیت تعبیه‌شده، `Sheet1`، بازهٔ منبع زیر را دارد: `A1:C4`. ردیف 3 و ستون C مخفی هستند، اما سلول‌های آن‌ها همچنان مقادیر دارند.
 
-| ردیف برگه کاری | A: ماه | B: خرده‌فروشی | C: عمده‌فروشی (ستون مخفی) |
+| سطر شیت | A: ماه | B: خرده‌فروشی | C: عمده‌فروشی (ستون مخفی) |
 | --- | --- | --- | --- |
 | 2 | ژانویه | 10 | 30 |
 | 3 (ردیف مخفی) | فوریه | 40 | 60 |
 | 4 | مارس | 20 | 50 |
 
-از طریق [ChartData.getChartDataWorkbook](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/chartdata/#getChartDataWorkbook) به سلول‌های منبع دسترسی پیدا کنید و با [ChartDataCell.isHidden](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/chartdatacell/#isHidden) وضعیت مخفی بودن آن‌ها را بررسی کنید. این متد وضعیت مخفی بودن را بدون تغییر آن گزارش می‌کند. در این فایل، B2 قابل مشاهده است، B3 متعلق به ردیف مخفی است و C2 متعلق به ستون مخفی؛ مثال به ترتیب `false`، `true` و `true` را چاپ می‌کند.
+به سلول‌های منبع از طریق [ChartData.getChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/#getChartDataWorkbook) دسترسی پیدا کنید و با [ChartDataCell.isHidden](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatacell/#isHidden) وضعیت مخفی بودن آن‌ها را بررسی کنید. این متد وضعیت مخفی بودن را بدون تغییر آن گزارش می‌کند. در این فایل، B2 قابل مشاهده است، B3 متعلق به ردیف مخفی است و C2 متعلق به ستون مخفی؛ مثال به ترتیب `false`، `true` و `true` را چاپ می‌کند.
 
-برای این مثال، پس از تغییر تنظیم ترسیم، داده‌های نمودار را تازه کنید: کتاب‌کار تعبیه‌شده را با [readWorkbookStream](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/chartdata/#readWorkbookStream) نگه دارید و با [writeWorkbookStream](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/chartdata/#writeWorkbookStream) دوباره بارگذاری کنید. هنگام شامل کردن همه سلول‌ها، همچنین از [setRange](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/chartdata/#setRange) برای بازگرداندن دامنه کامل، از جمله دسته فوریه مخفی، استفاده کنید. فقط تغییر پرچم برای تازه‌سازی داده‌های کش شده این نمونه کافی نیست. مثال با تبدیل بافر Node.js به آرایه بایت جاوا قبل از پاس کردن به متد نوشتن، این کار را انجام می‌دهد.
+برای این مثال، پس از تغییر تنظیم رسم، دادهٔ نمودار را تازه‌سازی کنید: کتاب‌کار تعبیه‌شده را با [readWorkbookStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/#readWorkbookStream) نگه داشته و با [writeWorkbookStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/#writeWorkbookStream) مجدداً بارگذاری کنید. هنگام درج همهٔ سلول‌ها، از [setRange](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/#setRange) برای بازگرداندن بازهٔ کامل، شامل دستهٔ مخفی فوریه، استفاده کنید. تغییر تنها پرچم کافی نیست تا داده‌های کش‌شدهٔ نمونهٔ نمودار و برچسب‌های دسته تازه‌سازی شوند. مثال با تبدیل بافر Node.js به آرایهٔ بایت جاوا قبل از ارسال به متد نوشتن این کار را انجام می‌دهد.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -71,7 +71,7 @@ try {
             // داده‌های نمودار را از کتاب‌کار تعبیه‌شده تازه‌سازی کنید.
             chart.getChartData().writeWorkbookStream(workbookData);
             if (!visibleOnly) {
-                // دامنه منبع کامل را بازگردانید، از جمله دسته‌های مخفی.
+                // بازهٔ منبع کامل را بازیابی کنید، شامل دسته‌های مخفی.
                 chart.getChartData().setRange("Sheet1!$A$1:$C$4");
             }
 
@@ -85,19 +85,57 @@ try {
 }
 ```
 
-مثال `hidden_cells_true.pptx` را با فقط مقادیر خرده‌فروشی قابل مشاهده (10 و 20) و `hidden_cells_false.pptx` را با همه شش مقدار ذخیره می‌کند. تصاویر زیر دو حالت ترسیم را نشان می‌دهند. ردیف 3 و ستون C در هر دو کتاب‌کار تعبیه‌شده مخفی می‌مانند.
+مثال دو نسخه از پرزنتیشن را ذخیره می‌کند: یکی تنها با مقادیر خرده‌فروشی قابل مشاهده (`10` و `20`) و دیگری با تمام شش مقدار. تصاویر زیر دو حالت رسم را نشان می‌دهند. ردیف 3 و ستون C در هر دو کتاب‌کار تعبیه‌شده مخفی می‌مانند.
 
-| فقط سلول‌های قابل مشاهده (`true`) | همه سلول‌ها (`false`) |
+| تنها سلول‌های قابل مشاهده (`true`) | همه سلول‌ها (`false`) |
 | --- | --- |
 | ![Only visible cells: Retail values 10 and 20 for January and March.](hidden_cells_True.png) | ![All cells: Retail and Wholesale values for January, February, and March.](hidden_cells_False.png) |
 
-یک سلول مخفی که دارای مقدار است، متفاوت از یک سلول خالی است. [Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/chart/#setDisplayBlanksAs) کنترل می‌کند که مقادیر گمشده چگونه نمایش داده شوند؛ این متد داده‌های منبع مخفی را شامل یا حذف نمی‌کند. برای مثال به [Control the Display of Empty Cells](/slides/fa/nodejs-java/chart-series/#control-the-display-of-empty-cells) رجوع کنید.
+یک سلول مخفی حاوی مقدار با یک سلول خالی متفاوت است. [Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#setDisplayBlanksAs) نحوهٔ نمایش مقادیر گمشده را کنترل می‌کند؛ این گزینه داده‌های منبع مخفی را شامل یا مستثنی نمی‌کند. برای مثال به [Control the Display of Empty Cells](/slides/fa/nodejs-java/chart-series/#control-the-display-of-empty-cells) مراجعه کنید.
 
-## **خواندن و نوشتن داده‌های نمودار از یک کتاب‌کار**
+## **بازیابی بازهٔ دادهٔ یک نمودار**
 
-Aspose.Slides for Node.js via Java متدهای [readWorkbookStream](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/chartdata/#readWorkbookStream) و [writeWorkbookStream](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/chartdata/#writeWorkbookStream) را فراهم می‌کند که به شما امکان می‌دهد کتاب‌کارهای داده نمودار (حاوی داده‌های ویرایش‌شده با Aspose.Cells) را بخوانید و بنویسید. **توجه** داشته باشید که داده‌های نمودار باید به همان شکل سازماندهی شوند یا ساختاری مشابه منبع داشته باشند.
+قبل از به‌روزرسانی داده‌های کتاب‌کار در یک پرزنتیشن موجود، بازه‌های منبع را بررسی کنید تا ببینید هر نمودار از چه سلول‌های شیتی استفاده می‌کند. متد [ChartData.getRange](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/#getRange) بازهٔ دادهٔ فعلی را به صورت یک فرمول معیّن‌شده برای شیت برمی‌گرداند، برای مثال `Sheet1!$A$1:$D$5`. در اینجا، `Sheet1` نام شیت است، `!` آن را از بازهٔ سلول‌ها جدا می‌کند و `$A$1:$D$5` سلول‌های A1 تا D5 را شامل می‌شود. علامت دلار نشان‌دهندهٔ ارجاع مطلق ردیف و ستون است.
 
-این مثال `chart.pptx` را باز می‌کند که باید یک نمودار به عنوان اولین شکل در اولین اسلاید داشته باشد. کتاب‌کار تعبیه‌شده را به یک آرایه بایت می‌خواند، سری‌ها و دسته‌های موجود را پاک می‌کند و همان کتاب‌کار را دوباره می‌نویسد. تغییرات در حافظه باقی می‌مانند؛ مثال ارائه را ذخیره نمی‌کند.
+این متد بازهٔ فعلی را بدون تغییر نمودار یا کتاب‌کار می‌خواند. اگر نمودار از کتاب‌کاری به عنوان منبع داده استفاده نکند، `InvalidOperationException` پرتاب می‌کند. برای اطلاعات بیشتر به [ChartData API Reference](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/) مراجعه کنید.
+
+این مثال یک پرزنتیشن را باز می‌کند و شکل‌های موجود در هر اسلاید را برای یافتن نمودارها بررسی می‌کند. نام هر نمودار و بازهٔ منبع آن را چاپ می‌کند. اگر نموداری از کتاب‌کار استفاده نکند، پیغامی چاپ می‌کند و به نمودار بعدی ادامه می‌دهد.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation("presentation.pptx");
+try {
+    for (let slideIndex = 0; slideIndex < presentation.getSlides().size(); slideIndex++) {
+        const slide = presentation.getSlides().get_Item(slideIndex);
+        for (let shapeIndex = 0; shapeIndex < slide.getShapes().size(); shapeIndex++) {
+            const shape = slide.getShapes().get_Item(shapeIndex);
+            if (java.instanceOf(shape, "com.aspose.slides.IChart")) {
+                const chart = shape;
+                try {
+                    const range = chart.getChartData().getRange();
+                    console.log(chart.getName() + ": " + range);
+                } catch (exception) {
+                    if (exception.cause && java.instanceOf(exception.cause, "com.aspose.slides.exceptions.InvalidOperationException")) {
+                        console.log(chart.getName() + ": The chart does not use a workbook as its data source.");
+                    } else {
+                        console.log(chart.getName() + ": Could not retrieve the data range: " + exception.message);
+                    }
+                }
+            }
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+## **خواندن و نوشتن دادهٔ نمودار از کتاب‌کار**
+
+Aspose.Slides برای Node.js از طریق Java متدهای [readWorkbookStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/#readWorkbookStream) و [writeWorkbookStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/#writeWorkbookStream) را فراهم می‌کند که امکان خواندن و نوشتن کتاب‌کارهای دادهٔ نمودار (شامل داده‌های ویرایش‌شده با Aspose.Cells) را می‌دهد. **نکته** این است که دادهٔ نمودار باید به همان شکل سازماندهی شده باشد یا ساختاری مشابه منبع داشته باشد.
+
+این مثال یک پرزنتیشن با یک نمودار به عنوان اولین شکل در اولین اسلاید آن را استفاده می‌کند. کتاب‌کار تعبیه‌شده را به یک آرایهٔ بایت می‌خواند، سری‌ها و دسته‌های موجود را پاک می‌کند و همان کتاب‌کار را دوباره می‌نویسد. تغییرات در حافظه باقی می‌مانند؛ مثال پرزنتیشن را ذخیره نمی‌کند.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -127,9 +165,9 @@ try {
 }
 ```
 
-### **اعتبارسنجی طرح‌بندی نمودار پس از اصلاح کتاب‌کار**
+### **اعتبارسنجی چیدمان نمودار پس از تغییر کتاب‌کار**
 
-زمانی که یک کتاب‌کار تعبیه‌شده را با یک کتاب‌کار اصلاح‌شده جایگزین می‌کنید، نمودار مجموعه‌های سری و دسته اصلی خود را حفظ می‌کند. این عدم تطابق می‌تواند باعث شکست [Chart.validateChartLayout](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/chart/#validateChartLayout) با خطای out-of-range شود. قبل از نوشتن کتاب‌کار به‌روزشده، سری‌ها و دسته‌های موجود را پاک کنید. این مثال به `chart.pptx` با یک نمودار به عنوان اولین شکل در اولین اسلاید نیاز دارد. علامت‌گذاری نظرات نشان می‌دهد که ویرایش کتاب‌کار در کجا انجام می‌شود؛ مثال قابل اجرا کتاب‌کار اصلی را بازنویسی می‌کند و طرح‌بندی را در حافظه اعتبارسنجی می‌کند.
+زمانی که کتاب‌کار تعبیه‌شده را با یک کتاب‌کار اصلاح‌شده جایگزین می‌کنید، نمودار مجموعهٔ سری‌ها و دسته‌های اصلی خود را حفظ می‌کند. این عدم تطابق می‌تواند باعث شود [Chart.validateChartLayout](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#validateChartLayout) با خطای «اندیس خارج از محدوده» شکست بخورد. پیش از نوشتن کتاب‌کار به‌روز شده، سری‌ها و دسته‌های موجود را پاک کنید. این مثال از یک نمودار که اولین شکل در اولین اسلاید است استفاده می‌کند. کامنت محل ویرایش کتاب‌کار را نشان می‌دهد؛ مثال اجرایی کتاب‌کار اصلی را باز می‌نویسد و چیدمان را در حافظه اعتبارسنجی می‌کند.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -147,7 +185,7 @@ try {
         const workbookBytes = Array.from(workbookBuffer);
         const workbookData = java.newArray("byte", workbookBytes);
 
-        // در اینجا بایت‌های کتاب‌کار را تغییر دهید، برای مثال با استفاده از Aspose.Cells.
+        // در اینجا بایت‌های کتاب‌کار را اصلاح کنید، برای مثال با استفاده از Aspose.Cells.
 
         chartData.getSeries().clear();
         chartData.getCategories().clear();
@@ -162,20 +200,13 @@ try {
 }
 ```
 
-پاک‌سازی مجموعه‌ها قبل از نوشتن کتاب‌کار، مراجع داده منسوخ را حذف می‌کند. پیش از استفاده از نمودار، هر سری و نگاشت دسته مورد نیاز برای کتاب‌کار به‌روزشده دوباره ساخته شود.
+پاک‌سازی مجموعه‌ها قبل از نوشتن کتاب‌کار، ارجاعات داده‌های منقضی‌شده را حذف می‌کند. پیش از استفاده از نمودار، هر سری و نگاشت دسته مورد نیاز برای کتاب‌کار به‌روز شده را بازسازی کنید.
 
-## **تنظیم یک سلول کتاب‌کار به عنوان برچسب داده نمودار**
+## **تنظیم یک سلول کتاب‌کار به عنوان برچسب دادهٔ نمودار**
 
-می‌توانید از متن سلول‌های کتاب‌کار به عنوان برچسب‌های داده نمودار استفاده کنید. مراحل زیر نشان می‌دهد چگونه برچسب‌ها را در یک نمودار حبابی به سلول‌های کتاب‌کار داده مرتبط کنید.
+می‌توانید از متن سلول‌های کتاب‌کار به عنوان برچسب‌های دادهٔ نمودار استفاده کنید.
 
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/presentation/) ایجاد کنید.
-1. اولین اسلاید را با اندیس صفر مبنا دسترسی پیدا کنید.
-1. یک نمودار حبابی با داده پیش‌فرض اضافه کنید.
-1. سری نمودار را دسترسی پیدا کنید.
-1. سلول کتاب‌کار را به عنوان برچسب داده تنظیم کنید.
-1. ارائه را ذخیره کنید.
-
-این مثال `chart2.pptx` را باز می‌کند که باید حداقل یک اسلاید داشته باشد و یک نمودار حبابی با داده پیش‌فرض اضافه می‌کند. از سلول‌های A10:A12 در برگه کاری 0 برای سه برچسب اول در اولین سری استفاده می‌کند، برچسب‌ها را از سلول‌ها فعال می‌سازد و نتیجه را در `resultchart.pptx` ذخیره می‌کند.
+این مثال یک نمودار حبابی با دادهٔ پیش‌فرض به اولین اسلاید یک پرزنتیشن موجود اضافه می‌کند. از سلول‌های A10:A12 در شیت 0 برای سه برچسب اولین سری استفاده می‌کند، برچسب‌ها از سلول‌ها فعال می‌شوند و پرزنتیشن به‌روز شده ذخیره می‌شود.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -199,9 +230,9 @@ try {
 }
 ```
 
-## **مدیریت برگه‌های کاری**
+## **مدیریت شیت‌ها**
 
-متد [ChartDataWorkbook.getWorksheets](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/chartdataworkbook/#getWorksheets) دسترسی به برگه‌های کاری در یک کتاب‌کار نمودار را فراهم می‌کند. این مثال یک نمودار دایره‌ای با داده پیش‌فرض ایجاد می‌کند و نام هر برگه کاری را به کنسول چاپ می‌کند.
+متد [ChartDataWorkbook.getWorksheets](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/#getWorksheets) دسترسی به شیت‌های موجود در یک کتاب‌کار نمودار را فراهم می‌کند. این مثال یک نمودار دایره‌ای با دادهٔ پیش‌فرض ایجاد می‌کند و نام هر شیت را در کنسول چاپ می‌کند.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -223,7 +254,7 @@ try {
 
 ## **مشخص کردن نوع منبع داده**
 
-این مثال یک نمودار ستونی سه‌بعدی با داده پیش‌فرض ایجاد می‌کند و دو نام سری را با استفاده از منابع داده متفاوت تنظیم می‌کند. نام اول از یک رشته ثابت استفاده می‌کند؛ نام دوم از سلول C1 در برگه کاری 0 استفاده می‌کند. enumeration [DataSourceType](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/datasourcetype/) منبع هر نام را انتخاب می‌کند. نتیجه در `pres.pptx` ذخیره می‌شود.
+این مثال یک نمودار ستونی 3D با دادهٔ پیش‌فرض ایجاد می‌کند و دو نام سری را با منابع داده مختلف تنظیم می‌کند. نام اول از یک رشتهٔ متنی استفاده می‌کند؛ نام دوم از سلول C1 در شیت 0 استفاده می‌کند. شمارش [DataSourceType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datasourcetype/) منبع هر نام را انتخاب می‌کند. مثال پرزنتیشن را با نام‌های سری به‌روز شده ذخیره می‌کند.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -249,9 +280,9 @@ try {
 }
 ```
 
-## **تشخیص فرمت‌های کتاب‌کارهای تعبیه‌شده پشتیبانی‌نشده**
+## **تشخیص قالب‌های کتاب‌کار تعبیه‌شدهٔ پشتیبانی‌نشده**
 
-Aspose.Slides از فرمت کتاب‌کار باینری Excel (.xlsb) که می‌تواند در برخی نمودارها تعبیه شود، پشتیبانی نمی‌کند. می‌توانید با استفاده از متد [getEmbeddedWorkbookType](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/chartdata/#getEmbeddedWorkbookType) روی [ChartData](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/chartdata/) همراه با enumeration [WorkbookType](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/workbooktype/) فرمت‌های پشتیبانی‌نشده را تشخیص داده و آن نمودارها را عبور کنید. این مثال شکل‌های اولین اسلاید `sample.pptx` را بررسی می‌کند، اشکال غیرنموداری را رد می‌کند و برای هر نموداری که کتاب‌کار .xlsb تعبیه‌شده دارد پیام تشخیصی چاپ می‌کند.
+Aspose.Slides از قالب کتاب‌کار باینری اکسل (.xlsb) که می‌تواند در برخی نمودارها تعبیه شود پشتیبانی نمی‌کند. می‌توانید با استفاده از متد [getEmbeddedWorkbookType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/#getEmbeddedWorkbookType) بر روی [ChartData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/) همراه با شمارش [WorkbookType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/workbooktype/) قالب‌های پشتیبانی‌نشده را شناسایی و آن نمودارها را نادیده بگیرید. این مثال شکل‌های اولین اسلاید یک پرزنتیشن موجود را بررسی می‌کند، شکل‌های غیرنموداری را صرف‌نظر می‌کند و برای هر نمودار دارای کتاب‌کار .xlsb پیغام عیب‌یابی چاپ می‌کند.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -277,7 +308,7 @@ try {
             continue;
         }
 
-        // در اینجا داده‌های کتاب‌کار نمودار پشتیبانی‌شده را بخوانید یا تغییر دهید.
+        // اینجا داده‌های کتاب‌کار پشتیبانی‌شدهٔ نمودار را بخوانید یا اصلاح کنید.
     }
 } finally {
     presentation.dispose();
@@ -286,13 +317,13 @@ try {
 
 ## **کتاب‌کار خارجی**
 
-Aspose.Slides از استفاده از کتاب‌کارهای خارجی به عنوان منبع داده برای نمودارها پشتیبانی می‌کند.
+Aspose.Slides پشتیبانی از استفاده از کتاب‌کارهای خارجی به عنوان منبع دادهٔ نمودارها را فراهم می‌کند.
 
 ### **ایجاد یک کتاب‌کار خارجی**
 
-از [readWorkbookStream](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/chartdata/#readWorkbookStream) و [setExternalWorkbook](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/chartdata/#setExternalWorkbook) برای استخراج کتاب‌کار نمودار تعبیه‌شده به یک فایل و لینک کردن نمودار به آن کتاب‌کار خارجی استفاده کنید.
+از [readWorkbookStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/#readWorkbookStream) و [setExternalWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/#setExternalWorkbook) برای استخراج کتاب‌کار نمودار تعبیه‌شده به یک فایل و پیوند دادن نمودار به آن کتاب‌کار خارجی استفاده کنید.
 
-این مثال یک نمودار دایره‌ای با داده پیش‌فرض ایجاد می‌کند، کتاب‌کار آن را به `externalWorkbook1.xlsx` می‌نویسد و قبل از اختصاص فایل به عنوان منبع داده نمودار، نوشتن فایل را تکمیل می‌کند. ارائه لینک‌شده را در `externalWorkbook.pptx` ذخیره می‌کند.
+این مثال یک نمودار دایره‌ای با دادهٔ پیش‌فرض ایجاد می‌کند و کتاب‌کار آن را استخراج می‌کند. پس از نوشتن کامل فایل، کتاب‌کار خارجی را به عنوان منبع دادهٔ نمودار اختصاص می‌دهد و پرزنتیشن پیوندشده را ذخیره می‌کند.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -309,6 +340,7 @@ try {
     try {
         fileSystem.writeFileSync(workbookPath, Buffer.from(workbookData));
         chart.getChartData().setExternalWorkbook(workbookPath);
+        
         presentation.save("externalWorkbook.pptx", aspose.slides.SaveFormat.Pptx);
     } catch (exception) {
         console.log("Could not write the external workbook: " + exception.message);
@@ -320,11 +352,11 @@ try {
 
 ### **تنظیم یک کتاب‌کار خارجی**
 
-با استفاده از متد [setExternalWorkbook](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/chartdata/#setExternalWorkbook) می‌توانید یک کتاب‌کار خارجی را به یک نمودار به عنوان منبع داده اختصاص دهید. این متد همچنین می‌تواند برای به‌روزرسانی مسیر کتاب‌کار خارجی (در صورت جابه‌جایی آن) استفاده شود.
+با استفاده از متد [setExternalWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/#setExternalWorkbook) می‌توانید یک کتاب‌کار خارجی را به یک نمودار به عنوان منبع دادهٔ آن اختصاص دهید. این متد می‌تواند مسیر کتاب‌کار خارجی را نیز به‌روزرسانی کند (اگر کتاب‌کار جابه‌جا شده باشد).
 
-اگرچه نمی‌توانید داده‌ها رادر کتاب‌کارهای ذخیره‌شده در مکان‌های دور یا منابع ویرایش کنید، همچنان می‌توانید از چنین کتاب‌کارهایی به عنوان منبع داده خارجی استفاده کنید. اگر مسیر نسبی برای کتاب‌کار خارجی ارائه شود، به‌صورت خودکار به مسیر کامل تبدیل می‌گردد.
+در حالی که نمی‌توانید داده‌های موجود در کتاب‌کارهای ذخیره‌شده در مکان‌های راه دور یا منابع را ویرایش کنید، همچنان می‌توانید از چنین کتاب‌کارهایی به عنوان منبع دادهٔ خارجی استفاده کنید. اگر مسیر نسبی برای کتاب‌کار خارجی ارائه شود، به‌صورت خودکار به مسیر کامل تبدیل می‌شود.
 
-این مثال به `externalWorkbook.xlsx` در دایرکتوری کاری نیاز دارد. برگه کاری به نام `Sheet1` باید یک نام سری در B1، نام‌های دسته در A2:A4 و مقادیر عددی در B2:B4 داشته باشد. مثال یک نمودار دایره‌ای ایجاد می‌کند، کتاب‌کار را لینک می‌کند و با استفاده از [setRange](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/chartdata/#setRange) دامنه A1:B4 را به یک سری و سه دسته نگاشت می‌کند. نتیجه در `Presentation_with_externalWorkbook.pptx` ذخیره می‌شود.
+این مثال از یک کتاب‌کار خارجی استفاده می‌کند که شیت `Sheet1` آن شامل نام سری در B1، نام دسته‌ها در A2:A4 و مقادیر عددی در B2:B4 است. مثال یک نمودار دایره‌ای ایجاد می‌کند، کتاب‌کار را پیوند می‌دهد و با [setRange](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/#setRange) بازهٔ A1:B4 را به یک سری و سه دسته اختصاص می‌دهد. پرزنتیشن با نمودار پیوندشده ذخیره می‌شود.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -347,12 +379,12 @@ try {
 }
 ```
 
-پارامتر `updateChartData` متد [setExternalWorkbook](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/chartdata/#setExternalWorkbook) کنترل می‌کند که آیا کتاب‌کار بارگذاری شود یا خیر.
+پارامتر `updateChartData` متد [setExternalWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/#setExternalWorkbook) کنترل می‌کند که آیا کتاب‌کار بارگیری شود یا نه.
 
-* وقتی `updateChartData` برابر `false` باشد، فقط مسیر کتاب‌کار به‌روز می‌شود. داده‌های نمودار از کتاب‌کار هدف بارگذاری یا به‌روز نمی‌شوند، بنابراین کتاب‌کار می‌تواند در دسترس نباشد.
-* وقتی `updateChartData` برابر `true` باشد، داده‌های نمودار از کتاب‌کار هدف به‌روز می‌شود.
+* وقتی `updateChartData` برابر `false` باشد، تنها مسیر کتاب‌کار به‌روز می‌شود. دادهٔ نمودار از کتاب‌کار هدف بارگیری یا به‌روزرسانی نمی‌شود، بنابراین کتاب‌کار می‌تواند در دسترس نباشد.
+* وقتی `updateChartData` برابر `true` باشد، دادهٔ نمودار از کتاب‌کار هدف به‌روزرسانی می‌شود.
 
-مثال زیر یک URL جایگزین را با `updateChartData` برابر `false` اختصاص می‌دهد. داده‌های پیش‌فرض نمودار دایره‌ای حفظ می‌شود و ارائه بدون بارگذاری کتاب‌کار در دسترس ذخیره می‌گردد.
+مثال زیر یک URL جایگزین را با `updateChartData` تنظیم شده بر `false` اختصاص می‌دهد. داده‌های پیش‌فرض نمودار دایره‌ای حفظ می‌شوند و پرزنتیشن بدون بارگیری کتاب‌کار در دسترس نیست ذخیره می‌شود.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -370,17 +402,11 @@ try {
 }
 ```
 
-### **دریافت مسیر کتاب‌کار منبع داده خارجی یک نمودار**
+### **دریافت مسیر کتاب‌کار منبع دادهٔ خارجی یک نمودار**
 
-برای شناسایی کتاب‌کاری که به یک نمودار لینک شده است، ابتدا بررسی کنید که آیا نمودار از منبع داده خارجی استفاده می‌کند یا خیر. اگر چنین باشد، می‌توانید مسیر کتاب‌کار را با انجام مراحل زیر دریافت کنید.
+برای شناسایی کتاب‌کاری که به یک نمودار پیوند داده شده است، بررسی کنید آیا نمودار از منبع دادهٔ خارجی استفاده می‌کند و مسیر کتاب‌کار آن را بازیابی کنید.
 
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/presentation/) ایجاد کنید.
-1. اولین اسلاید را با اندیس صفر مبنا دسترسی پیدا کنید.
-1. اطمینان حاصل کنید که اولین شکل یک نمودار است.
-1. نوع منبع داده نمودار را بخوانید.
-1. اگر منبع یک کتاب‌کار خارجی باشد، مسیر آن را بخوانید.
-
-این مثال `externalWorkbook.pptx` را که در مثال قبلی ایجاد شده، باز می‌کند و اولین شکل در اولین اسلاید را بررسی می‌کند. اگر یک نمودار لینک‌شده به کتاب‌کار خارجی باشد، [getExternalWorkbookPath](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/chartdata/#getExternalWorkbookPath) را در کنسول چاپ می‌کند. سپس یک کپی از ارائه را در `Result.pptx` ذخیره می‌کند.
+این مثال اولین شکل در اولین اسلاید یک پرزنتیشن با کتاب‌کار خارجی پیوندشده را بررسی می‌کند. اگر شکل یک نمودار پیوندشده به کتاب‌کار خارجی باشد، [getExternalWorkbookPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/#getExternalWorkbookPath) را در کنسول چاپ می‌کند. سپس یک کپی از پرزنتیشن را ذخیره می‌کند.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -408,11 +434,11 @@ try {
 }
 ```
 
-### **ویرایش داده‌های نمودار**
+### **ویرایش دادهٔ نمودار**
 
-می‌توانید داده‌های موجود در کتاب‌کارهای خارجی را همانند تغییرات در کتاب‌کارهای داخلی ویرایش کنید. وقتی یک کتاب‌کار خارجی قابل بارگذاری نباشد، یک استثنا رخ می‌دهد.
+می‌توانید داده‌های موجود در کتاب‌کارهای خارجی را همان‌طور که داده‌های کتاب‌کارهای داخلی را ویرایش می‌کنید، ویرایش کنید. وقتی کتاب‌کار خارجی قابل بارگیری نباشد، استثنائی پرتاب می‌شود.
 
-این مثال به `presentation.pptx` که یک نمودار به عنوان اولین شکل در اولین اسلاید دارد و یک کتاب‌کار خارجی قابل دسترسی نیاز دارد، نیاز دارد. مقدار نقطه داده اول در سری اول را به 100 تنظیم می‌کند و ارائه را در `presentation_out.pptx` ذخیره می‌کند. ویرایش مقادیر سلولی می‌تواند فایل XLSX خارجی را به‌روز کند؛ بنابراین برای حفظ کتاب‌کار اصلی از یک کپی استفاده کنید.
+این مثال از یک نمودار که اولین شکل در اولین اسلاید است و به یک کتاب‌کار خارجی قابل دسترس پیوند دارد استفاده می‌کند. مقدار نقطهٔ دادهٔ اول در سری اول را به 100 تنظیم می‌کند و پرزنتیشن به‌روز شده را ذخیره می‌کند. ویرایش مقادیر سلولی می‌تواند فایل XLSX خارجی پیوندشده را به‌روز کند؛ بنابراین اگر نیاز به حفظ کتاب‌کار اصلی داشته باشید، از یک کپی استفاده کنید.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -447,9 +473,9 @@ try {
 
 ### **بازیابی کتاب‌کار از کش نمودار**
 
-اگر یک نمودار از کتاب‌کار خارجی که در دسترس نیست یا گم شده استفاده می‌کند، Aspose.Slides می‌تواند کتاب‌کار نمودار را از داده‌های کش‌شده در ارائه بازسازی کند. یک [LoadOptions](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/loadoptions/) ایجاد کنید، [LoadOptions.setSpreadsheetOptions](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/loadoptions/#setSpreadsheetOptions) را فراخوانی کنید و قبل از باز کردن ارائه، [SpreadsheetOptions.setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/spreadsheetoptions/#setRecoverWorkbookFromChartCache) را به `true` تنظیم کنید.
+اگر نموداری از یک کتاب‌کار خارجی که گم شده یا در دسترس نیست استفاده می‌کند، Aspose.Slides می‌تواند کتاب‌کار نمودار را از داده‌های کش‌شده در پرزنتیشن بازسازی کند. یک [LoadOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/loadoptions/) ایجاد کنید، [LoadOptions.setSpreadsheetOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/loadoptions/#setSpreadsheetOptions) را فراخوانی کنید و [SpreadsheetOptions.setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/nodejs-java/aspose.slides/spreadsheetoptions/#setRecoverWorkbookFromChartCache) را قبل از باز کردن پرزنتیشن بر روی `true` تنظیم کنید.
 
-مثال جاوااسکریپت زیر `presentation.pptx` را که اولین شکل در اولین اسلید باید یک نمودار اشاره‌گر به کتاب‌کار خارجی غیرقابل دستیابی باشد، باز می‌کند و داده‌های بازیابی‌شده را از طریق [Chart.getChartData](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/chart/#getChartData) و [ChartData.getChartDataWorkbook](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/chartdata/#getChartDataWorkbook) دسترسی می‌یابد:
+مثال جاوااسکریپت زیر داده‌های کتاب‌کار را برای یک نمودار که اولین شکل در اولین اسلاید است و به یک کتاب‌کار خارجی در دسترس نیست ارجاع می‌دهد، بازمی‌گیرد. داده‌های بازیابیده‌شده از طریق [Chart.getChartData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#getChartData) و [ChartData.getChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/#getChartDataWorkbook) دسترسی پیدا می‌شود:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -470,7 +496,7 @@ try {
         const chart = slide.getShapes().get_Item(0);
         const recoveredWorkbook = chart.getChartData().getChartDataWorkbook();
 
-        // در اینجا داده‌های کتاب‌کار بازیابی‌شده را بخوانید یا تغییر دهید.
+        // در اینجا داده‌های کتاب‌کار بازیابی‌شده را بخوانید یا اصلاح کنید.
     } else {
         console.log("The first shape is not a chart.");
     }
@@ -479,30 +505,30 @@ try {
 }
 ```
 
-اگر کتاب‌کار خارجی در دسترس نباشد و بازیابی غیرفعال باشد، Aspose.Slides یک استثنا می‌اندازد. فقط زمانی که استفاده از داده‌های کش‌شده نمودار یک گزینه قابل قبول باشد، بازیابی را فعال کنید، زیرا کش ممکن است شامل تغییرات انجام‌شده در کتاب‌کار خارجی پس از آخرین به‌روزرسانی ارائه نباشد.
+اگر کتاب‌کار خارجی در دسترس نباشد و بازیابی غیرفعال باشد، Aspose.Slides استثنایی پرتاب می‌کند. بازیابی را فقط زمانی فعال کنید که استفاده از داده‌های کش‌شدهٔ نمودار گزینهٔ قابل قبول باشد، زیرا کش ممکن است شامل تغییراتی که پس از آخرین به‌روزرسانی پرزنتیشن در کتاب‌کار خارجی اعمال شده باشد، نباشد.
 
 ## **سؤالات متداول**
 
-**آیا می‌توانم تشخیص دهم که یک نمودار خاص به کتاب‌کار خارجی یا تعبیه‌شده لینک دارد؟**
+**آیا می‌توانم تشخیص دهم که یک نمودار خاص به یک کتاب‌کار خارجی یا تعبیه‌شده پیوند دارد؟**
 
-بله. یک نمودار دارای [data source type](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/chartdata/#getDataSourceType) و [path to an external workbook](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/chartdata/#getExternalWorkbookPath) است؛ اگر منبع یک کتاب‌کار خارجی باشد، می‌توانید مسیر کامل را خوانده و مطمئن شوید که فایل خارجی استفاده می‌شود.
+بله. یک نمودار دارای [data source type](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/#getDataSourceType) و [path to an external workbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/#getExternalWorkbookPath) است؛ اگر منبع یک کتاب‌کار خارجی باشد، می‌توانید مسیر کامل را بخوانید تا مطمئن شوید فایلی خارجی استفاده می‌شود.
 
 **آیا مسیرهای نسبی به کتاب‌کارهای خارجی پشتیبانی می‌شوند و چگونه ذخیره می‌شوند؟**
 
-بله. اگر مسیر نسبی مشخص کنید، به‌صورت خودکار به مسیر مطلق تبدیل می‌شود. ارائه مسیر مطلق را در فایل PPTX ذخیره می‌کند، بنابراین جابه‌جایی کتاب‌کار ممکن است نیاز به به‌روزرسانی لینک داشته باشد.
+بله. اگر مسیر نسبی مشخص کنید، به‌صورت خودکار به مسیر مطلق تبدیل می‌شود. پرزنتیشن مسیر مطلق را در فایل PPTX ذخیره می‌کند، بنابراین جابجایی کتاب‌کار ممکن است نیاز به به‌روزرسانی پیوند داشته باشد.
 
-**آیا می‌توانم از کتاب‌کارهایی که در منابع/به اشتراک‌گذاری‌های شبکه قرار دارند استفاده کنم؟**
+**آیا می‌توانم از کتاب‌کارهایی که روی منابع/به‌اشتراک‌گذاری‌های شبکه قرار دارند استفاده کنم؟**
 
-بله، چنین کتاب‌کارهایی می‌توانند به عنوان منبع داده خارجی استفاده شوند. اما ویرایش مستقیم کتاب‌کارهای دور از Aspose.Slides پشتیبانی نمی‌شود؛ آن‌ها فقط می‌توانند به عنوان منبع استفاده شوند.
+بله، چنین کتاب‌کارهایی می‌توانند به عنوان منبع دادهٔ خارجی استفاده شوند. اما ویرایش مستقیم کتاب‌کارهای راه‌دور از Aspose.Slides پشتیبانی نمی‌شود؛ فقط می‌توانند به عنوان منبع استفاده شوند.
 
-**آیا Aspose.Slides هنگام ذخیره ارائه، فایل XLSX خارجی را بازنویسی می‌کند؟**
+**آیا Aspose.Slides هنگام ذخیره پرزنتیشن، فایل XLSX خارجی را بازنویسی می‌کند؟**
 
-ارائه یک [link to the external file](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/chartdata/#getExternalWorkbookPath) را ذخیره می‌کند. ویرایش داده‌های نمودار پشتیبانی‌شده از سلول می‌تواند فایل XLSX محلی مرتبط را نیز به‌روز کند. اگر کتاب‌کار اصلی باید بدون تغییر بماند، از یک کپی آن استفاده کنید.
+پرزنتیشن یک [link to the external file](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/#getExternalWorkbookPath) ذخیره می‌کند. ویرایش داده‌های نمودار مبتنی بر سلول می‌تواند فایل XLSX محلی پیوندشده را نیز به‌روزرسانی کند. اگر باید کتاب‌کار اصلی دست‌نخورده بماند، از یک کپی استفاده کنید.
 
-**اگر فایل خارجی با رمز عبور محافظت شود چه باید کرد؟**
+**اگر فایل خارجی با رمزعبور محافظت شود چه باید کرد؟**
 
-Aspose.Slides هنگام لینک کردن رمز عبور را قبول نمی‌کند. یک روش معمول این است که پیش از آن‌را محافظت حذف کنید یا یک نسخه بدون رمز (مثلاً با استفاده از [Aspose.Cells](https://reference.aspose.com/cells/java/)) تهیه کنید و به آن لینک دهید.
+Aspose.Slides هنگام پیوند گذرواژه‌ای نمی‌پذیرد. یک روش معمول حذف حفاظت پیش از پیوند یا آماده‌سازی یک کپی رمزگشایی‌شده (به‌عنوان مثال با [Aspose.Cells](https://reference.aspose.com/cells/java/)) و پیوند به آن کپی است.
 
-**آیا امکان دارد چندین نمودار به یک کتاب‌کار خارجی ارجاع دهند؟**
+**آیا می‌توان چندین نمودار را به یک کتاب‌کار خارجی ارجاع داد؟**
 
-بله. هر نمودار لینک خود را ذخیره می‌کند. اگر همه به یک فایل اشاره کنند، به‌روزرسانی آن فایل در هر بار بارگذاری داده‌ها در تمام نمودارها منعکس خواهد شد.
+بله. هر نمودار پیوند خود را ذخیره می‌کند. اگر همه به یک فایل اشاره کنند، به‌روزرسانی آن فایل در هر بار بارگذاری داده‌ها در تمام نمودارها منعکس می‌شود.

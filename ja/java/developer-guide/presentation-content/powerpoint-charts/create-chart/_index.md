@@ -1,5 +1,5 @@
 ---
-title: JavaでPowerPointプレゼンテーションのチャートを作成または更新する
+title: Java で PowerPoint プレゼンテーションのチャートを作成または更新
 linktitle: チャートの作成または更新
 type: docs
 weight: 10
@@ -13,139 +13,141 @@ keywords:
 - 散布図
 - 円グラフ
 - 折れ線グラフ
-- ツリーマップチャート
+- ツリーマップグラフ
 - 株価チャート
 - 箱ひげ図
 - ファンネルチャート
 - サンバーストチャート
-- ヒストグラムチャート
+- ヒストグラム
 - レーダーチャート
 - マルチカテゴリチャート
 - PowerPoint
 - プレゼンテーション
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Java を使用して、PowerPoint プレゼンテーション内のチャートを作成およびカスタマイズします。実用的な Java コード例を用いて、チャートの追加、書式設定、編集を行います。"
+description: "Aspose.Slides for Java を使用して PowerPoint プレゼンテーションのチャートを作成およびカスタマイズします。Java の実用的なコード例でチャートの追加、書式設定、編集が可能です。"
 ---
 ## **概要**
 
-この記事では、Aspose.Slides を使用してチャートを作成およびカスタマイズする方法について包括的に解説します。プログラムでスライドにチャートを追加し、データを設定し、特定のデザイン要件に合わせてさまざまな書式設定オプションを適用する方法を学びます。記事全体で、プレゼンテーションとチャートオブジェクトの初期化から、系列、軸、凡例の設定に至るまで、ステップごとに詳細なコード例が示されています。このガイドに従うことで、動的なチャート生成をアプリケーションに統合し、データ駆動型プレゼンテーションの作成プロセスを効率化する方法を確実に習得できます。
+この記事では、Aspose.Slides を使用してチャートを作成およびカスタマイズする方法について包括的なガイドを提供します。スライドにプログラムでチャートを追加し、データを設定し、特定のデザイン要件に合わせてさまざまな書式設定オプションを適用する方法を学びます。記事全体で、プレゼンテーションとチャートオブジェクトの初期化からシリーズ、軸、凡例の設定まで、各手順を示す詳細なコード例が示されています。このガイドに従うことで、動的なチャート生成をアプリケーションに統合し、データ駆動型プレゼンテーションの作成プロセスを効率化するための確固たる理解が得られます。
 
 ## **チャートの作成**
 
-チャートは、データをすばやく可視化し、表やスプレッドシートからはすぐに分からない洞察を得るのに役立ちます。
+チャートはデータを素早く視覚化し、表やスプレッドシートからはすぐに分からない洞察を得るのに役立ちます。
 
 **なぜチャートを作成するのか？**
 
 チャートを使用すると、次のことが可能です。
 
-* プレゼンテーションの単一スライドに大量のデータを集約、要約、または凝縮できる
-* データのパターンやトレンドを可視化できる
-* 時間の経過や特定の測定単位に対するデータの方向性や勢いを推測できる
-* 異常値、逸脱、エラー、意味不明なデータなどを発見できる
-* 複雑なデータを効果的に伝達・提示できる
+* プレゼンテーションの 1 枚のスライドに大量のデータを集約、要約、または凝縮できる
+* データのパターンやトレンドを明らかにできる
+* 時間の経過や特定の測定単位に対するデータの方向性と勢いを推測できる
+* 外れ値、異常、偏差、エラー、意味のないデータなどを検出できる
+* 複雑なデータを効果的に伝達または提示できる
 
-PowerPoint では *Insert* 機能を使って多種多様なチャートテンプレートから作成できますが、Aspose.Slides を使用すると、一般的なチャートタイプに基づく標準チャートとカスタムチャートの両方を作成できます。
+PowerPoint では *Insert* 機能を使用してチャートを作成でき、さまざまなチャートタイプのテンプレートが提供されています。Aspose.Slides を使用すると、一般的なチャートタイプに基づく通常のチャートと、カスタムチャートの両方を作成できます。
 
-{{% alert color="info" title="Note" %}}チャートを作成するには、[ChartType](https://reference.aspose.com/slides/ja/java/com.aspose.slides/charttype/) クラスを使用します。このクラスのフィールドはさまざまなチャートタイプに対応しています。{{% /alert %}}
+{{% alert color="info" title="Note" %}}
+チャートを作成するには、[ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/) クラスを使用します。このクラスのフィールドはさまざまなチャートタイプに対応しています。
+{{% /alert %}}
 
-### **クラスター化された縦棒グラフの作成**
+### **クラスター化縦棒グラフの作成**
 
-このセクションでは、Aspose.Slides を使用してクラスター化された縦棒グラフを作成する方法を説明します。プレゼンテーションの初期化、チャートの追加、タイトル、データ、系列、カテゴリ、スタイリングなどの要素のカスタマイズ方法を学びます。以下の手順に従って、標準的なクラスター化縦棒グラフがどのように生成されるかをご確認ください。
+このセクションでは、Aspose.Slides を使用してクラスター化縦棒グラフを作成する方法を説明します。プレゼンテーションの初期化、チャートの追加、タイトル、データ、シリーズ、カテゴリ、スタイリングなどの要素のカスタマイズ方法を学びます。以下の手順に従って、標準的なクラスター化縦棒グラフがどのように生成されるかを確認してください。
 
-1. [Presentation](https://reference.aspose.com/slides/ja/java/com.aspose.slides/presentation) クラスのインスタンスを作成します。
-1. インデックスを使用してスライドへの参照を取得します。
-1. データを含むチャートを追加し、`ChartType.ClusteredColumn` タイプを指定します。
-1. チャートにタイトルを追加します。
-1. チャートのデータ ワークシートにアクセスします。
-1. 既定の系列とカテゴリをすべてクリアします。
-1. 新しい系列とカテゴリを追加します。
-1. 系列の新しいチャート データを追加します。
-1. 系列に塗りつぶし色を適用します。
-1. 系列にラベルを追加します。
-1. 変更されたプレゼンテーションを PPTX ファイルとして保存します。
+1. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation) クラスのインスタンスを作成します。
+2. インデックスでスライドへの参照を取得します。
+3. データを含むチャートを追加し、`ChartType.ClusteredColumn` タイプを指定します。
+4. チャートにタイトルを追加します。
+5. チャートのデータ ワークシートにアクセスします。
+6. 既定のシリーズとカテゴリをすべてクリアします。
+7. 新しいシリーズとカテゴリを追加します。
+8. チャートシリーズ用に新しいチャートデータを追加します。
+9. チャートシリーズに塗りつぶし色を適用します。
+10. チャートシリーズにラベルを追加します。
+11. 変更されたプレゼンテーションを PPTX ファイルとして保存します。
 
-この C# コードは、クラスター化縦棒グラフの作成方法を示しています：
+この C# コードは、クラスター化縦棒グラフの作成方法を示しています。
 
 ```java
 import com.aspose.slides.*;
 import java.awt.Color;
 
-// PPTX ファイルを表すプレゼンテーション クラスのインスタンス化
+// PPTX ファイルを表すプレゼンテーションクラスのインスタンスを作成します
 Presentation pres = new Presentation();
 try {
-    // 最初のスライドにアクセス
+    // 最初のスライドにアクセスします
     ISlide sld = pres.getSlides().get_Item(0);
     
-    // デフォルト データでチャートを追加
+    // デフォルトデータでチャートを追加します
     IChart chart = sld.getShapes().addChart(ChartType.ClusteredColumn, 0, 0, 500, 500);
     
-    // チャートのタイトルを設定
+    // チャートのタイトルを設定します
     chart.getChartTitle().addTextFrameForOverriding("Sample Title");
     chart.getChartTitle().getTextFrameForOverriding().getTextFrameFormat().setCenterText(NullableBool.True);
     chart.getChartTitle().setHeight(20);
     chart.setTitle(true);
     
-    // チャート データ シートのインデックスを設定
+    // チャートデータシートのインデックスを設定します
     int defaultWorksheetIndex = 0;
     
-    // チャート データ ワークシートを取得
+    // チャートデータのワークシートを取得します
     IChartDataWorkbook fact = chart.getChartData().getChartDataWorkbook();
     
-    // デフォルトで生成された系列とカテゴリを削除
+    // デフォルトで生成されたシリーズとカテゴリを削除します
     chart.getChartData().getSeries().clear();
     chart.getChartData().getCategories().clear();
     int s = chart.getChartData().getSeries().size();
     s = chart.getChartData().getCategories().size();
     
-    // 新しい系列を追加
+    // 新しいシリーズを追加します
     chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 1, "Series 1"),chart.getType());
     chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 2, "Series 2"),chart.getType());
     
-    // 新しいカテゴリを追加
+    // 新しいカテゴリを追加します
     chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 1, 0, "Caetegoty 1"));
     chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 2, 0, "Caetegoty 2"));
     chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 3, 0, "Caetegoty 3"));
     
-    // 最初のチャート系列を取得
+    // 最初のチャートシリーズを取得します
     IChartSeries series = chart.getChartData().getSeries().get_Item(0);
     
-    // 系列データを現在設定
+    // シリーズデータを設定します
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 1, 20));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 50));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 30));
     
-    // 系列の塗りつぶし色を設定
+    // シリーズの塗りつぶし色を設定します
     series.getFormat().getFill().setFillType(FillType.Solid);
     series.getFormat().getFill().getSolidFillColor().setColor(Color.RED);
     
-    // 2 番目のチャート系列を取得
+    // 2 番目のチャートシリーズを取得します
     series = chart.getChartData().getSeries().get_Item(1);
     
-    // 系列データを設定
+    // シリーズデータを設定します
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 2, 30));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 2, 10));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 2, 60));
     
-    // 系列の塗りつぶし色を設定
+    // シリーズの塗りつぶし色を設定します
     series.getFormat().getFill().setFillType(FillType.Solid);
     series.getFormat().getFill().getSolidFillColor().setColor(Color.GREEN);
     
-    // 新しい系列の各カテゴリにカスタム ラベルを作成
-    // 最初のラベルにカテゴリ名を表示
+    //新しいシリーズの各カテゴリにカスタムラベルを作成します
+    // 最初のラベルにカテゴリ名を表示するよう設定します
     IDataLabel lbl = series.getDataPoints().get_Item(0).getLabel();
     lbl.getDataLabelFormat().setShowCategoryName(true);
     
     lbl = series.getDataPoints().get_Item(1).getLabel();
     lbl.getDataLabelFormat().setShowSeriesName(true);
     
-    // 3 番目のラベルに値を表示
+    // 3 番目のラベルに値を表示します
     lbl = series.getDataPoints().get_Item(2).getLabel();
     lbl.getDataLabelFormat().setShowValue(true);
     lbl.getDataLabelFormat().setShowSeriesName(true);
     lbl.getDataLabelFormat().setSeparator("/");
     
-    // Saves the presentation with chart
+    // チャート付きのプレゼンテーションを保存します
     pres.save("output.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
@@ -154,82 +156,82 @@ try {
 
 ### **散布図の作成**
 
-散布図（スキャッタ プロットまたは X‑Y グラフとも呼ばれます）は、2 つの変数間のパターンや相関関係を確認する際に頻繁に使用されます。
+散布図（散布プロットまたは x‑y グラフとも呼ばれます）は、2 つの変数間のパターンや相関関係を確認する際に使用されます。
 
-散布図を使用する場面:
+散布図を使用するケース:
 
-* ペアになった数値データがあるとき
-* 2 つの変数が相互に関連しているとき
-* 変数間の関係性を判断したいとき
-* 従属変数が独立変数の複数の値に対応しているとき
+* 数値データがペアになっている場合
+* 2 つの変数が相互に関連している場合
+* 2 変数が関連しているかどうかを判定したい場合
+* 従属変数に対して独立変数が複数の値を持つ場合
 
-1. [クラスター化された縦棒グラフの作成](#create-clustered-column-charts) の手順に従います。
-2. 3 番目の手順で、データを含むチャートを追加し、次のいずれかのチャートタイプを指定します:
-   1. [ChartType.ScatterWithMarkers](https://reference.aspose.com/slides/ja/java/com.aspose.slides/charttype/#ScatterWithMarkers) - _散布図を表します。_
-   2. [ChartType.ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/ja/java/com.aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - _曲線で接続された散布図で、データ マーカーが付属します。_
-   3. [ChartType.ScatterWithSmoothLines](https://reference.aspose.com/slides/ja/java/com.aspose.slides/charttype/#ScatterWithSmoothLines) - _曲線で接続された散布図で、データ マーカーは付属しません。_
-   4. [ChartType.ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/ja/java/com.aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _直線で接続された散布図で、データ マーカーが付属します。_
-   5. [ChartType.ScatterWithStraightLines](https://reference.aspose.com/slides/ja/java/com.aspose.slides/charttype/#ScatterWithStraightLines) - _直線で接続された散布図で、データ マーカーは付属しません。_
+1. [Create Clustered Column Charts](#create-clustered-column-charts) の手順に従います。
+2. 3 番目の手順で、チャートを追加し、次のいずれかのチャートタイプを指定します。
+   1. [ChartType.ScatterWithMarkers](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#ScatterWithMarkers) - 散布図を表します。
+   2. [ChartType.ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - 曲線で接続された散布図で、データ マーカーがあります。
+   3. [ChartType.ScatterWithSmoothLines](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#ScatterWithSmoothLines) - 曲線で接続された散布図で、データ マーカーはありません。
+   4. [ChartType.ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - 直線で接続された散布図で、データ マーカーがあります。
+   5. [ChartType.ScatterWithStraightLines](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#ScatterWithStraightLines) - 直線で接続された散布図で、データ マーカーはありません。
 
-この Java コードは、系列ごとに異なるマーカーを持つ散布図の作成方法を示しています：
+この Java コードは、各シリーズに異なるマーカーを使用した散布図の作成方法を示しています。
 
 ```java
 import com.aspose.slides.*;
 
-// PPTX ファイルを表すプレゼンテーション クラスのインスタンス化
+// PPTX ファイルを表すプレゼンテーションクラスのインスタンスを作成します
 Presentation pres = new Presentation();
 try {
-    // 最初のスライドにアクセス
+    // 最初のスライドにアクセスします
     ISlide slide = pres.getSlides().get_Item(0);
 
-    // デフォルトのチャートを作成
+    // デフォルトのチャートを作成します
     IChart chart = slide.getShapes().addChart(ChartType.ScatterWithSmoothLines, 0, 0, 400, 400);
     
-    // デフォルトのチャート データ ワークシート インデックスを取得
+    // デフォルトのチャート データ ワークシート インデックスを取得します
     int defaultWorksheetIndex = 0;
     
-    // チャート データ ワークシートを取得
+    // チャート データ ワークシートを取得します
     IChartDataWorkbook fact = chart.getChartData().getChartDataWorkbook();
     
-    // デモ系列を削除
+    // デモシリーズを削除します
     chart.getChartData().getSeries().clear();
     
-    // 新しい系列を追加
+    // 新しいシリーズを追加します
     chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 1, 1, "Series 1"), chart.getType());
     chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 1, 3, "Series 2"), chart.getType());
     
-    // 最初のチャート系列を取得
+    // 最初のチャートシリーズを取得します
     IChartSeries series = chart.getChartData().getSeries().get_Item(0);
     
-    // 系列に新しい点 (1:3) を追加
+    // 系列に新しいポイント (1:3) を追加します
     series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 1), fact.getCell(defaultWorksheetIndex, 2, 2, 3));
     
-    // 新しい点 (2:10) を追加
+    // 新しいポイント (2:10) を追加します
     series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 2), fact.getCell(defaultWorksheetIndex, 3, 2, 10));
     
-    // 系列のタイプを変更
+    // 系列のタイプを変更します
     series.setType(ChartType.ScatterWithStraightLinesAndMarkers);
     
-    // チャート系列のマーカーを変更
+    // チャートシリーズのマーカーを変更します
     series.getMarker().setSize(10);
     series.getMarker().setSymbol(MarkerStyleType.Star);
     
-    // 2 番目のチャート系列を取得
+    // 2 番目のチャートシリーズを取得します
     series = chart.getChartData().getSeries().get_Item(1);
     
-    // そこに新しい点 (5:2) を追加
+    // そこに新しいポイント (5:2) を追加します
     series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 2, 3, 5), fact.getCell(defaultWorksheetIndex, 2, 4, 2));
     
-    // 新しい点 (3:1) を追加
+    // 新しいポイント (3:1) を追加します
     series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 3, 3, 3), fact.getCell(defaultWorksheetIndex, 3, 4, 1));
     
-    // 新しい点 (2:2) を追加
+    // 新しいポイント (2:2) を追加します
     series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 4, 3, 2), fact.getCell(defaultWorksheetIndex, 4, 4, 2));
     
-    // 新しい点 (5:1) を追加
+    // 新しいポイント (5:1) を追加します
     series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 5, 3, 5), fact.getCell(defaultWorksheetIndex, 5, 4, 1));
     
-    // チャート系列のマーカーを変更
+    // チャートシリーズのマーカーを変更します
     series.getMarker().setSize(10);
     series.getMarker().setSymbol(MarkerStyleType.Circle);
     
@@ -241,67 +243,67 @@ try {
 
 ### **円グラフの作成**
 
-円グラフは、特にカテゴリ ラベルと数値が対応しているデータで、全体に対する各部分の割合を示すのに最適です。ただし、部分やラベルが多数ある場合は、棒グラフの使用を検討してください。
+円グラフは、特にカテゴリ ラベルと数値が組み合わさったデータにおいて、全体に対する部分の関係を示すのに最適です。ただし、項目やラベルが多数ある場合は、棒グラフの使用を検討してください。
 
-1. [Presentation](https://reference.aspose.com/slides/ja/java/com.aspose.slides/presentation/) クラスのインスタンスを作成します。
-2. インデックスを使用してスライドへの参照を取得します。
-3. デフォルト データを持つチャートを追加し、[ChartType.Pie](https://reference.aspose.com/slides/ja/java/com.aspose.slides/charttype/#Pie) タイプを指定します。
-4. チャート データ ワークブック [IChartDataWorkbook](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ichartdataworkbook/) にアクセスします。
-5. デフォルトの系列とカテゴリをクリアします。
-6. 新しい系列とカテゴリを追加します。
-7. 系列の新しいチャート データを追加します。
-8. 円グラフのセクタにカスタム色を適用しながら新しいポイントを追加します。
-9. 系列のラベルを設定します。
-10. 系列ラベルにリーダー ラインを有効にします。
-11. 円グラフのセクタの回転角度を設定します。
+1. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) クラスのインスタンスを作成します。
+2. インデックスでスライドへの参照を取得します。
+3. デフォルト データでチャートを追加し、[ChartType.Pie](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#Pie) タイプを指定します。
+4. チャート データ ワークブック [IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/) にアクセスします。
+5. 既定のシリーズとカテゴリをクリアします。
+6. 新しいシリーズとカテゴリを追加します。
+7. チャートシリーズ用に新しいチャートデータを追加します。
+8. チャートに新しいポイントを追加し、円グラフのセクターにカスタム カラーを適用します。
+9. シリーズのラベルを設定します。
+10. シリーズ ラベルにリーダー ラインを有効にします。
+11. 円グラフのセクターの回転角度を設定します。
 12. 変更されたプレゼンテーションを PPTX ファイルとして保存します。
 
-この Java コードは、円グラフの作成方法を示しています：
+この Java コードは、円グラフの作成方法を示しています。
 
 ```java
 import com.aspose.slides.*;
 import java.awt.Color;
 
-// PPTX ファイルを表すプレゼンテーション クラスのインスタンス化
+// PPTX ファイルを表すプレゼンテーションクラスのインスタンスを作成します
 Presentation pres = new Presentation();
 try {
-    // 最初のスライドにアクセス
+    // 最初のスライドにアクセスします
     ISlide slides = pres.getSlides().get_Item(0);
     
-    // デフォルト データでチャートを追加
+    // デフォルトデータでチャートを追加します
     IChart chart = slides.getShapes().addChart(ChartType.Pie, 100, 100, 400, 400);
     
-    // チャートのタイトルを設定
+    // チャートのタイトルを設定します
     chart.getChartTitle().addTextFrameForOverriding("Sample Title");
     chart.getChartTitle().getTextFrameForOverriding().getTextFrameFormat().setCenterText(NullableBool.True);
     chart.getChartTitle().setHeight(20);
     chart.setTitle(true);
     
-    // チャート データ シートのインデックスを設定
+    // チャート データシートのインデックスを設定します
     int defaultWorksheetIndex = 0;
     
-    // チャート データ ワークシートを取得
+    // チャート データ ワークシートを取得します
     IChartDataWorkbook fact = chart.getChartData().getChartDataWorkbook();
     
-    // デフォルトで生成された系列とカテゴリを削除
+    // デフォルトで生成されたシリーズとカテゴリを削除します
     chart.getChartData().getSeries().clear();
     chart.getChartData().getCategories().clear();
     
-    // 新しいカテゴリを追加
+    // 新しいカテゴリを追加します
     chart.getChartData().getCategories().add(fact.getCell(0, 1, 0, "First Qtr"));
     chart.getChartData().getCategories().add(fact.getCell(0, 2, 0, "2nd Qtr"));
     chart.getChartData().getCategories().add(fact.getCell(0, 3, 0, "3rd Qtr"));
     
-    // 新しい系列を追加
+    // 新しいシリーズを追加します
     IChartSeries series = chart.getChartData().getSeries().add(fact.getCell(0, 0, 1, "Series 1"), chart.getType());
     
-    // 系列データを設定
+    // シリーズデータを設定します
     series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 1, 1, 20));
     series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 50));
     series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 30));
     
-    // 新しいバージョンでは動作しません
-    // Adding new points and setting sector color
+    // 新しいバージョンでは機能しません
+    // 新しいポイントを追加し、セクターの色を設定します
     // series.IsColorVaried = true;
     chart.getChartData().getSeriesGroups().get_Item(0).setColorVaried(true);
     
@@ -309,7 +311,7 @@ try {
     point.getFormat().getFill().setFillType(FillType.Solid);
     point.getFormat().getFill().getSolidFillColor().setColor(Color.CYAN);
 	
-    // セクタの枠線を設定
+    // セクターの枠線を設定します
     point.getFormat().getLine().getFillFormat().setFillType(FillType.Solid);
     point.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.GRAY);
     point.getFormat().getLine().setWidth(3.0);
@@ -320,7 +322,7 @@ try {
     point1.getFormat().getFill().setFillType(FillType.Solid);
     point1.getFormat().getFill().getSolidFillColor().setColor(Color.ORANGE);
     
-    // セクタの枠線を設定
+    // セクターの枠線を設定します
     point1.getFormat().getLine().getFillFormat().setFillType(FillType.Solid);
     point1.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
     point1.getFormat().getLine().setWidth(3.0);
@@ -331,14 +333,14 @@ try {
     point2.getFormat().getFill().setFillType(FillType.Solid);
     point2.getFormat().getFill().getSolidFillColor().setColor(Color.YELLOW);
     
-    // セクタの枠線を設定
+    // セクターの枠線を設定します
     point2.getFormat().getLine().getFillFormat().setFillType(FillType.Solid);
     point2.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.RED);
     point2.getFormat().getLine().setWidth(2.0);
     point2.getFormat().getLine().setStyle(LineStyle.ThinThin);
     point2.getFormat().getLine().setDashStyle(LineDashStyle.LargeDashDotDot);
     
-    // 新しい系列の各カテゴリにカスタム ラベルを作成
+    // 新しいシリーズの各カテゴリにカスタムラベルを作成します
     IDataLabel lbl1 = series.getDataPoints().get_Item(0).getLabel();
     
     // lbl.ShowCategoryName = true;
@@ -353,13 +355,13 @@ try {
     lbl3.getDataLabelFormat().setShowSeriesName(true);
     lbl3.getDataLabelFormat().setShowPercentage(true);
     
-    // チャートのリーダー ラインを表示
+    // チャートのリーダーラインを表示します
     series.getLabels().getDefaultDataLabelFormat().setShowLeaderLines(true);
     
-    // 円グラフ セクタの回転角度を設定
+    // 円グラフセクターの回転角度を設定します
     chart.getChartData().getSeriesGroups().get_Item(0).setFirstSliceAngle(180);
     
-    // チャート付きのプレゼンテーションを保存
+    // チャート付きのプレゼンテーションを保存します
     pres.save("PieChart_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
@@ -368,14 +370,14 @@ try {
 
 ### **折れ線グラフの作成**
 
-折れ線グラフ（ライン グラフ）は、時間経過に伴う値の変化を示すのに最適です。折れ線グラフを使用すると、多量のデータを一度に比較し、時間に沿った変化やトレンドを追跡し、系列内の異常を強調表示することができます。
+折れ線グラフ（折れ線チャート）は、時間の経過に伴う値の変化を示すのに最適です。折れ線グラフを使用すると、大量のデータを同時に比較したり、時間経過による変化やトレンドを追跡したり、データ系列の異常を強調したりできます。
 
-1. [Presentation](https://reference.aspose.com/slides/ja/java/com.aspose.slides/presentation/) クラスのインスタンスを作成します。
-1. インデックスを使用してスライドへの参照を取得します。
-1. デフォルト データを持つチャートを追加し、[ChartType.Line](https://reference.aspose.com/slides/ja/java/com.aspose.slides/charttype/#Line) タイプを指定します。
-1. 変更されたプレゼンテーションを PPTX ファイルとして保存します。
+1. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) クラスのインスタンスを作成します。
+2. インデックスでスライドへの参照を取得します。
+3. デフォルト データでチャートを追加し、[ChartType.Line](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#Line) タイプを指定します。
+4. 変更されたプレゼンテーションを PPTX ファイルとして保存します。
 
-この Java コードは、折れ線グラフの作成方法を示しています：
+この Java コードは、折れ線グラフの作成方法を示しています。
 
 ```java
 import com.aspose.slides.*;
@@ -390,7 +392,7 @@ try {
 }
 ```
 
-デフォルトでは、折れ線グラフのポイントは直線で連結されます。ポイントを破線で結びたい場合は、以下のように希望の破線タイプを指定できます：
+デフォルトでは、折れ線グラフのポイントは直線で連結されます。ダッシュで結びたい場合は、次のように希望のダッシュ タイプを指定できます。
 
 ```java
 import com.aspose.slides.*;
@@ -412,18 +414,18 @@ try {
 
 ### **ツリーマップ グラフの作成**
 
-ツリーマップ グラフは、各カテゴリ内で大きな寄与を持つ項目に注目させながら、データ カテゴリの相対的な大きさを示すのに最適です。
+ツリーマップ グラフは、売上データで各カテゴリ内の大きな貢献者に注意を引きつけながら、データカテゴリの相対的なサイズを示すのに最適です。
 
-1. [Presentation](https://reference.aspose.com/slides/ja/java/com.aspose.slides/presentation/) クラスのインスタンスを作成します。
-2. インデックスを使用してスライドへの参照を取得します。
-3. デフォルト データを持つチャートを追加し、[ChartType.Treemap](https://reference.aspose.com/slides/ja/java/com.aspose.slides/charttype/#Treemap) タイプを指定します。
-4. チャート データ ワークブック [IChartDataWorkbook](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ichartdataworkbook/) にアクセスします。
-5. デフォルトの系列とカテゴリをクリアします。
-6. 新しい系列とカテゴリを追加します。
-7. 系列の新しいチャート データを追加します。
+1. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) クラスのインスタンスを作成します。
+2. インデックスでスライドへの参照を取得します。
+3. デフォルト データでチャートを追加し、[ChartType.Treemap](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#Treemap) タイプを指定します。
+4. チャート データ ワークブック [IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/) にアクセスします。
+5. 既定のシリーズとカテゴリをクリアします。
+6. 新しいシリーズとカテゴリを追加します。
+7. チャートシリーズ用に新しいチャートデータを追加します。
 8. 変更されたプレゼンテーションを PPTX ファイルとして保存します。
 
-この Java コードは、ツリーマップ グラフの作成方法を示しています：
+この Java コードは、ツリーマップ グラフの作成方法を示しています。
 
 ```java
 import com.aspose.slides.*;
@@ -482,17 +484,17 @@ try {
 
 ### **株価チャートの作成**
 
-1. [Presentation](https://reference.aspose.com/slides/ja/java/com.aspose.slides/presentation/) クラスのインスタンスを作成します。
-2. インデックスを使用してスライドへの参照を取得します。
-3. デフォルト データを持つチャートを追加し、[ChartType.OpenHighLowClose](https://reference.aspose.com/slides/ja/java/com.aspose.slides/charttype/#OpenHighLowClose) タイプを指定します。
-4. チャート データ ワークブック [IChartDataWorkbook](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ichartdataworkbook/) にアクセスします。
-5. デフォルトの系列とカテゴリをクリアします。
-6. 新しい系列とカテゴリを追加します。
-7. 系列の新しいチャート データを追加します。
+1. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) クラスのインスタンスを作成します。
+2. インデックスでスライドへの参照を取得します。
+3. デフォルト データでチャートを追加し、[ChartType.OpenHighLowClose](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#OpenHighLowClose) タイプを指定します。
+4. チャート データ ワークブック [IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/) にアクセスします。
+5. 既定のシリーズとカテゴリをクリアします。
+6. 新しいシリーズとカテゴリを追加します。
+7. チャートシリーズ用に新しいチャートデータを追加します。
 8. 高低線の書式を指定します。
 9. 変更されたプレゼンテーションを PPTX ファイルとして保存します。
 
-この Java コードは、株価チャートの作成方法を示しています：
+この Java コードは、株価チャートの作成方法を示しています。
 
 ```java
 import com.aspose.slides.*;
@@ -552,16 +554,16 @@ try {
 
 ### **箱ひげ図の作成**
 
-1. [Presentation](https://reference.aspose.com/slides/ja/java/com.aspose.slides/presentation/) クラスのインスタンスを作成します。
-2. インデックスを使用してスライドへの参照を取得します。
-3. デフォルト データを持つチャートを追加し、[ChartType.BoxAndWhisker](https://reference.aspose.com/slides/ja/java/com.aspose.slides/charttype/#BoxAndWhisker) タイプを指定します。
-4. チャート データ ワークブック [IChartDataWorkbook](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ichartdataworkbook/) にアクセスします。
-5. デフォルトの系列とカテゴリをクリアします。
-6. 新しい系列とカテゴリを追加します。
-7. 系列の新しいチャート データを追加します。
+1. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) クラスのインスタンスを作成します。
+2. インデックスでスライドへの参照を取得します。
+3. デフォルト データでチャートを追加し、[ChartType.BoxAndWhisker](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#BoxAndWhisker) タイプを指定します。
+4. チャート データ ワークブック [IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/) にアクセスします。
+5. 既定のシリーズとカテゴリをクリアします。
+6. 新しいシリーズとカテゴリを追加します。
+7. チャートシリーズ用に新しいチャートデータを追加します。
 8. 変更されたプレゼンテーションを PPTX ファイルとして保存します。
 
-この Java コードは、箱ひげ図の作成方法を示しています：
+この Java コードは、箱ひげ図の作成方法を示しています。
 
 ```java
 import com.aspose.slides.*;
@@ -605,12 +607,12 @@ try {
 
 ### **ファンネル チャートの作成**
 
-1. [Presentation](https://reference.aspose.com/slides/ja/java/com.aspose.slides/presentation/) クラスのインスタンスを作成します。
-2. インデックスを使用してスライドへの参照を取得します。
-3. デフォルト データを持つチャートを追加し、[ChartType.Funnel](https://reference.aspose.com/slides/ja/java/com.aspose.slides/charttype/#Funnel) タイプを指定します。
+1. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) クラスのインスタンスを作成します。
+2. インデックスでスライドへの参照を取得します。
+3. デフォルト データでチャートを追加し、[ChartType.Funnel](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#Funnel) タイプを指定します。
 4. 変更されたプレゼンテーションを PPTX ファイルとして保存します。
 
-この Java コードは、ファンネル チャートの作成方法を示しています：
+この Java コードは、ファンネル チャートの作成方法を示しています。
 
 ```java
 import com.aspose.slides.*;
@@ -649,12 +651,12 @@ try {
 
 ### **サンバースト チャートの作成**
 
-1. [Presentation](https://reference.aspose.com/slides/ja/java/com.aspose.slides/presentation/) クラスのインスタンスを作成します。
-2. インデックスを使用してスライドへの参照を取得します。
-3. デフォルト データを持つチャートを追加し、[ChartType.Sunburst](https://reference.aspose.com/slides/ja/java/com.aspose.slides/charttype/#Sunburst) タイプを指定します。
+1. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) クラスのインスタンスを作成します。
+2. インデックスでスライドへの参照を取得します。
+3. デフォルト データでチャートを追加し、[ChartType.Sunburst](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#Sunburst) タイプを指定します。
 4. 変更されたプレゼンテーションを PPTX ファイルとして保存します。
 
-この Java コードは、サンバースト チャートの作成方法を示しています：
+この Java コードは、サンバースト チャートの作成方法を示しています。
 
 ```java
 import com.aspose.slides.*;
@@ -711,15 +713,15 @@ try {
 
 ### **ヒストグラム チャートの作成**
 
-1. [Presentation](https://reference.aspose.com/slides/ja/java/com.aspose.slides/presentation/) クラスのインスタンスを作成します。
-2. インデックスを使用してスライドへの参照を取得します。
-3. デフォルト データを持つチャートを追加し、[ChartType.Histogram](https://reference.aspose.com/slides/ja/java/com.aspose.slides/charttype/#Histogram) タイプを指定します。
-4. チャート データ ワークブック [IChartDataWorkbook](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ichartdataworkbook/) にアクセスします。
-5. デフォルトの系列とカテゴリをクリアします。
-6. 新しい系列とカテゴリを追加します。
+1. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) クラスのインスタンスを作成します。
+2. インデックスでスライドへの参照を取得します。
+3. デフォルト データでチャートを追加し、[ChartType.Histogram](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#Histogram) タイプを指定します。
+4. チャート データ ワークブック [IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/) にアクセスします。
+5. 既定のシリーズとカテゴリをクリアします。
+6. 新しいシリーズとカテゴリを追加します。
 7. 変更されたプレゼンテーションを PPTX ファイルとして保存します。
 
-この Java コードは、ヒストグラム チャートの作成方法を示しています：
+この Java コードは、ヒストグラム チャートの作成方法を示しています。
 
 ```java
 import com.aspose.slides.*;
@@ -751,12 +753,12 @@ try {
 
 ### **レーダー チャートの作成**
 
-1. [Presentation](https://reference.aspose.com/slides/ja/java/com.aspose.slides/presentation/) クラスのインスタンスを作成します。
-2. インデックスを使用してスライドへの参照を取得します。
-3. データを含むチャートを追加し、使用したいチャート タイプ（この例では [ChartType.Radar](https://reference.aspose.com/slides/ja/java/com.aspose.slides/charttype/#Radar)）を指定します。
+1. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) クラスのインスタンスを作成します。
+2. インデックスでスライドへの参照を取得します。
+3. データを含むチャートを追加し、今回の例では [ChartType.Radar](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#Radar) タイプを指定します。
 4. 変更されたプレゼンテーションを PPTX ファイルとして保存します。
 
-この Java コードは、レーダー チャートの作成方法を示しています：
+この Java コードは、レーダー チャートの作成方法を示しています。
 
 ```java
 import com.aspose.slides.*;
@@ -772,16 +774,16 @@ try {
 
 ### **マルチカテゴリ チャートの作成**
 
-1. [Presentation](https://reference.aspose.com/slides/ja/java/com.aspose.slides/presentation/) クラスのインスタンスを作成します。
-2. インデックスを使用してスライドへの参照を取得します。
-3. デフォルト データを持つチャートを追加し、[ChartType.ClusteredColumn](https://reference.aspose.com/slides/ja/java/com.aspose.slides/charttype/#ClusteredColumn) タイプを指定します。
-4. チャート データ ワークブック [IChartDataWorkbook](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ichartdataworkbook/) にアクセスします。
-5. デフォルトの系列とカテゴリをクリアします。
-6. 新しい系列とカテゴリを追加します。
-7. 系列の新しいチャート データを追加します。
+1. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) クラスのインスタンスを作成します。
+2. インデックスでスライドへの参照を取得します。
+3. デフォルト データでチャートを追加し、[ChartType.ClusteredColumn](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#ClusteredColumn) タイプを指定します。
+4. チャート データ ワークブック [IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/) にアクセスします。
+5. 既定のシリーズとカテゴリをクリアします。
+6. 新しいシリーズとカテゴリを追加します。
+7. チャートシリーズ用に新しいチャートデータを追加します。
 8. 変更されたプレゼンテーションを PPTX ファイルとして保存します。
 
-この Java コードは、マルチカテゴリ チャートの作成方法を示しています：
+この Java コードは、マルチカテゴリ チャートの作成方法を示しています。
 
 ```java
 import com.aspose.slides.*;
@@ -812,7 +814,7 @@ try {
     category.getGroupingLevels().setGroupingItem(1, "Group4");
     category = ch.getChartData().getCategories().add(fact.getCell(0, "c9", "H"));
 
-    // 系列を追加
+    // シリーズを追加
     IChartSeries series = ch.getChartData().getSeries().add(fact.getCell(0, "D1", "Series 1"),
             ChartType.ClusteredColumn);
 
@@ -834,9 +836,9 @@ try {
 
 ### **マップ チャートの作成**
 
-マップ チャートは地理データを可視化し、地域ごとの値を比較するのに役立ちます。
+マップ チャートは地理データを可視化し、地域間の値を比較するのに役立ちます。
 
-この Java コードは、マップ チャートの作成方法を示しています：
+この Java コードは、マップ チャートの作成方法を示しています。
 
 ```java
 import com.aspose.slides.*;
@@ -852,11 +854,11 @@ try {
 
 ### **組み合わせチャートの作成**
 
-組み合わせチャート（コンボ チャート）は、単一のグラフ内に 2 種類以上のチャート タイプを組み合わせます。このチャートを使用すると、複数のデータセット間の違いをハイライト、比較、検証でき、相互の関係性を把握しやすくなります。
+組み合わせチャート（コンボ チャート）は、単一のグラフに 2 つ以上のチャートタイプを組み合わせます。このチャートを使用すると、複数のデータセット間の違いを強調、比較、検証でき、相互関係を把握しやすくなります。
 
-![The combination chart](combination_chart.png)
+![組み合わせチャート](combination_chart.png)
 
-以下の Java コードは、上図の組み合わせチャートを PowerPoint プレゼンテーションに作成する方法を示しています：
+以下の Java コードは、上記の組み合わせチャートを PowerPoint プレゼンテーションに作成する方法を示しています。
 
 ```java
 import com.aspose.slides.*;
@@ -883,7 +885,7 @@ static void createComboChart() {
 static IChart createChartWithFirstSeries(ISlide slide) {
     IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
 
-    // チャートタイトルを設定。
+    // チャートのタイトルを設定します。
     chart.setTitle(true);
     chart.getChartTitle().addTextFrameForOverriding("Chart Title");
     chart.getChartTitle().setOverlay(false);
@@ -892,24 +894,24 @@ static IChart createChartWithFirstSeries(ISlide slide) {
     titleFormat.setFontBold(NullableBool.False);
     titleFormat.setFontHeight(18f);
 
-    // チャートの凡例を設定。
+    // チャートの凡例を設定します。
     chart.getLegend().setPosition(LegendPositionType.Bottom);
     chart.getLegend().getTextFormat().getPortionFormat().setFontHeight(12f);
 
-    // デフォルトで生成された系列とカテゴリを削除。
+    // デフォルトで生成されたシリーズとカテゴリを削除します。
     chart.getChartData().getSeries().clear();
     chart.getChartData().getCategories().clear();
 
     int worksheetIndex = 0;
     IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
 
-    // 新しいカテゴリを追加。
+    // 新しいカテゴリを追加します。
     chart.getChartData().getCategories().add(workbook.getCell(worksheetIndex, 1, 0, "Category 1"));
     chart.getChartData().getCategories().add(workbook.getCell(worksheetIndex, 2, 0, "Category 2"));
     chart.getChartData().getCategories().add(workbook.getCell(worksheetIndex, 3, 0, "Category 3"));
     chart.getChartData().getCategories().add(workbook.getCell(worksheetIndex, 4, 0, "Category 4"));
 
-    // 最初の系列を追加。
+    // 最初のシリーズを追加します。
     IChartDataCell seriesNameCell = workbook.getCell(worksheetIndex, 0, 1, "Series 1");
     IChartSeries series = chart.getChartData().getSeries().add(seriesNameCell, chart.getType());
 
@@ -956,28 +958,28 @@ static void addThirdSeriesToChart(IChart chart) {
 }
 
 static void setPrimaryAxesFormat(IChart chart) {
-    // 水平軸を設定。
+    // 水平軸を設定します。
     IAxis horizontalAxis = chart.getAxes().getHorizontalAxis();
     horizontalAxis.getTextFormat().getPortionFormat().setFontHeight(12f);
     horizontalAxis.getFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
 
     setAxisTitle(horizontalAxis, "X Axis");
 
-    // 垂直軸を設定。
+    // 垂直軸を設定します。
     IAxis verticalAxis = chart.getAxes().getVerticalAxis();
     verticalAxis.getTextFormat().getPortionFormat().setFontHeight(12f);
     verticalAxis.getFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
 
     setAxisTitle(verticalAxis, "Y Axis 1");
 
-    // 垂直方向の主要グリッドラインの色を設定。
+    // 垂直軸の主要グリッドラインの色を設定します。
     ILineFillFormat majorGridLinesFormat = verticalAxis.getMajorGridLinesFormat().getLine().getFillFormat();
     majorGridLinesFormat.setFillType(FillType.Solid);
     majorGridLinesFormat.getSolidFillColor().setColor(new Color(217, 217, 217));
 }
 
 static void setSecondaryAxesFormat(IChart chart) {
-    // セカンダリ水平軸を設定。
+    // 副次的水平軸を設定します。
     IAxis secondaryHorizontalAxis = chart.getAxes().getSecondaryHorizontalAxis();
     secondaryHorizontalAxis.setPosition(AxisPositionType.Bottom);
     secondaryHorizontalAxis.setCrossType(CrossesType.Maximum);
@@ -985,7 +987,7 @@ static void setSecondaryAxesFormat(IChart chart) {
     secondaryHorizontalAxis.getMajorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
     secondaryHorizontalAxis.getMinorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
 
-    // セカンダリ垂直軸を設定。
+    // 副次的垂直軸を設定します。
     IAxis secondaryVerticalAxis = chart.getAxes().getSecondaryVerticalAxis();
     secondaryVerticalAxis.setPosition(AxisPositionType.Right);
     secondaryVerticalAxis.getTextFormat().getPortionFormat().setFontHeight(12f);
@@ -1008,70 +1010,70 @@ static void setAxisTitle(IAxis axis, String axisTitle) {
 
 ## **チャートの更新**
 
-1. 更新したいチャートを含むプレゼンテーションを表す [Presentation](https://reference.aspose.com/slides/ja/java/com.aspose.slides/presentation/) クラスのインスタンスを作成します。
-2. インデックスを使用してスライドへの参照を取得します。
+1. 更新したいチャートを含むプレゼンテーションを表す [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) クラスのインスタンスを作成します。
+2. インデックスでスライドへの参照を取得します。
 3. すべてのシェイプを走査して目的のチャートを見つけます。
-4. チャート データ ワークシートにアクセスします。
-5. 系列の値を変更してチャート データ系列を修正します。
-6. 新しい系列を追加し、データを入力します。
+4. チャートのデータ ワークシートにアクセスします。
+5. シリーズの値を変更してチャート データ系列を修正します。
+6. 新しいシリーズを追加し、データを入力します。
 7. 変更されたプレゼンテーションを PPTX ファイルとして保存します。
 
-この Java コードは、チャートの更新方法を示しています：
+この Java コードは、チャートを更新する方法を示しています。
 
 ```java
 import com.aspose.slides.*;
 
-// 更新するチャートを含むプレゼンテーションを開く
+// 更新するチャートを含むプレゼンテーションを開きます
 Presentation pres = new Presentation("ExistingChart.pptx");
 try {
-    // 最初のスライドにアクセス
+    // 最初のスライドにアクセスします
     ISlide sld = pres.getSlides().get_Item(0);
 
-    // スライドからチャートを取得
+    // スライドからチャートを取得します
     IChart chart = (IChart)sld.getShapes().get_Item(0);
 
-    // チャート データ シートのインデックスを設定
+    // チャート データ シートのインデックスを設定します
     int defaultWorksheetIndex = 0;
 
-    // チャート データ ワークシートを取得
+    // チャート データ ワークシートを取得します
     IChartDataWorkbook fact = chart.getChartData().getChartDataWorkbook();
 
-    // チャートのカテゴリ名を変更
+    // チャートのカテゴリ名を変更します
     fact.getCell(defaultWorksheetIndex, 1, 0, "Modified Category 1");
     fact.getCell(defaultWorksheetIndex, 2, 0, "Modified Category 2");
 
-    // 最初のチャート系列を取得
+    // 最初のチャートシリーズを取得します
     IChartSeries series = chart.getChartData().getSeries().get_Item(0);
 
-    // 系列データを更新中
-    fact.getCell(defaultWorksheetIndex, 0, 1, "New_Series1");// 系列名を変更
+    // シリーズデータを更新します
+    fact.getCell(defaultWorksheetIndex, 0, 1, "New_Series1"); // シリーズ名を変更
     series.getDataPoints().get_Item(0).getValue().setData(90);
     series.getDataPoints().get_Item(1).getValue().setData(123);
     series.getDataPoints().get_Item(2).getValue().setData(44);
 
-    // 2 番目のチャート系列を取得
+    // 2 番目のチャートシリーズを取得します
     series = chart.getChartData().getSeries().get_Item(1);
 
-    // 系列データを更新中
-    fact.getCell(defaultWorksheetIndex, 0, 2, "New_Series2");// 系列名を変更
+    // シリーズデータを更新します
+    fact.getCell(defaultWorksheetIndex, 0, 2, "New_Series2"); // シリーズ名を変更
     series.getDataPoints().get_Item(0).getValue().setData(23);
     series.getDataPoints().get_Item(1).getValue().setData(67);
     series.getDataPoints().get_Item(2).getValue().setData(99);
 
-    // 新しい系列を追加中
+    // 新しいシリーズを追加します
     chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 3, "Series 3"), chart.getType());
 
-    // 3 番目のチャート系列を取得
+    // 3 番目のチャートシリーズを取得します
     series = chart.getChartData().getSeries().get_Item(2);
 
-    // 系列データを設定中
+    // シリーズデータを設定します
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 3, 20));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 3, 50));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 3, 30));
 
     chart.setType(ChartType.ClusteredCylinder);
 
-    // チャート付きのプレゼンテーションを保存
+    // チャート付きのプレゼンテーションを保存します
     pres.save("AsposeChartModified_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
@@ -1080,20 +1082,22 @@ try {
 
 ## **チャートのデータ範囲の設定**
 
-チャートのデータ範囲を設定する手順は次のとおりです。
+既存のチャートで使用されている範囲を確認するには、[Retrieve a Chart's Data Range](/slides/ja/java/chart-workbook/#retrieve-a-charts-data-range) を参照してください。
 
-1. チャートを含むプレゼンテーションを表す [Presentation](https://reference.aspose.com/slides/ja/java/com.aspose.slides/presentation/) クラスのインスタンスを作成します。
-2. インデックスを使用してスライドへの参照を取得します。
+チャートのデータ範囲を設定するには、次の手順を実行します。
+
+1. チャートを含むプレゼンテーションを表す [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) クラスのインスタンスを作成します。
+2. インデックスでスライドへの参照を取得します。
 3. すべてのシェイプを走査して目的のチャートを見つけます。
 4. チャート データにアクセスし、範囲を設定します。
 5. 変更されたプレゼンテーションを PPTX ファイルとして保存します。
 
-この Java コードは、チャートのデータ範囲を設定する方法を示しています：
+この Java コードは、チャートのデータ範囲を設定する方法を示しています。
 
 ```java
 import com.aspose.slides.*;
 
-// チャートを含むプレゼンテーションを開く
+// チャートが含まれるプレゼンテーションを開きます
 Presentation pres = new Presentation("ExistingChart.pptx");
 try {
     ISlide slide = pres.getSlides().get_Item(0);
@@ -1107,11 +1111,11 @@ try {
 }
 ```
 
-## **チャートでデフォルト マーカーを使用する**
+## **チャートで既定のマーカーを使用する**
 
-チャートでデフォルト マーカーを使用すると、各系列に自動的に異なるマーカー記号が割り当てられます。
+チャートで既定のマーカーを使用すると、各シリーズに自動的に異なるマーカー記号が割り当てられます。
 
-この Java コードは、チャート系列のマーカーを自動的に設定する方法を示しています：
+この Java コードは、チャートシリーズのマーカーを自動的に設定する方法を示しています。
 
 ```java
 import com.aspose.slides.*;
@@ -1138,10 +1142,10 @@ try {
     series.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 4, 1, null));
 
     chart.getChartData().getSeries().add(fact.getCell(0, 0, 2, "Series 2"), chart.getType());
-    //2番目のチャート系列を取得
+    // 2 番目のチャートシリーズを取得します
     IChartSeries series2 = chart.getChartData().getSeries().get_Item(1);
 
-    //現在系列データを設定中
+    // シリーズ データを設定しています
     series2.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 1, 2, 30));
     series2.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 2, 2, 10));
     series2.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 3, 2, 60));
@@ -1158,18 +1162,18 @@ try {
 
 ## **FAQ**
 
-**Aspose.Slides がサポートしているチャート タイプは何ですか？**
+**Aspose.Slides がサポートするチャートタイプは何ですか？**
 
-Aspose.Slides は、棒、折れ線、円、エリア、散布図、ヒストグラム、レーダーなど、幅広い [chart types](https://reference.aspose.com/slides/ja/java/com.aspose.slides/charttype/) をサポートしています。この柔軟性により、データ 可視化のニーズに最適なチャート タイプを選択できます。
+Aspose.Slides は、棒グラフ、折れ線グラフ、円グラフ、エリア グラフ、散布図、ヒストグラム、レーダーなど、幅広い [chart types](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/) をサポートしています。この柔軟性により、データ可視化のニーズに最適なチャートタイプを選択できます。
 
 **スライドに新しいチャートを追加するにはどうすればよいですか？**
 
-新しいチャートを追加するには、まず [Presentation](https://reference.aspose.com/slides/ja/java/com.aspose.slides/presentation/) クラスのインスタンスを作成し、インデックスを使用して目的のスライドを取得します。次に、チャートタイプと初期データを指定してチャートを追加するメソッドを呼び出します。このプロセスにより、チャートがプレゼンテーションに直接組み込まれます。
+チャートを追加するには、まず [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) クラスのインスタンスを作成し、インデックスで目的のスライドを取得し、チャートを追加するメソッドを呼び出してチャートタイプと初期データを指定します。このプロセスでチャートがプレゼンテーションに直接組み込まれます。
 
-**チャートに表示されるデータを更新するにはどうすればよいですか？**
+**チャートに表示されているデータを更新するには？**
 
-チャートのデータは、データ ワークブック ([IChartDataWorkbook](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ichartdataworkbook/)) にアクセスし、既定の系列とカテゴリをクリアしてからカスタム データを追加することで更新できます。これにより、チャートを最新のデータにリフレッシュできます。
+チャートのデータ ワークブック ([IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/)) にアクセスし、既定のシリーズとカテゴリをクリアしてからカスタム データを追加することで、チャートのデータを更新できます。これにより、最新のデータを反映するようにチャートをリフレッシュできます。
 
 **チャートの外観をカスタマイズすることは可能ですか？**
 
-はい。Aspose.Slides は豊富なカスタマイズ オプションを提供します。色、フォント、ラベル、凡例、その他の [formatting elements](/slides/ja/java/chart-entities/) を変更して、チャートの外観を特定のデザイン要件に合わせて調整できます。
+はい、Aspose.Slides は豊富なカスタマイズ オプションを提供します。色、フォント、ラベル、凡例、その他の [formatting elements](/slides/ja/java/chart-entities/) を変更して、チャートの外観を特定のデザイン要件に合わせて調整できます。

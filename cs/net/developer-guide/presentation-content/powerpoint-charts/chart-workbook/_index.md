@@ -1,5 +1,5 @@
 ---
-title: Správa sešitů grafů v prezentacích v .NET
+title: Spravovat sešity grafů v prezentacích v .NET
 linktitle: Sešit grafu
 type: docs
 weight: 70
@@ -13,38 +13,38 @@ keywords:
 - zdroj dat
 - externí sešit
 - externí data
-- cache grafu
+- mezipaměť grafu
 - obnovení sešitu
 - PowerPoint
 - prezentace
 - .NET
 - C#
 - Aspose.Slides
-description: "Objevte Aspose.Slides pro .NET: snadno spravujte sešity grafů ve formátech PowerPoint a OpenDocument a optimalizujte data své prezentace."
+description: "Objevte Aspose.Slides pro .NET: snadno spravujte sešity grafů ve formátech PowerPoint a OpenDocument a zjednodušte data své prezentace."
 ---
 ## **Přehled**
 
-Tento článek vysvětluje, jak pracovat s sešity grafů v Aspose.Slides. Ukazuje, jak číst a zapisovat data grafu prostřednictvím streamů sešitu, používat buňky sešitu jako popisky dat grafu, přistupovat k sbírkám listů a určit typ zdroje dat pro hodnoty grafu.
+Tento článek vysvětluje, jak pracovat s grafovými sešity v Aspose.Slides. Ukazuje, jak číst a zapisovat data grafu pomocí streamů sešitu, používat buňky sešitu jako popisky dat grafu, přistupovat ke kolekcím listů a určit typ zdroje dat pro hodnoty grafu.
 
-Také se zabývá prací s externími sešity jako zdroji dat grafu. Příklady ukazují, jak vytvořit a přiřadit externí sešit, získat cestu k externímu sešitu připojenému ke grafu a upravit data grafu, když je sešit k dispozici.
+Také se zabývá prací s externími sešity jako zdroji dat grafu. Příklady ukazují, jak vytvořit a přiřadit externí sešit, získat cestu k externímu sešitu propojenému s grafem a upravit data grafu, když je sešit dostupný.
 
-Pro buňky sešitu, které představují chybějící data, viz [Control the Display of Empty Cells](/slides/cs/net/chart-series/) pro rozdíl mezi prázdnou buňkou a nulou a pro porovnání čárového grafu dostupných režimů zobrazení.
+Pro buňky sešitu představující chybějící data viz [Control the Display of Empty Cells](/slides/cs/net/chart-series/) pro rozdíl mezi prázdnou buňkou a nulou a srovnání liniového grafu dostupných režimů zobrazení.
 
 ## **Zahrnout data ze skrytých řádků a sloupců**
 
-Použijte [IChart.PlotVisibleCellsOnly](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/ichart/plotvisiblecellsonly/) k ovládání, zda graf vykresluje data ze skrytých řádků a sloupců listu. Nastavte jej na `true`, aby se vykreslovaly pouze viditelné buňky, nebo na `false`, aby se zahrnovaly jak viditelné, tak skryté buňky. Toto nastavení řídí vykreslování grafu; nehide nebo neodkrývá řádky či sloupce listu.
+Použijte [IChart.PlotVisibleCellsOnly](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/plotvisiblecellsonly/) k ovládání, zda graf vykresluje data ze skrytých řádků a sloupců listu. Nastavte ho na `true`, aby se vykreslovaly pouze viditelné buňky, nebo na `false`, aby se zahrnovaly jak viditelné, tak skryté buňky. Toto nastavení řídí vykreslování grafu; neskryje ani nezobrazí řádky nebo sloupce listu.
 
-Stáhněte [hidden-source-data.pptx](hidden-source-data.pptx) a umístěte jej do pracovního adresáře. Jeho první snímek obsahuje sloupcový graf jako první tvar. Vložený list, `Sheet1`, obsahuje následující zdrojový rozsah `A1:C4`. Řádek 3 a sloupec C jsou skryté, ale jejich buňky stále obsahují hodnoty.
+[Ukázková prezentace](hidden-source-data.pptx) obsahuje sloupcový graf jako první tvar na první snímku. Vložený list `Sheet1` obsahuje následující zdrojový rozsah `A1:C4`. Řádek 3 a sloupec C jsou skryté, ale jejich buňky stále obsahují hodnoty.
 
 | Řádek listu | A: Měsíc | B: Maloobchod | C: Velkoobchod (skrytý sloupec) |
 | --- | --- | --- | --- |
-| 2 | Leden | 10 | 30 |
-| 3 (hidden row) | Únor | 40 | 60 |
-| 4 | Březen | 20 | 50 |
+| 2 | leden | 10 | 30 |
+| 3 (skrytý řádek) | únor | 40 | 60 |
+| 4 | březen | 20 | 50 |
 
-Přístup k zdrojovým buňkám přes [IChartData.ChartDataWorkbook](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/ichartdata/chartdataworkbook/) a čtěte [IChartDataCell.IsHidden](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/ichartdatacell/ishidden/) k inspekci jejich skrytého stavu. Tato vlastnost je jen pro čtení. V tomto souboru je B2 viditelná, B3 patří ke skrytému řádku a C2 patří ke skrytému sloupci; příklad vypíše `False`, `True` a `True`.
+Přistupujte ke zdrojovým buňkám přes [IChartData.ChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/chartdataworkbook/) a čtěte [IChartDataCell.IsHidden](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatacell/ishidden/) pro kontrolu jejich skrytého stavu. Tato vlastnost je jen pro čtení. V tomto souboru je B2 viditelná, B3 patří ke skrytému řádku a C2 patří ke skrytému sloupci; příklad vypíše `False`, `True` a `True`.
 
-Pro tento příklad obnovte data grafu po změně nastavení vykreslování: zachovejte vložený sešit pomocí [ReadWorkbookStream](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/ichartdata/readworkbookstream/) a načtěte jej zpět pomocí [WriteWorkbookStream](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/ichartdata/writeworkbookstream/). Při zahrnutí všech buněk použijte také [SetRange](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/ichartdata/setrange/) k obnovení úplného rozsahu, včetně skryté kategorie únor. Pouhé změnění příznaku není dostačující k obnovení mezipaměti dat a popisků kategorií v tomto vzorku.
+Pro tento příklad obnovte data grafu po změně nastavení vykreslování: ponechte vložený sešit pomocí [ReadWorkbookStream](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/readworkbookstream/) a načtěte ho znovu pomocí [WriteWorkbookStream](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/writeworkbookstream/). Při zahrnutí všech buněk také použijte [SetRange](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/setrange/) k obnovení kompletního rozsahu, včetně skryté kategorie únor. Pouze změna příznaku není dostačující k obnovení vyrovnaných dat grafu a popisků kategorií v tomto příkladu.
 
 ```csharp
 using System;
@@ -67,12 +67,12 @@ if (slide.Shapes[0] is IChart chart)
     {
         chart.PlotVisibleCellsOnly = visibleOnly;
 
-        // Obnovte data grafu z vloženého sešitu.
+        // Obnovit data grafu z vloženého sešitu.
         workbookStream.Position = 0;
         chart.ChartData.WriteWorkbookStream(workbookStream);
         if (!visibleOnly)
         {
-            // Obnovte úplný zdrojový rozsah, včetně skrytých kategorií.
+            // Obnovit kompletní zdrojový rozsah, včetně skrytých kategorií.
             chart.ChartData.SetRange("Sheet1!$A$1:$C$4");
         }
 
@@ -85,19 +85,54 @@ else
 }
 ```
 
-Příklad uloží `hidden_cells_True.pptx` pouze s viditelnými hodnotami maloobchodu (10 a 20) a `hidden_cells_False.pptx` se všemi šesti hodnotami. Obrázky níže byly vygenerovány ze uložených prezentací po jejich opětovném otevření; oba soubory zachovávají přiřazené nastavení vykreslování. Řádek 3 a sloupec C zůstávají ve obou vložených sešitech skryté.
+Příklad uloží dvě verze prezentace: jednu pouze s viditelnými hodnotami maloobchodu (10 a 20) a druhou se všemi šesti hodnotami. Obrázky níže byly vygenerovány ze uložených prezentací po jejich opětovném otevření; oba soubory zachovávají přiřazené nastavení vykreslování. Řádek 3 a sloupec C zůstávají skryté v obou vložených sešitech.
 
 | Pouze viditelné buňky (`true`) | Všechny buňky (`false`) |
 | --- | --- |
 | ![Pouze viditelné buňky: hodnoty maloobchodu 10 a 20 pro leden a březen.](hidden_cells_True.png) | ![Všechny buňky: hodnoty maloobchodu a velkoobchodu pro leden, únor a březen.](hidden_cells_False.png) |
 
-Skrytá buňka obsahující hodnotu se liší od prázdné buňky. [IChart.DisplayBlanksAs](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/ichart/displayblanksas/) řídí, jak jsou zobrazovány chybějící hodnoty; neobsahuje ani nevylučuje skrytá zdrojová data. Viz [Control the Display of Empty Cells](/slides/cs/net/chart-series/#control-the-display-of-empty-cells) pro příklad.
+Skrytá buňka obsahující hodnotu se liší od prázdné buňky. [IChart.DisplayBlanksAs](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/displayblanksas/) určuje, jak se zobrazují chybějící hodnoty; nezahrnuje ani nevynechává skrytá zdrojová data. Viz [Control the Display of Empty Cells](/slides/cs/net/chart-series/#control-the-display-of-empty-cells) pro příklad.
 
-## **Čtení a zápis dat grafu ze sešitu**
+## **Získat datový rozsah grafu**
 
-Aspose.Slides pro .NET poskytuje metody [ReadWorkbookStream](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/ichartdata/readworkbookstream/) a [WriteWorkbookStream](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/ichartdata/writeworkbookstream/), které umožňují číst a zapisovat sešity dat grafu (obsahující data grafu upravená pomocí Aspose.Cells). **Poznámka**: data grafu musí být organizována stejným způsobem nebo musí mít strukturu podobnou zdroji.
+Před aktualizací dat sešitu v existující prezentaci prozkoumejte zdrojové rozsahy, abyste určili, které buňky listu každá graf používá. Metoda [IChartData.GetRange](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/getrange/) vrací aktuální datový rozsah jako vzorec kvalifikovaný listem, např. `Sheet1!$A$1:$D$5`. Zde `Sheet1` je název listu, `!` jej odděluje od rozsahu buněk a `$A$1:$D$5` určuje buňky A1 až D5 včetně. Symboly `$` označují absolutní odkazy na řádky a sloupce.
 
-Tento příklad otevře `chart.pptx`, který musí obsahovat graf jako první tvar na jeho prvním snímku. Načte vložený sešit do streamu, vymaže existující řady a kategorie a zapíše stejný sešit zpět. Změny zůstávají v paměti; příklad neukládá prezentaci.
+Metoda načte aktuální rozsah bez změny grafu nebo jeho sešitu. Pokud graf nepoužívá sešit jako zdroj dat, vyvolá výjimku [InvalidOperationException](https://learn.microsoft.com/en-us/dotnet/api/system.invalidoperationexception). Další informace najdete v [ChartData API Reference](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdata/).
+
+Tento příklad otevře prezentaci a kontroluje tvary přímo na každém snímku pro grafy. Vypíše název každého grafu a jeho zdrojový rozsah. Pokud graf nepoužívá sešit, vypíše zprávu a pokračuje dalším grafem.
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+
+using var presentation = new Presentation("presentation.pptx");
+
+foreach (var slide in presentation.Slides)
+{
+    foreach (var shape in slide.Shapes)
+    {
+        if (shape is IChart chart)
+        {
+            try
+            {
+                var range = chart.ChartData.GetRange();
+                Console.WriteLine($"{chart.Name}: {range}");
+            }
+            catch (InvalidOperationException)
+            {
+                Console.WriteLine($"{chart.Name}: The chart does not use a workbook as its data source.");
+            }
+        }
+    }
+}
+```
+
+## **Číst a zapisovat data grafu ze sešitu**
+
+Aspose.Slides for .NET poskytuje metody [ReadWorkbookStream](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/readworkbookstream/) a [WriteWorkbookStream](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/writeworkbookstream/), které umožňují číst a zapisovat sešity dat grafu (obsahující data grafu upravená pomocí Aspose.Cells). **Poznámka**: data grafu musejí být uspořádána stejným způsobem nebo mít strukturu podobnou zdroji.
+
+Tento příklad používá prezentaci s grafem jako první tvar na první snímku. Načte vložený sešit do streamu, vymaže existující řady a kategorie a zapíše stejný sešit zpět. Změny zůstanou v paměti; příklad neukládá prezentaci.
 
 ```csharp
 using System;
@@ -125,9 +160,9 @@ else
 }
 ```
 
-### **Ověřit rozvržení grafu po úpravě sešitu**
+### **Ověřit rozložení grafu po úpravě sešitu**
 
-Když nahradíte vložený sešit modifikovaným, graf si zachová své původní kolekce řad a kategorií. Tento nesoulad může způsobit selhání [IChart.ValidateChartLayout](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/ichart/validatechartlayout/) s chybou indexu mimo rozsah. Před zápisem aktualizovaného sešitu zpět do grafu vymažte existující řady a kategorie. Tento příklad vyžaduje `chart.pptx` s grafem jako první tvar na prvním snímku. Komentář označuje místo, kde by proběhla úprava sešitu; spustitelný příklad zapíše zpět originální sešit a ověří rozvržení v paměti.
+Když nahradíte vložený sešit upraveným, graf si zachová původní kolekce řad a kategorií. Tento nesoulad může způsobit selhání [IChart.ValidateChartLayout](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/validatechartlayout/) s chybou indexu mimo rozsah. Vymažte existující řady a kategorie před zápisem aktualizovaného sešitu zpět do grafu. Tento příklad používá graf, který je první tvar na první snímku. Komentář označuje místo, kde by se upravoval sešit; spustitelný příklad zapíše původní sešit zpět a ověří rozložení v paměti.
 
 ```csharp
 using System;
@@ -143,7 +178,7 @@ if (shapeCount > 0 && slide.Shapes[0] is IChart chart)
     var chartData = chart.ChartData;
     using var workbookStream = chartData.ReadWorkbookStream();
 
-    // Upravte zde stream sešitu, například pomocí Aspose.Cells.
+    // Upravte stream sešitu zde, například pomocí Aspose.Cells.
 
     chartData.Series.Clear();
     chartData.Categories.Clear();
@@ -158,20 +193,13 @@ else
 }
 ```
 
-Vyčištění kolekcí odstraní zastaralé odkazy na data před zápisem sešitu zpět. Před použitím grafu znovu vytvořte potřebné mapování řad a kategorií pro aktualizovaný sešit.
+Vymazání kolekcí odstraní zastaralé odkazy na data před tím, než je sešit zapsán zpět. Před použitím grafu znovu sestavte potřebné mapování řad a kategorií pro aktualizovaný sešit.
 
 ## **Nastavit buňku sešitu jako popisek dat grafu**
 
-Můžete použít text z buněk sešitu jako popisky dat grafu. Následující kroky ukazují, jak propojit popisky v bublinovém grafu s buňkami v jeho datovém sešitu.
+Můžete použít text z buněk sešitu jako popisky dat grafu.
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation/).
-2. Přistupte k prvnímu snímku pomocí jeho nulového indexu.
-3. Přidejte bublinový graf s výchozími daty.
-4. Získejte řadu grafu.
-5. Nastavte buňku sešitu jako popisek dat.
-6. Uložte prezentaci.
-
-Tento příklad otevře `chart2.pptx`, který musí obsahovat alespoň jeden snímek, a přidá bublinový graf s výchozími daty. Použije buňky A10:A12 v listu 0 pro první tři popisky v první řadě, povolí popisky z buněk a uloží výsledek do `resultchart.pptx`.
+Tento příklad přidá bublinový graf s výchozími daty na první snímek existující prezentace. Použije buňky A10:A12 na listu 0 pro první tři popisky v první řadě, povolí popisky z buněk a uloží aktualizovanou prezentaci.
 
 ```csharp
 using Aspose.Slides;
@@ -193,9 +221,9 @@ series.Labels[2].ValueFromCell = workbook.GetCell(0, "A12", "Label 2 cell value"
 presentation.Save("resultchart.pptx", SaveFormat.Pptx);
 ```
 
-## **Spravovat listy**
+## **Správa listů**
 
-Vlastnost [IChartDataWorkbook.Worksheets](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/ichartdataworkbook/worksheets/) poskytuje přístup k listům v sešitu grafu. Tento příklad vytvoří koláčový graf s výchozími daty a vypíše každý název listu na konzoli.
+Vlastnost [IChartDataWorkbook.Worksheets](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/worksheets/) poskytuje přístup k listům v sešitu grafu. Tento příklad vytvoří koláčový graf s výchozími daty a vypíše každý název listu do konzole.
 
 ```csharp
 using System;
@@ -214,9 +242,9 @@ for (var i = 0; i < workbook.Worksheets.Count; i++)
 }
 ```
 
-## **Zadat typ zdroje dat**
+## **Určit typ zdroje dat**
 
-Tento příklad vytvoří 3D sloupcový graf s výchozími daty a nastaví dva názvy řad pomocí různých zdrojů dat. První název používá řetězcový literál; druhý používá buňku C1 v listu 0. Výčtový typ [DataSourceType](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/datasourcetype/) vybírá zdroj pro každý název. Výsledek je uložen do `pres.pptx`.
+Tento příklad vytvoří 3D sloupcový graf s výchozími daty a nastaví dva názvy řad pomocí různých zdrojů dat. První název používá řetězcový literál; druhý používá buňku C1 na listu 0. Výčtová hodnota [DataSourceType](https://reference.aspose.com/slides/net/aspose.slides.charts/datasourcetype/) vybírá zdroj pro každý název. Příklad uloží prezentaci s aktualizovanými názvy řad.
 
 ```csharp
 using Aspose.Slides;
@@ -242,7 +270,7 @@ presentation.Save("pres.pptx", SaveFormat.Pptx);
 
 ## **Detekovat nepodporované formáty vložených sešitů**
 
-Aspose.Slides nepodporuje binární formát Excel sešitu (.xlsb), který může být vložen v některých grafech. Můžete použít vlastnost [EmbeddedWorkbookType](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/ichartdata/embeddedworkbooktype/) na [IChartData](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/ichartdata/) společně s výčtem [WorkbookType](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/workbooktype/) k detekci nepodporovaných formátů a přeskočit tyto grafy. Tento příklad kontroluje tvary na prvním snímku `sample.pptx`, přeskočí tvary, které nejsou grafy, a vypíše diagnostickou zprávu pro každý graf s vloženým .xlsb sešitem.
+Aspose.Slides nepodporuje formát binárního sešitu Excel (.xlsb), který může být vložen v některých grafech. Můžete použít vlastnost [EmbeddedWorkbookType](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/embeddedworkbooktype/) na [IChartData](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/) spolu s výčtem [WorkbookType](https://reference.aspose.com/slides/net/aspose.slides.charts/workbooktype/) k detekci nepodporovaných formátů a přeskočit takové grafy. Tento příklad kontroluje tvary na první snímku existující prezentace, přeskočí tvary, které nejsou grafy, a vypíše diagnostickou zprávu pro každý graf s vloženým sešitem .xlsb.
 
 ```csharp
 using System;
@@ -269,19 +297,19 @@ foreach (var shape in slide.Shapes)
         continue;
     }
 
-    // Přečtěte nebo upravte zde podporovaná data sešitu grafu.
+    // Přečtěte nebo upravte podporovaná data sešitu grafu zde.
 }
 ```
 
 ## **Externí sešit**
 
-Aspose.Slides podporuje použití externích sešitů jako zdroje dat pro grafy.
+Aspose.Slides podporuje používání externích sešitů jako zdroje dat pro grafy.
 
 ### **Vytvořit externí sešit**
 
-Použijte [ReadWorkbookStream](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/ichartdata/readworkbookstream/) a [SetExternalWorkbook](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/ichartdata/setexternalworkbook/) k exportu vloženého sešitu grafu do souboru a propojení grafu s tímto externím sešitem.
+Použijte [ReadWorkbookStream](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/readworkbookstream/) a [SetExternalWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/setexternalworkbook/) k exportu vloženého sešitu grafu do souboru a propojení grafu s tímto externím sešitem.
 
-Tento příklad vytvoří koláčový graf s výchozími daty, zapíše jeho sešit do `externalWorkbook1.xlsx` a uzavře výstupní stream před přiřazením souboru jako zdroj dat grafu. Uloží propojenou prezentaci do `externalWorkbook.pptx`.
+Tento příklad vytvoří koláčový graf s výchozími daty a exportuje jeho sešit. Před přiřazením externího sešitu jako zdroje dat grafu uzavře výstupní stream a poté uloží propojenou prezentaci.
 
 ```csharp
 using System.IO;
@@ -307,11 +335,11 @@ presentation.Save("externalWorkbook.pptx", SaveFormat.Pptx);
 
 ### **Nastavit externí sešit**
 
-Pomocí metody [SetExternalWorkbook](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/ichartdata/setexternalworkbook/) můžete přiřadit externí sešit grafu jako jeho zdroj dat. Tato metoda může být také použita k aktualizaci cesty k externímu sešitu (pokud byl přesunut).
+Pomocí metody [SetExternalWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/setexternalworkbook/) můžete přiřadit externí sešit grafu jako jeho zdroj dat. Tuto metodu lze také použít k aktualizaci cesty k externímu sešitu (pokud byl přesunut).
 
-Přestože nemůžete upravovat data v sešitech uložených na vzdálených místech nebo prostředcích, můžete takové sešity stále používat jako externí zdroj dat. Pokud je zadána relativní cesta k externímu sešitu, automaticky se převede na úplnou cestu.
+Ačkoliv nemůžete editovat data v sešitech uložených na vzdálených místech nebo zdrojích, můžete takové sešity nadále použít jako externí zdroj dat. Pokud je zadána relativní cesta k externímu sešitu, automaticky se převede na úplnou cestu.
 
-Tento příklad vyžaduje `externalWorkbook.xlsx` v pracovním adresáři. Jeho list pojmenovaný `Sheet1` musí obsahovat název řady v B1, názvy kategorií v A2:A4 a číselné hodnoty v B2:B4. Příklad vytvoří koláčový graf, propojí sešit a použije [SetRange](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/ichartdata/setrange/) k mapování A1:B4 na jednu řadu a tři kategorie. Výsledek uloží do `Presentation_with_externalWorkbook.pptx`.
+Tento příklad používá externí sešit, jehož list s názvem `Sheet1` obsahuje název řady v buňce B1, názvy kategorií v A2:A4 a číselné hodnoty v B2:B4. Příklad vytvoří koláčový graf, propojí sešit a použije [SetRange](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/setrange/) k mapování A1:B4 na jednu řadu a tři kategorie. Uloží prezentaci s propojeným grafem.
 
 ```csharp
 using System.IO;
@@ -332,12 +360,12 @@ chartData.SetRange("Sheet1!$A$1:$B$4");
 presentation.Save("Presentation_with_externalWorkbook.pptx", SaveFormat.Pptx);
 ```
 
-Parametr `updateChartData` metody [SetExternalWorkbook](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/ichartdata/setexternalworkbook/) řídí, zda je sešit načten.
+Parametr `updateChartData` metody [SetExternalWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/setexternalworkbook/) určuje, zda se sešit načte.
 
-* Když je `updateChartData` nastaveno na `false`, aktualizuje se pouze cesta k sešitu. Data grafu nejsou načtena ani aktualizována z cílového sešitu, takže sešit může být nedostupný.
-* Když je `updateChartData` nastaveno na `true`, data grafu jsou aktualizována z cílového sešitu.
+* Když je `updateChartData` `false`, aktualizuje se jen cesta k sešitu. Data grafu nejsou načtena ani aktualizována z cílového sešitu, takže sešit může být nedostupný.
+* Když je `updateChartData` `true`, data grafu jsou aktualizována z cílového sešitu.
 
-Následující příklad přiřadí zástupnou URL s `updateChartData` nastaveným na `false`. Zachová výchozí data koláčového grafu a uloží prezentaci bez načtení nedostupného sešitu.
+Následující příklad přiřadí zástupnou adresu URL s nastaveným `updateChartData` na `false`. Zachová výchozí data koláčového grafu a uloží prezentaci bez načtení nedostupného sešitu.
 
 ```csharp
 using Aspose.Slides;
@@ -353,17 +381,11 @@ chart.ChartData.SetExternalWorkbook("https://example.com/unavailable-workbook.xl
 presentation.Save("SetExternalWorkbookWithUpdateChartData.pptx", SaveFormat.Pptx);
 ```
 
-### **Získat cestu k externímu sešitu datového zdroje grafu**
+### **Získat cestu k externímu sešitu zdroje dat grafu**
 
-Pro identifikaci sešitu propojeného s grafem nejprve zkontrolujte, zda graf používá externí datový zdroj. Pokud ano, můžete získat cestu k sešitu podle následujících kroků.
+Pro identifikaci sešitu propojeného s grafem zkontrolujte, zda graf používá externí zdroj dat, a získejte jeho cestu.
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation/).
-2. Přistupte k prvnímu snímku pomocí jeho nulového indexu.
-3. Zkontrolujte, že první tvar je graf.
-4. Přečtěte typ zdroje dat grafu.
-5. Pokud je zdroj externí sešit, přečtěte jeho cestu.
-
-Tento příklad otevře `externalWorkbook.pptx`, vytvořený v předchozím příkladu, a zkontroluje první tvar na prvním snímku. Pokud je to graf propojený s externím sešitem, příklad vypíše [ExternalWorkbookPath](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/ichartdata/externalworkbookpath/) na konzoli. Poté uloží kopii prezentace do `Result.pptx`.
+Tento příklad kontroluje první tvar na první snímku prezentace s propojeným externím sešitem. Pokud jde o graf propojený s externím sešitem, vypíše [ExternalWorkbookPath](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/externalworkbookpath/) do konzole. Poté uloží kopii prezentace.
 
 ```csharp
 using System;
@@ -397,9 +419,9 @@ presentation.Save("Result.pptx", SaveFormat.Pptx);
 
 ### **Upravit data grafu**
 
-Můžete upravovat data v externích sešitech stejným způsobem, jako provádíte změny v obsahu interních sešitů. Když externí sešit nelze načíst, vyvolá se výjimka.
+Můžete upravovat data v externích sešitech stejným způsobem jako v interních sešitech. Když nelze externí sešit načíst, je vyvolána výjimka.
 
-Tento příklad vyžaduje `presentation.pptx` s grafem jako první tvar na prvním snímku a přístupný externí sešit. Nastaví hodnotu první datové bodu v první řadě na 100 a uloží prezentaci do `presentation_out.pptx`. Úprava hodnot buněk může aktualizovat propojený externí soubor XLSX, proto použijte kopii, pokud potřebujete zachovat originální sešit.
+Tento příklad používá graf, který je první tvar na první snímku a je propojen s přístupným externím sešitem. Nastaví hodnotu buňky první datové bodu v první řadě na 100 a uloží aktualizovanou prezentaci. Úprava hodnot buněk může aktualizovat propojený externí soubor XLSX, proto použijte kopii, pokud potřebujete zachovat původní sešit.
 
 ```csharp
 using System;
@@ -440,9 +462,9 @@ else
 
 ### **Obnovit sešit z mezipaměti grafu**
 
-Pokud graf používá externí sešit, který chybí nebo není k dispozici, Aspose.Slides může zrekonstruovat sešit grafu z dat uložených v mezipaměti prezentace. Vytvořte [LoadOptions](https://reference.aspose.com/slides/cs/net/aspose.slides/loadoptions/), nakonfigurujte jeho [SpreadsheetOptions](https://reference.aspose.com/slides/cs/net/aspose.slides/loadoptions/spreadsheetoptions/) a nastavte [ISpreadsheetOptions.RecoverWorkbookFromChartCache](https://reference.aspose.com/slides/cs/net/aspose.slides/ispreadsheetoptions/recoverworkbookfromchartcache/) na `true` před otevřením prezentace.
+Pokud graf používá externí sešit, který chybí nebo není dostupný, Aspose.Slides může rekonstruovat sešit grafu z dat uložených v mezipaměti prezentace. Vytvořte [LoadOptions](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/), nakonfigurujte jeho [SpreadsheetOptions](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/spreadsheetoptions/) a nastavte [ISpreadsheetOptions.RecoverWorkbookFromChartCache](https://reference.aspose.com/slides/net/aspose.slides/ispreadsheetoptions/recoverworkbookfromchartcache/) na `true` před otevřením prezentace.
 
-Následující příklad v C# otevře `presentation.pptx`, jehož první tvar na prvním snímku musí být graf odkazující na nedostupný externí sešit, a přistoupí k obnoveným datům pomocí [IChart.ChartData](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/ichart/chartdata/) a [IChartData.ChartDataWorkbook](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/ichartdata/chartdataworkbook/):
+Následující příklad v C# obnoví data sešitu pro graf, který je první tvar na první snímku a odkazuje na nedostupný externí sešit. Přistupuje k obnoveným datům přes [IChart.ChartData](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/chartdata/) a [IChartData.ChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/chartdataworkbook/):
 
 ```csharp
 using System;
@@ -466,7 +488,7 @@ if (shapeCount > 0 && slide.Shapes[0] is IChart chart)
 {
     var recoveredWorkbook = chart.ChartData.ChartDataWorkbook;
 
-    // Přečtěte nebo upravte zde obnovená data sešitu.
+    // Přečtěte nebo upravte obnovená data sešitu zde.
 }
 else
 {
@@ -474,30 +496,30 @@ else
 }
 ```
 
-Pokud je externí sešit nedostupný a obnovení je zakázáno, Aspose.Slides vyhodí [InvalidOperationException](https://learn.microsoft.com/en-us/dotnet/api/system.invalidoperationexception). Povolit obnovení použijte jen v případě, že je přijatelný fallback na data z mezipaměti, protože mezipaměť nemusí obsahovat změny provedené v externím sešitu po poslední aktualizaci prezentace.
+Pokud je externí sešit nedostupný a obnovení je zakázáno, Aspose.Slides vyhodí [InvalidOperationException](https://learn.microsoft.com/en-us/dotnet/api/system.invalidoperationexception). Povolit obnovení použijte jen tehdy, když je použití dat z mezipaměti přijatelné jako nouzové řešení, protože mezipaměť nemusí obsahovat změny provedené v externím sešitu po poslední aktualizaci prezentace.
 
 ## **Často kladené otázky**
 
 **Mohu zjistit, zda je konkrétní graf propojen s externím nebo vloženým sešitem?**
 
-Ano. Graf má [data source type](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/chartdata/datasourcetype/) a [path to an external workbook](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/chartdata/externalworkbookpath/); pokud je zdroj externí sešit, můžete přečíst úplnou cestu, abyste se ujistili, že je používán externí soubor.
+Ano. Graf má [data source type](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdata/datasourcetype/) a [path to an external workbook](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdata/externalworkbookpath/); pokud je zdroj externí sešit, můžete přečíst celou cestu a ověřit, že se používá externí soubor.
 
-**Podporují se relativní cesty k externím sešitům a jak jsou ukládány?**
+**Jsou podporovány relativní cesty k externím sešitům a jak jsou uloženy?**
 
-Ano. Pokud zadáte relativní cestu, automaticky se převede na absolutní cestu. Prezentace ukládá absolutní cestu v souboru PPTX, takže přesunutí sešitu může vyžadovat aktualizaci odkazu.
+Ano. Pokud zadáte relativní cestu, automaticky se převede na absolutní cestu. Prezentace uloží absolutní cestu v souboru PPTX, takže při přesunu sešitu může být nutné aktualizovat odkaz.
 
 **Mohu používat sešity umístěné na síťových zdrojích/sdílených složkách?**
 
-Ano, takové sešity lze použít jako externí zdroj dat. Přímé úpravy vzdálených sešitů pomocí Aspose.Slides však nejsou podporovány – lze je použít pouze jako zdroj.
+Ano, takové sešity lze použít jako externí zdroj dat. Úprava vzdálených sešitů přímo z Aspose.Slides však není podporována – lze je použít jen jako zdroj.
 
-**Přepisuje Aspose.Slides externí soubor XLSX při ukládání prezentace?**
+**Přepisuje Aspose.Slides externí XLSX při ukládání prezentace?**
 
-Prezentace ukládá [odkaz na externí soubor](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/chartdata/externalworkbookpath/). Úpravy dat grafu založených na buňkách mohou také aktualizovat propojený lokální soubor XLSX. Použijte kopii sešitu, pokud originál musí zůstat nezměněn.
+Prezentace uloží [link to the external file](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdata/externalworkbookpath/). Úprava buněk podporovaných grafem může také aktualizovat propojený místní soubor XLSX. Použijte kopii sešitu, pokud musí originál zůstat nezměněn.
 
-**Co mám dělat, pokud je externí soubor chráněn heslem?**
+**Co mám dělat, když je externí soubor chráněn heslem?**
 
-Aspose.Slides nepřijímá heslo při propojení. Běžný přístup je odstranit ochranu předem nebo připravit dešifrovanou kopii (například pomocí [Aspose.Cells](https://reference.aspose.com/cells/net/)) a odkazovat na tuto kopii.
+Aspose.Slides nepřijímá heslo při vytváření odkazu. Obvyklý postup je odstranit ochranu předem nebo připravit dešifrovanou kopii (např. pomocí [Aspose.Cells](https://reference.aspose.com/cells/net/)) a odkazovat na tuto kopii.
 
 **Může více grafů odkazovat na stejný externí sešit?**
 
-Ano. Každý graf ukládá svůj vlastní odkaz. Pokud všechny odkazují na stejný soubor, aktualizace tohoto souboru se projeví ve všech grafech při příštím načtení dat.
+Ano. Každý graf uloží svůj vlastní odkaz. Pokud všechny odkazují na stejný soubor, aktualizace tohoto souboru se projeví ve všech grafech při dalším načtení dat.

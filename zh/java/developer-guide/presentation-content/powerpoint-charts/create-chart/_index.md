@@ -1,5 +1,5 @@
 ---
-title: 在 Java 中创建或更新 PowerPoint 演示文稿图表
+title: 创建或更新 PowerPoint 演示文稿图表（Java）
 linktitle: 创建或更新图表
 type: docs
 weight: 10
@@ -14,7 +14,7 @@ keywords:
 - 饼图
 - 折线图
 - 树形图
-- 股票图
+- 股票图表
 - 箱线图
 - 漏斗图
 - 旭辉图
@@ -25,37 +25,39 @@ keywords:
 - 演示文稿
 - Java
 - Aspose.Slides
-description: "使用 Aspose.Slides for Java 在 PowerPoint 演示文稿中创建和自定义图表。通过实用的 Java 示例代码添加、格式化和编辑图表。"
+description: "使用 Aspose.Slides for Java 在 PowerPoint 演示文稿中创建和自定义图表。通过实际的 Java 代码示例添加、格式化和编辑图表。"
 ---
 ## **概述**
 
-本文提供了使用 Aspose.Slides 创建和自定义图表的综合指南。您将学习如何以编程方式向幻灯片添加图表、填充数据，并应用各种格式设置，以满足特定的设计需求。文章中提供了详细的代码示例，演示了从初始化演示文稿和图表对象到配置系列、坐标轴和图例的每一步。通过本指南，您将深入了解如何在应用程序中集成动态图表生成，简化创建数据驱动演示文稿的过程。
+本文提供了使用 Aspose.Slides 创建和自定义图表的完整指南。您将学习如何以编程方式向幻灯片添加图表、填充数据以及应用各种格式设置以满足特定的设计需求。文章中提供了详细的代码示例，展示了从初始化演示文稿和图表对象到配置系列、坐标轴和图例的每一步。通过本指南，您将能够深入了解如何在应用程序中集成动态图表生成，简化创建数据驱动演示文稿的过程。
 
 ## **创建图表**
 
-图表帮助人们快速可视化数据，并获得从表格或电子表格中不易直接看出的洞察。
+图表帮助人们快速可视化数据，并发现表格或电子表格中不易察觉的洞察。
 
-**为什么要创建图表？**
+**为何创建图表？**
 
 使用图表，您可以：
 
-* 在演示文稿的单张幻灯片上汇总、浓缩或概括大量数据
-* 展示数据中的模式和趋势
-* 推断数据随时间或相对于特定计量单位的方向和动向
-* 发现异常值、偏差、误差、无意义的数据等
+* 在单个幻灯片上聚合、压缩或概括大量数据
+* 揭示数据中的模式和趋势
+* 推断数据随时间或特定计量单位的走向和势头
+* 发现异常值、偏差、错误、无意义的数据等
 * 传达或展示复杂数据
 
-在 PowerPoint 中，您可以通过 *Insert*（插入）功能创建图表，该功能提供了多种图表模板。使用 Aspose.Slides，您可以创建常规图表（基于流行的图表类型）以及自定义图表。
+在 PowerPoint 中，您可以通过 *Insert* 功能创建图表，该功能提供了多种图表模板。使用 Aspose.Slides，您既可以创建常规图表（基于流行的图表类型），也可以创建自定义图表。
 
 {{% alert color="info" title="Note" %}}
-要创建图表，请使用 [ChartType](https://reference.aspose.com/slides/zh/java/com.aspose.slides/charttype/) 类。该类中的字段对应不同的图表类型。
+
+要创建图表，请使用 [ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/) 类。该类中的字段对应不同的图表类型。
+
 {{% /alert %}}
 
 ### **创建簇状柱形图**
 
-本节说明如何使用 Aspose.Slides 创建簇状柱形图。您将学习如何初始化演示文稿、添加图表，并自定义标题、数据、系列、类别和样式等元素。按照以下步骤查看如何生成标准的簇状柱形图：
+本节介绍如何使用 Aspose.Slides 创建簇状柱形图。您将学习如何初始化演示文稿、添加图表并自定义标题、数据、系列、类别和样式等元素。按照以下步骤查看标准簇状柱形图的生成过程：
 
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/zh/java/com.aspose.slides/presentation) 类的实例。
+1. 创建一个 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation) 类的实例。
 1. 使用索引获取幻灯片的引用。
 1. 添加一个带有数据的图表，并指定 `ChartType.ClusteredColumn` 类型。
 1. 为图表添加标题。
@@ -67,7 +69,7 @@ description: "使用 Aspose.Slides for Java 在 PowerPoint 演示文稿中创建
 1. 为图表系列添加标签。
 1. 将修改后的演示文稿保存为 PPTX 文件。
 
-以下 C# 代码演示了如何创建簇状柱形图：
+下面的 C# 代码演示了如何创建簇状柱形图：
 
 ```java
 import com.aspose.slides.*;
@@ -79,7 +81,7 @@ try {
     // 访问第一张幻灯片
     ISlide sld = pres.getSlides().get_Item(0);
     
-    // 添加一个带有默认数据的图表
+    // 添加一个带默认数据的图表
     IChart chart = sld.getShapes().addChart(ChartType.ClusteredColumn, 0, 0, 500, 500);
     
     // 设置图表标题
@@ -109,7 +111,7 @@ try {
     chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 2, 0, "Caetegoty 2"));
     chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 3, 0, "Caetegoty 3"));
     
-    // 获取第一条图表系列
+    // 获取第一个图表系列
     IChartSeries series = chart.getChartData().getSeries().get_Item(0);
     
     // 现在为系列填充数据
@@ -121,19 +123,19 @@ try {
     series.getFormat().getFill().setFillType(FillType.Solid);
     series.getFormat().getFill().getSolidFillColor().setColor(Color.RED);
     
-    // 获取第二条图表系列
+    // 获取第二个图表系列
     series = chart.getChartData().getSeries().get_Item(1);
     
-    // 填充系列数据
+    // 为系列填充数据
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 2, 30));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 2, 10));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 2, 60));
     
-    // 设置系列的填充颜色
+    // 设置该系列的填充颜色
     series.getFormat().getFill().setFillType(FillType.Solid);
     series.getFormat().getFill().getSolidFillColor().setColor(Color.GREEN);
     
-    //为每个类别创建自定义标签
+    //为新系列的每个类别创建自定义标签
     // 设置第一个标签显示类别名称
     IDataLabel lbl = series.getDataPoints().get_Item(0).getLabel();
     lbl.getDataLabelFormat().setShowCategoryName(true);
@@ -141,13 +143,13 @@ try {
     lbl = series.getDataPoints().get_Item(1).getLabel();
     lbl.getDataLabelFormat().setShowSeriesName(true);
     
-    // 显示第三个标签的数值
+    // 为第三个标签显示值
     lbl = series.getDataPoints().get_Item(2).getLabel();
     lbl.getDataLabelFormat().setShowValue(true);
     lbl.getDataLabelFormat().setShowSeriesName(true);
     lbl.getDataLabelFormat().setSeparator("/");
     
-    // 保存带有图表的演示文稿
+    // 保存包含图表的演示文稿
     pres.save("output.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
@@ -156,24 +158,24 @@ try {
 
 ### **创建散点图**
 
-散点图（亦称散点图或 X‑Y 图）常用于检查模式或展示两个变量之间的相关性。
+散点图（也称为散点图或 x‑y 图）常用于检查模式或展示两个变量之间的相关性。
 
 在以下情况下使用散点图：
 
-* 您拥有成对的数值数据
-* 您有两个配对良好的变量
+* 您拥有配对的数值数据
+* 您有两个配合良好的变量
 * 您想确定两个变量是否相关
-* 您有一个自变量对应因变量的多个取值
+* 您有一个自变量对应多个因变量的取值
 
-1. 遵循[Create Clustered Column Charts](#create-clustered-column-charts)中的步骤。
-2. 在第三步，添加一个带有数据的图表，并将图表类型指定为以下之一：
-   1. [ChartType.ScatterWithMarkers](https://reference.aspose.com/slides/zh/java/com.aspose.slides/charttype/#ScatterWithMarkers) - _表示带有标记的散点图。_
-   2. [ChartType.ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/zh/java/com.aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - _表示通过曲线连接并带有数据标记的散点图。_
-   3. [ChartType.ScatterWithSmoothLines](https://reference.aspose.com/slides/zh/java/com.aspose.slides/charttype/#ScatterWithSmoothLines) - _表示通过曲线连接且不带数据标记的散点图。_
-   4. [ChartType.ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/zh/java/com.aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _表示通过直线连接并带有数据标记的散点图。_
-   5. [ChartType.ScatterWithStraightLines](https://reference.aspose.com/slides/zh/java/com.aspose.slides/charttype/#ScatterWithStraightLines) - _表示通过直线连接且不带数据标记的散点图。_
+1. 按照 [Create Clustered Column Charts](#create-clustered-column-charts) 中的步骤操作。
+2. 在第三步中，添加图表并将图表类型指定为以下任意一种：
+   1. [ChartType.ScatterWithMarkers](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#ScatterWithMarkers) - _表示带标记的散点图。_
+   2. [ChartType.ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - _表示通过曲线连接且带数据标记的散点图。_
+   3. [ChartType.ScatterWithSmoothLines](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#ScatterWithSmoothLines) - _表示通过曲线连接且不带数据标记的散点图。_
+   4. [ChartType.ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _表示通过直线连接且带数据标记的散点图。_
+   5. [ChartType.ScatterWithStraightLines](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#ScatterWithStraightLines) - _表示通过直线连接且不带数据标记的散点图。_
 
-以下 Java 代码展示了如何为每个系列创建带有不同标记的散点图：
+下面的 Java 代码展示了如何为每个系列创建不同标记的散点图：
 
 ```java
 import com.aspose.slides.*;
@@ -187,23 +189,23 @@ try {
     // 创建默认图表
     IChart chart = slide.getShapes().addChart(ChartType.ScatterWithSmoothLines, 0, 0, 400, 400);
     
-    // 获取默认图表数据工作表的索引
+    // 获取默认图表数据工作表索引
     int defaultWorksheetIndex = 0;
     
     // 获取图表数据工作表
     IChartDataWorkbook fact = chart.getChartData().getChartDataWorkbook();
     
-    // 删除演示系列
+    // 删除示例系列
     chart.getChartData().getSeries().clear();
     
     // 添加新系列
     chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 1, 1, "Series 1"), chart.getType());
     chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 1, 3, "Series 2"), chart.getType());
     
-    // 获取第一条图表系列
+    // 获取第一个图表系列
     IChartSeries series = chart.getChartData().getSeries().get_Item(0);
     
-    // 向系列添加新点 (1:3)
+    // 向系列添加新点 (1:3) to the series
     series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 1), fact.getCell(defaultWorksheetIndex, 2, 2, 3));
     
     // 添加新点 (2:10)
@@ -216,10 +218,10 @@ try {
     series.getMarker().setSize(10);
     series.getMarker().setSymbol(MarkerStyleType.Star);
     
-    // 获取第二条图表系列
+    // 获取第二个图表系列
     series = chart.getChartData().getSeries().get_Item(1);
     
-    // 在此处添加新点 (5:2)
+    // 向该系列添加新点 (5:2) there
     series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 2, 3, 5), fact.getCell(defaultWorksheetIndex, 2, 4, 2));
     
     // 添加新点 (3:1)
@@ -243,22 +245,22 @@ try {
 
 ### **创建饼图**
 
-饼图最适合用于展示数据的部分与整体关系，尤其是当数据包含带数值的分类标签时。不过，如果数据包含许多部分或标签，您可能需要考虑使用条形图。
+饼图最适合显示数据的部分与整体关系，尤其是当数据包含带数值的分类标签时。不过，如果您的数据包含很多部分或标签，建议改用条形图。
 
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/zh/java/com.aspose.slides/presentation/) 类的实例。
+1. 创建一个 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) 类的实例。
 2. 使用索引获取幻灯片的引用。
-3. 添加一个带有默认数据的图表，并指定 [ChartType.Pie](https://reference.aspose.com/slides/zh/java/com.aspose.slides/charttype/#Pie) 类型。
-4. 访问图表数据工作簿 [IChartDataWorkbook](https://reference.aspose.com/slides/zh/java/com.aspose.slides/ichartdataworkbook/)。
+3. 添加一个带默认数据的图表，并指定 [ChartType.Pie](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#Pie) 类型。
+4. 访问图表数据工作簿 [IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/)。
 5. 清除默认的系列和类别。
-6. 添加新系列和类别。
+6. 添加新的系列和类别。
 7. 为图表系列添加新数据。
-8. 为图表添加新点，并为饼图的扇区应用自定义颜色。
-9. 设置系列的标签。
-10. 为系列标签启用引导线。
+8. 为饼图的各扇区添加新点并应用自定义颜色。
+9. 为系列设置标签。
+10. 为系列标签启用引线。
 11. 设置饼图扇区的旋转角度。
 12. 将修改后的演示文稿保存为 PPTX 文件。
 
-以下 Java 代码展示了如何创建饼图：
+下面的 Java 代码展示了如何创建饼图：
 
 ```java
 import com.aspose.slides.*;
@@ -270,7 +272,7 @@ try {
     // 访问第一张幻灯片
     ISlide slides = pres.getSlides().get_Item(0);
     
-    // 添加一个带有默认数据的图表
+    // 添加带默认数据的图表
     IChart chart = slides.getShapes().addChart(ChartType.Pie, 100, 100, 400, 400);
     
     // 设置图表标题
@@ -302,7 +304,7 @@ try {
     series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 50));
     series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 30));
     
-    // 在新版本中不可用
+    // 在新版本中不起作用
     // 添加新点并设置扇区颜色
     // series.IsColorVaried = true;
     chart.getChartData().getSeriesGroups().get_Item(0).setColorVaried(true);
@@ -361,7 +363,7 @@ try {
     // 设置饼图扇区的旋转角度
     chart.getChartData().getSeriesGroups().get_Item(0).setFirstSliceAngle(180);
     
-    // 保存带有图表的演示文稿
+    // 保存包含图表的演示文稿
     pres.save("PieChart_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
@@ -370,14 +372,14 @@ try {
 
 ### **创建折线图**
 
-折线图（亦称折线图）最适用于展示随时间变化的数值。使用折线图，您可以一次比较大量数据、跟踪随时间的变化和趋势、突出数据系列中的异常等。
+折线图（也称为折线图）最适用于展示随时间变化的数值。使用折线图，您可以一次比较大量数据、跟踪趋势、突出数据系列中的异常等。
 
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/zh/java/com.aspose.slides/presentation/) 类的实例。
+1. 创建一个 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) 类的实例。
 1. 使用索引获取幻灯片的引用。
-1. 添加一个带有默认数据的图表，并指定 [ChartType.Line](https://reference.aspose.com/slides/zh/java/com.aspose.slides/charttype/#Line) 类型。
+1. 添加一个带默认数据的图表，并指定 [ChartType.Line](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#Line) 类型。
 1. 将修改后的演示文稿保存为 PPTX 文件。
 
-以下 Java 代码展示了如何创建折线图：
+下面的 Java 代码展示了如何创建折线图：
 
 ```java
 import com.aspose.slides.*;
@@ -392,7 +394,7 @@ try {
 }
 ```
 
-默认情况下，折线图的点通过直线连续相连。如果希望点之间使用虚线连接，可以按如下方式指定所需的虚线类型：
+默认情况下，折线图的点由直线连续连接。如果希望点之间使用虚线连接，可按如下方式指定所需的虚线类型：
 
 ```java
 import com.aspose.slides.*;
@@ -414,18 +416,18 @@ try {
 
 ### **创建树形图**
 
-树形图最适合用于销售数据，可显示各数据类别的相对大小，并快速突出每个类别中贡献较大的项目。
+树形图在展示销售数据时最为有效，可显示数据类别的相对大小并快速突出每个类别中贡献最大的项目。
 
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/zh/java/com.aspose.slides/presentation/) 类的实例。
+1. 创建一个 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) 类的实例。
 2. 使用索引获取幻灯片的引用。
-3. 添加一个带有默认数据的图表，并指定 [ChartType.Treemap](https://reference.aspose.com/slides/zh/java/com.aspose.slides/charttype/#Treemap) 类型。
-4. 访问图表数据工作簿 [IChartDataWorkbook](https://reference.aspose.com/slides/zh/java/com.aspose.slides/ichartdataworkbook/)。
+3. 添加一个带默认数据的图表，并指定 [ChartType.Treemap](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#Treemap) 类型。
+4. 访问图表数据工作簿 [IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/)。
 5. 清除默认的系列和类别。
-6. 添加新系列和类别。
+6. 添加新的系列和类别。
 7. 为图表系列添加新数据。
 8. 将修改后的演示文稿保存为 PPTX 文件。
 
-以下 Java 代码展示了如何创建树形图：
+下面的 Java 代码展示了如何创建树形图：
 
 ```java
 import com.aspose.slides.*;
@@ -484,17 +486,17 @@ try {
 
 ### **创建股票图表**
 
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/zh/java/com.aspose.slides/presentation/) 类的实例。
+1. 创建一个 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) 类的实例。
 2. 使用索引获取幻灯片的引用。
-3. 添加一个带有默认数据的图表，并指定 [ChartType.OpenHighLowClose](https://reference.aspose.com/slides/zh/java/com.aspose.slides/charttype/#OpenHighLowClose) 类型。
-4. 访问图表数据工作簿 [IChartDataWorkbook](https://reference.aspose.com/slides/zh/java/com.aspose.slides/ichartdataworkbook/)。
+3. 添加一个带默认数据的图表，并指定 [ChartType.OpenHighLowClose](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#OpenHighLowClose) 类型。
+4. 访问图表数据工作簿 [IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/)。
 5. 清除默认的系列和类别。
-6. 添加新系列和类别。
+6. 添加新的系列和类别。
 7. 为图表系列添加新数据。
-8. 指定高低线格式。
+8. 指定高低线的格式。
 9. 将修改后的演示文稿保存为 PPTX 文件。
 
-以下 Java 代码展示了如何创建股票图表：
+下面的 Java 代码展示了如何创建股票图表：
 
 ```java
 import com.aspose.slides.*;
@@ -554,16 +556,16 @@ try {
 
 ### **创建箱线图**
 
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/zh/java/com.aspose.slides/presentation/) 类的实例。
+1. 创建一个 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) 类的实例。
 2. 使用索引获取幻灯片的引用。
-3. 添加一个带有默认数据的图表，并指定 [ChartType.BoxAndWhisker](https://reference.aspose.com/slides/zh/java/com.aspose.slides/charttype/#BoxAndWhisker) 类型。
-4. 访问图表数据工作簿 [IChartDataWorkbook](https://reference.aspose.com/slides/zh/java/com.aspose.slides/ichartdataworkbook/)。
+3. 添加一个带默认数据的图表，并指定 [ChartType.BoxAndWhisker](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#BoxAndWhisker) 类型。
+4. 访问图表数据工作簿 [IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/)。
 5. 清除默认的系列和类别。
-6. 添加新系列和类别。
+6. 添加新的系列和类别。
 7. 为图表系列添加新数据。
 8. 将修改后的演示文稿保存为 PPTX 文件。
 
-以下 Java 代码展示了如何创建箱线图：
+下面的 Java 代码展示了如何创建箱线图：
 
 ```java
 import com.aspose.slides.*;
@@ -607,12 +609,12 @@ try {
 
 ### **创建漏斗图**
 
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/zh/java/com.aspose.slides/presentation/) 类的实例。
+1. 创建一个 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) 类的实例。
 2. 使用索引获取幻灯片的引用。
-3. 添加一个带有默认数据的图表，并指定 [ChartType.Funnel](https://reference.aspose.com/slides/zh/java/com.aspose.slides/charttype/#Funnel) 类型。
+3. 添加一个带默认数据的图表，并指定 [ChartType.Funnel](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#Funnel) 类型。
 4. 将修改后的演示文稿保存为 PPTX 文件。
 
-以下 Java 代码展示了如何创建漏斗图：
+下面的 Java 代码展示了如何创建漏斗图：
 
 ```java
 import com.aspose.slides.*;
@@ -651,12 +653,12 @@ try {
 
 ### **创建旭辉图**
 
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/zh/java/com.aspose.slides/presentation/) 类的实例。
+1. 创建一个 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) 类的实例。
 2. 使用索引获取幻灯片的引用。
-3. 添加一个带有默认数据的图表，并指定 [ChartType.Sunburst](https://reference.aspose.com/slides/zh/java/com.aspose.slides/charttype/#Sunburst) 类型。
+3. 添加一个带默认数据的图表，并指定 [ChartType.Sunburst](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#Sunburst) 类型。
 4. 将修改后的演示文稿保存为 PPTX 文件。
 
-以下 Java 代码展示了如何创建旭辉图：
+下面的 Java 代码展示了如何创建旭辉图：
 
 ```java
 import com.aspose.slides.*;
@@ -713,15 +715,15 @@ try {
 
 ### **创建直方图**
 
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/zh/java/com.aspose.slides/presentation/) 类的实例。
+1. 创建一个 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) 类的实例。
 2. 使用索引获取幻灯片的引用。
-3. 添加一个带有默认数据的图表，并指定 [ChartType.Histogram](https://reference.aspose.com/slides/zh/java/com.aspose.slides/charttype/#Histogram) 类型。
-4. 访问图表数据工作簿 [IChartDataWorkbook](https://reference.aspose.com/slides/zh/java/com.aspose.slides/ichartdataworkbook/)。
+3. 添加一个带默认数据的图表，并指定 [ChartType.Histogram](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#Histogram) 类型。
+4. 访问图表数据工作簿 [IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/)。
 5. 清除默认的系列和类别。
-6. 添加新系列和类别。
+6. 添加新的系列和类别。
 7. 将修改后的演示文稿保存为 PPTX 文件。
 
-以下 Java 代码展示了如何创建直方图：
+下面的 Java 代码展示了如何创建直方图：
 
 ```java
 import com.aspose.slides.*;
@@ -753,12 +755,12 @@ try {
 
 ### **创建雷达图**
 
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/zh/java/com.aspose.slides/presentation/) 类的实例。
+1. 创建一个 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) 类的实例。
 2. 使用索引获取幻灯片的引用。
-3. 添加一个带有数据的图表，并指定您偏好的图表类型（本例中为 [ChartType.Radar](https://reference.aspose.com/slides/zh/java/com.aspose.slides/charttype/#Radar)）。
+3. 添加一个带数据的图表，并指定您偏好的图表类型（本例中为 [ChartType.Radar](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#Radar)）。
 4. 将修改后的演示文稿保存为 PPTX 文件。
 
-以下 Java 代码展示了如何创建雷达图：
+下面的 Java 代码展示了如何创建雷达图：
 
 ```java
 import com.aspose.slides.*;
@@ -774,16 +776,16 @@ try {
 
 ### **创建多类别图表**
 
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/zh/java/com.aspose.slides/presentation/) 类的实例。
+1. 创建一个 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) 类的实例。
 2. 使用索引获取幻灯片的引用。
-3. 添加一个带有默认数据的图表，并指定 [ChartType.ClusteredColumn](https://reference.aspose.com/slides/zh/java/com.aspose.slides/charttype/#ClusteredColumn) 类型。
-4. 访问图表数据工作簿 [IChartDataWorkbook](https://reference.aspose.com/slides/zh/java/com.aspose.slides/ichartdataworkbook/)。
+3. 添加一个带默认数据的图表，并指定 [ChartType.ClusteredColumn](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#ClusteredColumn) 类型。
+4. 访问图表数据工作簿 [IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/)。
 5. 清除默认的系列和类别。
-6. 添加新系列和类别。
+6. 添加新的系列和类别。
 7. 为图表系列添加新数据。
 8. 将修改后的演示文稿保存为 PPTX 文件。
 
-以下 Java 代码展示了如何创建多类别图表：
+下面的 Java 代码展示了如何创建多类别图表：
 
 ```java
 import com.aspose.slides.*;
@@ -827,7 +829,7 @@ try {
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, "D8", 70));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, "D9", 80));
     
-    // 保存带有图表的演示文稿
+    // 保存包含图表的演示文稿
     pres.save("AsposeChart_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
@@ -836,9 +838,9 @@ try {
 
 ### **创建地图图表**
 
-地图图表可可视化地理数据，并帮助比较不同地区的数值。
+地图图表可视化地理数据，帮助比较不同地区的数值。
 
-以下 Java 代码展示了如何创建地图图表：
+下面的 Java 代码展示了如何创建地图图表：
 
 ```java
 import com.aspose.slides.*;
@@ -854,9 +856,9 @@ try {
 
 ### **创建组合图表**
 
-组合图（或称混合图）在单个图形中结合两种或多种图表类型。此图表可帮助突出、比较或检查多个数据集之间的差异，从而识别它们之间的关系。
+组合图表（或称为混合图表）在单个图形中组合两种或更多图表类型。该图表可帮助您突出、比较或检查多个数据集之间的差异，从而识别它们之间的关系。
 
-![The combination chart](combination_chart.png)
+![组合图表](combination_chart.png)
 
 以下 Java 代码展示了如何在 PowerPoint 演示文稿中创建上述组合图表：
 
@@ -894,7 +896,7 @@ static IChart createChartWithFirstSeries(ISlide slide) {
     titleFormat.setFontBold(NullableBool.False);
     titleFormat.setFontHeight(18f);
 
-    // 设置图例。
+    // 设置图表图例。
     chart.getLegend().setPosition(LegendPositionType.Bottom);
     chart.getLegend().getTextFormat().getPortionFormat().setFontHeight(12f);
 
@@ -958,14 +960,14 @@ static void addThirdSeriesToChart(IChart chart) {
 }
 
 static void setPrimaryAxesFormat(IChart chart) {
-    // 设置水平轴。
+    // 设置水平坐标轴。
     IAxis horizontalAxis = chart.getAxes().getHorizontalAxis();
     horizontalAxis.getTextFormat().getPortionFormat().setFontHeight(12f);
     horizontalAxis.getFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
 
     setAxisTitle(horizontalAxis, "X Axis");
 
-    // 设置垂直轴。
+    // 设置垂直坐标轴。
     IAxis verticalAxis = chart.getAxes().getVerticalAxis();
     verticalAxis.getTextFormat().getPortionFormat().setFontHeight(12f);
     verticalAxis.getFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
@@ -979,7 +981,7 @@ static void setPrimaryAxesFormat(IChart chart) {
 }
 
 static void setSecondaryAxesFormat(IChart chart) {
-    // 设置次要水平轴。
+    // 设置次要水平坐标轴。
     IAxis secondaryHorizontalAxis = chart.getAxes().getSecondaryHorizontalAxis();
     secondaryHorizontalAxis.setPosition(AxisPositionType.Bottom);
     secondaryHorizontalAxis.setCrossType(CrossesType.Maximum);
@@ -987,7 +989,7 @@ static void setSecondaryAxesFormat(IChart chart) {
     secondaryHorizontalAxis.getMajorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
     secondaryHorizontalAxis.getMinorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
 
-    // 设置次要垂直轴。
+    // 设置次要垂直坐标轴。
     IAxis secondaryVerticalAxis = chart.getAxes().getSecondaryVerticalAxis();
     secondaryVerticalAxis.setPosition(AxisPositionType.Right);
     secondaryVerticalAxis.getTextFormat().getPortionFormat().setFontHeight(12f);
@@ -1010,7 +1012,7 @@ static void setAxisTitle(IAxis axis, String axisTitle) {
 
 ## **更新图表**
 
-1. 创建一个代表包含要更新图表的演示文稿的 [Presentation](https://reference.aspose.com/slides/zh/java/com.aspose.slides/presentation/) 类的实例。
+1. 创建一个代表包含要更新图表的演示文稿的 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) 类实例。
 2. 使用索引获取幻灯片的引用。
 3. 遍历所有形状以查找目标图表。
 4. 访问图表的数据工作表。
@@ -1018,7 +1020,7 @@ static void setAxisTitle(IAxis axis, String axisTitle) {
 6. 添加新系列并填充其数据。
 7. 将修改后的演示文稿保存为 PPTX 文件。
 
-以下 Java 代码展示了如何更新图表：
+下面的 Java 代码展示了如何更新图表：
 
 ```java
 import com.aspose.slides.*;
@@ -1042,20 +1044,20 @@ try {
     fact.getCell(defaultWorksheetIndex, 1, 0, "Modified Category 1");
     fact.getCell(defaultWorksheetIndex, 2, 0, "Modified Category 2");
 
-    // 获取第一条图表系列
+    // 获取第一个图表系列
     IChartSeries series = chart.getChartData().getSeries().get_Item(0);
 
     // 现在更新系列数据
-    fact.getCell(defaultWorksheetIndex, 0, 1, "New_Series1"); // 修改系列名称
+    fact.getCell(defaultWorksheetIndex, 0, 1, "New_Series1");// 修改系列名称
     series.getDataPoints().get_Item(0).getValue().setData(90);
     series.getDataPoints().get_Item(1).getValue().setData(123);
     series.getDataPoints().get_Item(2).getValue().setData(44);
 
-    // 获取第二条图表系列
+    // 获取第二个图表系列
     series = chart.getChartData().getSeries().get_Item(1);
 
     // 现在更新系列数据
-    fact.getCell(defaultWorksheetIndex, 0, 2, "New_Series2"); // 修改系列名称
+    fact.getCell(defaultWorksheetIndex, 0, 2, "New_Series2");// 修改系列名称
     series.getDataPoints().get_Item(0).getValue().setData(23);
     series.getDataPoints().get_Item(1).getValue().setData(67);
     series.getDataPoints().get_Item(2).getValue().setData(99);
@@ -1063,7 +1065,7 @@ try {
     // 现在，添加新系列
     chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 3, "Series 3"), chart.getType());
 
-    // 获取第三条图表系列
+    // 获取第3个图表系列
     series = chart.getChartData().getSeries().get_Item(2);
 
     // 现在填充系列数据
@@ -1073,7 +1075,7 @@ try {
 
     chart.setType(ChartType.ClusteredCylinder);
 
-    // 保存带有图表的演示文稿
+    // 保存包含图表的演示文稿
     pres.save("AsposeChartModified_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
@@ -1082,15 +1084,17 @@ try {
 
 ## **设置图表的数据范围**
 
+要检查现有图表使用的范围，请参阅 [Retrieve a Chart's Data Range](/slides/zh/java/chart-workbook/#retrieve-a-charts-data-range)。
+
 要为图表设置数据范围，请执行以下操作：
 
-1. 创建一个代表包含该图表的演示文稿的 [Presentation](https://reference.aspose.com/slides/zh/java/com.aspose.slides/presentation/) 类的实例。
+1. 创建一个代表包含该图表的演示文稿的 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) 类实例。
 2. 使用索引获取幻灯片的引用。
 3. 遍历所有形状以查找目标图表。
 4. 访问图表数据并设置范围。
 5. 将修改后的演示文稿保存为 PPTX 文件。
 
-以下 Java 代码展示了如何设置图表的数据范围：
+下面的 Java 代码展示了如何为图表设置数据范围：
 
 ```java
 import com.aspose.slides.*;
@@ -1111,9 +1115,9 @@ try {
 
 ## **在图表中使用默认标记**
 
-在图表中使用默认标记时，每个图表系列会自动获得不同的标记符号。
+使用默认标记时，每个图表系列会自动获得不同的标记符号。
 
-以下 Java 代码展示了如何自动设置图表系列的标记：
+下面的 Java 代码展示了如何自动为图表系列设置标记：
 
 ```java
 import com.aspose.slides.*;
@@ -1140,7 +1144,7 @@ try {
     series.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 4, 1, null));
 
     chart.getChartData().getSeries().add(fact.getCell(0, 0, 2, "Series 2"), chart.getType());
-    //获取第二条图表系列
+    //获取第二个图表系列
     IChartSeries series2 = chart.getChartData().getSeries().get_Item(1);
 
     //现在填充系列数据
@@ -1162,16 +1166,16 @@ try {
 
 **Aspose.Slides 支持哪些图表类型？**
 
-Aspose.Slides 支持广泛的[图表类型](https://reference.aspose.com/slides/zh/java/com.aspose.slides/charttype/)，包括柱形图、折线图、饼图、面积图、散点图、直方图、雷达图等众多类型。此灵活性让您可以根据数据可视化需求选择最合适的图表类型。
+Aspose.Slides 支持广泛的 [chart types](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/)，包括柱形图、折线图、饼图、面积图、散点图、直方图、雷达图等。此灵活性让您能够根据数据可视化需求选择最合适的图表类型。
 
 **如何向幻灯片添加新图表？**
 
-要添加图表，您首先创建一个 [Presentation](https://reference.aspose.com/slides/zh/java/com.aspose.slides/presentation/) 类的实例，使用索引获取目标幻灯片，然后调用添加图表的方法，指定图表类型和初始数据。此过程可将图表直接集成到演示文稿中。
+要添加图表，首先创建一个 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) 类的实例，使用索引检索目标幻灯片，然后调用添加图表的方法，指定图表类型和初始数据。此过程可将图表直接嵌入演示文稿。
 
 **如何更新图表中显示的数据？**
 
-您可以通过访问其数据工作簿 ([IChartDataWorkbook](https://reference.aspose.com/slides/zh/java/com.aspose.slides/ichartdataworkbook/))，清除默认的系列和类别，然后添加自定义数据来更新图表的数据。这使您能够刷新图表以显示最新的数据。
+您可以通过访问其数据工作簿 ([IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/))，清除默认的系列和类别，然后添加自定义数据来更新图表数据。这样即可刷新图表以反映最新的数据。
 
 **是否可以自定义图表的外观？**
 
-是的，Aspose.Slides 提供了丰富的自定义选项。您可以修改颜色、字体、标签、图例以及其他[格式化元素](/slides/zh/java/chart-entities/)，以满足特定的设计需求。
+是的，Aspose.Slides 提供了丰富的自定义选项。您可以修改颜色、字体、标签、图例以及其他 [formatting elements](/slides/zh/java/chart-entities/)，以满足特定的设计需求。

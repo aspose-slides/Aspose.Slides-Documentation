@@ -1,6 +1,6 @@
 ---
-title: Java'da PowerPoint Sunum Grafiklerini Oluşturma veya Güncelleme
-linktitle: Grafik Oluşturma veya Güncelleme
+title: Java'da PowerPoint Sunum Grafikleri Oluşturma veya Güncelleme
+linktitle: Grafiklerini Oluşturma veya Güncelleme
 type: docs
 weight: 10
 url: /tr/java/create-chart/
@@ -20,54 +20,52 @@ keywords:
 - güneş patlaması grafiği
 - histogram grafiği
 - radar grafiği
-- çok kategorili grafik
+- çoklu kategori grafiği
 - PowerPoint
 - sunum
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Java kullanarak PowerPoint sunumlarında grafikler oluşturun ve özelleştirin. Java'da pratik kod örnekleriyle grafik ekleyin, biçimlendirin ve düzenleyin."
+description: "Aspose.Slides for Java kullanarak PowerPoint sunumlarındaki grafikleri oluşturun ve özelleştirin. Java'da pratik kod örnekleriyle grafik ekleyin, biçimlendirin ve düzenleyin."
 ---
 ## **Genel Bakış**
 
-Bu makale, Aspose.Slides kullanarak nasıl grafik oluşturulacağını ve özelleştirileceğini kapsamlı bir şekilde anlatır. Bir slayda programlı olarak nasıl grafik ekleyeceğinizi, verileri nasıl dolduracağınızı ve belirli tasarım gereksinimlerinize uygun çeşitli biçimlendirme seçeneklerini nasıl uygulayacağınızı öğreneceksiniz. Makale boyunca, sunumu ve grafik nesnesini başlatmadan serileri, eksenleri ve lejantları yapılandırmaya kadar her adımı gösteren ayrıntılı kod örnekleri bulunmaktadır. Bu rehberi izleyerek, dinamik grafik oluşturmayı uygulamalarınıza entegre etme konusunda sağlam bir anlayış kazanacak ve veri odaklı sunumlar oluşturma sürecini kolaylaştıracaksınız.
+Bu makale, Aspose.Slides kullanarak grafik oluşturma ve özelleştirme konusunda kapsamlı bir rehber sunar. Bir grafiği slayta programlı olarak eklemeyi, veri ile doldurmayı ve belirli tasarım gereksinimlerinize uyması için çeşitli biçimlendirme seçeneklerini uygulamayı öğreneceksiniz. Makale boyunca, sunumu ve grafik nesnesini başlatmadan serileri, eksenleri ve lejandları yapılandırmaya kadar her adımı gösteren detaylı kod örnekleri bulunmaktadır. Bu rehberi takip ederek, dinamik grafik üretimini uygulamalarınıza entegre etme konusunda sağlam bir anlayış kazanacak ve veri odaklı sunumlar oluşturma sürecini kolaylaştıracaksınız.
 
 ## **Grafik Oluşturma**
 
-Grafikler, verileri hızlıca görselleştirmenize ve bir tablo ya da elektronik tablodan hemen anlaşılmayan içgörüleri elde etmenize yardımcı olur.
+Grafikler, verileri hızlı bir şekilde görselleştirerek tablo veya elektronik tablodan hemen anlaşılmayan içgörüler elde edilmesini sağlar.
 
 **Grafik Oluşturmanın Nedenleri?**
 
-Grafiklerle şunları yapabilirsiniz:
+Grafikler kullanarak:
 
-* büyük miktarda veriyi tek bir slaytta özetlemek, yoğunlaştırmak veya toplamak
-* verideki desen ve eğilimleri ortaya çıkarmak
-* zaman içinde ya da belirli bir ölçü birimine göre verinin yönünü ve ivmesini belirlemek
-* aykırı değerleri, sapmaları, hataları, mantıksız verileri vb. tespit etmek
-* karmaşık verileri iletmek veya sunmak
+* büyük miktarda veriyi tek bir slayt içinde özetleyebilir veya derleyebilirsiniz
+* verideki desenleri ve eğilimleri ortaya çıkarabilirsiniz
+* zaman içinde veya belirli bir ölçüm birimine göre verinin yönünü ve ivmesini belirleyebilirsiniz
+* aykırı değerleri, sapmaları, hataları, anlamsız verileri vb. tespit edebilirsiniz
+* karmaşık verileri iletişim kurmak veya sunmak için kullanabilirsiniz
 
-PowerPoint’te, birçok grafik tipini tasarlamak için şablonlar sunan *Ekle* işleviyle grafikler oluşturabilirsiniz. Aspose.Slides kullanarak hem popüler grafik tiplerine dayalı normal grafikler hem de özel grafikler oluşturabilirsiniz.
+PowerPoint’te *Ekle* işleviyle birçok grafik türü şablonu sunan grafikler oluşturabilirsiniz. Aspose.Slides kullanarak hem popüler grafik türlerine dayalı normal grafikler hem de özel grafikler oluşturabilirsiniz.
 
 {{% alert color="info" title="Note" %}}
-
-Grafik oluşturmak için [ChartType](https://reference.aspose.com/slides/tr/java/com.aspose.slides/charttype/) sınıfını kullanın. Bu sınıftaki alanlar farklı grafik tiplerine karşılık gelir.
-
+Grafikler oluşturmak için [ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/) sınıfını kullanın. Bu sınıftaki alanlar farklı grafik türlerine karşılık gelir.
 {{% /alert %}}
 
 ### **Kümelenmiş Sütun Grafikleri Oluşturma**
 
-Bu bölüm, Aspose.Slides kullanarak kümelenmiş sütun grafiği oluşturmayı açıklar. Bir sunumu başlatmayı, bir grafik eklemeyi ve başlık, veri, seriler, kategoriler ve stil gibi öğeleri özelleştirmeyi öğreneceksiniz. Aşağıdaki adımları izleyerek standart bir kümelenmiş sütun grafiğinin nasıl üretildiğini görebilirsiniz:
+Bu bölüm, Aspose.Slides kullanarak kümelenmiş sütun grafiklerinin nasıl oluşturulacağını açıklar. Bir sunumu başlatmayı, bir grafik eklemeyi ve başlık, veri, seriler, kategoriler ve stil gibi öğelerini özelleştirmeyi öğreneceksiniz. Aşağıdaki adımları izleyerek standart bir kümelenmiş sütun grafiğinin nasıl üretildiğini görebilirsiniz:
 
-1. [Presentation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation) sınıfının bir örneğini oluşturun.  
-1. Diziniyle slayta başvurun.  
-1. Veri ekleyerek bir grafik ekleyin ve `ChartType.ClusteredColumn` tipini belirtin.  
-1. Grafik için bir başlık ekleyin.  
-1. Grafiğin veri çalışma sayfasına erişin.  
-1. Tüm varsayılan serileri ve kategorileri temizleyin.  
-1. Yeni seriler ve kategoriler ekleyin.  
-1. Grafik serileri için yeni veri ekleyin.  
-1. Grafik serilerine bir doldurma rengi uygulayın.  
-1. Grafik serilerine etiketler ekleyin.  
-1. Değiştirilmiş sunumu PPTX dosyası olarak kaydedin.
+1. Bir [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation) sınıfının bir örneğini oluşturun.
+1. İndeksiyle bir slayta referans alın.
+1. Bazı veri içeren bir grafik ekleyin ve `ChartType.ClusteredColumn` türünü belirtin.
+1. Grafiğe bir başlık ekleyin.
+1. Grafiğin veri çalışma sayfasına erişin.
+1. Varsayılan tüm serileri ve kategorileri temizleyin.
+1. Yeni seriler ve kategoriler ekleyin.
+1. Grafik serileri için yeni veri ekleyin.
+1. Grafik serilerine dolgu rengi uygulayın.
+1. Grafik serilerine etiketler ekleyin.
+1. Değiştirilmiş sunumu bir PPTX dosyası olarak kaydedin.
 
 Bu C# kodu, bir kümelenmiş sütun grafiğinin nasıl oluşturulacağını gösterir:
 
@@ -75,7 +73,7 @@ Bu C# kodu, bir kümelenmiş sütun grafiğinin nasıl oluşturulacağını gös
 import com.aspose.slides.*;
 import java.awt.Color;
 
-// PPTX dosyasını temsil eden bir sunum sınıfı örnekleyerek
+// PPTX dosyasını temsil eden bir sunum sınıfı örnekler
 Presentation pres = new Presentation();
 try {
     // İlk slayta erişir
@@ -90,7 +88,7 @@ try {
     chart.getChartTitle().setHeight(20);
     chart.setTitle(true);
     
-    // Grafik veri sayfası için dizini ayarlar
+    // Grafik veri sayfası için indeksi ayarlar
     int defaultWorksheetIndex = 0;
     
     // Grafik veri çalışma sayfasını alır
@@ -135,8 +133,8 @@ try {
     series.getFormat().getFill().setFillType(FillType.Solid);
     series.getFormat().getFill().getSolidFillColor().setColor(Color.GREEN);
     
-    //Create yeni seri için her kategoriye özel etiketler oluşturur
-    // İlk etiketi kategori adını gösterecek şekilde ayarlar
+    //Yeni seri için her kategoriye özel etiketler oluşturur
+    // İlk etiketi kategori adı gösterecek şekilde ayarlar
     IDataLabel lbl = series.getDataPoints().get_Item(0).getLabel();
     lbl.getDataLabelFormat().setShowCategoryName(true);
     
@@ -149,32 +147,33 @@ try {
     lbl.getDataLabelFormat().setShowSeriesName(true);
     lbl.getDataLabelFormat().setSeparator("/");
     
-    // Grafikli sunumu kaydeder
+    // Sunumu grafikle birlikte kaydeder
     pres.save("output.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-### **Saçılım (Scatter) Grafikler Oluşturma**
-Saçılım grafikler (diğer adıyla dağılım grafiği veya x‑y grafiği), iki değişken arasındaki desenleri kontrol etmek veya korelasyonları göstermek için sıklıkla kullanılır.
+### **Dağılım Grafiklerini Oluşturma**
 
-Saçılım grafiği şu durumlarda tercih edilir:
+Dağılım grafikleri (diğer adıyla dağılım diyagramları veya x-y grafikleri), iki değişken arasındaki desenleri kontrol etmek veya ilişkileri göstermek için sıkça kullanılır.
 
-* eşleşmiş sayısal verileriniz olduğunda
-* iki değişkenin birbiriyle iyi bir ilişki kurduğu durumlarda
-* iki değişkenin birbiriyle ilişkili olup olmadığını belirlemek istediğinizde
-* bağımlı bir değişken için birden çok değer içeren bağımsız bir değişkeniniz olduğunda
+Bir dağılım grafiği şu durumlarda kullanılmalıdır:
 
-1. [Kümelenmiş Sütun Grafikleri Oluşturma](#create-clustered-column-charts) bölümündeki adımları izleyin.  
-2. Üçüncü adımda, bir grafik ekleyin ve grafik tipinizi aşağıdakilerden biri olarak belirtin:
-   1. [ChartType.ScatterWithMarkers](https://reference.aspose.com/slides/tr/java/com.aspose.slides/charttype/#ScatterWithMarkers) - _Bir saçılım grafiği temsil eder._  
-   2. [ChartType.ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/tr/java/com.aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - _Eğri çizgilerle bağlanan, veri işaretçileri bulunan bir saçılım grafiği temsil eder._  
-   3. [ChartType.ScatterWithSmoothLines](https://reference.aspose.com/slides/tr/java/com.aspose.slides/charttype/#ScatterWithSmoothLines) - _Eğri çizgilerle bağlanan, veri işaretçileri olmayan bir saçılım grafiği temsil eder._  
-   4. [ChartType.ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/tr/java/com.aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _Düz çizgilerle bağlanan, veri işaretçileri bulunan bir saçılım grafiği temsil eder._  
-   5. [ChartType.ScatterWithStraightLines](https://reference.aspose.com/slides/tr/java/com.aspose.slides/charttype/#ScatterWithStraightLines) - _Düz çizgilerle bağlanan, veri işaretçileri olmayan bir saçılım grafiği temsil eder._
+* eşleştirilmiş sayısal verileriniz varsa
+* iki değişken birbirine iyi eşleşiyorsa
+* iki değişkenin ilişkili olup olmadığını belirlemek istiyorsanız
+* bağımlı bir değişken için birden fazla değer içeren bağımsız bir değişkeniniz varsa
 
-Bu Java kodu, her seri için farklı işaretçili bir saçılım grafiğinin nasıl oluşturulacağını gösterir:
+1. [Kümelenmiş Sütun Grafikleri Oluşturma](#create-clustered-column-charts) bölümündeki adımları izleyin.
+2. Üçüncü adımda, bir grafik ekleyin ve grafik türünüzü aşağıdakilerden biri olarak belirtin:
+   1. [ChartType.ScatterWithMarkers](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#ScatterWithMarkers) - _Bir dağılım grafiğini temsil eder._
+   2. [ChartType.ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - _Eğrilerle bağlanan, veri işaretçileri olan bir dağılım grafiğini temsil eder._
+   3. [ChartType.ScatterWithSmoothLines](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#ScatterWithSmoothLines) - _Eğrilerle bağlanan, veri işaretçileri olmayan bir dağılım grafiğini temsil eder._
+   4. [ChartType.ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _Çizgilerle bağlanan, veri işaretçileri olan bir dağılım grafiğini temsil eder._
+   5. [ChartType.ScatterWithStraightLines](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#ScatterWithStraightLines) - _Çizgilerle bağlanan, veri işaretçileri olmayan bir dağılım grafiğini temsil eder._
+
+Bu Java kodu, her seri için farklı işaretçilerle bir dağılım grafiğinin nasıl oluşturulacağını gösterir:
 
 ```java
 import com.aspose.slides.*;
@@ -188,13 +187,13 @@ try {
     // Varsayılan grafiği oluşturur
     IChart chart = slide.getShapes().addChart(ChartType.ScatterWithSmoothLines, 0, 0, 400, 400);
     
-    // Varsayılan grafik veri çalışma sayfası dizinini alır
+    // Varsayılan grafik veri çalışma sayfası indeksini alır
     int defaultWorksheetIndex = 0;
     
     // Grafik veri çalışma sayfasını alır
     IChartDataWorkbook fact = chart.getChartData().getChartDataWorkbook();
     
-    // Demo serisini siler
+    // Demo serileri siler
     chart.getChartData().getSeries().clear();
     
     // Yeni seriler ekler
@@ -242,22 +241,22 @@ try {
 }
 ```
 
-### **Pasta Grafikler Oluşturma**
+### **Pasta Grafiklerini Oluşturma**
 
-Pasta grafikleri, özellikle kategorik etiketlere sahip sayısal değerler içerdiğinde veri içinde bütün‑parça ilişkisini göstermek için en uygundur. Ancak veri çok fazla parça ya da etiket içeriyorsa, çubuk grafiği tercih etmek daha mantıklı olabilir.
+Pasta grafikleri, özellikle veriler sayısal değerler içeren kategorik etiketler içerdiğinde, parçanın bütüne oranını göstermek için en iyi seçenektir. Ancak, veriniz çok sayıda parça veya etiket içeriyorsa, bunun yerine çubuk grafiği kullanmayı düşünebilirsiniz.
 
-1. [Presentation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/) sınıfının bir örneğini oluşturun.  
-2. Diziniyle slayta başvurun.  
-3. Varsayılan veriyle bir grafik ekleyin ve [ChartType.Pie](https://reference.aspose.com/slides/tr/java/com.aspose.slides/charttype/#Pie) tipini belirtin.  
-4. Grafik veri çalışma kitabı olan [IChartDataWorkbook](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ichartdataworkbook/) erişin.  
-5. Varsayılan serileri ve kategorileri temizleyin.  
-6. Yeni seriler ve kategoriler ekleyin.  
-7. Grafik serileri için yeni veri ekleyin.  
-8. Grafik için yeni puanlar ekleyin ve pasta dilimlerine özel renkler uygulayın.  
-9. Seriler için etiketler ayarlayın.  
-10. Seri etiketleri için lider çizgileri etkinleştirin.  
-11. Pasta dilimlerinin dönüş açılarını ayarlayın.  
-12. Değiştirilmiş sunumu PPTX dosyası olarak kaydedin.
+1. Bir [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
+2. İndeksiyle bir slayta referans alın.
+3. Varsayılan veriyle bir grafik ekleyin ve [ChartType.Pie](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#Pie) türünü belirtin.
+4. Grafik veri çalışma kitabına [IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/) üzerinden erişin.
+5. Varsayılan serileri ve kategorileri temizleyin.
+6. Yeni seriler ve kategoriler ekleyin.
+7. Grafik serileri için yeni veri ekleyin.
+8. Grafiğe yeni noktalar ekleyin ve pasta dilimlerinin renklerini özelleştirin.
+9. Seriler için etiketler ayarlayın.
+10. Seri etiketleri için gösterge hatlarını etkinleştirin.
+11. Pasta dilimlerinin dönüş açılarını ayarlayın.
+12. Değiştirilmiş sunumu bir PPTX dosyası olarak kaydedin.
 
 Bu Java kodu, bir pasta grafiğinin nasıl oluşturulacağını gösterir:
 
@@ -265,7 +264,7 @@ Bu Java kodu, bir pasta grafiğinin nasıl oluşturulacağını gösterir:
 import com.aspose.slides.*;
 import java.awt.Color;
 
-// PPTX dosyasını temsil eden bir sunum sınıfını örnekler
+// PPTX dosyasını temsil eden bir sunum sınıfı örnekler
 Presentation pres = new Presentation();
 try {
     // İlk slayta erişir
@@ -280,7 +279,7 @@ try {
     chart.getChartTitle().setHeight(20);
     chart.setTitle(true);
     
-    // Grafik veri sayfası için dizini ayarlar
+    // Grafik veri sayfası için indeksi ayarlar
     int defaultWorksheetIndex = 0;
     
     // Grafik veri çalışma sayfasını alır
@@ -304,7 +303,7 @@ try {
     series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 30));
     
     // Yeni sürümde çalışmıyor
-    // Yeni noktalar ekleyip sektör rengini ayarlama
+    // Yeni noktalar ekleniyor ve dilim rengi ayarlanıyor
     // series.IsColorVaried = true;
     chart.getChartData().getSeriesGroups().get_Item(0).setColorVaried(true);
     
@@ -312,7 +311,7 @@ try {
     point.getFormat().getFill().setFillType(FillType.Solid);
     point.getFormat().getFill().getSolidFillColor().setColor(Color.CYAN);
 	
-    // Sektör kenarlığını ayarlar
+    // Dilim kenarlığını ayarlar
     point.getFormat().getLine().getFillFormat().setFillType(FillType.Solid);
     point.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.GRAY);
     point.getFormat().getLine().setWidth(3.0);
@@ -323,7 +322,7 @@ try {
     point1.getFormat().getFill().setFillType(FillType.Solid);
     point1.getFormat().getFill().getSolidFillColor().setColor(Color.ORANGE);
     
-    // Sektör kenarlığını ayarlar
+    // Dilim kenarlığını ayarlar
     point1.getFormat().getLine().getFillFormat().setFillType(FillType.Solid);
     point1.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
     point1.getFormat().getLine().setWidth(3.0);
@@ -334,7 +333,7 @@ try {
     point2.getFormat().getFill().setFillType(FillType.Solid);
     point2.getFormat().getFill().getSolidFillColor().setColor(Color.YELLOW);
     
-    // Sektör kenarlığını ayarlar
+    // Dilim kenarlığını ayarlar
     point2.getFormat().getLine().getFillFormat().setFillType(FillType.Solid);
     point2.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.RED);
     point2.getFormat().getLine().setWidth(2.0);
@@ -356,27 +355,27 @@ try {
     lbl3.getDataLabelFormat().setShowSeriesName(true);
     lbl3.getDataLabelFormat().setShowPercentage(true);
     
-    // Grafik için Lider Çizgileri gösterir
+    // Grafik için lider çizgileri gösterir
     series.getLabels().getDefaultDataLabelFormat().setShowLeaderLines(true);
     
-    // Pasta Grafik Dilimlerinin Dönüş Açısını ayarlar
+    // Pasta grafiği dilimlerinin dönüş açısını ayarlar
     chart.getChartData().getSeriesGroups().get_Item(0).setFirstSliceAngle(180);
     
-    // Grafik içeren sunumu kaydeder
+    // Grafikli sunumu kaydeder
     pres.save("PieChart_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-### **Çizgi Grafikler Oluşturma**
+### **Çizgi Grafiklerini Oluşturma**
 
-Çizgi grafikler (diğer adıyla çizgi diyagramlar), zaman içinde değer değişimlerini göstermek istediğiniz durumlar için en uygundur. Çizgi grafiği kullanarak aynı anda büyük miktarda veriyi karşılaştırabilir, zaman içindeki değişim ve eğilimleri izleyebilir, veri serilerindeki anormallikleri vurgulayabilirsiniz.
+Çizgi grafikleri (diğer adıyla çizgi diyagramları), değerin zaman içinde nasıl değiştiğini göstermek istediğiniz durumlarda en iyi seçenektir. Bir çizgi grafiği kullanarak, aynı anda büyük miktarda veriyi karşılaştırabilir, zaman içindeki değişim ve eğilimleri izleyebilir, veri serilerindeki anormallikleri vurgulayabilir ve daha fazlasını yapabilirsiniz.
 
-1. [Presentation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/) sınıfının bir örneğini oluşturun.  
-1. Diziniyle slayta başvurun.  
-1. Varsayılan veriyle bir grafik ekleyin ve [ChartType.Line](https://reference.aspose.com/slides/tr/java/com.aspose.slides/charttype/#Line) tipini belirtin.  
-1. Değiştirilmiş sunumu PPTX dosyası olarak kaydedin.
+1. Bir [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
+1. İndeksiyle bir slayta referans alın.
+1. Varsayılan veriyle bir grafik ekleyin ve [ChartType.Line](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#Line) türünü belirtin.
+1. Değiştirilmiş sunumu bir PPTX dosyası olarak kaydedin.
 
 Bu Java kodu, bir çizgi grafiğinin nasıl oluşturulacağını gösterir:
 
@@ -393,7 +392,7 @@ try {
 }
 ```
 
-Varsayılan olarak, bir çizgi grafiğindeki noktalar düz, kesintisiz çizgilerle birleştirilir. Noktaların kesikli çizgilerle birleştirilmesini isterseniz, tercih ettiğiniz kesik çizgi tipini şu şekilde belirtebilirsiniz:
+Varsayılan olarak, bir çizgi grafiğindeki noktalar düz, sürekli çizgilerle birleştirilir. Noktaların kesikli çizgilerle birleştirilmesini istiyorsanız, tercih ettiğiniz tire tipini aşağıdaki gibi belirtebilirsiniz:
 
 ```java
 import com.aspose.slides.*;
@@ -413,18 +412,18 @@ try {
 }
 ```
 
-### **Ağaç Haritası (Tree Map) Grafikler Oluşturma**
+### **Ağaç Haritası Grafiklerini Oluşturma**
 
-Ağaç haritası grafikler, her kategori içinde büyük katkı sağlayan öğelere hızlıca dikkat çekmek ve veri kategorilerinin göreceli boyutlarını göstermek istediğiniz satış verileri için idealdir.
+Ağaç haritası grafikleri, her kategori içinde büyük katkıda bulunan öğelere hızlıca dikkat çekmek ve veri kategorilerinin göreceli boyutlarını göstermek istediğiniz satış verileri için en iyi seçenektir.
 
-1. [Presentation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/) sınıfının bir örneğini oluşturun.  
-2. Diziniyle slayta başvurun.  
-3. Varsayılan veriyle bir grafik ekleyin ve [ChartType.Treemap](https://reference.aspose.com/slides/tr/java/com.aspose.slides/charttype/#Treemap) tipini belirtin.  
-4. Grafik veri çalışma kitabı olan [IChartDataWorkbook](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ichartdataworkbook/) erişin.  
-5. Varsayılan serileri ve kategorileri temizleyin.  
-6. Yeni seriler ve kategoriler ekleyin.  
-7. Grafik serileri için yeni veri ekleyin.  
-8. Değiştirilmiş sunumu PPTX dosyası olarak kaydedin.
+1. Bir [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
+2. İndeksiyle bir slayta referans alın.
+3. Varsayılan veriyle bir grafik ekleyin ve [ChartType.Treemap](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#Treemap) türünü belirtin.
+4. Grafik veri çalışma kitabına [IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/) üzerinden erişin.
+5. Varsayılan serileri ve kategorileri temizleyin.
+6. Yeni seriler ve kategoriler ekleyin.
+7. Grafik serileri için yeni veri ekleyin.
+8. Değiştirilmiş sunumu bir PPTX dosyası olarak kaydedin.
 
 Bu Java kodu, bir ağaç haritası grafiğinin nasıl oluşturulacağını gösterir:
 
@@ -483,17 +482,17 @@ try {
 }
 ```
 
-### **Hisse Senedi (Stock) Grafikler Oluşturma**
+### **Hisse Senedi Grafiklerini Oluşturma**
 
-1. [Presentation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/) sınıfının bir örneğini oluşturun.  
-2. Diziniyle slayta başvurun.  
-3. Varsayılan veriyle bir grafik ekleyin ve [ChartType.OpenHighLowClose](https://reference.aspose.com/slides/tr/java/com.aspose.slides/charttype/#OpenHighLowClose) tipini belirtin.  
-4. Grafik veri çalışma kitabı olan [IChartDataWorkbook](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ichartdataworkbook/) erişin.  
-5. Varsayılan serileri ve kategorileri temizleyin.  
-6. Yeni seriler ve kategoriler ekleyin.  
-7. Grafik serileri için yeni veri ekleyin.  
-8. Yüksek‑düşük çizgi biçimini belirtin.  
-9. Değiştirilmiş sunumu PPTX dosyası olarak kaydedin.
+1. Bir [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
+2. İndeksiyle bir slayta referans alın.
+3. Varsayılan veriyle bir grafik ekleyin ve [ChartType.OpenHighLowClose](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#OpenHighLowClose) türünü belirtin.
+4. Grafik veri çalışma kitabına [IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/) üzerinden erişin.
+5. Varsayılan serileri ve kategorileri temizleyin.
+6. Yeni seriler ve kategoriler ekleyin.
+7. Grafik serileri için yeni veri ekleyin.
+8. Yüksek-düşük çizgi biçimini belirtin.
+9. Değiştirilmiş sunumu bir PPTX dosyası olarak kaydedin.
 
 Bu Java kodu, bir hisse senedi grafiğinin nasıl oluşturulacağını gösterir:
 
@@ -553,16 +552,16 @@ try {
 }
 ```
 
-### **Kutu ve Bıyık (Box and Whisker) Grafikler Oluşturma**
+### **Kutu ve Bıyık Grafiklerini Oluşturma**
 
-1. [Presentation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/) sınıfının bir örneğini oluşturun.  
-2. Diziniyle slayta başvurun.  
-3. Varsayılan veriyle bir grafik ekleyin ve [ChartType.BoxAndWhisker](https://reference.aspose.com/slides/tr/java/com.aspose.slides/charttype/#BoxAndWhisker) tipini belirtin.  
-4. Grafik veri çalışma kitabı olan [IChartDataWorkbook](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ichartdataworkbook/) erişin.  
-5. Varsayılan serileri ve kategorileri temizleyin.  
-6. Yeni seriler ve kategoriler ekleyin.  
-7. Grafik serileri için yeni veri ekleyin.  
-8. Değiştirilmiş sunumu PPTX dosyası olarak kaydedin.
+1. Bir [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
+2. İndeksiyle bir slayta referans alın.
+3. Varsayılan veriyle bir grafik ekleyin ve [ChartType.BoxAndWhisker](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#BoxAndWhisker) türünü belirtin.
+4. Grafik veri çalışma kitabına [IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/) üzerinden erişin.
+5. Varsayılan serileri ve kategorileri temizleyin.
+6. Yeni seriler ve kategoriler ekleyin.
+7. Grafik serileri için yeni veri ekleyin.
+8. Değiştirilmiş sunumu bir PPTX dosyası olarak kaydedin.
 
 Bu Java kodu, bir kutu ve bıyık grafiğinin nasıl oluşturulacağını gösterir:
 
@@ -606,12 +605,12 @@ try {
 }
 ```
 
-### **Huni (Funnel) Grafikler Oluşturma**
+### **Huni Grafiklerini Oluşturma**
 
-1. [Presentation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/) sınıfının bir örneğini oluşturun.  
-2. Diziniyle slayta başvurun.  
-3. Varsayılan veriyle bir grafik ekleyin ve [ChartType.Funnel](https://reference.aspose.com/slides/tr/java/com.aspose.slides/charttype/#Funnel) tipini belirtin.  
-4. Değiştirilmiş sunumu PPTX dosyası olarak kaydedin.
+1. Bir [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
+2. İndeksiyle bir slayta referans alın.
+3. Varsayılan veriyle bir grafik ekleyin ve [ChartType.Funnel](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#Funnel) türünü belirtin.
+4. Değiştirilmiş sunumu bir PPTX dosyası olarak kaydedin.
 
 Bu Java kodu, bir huni grafiğinin nasıl oluşturulacağını gösterir:
 
@@ -650,12 +649,12 @@ try {
 }
 ```
 
-### **Güneş Patlaması (Sunburst) Grafikler Oluşturma**
+### **Güneş Patlaması Grafiklerini Oluşturma**
 
-1. [Presentation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/) sınıfının bir örneğini oluşturun.  
-2. Diziniyle slayta başvurun.  
-3. Varsayılan veriyle bir grafik ekleyin ve [ChartType.Sunburst](https://reference.aspose.com/slides/tr/java/com.aspose.slides/charttype/#Sunburst) tipini belirtin.  
-4. Değiştirilmiş sunumu PPTX dosyası olarak kaydedin.
+1. Bir [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
+2. İndeksiyle bir slayta referans alın.
+3. Varsayılan veriyle bir grafik ekleyin ve [ChartType.Sunburst](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#Sunburst) türünü belirtin.
+4. Değiştirilmiş sunumu bir PPTX dosyası olarak kaydedin.
 
 Bu Java kodu, bir güneş patlaması grafiğinin nasıl oluşturulacağını gösterir:
 
@@ -712,15 +711,15 @@ try {
 }
 ```
 
-### **Histogram Grafikler Oluşturma**
+### **Histogram Grafiklerini Oluşturma**
 
-1. [Presentation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/) sınıfının bir örneğini oluşturun.  
-2. Diziniyle slayta başvurun.  
-3. Varsayılan veriyle bir grafik ekleyin ve [ChartType.Histogram](https://reference.aspose.com/slides/tr/java/com.aspose.slides/charttype/#Histogram) tipini belirtin.  
-4. Grafik veri çalışma kitabı olan [IChartDataWorkbook](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ichartdataworkbook/) erişin.  
-5. Varsayılan serileri ve kategorileri temizleyin.  
-6. Yeni seriler ve kategoriler ekleyin.  
-7. Değiştirilmiş sunumu PPTX dosyası olarak kaydedin.
+1. Bir [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
+2. İndeksiyle bir slayta referans alın.
+3. Varsayılan veriyle bir grafik ekleyin ve [ChartType.Histogram](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#Histogram) türünü belirtin.
+4. Grafik veri çalışma kitabına [IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/) üzerinden erişin.
+5. Varsayılan serileri ve kategorileri temizleyin.
+6. Yeni seriler ve kategoriler ekleyin.
+7. Değiştirilmiş sunumu bir PPTX dosyası olarak kaydedin.
 
 Bu Java kodu, bir histogram grafiğinin nasıl oluşturulacağını gösterir:
 
@@ -752,12 +751,12 @@ try {
 }
 ```
 
-### **Radar Grafikler Oluşturma**
+### **Radar Grafiklerini Oluşturma**
 
-1. [Presentation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/) sınıfının bir örneğini oluşturun.  
-2. Diziniyle slayta başvurun.  
-3. Biraz veri ekleyerek bir grafik ekleyin ve tercih ettiğiniz grafik tipini ([ChartType.Radar](https://reference.aspose.com/slides/tr/java/com.aspose.slides/charttype/#Radar) bu örnek için) belirtin.  
-4. Değiştirilmiş sunumu PPTX dosyası olarak kaydedin.
+1. Bir [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
+2. İndeksiyle bir slayta referans alın.
+3. Bazı veriyle bir grafik ekleyin ve tercih ettiğiniz grafik türünü ([ChartType.Radar](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#Radar) bu örnekte) belirtin.
+4. Değiştirilmiş sunumu bir PPTX dosyası olarak kaydedin.
 
 Bu Java kodu, bir radar grafiğinin nasıl oluşturulacağını gösterir:
 
@@ -773,18 +772,18 @@ try {
 }
 ```
 
-### **Çok Kategorili Grafikler Oluşturma**
+### **Çoklu Kategori Grafiklerini Oluşturma**
 
-1. [Presentation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/) sınıfının bir örneğini oluşturun.  
-2. Diziniyle slayta başvurun.  
-3. Varsayılan veriyle bir grafik ekleyin ve [ChartType.ClusteredColumn](https://reference.aspose.com/slides/tr/java/com.aspose.slides/charttype/#ClusteredColumn) tipini belirtin.  
-4. Grafik veri çalışma kitabı olan [IChartDataWorkbook](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ichartdataworkbook/) erişin.  
-5. Varsayılan serileri ve kategorileri temizleyin.  
-6. Yeni seriler ve kategoriler ekleyin.  
-7. Grafik serileri için yeni veri ekleyin.  
-8. Değiştirilmiş sunumu PPTX dosyası olarak kaydedin.
+1. Bir [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
+2. İndeksiyle bir slayta referans alın.
+3. Varsayılan veriyle bir grafik ekleyin ve [ChartType.ClusteredColumn](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#ClusteredColumn) türünü belirtin.
+4. Grafik veri çalışma kitabına [IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/) üzerinden erişin.
+5. Varsayılan serileri ve kategorileri temizleyin.
+6. Yeni seriler ve kategoriler ekleyin.
+7. Grafik serileri için yeni veri ekleyin.
+8. Değiştirilmiş sunumu bir PPTX dosyası olarak kaydedin.
 
-Bu Java kodu, çok kategorili bir grafiğin nasıl oluşturulacağını gösterir:
+Bu Java kodu, bir çoklu kategori grafiğinin nasıl oluşturulacağını gösterir:
 
 ```java
 import com.aspose.slides.*;
@@ -835,9 +834,9 @@ try {
 }
 ```
 
-### **Harita Grafikler Oluşturma**
+### **Harita Grafiklerini Oluşturma**
 
-Harita grafikler, coğrafi verileri görselleştirir ve bölgeler arasındaki değerleri karşılaştırmanıza yardımcı olur.
+Harita grafikleri coğrafi verileri görselleştirir ve bölgeler arasında değer karşılaştırmalarına yardımcı olur.
 
 Bu Java kodu, bir harita grafiğinin nasıl oluşturulacağını gösterir:
 
@@ -853,9 +852,9 @@ try {
 }
 ```
 
-### **Kombinasyon Grafikler Oluşturma**
+### **Kombinasyon Grafiklerini Oluşturma**
 
-Kombinasyon (veya combo) grafiği, tek bir grafikte iki ya da daha fazla grafik tipini birleştirir. Bu grafik, birden çok veri kümesini vurgulamanıza, karşılaştırmanıza veya farklılıklarını incelemenize olanak tanır ve aralarındaki ilişkileri tanımlamanıza yardımcı olur.
+Bir kombinasyon grafiği (veya combo grafiği), tek bir grafikte iki veya daha fazla grafik türünü birleştirir. Bu grafik, iki veya daha fazla veri kümesi arasındaki farkları vurgulamanıza, karşılaştırmanıza veya incelemenize olanak tanır ve aralarındaki ilişkileri belirlemenize yardımcı olur.
 
 ![Kombinasyon grafiği](combination_chart.png)
 
@@ -886,7 +885,7 @@ static void createComboChart() {
 static IChart createChartWithFirstSeries(ISlide slide) {
     IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
 
-    // Grafik başlığını ayarla.
+    // Grafik başlığını ayarlar.
     chart.setTitle(true);
     chart.getChartTitle().addTextFrameForOverriding("Chart Title");
     chart.getChartTitle().setOverlay(false);
@@ -895,24 +894,24 @@ static IChart createChartWithFirstSeries(ISlide slide) {
     titleFormat.setFontBold(NullableBool.False);
     titleFormat.setFontHeight(18f);
 
-    // Grafik lejantını ayarla.
+    // Grafik lejandını ayarlar.
     chart.getLegend().setPosition(LegendPositionType.Bottom);
     chart.getLegend().getTextFormat().getPortionFormat().setFontHeight(12f);
 
-    // Varsayılan oluşturulan serileri ve kategorileri sil.
+    // Varsayılan oluşturulan serileri ve kategorileri siler.
     chart.getChartData().getSeries().clear();
     chart.getChartData().getCategories().clear();
 
     int worksheetIndex = 0;
     IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
 
-    // Yeni kategoriler ekle.
+    // Yeni kategoriler ekler.
     chart.getChartData().getCategories().add(workbook.getCell(worksheetIndex, 1, 0, "Category 1"));
     chart.getChartData().getCategories().add(workbook.getCell(worksheetIndex, 2, 0, "Category 2"));
     chart.getChartData().getCategories().add(workbook.getCell(worksheetIndex, 3, 0, "Category 3"));
     chart.getChartData().getCategories().add(workbook.getCell(worksheetIndex, 4, 0, "Category 4"));
 
-    // İlk seriyi ekle.
+    // İlk seriyi ekler.
     IChartDataCell seriesNameCell = workbook.getCell(worksheetIndex, 0, 1, "Series 1");
     IChartSeries series = chart.getChartData().getSeries().add(seriesNameCell, chart.getType());
 
@@ -959,28 +958,26 @@ static void addThirdSeriesToChart(IChart chart) {
 }
 
 static void setPrimaryAxesFormat(IChart chart) {
-    // Yatay ekseni ayarla.
+    // Yatay ekseni ayarlar.
     IAxis horizontalAxis = chart.getAxes().getHorizontalAxis();
     horizontalAxis.getTextFormat().getPortionFormat().setFontHeight(12f);
     horizontalAxis.getFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
 
     setAxisTitle(horizontalAxis, "X Axis");
 
-    // Dikey ekseni ayarla.
+    // Dikey ekseni ayarlar.
     IAxis verticalAxis = chart.getAxes().getVerticalAxis();
     verticalAxis.getTextFormat().getPortionFormat().setFontHeight(12f);
-    verticalAxis.getFormat().getLine().setFillFormat().setFillType(FillType.NoFill);
+    verticalAxis.getFormat().getLine().setFillType(FillType.NoFill);
 
-    setAxisTitle(verticalAxis, "Y Axis 1");
-
-    // Dikey ana ızgara çizgilerinin rengini ayarla.
+    // Dikey ana ızgara çizgileri rengini ayarlar.
     ILineFillFormat majorGridLinesFormat = verticalAxis.getMajorGridLinesFormat().getLine().getFillFormat();
     majorGridLinesFormat.setFillType(FillType.Solid);
     majorGridLinesFormat.getSolidFillColor().setColor(new Color(217, 217, 217));
 }
 
 static void setSecondaryAxesFormat(IChart chart) {
-    // İkincil yatay ekseni ayarla.
+    // İkincil yatay ekseni ayarlar.
     IAxis secondaryHorizontalAxis = chart.getAxes().getSecondaryHorizontalAxis();
     secondaryHorizontalAxis.setPosition(AxisPositionType.Bottom);
     secondaryHorizontalAxis.setCrossType(CrossesType.Maximum);
@@ -988,13 +985,13 @@ static void setSecondaryAxesFormat(IChart chart) {
     secondaryHorizontalAxis.getMajorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
     secondaryHorizontalAxis.getMinorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
 
-    // İkincil dikey ekseni ayarla.
+    // İkincil dikey ekseni ayarlar.
     IAxis secondaryVerticalAxis = chart.getAxes().getSecondaryVerticalAxis();
     secondaryVerticalAxis.setPosition(AxisPositionType.Right);
     secondaryVerticalAxis.getTextFormat().getPortionFormat().setFontHeight(12f);
     secondaryVerticalAxis.getFormat().getLine().setFillType(FillType.NoFill);
-    secondaryVerticalAxis.getMajorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
-    secondaryVerticalAxis.getMinorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
+    secondaryVerticalAxis.getMajorGridLinesFormat().getLine().setFillType(FillType.NoFill);
+    secondaryVerticalAxis.getMinorGridLinesFormat().getLine().setFillType(FillType.NoFill);
 
     setAxisTitle(secondaryVerticalAxis, "Y Axis 2");
 }
@@ -1011,20 +1008,20 @@ static void setAxisTitle(IAxis axis, String axisTitle) {
 
 ## **Grafikleri Güncelleme**
 
-1. Güncellemek istediğiniz grafiği içeren sunumu temsil eden [Presentation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/) sınıfının bir örneğini oluşturun.  
-2. Diziniyle slayta başvurun.  
-3. Tüm şekiller arasında dolaşarak istenen grafiği bulun.  
-4. Grafik veri çalışma sayfasına erişin.  
-5. Seri değerlerini değiştirerek grafik veri serilerini düzenleyin.  
-6. Yeni bir seri ekleyin ve verilerini doldurun.  
-7. Değiştirilmiş sunumu PPTX dosyası olarak kaydedin.
+1. Güncellemek istediğiniz grafiği içeren sunumu temsil eden bir [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
+2. İndeksiyle bir slayta referans alın.
+3. İstenen grafiği bulmak için tüm şekiller arasında gezin.
+4. Grafik veri çalışma sayfasına erişin.
+5. Seri değerlerini değiştirerek grafik veri serisini güncelleyin.
+6. Yeni bir seri ekleyin ve verilerini doldurun.
+7. Değiştirilmiş sunumu bir PPTX dosyası olarak kaydedin.
 
 Bu Java kodu, bir grafiğin nasıl güncelleneceğini gösterir:
 
 ```java
 import com.aspose.slides.*;
 
-// Güncellenecek grafiği içeren sunumu açar
+// Güncellenmek üzere grafik içeren sunumu açar
 Presentation pres = new Presentation("ExistingChart.pptx");
 try {
     // İlk slayta erişir
@@ -1033,7 +1030,7 @@ try {
     // Slayttan grafiği alır
     IChart chart = (IChart)sld.getShapes().get_Item(0);
 
-    // Grafik veri sayfasının dizinini ayarlar
+    // Grafik veri sayfasının indeksini ayarlar
     int defaultWorksheetIndex = 0;
 
     // Grafik veri çalışma sayfasını alır
@@ -1046,8 +1043,8 @@ try {
     // İlk grafik serisini alır
     IChartSeries series = chart.getChartData().getSeries().get_Item(0);
 
-    // Şimdi seri verilerini güncelliyor
-    fact.getCell(defaultWorksheetIndex, 0, 1, "New_Series1");// Seri adını değiştiriyor
+    // Şimdi seri verileri güncelleniyor
+    fact.getCell(defaultWorksheetIndex, 0, 1, "New_Series1"); // Serinin adını değiştirir
     series.getDataPoints().get_Item(0).getValue().setData(90);
     series.getDataPoints().get_Item(1).getValue().setData(123);
     series.getDataPoints().get_Item(2).getValue().setData(44);
@@ -1055,19 +1052,19 @@ try {
     // İkinci grafik serisini alır
     series = chart.getChartData().getSeries().get_Item(1);
 
-    // Şimdi seri verilerini güncelliyor
-    fact.getCell(defaultWorksheetIndex, 0, 2, "New_Series2");// Seri adını değiştiriyor
+    // Şimdi seri verileri güncelleniyor
+    fact.getCell(defaultWorksheetIndex, 0, 2, "New_Series2"); // Serinin adını değiştirir
     series.getDataPoints().get_Item(0).getValue().setData(23);
     series.getDataPoints().get_Item(1).getValue().setData(67);
     series.getDataPoints().get_Item(2).getValue().setData(99);
 
-    // Şimdi, yeni bir seri ekliyor
+    // Şimdi yeni bir seri ekleniyor
     chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 3, "Series 3"), chart.getType());
 
     // Üçüncü grafik serisini alır
     series = chart.getChartData().getSeries().get_Item(2);
 
-    // Şimdi seri verilerini dolduruyor
+    // Şimdi seri verileri dolduruluyor
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 3, 20));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 3, 50));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 3, 30));
@@ -1081,17 +1078,19 @@ try {
 }
 ```
 
-## **Bir Grafik İçin Veri Aralığını Ayarlama**
+## **Grafik İçin Veri Aralığını Ayarlama**
+
+Mevcut bir grafiğin kullandığı aralığı incelemek için [Retrieve a Chart's Data Range](/slides/tr/java/chart-workbook/#retrieve-a-charts-data-range) bölümüne bakın.
 
 Bir grafik için veri aralığını ayarlamak için şu adımları izleyin:
 
-1. Grafiği içeren sunumu temsil eden [Presentation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/) sınıfının bir örneğini oluşturun.  
-2. Diziniyle slayta başvurun.  
-3. Tüm şekiller arasında dolaşarak istenen grafiği bulun.  
-4. Grafiğin verisine erişin ve aralığı ayarlayın.  
-5. Değiştirilmiş sunumu PPTX dosyası olarak kaydedin.
+1. Grafiği içeren sunumu temsil eden bir [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
+2. İndeksiyle bir slayta referans alın.
+3. İstenen grafiği bulmak için tüm şekiller arasında gezin.
+4. Grafik verisine erişin ve aralığı ayarlayın.
+5. Değiştirilmiş sunumu bir PPTX dosyası olarak kaydedin.
 
-Bu Java kodu, bir grafik için veri aralığının nasıl ayarlanacağını gösterir:
+Bu Java kodu, bir grafiğin veri aralığını nasıl ayarlayacağınızı gösterir:
 
 ```java
 import com.aspose.slides.*;
@@ -1112,9 +1111,9 @@ try {
 
 ## **Grafiklerde Varsayılan İşaretçileri Kullanma**
 
-Grafiklerde varsayılan işaretçileri kullandığınızda, her grafik serisi otomatik olarak farklı bir işaretçi simgesi alır.
+Grafiklerde varsayılan işaretçileri kullandığınızda, her grafik serisi otomatik olarak farklı bir işaretçi sembolü alır.
 
-Bu Java kodu, bir grafik serisinin işaretçisinin otomatik olarak nasıl ayarlanacağını gösterir:
+Bu Java kodu, bir grafik serisi işaretçisini otomatik olarak ayarlamayı gösterir:
 
 ```java
 import com.aspose.slides.*;
@@ -1141,10 +1140,10 @@ try {
     series.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 4, 1, null));
 
     chart.getChartData().getSeries().add(fact.getCell(0, 0, 2, "Series 2"), chart.getType());
-    //İkinci grafik serisini al
+    // İkinci grafik serisini al
     IChartSeries series2 = chart.getChartData().getSeries().get_Item(1);
 
-    //Şimdi seri verilerini dolduruyor
+    // Şimdi seri verilerini dolduruyor
     series2.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 1, 2, 30));
     series2.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 2, 2, 10));
     series2.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 3, 2, 60));
@@ -1161,18 +1160,18 @@ try {
 
 ## **SSS**
 
-**Aspose.Slides tarafından desteklenen grafik türleri nelerdir?**
+**Aspose.Slides hangi grafik türlerini destekliyor?**
 
-Aspose.Slides, çubuk, çizgi, pasta, alan, saçılım, histogram, radar ve daha birçok [grafik türü](https://reference.aspose.com/slides/tr/java/com.aspose.slides/charttype/) destekler. Bu esneklik, veri görselleştirme ihtiyaçlarınıza en uygun grafik tipini seçmenizi sağlar.
+Aspose.Slides, çubuk, çizgi, pasta, alan, dağılım, histogram, radar ve daha birçok [grafik türü](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/) dahil olmak üzere geniş bir yelpazeyi destekler. Bu esneklik, veri görselleştirme ihtiyaçlarınıza en uygun grafik türünü seçmenizi sağlar.
 
 **Bir slayta yeni bir grafik nasıl eklenir?**
 
-Grafik eklemek için önce [Presentation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/) sınıfının bir örneğini oluşturur, istediğiniz slaytı diziniyle alırsınız ve ardından grafik ekleme metodunu çağırarak grafik tipini ve başlangıç verisini belirlersiniz. Bu işlem, grafiği doğrudan sunumunuza entegre eder.
+Bir grafik eklemek için önce bir [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) sınıfının bir örneğini oluşturur, istenen slaytı indeksine göre alır ve ardından grafik türünü ve başlangıç verilerini belirterek grafiği ekleme metodunu çağırırsınız. Bu işlem, grafiği doğrudan sunumunuza entegre eder.
 
-**Grafiğin gösterdiği veriler nasıl güncellenir?**
+**Grafikte gösterilen veriler nasıl güncellenir?**
 
-Grafiğin verilerini güncellemek için veri çalışma kitabına ([IChartDataWorkbook](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ichartdataworkbook/)) erişir, varsayılan serileri ve kategorileri temizler ve ardından özelleştirilmiş verilerinizi eklersiniz. Böylece grafiği en yeni verileri yansıtacak şekilde yenileyebilirsiniz.
+Bir grafiğin verilerini, veri çalışma kitabına ([IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/)) erişerek, varsayılan serileri ve kategorileri temizleyip kendi özel verilerinizi ekleyerek güncelleyebilirsiniz. Bu sayede grafik, en yeni verileri yansıtacak şekilde yenilenir.
 
 **Grafiğin görünümü özelleştirilebilir mi?**
 
-Evet, Aspose.Slides kapsamlı özelleştirme seçenekleri sunar. Renkler, yazı tipleri, etiketler, lejantlar ve diğer [biçimlendirme öğeleri](/slides/tr/java/chart-entities/) gibi unsurları değiştirerek grafiğin görünümünü tasarım gereksinimlerinize göre uyarlayabilirsiniz.
+Evet, Aspose.Slides kapsamlı özelleştirme seçenekleri sunar. Renkleri, yazı tiplerini, etiketleri, lejandları ve diğer [biçimlendirme öğelerini](/slides/tr/java/chart-entities/) değiştirerek grafiğin görünümünü belirli tasarım gereksinimlerinize göre şekillendirebilirsiniz.

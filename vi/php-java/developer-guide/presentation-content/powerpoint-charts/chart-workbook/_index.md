@@ -1,6 +1,6 @@
 ---
-title: Quản lý Workbook Biểu đồ trong Bản trình chiếu bằng PHP
-linktitle: Workbook Biểu đồ
+title: "Quản lý Workbook biểu đồ trong bản trình bày bằng PHP"
+linktitle: "Workbook biểu đồ"
 type: docs
 weight: 70
 url: /vi/php-java/chart-workbook/
@@ -11,39 +11,39 @@ keywords:
 - nhãn dữ liệu
 - bảng tính
 - nguồn dữ liệu
-- workbook ngoại
-- dữ liệu ngoại
+- workbook bên ngoài
+- dữ liệu bên ngoài
 - bộ nhớ đệm biểu đồ
 - khôi phục workbook
 - PowerPoint
-- bản trình chiếu
+- bản trình bày
 - PHP
 - Aspose.Slides
-description: "Khám phá Aspose.Slides cho PHP thông qua Java: quản lý workbook biểu đồ trong các định dạng PowerPoint và OpenDocument một cách dễ dàng để tối ưu dữ liệu bản trình chiếu của bạn."
+description: "Khám phá Aspose.Slides for PHP via Java: dễ dàng quản lý workbook biểu đồ trong các định dạng PowerPoint và OpenDocument để tối ưu hoá dữ liệu bản trình bày của bạn."
 ---
 ## **Tổng quan**
 
-Bài viết này giải thích cách làm việc với sổ làm việc biểu đồ trong Aspose.Slides. Nó cho thấy cách đọc và ghi dữ liệu biểu đồ thông qua luồng sổ làm việc, sử dụng các ô trong sổ làm việc làm nhãn dữ liệu biểu đồ, truy cập bộ sưu tập worksheet, và chỉ định loại nguồn dữ liệu cho các giá trị biểu đồ.
+Bài viết này giải thích cách làm việc với sổ làm việc biểu đồ trong Aspose.Slides. Nó cho thấy cách đọc và ghi dữ liệu biểu đồ thông qua luồng sổ làm việc, sử dụng các ô sổ làm việc làm nhãn dữ liệu biểu đồ, truy cập các bộ sưu tập worksheet, và chỉ định loại nguồn dữ liệu cho các giá trị biểu đồ.  
 
-Nó cũng bao gồm việc làm việc với sổ làm việc bên ngoài làm nguồn dữ liệu cho biểu đồ. Các ví dụ minh họa cách tạo và gán một sổ làm việc bên ngoài, lấy đường dẫn của sổ làm việc bên ngoài được liên kết với biểu đồ, và chỉnh sửa dữ liệu biểu đồ khi sổ làm việc có sẵn.
+Nó cũng đề cập đến việc làm việc với sổ làm việc bên ngoài làm nguồn dữ liệu cho biểu đồ. Các ví dụ minh họa cách tạo và gán một sổ làm việc bên ngoài, lấy đường dẫn của sổ làm việc bên ngoài được liên kết với biểu đồ, và chỉnh sửa dữ liệu biểu đồ khi sổ làm việc có sẵn.  
 
-Đối với các ô trong sổ làm việc đại diện cho dữ liệu thiếu, xem [Control the Display of Empty Cells](/slides/vi/php-java/chart-series/) để biết sự khác nhau giữa ô trống và giá trị zero, và so sánh biểu đồ đường của các chế độ hiển thị có sẵn.
+Đối với các ô workbook đại diện cho dữ liệu thiếu, hãy xem [Kiểm soát hiển thị các ô trống](/slides/vi/php-java/chart-series/) để biết sự khác biệt giữa ô trống và số 0, và so sánh biểu đồ đường của các chế độ hiển thị có sẵn.  
 
 ## **Bao gồm dữ liệu từ các hàng và cột ẩn**
 
-Sử dụng [Chart::setPlotVisibleCellsOnly](https://reference.aspose.com/slides/vi/php-java/aspose.slides/chart/setplotvisiblecellsonly/) để kiểm soát liệu biểu đồ có vẽ dữ liệu từ các hàng và cột worksheet ẩn hay không. Đặt giá trị `true` để chỉ vẽ các ô hiển thị, hoặc `false` để bao gồm cả ô hiển thị và ẩn. Cài đặt này chỉ kiểm soát việc vẽ biểu đồ; nó không ẩn hoặc hiển thị lại các hàng hoặc cột worksheet.
+Sử dụng [Chart::setPlotVisibleCellsOnly](https://reference.aspose.com/slides/php-java/aspose.slides/chart/setplotvisiblecellsonly/) để kiểm soát liệu biểu đồ có vẽ dữ liệu từ các hàng và cột worksheet ẩn hay không. Đặt nó thành `true` để chỉ vẽ các ô hiển thị, hoặc `false` để bao gồm cả ô hiển thị và ẩn. Cài đặt này điều khiển việc vẽ biểu đồ; nó không ẩn hoặc hiện lại các hàng hoặc cột worksheet.  
 
-Tải về [hidden-source-data.pptx](hidden-source-data.pptx) và đặt nó vào thư mục làm việc. Trang chiếu đầu tiên chứa một biểu đồ cột làm hình dạng đầu tiên. Worksheet nhúng, `Sheet1`, chứa phạm vi nguồn sau, `A1:C4`. Hàng 3 và cột C bị ẩn, nhưng các ô của chúng vẫn chứa giá trị.
+Bản trình bày mẫu [bản trình bày mẫu](hidden-source-data.pptx) chứa một biểu đồ cột là hình dạng đầu tiên trên slide đầu tiên. Worksheet được nhúng, `Sheet1`, chứa phạm vi nguồn sau, `A1:C4`. Hàng 3 và cột C bị ẩn, nhưng các ô của chúng vẫn chứa giá trị.  
 
-| Hàng Worksheet | A: Tháng | B: Bán lẻ | C: Bán buôn (cột ẩn) |
+| Hàng worksheet | A: Tháng | B: Bán lẻ | C: Bán buôn (cột ẩn) |
 | --- | --- | --- | --- |
 | 2 | Tháng 1 | 10 | 30 |
 | 3 (hàng ẩn) | Tháng 2 | 40 | 60 |
 | 4 | Tháng 3 | 20 | 50 |
 
-Truy cập các ô nguồn thông qua [ChartData::getChartDataWorkbook](https://reference.aspose.com/slides/vi/php-java/aspose.slides/chartdata/getchartdataworkbook/) và đọc [ChartDataCell::isHidden](https://reference.aspose.com/slides/vi/php-java/aspose.slides/chartdatacell/ishidden/) để kiểm tra trạng thái ẩn của chúng. Phương thức này báo cáo trạng thái ẩn mà không thay đổi nó. Trong tệp này, B2 hiển thị, B3 thuộc hàng ẩn, và C2 thuộc cột ẩn; ví dụ in ra `false`, `true`, và `true` tương ứng.
+Truy cập các ô nguồn thông qua [ChartData::getChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/getchartdataworkbook/) và đọc [ChartDataCell::isHidden](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatacell/ishidden/) để kiểm tra trạng thái ẩn của chúng. Phương thức này báo cáo trạng thái ẩn mà không thay đổi. Trong tệp này, B2 hiển thị, B3 thuộc hàng ẩn, và C2 thuộc cột ẩn; ví dụ in ra `false`, `true`, và `true` tương ứng.  
 
-Đối với ví dụ này, làm mới dữ liệu biểu đồ sau khi thay đổi cài đặt vẽ: giữ lại workbook nhúng bằng [readWorkbookStream](https://reference.aspose.com/slides/vi/php-java/aspose.slides/chartdata/readworkbookstream/) và tải lại bằng [writeWorkbookStream](https://reference.aspose.com/slides/vi/php-java/aspose.slides/chartdata/writeworkbookstream/). Khi bao gồm tất cả các ô, cũng sử dụng [setRange](https://reference.aspose.com/slides/vi/php-java/aspose.slides/chartdata/setrange/) để khôi phục phạm vi đầy đủ, bao gồm danh mục tháng 2 bị ẩn. Chỉ thay đổi cờ không đủ để làm mới dữ liệu biểu đồ và nhãn danh mục được lưu trong bộ nhớ đệm của mẫu này.
+Đối với ví dụ này, làm mới dữ liệu biểu đồ sau khi thay đổi cài đặt vẽ: giữ lại workbook được nhúng bằng [readWorkbookStream](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/readworkbookstream/) và tải lại bằng [writeWorkbookStream](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/writeworkbookstream/). Khi bao gồm tất cả các ô, cũng sử dụng [setRange](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/setrange/) để khôi phục phạm vi đầy đủ, bao gồm danh mục tháng 2 bị ẩn. Chỉ thay đổi cờ không đủ để làm mới dữ liệu biểu đồ và nhãn danh mục đã lưu trong bộ nhớ đệm của mẫu này.  
 
 ```php
 use aspose\slides\Presentation;
@@ -65,7 +65,7 @@ try {
         foreach ([true, false] as $visibleOnly) {
             $chart->setPlotVisibleCellsOnly($visibleOnly);
 
-            // Làm mới dữ liệu biểu đồ từ workbook nhúng.
+            // Làm mới dữ liệu biểu đồ từ workbook được nhúng.
             $chart->getChartData()->writeWorkbookStream($workbookData);
             if (!$visibleOnly) {
                 // Khôi phục toàn bộ phạm vi nguồn, bao gồm các danh mục ẩn.
@@ -82,19 +82,58 @@ try {
 }
 ```
 
-Ví dụ lưu `hidden_cells_true.pptx` chỉ với các giá trị Bán lẻ hiển thị (10 và 20), và `hidden_cells_false.pptx` với cả sáu giá trị. Các hình ảnh dưới đây minh họa hai chế độ vẽ. Hàng 3 và cột C vẫn ẩn trong cả hai workbook nhúng.
+Ví dụ này lưu hai phiên bản của bản trình bày: một chỉ có các giá trị Bán lẻ hiển thị (10 và 20), và một khác có tất cả sáu giá trị. Các hình ảnh dưới đây minh họa hai chế độ vẽ. Hàng 3 và cột C vẫn bị ẩn trong cả hai workbook được nhúng.  
 
 | Chỉ các ô hiển thị (`true`) | Tất cả các ô (`false`) |
 | --- | --- |
 | ![Chỉ các ô hiển thị: Giá trị Bán lẻ 10 và 20 cho Tháng 1 và Tháng 3.](hidden_cells_True.png) | ![Tất cả các ô: Giá trị Bán lẻ và Bán buôn cho Tháng 1, Tháng 2 và Tháng 3.](hidden_cells_False.png) |
 
-Một ô ẩn chứa giá trị khác với một ô trống. [Chart::setDisplayBlanksAs](https://reference.aspose.com/slides/vi/php-java/aspose.slides/chart/setdisplayblanksas/) kiểm soát cách hiển thị các giá trị bị thiếu; nó không bao gồm hoặc loại trừ dữ liệu nguồn ẩn. Xem [Control the Display of Empty Cells](/slides/vi/php-java/chart-series/#control-the-display-of-empty-cells) để xem ví dụ.
+Một ô ẩn chứa giá trị khác với một ô trống. [Chart::setDisplayBlanksAs](https://reference.aspose.com/slides/php-java/aspose.slides/chart/setdisplayblanksas/) kiểm soát cách hiển thị các giá trị thiếu; nó không bao gồm hay loại trừ dữ liệu nguồn ẩn. Xem [Kiểm soát hiển thị các ô trống](/slides/vi/php-java/chart-series/#control-the-display-of-empty-cells) để xem ví dụ.  
 
-## **Đọc và Ghi Dữ liệu Biểu đồ từ Workbook**
+## **Lấy phạm vi dữ liệu của biểu đồ**
 
-Aspose.Slides cho PHP thông qua Java cung cấp các phương thức [readWorkbookStream](https://reference.aspose.com/slides/vi/php-java/aspose.slides/chartdata/readworkbookstream/) và [writeWorkbookStream](https://reference.aspose.com/slides/vi/php-java/aspose.slides/chartdata/writeworkbookstream/) cho phép bạn đọc và ghi các workbook dữ liệu biểu đồ (chứa dữ liệu biểu đồ được chỉnh sửa bằng Aspose.Cells). **Note** rằng dữ liệu biểu đồ phải được tổ chức theo cùng cách hoặc phải có cấu trúc tương tự nguồn.
+Trước khi cập nhật dữ liệu workbook trong một bản trình bày hiện có, kiểm tra các phạm vi nguồn để xác định ô worksheet nào mỗi biểu đồ sử dụng. Phương thức [ChartData::getRange](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/getrange/) trả về phạm vi dữ liệu hiện tại dưới dạng công thức có định danh worksheet, ví dụ `Sheet1!$A$1:$D$5`. Ở đây, `Sheet1` là tên worksheet, `!` ngăn cách nó với phạm vi ô, và `$A$1:$D$5` xác định các ô A1 đến D5, bao gồm cả. Dấu `$` chỉ ra tham chiếu hàng và cột tuyệt đối.  
 
-Ví dụ này mở `chart.pptx`, phải chứa một biểu đồ làm hình dạng đầu tiên trên slide đầu tiên. Nó đọc workbook nhúng vào một mảng byte, xóa các series và category hiện có, và ghi lại cùng một workbook. Các thay đổi vẫn tồn tại trong bộ nhớ; ví dụ không lưu bản trình chiếu.
+Phương thức này đọc phạm vi hiện tại mà không thay đổi biểu đồ hay workbook của nó. Nếu biểu đồ không sử dụng workbook làm nguồn dữ liệu, nó sẽ ném ngoại lệ. Để biết thêm thông tin, xem [ChartData API Reference](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/).  
+
+Ví dụ này mở một bản trình bày và kiểm tra các shape trực tiếp trên mỗi slide để tìm biểu đồ. Nó in ra tên mỗi biểu đồ và phạm vi nguồn. Nếu một biểu đồ không sử dụng workbook, nó in thông báo và tiếp tục với biểu đồ tiếp theo.  
+
+```php
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("presentation.pptx");
+try {
+    $slideCount = java_values($presentation->getSlides()->size());
+    for ($slideIndex = 0; $slideIndex < $slideCount; $slideIndex++) {
+        $slide = $presentation->getSlides()->get_Item($slideIndex);
+        $shapeCount = java_values($slide->getShapes()->size());
+        for ($shapeIndex = 0; $shapeIndex < $shapeCount; $shapeIndex++) {
+            $shape = $slide->getShapes()->get_Item($shapeIndex);
+            if (java_instanceof($shape, new JavaClass("com.aspose.slides.IChart"))) {
+                $chart = $shape;
+                try {
+                    $range = $chart->getChartData()->getRange();
+                    echo $chart->getName() . ": " . $range, PHP_EOL;
+                } catch (JavaException $exception) {
+                    if (java_instanceof($exception, new JavaClass("com.aspose.slides.exceptions.InvalidOperationException"))) {
+                        echo $chart->getName() . ": The chart does not use a workbook as its data source.", PHP_EOL;
+                    } else {
+                        echo $chart->getName() . ": " . $exception->getMessage(), PHP_EOL;
+                    }
+                }
+            }
+        }
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+## **Đọc và ghi dữ liệu biểu đồ từ workbook**
+
+Aspose.Slides for PHP via Java cung cấp các phương thức [readWorkbookStream](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/readworkbookstream/) và [writeWorkbookStream](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/writeworkbookstream/) cho phép bạn đọc và ghi workbook dữ liệu biểu đồ (chứa dữ liệu biểu đồ đã chỉnh sửa bằng Aspose.Cells). **Note** rằng dữ liệu biểu đồ phải được tổ chức theo cùng cách hoặc phải có cấu trúc tương tự như nguồn.  
+
+Ví dụ này sử dụng một bản trình bày có biểu đồ là shape đầu tiên trên slide đầu tiên. Nó đọc workbook được nhúng vào một mảng byte, xóa các series và categories hiện có, và ghi lại cùng một workbook. Các thay đổi vẫn ở trong bộ nhớ; ví dụ không lưu bản trình bày.  
 
 ```php
 use aspose\slides\Presentation;
@@ -121,9 +160,9 @@ try {
 }
 ```
 
-### **Xác thực Bố cục Biểu đồ Sau Khi Sửa Workbook**
+### **Xác thực bố cục biểu đồ sau khi sửa đổi workbook**
 
-Khi bạn thay thế workbook nhúng bằng một workbook đã chỉnh sửa, biểu đồ vẫn giữ lại các collection series và category ban đầu. Sự không khớp này có thể khiến [Chart::validateChartLayout](https://reference.aspose.com/slides/vi/php-java/aspose.slides/chart/validatechartlayout/) gặp lỗi index-out-of-range. Hãy xóa các series và category hiện có trước khi ghi workbook cập nhật trở lại biểu đồ. Ví dụ này yêu cầu `chart.pptx` có một biểu đồ làm hình dạng đầu tiên trên slide đầu tiên. Bình luận đánh dấu vị trí sẽ chỉnh sửa workbook; ví dụ thực thi ghi lại workbook gốc và xác thực bố cục trong bộ nhớ.
+Khi bạn thay thế một workbook được nhúng bằng một workbook đã sửa đổi, biểu đồ vẫn giữ các series và collections danh mục ban đầu. Sự không khớp này có thể khiến [Chart::validateChartLayout](https://reference.aspose.com/slides/php-java/aspose.slides/chart/validatechartlayout/) thất bại với lỗi chỉ mục ngoài phạm vi. Xóa các series và categories hiện có trước khi ghi workbook đã cập nhật trở lại biểu đồ. Ví dụ này sử dụng một biểu đồ là shape đầu tiên trên slide đầu tiên. Đoạn chú thích chỉ ra nơi sẽ thực hiện chỉnh sửa workbook; ví dụ chạy được sẽ ghi lại workbook gốc và xác thực bố cục trong bộ nhớ.  
 
 ```php
 use aspose\slides\Presentation;
@@ -138,7 +177,7 @@ try {
         $chartData = $chart->getChartData();
         $workbookData = $chartData->readWorkbookStream();
 
-        // Sửa đổi các byte workbook ở đây, ví dụ, bằng cách sử dụng Aspose.Cells.
+        // Sửa đổi các byte workbook ở đây, ví dụ, sử dụng Aspose.Cells.
 
         $chartData->getSeries()->clear();
         $chartData->getCategories()->clear();
@@ -153,20 +192,13 @@ try {
 }
 ```
 
-Việc xóa các collection loại bỏ các tham chiếu dữ liệu cũ trước khi workbook được ghi lại. Hãy xây dựng lại bất kỳ ánh xạ series và category nào cần thiết cho workbook đã cập nhật trước khi sử dụng biểu đồ.
+Xóa các collection loại bỏ các tham chiếu dữ liệu cũ trước khi workbook được ghi lại. Tái xây dựng bất kỳ mapping series và category nào cần thiết cho workbook đã cập nhật trước khi sử dụng biểu đồ.  
 
-## **Đặt Ô Workbook làm Nhãn Dữ liệu Biểu đồ**
+## **Đặt ô workbook làm nhãn dữ liệu biểu đồ**
 
-Bạn có thể sử dụng văn bản từ các ô workbook làm nhãn dữ liệu cho biểu đồ. Các bước dưới đây cho thấy cách liên kết các nhãn trong biểu đồ bong bóng với các ô trong workbook dữ liệu của nó.
+Bạn có thể sử dụng văn bản từ các ô workbook làm nhãn dữ liệu biểu đồ.  
 
-1. Tạo một instance của lớp [Presentation](https://reference.aspose.com/slides/vi/php-java/aspose.slides/presentation/).
-2. Truy cập slide đầu tiên bằng chỉ số bắt đầu từ 0.
-3. Thêm một biểu đồ bong bóng với dữ liệu mặc định.
-4. Truy cập series của biểu đồ.
-5. Đặt ô workbook làm nhãn dữ liệu.
-6. Lưu bản trình chiếu.
-
-Ví dụ này mở `chart2.pptx`, phải chứa ít nhất một slide, và thêm một biểu đồ bong bóng với dữ liệu mặc định. Nó sử dụng các ô A10:A12 trên worksheet 0 cho ba nhãn đầu tiên trong series đầu tiên, bật nhãn từ các ô, và lưu kết quả vào `resultchart.pptx`.
+Ví dụ này thêm một biểu đồ bubble với dữ liệu mặc định vào slide đầu tiên của một bản trình bày hiện có. Nó sử dụng các ô A10:A12 trên worksheet 0 cho ba nhãn đầu tiên trong series đầu tiên, bật nhãn từ ô, và lưu bản trình bày đã cập nhật.  
 
 ```php
 use aspose\slides\Presentation;
@@ -194,7 +226,7 @@ try {
 
 ## **Quản lý Worksheets**
 
-Phương thức [ChartDataWorkbook::getWorksheets](https://reference.aspose.com/slides/vi/php-java/aspose.slides/chartdataworkbook/getworksheets/) cung cấp quyền truy cập vào các worksheet trong một chart workbook. Ví dụ này tạo một biểu đồ tròn với dữ liệu mặc định và in tên mỗi worksheet ra console.
+Phương thức [ChartDataWorkbook::getWorksheets](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/getworksheets/) cung cấp quyền truy cập vào các worksheet trong một workbook biểu đồ. Ví dụ này tạo một biểu đồ tròn với dữ liệu mặc định và in tên mỗi worksheet ra console.  
 
 ```php
 use aspose\slides\Presentation;
@@ -215,9 +247,9 @@ try {
 }
 ```
 
-## **Chỉ định Kiểu Nguồn Dữ liệu**
+## **Chỉ định loại nguồn dữ liệu**
 
-Ví dụ này tạo một biểu đồ cột 3D với dữ liệu mặc định và đặt tên cho hai series bằng các nguồn dữ liệu khác nhau. Tên đầu tiên sử dụng chuỗi literal; tên thứ hai sử dụng ô C1 trên worksheet 0. Enum [DataSourceType](https://reference.aspose.com/slides/vi/php-java/aspose.slides/datasourcetype/) chọn nguồn cho mỗi tên. Kết quả được lưu vào `pres.pptx`.
+Ví dụ này tạo một biểu đồ cột 3D với dữ liệu mặc định và đặt hai tên series bằng các nguồn dữ liệu khác nhau. Tên đầu tiên sử dụng một chuỗi literal; tên thứ hai sử dụng ô C1 trên worksheet 0. Phân loại [DataSourceType](https://reference.aspose.com/slides/php-java/aspose.slides/datasourcetype/) chọn nguồn cho mỗi tên. Ví dụ lưu bản trình bày với các tên series đã cập nhật.  
 
 ```php
 use aspose\slides\Presentation;
@@ -246,9 +278,9 @@ try {
 }
 ```
 
-## **Phát hiện Định dạng Workbook Nhúng Không được Hỗ trợ**
+## **Phát hiện các định dạng workbook nhúng không được hỗ trợ**
 
-Aspose.Slides không hỗ trợ định dạng workbook nhị phân Excel (.xlsb) có thể được nhúng trong một số biểu đồ. Bạn có thể sử dụng phương thức `getEmbeddedWorkbookType` trên [ChartData](https://reference.aspose.com/slides/vi/php-java/aspose.slides/chartdata/) kết hợp với enum [WorkbookType](https://reference.aspose.com/slides/vi/php-java/aspose.slides/workbooktype/) để phát hiện các định dạng không được hỗ trợ và bỏ qua các biểu đồ đó. Ví dụ này kiểm tra các shape trên slide đầu tiên của `sample.pptx`, bỏ qua các shape không phải biểu đồ, và in thông báo chẩn đoán cho mỗi biểu đồ có workbook .xlsb nhúng.
+Aspose.Slides không hỗ trợ định dạng workbook nhị phân Excel (.xlsb) có thể được nhúng trong một số biểu đồ. Bạn có thể sử dụng phương thức `getEmbeddedWorkbookType` trên [ChartData](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/) cùng với phân loại [WorkbookType](https://reference.aspose.com/slides/php-java/aspose.slides/workbooktype/) để phát hiện các định dạng không được hỗ trợ và bỏ qua các biểu đồ đó. Ví dụ này kiểm tra các shape trên slide đầu tiên của một bản trình bày hiện có, bỏ qua các shape không phải là biểu đồ, và in thông báo chẩn đoán cho mỗi biểu đồ có workbook .xlsb được nhúng.  
 
 ```php
 use aspose\slides\Presentation;
@@ -276,22 +308,22 @@ try {
             continue;
         }
 
-        // Đọc hoặc sửa đổi dữ liệu workbook biểu đồ được hỗ trợ tại đây.
+        // Đọc hoặc chỉnh sửa dữ liệu workbook biểu đồ được hỗ trợ tại đây.
     }
 } finally {
     $presentation->dispose();
 }
 ```
 
-## **Workbook Ngoại**
+## **Workbook bên ngoài**
 
-Aspose.Slides hỗ trợ việc sử dụng workbook ngoại làm nguồn dữ liệu cho biểu đồ.
+Aspose.Slides hỗ trợ sử dụng workbook bên ngoài làm nguồn dữ liệu cho biểu đồ.  
 
-### **Tạo một Workbook Ngoại**
+### **Tạo một Workbook bên ngoài**
 
-Sử dụng [readWorkbookStream](https://reference.aspose.com/slides/vi/php-java/aspose.slides/chartdata/readworkbookstream/) và [setExternalWorkbook](https://reference.aspose.com/slides/vi/php-java/aspose.slides/chartdata/setexternalworkbook/) để xuất workbook biểu đồ nhúng ra một tệp và liên kết biểu đồ tới workbook ngoại đó.
+Sử dụng [readWorkbookStream](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/readworkbookstream/) và [setExternalWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/setexternalworkbook/) để xuất workbook biểu đồ được nhúng ra file và liên kết biểu đồ với workbook bên ngoài đó.  
 
-Ví dụ này tạo một biểu đồ tròn với dữ liệu mặc định, ghi workbook của nó vào `externalWorkbook1.xlsx`, và hoàn thành việc ghi tệp trước khi gán tệp làm nguồn dữ liệu cho biểu đồ. Nó lưu bản trình chiếu đã liên kết vào `externalWorkbook.pptx`.
+Ví dụ này tạo một biểu đồ tròn với dữ liệu mặc định và xuất workbook của nó. Nó hoàn thành việc ghi file trước khi gán workbook bên ngoài làm nguồn dữ liệu biểu đồ, sau đó lưu bản trình bày đã liên kết.  
 
 ```php
 use aspose\slides\Presentation;
@@ -313,6 +345,7 @@ try {
             $fileStream->close();
         }
         $chart->getChartData()->setExternalWorkbook($workbookPath->getAbsolutePath());
+        
         $presentation->save("externalWorkbook.pptx", SaveFormat::Pptx);
     } catch (JavaException $exception) {
         echo "Could not write the external workbook: " . $exception->getMessage(), PHP_EOL;
@@ -322,13 +355,13 @@ try {
 }
 ```
 
-### **Đặt một Workbook Ngoại**
+### **Đặt một Workbook bên ngoài**
 
-Sử dụng phương thức [setExternalWorkbook](https://reference.aspose.com/slides/vi/php-java/aspose.slides/chartdata/setexternalworkbook/), bạn có thể gán một workbook ngoại cho biểu đồ như là nguồn dữ liệu của nó. Phương thức này cũng có thể được dùng để cập nhật đường dẫn tới workbook ngoại (nếu workbook đã được di chuyển).
+Sử dụng phương thức [setExternalWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/setexternalworkbook/) bạn có thể gán một workbook bên ngoài cho một biểu đồ làm nguồn dữ liệu. Phương thức này cũng có thể được dùng để cập nhật đường dẫn tới workbook bên ngoài (nếu workbook đó đã được di chuyển).  
 
-Mặc dù bạn không thể chỉnh sửa dữ liệu trong các workbook được lưu ở vị trí hoặc tài nguyên từ xa, bạn vẫn có thể sử dụng các workbook đó làm nguồn dữ liệu ngoại. Nếu cung cấp đường dẫn tương đối cho một workbook ngoại, nó sẽ tự động được chuyển thành đường dẫn đầy đủ.
+Mặc dù bạn không thể chỉnh sửa dữ liệu trong các workbook được lưu ở vị trí từ xa hoặc tài nguyên, bạn vẫn có thể sử dụng các workbook như một nguồn dữ liệu bên ngoài. Nếu cung cấp đường dẫn tương đối cho một workbook bên ngoài, nó sẽ tự động được chuyển thành đường dẫn đầy đủ.  
 
-Ví dụ này yêu cầu `externalWorkbook.xlsx` trong thư mục làm việc. Worksheet có tên `Sheet1` phải chứa tên series ở B1, tên danh mục ở A2:A4, và các giá trị số ở B2:B4. Ví dụ tạo một biểu đồ tròn, liên kết workbook, và sử dụng [setRange](https://reference.aspose.com/slides/vi/php-java/aspose.slides/chartdata/setrange/) để ánh xạ A1:B4 thành một series và ba danh mục. Nó lưu kết quả vào `Presentation_with_externalWorkbook.pptx`.
+Ví dụ này sử dụng một workbook bên ngoài mà worksheet có tên `Sheet1` chứa tên series trong B1, tên danh mục trong A2:A4, và giá trị số trong B2:B4. Ví dụ tạo một biểu đồ tròn, liên kết workbook, và sử dụng [setRange](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/setrange/) để ánh xạ A1:B4 thành một series và ba danh mục. Nó lưu bản trình bày với biểu đồ đã liên kết.  
 
 ```php
 use aspose\slides\Presentation;
@@ -353,12 +386,12 @@ try {
 }
 ```
 
-Tham số `updateChartData` của [setExternalWorkbook](https://reference.aspose.com/slides/vi/php-java/aspose.slides/chartdata/setexternalworkbook/) kiểm soát việc có tải workbook hay không.
+Tham số `updateChartData` của [setExternalWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/setexternalworkbook/) kiểm soát việc tải workbook.  
 
-* Khi `updateChartData` là `false`, chỉ đường dẫn workbook được cập nhật. Dữ liệu biểu đồ không được tải hoặc cập nhật từ workbook đích, do đó workbook có thể không có sẵn.
-* Khi `updateChartData` là `true`, dữ liệu biểu đồ được cập nhật từ workbook đích.
+* Khi `updateChartData` là `false`, chỉ đường dẫn workbook được cập nhật. Dữ liệu biểu đồ không được tải hoặc cập nhật từ workbook mục tiêu, vì vậy workbook có thể không có sẵn.  
+* Khi `updateChartData` là `true`, dữ liệu biểu đồ được cập nhật từ workbook mục tiêu.  
 
-Ví dụ dưới đây gán một URL placeholder với `updateChartData` đặt thành `false`. Nó giữ nguyên dữ liệu mặc định của biểu đồ tròn và lưu bản trình chiếu mà không tải workbook không khả dụng.
+Ví dụ sau gán một URL placeholder với `updateChartData` đặt thành `false`. Nó giữ dữ liệu mặc định của biểu đồ tròn và lưu bản trình bày mà không tải workbook không khả dụng.  
 
 ```php
 use aspose\slides\Presentation;
@@ -378,17 +411,11 @@ try {
 }
 ```
 
-### **Lấy Đường dẫn Workbook Nguồn Dữ liệu Ngoại của một Biểu đồ**
+### **Lấy đường dẫn Workbook nguồn dữ liệu bên ngoài của biểu đồ**
 
-Để xác định workbook liên kết với một biểu đồ, trước tiên kiểm tra xem biểu đồ có sử dụng nguồn dữ liệu ngoại hay không. Nếu có, bạn có thể lấy đường dẫn workbook bằng cách thực hiện các bước sau.
+Để xác định workbook được liên kết với một biểu đồ, kiểm tra xem biểu đồ có sử dụng nguồn dữ liệu bên ngoài không và lấy đường dẫn workbook của nó.  
 
-1. Tạo một instance của lớp [Presentation](https://reference.aspose.com/slides/vi/php-java/aspose.slides/presentation/).
-2. Truy cập slide đầu tiên bằng chỉ số bắt đầu từ 0.
-3. Kiểm tra rằng shape đầu tiên là một biểu đồ.
-4. Đọc kiểu nguồn dữ liệu của biểu đồ.
-5. Nếu nguồn là một workbook ngoại, đọc đường dẫn của nó.
-
-Ví dụ này mở `externalWorkbook.pptx`, được tạo trong ví dụ trước, và kiểm tra shape đầu tiên trên slide đầu tiên. Nếu nó là một biểu đồ được liên kết với workbook ngoại, ví dụ sẽ in [getExternalWorkbookPath](https://reference.aspose.com/slides/vi/php-java/aspose.slides/chartdata/getexternalworkbookpath/) ra console. Sau đó nó lưu một bản sao của bản trình chiếu vào `Result.pptx`.
+Ví dụ này kiểm tra shape đầu tiên trên slide đầu tiên của một bản trình bày có workbook bên ngoài được liên kết. Nếu đó là một biểu đồ được liên kết với workbook bên ngoài, ví dụ in [getExternalWorkbookPath](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/getexternalworkbookpath/) ra console. Sau đó nó lưu một bản sao của bản trình bày.  
 
 ```php
 use aspose\slides\Presentation;
@@ -418,11 +445,11 @@ try {
 }
 ```
 
-### **Chỉnh sửa Dữ liệu Biểu đồ**
+### **Chỉnh sửa dữ liệu biểu đồ**
 
-Bạn có thể chỉnh sửa dữ liệu trong workbook ngoại tương tự như cách bạn thay đổi nội dung của workbook nội bộ. Khi một workbook ngoại không thể tải, một ngoại lệ sẽ được ném.
+Bạn có thể chỉnh sửa dữ liệu trong các workbook bên ngoài tương tự như cách bạn thay đổi nội dung của workbook nội bộ. Khi một workbook bên ngoài không thể được tải, một ngoại lệ sẽ được ném.  
 
-Ví dụ này yêu cầu `presentation.pptx` có một biểu đồ làm shape đầu tiên trên slide đầu tiên và một workbook ngoại có thể truy cập. Nó đặt giá trị được hỗ trợ bởi ô của điểm dữ liệu đầu tiên trong series đầu tiên thành 100 và lưu bản trình chiếu vào `presentation_out.pptx`. Việc chỉnh sửa giá trị ô có thể cập nhật tệp XLSX ngoại được liên kết, vì vậy hãy sử dụng một bản sao nếu bạn cần giữ nguyên workbook gốc.
+Ví dụ này sử dụng một biểu đồ là shape đầu tiên trên slide đầu tiên và được liên kết với một workbook bên ngoài có thể truy cập. Nó đặt giá trị ô hỗ trợ của điểm dữ liệu đầu tiên trong series đầu tiên thành 100 và lưu bản trình bày đã cập nhật. Việc chỉnh sửa giá trị ô có thể cập nhật file XLSX bên ngoài đã liên kết, vì vậy hãy sử dụng một bản sao nếu bạn cần giữ nguyên workbook gốc.  
 
 ```php
 use aspose\slides\Presentation;
@@ -455,11 +482,11 @@ try {
 }
 ```
 
-### **Khôi phục Workbook từ Bộ nhớ Đệm của Biểu đồ**
+### **Khôi phục Workbook từ bộ nhớ đệm biểu đồ**
 
-Nếu một biểu đồ sử dụng workbook ngoại bị thiếu hoặc không khả dụng, Aspose.Slides có thể tái tạo chart workbook từ dữ liệu được lưu trong bộ nhớ đệm của bản trình chiếu. Tạo [LoadOptions](https://reference.aspose.com/slides/vi/php-java/aspose.slides/loadoptions/), gọi [LoadOptions::setSpreadsheetOptions](https://reference.aspose.com/slides/vi/php-java/aspose.slides/loadoptions/setspreadsheetoptions/), và đặt [SpreadsheetOptions::setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/vi/php-java/aspose.slides/spreadsheetoptions/setrecoverworkbookfromchartcache/) thành `true` trước khi mở bản trình chiếu.
+Nếu một biểu đồ sử dụng một workbook bên ngoài bị thiếu hoặc không khả dụng, Aspose.Slides có thể xây dựng lại workbook biểu đồ từ dữ liệu được lưu trong bộ nhớ đệm của bản trình bày. Tạo [LoadOptions](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/), gọi [LoadOptions::setSpreadsheetOptions](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/setspreadsheetoptions/), và đặt [SpreadsheetOptions::setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/php-java/aspose.slides/spreadsheetoptions/setrecoverworkbookfromchartcache/) thành `true` trước khi mở bản trình bày.  
 
-Ví dụ PHP dưới đây mở `presentation.pptx`, trong đó shape đầu tiên trên slide đầu tiên phải là một biểu đồ tham chiếu đến workbook ngoại không khả dụng, và truy cập dữ liệu đã khôi phục thông qua [Chart::getChartData](https://reference.aspose.com/slides/vi/php-java/aspose.slides/chart/getchartdata/) và [ChartData::getChartDataWorkbook](https://reference.aspose.com/slides/vi/php-java/aspose.slides/chartdata/getchartdataworkbook/):
+Ví dụ PHP sau khôi phục dữ liệu workbook cho một biểu đồ là shape đầu tiên trên slide đầu tiên và tham chiếu một workbook bên ngoài không khả dụng. Nó truy cập dữ liệu đã khôi phục thông qua [Chart::getChartData](https://reference.aspose.com/slides/php-java/aspose.slides/chart/getchartdata/) và [ChartData::getChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/getchartdataworkbook/):  
 
 ```php
 use aspose\slides\Presentation;
@@ -481,7 +508,7 @@ try {
         $chart = $slide->getShapes()->get_Item(0);
         $recoveredWorkbook = $chart->getChartData()->getChartDataWorkbook();
 
-        // Đọc hoặc sửa đổi dữ liệu workbook đã khôi phục ở đây.
+        // Đọc hoặc chỉnh sửa dữ liệu workbook đã khôi phục tại đây.
     } else {
         echo "The first shape is not a chart.", PHP_EOL;
     }
@@ -490,30 +517,24 @@ try {
 }
 ```
 
-Nếu workbook ngoại không khả dụng và việc khôi phục bị tắt, Aspose.Slides sẽ ném ngoại lệ. Chỉ bật khôi phục khi việc sử dụng dữ liệu biểu đồ đã lưu trong bộ nhớ đệm là một phương án chấp nhận được, vì bộ nhớ đệm có thể không chứa các thay đổi được thực hiện trên workbook ngoại sau khi bản trình chiếu được cập nhật lần cuối.
+Nếu workbook bên ngoài không khả dụng và việc khôi phục bị tắt, Aspose.Slides sẽ ném ngoại lệ. Chỉ bật việc khôi phục khi sử dụng dữ liệu biểu đồ đã lưu trong bộ nhớ đệm là một cách dự phòng chấp nhận được, vì bộ nhớ đệm có thể không chứa các thay đổi đã thực hiện trên workbook bên ngoài sau lần cập nhật cuối cùng của bản trình bày.  
 
 ## **Câu hỏi thường gặp**
 
-**Tôi có thể xác định liệu một biểu đồ cụ thể có được liên kết với workbook ngoại hay nhúng không?**
+**Tôi có thể xác định xem một biểu đồ cụ thể có được liên kết với workbook bên ngoài hay được nhúng không?**  
+Có. Một biểu đồ có một [loại nguồn dữ liệu](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/getdatasourcetype/) và một [đường dẫn tới workbook bên ngoài](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/getexternalworkbookpath/); nếu nguồn là một workbook bên ngoài, bạn có thể đọc đường dẫn đầy đủ để chắc chắn rằng một tệp bên ngoài đang được sử dụng.  
 
-Có. Một biểu đồ có [data source type](https://reference.aspose.com/slides/vi/php-java/aspose.slides/chartdata/getdatasourcetype/) và một [đường dẫn tới workbook ngoại](https://reference.aspose.com/slides/vi/php-java/aspose.slides/chartdata/getexternalworkbookpath/); nếu nguồn là một workbook ngoại, bạn có thể đọc đường dẫn đầy đủ để chắc chắn rằng một tệp ngoại đang được sử dụng.
+**Đường dẫn tương đối tới workbook bên ngoài có được hỗ trợ không, và chúng được lưu như thế nào?**  
+Có. Nếu bạn chỉ định một đường dẫn tương đối, nó sẽ tự động được chuyển thành đường dẫn tuyệt đối. Bản trình bày lưu đường dẫn tuyệt đối trong tệp PPTX, vì vậy việc di chuyển workbook có thể yêu cầu cập nhật liên kết.  
 
-**Các đường dẫn tương đối tới workbook ngoại có được hỗ trợ không, và chúng được lưu như thế nào?**
+**Tôi có thể sử dụng workbook nằm trên các nguồn tài nguyên hoặc chia sẻ mạng không?**  
+Có, các workbook như vậy có thể được sử dụng làm nguồn dữ liệu bên ngoài. Tuy nhiên, việc chỉnh sửa remote workbook trực tiếp từ Aspose.Slides không được hỗ trợ — chúng chỉ có thể được sử dụng làm nguồn.  
 
-Có. Nếu bạn chỉ định một đường dẫn tương đối, nó sẽ tự động được chuyển thành đường dẫn tuyệt đối. Bản trình chiếu lưu đường dẫn tuyệt đối trong tệp PPTX, vì vậy việc di chuyển workbook có thể yêu cầu cập nhật liên kết.
+**Aspose.Slides có ghi đè lên file XLSX bên ngoài khi lưu bản trình bày không?**  
+Bản trình bày lưu một [liên kết tới tệp bên ngoài](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/getexternalworkbookpath/). Việc chỉnh sửa dữ liệu biểu đồ được hỗ trợ bởi ô có thể cũng cập nhật file XLSX local đã liên kết. Hãy sử dụng một bản sao của workbook nếu bản gốc phải được giữ nguyên.  
 
-**Tôi có thể sử dụng các workbook nằm trên tài nguyên/mạng chia sẻ không?**
+**Nếu file bên ngoài được bảo vệ bằng mật khẩu, tôi nên làm gì?**  
+Aspose.Slides không chấp nhận mật khẩu khi liên kết. Một cách phổ biến là loại bỏ bảo vệ trước hoặc chuẩn bị một bản sao đã giải mã (ví dụ, sử dụng [Aspose.Cells](https://reference.aspose.com/cells/java/)) và liên kết tới bản sao đó.  
 
-Có, các workbook như vậy có thể được sử dụng làm nguồn dữ liệu ngoại. Tuy nhiên, việc chỉnh sửa trực tiếp các workbook từ xa qua Aspose.Slides không được hỗ trợ — chúng chỉ có thể được dùng làm nguồn.
-
-**Aspose.Slides có ghi đè tệp XLSX ngoại khi lưu bản trình chiếu không?**
-
-Bản trình chiếu lưu một [liên kết tới tệp ngoại](https://reference.aspose.com/slides/vi/php-java/aspose.slides/chartdata/getexternalworkbookpath/). Việc chỉnh sửa dữ liệu biểu đồ dựa trên ô cũng có thể cập nhật tệp XLSX địa phương đã liên kết. Hãy sử dụng một bản sao của workbook nếu cần giữ nguyên bản gốc.
-
-**Nếu tệp ngoại được bảo vệ bằng mật khẩu, tôi nên làm gì?**
-
-Aspose.Slides không chấp nhận mật khẩu khi liên kết. Một cách phổ biến là loại bỏ bảo mật trước hoặc chuẩn bị một bản sao đã giải mã (ví dụ, sử dụng [Aspose.Cells](https://reference.aspose.com/cells/java/)) và liên kết tới bản sao đó.
-
-**Nhiều biểu đồ có thể tham chiếu cùng một workbook ngoại không?**
-
-Có. Mỗi biểu đồ lưu liên kết riêng của mình. Nếu chúng đều trỏ tới cùng một tệp, việc cập nhật tệp sẽ được phản ánh trong mỗi biểu đồ lần tiếp theo dữ liệu được tải.
+**Nhiều biểu đồ có thể tham chiếu cùng một workbook bên ngoài không?**  
+Có. Mỗi biểu đồ lưu liên kết riêng của mình. Nếu chúng đều trỏ tới cùng một file, việc cập nhật file sẽ được phản ánh trong mỗi biểu đồ vào lần tiếp theo dữ liệu được tải.  

@@ -1,63 +1,61 @@
 ---
-title: Maak of werk PowerPoint‑presentatie‑diagrammen bij in JavaScript
-linktitle: Maak of werk diagrammen bij
+title: Maak of werk PowerPoint-presentatiegrafieken bij in JavaScript
+linktitle: Maak of werk grafieken bij
 type: docs
 weight: 10
 url: /nl/nodejs-java/create-chart/
 keywords:
-- diagram toevoegen
-- diagram maken
-- diagram bewerken
-- diagram wijzigen
-- diagram bijwerken
-- spreidingsdiagram
-- cirkeldiagram
-- lijndiagram
-- boomkaartdiagram
-- aandelen‑diagram
-- box‑en‑whisker‑diagram
-- trechterdiagram
-- sunburst‑diagram
-- histogramdiagram
-- radardiagram
-- multicategorie‑diagram
+- grafiek toevoegen
+- grafiek maken
+- grafiek bewerken
+- grafiek wijzigen
+- grafiek bijwerken
+- spreidingsgrafiek
+- taartgrafiek
+- lijngrafiek
+- boomkaartgrafiek
+- aandelengrafiek
+- box-en-whisker-grafiek
+- trechtergrafiek
+- sunburst-grafiek
+- histogramgrafiek
+- radargrafiek
+- multicategorie-grafiek
 - PowerPoint
 - presentatie
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Maak en pas diagrammen aan in PowerPoint‑presentaties met Aspose.Slides voor Node.js. Voeg diagrammen toe, formatteer en bewerk ze met praktische code‑voorbeelden in JavaScript."
+description: "Maak en pas grafieken aan in PowerPoint-presentaties met Aspose.Slides voor Node.js. Voeg grafieken toe, formatteer en bewerk ze met praktische code-voorbeelden in JavaScript."
 ---
 ## **Overzicht**
 
-Dit artikel biedt een uitgebreide handleiding voor het maken en aanpassen van diagrammen met Aspose.Slides. Je leert hoe je programmatic een diagram aan een dia kunt toevoegen, deze kunt vullen met gegevens en verschillende opmaakopties kunt toepassen om aan je specifieke ontwerpvereisten te voldoen. Door het artikel heen illustreren gedetailleerde code‑voorbeelden elke stap, van het initialiseren van de presentatie en diagramobject tot het configureren van series, assen en legenda’s. Door deze gids te volgen, krijg je een solide begrip van hoe je dynamische diagramgeneratie in je applicaties kunt integreren, waardoor het proces van het maken van gegevensgestuurde presentaties wordt gestroomlijnd.
+Dit artikel biedt een uitgebreide gids over hoe je diagrammen maakt en aanpast met Aspose.Slides. Je leert hoe je programmatisch een diagram aan een dia toevoegt, het vult met gegevens en verschillende opmaakopties toepast om te voldoen aan je specifieke ontwerpvereisten. Door het hele artikel heen illustreren gedetailleerde code-voorbeelden elke stap, van het initialiseren van de presentatie en het diagramobject tot het configureren van series, assen en legendas. Door deze gids te volgen, krijg je een stevig begrip van hoe je dynamische diagramgeneratie in je toepassingen integreert, waardoor het proces van het maken van datagestuurde presentaties wordt gestroomlijnd.
 
 ## **Diagram maken**
 
-Diagrammen helpen mensen snel gegevens te visualiseren en inzicht te krijgen dat niet meteen duidelijk is uit een tabel of spreadsheet.
+Diagrammen helpen mensen snel gegevens te visualiseren en inzicht te krijgen dat mogelijk niet meteen duidelijk is uit een tabel of spreadsheet.
 
 **Waarom diagrammen maken?**
 
-Met diagrammen kun je:
-
-* grote hoeveelheden gegevens samenvatten op één dia in een presentatie
+* grote hoeveelheden gegevens samenvoegen, comprimeren of samenvatten op één dia in een presentatie
 * patronen en trends in gegevens blootleggen
-* de richting en het momentum van gegevens over tijd of ten opzichte van een specifieke meeteenheid afleiden
-* uitschieters, afwijkingen, fouten, onzinnige gegevens, enz. spotten
+* de richting en het momentum van gegevens in de tijd of ten opzichte van een specifieke meeteenheid afleiden
+* uitbijters, afwijkingen, fouten, onzinnige gegevens, enz. opsporen
 * complexe gegevens communiceren of presenteren
 
-In PowerPoint kun je diagrammen maken via de *Invoegen*-functie, die sjablonen biedt voor het ontwerpen van veel verschillende diagramtypen. Met Aspose.Slides kun je zowel reguliere diagrammen (gebaseerd op populaire diagramtypen) als aangepaste diagrammen maken.
+In PowerPoint kun je diagrammen maken via de *Insert*-functie, die sjablonen biedt voor het ontwerpen van veel verschillende diagramtypen. Met Aspose.Slides kun je zowel gewone diagrammen (gebaseerd op populaire diagramtypen) als aangepaste diagrammen maken.
 
 {{% alert color="info" title="Note" %}}
-Om diagrammen te maken, gebruik je de [ChartType](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/charttype/)‑klasse. De velden in deze klasse corresponderen met verschillende diagramtypen.
+Om diagrammen te maken, gebruik je de [ChartType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/) klasse. De velden in deze klasse komen overeen met verschillende diagramtypen.
 {{% /alert %}}
 
-### **Geclusterde kolomdiagrammen maken**
+### **Gegroepeerde kolomdiagrammen maken**
 
-In dit gedeelte wordt uitgelegd hoe je geclusterde kolomdiagrammen maakt met Aspose.Slides. Je leert een presentatie te initialiseren, een diagram toe te voegen en de elementen zoals titel, gegevens, series, categorieën en opmaak aan te passen. Volg de onderstaande stappen om te zien hoe een standaard geclusterde kolomdiagram wordt gegenereerd:
+Deze sectie legt uit hoe je gegroepeerde kolomdiagrammen maakt met Aspose.Slides. Je leert een presentatie te initialiseren, een diagram toe te voegen en de elementen ervan, zoals titel, gegevens, series, categorieën en opmaak, aan te passen. Volg de onderstaande stappen om te zien hoe een standaard gegroepeerd kolomdiagram wordt gegenereerd:
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/presentation)‑klasse.
-1. Verkrijg een referentie naar een dia via de index.
+1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation) klasse.
+1. Haal een referentie op naar een dia met behulp van de index.
 1. Voeg een diagram toe met enkele gegevens en specificeer het type `ChartType.ClusteredColumn`.
 1. Voeg een titel toe aan het diagram.
 1. Open het gegevenswerkblad van het diagram.
@@ -66,32 +64,32 @@ In dit gedeelte wordt uitgelegd hoe je geclusterde kolomdiagrammen maakt met Asp
 1. Voeg nieuwe diagramgegevens toe voor de diagramseries.
 1. Pas een opvulkleur toe op de diagramseries.
 1. Voeg labels toe aan de diagramseries.
-1. Sla de gewijzigde presentatie op als een PPTX‑bestand.
+1. Sla de aangepaste presentatie op als een PPTX-bestand.
 
-Deze C#‑code toont hoe je een geclusterde kolomdiagram maakt:
+This JavaScript code demonstrates how to create a clustered column chart:
 
 ```javascript
 var aspose = aspose || {};
 aspose.slides = require("aspose.slides.via.java");
 const java = require("java");
 
-// Instantieert een presentatieklasse die een PPTX‑bestand vertegenwoordigt
+// Instantieert een presentatie‑klasse die een PPTX‑bestand voorstelt
 var pres = new aspose.slides.Presentation();
 try {
     // Benadert de eerste dia
     var sld = pres.getSlides().get_Item(0);
     // Voegt een diagram toe met de standaardgegevens
     var chart = sld.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 0, 0, 500, 500);
-    // Stelt de diagramtitel in
+    // Stelt de titel van het diagram in
     chart.setTitle(true);
     chart.getChartTitle().addTextFrameForOverriding("Sample Title");
     chart.getChartTitle().getTextFrameForOverriding().getTextFrameFormat().setCenterText(java.newByte(aspose.slides.NullableBool.True));
     chart.getChartTitle().setHeight(20);
     // Stelt de eerste reeks in om waarden weer te geven
     chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowValue(true);
-    // Stelt de index in voor het diagram‑gegevensblad
+    // Stelt de index in voor het gegevensblad van het diagram
     var defaultWorksheetIndex = 0;
-    // Haalt het diagram‑gegevenswerkblad op
+    // Haalt het gegevenswerkblad van het diagram op
     var fact = chart.getChartData().getChartDataWorkbook();
     // Verwijdert de standaard gegenereerde reeksen en categorieën
     chart.getChartData().getSeries().clear();
@@ -105,22 +103,22 @@ try {
     chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 1, 0, "Caetegoty 1"));
     chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 2, 0, "Caetegoty 2"));
     chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 3, 0, "Caetegoty 3"));
-    // Pakt de eerste diagramreeks
+    // Neemt de eerste diagramreeks
     var series = chart.getChartData().getSeries().get_Item(0);
-    // Vult nu de reeksen‑gegevens
+    // Vult nu de gegevens van de reeks in
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 1, 20));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 50));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 30));
-    // Stelt de vulkleur in voor de reeks
+    // Stelt de opvulkleur voor de reeks in
     series.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
     series.getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-    // Pakt de tweede diagramreeks
+    // Neemt de tweede diagramreeks
     series = chart.getChartData().getSeries().get_Item(1);
-    // Vult reeksen‑gegevens
+    // Vult de reeksgegevens in
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 2, 30));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 2, 10));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 2, 60));
-    // Stelt de vulkleur in voor de reeks
+    // Stelt de opvulkleur voor de reeks in
     series.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
     series.getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GREEN"));
     // Maak aangepaste labels voor elke categorie voor de nieuwe reeks
@@ -129,7 +127,7 @@ try {
     lbl.getDataLabelFormat().setShowCategoryName(true);
     lbl = series.getDataPoints().get_Item(1).getLabel();
     lbl.getDataLabelFormat().setShowSeriesName(true);
-    // Toont waarde voor het derde label
+    // Toont de waarde voor het derde label
     lbl = series.getDataPoints().get_Item(2).getLabel();
     lbl.getDataLabelFormat().setShowValue(true);
     lbl.getDataLabelFormat().setShowSeriesName(true);
@@ -143,60 +141,61 @@ try {
 }
 ```
 
-### **Spreidingsdiagrammen maken**
-Spreidingsdiagrammen (ook bekend als scatter‑plots of x‑y‑grafieken) worden vaak gebruikt om patronen te zoeken of correlaties tussen twee variabelen aan te tonen.
+### **Scatterdiagrammen maken**
 
-Gebruik een spreidingsdiagram wanneer:
+Scatterdiagrammen (ook wel bekend als spreidingsdiagrammen of x-y-grafieken) worden vaak gebruikt om patronen te controleren of correlaties tussen twee variabelen aan te tonen.
+
+Gebruik een scatterdiagram wanneer:
 
 * je gepaarde numerieke gegevens hebt
 * je twee variabelen hebt die goed bij elkaar passen
-* je wilt bepalen of twee variabelen met elkaar samenhangen
-* je een onafhankelijke variabele hebt met meerdere waarden voor een afhankelijke variabele
+* je wilt bepalen of twee variabelen met elkaar verband houden
+* je een onafhankelijke variabele hebt die meerdere waarden heeft voor een afhankelijke variabele
 
-1. Volg de stappen in [Create Clustered Column Charts](#create-clustered-column-charts).
-2. Voeg voor stap drie een diagram toe met enkele gegevens en specificeer je diagramtype als één van de volgende:
-   1. [ChartType.ScatterWithMarkers](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/charttype/#ScatterWithMarkers) – _Stelt een spreidingsdiagram voor._
-   2. [ChartType.ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) – _Stelt een spreidingsdiagram voor dat met curven verbonden is, met datamarkers._
-   3. [ChartType.ScatterWithSmoothLines](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/charttype/#ScatterWithSmoothLines) – _Stelt een spreidingsdiagram voor dat met curven verbonden is, zonder datamarkers._
-   4. [ChartType.ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) – _Stelt een spreidingsdiagram voor dat met rechte lijnen verbonden is, met datamarkers._
-   5. [ChartType.ScatterWithStraightLines](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/charttype/#ScatterWithStraightLines) – _Stelt een spreidingsdiagram voor dat met rechte lijnen verbonden is, zonder datamarkers._
+1. Volg de stappen in [Gegroepeerde kolomdiagrammen maken](#create-clustered-column-charts).
+2. Voeg in de derde stap een diagram toe met enkele gegevens en specificeer je diagramtype als een van de volgende:
+   1. [ChartType.ScatterWithMarkers](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#ScatterWithMarkers) - _Stelt een scatter-diagram voor._
+   2. [ChartType.ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - _Stelt een scatter-diagram voor dat met curves is verbonden, met datamarkers._
+   3. [ChartType.ScatterWithSmoothLines](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#ScatterWithSmoothLines) - _Stelt een scatter-diagram voor dat met curves is verbonden, zonder datamarkers._
+   4. [ChartType.ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _Stelt een scatter-diagram voor dat met lijnen is verbonden, met datamarkers._
+   5. [ChartType.ScatterWithStraightLines](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#ScatterWithStraightLines) - _Stelt een scatter-diagram voor dat met lijnen is verbonden, zonder datamarkers._
 
-Deze JavaScript‑code toont hoe je een spreidingsdiagram maakt met verschillende markers voor elke serie:
+This JavaScript code shows how to create a scatter chart with different markers for each series:
 
 ```javascript
 var aspose = aspose || {};
 aspose.slides = require("aspose.slides.via.java");
 
-// Instantieert een presentatie‑klasse die een PPTX‑bestand vertegenwoordigt
+// Instantieert een presentatie‑klasse die een PPTX‑bestand voorstelt
 var pres = new aspose.slides.Presentation();
 try {
     // Benadert de eerste dia
     var slide = pres.getSlides().get_Item(0);
     // Maakt het standaarddiagram
     var chart = slide.getShapes().addChart(aspose.slides.ChartType.ScatterWithSmoothLines, 0, 0, 400, 400);
-    // Haalt de index van het standaard diagram‑gegevens‑werkblad op
+    // Haalt de standaardgegevensbladindex voor het diagram op
     var defaultWorksheetIndex = 0;
-    // Haalt het diagram‑gegevens‑werkblad op
+    // Haalt het gegevenswerkblad van het diagram op
     var fact = chart.getChartData().getChartDataWorkbook();
-    // Verwijdert de demo‑reeks
+    // Verwijdert de demo‑reeksen
     chart.getChartData().getSeries().clear();
     // Voegt nieuwe reeksen toe
     chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 1, 1, "Series 1"), chart.getType());
     chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 1, 3, "Series 2"), chart.getType());
-    // Pakt de eerste diagramreeks
+    // Neemt de eerste diagramreeks
     var series = chart.getChartData().getSeries().get_Item(0);
     // Voegt een nieuw punt (1:3) toe aan de reeks
     series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 1), fact.getCell(defaultWorksheetIndex, 2, 2, 3));
     // Voegt een nieuw punt (2:10) toe
     series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 2), fact.getCell(defaultWorksheetIndex, 3, 2, 10));
-    // Wijzigt het type van de reeks
+    // Wijzigt het reekstype
     series.setType(aspose.slides.ChartType.ScatterWithStraightLinesAndMarkers);
     // Wijzigt de marker van de diagramreeks
     series.getMarker().setSize(10);
     series.getMarker().setSymbol(aspose.slides.MarkerStyleType.Star);
-    // Pakt de tweede diagramreeks
+    // Neemt de tweede diagramreeks
     series = chart.getChartData().getSeries().get_Item(1);
-    // Voegt daar een nieuw punt (5:2) toe
+    // Voegt een nieuw punt (5:2) toe daar
     series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 2, 3, 5), fact.getCell(defaultWorksheetIndex, 2, 4, 2));
     // Voegt een nieuw punt (3:1) toe
     series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 3, 3, 3), fact.getCell(defaultWorksheetIndex, 3, 4, 1));
@@ -215,49 +214,49 @@ try {
 }
 ```
 
-### **Cirkeldiagrammen maken**
+### **Taartdiagrammen maken**
 
-Cirkeldiagrammen zijn het meest geschikt om de deel‑tot‑geheel‑relatie in gegevens weer te geven, vooral wanneer de gegevens categorische labels met numerieke waarden bevatten. Als je gegevens echter veel delen of labels bevatten, kun je beter een staafdiagram gebruiken.
+Taartdiagrammen worden het beste gebruikt om de verhouding deel-tot-geheel in gegevens weer te geven, vooral wanneer de gegevens categorische labels met numerieke waarden bevatten. Als je echter veel delen of labels hebt, kun je overwegen een staafdiagram te gebruiken.
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/presentation/)‑klasse.
-2. Verkrijg een referentie naar een dia via de index.
-3. Voeg een diagram toe met standaardgegevens en specificeer het type [ChartType.Pie](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/charttype/#Pie).
-4. Open het diagram‑gegevenswerkboek [ChartDataWorkbook](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/chartdataworkbook/).
+1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) klasse.
+2. Haal een referentie op naar een dia met behulp van de index.
+3. Voeg een diagram toe met standaardgegevens en specificeer het type [ChartType.Pie](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#Pie).
+4. Open het diagramgegevens-werkboek [ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/).
 5. Verwijder de standaard series en categorieën.
 6. Voeg nieuwe series en categorieën toe.
 7. Voeg nieuwe diagramgegevens toe voor de diagramseries.
-8. Voeg nieuwe punten toe voor het diagram en pas aangepaste kleuren toe op de sectoren van het cirkeldiagram.
+8. Voeg nieuwe punten toe aan het diagram en pas aangepaste kleuren toe op de sectoren van het taartdiagram.
 9. Stel labels in voor de series.
-10. Schakel leader‑lines in voor de serielabels.
-11. Stel de rotatiehoek in voor de sectoren van het cirkeldiagram.
-12. Sla de gewijzigde presentatie op als een PPTX‑bestand.
+10. Schakel leader-lijnen in voor de series-labels.
+11. Stel de rotatiehoek in voor de sectoren van het taartdiagram.
+12. Sla de aangepaste presentatie op als een PPTX-bestand.
 
-Deze JavaScript‑code toont hoe je een cirkeldiagram maakt:
+This JavaScript code shows how to create a pie chart:
 
 ```javascript
 var aspose = aspose || {};
 aspose.slides = require("aspose.slides.via.java");
 const java = require("java");
 
-// Instantieert een presentatie‑klasse die een PPTX‑bestand vertegenwoordigt
+// Instantieert een presentatie‑klasse die een PPTX‑bestand voorstelt
 var pres = new aspose.slides.Presentation();
 try {
     // Benadert de eerste dia
     var slides = pres.getSlides().get_Item(0);
     // Voegt een diagram toe met standaardgegevens
     var chart = slides.getShapes().addChart(aspose.slides.ChartType.Pie, 100, 100, 400, 400);
-    // Stelt de diagramtitel in
+    // Stelt de titel van het diagram in
     chart.getChartTitle().addTextFrameForOverriding("Sample Title");
     chart.getChartTitle().getTextFrameForOverriding().getTextFrameFormat().setCenterText(java.newByte(aspose.slides.NullableBool.True));
     chart.getChartTitle().setHeight(20);
     chart.setTitle(true);
     // Stelt de eerste reeks in om waarden weer te geven
     chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowValue(true);
-    // Stelt de index in voor het diagram‑gegevensblad
+    // Stelt de index in voor het gegevensblad van het diagram
     var defaultWorksheetIndex = 0;
-    // Haalt het diagram‑gegevens‑werkblad op
+    // Haalt het gegevenswerkblad van het diagram op
     var fact = chart.getChartData().getChartDataWorkbook();
-    // Verwijdert de standaard gegenereerde reeksen en categorieën
+    // Verwijdert de standaardgegenereerde reeksen en categorieën
     chart.getChartData().getSeries().clear();
     chart.getChartData().getCategories().clear();
     // Voegt nieuwe categorieën toe
@@ -266,18 +265,18 @@ try {
     chart.getChartData().getCategories().add(fact.getCell(0, 3, 0, "3rd Qtr"));
     // Voegt nieuwe reeksen toe
     var series = chart.getChartData().getSeries().add(fact.getCell(0, 0, 1, "Series 1"), chart.getType());
-    // Vult de reeksen‑gegevens
+    // Vult de gegevens van de reeks
     series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 1, 1, 20));
     series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 50));
     series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 30));
     // Werkt niet in de nieuwe versie
-    // Voegt nieuwe punten toe en stelt de sectorkleur in
+    // Adding new points and setting sector color
     // series.IsColorVaried = true;
     chart.getChartData().getSeriesGroups().get_Item(0).setColorVaried(true);
     var point = series.getDataPoints().get_Item(0);
     point.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
     point.getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "CYAN"));
-    // Stelt de sectorrand in
+    // Stelt de rand van de sector in
     point.getFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     point.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GRAY"));
     point.getFormat().getLine().setWidth(3.0);
@@ -286,7 +285,7 @@ try {
     var point1 = series.getDataPoints().get_Item(1);
     point1.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
     point1.getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "ORANGE"));
-    // Stelt de sectorrand in
+    // Stelt de rand van de sector in
     point1.getFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     point1.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
     point1.getFormat().getLine().setWidth(3.0);
@@ -295,7 +294,7 @@ try {
     var point2 = series.getDataPoints().get_Item(2);
     point2.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
     point2.getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "YELLOW"));
-    // Stelt de sectorrand in
+    // Stelt de rand van de sector in
     point2.getFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     point2.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
     point2.getFormat().getLine().setWidth(2.0);
@@ -312,9 +311,9 @@ try {
     var lbl3 = series.getDataPoints().get_Item(2).getLabel();
     lbl3.getDataLabelFormat().setShowSeriesName(true);
     lbl3.getDataLabelFormat().setShowPercentage(true);
-    // Toont begeleidende lijnen voor diagram
+    // Toont leidlijnen voor het diagram
     series.getLabels().getDefaultDataLabelFormat().setShowLeaderLines(true);
-    // Stelt de rotatiehoek in voor de sectoren van het cirkeldiagram
+    // Stelt de rotatiehoek voor de taartdiagramsectoren in
     chart.getChartData().getSeriesGroups().get_Item(0).setFirstSliceAngle(180);
     // Slaat de presentatie met een diagram op
     pres.save("PieChart_out.pptx", aspose.slides.SaveFormat.Pptx);
@@ -327,18 +326,18 @@ try {
 
 ### **Lijndiagrammen maken**
 
-Lijndiagrammen (ook bekend als lijngrafieken) zijn het meest geschikt wanneer je veranderingen in waarden over tijd wilt demonstreren. Met een lijndiagram kun je een grote hoeveelheid gegevens tegelijk vergelijken, veranderingen en trends in de tijd volgen, anomalieën in gegevensseries markeren, en meer.
+Lijndiagrammen (ook wel lijngrafieken genoemd) worden het beste gebruikt in situaties waarin je veranderingen in waarden over tijd wilt demonstreren. Met een lijndiagram kun je een grote hoeveelheid gegevens tegelijk vergelijken, veranderingen en trends in de loop van de tijd volgen, anomalieën in gegevensreeksen markeren, enz.
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/presentation/)‑klasse.
-1. Verkrijg een referentie naar een dia via de index.
-1. Voeg een diagram toe met standaardgegevens en specificeer het type [ChartType.Line](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/charttype/#Line).
-1. Open het diagram‑gegevenswerkboek ([ChartDataWorkbook](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/chartdataworkbook/)).
+1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) klasse.
+1. Haal een referentie op naar een dia met behulp van de index.
+1. Voeg een diagram toe met standaardgegevens en specificeer het type [ChartType.Line](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#Line).
+1. Open het gegevenswerkblad van het diagram ([ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/)).
 1. Verwijder de standaard series en categorieën.
 1. Voeg nieuwe series en categorieën toe.
 1. Voeg nieuwe diagramgegevens toe voor de diagramseries.
-1. Sla de gewijzigde presentatie op als een PPTX‑bestand.
+1. Sla de aangepaste presentatie op als een PPTX-bestand.
 
-Deze JavaScript‑code toont hoe je een lijndiagram maakt:
+This JavaScript code shows how to create a line chart:
 
 ```javascript
 var aspose = aspose || {};
@@ -355,7 +354,7 @@ try {
 }
 ```
 
-Standaard worden punten in een lijndiagram verbonden door rechte doorlopende lijnen. Als je wilt dat de punten in plaats daarvan met stippellijnen worden verbonden, kun je het gewenste stippeltype als volgt opgeven:
+Standaard worden punten op een lijndiagram verbonden door rechte doorlopende lijnen. Als je wilt dat de punten in plaats daarvan met streepjes worden verbonden, kun je het gewenste streepjes-type als volgt specificeren:
 
 ```javascript
 var aspose = aspose || {};
@@ -377,20 +376,20 @@ try {
 }
 ```
 
-### **Boomkaartdiagrammen maken**
+### **Tree Map-diagrammen maken**
 
-Boomkaartdiagrammen zijn het meest geschikt voor verkoopgegevens wanneer je de relatieve grootte van gegevenscategorieën wilt laten zien en snel de aandacht wilt vestigen op items die grote bijdragers zijn binnen elke categorie.
+Tree map diagrammen worden het beste gebruikt voor verkoopgegevens wanneer je de relatieve grootte van gegevenscategorieën wilt laten zien en snel de aandacht wilt vestigen op items die grote bijdragers binnen elke categorie zijn.
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/presentation/)‑klasse.
-2. Verkrijg een referentie naar een dia via de index.
-3. Voeg een diagram toe met standaardgegevens en specificeer het type [ChartType.Treemap](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/charttype/#Treemap).
-4. Open het diagram‑gegevenswerkboek [ChartDataWorkbook](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/chartdataworkbook/).
+1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) klasse.
+2. Haal een referentie op naar een dia met behulp van de index.
+3. Voeg een diagram toe met standaardgegevens en specificeer het type [ChartType.Treemap](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#Treemap).
+4. Open het gegevenswerkblad van het diagram [ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/).
 5. Verwijder de standaard series en categorieën.
 6. Voeg nieuwe series en categorieën toe.
 7. Voeg nieuwe diagramgegevens toe voor de diagramseries.
-8. Sla de gewijzigde presentatie op als een PPTX‑bestand.
+8. Sla de aangepaste presentatie op als een PPTX-bestand.
 
-Deze JavaScript‑code toont hoe je een boomkaartdiagram maakt:
+This JavaScript code shows how to create a tree map chart:
 
 ```javascript
 var aspose = aspose || {};
@@ -438,19 +437,19 @@ try {
 }
 ```
 
-### **Aandelen‑diagrammen maken**
+### **Aandelen-diagrammen maken**
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/presentation/)‑klasse.
-2. Verkrijg een referentie naar een dia via de index.
-3. Voeg een diagram toe met standaardgegevens en specificeer het type [ChartType.OpenHighLowClose](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/charttype/#OpenHighLowClose).
-4. Open het diagram‑gegevenswerkboek [ChartDataWorkbook](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/chartdataworkbook/).
+1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) klasse.
+2. Haal een referentie op naar een dia met behulp van de index.
+3. Voeg een diagram toe met standaardgegevens en specificeer het type [ChartType.OpenHighLowClose](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#OpenHighLowClose).
+4. Open het gegevenswerkblad van het diagram [ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/).
 5. Verwijder de standaard series en categorieën.
 6. Voeg nieuwe series en categorieën toe.
 7. Voeg nieuwe diagramgegevens toe voor de diagramseries.
-8. Specificeer het opmaaktype voor de high‑low‑lijnen.
-9. Sla de gewijzigde presentatie op als een PPTX‑bestand.
+8. Specificeer het formaat van de high-low lijnen.
+9. Sla de aangepaste presentatie op als een PPTX-bestand.
 
-Deze JavaScript‑code toont hoe je een aandelen‑diagram maakt:
+This JavaScript code shows how to create a stock chart:
 
 ```javascript
 var aspose = aspose || {};
@@ -502,18 +501,18 @@ try {
 }
 ```
 
-### **Box‑en‑whisker‑diagrammen maken**
+### **Box-en-whisker-diagrammen maken**
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/presentation/)‑klasse.
-2. Verkrijg een referentie naar een dia via de index.
-3. Voeg een diagram toe met standaardgegevens en specificeer het type [ChartType.BoxAndWhisker](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/charttype/#BoxAndWhisker).
-4. Open het diagram‑gegevenswerkboek [ChartDataWorkbook](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/chartdataworkbook/).
+1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) klasse.
+2. Haal een referentie op naar een dia met behulp van de index.
+3. Voeg een diagram toe met standaardgegevens en specificeer het type [ChartType.BoxAndWhisker](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#BoxAndWhisker).
+4. Open het gegevenswerkblad van het diagram [ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/).
 5. Verwijder de standaard series en categorieën.
 6. Voeg nieuwe series en categorieën toe.
 7. Voeg nieuwe diagramgegevens toe voor de diagramseries.
-8. Sla de gewijzigde presentatie op als een PPTX‑bestand.
+8. Sla de aangepaste presentatie op als een PPTX-bestand.
 
-Deze JavaScript‑code toont hoe je een box‑en‑whisker‑diagram maakt:
+This JavaScript code shows how to create a box and whisker chart:
 
 ```javascript
 var aspose = aspose || {};
@@ -552,14 +551,14 @@ try {
 }
 ```
 
-### **Funnel‑diagrammen maken**
+### **Funnel-diagrammen maken**
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/presentation/)‑klasse.
-2. Verkrijg een referentie naar een dia via de index.
-3. Voeg een diagram toe met standaardgegevens en specificeer het type [ChartType.Funnel](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/charttype/#Funnel).
-4. Sla de gewijzigde presentatie op als een PPTX‑bestand.
+1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) klasse.
+2. Haal een referentie op naar een dia met behulp van de index.
+3. Voeg een diagram toe met standaardgegevens en specificeer het type [ChartType.Funnel](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#Funnel).
+4. Sla de aangepaste presentatie op als een PPTX-bestand.
 
-Deze JavaScript‑code toont hoe je een funnel‑diagram maakt:
+This JavaScript code shows how to create a funnel chart:
 
 ```javascript
 var aspose = aspose || {};
@@ -593,14 +592,14 @@ try {
 }
 ```
 
-### **Sunburst‑diagrammen maken**
+### **Sunburst-diagrammen maken**
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/presentation/)‑klasse.
-2. Verkrijg een referentie naar een dia via de index.
-3. Voeg een diagram toe met standaardgegevens en specificeer het type [ChartType.Sunburst](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/charttype/#Sunburst).
-4. Sla de gewijzigde presentatie op als een PPTX‑bestand.
+1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) klasse.
+2. Haal een referentie op naar een dia met behulp van de index.
+3. Voeg een diagram toe met standaardgegevens en specificeer het type [ChartType.Sunburst](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#Sunburst).
+4. Sla de aangepaste presentatie op als een PPTX-bestand.
 
-Deze JavaScript‑code toont hoe je een sunburst‑diagram maakt:
+This JavaScript code shows how to create a sunburst chart:
 
 ```javascript
 var aspose = aspose || {};
@@ -647,17 +646,17 @@ try {
 }
 ```
 
-### **Histogram‑diagrammen maken**
+### **Histogram-diagrammen maken**
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/presentation/)‑klasse.
-2. Verkrijg een referentie naar een dia via de index.
-3. Voeg een diagram toe met standaardgegevens en specificeer het type [ChartType.Histogram](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/charttype/#Histogram).
-4. Open het diagram‑gegevenswerkboek [ChartDataWorkbook](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/chartdataworkbook/).
+1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) klasse.
+2. Haal een referentie op naar een dia met behulp van de index.
+3. Voeg een diagram toe met standaardgegevens en specificeer het type [ChartType.Histogram](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#Histogram).
+4. Open het gegevenswerkblad van het diagram [ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/).
 5. Verwijder de standaard series en categorieën.
 6. Voeg nieuwe series en categorieën toe.
-7. Sla de gewijzigde presentatie op als een PPTX‑bestand.
+7. Sla de aangepaste presentatie op als een PPTX-bestand.
 
-Deze JavaScript‑code toont hoe je een histogram‑diagram maakt:
+This JavaScript code shows how to create a histogram chart:
 
 ```javascript
 var aspose = aspose || {};
@@ -679,14 +678,14 @@ series.getDataPoints().addDataPointForHistogramSeries(wb.getCell(0, "A6", 16));
 chart.getAxes().getHorizontalAxis().setAggregationType(aspose.slides.AxisAggregationType.Automatic);
 ```
 
-### **Radar‑diagrammen maken**
+### **Radar-diagrammen maken**
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/presentation/)‑klasse.
-2. Verkrijg een referentie naar een dia via de index.
-3. Voeg een diagram toe met enkele gegevens en specificeer jouw gewenste diagramtype ([ChartType.Radar](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/charttype/#Radar) in dit geval).
-4. Sla de gewijzigde presentatie op als een PPTX‑bestand.
+1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) klasse.
+2. Haal een referentie op naar een dia met behulp van de index.
+3. Voeg een diagram toe met enkele gegevens en specificeer je gewenste diagramtype ([ChartType.Radar](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#Radar) in dit geval).
+4. Sla de aangepaste presentatie op als een PPTX-bestand.
 
-Deze JavaScript‑code toont hoe je een radar‑diagram maakt:
+This JavaScript code shows how to create a radar chart:
 
 ```javascript
 var aspose = aspose || {};
@@ -703,18 +702,18 @@ try {
 }
 ```
 
-### **Multi‑categorie‑diagrammen maken**
+### **Diagrammen met meerdere categorieën maken**
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/presentation/)‑klasse.
-2. Verkrijg een referentie naar een dia via de index.
-3. Voeg een diagram toe met standaardgegevens en specificeer het type [ChartType.ClusteredColumn](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/charttype/#ClusteredColumn).
-4. Open het diagram‑gegevenswerkboek [ChartDataWorkbook](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/chartdataworkbook/).
+1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) klasse.
+2. Haal een referentie op naar een dia met behulp van de index.
+3. Voeg een diagram toe met standaardgegevens en specificeer het type [ChartType.ClusteredColumn](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#ClusteredColumn).
+4. Open het gegevenswerkblad van het diagram [ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/).
 5. Verwijder de standaard series en categorieën.
 6. Voeg nieuwe series en categorieën toe.
 7. Voeg nieuwe diagramgegevens toe voor de diagramseries.
-8. Sla de gewijzigde presentatie op als een PPTX‑bestand.
+8. Sla de aangepaste presentatie op als een PPTX-bestand.
 
-Deze JavaScript‑code toont hoe je een multi‑categorie‑diagram maakt:
+This JavaScript code shows how to create a multicategory chart:
 
 ```javascript
 var aspose = aspose || {};
@@ -750,7 +749,7 @@ try {
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, "D7", 60));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, "D8", 70));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, "D9", 80));
-    // Presentatie met diagram opslaan
+    // Presentatie opslaan met diagram
     pres.save("AsposeChart_out.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     if (pres != null) {
@@ -759,11 +758,11 @@ try {
 }
 ```
 
-### **Kaart‑diagrammen maken**
+### **Kaart-diagrammen maken**
 
-Kaart‑diagrammen visualiseren geografische gegevens en helpen waarden over regio's heen te vergelijken.
+Kaart-diagrammen visualiseren geografische gegevens en helpen waarden over regio's heen te vergelijken.
 
-Deze JavaScript‑code toont hoe je een kaart‑diagram maakt:
+This JavaScript code shows how to create a map chart:
 
 ```javascript
 var aspose = aspose || {};
@@ -780,13 +779,13 @@ try {
 }
 ```
 
-### **Combinatie‑diagrammen maken**
+### **Combinatie-diagrammen maken**
 
-Een combinatie‑diagram (of combo‑diagram) combineert twee of meer diagramtypen in één grafiek. Dit diagram stelt je in staat verschillen tussen twee of meer datasets te markeren, vergelijken of onderzoeken, waardoor je relaties tussen hen kunt identificeren.
+Een combinatie-diagram (of combo-diagram) combineert twee of meer diagramtypen in één grafiek. Dit diagram stelt je in staat om verschillen tussen twee of meer datasets te markeren, vergelijken of te onderzoeken, waardoor je de relaties daartussen kunt identificeren.
 
-![The combination chart](combination_chart.png)
+![Het combinatie-diagram](combination_chart.png)
 
-De volgende JavaScript‑code toont hoe je het bovenstaande combinatie‑diagram in een PowerPoint‑presentatie maakt:
+De volgende JavaScript-code toont hoe je het bovenstaande combinatie-diagram maakt in een PowerPoint-presentatie:
 
 ```js
 var aspose = aspose || {};
@@ -814,7 +813,7 @@ function createComboChart() {
 function createChartWithFirstSeries(slide) {
     let chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 600, 400);
 
-    // Stel de diagramtitel in.
+    // Stel de titel van het diagram in.
     chart.setTitle(true);
     chart.getChartTitle().addTextFrameForOverriding("Chart Title");
     chart.getChartTitle().setOverlay(false);
@@ -823,11 +822,11 @@ function createChartWithFirstSeries(slide) {
     titleFormat.setFontBold(java.newByte(aspose.slides.NullableBool.False));
     titleFormat.setFontHeight(18);
 
-    // Stel de diagramlegenda in.
+    // Stel de legende van het diagram in.
     chart.getLegend().setPosition(aspose.slides.LegendPositionType.Bottom);
     chart.getLegend().getTextFormat().getPortionFormat().setFontHeight(12);
 
-    // Verwijder de standaard gegenereerde series en categorieën.
+    // Verwijder de standaard gegenereerde reeksen en categorieën.
     chart.getChartData().getSeries().clear();
     chart.getChartData().getCategories().clear();
 
@@ -840,7 +839,7 @@ function createChartWithFirstSeries(slide) {
     chart.getChartData().getCategories().add(workbook.getCell(worksheetIndex, 3, 0, "Category 3"));
     chart.getChartData().getCategories().add(workbook.getCell(worksheetIndex, 4, 0, "Category 4"));
 
-    // Voeg de eerste serie toe.
+    // Voeg de eerste reeks toe.
     let seriesNameCell = workbook.getCell(worksheetIndex, 0, 1, "Series 1");
     let series = chart.getChartData().getSeries().add(seriesNameCell, chart.getType());
 
@@ -901,7 +900,7 @@ function setPrimaryAxesFormat(chart) {
 
     setAxisTitle(verticalAxis, "Y Axis 1");
 
-    // Stel de kleur van de verticale hoofdroosterlijnen in.
+    // Stel de kleur van de verticale hoofdgridlijnen in.
     let majorGridLinesFormat = verticalAxis.getMajorGridLinesFormat().getLine().getFillFormat();
     majorGridLinesFormat.setFillType(java.newByte(aspose.slides.FillType.Solid));
     majorGridLinesFormat.getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 217, 217, 217));
@@ -939,15 +938,15 @@ function setAxisTitle(axis, axisTitle) {
 
 ## **Diagrammen bijwerken**
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/presentation/)‑klasse die de presentatie bevat met het diagram dat je wilt bijwerken.
-2. Verkrijg een referentie naar een dia via de index.
-3. Doorloop alle vormen om het gewenste diagram te vinden.
+1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) klasse die de presentatie bevat met het diagram dat je wilt bijwerken.
+2. Haal een referentie op naar een dia met behulp van de index.
+3. Loop door alle vormen om het gewenste diagram te vinden.
 4. Open het gegevenswerkblad van het diagram.
-5. Wijzig de diagram‑dataseries door de reekswaarden aan te passen.
-6. Voeg een nieuwe reeks toe en vul de gegevens in.
-7. Sla de gewijzigde presentatie op als een PPTX‑bestand.
+5. Wijzig de diagramgegevensreeks door de reekswerwaarden aan te passen.
+6. Voeg een nieuwe reeks toe en vul de gegevens.
+7. Sla de aangepaste presentatie op als een PPTX-bestand.
 
-Deze JavaScript‑code toont hoe je een diagram bijwerkt:
+This JavaScript code shows how to update a chart:
 
 ```javascript
 var aspose = aspose || {};
@@ -957,39 +956,39 @@ var pres = new aspose.slides.Presentation("ExistingChart.pptx");
 try {
     // Toegang tot de eerste dia
     var sld = pres.getSlides().get_Item(0);
-    // Haal diagram op met standaardgegevens
+    // Haal diagram met standaardgegevens op
     var chart = sld.getShapes().get_Item(0);
-    // Stel de index van het diagramgegevensblad in
+    // Instellen van de index van het diagram‑gegevensblad
     var defaultWorksheetIndex = 0;
-    // Haal het diagram‑gegevens‑werkblad op
+    // Het gegevenswerkblad van het diagram ophalen
     var fact = chart.getChartData().getChartDataWorkbook();
     // Diagramcategorie‑naam wijzigen
     fact.getCell(defaultWorksheetIndex, 1, 0, "Modified Category 1");
     fact.getCell(defaultWorksheetIndex, 2, 0, "Modified Category 2");
-    // Pak de eerste diagramreeks
+    // Neem de eerste diagramreeks
     var series = chart.getChartData().getSeries().get_Item(0);
-    // Reeksgegevens nu bijwerken
-    fact.getCell(defaultWorksheetIndex, 0, 1, "New_Series1"); // Serie‑naam wijzigen
+    // Nu de reeksen bijwerken
+    fact.getCell(defaultWorksheetIndex, 0, 1, "New_Series1"); // Reeksnaam wijzigen
     series.getDataPoints().get_Item(0).getValue().setData(90);
     series.getDataPoints().get_Item(1).getValue().setData(123);
     series.getDataPoints().get_Item(2).getValue().setData(44);
-    // Pak de tweede diagramreeks
+    // Neem de tweede diagramreeks
     series = chart.getChartData().getSeries().get_Item(1);
-    // Reeksgegevens nu bijwerken
-    fact.getCell(defaultWorksheetIndex, 0, 2, "New_Series2"); // Serie‑naam wijzigen
+    // Nu de reeksen bijwerken
+    fact.getCell(defaultWorksheetIndex, 0, 2, "New_Series2"); // Reeksnaam wijzigen
     series.getDataPoints().get_Item(0).getValue().setData(23);
     series.getDataPoints().get_Item(1).getValue().setData(67);
     series.getDataPoints().get_Item(2).getValue().setData(99);
     // Nu een nieuwe reeks toevoegen
     chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 3, "Series 3"), chart.getType());
-    // Pak de derde diagramreeks
+    // Neem de derde diagramreeks
     series = chart.getChartData().getSeries().get_Item(2);
-    // Nu de reeksgegevens invullen
+    // Nu de reeksen vullen
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 3, 20));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 3, 50));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 3, 30));
     chart.setType(aspose.slides.ChartType.ClusteredCylinder);
-    // Presentatie met diagram opslaan
+    // Presentatie opslaan met diagram
     pres.save("AsposeChartModified_out.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     if (pres != null) {
@@ -998,17 +997,19 @@ try {
 }
 ```
 
-## **Gegevensbereik instellen voor een diagram**
+## **Gegevensbereik voor een diagram instellen**
+
+Om het bereik dat al door een bestaand diagram wordt gebruikt te bekijken, zie [Gegevensbereik van een diagram ophalen](/slides/nl/nodejs-java/chart-workbook/#retrieve-a-charts-data-range).
 
 Om het gegevensbereik voor een diagram in te stellen, doe je het volgende:
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/presentation/)‑klasse die de presentatie bevat met het diagram.
-2. Verkrijg een referentie naar een dia via de index.
-3. Doorloop alle vormen om het gewenste diagram te vinden.
+1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) klasse die de presentatie bevat met het diagram.
+2. Haal een referentie op naar een dia met behulp van de index.
+3. Loop door alle vormen om het gewenste diagram te vinden.
 4. Open de diagramgegevens en stel het bereik in.
-5. Sla de gewijzigde presentatie op als een PPTX‑bestand.
+5. Sla de aangepaste presentatie op als een PPTX-bestand.
 
-Deze JavaScript‑code toont hoe je het gegevensbereik voor een diagram instelt:
+This JavaScript code shows how to set the data range for a chart:
 
 ```javascript
 var aspose = aspose || {};
@@ -1027,11 +1028,11 @@ try {
 }
 ```
 
-## **Standaard‑markers gebruiken in diagrammen**
+## **Standaard-markeringen gebruiken in diagrammen**
 
-Wanneer je standaard‑markers in diagrammen gebruikt, krijgt elke diagramserie automatisch een ander marker‑symbool.
+Wanneer je standaard-markeringen gebruikt in diagrammen, krijgt elke diagramreeks automatisch een verschillend markeringselement.
 
-Deze JavaScript‑code toont hoe je automatisch een diagramseriemarker instelt:
+This JavaScript code shows how to set a chart series marker automatically:
 
 ```javascript
 var aspose = aspose || {};
@@ -1055,9 +1056,9 @@ try {
     chart.getChartData().getCategories().add(fact.getCell(0, 4, 0, "C4"));
     series.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 4, 1, null));
     chart.getChartData().getSeries().add(fact.getCell(0, 0, 2, "Series 2"), chart.getType());
-    // Pak de tweede diagramreeks
+    // Neem de tweede diagramreeks
     var series2 = chart.getChartData().getSeries().get_Item(1);
-    // Nu de reeksgegevens invullen
+    // Nu de reeksen vullen
     series2.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 1, 2, 30));
     series2.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 2, 2, 10));
     series2.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 3, 2, 60));
@@ -1072,20 +1073,20 @@ try {
 }
 ```
 
-## **FAQ**
+## **Veelgestelde vragen**
 
 **Welke diagramtypen worden ondersteund door Aspose.Slides?**
 
-Aspose.Slides ondersteunt een breed scala aan [diagramtypen](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/charttype/), waaronder barra, lijn, cirkel, gebied, spreiding, histogram, radar en nog veel meer. Deze flexibiliteit stelt je in staat om het meest geschikte diagramtype voor je gegevensvisualisatie te kiezen.
+Aspose.Slides ondersteunt een breed scala aan [diagramtypen](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/), waaronder staaf, lijn, taart, area, scatter, histogram, radar en veel meer. Deze flexibiliteit stelt je in staat om het meest geschikte diagramtype voor je gegevensvisualisatiebehoeften te kiezen.
 
 **Hoe voeg ik een nieuw diagram toe aan een dia?**
 
-Om een diagram toe te voegen, maak je eerst een instantie van de [Presentation](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/presentation/)‑klasse, haal je de gewenste dia op via de index en roep je vervolgens de methode aan om een diagram toe te voegen, waarbij je het diagramtype en de initiële gegevens opgeeft. Dit proces integreert het diagram direct in je presentatie.
+Om een diagram toe te voegen, maak je eerst een instantie van de [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) klasse, haal je de gewenste dia op met behulp van de index, en roep je vervolgens de methode aan om een diagram toe te voegen, waarbij je het diagramtype en de initiële gegevens specificeert. Dit proces integreert het diagram direct in je presentatie.
 
 **Hoe kan ik de gegevens die in een diagram worden weergegeven bijwerken?**
 
-Je kunt de gegevens van een diagram bijwerken door toegang te krijgen tot het gegevenswerkboek van het diagram ([ChartDataWorkbook](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/chartdataworkbook/)), de standaard series en categorieën te wissen, en vervolgens je eigen aangepaste gegevens toe te voegen. Hiermee kun je het diagram programmatisch vernieuwen zodat het de nieuwste gegevens weergeeft.
+Je kunt de gegevens van een diagram bijwerken door het gegevens-werkboek ([ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/)) te openen, eventuele standaard series en categorieën te verwijderen, en vervolgens je eigen gegevens toe te voegen. Hiermee kun je het diagram programmatisch verversen zodat het de nieuwste gegevens weergeeft.
 
-**Is het mogelijk om de uitstraling van het diagram aan te passen?**
+**Is het mogelijk om het uiterlijk van het diagram aan te passen?**
 
-Ja, Aspose.Slides biedt uitgebreide aanpassingsopties. Je kunt kleuren, lettertypen, labels, legenda’s en andere [formatting elements](/slides/nl/nodejs-java/chart-entities/) wijzigen om de uitstraling van het diagram af te stemmen op je specifieke ontwerpvereisten.
+Ja, Aspose.Slides biedt uitgebreide aanpassingsopties. Je kunt kleuren, lettertypen, labels, legenda's en andere [opmaakelementen](/slides/nl/nodejs-java/chart-entities/) wijzigen om het uiterlijk van het diagram af te stemmen op je specifieke ontwerpvereisten.

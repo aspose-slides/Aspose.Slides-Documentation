@@ -13,11 +13,11 @@ keywords:
 - spridningsdiagram
 - cirkeldiagram
 - linjediagram
-- trädkartdiagram
-- aktiediagram
-- box-and-whisker-diagram
+- trädkartsdiagram
+- börsdiagram
+- box-and-whisker diagram
 - trattdiagram
-- solburst-diagram
+- solstrålediagram
 - histogramdiagram
 - radardiagram
 - flerkategoridiagram
@@ -29,72 +29,72 @@ description: "Skapa och anpassa diagram i PowerPoint-presentationer med Aspose.S
 ---
 ## **Översikt**
 
-Den här artikeln ger en omfattande guide om hur du skapar och anpassar diagram med Aspose.Slides. Du kommer att lära dig hur du programatiskt lägger till ett diagram på en bild, fyller det med data och tillämpar olika formateringsalternativ för att matcha dina specifika designkrav. Genom hela artikeln illustrerar detaljerade kodexempel varje steg, från initiering av presentationen och diagramobjektet till konfigurering av serier, axlar och förklaringar. Genom att följa denna guide får du en solid förståelse för hur du integrerar dynamisk diagramgenerering i dina applikationer, vilket förenklar processen att skapa databaserade presentationer.
+Denna artikel ger en heltäckande guide för hur du skapar och anpassar diagram med Aspose.Slides. Du kommer att lära dig hur du programmässigt lägger till ett diagram på en bild, fyller det med data och tillämpar olika formateringsalternativ för att matcha dina specifika designkrav. Genom hela artikeln illustreras varje steg med detaljerade kodexempel, från initiering av presentationen och diagramobjektet till konfiguration av serier, axlar och förklaringar. Genom att följa den här guiden får du en solid förståelse för hur du integrerar dynamisk diagramgenerering i dina applikationer och förenklar processen att skapa datadrivna presentationer.
 
 ## **Skapa ett diagram**
 
-Diagram hjälper personer att snabbt visualisera data och få insikter som kanske inte är omedelbart uppenbara från en tabell eller kalkylblad.
+Diagram hjälper människor att snabbt visualisera data och få insikter som kanske inte är omedelbart uppenbara från en tabell eller ett kalkylblad.
 
 **Varför skapa diagram?**
 
-Genom diagram kan du:
+Genom att använda diagram kan du:
 
-* summera, komprimera eller kondensera stora mängder data på en enda bild i en presentation  
-* avslöja mönster och trender i data  
-* dra slutsatsen om riktning och drivkraft för data över tid eller i förhållande till en specifik måttenhet  
-* identifiera avvikelser, avvikelser, fel, meningslösa data osv.  
-* kommunicera eller presentera komplex data  
+* samla, komprimera eller sammanfatta stora mängder data på en enda bild i en presentation
+* avslöja mönster och trender i data
+* dra slutsatser om riktning och momentum för data över tid eller i förhållande till en specifik mätenhet
+* hitta avvikelser, avvikelser, fel, nonsensdata osv.
+* kommunicera eller presentera komplex data
 
-I PowerPoint kan du skapa diagram via funktionen *Infoga*, som erbjuder mallar för att designa många typer av diagram. Med Aspose.Slides kan du skapa både vanliga diagram (baserade på populära diagramtyper) och anpassade diagram.
+I PowerPoint kan du skapa diagram via *Infoga*-funktionen, som erbjuder mallar för att designa många diagramtyper. Med Aspose.Slides kan du skapa både vanliga diagram (baserade på populära diagramtyper) och anpassade diagram.
 
 {{% alert color="info" title="Note" %}}
-För att skapa diagram använder du klassen [ChartType](https://reference.aspose.com/slides/sv/java/com.aspose.slides/charttype/). Fälten i denna klass motsvarar olika diagramtyper.
+För att skapa diagram, använd [ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/)‑klassen. Fälten i denna klass motsvarar olika diagramtyper.
 {{% /alert %}}
 
-### **Skapa grupperade kolumndiagram**
+### **Skapa grupperade stapeldiagram**
 
-Det här avsnittet förklarar hur man skapar grupperade kolumndiagram med Aspose.Slides. Du kommer att lära dig att initiera en presentation, lägga till ett diagram och anpassa dess element såsom titel, data, serier, kategorier och stil. Följ stegen nedan för att se hur ett standardgrupperat kolumndiagram genereras:
+Detta avsnitt förklarar hur du skapar grupperade stapeldiagram med Aspose.Slides. Du lär dig att initiera en presentation, lägga till ett diagram och anpassa dess element såsom titel, data, serier, kategorier och stil. Följ stegen nedan för att se hur ett standardgrupperat stapeldiagram genereras:
 
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/java/com.aspose.slides/presentation) .
-2. Hämta en referens till en bild med hjälp av dess index.
-3. Lägg till ett diagram med viss data och ange typen `ChartType.ClusteredColumn` .
-4. Lägg till en titel på diagrammet.
-5. Kom åt diagrammets dataarbetsblad.
-6. Rensa alla standardserier och -kategorier.
-7. Lägg till nya serier och kategorier.
-8. Lägg till ny diagramdata för diagramserierna.
-9. Applicera en fyllningsfärg på diagramserierna.
-10. Lägg till etiketter på diagramserierna.
-11. Spara den modifierade presentationen som en PPTX-fil.
+1. Skapa en instans av [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation) klassen.
+1. Hämta en referens till en bild med dess index.
+1. Lägg till ett diagram med viss data och ange typen `ChartType.ClusteredColumn`.
+1. Lägg till en titel på diagrammet.
+1. Åtkomst till diagrammets data‑arbetsblad.
+1. Rensa alla standardserier och -kategorier.
+1. Lägg till nya serier och kategorier.
+1. Lägg till ny diagramdata för diagramserierna.
+1. Applicera en fyllningsfärg på diagramserierna.
+1. Lägg till etiketter på diagramserierna.
+1. Spara den modifierade presentationen som en PPTX‑fil.
 
-Detta C#‑kodexempel demonstrerar hur man skapar ett grupperat kolumndiagram:
+Denna C#‑kod visar hur du skapar ett grupperat stapeldiagram:
 
 ```java
 import com.aspose.slides.*;
 import java.awt.Color;
 
-// Instansierar en presentationsklass som representerar en PPTX-fil
+// Skapar en presentationklass som representerar en PPTX-fil
 Presentation pres = new Presentation();
 try {
-    // Hämtar den första bilden
+    // Åtkommer till den första bilden
     ISlide sld = pres.getSlides().get_Item(0);
     
     // Lägger till ett diagram med dess standarddata
     IChart chart = sld.getShapes().addChart(ChartType.ClusteredColumn, 0, 0, 500, 500);
     
-    // Ställer in diagramtiteln
+    // Ställer in diagrammets titel
     chart.getChartTitle().addTextFrameForOverriding("Sample Title");
     chart.getChartTitle().getTextFrameForOverriding().getTextFrameFormat().setCenterText(NullableBool.True);
     chart.getChartTitle().setHeight(20);
     chart.setTitle(true);
     
-    // Ställer in indexet för diagrammets datablad
+    // Ställer in indexet för diagrammets dataarbetsblad
     int defaultWorksheetIndex = 0;
     
-    // Hämtar diagrammets dataarbetsblad
+    // Hämtar diagrammets data‑arbetsblad
     IChartDataWorkbook fact = chart.getChartData().getChartDataWorkbook();
     
-    // Tar bort de standardgenererade serierna och kategorierna
+    // Raderar de standardgenererade serierna och kategorierna
     chart.getChartData().getSeries().clear();
     chart.getChartData().getCategories().clear();
     int s = chart.getChartData().getSeries().size();
@@ -109,32 +109,32 @@ try {
     chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 2, 0, "Caetegoty 2"));
     chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 3, 0, "Caetegoty 3"));
     
-    // Tar den första diagramserien
+    // Hämtar den första diagramserien
     IChartSeries series = chart.getChartData().getSeries().get_Item(0);
     
-    // Populerar nu seriedatan
+    // Fyller nu i series data
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 1, 20));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 50));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 30));
     
-    // Ställer in fyllningsfärgen för serien
+    // Anger fyllningsfärgen för serien
     series.getFormat().getFill().setFillType(FillType.Solid);
     series.getFormat().getFill().getSolidFillColor().setColor(Color.RED);
     
-    // Tar den andra diagramserien
+    // Hämtar den andra diagramserien
     series = chart.getChartData().getSeries().get_Item(1);
     
-    // Populerar seriedata
+    // Fyller i series data
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 2, 30));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 2, 10));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 2, 60));
     
-    // Ställer in fyllningsfärgen för serien
+    // Anger fyllningsfärgen för serien
     series.getFormat().getFill().setFillType(FillType.Solid);
     series.getFormat().getFill().getSolidFillColor().setColor(Color.GREEN);
     
-    // Skapa anpassade etiketter för varje kategori för den nya serien
-    // Ställer in den första etiketten att visa kategorinamnet
+    //Skapa anpassade etiketter för varje kategori för den nya serien
+    // Ställer in den första etiketten att visa kategorinamn
     IDataLabel lbl = series.getDataPoints().get_Item(0).getLabel();
     lbl.getDataLabelFormat().setShowCategoryName(true);
     
@@ -147,7 +147,7 @@ try {
     lbl.getDataLabelFormat().setShowSeriesName(true);
     lbl.getDataLabelFormat().setSeparator("/");
     
-    // Sparar presentationen med diagrammet
+    // Sparar presentationen med diagram
     pres.save("output.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
@@ -156,32 +156,32 @@ try {
 
 ### **Skapa spridningsdiagram**
 
-Spridningsdiagram (även kallade spridningsplottar eller x‑y‑grafer) används ofta för att kontrollera mönster eller demonstrera korrelationer mellan två variabler.
+Spridningsdiagram (också kända som spridningsplottar eller x‑y‑grafer) används ofta för att kontrollera mönster eller demonstrera korrelationer mellan två variabler.
 
 Använd ett spridningsdiagram när:
 
-* du har parade numeriska data  
-* du har två variabler som passar bra ihop  
-* du vill avgöra om två variabler är relaterade  
-* du har en oberoende variabel som har flera värden för en beroende variabel  
+* du har parvis numerisk data
+* du har två variabler som passar bra ihop
+* du vill fastställa om två variabler är relaterade
+* du har en oberoende variabel som har flera värden för en beroende variabel
 
-1. Följ stegen i [Create Clustered Column Charts](#create-clustered-column-charts) .
-2. För det tredje steget, lägg till ett diagram med viss data och ange diagramtypen som en av följande:
-   1. [ChartType.ScatterWithMarkers](https://reference.aspose.com/slides/sv/java/com.aspose.slides/charttype/#ScatterWithMarkers) - _Representerar ett spridningsdiagram._
-   2. [ChartType.ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/sv/java/com.aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - _Representerar ett spridningsdiagram förenat med kurvor, med datapunktsmarkörer._
-   3. [ChartType.ScatterWithSmoothLines](https://reference.aspose.com/slides/sv/java/com.aspose.slides/charttype/#ScatterWithSmoothLines) - _Representerar ett spridningsdiagram förenat med kurvor, utan datapunktsmarkörer._
-   4. [ChartType.ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/sv/java/com.aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _Representerar ett spridningsdiagram förenat med linjer, med datapunktsmarkörer._
-   5. [ChartType.ScatterWithStraightLines](https://reference.aspose.com/slides/sv/java/com.aspose.slides/charttype/#ScatterWithStraightLines) - _Representerar ett spridningsdiagram förenat med linjer, utan datapunktsmarkörer._
+1. Följ stegen i [Skapa grupperade stapeldiagram](#skapa-grupperade-stapeldiagram).
+2. För det tredje steget, lägg till ett diagram med viss data och ange diagramtypen som någon av följande:
+   1. [ChartType.ScatterWithMarkers](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#ScatterWithMarkers) - _Representerar ett spridningsdiagram._
+   2. [ChartType.ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - _Representerar ett spridningsdiagram kopplat med kurvor, med datamarkörer._
+   3. [ChartType.ScatterWithSmoothLines](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#ScatterWithSmoothLines) - _Representerar ett spridningsdiagram kopplat med kurvor, utan datamarkörer._
+   4. [ChartType.ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _Representerar ett spridningsdiagram kopplat med linjer, med datamarkörer._
+   5. [ChartType.ScatterWithStraightLines](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#ScatterWithStraightLines) - _Representerar ett spridningsdiagram kopplat med linjer, utan datamarkörer._
 
-Denna Java‑kod visar hur man skapar ett spridningsdiagram med olika markörer för varje serie:
+Denna Java‑kod visar hur du skapar ett spridningsdiagram med olika markörer för varje serie:
 
 ```java
 import com.aspose.slides.*;
 
-// Instansierar en presentationsklass som representerar en PPTX-fil
+// Skapar en presentationklass som representerar en PPTX-fil
 Presentation pres = new Presentation();
 try {
-    // Hämtar den första bilden
+    // Åtkommer till den första bilden
     ISlide slide = pres.getSlides().get_Item(0);
 
     // Skapar standarddiagrammet
@@ -193,7 +193,7 @@ try {
     // Hämtar diagrammets dataarbetsblad
     IChartDataWorkbook fact = chart.getChartData().getChartDataWorkbook();
     
-    // Tar bort demo-serierna
+    // Raderar demoserien
     chart.getChartData().getSeries().clear();
     
     // Lägger till nya serier
@@ -203,7 +203,7 @@ try {
     // Hämtar den första diagramserien
     IChartSeries series = chart.getChartData().getSeries().get_Item(0);
     
-    // Lägger till en ny punkt (1:3) till serien
+    // Lägger till en ny punkt (1:3) i serien
     series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 1), fact.getCell(defaultWorksheetIndex, 2, 2, 3));
     
     // Lägger till en ny punkt (2:10)
@@ -243,49 +243,49 @@ try {
 
 ### **Skapa cirkeldiagram**
 
-Cirkeldiagram är bäst för att visa del‑till‑helhets‑förhållandet i data, särskilt när datan innehåller kategoriska etiketter med numeriska värden. Om din data däremot innehåller många delar eller etiketter kan det vara bättre att använda ett stapeldiagram.
+Cirkeldiagram är bäst för att visa förhållandet del‑till‑helhet i data, särskilt när data innehåller kategoriska etiketter med numeriska värden. Om din data innehåller många delar eller etiketter kan det vara bättre att använda ett stapeldiagram istället.
 
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/java/com.aspose.slides/presentation/) .
-2. Hämta en referens till en bild med hjälp av dess index.
-3. Lägg till ett diagram med standarddata och ange typen [ChartType.Pie](https://reference.aspose.com/slides/sv/java/com.aspose.slides/charttype/#Pie) .
-4. Kom åt diagramdataboken [IChartDataWorkbook](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ichartdataworkbook/) .
-5. Rensa standardserierna och -kategorierna.
+1. Skapa en instans av [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) klassen.
+2. Hämta en referens till en bild med dess index.
+3. Lägg till ett diagram med standarddata och ange typen [ChartType.Pie](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#Pie).
+4. Åtkomst till diagramdata‑arbetsboken [IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/).
+5. Rensa standardserier och -kategorier.
 6. Lägg till nya serier och kategorier.
 7. Lägg till ny diagramdata för diagramserierna.
-8. Lägg till nya punkter för diagrammet och applicera anpassade färger för cirkeldiagrammets sektorer.
+8. Lägg till nya punkter för diagrammet och applicera anpassade färger på cirkeldiagrammets sektorer.
 9. Ställ in etiketter för serierna.
-10. Aktivera ledarlinjer för serieetiketterna.
+10. Aktivera ledarlinjer för serietiketter.
 11. Ställ in rotationsvinkeln för cirkeldiagrammets sektorer.
-12. Spara den modifierade presentationen som en PPTX-fil.
+12. Spara den modifierade presentationen som en PPTX‑fil.
 
-Denna Java‑kod visar hur man skapar ett cirkeldiagram:
+Denna Java‑kod visar hur du skapar ett cirkeldiagram:
 
 ```java
 import com.aspose.slides.*;
 import java.awt.Color;
 
-// Instansierar en presentationsklass som representerar en PPTX-fil
+// Skapar en presentationklass som representerar en PPTX-fil
 Presentation pres = new Presentation();
 try {
-    // Hämtar den första bilden
+    // Åtkommer till den första bilden
     ISlide slides = pres.getSlides().get_Item(0);
     
     // Lägger till ett diagram med standarddata
     IChart chart = slides.getShapes().addChart(ChartType.Pie, 100, 100, 400, 400);
     
-    // Ställer in diagramtiteln
+    // Ställer in diagrammets titel
     chart.getChartTitle().addTextFrameForOverriding("Sample Title");
     chart.getChartTitle().getTextFrameForOverriding().getTextFrameFormat().setCenterText(NullableBool.True);
     chart.getChartTitle().setHeight(20);
     chart.setTitle(true);
     
-    // Ställer in indexet för diagrammets dataark
+    // Ställer in indexet för diagrammets dataarbetsblad
     int defaultWorksheetIndex = 0;
     
     // Hämtar diagrammets dataarbetsblad
     IChartDataWorkbook fact = chart.getChartData().getChartDataWorkbook();
     
-    // Tar bort de standardgenererade serierna och kategorierna
+    // Raderar de standardgenererade serierna och kategorierna
     chart.getChartData().getSeries().clear();
     chart.getChartData().getCategories().clear();
     
@@ -297,13 +297,13 @@ try {
     // Lägger till nya serier
     IChartSeries series = chart.getChartData().getSeries().add(fact.getCell(0, 0, 1, "Series 1"), chart.getType());
     
-    //Populerar seriedatan
+    //Fyller seriedata
     series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 1, 1, 20));
     series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 50));
     series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 30));
     
     // Fungerar inte i ny version
-    // Lägger till nya punkter och ställer in sektorfärg
+    // Adding new points and setting sector color
     // series.IsColorVaried = true;
     chart.getChartData().getSeriesGroups().get_Item(0).setColorVaried(true);
     
@@ -311,7 +311,7 @@ try {
     point.getFormat().getFill().setFillType(FillType.Solid);
     point.getFormat().getFill().getSolidFillColor().setColor(Color.CYAN);
 	
-    // Ställer in sektorkanten
+    // Ställer in sektorns kant
     point.getFormat().getLine().getFillFormat().setFillType(FillType.Solid);
     point.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.GRAY);
     point.getFormat().getLine().setWidth(3.0);
@@ -322,7 +322,7 @@ try {
     point1.getFormat().getFill().setFillType(FillType.Solid);
     point1.getFormat().getFill().getSolidFillColor().setColor(Color.ORANGE);
     
-    // Ställer in sektorkanten
+    // Ställer in sektorns kant
     point1.getFormat().getLine().getFillFormat().setFillType(FillType.Solid);
     point1.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
     point1.getFormat().getLine().setWidth(3.0);
@@ -333,7 +333,7 @@ try {
     point2.getFormat().getFill().setFillType(FillType.Solid);
     point2.getFormat().getFill().getSolidFillColor().setColor(Color.YELLOW);
     
-    // Ställer in sektorkanten
+    // Ställer in sektorns kant
     point2.getFormat().getLine().getFillFormat().setFillType(FillType.Solid);
     point2.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.RED);
     point2.getFormat().getLine().setWidth(2.0);
@@ -358,7 +358,7 @@ try {
     // Visar ledarlinjer för diagrammet
     series.getLabels().getDefaultDataLabelFormat().setShowLeaderLines(true);
     
-    // Ställer in rotationsvinkeln för cirkeldiagrammets sektorer
+    // Ställer in rotationsvinkeln för cirkeldiagrams sektorer
     chart.getChartData().getSeriesGroups().get_Item(0).setFirstSliceAngle(180);
     
     // Sparar presentationen med ett diagram
@@ -370,14 +370,14 @@ try {
 
 ### **Skapa linjediagram**
 
-Linjediagram (även kallade linjegrafer) är bäst i situationer där du vill demonstrera förändringar i värde över tid. Med ett linjediagram kan du jämföra en stor mängd data på en gång, spåra förändringar och trender över tid, lyfta fram avvikelser i dataserier och mer.
+Linjediagram (också kända som linjediagram) är bäst när du vill demonstrera förändringar i värde över tid. Med ett linjediagram kan du jämföra en stor mängd data på en gång, spåra förändringar och trender över tid, markera avvikelser i dataserier och mer.
 
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/java/com.aspose.slides/presentation/) .
-2. Hämta en referens till en bild med hjälp av dess index.
-3. Lägg till ett diagram med standarddata och ange typen [ChartType.Line](https://reference.aspose.com/slides/sv/java/com.aspose.slides/charttype/#Line) .
-4. Spara den modifierade presentationen som en PPTX-fil.
+1. Skapa en instans av [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) klassen.
+1. Hämta en referens till en bild med dess index.
+1. Lägg till ett diagram med standarddata och ange typen [ChartType.Line](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#Line).
+1. Spara den modifierade presentationen som en PPTX‑fil.
 
-Denna Java‑kod visar hur man skapar ett linjediagram:
+Denna Java‑kod visar hur du skapar ett linjediagram:
 
 ```java
 import com.aspose.slides.*;
@@ -392,7 +392,7 @@ try {
 }
 ```
 
-Som standard är punkterna i ett linjediagram förenade med raka kontinuerliga linjer. Om du vill att punkterna ska förenas med streck istället kan du ange önskad strecktyp så här:
+Som standard är punkterna i ett linjediagram förenade med raka kontinuerliga linjer. Om du vill att punkterna ska förenas med streck kan du ange önskad strecktyp enligt följande:
 
 ```java
 import com.aspose.slides.*;
@@ -412,20 +412,20 @@ try {
 }
 ```
 
-### **Skapa trädkartdiagram**
+### **Skapa trädkartsdiagram**
 
-Trädkartdiagram är bäst för försäljningsdata när du vill visa den relativa storleken på datakategorier och snabbt rikta uppmärksamhet mot de poster som är stora bidragsgivare inom varje kategori.
+Trädkartsdiagram är bäst för försäljningsdata när du vill visa den relativa storleken på datakategorier och snabbt rikta uppmärksamhet mot poster som är stora bidragsgivare inom varje kategori.
 
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/java/com.aspose.slides/presentation/) .
-2. Hämta en referens till en bild med hjälp av dess index.
-3. Lägg till ett diagram med standarddata och ange typen [ChartType.Treemap](https://reference.aspose.com/slides/sv/java/com.aspose.slides/charttype/#Treemap) .
-4. Kom åt diagramdataboken [IChartDataWorkbook](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ichartdataworkbook/) .
-5. Rensa standardserierna och -kategorierna.
+1. Skapa en instans av [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) klassen.
+2. Hämta en referens till en bild med dess index.
+3. Lägg till ett diagram med standarddata och ange typen [ChartType.Treemap](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#Treemap).
+4. Åtkomst till diagramdata‑arbetsboken [IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/).
+5. Rensa standardserier och -kategorier.
 6. Lägg till nya serier och kategorier.
 7. Lägg till ny diagramdata för diagramserierna.
-8. Spara den modifierade presentationen som en PPTX-fil.
+8. Spara den modifierade presentationen som en PPTX‑fil.
 
-Denna Java‑kod visar hur man skapar ett trädkartdiagram:
+Denna Java‑kod visar hur du skapar ett trädkartsdiagram:
 
 ```java
 import com.aspose.slides.*;
@@ -482,19 +482,19 @@ try {
 }
 ```
 
-### **Skapa aktiediagram**
+### **Skapa börsdiagram**
 
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/java/com.aspose.slides/presentation/) .
-2. Hämta en referens till en bild med hjälp av dess index.
-3. Lägg till ett diagram med standarddata och ange typen [ChartType.OpenHighLowClose](https://reference.aspose.com/slides/sv/java/com.aspose.slides/charttype/#OpenHighLowClose) .
-4. Kom åt diagramdataboken [IChartDataWorkbook](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ichartdataworkbook/) .
-5. Rensa standardserierna och -kategorierna.
+1. Skapa en instans av [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) klassen.
+2. Hämta en referens till en bild med dess index.
+3. Lägg till ett diagram med standarddata och ange typen [ChartType.OpenHighLowClose](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#OpenHighLowClose).
+4. Åtkomst till diagramdata‑arbetsboken [IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/).
+5. Rensa standardserier och -kategorier.
 6. Lägg till nya serier och kategorier.
 7. Lägg till ny diagramdata för diagramserierna.
-8. Specificera formatet för hög‑låglinjer.
-9. Spara den modifierade presentationen som en PPTX-fil.
+8. Specificera format för hög‑låg‑linjer.
+9. Spara den modifierade presentationen som en PPTX‑fil.
 
-Denna Java‑kod visar hur man skapar ett aktiediagram:
+Denna Java‑kod visar hur du skapar ett börsdiagram:
 
 ```java
 import com.aspose.slides.*;
@@ -552,18 +552,18 @@ try {
 }
 ```
 
-### **Skapa låd‑och‑whisker‑diagram**
+### **Skapa låda‑och‑vispeldiagram**
 
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/java/com.aspose.slides/presentation/) .
-2. Hämta en referens till en bild med hjälp av dess index.
-3. Lägg till ett diagram med standarddata och ange typen [ChartType.BoxAndWhisker](https://reference.aspose.com/slides/sv/java/com.aspose.slides/charttype/#BoxAndWhisker) .
-4. Kom åt diagramdataboken [IChartDataWorkbook](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ichartdataworkbook/) .
-5. Rensa standardserierna och -kategorierna.
+1. Skapa en instans av [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) klassen.
+2. Hämta en referens till en bild med dess index.
+3. Lägg till ett diagram med standarddata och ange typen [ChartType.BoxAndWhisker](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#BoxAndWhisker).
+4. Åtkomst till diagramdata‑arbetsboken [IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/).
+5. Rensa standardserier och -kategorier.
 6. Lägg till nya serier och kategorier.
 7. Lägg till ny diagramdata för diagramserierna.
 8. Spara den modifierade presentationen som en PPTX‑fil.
 
-Denna Java‑kod visar hur man skapar ett låd‑och‑whisker‑diagram:
+Denna Java‑kod visar hur du skapar ett låda‑och‑vispeldiagram:
 
 ```java
 import com.aspose.slides.*;
@@ -605,14 +605,14 @@ try {
 }
 ```
 
-### **Skapa tratt‑diagram**
+### **Skapa trattdiagram**
 
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/java/com.aspose.slides/presentation/) .
-2. Hämta en referens till en bild med hjälp av dess index.
-3. Lägg till ett diagram med standarddata och ange typen [ChartType.Funnel](https://reference.aspose.com/slides/sv/java/com.aspose.slides/charttype/#Funnel) .
+1. Skapa en instans av [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) klassen.
+2. Hämta en referens till en bild med dess index.
+3. Lägg till ett diagram med standarddata och ange typen [ChartType.Funnel](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#Funnel).
 4. Spara den modifierade presentationen som en PPTX‑fil.
 
-Denna Java‑kod visar hur man skapar ett tratt‑diagram:
+Denna Java‑kod visar hur du skapar ett trattdiagram:
 
 ```java
 import com.aspose.slides.*;
@@ -649,14 +649,14 @@ try {
 }
 ```
 
-### **Skapa sol‑burst‑diagram**
+### **Skapa solstråle‑diagram**
 
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/java/com.aspose.slides/presentation/) .
-2. Hämta en referens till en bild med hjälp av dess index.
-3. Lägg till ett diagram med standarddata och ange typen [ChartType.Sunburst](https://reference.aspose.com/slides/sv/java/com.aspose.slides/charttype/#Sunburst) .
+1. Skapa en instans av [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) klassen.
+2. Hämta en referens till en bild med dess index.
+3. Lägg till ett diagram med standarddata och ange typen [ChartType.Sunburst](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#Sunburst).
 4. Spara den modifierade presentationen som en PPTX‑fil.
 
-Denna Java‑kod visar hur man skapar ett sol‑burst‑diagram:
+Denna Java‑kod visar hur du skapar ett solstråle‑diagram:
 
 ```java
 import com.aspose.slides.*;
@@ -713,15 +713,15 @@ try {
 
 ### **Skapa histogram‑diagram**
 
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/java/com.aspose.slides/presentation/) .
-2. Hämta en referens till en bild med hjälp av dess index.
-3. Lägg till ett diagram med standarddata och ange typen [ChartType.Histogram](https://reference.aspose.com/slides/sv/java/com.aspose.slides/charttype/#Histogram) .
-4. Kom åt diagramdataboken [IChartDataWorkbook](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ichartdataworkbook/) .
-5. Rensa standardserierna och -kategorierna.
+1. Skapa en instans av [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) klassen.
+2. Hämta en referens till en bild med dess index.
+3. Lägg till ett diagram med standarddata och ange typen [ChartType.Histogram](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#Histogram).
+4. Åtkomst till diagramdata‑arbetsboken [IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/).
+5. Rensa standardserier och -kategorier.
 6. Lägg till nya serier och kategorier.
 7. Spara den modifierade presentationen som en PPTX‑fil.
 
-Denna Java‑kod visar hur man skapar ett histogram‑diagram:
+Denna Java‑kod visar hur du skapar ett histogram‑diagram:
 
 ```java
 import com.aspose.slides.*;
@@ -753,12 +753,12 @@ try {
 
 ### **Skapa radardiagram**
 
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/java/com.aspose.slides/presentation/) .
-2. Hämta en referens till en bild med hjälp av dess index.
-3. Lägg till ett diagram med viss data och ange din föredragna diagramtyp ([ChartType.Radar](https://reference.aspose.com/slides/sv/java/com.aspose.slides/charttype/#Radar) i det här fallet) .
+1. Skapa en instans av [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) klassen.
+2. Hämta en referens till en bild med dess index.
+3. Lägg till ett diagram med viss data och ange din föredragna diagramtyp ([ChartType.Radar](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#Radar) i detta fall).
 4. Spara den modifierade presentationen som en PPTX‑fil.
 
-Denna Java‑kod visar hur man skapar ett radardiagram:
+Denna Java‑kod visar hur du skapar ett radardiagram:
 
 ```java
 import com.aspose.slides.*;
@@ -772,18 +772,18 @@ try {
 }
 ```
 
-### **Skapa flerkategori‑diagram**
+### **Skapa diagram med flera kategorier**
 
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/java/com.aspose.slides/presentation/) .
-2. Hämta en referens till en bild med hjälp av dess index.
-3. Lägg till ett diagram med standarddata och ange typen [ChartType.ClusteredColumn](https://reference.aspose.com/slides/sv/java/com.aspose.slides/charttype/#ClusteredColumn) .
-4. Kom åt diagramdataboken [IChartDataWorkbook](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ichartdataworkbook/) .
-5. Rensa standardserierna och -kategorierna.
+1. Skapa en instans av [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) klassen.
+2. Hämta en referens till en bild med dess index.
+3. Lägg till ett diagram med standarddata och ange typen [ChartType.ClusteredColumn](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#ClusteredColumn).
+4. Åtkomst till diagramdata‑arbetsboken [IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/).
+5. Rensa standardserier och -kategorier.
 6. Lägg till nya serier och kategorier.
 7. Lägg till ny diagramdata för diagramserierna.
 8. Spara den modifierade presentationen som en PPTX‑fil.
 
-Denna Java‑kod visar hur man skapar ett flerkategori‑diagram:
+Denna Java‑kod visar hur du skapar ett diagram med flera kategorier:
 
 ```java
 import com.aspose.slides.*;
@@ -814,7 +814,7 @@ try {
     category.getGroupingLevels().setGroupingItem(1, "Group4");
     category = ch.getChartData().getCategories().add(fact.getCell(0, "c9", "H"));
 
-    // Lägg till serier
+    // Lägger till serier
     IChartSeries series = ch.getChartData().getSeries().add(fact.getCell(0, "D1", "Series 1"),
             ChartType.ClusteredColumn);
 
@@ -827,7 +827,7 @@ try {
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, "D8", 70));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, "D9", 80));
     
-    // Spara presentationen med diagrammet
+    // Spara presentationen med diagram
     pres.save("AsposeChart_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
@@ -838,7 +838,7 @@ try {
 
 Kartdiagram visualiserar geografisk data och hjälper till att jämföra värden över regioner.
 
-Denna Java‑kod visar hur man skapar ett kartdiagram:
+Denna Java‑kod visar hur du skapar ett kartdiagram:
 
 ```java
 import com.aspose.slides.*;
@@ -856,9 +856,9 @@ try {
 
 Ett kombinationsdiagram (eller kombodiagram) kombinerar två eller flera diagramtyper i ett enda diagram. Detta diagram låter dig framhäva, jämföra eller undersöka skillnader mellan två eller fler dataset, vilket hjälper dig att identifiera relationer mellan dem.
 
-![Kombinationsdiagram](combination_chart.png)
+![The combination chart](combination_chart.png)
 
-Följande Java‑kod visar hur man skapar kombinationsdiagrammet som visas ovan i en PowerPoint‑presentation:
+Följande Java‑kod visar hur du skapar kombinationsdiagrammet som visas ovan i en PowerPoint‑presentation:
 
 ```java
 import com.aspose.slides.*;
@@ -885,7 +885,7 @@ static void createComboChart() {
 static IChart createChartWithFirstSeries(ISlide slide) {
     IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
 
-    // Ställ in diagramtitel.
+    // Ställ in diagrammets titel.
     chart.setTitle(true);
     chart.getChartTitle().addTextFrameForOverriding("Chart Title");
     chart.getChartTitle().setOverlay(false);
@@ -894,7 +894,7 @@ static IChart createChartWithFirstSeries(ISlide slide) {
     titleFormat.setFontBold(NullableBool.False);
     titleFormat.setFontHeight(18f);
 
-    // Ställ in diagramförklaring.
+    // Ställ in diagrammets förklaringsruta.
     chart.getLegend().setPosition(LegendPositionType.Bottom);
     chart.getLegend().getTextFormat().getPortionFormat().setFontHeight(12f);
 
@@ -1010,15 +1010,15 @@ static void setAxisTitle(IAxis axis, String axisTitle) {
 
 ## **Uppdatera diagram**
 
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/java/com.aspose.slides/presentation/) som representerar presentationen som innehåller diagrammet du vill uppdatera.
-2. Hämta en referens till en bild med hjälp av dess index.
-3. Gå igenom alla former för att hitta önskat diagram.
-4. Kom åt diagrammets dataarbetsblad.
+1. Skapa en instans av [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) klassen som representerar presentationen som innehåller diagrammet du vill uppdatera.
+2. Hämta en referens till en bild med dess index.
+3. Gå igenom alla former för att hitta det önskade diagrammet.
+4. Åtkomst till diagrammets data‑arbetsblad.
 5. Ändra diagramdataserierna genom att ändra serievärdena.
 6. Lägg till en ny serie och fyll i dess data.
 7. Spara den modifierade presentationen som en PPTX‑fil.
 
-Denna Java‑kod visar hur man uppdaterar ett diagram:
+Denna Java‑kod visar hur du uppdaterar ett diagram:
 
 ```java
 import com.aspose.slides.*;
@@ -1029,68 +1029,71 @@ try {
     // Åtkomst till första bilden
     ISlide sld = pres.getSlides().get_Item(0);
 
-    // Hämtar diagrammet från bilden
+    // Hämta diagrammet från bilden
     IChart chart = (IChart)sld.getShapes().get_Item(0);
 
-    // Anger index för diagrammets dataark
+    // Ställer in indexet för diagrammets dataarbetsblad
     int defaultWorksheetIndex = 0;
 
     // Hämtar diagrammets dataarbetsblad
     IChartDataWorkbook fact = chart.getChartData().getChartDataWorkbook();
 
-    // Ändrar diagramkategorins namn
+    // Ändrar diagrammets kategorinamn
     fact.getCell(defaultWorksheetIndex, 1, 0, "Modified Category 1");
     fact.getCell(defaultWorksheetIndex, 2, 0, "Modified Category 2");
 
-    // Tar den första diagramserien
+    // Hämtar första diagramserien
     IChartSeries series = chart.getChartData().getSeries().get_Item(0);
 
-    // Uppdaterar nu seriedatan
-    fact.getCell(defaultWorksheetIndex, 0, 1, "New_Series1"); // Modifierar serienamn
+    // Uppdaterar nu serie-data
+    fact.getCell(defaultWorksheetIndex, 0, 1, "New_Series1");// Modifierar serienamn
     series.getDataPoints().get_Item(0).getValue().setData(90);
     series.getDataPoints().get_Item(1).getValue().setData(123);
     series.getDataPoints().get_Item(2).getValue().setData(44);
 
-    // Tar den andra diagramserien
+    // Hämtar andra diagramserien
     series = chart.getChartData().getSeries().get_Item(1);
 
-    // Uppdaterar nu seriedatan
-    fact.getCell(defaultWorksheetIndex, 0, 2, "New_Series2"); // Modifierar serienamn
+    // Uppdaterar nu serie-data
+    fact.getCell(defaultWorksheetIndex, 0, 2, "New_Series2");// Modifierar serienamn
     series.getDataPoints().get_Item(0).getValue().setData(23);
     series.getDataPoints().get_Item(1).getValue().setData(67);
     series.getDataPoints().get_Item(2).getValue().setData(99);
 
-    // Lägger nu till en ny serie
+    // Nu lägger vi till en ny serie
     chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 3, "Series 3"), chart.getType());
 
-    // Tar den tredje diagramserien
+    // Hämtar tredje diagramserien
     series = chart.getChartData().getSeries().get_Item(2);
 
-    // Populerar nu seriedatan
+    // Fyller nu i serie-data
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 3, 20));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 3, 50));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 3, 30));
 
     chart.setType(ChartType.ClusteredCylinder);
 
-    // Spara presentationen med diagrammet
+    // Spara presentationen med diagram
     pres.save("AsposeChartModified_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
+
 ## **Ställ in dataintervall för ett diagram**
 
-För att ställa in dataintervall för ett diagram gör du så här:
+För att inspektera intervallet som redan används av ett befintligt diagram, se [Retrieve a Chart's Data Range](/slides/sv/java/chart-workbook/#retrieve-a-charts-data-range).
 
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/java/com.aspose.slides/presentation/) som representerar presentationen som innehåller diagrammet.
-2. Hämta en referens till en bild med hjälp av dess index.
-3. Gå igenom alla former för att hitta önskat diagram.
-4. Kom åt diagramdata och ange intervallet.
+För att ställa in dataintervall för ett diagram, gör så här:
+
+1. Skapa en instans av [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) klassen som representerar presentationen som innehåller diagrammet.
+2. Hämta en referens till en bild med dess index.
+3. Gå igenom alla former för att hitta det önskade diagrammet.
+4. Åtkomst till diagramdata och ange intervallet.
 5. Spara den modifierade presentationen som en PPTX‑fil.
 
-Denna Java‑kod visar hur man ställer in dataintervall för ett diagram:
+Denna Java‑kod visar hur du ställer in dataintervall för ett diagram:
 
 ```java
 import com.aspose.slides.*;
@@ -1113,7 +1116,7 @@ try {
 
 När du använder standardmarkörer i diagram får varje diagramserie automatiskt en annan markörsymbol.
 
-Denna Java‑kod visar hur man automatiskt ställer in en diagramseriemarkör:
+Denna Java‑kod visar hur du automatiskt ställer in en diagramseriemarkör:
 
 ```java
 import com.aspose.slides.*;
@@ -1140,10 +1143,10 @@ try {
     series.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 4, 1, null));
 
     chart.getChartData().getSeries().add(fact.getCell(0, 0, 2, "Series 2"), chart.getType());
-    //Ta den andra diagramserien
+    // Hämta andra diagramserien
     IChartSeries series2 = chart.getChartData().getSeries().get_Item(1);
 
-    //Populerar nu seriedata
+    // Fyller nu i seriedata
     series2.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 1, 2, 30));
     series2.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 2, 2, 10));
     series2.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 3, 2, 60));
@@ -1162,16 +1165,16 @@ try {
 
 **Vilka diagramtyper stöds av Aspose.Slides?**
 
-Aspose.Slides stöder ett brett utbud av [chart types](https://reference.aspose.com/slides/sv/java/com.aspose.slides/charttype/), inklusive stapel, linje, cirkel, yta, spridning, histogram, radar och många fler. Denna flexibilitet gör att du kan välja den mest lämpliga diagramtypen för dina data‑visualiseringsbehov.
+Aspose.Slides stöder ett brett utbud av [diagramtyper](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/), inklusive stapel, linje, cirkel, område, spridning, histogram, radar och många fler. Denna flexibilitet låter dig välja den mest lämpliga diagramtypen för dina visualiseringsbehov.
 
 **Hur lägger jag till ett nytt diagram på en bild?**
 
-För att lägga till ett diagram skapar du först en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/java/com.aspose.slides/presentation/), hämtar önskad bild med hjälp av dess index och anropar sedan metoden för att lägga till ett diagram, där du specificerar diagramtypen och initiala data. Denna process integrerar diagrammet direkt i din presentation.
+För att lägga till ett diagram, skapar du först en instans av [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) klassen, hämtar den önskade bilden med dess index och anropar sedan metoden för att lägga till ett diagram, där du specificerar diagramtyp och initial data. Denna process integrerar diagrammet direkt i din presentation.
 
-**Hur kan jag uppdatera de data som visas i ett diagram?**
+**Hur kan jag uppdatera data som visas i ett diagram?**
 
-Du kan uppdatera ett diagram genom att komma åt dess databok ([IChartDataWorkbook](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ichartdataworkbook/)), rensa eventuella standardserier och -kategorier och sedan lägga till dina egna data. Detta gör att du kan uppdatera diagrammet så att det speglar de senaste uppgifterna.
+Du kan uppdatera ett diagrams data genom att komma åt dess dataarbetsbok ([IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/)), rensa eventuella standardserier och -kategorier och sedan lägga till din anpassade data. Detta gör att du kan uppdatera diagrammet så att det speglar de senaste uppgifterna.
 
 **Är det möjligt att anpassa diagrammets utseende?**
 
-Ja, Aspose.Slides erbjuder omfattande anpassningsalternativ. Du kan ändra färger, typsnitt, etiketter, förklaringar och andra [formateringselement](/slides/sv/java/chart-entities/) för att skräddarsy diagrammets utseende efter dina specifika designkrav.
+Ja, Aspose.Slides erbjuder omfattande anpassningsalternativ. Du kan ändra färger, teckensnitt, etiketter, förklaringar och andra [formattelement](/slides/sv/java/chart-entities/) för att skräddarsy diagrammets utseende efter dina specifika designkrav.

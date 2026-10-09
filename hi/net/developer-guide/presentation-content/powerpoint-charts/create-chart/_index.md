@@ -1,6 +1,6 @@
 ---
-title: .NET में PowerPoint प्रस्तुति चार्ट बनाएं या अपडेट करें
-linktitle: चार्ट बनाएं या अपडेट करें
+title: PowerPoint प्रस्तुति चार्ट्स को .NET में बनाएँ या अपडेट करें
+linktitle: चार्ट्स बनाएँ या अपडेट करें
 type: docs
 weight: 10
 url: /hi/net/create-chart/
@@ -15,48 +15,48 @@ keywords:
 - लाइन चार्ट
 - ट्री मैप चार्ट
 - स्टॉक चार्ट
-- बॉक्स और व्हिस्कर चार्ट
-- फ़नल चार्ट
-- सुनबर्स्ट चार्ट
+- बॉक्स एंड व्हिस्कर चार्ट
+- फनल चार्ट
+- सनबर्स्ट चार्ट
 - हिस्टोग्राम चार्ट
 - रेडार चार्ट
-- मल्टीकैटेगिरी चार्ट
+- मल्टीकैटेगरी चार्ट
 - PowerPoint
 - प्रस्तुति
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides for .NET का उपयोग करके PowerPoint प्रस्तुतियों में चार्ट बनाएं और अनुकूलित करें। C# में व्यावहारिक कोड उदाहरणों के साथ चार्ट जोड़ें, फ़ॉर्मेट करें और संपादित करें।"
+description: "Aspose.Slides for .NET का उपयोग करके PowerPoint प्रस्तुतियों में चार्ट बनाएं और कस्टमाइज़ करें। C# में व्यावहारिक कोड उदाहरणों के साथ चार्ट जोड़ें, फॉर्मेट करें और संपादित करें।"
 ---
-## **अवलोकन**
+## **समग्र दृष्टिकोण**
 
-यह लेख Aspose.Slides for .NET का उपयोग करके चार्ट बनाना और अनुकूलित करना सीखने के लिए एक विस्तृत मार्गदर्शिका प्रदान करता है। आप प्रोग्रामेटिक रूप से स्लाइड में चार्ट जोड़ना, डेटा से भरना, और अपने विशिष्ट डिज़ाइन आवश्यकताओं के अनुसार विभिन्न फॉर्मेटिंग विकल्प लागू करना सीखेंगे। लेख में विस्तृत कोड उदाहरण प्रत्येक चरण को दर्शाते हैं, प्रस्तुति और चार्ट ऑब्जेक्ट को प्रारंभ करने से लेकर सीरीज़, एक्सिस और लेजेंड को कॉन्फ़िगर करने तक। इस मार्गदर्शिका का पालन करके आप .NET अनुप्रयोगों में डायनेमिक चार्ट जेनरेशन को एकीकृत करने की ठोस समझ प्राप्त करेंगे, जिससे डेटा‑ड्रिवेन प्रस्तुतियों का निर्माण सुगम हो जाएगा।
+यह लेख Aspose.Slides for .NET का उपयोग करके चार्ट बनाने और कस्टमाइज़ करने के लिए एक व्यापक मार्गदर्शिका प्रदान करता है। आप प्रोग्रामेटिक रूप से स्लाइड में चार्ट जोड़ना, उसे डेटा से भरना, और विभिन्न फ़ॉर्मेटिंग विकल्प लागू करके अपने विशिष्ट डिज़ाइन आवश्यकताओं के अनुरूप बनाना सीखेंगे। पूरे लेख में विस्तृत कोड उदाहरण प्रत्येक चरण को दर्शाते हैं, प्रस्तुति और चार्ट ऑब्जेक्ट को इनिशियलाइज़ करने से लेकर सीरीज़, एक्सिस और लेजेंड को कॉन्फ़िगर करने तक। इस मार्गदर्शिका का पालन करके, आप अपने .NET एप्लिकेशन में डायनामिक चार्ट जेनरेशन को इंटीग्रेट करने की ठोस समझ प्राप्त करेंगे, जिससे डेटा-ड्रिवेन प्रस्तुति बनाने की प्रक्रिया सरल हो जाएगी।
 
-## **एक चार्ट बनाएं**
+## **एक चार्ट बनाएँ**
 
-चार्ट लोगों को डेटा को जल्दी से दृश्य रूप में प्रस्तुत करने और ऐसी अंतर्दृष्टि प्राप्त करने में मदद करते हैं जो तालिका या स्प्रेडशीट से तुरंत स्पष्ट नहीं होती।
+चार्ट लोगों को जल्दी से डेटा को विज़ुअलाइज़ करने और उन अंतर्दृष्टियों को प्राप्त करने में मदद करते हैं जो तालिका या स्प्रेडशीट से तुरंत स्पष्ट नहीं होते।
 
 **चार्ट क्यों बनाएं?**
 
 चार्ट का उपयोग करके आप:
 
-* बड़े पैमाने पर डेटा को एक स्लाइड में संक्षिप्त कर सकते हैं;
-* डेटा में पैटर्न और रुझान उजागर कर सकते हैं;
-* समय के साथ या किसी विशिष्ट माप इकाई के सापेक्ष डेटा की दिशा और गति निकाल सकते हैं;
-* अपवर्तन, विसंगतियां, त्रुटियां और असंगत डेटा पहचान सकते हैं;
-* जटिल डेटा को प्रभावी रूप से संप्रेषित या प्रस्तुत कर सकते हैं।
+* बड़े पैमाने पर डेटा को एक ही स्लाइड में संक्षिप्त या सारांशित कर सकते हैं;
+* डेटा में पैटर्न और ट्रेंड्स को उजागर कर सकते हैं;
+* समय के साथ या किसी विशिष्ट माप इकाई के सापेक्ष डेटा की दिशा और गति को समझ सकते हैं;
+* आउट्लायर्स, विसंगतियों, विचलनों, त्रुटियों और बेकार डेटा की पहचान कर सकते हैं;
+* जटिल डेटा को प्रभावी ढंग से संप्रेषित या प्रस्तुत कर सकते हैं।
 
-PowerPoint में आप *Insert* फ़ंक्शन के माध्यम से चार्ट बना सकते हैं, जो विभिन्न प्रकार के चार्ट डिज़ाइन करने के लिए टेम्पलेट प्रदान करता है। Aspose.Slides का उपयोग करके आप नियमित चार्ट (लोकप्रिय चार्ट प्रकारों पर आधारित) और कस्टम चार्ट दोनों बना सकते हैं।
+PowerPoint में, आप *Insert* फ़ंक्शन के माध्यम से चार्ट बना सकते हैं, जो कई प्रकार के चार्ट डिजाइन टेम्प्लेट प्रदान करता है। Aspose.Slides का उपयोग करके आप नियमित चार्ट (लोकप्रिय चार्ट प्रकारों पर आधारित) और कस्टम चार्ट दोनों बना सकते हैं।
 
 {{% alert color="info" %}} 
-Use the [ChartType](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/charttype/) enumeration under the [Aspose.Slides.Charts](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/) namespace. The values in this enumeration correspond to different chart types.
+[Aspose.Slides.Charts](https://reference.aspose.com/slides/net/aspose.slides.charts/) नेमस्पेस के अंतर्गत [ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) एनेमरेशन का उपयोग करें। इस एनेमरेशन के मान विभिन्न चार्ट प्रकारों के अनुरूप होते हैं।
 {{% /alert %}} 
 
 ### **क्लस्टर्ड कॉलम चार्ट बनाएं**
 
-यह अनुभाग Aspose.Slides for .NET का उपयोग करके क्लस्टर्ड कॉलम चार्ट बनाने की प्रक्रिया बताता है। आप प्रस्तुति को प्रारंभ करना, एक चार्ट जोड़ना, और शीर्षक, डेटा, सीरीज़, श्रेणियां और स्टाइलिंग जैसे तत्वों को अनुकूलित करना सीखेंगे। नीचे दिए गए चरणों का पालन करके देखें कि एक मानक क्लस्टर्ड कॉलम चार्ट कैसे उत्पन्न होता है:
+यह अनुभाग Aspose.Slides for .NET का उपयोग करके क्लस्टर्ड कॉलम चार्ट बनाने की विधि बताता है। आप प्रस्तुति को इनिशियलाइज़ करना, चार्ट जोड़ना, तथा शीर्षक, डेटा, सीरीज़, श्रेणियाँ और स्टाइलिंग जैसे तत्वों को कस्टमाइज़ करना सीखेंगे। नीचे दिए गए चरणों का पालन करके देखें कि एक मानक क्लस्टर्ड कॉलम चार्ट कैसे उत्पन्न होता है:
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class.
 1. Get a reference to a slide using its index.
 1. Add a chart with some data and specify the `ChartType.ClusteredColumn` type.
 1. Add a title to the chart.
@@ -76,96 +76,96 @@ using Aspose.Slides;
 using Aspose.Slides.Charts;
 using Aspose.Slides.Export;
 
-//    Instantiate the Presentation class.
+// Instantiate the Presentation class.
 using (Presentation presentation = new Presentation())
 {
-    //    Access the first slide.
+    // Access the first slide.
     ISlide slide = presentation.Slides[0];
 
-    //    Add a clustered column chart with its default data.
+    // Add a clustered column chart with its default data.
     IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 300);
 
-    //    Set the chart title.
+    // Set the chart title.
     chart.ChartTitle.AddTextFrameForOverriding("Sample Title");
     chart.ChartTitle.TextFrameForOverriding.TextFrameFormat.CenterText = NullableBool.True;
     chart.ChartTitle.Height = 20;
     chart.HasTitle = true;
 
-    //    Set the index of the chart data sheet.
+    // Set the index of the chart data sheet.
     int worksheetIndex = 0;
 
-    //    Get the chart data workbook.
+    // Get the chart data workbook.
     IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
 
-    //    Delete the default generated series and categories.
+    // Delete the default generated series and categories.
     chart.ChartData.Series.Clear();
     chart.ChartData.Categories.Clear();
 
-    //    Add new series.
+    // Add new series.
     chart.ChartData.Series.Add(workbook.GetCell(worksheetIndex, 0, 1, "Series 1"), chart.Type);
     chart.ChartData.Series.Add(workbook.GetCell(worksheetIndex, 0, 2, "Series 2"), chart.Type);
 
-    //    Add new categories.
+    // Add new categories.
     chart.ChartData.Categories.Add(workbook.GetCell(worksheetIndex, 1, 0, "Category 1"));
     chart.ChartData.Categories.Add(workbook.GetCell(worksheetIndex, 2, 0, "Category 2"));
     chart.ChartData.Categories.Add(workbook.GetCell(worksheetIndex, 3, 0, "Category 3"));
 
-    //    Get the first chart series.
+    // Get the first chart series.
     IChartSeries series = chart.ChartData.Series[0];
 
-    //    Populate the series data.
+    // Populate the series data.
     series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 1, 1, 20));
     series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 2, 1, 50));
     series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 3, 1, 30));
 
-    //    Set the fill color for the series.
+    // Set the fill color for the series.
     series.Format.Fill.FillType = FillType.Solid;
     series.Format.Fill.SolidFillColor.Color = Color.Red;
 
-    //    Get the second chart series.
+    // Get the second chart series.
     series = chart.ChartData.Series[1];
 
-    //    Populate the series data.
+    // Populate the series data.
     series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 1, 2, 30));
     series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 2, 2, 10));
     series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 3, 2, 60));
 
-    //    Set the fill color for the series.
+    // Set the fill color for the series.
     series.Format.Fill.FillType = FillType.Solid;
     series.Format.Fill.SolidFillColor.Color = Color.Green;
 
-    //    Set the first label to show the category name.
+    // Set the first label to show the category name.
     IDataLabel label = series.DataPoints[0].Label;
     label.DataLabelFormat.ShowCategoryName = true;
 
     label = series.DataPoints[1].Label;
     label.DataLabelFormat.ShowSeriesName = true;
 
-    //    Set the series to show the value for the third label.
+    // Set the series to show the value for the third label.
     label = series.DataPoints[2].Label;
     label.DataLabelFormat.ShowValue = true;
     label.DataLabelFormat.ShowSeriesName = true;
     label.DataLabelFormat.Separator = "/";
 
-    //    Save the presentation to disk as a PPTX file.
+    // Save the presentation to disk as a PPTX file.
     presentation.Save("AsposeChart_out.pptx", SaveFormat.Pptx);
 }
 ```
 
-The result:
+परिणाम:
 
 ![क्लस्टर्ड कॉलम चार्ट](clustered_column_chart.png)
 
 ### **स्कैटर चार्ट बनाएं**
 
-स्कैटर चार्ट (जिसे स्कैटर प्लॉट या X‑Y ग्राफ भी कहा जाता है) का उपयोग दो चर के बीच पैटर्न या सहसंबंध जाँचने के लिए किया जाता है।
+स्कैटर चार्ट (जिसे स्कैटर प्लॉट या x-y ग्राफ़ भी कहते हैं) अक्सर दो परिवर्तनीयों के बीच पैटर्न या सहसंबंध जांचने के लिए उपयोग किए जाते हैं।
 
 जब आप स्कैटर चार्ट का उपयोग करें:
 
-* आपके पास जोड़ीबद्ध संख्यात्मक डेटा हो।
-* दो चर परस्पर संबंध रखते हों।
-* आप निर्धारित करना चाहते हों कि क्या दोनों चर संबंधित हैं।
-* आपके पास एक स्वतंत्र चर हो जिसके कई मान निर्भर चर के लिए हों।
+* आपके पास युग्मित संख्यात्मक डेटा हो।
+* दो परिवर्तनीय एक साथ अच्छी तरह से मेल खाते हों।
+* आप यह निर्धारित करना चाहते हों कि दोनों परिवर्तनीय संबंधित हैं या नहीं।
+* आपके पास एक स्वतंत्र परिवर्तनीय हो जिसके लिए आश्रित परिवर्तनीय के कई मान हों।
 
 This C# code shows you how to create a scatter chart with a different series of markers:
 
@@ -174,80 +174,80 @@ using Aspose.Slides;
 using Aspose.Slides.Charts;
 using Aspose.Slides.Export;
 
-//    Presentation क्लास का उदाहरण बनाएं।
+// Instantiate the Presentation class.
 using (Presentation presentation = new Presentation())
 {
-    //    पहली स्लाइड तक पहुंचें।
+    // Access the first slide.
     ISlide slide = presentation.Slides[0];
 
-    //    डिफ़ॉल्ट स्कैटर चार्ट बनाएं।
+    // Create the default scatter chart.
     IChart chart = slide.Shapes.AddChart(ChartType.ScatterWithSmoothLines, 20, 20, 500, 300);
 
-    //    चार्ट डेटा शीट का इंडेक्स सेट करें।
+    // Set the index of the chart data sheet.
     int worksheetIndex = 0;
 
-    //    चार्ट डेटा वर्कबुक प्राप्त करें।
+    // Get the chart data workbook.
     IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
 
-    //    डिफ़ॉल्ट सीरीज़ को हटाएं।
+    // Delete the default series.
     chart.ChartData.Series.Clear();
 
-    //    नई सीरीज़ जोड़ें।
+    // Add new series.
     chart.ChartData.Series.Add(workbook.GetCell(worksheetIndex, 1, 1, "Series 1"), chart.Type);
     chart.ChartData.Series.Add(workbook.GetCell(worksheetIndex, 1, 3, "Series 2"), chart.Type);
 
-    //    पहली चार्ट सीरीज़ प्राप्त करें।
+    // Get the first chart series.
     IChartSeries series = chart.ChartData.Series[0];
 
-    //    सीरीज़ में नया बिंदु (1:3) जोड़ें।
+    // Add a new point (1:3) to the series.
     series.DataPoints.AddDataPointForScatterSeries(workbook.GetCell(worksheetIndex, 2, 1, 1), workbook.GetCell(worksheetIndex, 2, 2, 3));
 
-    //    नया बिंदु (2:10) जोड़ें।
+    // Add a new point (2:10).
     series.DataPoints.AddDataPointForScatterSeries(workbook.GetCell(worksheetIndex, 3, 1, 2), workbook.GetCell(worksheetIndex, 3, 2, 10));
 
-    //    सीरीज़ का प्रकार बदलें।
+    // Change the series type.
     series.Type = ChartType.ScatterWithStraightLinesAndMarkers;
 
-    //    चार्ट सीरीज़ मार्कर बदलें।
+    // Change the chart series marker.
     series.Marker.Size = 10;
     series.Marker.Symbol = MarkerStyleType.Star;
 
-    //    दूसरी चार्ट सीरीज़ प्राप्त करें।
+    // Get the second chart series.
     series = chart.ChartData.Series[1];
 
-    //    चार्ट सीरीज़ में नया बिंदु (5:2) जोड़ें।
+    // Add a new point (5:2) to the chart series.
     series.DataPoints.AddDataPointForScatterSeries(workbook.GetCell(worksheetIndex, 2, 3, 5), workbook.GetCell(worksheetIndex, 2, 4, 2));
 
-    //    नया बिंदु (3:1) जोड़ें।
+    // Add a new point (3:1).
     series.DataPoints.AddDataPointForScatterSeries(workbook.GetCell(worksheetIndex, 3, 3, 3), workbook.GetCell(worksheetIndex, 3, 4, 1));
 
-    //    नया बिंदु (2:2) जोड़ें।
+    // Add a new point (2:2).
     series.DataPoints.AddDataPointForScatterSeries(workbook.GetCell(worksheetIndex, 4, 3, 2), workbook.GetCell(worksheetIndex, 4, 4, 2));
 
-    //    नया बिंदु (5:1) जोड़ें।
+    // Add a new point (5:1).
     series.DataPoints.AddDataPointForScatterSeries(workbook.GetCell(worksheetIndex, 5, 3, 5), workbook.GetCell(worksheetIndex, 5, 4, 1));
 
-    //    चार्ट सीरीज़ मार्कर बदलें।
+    // Change the chart series marker.
     series.Marker.Size = 10;
     series.Marker.Symbol = MarkerStyleType.Circle;
 
-    //    प्रेजेंटेशन को डिस्क पर PPTX फ़ाइल के रूप में सहेजें।
+    // Save the presentation to disk as a PPTX file.
     presentation.Save("AsposeChart_out.pptx", SaveFormat.Pptx);
 }
 ```
 
-The result:
+परिणाम:
 
 ![स्कैटर चार्ट](scatter_chart.png)
 
 ### **पाई चार्ट बनाएं**
 
-पाई चार्ट डेटा में भाग‑से‑सम्पूर्ण संबंध दिखाने के लिए सबसे उपयुक्त हैं, विशेषकर जब डेटा में श्रेणीबद्ध लेबल के साथ संख्यात्मक मान हों। हालांकि, यदि आपके डेटा में बहुत सारी भाग या लेबल हों, तो आप बार चार्ट का उपयोग करने पर विचार कर सकते हैं।
+पाई चार्ट डेटा में भाग-से-पूर्ण संबंध दिखाने के लिए सबसे उपयुक्त होते हैं, विशेष रूप से जब डेटा में श्रेणीय लेबल्स के साथ संख्यात्मक मान हों। हालांकि, यदि आपके डेटा में कई भाग या लेबल हों, तो आप बार चार्ट का उपयोग करने पर विचार कर सकते हैं।
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class.
 1. Get a reference to a slide using its index.
 1. Add a chart with default data and specify the `ChartType.Pie` type.
-1. Access the chart's data workbook ([IChartDataWorkbook](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/ichartdataworkbook/)).
+1. Access the chart's data workbook ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)).
 1. Clear the default series and categories.
 1. Add new series and categories.
 1. Add new chart data for the chart series.
@@ -265,55 +265,55 @@ using Aspose.Slides;
 using Aspose.Slides.Charts;
 using Aspose.Slides.Export;
 
-//    Presentation क्लास का उदाहरण बनाएं।
+// Presentation क्लास का इंस्टेंस बनाएं।
 using (Presentation presentation = new Presentation())
 {
-    //    पहली स्लाइड तक पहुंचें।
+    // पहली स्लाइड तक पहुंचें।
     ISlide slide = presentation.Slides[0];
 
-    //    डिफ़ॉल्ट डेटा के साथ एक चार्ट जोड़ें।
+    // डिफ़ॉल्ट डेटा के साथ एक चार्ट जोड़ें।
     IChart chart = slide.Shapes.AddChart(ChartType.Pie, 20, 20, 500, 300);
 
-    //    चार्ट शीर्षक सेट करें।
+    // चार्ट शीर्षक सेट करें।
     chart.ChartTitle.AddTextFrameForOverriding("Sample Title");
     chart.ChartTitle.TextFrameForOverriding.TextFrameFormat.CenterText = NullableBool.True;
     chart.ChartTitle.Height = 20;
     chart.HasTitle = true;
 
-    //    पहली सीरीज़ को मान दिखाने के लिए सेट करें।
+    // पहली सीरीज़ को मान दिखाने के लिए सेट करें।
     chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
 
-    //    चार्ट डेटा शीट का इंडेक्स सेट करें।
+    // चार्ट डेटा शीट का इंडेक्स सेट करें।
     int worksheetIndex = 0;
 
-    //    चार्ट डेटा वर्कबुक प्राप्त करें।
+    // चार्ट डेटा वर्कबुक प्राप्त करें।
     IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
 
-    //    डिफ़ॉल्ट उत्पन्न सीरीज़ और श्रेणियों को हटाएं।
+    // डिफ़ॉल्ट जेनरेटेड सीरीज़ और श्रेणियों को हटाएं।
     chart.ChartData.Series.Clear();
     chart.ChartData.Categories.Clear();
 
-    //    नई श्रेणियां जोड़ें।
+    // नयी श्रेणियाँ जोड़ें।
     chart.ChartData.Categories.Add(workbook.GetCell(0, 1, 0, "1st Qtr"));
     chart.ChartData.Categories.Add(workbook.GetCell(0, 2, 0, "2nd Qtr"));
     chart.ChartData.Categories.Add(workbook.GetCell(0, 3, 0, "3rd Qtr"));
 
-    //    नई सीरीज़ जोड़ें।
+    // नयी सीरीज़ जोड़ें।
     IChartSeries series = chart.ChartData.Series.Add(workbook.GetCell(0, 0, 1, "Series 1"), chart.Type);
 
-    //    सीरीज़ डेटा भरें।
+    // सीरीज़ डेटा भरें।
     series.DataPoints.AddDataPointForPieSeries(workbook.GetCell(worksheetIndex, 1, 1, 20));
     series.DataPoints.AddDataPointForPieSeries(workbook.GetCell(worksheetIndex, 2, 1, 50));
     series.DataPoints.AddDataPointForPieSeries(workbook.GetCell(worksheetIndex, 3, 1, 30));
 
-    //    सेक्टर का रंग सेट करें।
+    // सेक्टोर का रंग सेट करें।
     chart.ChartData.SeriesGroups[0].IsColorVaried = true;
 
     IChartDataPoint point = series.DataPoints[0];
     point.Format.Fill.FillType = FillType.Solid;
     point.Format.Fill.SolidFillColor.Color = Color.Cyan;
 
-    //    सेक्टर की सीमा सेट करें।
+    // सेक्टोर की बॉर्डर सेट करें।
     point.Format.Line.FillFormat.FillType = FillType.Solid;
     point.Format.Line.FillFormat.SolidFillColor.Color = Color.Gray;
     point.Format.Line.Width = 3.0;
@@ -324,7 +324,7 @@ using (Presentation presentation = new Presentation())
     point1.Format.Fill.FillType = FillType.Solid;
     point1.Format.Fill.SolidFillColor.Color = Color.Brown;
 
-    //    सेक्टर की सीमा सेट करें।
+    // सेक्टोर की बॉर्डर सेट करें।
     point1.Format.Line.FillFormat.FillType = FillType.Solid;
     point1.Format.Line.FillFormat.SolidFillColor.Color = Color.Blue;
     point1.Format.Line.Width = 3.0;
@@ -335,14 +335,14 @@ using (Presentation presentation = new Presentation())
     point2.Format.Fill.FillType = FillType.Solid;
     point2.Format.Fill.SolidFillColor.Color = Color.Coral;
 
-    //    सेक्टर की सीमा सेट करें।
+    // सेक्टोर की बॉर्डर सेट करें।
     point2.Format.Line.FillFormat.FillType = FillType.Solid;
     point2.Format.Line.FillFormat.SolidFillColor.Color = Color.Red;
     point2.Format.Line.Width = 2.0;
     point2.Format.Line.Style = LineStyle.ThinThin;
     point2.Format.Line.DashStyle = LineDashStyle.LargeDashDotDot;
 
-    //    नई सीरीज़ में प्रत्येक श्रेणी के लिए कस्टम लेबल बनाएं।
+    // नयी सीरीज़ की प्रत्येक श्रेणी के लिए कस्टम लेबल बनाएं।
     IDataLabel label1 = series.DataPoints[0].Label;
 
     label1.DataLabelFormat.ShowValue = true;
@@ -356,29 +356,29 @@ using (Presentation presentation = new Presentation())
     label3.DataLabelFormat.ShowSeriesName = true;
     label3.DataLabelFormat.ShowPercentage = true;
 
-    //    चार्ट के लिए सीरीज़ को लीडर लाइन्स दिखाने के लिए सेट करें।
+    // चार्ट के लिए लीडर लाइन्स दिखाने के लिए सीरीज़ सेट करें।
     series.Labels.DefaultDataLabelFormat.ShowLeaderLines = true;
 
-    //    पाई चार्ट सेक्टरों के लिए घूर्णन कोण सेट करें।
+    // पाई चार्ट के सेक्टरों के लिए घूर्णन कोण सेट करें।
     chart.ChartData.SeriesGroups[0].FirstSliceAngle = 180;
 
-    //    प्रेजेंटेशन को डिस्क पर PPTX फ़ाइल के रूप में सहेजें।
+    // प्रेजेंटेशन को डिस्क पर PPTX फ़ाइल के रूप में सेव करें।
     presentation.Save("PieChart_out.pptx", SaveFormat.Pptx);
 }
 ```
 
-The result:
+परिणाम:
 
 ![पाई चार्ट](pie_chart.png)
 
 ### **लाइन चार्ट बनाएं**
 
-लाइन चार्ट (जिसे लाइन ग्राफ भी कहा जाता है) उन स्थितियों में सबसे उपयुक्त होते हैं जहाँ आप समय के साथ मान में परिवर्तन दिखाना चाहते हैं। लाइन चार्ट के साथ आप कई डेटा को एक साथ तुलना कर सकते हैं, समय के साथ परिवर्तन और प्रवृत्तियों को ट्रैक कर सकते हैं, डेटा सीरीज़ में विसंगतियों को उजागर कर सकते हैं, आदि।
+लाइन चार्ट (जिसे लाइन ग्राफ़ भी कहा जाता है) सबसे उपयुक्त होते हैं जब आप समय के साथ मानों में परिवर्तन दिखाना चाहते हैं। लाइन चार्ट के माध्यम से आप बड़ी मात्रा में डेटा को एक साथ तुलना कर सकते हैं, समय के साथ परिवर्तन और ट्रेंड ट्रैक कर सकते हैं, डेटा सीरीज़ में विसंगतियों को उजागर कर सकते हैं, आदि।
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class.
 1. Get a reference to a slide using its index.
 1. Add a chart with default data and specify the `ChartType.Line` type.
-1. Access the chart's data workbook ([IChartDataWorkbook](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/ichartdataworkbook/)).
+1. Access the chart's data workbook ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)).
 1. Clear the default series and categories.
 1. Add new series and categories.
 1. Add new chart data for the chart series.
@@ -399,7 +399,7 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-By default, points on a line chart are joined by straight continuous lines. If you want the points to be joined by dashes instead, you can specify your preferred dash type as follows:
+डिफ़ॉल्ट रूप से, लाइन चार्ट में बिंदुओं को सीधी सतत रेखाओं से जोड़ा जाता है। यदि आप बिंदुओं को डैश द्वारा जोड़ना चाहते हैं, तो आप नीचे दिखाए अनुसार डैश प्रकार निर्दिष्ट कर सकते हैं:
 
 ```c#
 using Aspose.Slides;
@@ -416,18 +416,18 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-The result:
+परिणाम:
 
 ![लाइन चार्ट](line_chart.png)
 
 ### **ट्री मैप चार्ट बनाएं**
 
-ट्री मैप चार्ट उन स्थितियों में सबसे उपयुक्त होते हैं जहाँ आप बिक्री डेटा के विभिन्न वर्गों के सापेक्ष आकार को दिखाना और प्रत्येक वर्ग में बड़े योगदान देने वाले आइटम पर जल्दी ध्यान आकर्षित करना चाहते हैं।
+ट्री मैप चार्ट उन बिक्री डेटा के लिए सबसे उपयुक्त होते हैं जब आप डेटा श्रेणियों के सापेक्ष आकार दिखाना चाहते हैं और प्रत्येक श्रेणी में बड़े योगदानकर्ता आइटम्स पर जल्दी से ध्यान आकर्षित करना चाहते हैं।
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class.
 1. Get a reference to a slide using its index.
 1. Add a chart with default data and specify the `ChartType.Treemap` type.
-1. Access the chart's data workbook ([IChartDataWorkbook](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/ichartdataworkbook/)).
+1. Access the chart's data workbook ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)).
 1. Clear the default series and categories.
 1. Add new series and categories.
 1. Add new chart data for the chart series.
@@ -490,18 +490,18 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-The result:
+परिणाम:
 
-![ट्री मैप चार्ट](treemap_chart.png)
+![ट्रीमैप चार्ट](treemap_chart.png)
 
 ### **स्टॉक चार्ट बनाएं**
 
-स्टॉक चार्ट का उपयोग ओपन, हाई, लो और क्लोज़ कीमतों जैसे वित्तीय डेटा को प्रदर्शित करने के लिए किया जाता है, जिससे बाजार रुझानों और अस्थिरता का विश्लेषण आसान हो जाता है। ये चार्ट शेयर प्रदर्शन पर महत्वपूर्ण अंतर्दृष्टि प्रदान करते हैं, जिससे निवेशकों और विश्लेषकों को सूचित निर्णय लेने में मदद मिलती है।
+स्टॉक चार्ट वित्तीय डेटा जैसे ओपन, हाई, लो और क्लोज प्राइस को दिखाने के लिए उपयोग किए जाते हैं, जिससे बाजार ट्रेंड और अस्थिरता का विश्लेषण संभव होता है। ये स्टॉक प्रदर्शन के बारे में आवश्यक अंतर्दृष्टि प्रदान करते हैं, जिससे निवेशकों और विश्लेषकों को सूचित निर्णय लेने में मदद मिलती है।
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class.
 1. Get a reference to a slide using its index.
 1. Add a chart with default data and specify the `ChartType.OpenHighLowClose` type.
-1. Access the chart's data workbook ([IChartDataWorkbook](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/ichartdataworkbook/)).
+1. Access the chart's data workbook ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)).
 1. Clear the default series and categories.
 1. Add new series and categories.
 1. Add new chart data for the chart series.
@@ -564,18 +564,18 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-The result:
+परिणाम:
 
 ![स्टॉक चार्ट](stock_chart.png)
 
 ### **बॉक्स एंड व्हिस्कर चार्ट बनाएं**
 
-बॉक्स एंड व्हिस्कर चार्ट डेटा वितरण को प्रमुख सांख्यिकीय मापदंडों—जैसे माध्यिका, क्वारटाइल और संभावित अपवर्तन—का सारांश प्रस्तुत करके दिखाते हैं। ये विशेष रूप से एक्सप्लोरेटरी डेटा एनालिसिस और सांख्यिकीय अध्ययनों में उपयोगी होते हैं, जिससे डेटा में विविधता और विसंगतियों को जल्दी समझा जा सकता है।
+बॉक्स एंड व्हिस्कर चार्ट डेटा के वितरण को प्रमुख सांख्यिकीय मापदंडों जैसे माध्य, क्वार्टाइल और संभावित आउट्लायर को सारांशित करके प्रदर्शित करते हैं। ये अनुसंधान डेटा विश्लेषण और सांख्यिकीय अध्ययन में डेटा की विविधता को जल्दी समझने और किसी भी विसंगति की पहचान करने में मददगार होते हैं।
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class.
 1. Get a reference to a slide using its index.
 1. Add a chart with default data and specify the `ChartType.BoxAndWhisker` type.
-1. Access the chart's data workbook ([IChartDataWorkbook](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/ichartdataworkbook/)).
+1. Access the chart's data workbook ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)).
 1. Clear the default series and categories.
 1. Add new series and categories.
 1. Add new chart data for the chart series.
@@ -623,11 +623,11 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-### **फ़नल चार्ट बनाएं**
+### **फनल चार्ट बनाएं**
 
-फ़नल चार्ट उन प्रक्रियाओं को दृश्य रूप में प्रस्तुत करने के लिए उपयोग किए जाते हैं जिनमें क्रमिक चरण होते हैं, जहाँ डेटा की मात्रा प्रत्येक चरण के साथ घटती जाती है। ये रूपांतरण दर का विश्लेषण, बाधाओं की पहचान और बिक्री या मार्केटिंग प्रक्रियाओं की दक्षता को ट्रैक करने में विशेष रूप से सहायक होते हैं।
+फनल चार्ट क्रमिक चरणों वाली प्रक्रियाओं को विज़ुअलाइज़ करने के लिए उपयोग किए जाते हैं, जहाँ डेटा की मात्रा पिछले चरण से अगले चरण में घटती है। ये रूपांतरण दर का विश्लेषण, बाधाओं की पहचान, और बिक्री या मार्केटिंग प्रक्रियाओं की दक्षता को ट्रैक करने में विशेष रूप से सहायक होते हैं।
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class.
 1. Get a reference to a slide using its index.
 1. Add a chart with default data and specify the `ChartType.Funnel` type.
 1. Save the modified presentation as a PPTX file.
@@ -668,15 +668,15 @@ using (Presentation presentation = new Presentation("test.pptx"))
 }
 ```
 
-The result:
+परिणाम:
 
-![फ़नल चार्ट](funnel_chart.png)
+![फनल चार्ट](funnel_chart.png)
 
-### **सुनबर्स्ट चार्ट बनाएं**
+### **सनबर्स्ट चार्ट बनाएं**
 
-सुनबर्स्ट चार्ट पदानुक्रमित डेटा को दृश्य रूप में प्रस्तुत करने के लिए उपयोग किए जाते हैं, जहाँ स्तरों को समानांतर रिंग के रूप में दर्शाया जाता है। ये भाग‑से‑सम्पूर्ण संबंधों को स्पष्ट और संक्षिप्त रूप में दिखाते हैं, जिससे नेस्टेड श्रेणियों को समझना आसान हो जाता है।
+सनबर्स्ट चार्ट पदानुक्रमित डेटा को विज़ुअलाइज़ करने के लिए उपयोग किए जाते हैं, जहाँ स्तरों को द्वितीयक रूप में प्रदर्शित किया जाता है। ये भाग-से-पूर्ण संबंधों को स्पष्ट एवं संक्षिप्त रूप में दर्शाते हैं, और नेस्टेड श्रेणियों को प्रस्तुत करने के लिए आदर्श होते हैं।
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class.
 1. Get a reference to a slide using its index.
 1. Add a chart with default data and specify the `ChartType.Sunburst` type.
 1. Save the modified presentation as a PPTX file.
@@ -736,18 +736,18 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-The result:
+परिणाम:
 
-![सुनबर्स्ट चार्ट](sunburst_chart.png)
+![सनबर्स्ट चार्ट](sunburst_chart.png)
 
 ### **हिस्टोग्राम चार्ट बनाएं**
 
-हिस्टोग्राम चार्ट संख्यात्मक डेटा के वितरण को रेंज या बिन में समूहित करके प्रदर्शित करते हैं। ये डेटा पैटर्न जैसे आवृत्ति, विकृति और प्रसार की पहचान करने तथा डेटा सेट में अपवर्तनों का पता लगाने में विशेष रूप से उपयोगी होते हैं।
+हिस्टोग्राम चार्ट संख्यात्मक डेटा के वितरण को विभिन्न रेंज या बिन में समूहित करके प्रदर्शित करते हैं। ये डेटा पैटर्न जैसे आवृत्ति, स्क्यूनेस और प्रसार की पहचान करने, तथा डेटासेट में आउट्लायर खोजने में विशेष रूप से उपयोगी होते हैं।
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class.
 1. Get a reference to a slide using its index.
 1. Add a chart with some data and specify the `ChartType.Histogram` type.
-1. Access the chart data workbook ([IChartDataWorkbook](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/ichartdataworkbook/)).
+1. Access the chart data workbook ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)).
 1. Clear the default series and categories.
 1. Add new series and categories.
 1. Save the modified presentation as a PPTX file.
@@ -782,15 +782,15 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-The result:
+परिणाम:
 
 ![हिस्टोग्राम चार्ट](histogram_chart.png)
 
 ### **रेडार चार्ट बनाएं**
 
-रेडार चार्ट दो‑आयामी प्रारूप में बहुवैधीय डेटा को प्रदर्शित करते हैं, जिससे कई वेरिएबल्स की एक साथ आसान तुलना संभव होती है। ये कई प्रदर्शन मीट्रिक्स या गुणों में पैटर्न, ताकत और कमजोरियों की पहचान करने में विशेष रूप से उपयोगी होते हैं।
+रेडार चार्ट बहु-परिवर्तनीय डेटा को दो-आयामी प्रारूप में प्रदर्शित करते हैं, जिससे कई वैरिएबल्स की एक साथ आसान तुलना संभव होती है। ये कई प्रदर्शन मीट्रिक या गुणों के बीच पैटर्न, ताकत और कमजोरियों की पहचान करने में विशेष रूप से उपयोगी होते हैं।
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class.
 1. Get a reference to a slide using its index.
 1. Add a chart with some data and specify the `ChartType.Radar` type.
 1. Save the modified presentation as a PPTX file.
@@ -809,18 +809,18 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-The result:
+परिणाम:
 
 ![रेडार चार्ट](radar_chart.png)
 
-### **मल्टी‑कैटेगिरी चार्ट बनाएं**
+### **मल्टी-केटेगरी चार्ट बनाएं**
 
-मल्टी‑कैटेगिरी चार्ट उन डेटा को प्रदर्शित करने के लिए उपयोग किए जाते हैं जिनमें एक से अधिक श्रेणीबद्ध समूह होते हैं, जिससे आप कई आयामों में मानों की तुलना एक साथ कर सकते हैं। ये जटिल, बहु‑स्तरीय डेटा सेट में रुझानों और संबंधों का विश्लेषण करने में विशेष रूप से सहायक होते हैं।
+मल्टी-केटेगरी चार्ट उन डेटा को प्रदर्शित करने के लिए उपयोग किए जाते हैं जिनमें एक से अधिक श्रेणी समूह शामिल होते हैं, जिससे आप एक साथ कई आयामों में मानों की तुलना कर सकते हैं। ये जटिल, बहु-परत डेटा सेट में रुझानों और संबंधों का विश्लेषण करने में विशेष रूप से सहायक होते हैं।
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class.
 1. Get a reference to a slide using its index.
 1. Add a chart with default data and specify the `ChartType.ClusteredColumn` type.
-1. Access the chart's data workbook ([IChartDataWorkbook](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/ichartdataworkbook/)).
+1. Access the chart's data workbook ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)).
 1. Clear the default series and categories.
 1. Add new series and categories.
 1. Add new chart data for the chart series.
@@ -862,7 +862,7 @@ using (Presentation presentation = new Presentation())
     category.GroupingLevels.SetGroupingItem(1, "Group4");
     category = chart.ChartData.Categories.Add(workbook.GetCell(0, "c9", "H"));
 
-    // एक सीरीज़ जोड़ें।
+    // एक श्रृंखला जोड़ें।
     IChartSeries series = chart.ChartData.Series.Add(workbook.GetCell(0, "D1", "Series 1"), ChartType.ClusteredColumn);
 
     series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, "D2", 10));
@@ -879,13 +879,13 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-The result:
+परिणाम:
 
-![मल्टि‑कैटेगिरी चार्ट](multi_category_chart.png)
+![मल्टी-केटेगरी चार्ट](multi_category_chart.png)
 
 ### **मैप चार्ट बनाएं**
 
-मैप चार्ट भौगोलिक डेटा को देशों, राज्यों या शहरों जैसी विशिष्ट स्थानों पर मानचित्रित करके दृश्य रूप में प्रस्तुत करते हैं। ये क्षेत्रीय रुझानों, जनसांख्यिकीय डेटा और स्थानिक वितरण का विश्लेषण स्पष्ट और आकर्षक तरीके से करने में विशेष रूप से उपयोगी होते हैं।
+मैप चार्ट भौगोलिक डेटा को विशिष्ट स्थानों जैसे देशों, राज्यों या शहरों पर मानचित्रित करके विज़ुअलाइज़ करने के लिए उपयोग किए जाते हैं। ये क्षेत्रीय रुझानों, जनसांख्यिकीय डेटा और स्थानिक वितरण का स्पष्ट और आकर्षक दृश्य विश्लेषण प्रदान करते हैं।
 
 This C# code shows you how to create a map chart:
 
@@ -901,24 +901,23 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-The result:
+परिणाम:
 
 ![मैप चार्ट](map_chart.png)
 
 {{% alert color="info" %}} 
-The picture above shows the saved presentation opened in PowerPoint. Aspose.Slides writes the map chart and its data correctly, but it does not draw map charts itself: when a slide holding one is rendered to an image or converted to PDF or SVG, the chart area comes out blank. Other shapes on the same slide are unaffected.
+ऊपर दिखाए गए चित्र में PowerPoint में खुली हुई सहेजी गई प्रस्तुति है। Aspose.Slides सही ढंग से मैप चार्ट और उसके डेटा को लिखता है, लेकिन स्वयं मैप चार्ट नहीं बनाता: जब कोई स्लाइड जिसमें मैप चार्ट हो, उसे इमेज में रेंडर किया जाता है या PDF या SVG में परिवर्तित किया जाता है, तो चार्ट क्षेत्र खाली दिखाई देता है। उसी स्लाइड के अन्य शेप्स पर कोई प्रभाव नहीं पड़ता।
 {{% /alert %}} 
 
-### **कंबिनेशन चार्ट बनाएं**
+### **कंबीनेशन चार्ट बनाएं**
 
-कंबिनेशन चार्ट (या कॉम्बो चार्ट) एक ही ग्राफ में दो या अधिक चार्ट प्रकारों को मिलाता है। यह चार्ट आपको दो या अधिक डेटा सेट्स के बीच अंतर को उजागर, तुलना या जांचने की अनुमति देता है, जिससे उनके बीच के संबंधों की पहचान आसान हो जाती है।
+कंबीनेशन चार्ट (या कॉम्बो चार्ट) एक ही ग्राफ़ में दो या अधिक चार्ट प्रकारों को संयोजित करता है। यह चार्ट आपको दो या अधिक डेटा सेट के बीच अंतर को उजागर, तुलना या जांचने में मदद करता है, जिससे उनके बीच के संबंधों की पहचान करना आसान हो जाता है।
 
-![कंबिनेशन चार्ट](combination_chart.png)
+![कंबीनेशन चार्ट](combination_chart.png)
 
-The following C# code shows how to create the combination chart shown above in a PowerPoint presentation:
+निम्नलिखित C# कोड ऊपर दिखाए गए कंबीनेशन चार्ट को PowerPoint प्रस्तुति में बनाने का तरीका दर्शाता है:
 
 ```c#
-using System.Drawing;
 using Aspose.Slides;
 using Aspose.Slides.Charts;
 using Aspose.Slides.Export;
@@ -952,11 +951,11 @@ private static IChart CreateChartWithFirstSeries(ISlide slide)
     portionFormat.FontBold = NullableBool.False;
     portionFormat.FontHeight = 18f;
 
-    // चार्ट लीजेंड सेट करता है
+    // चार्ट लेजेंड सेट करता है
     chart.Legend.Position = LegendPositionType.Bottom;
     chart.Legend.TextFormat.PortionFormat.FontHeight = 12f;
 
-    // डिफ़ॉल्ट उत्पन्न सीरीज़ और श्रेणियों को हटाता है
+    // डिफ़ॉल्ट जेनरेटेड सीरीज़ और श्रेणियों को हटाता है
     chart.ChartData.Series.Clear();
     chart.ChartData.Categories.Clear();
 
@@ -969,7 +968,7 @@ private static IChart CreateChartWithFirstSeries(ISlide slide)
     chart.ChartData.Categories.Add(workbook.GetCell(worksheetIndex, 3, 0, "Category 3"));
     chart.ChartData.Categories.Add(workbook.GetCell(worksheetIndex, 4, 0, "Category 4"));
 
-    // पहली सीरीज़ जोड़ें
+    // पहली श्रृंखला जोड़ें
     IChartSeries series = chart.ChartData.Series.Add(
         workbook.GetCell(worksheetIndex, 0, 1, "Series 1"), chart.Type);
 
@@ -1033,7 +1032,7 @@ private static void SetPrimaryAxesFormat(IChart chart)
 
     SetAxisTitle(verticalAxis, "Y Axis 1");
 
-    // लंबवत प्रमुख ग्रिडलाइन रंग सेट करता है
+    // लंबवत मेज़र ग्रिडलाइन का रंग सेट करता है
     ILineFillFormat majorGridLinesFormat = verticalAxis.MajorGridLinesFormat.Line.FillFormat;
     majorGridLinesFormat.FillType = FillType.Solid;
     majorGridLinesFormat.SolidFillColor.Color = Color.FromArgb(217, 217, 217);
@@ -1073,9 +1072,9 @@ private static void SetAxisTitle(IAxis axis, string axisTitle)
 
 ## **चार्ट अपडेट करें**
 
-Aspose.Slides for .NET आपको PowerPoint चार्ट को डेटा, फॉर्मेटिंग और स्टाइलिंग को संशोधित करके अपडेट करने की सुविधा देता है। यह सुविधा डायनेमिक सामग्री के साथ प्रस्तुतियों को अद्यतन रखने की प्रक्रिया को सरल बनाती है और सुनिश्चित करती है कि चार्ट वर्तमान डेटा और दृश्य मानकों को सटीक रूप से दर्शाते रहें।
+Aspose.Slides for .NET आपको चार्ट डेटा, फ़ॉर्मेटिंग और स्टाइलिंग को संशोधित करके PowerPoint चार्ट अपडेट करने की सुविधा देता है। यह कार्यक्षमता प्रस्तुति को गतिशील सामग्री के साथ अद्यतित रखने की प्रक्रिया को सरल बनाती है और यह सुनिश्चित करती है कि चार्ट वर्तमान डेटा और विज़ुअल मानकों को सटीक रूप से दर्शाते रहें।
 
-1. Instantiate the [Presentation](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation) class that represents the presentation containing a chart.
+1. Instantiate the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class that represents the presentation containing a chart.
 1. Get a reference to a slide using its index.
 1. Traverse through all shapes to find the chart.
 1. Access the chart's data worksheet.
@@ -1092,7 +1091,7 @@ using Aspose.Slides.Export;
 
 const string chartName = "My chart";
 
-// एक PPTX फ़ाइल का प्रतिनिधित्व करने वाले Presentation क्लास का उदाहरण बनाएं।
+// PPTX फ़ाइल का प्रतिनिधित्व करने वाली Presentation क्लास का इंस्टेंस बनाएं।
 using (Presentation presentation = new Presentation("ExistingChart.pptx"))
 {
     // पहली स्लाइड तक पहुंचें।
@@ -1108,15 +1107,15 @@ using (Presentation presentation = new Presentation("ExistingChart.pptx"))
             // चार्ट डेटा वर्कबुक प्राप्त करें।
             IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
 
-            // चार्ट कैटेगरी के नाम बदलें।
+            // चार्ट श्रेणी नाम बदलें।
             workbook.GetCell(worksheetIndex, 1, 0, "Modified Category 1");
             workbook.GetCell(worksheetIndex, 2, 0, "Modified Category 2");
 
             // पहली चार्ट सीरीज़ प्राप्त करें।
             IChartSeries series = chart.ChartData.Series[0];
 
-            // सीरीज़ डेटा अपडेट करें।
-            workbook.GetCell(worksheetIndex, 0, 1, "New_Series 1"); // सीरीज़ का नाम संशोधित किया जा रहा है।
+            // सीरीज़ डेटा को अपडेट करें।
+            workbook.GetCell(worksheetIndex, 0, 1, "New_Series 1"); // सीरीज़ नाम संशोधित किया जा रहा है।
             series.DataPoints[0].Value.Data = 90;
             series.DataPoints[1].Value.Data = 123;
             series.DataPoints[2].Value.Data = 44;
@@ -1124,13 +1123,13 @@ using (Presentation presentation = new Presentation("ExistingChart.pptx"))
             // दूसरी चार्ट सीरीज़ प्राप्त करें।
             series = chart.ChartData.Series[1];
 
-            // सीरीज़ डेटा अपडेट करें।
-            workbook.GetCell(worksheetIndex, 0, 2, "New_Series 2"); // सीरीज़ का नाम संशोधित किया जा रहा है।
+            // सीरीज़ डेटा को अपडेट करें।
+            workbook.GetCell(worksheetIndex, 0, 2, "New_Series 2"); // सीरीज़ नाम संशोधित किया जा रहा है।
             series.DataPoints[0].Value.Data = 23;
             series.DataPoints[1].Value.Data = 67;
             series.DataPoints[2].Value.Data = 99;
 
-            // एक नई सीरीज़ जोड़ें।
+            // नयी सीरीज़ जोड़ें।
             series = chart.ChartData.Series.Add(workbook.GetCell(worksheetIndex, 0, 3, "Series 3"), chart.Type);
 
             // सीरीज़ डेटा भरें।
@@ -1142,16 +1141,18 @@ using (Presentation presentation = new Presentation("ExistingChart.pptx"))
         }
     }
 
-    // चार्ट के साथ प्रस्तुति सहेजें।
+    // चार्ट के साथ प्रस्तुति को सहेजें।
     presentation.Save("AsposeChartModified_out.pptx", SaveFormat.Pptx);
 }
 ```
 
 ## **चार्ट के लिए डेटा रेंज सेट करें**
 
-Aspose.Slides for .NET आपको एक वर्कशीट से विशिष्ट डेटा रेंज को अपने चार्ट के डेटा स्रोत के रूप में परिभाषित करने की लचीलापन देता है। इसका अर्थ है कि आप वर्कशीट के केवल एक भाग को सीधे चार्ट से मैप कर सकते हैं, जिससे आप नियंत्रित कर सकते हैं कि कौन-सी कोशिकाएं चार्ट की सीरीज़ और श्रेणियों में योगदान देती हैं। परिणामस्वरूप, आप अपने चार्ट को वर्कशीट में नवीनतम डेटा परिवर्तनों के साथ आसानी से अपडेट और सिंक्रनाइज़ कर सकते हैं, जिससे आपके PowerPoint प्रस्तुतियों में सटीक और वर्तमान जानकारी बनी रहती है।
+पहले उपयोग की गई रेंज को देखने के लिए, देखें [Retrieve a Chart's Data Range](/slides/hi/net/chart-workbook/#retrieve-a-charts-data-range)।
 
-1. Instantiate the [Presentation](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation) class that represents the presentation containing a chart.
+Aspose.Slides for .NET आपको वर्कशीट से विशिष्ट डेटा रेंज को चार्ट के डेटा स्रोत के रूप में परिभाषित करने की लचीलापन देता है। इसका मतलब है कि आप अपनी वर्कशीट के एक भाग को सीधे चार्ट से मैप कर सकते हैं, जिससे आप नियंत्रित कर सकते हैं कि कौन से सेल्स चार्ट की सीरीज़ और श्रेणियों में योगदान देते हैं। परिणामस्वरूप, आप अपने वर्कशीट में नवीनतम डेटा परिवर्तन के साथ आसानी से अपने चार्ट को अपडेट और सिंक्रनाइज़ कर सकते हैं, जिससे आपकी PowerPoint प्रस्तुतियां वर्तमान और सटीक जानकारी को प्रतिबिंबित करती हैं।
+
+1. Instantiate the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class that represents the presentation containing a chart.
 1. Get a reference to a slide using its index.
 1. Traverse through all shapes to find the chart.
 1. Access the chart data and set the range.
@@ -1166,7 +1167,7 @@ using Aspose.Slides.Export;
 
 const string chartName = "My chart";
 
-// PPTX फ़ाइल का प्रतिनिधित्व करने वाले Presentation क्लास का उदाहरण बनाएं।
+// PPTX फ़ाइल का प्रतिनिधित्व करने वाली Presentation क्लास का इंस्टेंस बनाएं।
 using (Presentation presentation = new Presentation("ExistingChart.pptx"))
 {
     // पहली स्लाइड तक पहुंचें।
@@ -1184,9 +1185,9 @@ using (Presentation presentation = new Presentation("ExistingChart.pptx"))
 }
 ```
 
-## **चार्ट में डिफ़ॉल्ट मार्कर उपयोग करें**
+## **चार्ट में डिफ़ॉल्ट मार्कर्स का उपयोग करें**
 
-जब आप चार्ट में डिफ़ॉल्ट मार्कर उपयोग करते हैं, तो प्रत्येक चार्ट सीरीज़ को स्वचालित रूप से एक अलग डिफ़ॉल्ट मार्कर सिम्बॉल मिलता है।
+जब आप चार्ट में डिफ़ॉल्ट मार्कर्स का उपयोग करते हैं, तो प्रत्येक चार्ट सीरीज़ को स्वचालित रूप से अलग-अलग डिफ़ॉल्ट मार्कर सिंबल मिलते हैं।
 
 This C# code shows you how to set a chart series marker automatically:
 
@@ -1221,7 +1222,7 @@ using (Presentation presentation = new Presentation())
 
     IChartSeries series2 = chart.ChartData.Series.Add(workbook.GetCell(0, 0, 2, "Series 2"), chart.Type);
 
-    // सीरीज़ डेटा भरें।
+    // श्रृंखला डेटा को भरें।
     series2.DataPoints.AddDataPointForLineSeries(workbook.GetCell(0, 1, 2, 30));
     series2.DataPoints.AddDataPointForLineSeries(workbook.GetCell(0, 2, 2, 10));
     series2.DataPoints.AddDataPointForLineSeries(workbook.GetCell(0, 3, 2, 60));
@@ -1236,18 +1237,18 @@ using (Presentation presentation = new Presentation())
 
 ## **अक्सर पूछे जाने वाले प्रश्न**
 
-**Aspose.Slides for .NET कौन‑से चार्ट प्रकारों का समर्थन करता है?**
+**Aspose.Slides for .NET द्वारा कौन से चार्ट प्रकार समर्थित हैं?**
 
-Aspose.Slides for .NET कई प्रकार के चार्ट समर्थन करता है, जिसमें बार, लाइन, पाई, एरिया, स्कैटर, हिस्टोग्राम, रेडार और कई अन्य शामिल हैं। यह लचीलापन आपको अपने डेटा विज़ुअलाइज़ेशन की आवश्यकताओं के लिए सबसे उपयुक्त चार्ट प्रकार चुनने की अनुमति देता है।
+Aspose.Slides for .NET बार, लाइन, पाई, एरिया, स्कैटर, हिस्टोग्राम, रेडार और कई अन्य सहित विस्तृत प्रकार के चार्ट समर्थन करता है। यह लचीलापन आपको अपनी डेटा विज़ुअलाइज़ेशन आवश्यकताओं के लिए सबसे उपयुक्त चार्ट प्रकार चुनने की अनुमति देता है।
 
-**मैं स्लाइड में नया चार्ट कैसे जोड़ सकता हूँ?**
+**मैं किसी स्लाइड में नया चार्ट कैसे जोड़ूं?**
 
-चार्ट जोड़ने के लिए, पहले आप [Presentation](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation) क्लास की एक इंस्टेंस बनाते हैं, इच्छित स्लाइड को उसके इंडेक्स से प्राप्त करते हैं, और फिर चार्ट जोड़ने के मेथड को कॉल करके चार्ट प्रकार और प्रारंभिक डेटा निर्दिष्ट करते हैं। यह प्रक्रिया चार्ट को सीधे आपकी प्रस्तुति में समाहित करती है।
+एक चार्ट जोड़ने के लिए, पहले आप [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) क्लास का एक इंस्टेंस बनाते हैं, इच्छित स्लाइड को उसके इंडेक्स से प्राप्त करते हैं, और फिर चार्ट जोड़ने की विधि को कॉल करते हैं, जिसमें चार्ट प्रकार और प्रारंभिक डेटा निर्दिष्ट किया जाता है। यह प्रक्रिया चार्ट को सीधे आपकी प्रस्तुति में इंटीग्रेट करती है।
 
-**मैं चार्ट में प्रदर्शित डेटा कैसे अपडेट कर सकता हूँ?**
+**मैं चार्ट में प्रदर्शित डेटा को कैसे अपडेट कर सकता हूँ?**
 
-आप चार्ट के डेटा वर्कबुक ([IChartDataWorkbook](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/ichartdataworkbook/)) तक पहुंचकर, डिफ़ॉल्ट सीरीज़ और श्रेणियों को साफ़ करके, और फिर अपना कस्टम डेटा जोड़कर चार्ट के डेटा को अपडेट कर सकते हैं। इससे आप प्रोग्रामेटिक रूप से चार्ट को नवीनतम डेटा के साथ पुनः रिफ़्रेश कर सकते हैं।
+आप चार्ट की डेटा वर्कबुक ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)) तक पहुंचकर, डिफ़ॉल्ट सीरीज़ और श्रेणियों को साफ़ करके, और फिर अपनी कस्टम डेटा जोड़कर चार्ट डेटा अपडेट कर सकते हैं। यह आपको नवीनतम डेटा को प्रतिबिंबित करने के लिए प्रोग्रामेटिक रूप से चार्ट को रीफ़्रेश करने में सक्षम बनाता है।
 
 **क्या चार्ट की उपस्थिति को कस्टमाइज़ करना संभव है?**
 
-हाँ, Aspose.Slides for .NET व्यापक कस्टमाइज़ेशन विकल्प प्रदान करता है। आप रंग, फ़ॉन्ट, लेबल, लेजेंड और अन्य फॉर्मेटिंग तत्वों को संशोधित करके चार्ट की उपस्थिति को अपनी विशिष्ट डिज़ाइन आवश्यकताओं के अनुसार अनुकूलित कर सकते हैं।
+हाँ, Aspose.Slides for .NET विस्तृत कस्टमाइज़ेशन विकल्प प्रदान करता है। आप रंग, फ़ॉन्ट, लेबल, लेजेंड और अन्य फ़ॉर्मेटिंग तत्वों को बदलकर चार्ट की उपस्थिति को अपनी विशिष्ट डिज़ाइन आवश्यकताओं के अनुसार ढाल सकते हैं।

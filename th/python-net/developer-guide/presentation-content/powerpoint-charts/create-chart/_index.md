@@ -8,65 +8,63 @@ keywords:
 - เพิ่มแผนภูมิ
 - สร้างแผนภูมิ
 - แก้ไขแผนภูมิ
-- เปลี่ยนแผนภูมิ
+- เปลี่ยนแปลงแผนภูมิ
 - อัปเดตแผนภูมิ
 - แผนภูมิกระจาย
 - แผนภูมิวงกลม
 - แผนภูมิเส้น
-- แผนภูมิโครงไม้
-- แผนภูมิสต็อก
-- แผนภูมิกล่องและหนวด
-- แผนภูมิลูกบกา
-- แผนภูมิ Sunburst
-- แผนภูมิ Histogram
-- แผนภูมิ Radar
-- แผนภูมิหลายหมวดหมู่
-- งานนำเสนอ PowerPoint
+- แผนภูมิต้นไม้แผนที่
+- แผนภูมิตลาดหุ้น
+- แผนภูมิกล่องและหนวดยาว
+- แผนภูมิกรวย
+- แผนภูมิดาว
+- แผนภูมิฮิสโตแกรม
+- แผนภูมิเรดาร์
+- แผนภูมิหลายหมวด
+- การนำเสนอ PowerPoint
 - Python
 - Aspose.Slides
-description: "เรียนรู้วิธีสร้างและปรับแต่งแผนภูมิในงานนำเสนอ PowerPoint และ OpenDocument ด้วย Aspose.Slides for Python via .NET รวมถึงการเพิ่ม การจัดรูปแบบ และการแก้ไขแผนภูมิในงานนำเสนอด้วยตัวอย่างโค้ดที่ใช้งานได้จริงใน Python."
+description: "เรียนรู้วิธีสร้างและปรับแต่งแผนภูมิในงานนำเสนอ PowerPoint และ OpenDocument ด้วย Aspose.Slides for Python via .NET. พื้นที่ครอบคลุมการเพิ่ม, การจัดรูปแบบ, และการแก้ไขแผนภูมิในงานนำเสนอพร้อมตัวอย่างโค้ดที่ใช้งานจริงใน Python."
 ---
 ## **ภาพรวม**
 
-บทความนี้อธิบายวิธีการสร้างและปรับแต่งแผนภูมิด้วย Aspose.Slides for Python via .NET คุณจะได้เรียนรู้วิธีการเพิ่มแผนภูมิในสไลด์, เติมข้อมูลให้แผนภูมิ, และจัดรูปแบบให้ตรงกับข้อกำหนดการออกแบบของคุณ ตัวอย่างโค้ดครอบคลุมการสร้างงานนำเสนอและแผนภูมิ, การกำหนดค่าซีรีส์, แกน, และคำอธิบาย, รวมถึงการรวมการสร้างแผนภูมิเข้าสู่แอปพลิเคชันของคุณ
+บทความนี้อธิบายวิธีสร้างและปรับแต่งแผนภูมิด้วย Aspose.Slides for Python via .NET คุณจะได้เรียนรู้วิธีเพิ่มแผนภูมิในสไลด์, เติมข้อมูลให้แผนภูมิ, และจัดรูปแบบให้ตรงกับความต้องการออกแบบของคุณ ตัวอย่างโค้ดครอบคลุมการสร้างงานนำเสนอและแผนภูมิ, การกำหนดค่า series, แกน, และ legend, รวมถึงการผสานการสร้างแผนภูมิกับแอปพลิเคชันของคุณ
 
 ## **สร้างแผนภูมิ**
 
-แผนภูมิช่วยให้ผู้ใช้มองเห็นข้อมูลได้อย่างรวดเร็วและสังเกตข้อสรุปที่อาจไม่ชัดเจนจากตารางหรือสเปรดชีต
+แผนภูมิช่วยให้ผู้ใช้มองเห็นข้อมูลได้อย่างรวดเร็วและสังเกตข้อมูลเชิงลึกที่อาจไม่เห็นได้จากตารางหรือสเปรดชีต
 
 **ทำไมต้องสร้างแผนภูมิ?**
 
-โดยใช้แผนภูมิคุณสามารถ:
+เมื่อใช้แผนภูมิคุณสามารถ:
 
-* รวม, ย่อ, หรือสรุปข้อมูลจำนวนมากบนสไลด์เดียวในงานนำเสนอ;
-* เปิดเผยรูปแบบและแนวโน้มของข้อมูล;
-* สรุปทิศทางและโมเมนตัมของข้อมูลตามเวลา หรือเทียบกับหน่วยวัดเฉพาะ;
-* ค้นหาค่าผิดปกติ, ความเบี่ยงเบน, ข้อผิดพลาด, และข้อมูลที่ไม่มีความหมาย;
-* สื่อสารหรือแสดงข้อมูลที่ซับซ้อน
+* รวม, ย่อ, หรือสรุปข้อมูลจำนวนมากในสไลด์เดียวของงานนำเสนอ
+* แสดงรูปแบบและแนวโน้มของข้อมูล
+* สรุปทิศทางและโมเมนตัมของข้อมูลตามเวลา หรือเทียบกับหน่วยวัดเฉพาะ
+* พบค่าผิดปกติ, ความเบี่ยงเบน, ข้อผิดพลาด, และข้อมูลที่ไม่มีความหมาย
+* สื่อสารหรือแสดงข้อมูลที่ซับซ้อนได้
 
-ใน PowerPoint คุณสามารถสร้างแผนภูมิผ่านฟังก์ชัน *Insert* ซึ่งมีแม่แบบสำหรับออกแบบแผนภูมิมากมาย การใช้ Aspose.Slides คุณสามารถสร้างแผนภูมิปกติ (ตามประเภทแผนภูมิยอดนิยม) และแผนภูมิที่กำหนดเองได้
+ใน PowerPoint คุณสามารถสร้างแผนภูมิผ่านฟังก์ชัน *Insert* ซึ่งมีแม่แบบสำหรับออกแบบแผนภูมิต่าง ๆ ด้วย Aspose.Slides คุณสามารถสร้างแผนภูมิปกติ (จากประเภทแผนภูมิที่นิยม) และแผนภูกำหนดเองได้
 
-{{% alert color="info" title="หมายเหตุ" %}}
-
-ใช้ enumeration [ChartType](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/charttype/) ภายใต้ namespace [Aspose.Slides.Charts](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/) ค่าต่าง ๆ ใน enumeration นี้สอดคล้องกับประเภทแผนภูมิต่าง ๆ
-
+{{% alert color="info" title="Note" %}}
+ใช้ enumeration [ChartType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttype/) ภายในเนมสเปซ [Aspose.Slides.Charts](https://reference.aspose.com/slides/python-net/aspose.slides.charts/) ค่าต่าง ๆ ใน enumeration นี้สอดคล้องกับประเภทแผนภูมิแต่ละแบบ
 {{% /alert %}}
 
 ### **สร้างแผนภูมิคอลัมน์แบบกลุ่ม**
 
-ส่วนนี้อธิบายวิธีการสร้างแผนภูมิคอลัมน์แบบกลุ่มด้วย Aspose.Slides for Python via .NET คุณจะได้เรียนรู้การเริ่มต้นงานนำเสนอ, เพิ่มแผนภูมิ, และปรับแต่งองค์ประกอบต่าง ๆ เช่น ชื่อ, ข้อมูล, ซีรีส์, หมวดหมู่, และสไตล์ ทำตามขั้นตอนด้านล่างเพื่อดูการสร้างแผนภูมิคอลัมน์แบบกลุ่มมาตรฐาน:
+ส่วนนี้อธิบายวิธีสร้างแผนภูมิคอลัมน์แบบกลุ่มด้วย Aspose.Slides for Python via .NET คุณจะเรียนรู้การเริ่มต้นงานนำเสนอ, เพิ่มแผนภูมิ, และปรับแต่งองค์ประกอบต่าง ๆ เช่น ชื่อเรื่อง, ข้อมูล, series, หมวดหมู่, และสไตล์ ทำตามขั้นตอนด้านล่างเพื่อดูว่าการสร้างแผนภูมิคอลัมน์แบบกลุ่มมาตรฐานทำอย่างไร:
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentation/)  
-1. รับอ้างอิงสไลด์โดยใช้ดัชนีของมัน  
-1. เพิ่มแผนภูมิพร้อมข้อมูลบางส่วนและกำหนดประเภท `ChartType.CLUSTERED_COLUMN`  
-1. เพิ่มชื่อให้กับแผนภูมิ  
-1. เข้าถึงเวิร์กชีตข้อมูลของแผนภูมิ  
-1. ลบซีรีส์และหมวดหมู่เริ่มต้นทั้งหมด  
-1. เพิ่มซีรีส์และหมวดหมู่ใหม่  
-1. เพิ่มข้อมูลแผนภูมิใหม่สำหรับซีรีส์  
-1. กำหนดสีเติมให้กับซีรีส์ของแผนภูมิ  
-1. เพิ่มป้ายชื่อให้กับซีรีส์ของแผนภูมิ  
-1. บันทึกงานนำเสนอที่แก้ไขเป็นไฟล์ PPTX  
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)
+2. รับอ้างอิงไปยังสไลด์โดยใช้ดัชนีของสไลด์
+3. เพิ่มแผนภูมิกับข้อมูลบางส่วนและระบุประเภท `ChartType.CLUSTERED_COLUMN`
+4. เพิ่มชื่อเรื่องให้แผนภูมิ
+5. เข้าถึง worksheet ของข้อมูลแผนภูมิ
+6. ลบ series และ category เริ่มต้นทั้งหมด
+7. เพิ่ม series และ category ใหม่
+8. เพิ่มข้อมูลใหม่ให้ series ของแผนภูมิ
+9. กำหนดสีเติมให้ series ของแผนภูมิ
+10. เพิ่มป้ายกำกับให้ series ของแผนภูมิ
+11. บันทึกงานนำเสนอที่แก้ไขเป็นไฟล์ PPTX
 
 โค้ด Python นี้แสดงวิธีสร้างแผนภูมิคอลัมน์แบบกลุ่ม:
 
@@ -75,78 +73,78 @@ import aspose.slides.charts as charts
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
-# สร้างอินสแตนซ์ของคลาส Presentation ที่แสดงไฟล์ PPTX.
+# สร้างอินสแตนซ์ของคลาส Presentation ที่แทนไฟล์ PPTX
 with slides.Presentation() as presentation:
 
-    # เข้าถึงสไลด์แรก.
+    # เข้าถึงสไลด์แรก
     slide = presentation.slides[0]
 
-    # เพิ่มแผนภูมิคอลัมน์แบบกลุ่มพร้อมข้อมูลเริ่มต้น.
+    # เพิ่มแผนภูมิคอลัมน์แบบกลุ่มพร้อมข้อมูลเริ่มต้น
     chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 20, 20, 500, 300)
 
-    # ตั้งค่าชื่อแผนภูมิ.
+    # ตั้งค่าชื่อเรื่องของแผนภูมิ
     chart.chart_title.add_text_frame_for_overriding("Sample Title")
     chart.chart_title.text_frame_for_overriding.text_frame_format.center_text = slides.NullableBool.TRUE
     chart.chart_title.height = 20
     chart.has_title = True
 
-    # กำหนดดัชนีของแผ่นข้อมูลแผนภูมิ.
+    # ตั้งค่าดัชนีของชีตข้อมูลแผนภูมิ
     worksheet_index = 0
 
-    # รับเวิร์กบุ๊กข้อมูลของแผนภูมิ.
+    # ดึง workbook ของข้อมูลแผนภูมิ
     workbook = chart.chart_data.chart_data_workbook
 
-    # ลบซีรีส์และหมวดหมู่ที่สร้างโดยค่าเริ่มต้น.
+    # ลบ series และ category ที่สร้างโดยอัตโนมัติ
     chart.chart_data.series.clear()
     chart.chart_data.categories.clear()
 
-    # เพิ่มซีรีส์ใหม่.
+    # เพิ่ม series ใหม่
     chart.chart_data.series.add(workbook.get_cell(worksheet_index, 0, 1, "Series 1"), chart.type)
     chart.chart_data.series.add(workbook.get_cell(worksheet_index, 0, 2, "Series 2"), chart.type)
 
-    # เพิ่มหมวดหมู่ใหม่.
+    # เพิ่ม category ใหม่
     chart.chart_data.categories.add(workbook.get_cell(worksheet_index, 1, 0, "Category 1"))
     chart.chart_data.categories.add(workbook.get_cell(worksheet_index, 2, 0, "Category 2"))
     chart.chart_data.categories.add(workbook.get_cell(worksheet_index, 3, 0, "Category 3"))
 
-    # รับซีรีส์แผนภูม้อันดับแรก.
+    # ดึง series แผนภูมิแรก
     series = chart.chart_data.series[0]
 
-    # เติมข้อมูลให้ซีรีส์.
+    # เติมข้อมูลให้ series
     series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 1, 1, 20))
     series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 2, 1, 50))
     series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 3, 1, 30))
 
-    # กำหนดสีเติมให้กับซีรีส์.
+    # ตั้งค่าสีเติมสำหรับ series
     series.format.fill.fill_type = slides.FillType.SOLID
     series.format.fill.solid_fill_color.color = draw.Color.red
 
-    # รับซีรีส์แผนภูมิที่สอง.
+    # ดึง series แผนภูมิที่สอง
     series = chart.chart_data.series[1]
 
-    # เติมข้อมูลให้ซีรีส์.
+    # เติมข้อมูลให้ series
     series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 1, 2, 30))
     series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 2, 2, 10))
     series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 3, 2, 60))
 
-    # กำหนดสีเติมให้กับซีรีส์.
+    # ตั้งค่าสีเติมสำหรับ series
     series.format.fill.fill_type = slides.FillType.SOLID
     series.format.fill.solid_fill_color.color = draw.Color.green
 
-    # ตั้งค่าป้ายกำกับแรกให้แสดงชื่อหมวดหมู่.
+    # ตั้งค่าป้ายแรกให้แสดงชื่อ category
     label = series.data_points[0].label
     label.data_label_format.show_category_name = True
 
     label = series.data_points[1].label
     label.data_label_format.show_series_name = True
 
-    # ตั้งค่าซีรีส์ให้แสดงค่าของป้ายกำกับที่สาม.
+    # ตั้งค่า series ให้แสดงค่าในป้ายที่สาม
     label = series.data_points[2].label
     label.data_label_format.show_value = True
     label.data_label_format.show_series_name = True
     label.data_label_format.separator = "/"
                 
-    # บันทึกการนำเสนอเป็นไฟล์ PPTX บนดิสก์.
+    # บันทึกการนำเสนอลงดิสก์เป็นไฟล์ PPTX
     presentation.save("ClusteredColumnChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
@@ -156,16 +154,16 @@ with slides.Presentation() as presentation:
 
 ### **สร้างแผนภูมิกระจาย**
 
-แผนภูมิกระจาย (หรือ scatter plot, กราฟ x‑y) มักใช้เพื่อค้นหารูปแบบหรือแสดงความสัมพันธ์ระหว่างสองตัวแปร
+แผนภูมิกระจาย (หรือ scatter plot, x‑y graph) มักใช้เพื่อตรวจสอบรูปแบบหรือแสดงความสัมพันธ์ระหว่างสองตัวแปร
 
 ใช้แผนภูมิกระจายเมื่อ:
 
-* คุณมีข้อมูลตัวเลขที่จับคู่กัน  
-* คุณมีสองตัวแปรที่สัมพันธ์กันอย่างดี  
-* คุณต้องการตรวจสอบว่าตัวแปรทั้งสองเกี่ยวข้องกันหรือไม่  
-* คุณมีตัวแปรอิสระที่มีค่าหลายค่าสำหรับตัวแปรตาม  
+* มีข้อมูลเชิงตัวเลขเป็นคู่
+* มีสองตัวแปรที่สัมพันธ์กันดี
+* ต้องการตรวจสอบว่าตัวแปรสองตัวนั้นเกี่ยวข้องกันหรือไม่
+* มีตัวแปรอิสระที่มีค่าหลายค่าเป็นตัวแปรตาม
 
-โค้ด Python นี้แสดงวิธีสร้างแผนภูมิกระจายโดยใช้เครื่องหมายต่าง ๆ สำหรับแต่ละซีรีส์:
+โค้ด Python นี้แสดงวิธีสร้างแผนภูมิกระจายโดยใช้เครื่องหมายแบบต่าง ๆ สำหรับแต่ละ series:
 
 ```py
 import aspose.slides.charts as charts
@@ -181,39 +179,39 @@ with slides.Presentation() as presentation:
     # สร้างแผนภูมิ scatter เริ่มต้น.
     chart = slide.shapes.add_chart(charts.ChartType.SCATTER_WITH_SMOOTH_LINES, 20, 20, 500, 300)
 
-    # กำหนดดัชนีของแผ่นข้อมูลแผนภูมิ.
+    # ตั้งค่าดัชนีของชีตข้อมูลแผนภูมิ.
     worksheet_index = 0
 
-    # รับเวิร์กบุ๊กข้อมูลของแผนภูมิ.
+    # ดึง workbook ของข้อมูลแผนภูมิ.
     workbook = chart.chart_data.chart_data_workbook
 
-    # ลบซีรีส์เริ่มต้น.
+    # ลบ series เริ่มต้น.
     chart.chart_data.series.clear()
 
-    # เพิ่มซีรีส์ใหม่.
+    # เพิ่ม series ใหม่.
     chart.chart_data.series.add(workbook.get_cell(worksheet_index, 1, 1, "Series 1"), chart.type)
     chart.chart_data.series.add(workbook.get_cell(worksheet_index, 1, 3, "Series 2"), chart.type)
 
-    # รับซีรีส์แผนภูม้อันดับแรก.
+    # ดึง series แผนภูมิแรก.
     series = chart.chart_data.series[0]
 
-    # เพิ่มจุดใหม่ (1:3) ให้กับซีรีส์.
+    # เพิ่มจุดใหม่ (1:3) ให้ series.
     series.data_points.add_data_point_for_scatter_series(workbook.get_cell(worksheet_index, 2, 1, 1), workbook.get_cell(worksheet_index, 2, 2, 3))
 
     # เพิ่มจุดใหม่ (2:10).
     series.data_points.add_data_point_for_scatter_series(workbook.get_cell(worksheet_index, 3, 1, 2), workbook.get_cell(worksheet_index, 3, 2, 10))
 
-    # เปลี่ยนประเภทของซีรีส์.
+    # เปลี่ยนประเภทของ series.
     series.type = charts.ChartType.SCATTER_WITH_STRAIGHT_LINES_AND_MARKERS
 
-    # เปลี่ยนเครื่องหมายของซีรีส์แผนภูมิ.
+    # เปลี่ยนเครื่องหมายของ series ในแผนภูมิ.
     series.marker.size = 10
     series.marker.symbol = charts.MarkerStyleType.STAR
 
-    # รับซีรีส์แผนภูมิที่สอง.
+    # ดึง series แผนภูมิที่สอง.
     series = chart.chart_data.series[1]
 
-    # เพิ่มจุดใหม่ (5:2) ให้กับซีรีส์แผนภูมิ.
+    # เพิ่มจุดใหม่ (5:2) ให้ series ของแผนภูมิ.
     series.data_points.add_data_point_for_scatter_series(workbook.get_cell(worksheet_index, 2, 3, 5), workbook.get_cell(worksheet_index, 2, 4, 2))
 
     # เพิ่มจุดใหม่ (3:1).
@@ -225,7 +223,7 @@ with slides.Presentation() as presentation:
     # เพิ่มจุดใหม่ (5:1).
     series.data_points.add_data_point_for_scatter_series(workbook.get_cell(worksheet_index, 5, 3, 5), workbook.get_cell(worksheet_index, 5, 4, 1))
 
-    # เปลี่ยนเครื่องหมายของซีรีส์แผนภูมิ.
+    # เปลี่ยนเครื่องหมายของ series ในแผนภูมิ.
     series.marker.size = 10
     series.marker.symbol = charts.MarkerStyleType.CIRCLE
 
@@ -236,64 +234,64 @@ with slides.Presentation() as presentation:
 
 ![แผนภูมิกระจาย](scatter_chart.png)
 
-### **สร้างแผนภูมิวงกลม**
+### **สร้างแผนภูมิพิซซ่า**
 
-แผนภูมิวงกลมเหมาะกับการแสดงความสัมพันธ์ส่วนต่อส่วนของข้อมูล โดยเฉพาะเมื่อข้อมูลมีป้ายชื่อแบบหมวดหมู่พร้อมค่าตัวเลข อย่างไรก็ตาม หากข้อมูลของคุณมีหลายส่วนหรือหลายป้ายชื่อ คุณอาจพิจารณาใช้แผนภูมิบาร์แทน
+แผนภูมิเพียน (pie chart) เหมาะสำหรับแสดงความสัมพันธ์ส่วนต่อส่วนของข้อมูล โดยเฉพาะเมื่อข้อมูลมีป้ายชื่อแบบหมวดหมู่พร้อมค่าตัวเลข อย่างไรก็ตาม หากข้อมูลของคุณมีส่วนหรือป้ายชื่อจำนวนมาก คุณอาจพิจารณาใช้แผนภูมิแท่งแทน
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentation/)  
-1. รับอ้างอิงสไลด์โดยใช้ดัชนีของมัน  
-1. เพิ่มแผนภูมิพร้อมข้อมูลเริ่มต้นและกำหนดประเภท `ChartType.PIE`  
-1. เข้าถึงเวิร์กบุ๊กข้อมูลของแผนภูมิ ([ChartDataWorkbook](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/chartdataworkbook/))  
-1. ลบซีรีส์และหมวดหมู่เริ่มต้น  
-1. เพิ่มซีรีส์และหมวดหมู่ใหม่  
-1. เพิ่มข้อมูลแผนภูมิใหม่สำหรับซีรีส์  
-1. เพิ่มจุดใหม่สำหรับแผนภูมิและกำหนดสีที่กำหนดเองให้กับส่วนของแผนภูมิวงกลม  
-1. ตั้งค่าป้ายชื่อสำหรับซีรีส์  
-1. เปิดใช้เส้นนำสำหรับป้ายชื่อซีรีส์  
-1. ตั้งค่ามุมการหมุนของแผนภูมิวงกลม  
-1. บันทึกงานนำเสนอที่แก้ไขเป็นไฟล์ PPTX  
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)
+2. รับอ้างอิงไปยังสไลด์โดยใช้ดัชนีของสไลด์
+3. เพิ่มแผนภูมิกับข้อมูลเริ่มต้นและระบุประเภท `ChartType.PIE`
+4. เข้าถึง workbook ของข้อมูลแผนภูมิ ([ChartDataWorkbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/))
+5. ลบ series และ category เริ่มต้น
+6. เพิ่ม series และ category ใหม่
+7. เพิ่มข้อมูลใหม่ให้ series ของแผนภูมิ
+8. เพิ่มจุดใหม่ให้แผนภูมิและกำหนดสีแบบกำหนดเองให้กับส่วนของแผนภูมิพิซซ่า
+9. ตั้งค่าป้ายกำกับสำหรับ series
+10. เปิดใช้งาน leader lines สำหรับป้ายกำกับของ series
+11. กำหนดมุมการหมุนของแผนภูมิพิซซ่า
+12. บันทึกงานนำเสนอที่แก้ไขเป็นไฟล์ PPTX
 
-โค้ด Python นี้แสดงวิธีสร้างแผนภูมิวงกลม:
+โค้ด Python นี้แสดงวิธีสร้างแผนภูมิพิซซ่า:
 
 ```py
 import aspose.slides.charts as charts
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
-# สร้างอินสแตนซ์ของคลาส Presentation ที่แสดงไฟล์ PPTX.
+# สร้างอินสแตนซ์ของคลาส Presentation ที่แทนไฟล์ PPTX.
 with slides.Presentation() as presentation:
 
     # เข้าถึงสไลด์แรก.
     slide = presentation.slides[0]
 
-    # เพิ่มแผนภูมิกับข้อมูลเริ่มต้น.
+    # เพิ่มแผนภูมิพร้อมข้อมูลเริ่มต้น.
     chart = slide.shapes.add_chart(charts.ChartType.PIE, 20, 20, 500, 300)
 
-    # ตั้งค่าชื่อแผนภูมิ.
+    # ตั้งค่าชื่อเรื่องของแผนภูมิ.
     chart.chart_title.add_text_frame_for_overriding("Sample Title")
     chart.chart_title.text_frame_for_overriding.text_frame_format.center_text = slides.NullableBool.TRUE
     chart.chart_title.height = 20
     chart.has_title = True
 
-    # ตั้งค่าดัชนีของแผ่นข้อมูลแผนภูมิ.
+    # ตั้งค่าดัชนีของชีตข้อมูลแผนภูมิ.
     worksheet_index = 0
 
-    # รับเวิร์กบุ๊กข้อมูลของแผนภูมิ.
+    # ดึง workbook ของข้อมูลแผนภูมิ.
     workbook = chart.chart_data.chart_data_workbook
 
-    # ลบซีรีส์และหมวดหมู่ที่สร้างโดยค่าเริ่มต้น.
+    # ลบ series และ category ที่สร้างโดยอัตโนมัติ.
     chart.chart_data.series.clear()
     chart.chart_data.categories.clear()
 
-    # เพิ่มหมวดหมู่ใหม่.
+    # เพิ่ม category ใหม่.
     chart.chart_data.categories.add(workbook.get_cell(0, 1, 0, "First Qtr"))
     chart.chart_data.categories.add(workbook.get_cell(0, 2, 0, "2nd Qtr"))
     chart.chart_data.categories.add(workbook.get_cell(0, 3, 0, "3rd Qtr"))
 
-    # เพิ่มซีรีส์ใหม่.
+    # เพิ่ม series ใหม่.
     series = chart.chart_data.series.add(workbook.get_cell(0, 0, 1, "Series 1"), chart.type)
 
-    # เติมข้อมูลให้ซีรีส์.
+    # เติมข้อมูลให้ series.
     series.data_points.add_data_point_for_pie_series(workbook.get_cell(worksheet_index, 1, 1, 20))
     series.data_points.add_data_point_for_pie_series(workbook.get_cell(worksheet_index, 2, 1, 50))
     series.data_points.add_data_point_for_pie_series(workbook.get_cell(worksheet_index, 3, 1, 30))
@@ -334,7 +332,7 @@ with slides.Presentation() as presentation:
     point2.format.line.style = slides.LineStyle.THIN_THIN
     point2.format.line.dash_style = slides.LineDashStyle.LARGE_DASH_DOT_DOT
 
-    # สร้างป้ายกำกับแบบกำหนดเองสำหรับแต่ละหมวดหมู่ในซีรีส์ใหม่.
+    # สร้างป้ายกำกับแบบกำหนดเองสำหรับแต่ละ category ใน series ใหม่.
     label1 = series.data_points[0].label
 
     label1.data_label_format.show_value = True
@@ -348,28 +346,28 @@ with slides.Presentation() as presentation:
     label3.data_label_format.show_series_name = True
     label3.data_label_format.show_percentage = True
 
-    # ตั้งค่าให้ซีรีส์แสดงเส้นเชื่อมสำหรับแผนภูมิ.
+    # ตั้งค่า series ให้แสดงเส้นนำสำหรับแผนภูมิ.
     series.labels.default_data_label_format.show_leader_lines = True
 
-    # ตั้งค่ามุมการหมุนของส่วนแผนภูมิวงกลม.
+    # ตั้งค่ามุมการหมุนของส่วนแผนภูมิพาย.
     chart.chart_data.series_groups[0].first_slice_angle = 180
 
-    # บันทึกการนำเสนอเป็นไฟล์ PPTX บนดิสก์.
+    # บันทึกการนำเสนอลงดิสก์เป็นไฟล์ PPTX.
     presentation.save("PieChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ผลลัพธ์:
 
-![แผนภูมิวงกลม](pie_chart.png)
+![แผนภูมิพิซซ่า](pie_chart.png)
 
 ### **สร้างแผนภูมิเส้น**
 
-แผนภูมิเส้น (หรือ line graph) เหมาะกับการแสดงการเปลี่ยนแปลงของค่าตามเวลา ด้วยแผนภูมิเส้นคุณสามารถเปรียบเทียบข้อมูลจำนวนมากพร้อมกัน, ติดตามการเปลี่ยนแปลงและแนวโน้มตามเวลา, ไฮไลท์ความผิดปกติในซีรีส์ข้อมูล, ฯลฯ
+แผนภูมิเส้น (หรือ line graph) เหมาะสำหรับแสดงการเปลี่ยนแปลงของค่าเมื่อเวลาผ่านไป ด้วยแผนภูมิเส้นคุณสามารถเปรียบเทียบข้อมูลจำนวนมากพร้อมกัน, ติดตามการเปลี่ยนแปลงและแนวโน้มตามเวลา, เน้นความผิดปกติใน series ของข้อมูล, และอื่น ๆ
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentation/)  
-1. รับอ้างอิงสไลด์โดยใช้ดัชนีของมัน  
-1. เพิ่มแผนภูมิพร้อมข้อมูลเริ่มต้นและกำหนดประเภท `ChartType.LINE`  
-1. บันทึกงานนำเสนอที่แก้ไขเป็นไฟล์ PPTX  
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)
+2. รับอ้างอิงไปยังสไลด์โดยใช้ดัชนีของสไลด์
+3. เพิ่มแผนภูมิกับข้อมูลเริ่มต้นและระบุประเภท `ChartType.LINE`
+4. บันทึกงานนำเสนอที่แก้ไขเป็นไฟล์ PPTX
 
 โค้ด Python นี้แสดงวิธีสร้างแผนภูมิเส้น:
 
@@ -382,7 +380,7 @@ with slides.Presentation() as presentation:
     presentation.save("LineChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-โดยค่าเริ่มต้น จุดบนแผนภูมิเส้นจะเชื่อมต่อด้วยเส้นตรงต่อเนื่อง หากต้องการให้จุดเชื่อมด้วยเส้นประ สามารถกำหนดประเภทเส้นประที่ต้องการได้ดังนี้:
+โดยค่าเริ่มต้น จุดบนแผนภูมิเส้นจะเชื่อมต่อด้วยเส้นตรงต่อเนื่อง หากต้องการให้จุดเชื่อมต่อด้วยเส้นประ สามารถระบุรูปแบบ dash ที่ต้องการได้ดังนี้:
 
 ```python
 import aspose.slides as slides
@@ -400,20 +398,20 @@ with slides.Presentation() as presentation:
 
 ![แผนภูมิเส้น](line_chart.png)
 
-### **สร้างแผนภูมิ Tree Map**
+### **สร้างแผนภูมิต้นไม้แผนที่ (Tree Map)**
 
-แผนภูมิ Tree Map เหมาะกับข้อมูลการขายเมื่อคุณต้องการแสดงขนาดสัมพันธ์ของหมวดหมู่ข้อมูลและดึงความสนใจไปยังรายการที่มีส่วนร่วมมากในแต่ละหมวดหมู่
+แผนภูมิต้นไม้แผนที่เหมาะสำหรับข้อมูลการขายเมื่อคุณต้องการแสดงขนาดสัมพัทธ์ของหมวดหมู่ข้อมูลและดึงความสนใจไปยังรายการที่มีส่วนร่วมสูงในแต่ละหมวดหมู่
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentation/)  
-1. รับอ้างอิงสไลด์โดยใช้ดัชนีของมัน  
-1. เพิ่มแผนภูมิพร้อมข้อมูลเริ่มต้นและกำหนดประเภท `ChartType.TREEMAP`  
-1. เข้าถึงเวิร์กบุ๊กข้อมูลของแผนภูมิ ([ChartDataWorkbook](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/chartdataworkbook/))  
-1. ลบซีรีส์และหมวดหมู่เริ่มต้น  
-1. เพิ่มซีรีส์และหมวดหมู่ใหม่  
-1. เพิ่มข้อมูลแผนภูมิใหม่สำหรับซีรีส์  
-1. บันทึกงานนำเสนอที่แก้ไขเป็นไฟล์ PPTX  
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)
+2. รับอ้างอิงไปยังสไลด์โดยใช้ดัชนีของสไลด์
+3. เพิ่มแผนภูมิกับข้อมูลเริ่มต้นและระบุประเภท `ChartType.TREEMAP`
+4. เข้าถึง workbook ของข้อมูลแผนภูมิ ([ChartDataWorkbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/))
+5. ลบ series และ category เริ่มต้น
+6. เพิ่ม series และ category ใหม่
+7. เพิ่มข้อมูลใหม่ให้ series ของแผนภูมิ
+8. บันทึกงานนำเสนอที่แก้ไขเป็นไฟล์ PPTX
 
-โค้ด Python นี้แสดงวิธีสร้างแผนภูมิ Tree Map:
+โค้ด Python นี้แสดงวิธีสร้างแผนภูมิต้นไม้แผนที่:
 
 ```py
 import aspose.slides.charts as charts
@@ -470,23 +468,23 @@ with slides.Presentation() as presentation:
 
 ผลลัพธ์:
 
-![แผนภูมิ Tree Map](treemap_chart.png)
+![แผนภูมิต้นไม้แผนที่](treemap_chart.png)
 
-### **สร้างแผนภูมิ Stock**
+### **สร้างแผนภูมิหุ้น (Stock Chart)**
 
-แผนภูมิสต็อกใช้แสดงข้อมูลทางการเงิน เช่น ราคาเปิด, สูง, ต่ำ, ปิด เพื่อช่วยวิเคราะห์แนวโน้มและความผันผวนของตลาด แผนภูมิเหล่านี้ให้ข้อมูลเชิงลึกสำคัญเกี่ยวกับการแสดงผลของหุ้น ช่วยนักลงทุนและนักวิเคราะห์ตัดสินใจอย่างมีข้อมูล
+แผนภูมิหุ้นใช้แสดงข้อมูลการเงินเช่น ราคาที่เปิด, สูงสุด, ต่ำสุด, และปิด ช่วยวิเคราะห์แนวโน้มและความผันผวนของตลาด ให้ข้อมูลเชิงลึกสำคัญเกี่ยวกับประสิทธิภาพของหุ้นสำหรับนักลงทุนและนักวิเคราะห์
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentation/)  
-1. รับอ้างอิงสไลด์โดยใช้ดัชนีของมัน  
-1. เพิ่มแผนภูมิพร้อมข้อมูลเริ่มต้นและกำหนดประเภท `ChartType.OPEN_HIGH_LOW_CLOSE`  
-1. เข้าถึงเวิร์กบุ๊กข้อมูลของแผนภูมิ ([ChartDataWorkbook](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/chartdataworkbook/))  
-1. ลบซีรีส์และหมวดหมู่เริ่มต้น  
-1. เพิ่มซีรีส์และหมวดหมู่ใหม่  
-1. เพิ่มข้อมูลแผนภูมิใหม่สำหรับซีรีส์  
-1. กำหนดรูปแบบของเส้น high‑low  
-1. บันทึกงานนำเสนอที่แก้ไขเป็นไฟล์ PPTX  
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)
+2. รับอ้างอิงไปยังสไลด์โดยใช้ดัชนีของสไลด์
+3. เพิ่มแผนภูมิกับข้อมูลเริ่มต้นและระบุประเภท `ChartType.OPEN_HIGH_LOW_CLOSE`
+4. เข้าถึง workbook ของข้อมูลแผนภูมิ ([ChartDataWorkbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/))
+5. ลบ series และ category เริ่มต้น
+6. เพิ่ม series และ category ใหม่
+7. เพิ่มข้อมูลใหม่ให้ series ของแผนภูมิ
+8. กำหนดรูปแบบของเส้น high‑low
+9. บันทึกงานนำเสนอที่แก้ไขเป็นไฟล์ PPTX
 
-โค้ด Python นี้แสดงวิธีสร้างแผนภูมิสต็อก:
+โค้ด Python นี้แสดงวิธีสร้างแผนภูมิหุ้น:
 
 ```py
 import aspose.slides.charts as charts
@@ -542,22 +540,22 @@ with slides.Presentation() as presentation:
 
 ผลลัพธ์:
 
-![แผนภูมิสต็อก](stock_chart.png)
+![แผนภูมิหุ้น](stock_chart.png)
 
-### **สร้างแผนภูมิ Box and Whisker**
+### **สร้างแผนภูมิกล่องและหนวดยาว (Box and Whisker)**
 
-แผนภูมิ Box and Whisker แสดงการกระจายของข้อมูลโดยสรุปมาตรการสถิติหลัก เช่น มัธยฐาน, ควอร์ไทล์, และค่าผิดปกติ ใช้ในการวิเคราะห์ข้อมูลสำรวจและการศึกษาสถิติ เพื่อเข้าใจความแปรปรวนของข้อมูลและระบุความผิดปกติอย่างรวดเร็ว
+แผนภูมิกล่องและหนวดยาวใช้แสดงการกระจายของข้อมูลโดยสรุปมาตรการสถิติสำคัญ เช่น ค่ามัธยฐาน, ควอร์ไทล์, และค่า outlier เป็นเครื่องมือที่มีประโยชน์ในงานวิเคราะห์ข้อมูลสำรวจและการศึกษาเชิงสถิติ
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentation/)  
-1. รับอ้างอิงสไลด์โดยใช้ดัชนีของมัน  
-1. เพิ่มแผนภูมิพร้อมข้อมูลเริ่มต้นและกำหนดประเภท `ChartType.BOX_AND_WHISKER`  
-1. เข้าถึงเวิร์กบุ๊กข้อมูลของแผนภูมิ ([ChartDataWorkbook](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/chartdataworkbook/))  
-1. ลบซีรีส์และหมวดหมู่เริ่มต้น  
-1. เพิ่มซีรีส์และหมวดหมู่ใหม่  
-1. เพิ่มข้อมูลแผนภูมิใหม่สำหรับซีรีส์  
-1. บันทึกงานนำเสนอที่แก้ไขเป็นไฟล์ PPTX  
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)
+2. รับอ้างอิงไปยังสไลด์โดยใช้ดัชนีของสไลด์
+3. เพิ่มแผนภูมิกับข้อมูลเริ่มต้นและระบุประเภท `ChartType.BOX_AND_WHISKER`
+4. เข้าถึง workbook ของข้อมูลแผนภูมิ ([ChartDataWorkbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/))
+5. ลบ series และ category เริ่มต้น
+6. เพิ่ม series และ category ใหม่
+7. เพิ่มข้อมูลใหม่ให้ series ของแผนภูมิ
+8. บันทึกงานนำเสนอที่แก้ไขเป็นไฟล์ PPTX
 
-โค้ด Python นี้แสดงวิธีสร้างแผนภูมิ Box and Whisker:
+โค้ด Python นี้แสดงวิธีสร้างแผนภูมิกล่องและหนวดยาว:
 
 ```py
 import aspose.slides.charts as charts
@@ -597,16 +595,16 @@ with slides.Presentation() as presentation:
     presentation.save("BoxAndWhiskerChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **สร้างแผนภูมิ Funnel**
+### **สร้างแผนภูมิกรวย (Funnel Chart)**
 
-แผนภูมิ Funnel ใช้แสดงกระบวนการที่มีขั้นตอนต่อเนื่อง ซึ่งปริมาณข้อมูลจะลดลงเมื่อเคลื่อนจากขั้นตอนหนึ่งไปยังขั้นตอนถัดไป เหมาะสำหรับวิเคราะห์อัตราการเปลี่ยนแปลง, ระบุจุดคอ, และติดตามประสิทธิภาพของกระบวนการขายหรือการตลาด
+แผนภูมิกรวยใช้เพื่อแสดงกระบวนการที่มีขั้นตอนต่อเนื่อง โดยปริมาณข้อมูลจะลดลงเมื่อเคลื่อนผ่านจากขั้นตอนหนึ่งไปยังขั้นตอนต่อไป เหมาะสำหรับวิเคราะห์อัตราการแปลง, ระบุคอขวด, และติดตามประสิทธิภาพของกระบวนการขายหรือการตลาด
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentation/)  
-1. รับอ้างอิงสไลด์โดยใช้ดัชนีของมัน  
-1. เพิ่มแผนภูมิพร้อมข้อมูลเริ่มต้นและกำหนดประเภท `ChartType.FUNNEL`  
-1. บันทึกงานนำเสนอที่แก้ไขเป็นไฟล์ PPTX  
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)
+2. รับอ้างอิงไปยังสไลด์โดยใช้ดัชนีของสไลด์
+3. เพิ่มแผนภูมิกับข้อมูลเริ่มต้นและระบุประเภท `ChartType.FUNNEL`
+4. บันทึกงานนำเสนอที่แก้ไขเป็นไฟล์ PPTX
 
-โค้ด Python นี้แสดงวิธีสร้างแผนภูมิ Funnel:
+โค้ด Python นี้แสดงวิธีสร้างแผนภูมิกรวย:
 
 ```py
 import aspose.slides.charts as charts
@@ -642,18 +640,18 @@ with slides.Presentation() as presentation:
 
 ผลลัพธ์:
 
-![แผนภูมิ Funnel](funnel_chart.png)
+![แผนภูมิกรวย](funnel_chart.png)
 
-### **สร้างแผนภูมิ Sunburst**
+### **สร้างแผนภูมิดาว (Sunburst Chart)**
 
-แผนภูมิ Sunburst ใช้เพื่อแสดงข้อมูลเชิงลำดับขั้น โดยระดับต่าง ๆ ปรากฏเป็นวงกลมโค้งสันดาน ช่วยบรรยายความสัมพันธ์ส่วนต่อส่วนและเหมาะกับการแสดงหมวดหมู่ย่อยและหมวดหมู่ย่อยต่อเนื่องในรูปแบบที่กระชับและชัดเจน
+แผนภูมิดาวใช้เพื่อแสดงข้อมูลเชิงลำดับชั้น โดยแสดงระดับต่าง ๆ เป็นวงแหวนชั้นใน ช่วยอธิบายความสัมพันธ์ส่วนต่อส่วนและเหมาะสำหรับแสดงหมวดหมู่และหมวดย่อยที่ซ้อนกันในรูปแบบที่กระชับ
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentation/)  
-1. รับอ้างอิงสไลด์โดยใช้ดัชนีของมัน  
-1. เพิ่มแผนภูมิพร้อมข้อมูลเริ่มต้นและกำหนดประเภท `ChartType.SUNBURST`  
-1. บันทึกงานนำเสนอที่แก้ไขเป็นไฟล์ PPTX  
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)
+2. รับอ้างอิงไปยังสไลด์โดยใช้ดัชนีของสไลด์
+3. เพิ่มแผนภูมิกับข้อมูลเริ่มต้นและระบุประเภท `ChartType.SUNBURST`
+4. บันทึกงานนำเสนอที่แก้ไขเป็นไฟล์ PPTX
 
-โค้ด Python นี้แสดงวิธีสร้างแผนภูมิ Sunburst:
+โค้ด Python นี้แสดงวิธีสร้างแผนภูมิดาว:
 
 ```py
 import aspose.slides.charts as charts
@@ -708,21 +706,21 @@ with slides.Presentation() as presentation:
 
 ผลลัพธ์:
 
-![แผนภูมิ Sunburst](sunburst_chart.png)
+![แผนภูมิดาว](sunburst_chart.png)
 
-### **สร้างแผนภูมิ Histogram**
+### **สร้างแผนภูมิฮิสโตแกรม (Histogram Chart)**
 
-แผนภูมิ Histogram แสดงการกระจายของข้อมูลตัวเลขโดยจัดกลุ่มค่าเป็นช่วงหรือบิกส์ ใช้เพื่อระบุรูปแบบเช่น ความถี่, ความเอน, การกระจาย, และการตรวจจับค่าผิดปกติในชุดข้อมูล
+แผนภูมิฮิสโตแกรมใช้แสดงการกระจายของข้อมูลเชิงตัวเลขโดยจัดกลุ่มค่าเป็นช่วงหรือ bin ซึ่งช่วยระบุรูปแบบเช่น ความถี่, ความเอียง, การแพร่กระจาย, และการตรวจจับค่า outlier
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentation/)  
-1. รับอ้างอิงสไลด์โดยใช้ดัชนีของมัน  
-1. เพิ่มแผนภูมิพร้อมข้อมูลบางส่วนและกำหนดประเภท `ChartType.HISTOGRAM`  
-1. เข้าถึงเวิร์กบุ๊กข้อมูลของแผนภูมิ ([ChartDataWorkbook](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/chartdataworkbook/))  
-1. ลบซีรีส์และหมวดหมู่เริ่มต้น  
-1. เพิ่มซีรีส์ใหม่และเติมข้อมูลจุด รายการ Histogram ไม่มีหมวดหมู่; บินจะคำนวณจากค่าที่ให้  
-1. บันทึกงานนำเสนอที่แก้ไขเป็นไฟล์ PPTX  
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)
+2. รับอ้างอิงไปยังสไลด์โดยใช้ดัชนีของสไลด์
+3. เพิ่มแผนภูมิกับข้อมูลบางส่วนและระบุประเภท `ChartType.HISTOGRAM`
+4. เข้าถึง workbook ของข้อมูลแผนภูมิ ([ChartDataWorkbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/))
+5. ลบ series และ category เริ่มต้น
+6. เพิ่ม series ใหม่และเติมข้อมูลจุดต่าง ๆ (ฮิสโตแกรมไม่มี category; bin ถูกคำนวณจากค่า)
+7. บันทึกงานนำเสนอที่แก้ไขเป็นไฟล์ PPTX
 
-โค้ด Python นี้แสดงวิธีสร้างแผนภูมิ Histogram:
+โค้ด Python นี้แสดงวิธีสร้างแผนภูมิฮิสโตแกรม:
 
 ```py
 import aspose.slides.charts as charts
@@ -752,18 +750,18 @@ with slides.Presentation() as presentation:
 
 ผลลัพธ์:
 
-![แผนภูมิ Histogram](histogram_chart.png)
+![แผนภูมิฮิสโตแกรม](histogram_chart.png)
 
-### **สร้างแผนภูมิ Radar**
+### **สร้างแผนภูมาราดาร์ (Radar Chart)**
 
-แผนภูมิ Radar แสดงข้อมูลหลายมิติในรูปแบบสองมิติ ช่วยเปรียบเทียบหลายตัวแปรพร้อมกัน เหมาะกับการสังเกตรูปแบบ, จุดแข็ง, จุดอ่อนในหลายเมตริกหรือคุณลักษณะ
+แผนภูมาราดาร์ใช้แสดงข้อมูลหลายตัวแปรในรูปแบบสองมิติ ทำให้เปรียบเทียบตัวแปรหลาย ๆ ตัวพร้อมกันได้ง่าย เป็นประโยชน์ในการระบุรูปแบบ, จุดแข็ง, และจุดอ่อนของเมตริกหรือคุณลักษณะหลายตัว
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentation/)  
-1. รับอ้างอิงสไลด์โดยใช้ดัชนีของมัน  
-1. เพิ่มแผนภูมิพร้อมข้อมูลบางส่วนและกำหนดประเภท `ChartType.RADAR`  
-1. บันทึกงานนำเสนอที่แก้ไขเป็นไฟล์ PPTX  
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)
+2. รับอ้างอิงไปยังสไลด์โดยใช้ดัชนีของสไลด์
+3. เพิ่มแผนภูมิกับข้อมูลบางส่วนและระบุประเภท `ChartType.RADAR`
+4. บันทึกงานนำเสนอที่แก้ไขเป็นไฟล์ PPTX
 
-โค้ด Python นี้แสดงวิธีสร้างแผนภูมิ Radar:
+โค้ด Python นี้แสดงวิธีสร้างแผนภูมาราดาร์:
 
 ```python
 import aspose.slides as slides
@@ -775,22 +773,22 @@ with slides.Presentation() as presentation:
 
 ผลลัพธ์:
 
-![แผนภูมิ Radar](radar_chart.png)
+![แผนภูมาราดาร์](radar_chart.png)
 
-### **สร้างแผนภูมิหลายหมวดหมู่**
+### **สร้างแผนภูมิหลายหมวด (Multi‑Category Chart)**
 
-แผนภูมิหลายหมวดหมู่ใช้แสดงข้อมูลที่มีการจัดกลุ่มหลายระดับ ช่วยเปรียบเทียบค่าในหลายมิติพร้อมกัน มีประโยชน์เมื่อจำเป็นต้องวิเคราะห์แนวโน้มและความสัมพันธ์ในชุดข้อมูลที่ซับซ้อนหลายชั้น
+แผนภูมิหลายหมวดใช้แสดงข้อมูลที่มีการจัดกลุ่มตามหมวดหมู่หลายระดับพร้อมกัน ช่วยให้เปรียบเทียบค่าตามหลายมิติเพื่อวิเคราะห์แนวโน้มและความสัมพันธ์ในชุดข้อมูลที่ซับซ้อน
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentation/)  
-1. รับอ้างอิงสไลด์โดยใช้ดัชนีของมัน  
-1. เพิ่มแผนภูมิพร้อมข้อมูลเริ่มต้นและกำหนดประเภท `ChartType.CLUSTERED_COLUMN`  
-1. เข้าถึงเวิร์กบุ๊กข้อมูลของแผนภูมิ ([ChartDataWorkbook](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/chartdataworkbook/))  
-1. ลบซีรีส์และหมวดหมู่เริ่มต้น  
-1. เพิ่มซีรีส์และหมวดหมู่ใหม่  
-1. เพิ่มข้อมูลแผนภูมิใหม่สำหรับซีรีส์  
-1. บันทึกงานนำเสนอที่แก้ไขเป็นไฟล์ PPTX  
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)
+2. รับอ้างอิงไปยังสไลด์โดยใช้ดัชนีของสไลด์
+3. เพิ่มแผนภูมิกับข้อมูลเริ่มต้นและระบุประเภท `ChartType.CLUSTERED_COLUMN`
+4. เข้าถึง workbook ของข้อมูลแผนภูมิ ([ChartDataWorkbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/))
+5. ลบ series และ category เริ่มต้น
+6. เพิ่ม series และ category ใหม่
+7. เพิ่มข้อมูลใหม่ให้ series ของแผนภูมิ
+8. บันทึกงานนำเสนอที่แก้ไขเป็นไฟล์ PPTX
 
-โค้ด Python นี้แสดงวิธีสร้างแผนภูมิหลายหมวดหมู่:
+โค้ด Python นี้แสดงวิธีสร้างแผนภูมิหลายหมวด:
 
 ```py
 import aspose.slides.charts as charts
@@ -825,7 +823,7 @@ with slides.Presentation() as presentation:
     category.grouping_levels.set_grouping_item(1, "Group4")
     category = chart.chart_data.categories.add(workbook.get_cell(0, "c9", "H"))
 
-    # เพิ่มซีรีส์.
+    # เพิ่ม series.
     series = chart.chart_data.series.add(workbook.get_cell(0, "D1", "Series 1"), charts.ChartType.CLUSTERED_COLUMN)
 
     series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, "D2", 10))
@@ -843,13 +841,13 @@ with slides.Presentation() as presentation:
 
 ผลลัพธ์:
 
-![แผนภูมิหลายหมวดหมู่](multi_category_chart.png)
+![แผนภูมิหลายหมวด](multi_category_chart.png)
 
-### **สร้างแผนภูมิแผนที่**
+### **สร้างแผนภูมาผัง (Map Chart)**
 
-แผนภูมิแผนที่ใช้แสดงข้อมูลภูมิศาสตร์โดยแมปข้อมูลไปยังตำแหน่งเฉพาะ เช่น ประเทศ, รัฐ, หรือเมือง เหมาะกับการวิเคราะห์แนวโน้มภูมิภาค, ข้อมูลประชากร, และการกระจายเชิงพื้นที่ในรูปแบบที่ชัดเจนและดึงดูดสายตา
+แผนภูมาผังใช้เพื่อแสดงข้อมูลทางภูมิศาสตร์โดยแมปข้อมูลไปยังตำแหน่งเฉพาะ เช่น ประเทศ, รัฐ, หรือเมือง มีประโยชน์สำหรับวิเคราะห์แนวโน้มภูมิภาค, ข้อมูลประชากร, และการกระจายเชิงพื้นที่ในรูปแบบที่ชัดเจนและน่าสนใจ
 
-โค้ด Python นี้แสดงวิธีสร้างแผนภูมิแผนที่:
+โค้ด Python นี้แสดงวิธีสร้างแผนภูมาผัง:
 
 ```python
 import aspose.slides as slides
@@ -861,15 +859,15 @@ with slides.Presentation() as presentation:
 
 ผลลัพธ์:
 
-![แผนภูมิแผนที่](map_chart.png)
+![แผนภูมาผัง](map_chart.png)
 
-### **สร้างแผนภูมิผสม**
+### **สร้างแผนภูมาผสม (Combination Chart)**
 
-แผนภูมิผสม (หรือ combo chart) รวมสองประเภทแผนภูมิหรือมากกว่าภายในกราฟเดียวกัน ช่วยให้คุณเน้น, เปรียบเทียบ, หรือสังเกตความแตกต่างระหว่างชุดข้อมูลหลายชุด เพื่อระบุความสัมพันธ์ระหว่างข้อมูลเหล่านั้น
+แผนภูมผสม (หรือ combo chart) ผสานประเภทแผนภูมิสองประเภทขึ้นไปในกราฟเดียว ช่วยให้คุณเน้น, เปรียบเทียบ, หรือวิเคราะห์ความแตกต่างระหว่างชุดข้อมูลหลายชุดได้ง่ายขึ้น
 
-![แผนภูมิผสม](combination_chart.png)
+![แผนภูมาผสม](combination_chart.png)
 
-โค้ด Python ต่อไปนี้แสดงวิธีสร้างแผนภูมิผสมที่แสดงด้านบนในงานนำเสนอ PowerPoint:
+โค้ด Python ต่อไปนี้แสดงวิธีสร้างแผนภูมผสมที่แสดงด้านบนในงานนำเสนอ PowerPoint:
 
 ```python
 import aspose.slides.charts as charts
@@ -892,7 +890,7 @@ def create_combo_chart():
 def create_chart_with_first_series(slide):
     chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 600, 400)
 
-    # ตั้งค่าชื่อแผนภูมิ.
+    # ตั้งค่าชื่อเรื่องของแผนภูมิ.
     chart.has_title = True
     chart.chart_title.add_text_frame_for_overriding("Chart Title")
     chart.chart_title.overlay = False
@@ -902,24 +900,24 @@ def create_chart_with_first_series(slide):
     title_format.font_bold = slides.NullableBool.FALSE
     title_format.font_height = 18
 
-    # ตั้งค่าตำนานแผนภูมิ.
+    # ตั้งค่าตำแหน่ง legend ของแผนภูมิ.
     chart.legend.position = charts.LegendPositionType.BOTTOM
     chart.legend.text_format.portion_format.font_height = 12
 
-    # ลบซีรีส์และหมวดหมู่ที่สร้างโดยค่าเริ่มต้น.
+    # ลบ series และ category ที่สร้างโดยอัตโนมัติ.
     chart.chart_data.series.clear()
     chart.chart_data.categories.clear()
 
     worksheet_index = 0
     workbook = chart.chart_data.chart_data_workbook
 
-    # เพิ่มหมวดหมู่ใหม่.
+    # เพิ่ม category ใหม่.
     chart.chart_data.categories.add(workbook.get_cell(worksheet_index, 1, 0, "Category 1"))
     chart.chart_data.categories.add(workbook.get_cell(worksheet_index, 2, 0, "Category 2"))
     chart.chart_data.categories.add(workbook.get_cell(worksheet_index, 3, 0, "Category 3"))
     chart.chart_data.categories.add(workbook.get_cell(worksheet_index, 4, 0, "Category 4"))
 
-    # เพิ่มซีรีส์แรก.
+    # เพิ่ม series แรก.
     series_name_cell = workbook.get_cell(worksheet_index, 0, 1, "Series 1")
     series = chart.chart_data.series.add(series_name_cell, chart.type)
 
@@ -966,7 +964,7 @@ def add_third_series_to_chart(chart):
 
 
 def set_primary_axes_format(chart):
-    # ตั้งค่าแกนอแนวนอน.
+    # ตั้งค่าแกนแนวนอน.
     horizontal_axis = chart.axes.horizontal_axis
     horizontal_axis.text_format.portion_format.font_height = 12.0
     horizontal_axis.format.line.fill_format.fill_type = slides.FillType.NO_FILL
@@ -980,14 +978,14 @@ def set_primary_axes_format(chart):
 
     set_axis_title(vertical_axis, "Y Axis 1")
 
-    # ตั้งค่าสีเส้นกริดหลักแนวตั้ง.
+    # ตั้งค่าสีเส้นกริดหลักของแกนแนวตั้ง.
     major_grid_lines_format = vertical_axis.major_grid_lines_format.line.fill_format
     major_grid_lines_format.fill_type = slides.FillType.SOLID
     major_grid_lines_format.solid_fill_color.color = draw.Color.from_argb(217, 217, 217)
 
 
 def set_secondary_axes_format(chart):
-    # ตั้งค่าแกนอแนวนอนรอง.
+    # ตั้งค่าแกนนอนรอง.
     secondary_horizontal_axis = chart.axes.secondary_horizontal_axis
     secondary_horizontal_axis.position = charts.AxisPositionType.BOTTOM
     secondary_horizontal_axis.cross_type = charts.CrossesType.MAXIMUM
@@ -995,7 +993,7 @@ def set_secondary_axes_format(chart):
     secondary_horizontal_axis.major_grid_lines_format.line.fill_format.fill_type = slides.FillType.NO_FILL
     secondary_horizontal_axis.minor_grid_lines_format.line.fill_format.fill_type = slides.FillType.NO_FILL
 
-    # ตั้งค่าแกนแนวตั้งรอง.
+    # ตั้งค่าแกนตั้งรอง.
     secondary_vertical_axis = chart.axes.secondary_vertical_axis
     secondary_vertical_axis.position = charts.AxisPositionType.RIGHT
     secondary_vertical_axis.text_format.portion_format.font_height = 12.0
@@ -1016,15 +1014,15 @@ def set_axis_title(axis, axis_title):
 
 ## **อัปเดตแผนภูมิ**
 
-Aspose.Slides for Python via .NET ช่วยให้คุณอัปเดตข้อมูลแผนภูมิ, การจัดรูปแบบ, และสไตล์ เพื่อให้การนำเสนอ PowerPoint ของคุณเป็นปัจจุบันอยู่เสมอ
+Aspose.Slides for Python via .NET ให้คุณอัปเดตข้อมูล, การจัดรูปแบบ, และสไตล์ของแผนภูมิ เพื่อให้งานนำเสนอ PowerPoint ของคุณเป็นปัจจุบัน
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentation/) เพื่อเปิดงานนำเสนอที่มีแผนภูมิ  
-1. รับอ้างอิงสไลด์โดยใช้ดัชนีของมัน  
-1. วนลูปผ่านรูปทรงทั้งหมดเพื่อค้นหาแผนภูมิ  
-1. เข้าถึงเวิร์กชีตข้อมูลของแผนภูมิ  
-1. แก้ไขซีรีส์ข้อมูลของแผนภูมิโดยเปลี่ยนค่าซีรีส์  
-1. เพิ่มซีรีส์ใหม่และเติมข้อมูลของมัน  
-1. บันทึกงานนำเสนอที่แก้ไขเป็นไฟล์ PPTX  
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) เพื่อเปิดงานนำเสนอที่มีแผนภูมิ
+2. รับอ้างอิงไปยังสไลด์โดยใช้ดัชนีของสไลด์
+3. เดินทางผ่าน shape ทั้งหมดเพื่อค้นหาแผนภูมิ
+4. เข้าถึง worksheet ของข้อมูลแผนภูมิ
+5. แก้ไข series ของข้อมูลแผนภูมิโดยเปลี่ยนค่า series
+6. เพิ่ม series ใหม่และเติมข้อมูลของมัน
+7. บันทึกงานนำเสนอที่แก้ไขเป็นไฟล์ PPTX
 
 โค้ด Python นี้แสดงวิธีอัปเดตแผนภูมิ:
 
@@ -1035,7 +1033,7 @@ import aspose.pydrawing as draw
 
 chart_name = "My chart"
 
-# สร้างอินสแตนซ์ของคลาส Presentation ที่แสดงไฟล์ PPTX.
+# สร้างอินสแตนซ์ของคลาส Presentation ที่แทนไฟล์ PPTX.
 with slides.Presentation("ExistingChart.pptx") as presentation:
 
     # เข้าถึงสไลด์แรก.
@@ -1045,38 +1043,38 @@ with slides.Presentation("ExistingChart.pptx") as presentation:
         if isinstance(shape, charts.Chart) and shape.name == chart_name:
             chart = shape
 
-            # ตั้งค่าดัชนีของแผ่นข้อมูลแผนภูมิ.
+            # ตั้งค่าดัชนีของชีตข้อมูลแผนภูมิ.
             worksheet_index = 0
 
-            # รับเวิร์กบุ๊กข้อมูลของแผนภูมิ.
+            # ดึง workbook ของข้อมูลแผนภูมิ.
             workbook = chart.chart_data.chart_data_workbook
 
-            # แก้ไขชื่่อหมวดหมู่ของแผนภูมิ.
+            # เปลี่ยนชื่อ category ของแผนภูมิ.
             workbook.get_cell(worksheet_index, 1, 0, "Modified Category 1")
             workbook.get_cell(worksheet_index, 2, 0, "Modified Category 2")
 
-            # รับซีรีส์แผนภูม้อันดับแรก.
+            # ดึง series แผนภูมิแรก.
             series = chart.chart_data.series[0]
 
-            # อัปเดตข้อมูลของซีรีส์.
-            workbook.get_cell(worksheet_index, 0, 1, "New_Series1")  # แก้ไขชื่อซีรีส์.
+            # อัปเดตข้อมูลของ series.
+            workbook.get_cell(worksheet_index, 0, 1, "New_Series1")  # กำลังแก้ไขชื่อ series.
             series.data_points[0].value.data = 90
             series.data_points[1].value.data = 123
             series.data_points[2].value.data = 44
 
-            # รับซีรีส์แผนภูมิที่สอง.
+            # ดึง series แผนภูมิที่สอง.
             series = chart.chart_data.series[1]
 
-            # อัปเดตข้อมูลของซีรีส์.
-            workbook.get_cell(worksheet_index, 0, 2, "New_Series2")  # แก้ไขชื่อซีรีส์.
+            # อัปเดตข้อมูลของ series.
+            workbook.get_cell(worksheet_index, 0, 2, "New_Series2")  # กำลังแก้ไขชื่อ series.
             series.data_points[0].value.data = 23
             series.data_points[1].value.data = 67
             series.data_points[2].value.data = 99
 
-            # เพิ่มซีรีส์ใหม่.
+            # เพิ่ม series ใหม่.
             series = chart.chart_data.series.add(workbook.get_cell(worksheet_index, 0, 3, "Series 3"), chart.type)
 
-            # เติมข้อมูลให้ซีรีส์.
+            # เติมข้อมูลให้ series.
             series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 1, 3, 20))
             series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 2, 3, 50))
             series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 3, 3, 30))
@@ -1087,17 +1085,19 @@ with slides.Presentation("ExistingChart.pptx") as presentation:
             presentation.save("ModifiedChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **ตั้งช่วงข้อมูลสำหรับแผนภูมิ**
+## **กำหนดช่วงข้อมูลสำหรับแผนภูมิ**
 
-Aspose.Slides for Python via .NET ให้คุณใช้ช่วงเวิร์กชีตเฉพาะเป็นแหล่งข้อมูลสำหรับแผนภูมิ ควบคุมว่าตารางใดเป็นแหล่งของซีรีส์และหมวดหมู่ของแผนภูมิ และทำให้คุณอัปเดตแผนภูมิตามการเปลี่ยนแปลงของเวิร์กชีตได้
+เพื่อดูช่วงข้อมูลที่แผนภูมิที่มีอยู่ใช้แล้ว ให้ดูที่ [Retrieve a Chart's Data Range](/slides/th/python-net/chart-workbook/#retrieve-a-charts-data-range)
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentation/) เพื่อเปิดงานนำเสนอที่มีแผนภูมิ  
-1. รับอ้างอิงสไลด์โดยใช้ดัชนีของมัน  
-1. วนลูปผ่านรูปทรงทั้งหมดเพื่อค้นหาแผนภูมิ  
-1. เข้าถึงข้อมูลแผนภูมิและตั้งค่าช่วง  
-1. บันทึกงานนำเสนอที่แก้ไขเป็นไฟล์ PPTX  
+Aspose.Slides for Python via .NET ให้คุณใช้ช่วง worksheet เฉพาะเป็นแหล่งข้อมูลสำหรับแผนภูมิ ซึ่งกำหนดว่าช่องใดจะเป็น series และ category ของแผนภูมิและช่วยให้คุณอัปเดตแผนภูมิเพื่อสะท้อนการเปลี่ยนแปลงใน worksheet
 
-โค้ด Python นี้แสดงวิธีตั้งค่าช่วงข้อมูลสำหรับแผนภูมิ:
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) เพื่อเปิดงานนำเสนอที่มีแผนภูมิ
+2. รับอ้างอิงไปยังสไลด์โดยใช้ดัชนีของสไลด์
+3. เดินทางผ่าน shape ทั้งหมดเพื่อค้นหาแผนภูมิ
+4. เข้าถึงข้อมูลแผนภูมิและกำหนดช่วง
+5. บันทึกงานนำเสนอที่แก้ไขเป็นไฟล์ PPTX
+
+โค้ด Python นี้แสดงวิธีกำหนดช่วงข้อมูลสำหรับแผนภูมิ:
 
 ```py
 import aspose.slides.charts as charts
@@ -1106,7 +1106,7 @@ import aspose.pydrawing as draw
 
 chart_name = "My chart"
 
-# สร้างอินสแตนซ์ของคลาส Presentation ที่แสดงไฟล์ PPTX.
+# สร้างอินสแตนซ์ของคลาส Presentation ที่แทนไฟล์ PPTX.
 with slides.Presentation("ExistingChart.pptx") as presentation:
 
     # เข้าถึงสไลด์แรก.
@@ -1120,11 +1120,11 @@ with slides.Presentation("ExistingChart.pptx") as presentation:
     presentation.save("DataRange.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **ใช้ตัวบ่งชี้เริ่มต้นในแผนภูมิ**
+## **ใช้ตัวทำเครื่องหมายเริ่มต้นในแผนภูมิ**
 
-เมื่อคุณใช้ตัวบ่งชี้เริ่มต้นในแผนภูมิแต่ละซีรีส์จะได้รับสัญลักษณ์ตัวบ่งชี้ที่แตกต่างโดยอัตโนมัติ
+เมื่อใช้ตัวทำเครื่องหมายเริ่มต้นในแผนภูมิแต่ละ series จะได้รับสัญลักษณ์ตัวทำเครื่องหมายที่แตกต่างโดยอัตโนมัติ
 
-โค้ด Python นี้แสดงวิธีตั้งค่าตัวบ่งชี้ของซีรีส์ในแผนภูมิโดยอัตโนมัติ:
+โค้ด Python นี้แสดงวิธีตั้งค่าตัวทำเครื่องหมายของ series ในแผนภูมิโดยอัตโนมัติ:
 
 ```py
 import aspose.slides.charts as charts
@@ -1156,7 +1156,7 @@ with slides.Presentation() as presentation:
 
     series2 = chart.chart_data.series.add(workbook.get_cell(0, 0, 2, "Series 2"), chart.type)
 
-    # เติมข้อมูลให้ซีรีส์.
+    # เติมข้อมูลให้ series.
     series2.data_points.add_data_point_for_line_series(workbook.get_cell(0, 1, 2, 30))
     series2.data_points.add_data_point_for_line_series(workbook.get_cell(0, 2, 2, 10))
     series2.data_points.add_data_point_for_line_series(workbook.get_cell(0, 3, 2, 60))
@@ -1168,20 +1168,20 @@ with slides.Presentation() as presentation:
     presentation.save("DefaultMarkersInChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **คำถามที่พบบ่อย**
+## **FAQ**
 
-**Aspose.Slides for Python via .NET รองรับประเภทแผนภูมิใดบ้าง?**
+**แผนภูมิประเภทใดบ้างที่ Aspose.Slides for Python via .NET รองรับ?**
 
-Aspose.Slides for Python via .NET รองรับแผนภูมิหลากหลายประเภท รวมถึงบาร์, เส้น, วงกลม, พื้นที่, กระจาย, histogram, radar, และอื่น ๆ อีกมาก ความยืดหยุ่นนี้ทำให้คุณเลือกประเภทแผนภูมิที่เหมาะสมกับการแสดงผลข้อมูลของคุณได้
+Aspose.Slides for Python via .NET รองรับแผนภูมิมากมาย รวมถึง bar, line, pie, area, scatter, histogram, radar และอื่น ๆ ซึ่งทำให้คุณสามารถเลือกประเภทแผนภูมิที่เหมาะสมกับการแสดงข้อมูลของคุณได้
 
 **ฉันจะเพิ่มแผนภูมิใหม่ลงในสไลด์ได้อย่างไร?**
 
-เพื่อเพิ่มแผนภูมิ คุณต้องสร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentation/), ดึงสไลด์ที่ต้องการโดยใช้ดัชนี, จากนั้นเรียกเมธอดเพื่อเพิ่มแผนภูมิโดยระบุประเภทแผนภูมิและข้อมูลเริ่มต้น กระบวนการนี้จะฝังแผนภูมิเข้าสู่การนำเสนอของคุณโดยตรง
+เพื่อเพิ่มแผนภูมิ คุณต้องสร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) แล้วดึงสไลด์ที่ต้องการโดยใช้ดัชนี จากนั้นเรียกเมธอดเพื่อเพิ่มแผนภูมิโดยระบุประเภทแผนภูมิและข้อมูลเริ่มต้น กระบวนการนี้จะฝังแผนภูมิเข้าไปในงานนำเสนอของคุณโดยตรง
 
-**ฉันสามารถอัปเดตข้อมูลที่แสดงในแผนภูมิได้หรือไม่?**
+**ฉันจะอัปเดตข้อมูลที่แสดงในแผนภูมิอย่างไร?**
 
-คุณสามารถอัปเดตข้อมูลของแผนภูมิได้โดยเข้าถึงเวิร์กบุ๊กข้อมูลของแผนภูมิ ([ChartDataWorkbook](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/chartdataworkbook/)), ลบซีรีส์และหมวดหมู่เริ่มต้น, แล้วเพิ่มข้อมูลที่กำหนดเองของคุณ วิธีนี้ทำให้คุณรีเฟรชแผนภูมิให้แสดงข้อมูลล่าสุดได้แบบอัตโนมัติ
+คุณสามารถอัปเดตข้อมูลของแผนภูมิได้โดยเข้าถึง workbook ของข้อมูลแผนภูมิ ([ChartDataWorkbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/)) ลบ series และ category เริ่มต้น แล้วเพิ่มข้อมูลที่กำหนดเองของคุณ วิธีนี้ทำให้คุณรีเฟรชแผนภูมิโดยโปรแกรมเมติกให้แสดงข้อมูลล่าสุด
 
-**สามารถปรับแต่งลักษณะของแผนภูมิได้หรือไม่?**
+**สามารถปรับแต่งรูปลักษณ์ของแผนภูมิได้หรือไม่?**
 
-ได้ Aspose.Slides for Python via .NET มีตัวเลือกการปรับแต่งอย่างกว้างขวาง คุณสามารถเปลี่ยนสี, ฟอนต์, ป้ายชื่อ, คำอธิบาย, และองค์ประกอบการจัดรูปแบบอื่น ๆ เพื่อให้แผนภูมิตรงกับข้อกำหนดการออกแบบของคุณอย่างเต็มที่
+ได้, Aspose.Slides for Python via .NET มีตัวเลือกการปรับแต่งมากมาย คุณสามารถแก้ไขสี, ฟอนต์, ป้ายกำกับ, legend, และองค์ประกอบการจัดรูปแบบอื่น ๆ เพื่อให้แผนภูมิตรงกับความต้องการด้านการออกแบบของคุณ

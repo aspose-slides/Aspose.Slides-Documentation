@@ -5,19 +5,19 @@ type: docs
 weight: 10
 url: /es/androidjava/create-chart/
 keywords:
-- agregar gráfico
+- añadir gráfico
 - crear gráfico
 - editar gráfico
 - cambiar gráfico
 - actualizar gráfico
-- gráfico disperso
+- gráfico de dispersión
 - gráfico circular
 - gráfico de líneas
 - gráfico de mapa de árbol
 - gráfico de bolsa
 - gráfico de caja y bigotes
 - gráfico de embudo
-- gráfico radial
+- gráfico de explosión
 - gráfico de histograma
 - gráfico de radar
 - gráfico multicategoría
@@ -26,15 +26,15 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Crear y personalizar gráficos en presentaciones PowerPoint usando Aspose.Slides para Android. Agregar, dar formato y editar gráficos con ejemplos prácticos de código Java."
+description: "Crear y personalizar gráficos en presentaciones PowerPoint usando Aspose.Slides para Android. Añadir, formatear y editar gráficos con ejemplos prácticos de código Java."
 ---
-## **Visión general**
+## **Descripción general**
 
-Este artículo proporciona una guía completa sobre cómo crear y personalizar gráficos usando Aspose.Slides. Aprenderá a agregar programáticamente un gráfico a una diapositiva, rellenarlo con datos y aplicar diversas opciones de formato para que coincidan con sus requisitos de diseño específicos. A lo largo del artículo, los ejemplos de código detallados ilustran cada paso, desde la inicialización de la presentación y el objeto gráfico hasta la configuración de series, ejes y leyendas. Siguiendo esta guía, obtendrá una comprensión sólida de cómo integrar la generación dinámica de gráficos en sus aplicaciones, optimizando el proceso de creación de presentaciones basadas en datos.
+Este artículo ofrece una guía completa sobre cómo crear y personalizar gráficos con Aspose.Slides. Aprenderá a añadir programáticamente un gráfico a una diapositiva, poblarlo con datos y aplicar diversas opciones de formato para adaptarlo a sus requisitos de diseño específicos. A lo largo del artículo, ejemplos de código detallados ilustran cada paso, desde la inicialización de la presentación y el objeto gráfico hasta la configuración de series, ejes y leyendas. Siguiendo esta guía, obtendrá una comprensión sólida de cómo integrar la generación dinámica de gráficos en sus aplicaciones, optimizando el proceso de creación de presentaciones basadas en datos.
 
 ## **Crear un gráfico**
 
-Los gráficos ayudan a las personas a visualizar rápidamente datos y obtener conocimientos que pueden no ser evidentes a simple vista en una tabla o hoja de cálculo.
+Los gráficos ayudan a las personas a visualizar rápidamente los datos y a obtener información que puede no ser evidente a simple vista en una tabla o hoja de cálculo.
 
 **¿Por qué crear gráficos?**
 
@@ -42,31 +42,33 @@ Con los gráficos puede:
 
 * agregar, condensar o resumir grandes cantidades de datos en una sola diapositiva de una presentación
 * revelar patrones y tendencias en los datos
-* deducir la dirección y el impulso de los datos a lo largo del tiempo o respecto a una unidad de medida específica
+* deducir la dirección y el impulso de los datos a lo largo del tiempo o con respecto a una unidad de medida específica
 * detectar valores atípicos, aberraciones, desviaciones, errores, datos sin sentido, etc.
 * comunicar o presentar datos complejos
 
-En PowerPoint, puede crear gráficos mediante la función *Insertar*, que ofrece plantillas para diseñar muchos tipos de gráficos. Con Aspose.Slides, puede crear tanto gráficos regulares (basados en tipos de gráficos populares) como gráficos personalizados.
+En PowerPoint, puede crear gráficos mediante la función *Insertar*, que ofrece plantillas para diseñar muchos tipos de gráficos. Con Aspose.Slides, puede crear tanto gráficos habituales (basados en tipos de gráfico populares) como gráficos personalizados.
 
 {{% alert color="info" title="Nota" %}}
-Para crear gráficos, use la clase [ChartType](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/charttype/) . Los campos de esta clase corresponden a diferentes tipos de gráficos.
+
+Para crear gráficos, utilice la clase [ChartType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/). Los campos de esta clase corresponden a diferentes tipos de gráfico.
+
 {{% /alert %}}
 
 ### **Crear gráficos de columnas agrupadas**
 
-Esta sección explica cómo crear gráficos de columnas agrupadas usando Aspose.Slides. Aprenderá a inicializar una presentación, agregar un gráfico y personalizar sus elementos, como el título, los datos, las series, las categorías y el estilo. Siga los pasos a continuación para ver cómo se genera un gráfico de columnas agrupadas estándar:
+Esta sección explica cómo crear gráficos de columnas agrupadas con Aspose.Slides. Aprenderá a inicializar una presentación, añadir un gráfico y personalizar sus elementos como el título, los datos, las series, las categorías y el estilo. Siga los pasos a continuación para ver cómo se genera un gráfico de columnas agrupadas estándar:
 
-1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/presentation) .
-2. Obtener una referencia a una diapositiva mediante su índice.
-3. Agregar un gráfico con algunos datos y especificar el tipo `ChartType.ClusteredColumn` .
-4. Añadir un título al gráfico.
-5. Acceder a la hoja de datos del gráfico.
-6. Eliminar todas las series y categorías predeterminadas.
-7. Añadir nuevas series y categorías.
-8. Añadir nuevos datos al gráfico para las series.
-9. Aplicar un color de relleno a las series del gráfico.
-10. Añadir etiquetas a las series del gráfico.
-11. Guardar la presentación modificada como archivo PPTX.
+1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation).
+1. Obtenga una referencia a una diapositiva mediante su índice.
+1. Añada un gráfico con algunos datos y especifique el tipo `ChartType.ClusteredColumn`.
+1. Añada un título al gráfico.
+1. Acceda a la hoja de datos del gráfico.
+1. Elimine todas las series y categorías predeterminadas.
+1. Añada nuevas series y categorías.
+1. Añada nuevos datos al gráfico para las series.
+1. Aplique un color de relleno a las series del gráfico.
+1. Añada etiquetas a las series del gráfico.
+1. Guarde la presentación modificada como un archivo PPTX.
 
 Este código C# muestra cómo crear un gráfico de columnas agrupadas:
 
@@ -134,7 +136,7 @@ try {
     series.getFormat().getFill().setFillType(FillType.Solid);
     series.getFormat().getFill().getSolidFillColor().setColor(Color.GREEN);
     
-    // Crea etiquetas personalizadas para cada categoría de la nueva serie
+    //Crear etiquetas personalizadas para cada categoría de la nueva serie
     // Establece la primera etiqueta para mostrar el nombre de la categoría
     IDataLabel lbl = series.getDataPoints().get_Item(0).getLabel();
     lbl.getDataLabelFormat().setShowCategoryName(true);
@@ -157,22 +159,22 @@ try {
 
 ### **Crear gráficos de dispersión**
 
-Los gráficos de dispersión (también conocidos como diagramas de dispersión o gráficos xy) se utilizan a menudo para comprobar patrones o demostrar correlaciones entre dos variables.
+Los gráficos de dispersión (también conocidos como diagramas de dispersión o gráficos x‑y) se usan a menudo para comprobar patrones o demostrar correlaciones entre dos variables.
 
-Use un gráfico de dispersión cuando:
+Utilice un gráfico de dispersión cuando:
 
-* tenga datos numéricos emparejados
+* disponga de datos numéricos emparejados
 * tenga dos variables que se relacionen bien entre sí
-* desee determinar si dos variables están relacionadas
-* tenga una variable independiente que posea varios valores para una variable dependiente
+* quiera determinar si dos variables están relacionadas
+* posea una variable independiente que tenga múltiples valores para una variable dependiente
 
-1. Siga los pasos de [Create Clustered Column Charts](#create-clustered-column-charts).
-2. Para el tercer paso, agregue un gráfico con algunos datos y especifique su tipo de gráfico como uno de los siguientes:
-   1. [ChartType.ScatterWithMarkers](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/charttype/#ScatterWithMarkers) - _Representa un gráfico de dispersión._
-   2. [ChartType.ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - _Representa un gráfico de dispersión conectado por curvas, con marcadores de datos._
-   3. [ChartType.ScatterWithSmoothLines](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/charttype/#ScatterWithSmoothLines) - _Representa un gráfico de dispersión conectado por curvas, sin marcadores de datos._
-   4. [ChartType.ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _Representa un gráfico de dispersión conectado por líneas, con marcadores de datos._
-   5. [ChartType.ScatterWithStraightLines](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/charttype/#ScatterWithStraightLines) - _Representa un gráfico de dispersión conectado por líneas, sin marcadores de datos._
+1. Siga los pasos en [Crear gráficos de columnas agrupadas](#crear-gráficos-de-columnas-agregadas).
+2. En el tercer paso, añada un gráfico con algunos datos y especifique su tipo de gráfico como uno de los siguientes:
+   1. [ChartType.ScatterWithMarkers](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/#ScatterWithMarkers) - _Representa un gráfico de dispersión._
+   2. [ChartType.ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - _Representa un gráfico de dispersión conectado por curvas, con marcadores de datos._
+   3. [ChartType.ScatterWithSmoothLines](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/#ScatterWithSmoothLines) - _Representa un gráfico de dispersión conectado por curvas, sin marcadores de datos._
+   4. [ChartType.ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _Representa un gráfico de dispersión conectado por líneas, con marcadores de datos._
+   5. [ChartType.ScatterWithStraightLines](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/#ScatterWithStraightLines) - _Representa un gráfico de dispersión conectado por líneas, sin marcadores de datos._
 
 Este código Java muestra cómo crear un gráfico de dispersión con diferentes marcadores para cada serie:
 
@@ -210,7 +212,7 @@ try {
     // Añade un nuevo punto (2:10)
     series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 2), fact.getCell(defaultWorksheetIndex, 3, 2, 10));
     
-    // Cambia el tipo de la serie
+    // Cambia el tipo de serie
     series.setType(ChartType.ScatterWithStraightLinesAndMarkers);
     
     // Cambia el marcador de la serie del gráfico
@@ -244,20 +246,20 @@ try {
 
 ### **Crear gráficos circulares**
 
-Los gráficos circulares son los más adecuados para mostrar la relación parte‑todo en los datos, sobre todo cuando los datos contienen etiquetas categóricas con valores numéricos. Sin embargo, si sus datos contienen muchas partes o etiquetas, puede considerar usar un gráfico de barras en su lugar.
+Los gráficos circulares son ideales para mostrar la relación parte‑todo en los datos, sobre todo cuando los datos contienen etiquetas categóricas con valores numéricos. No obstante, si sus datos contienen muchas partes o etiquetas, puede considerar usar un gráfico de barras en su lugar.
 
-1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/presentation/) .
-2. Obtener una referencia a una diapositiva mediante su índice.
-3. Añadir un gráfico con datos predeterminados y especificar el tipo [ChartType.Pie](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/charttype/#Pie) .
-4. Acceder al libro de datos del gráfico [IChartDataWorkbook](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/ichartdataworkbook/) .
-5. Eliminar las series y categorías predeterminadas.
-6. Añadir nuevas series y categorías.
-7. Añadir nuevos datos al gráfico para las series.
-8. Añadir nuevos puntos al gráfico y aplicar colores personalizados a los sectores del gráfico circular.
-9. Establecer etiquetas para las series.
-10. Habilitar líneas guía para las etiquetas de las series.
-11. Definir el ángulo de rotación para los sectores del gráfico circular.
-12. Guardar la presentación modificada como archivo PPTX.
+1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) .
+2. Obtenga una referencia a una diapositiva mediante su índice.
+3. Añada un gráfico con datos predeterminados y especifique el tipo [ChartType.Pie](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/#Pie).
+4. Acceda al libro de datos del gráfico [IChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/).
+5. Elimine las series y categorías predeterminadas.
+6. Añada nuevas series y categorías.
+7. Añada nuevos datos al gráfico para las series.
+8. Añada nuevos puntos al gráfico y aplique colores personalizados a los sectores del gráfico circular.
+9. Defina etiquetas para las series.
+10. Active las líneas guía para las etiquetas de las series.
+11. Establezca el ángulo de rotación para los sectores del gráfico circular.
+12. Guarde la presentación modificada como un archivo PPTX.
 
 Este código Java muestra cómo crear un gráfico circular:
 
@@ -298,7 +300,7 @@ try {
     // Añade nuevas series
     IChartSeries series = chart.getChartData().getSeries().add(fact.getCell(0, 0, 1, "Series 1"), chart.getType());
     
-    //Rellena los datos de la serie
+    // Rellena los datos de la serie
     series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 1, 1, 20));
     series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 50));
     series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 30));
@@ -356,7 +358,7 @@ try {
     lbl3.getDataLabelFormat().setShowSeriesName(true);
     lbl3.getDataLabelFormat().setShowPercentage(true);
     
-    // Muestra líneas guías para el gráfico
+    // Muestra líneas guía para el gráfico
     series.getLabels().getDefaultDataLabelFormat().setShowLeaderLines(true);
     
     // Establece el ángulo de rotación para los sectores del gráfico circular
@@ -371,12 +373,12 @@ try {
 
 ### **Crear gráficos de líneas**
 
-Los gráficos de líneas (también conocidos como diagramas de líneas) son los más adecuados cuando se desea demostrar cambios de valor a lo largo del tiempo. Con un gráfico de líneas, puede comparar una gran cantidad de datos de una sola vez, seguir cambios y tendencias a lo largo del tiempo, resaltar anomalías en las series de datos y mucho más.
+Los gráficos de líneas (también conocidos como diagramas de líneas) son ideales cuando desea demostrar cambios de valor a lo largo del tiempo. Con un gráfico de líneas, puede comparar una gran cantidad de datos a la vez, seguir cambios y tendencias en el tiempo, resaltar anomalías en series de datos, etc.
 
-1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/presentation) .
-1. Obtener una referencia a una diapositiva mediante su índice.
-1. Añadir un gráfico con datos predeterminados y especificar el tipo [ChartType.Line](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/charttype/#Line) .
-1. Guardar la presentación modificada como archivo PPTX.
+1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) .
+1. Obtenga una referencia a una diapositiva mediante su índice.
+1. Añada un gráfico con datos predeterminados y especifique el tipo [ChartType.Line](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/#Line).
+1. Guarde la presentación modificada como un archivo PPTX.
 
 Este código Java muestra cómo crear un gráfico de líneas:
 
@@ -393,7 +395,7 @@ try {
 }
 ```
 
-Por defecto, los puntos de un gráfico de líneas se unen mediante líneas rectas continuas. Si desea que los puntos se unan mediante guiones, puede especificar su tipo de guión preferido así:
+Por defecto, los puntos en un gráfico de líneas se unen mediante líneas continuas rectas. Si desea que los puntos se unan mediante guiones, puede especificar su tipo de guion preferido así:
 
 ```java
 import com.aspose.slides.*;
@@ -413,16 +415,16 @@ try {
 
 ### **Crear gráficos de mapa de árbol**
 
-Los gráficos de mapa de árbol son los más adecuados para datos de ventas cuando se quiere mostrar el tamaño relativo de categorías de datos y atraer rápidamente la atención a los elementos que son grandes contribuyentes dentro de cada categoría.
+Los gráficos de mapa de árbol son ideales para datos de ventas cuando desea mostrar el tamaño relativo de categorías de datos y llamar rápidamente la atención sobre los elementos que son grandes contribuyentes dentro de cada categoría.
 
-1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/presentation) .
-2. Obtener una referencia a una diapositiva mediante su índice.
-3. Añadir un gráfico con datos predeterminados y especificar el tipo [ChartType.Treemap](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/charttype/#Treemap) .
-4. Acceder al libro de datos del gráfico [IChartDataWorkbook](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/ichartdataworkbook/) .
-5. Eliminar las series y categorías predeterminadas.
-6. Añadir nuevas series y categorías.
-7. Añadir nuevos datos al gráfico para las series.
-8. Guardar la presentación modificada como archivo PPTX.
+1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) .
+2. Obtenga una referencia a una diapositiva mediante su índice.
+3. Añada un gráfico con datos predeterminados y especifique el tipo [ChartType.Treemap](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/#Treemap).
+4. Acceda al libro de datos del gráfico [IChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/).
+5. Elimine las series y categorías predeterminadas.
+6. Añada nuevas series y categorías.
+7. Añada nuevos datos al gráfico para las series.
+8. Guarde la presentación modificada como un archivo PPTX.
 
 Este código Java muestra cómo crear un gráfico de mapa de árbol:
 
@@ -438,7 +440,7 @@ try {
     IChartDataWorkbook wb = chart.getChartData().getChartDataWorkbook();
     wb.clear(0);
 
-    //rama 1
+    // rama 1
     IChartCategory leaf = chart.getChartData().getCategories().add(wb.getCell(0, "C1", "Leaf1"));
     leaf.getGroupingLevels().setGroupingItem(1, "Stem1");
     leaf.getGroupingLevels().setGroupingItem(2, "Branch1");
@@ -450,7 +452,7 @@ try {
 
     chart.getChartData().getCategories().add(wb.getCell(0, "C4", "Leaf4"));
 
-    //rama 2
+    // rama 2
     leaf = chart.getChartData().getCategories().add(wb.getCell(0, "C5", "Leaf5"));
     leaf.getGroupingLevels().setGroupingItem(1, "Stem3");
     leaf.getGroupingLevels().setGroupingItem(2, "Branch2");
@@ -483,15 +485,15 @@ try {
 
 ### **Crear gráficos de bolsa**
 
-1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/presentation) .
-2. Obtener una referencia a una diapositiva mediante su índice.
-3. Añadir un gráfico con datos predeterminados y especificar el tipo [ChartType.OpenHighLowClose](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/charttype/#OpenHighLowClose) .
-4. Acceder al libro de datos del gráfico [IChartDataWorkbook](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/ichartdataworkbook/) .
-5. Eliminar las series y categorías predeterminadas.
-6. Añadir nuevas series y categorías.
-7. Añadir nuevos datos al gráfico para las series.
-8. Especificar el formato de las líneas alto‑bajo.
-9. Guardar la presentación modificada como archivo PPTX.
+1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) .
+2. Obtenga una referencia a una diapositiva mediante su índice.
+3. Añada un gráfico con datos predeterminados y especifique el tipo [ChartType.OpenHighLowClose](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/#OpenHighLowClose).
+4. Acceda al libro de datos del gráfico [IChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/).
+5. Elimine las series y categorías predeterminadas.
+6. Añada nuevas series y categorías.
+7. Añada nuevos datos al gráfico para las series.
+8. Especifique el formato de las líneas alto‑bajo.
+9. Guarde la presentación modificada como un archivo PPTX.
 
 Este código Java muestra cómo crear un gráfico de bolsa:
 
@@ -553,14 +555,14 @@ try {
 
 ### **Crear gráficos de caja y bigotes**
 
-1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/presentation) .
-2. Obtener una referencia a una diapositiva mediante su índice.
-3. Añadir un gráfico con datos predeterminados y especificar el tipo [ChartType.BoxAndWhisker](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/charttype/#BoxAndWhisker) .
-4. Acceder al libro de datos del gráfico [IChartDataWorkbook](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/ichartdataworkbook/) .
-5. Eliminar las series y categorías predeterminadas.
-6. Añadir nuevas series y categorías.
-7. Añadir nuevos datos al gráfico para las series.
-8. Guardar la presentación modificada como archivo PPTX.
+1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) .
+2. Obtenga una referencia a una diapositiva mediante su índice.
+3. Añada un gráfico con datos predeterminados y especifique el tipo [ChartType.BoxAndWhisker](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/#BoxAndWhisker).
+4. Acceda al libro de datos del gráfico [IChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/).
+5. Elimine las series y categorías predeterminadas.
+6. Añada nuevas series y categorías.
+7. Añada nuevos datos al gráfico para las series.
+8. Guarde la presentación modificada como un archivo PPTX.
 
 Este código Java muestra cómo crear un gráfico de caja y bigotes:
 
@@ -606,10 +608,10 @@ try {
 
 ### **Crear gráficos de embudo**
 
-1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/presentation) .
-2. Obtener una referencia a una diapositiva mediante su índice.
-3. Añadir un gráfico con datos predeterminados y especificar el tipo [ChartType.Funnel](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/charttype/#Funnel) .
-4. Guardar la presentación modificada como archivo PPTX.
+1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) .
+2. Obtenga una referencia a una diapositiva mediante su índice.
+3. Añada un gráfico con datos predeterminados y especifique el tipo [ChartType.Funnel](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/#Funnel).
+4. Guarde la presentación modificada como un archivo PPTX.
 
 Este código Java muestra cómo crear un gráfico de embudo:
 
@@ -648,14 +650,14 @@ try {
 }
 ```
 
-### **Crear gráficos radiales**
+### **Crear gráficos de explosión**
 
-1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/presentation) .
-2. Obtener una referencia a una diapositiva mediante su índice.
-3. Añadir un gráfico con datos predeterminados y especificar el tipo [ChartType.Sunburst](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/charttype/#Sunburst) .
-4. Guardar la presentación modificada como archivo PPTX.
+1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) .
+2. Obtenga una referencia a una diapositiva mediante su índice.
+3. Añada un gráfico con datos predeterminados y especifique el tipo [ChartType.Sunburst](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/#Sunburst).
+4. Guarde la presentación modificada como un archivo PPTX.
 
-Este código Java muestra cómo crear un gráfico radial:
+Este código Java muestra cómo crear un gráfico de explosión:
 
 ```java
 import com.aspose.slides.*;
@@ -669,7 +671,7 @@ try {
     IChartDataWorkbook wb = chart.getChartData().getChartDataWorkbook();
     wb.clear(0);
 
-    //rama 1
+    // rama 1
     IChartCategory leaf = chart.getChartData().getCategories().add(wb.getCell(0, "C1", "Leaf1"));
     leaf.getGroupingLevels().setGroupingItem(1, "Stem1");
     leaf.getGroupingLevels().setGroupingItem(2, "Branch1");
@@ -681,7 +683,7 @@ try {
 
     chart.getChartData().getCategories().add(wb.getCell(0, "C4", "Leaf4"));
 
-    //rama 2
+    // rama 2
     leaf = chart.getChartData().getCategories().add(wb.getCell(0, "C5", "Leaf5"));
     leaf.getGroupingLevels().setGroupingItem(1, "Stem3");
     leaf.getGroupingLevels().setGroupingItem(2, "Branch2");
@@ -712,13 +714,13 @@ try {
 
 ### **Crear gráficos de histograma**
 
-1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/presentation) .
-2. Obtener una referencia a una diapositiva mediante su índice.
-3. Añadir un gráfico con datos predeterminados y especificar el tipo [ChartType.Histogram](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/charttype/#Histogram) .
-4. Acceder al libro de datos del gráfico [IChartDataWorkbook](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/ichartdataworkbook/) .
-5. Eliminar las series y categorías predeterminadas.
-6. Añadir nuevas series y categorías.
-7. Guardar la presentación modificada como archivo PPTX.
+1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) .
+2. Obtenga una referencia a una diapositiva mediante su índice.
+3. Añada un gráfico con datos predeterminados y especifique el tipo [ChartType.Histogram](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/#Histogram).
+4. Acceda al libro de datos del gráfico [IChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/).
+5. Elimine las series y categorías predeterminadas.
+6. Añada nuevas series y categorías.
+7. Guarde la presentación modificada como un archivo PPTX.
 
 Este código Java muestra cómo crear un gráfico de histograma:
 
@@ -752,10 +754,10 @@ try {
 
 ### **Crear gráficos de radar**
 
-1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/presentation) .
-2. Obtener una referencia a una diapositiva mediante su índice.
-3. Añadir un gráfico con algunos datos y especificar su tipo de gráfico preferido ([ChartType.Radar](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/charttype/#Radar) en este caso).
-4. Guardar la presentación modificada como archivo PPTX.
+1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) .
+2. Obtenga una referencia a una diapositiva mediante su índice.
+3. Añada un gráfico con algunos datos y especifique su tipo de gráfico preferido ([ChartType.Radar](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/#Radar) en este caso).
+4. Guarde la presentación modificada como un archivo PPTX.
 
 Este código Java muestra cómo crear un gráfico de radar:
 
@@ -771,18 +773,18 @@ try {
 }
 ```
 
-### **Crear gráficos multicategoría**
+### **Crear gráficos multi‑categoría**
 
-1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/presentation) .
-2. Obtener una referencia a una diapositiva mediante su índice.
-3. Añadir un gráfico con datos predeterminados y especificar el tipo [ChartType.ClusteredColumn](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/charttype/#ClusteredColumn) .
-4. Acceder al libro de datos del gráfico [IChartDataWorkbook](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/ichartdataworkbook/) .
-5. Eliminar las series y categorías predeterminadas.
-6. Añadir nuevas series y categorías.
-7. Añadir nuevos datos al gráfico para las series.
-8. Guardar la presentación modificada como archivo PPTX.
+1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) .
+2. Obtenga una referencia a una diapositiva mediante su índice.
+3. Añada un gráfico con datos predeterminados y especifique el tipo [ChartType.ClusteredColumn](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/#ClusteredColumn).
+4. Acceda al libro de datos del gráfico [IChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/).
+5. Elimine las series y categorías predeterminadas.
+6. Añada nuevas series y categorías.
+7. Añada nuevos datos al gráfico para las series.
+8. Guarde la presentación modificada como un archivo PPTX.
 
-Este código Java muestra cómo crear un gráfico multicategoría:
+Este código Java muestra cómo crear un gráfico multi‑categoría:
 
 ```java
 import com.aspose.slides.*;
@@ -826,7 +828,7 @@ try {
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, "D8", 70));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, "D9", 80));
     
-    // Guardar la presentación con el gráfico
+    // Guardar presentación con gráfico
     pres.save("AsposeChart_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
@@ -853,9 +855,9 @@ try {
 
 ### **Crear gráficos combinados**
 
-Un gráfico combinado (o gráfico combo) combina dos o más tipos de gráficos en un solo diagrama. Este gráfico le permite resaltar, comparar o examinar diferencias entre dos o más conjuntos de datos, ayudándole a identificar relaciones entre ellos.
+Un gráfico combinado (o combo) combina dos o más tipos de gráficos en un solo diagrama. Este gráfico le permite resaltar, comparar o examinar diferencias entre dos o más conjuntos de datos, ayudándole a identificar relaciones entre ellos.
 
-![El gráfico combinado](combination_chart.png)
+![The combination chart](combination_chart.png)
 
 El siguiente código Java muestra cómo crear el gráfico combinado que se muestra arriba en una presentación de PowerPoint:
 
@@ -971,7 +973,7 @@ static void setPrimaryAxesFormat(IChart chart) {
 
     setAxisTitle(verticalAxis, "Y Axis 1");
 
-    // Establecer el color de las líneas de cuadrícula principales verticales.
+    // Establecer el color de las líneas de cuadrícula mayor vertical.
     ILineFillFormat majorGridLinesFormat = verticalAxis.getMajorGridLinesFormat().getLine().getFillFormat();
     majorGridLinesFormat.setFillType(FillType.Solid);
     majorGridLinesFormat.getSolidFillColor().setColor(new Color(217, 217, 217));
@@ -1009,13 +1011,13 @@ static void setAxisTitle(IAxis axis, String axisTitle) {
 
 ## **Actualizar gráficos**
 
-1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/presentation/) que represente la presentación que contiene el gráfico que desea actualizar.
-2. Obtener una referencia a una diapositiva mediante su índice.
-3. Recorrer todas las formas para encontrar el gráfico deseado.
-4. Acceder a la hoja de datos del gráfico.
-5. Modificar las series de datos del gráfico cambiando los valores de las series.
-6. Añadir una nueva serie y rellenar sus datos.
-7. Guardar la presentación modificada como archivo PPTX.
+1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) que represente la presentación que contiene el gráfico que desea actualizar.
+2. Obtenga una referencia a una diapositiva mediante su índice.
+3. Recorra todas las formas para encontrar el gráfico deseado.
+4. Acceda a la hoja de datos del gráfico.
+5. Modifique las series de datos del gráfico cambiando los valores de las series.
+6. Añada una nueva serie y rellene sus datos.
+7. Guarde la presentación modificada como un archivo PPTX.
 
 Este código Java muestra cómo actualizar un gráfico:
 
@@ -1025,54 +1027,54 @@ import com.aspose.slides.*;
 // Abre la presentación que contiene el gráfico a actualizar
 Presentation pres = new Presentation("ExistingChart.pptx");
 try {
-    // Accede a la primera diapositiva
+    // Acceder a la primera diapositiva
     ISlide sld = pres.getSlides().get_Item(0);
 
-    // Obtiene el gráfico de la diapositiva
+    // Obtener el gráfico de la diapositiva
     IChart chart = (IChart)sld.getShapes().get_Item(0);
 
-    // Establece el índice de la hoja de datos del gráfico
+    // Establecer el índice de la hoja de datos del gráfico
     int defaultWorksheetIndex = 0;
 
-    // Obtiene la hoja de datos del gráfico
+    // Obtener la hoja de datos del gráfico
     IChartDataWorkbook fact = chart.getChartData().getChartDataWorkbook();
 
     // Cambiar el nombre de la categoría del gráfico
     fact.getCell(defaultWorksheetIndex, 1, 0, "Modified Category 1");
     fact.getCell(defaultWorksheetIndex, 2, 0, "Modified Category 2");
 
-    // Obtiene la primera serie del gráfico
+    // Tomar la primera serie del gráfico
     IChartSeries series = chart.getChartData().getSeries().get_Item(0);
 
-    // Actualizando ahora los datos de la serie
+    // Actualizar los datos de la serie
     fact.getCell(defaultWorksheetIndex, 0, 1, "New_Series1");// Modificando el nombre de la serie
     series.getDataPoints().get_Item(0).getValue().setData(90);
     series.getDataPoints().get_Item(1).getValue().setData(123);
     series.getDataPoints().get_Item(2).getValue().setData(44);
 
-    // Obtiene la segunda serie del gráfico
+    // Tomar la segunda serie del gráfico
     series = chart.getChartData().getSeries().get_Item(1);
 
-    // Actualizando ahora los datos de la serie
+    // Actualizar los datos de la serie
     fact.getCell(defaultWorksheetIndex, 0, 2, "New_Series2");// Modificando el nombre de la serie
     series.getDataPoints().get_Item(0).getValue().setData(23);
     series.getDataPoints().get_Item(1).getValue().setData(67);
     series.getDataPoints().get_Item(2).getValue().setData(99);
 
-    // Ahora, añadiendo una nueva serie
+    // Añadir una nueva serie
     chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 3, "Series 3"), chart.getType());
 
-    // Obtiene la tercera serie del gráfico
+    // Tomar la tercera serie del gráfico
     series = chart.getChartData().getSeries().get_Item(2);
 
-    // Ahora rellenando los datos de la serie
+    // Rellenar los datos de la serie
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 3, 20));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 3, 50));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 3, 30));
 
     chart.setType(ChartType.ClusteredCylinder);
 
-    // Guarda la presentación con el gráfico
+    // Guardar la presentación con el gráfico
     pres.save("AsposeChartModified_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
@@ -1081,13 +1083,15 @@ try {
 
 ## **Establecer rango de datos para un gráfico**
 
+Para inspeccionar el rango ya usado por un gráfico existente, consulte [Retrieve a Chart's Data Range](/slides/es/androidjava/chart-workbook/#retrieve-a-charts-data-range).
+
 Para establecer el rango de datos de un gráfico, haga lo siguiente:
 
-1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/presentation/) que represente la presentación que contiene el gráfico.
-2. Obtener una referencia a una diapositiva mediante su índice.
-3. Recorrer todas las formas para encontrar el gráfico deseado.
-4. Acceder a los datos del gráfico y establecer el rango.
-5. Guardar la presentación modificada como archivo PPTX.
+1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) que represente la presentación que contiene el gráfico.
+2. Obtenga una referencia a una diapositiva mediante su índice.
+3. Recorra todas las formas para encontrar el gráfico deseado.
+4. Acceda a los datos del gráfico y establezca el rango.
+5. Guarde la presentación modificada como un archivo PPTX.
 
 Este código Java muestra cómo establecer el rango de datos para un gráfico:
 
@@ -1108,11 +1112,11 @@ try {
 }
 ```
 
-## **Usar marcadores predeterminados en gráficos**
+## **Usar marcadores predeterminados en los gráficos**
 
 Cuando usa marcadores predeterminados en los gráficos, cada serie del gráfico recibe automáticamente un símbolo de marcador diferente.
 
-Este código Java muestra cómo establecer automáticamente un marcador para una serie de gráfico:
+Este código Java muestra cómo establecer automáticamente un marcador de serie de gráfico:
 
 ```java
 import com.aspose.slides.*;
@@ -1139,7 +1143,7 @@ try {
     series.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 4, 1, null));
 
     chart.getChartData().getSeries().add(fact.getCell(0, 0, 2, "Series 2"), chart.getType());
-    // Tomar la segunda serie del gráfico
+    // Tomar segunda serie del gráfico
     IChartSeries series2 = chart.getChartData().getSeries().get_Item(1);
 
     // Ahora rellenando datos de la serie
@@ -1157,20 +1161,20 @@ try {
 }
 ```
 
-## **FAQ**
+## **Preguntas frecuentes**
 
-**¿Qué tipos de gráficos son compatibles con Aspose.Slides?**
+**¿Qué tipos de gráficos admite Aspose.Slides?**
 
-Aspose.Slides admite una amplia gama de [tipos de gráficos](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/charttype/), incluidos barras, líneas, circulares, áreas, dispersión, histogramas, radar y muchos más. Esta flexibilidad le permite elegir el tipo de gráfico más adecuado para sus necesidades de visualización de datos.
+Aspose.Slides admite una amplia gama de [chart types](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/), incluidos barra, línea, circular, área, dispersión, histograma, radar y muchos más. Esta flexibilidad le permite elegir el tipo de gráfico más apropiado para sus necesidades de visualización de datos.
 
 **¿Cómo añado un nuevo gráfico a una diapositiva?**
 
-Para añadir un gráfico, primero crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/presentation/) , recupera la diapositiva deseada mediante su índice y luego llama al método para añadir un gráfico, especificando el tipo de gráfico y los datos iniciales. Este proceso integra el gráfico directamente en su presentación.
+Para añadir un gráfico, primero cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/), recupere la diapositiva deseada mediante su índice y, a continuación, invoque el método para añadir un gráfico, especificando el tipo de gráfico y los datos iniciales. Este proceso integra el gráfico directamente en su presentación.
 
 **¿Cómo puedo actualizar los datos mostrados en un gráfico?**
 
-Puede actualizar los datos de un gráfico accediendo a su libro de datos ([IChartDataWorkbook](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/ichartdataworkbook/)), eliminando cualquier serie y categoría predeterminada y luego añadiendo sus datos personalizados. Esto le permite refrescar el gráfico para reflejar los datos más recientes.
+Puede actualizar los datos de un gráfico accediendo a su libro de datos ([IChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/)), eliminando cualquier serie y categoría predeterminada y, a continuación, añadiendo sus datos personalizados. Esto le permite refrescar el gráfico para reflejar la información más reciente.
 
 **¿Es posible personalizar la apariencia del gráfico?**
 
-Sí, Aspose.Slides ofrece amplias opciones de personalización. Puede modificar colores, fuentes, etiquetas, leyendas y otros [elementos de formato](/slides/es/androidjava/chart-entities/) para adaptar la apariencia del gráfico a sus requerimientos de diseño específicos.
+Sí, Aspose.Slides proporciona amplias opciones de personalización. Puede modificar colores, fuentes, etiquetas, leyendas y otros [formatting elements](/slides/es/androidjava/chart-entities/) para adaptar la apariencia del gráfico a sus requisitos de diseño específicos.

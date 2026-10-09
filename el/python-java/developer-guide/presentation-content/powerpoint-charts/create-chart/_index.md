@@ -12,12 +12,12 @@ keywords:
 - ενημέρωση διαγράμματος
 - διάγραμμα διασποράς
 - διάγραμμα πίτας
-- γραμμικό διάγραμμα
+- διάγραμμα γραμμής
 - διάγραμμα δέντρου
-- διάγραμμα χρεοστηριών
-- διάγραμμα κουτιού και γρενάδας
-- διάγραμμα χωνίου
-- διάγραμμα ηλιακής έκρηξης
+- διάγραμμα χρηματιστηρίου
+- διάγραμμα box and whisker
+- διάγραμμα χωνιού
+- διάγραμμα ηλιακίου
 - διάγραμμα ιστογράμματος
 - διάγραμμα ραντάρ
 - πολυκατηγορικό διάγραμμα
@@ -26,49 +26,51 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Δημιουργία και προσαρμογή διαγραμμάτων σε παρουσιάσεις PowerPoint χρησιμοποιώντας το Aspose.Slides για Python μέσω Java. Προσθήκη, μορφοποίηση και επεξεργασία διαγραμμάτων με πρακτικά παραδείγματα κώδικα σε Python."
+description: "Δημιουργήστε και προσαρμόστε διαγράμματα σε παρουσιάσεις PowerPoint χρησιμοποιώντας το Aspose.Slides για Python μέσω Java. Προσθέστε, μορφοποιήστε και επεξεργαστείτε διαγράμματα με πρακτικά παραδείγματα κώδικα σε Python."
 ---
 ## **Επισκόπηση**
 
-Αυτό το άρθρο παρέχει έναν ολοκληρωμένο οδηγό για το πώς να δημιουργείτε και να προσαρμόζετε διαγράμματα χρησιμοποιώντας το Aspose.Slides. Θα μάθετε πώς να προσθέτετε προγραμματιστικά ένα διάγραμμα σε μια διαφάνεια, να το γεμίζετε με δεδομένα και να εφαρμόζετε διάφορες επιλογές μορφοποίησης ώστε να ταιριάζει στις ειδικές απαιτήσεις σχεδίασής σας. Σε όλο το άρθρο, λεπτομερή παραδείγματα κώδικα απεικονίζουν κάθε βήμα, από την αρχικοποίηση της παρουσίασης και του αντικειμένου διαγράμματος μέχρι τη διαμόρφωση σειρών, αξόνων και λεζαντών. Ακολουθώντας αυτόν τον οδηγό, θα αποκτήσετε στιβαρή κατανόηση του πώς να ενσωματώνετε δυναμική δημιουργία διαγραμμάτων στις εφαρμογές σας, καθιστώντας τη διαδικασία δημιουργίας παρουσιάσεων βάσει δεδομένων πιο αποδοτική.
+Αυτό το άρθρο παρέχει έναν ολοκληρωμένο οδηγό για το πώς να δημιουργείτε και να προσαρμόζετε διαγράμματα χρησιμοποιώντας το Aspose.Slides. Θα μάθετε πώς να προσθέτετε προγραμματιστικά ένα διάγραμμα σε μια διαφάνεια, να το γεμίζετε με δεδομένα και να εφαρμόζετε διάφορες επιλογές μορφοποίησης ώστε να ταιριάζει στις ειδικές απαιτήσεις του σχεδίου σας. Σε όλο το άρθρο, λεπτομερή παραδείγματα κώδικα απεικονίζουν κάθε βήμα, από την έναρξη της παρουσίασης και του αντικειμένου διαγράμματος μέχρι τη διαμόρφωση σειρών, αξόνων και υπομνήματος. Ακολουθώντας αυτόν τον οδηγό, θα αποκτήσετε μια σταθερή κατανόηση του πώς να ενσωματώνετε δυναμική δημιουργία διαγραμμάτων στις εφαρμογές σας, βελτιστοποιώντας τη διαδικασία δημιουργίας παρουσιάσεων που βασίζονται σε δεδομένα.
 
 ## **Δημιουργία Διαγράμματος**
 
-Τα διαγράμματα βοηθούν τους ανθρώπους να οπτικοποιούν γρήγορα τα δεδομένα και να αντλούν πληροφορίες που μπορεί να μην είναι αμέσως εμφανείς από έναν πίνακα ή ένα λογιστικό φύλλο.
+Τα διαγράμματα βοηθούν τους ανθρώπους να οπτικοποιούν γρήγορα δεδομένα και να εξάγουν προβλέψεις που ενδεχομένως να μην είναι άμεσα εμφανείς από έναν πίνακα ή ένα λογιστικό φύλλο.
 
-**Γιατί να Δημιουργήσετε Διαγράμματα;**
+**Γιατί Να Δημιουργείτε Διαγράμματα;**
 
-Χρησιμοποιώντας διαγράμματα, μπορείτε:
+Με τη χρήση διαγραμμάτων, μπορείτε:
 
-* να συγκεντρώσετε, συμπτύξετε ή συνοψίσετε μεγάλες ποσότητες δεδομένων σε μία διαφάνεια μιας παρουσίασης
+* να συγκεντρώσετε, συμπιέσετε ή συνοψίσετε μεγάλα ποσά δεδομένων σε μία διαφάνεια μιας παρουσίασης
 * να αποκαλύψετε μοτίβα και τάσεις στα δεδομένα
-* να καταλάβετε την κατεύθυνση και την ορμή των δεδομένων κατά τη διάρκεια του χρόνου ή σε σχέση με μια συγκεκριμένη μονάδα μέτρησης
-* να εντοπίσετε ακραίες τιμές, αποκλίσεις, σφάλματα, άσκοπα δεδομένα κ.λπ.
+* να εκτιμήσετε την κατεύθυνση και την δυναμική των δεδομένων με την πάροδο του χρόνου ή σε σχέση με μια συγκεκριμένη μονάδα μέτρησης
+* να εντοπίσετε εκτός οδού τιμές, αποκλίσεις, σφάλματα, ασύνδετα δεδομένα κ.λπ.
 * να επικοινωνήσετε ή να παρουσιάσετε σύνθετα δεδομένα
 
-Στο PowerPoint, μπορείτε να δημιουργήσετε διαγράμματα μέσω της *Insert* λειτουργίας, η οποία παρέχει πρότυπα για το σχεδιασμό πολλών τύπων διαγραμμάτων. Χρησιμοποιώντας το Aspose.Slides, μπορείτε να δημιουργήσετε τόσο κανονικά διαγράμματα (βάσει δημοφιλών τύπων) όσο και προσαρμοσμένα διαγράμματα.
+Στο PowerPoint, μπορείτε να δημιουργήσετε διαγράμματα μέσω της λειτουργίας *Insert*, η οποία παρέχει πρότυπα για το σχεδιασμό πολλών τύπων διαγραμμάτων. Με το Aspose.Slides, μπορείτε να δημιουργήσετε τόσο κανονικά διαγράμματα (βάσει δημοφιλών τύπων) όσο και προσαρμοσμένα διαγράμματα.
 
-{{% alert color="info" title="Σημείωση" %}}
-Για τη δημιουργία διαγραμμάτων, χρησιμοποιήστε την κλάση [ChartType](https://reference.aspose.com/slides/el/python-java/aspose.slides/charttype/). Τα πεδία σε αυτήν την κλάση αντιστοιχούν σε διαφορετικούς τύπους διαγραμμάτων.
+{{% alert color="info" title="Note" %}}
+
+Για τη δημιουργία διαγραμμάτων, χρησιμοποιήστε την κλάση [ChartType](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/). Τα πεδία αυτής της κλάσης αντιστοιχούν σε διαφορετικούς τύπους διαγραμμάτων.
+
 {{% /alert %}}
 
-### **Δημιουργία Ομαδοποιημένων Στήλων**
+### **Δημιουργία Συγκεντρωμένων Στηλών**
 
-Αυτό το τμήμα εξηγεί πώς να δημιουργήσετε ομαδοποιημένα διαγράμματα στήλης χρησιμοποιώντας το Aspose.Slides. Θα μάθετε να αρχικοποιείτε μια παρουσίαση, να προσθέτετε ένα διάγραμμα και να προσαρμόζετε τα στοιχεία του όπως ο τίτλος, τα δεδομένα, οι σειρές, οι κατηγορίες και το στυλ. Ακολουθήστε τα παρακάτω βήματα για να δείτε πώς δημιουργείται ένα τυπικό ομαδοποιημένο διάγραμμα στήλης:
+Αυτή η ενότητα εξηγεί πώς να δημιουργήσετε συγκεντρωμένα διαγράμματα στηλών χρησιμοποιώντας το Aspose.Slides. Θα μάθετε πώς να αρχικοποιείτε μια παρουσίαση, να προσθέτετε ένα διάγραμμα και να προσαρμόζετε στοιχεία του όπως τίτλο, δεδομένα, σειρές, κατηγορίες και στυλ. Ακολουθήστε τα παρακάτω βήματα για να δείτε πώς δημιουργείται ένα τυπικό συγκεντρωμένο διάγραμμα στηλών:
 
-1. Δημιουργήστε μια παρουσία του κλάσης [Presentation](https://reference.aspose.com/slides/el/python-java/aspose.slides/presentation) .
-2. Λάβετε μια αναφορά σε μια διαφάνεια χρησιμοποιώντας το ευρετήριο της.
-3. Προσθέστε ένα διάγραμμα με κάποια δεδομένα και ορίστε τον τύπο `ChartType.ClusteredColumn` .
+1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation) .
+2. Λάβετε ένα αναφορά σε μια διαφάνεια χρησιμοποιώντας τον δείκτη της.
+3. Προσθέστε ένα διάγραμμα με κάποια δεδομένα και καθορίστε τον τύπο `ChartType.ClusteredColumn` .
 4. Προσθέστε έναν τίτλο στο διάγραμμα.
 5. Πρόσβαση στο φύλλο δεδομένων του διαγράμματος.
-6. Καθαρίστε όλες τις προεπιλεγμένες σειρές και κατηγορίες.
-7. Προσθέστε νέες σειρές και κατηγορίες.
-8. Προσθέστε νέα δεδομένα διαγράμματος για τις σειρές.
-9. Εφαρμόστε χρώμα γεμίσματος στις σειρές του διαγράμματος.
-10. Προσθέστε ετικέτες στις σειρές του διαγράμματος.
-11. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
+6. Εκκαθάριση όλων των προεπιλεγμένων σειρών και κατηγοριών.
+7. Προσθήκη νέων σειρών και κατηγοριών.
+8. Προσθήκη νέων δεδομένων στο διάγραμμα για τις σειρές.
+9. Εφαρμογή χρώματος γεμίσματος στις σειρές του διαγράμματος.
+10. Προσθήκη ετικετών στις σειρές του διαγράμματος.
+11. Αποθήκευση της τροποποιημένης παρουσίασης ως αρχείο PPTX.
 
-Αυτός ο κώδικας C# δείχνει πώς να δημιουργήσετε ένα ομαδοποιημένο διάγραμμα στήλης:
+Αυτός ο κώδικας C# δείχνει πώς να δημιουργήσετε ένα συγκεντρωμένο διάγραμμα στηλών:
 
 ```python
 import jpype
@@ -81,13 +83,13 @@ from asposeslides.api import ChartType, FillType, NullableBool, Presentation, Sa
 
 Color = jpype.JClass("java.awt.Color")
 
-    # Δημιουργεί μια παρουσία κλάσης που αντιπροσωπεύει αρχείο PPTX.
+# Δημιουργεί μια κλάση παρουσίασης που αντιπροσωπεύει ένα αρχείο PPTX.
 presentation = Presentation()
 try:
     # Πρόσβαση στην πρώτη διαφάνεια
     slide = presentation.getSlides().get_Item(0)
 
-    # Προσθήκη διαγράμματος με τα προεπιλεγμένα δεδομένα
+    # Προσθέτει ένα διάγραμμα με τα προεπιλεγμένα δεδομένα του
     chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 0, 0, 500, 500)
 
     # Ορίζει τον τίτλο του διαγράμματος
@@ -99,20 +101,20 @@ try:
     # Ορίζει το ευρετήριο για το φύλλο δεδομένων του διαγράμματος
     default_worksheet_index = 0
 
-    # Λαμβάνει το φύλλο εργασίας δεδομένων του διαγράμματος
+    # Αποκτά το φύλλο εργασίας δεδομένων του διαγράμματος
     workbook = chart.getChartData().getChartDataWorkbook()
 
     # Διαγράφει τις προεπιλεγμένες παραγόμενες σειρές και κατηγορίες
     chart.getChartData().getSeries().clear()
     chart.getChartData().getCategories().clear()
 
-    # Προσθήκη νέων σειρών
+    # Προσθέτει νέες σειρές
     cell = workbook.getCell(default_worksheet_index, 0, 1, "Series 1")
     chart.getChartData().getSeries().add(cell,chart.getType())
     cell = workbook.getCell(default_worksheet_index, 0, 2, "Series 2")
     chart.getChartData().getSeries().add(cell,chart.getType())
 
-    # Προσθήκη νέων κατηγοριών
+    # Προσθέτει νέες κατηγορίες
     cell = workbook.getCell(default_worksheet_index, 1, 0, "Category 1")
     chart.getChartData().getCategories().add(cell)
     cell = workbook.getCell(default_worksheet_index, 2, 0, "Category 2")
@@ -120,7 +122,7 @@ try:
     cell = workbook.getCell(default_worksheet_index, 3, 0, "Category 3")
     chart.getChartData().getCategories().add(cell)
 
-    # Παίρνει την πρώτη σειρά του διαγράμματος
+    # Ανακτά την πρώτη σειρά διαγράμματος
     series = chart.getChartData().getSeries().get_Item(0)
 
     # Τώρα γεμίζει τα δεδομένα της σειράς
@@ -135,7 +137,7 @@ try:
     series.getFormat().getFill().setFillType(FillType.Solid)
     series.getFormat().getFill().getSolidFillColor().setColor(Color.RED)
 
-    # Παίρνει τη δεύτερη σειρά του διαγράμματος
+    # Ανακτά τη δεύτερη σειρά διαγράμματος
     series = chart.getChartData().getSeries().get_Item(1)
 
     # Γεμίζει τα δεδομένα της σειράς
@@ -150,7 +152,7 @@ try:
     series.getFormat().getFill().setFillType(FillType.Solid)
     series.getFormat().getFill().getSolidFillColor().setColor(Color.GREEN)
 
-    #Δημιουργία προσαρμοσμένων ετικετών για κάθε κατηγορία της νέας σειράς
+    #Create προσαρμοσμένες ετικέτες για κάθε κατηγορία της νέας σειράς
     # Ορίζει την πρώτη ετικέτα να εμφανίζει το όνομα της κατηγορίας
     label = series.getDataPoints().get_Item(0).getLabel()
     label.getDataLabelFormat().setShowCategoryName(True)
@@ -172,22 +174,22 @@ finally:
 
 ### **Δημιουργία Διαγραμμάτων Διασποράς**
 
-Τα διαγράμματα διασποράς (επίσης γνωστά ως scatter plots ή x‑y γραφήματα) χρησιμοποιούνται συχνά για τον έλεγχο μοτίβων ή την απόδειξη συσχετίσεων μεταξύ δύο μεταβλητών.
+Τα διαγράμματα διασποράς (επίσης γνωστά ως scatter plots ή x‑y γραφήματα) χρησιμοποιούνται συχνά για να ελέγξουν μοτίβα ή να δείξουν συσχετισμούς μεταξύ δύο μεταβλητών.
 
 Χρησιμοποιήστε ένα διάγραμμα διασποράς όταν:
 
-* έχετε ζευγάρια αριθμητικών δεδομένων
+* έχετε ζεύγη αριθμητικών δεδομένων
 * έχετε δύο μεταβλητές που ταιριάζουν καλά μεταξύ τους
-* θέλετε να διαπιστώσετε εάν δύο μεταβλητές σχετίζονται
-* έχετε μια ανεξάρτητη μεταβλητή που έχει πολλαπλές τιμές για μια εξαρτημένη μεταβλητή
+* θέλετε να προσδιορίσετε εάν δύο μεταβλητές σχετίζονται
+* έχετε μια ανεξάρτητη μεταβλητή με πολλαπλές τιμές για μια εξαρτημένη μεταβλητή
 
-1. Ακολουθήστε τα βήματα στην [Δημιουργία Ομαδοποιημένων Στήλων](#create-clustered-column-charts).
-2. Στο τρίτο βήμα, προσθέστε ένα διάγραμμα με κάποια δεδομένα και ορίστε τον τύπο διαγράμματος ως έναν από τους ακόλουθους:
-   1. [ChartType.ScatterWithMarkers](https://reference.aspose.com/slides/el/python-java/aspose.slides/charttype/#ScatterWithMarkers) - _Αντιπροσωπεύει ένα διάγραμμα διασποράς._
-   2. [ChartType.ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/el/python-java/aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - _Αντιπροσωπεύει ένα διάγραμμα διασποράς συνδεδεμένο με καμπύλες, με δείκτες δεδομένων._
-   3. [ChartType.ScatterWithSmoothLines](https://reference.aspose.com/slides/el/python-java/aspose.slides/charttype/#ScatterWithSmoothLines) - _Αντιπροσωπεύει ένα διάγραμμα διασποράς συνδεδεμένο με καμπύλες, χωρίς δείκτες δεδομένων._
-   4. [ChartType.ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/el/python-java/aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _Αντιπροσωπεύει ένα διάγραμμα διασποράς συνδεδεμένο με γραμμές, με δείκτες δεδομένων._
-   5. [ChartType.ScatterWithStraightLines](https://reference.aspose.com/slides/el/python-java/aspose.slides/charttype/#ScatterWithStraightLines) - _Αντιπροσωπεύει ένα διάγραμμα διασποράς συνδεδεμένο με γραμμές, χωρίς δείκτες δεδομένων._
+1. Ακολουθήστε τα βήματα στο [Create Clustered Column Charts](#create-clustered-column-charts).
+2. Στο τρίτο βήμα, προσθέστε ένα διάγραμμα με κάποια δεδομένα και καθορίστε τον τύπο διαγράμματος ως έναν από τους παρακάτω:
+   1. [ChartType.ScatterWithMarkers](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/#ScatterWithMarkers) - _Represents a scatter chart._
+   2. [ChartType.ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - _Represents a scatter chart connected by curves, with data markers._
+   3. [ChartType.ScatterWithSmoothLines](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/#ScatterWithSmoothLines) - _Represents a scatter chart connected by curves, without data markers._
+   4. [ChartType.ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _Represents a scatter chart connected by lines, with data markers._
+   5. [ChartType.ScatterWithStraightLines](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/#ScatterWithStraightLines) - _Represents a scatter chart connected by lines, without data markers._
 
 Αυτός ο κώδικας Python δείχνει πώς να δημιουργήσετε ένα διάγραμμα διασποράς με διαφορετικούς δείκτες για κάθε σειρά:
 
@@ -200,7 +202,7 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import ChartType, MarkerStyleType, Presentation, SaveFormat
 
-# Δημιουργεί μια παρουσία κλάσης που αντιπροσωπεύει αρχείο PPTX.
+# Δημιουργεί μια κλάση παρουσίασης που αντιπροσωπεύει ένα αρχείο PPTX.
 presentation = Presentation()
 try:
     # Πρόσβαση στην πρώτη διαφάνεια
@@ -212,10 +214,10 @@ try:
     # Λαμβάνει το ευρετήριο του προεπιλεγμένου φύλλου δεδομένων του διαγράμματος
     default_worksheet_index = 0
 
-    # Λαμβάνει το φύλλο εργασίας δεδομένων του διαγράμματος
+    # Λαμβάνει το φύλλο δεδομένων του διαγράμματος
     workbook = chart.getChartData().getChartDataWorkbook()
 
-    # Διαγράφει τη δοκιμαστική σειρά
+    # Διαγράφει τις σειρές επίδειξης
     chart.getChartData().getSeries().clear()
 
     # Προσθέτει νέες σειρές
@@ -224,7 +226,7 @@ try:
     cell = workbook.getCell(default_worksheet_index, 1, 3, "Series 2")
     chart.getChartData().getSeries().add(cell, chart.getType())
 
-    # Παίρνει την πρώτη σειρά του διαγράμματος
+    # Ανακτά την πρώτη σειρά του διαγράμματος
     series = chart.getChartData().getSeries().get_Item(0)
 
     # Προσθέτει ένα νέο σημείο (1:3) στη σειρά
@@ -244,7 +246,7 @@ try:
     series.getMarker().setSize(10)
     series.getMarker().setSymbol(MarkerStyleType.Star)
 
-    # Παίρνει τη δεύτερη σειρά του διαγράμματος
+    # Ανακτά τη δεύτερη σειρά του διαγράμματος
     series = chart.getChartData().getSeries().get_Item(1)
 
     # Προσθέτει ένα νέο σημείο (5:2) εκεί
@@ -276,22 +278,22 @@ finally:
     presentation.dispose()
 ```
 
-### **Δημιουργία Διαγραμμάτων Πίτας**
+### **Δημιουργία Πίτας**
 
-Τα διαγράμματα πίτας είναι ιδανικά για την εμφάνιση της σχέσης μέρος‑σε‑ολό σε δεδομένα, ιδιαίτερα όταν τα δεδομένα περιέχουν κατηγορηματικές ετικέτες με αριθμητικές τιμές. Ωστόσο, εάν τα δεδομένα σας περιλαμβάνουν πολλά μέρη ή ετικέτες, ίσως θελήσετε να χρησιμοποιήσετε αντί αυτού ένα διάγραμμα ράβδων.
+Τα διαγράμματα πίτας χρησιμοποιούνται καλύτερα για να δείξουν τη σχέση μέρος‑προς‑σύνολο στα δεδομένα, ειδικά όταν τα δεδομένα περιέχουν κατηγορηματικές ετικέτες με αριθμητικές τιμές. Ωστόσο, εάν τα δεδομένα σας περιέχουν πολλά μέρη ή ετικέτες, ίσως θελήσετε να χρησιμοποιήσετε ένα ραβδόγραμμα αντίγ.
 
-1. Δημιουργήστε μια παρουσία του κλάσης [Presentation](https://reference.aspose.com/slides/el/python-java/aspose.slides/presentation/) .
-2. Λάβετε μια αναφορά σε μια διαφάνεια χρησιμοποιώντας το ευρετήριο της.
-3. Προσθέστε ένα διάγραμμα με προεπιλεγμένα δεδομένα και ορίστε τον τύπο [ChartType.Pie](https://reference.aspose.com/slides/el/python-java/aspose.slides/charttype/#Pie) .
-4. Πρόσβαση στο βιβλίο δεδομένων του διαγράμματος [ChartDataWorkbook](https://reference.aspose.com/slides/el/python-java/aspose.slides/chartdataworkbook/) .
-5. Καθαρίστε τις προεπιλεγμένες σειρές και κατηγορίες.
-6. Προσθέστε νέες σειρές και κατηγορίες.
-7. Προσθέστε νέα δεδομένα διαγράμματος για τις σειρές.
-8. Προσθέστε νέα σημεία για το διάγραμμα και εφαρμόστε προσαρμοσμένα χρώματα στους τομείς του διαγράμματος πίτας.
-9. Ορίστε ετικέτες για τις σειρές.
-10. Ενεργοποιήστε τις γραμμές οδηγού για τις ετικέτες των σειρών.
-11. Ορίστε τη γωνία περιστροφής για τους τομείς του διαγράμματος πίτας.
-12. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
+1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) .
+2. Λάβετε μια αναφορά σε μια διαφάνεια χρησιμοποιώντας τον δείκτη της.
+3. Προσθέστε ένα διάγραμμα με προεπιλεγμένα δεδομένα και καθορίστε τον τύπο [ChartType.Pie](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/#Pie) .
+4. Πρόσβαση στο βιβλίο δεδομένων του διαγράμματος [ChartDataWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdataworkbook/) .
+5. Εκκαθάριση των προεπιλεγμένων σειρών και κατηγοριών.
+6. Προσθήκη νέων σειρών και κατηγοριών.
+7. Προσθήκη νέων δεδομένων στο διάγραμμα για τις σειρές.
+8. Προσθήκη νέων σημείων στο διάγραμμα και εφαρμογή προσαρμοσμένων χρωμάτων για τους τομείς της πίτας.
+9. Ορισμός ετικετών για τις σειρές.
+10. Ενεργοποίηση γραμμών οδηγού για τις ετικέτες των σειρών.
+11. Ορισμός γωνίας περιστροφής για τους τομείς της πίτας.
+12. Αποθήκευση της τροποποιημένης παρουσίασης ως αρχείο PPTX.
 
 Αυτός ο κώδικας Python δείχνει πώς να δημιουργήσετε ένα διάγραμμα πίτας:
 
@@ -306,7 +308,7 @@ from asposeslides.api import ChartType, FillType, LineDashStyle, LineStyle, Null
 
 Color = jpype.JClass("java.awt.Color")
 
-# Δημιουργεί μια παρουσία κλάσης που αντιπροσωπεύει αρχείο PPTX.
+# Δημιουργεί μια κλάση παρουσίασης που αντιπροσωπεύει ένα αρχείο PPTX.
 presentation = Presentation()
 try:
     # Πρόσβαση στην πρώτη διαφάνεια
@@ -321,13 +323,13 @@ try:
     chart.getChartTitle().setHeight(20)
     chart.setTitle(True)
 
-    # Ορίζει το ευρετήριο για το φύλλο δεδομένων του διαγράμματος
+    # Ορίζει το ευρετήριο του φύλλου δεδομένων του διαγράμματος
     default_worksheet_index = 0
 
     # Λαμβάνει το φύλλο εργασίας δεδομένων του διαγράμματος
     workbook = chart.getChartData().getChartDataWorkbook()
 
-    # Διαγράφει τις προεπιλεγμένες παραγόμενες σειρές και κατηγορίες
+    # Διαγράφει τις προεπιλεγμένες δημιουργημένες σειρές και κατηγορίες
     chart.getChartData().getSeries().clear()
     chart.getChartData().getCategories().clear()
 
@@ -343,7 +345,7 @@ try:
     cell = workbook.getCell(0, 0, 1, "Series 1")
     series = chart.getChartData().getSeries().add(cell, chart.getType())
 
-    #Populates τη σειρά δεδομένων
+    #Γεμίζει τα δεδομένα της σειράς
     cell = workbook.getCell(default_worksheet_index, 1, 1, 20)
     series.getDataPoints().addDataPointForPieSeries(cell)
     cell = workbook.getCell(default_worksheet_index, 2, 1, 50)
@@ -351,7 +353,7 @@ try:
     cell = workbook.getCell(default_worksheet_index, 3, 1, 30)
     series.getDataPoints().addDataPointForPieSeries(cell)
 
-    # Προσθήκη νέων σημείων και ορισμός χρώματος τομέα
+    # Προσθέτει νέα σημεία και ορίζει το χρώμα του τομέα
     chart.getChartData().getSeriesGroups().get_Item(0).setColorVaried(True)
 
     point = series.getDataPoints().get_Item(0)
@@ -407,7 +409,7 @@ try:
     # Ορίζει τη γωνία περιστροφής για τους τομείς του διαγράμματος πίτας
     chart.getChartData().getSeriesGroups().get_Item(0).setFirstSliceAngle(180)
 
-    # Αποθηκεύει την παρουσίαση με ένα διάγραμμα
+    # Αποθηκεύει την παρουσίαση με διάγραμμα
     presentation.save("PieChart_out.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
@@ -415,12 +417,12 @@ finally:
 
 ### **Δημιουργία Γραμμικών Διαγραμμάτων**
 
-Τα γραμμικά διαγράμματα (επίσης γνωστά ως γραφικές παραστάσεις) είναι ιδανικά σε καταστάσεις όπου θέλετε να δείξετε αλλαγές στις τιμές με την πάροδο του χρόνου. Χρησιμοποιώντας ένα γραμμικό διάγραμμα, μπορείτε να συγκρίνετε μεγάλες ποσότητες δεδομένων ταυτόχρονα, να παρακολουθείτε αλλαγές και τάσεις με την πάροδο του χρόνου, να επισημάνετε ανωμαλίες σε σειρές δεδομένων και πολλά άλλα.
+Τα γραμμικά διαγράμματα (επίσης γνωστά ως line graphs) χρησιμοποιούνται καλύτερα όταν θέλετε να δείξετε αλλαγές σε τιμές με την πάροδο του χρόνου. Χρησιμοποιώντας ένα γραμμικό διάγραμμα, μπορείτε να συγκρίνετε μεγάλο όγκο δεδομένων ταυτόχρονα, να παρακολουθείτε αλλαγές και τάσεις στο χρόνο, να επισημαίνετε ανωμαλίες σε σειρές δεδομένων κ.ά.
 
-1. Δημιουργήστε μια παρουσία του κλάσης [Presentation](https://reference.aspose.com/slides/el/python-java/aspose.slides/presentation/) .
-2. Λάβετε μια αναφορά σε μια διαφάνεια χρησιμοποιώντας το ευρετήριο της.
-3. Προσθέστε ένα διάγραμμα με προεπιλεγμένα δεδομένα και ορίστε τον τύπο [ChartType.Line](https://reference.aspose.com/slides/el/python-java/aspose.slides/charttype/#Line) .
-4. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
+1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) .
+2. Λάβετε μια αναφορά σε μια διαφάνεια χρησιμοποιώντας τον δείκτη της.
+3. Προσθέστε ένα διάγραμμα με προεπιλεγμένα δεδομένα και καθορίστε τον τύπο [ChartType.Line](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/#Line) .
+4. Αποθήκευση της τροποποιημένης παρουσίασης ως αρχείο PPTX.
 
 Αυτός ο κώδικας Python δείχνει πώς να δημιουργήσετε ένα γραμμικό διάγραμμα:
 
@@ -442,7 +444,7 @@ finally:
     presentation.dispose()
 ```
 
-Από προεπιλογή, τα σημεία σε ένα γραμμικό διάγραμμα ενώνονται με ενόντες ευθείες γραμμές. Εάν θέλετε τα σημεία να ενώνονται με παύλες, μπορείτε να ορίσετε τον προτιμώμενο τύπο παύλας ως εξής:
+Από προεπιλογή, τα σημεία ενός γραμμικού διαγράμματος ενώνουν με συνεχείς ευθείες. Εάν θέλετε τα σημεία να ενώνουν με παύλες, μπορείτε να καθορίσετε τον προτιμώμενο τύπο παύλας ως εξής:
 
 ```python
 import jpype
@@ -465,18 +467,18 @@ finally:
     presentation.dispose()
 ```
 
-### **Δημιουργία Διαγραμμάτων Δέντρου (Tree Map)**
+### **Δημιουργία Διαγραμμάτων Δέντρου**
 
-Τα διαγράμματα δέντρου είναι ιδανικά για δεδομένα πωλήσεων όταν θέλετε να δείξετε το σχετικό μέγεθος των κατηγοριών δεδομένων και να εστιάσετε γρήγορα σε στοιχεία που συνεισφέρουν σημαντικά μέσα σε κάθε κατηγορία.
+Τα διαγράμματα δέντρου (tree map) είναι ιδανικά για δεδομένα πωλήσεων όταν θέλετε να δείξετε το σχετικό μέγεθος των κατηγοριών και να εστιάσετε γρήγορα σε στοιχεία που συμβάλλουν σημαντικά σε κάθε κατηγορία.
 
-1. Δημιουργήστε μια παρουσία του κλάσης [Presentation](https://reference.aspose.com/slides/el/python-java/aspose.slides/presentation/) .
-2. Λάβετε μια αναφορά σε μια διαφάνεια χρησιμοποιώντας το ευρετήριο της.
-3. Προσθέστε ένα διάγραμμα με προεπιλεγμένα δεδομένα και ορίστε τον τύπο [ChartType.Treemap](https://reference.aspose.com/slides/el/python-java/aspose.slides/charttype/#Treemap) .
-4. Πρόσβαση στο βιβλίο δεδομένων του διαγράμματος [ChartDataWorkbook](https://reference.aspose.com/slides/el/python-java/aspose.slides/chartdataworkbook/) .
-5. Καθαρίστε τις προεπιλεγμένες σειρές και κατηγορίες.
-6. Προσθέστε νέες σειρές και κατηγορίες.
-7. Προσθέστε νέα δεδομένα διαγράμματος για τις σειρές.
-8. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
+1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) .
+2. Λάβετε μια αναφορά σε μια διαφάνεια χρησιμοποιώντας τον δείκτη της.
+3. Προσθέστε ένα διάγραμμα με προεπιλεγμένα δεδομένα και καθορίστε τον τύπο [ChartType.Treemap](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/#Treemap) .
+4. Πρόσβαση στο βιβλίο δεδομένων του διαγράμματος [ChartDataWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdataworkbook/) .
+5. Εκκαθάριση των προεπιλεγμένων σειρών και κατηγοριών.
+6. Προσθήκη νέων σειρών και κατηγοριών.
+7. Προσθήκη νέων δεδομένων στο διάγραμμα για τις σειρές.
+8. Αποθήκευση της τροποποιημένης παρουσίασης ως αρχείο PPTX.
 
 Αυτός ο κώδικας Python δείχνει πώς να δημιουργήσετε ένα διάγραμμα δέντρου:
 
@@ -498,7 +500,7 @@ try:
     workbook = chart.getChartData().getChartDataWorkbook()
     workbook.clear(0)
 
-    #κλάδος 1
+    #κλαδί 1
     cell = workbook.getCell(0, "C1", "Leaf1")
     leaf = chart.getChartData().getCategories().add(cell)
     leaf.getGroupingLevels().setGroupingItem(1, "Stem1")
@@ -514,7 +516,7 @@ try:
     cell = workbook.getCell(0, "C4", "Leaf4")
     chart.getChartData().getCategories().add(cell)
 
-    #κλάδος 2
+    #κλαδί 2
     cell = workbook.getCell(0, "C5", "Leaf5")
     leaf = chart.getChartData().getCategories().add(cell)
     leaf.getGroupingLevels().setGroupingItem(1, "Stem3")
@@ -556,19 +558,19 @@ finally:
     presentation.dispose()
 ```
 
-### **Δημιουργία Διαγραμμάτων Χρόνου (Stock)**
+### **Δημιουργία Γραφημάτων Χρηματιστηρίου**
 
-1. Δημιουργήστε μια παρουσία του κλάσης [Presentation](https://reference.aspose.com/slides/el/python-java/aspose.slides/presentation/) .
-2. Λάβετε μια αναφορά σε μια διαφάνεια χρησιμοποιώντας το ευρετήριο της.
-3. Προσθέστε ένα διάγραμμα με προεπιλεγμένα δεδομένα και ορίστε τον τύπο [ChartType.OpenHighLowClose](https://reference.aspose.com/slides/el/python-java/aspose.slides/charttype/#OpenHighLowClose) .
-4. Πρόσβαση στο βιβλίο δεδομένων του διαγράμματος [ChartDataWorkbook](https://reference.aspose.com/slides/el/python-java/aspose.slides/chartdataworkbook/) .
-5. Καθαρίστε τις προεπιλεγμένες σειρές και κατηγορίες.
-6. Προσθέστε νέες σειρές και κατηγορίες.
-7. Προσθέστε νέα δεδομένα διαγράμματος για τις σειρές.
-8. Ορίστε τη μορφή των γραμμών υψηλού‑χαμηλού.
-9. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
+1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) .
+2. Λάβετε μια αναφορά σε μια διαφάνεια χρησιμοποιώντας τον δείκτη της.
+3. Προσθέστε ένα διάγραμμα με προεπιλεγμένα δεδομένα και καθορίστε τον τύπο [ChartType.OpenHighLowClose](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/#OpenHighLowClose) .
+4. Πρόσβαση στο βιβλίο δεδομένων του διαγράμματος [ChartDataWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdataworkbook/) .
+5. Εκκαθάριση των προεπιλεγμένων σειρών και κατηγοριών.
+6. Προσθήκη νέων σειρών και κατηγοριών.
+7. Προσθήκη νέων δεδομένων στο διάγραμμα για τις σειρές.
+8. Καθορισμός μορφοποίησης των γραμμών υψηλού‑χαμηλού.
+9. Αποθήκευση της τροποποιημένης παρουσίασης ως αρχείο PPTX.
 
-Αυτός ο κώδικας Python δείχνει πώς να δημιουργήσετε ένα διάγραμμα χρόνου:
+Αυτός ο κώδικας Python δείχνει πώς να δημιουργήσετε ένα διάγραμμα χρηματιστηρίου:
 
 ```python
 import jpype
@@ -648,18 +650,18 @@ finally:
     presentation.dispose()
 ```
 
-### **Δημιουργία Διαγραμμάτων Box και Whisker**
+### **Δημιουργία Διαγραμμάτων Box and Whisker**
 
-1. Δημιουργήστε μια παρουσία του κλάσης [Presentation](https://reference.aspose.com/slides/el/python-java/aspose.slides/presentation/) .
-2. Λάβετε μια αναφορά σε μια διαφάνεια χρησιμοποιώντας το ευρετήριο της.
-3. Προσθέστε ένα διάγραμμα με προεπιλεγμένα δεδομένα και ορίστε τον τύπο [ChartType.BoxAndWhisker](https://reference.aspose.com/slides/el/python-java/aspose.slides/charttype/#BoxAndWhisker) .
-4. Πρόσβαση στο βιβλίο δεδομένων του διαγράμματος [ChartDataWorkbook](https://reference.aspose.com/slides/el/python-java/aspose.slides/chartdataworkbook/) .
-5. Καθαρίστε τις προεπιλεγμένες σειρές και κατηγορίες.
-6. Προσθέστε νέες σειρές και κατηγορίες.
-7. Προσθέστε νέα δεδομένα διαγράμματος για τις σειρές.
-8. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
+1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) .
+2. Λάβετε μια αναφορά σε μια διαφάνεια χρησιμοποιώντας τον δείκτη της.
+3. Προσθέστε ένα διάγραμμα με προεπιλεγμένα δεδομένα και καθορίστε τον τύπο [ChartType.BoxAndWhisker](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/#BoxAndWhisker) .
+4. Πρόσβαση στο βιβλίο δεδομένων του διαγράμματος [ChartDataWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdataworkbook/) .
+5. Εκκαθάριση των προεπιλεγμένων σειρών και κατηγοριών.
+6. Προσθήκη νέων σειρών και κατηγοριών.
+7. Προσθήκη νέων δεδομένων στο διάγραμμα για τις σειρές.
+8. Αποθήκευση της τροποποιημένης παρουσίασης ως αρχείο PPTX.
 
-Αυτός ο κώδικας Python δείχνει πώς να δημιουργήσετε ένα διάγραμμα Box και Whisker:
+Αυτός ο κώδικας Python δείχνει πώς να δημιουργήσετε ένα διάγραμμα Box and Whisker:
 
 ```python
 import jpype
@@ -718,14 +720,14 @@ finally:
     presentation.dispose()
 ```
 
-### **Δημιουργία Διαγραμμάτων Funnel**
+### **Δημιουργία Funnel Διαγραμμάτων**
 
-1. Δημιουργήστε μια παρουσία του κλάσης [Presentation](https://reference.aspose.com/slides/el/python-java/aspose.slides/presentation/) .
-2. Λάβετε μια αναφορά σε μια διαφάνεια χρησιμοποιώντας το ευρετήριο της.
-3. Προσθέστε ένα διάγραμμα με προεπιλεγμένα δεδομένα και ορίστε τον τύπο [ChartType.Funnel](https://reference.aspose.com/slides/el/python-java/aspose.slides/charttype/#Funnel) .
-4. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
+1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) .
+2. Λάβετε μια αναφορά σε μια διαφάνεια χρησιμοποιώντας τον δείκτη της.
+3. Προσθέστε ένα διάγραμμα με προεπιλεγμένα δεδομένα και καθορίστε τον τύπο [ChartType.Funnel](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/#Funnel) .
+4. Αποθήκευση της τροποποιημένης παρουσίασης ως αρχείο PPTX.
 
-Αυτός ο κώδικας Python δείχνει πώς να δημιουργήσετε ένα διάγραμμα Funnel:
+Αυτός ο κώδικας Python δείχνει πώς να δημιουργήσετε ένα funnel διάγραμμα:
 
 ```python
 import jpype
@@ -779,17 +781,17 @@ finally:
     presentation.dispose()
 ```
 
-### **Δημιουργία Διαγραμμάτων Sunburst**
+### **Δημιουργία Sunburst Διαγραμμάτων**
 
-1. Δημιουργήστε μια παρουσία του κλάσης [Presentation](https://reference.aspose.com/slides/el/python-java/aspose.slides/presentation/) .
-2. Λάβετε μια αναφορά σε μια διαφάνεια χρησιμοποιώντας το ευρετήριο της.
-3. Προσθέστε ένα διάγραμμα με προεπιλεγμένα δεδομένα και ορίστε τον τύπο [ChartType.Sunburst](https://reference.aspose.com/slides/el/python-java/aspose.slides/charttype/#Sunburst) .
-4. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
+1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) .
+2. Λάβετε μια αναφορά σε μια διαφάνεια χρησιμοποιώντας τον δείκτη της.
+3. Προσθέστε ένα διάγραμμα με προεπιλεγμένα δεδομένα και καθορίστε τον τύπο [ChartType.Sunburst](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/#Sunburst) .
+4. Αποθήκευση της τροποποιημένης παρουσίασης ως αρχείο PPTX.
 
-Αυτός ο κώδικας Python δείχνει πώς να δημιουργήσετε ένα διάγραμμα Sunburst:
+Αυτός ο κώδικας Python δείχνει πώς να δημιουργήσετε ένα sunburst διάγραμμα:
 
 ```python
-import jpype
+import jpage
 import asposeslides
 
 if not jpype.isJVMStarted():
@@ -806,7 +808,7 @@ try:
     workbook = chart.getChartData().getChartDataWorkbook()
     workbook.clear(0)
 
-    #κλάδος 1
+    #κλαδί 1
     cell = workbook.getCell(0, "C1", "Leaf1")
     leaf = chart.getChartData().getCategories().add(cell)
     leaf.getGroupingLevels().setGroupingItem(1, "Stem1")
@@ -822,7 +824,7 @@ try:
     cell = workbook.getCell(0, "C4", "Leaf4")
     chart.getChartData().getCategories().add(cell)
 
-    #κλάδος 2
+    #κλαδί 2
     cell = workbook.getCell(0, "C5", "Leaf5")
     leaf = chart.getChartData().getCategories().add(cell)
     leaf.getGroupingLevels().setGroupingItem(1, "Stem3")
@@ -862,17 +864,17 @@ finally:
     presentation.dispose()
 ```
 
-### **Δημιουργία Ιστογραμμάτων (Histogram)**
+### **Δημιουργία Ιστογραμμάτων**
 
-1. Δημιουργήστε μια παρουσία του κλάσης [Presentation](https://reference.aspose.com/slides/el/python-java/aspose.slides/presentation/) .
-2. Λάβετε μια αναφορά σε μια διαφάνεια χρησιμοποιώντας το ευρετήριο της.
-3. Προσθέστε ένα διάγραμμα με προεπιλεγμένα δεδομένα και ορίστε τον τύπο [ChartType.Histogram](https://reference.aspose.com/slides/el/python-java/aspose.slides/charttype/#Histogram) .
-4. Πρόσβαση στο βιβλίο δεδομένων του διαγράμματος [ChartDataWorkbook](https://reference.aspose.com/slides/el/python-java/aspose.slides/chartdataworkbook/) .
-5. Καθαρίστε τις προεπιλεγμένες σειρές και κατηγορίες.
-6. Προσθέστε νέες σειρές και κατηγορίες.
-7. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
+1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) .
+2. Λάβετε μια αναφορά σε μια διαφάνεια χρησιμοποιώντας τον δείκτη της.
+3. Προσθέστε ένα διάγραμμα με προεπιλεγμένα δεδομένα και καθορίστε τον τύπο [ChartType.Histogram](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/#Histogram) .
+4. Πρόσβαση στο βιβλίο δεδομένων του διαγράμματος [ChartDataWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdataworkbook/) .
+5. Εκκαθάριση των προεπιλεγμένων σειρών και κατηγοριών.
+6. Προσθήκη νέων σειρών και κατηγοριών.
+7. Αποθήκευση της τροποποιημένης παρουσίασης ως αρχείο PPTX.
 
-Αυτός ο κώδικας Python δείχνει πώς να δημιουργήσετε ένα ιστογράμμα:
+Αυτός ο κώδικας Python δείχνει πώς να δημιουργήσετε ένα ιστογράφημα:
 
 ```python
 import jpype
@@ -913,14 +915,14 @@ finally:
     presentation.dispose()
 ```
 
-### **Δημιουργία Διαγραμμάτων Radar**
+### **Δημιουργία Radar Διαγραμμάτων**
 
-1. Δημιουργήστε μια παρουσία του κλάσης [Presentation](https://reference.aspose.com/slides/el/python-java/aspose.slides/presentation/) .
-2. Λάβετε μια αναφορά σε μια διαφάνεια χρησιμοποιώντας το ευρετήριο της.
-3. Προσθέστε ένα διάγραμμα με κάποια δεδομένα και ορίστε τον προτιμώμενο τύπο διαγράμματος ([ChartType.Radar](https://reference.aspose.com/slides/el/python-java/aspose.slides/charttype/#Radar) σε αυτήν την περίπτωση).
-4. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
+1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) .
+2. Λάβετε μια αναφορά σε μια διαφάνεια χρησιμοποιώντας τον δείκτη της.
+3. Προσθέστε ένα διάγραμμα με κάποια δεδομένα και καθορίστε τον προτιμώμενο τύπο διαγράμματος ([ChartType.Radar](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/#Radar) σε αυτήν την περίπτωση).
+4. Αποθήκευση της τροποποιημένης παρουσίασης ως αρχείο PPTX.
 
-Αυτός ο κώδικας Python δείχνει πώς να δημιουργήσετε ένα διάγραμμα Radar:
+Αυτός ο κώδικας Python δείχνει πώς να δημιουργήσετε ένα radar διάγραμμα:
 
 ```python
 import jpype
@@ -939,18 +941,18 @@ finally:
     presentation.dispose()
 ```
 
-### **Δημιουργία Πολυ‑Κατηγορικών Διαγραμμάτων**
+### **Δημιουργία Πολυκατηγορικών Διαγραμμάτων**
 
-1. Δημιουργήστε μια παρουσία του κλάσης [Presentation](https://reference.aspose.com/slides/el/python-java/aspose.slides/presentation/) .
-2. Λάβετε μια αναφορά σε μια διαφάνεια χρησιμοποιώντας το ευρετήριο της.
-3. Προσθέστε ένα διάγραμμα με προεπιλεγμένα δεδομένα και ορίστε τον τύπο [ChartType.ClusteredColumn](https://reference.aspose.com/slides/el/python-java/aspose.slides/charttype/#ClusteredColumn) .
-4. Πρόσβαση στο βιβλίο δεδομένων του διαγράμματος [ChartDataWorkbook](https://reference.aspose.com/slides/el/python-java/aspose.slides/chartdataworkbook/) .
-5. Καθαρίστε τις προεπιλεγμένες σειρές και κατηγορίες.
-6. Προσθέστε νέες σειρές και κατηγορίες.
-7. Προσθέστε νέα δεδομένα διαγράμματος για τις σειρές.
-8. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
+1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) .
+2. Λάβετε μια αναφορά σε μια διαφάνεια χρησιμοποιώντας τον δείκτη της.
+3. Προσθέστε ένα διάγραμμα με προεπιλεγμένα δεδομένα και καθορίστε τον τύπο [ChartType.ClusteredColumn](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/#ClusteredColumn) .
+4. Πρόσβαση στο βιβλίο δεδομένων του διαγράμματος [ChartDataWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdataworkbook/) .
+5. Εκκαθάριση των προεπιλεγμένων σειρών και κατηγοριών.
+6. Προσθήκη νέων σειρών και κατηγοριών.
+7. Προσθήκη νέων δεδομένων στο διάγραμμα για τις σειρές.
+8. Αποθήκευση της τροποποιημένης παρουσίασης ως αρχείο PPTX.
 
-Αυτός ο κώδικας Python δείχνει πώς να δημιουργήσετε ένα πολυ‑κατηγορικό διάγραμμα:
+Αυτός ο κώδικας Python δείχνει πώς να δημιουργήσετε ένα πολυκατηγορικό διάγραμμα:
 
 ```python
 import jpype
@@ -995,7 +997,7 @@ try:
     cell = workbook.getCell(0, "c9", "H")
     category = chart.getChartData().getCategories().add(cell)
 
-    # Προσθήκη Σειράς
+    # Προσθήκη Σειρών
     cell = workbook.getCell(0, "D1", "Series 1")
     series = chart.getChartData().getSeries().add(cell, ChartType.ClusteredColumn)
 
@@ -1016,17 +1018,17 @@ try:
     cell = workbook.getCell(default_worksheet_index, "D9", 80)
     series.getDataPoints().addDataPointForBarSeries(cell)
 
-    # Save presentation with chart
+    # Αποθήκευση παρουσίασης με διάγραμμα
     presentation.save("AsposeChart_out.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-### **Δημιουργία Διαγραμμάτων Χαρτών**
+### **Δημιουργία Χαρτών Διαγραμμάτων**
 
-Τα διαγράμματα χάρτες οπτικοποιούν γεωγραφικά δεδομένα και βοηθούν στη σύγκριση τιμών μεταξύ περιοχών.
+Τα χάρτες διαγραμμάτων οπτικοποιούν γεωγραφικά δεδομένα και βοηθούν στη σύγκριση τιμών μεταξύ περιοχών.
 
-Αυτός ο κώδικας Python δείχνει πώς να δημιουργήσετε ένα διάγραμμα χάρτη:
+Αυτός ο κώδικας Python δείχνει πώς να δημιουργήσετε ένα χάρτη διάγραμμα:
 
 ```python
 import jpype
@@ -1047,9 +1049,9 @@ finally:
 
 ### **Δημιουργία Συνδυαστικών Διαγραμμάτων**
 
-Ένα συνδυαστικό διάγραμμα (ή combo chart) συνδυάζει δύο ή περισσότερους τύπους διαγραμμάτων σε ένα μόνο γράφημα. Αυτό το διάγραμμα σας επιτρέπει να τονίσετε, να συγκρίνετε ή να εξετάσετε διαφορές μεταξύ δύο ή περισσότερων συνόλων δεδομένων, βοηθώντας σας να εντοπίσετε σχέσεις μεταξύ τους.
+Ένα συνδυαστικό διάγραμμα (ή combo chart) συνδυάζει δύο ή περισσότερους τύπους διαγράμματος σε ένα γράφημα. Αυτό το διάγραμμα σας επιτρέπει να επισημάνετε, συγκρίνετε ή εξετάσετε διαφορές μεταξύ δύο ή περισσότερων συνόλων δεδομένων, βοηθώντας σας να εντοπίσετε σχέσεις μεταξύ τους.
 
-![Το συνδυαστικό διάγραμμα](combination_chart.png)
+![The combination chart](combination_chart.png)
 
 Ο παρακάτω κώδικας Python δείχνει πώς να δημιουργήσετε το παραπάνω συνδυαστικό διάγραμμα σε μια παρουσίαση PowerPoint:
 
@@ -1083,7 +1085,7 @@ def create_combo_chart():
 def create_chart_with_first_series(slide):
     chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400)
 
-    # Ορίζεται ο τίτλος του διαγράμματος.
+    # Ορισμός τίτλου διαγράμματος.
     chart.setTitle(True)
     chart.getChartTitle().addTextFrameForOverriding("Chart Title")
     chart.getChartTitle().setOverlay(False)
@@ -1092,11 +1094,11 @@ def create_chart_with_first_series(slide):
     title_format.setFontBold(NullableBool.False_)
     title_format.setFontHeight(18.0)
 
-    # Ορίζεται η λεζάντα του διαγράμματος.
+    # Ορισμός υπομνήματος διαγράμματος.
     chart.getLegend().setPosition(LegendPositionType.Bottom)
     chart.getLegend().getTextFormat().getPortionFormat().setFontHeight(12.0)
 
-    # Διαγράφονται οι προεπιλεγμένες παραγόμενες σειρές και κατηγορίες.
+    # Διαγραφή των προεπιλεγμένων παραγόμενων σειρών και κατηγοριών.
     chart.getChartData().getSeries().clear()
     chart.getChartData().getCategories().clear()
 
@@ -1169,28 +1171,28 @@ def add_third_series_to_chart(chart):
     series.setPlotOnSecondAxis(True)
 
 def set_primary_axes_format(chart):
-    # Ορίζεται ο οριζόντιος άξονας.
+    # Ορισμός του οριζόντιου άξονα.
     horizontal_axis = chart.getAxes().getHorizontalAxis()
     horizontal_axis.getTextFormat().getPortionFormat().setFontHeight(12.0)
     horizontal_axis.getFormat().getLine().getFillFormat().setFillType(FillType.NoFill)
 
     set_axis_title(horizontal_axis, "X Axis")
 
-    # Ορίζεται ο κάθετος άξονας.
+    # Ορισμός του κάθετου άξονα.
     vertical_axis = chart.getAxes().getVerticalAxis()
     vertical_axis.getTextFormat().getPortionFormat().setFontHeight(12.0)
     vertical_axis.getFormat().getLine().getFillFormat().setFillType(FillType.NoFill)
 
     set_axis_title(vertical_axis, "Y Axis 1")
 
-    # Ορίζεται το χρώμα των κύριων γραμμών πλέγματος του κάθετου άξονα.
+    # Ορισμός χρώματος των κύριων γραμμών πλέγματος του κάθετου άξονα.
     major_grid_lines_format = vertical_axis.getMajorGridLinesFormat().getLine().getFillFormat()
     major_grid_lines_format.setFillType(FillType.Solid)
     color = Color(217, 217, 217)
     major_grid_lines_format.getSolidFillColor().setColor(color)
 
 def set_secondary_axes_format(chart):
-    # Ορίζεται ο δευτερεύων οριζόντιος άξονας.
+    # Ορισμός του δευτερεύοντος οριζόντιου άξονα.
     secondary_horizontal_axis = chart.getAxes().getSecondaryHorizontalAxis()
     secondary_horizontal_axis.setPosition(AxisPositionType.Bottom)
     secondary_horizontal_axis.setCrossType(CrossesType.Maximum)
@@ -1198,7 +1200,7 @@ def set_secondary_axes_format(chart):
     secondary_horizontal_axis.getMajorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.NoFill)
     secondary_horizontal_axis.getMinorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.NoFill)
 
-    # Ορίζεται ο δευτερεύων κάθετος άξονας.
+    # Ορισμός του δευτερεύοντος κάθετου άξονα.
     secondary_vertical_axis = chart.getAxes().getSecondaryVerticalAxis()
     secondary_vertical_axis.setPosition(AxisPositionType.Right)
     secondary_vertical_axis.getTextFormat().getPortionFormat().setFontHeight(12.0)
@@ -1221,13 +1223,13 @@ create_combo_chart()
 
 ## **Ενημέρωση Διαγραμμάτων**
 
-1. Δημιουργήστε μια παρουσία του κλάσης [Presentation](https://reference.aspose.com/slides/el/python-java/aspose.slides/presentation/) που αντιπροσωπεύει την παρουσίαση που περιέχει το διάγραμμα που θέλετε να ενημερώσετε.
-2. Λάβετε μια αναφορά σε μια διαφάνεια χρησιμοποιώντας το ευρετήριο της.
-3. Πλοηγηθείτε σε όλα τα σχήματα για να βρείτε το επιθυμητό διάγραμμα.
+1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) που αντιπροσωπεύει την παρουσίαση που περιέχει το διάγραμμα που θέλετε να ενημερώσετε.
+2. Λάβετε μια αναφορά σε μια διαφάνεια χρησιμοποιώντας τον δείκτη της.
+3. Περιηγηθείτε σε όλα τα σχήματα για να βρείτε το επιθυμητό διάγραμμα.
 4. Πρόσβαση στο φύλλο δεδομένων του διαγράμματος.
-5. Τροποποιήστε τις σειρές δεδομένων του διαγράμματος αλλάζοντας τις τιμές των σειρών.
+5. Τροποποιήστε τις σειρές των δεδομένων του διαγράμματος αλλάζοντας τις τιμές των σειρών.
 6. Προσθέστε μια νέα σειρά και γεμίστε τα δεδομένα της.
-7. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
+7. Αποθήκευση της τροποποιημένης παρουσίασης ως αρχείο PPTX.
 
 Αυτός ο κώδικας Python δείχνει πώς να ενημερώσετε ένα διάγραμμα:
 
@@ -1246,7 +1248,7 @@ try:
     # Πρόσβαση στην πρώτη διαφάνεια
     slide = presentation.getSlides().get_Item(0)
 
-    # Λήψη του διαγράμματος από τη διαφάνεια
+    # Ανάκτηση του διαγράμματος από τη διαφάνεια
     chart = slide.getShapes().get_Item(0)
 
     # Ορισμός του ευρετηρίου του φύλλου δεδομένων του διαγράμματος
@@ -1255,15 +1257,15 @@ try:
     # Λήψη του φύλλου εργασίας δεδομένων του διαγράμματος
     workbook = chart.getChartData().getChartDataWorkbook()
 
-    # Αλλαγή του ονόματος κατηγορίας του διαγράμματος
+    # Αλλαγή του ονόματος της κατηγορίας του διαγράμματος
     workbook.getCell(default_worksheet_index, 1, 0, "Modified Category 1")
     workbook.getCell(default_worksheet_index, 2, 0, "Modified Category 2")
 
     # Λήψη της πρώτης σειράς του διαγράμματος
     series = chart.getChartData().getSeries().get_Item(0)
 
-    # Ενημέρωση των δεδομένων της σειράς
-    workbook.getCell(default_worksheet_index, 0, 1, "New_Series1")# Τροποποίηση ονόματος σειράς
+    # Τώρα ενημέρωση δεδομένων σειράς
+    workbook.getCell(default_worksheet_index, 0, 1, "New_Series1")# Τροποποίηση του ονόματος της σειράς
     series.getDataPoints().get_Item(0).getValue().setData(90)
     series.getDataPoints().get_Item(1).getValue().setData(123)
     series.getDataPoints().get_Item(2).getValue().setData(44)
@@ -1271,20 +1273,20 @@ try:
     # Λήψη της δεύτερης σειράς του διαγράμματος
     series = chart.getChartData().getSeries().get_Item(1)
 
-    # Ενημέρωση των δεδομένων της σειράς
-    workbook.getCell(default_worksheet_index, 0, 2, "New_Series2")# Τροποποίηση ονόματος σειράς
+    # Τώρα ενημέρωση δεδομένων σειράς
+    workbook.getCell(default_worksheet_index, 0, 2, "New_Series2")# Τροποποίηση του ονόματος της σειράς
     series.getDataPoints().get_Item(0).getValue().setData(23)
     series.getDataPoints().get_Item(1).getValue().setData(67)
     series.getDataPoints().get_Item(2).getValue().setData(99)
 
-    # Προσθήκη μιας νέας σειράς
+    # Τώρα, προσθήκη νέας σειράς
     cell = workbook.getCell(default_worksheet_index, 0, 3, "Series 3")
     chart.getChartData().getSeries().add(cell, chart.getType())
 
-    # Λήψη της τρίτης σειράς του διαγράμματος
+    # Λήψη της 3ης σειράς του διαγράμματος
     series = chart.getChartData().getSeries().get_Item(2)
 
-    # Συμπλήρωση των δεδομένων της σειράς
+    # Τώρα γεμίζουμε τα δεδομένα της σειράς
     cell = workbook.getCell(default_worksheet_index, 1, 3, 20)
     series.getDataPoints().addDataPointForBarSeries(cell)
     cell = workbook.getCell(default_worksheet_index, 2, 3, 50)
@@ -1294,7 +1296,7 @@ try:
 
     chart.setType(ChartType.ClusteredCylinder)
 
-    # Αποθήκευση της παρουσίασης με το διάγραμμα
+    # Αποθήκευση παρουσίασης με το διάγραμμα
     presentation.save("AsposeChartModified_out.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
@@ -1302,18 +1304,20 @@ finally:
 
 ## **Ορισμός Περιοχής Δεδομένων για Διάγραμμα**
 
+Για να ελέγξετε την περιοχή που χρησιμοποιείται ήδη από ένα υπάρχον διάγραμμα, δείτε το [Retrieve a Chart's Data Range](/slides/el/python-java/chart-workbook/#retrieve-a-charts-data-range).
+
 Για να ορίσετε την περιοχή δεδομένων για ένα διάγραμμα, κάντε τα εξής:
 
-1. Δημιουργήστε μια παρουσία του κλάσης [Presentation](https://reference.aspose.com/slides/el/python-java/aspose.slides/presentation/) που αντιπροσωπεύει την παρουσίαση που περιέχει το διάγραμμα.
-2. Λάβετε μια αναφορά σε μια διαφάνεια χρησιμοποιώντας το ευρετήριο της.
-3. Πλοηγηθείτε σε όλα τα σχήματα για να βρείτε το επιθυμητό διάγραμμα.
+1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) που αντιπροσωπεύει την παρουσίαση που περιέχει το διάγραμμα.
+2. Λάβετε μια αναφορά σε μια διαφάνεια χρησιμοποιώντας τον δείκτη της.
+3. Περιηγηθείτε σε όλα τα σχήματα για να βρείτε το επιθυμητό διάγραμμα.
 4. Πρόσβαση στα δεδομένα του διαγράμματος και ορίστε την περιοχή.
-5. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
+5. Αποθήκευση της τροποποιημένης παρουσίασης ως αρχείο PPTX.
 
 Αυτός ο κώδικας Python δείχνει πώς να ορίσετε την περιοχή δεδομένων για ένα διάγραμμα:
 
 ```python
-import jpide
+import jpype
 import asposeslides
 
 if not jpype.isJVMStarted():
@@ -1334,11 +1338,11 @@ finally:
     presentation.dispose()
 ```
 
-## **Χρήση Προεπιλεγμένων Δεικτών σε Διαγράμματα**
+## **Χρήση Προεπιλεγμένων Δεικτών στα Διαγράμματα**
 
 Όταν χρησιμοποιείτε προεπιλεγμένους δείκτες σε διαγράμματα, κάθε σειρά διαγράμματος λαμβάνει αυτόματα διαφορετικό σύμβολο δείκτη.
 
-Αυτός ο κώδικας Python δείχνει πώς να ορίσετε αυτόματα δείκτη σειράς διαγράμματος:
+Αυτός ο κώδικας Python δείχνει πώς να ορίσετε αυτόματα έναν δείκτη σειράς διαγράμματος:
 
 ```python
 import jpype
@@ -1381,10 +1385,10 @@ try:
 
     cell = workbook.getCell(0, 0, 2, "Series 2")
     chart.getChartData().getSeries().add(cell, chart.getType())
-    # Πάρε τη δεύτερη σειρά του διαγράμματος
+    #Λήψη της δεύτερης σειράς του διαγράμματος
     second_series = chart.getChartData().getSeries().get_Item(1)
 
-    # Τώρα συμπλήρωση δεδομένων σειράς
+    #Τώρα γεμίζουμε τα δεδομένα της σειράς
     cell = workbook.getCell(0, 1, 2, 30)
     second_series.getDataPoints().addDataPointForLineSeries(cell)
     cell = workbook.getCell(0, 2, 2, 10)
@@ -1404,18 +1408,18 @@ finally:
 
 ## **Συχνές Ερωτήσεις**
 
-**Ποιοι τύποι διαγραμμάτων υποστηρίζονται από το Aspose.Slides;**
+**Τι τύποι διαγραμμάτων υποστηρίζονται από το Aspose.Slides;**
 
-Το Aspose.Slides υποστηρίζει ένα ευρύ φάσμα [chart types](https://reference.aspose.com/slides/el/python-java/aspose.slides/charttype/), συμπεριλαμβανομένων των διαγραμμάτων μπάρας, γραμμής, πίτας, περιοχής, διασποράς, ιστογραμμάτων, radar και πολλών άλλων. Αυτή η ευελιξία σας επιτρέπει να επιλέξετε τον πιο κατάλληλο τύπο διαγράμματος για τις ανάγκες οπτικοποίησης των δεδομένων σας.
+Το Aspose.Slides υποστηρίζει μια ευρεία γκάμα [chart types](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/), συμπεριλαμβανομένων των ράβδους, γραμμής, πίτας, περιοχής, διασποράς, ιστογράμματος, radar και πολλών άλλων. Αυτή η ευελιξία σας επιτρέπει να επιλέξετε τον πιο κατάλληλο τύπο διαγράμματος για τις ανάγκες οπτικοποίησης των δεδομένων σας.
 
-**Πώς μπορώ να προσθέσω ένα νέο διάγραμμα σε μια διαφάνεια;**
+**Πώς προσθέτω ένα νέο διάγραμμα σε μια διαφάνεια;**
 
-Για να προσθέσετε ένα διάγραμμα, πρώτα δημιουργήστε μια παρουσία του κλάσης [Presentation](https://reference.aspose.com/slides/el/python-java/aspose.slides/presentation/) , ανακτήστε τη ζητούμενη διαφάνεια χρησιμοποιώντας το ευρετήριο της και, στη συνέχεια, καλέστε τη μέθοδο προσθήκης διαγράμματος, καθορίζοντας τον τύπο διαγράμματος και τα αρχικά δεδομένα. Αυτή η διαδικασία ενσωματώνει το διάγραμμα απευθείας στην παρουσίασή σας.
+Για να προσθέσετε ένα διάγραμμα, δημιουργείτε πρώτα μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) , ανακτάτε τη διαφάνεια που θέλετε μέσω του δείκτη της και, στη συνέχεια, καλείτε τη μέθοδο για την προσθήκη διαγράμματος, καθορίζοντας τον τύπο διαγράμματος και τα αρχικά δεδομένα. Αυτή η διαδικασία ενσωματώνει το διάγραμμα απευθείας στην παρουσίασή σας.
 
 **Πώς μπορώ να ενημερώσω τα δεδομένα που εμφανίζονται σε ένα διάγραμμα;**
 
-Μπορείτε να ενημερώσετε τα δεδομένα ενός διαγράµατος αποκτώντας πρόσβαση στο βιβλίο δεδομένων του ([ChartDataWorkbook](https://reference.aspose.com/slides/el/python-java/aspose.slides/chartdataworkbook/)), καθαρίζοντας τυχόν προεπιλεγμένες σειρές και κατηγορίες και, στη συνέχεια, προσθέτοντας τα δεδομένα σας. Αυτό σας επιτρέπει να ανανεώσετε το διάγραμμα ώστε να αντανακλά τα πιο πρόσφατα δεδομένα.
+Μπορείτε να ενημερώσετε τα δεδομένα ενός διαγράμματος προσπελαύνοντας το βιβλίο δεδομένων του ([ChartDataWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdataworkbook/)), διαγράφοντας τυχόν προεπιλεγμένες σειρές και κατηγορίες και προσθέτοντας τα προσαρμοσμένα σας δεδομένα. Αυτό σας επιτρέπει να ανανεώσετε το διάγραμμα ώστε να αντανακλά τις πιο πρόσφατες πληροφορίες.
 
-**Είναι δυνατόν η προσαρμογή της εμφάνισης του διαγράμματος;**
+**Μπορώ να προσαρμόσω την εμφάνιση του διαγράμματος;**
 
-Ναι, το Aspose.Slides παρέχει εκτεταμένες επιλογές προσαρμογής. Μπορείτε να τροποποιήσετε χρώματα, γραμματοσειρές, ετικέτες, λεζάντες και άλλα [formatting elements](/slides/el/python-java/chart-entities/) ώστε να προσαρμόσετε την εμφάνιση του διαγράμματος σύμφωνα με τις συγκεκριμένες απαιτήσεις σχεδίασής σας.
+Ναι, το Aspose.Slides παρέχει εκτενείς επιλογές προσαρμογής. Μπορείτε να τροποποιήσετε χρώματα, γραμματοσειρές, ετικέτες, υπομνήματα και άλλα [formatting elements](/slides/el/python-java/chart-entities/) ώστε να προσαρμόσετε την εμφάνιση του διαγράμματος στις ειδικές σχεδιαστικές σας απαιτήσεις.

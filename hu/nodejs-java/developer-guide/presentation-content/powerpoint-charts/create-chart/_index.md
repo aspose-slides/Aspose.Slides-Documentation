@@ -1,5 +1,5 @@
 ---
-title: Diagramok létrehozása vagy frissítése PowerPoint prezentációkban JavaScriptben
+title: PowerPoint-diagramok létrehozása vagy módosítása JavaScriptben
 linktitle: Diagramok létrehozása vagy frissítése
 type: docs
 weight: 10
@@ -10,14 +10,14 @@ keywords:
 - diagram szerkesztése
 - diagram módosítása
 - diagram frissítése
-- szórás diagram
-- kör diagram
-- vonal diagram
-- fa térkép diagram
-- részvény diagram
-- doboz és hosszúvonal diagram
-- tölcsér diagram
-- napsugár diagram
+- szórt diagram
+- kördiagram
+- vonaldiagram
+- fa térképes diagram
+- részvénydiagram
+- doboz és ívháromszög diagram
+- tölcsérdiagram
+- napraforgó diagram
 - hisztogram diagram
 - radar diagram
 - többkategóriás diagram
@@ -26,117 +26,117 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Diagramok létrehozza és testreszabja PowerPoint prezentációkban az Aspose.Slides for Node.js segítségével. Diagramokat ad hozzá, formáz, és szerkeszt gyakorlati kódpéldákkal JavaScriptben."
+description: "Diagramok létrehozása és testreszabása PowerPoint-prezentációkban az Aspose.Slides for Node.js segítségével. Diagramok hozzáadása, formázása és szerkesztése gyakorlati JavaScript kódpéldákkal."
 ---
 ## **Áttekintés**
 
-Ez a cikk átfogó útmutatót nyújt a diagramok létrehozásához és testreszabásához az Aspose.Slides segítségével. Megtanulhatja, hogyan adjon programozottan diagramot egy diára, töltse fel adatokkal, és alkalmazzon különféle formázási beállításokat a specifikus tervezési követelményeknek megfelelően. A cikk során részletes kódrészletek illusztrálják az egyes lépéseket, a prezentáció és a diagramobjektum inicializálásától a sorok, tengelyek és jelmagyarázatok konfigurálásáig. Az útmutató követésével alaposan megértheti, hogyan integrálja a dinamikus diagramgenerálást alkalmazásaiba, ezáltal egyszerűsítve az adatvezérelt prezentációk létrehozását.
+Ez a cikk átfogó útmutatót nyújt a diagramok létrehozásához és testreszabásához az Aspose.Slides használatával. Megtanulja, hogyan adhat programozott módon egy diagramot egy diára, hogyan töltheti fel adatokal, és különféle formázási lehetőségeket alkalmazhat a konkrét tervezési igényeknek megfelelően. A cikk során részletes kódpéldák illusztrálják az egyes lépéseket, a prezentáció és a diagramobjektum inicializálásától a sorok, tengelyek és jelmagyarázatok konfigurálásáig. Az útmutató követésével mélyrehatóan megértheti a dinamikus diagramgenerálás integrálását alkalmazásaiba, ezzel egyszerűsítve az adat‑vezérelt prezentációk létrehozását.
 
 ## **Diagram létrehozása**
 
-A diagramok segítenek az embereknek gyorsan megjeleníteni az adatokat, és olyan meglátásokat nyerni, amelyek egy táblázatból vagy munkafüzetből nem azonnal nyerhetők ki.
+A diagramok lehetővé teszik, hogy az emberek gyorsan vizualizálják az adatokat, és olyan betekintéseket nyerjenek, amelyek táblázatból vagy munkafüzetből nem látszanak azonnal.
 
 **Miért érdemes diagramokat létrehozni?**
 
-A diagramok segítségével:
+Diagramok segítségével:
 
-* nagy mennyiségű adatot aggregálhat, sűríthet vagy összefoglalhat egyetlen dián a prezentációban
-* mintákat és trendeket mutathat be az adatokból
-* meghatározhatja az adat időbeli irányát és lendületét, vagy egy adott mértékegységhez viszonyítva
-* kiemelhet kiugró értékeket, aberrációkat, eltéréseket, hibákat, értelmetlen adatokat stb.
-* komplex adatokat kommunikálhat vagy bemutathat
+* nagy mennyiségű adatot összegyűjthet, tömöríthet vagy összefoglalhat egyetlen dián belül
+* mintákat és trendeket tárhat fel az adatokban
+* meghatározhatja az adatok irányát és lendületét időben vagy egy adott mérőegységhez viszonyítva
+* felfedezhet kiugró, rendellenes, eltérő vagy hibás adatokat
+* komplex adatokat kommunikálhat vagy prezentálhat
 
-PowerPointban a *Insert* (Beszúrás) funkcióval hozhat létre diagramokat, amely számos diagramtípus sablonját kínálja. Az Aspose.Slides segítségével mind szabványos (népszerű diagramtípusokra épülő) mind egyedi diagramokat hozhat létre.
+A PowerPointban a *Beszúrás* funkcióval hozhat létre diagramokat, amely számos sablont biztosít különböző diagramtípusok tervezéséhez. Az Aspose.Slides segítségével mind szabványos, mind egyedi diagramokat hozhat létre.
 
-{{% alert color="info" title="Megjegyzés" %}}
+{{% alert color="info" title="Note" %}}
 
-Diagramok létrehozásához használja a [ChartType](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/charttype/) osztályt. Ennek mezői a különböző diagramtípusoknak felelnek meg.
+Diagramok létrehozásához használja a [ChartType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/) osztályt. Ennek az osztálynak a mezői a különböző diagramtípusoknak felelnek meg.
 
 {{% /alert %}}
 
 ### **Csoportosított oszlopdiagramok létrehozása**
 
-Ez a szakasz bemutatja, hogyan hozhat létre csoportosított oszlopdiagramot az Aspose.Slides használatával. Megtanulja, hogyan inicializáljon egy prezentációt, adjon hozzá diagramot, és testreszabja annak elemeit, például címet, adatot, sorokat, kategóriákat és stílusokat. Kövesse az alábbi lépéseket, hogy lássa, hogyan generálódik egy standard csoportosított oszlopdiagram:
+Ez a szakasz bemutatja, hogyan hozhat létre csoportosított oszlopdiagramokat az Aspose.Slides használatával. Megtanulja, hogyan inicializáljon egy prezentációt, adjon hozzá egy diagramot, és testreszabja annak elemeit, például a címet, az adatokat, a sorokat, a kategóriákat és a stílust. Kövesse az alábbi lépéseket a szabványos csoportosított oszlopdiagram létrehozásához:
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/presentation) osztályból.
-1. Szerezzen hivatkozást egy diára a indexe alapján.
-1. Adjon hozzá diagramot némi adattal, és adja meg a `ChartType.ClusteredColumn` típust.
-1. Adjon címet a diagramhoz.
-1. Nyissa meg a diagram adatlapját.
-1. Törölje az összes alapértelmezett sorozatot és kategóriát.
-1. Adjon hozzá új sorozatokat és kategóriákat.
-1. Adjon hozzá új diagramadatot a diagram sorozathoz.
-1. Alkalmazzon kitöltőszínt a diagram sorozathoz.
-1. Adjon címkéket a diagram sorozathoz.
+1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation) osztályból.
+1. Szerezzen hivatkozást egy diára a sorszámával.
+1. Adjon hozzá egy diagramot némi adattal, és adja meg a `ChartType.ClusteredColumn` típust.
+1. Adjon címet a diagramnak.
+1. Hozzáférés a diagram adatlapjához.
+1. Távolítsa el az összes alapértelmezett sort és kategóriát.
+1. Adjon hozzá új sorokat és kategóriákat.
+1. Adjon hozzá új diagramadatot a diagram soraihoz.
+1. Alkalmazzon kitöltőszínt a diagram soraira.
+1. Adjon címkéket a diagram soraira.
 1. Mentse a módosított prezentációt PPTX fájlként.
 
-Ez a C# kód bemutatja, hogyan hozható létre egy csoportosított oszlopdiagram:
+Ez a JavaScript‑kód bemutatja, hogyan hozható létre egy csoportosított oszlopdiagram:
 
 ```javascript
 var aspose = aspose || {};
 aspose.slides = require("aspose.slides.via.java");
 const java = require("java");
 
-// Példányosít egy prezentáció osztályt, amely egy PPTX fájlt képvisel
+// Pptx fájlt képviselő prezentáció osztály példányosítása
 var pres = new aspose.slides.Presentation();
 try {
-    // Eléri az első diát
+    // Az első dia elérése
     var sld = pres.getSlides().get_Item(0);
-    // Diagramot ad hozzá alapértelmezett adataival
+    // Diagram hozzáadása az alapértelmezett adataival
     var chart = sld.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 0, 0, 500, 500);
-    // Beállítja a diagram címét
+    // A diagram címének beállítása
     chart.setTitle(true);
     chart.getChartTitle().addTextFrameForOverriding("Sample Title");
     chart.getChartTitle().getTextFrameForOverriding().getTextFrameFormat().setCenterText(java.newByte(aspose.slides.NullableBool.True));
     chart.getChartTitle().setHeight(20);
-    // Beállítja, hogy az első sorozat értékeket jelenítsen meg
+    // Az első sorozat értékek megjelenítésének beállítása
     chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowValue(true);
-    // Beállítja a diagram adatlap indexét
+    // A diagram adatlap indexének beállítása
     var defaultWorksheetIndex = 0;
-    // Lekéri a diagram adatlapot
+    // A diagram adatlapjának lekérése
     var fact = chart.getChartData().getChartDataWorkbook();
-    // Törli az alapértelmezett generált sorozatokat és kategóriákat
+    // Az alapértelmezett generált sorozatok és kategóriák törlése
     chart.getChartData().getSeries().clear();
     chart.getChartData().getCategories().clear();
     var s = chart.getChartData().getSeries().size();
     s = chart.getChartData().getCategories().size();
-    // Új sorozatokat ad hozzá
+    // Új sorozatok hozzáadása
     chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 1, "Series 1"), chart.getType());
     chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 2, "Series 2"), chart.getType());
-    // Új kategóriákat ad hozzá
+    // Új kategóriák hozzáadása
     chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 1, 0, "Caetegoty 1"));
     chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 2, 0, "Caetegoty 2"));
     chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 3, 0, "Caetegoty 3"));
-    // Az első diagram sorozatot veszi
+    // Az első diagram sorozat kivétele
     var series = chart.getChartData().getSeries().get_Item(0);
-    // Most feltölti a sorozat adatait
+    // Most feltölti a sorozat adatokat
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 1, 20));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 50));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 30));
-    // Beállítja a sorozat kitöltőszínét
+    // Kitöltőszín beállítása a sorozathoz
     series.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
     series.getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-    // A második diagram sorozatot veszi
+    // A második diagram sorozat kivétele
     series = chart.getChartData().getSeries().get_Item(1);
-    // Feltölti a sorozat adatait
+    // Sorozat adatainak feltöltése
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 2, 30));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 2, 10));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 2, 60));
-    // Beállítja a sorozat kitöltőszínét
+    // Kitöltőszín beállítása a sorozathoz
     series.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
     series.getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GREEN"));
-    // Egyedi címkéket hoz létre minden kategóriához az új sorozathoz
-    // Beállítja, hogy az első címke a kategória nevét jelenítse meg
+    // Egyéni címkék létrehozása az egyes kategóriákhoz az új sorozathoz
+    // Az első címke beállítása a kategórianév megjelenítésére
     var lbl = series.getDataPoints().get_Item(0).getLabel();
     lbl.getDataLabelFormat().setShowCategoryName(true);
     lbl = series.getDataPoints().get_Item(1).getLabel();
     lbl.getDataLabelFormat().setShowSeriesName(true);
-    // Megjeleníti az értéket a harmadik címkén
+    // Az érték megjelenítése a harmadik címkén
     lbl = series.getDataPoints().get_Item(2).getLabel();
     lbl.getDataLabelFormat().setShowValue(true);
     lbl.getDataLabelFormat().setShowSeriesName(true);
     lbl.getDataLabelFormat().setSeparator("/");
-    // Mentse a prezentációt a diagrammal
+    // Prezentáció mentése diagrammal
     pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     if (pres != null) {
@@ -145,69 +145,69 @@ try {
 }
 ```
 
-### **Szórásdiagramok létrehozása**
+### **Szóródási diagramok létrehozása**
 
-A szórásdiagramok (más néven szórási ábrák vagy x‑y grafikonok) gyakran használatosak minták keresésére vagy két változó közötti korreláció bemutatására.
+A szóródási diagramok (más néven szórásdiagramok vagy x‑y grafikonok) gyakran használatosak minták keresésére vagy két változó közötti korreláció bemutatására.
 
-Használjon szórásdiagramot, ha:
+Használjon szóródási diagramot, ha:
 
-* párosított numerikus adatai vannak
+* párosított numerikus adatokkal dolgozik
 * két változó jól párosítható egymással
-* meg szeretné határozni, hogy a két változó kapcsolatban áll-e
-* van egy független változója, amely több értéket tartalmaz egy függő változóhoz
+* meg szeretné határozni, hogy a két változó összefügg‑e
+* egy független változó több értékkel rendelkezik egy függő változóhoz képest
 
-1. Kövesse a [Create Clustered Column Charts](#create-clustered-column-charts) lépéseit.
-2. A harmadik lépésben adjon hozzá diagramot némi adattal, és adja meg a diagram típusát az alábbiak közül:
-   1. [ChartType.ScatterWithMarkers](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/charttype/#ScatterWithMarkers) - _Szórásdiagramot képvisel._
-   2. [ChartType.ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - _Szórásdiagramot, amely görbékkel van összekötve, adatjelölőkkel._
-   3. [ChartType.ScatterWithSmoothLines](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/charttype/#ScatterWithSmoothLines) - _Szórásdiagramot, amely görbékkel van összekötve, adatjelölők nélkül._
-   4. [ChartType.ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _Szórásdiagramot, amely egyenes vonalakkal van összekötve, adatjelölőkkel._
-   5. [ChartType.ScatterWithStraightLines](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/charttype/#ScatterWithStraightLines) - _Szórásdiagramot, amely egyenes vonalakkal van összekötve, adatjelölők nélkül._
+1. Kövesse a [Csoportosított oszlopdiagramok létrehozása](#create-clustered-column-charts) lépéseit.
+2. A harmadik lépésben adjon hozzá egy diagramot némi adattal, és válassza a diagramtípust az alábbiak közül:
+   1. [ChartType.ScatterWithMarkers](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#ScatterWithMarkers) - _Szóródási diagramot jelöl._
+   2. [ChartType.ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - _Szóródási diagram, amely görbékkel van összekötve, adatjelölőkkel._
+   3. [ChartType.ScatterWithSmoothLines](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#ScatterWithSmoothLines) - _Szóródási diagram, amely görbékkel van összekötve, adatjelölők nélkül._
+   4. [ChartType.ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _Szóródási diagram, amely egyenes vonalakkal van összekötve, adatjelölőkkel._
+   5. [ChartType.ScatterWithStraightLines](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#ScatterWithStraightLines) - _Szóródási diagram, amely egyenes vonalakkal van összekötve, adatjelölők nélkül._
 
-Ez a JavaScript kód azt mutatja be, hogyan hozható létre szórásdiagram különböző jelölőkkel minden sorozathoz:
+Ez a JavaScript‑kód megmutatja, hogyan hozható létre egy szóródási diagram különböző jelölőkkel minden sorhoz:
 
 ```javascript
 var aspose = aspose || {};
 aspose.slides = require("aspose.slides.via.java");
 
-// Létrehozza a prezentáció osztályt, amely egy PPTX fájlt képvisel
+// PPTX fájlt képviselő prezentáció osztály példányosítása
 var pres = new aspose.slides.Presentation();
 try {
-    // Eléri az első diát
+    // Az első dia elérése
     var slide = pres.getSlides().get_Item(0);
-    // Létrehozza az alapértelmezett diagramot
+    // Alapértelmezett diagram létrehozása
     var chart = slide.getShapes().addChart(aspose.slides.ChartType.ScatterWithSmoothLines, 0, 0, 400, 400);
-    // Lekéri az alapértelmezett diagram adatlap indexét
+    // Az alapértelmezett diagram adatlap indexének lekérése
     var defaultWorksheetIndex = 0;
-    // Lekéri a diagram adatlapot
+    // A diagram adatlapjának lekérése
     var fact = chart.getChartData().getChartDataWorkbook();
-    // Törli a demo sorozatot
+    // A demo sorozat törlése
     chart.getChartData().getSeries().clear();
-    // Új sorozatokat ad hozzá
+    // Új sorozatok hozzáadása
     chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 1, 1, "Series 1"), chart.getType());
     chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 1, 3, "Series 2"), chart.getType());
-    // Az első diagram sorozatot veszi
+    // Az első diagram sorozat kivétele
     var series = chart.getChartData().getSeries().get_Item(0);
-    // Új pontot (1:3) ad a sorozathoz
+    // Új pont (1:3) hozzáadása a sorozathoz
     series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 1), fact.getCell(defaultWorksheetIndex, 2, 2, 3));
-    // Új pontot (2:10) ad
+    // Új pont (2:10) hozzáadása
     series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 2), fact.getCell(defaultWorksheetIndex, 3, 2, 10));
-    // Módosítja a sorozat típusát
+    // A sorozat típusának módosítása
     series.setType(aspose.slides.ChartType.ScatterWithStraightLinesAndMarkers);
-    // Módosítja a diagram sorozat jelölőjét
+    // A diagram sorozat jelölőjének módosítása
     series.getMarker().setSize(10);
     series.getMarker().setSymbol(aspose.slides.MarkerStyleType.Star);
-    // A második diagram sorozatot veszi
+    // A második diagram sorozat kivétele
     series = chart.getChartData().getSeries().get_Item(1);
-    // Új pontot (5:2) ad hozzá ott
+    // Új pont (5:2) hozzáadása ott
     series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 2, 3, 5), fact.getCell(defaultWorksheetIndex, 2, 4, 2));
-    // Új pontot (3:1) ad hozzá
+    // Új pont (3:1) hozzáadása
     series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 3, 3, 3), fact.getCell(defaultWorksheetIndex, 3, 4, 1));
-    // Új pontot (2:2) ad hozzá
+    // Új pont (2:2) hozzáadása
     series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 4, 3, 2), fact.getCell(defaultWorksheetIndex, 4, 4, 2));
-    // Új pontot (5:1) ad hozzá
+    // Új pont (5:1) hozzáadása
     series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 5, 3, 5), fact.getCell(defaultWorksheetIndex, 5, 4, 1));
-    // Módosítja a diagram sorozat jelölőjét
+    // A diagram sorozat jelölőjének módosítása
     series.getMarker().setSize(10);
     series.getMarker().setSymbol(aspose.slides.MarkerStyleType.Circle);
     pres.save("AsposeChart_out.pptx", aspose.slides.SaveFormat.Pptx);
@@ -220,67 +220,67 @@ try {
 
 ### **Kördiagramok létrehozása**
 
-A kördiagramok leginkább azt a rész‑egész viszonyt ábrázolják, amikor az adat kategóriákat tartalmaz numerikus értékekkel. Ha sok rész vagy címke van az adatban, érdemes inkább oszlopdiagramot használni.
+A kördiagramok leginkább arra alkalmasak, hogy megmutassák az adat rész‑egész arányát, különösen, ha a adatok kategóriákat és numerikus értékeket tartalmaznak. Ha azonban sok rész vagy címke van, érdemes oszlopdiagramot használni.
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/presentation/) osztályból.
-2. Szerezzen hivatkozást egy diára a indexe alapján.
-3. Adjon hozzá diagramot alapértelmezett adatokkal, és adja meg a [ChartType.Pie](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/charttype/#Pie) típust.
-4. Nyissa meg a diagram adatkönyvtárát a [ChartDataWorkbook](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/chartdataworkbook/) segítségével.
-5. Törölje az alapértelmezett sorozatokat és kategóriákat.
-6. Adjon hozzá új sorozatokat és kategóriákat.
-7. Adjon hozzá új diagramadatot a diagram sorozathoz.
-8. Adjon hozzá új pontokat a diagramhoz, és alkalmazzon egyedi színeket a kördiagram szeleteire.
-9. Állítson be címkéket a sorozatokhoz.
-10. Engedélyezze a vonalvezetőket a sorozatcímkékhez.
-11. Állítsa be a forgási szöget a kördiagram szeleteihez.
+1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) osztályból.
+2. Szerezzen hivatkozást egy diára a sorszámával.
+3. Adjon hozzá egy diagramot alapértelmezett adatokkal, és adja meg a [ChartType.Pie](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#Pie) típust.
+4. Hozzáférés a diagram adatkönyvtárához [ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/).
+5. Távolítsa el az alapértelmezett sorokat és kategóriákat.
+6. Adjon hozzá új sorokat és kategóriákat.
+7. Adjon hozzá új diagramadatot a diagram soraihoz.
+8. Adjon hozzá új pontokat a diagramhoz, és alkalmazzon egyedi színeket a kördiagram szektoraira.
+9. Állítson be címkéket a sorokhoz.
+10. Engedélyezze a vezetővonalakat a sorcímkékhez.
+11. Állítsa be a forgásszöget a kördiagram szektoraiban.
 12. Mentse a módosított prezentációt PPTX fájlként.
 
-Ez a JavaScript kód azt mutatja be, hogyan hozható létre egy kördiagram:
+Ez a JavaScript‑kód bemutatja, hogyan hozható létre egy kördiagram:
 
 ```javascript
 var aspose = aspose || {};
 aspose.slides = require("aspose.slides.via.java");
 const java = require("java");
 
-// Példányosít egy prezentáció osztályt, amely egy PPTX fájlt képvisel
+// PPTX fájlt képviselő prezentáció osztály példányosítása
 var pres = new aspose.slides.Presentation();
 try {
-    // Eléri az első diát
+    // Az első dia elérése
     var slides = pres.getSlides().get_Item(0);
-    // Diagramot ad hozzá alapértelmezett adatokkal
+    // Diagram hozzáadása alapértelmezett adatokkal
     var chart = slides.getShapes().addChart(aspose.slides.ChartType.Pie, 100, 100, 400, 400);
-    // Beállítja a diagram címét
+    // A diagram címének beállítása
     chart.getChartTitle().addTextFrameForOverriding("Sample Title");
     chart.getChartTitle().getTextFrameForOverriding().getTextFrameFormat().setCenterText(java.newByte(aspose.slides.NullableBool.True));
     chart.getChartTitle().setHeight(20);
     chart.setTitle(true);
-    // Beállítja, hogy az első sorozat értékeket jelenítsen meg
+    // Az első sorozat értékek megjelenítésének beállítása
     chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowValue(true);
-    // Beállítja a diagram adatlap indexét
+    // A diagram adatlap indexének beállítása
     var defaultWorksheetIndex = 0;
-    // Lekéri a diagram adatlapot
+    // A diagram adatlapjának lekérése
     var fact = chart.getChartData().getChartDataWorkbook();
-    // Törli az alapértelmezett generált sorozatokat és kategóriákat
+    // Az alapértelmezett generált sorozatok és kategóriák törlése
     chart.getChartData().getSeries().clear();
     chart.getChartData().getCategories().clear();
-    // Új kategóriákat ad hozzá
+    // Új kategóriák hozzáadása
     chart.getChartData().getCategories().add(fact.getCell(0, 1, 0, "First Qtr"));
     chart.getChartData().getCategories().add(fact.getCell(0, 2, 0, "2nd Qtr"));
     chart.getChartData().getCategories().add(fact.getCell(0, 3, 0, "3rd Qtr"));
-    // Új sorozatokat ad hozzá
+    // Új sorozatok hozzáadása
     var series = chart.getChartData().getSeries().add(fact.getCell(0, 0, 1, "Series 1"), chart.getType());
-    // Feltölti a sorozat adatait
+    // A sorozat adatainak feltöltése
     series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 1, 1, 20));
     series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 50));
     series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 30));
     // Nem működik az új verzióban
-    // Új pontok hozzáadása és a szelet színének beállítása
+    // Adding new points and setting sector color
     // series.IsColorVaried = true;
     chart.getChartData().getSeriesGroups().get_Item(0).setColorVaried(true);
     var point = series.getDataPoints().get_Item(0);
     point.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
     point.getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "CYAN"));
-    // Beállítja a szektor szegélyét
+    // A szektor keretének beállítása
     point.getFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     point.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GRAY"));
     point.getFormat().getLine().setWidth(3.0);
@@ -289,7 +289,7 @@ try {
     var point1 = series.getDataPoints().get_Item(1);
     point1.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
     point1.getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "ORANGE"));
-    // Beállítja a szektor szegélyét
+    // A szektor keretének beállítása
     point1.getFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     point1.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
     point1.getFormat().getLine().setWidth(3.0);
@@ -298,13 +298,13 @@ try {
     var point2 = series.getDataPoints().get_Item(2);
     point2.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
     point2.getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "YELLOW"));
-    // Beállítja a szektor szegélyét
+    // A szektor keretének beállítása
     point2.getFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     point2.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
     point2.getFormat().getLine().setWidth(2.0);
     point2.getFormat().getLine().setStyle(java.newByte(aspose.slides.LineStyle.ThinThin));
     point2.getFormat().getLine().setDashStyle(java.newByte(aspose.slides.LineDashStyle.LargeDashDotDot));
-    // Egyedi címkéket hoz létre minden kategóriához az új sorozathoz
+    // Egyéni címkék létrehozása az új sorozat minden kategóriájához
     var lbl1 = series.getDataPoints().get_Item(0).getLabel();
     // lbl.ShowCategoryName = true;
     lbl1.getDataLabelFormat().setShowValue(true);
@@ -315,11 +315,11 @@ try {
     var lbl3 = series.getDataPoints().get_Item(2).getLabel();
     lbl3.getDataLabelFormat().setShowSeriesName(true);
     lbl3.getDataLabelFormat().setShowPercentage(true);
-    // Megjeleníti a vezető vonalakat a diagramon
+    // Vezetővonalak megjelenítése a diagramhoz
     series.getLabels().getDefaultDataLabelFormat().setShowLeaderLines(true);
-    // Beállítja a kördiagram szeletek forgásszögét
+    // A kördiagram szektorok forgásszögének beállítása
     chart.getChartData().getSeriesGroups().get_Item(0).setFirstSliceAngle(180);
-    // Mentse a prezentációt diagrammal
+    // Prezentáció mentése diagrammal
     pres.save("PieChart_out.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     if (pres != null) {
@@ -330,18 +330,18 @@ try {
 
 ### **Vonaldiagramok létrehozása**
 
-A vonaldiagramok (más néven vonalgrafikonok) leginkább abban az esetben használhatók, amikor az értékek időbeli változását szeretné bemutatni. Egy vonaldiagram segítségével egyszerre nagy adatmennyiséget hasonlíthat össze, nyomon követheti az időbeli változásokat és trendeket, kiemelheti az anomáliákat az adat-sorozatokban, és még sok minden mást.
+A vonaldiagramok (más néven vonalgrafikonok) leginkább olyan esetekben hasznosak, amikor az értékek időbeli változását szeretné bemutatni. Vonaldiagram segítségével egy nagy mennyiségű adatot egyszerre hasonlíthat össze, nyomon követheti az időbeli változásokat és trendeket, kiemelheti az anomáliákat az adatcsoportokban, stb.
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/presentation/) osztályból.
-1. Szerezzen hivatkozást egy diára a indexe alapján.
-1. Adjon hozzá diagramot alapértelmezett adatokkal, és adja meg a [ChartType.Line](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/charttype/#Line) típust.
-1. Nyissa meg a diagram adatkönyvtárát ([ChartDataWorkbook](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/chartdataworkbook/)).
-1. Törölje az alapértelmezett sorozatokat és kategóriákat.
-1. Adjon hozzá új sorozatokat és kategóriákat.
-1. Adjon hozzá új diagramadatot a diagram sorozathoz.
+1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) osztályból.
+1. Szerezzen hivatkozást egy diára a sorszámával.
+1. Adjon hozzá egy diagramot alapértelmezett adatokkal, és adja meg a [ChartType.Line](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#Line) típust.
+1. Hozzáférés a diagram adatkönyvtárához ([ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/)).
+1. Távolítsa el az alapértelmezett sorokat és kategóriákat.
+1. Adjon hozzá új sorokat és kategóriákat.
+1. Adjon hozzá új diagramadatot a diagram soraihoz.
 1. Mentse a módosított prezentációt PPTX fájlként.
 
-Ez a JavaScript kód bemutatja, hogyan hozható létre egy vonaldiagram:
+Ez a JavaScript‑kód bemutatja, hogyan hozható létre egy vonaldiagram:
 
 ```javascript
 var aspose = aspose || {};
@@ -358,7 +358,7 @@ try {
 }
 ```
 
-Alapértelmezés szerint a vonaldiagram pontjait egyenes folytonos vonalak kötik össze. Ha a pontokat szaggatott vonallal szeretné összekötni, adja meg a kívánt szaggatottsági típust a következő módon:
+Alapértelmezés szerint a vonaldiagram pontjai egyenes, folytonos vonallal vannak összekötve. Ha pontokat szaggatott vonallal szeretne összekötni, a kívánt vonaltípust a következőképpen adhatja meg:
 
 ```javascript
 var aspose = aspose || {};
@@ -380,20 +380,20 @@ try {
 }
 ```
 
-### **Fakémappa-diagramok létrehozása**
+### **Fák térképe (Tree Map) diagramok létrehozása**
 
-A fakémappa-diagramok leginkább értékesítési adatokhoz alkalmasak, amikor a kategóriák relatív méretét szeretné megjeleníteni, és gyorsan felhívni a figyelmet az egyes kategóriák nagy hozzájáruló elemeire.
+A fák térképe diagramok leginkább értékesítési adatoknál hasznosak, amikor a kategóriák relatív méretét szeretné megjeleníteni, és gyorsan rámutatni a nagy hozzájáruló tételekre az egyes kategóriákon belül.
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/presentation/) osztályból.
-2. Szerezzen hivatkozást egy diára a indexe alapján.
-3. Adjon hozzá diagramot alapértelmezett adatokkal, és adja meg a [ChartType.Treemap](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/charttype/#Treemap) típust.
-4. Nyissa meg a diagram adatkönyvtárát a [ChartDataWorkbook](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/chartdataworkbook/) segítségével.
-5. Törölje az alapértelmezett sorozatokat és kategóriákat.
-6. Adjon hozzá új sorozatokat és kategóriákat.
-7. Adjon hozzá új diagramadatot a diagram sorozathoz.
+1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) osztályból.
+2. Szerezzen hivatkozást egy diára a sorszámával.
+3. Adjon hozzá egy diagramot alapértelmezett adatokkal, és adja meg a [ChartType.Treemap](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#Treemap) típust.
+4. Hozzáférés a diagram adatkönyvtárához [ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/).
+5. Távolítsa el az alapértelmezett sorokat és kategóriákat.
+6. Adjon hozzá új sorokat és kategóriákat.
+7. Adjon hozzá új diagramadatot a diagram soraihoz.
 8. Mentse a módosított prezentációt PPTX fájlként.
 
-Ez a JavaScript kód bemutatja, hogyan hozható létre egy fakémappa-diagram:
+Ez a JavaScript‑kód bemutatja, hogyan hozható létre egy fák térképe diagram:
 
 ```javascript
 var aspose = aspose || {};
@@ -441,19 +441,19 @@ try {
 }
 ```
 
-### **Részvénydiagramok létrehozása**
+### **Részvény (Stock) diagramok létrehozása**
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/presentation/) osztályból.
-2. Szerezzen hivatkozást egy diára a indexe alapján.
-3. Adjon hozzá diagramot alapértelmezett adatokkal, és adja meg a [ChartType.OpenHighLowClose](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/charttype/#OpenHighLowClose) típust.
-4. Nyissa meg a diagram adatkönyvtárát a [ChartDataWorkbook](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/chartdataworkbook/) segítségével.
-5. Törölje az alapértelmezett sorozatokat és kategóriákat.
-6. Adjon hozzá új sorozatokat és kategóriákat.
-7. Adjon hozzá új diagramadatot a diagram sorozathoz.
+1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) osztályból.
+2. Szerezzen hivatkozást egy diára a sorszámával.
+3. Adjon hozzá egy diagramot alapértelmezett adatokkal, és adja meg a [ChartType.OpenHighLowClose](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#OpenHighLowClose) típust.
+4. Hozzáférés a diagram adatkönyvtárához [ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/).
+5. Távolítsa el az alapértelmezett sorokat és kategóriákat.
+6. Adjon hozzá új sorokat és kategóriákat.
+7. Adjon hozzá új diagramadatot a diagram soraihoz.
 8. Adja meg a high‑low vonalak formátumát.
 9. Mentse a módosított prezentációt PPTX fájlként.
 
-Ez a JavaScript kód bemutatja, hogyan hozható létre egy részvénydiagram:
+Ez a JavaScript‑kód bemutatja, hogyan hozható létre egy részvénydiagram:
 
 ```javascript
 var aspose = aspose || {};
@@ -505,18 +505,18 @@ try {
 }
 ```
 
-### **Doboz‑ és hosszúvonal-diagramok létrehozása**
+### **Doboz‑ és ívháromszög diagramok (Box and Whisker) létrehozása**
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/presentation/) osztályból.
-2. Szerezzen hivatkozást egy diára a indexe alapján.
-3. Adjon hozzá diagramot alapértelmezett adatokkal, és adja meg a [ChartType.BoxAndWhisker](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/charttype/#BoxAndWhisker) típust.
-4. Nyissa meg a diagram adatkönyvtárát a [ChartDataWorkbook](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/chartdataworkbook/) segítségével.
-5. Törölje az alapértelmezett sorozatokat és kategóriákat.
-6. Adjon hozzá új sorozatokat és kategóriákat.
-7. Adjon hozzá új diagramadatot a diagram sorozathoz.
+1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) osztályból.
+2. Szerezzen hivatkozást egy diára a sorszámával.
+3. Adjon hozzá egy diagramot alapértelmezett adatokkal, és adja meg a [ChartType.BoxAndWhisker](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#BoxAndWhisker) típust.
+4. Hozzáférés a diagram adatkönyvtárához [ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/).
+5. Távolítsa el az alapértelmezett sorokat és kategóriákat.
+6. Adjon hozzá új sorokat és kategóriákat.
+7. Adjon hozzá új diagramadatot a diagram soraihoz.
 8. Mentse a módosított prezentációt PPTX fájlként.
 
-Ez a JavaScript kód bemutatja, hogyan hozható létre egy doboz‑ és hosszúvonal-diagram:
+Ez a JavaScript‑kód bemutatja, hogyan hozható létre egy doboz‑ és ívháromszög diagram:
 
 ```javascript
 var aspose = aspose || {};
@@ -555,14 +555,14 @@ try {
 }
 ```
 
-### **Csővezeték-diagramok létrehozása**
+### **Tölcsér diagramok (Funnel) létrehozása**
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/presentation/) osztályból.
-2. Szerezzen hivatkozást egy diára a indexe alapján.
-3. Adjon hozzá diagramot alapértelmezett adatokkal, és adja meg a [ChartType.Funnel](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/charttype/#Funnel) típust.
+1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) osztályból.
+2. Szerezzen hivatkozást egy diára a sorszámával.
+3. Adjon hozzá egy diagramot alapértelmezett adatokkal, és adja meg a [ChartType.Funnel](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#Funnel) típust.
 4. Mentse a módosított prezentációt PPTX fájlként.
 
-Ez a JavaScript kód bemutatja, hogyan hozható létre egy csővezeték-diagram:
+Ez a JavaScript‑kód bemutatja, hogyan hozható létre egy tölcsérdiagram:
 
 ```javascript
 var aspose = aspose || {};
@@ -596,14 +596,14 @@ try {
 }
 ```
 
-### **Napsugár-diagramok létrehozása**
+### **Napraforgó (Sunburst) diagramok létrehozása**
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/presentation/) osztályból.
-2. Szerezzen hivatkozást egy diára a indexe alapján.
-3. Adjon hozzá diagramot alapértelmezett adatokkal, és adja meg a [ChartType.Sunburst](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/charttype/#Sunburst) típust.
+1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) osztályból.
+2. Szerezzen hivatkozást egy diára a sorszámával.
+3. Adjon hozzá egy diagramot alapértelmezett adatokkal, és adja meg a [ChartType.Sunburst](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#Sunburst) típust.
 4. Mentse a módosított prezentációt PPTX fájlként.
 
-Ez a JavaScript kód bemutatja, hogyan hozható létre egy napsugár-diagram:
+Ez a JavaScript‑kód bemutatja, hogyan hozható létre egy napraforgódiagram:
 
 ```javascript
 var aspose = aspose || {};
@@ -650,17 +650,17 @@ try {
 }
 ```
 
-### **Hisztogram-diagramok létrehozása**
+### **Hisztogram diagramok létrehozása**
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/presentation/) osztályból.
-2. Szerezzen hivatkozást egy diára a indexe alapján.
-3. Adjon hozzá diagramot alapértelmezett adatokkal, és adja meg a [ChartType.Histogram](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/charttype/#Histogram) típust.
-4. Nyissa meg a diagram adatkönyvtárát a [ChartDataWorkbook](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/chartdataworkbook/) segítségével.
-5. Törölje az alapértelmezett sorozatokat és kategóriákat.
-6. Adjon hozzá új sorozatokat és kategóriákat.
+1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) osztályból.
+2. Szerezzen hivatkozást egy diára a sorszámával.
+3. Adjon hozzá egy diagramot alapértelmezett adatokkal, és adja meg a [ChartType.Histogram](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#Histogram) típust.
+4. Hozzáférés a diagram adatkönyvtárához [ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/).
+5. Távolítsa el az alapértelmezett sorokat és kategóriákat.
+6. Adjon hozzá új sorokat és kategóriákat.
 7. Mentse a módosított prezentációt PPTX fájlként.
 
-Ez a JavaScript kód bemutatja, hogyan hozható létre egy hisztogram-diagram:
+Ez a JavaScript‑kód bemutatja, hogyan hozható létre egy hisztogram diagram:
 
 ```javascript
 var aspose = aspose || {};
@@ -682,14 +682,14 @@ series.getDataPoints().addDataPointForHistogramSeries(wb.getCell(0, "A6", 16));
 chart.getAxes().getHorizontalAxis().setAggregationType(aspose.slides.AxisAggregationType.Automatic);
 ```
 
-### **Radar-diagramok létrehozása**
+### **Radar diagramok létrehozása**
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/presentation/) osztályból.
-2. Szerezzen hivatkozást egy diára a indexe alapján.
-3. Adjon hozzá diagramot némi adattal, és adja meg a kívánt diagramtípust (ebben az esetben a [ChartType.Radar](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/charttype/#Radar)).
+1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) osztályból.
+2. Szerezzen hivatkozást egy diára a sorszámával.
+3. Adjon hozzá egy diagramot némi adattal, és adja meg a kívánt diagramtípust ([ChartType.Radar](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#Radar) ebben az esetben).
 4. Mentse a módosított prezentációt PPTX fájlként.
 
-Ez a JavaScript kód bemutatja, hogyan hozható létre egy radar-diagram:
+Ez a JavaScript‑kód bemutatja, hogyan hozható létre egy radar diagram:
 
 ```javascript
 var aspose = aspose || {};
@@ -708,16 +708,16 @@ try {
 
 ### **Többkategóriás diagramok létrehozása**
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/presentation/) osztályból.
-2. Szerezzen hivatkozást egy diára a indexe alapján.
-3. Adjon hozzá diagramot alapértelmezett adatokkal, és adja meg a [ChartType.ClusteredColumn](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/charttype/#ClusteredColumn) típust.
-4. Nyissa meg a diagram adatkönyvtárát a [ChartDataWorkbook](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/chartdataworkbook/) segítségével.
-5. Törölje az alapértelmezett sorozatokat és kategóriákat.
-6. Adjon hozzá új sorozatokat és kategóriákat.
-7. Adjon hozzá új diagramadatot a diagram sorozathoz.
+1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) osztályból.
+2. Szerezzen hivatkozást egy diára a sorszámával.
+3. Adjon hozzá egy diagramot alapértelmezett adatokkal, és adja meg a [ChartType.ClusteredColumn](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#ClusteredColumn) típust.
+4. Hozzáférés a diagram adatkönyvtárához [ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/).
+5. Távolítsa el az alapértelmezett sorokat és kategóriákat.
+6. Adjon hozzá új sorokat és kategóriákat.
+7. Adjon hozzá új diagramadatot a diagram soraihoz.
 8. Mentse a módosított prezentációt PPTX fájlként.
 
-Ez a JavaScript kód bemutatja, hogyan hozható létre egy többkategóriás diagram:
+Ez a JavaScript‑kód bemutatja, hogyan hozható létre egy többkategóriás diagram:
 
 ```javascript
 var aspose = aspose || {};
@@ -762,11 +762,11 @@ try {
 }
 ```
 
-### **Térkép-diagramok létrehozása**
+### **Térképi diagramok létrehozása**
 
-A térkép-diagramok földrajzi adatokat jelenítenek meg, és segítenek az értékek összehasonlításában a régiók között.
+A térképi diagramok földrajzi adatokat jelenítenek meg, és segítenek az értékek összehasonlításában régiók között.
 
-Ez a JavaScript kód bemutatja, hogyan hozható létre egy térkép-diagram:
+Ez a JavaScript‑kód bemutatja, hogyan hozható létre egy térképi diagram:
 
 ```javascript
 var aspose = aspose || {};
@@ -785,11 +785,11 @@ try {
 
 ### **Kombinált diagramok létrehozása**
 
-A kombinált diagram (vagy combo diagram) több diagramtípust egyesít egyetlen ábrában. Ez a diagram lehetővé teszi, hogy kiemelje, összehasonlítsa vagy megvizsgálja a különböző adatkészletek közötti eltéréseket, így segítve azok közötti kapcsolatok felismerését.
+A kombinált diagram (vagy combo diagram) két vagy több diagramtípust egyesít egy grafikonban. Ez a diagram lehetővé teszi, hogy kiemeljen, összehasonlítson vagy megvizsgáljon különböző adatcsoportok közti eltéréseket, ezáltal segítve a köztük lévő összefüggések felismerését.
 
 ![The combination chart](combination_chart.png)
 
-Az alábbi JavaScript kód mutatja be, hogyan hozható létre a fenti kombinált diagram PowerPoint prezentációban:
+Az alábbi JavaScript‑kód bemutatja, hogyan hozható létre a fenti kombinált diagram egy PowerPoint‑prezentációban:
 
 ```js
 var aspose = aspose || {};
@@ -837,13 +837,13 @@ function createChartWithFirstSeries(slide) {
     const worksheetIndex = 0;
     let workbook = chart.getChartData().getChartDataWorkbook();
 
-    // Adjon hozzá új kategóriákat.
+    // Új kategóriák hozzáadása.
     chart.getChartData().getCategories().add(workbook.getCell(worksheetIndex, 1, 0, "Category 1"));
     chart.getChartData().getCategories().add(workbook.getCell(worksheetIndex, 2, 0, "Category 2"));
     chart.getChartData().getCategories().add(workbook.getCell(worksheetIndex, 3, 0, "Category 3"));
     chart.getChartData().getCategories().add(workbook.getCell(worksheetIndex, 4, 0, "Category 4"));
 
-    // Adja hozzá az első sorozatot.
+    // Az első sorozat hozzáadása.
     let seriesNameCell = workbook.getCell(worksheetIndex, 0, 1, "Series 1");
     let series = chart.getChartData().getSeries().add(seriesNameCell, chart.getType());
 
@@ -890,28 +890,28 @@ function addThirdSeriesToChart(chart) {
 }
 
 function setPrimaryAxesFormat(chart) {
-    // Állítsa be a vízszintes tengelyt.
+    // A vízszintes tengely beállítása.
     let horizontalAxis = chart.getAxes().getHorizontalAxis();
     horizontalAxis.getTextFormat().getPortionFormat().setFontHeight(12);
     horizontalAxis.getFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
 
     setAxisTitle(horizontalAxis, "X Axis");
 
-    // Állítsa be a függőleges tengelyt.
+    // A függőleges tengely beállítása.
     let verticalAxis = chart.getAxes().getVerticalAxis();
     verticalAxis.getTextFormat().getPortionFormat().setFontHeight(12);
     verticalAxis.getFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
 
     setAxisTitle(verticalAxis, "Y Axis 1");
 
-    // Állítsa be a függőleges fő rácsvonalak színét.
+    // A függőleges fő rácsvonalak színének beállítása.
     let majorGridLinesFormat = verticalAxis.getMajorGridLinesFormat().getLine().getFillFormat();
     majorGridLinesFormat.setFillType(java.newByte(aspose.slides.FillType.Solid));
     majorGridLinesFormat.getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 217, 217, 217));
 }
 
 function setSecondaryAxesFormat(chart) {
-    // Állítsa be a másodlagos vízszintes tengelyt.
+    // A másodlagos vízszintes tengely beállítása.
     let secondaryHorizontalAxis = chart.getAxes().getSecondaryHorizontalAxis();
     secondaryHorizontalAxis.setPosition(aspose.slides.AxisPositionType.Bottom);
     secondaryHorizontalAxis.setCrossType(aspose.slides.CrossesType.Maximum);
@@ -919,7 +919,7 @@ function setSecondaryAxesFormat(chart) {
     secondaryHorizontalAxis.getMajorGridLinesFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
     secondaryHorizontalAxis.getMinorGridLinesFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
 
-    // Állítsa be a másodlagos függőleges tengelyt.
+    // A másodlagos függőleges tengely beállítása.
     let secondaryVerticalAxis = chart.getAxes().getSecondaryVerticalAxis();
     secondaryVerticalAxis.setPosition(aspose.slides.AxisPositionType.Right);
     secondaryVerticalAxis.getTextFormat().getPortionFormat().setFontHeight(12);
@@ -942,15 +942,15 @@ function setAxisTitle(axis, axisTitle) {
 
 ## **Diagramok frissítése**
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/presentation/) osztályból, amely a frissítendő diagramot tartalmazó prezentációt képviseli.
-2. Szerezzen hivatkozást egy diára a indexe alapján.
-3. Járja be az összes alakzatot, hogy megtalálja a kívánt diagramot.
-4. Nyissa meg a diagram adatlapját.
-5. Módosítsa a diagram adat-sorozatokat a sorozatértékek változtatásával.
-6. Adjon hozzá új sorozatot, és töltse fel az adatait.
+1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) osztályból, amely a frissítendő diagramot tartalmazó prezentációt képviseli.
+2. Szerezzen hivatkozást egy diára a sorszámával.
+3. Járjon végig az összes alakzaton, hogy megtalálja a kívánt diagramot.
+4. Hozzáférés a diagram adatlapjához.
+5. Módosítsa a diagram adat sorait a sorértékek megváltoztatásával.
+6. Adjon hozzá egy új sort, és töltse fel adataival.
 7. Mentse a módosított prezentációt PPTX fájlként.
 
-Ez a JavaScript kód bemutatja, hogyan frissíthető egy diagram:
+Ez a JavaScript‑kód bemutatja, hogyan frissíthető egy diagram:
 
 ```javascript
 var aspose = aspose || {};
@@ -958,25 +958,25 @@ aspose.slides = require("aspose.slides.via.java");
 
 var pres = new aspose.slides.Presentation("ExistingChart.pptx");
 try {
-    // Az első diához való hozzáférés
+    // Az első slideMarker elérése
     var sld = pres.getSlides().get_Item(0);
-    // A diagram lekérése alapértelmezett adatokkal
+    // Diagram lekérése alapértelmezett adatokkal
     var chart = sld.getShapes().get_Item(0);
     // A diagram adatlap indexének beállítása
     var defaultWorksheetIndex = 0;
-    // A diagram adatlap lekérése
+    // A diagram adatlapjának lekérése
     var fact = chart.getChartData().getChartDataWorkbook();
     // A diagram kategória nevének módosítása
     fact.getCell(defaultWorksheetIndex, 1, 0, "Modified Category 1");
     fact.getCell(defaultWorksheetIndex, 2, 0, "Modified Category 2");
-    // Az első diagram sorozat lekérése
+    // Az első diagram sorozat kivétele
     var series = chart.getChartData().getSeries().get_Item(0);
     // Sorozat adatainak frissítése
     fact.getCell(defaultWorksheetIndex, 0, 1, "New_Series1"); // Sorozat nevének módosítása
     series.getDataPoints().get_Item(0).getValue().setData(90);
     series.getDataPoints().get_Item(1).getValue().setData(123);
     series.getDataPoints().get_Item(2).getValue().setData(44);
-    // A második diagram sorozat lekérése
+    // A második diagram sorozat kivétele
     series = chart.getChartData().getSeries().get_Item(1);
     // Sorozat adatainak frissítése
     fact.getCell(defaultWorksheetIndex, 0, 2, "New_Series2"); // Sorozat nevének módosítása
@@ -985,7 +985,7 @@ try {
     series.getDataPoints().get_Item(2).getValue().setData(99);
     // Új sorozat hozzáadása
     chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 3, "Series 3"), chart.getType());
-    // A harmadik diagram sorozat lekérése
+    // A harmadik diagram sorozat kivétele
     series = chart.getChartData().getSeries().get_Item(2);
     // Sorozat adatainak feltöltése
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 3, 20));
@@ -1001,17 +1001,19 @@ try {
 }
 ```
 
-## **Adattartomány beállítása egy diagramhoz**
+## **Adattartomány beállítása diagramhoz**
 
-A diagram adattartományának beállításához tegye a következőket:
+A már meglévő diagram által használt tartomány megtekintéséhez lásd a [Retrieve a Chart's Data Range](/slides/hu/nodejs-java/chart-workbook/#retrieve-a-charts-data-range) szakaszt.
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/presentation/) osztályból, amely a diagramot tartalmazó prezentációt képviseli.
-2. Szerezzen hivatkozást egy diára a indexe alapján.
-3. Járja be az összes alakzatot, hogy megtalálja a kívánt diagramot.
-4. Nyissa meg a diagram adatokat, és állítsa be a tartományt.
+Az adattartomány beállításához a diagramhoz kövesse az alábbi lépéseket:
+
+1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) osztályból, amely a diagramot tartalmazó prezentációt képviseli.
+2. Szerezzen hivatkozást egy diára a sorszámával.
+3. Járjon végig az összes alakzaton, hogy megtalálja a kívánt diagramot.
+4. Hozzáférés a diagram adataihoz, és állítsa be a tartományt.
 5. Mentse a módosított prezentációt PPTX fájlként.
 
-Ez a JavaScript kód bemutatja, hogyan állítható be a diagram adattartománya:
+Ez a JavaScript‑kód bemutatja, hogyan állítható be egy diagram adattartománya:
 
 ```javascript
 var aspose = aspose || {};
@@ -1032,9 +1034,9 @@ try {
 
 ## **Alapértelmezett jelölők használata diagramokban**
 
-Alapértelmezett jelölők használata esetén minden diagram sorozat automatikusan más jelölőszimbólumot kap.
+Alapértelmezett jelölők használata esetén minden diagram sor automatikusan más‑más jelölőszimbólumot kap.
 
-Ez a JavaScript kód bemutatja, hogyan állítható be egy diagram sorozat jelölője automatikusan:
+Ez a JavaScript‑kód bemutatja, hogyan állítható be egy diagram sorának jelölője automatikusan:
 
 ```javascript
 var aspose = aspose || {};
@@ -1058,9 +1060,9 @@ try {
     chart.getChartData().getCategories().add(fact.getCell(0, 4, 0, "C4"));
     series.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 4, 1, null));
     chart.getChartData().getSeries().add(fact.getCell(0, 0, 2, "Series 2"), chart.getType());
-    // Vegye a második diagram sorozatát
+    // A második diagram sorozat kivétele
     var series2 = chart.getChartData().getSeries().get_Item(1);
-    // Most a sorozat adatait töltjük fel
+    // Sorozat adatainak feltöltése
     series2.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 1, 2, 30));
     series2.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 2, 2, 10));
     series2.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 3, 2, 60));
@@ -1079,16 +1081,16 @@ try {
 
 **Milyen diagramtípusokat támogat az Aspose.Slides?**
 
-Az Aspose.Slides széles körű [diagramtípusokat](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/charttype/) támogat, köztük oszlop, vonal, kör, terület, szórás, hisztogram, radar és még sok mást. Ez a rugalmasság lehetővé teszi, hogy a legmegfelelőbb diagramtípust válassza adatvizualizációs igényeihez.
+Az Aspose.Slides széles körű [diagramtípusokat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/) támogat, beleértve az oszlop-, vonal-, kör-, terület-, szórás-, hisztogram-, radar- és még sok más típust. Ez a rugalmasság lehetővé teszi, hogy a legmegfelelőbb diagramtípust válassza adatvizualizációs igényeihez.
 
-**Hogyan adhatok hozzá új diagramot egy diához?**
+**Hogyan adhatok hozzá egy új diagramot a diához?**
 
-Diagram hozzáadásához először hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/presentation/) osztályból, szerezze meg a kívánt diát a indexe alapján, majd hívja meg a diagramot hozzáadó metódust, megadva a diagramtípust és a kezdeti adatokat. Ez a folyamat közvetlenül a prezentációba illeszti be a diagramot.
+Diagram hozzáadásához először hozza létre a [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) osztály egy példányát, szerezze meg a kívánt diát a sorszámával, majd hívja meg a diagram hozzáadására szolgáló metódust, megadva a diagram típusát és a kezdeti adatokat. Ez a folyamat közvetlenül a prezentációba integrálja a diagramot.
 
 **Hogyan frissíthetem a diagramon megjelenő adatokat?**
 
-A diagram adatait frissítheti úgy, hogy hozzáfér a diagram adatkönyvtárához ([ChartDataWorkbook](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/chartdataworkbook/)), törli az alapértelmezett sorozatokat és kategóriákat, majd hozzáadja a saját egyedi adatait. Ez lehetővé teszi, hogy programozottan frissítse a diagramot a legújabb adatokkal.
+A diagram adatait úgy frissítheti, hogy hozzáfér a diagram adatkönyvtárához ([ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/)), eltávolítja az alapértelmezett sorokat és kategóriákat, majd hozzáadja a saját egyedi adatait. Így programozott módon frissítheti a diagramot a legújabb adatokkal.
 
 **Lehetőség van a diagram megjelenésének testreszabására?**
 
-Igen, az Aspose.Slides kiterjedt testreszabási lehetőségeket biztosít. Módosíthat színeket, betűtípusokat, címkéket, jelmagyarázatokat és egyéb [formatting elements](/slides/hu/nodejs-java/chart-entities/) elemeket, hogy a diagram megjelenését az Ön konkrét tervezési követelményeihez igazítsa.
+Igen, az Aspose.Slides kiterjedt testreszabási lehetőségeket kínál. Módosíthatja a színeket, betűtípusokat, címkéket, jelmagyarázatokat és egyéb [formázási elemeket](/slides/hu/nodejs-java/chart-entities/), hogy a diagram megjelenése megfeleljen az egyedi tervezési követelményeknek.

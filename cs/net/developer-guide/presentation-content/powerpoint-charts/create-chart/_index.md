@@ -1,5 +1,5 @@
 ---
-title: Vytvořit nebo aktualizovat grafy v PowerPoint prezentacích v .NET
+title: Vytvoření nebo aktualizace grafů v PowerPoint prezentacích v .NET
 linktitle: Vytvořit nebo aktualizovat grafy
 type: docs
 weight: 10
@@ -10,65 +10,67 @@ keywords:
 - upravit graf
 - změnit graf
 - aktualizovat graf
-- rozptylový graf
+- rozptýlený graf
 - koláčový graf
 - čárový graf
-- stromová mapa
+- stromový mapový graf
 - akciový graf
-- box a whisker graf
-- trychtýřový graf
+- krabicový a fousový graf
+- trychlostní graf
 - sunburst graf
-- histogramový graf
-- radarový graf
-- vícekategoriový graf
+- histogram graf
+- radar graf
+- vícekategoriální graf
 - PowerPoint
 - prezentace
 - .NET
 - C#
 - Aspose.Slides
-description: "Vytvářejte a přizpůsobujte grafy v PowerPoint prezentacích pomocí Aspose.Slides pro .NET. Přidávejte, formátujte a upravujte grafy s praktickými ukázkami kódu v C#."
+description: "Vytvářejte a přizpůsobujte grafy v PowerPoint prezentacích pomocí Aspose.Slides pro .NET. Přidávejte, formátujte a upravujte grafy s praktickými příklady kódu v C#."
 ---
 ## **Přehled**
 
-Tento článek poskytuje komplexní průvodce, jak vytvářet a přizpůsobovat grafy pomocí Aspose.Slides pro .NET. Naučíte se programově přidat graf do snímku, naplnit jej daty a aplikovat různé možnosti formátování, aby odpovídaly vašim specifickým požadavkům na design. V celém článku podrobné ukázky kódu ilustrují každý krok, od inicializace prezentace a objektu grafu až po nastavení sérií, os a legend. Dodržením tohoto průvodce získáte pevné porozumění tomu, jak integrovat dynamické generování grafů do vašich .NET aplikací, což zjednoduší proces vytváření prezentací založených na datech.
+Tento článek poskytuje komplexní průvodce, jak vytvářet a přizpůsobovat grafy pomocí Aspose.Slides pro .NET. Naučíte se, jak programově přidat graf na snímek, naplnit jej daty a použít různé možnosti formátování, aby vyhovovaly vašim konkrétním požadavkům na design. V celém článku jsou podrobné ukázky kódu, které ilustrují každý krok – od inicializace prezentace a objektu grafu až po konfiguraci sérií, os a legend. Dodržením tohoto návodu získáte pevné pochopení, jak integrovat dynamické generování grafů do vašich .NET aplikací a zjednodušit tvorbu datově řízených prezentací.
 
 ## **Vytvoření grafu**
 
-Grafy pomáhají lidem rychle vizualizovat data a získat poznatky, které nemusí být okamžitě evidentní z tabulky nebo tabulkového procesoru.
+Grafy pomáhají lidem rychle vizualizovat data a získat poznatky, které nemusí být okamžitě zřejmé z tabulky nebo tabulkového kalkulátoru.
 
 **Proč vytvářet grafy?**
 
 Pomocí grafů můžete:
 
-* agregovat, zhušťovat nebo shrnovat velké množství dat na jednom snímku v prezentaci;
-* odhalovat vzory a trendy v datech;
-* odhadnout směr a dynamiku dat v čase nebo vzhledem ke konkrétní měrné jednotce;
-* identifikovat outliery, odchylky, chyby a nesmyslná data;
-* komunikovat či prezentovat složitá data.
+* agregovat, zhušťovat nebo shrnout velké objemy dat na jediném snímku v prezentaci;
+* odhalit vzorce a trendy v datech;
+* odvodit směr a dynamiku dat v čase nebo vzhledem k určité jednotce měření;
+* identifikovat odlehlé hodnoty, anomálie, odchylky, chyby a nesmyslná data;
+* komunikovat nebo prezentovat složitá data.
 
-V PowerPointu můžete vytvářet grafy pomocí funkce *Insert*, která poskytuje šablony pro návrh mnoha typů grafů. Pomocí Aspose.Slides můžete vytvářet jak běžné grafy (založené na populárních typech grafů), tak i vlastní grafy.
+V PowerPointu můžete vytvářet grafy přes funkci *Insert*, která poskytuje šablony pro navrhování mnoha typů grafů. Pomocí Aspose.Slides můžete vytvářet jak běžné grafy (založené na populárních typech grafů), tak vlastní grafy.
 
 {{% alert color="info" %}} 
-Použijte výčtový typ [ChartType](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/charttype/) v rámci jmenného prostoru [Aspose.Slides.Charts](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/). Hodnoty v tomto výčtu odpovídají různým typům grafů.
+
+Použijte výčtový typ [ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) v namespace [Aspose.Slides.Charts](https://reference.aspose.com/slides/net/aspose.slides.charts/). Hodnoty v tomto výčtu odpovídají různým typům grafů.
+
 {{% /alert %}} 
 
 ### **Vytvoření seskupených sloupcových grafů**
 
-Tato část vysvětluje, jak vytvořit seskupené sloupcové grafy pomocí Aspose.Slides pro .NET. Naučíte se inicializovat prezentaci, přidat graf a přizpůsobit jeho prvky, jako je název, data, série, kategorie a styl. Postupujte podle níže uvedených kroků a uvidíte, jak se vytvoří standardní seskupený sloupcový graf:
+Tato část vysvětluje, jak vytvořit seskupené sloupcové grafy pomocí Aspose.Slides pro .NET. Naučíte se inicializovat prezentaci, přidat graf a přizpůsobit jeho prvky, jako je název, data, série, kategorie a stylování. Postupujte podle níže uvedených kroků a uvidíte, jak se generuje standardní seskupený sloupcový graf:
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation).
-2. Získejte odkaz na snímek pomocí jeho indexu.
-3. Přidejte graf s některými daty a určete typ `ChartType.ClusteredColumn`.
-4. Přidejte název do grafu.
-5. Získejte přístup k datovému listu grafu.
-6. Vymažte všechny výchozí série a kategorie.
-7. Přidejte nové série a kategorie.
-8. Přidejte nová data do série grafu.
-9. Aplikujte výplňovou barvu na sérii grafu.
-10. Přidejte popisky do série grafu.
-11. Uložte upravenou prezentaci jako soubor PPTX.
+1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
+1. Získejte odkaz na snímek pomocí jeho indexu.
+1. Přidejte graf s nějakými daty a specifikujte typ `ChartType.ClusteredColumn`.
+1. Přidejte název grafu.
+1. Získejte přístup k datovému listu grafu.
+1. Vymažte všechny výchozí série a kategorie.
+1. Přidejte nové série a kategorie.
+1. Přidejte nová grafová data pro série grafu.
+1. Nastavte barvu výplně pro sérii grafu.
+1. Přidejte popisky k sérii grafu.
+1. Uložte upravenou prezentaci jako soubor PPTX.
 
-Tento C# kód ukazuje, jak vytvořit seskupený sloupcový graf:
+Tento C# kód demonstruje, jak vytvořit seskupený sloupcový graf:
 
 ```c#
 using System.Drawing;
@@ -79,7 +81,7 @@ using Aspose.Slides.Export;
 // Vytvořte instanci třídy Presentation.
 using (Presentation presentation = new Presentation())
 {
-    // Přístup k prvnímu snímku.
+    // Získejte první snímek.
     ISlide slide = presentation.Slides[0];
 
     // Přidejte seskupený sloupcový graf s výchozími daty.
@@ -91,10 +93,10 @@ using (Presentation presentation = new Presentation())
     chart.ChartTitle.Height = 20;
     chart.HasTitle = true;
 
-    // Nastavte index listu s daty grafu.
+    // Nastavte index datového listu grafu.
     int worksheetIndex = 0;
 
-    // Získání sešitu s daty grafu.
+    // Získejte sešit dat grafu.
     IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
 
     // Odstraňte výchozí generované série a kategorie.
@@ -113,7 +115,7 @@ using (Presentation presentation = new Presentation())
     // Získejte první sérii grafu.
     IChartSeries series = chart.ChartData.Series[0];
 
-    // Naplněte data série.
+    // Naplňte data série.
     series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 1, 1, 20));
     series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 2, 1, 50));
     series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 3, 1, 30));
@@ -125,7 +127,7 @@ using (Presentation presentation = new Presentation())
     // Získejte druhou sérii grafu.
     series = chart.ChartData.Series[1];
 
-    // Naplněte data série.
+    // Naplňte data série.
     series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 1, 2, 30));
     series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 2, 2, 10));
     series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 3, 2, 60));
@@ -141,7 +143,7 @@ using (Presentation presentation = new Presentation())
     label = series.DataPoints[1].Label;
     label.DataLabelFormat.ShowSeriesName = true;
 
-    // Nastavte sérii, aby třetí popisek zobrazoval hodnotu.
+    // Nastavte sérii, aby pro třetí popisek zobrazovala hodnotu.
     label = series.DataPoints[2].Label;
     label.DataLabelFormat.ShowValue = true;
     label.DataLabelFormat.ShowSeriesName = true;
@@ -154,20 +156,20 @@ using (Presentation presentation = new Presentation())
 
 Výsledek:
 
-![Graf seskupených sloupců](clustered_column_chart.png)
+![The Clustered Column chart](clustered_column_chart.png)
 
-### **Vytvoření rozptylových grafů**
+### **Vytvoření bodových grafů**
 
-Rozptylové grafy (také známé jako scatter plot nebo x‑y graf) se často používají k ověření vzorců nebo demonstraci korelací mezi dvěma proměnnými.
+Bodové grafy (známé také jako scatter plot nebo x‑y grafy) se často používají k kontrole vzorců nebo demonstraci korelací mezi dvěma proměnnými.
 
-Použijte rozptylový graf, když:
+Použijte bodový graf, když:
 
 * Máte spárovaná číselná data.
-* Máte dvě proměnné, které spolu dobře korelují.
-* Chcete zjistit, zda jsou dvě proměnné související.
-* Máte nezávislou proměnnou, která má více hodnot pro závislou proměnnou.
+* Máte dvě proměnné, které spolu dobře souvisí.
+* Chcete zjistit, zda jsou dvě proměnné navzájem příbuzné.
+* Máte nezávislou proměnnou s více hodnotami pro závislou proměnnou.
 
-Tento C# kód ukazuje, jak vytvořit rozptylový graf s různými sériemi značek:
+Tento C# kód ukazuje, jak vytvořit bodový graf s různými sériemi značek:
 
 ```c#
 using Aspose.Slides;
@@ -177,16 +179,16 @@ using Aspose.Slides.Export;
 // Vytvořte instanci třídy Presentation.
 using (Presentation presentation = new Presentation())
 {
-    // Přístup k prvnímu snímku.
+    // Získejte první snímek.
     ISlide slide = presentation.Slides[0];
 
     // Vytvořte výchozí rozptylový graf.
     IChart chart = slide.Shapes.AddChart(ChartType.ScatterWithSmoothLines, 20, 20, 500, 300);
 
-    // Nastavte index listu s daty grafu.
+    // Nastavte index listu dat grafu.
     int worksheetIndex = 0;
 
-    // Získejte sešit s daty grafu.
+    // Získejte sešit dat grafu.
     IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
 
     // Odstraňte výchozí sérii.
@@ -238,26 +240,26 @@ using (Presentation presentation = new Presentation())
 
 Výsledek:
 
-![Graf rozptylu](scatter_chart.png)
+![The Scatter chart](scatter_chart.png)
 
-### **Vytvoření výsečových grafů**
+### **Vytvoření koláčových grafů**
 
-Výsečové grafy jsou nejvhodnější pro zobrazení vztahu část‑celku v datech, zejména když data obsahují kategoriální štítky s číselnými hodnotami. Pokud však vaše data obsahují mnoho částí nebo štítků, může být vhodnější použít sloupcový graf.
+Koláčové grafy se nejlépe používají k zobrazení poměru část‑k‑celku v datech, zejména když data obsahují kategorické štítky s číselnými hodnotami. Pokud však vaše data obsahují mnoho částí nebo štítků, možná budete chtít raději použít sloupcový graf.
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation).
-2. Získejte odkaz na snímek pomocí jeho indexu.
-3. Přidejte graf s výchozími daty a určete typ `ChartType.Pie`.
-4. Získejte přístup k datovému sešitu grafu ([IChartDataWorkbook](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/ichartdataworkbook/)).
-5. Vymažte výchozí sérii a kategorie.
-6. Přidejte nové série a kategorie.
-7. Přidejte nová data do série grafu.
-8. Přidejte nové body do grafu a aplikujte vlastní barvy na výseče výsečového grafu.
-9. Nastavte popisky pro sérii.
-10. Povolte čáry spojnice pro popisky sérií.
-11. Nastavte úhel otáčení výsečového grafu.
-12. Uložte upravenou prezentaci jako soubor PPTX.
+1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
+1. Získejte odkaz na snímek pomocí jeho indexu.
+1. Přidejte graf s výchozími daty a specifikujte typ `ChartType.Pie`.
+1. Získejte přístup k datovému sešitu grafu ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)).
+1. Vymažte výchozí série a kategorie.
+1. Přidejte nové série a kategorie.
+1. Přidejte nová grafová data pro sérii grafu.
+1. Přidejte nové body pro graf a aplikujte vlastní barvy na sektory koláčového grafu.
+1. Nastavte popisky pro série.
+1. Zapněte čáry ukazatele pro popisky sérií.
+1. Nastavte úhel otočení koláčového grafu.
+1. Uložte upravenou prezentaci jako soubor PPTX.
 
-Tento C# kód ukazuje, jak vytvořit výsečový graf:
+Tento C# kód ukazuje, jak vytvořit koláčový graf:
 
 ```c#
 using System.Drawing;
@@ -268,7 +270,7 @@ using Aspose.Slides.Export;
 // Vytvořte instanci třídy Presentation.
 using (Presentation presentation = new Presentation())
 {
-    // Přístup k prvnímu snímku.
+    // Získejte první snímek.
     ISlide slide = presentation.Slides[0];
 
     // Přidejte graf s výchozími daty.
@@ -283,10 +285,10 @@ using (Presentation presentation = new Presentation())
     // Nastavte první sérii, aby zobrazovala hodnoty.
     chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
 
-    // Nastavte index listu s daty grafu.
+    // Nastavte index listu dat grafu.
     int worksheetIndex = 0;
 
-    // Získejte sešit s daty grafu.
+    // Získejte sešit dat grafu.
     IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
 
     // Odstraňte výchozí generované série a kategorie.
@@ -298,7 +300,7 @@ using (Presentation presentation = new Presentation())
     chart.ChartData.Categories.Add(workbook.GetCell(0, 2, 0, "2nd Qtr"));
     chart.ChartData.Categories.Add(workbook.GetCell(0, 3, 0, "3rd Qtr"));
 
-    // Přidejte novou sérii.
+    // Přidejte nové série.
     IChartSeries series = chart.ChartData.Series.Add(workbook.GetCell(0, 0, 1, "Series 1"), chart.Type);
 
     // Naplňte data série.
@@ -356,10 +358,10 @@ using (Presentation presentation = new Presentation())
     label3.DataLabelFormat.ShowSeriesName = true;
     label3.DataLabelFormat.ShowPercentage = true;
 
-    // Nastavte sérii, aby zobrazovala čárové spojnice (leader lines) v grafu.
+    // Nastavte sérii, aby zobrazovala čáry ukazatele pro graf.
     series.Labels.DefaultDataLabelFormat.ShowLeaderLines = true;
 
-    // Nastavte úhel otáčení sektorů výsečového grafu.
+    // Nastavte úhel otočení sektorů koláčového grafu.
     chart.ChartData.SeriesGroups[0].FirstSliceAngle = 180;
 
     // Uložte prezentaci na disk jako soubor PPTX.
@@ -369,20 +371,20 @@ using (Presentation presentation = new Presentation())
 
 Výsledek:
 
-![Koláčový graf](pie_chart.png)
+![The Pie chart](pie_chart.png)
 
 ### **Vytvoření čárových grafů**
 
-Čárové grafy (také známé jako line graphs) jsou nejvhodnější v situacích, kde chcete demonstrovat změny hodnot v čase. Pomocí čárového grafu můžete najednou porovnat velké množství dat, sledovat změny a trendy v čase, zdůraznit anomálie v datových sériích a další.
+Čárové grafy (známé také jako line graphs) jsou nejvhodnější v situacích, kdy chcete ukázat změny hodnot v čase. Pomocí čárového grafu můžete najednou porovnat velké množství dat, sledovat změny a trendy v čase, zvýraznit anomálie v datových sériích a další.
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation).
-2. Získejte odkaz na snímek pomocí jeho indexu.
-3. Přidejte graf s výchozími daty a určete typ `ChartType.Line`.
-4. Získejte přístup k datovému sešitu grafu ([IChartDataWorkbook](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/ichartdataworkbook/)).
-5. Vymažte výchozí sérii a kategorie.
-6. Přidejte nové série a kategorie.
-7. Přidejte nová data do série grafu.
-8. Uložte upravenou prezentaci jako soubor PPTX.
+1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
+1. Získejte odkaz na snímek pomocí jeho indexu.
+1. Přidejte graf s výchozími daty a specifikujte typ `ChartType.Line`.
+1. Získejte přístup k datovému sešitu grafu ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)).
+1. Vymažte výchozí série a kategorie.
+1. Přidejte nové série a kategorie.
+1. Přidejte nová grafová data pro sérii grafu.
+1. Uložte upravenou prezentaci jako soubor PPTX.
 
 Tento C# kód ukazuje, jak vytvořit čárový graf:
 
@@ -399,7 +401,7 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-Ve výchozím nastavení jsou body v čárovém grafu spojeny přímými spojnicemi. Pokud chcete, aby byly body spojeny čárkovanými čarami, můžete specifikovat preferovaný typ čáry následovně:
+Ve výchozím nastavení jsou body na čárovém grafu spojeny přímými spojnicemi. Pokud chcete, aby byly body spojeny čárkovanou čárou, můžete specifikovat požadovaný typ čárky následovně:
 
 ```c#
 using Aspose.Slides;
@@ -418,22 +420,22 @@ using (Presentation presentation = new Presentation())
 
 Výsledek:
 
-![Čárový graf](line_chart.png)
+![The Line chart](line_chart.png)
 
 ### **Vytvoření stromových mapových grafů**
 
-Stromové mapové grafy jsou nejvhodnější pro prodejní data, když chcete zobrazit relativní velikost datových kategorií a rychle upoutat pozornost na položky, které jsou ve své kategorii velkými přispěvateli.
+Stromové mapové grafy jsou nejvhodnější pro prodejní data, když chcete zobrazit relativní velikost datových kategorií a rychle upozornit na položky, které jsou velkými přispěvateli v každé kategorii.
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation).
-2. Získejte odkaz na snímek pomocí jeho indexu.
-3. Přidejte graf s výchozími daty a určete typ `ChartType.Treemap`.
-4. Získejte přístup k datovému sešitu grafu ([IChartDataWorkbook](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/ichartdataworkbook/)).
-5. Vymažte výchozí sérii a kategorie.
-6. Přidejte nové série a kategorie.
-7. Přidejte nová data do série grafu.
-8. Uložte upravenou prezentaci jako soubor PPTX.
+1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
+1. Získejte odkaz na snímek pomocí jeho indexu.
+1. Přidejte graf s výchozími daty a specifikujte typ `ChartType.Treemap`.
+1. Získejte přístup k datovému sešitu grafu ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)).
+1. Vymažte výchozí série a kategorie.
+1. Přidejte nové série a kategorie.
+1. Přidejte nová grafová data pro sérii grafu.
+1. Uložte upravenou prezentaci jako soubor PPTX.
 
-Tento C# kód ukazuje, jak vytvořit stromovou mapu:
+Tento C# kód ukazuje, jak vytvořit stromový mapový graf:
 
 ```c#
 using Aspose.Slides;
@@ -492,21 +494,21 @@ using (Presentation presentation = new Presentation())
 
 Výsledek:
 
-![Graf stromové mapy](treemap_chart.png)
+![The Treemap chart](treemap_chart.png)
 
 ### **Vytvoření akciových grafů**
 
-Akciové grafy se používají k zobrazení finančních dat, jako jsou otevírací, nejvyšší, nejnižší a uzavírací ceny, a pomáhají analyzovat tržní trendy a volatilitu. Poskytují zásadní informace o výkonnosti akcií, což investorům a analytikům usnadňuje činit informovaná rozhodnutí.
+Akciové grafy se používají k zobrazení finančních údajů, jako jsou otevírací, nejvyšší, nejnižší a závěrečné ceny, a pomáhají analyzovat tržní trendy a volatilitu. Poskytují klíčové informace o výkonu akcií, což usnadňuje investorům a analytikům činit informovaná rozhodnutí.
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation).
-2. Získejte odkaz na snímek pomocí jeho indexu.
-3. Přidejte graf s výchozími daty a určete typ `ChartType.OpenHighLowClose`.
-4. Získejte přístup k datovému sešitu grafu ([IChartDataWorkbook](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/ichartdataworkbook/)).
-5. Vymažte výchozí sérii a kategorie.
-6. Přidejte nové série a kategorie.
-7. Přidejte nová data do série grafu.
-8. Specifikujte formát HiLowLines.
-9. Uložte upravenou prezentaci jako soubor PPTX.
+1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
+1. Získejte odkaz na snímek pomocí jeho indexu.
+1. Přidejte graf s výchozími daty a specifikujte typ `ChartType.OpenHighLowClose`.
+1. Získejte přístup k datovému sešitu grafu ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)).
+1. Vymažte výchozí série a kategorie.
+1. Přidejte nové série a kategorie.
+1. Přidejte nová grafová data pro sérii grafu.
+1. Specifikujte formát HiLowLines.
+1. Uložte upravenou prezentaci jako soubor PPTX.
 
 Tento C# kód ukazuje, jak vytvořit akciový graf:
 
@@ -566,22 +568,22 @@ using (Presentation presentation = new Presentation())
 
 Výsledek:
 
-![Akciový graf](stock_chart.png)
+![The Stock chart](stock_chart.png)
 
-### **Vytvoření Box a Whisker grafů**
+### **Vytvoření krabicových a fousových grafů**
 
-Box a Whisker grafy se používají k zobrazení rozdělení dat shrnutím klíčových statistických měr, jako jsou medián, kvartily a potenciální odlehlé hodnoty. Jsou zvláště užitečné při explorativní analýze dat a statistických studiích pro rychlé pochopení variability dat a identifikaci anomálií.
+Krabicové a fousové grafy se používají k zobrazení rozdělení dat shrnutím klíčových statistických ukazatelů, jako jsou medián, kvartily a případné odlehlé hodnoty. Jsou zvláště užitečné při průzkumné analýze dat a statistických studiích pro rychlé pochopení variability dat a identifikaci anomálií.
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation).
-2. Získejte odkaz na snímek pomocí jeho indexu.
-3. Přidejte graf s výchozími daty a určete typ `ChartType.BoxAndWhisker`.
-4. Získejte přístup k datovému sešitu grafu ([IChartDataWorkbook](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/ichartdataworkbook/)).
-5. Vymažte výchozí sérii a kategorie.
-6. Přidejte nové série a kategorie.
-7. Přidejte nová data do série grafu.
-8. Uložte upravenou prezentaci jako soubor PPTX.
+1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
+1. Získejte odkaz na snímek pomocí jeho indexu.
+1. Přidejte graf s výchozími daty a specifikujte typ `ChartType.BoxAndWhisker`.
+1. Získejte přístup k datovému sešitu grafu ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)).
+1. Vymažte výchozí série a kategorie.
+1. Přidejte nové série a kategorie.
+1. Přidejte nová grafová data pro sérii grafu.
+1. Uložte upravenou prezentaci jako soubor PPTX.
 
-Tento C# kód ukazuje, jak vytvořit Box a Whisker graf:
+Tento C# kód ukazuje, jak vytvořit krabicový a fousový graf:
 
 ```c#
 using Aspose.Slides;
@@ -623,16 +625,16 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-### **Vytvoření trychtýřových grafů**
+### **Vytvoření trychlostních grafů**
 
-Trychtýřové grafy se používají k vizualizaci procesů, které zahrnují sekvenční fáze, kde objem dat klesá s postupem od jednoho kroku k dalšímu. Jsou zvláště užitečné při analýze konverzních poměrů, identifikaci úzkých míst a sledování efektivity prodejních nebo marketingových procesů.
+Trychlostní grafy (funnel charts) se používají k vizualizaci procesů, které zahrnují sekvenční fáze, kde objem dat klesá s postupujícím krokem. Jsou zvláště užitečné při analýze konverzních poměrů, identifikaci úzkých míst a sledování efektivity prodejních či marketingových procesů.
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation).
-2. Získejte odkaz na snímek pomocí jeho indexu.
-3. Přidejte graf s výchozími daty a určete typ `ChartType.Funnel`.
-4. Uložte upravenou prezentaci jako soubor PPTX.
+1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
+1. Získejte odkaz na snímek pomocí jeho indexu.
+1. Přidejte graf s výchozími daty a specifikujte typ `ChartType.Funnel`.
+1. Uložte upravenou prezentaci jako soubor PPTX.
 
-Tento C# kód ukazuje, jak vytvořit trychtýřový graf:
+Tento C# kód ukazuje, jak vytvořit trychlostní graf:
 
 ```c#
 using Aspose.Slides;
@@ -670,18 +672,18 @@ using (Presentation presentation = new Presentation("test.pptx"))
 
 Výsledek:
 
-![Graf trychtýře](funnel_chart.png)
+![The Funnel chart](funnel_chart.png)
 
-### **Vytvoření Sunburst grafů**
+### **Vytvoření slunečních (Sunburst) grafů**
 
-Sunburst grafy se používají k vizualizaci hierarchických dat, zobrazujících úrovně jako soustředné kruhy. Pomáhají ilustrovat vztahy část‑celku a jsou ideální pro reprezentaci vnořených kategorií a podkategorií v přehledném, kompaktním formátu.
+Sluneční grafy se používají k vizualizaci hierarchických dat, přičemž úrovně jsou zobrazeny jako soustředné kruhy. Pomáhají ilustrovat vztahy část‑k‑celku a jsou ideální pro reprezentaci vnořených kategorií a podkategorií přehledně a kompaktně.
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation).
-2. Získejte odkaz na snímek pomocí jeho indexu.
-3. Přidejte graf s výchozími daty a určete typ `ChartType.Sunburst`.
-4. Uložte upravenou prezentaci jako soubor PPTX.
+1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
+1. Získejte odkaz na snímek pomocí jeho indexu.
+1. Přidejte graf s výchozími daty a specifikujte typ `ChartType.Sunburst`.
+1. Uložte upravenou prezentaci jako soubor PPTX.
 
-Tento C# kód ukazuje, jak vytvořit Sunburst graf:
+Tento C# kód ukazuje, jak vytvořit sluneční graf:
 
 ```c#
 using Aspose.Slides;
@@ -738,19 +740,19 @@ using (Presentation presentation = new Presentation())
 
 Výsledek:
 
-![Sunburst graf](sunburst_chart.png)
+![The Sunburst chart](sunburst_chart.png)
 
 ### **Vytvoření histogramových grafů**
 
-Histogramové grafy se používají k reprezentaci rozdělení číselných dat seskupováním hodnot do intervalů nebo košů. Jsou zvláště užitečné pro identifikaci vzorců v datech, jako je četnost, zkosení a rozptyl, a pro detekci odlehlých hodnot v datovém souboru.
+Histogramové grafy se používají k zobrazení rozdělení číselných dat seskupením hodnot do intervalů nebo košů. Jsou zvláště užitečné pro identifikaci vzorců v datech, jako jsou četnost, šikmost a rozptyl, a pro odhalování odlehlých hodnot v datovém souboru.
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation).
-2. Získejte odkaz na snímek pomocí jeho indexu.
-3. Přidejte graf s některými daty a určete typ `ChartType.Histogram`.
-4. Získejte přístup k datovému sešitu grafu ([IChartDataWorkbook](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/ichartdataworkbook/)).
-5. Vymažte výchozí sérii a kategorie.
-6. Přidejte nové série a kategorie.
-7. Uložte upravenou prezentaci jako soubor PPTX.
+1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
+1. Získejte odkaz na snímek pomocí jeho indexu.
+1. Přidejte graf s nějakými daty a specifikujte typ `ChartType.Histogram`.
+1. Získejte přístup k datovému sešitu grafu ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)).
+1. Vymažte výchozí série a kategorie.
+1. Přidejte nové série a kategorie.
+1. Uložte upravenou prezentaci jako soubor PPTX.
 
 Tento C# kód ukazuje, jak vytvořit histogramový graf:
 
@@ -784,16 +786,16 @@ using (Presentation presentation = new Presentation())
 
 Výsledek:
 
-![Histogram graf](histogram_chart.png)
+![The Histogram chart](histogram_chart.png)
 
-### **Vytvoření radarových grafů**
+### **Vytvoření radaru (Radar) grafů**
 
-Radarové grafy se používají k zobrazení multivariátních dat ve dvourozměrném formátu, což umožňuje snadné porovnání několika proměnných současně. Jsou zvláště užitečné pro identifikaci vzorců, silných a slabých stránek napříč více výkonnostními metrikami nebo atributy.
+Radarové grafy slouží k zobrazení multivariačních dat ve dvourozměrném formátu, což umožňuje snadné porovnání několika proměnných současně. Jsou zvláště užitečné pro identifikaci vzorců, silných a slabých stránek napříč více výkonnostními metrikami či atributy.
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation).
-2. Získejte odkaz na snímek pomocí jeho indexu.
-3. Přidejte graf s některými daty a určete typ `ChartType.Radar`.
-4. Uložte upravenou prezentaci jako soubor PPTX.
+1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
+1. Získejte odkaz na snímek pomocí jeho indexu.
+1. Přidejte graf s nějakými daty a specifikujte typ `ChartType.Radar`.
+1. Uložte upravenou prezentaci jako soubor PPTX.
 
 Tento C# kód ukazuje, jak vytvořit radarový graf:
 
@@ -811,22 +813,22 @@ using (Presentation presentation = new Presentation())
 
 Výsledek:
 
-![Radarový graf](radar_chart.png)
+![The Radar chart](radar_chart.png)
 
-### **Vytvoření vícekategoriových grafů**
+### **Vytvoření vícekategoriálních grafů**
 
-Vícekategoriové grafy se používají k zobrazení dat, která zahrnují více než jedno kategoriální seskupení, což umožňuje porovnávat hodnoty napříč více dimenzemi současně. Jsou zvláště užitečné, když potřebujete analyzovat trendy a vztahy ve složitých, vícevrstevných datových sadách.
+Vícekategoriální grafy slouží k zobrazení dat, která zahrnují více než jedno kategoriální seskupení, což umožňuje porovnávat hodnoty napříč více dimenzemi současně. Jsou zvláště užitečné, když potřebujete analyzovat trendy a vztahy v komplexních, vícevrstvých datech.
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation).
-2. Získejte odkaz na snímek pomocí jeho indexu.
-3. Přidejte graf s výchozími daty a určete typ `ChartType.ClusteredColumn`.
-4. Získejte přístup k datovému sešitu grafu ([IChartDataWorkbook](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/ichartdataworkbook/)).
-5. Vymažte výchozí sérii a kategorie.
-6. Přidejte nové série a kategorie.
-7. Přidejte nová data do série grafu.
-8. Uložte upravenou prezentaci jako soubor PPTX.
+1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
+1. Získejte odkaz na snímek pomocí jeho indexu.
+1. Přidejte graf s výchozími daty a specifikujte typ `ChartType.ClusteredColumn`.
+1. Získejte přístup k datovému sešitu grafu ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)).
+1. Vymažte výchozí série a kategorie.
+1. Přidejte nové série a kategorie.
+1. Přidejte nová grafová data pro sérii grafu.
+1. Uložte upravenou prezentaci jako soubor PPTX.
 
-Tento C# kód ukazuje, jak vytvořit vícekategoriový graf:
+Tento C# kód ukazuje, jak vytvořit vícekategoriální graf:
 
 ```c#
 using Aspose.Slides;
@@ -881,11 +883,11 @@ using (Presentation presentation = new Presentation())
 
 Výsledek:
 
-![Graf s více kategoriemi](multi_category_chart.png)
+![The multi category chart](multi_category_chart.png)
 
 ### **Vytvoření mapových grafů**
 
-Mapové grafy se používají k vizualizaci geografických dat mapováním informací na konkrétní místa, jako jsou země, státy nebo města. Jsou zvláště užitečné pro analýzu regionálních trendů, demografických dat a prostorových rozložení v přehledném, vizuálně atraktivním formátu.
+Mapové grafy se používají k vizualizaci geografických dat přiřazením informací k specifickým místům, jako jsou země, státy nebo města. Jsou zvláště užitečné pro analýzu regionálních trendů, demografických údajů a prostorových rozložení přehledným a vizuálně atraktivním způsobem.
 
 Tento C# kód ukazuje, jak vytvořit mapový graf:
 
@@ -903,19 +905,21 @@ using (Presentation presentation = new Presentation())
 
 Výsledek:
 
-![Mapový graf](map_chart.png)
+![The Map chart](map_chart.png)
 
 {{% alert color="info" %}} 
-Obrázek výše ukazuje uloženou prezentaci otevřenou v PowerPointu. Aspose.Slides zapisuje mapový graf a jeho data správně, ale sám mapové grafy nevykresluje: když je snímek obsahující takový graf renderován jako obrázek nebo převeden do PDF či SVG, oblast grafu zůstane prázdná. Ostatní tvary na stejném snímku jsou neovlivněny.
+
+Výše uvedený obrázek zobrazuje uloženou prezentaci otevřenou v PowerPointu. Aspose.Slides zapisuje mapový graf a jeho data správně, ale samotné mapové grafy nedisponuje: když je snímek obsahující takový graf vykreslen jako obrázek nebo převeden do PDF či SVG, oblast grafu zůstane prázdná. Ostatní tvary na stejném snímku jsou neovlivněny.
+
 {{% /alert %}} 
 
 ### **Vytvoření kombinovaných grafů**
 
-Kombinovaný graf (nebo combo graf) kombinuje dva nebo více typů grafů v jediném diagramu. Tento graf vám umožňuje zvýraznit, porovnat nebo analyzovat rozdíly mezi dvěma nebo více datovými sadami, což pomáhá identifikovat vztahy mezi nimi.
+Kombinovaný graf (nebo combo graf) spojuje dva nebo více typů grafů v jednom diagramu. Tento graf vám umožňuje zvýraznit, porovnat nebo prozkoumat rozdíly mezi dvěma nebo více datovými sadami, což pomáhá identifikovat vztahy mezi nimi.
 
-![Kombinovaný graf](combination_chart.png)
+![The combination chart](combination_chart.png)
 
-Následující C# kód ukazuje, jak vytvořit kombinovaný graf uvedený výše v PowerPointové prezentaci:
+Následující C# kód ukazuje, jak vytvořit kombinovaný graf zobrazený výše v PowerPointové prezentaci:
 
 ```c#
 using System.Drawing;
@@ -943,7 +947,7 @@ private static IChart CreateChartWithFirstSeries(ISlide slide)
 {
     IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
 
-    // Nastavuje název grafu
+    // Nastaví název grafu
     chart.HasTitle = true;
     chart.ChartTitle.AddTextFrameForOverriding("Chart Title");
     chart.ChartTitle.Overlay = false;
@@ -952,18 +956,18 @@ private static IChart CreateChartWithFirstSeries(ISlide slide)
     portionFormat.FontBold = NullableBool.False;
     portionFormat.FontHeight = 18f;
 
-    // Nastavuje legendu grafu
+    // Nastaví legendu grafu
     chart.Legend.Position = LegendPositionType.Bottom;
     chart.Legend.TextFormat.PortionFormat.FontHeight = 12f;
 
-    // Odstraňuje výchozí generované série a kategorie
+    // Odstraní výchozí generované série a kategorie
     chart.ChartData.Series.Clear();
     chart.ChartData.Categories.Clear();
 
     int worksheetIndex = 0;
     IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
 
-    // Přidává nové kategorie
+    // Přidá nové kategorie
     chart.ChartData.Categories.Add(workbook.GetCell(worksheetIndex, 1, 0, "Category 1"));
     chart.ChartData.Categories.Add(workbook.GetCell(worksheetIndex, 2, 0, "Category 2"));
     chart.ChartData.Categories.Add(workbook.GetCell(worksheetIndex, 3, 0, "Category 3"));
@@ -1019,21 +1023,21 @@ private static void AddThirdSeriesToChart(IChart chart)
 
 private static void SetPrimaryAxesFormat(IChart chart)
 {
-    // Nastavuje vodorovnou osu
+    // Nastaví vodorovnou osu
     IAxis horizontalAxis = chart.Axes.HorizontalAxis;
     horizontalAxis.TextFormat.PortionFormat.FontHeight = 12f;
     horizontalAxis.Format.Line.FillFormat.FillType = FillType.NoFill;
 
     SetAxisTitle(horizontalAxis, "X Axis");
 
-    // Nastavuje svislou osu
+    // Nastaví svislou osu
     IAxis verticalAxis = chart.Axes.VerticalAxis;
     verticalAxis.TextFormat.PortionFormat.FontHeight = 12f;
     verticalAxis.Format.Line.FillFormat.FillType = FillType.NoFill;
 
     SetAxisTitle(verticalAxis, "Y Axis 1");
 
-    // Nastavuje barvu hlavních svislých mřížek
+    // Nastaví barvu hlavních svislých mřížkových čar
     ILineFillFormat majorGridLinesFormat = verticalAxis.MajorGridLinesFormat.Line.FillFormat;
     majorGridLinesFormat.FillType = FillType.Solid;
     majorGridLinesFormat.SolidFillColor.Color = Color.FromArgb(217, 217, 217);
@@ -1041,7 +1045,7 @@ private static void SetPrimaryAxesFormat(IChart chart)
 
 private static void SetSecondaryAxesFormat(IChart chart)
 {
-    // Nastavuje sekundární vodorovnou osu
+    // Nastaví sekundární vodorovnou osu
     IAxis secondaryHorizontalAxis = chart.Axes.SecondaryHorizontalAxis;
     secondaryHorizontalAxis.Position = AxisPositionType.Bottom;
     secondaryHorizontalAxis.CrossType = CrossesType.Maximum;
@@ -1049,7 +1053,7 @@ private static void SetSecondaryAxesFormat(IChart chart)
     secondaryHorizontalAxis.MajorGridLinesFormat.Line.FillFormat.FillType = FillType.NoFill;
     secondaryHorizontalAxis.MinorGridLinesFormat.Line.FillFormat.FillType = FillType.NoFill;
 
-    // Nastavuje sekundární svislou osu
+    // Nastaví sekundární svislou osu
     IAxis secondaryVerticalAxis = chart.Axes.SecondaryVerticalAxis;
     secondaryVerticalAxis.Position = AxisPositionType.Right;
     secondaryVerticalAxis.TextFormat.PortionFormat.FontHeight = 12f;
@@ -1073,15 +1077,15 @@ private static void SetAxisTitle(IAxis axis, string axisTitle)
 
 ## **Aktualizace grafů**
 
-Aspose.Slides pro .NET vám umožňuje aktualizovat PowerPointové grafy úpravou dat grafu, formátování a stylování. Tato funkčnost zjednodušuje proces udržování prezentací aktuálních s dynamickým obsahem a zajišťuje, že grafy přesně odrážejí aktuální data a vizuální standardy.
+Aspose.Slides pro .NET vám umožňuje aktualizovat PowerPointové grafy úpravou dat grafu, formátování a stylování. Tato funkce zjednodušuje proces udržování prezentací aktuálních s dynamickým obsahem a zajišťuje, že grafy přesně odrážejí současná data a vizuální standardy.
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation), která představuje prezentaci obsahující graf.
-2. Získejte odkaz na snímek pomocí jeho indexu.
-3. Procházejte všechny tvary a najděte graf.
-4. Získejte přístup k datovému listu grafu.
-5. Upravte sérii dat grafu změnou hodnot sérií.
-6. Přidejte novou sérii a naplňte ji daty.
-7. Uložte upravenou prezentaci jako soubor PPTX.
+1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) představující prezentaci obsahující graf.
+1. Získejte odkaz na snímek pomocí jeho indexu.
+1. Projděte všechny tvary a najděte graf.
+1. Získejte přístup k datovému listu grafu.
+1. Upravit sérii dat grafu změnou hodnot série.
+1. Přidejte novou sérii a naplňte ji daty.
+1. Uložte upravenou prezentaci jako soubor PPTX.
 
 Tento C# kód ukazuje, jak aktualizovat graf:
 
@@ -1095,17 +1099,17 @@ const string chartName = "My chart";
 // Vytvořte instanci třídy Presentation, která představuje soubor PPTX.
 using (Presentation presentation = new Presentation("ExistingChart.pptx"))
 {
-    // Přístup k prvnímu snímku.
+    // Získejte první snímek.
     ISlide slide = presentation.Slides[0];
 
     foreach (IShape shape in slide.Shapes)
     {
         if (shape is IChart chart && chart.Name == chartName)
         {
-            // Nastavte index listu s daty grafu.
+            // Nastavte index listu dat grafu.
             int worksheetIndex = 0;
 
-            // Získejte sešit s daty grafu.
+            // Získejte sešit dat grafu.
             IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
 
             // Změňte názvy kategorií grafu.
@@ -1116,7 +1120,7 @@ using (Presentation presentation = new Presentation("ExistingChart.pptx"))
             IChartSeries series = chart.ChartData.Series[0];
 
             // Aktualizujte data série.
-            workbook.GetCell(worksheetIndex, 0, 1, "New_Series 1"); // Úprava názvu série.
+            workbook.GetCell(worksheetIndex, 0, 1, "New_Series 1"); // Upravení názvu série.
             series.DataPoints[0].Value.Data = 90;
             series.DataPoints[1].Value.Data = 123;
             series.DataPoints[2].Value.Data = 44;
@@ -1125,7 +1129,7 @@ using (Presentation presentation = new Presentation("ExistingChart.pptx"))
             series = chart.ChartData.Series[1];
 
             // Aktualizujte data série.
-            workbook.GetCell(worksheetIndex, 0, 2, "New_Series 2"); // Úprava názvu série.
+            workbook.GetCell(worksheetIndex, 0, 2, "New_Series 2"); // Upravení názvu série.
             series.DataPoints[0].Value.Data = 23;
             series.DataPoints[1].Value.Data = 67;
             series.DataPoints[2].Value.Data = 99;
@@ -1133,7 +1137,7 @@ using (Presentation presentation = new Presentation("ExistingChart.pptx"))
             // Přidejte novou sérii.
             series = chart.ChartData.Series.Add(workbook.GetCell(worksheetIndex, 0, 3, "Series 3"), chart.Type);
 
-            // Naplňte data série.
+            // Naplněte data série.
             series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 1, 3, 20));
             series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 2, 3, 50));
             series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 3, 3, 30));
@@ -1147,17 +1151,19 @@ using (Presentation presentation = new Presentation("ExistingChart.pptx"))
 }
 ```
 
-## **Nastavení datového rozsahu pro graf**
+## **Nastavení rozsahu dat pro graf**
 
-Aspose.Slides pro .NET poskytuje flexibilitu definovat konkrétní datový rozsah z listu jako zdroj pro data vašeho grafu. To znamená, že můžete přímo mapovat část vašeho listu na graf, což vám umožní kontrolovat, které buňky přispívají do sérií a kategorií grafu. Výsledkem je snadná aktualizace a synchronizace vašich grafů s nejnovějšími změnami v listu, což zajišťuje, že vaše PowerPointové prezentace odrážejí aktuální a přesné informace.
+Chcete‑li zobrazit rozsah již použitý existujícím grafem, viz [Retrieve a Chart's Data Range](/slides/cs/net/chart-workbook/#retrieve-a-charts-data-range).
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation), která představuje prezentaci obsahující graf.
-2. Získejte odkaz na snímek pomocí jeho indexu.
-3. Procházejte všechny tvary a najděte graf.
-4. Získejte přístup k datům grafu a nastavte rozsah.
-5. Uložte upravenou prezentaci jako soubor PPTX.
+Aspose.Slides pro .NET poskytuje flexibilitu definovat konkrétní datový rozsah z listu jako zdroj pro data vašeho grafu. To znamená, že můžete přímo mapovat část listu na graf, což vám umožní kontrolovat, které buňky přispívají k sériím a kategoriím grafu. Výsledkem je snadná aktualizace a synchronizace vašich grafů s posledními změnami v listu, čímž zajistíte, že vaše PowerPointové prezentace odrážejí aktuální a přesné informace.
 
-Tento C# kód ukazuje, jak nastavit datový rozsah pro graf:
+1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) představující prezentaci obsahující graf.
+1. Získejte odkaz na snímek pomocí jeho indexu.
+1. Projděte všechny tvary a najděte graf.
+1. Získejte přístup k datům grafu a nastavte rozsah.
+1. Uložte upravenou prezentaci jako soubor PPTX.
+
+Tento C# kód ukazuje, jak nastavit rozsah dat pro graf:
 
 ```c#
 using Aspose.Slides;
@@ -1169,7 +1175,7 @@ const string chartName = "My chart";
 // Vytvořte instanci třídy Presentation, která představuje soubor PPTX.
 using (Presentation presentation = new Presentation("ExistingChart.pptx"))
 {
-    // Přístup k prvnímu snímku.
+    // Získejte první snímek.
     ISlide slide = presentation.Slides[0];
 
     foreach (IShape shape in slide.Shapes)
@@ -1186,7 +1192,7 @@ using (Presentation presentation = new Presentation("ExistingChart.pptx"))
 
 ## **Použití výchozích značek v grafech**
 
-Když používáte výchozí značky v grafech, každá série grafu automaticky získá jiný výchozí symbol značky.
+Když použijete výchozí značky v grafech, každá série grafu automaticky získá jiný výchozí symbol značky.
 
 Tento C# kód ukazuje, jak automaticky nastavit značku série grafu:
 
@@ -1221,7 +1227,7 @@ using (Presentation presentation = new Presentation())
 
     IChartSeries series2 = chart.ChartData.Series.Add(workbook.GetCell(0, 0, 2, "Series 2"), chart.Type);
 
-    // Naplňte data série.
+    // Naplnit data série.
     series2.DataPoints.AddDataPointForLineSeries(workbook.GetCell(0, 1, 2, 30));
     series2.DataPoints.AddDataPointForLineSeries(workbook.GetCell(0, 2, 2, 10));
     series2.DataPoints.AddDataPointForLineSeries(workbook.GetCell(0, 3, 2, 60));
@@ -1236,18 +1242,18 @@ using (Presentation presentation = new Presentation())
 
 ## **Často kladené otázky**
 
-**Jaké typy grafů jsou podporovány v Aspose.Slides pro .NET?**
+**Jaké typy grafů podporuje Aspose.Slides pro .NET?**
 
-Aspose.Slides pro .NET podporuje širokou škálu typů grafů, včetně sloupcových, čárových, koláčových, plošných, rozptylových, histogramových, radarových a mnoha dalších. Tato flexibilita vám umožňuje vybrat nejvhodnější typ grafu pro vaše potřeby vizualizace dat.
+Aspose.Slides pro .NET podporuje širokou škálu typů grafů, včetně sloupcových, čárových, koláčových, plošných, bodových, histogramových, radarových a mnoha dalších. Tato flexibilita vám umožní vybrat nejvhodnější typ grafu pro vaše potřeby vizualizace dat.
 
 **Jak přidám nový graf do snímku?**
 
-Pro přidání grafu nejprve vytvoříte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation), získáte požadovaný snímek pomocí jeho indexu a poté zavoláte metodu pro přidání grafu, přičemž určíte typ grafu a počáteční data. Tento proces integruje graf přímo do vaší prezentace.
+Pro přidání grafu nejprve vytvoříte instanci třídy [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation), získáte požadovaný snímek pomocí jeho indexu a následně zavoláte metodu pro přidání grafu, přičemž specifikujete typ grafu a počáteční data. Tento proces integruje graf přímo do vaší prezentace.
 
-**Jak mohu aktualizovat data zobrazovaná v grafu?**
+**Jak mohu aktualizovat data zobrazená v grafu?**
 
-Data grafu můžete aktualizovat přístupem k jeho datovému sešitu ([IChartDataWorkbook](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/ichartdataworkbook/)), vymazáním výchozích sérií a kategorií a následným přidáním vlastních dat. To vám umožní programově obnovit graf tak, aby odrážel nejnovější data.
+Data grafu můžete aktualizovat tím, že získáte přístup k jeho datovému sešitu ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)), vymažete výchozí série a kategorie a poté přidáte vlastní data. To vám umožní programově obnovit graf tak, aby odrážel nejnovější data.
 
 **Je možné přizpůsobit vzhled grafu?**
 
-Ano, Aspose.Slides pro .NET nabízí rozsáhlé možnosti přizpůsobení. Můžete měnit barvy, písma, popisky, legendy a další formátovací prvky tak, aby vzhled grafu odpovídal vašim konkrétním požadavkům na design.
+Ano, Aspose.Slides pro .NET poskytuje rozsáhlé možnosti přizpůsobení. Můžete měnit barvy, písma, popisky, legendy a další formátovací prvky tak, aby vzhled grafu odpovídal vašim konkrétním požadavkům na design.

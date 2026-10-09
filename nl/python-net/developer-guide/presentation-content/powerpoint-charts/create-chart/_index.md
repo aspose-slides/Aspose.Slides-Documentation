@@ -1,5 +1,5 @@
 ---
-title: Diagrammen maken of bijwerken in PowerPoint‑presentaties met Python
+title: Diagrammen in PowerPoint‑presentatie maken of bijwerken in Python
 linktitle: Diagrammen maken of bijwerken
 type: docs
 weight: 10
@@ -14,154 +14,158 @@ keywords:
 - taartdiagram
 - lijndiagram
 - boomkaartdiagram
-- aandelen diagram
-- box en whisker diagram
-- funnel diagram
-- sunburst diagram
-- histogram diagram
+- aandelen‑diagram
+- box‑en‑whisker‑diagram
+- trechterdiagram
+- zonnestraaldiagram
+- histogramdiagram
 - radardiagram
-- multicategorie diagram
-- PowerPoint presentatie
+- multi‑categorie‑diagram
+- PowerPoint‑presentatie
 - Python
 - Aspose.Slides
-description: "Leer hoe je diagrammen kunt maken en aanpassen in PowerPoint- en OpenDocument‑presentaties met Aspose.Slides voor Python via .NET. Het behandelt het toevoegen, opmaken en bewerken van diagrammen in presentaties met praktische code‑voorbeelden in Python."
+description: "Leer hoe u diagrammen maakt en aanpast in PowerPoint- en OpenDocument‑presentaties met Aspose.Slides voor Python via .NET. Het behandelt het toevoegen, opmaken en bewerken van diagrammen in presentaties met praktische code‑voorbeelden in Python."
 ---
 ## **Overzicht**
 
-Dit artikel legt uit hoe je diagrammen maakt en aanpast met Aspose.Slides voor Python via .NET. Je leert hoe je een diagram aan een dia toevoegt, deze vult met gegevens en formatteert om aan je ontwerpvereisten te voldoen. De code‑voorbeelden behandelen het maken van presentaties en diagrammen, het configureren van reeksen, assen en legenden, en het integreren van diagramgeneratie in je toepassingen.
+Dit artikel legt uit hoe je diagrammen maakt en aanpast met Aspose.Slides voor Python via .NET. Je leest hoe je een diagram aan een dia toevoegt, het vult met gegevens en formatteert volgens je ontwerpvereisten. De codevoorbeelden behandelen het maken van presentaties en diagrammen, het configureren van series, assen en legenda's, en het integreren van diagramgeneratie in je applicaties.
 
-## **Diagram maken**
+## **Een diagram maken**
 
-Diagrammen helpen mensen om gegevens snel te visualiseren en inzichten te verkrijgen die niet meteen duidelijk zijn uit een tabel of spreadsheet.
+Diagrammen helpen mensen snel gegevens te visualiseren en inzichten te krijgen die niet meteen duidelijk zijn uit een tabel of spreadsheet.
 
 **Waarom diagrammen maken?**
 
-* grote hoeveelheden gegevens aggregeren, condenseren of samenvatten op één dia in een presentatie;
+Met diagrammen kun je:
+
+* grote hoeveelheden gegevens op één dia in een presentatie aggregeren, samenvatten of condenseren;
 * patronen en trends in gegevens blootleggen;
-* de richting en momentum van gegevens in de tijd of ten opzichte van een specifieke meeteenheid afleiden;
-* uitbijters, afwijkingen, fouten en onsamenhangende gegevens opsporen;
+* de richting en het momentum van gegevens in de loop van de tijd of ten opzichte van een specifieke meeteenheid afleiden;
+* uitbijters, afwijkingen, fouten en onzinnige gegevens opsporen;
 * complexe gegevens communiceren of presenteren.
 
-In PowerPoint kun je diagrammen maken via de *Insert*-functie, die sjablonen biedt voor het ontwerpen van veel soorten diagrammen. Met Aspose.Slides kun je zowel reguliere diagrammen (gebaseerd op populaire diagramtypen) als aangepaste diagrammen maken.
+In PowerPoint kun je diagrammen maken via de *Invoegen*-functie, die sjablonen biedt voor het ontwerpen van veel soorten diagrammen. Met Aspose.Slides kun je zowel reguliere diagrammen (gebaseerd op populaire diagramtypes) als aangepaste diagrammen maken.
 
 {{% alert color="info" title="Opmerking" %}}
-Gebruik de [ChartType](https://reference.aspose.com/slides/nl/python-net/aspose.slides.charts/charttype/) enumeratie onder de [Aspose.Slides.Charts](https://reference.aspose.com/slides/nl/python-net/aspose.slides.charts/) namespace. De waarden in deze enumeratie komen overeen met verschillende diagramtypen.
+
+Gebruik de [ChartType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttype/) enumeratie onder de [Aspose.Slides.Charts](https://reference.aspose.com/slides/python-net/aspose.slides.charts/) namespace. De waarden in deze enumeratie komen overeen met verschillende diagramtypes.
+
 {{% /alert %}}
 
-### **Gegroepeerde kolomdiagrammen maken**
+### **Clustered Column-diagrammen maken**
 
-Deze sectie legt uit hoe je gegroepeerde kolomdiagrammen maakt met Aspose.Slides voor Python via .NET. Je leert een presentatie initialiseren, een diagram toevoegen en elementen zoals titel, gegevens, reeksen, categorieën en opmaak aanpassen. Volg de onderstaande stappen om te zien hoe een standaard gegroepeerd kolomdiagram wordt gegenereerd:
+Deze sectie legt uit hoe je clustered column-diagrammen maakt met Aspose.Slides voor Python via .NET. Je leert een presentatie te initialiseren, een diagram toe te voegen en elementen zoals titel, gegevens, series, categorieën en stijl aan te passen. Volg de onderstaande stappen om te zien hoe een standaard clustered column-diagram wordt gegenereerd:
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/python-net/aspose.slides/presentation/) klasse.
-2. Haal een referentie op naar een dia via de index.
-3. Voeg een diagram toe met enige gegevens en specificeer het type `ChartType.CLUSTERED_COLUMN`.
-4. Voeg een titel toe aan het diagram.
-5. Open het gegevenswerkblad van het diagram.
-6. Wis alle standaardreeksen en -categorieën.
-7. Voeg nieuwe reeksen en categorieën toe.
-8. Voeg nieuwe diagramgegevens toe voor de diagramreeksen.
-9. Pas een opvulkleur toe op de diagramreeksen.
-10. Voeg labels toe aan de diagramreeksen.
-11. Sla de aangepaste presentatie op als een PPTX‑bestand.
+1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) klasse.
+1. Haal een referentie op naar een dia via de index.
+1. Voeg een diagram toe met enige gegevens en specificeer het `ChartType.CLUSTERED_COLUMN` type.
+1. Voeg een titel toe aan het diagram.
+1. Benader het gegevenswerkblad van het diagram.
+1. Verwijder alle standaard series en categorieën.
+1. Voeg nieuwe series en categorieën toe.
+1. Voeg nieuwe diagramgegevens toe voor de diagramserie.
+1. Pas een vulkleur toe op de diagramserie.
+1. Voeg labels toe aan de diagramserie.
+1. Sla de aangepaste presentatie op als een PPTX‑bestand.
 
-Deze Python‑code laat zien hoe je een gegroepeerd kolomdiagram maakt:
+Deze Python‑code toont hoe je een clustered column‑diagram maakt:
 
 ```py
 import aspose.slides.charts as charts
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
-    # Instantieer de Presentation‑klasse die een PPTX‑bestand vertegenwoordigt.
-    with slides.Presentation() as presentation:
+# Instantieer de Presentation‑klasse die een PPTX‑bestand vertegenwoordigt.
+with slides.Presentation() as presentation:
 
-        # Toegang tot de eerste dia.
-        slide = presentation.slides[0]
+    # Toegang tot de eerste dia.
+    slide = presentation.slides[0]
 
-        # Voeg een gegroepeerd kolomdiagram toe met de standaardgegevens.
-        chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 20, 20, 500, 300)
+    # Voeg een clustered column‑diagram toe met de standaardgegevens.
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 20, 20, 500, 300)
 
-        # Stel de diagramtitel in.
-        chart.chart_title.add_text_frame_for_overriding("Sample Title")
-        chart.chart_title.text_frame_for_overriding.text_frame_format.center_text = slides.NullableBool.TRUE
-        chart.chart_title.height = 20
-        chart.has_title = True
+    # Stel de diagramtitel in.
+    chart.chart_title.add_text_frame_for_overriding("Sample Title")
+    chart.chart_title.text_frame_for_overriding.text_frame_format.center_text = slides.NullableBool.TRUE
+    chart.chart_title.height = 20
+    chart.has_title = True
 
-        # Stel de index van het diagramgegevensblad in.
-        worksheet_index = 0
+    # Stel de index van het chart‑datasheet in.
+    worksheet_index = 0
 
-        # Haal het diagramgegevenswerkboek op.
-        workbook = chart.chart_data.chart_data_workbook
+    # Haal het chart‑data‑workbook op.
+    workbook = chart.chart_data.chart_data_workbook
 
-        # Verwijder de standaard gegenereerde reeksen en categorieën.
-        chart.chart_data.series.clear()
-        chart.chart_data.categories.clear()
+    # Verwijder de standaardgegenereerde series en categorieën.
+    chart.chart_data.series.clear()
+    chart.chart_data.categories.clear()
 
-        # Voeg nieuwe reeksen toe.
-        chart.chart_data.series.add(workbook.get_cell(worksheet_index, 0, 1, "Series 1"), chart.type)
-        chart.chart_data.series.add(workbook.get_cell(worksheet_index, 0, 2, "Series 2"), chart.type)
+    # Voeg nieuwe series toe.
+    chart.chart_data.series.add(workbook.get_cell(worksheet_index, 0, 1, "Series 1"), chart.type)
+    chart.chart_data.series.add(workbook.get_cell(worksheet_index, 0, 2, "Series 2"), chart.type)
 
-        # Voeg nieuwe categorieën toe.
-        chart.chart_data.categories.add(workbook.get_cell(worksheet_index, 1, 0, "Category 1"))
-        chart.chart_data.categories.add(workbook.get_cell(worksheet_index, 2, 0, "Category 2"))
-        chart.chart_data.categories.add(workbook.get_cell(worksheet_index, 3, 0, "Category 3"))
+    # Voeg nieuwe categorieën toe.
+    chart.chart_data.categories.add(workbook.get_cell(worksheet_index, 1, 0, "Category 1"))
+    chart.chart_data.categories.add(workbook.get_cell(worksheet_index, 2, 0, "Category 2"))
+    chart.chart_data.categories.add(workbook.get_cell(worksheet_index, 3, 0, "Category 3"))
 
-        # Haal de eerste diagramreeks op.
-        series = chart.chart_data.series[0]
+    # Haal de eerste diagramserie op.
+    series = chart.chart_data.series[0]
 
-        # Vul de reeksgegevens.
-        series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 1, 1, 20))
-        series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 2, 1, 50))
-        series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 3, 1, 30))
+    # Vul de seriedata.
+    series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 1, 1, 20))
+    series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 2, 1, 50))
+    series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 3, 1, 30))
 
-        # Stel de opvulkleur voor de reeks in.
-        series.format.fill.fill_type = slides.FillType.SOLID
-        series.format.fill.solid_fill_color.color = draw.Color.red
+    # Stel de vulkleur in voor de serie.
+    series.format.fill.fill_type = slides.FillType.SOLID
+    series.format.fill.solid_fill_color.color = draw.Color.red
 
-        # Haal de tweede diagramreeks op.
-        series = chart.chart_data.series[1]
+    # Haal de tweede diagramserie op.
+    series = chart.chart_data.series[1]
 
-        # Vul de reeksgegevens.
-        series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 1, 2, 30))
-        series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 2, 2, 10))
-        series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 3, 2, 60))
+    # Vul de seriedata.
+    series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 1, 2, 30))
+    series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 2, 2, 10))
+    series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 3, 2, 60))
 
-        # Stel de opvulkleur voor de reeks in.
-        series.format.fill.fill_type = slides.FillType.SOLID
-        series.format.fill.solid_fill_color.color = draw.Color.green
+    # Stel de vulkleur in voor de serie.
+    series.format.fill.fill_type = slides.FillType.SOLID
+    series.format.fill.solid_fill_color.color = draw.Color.green
 
-        # Stel het eerste label in om de categorienaam weer te geven.
-        label = series.data_points[0].label
-        label.data_label_format.show_category_name = True
+    # Stel het eerste label in om de categorienaam te tonen.
+    label = series.data_points[0].label
+    label.data_label_format.show_category_name = True
 
-        label = series.data_points[1].label
-        label.data_label_format.show_series_name = True
+    label = series.data_points[1].label
+    label.data_label_format.show_series_name = True
 
-        # Stel de reeks in om de waarde voor het derde label weer te geven.
-        label = series.data_points[2].label
-        label.data_label_format.show_value = True
-        label.data_label_format.show_series_name = True
-        label.data_label_format.separator = "/"
-                    
-        # Sla de presentatie op schijf als een PPTX‑bestand.
-        presentation.save("ClusteredColumnChart.pptx", slides.export.SaveFormat.PPTX)
+    # Stel de serie in om de waarde voor het derde label te tonen.
+    label = series.data_points[2].label
+    label.data_label_format.show_value = True
+    label.data_label_format.show_series_name = True
+    label.data_label_format.separator = "/"
+                
+    # Sla de presentatie op schijf op als een PPTX‑bestand.
+    presentation.save("ClusteredColumnChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Resultaat:
+Het resultaat:
 
-![Het gegroepeerde kolomdiagram](clustered_column_chart.png)
+![The clustered column chart](clustered_column_chart.png)
 
-### **Spreidingsdiagrammen maken**
+### **Scatter-diagrammen maken**
 
-Spreidingsdiagrammen (ook wel scatter plots of x‑y‑grafieken genoemd) worden vaak gebruikt om patronen te zoeken of correlaties tussen twee variabelen te demonstreren.
+Scatter‑diagrammen (ook bekend als scatter‑plots of x‑y‑grafieken) worden vaak gebruikt om patronen te controleren of correlaties tussen twee variabelen aan te tonen.
 
-Gebruik een spreidingsdiagram wanneer:
+Gebruik een scatter‑diagram wanneer:
 
-* je gekoppelde numerieke gegevens hebt;
+* je gepaarde numerieke gegevens hebt;
 * je twee variabelen hebt die goed bij elkaar passen;
-* je wilt bepalen of de twee variabelen met elkaar verband houden;
-* je een onafhankelijke variabele hebt die meerdere waarden heeft voor een afhankelijke variabele.
+* je wilt bepalen of de twee variabelen gerelateerd zijn;
+* je een onafhankelijke variabele hebt met meerdere waarden voor een afhankelijke variabele.
 
-Deze Python‑code toont hoe je een spreidingsdiagram maakt met verschillende markers voor elke reeks:
+Deze Python‑code laat zien hoe je een scatter‑diagram maakt met verschillende markers voor elke serie:
 
 ```py
 import aspose.slides.charts as charts
@@ -174,42 +178,42 @@ with slides.Presentation() as presentation:
     # Toegang tot de eerste dia.
     slide = presentation.slides[0]
 
-    # Maak het standaard spreidingsdiagram.
+    # Maak het standaard scatter‑diagram.
     chart = slide.shapes.add_chart(charts.ChartType.SCATTER_WITH_SMOOTH_LINES, 20, 20, 500, 300)
 
-    # Stel de index van het diagramgegevensblad in.
+    # Stel de index van het diagram‑datasheet in.
     worksheet_index = 0
 
-    # Haal het diagramgegevenswerkboek op.
+    # Haal het diagram‑data‑workbook op.
     workbook = chart.chart_data.chart_data_workbook
 
-    # Verwijder de standaardreeks.
+    # Verwijder de standaardserie.
     chart.chart_data.series.clear()
 
-    # Voeg nieuwe reeksen toe.
+    # Voeg nieuwe series toe.
     chart.chart_data.series.add(workbook.get_cell(worksheet_index, 1, 1, "Series 1"), chart.type)
     chart.chart_data.series.add(workbook.get_cell(worksheet_index, 1, 3, "Series 2"), chart.type)
 
-    # Haal de eerste diagramreeks op.
+    # Haal de eerste diagramserie op.
     series = chart.chart_data.series[0]
 
-    # Voeg een nieuw punt (1:3) toe aan de reeks.
+    # Voeg een nieuw punt (1:3) toe aan de serie.
     series.data_points.add_data_point_for_scatter_series(workbook.get_cell(worksheet_index, 2, 1, 1), workbook.get_cell(worksheet_index, 2, 2, 3))
 
     # Voeg een nieuw punt (2:10) toe.
     series.data_points.add_data_point_for_scatter_series(workbook.get_cell(worksheet_index, 3, 1, 2), workbook.get_cell(worksheet_index, 3, 2, 10))
 
-    # Wijzig het type van de reeks.
+    # Wijzig het serietype.
     series.type = charts.ChartType.SCATTER_WITH_STRAIGHT_LINES_AND_MARKERS
 
-    # Wijzig de marker van de diagramreeks.
+    # Wijzig de marker van de diagramserie.
     series.marker.size = 10
     series.marker.symbol = charts.MarkerStyleType.STAR
 
-    # Haal de tweede diagramreeks op.
+    # Haal de tweede diagramserie op.
     series = chart.chart_data.series[1]
 
-    # Voeg een nieuw punt (5:2) toe aan de diagramreeks.
+    # Voeg een nieuw punt (5:2) toe aan de diagramserie.
     series.data_points.add_data_point_for_scatter_series(workbook.get_cell(worksheet_index, 2, 3, 5), workbook.get_cell(worksheet_index, 2, 4, 2))
 
     # Voeg een nieuw punt (3:1) toe.
@@ -221,35 +225,35 @@ with slides.Presentation() as presentation:
     # Voeg een nieuw punt (5:1) toe.
     series.data_points.add_data_point_for_scatter_series(workbook.get_cell(worksheet_index, 5, 3, 5), workbook.get_cell(worksheet_index, 5, 4, 1))
 
-    # Wijzig de marker van de diagramreeks.
+    # Wijzig de marker van de diagramserie.
     series.marker.size = 10
     series.marker.symbol = charts.MarkerStyleType.CIRCLE
 
     presentation.save("ScatterChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Resultaat:
+Het resultaat:
 
-![Het spreidingsdiagram](scatter_chart.png)
+![The scatter chart](scatter_chart.png)
 
 ### **Taartdiagrammen maken**
 
-Taartdiagrammen worden het best gebruikt om de deel‑tot‑geheel‑relatie in gegevens weer te geven, vooral wanneer de gegevens categorische labels met numerieke waarden bevatten. Als je gegevens echter veel delen of labels bevatten, kun je beter een staafdiagram gebruiken.
+Taartdiagrammen zijn het meest geschikt om de verhouding tussen deel en geheel weer te geven, vooral wanneer de gegevens categorische labels met numerieke waarden bevatten. Als je echter veel delen of labels hebt, kun je beter een staafdiagram gebruiken.
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/python-net/aspose.slides/presentation/) klasse.
-2. Haal een referentie op naar een dia via de index.
-3. Voeg een diagram toe met standaardgegevens en specificeer het type `ChartType.PIE`.
-4. Open het gegevenswerkboek van het diagram ([ChartDataWorkbook](https://reference.aspose.com/slides/nl/python-net/aspose.slides.charts/chartdataworkbook/)).
-5. Wis de standaardreeksen en -categorieën.
-6. Voeg nieuwe reeksen en categorieën toe.
-7. Voeg nieuwe diagramgegevens toe voor de diagramreeksen.
-8. Voeg nieuwe punten toe voor het diagram en pas aangepaste kleuren toe op de sectoren van het taartdiagram.
-9. Stel labels in voor de reeksen.
-10. Schakel leidende lijnen in voor de reeksenlabels.
-11. Stel de rotatiehoek in voor het taartdiagram.
-12. Sla de aangepaste presentatie op als een PPTX‑bestand.
+1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) klasse.
+1. Haal een referentie op naar een dia via de index.
+1. Voeg een diagram toe met standaardgegevens en specificeer het `ChartType.PIE` type.
+1. Benader het gegevenswerkboek van het diagram ([ChartDataWorkbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/)).
+1. Verwijder de standaard series en categorieën.
+1. Voeg nieuwe series en categorieën toe.
+1. Voeg nieuwe diagramgegevens toe voor de diagramserie.
+1. Voeg nieuwe punten toe voor het diagram en pas aangepaste kleuren toe op de sectoren van het taartdiagram.
+1. Stel labels in voor de series.
+1. Schakel buurtrichtingen in voor de serieslabels.
+1. Stel de rotatiehoek in voor het taartdiagram.
+1. Sla de aangepaste presentatie op als een PPTX‑bestand.
 
-Deze Python‑code laat zien hoe je een taartdiagram maakt:
+Deze Python‑code toont hoe je een taartdiagram maakt:
 
 ```py
 import aspose.slides.charts as charts
@@ -271,13 +275,13 @@ with slides.Presentation() as presentation:
     chart.chart_title.height = 20
     chart.has_title = True
 
-    # Stel de index van het diagramgegevensblad in.
+    # Stel de index van het diagram‑datasheet in.
     worksheet_index = 0
 
-    # Haal het diagramgegevenswerkboek op.
+    # Haal het diagram‑data‑workbook op.
     workbook = chart.chart_data.chart_data_workbook
 
-    # Verwijder de standaard gegenereerde reeksen en categorieën.
+    # Verwijder de standaardgegenereerde series en categorieën.
     chart.chart_data.series.clear()
     chart.chart_data.categories.clear()
 
@@ -286,10 +290,10 @@ with slides.Presentation() as presentation:
     chart.chart_data.categories.add(workbook.get_cell(0, 2, 0, "2nd Qtr"))
     chart.chart_data.categories.add(workbook.get_cell(0, 3, 0, "3rd Qtr"))
 
-    # Voeg een nieuwe reeks toe.
+    # Voeg nieuwe series toe.
     series = chart.chart_data.series.add(workbook.get_cell(0, 0, 1, "Series 1"), chart.type)
 
-    # Vul de reeksgegevens.
+    # Vul de seriedata.
     series.data_points.add_data_point_for_pie_series(workbook.get_cell(worksheet_index, 1, 1, 20))
     series.data_points.add_data_point_for_pie_series(workbook.get_cell(worksheet_index, 2, 1, 50))
     series.data_points.add_data_point_for_pie_series(workbook.get_cell(worksheet_index, 3, 1, 30))
@@ -301,7 +305,7 @@ with slides.Presentation() as presentation:
     point.format.fill.fill_type = slides.FillType.SOLID
     point.format.fill.solid_fill_color.color = draw.Color.cyan
 
-    # Stel de sector‑rand in.
+    # Stel de sectorrand in.
     point.format.line.fill_format.fill_type = slides.FillType.SOLID
     point.format.line.fill_format.solid_fill_color.color = draw.Color.gray
     point.format.line.width = 3.0
@@ -312,7 +316,7 @@ with slides.Presentation() as presentation:
     point1.format.fill.fill_type = slides.FillType.SOLID
     point1.format.fill.solid_fill_color.color = draw.Color.brown
 
-    # Stel de sector‑rand in.
+    # Stel de sectorrand in.
     point1.format.line.fill_format.fill_type = slides.FillType.SOLID
     point1.format.line.fill_format.solid_fill_color.color = draw.Color.blue
     point1.format.line.width = 3.0
@@ -323,14 +327,14 @@ with slides.Presentation() as presentation:
     point2.format.fill.fill_type = slides.FillType.SOLID
     point2.format.fill.solid_fill_color.color = draw.Color.coral
 
-    # Stel de sector‑rand in.
+    # Stel de sectorrand in.
     point2.format.line.fill_format.fill_type = slides.FillType.SOLID
     point2.format.line.fill_format.solid_fill_color.color = draw.Color.red
     point2.format.line.width = 2.0
     point2.format.line.style = slides.LineStyle.THIN_THIN
     point2.format.line.dash_style = slides.LineDashStyle.LARGE_DASH_DOT_DOT
 
-    # Maak aangepaste labels voor elke categorie in de nieuwe reeks.
+    # Maak aangepaste labels voor elke categorie in de nieuwe serie.
     label1 = series.data_points[0].label
 
     label1.data_label_format.show_value = True
@@ -344,30 +348,30 @@ with slides.Presentation() as presentation:
     label3.data_label_format.show_series_name = True
     label3.data_label_format.show_percentage = True
 
-    # Laat de reeks leidende lijnen tonen voor het diagram.
+    # Stel de serie in om leidingslijnen voor het diagram te tonen.
     series.labels.default_data_label_format.show_leader_lines = True
 
-    # Stel de rotatiehoek in voor de taartdiagramsectoren.
+    # Stel de rotatiehoek in voor de taartdiagram‑sectoren.
     chart.chart_data.series_groups[0].first_slice_angle = 180
 
-    # Sla de presentatie op schijf als een PPTX‑bestand.
+    # Sla de presentatie op schijf op als een PPTX‑bestand.
     presentation.save("PieChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Resultaat:
+Het resultaat:
 
-![Het taartdiagram](pie_chart.png)
+![The pie chart](pie_chart.png)
 
 ### **Lijndiagrammen maken**
 
-Lijndiagrammen (ook wel line graphs genoemd) worden het best gebruikt wanneer je veranderingen in waarden over tijd wilt laten zien. Met een lijndiagram kun je een grote hoeveelheid gegevens tegelijk vergelijken, wijzigingen en trends in de tijd volgen, anomalieën in gegevensreeksen benadrukken, enzovoort.
+Lijndiagrammen (ook bekend als lijngrafieken) zijn het meest geschikt wanneer je veranderingen in waarden in de loop van de tijd wilt laten zien. Met een lijndiagram kun je veel gegevens tegelijk vergelijken, wijzigingen en trends in de loop van de tijd volgen, anomalieën in dataseries benadrukken, enzovoort.
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/python-net/aspose.slides/presentation/) klasse.
-2. Haal een referentie op naar een dia via de index.
-3. Voeg een diagram toe met standaardgegevens en specificeer het type `ChartType.LINE`.
-4. Sla de aangepaste presentatie op als een PPTX‑bestand.
+1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) klasse.
+1. Haal een referentie op naar een dia via de index.
+1. Voeg een diagram toe met standaardgegevens en specificeer het `ChartType.LINE` type.
+1. Sla de aangepaste presentatie op als een PPTX‑bestand.
 
-Deze Python‑code laat zien hoe je een lijndiagram maakt:
+Deze Python‑code toont hoe je een lijndiagram maakt:
 
 ```python
 import aspose.slides as slides
@@ -378,7 +382,7 @@ with slides.Presentation() as presentation:
     presentation.save("LineChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Standaard worden punten in een lijndiagram verbonden door rechte, doorlopende lijnen. Als je liever punten wilt verbinden met streeplijnen, kun je het gewenste dash‑type als volgt specificeren:
+Standaard worden punten in een lijndiagram verbonden door rechte, continue lijnen. Als je wilt dat de punten worden verbonden door streepjes, kun je het gewenste streepjesetype als volgt opgeven:
 
 ```python
 import aspose.slides as slides
@@ -392,24 +396,24 @@ with slides.Presentation() as presentation:
     presentation.save("LineChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Resultaat:
+Het resultaat:
 
-![Het lijndiagram](line_chart.png)
+![The line chart](line_chart.png)
 
-### **Boomkaartdiagrammen maken**
+### **Tree‑Map‑diagrammen maken**
 
-Boomkaartdiagrammen worden het best gebruikt voor verkoopgegevens wanneer je de relatieve grootte van gegevenscategorieën wilt tonen en snel de aandacht wilt vestigen op items die grote bijdragers zijn binnen elke categorie.
+Tree‑Map‑diagrammen zijn het meest geschikt voor verkoopgegevens wanneer je de relatieve grootte van datacategorieën wilt laten zien en snel de items wilt benadrukken die grote bijdragers zijn binnen elke categorie.
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/python-net/aspose.slides/presentation/) klasse.
-2. Haal een referentie op naar een dia via de index.
-3. Voeg een diagram toe met standaardgegevens en specificeer het type `ChartType.TREEMAP`.
-4. Open het gegevenswerkboek van het diagram ([ChartDataWorkbook](https://reference.aspose.com/slides/nl/python-net/aspose.slides.charts/chartdataworkbook/)).
-5. Wis de standaardreeksen en -categorieën.
-6. Voeg nieuwe reeksen en categorieën toe.
-7. Voeg nieuwe diagramgegevens toe voor de diagramreeksen.
-8. Sla de aangepaste presentatie op als een PPTX‑bestand.
+1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) klasse.
+1. Haal een referentie op naar een dia via de index.
+1. Voeg een diagram toe met standaardgegevens en specificeer het `ChartType.TREEMAP` type.
+1. Benader het gegevenswerkboek van het diagram ([ChartDataWorkbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/)).
+1. Verwijder de standaard series en categorieën.
+1. Voeg nieuwe series en categorieën toe.
+1. Voeg nieuwe diagramgegevens toe voor de diagramserie.
+1. Sla de aangepaste presentatie op als een PPTX‑bestand.
 
-Deze Python‑code laat zien hoe je een boomkaartdiagram maakt:
+Deze Python‑code toont hoe je een tree‑map‑diagram maakt:
 
 ```py
 import aspose.slides.charts as charts
@@ -464,25 +468,25 @@ with slides.Presentation() as presentation:
     presentation.save("TreeMap.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Resultaat:
+Het resultaat:
 
-![Het boomkaartdiagram](treemap_chart.png)
+![The treemap chart](treemap_chart.png)
 
-### **Aandelen­diagrammen maken**
+### **Aandelen‑diagrammen maken**
 
-Aandelen­diagrammen worden gebruikt om financiële gegevens zoals openings‑, hoog‑, laag‑ en slotkoersen weer te geven, zodat markttrends en volatiliteit geanalyseerd kunnen worden. Ze bieden essentiële inzichten in de prestaties van aandelen, wat beleggers en analisten helpt weloverwogen beslissingen te nemen.
+Aandelen‑diagrammen worden gebruikt om financiële gegevens weer te geven, zoals openings-, hoog-, laag- en slotkoersen, en helpen markttrends en volatiliteit te analyseren. Ze bieden essentiële inzichten in de prestaties van aandelen, waardoor beleggers en analisten beter onderbouwde beslissingen kunnen nemen.
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/python-net/aspose.slides/presentation/) klasse.
-2. Haal een referentie op naar een dia via de index.
-3. Voeg een diagram toe met standaardgegevens en specificeer het type `ChartType.OPEN_HIGH_LOW_CLOSE`.
-4. Open het gegevenswerkboek van het diagram ([ChartDataWorkbook](https://reference.aspose.com/slides/nl/python-net/aspose.slides.charts/chartdataworkbook/)).
-5. Wis de standaardreeksen en -categorieën.
-6. Voeg nieuwe reeksen en categorieën toe.
-7. Voeg nieuwe diagramgegevens toe voor de diagramreeksen.
-8. Specificeer het formaat van de hoog‑laag‑lijnen.
-9. Sla de aangepaste presentatie op als een PPTX‑bestand.
+1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) klasse.
+1. Haal een referentie op naar een dia via de index.
+1. Voeg een diagram toe met standaardgegevens en specificeer het `ChartType.OPEN_HIGH_LOW_CLOSE` type.
+1. Benader het gegevenswerkboek van het diagram ([ChartDataWorkbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/)).
+1. Verwijder de standaard series en categorieën.
+1. Voeg nieuwe series en categorieën toe.
+1. Voeg nieuwe diagramgegevens toe voor de diagramserie.
+1. Specificeer het formaat van de high‑low‑lijnen.
+1. Sla de aangepaste presentatie op als een PPTX‑bestand.
 
-Deze Python‑code laat zien hoe je een aandelen­diagram maakt:
+Deze Python‑code toont hoe je een aandelen‑diagram maakt:
 
 ```py
 import aspose.slides.charts as charts
@@ -536,24 +540,24 @@ with slides.Presentation() as presentation:
     presentation.save("StockChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Resultaat:
+Het resultaat:
 
-![Het aandelen­diagram](stock_chart.png)
+![The stock chart](stock_chart.png)
 
-### **Box‑en‑whisker‑diagrammen maken**
+### **Box‑and‑Whisker‑diagrammen maken**
 
-Box‑en‑whisker‑diagrammen worden gebruikt om de verdeling van gegevens weer te geven door belangrijke statistische maten, zoals de mediaan, kwartielen en mogelijke uitbijters, samen te vatten. Ze zijn bijzonder nuttig bij verkennende data‑analyse en statistische studies om snel de variabiliteit van gegevens te begrijpen en eventuele anomalieën te identificeren.
+Box‑and‑Whisker‑diagrammen worden gebruikt om de distributie van gegevens weer te geven door belangrijke statistische maten samen te vatten, zoals de mediaan, kwartielen en mogelijke uitbijters. Ze zijn bijzonder nuttig bij verkennende data‑analyse en statistische studies om snel de variabiliteit van gegevens te begrijpen en eventuele afwijkingen te identificeren.
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/python-net/aspose.slides/presentation/) klasse.
-2. Haal een referentie op naar een dia via de index.
-3. Voeg een diagram toe met standaardgegevens en specificeer het type `ChartType.BOX_AND_WHISKER`.
-4. Open het gegevenswerkboek van het diagram ([ChartDataWorkbook](https://reference.aspose.com/slides/nl/python-net/aspose.slides.charts/chartdataworkbook/)).
-5. Wis de standaardreeksen en -categorieën.
-6. Voeg nieuwe reeksen en categorieën toe.
-7. Voeg nieuwe diagramgegevens toe voor de diagramreeksen.
-8. Sla de aangepaste presentatie op als een PPTX‑bestand.
+1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) klasse.
+1. Haal een referentie op naar een dia via de index.
+1. Voeg een diagram toe met standaardgegevens en specificeer het `ChartType.BOX_AND_WHISKER` type.
+1. Benader het gegevenswerkboek van het diagram ([ChartDataWorkbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/)).
+1. Verwijder de standaard series en categorieën.
+1. Voeg nieuwe series en categorieën toe.
+1. Voeg nieuwe diagramgegevens toe voor de diagramserie.
+1. Sla de aangepaste presentatie op als een PPTX‑bestand.
 
-Deze Python‑code laat zien hoe je een box‑en‑whisker‑diagram maakt:
+Deze Python‑code toont hoe je een box‑and‑whisker‑diagram maakt:
 
 ```py
 import aspose.slides.charts as charts
@@ -595,14 +599,14 @@ with slides.Presentation() as presentation:
 
 ### **Funnel‑diagrammen maken**
 
-Funnel‑diagrammen worden gebruikt om processen met opeenvolgende stappen te visualiseren, waarbij het volume van gegevens afneemt naarmate het van de ene stap naar de andere gaat. Ze zijn bijzonder bruikbaar voor het analyseren van conversieratio’s, het identificeren van knelpunten en het volgen van de efficiëntie van verkoop‑ of marketingprocessen.
+Funnel‑diagrammen worden gebruikt om processen te visualiseren die uit opeenvolgende fasen bestaan, waarbij het volume van gegevens afneemt naarmate het van de ene stap naar de volgende gaat. Ze zijn vooral nuttig voor het analyseren van conversieratio's, het identificeren van knelpunten en het volgen van de efficiëntie van verkoop‑ of marketingprocessen.
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/python-net/aspose.slides/presentation/) klasse.
-2. Haal een referentie op naar een dia via de index.
-3. Voeg een diagram toe met standaardgegevens en specificeer het type `ChartType.FUNNEL`.
-4. Sla de aangepaste presentatie op als een PPTX‑bestand.
+1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) klasse.
+1. Haal een referentie op naar een dia via de index.
+1. Voeg een diagram toe met standaardgegevens en specificeer het `ChartType.FUNNEL` type.
+1. Sla de aangepaste presentatie op als een PPTX‑bestand.
 
-Deze Python‑code laat zien hoe je een funnel‑diagram maakt:
+Deze Python‑code toont hoe je een funnel‑diagram maakt:
 
 ```py
 import aspose.slides.charts as charts
@@ -636,20 +640,20 @@ with slides.Presentation() as presentation:
     presentation.save("FunnelChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Resultaat:
+Het resultaat:
 
-![Het funnel‑diagram](funnel_chart.png)
+![The funnel chart](funnel_chart.png)
 
 ### **Sunburst‑diagrammen maken**
 
-Sunburst‑diagrammen worden gebruikt om hiërarchische gegevens te visualiseren, waarbij niveaus als concentrische ringen worden weergegeven. Ze helpen de deel‑tot‑geheel‑relaties te illustreren en zijn ideaal voor het vertegenwoordigen van geneste categorieën en sub‑categorieën in een duidelijk, compact formaat.
+Sunburst‑diagrammen worden gebruikt om hiërarchische gegevens te visualiseren, waarbij niveaus als concentrische ringen worden weergegeven. Ze helpen de deel‑tot‑geheel‑relaties te illustreren en zijn ideaal voor het weergeven van geneste categorieën en subcategorieën op een duidelijke, compacte manier.
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/python-net/aspose.slides/presentation/) klasse.
-2. Haal een referentie op naar een dia via de index.
-3. Voeg een diagram toe met standaardgegevens en specificeer het type `ChartType.SUNBURST`.
-4. Sla de aangepaste presentatie op als een PPTX‑bestand.
+1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) klasse.
+1. Haal een referentie op naar een dia via de index.
+1. Voeg een diagram toe met standaardgegevens en specificeer het `ChartType.SUNBURST` type.
+1. Sla de aangepaste presentatie op als een PPTX‑bestand.
 
-Deze Python‑code laat zien hoe je een sunburst‑diagram maakt:
+Deze Python‑code toont hoe je een sunburst‑diagram maakt:
 
 ```py
 import aspose.slides.charts as charts
@@ -702,23 +706,23 @@ with slides.Presentation() as presentation:
     presentation.save("SunburstChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Resultaat:
+Het resultaat:
 
-![Het sunburst‑diagram](sunburst_chart.png)
+![The sunburst chart](sunburst_chart.png)
 
 ### **Histogram‑diagrammen maken**
 
-Histogram‑diagrammen worden gebruikt om de verdeling van numerieke gegevens weer te geven door waarden in bereik‑ of “bins” te groeperen. Ze zijn bijzonder nuttig om patronen zoals frequentie, scheefheid en spreiding te identificeren, en om uitbijters in een dataset te detecteren.
+Histogram‑diagrammen worden gebruikt om de distributie van numerieke gegevens weer te geven door waarden in intervallen of “bins” te groeperen. Ze zijn bijzonder nuttig om patronen zoals frequentie, scheefheid en spreiding te identificeren en om uitbijters in een dataset te ontdekken.
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/python-net/aspose.slides/presentation/) klasse.
-2. Haal een referentie op naar een dia via de index.
-3. Voeg een diagram toe met enige gegevens en specificeer het type `ChartType.HISTOGRAM`.
-4. Open het gegevenswerkboek van het diagram ([ChartDataWorkbook](https://reference.aspose.com/slides/nl/python-net/aspose.slides.charts/chartdataworkbook/)).
-5. Wis de standaardreeksen en -categorieën.
-6. Voeg een nieuwe reeks toe en vul deze met datapunten. Een histogram heeft geen categorieën; de “bins” worden berekend op basis van de waarden.
-7. Sla de aangepaste presentatie op als een PPTX‑bestand.
+1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) klasse.
+1. Haal een referentie op naar een dia via de index.
+1. Voeg een diagram toe met enige gegevens en specificeer het `ChartType.HISTOGRAM` type.
+1. Benader het gegevenswerkboek van het diagram ([ChartDataWorkbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/)).
+1. Verwijder de standaard series en categorieën.
+1. Voeg een nieuwe serie toe en vul deze met gegevenspunten. Een histogram heeft geen categorieën; de “bins” worden berekend uit de waarden.
+1. Sla de aangepaste presentatie op als een PPTX‑bestand.
 
-Deze Python‑code laat zien hoe je een histogram‑diagram maakt:
+Deze Python‑code toont hoe je een histogram‑diagram maakt:
 
 ```py
 import aspose.slides.charts as charts
@@ -746,20 +750,20 @@ with slides.Presentation() as presentation:
     presentation.save("HistogramChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Resultaat:
+Het resultaat:
 
-![Het histogram‑diagram](histogram_chart.png)
+![The histogram chart](histogram_chart.png)
 
 ### **Radar‑diagrammen maken**
 
-Radar‑diagrammen worden gebruikt om multivariabele gegevens in een tweedimensionaal formaat weer te geven, waardoor verschillende variabelen tegelijk gemakkelijk te vergelijken zijn. Ze zijn bijzonder geschikt om patronen, sterktes en zwaktes over meerdere prestatie‑indicatoren of attributen te identificeren.
+Radar‑diagrammen worden gebruikt om multivariate gegevens in een tweedimensionaal formaat weer te geven, waardoor een gemakkelijke vergelijking van meerdere variabelen tegelijk mogelijk is. Ze zijn bijzonder nuttig om patronen, sterktes en zwaktes te identificeren over verschillende prestatiemetingen of attributen.
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/python-net/aspose.slides/presentation/) klasse.
-2. Haal een referentie op naar een dia via de index.
-3. Voeg een diagram toe met enige gegevens en specificeer het type `ChartType.RADAR`.
-4. Sla de aangepaste presentatie op als een PPTX‑bestand.
+1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) klasse.
+1. Haal een referentie op naar een dia via de index.
+1. Voeg een diagram toe met enige gegevens en specificeer het `ChartType.RADAR` type.
+1. Sla de aangepaste presentatie op als een PPTX‑bestand.
 
-Deze Python‑code laat zien hoe je een radar‑diagram maakt:
+Deze Python‑code toont hoe je een radar‑diagram maakt:
 
 ```python
 import aspose.slides as slides
@@ -769,24 +773,24 @@ with slides.Presentation() as presentation:
     presentation.save("RadarChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Resultaat:
+Het resultaat:
 
-![Het radar‑diagram](radar_chart.png)
+![The radar chart](radar_chart.png)
 
 ### **Multi‑categorie‑diagrammen maken**
 
-Multi‑categorie‑diagrammen worden gebruikt om gegevens weer te geven die uit meer dan één categorische groepering bestaan, zodat je waarden over meerdere dimensies tegelijk kunt vergelijken. Ze zijn bijzonder handig wanneer je trends en relaties binnen complexe, meerlagige datasets moet analyseren.
+Multi‑categorie‑diagrammen worden gebruikt om gegevens weer te geven die meer dan één categorische groepering omvatten, waardoor je waarden over meerdere dimensies tegelijk kunt vergelijken. Ze zijn bijzonder nuttig wanneer je trends en relaties binnen complexe, meerlagige datasets moet analyseren.
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/python-net/aspose.slides/presentation/) klasse.
-2. Haal een referentie op naar een dia via de index.
-3. Voeg een diagram toe met standaardgegevens en specificeer het type `ChartType.CLUSTERED_COLUMN`.
-4. Open het gegevenswerkboek van het diagram ([ChartDataWorkbook](https://reference.aspose.com/slides/nl/python-net/aspose.slides.charts/chartdataworkbook/)).
-5. Wis de standaardreeksen en -categorieën.
-6. Voeg nieuwe reeksen en categorieën toe.
-7. Voeg nieuwe diagramgegevens toe voor de diagramreeksen.
-8. Sla de aangepaste presentatie op als een PPTX‑bestand.
+1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) klasse.
+1. Haal een referentie op naar een dia via de index.
+1. Voeg een diagram toe met standaardgegevens en specificeer het `ChartType.CLUSTERED_COLUMN` type.
+1. Benader het gegevenswerkboek van het diagram ([ChartDataWorkbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/)).
+1. Verwijder de standaard series en categorieën.
+1. Voeg nieuwe series en categorieën toe.
+1. Voeg nieuwe diagramgegevens toe voor de diagramserie.
+1. Sla de aangepaste presentatie op als een PPTX‑bestand.
 
-Deze Python‑code laat zien hoe je een multi‑categorie‑diagram maakt:
+Deze Python‑code toont hoe je een multi‑categorie‑diagram maakt:
 
 ```py
 import aspose.slides.charts as charts
@@ -821,7 +825,7 @@ with slides.Presentation() as presentation:
     category.grouping_levels.set_grouping_item(1, "Group4")
     category = chart.chart_data.categories.add(workbook.get_cell(0, "c9", "H"))
 
-    # Voeg een reeks toe.
+    # Een serie toevoegen.
     series = chart.chart_data.series.add(workbook.get_cell(0, "D1", "Series 1"), charts.ChartType.CLUSTERED_COLUMN)
 
     series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, "D2", 10))
@@ -833,19 +837,19 @@ with slides.Presentation() as presentation:
     series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, "D8", 70))
     series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, "D9", 80))
 
-    # Sla de presentatie op met het diagram.
+    # Sla de presentatie met het diagram op.
     presentation.save("MultiCategoryChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Resultaat:
+Het resultaat:
 
-![Het multi‑categorie‑diagram](multi_category_chart.png)
+![The multi-category chart](multi_category_chart.png)
 
 ### **Kaart‑diagrammen maken**
 
-Kaart‑diagrammen worden gebruikt om geografische gegevens te visualiseren door informatie toe te wijzen aan specifieke locaties zoals landen, provincies of steden. Ze zijn bijzonder nuttig voor het analyseren van regionale trends, demografische gegevens en ruimtelijke verdelingen op een duidelijke, visueel aantrekkelijke manier.
+Kaart‑diagrammen worden gebruikt om geografische gegevens te visualiseren door informatie toe te wijzen aan specifieke locaties zoals landen, provincies of steden. Ze zijn bijzonder nuttig voor het analyseren van regionale trends, demografische gegevens en ruimtelijke distributies op een duidelijke, visueel aantrekkelijke manier.
 
-Deze Python‑code laat zien hoe je een kaart‑diagram maakt:
+Deze Python‑code toont hoe je een kaart‑diagram maakt:
 
 ```python
 import aspose.slides as slides
@@ -855,17 +859,17 @@ with slides.Presentation() as presentation:
     presentation.save("mapChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Resultaat:
+Het resultaat:
 
-![Het kaart‑diagram](map_chart.png)
+![The map chart](map_chart.png)
 
 ### **Combinatie‑diagrammen maken**
 
-Een combinatie‑diagram (of combo‑diagram) combineert twee of meer diagramtypen in één grafiek. Dit diagram stelt je in staat om verschillen tussen twee of meer datasets te benadrukken, vergelijken of onderzoeken, zodat je relaties ertussen kunt identificeren.
+Een combinatie‑diagram (of combo‑diagram) combineert twee of meer diagramtypes in één grafiek. Dit diagram stelt je in staat om verschillen tussen twee of meer datasets te benadrukken, vergelijken of te onderzoeken, waardoor je relaties tussen hen kunt identificeren.
 
-![Het combinatie‑diagram](combination_chart.png)
+![The combination chart](combination_chart.png)
 
-De volgende Python‑code laat zien hoe je het bovenstaande combinatie‑diagram in een PowerPoint‑presentatie maakt:
+De onderstaande Python‑code laat zien hoe je het bovenstaande combinatie‑diagram kunt maken in een PowerPoint‑presentatie:
 
 ```python
 import aspose.slides.charts as charts
@@ -898,11 +902,11 @@ def create_chart_with_first_series(slide):
     title_format.font_bold = slides.NullableBool.FALSE
     title_format.font_height = 18
 
-    # Stel de diagramlegende in.
+    # Stel de diagramlegenda in.
     chart.legend.position = charts.LegendPositionType.BOTTOM
     chart.legend.text_format.portion_format.font_height = 12
 
-    # Verwijder de standaard gegenereerde reeksen en categorieën.
+    # Verwijder de standaardgegenereerde series en categorieën.
     chart.chart_data.series.clear()
     chart.chart_data.categories.clear()
 
@@ -915,7 +919,7 @@ def create_chart_with_first_series(slide):
     chart.chart_data.categories.add(workbook.get_cell(worksheet_index, 3, 0, "Category 3"))
     chart.chart_data.categories.add(workbook.get_cell(worksheet_index, 4, 0, "Category 4"))
 
-    # Voeg de eerste reeks toe.
+    # Voeg de eerste serie toe.
     series_name_cell = workbook.get_cell(worksheet_index, 0, 1, "Series 1")
     series = chart.chart_data.series.add(series_name_cell, chart.type)
 
@@ -976,7 +980,7 @@ def set_primary_axes_format(chart):
 
     set_axis_title(vertical_axis, "Y Axis 1")
 
-    # Stel de kleur van de verticale grote rasterlijnen in.
+    # Stel de kleur van de verticale hoofdrasterlijnen in.
     major_grid_lines_format = vertical_axis.major_grid_lines_format.line.fill_format
     major_grid_lines_format.fill_type = slides.FillType.SOLID
     major_grid_lines_format.solid_fill_color.color = draw.Color.from_argb(217, 217, 217)
@@ -1012,17 +1016,17 @@ def set_axis_title(axis, axis_title):
 
 ## **Diagrammen bijwerken**
 
-Aspose.Slides voor Python via .NET stelt je in staat diagramgegevens, opmaak en styling bij te werken zodat je PowerPoint‑presentaties actueel blijven.
+Aspose.Slides voor Python via .NET laat je diagramgegevens, opmaak en stijl bijwerken om je PowerPoint‑presentaties up‑to‑date te houden.
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/python-net/aspose.slides/presentation/) klasse om de presentatie met het diagram te openen.
-2. Haal een referentie op naar een dia via de index.
-3. Doorloop alle vormen om het diagram te vinden.
-4. Open het gegevenswerkblad van het diagram.
-5. Wijzig de diagramgegevensreeks door de reekswaarden aan te passen.
-6. Voeg een nieuwe reeks toe en vul deze met gegevens.
-7. Sla de aangepaste presentatie op als een PPTX‑bestand.
+1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) klasse om de presentatie met het diagram te openen.
+1. Haal een referentie op naar een dia via de index.
+1. Doorloop alle vormen om het diagram te vinden.
+1. Benader het gegevenswerkblad van het diagram.
+1. Wijzig de diagramseriedata door de seriewaarden aan te passen.
+1. Voeg een nieuwe serie toe en vul deze met gegevens.
+1. Sla de aangepaste presentatie op als een PPTX‑bestand.
 
-Deze Python‑code laat zien hoe je een diagram bijwerkt:
+Deze Python‑code toont hoe je een diagram bijwerkt:
 
 ```py
 import aspose.slides.charts as charts
@@ -1031,7 +1035,7 @@ import aspose.pydrawing as draw
 
 chart_name = "My chart"
 
-# Instantieer de Presentation-klasse die een PPTX-bestand vertegenwoordigt.
+# Instantieer de Presentation‑klasse die een PPTX‑bestand vertegenwoordigt.
 with slides.Presentation("ExistingChart.pptx") as presentation:
 
     # Toegang tot de eerste dia.
@@ -1041,59 +1045,61 @@ with slides.Presentation("ExistingChart.pptx") as presentation:
         if isinstance(shape, charts.Chart) and shape.name == chart_name:
             chart = shape
 
-            # Stel de index van het diagramgegevensblad in.
+            # Stel de index van het diagram‑datasheet in.
             worksheet_index = 0
 
-            # Haal het diagramgegevenswerkboek op.
+            # Haal het diagram‑data‑workbook op.
             workbook = chart.chart_data.chart_data_workbook
 
-            # Wijzig de diagramcategoriënamen.
+            # Verander de diagramcategorie‑namen.
             workbook.get_cell(worksheet_index, 1, 0, "Modified Category 1")
             workbook.get_cell(worksheet_index, 2, 0, "Modified Category 2")
 
-            # Haal de eerste diagramreeks op.
+            # Haal de eerste diagramserie op.
             series = chart.chart_data.series[0]
 
-            # Werk de reeksgegevens bij.
-            workbook.get_cell(worksheet_index, 0, 1, "New_Series1")  # De naam van de reeks aanpassen.
+            # Werk de seriedata bij.
+            workbook.get_cell(worksheet_index, 0, 1, "New_Series1")  # De serienaam aanpassen.
             series.data_points[0].value.data = 90
             series.data_points[1].value.data = 123
             series.data_points[2].value.data = 44
 
-            # Haal de tweede diagramreeks op.
+            # Haal de tweede diagramserie op.
             series = chart.chart_data.series[1]
 
-            # Werk de reeksgegevens bij.
-            workbook.get_cell(worksheet_index, 0, 2, "New_Series2")  # De naam van de reeks aanpassen.
+            # Werk de seriedata bij.
+            workbook.get_cell(worksheet_index, 0, 2, "New_Series2")  # De serienaam aanpassen.
             series.data_points[0].value.data = 23
             series.data_points[1].value.data = 67
             series.data_points[2].value.data = 99
 
-            # Voeg een nieuwe reeks toe.
+            # Voeg een nieuwe serie toe.
             series = chart.chart_data.series.add(workbook.get_cell(worksheet_index, 0, 3, "Series 3"), chart.type)
 
-            # Vul de reeksgegevens.
+            # Vul de seriedata.
             series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 1, 3, 20))
             series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 2, 3, 50))
             series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 3, 3, 30))
 
             chart.type = charts.ChartType.CLUSTERED_CYLINDER
 
-            # Sla de presentatie op met het diagram.
+            # Sla de presentatie met het diagram op.
             presentation.save("ModifiedChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **Gegevensbereik voor een diagram instellen**
 
-Aspose.Slides voor Python via .NET maakt het mogelijk een specifiek werkbladbereik te gebruiken als gegevensbron voor een diagram. Hiermee bepaal je welke cellen de reeksen en categorieën van het diagram leveren en kun je het diagram bijwerken om wijzigingen in het werkblad te weerspiegelen.
+Om het bereik te inspecteren dat al door een bestaand diagram wordt gebruikt, zie [Retrieve a Chart's Data Range](/slides/nl/python-net/chart-workbook/#retrieve-a-charts-data-range).
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/python-net/aspose.slides/presentation/) klasse om de presentatie met het diagram te openen.
-2. Haal een referentie op naar een dia via de index.
-3. Doorloop alle vormen om het diagram te vinden.
-4. Open de diagramgegevens en stel het bereik in.
-5. Sla de aangepaste presentatie op als een PPTX‑bestand.
+Aspose.Slides voor Python via .NET laat je een specifiek werkbladbereik gebruiken als gegevensbron voor een diagram. Dit bepaalt welke cellen de series en categorieën van het diagram leveren en stelt je in staat het diagram bij te werken zodat het wijzigingen in het werkblad weerspiegelt.
 
-Deze Python‑code laat zien hoe je het gegevensbereik voor een diagram instelt:
+1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) klasse om de presentatie met het diagram te openen.
+1. Haal een referentie op naar een dia via de index.
+1. Doorloop alle vormen om het diagram te vinden.
+1. Benader de diagramgegevens en stel het bereik in.
+1. Sla de aangepaste presentatie op als een PPTX‑bestand.
+
+Deze Python‑code toont hoe je het gegevensbereik voor een diagram instelt:
 
 ```py
 import aspose.slides.charts as charts
@@ -1102,7 +1108,7 @@ import aspose.pydrawing as draw
 
 chart_name = "My chart"
 
-# Instantieer de Presentation-klasse die een PPTX-bestand vertegenwoordigt.
+# Instantieer de Presentation‑klasse die een PPTX‑bestand vertegenwoordigt.
 with slides.Presentation("ExistingChart.pptx") as presentation:
 
     # Toegang tot de eerste dia.
@@ -1116,11 +1122,11 @@ with slides.Presentation("ExistingChart.pptx") as presentation:
     presentation.save("DataRange.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Standaardmarkers in diagrammen gebruiken**
+## **Standaard‑markers in diagrammen gebruiken**
 
-Wanneer je standaardmarkers in diagrammen gebruikt, krijgt elke diagramreeks automatisch een ander markersymbool.
+Wanneer je standaard‑markers in diagrammen gebruikt, krijgt elke diagramserie automatisch een ander marker‑symbool.
 
-Deze Python‑code laat zien hoe je automatisch een markersymbool voor een diagramreeks instelt:
+Deze Python‑code toont hoe je automatisch een marker voor een diagramserie instelt:
 
 ```py
 import aspose.slides.charts as charts
@@ -1152,7 +1158,7 @@ with slides.Presentation() as presentation:
 
     series2 = chart.chart_data.series.add(workbook.get_cell(0, 0, 2, "Series 2"), chart.type)
 
-    # Vul de gegevens van de reeks.
+    # De seriedata vullen.
     series2.data_points.add_data_point_for_line_series(workbook.get_cell(0, 1, 2, 30))
     series2.data_points.add_data_point_for_line_series(workbook.get_cell(0, 2, 2, 10))
     series2.data_points.add_data_point_for_line_series(workbook.get_cell(0, 3, 2, 60))
@@ -1166,18 +1172,18 @@ with slides.Presentation() as presentation:
 
 ## **FAQ**
 
-**Welke diagramtypen worden ondersteund door Aspose.Slides voor Python via .NET?**
+**Welke diagramtypes worden ondersteund door Aspose.Slides voor Python via .NET?**
 
-Aspose.Slides voor Python via .NET ondersteunt een breed scala aan diagramtypen, waaronder staaf, lijn, taart, gebied, spreiding, histogram, radar en nog veel meer. Deze flexibiliteit stelt je in staat het meest geschikte diagramtype te kiezen voor je data‑visualisatiebehoeften.
+Aspose.Slides voor Python via .NET ondersteunt een breed scala aan diagramtypes, waaronder staaf, lijn, taart, gebied, scatter, histogram, radar en nog veel meer. Deze flexibiliteit stelt je in staat het meest geschikte diagramtype voor je data‑visualisatiebehoeften te kiezen.
 
 **Hoe voeg ik een nieuw diagram toe aan een dia?**
 
-Om een diagram toe te voegen, maak je eerst een instantie van de [Presentation](https://reference.aspose.com/slides/nl/python-net/aspose.slides/presentation/) klasse, haal je de gewenste dia op via de index en roep je vervolgens de methode aan om een diagram toe te voegen, waarbij je het diagramtype en de initiële gegevens opgeeft. Dit proces integreert het diagram direct in je presentatie.
+Om een diagram toe te voegen, maak je eerst een instantie van de [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) klasse, haal je de gewenste dia op via de index en roep je vervolgens de methode aan om een diagram toe te voegen, waarbij je het diagramtype en de initiële gegevens opgeeft. Dit proces integreert het diagram direct in je presentatie.
 
-**Hoe kan ik de gegevens in een diagram bijwerken?**
+**Hoe kan ik de gegevens die in een diagram worden weergegeven bijwerken?**
 
-Je kunt de gegevens van een diagram bijwerken door toegang te krijgen tot het gegevenswerkboek ([ChartDataWorkbook](https://reference.aspose.com/slides/nl/python-net/aspose.slides.charts/chartdataworkbook/)), de standaardreeksen en -categorieën te wissen en vervolgens je eigen gegevens toe te voegen. Hiermee kun je het diagram programmatically vernieuwen zodat het de nieuwste gegevens weergeeft.
+Je kunt de gegevens van een diagram bijwerken door toegang te krijgen tot het gegevenswerkboek ([ChartDataWorkbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/)), de standaard series en categorieën te verwijderen en vervolgens je eigen gegevens toe te voegen. Hiermee kun je het diagram programmatic vernieuwen zodat het de nieuwste gegevens weergeeft.
 
 **Is het mogelijk het uiterlijk van het diagram aan te passen?**
 
-Ja, Aspose.Slides voor Python via .NET biedt uitgebreide aanpassingsmogelijkheden. Je kunt kleuren, lettertypen, labels, legenden en andere opmaak‑elementen wijzigen om het uiterlijk van het diagram af te stemmen op je specifieke ontwerpvereisten.
+Ja, Aspose.Slides voor Python via .NET biedt uitgebreide aanpassingsopties. Je kunt kleuren, lettertypen, labels, legenda’s en andere opmaak‑elementen wijzigen om het uiterlijk van het diagram af te stemmen op je specifieke ontwerpvereisten.

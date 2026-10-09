@@ -1,5 +1,5 @@
 ---
-title: Создание или обновление диаграмм PowerPoint в презентациях на Android
+title: Создание или обновление диаграмм PowerPoint‑презентаций на Android
 linktitle: Создание или обновление диаграмм
 type: docs
 weight: 10
@@ -10,14 +10,14 @@ keywords:
 - редактировать диаграмму
 - изменить диаграмму
 - обновить диаграмму
-- диаграмма рассеяния
+- точечная диаграмма
 - круговая диаграмма
 - линейная диаграмма
-- диаграмма дерево-карта
+- диаграмма дерева
 - биржевая диаграмма
-- диаграмма box and whisker
+- диаграмма ящик с усами
 - воронкообразная диаграмма
-- диаграмма «sunburst»
+- радиальная диаграмма
 - гистограмма
 - радарная диаграмма
 - мультикатегориальная диаграмма
@@ -26,17 +26,17 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Создавайте и настраивайте диаграммы в презентациях PowerPoint с помощью Aspose.Slides для Android. Добавляйте, форматируйте и редактируйте диаграммы, используя практические примеры кода на Java."
+description: "Создавайте и настраивайте диаграммы в PowerPoint‑презентациях с помощью Aspose.Slides для Android. Добавляйте, форматируйте и редактируйте диаграммы, используя практические примеры кода на Java."
 ---
 ## **Обзор**
 
-Эта статья предоставляет полное руководство по созданию и настройке диаграмм с помощью Aspose.Slides. Вы узнаете, как программно добавить диаграмму на слайд, заполнить её данными и применить различные параметры форматирования, чтобы соответствовать вашим требованиям к дизайну. В статье приведены подробные примеры кода, иллюстрирующие каждый шаг — от инициализации презентации и объекта диаграммы до настройки серий, осей и легенд. Следуя этому руководству, вы получите прочное понимание того, как интегрировать динамическое создание диаграмм в свои приложения, упрощая процесс создания презентаций на основе данных.
+В этой статье представлено полное руководство по созданию и настройке диаграмм с помощью Aspose.Slides. Вы узнаете, как программно добавить диаграмму на слайд, заполнить её данными и применить различные параметры форматирования, соответствующие вашим требованиям к дизайну. На протяжении статьи подробно приводятся примеры кода, иллюстрирующие каждый шаг: от инициализации презентации и объекта диаграммы до настройки серий, осей и легенд. Следуя этому руководству, вы получите твердое представление о том, как интегрировать динамическое создание диаграмм в свои приложения, упростив процесс создания презентаций, основанных на данных.
 
 ## **Создание диаграммы**
 
 Диаграммы помогают людям быстро визуализировать данные и получать инсайты, которые могут быть неочевидны из таблицы или электронной таблицы.
 
-**Зачем создавать диаграммы?**
+**Почему стоит создавать диаграммы?**
 
 С помощью диаграмм вы можете:
 
@@ -44,29 +44,31 @@ description: "Создавайте и настраивайте диаграмм�
 * выявлять закономерности и тенденции в данных
 * определять направление и динамику данных во времени или относительно конкретной единицы измерения
 * обнаруживать выбросы, аномалии, отклонения, ошибки, бессмысленные данные и т.д.
-* эффективно представлять сложные данные
+* передавать или представлять сложные данные
 
-В PowerPoint диаграммы можно создавать через функцию *Insert*, которая предоставляет шаблоны для проектирования различных типов диаграмм. С помощью Aspose.Slides можно создавать как обычные диаграммы (на основе популярных типов), так и пользовательские диаграммы.
+В PowerPoint диаграммы можно создавать через функцию *Insert*, которая предоставляет шаблоны для разработки различных типов диаграмм. С помощью Aspose.Slides можно создавать как обычные диаграммы (на основе популярных типов) так и пользовательские диаграммы.
 
 {{% alert color="info" title="Note" %}}
-Чтобы создавать диаграммы, используйте класс [ChartType](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/charttype/) . Поля этого класса соответствуют различным типам диаграмм.
+
+Для создания диаграмм используйте класс [ChartType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/). Поля этого класса соответствуют различным типам диаграмм.
+
 {{% /alert %}}
 
-### **Create Clustered Column Charts**
+### **Создание сгруппированных столбчатых диаграмм**
 
-В этом разделе объясняется, как создавать сгруппированные столбчатые диаграммы с помощью Aspose.Slides. Вы узнаете, как инициализировать презентацию, добавить диаграмму и настроить её элементы, такие как заголовок, данные, серии, категории и стили. Выполните следующие шаги, чтобы увидеть, как генерируется стандартная сгруппированная столбчатая диаграмма:
+В этом разделе объясняется, как создавать сгруппированные столбчатые диаграммы с помощью Aspose.Slides. Вы научитесь инициализировать презентацию, добавить диаграмму и настроить её элементы, такие как заголовок, данные, серии, категории и стиль. Следуйте инструкциям ниже, чтобы увидеть, как генерируется стандартная сгруппированная столбчатая диаграмма:
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/presentation) .
-1. Получите ссылку на слайд, используя его индекс.
-1. Добавьте диаграмму с некоторыми данными и укажите тип `ChartType.ClusteredColumn` .
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation).
+1. Получите ссылку на слайд по его индексу.
+1. Добавьте диаграмму с некоторыми данными и укажите тип `ChartType.ClusteredColumn`.
 1. Добавьте заголовок к диаграмме.
-1. Получите доступ к рабочему листу данных диаграммы.
+1. Получите доступ к листу данных диаграммы.
 1. Очистите все серии и категории по умолчанию.
 1. Добавьте новые серии и категории.
 1. Добавьте новые данные диаграммы для серий.
 1. Примените цвет заливки к сериям диаграммы.
 1. Добавьте подписи к сериям диаграммы.
-1. Сохраните изменённую презентацию как файл PPTX.
+1. Сохраните изменённую презентацию в файл PPTX.
 
 Этот C# код демонстрирует, как создать сгруппированную столбчатую диаграмму:
 
@@ -74,112 +76,111 @@ description: "Создавайте и настраивайте диаграмм�
 import com.aspose.slides.*;
 import java.awt.Color;
 
-//    // Создает экземпляр класса презентации, представляющий файл PPTX
+// Создает экземпляр класса презентации, представляющего файл PPTX
 Presentation pres = new Presentation();
 try {
-    //    // Получает первый слайд
+    // Получает первый слайд
     ISlide sld = pres.getSlides().get_Item(0);
     
-    //    // Добавляет диаграмму с данными по умолчанию
+    // Добавляет диаграмму с данными по умолчанию
     IChart chart = sld.getShapes().addChart(ChartType.ClusteredColumn, 0, 0, 500, 500);
     
-    //    // Устанавливает заголовок диаграммы
+    // Устанавливает заголовок диаграммы
     chart.getChartTitle().addTextFrameForOverriding("Sample Title");
     chart.getChartTitle().getTextFrameForOverriding().getTextFrameFormat().setCenterText(NullableBool.True);
     chart.getChartTitle().setHeight(20);
     chart.setTitle(true);
     
-    //    // Устанавливает индекс листа данных диаграммы
+    // Устанавливает индекс листа данных диаграммы
     int defaultWorksheetIndex = 0;
     
-    //    // Получает рабочий лист данных диаграммы
+    // Получает рабочий лист данных диаграммы
     IChartDataWorkbook fact = chart.getChartData().getChartDataWorkbook();
     
-    //    // Удаляет автоматически сгенерированные серии и категории
+    // Удаляет автоматически сгенерированные серии и категории
     chart.getChartData().getSeries().clear();
     chart.getChartData().getCategories().clear();
     int s = chart.getChartData().getSeries().size();
     s = chart.getChartData().getCategories().size();
     
-    //    // Добавляет новые серии
+    // Добавляет новые серии
     chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 1, "Series 1"),chart.getType());
     chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 2, "Series 2"),chart.getType());
     
-    //    // Добавляет новые категории
+    // Добавляет новые категории
     chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 1, 0, "Caetegoty 1"));
     chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 2, 0, "Caetegoty 2"));
     chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 3, 0, "Caetegoty 3"));
     
-    //    // Берет первую серию диаграммы
+    // Получает первую серию диаграммы
     IChartSeries series = chart.getChartData().getSeries().get_Item(0);
     
-    //    // Теперь заполняет данные серии
+    // Заполняет данные серии
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 1, 20));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 50));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 30));
     
-    //    // Устанавливает цвет заливки для серии
+    // Устанавливает цвет заливки для серии
     series.getFormat().getFill().setFillType(FillType.Solid);
     series.getFormat().getFill().getSolidFillColor().setColor(Color.RED);
     
-    //    // Берет вторую серию диаграммы
+    // Получает вторую серию диаграммы
     series = chart.getChartData().getSeries().get_Item(1);
     
-    //    // Заполняет данные серии
+    // Заполняет данные серии
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 2, 30));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 2, 10));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 2, 60));
     
-    //    // Устанавливает цвет заливки для серии
+    // Устанавливает цвет заливки для серии
     series.getFormat().getFill().setFillType(FillType.Solid);
     series.getFormat().getFill().getSolidFillColor().setColor(Color.GREEN);
     
-    //    //Создает пользовательские подписи для каждой категории новой серии
-    //    // Устанавливает первую подпись для показа имени категории
+    //Создает пользовательские метки для каждой категории новой серии
+    // Устанавливает первое поле метки для отображения названия категории
     IDataLabel lbl = series.getDataPoints().get_Item(0).getLabel();
     lbl.getDataLabelFormat().setShowCategoryName(true);
     
     lbl = series.getDataPoints().get_Item(1).getLabel();
     lbl.getDataLabelFormat().setShowSeriesName(true);
     
-    //    // Показывает значение для третьей подписи
+    // Показывает значение для третьей метки
     lbl = series.getDataPoints().get_Item(2).getLabel();
     lbl.getDataLabelFormat().setShowValue(true);
     lbl.getDataLabelFormat().setShowSeriesName(true);
     lbl.getDataLabelFormat().setSeparator("/");
     
-    //    // Saves the presentation with chart
+    // Saves the presentation with chart
     pres.save("output.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
+### **Создание точечных диаграмм**
+Точечные диаграммы (известные также как scatter plots или графики x‑y) часто используют для проверки закономерностей или демонстрации корреляций между двумя переменными.
 
-### **Create Scatter Charts**
-Диаграммы рассеяния (также известные как scatter plots или графики x‑y) часто используют для поиска закономерностей или демонстрации корреляций между двумя переменными.
-
-Используйте диаграмму рассеяния, когда:
+Используйте точечную диаграмму, когда:
 
 * у вас есть парные числовые данные
 * две переменные хорошо сочетаются друг с другом
 * вы хотите определить, связаны ли две переменные
 * у вас есть независимая переменная, имеющая несколько значений для зависимой переменной
 
-1. Выполните шаги из раздела [Create Clustered Column Charts](#create-clustered-column-charts) .
-2. На третьем шаге добавьте диаграмму с данными и укажите один из следующих типов:
-   1. [ChartType.ScatterWithMarkers](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/charttype/#ScatterWithMarkers) - _Представляет диаграмму рассеяния._
-   2. [ChartType.ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - _Представляет диаграмму рассеяния, соединённую кривыми, с маркерами данных._
-   3. [ChartType.ScatterWithSmoothLines](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/charttype/#ScatterWithSmoothLines) - _Представляет диаграмму рассеяния, соединённую кривыми, без маркеров данных._
-   4. [ChartType.ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _Представляет диаграмму рассеяния, соединённую линиями, с маркерами данных._
-   5. [ChartType.ScatterWithStraightLines](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/charttype/#ScatterWithStraightLines) - _Представляет диаграмму рассеяния, соединённую линиями, без маркеров данных._
+1. Следуйте шагам из раздела [Create Clustered Column Charts](#create-clustered-column-charts).
+2. На третьем шаге добавьте диаграмму с данными и укажите тип диаграммы из следующих вариантов:
+   1. [ChartType.ScatterWithMarkers](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/#ScatterWithMarkers) - _Представляет точечную диаграмму._
+   2. [ChartType.ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - _Представляет точечную диаграмму, соединённую кривыми, с маркерами._
+   3. [ChartType.ScatterWithSmoothLines](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/#ScatterWithSmoothLines) - _Представляет точечную диаграмму, соединённую кривыми, без маркеров._
+   4. [ChartType.ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _Представляет точечную диаграмму, соединённую прямыми линиями, с маркерами._
+   5. [ChartType.ScatterWithStraightLines](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/#ScatterWithStraightLines) - _Представляет точечную диаграмму, соединённую прямыми линиями, без маркеров._
 
-Этот Java код показывает, как создать диаграмму рассеяния с разными маркерами для каждой серии:
+Этот Java код показывает, как создать точечную диаграмму с разными маркерами для каждой серии:
 
 ```java
 import com.aspose.slides.*;
 
-// Создаёт экземпляр класса презентации, представляющего файл PPTX
+// Создает экземпляр класса презентации, представляющего файл PPTX
 Presentation pres = new Presentation();
 try {
     // Получает первый слайд
@@ -191,7 +192,7 @@ try {
     // Получает индекс листа данных диаграммы по умолчанию
     int defaultWorksheetIndex = 0;
     
-    // Получает рабочий лист данных диаграммы
+    // Получает лист данных диаграммы
     IChartDataWorkbook fact = chart.getChartData().getChartDataWorkbook();
     
     // Удаляет демонстрационную серию
@@ -201,7 +202,7 @@ try {
     chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 1, 1, "Series 1"), chart.getType());
     chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 1, 3, "Series 2"), chart.getType());
     
-    // Берет первую серию диаграммы
+    // Получает первую серию диаграммы
     IChartSeries series = chart.getChartData().getSeries().get_Item(0);
     
     // Добавляет новую точку (1:3) в серию
@@ -217,7 +218,7 @@ try {
     series.getMarker().setSize(10);
     series.getMarker().setSymbol(MarkerStyleType.Star);
     
-    // Берет вторую серию диаграммы
+    // Получает вторую серию диаграммы
     series = chart.getChartData().getSeries().get_Item(1);
     
     // Добавляет новую точку (5:2) туда
@@ -242,22 +243,22 @@ try {
 }
 ```
 
-### **Create Pie Charts**
+### **Создание круговых диаграмм**
 
-Круговые диаграммы лучше всего использовать для отображения отношений «часть‑к‑целому» в данных, особенно когда данные содержат категориальные метки с числовыми значениями. Если в данных много частей или меток, имеет смысл использовать столбчатую диаграмму.
+Круговые диаграммы лучше всего использовать для отображения отношения части к целому, особенно когда данные содержат категориальные метки с числовыми значениями. Однако если в ваших данных много частей или меток, возможно, стоит рассмотреть использование столбчатой диаграммы.
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/presentation/) .
-2. Получите ссылку на слайд, используя его индекс.
-3. Добавьте диаграмму с данными по умолчанию и укажите тип [ChartType.Pie](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/charttype/#Pie) .
-4. Получите доступ к рабочей книге данных диаграммы [IChartDataWorkbook](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ichartdataworkbook/) .
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) .
+2. Получите ссылку на слайд по его индексу.
+3. Добавьте диаграмму с данными по умолчанию и укажите тип [ChartType.Pie](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/#Pie) .
+4. Получите доступ к рабочей книге данных диаграммы [IChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/) .
 5. Очистите серии и категории по умолчанию.
 6. Добавьте новые серии и категории.
 7. Добавьте новые данные диаграммы для серий.
 8. Добавьте новые точки для диаграммы и примените пользовательские цвета к секторам круговой диаграммы.
-9. Задайте подписи для серий.
-10. Включите линии‑подвески для подписей серий.
-11. Установите угол поворота секторов круговой диаграммы.
-12. Сохраните изменённую презентацию как файл PPTX.
+9. Установите подписи для серий.
+10. Включите линии-указатели для подписей серий.
+11. Установите угол поворота для секторов круговой диаграммы.
+12. Сохраните изменённую презентацию в файл PPTX.
 
 Этот Java код показывает, как создать круговую диаграмму:
 
@@ -265,7 +266,7 @@ try {
 import com.aspose.slides.*;
 import java.awt.Color;
 
-// Создаёт экземпляр класса презентации, представляющего файл PPTX
+// Создает экземпляр класса презентации, представляющего файл PPTX
 Presentation pres = new Presentation();
 try {
     // Получает первый слайд
@@ -295,16 +296,16 @@ try {
     chart.getChartData().getCategories().add(fact.getCell(0, 2, 0, "2nd Qtr"));
     chart.getChartData().getCategories().add(fact.getCell(0, 3, 0, "3rd Qtr"));
     
-    // Добавляет новую серию
+    // Добавляет новые серии
     IChartSeries series = chart.getChartData().getSeries().add(fact.getCell(0, 0, 1, "Series 1"), chart.getType());
     
-    // Заполняет данные серии
+    //Заполняет данные серии
     series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 1, 1, 20));
     series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 50));
     series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 30));
     
     // Не работает в новой версии
-    // Adding new points and setting sector color
+    // Добавление новых точек и задание цвета сектора
     // series.IsColorVaried = true;
     chart.getChartData().getSeriesGroups().get_Item(0).setColorVaried(true);
     
@@ -341,7 +342,7 @@ try {
     point2.getFormat().getLine().setStyle(LineStyle.ThinThin);
     point2.getFormat().getLine().setDashStyle(LineDashStyle.LargeDashDotDot);
     
-    // Создаёт пользовательские подписи для каждой категории новой серии
+    // Создает пользовательские метки для каждой категории новой серии
     IDataLabel lbl1 = series.getDataPoints().get_Item(0).getLabel();
     
     // lbl.ShowCategoryName = true;
@@ -356,7 +357,7 @@ try {
     lbl3.getDataLabelFormat().setShowSeriesName(true);
     lbl3.getDataLabelFormat().setShowPercentage(true);
     
-    // Показывает линии‑подвески для диаграммы
+    // Показывает линии‑указатели для диаграммы
     series.getLabels().getDefaultDataLabelFormat().setShowLeaderLines(true);
     
     // Устанавливает угол поворота секторов круговой диаграммы
@@ -369,14 +370,14 @@ try {
 }
 ```
 
-### **Create Line Charts**
+### **Создание линейных диаграмм**
 
-Линейные диаграммы (также известные как линейные графики) лучше всего использовать, когда нужно показать изменения значения во времени. С их помощью можно сравнивать большие объёмы данных, отслеживать изменения и тенденции, выделять аномалии в сериалах данных и т.д.
+Линейные диаграммы (известные также как линейные графики) лучше всего используют в ситуациях, когда необходимо продемонстрировать изменения значения во времени. С помощью линейной диаграммы можно сравнивать большой объём данных одновременно, отслеживать изменения и тенденции во времени, выделять аномалии в рядах данных и многое другое.
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/presentation/) .
-1. Получите ссылку на слайд, используя его индекс.
-1. Добавьте диаграмму с данными по умолчанию и укажите тип [ChartType.Line](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/charttype/#Line) .
-1. Сохраните изменённую презентацию как файл PPTX.
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) .
+1. Получите ссылку на слайд по его индексу.
+1. Добавьте диаграмму с данными по умолчанию и укажите тип [ChartType.Line](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/#Line) .
+1. Сохраните изменённую презентацию в файл PPTX.
 
 Этот Java код показывает, как создать линейную диаграмму:
 
@@ -393,7 +394,7 @@ try {
 }
 ```
 
-По умолчанию точки на линейной диаграмме соединяются сплошными прямыми линиями. Чтобы соединять точки пунктиром, укажите желаемый тип пунктиров следующим образом:
+По умолчанию точки на линейной диаграмме соединяются сплошными прямыми линиями. Если вы хотите, чтобы точки соединялись пунктиром, укажите предпочитаемый тип штриха следующим образом:
 
 ```java
 import com.aspose.slides.*;
@@ -411,20 +412,20 @@ try {
 }
 ```
 
-### **Create Tree Map Charts**
+### **Создание диаграмм «Дерево»**
 
-Диаграммы дерево‑карт лучше всего использовать для данных о продажах, когда нужно показать относительный размер категорий и быстро обратить внимание на крупные вклады в каждой категории.
+Диаграммы «дерево» лучше всего использовать для данных о продажах, когда нужно показать относительный размер категорий данных и быстро обратить внимание на элементы, которые вносят значительный вклад в каждую категорию.
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/presentation/) .
-2. Получите ссылку на слайд, используя его индекс.
-3. Добавьте диаграмму с данными по умолчанию и укажите тип [ChartType.Treemap](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/charttype/#Treemap) .
-4. Получите доступ к рабочей книге данных диаграммы [IChartDataWorkbook](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ichartdataworkbook/) .
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) .
+2. Получите ссылку на слайд по его индексу.
+3. Добавьте диаграмму с данными по умолчанию и укажите тип [ChartType.Treemap](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/#Treemap) .
+4. Получите доступ к рабочей книге данных диаграммы [IChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/) .
 5. Очистите серии и категории по умолчанию.
 6. Добавьте новые серии и категории.
 7. Добавьте новые данные диаграммы для серий.
-8. Сохраните изменённую презентацию как файл PPTX.
+8. Сохраните изменённую презентацию в файл PPTX.
 
-Этот Java код показывает, как создать диаграмму дерево‑карт:
+Этот Java код показывает, как создать диаграмму «дерево»:
 
 ```java
 import com.aspose.slides.*;
@@ -481,17 +482,17 @@ try {
 }
 ```
 
-### **Create Stock Charts**
+### **Создание биржевых диаграмм**
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/presentation/) .
-2. Получите ссылку на слайд, используя его индекс.
-3. Добавьте диаграмму с данными по умолчанию и укажите тип [ChartType.OpenHighLowClose](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/charttype/#OpenHighLowClose) .
-4. Получите доступ к рабочей книге данных диаграммы [IChartDataWorkbook](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ichartdataworkbook/) .
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) .
+2. Получите ссылку на слайд по его индексу.
+3. Добавьте диаграмму с данными по умолчанию и укажите тип [ChartType.OpenHighLowClose](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/#OpenHighLowClose) .
+4. Получите доступ к рабочей книге данных диаграммы [IChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/) .
 5. Очистите серии и категории по умолчанию.
 6. Добавьте новые серии и категории.
 7. Добавьте новые данные диаграммы для серий.
-8. Укажите формат линий «high‑low».
-9. Сохраните изменённую презентацию как файл PPTX.
+8. Укажите формат линий high‑low.
+9. Сохраните изменённую презентацию в файл PPTX.
 
 Этот Java код показывает, как создать биржевую диаграмму:
 
@@ -551,18 +552,18 @@ try {
 }
 ```
 
-### **Create Box and Whisker Charts**
+### **Создание диаграмм «Ящик с усами»**
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/presentation/) .
-2. Получите ссылку на слайд, используя его индекс.
-3. Добавьте диаграмму с данными по умолчанию и укажите тип [ChartType.BoxAndWhisker](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/charttype/#BoxAndWhisker) .
-4. Получите доступ к рабочей книге данных диаграммы [IChartDataWorkbook](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ichartdataworkbook/) .
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) .
+2. Получите ссылку на слайд по его индексу.
+3. Добавьте диаграмму с данными по умолчанию и укажите тип [ChartType.BoxAndWhisker](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/#BoxAndWhisker) .
+4. Получите доступ к рабочей книге данных диаграммы [IChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/) .
 5. Очистите серии и категории по умолчанию.
 6. Добавьте новые серии и категории.
 7. Добавьте новые данные диаграммы для серий.
-8. Сохраните изменённую презентацию как файл PPTX.
+8. Сохраните изменённую презентацию в файл PPTX.
 
-Этот Java код показывает, как создать диаграмму «box and whisker»:
+Этот Java код показывает, как создать диаграмму «ящик с усами»:
 
 ```java
 import com.aspose.slides.*;
@@ -604,12 +605,12 @@ try {
 }
 ```
 
-### **Create Funnel Charts**
+### **Создание воронкообразных диаграмм**
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/presentation/) .
-2. Получите ссылку на слайд, используя его индекс.
-3. Добавьте диаграмму с данными по умолчанию и укажите тип [ChartType.Funnel](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/charttype/#Funnel) .
-4. Сохраните изменённую презентацию как файл PPTX.
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) .
+2. Получите ссылку на слайд по его индексу.
+3. Добавьте диаграмму с данными по умолчанию и укажите тип [ChartType.Funnel](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/#Funnel) .
+4. Сохраните изменённую презентацию в файл PPTX.
 
 Этот Java код показывает, как создать воронкообразную диаграмму:
 
@@ -648,12 +649,12 @@ try {
 }
 ```
 
-### **Create Sunburst Charts**
+### **Создание радиальных диаграмм**
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/presentation/) .
-2. Получите ссылку на слайд, используя его индекс.
-3. Добавьте диаграмму с данными по умолчанию и укажите тип [ChartType.Sunburst](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/charttype/#Sunburst) .
-4. Сохраните изменённую презентацию как файл PPTX.
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) .
+2. Получите ссылку на слайд по его индексу.
+3. Добавьте диаграмму с данными по умолчанию и укажите тип [ChartType.Sunburst](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/#Sunburst) .
+4. Сохраните изменённую презентацию в файл PPTX.
 
 Этот Java код показывает, как создать радиальную диаграмму:
 
@@ -710,15 +711,15 @@ try {
 }
 ```
 
-### **Create Histogram Charts**
+### **Создание гистограмм**
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/presentation/) .
-2. Получите ссылку на слайд, используя его индекс.
-3. Добавьте диаграмму с данными по умолчанию и укажите тип [ChartType.Histogram](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/charttype/#Histogram) .
-4. Получите доступ к рабочей книге данных диаграммы [IChartDataWorkbook](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ichartdataworkbook/) .
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) .
+2. Получите ссылку на слайд по его индексу.
+3. Добавьте диаграмму с данными по умолчанию и укажите тип [ChartType.Histogram](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/#Histogram) .
+4. Получите доступ к рабочей книге данных диаграммы [IChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/) .
 5. Очистите серии и категории по умолчанию.
 6. Добавьте новые серии и категории.
-7. Сохраните изменённую презентацию как файл PPTX.
+7. Сохраните изменённую презентацию в файл PPTX.
 
 Этот Java код показывает, как создать гистограмму:
 
@@ -750,14 +751,14 @@ try {
 }
 ```
 
-### **Create Radar Charts**
+### **Создание радиальных диаграмм**
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/presentation/) .
-2. Получите ссылку на слайд, используя его индекс.
-3. Добавьте диаграмму с данными и укажите предпочтительный тип диаграммы ([ChartType.Radar](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/charttype/#Radar) в данном случае) .
-4. Сохраните изменённую презентацию как файл PPTX.
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) .
+2. Получите ссылку на слайд по его индексу.
+3. Добавьте диаграмму с некоторыми данными и укажите предпочитаемый тип диаграммы ([ChartType.Radar](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/#Radar) в данном случае).
+4. Сохраните изменённую презентацию в файл PPTX.
 
-Этот Java код показывает, как создать радиальную (радужную) диаграмму:
+Этот Java код показывает, как создать радиальную диаграмму:
 
 ```java
 import com.aspose.slides.*;
@@ -771,16 +772,16 @@ try {
 }
 ```
 
-### **Create Multi-Category Charts**
+### **Создание мультикатегориальных диаграмм**
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/presentation/) .
-2. Получите ссылку на слайд, используя его индекс.
-3. Добавьте диаграмму с данными по умолчанию и укажите тип [ChartType.ClusteredColumn](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/charttype/#ClusteredColumn) .
-4. Получите доступ к рабочей книге данных диаграммы [IChartDataWorkbook](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ichartdataworkbook/) .
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) .
+2. Получите ссылку на слайд по его индексу.
+3. Добавьте диаграмму с данными по умолчанию и укажите тип [ChartType.ClusteredColumn](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/#ClusteredColumn) .
+4. Получите доступ к рабочей книге данных диаграммы [IChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/) .
 5. Очистите серии и категории по умолчанию.
 6. Добавьте новые серии и категории.
 7. Добавьте новые данные диаграммы для серий.
-8. Сохраните изменённую презентацию как файл PPTX.
+8. Сохраните изменённую презентацию в файл PPTX.
 
 Этот Java код показывает, как создать мультикатегориальную диаграмму:
 
@@ -833,7 +834,7 @@ try {
 }
 ```
 
-### **Create Map Charts**
+### **Создание картографических диаграмм**
 
 Картографические диаграммы визуализируют географические данные и помогают сравнивать значения по регионам.
 
@@ -851,13 +852,13 @@ try {
 }
 ```
 
-### **Create Combination Charts**
+### **Создание комбинированных диаграмм**
 
-Комбинированная диаграмма (или combo chart) объединяет два или более типов диаграмм в одном графике. Такая диаграмма позволяет выделять, сравнивать или анализировать различия между несколькими наборами данных, помогая выявлять взаимосвязи.
+Комбинированная диаграмма (или combo chart) объединяет два и более типов диаграмм в одном графике. Такая диаграмма позволяет выделять, сравнивать или исследовать различия между двумя и более наборами данных, помогая выявлять взаимосвязи между ними.
 
-![Комбинированная диаграмма](combination_chart.png)
+![The combination chart](combination_chart.png)
 
-Следующий Java код показывает, как создать комбинированную диаграмму, изображённую выше, в презентации PowerPoint:
+Следующий Java код показывает, как создать комбинационную диаграмму, показанную выше, в презентации PowerPoint:
 
 ```java
 import com.aspose.slides.*;
@@ -1007,15 +1008,15 @@ static void setAxisTitle(IAxis axis, String axisTitle) {
 }
 ```
 
-## **Update Charts**
+## **Обновление диаграмм**
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/presentation/) , представляющего презентацию с диаграммой, которую необходимо обновить.
-2. Получите ссылку на слайд, используя его индекс.
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) , представляющего презентацию с диаграммой, которую нужно обновить.
+2. Получите ссылку на слайд по его индексу.
 3. Пройдитесь по всем фигурам, чтобы найти нужную диаграмму.
-4. Получите доступ к рабочему листу данных диаграммы.
-5. Измените серию данных диаграммы, изменив значения серии.
+4. Получите доступ к листу данных диаграммы.
+5. Отредактировать серии данных диаграммы, изменив их значения.
 6. Добавьте новую серию и заполните её данными.
-7. Сохраните изменённую презентацию как файл PPTX.
+7. Сохраните изменённую презентацию в файл PPTX.
 
 Этот Java код показывает, как обновить диаграмму:
 
@@ -1025,36 +1026,36 @@ import com.aspose.slides.*;
 // Открывает презентацию, содержащую диаграмму для обновления
 Presentation pres = new Presentation("ExistingChart.pptx");
 try {
-    // Получаем первый слайд
+    // Получить первый слайд
     ISlide sld = pres.getSlides().get_Item(0);
 
-    // Получаем диаграмму со слайда
+    // Получить диаграмму со слайда
     IChart chart = (IChart)sld.getShapes().get_Item(0);
 
-    // Устанавливаем индекс листа данных диаграммы
+    // Установка индекса листа данных диаграммы
     int defaultWorksheetIndex = 0;
 
-    // Получаем рабочий лист данных диаграммы
+    // Получение листа данных диаграммы
     IChartDataWorkbook fact = chart.getChartData().getChartDataWorkbook();
 
-    // Изменяем название категории диаграммы
+    // Изменение названия категории диаграммы
     fact.getCell(defaultWorksheetIndex, 1, 0, "Modified Category 1");
     fact.getCell(defaultWorksheetIndex, 2, 0, "Modified Category 2");
 
-    // Берём первую серию диаграммы
+    // Получить первую серию диаграммы
     IChartSeries series = chart.getChartData().getSeries().get_Item(0);
 
-    // Обновляем данные серии
-    fact.getCell(defaultWorksheetIndex, 0, 1, "New_Series1");// Изменение имени серии
+    // Сейчас обновляются данные серии
+    fact.getCell(defaultWorksheetIndex, 0, 1, "New_Series1"); // Изменение имени серии
     series.getDataPoints().get_Item(0).getValue().setData(90);
     series.getDataPoints().get_Item(1).getValue().setData(123);
     series.getDataPoints().get_Item(2).getValue().setData(44);
 
-    // Берём вторую серию диаграммы
+    // Получить вторую серию диаграммы
     series = chart.getChartData().getSeries().get_Item(1);
 
-    // Обновляем данные серии
-    fact.getCell(defaultWorksheetIndex, 0, 2, "New_Series2");// Изменение имени серии
+    // Сейчас обновляются данные серии
+    fact.getCell(defaultWorksheetIndex, 0, 2, "New_Series2"); // Изменение имени серии
     series.getDataPoints().get_Item(0).getValue().setData(23);
     series.getDataPoints().get_Item(1).getValue().setData(67);
     series.getDataPoints().get_Item(2).getValue().setData(99);
@@ -1062,32 +1063,34 @@ try {
     // Теперь добавляем новую серию
     chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 3, "Series 3"), chart.getType());
 
-    // Берём третью серию диаграммы
+    // Получить третью серию диаграммы
     series = chart.getChartData().getSeries().get_Item(2);
 
-    // Заполняем данные серии
+    // Сейчас заполняются данные серии
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 3, 20));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 3, 50));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 3, 30));
 
     chart.setType(ChartType.ClusteredCylinder);
 
-    // Сохраняем презентацию с диаграммой
+    // Сохранить презентацию с диаграммой
     pres.save("AsposeChartModified_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-## **Set Data Range for a Chart**
+## **Установка диапазона данных для диаграммы**
 
-Чтобы задать диапазон данных для диаграммы, выполните следующее:
+Чтобы просмотреть диапазон, уже используемый существующей диаграммой, см. [Retrieve a Chart's Data Range](/slides/ru/androidjava/chart-workbook/#retrieve-a-charts-data-range).
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/presentation/) , представляющего презентацию с диаграммой.
-2. Получите ссылку на слайд, используя его индекс.
+Чтобы установить диапазон данных для диаграммы, выполните следующее:
+
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) , представляющего презентацию с диаграммой.
+2. Получите ссылку на слайд по его индексу.
 3. Пройдитесь по всем фигурам, чтобы найти нужную диаграмму.
 4. Получите доступ к данным диаграммы и задайте диапазон.
-5. Сохраните изменённую презентацию как файл PPTX.
+5. Сохраните изменённую презентацию в файл PPTX.
 
 Этот Java код показывает, как задать диапазон данных для диаграммы:
 
@@ -1108,16 +1111,15 @@ try {
 }
 ```
 
-## **Use Default Markers in Charts**
+## **Использование маркеров по умолчанию в диаграммах**
 
-При использовании маркеров по умолчанию в диаграммах каждый ряд автоматически получает отдельный символ маркера.
+При использовании маркеров по умолчанию в диаграммах каждая серия автоматически получает различный символ маркера.
 
-Этот Java код показывает, как автоматически установить маркер для ряда диаграммы:
+Этот Java код показывает, как автоматически установить маркер серии диаграммы:
 
 ```java
 import com.aspose.slides.*;
 
-// Открывает презентацию, содержащую диаграмму
 Presentation pres = new Presentation();
 try {
     ISlide slide = pres.getSlides().get_Item(0);
@@ -1140,10 +1142,10 @@ try {
     series.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 4, 1, null));
 
     chart.getChartData().getSeries().add(fact.getCell(0, 0, 2, "Series 2"), chart.getType());
-    // Берём вторую серию диаграммы
+    //Получить вторую серию диаграммы
     IChartSeries series2 = chart.getChartData().getSeries().get_Item(1);
 
-    // Теперь заполняем данные серии
+    //Теперь заполняем данные серии
     series2.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 1, 2, 30));
     series2.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 2, 2, 10));
     series2.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 3, 2, 60));
@@ -1162,16 +1164,16 @@ try {
 
 **Какие типы диаграмм поддерживает Aspose.Slides?**
 
-Aspose.Slides поддерживает широкий спектр [chart types](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/charttype/), включая столбчатые, линейные, круговые, областные, рассеяния, гистограммы, радиальные и многие другие. Такая гибкость позволяет выбрать наиболее подходящий тип диаграммы для визуализации ваших данных.
+Aspose.Slides поддерживает широкий спектр [chart types](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/), включая столбчатые, линейные, круговые, областные, точечные, гистограммы, радиальные и многие другие. Такая гибкость позволяет выбрать наиболее подходящий тип диаграммы для ваших потребностей в визуализации данных.
 
 **Как добавить новую диаграмму на слайд?**
 
-Чтобы добавить диаграмму, сначала создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/presentation/) , получите нужный слайд по индексу, а затем вызовите метод добавления диаграммы, указав тип диаграммы и начальные данные. Этот процесс интегрирует диаграмму непосредственно в вашу презентацию.
+Чтобы добавить диаграмму, сначала создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) , получите нужный слайд по его индексу, а затем вызовите метод добавления диаграммы, указав тип диаграммы и исходные данные. Этот процесс интегрирует диаграмму непосредственно в вашу презентацию.
 
 **Как обновить данные, отображаемые в диаграмме?**
 
-Вы можете обновить данные диаграммы, получив доступ к её рабочей книге ([IChartDataWorkbook](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ichartdataworkbook/)), очистив любые серии и категории по умолчанию и затем добавив свои собственные данные. Это позволяет актуализировать диаграмму в соответствии с новыми данными.
+Вы можете обновить данные диаграммы, получив доступ к её рабочей книге данных ([IChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/)), очистив любые серии и категории по умолчанию и затем добавив свои собственные данные. Это позволяет обновить диаграмму, чтобы она отражала актуальные данные.
 
 **Можно ли настроить внешний вид диаграммы?**
 
-Да, Aspose.Slides предоставляет обширные возможности настройки. Вы можете изменять цвета, шрифты, подписи, легенды и другие [formatting elements](/slides/ru/androidjava/chart-entities/) чтобы адаптировать внешний вид диаграммы под конкретные требования дизайна.
+Да, Aspose.Slides предоставляет обширные возможности настройки. Вы можете менять цвета, шрифты, подписи, легенды и другие [formatting elements](/slides/ru/androidjava/chart-entities/), чтобы адаптировать внешний вид диаграммы под конкретные требования дизайна.

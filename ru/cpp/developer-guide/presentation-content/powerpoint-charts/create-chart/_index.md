@@ -1,74 +1,74 @@
 ---
-title: Создание или обновление диаграмм PowerPoint презентаций на C++
-linktitle: Создание или обновление диаграмм
+title: Создание или обновление диаграмм презентаций PowerPoint на C++
+linktitle: Создать или обновить диаграммы
 type: docs
 weight: 10
 url: /ru/cpp/create-chart/
 aliases:
   - /cpp/update-chart/
 keywords:
-- добавить диаграмму
-- создать диаграмму
-- редактировать диаграмму
-- изменить диаграмму
-- обновить диаграмму
-- точечная диаграмма
-- круговая диаграмма
-- линейная диаграмма
-- диаграмма Tree Map
-- биржевая диаграмма
-- ящиковая диаграмма
-- воронкообразная диаграмма
-- солнечная диаграмма
-- гистограмма
-- радиальная диаграмма
-- мульти-категориальная диаграмма
-- PowerPoint
-- презентация
-- C++
-- Aspose.Slides
+  - добавить диаграмму
+  - создать диаграмму
+  - редактировать диаграмму
+  - изменить диаграмму
+  - обновить диаграмму
+  - точечная диаграмма
+  - круговая диаграмма
+  - линейная диаграмма
+  - диаграмма Tree Map
+  - биржевая диаграмма
+  - ящичная диаграмма с усами
+  - воронкообразная диаграмма
+  - солнечная диаграмма
+  - гистограмма
+  - радиальная диаграмма
+  - многокатегориальная диаграмма
+  - PowerPoint
+  - презентация
+  - C++
+  - Aspose.Slides
 description: "Создавайте и настраивайте диаграммы в презентациях PowerPoint с помощью Aspose.Slides для C++. Добавляйте, форматируйте и редактируйте диаграммы с практическими примерами кода на C++."
 ---
 ## **Обзор**
 
-В этой статье представлено полное руководство по созданию и настройке диаграмм с помощью Aspose.Slides. Вы узнаете, как программно добавить диаграмму на слайд, заполнить её данными и применить различные варианты форматирования, чтобы соответствовать вашим требованиям к дизайну. На протяжении всей статьи детальные примеры кода иллюстрируют каждый шаг — от инициализации презентации и объекта диаграммы до настройки серий, осей и легенд. Следуя этому руководству, вы получите твердое понимание того, как интегрировать динамическую генерацию диаграмм в свои приложения, упростив процесс создания презентаций, основанных на данных.
+В этой статье представлено полное руководство по созданию и настройке диаграмм с помощью Aspose.Slides. Вы узнаете, как программно добавить диаграмму на слайд, заполнить её данными и применить различные параметры форматирования в соответствии с вашими требованиями к дизайну. На протяжении всей статьи подробные примеры кода иллюстрируют каждый шаг, от инициализации презентации и объекта диаграммы до настройки серий, осей и легенд. Следуя этому руководству, вы получите твердое понимание того, как интегрировать динамическое создание диаграмм в ваши приложения, упрощая процесс создания презентаций, основанных на данных.
 
 ## **Создание диаграммы**
 
-Диаграммы помогают быстро визуализировать данные и получать инсайты, которые могут быть неочевидны из таблицы или электронной таблицы.
+Диаграммы помогают быстро визуализировать данные и получать инсайты, которые могут быть не сразу очевидны из таблицы или электронной таблицы. 
 
 **Зачем создавать диаграммы?**
 
-С помощью диаграмм вы можете
+Используя диаграммы, вы можете
 
-* агрегировать, уплотнять или суммировать большие объёмы данных на одном слайде презентации
-* выявлять шаблоны и тенденции в данных
-* определять направление и динамику данных со временем или относительно определённой единицы измерения
-* обнаруживать выбросы, аномалии, отклонения, ошибки, нелогичные данные и т.п.
-* передавать сложные данные в понятной форме
+* агрегировать, сжимать или суммировать большие объёмы данных на одном слайде презентации
+* выявлять закономерности и тенденции в данных
+* определять направление и динамику данных во времени или относительно конкретной единицы измерения 
+* обнаруживать выбросы, аномалии, отклонения, ошибки, бессмысленные данные и т.д. 
+* передавать или представлять сложные данные
 
-В PowerPoint диаграммы создаются через функцию вставки, которая предоставляет шаблоны для проектирования различных типов диаграмм. С помощью Aspose.Slides вы можете создавать обычные диаграммы (на основе популярных типов) и пользовательские диаграммы.
+В PowerPoint вы можете создавать диаграммы с помощью функции вставки, которая предоставляет шаблоны для разработки различных типов диаграмм. С помощью Aspose.Slides можно создавать обычные диаграммы (на основе популярных типов) и пользовательские диаграммы. 
 
 {{% alert color="info" %}} 
 
-Чтобы вы могли создавать диаграммы, Aspose.Slides предоставляет перечисление [ChartType](https://reference.aspose.com/slides/ru/cpp/namespace/aspose.slides.charts#a23ba9ea390f5be4c8f5ab18baf4f8c05) в пространстве имён [Aspose::Slides::Charts](https://reference.aspose.com/slides/ru/cpp/namespace/aspose.slides.charts/). Значения этого перечисления соответствуют различным типам диаграмм. 
+Чтобы позволить вам создавать диаграммы, Aspose.Slides предоставляет перечисление [ChartType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/) в пространстве имён [Aspose::Slides::Charts](https://reference.aspose.com/slides/cpp/namespace/aspose.slides.charts/). Значения этого перечисления соответствуют разным типам диаграмм.
 
 {{% /alert %}} 
 
 ### **Создание обычных диаграмм**
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/cpp/class/aspose.slides.presentation).  
-1. Получите ссылку на слайд по его индексу.  
-1. Добавьте диаграмму с некоторыми данными и укажите желаемый тип диаграммы.  
-1. Добавьте заголовок для диаграммы.  
-1. Получите доступ к листу данных диаграммы.  
-1. Очистите все серии и категории по умолчанию.  
-1. Добавьте новые серии и категории.  
-1. Добавьте новые данные для серии диаграммы.  
-1. Добавьте цвет заливки для серии диаграммы.  
-1. Добавьте подписи для серии диаграммы.  
-1. Запишите изменённую презентацию в файл PPTX.  
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
+1. Получите ссылку на слайд по его индексу.
+1. Добавьте диаграмму с некоторыми данными и укажите предпочтительный тип диаграммы. 
+1. Добавьте заголовок к диаграмме. 
+1. Получите доступ к листу данных диаграммы.
+1. Очистите все серии и категории по умолчанию.
+1. Добавьте новые серии и категории.
+1. Добавьте новые данные диаграммы для серий.
+1. Установите цвет заливки для серии диаграммы.
+1. Добавьте метки для серии диаграммы. 
+1. Запишите изменённую презентацию в файл PPTX.
 
-Этот C++‑код показывает, как создать обычную диаграмму:
+Этот код на C++ показывает, как создать обычную диаграмму:
 
 ```c++
 #include <DOM/Chart/ChartType.h>
@@ -106,10 +106,10 @@ using namespace System::Drawing;
 // Путь к каталогу документов.
 	const String outPath = u"../out/NormalCharts_out.pptx";
 
-	// Создаёт объект презентации, представляющий файл PPTX
+	//Создаёт экземпляр класса презентации, представляющего файл PPTX
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
-	// Доступ к первому слайду
+	//Получает первый слайд
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
 	// Добавляет диаграмму с данными по умолчанию
@@ -119,7 +119,7 @@ using namespace System::Drawing;
 	// Устанавливает индекс листа данных диаграммы
 	int defaultWorksheetIndex = 0;
 
-	// Получает рабочую книгу данных диаграммы
+	// Получает лист данных диаграммы
 	SharedPtr<IChartDataWorkbook> fact = chart->get_ChartData()->get_ChartDataWorkbook();
 
 	// Устанавливает заголовок диаграммы
@@ -128,7 +128,7 @@ using namespace System::Drawing;
 	chart->get_ChartTitle()->set_Height(20);
 	chart->set_HasTitle( true);
 
-	// Удаляет автоматически сгенерированные серии и категории
+	// Удаляет автоматически созданные серии и категории
 	chart->get_ChartData()->get_Series()->Clear();
 	chart->get_ChartData()->get_Categories()->Clear();
 	int s = chart->get_ChartData()->get_Series()->get_Count();
@@ -171,14 +171,14 @@ using namespace System::Drawing;
 	series->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Green());
 
 
-	// Первый ярлык настроен на отображение имени категории
+	// Первая метка отображает название категории
 	SharedPtr<IDataLabel> lbl = series->get_DataPoints()->idx_get(0)->get_Label();
 	lbl->get_DataLabelFormat()->set_ShowCategoryName(true);
 
 	lbl = series->get_DataPoints()->idx_get(1)->get_Label();
 	lbl->get_DataLabelFormat()->set_ShowSeriesName (true);
 
-	// Отображает значение для третьего ярлыка
+	// Отображает значение на третьей метке
 	lbl = series->get_DataPoints()->idx_get(2)->get_Label();
 	lbl->get_DataLabelFormat()->set_ShowValue (true);
 	lbl->get_DataLabelFormat()->set_ShowSeriesName(true);
@@ -189,17 +189,17 @@ using namespace System::Drawing;
 
 ```
 
-### **Создание точечных (scatter) диаграмм**
-Точечные диаграммы (известные также как scatter‑plots или графики x‑y) часто используются для проверки шаблонов или демонстрации корреляций между двумя переменными.
+### **Создание точечных диаграмм**
+Точечные диаграммы (также известные как точечные графики или графики x-y) часто используются для проверки закономерностей или демонстрации корреляций между двумя переменными. 
 
-Вы можете использовать точечную диаграмму, когда
+Вы можете использовать точечную диаграмму, когда 
 
 * у вас есть парные числовые данные
-* у вас есть 2 переменные, которые логично сочетаются
-* вы хотите определить, связаны ли две переменные
-* у вас есть независимая переменная с несколькими значениями для зависимой переменной
+* у вас есть 2 переменных, которые хорошо согласуются друг с другом
+* вы хотите определить, связаны ли 2 переменных
+* у вас есть независимая переменная, имеющая несколько значений для зависимой переменной
 
-Этот C++‑код показывает, как создать точечную диаграмму с различными маркерами серии:
+Этот код на C++ показывает, как создать точечную диаграмму с различными маркерами серий: 
 
 ```c++
 #include <DOM/Chart/ChartType.h>
@@ -243,7 +243,7 @@ using namespace System;
 // Путь к каталогу документов.
 	const String outPath = u"../out/ScatteredChart_out.pptx";
 
-	//Создаёт объект презентации, представляющий файл PPTX
+	//Создаёт экземпляр класса презентации, представляющего файл PPTX
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
 	//Получает первый слайд
@@ -258,13 +258,13 @@ using namespace System;
 	chart->get_ChartTitle()->set_Height(20);
 	chart->set_HasTitle(true);
 
-	// Удаляет автоматически сгенерированные серии 
+	// Удаляет автоматически созданные серии 
 	chart->get_ChartData()->get_Series()->Clear();
 	
 	// Устанавливает индекс листа данных диаграммы
 	int defaultWorksheetIndex = 0;
 
-	// Получает рабочую книгу данных диаграммы
+	// Получает лист данных диаграммы
 	SharedPtr<IChartDataWorkbook> fact = chart->get_ChartData()->get_ChartDataWorkbook();
 
 
@@ -284,7 +284,7 @@ using namespace System;
 	// Изменяет тип серии
 	series->set_Type (ChartType::ScatterWithStraightLinesAndMarkers);
 
-	// Изменяет маркер серии диаграммы
+	// Меняет маркер серии диаграммы
 	series->get_Marker()->set_Size  (10);
 	series->get_Marker()->set_Symbol(MarkerStyleType::Star);
 
@@ -305,7 +305,7 @@ using namespace System;
 	// Добавляет новую точку (5:1)
 	series->get_DataPoints()->AddDataPointForScatterSeries(fact->GetCell(defaultWorksheetIndex, 5, 3, ObjectExt::Box<double>(5)), fact->GetCell(defaultWorksheetIndex, 5, 4, ObjectExt::Box<double>(1)));
 
-	// Изменяет маркер серии диаграммы
+	// Меняет маркер серии диаграммы
 	series->get_Marker()->set_Size ( 10);
 	series->get_Marker()->set_Symbol(MarkerStyleType::Circle);
 
@@ -347,7 +347,7 @@ using namespace System;
 	point2->get_Format()->get_Line()->set_DashStyle(LineDashStyle::LargeDashDotDot);
 
 
-	// Создаёт пользовательские подписи для каждой категории новой серии
+	// Создаёт пользовательские метки для каждой категории новой серии
 	SharedPtr<IDataLabel> lbl1 = series->get_DataPoints()->idx_get(0)->get_Label();
 
 	// lbl.ShowCategoryName = true;
@@ -364,7 +364,7 @@ using namespace System;
 	lbl3->get_DataLabelFormat()->set_ShowSeriesName(true);
 	lbl3->get_DataLabelFormat()->set_ShowPercentage(true);
 
-	// Показывает линии‑выноски для диаграммы
+	// Показывает выноски для диаграммы
 	series->get_Labels()->get_DefaultDataLabelFormat()->set_ShowLeaderLines(true);
 
 	// Устанавливает угол поворота секторов круговой диаграммы
@@ -376,22 +376,22 @@ using namespace System;
 ```
 
 ### **Создание круговых диаграмм**
-Круговые диаграммы лучше всего использовать для отображения соотношения часть‑к‑целому, особенно когда данные содержат категориальные метки с числовыми значениями. Однако, если в ваших данных много частей или меток, стоит рассмотреть возможность использования гистограммы.
+Круговые диаграммы лучше всего использовать для отображения соотношения части к целому в данных, особенно когда данные содержат категориальные метки с числовыми значениями. Однако если в ваших данных много частей или меток, может иметь смысл использовать гистограмму. 
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/cpp/class/aspose.slides.presentation).  
-1. Получите ссылку на слайд по его индексу.  
-1. Добавьте диаграмму с данными по умолчанию и укажите тип `ChartType.Pie`.  
-1. Получите доступ к объекту `IChartDataWorkbook`.  
-1. Очистите серии и категории по умолчанию.  
-1. Добавьте новые серии и категории.  
-1. Добавьте новые данные для серии диаграммы.  
-1. Добавьте новые точки и задайте пользовательские цвета секторов круговой диаграммы.  
-1. Установите подписи для серий.  
-1. Установите линии‑выноски для подписи серий.  
-1. Задайте угол поворота для слайдов с круговой диаграммой.  
-1. Запишите изменённую презентацию в файл PPTX.  
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
+1. Получите ссылку на слайд по его индексу.
+1. Добавьте диаграмму с данными по умолчанию и нужным типом (в этом случае `ChartType.Pie`).
+1. Получите доступ к объекту данных диаграммы IChartDataWorkbook.
+1. Очистите серии и категории по умолчанию.
+1. Добавьте новые серии и категории.
+1. Добавьте новые данные диаграммы для серий.
+1. Добавьте новые точки в диаграмму и задайте пользовательские цвета для секторов круговой диаграммы.
+1. Установите метки для серий.
+1. Установите выноски для меток серий.
+1. Установите угол вращения для слайдов с круговой диаграммой.
+1. Запишите изменённую презентацию в файл PPTX
 
-Этот C++‑код показывает, как создать круговую диаграмму:
+Этот код на C++ показывает, как создать круговую диаграмму:
 
 ```c++
 #include <DOM/Chart/ChartType.h>
@@ -409,6 +409,8 @@ using namespace System;
 #include <DOM/Chart/IDataLabelCollection.h>
 #include <DOM/Chart/IDataLabelFormat.h>
 #include <DOM/Chart/IFormat.h>
+#include <DOM/Chart/IMarker.h>
+#include <DOM/Chart/MarkerStyleType.h>
 #include <DOM/FillType.h>
 #include <DOM/IChart.h>
 #include <DOM/IColorFormat.h>
@@ -434,10 +436,10 @@ using namespace System;
 	// Путь к каталогу документов.
 	const String outPath = u"../out/PieChart_out.pptx";
 
-	// Создаёт объект Presentation, представляющий файл PPTX
+	//Создаёт экземпляр класса Presentation, представляющего файл PPTX
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
-	// Доступ к первому слайду
+	//Получает первый слайд
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
 	// Добавляет диаграмму с данными по умолчанию
@@ -449,14 +451,14 @@ using namespace System;
 	chart->get_ChartTitle()->set_Height(20);
 	chart->set_HasTitle(true);
 
-	// Удаляет автоматически сгенерированные серии и категории
+	// Удаляет автоматически созданные серии и категории
 	chart->get_ChartData()->get_Series()->Clear();
 	chart->get_ChartData()->get_Categories()->Clear();
 
 	// Устанавливает индекс листа данных диаграммы
 	int defaultWorksheetIndex = 0;
 
-	// Получает рабочую книгу данных диаграммы
+	// Получает лист данных диаграммы
 	SharedPtr<IChartDataWorkbook> fact = chart->get_ChartData()->get_ChartDataWorkbook();
 
 	// Добавляет категории
@@ -511,7 +513,7 @@ using namespace System;
 	point2->get_Format()->get_Line()->set_DashStyle(LineDashStyle::LargeDashDotDot);
 
 
-	// Создаёт пользовательские подписи для каждой категории новой серии
+	// Создаёт пользовательские метки для каждой категории новой серии
 	SharedPtr<IDataLabel> lbl1 = series->get_DataPoints()->idx_get(0)->get_Label();
 
 	// lbl.ShowCategoryName = true;
@@ -528,7 +530,7 @@ using namespace System;
 	lbl3->get_DataLabelFormat()->set_ShowSeriesName(true);
 	lbl3->get_DataLabelFormat()->set_ShowPercentage(true);
 
-	// Устанавливает отображение линий‑выноски для диаграммы
+	// Устанавливает отображение выносных линий для диаграммы
 	series->get_Labels()->get_DefaultDataLabelFormat()->set_ShowLeaderLines ( true);
 
 	// Устанавливает угол поворота секторов круговой диаграммы
@@ -541,18 +543,18 @@ using namespace System;
 
 ### **Создание линейных диаграмм**
 
-Линейные диаграммы (известные также как line graphs) лучше всего подходят, когда нужно показать изменение значений во времени. С помощью линейных диаграмм можно сравнивать большие объёмы данных, отслеживать изменения и тенденции, выделять аномалии в рядах данных и т.д.
+Линейные диаграммы (также известные как линейные графики) лучше всего использовать в ситуациях, когда необходимо продемонстрировать изменения значений во времени. С помощью линейной диаграммы можно сравнивать множество данных одновременно, отслеживать изменения и тенденции во времени, выделять аномалии в сериях данных и т.д.
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/cpp/class/aspose.slides.presentation).  
-1. Получите ссылку на слайд по его индексу.  
-1. Добавьте диаграмму с данными по умолчанию и укажите тип `ChartType::Line`.  
-1. Получите доступ к объекту `IChartDataWorkbook`.  
-1. Очистите серии и категории по умолчанию.  
-1. Добавьте новые серии и категории.  
-1. Добавьте новые данные для серии диаграммы.  
-1. Запишите изменённую презентацию в файл PPTX.  
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
+1. Получите ссылку на слайд по его индексу.
+1. Добавьте диаграмму с данными по умолчанию и нужным типом (в этом случае `ChartType::Line`).
+1. Получите доступ к листу данных диаграммы IChartDataWorkbook.
+1. Очистите серии и категории по умолчанию.
+1. Добавьте новые серии и категории.
+1. Добавьте новые данные диаграммы для серий.
+1. Запишите изменённую презентацию в файл PPTX
 
-Этот C++‑код показывает, как создать линейную диаграмму:
+Этот код на C++ показывает, как создать линейную диаграмму:
 
 ```c++
 #include <DOM/Chart/ChartType.h>
@@ -572,7 +574,7 @@ System::SharedPtr<IChart> lineChart = pres->get_Slides()->idx_get(0)->get_Shapes
 pres->Save(u"lineChart.pptx", SaveFormat::Pptx);
 ```
 
-По умолчанию точки в линейной диаграмме соединяются сплошными прямыми линиями. Если нужно соединять их пунктиром, укажите желаемый тип штриха следующим образом:
+По умолчанию точки на линейной диаграмме соединяются сплошными прямыми линиями. Если вы хотите соединять точки пунктиром, вы можете указать предпочтительный тип штриха следующим образом:
 
 ```c++
 #include <DOM/Chart/ChartType.h>
@@ -600,19 +602,18 @@ for (auto&& series : lineChart->get_ChartData()->get_Series())
 ```
 
 ### **Создание диаграмм Tree Map**
+Диаграммы Tree Map лучше всего подходят для данных о продажах, когда нужно показать относительный размер категорий данных и одновременно быстро привлечь внимание к элементам, вносящим наибольший вклад в каждую категорию. 
 
-Диаграммы Tree Map лучше всего подходят для отображения данных о продажах, когда необходимо показать относительный размер категорий и одновременно быстро обратить внимание на крупнейших участников каждой категории.
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
+1. Получите ссылку на слайд по его индексу.
+1. Добавьте диаграмму с данными по умолчанию и нужным типом (в этом случае `ChartType.TreeMap`).
+1. Получите доступ к листу данных диаграммы IChartDataWorkbook.
+1. Очистите серии и категории по умолчанию.
+1. Добавьте новые серии и категории.
+1. Добавьте новые данные диаграммы для серий.
+1. Запишите изменённую презентацию в файл PPTX
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/cpp/class/aspose.slides.presentation).  
-1. Получите ссылку на слайд по его индексу.  
-1. Добавьте диаграмму с данными по умолчанию и укажите тип `ChartType.TreeMap`.  
-1. Получите доступ к объекту `IChartDataWorkbook`.  
-1. Очистите серии и категории по умолчанию.  
-1. Добавьте новые серии и категории.  
-1. Добавьте новые данные для серии диаграммы.  
-1. Запишите изменённую презентацию в файл PPTX.  
-
-Этот C++‑код показывает, как создать диаграмму Tree Map:
+Этот код на C++ показывает, как создать диаграмму Tree Map:
 
 ```c++
 #include <DOM/Chart/ChartType.h>
@@ -642,7 +643,7 @@ using namespace System;
 // Путь к каталогу документов.
 	const String outPath = u"../out/TreemapChart_out.pptx";
 
-	// Создаёт объект Presentation, представляющий файл PPTX
+	//Создаёт экземпляр класса Presentation, представляющего файл PPTX
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
 	// Получает первый слайд
@@ -699,17 +700,17 @@ using namespace System;
 ```
 
 ### **Создание биржевых диаграмм**
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/cpp/class/aspose.slides.presentation).  
-1. Получите ссылку на слайд по его индексу.  
-1. Добавьте диаграмму с данными по умолчанию и укажите тип `ChartType.OpenHighLowClose`.  
-1. Получите доступ к объекту `IChartDataWorkbook`.  
-1. Очистите серии и категории по умолчанию.  
-1. Добавьте новые серии и категории.  
-1. Добавьте новые данные для серии диаграммы.  
-1. Укажите формат HiLowLines.  
-1. Запишите изменённую презентацию в файл PPTX.  
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
+1. Получите ссылку на слайд по его индексу.
+1. Добавьте диаграмму с данными по умолчанию и нужным типом (ChartType.OpenHighLowClose).
+1. Получите доступ к листу данных диаграммы IChartDataWorkbook.
+1. Очистите серии и категории по умолчанию.
+1. Добавьте новые серии и категории.
+1. Добавьте новые данные диаграммы для серий.
+1. Укажите формат HiLowLines.
+1. Запишите изменённую презентацию в файл PPTX
 
-Пример C++‑кода для создания биржевой диаграммы:
+Пример кода на C++, используемого для создания биржевой диаграммы:
 
 ```c++
 #include <DOM/Chart/ChartType.h>
@@ -742,7 +743,7 @@ using namespace System;
 	// Путь к каталогу документов.
 	const String outPath = u"../out/AddStockChart_out.pptx";
 
-	// Создаёт объект Presentation, представляющий файл PPTX.
+	// Создаёт экземпляр класса Presentation, представляющего файл PPTX.
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
 	// Получает первый слайд.
@@ -755,7 +756,7 @@ using namespace System;
 	// Устанавливает индекс листа данных диаграммы.
 	int defaultWorksheetIndex = 0;
 
-	// Получает рабочую книгу данных диаграммы.
+	// Получает лист данных диаграммы.
 	SharedPtr<IChartDataWorkbook> fact = chart->get_ChartData()->get_ChartDataWorkbook();
 
 
@@ -818,16 +819,16 @@ using namespace System;
 ```
 
 ### **Создание диаграмм Box and Whisker**
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/cpp/class/aspose.slides.presentation).  
-1. Получите ссылку на слайд по его индексу.  
-1. Добавьте диаграмму с данными по умолчанию и укажите тип `ChartType.BoxAndWhisker`.  
-1. Получите доступ к объекту `IChartDataWorkbook`.  
-1. Очистите серии и категории по умолчанию.  
-1. Добавьте новые серии и категории.  
-1. Добавьте новые данные для серии диаграммы.  
-1. Запишите изменённую презентацию в файл PPTX.  
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
+1. Получите ссылку на слайд по его индексу.
+1. Добавьте диаграмму с данными по умолчанию и нужным типом (ChartType.BoxAndWhisker).
+1. Получите доступ к листу данных диаграммы IChartDataWorkbook.
+1. Очистите серии и категории по умолчанию.
+1. Добавьте новые серии и категории.
+1. Добавьте новые данные диаграммы для серий.
+1. Запишите изменённую презентацию в файл PPTX
 
-Этот C++‑код показывает, как создать диаграмму Box and Whisker:
+Этот код на C++ показывает, как создать диаграмму Box and Whisker:
 
 ```c++
 #include <DOM/Chart/ChartType.h>
@@ -853,10 +854,10 @@ using namespace System;
 	// Путь к каталогу документов.
 	const String outPath = u"../out/BoxAndWhisker_out.pptx";
 
-	//Создаёт объект Presentation, представляющий файл PPTX
+	// Создаёт экземпляр класса Presentation, представляющего файл PPTX.
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
-	//Получает первый слайд
+	// Получает первый слайд.
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
 	System::SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::BoxAndWhisker, 50, 50, 500, 400);
@@ -890,17 +891,17 @@ using namespace System;
 	series->get_DataPoints()->AddDataPointForBoxAndWhiskerSeries(wb->GetCell(0, u"B6", System::ObjectExt::Box<int32_t>(16)));
 
 
-	// Сохраняет презентацию
+	// Сохраняет презентацию.
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
 ### **Создание воронкообразных диаграмм**
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/cpp/class/aspose.slides.presentation).  
-1. Получите ссылку на слайд по его индексу.  
-1. Добавьте диаграмму с данными по умолчанию и укажите тип `ChartType.Funnel`.  
-1. Запишите изменённую презентацию в файл PPTX.  
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
+1. Получите ссылку на слайд по его индексу.
+1. Добавьте диаграмму с данными по умолчанию и нужным типом (ChartType.Funnel).
+1. Запишите изменённую презентацию в файл PPTX
 
-Этот C++‑код показывает, как создать воронкообразную диаграмму:
+Этот код на C++ показывает, как создать воронкообразную диаграмму:
 
 ```c++
 #include <DOM/Chart/ChartType.h>
@@ -925,7 +926,7 @@ using namespace System;
 	// Путь к каталогу документов.
 	const String outPath = u"../out/FunnelChart_out.pptx";
 
-	// Создаёт объект Presentation, представляющий файл PPTX.
+	// Создаёт экземпляр класса Presentation, представляющего файл PPTX.
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
 	// Получает первый слайд.
@@ -960,13 +961,13 @@ using namespace System;
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-### **Создание диаграмм Sunburst**
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/cpp/class/aspose.slides.presentation).  
-1. Получите ссылку на слайд по его индексу.  
-1. Добавьте диаграмму с данными по умолчанию и укажите тип `ChartType.sunburst`.  
-1. Запишите изменённую презентацию в файл PPTX.  
+### **Создание Sunburst диаграмм**
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
+1. Получите ссылку на слайд по его индексу.
+1. Добавьте диаграмму с данными по умолчанию и нужным типом (в этом случае `ChartType.sunburst`).
+1. Запишите изменённую презентацию в файл PPTX
 
-Этот C++‑код показывает, как создать диаграмму Sunburst:
+Этот код на C++ показывает, как создать Sunburst диаграмму:
 
 ```c++
 #include <DOM/Chart/ChartType.h>
@@ -995,10 +996,10 @@ using namespace System;
 	// Путь к каталогу документов.
 	const String outPath = u"../out/SunburstChart_out.pptx";
 
-	// Создаёт объект Presentation, представляющий файл PPTX
+	// Создаёт экземпляр класса Presentation, представляющего файл PPTX.
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
-	// Доступ к первому слайду
+	// Получает первый слайд.
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
 	System::SharedPtr<IChart> chart=slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::Sunburst, 50, 50, 500, 400);
@@ -1050,15 +1051,15 @@ using namespace System;
 ```
 
 ### **Создание гистограмм**
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/cpp/class/aspose.slides.presentation).  
-1. Получите ссылку на слайд по его индексу.  
-1. Добавьте диаграмму с данными и укажите тип `ChartType.Histogram`.  
-1. Получите доступ к объекту `IChartDataWorkbook`.  
-1. Очистите серии и категории по умолчанию.  
-1. Добавьте новые серии и категории.  
-1. Запишите изменённую презентацию в файл PPTX.  
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
+1. Получите ссылку на слайд по его индексу. 
+1. Добавьте диаграмму с некоторыми данными и укажите предпочтительный тип диаграммы (`ChartType.Histogram` в данном случае).
+1. Получите доступ к листу данных диаграммы `IChartDataWorkbook`.
+1. Очистите серии и категории по умолчанию.
+1. Добавьте новые серии и категории.
+1. Запишите изменённую презентацию в файл PPTX.
 
-Этот C++‑код показывает, как создать гистограмму:
+Этот код на C++ показывает, как создать гистограмму:
 
 ```c++
 #include <DOM/Chart/AxisAggregationType.h>
@@ -1086,10 +1087,10 @@ using namespace System;
 	// Путь к каталогу документов.
 	const String outPath = u"../out/HistogramChart_out.pptx";
 
-	// Создаёт объект Presentation, представляющий файл PPTX
+	// Создаёт экземпляр класса Presentation, представляющего файл PPTX.
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
-	// Получает первый слайд
+	// Получает первый слайд.
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
 	System::SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::Histogram, 50, 50, 500, 400);
@@ -1110,18 +1111,18 @@ using namespace System;
 
 	chart->get_Axes()->get_HorizontalAxis()->set_AggregationType(Aspose::Slides::Charts::AxisAggregationType::Automatic);
 
-	// Сохраняет презентацию
+	// Сохраняет презентацию.
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-### **Создание радиальных (radar) диаграмм**
+### **Создание Radar диаграмм**
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/cpp/class/aspose.slides.presentation).  
-1. Получите ссылку на слайд по его индексу.  
-1. Добавьте диаграмму с данными и укажите тип `ChartType.Radar`.  
-1. Запишите изменённую презентацию в файл PPTX.  
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
+1. Получите ссылку на слайд по его индексу. 
+1. Добавьте диаграмму с некоторыми данными и укажите предпочтительный тип диаграммы (`ChartType.Radar` в этом случае).
+1. Запишите изменённую презентацию в файл PPTX
 
-Этот C++‑код показывает, как создать радиальную диаграмму:
+Этот код на C++ показывает, как создать Radar диаграмму:
 
 ```c++
 #include <DOM/Chart/ChartType.h>
@@ -1138,18 +1139,18 @@ presentation->get_Slides()->idx_get(0)->get_Shapes()->AddChart(Aspose::Slides::C
 presentation->Save(u"Radar-chart.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-### **Создание мульти‑категориальных диаграмм**
+### **Создание многокатегориальных диаграмм**
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/cpp/class/aspose.slides.presentation).  
-1. Получите ссылку на слайд по его индексу.  
-1. Добавьте диаграмму с данными по умолчанию и укажите тип `ChartType.ClusteredColumn`.  
-1. Получите доступ к объекту `IChartDataWorkbook`.  
-1. Очистите серии и категории по умолчанию.  
-1. Добавьте новые серии и категории.  
-1. Добавьте новые данные для серии диаграммы.  
-1. Запишите изменённую презентацию в файл PPTX.  
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
+1. Получите ссылку на слайд по его индексу. 
+1. Добавьте диаграмму с данными по умолчанию и нужным типом (ChartType.ClusteredColumn).
+1. Получите доступ к листу данных диаграммы IChartDataWorkbook.
+1. Очистите серии и категории по умолчанию.
+1. Добавьте новые серии и категории.
+1. Добавьте новые данные диаграммы для серий.
+1. Запишите изменённую презентацию в файл PPTX.
 
-Этот C++‑код показывает, как создать мульти‑категориальную диаграмму:
+Этот код на C++ показывает, как создать диаграмму с несколькими категориями:
 
 ```c++
 #include <DOM/Chart/ChartType.h>
@@ -1177,22 +1178,22 @@ using namespace System;
 	// Путь к каталогу документов.
 	const String outPath = u"../out/MultiCategoryChart_out.pptx";
 
-	//Создаёт объект Presentation, представляющий файл PPTX
+	// Создаёт экземпляр класса Presentation, представляющего файл PPTX.
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
-	//Получает первый слайд
+	// Получает первый слайд.
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
-	// Добавляет диаграмму с данными по умолчанию
+	// Добавляет диаграмму с данными по умолчанию.
 	SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::ClusteredColumn, 0, 0, 500, 500);
 
-	// Устанавливает индекс листа данных диаграммы
+	// Устанавливает индекс листа данных диаграммы.
 	int defaultWorksheetIndex = 0;
 
-	// Получает рабочую книгу данных диаграммы
+	// Получает лист данных диаграммы.
 	SharedPtr<IChartDataWorkbook> fact = chart->get_ChartData()->get_ChartDataWorkbook();
 
-	// Очищает рабочую книгу
+	// Очищает книгу данных.
 	fact->Clear(defaultWorksheetIndex);
 
 	chart->get_ChartData()->get_Series()->Clear();
@@ -1230,15 +1231,15 @@ using namespace System;
 	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, u"D8", ObjectExt::Box<double>(70)));
 	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, u"D9", ObjectExt::Box<double>(80)));
 
-	// Сохраняет презентацию
+	// Сохраняет презентацию.
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
 ### **Создание картографических диаграмм**
 
-Картографическая диаграмма визуализирует область, содержащую данные. Такие диаграммы лучше всего использовать для сравнения данных или значений по географическим регионам.
+Картографическая диаграмма визуализирует область с данными. Такие диаграммы лучше всего использовать для сравнения данных или значений по географическим регионам.
 
-Этот C++‑код показывает, как создать картографическую диаграмму:
+Этот код на C++ показывает, как создать картографическую диаграмму:
 
 ```c++
 #include <DOM/Chart/ChartType.h>
@@ -1259,11 +1260,11 @@ pres->Save(u"mapChart.pptx", SaveFormat::Pptx);
 
 ### **Создание комбинированных диаграмм**
 
-Комбинированная диаграмма (combo chart) сочетает два или более типа диаграмм в одном графике. Такая диаграмма позволяет выделять, сравнивать или исследовать различия между несколькими наборами данных, помогая выявлять взаимосвязи между ними.
+Комбинированная диаграмма (или combo‑диаграмма) объединяет два или более типов диаграмм в одном графике. Такая диаграмма позволяет выделять, сравнивать или изучать различия между двумя и более наборами данных, помогая выявлять взаимосвязи между ними.
 
-![Комбинированный график](combination_chart.png)
+![The combination chart](combination_chart.png)
 
-Следующий C++‑код демонстрирует, как создать комбинированную диаграмму, показанную выше, в презентации PowerPoint:
+Следующий код на C++ показывает, как создать комбинированную диаграмму, показанную выше, в презентации PowerPoint:
 
 ```cpp
 #include <DOM/Chart/AxisPositionType.h>
@@ -1311,7 +1312,7 @@ static SharedPtr<IChart> CreateChartWithFirstSeries(SharedPtr<ISlide> slide)
 {
     auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 50, 50, 600, 400);
 
-    // Установить заголовок диаграммы.
+    // Устанавливает заголовок диаграммы.
     chart->set_HasTitle(true);
     chart->get_ChartTitle()->AddTextFrameForOverriding(u"Chart Title");
     chart->get_ChartTitle()->set_Overlay(false);
@@ -1320,24 +1321,24 @@ static SharedPtr<IChart> CreateChartWithFirstSeries(SharedPtr<ISlide> slide)
     titleFormat->set_FontBold(NullableBool::False);
     titleFormat->set_FontHeight(18.0);
 
-    // Установить легенду диаграммы.
+    // Устанавливает легенду диаграммы.
     chart->get_Legend()->set_Position(LegendPositionType::Bottom);
     chart->get_Legend()->get_TextFormat()->get_PortionFormat()->set_FontHeight(12.0);
 
-    // Удалить автоматически сгенерированные серии и категории.
+    // Удаляет автоматически сгенерированные серии и категории.
     chart->get_ChartData()->get_Series()->Clear();
     chart->get_ChartData()->get_Categories()->Clear();
 
     const int worksheetIndex = 0;
     auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
 
-    // Добавить новые категории.
+    // Добавляет новые категории.
     chart->get_ChartData()->get_Categories()->Add(workbook->GetCell(worksheetIndex, 1, 0, ObjectExt::Box<String>(u"Category 1")));
     chart->get_ChartData()->get_Categories()->Add(workbook->GetCell(worksheetIndex, 2, 0, ObjectExt::Box<String>(u"Category 2")));
     chart->get_ChartData()->get_Categories()->Add(workbook->GetCell(worksheetIndex, 3, 0, ObjectExt::Box<String>(u"Category 3")));
     chart->get_ChartData()->get_Categories()->Add(workbook->GetCell(worksheetIndex, 4, 0, ObjectExt::Box<String>(u"Category 4")));
 
-    // Добавить первую серию.
+    // Добавляет первую серию.
     auto seriesNameCell = workbook->GetCell(worksheetIndex, 0, 1, ObjectExt::Box<String>(u"Series 1"));
     auto series = chart->get_ChartData()->get_Series()->Add(seriesNameCell, chart->get_Type());
 
@@ -1397,21 +1398,21 @@ static void SetAxisTitle(SharedPtr<IAxis> axis, String axisTitle)
 
 static void SetPrimaryAxesFormat(SharedPtr<IChart> chart)
 {
-    // Установить горизонтальную ось.
+    // Устанавливает горизонтальную ось.
     auto horizontalAxis = chart->get_Axes()->get_HorizontalAxis();
     horizontalAxis->get_TextFormat()->get_PortionFormat()->set_FontHeight(12.0);
     horizontalAxis->get_Format()->get_Line()->get_FillFormat()->set_FillType(FillType::NoFill);
 
     SetAxisTitle(horizontalAxis, u"X Axis");
 
-    // Установить вертикальную ось.
+    // Устанавливает вертикальную ось.
     auto verticalAxis = chart->get_Axes()->get_VerticalAxis();
     verticalAxis->get_TextFormat()->get_PortionFormat()->set_FontHeight(12.0);
     verticalAxis->get_Format()->get_Line()->get_FillFormat()->set_FillType(FillType::NoFill);
 
     SetAxisTitle(verticalAxis, u"Y Axis 1");
 
-    // Установить цвет основных линий сетки вертикальной оси.
+    // Устанавливает цвет основных линий сетки по вертикали.
     auto majorGridLinesFormat = verticalAxis->get_MajorGridLinesFormat()->get_Line()->get_FillFormat();
     majorGridLinesFormat->set_FillType(FillType::Solid);
     majorGridLinesFormat->get_SolidFillColor()->set_Color(Color::FromArgb(217, 217, 217));
@@ -1419,7 +1420,7 @@ static void SetPrimaryAxesFormat(SharedPtr<IChart> chart)
 
 static void SetSecondaryAxesFormat(SharedPtr<IChart> chart)
 {
-    // Установить вторичную горизонтальную ось.
+    // Устанавливает вторичную горизонтальную ось.
     auto secondaryHorizontalAxis = chart->get_Axes()->get_SecondaryHorizontalAxis();
     secondaryHorizontalAxis->set_Position(AxisPositionType::Bottom);
     secondaryHorizontalAxis->set_CrossType(CrossesType::Maximum);
@@ -1427,7 +1428,7 @@ static void SetSecondaryAxesFormat(SharedPtr<IChart> chart)
     secondaryHorizontalAxis->get_MajorGridLinesFormat()->get_Line()->get_FillFormat()->set_FillType(FillType::NoFill);
     secondaryHorizontalAxis->get_MinorGridLinesFormat()->get_Line()->get_FillFormat()->set_FillType(FillType::NoFill);
 
-    // Установить вторичную вертикальную ось.
+    // Устанавливает вторичную вертикальную ось.
     auto secondaryVerticalAxis = chart->get_Axes()->get_SecondaryVerticalAxis();
     secondaryVerticalAxis->set_Position(AxisPositionType::Right);
     secondaryVerticalAxis->get_TextFormat()->get_PortionFormat()->set_FontHeight(12.0);
@@ -1458,15 +1459,15 @@ static void CreateComboChart()
 
 ## **Обновление диаграмм**
 
-1. Создайте объект класса [Presentation](https://reference.aspose.com/slides/ru/cpp/class/aspose.slides.presentation), представляющий презентацию с нужной диаграммой.  
-2. Получите ссылку на слайд по его индексу.  
-3. Пройдитесь по всем фигурам, чтобы найти требуемую диаграмму.  
-4. Получите доступ к листу данных диаграммы.  
-5. Измените данные серии, изменив значения серии.  
-6. Добавьте новую серию и заполните её данными.  
-7. Сохраните изменённую презентацию в файл PPTX.  
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation), представляющего презентацию, содержащую диаграмму.
+1. Получите ссылку на слайд по его индексу.
+1. Пройдитесь по всем фигурам, чтобы найти нужную диаграмму.
+1. Получите доступ к листу данных диаграммы.
+1. Измените данные серии диаграммы, изменив значения серии.
+1. Добавьте новую серию и заполните её данными.
+1. Запишите изменённую презентацию в файл PPTX.
 
-Этот C++‑код показывает, как обновить диаграмму:
+Этот код на C++ показывает, как обновить диаграмму:
 
 ```c++
 #include <DOM/Chart/ChartType.h>
@@ -1486,73 +1487,75 @@ static void CreateComboChart()
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Charts;
 
-// Создаёт объект Presentation, представляющий файл PPTX
+//	Создаёт экземпляр класса Presentation, представляющего файл PPTX.
 System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"ExistingChart.pptx");
 
-// Получает первый слайд
+//	Получает первый слайд.
 System::SharedPtr<ISlide> sld = pres->get_Slides()->idx_get(0);
 
-// Добавляет диаграмму с данными по умолчанию
+//	Добавляет диаграмму с данными по умолчанию.
 System::SharedPtr<IChart> chart = System::ExplicitCast<Aspose::Slides::Charts::IChart>(sld->get_Shapes()->idx_get(0));
 
-// Устанавливает индекс листа данных диаграммы
+//	Устанавливает индекс листа данных диаграммы.
 int32_t defaultWorksheetIndex = 0;
 
-// Получает рабочую книгу данных диаграммы
+//	Получает лист данных диаграммы.
 System::SharedPtr<IChartDataWorkbook> fact = chart->get_ChartData()->get_ChartDataWorkbook();
 
 
-// Изменяет название категории диаграммы
+//	Изменяет название категории диаграммы.
 fact->GetCell(defaultWorksheetIndex, 1, 0, System::ObjectExt::Box<System::String>(u"Modified Category 1"));
 fact->GetCell(defaultWorksheetIndex, 2, 0, System::ObjectExt::Box<System::String>(u"Modified Category 2"));
 
-// Берёт первую серию диаграммы
+//	Берёт первую серию диаграммы.
 System::SharedPtr<IChartSeries> series = chart->get_ChartData()->get_Series()->idx_get(0);
 
-// Обновляет данные серии
+//	Обновляет данные серии.
 fact->GetCell(defaultWorksheetIndex, 0, 1, System::ObjectExt::Box<System::String>(u"New_Series1"));
-// Изменение имени серии
+//	Изменение названия серии
 series->get_DataPoints()->idx_get(0)->get_Value()->set_Data(System::ObjectExt::Box<int32_t>(90));
 series->get_DataPoints()->idx_get(1)->get_Value()->set_Data(System::ObjectExt::Box<int32_t>(123));
 series->get_DataPoints()->idx_get(2)->get_Value()->set_Data(System::ObjectExt::Box<int32_t>(44));
 
-// Берёт вторую серию диаграммы
+//	Берёт вторую серию диаграммы.
 series = chart->get_ChartData()->get_Series()->idx_get(1);
 
-// Сейчас обновляются данные серии
+//	Сейчас обновляются данные серии.
 fact->GetCell(defaultWorksheetIndex, 0, 2, System::ObjectExt::Box<System::String>(u"New_Series2"));
-// Изменение имени серии
+//	Изменение названия серии
 series->get_DataPoints()->idx_get(0)->get_Value()->set_Data(System::ObjectExt::Box<int32_t>(23));
 series->get_DataPoints()->idx_get(1)->get_Value()->set_Data(System::ObjectExt::Box<int32_t>(67));
 series->get_DataPoints()->idx_get(2)->get_Value()->set_Data(System::ObjectExt::Box<int32_t>(99));
 
 
-// Теперь добавляем новую серию
+//	Сейчас добавляется новая серия.
 chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 0, 3, System::ObjectExt::Box<System::String>(u"Series 3")), chart->get_Type());
 
-// Берём третью серию диаграммы
+//	Берёт третью серию диаграммы.
 series = chart->get_ChartData()->get_Series()->idx_get(2);
 
-// Сейчас заполняются данные серии
+//	Сейчас заполняются данные серии.
 series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 1, 3, System::ObjectExt::Box<int32_t>(20)));
 series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 2, 3, System::ObjectExt::Box<int32_t>(50)));
 series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 3, 3, System::ObjectExt::Box<int32_t>(30)));
 
 chart->set_Type(Aspose::Slides::Charts::ChartType::ClusteredCylinder);
 
-// Сохраняет презентацию с диаграммой
+//	Сохраняет презентацию с диаграммой.
 pres->Save(u"AsposeChartModified_out.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
 ## **Установка диапазона данных для диаграмм**
 
-1. Откройте объект класса [Presentation](https://reference.aspose.com/slides/ru/cpp/class/aspose.slides.presentation), содержащий диаграмму.  
-2. Получите ссылку на слайд по его индексу.  
-3. Пройдитесь по всем фигурам, чтобы найти нужную диаграмму.  
-4. Получите доступ к данным диаграммы и задайте диапазон.  
-5. Сохраните изменённую презентацию в файл PPTX.  
+Чтобы просмотреть диапазон, уже используемый существующей диаграммой, см. [Получить диапазон данных диаграммы](/slides/ru/cpp/chart-workbook/#retrieve-a-charts-data-range).
 
-Этот C++‑код показывает, как задать диапазон данных для диаграммы:
+1. Откройте экземпляр класса [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation), содержащий диаграмму.
+1. Получите ссылку на слайд по его индексу.
+1. Пройдитесь по всем фигурам, чтобы найти нужную диаграмму.
+1. Получите доступ к данным диаграммы и задайте диапазон.
+1. Сохраните изменённую презентацию в файл PPTX.
+
+Этот код на C++ показывает, как задать диапазон данных для диаграммы:
 
 ```cpp
 #include <DOM/Chart/IChartData.h>
@@ -1571,7 +1574,7 @@ using namespace System;
 // Путь к каталогу документов.
 String dataDir = u"../documents/";
 
-// Создаёт объект Presentation, представляющий файл PPTX.
+// Создаёт экземпляр класса Presentation, представляющего файл PPTX.
 auto presentation = System::MakeObject<Presentation>(dataDir + u"ExistingChart.pptx");
 
 // Получает первый слайд и добавляет диаграмму с данными по умолчанию.
@@ -1581,10 +1584,10 @@ chart->get_ChartData()->SetRange(u"Sheet1!A1:B4");
 presentation->Save(dataDir + u"SetDataRange_out.pptx", SaveFormat::Pptx);
 ```
 
-## **Использование стандартных маркеров в диаграммах**
-При использовании стандартных маркеров в диаграммах каждая серия автоматически получает отдельный маркер по умолчанию.
+## **Использование маркеров по умолчанию в диаграммах**
+При использовании маркеров по умолчанию в диаграммах, каждая серия получает автоматически различные символы маркеров.
 
-Этот C++‑код показывает, как автоматически задать маркер серии диаграммы:
+Этот код на C++ показывает, как автоматически задать маркер серии диаграммы:
 
 ``` cpp
 #include <DOM/Chart/ChartType.h>
@@ -1634,10 +1637,10 @@ series->get_DataPoints()->AddDataPointForLineSeries(wb->GetCell(0, 4, 1, nullptr
 
 chart->get_ChartData()->get_Series()->Add(wb->GetCell(0, 0, 2, ObjectExt::Box<String>(u"Series 2")), chart->get_Type());
 
-// Takes the second chart series
+// Берёт вторую серию диаграммы
 auto series2 = chart->get_ChartData()->get_Series()->idx_get(1);
 
-// Populates the series data
+// Заполняет данные серии
 series2->get_DataPoints()->AddDataPointForLineSeries(wb->GetCell(0, 1, 2, ObjectExt::Box<int32_t>(30)));
 series2->get_DataPoints()->AddDataPointForLineSeries(wb->GetCell(0, 2, 2, ObjectExt::Box<int32_t>(10)));
 series2->get_DataPoints()->AddDataPointForLineSeries(wb->GetCell(0, 3, 2, ObjectExt::Box<int32_t>(60)));
@@ -1653,16 +1656,16 @@ pres->Save(dataDir + u"DefaultMarkersInChart.pptx", SaveFormat::Pptx);
 
 **Какие типы диаграмм поддерживает Aspose.Slides?**
 
-Aspose.Slides поддерживает широкий спектр типов диаграмм, включая столбчатые, линейные, круговые, областные, точечные, гистограммы, радиальные и многие другие. Такая гибкость позволяет выбрать наиболее подходящий тип диаграммы для визуализации ваших данных.
+Aspose.Slides поддерживает широкий набор типов диаграмм, включая столбчатые, линейные, круговые, областные, точечные, гистограммы, радиальные и многие другие. Эта гибкость позволяет выбрать наиболее подходящий тип диаграммы для ваших задач визуализации данных.
 
 **Как добавить новую диаграмму на слайд?**
 
-Чтобы добавить диаграмму, сначала создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/cpp/aspose.slides/presentation/), получите нужный слайд по индексу, а затем вызовите метод добавления диаграммы, указав тип диаграммы и начальные данные. Этот процесс интегрирует диаграмму непосредственно в вашу презентацию.
+Чтобы добавить диаграмму, сначала создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/), получите нужный слайд по его индексу, а затем вызовите метод добавления диаграммы, указав тип диаграммы и начальные данные. Этот процесс интегрирует диаграмму непосредственно в вашу презентацию.
 
 **Как обновить данные, отображаемые в диаграмме?**
 
-Вы можете обновить данные диаграммы, получив доступ к её рабочей книге данных ([IChartDataWorkbook](https://reference.aspose.com/slides/ru/cpp/aspose.slides.charts/ichartdataworkbook/)), очистив любые серии и категории по умолчанию и затем добавив свои пользовательские данные. Это позволяет программно обновлять диаграмму в соответствии с последними данными.
+Вы можете обновить данные диаграммы, получив доступ к её рабочей книге данных ([IChartDataWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/)), очистив любые серии и категории по умолчанию, а затем добавив свои пользовательские данные. Это позволяет программно обновить диаграмму, чтобы она отражала актуальные данные.
 
 **Можно ли настроить внешний вид диаграммы?**
 
-Да, Aspose.Slides предоставляет обширные возможности настройки. Вы можете менять цвета, шрифты, подписи, легенды и другие элементы форматирования, чтобы адаптировать внешний вид диаграммы под конкретные требования дизайна.
+Да, Aspose.Slides предоставляет обширные возможности настройки. Вы можете изменять цвета, шрифты, метки, легенды и другие элементы форматирования, чтобы адаптировать внешний вид диаграммы к вашим конкретным требованиям дизайна.

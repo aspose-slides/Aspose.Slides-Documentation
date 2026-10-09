@@ -1,5 +1,5 @@
 ---
-title: PowerPoint prezentáció diagramjainak létrehozása vagy frissítése .NET-ben
+title: PowerPoint prezentáció diagramok létrehozása vagy frissítése .NET-ben
 linktitle: Diagramok létrehozása vagy frissítése
 type: docs
 weight: 10
@@ -11,64 +11,64 @@ keywords:
 - diagram módosítása
 - diagram frissítése
 - szórt diagram
-- torta diagram
-- vonal diagram
-- fa térkép diagram
-- részvény diagram
-- doboz‑ és buzogány diagram
+- kördiagram
+- vonaldiagram
+- faág diagram
+- részvénydiagram
+- doboz és szárny diagram
 - tölcsér diagram
-- naplemente diagram
+- napcsíks diagram
 - hisztogram diagram
 - radar diagram
-- több kategória diagram
+- többkategóriás diagram
 - PowerPoint
 - prezentáció
 - .NET
 - C#
 - Aspose.Slides
-description: "Létrehozza és testreszabja a diagramokat PowerPoint prezentációkban az Aspose.Slides for .NET segítségével. Diagramok hozzáadása, formázása és szerkesztése gyakorlati C# kódrészletekkel."
+description: "Diagramok létrehozása és testreszabása PowerPoint prezentációkban az Aspose.Slides for .NET használatával. Diagramok hozzáadása, formázása és szerkesztése gyakorlati C# kódrészletekkel."
 ---
 ## **Áttekintés**
 
-Ez a cikk átfogó útmutatót nyújt a diagramok létrehozásához és testreszabásához az Aspose.Slides for .NET segítségével. Megtanulja, hogyan adhat programozottan diagramot egy diára, töltheti fel adatokal, és alkalmazhat különféle formázási lehetőségeket, hogy megfeleljen a konkrét tervezési követelményeinek. A cikk során részletes kódrészletek mutatják be az egyes lépéseket, a prezentáció és a diagramobjektum inicializálásától a sorok, tengelyek és jelmagyarázatok konfigurálásáig. Az útmutató követésével alaposan megértheti, hogyan integrálhat dinamikus diagramgenerálást .NET alkalmazásaiba, ezzel egyszerűsítve az adatalapú prezentációk létrehozását.
+Ez a cikk átfogó útmutatót nyújt a diagramok létrehozásához és testreszabásához az Aspose.Slides for .NET használatával. Megtanulja, hogyan adhat programozottan diagramot egy diára, hogyan töltse fel adatokka­l, és hogyan alkalmazzon különféle formázási lehetőségeket, hogy megfeleljenek a specifikus tervezési követelményeknek. A cikk során részletes kódrészletek illusztrálják az egyes lépéseket, a prezentáció és a diagramobjektum inicializálásától a sorok, tengelyek és jelmagyarázat beállításáig. Ennek az útmutatónak a követésével alaposan megérti, hogyan integrálhat dinamikus diagramgenerálást .NET‑alkalmazásaiba, egyszerűsítve az adat‑vezérelt prezentációk létrehozásának folyamatát.
 
 ## **Diagram létrehozása**
 
-A diagramok segítenek gyorsan megjeleníteni az adatokat és olyan felismeréseket nyerni, amelyek egy táblázatból vagy munkafüzetből nem lennének azonnal nyilvánvalóak.
+A diagramok segítenek az embereknek gyorsan megjeleníteni az adatokat, és olyan betekintéseket nyújtanak, amelyek egy táblázatból vagy munkafüzetből nem lennének azonnal nyilvánvalóak.
 
 **Miért érdemes diagramokat készíteni?**
 
 Diagramok használatával:
 
-* nagy mennyiségű adatot összegezhet, tömöríthet vagy összefoglalhat egyetlen dián a prezentációban;
-* mintákat és trendeket fedhet fel az adatokban;
-* meghatározhatja az adat időbeli vagy egy adott mérőegységhez viszonyított irányát és lendületét;
-* észlelheti a kilógó, hibás vagy értelmetlen adatokat;
-* komplex adatokat kommunikálhat vagy prezentálhat.
+* nagy mennyiségű adatot összegezhet, sűríthet vagy összefoglalhat egyetlen dián;
+* felfedheti az adatok mintáit és trendjeit;
+* meghatározhatja az adatok időbeli vagy egy adott mérőegységhez viszonyított irányát és lendületét;
+* észreveheti a kiugró értékeket, eltéréseket, hibákat és értelmetlen adatokat;
+* komplex adatokat kommunikálhat vagy bemutathat.
 
-A PowerPointban a diagramokat a *Beszúrás* funkcióval hozhatja létre, amely számos diagramtípushoz kínál sablonokat. Az Aspose.Slides segítségével mind szabványos, mind egyedi diagramokat készíthet.
+A PowerPointban a diagramokat a *Beszúrás* funkción keresztül hozhatja létre, amely számos diagramtípus sablonját biztosítja. Az Aspose.Slides segítségével szabványos diagramokat (népszerű diagramtípusok alapján) és egyedi diagramokat egyaránt készíthet.
 
 {{% alert color="info" %}} 
-Használja a [ChartType](https://reference.aspose.com/slides/hu/net/aspose.slides.charts/charttype/) enumerációt a [Aspose.Slides.Charts](https://reference.aspose.com/slides/hu/net/aspose.slides.charts/) névtérben. Az enumeráció értékei a különböző diagramtípusoknak felelnek meg.
+Használja a [ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) felsorolást az [Aspose.Slides.Charts](https://reference.aspose.com/slides/net/aspose.slides.charts/) névtérben. Ennek az enumerációnak az értékei a különböző diagramtípusoknak felelnek meg.
 {{% /alert %}} 
 
-### **Halmozott oszlopdiagram létrehozása**
+### **Csoportos oszlopdiagramok létrehozása**
 
-Ez a szakasz bemutatja, hogyan hozhat létre halmozott oszlopdiagramot az Aspose.Slides for .NET segítségével. Megtanulja, hogyan inicializáljon egy prezentációt, adjon hozzá diagramot, és testre szabja annak elemeit, például a címet, adatokat, sorokat, kategóriákat és a formázást. Kövesse az alábbi lépéseket a standard halmozott oszlopdiagram létrehozásához:
+Ez a szakasz bemutatja, hogyan hozhat létre csoportos oszlopdiagramot az Aspose.Slides for .NET segítségével. Megtanulja, hogyan inicializáljon egy prezentációt, adjon hozzá diagramot, és testreszabja annak elemeit, például a címet, adatokat, sorozatokat, kategóriákat és a stílusát. Kövesse az alábbi lépéseket a standard csoportos oszlopdiagram létrehozásához:
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation) osztályból.
-1. Szerezzen referenciát egy diára a indexe alapján.
-1. Adjon hozzá egy diagramot némi adattal, és adja meg a `ChartType.ClusteredColumn` típust.
-1. Adjon címet a diagramnak.
-1. Hozzáférés a diagram adatlapjához.
-1. Törölje az összes alapértelmezett sorozatot és kategóriát.
-1. Adjon új sorozatokat és kategóriákat.
-1. Adjon új diagramadatot a diagram sorozataihoz.
-1. Alkalmazzon kitöltőszínt a diagram sorozatához.
-1. Adjon címkéket a diagram sorozatához.
+1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) osztályból.  
+1. Kapjon hivatkozást egy diára a indexe alapján.  
+1. Adjon hozzá egy diagramot némi adattal, és adja meg a `ChartType.ClusteredColumn` típust.  
+1. Adjon címet a diagramhoz.  
+1. Hozzáférés a diagram adatlapjához.  
+1. Törölje az összes alapértelmezett sorozatot és kategóriát.  
+1. Adjon meg új sorozatokat és kategóriákat.  
+1. Adjon hozzá új diagramadatot a sorozathoz.  
+1. Állítson be kitöltőszínt a diagram sorozatához.  
+1. Adjon címkéket a diagram sorozatához.  
 1. Mentse a módosított prezentációt PPTX fájlként.
 
-Ez a C# kód bemutatja a halmozott oszlopdiagram létrehozását:
+Ez a C# kód bemutatja a csoportos oszlopdiagram létrehozását:
 
 ```c#
 using System.Drawing;
@@ -76,28 +76,28 @@ using Aspose.Slides;
 using Aspose.Slides.Charts;
 using Aspose.Slides.Export;
 
-// A Presentation osztály példányosítása.
+// Példányosítsa a Presentation osztályt.
 using (Presentation presentation = new Presentation())
 {
-    // Az első dia elérése.
+    // Hozza elérhetővé az első diát.
     ISlide slide = presentation.Slides[0];
 
-    // Halmozott oszlopdiagram hozzáadása az alapértelmezett adatokkal.
+    // Adjon hozzá egy csoportos oszlopdiagramot az alapértelmezett adataival.
     IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 300);
 
-    // A diagram címének beállítása.
+    // Állítsa be a diagram címét.
     chart.ChartTitle.AddTextFrameForOverriding("Sample Title");
     chart.ChartTitle.TextFrameForOverriding.TextFrameFormat.CenterText = NullableBool.True;
     chart.ChartTitle.Height = 20;
     chart.HasTitle = true;
 
-    // A diagram adatlapjának indexének beállítása.
+    // Állítsa be a diagram adatlapjának indexét.
     int worksheetIndex = 0;
 
-    // A diagram adatkönyvtárának lekérése.
+    // Szerezze be a diagram adatkönyvtárát.
     IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
 
-    // Az alapértelmezett generált sorozatok és kategóriák törlése.
+    // Törölje az alapértelmezett generált sorozatokat és kategóriákat.
     chart.ChartData.Series.Clear();
     chart.ChartData.Categories.Clear();
 
@@ -110,93 +110,93 @@ using (Presentation presentation = new Presentation())
     chart.ChartData.Categories.Add(workbook.GetCell(worksheetIndex, 2, 0, "Category 2"));
     chart.ChartData.Categories.Add(workbook.GetCell(worksheetIndex, 3, 0, "Category 3"));
 
-    // Az első diagram sorozat lekérése.
+    // Szerezze meg az első diagram sorozatot.
     IChartSeries series = chart.ChartData.Series[0];
 
-    // A sorozat adatainak feltöltése.
+    // Töltse fel a sorozat adatait.
     series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 1, 1, 20));
     series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 2, 1, 50));
     series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 3, 1, 30));
 
-    // A sorozat kitöltőszínének beállítása.
+    // Állítsa be a sorozat kitöltőszínét.
     series.Format.Fill.FillType = FillType.Solid;
     series.Format.Fill.SolidFillColor.Color = Color.Red;
 
-    // A második diagram sorozat lekérése.
+    // Szerezze meg a második diagram sorozatot.
     series = chart.ChartData.Series[1];
 
-    // A sorozat adatainak feltöltése.
+    // Töltse fel a sorozat adatait.
     series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 1, 2, 30));
     series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 2, 2, 10));
     series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 3, 2, 60));
 
-    // A sorozat kitöltőszínének beállítása.
+    // Állítsa be a sorozat kitöltőszínét.
     series.Format.Fill.FillType = FillType.Solid;
     series.Format.Fill.SolidFillColor.Color = Color.Green;
 
-    // Az első címke beállítása a kategórianév megjelenítésére.
+    // Állítsa be az első címkét a kategórianév megjelenítésére.
     IDataLabel label = series.DataPoints[0].Label;
     label.DataLabelFormat.ShowCategoryName = true;
 
     label = series.DataPoints[1].Label;
     label.DataLabelFormat.ShowSeriesName = true;
 
-    // A sorozat beállítása a harmadik címkénél az érték megjelenítésére.
+    // Állítsa be a sorozatot, hogy a harmadik címkéhez értéket jelenítsen meg.
     label = series.DataPoints[2].Label;
     label.DataLabelFormat.ShowValue = true;
     label.DataLabelFormat.ShowSeriesName = true;
     label.DataLabelFormat.Separator = "/";
 
-    // A prezentáció mentése a lemezre PPTX fájlként.
+    // Save the presentation to disk as a PPTX file.
     presentation.Save("AsposeChart_out.pptx", SaveFormat.Pptx);
 }
 ```
 
 Az eredmény:
 
-![A halmozott oszlop diagram](clustered_column_chart.png)
+![A csoportos oszlopdiagram](clustered_column_chart.png)
 
-### **Szórásdiagram létrehozása**
+### **Szórt diagramok létrehozása**
 
-A szórásdiagramok (más néven szórásábrák vagy x‑y grafikonok) gyakran használatosak a minták keresésére vagy két változó közötti korreláció bemutatására.
+A szórt diagramok (más néven szórtábrák vagy x‑y grafikonok) gyakran használatosak minták keresésére vagy két változó közötti korrelációk bemutatására.
 
-Használjon szórásdiagramot, ha:
+Használjon szórt diagramot, ha:
 
-* párosítandó numerikus adatai vannak;
-* két változó jól párosítható;
-* meg szeretné határozni, hogy a két változó összefügg-e;
-* rendelkezik egy független változóval, amely több értéket vehet fel a függő változó számára.
+* párosított numerikus adatokkal dolgozik;  
+* két változó jól párosítható egymással;  
+* meg szeretné határozni, hogy a két változó összefügg-e;  
+* egy független változónak több értéke van egy függő változóhoz képest.
 
-Ez a C# kód bemutatja, hogyan hozhat létre szórásdiagramot különböző jelölőszerekkel:
+Ez a C# kód megmutatja, hogyan hozhat létre szórt diagramot különböző jelölőszerekkel:
 
 ```c#
 using Aspose.Slides;
 using Aspose.Slides.Charts;
 using Aspose.Slides.Export;
 
-// A Presentation osztály példányosítása.
+// Példányosítsa a Presentation osztályt.
 using (Presentation presentation = new Presentation())
 {
-    // Az első dia elérése.
+    // Elérje az első diát.
     ISlide slide = presentation.Slides[0];
 
-    // Alapértelmezett szórás diagram létrehozása.
+    // Hozza létre az alapértelmezett szórt diagramot.
     IChart chart = slide.Shapes.AddChart(ChartType.ScatterWithSmoothLines, 20, 20, 500, 300);
 
-    // A diagram adatlapjának indexének beállítása.
+    // Állítsa be a diagram adatlapjának indexét.
     int worksheetIndex = 0;
 
-    // A diagram adatkönyvtárának lekérése.
+    // Szerezze be a diagram adatkönyvtárát.
     IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
 
-    // Az alapértelmezett sorozat törlése.
+    // Törölje az alapértelmezett sorozatot.
     chart.ChartData.Series.Clear();
 
     // Új sorozatok hozzáadása.
     chart.ChartData.Series.Add(workbook.GetCell(worksheetIndex, 1, 1, "Series 1"), chart.Type);
     chart.ChartData.Series.Add(workbook.GetCell(worksheetIndex, 1, 3, "Series 2"), chart.Type);
 
-    // Az első diagram sorozat lekérése.
+    // Szerezze meg az első diagram sorozatot.
     IChartSeries series = chart.ChartData.Series[0];
 
     // Új pont (1:3) hozzáadása a sorozathoz.
@@ -212,7 +212,7 @@ using (Presentation presentation = new Presentation())
     series.Marker.Size = 10;
     series.Marker.Symbol = MarkerStyleType.Star;
 
-    // A második diagram sorozat lekérése.
+    // Szerezze meg a második diagram sorozatot.
     series = chart.ChartData.Series[1];
 
     // Új pont (5:2) hozzáadása a diagram sorozathoz.
@@ -231,33 +231,33 @@ using (Presentation presentation = new Presentation())
     series.Marker.Size = 10;
     series.Marker.Symbol = MarkerStyleType.Circle;
 
-    // A prezentáció mentése a lemezre PPTX fájlként.
+    // Mentse a prezentációt lemezre PPTX fájlként.
     presentation.Save("AsposeChart_out.pptx", SaveFormat.Pptx);
 }
 ```
 
 Az eredmény:
 
-![A szórás diagram](scatter_chart.png)
+![A szórt diagram](scatter_chart.png)
 
-### **Tortadiagram létrehozása**
+### **Kördiagramok létrehozása**
 
-A tortadiagramok leginkább a részek‑egész arányok megjelenítésére alkalmasak, különösen akkor, ha az adatok kategóriákat és numerikus értékeket tartalmaznak. Ha azonban sok rész vagy címke van, érdemes oszlopdiagramot használni.
+A kördiagramok leginkább a rész‑egész kapcsolat megjelenítésére szolgálnak, különösen akkor, ha az adatok kategóriákat tartalmaznak numerikus értékekkel. Ha sok rész vagy címke van, érdemes oszlopdiagramra váltani.
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation) osztályból.
-1. Szerezzen referenciát egy diára a indexe alapján.
-1. Adjon hozzá egy diagramot alapértelmezett adatokkal, és adja meg a `ChartType.Pie` típust.
-1. Hozzáférés a diagram adatkönyvtárához ([IChartDataWorkbook](https://reference.aspose.com/slides/hu/net/aspose.slides.charts/ichartdataworkbook/)).
-1. Törölje az alapértelmezett sorozatokat és kategóriákat.
-1. Adjon új sorozatokat és kategóriákat.
-1. Adjon új diagramadatot a diagram sorozataihoz.
-1. Adjon új pontokat a diagramhoz, és alkalmazzon egyedi színeket a torta szeleteire.
-1. Állítson be címkéket a sorozatokhoz.
-1. Engedélyezze a vezetővonalakat a sorozatcímkékhez.
-1. Állítsa be a forgásszöget a tortadiagramhoz.
+1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) osztályból.  
+1. Kapjon hivatkozást egy diára a indexe alapján.  
+1. Adjon hozzá egy diagramot alapértelmezett adatokkal, és adja meg a `ChartType.Pie` típust.  
+1. Hozzáférés a diagram adatkönyvtárához ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)).  
+1. Törölje az alapértelmezett sorozatot és kategóriákat.  
+1. Adjon meg új sorozatokat és kategóriákat.  
+1. Adjon hozzá új diagramadatot a sorozathoz.  
+1. Adjon hozzá új pontokat a diagramhoz, és alkalmazzon egyéni színeket a kördiagram szeleteire.  
+1. Állítsa be a címkéket a sorozathoz.  
+1. Engedélyezze a vezetővonalakat a sorozatcímkékhez.  
+1. Állítsa be a forgási szöget a kördiagramhoz.  
 1. Mentse a módosított prezentációt PPTX fájlként.
 
-Ez a C# kód bemutatja a tortadiagram létrehozását:
+Ez a C# kód bemutatja a kördiagram létrehozását:
 
 ```c#
 using System.Drawing;
@@ -265,31 +265,31 @@ using Aspose.Slides;
 using Aspose.Slides.Charts;
 using Aspose.Slides.Export;
 
-// A Presentation osztály példányosítása.
+// Példányosítsa a Presentation osztályt.
 using (Presentation presentation = new Presentation())
 {
-    // Az első dia elérése.
+    // Elérje az első diát.
     ISlide slide = presentation.Slides[0];
 
-    // Diagram hozzáadása az alapértelmezett adatokkal.
+    // Adjon hozzá egy diagramot az alapértelmezett adataival.
     IChart chart = slide.Shapes.AddChart(ChartType.Pie, 20, 20, 500, 300);
 
-    // A diagram címének beállítása.
+    // Állítsa be a diagram címét.
     chart.ChartTitle.AddTextFrameForOverriding("Sample Title");
     chart.ChartTitle.TextFrameForOverriding.TextFrameFormat.CenterText = NullableBool.True;
     chart.ChartTitle.Height = 20;
     chart.HasTitle = true;
 
-    // Az első sorozat beállítása az értékek megjelenítésére.
+    // Állítsa be, hogy az első sorozat értékeket mutasson.
     chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
 
-    // A diagram adatlapjának indexének beállítása.
+    // Állítsa be a diagram adatlapjának indexét.
     int worksheetIndex = 0;
 
-    // A diagram adatkönyvtárának lekérése.
+    // Szerezze meg a diagram adatkönyvtárát.
     IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
 
-    // Az alapértelmezett generált sorozatok és kategóriák törlése.
+    // Törölje az alapértelmezett generált sorozatokat és kategóriákat.
     chart.ChartData.Series.Clear();
     chart.ChartData.Categories.Clear();
 
@@ -301,19 +301,19 @@ using (Presentation presentation = new Presentation())
     // Új sorozatok hozzáadása.
     IChartSeries series = chart.ChartData.Series.Add(workbook.GetCell(0, 0, 1, "Series 1"), chart.Type);
 
-    // A sorozat adatainak feltöltése.
+    // Töltse fel a sorozat adatait.
     series.DataPoints.AddDataPointForPieSeries(workbook.GetCell(worksheetIndex, 1, 1, 20));
     series.DataPoints.AddDataPointForPieSeries(workbook.GetCell(worksheetIndex, 2, 1, 50));
     series.DataPoints.AddDataPointForPieSeries(workbook.GetCell(worksheetIndex, 3, 1, 30));
 
-    // A szelet színének beállítása.
+    // Állítsa be a szektor színét.
     chart.ChartData.SeriesGroups[0].IsColorVaried = true;
 
     IChartDataPoint point = series.DataPoints[0];
     point.Format.Fill.FillType = FillType.Solid;
     point.Format.Fill.SolidFillColor.Color = Color.Cyan;
 
-    // A szelet szegélyének beállítása.
+    // Állítsa be a szektor keretét.
     point.Format.Line.FillFormat.FillType = FillType.Solid;
     point.Format.Line.FillFormat.SolidFillColor.Color = Color.Gray;
     point.Format.Line.Width = 3.0;
@@ -324,7 +324,7 @@ using (Presentation presentation = new Presentation())
     point1.Format.Fill.FillType = FillType.Solid;
     point1.Format.Fill.SolidFillColor.Color = Color.Brown;
 
-    // A szelet szegélyének beállítása.
+    // Állítsa be a szektor keretét.
     point1.Format.Line.FillFormat.FillType = FillType.Solid;
     point1.Format.Line.FillFormat.SolidFillColor.Color = Color.Blue;
     point1.Format.Line.Width = 3.0;
@@ -335,14 +335,14 @@ using (Presentation presentation = new Presentation())
     point2.Format.Fill.FillType = FillType.Solid;
     point2.Format.Fill.SolidFillColor.Color = Color.Coral;
 
-    // A szelet szegélyének beállítása.
+    // Állítsa be a szektor keretét.
     point2.Format.Line.FillFormat.FillType = FillType.Solid;
     point2.Format.Line.FillFormat.SolidFillColor.Color = Color.Red;
     point2.Format.Line.Width = 2.0;
     point2.Format.Line.Style = LineStyle.ThinThin;
     point2.Format.Line.DashStyle = LineDashStyle.LargeDashDotDot;
 
-    // Egyéni címkék létrehozása minden kategóriához az új sorozatban.
+    // Egyéni címkék létrehozása az új sorozat minden kategóriájához.
     IDataLabel label1 = series.DataPoints[0].Label;
 
     label1.DataLabelFormat.ShowValue = true;
@@ -356,32 +356,32 @@ using (Presentation presentation = new Presentation())
     label3.DataLabelFormat.ShowSeriesName = true;
     label3.DataLabelFormat.ShowPercentage = true;
 
-    // A sorozat beállítása a vezetővonalak megjelenítésére a diagramon.
+    // Állítsa be, hogy a sorozat vezetővonalakat mutasson a diagramon.
     series.Labels.DefaultDataLabelFormat.ShowLeaderLines = true;
 
-    // A tortadiagram szeleteinek forgásszögének beállítása.
+    // Állítsa be a kördiagram szektorok forgatási szögét.
     chart.ChartData.SeriesGroups[0].FirstSliceAngle = 180;
 
-    // A prezentáció mentése a lemezre PPTX fájlként.
+    // Mentse a prezentációt lemezre PPTX fájlként.
     presentation.Save("PieChart_out.pptx", SaveFormat.Pptx);
 }
 ```
 
 Az eredmény:
 
-![A torta diagram](pie_chart.png)
+![A kördiagram](pie_chart.png)
 
-### **Vonaldiagram létrehozása**
+### **Vonaldiagramok létrehozása**
 
-A vonaldiagramok (más néven vonalgrafikonok) leginkább olyan helyzetekben használandók, amikor az értékek időbeli változását szeretné bemutatni. Vonaldiagrammal egyszerre nagy mennyiségű adatot hasonlíthat össze, nyomon követheti a változásokat és trendeket, kiemelheti az anomáliákat stb.
+A vonaldiagramok (más néven vonalgrafikonok) leginkább olyan helyzetekben használatosak, amikor az értékek időbeli változását szeretné bemutatni. Egy vonaldiagram segítségével egyszerre több adatot összehasonlíthat, nyomon követheti a változásokat és trendeket, kiemelheti az anomáliákat stb.
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation) osztályból.
-1. Szerezzen referenciát egy diára a indexe alapján.
-1. Adjon hozzá egy diagramot alapértelmezett adatokkal, és adja meg a `ChartType.Line` típust.
-1. Hozzáférés a diagram adatkönyvtárához ([IChartDataWorkbook](https://reference.aspose.com/slides/hu/net/aspose.slides.charts/ichartdataworkbook/)).
-1. Törölje az alapértelmezett sorozatokat és kategóriákat.
-1. Adjon új sorozatokat és kategóriákat.
-1. Adjon új diagramadatot a diagram sorozataihoz.
+1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) osztályból.  
+1. Kapjon hivatkozást egy diára a indexe alapján.  
+1. Adjon hozzá egy diagramot alapértelmezett adatokkal, és adja meg a `ChartType.Line` típust.  
+1. Hozzáférés a diagram adatkönyvtárához ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)).  
+1. Törölje az alapértelmezett sorozatot és kategóriákat.  
+1. Adjon meg új sorozatokat és kategóriákat.  
+1. Adjon hozzá új diagramadatot a sorozathoz.  
 1. Mentse a módosított prezentációt PPTX fájlként.
 
 Ez a C# kód bemutatja a vonaldiagram létrehozását:
@@ -399,7 +399,7 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-Alapértelmezés szerint a vonaldiagram pontjai folytonos egyenes vonallal vannak összekötve. Ha a pontokat szaggatott vonallal szeretné összekötni, adja meg a kívánt vonaltípust a következőképpen:
+Alapértelmezés szerint a vonaldiagram pontjait egyenes, folytonos vonalak kötik össze. Ha szaggatott vonalakkal szeretné összekötni, adja meg a kívánt vonaltípust a következő módon:
 
 ```c#
 using Aspose.Slides;
@@ -418,22 +418,22 @@ using (Presentation presentation = new Presentation())
 
 Az eredmény:
 
-![A vonal diagram](line_chart.png)
+![A vonaldiagram](line_chart.png)
 
-### **Fák leképezés diagram létrehozása**
+### **Faág diagramok (Tree Map) létrehozása**
 
-A fák leképezés diagramok (Tree Map) leginkább értékesítési adatok esetén használatosak, amikor a kategóriák relatív méretét szeretné megjeleníteni, és gyorsan felhívni a figyelmet a legnagyobb hozzájáruló elemekre.
+A faág diagramok (Tree Map) leginkább értékesítési adatok megjelenítésére alkalmasak, amikor a kategóriák relatív méretét szeretné bemutatni, és gyorsan felhívni a figyelmet a legnagyobb hozzájárulókra az egyes kategóriákon belül.
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation) osztályból.
-1. Szerezzen referenciát egy diára a indexe alapján.
-1. Adjon hozzá egy diagramot alapértelmezett adatokkal, és adja meg a `ChartType.Treemap` típust.
-1. Hozzáférés a diagram adatkönyvtárához ([IChartDataWorkbook](https://reference.aspose.com/slides/hu/net/aspose.slides.charts/ichartdataworkbook/)).
-1. Törölje az alapértelmezett sorozatokat és kategóriákat.
-1. Adjon új sorozatokat és kategóriákat.
-1. Adjon új diagramadatot a diagram sorozataihoz.
+1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) osztályból.  
+1. Kapjon hivatkozást egy diára a indexe alapján.  
+1. Adjon hozzá egy diagramot alapértelmezett adatokkal, és adja meg a `ChartType.Treemap` típust.  
+1. Hozzáférés a diagram adatkönyvtárához ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)).  
+1. Törölje az alapértelmezett sorozatot és kategóriákat.  
+1. Adjon meg új sorozatokat és kategóriákat.  
+1. Adjon hozzá új diagramadatot a sorozathoz.  
 1. Mentse a módosított prezentációt PPTX fájlként.
 
-Ez a C# kód bemutatja a fák leképezés diagram létrehozását:
+Ez a C# kód bemutatja a faág diagram létrehozását:
 
 ```c#
 using Aspose.Slides;
@@ -492,23 +492,23 @@ using (Presentation presentation = new Presentation())
 
 Az eredmény:
 
-![A fák leképezés diagram](treemap_chart.png)
+![A faág diagram](treemap_chart.png)
 
-### **Részvény diagram létrehozása**
+### **Részvénydiagramok (Stock) létrehozása**
 
-A részvény diagramok pénzügyi adatokat jelenítenek meg, például nyitó, magas, alacsony és záró árakat, ezáltal segítve a piaci trendek és a volatilitás elemzését. Alapvető betekintést nyújtanak a részvény teljesítményébe, támogató eszközként szolgálnak a befektetők és elemzők számára a tájékozott döntéshozatalhoz.
+A részvénydiagramok pénzügyi adatok (nyitó, legmagasabb, legalacsonyabb és záró árak) megjelenítésére szolgálnak, segítve a piaci trendek és volatilitás elemzését. Lényeges betekintést nyújtanak a részvény teljesítményébe, támogatva a befektetőket és elemzőket a megalapozott döntéshozatalban.
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation) osztályból.
-1. Szerezzen referenciát egy diára a indexe alapján.
-1. Adjon hozzá egy diagramot alapértelmezett adatokkal, és adja meg a `ChartType.OpenHighLowClose` típust.
-1. Hozzáférés a diagram adatkönyvtárához ([IChartDataWorkbook](https://reference.aspose.com/slides/hu/net/aspose.slides.charts/ichartdataworkbook/)).
-1. Törölje az alapértelmezett sorozatokat és kategóriákat.
-1. Adjon új sorozatokat és kategóriákat.
-1. Adjon új diagramadatot a diagram sorozataihoz.
-1. Adja meg a HiLowLines formátumát.
+1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) osztályból.  
+1. Kapjon hivatkozást egy diára a indexe alapján.  
+1. Adjon hozzá egy diagramot alapértelmezett adatokkal, és adja meg a `ChartType.OpenHighLowClose` típust.  
+1. Hozzáférés a diagram adatkönyvtárához ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)).  
+1. Törölje az alapértelmezett sorozatot és kategóriákat.  
+1. Adjon meg új sorozatokat és kategóriákat.  
+1. Adjon hozzá új diagramadatot a sorozathoz.  
+1. Adja meg a HiLowLines formátumot.  
 1. Mentse a módosított prezentációt PPTX fájlként.
 
-Ez a C# kód bemutatja a részvény diagram létrehozását:
+Ez a C# kód bemutatja a részvénydiagram létrehozását:
 
 ```c#
 using Aspose.Slides;
@@ -566,22 +566,22 @@ using (Presentation presentation = new Presentation())
 
 Az eredmény:
 
-![A részvény diagram](stock_chart.png)
+![A részvénydiagram](stock_chart.png)
 
-### **Doboz‑ és buzogány diagramok létrehozása**
+### **Doboz‑ és szárnydiagramok (Box and Whisker) létrehozása**
 
-A doboz‑ és buzogány diagramok az adat eloszlását jelenítik meg, összegző statisztikai mutatókkal, mint a medián, kvartilisek és esetleges kiugró értékek. Különösen hasznosak feltáró adatgyűjtéskor és statisztikai vizsgálatoknál, amikor gyorsan meg kell érteni az adatok variabilitását és az anomáliákat.
+A doboz‑ és szárnydiagramok a statisztikai eloszlás megjelenítésére szolgálnak, összefoglalva a kulcsfontosságú mérőszámokat, például a mediánt, a kvartiliseket és a lehetséges kiugró értékeket. Különösen hasznosak felderítő adat‑analízisekben és statisztikai tanulmányokban, hogy gyorsan megértsük az adatvariabilitást és az anomáliákat.
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation) osztályból.
-1. Szerezzen referenciát egy diára a indexe alapján.
-1. Adjon hozzá egy diagramot alapértelmezett adatokkal, és adja meg a `ChartType.BoxAndWhisker` típust.
-1. Hozzáférés a diagram adatkönyvtárához ([IChartDataWorkbook](https://reference.aspose.com/slides/hu/net/aspose.slides.charts/ichartdataworkbook/)).
-1. Törölje az alapértelmezett sorozatokat és kategóriákat.
-1. Adjon új sorozatokat és kategóriákat.
-1. Adjon új diagramadatot a diagram sorozataihoz.
+1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) osztályból.  
+1. Kapjon hivatkozást egy diára a indexe alapján.  
+1. Adjon hozzá egy diagramot alapértelmezett adatokkal, és adja meg a `ChartType.BoxAndWhisker` típust.  
+1. Hozzáférés a diagram adatkönyvtárához ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)).  
+1. Törölje az alapértelmezett sorozatot és kategóriákat.  
+1. Adjon meg új sorozatokat és kategóriákat.  
+1. Adjon hozzá új diagramadatot a sorozathoz.  
 1. Mentse a módosított prezentációt PPTX fájlként.
 
-Ez a C# kód bemutatja a doboz‑ és buzogány diagram létrehozását:
+Ez a C# kód bemutatja a doboz‑ és szárnydiagram létrehozását:
 
 ```c#
 using Aspose.Slides;
@@ -623,16 +623,16 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-### **Tölcsér diagram létrehozása**
+### **Tölcsérdiagramok (Funnel) létrehozása**
 
-A tölcsér diagramok a szekvenciális lépéseket ábrázolják, ahol az adat mennyisége csökken a folyamat egyes szakaszain. Különösen hasznosak a konverziós arányok elemzésében, a szűk keresztmetszetek azonosításában és az értékesítési vagy marketing folyamatok hatékonyságának nyomon követésében.
+A tölcsérdiagramok a szekvenciális lépésekkel rendelkező folyamatok vizualizálására szolgálnak, ahol az adat mennyisége csökken a lépésektől a következőre. Különösen hasznosak a konverziós arányok elemzésében, szűk keresztmetszetek azonosításában és az értékesítési vagy marketing folyamatok hatékonyságának nyomon követésében.
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation) osztályból.
-1. Szerezzen referenciát egy diára a indexe alapján.
-1. Adjon hozzá egy diagramot alapértelmezett adatokkal, és adja meg a `ChartType.Funnel` típust.
+1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) osztályból.  
+1. Kapjon hivatkozást egy diára a indexe alapján.  
+1. Adjon hozzá egy diagramot alapértelmezett adatokkal, és adja meg a `ChartType.Funnel` típust.  
 1. Mentse a módosított prezentációt PPTX fájlként.
 
-Ez a C# kód bemutatja a tölcsér diagram létrehozását:
+Ez a C# kód bemutatja a tölcsérdiagram létrehozását:
 
 ```c#
 using Aspose.Slides;
@@ -670,18 +670,18 @@ using (Presentation presentation = new Presentation("test.pptx"))
 
 Az eredmény:
 
-![A tölcsér diagram](funnel_chart.png)
+![A tölcsérdiagram](funnel_chart.png)
 
-### **Naplemente diagram létrehozása**
+### **Napcsíksdiagramok (Sunburst) létrehozása**
 
-A naplemente diagramok (Sunburst) hierarchikus adatokat ábrázolnak, a szinteket koncentrikus gyűrűkben jelenítik meg. Segítenek a rész‑egész kapcsolatok bemutatásában, és ideálisak beágyazott kategóriák és alkategóriák világos, kompakt formában történő ábrázolásához.
+A napcsíksdiagramok hierarchikus adatok megjelenítésére szolgálnak, a szinteket koncentrikus gyűrűkként ábrázolva. Segítenek a rész‑egész kapcsolatok illusztrálásában, és ideálisak a beágyazott kategóriák és alkategóriák tiszta, kompakt formában történő bemutatásához.
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation) osztályból.
-1. Szerezzen referenciát egy diára a indexe alapján.
-1. Adjon hozzá egy diagramot alapértelmezett adatokkal, és adja meg a `ChartType.Sunburst` típust.
+1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) osztályból.  
+1. Kapjon hivatkozást egy diára a indexe alapján.  
+1. Adjon hozzá egy diagramot alapértelmezett adatokkal, és adja meg a `ChartType.Sunburst` típust.  
 1. Mentse a módosított prezentációt PPTX fájlként.
 
-Ez a C# kód bemutatja a naplemente diagram létrehozását:
+Ez a C# kód bemutatja a napcsíksdiagram létrehozását:
 
 ```c#
 using Aspose.Slides;
@@ -738,18 +738,18 @@ using (Presentation presentation = new Presentation())
 
 Az eredmény:
 
-![A naplemente diagram](sunburst_chart.png)
+![A napcsíksdiagram](sunburst_chart.png)
 
-### **Hisztogram diagram létrehozása**
+### **Hisztogram diagramok létrehozása**
 
-A hisztogram diagramok a numerikus adatok eloszlását ábrázolják, az értékeket intervallumokra (bin‑ekre) csoportosítva. Különösen hasznosak a gyakoriság, ferdeség, szórás és az esetleges kiugró értékek felismerésében.
+A hisztogram diagramok a numerikus adatok eloszlását jelenítik meg értéktartományok (bin) szerint. Különösen hasznosak a frekvencia, ferdeség és szórás mintáinak azonosításában, illetve a kiugró értékek felismerésében.
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation) osztályból.
-1. Szerezzen referenciát egy diára a indexe alapján.
-1. Adjon hozzá egy diagramot némi adattal, és adja meg a `ChartType.Histogram` típust.
-1. Hozzáférés a diagram adatkönyvtárához ([IChartDataWorkbook](https://reference.aspose.com/slides/hu/net/aspose.slides.charts/ichartdataworkbook/)).
-1. Törölje az alapértelmezett sorozatokat és kategóriákat.
-1. Adjon új sorozatokat és kategóriákat.
+1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) osztályból.  
+1. Kapjon hivatkozást egy diára a indexe alapján.  
+1. Adjon hozzá egy diagramot némi adattal, és adja meg a `ChartType.Histogram` típust.  
+1. Hozzáférés a diagram adatkönyvtárához ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)).  
+1. Törölje az alapértelmezett sorozatot és kategóriákat.  
+1. Adjon meg új sorozatokat és kategóriákat.  
 1. Mentse a módosított prezentációt PPTX fájlként.
 
 Ez a C# kód bemutatja a hisztogram diagram létrehozását:
@@ -786,13 +786,13 @@ Az eredmény:
 
 ![A hisztogram diagram](histogram_chart.png)
 
-### **Radar diagram létrehozása**
+### **Radar diagramok létrehozása**
 
-A radar diagramok többváltozós adatokat ábrázolnak kétdimenziós formában, lehetővé téve több változó egyszerre történő összehasonlítását. Különösen hasznosak minták, erősségek és gyengeségek felismerésében több teljesítménymutató vagy tulajdonság esetén.
+A radar diagramok többváltozós adatot jelenítenek meg kétdimenziós formátumban, lehetővé téve több változó egyszerre történő összehasonlítását. Különösen alkalmasak a minták, erősségek és gyengeségek azonosítására több teljesítménymutató vagy attribútum esetén.
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation) osztályból.
-1. Szerezzen referenciát egy diára a indexe alapján.
-1. Adjon hozzá egy diagramot némi adattal, és adja meg a `ChartType.Radar` típust.
+1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) osztályból.  
+1. Kapjon hivatkozást egy diára a indexe alapján.  
+1. Adjon hozzá egy diagramot némi adattal, és adja meg a `ChartType.Radar` típust.  
 1. Mentse a módosított prezentációt PPTX fájlként.
 
 Ez a C# kód bemutatja a radar diagram létrehozását:
@@ -813,20 +813,20 @@ Az eredmény:
 
 ![A radar diagram](radar_chart.png)
 
-### **Több kategória diagram létrehozása**
+### **Többkategóriás diagramok létrehozása**
 
-A több kategória diagramok olyan adatokat jelenítenek meg, amelyek több kategóriacsoportot tartalmaznak, lehetővé téve az értékek összehasonlítását több dimenzióban egyszerre. Különösen hasznosak, ha összetett, több rétegből álló adathalmazokat szeretne elemezni.
+A többkategóriás diagramok olyan adatokat jelenítenek meg, ahol több kategóriacsoport is szerepel, lehetővé téve az értékek több dimenzióban történő egyidejű összehasonlítását. Különösen hasznosak összetett, több rétegből álló adathalmazok trendjeinek és összefüggéseinek elemzésében.
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation) osztályból.
-1. Szerezzen referenciát egy diára a indexe alapján.
-1. Adjon hozzá egy diagramot alapértelmezett adatokkal, és adja meg a `ChartType.ClusteredColumn` típust.
-1. Hozzáférés a diagram adatkönyvtárához ([IChartDataWorkbook](https://reference.aspose.com/slides/hu/net/aspose.slides.charts/ichartdataworkbook/)).
-1. Törölje az alapértelmezett sorozatokat és kategóriákat.
-1. Adjon új sorozatokat és kategóriákat.
-1. Adjon új diagramadatot a diagram sorozataihoz.
+1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) osztályból.  
+1. Kapjon hivatkozást egy diára a indexe alapján.  
+1. Adjon hozzá egy diagramot alapértelmezett adatokkal, és adja meg a `ChartType.ClusteredColumn` típust.  
+1. Hozzáférés a diagram adatkönyvtárához ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)).  
+1. Törölje az alapértelmezett sorozatot és kategóriákat.  
+1. Adjon meg új sorozatokat és kategóriákat.  
+1. Adjon hozzá új diagramadatot a sorozathoz.  
 1. Mentse a módosított prezentációt PPTX fájlként.
 
-Ez a C# kód bemutatja a több kategóriás diagram létrehozását:
+Ez a C# kód bemutatja a többkategóriás diagram létrehozását:
 
 ```c#
 using Aspose.Slides;
@@ -874,20 +874,20 @@ using (Presentation presentation = new Presentation())
     series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, "D8", 70));
     series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, "D9", 80));
 
-    // A prezentáció mentése a diagrammal.
+    // A diagramot tartalmazó prezentáció mentése.
     presentation.Save("AsposeChart_out.pptx", SaveFormat.Pptx);
 }
 ```
 
 Az eredmény:
 
-![A több kategóriás diagram](multi_category_chart.png)
+![A többkategóriás diagram](multi_category_chart.png)
 
-### **Térkép diagram létrehozása**
+### **Térképdiagramok (Map) létrehozása**
 
-A térkép diagramok földrajzi adatokat ábrázolnak, az információt konkrét helyekhez (országok, államok, városok) rendelve. Különösen hasznosak regionális trendek, demográfiai adatok és térbeli eloszlások elemzésére vizuálisan vonzó módon.
+A térképdiagramok a földrajzi adatok vizualizálására szolgálnak, ahol az információt országokhoz, államokhoz vagy városokhoz kötik. Különösen alkalmasak a regionális trendek, demográfiai adatok és térbeli eloszlások elemzésére egyértelmű, vizuálisan vonzó módon.
 
-Ez a C# kód bemutatja a térkép diagram létrehozását:
+Ez a C# kód bemutatja a térképdiagram létrehozását:
 
 ```c#
 using Aspose.Slides;
@@ -903,19 +903,19 @@ using (Presentation presentation = new Presentation())
 
 Az eredmény:
 
-![A térkép diagram](map_chart.png)
+![A térképdiagram](map_chart.png)
 
 {{% alert color="info" %}} 
-A fenti kép a mentett prezentációt mutatja PowerPointban megnyitva. Az Aspose.Slides helyesen írja ki a térkép diagramot és annak adatait, de maga a diagram nem kerül megrajzolásra: amikor egy olyan diát, amely tartalmaz térkép diagramot, képként renderel vagy PDF‑be vagy SVG‑be konvertál, a diagramterület üres marad. A többi forma a dián változatlanul marad.
+A fenti kép a mentett prezentációt mutatja megnyitva a PowerPointban. Az Aspose.Slides helyesen írja a térképdiagramot és annak adatait, de magát a térképdiagramot nem rajzolja: amikor egy diát, amely egyet tartalmaz, képpé renderel, vagy PDF‑re/SVG‑re konvertál, a diagram területe üres marad. A dián lévő többi alakzat érintetlen marad.
 {{% /alert %}} 
 
 ### **Kombinációs diagramok létrehozása**
 
-A kombinációs (vagy combo) diagram több diagramtípust egyesít egyetlen grafikonban. Ez a diagram lehetővé teszi, hogy kiemelje, összehasonlítsa vagy megvizsgálja két vagy több adatcsoport közötti különbségeket, segítve a kapcsolatok felismerését.
+A kombinációs diagram (vagy combo diagram) két vagy több diagramtípust kombinál egyetlen grafikonban. Ez a diagram lehetővé teszi, hogy kiemelje, összehasonlítsa vagy megvizsgálja a különböző adathalmazok közötti különbségeket, segítve a köztük lévő kapcsolatok azonosítását.
 
 ![A kombinációs diagram](combination_chart.png)
 
-Az alábbi C# kód bemutatja, hogyan hozható létre a fenti kombinációs diagram egy PowerPoint‑prezentációban:
+Az alábbi C# kód mutatja be, hogyan lehet létrehozni a fenti kombinációs diagramot egy PowerPoint‑prezentációban:
 
 ```c#
 using System.Drawing;
@@ -963,13 +963,13 @@ private static IChart CreateChartWithFirstSeries(ISlide slide)
     int worksheetIndex = 0;
     IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
 
-    // Új kategóriákat ad hozzá
+    // Új kategóriák hozzáadása
     chart.ChartData.Categories.Add(workbook.GetCell(worksheetIndex, 1, 0, "Category 1"));
     chart.ChartData.Categories.Add(workbook.GetCell(worksheetIndex, 2, 0, "Category 2"));
     chart.ChartData.Categories.Add(workbook.GetCell(worksheetIndex, 3, 0, "Category 3"));
     chart.ChartData.Categories.Add(workbook.GetCell(worksheetIndex, 4, 0, "Category 4"));
 
-    // Hozzáadja az első sorozatot
+    // Első sorozat hozzáadása
     IChartSeries series = chart.ChartData.Series.Add(
         workbook.GetCell(worksheetIndex, 0, 1, "Series 1"), chart.Type);
 
@@ -1073,14 +1073,14 @@ private static void SetAxisTitle(IAxis axis, string axisTitle)
 
 ## **Diagramok frissítése**
 
-Az Aspose.Slides for .NET lehetővé teszi a PowerPoint diagramok frissítését a diagramadatok, formázás és stílus módosításával. Ez a funkció egyszerűsíti a prezentációk dinamikus tartalommal való naprakészen tartását, és biztosítja, hogy a diagramok pontosan tükrözzék a jelenlegi adatokat és vizuális szabványokat.
+Az Aspose.Slides for .NET lehetővé teszi, hogy a PowerPoint‑diagramokat frissítse diagramadatok, formázás és stílus módosításával. Ez a funkció egyszerűsíti a prezentációk naprakészen tartását dinamikus tartalommal, és biztosítja, hogy a diagramok pontosan tükrözzék a aktuális adatokat és vizuális szabványokat.
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation) osztályból, amely a diagramot tartalmazó prezentációt reprezentálja.
-1. Szerezzen referenciát egy diára a indexe alapján.
-1. Járja be az összes alakzatot a diagram megtalálásához.
-1. Hozzáférés a diagram adatlapjához.
-1. Módosítsa a diagram adat sorozatát a sorozat értékeinek változtatásával.
-1. Adjon hozzá egy új sorozatot, és töltse fel annak adatait.
+1. Hozzon létre egy [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) példányt, amely a diagramot tartalmazó prezentációt képviseli.  
+1. Kapjon hivatkozást egy diára a indexe alapján.  
+1. Járja be az összes alakzatot a diagram megtalálásához.  
+1. Hozzáférés a diagram adatlapjához.  
+1. Módosítsa a diagram adat sorozatát a sorozat értékeinek megváltoztatásával.  
+1. Adjon hozzá egy új sorozatot, és töltse fel az adataival.  
 1. Mentse a módosított prezentációt PPTX fájlként.
 
 Ez a C# kód bemutatja, hogyan frissíthet egy diagramot:
@@ -1092,40 +1092,40 @@ using Aspose.Slides.Export;
 
 const string chartName = "My chart";
 
-// Példányosítsa a Presentation osztályt, amely egy PPTX fájlt képvisel.
+// Példányosítja a Presentation osztályt, amely egy PPTX fájlt képvisel.
 using (Presentation presentation = new Presentation("ExistingChart.pptx"))
 {
-    // Az első dia elérése.
+    // Elérje az első diát.
     ISlide slide = presentation.Slides[0];
 
     foreach (IShape shape in slide.Shapes)
     {
         if (shape is IChart chart && chart.Name == chartName)
         {
-            // A diagram adatlapjának indexének beállítása.
+            // Állítsa be a diagram adatlapjának indexét.
             int worksheetIndex = 0;
 
-            // A diagram adatkönyvtárának lekérése.
+            // Szerezze meg a diagram adatkönyvtárát.
             IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
 
-            // A diagram kategórianévinek módosítása.
+            // Módosítja a diagram kategória neveket.
             workbook.GetCell(worksheetIndex, 1, 0, "Modified Category 1");
             workbook.GetCell(worksheetIndex, 2, 0, "Modified Category 2");
 
-            // Az első diagram sorozat lekérése.
+            // Szerezze meg az első diagram sorozatot.
             IChartSeries series = chart.ChartData.Series[0];
 
-            // A sorozat adatainak frissítése.
-            workbook.GetCell(worksheetIndex, 0, 1, "New_Series 1"); // A sorozat nevének módosítása.
+            // Frissíti a sorozat adatait.
+            workbook.GetCell(worksheetIndex, 0, 1, "New_Series 1"); // Sorozatnév módosítása.
             series.DataPoints[0].Value.Data = 90;
             series.DataPoints[1].Value.Data = 123;
             series.DataPoints[2].Value.Data = 44;
 
-            // A második diagram sorozat lekérése.
+            // Szerezze meg a második diagram sorozatot.
             series = chart.ChartData.Series[1];
 
-            // A sorozat adatainak frissítése.
-            workbook.GetCell(worksheetIndex, 0, 2, "New_Series 2"); // A sorozat nevének módosítása.
+            // Frissíti a sorozat adatait.
+            workbook.GetCell(worksheetIndex, 0, 2, "New_Series 2"); // Sorozatnév módosítása.
             series.DataPoints[0].Value.Data = 23;
             series.DataPoints[1].Value.Data = 67;
             series.DataPoints[2].Value.Data = 99;
@@ -1142,22 +1142,24 @@ using (Presentation presentation = new Presentation("ExistingChart.pptx"))
         }
     }
 
-    // A prezentáció mentése a diagrammal.
+    // A diagramot tartalmazó prezentáció mentése.
     presentation.Save("AsposeChartModified_out.pptx", SaveFormat.Pptx);
 }
 ```
 
-## **Adattartomány beállítása egy diagramhoz**
+## **Diagram adatintervallum beállítása**
 
-Az Aspose.Slides for .NET rugalmasságot biztosít a diagram adatforrásaként egy munkalap adott tartományának meghatározásához. Ez azt jelenti, hogy közvetlenül leképezhet egy munkalap részletet a diagramra, így szabályozhatja, mely cellák járulnak hozzá a diagram sorozataihoz és kategóriáihoz. Ennek eredményeként könnyen frissítheti és szinkronizálhatja diagramjait a munkalap legújabb adataival, biztosítva, hogy a PowerPoint‑prezentációk aktuális és pontos információkat tükrözzenek.
+A már meglévő diagram által használt tartomány megtekintéséhez lásd a [Retrieve a Chart's Data Range](/slides/hu/net/chart-workbook/#retrieve-a-charts-data-range) szakaszt.
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation) osztályból, amely a diagramot tartalmazó prezentációt reprezentálja.
-1. Szerezzen referenciát egy diára a indexe alapján.
-1. Járja be az összes alakzatot a diagram megtalálásához.
-1. Hozzáférés a diagram adataihoz, és állítsa be a tartományt.
+Az Aspose.Slides for .NET rugalmasságot biztosít egy adott munkalap adatintervallumának diagramadat‑forrásként történő meghatározásához. Ez azt jelenti, hogy közvetlenül leképezhet egy munkalap részét a diagramra, szabályozva, mely cellák járulnak hozzá a diagram sorozataihoz és kategóriáihoz. Ennek eredményeként könnyen frissítheti és szinkronizálhatja a diagramokat a munkalap legújabb adatváltozásaival, biztosítva, hogy a PowerPoint‑prezentációk aktuális és pontos információkat tükrözzenek.
+
+1. Hozzon létre egy [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) példányt, amely a diagramot tartalmazó prezentációt képviseli.  
+1. Kapjon hivatkozást egy diára a indexe alapján.  
+1. Járja be az összes alakzatot a diagram megtalálásához.  
+1. Hozzáférés a diagram adataihoz, és állítsa be a tartományt.  
 1. Mentse a módosított prezentációt PPTX fájlként.
 
-Ez a C# kód bemutatja, hogyan állíthatja be a diagram adat tartományát:
+Ez a C# kód bemutatja, hogyan állíthatja be a diagram adatintervallumát:
 
 ```c#
 using Aspose.Slides;
@@ -1169,7 +1171,7 @@ const string chartName = "My chart";
 // Példányosítja a Presentation osztályt, amely egy PPTX fájlt képvisel.
 using (Presentation presentation = new Presentation("ExistingChart.pptx"))
 {
-    // Az első dia elérése.
+    // Elérje az első diát.
     ISlide slide = presentation.Slides[0];
 
     foreach (IShape shape in slide.Shapes)
@@ -1186,14 +1188,14 @@ using (Presentation presentation = new Presentation("ExistingChart.pptx"))
 
 ## **Alapértelmezett jelölők használata diagramokban**
 
-Alapértelmezett jelölők használatakor minden diagram sorozat automatikusan más‑más jelölőszimbólumot kap.
+Alapértelmezett jelölők használatakor a diagram minden sorozata automatikusan más‑más alapértelmezett jelölőszimbólumot kap.
 
-Ez a C# kód bemutatja, hogyan állíthat be egy diagram sorozat jelölőt automatikusan:
+Ez a C# kód mutatja be, hogyan állíthat be automatikusan egy diagram sorozat jelölőjét:
 
 ```c#
 using Aspose.Slides;
 using Aspose.Slides.Charts;
-using Aspise.Slides.Export;
+using Aspose.Slides.Export;
 
 using (Presentation presentation = new Presentation())
 {
@@ -1221,7 +1223,7 @@ using (Presentation presentation = new Presentation())
 
     IChartSeries series2 = chart.ChartData.Series.Add(workbook.GetCell(0, 0, 2, "Series 2"), chart.Type);
 
-    // Sorozatadatok feltöltése.
+    // Töltse fel a sorozat adatait.
     series2.DataPoints.AddDataPointForLineSeries(workbook.GetCell(0, 1, 2, 30));
     series2.DataPoints.AddDataPointForLineSeries(workbook.GetCell(0, 2, 2, 10));
     series2.DataPoints.AddDataPointForLineSeries(workbook.GetCell(0, 3, 2, 60));
@@ -1238,16 +1240,16 @@ using (Presentation presentation = new Presentation())
 
 **Milyen diagramtípusokat támogat az Aspose.Slides for .NET?**
 
-Az Aspose.Slides for .NET számos diagramtípust támogat, köztük oszlop, vonal, torta, terület, szórás, hisztogram, radar és sok más. Ez a rugalmasság lehetővé teszi a legmegfelelőbb diagramtípus kiválasztását az adatvizualizációs igényekhez.
+Az Aspose.Slides for .NET széles körű diagramtípusokat támogat, többek között oszlop, vonal, kör, terület, szórt, hisztogram, radar és sok egyebet. Ez a rugalmasság lehetővé teszi a legmegfelelőbb diagramtípus kiválasztását az adatvizualizációs igényeihez.
 
-**Hogyan adhatok új diagramot egy diához?**
+**Hogyan adhatok új diagramot egy diára?**
 
-Diagram hozzáadásához először hozzon létre egy [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation) példányt, szerezze meg a kívánt diát az indexe alapján, majd hívja meg a diagram hozzáadására szolgáló metódust, megadva a diagram típust és a kezdeti adatokat. Ez a folyamat közvetlenül beilleszti a diagramot a prezentációba.
+Diagram hozzáadásához először hozza létre a [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) példányát, szerezze be a kívánt diát az indexe alapján, majd hívja meg a diagramot hozzáadó metódust, megadva a diagram típusát és a kezdeti adatokat. Ez a folyamat közvetlenül a diagramot integrálja a prezentációba.
 
-**Hogyan frissíthetem a diagramon megjelenített adatokat?**
+**Hogyan frissíthetem a diagramon megjelenő adatokat?**
 
-A diagram adatainak frissítéséhez férjen hozzá a diagram adatkönyvtárához ([IChartDataWorkbook](https://reference.aspose.com/slides/hu/net/aspose.slides.charts/ichartdataworkbook/)), törölje az alapértelmezett sorozatokat és kategóriákat, majd adja hozzá a saját egyedi adatait. Ez lehetővé teszi a diagram programozott frissítését a legújabb adatok tükrözésére.
+A diagram adatait a diagram adatkönyvtárához ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)) való hozzáféréssel, az alapértelmezett sorozatok és kategóriák törlésével, majd egyedi adatok hozzáadásával frissítheti. Ez lehetővé teszi a diagram programozott frissítését a legújabb adatok tükrözéséhez.
 
-**Lehet-e testreszabni a diagram megjelenését?**
+**Lehet-e testre szabni a diagram megjelenését?**
 
-Igen, az Aspose.Slides for .NET kiterjedt testreszabási lehetőségeket kínál. Módosíthat színeket, betűtípusokat, címkéket, jelmagyarázatokat és egyéb formázási elemeket, hogy a diagram megjelenése megfeleljen a konkrét tervezési követelményeknek.
+Igen, az Aspose.Slides for .NET kiterjedt testreszabási lehetőségeket kínál. Módosíthatja a színeket, betűtípusokat, címkéket, jelmagyarázatot és egyéb formázási elemeket, hogy a diagram megjelenése megfeleljen a specifikus tervezési követelményeknek.

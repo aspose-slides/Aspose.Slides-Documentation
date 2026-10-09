@@ -7,50 +7,50 @@ url: /fr/python-java/create-chart/
 keywords:
 - ajouter un graphique
 - créer un graphique
-- modifier un graphique
-- changer un graphique
-- mettre à jour un graphique
-- graphique de dispersion
+- éditer le graphique
+- changer le graphique
+- mettre à jour le graphique
+- graphique en nuage de points
 - graphique circulaire
 - graphique en courbes
-- graphique en carte d'arbre
+- graphique en cartographie arborescente
 - graphique boursier
-- graphique boîte à moustaches
+- graphique à boîte et moustaches
 - graphique en entonnoir
 - graphique en rayons
-- graphique histogramme
+- graphique à histogramme
 - graphique radar
-- graphique multi‑catégorie
+- graphique multicatégorie
 - PowerPoint
 - présentation
 - Python
 - Java
 - Aspose.Slides
-description: "Créer et personnaliser des graphiques dans des présentations PowerPoint à l'aide d'Aspose.Slides pour Python via Java. Ajouter, formater et modifier des graphiques avec des exemples de code pratiques en Python."
+description: "Créer et personnaliser des graphiques dans les présentations PowerPoint à l'aide d'Aspose.Slides pour Python via Java. Ajouter, formater et modifier des graphiques avec des exemples de code pratiques en Python."
 ---
 ## **Vue d'ensemble**
 
-Cet article fournit un guide complet sur la création et la personnalisation des graphiques avec Aspose.Slides. Vous apprendrez à ajouter un graphique à une diapositive de manière programmatique, à le remplir avec des données et à appliquer diverses options de mise en forme pour répondre à vos exigences de conception spécifiques. Tout au long de l'article, des exemples de code détaillés illustrent chaque étape, depuis l'initialisation de la présentation et de l'objet graphique jusqu'à la configuration des séries, des axes et des légendes. En suivant ce guide, vous acquerrez une compréhension solide de l'intégration de la génération dynamique de graphiques dans vos applications, simplifiant le processus de création de présentations basées sur les données.
+Cet article fournit un guide complet sur la façon de créer et de personnaliser des graphiques avec Aspose.Slides. Vous apprendrez à ajouter programmétiquement un graphique à une diapositive, à le remplir avec des données et à appliquer diverses options de mise en forme pour répondre à vos exigences de conception spécifiques. Tout au long de l’article, des exemples de code détaillés illustrent chaque étape, de l’initialisation de la présentation et de l’objet graphique à la configuration des séries, des axes et des légendes. En suivant ce guide, vous acquerrez une compréhension solide de l’intégration de la génération dynamique de graphiques dans vos applications, simplifiant le processus de création de présentations basées sur des données.
 
 ## **Créer un graphique**
 
-Les graphiques aident les gens à visualiser rapidement les données et à obtenir des informations qui ne sont pas immédiatement évidentes à partir d'un tableau ou d'une feuille de calcul.
+Les graphiques aident les utilisateurs à visualiser rapidement des données et à en dégager des informations qui ne sont pas immédiatement évidentes dans un tableau ou une feuille de calcul.
 
 **Pourquoi créer des graphiques ?**
 
 En utilisant des graphiques, vous pouvez :
 
 * agréger, condenser ou résumer de grandes quantités de données sur une seule diapositive d’une présentation
-* faire apparaître des motifs et des tendances dans les données
+* mettre en évidence des motifs et des tendances dans les données
 * déduire la direction et l’élan des données au fil du temps ou par rapport à une unité de mesure spécifique
-* repérer les valeurs aberrantes, les écarts, les erreurs, les données incohérentes, etc.
+* repérer des valeurs aberrantes, des anomalies, des écarts, des erreurs, des données incohérentes, etc.
 * communiquer ou présenter des données complexes
 
-Dans PowerPoint, vous pouvez créer des graphiques via la fonction *Insert*, qui propose des modèles pour concevoir de nombreux types de graphiques. Avec Aspose.Slides, vous pouvez créer à la fois des graphiques classiques (basés sur des types de graphiques populaires) et des graphiques personnalisés.
+Dans PowerPoint, vous pouvez créer des graphiques via la fonction *Insérer*, qui propose des modèles pour concevoir de nombreux types de graphiques. Avec Aspose.Slides, vous pouvez créer à la fois des graphiques classiques (basés sur des types de graphiques populaires) et des graphiques personnalisés.
 
-{{% alert color="info" title="Remarque" %}}
+{{% alert color="info" title="Note" %}}
 
-Pour créer des graphiques, utilisez la classe [ChartType](https://reference.aspose.com/slides/fr/python-java/aspose.slides/charttype/). Les champs de cette classe correspondent aux différents types de graphiques.
+Pour créer des graphiques, utilisez la classe [ChartType](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/). Les champs de cette classe correspondent aux différents types de graphiques.
 
 {{% /alert %}}
 
@@ -58,17 +58,17 @@ Pour créer des graphiques, utilisez la classe [ChartType](https://reference.asp
 
 Cette section explique comment créer des graphiques à colonnes groupées avec Aspose.Slides. Vous apprendrez à initialiser une présentation, à ajouter un graphique et à personnaliser ses éléments tels que le titre, les données, les séries, les catégories et le style. Suivez les étapes ci‑dessous pour voir comment un graphique à colonnes groupées standard est généré :
 
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/fr/python-java/aspose.slides/presentation).
-1. Obtenez une référence à une diapositive à l’aide de son indice.
-1. Ajoutez un graphique avec des données et spécifiez le type `ChartType.ClusteredColumn`.
+1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation) .
+1. Obtenez une référence à une diapositive en utilisant son indice.
+1. Ajoutez un graphique avec quelques données et spécifiez le type `ChartType.ClusteredColumn`.
 1. Ajoutez un titre au graphique.
 1. Accédez à la feuille de données du graphique.
-1. Effacez toutes les séries et catégories par défaut.
+1. Supprimez toutes les séries et catégories par défaut.
 1. Ajoutez de nouvelles séries et catégories.
 1. Ajoutez de nouvelles données de graphique pour les séries.
 1. Appliquez une couleur de remplissage aux séries du graphique.
 1. Ajoutez des libellés aux séries du graphique.
-1. Enregistrez la présentation modifiée sous forme de fichier PPTX.
+1. Enregistrez la présentation modifiée au format PPTX.
 
 Ce code C# montre comment créer un graphique à colonnes groupées :
 
@@ -101,7 +101,7 @@ try:
     # Définit l'index de la feuille de données du graphique
     default_worksheet_index = 0
 
-    # Récupère la feuille de calcul des données du graphique
+    # Obtient la feuille de données du graphique
     workbook = chart.getChartData().getChartDataWorkbook()
 
     # Supprime les séries et catégories générées par défaut
@@ -122,7 +122,7 @@ try:
     cell = workbook.getCell(default_worksheet_index, 3, 0, "Category 3")
     chart.getChartData().getCategories().add(cell)
 
-    # Prend la première série du graphique
+    # Récupère la première série du graphique
     series = chart.getChartData().getSeries().get_Item(0)
 
     # Remplit maintenant les données de la série
@@ -137,7 +137,7 @@ try:
     series.getFormat().getFill().setFillType(FillType.Solid)
     series.getFormat().getFill().getSolidFillColor().setColor(Color.RED)
 
-    # Prend la deuxième série du graphique
+    # Récupère la deuxième série du graphique
     series = chart.getChartData().getSeries().get_Item(1)
 
     # Remplit les données de la série
@@ -152,7 +152,7 @@ try:
     series.getFormat().getFill().setFillType(FillType.Solid)
     series.getFormat().getFill().getSolidFillColor().setColor(Color.GREEN)
 
-    #Créer des étiquettes personnalisées pour chaque catégorie de la nouvelle série
+    #Create des étiquettes personnalisées pour chaque catégorie de la nouvelle série
     # Définit la première étiquette pour afficher le nom de la catégorie
     label = series.getDataPoints().get_Item(0).getLabel()
     label.getDataLabelFormat().setShowCategoryName(True)
@@ -166,32 +166,32 @@ try:
     label.getDataLabelFormat().setShowSeriesName(True)
     label.getDataLabelFormat().setSeparator("/")
 
-    # Enregistre la présentation avec le graphique
+    # Saves the presentation with chart
     presentation.save("output.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-### **Créer des graphiques de dispersion**
+### **Créer des graphiques en nuage de points**
 
-Les graphiques de dispersion (également appelés nuages de points ou graphiques X‑Y) sont souvent utilisés pour vérifier des motifs ou démontrer des corrélations entre deux variables.
+Les graphiques en nuage de points (également appelés diagrammes de dispersion ou graphiques x‑y) sont souvent utilisés pour vérifier des motifs ou démontrer des corrélations entre deux variables.
 
-Utilisez un graphique de dispersion lorsque :
+Utilisez un nuage de points lorsque :
 
 * vous avez des données numériques appariées
-* vous avez deux variables qui s’associent bien
-* vous voulez déterminer si deux variables sont liées
-* vous avez une variable indépendante possédant plusieurs valeurs pour une variable dépendante
+* vous avez deux variables qui se combinent bien
+* vous souhaitez déterminer si deux variables sont liées
+* vous avez une variable indépendante qui possède plusieurs valeurs pour une variable dépendante
 
-1. Suivez les étapes de [Créer des graphiques à colonnes groupées](#cr%C3%A9er-des-graphiques-%C3%A0-colonnes-group%C3%A9es).
-2. Pour la troisième étape, ajoutez un graphique avec des données et spécifiez votre type de graphique parmi les suivants :
-   1. [ChartType.ScatterWithMarkers](https://reference.aspose.com/slides/fr/python-java/aspose.slides/charttype/#ScatterWithMarkers) - _Représente un graphique de dispersion._
-   2. [ChartType.ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/fr/python-java/aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - _Représente un graphique de dispersion relié par des courbes, avec des repères de données._
-   3. [ChartType.ScatterWithSmoothLines](https://reference.aspose.com/slides/fr/python-java/aspose.slides/charttype/#ScatterWithSmoothLines) - _Représente un graphique de dispersion relié par des courbes, sans repères de données._
-   4. [ChartType.ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/fr/python-java/aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _Représente un graphique de dispersion relié par des lignes droites, avec des repères de données._
-   5. [ChartType.ScatterWithStraightLines](https://reference.aspose.com/slides/fr/python-java/aspose.slides/charttype/#ScatterWithStraightLines) - _Représente un graphique de dispersion relié par des lignes droites, sans repères de données._
+1. Suivez les étapes de la section [Create Clustered Column Charts](#create-clustered-column-charts).
+2. Pour la troisième étape, ajoutez un graphique avec quelques données et spécifiez votre type de graphique parmi les suivants :
+   1. [ChartType.ScatterWithMarkers](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/#ScatterWithMarkers) - _Représente un graphique en nuage de points avec marqueurs._
+   2. [ChartType.ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - _Représente un graphique en nuage de points relié par des courbes, avec des marqueurs de données._
+   3. [ChartType.ScatterWithSmoothLines](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/#ScatterWithSmoothLines) - _Représente un graphique en nuage de points relié par des courbes, sans marqueurs de données._
+   4. [ChartType.ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _Représente un graphique en nuage de points relié par des lignes droites, avec des marqueurs de données._
+   5. [ChartType.ScatterWithStraightLines](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/#ScatterWithStraightLines) - _Représente un graphique en nuage de points relié par des lignes droites, sans marqueurs de données._
 
-Ce code Python montre comment créer un graphique de dispersion avec différents repères pour chaque série :
+Ce code Python montre comment créer un nuage de points avec des marqueurs différents pour chaque série :
 
 ```python
 import jpype
@@ -217,7 +217,7 @@ try:
     # Obtient la feuille de données du graphique
     workbook = chart.getChartData().getChartDataWorkbook()
 
-    # Supprime les séries de démonstration
+    # Supprime la série de démonstration
     chart.getChartData().getSeries().clear()
 
     # Ajoute de nouvelles séries
@@ -239,17 +239,17 @@ try:
     y_cell = workbook.getCell(default_worksheet_index, 3, 2, 10)
     series.getDataPoints().addDataPointForScatterSeries(x_cell, y_cell)
 
-    # Modifie le type de la série
+    # Change le type de la série
     series.setType(ChartType.ScatterWithStraightLinesAndMarkers)
 
-    # Modifie le repère de la série du graphique
+    # Change le marqueur de la série du graphique
     series.getMarker().setSize(10)
     series.getMarker().setSymbol(MarkerStyleType.Star)
 
     # Prend la deuxième série du graphique
     series = chart.getChartData().getSeries().get_Item(1)
 
-    # Ajoute un nouveau point (5:2) là
+    # Ajoute un nouveau point (5:2) ici
     x_cell = workbook.getCell(default_worksheet_index, 2, 3, 5)
     y_cell = workbook.getCell(default_worksheet_index, 2, 4, 2)
     series.getDataPoints().addDataPointForScatterSeries(x_cell, y_cell)
@@ -269,7 +269,7 @@ try:
     y_cell = workbook.getCell(default_worksheet_index, 5, 4, 1)
     series.getDataPoints().addDataPointForScatterSeries(x_cell, y_cell)
 
-    # Modifie le repère de la série du graphique
+    # Change le marqueur de la série du graphique
     series.getMarker().setSize(10)
     series.getMarker().setSymbol(MarkerStyleType.Circle)
 
@@ -280,20 +280,20 @@ finally:
 
 ### **Créer des graphiques circulaires**
 
-Les graphiques circulaires sont les mieux adaptés pour illustrer la relation partie‑à‑tout dans les données, surtout lorsque les données contiennent des libellés catégoriels associés à des valeurs numériques. Cependant, si vos données comportent de nombreuses parties ou libellés, il peut être préférable d’utiliser un graphique à barres.
+Les graphiques circulaires sont les mieux adaptés pour illustrer la relation partie‑à‑tout dans des données, surtout lorsque les données contiennent des libellés catégoriels associés à des valeurs numériques. Cependant, si vos données comportent de nombreuses parties ou libellés, il peut être préférable d’utiliser un graphique à barres.
 
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/fr/python-java/aspose.slides/presentation/).
-2. Obtenez une référence à une diapositive à l’aide de son indice.
-3. Ajoutez un graphique avec des données par défaut et spécifiez le type [ChartType.Pie](https://reference.aspose.com/slides/fr/python-java/aspose.slides/charttype/#Pie).
-4. Accédez au classeur de données du graphique [ChartDataWorkbook](https://reference.aspose.com/slides/fr/python-java/aspose.slides/chartdataworkbook/).
-5. Effacez les séries et catégories par défaut.
+1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) .
+2. Obtenez une référence à une diapositive en utilisant son indice.
+3. Ajoutez un graphique avec des données par défaut et spécifiez le type [ChartType.Pie](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/#Pie) .
+4. Accédez au classeur de données du graphique [ChartDataWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdataworkbook/) .
+5. Supprimez les séries et catégories par défaut.
 6. Ajoutez de nouvelles séries et catégories.
 7. Ajoutez de nouvelles données de graphique pour les séries.
 8. Ajoutez de nouveaux points au graphique et appliquez des couleurs personnalisées aux secteurs du graphique circulaire.
 9. Définissez les libellés pour les séries.
-10. Activez les lignes directrices pour les libellés des séries.
+10. Activez les lignes de repère pour les libellés des séries.
 11. Définissez l’angle de rotation des secteurs du graphique circulaire.
-12. Enregistrez la présentation modifiée sous forme de fichier PPTX.
+12. Enregistrez la présentation modifiée au format PPTX.
 
 Ce code Python montre comment créer un graphique circulaire :
 
@@ -326,7 +326,7 @@ try:
     # Définit l'index de la feuille de données du graphique
     default_worksheet_index = 0
 
-    # Obtient la feuille de calcul des données du graphique
+    # Obtient la feuille de données du graphique
     workbook = chart.getChartData().getChartDataWorkbook()
 
     # Supprime les séries et catégories générées par défaut
@@ -345,7 +345,7 @@ try:
     cell = workbook.getCell(0, 0, 1, "Series 1")
     series = chart.getChartData().getSeries().add(cell, chart.getType())
 
-    #Remplit les données de la série
+    #Populates the series data
     cell = workbook.getCell(default_worksheet_index, 1, 1, 20)
     series.getDataPoints().addDataPointForPieSeries(cell)
     cell = workbook.getCell(default_worksheet_index, 2, 1, 50)
@@ -353,7 +353,7 @@ try:
     cell = workbook.getCell(default_worksheet_index, 3, 1, 30)
     series.getDataPoints().addDataPointForPieSeries(cell)
 
-    # Ajout de nouveaux points et définition de la couleur du secteur
+    # Ajout de nouveaux points et définition de la couleur des secteurs
     chart.getChartData().getSeriesGroups().get_Item(0).setColorVaried(True)
 
     point = series.getDataPoints().get_Item(0)
@@ -391,6 +391,7 @@ try:
 
     # Crée des étiquettes personnalisées pour chaque catégorie de la nouvelle série
     first_label = series.getDataPoints().get_Item(0).getLabel()
+
     first_label.getDataLabelFormat().setShowValue(True)
 
     second_label = series.getDataPoints().get_Item(1).getLabel()
@@ -416,12 +417,12 @@ finally:
 
 ### **Créer des graphiques en courbes**
 
-Les graphiques en courbes (également appelés graphiques linéaires) sont les mieux adaptés lorsqu’il faut montrer des variations de valeur au fil du temps. Avec un graphique en courbes, vous pouvez comparer un grand volume de données d’un seul coup, suivre les évolutions et les tendances dans le temps, mettre en évidence des anomalies dans les séries, etc.
+Les graphiques en courbes (également appelés graphiques linéaires) sont les mieux adaptés aux situations où vous souhaitez démontrer des variations de valeur au fil du temps. Avec un graphique en courbes, vous pouvez comparer un grand nombre de données simultanément, suivre les changements et les tendances dans le temps, mettre en évidence des anomalies dans les séries de données, etc.
 
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/fr/python-java/aspose.slides/presentation/).
-1. Obtenez une référence à une diapositive à l’aide de son indice.
-1. Ajoutez un graphique avec des données par défaut et spécifiez le type [ChartType.Line](https://reference.aspose.com/slides/fr/python-java/aspose.slides/charttype/#Line).
-1. Enregistrez la présentation modifiée sous forme de fichier PPTX.
+1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) .
+1. Obtenez une référence à une diapositive en utilisant son indice.
+1. Ajoutez un graphique avec des données par défaut et spécifiez le type [ChartType.Line](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/#Line) .
+1. Enregistrez la présentation modifiée au format PPTX.
 
 Ce code Python montre comment créer un graphique en courbes :
 
@@ -443,7 +444,7 @@ finally:
     presentation.dispose()
 ```
 
-Par défaut, les points d’un graphique en courbes sont reliés par des lignes droites continues. Si vous préférez que les points soient reliés par des tirets, vous pouvez spécifier le type de tiret souhaité comme suit :
+Par défaut, les points d’un graphique en courbes sont reliés par des lignes continues droites. Si vous souhaitez que les points soient reliés par des tirets, vous pouvez spécifier le type de tiret souhaité comme suit :
 
 ```python
 import jpype
@@ -466,20 +467,20 @@ finally:
     presentation.dispose()
 ```
 
-### **Créer des graphiques en carte d’arbre**
+### **Créer des graphiques en cartographie arborescente**
 
-Les graphiques en carte d’arbre sont les mieux adaptés aux données de ventes lorsqu’il faut montrer la taille relative des catégories de données et attirer rapidement l’attention sur les éléments qui contribuent le plus au sein de chaque catégorie.
+Les graphiques en cartographie arborescente sont les mieux adaptés aux données de ventes lorsque vous voulez montrer la taille relative des catégories de données et attirer rapidement l’attention sur les éléments qui contribuent le plus dans chaque catégorie.
 
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/fr/python-java/aspose.slides/presentation/).
-2. Obtenez une référence à une diapositive à l’aide de son indice.
-3. Ajoutez un graphique avec des données par défaut et spécifiez le type [ChartType.Treemap](https://reference.aspose.com/slides/fr/python-java/aspose.slides/charttype/#Treemap).
-4. Accédez au classeur de données du graphique [ChartDataWorkbook](https://reference.aspose.com/slides/fr/python-java/aspose.slides/chartdataworkbook/).
-5. Effacez les séries et catégories par défaut.
+1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) .
+2. Obtenez une référence à une diapositive en utilisant son indice.
+3. Ajoutez un graphique avec des données par défaut et spécifiez le type [ChartType.Treemap](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/#Treemap) .
+4. Accédez au classeur de données du graphique [ChartDataWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdataworkbook/) .
+5. Supprimez les séries et catégories par défaut.
 6. Ajoutez de nouvelles séries et catégories.
 7. Ajoutez de nouvelles données de graphique pour les séries.
-8. Enregistrez la présentation modifiée sous forme de fichier PPTX.
+8. Enregistrez la présentation modifiée au format PPTX.
 
-Ce code Python montre comment créer un graphique en carte d’arbre :
+Ce code Python montre comment créer un graphique en cartographie arborescente :
 
 ```python
 import jpype
@@ -559,15 +560,15 @@ finally:
 
 ### **Créer des graphiques boursiers**
 
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/fr/python-java/aspose.slides/presentation/).
-2. Obtenez une référence à une diapositive à l’aide de son indice.
-3. Ajoutez un graphique avec des données par défaut et spécifiez le type [ChartType.OpenHighLowClose](https://reference.aspose.com/slides/fr/python-java/aspose.slides/charttype/#OpenHighLowClose).
-4. Accédez au classeur de données du graphique [ChartDataWorkbook](https://reference.aspose.com/slides/fr/python-java/aspose.slides/chartdataworkbook/).
-5. Effacez les séries et catégories par défaut.
+1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) .
+2. Obtenez une référence à une diapositive en utilisant son indice.
+3. Ajoutez un graphique avec des données par défaut et spécifiez le type [ChartType.OpenHighLowClose](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/#OpenHighLowClose) .
+4. Accédez au classeur de données du graphique [ChartDataWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdataworkbook/) .
+5. Supprimez les séries et catégories par défaut.
 6. Ajoutez de nouvelles séries et catégories.
 7. Ajoutez de nouvelles données de graphique pour les séries.
 8. Spécifiez le format des lignes haut‑bas.
-9. Enregistrez la présentation modifiée sous forme de fichier PPTX.
+9. Enregistrez la présentation modifiée au format PPTX.
 
 Ce code Python montre comment créer un graphique boursier :
 
@@ -649,18 +650,18 @@ finally:
     presentation.dispose()
 ```
 
-### **Créer des graphiques boîte à moustaches**
+### **Créer des graphiques à boîte et moustaches**
 
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/fr/python-java/aspose.slides/presentation/).
-2. Obtenez une référence à une diapositive à l’aide de son indice.
-3. Ajoutez un graphique avec des données par défaut et spécifiez le type [ChartType.BoxAndWhisker](https://reference.aspose.com/slides/fr/python-java/aspose.slides/charttype/#BoxAndWhisker).
-4. Accédez au classeur de données du graphique [ChartDataWorkbook](https://reference.aspose.com/slides/fr/python-java/aspose.slides/chartdataworkbook/).
-5. Effacez les séries et catégories par défaut.
+1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) .
+2. Obtenez une référence à une diapositive en utilisant son indice.
+3. Ajoutez un graphique avec des données par défaut et spécifiez le type [ChartType.BoxAndWhisker](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/#BoxAndWhisker) .
+4. Accédez au classeur de données du graphique [ChartDataWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdataworkbook/) .
+5. Supprimez les séries et catégories par défaut.
 6. Ajoutez de nouvelles séries et catégories.
 7. Ajoutez de nouvelles données de graphique pour les séries.
-8. Enregistrez la présentation modifiée sous forme de fichier PPTX.
+8. Enregistrez la présentation modifiée au format PPTX.
 
-Ce code Python montre comment créer un graphique boîte à moustaches :
+Ce code Python montre comment créer un graphique à boîte et moustaches :
 
 ```python
 import jpype
@@ -721,10 +722,10 @@ finally:
 
 ### **Créer des graphiques en entonnoir**
 
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/fr/python-java/aspose.slides/presentation/).
-2. Obtenez une référence à une diapositive à l’aide de son indice.
-3. Ajoutez un graphique avec des données par défaut et spécifiez le type [ChartType.Funnel](https://reference.aspose.com/slides/fr/python-java/aspose.slides/charttype/#Funnel).
-4. Enregistrez la présentation modifiée sous forme de fichier PPTX.
+1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) .
+2. Obtenez une référence à une diapositive en utilisant son indice.
+3. Ajoutez un graphique avec des données par défaut et spécifiez le type [ChartType.Funnel](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/#Funnel) .
+4. Enregistrez la présentation modifiée au format PPTX.
 
 Ce code Python montre comment créer un graphique en entonnoir :
 
@@ -782,12 +783,12 @@ finally:
 
 ### **Créer des graphiques en rayons (Sunburst)**
 
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/fr/python-java/aspose.slides/presentation/).
-2. Obtenez une référence à une diapositive à l’aide de son indice.
-3. Ajoutez un graphique avec des données par défaut et spécifiez le type [ChartType.Sunburst](https://reference.aspose.com/slides/fr/python-java/aspose.slides/charttype/#Sunburst).
-4. Enregistrez la présentation modifiée sous forme de fichier PPTX.
+1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) .
+2. Obtenez une référence à une diapositive en utilisant son indice.
+3. Ajoutez un graphique avec des données par défaut et spécifiez le type [ChartType.Sunburst](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/#Sunburst) .
+4. Enregistrez la présentation modifiée au format PPTX.
 
-Ce code Python montre comment créer un graphique en rayons :
+Ce code Python montre comment créer un graphique en rayons (sunburst) :
 
 ```python
 import jpype
@@ -863,17 +864,17 @@ finally:
     presentation.dispose()
 ```
 
-### **Créer des graphiques histogrammes**
+### **Créer des graphiques à histogramme**
 
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/fr/python-java/aspose.slides/presentation/).
-2. Obtenez une référence à une diapositive à l’aide de son indice.
-3. Ajoutez un graphique avec des données par défaut et spécifiez le type [ChartType.Histogram](https://reference.aspose.com/slides/fr/python-java/aspose.slides/charttype/#Histogram).
-4. Accédez au classeur de données du graphique [ChartDataWorkbook](https://reference.aspose.com/slides/fr/python-java/aspose.slides/chartdataworkbook/).
-5. Effacez les séries et catégories par défaut.
+1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) .
+2. Obtenez une référence à une diapositive en utilisant son indice.
+3. Ajoutez un graphique avec des données par défaut et spécifiez le type [ChartType.Histogram](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/#Histogram) .
+4. Accédez au classeur de données du graphique [ChartDataWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdataworkbook/) .
+5. Supprimez les séries et catégories par défaut.
 6. Ajoutez de nouvelles séries et catégories.
-7. Enregistrez la présentation modifiée sous forme de fichier PPTX.
+7. Enregistrez la présentation modifiée au format PPTX.
 
-Ce code Python montre comment créer un graphique histogramme :
+Ce code Python montre comment créer un graphique à histogramme :
 
 ```python
 import jpype
@@ -916,10 +917,10 @@ finally:
 
 ### **Créer des graphiques radar**
 
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/fr/python-java/aspose.slides/presentation/).
-2. Obtenez une référence à une diapositive à l’aide de son indice.
-3. Ajoutez un graphique avec des données et spécifiez votre type de graphique préféré ([ChartType.Radar](https://reference.aspose.com/slides/fr/python-java/aspose.slides/charttype/#Radar) dans ce cas).
-4. Enregistrez la présentation modifiée sous forme de fichier PPTX.
+1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) .
+2. Obtenez une référence à une diapositive en utilisant son indice.
+3. Ajoutez un graphique avec quelques données et spécifiez votre type de graphique préféré ([ChartType.Radar](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/#Radar) dans ce cas).
+4. Enregistrez la présentation modifiée au format PPTX.
 
 Ce code Python montre comment créer un graphique radar :
 
@@ -942,16 +943,16 @@ finally:
 
 ### **Créer des graphiques multi‑catégories**
 
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/fr/python-java/aspose.slides/presentation/).
-2. Obtenez une référence à une diapositive à l’aide de son indice.
-3. Ajoutez un graphique avec des données par défaut et spécifiez le type [ChartType.ClusteredColumn](https://reference.aspose.com/slides/fr/python-java/aspose.slides/charttype/#ClusteredColumn).
-4. Accédez au classeur de données du graphique [ChartDataWorkbook](https://reference.aspose.com/slides/fr/python-java/aspose.slides/chartdataworkbook/).
-5. Effacez les séries et catégories par défaut.
+1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) .
+2. Obtenez une référence à une diapositive en utilisant son indice.
+3. Ajoutez un graphique avec des données par défaut et spécifiez le type [ChartType.ClusteredColumn](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/#ClusteredColumn) .
+4. Accédez au classeur de données du graphique [ChartDataWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdataworkbook/) .
+5. Supprimez les séries et catégories par défaut.
 6. Ajoutez de nouvelles séries et catégories.
 7. Ajoutez de nouvelles données de graphique pour les séries.
-8. Enregistrez la présentation modifiée sous forme de fichier PPTX.
+8. Enregistrez la présentation modifiée au format PPTX.
 
-Ce code Python montre comment créer un graphique multi‑catégorie :
+Ce code Python montre comment créer un graphique multi‑catégories :
 
 ```python
 import jpype
@@ -1023,9 +1024,10 @@ finally:
     presentation.dispose()
 ```
 
+
 ### **Créer des graphiques cartographiques**
 
-Les graphiques cartographiques visualisent les données géographiques et aident à comparer les valeurs entre régions.
+Les graphiques cartographiques visualisent des données géographiques et aident à comparer des valeurs entre différentes régions.
 
 Ce code Python montre comment créer un graphique cartographique :
 
@@ -1048,11 +1050,11 @@ finally:
 
 ### **Créer des graphiques combinés**
 
-Un graphique combiné (ou combo) regroupe deux types de graphiques ou plus dans un même diagramme. Ce graphique vous permet de mettre en évidence, comparer ou examiner les différences entre deux ensembles de données ou plus, facilitant l’identification de leurs relations.
+Un graphique combiné (ou combo) regroupe deux types de graphiques ou plus dans un même diagramme. Ce type de graphique vous permet de mettre en évidence, comparer ou examiner les différences entre deux ensembles de données ou plus, facilitant ainsi l’identification des relations entre eux.
 
 ![The combination chart](combination_chart.png)
 
-Le code Python suivant montre comment créer le graphique combiné illustré ci‑dessus dans une présentation PowerPoint :
+Le code Python suivant montre comment créer le graphique combiné présenté ci‑dessus dans une présentation PowerPoint :
 
 ```python
 import jpype
@@ -1222,13 +1224,13 @@ create_combo_chart()
 
 ## **Mettre à jour les graphiques**
 
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/fr/python-java/aspose.slides/presentation/) qui représente la présentation contenant le graphique à mettre à jour.
-2. Obtenez une référence à une diapositive à l’aide de son indice.
+1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) qui représente la présentation contenant le graphique à mettre à jour.
+2. Obtenez une référence à une diapositive en utilisant son indice.
 3. Parcourez toutes les formes pour trouver le graphique souhaité.
 4. Accédez à la feuille de données du graphique.
-5. Modifiez les séries de données du graphique en changeant les valeurs de séries.
+5. Modifiez les séries de données du graphique en changeant les valeurs des séries.
 6. Ajoutez une nouvelle série et remplissez‑la avec des données.
-7. Enregistrez la présentation modifiée sous forme de fichier PPTX.
+7. Enregistrez la présentation modifiée au format PPTX.
 
 Ce code Python montre comment mettre à jour un graphique :
 
@@ -1241,7 +1243,7 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import ChartType, Presentation, SaveFormat
 
-# Ouvre la présentation contenant le graphique à mettre à jour
+# Ouvre la présentation qui contient le graphique à mettre à jour
 presentation = Presentation("ExistingChart.pptx")
 try:
     # Accède à la première diapositive
@@ -1253,7 +1255,7 @@ try:
     # Définit l'index de la feuille de données du graphique
     default_worksheet_index = 0
 
-    # Obtient la feuille de calcul des données du graphique
+    # Obtient la feuille de données du graphique
     workbook = chart.getChartData().getChartDataWorkbook()
 
     # Modifie le nom de la catégorie du graphique
@@ -1263,7 +1265,7 @@ try:
     # Prend la première série du graphique
     series = chart.getChartData().getSeries().get_Item(0)
 
-    # Met à jour les données de la série
+    # Mise à jour des données de la série
     workbook.getCell(default_worksheet_index, 0, 1, "New_Series1")# Modification du nom de la série
     series.getDataPoints().get_Item(0).getValue().setData(90)
     series.getDataPoints().get_Item(1).getValue().setData(123)
@@ -1272,20 +1274,20 @@ try:
     # Prend la deuxième série du graphique
     series = chart.getChartData().getSeries().get_Item(1)
 
-    # Met à jour les données de la série
+    # Mise à jour des données de la série
     workbook.getCell(default_worksheet_index, 0, 2, "New_Series2")# Modification du nom de la série
     series.getDataPoints().get_Item(0).getValue().setData(23)
     series.getDataPoints().get_Item(1).getValue().setData(67)
     series.getDataPoints().get_Item(2).getValue().setData(99)
 
-    # Ajoute une nouvelle série
+    # Ajout d'une nouvelle série
     cell = workbook.getCell(default_worksheet_index, 0, 3, "Series 3")
     chart.getChartData().getSeries().add(cell, chart.getType())
 
-    # Prend la 3ᵉ série du graphique
+    # Prend la troisième série du graphique
     series = chart.getChartData().getSeries().get_Item(2)
 
-    # Remplit les données de la série
+    # Remplissage des données de la série
     cell = workbook.getCell(default_worksheet_index, 1, 3, 20)
     series.getDataPoints().addDataPointForBarSeries(cell)
     cell = workbook.getCell(default_worksheet_index, 2, 3, 50)
@@ -1303,13 +1305,15 @@ finally:
 
 ## **Définir la plage de données d’un graphique**
 
-Pour définir la plage de données d’un graphique, procédez ainsi :
+Pour inspecter la plage déjà utilisée par un graphique existant, consultez [Retrieve a Chart's Data Range](/slides/fr/python-java/chart-workbook/#retrieve-a-charts-data-range).
 
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/fr/python-java/aspose.slides/presentation/) qui représente la présentation contenant le graphique.
-2. Obtenez une référence à une diapositive à l’aide de son indice.
+Pour définir la plage de données d’un graphique, procédez comme suit :
+
+1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) qui représente la présentation contenant le graphique.
+2. Obtenez une référence à une diapositive en utilisant son indice.
 3. Parcourez toutes les formes pour trouver le graphique souhaité.
 4. Accédez aux données du graphique et définissez la plage.
-5. Enregistrez la présentation modifiée sous forme de fichier PPTX.
+5. Enregistrez la présentation modifiée au format PPTX.
 
 Ce code Python montre comment définir la plage de données d’un graphique :
 
@@ -1335,17 +1339,17 @@ finally:
     presentation.dispose()
 ```
 
-## **Utiliser des repères par défaut dans les graphiques**
+## **Utiliser des marqueurs par défaut dans les graphiques**
 
-Lorsque vous utilisez des repères par défaut dans les graphiques, chaque série de graphique reçoit automatiquement un symbole de repère différent.
+Lorsque vous utilisez des marqueurs par défaut dans les graphiques, chaque série de graphique reçoit automatiquement un symbole de marqueur différent.
 
-Ce code Python montre comment définir automatiquement le repère d’une série de graphique :
+Ce code Python montre comment définir automatiquement le marqueur d’une série de graphique :
 
 ```python
 import jpype
 import asposeslides
 
-if not jpype.isJVMStarted():
+if not jpase.isJVMStarted():
     jpype.startJVM()
 
 from asposeslides.api import ChartType, Presentation, SaveFormat
@@ -1385,7 +1389,7 @@ try:
     # Prendre la deuxième série du graphique
     second_series = chart.getChartData().getSeries().get_Item(1)
 
-    # Maintenant remplissage des données de la série
+    # Remplissage des données de la série
     cell = workbook.getCell(0, 1, 2, 30)
     second_series.getDataPoints().addDataPointForLineSeries(cell)
     cell = workbook.getCell(0, 2, 2, 10)
@@ -1407,16 +1411,16 @@ finally:
 
 **Quels types de graphiques sont pris en charge par Aspose.Slides ?**
 
-Aspose.Slides prend en charge un large éventail de [types de graphiques](https://reference.aspose.com/slides/fr/python-java/aspose.slides/charttype/), notamment des barres, des lignes, des secteurs, des aires, des dispersions, des histogrammes, des radars et bien d’autres. Cette flexibilité vous permet de choisir le type de graphique le plus adapté à vos besoins de visualisation de données.
+Aspose.Slides prend en charge un large éventail de [chart types](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/), notamment les graphiques à barres, lignes, circulaires, zones, nuages de points, histogrammes, radar et bien d’autres. Cette flexibilité vous permet de choisir le type de graphique le plus adapté à vos besoins de visualisation de données.
 
 **Comment ajouter un nouveau graphique à une diapositive ?**
 
-Pour ajouter un graphique, créez d’abord une instance de la classe [Presentation](https://reference.aspose.com/slides/fr/python-java/aspose.slides/presentation/), récupérez la diapositive souhaitée à l’aide de son indice, puis appelez la méthode d’ajout de graphique en spécifiant le type de graphique et les données initiales. Ce processus intègre le graphique directement dans votre présentation.
+Pour ajouter un graphique, créez d’abord une instance de la classe [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) , récupérez la diapositive souhaitée à l’aide de son indice, puis appelez la méthode d’ajout de graphique en précisant le type de graphique et les données initiales. Cette procédure intègre le graphique directement dans votre présentation.
 
 **Comment mettre à jour les données affichées dans un graphique ?**
 
-Vous pouvez mettre à jour les données d’un graphique en accédant à son classeur de données ([ChartDataWorkbook](https://reference.aspose.com/slides/fr/python-java/aspose.slides/chartdataworkbook/)), en supprimant les séries et catégories par défaut, puis en ajoutant vos propres données personnalisées. Cela vous permet d’actualiser le graphique avec les dernières informations.
+Vous pouvez mettre à jour les données d’un graphique en accédant à son classeur de données ([ChartDataWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdataworkbook/)), en supprimant les séries et catégories par défaut, puis en ajoutant vos propres données personnalisées. Ainsi, le graphique reflétera les dernières informations disponibles.
 
 **Est‑il possible de personnaliser l’apparence du graphique ?**
 
-Oui, Aspose.Slides offre de nombreuses options de personnalisation. Vous pouvez modifier les couleurs, les polices, les libellés, les légendes et d’autres [éléments de mise en forme](/slides/fr/python-java/chart-entities/) afin d’adapter l’apparence du graphique à vos exigences de conception spécifiques.
+Oui, Aspose.Slides offre de nombreuses options de personnalisation. Vous pouvez modifier les couleurs, les polices, les libellés, les légendes et d’autres [formatting elements](/slides/fr/python-java/chart-entities/) afin d’adapter l’apparence du graphique à vos exigences de conception spécifiques.)

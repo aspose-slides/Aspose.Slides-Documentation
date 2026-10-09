@@ -1,6 +1,6 @@
 ---
-title: Diagramok létrehozása vagy frissítése PowerPoint prezentációkban Androidon
-linktitle: Diagramok létrehozása vagy frissítése
+title: "PowerPoint-diagramok létrehozása vagy frissítése Androidon"
+linktitle: "Diagramok létrehozása vagy frissítése"
 type: docs
 weight: 10
 url: /hu/androidjava/create-chart/
@@ -10,14 +10,14 @@ keywords:
 - diagram szerkesztése
 - diagram módosítása
 - diagram frissítése
-- szórt diagram
-- kördiagram
+- szórásdiagram
+- tortadiagram
 - vonaldiagram
-- fa térkép diagram
+- fa térképe diagram
 - részvénydiagram
-- doboz és szakáll diagram
-- tölcsér diagram
-- napkitörés diagram
+- doboz‑ és bajuszdiagram
+- tölcsérdiagram
+- napfénytérkép diagram
 - hisztogram diagram
 - radar diagram
 - többkategóriás diagram
@@ -26,46 +26,48 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Diagramok létrehozása és testreszabása PowerPoint prezentációkban az Aspose.Slides for Android segítségével. Diagramok hozzáadása, formázása és szerkesztése gyakorlati Java kódpéldákkal."
+description: "PowerPoint-prezentációkban diagramok létrehozása és testreszabása az Aspose.Slides for Android segítségével. Diagramok hozzáadása, formázása és szerkesztése gyakorlati Java kódrészletekkel."
 ---
 ## **Áttekintés**
 
-Ez a cikk átfogó útmutatót nyújt arról, hogyan hozhatunk létre és testreszabhatunk diagramokat az Aspose.Slides segítségével. Megtanulja, hogyan adhat programozott módon diagramot egy diára, hogyan töltheti fel adatokal, és hogyan alkalmazhat különféle formázási lehetőségeket a specifikus tervezési követelményeknek megfelelően. A cikk során részletes kódrészletek illusztrálják az egyes lépéseket, a prezentáció és a diagramobjektum inicializálásától a sorok, tengelyek és jelmagyarázatok konfigurálásáig. Ezen útmutató követésével alaposan megértheti, hogyan integrálhat dinamikus diagramgenerálást alkalmazásaiba, egyszerűsítve az adat‑vezérelt prezentációk létrehozását.
+Ez a cikk átfogó útmutatót nyújt a diagramok létrehozásához és testreszabásához az Aspose.Slides segítségével. Megtanulhatja, hogyan adjon programozottan diagramot egy diára, hogyan töltse fel adatokal, és hogyan alkalmazzon különféle formázási beállításokat a konkrét tervezési igényekhez. A cikk során részletes kódpéldák mutatják be az egyes lépéseket, az előadás és a diagramobjektum inicializálásától a sorok, tengelyek és jelmagyarázatok konfigurálásáig. Az útmutató követésével alaposan megértheti, hogyan integrálhat dinamikus diagramgenerálást alkalmazásaiba, egyszerűsítve az adat‑vezérelt prezentációk létrehozását.
 
 ## **Diagram létrehozása**
 
-A diagramok segítenek az embereknek gyorsan megérteni az adatokat, és betekintést nyújtanak, ami egy táblázatból vagy számolaptábla‑lapból nem feltétlenül látható.
+A diagramok segítenek gyorsan megjeleníteni az adatokat és olyan betekintéseket nyújtanak, amelyek egy táblázatból vagy munkafüzetből nem azonnal láthatók.
 
-**Miért hozunk létre diagramokat?**
+**Miért érdemes diagramokat készíteni?**
 
 Diagramok használatával:
 
-* nagymennyiségű adatot összegyűjthet, tömöríthet vagy összefoglalhat egyetlen dián a prezentációban
-* mintákat és trendeket fedhet fel az adatokban
-* meghatározhatja az adatok irányát és lendületét időben vagy egy adott mérőegységhez viszonyítva
-* felismerheti az outliereket, eltéréseket, hibákat, értelmetlen adatokat stb.
-* komplex adatokat kommunikálhat vagy prezentálhat
+* nagy mennyiségű adatot összegezhet, tömöríthet vagy összefoglalhat egyetlen dián
+* mintákat és tendenciákat tárhat fel az adatokban
+* meghatározhatja az adatok irányát és lendületét időben vagy egy adott mértékegységhez képest
+* észlelhet kiugró értékeket, rendellenességeket, eltéréseket, hibákat, érthetetlen adatokat stb.
+* összetett adatokat kommunikálhat vagy mutathat be
 
-PowerPointban a *Insert* (Beszúrás) funkcióval hozhat létre diagramokat, amely különböző típusú diagramok sablonjait kínálja. Az Aspose.Slides használatával mind szabványos diagramokat (népszerű diagramtípusok alapján), mind egyedi diagramokat hozhat létre.
+A PowerPointban diagramokat a *Beszúrás* funkcióval hozhat létre, amely számos diagramtípus sablonját kínálja. Az Aspose.Slides segítségével hagyományos diagramokat (népszerű diagramtípusok alapján) és egyéni diagramokat is készíthet.
 
-{{% alert color="info" title="Note" %}}
-Diagramok létrehozásához használja a [ChartType](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/charttype/) osztályt. Az osztály mezői a különböző diagramtípusoknak felelnek meg.
+{{% alert color="info" title="Megjegyzés" %}}
+
+Diagramok létrehozásához használja a [ChartType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/) osztályt. Ennek az osztálynak a mezői a különböző diagramtípusoknak felelnek meg.
+
 {{% /alert %}}
 
 ### **Csoportosított oszlopdiagramok létrehozása**
 
-Ez a rész ismerteti, hogyan hozhat létre csoportosított oszlopdiagramot az Aspose.Slides segítségével. Megtanulja, hogyan inicializáljon egy prezentációt, adjon hozzá diagramot, és testre szabja annak elemeit, például a címet, az adatokat, a sorozatokat, a kategóriákat és a stílust. Kövesse az alábbi lépéseket a standard csoportosított oszlopdiagram generálásához:
+Ez a szakasz bemutatja, hogyan készítsen csoportosított oszlopdiagramot az Aspose.Slides segítségével. Megtanulja, hogyan inicializáljon egy prezentációt, adjon hozzá egy diagramot, és hogyan testreszabja annak elemeit, például a címet, az adatokat, a sorokat, a kategóriákat és a stílusokat. Kövesse az alábbi lépéseket, hogy lássa, hogyan jön létre egy szabványos csoportosított oszlopdiagram:
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentation) osztályból.
-1. Szerezzen referenciát egy diára az indexe alapján.
+1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation) osztályból.
+1. Szerezzen hivatkozást egy diára az indexe alapján.
 1. Adjon hozzá egy diagramot némi adattal, és adja meg a `ChartType.ClusteredColumn` típust.
-1. Adjon a diagramnak címet.
-1. Hozzáférés a diagram adatlapjához.
-1. Törölje az összes alapértelmezett sorozatot és kategóriát.
-1. Adjon hozzá új sorozatokat és kategóriákat.
-1. Adjon hozzá új diagramadatokat a diagram sorozathoz.
-1. Alkalmazzon kitöltőszínt a diagram sorozatra.
-1. Adjon címkéket a diagram sorozathoz.
+1. Adjon címet a diagramnak.
+1. Érje el a diagram adat munkalapját.
+1. Törölje az összes alapértelmezett sort és kategóriát.
+1. Adjon hozzá új sorokat és kategóriákat.
+1. Adjon hozzá új diagramadatot a diagram sorokhoz.
+1. Alkalmazzon kitöltőszínt a diagram sorokra.
+1. Adjon címkéket a diagram sorokhoz.
 1. Mentse a módosított prezentációt PPTX fájlként.
 
 Ez a C# kód bemutatja, hogyan hozhat létre csoportosított oszlopdiagramot:
@@ -74,13 +76,13 @@ Ez a C# kód bemutatja, hogyan hozhat létre csoportosított oszlopdiagramot:
 import com.aspose.slides.*;
 import java.awt.Color;
 
-// Példányosít egy prezentáció osztályt, amely egy PPTX fájlt képvisel
+// Létrehozza a prezentáció osztályt, amely egy PPTX fájlt képvisel
 Presentation pres = new Presentation();
 try {
     // Eléri az első diát
     ISlide sld = pres.getSlides().get_Item(0);
     
-    // Diagramot ad hozzá alapértelmezett adataival
+    // Hozzáad egy diagramot az alapértelmezett adataival
     IChart chart = sld.getShapes().addChart(ChartType.ClusteredColumn, 0, 0, 500, 500);
     
     // Beállítja a diagram címét
@@ -89,52 +91,52 @@ try {
     chart.getChartTitle().setHeight(20);
     chart.setTitle(true);
     
-    // Beállítja a diagram adatlapjának indexét
+    // Beállítja az indexet a diagram adatlaphoz
     int defaultWorksheetIndex = 0;
     
-    // Lekéri a diagram adatlapját
+    // Lekéri a diagram adat munkalapot
     IChartDataWorkbook fact = chart.getChartData().getChartDataWorkbook();
     
-    // Törli az alapértelmezett generált sorozatokat és kategóriákat
+    // Törli az alapértelmezett generált sorokat és kategóriákat
     chart.getChartData().getSeries().clear();
     chart.getChartData().getCategories().clear();
     int s = chart.getChartData().getSeries().size();
     s = chart.getChartData().getCategories().size();
     
-    // Új sorozatokat ad hozzá
+    // Új sorok hozzáadása
     chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 1, "Series 1"),chart.getType());
     chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 2, "Series 2"),chart.getType());
     
-    // Új kategóriákat ad hozzá
+    // Új kategóriák hozzáadása
     chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 1, 0, "Caetegoty 1"));
     chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 2, 0, "Caetegoty 2"));
     chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 3, 0, "Caetegoty 3"));
     
-    // Az első diagram sorozatot veszi
+    // Az első diagram sort veszi
     IChartSeries series = chart.getChartData().getSeries().get_Item(0);
     
-    // Most feltölti a sorozat adatait
+    // Most feltölti a sor adatait
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 1, 20));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 50));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 30));
     
-    // Beállítja a sorozat kitöltőszínét
+    // Beállítja a sor kitöltő színét
     series.getFormat().getFill().setFillType(FillType.Solid);
     series.getFormat().getFill().getSolidFillColor().setColor(Color.RED);
     
-    // A második diagram sorozatot veszi
+    // A második diagram sort veszi
     series = chart.getChartData().getSeries().get_Item(1);
     
-    // Feltölti a sorozat adatait
+    // Feltölti a sor adatait
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 2, 30));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 2, 10));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 2, 60));
     
-    // Beállítja a sorozat kitöltőszínét
+    // Beállítja a sor kitöltő színét
     series.getFormat().getFill().setFillType(FillType.Solid);
     series.getFormat().getFill().getSolidFillColor().setColor(Color.GREEN);
     
-    // Egyéni címkéket hoz létre az új sorozat minden kategóriájához
+    // Egyéni címkék létrehozása az új sor minden kategóriájához
     // Beállítja az első címkét, hogy a kategórianév jelenjen meg
     IDataLabel lbl = series.getDataPoints().get_Item(0).getLabel();
     lbl.getDataLabelFormat().setShowCategoryName(true);
@@ -148,33 +150,33 @@ try {
     lbl.getDataLabelFormat().setShowSeriesName(true);
     lbl.getDataLabelFormat().setSeparator("/");
     
-    // Mentse a prezentációt diagrammal
+    // Elmenti a diagrammal együtt a prezentációt
     pres.save("output.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-### **Szórt diagramok létrehozása**
+### **Szórádiagramok létrehozása**
 
-A szórt diagramok (más néven scatter plot vagy x‑y grafikon) gyakran használatosak minták keresésére vagy két változó közötti korreláció bemutatására.
+A szórádiagramok (más néven pontdiagramok vagy x‑y grafikonok) gyakran használatosak minták keresésére vagy két változó közötti korreláció bemutatására.
 
-Használjon szórt diagramot, ha:
+Használjon szórádiagramot, ha:
 
-* párosított numerikus adatokat tartalmaz
-* két olyan változója van, amely jól párosítható
-* meg szeretné határozni, hogy a két változó összefügg‑e
-* egy független változója több értéket tartalmaz egy függő változóhoz képest
+* párosított numerikus adatokkal rendelkezik
+* két változó jól párosítható egymással
+* meg szeretné határozni, hogy a két változó összefügg-e
+* egy független változó több értékkel rendelkezik egy függő változóhoz képest
 
-1. Kövesse a [Create Clustered Column Charts](#create-clustered-column-charts) szakasz lépéseit.
-2. A harmadik lépésben adjon hozzá egy diagramot némi adattal, és adja meg a diagramtípust a következők egyikeként:
-   1. [ChartType.ScatterWithMarkers](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/charttype/#ScatterWithMarkers) – _Szórt diagram pontokkal._
-   2. [ChartType.ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) – _Szórt diagram sima vonalakkal és pontokkal._
-   3. [ChartType.ScatterWithSmoothLines](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/charttype/#ScatterWithSmoothLines) – _Szórt diagram sima vonalakkal, pontok nélkül._
-   4. [ChartType.ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) – _Szórt diagram egyenes vonalakkal és pontokkal._
-   5. [ChartType.ScatterWithStraightLines](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/charttype/#ScatterWithStraightLines) – _Szórt diagram egyenes vonalakkal, pontok nélkül._
+1. Kövesse a [Create Clustered Column Charts](#create-clustered-column-charts) lépéseit.
+2. A harmadik lépésben adjon hozzá egy diagramot némi adattal, és adja meg a diagram típusát az alábbiak közül:
+   1. [ChartType.ScatterWithMarkers](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/#ScatterWithMarkers) - _Szórádiagramot jelenít meg markerekkel._
+   2. [ChartType.ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - _Szórádiagramot ívekkel összekötve, markerekkel._
+   3. [ChartType.ScatterWithSmoothLines](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/#ScatterWithSmoothLines) - _Szórádiagramot ívekkel összekötve, markerek nélkül._
+   4. [ChartType.ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _Szórádiagramot egyenes vonalakkal, markerekkel._
+   5. [ChartType.ScatterWithStraightLines](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/#ScatterWithStraightLines) - _Szórádiagramot egyenes vonalakkal, markerek nélkül._
 
-Ez a Java kód mutatja, hogyan hozhat létre szórt diagramot különböző jelölőkkel minden sorozathoz:
+Ez a Java kód mutatja, hogyan hozhat létre szórádiagramot különböző markerekkel minden sorhoz:
 
 ```java
 import com.aspose.slides.*;
@@ -188,51 +190,51 @@ try {
     // Létrehozza az alapértelmezett diagramot
     IChart chart = slide.getShapes().addChart(ChartType.ScatterWithSmoothLines, 0, 0, 400, 400);
     
-    // Lekéri az alapértelmezett diagram adatlap indexét
+    // Lekéri az alapértelmezett diagram adat munkalap indexet
     int defaultWorksheetIndex = 0;
     
-    // Lekéri a diagram adatlapot
+    // Lekéri a diagram adat munkalapot
     IChartDataWorkbook fact = chart.getChartData().getChartDataWorkbook();
     
-    // Törli a demo sorozatot
+    // Törli a demó sorokat
     chart.getChartData().getSeries().clear();
     
-    // Új sorozatokat ad hozzá
+    // Új sorok hozzáadása
     chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 1, 1, "Series 1"), chart.getType());
     chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 1, 3, "Series 2"), chart.getType());
     
-    // Az első diagram sorozatot veszi
+    // Az első diagram sort veszi
     IChartSeries series = chart.getChartData().getSeries().get_Item(0);
     
-    // Új pontot (1:3) ad a sorozathoz
+    // Új pont hozzáadása (1:3) a sorhoz
     series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 1), fact.getCell(defaultWorksheetIndex, 2, 2, 3));
     
-    // Új pontot (2:10) ad hozzá
+    // Új pont hozzáadása (2:10)
     series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 2), fact.getCell(defaultWorksheetIndex, 3, 2, 10));
     
-    // Megváltoztatja a sorozat típusát
+    // Módosítja a sor típusát
     series.setType(ChartType.ScatterWithStraightLinesAndMarkers);
     
-    // Megváltoztatja a diagram sorozat jelölőjét
+    // Módosítja a diagram sor markerét
     series.getMarker().setSize(10);
     series.getMarker().setSymbol(MarkerStyleType.Star);
     
-    // A második diagram sorozatot veszi
+    // A második diagram sort veszi
     series = chart.getChartData().getSeries().get_Item(1);
     
-    // Új pontot (5:2) ad hozzá ott
+    // Új pont hozzáadása (5:2) ott
     series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 2, 3, 5), fact.getCell(defaultWorksheetIndex, 2, 4, 2));
     
-    // Új pontot (3:1) ad hozzá
+    // Új pont hozzáadása (3:1)
     series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 3, 3, 3), fact.getCell(defaultWorksheetIndex, 3, 4, 1));
     
-    // Új pontot (2:2) ad hozzá
+    // Új pont hozzáadása (2:2)
     series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 4, 3, 2), fact.getCell(defaultWorksheetIndex, 4, 4, 2));
     
-    // Új pontot (5:1) ad hozzá
+    // Új pont hozzáadása (5:1)
     series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 5, 3, 5), fact.getCell(defaultWorksheetIndex, 5, 4, 1));
     
-    // Megváltoztatja a diagram sorozat jelölőjét
+    // Módosítja a diagram sor markerét
     series.getMarker().setSize(10);
     series.getMarker().setSymbol(MarkerStyleType.Circle);
     
@@ -242,24 +244,24 @@ try {
 }
 ```
 
-### **Kördiagramok létrehozása**
+### **Tortadiagramok létrehozása**
 
-A kördiagramok leginkább a rész‑egész kapcsolat bemutatására alkalmasak, különösen akkor, ha az adatok kategóriákat tartalmazó numerikus értékekből állnak. Ha azonban sok rész vagy címke van, érdemes oszlopdiagramot használni.
+A tortadiagramok leginkább alkalmasak a rész‑teljes arány megjelenítésére, különösen akkor, ha az adatok kategóriákat és numerikus értékeket tartalmaznak. Ha azonban az adat sok részt vagy címkét tartalmaz, érdemes oszlopdiagramot használni.
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentation/) osztályból.
-2. Szerezzen referenciát egy diára az indexe alapján.
-3. Adjon hozzá egy diagramot alapértelmezett adatokkal, és adja meg a [ChartType.Pie](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/charttype/#Pie) típust.
-4. Hozzáférés a diagram adatkönyvtárához: [IChartDataWorkbook](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ichartdataworkbook/).
-5. Törölje az alapértelmezett sorozatokat és kategóriákat.
-6. Adjon hozzá új sorozatokat és kategóriákat.
-7. Adjon hozzá új diagramadatokat a diagram sorozathoz.
-8. Adjon hozzá új pontokat a diagramhoz, és alkalmazzon egyedi színeket a kördiagram szektoraira.
-9. Állítson be címkéket a sorozathoz.
-10. Engedélyezze a vezetővonalakat a sorozatcímkékhez.
-11. Állítsa be a forgatási szöget a kördiagram szektorainál.
+1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) osztályból.
+2. Szerezzen hivatkozást egy diára az indexe alapján.
+3. Adjon hozzá egy diagramot alapértelmezett adatokkal, és adja meg a [ChartType.Pie](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/#Pie) típust.
+4. Érje el a diagram adat munkafüzetét [IChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/).
+5. Törölje az alapértelmezett sorokat és kategóriákat.
+6. Adjon hozzá új sorokat és kategóriákat.
+7. Adjon hozzá új diagramadatot a diagram sorokhoz.
+8. Adjon új pontokat a diagramhoz, és alkalmazzon egyedi színeket a tortadiagram szeleteihez.
+9. Állítson be címkéket a sorokhoz.
+10. Engedélyezze a vezetővonalakat a sorcímkékhez.
+11. Állítsa be a forgásszöget a tortadiagram szeleteihez.
 12. Mentse a módosított prezentációt PPTX fájlként.
 
-Ez a Java kód mutatja, hogyan hozhat létre kördiagramot:
+Ez a Java kód mutatja, hogyan hozhat létre tortadiagramot:
 
 ```java
 import com.aspose.slides.*;
@@ -271,7 +273,7 @@ try {
     // Eléri az első diát
     ISlide slides = pres.getSlides().get_Item(0);
     
-    // Hozzáad egy diagramot alapértelmezett adatokkal
+    // Hozzáad egy diagramot az alapértelmezett adatokkal
     IChart chart = slides.getShapes().addChart(ChartType.Pie, 100, 100, 400, 400);
     
     // Beállítja a diagram címét
@@ -280,25 +282,25 @@ try {
     chart.getChartTitle().setHeight(20);
     chart.setTitle(true);
     
-    // Beállítja a diagram adatlapjának indexét
+    // Beállítja a diagram adatlap indexét
     int defaultWorksheetIndex = 0;
     
-    // Lekéri a diagram adatlapot
+    // Lekéri a diagram adat munkalapot
     IChartDataWorkbook fact = chart.getChartData().getChartDataWorkbook();
     
-    // Törli az alapértelmezett generált sorozatokat és kategóriákat
+    // Törli az alapértelmezett generált sorokat és kategóriákat
     chart.getChartData().getSeries().clear();
     chart.getChartData().getCategories().clear();
     
-    // Új kategóriákat ad hozzá
+    // Új kategóriák hozzáadása
     chart.getChartData().getCategories().add(fact.getCell(0, 1, 0, "First Qtr"));
     chart.getChartData().getCategories().add(fact.getCell(0, 2, 0, "2nd Qtr"));
     chart.getChartData().getCategories().add(fact.getCell(0, 3, 0, "3rd Qtr"));
     
-    // Új sorozatot ad hozzá
+    // Új sorok hozzáadása
     IChartSeries series = chart.getChartData().getSeries().add(fact.getCell(0, 0, 1, "Series 1"), chart.getType());
     
-    //Feltölti a sorozat adatait
+    //Feltölti a sor adatait
     series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 1, 1, 20));
     series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 50));
     series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 30));
@@ -341,7 +343,7 @@ try {
     point2.getFormat().getLine().setStyle(LineStyle.ThinThin);
     point2.getFormat().getLine().setDashStyle(LineDashStyle.LargeDashDotDot);
     
-    // Egyéni címkéket hoz létre az új sorozat minden kategóriájához
+    // Egyéni címkék létrehozása az új sor minden kategóriájához
     IDataLabel lbl1 = series.getDataPoints().get_Item(0).getLabel();
     
     // lbl.ShowCategoryName = true;
@@ -356,13 +358,13 @@ try {
     lbl3.getDataLabelFormat().setShowSeriesName(true);
     lbl3.getDataLabelFormat().setShowPercentage(true);
     
-    // Megjeleníti a vezetővonalakat a diagramon
+    // Megjeleníti a vezetővonalakat a diagramhoz
     series.getLabels().getDefaultDataLabelFormat().setShowLeaderLines(true);
     
-    // Beállítja a kördiagram szektorok forgatási szögét
+    // Beállítja a tortadiagram szektorok forgásszögét
     chart.getChartData().getSeriesGroups().get_Item(0).setFirstSliceAngle(180);
     
-    // Mentse a prezentációt diagrammal
+    // Elmenti a diagrammal együtt a prezentációt
     pres.save("PieChart_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
@@ -371,11 +373,11 @@ try {
 
 ### **Vonaldiagramok létrehozása**
 
-A vonaldiagramok (más néven vonalgrafikonok) leginkább akkor használandók, amikor az értékek időbeli változását kívánja bemutatni. Egy vonaldiagram segítségével egyszerre sok adatot összehasonlíthat, nyomon követheti az időbeli változásokat és trendeket, kiemelheti az anomáliákat az adat sorozatokban, és még sok mást.
+A vonaldiagramok (más néven vonalgrafikonok) leginkább olyan helyzetekben használatosak, amikor az értékek időbeli változását szeretné bemutatni. Egy vonaldiagram segítségével egyszerre összehasonlíthat nagy mennyiségű adatot, nyomon követheti az időbeli változásokat és tendenciákat, kiemelheti az anomáliákat az adat sorokban, és még sok mást.
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentation/) osztályból.
-1. Szerezzen referenciát egy diára az indexe alapján.
-1. Adjon hozzá egy diagramot alapértelmezett adatokkal, és adja meg a [ChartType.Line](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/charttype/#Line) típust.
+1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) osztályból.
+1. Szerezzen hivatkozást egy diára az indexe alapján.
+1. Adjon hozzá egy diagramot alapértelmezett adatokkal, és adja meg a [ChartType.Line](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/#Line) típust.
 1. Mentse a módosított prezentációt PPTX fájlként.
 
 Ez a Java kód mutatja, hogyan hozhat létre vonaldiagramot:
@@ -393,7 +395,7 @@ try {
 }
 ```
 
-Alapértelmezés szerint a vonaldiagram pontjai egyenes, folytonos vonallal vannak összekötve. Ha pontok helyett szaggatott vonallal szeretné összekötni őket, adja meg a kívánt szaggatott típusát az alábbiak szerint:
+Alapértelmezés szerint a vonaldiagram pontjai egyenes folytonos vonalakkal kapcsolódnak. Ha szeretné, hogy a pontok szaggatott vonallal legyenek összekötve, adja meg a kívánt vonaltípust a következő módon:
 
 ```java
 import com.aspose.slides.*;
@@ -411,20 +413,20 @@ try {
 }
 ```
 
-### **Fa térkép diagramok létrehozása**
+### **Fák térképe diagramok létrehozása**
 
-A fa térkép diagramok leginkább értékesítési adatokhoz alkalmasak, amikor a kategóriák relatív méretét szeretné megjeleníteni, és gyorsan felhívni a figyelmet a nagy hozzájáruló tételekre minden kategóriában.
+A fák térképe diagramok leginkább értékesítési adatok esetén hasznosak, amikor a kategóriák relatív méretét szeretné megjeleníteni, és gyorsan felhívni a figyelmet a nagy hozzájáruló tételekre az egyes kategóriákon belül.
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentation/) osztályból.
-2. Szerezzen referenciát egy diára az indexe alapján.
-3. Adjon hozzá egy diagramot alapértelmezett adatokkal, és adja meg a [ChartType.Treemap](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/charttype/#Treemap) típust.
-4. Hozzáférés a diagram adatkönyvtárához: [IChartDataWorkbook](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ichartdataworkbook/).
-5. Törölje az alapértelmezett sorozatokat és kategóriákat.
-6. Adjon hozzá új sorozatokat és kategóriákat.
-7. Adjon hozzá új diagramadatokat a diagram sorozathoz.
+1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) osztályból.
+2. Szerezzen hivatkozást egy diára az indexe alapján.
+3. Adjon hozzá egy diagramot alapértelmezett adatokkal, és adja meg a [ChartType.Treemap](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/#Treemap) típust.
+4. Érje el a diagram adat munkafüzetét [IChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/).
+5. Törölje az alapértelmezett sorokat és kategóriákat.
+6. Adjon hozzá új sorokat és kategóriákat.
+7. Adjon hozzá új diagramadatot a diagram sorokhoz.
 8. Mentse a módosított prezentációt PPTX fájlként.
 
-Ez a Java kód mutatja, hogyan hozhat létre fa térkép diagramot:
+Ez a Java kód mutatja, hogyan hozhat létre fák térképe diagramot:
 
 ```java
 import com.aspose.slides.*;
@@ -483,14 +485,14 @@ try {
 
 ### **Részvénydiagramok létrehozása**
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentation/) osztályból.
-2. Szerezzen referenciát egy diára az indexe alapján.
-3. Adjon hozzá egy diagramot alapértelmezett adatokkal, és adja meg a [ChartType.OpenHighLowClose](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/charttype/#OpenHighLowClose) típust.
-4. Hozzáférés a diagram adatkönyvtárához: [IChartDataWorkbook](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ichartdataworkbook/).
-5. Törölje az alapértelmezett sorozatokat és kategóriákat.
-6. Adjon hozzá új sorozatokat és kategóriákat.
-7. Adjon hozzá új diagramadatokat a diagram sorozathoz.
-8. Adja meg a magas‑alacsony vonalak formátumát.
+1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) osztályból.
+2. Szerezzen hivatkozást egy diára az indexe alapján.
+3. Adjon hozzá egy diagramot alapértelmezett adatokkal, és adja meg a [ChartType.OpenHighLowClose](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/#OpenHighLowClose) típust.
+4. Érje el a diagram adat munkafüzetét [IChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/).
+5. Törölje az alapértelmezett sorokat és kategóriákat.
+6. Adjon hozzá új sorokat és kategóriákat.
+7. Adjon hozzá új diagramadatot a diagram sorokhoz.
+8. Adja meg a high‑low vonalak formátumát.
 9. Mentse a módosított prezentációt PPTX fájlként.
 
 Ez a Java kód mutatja, hogyan hozhat létre részvénydiagramot:
@@ -551,18 +553,18 @@ try {
 }
 ```
 
-### **Doboz‑ és szakáll diagramok létrehozása**
+### **Doboz‑ és bajuszdiagramok létrehozása**
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentation/) osztályból.
-2. Szerezzen referenciát egy diára az indexe alapján.
-3. Adjon hozzá egy diagramot alapértelmezett adatokkal, és adja meg a [ChartType.BoxAndWhisker](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/charttype/#BoxAndWhisker) típust.
-4. Hozzáférés a diagram adatkönyvtárához: [IChartDataWorkbook](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ichartdataworkbook/).
-5. Törölje az alapértelmezett sorozatokat és kategóriákat.
-6. Adjon hozzá új sorozatokat és kategóriákat.
-7. Adjon hozzá új diagramadatokat a diagram sorozathoz.
+1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) osztályból.
+2. Szerezzen hivatkozást egy diára az indexe alapján.
+3. Adjon hozzá egy diagramot alapértelmezett adatokkal, és adja meg a [ChartType.BoxAndWhisker](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/#BoxAndWhisker) típust.
+4. Érje el a diagram adat munkafüzetét [IChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/).
+5. Törölje az alapértelmezett sorokat és kategóriákat.
+6. Adjon hozzá új sorokat és kategóriákat.
+7. Adjon hozzá új diagramadatot a diagram sorokhoz.
 8. Mentse a módosított prezentációt PPTX fájlként.
 
-Ez a Java kód mutatja, hogyan hozhat létre doboz‑ és szakáll diagramot:
+Ez a Java kód mutatja, hogyan hozhat létre doboz‑ és bajuszdiagramot:
 
 ```java
 import com.aspose.slides.*;
@@ -604,14 +606,14 @@ try {
 }
 ```
 
-### **Tölcsér diagramok létrehozása**
+### **Trevelő diagramok létrehozása**
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentation/) osztályból.
-2. Szerezzen referenciát egy diára az indexe alapján.
-3. Adjon hozzá egy diagramot alapértelmezett adatokkal, és adja meg a [ChartType.Funnel](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/charttype/#Funnel) típust.
+1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) osztályból.
+2. Szerezzen hivatkozást egy diára az indexe alapján.
+3. Adjon hozzá egy diagramot alapértelmezett adatokkal, és adja meg a [ChartType.Funnel](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/#Funnel) típust.
 4. Mentse a módosított prezentációt PPTX fájlként.
 
-Ez a Java kód mutatja, hogyan hozhat létre tölcsér diagramot:
+Ez a Java kód mutatja, hogyan hozhat létre trevelő diagramot:
 
 ```java
 import com.aspose.slides.*;
@@ -648,14 +650,14 @@ try {
 }
 ```
 
-### **Napkitörés diagramok létrehozása**
+### **Napfénytérkép diagramok létrehozása**
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentation/) osztályból.
-2. Szerezzen referenciát egy diára az indexe alapján.
-3. Adjon hozzá egy diagramot alapértelmezett adatokkal, és adja meg a [ChartType.Sunburst](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/charttype/#Sunburst) típust.
+1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) osztályból.
+2. Szerezzen hivatkozást egy diára az indexe alapján.
+3. Adjon hozzá egy diagramot alapértelmezett adatokkal, és adja meg a [ChartType.Sunburst](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/#Sunburst) típust.
 4. Mentse a módosított prezentációt PPTX fájlként.
 
-Ez a Java kód mutatja, hogyan hozhat létre napkitörés diagramot:
+Ez a Java kód mutatja, hogyan hozhat létre napfénytérkép diagramot:
 
 ```java
 import com.aspose.slides.*;
@@ -712,12 +714,12 @@ try {
 
 ### **Hisztogram diagramok létrehozása**
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentation/) osztályból.
-2. Szerezzen referenciát egy diára az indexe alapján.
-3. Adjon hozzá egy diagramot alapértelmezett adatokkal, és adja meg a [ChartType.Histogram](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/charttype/#Histogram) típust.
-4. Hozzáférés a diagram adatkönyvtárához: [IChartDataWorkbook](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ichartdataworkbook/).
-5. Törölje az alapértelmezett sorozatokat és kategóriákat.
-6. Adjon hozzá új sorozatokat és kategóriákat.
+1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) osztályból.
+2. Szerezzen hivatkozást egy diára az indexe alapján.
+3. Adjon hozzá egy diagramot alapértelmezett adatokkal, és adja meg a [ChartType.Histogram](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/#Histogram) típust.
+4. Érje el a diagram adat munkafüzetét [IChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/).
+5. Törölje az alapértelmezett sorokat és kategóriákat.
+6. Adjon hozzá új sorokat és kategóriákat.
 7. Mentse a módosított prezentációt PPTX fájlként.
 
 Ez a Java kód mutatja, hogyan hozhat létre hisztogram diagramot:
@@ -752,9 +754,9 @@ try {
 
 ### **Radar diagramok létrehozása**
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentation/) osztályból.
-2. Szerezzen referenciát egy diára az indexe alapján.
-3. Adjon hozzá egy diagramot némi adattal, és adja meg a kívánt diagramtípust (ebben az esetben a [ChartType.Radar](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/charttype/#Radar)).
+1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) osztályból.
+2. Szerezzen hivatkozást egy diára az indexe alapján.
+3. Adjon hozzá egy diagramot némi adattal, és adja meg a kívánt diagramtípust ([ChartType.Radar](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/#Radar) ebben az esetben).
 4. Mentse a módosított prezentációt PPTX fájlként.
 
 Ez a Java kód mutatja, hogyan hozhat létre radar diagramot:
@@ -773,13 +775,13 @@ try {
 
 ### **Többkategóriás diagramok létrehozása**
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentation/) osztályból.
-2. Szerezzen referenciát egy diára az indexe alapján.
-3. Adjon hozzá egy diagramot alapértelmezett adatokkal, és adja meg a [ChartType.ClusteredColumn](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/charttype/#ClusteredColumn) típust.
-4. Hozzáférés a diagram adatkönyvtárához: [IChartDataWorkbook](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ichartdataworkbook/).
-5. Törölje az alapértelmezett sorozatokat és kategóriákat.
-6. Adjon hozzá új sorozatokat és kategóriákat.
-7. Adjon hozzá új diagramadatokat a diagram sorozathoz.
+1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) osztályból.
+2. Szerezzen hivatkozást egy diára az indexe alapján.
+3. Adjon hozzá egy diagramot alapértelmezett adatokkal, és adja meg a [ChartType.ClusteredColumn](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/#ClusteredColumn) típust.
+4. Érje el a diagram adat munkafüzetét [IChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/).
+5. Törölje az alapértelmezett sorokat és kategóriákat.
+6. Adjon hozzá új sorokat és kategóriákat.
+7. Adjon hozzá új diagramadatot a diagram sorokhoz.
 8. Mentse a módosított prezentációt PPTX fájlként.
 
 Ez a Java kód mutatja, hogyan hozhat létre többkategóriás diagramot:
@@ -813,7 +815,7 @@ try {
     category.getGroupingLevels().setGroupingItem(1, "Group4");
     category = ch.getChartData().getCategories().add(fact.getCell(0, "c9", "H"));
 
-    // Sorozat hozzáadása
+    // Sorok hozzáadása
     IChartSeries series = ch.getChartData().getSeries().add(fact.getCell(0, "D1", "Series 1"),
             ChartType.ClusteredColumn);
 
@@ -833,11 +835,11 @@ try {
 }
 ```
 
-### **Térképi diagramok létrehozása**
+### **Térkép diagramok létrehozása**
 
-A térképi diagramok földrajzi adatokat jelenítenek meg, és segítenek az értékek régiók közti összehasonlításában.
+A térkép diagramok földrajzi adatokat jelenítenek meg, és segítenek az értékek összehasonlításában a régiók között.
 
-Ez a Java kód mutatja, hogyan hozhat létre térképi diagramot:
+Ez a Java kód mutatja, hogyan hozhat létre térkép diagramot:
 
 ```java
 import com.aspose.slides.*;
@@ -853,11 +855,11 @@ try {
 
 ### **Kombinált diagramok létrehozása**
 
-A kombinált diagram (vagy combo diagram) több diagramtípust egyesít egyetlen grafikonba. Ez a diagram lehetővé teszi, hogy kiemelje, összehasonlítsa vagy elemezze a különböző adatkészletek közötti eltéréseket, ezáltal segítve a kapcsolatok feltárását.
+A kombinált diagram (vagy combo diagram) két vagy több diagramtípust egyesít egyetlen grafikonba. Ez a diagram lehetővé teszi, hogy kiemelje, összehasonlítsa vagy vizsgálja a különböző adatcsoportok közötti különbségeket, segítve a köztük lévő kapcsolatok feltárását.
 
 ![The combination chart](combination_chart.png)
 
-Az alábbi Java kód mutatja, hogyan hozhatja létre a fenti kombinált diagramot egy PowerPoint‑prezentációban:
+Az alábbi Java kód mutatja, hogyan hozhatja létre a fenti kombinált diagramot egy PowerPoint prezentációban:
 
 ```java
 import com.aspose.slides.*;
@@ -897,20 +899,20 @@ static IChart createChartWithFirstSeries(ISlide slide) {
     chart.getLegend().setPosition(LegendPositionType.Bottom);
     chart.getLegend().getTextFormat().getPortionFormat().setFontHeight(12f);
 
-    // Törli az alapértelmezett generált sorozatokat és kategóriákat.
+    // Törli az alapértelmezett generált sorokat és kategóriákat.
     chart.getChartData().getSeries().clear();
     chart.getChartData().getCategories().clear();
 
     int worksheetIndex = 0;
     IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
 
-    // Új kategóriákat ad hozzá.
+    // Új kategóriák hozzáadása.
     chart.getChartData().getCategories().add(workbook.getCell(worksheetIndex, 1, 0, "Category 1"));
     chart.getChartData().getCategories().add(workbook.getCell(worksheetIndex, 2, 0, "Category 2"));
     chart.getChartData().getCategories().add(workbook.getCell(worksheetIndex, 3, 0, "Category 3"));
     chart.getChartData().getCategories().add(workbook.getCell(worksheetIndex, 4, 0, "Category 4"));
 
-    // Hozza hozzá az első sorozatot.
+    // Az első sor hozzáadása.
     IChartDataCell seriesNameCell = workbook.getCell(worksheetIndex, 0, 1, "Series 1");
     IChartSeries series = chart.getChartData().getSeries().add(seriesNameCell, chart.getType());
 
@@ -957,28 +959,28 @@ static void addThirdSeriesToChart(IChart chart) {
 }
 
 static void setPrimaryAxesFormat(IChart chart) {
-    // Állítsa be a vízszintes tengelyt.
+    // A vízszintes tengely beállítása.
     IAxis horizontalAxis = chart.getAxes().getHorizontalAxis();
     horizontalAxis.getTextFormat().getPortionFormat().setFontHeight(12f);
     horizontalAxis.getFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
 
     setAxisTitle(horizontalAxis, "X Axis");
 
-    // Állítsa be a függőleges tengelyt.
+    // A függőleges tengely beállítása.
     IAxis verticalAxis = chart.getAxes().getVerticalAxis();
     verticalAxis.getTextFormat().getPortionFormat().setFontHeight(12f);
     verticalAxis.getFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
 
     setAxisTitle(verticalAxis, "Y Axis 1");
 
-    // Állítsa be a függőleges fő rácsvonalak színét.
+    // A függőleges fő rácsvonalak színének beállítása.
     ILineFillFormat majorGridLinesFormat = verticalAxis.getMajorGridLinesFormat().getLine().getFillFormat();
     majorGridLinesFormat.setFillType(FillType.Solid);
     majorGridLinesFormat.getSolidFillColor().setColor(new Color(217, 217, 217));
 }
 
 static void setSecondaryAxesFormat(IChart chart) {
-    // Állítsa be a másodlagos vízszintes tengelyt.
+    // A másodlagos vízszintes tengely beállítása.
     IAxis secondaryHorizontalAxis = chart.getAxes().getSecondaryHorizontalAxis();
     secondaryHorizontalAxis.setPosition(AxisPositionType.Bottom);
     secondaryHorizontalAxis.setCrossType(CrossesType.Maximum);
@@ -986,7 +988,7 @@ static void setSecondaryAxesFormat(IChart chart) {
     secondaryHorizontalAxis.getMajorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
     secondaryHorizontalAxis.getMinorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
 
-    // Állítsa be a másodlagos függőleges tengelyt.
+    // A másodlagos függőleges tengely beállítása.
     IAxis secondaryVerticalAxis = chart.getAxes().getSecondaryVerticalAxis();
     secondaryVerticalAxis.setPosition(AxisPositionType.Right);
     secondaryVerticalAxis.getTextFormat().getPortionFormat().setFontHeight(12f);
@@ -1009,12 +1011,12 @@ static void setAxisTitle(IAxis axis, String axisTitle) {
 
 ## **Diagramok frissítése**
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentation/) osztályból, amely a frissíteni kívánt diagramot tartalmazó prezentációt képviseli.
-2. Szerezzen referenciát egy diára az indexe alapján.
-3. Járja be az összes alakzatot a kívánt diagram megtalálásához.
-4. Hozzáférés a diagram adatlapjához.
-5. Módosítsa a diagram adat-sorozatát a sorozatértékek megváltoztatásával.
-6. Adjon hozzá egy új sorozatot, és töltse fel az adatait.
+1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) osztályból, amely a frissítendő diagramot tartalmazza.
+2. Szerezzen hivatkozást egy diára az indexe alapján.
+3. Járja be az összes alakzatot, hogy megtalálja a kívánt diagramot.
+4. Érje el a diagram adat munkalapját.
+5. Módosítsa a diagram adat sorait a sorértékek megváltoztatásával.
+6. Adjon hozzá egy új sort, és töltse fel annak adatait.
 7. Mentse a módosított prezentációt PPTX fájlként.
 
 Ez a Java kód mutatja, hogyan frissíthet egy diagramot:
@@ -1031,41 +1033,41 @@ try {
     // A diagram lekérése a diáról
     IChart chart = (IChart)sld.getShapes().get_Item(0);
 
-    // A diagram adatlapjának indexének beállítása
+    // A diagram adatlap indexének beállítása
     int defaultWorksheetIndex = 0;
 
-    // A diagram adatlapjának lekérése
+    // A diagram adat munkalapjának lekérése
     IChartDataWorkbook fact = chart.getChartData().getChartDataWorkbook();
 
-    // Diagram kategórianév módosítása
+    // Diagram kategória nevének módosítása
     fact.getCell(defaultWorksheetIndex, 1, 0, "Modified Category 1");
     fact.getCell(defaultWorksheetIndex, 2, 0, "Modified Category 2");
 
-    // Az első diagram sorozatának kivétele
+    // Az első diagram sorának kivétele
     IChartSeries series = chart.getChartData().getSeries().get_Item(0);
 
-    // Sorozat adatainak frissítése
-    fact.getCell(defaultWorksheetIndex, 0, 1, "New_Series1");// Sorozat nevének módosítása
+    // Sor adatainak frissítése most
+    fact.getCell(defaultWorksheetIndex, 0, 1, "New_Series1");// Sor nevének módosítása
     series.getDataPoints().get_Item(0).getValue().setData(90);
     series.getDataPoints().get_Item(1).getValue().setData(123);
     series.getDataPoints().get_Item(2).getValue().setData(44);
 
-    // A második diagram sorozatának kivétele
+    // A második diagram sorának kivétele
     series = chart.getChartData().getSeries().get_Item(1);
 
-    // Sorozat adatainak frissítése
-    fact.getCell(defaultWorksheetIndex, 0, 2, "New_Series2");// Sorozat nevének módosítása
+    // Sor adatainak frissítése most
+    fact.getCell(defaultWorksheetIndex, 0, 2, "New_Series2");// Sor nevének módosítása
     series.getDataPoints().get_Item(0).getValue().setData(23);
     series.getDataPoints().get_Item(1).getValue().setData(67);
     series.getDataPoints().get_Item(2).getValue().setData(99);
 
-    // Új sorozat hozzáadása
+    // Új sor hozzáadása most
     chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 3, "Series 3"), chart.getType());
 
-    // A harmadik diagram sorozatának kivétele
+    // A harmadik diagram sorának kivétele
     series = chart.getChartData().getSeries().get_Item(2);
 
-    // Sorozat adatainak feltöltése
+    // Sor adatainak feltöltése most
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 3, 20));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 3, 50));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 3, 30));
@@ -1079,17 +1081,19 @@ try {
 }
 ```
 
-## **Adattartomány beállítása diagramhoz**
+## **Diagram adat tartomány beállítása**
 
-A diagram adattartományának beállításához kövesse az alábbi lépéseket:
+A már létező diagram által használt tartomány megtekintéséhez nézze meg a [Retrieve a Chart's Data Range](/slides/hu/androidjava/chart-workbook/#retrieve-a-charts-data-range) oldalt.
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentation/) osztályból, amely a diagramot tartalmazó prezentációt képviseli.
-2. Szerezzen referenciát egy diára az indexe alapján.
-3. Járja be az összes alakzatot a kívánt diagram megtalálásához.
-4. Hozzáférés a diagram adataihoz, és állítsa be a tartományt.
+Az adat tartomány beállításához a diagramnál kövesse az alábbi lépéseket:
+
+1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) osztályból, amely a diagramot tartalmazó prezentációt képviseli.
+2. Szerezzen hivatkozást egy diára az indexe alapján.
+3. Járja be az összes alakzatot, hogy megtalálja a kívánt diagramot.
+4. Érje el a diagram adatot, és állítsa be a tartományt.
 5. Mentse a módosított prezentációt PPTX fájlként.
 
-Ez a Java kód mutatja, hogyan állíthatja be a diagram adattartományát:
+Ez a Java kód mutatja, hogyan állítható be a diagram adat tartománya:
 
 ```java
 import com.aspose.slides.*;
@@ -1108,11 +1112,11 @@ try {
 }
 ```
 
-## **Alapértelmezett jelölők használata diagramokban**
+## **Alapértelmezett markerek használata diagramokban**
 
-Alapértelmezett jelölők használatakor a diagram minden sorozata automatikusan különböző jelölőszimbólumot kap.
+Alapértelmezett markerek használatakor a diagram minden sorához automatikusan más‑mást jelölő szimbólum kerül.
 
-Ez a Java kód mutatja, hogyan állíthatja be automatikusan a diagram sorozat jelölőjét:
+Ez a Java kód mutatja, hogyan állítható be egy diagram sorjának marker automatikusan:
 
 ```java
 import com.aspose.slides.*;
@@ -1139,10 +1143,10 @@ try {
     series.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 4, 1, null));
 
     chart.getChartData().getSeries().add(fact.getCell(0, 0, 2, "Series 2"), chart.getType());
-    // A második diagram sorozatának kivétele
+    //Második diagram sorának kivétele
     IChartSeries series2 = chart.getChartData().getSeries().get_Item(1);
 
-    // Most sorozat adatainak feltöltése
+    //Most a sor adatainak feltöltése
     series2.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 1, 2, 30));
     series2.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 2, 2, 10));
     series2.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 3, 2, 60));
@@ -1161,16 +1165,16 @@ try {
 
 **Milyen diagramtípusokat támogat az Aspose.Slides?**
 
-Az Aspose.Slides számos [diagramtípust](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/charttype/) támogat, többek között oszlop, vonal, kör, terület, szórt, hisztogram, radar és még sok más. Ez a rugalmasság lehetővé teszi, hogy az adatvizualizációs igényeihez legmegfelelőbb diagramot válassza.
+Az Aspose.Slides számos [chart types](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/) típust támogat, többek között oszlop, vonal, torta, terület, szórás, hisztogram, radar és még sok más. Ez a rugalmasság lehetővé teszi a legmegfelelőbb diagramtípus kiválasztását az adatvizualizációs igényeihez.
 
-**Hogyan adhatok új diagramot egy diára?**
+**Hogyan adhatok új diagramot egy diához?**
 
-Új diagram hozzáadásához először hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentation/) osztályból, szerezze meg a kívánt diát az indexe alapján, majd hívja meg a diagram hozzáadására szolgáló metódust, megadva a diagramtípust és a kezdeti adatokat. Ez a folyamat a diagramot közvetlenül a prezentációba ágyazza.
+Diagram hozzáadásához először hozza létre a [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) osztály egy példányát, szerezze be a kívánt diát az indexe alapján, majd hívja meg a diagram hozzáadására szolgáló metódust, megadva a diagram típusát és a kezdeti adatokat. Ez a folyamat közvetlenül beilleszti a diagramot a prezentációba.
 
-**Hogyan frissíthetem a diagramon megjelenített adatokat?**
+**Hogyan frissíthetem a diagramon megjelenő adatokat?**
 
-A diagram adatait a diagram adatkönyvtárához ([IChartDataWorkbook](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ichartdataworkbook/)) való hozzáféréssel frissítheti, törölheti az alapértelmezett sorozatokat és kategóriákat, majd hozzáadhatja saját egyéni adatait. Így a diagram mindig a legfrissebb adatokat tükrözi.
+A diagram adatait a diagram adat munkafüzetének ([IChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/)) elérésével, az alapértelmezett sorok és kategóriák törlésével, majd saját adatok hozzáadásával frissítheti. Így a diagram mindig a legújabb adatokat tükrözi.
 
-**Testreszabható-e a diagram megjelenése?**
+**Lehet-e testre szabni a diagram megjelenését?**
 
-Igen, az Aspose.Slides számos testreszabási lehetőséget kínál. Módosíthatja a színeket, betűtípusokat, címkéket, jelmagyarázatokat és egyéb [formatting elements](/slides/hu/androidjava/chart-entities/) elemeket, hogy a diagram megjelenése megfeleljen a tervezési követelményeinek.
+Igen, az Aspose.Slides kiterjedt testreszabási lehetőségeket biztosít. Módosíthatja a színeket, betűtípusokat, címkéket, jelmagyarázatokat és egyéb [formatting elements](/slides/hu/androidjava/chart-entities/) elemeket, hogy a diagram kinézete megfeleljen a tervezési követelményeinek.

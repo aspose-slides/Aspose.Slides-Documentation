@@ -1,39 +1,39 @@
 ---
-title: Quản lý Workbook Biểu đồ trong Bản trình chiếu bằng Java
-linktitle: Workbook Biểu đồ
+title: Quản lý Sổ làm việc Biểu đồ trong Bản trình bày bằng Java
+linktitle: Sổ làm việc Biểu đồ
 type: docs
 weight: 70
 url: /vi/java/chart-workbook/
 keywords:
-- workbook biểu đồ
+- sổ làm việc biểu đồ
 - dữ liệu biểu đồ
-- ô workbook
+- ô sổ làm việc
 - nhãn dữ liệu
 - bảng tính
 - nguồn dữ liệu
-- workbook ngoại vi
-- dữ liệu ngoại vi
-- cache biểu đồ
-- khôi phục workbook
+- sổ làm việc bên ngoài
+- dữ liệu bên ngoài
+- bộ nhớ đệm biểu đồ
+- phục hồi sổ làm việc
 - PowerPoint
-- bản trình chiếu
+- bản trình bày
 - Java
 - Aspose.Slides
-description: "Khám phá Aspose.Slides cho Java: dễ dàng quản lý workbook biểu đồ trong các định dạng PowerPoint và OpenDocument để tối ưu hóa dữ liệu bản trình chiếu của bạn."
+description: "Khám phá Aspose.Slides cho Java: dễ dàng quản lý sổ làm việc biểu đồ trong định dạng PowerPoint và OpenDocument để tối ưu hóa dữ liệu bản trình bày của bạn."
 ---
 ## **Tổng quan**
 
-Bài viết này giải thích cách làm việc với sổ làm việc biểu đồ trong Aspose.Slides. Nó cho thấy cách đọc và ghi dữ liệu biểu đồ thông qua luồng sổ làm việc, sử dụng các ô sổ làm việc làm nhãn dữ liệu biểu đồ, truy cập các bộ sưu tập bảng tính, và chỉ định loại nguồn dữ liệu cho các giá trị biểu đồ.
+Bài viết này giải thích cách làm việc với sổ làm việc biểu đồ trong Aspose.Slides. Nó cho thấy cách đọc và ghi dữ liệu biểu đồ thông qua luồng sổ làm việc, sử dụng các ô sổ làm việc làm nhãn dữ liệu biểu đồ, truy cập các bộ sưu tập worksheet và chỉ định loại nguồn dữ liệu cho các giá trị biểu đồ.
 
-Nó cũng đề cập đến việc làm việc với sổ làm việc bên ngoài như nguồn dữ liệu cho biểu đồ. Các ví dụ minh họa cách tạo và gán một sổ làm việc bên ngoài, lấy đường dẫn của sổ làm việc bên ngoài được liên kết với biểu đồ, và chỉnh sửa dữ liệu biểu đồ khi sổ làm việc khả dụng.
+Nó cũng đề cập đến việc làm việc với sổ làm việc bên ngoài làm nguồn dữ liệu cho biểu đồ. Các ví dụ minh họa cách tạo và gán một sổ làm việc bên ngoài, lấy đường dẫn của sổ làm việc bên ngoài được liên kết tới biểu đồ, và chỉnh sửa dữ liệu biểu đồ khi sổ làm việc khả dụng.
 
-Đối với các ô sổ làm việc đại diện cho dữ liệu thiếu, hãy xem [Kiểm soát Hiển thị Các Ô Trống](/slides/vi/java/chart-series/) để biết sự khác nhau giữa ô trống và số 0, cũng như so sánh dạng hiển thị trong biểu đồ đường.
+Đối với các ô sổ làm việc đại diện cho dữ liệu thiếu, hãy xem [Kiểm soát việc Hiển thị các Ô Trống](/slides/vi/java/chart-series/) để biết sự khác biệt giữa một ô trống và số zero, và so sánh biểu đồ đường của các chế độ hiển thị có sẵn.
 
-## **Bao gồm dữ liệu từ các hàng và cột ẩn**
+## **Bao gồm Dữ liệu từ Các Hàng và Cột Ẩn**
 
-Sử dụng [IChart.setPlotVisibleCellsOnly](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ichart/#setPlotVisibleCellsOnly-boolean-) để kiểm soát việc biểu đồ chỉ vẽ dữ liệu từ các hàng và cột worksheet ẩn hay không. Đặt thành `true` để chỉ vẽ các ô hiển thị, hoặc `false` để bao gồm cả các ô hiển thị và ẩn. Cài đặt này chỉ kiểm soát việc vẽ biểu đồ; nó không ẩn hay hiện các hàng hoặc cột worksheet.
+Sử dụng[IChart.setPlotVisibleCellsOnly](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#setPlotVisibleCellsOnly-boolean-) để kiểm soát liệu biểu đồ có vẽ dữ liệu từ các hàng và cột worksheet ẩn hay không. Đặt `true` để vẽ chỉ các ô hiển thị, hoặc `false` để bao gồm cả các ô hiển thị và ẩn. Cài đặt này chỉ kiểm soát việc vẽ biểu đồ; nó không ẩn hoặc hiện các hàng hoặc cột worksheet.
 
-Tải xuống [hidden-source-data.pptx](hidden-source-data.pptx) và đặt nó trong thư mục làm việc. Slide đầu tiên chứa một biểu đồ cột làm hình dạng đầu tiên. Worksheet nhúng, `Sheet1`, chứa phạm vi nguồn sau, `A1:C4`. Hàng 3 và cột C bị ẩn, nhưng các ô của chúng vẫn chứa giá trị.
+[sample presentation](hidden-source-data.pptx) chứa một biểu đồ cột là hình dạng đầu tiên trên slide đầu tiên. Worksheet nhúng, `Sheet1`, chứa dải nguồn sau, `A1:C4`. Hàng 3 và cột C được ẩn, nhưng các ô của chúng vẫn chứa giá trị.
 
 | Hàng worksheet | A: Tháng | B: Bán lẻ | C: Bán buôn (cột ẩn) |
 | --- | --- | --- | --- |
@@ -41,9 +41,9 @@ Tải xuống [hidden-source-data.pptx](hidden-source-data.pptx) và đặt nó 
 | 3 (hàng ẩn) | Tháng 2 | 40 | 60 |
 | 4 | Tháng 3 | 20 | 50 |
 
-Truy cập các ô nguồn thông qua [IChartData.getChartDataWorkbook](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ichartdata/#getChartDataWorkbook--) và đọc [IChartDataCell.isHidden](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ichartdatacell/#isHidden--) để kiểm tra trạng thái ẩn của chúng. Phương pháp này báo cáo trạng thái ẩn mà không thay đổi nó. Trong tệp này, B2 là hiển thị, B3 thuộc hàng ẩn, và C2 thuộc cột ẩn; ví dụ in ra `false`, `true`, và `true` tương ứng.
+Truy cập các ô nguồn thông qua[IChartData.getChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#getChartDataWorkbook--) và đọc[IChartDataCell.isHidden](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatacell/#isHidden--) để kiểm tra trạng thái ẩn của chúng. Phương pháp này báo cáo trạng thái ẩn mà không thay đổi nó. Trong tệp này, B2 là hiển thị, B3 thuộc hàng ẩn, và C2 thuộc cột ẩn; ví dụ in ra `false`, `true`, và `true` tương ứng.
 
-Đối với ví dụ này, hãy làm mới dữ liệu biểu đồ sau khi thay đổi cài đặt vẽ: giữ nguyên workbook nhúng bằng [readWorkbookStream](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ichartdata/#readWorkbookStream--) và tải lại bằng [writeWorkbookStream](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ichartdata/#writeWorkbookStream-byte:A-). Khi bao gồm tất cả các ô, cũng sử dụng [setRange](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ichartdata/#setRange-java.lang.String-) để khôi phục phạm vi đầy đủ, bao gồm danh mục tháng 2 bị ẩn. Chỉ thay đổi cờ không đủ để làm mới dữ liệu biểu đồ đã lưu và nhãn danh mục trong mẫu này.
+Đối với ví dụ này, làm mới dữ liệu biểu đồ sau khi thay đổi cài đặt vẽ: giữ lại workbook nhúng bằng[readWorkbookStream](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#readWorkbookStream--) và tải lại bằng[writeWorkbookStream](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#writeWorkbookStream-byte---). Khi bao gồm tất cả các ô, cũng sử dụng[setRange](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#setRange-java.lang.String-) để khôi phục dải đầy đủ, bao gồm danh mục tháng 2 ẩn. Chỉ thay đổi cờ không đủ để làm mới dữ liệu biểu đồ đã được lưu trong bộ nhớ đệm và nhãn danh mục của mẫu này.
 
 ```java
 import com.aspose.slides.*;
@@ -67,7 +67,7 @@ try {
             // Làm mới dữ liệu biểu đồ từ workbook nhúng.
             chart.getChartData().writeWorkbookStream(workbookData);
             if (!visibleOnly) {
-                // Khôi phục phạm vi nguồn đầy đủ, bao gồm các danh mục ẩn.
+                // Khôi phục dải nguồn đầy đủ, bao gồm các danh mục ẩn.
                 chart.getChartData().setRange("Sheet1!$A$1:$C$4");
             }
 
@@ -81,19 +81,51 @@ try {
 }
 ```
 
-Ví dụ lưu `hidden_cells_true.pptx` chỉ với các giá trị Bán lẻ hiển thị (10 và 20), và `hidden_cells_false.pptx` với tất cả sáu giá trị. Hình ảnh dưới đây minh họa hai chế độ vẽ. Hàng 3 và cột C vẫn bị ẩn trong cả hai workbook nhúng.
+Ví dụ lưu hai phiên bản của bản trình bày: một chỉ có các giá trị Bán lẻ hiển thị (10 và 20), và một khác với tất cả sáu giá trị. Các hình ảnh dưới đây minh họa hai chế độ vẽ. Hàng 3 và cột C vẫn ẩn trong cả hai workbook nhúng.
 
 | Chỉ các ô hiển thị (`true`) | Tất cả các ô (`false`) |
 | --- | --- |
-| ![Chỉ các ô hiển thị: Giá trị bán lẻ 10 và 20 cho Tháng 1 và Tháng 3.](hidden_cells_True.png) | ![Tất cả các ô: Giá trị bán lẻ và bán buôn cho Tháng 1, Tháng 2 và Tháng 3.](hidden_cells_False.png) |
+| ![Only visible cells: Retail values 10 and 20 for January and March.](hidden_cells_True.png) | ![All cells: Retail and Wholesale values for January, February, and March.](hidden_cells_False.png) |
 
-Một ô ẩn chứa giá trị khác với một ô trống. [IChart.setDisplayBlanksAs](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ichart/#setDisplayBlanksAs-int-) kiểm soát cách hiển thị các giá trị thiếu; nó không bao gồm hoặc loại trừ dữ liệu nguồn ẩn. Xem [Kiểm soát Hiển thị Các Ô Trống](/slides/vi/java/chart-series/#control-the-display-of-empty-cells) để biết ví dụ.
+Một ô ẩn chứa giá trị khác với một ô trống.[IChart.setDisplayBlanksAs](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#setDisplayBlanksAs-int-) kiểm soát cách hiển thị các giá trị thiếu; nó không bao gồm hoặc loại trừ dữ liệu nguồn ẩn. Xem [Kiểm soát việc Hiển thị các Ô Trống](/slides/vi/java/chart-series/#control-the-display-of-empty-cells) để biết ví dụ.
+
+## **Lấy Dải Dữ liệu của Biểu đồ**
+
+Trước khi cập nhật dữ liệu workbook trong một bản trình bày hiện có, kiểm tra dải nguồn để xác định các ô worksheet mà mỗi biểu đồ sử dụng.[IChartData.getRange](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#getRange--) trả về dải dữ liệu hiện tại dưới dạng công thức có định danh worksheet, chẳng hạn `Sheet1!$A$1:$D$5`. Ở đây, `Sheet1` là tên worksheet, `!` ngăn cách nó với dải ô, và `$A$1:$D$5` xác định các ô A1 đến D5, bao gồm. Dấu `$` chỉ ra tham chiếu hàng và cột tuyệt đối.
+
+Phương pháp này đọc dải hiện tại mà không thay đổi biểu đồ hoặc workbook của nó. Nếu biểu đồ không sử dụng workbook làm nguồn dữ liệu, nó sẽ ném `InvalidOperationException`. Để biết thêm chi tiết, xem [ChartData API Reference](https://reference.aspose.com/slides/java/com.aspose.slides/chartdata/).
+
+Ví dụ này mở một bản trình bày và kiểm tra các hình dạng trực tiếp trên mỗi slide để tìm biểu đồ. Nó in ra tên mỗi biểu đồ và dải nguồn. Nếu một biểu đồ không sử dụng workbook, nó in thông báo và tiếp tục với biểu đồ tiếp theo.
+
+```java
+import com.aspose.slides.*;
+import com.aspose.slides.exceptions.InvalidOperationException;
+
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    for (ISlide slide : presentation.getSlides()) {
+        for (IShape shape : slide.getShapes()) {
+            if (shape instanceof IChart) {
+                IChart chart = (IChart) shape;
+                try {
+                    String range = chart.getChartData().getRange();
+                    System.out.println(chart.getName() + ": " + range);
+                } catch (InvalidOperationException exception) {
+                    System.out.println(chart.getName() + ": The chart does not use a workbook as its data source.");
+                }
+            }
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
 
 ## **Đọc và Ghi Dữ liệu Biểu đồ từ Sổ làm việc**
 
-Aspose.Slides for Java cung cấp các phương thức [readWorkbookStream](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ichartdata/#readWorkbookStream--) và [writeWorkbookStream](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ichartdata/#writeWorkbookStream-byte:A-) cho phép bạn đọc và ghi sổ làm việc dữ liệu biểu đồ (chứa dữ liệu biểu đồ đã chỉnh sửa bằng Aspose.Cells). **Lưu ý** rằng dữ liệu biểu đồ phải được tổ chức theo cùng một cách hoặc phải có cấu trúc tương tự như nguồn.
+Aspose.Slides for Java cung cấp các phương pháp[readWorkbookStream](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#readWorkbookStream--) và[writeWorkbookStream](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#writeWorkbookStream-byte---) cho phép bạn đọc và ghi workbook dữ liệu biểu đồ (chứa dữ liệu biểu đồ đã chỉnh sửa bằng Aspose.Cells). **Lưu ý** rằng dữ liệu biểu đồ phải được tổ chức theo cùng cách hoặc có cấu trúc tương tự như nguồn.
 
-Ví dụ này mở `chart.pptx`, phải chứa một biểu đồ làm hình dạng đầu tiên trên slide đầu tiên. Nó đọc workbook nhúng vào một mảng byte, xóa các series và category hiện có, và ghi lại cùng một workbook. Các thay đổi vẫn ở trong bộ nhớ; ví dụ không lưu bản trình bày.
+Ví dụ này sử dụng một bản trình bày có biểu đồ là hình dạng đầu tiên trên slide đầu tiên. Nó đọc workbook nhúng vào một mảng byte, xóa các series và danh mục hiện có, và ghi lại cùng một workbook. Các thay đổi vẫn còn trong bộ nhớ; ví dụ không lưu bản trình bày.
 
 ```java
 import com.aspose.slides.*;
@@ -120,9 +152,9 @@ try {
 }
 ```
 
-### **Xác thực Bố cục Biểu đồ Sau Khi Sửa Workbook**
+### **Xác thực Bố cục Biểu đồ Sau Khi Sửa đổi Sổ làm việc**
 
-Khi bạn thay thế một workbook nhúng bằng một workbook đã chỉnh sửa, biểu đồ vẫn giữ các bộ sưu tập series và category gốc. Sự không khớp này có thể gây lỗi cho [IChart.validateChartLayout](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ichart/#validateChartLayout--) với lỗi chỉ mục ngoài phạm vi. Hãy xóa các series và category hiện có trước khi ghi workbook đã cập nhật trở lại biểu đồ. Ví dụ này yêu cầu `chart.pptx` có một biểu đồ làm hình dạng đầu tiên trên slide đầu tiên. Các chú thích đánh dấu nơi việc chỉnh sửa workbook sẽ diễn ra; ví dụ có thể chạy sẽ ghi lại workbook gốc và xác thực bố cục trong bộ nhớ.
+Khi bạn thay thế một workbook nhúng bằng một workbook đã sửa, biểu đồ vẫn giữ lại các bộ sưu tập series và danh mục gốc. Sự không khớp này có thể khiến[IChart.validateChartLayout](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#validateChartLayout--) thất bại với lỗi chỉ mục ngoài phạm vi. Xóa các series và danh mục hiện có trước khi ghi workbook đã cập nhật trở lại biểu đồ. Ví dụ này sử dụng một biểu đồ là hình dạng đầu tiên trên slide đầu tiên. Các chú thích đánh dấu nơi sẽ thực hiện việc chỉnh sửa workbook; ví dụ chạy được sẽ ghi lại workbook gốc và xác thực bố cục trong bộ nhớ.
 
 ```java
 import com.aspose.slides.*;
@@ -137,7 +169,7 @@ try {
         IChartData chartData = chart.getChartData();
         byte[] workbookData = chartData.readWorkbookStream();
 
-        // Sửa đổi các byte của workbook ở đây, ví dụ, sử dụng Aspose.Cells.
+        // Sửa đổi các byte của workbook tại đây, ví dụ, bằng cách sử dụng Aspose.Cells.
 
         chartData.getSeries().clear();
         chartData.getCategories().clear();
@@ -152,20 +184,13 @@ try {
 }
 ```
 
-Xóa các bộ sưu tập loại bỏ các tham chiếu dữ liệu cũ trước khi workbook được ghi lại. Hãy xây dựng lại bất kỳ ánh xạ series và category nào cần thiết cho workbook đã cập nhật trước khi sử dụng biểu đồ.
+Việc xóa các bộ sưu tập loại bỏ các tham chiếu dữ liệu cũ trước khi workbook được ghi lại. Hãy xây dựng lại bất kỳ series và ánh xạ danh mục nào cần thiết cho workbook đã cập nhật trước khi sử dụng biểu đồ.
 
-## **Đặt Ô Workbook làm Nhãn Dữ liệu Biểu đồ**
+## **Đặt Ô Sổ làm việc làm Nhãn Dữ liệu Biểu đồ**
 
-Bạn có thể sử dụng văn bản từ các ô workbook làm nhãn dữ liệu biểu đồ. Các bước sau cho biết cách liên kết các nhãn trong biểu đồ bong bóng với các ô trong workbook dữ liệu của nó.
+Bạn có thể sử dụng văn bản từ các ô workbook làm nhãn dữ liệu biểu đồ.
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentation/).
-2. Truy cập slide đầu tiên bằng chỉ mục bắt đầu từ 0.
-3. Thêm một biểu đồ bong bóng với dữ liệu mặc định.
-4. Truy cập series của biểu đồ.
-5. Đặt ô workbook làm nhãn dữ liệu.
-6. Lưu bản trình bày.
-
-Ví dụ này mở `chart2.pptx`, phải chứa ít nhất một slide, và thêm một biểu đồ bong bóng với dữ liệu mặc định. Nó sử dụng các ô A10:A12 trên worksheet 0 cho ba nhãn đầu tiên trong series đầu tiên, bật nhãn từ ô, và lưu kết quả vào `resultchart.pptx`.
+Ví dụ này thêm một biểu đồ bong bóng với dữ liệu mặc định vào slide đầu tiên của một bản trình bày hiện có. Nó sử dụng các ô A10:A12 trên worksheet 0 cho ba nhãn đầu tiên trong series đầu tiên, bật nhãn từ các ô, và lưu bản trình bày đã cập nhật.
 
 ```java
 import com.aspose.slides.*;
@@ -191,7 +216,7 @@ try {
 
 ## **Quản lý Worksheets**
 
-Phương thức [IChartDataWorkbook.getWorksheets](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ichartdataworkbook/#getWorksheets--) cung cấp quyền truy cập vào các worksheet trong một workbook biểu đồ. Ví dụ này tạo một biểu đồ tròn với dữ liệu mặc định và in tên mỗi worksheet ra console.
+[IChartDataWorkbook.getWorksheets](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/#getWorksheets--) cung cấp quyền truy cập vào các worksheet trong một workbook biểu đồ. Ví dụ này tạo một biểu đồ tròn với dữ liệu mặc định và in tên mỗi worksheet ra console.
 
 ```java
 import com.aspose.slides.*;
@@ -213,7 +238,7 @@ try {
 
 ## **Chỉ định Loại Nguồn Dữ liệu**
 
-Ví dụ này tạo một biểu đồ cột 3D với dữ liệu mặc định và đặt hai tên series bằng các nguồn dữ liệu khác nhau. Tên đầu tiên sử dụng một literal chuỗi; tên thứ hai sử dụng ô C1 trên worksheet 0. Phân enumeration [DataSourceType](https://reference.aspose.com/slides/vi/java/com.aspose.slides/datasourcetype/) chọn nguồn cho mỗi tên. Kết quả được lưu vào `pres.pptx`.
+Ví dụ này tạo một biểu đồ cột 3D với dữ liệu mặc định và đặt hai tên series bằng các nguồn dữ liệu khác nhau. Tên đầu tiên sử dụng một literal string; tên thứ hai sử dụng ô C1 trên worksheet 0.[Tên enum DataSourceType](https://reference.aspose.com/slides/java/com.aspose.slides/datasourcetype/) chọn nguồn cho mỗi tên. Ví dụ lưu bản trình bày với các tên series đã cập nhật.
 
 ```java
 import com.aspose.slides.*;
@@ -239,9 +264,9 @@ try {
 }
 ```
 
-## **Phát hiện Định dạng Workbook Nhúng Không được Hỗ trợ**
+## **Phát hiện Định dạng Sổ làm việc Nhúng Không hỗ trợ**
 
-Aspose.Slides không hỗ trợ định dạng workbook Excel nhị phân (.xlsb) có thể được nhúng trong một số biểu đồ. Bạn có thể sử dụng phương thức [getEmbeddedWorkbookType](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ichartdata/#getEmbeddedWorkbookType--) trên [IChartData](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ichartdata/) cùng với enumeration [WorkbookType](https://reference.aspose.com/slides/vi/java/com.aspose.slides/workbooktype/) để phát hiện các định dạng không được hỗ trợ và bỏ qua các biểu đồ đó. Ví dụ này kiểm tra các shape trên slide đầu tiên của `sample.pptx`, bỏ qua các shape không phải biểu đồ, và in thông báo chẩn đoán cho mỗi biểu đồ có workbook .xlsb nhúng.
+Aspose.Slides không hỗ trợ định dạng workbook Excel nhị phân (.xlsb) có thể được nhúng trong một số biểu đồ. Bạn có thể sử dụng phương pháp[getEmbeddedWorkbookType](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#getEmbeddedWorkbookType--) trên[IChartData](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/) kết hợp với enum[WorkbookType](https://reference.aspose.com/slides/java/com.aspose.slides/workbooktype/) để phát hiện các định dạng không hỗ trợ và bỏ qua các biểu đồ đó. Ví dụ này kiểm tra các hình dạng trên slide đầu tiên của một bản trình bày hiện có, bỏ qua các hình không phải biểu đồ, và in thông điệp chẩn đoán cho mỗi biểu đồ có workbook .xlsb nhúng.
 
 ```java
 import com.aspose.slides.*;
@@ -265,22 +290,22 @@ try {
             continue;
         }
 
-        // Đọc hoặc chỉnh sửa dữ liệu workbook biểu đồ được hỗ trợ tại đây.
+        // Đọc hoặc sửa đổi dữ liệu workbook biểu đồ được hỗ trợ ở đây.
     }
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Workbook Ngoại vi**
+## **Sổ làm việc Ngoài**
 
-Aspose.Slides hỗ trợ sử dụng workbook ngoại vi làm nguồn dữ liệu cho biểu đồ.
+Aspose.Slides hỗ trợ sử dụng workbook bên ngoài làm nguồn dữ liệu cho biểu đồ.
 
-### **Tạo một Workbook Ngoại vi**
+### **Tạo Sổ làm việc Ngoài**
 
-Sử dụng [readWorkbookStream](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ichartdata/#readWorkbookStream--) và [setExternalWorkbook](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ichartdata/#setExternalWorkbook-java.lang.String-) để xuất workbook biểu đồ nhúng ra một tệp và liên kết biểu đồ với workbook ngoại vi đó.
+Sử dụng[readWorkbookStream](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#readWorkbookStream--) và[setExternalWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#setExternalWorkbook-java.lang.String-) để xuất workbook biểu đồ nhúng ra một tệp và liên kết biểu đồ tới workbook bên ngoài đó.
 
-Ví dụ này tạo một biểu đồ tròn với dữ liệu mặc định, ghi workbook của nó vào `externalWorkbook1.xlsx`, và hoàn thành việc ghi tệp trước khi gán tệp làm nguồn dữ liệu cho biểu đồ. Nó lưu bản trình bày đã liên kết vào `externalWorkbook.pptx`.
+Ví dụ này tạo một biểu đồ tròn với dữ liệu mặc định và xuất workbook của nó. Nó hoàn thành việc ghi tệp trước khi gán workbook bên ngoài làm nguồn dữ liệu cho biểu đồ, sau đó lưu bản trình bày đã liên kết.
 
 ```java
 import com.aspose.slides.*;
@@ -308,13 +333,13 @@ try {
 }
 ```
 
-### **Đặt một Workbook Ngoại vi**
+### **Đặt Sổ làm việc Ngoài**
 
-Bằng cách sử dụng phương thức [setExternalWorkbook](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ichartdata/#setExternalWorkbook-java.lang.String-), bạn có thể gán một workbook ngoại vi cho một biểu đồ làm nguồn dữ liệu. Phương thức này cũng có thể được dùng để cập nhật đường dẫn tới workbook ngoại vi (nếu workbook đã được di chuyển).
+Bằng cách sử dụng phương pháp[setExternalWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#setExternalWorkbook-java.lang.String-), bạn có thể gán một workbook bên ngoài cho biểu đồ làm nguồn dữ liệu. Phương pháp này cũng có thể được dùng để cập nhật đường dẫn tới workbook bên ngoài (nếu workbook đó đã được di chuyển).
 
-Mặc dù bạn không thể chỉnh sửa dữ liệu trong các workbook lưu trữ ở vị trí từ xa hoặc tài nguyên, bạn vẫn có thể sử dụng các workbook đó làm nguồn dữ liệu ngoại vi. Nếu đường dẫn tương đối cho workbook ngoại vi được cung cấp, nó sẽ tự động được chuyển thành đường dẫn đầy đủ.
+Mặc dù bạn không thể chỉnh sửa dữ liệu trong các workbook được lưu ở vị trí từ xa hoặc tài nguyên, bạn vẫn có thể sử dụng các workbook đó như một nguồn dữ liệu bên ngoài. Nếu đường dẫn tương đối cho một workbook bên ngoài được cung cấp, nó sẽ tự động chuyển sang đường dẫn đầy đủ.
 
-Ví dụ này yêu cầu `externalWorkbook.xlsx` trong thư mục làm việc. Worksheet có tên `Sheet1` phải chứa một tên series ở B1, các tên danh mục ở A2:A4, và các giá trị số ở B2:B4. Ví dụ tạo một biểu đồ tròn, liên kết workbook, và sử dụng [setRange](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ichartdata/#setRange-java.lang.String-) để ánh xạ A1:B4 thành một series và ba danh mục. Nó lưu kết quả vào `Presentation_with_externalWorkbook.pptx`.
+Ví dụ này sử dụng một workbook bên ngoài mà worksheet có tên `Sheet1` chứa một tên series trong B1, tên danh mục trong A2:A4, và các giá trị số trong B2:B4. Ví dụ tạo một biểu đồ tròn, liên kết workbook, và sử dụng[setRange](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#setRange-java.lang.String-) để ánh xạ A1:B4 thành một series và ba danh mục. Nó lưu bản trình bày với biểu đồ đã liên kết.
 
 ```java
 import com.aspose.slides.*;
@@ -337,12 +362,12 @@ try {
 }
 ```
 
-Tham số `updateChartData` của [setExternalWorkbook](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ichartdata/#setExternalWorkbook-java.lang.String-boolean-) kiểm soát việc tải workbook hay không.
+Tham số `updateChartData` của[setExternalWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#setExternalWorkbook-java.lang.String-boolean-) kiểm soát việc có tải workbook hay không.
 
-* Khi `updateChartData` là `false`, chỉ đường dẫn workbook được cập nhật. Dữ liệu biểu đồ không được tải hoặc cập nhật từ workbook mục tiêu, vì vậy workbook có thể không có sẵn.
+* Khi `updateChartData` là `false`, chỉ đường dẫn workbook được cập nhật. Dữ liệu biểu đồ không được tải hoặc cập nhật từ workbook mục tiêu, vì vậy workbook có thể không khả dụng.
 * Khi `updateChartData` là `true`, dữ liệu biểu đồ được cập nhật từ workbook mục tiêu.
 
-Ví dụ sau gán một URL placeholder với `updateChartData` đặt thành `false`. Nó giữ dữ liệu mặc định của biểu đồ tròn và lưu bản trình bày mà không tải workbook không khả dụng.
+Ví dụ sau gán một URL placeholder với `updateChartData` được đặt là `false`. Nó giữ lại dữ liệu mặc định của biểu đồ tròn và lưu bản trình bày mà không tải workbook không khả dụng.
 
 ```java
 import com.aspose.slides.*;
@@ -360,17 +385,11 @@ try {
 }
 ```
 
-### **Lấy Đường dẫn Workbook Nguồn Dữ liệu Ngoại vi của Một Biểu đồ**
+### **Lấy Đường dẫn Sổ làm việc Nguồn Dữ liệu Ngoài của Biểu đồ**
 
-Để xác định workbook được liên kết với một biểu đồ, đầu tiên kiểm tra xem biểu đồ có sử dụng nguồn dữ liệu ngoại vi không. Nếu có, bạn có thể lấy đường dẫn workbook bằng các bước sau.
+Để xác định workbook được liên kết với một biểu đồ, kiểm tra xem biểu đồ có sử dụng nguồn dữ liệu bên ngoài hay không và lấy đường dẫn workbook của nó.
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentation/).
-2. Truy cập slide đầu tiên bằng chỉ mục bắt đầu từ 0.
-3. Kiểm tra rằng shape đầu tiên là một biểu đồ.
-4. Đọc loại nguồn dữ liệu của biểu đồ.
-5. Nếu nguồn là một workbook ngoại vi, đọc đường dẫn của nó.
-
-Ví dụ này mở `externalWorkbook.pptx`, được tạo trong ví dụ trước, và kiểm tra shape đầu tiên trên slide đầu tiên. Nếu đó là một biểu đồ được liên kết với workbook ngoại vi, ví dụ in [getExternalWorkbookPath](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ichartdata/#getExternalWorkbookPath--) ra console. Sau đó nó lưu một bản sao của bản trình bày vào `Result.pptx`.
+Ví dụ này kiểm tra hình dạng đầu tiên trên slide đầu tiên của một bản trình bày có workbook bên ngoài được liên kết. Nếu đó là một biểu đồ được liên kết tới workbook bên ngoài, ví dụ in[getExternalWorkbookPath](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#getExternalWorkbookPath--) ra console. Sau đó nó lưu một bản sao của bản trình bày.
 
 ```java
 import com.aspose.slides.*;
@@ -399,9 +418,9 @@ try {
 
 ### **Chỉnh sửa Dữ liệu Biểu đồ**
 
-Bạn có thể chỉnh sửa dữ liệu trong các workbook ngoại vi tương tự như cách bạn thay đổi nội dung của các workbook nội bộ. Khi một workbook ngoại vi không thể tải, một ngoại lệ sẽ được ném.
+Bạn có thể chỉnh sửa dữ liệu trong các workbook bên ngoài theo cách tương tự như chỉnh sửa nội dung các workbook nội bộ. Khi một workbook bên ngoài không thể tải, một ngoại lệ sẽ được ném.
 
-Ví dụ này yêu cầu `presentation.pptx` có một biểu đồ làm shape đầu tiên trên slide đầu tiên và một workbook ngoại vi có thể truy cập. Nó đặt giá trị dựa trên ô của điểm dữ liệu đầu tiên trong series đầu tiên thành 100 và lưu bản trình bày vào `presentation_out.pptx`. Việc chỉnh sửa giá trị ô có thể cập nhật tệp XLSX ngoại vi đã liên kết, vì vậy hãy sử dụng một bản sao nếu bạn cần giữ nguyên workbook gốc.
+Ví dụ này sử dụng một biểu đồ là hình dạng đầu tiên trên slide đầu tiên và được liên kết tới một workbook bên ngoài có thể truy cập. Nó đặt giá trị dựa trên ô của điểm dữ liệu đầu tiên trong series đầu tiên thành 100 và lưu bản trình bày đã cập nhật. Việc chỉnh sửa giá trị ô có thể cập nhật tệp XLSX bên ngoài đã liên kết, vì vậy hãy sử dụng một bản sao nếu bạn cần giữ nguyên workbook gốc.
 
 ```java
 import com.aspose.slides.*;
@@ -433,11 +452,11 @@ try {
 }
 ```
 
-### **Khôi phục Workbook từ Bộ nhớ Đệm của Biểu đồ**
+### **Phục hồi Sổ làm việc từ Bộ nhớ Đệm của Biểu đồ**
 
-Nếu một biểu đồ sử dụng một workbook ngoại vi bị thiếu hoặc không khả dụng, Aspose.Slides có thể tái tạo workbook biểu đồ từ dữ liệu đã lưu trong bộ nhớ đệm của bản trình bày. Tạo [LoadOptions](https://reference.aspose.com/slides/vi/java/com.aspose.slides/loadoptions/), gọi [LoadOptions.setSpreadsheetOptions](https://reference.aspose.com/slides/vi/java/com.aspose.slides/loadoptions/#setSpreadsheetOptions-com.aspose.slides.ISpreadsheetOptions-), và đặt [ISpreadsheetOptions.setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ispreadsheetoptions/#setRecoverWorkbookFromChartCache-boolean-) thành `true` trước khi mở bản trình bày.
+Nếu một biểu đồ sử dụng workbook bên ngoài bị thiếu hoặc không khả dụng, Aspose.Slides có thể tái tạo workbook biểu đồ từ dữ liệu được lưu trong bộ nhớ đệm của bản trình bày. Tạo[LoadOptions](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/), gọi[LoadOptions.setSpreadsheetOptions](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/#setSpreadsheetOptions-com.aspose.slides.ISpreadsheetOptions-), và đặt[ISpreadsheetOptions.setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/java/com.aspose.slides/ispreadsheetoptions/#setRecoverWorkbookFromChartCache-boolean-) thành `true` trước khi mở bản trình bày.
 
-Ví dụ Java sau mở `presentation.pptx`, trong đó shape đầu tiên trên slide đầu tiên phải là một biểu đồ tham chiếu tới một workbook ngoại vi không khả dụng, và truy cập dữ liệu đã khôi phục qua [IChart.getChartData](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ichart/#getChartData--) và [IChartData.getChartDataWorkbook](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ichartdata/#getChartDataWorkbook--):
+Ví dụ Java sau phục hồi dữ liệu workbook cho một biểu đồ là hình dạng đầu tiên trên slide đầu tiên và tham chiếu tới một workbook bên ngoài không khả dụng. Nó truy cập dữ liệu đã phục hồi qua[IChart.getChartData](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#getChartData--) và[IChartData.getChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#getChartDataWorkbook--):
 
 ```java
 import com.aspose.slides.*;
@@ -457,7 +476,7 @@ try {
         IChart chart = (IChart) slide.getShapes().get_Item(0);
         IChartDataWorkbook recoveredWorkbook = chart.getChartData().getChartDataWorkbook();
 
-        // Đọc hoặc chỉnh sửa dữ liệu workbook đã khôi phục ở đây.
+        // Đọc hoặc sửa đổi dữ liệu workbook đã khôi phục ở đây.
     } else {
         System.out.println("The first shape is not a chart.");
     }
@@ -466,30 +485,30 @@ try {
 }
 ```
 
-Nếu workbook ngoại vi không khả dụng và khả năng khôi phục bị tắt, Aspose.Slides sẽ ném ra một ngoại lệ. Chỉ bật khả năng khôi phục khi việc sử dụng dữ liệu biểu đồ đã lưu trong bộ nhớ đệm là một giải pháp chấp nhận được, vì bộ nhớ đệm có thể không chứa các thay đổi được thực hiện trên workbook ngoại vi sau lần cập nhật cuối cùng của bản trình bày.
+Nếu workbook bên ngoài không khả dụng và việc phục hồi bị tắt, Aspose.Slides sẽ ném một ngoại lệ. Chỉ bật phục hồi khi việc sử dụng dữ liệu biểu đồ đã được lưu trong bộ nhớ đệm là một giải pháp thay thế chấp nhận được, vì bộ nhớ đệm có thể không chứa các thay đổi đã thực hiện trên workbook bên ngoài sau lần cập nhật cuối cùng của bản trình bày.
 
-## **FAQ**
+## **Câu hỏi thường gặp**
 
-**Tôi có thể xác định liệu một biểu đồ cụ thể có được liên kết với một workbook ngoại vi hay nhúng không?**
+**Tôi có thể xác định được liệu một biểu đồ cụ thể có liên kết tới workbook bên ngoài hay workbook nhúng không?**
 
-Có. Một biểu đồ có một [loại nguồn dữ liệu](https://reference.aspose.com/slides/vi/java/com.aspose.slides/chartdata/#getDataSourceType--) và một [đường dẫn tới workbook ngoại vi](https://reference.aspose.com/slides/vi/java/com.aspose.slides/chartdata/#getExternalWorkbookPath--); nếu nguồn là một workbook ngoại vi, bạn có thể đọc đường dẫn đầy đủ để chắc chắn rằng một tệp ngoại vi đang được sử dụng.
+Có. Một biểu đồ có một [data source type](https://reference.aspose.com/slides/java/com.aspose.slides/chartdata/#getDataSourceType--) và một [path to an external workbook](https://reference.aspose.com/slides/java/com.aspose.slides/chartdata/#getExternalWorkbookPath--); nếu nguồn là một workbook bên ngoài, bạn có thể đọc đường dẫn đầy đủ để chắc chắn một tệp bên ngoài đang được sử dụng.
 
-**Các đường dẫn tương đối tới workbook ngoại vi có được hỗ trợ không, và chúng được lưu như thế nào?**
+**Các đường dẫn tương đối tới workbook bên ngoài có được hỗ trợ không, và chúng được lưu như thế nào?**
 
-Có. Nếu bạn chỉ định một đường dẫn tương đối, nó sẽ tự động được chuyển thành đường dẫn tuyệt đối. Bản trình bày lưu đường dẫn tuyệt đối trong tệp PPTX, vì vậy việc di chuyển workbook có thể yêu cầu cập nhật liên kết.
+Có. Nếu bạn chỉ định một đường dẫn tương đối, nó sẽ tự động được chuyển thành một đường dẫn tuyệt đối. Bản trình bày lưu đường dẫn tuyệt đối trong tệp PPTX, vì vậy việc di chuyển workbook có thể yêu cầu cập nhật liên kết.
 
-**Tôi có thể sử dụng các workbook nằm trên tài nguyên/mạng chung không?**
+**Tôi có thể sử dụng các workbook nằm trên tài nguyên/mạng chia sẻ không?**
 
-Có, các workbook như vậy có thể được sử dụng làm nguồn dữ liệu ngoại vi. Tuy nhiên, việc chỉnh sửa trực tiếp các workbook từ xa bằng Aspose.Slides không được hỗ trợ — chúng chỉ có thể được dùng làm nguồn.
+Có, các workbook như vậy có thể được sử dụng làm nguồn dữ liệu bên ngoài. Tuy nhiên, việc chỉnh sửa trực tiếp các workbook từ xa bằng Aspose.Slides không được hỗ trợ—chúng chỉ có thể được dùng làm nguồn.
 
-**Aspose.Slides có ghi đè lên tệp XLSX ngoại vi khi lưu bản trình bày không?**
+**Aspose.Slides có ghi đè lên file XLSX bên ngoài khi lưu bản trình bày không?**
 
-Bản trình bày lưu một [liên kết tới tệp ngoại vi](https://reference.aspose.com/slides/vi/java/com.aspose.slides/chartdata/#getExternalWorkbookPath--). Việc chỉnh sửa dữ liệu biểu đồ dựa trên ô cũng có thể cập nhật tệp XLSX địa phương đã liên kết. Hãy sử dụng một bản sao của workbook nếu bản gốc phải được giữ nguyên.
+Bản trình bày lưu một [link to the external file](https://reference.aspose.com/slides/java/com.aspose.slides/chartdata/#getExternalWorkbookPath--). Việc chỉnh sửa dữ liệu biểu đồ dựa trên ô cũng có thể cập nhật file XLSX local đã liên kết. Hãy sử dụng một bản sao của workbook nếu bản gốc phải được giữ nguyên.
 
-**Nếu tệp ngoại vi được bảo vệ bằng mật khẩu, tôi nên làm gì?**
+**Nếu file bên ngoài được bảo vệ bằng mật khẩu, tôi nên làm gì?**
 
-Aspose.Slides không chấp nhận mật khẩu khi tạo liên kết. Một cách thường dùng là loại bỏ bảo vệ trước hoặc chuẩn bị một bản sao đã giải mã (ví dụ, dùng [Aspose.Cells](https://reference.aspose.com/cells/java/)) và liên kết tới bản sao đó.
+Aspose.Slides không chấp nhận mật khẩu khi tạo liên kết. Một cách thường dùng là bỏ bảo vệ trước hoặc chuẩn bị một bản sao đã giải mã (ví dụ, bằng [Aspose.Cells](https://reference.aspose.com/cells/java/)) và liên kết tới bản sao đó.
 
-**Nhiều biểu đồ có thể tham chiếu cùng một workbook ngoại vi không?**
+**Nhiều biểu đồ có thể tham chiếu cùng một workbook bên ngoài không?**
 
-Có. Mỗi biểu đồ lưu liên kết riêng của mình. Nếu tất cả chúng trỏ tới cùng một tệp, việc cập nhật tệp sẽ được phản ánh trong mỗi biểu đồ vào lần tiếp theo dữ liệu được tải.
+Có. Mỗi biểu đồ lưu liên kết riêng của nó. Nếu tất cả đều trỏ tới cùng một tệp, việc cập nhật tệp sẽ được phản ánh trong mỗi biểu đồ vào lần tiếp theo dữ liệu được tải.

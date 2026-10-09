@@ -10,77 +10,75 @@ keywords:
 - редактировать диаграмму
 - изменить диаграмму
 - обновить диаграмму
-- диаграмма рассеяния
+- точечная диаграмма
 - круговая диаграмма
 - линейная диаграмма
-- диаграмма дерева
-- диаграмма акций
-- диаграмма ящик с усами
+- иерархическая диаграмма
+- биржевая диаграмма
+- коробчатая диаграмма
 - воронкообразная диаграмма
-- лучевая диаграмма
+- секторная диаграмма
 - гистограмма
 - радиальная диаграмма
-- многоуровневая диаграмма
+- многокатегориальная диаграмма
 - PowerPoint
 - презентация
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Создавайте и настраивайте диаграммы в презентациях PowerPoint с помощью Aspose.Slides для Node.js. Добавляйте, форматируйте и редактируйте диаграммы, используя практические примеры кода на JavaScript."
+description: "Создавайте и настраивайте диаграммы в презентациях PowerPoint с помощью Aspose.Slides для Node.js. Добавляйте, форматируйте и редактируйте диаграммы с практическими примерами кода на JavaScript."
 ---
 ## **Обзор**
 
-В этой статье представлено полное руководство по созданию и настройке диаграмм с помощью Aspose.Slides. Вы узнаете, как программно добавить диаграмму на слайд, заполнить её данными и применить различные параметры форматирования, чтобы соответствовать вашим конкретным требованиям к дизайну. На протяжении всей статьи подробно приводятся примеры кода, иллюстрирующие каждый шаг — от инициализации презентации и объекта диаграммы до настройки рядов, осей и легенд. Следуя этому руководству, вы получите прочное понимание того, как интегрировать динамическое создание диаграмм в свои приложения, упростив процесс создания презентаций, основанных на данных.
+Эта статья предоставляет исчерпывающее руководство по созданию и настройке диаграмм с помощью Aspose.Slides. Вы узнаете, как программно добавить диаграмму на слайд, заполнить её данными и применить различные параметры форматирования, соответствующие вашим требованиям к дизайну. На протяжении всей статьи подробно иллюстрируются примеры кода, показывающие каждый шаг: от инициализации презентации и объекта диаграммы до настройки рядов, осей и легенд. Следуя этому руководству, вы получите твердое представление о том, как интегрировать динамическое создание диаграмм в свои приложения, упрощая процесс создания презентаций, основанных на данных.
 
 ## **Создание диаграммы**
 
-Диаграммы помогают быстро визуализировать данные и получить инсайты, которые могут быть неочевидны из таблицы или электронной таблицы.
+Диаграммы помогают людям быстро визуализировать данные и получать инсайты, которые могут быть неочевидны из таблицы или электронной таблицы.
 
-**Почему создают диаграммы?**
+**Зачем создавать диаграммы?**
 
 С помощью диаграмм вы можете:
 
-* агрегировать, конденсировать или суммировать большие объёмы данных на одном слайде презентации
-* выявлять закономерности и тренды в данных
+* агрегировать, сжимать или суммировать большие объёмы данных на одном слайде презентации
+* выявлять шаблоны и тенденции в данных
 * определять направление и динамику данных во времени или относительно конкретной единицы измерения
 * обнаруживать выбросы, аномалии, отклонения, ошибки, бессмысленные данные и т.п.
-* эффективно представлять сложные данные
+* эффективно передавать или представлять сложные данные
 
-В PowerPoint диаграммы создаются через функцию *Insert*, которая предоставляет шаблоны для разработки различных типов диаграмм. С Aspose.Slides вы можете создавать как обычные диаграммы (на основе популярных типов), так и пользовательские диаграммы.
+В PowerPoint диаграммы можно создавать через функцию *Insert*, которая предоставляет шаблоны для разработки множества типов диаграмм. С помощью Aspose.Slides можно создавать как обычные диаграммы (на основе популярных типов), так и пользовательские диаграммы.
 
 {{% alert color="info" title="Note" %}}
-
-Для создания диаграмм используйте класс [ChartType](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/charttype/). Поля этого класса соответствуют различным типам диаграмм.
-
+Для создания диаграмм используйте класс [ChartType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/). Поля этого класса соответствуют различным типам диаграмм.
 {{% /alert %}}
 
-### **Создание гистограмм с кластеризованными столбцами**
+### **Создание гистограмм с группировкой столбцов**
 
-В этом разделе объясняется, как создать гистограмму с кластеризованными столбцами с помощью Aspose.Slides. Вы научитесь инициализировать презентацию, добавить диаграмму и настроить её элементы, такие как заголовок, данные, ряды, категории и стиль. Следуйте инструкциям ниже, чтобы увидеть, как генерируется стандартная гистограмма с кластеризованными столбцами:
+В этом разделе объясняется, как создавать гистограммы с группировкой столбцов с помощью Aspose.Slides. Вы научитесь инициализировать презентацию, добавлять диаграмму и настраивать её элементы, такие как заголовок, данные, ряды, категории и стиль. Выполните следующие шаги, чтобы увидеть, как генерируется стандартная гистограмма с группировкой столбцов:
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/presentation).
-2. Получите ссылку на слайд, используя его индекс.
-3. Добавьте диаграмму с некоторыми данными и укажите тип `ChartType.ClusteredColumn`.
-4. Добавьте заголовок к диаграмме.
-5. Получите доступ к листу данных диаграммы.
-6. Очистите все строки и категории по умолчанию.
-7. Добавьте новые ряды и категории.
-8. Добавьте новые данные диаграммы для рядов.
-9. Примените цвет заливки к рядам диаграммы.
-10. Добавьте подписи к рядам диаграммы.
-11. Сохраните изменённую презентацию в файл PPTX.
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation).
+1. Получите ссылку на слайд по его индексу.
+1. Добавьте диаграмму с некоторыми данными и укажите тип `ChartType.ClusteredColumn`.
+1. Добавьте заголовок к диаграмме.
+1. Получите доступ к рабочему листу данных диаграммы.
+1. Очистите все ряды и категории по умолчанию.
+1. Добавьте новые ряды и категории.
+1. Добавьте новые данные диаграммы для рядов.
+1. Примените цвет заливки к рядам диаграммы.
+1. Добавьте подписи к рядам диаграммы.
+1. Сохраните изменённую презентацию как файл PPTX.
 
-Этот код C# демонстрирует, как создать гистограмму с кластеризованными столбцами:
+Этот JavaScript‑код демонстрирует создание гистограммы с группировкой столбцов:
 
 ```javascript
 var aspose = aspose || {};
 aspose.slides = require("aspose.slides.via.java");
 const java = require("java");
 
-// Создает экземпляр класса презентации, представляющего файл PPTX
+// Создаёт экземпляр класса презентации, представляющего файл PPTX
 var pres = new aspose.slides.Presentation();
 try {
-    // Доступ к первому слайду
+    // Получает доступ к первому слайду
     var sld = pres.getSlides().get_Item(0);
     // Добавляет диаграмму с её данными по умолчанию
     var chart = sld.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 0, 0, 500, 500);
@@ -95,7 +93,7 @@ try {
     var defaultWorksheetIndex = 0;
     // Получает рабочий лист данных диаграммы
     var fact = chart.getChartData().getChartDataWorkbook();
-    // Удаляет сгенерированные по умолчанию ряды и категории
+    // Удаляет автоматически созданные ряды и категории
     chart.getChartData().getSeries().clear();
     chart.getChartData().getCategories().clear();
     var s = chart.getChartData().getSeries().size();
@@ -125,8 +123,8 @@ try {
     // Устанавливает цвет заливки для ряда
     series.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
     series.getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GREEN"));
-    // Создает пользовательские подписи для каждой категории нового ряда
-    // Устанавливает первую подпись для отображения названия категории
+    // Создаёт пользовательские подписи для каждой категории нового ряда
+    // Устанавливает первую подпись для отображения имени категории
     var lbl = series.getDataPoints().get_Item(0).getLabel();
     lbl.getDataLabelFormat().setShowCategoryName(true);
     lbl = series.getDataPoints().get_Item(1).getLabel();
@@ -145,37 +143,36 @@ try {
 }
 ```
 
-### **Создание диаграмм рассеяния**
+### **Создание точечных (Scatter) диаграмм**
+Точечные диаграммы (также известные как scatter‑plots или графики x‑y) часто используют для поиска шаблонов или демонстрации корреляций между двумя переменными.
 
-Диаграммы рассеяния (также известные как scatter plot или графики x‑y) часто используются для поиска закономерностей или демонстрации корреляций между двумя переменными.
-
-Используйте диаграмму рассеяния, когда:
+Используйте точечную диаграмму, когда:
 
 * у вас есть парные числовые данные
-* у вас две переменные, которые хорошо сочетаются друг с другом
-* вы хотите выяснить, связаны ли две переменные
-* у вас независимая переменная имеет несколько значений для зависимой переменной
+* у вас есть две переменные, которые логично сочетаются
+* вы хотите определить, связаны ли две переменные
+* у вас есть независимая переменная, имеющая несколько значений для зависимой переменной
 
 1. Выполните шаги из раздела [Create Clustered Column Charts](#create-clustered-column-charts).
 2. На третьем шаге добавьте диаграмму с данными и укажите тип диаграммы одним из следующих:
-   1. [ChartType.ScatterWithMarkers](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/charttype/#ScatterWithMarkers) — _Представляет диаграмму рассеяния с маркерами._
-   2. [ChartType.ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) — _Представляет диаграмму рассеяния, соединённую сглаженными линиями, с маркерами._
-   3. [ChartType.ScatterWithSmoothLines](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/charttype/#ScatterWithSmoothLines) — _Представляет диаграмму рассеяния, соединённую сглаженными линиями, без маркеров._
-   4. [ChartType.ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) — _Представляет диаграмму рассеяния, соединённую прямыми линиями, с маркерами._
-   5. [ChartType.ScatterWithStraightLines](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/charttype/#ScatterWithStraightLines) — _Представляет диаграмму рассеяния, соединённую прямыми линиями, без маркеров._
+   1. [ChartType.ScatterWithMarkers](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#ScatterWithMarkers) - _Представляет точечную диаграмму с маркерами._
+   2. [ChartType.ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - _Представляет точечную диаграмму, соединённую кривыми, с маркерами._
+   3. [ChartType.ScatterWithSmoothLines](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#ScatterWithSmoothLines) - _Представляет точечную диаграмму, соединённую кривыми, без маркеров._
+   4. [ChartType.ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _Представляет точечную диаграмму, соединённую линиями, с маркерами._
+   5. [ChartType.ScatterWithStraightLines](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#ScatterWithStraightLines) - _Представляет точечную диаграмму, соединённую линиями, без маркеров._
 
-Этот код JavaScript показывает, как создать диаграмму рассеяния с разными маркерами для каждого ряда:
+Этот JavaScript‑код показывает, как создать точечную диаграмму с различными маркерами для каждого ряда:
 
 ```javascript
 var aspose = aspose || {};
 aspose.slides = require("aspose.slides.via.java");
 
-// Создает экземпляр класса презентации, представляющего файл PPTX
+// Создаёт экземпляр класса презентации, представляющего файл PPTX
 var pres = new aspose.slides.Presentation();
 try {
     // Получает доступ к первому слайду
     var slide = pres.getSlides().get_Item(0);
-    // Создает диаграмму по умолчанию
+    // Создаёт диаграмму по умолчанию
     var chart = slide.getShapes().addChart(aspose.slides.ChartType.ScatterWithSmoothLines, 0, 0, 400, 400);
     // Получает индекс листа данных диаграммы по умолчанию
     var defaultWorksheetIndex = 0;
@@ -220,29 +217,29 @@ try {
 
 ### **Создание круговых диаграмм**
 
-Круговые диаграммы лучше всего использовать для демонстрации отношения части к целому, особенно когда данные содержат категориальные метки с числовыми значениями. Однако если в данных много частей или меток, стоит рассмотреть использование гистограммы.
+Круговые диаграммы лучше всего использовать для отображения отношения части к целому, особенно когда данные содержат категориальные метки с числовыми значениями. Однако если в ваших данных много частей или меток, возможно, стоит рассмотреть использование гистограммы.
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/presentation/).
-2. Получите ссылку на слайд, используя его индекс.
-3. Добавьте диаграмму с данными по умолчанию и укажите тип [ChartType.Pie](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/charttype/#Pie).
-4. Получите доступ к рабочей книге данных диаграммы [ChartDataWorkbook](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/chartdataworkbook/).
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/).
+2. Получите ссылку на слайд по его индексу.
+3. Добавьте диаграмму с данными по умолчанию и укажите тип [ChartType.Pie](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#Pie).
+4. Получите доступ к рабочей книге данных диаграммы [ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/).
 5. Очистите ряды и категории по умолчанию.
 6. Добавьте новые ряды и категории.
 7. Добавьте новые данные диаграммы для рядов.
-8. Добавьте новые точки для диаграммы и примените пользовательские цвета к секторам круговой диаграммы.
+8. Добавьте новые точки для диаграммы и задайте пользовательские цвета секторов.
 9. Установите подписи для рядов.
 10. Включите линии‑выноски для подписей рядов.
-11. Установите угол поворота секторов круговой диаграммы.
-12. Сохраните изменённую презентацию в файл PPTX.
+11. Задайте угол вращения секторов круговой диаграммы.
+12. Сохраните изменённую презентацию как файл PPTX.
 
-Этот код JavaScript показывает, как создать круговую диаграмму:
+Этот JavaScript‑код демонстрирует создание круговой диаграммы:
 
 ```javascript
 var aspose = aspose || {};
 aspose.slides = require("aspose.slides.via.java");
 const java = require("java");
 
-// Создает экземпляр класса презентации, представляющего файл PPTX
+// Создаёт экземпляр класса презентации, представляющего файл PPTX
 var pres = new aspose.slides.Presentation();
 try {
     // Получает доступ к первому слайду
@@ -260,7 +257,7 @@ try {
     var defaultWorksheetIndex = 0;
     // Получает лист данных диаграммы
     var fact = chart.getChartData().getChartDataWorkbook();
-    // Удаляет сгенерированные по умолчанию ряды и категории
+    // Удаляет автоматически сгенерированные ряды и категории
     chart.getChartData().getSeries().clear();
     chart.getChartData().getCategories().clear();
     // Добавляет новые категории
@@ -304,7 +301,7 @@ try {
     point2.getFormat().getLine().setWidth(2.0);
     point2.getFormat().getLine().setStyle(java.newByte(aspose.slides.LineStyle.ThinThin));
     point2.getFormat().getLine().setDashStyle(java.newByte(aspose.slides.LineDashStyle.LargeDashDotDot));
-    // Создает пользовательские подписи для каждой категории нового ряда
+    // Создаёт пользовательские подписи для каждой категории нового ряда
     var lbl1 = series.getDataPoints().get_Item(0).getLabel();
     // lbl.ShowCategoryName = true;
     lbl1.getDataLabelFormat().setShowValue(true);
@@ -330,18 +327,18 @@ try {
 
 ### **Создание линейных диаграмм**
 
-Линейные диаграммы (также известные как линейные графики) лучше всего использовать, когда необходимо продемонстрировать изменения значения во времени. С помощью линейной диаграммы можно одновременно сравнивать большой объём данных, отслеживать изменения и тренды, выделять аномалии в рядах данных и многое другое.
+Линейные диаграммы (иначе называемые линейными графиками) лучше всего подходят, когда нужно показать изменение значений во времени. С помощью линейной диаграммы можно одновременно сравнивать большой объём данных, отслеживать изменения и тенденции, подчёркивать аномалии в рядах и многое другое.
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/presentation/).
-2. Получите ссылку на слайд, используя его индекс.
-3. Добавьте диаграмму с данными по умолчанию и укажите тип [ChartType.Line](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/charttype/#Line).
-4. Получите доступ к рабочей книге данных диаграммы ([ChartDataWorkbook](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/chartdataworkbook/)).
-5. Очистите ряды и категории по умолчанию.
-6. Добавьте новые ряды и категории.
-7. Добавьте новые данные диаграммы для рядов.
-8. Сохраните изменённую презентацию в файл PPTX.
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/).
+1. Получите ссылку на слайд по его индексу.
+1. Добавьте диаграмму с данными по умолчанию и укажите тип [ChartType.Line](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#Line).
+1. Получите доступ к рабочей книге данных диаграммы ([ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/)).
+1. Очистите ряды и категории по умолчанию.
+1. Добавьте новые ряды и категории.
+1. Добавьте новые данные диаграммы для рядов.
+1. Сохраните изменённую презентацию как файл PPTX.
 
-Этот код JavaScript показывает, как создать линейную диаграмму:
+Этот JavaScript‑код показывает, как создать линейную диаграмму:
 
 ```javascript
 var aspose = aspose || {};
@@ -358,7 +355,7 @@ try {
 }
 ```
 
-По умолчанию точки на линейной диаграмме соединяются сплошными прямыми линиями. Если вы хотите, чтобы точки соединялись пунктиром, укажите желаемый тип штриха следующим образом:
+По умолчанию точки в линейной диаграмме соединяются сплошными прямыми линиями. Если вы хотите, чтобы точки соединялись пунктиром, задайте предпочтительный тип штриха следующим образом:
 
 ```javascript
 var aspose = aspose || {};
@@ -380,20 +377,20 @@ try {
 }
 ```
 
-### **Создание иерархических диаграмм (Tree Map)**
+### **Создание иерархических (Tree Map) диаграмм**
 
-Иерархические диаграммы (Tree Map) лучше всего подходят для отображения объёмов продаж, когда нужно показать относительный размер категорий данных и быстро привлечь внимание к элементам, вносящим большой вклад в каждую категорию.
+Иерархические диаграммы лучше всего использовать для данных о продажах, когда нужно показать относительный размер категорий и быстро привлечь внимание к элементам, вносящим большой вклад в каждую категорию.
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/presentation/).
-2. Получите ссылку на слайд, используя его индекс.
-3. Добавьте диаграмму с данными по умолчанию и укажите тип [ChartType.Treemap](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/charttype/#Treemap).
-4. Получите доступ к рабочей книге данных диаграммы [ChartDataWorkbook](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/chartdataworkbook/).
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/).
+2. Получите ссылку на слайд по его индексу.
+3. Добавьте диаграмму с данными по умолчанию и укажите тип [ChartType.Treemap](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#Treemap).
+4. Получите доступ к рабочей книге данных диаграммы [ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/).
 5. Очистите ряды и категории по умолчанию.
 6. Добавьте новые ряды и категории.
 7. Добавьте новые данные диаграммы для рядов.
-8. Сохраните изменённую презентацию в файл PPTX.
+8. Сохраните изменённую презентацию как файл PPTX.
 
-Этот код JavaScript показывает, как создать иерархическую диаграмму:
+Этот JavaScript‑код демонстрирует создание иерархической диаграммы:
 
 ```javascript
 var aspose = aspose || {};
@@ -441,19 +438,19 @@ try {
 }
 ```
 
-### **Создание диаграмм «Акции» (Stock Charts)**
+### **Создание биржевых (Stock) диаграмм**
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/presentation/).
-2. Получите ссылку на слайд, используя его индекс.
-3. Добавьте диаграмму с данными по умолчанию и укажите тип [ChartType.OpenHighLowClose](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/charttype/#OpenHighLowClose).
-4. Получите доступ к рабочей книге данных диаграммы [ChartDataWorkbook](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/chartdataworkbook/).
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/).
+2. Получите ссылку на слайд по его индексу.
+3. Добавьте диаграмму с данными по умолчанию и укажите тип [ChartType.OpenHighLowClose](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#OpenHighLowClose).
+4. Получите доступ к рабочей книге данных диаграммы [ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/).
 5. Очистите ряды и категории по умолчанию.
 6. Добавьте новые ряды и категории.
 7. Добавьте новые данные диаграммы для рядов.
-8. Укажите формат линий high‑low.
-9. Сохраните изменённую презентацию в файл PPTX.
+8. Укажите формат линий «high‑low».
+9. Сохраните изменённую презентацию как файл PPTX.
 
-Этот код JavaScript показывает, как создать диаграмму «Акции»:
+Этот JavaScript‑код показывает, как создать биржевую диаграмму:
 
 ```javascript
 var aspose = aspose || {};
@@ -505,18 +502,18 @@ try {
 }
 ```
 
-### **Создание диagrama «Box and Whisker»**
+### **Создание коробчатых (Box and Whisker) диаграмм**
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/presentation/).
-2. Получите ссылку на слайд, используя его индекс.
-3. Добавьте диаграмму с данными по умолчанию и укажите тип [ChartType.BoxAndWhisker](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/charttype/#BoxAndWhisker).
-4. Получите доступ к рабочей книге данных диаграммы [ChartDataWorkbook](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/chartdataworkbook/).
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/).
+2. Получите ссылку на слайд по его индексу.
+3. Добавьте диаграмму с данными по умолчанию и укажите тип [ChartType.BoxAndWhisker](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#BoxAndWhisker).
+4. Получите доступ к рабочей книге данных диаграммы [ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/).
 5. Очистите ряды и категории по умолчанию.
 6. Добавьте новые ряды и категории.
 7. Добавьте новые данные диаграммы для рядов.
-8. Сохраните изменённую презентацию в файл PPTX.
+8. Сохраните изменённую презентацию как файл PPTX.
 
-Этот код JavaScript показывает, как создать диаграмму «Box and Whisker»:
+Этот JavaScript‑код демонстрирует создание коробчатой диаграммы:
 
 ```javascript
 var aspose = aspose || {};
@@ -555,14 +552,14 @@ try {
 }
 ```
 
-### **Создание воронкообразных диаграмм (Funnel Charts)**
+### **Создание воронкообразных диаграмм**
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/presentation/).
-2. Получите ссылку на слайд, используя его индекс.
-3. Добавьте диаграмму с данными по умолчанию и укажите тип [ChartType.Funnel](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/charttype/#Funnel).
-4. Сохраните изменённую презентацию в файл PPTX.
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/).
+2. Получите ссылку на слайд по его индексу.
+3. Добавьте диаграмму с данными по умолчанию и укажите тип [ChartType.Funnel](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#Funnel).
+4. Сохраните изменённую презентацию как файл PPTX.
 
-Этот код JavaScript показывает, как создать воронкообразную диаграмму:
+Этот JavaScript‑код показывает, как создать воронкообразную диаграмму:
 
 ```javascript
 var aspose = aspose || {};
@@ -596,14 +593,14 @@ try {
 }
 ```
 
-### **Создание лучевых диаграмм (Sunburst Charts)**
+### **Создание радиальных (Sunburst) диаграмм**
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/presentation/).
-2. Получите ссылку на слайд, используя его индекс.
-3. Добавьте диаграмму с данными по умолчанию и укажите тип [ChartType.Sunburst](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/charttype/#Sunburst).
-4. Сохраните изменённую презентацию в файл PPTX.
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/).
+2. Получите ссылку на слайд по его индексу.
+3. Добавьте диаграмму с данными по умолчанию и укажите тип [ChartType.Sunburst](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#Sunburst).
+4. Сохраните изменённую презентацию как файл PPTX.
 
-Этот код JavaScript показывает, как создать лучевую диаграмму:
+Этот JavaScript‑код демонстрирует создание радиальной диаграммы:
 
 ```javascript
 var aspose = aspose || {};
@@ -650,17 +647,17 @@ try {
 }
 ```
 
-### **Создание гистограмм (Histogram Charts)**
+### **Создание гистограмм**
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/presentation/).
-2. Получите ссылку на слайд, используя его индекс.
-3. Добавьте диаграмму с данными по умолчанию и укажите тип [ChartType.Histogram](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/charttype/#Histogram).
-4. Получите доступ к рабочей книге данных диаграммы [ChartDataWorkbook](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/chartdataworkbook/).
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/).
+2. Получите ссылку на слайд по его индексу.
+3. Добавьте диаграмму с данными по умолчанию и укажите тип [ChartType.Histogram](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#Histogram).
+4. Получите доступ к рабочей книге данных диаграммы [ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/).
 5. Очистите ряды и категории по умолчанию.
 6. Добавьте новые ряды и категории.
-7. Сохраните изменённую презентацию в файл PPTX.
+7. Сохраните изменённую презентацию как файл PPTX.
 
-Этот код JavaScript показывает, как создать гистограмму:
+Этот JavaScript‑код показывает, как создать гистограмму:
 
 ```javascript
 var aspose = aspose || {};
@@ -682,14 +679,14 @@ series.getDataPoints().addDataPointForHistogramSeries(wb.getCell(0, "A6", 16));
 chart.getAxes().getHorizontalAxis().setAggregationType(aspose.slides.AxisAggregationType.Automatic);
 ```
 
-### **Создание радиальных диаграмм (Radar Charts)**
+### **Создание радиальных (Radar) диаграмм**
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/presentation/).
-2. Получите ссылку на слайд, используя его индекс.
-3. Добавьте диаграмму с данными и укажите предпочтительный тип диаграммы ([ChartType.Radar](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/charttype/#Radar) в данном случае).
-4. Сохраните изменённую презентацию в файл PPTX.
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/).
+2. Получите ссылку на слайд по его индексу.
+3. Добавьте диаграмму с данными и укажите предпочтительный тип диаграммы ([ChartType.Radar](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#Radar) в данном случае).
+4. Сохраните изменённую презентацию как файл PPTX.
 
-Этот код JavaScript показывает, как создать радиальную диаграмму:
+Этот JavaScript‑код демонстрирует создание радиальной диаграммы:
 
 ```javascript
 var aspose = aspose || {};
@@ -706,18 +703,18 @@ try {
 }
 ```
 
-### **Создание многоуровневых диаграмм (Multi-Category Charts)**
+### **Создание многокатегориальных диаграмм**
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/presentation/).
-2. Получите ссылку на слайд, используя его индекс.
-3. Добавьте диаграмму с данными по умолчанию и укажите тип [ChartType.ClusteredColumn](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/charttype/#ClusteredColumn).
-4. Получите доступ к рабочей книге данных диаграммы [ChartDataWorkbook](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/chartdataworkbook/).
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/).
+2. Получите ссылку на слайд по его индексу.
+3. Добавьте диаграмму с данными по умолчанию и укажите тип [ChartType.ClusteredColumn](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#ClusteredColumn).
+4. Получите доступ к рабочей книге данных диаграммы [ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/).
 5. Очистите ряды и категории по умолчанию.
 6. Добавьте новые ряды и категории.
 7. Добавьте новые данные диаграммы для рядов.
-8. Сохраните изменённую презентацию в файл PPTX.
+8. Сохраните изменённую презентацию как файл PPTX.
 
-Этот код JavaScript показывает, как создать диаграмму с несколькими категориями:
+Этот JavaScript‑код показывает, как создать многокатегориальную диаграмму:
 
 ```javascript
 var aspose = aspose || {};
@@ -743,7 +740,7 @@ try {
     category = ch.getChartData().getCategories().add(fact.getCell(0, "c8", "G"));
     category.getGroupingLevels().setGroupingItem(1, "Group4");
     category = ch.getChartData().getCategories().add(fact.getCell(0, "c9", "H"));
-    // Добавление серии
+    // Добавление рядов
     var series = ch.getChartData().getSeries().add(fact.getCell(0, "D1", "Series 1"), aspose.slides.ChartType.ClusteredColumn);
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, "D2", 10));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, "D3", 20));
@@ -762,11 +759,11 @@ try {
 }
 ```
 
-### **Создание карт (Map Charts)**
+### **Создание картографических диаграмм**
 
-Картовые диаграммы визуализируют географические данные и помогают сравнивать значения по регионам.
+Картографические диаграммы визуализируют географические данные и помогают сравнивать значения между регионами.
 
-Этот код JavaScript показывает, как создать картовую диаграмму:
+Этот JavaScript‑код демонстрирует создание картографической диаграммы:
 
 ```javascript
 var aspose = aspose || {};
@@ -785,11 +782,11 @@ try {
 
 ### **Создание комбинированных диаграмм**
 
-Комбинированная диаграмма (или combo chart) объединяет два и более типа диаграмм в одном графике. Такая диаграмма позволяет выделять, сравнивать или исследовать различия между двумя и более наборами данных, помогая выявлять взаимосвязи между ними.
+Комбинированная диаграмма (или combo‑chart) объединяет два и более типов диаграмм в одном графике. Такая диаграмма позволяет подчёркивать, сравнивать или исследовать различия между несколькими наборами данных, помогая выявлять взаимосвязи.
 
 ![The combination chart](combination_chart.png)
 
-Следующий код JavaScript показывает, как создать комбинированную диаграмму, изображённую выше, в презентации PowerPoint:
+Следующий JavaScript‑код показывает, как создать комбинированную диаграмму, представленную выше, в презентации PowerPoint:
 
 ```js
 var aspose = aspose || {};
@@ -830,7 +827,7 @@ function createChartWithFirstSeries(slide) {
     chart.getLegend().setPosition(aspose.slides.LegendPositionType.Bottom);
     chart.getLegend().getTextFormat().getPortionFormat().setFontHeight(12);
 
-    // Удалить сгенерированные по умолчанию ряды и категории.
+    // Удалить автоматически сгенерированные ряды и категории.
     chart.getChartData().getSeries().clear();
     chart.getChartData().getCategories().clear();
 
@@ -942,15 +939,15 @@ function setAxisTitle(axis, axisTitle) {
 
 ## **Обновление диаграмм**
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/presentation/), представляющего презентацию, содержащую диаграмму, которую нужно обновить.
-2. Получите ссылку на слайд, используя его индекс.
-3. Пройдите по всем фигурам, чтобы найти нужную диаграмму.
-4. Получите доступ к листу данных диаграммы.
-5. Измените ряд данных диаграммы, изменив значения ряда.
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/), представляющего презентацию с диаграммой, которую требуется обновить.
+2. Получите ссылку на слайд по его индексу.
+3. Пройдитесь по всем фигурам, чтобы найти нужную диаграмму.
+4. Получите доступ к рабочему листу данных диаграммы.
+5. Измените ряд данных диаграммы, заменив значения рядов.
 6. Добавьте новый ряд и заполните его данными.
-7. Сохраните изменённую презентацию в файл PPTX.
+7. Сохраните изменённую презентацию как файл PPTX.
 
-Этот код JavaScript показывает, как обновить диаграмму:
+Этот JavaScript‑код демонстрирует обновление диаграммы:
 
 ```javascript
 var aspose = aspose || {};
@@ -958,7 +955,7 @@ aspose.slides = require("aspose.slides.via.java");
 
 var pres = new aspose.slides.Presentation("ExistingChart.pptx");
 try {
-    // Получить первый слайд
+    // Обращаемся к первому слайду
     var sld = pres.getSlides().get_Item(0);
     // Получить диаграмму с данными по умолчанию
     var chart = sld.getShapes().get_Item(0);
@@ -969,30 +966,30 @@ try {
     // Изменение названия категории диаграммы
     fact.getCell(defaultWorksheetIndex, 1, 0, "Modified Category 1");
     fact.getCell(defaultWorksheetIndex, 2, 0, "Modified Category 2");
-    // Получить первый ряд диаграммы
+    // Получаем первый ряд диаграммы
     var series = chart.getChartData().getSeries().get_Item(0);
-    // Обновление данных ряда
-    fact.getCell(defaultWorksheetIndex, 0, 1, "New_Series1");// Изменение названия ряда
+    // Сейчас обновляем данные ряда
+    fact.getCell(defaultWorksheetIndex, 0, 1, "New_Series1"); // Изменение имени ряда
     series.getDataPoints().get_Item(0).getValue().setData(90);
     series.getDataPoints().get_Item(1).getValue().setData(123);
     series.getDataPoints().get_Item(2).getValue().setData(44);
-    // Получить второй ряд диаграммы
+    // Получаем второй ряд диаграммы
     series = chart.getChartData().getSeries().get_Item(1);
-    // Обновление данных ряда
-    fact.getCell(defaultWorksheetIndex, 0, 2, "New_Series2");// Изменение названия ряда
+    // Сейчас обновляем данные ряда
+    fact.getCell(defaultWorksheetIndex, 0, 2, "New_Series2"); // Изменение имени ряда
     series.getDataPoints().get_Item(0).getValue().setData(23);
     series.getDataPoints().get_Item(1).getValue().setData(67);
     series.getDataPoints().get_Item(2).getValue().setData(99);
-    // Добавление нового ряда
+    // Сейчас добавляем новый ряд
     chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 3, "Series 3"), chart.getType());
-    // Получить третий ряд диаграммы
+    // Получаем третий ряд диаграммы
     series = chart.getChartData().getSeries().get_Item(2);
-    // Заполнение данных ряда
+    // Сейчас заполняем данные ряда
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 3, 20));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 3, 50));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 3, 30));
     chart.setType(aspose.slides.ChartType.ClusteredCylinder);
-    // Сохранить презентацию с диаграммой
+    // Сохраняем презентацию с диаграммой
     pres.save("AsposeChartModified_out.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     if (pres != null) {
@@ -1003,15 +1000,17 @@ try {
 
 ## **Установка диапазона данных для диаграммы**
 
+Чтобы узнать диапазон, уже использованный существующей диаграммой, см. [Retrieve a Chart's Data Range](/slides/ru/nodejs-java/chart-workbook/#retrieve-a-charts-data-range).
+
 Чтобы задать диапазон данных для диаграммы, выполните следующее:
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/presentation/), представляющего презентацию, содержащую диаграмму.
-2. Получите ссылку на слайд, используя его индекс.
-3. Пройдите по всем фигурам, чтобы найти нужную диаграмму.
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/), представляющего презентацию с диаграммой.
+2. Получите ссылку на слайд по его индексу.
+3. Пройдитесь по всем фигурам, чтобы найти нужную диаграмму.
 4. Получите доступ к данным диаграммы и задайте диапазон.
-5. Сохраните изменённую презентацию в файл PPTX.
+5. Сохраните изменённую презентацию как файл PPTX.
 
-Этот код JavaScript показывает, как задать диапазон данных для диаграммы:
+Этот JavaScript‑код показывает, как установить диапазон данных для диаграммы:
 
 ```javascript
 var aspose = aspose || {};
@@ -1030,11 +1029,11 @@ try {
 }
 ```
 
-## **Использование маркеров по умолчанию в диаграммах**
+## **Использование стандартных маркеров в диаграммах**
 
-При использовании маркеров по умолчанию каждый ряд диаграммы автоматически получает различный символ маркера.
+При использовании стандартных маркеров в диаграммах каждый ряд автоматически получает различный символ маркера.
 
-Этот код JavaScript показывает, как автоматически задать маркер для ряда диаграммы:
+Этот JavaScript‑код демонстрирует автоматическую установку маркера ряда диаграммы:
 
 ```javascript
 var aspose = aspose || {};
@@ -1060,7 +1059,7 @@ try {
     chart.getChartData().getSeries().add(fact.getCell(0, 0, 2, "Series 2"), chart.getType());
     // Получить второй ряд диаграммы
     var series2 = chart.getChartData().getSeries().get_Item(1);
-    // Сейчас заполняем данные ряда
+    // Теперь заполняем данные ряда
     series2.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 1, 2, 30));
     series2.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 2, 2, 10));
     series2.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 3, 2, 60));
@@ -1077,17 +1076,17 @@ try {
 
 ## **FAQ**
 
-**Какие типы диаграмм поддерживает Aspose.Slides?**
+**Какие типы диаграмм поддерживаются Aspose.Slides?**
 
-Aspose.Slides поддерживает широкий спектр [типов диаграмм](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/charttype/), включая столбчатые, линейные, круговые, площадные, точечные, гистограммы, радиальные и многие другие. Такая гибкость позволяет выбирать наиболее подходящий тип диаграммы для ваших задач визуализации данных.
+Aspose.Slides поддерживает широкий спектр [типы диаграмм](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/), включая столбчатые, линейные, круговые, области, точечные, гистограммы, радиальные и многие другие. Такая гибкость позволяет выбрать наиболее подходящий тип диаграммы для ваших задач визуализации данных.
 
 **Как добавить новую диаграмму на слайд?**
 
-Для добавления диаграммы сначала создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/presentation/), получите нужный слайд по индексу, а затем вызовите метод добавления диаграммы, указав тип диаграммы и начальные данные. Этот процесс интегрирует диаграмму напрямую в вашу презентацию.
+Для добавления диаграммы сначала создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/), получите нужный слайд по его индексу, а затем вызовите метод добавления диаграммы, указав тип диаграммы и начальные данные. Этот процесс интегрирует диаграмму непосредственно в вашу презентацию.
 
 **Как обновить данные, отображаемые в диаграмме?**
 
-Вы можете обновить данные диаграммы, получив доступ к её рабочей книге данных ([ChartDataWorkbook](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/chartdataworkbook/)), очистив любые ряды и категории по умолчанию, а затем добавив собственные данные. Это позволяет программно обновлять диаграмму для отображения актуальной информации.
+Данные диаграммы можно обновить, получив доступ к её рабочей книге ([ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/)), очистив любые ряды и категории по умолчанию и затем добавив собственные данные. Это позволяет программно обновлять диаграмму, чтобы она отражала актуальные данные.
 
 **Можно ли настроить внешний вид диаграммы?**
 

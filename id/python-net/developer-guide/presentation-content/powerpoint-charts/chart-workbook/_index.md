@@ -1,49 +1,49 @@
 ---
-title: Kelola Buku Kerja Bagan dalam Presentasi dengan Python
-linktitle: Buku Kerja Bagan
+title: Mengelola Buku Kerja Diagram dalam Presentasi dengan Python
+linktitle: Buku Kerja Diagram
 type: docs
 weight: 70
 url: /id/python-net/chart-workbook/
 keywords:
-- buku kerja bagan
-- data bagan
+- buku kerja diagram
+- data diagram
 - sel buku kerja
 - label data
 - lembar kerja
 - sumber data
 - buku kerja eksternal
 - data eksternal
-- cache bagan
+- cache diagram
 - pemulihan buku kerja
 - PowerPoint
 - presentasi
 - Python
 - Aspose.Slides
-description: "Temukan Aspose.Slides untuk Python via .NET: kelola buku kerja bagan dengan mudah dalam format PowerPoint dan OpenDocument untuk menyederhanakan data presentasi Anda."
+description: "Temukan Aspose.Slides untuk Python via .NET: kelola buku kerja diagram dengan mudah dalam format PowerPoint dan OpenDocument untuk menyederhanakan data presentasi Anda."
 ---
 ## **Gambaran Umum**
 
-Artikel ini menjelaskan cara bekerja dengan buku kerja bagan di Aspose.Slides. Ini menunjukkan cara membaca dan menulis data bagan melalui aliran buku kerja, menggunakan sel buku kerja sebagai label data bagan, mengakses koleksi lembar kerja, dan menentukan tipe sumber data untuk nilai bagan.
+Artikel ini menjelaskan cara bekerja dengan buku kerja diagram di Aspose.Slides. Ini menunjukkan cara membaca dan menulis data diagram melalui aliran buku kerja, menggunakan sel buku kerja sebagai label data diagram, mengakses koleksi lembar kerja, dan menentukan jenis sumber data untuk nilai diagram.
 
-Ini juga mencakup cara bekerja dengan buku kerja eksternal sebagai sumber data bagan. Contoh-contoh memperlihatkan cara membuat dan menetapkan buku kerja eksternal, mengambil jalur buku kerja eksternal yang terhubung ke bagan, dan menyunting data bagan ketika buku kerja tersedia.
+Artikel ini juga mencakup cara bekerja dengan buku kerja eksternal sebagai sumber data diagram. Contohnya memperlihatkan cara membuat dan menetapkan buku kerja eksternal, mengambil path buku kerja eksternal yang terhubung ke diagram, dan mengedit data diagram ketika buku kerja tersedia.
 
-Untuk sel buku kerja yang mewakili data yang hilang, lihat [Kontrol Penampilan Sel Kosong](/slides/id/python-net/chart-series/) untuk perbedaan antara sel kosong dan nol, serta perbandingan diagram garis dari mode tampilan yang tersedia.
+Untuk sel buku kerja yang mewakili data yang hilang, lihat [Mengontrol Tampilan Sel Kosong](/slides/id/python-net/chart-series/) untuk perbedaan antara sel kosong dan nol, serta perbandingan diagram garis dari mode tampilan yang tersedia.
 
 ## **Sertakan Data dari Baris dan Kolom Tersembunyi**
 
-Gunakan [Chart.plot_visible_cells_only](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/chart/plot_visible_cells_only/) untuk mengatur apakah bagan memplot data dari baris dan kolom lembar kerja yang tersembunyi. Atur menjadi `True` untuk memplot hanya sel yang terlihat, atau `False` untuk menyertakan sel yang terlihat dan tersembunyi. Pengaturan ini mengontrol pemplotan bagan; tidak menyembunyikan atau menampilkan baris atau kolom lembar kerja.
+Gunakan [Chart.plot_visible_cells_only](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/plot_visible_cells_only/) untuk mengontrol apakah diagram memplot data dari baris dan kolom lembar kerja yang tersembunyi. Atur ke `True` untuk memplot hanya sel yang terlihat, atau `False` untuk menyertakan sel yang terlihat dan tersembunyi. Pengaturan ini mengontrol pemetaan diagram; tidak menyembunyikan atau menampilkan kembali baris atau kolom lembar kerja.
 
-Unduh [hidden-source-data.pptx](hidden-source-data.pptx) dan letakkan di direktori kerja. Slide pertama berisi diagram kolom sebagai bentuk pertama. Lembar kerja tertanam, `Sheet1`, berisi rentang sumber berikut, `A1:C4`. Baris 3 dan kolom C disembunyikan, tetapi sel‑selnya masih berisi nilai.
+[Presentasi contoh](hidden-source-data.pptx) berisi diagram kolom sebagai bentuk pertama pada slide pertama. Lembar kerja tertanam, `Sheet1`, berisi rentang sumber berikut, `A1:C4`. Baris 3 dan kolom C tersembunyi, tetapi sel‑selnya masih berisi nilai.
 
 | Baris Lembar Kerja | A: Bulan | B: Ritel | C: Grosir (kolom tersembunyi) |
 | --- | --- | --- | --- |
-| 2 | January | 10 | 30 |
-| 3 (baris tersembunyi) | February | 40 | 60 |
-| 4 | March | 20 | 50 |
+| 2 | Januari | 10 | 30 |
+| 3 (baris tersembunyi) | Februari | 40 | 60 |
+| 4 | Maret | 20 | 50 |
 
-Akses sel sumber melalui [ChartData.chart_data_workbook](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/chartdata/chart_data_workbook/) dan baca [ChartDataCell.is_hidden](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/chartdatacell/is_hidden/) untuk memeriksa status tersembunyi mereka. Properti ini hanya dapat dibaca. Dalam file ini, B2 terlihat, B3 termasuk dalam baris tersembunyi, dan C2 termasuk dalam kolom tersembunyi; contoh mencetak `False`, `True`, dan `True` secara berurutan.
+Akses sel sumber melalui [ChartData.chart_data_workbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/chart_data_workbook/) dan baca [ChartDataCell.is_hidden](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatacell/is_hidden/) untuk memeriksa status tersembunyi mereka. Properti ini hanya dapat dibaca. Pada file ini, B2 terlihat, B3 termasuk dalam baris tersembunyi, dan C2 termasuk dalam kolom tersembunyi; contoh mencetak `False`, `True`, dan `True` secara berurutan.
 
-Untuk contoh ini, segarkan data bagan setelah mengubah pengaturan pemplotan: pertahankan buku kerja tertanam dengan [read_workbook_stream](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/chartdata/read_workbook_stream/) dan muat ulang dengan [write_workbook_stream](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/chartdata/write_workbook_stream/). Saat menyertakan semua sel, juga gunakan [set_range](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/chartdata/set_range/) untuk mengembalikan rentang lengkap, termasuk kategori Februari yang tersembunyi. Mengubah flag saja tidak cukup untuk menyegarkan data bagan yang di‑cache dalam contoh ini dan label kategori.
+Untuk contoh ini, segarkan data diagram setelah mengubah pengaturan plotting: pertahankan buku kerja tertanam dengan [read_workbook_stream](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/read_workbook_stream/) dan muat kembali dengan [write_workbook_stream](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/write_workbook_stream/). Saat menyertakan semua sel, gunakan juga [set_range](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/set_range/) untuk memulihkan rentang lengkap, termasuk kategori Februari yang tersembunyi. Mengubah flag saja tidak cukup untuk menyegarkan data diagram dan label kategori yang di‑cache dalam contoh ini.
 
 ```python
 import aspose.slides as slides
@@ -63,7 +63,7 @@ with slides.Presentation("hidden-source-data.pptx") as presentation:
         for visible_only in [True, False]:
             chart.plot_visible_cells_only = visible_only
 
-            # Segarkan data bagan dari buku kerja yang tertanam.
+            # Segarkan data diagram dari buku kerja yang tertanam.
             workbook_stream.seek(0)
             chart.chart_data.write_workbook_stream(workbook_stream)
             if not visible_only:
@@ -75,19 +75,42 @@ with slides.Presentation("hidden-source-data.pptx") as presentation:
         print("The first shape is not a chart.")
 ```
 
-Contoh menyimpan `hidden_cells_True.pptx` hanya dengan nilai Ritel yang terlihat (10 dan 20), dan `hidden_cells_False.pptx` dengan semua enam nilai. Gambar di bawah dihasilkan dari presentasi yang disimpan setelah dibuka kembali; kedua file mempertahankan pengaturan pemplotan yang ditetapkan. Baris 3 dan kolom C tetap tersembunyi di kedua buku kerja tertanam.
+Contoh menyimpan dua versi presentasi: satu dengan hanya nilai Ritel yang terlihat (10 dan 20), dan satu lagi dengan semua enam nilai. Gambar di bawah dirender dari presentasi yang disimpan setelah dibuka kembali; kedua file mempertahankan pengaturan plotting yang ditetapkan. Baris 3 dan kolom C tetap tersembunyi di kedua buku kerja tertanam.
 
 | Hanya sel terlihat (`True`) | Semua sel (`False`) |
 | --- | --- |
 | ![Hanya sel terlihat: nilai Ritel 10 dan 20 untuk Januari dan Maret.](hidden_cells_True.png) | ![Semua sel: nilai Ritel dan Grosir untuk Januari, Februari, dan Maret.](hidden_cells_False.png) |
 
-Sel tersembunyi yang berisi nilai berbeda dari sel kosong. [Chart.display_blanks_as](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/chart/display_blanks_as/) mengontrol cara nilai yang hilang ditampilkan; tidak menambah atau mengeluarkan data sumber yang tersembunyi. Lihat [Kontrol Penampilan Sel Kosong](/slides/id/python-net/chart-series/#control-the-display-of-empty-cells) untuk contoh.
+Sel tersembunyi yang berisi nilai berbeda dari sel kosong. [Chart.display_blanks_as](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/display_blanks_as/) mengontrol bagaimana nilai yang hilang ditampilkan; tidak menambahkan atau mengecualikan data sumber yang tersembunyi. Lihat [Mengontrol Tampilan Sel Kosong](/slides/id/python-net/chart-series/#control-the-display-of-empty-cells) untuk contoh.
 
-## **Baca dan Tulis Data Bagan dari Buku Kerja**
+## **Dapatkan Rentang Data Diagram**
 
-Aspose.Slides for Python via .NET menyediakan metode [read_workbook_stream](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/chartdata/read_workbook_stream/) dan [write_workbook_stream](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/chartdata/write_workbook_stream/) yang memungkinkan Anda membaca dan menulis buku kerja data bagan (yang berisi data bagan yang disunting dengan Aspose.Cells). **Catatan** bahwa data bagan harus diatur dengan cara yang sama atau memiliki struktur serupa dengan sumbernya.
+Sebelum memperbarui data buku kerja dalam presentasi yang ada, periksa rentang sumber untuk mengidentifikasi sel lembar kerja mana yang digunakan setiap diagram. Metode [ChartData.get_range](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/get_range/) mengembalikan rentang data saat ini sebagai formula yang memenuhi syarat lembar kerja, seperti `Sheet1!$A$1:$D$5`. Di sini, `Sheet1` adalah nama lembar kerja, `!` memisahkannya dari rentang sel, dan `$A$1:$D$5` mengidentifikasi sel A1 sampai D5, inklusif. Tanda dolar menunjukkan referensi baris dan kolom absolut.
 
-Contoh ini membuka `chart.pptx`, yang harus berisi bagan sebagai bentuk pertama pada slide pertama. Ia membaca buku kerja tertanam ke dalam aliran, mengosongkan seri dan kategori yang ada, dan menulis buku kerja yang sama kembali. Perubahan tetap berada di memori; contoh tidak menyimpan presentasi.
+Metode ini membaca rentang saat ini tanpa mengubah diagram atau buku kerjanya. Jika diagram tidak menggunakan buku kerja sebagai sumber datanya, metode ini akan melemparkan eksepsi. Untuk informasi lebih lanjut, lihat [Referensi API ChartData](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/).
+
+Contoh ini membuka presentasi dan memeriksa bentuk‑bentuk langsung pada setiap slide untuk diagram. Ia mencetak nama setiap diagram dan rentang sumbernya. Jika rentang tidak dapat diambil, ia mencetak pesan diagnostik dan melanjutkan ke diagram berikutnya.
+
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
+
+with slides.Presentation("presentation.pptx") as presentation:
+    for slide in presentation.slides:
+        for shape in slide.shapes:
+            if isinstance(shape, charts.Chart):
+                try:
+                    data_range = shape.chart_data.get_range()
+                    print(f"{shape.name}: {data_range}")
+                except RuntimeError as error:
+                    print(f"{shape.name}: Unable to retrieve the chart data range. {error}")
+```
+
+## **Baca dan Tulis Data Diagram dari Buku Kerja**
+
+Aspose.Slides for Python via .NET menyediakan metode [read_workbook_stream](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/read_workbook_stream/) dan [write_workbook_stream](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/write_workbook_stream/) yang memungkinkan Anda membaca dan menulis buku kerja data diagram (yang berisi data diagram yang diedit dengan Aspose.Cells). **Catatan** bahwa data diagram harus diorganisir dengan cara yang sama atau harus memiliki struktur yang mirip dengan sumbernya.
+
+Contoh ini menggunakan presentasi dengan diagram sebagai bentuk pertama pada slide pertama. Ia membaca buku kerja tertanam ke dalam aliran, menghapus seri dan kategori yang ada, dan menulis kembali buku kerja yang sama. Perubahan tetap berada di memori; contoh tidak menyimpan presentasi.
 
 ```python
 import aspose.slides as slides
@@ -110,9 +133,9 @@ with slides.Presentation("chart.pptx") as presentation:
         print("The first shape is not a chart.")
 ```
 
-### **Validasi Tata Letak Bagan Setelah Modifikasi Buku Kerja**
+### **Validasi Tata Letak Diagram Setelah Modifikasi Buku Kerja**
 
-Saat Anda mengganti buku kerja tertanam dengan yang telah dimodifikasi, bagan tetap mempertahankan koleksi seri dan kategori aslinya. Ketidaksesuaian ini dapat menyebabkan [Chart.validate_chart_layout](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/chart/validate_chart_layout/) gagal dengan kesalahan indeks di luar jangkauan. Kosongkan seri dan kategori yang ada sebelum menulis buku kerja yang diperbarui kembali ke bagan. Contoh ini memerlukan `chart.pptx` dengan bagan sebagai bentuk pertama pada slide pertama. Komentar menandai tempat penyuntingan buku kerja; contoh yang dapat dijalankan menulis buku kerja asli kembali dan memvalidasi tata letak di memori.
+Ketika Anda mengganti buku kerja tertanam dengan yang telah dimodifikasi, diagram tetap mempertahankan koleksi seri dan kategori aslinya. Ketidaksesuaian ini dapat menyebabkan [Chart.validate_chart_layout](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/validate_chart_layout/) gagal dengan kesalahan indeks keluar‑batas. Hapus seri dan kategori yang ada sebelum menulis kembali buku kerja yang diperbarui ke diagram. Contoh ini menggunakan diagram yang merupakan bentuk pertama pada slide pertama. Komentar menandai tempat pengeditan buku kerja akan terjadi; contoh yang dapat dijalankan menulis kembali buku kerja asli dan memvalidasi tata letak di memori.
 
 ```python
 import aspose.slides as slides
@@ -126,7 +149,7 @@ with slides.Presentation("chart.pptx") as presentation:
         chart_data = chart.chart_data
         workbook_stream = chart_data.read_workbook_stream()
 
-        # Ubah aliran buku kerja di sini, misalnya, menggunakan Aspose.Cells.
+        # Modifikasi aliran buku kerja di sini, misalnya, menggunakan Aspose.Cells.
 
         chart_data.series.clear()
         chart_data.categories.clear()
@@ -138,20 +161,13 @@ with slides.Presentation("chart.pptx") as presentation:
         print("The first shape is not a chart.")
 ```
 
-Mengosongkan koleksi menghilangkan referensi data lama sebelum buku kerja ditulis kembali. Bangun kembali pemetaan seri dan kategori yang diperlukan untuk buku kerja yang diperbarui sebelum menggunakan bagan.
+Menghapus koleksi menghilangkan referensi data usang sebelum buku kerja ditulis kembali. Bangun kembali pemetaan seri dan kategori yang diperlukan untuk buku kerja yang diperbarui sebelum menggunakan diagram.
 
-## **Atur Sel Buku Kerja sebagai Label Data Bagan**
+## **Setel Sel Buku Kerja sebagai Label Data Diagram**
 
-Anda dapat menggunakan teks dari sel buku kerja sebagai label data bagan. Langkah‑langkah berikut menunjukkan cara menautkan label dalam bagan gelembung ke sel dalam buku kerja datanya.
+Anda dapat menggunakan teks dari sel buku kerja sebagai label data diagram.
 
-1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/python-net/aspose.slides/presentation/) .
-2. Akses slide pertama berdasarkan indeks berbasis nol.
-3. Tambahkan bagan gelembung dengan data default.
-4. Akses seri bagan.
-5. Atur sel buku kerja sebagai label data.
-6. Simpan presentasi.
-
-Contoh ini membuka `chart2.pptx`, yang harus berisi setidaknya satu slide, dan menambahkan bagan gelembung dengan data default. Ia menggunakan sel A10:A12 pada lembar kerja 0 untuk tiga label pertama dalam seri pertama, mengaktifkan label dari sel, dan menyimpan hasilnya ke `resultchart.pptx`.
+Contoh ini menambahkan diagram gelembung dengan data default ke slide pertama presentasi yang ada. Ia menggunakan sel A10:A12 pada lembar kerja 0 untuk tiga label pertama dalam seri pertama, mengaktifkan label dari sel, dan menyimpan presentasi yang diperbarui.
 
 ```python
 import aspose.slides as slides
@@ -174,7 +190,7 @@ with slides.Presentation("chart2.pptx") as presentation:
 
 ## **Kelola Lembar Kerja**
 
-Properti [ChartDataWorkbook.worksheets](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/chartdataworkbook/worksheets/) menyediakan akses ke lembar kerja dalam buku kerja bagan. Contoh ini membuat bagan pai dengan data default dan mencetak setiap nama lembar kerja ke konsol.
+Properti [ChartDataWorkbook.worksheets](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/worksheets/) menyediakan akses ke lembar kerja dalam buku kerja diagram. Contoh ini membuat diagram pai dengan data default dan mencetak setiap nama lembar kerja ke konsol.
 
 ```python
 import aspose.slides as slides
@@ -190,9 +206,9 @@ with slides.Presentation() as presentation:
         print(worksheet.name)
 ```
 
-## **Tentukan Tipe Sumber Data**
+## **Tentukan Jenis Sumber Data**
 
-Contoh ini membuat bagan kolom 3D dengan data default dan menetapkan dua nama seri menggunakan sumber data yang berbeda. Nama pertama menggunakan literal string; nama kedua menggunakan sel C1 pada lembar kerja 0. Enumerasi [DataSourceType](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/datasourcetype/) memilih sumber untuk masing‑masing nama. Hasil disimpan ke `pres.pptx`.
+Contoh ini membuat diagram kolom 3D dengan data default dan menetapkan dua nama seri menggunakan sumber data yang berbeda. Nama pertama menggunakan literal string; nama kedua menggunakan sel C1 pada lembar kerja 0. Enumerasi [DataSourceType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datasourcetype/) memilih sumber untuk setiap nama. Contoh menyimpan presentasi dengan nama seri yang diperbarui.
 
 ```python
 import aspose.slides as slides
@@ -217,7 +233,7 @@ with slides.Presentation() as presentation:
 
 ## **Deteksi Format Buku Kerja Tertanam yang Tidak Didukung**
 
-Aspose.Slides tidak mendukung format buku kerja Excel biner (.xlsb) yang dapat tertanam dalam beberapa bagan. Anda dapat menggunakan properti [embedded_workbook_type](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/chartdata/embedded_workbook_type/) pada [ChartData](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/chartdata/) bersama dengan enumerasi [WorkbookType](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/workbooktype/) untuk mendeteksi format yang tidak didukung dan melewati bagan‑bagan tersebut. Contoh ini memeriksa bentuk‑bentuk pada slide pertama `sample.pptx`, melewati bentuk yang bukan bagan, dan mencetak pesan diagnostik untuk setiap bagan dengan buku kerja .xlsb tertanam.
+Aspose.Slides tidak mendukung format buku kerja Excel biner (.xlsb) yang dapat tertanam dalam beberapa diagram. Anda dapat menggunakan properti [embedded_workbook_type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/embedded_workbook_type/) pada [ChartData](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/) bersama dengan enumerasi [WorkbookType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/workbooktype/) untuk mendeteksi format yang tidak didukung dan melewatkan diagram‑diagram tersebut. Contoh ini memeriksa bentuk‑bentuk pada slide pertama presentasi yang ada, melewatkan bentuk yang bukan diagram, dan mencetak pesan diagnostik untuk setiap diagram dengan buku kerja .xlsb tertanam.
 
 ```python
 import aspose.slides as slides
@@ -238,18 +254,18 @@ with slides.Presentation("sample.pptx") as presentation:
             print("Skipping a chart with an unsupported .xlsb workbook.")
             continue
 
-        # Baca atau ubah data buku kerja bagan yang didukung di sini.
+        # Baca atau ubah data buku kerja diagram yang didukung di sini.
 ```
 
 ## **Buku Kerja Eksternal**
 
-Aspose.Slides mendukung penggunaan buku kerja eksternal sebagai sumber data untuk bagan.
+Aspose.Slides mendukung penggunaan buku kerja eksternal sebagai sumber data untuk diagram.
 
 ### **Buat Buku Kerja Eksternal**
 
-Gunakan [read_workbook_stream](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/chartdata/read_workbook_stream/) dan [set_external_workbook](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/chartdata/set_external_workbook/) untuk mengekspor buku kerja bagan tertanam ke file dan menautkan bagan ke buku kerja eksternal tersebut.
+Gunakan [read_workbook_stream](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/read_workbook_stream/) dan [set_external_workbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/set_external_workbook/) untuk mengekspor buku kerja diagram tertanam ke sebuah file dan menautkan diagram ke buku kerja eksternal tersebut.
 
-Contoh ini membuat bagan pai dengan data default, menulis buku kerjanya ke `externalWorkbook1.xlsx`, dan menutup aliran output sebelum menetapkan file sebagai sumber data bagan. Ia menyimpan presentasi yang ditautkan ke `externalWorkbook.pptx`.
+Contoh ini membuat diagram pai dengan data default dan mengekspor buku kerjanya. Ia menutup aliran output sebelum menetapkan buku kerja eksternal sebagai sumber data diagram, kemudian menyimpan presentasi yang ditautkan.
 
 ```python
 from pathlib import Path
@@ -268,16 +284,17 @@ with slides.Presentation() as presentation:
         file_stream.write(workbook_data)
 
     chart.chart_data.set_external_workbook(workbook_path)
+
     presentation.save("externalWorkbook.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **Atur Buku Kerja Eksternal**
+### **Setel Buku Kerja Eksternal**
 
-Dengan metode [set_external_workbook](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/chartdata/set_external_workbook/), Anda dapat menetapkan buku kerja eksternal ke bagan sebagai sumber datanya. Metode ini juga dapat digunakan untuk memperbarui jalur ke buku kerja eksternal (jika buku kerja tersebut telah dipindahkan).
+Dengan menggunakan metode [set_external_workbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/set_external_workbook/), Anda dapat menetapkan buku kerja eksternal ke diagram sebagai sumber datanya. Metode ini juga dapat digunakan untuk memperbarui path ke buku kerja eksternal (jika buku kerja tersebut telah dipindahkan).
 
-Meskipun Anda tidak dapat menyunting data dalam buku kerja yang disimpan di lokasi remote atau sumber daya, Anda tetap dapat menggunakan buku kerja tersebut sebagai sumber data eksternal. Jika jalur relatif untuk buku kerja eksternal diberikan, jalur tersebut secara otomatis diubah menjadi jalur lengkap.
+Meskipun Anda tidak dapat mengedit data dalam buku kerja yang disimpan di lokasi atau sumber daya remote, Anda masih dapat menggunakan buku kerja tersebut sebagai sumber data eksternal. Jika path relatif untuk buku kerja eksternal diberikan, secara otomatis akan dikonversi menjadi path lengkap.
 
-Contoh ini memerlukan `externalWorkbook.xlsx` di direktori kerja. Lembar kerja bernama `Sheet1` harus berisi nama seri di B1, nama kategori di A2:A4, dan nilai numerik di B2:B4. Contoh membuat bagan pai, menautkan buku kerja, dan menggunakan [set_range](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/chartdata/set_range/) untuk memetakan A1:B4 ke satu seri dan tiga kategori. Hasil disimpan ke `Presentation_with_externalWorkbook.pptx`.
+Contoh ini menggunakan buku kerja eksternal yang lembar kerjanya bernama `Sheet1` berisi nama seri di B1, nama kategori di A2:A4, dan nilai numerik di B2:B4. Contoh membuat diagram pai, menautkan buku kerja, dan menggunakan [set_range](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/set_range/) untuk memetakan A1:B4 ke satu seri dan tiga kategori. Ia menyimpan presentasi dengan diagram yang ditautkan.
 
 ```python
 from pathlib import Path
@@ -297,12 +314,12 @@ with slides.Presentation() as presentation:
     presentation.save("Presentation_with_externalWorkbook.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Parameter `update_chart_data` pada metode [set_external_workbook](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/chartdata/set_external_workbook/) mengontrol apakah buku kerja dimuat.
+Parameter `update_chart_data` pada [set_external_workbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/set_external_workbook/) mengontrol apakah buku kerja dimuat.
 
-* Ketika `update_chart_data` bernilai `False`, hanya jalur buku kerja yang diperbarui. Data bagan tidak dimuat atau diperbarui dari buku kerja target, sehingga buku kerja dapat tidak tersedia.
-* Ketika `update_chart_data` bernilai `True`, data bagan diperbarui dari buku kerja target.
+* Ketika `update_chart_data` bernilai `False`, hanya path buku kerja yang diperbarui. Data diagram tidak dimuat atau diperbarui dari buku kerja target, sehingga buku kerja dapat tidak tersedia.
+* Ketika `update_chart_data` bernilai `True`, data diagram diperbarui dari buku kerja target.
 
-Contoh berikut menetapkan URL placeholder dengan `update_chart_data` disetel ke `False`. Ia mempertahankan data default bagan pai dan menyimpan presentasi tanpa memuat buku kerja yang tidak tersedia.
+Contoh berikut menetapkan URL placeholder dengan `update_chart_data` diset ke `False`. Ia mempertahankan data default diagram pai dan menyimpan presentasi tanpa memuat buku kerja yang tidak tersedia.
 
 ```python
 import aspose.slides as slides
@@ -312,22 +329,16 @@ with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
     chart = slide.shapes.add_chart(charts.ChartType.PIE, 50, 50, 400, 600, True)
-
     chart.chart_data.set_external_workbook("https://example.com/unavailable-workbook.xlsx", False)
+    
     presentation.save("SetExternalWorkbookWithUpdateChartData.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **Dapatkan Jalur Buku Kerja Sumber Data Eksternal dari Bagan**
+### **Dapatkan Path Buku Kerja Sumber Data Eksternal dari Diagram**
 
-Untuk mengidentifikasi buku kerja yang ditautkan ke bagan, pertama periksa apakah bagan menggunakan sumber data eksternal. Jika ya, Anda dapat mengambil jalur buku kerja dengan mengikuti langkah‑langkah berikut.
+Untuk mengidentifikasi buku kerja yang ditautkan ke diagram, periksa apakah diagram menggunakan sumber data eksternal dan ambil path buku kerjanya.
 
-1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/python-net/aspose.slides/presentation/) .
-2. Akses slide pertama berdasarkan indeks berbasis nol.
-3. Periksa bahwa bentuk pertama adalah bagan.
-4. Baca tipe sumber data bagan.
-5. Jika sumbernya adalah buku kerja eksternal, baca jalurnya.
-
-Contoh ini membuka `externalWorkbook.pptx`, yang dibuat pada contoh sebelumnya, dan memeriksa bentuk pertama pada slide pertama. Jika itu adalah bagan yang ditautkan ke buku kerja eksternal, contoh mencetak [external_workbook_path](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/chartdata/external_workbook_path/) ke konsol. Kemudian ia menyimpan salinan presentasi ke `Result.pptx`.
+Contoh ini memeriksa bentuk pertama pada slide pertama presentasi dengan buku kerja eksternal yang ditautkan. Jika itu adalah diagram yang terhubung ke buku kerja eksternal, contoh mencetak [external_workbook_path](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/external_workbook_path/) ke konsol. Kemudian ia menyimpan salinan presentasi.
 
 ```python
 import aspose.slides as slides
@@ -349,11 +360,11 @@ with slides.Presentation("externalWorkbook.pptx") as presentation:
     presentation.save("Result.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **Sunting Data Bagan**
+### **Edit Data Diagram**
 
-Anda dapat menyunting data dalam buku kerja eksternal dengan cara yang sama seperti mengubah isi buku kerja internal. Ketika buku kerja eksternal tidak dapat dimuat, sebuah pengecualian akan dilempar.
+Anda dapat mengedit data dalam buku kerja eksternal dengan cara yang sama seperti mengubah isi buku kerja internal. Ketika buku kerja eksternal tidak dapat dimuat, sebuah eksepsi akan dilemparkan.
 
-Contoh ini memerlukan `presentation.pptx` dengan bagan sebagai bentuk pertama pada slide pertama dan buku kerja eksternal yang dapat diakses. Ia mengatur nilai sel pertama pada titik data pertama dalam seri pertama menjadi 100 dan menyimpan presentasi ke `presentation_out.pptx`. Menyunting nilai sel dapat memperbarui file XLSX eksternal yang ditautkan, jadi gunakan salinan jika Anda perlu mempertahankan buku kerja asli.
+Contoh ini menggunakan diagram yang merupakan bentuk pertama pada slide pertama dan terhubung ke buku kerja eksternal yang dapat diakses. Ia menetapkan nilai berbasis sel untuk titik data pertama dalam seri pertama menjadi 100 dan menyimpan presentasi yang diperbarui. Mengedit nilai sel dapat memperbarui file XLSX eksternal yang ditautkan, jadi gunakan salinan jika Anda perlu mempertahankan buku kerja asli.
 
 ```python
 import aspose.slides as slides
@@ -378,11 +389,11 @@ with slides.Presentation("presentation.pptx") as presentation:
         print("The first shape is not a chart.")
 ```
 
-### **Pulihkan Buku Kerja dari Cache Bagan**
+### **Pulihkan Buku Kerja dari Cache Diagram**
 
-Jika sebuah bagan menggunakan buku kerja eksternal yang hilang atau tidak tersedia, Aspose.Slides dapat membangun kembali buku kerja bagan dari data yang di‑cache dalam presentasi. Buat [LoadOptions](https://reference.aspose.com/slides/id/python-net/aspose.slides/loadoptions/), konfigurasikan [spreadsheet_options](https://reference.aspose.com/slides/id/python-net/aspose.slides/loadoptions/spreadsheet_options/), dan setel [SpreadsheetOptions.recover_workbook_from_chart_cache](https://reference.aspose.com/slides/id/python-net/aspose.slides/spreadsheetoptions/recover_workbook_from_chart_cache/) ke `True` sebelum membuka presentasi.
+Jika diagram menggunakan buku kerja eksternal yang hilang atau tidak tersedia, Aspose.Slides dapat membangun kembali buku kerja diagram dari data yang di‑cache dalam presentasi. Buat [LoadOptions](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/), konfigurasikan [spreadsheet_options](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/spreadsheet_options/), dan setel [SpreadsheetOptions.recover_workbook_from_chart_cache](https://reference.aspose.com/slides/python-net/aspose.slides/spreadsheetoptions/recover_workbook_from_chart_cache/) ke `True` sebelum membuka presentasi.
 
-Contoh Python berikut membuka `presentation.pptx`, yang bentuk pertama pada slide pertama harus berupa bagan yang merujuk ke buku kerja eksternal yang tidak tersedia, dan mengakses data yang dipulihkan melalui [Chart.chart_data](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/chart/chart_data/) dan [ChartData.chart_data_workbook](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/chartdata/chart_data_workbook/):
+Contoh Python berikut memulihkan data buku kerja untuk diagram yang merupakan bentuk pertama pada slide pertama dan merujuk ke buku kerja eksternal yang tidak tersedia. Ia mengakses data yang dipulihkan melalui [Chart.chart_data](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/chart_data/) dan [ChartData.chart_data_workbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/chart_data_workbook/):
 
 ```python
 import aspose.slides as slides
@@ -398,35 +409,35 @@ with slides.Presentation("presentation.pptx", load_options) as presentation:
         chart = slide.shapes[0]
         recovered_workbook = chart.chart_data.chart_data_workbook
 
-        # Baca atau ubah data buku kerja yang dipulihkan di sini.
+        # Baca atau ubah data workbook yang dipulihkan di sini.
     else:
         print("The first shape is not a chart.")
 ```
 
-Jika buku kerja eksternal tidak tersedia dan pemulihan dinonaktifkan, Aspose.Slides akan melempar pengecualian. Aktifkan pemulihan hanya ketika menggunakan data bagan yang di‑cache merupakan solusi yang dapat diterima, karena cache mungkin tidak berisi perubahan yang dilakukan pada buku kerja eksternal setelah presentasi terakhir kali diperbarui.
+Jika buku kerja eksternal tidak tersedia dan pemulihan dinonaktifkan, Aspose.Slides akan melemparkan eksepsi. Aktifkan pemulihan hanya ketika menggunakan data diagram yang di‑cache merupakan alternatif yang dapat diterima, karena cache mungkin tidak berisi perubahan yang dibuat pada buku kerja eksternal setelah presentasi terakhir kali diperbarui.
 
-## **Tanya Jawab**
+## **FAQ**
 
-**Apakah saya dapat menentukan apakah bagan tertentu terhubung ke buku kerja eksternal atau tertanam?**
+**Apakah saya dapat menentukan apakah diagram tertentu terhubung ke buku kerja eksternal atau tertanam?**
 
-Ya. Sebuah bagan memiliki [tipe sumber data](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/chartdata/data_source_type/) dan [jalur ke buku kerja eksternal](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/chartdata/external_workbook_path/); jika sumbernya adalah buku kerja eksternal, Anda dapat membaca jalur lengkap untuk memastikan file eksternal sedang digunakan.
+Ya. Diagram memiliki [data source type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/data_source_type/) dan [path to an external workbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/external_workbook_path/); jika sumbernya adalah buku kerja eksternal, Anda dapat membaca path lengkap untuk memastikan file eksternal sedang digunakan.
 
-**Apakah jalur relatif ke buku kerja eksternal didukung, dan bagaimana cara penyimpanannya?**
+**Apakah path relatif ke buku kerja eksternal didukung, dan bagaimana cara penyimpanannya?**
 
-Ya. Jika Anda menentukan jalur relatif, jalur tersebut secara otomatis diubah menjadi jalur absolut. Presentasi menyimpan jalur absolut dalam file PPTX, sehingga memindahkan buku kerja mungkin memerlukan pembaruan tautan.
+Ya. Jika Anda menentukan path relatif, secara otomatis akan dikonversi menjadi path absolut. Presentasi menyimpan path absolut dalam file PPTX, sehingga memindahkan buku kerja mungkin memerlukan pembaruan tautan.
 
-**Apakah saya dapat menggunakan buku kerja yang berada di sumber daya/jaringan bersama?**
+**Dapatkah saya menggunakan buku kerja yang berada di sumber daya/jaringan bersama?**
 
-Ya, buku kerja tersebut dapat digunakan sebagai sumber data eksternal. Namun, penyuntingan buku kerja remote secara langsung dari Aspose.Slides tidak didukung—mereka hanya dapat digunakan sebagai sumber.
+Ya, buku kerja semacam itu dapat digunakan sebagai sumber data eksternal. Namun, mengedit buku kerja remote secara langsung dari Aspose.Slides tidak didukung—mereka hanya dapat digunakan sebagai sumber.
 
-**Apakah Aspose.Slides menimpa XLSX eksternal saat menyimpan presentasi?**
+**Apakah Aspose.Slides menimpa file XLSX eksternal saat menyimpan presentasi?**
 
-Presentasi menyimpan [tautan ke file eksternal](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/chartdata/external_workbook_path/). Menyunting data bagan yang didukung sel dapat juga memperbarui file XLSX lokal yang ditautkan. Gunakan salinan buku kerja jika yang asli harus tetap tidak berubah.
+Presentasi menyimpan [link ke file eksternal](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/external_workbook_path/). Mengedit data diagram berbasis sel juga dapat memperbarui file XLSX lokal yang ditautkan. Gunakan salinan buku kerja jika yang asli harus tetap tidak berubah.
 
 **Apa yang harus saya lakukan jika file eksternal dilindungi kata sandi?**
 
-Aspose.Slides tidak menerima kata sandi saat membuat tautan. Pendekatan umum adalah menghapus perlindungan sebelumnya atau menyiapkan salinan yang didekripsi (misalnya, menggunakan [Aspose.Cells](https://reference.aspose.com/cells/python-net/)) dan menautkan ke salinan tersebut.
+Aspose.Slides tidak menerima kata sandi saat menautkan. Pendekatan umum adalah menghapus proteksi terlebih dahulu atau menyiapkan salinan yang didekripsi (misalnya, menggunakan [Aspose.Cells](https://reference.aspose.com/cells/python-net/)) dan menautkan ke salinan tersebut.
 
-**Dapatkah beberapa bagan merujuk ke buku kerja eksternal yang sama?**
+**Dapatkah beberapa diagram merujuk ke buku kerja eksternal yang sama?**
 
-Ya. Setiap bagan menyimpan tautannya masing‑masing. Jika semua bagan menunjuk ke file yang sama, pembaruan file tersebut akan tercermin di setiap bagan pada saat data dimuat kembali.
+Ya. Setiap diagram menyimpan tautannya masing‑masing. Jika semuanya menunjuk ke file yang sama, memperbarui file tersebut akan tercermin di setiap diagram pada saat data dimuat selanjutnya.

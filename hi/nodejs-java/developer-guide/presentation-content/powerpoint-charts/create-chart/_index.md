@@ -16,69 +16,69 @@ keywords:
 - ट्री मैप चार्ट
 - स्टॉक चार्ट
 - बॉक्स एंड व्हिस्कर चार्ट
-- फनल चार्ट
+- फ़नल चार्ट
 - सनबर्स्ट चार्ट
 - हिस्टोग्राम चार्ट
 - रडार चार्ट
-- मल्टीकैटेगरी चार्ट
+- मल्टीकेटेगरी चार्ट
 - PowerPoint
 - प्रस्तुति
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Aspose.Slides for Node.js के साथ PowerPoint प्रस्तुतियों में चार्ट बनाएं और अनुकूलित करें। JavaScript में व्यावहारिक कोड उदाहरणों के साथ चार्ट जोड़ें, फॉर्मैट करें और संपादित करें।"
+description: "Node.js के लिए Aspose.Slides के साथ PowerPoint प्रस्तुतियों में चार्ट बनाएं और अनुकूलित करें। JavaScript में व्यावहारिक कोड उदाहरणों के साथ चार्ट जोड़ें, स्वरूपित करें और संपादित करें।"
 ---
 ## **अवलोकन**
 
-यह लेख Aspose.Slides का उपयोग करके चार्ट बनाने और अनुकूलित करने के लिए एक व्यापक गाइड प्रदान करता है। आप सीखेंगे कि प्रोग्रामेटिक रूप से स्लाइड में चार्ट कैसे जोड़ें, डेटा के साथ उसे कैसे भरें, और अपनी विशिष्ट डिजाइन आवश्यकताओं के अनुसार विभिन्न फ़ॉर्मेटिंग विकल्प कैसे लागू करें। लेख के दौरान, विस्तृत कोड उदाहरण प्रत्येक चरण को दर्शाते हैं, प्रारंभिक प्रस्तुति और चार्ट ऑब्जेक्ट से लेकर सीरीज़, अक्ष और लेजेंड्स को कॉन्फ़िगर करने तक। इस गाइड का पालन करके, आप अपने अनुप्रयोगों में डायनेमिक चार्ट जेनरेशन को एकीकृत करने की ठोस समझ प्राप्त करेंगे, जिससे डेटा‑ड्रिवेन प्रस्तुतियों को बनाना सुगम हो जाता है।
+यह लेख Aspose.Slides का उपयोग करके चार्ट बनाने और अनुकूलित करने के लिए एक व्यापक मार्गदर्शिका प्रदान करता है। आप सीखेंगे कि प्रोग्रामmatically एक चार्ट को स्लाइड में कैसे जोड़ें, उसे डेटा से भरें, और आपके विशिष्ट डिज़ाइन आवश्यकताओं से मेल खाने के लिए विभिन्न फ़ॉर्मेटिंग विकल्प कैसे लागू करें। पूरे लेख में विस्तृत कोड उदाहरण प्रत्येक चरण को दर्शाते हैं, प्रेज़ेंटेशन और चार्ट ऑब्जेक्ट को इनिशियलाइज़ करने से लेकर सीरीज़, एक्सिस और लेजेंड को कॉन्फ़िगर करने तक। इस मार्गदर्शिका का पालन करके, आप अपनी अनुप्रयोगों में डायनेमिक चार्ट जेनरेशन को एकीकृत करने की ठोस समझ प्राप्त करेंगे, जिससे डेटा-ड्रिवेन प्रेज़ेंटेशन बनाने की प्रक्रिया आसान हो जाएगी।
 
 ## **एक चार्ट बनाएं**
 
-चार्ट लोगों को डेटा को जल्दी से विज़ुअलाइज़ करने और उन अंतर्दृष्टियों को प्राप्त करने में मदद करते हैं जो तालिका या स्प्रेडशीट से तुरंत स्पष्ट नहीं होतीं।
+चार्ट लोगों को जल्दी से डेटा को विज़ुअलाइज़ करने और उन अंतर्दृष्टियों को प्राप्त करने में मदद करते हैं जो तालिका या स्प्रेडशीट से तुरंत स्पष्ट नहीं हो सकतीं।
 
 **चार्ट क्यों बनाएं?**
 
 चार्ट का उपयोग करके आप:
 
-* एक प्रस्तुति में एक ही स्लाइड पर बड़ी मात्रा में डेटा को संक्षिप्त, संकलित या सारांशित करें
-* डेटा में पैटर्न और रुझानों को उजागर करें
-* समय के साथ या किसी विशिष्ट माप इकाई के सापेक्ष डेटा की दिशा और गति का अनुमान लगाएँ
-* आउट्लायर, विचलन, त्रुटियों, बेमेल डेटा आदि को पहचानें
-* जटिल डेटा को संप्रेषित या प्रस्तुत करें
+* एक ही स्लाइड में बड़ी मात्रा में डेटा को संक्षिप्त या सारांशित कर सकते हैं
+* डेटा में पैटर्न और ट्रेंड को उजागर कर सकते हैं
+* समय के साथ या किसी विशेष मापन इकाई के सापेक्ष डेटा की दिशा और गति को निर्धारित कर सकते हैं
+* अपवाद, विचलन, त्रुटियों, निरर्थक डेटा आदि को पहचान सकते हैं
+* जटिल डेटा को प्रभावी ढंग से संप्रेषित या प्रस्तुत कर सकते हैं
 
-PowerPoint में, आप *Insert* फ़ंक्शन के माध्यम से चार्ट बना सकते हैं, जो कई प्रकार के चार्ट डिज़ाइन करने के लिए टेम्प्लेट प्रदान करता है। Aspose.Slides का उपयोग करके आप सामान्य चार्ट (लोकप्रिय चार्ट प्रकारों पर आधारित) और कस्टम चार्ट दोनों बना सकते हैं।
+PowerPoint में, आप *Insert* फ़ंक्शन के माध्यम से चार्ट बना सकते हैं, जो विभिन्न प्रकार के चार्ट डिज़ाइन करने के लिए टेम्प्लेट प्रदान करता है। Aspose.Slides का उपयोग करके, आप सामान्य चार्ट (लोकप्रिय चार्ट प्रकारों पर आधारित) और कस्टम चार्ट दोनों बना सकते हैं।
 
-{{% alert color="info" title="ध्यान दें" %}}
-चार्ट बनाने के लिए, [ChartType](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/charttype/) क्लास का उपयोग करें। इस क्लास के फ़ील्ड विभिन्न चार्ट प्रकारों से मेल खाते हैं।
+{{% alert color="info" title="Note" %}}
+चार्ट बनाने के लिए, आप [ChartType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/) क्लास का उपयोग करें। इस क्लास में फ़ील्ड विभिन्न चार्ट प्रकारों से संबंधित होते हैं।
 {{% /alert %}}
 
-### **क्लस्टरड कॉलम चार्ट बनाएं**
+### **क्लस्टर्ड कॉलम चार्ट बनाएं**
 
-यह सेक्शन Aspose.Slides का उपयोग करके क्लस्टरड कॉलम चार्ट बनाने के तरीके को समझाता है। आप प्रस्तुति को शुरुआती बनाना, एक चार्ट जोड़ना और उसके तत्वों जैसे शीर्षक, डेटा, सीरीज़, श्रेणियों और स्टाइलिंग को कस्टमाइज़ करना सीखेंगे। नीचे दिए गए चरणों का पालन करके देखें कि मानक क्लस्टरड कॉलम चार्ट कैसे उत्पन्न किया जाता है:
+यह अनुभाग Aspose.Slides का उपयोग करके क्लस्टर्ड कॉलम चार्ट बनाने की व्याख्या करता है। आप एक प्रेज़ेंटेशन को इनिशियलाइज़ करना, एक चार्ट जोड़ना, और उसके तत्वों जैसे शीर्षक, डेटा, सीरीज, कैटेगरीज और स्टाइलिंग को कस्टमाइज़ करना सीखेंगे। नीचे दिए गए चरणों का पालन करके देखें कि एक सामान्य क्लस्टर्ड कॉलम चार्ट कैसे बनाया जाता है:
 
-1. [Presentation](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/presentation) क्लास का एक इंस्टेंस बनाएं।
-2. उसके इंडेक्स का उपयोग करके स्लाइड का एक रेफ़रेंस प्राप्त करें।
-3. कुछ डेटा के साथ एक चार्ट जोड़ें और `ChartType.ClusteredColumn` प्रकार निर्दिष्ट करें।
-4. चार्ट में एक शीर्षक जोड़ें।
-5. चार्ट के डेटा वर्कशीट तक पहुंचें।
-6. सभी डिफ़ॉल्ट सीरीज़ और श्रेणियों को साफ़ करें।
-7. नई सीरीज़ और श्रेणियां जोड़ें।
-8. चार्ट सीरीज़ के लिए नया चार्ट डेटा जोड़ें।
-9. चार्ट सीरीज़ पर एक फिल रंग लागू करें।
-10. चार्ट सीरीज़ में लेबल जोड़ें।
-11. संशोधित प्रस्तुति को PPTX फ़ाइल के रूप में सहेजें।
+1. [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation) क्लास का एक इंस्टेंस बनाएं।
+1. उसके इंडेक्स का उपयोग करके स्लाइड का संदर्भ प्राप्त करें।
+1. कुछ डेटा के साथ एक चार्ट जोड़ें और `ChartType.ClusteredColumn` प्रकार निर्दिष्ट करें।
+1. चार्ट में एक शीर्षक जोड़ें।
+1. चार्ट के डेटा वर्कशीट तक पहुंचें।
+1. सभी डिफ़ॉल्ट सीरीज और कैटेगरीज को साफ़ करें।
+1. नई सीरीज और कैटेगरीज जोड़ें।
+1. चार्ट सीरीज के लिए नई डेटा जोड़ें।
+1. चार्ट सीरीज पर एक भराव रंग लागू करें।
+1. चार्ट सीरीज पर लेबल जोड़ें।
+1. संशोधित प्रेज़ेंटेशन को PPTX फ़ाइल के रूप में सहेजें।
 
-यह C# कोड एक क्लस्टरड कॉलम चार्ट बनाने का उदाहरण दर्शाता है:
+यह JavaScript कोड क्लस्टर्ड कॉलम चार्ट बनाने का उदाहरण दर्शाता है:
 
 ```javascript
 var aspose = aspose || {};
 aspose.slides = require("aspose.slides.via.java");
 const java = require("java");
 
-// PPTX फ़ाइल का प्रतिनिधित्व करने वाली प्रस्तुति क्लास को इंस्टेंसिएट करता है
+// एक प्रस्तुति क्लास का उदाहरण बनाता है जो PPTX फ़ाइल का प्रतिनिधित्व करती है
 var pres = new aspose.slides.Presentation();
 try {
-    // पहली स्लाइड तक पहुँचता है
+    // पहली स्लाइड तक पहुंचता है
     var sld = pres.getSlides().get_Item(0);
     // डिफ़ॉल्ट डेटा के साथ एक चार्ट जोड़ता है
     var chart = sld.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 0, 0, 500, 500);
@@ -93,7 +93,7 @@ try {
     var defaultWorksheetIndex = 0;
     // चार्ट डेटा वर्कशीट प्राप्त करता है
     var fact = chart.getChartData().getChartDataWorkbook();
-    // डिफ़ॉल्ट जेनरेटेड सीरीज़ और श्रेणियों को हटाता है
+    // डिफ़ॉल्ट जनरेट की गई सीरीज़ और श्रेणियों को हटाता है
     chart.getChartData().getSeries().clear();
     chart.getChartData().getCategories().clear();
     var s = chart.getChartData().getSeries().size();
@@ -111,7 +111,7 @@ try {
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 1, 20));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 50));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 30));
-    // सीरीज़ के लिए फ़िल रंग सेट करता है
+    // सीरीज़ के लिए भराव रंग सेट करता है
     series.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
     series.getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
     // दूसरी चार्ट सीरीज़ लेता है
@@ -120,11 +120,11 @@ try {
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 2, 30));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 2, 10));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 2, 60));
-    // सीरीज़ के लिए फ़िल रंग सेट करता है
+    // सीरीज़ के लिए भराव रंग सेट करता है
     series.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
     series.getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GREEN"));
-    // नई सीरीज़ के लिए प्रत्येक श्रेणी के कस्टम लेबल बनाता है
-    // पहला लेबल कैटेगरी नाम दिखाने के लिए सेट करता है
+    // नई सीरीज़ के लिए प्रत्येक श्रेणी के लिए कस्टम लेबल बनाता है
+    // पहले लेबल को श्रेणी नाम दिखाने के लिए सेट करता है
     var lbl = series.getDataPoints().get_Item(0).getLabel();
     lbl.getDataLabelFormat().setShowCategoryName(true);
     lbl = series.getDataPoints().get_Item(1).getLabel();
@@ -144,34 +144,33 @@ try {
 ```
 
 ### **स्कैटर चार्ट बनाएं**
+स्कैटर चार्ट (जिसे स्कैटर प्लॉट या x‑y ग्राफ़ भी कहा जाता है) अक्सर दो चर के बीच पैटर्न या संबंधों की जांच करने के लिए उपयोग किए जाते हैं।
 
-स्कैटर चार्ट (जिन्हें स्कैटर प्लॉट या X‑Y ग्राफ भी कहा जाता है) अक्सर दो वेरिएबल्स के बीच पैटर्न या सहसंबंध दिखाने के लिए उपयोग किए जाते हैं।
+स्कैटर चार्ट का उपयोग करें जब:
 
-स्कैटर चार्ट का उपयोग तब करें जब:
+* आपके पास युग्मित संख्यात्मक डेटा हो
+* आपके पास दो ऐसे चर हों जो एक साथ अच्छी तरह मिलते हों
+* आप निर्धारित करना चाहते हों कि दो चर संबंधित हैं या नहीं
+* आपके पास एक स्वतंत्र चर हो जिसके कई मान निर्भर चर के लिए हों
 
-* आपके पास युग्मित संख्यात्मक डेटा है
-* आपके पास दो वेरिएबल्स हैं जो एक साथ अच्छी तरह मिलते हैं
-* आप निर्धारित करना चाहते हैं कि दो वेरिएबल्स संबंधित हैं या नहीं
-* आपके पास एक स्वतंत्र वेरिएबल है जिसके कई मान आश्रित वेरिएबल के लिए हैं
+1. [Create Clustered Column Charts](#create-clustered-column-charts) में दिए गए चरणों का पालन करें।
+2. तीसरे चरण में, एक चार्ट जोड़ें और अपने चार्ट प्रकार को निम्नलिखित में से एक के रूप में निर्दिष्ट करें:
+   1. [ChartType.ScatterWithMarkers](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#ScatterWithMarkers) - _स्कैटर चार्ट को दर्शाता है।_
+   2. [ChartType.ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - _वक्रों द्वारा जुड़ा स्कैटर चार्ट, डेटा मार्कर के साथ।_
+   3. [ChartType.ScatterWithSmoothLines](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#ScatterWithSmoothLines) - _वक्रों द्वारा जुड़ा स्कैटर चार्ट, बिना डेटा मार्कर के।_
+   4. [ChartType.ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _रेखाओं द्वारा जुड़ा स्कैटर चार्ट, डेटा मार्कर के साथ।_
+   5. [ChartType.ScatterWithStraightLines](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#ScatterWithStraightLines) - _रेखाओं द्वारा जुड़ा स्कैटर चार्ट, बिना डेटा मार्कर के।_
 
-1. [Create Clustered Column Charts](#create-clustered-column-charts) में वर्णित चरणों का पालन करें।
-2. तीसरे चरण के लिए, एक चार्ट जोड़ें और अपने चार्ट प्रकार को निम्नलिखित में से एक चुनें:
-   1. [ChartType.ScatterWithMarkers](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/charttype/#ScatterWithMarkers) - _एक स्कैटर चार्ट दर्शाता है।_
-   2. [ChartType.ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - _वक्रों द्वारा जुड़े स्कैटर चार्ट को डेटा मार्कर के साथ दर्शाता है।_
-   3. [ChartType.ScatterWithSmoothLines](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/charttype/#ScatterWithSmoothLines) - _वक्रों द्वारा जुड़े स्कैटर चार्ट को डेटा मार्कर के बिना दर्शाता है।_
-   4. [ChartType.ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _सीधियों द्वारा जुड़े स्कैटर चार्ट को डेटा मार्कर के साथ दर्शाता है।_
-   5. [ChartType.ScatterWithStraightLines](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/charttype/#ScatterWithStraightLines) - _सीधियों द्वारा जुड़े स्कैटर चार्ट को डेटा मार्कर के बिना दर्शाता है।_
-
-यह JavaScript कोड प्रत्येक सीरीज़ के लिए विभिन्न मार्कर के साथ स्कैटर चार्ट बनाने का उदाहरण दिखाता है:
+यह JavaScript कोड प्रत्येक सीरीज़ के लिए विभिन्न मार्कर के साथ स्कैटर चार्ट बनाने का प्रदर्शन करता है:
 
 ```javascript
 var aspose = aspose || {};
 aspose.slides = require("aspose.slides.via.java");
 
-// PPTX फ़ाइल का प्रतिनिधित्व करने वाली प्रस्तुति क्लास को इंस्टेंसिएट करता है
+// एक प्रस्तुति क्लास का उदाहरण बनाता है जो PPTX फ़ाइल का प्रतिनिधित्व करती है
 var pres = new aspose.slides.Presentation();
 try {
-    // पहली स्लाइड तक पहुँचता है
+    // पहली स्लाइड तक पहुंचता है
     var slide = pres.getSlides().get_Item(0);
     // डिफ़ॉल्ट चार्ट बनाता है
     var chart = slide.getShapes().addChart(aspose.slides.ChartType.ScatterWithSmoothLines, 0, 0, 400, 400);
@@ -179,7 +178,7 @@ try {
     var defaultWorksheetIndex = 0;
     // चार्ट डेटा वर्कशीट प्राप्त करता है
     var fact = chart.getChartData().getChartDataWorkbook();
-    // डेमो सीरीज़ हटाता है
+    // डेमो सीरीज़ को हटाता है
     chart.getChartData().getSeries().clear();
     // नई सीरीज़ जोड़ता है
     chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 1, 1, "Series 1"), chart.getType());
@@ -197,7 +196,7 @@ try {
     series.getMarker().setSymbol(aspose.slides.MarkerStyleType.Star);
     // दूसरी चार्ट सीरीज़ लेता है
     series = chart.getChartData().getSeries().get_Item(1);
-    // उस में नया बिंदु (5:2) जोड़ता है
+    // वहां नया बिंदु (5:2) जोड़ता है
     series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 2, 3, 5), fact.getCell(defaultWorksheetIndex, 2, 4, 2));
     // नया बिंदु (3:1) जोड़ता है
     series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 3, 3, 3), fact.getCell(defaultWorksheetIndex, 3, 4, 1));
@@ -218,32 +217,32 @@ try {
 
 ### **पाई चार्ट बनाएं**
 
-पाई चार्ट डेटा में भाग‑से‑सम्पूर्ण संबंध दिखाने के लिए सबसे उपयुक्त होते हैं, विशेषकर जब डेटा में वर्गीय लेबल के साथ संख्यात्मक मान हों। हालांकि, यदि आपके डेटा में कई भाग या लेबल हों, तो बार चार्ट का उपयोग करने पर विचार करें।
+पाई चार्ट डेटा में भाग‑से‑सम्पूर्ण संबंध को दिखाने के लिए सबसे उपयुक्त होते हैं, विशेषकर जब डेटा में श्रेणीबद्ध लेबल और संख्यात्मक मान हों। हालांकि, यदि आपके डेटा में बहुत अधिक भाग या लेबल हों, तो बार चार्ट का उपयोग करने पर विचार किया जा सकता है।
 
-1. [Presentation](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/presentation/) क्लास का एक इंस्टेंस बनाएं।
-2. उसके इंडेक्स का उपयोग करके स्लाइड का एक रेफ़रेंस प्राप्त करें।
-3. डिफ़ॉल्ट डेटा के साथ एक चार्ट जोड़ें और [ChartType.Pie](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/charttype/#Pie) प्रकार निर्दिष्ट करें।
-4. चार्ट डेटा वर्कबुक [ChartDataWorkbook](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/chartdataworkbook/) तक पहुंचें।
-5. डिफ़ॉल्ट सीरीज़ और श्रेणियों को साफ़ करें।
-6. नई सीरीज़ और श्रेणियां जोड़ें।
-7. चार्ट सीरीज़ के लिए नया चार्ट डेटा जोड़ें।
-8. पाई चार्ट के सेक्टरों के लिए कस्टम रंग लागू करके नई पॉइंट्स जोड़ें।
+1. [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) क्लास का एक इंस्टेंस बनाएं।
+2. उसके इंडेक्स का उपयोग करके स्लाइड का संदर्भ प्राप्त करें।
+3. डिफ़ॉल्ट डेटा के साथ एक चार्ट जोड़ें और [ChartType.Pie](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#Pie) प्रकार निर्दिष्ट करें।
+4. चार्ट डेटा वर्कबुक [ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/) तक पहुंचें।
+5. डिफ़ॉल्ट सीरीज और कैटेगरीज को साफ़ करें।
+6. नई सीरीज और कैटेगरीज जोड़ें।
+7. चार्ट सीरीज के लिए नई डेटा जोड़ें।
+8. पाई चार्ट के सेक्टर्स के लिए कस्टम रंग लागू करें।
 9. सीरीज़ के लिए लेबल सेट करें।
 10. सीरीज़ लेबल के लिए लीडर लाइन्स सक्षम करें।
-11. पाई चार्ट सेक्टरों के लिए घूर्णन कोण सेट करें।
-12. संशोधित प्रस्तुति को PPTX फ़ाइल के रूप में सहेजें।
+11. पाई चार्ट सेक्टर्स के लिए घूर्णन कोण सेट करें।
+12. संशोधित प्रेज़ेंटेशन को PPTX फ़ाइल के रूप में सहेजें।
 
-यह JavaScript कोड पाई चार्ट बनाने का उदाहरण दिखाता है:
+यह JavaScript कोड पाई चार्ट बनाने का उदाहरण दर्शाता है:
 
 ```javascript
 var aspose = aspose || {};
 aspose.slides = require("aspose.slides.via.java");
 const java = require("java");
 
-// PPTX फ़ाइल का प्रतिनिधित्व करने वाली प्रस्तुति क्लास को इंस्टेंसिएट करता है
+// एक प्रस्तुति क्लास का उदाहरण बनाता है जो PPTX फ़ाइल का प्रतिनिधित्व करती है
 var pres = new aspose.slides.Presentation();
 try {
-    // पहली स्लाइड तक पहुँचता है
+    // पहली स्लाइड तक पहुंचता है
     var slides = pres.getSlides().get_Item(0);
     // डिफ़ॉल्ट डेटा के साथ एक चार्ट जोड़ता है
     var chart = slides.getShapes().addChart(aspose.slides.ChartType.Pie, 100, 100, 400, 400);
@@ -258,7 +257,7 @@ try {
     var defaultWorksheetIndex = 0;
     // चार्ट डेटा वर्कशीट प्राप्त करता है
     var fact = chart.getChartData().getChartDataWorkbook();
-    // डिफ़ॉल्ट जेनरेटेड सीरीज़ और श्रेणियों को हटाता है
+    // डिफ़ॉल्ट जेनरेट की गई सीरीज़ और श्रेणियों को हटाता है
     chart.getChartData().getSeries().clear();
     chart.getChartData().getCategories().clear();
     // नई श्रेणियां जोड़ता है
@@ -271,14 +270,14 @@ try {
     series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 1, 1, 20));
     series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 50));
     series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 30));
-    // नई संस्करण में काम नहीं कर रहा है
-    // नए पॉइंट जोड़ रहा है और सेक्टर रंग सेट कर रहा है
+    // नई संस्करण में काम नहीं करता
+    // नए बिंदु जोड़ रहा है और सेक्टर का रंग सेट कर रहा है
     // series.IsColorVaried = true;
     chart.getChartData().getSeriesGroups().get_Item(0).setColorVaried(true);
     var point = series.getDataPoints().get_Item(0);
     point.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
     point.getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "CYAN"));
-    // सेक्टर बॉर्डर सेट करता है
+    // सेक्टर सीमा सेट करता है
     point.getFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     point.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GRAY"));
     point.getFormat().getLine().setWidth(3.0);
@@ -287,7 +286,7 @@ try {
     var point1 = series.getDataPoints().get_Item(1);
     point1.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
     point1.getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "ORANGE"));
-    // सेक्टर बॉर्डर सेट करता है
+    // सेक्टर सीमा सेट करता है
     point1.getFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     point1.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
     point1.getFormat().getLine().setWidth(3.0);
@@ -296,13 +295,13 @@ try {
     var point2 = series.getDataPoints().get_Item(2);
     point2.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
     point2.getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "YELLOW"));
-    // सेक्टर बॉर्डर सेट करता है
+    // सेक्टर सीमा सेट करता है
     point2.getFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     point2.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
     point2.getFormat().getLine().setWidth(2.0);
     point2.getFormat().getLine().setStyle(java.newByte(aspose.slides.LineStyle.ThinThin));
     point2.getFormat().getLine().setDashStyle(java.newByte(aspose.slides.LineDashStyle.LargeDashDotDot));
-    // नई सीरीज़ की प्रत्येक श्रेणी के लिए कस्टम लेबल बनाता है
+    // नई सीरीज़ के लिए प्रत्येक श्रेणी के लिए कस्टम लेबल बनाता है
     var lbl1 = series.getDataPoints().get_Item(0).getLabel();
     // lbl.ShowCategoryName = true;
     lbl1.getDataLabelFormat().setShowValue(true);
@@ -315,9 +314,9 @@ try {
     lbl3.getDataLabelFormat().setShowPercentage(true);
     // चार्ट के लिए लीडर लाइन्स दिखाता है
     series.getLabels().getDefaultDataLabelFormat().setShowLeaderLines(true);
-    // पाई चार्ट सेक्टरों के लिए रोटेशन एंगल सेट करता है
+    // पाई चार्ट सेक्टर्स के लिए घूर्णन कोण सेट करता है
     chart.getChartData().getSeriesGroups().get_Item(0).setFirstSliceAngle(180);
-    // चार्ट के साथ प्रस्तुति को सहेजता है
+    // एक चार्ट के साथ प्रस्तुति को सहेजता है
     pres.save("PieChart_out.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     if (pres != null) {
@@ -328,18 +327,18 @@ try {
 
 ### **लाइन चार्ट बनाएं**
 
-लाइन चार्ट (जिन्हें लाइन ग्राफ भी कहा जाता है) उन स्थितियों में सबसे उपयुक्त होते हैं जहाँ आप समय के साथ मानों में परिवर्तन दिखाना चाहते हैं। एक लाइन चार्ट का उपयोग करके आप बड़ी मात्रा में डेटा की तुलना, समय के साथ परिवर्तन और रुझान ट्रैक कर सकते हैं, डेटा सीरीज़ में विसंगतियों को हाइलाइट कर सकते हैं, आदि।
+लाइन चार्ट (जिसे लाइन ग्राफ़ भी कहा जाता है) उस स्थिति में सबसे उपयुक्त होते हैं जहाँ आप समय के साथ मान में परिवर्तन दिखाना चाहते हैं। लाइन चार्ट का उपयोग करके आप एक साथ बड़ी मात्रा में डेटा की तुलना, परिवर्तन और ट्रेंड को ट्रैक, डेटा सीरीज़ में विसंगतियों को उजागर, आदि कर सकते हैं।
 
-1. [Presentation](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/presentation/) क्लास का एक इंस्टेंस बनाएं।
-2. उसके इंडेक्स का उपयोग करके स्लाइड का एक रेफ़रेंस प्राप्त करें।
-3. डिफ़ॉल्ट डेटा के साथ एक चार्ट जोड़ें और [ChartType.Line](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/charttype/#Line) प्रकार निर्दिष्ट करें।
-4. चार्ट डेटा वर्कबुक ([ChartDataWorkbook](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/chartdataworkbook/)) तक पहुंचें।
-5. डिफ़ॉल्ट सीरीज़ और श्रेणियों को साफ़ करें।
-6. नई सीरीज़ और श्रेणियां जोड़ें।
-7. चार्ट सीरीज़ के लिए नया चार्ट डेटा जोड़ें।
-8. संशोधित प्रस्तुति को PPTX फ़ाइल के रूप में सहेजें।
+1. [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) क्लास का एक इंस्टेंस बनाएं।
+1. उसके इंडेक्स का उपयोग करके स्लाइड का संदर्भ प्राप्त करें।
+1. डिफ़ॉल्ट डेटा के साथ एक चार्ट जोड़ें और [ChartType.Line](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#Line) प्रकार निर्दिष्ट करें।
+1. चार्ट डेटा वर्कबुक ([ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/)) तक पहुंचें।
+1. डिफ़ॉल्ट सीरीज और कैटेगरीज को साफ़ करें।
+1. नई सीरीज और कैटेगरीज जोड़ें।
+1. चार्ट सीरीज के लिए नई डेटा जोड़ें।
+1. संशोधित प्रेज़ेंटेशन को PPTX फ़ाइल के रूप में सहेजें।
 
-यह JavaScript कोड लाइन चार्ट बनाने का उदाहरण दिखाता है:
+यह JavaScript कोड लाइन चार्ट बनाने का उदाहरण प्रस्तुत करता है:
 
 ```javascript
 var aspose = aspose || {};
@@ -356,7 +355,7 @@ try {
 }
 ```
 
-डिफ़ॉल्ट रूप से, लाइन चार्ट में बिंदु सीधे सतत रेखाओं से जुड़े होते हैं। यदि आप बिंदुओं को डैश रेखाओं से जोड़ना चाहते हैं, तो आप अपनी इच्छित डैश शैली इस प्रकार निर्दिष्ट कर सकते हैं:
+डिफ़ॉल्ट रूप से, लाइन चार्ट में बिंदुओं को सीधी निरंतर रेखाओं से जोड़ा जाता है। यदि आप बिंदुओं को डैश द्वारा जोड़ना चाहते हैं, तो आप अपनी पसंदीदा डैश प्रकार इस प्रकार निर्दिष्ट कर सकते हैं:
 
 ```javascript
 var aspose = aspose || {};
@@ -380,18 +379,18 @@ try {
 
 ### **ट्री मैप चार्ट बनाएं**
 
-ट्री मैप चार्ट बिक्री डेटा के लिए सबसे उपयुक्त होते हैं जब आप डेटा वर्गों के सापेक्ष आकार दिखाना तथा प्रत्येक वर्ग में बड़े योगदानकर्ताओं पर जल्दी ध्यान आकर्षित करना चाहते हैं।
+ट्री मैप चार्ट बिक्री डेटा के लिए सबसे उपयुक्त होते हैं जब आप डेटा श्रेणियों के सापेक्ष आकार दिखाना चाहते हैं और प्रत्येक श्रेणी में बड़े योगदान देने वाले आइटम्स पर जल्दी से ध्यान आकर्षित करना चाहते हैं।
 
-1. [Presentation](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/presentation/) क्लास का एक इंस्टेंस बनाएं।
-2. उसके इंडेक्स का उपयोग करके स्लाइड का एक रेफ़रेंस प्राप्त करें।
-3. डिफ़ॉल्ट डेटा के साथ एक चार्ट जोड़ें और [ChartType.Treemap](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/charttype/#Treemap) प्रकार निर्दिष्ट करें।
-4. चार्ट डेटा वर्कबुक [ChartDataWorkbook](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/chartdataworkbook/) तक पहुंचें।
-5. डिफ़ॉल्ट सीरीज़ और श्रेणियों को साफ़ करें।
-6. नई सीरीज़ और श्रेणियां जोड़ें।
-7. चार्ट सीरीज़ के लिए नया चार्ट डेटा जोड़ें।
-8. संशोधित प्रस्तुति को PPTX फ़ाइल के रूप में सहेजें।
+1. [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) क्लास का एक इंस्टेंस बनाएं।
+2. उसके इंडेक्स का उपयोग करके स्लाइड का संदर्भ प्राप्त करें।
+3. डिफ़ॉल्ट डेटा के साथ एक चार्ट जोड़ें और [ChartType.Treemap](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#Treemap) प्रकार निर्दिष्ट करें।
+4. चार्ट डेटा वर्कबुक [ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/) तक पहुंचें।
+5. डिफ़ॉल्ट सीरीज और कैटेगरीज को साफ़ करें।
+6. नई सीरीज और कैटेगरीज जोड़ें।
+7. चार्ट सीरीज के लिए नई डेटा जोड़ें।
+8. संशोधित प्रेज़ेंटेशन को PPTX फ़ाइल के रूप में सहेजें।
 
-यह JavaScript कोड ट्री मैप चार्ट बनाने का उदाहरण दिखाता है:
+यह JavaScript कोड ट्री मैप चार्ट बनाने का उदाहरण दर्शाता है:
 
 ```javascript
 var aspose = aspose || {};
@@ -441,17 +440,17 @@ try {
 
 ### **स्टॉक चार्ट बनाएं**
 
-1. [Presentation](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/presentation/) क्लास का एक इंस्टेंस बनाएं।
-2. उसके इंडेक्स का उपयोग करके स्लाइड का एक रेफ़रेंस प्राप्त करें।
-3. डिफ़ॉल्ट डेटा के साथ एक चार्ट जोड़ें और [ChartType.OpenHighLowClose](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/charttype/#OpenHighLowClose) प्रकार निर्दिष्ट करें।
-4. चार्ट डेटा वर्कबुक [ChartDataWorkbook](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/chartdataworkbook/) तक पहुंचें।
-5. डिफ़ॉल्ट सीरीज़ और श्रेणियों को साफ़ करें।
-6. नई सीरीज़ और श्रेणियां जोड़ें।
-7. चार्ट सीरीज़ के लिए नया चार्ट डेटा जोड़ें।
+1. [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) क्लास का एक इंस्टेंस बनाएं।
+2. उसके इंडेक्स का उपयोग करके स्लाइड का संदर्भ प्राप्त करें।
+3. डिफ़ॉल्ट डेटा के साथ एक चार्ट जोड़ें और [ChartType.OpenHighLowClose](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#OpenHighLowClose) प्रकार निर्दिष्ट करें।
+4. चार्ट डेटा वर्कबुक [ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/) तक पहुंचें।
+5. डिफ़ॉल्ट सीरीज और कैटेगरीज को साफ़ करें।
+6. नई सीरीज और कैटेगरीज जोड़ें।
+7. चार्ट सीरीज के लिए नई डेटा जोड़ें।
 8. हाई‑लो लाइन्स फॉर्मेट निर्दिष्ट करें।
-9. संशोधित प्रस्तुति को PPTX फ़ाइल के रूप में सहेजें।
+9. संशोधित प्रेज़ेंटेशन को PPTX फ़ाइल के रूप में सहेजें।
 
-यह JavaScript कोड स्टॉक चार्ट बनाने का उदाहरण दिखाता है:
+यह JavaScript कोड स्टॉक चार्ट बनाने का उदाहरण प्रस्तुत करता है:
 
 ```javascript
 var aspose = aspose || {};
@@ -505,14 +504,14 @@ try {
 
 ### **बॉक्स एंड व्हिस्कर चार्ट बनाएं**
 
-1. [Presentation](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/presentation/) क्लास का एक इंस्टेंस बनाएं।
-2. उसके इंडेक्स का उपयोग करके स्लाइड का एक रेफ़रेंस प्राप्त करें।
-3. डिफ़ॉल्ट डेटा के साथ एक चार्ट जोड़ें और [ChartType.BoxAndWhisker](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/charttype/#BoxAndWhisker) प्रकार निर्दिष्ट करें।
-4. चार्ट डेटा वर्कबुक [ChartDataWorkbook](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/chartdataworkbook/) तक पहुंचें।
-5. डिफ़ॉल्ट सीरीज़ और श्रेणियों को साफ़ करें।
-6. नई सीरीज़ और श्रेणियां जोड़ें।
-7. चार्ट सीरीज़ के लिए नया चार्ट डेटा जोड़ें।
-8. संशोधित प्रस्तुति को PPTX फ़ाइल के रूप में सहेजें।
+1. [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) क्लास का एक इंस्टेंस बनाएं।
+2. उसके इंडेक्स का उपयोग करके स्लाइड का संदर्भ प्राप्त करें।
+3. डिफ़ॉल्ट डेटा के साथ एक चार्ट जोड़ें और [ChartType.BoxAndWhisker](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#BoxAndWhisker) प्रकार निर्दिष्ट करें।
+4. चार्ट डेटा वर्कबुक [ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/) तक पहुंचें।
+5. डिफ़ॉल्ट सीरीज और कैटेगरीज को साफ़ करें।
+6. नई सीरीज और कैटेगरीज जोड़ें।
+7. चार्ट सीरीज के लिए नई डेटा जोड़ें।
+8. संशोधित प्रेज़ेंटेशन को PPTX फ़ाइल के रूप में सहेजें।
 
 यह JavaScript कोड बॉक्स एंड व्हिस्कर चार्ट बनाने का उदाहरण दिखाता है:
 
@@ -553,14 +552,14 @@ try {
 }
 ```
 
-### **फनल चार्ट बनाएं**
+### **फ़नल चार्ट बनाएं**
 
-1. [Presentation](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/presentation/) क्लास का एक इंस्टेंस बनाएं।
-2. उसके इंडेक्स का उपयोग करके स्लाइड का एक रेफ़रेंस प्राप्त करें।
-3. डिफ़ॉल्ट डेटा के साथ एक चार्ट जोड़ें और [ChartType.Funnel](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/charttype/#Funnel) प्रकार निर्दिष्ट करें।
-4. संशोधित प्रस्तुति को PPTX फ़ाइल के रूप में सहेजें।
+1. [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) क्लास का एक इंस्टेंस बनाएं।
+2. उसके इंडेक्स का उपयोग करके स्लाइड का संदर्भ प्राप्त करें।
+3. डिफ़ॉल्ट डेटा के साथ एक चार्ट जोड़ें और [ChartType.Funnel](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#Funnel) प्रकार निर्दिष्ट करें।
+4. संशोधित प्रेज़ेंटेशन को PPTX फ़ाइल के रूप में सहेजें।
 
-यह JavaScript कोड फनल चार्ट बनाने का उदाहरण दिखाता है:
+यह JavaScript कोड फ़नल चार्ट बनाने का उदाहरण प्रस्तुत करता है:
 
 ```javascript
 var aspose = aspose || {};
@@ -596,12 +595,12 @@ try {
 
 ### **सनबर्स्ट चार्ट बनाएं**
 
-1. [Presentation](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/presentation/) क्लास का एक इंस्टेंस बनाएं।
-2. उसके इंडेक्स का उपयोग करके स्लाइड का एक रेफ़रेंस प्राप्त करें।
-3. डिफ़ॉल्ट डेटा के साथ एक चार्ट जोड़ें और [ChartType.Sunburst](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/charttype/#Sunburst) प्रकार निर्दिष्ट करें।
-4. संशोधित प्रस्तुति को PPTX फ़ाइल के रूप में सहेजें।
+1. [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) क्लास का एक इंस्टेंस बनाएं।
+2. उसके इंडेक्स का उपयोग करके स्लाइड का संदर्भ प्राप्त करें।
+3. डिफ़ॉल्ट डेटा के साथ एक चार्ट जोड़ें और [ChartType.Sunburst](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#Sunburst) प्रकार निर्दिष्ट करें।
+4. संशोधित प्रेज़ेंटेशन को PPTX फ़ाइल के रूप में सहेजें।
 
-यह JavaScript कोड सनबर्स्ट चार्ट बनाने का उदाहरण दिखाता है:
+यह JavaScript कोड सनबर्स्ट चार्ट बनाने का उदाहरण दर्शाता है:
 
 ```javascript
 var aspose = aspose || {};
@@ -650,15 +649,15 @@ try {
 
 ### **हिस्टोग्राम चार्ट बनाएं**
 
-1. [Presentation](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/presentation/) क्लास का एक इंस्टेंस बनाएं।
-2. उसके इंडेक्स का उपयोग करके स्लाइड का एक रेफ़रेंस प्राप्त करें।
-3. डिफ़ॉल्ट डेटा के साथ एक चार्ट जोड़ें और [ChartType.Histogram](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/charttype/#Histogram) प्रकार निर्दिष्ट करें।
-4. चार्ट डेटा वर्कबुक [ChartDataWorkbook](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/chartdataworkbook/) तक पहुंचें।
-5. डिफ़ॉल्ट सीरीज़ और श्रेणियों को साफ़ करें।
-6. नई सीरीज़ और श्रेणियां जोड़ें।
-7. संशोधित प्रस्तुति को PPTX फ़ाइल के रूप में सहेजें।
+1. [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) क्लास का एक इंस्टेंस बनाएं।
+2. उसके इंडेक्स का उपयोग करके स्लाइड का संदर्भ प्राप्त करें।
+3. डिफ़ॉल्ट डेटा के साथ एक चार्ट जोड़ें और [ChartType.Histogram](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#Histogram) प्रकार निर्दिष्ट करें।
+4. चार्ट डेटा वर्कबुक [ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/) तक पहुंचें।
+5. डिफ़ॉल्ट सीरीज और कैटेगरीज को साफ़ करें।
+6. नई सीरीज और कैटेगरीज जोड़ें।
+7. संशोधित प्रेज़ेंटेशन को PPTX फ़ाइल के रूप में सहेजें।
 
-यह JavaScript कोड हिस्टोग्राम चार्ट बनाने का उदाहरण दिखाता है:
+यह JavaScript कोड हिस्टोग्राम चार्ट बनाने का उदाहरण प्रदान करता है:
 
 ```javascript
 var aspose = aspose || {};
@@ -682,12 +681,12 @@ chart.getAxes().getHorizontalAxis().setAggregationType(aspose.slides.AxisAggrega
 
 ### **रडार चार्ट बनाएं**
 
-1. [Presentation](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/presentation/) क्लास का एक इंस्टेंस बनाएं।
-2. उसके इंडेक्स का उपयोग करके स्लाइड का एक रेफ़रेंस प्राप्त करें।
-3. कुछ डेटा के साथ एक चार्ट जोड़ें और अपने इच्छित चार्ट प्रकार ([ChartType.Radar](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/charttype/#Radar) इस उदाहरण में) को निर्दिष्ट करें।
-4. संशोधित प्रस्तुति को PPTX फ़ाइल के रूप में सहेजें।
+1. [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) क्लास का एक इंस्टेंस बनाएं।
+2. उसके इंडेक्स का उपयोग करके स्लाइड का संदर्भ प्राप्त करें।
+3. कुछ डेटा के साथ एक चार्ट जोड़ें और अपने पसंदीदा चार्ट प्रकार ([ChartType.Radar](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#Radar)) को निर्दिष्ट करें।
+4. संशोधित प्रेज़ेंटेशन को PPTX फ़ाइल के रूप में सहेजें।
 
-यह JavaScript कोड रडार चार्ट बनाने का उदाहरण दिखाता है:
+यह JavaScript कोड रडार चार्ट बनाने का प्रदर्शन करता है:
 
 ```javascript
 var aspose = aspose || {};
@@ -706,14 +705,14 @@ try {
 
 ### **मल्टी‑कैटेगरी चार्ट बनाएं**
 
-1. [Presentation](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/presentation/) क्लास का एक इंस्टेंस बनाएं।
-2. उसके इंडेक्स का उपयोग करके स्लाइड का एक रेफ़रेंस प्राप्त करें।
-3. डिफ़ॉल्ट डेटा के साथ एक चार्ट जोड़ें और [ChartType.ClusteredColumn](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/charttype/#ClusteredColumn) प्रकार निर्दिष्ट करें।
-4. चार्ट डेटा वर्कबुक [ChartDataWorkbook](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/chartdataworkbook/) तक पहुंचें।
-5. डिफ़ॉल्ट सीरीज़ और श्रेणियों को साफ़ करें।
-6. नई सीरीज़ और श्रेणियां जोड़ें।
-7. चार्ट सीरीज़ के लिए नया चार्ट डेटा जोड़ें।
-8. संशोधित प्रस्तुति को PPTX फ़ाइल के रूप में सहेजें।
+1. [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) क्लास का एक इंस्टेंस बनाएं।
+2. उसके इंडेक्स का उपयोग करके स्लाइड का संदर्भ प्राप्त करें।
+3. डिफ़ॉल्ट डेटा के साथ एक चार्ट जोड़ें और [ChartType.ClusteredColumn](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#ClusteredColumn) प्रकार निर्दिष्ट करें।
+4. चार्ट डेटा वर्कबुक [ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/) तक पहुंचें।
+5. डिफ़ॉल्ट सीरीज और कैटेगरीज को साफ़ करें।
+6. नई सीरीज और कैटेगरीज जोड़ें।
+7. चार्ट सीरीज के लिए नई डेटा जोड़ें।
+8. संशोधित प्रेज़ेंटेशन को PPTX फ़ाइल के रूप में सहेजें।
 
 यह JavaScript कोड मल्टी‑कैटेगरी चार्ट बनाने का उदाहरण दिखाता है:
 
@@ -741,7 +740,7 @@ try {
     category = ch.getChartData().getCategories().add(fact.getCell(0, "c8", "G"));
     category.getGroupingLevels().setGroupingItem(1, "Group4");
     category = ch.getChartData().getCategories().add(fact.getCell(0, "c9", "H"));
-    // सीरीज़ जोड़ना
+    // सीरीज़ जोड़ रहे हैं
     var series = ch.getChartData().getSeries().add(fact.getCell(0, "D1", "Series 1"), aspose.slides.ChartType.ClusteredColumn);
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, "D2", 10));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, "D3", 20));
@@ -751,7 +750,7 @@ try {
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, "D7", 60));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, "D8", 70));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, "D9", 80));
-    // चार्ट के साथ प्रस्तुति सहेजें
+    // चार्ट के साथ प्रस्तुति को सहेजें
     pres.save("AsposeChart_out.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     if (pres != null) {
@@ -764,7 +763,7 @@ try {
 
 मैप चार्ट भौगोलिक डेटा को विज़ुअलाइज़ करते हैं और क्षेत्रों के बीच मानों की तुलना करने में मदद करते हैं।
 
-यह JavaScript कोड मैप चार्ट बनाने का उदाहरण दिखाता है:
+यह JavaScript कोड मैप चार्ट बनाने का उदाहरण प्रस्तुत करता है:
 
 ```javascript
 var aspose = aspose || {};
@@ -781,13 +780,13 @@ try {
 }
 ```
 
-### **कम्बीनेशन चार्ट बनाएं**
+### **कॉम्बिनेशन चार्ट बनाएं**
 
-कम्बीनेशन चार्ट (या कॉम्बो चार्ट) एक ही ग्राफ में दो या अधिक चार्ट प्रकारों को मिलाता है। यह चार्ट आपको दो या अधिक डेटा सेटों के बीच अंतर को हाइलाइट, तुलना या जांचने की अनुमति देता है, जिससे उनके बीच के संबंधों की पहचान करना आसान हो जाता है।
+एक कॉम्बिनेशन चार्ट (या कॉम्बो चार्ट) एक ही ग्राफ़ में दो या अधिक चार्ट प्रकारों को मिलाता है। यह चार्ट आपको दो या अधिक डेटा सेट्स के बीच अंतर दिखाने, तुलना करने या उनका परीक्षण करने में मदद करता है, जिससे आप उनके बीच संबंधों की पहचान कर सकते हैं।
 
 ![The combination chart](combination_chart.png)
 
-निम्नलिखित JavaScript कोड ऊपर दिखाए गए kombiनेशन चार्ट को PowerPoint प्रस्तुति में बनाने का उदाहरण दिखाता है:
+निम्नलिखित JavaScript कोड ऊपर दिखाए गए कॉम्बिनेशन चार्ट को PowerPoint प्रेज़ेंटेशन में बनाने का उदाहरण है:
 
 ```js
 var aspose = aspose || {};
@@ -828,7 +827,7 @@ function createChartWithFirstSeries(slide) {
     chart.getLegend().setPosition(aspose.slides.LegendPositionType.Bottom);
     chart.getLegend().getTextFormat().getPortionFormat().setFontHeight(12);
 
-    // डिफ़ॉल्ट जेनरेटेड सीरीज़ और श्रेणियों को हटाएँ।
+    // डिफ़ॉल्ट जेनरेट की गई सीरीज़ और श्रेणियां हटाएँ।
     chart.getChartData().getSeries().clear();
     chart.getChartData().getCategories().clear();
 
@@ -905,7 +904,7 @@ function setPrimaryAxesFormat(chart) {
     // ऊर्ध्वाधर प्रमुख ग्रिडलाइन का रंग सेट करें।
     let majorGridLinesFormat = verticalAxis.getMajorGridLinesFormat().getLine().getFillFormat();
     majorGridLinesFormat.setFillType(java.newByte(aspose.slides.FillType.Solid));
-    majorGridLinesFormat.getSolidFillColor().setColor(java.getInstanceSync("java.awt.Color", 217, 217, 217));
+    majorGridLinesFormat.getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 217, 217, 217));
 }
 
 function setSecondaryAxesFormat(chart) {
@@ -940,15 +939,15 @@ function setAxisTitle(axis, axisTitle) {
 
 ## **चार्ट अपडेट करें**
 
-1. उस प्रस्तुति का एक इंस्टेंस बनाएं जिसमें वह चार्ट हो जिसे आप अपडेट करना चाहते हैं, इसके लिए [Presentation](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/presentation/) क्लास का उपयोग करें।
-2. उसके इंडेक्स का उपयोग करके स्लाइड का एक रेफ़रेंस प्राप्त करें।
-3. सभी आकारों (shapes) को पार करें ताकि इच्छित चार्ट मिल सके।
-4. चार्ट के डेटा वर्कशीट तक पहुंचें।
-5. सीरीज़ वैल्यू बदलकर चार्ट डेटा सीरीज़ को संशोधित करें।
+1. उस प्रेज़ेंटेशन का एक इंस्टेंस बनाएं जो उस चार्ट को शामिल करता है जिसे आप अपडेट करना चाहते हैं, उसके लिए [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) क्लास का उपयोग करें।
+2. उसके इंडेक्स का उपयोग करके स्लाइड का संदर्भ प्राप्त करें।
+3. सभी शैप्स के माध्यम से पार होकर इच्छित चार्ट खोजें।
+4. चार्ट डेटा वर्कशीट तक पहुंचें।
+5. सीरीज़ मान बदलकर चार्ट डेटा सीरीज़ को संशोधित करें।
 6. एक नई सीरीज़ जोड़ें और उसके डेटा को भरें।
-7. संशोधित प्रस्तुति को PPTX फ़ाइल के रूप में सहेजें।
+7. संशोधित प्रेज़ेंटेशन को PPTX फ़ाइल के रूप में सहेजें।
 
-यह JavaScript कोड चार्ट को अपडेट करने का उदाहरण दिखाता है:
+यह JavaScript कोड एक चार्ट को अपडेट करने का उदाहरण दिखाता है:
 
 ```javascript
 var aspose = aspose || {};
@@ -956,7 +955,7 @@ aspose.slides = require("aspose.slides.via.java");
 
 var pres = new aspose.slides.Presentation("ExistingChart.pptx");
 try {
-    // पहली स्लाइड मार्कर तक पहुँचें
+    // पहले स्लाइडमार्कर तक पहुंचें
     var sld = pres.getSlides().get_Item(0);
     // डिफ़ॉल्ट डेटा के साथ चार्ट प्राप्त करें
     var chart = sld.getShapes().get_Item(0);
@@ -970,14 +969,14 @@ try {
     // पहली चार्ट सीरीज़ लें
     var series = chart.getChartData().getSeries().get_Item(0);
     // अब सीरीज़ डेटा अपडेट कर रहे हैं
-    fact.getCell(defaultWorksheetIndex, 0, 1, "New_Series1"); // सीरीज़ नाम संशोधित कर रहे हैं
+    fact.getCell(defaultWorksheetIndex, 0, 1, "New_Series1"); // श्रृंखला का नाम संशोधित कर रहे हैं
     series.getDataPoints().get_Item(0).getValue().setData(90);
     series.getDataPoints().get_Item(1).getValue().setData(123);
     series.getDataPoints().get_Item(2).getValue().setData(44);
     // दूसरी चार्ट सीरीज़ लें
     series = chart.getChartData().getSeries().get_Item(1);
     // अब सीरीज़ डेटा अपडेट कर रहे हैं
-    fact.getCell(defaultWorksheetIndex, 0, 2, "New_Series2"); // सीरीज़ नाम संशोधित कर रहे हैं
+    fact.getCell(defaultWorksheetIndex, 0, 2, "New_Series2"); // श्रृंखला का नाम संशोधित कर रहे हैं
     series.getDataPoints().get_Item(0).getValue().setData(23);
     series.getDataPoints().get_Item(1).getValue().setData(67);
     series.getDataPoints().get_Item(2).getValue().setData(99);
@@ -999,17 +998,19 @@ try {
 }
 ```
 
-## **एक चार्ट के लिए डेटा रेंज सेट करें**
+## **चार्ट के लिए डेटा रेंज सेट करें**
 
-एक चार्ट के लिए डेटा रेंज सेट करने के लिए यह कदम उठाएँ:
+किसी मौजूदा चार्ट द्वारा पहले उपयोग किए गए रेंज को देखने के लिए, देखें [Retrieve a Chart's Data Range](/slides/hi/nodejs-java/chart-workbook/#retrieve-a-charts-data-range)।
 
-1. उस प्रस्तुति का एक इंस्टेंस बनाएं जिसमें वह चार्ट हो, इसके लिए [Presentation](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/presentation/) क्लास का उपयोग करें।
-2. उसके इंडेक्स का उपयोग करके स्लाइड का एक रेफ़रेंस प्राप्त करें।
-3. सभी आकारों को पार करें ताकि इच्छित चार्ट मिल सके।
+चार्ट के लिए डेटा रेंज सेट करने के लिए, नीचे दिया गया चरण अनुसरण करें:
+
+1. उस प्रेज़ेंटेशन का एक इंस्टेंस बनाएं जो उस चार्ट को शामिल करता है, उसके लिए [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) क्लास का उपयोग करें।
+2. उसके इंडेक्स का उपयोग करके स्लाइड का संदर्भ प्राप्त करें।
+3. सभी शैप्स के माध्यम से पार करके इच्छित चार्ट खोजें।
 4. चार्ट डेटा तक पहुंचें और रेंज सेट करें।
-5. संशोधित प्रस्तुति को PPTX फ़ाइल के रूप में सहेजें।
+5. संशोधित प्रेज़ेंटेशन को PPTX फ़ाइल के रूप में सहेजें।
 
-यह JavaScript कोड चार्ट के लिए डेटा रेंज सेट करने का उदाहरण दिखाता है:
+यह JavaScript कोड चार्ट के लिए डेटा रेंज सेट करने का उदाहरण दर्शाता है:
 
 ```javascript
 var aspose = aspose || {};
@@ -1030,9 +1031,9 @@ try {
 
 ## **चार्ट में डिफ़ॉल्ट मार्कर उपयोग करें**
 
-जब आप चार्ट में डिफ़ॉल्ट मार्कर उपयोग करते हैं, तो प्रत्येक चार्ट सीरीज़ को स्वचालित रूप से एक अलग मार्कर प्रतीक मिलता है।
+जब आप चार्ट में डिफ़ॉल्ट मार्कर उपयोग करते हैं, तो प्रत्येक चार्ट सीरीज़ को स्वचालित रूप से एक अलग मार्कर प्रतीक मिल जाता है।
 
-यह JavaScript कोड चार्ट सीरीज़ मार्कर को स्वचालित रूप से सेट करने का उदाहरण दिखाता है:
+यह JavaScript कोड स्वचालित रूप से चार्ट सीरीज़ मार्कर सेट करने का उदाहरण दिखाता है:
 
 ```javascript
 var aspose = aspose || {};
@@ -1075,18 +1076,18 @@ try {
 
 ## **अक्सर पूछे जाने वाले प्रश्न**
 
-**Aspose.Slides किस प्रकार के चार्ट समर्थन करता है?**
+**Aspose.Slides द्वारा कौन से चार्ट प्रकार समर्थित हैं?**
 
-Aspose.Slides विभिन्न प्रकार के [chart types](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/charttype/) का समर्थन करता है, जिनमें बार, लाइन, पाई, एरिया, स्कैटर, हिस्टोग्राम, रडार और कई अन्य शामिल हैं। यह लचीलापन आपको डेटा विज़ुअलाइज़ेशन की आवश्यकताओं के अनुसार सबसे उपयुक्त चार्ट प्रकार चुनने की सुविधा देता है।
+Aspose.Slides विभिन्न [chart types](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/) को सपोर्ट करता है, जिसमें बार, लाइन, पाई, एरिया, स्कैटर, हिस्टोग्राम, रडार और कई अन्य शामिल हैं। यह लचीलापन आपको आपके डेटा विज़ुअलाइज़ेशन आवश्यकताओं के अनुसार सबसे उपयुक्त चार्ट प्रकार चुनने की अनुमति देता है।
 
-**मैं किसी स्लाइड में नया चार्ट कैसे जोड़ूं?**
+**मैं स्लाइड में नया चार्ट कैसे जोड़ूँ?**
 
-एक नया चार्ट जोड़ने के लिए, आप सबसे पहले [Presentation](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/presentation/) क्लास का एक इंस्टेंस बनाते हैं, इच्छित स्लाइड को उसके इंडेक्स से प्राप्त करते हैं, और फिर चार्ट जोड़ने के मेथड को कॉल करते हैं, जिसमें चार्ट प्रकार और प्रारंभिक डेटा निर्दिष्ट किया जाता है। यह प्रक्रिया चार्ट को सीधे आपकी प्रस्तुति में एकीकृत कर देती है।
+चार्ट जोड़ने के लिए, पहले आप [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) क्लास का एक इंस्टेंस बनाते हैं, इच्छित स्लाइड को उसके इंडेक्स से प्राप्त करते हैं, और फिर चार्ट जोड़ने की मेथड को कॉल करते हैं, जिसमें चार्ट प्रकार और प्रारंभिक डेटा निर्दिष्ट किया जाता है। इस प्रक्रिया से चार्ट सीधे आपके प्रेज़ेंटेशन में एकीकृत हो जाता है।
 
-**मैं चार्ट में प्रदर्शित डेटा को कैसे अपडेट कर सकता हूं?**
+**मैं चार्ट में प्रदर्शित डेटा को कैसे अपडेट कर सकता हूँ?**
 
-आप चार्ट का डेटा अपडेट करने के लिए उसके डेटा वर्कबुक ([ChartDataWorkbook](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/chartdataworkbook/)) तक पहुंचते हैं, डिफ़ॉल्ट सीरीज़ और श्रेणियों को साफ़ करते हैं, और फिर अपना कस्टम डेटा जोड़ते हैं। यह आपको प्रोग्रामेटिक रूप से चार्ट को नवीनतम डेटा दर्शाने के लिए रिफ्रेश करने की अनुमति देता है।
+आप चार्ट डेटा को उसके डेटा वर्कबुक ([ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/)) तक पहुंचकर अपडेट कर सकते हैं, सभी डिफ़ॉल्ट सीरीज और कैटेगरीज को साफ़ करके, फिर अपनी कस्टम डेटा जोड़ सकते हैं। इससे आप प्रोग्रामmatically चार्ट को नवीनतम डेटा के साथ रिफ्रेश कर सकते हैं।
 
-**क्या चार्ट की उपस्थिति को कस्टमाइज़ करना संभव है?**
+**क्या मैं चार्ट की उपस्थिति को कस्टमाइज़ कर सकता हूँ?**
 
-हाँ, Aspose.Slides विस्तृत कस्टमाइज़ेशन विकल्प प्रदान करता है। आप रंग, फ़ॉन्ट, लेबल, लेजेंड और अन्य [formatting elements](/slides/hi/nodejs-java/chart-entities/) को बदलकर चार्ट की उपस्थिति को अपनी विशिष्ट डिजाइन आवश्यकताओं के अनुसार ढाल सकते हैं।
+हाँ, Aspose.Slides व्यापक कस्टमाइज़ेशन विकल्प प्रदान करता है। आप रंग, फ़ॉन्ट, लेबल, लेजेंड और अन्य [formatting elements](/slides/hi/nodejs-java/chart-entities/) को संशोधित करके चार्ट की उपस्थिति को आपके विशेष डिज़ाइन आवश्यकताओं के अनुसार तैयार कर सकते हैं।

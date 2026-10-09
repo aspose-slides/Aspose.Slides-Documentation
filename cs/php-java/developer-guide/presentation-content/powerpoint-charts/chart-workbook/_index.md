@@ -1,39 +1,39 @@
 ---
-title: Správa pracovnic grafů v prezentacích pomocí PHP
-linktitle: Grafová pracovní kniha
+title: Správa knihoven grafů v prezentacích pomocí PHP
+linktitle: Grafová knihovna
 type: docs
 weight: 70
 url: /cs/php-java/chart-workbook/
 keywords:
-- pracovní kniha grafu
+- grafová knihovna
 - data grafu
-- buňka pracovnice
+- buňka knihovny
 - popisek dat
 - list
 - zdroj dat
-- externí pracovní kniha
+- externí knihovna
 - externí data
 - mezipaměť grafu
-- obnova pracovní knihy
+- obnova knihovny
 - PowerPoint
 - prezentace
 - PHP
 - Aspose.Slides
-description: "Objevte Aspose.Slides pro PHP via Java: snadno spravujte pracovní knihy grafů v PowerPoint a OpenDocument formátech a zefektivněte data své prezentace."
+description: "Objevte Aspose.Slides pro PHP via Java: snadno spravujte grafové knihovny v formátech PowerPoint a OpenDocument a zefektivněte data své prezentace."
 ---
 ## **Přehled**
 
-Tento článek vysvětluje, jak pracovat s pracovnicemi grafů v Aspose.Slides. Ukazuje, jak číst a zapisovat data grafu prostřednictvím streamů pracovnic, používat buňky pracovnice jako popisky dat grafu, přistupovat ke kolekcím listů a specifikovat typ zdroje dat pro hodnoty grafu.
+Tento článek vysvětluje, jak pracovat s knihovnami grafů v Aspose.Slides. Ukazuje, jak číst a zapisovat data grafu pomocí streamů knihovny, používat buňky knihovny jako popisky dat grafu, přistupovat ke kolekcím listů a specifikovat typ zdroje dat pro hodnoty grafu.
 
-Také se zabývá prací s externími pracovnicemi jako zdroji dat pro grafy. Příklady ukazují, jak vytvořit a přiřadit externí pracovnici, získat cestu k externí pracovnici propojené s grafem a upravit data grafu, když je pracovnice k dispozici.
+Také se zabývá prací s externími knihovnami jako zdroji dat pro grafy. Příklady demonstrují, jak vytvořit a přiřadit externí knihovnu, získat cestu k externí knihovně propojené s grafem a upravit data grafu, když je knihovna k dispozici.
 
-Pro buňky pracovnice, které představují chybějící data, viz [Řízení zobrazování prázdných buněk](/slides/cs/php-java/chart-series/) ohledně rozdílu mezi prázdnou buňkou a nulou a porovnání režimů zobrazení v čárovém grafu.
+Pro buňky knihovny, které představují chybějící data, viz [Ovládání zobrazení prázdných buněk](/slides/cs/php-java/chart-series/) pro rozdíl mezi prázdnou buňkou a nulou a pro srovnání liniového grafu dostupných režimů zobrazení.
 
-## **Zahrnout data ze skrytých řádků a sloupců**
+## **Zahrnutí dat ze skrytých řádků a sloupců**
 
-Použijte [Chart::setPlotVisibleCellsOnly](https://reference.aspose.com/slides/cs/php-java/aspose.slides/chart/setplotvisiblecellsonly/) k řízení, zda graf vykresluje data ze skrytých řádků a sloupců listu. Nastavte na `true`, pokud má vykreslovat jen viditelné buňky, nebo na `false`, pokud má zahrnout jak viditelné, tak skryté buňky. Toto nastavení řídí vykreslování grafu; neskrývá ani nezobrazuje řádky nebo sloupce listu.
+Použijte [Chart::setPlotVisibleCellsOnly](https://reference.aspose.com/slides/php-java/aspose.slides/chart/setplotvisiblecellsonly/) k ovládání, zda graf vykresluje data ze skrytých řádků a sloupců listu. Nastavte jej na `true`, aby se vykreslovaly jen viditelné buňky, nebo na `false`, aby se zahrnovaly jak viditelné, tak skryté buňky. Toto nastavení řídí vykreslování grafu; neskryje ani neodkryje řádky či sloupce listu.
 
-Stáhněte [hidden-source-data.pptx](hidden-source-data.pptx) a umístěte jej do pracovního adresáře. Jeho první snímek obsahuje sloupcový graf jako první objekt. Vložený list, `Sheet1`, obsahuje následující zdrojový rozsah `A1:C4`. Řádek 3 a sloupec C jsou skryté, ale jejich buňky stále obsahují hodnoty.
+[Vzorová prezentace](hidden-source-data.pptx) obsahuje sloupcový graf jako první tvar na první snímku. Vložený list, `Sheet1`, obsahuje následující zdrojový rozsah `A1:C4`. Řádek 3 a sloupec C jsou skryté, ale jejich buňky stále obsahují hodnoty.
 
 | Řádek listu | A: Měsíc | B: Maloobchod | C: Velkoobchod (skrytý sloupec) |
 | --- | --- | --- | --- |
@@ -41,9 +41,9 @@ Stáhněte [hidden-source-data.pptx](hidden-source-data.pptx) a umístěte jej d
 | 3 (skrytý řádek) | Únor | 40 | 60 |
 | 4 | Březen | 20 | 50 |
 
-Přístup ke zdrojovým buňkám získáte pomocí [ChartData::getChartDataWorkbook](https://reference.aspose.com/slides/cs/php-java/aspose.slides/chartdata/getchartdataworkbook/) a přečtěte [ChartDataCell::isHidden](https://reference.aspose.com/slides/cs/php-java/aspose.slides/chartdatacell/ishidden/) k prozkoumání jejich skrytého stavu. Tato metoda vrací skrytý stav, aniž by jej měnila. V tomto souboru je B2 viditelná, B3 patří ke skrytému řádku a C2 patří ke skrytému sloupci; příklad vypíše `false`, `true` a `true`.
+Přístup ke zdrojovým buňkám získáte pomocí [ChartData::getChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/getchartdataworkbook/) a přečtete [ChartDataCell::isHidden](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatacell/ishidden/) pro kontrolu jejich skrytého stavu. Tato metoda vrací stav skrytí, aniž by jej měnila. V tomto souboru je B2 viditelný, B3 patří ke skrytému řádku a C2 patří ke skrytému sloupci; příklad vytiskne `false`, `true` a `true`.
 
-Pro tento příklad obnovte data grafu po změně nastavení vykreslování: zachovejte vloženou pracovní knihu pomocí [readWorkbookStream](https://reference.aspose.com/slides/cs/php-java/aspose.slides/chartdata/readworkbookstream/) a načtěte ji znovu pomocí [writeWorkbookStream](https://reference.aspose.com/slides/cs/php-java/aspose.slides/chartdata/writeworkbookstream/). Při zahrnutí všech buněk také použijte [setRange](https://reference.aspose.com/slides/cs/php-java/aspose.slides/chartdata/setrange/) k obnovení úplného rozsahu, včetně skryté kategorie únor. Pouhé změnění příznaku není dostačující k aktualizaci cache dat grafu a popisků kategorií v tomto vzorku.
+Pro tento příklad po změně nastavení vykreslování obnovte data grafu: zachovejte vloženou knihovnu pomocí [readWorkbookStream](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/readworkbookstream/) a načtěte ji zpět pomocí [writeWorkbookStream](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/writeworkbookstream/). Při zahrnutí všech buněk také použijte [setRange](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/setrange/) k obnovení celého rozsahu, včetně skryté kategorie únor. Pouze změna příznaku nestačí k obnovení cache dat a popisků kategorií v tomto vzorku.
 
 ```php
 use aspose\slides\Presentation;
@@ -65,10 +65,10 @@ try {
         foreach ([true, false] as $visibleOnly) {
             $chart->setPlotVisibleCellsOnly($visibleOnly);
 
-            // Obnovit data grafu z vložené pracovní knihy.
+            // Obnovte data grafu z vložené pracovní knihy.
             $chart->getChartData()->writeWorkbookStream($workbookData);
             if (!$visibleOnly) {
-                // Obnovit úplný zdrojový rozsah, včetně skrytých kategorií.
+                // Obnovte celý zdrojový rozsah, včetně skrytých kategorií.
                 $chart->getChartData()->setRange('Sheet1!$A$1:$C$4');
             }
 
@@ -82,19 +82,58 @@ try {
 }
 ```
 
-Příklad uloží `hidden_cells_true.pptx` pouze s viditelnými hodnotami Maloobchod (10 a 20) a `hidden_cells_false.pptx` se všemi šesti hodnotami. Obrázky níže ilustrují dva režimy vykreslování. Řádek 3 a sloupec C zůstávají skryté v obou vložených pracovnicích.
+Příklad ukládá dvě verze prezentace: jednu pouze s viditelnými hodnotami Maloobchodu (10 a 20) a druhou se všemi šesti hodnotami. Obrázky níže ilustrují dva režimy vykreslování. Řádek 3 a sloupec C zůstávají skryté v obou vložených knihovnách.
 
 | Pouze viditelné buňky (`true`) | Všechny buňky (`false`) |
 | --- | --- |
-| ![Pouze viditelné buňky: hodnoty Maloobchod 10 a 20 pro Leden a Březen.](hidden_cells_True.png) | ![Všechny buňky: hodnoty Maloobchod a Velkoobchod pro Leden, Únor a Březen.](hidden_cells_False.png) |
+| ![Pouze viditelné buňky: Maloobchodní hodnoty 10 a 20 pro leden a březen.](hidden_cells_True.png) | ![Všechny buňky: Maloobchodní a velkoobchodní hodnoty pro leden, únor a březen.](hidden_cells_False.png) |
 
-Skrytá buňka obsahující hodnotu se liší od prázdné buňky. [Chart::setDisplayBlanksAs](https://reference.aspose.com/slides/cs/php-java/aspose.slides/chart/setdisplayblanksas/) řídí, jak jsou zobrazovány chybějící hodnoty; nezahrnuje ani nevynechává skrytá zdrojová data. Viz [Řízení zobrazování prázdných buněk](/slides/cs/php-java/chart-series/#control-the-display-of-empty-cells) pro příklad.
+Skrytá buňka obsahující hodnotu se liší od prázdné buňky. [Chart::setDisplayBlanksAs](https://reference.aspose.com/slides/php-java/aspose.slides/chart/setdisplayblanksas/) řídí, jak se zobrazují chybějící hodnoty; nezahrnuje ani nevynechává skryté zdrojové údaje. Viz [Ovládání zobrazení prázdných buněk](/slides/cs/php-java/chart-series/#control-the-display-of-empty-cells) pro příklad.
 
-## **Číst a zapisovat data grafu z pracovnice**
+## **Získání rozsahu dat grafu**
 
-Aspose.Slides for PHP via Java poskytuje metody [readWorkbookStream](https://reference.aspose.com/slides/cs/php-java/aspose.slides/chartdata/readworkbookstream/) a [writeWorkbookStream](https://reference.aspose.com/slides/cs/php-java/aspose.slides/chartdata/writeworkbookstream/), které umožňují číst a zapisovat pracovní knihy grafů (obsahující data grafu upravená pomocí Aspose.Cells). **Poznámka**: data grafu musí být uspořádána stejným způsobem nebo musí mít strukturu podobnou zdroji.
+Před aktualizací dat knihovny v existující prezentaci zkontrolujte zdrojové rozsahy, abyste identifikovali, které buňky listu každému grafu používá. Metoda [ChartData::getRange](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/getrange/) vrací aktuální datový rozsah jako formulář kvalifikovaný listem, například `Sheet1!$A$1:$D$5`. Zde `Sheet1` je název listu, `!` jej odděluje od rozsahu buněk a `$A$1:$D$5` určuje buňky A1 až D5 včetně. Znak `$` označuje absolutní odkazy na řádky a sloupce.
 
-Tento příklad otevře `chart.pptx`, který musí na svém prvním snímku obsahovat graf jako první objekt. Načte vloženou pracovní knihu do pole bajtů, vymaže existující řady a kategorie a zapíše zpět stejnou pracovní knihu. Změny zůstávají v paměti; příklad neukládá prezentaci.
+Metoda čte aktuální rozsah, aniž by měnila graf nebo jeho knihovnu. Pokud graf nepoužívá knihovnu jako zdroj dat, vyvolá výjimku. Další informace naleznete v [ChartData API Reference](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/).
+
+Tento příklad otevře prezentaci a zkontroluje tvary přímo na každém snímku, zda jsou grafy. Vytiskne název každého grafu a jeho zdrojový rozsah. Pokud graf nepoužívá knihovnu, vytiskne zprávu a pokračuje dalším grafem.
+
+```php
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("presentation.pptx");
+try {
+    $slideCount = java_values($presentation->getSlides()->size());
+    for ($slideIndex = 0; $slideIndex < $slideCount; $slideIndex++) {
+        $slide = $presentation->getSlides()->get_Item($slideIndex);
+        $shapeCount = java_values($slide->getShapes()->size());
+        for ($shapeIndex = 0; $shapeIndex < $shapeCount; $shapeIndex++) {
+            $shape = $slide->getShapes()->get_Item($shapeIndex);
+            if (java_instanceof($shape, new JavaClass("com.aspose.slides.IChart"))) {
+                $chart = $shape;
+                try {
+                    $range = $chart->getChartData()->getRange();
+                    echo $chart->getName() . ": " . $range, PHP_EOL;
+                } catch (JavaException $exception) {
+                    if (java_instanceof($exception, new JavaClass("com.aspose.slides.exceptions.InvalidOperationException"))) {
+                        echo $chart->getName() . ": The chart does not use a workbook as its data source.", PHP_EOL;
+                    } else {
+                        echo $chart->getName() . ": " . $exception->getMessage(), PHP_EOL;
+                    }
+                }
+            }
+        }
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+## **Čtení a zápis dat grafu z knihovny**
+
+Aspose.Slides for PHP via Java poskytuje metody [readWorkbookStream](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/readworkbookstream/) a [writeWorkbookStream](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/writeworkbookstream/), které umožňují číst a zapisovat knihovny dat grafu (obsahující data grafu upravená pomocí Aspose.Cells). **Poznámka** že data grafu musí být uspořádána stejným způsobem nebo musí mít strukturu podobnou zdroji.
+
+Tento příklad použije prezentaci s grafem jako první tvar na první snímku. Načte vloženou knihovnu do pole bajtů, vymaže existující řady a kategorie a zapíše stejnou knihovnu zpět. Změny zůstávají v paměti; příklad neukládá prezentaci.
 
 ```php
 use aspose\slides\Presentation;
@@ -121,9 +160,9 @@ try {
 }
 ```
 
-### **Ověřit rozvržení grafu po úpravě pracovnice**
+### **Ověření rozvržení grafu po úpravě knihovny**
 
-Když nahradíte vloženou pracovní knihu upravenou, graf si zachová původní kolekce řad a kategorií. Tento nesoulad může způsobit selhání [Chart::validateChartLayout](https://reference.aspose.com/slides/cs/php-java/aspose.slides/chart/validatechartlayout/) s chybou index mimo rozsah. Před zápisem aktualizované pracovní knihy zpět do grafu vymažte existující řady a kategorie. Tento příklad vyžaduje `chart.pptx` s grafem jako první objekt na prvním snímku. Komentář označuje místo, kde by se úprava pracovní knihy měla provést; spustitelný příklad zapíše původní pracovní knihu zpět a ověří rozvržení v paměti.
+Když nahradíte vloženou knihovnu upravenou knihovnou, graf si zachová původní řady a kolekce kategorií. Tento nesoulad může způsobit, že [Chart::validateChartLayout](https://reference.aspose.com/slides/php-java/aspose.slides/chart/validatechartlayout/) selže s chybou indexu mimo rozsah. Vymažte existující řady a kategorie před zápisem aktualizované knihovny zpět do grafu. Tento příklad použije graf, který je první tvar na první snímku. Komentář označuje místo, kde by úprava knihovny proběhla; spustitelný příklad zapíše původní knihovnu zpět a ověří rozvržení v paměti.
 
 ```php
 use aspose\slides\Presentation;
@@ -138,7 +177,7 @@ try {
         $chartData = $chart->getChartData();
         $workbookData = $chartData->readWorkbookStream();
 
-        // Zde upravte bajty pracovní knihy, například pomocí Aspose.Cells.
+        // Upravte zde bajty pracovního sešitu, například pomocí Aspose.Cells.
 
         $chartData->getSeries()->clear();
         $chartData->getCategories()->clear();
@@ -153,20 +192,13 @@ try {
 }
 ```
 
-Vyprázdnění kolekcí odstraní zastaralé odkazy na data před zápisem pracovní knihy zpět. Před použitím grafu obnovte potřebné mapování řad a kategorií pro aktualizovanou pracovní knihu.
+Vymazání kolekcí odstraní zastaralé odkazy na data před zápisem knihovny. Přestavte jakékoli požadované mapování řad a kategorií pro aktualizovanou knihovnu před použitím grafu.
 
-## **Nastavit buňku pracovnice jako popisek dat grafu**
+## **Nastavení buňky knihovny jako popisku dat grafu**
 
-Můžete použít text z buněk pracovnice jako popisky dat grafu. Následující kroky ukazují, jak propojit popisky v bublinovém grafu s buňkami v jeho datové pracovnici.
+Můžete použít text z buněk knihovny jako popisky dat grafu.
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/php-java/aspose.slides/presentation/).
-2. Získejte první snímek pomocí nulového indexu.
-3. Přidejte bublinový graf s výchozími daty.
-4. Získejte řadu grafu.
-5. Nastavte buňku pracovnice jako popisek dat.
-6. Uložte prezentaci.
-
-Tento příklad otevře `chart2.pptx`, který musí obsahovat alespoň jeden snímek, a přidá bublinový graf s výchozími daty. Použije buňky A10:A12 na listu 0 pro první tři popisky v první řadě, povolí popisky z buněk a výsledek uloží do `resultchart.pptx`.
+Tento příklad přidá bublinový graf s výchozími daty na první snímek existující prezentace. Použije buňky A10:A12 na listu 0 pro první tři popisky v první řadě, povolí popisky z buněk a uloží aktualizovanou prezentaci.
 
 ```php
 use aspose\slides\Presentation;
@@ -194,7 +226,7 @@ try {
 
 ## **Správa listů**
 
-Metoda [ChartDataWorkbook::getWorksheets](https://reference.aspose.com/slides/cs/php-java/aspose.slides/chartdataworkbook/getworksheets/) poskytuje přístup k listům v pracovnici grafu. Tento příklad vytvoří koláčový graf s výchozími daty a vypíše název každého listu do konzole.
+Metoda [ChartDataWorkbook::getWorksheets](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/getworksheets/) poskytuje přístup k listům v knihovně grafu. Tento příklad vytvoří výsečový graf s výchozími daty a vypíše název každého listu do konzole.
 
 ```php
 use aspose\slides\Presentation;
@@ -215,9 +247,9 @@ try {
 }
 ```
 
-## **Určit typ zdroje dat**
+## **Určení typu zdroje dat**
 
-Tento příklad vytvoří 3D sloupcový graf s výchozími daty a nastaví dva názvy řad pomocí různých zdrojů dat. První název používá řetězcový literál; druhý používá buňku C1 na listu 0. Výčet [DataSourceType](https://reference.aspose.com/slides/cs/php-java/aspose.slides/datasourcetype/) vybírá zdroj pro každý název. Výsledek je uložen do `pres.pptx`.
+Tento příklad vytvoří 3D sloupcový graf s výchozími daty a nastaví dva názvy řad pomocí různých zdrojů dat. První název použije řetězcový literál; druhý použije buňku C1 na listu 0. Výčtová hodnota [DataSourceType](https://reference.aspose.com/slides/php-java/aspose.slides/datasourcetype/) vybírá zdroj pro každý název. Příklad uloží prezentaci s aktualizovanými názvy řad.
 
 ```php
 use aspose\slides\Presentation;
@@ -246,9 +278,9 @@ try {
 }
 ```
 
-## **Detekce nepodporovaných formátů vložených pracovnic**
+## **Detekce nepodporovaných formátů vložených knihoven**
 
-Aspose.Slides nepodporuje binární formát Excelu (.xlsb), který může být vložen v některých grafech. Můžete použít metodu `getEmbeddedWorkbookType` na [ChartData](https://reference.aspose.com/slides/cs/php-java/aspose.slides/chartdata/) spolu s výčtem [WorkbookType](https://reference.aspose.com/slides/cs/php-java/aspose.slides/workbooktype/) k detekci nepodporovaných formátů a přeskočení těchto grafů. Tento příklad prozkoumá objekty na prvním snímku `sample.pptx`, přeskočí objekty, které nejsou grafy, a vypíše diagnostickou zprávu pro každý graf s vloženou pracovnicí .xlsb.
+Aspose.Slides nepodporuje binární formát Excelu (.xlsb), který může být vložen v některých grafech. Můžete použít metodu `getEmbeddedWorkbookType` na [ChartData](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/) spolu s výčtem [WorkbookType](https://reference.aspose.com/slides/php-java/aspose.slides/workbooktype/) k detekci nepodporovaných formátů a přeskočení těchto grafů. Tento příklad prozkoumá tvary na prvním snímku existující prezentace, přeskočí tvary, které nejsou grafy, a vytiskne diagnostickou zprávu pro každý graf s vloženou knihovnou .xlsb.
 
 ```php
 use aspose\slides\Presentation;
@@ -276,22 +308,22 @@ try {
             continue;
         }
 
-        // Zde načtěte nebo upravte podporovaná data pracovnice grafu.
+        // Přečtěte nebo upravte podporovaná data pracovního sešitu grafu zde.
     }
 } finally {
     $presentation->dispose();
 }
 ```
 
-## **Externí pracovní kniha**
+## **Externí knihovna**
 
-Aspose.Slides podporuje používání externích pracovnic jako zdrojů dat pro grafy.
+Aspose.Slides podporuje používání externích knihoven jako zdroje dat pro grafy.
 
-### **Vytvořit externí pracovní knihu**
+### **Vytvoření externí knihovny**
 
-Použijte [readWorkbookStream](https://reference.aspose.com/slides/cs/php-java/aspose.slides/chartdata/readworkbookstream/) a [setExternalWorkbook](https://reference.aspose.com/slides/cs/php-java/aspose.slides/chartdata/setexternalworkbook/) k exportu vložené pracovnice grafu do souboru a propojení grafu s touto externí pracovnicí.
+Použijte [readWorkbookStream](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/readworkbookstream/) a [setExternalWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/setexternalworkbook/) k exportu vložené knihovny grafu do souboru a propojení grafu s touto externí knihovnou.
 
-Tento příklad vytvoří koláčový graf s výchozími daty, zapíše jeho pracovní knihu do `externalWorkbook1.xlsx` a dokončí zápis souboru před přiřazením souboru jako zdroje dat grafu. Uloží propojenou prezentaci do `externalWorkbook.pptx`.
+Tento příklad vytvoří výsečový graf s výchozími daty a exportuje jeho knihovnu. Dokončí zápis souboru před přiřazením externí knihovny jako zdroje dat grafu, poté uloží propojenou prezentaci.
 
 ```php
 use aspose\slides\Presentation;
@@ -313,6 +345,7 @@ try {
             $fileStream->close();
         }
         $chart->getChartData()->setExternalWorkbook($workbookPath->getAbsolutePath());
+        
         $presentation->save("externalWorkbook.pptx", SaveFormat::Pptx);
     } catch (JavaException $exception) {
         echo "Could not write the external workbook: " . $exception->getMessage(), PHP_EOL;
@@ -322,13 +355,13 @@ try {
 }
 ```
 
-### **Nastavit externí pracovní knihu**
+### **Nastavení externí knihovny**
 
-Při použití metody [setExternalWorkbook](https://reference.aspose.com/slides/cs/php-java/aspose.slides/chartdata/setexternalworkbook/) můžete přiřadit externí pracovní knihu k grafu jako zdroj dat. Tuto metodu lze také použít k aktualizaci cesty k externí pracovní knize (pokud byla přesunuta).
+Pomocí metody [setExternalWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/setexternalworkbook/) můžete přiřadit externí knihovnu grafu jako jeho zdroj dat. Tuto metodu lze také použít k aktualizaci cesty k externí knihovně (pokud byla přesunuta).
 
-I když nemůžete upravovat data v pracovnicích uložených na vzdálených místech nebo zdrojích, můžete takové pracovní knihy stále použít jako externí zdroj dat. Pokud je zadána relativní cesta k externí pracovní knize, automaticky se převede na úplnou cestu.
+Ačkoliv nemůžete upravovat data v knihovnách uložených na vzdálených místech nebo v prostředcích, můžete takové knihovny nadále používat jako externí zdroj dat. Pokud je zadána relativní cesta k externí knihovně, automaticky se převede na úplnou cestu.
 
-Tento příklad vyžaduje `externalWorkbook.xlsx` v pracovním adresáři. Jeho list s názvem `Sheet1` musí obsahovat název řady v B1, názvy kategorií v A2:A4 a číselné hodnoty v B2:B4. Příklad vytvoří koláčový graf, propojí pracovní knihu a použije [setRange](https://reference.aspose.com/slides/cs/php-java/aspose.slides/chartdata/setrange/) k mapování A1:B4 na jednu řadu a tři kategorie. Výsledek uloží do `Presentation_with_externalWorkbook.pptx`.
+Tento příklad použije externí knihovnu, jejíž list pojmenovaný `Sheet1` obsahuje název řady v B1, názvy kategorií v A2:A4 a číselné hodnoty v B2:B4. Příklad vytvoří výsečový graf, propojí knihovnu a použije [setRange](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/setrange/) k mapování A1:B4 na jednu řadu a tři kategorie. Uloží prezentaci s propojeným grafem.
 
 ```php
 use aspose\slides\Presentation;
@@ -353,12 +386,12 @@ try {
 }
 ```
 
-Parametr `updateChartData` metody [setExternalWorkbook](https://reference.aspose.com/slides/cs/php-java/aspose.slides/chartdata/setexternalworkbook/) určuje, zda se pracovní kniha načte.
+Parametr `updateChartData` metody [setExternalWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/setexternalworkbook/) řídí, zda se knihovna načte.
 
-* Když je `updateChartData` `false`, aktualizuje se pouze cesta k pracovní knize. Data grafu nejsou načtena ani aktualizována ze cílové pracovní knihy, takže může být neexistující.
-* Když je `updateChartData` `true`, data grafu jsou aktualizována ze cílové pracovní knihy.
+* Když je `updateChartData` `false`, aktualizuje se pouze cesta k souboru knihovny. Data grafu nejsou načtena ani aktualizována ze cílové knihovny, takže knihovna může být nedostupná.
+* Když je `updateChartData` `true`, data grafu jsou aktualizována ze cílové knihovny.
 
-Následující příklad přiřadí zástupnou URL s nastaveným `updateChartData` na `false`. Zachová výchozí data koláčového grafu a uloží prezentaci bez načtení nedostupné pracovní knihy.
+Následující příklad přiřadí zástupný URL s `updateChartData` nastaveným na `false`. Zachová výchozí data výsečového grafu a uloží prezentaci, aniž by načetl nedostupnou knihovnu.
 
 ```php
 use aspose\slides\Presentation;
@@ -378,17 +411,11 @@ try {
 }
 ```
 
-### **Získat cestu externí pracovní knihy zdroje dat grafu**
+### **Získání cesty ke zdrojové externí knihovně grafu**
 
-Aby bylo možné zjistit pracovní knihu připojenou ke grafu, nejprve ověřte, zda graf používá externí zdroj dat. Pokud ano, můžete získat cestu k pracovní knize podle následujících kroků.
+Pro identifikaci knihovny propojené s grafem zkontrolujte, zda graf používá externí zdroj dat, a získejte její cestu.
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/php-java/aspose.slides/presentation/).
-2. Získejte první snímek pomocí nulového indexu.
-3. Zkontrolujte, že první objekt je graf.
-4. Přečtěte typ zdroje dat grafu.
-5. Pokud je zdroj externí pracovní kniha, přečtěte její cestu.
-
-Tento příklad otevře `externalWorkbook.pptx`, vytvořený v předchozím příkladu, a prověří první objekt na prvním snímku. Pokud je to graf propojený s externí pracovní knihou, příklad vypíše [getExternalWorkbookPath](https://reference.aspose.com/slides/cs/php-java/aspose.slides/chartdata/getexternalworkbookpath/) do konzole. Poté uloží kopii prezentace do `Result.pptx`.
+Tento příklad zkoumá první tvar na první snímku prezentace s propojenou externí knihovnou. Pokud se jedná o graf propojený s externí knihovnou, vytiskne [getExternalWorkbookPath](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/getexternalworkbookpath/) do konzole. Poté uloží kopii prezentace.
 
 ```php
 use aspose\slides\Presentation;
@@ -418,11 +445,11 @@ try {
 }
 ```
 
-### **Upravit data grafu**
+### **Úprava dat grafu**
 
-Můžete upravovat data v externích pracovnicích stejným způsobem, jako provádíte změny v obsahu interních pracovnic. Když není externí pracovní kniha načtena, je vyvolána výjimka.
+Můžete upravovat data v externích knihovnách stejným způsobem, jako měníte obsah interních knihoven. Když není externí knihovna načtena, vyvolá se výjimka.
 
-Tento příklad vyžaduje `presentation.pptx` s grafem jako první objekt na prvním snímku a přístupnou externí pracovní knihu. Nastaví hodnotu buňky odpovídající prvnímu datovému bodu v první řadě na 100 a uloží prezentaci do `presentation_out.pptx`. Úprava buněk v grafu může také aktualizovat propojený externí soubor XLSX, proto použijte kopii, pokud potřebujete zachovat původní pracovní knihu.
+Tento příklad použije graf, který je první tvar na první snímku a je propojen s přístupnou externí knihovnou. Nastaví hodnotu na buňce pro první datový bod v první řadě na 100 a uloží aktualizovanou prezentaci. Úpravy hodnot buněk mohou aktualizovat propojený externí soubor XLSX, takže použijte kopii, pokud potřebujete zachovat původní knihovnu.
 
 ```php
 use aspose\slides\Presentation;
@@ -455,11 +482,11 @@ try {
 }
 ```
 
-### **Obnovit pracovní knihu z mezipaměti grafu**
+### **Obnovení knihovny z mezipaměti grafu**
 
-Pokud graf používá externí pracovní knihu, která chybí nebo není dostupná, Aspose.Slides může rekonstruovat pracovní knihu grafu z dat uložených v mezipaměti prezentace. Vytvořte [LoadOptions](https://reference.aspose.com/slides/cs/php-java/aspose.slides/loadoptions/), zavolejte [LoadOptions::setSpreadsheetOptions](https://reference.aspose.com/slides/cs/php-java/aspose.slides/loadoptions/setspreadsheetoptions/) a nastavte [SpreadsheetOptions::setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/cs/php-java/aspose.slides/spreadsheetoptions/setrecoverworkbookfromchartcache/) na `true` před otevřením prezentace.
+Pokud graf používá externí knihovnu, která chybí nebo není dostupná, Aspose.Slides může rekonstruovat knihovnu grafu z dat uložených v mezipaměti prezentace. Vytvořte [LoadOptions](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/), zavolejte [LoadOptions::setSpreadsheetOptions](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/setspreadsheetoptions/) a nastavte [SpreadsheetOptions::setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/php-java/aspose.slides/spreadsheetoptions/setrecoverworkbookfromchartcache/) na `true` před otevřením prezentace.
 
-Následující PHP příklad otevře `presentation.pptx`, jehož první objekt na prvním snímku musí být graf odkazující na nedostupnou externí pracovní knihu, a přistoupí k obnoveným datům prostřednictvím [Chart::getChartData](https://reference.aspose.com/slides/cs/php-java/aspose.slides/chart/getchartdata/) a [ChartData::getChartDataWorkbook](https://reference.aspose.com/slides/cs/php-java/aspose.slides/chartdata/getchartdataworkbook/):
+Následující PHP příklad obnoví data knihovny pro graf, který je první tvar na první snímku a odkazuje na nedostupnou externí knihovnu. Přístup k obnoveným datům získáte pomocí [Chart::getChartData](https://reference.aspose.com/slides/php-java/aspose.slides/chart/getchartdata/) a [ChartData::getChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/getchartdataworkbook/):
 
 ```php
 use aspose\slides\Presentation;
@@ -481,7 +508,7 @@ try {
         $chart = $slide->getShapes()->get_Item(0);
         $recoveredWorkbook = $chart->getChartData()->getChartDataWorkbook();
 
-        // Načtěte nebo upravte obnovená data pracovnice zde.
+        // Přečtěte nebo upravte zde obnovená data pracovního sešitu.
     } else {
         echo "The first shape is not a chart.", PHP_EOL;
     }
@@ -490,30 +517,30 @@ try {
 }
 ```
 
-Pokud je externí pracovní kniha nedostupná a obnova je vypnuta, Aspose.Slides vyvolá výjimku. Povolení obnovy použijte jen v případě, že je použití dat z mezipaměti grafu přijatelným řešením, protože mezipaměť nemusí obsahovat změny provedené v externí pracovní knize po poslední aktualizaci prezentace.
+Pokud je externí knihovna nedostupná a obnova je zakázána, Aspose.Slides vyvolá výjimku. Povolení obnovy použijte pouze tehdy, když je použití cache dat přijatelnou náhradou, protože cache nemusí obsahovat změny provedené v externí knihovně po poslední aktualizaci prezentace.
 
 ## **Často kladené otázky**
 
-**Mohu určit, zda je konkrétní graf propojen s externí nebo vloženou pracovnicí?**
+**Mohu určit, zda je konkrétní graf propojen s externí nebo vloženou knihovnou?**
 
-Ano. Graf má [typ zdroje dat](https://reference.aspose.com/slides/cs/php-java/aspose.slides/chartdata/getdatasourcetype/) a [cestu k externí pracovní knize](https://reference.aspose.com/slides/cs/php-java/aspose.slides/chartdata/getexternalworkbookpath/); pokud je zdroj externí pracovní kniha, můžete přečíst úplnou cestu a ověřit, že je používán externí soubor.
+Ano. Graf má [typ zdroje dat](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/getdatasourcetype/) a [cestu k externí knihovně](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/getexternalworkbookpath/); pokud je zdroj externí knihovna, můžete přečíst úplnou cestu a ujistit se, že se používá externí soubor.
 
-**Jsou podporovány relativní cesty k externím pracovnicím a jak jsou uloženy?**
+**Jsou relativní cesty k externím knihovnám podporovány a jak jsou uloženy?**
 
-Ano. Pokud zadáte relativní cestu, automaticky se převede na absolutní cestu. Prezentace ukládá absolutní cestu v souboru PPTX, takže při přesunu pracovní knihy může být nutné aktualizovat odkaz.
+Ano. Pokud zadáte relativní cestu, automaticky se převede na absolutní cestu. Prezentace uloží absolutní cestu v souboru PPTX, takže při přesunu knihovny může být nutné aktualizovat odkaz.
 
-**Mohu používat pracovní knihy umístěné na síťových zdrojích/sdílených složkách?**
+**Mohu použít knihovny umístěné na síťových zdrojích/ sdíleních?**
 
-Ano, takové pracovní knihy lze použít jako externí zdroj dat. Úprava vzdálených pracovnic přímo z Aspose.Slides však není podporována – mohou být použity pouze jako zdroj.
+Ano, takové knihovny lze použít jako externí zdroj dat. Úprava vzdálených knihoven přímo z Aspose.Slides však není podporována — mohou být použity jen jako zdroj.
 
 **Přepisuje Aspose.Slides externí soubor XLSX při ukládání prezentace?**
 
-Prezentace ukládá [odkaz na externí soubor](https://reference.aspose.com/slides/cs/php-java/aspose.slides/chartdata/getexternalworkbookpath/). Úprava buněk v grafu může také aktualizovat propojený lokální soubor XLSX. Použijte kopii pracovní knihy, pokud musí zůstat originál nezměněn.
+Prezentace ukládá [odkaz na externí soubor](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/getexternalworkbookpath/). Úpravy dat grafu založených na buňkách mohou také aktualizovat propojený lokální soubor XLSX. Použijte kopii knihovny, pokud musí originál zůstat nezměněn.
 
 **Co mám dělat, pokud je externí soubor chráněn heslem?**
 
-Aspose.Slides neakceptuje heslo při propojení. Běžný postup je odstranit ochranu předem nebo připravit dešifrovanou kopii (např. pomocí [Aspose.Cells](https://reference.aspose.com/cells/java/)) a odkazovat na tuto kopii.
+Aspose.Slides neakceptuje heslo při propojení. Obvyklý postup je odstranit ochranu předem nebo připravit dešifrovanou kopii (například pomocí [Aspose.Cells](https://reference.aspose.com/cells/java/)) a odkazovat se na tuto kopii.
 
-**Může více grafů odkazovat na stejnou externí pracovní knihu?**
+**Může více grafů odkazovat na stejnou externí knihovnu?**
 
-Ano. Každý graf ukládá svůj vlastní odkaz. Pokud všechny ukazují na stejný soubor, aktualizace tohoto souboru se projeví v každém grafu při dalším načtení dat.
+Ano. Každý graf ukládá svůj vlastní odkaz. Pokud všechny odkazují na stejný soubor, aktualizace tohoto souboru se projeví ve všech grafech při dalším načtení dat.

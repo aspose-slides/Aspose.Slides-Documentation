@@ -1,5 +1,5 @@
 ---
-title: Diagrammen in PowerPoint‑presentaties maken of bijwerken in .NET
+title: Diagrammen in PowerPoint-presentaties maken of bijwerken in .NET
 linktitle: Diagrammen maken of bijwerken
 type: docs
 weight: 10
@@ -14,59 +14,59 @@ keywords:
 - taartdiagram
 - lijndiagram
 - boomkaartdiagram
-- aandelen‑diagram
-- box‑en‑whisker‑diagram
+- aandelen diagram
+- box-en-whisker-diagram
 - trechterdiagram
-- sunburst‑diagram
+- sunburst-diagram
 - histogramdiagram
 - radardiagram
-- multicategorie‑diagram
+- multicategorie diagram
 - PowerPoint
 - presentatie
 - .NET
 - C#
 - Aspose.Slides
-description: "Diagrammen maken en aanpassen in PowerPoint‑presentaties met Aspose.Slides voor .NET. Diagrammen toevoegen, opmaken en bewerken met praktische code‑voorbeelden in C#."
+description: "Diagrammen maken en aanpassen in PowerPoint-presentaties met Aspose.Slides voor .NET. Diagrammen toevoegen, opmaken en bewerken met praktische code-voorbeelden in C#."
 ---
 ## **Overzicht**
 
-Dit artikel biedt een uitgebreide gids over hoe je diagrammen kunt maken en aanpassen met Aspose.Slides voor .NET. Je leert hoe je programmatisch een diagram aan een dia toevoegt, het vult met gegevens, en verschillende opmaakopties toepast om aan je specifieke ontwerpeisen te voldoen. Door het hele artikel heen illustreren gedetailleerde code‑voorbeelden elke stap, van het initialiseren van de presentatie en het diagramobject tot het configureren van series, assen en legenden. Door deze gids te volgen, krijg je een solide begrip van hoe je dynamische diagramgeneratie in je .NET‑toepassingen kunt integreren, waardoor het proces van het maken van datagedreven presentaties wordt gestroomlijnd.
+Dit artikel biedt een uitgebreide gids over hoe je diagrammen kunt maken en aanpassen met Aspose.Slides voor .NET. Je leert hoe je programmatisch een diagram toevoegt aan een dia, het vult met gegevens, en verschillende opmaakopties toepast om te voldoen aan je specifieke ontwerpvereisten. Door het hele artikel heen illustreren gedetailleerde code‑voorbeelden elke stap, van het initialiseren van de presentatie en het diagramobject tot het configureren van series, assen en legenda’s. Door deze gids te volgen, krijg je een solide begrip van hoe je dynamische diagramgeneratie kunt integreren in je .NET‑toepassingen, waardoor het proces van het maken van gegevens‑gedreven presentaties wordt gestroomlijnd.
 
 ## **Diagram maken**
 
-Diagrammen helpen mensen om snel gegevens te visualiseren en inzichten te verkrijgen die niet meteen duidelijk zijn uit een tabel of spreadsheet.
+Diagrammen helpen mensen snel gegevens te visualiseren en inzichten te verkrijgen die niet meteen duidelijk zijn uit een tabel of spreadsheet.
 
 **Waarom diagrammen maken?**
 
-* grote hoeveelheden gegevens samenvatten, condenseren of aggregeren op één dia in een presentatie;
+* grotere hoeveelheden gegevens samenvatten, consolideren of condenseren op één dia in een presentatie;
 * patronen en trends in gegevens blootleggen;
-* de richting en het momentum van gegevens over tijd of ten opzichte van een specifieke meeteenheid afleiden;
-* uitbijters, afwijkingen, afwijkende waarden, fouten en onzinnige gegevens opsporen;
+* de richting en dynamiek van gegevens in de tijd of ten opzichte van een specifieke meeteenheid afleiden;
+* uitbijters, afwijkingen, afwijkende waarden, fouten en onsamenhangende gegevens opsporen;
 * complexe gegevens communiceren of presenteren.
 
-In PowerPoint kun je diagrammen maken via de *Insert*-functie, die sjablonen biedt voor het ontwerpen van veel soorten diagrammen. Met Aspose.Slides kun je zowel gewone diagrammen (gebaseerd op populaire diagramtypen) als aangepaste diagrammen maken.
+In PowerPoint kun je diagrammen maken via de *Invoegen*-functie, die sjablonen biedt voor het ontwerpen van veel verschillende diagramtypen. Met Aspose.Slides kun je zowel reguliere diagrammen (gebaseerd op populaire diagramtypen) als aangepaste diagrammen maken.
 
 {{% alert color="info" %}} 
-Gebruik de [ChartType](https://reference.aspose.com/slides/nl/net/aspose.slides.charts/charttype/) enumeratie onder de [Aspose.Slides.Charts](https://reference.aspose.com/slides/nl/net/aspose.slides.charts/) namespace. De waarden in deze enumeratie komen overeen met verschillende diagramtypen.
+Gebruik de [ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) enumeratie onder de namespace [Aspose.Slides.Charts](https://reference.aspose.com/slides/net/aspose.slides.charts/). De waarden in deze enumeratie komen overeen met verschillende diagramtypen.
 {{% /alert %}} 
 
-### **Gegroepeerde kolomdiagrammen maken**
+### **Gegroepeerde kolomdiagrammen**
 
-Deze sectie legt uit hoe je gegroepeerde kolomdiagrammen maakt met Aspose.Slides voor .NET. Je leert een presentatie initialiseren, een diagram toevoegen en de elementen ervan aanpassen, zoals titel, gegevens, series, categorieën en opmaak. Volg de onderstaande stappen om te zien hoe een standaard gegroepeerd kolomdiagram wordt gegenereerd:
+Deze sectie legt uit hoe je gegroepeerde kolomdiagrammen maakt met Aspose.Slides voor .NET. Je leert een presentatie te initialiseren, een diagram toe te voegen en de elementen ervan aan te passen, zoals titel, gegevens, series, categorieën en opmaak. Volg de onderstaande stappen om te zien hoe een standaard gegroepeerd kolomdiagram wordt gegenereerd:
 
-1. Maak een instantie van de klasse [Presentation](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation) aan.
-1. Verkrijg een referentie naar een dia met behulp van de index.
-1. Voeg een diagram toe met enkele gegevens en specificeer het type `ChartType.ClusteredColumn`.
-1. Voeg een titel toe aan het diagram.
-1. Open het gegevenswerkblad van het diagram.
-1. Verwijder alle standaardseries en -categorieën.
-1. Voeg nieuwe series en categorieën toe.
-1. Voeg nieuwe diagramgegevens toe voor de diagramseries.
-1. Pas een vulkleur toe op de diagramseries.
-1. Voeg labels toe aan de diagramseries.
-1. Sla de gewijzigde presentatie op als een PPTX‑bestand.
+1. Maak een instantie van de klasse [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
+2. Verkrijg een referentie naar een dia via de index.
+3. Voeg een diagram toe met enkele gegevens en specificeer het type `ChartType.ClusteredColumn`.
+4. Voeg een titel toe aan het diagram.
+5. Toegang tot het gegevenswerkblad van het diagram.
+6. Verwijder alle standaard series en categorieën.
+7. Voeg nieuwe series en categorieën toe.
+8. Voeg nieuwe diagramgegevens toe voor de diagramseries.
+9. Pas een vulkleur toe op de diagramserie.
+10. Voeg labels toe aan de diagramserie.
+11. Sla de gewijzigde presentatie op als een PPTX‑bestand.
 
-Deze C# code demonstreert hoe je een gegroepeerd kolomdiagram maakt:
+Deze C#‑code toont hoe je een gegroepeerd kolomdiagram maakt:
 
 ```c#
 using System.Drawing;
@@ -74,13 +74,13 @@ using Aspose.Slides;
 using Aspose.Slides.Charts;
 using Aspose.Slides.Export;
 
-// Instantie van de Presentation‑klasse maken.
+// Instantieer de Presentation-klasse.
 using (Presentation presentation = new Presentation())
 {
     // Toegang tot de eerste dia.
     ISlide slide = presentation.Slides[0];
 
-    // Voeg een gegroepeerd kolomdiagram toe met de standaardgegevens.
+    // Voeg een gegroepeerde kolomdiagram toe met de standaardgegevens.
     IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 300);
 
     // Stel de diagramtitel in.
@@ -89,13 +89,13 @@ using (Presentation presentation = new Presentation())
     chart.ChartTitle.Height = 20;
     chart.HasTitle = true;
 
-    // Stel de index van het diagramgegevensblad in.
+    // Stel de index van het diagramdatablad in.
     int worksheetIndex = 0;
 
-    // Haal het diagramgegevens‑werkboek op.
+    // Haal het diagramdatablad op.
     IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
 
-    // Verwijder de standaardgegenereerde series en categorieën.
+    // Verwijder de standaard gegenereerde series en categorieën.
     chart.ChartData.Series.Clear();
     chart.ChartData.Categories.Clear();
 
@@ -111,7 +111,7 @@ using (Presentation presentation = new Presentation())
     // Haal de eerste diagramserie op.
     IChartSeries series = chart.ChartData.Series[0];
 
-    // Vul de gegevens van de serie.
+    // Vul de seriegegevens.
     series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 1, 1, 20));
     series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 2, 1, 50));
     series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 3, 1, 30));
@@ -123,7 +123,7 @@ using (Presentation presentation = new Presentation())
     // Haal de tweede diagramserie op.
     series = chart.ChartData.Series[1];
 
-    // Vul de gegevens van de serie.
+    // Vul de seriegegevens.
     series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 1, 2, 30));
     series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 2, 2, 10));
     series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 3, 2, 60));
@@ -145,7 +145,7 @@ using (Presentation presentation = new Presentation())
     label.DataLabelFormat.ShowSeriesName = true;
     label.DataLabelFormat.Separator = "/";
 
-    // Sla de presentatie op schijf op als een PPTX‑bestand.
+    // Sla de presentatie op naar schijf als een PPTX‑bestand.
     presentation.Save("AsposeChart_out.pptx", SaveFormat.Pptx);
 }
 ```
@@ -154,25 +154,25 @@ Het resultaat:
 
 ![Het gegroepeerde kolomdiagram](clustered_column_chart.png)
 
-### **Spreidingsdiagrammen maken**
+### **Spreidingsdiagrammen**
 
-Spreidingsdiagrammen (ook wel scatter plots of x‑y‑grafieken genoemd) worden vaak gebruikt om patronen te controleren of correlaties tussen twee variabelen aan te tonen.
+Spreidingsdiagrammen (ook wel spreidingsplots of x‑y‑grafieken genoemd) worden vaak gebruikt om patronen te zoeken of correlaties tussen twee variabelen aan te tonen.
 
 Gebruik een spreidingsdiagram wanneer:
 
 * je beschikt over gekoppelde numerieke gegevens.
 * je hebt twee variabelen die goed bij elkaar passen.
-* je wilt bepalen of de twee variabelen gerelateerd zijn.
-* je hebt een onafhankelijke variabele met meerdere waarden voor een afhankelijke variabele.
+* je wilt bepalen of de twee variabelen met elkaar verbonden zijn.
+* je hebt een onafhankelijke variabele die meerdere waarden heeft voor een afhankelijke variabele.
 
-Deze C# code laat zien hoe je een spreidingsdiagram maakt met een andere reeks markers:
+Deze C#‑code laat zien hoe je een spreidingsdiagram maakt met een andere reeks markers:
 
 ```c#
 using Aspose.Slides;
 using Aspose.Slides.Charts;
 using Aspose.Slides.Export;
 
-// Instantie van de Presentation‑klasse maken.
+// Instantieer de Presentation-klasse.
 using (Presentation presentation = new Presentation())
 {
     // Toegang tot de eerste dia.
@@ -181,13 +181,13 @@ using (Presentation presentation = new Presentation())
     // Maak het standaard spreidingsdiagram.
     IChart chart = slide.Shapes.AddChart(ChartType.ScatterWithSmoothLines, 20, 20, 500, 300);
 
-    // Stel de index van het diagramgegevensblad in.
+    // Stel de index van het diagramdatablad in.
     int worksheetIndex = 0;
 
-    // Haal het diagramgegevens‑werkboek op.
+    // Haal het diagramdatablad op.
     IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
 
-    // Verwijder de standaardseries.
+    // Verwijder de standaard series.
     chart.ChartData.Series.Clear();
 
     // Voeg nieuwe series toe.
@@ -203,7 +203,7 @@ using (Presentation presentation = new Presentation())
     // Voeg een nieuw punt (2:10) toe.
     series.DataPoints.AddDataPointForScatterSeries(workbook.GetCell(worksheetIndex, 3, 1, 2), workbook.GetCell(worksheetIndex, 3, 2, 10));
 
-    // Wijzig het serietype.
+    // Wijzig het type van de serie.
     series.Type = ChartType.ScatterWithStraightLinesAndMarkers;
 
     // Wijzig de marker van de diagramserie.
@@ -229,7 +229,7 @@ using (Presentation presentation = new Presentation())
     series.Marker.Size = 10;
     series.Marker.Symbol = MarkerStyleType.Circle;
 
-    // Sla de presentatie op schijf op als een PPTX‑bestand.
+    // Sla de presentatie op naar schijf als een PPTX‑bestand.
     presentation.Save("AsposeChart_out.pptx", SaveFormat.Pptx);
 }
 ```
@@ -238,24 +238,24 @@ Het resultaat:
 
 ![Het spreidingsdiagram](scatter_chart.png)
 
-### **Taartdiagrammen maken**
+### **Taartdiagrammen**
 
-Taartdiagrammen zijn het beste geschikt om de deel‑tot‑geheel‑relatie in gegevens weer te geven, vooral wanneer de gegevens categorische labels met numerieke waarden bevatten. Echter, als je gegevens veel delen of labels bevatten, kun je beter een staafdiagram gebruiken.
+Taartdiagrammen zijn het beste te gebruiken om de deel‑tot‑geheel‑relatie in gegevens te tonen, vooral wanneer de gegevens categorische labels met numerieke waarden bevatten. Als je gegevens echter veel delen of labels bevatten, kun je beter een staafdiagram gebruiken.
 
-1. Maak een instantie van de klasse [Presentation](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation) aan.
-1. Verkrijg een referentie naar een dia met behulp van de index.
-1. Voeg een diagram toe met standaardgegevens en specificeer het type `ChartType.Pie`.
-1. Open het gegevenswerkblad van het diagram ([IChartDataWorkbook](https://reference.aspose.com/slides/nl/net/aspose.slides.charts/ichartdataworkbook/)).
-1. Verwijder de standaardseries en -categorieën.
-1. Voeg nieuwe series en categorieën toe.
-1. Voeg nieuwe diagramgegevens toe voor de diagramseries.
-1. Voeg nieuwe punten toe voor het diagram en pas aangepaste kleuren toe op de sectoren van het taartdiagram.
-1. Stel labels in voor de series.
-1. Schakel leiderslijnen in voor de labels van de series.
-1. Stel de rotatiehoek in voor het taartdiagram.
-1. Sla de gewijzigde presentatie op als een PPTX‑bestand.
+1. Maak een instantie van de klasse [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
+2. Verkrijg een referentie naar een dia via de index.
+3. Voeg een diagram toe met standaardgegevens en specificeer het type `ChartType.Pie`.
+4. Toegang tot het gegevenswerkboek van het diagram ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)).
+5. Verwijder de standaard series en categorieën.
+6. Voeg nieuwe series en categorieën toe.
+7. Voeg nieuwe diagramgegevens toe voor de diagramseries.
+8. Voeg nieuwe punten toe aan het diagram en pas aangepaste kleuren toe op de sectoren van het taartdiagram.
+9. Stel labels in voor de series.
+10. Schakel leader‑lijnen in voor de serie‑labels.
+11. Stel de rotatiehoek in voor het taartdiagram.
+12. Sla de gewijzigde presentatie op als een PPTX‑bestand.
 
-Deze C# code laat zien hoe je een taartdiagram maakt:
+Deze C#‑code toont hoe je een taartdiagram maakt:
 
 ```c#
 using System.Drawing;
@@ -263,7 +263,7 @@ using Aspose.Slides;
 using Aspose.Slides.Charts;
 using Aspose.Slides.Export;
 
-// Instantie van de Presentation‑klasse maken.
+// Instantieer de Presentation-klasse.
 using (Presentation presentation = new Presentation())
 {
     // Toegang tot de eerste dia.
@@ -281,13 +281,13 @@ using (Presentation presentation = new Presentation())
     // Stel de eerste serie in om waarden weer te geven.
     chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
 
-    // Stel de index van het diagramgegevensblad in.
+    // Stel de index van het diagramdatablad in.
     int worksheetIndex = 0;
 
-    // Haal het diagramgegevens‑werkboek op.
+    // Haal het diagramdatablad op.
     IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
 
-    // Verwijder de standaardgegenereerde series en categorieën.
+    // Verwijder de standaard gegenereerde series en categorieën.
     chart.ChartData.Series.Clear();
     chart.ChartData.Categories.Clear();
 
@@ -299,12 +299,12 @@ using (Presentation presentation = new Presentation())
     // Voeg nieuwe series toe.
     IChartSeries series = chart.ChartData.Series.Add(workbook.GetCell(0, 0, 1, "Series 1"), chart.Type);
 
-    // Vul de gegevens van de serie.
+    // Vul de seriedata.
     series.DataPoints.AddDataPointForPieSeries(workbook.GetCell(worksheetIndex, 1, 1, 20));
     series.DataPoints.AddDataPointForPieSeries(workbook.GetCell(worksheetIndex, 2, 1, 50));
     series.DataPoints.AddDataPointForPieSeries(workbook.GetCell(worksheetIndex, 3, 1, 30));
 
-    // Stel de sector‑kleur in.
+    // Stel de sectorkleur in.
     chart.ChartData.SeriesGroups[0].IsColorVaried = true;
 
     IChartDataPoint point = series.DataPoints[0];
@@ -354,13 +354,13 @@ using (Presentation presentation = new Presentation())
     label3.DataLabelFormat.ShowSeriesName = true;
     label3.DataLabelFormat.ShowPercentage = true;
 
-    // Stel de serie in om leiderslijnen voor het diagram weer te geven.
+    // Stel de serie in om leader‑lijnen weer te geven voor het diagram.
     series.Labels.DefaultDataLabelFormat.ShowLeaderLines = true;
 
     // Stel de rotatiehoek in voor de taartdiagramsectoren.
     chart.ChartData.SeriesGroups[0].FirstSliceAngle = 180;
 
-    // Sla de presentatie op schijf op als een PPTX‑bestand.
+    // Sla de presentatie op naar schijf als een PPTX‑bestand.
     presentation.Save("PieChart_out.pptx", SaveFormat.Pptx);
 }
 ```
@@ -369,20 +369,20 @@ Het resultaat:
 
 ![Het taartdiagram](pie_chart.png)
 
-### **Lijndiagrammen maken**
+### **Lijndiagrammen**
 
-Lijndiagrammen (ook wel lijngrafieken genoemd) zijn het meest geschikt voor situaties waarin je veranderingen in waarde over tijd wilt weergeven. Met een lijndiagram kun je een grote hoeveelheid gegevens tegelijk vergelijken, veranderingen en trends over tijd volgen, anomalieën in dataseries benadrukken, en meer.
+Lijndiagrammen (ook wel lijngrafieken genoemd) zijn het beste te gebruiken wanneer je veranderingen in waarde over de tijd wilt aantonen. Met een lijndiagram kun je een grote hoeveelheid gegevens tegelijk vergelijken, wijzigingen en trends in de tijd volgen, afwijkingen in een gegevensreeks benadrukken, enzovoort.
 
-1. Maak een instantie van de klasse [Presentation](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation) aan.
-1. Verkrijg een referentie naar een dia met behulp van de index.
-1. Voeg een diagram toe met standaardgegevens en specificeer het type `ChartType.Line`.
-1. Open het gegevenswerkblad van het diagram ([IChartDataWorkbook](https://reference.aspose.com/slides/nl/net/aspose.slides.charts/ichartdataworkbook/)).
-1. Verwijder de standaardseries en -categorieën.
-1. Voeg nieuwe series en categorieën toe.
-1. Voeg nieuwe diagramgegevens toe voor de diagramseries.
-1. Sla de gewijzigde presentatie op als een PPTX‑bestand.
+1. Maak een instantie van de klasse [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
+2. Verkrijg een referentie naar een dia via de index.
+3. Voeg een diagram toe met standaardgegevens en specificeer het type `ChartType.Line`.
+4. Toegang tot het gegevenswerkboek van het diagram ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)).
+5. Verwijder de standaard series en categorieën.
+6. Voeg nieuwe series en categorieën toe.
+7. Voeg nieuwe diagramgegevens toe voor de diagramseries.
+8. Sla de gewijzigde presentatie op als een PPTX‑bestand.
 
-Deze C# code laat zien hoe je een lijndiagram maakt:
+Deze C#‑code toont hoe je een lijndiagram maakt:
 
 ```c#
 using Aspose.Slides;
@@ -397,7 +397,7 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-Standaard worden punten op een lijndiagram verbonden met rechte doorlopende lijnen. Als je wilt dat de punten met streepjes worden verbonden, kun je het gewenste streep‑type als volgt opgeven:
+Standaard worden punten op een lijndiagram verbonden door rechte doorlopende lijnen. Als je wilt dat de punten in plaats daarvan met stippellijnen worden verbonden, kun je het gewenste dash‑type als volgt opgeven:
 
 ```c#
 using Aspose.Slides;
@@ -418,20 +418,20 @@ Het resultaat:
 
 ![Het lijndiagram](line_chart.png)
 
-### **Boomkaartdiagrammen maken**
+### **Boomkaartdiagrammen**
 
-Boomkaartdiagrammen zijn het meest geschikt voor verkoopgegevens wanneer je de relatieve grootte van datacategorieën wilt tonen en snel de aandacht wilt vestigen op items die grote bijdragers zijn binnen elke categorie.
+Boomkaartdiagrammen zijn het beste te gebruiken voor verkoopgegevens wanneer je de relatieve grootte van gegevenscategorieën wilt weergeven en snel de aandacht wilt vestigen op items die grote bijdragers zijn binnen elke categorie.
 
-1. Maak een instantie van de klasse [Presentation](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation) aan.
-1. Verkrijg een referentie naar een dia met behulp van de index.
-1. Voeg een diagram toe met standaardgegevens en specificeer het type `ChartType.Treemap`.
-1. Open het gegevenswerkblad van het diagram ([IChartDataWorkbook](https://reference.aspose.com/slides/nl/net/aspose.slides.charts/ichartdataworkbook/)).
-1. Verwijder de standaardseries en -categorieën.
-1. Voeg nieuwe series en categorieën toe.
-1. Voeg nieuwe diagramgegevens toe voor de diagramseries.
-1. Sla de gewijzigde presentatie op als een PPTX‑bestand.
+1. Maak een instantie van de klasse [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
+2. Verkrijg een referentie naar een dia via de index.
+3. Voeg een diagram toe met standaardgegevens en specificeer het type `ChartType.Treemap`.
+4. Toegang tot het gegevenswerkboek van het diagram ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)).
+5. Verwijder de standaard series en categorieën.
+6. Voeg nieuwe series en categorieën toe.
+7. Voeg nieuwe diagramgegevens toe voor de diagramseries.
+8. Sla de gewijzigde presentatie op als een PPTX‑bestand.
 
-Deze C# code laat zien hoe je een boomkaartdiagram maakt:
+Deze C#‑code toont hoe je een boomkaartdiagram maakt:
 
 ```c#
 using Aspose.Slides;
@@ -490,23 +490,23 @@ using (Presentation presentation = new Presentation())
 
 Het resultaat:
 
-![Het Boomkaartdiagram](treemap_chart.png)
+![Het boomkaartdiagram](treemap_chart.png)
 
-### **Aandelen‑diagrammen maken**
+### **Aandelen‑diagrammen**
 
-Aandelen‑diagrammen worden gebruikt om financiële gegevens weer te geven zoals open, high, low en close prijzen, waardoor je markttrends en volatiliteit kunt analyseren. Ze bieden essentiële inzichten in de prestaties van aandelen, wat beleggers en analisten helpt weloverwogen beslissingen te nemen.
+Aandelen‑diagrammen worden gebruikt om financiële gegevens zoals open, high, low en close prijzen weer te geven, waardoor markttendensen en volatiliteit geanalyseerd kunnen worden. Ze bieden essentiële inzichten in de prestaties van aandelen, wat beleggers en analisten helpt weloverwogen beslissingen te nemen.
 
-1. Maak een instantie van de klasse [Presentation](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation) aan.
-1. Verkrijg een referentie naar een dia met behulp van de index.
-1. Voeg een diagram toe met standaardgegevens en specificeer het type `ChartType.OpenHighLowClose`.
-1. Open het gegevenswerkblad van het diagram ([IChartDataWorkbook](https://reference.aspose.com/slides/nl/net/aspose.slides.charts/ichartdataworkbook/)).
-1. Verwijder de standaardseries en -categorieën.
-1. Voeg nieuwe series en categorieën toe.
-1. Voeg nieuwe diagramgegevens toe voor de diagramseries.
-1. Specificeer het HiLowLines‑formaat.
-1. Sla de gewijzigde presentatie op als een PPTX‑bestand.
+1. Maak een instantie van de klasse [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
+2. Verkrijg een referentie naar een dia via de index.
+3. Voeg een diagram toe met standaardgegevens en specificeer het type `ChartType.OpenHighLowClose`.
+4. Toegang tot het gegevenswerkboek van het diagram ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)).
+5. Verwijder de standaard series en categorieën.
+6. Voeg nieuwe series en categorieën toe.
+7. Voeg nieuwe diagramgegevens toe voor de diagramseries.
+8. Specificeer het HiLowLines‑formaat.
+9. Sla de gewijzigde presentatie op als een PPTX‑bestand.
 
-Deze C# code laat zien hoe je een aandelen‑diagram maakt:
+Deze C#‑code toont hoe je een aandelen‑diagram maakt:
 
 ```c#
 using Aspose.Slides;
@@ -566,20 +566,20 @@ Het resultaat:
 
 ![Het aandelen‑diagram](stock_chart.png)
 
-### **Box‑en‑whisker‑diagrammen maken**
+### **Box‑en‑whisker‑diagrammen**
 
-Box‑en‑whisker‑diagrammen worden gebruikt om de distributie van gegevens weer te geven door belangrijke statistische maten samen te vatten, zoals de mediaan, kwartielen en mogelijke uitbijters. Ze zijn bijzonder nuttig bij exploratieve data‑analyse en statistische studies om snel variabiliteit te begrijpen en eventuele anomalieën te identificeren.
+Box‑en‑whisker‑diagrammen worden gebruikt om de distributie van gegevens weer te geven door belangrijke statistische maatstaven, zoals mediaan, kwartielen en mogelijke uitbijters, samen te vatten. Ze zijn bijzonder nuttig in verkennende data‑analyse en statistische studies om snel de variabiliteit van gegevens te begrijpen en eventuele anomalieën te identificeren.
 
-1. Maak een instantie van de klasse [Presentation](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation) aan.
-1. Verkrijg een referentie naar een dia met behulp van de index.
-1. Voeg een diagram toe met standaardgegevens en specificeer het type `ChartType.BoxAndWhisker`.
-1. Open het gegevenswerkblad van het diagram ([IChartDataWorkbook](https://reference.aspose.com/slides/nl/net/aspose.slides.charts/ichartdataworkbook/)).
-1. Verwijder de standaardseries en -categorieën.
-1. Voeg nieuwe series en categorieën toe.
-1. Voeg nieuwe diagramgegevens toe voor de diagramseries.
-1. Sla de gewijzigde presentatie op als een PPTX‑bestand.
+1. Maak een instantie van de klasse [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
+2. Verkrijg een referentie naar een dia via de index.
+3. Voeg een diagram toe met standaardgegevens en specificeer het type `ChartType.BoxAndWhisker`.
+4. Toegang tot het gegevenswerkboek van het diagram ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)).
+5. Verwijder de standaard series en categorieën.
+6. Voeg nieuwe series en categorieën toe.
+7. Voeg nieuwe diagramgegevens toe voor de diagramseries.
+8. Sla de gewijzigde presentatie op als een PPTX‑bestand.
 
-Deze C# code laat zien hoe je een box‑en‑whisker‑diagram maakt:
+Deze C#‑code toont hoe je een box‑en‑whisker‑diagram maakt:
 
 ```c#
 using Aspose.Slides;
@@ -621,16 +621,16 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-### **Funnel‑diagrammen maken**
+### **Funnel‑diagrammen**
 
-Funnel‑diagrammen worden gebruikt om processen te visualiseren die opeenvolgende stadia omvatten, waarbij het volume van gegevens afneemt naarmate het van de ene stap naar de volgende gaat. Ze zijn vooral handig voor het analyseren van conversieratio’s, het identificeren van knelpunten en het volgen van de efficiëntie van verkoop‑ of marketingprocessen.
+Funnel‑diagrammen worden gebruikt om processen te visualiseren die opeenvolgende fasen omvatten, waarbij het volume van gegevens afneemt naarmate het van de ene stap naar de volgende gaat. Ze zijn vooral nuttig voor het analyseren van conversieratio’s, het identificeren van knelpunten en het volgen van de efficiëntie van verkoop‑ of marketingprocessen.
 
-1. Maak een instantie van de klasse [Presentation](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation) aan.
-1. Verkrijg een referentie naar een dia met behulp van de index.
-1. Voeg een diagram toe met standaardgegevens en specificeer het type `ChartType.Funnel`.
-1. Sla de gewijzigde presentatie op als een PPTX‑bestand.
+1. Maak een instantie van de klasse [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
+2. Verkrijg een referentie naar een dia via de index.
+3. Voeg een diagram toe met standaardgegevens en specificeer het type `ChartType.Funnel`.
+4. Sla de gewijzigde presentatie op als een PPTX‑bestand.
 
-Deze C# code laat zien hoe je een funnel‑diagram maakt:
+Deze C#‑code toont hoe je een funnel‑diagram maakt:
 
 ```c#
 using Aspose.Slides;
@@ -668,18 +668,18 @@ using (Presentation presentation = new Presentation("test.pptx"))
 
 Het resultaat:
 
-![Het funnel‑diagram](funnel_chart.png)
+![Het trechterdiagram](funnel_chart.png)
 
-### **Sunburst‑diagrammen maken**
+### **Sunburst‑diagrammen**
 
-Sunburst‑diagrammen worden gebruikt om hiërarchische gegevens te visualiseren, waarbij niveaus worden weergegeven als concentrische ringen. Ze helpen deel‑tot‑geheel‑relaties te illustreren en zijn ideaal om geneste categorieën en subcategorieën op een duidelijke, compacte manier weer te geven.
+Sunburst‑diagrammen worden gebruikt om hiërarchische gegevens te visualiseren, waarbij niveaus als concentrische ringen worden weergegeven. Ze helpen deel‑tot‑geheel‑relaties te illustreren en zijn ideaal voor het weergeven van geneste categorieën en subcategorieën in een duidelijk, compact formaat.
 
-1. Maak een instantie van de klasse [Presentation](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation) aan.
-1. Verkrijg een referentie naar een dia met behulp van de index.
-1. Voeg een diagram toe met standaardgegevens en specificeer het type `ChartType.Sunburst`.
-1. Sla de gewijzigde presentatie op als een PPTX‑bestand.
+1. Maak een instantie van de klasse [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
+2. Verkrijg een referentie naar een dia via de index.
+3. Voeg een diagram toe met standaardgegevens en specificeer het type `ChartType.Sunburst`.
+4. Sla de gewijzigde presentatie op als een PPTX‑bestand.
 
-Deze C# code laat zien hoe je een sunburst‑diagram maakt:
+Deze C#‑code toont hoe je een Sunburst‑diagram maakt:
 
 ```c#
 using Aspose.Slides;
@@ -736,21 +736,21 @@ using (Presentation presentation = new Presentation())
 
 Het resultaat:
 
-![Het sunburst‑diagram](sunburst_chart.png)
+![Het Sunburst‑diagram](sunburst_chart.png)
 
-### **Histogram‑diagrammen maken**
+### **Histogram‑diagrammen**
 
-Histogram‑diagrammen worden gebruikt om de verdeling van numerieke gegevens weer te geven door waarden te groeperen in reeksen of bakken. Ze zijn bijzonder nuttig voor het identificeren van patronen zoals frequentie, scheefheid en spreiding, en voor het detecteren van uitbijters in een dataset.
+Histogram‑diagrammen worden gebruikt om de verdeling van numerieke gegevens weer te geven door waarden in klassen of “bins” te groeperen. Ze zijn bijzonder nuttig om patronen zoals frequentie, scheefheid en spreiding te identificeren en om uitbijters in een dataset te detecteren.
 
-1. Maak een instantie van de klasse [Presentation](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation) aan.
-1. Verkrijg een referentie naar een dia met behulp van de index.
-1. Voeg een diagram toe met enkele gegevens en specificeer het type `ChartType.Histogram`.
-1. Open het gegevenswerkblad van het diagram ([IChartDataWorkbook](https://reference.aspose.com/slides/nl/net/aspose.slides.charts/ichartdataworkbook/)).
-1. Verwijder de standaardseries en -categorieën.
-1. Voeg nieuwe series en categorieën toe.
-1. Sla de gewijzigde presentatie op als een PPTX‑bestand.
+1. Maak een instantie van de klasse [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
+2. Verkrijg een referentie naar een dia via de index.
+3. Voeg een diagram toe met enkele gegevens en specificeer het type `ChartType.Histogram`.
+4. Toegang tot het gegevenswerkboek van het diagram ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)).
+5. Verwijder de standaard series en categorieën.
+6. Voeg nieuwe series en categorieën toe.
+7. Sla de gewijzigde presentatie op als een PPTX‑bestand.
 
-Deze C# code laat zien hoe je een histogram‑diagram maakt:
+Deze C#‑code toont hoe je een histogram‑diagram maakt:
 
 ```c#
 using Aspose.Slides;
@@ -782,18 +782,18 @@ using (Presentation presentation = new Presentation())
 
 Het resultaat:
 
-![Het histogram‑diagram](histogram_chart.png)
+![Het histogramdiagram](histogram_chart.png)
 
-### **Radar‑diagrammen maken**
+### **Radar‑diagrammen**
 
-Radar‑diagrammen worden gebruikt om multivariate gegevens weer te geven in een tweedimensionaal formaat, waardoor je meerdere variabelen tegelijk gemakkelijk kunt vergelijken. Ze zijn bijzonder nuttig voor het identificeren van patronen, sterktes en zwaktes over verschillende prestatiemaatstaven of attributen.
+Radar‑diagrammen worden gebruikt om multivariabele gegevens in een tweedimensionaal formaat weer te geven, waardoor meerdere variabelen tegelijk gemakkelijk kunnen worden vergeleken. Ze zijn bijzonder nuttig om patronen, sterktes en zwaktes over verschillende prestatie‑metrics of attributen te identificeren.
 
-1. Maak een instantie van de klasse [Presentation](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation) aan.
-1. Verkrijg een referentie naar een dia met behulp van de index.
-1. Voeg een diagram toe met enkele gegevens en specificeer het type `ChartType.Radar`.
-1. Sla de gewijzigde presentatie op als een PPTX‑bestand.
+1. Maak een instantie van de klasse [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
+2. Verkrijg een referentie naar een dia via de index.
+3. Voeg een diagram toe met enkele gegevens en specificeer het type `ChartType.Radar`.
+4. Sla de gewijzigde presentatie op als een PPTX‑bestand.
 
-Deze C# code laat zien hoe je een radardiagram maakt:
+Deze C#‑code toont hoe je een radar‑diagram maakt:
 
 ```c#
 using Aspose.Slides;
@@ -809,22 +809,22 @@ using (Presentation presentation = new Presentation())
 
 Het resultaat:
 
-![Het radardiagram](radar_chart.png)
+![Het radar‑diagram](radar_chart.png)
 
-### **Multi‑categorie‑diagrammen maken**
+### **Meervoudige‑categorie‑diagrammen**
 
-Multi‑categorie‑diagrammen worden gebruikt om gegevens weer te geven die meer dan één categorische groepering omvatten, waardoor je waarden over meerdere dimensies tegelijk kunt vergelijken. Ze zijn vooral handig wanneer je trends en relaties binnen complexe, gelaagde datasets moet analyseren.
+Meervoudige‑categorie‑diagrammen worden gebruikt om gegevens weer te geven die meer dan één categorische groepering omvatten, zodat je waarden over meerdere dimensies tegelijk kunt vergelijken. Ze zijn bijzonder behulpzaam wanneer je trends en relaties binnen complexe, meerlagige datasets moet analyseren.
 
-1. Maak een instantie van de klasse [Presentation](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation) aan.
-1. Verkrijg een referentie naar een dia met behulp van de index.
-1. Voeg een diagram toe met standaardgegevens en specificeer het type `ChartType.ClusteredColumn`.
-1. Open het gegevenswerkblad van het diagram ([IChartDataWorkbook](https://reference.aspose.com/slides/nl/net/aspose.slides.charts/ichartdataworkbook/)).
-1. Verwijder de standaardseries en -categorieën.
-1. Voeg nieuwe series en categorieën toe.
-1. Voeg nieuwe diagramgegevens toe voor de diagramseries.
-1. Sla de gewijzigde presentatie op als een PPTX‑bestand.
+1. Maak een instantie van de klasse [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
+2. Verkrijg een referentie naar een dia via de index.
+3. Voeg een diagram toe met standaardgegevens en specificeer het type `ChartType.ClusteredColumn`.
+4. Toegang tot het gegevenswerkboek van het diagram ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)).
+5. Verwijder de standaard series en categorieën.
+6. Voeg nieuwe series en categorieën toe.
+7. Voeg nieuwe diagramgegevens toe voor de diagramseries.
+8. Sla de gewijzigde presentatie op als een PPTX‑bestand.
 
-Deze C# code laat zien hoe je een multicatogorie‑diagram maakt:
+Deze C#‑code toont hoe je een diagram met meerdere categorieën maakt:
 
 ```c#
 using Aspose.Slides;
@@ -872,20 +872,20 @@ using (Presentation presentation = new Presentation())
     series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, "D8", 70));
     series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, "D9", 80));
 
-    // Sla de presentatie met het diagram op.
+    // Sla de presentatie op met het diagram.
     presentation.Save("AsposeChart_out.pptx", SaveFormat.Pptx);
 }
 ```
 
 Het resultaat:
 
-![Het multi‑categori​diagram](multi_category_chart.png)
+![Het diagram met meerdere categorieën](multi_category_chart.png)
 
-### **Kaart‑diagrammen maken**
+### **Kaart‑diagrammen**
 
-Kaart‑diagrammen worden gebruikt om geografische gegevens te visualiseren door informatie toe te wijzen aan specifieke locaties zoals landen, staten of steden. Ze zijn bijzonder nuttig voor het analyseren van regionale trends, demografische gegevens en ruimtelijke distributies op een duidelijke, visueel aantrekkelijke manier.
+Kaart‑diagrammen worden gebruikt om geografische gegevens te visualiseren door informatie te koppelen aan specifieke locaties zoals landen, provincies of steden. Ze zijn bijzonder nuttig voor het analyseren van regionale trends, demografische gegevens en ruimtelijke distributies op een duidelijke, visueel aantrekkelijke manier.
 
-Deze C# code laat zien hoe je een kaart‑diagram maakt:
+Deze C#‑code toont hoe je een kaart‑diagram maakt:
 
 ```c#
 using Aspose.Slides;
@@ -901,19 +901,17 @@ using (Presentation presentation = new Presentation())
 
 Het resultaat:
 
-![Het kaart‑diagram](map_chart.png)
+![Het kaartdiagram](map_chart.png)
 
 {{% alert color="info" %}} 
-De afbeelding hierboven toont de opgeslagen presentatie geopend in PowerPoint. Aspose.Slides schrijft het kaart‑diagram en de gegevens correct weg, maar tekent zelf geen kaart‑diagrammen: wanneer een dia die er één bevat wordt gerenderd naar een afbeelding of wordt geconverteerd naar PDF of SVG, wordt het diagramgebied leeg weergegeven. Andere vormen op dezelfde dia blijven onaangetast.
+De afbeelding hierboven toont de opgeslagen presentatie geopend in PowerPoint. Aspose.Slides schrijft het kaartdiagram en de bijbehorende gegevens correct, maar tekent zelf geen kaartdiagrammen: wanneer een dia met zo’n diagram wordt gerenderd naar een afbeelding of geconverteerd naar PDF of SVG, blijft het diagramgebied leeg. Andere vormen op dezelfde dia blijven onaangetast.
 {{% /alert %}} 
 
-### **Combinatie‑diagrammen maken**
-
-Een combinatie‑diagram (of combo‑diagram) combineert twee of meer diagramtypen in één grafiek. Dit diagram stelt je in staat om verschillen tussen twee of meer gegevenssets te benadrukken, vergelijken of onderzoeken, waardoor je relaties tussen hen kunt identificeren.
+### **Combinatie‑diagrammen**
 
 ![Het combinatie‑diagram](combination_chart.png)
 
-De volgende C# code laat zien hoe je het hierboven getoonde combinatie‑diagram maakt in een PowerPoint‑presentatie:
+De volgende C#‑code toont hoe je het bovenstaande combinatie‑diagram maakt in een PowerPoint‑presentatie:
 
 ```c#
 using System.Drawing;
@@ -950,11 +948,11 @@ private static IChart CreateChartWithFirstSeries(ISlide slide)
     portionFormat.FontBold = NullableBool.False;
     portionFormat.FontHeight = 18f;
 
-    // Stelt de diagramlegende in
+    // Stelt de diagramlegenda in
     chart.Legend.Position = LegendPositionType.Bottom;
     chart.Legend.TextFormat.PortionFormat.FontHeight = 12f;
 
-    // Verwijdert de standaardgegenereerde series en categorieën
+    // Verwijdert de standaard gegenereerde series en categorieën
     chart.ChartData.Series.Clear();
     chart.ChartData.Categories.Clear();
 
@@ -1071,17 +1069,17 @@ private static void SetAxisTitle(IAxis axis, string axisTitle)
 
 ## **Diagrammen bijwerken**
 
-Aspose.Slides voor .NET maakt het mogelijk om PowerPoint‑diagrammen bij te werken door diagramgegevens, opmaak en styling te wijzigen. Deze functionaliteit vereenvoudigt het proces van het up‑to‑date houden van presentaties met dynamische inhoud en zorgt ervoor dat diagrammen nauwkeurig de huidige gegevens en visuele standaarden weergeven.
+Aspose.Slides voor .NET stelt je in staat om PowerPoint‑diagrammen bij te werken door diagramgegevens, opmaak en stijl aan te passen. Deze functionaliteit vereenvoudigt het proces van het actueel houden van presentaties met dynamische inhoud en zorgt ervoor dat diagrammen nauwkeurig de huidige gegevens en visuele standaarden weergeven.
 
-1. Instantieer de klasse [Presentation](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation) die de presentatie met een diagram vertegenwoordigt.
-1. Verkrijg een referentie naar een dia met behulp van de index.
-1. Doorloop alle vormen om het diagram te vinden.
-1. Open het gegevenswerkblad van het diagram.
-1. Pas de gegevensseries van het diagram aan door de waarden van de series te wijzigen.
-1. Voeg een nieuwe serie toe en vul de gegevens ervan.
-1. Sla de gewijzigde presentatie op als een PPTX‑bestand.
+1. Instantieer de klasse [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) die de presentatie met een diagram vertegenwoordigt.
+2. Verkrijg een referentie naar een dia via de index.
+3. Loop door alle vormen om het diagram te vinden.
+4. Toegang tot het gegevenswerkblad van het diagram.
+5. Pas de diagramreeks aan door de reekswerte te wijzigen.
+6. Voeg een nieuwe reeks toe en vul de gegevens in.
+7. Sla de gewijzigde presentatie op als een PPTX‑bestand.
 
-Deze C# code laat zien hoe je een diagram bijwerkt:
+Deze C#‑code toont hoe je een diagram bijwerkt:
 
 ```c#
 using Aspose.Slides;
@@ -1090,7 +1088,7 @@ using Aspose.Slides.Export;
 
 const string chartName = "My chart";
 
-// Instanties van de Presentation‑klasse maken die een PPTX‑bestand vertegenwoordigt.
+// Instantieer de Presentation-klasse die een PPTX‑bestand voorstelt.
 using (Presentation presentation = new Presentation("ExistingChart.pptx"))
 {
     // Toegang tot de eerste dia.
@@ -1100,13 +1098,13 @@ using (Presentation presentation = new Presentation("ExistingChart.pptx"))
     {
         if (shape is IChart chart && chart.Name == chartName)
         {
-            // Stel de index van het diagramgegevensblad in.
+            // Stel de index van het diagramdatablad in.
             int worksheetIndex = 0;
 
-            // Haal het diagramgegevens‑werkboek op.
+            // Haal het diagramdatablad op.
             IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
 
-            // Wijzig de diagramcategoriënamen.
+            // Wijzig de categorienamen van het diagram.
             workbook.GetCell(worksheetIndex, 1, 0, "Modified Category 1");
             workbook.GetCell(worksheetIndex, 2, 0, "Modified Category 2");
 
@@ -1140,22 +1138,24 @@ using (Presentation presentation = new Presentation("ExistingChart.pptx"))
         }
     }
 
-    // Sla de presentatie met het diagram op.
+    // Sla de presentatie op met het diagram.
     presentation.Save("AsposeChartModified_out.pptx", SaveFormat.Pptx);
 }
 ```
 
 ## **Gegevensbereik instellen voor een diagram**
 
-Aspose.Slides voor .NET biedt de flexibiliteit om een specifiek gegevensbereik uit een werkblad te definiëren als bron voor de gegevens van je diagram. Dit betekent dat je rechtstreeks een gedeelte van je werkblad kunt toewijzen aan het diagram, waardoor je kunt bepalen welke cellen bijdragen aan de series en categorieën van het diagram. Hierdoor kun je je diagrammen eenvoudig bijwerken en synchroniseren met de laatste gegevenswijzigingen in je werkblad, zodat je PowerPoint‑presentaties actuele en nauwkeurige informatie weergeven.
+Om het bereik dat al door een bestaand diagram wordt gebruikt te bekijken, zie [Gegevensbereik van een diagram ophalen](/slides/nl/net/chart-workbook/#retrieve-a-charts-data-range).
 
-1. Instantieer de klasse [Presentation](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation) die de presentatie met een diagram vertegenwoordigt.
-1. Verkrijg een referentie naar een dia met behulp van de index.
-1. Doorloop alle vormen om het diagram te vinden.
-1. Open de diagramgegevens en stel het bereik in.
-1. Sla de gewijzigde presentatie op als een PPTX‑bestand.
+Aspose.Slides voor .NET biedt de flexibiliteit om een specifiek gegevensbereik uit een werkblad als bron voor de diagramgegevens te definiëren. Dit betekent dat je direct een deel van je werkblad kunt koppelen aan het diagram, waardoor je kunt bepalen welke cellen bijdragen aan de series en categorieën van het diagram. Als resultaat kun je je diagrammen eenvoudig bijwerken en synchroniseren met de nieuwste gegevenswijzigingen in je werkblad, zodat je PowerPoint‑presentaties actuele en nauwkeurige informatie weergeven.
 
-Deze C# code laat zien hoe je het gegevensbereik voor een diagram instelt:
+1. Instantieer de klasse [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) die de presentatie met een diagram vertegenwoordigt.
+2. Verkrijg een referentie naar een dia via de index.
+3. Loop door alle vormen om het diagram te vinden.
+4. Toegang tot de diagramgegevens en stel het bereik in.
+5. Sla de gewijzigde presentatie op als een PPTX‑bestand.
+
+Deze C#‑code toont hoe je het gegevensbereik voor een diagram instelt:
 
 ```c#
 using Aspose.Slides;
@@ -1164,7 +1164,7 @@ using Aspose.Slides.Export;
 
 const string chartName = "My chart";
 
-// Instantie van de Presentation‑klasse maken die een PPTX‑bestand vertegenwoordigt.
+// Instantieer de Presentation-klasse die een PPTX-bestand voorstelt.
 using (Presentation presentation = new Presentation("ExistingChart.pptx"))
 {
     // Toegang tot de eerste dia.
@@ -1182,11 +1182,11 @@ using (Presentation presentation = new Presentation("ExistingChart.pptx"))
 }
 ```
 
-## **Standaardmarkeringen gebruiken in diagrammen**
+## **Standaard‑markers gebruiken in diagrammen**
 
-Wanneer je standaardmarkeringen in diagrammen gebruikt, krijgt elke diagramserie automatisch een ander standaardmarkering‑symbool.
+Wanneer je standaard‑markers in diagrammen gebruikt, krijgt elke diagramreeks automatisch een ander standaard‑markersymbool.
 
-Deze C# code laat zien hoe je automatisch een diagramserie‑marker instelt:
+Deze C#‑code toont hoe je automatisch een marker voor een diagramreeks instelt:
 
 ```c#
 using Aspose.Slides;
@@ -1236,16 +1236,16 @@ using (Presentation presentation = new Presentation())
 
 **Welke diagramtypen worden ondersteund door Aspose.Slides voor .NET?**
 
-Aspose.Slides voor .NET ondersteunt een breed scala aan diagramtypen, waaronder staaf, lijn, taart, gebied, spreiding, histogram, radar en vele andere. Deze flexibiliteit stelt je in staat om het meest geschikte diagramtype te kiezen voor je datavisualisatie‑behoeften.
+Aspose.Slides voor .NET ondersteunt een breed scala aan diagramtypen, waaronder staaf-, lijn-, taart-, gebieds-, spreidings-, histogram-, radar- en vele andere. Deze flexibiliteit stelt je in staat om het meest geschikte diagramtype voor je gegevensvisualisatie‑behoeften te kiezen.
 
 **Hoe voeg ik een nieuw diagram toe aan een dia?**
 
-Om een diagram toe te voegen, maak je eerst een instantie van de klasse [Presentation](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation), haal je de gewenste dia op met behulp van de index, en roep je vervolgens de methode aan om een diagram toe te voegen, waarbij je het diagramtype en de initiële gegevens specificeert. Dit proces integreert het diagram direct in je presentatie.
+Om een diagram toe te voegen, maak je eerst een instantie van de klasse [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation), haal je de gewenste dia op via de index, en roep je vervolgens de methode aan om een diagram toe te voegen, waarbij je het diagramtype en de initiële gegevens opgeeft. Dit proces integreert het diagram direct in je presentatie.
 
 **Hoe kan ik de weergegeven gegevens in een diagram bijwerken?**
 
-Je kunt de gegevens van een diagram bijwerken door toegang te krijgen tot het gegevenswerkboek van het diagram ([IChartDataWorkbook](https://reference.aspose.com/slides/nl/net/aspose.slides.charts/ichartdataworkbook/)), eventuele standaardseries en -categorieën te verwijderen, en vervolgens je eigen gegevens toe te voegen. Hiermee kun je het diagram programmatisch vernieuwen zodat het de laatste gegevens weergeeft.
+Je kunt de gegevens van een diagram bijwerken door toegang te krijgen tot het gegevenswerkboek ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)), eventuele standaard series en categorieën te verwijderen en vervolgens je aangepaste gegevens toe te voegen. Hiermee kun je het diagram programmatisch vernieuwen zodat het de nieuwste gegevens weergeeft.
 
 **Is het mogelijk om het uiterlijk van het diagram aan te passen?**
 
-Ja, Aspose.Slides voor .NET biedt uitgebreide aanpassingsmogelijkheden. Je kunt kleuren, lettertypen, labels, legenden en andere opmaakelementen wijzigen om het uiterlijk van het diagram af te stemmen op je specifieke ontwerpvereisten.
+Ja, Aspose.Slides voor .NET biedt uitgebreide aanpassingsopties. Je kunt kleuren, lettertypen, labels, legendes en andere opmaak‑elementen wijzigen om het uiterlijk van het diagram af te stemmen op je specifieke ontwerpvereisten.

@@ -19,31 +19,31 @@ keywords:
 - 簡報
 - PHP
 - Aspose.Slides
-description: "發現 Aspose.Slides for PHP via Java：輕鬆在 PowerPoint 和 OpenDocument 格式中管理圖表活頁簿，以簡化您的簡報資料。"
+description: "探索 Aspose.Slides for PHP via Java：輕鬆在 PowerPoint 與 OpenDocument 格式中管理圖表活頁簿，以簡化簡報資料。"
 ---
-## **概述**
+## **概觀**
 
-本文說明如何在 Aspose.Slides 中使用圖表活頁簿。它展示如何透過活頁簿串流讀寫圖表資料、將活頁簿儲存格用作圖表資料標籤、存取工作表集合，以及為圖表值指定資料來源類型。
+本文說明如何在 Aspose.Slides 中使用圖表活頁簿。它展示了如何透過活頁簿串流讀寫圖表資料、使用活頁簿儲存格作為圖表資料標籤、存取工作表集合，以及為圖表數值指定資料來源類型。
 
-同時也說明如何將外部活頁簿作為圖表資料來源。示例演示如何建立並指派外部活頁簿、取得連結至圖表的外部活頁簿路徑，以及在活頁簿可用時編輯圖表資料。
+本文亦涵蓋使用外部活頁簿作為圖表資料來源。範例示範如何建立並指派外部活頁簿、取得連結至圖表的外部活頁簿路徑，以及在活頁簿可用時編輯圖表資料。
 
-若活頁簿儲存格代表缺少的資料，請參閱[控制空儲存格的顯示](/slides/zh-hant/php-java/chart-series/)以了解空儲存格與零的差異，以及可用顯示模式的折線圖比較。
+對於代表缺漏資料的活頁簿儲存格，請參閱[控制空儲存格的顯示](/slides/zh-hant/php-java/chart-series/)以了解空儲存格與零之間的差異，以及可用顯示模式的折線圖比較。
 
-## **包含隱藏列與欄位的資料**
+## **包含隱藏列與欄的資料**
 
-使用[Chart::setPlotVisibleCellsOnly](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/chart/setplotvisiblecellsonly/)控制圖表是否只繪製隱藏工作表列與欄位的資料。設為 `true` 只繪製可見儲存格，設為 `false` 則同時包含可見和隱藏儲存格。此設定僅控制圖表繪製，並不會隱藏或取消隱藏工作表列或欄位。
+使用[Chart::setPlotVisibleCellsOnly](https://reference.aspose.com/slides/php-java/aspose.slides/chart/setplotvisiblecellsonly/)可控制圖表是否繪製來自隱藏工作表列與欄的資料。將其設為 `true` 只繪製可見儲存格，設為 `false` 則同時包含可見與隱藏儲存格。此設定僅控制圖表繪製，並不會隱藏或取消隱藏工作表列或欄。
 
-下載[hidden-source-data.pptx](hidden-source-data.pptx)並將其放在工作目錄。其第一張投影片的第一個圖形是柱狀圖。內嵌工作表 `Sheet1` 包含來源範圍 `A1:C4`。第 3 列與 C 欄被隱藏，但其儲存格仍有值。
+[範例投影片](hidden-source-data.pptx)的第一張投影片第一個圖形是一個柱狀圖。內嵌工作表 `Sheet1` 包含以下來源範圍 `A1:C4`。第 3 列與 C 欄被隱藏，但其儲存格仍有值。
 
-| 工作表列 | A: 月份 | B: 零售 | C: 批發（隱藏欄位） |
+| 工作表列 | A：月份 | B：零售 | C：批發（隱藏欄） |
 | --- | --- | --- | --- |
 | 2 | 一月 | 10 | 30 |
 | 3（隱藏列） | 二月 | 40 | 60 |
 | 4 | 三月 | 20 | 50 |
 
-透過[ChartData::getChartDataWorkbook](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/chartdata/getchartdataworkbook/)存取來源儲存格，並讀取[ChartDataCell::isHidden](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/chartdatacell/ishidden/)以檢查其隱藏狀態。此方法僅回報隱藏狀態，不會更改它。在此檔案中，B2 為可見，B3 屬於隱藏列，C2 屬於隱藏欄位；範例分別印出 `false`、`true`、`true`。
+透過[ChartData::getChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/getchartdataworkbook/)存取來源儲存格，並讀取[ChartDataCell::isHidden](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatacell/ishidden/)以檢查其隱藏狀態。此方法僅回報隱藏狀態，不會更改它。在此檔案中，B2 為可見，B3 屬於隱藏列，C2 屬於隱藏欄；範例分別輸出 `false`、`true`、`true`。
 
-對於此範例，變更繪製設定後請重新整理圖表資料：保留使用[readWorkbookStream](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/chartdata/readworkbookstream/)讀取的內嵌活頁簿，並以[writeWorkbookStream](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/chartdata/writeworkbookstream/)重新載入。若要包含所有儲存格，亦需使用[setRange](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/chartdata/setrange/)還原完整範圍，包括隱藏的二月類別。僅變更旗標不足以刷新此範例的快取圖表資料與類別標籤。
+對於此範例，在變更繪製設定後請重新整理圖表資料：使用[readWorkbookStream](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/readworkbookstream/)保留內嵌活頁簿，然後使用[writeWorkbookStream](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/writeworkbookstream/)重新載入。若要包含所有儲存格，亦需使用[setRange](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/setrange/)復原完整範圍，包括隱藏的二月類別。僅變更旗標不足以刷新此範例的快取圖表資料與類別標籤。
 
 ```php
 use aspose\slides\Presentation;
@@ -65,10 +65,10 @@ try {
         foreach ([true, false] as $visibleOnly) {
             $chart->setPlotVisibleCellsOnly($visibleOnly);
 
-            // 從嵌入的活頁簿重新整理圖表資料。
+            // 從內嵌活頁簿刷新圖表資料。
             $chart->getChartData()->writeWorkbookStream($workbookData);
             if (!$visibleOnly) {
-                // 還原完整的來源範圍，包括隱藏的類別。
+                // 還原完整來源範圍，包括隱藏的類別。
                 $chart->getChartData()->setRange('Sheet1!$A$1:$C$4');
             }
 
@@ -82,19 +82,58 @@ try {
 }
 ```
 
-此範例分別儲存 `hidden_cells_true.pptx`（僅包含可見的零售值 10 與 20）以及 `hidden_cells_false.pptx`（包含全部六個值）。下方圖示說明兩種繪製模式。第 3 列與 C 欄在兩個內嵌活頁簿中皆保持隱藏。
+範例會儲存兩個版本的投影片：一個僅包含可見的零售值 (10 與 20)，另一個則包含全部六個值。下方圖片說明了兩種繪製模式。第 3 列與 C 欄在兩個內嵌活頁簿中皆保持隱藏。
 
-| 只繪製可見儲存格 (`true`) | 繪製全部儲存格 (`false`) |
+| 僅可見儲存格 (`true`) | 所有儲存格 (`false`) |
 | --- | --- |
-| ![只繪製可見儲存格：一月與三月的零售值 10 與 20。](hidden_cells_True.png) | ![全部儲存格：一月、二月、三月的零售與批發值。](hidden_cells_False.png) |
+| ![僅可見儲存格：一月與三月的零售值 10 與 20。](hidden_cells_True.png) | ![所有儲存格：一月、二月、三月的零售與批發值。](hidden_cells_False.png) |
 
-包含值的隱藏儲存格不同於空儲存格。[Chart::setDisplayBlanksAs](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/chart/setdisplayblanksas/)控制缺少值的顯示方式；它不會包含或排除隱藏的來源資料。請參閱[控制空儲存格的顯示](/slides/zh-hant/php-java/chart-series/#control-the-display-of-empty-cells)取得範例。
+含有值的隱藏儲存格不同於空儲存格。[Chart::setDisplayBlanksAs](https://reference.aspose.com/slides/php-java/aspose.slides/chart/setdisplayblanksas/)控制缺漏值的顯示方式；它不會包含或排除隱藏的來源資料。請參閱[控制空儲存格的顯示](/slides/zh-hant/php-java/chart-series/#control-the-display-of-empty-cells)了解範例。
+
+## **取得圖表的資料範圍**
+
+在更新現有投影片中的活頁簿資料之前，請檢查來源範圍以識別每個圖表使用的工作表儲存格。[ChartData::getRange](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/getrange/)方法會以工作表限定的公式回傳目前資料範圍，例如 `Sheet1!$A$1:$D$5`。其中 `Sheet1` 為工作表名稱，`!` 用於分隔工作表與儲存格範圍，`$A$1:$D$5` 表示包含 A1 到 D5 的儲存格。美元符號表示絕對列與欄參照。
+
+此方法在不更改圖表或其活頁簿的情況下讀取目前範圍。若圖表未使用活頁簿作為資料來源，會拋出例外。更多資訊請參閱[ChartData API 參考](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/)。
+
+此範例開啟投影片，直接檢查每張投影片上的圖形是否為圖表，並輸出每個圖表的名稱與來源範圍。若圖表未使用活頁簿，會輸出訊息並繼續處理下一個圖表。
+
+```php
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("presentation.pptx");
+try {
+    $slideCount = java_values($presentation->getSlides()->size());
+    for ($slideIndex = 0; $slideIndex < $slideCount; $slideIndex++) {
+        $slide = $presentation->getSlides()->get_Item($slideIndex);
+        $shapeCount = java_values($slide->getShapes()->size());
+        for ($shapeIndex = 0; $shapeIndex < $shapeCount; $shapeIndex++) {
+            $shape = $slide->getShapes()->get_Item($shapeIndex);
+            if (java_instanceof($shape, new JavaClass("com.aspose.slides.IChart"))) {
+                $chart = $shape;
+                try {
+                    $range = $chart->getChartData()->getRange();
+                    echo $chart->getName() . ": " . $range, PHP_EOL;
+                } catch (JavaException $exception) {
+                    if (java_instanceof($exception, new JavaClass("com.aspose.slides.exceptions.InvalidOperationException"))) {
+                        echo $chart->getName() . ": The chart does not use a workbook as its data source.", PHP_EOL;
+                    } else {
+                        echo $chart->getName() . ": " . $exception->getMessage(), PHP_EOL;
+                    }
+                }
+            }
+        }
+    }
+} finally {
+    $presentation->dispose();
+}
+```
 
 ## **從活頁簿讀寫圖表資料**
 
-Aspose.Slides for PHP via Java 提供 [readWorkbookStream](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/chartdata/readworkbookstream/) 與 [writeWorkbookStream](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/chartdata/writeworkbookstream/) 方法，讓您讀寫圖表資料活頁簿（包含使用 Aspose.Cells 編輯的圖表資料）。**注意**，圖表資料必須以相同方式組織，或具備類似於來源的結構。
+Aspose.Slides for PHP via Java 提供[readWorkbookStream](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/readworkbookstream/)與[writeWorkbookStream](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/writeworkbookstream/)方法，讓您讀寫圖表資料活頁簿（包含以 Aspose.Cells 編輯的圖表資料）。**注意** 圖表資料必須以相同方式組織，或結構類似於來源。
 
-此範例開啟 `chart.pptx`，該檔案的第一張投影片的第一個圖形必須是圖表。它將內嵌活頁簿讀取為位元組陣列，清除現有的系列與類別，然後將相同的活頁簿寫回。變更保留在記憶體中；範例不會儲存簡報。
+此範例使用第一張投影片第一個圖形的圖表。它將內嵌活頁簿讀取為位元組陣列，清除現有系列與類別，然後將相同的活頁簿寫回。變更保留在記憶體中；範例不會儲存投影片。
 
 ```php
 use aspose\slides\Presentation;
@@ -123,7 +162,7 @@ try {
 
 ### **在修改活頁簿後驗證圖表版面配置**
 
-當您以已修改的活頁簿取代內嵌活頁簿時，圖表仍保留原始的系列與類別集合。此不匹配可能導致 [Chart::validateChartLayout](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/chart/validatechartlayout/) 因索引超出範圍而失敗。請在寫回更新的活頁簿之前先清除現有的系列與類別。此範例需要 `chart.pptx`，且第一張投影片的第一個圖形必須是圖表。程式碼中的註解標示了活頁簿編輯會發生的位置；可執行的範例寫回原始活頁簿並在記憶體中驗證版面配置。
+當您以已修改的活頁簿取代內嵌活頁簿時，圖表仍保留原始的系列與類別集合。此不匹配可能導致[Chart::validateChartLayout](https://reference.aspose.com/slides/php-java/aspose.slides/chart/validatechartlayout/)因索引超出範圍而失敗。在寫回更新的活頁簿之前，請先清除現有系列與類別。此範例使用第一張投影片第一個圖形的圖表。註解標示了活頁簿編輯會發生的位置；可執行的範例寫回原始活頁簿並在記憶體中驗證版面配置。
 
 ```php
 use aspose\slides\Presentation;
@@ -153,20 +192,13 @@ try {
 }
 ```
 
-清除集合可在寫回活頁簿前移除過時的資料參照。使用更新的活頁簿之前，請重新建立任何必要的系列與類別對映。
+清除集合可在寫回活頁簿之前移除過時的資料參照。請在使用圖表之前為更新的活頁簿重新建構任何必要的系列與類別對應。
 
 ## **將活頁簿儲存格設為圖表資料標籤**
 
-您可以使用活頁簿儲存格的文字作為圖表資料標籤。以下步驟說明如何將泡泡圖的標籤連結至其資料活頁簿中的儲存格。
+您可以使用活頁簿儲存格中的文字作為圖表資料標籤。
 
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/presentation/) 類別的實例。  
-2. 以零基索引存取第一張投影片。  
-3. 新增一個預設資料的泡泡圖。  
-4. 取得圖表系列。  
-5. 設定活頁簿儲存格為資料標籤。  
-6. 儲存簡報。
-
-此範例開啟 `chart2.pptx`（必須至少包含一張投影片），並新增預設資料的泡泡圖。它使用工作表 0 上的 A10:A12 作為第一系列前三個標籤，啟用來自儲存格的標籤，並將結果儲存為 `resultchart.pptx`。
+此範例在現有投影片的第一張投影片新增一個預設資料的氣泡圖，使用工作表 0 的儲存格 A10:A12 作為第一系列的前三個標籤，啟用來自儲存格的標籤，並儲存更新後的投影片。
 
 ```php
 use aspose\slides\Presentation;
@@ -194,7 +226,7 @@ try {
 
 ## **管理工作表**
 
-[ChartDataWorkbook::getWorksheets](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/chartdataworkbook/getworksheets/) 方法提供對圖表活頁簿中工作表的存取。此範例建立預設資料的圓餅圖，並將每個工作表名稱印至主控台。
+[ChartDataWorkbook::getWorksheets](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/getworksheets/) 方法提供存取圖表活頁簿中工作表的功能。此範例建立一個預設資料的圓餅圖，並將每個工作表名稱列印至主控台。
 
 ```php
 use aspose\slides\Presentation;
@@ -217,7 +249,7 @@ try {
 
 ## **指定資料來源類型**
 
-此範例建立預設資料的 3D 柱狀圖，並使用不同的資料來源設定兩個系列名稱。第一個名稱使用字串常值；第二個名稱使用工作表 0 上的 C1 儲存格。[DataSourceType](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/datasourcetype/) 列舉決定每個名稱的來源。結果儲存為 `pres.pptx`。
+此範例建立一個預設資料的 3D 柱狀圖，並使用不同的資料來源設定兩個系列名稱。第一個名稱使用字串常值；第二個名稱使用工作表 0 中的儲存格 C1。[DataSourceType](https://reference.aspose.com/slides/php-java/aspose.slides/datasourcetype/) 列舉用於為每個名稱選擇來源。範例儲存投影片並更新系列名稱。
 
 ```php
 use aspose\slides\Presentation;
@@ -248,7 +280,7 @@ try {
 
 ## **偵測不支援的內嵌活頁簿格式**
 
-Aspose.Slides 不支援可嵌入於某些圖表的 Excel 二進位活頁簿（.xlsb）格式。您可以在 [ChartData](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/chartdata/) 上使用 `getEmbeddedWorkbookType` 方法，搭配 [WorkbookType](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/workbooktype/) 列舉，以偵測不支援的格式並跳過這些圖表。此範例檢查 `sample.pptx` 第一張投影片的形狀，跳過非圖表形狀，並對每個內嵌 .xlsb 活頁簿的圖表印出診斷訊息。
+Aspose.Slides 不支援某些圖表可內嵌的 Excel 二進位活頁簿（.xlsb）格式。您可以在[ChartData](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/) 上使用 `getEmbeddedWorkbookType` 方法，搭配[WorkbookType](https://reference.aspose.com/slides/php-java/aspose.slides/workbooktype/) 列舉，偵測不支援的格式並跳過那些圖表。此範例檢查現有投影片第一張投影片上的圖形，跳過非圖表圖形，並為每個含有 .xlsb 內嵌活頁簿的圖表輸出診斷訊息。
 
 ```php
 use aspose\slides\Presentation;
@@ -276,7 +308,7 @@ try {
             continue;
         }
 
-        // 在此讀取或修改支援的圖表活頁簿資料。
+        // 在此讀取或修改受支援的圖表活頁簿資料。
     }
 } finally {
     $presentation->dispose();
@@ -289,9 +321,9 @@ Aspose.Slides 支援使用外部活頁簿作為圖表的資料來源。
 
 ### **建立外部活頁簿**
 
-使用 [readWorkbookStream](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/chartdata/readworkbookstream/) 與 [setExternalWorkbook](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/chartdata/setexternalworkbook/) 將內嵌圖表活頁簿匯出為檔案，並將圖表連結至該外部活頁簿。
+使用[readWorkbookStream](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/readworkbookstream/)與[setExternalWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/setexternalworkbook/)將內嵌圖表活頁簿匯出為檔案，並將圖表連結至該外部活頁簿。
 
-此範例建立預設資料的圓餅圖，將其活頁簿寫入 `externalWorkbook1.xlsx`，寫入完成後再將該檔案指定為圖表資料來源。最後將連結的簡報儲存為 `externalWorkbook.pptx`。
+此範例建立一個預設資料的圓餅圖，並匯出其活頁簿。檔案寫入完成後再指派外部活頁簿為圖表資料來源，最後儲存已連結的投影片。
 
 ```php
 use aspose\slides\Presentation;
@@ -313,6 +345,7 @@ try {
             $fileStream->close();
         }
         $chart->getChartData()->setExternalWorkbook($workbookPath->getAbsolutePath());
+        
         $presentation->save("externalWorkbook.pptx", SaveFormat::Pptx);
     } catch (JavaException $exception) {
         echo "Could not write the external workbook: " . $exception->getMessage(), PHP_EOL;
@@ -322,13 +355,13 @@ try {
 }
 ```
 
-### **設定外部活頁簿**
+### **指派外部活頁簿**
 
-使用 [setExternalWorkbook](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/chartdata/setexternalworkbook/) 方法，可將外部活頁簿指派給圖表作為資料來源。此方法亦可用於更新外部活頁簿的路徑（若檔案已搬移）。
+使用[setExternalWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/setexternalworkbook/)方法，您可以將外部活頁簿指定為圖表的資料來源。此方法亦可用於更新外部活頁簿的路徑（若該檔案已移動）。
 
-雖然無法編輯儲存在遠端位置或資源的活頁簿資料，但仍可將此類活頁簿作為外部資料來源。若提供相對路徑，系統會自動轉換為完整路徑。
+雖然無法編輯遠端位置或資源中的活頁簿資料，但仍可將此類活頁簿作為外部資料來源。若提供相對路徑，系統會自動轉換為完整路徑。
 
-此範例需要工作目錄中有 `externalWorkbook.xlsx`。其工作表 `Sheet1` 必須在 B1 包含系列名稱、在 A2:A4 包含類別名稱，且在 B2:B4 包含數值。範例建立圓餅圖、連結活頁簿，並使用 [setRange](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/chartdata/setrange/) 將 A1:B4 對映為一個系列與三個類別。結果儲存為 `Presentation_with_externalWorkbook.pptx`。
+此範例使用的外部活頁簿，其工作表 `Sheet1` 包含 B1 中的系列名稱、A2:A4 中的類別名稱，以及 B2:B4 中的數值。範例建立圓餅圖、連結活頁簿，並使用[setRange](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/setrange/)將 A1:B4 映射為一個系列與三個類別。最後儲存含已連結圖表的投影片。
 
 ```php
 use aspose\slides\Presentation;
@@ -353,12 +386,12 @@ try {
 }
 ```
 
-[setExternalWorkbook](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/chartdata/setexternalworkbook/) 的 `updateChartData` 參數決定是否載入活頁簿。
+[setExternalWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/setexternalworkbook/) 的 `updateChartData` 參數控制是否載入活頁簿。
 
-* 當 `updateChartData` 為 `false` 時，僅更新活頁簿路徑。圖表資料不會從目標活頁簿載入或更新，因此活頁簿可以不存在。  
-* 當 `updateChartData` 為 `true` 時，圖表資料會從目標活頁簿更新。
+* 當 `updateChartData` 為 `false` 時，僅更新活頁簿路徑。圖表資料不會自目標活頁簿載入或更新，因此活頁簿可以不存在。
+* 當 `updateChartData` 為 `true` 時，圖表資料會自目標活頁簿更新。
 
-以下範例將佔位 URL 指派給 `updateChartData` 為 `false` 的情況。它保留圓餅圖的預設資料，且在未載入不可用的活頁簿時儲存簡報。
+以下範例將 `updateChartData` 設為 `false` 並指派佔位符 URL。它保留圓餅圖的預設資料，並在未載入不可用的活頁簿情況下儲存投影片。
 
 ```php
 use aspose\slides\Presentation;
@@ -380,15 +413,9 @@ try {
 
 ### **取得圖表的外部資料來源活頁簿路徑**
 
-要辨識連結至圖表的活頁簿，首先檢查圖表是否使用外部資料來源。若是，依下列步驟取得活頁簿路徑。
+若要識別連結至圖表的活頁簿，請檢查圖表是否使用外部資料來源，並取得其活頁簿路徑。
 
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/presentation/) 類別的實例。  
-2. 以零基索引存取第一張投影片。  
-3. 確認第一個圖形是圖表。  
-4. 讀取圖表資料來源類型。  
-5. 若來源是外部活頁簿，讀取其路徑。
-
-此範例開啟先前範例建立的 `externalWorkbook.pptx`，檢查第一張投影片的第一個圖形。若為連結至外部活頁簿的圖表，範例會將 [getExternalWorkbookPath](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/chartdata/getexternalworkbookpath/) 印至主控台，並將簡報副本儲存為 `Result.pptx`。
+此範例檢查投影片第一張投影片的第一個圖形是否為連結至外部活頁簿的圖表，若是則將[getExternalWorkbookPath](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/getexternalworkbookpath/) 輸出至主控台，然後儲存投影片的副本。
 
 ```php
 use aspose\slides\Presentation;
@@ -420,9 +447,9 @@ try {
 
 ### **編輯圖表資料**
 
-您可以像編輯內部活頁簿內容一樣編輯外部活頁簿的資料。若外部活頁簿無法載入，會拋出例外。
+您可以以與編輯內部活頁簿相同的方式編輯外部活頁簿的資料。若外部活頁簿無法載入，會拋出例外。
 
-此範例需要 `presentation.pptx`，且其第一張投影片的第一個圖形必須是圖表，並且有可存取的外部活頁簿。範例將第一系列第一個資料點的儲存格值設為 100，然後將簡報儲存為 `presentation_out.pptx`。編輯儲存格值會更新連結的外部 XLSX 檔案；若需保留原始活頁簿，請先建立副本。
+此範例使用第一張投影片第一個圖形的圖表，且該圖表已連結至可存取的外部活頁簿。它將第一系列第一資料點的儲存格值設定為 100，並儲存更新後的投影片。編輯儲存格值會更新連結的外部 XLSX 檔案，若需保留原始活頁簿，請使用副本。
 
 ```php
 use aspose\slides\Presentation;
@@ -455,11 +482,11 @@ try {
 }
 ```
 
-### **從圖表快取還原活頁簿**
+### **從圖表快取中回復活頁簿**
 
-如果圖表使用的外部活頁簿遺失或無法取得，Aspose.Slides 可以從簡報中的快取資料重建圖表活頁簿。建立 [LoadOptions](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/loadoptions/)，呼叫 [LoadOptions::setSpreadsheetOptions](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/loadoptions/setspreadsheetoptions/)，並將 [SpreadsheetOptions::setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/spreadsheetoptions/setrecoverworkbookfromchartcache/) 設為 `true`，再開啟簡報。
+如果圖表使用的外部活頁簿缺失或無法使用，Aspose.Slides 可以從投影片快取的資料重新建構圖表活頁簿。建立[LoadOptions](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/)，呼叫[LoadOptions::setSpreadsheetOptions](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/setspreadsheetoptions/)，並將[SpreadsheetOptions::setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/php-java/aspose.slides/spreadsheetoptions/setrecoverworkbookfromchartcache/) 設為 `true` 後開啟投影片。
 
-以下 PHP 範例開啟 `presentation.pptx`（其第一張投影片的第一個圖形必須是參照不可用外部活頁簿的圖表），並透過 [Chart::getChartData](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/chart/getchartdata/) 與 [ChartData::getChartDataWorkbook](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/chartdata/getchartdataworkbook/) 取得還原的資料：
+以下 PHP 範例回復第一張投影片第一個圖形的圖表的活頁簿資料，該圖表參考了不可用的外部活頁簿。它透過[Chart::getChartData](https://reference.aspose.com/slides/php-java/aspose.slides/chart/getchartdata/)與[ChartData::getChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/getchartdataworkbook/)存取回復的資料：
 
 ```php
 use aspose\slides\Presentation;
@@ -481,7 +508,7 @@ try {
         $chart = $slide->getShapes()->get_Item(0);
         $recoveredWorkbook = $chart->getChartData()->getChartDataWorkbook();
 
-        // 在此讀取或修改還原的活頁簿資料。
+        // 在此讀取或修改已恢復的活頁簿資料。
     } else {
         echo "The first shape is not a chart.", PHP_EOL;
     }
@@ -490,30 +517,30 @@ try {
 }
 ```
 
-若外部活頁簿不可用且未啟用還原，Aspose.Slides 會拋出例外。僅在接受以快取圖表資料作為可接受的備援時才啟用還原，因為快取可能不包含外部活頁簿在最後一次更新簡報後所做的變更。
+如果外部活頁簿不可用且未啟用回復，Aspose.Slides 會拋出例外。僅在接受使用快取圖表資料作為可接受的備援時才啟用回復，因為快取可能不包含外部活頁簿在最後一次更新投影片後所做的變更。
 
 ## **常見問題集**
 
-**我可以判斷特定圖表是連結至外部活頁簿還是內嵌活頁簿嗎？**
+**我能判斷特定圖表是連結至外部活頁簿還是內嵌活頁簿嗎？**
 
-可以。圖表具有[資料來源類型](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/chartdata/getdatasourcetype/)與[外部活頁簿路徑](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/chartdata/getexternalworkbookpath/)；若來源是外部活頁簿，您可以讀取完整路徑以確認使用的是外部檔案。
+可以。圖表具有[資料來源類型](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/getdatasourcetype/)與[外部活頁簿路徑](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/getexternalworkbookpath/)；若來源是外部活頁簿，您可以讀取完整路徑以確認使用的是外部檔案。
 
-**是否支援相對路徑的外部活頁簿，且它們如何儲存？**
+**是否支援外部活頁簿的相對路徑，且它們如何儲存？**
 
-支援。若您指定相對路徑，系統會自動轉換為絕對路徑。簡報會在 PPTX 檔案中儲存絕對路徑，因此搬移活頁簿可能需要更新連結。
+支援。如果您指定相對路徑，系統會自動轉換為絕對路徑。投影片會在 PPTX 檔案中儲存絕對路徑，因此移動活頁簿可能需要更新連結。
 
-**我可以使用位於網路資源/共享中的活頁簿嗎？**
+**我可以使用位於網路資源/共享上的活頁簿嗎？**
 
-可以，此類活頁簿可作為外部資料來源。但 Aspose.Slides 不支援直接編輯遠端活頁簿──只能將其作為來源使用。
+可以，此類活頁簿可作為外部資料來源。但 Aspose.Slides 不支援直接編輯遠端活頁簿——只能將其作為來源使用。
 
-**儲存簡報時，Aspose.Slides 會覆寫外部 XLSX 嗎？**
+**Aspose.Slides 在儲存投影片時會覆寫外部 XLSX 嗎？**
 
-簡報僅儲存對外部檔案的[連結](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/chartdata/getexternalworkbookpath/)。編輯以儲存格為依據的圖表資料也可能更新連結的本機 XLSX 檔案。若原始活頁簿必須保持不變，請使用副本。
+投影片會儲存[指向外部檔案的連結](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/getexternalworkbookpath/)。編輯儲存格支援的圖表資料也可能更新本機的 XLSX 檔案。若原始活頁簿必須保持不變，請使用其副本。
 
-**如果外部檔案受密碼保護，我該怎麼做？**
+**如果外部檔案受密碼保護，我該怎麼辦？**
 
-Aspose.Slides 在連結時不接受密碼。常見做法是事先移除保護或先產生已解密的副本（例如使用 [Aspose.Cells](https://reference.aspose.com/cells/java/)），再將其連結。
+Aspose.Slides 在連結時不接受密碼。常見做法是在連結前移除保護，或事先準備已解密的副本（例如使用[Aspose.Cells](https://reference.aspose.com/cells/java/)），再連結至該副本。
 
 **多個圖表可以參照同一個外部活頁簿嗎？**
 
-可以。每個圖表都會儲存自己的連結。如果它們指向相同檔案，更新該檔案後，下次載入資料時所有圖表都會反映變更。
+可以。每個圖表都會儲存自己的連結。若它們指向相同檔案，更新該檔案將在下次載入資料時反映於所有圖表。
