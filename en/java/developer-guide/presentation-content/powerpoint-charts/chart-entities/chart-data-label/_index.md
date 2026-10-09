@@ -344,170 +344,115 @@ try {
 
 ![Pie chart with an adjusted data label position](pie-chart-adjusted-label.png)
 
-## **Create Multiple Rows of Top Labels**
+## **Add Multiple Rows of Data Labels Above a Column Chart**
 
-You can add extra rows of labels above a column chart by using hidden series, adjusting the plot area, and adding custom text shapes. The example below creates a clustered column chart with two layers of top labels placed above each column.
+This example creates a column chart with two rows of data labels above the plot area. Series A displays the visible columns, while Series B and Series C provide the additional labels. Their columns are hidden by removing the fill and outline. The [ChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/java/com.aspose.slides/chartseriesgroup/) method aligns all three series with the same category centers.
+
+The [ChartPlotArea](https://reference.aspose.com/slides/java/com.aspose.slides/chartplotarea/) settings reserve space for the label rows. After [Chart.validateChartLayout](https://reference.aspose.com/slides/java/com.aspose.slides/chart/) calculates the default positions, [DataLabel.setX and DataLabel.setY](https://reference.aspose.com/slides/java/com.aspose.slides/datalabel/) preserve the horizontal alignment and apply vertical offsets to arrange the labels in two rows. The numbers remain data labels linked to the series values; only the row headings are separate text shapes.
 
 ```java
-import com.aspose.slides.*;
-import java.awt.Color;
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-public class ColumnBarPptChart {
-    public static void main(String[] args) throws Exception {
-        String output = args.length > 0 ? args[0] : "column-bar-chart.pptx";
-        // Optional second argument: path to your Aspose.Slides license.
-        if (args.length > 1) new License().setLicense(args[1]);
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 40, 40, 640, 200);
+    chart.setTitle(false);
+    chart.setLegend(false);
+    chart.getTextFormat().getPortionFormat().setFontHeight(12);
 
-        String[] categories = {"North", "South", "East", "West"};
-        double[] a = {35, 42, 28, 47};
-        double[] b = {22, 31, 19, 26};
-        double[] c = {12, 16, 14, 18};
+    chart.getChartData().getSeries().clear();
+    chart.getChartData().getCategories().clear();
 
-        Presentation pres = new Presentation();
-        try {
-            pres.getSlideSize().setSize(960, 540, SlideSizeScaleType.DoNotScale);
-            ISlide slide = pres.getSlides().get_Item(0);
-            addChart(slide, categories, a, b, c, 30, 40, 900, 460);
-            pres.save(output, SaveFormat.Pptx);
-            System.out.println("Created: " + output);
-        } finally {
-            pres.dispose();
-        }
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.clear(0);
+
+    String[] categories = {"North", "South", "East", "West"};
+    String[] seriesNames = {"Series A", "Series B", "Series C"};
+    double[][] seriesValues = {
+            {35, 42, 28, 47},
+            {22, 31, 19, 26},
+            {12, 16, 14, 18}
+    };
+
+    for (int categoryIndex = 0; categoryIndex < categories.length; categoryIndex++) {
+        chart.getChartData().getCategories().add(
+                workbook.getCell(0, categoryIndex + 1, 0, categories[categoryIndex]));
     }
 
-    public static IChart addChart(ISlide slide, String[] categories,
-            double[] a, double[] b, double[] c,
-            float x, float y, float width, float height) {
-        int n = categories.length;
-        if (n == 0 || a.length != n || b.length != n || c.length != n)
-            throw new IllegalArgumentException("All arrays must have the same nonzero length.");
-        double max = 0;
-        for (int i = 0; i < n; i++) {
-            if (!Double.isFinite(a[i]) || a[i] < 0 ||
-                !Double.isFinite(b[i]) || b[i] < 0 || !Double.isFinite(c[i]) || c[i] < 0)
-                throw new IllegalArgumentException("All values must be finite and nonnegative.");
-            max = Math.max(max, Math.max(a[i], Math.max(b[i], c[i])));
-        }
-
-        IChart chart = slide.getShapes().addChart(
-                ChartType.ClusteredColumn, x, y, width, height);
-        chart.setTitle(false);
-        chart.setLegend(false);
-        chart.getChartData().getSeries().clear();
-        chart.getChartData().getCategories().clear();
-        IChartDataWorkbook wb = chart.getChartData().getChartDataWorkbook();
-        wb.clear(0);
-        wb.getCell(0, 0, 0, "Category");
+    for (int seriesIndex = 0; seriesIndex < seriesNames.length; seriesIndex++) {
         IChartSeries series = chart.getChartData().getSeries().add(
-                wb.getCell(0, 0, 1, "Series A"), ChartType.ClusteredColumn);
-        IChartSeries seriesB = chart.getChartData().getSeries().add(
-                wb.getCell(0, 0, 2, "Series B"), ChartType.ClusteredColumn);
-        IChartSeries seriesC = chart.getChartData().getSeries().add(
-                wb.getCell(0, 0, 3, "Series C"), ChartType.ClusteredColumn);
-        for (int i = 0; i < n; i++) {
-            chart.getChartData().getCategories().add(wb.getCell(0, i + 1, 0, categories[i]));
-            series.getDataPoints().addDataPointForBarSeries(wb.getCell(0, i + 1, 1, a[i]));
-            seriesB.getDataPoints().addDataPointForBarSeries(wb.getCell(0, i + 1, 2, b[i]));
-            seriesC.getDataPoints().addDataPointForBarSeries(wb.getCell(0, i + 1, 3, c[i]));
+                workbook.getCell(0, 0, seriesIndex + 1, seriesNames[seriesIndex]),
+                ChartType.ClusteredColumn);
+
+        for (int categoryIndex = 0; categoryIndex < categories.length; categoryIndex++) {
+            series.getDataPoints().addDataPointForBarSeries(workbook.getCell(
+                    0, categoryIndex + 1, seriesIndex + 1,
+                    seriesValues[seriesIndex][categoryIndex]));
         }
-        series.getFormat().getFill().setFillType(FillType.Solid);
-        series.getFormat().getFill().getSolidFillColor().setColor(new Color(0x4472C4));
-        series.getFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
-        series.getParentSeriesGroup().setGapWidth(70);
-        series.getParentSeriesGroup().setOverlap((byte) 100);
-        configureHiddenSeries(seriesB, new Color(0x138238));
-        configureHiddenSeries(seriesC, new Color(0x0A6B2F));
-        IDataLabelFormat labels = series.getLabels().getDefaultDataLabelFormat();
-        labels.setShowValue(true);
-        labels.setPosition(LegendDataLabelPosition.InsideBase);
-        labels.getTextFormat().getPortionFormat().setFontHeight(13);
-        labels.getTextFormat().getPortionFormat().getFillFormat().setFillType(FillType.Solid);
-        labels.getTextFormat().getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
 
-        double unit = majorUnit(max);
-        IAxis vertical = chart.getAxes().getVerticalAxis();
-        vertical.setAutomaticMinValue(false);
-        vertical.setMinValue(0);
-        vertical.setAutomaticMaxValue(false);
-        vertical.setMaxValue(max == 0 ? 1 : Math.ceil(max / unit) * unit);
-        vertical.setAutomaticMajorUnit(false);
-        vertical.setMajorUnit(unit);
-        chart.getAxes().getHorizontalAxis().setAxisBetweenCategories(true);
-        chart.getTextFormat().getPortionFormat().setFontHeight(13);
-
-        // Reserve the top of the chart for the two rows.
-        IChartPlotArea plot = chart.getPlotArea();
-        plot.setLayoutTargetType(LayoutTargetType.Inner);
-        plot.setX(0.10f);
-        plot.setY(0.22f);
-        plot.setWidth(0.86f);
-        plot.setHeight(0.68f);
-        chart.validateChartLayout();
-
-        // Position custom label rows.
-        float left = chart.getX() + plot.getActualX();
-        float slot = plot.getActualWidth() / n;
-        float rowHeight = height * 0.055f;
-        float topC = y + height * 0.025f;
-        float topB = y + height * 0.10f;
-        Color greenC = new Color(0x0A6B2F);
-        Color greenB = new Color(0x138238);
-        addText(slide, "Series C", x + 5, topC, left - x - 8, rowHeight, greenC, true, TextAlignment.Left);
-        addText(slide, "Series B", x + 5, topB, left - x - 8, rowHeight, greenB, true, TextAlignment.Left);
-        for (int i = 0; i < n; i++) {
-            float center = plot.getActualX() + (i + 0.5f) * slot;
-            positionLabel(seriesC.getDataPoints().get_Item(i).getLabel(), center, topC - y + rowHeight / 2, width, height);
-            positionLabel(seriesB.getDataPoints().get_Item(i).getLabel(), center, topB - y + rowHeight / 2, width, height);
+        if (seriesIndex > 0) {
+            // Hide the columns of B and C, but keep their data labels.
+            series.getFormat().getFill().setFillType(FillType.NoFill);
+            series.getFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
+            series.getLabels().getDefaultDataLabelFormat().setShowValue(true);
+            series.getLabels().getDefaultDataLabelFormat()
+                    .getTextFormat().getPortionFormat().setFontHeight(12);
+            IFillFormat labelFill = series.getLabels().getDefaultDataLabelFormat()
+                    .getTextFormat().getPortionFormat().getFillFormat();
+            labelFill.setFillType(FillType.Solid);
+            labelFill.getSolidFillColor().setColor(java.awt.Color.BLACK);
+            series.getLabels().getDefaultDataLabelFormat().setPosition(
+                    LegendDataLabelPosition.InsideBase);
         }
-        return chart;
     }
 
-    private static void addText(ISlide slide, String text, float x, float y,
-            float w, float h, Color color, boolean bold, int alignment) {
-        IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, x, y, w, h);
-        shape.getFillFormat().setFillType(FillType.NoFill);
-        shape.getLineFormat().getFillFormat().setFillType(FillType.NoFill);
-        shape.addTextFrame(text);
-        ITextFrameFormat tf = shape.getTextFrame().getTextFrameFormat();
-        tf.setMarginLeft(0); tf.setMarginRight(0);
-        tf.setMarginTop(0); tf.setMarginBottom(0);
-        tf.setAnchoringType(TextAnchorType.Center);
-        tf.setWrapText(NullableBool.False);
-        IParagraph paragraph = shape.getTextFrame().getParagraphs().get_Item(0);
-        paragraph.getParagraphFormat().setAlignment(alignment);
-        IPortionFormat font = paragraph.getPortions().get_Item(0).getPortionFormat();
-        font.setLatinFont(new FontData("Arial"));
-        font.setFontHeight(13);
-        font.setFontBold(bold ? NullableBool.True : NullableBool.False);
-        font.getFillFormat().setFillType(FillType.Solid);
-        font.getFillFormat().getSolidFillColor().setColor(color);
+    // Align all three series with the same category centers.
+    chart.getChartData().getSeries().get_Item(0)
+            .getParentSeriesGroup().setOverlap((byte) 100);
+
+    // Use fewer gridlines for this compact example.
+    chart.getAxes().getVerticalAxis().setAutomaticMajorUnit(false);
+    chart.getAxes().getVerticalAxis().setMajorUnit(10);
+
+    // Reserve space above the plot for two rows of data labels.
+    chart.getPlotArea().setLayoutTargetType(LayoutTargetType.Inner);
+    chart.getPlotArea().setX(0.15f);
+    chart.getPlotArea().setY(0.32f);
+    chart.getPlotArea().setWidth(0.80f);
+    chart.getPlotArea().setHeight(0.48f);
+    chart.validateChartLayout();
+
+    for (int seriesIndex = 1; seriesIndex < seriesNames.length; seriesIndex++) {
+        IChartSeries series = chart.getChartData().getSeries().get_Item(seriesIndex);
+        float rowTop = seriesIndex == 1 ? 0.15f : 0.03f;
+
+        for (int categoryIndex = 0; categoryIndex < categories.length; categoryIndex++) {
+            IDataLabel dataLabel = series.getDataPoints().get_Item(categoryIndex).getLabel();
+            // Keep the default horizontal position. Y is an offset from
+            // the default label position, expressed as a chart-height fraction.
+            dataLabel.setX(0);
+            dataLabel.setY(rowTop - dataLabel.getActualY() / chart.getHeight());
+        }
+
+        // Only the row heading is a separate text shape.
+        IAutoShape rowHeading = slide.getShapes().addAutoShape(
+                ShapeType.Rectangle, chart.getX(),
+                chart.getY() + rowTop * chart.getHeight(), 85, 18);
+        rowHeading.getFillFormat().setFillType(FillType.NoFill);
+        rowHeading.getLineFormat().getFillFormat().setFillType(FillType.NoFill);
+        rowHeading.addTextFrame(seriesNames[seriesIndex]);
+        rowHeading.getTextFrame().getTextFrameFormat().setMarginTop(0);
+        rowHeading.getTextFrame().getTextFrameFormat().setMarginBottom(0);
+        IPortionFormat headingFormat = rowHeading.getTextFrame().getParagraphs()
+                .get_Item(0).getPortions().get_Item(0).getPortionFormat();
+        headingFormat.setFontHeight(12);
+        headingFormat.getFillFormat().setFillType(FillType.Solid);
+        headingFormat.getFillFormat().getSolidFillColor().setColor(java.awt.Color.BLACK);
     }
 
-    private static void configureHiddenSeries(IChartSeries series, Color color) {
-        series.getFormat().getFill().setFillType(FillType.NoFill);
-        series.getFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
-        IDataLabelFormat format = series.getLabels().getDefaultDataLabelFormat();
-        format.setShowValue(true);
-        format.setPosition(LegendDataLabelPosition.InsideBase);
-        format.setShowLeaderLines(false);
-        format.getTextFormat().getPortionFormat().setFontHeight(13);
-        format.getTextFormat().getPortionFormat().getFillFormat().setFillType(FillType.Solid);
-        format.getTextFormat().getPortionFormat().getFillFormat().getSolidFillColor().setColor(color);
-    }
-
-    private static void positionLabel(IDataLabel label, float centerX, float centerY,
-            float chartWidth, float chartHeight) {
-        label.setX((centerX - label.getActualWidth() / 2 - label.getActualX()) / chartWidth);
-        label.setY((centerY - label.getActualHeight() / 2 - label.getActualY()) / chartHeight);
-    }
-
-    private static double majorUnit(double max) {
-        if (max <= 0) return 1;
-        double raw = max / 5.0;
-        double magnitude = Math.pow(10, Math.floor(Math.log10(raw)));
-        double normalized = raw / magnitude;
-        return (normalized <= 1 ? 1 : normalized <= 2 ? 2 : normalized <= 5 ? 5 : 10) * magnitude;
-    }
+    presentation.save("multiple-rows-of-labels.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
 }
 ```
 
