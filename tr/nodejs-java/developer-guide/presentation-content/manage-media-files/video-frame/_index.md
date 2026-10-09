@@ -1,5 +1,5 @@
 ---
-title: Sunumlarda Video Çerçevelerini JavaScript ile Yönetme
+title: Sunumlarda Video Çerçevelerini Node.js Kullanarak Yönetme
 linktitle: Video Çerçevesi
 type: docs
 weight: 10
@@ -7,9 +7,9 @@ url: /tr/nodejs-java/video-frame/
 keywords:
 - video ekle
 - video oluştur
-- video göm
+- video gömme
 - video çıkar
-- videoyu al
+- video al
 - video çerçevesi
 - web kaynağı
 - PowerPoint
@@ -18,147 +18,36 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Aspose.Slides for Node.js'i Java üzerinden kullanarak PowerPoint ve OpenDocument slaytlarına video çerçevelerini programlı olarak eklemeyi ve çıkarmayı öğrenin. Hızlı bir uygulama rehberi."
+description: "Aspose.Slides for Node.js via Java kullanarak PowerPoint ve OpenDocument slaytlarına programlı olarak video çerçeveleri eklemeyi ve çıkarmayı öğrenin. Hızlı bir nasıl yapılır rehberi."
 ---
 ## **Giriş**
 
-Sunumda doğru konumlandırılmış bir video, mesajınızı daha etkili hâle getirebilir ve izleyicilerinizle etkileşim düzeyini artırabilir. 
+Videolar fikirleri açıklamaya ve izleyiciyi etkilemeye yardımcı olabilir. Aspose.Slides for Node.js via Java, slaytlara video çerçeveleri eklemenize, oynatma ayarlarını düzenlemenize, altyazıları yönetmenize ve gömülü video verilerini çıkarmanıza olanak tanır.
 
-PowerPoint, bir sunumdaki slayta video eklemenizi iki şekilde sağlar:
+PowerPoint, yerel videoları ve YouTube videoları gibi çevrimiçi videoların bağlantılarını destekler.
 
-* Yerel bir video ekleyin veya gömün (bilgisayarınızda depolanmış)
-* Çevrimiçi bir video ekleyin (YouTube gibi bir web kaynağından).
+Video verilerini ve video çerçevelerini temsil etmek için Aspose.Slides, [Video](https://reference.aspose.com/slides/nodejs-java/aspose.slides/video/) sınıfı, [VideoFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/) sınıfı ve diğer ilgili türleri sağlar.
 
-Bir sunuma video (video nesneleri) eklemenizi sağlamak için Aspose.Slides, [Video](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/video/) sınıfını, [VideoFrame](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/videoframe/) sınıfını ve ilgili diğer tipleri sunar.
+## **Gömülü Bir Video Çerçevesi Oluşturma**
 
-## **Gömülü Video Çerçevesi Oluşturma**
+Slaytınıza eklemek istediğiniz video dosyası yerel olarak depolanıyorsa, videoyu sunumunuza gömmek için bir video çerçevesi oluşturabilirsiniz.
 
-Slaytınıza eklemek istediğiniz video dosyası yerelde depolanmışsa, videoyu sunuma gömmek için bir video çerçevesi oluşturabilirsiniz. 
-
-1. [Presentation](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/Presentation) sınıfından bir örnek oluşturun.  
-2. Slayt referansını indeksine göre alın.  
-3. Bir [Video](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/video/) nesnesi ekleyin ve videoyu sunuma gömmek için video dosya yolunu iletin.  
-4. Video için bir çerçeve oluşturmak üzere bir [VideoFrame](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/videoframe/) nesnesi ekleyin.  
-5. Değiştirilmiş sunumu kaydedin.  
+Bu örnek, mevcut bir sunumun ilk slaytına yerel bir video gömer ve sonucu kaydeder. Çerçeve koordinatları ve boyutları puan cinsindendir. Akış, kaydetme işlemi bitene kadar açık kalır çünkü [LoadingStreamBehavior.KeepLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/loadingstreambehavior/) sunum tarafından kullanılırken akışı kilitli tutar.
 
 ```javascript
-// Presentation sınıfını örnekler
-var pres = new aspose.slides.Presentation("pres.pptx");
-try {
-    // Videoyu yükler
-    var fileStream = java.newInstanceSync("java.io.FileInputStream", "Wildlife.mp4");
-    var video = pres.getVideos().addVideo(fileStream, aspose.slides.LoadingStreamBehavior.KeepLocked);
-    // İlk slaytı alır ve bir video çerçevesi ekler
-    pres.getSlides().get_Item(0).getShapes().addVideoFrame(10, 10, 150, 250, video);
-    // Sunumu diske kaydeder
-    pres.save("pres-with-video.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
 
-Alternatif olarak, videoyu doğrudan dosya yolunu [addVideoFrame(float x, float y, float width, float height, IVideo video)](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/shapecollection/#addVideoFrame-float-float-float-float-aspose.slides.IVideo-) metoduna geçirerek ekleyebilirsiniz:
-
-```javascript
-var pres = new aspose.slides.Presentation();
-try {
-    var sld = pres.getSlides().get_Item(0);
-    var vf = sld.getShapes().addVideoFrame(50, 150, 300, 150, "video1.avi");
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-
-## **Web Kaynağından Video ile Video Çerçevesi Oluşturma**
-
-Microsoft [PowerPoint 2013 ve üzeri](https://support.microsoft.com/en-us/office/versions-of-powerpoint-that-support-online-videos-2a0e184d-af50-4da9-b530-e4355ac436a9?ui=en-us&rs=en-us&ad=us) sunumlarda YouTube videolarını destekler. Kullanmak istediğiniz video çevrimiçi olarak mevcutsa (ör. YouTube’da), web bağlantısı aracılığıyla sunuma ekleyebilirsiniz. 
-
-1. [Presentation](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/Presentation) sınıfından bir örnek oluşturun.  
-2. Slayt referansını indeksine göre alın.  
-3. Bir [Video](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/video/) nesnesi ekleyin ve videonun bağlantısını iletin.  
-4. Video çerçevesi için bir küçük resim ayarlayın.  
-5. Sunumu kaydedin.  
-
-```javascript
-// Sunum dosyasını temsil eden bir Presentation nesnesi oluşturur
-var pres = new aspose.slides.Presentation();
-try {
-    addVideoFromYouTube(pres, "Tj75Arhq5ho");
-    pres.save("out.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-
-```javascript
-async function addVideoFromYouTube(pres, videoID) {
-    let slide = pres.getSlides().get_Item(0);
-    let videoUrl = "https://www.youtube.com/embed/" + videoID;
-    let videoFrame = slide.getShapes().addVideoFrame(10, 10, 427, 240, videoUrl);
-    
-    videoFrame.setPlayMode(aspose.slides.VideoPlayModePreset.Auto);
-
-    let thumbnailUri = "http://img.youtube.com/vi/" + videoID + "/hqdefault.jpg";
-
-    try {
-        const imageStream = await getImageStream(thumbnailUri);
-        let image = pres.getImages().addImage(imageStream);
-        videoFrame.getPictureFormat().getPicture().setImage(image);
-    } catch (error) {
-        console.error("Error loading thumbnail:", error);
-    }
-}
-
-async function getImageStream(url) {
-    return new Promise((resolve, reject) => {
-        http.get(url, (response) => {
-            if (response.statusCode === 200) {
-                resolve(response);
-            } else {
-                reject(new Error(`Failed to load image: ${response.statusCode}`));
-            }
-        }).on('error', (e) => {
-            reject(e);
-        });
-    });
-}
-```
-
-## **Video Çerçevesini Kırpma**
-
-Aspose.Slides, bir videonun hangi bölümünün oynatılacağını, [VideoFrame.setTrimFromStart](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/videoframe/settrimfromstart/) ve [VideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/videoframe/settrimfromend/) metodlarıyla trim‑from‑start ve trim‑from‑end değerlerini ayarlayarak kontrol etmenizi sağlar. Her iki değer de milisaniye cinsindendir ve videonun başlangıç ve sonundan ne kadar sürenin atlanacağını tanımlar. Bu ayarlar sunumdaki video oynatma ayarlarını değiştirir; gömülü video ikili verisini kesmez veya farklı bir şekilde değiştirmez.
-
-**Kırpma Ayarlarını Belirleme**
-
-Bir video çerçevesi oluşturup kırpma ayarlarını belirlemek için:
-
-1. [Presentation](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/presentation/) sınıfından bir örnek oluşturun.  
-2. Sunuma bir [Video](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/video/) nesnesi ekleyin.  
-3. Bir slayta bir [VideoFrame](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/videoframe/) nesnesi ekleyin.  
-4. Trim‑from‑start ve trim‑from‑end değerlerini [VideoFrame.setTrimFromStart](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/videoframe/settrimfromstart/) ve [VideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/videoframe/settrimfromend/) aracılığıyla ayarlayın.  
-5. Değiştirilmiş sunumu kaydedin.  
-
-```javascript
-const presentation = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
     const videoStream = java.newInstanceSync("java.io.FileInputStream", "video.mp4");
     try {
-        const video = presentation.getVideos().addVideo(
-            videoStream, aspose.slides.LoadingStreamBehavior.ReadStreamAndRelease);
         const slide = presentation.getSlides().get_Item(0);
-        const videoFrame = slide.getShapes().addVideoFrame(50, 50, 640, 360, video);
 
-        videoFrame.setTrimFromStart(2500);
-        videoFrame.setTrimFromEnd(1000);
+        const video = presentation.getVideos().addVideo(videoStream, aspose.slides.LoadingStreamBehavior.KeepLocked);
+        slide.getShapes().addVideoFrame(10, 10, 150, 250, video);
 
-        presentation.save("video_with_trim.pptx", aspose.slides.SaveFormat.Pptx);
+        presentation.save("embedded_video.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         videoStream.close();
     }
@@ -167,24 +56,171 @@ try {
 }
 ```
 
-**Kırpma Ayarlarını Okuma**
-
-Mevcut kırpma ayarlarını incelemek için bir sunum yükleyin, ilk slayttaki şekiller arasında bir [VideoFrame](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/videoframe/) nesnesi bulun ve değerleri [VideoFrame.getTrimFromStart](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/videoframe/gettrimfromstart/) ve [VideoFrame.getTrimFromEnd](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/videoframe/gettrimfromend/) aracılığıyla okuyun.
+Ayrıca yerel video yolunu doğrudan [addVideoFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/addvideoframe/) metoduna geçirebilirsiniz. Bu örnek, videoyu yeni bir sunumun ilk slaytına gömer. Video, sunum kaydedilene kadar erişilebilir olmalıdır.
 
 ```javascript
-const presentation = new aspose.slides.Presentation("video_with_trim.pptx");
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation();
 try {
     const slide = presentation.getSlides().get_Item(0);
-    const shapeCount = slide.getShapes().size();
-    for (let shapeIndex = 0; shapeIndex < shapeCount; shapeIndex++) {
+
+    slide.getShapes().addVideoFrame(50, 150, 300, 150, "video.avi");
+
+    presentation.save("video_from_path.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Web Kaynağından Video ile Bir Video Çerçevesi Oluşturma**
+
+Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site), sunumlardaki çevrimiçi videoları destekler. YouTube videosu gibi çevrimiçi bir videoya bağlantı veren bir video çerçevesi oluşturabilirsiniz.
+
+Bu örnek, ilk slayta bir YouTube video bağlantısı ve önizleme resmi ekler. Başka bir video kullanmak için video tanımlayıcısını değiştirin. [setPlayMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setplaymode/) yöntemi otomatik oynatmayı talep eder. Önizleme resmini indirmek ve videoyu oynatmak internet erişimi gerektirir. Sunum görüntüleyicisinin de çevrimiçi video oynatımını desteklemesi gerekir.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const videoId = "aqz-KE-bpKQ";
+    const videoUrl = "https://www.youtube.com/embed/" + videoId;
+    const videoFrame = slide.getShapes().addVideoFrame(10, 10, 427, 240, videoUrl);
+    videoFrame.setPlayMode(aspose.slides.VideoPlayModePreset.Auto);
+
+    const thumbnailUrl = "https://img.youtube.com/vi/" + videoId + "/hqdefault.jpg";
+    const thumbnailLocation = java.newInstanceSync("java.net.URL", thumbnailUrl);
+    const thumbnailStream = thumbnailLocation.openStream();
+    try {
+        const thumbnail = presentation.getImages().addImage(thumbnailStream);
+        videoFrame.getPictureFormat().getPicture().setImage(thumbnail);
+    } finally {
+        thumbnailStream.close();
+    }
+
+    presentation.save("online_video.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Videoyu Tam Ekran Modunda Oynatma**
+
+Eğitim sunumunda, izleyicilerin ayrıntıları görebilmesi için bir yazılım demosunu tam ekran modunda oynatabilirsiniz. Oynatma sırasında bu davranışı etkinleştirmek için [setFullScreenMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setfullscreenmode/) metodunu `true` ile çağırın.
+
+Bu örnek bir sunumu açar, ilk slayttaki ilk [VideoFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/) öğesini bulur ve tam ekran oynatmayı etkinleştirir. Giriş sunumu, ilk slaytta mevcut bir video çerçevesi bulunan en az bir slayt içermelidir.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation("training.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    for (let shapeIndex = 0; shapeIndex < slide.getShapes().size(); shapeIndex++) {
         const shape = slide.getShapes().get_Item(shapeIndex);
         if (java.instanceOf(shape, "com.aspose.slides.VideoFrame")) {
             const videoFrame = shape;
-            const trimFromStart = videoFrame.getTrimFromStart();
-            const trimFromEnd = videoFrame.getTrimFromEnd();
+            videoFrame.setFullScreenMode(true);
+            break;
+        }
+    }
 
-            console.log("Trim from start: " + trimFromStart + " ms");
-            console.log("Trim from end: " + trimFromEnd + " ms");
+    presentation.save("full_screen_video.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Tam ekran oynatma, videonun nasıl gösterileceğini kontrol eder. Bağımsız olarak, [setPlayMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setplaymode/) otomatik mi yoksa tıklamayla mı başlayacağını, [setPlayLoopMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setplayloopmode/) ise tekrarlanıp tekrarlanmayacağını yönetir. Başlangıç davranışını seçmek için oynatma modunu [VideoPlayModePreset.Auto or VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoplaymodepreset/) olarak ayarlayın. Örnek mevcut başlangıç ve döngü ayarlarını korur.
+
+## **Oynatmadan Sonra Videoyu Geri Al**
+
+Eğitim sunumunda, demo videosunu başına döndürmek, sunucunun videoyu tekrar oynatmaya hazır olmasını sağlar. Oynatma bittiğinde videoyu başa döndürmek için [setRewindVideo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setrewindvideo/) metodunu `true` ile çağırın.
+
+Bu örnek bir sunumu açar, ilk slayttaki ilk [VideoFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/) öğesini bulur ve geri almayı etkinleştirir. Döngüyü devre dışı bırakır, böylece oynatma tamamlanabilir ve oynatmayı tıklamayla başlatır. Giriş sunumu, ilk slaytta mevcut bir video çerçevesi bulunan en az bir slayt içermelidir.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation("training.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    for (let shapeIndex = 0; shapeIndex < slide.getShapes().size(); shapeIndex++) {
+        const shape = slide.getShapes().get_Item(shapeIndex);
+        if (java.instanceOf(shape, "com.aspose.slides.VideoFrame")) {
+            const videoFrame = shape;
+            videoFrame.setRewindVideo(true);
+            videoFrame.setPlayLoopMode(false);
+            videoFrame.setPlayMode(aspose.slides.VideoPlayModePreset.OnClick);
+            break;
+        }
+    }
+
+    presentation.save("rewind_video.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Geri alma, videoyu tekrar başlatmadan başına döndürür. Buna karşılık, [setPlayLoopMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setplayloopmode/) metodunu `true` ile çağırmak oynatmayı otomatik olarak tekrarlar. Videonun bitmesini ve tekrar oynatmaya hazır kalmasını istediğinizde döngüyü devre dışı tutun. [setPlayMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setplaymode/) bağımsız olarak otomatik ya da tıklamayla başlamayı kontrol eder; bu örnek, oynatmanın ne zaman başlayacağını sunucunun kontrol etmesi için [VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoplaymodepreset/) kullanır. Örnekte gösterildiği gibi, döngü ayarından sonra oynatma modunu ayarlayın. Geri alma, [setFullScreenMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setfullscreenmode/) metodundan bağımsız çalışır.
+
+## **Bir Video Çerçevesini Kırpma**
+
+Oynatma sırasında videonun başlangıcından veya sonundan bir kısmı atlamak için [VideoFrame.setTrimFromStart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/settrimfromstart/) ve [VideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/settrimfromend/) yöntemlerini kullanın. Her iki değer de milisaniye cinsindendir. Kırpma, gömülü video verisini değiştirmeden oynatma ayarlarını değiştirir.
+
+**Kırpma Ayarlarını Belirleme**
+
+Bu örnek, yerel bir video gömer ve oynatma sırasında ilk 2,5 saniye ile son bir saniyeyi atlar. Oynanabilir bir segmentin kalması için videonun 3,5 saniyeden uzun olmasına dikkat edin.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+const fs = require("fs");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const videoBuffer = fs.readFileSync("video.mp4");
+    const videoData = java.newArray("byte", Array.from(videoBuffer));
+    const video = presentation.getVideos().addVideo(videoData);
+
+    const videoFrame = slide.getShapes().addVideoFrame(50, 50, 640, 360, video);
+    videoFrame.setTrimFromStart(2500);
+    videoFrame.setTrimFromEnd(1000);
+
+    presentation.save("video_with_trim.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+**Kırpma Ayarlarını Okuma**
+
+Bu örnek, ilk slayttaki ilk video çerçevesinin kırpma değerlerini milisaniye cinsinden yazdırır. Sunum en az bir slayt içermelidir. O slaytta video çerçevesi yoksa hiçbir şey yazdırılmaz. Önceki örnek 2500 ve 1000 değerlerini üretir.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation("video_with_trim.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    for (let shapeIndex = 0; shapeIndex < slide.getShapes().size(); shapeIndex++) {
+        const shape = slide.getShapes().get_Item(shapeIndex);
+        if (java.instanceOf(shape, "com.aspose.slides.VideoFrame")) {
+            const videoFrame = shape;
+            console.log("Trim from start: " + videoFrame.getTrimFromStart() + " ms");
+            console.log("Trim from end: " + videoFrame.getTrimFromEnd() + " ms");
             break;
         }
     }
@@ -195,28 +231,26 @@ try {
 
 ## **Video Altyazılarını Yönetme**
 
-Aspose.Slides, PowerPoint sunumlarındaki video çerçeveleri için kapalı altyazıları yönetmenizi sağlar. Altyazılar WebVTT formatında depolanır ve [VideoFrame.getCaptionTracks](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/videoframe/#getCaptionTracks) yöntemiyle erişilebilir.
+Aspose.Slides, PowerPoint sunumlarındaki video çerçeveleri için kapalı altyazıları yönetmenizi sağlar. Altyazılar WebVTT formatında depolanır ve [VideoFrame.getCaptionTracks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/#getCaptionTracks) yöntemi aracılığıyla sunulur.
 
 **Bir Video Çerçevesine Altyazı Ekleme**
 
-Bir video çerçevesine altyazı eklemek için:
+Bu örnek, yerel bir video gömer ve English etiketiyle bir WebVTT altyazı izi ekler. Altyazı zaman damgaları videoyla eşleşmelidir. Kaydedilen sunum hem videoyu hem de altyazılarını içerir.
 
-1. [Presentation](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/presentation/) sınıfından bir örnek oluşturun.  
-2. Sunuma bir video ekleyin.  
-3. Bir slayta bir [VideoFrame](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/videoframe/) nesnesi ekleyin.  
-4. [CaptionsCollection](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/captionscollection/) koleksiyonunu kullanarak bir WebVTT altyazı izi ekleyin.  
-5. Değiştirilmiş sunumu kaydedin.  
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+const fs = require("fs");
 
-```js
-let presentation = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation();
 try {
-    let videoStream = java.newInstanceSync("java.io.FileInputStream", "video.mp4");
-    let video = presentation.getVideos().addVideo(videoStream, aspose.slides.LoadingStreamBehavior.KeepLocked);
+    const slide = presentation.getSlides().get_Item(0);
 
-    let slide = presentation.getSlides().get_Item(0);
-    let videoFrame = slide.getShapes().addVideoFrame(0, 0, 100, 100, video);
+    const videoBuffer = fs.readFileSync("video.mp4");
+    const videoData = java.newArray("byte", Array.from(videoBuffer));
+    const video = presentation.getVideos().addVideo(videoData);
 
-    // WebVTT dosyasından yeni bir altyazı izi ekler.
+    const videoFrame = slide.getShapes().addVideoFrame(0, 0, 100, 100, video);
     videoFrame.getCaptionTracks().add("English", "track.vtt");
 
     presentation.save("video_with_captions.pptx", aspose.slides.SaveFormat.Pptx);
@@ -225,59 +259,56 @@ try {
 }
 ```
 
-[CaptionsCollection](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/captionscollection/) sınıfı ayrıca altyazıları bir akıştan eklemenizi sağlayan [addFromStream](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/captionscollection/#addFromStream) yöntemini sunar.
+[CaptionsCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captionscollection/) sınıfı ayrıca akıştan altyazı eklemek için [addFromStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captionscollection/#addFromStream) metodunu sağlar.
 
-**Bir Video Çerçevesinden Altyazı Çıkarma**
+**Bir Video Çerçevesinden Altyazıları Çıkarma**
 
-Bir video çerçevesinden altyazı çıkarmak için:
+Bu örnek, ilk slayttaki video çerçevelerinden tüm altyazı izlerini ayrı WebVTT dosyaları olarak kaydeder. Ardışık sayılar çıktı dosyalarını ayırır. Konsol, çıkarılan iz sayısını raporlar. Sunum en az bir slayt içermelidir.
 
-1. Videoyu içeren sunumu yükleyin.  
-2. Hedef [VideoFrame](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/videoframe/) nesnesini bulun.  
-3. [CaptionsCollection](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/captionscollection/) koleksiyonunda gezin.  
-4. Her altyazı izini bir `.vtt` dosyasına kaydedin.  
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+const fs = require("fs");
 
-```js
-let presentation = new aspose.slides.Presentation("video_with_captions.pptx");
+const presentation = new aspose.slides.Presentation("video_with_captions.pptx");
 try {
-    let slide = presentation.getSlides().get_Item(0);
-    let shapeCount = slide.getShapes().size();
-    for (let shapeIndex = 0; shapeIndex < shapeCount; shapeIndex++) {
-        let shape = slide.getShapes().get_Item(shapeIndex);
+    const slide = presentation.getSlides().get_Item(0);
+
+    let trackCount = 0;
+    for (let shapeIndex = 0; shapeIndex < slide.getShapes().size(); shapeIndex++) {
+        const shape = slide.getShapes().get_Item(shapeIndex);
         if (java.instanceOf(shape, "com.aspose.slides.VideoFrame")) {
-            let videoFrame = shape;
-            let trackCount = videoFrame.getCaptionTracks().getCount();
-            for (let trackIndex = 0; trackIndex < trackCount; trackIndex++) {
-                let captionTrack = videoFrame.getCaptionTracks().get_Item(trackIndex);
-                // Altyazı izini bir WebVTT dosyasına kaydeder.
-                let filePath = captionTrack.getCaptionId() + ".vtt";
-                let captionData = Buffer.from(captionTrack.getBinaryData());
-                fs.writeFileSync(filePath, captionData);
+            const videoFrame = shape;
+            for (let trackIndex = 0; trackIndex < videoFrame.getCaptionTracks().getCount(); trackIndex++) {
+                const captionTrack = videoFrame.getCaptionTracks().get_Item(trackIndex);
+                trackCount++;
+                const outputPath = "captions_" + trackCount + ".vtt";
+                const outputData = Buffer.from(captionTrack.getBinaryData());
+                fs.writeFileSync(outputPath, outputData);
             }
         }
     }
+
+    console.log("Caption tracks extracted: " + trackCount);
 } finally {
     presentation.dispose();
 }
 ```
 
-Her [Captions](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/captions/) nesnesi, altyazı tanımlayıcısını, etiketini, ikili verisini ve altyazı metnini UTF‑8 dizesi olarak sunar.
+Her [Captions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captions/) nesnesi, altyazı tanımlayıcısını, etiketi, ikili veriyi ve altyazı metnini UTF‑8 dizesi olarak sunar.
 
-**Bir Video Çerçevesinden Altyazı Kaldırma**
+**Bir Video Çerçevesinden Altyazıları Kaldırma**
 
-Bir video çerçevesinden altyazı kaldırmak için:
+Bu örnek, ilk slayttaki ilk şekil konumundaki video çerçevesinden tüm altyazıları kaldırır ve sonucu kaydeder. Slayt ve şeklin mevcut olduğunu ve şeklin bir video çerçevesi olduğunu varsayar.
 
-1. Videoyu içeren sunumu yükleyin.  
-2. Hedef [VideoFrame](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/videoframe/) nesnesini alın.  
-3. [CaptionsCollection](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/captionscollection/) koleksiyonundan altyazı izlerini kaldırın.  
-4. Değiştirilmiş sunumu kaydedin.  
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
 
-```js
-let presentation = new aspose.slides.Presentation("video_with_captions.pptx");
+const presentation = new aspose.slides.Presentation("video_with_captions.pptx");
 try {
-    let slide = presentation.getSlides().get_Item(0);
-    let videoFrame = slide.getShapes().get_Item(0); // tip: com.aspose.slides.VideoFrame
+    const slide = presentation.getSlides().get_Item(0);
 
-    // Video çerçevesinden tüm altyazıları kaldırır.
+    const videoFrame = slide.getShapes().get_Item(0);
     videoFrame.getCaptionTracks().clear();
 
     presentation.save("video_without_captions.pptx", aspose.slides.SaveFormat.Pptx);
@@ -286,61 +317,63 @@ try {
 }
 ```
 
-Sadece tek bir altyazı izini kaldırmak istiyorsanız, [clear](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/captionscollection/#clear) yerine [remove](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/captionscollection/#remove) veya [removeAt](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/captionscollection/#removeAt) yöntemlerini kullanın.
+Sadece bir altyazı izini kaldırmanız gerekiyorsa, [clear](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captionscollection/#clear) yerine [remove](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captionscollection/#remove) veya [removeAt](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captionscollection/#removeAt) metodlarını kullanın.
 
-## **Slayttan Video Çıkarma**
+## **Bir Slayttan Video Çıkarma**
 
-Gömülü videoları slaytlardan çıkarmak da mümkündür.
+Videoları slaytlara eklemenin yanı sıra, Aspose.Slides sunumlarda gömülü videoları çıkarmanıza da olanak tanır.
 
-1. Videoyu içeren sunumu yüklemek için bir [Presentation](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/Presentation) örneği oluşturun.  
-2. Tüm [Slide](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/slide/) nesnelerinde gezin.  
-3. [Shape](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/shape/) nesnelerinde gezinerek bir [VideoFrame](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/videoframe/) bulun.  
-4. Videoyu diske kaydedin.  
+Bu örnek, her slayttan gömülü videoları ayrı, numaralı ikili dosyalara çıkarır. Bağlantılı videolar, gömülü veri olmadığından atlanır. Konsol, her videonun MIME tipini ve toplam sayılarını yazdırır. Çıktı, genel `.bin` uzantısını kullanır; gerektiğinde rapor edilen medya tipine uygun olarak değiştirin.
 
 ```javascript
-// Sunum dosyasını temsil eden bir Presentation nesnesi oluşturur
-var pres = new aspose.slides.Presentation("VideoSample.pptx");
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+const fs = require("fs");
+
+const presentation = new aspose.slides.Presentation("presentation_with_videos.pptx");
 try {
-    for (let i = 0; i < pres.getSlides().size(); i++) {
-        let slide = pres.getSlides().get_Item(i);
-        for (let j = 0; j < slide.getShapes().size(); j++) {
-            let shape = slide.getShapes().get_Item(j);
+    let videoCount = 0;
+    for (let slideIndex = 0; slideIndex < presentation.getSlides().size(); slideIndex++) {
+        const slide = presentation.getSlides().get_Item(slideIndex);
+        for (let shapeIndex = 0; shapeIndex < slide.getShapes().size(); shapeIndex++) {
+            const shape = slide.getShapes().get_Item(shapeIndex);
             if (java.instanceOf(shape, "com.aspose.slides.VideoFrame")) {
-                var vf = shape;
-                console.log(shape);
-                var type = vf.getEmbeddedVideo().getContentType();
-                var ss = type.lastIndexOf('-');
-                const buffer = Buffer.from(vf.getEmbeddedVideo().getBinaryData());
-                console.log(buffer);
-                // Dosya uzantısını alır
-                var charIndex = type.indexOf("/");
-                type = type.substring(charIndex + 1);
-                fs.writeFileSync("testing2." + type, buffer);
+                const videoFrame = shape;
+                const video = videoFrame.getEmbeddedVideo();
+                if (video == null) {
+                    console.log("Skipped a linked video: no embedded data is available.");
+                    continue;
+                }
+
+                videoCount++;
+                const outputPath = "extracted_video_" + videoCount + ".bin";
+                const outputData = Buffer.from(video.getBinaryData());
+                fs.writeFileSync(outputPath, outputData);
+                console.log("Video " + videoCount + ": " + video.getContentType());
             }
         }
     }
-} catch (e) {console.log(e);
+
+    console.log("Embedded videos extracted: " + videoCount);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **SSS**
+## **FAQ**
 
-**VideoFrame için hangi video oynatma parametreleri değiştirilebilir?**
+**Bir video çerçevesi için hangi video oynatma parametreleri değiştirilebilir?**
 
-[playback mode](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/videoframe/setplaymode/) (otomatik veya tıklama) ve [looping](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/videoframe/setplayloopmode/) ayarlarını kontrol edebilirsiniz. Bu seçenekler, [VideoFrame](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/videoframe/) nesnesinin özellikleri aracılığıyla sunulur.
+[playback mode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setplaymode/) (otomatik veya tıklamayla) ve [looping](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setplayloopmode/) kontrol edebilirsiniz. Bu seçenekler, [VideoFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/) nesnesinin yöntemleri aracılığıyla kullanılabilir.
 
-**Bir video eklemek PPTX dosya boyutunu etkiler mi?**
+**Video eklemek PPTX dosya boyutunu etkiler mi?**
 
-Evet. Yerel bir video gömdüğünüzde ikili veri belgeye dahil edilir ve sunum boyutu dosya boyutuyla orantılı olarak artar. Çevrimiçi bir video eklediğinizde bir bağlantı ve küçük resim gömülür, bu yüzden boyut artışı daha küçüktür.
+Evet. Yerel bir video gömdüğünüzde, ikili veri belgeye dahil edilir ve böylece sunum boyutu dosya büyüklüğüyle orantılı olarak artar. Çevrimiçi bir videoya bağlandığınızda ve önizleme resmi eklediğinizde, sunum videonun kendisi yerine bağlantıyı ve ön izleme resmini saklar; bu nedenle boyut artışı genellikle daha küçüktür.
 
-**Mevcut bir VideoFrame içindeki videoyu konum ve boyutunu değiştirmeden değiştirebilir miyim?**
+**Mevcut bir video çerçevesindeki videoyu konumunu ve boyutunu değiştirmeden değiştirebilir miyim?**
 
-Evet. Çerçeve içinde [video content](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/videoframe/setembeddedvideo/) değiştirilebilir, şeklin geometrisi korunur; bu, mevcut bir yerleşimde medyayı güncellemek için yaygın bir senaryodur.
+Evet. Çerçevedeki [video content](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setembeddedvideo/) değiştirilebilir ve şeklin geometrisini koruyarak medya güncellenebilir; bu, mevcut bir yerleşimde medyayı güncellemenin yaygın bir senaryosudur.
 
 **Gömülü bir videonun içerik türü (MIME) belirlenebilir mi?**
 
-Evet. Gömülü bir videonun bir [content type](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/video/getcontenttype/) vardır ve bunu okuyup, örneğin diske kaydederken kullanabilirsiniz.
+Evet. Gömülü bir videonun [content type](https://reference.aspose.com/slides/nodejs-java/aspose.slides/video/getcontenttype/) değeri vardır ve bunu okuyabilir, örneğin diske kaydederken kullanabilirsiniz.

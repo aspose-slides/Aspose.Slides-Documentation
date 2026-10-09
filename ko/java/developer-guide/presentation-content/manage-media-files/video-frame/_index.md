@@ -1,12 +1,12 @@
 ---
-title: Java를 사용하여 프레젠테이션에서 비디오 프레임 관리
+title: Java를 사용한 프레젠테이션 비디오 프레임 관리
 linktitle: 비디오 프레임
 type: docs
 weight: 10
 url: /ko/java/video-frame/
 keywords:
 - 비디오 추가
-- 비디오 만들기
+- 비디오 생성
 - 비디오 삽입
 - 비디오 추출
 - 비디오 검색
@@ -17,166 +17,197 @@ keywords:
 - 프레젠테이션
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Java를 사용하여 PowerPoint 및 OpenDocument 슬라이드에서 비디오 프레임을 프로그래밍 방식으로 추가하고 추출하는 방법을 배웁니다. 빠른 가이드."
+description: "Aspose.Slides for Java를 사용하여 PowerPoint 및 OpenDocument 슬라이드에서 비디오 프레임을 프로그래밍 방식으로 추가하고 추출하는 방법을 배웁니다. 빠른 사용법 가이드."
 ---
 ## **소개**
 
-프레젠테이션에 적절히 배치된 비디오는 메시지를 더욱 설득력 있게 만들고 청중과의 참여도를 높일 수 있습니다. 
+비디오는 아이디어를 설명하고 청중을 참여시키는 데 도움이 될 수 있습니다. Aspose.Slides for Java를 사용하면 슬라이드에 비디오 프레임을 추가하고, 재생 설정을 조정하며, 캡션을 관리하고, 임베드된 비디오 데이터를 추출할 수 있습니다.
 
-PowerPoint에서는 프레젠테이션의 슬라이드에 비디오를 두 가지 방법으로 추가할 수 있습니다:
+PowerPoint는 로컬 비디오와 YouTube 비디오와 같은 온라인 비디오에 대한 링크를 지원합니다.
 
-* 로컬 비디오 추가 또는 삽입(컴퓨터에 저장된 비디오)
-* 온라인 비디오 추가(YouTube와 같은 웹 소스)
-
-프레젠테이션에 비디오(비디오 개체)를 추가할 수 있도록 Aspose.Slides는 [IVideo](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ivideo/) 인터페이스, [IVideoFrame](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ivideoframe/) 인터페이스 및 기타 관련 타입을 제공합니다. 
+비디오 데이터와 비디오 프레임을 나타내기 위해 Aspose.Slides는 [IVideo](https://reference.aspose.com/slides/java/com.aspose.slides/ivideo/) 인터페이스, [IVideoFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ivideoframe/) 인터페이스 및 기타 관련 유형을 제공합니다.
 
 ## **임베드된 비디오 프레임 만들기**
 
-슬라이드에 추가하려는 비디오 파일이 로컬에 저장돼 있는 경우, 비디오 프레임을 만들어 프레젠테이션에 비디오를 삽입할 수 있습니다. 
+슬라이드에 추가하려는 비디오 파일이 로컬에 저장된 경우, 프레젠테이션에 비디오를 임베드하기 위해 비디오 프레임을 만들 수 있습니다.
 
-1. [Presentation ](https://reference.aspose.com/slides/ko/java/com.aspose.slides/Presentation)class의 인스턴스를 생성합니다.  
-1. 인덱스를 통해 슬라이드 참조를 가져옵니다.  
-1. [IVideo](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ivideo/) 개체를 추가하고 비디오 파일 경로를 전달해 프레젠테이션에 비디오를 삽입합니다.  
-1. [IVideoFrame](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ivideoframe/) 개체를 추가해 비디오 프레임을 생성합니다.  
-1. 수정된 프레젠테이션을 저장합니다.  
-
-다음 Java 코드는 로컬에 저장된 비디오를 프레젠테이션에 추가하는 방법을 보여 줍니다:
+이 예제는 기존 프레젠테이션의 첫 번째 슬라이드에 로컬 비디오를 임베드하고 결과를 저장합니다. 프레임 좌표와 크기는 포인트 단위입니다. 스트림은 저장이 완료될 때까지 열려 있으며, 이는 [LoadingStreamBehavior.KeepLocked](https://reference.aspose.com/slides/java/com.aspose.slides/loadingstreambehavior/)이 프레젠테이션이 사용할 때 스트림을 잠금 상태로 유지하기 때문입니다.
 
 ```java
-// Presentation 클래스를 인스턴스화합니다
-Presentation pres = new Presentation("pres.pptx");
-try {
-    // 비디오를 로드합니다
-    FileInputStream fileStream = new FileInputStream("Wildlife.mp4");
-    
-    IVideo video = pres.getVideos().addVideo(fileStream, LoadingStreamBehavior.KeepLocked);
+import com.aspose.slides.*;
+import java.io.FileInputStream;
 
-    // 첫 번째 슬라이드를 가져와 비디오 프레임을 추가합니다
-    pres.getSlides().get_Item(0).getShapes().addVideoFrame(10, 10, 150, 250, video);
+Presentation presentation = new Presentation("presentation.pptx");
+try (FileInputStream videoStream = new FileInputStream("video.mp4")) {
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // 프레젠테이션을 디스크에 저장합니다
-    pres.save("pres-with-video.pptx", SaveFormat.Pptx);
-} catch (IOException e) {
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
+    IVideo video = presentation.getVideos().addVideo(videoStream, LoadingStreamBehavior.KeepLocked);
+    slide.getShapes().addVideoFrame(10, 10, 150, 250, video);
 
-또는 [addVideoFrame(float x, float y, float width, float height, IVideo video)](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ishapecollection/#addVideoFrame-float-float-float-float-com.aspose.slides.IVideo-) 메서드에 파일 경로를 직접 전달해 비디오를 추가할 수 있습니다:
-
-``` java
-Presentation pres = new Presentation();
-try {
-	ISlide sld = pres.getSlides().get_Item(0);
-	IVideoFrame vf = sld.getShapes().addVideoFrame(50, 150, 300, 150, "video1.avi");
-} finally {
-	if (pres != null) pres.dispose();
-}
-```
-
-
-## **웹 소스 비디오를 사용한 비디오 프레임 만들기**
-
-Microsoft [PowerPoint 2013 및 이후 버전](https://support.microsoft.com/en-us/office/versions-of-powerpoint-that-support-online-videos-2a0e184d-af50-4da9-b530-e4355ac436a9?ui=en-us&rs=en-us&ad=us)에서는 YouTube 비디오를 프레젠테이션에 삽입할 수 있습니다. 온라인에 비디오가 존재한다면(예: YouTube) 웹 링크를 통해 프레젠테이션에 추가할 수 있습니다. 
-
-1. [Presentation ](https://reference.aspose.com/slides/ko/java/com.aspose.slides/Presentation)class의 인스턴스를 생성합니다.  
-1. 인덱스를 통해 슬라이드 참조를 가져옵니다.  
-1. [IVideo](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ivideo/) 개체를 추가하고 비디오 링크를 전달합니다.  
-1. 비디오 프레임의 썸네일을 설정합니다.  
-1. 프레젠테이션을 저장합니다.  
-
-다음 Java 코드는 웹에서 비디오를 가져와 PowerPoint 슬라이드에 추가하는 방법을 보여 줍니다:
-
-```java
-// 프레젠테이션 파일을 나타내는 Presentation 객체를 인스턴스화합니다
-Presentation pres = new Presentation();
-try {
-    addVideoFromYouTube(pres, "Tj75Arhq5ho");
-    pres.save("out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-```java
-private static void addVideoFromYouTube(Presentation pres, String videoID)
-{
-    // 비디오 프레임을 추가합니다
-    IVideoFrame videoFrame = pres.getSlides().get_Item(0).getShapes().addVideoFrame(
-            10, 10, 427, 240, "https://www.youtube.com/embed/" + videoID);
-    videoFrame.setPlayMode(VideoPlayModePreset.Auto);
-
-    // 썸네일을 로드합니다
-    String thumbnailUri = "http://img.youtube.com/vi/" + videoID + "/hqdefault.jpg";
-    URL url;
-
-    try {
-        url = new URL(thumbnailUri);
-        videoFrame.getPictureFormat().getPicture().setImage(pres.getImages().addImage(url.openStream()));
-    } catch (MalformedURLException e) {
-        e.printStackTrace();
-    } catch (IOException e) {
-        e.printStackTrace();
-    }
-}
-```
-
-## **비디오 프레임 자르기**
-
-Aspose.Slides는 [IVideoFrame.setTrimFromStart](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ivideoframe/#setTrimFromStart-float-) 및 [IVideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ivideoframe/#setTrimFromEnd-float-)을 통해 시작점과 종료점에서 잘라낼 시간을 밀리초 단위로 지정함으로써 비디오 재생 구간을 제어할 수 있습니다. 이 설정은 프레젠테이션 내 비디오 재생 방식을 변경하지만, 임베드된 비디오 파일 자체를 잘라내거나 수정하지는 않습니다.
-
-**Trim 설정 지정**
-
-비디오 프레임을 만들고 Trim 설정을 지정하려면:
-
-1. [Presentation](https://reference.aspose.com/slides/ko/java/com.aspose.slides/presentation/) class의 인스턴스를 생성합니다.  
-1. 프레젠테이션에 [IVideo](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ivideo/) 개체를 추가합니다.  
-1. 슬라이드에 [IVideoFrame](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ivideoframe/) 개체를 추가합니다.  
-1. [IVideoFrame.setTrimFromStart](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ivideoframe/#setTrimFromStart-float-)와 [IVideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ivideoframe/#setTrimFromEnd-float-)을 사용해 시작·끝 Trim 값을 설정합니다.  
-1. 수정된 프레젠테이션을 저장합니다.  
-
-다음 코드 예제는 임베드된 비디오 재생 시 앞쪽 2.5초와 뒤쪽 1초를 건너뛰도록 합니다:
-
-```java
-Presentation presentation = new Presentation();
-try {
-    FileInputStream videoStream = new FileInputStream("video.mp4");
-    try {
-        IVideo video = presentation.getVideos().addVideo(
-                videoStream, LoadingStreamBehavior.ReadStreamAndRelease);
-        ISlide slide = presentation.getSlides().get_Item(0);
-        IVideoFrame videoFrame = slide.getShapes().addVideoFrame(50, 50, 640, 360, video);
-
-        videoFrame.setTrimFromStart(2500f);
-        videoFrame.setTrimFromEnd(1000f);
-
-        presentation.save("video_with_trim.pptx", SaveFormat.Pptx);
-    } finally {
-        videoStream.close();
-    }
+    presentation.save("embedded_video.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-**Trim 설정 읽기**
-
-기존 Trim 설정을 확인하려면 프레젠테이션을 로드하고, 첫 번째 슬라이드의 도형 중 [IVideoFrame](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ivideoframe/) 개체를 찾아 [IVideoFrame.getTrimFromStart](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ivideoframe/#getTrimFromStart--)와 [IVideoFrame.getTrimFromEnd](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ivideoframe/#getTrimFromEnd--)을 통해 값을 읽어봅니다.
-
-다음 코드 예제는 첫 번째 슬라이드에서 첫 번째 비디오 프레임을 찾아 밀리초 단위의 Trim 설정을 출력합니다:
+또한 로컬 비디오 경로를 [addVideoFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addVideoFrame-float-float-float-float-java.lang.String-)에 직접 전달할 수 있습니다. 이 예제는 새 프레젠테이션의 첫 번째 슬라이드에 비디오를 임베드합니다. 비디오는 프레젠테이션이 저장될 때까지 접근 가능해야 합니다.
 
 ```java
-Presentation presentation = new Presentation("video_with_trim.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
+    slide.getShapes().addVideoFrame(50, 150, 300, 150, "video.avi");
+
+    presentation.save("video_from_path.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **웹 소스 비디오로 비디오 프레임 만들기**
+
+Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site)은 프레젠테이션에서 온라인 비디오를 지원합니다. YouTube 비디오와 같은 온라인 비디오에 연결되는 비디오 프레임을 만들 수 있습니다.
+
+이 예제는 첫 번째 슬라이드에 YouTube 비디오 링크와 썸네일을 추가합니다. 다른 비디오를 사용하려면 비디오 식별자를 교체하십시오. [setPlayMode](https://reference.aspose.com/slides/java/com.aspose.slides/ivideoframe/#setPlayMode-int-) 메서드는 자동 재생을 요청합니다. 썸네일을 다운로드하고 비디오를 재생하려면 인터넷 연결이 필요합니다. 프레젠테이션 뷰어도 온라인 비디오 재생을 지원해야 합니다.
+
+```java
+import com.aspose.slides.*;
+import java.io.InputStream;
+import java.net.URL;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    String videoId = "aqz-KE-bpKQ";
+    String videoUrl = "https://www.youtube.com/embed/" + videoId;
+    IVideoFrame videoFrame = slide.getShapes().addVideoFrame(10, 10, 427, 240, videoUrl);
+    videoFrame.setPlayMode(VideoPlayModePreset.Auto);
+
+    String thumbnailUrl = "https://img.youtube.com/vi/" + videoId + "/hqdefault.jpg";
+    URL thumbnailLocation = new URL(thumbnailUrl);
+    try (InputStream thumbnailStream = thumbnailLocation.openStream()) {
+        IPPImage thumbnail = presentation.getImages().addImage(thumbnailStream);
+        videoFrame.getPictureFormat().getPicture().setImage(thumbnail);
+    }
+
+    presentation.save("online_video.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **전체 화면 모드에서 비디오 재생**
+
+교육 프레젠테이션에서 소프트웨어 시연을 전체 화면 모드로 재생하면 청중이 세부 정보를 볼 수 있습니다. 재생 중에 이 동작을 활성화하려면 `true`와 함께 [setFullScreenMode](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setFullScreenMode-boolean-)을 호출하십시오.
+
+이 예제는 프레젠테이션을 열고, 첫 번째 슬라이드에서 첫 번째 [IVideoFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ivideoframe/)을 찾아 전체 화면 재생을 활성화합니다. 입력 프레젠테이션에는 첫 번째 슬라이드에 기존 비디오 프레임이 포함된 슬라이드가 최소 하나 있어야 합니다.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("training.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
     for (IShape shape : slide.getShapes()) {
         if (shape instanceof IVideoFrame) {
             IVideoFrame videoFrame = (IVideoFrame) shape;
-            float trimFromStart = videoFrame.getTrimFromStart();
-            float trimFromEnd = videoFrame.getTrimFromEnd();
+            videoFrame.setFullScreenMode(true);
+            break;
+        }
+    }
 
-            System.out.println("Trim from start: " + trimFromStart + " ms");
-            System.out.println("Trim from end: " + trimFromEnd + " ms");
+    presentation.save("full_screen_video.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+전체 화면 재생은 비디오가 표시되는 방식을 제어합니다. 별도로, [setPlayMode](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setPlayMode-int-)은 자동 시작 또는 클릭 시작을 제어하고, [setPlayLoopMode](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setPlayLoopMode-boolean-)은 반복 여부를 제어합니다. 시작 동작을 선택하려면 재생 모드를 [VideoPlayModePreset.Auto or VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/java/com.aspose.slides/videoplaymodepreset/)으로 설정하십시오. 이 예제는 기존 시작 및 반복 설정을 보존합니다.
+
+## **재생 후 비디오 되감기**
+
+교육 프레젠테이션에서 시연 비디오를 처음으로 되돌리면 발표자가 다시 재생할 준비가 됩니다. 재생이 끝난 후 비디오를 처음으로 되돌리려면 `true`와 함께 [setRewindVideo](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setRewindVideo-boolean-)을 호출하십시오.
+
+이 예제는 프레젠테이션을 열고, 첫 번째 슬라이드에서 첫 번째 [IVideoFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ivideoframe/)을 찾아 되감기를 활성화합니다. 루프를 비활성화하여 재생이 끝날 수 있게 하고, 클릭 시 시작하도록 재생을 설정합니다. 입력 프레젠테이션에는 첫 번째 슬라이드에 기존 비디오 프레임이 포함된 슬라이드가 최소 하나 있어야 합니다.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("training.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    for (IShape shape : slide.getShapes()) {
+        if (shape instanceof IVideoFrame) {
+            IVideoFrame videoFrame = (IVideoFrame) shape;
+            videoFrame.setRewindVideo(true);
+            videoFrame.setPlayLoopMode(false);
+            videoFrame.setPlayMode(VideoPlayModePreset.OnClick);
+            break;
+        }
+    }
+
+    presentation.save("rewind_video.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+되감기는 비디오를 다시 시작하지 않고 처음으로 돌려놓습니다. 반면에 `true`와 함께 [setPlayLoopMode](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setPlayLoopMode-boolean-)을 호출하면 재생이 자동으로 반복됩니다. 비디오가 끝나고 다시 재생할 준비가 되도록 하려면 루프를 비활성화하십시오. [setPlayMode](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setPlayMode-int-)은 자동 또는 클릭 시작을 독립적으로 제어합니다; 이 예제는 발표자가 재생 시작 시점을 제어하도록 [VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/java/com.aspose.slides/videoplaymodepreset/)을 사용합니다. 루프 설정 뒤에 재생 모드를 설정하고, 되감기는 [setFullScreenMode](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setFullScreenMode-boolean-)와는 독립적으로 작동합니다.
+
+## **비디오 프레임 트리밍**
+
+재생 중에 비디오의 시작 부분이나 끝 부분을 건너뛰려면 [IVideoFrame.setTrimFromStart](https://reference.aspose.com/slides/java/com.aspose.slides/ivideoframe/#setTrimFromStart-float-) 및 [IVideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/java/com.aspose.slides/ivideoframe/#setTrimFromEnd-float-)을 사용하십시오. 두 값은 밀리초 단위입니다. 트리밍은 임베드된 비디오 데이터를 변경하지 않고 재생 설정만 변경합니다.
+
+**트리밍 설정 지정**
+
+이 예제는 로컬 비디오를 임베드하고 재생 중에 처음 2.5초와 마지막 1초를 건너뜁니다. 재생 가능한 구간이 남도록 3.5초보다 긴 비디오를 사용하십시오.
+
+```java
+import com.aspose.slides.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    Path videoPath = Paths.get("video.mp4");
+    byte[] videoData = Files.readAllBytes(videoPath);
+    IVideo video = presentation.getVideos().addVideo(videoData);
+
+    IVideoFrame videoFrame = slide.getShapes().addVideoFrame(50, 50, 640, 360, video);
+    videoFrame.setTrimFromStart(2500f);
+    videoFrame.setTrimFromEnd(1000f);
+
+    presentation.save("video_with_trim.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+**트리밍 설정 읽기**
+
+이 예제는 첫 번째 슬라이드에 있는 첫 번째 비디오 프레임의 트리밍 값을 밀리초 단위로 출력합니다. 프레젠테이션에는 최소 하나의 슬라이드가 포함되어 있어야 합니다. 해당 슬라이드에 비디오 프레임이 없으면 아무 것도 출력되지 않습니다. 앞 예제는 2500과 1000이라는 값을 생성합니다.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("video_with_trim.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    for (IShape shape : slide.getShapes()) {
+        if (shape instanceof IVideoFrame) {
+            IVideoFrame videoFrame = (IVideoFrame) shape;
+            System.out.println("Trim from start: " + videoFrame.getTrimFromStart() + " ms");
+            System.out.println("Trim from end: " + videoFrame.getTrimFromEnd() + " ms");
             break;
         }
     }
@@ -187,30 +218,27 @@ try {
 
 ## **비디오 캡션 관리**
 
-Aspose.Slides는 PowerPoint 프레젠테이션의 비디오 프레임에 대한 폐쇄 캡션을 관리할 수 있게 해 줍니다. 캡션은 WebVTT 형식으로 저장되며 [IVideoFrame.getCaptionTracks](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ivideoframe/#getCaptionTracks--) 메서드를 통해 접근할 수 있습니다.
+Aspose.Slides를 사용하면 PowerPoint 프레젠테이션의 비디오 프레임에 대한 클로즈드 캡션을 관리할 수 있습니다. 캡션은 WebVTT 형식으로 저장되며 [IVideoFrame.getCaptionTracks](https://reference.aspose.com/slides/java/com.aspose.slides/ivideoframe/#getCaptionTracks--) 메서드를 통해 노출됩니다.
 
 **비디오 프레임에 캡션 추가**
 
-비디오 프레임에 캡션을 추가하려면:
-
-1. [Presentation](https://reference.aspose.com/slides/ko/java/com.aspose.slides/presentation/) class의 인스턴스를 생성합니다.  
-1. 프레젠테이션에 비디오를 추가합니다.  
-1. 슬라이드에 [IVideoFrame](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ivideoframe/) 개체를 추가합니다.  
-1. [getCaptionTracks](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ivideoframe/#getCaptionTracks--)이 반환하는 [ICaptionsCollection](https://reference.aspose.com/slides/ko/java/com.aspose.slides/icaptionscollection/)을 사용해 WebVTT 캡션 트랙을 추가합니다.  
-1. 수정된 프레젠테이션을 저장합니다.  
-
-다음 코드는 비디오 프레임에 캡션을 추가하는 방법을 보여 줍니다:
+이 예제는 로컬 비디오를 임베드하고 "English" 라벨이 지정된 WebVTT 캡션 트랙을 추가합니다. 캡션 타임스탬프는 비디오와 일치해야 합니다. 저장된 프레젠테이션에는 비디오와 캡션이 모두 포함됩니다.
 
 ```java
+import com.aspose.slides.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
 Presentation presentation = new Presentation();
 try {
-    byte[] videoData = Files.readAllBytes(Paths.get("video.mp4"));
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    Path videoPath = Paths.get("video.mp4");
+    byte[] videoData = Files.readAllBytes(videoPath);
     IVideo video = presentation.getVideos().addVideo(videoData);
 
-    ISlide slide = presentation.getSlides().get_Item(0);
     IVideoFrame videoFrame = slide.getShapes().addVideoFrame(0, 0, 100, 100, video);
-
-    // WebVTT 파일에서 새로운 캡션 트랙을 추가합니다.
     videoFrame.getCaptionTracks().add("English", "track.vtt");
 
     presentation.save("video_with_captions.pptx", SaveFormat.Pptx);
@@ -219,58 +247,54 @@ try {
 }
 ```
 
-[ICaptionsCollection](https://reference.aspose.com/slides/ko/java/com.aspose.slides/icaptionscollection/) 인터페이스는 스트림에서 캡션을 추가할 수 있는 오버로드도 제공합니다.
+[ICaptionsCollection](https://reference.aspose.com/slides/java/com.aspose.slides/icaptionscollection/) 인터페이스는 스트림에서 캡션을 추가할 수 있는 오버로드도 제공합니다.
 
 **비디오 프레임에서 캡션 추출**
 
-비디오 프레임에서 캡션을 추출하려면:
-
-1. 비디오가 포함된 프레젠테이션을 로드합니다.  
-1. 대상 [IVideoFrame](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ivideoframe/) 개체를 찾습니다.  
-1. [ICaptionsCollection](https://reference.aspose.com/slides/ko/java/com.aspose.slides/icaptionscollection/)의 캡션 트랙을 순회합니다.  
-1. 각 캡션 트랙을 `.vtt` 파일로 저장합니다.  
-
-다음 코드는 비디오 프레임에서 캡션을 추출하는 방법을 보여 줍니다:
+이 예제는 첫 번째 슬라이드에 있는 비디오 프레임에서 모든 캡션 트랙을 별개의 WebVTT 파일로 저장합니다. 순차 번호를 사용해 출력 파일을 구분합니다. 콘솔은 추출된 트랙 수를 보고합니다. 프레젠테이션에는 최소 하나의 슬라이드가 포함되어 있어야 합니다.
 
 ```java
+import com.aspose.slides.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
 Presentation presentation = new Presentation("video_with_captions.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
+    int trackCount = 0;
     for (IShape shape : slide.getShapes()) {
         if (shape instanceof IVideoFrame) {
-            IVideoFrame videoFrame = (IVideoFrame)shape;
+            IVideoFrame videoFrame = (IVideoFrame) shape;
             for (ICaptions captionTrack : videoFrame.getCaptionTracks()) {
-                // 캡션 트랙을 WebVTT 파일에 저장합니다.
-                String filePath = captionTrack.getCaptionId().toString() + ".vtt";
-                Files.write(Paths.get(filePath), captionTrack.getBinaryData());
+                trackCount++;
+                Path outputPath = Paths.get("captions_" + trackCount + ".vtt");
+                Files.write(outputPath, captionTrack.getBinaryData());
             }
         }
     }
+
+    System.out.println("Caption tracks extracted: " + trackCount);
 } finally {
     presentation.dispose();
 }
 ```
 
-각 [ICaptions](https://reference.aspose.com/slides/ko/java/com.aspose.slides/icaptions/) 개체는 캡션 식별자, 레이블, 바이너리 데이터 및 UTF-8 문자열 형태의 캡션 텍스트를 제공한다.
+각 [ICaptions](https://reference.aspose.com/slides/java/com.aspose.slides/icaptions/) 객체는 캡션 식별자, 라벨, 바이너리 데이터 및 UTF-8 문자열 형태의 캡션 텍스트를 노출합니다.
 
 **비디오 프레임에서 캡션 제거**
 
-비디오 프레임에서 캡션을 제거하려면:
-
-1. 비디오가 포함된 프레젠테이션을 로드합니다.  
-1. 대상 [IVideoFrame](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ivideoframe/) 개체를 가져옵니다.  
-1. [ICaptionsCollection](https://reference.aspose.com/slides/ko/java/com.aspose.slides/icaptionscollection/)에서 캡션 트랙을 제거합니다.  
-1. 수정된 프레젠테이션을 저장합니다.  
-
-다음 코드는 비디오 프레임의 모든 캡션을 제거하는 방법을 보여 줍니다:
+이 예제는 첫 번째 슬라이드의 첫 번째 도형 위치에 있는 비디오 프레임에서 모든 캡션을 제거하고 결과를 저장합니다. 슬라이드와 도형이 존재하고 도형이 비디오 프레임이라고 가정합니다.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("video_with_captions.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
-    IVideoFrame videoFrame = (IVideoFrame)slide.getShapes().get_Item(0);
 
-    // 비디오 프레임에서 모든 캡션을 제거합니다.
+    IVideoFrame videoFrame = (IVideoFrame) slide.getShapes().get_Item(0);
     videoFrame.getCaptionTracks().clear();
 
     presentation.save("video_without_captions.pptx", SaveFormat.Pptx);
@@ -279,65 +303,61 @@ try {
 }
 ```
 
-하나의 캡션 트랙만 제거하려면 [clear](https://reference.aspose.com/slides/ko/java/com.aspose.slides/icaptionscollection/#clear--) 대신 [remove](https://reference.aspose.com/slides/ko/java/com.aspose.slides/icaptionscollection/#remove-com.aspose.slides.ICaptions-) 또는 [removeAt](https://reference.aspose.com/slides/ko/java/com.aspose.slides/icaptionscollection/#removeAt-int-) 메서드를 사용하세요.
+하나의 캡션 트랙만 제거하려면 [clear](https://reference.aspose.com/slides/java/com.aspose.slides/captionscollection/#clear--) 대신 [remove](https://reference.aspose.com/slides/java/com.aspose.slides/captionscollection/#remove-com.aspose.slides.ICaptions-) 또는 [removeAt](https://reference.aspose.com/slides/java/com.aspose.slides/captionscollection/#removeAt-int-) 메서드를 사용하십시오.
 
 ## **슬라이드에서 비디오 추출**
 
 비디오를 슬라이드에 추가하는 것 외에도 Aspose.Slides를 사용하면 프레젠테이션에 임베드된 비디오를 추출할 수 있습니다.
 
-1. 비디오가 포함된 프레젠테이션을 로드하기 위해 [Presentation](https://reference.aspose.com/slides/ko/java/com.aspose.slides/Presentation) class의 인스턴스를 생성합니다.  
-2. 모든 [ISlide](https://reference.aspose.com/slides/ko/java/com.aspose.slides/islide/) 개체를 순회합니다.  
-3. 모든 [IShape](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ishape/) 개체를 순회해 [VideoFrame](https://reference.aspose.com/slides/ko/java/com.aspose.slides/videoframe/)을 찾습니다.  
-4. 비디오를 디스크에 저장합니다.  
-
-다음 Java 코드는 프레젠테이션 슬라이드에서 비디오를 추출하는 방법을 보여 줍니다:
+이 예제는 모든 슬라이드에서 임베드된 비디오를 별개의 번호가 매겨진 바이너리 파일로 추출합니다. 링크된 비디오는 임베드된 데이터가 없으므로 건너뜁니다. 콘솔은 각 비디오의 MIME 유형과 전체 개수를 출력합니다. 출력 파일은 일반적인 `.bin` 확장자를 사용하며, 필요에 따라 보고된 미디어 유형에 맞게 변경하십시오.
 
 ```java
-// 프레젠테이션 파일을 나타내는 Presentation 객체를 인스턴스화합니다 
-Presentation pres = new Presentation("VideoSample.pptx");
+import com.aspose.slides.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
+Presentation presentation = new Presentation("presentation_with_videos.pptx");
 try {
-    for (ISlide slide : pres.getSlides()) 
-    {
-        for (IShape shape : slide.getShapes()) 
-        {
-            if (shape instanceof VideoFrame) 
-            {
-                IVideoFrame vf = (IVideoFrame) shape;
-                String type = vf.getEmbeddedVideo().getContentType();
-                int ss = type.lastIndexOf('-');
-                byte[] buffer = vf.getEmbeddedVideo().getBinaryData();
+    int videoCount = 0;
+    for (ISlide slide : presentation.getSlides()) {
+        for (IShape shape : slide.getShapes()) {
+            if (shape instanceof IVideoFrame) {
+                IVideoFrame videoFrame = (IVideoFrame) shape;
+                IVideo video = videoFrame.getEmbeddedVideo();
+                if (video == null) {
+                    System.out.println("Skipped a linked video: no embedded data is available.");
+                    continue;
+                }
 
-                //파일 확장자를 가져옵니다
-                int charIndex = type.indexOf("/");
-                type = type.substring(charIndex + 1);
-
-                FileOutputStream fop = new FileOutputStream("testing2." + type);
-                fop.write(buffer);
-                fop.flush();
-                fop.close();
+                videoCount++;
+                Path outputPath = Paths.get("extracted_video_" + videoCount + ".bin");
+                Files.write(outputPath, video.getBinaryData());
+                System.out.println("Video " + videoCount + ": " + video.getContentType());
             }
         }
     }
-} catch (IOException e) {
+
+    System.out.println("Embedded videos extracted: " + videoCount);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
 ## **FAQ**
 
-**VideoFrame에 대해 변경할 수 있는 비디오 재생 매개변수는 무엇인가요?**
+**비디오 프레임에 대해 변경할 수 있는 비디오 재생 매개변수는 무엇입니까?**
 
-[VideoFrame](https://reference.aspose.com/slides/ko/java/com.aspose.slides/videoframe/) 객체의 속성을 통해 [재생 모드](https://reference.aspose.com/slides/ko/java/com.aspose.slides/videoframe/#setPlayMode-int-)(자동 또는 클릭)와 [루프 설정](https://reference.aspose.com/slides/ko/java/com.aspose.slides/videoframe/#setPlayLoopMode-boolean-)을 제어할 수 있습니다.
+[재생 모드](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setPlayMode-int-) (자동 또는 클릭)와 [반복](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setPlayLoopMode-boolean-)을 제어할 수 있습니다. 이러한 옵션은 [VideoFrame](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/) 객체의 메서드를 통해 사용할 수 있습니다.
 
-**비디오를 추가하면 PPTX 파일 크기가 늘어나나요?**
+**비디오를 추가하면 PPTX 파일 크기에 영향을 줍니까?**
 
-예. 로컬 비디오를 임베드하면 바이너리 데이터가 문서에 포함돼 파일 크기에 비례해 프레젠테이션 크기가 증가합니다. 온라인 비디오를 추가하면 링크와 썸네일만 임베드되므로 증가량이 훨씬 작습니다.
+예. 로컬 비디오를 임베드하면 바이너리 데이터가 문서에 포함되어 파일 크기가 비디오 파일 크기에 비례하여 증가합니다. 온라인 비디오에 대한 링크와 썸네일만 추가하면 비디오 데이터를 저장하지 않으므로 일반적으로 크기 증가가 더 작습니다.
 
-**기존 VideoFrame의 위치와 크기는 유지하면서 비디오를 교체할 수 있나요?**
+**기존 비디오 프레임의 비디오를 위치와 크기를 변경하지 않고 교체할 수 있습니까?**
 
-예. 프레임 내부의 [video content](https://reference.aspose.com/slides/ko/java/com.aspose.slides/videoframe/#setEmbeddedVideo-com.aspose.slides.IVideo-)를 교체하면 도형의 기하학적 속성을 그대로 유지하면서 미디어를 업데이트할 수 있는 일반적인 시나리오입니다.
+예. 프레임 내부의 [video content](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setEmbeddedVideo-com.aspose.slides.IVideo-)를 교체하면 형태의 기하학적 특성을 유지하면서 미디어를 업데이트할 수 있습니다.
 
-**임베드된 비디오의 콘텐츠 유형(MIME)을 확인할 수 있나요?**
+**임베드된 비디오의 콘텐츠 유형(MIME)을 확인할 수 있습니까?**
 
-예. 임베드된 비디오는 [content type](https://reference.aspose.com/slides/ko/java/com.aspose.slides/video/#getContentType--)을 가지고 있으며, 이를 읽어 디스크에 저장할 때 활용할 수 있습니다.
+예. 임베드된 비디오는 [content type](https://reference.aspose.com/slides/java/com.aspose.slides/video/#getContentType--)을 가지고 있으며, 이를 읽어 디스크에 저장하는 등 다양한 용도로 사용할 수 있습니다.

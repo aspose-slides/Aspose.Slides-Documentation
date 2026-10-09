@@ -17,113 +17,227 @@ keywords:
 - презентация
 - C++
 - Aspose.Slides
-description: "Изучите, как программно добавлять и извлекать видеокадры в слайдах PowerPoint и OpenDocument с помощью Aspose.Slides для C++. Быстрое практическое руководство."
+description: "Узнайте, как программно добавлять и извлекать видеокадры в слайдах PowerPoint и OpenDocument с помощью Aspose.Slides для C++. Быстрое руководство."
 ---
 ## **Введение**
 
-Хорошо размещённое видео в презентации может сделать ваше сообщение более убедительным и повысить уровень вовлечённости аудитории. 
+Видео может помочь объяснить идеи и заинтересовать аудиторию. Aspose.Slides for C++ позволяет добавлять видеокадры на слайды, настраивать параметры воспроизведения, управлять субтитрами и извлекать встроенные видеоданные.
 
-PowerPoint позволяет добавлять видео на слайд в презентации двумя способами:
+PowerPoint поддерживает локальные видео и ссылки на онлайн‑видео, такие как видео с YouTube.
 
-* Добавить или встроить локальное видео (хранящееся на вашем компьютере)
-* Добавить онлайн‑видео (из веб‑источника, например YouTube).
-
-Чтобы дать вам возможность добавлять видео (объекты video) в презентацию, Aspose.Slides предоставляет интерфейсы [IVideo](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ivideo/) и [IVideoFrame](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ivideoframe/), а также другие соответствующие типы. 
+Для представления видеоданных и видеокадров Aspose.Slides предоставляет интерфейсы [IVideo](https://reference.aspose.com/slides/cpp/aspose.slides/ivideo/) и [IVideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/), а также другие соответствующие типы.
 
 ## **Создание встроенного видеокадра**
 
-Если видеофайл, который вы хотите добавить на слайд, хранится локально, вы можете создать видеокадр, чтобы встроить видео в презентацию. 
+Если видеофайл, который вы хотите добавить на слайд, хранится локально, вы можете создать видеокадр, чтобы встроить видео в презентацию.
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/cpp/aspose.slides/presentation/).
-1. Получите ссылку на слайд по его индексу. 
-1. Добавьте объект [IVideo](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ivideo/) и передайте путь к файлу видео, чтобы встроить его в презентацию. 
-1. Добавьте объект [IVideoFrame](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ivideoframe/) для создания кадра для видео.  
-1. Сохраните изменённую презентацию. 
+В этом примере локальное видео встраивается на первый слайд существующей презентации и сохраняется результат. Координаты и размеры кадра указаны в пунктах. Поток остаётся открытым до завершения сохранения, потому что [LoadingStreamBehavior::KeepLocked](https://reference.aspose.com/slides/cpp/aspose.slides/loadingstreambehavior/) удерживает его заблокированным, пока презентация использует его.
 
-Этот C++‑код показывает, как добавить локально сохранённое видео в презентацию:
+```cpp
+#include <system/io/file.h>
+#include <system/io/file_stream.h>
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IVideoCollection.h>
+#include <Export/SaveFormat.h>
+#include <LoadingStreamBehavior.h>
+#include <system/smart_ptr.h>
 
-```c++
-System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"pres.pptx");
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
 
-// Загружает видео
-System::SharedPtr<System::IO::FileStream> fileStream = System::MakeObject<System::IO::FileStream>(u"Wildlife.mp4", System::IO::FileMode::Open, System::IO::FileAccess::Read);
-System::SharedPtr<IVideo> video = pres->get_Videos()->AddVideo(fileStream, LoadingStreamBehavior::KeepLocked);
+auto presentation = MakeObject<Presentation>(u"presentation.pptx");
+auto slide = presentation->get_Slide(0);
 
-// Получает первый слайд и добавляет видеокадр
-pres->get_Slide(0)->get_Shapes()->AddVideoFrame(10.0f, 10.0f, 150.0f, 250.0f, video);
+auto videoStream = File::OpenRead(u"video.mp4");
+auto video = presentation->get_Videos()->AddVideo(videoStream, LoadingStreamBehavior::KeepLocked);
+slide->get_Shapes()->AddVideoFrame(10, 10, 150, 250, video);
 
-// Сохраняет презентацию на диск
-pres->Save(u"pres-with-video.pptx", SaveFormat::Pptx);
+presentation->Save(u"embedded_video.pptx", SaveFormat::Pptx);
+
+presentation->Dispose();
+videoStream->Dispose();
 ```
 
-В качестве альтернативы вы можете добавить видео, передав путь к файлу напрямую методу [AddVideoFrame()](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ishapecollection/addvideoframe/):
+Вы также можете передать путь к локальному видео напрямую в [AddVideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addvideoframe/). В этом примере видео встраивается на первый слайд новой презентации. Видео должно оставаться доступным до сохранения презентации.
 
-``` c++
-System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
 
-System::SharedPtr<ISlide> sld = pres->get_Slide(0);
-System::SharedPtr<IVideoFrame> vf = sld->get_Shapes()->AddVideoFrame(50.0f, 150.0f, 300.0f, 150.0f, u"video1.avi");
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+slide->get_Shapes()->AddVideoFrame(50, 150, 300, 150, u"video.avi");
+
+presentation->Save(u"video_from_path.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
-
 
 ## **Создание видеокадра с видео из веб‑источника**
 
-Новые версии Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) поддерживают онлайн‑видео в презентациях. Если нужное вам видео доступно в сети (например, на YouTube), его можно добавить в презентацию по веб‑ссылке.
+Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) поддерживает онлайн‑видео в презентациях. Вы можете создать видеокадр, который ссылается на онлайн‑видео, например видео с YouTube.
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/cpp/aspose.slides/presentation/).
-1. Получите ссылку на слайд по его индексу. 
-1. Добавьте объект [IVideo](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ivideo/) и передайте ссылку на видео.
-1. Установите миниатюру для видеокадра. 
-1. Сохраните презентацию. 
+В этом примере добавляется ссылка на видео YouTube и миниатюра на первый слайд. Замените идентификатор видео, чтобы использовать другое видео. Метод [set_PlayMode](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/set_playmode/) запрашивает автоматическое воспроизведение. Загрузка миниатюры и воспроизведение видео требуют доступа к интернету. Средство просмотра презентаций также должно поддерживать онлайн‑воспроизведение видео.
 
-Этот C++‑код показывает, как добавить видео из сети на слайд в PowerPoint‑презентации:
+```cpp
+#include <net/web_client.h>
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IVideoFrame.h>
+#include <Export/SaveFormat.h>
+#include <DOM/VideoPlayModePreset.h>
+#include <DOM/IImageCollection.h>
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/ISlidesPicture.h>
+#include <system/smart_ptr.h>
 
-```c++
-// Путь к директории документов.
-const String outPath = u"../out/AddVideoFrameFromWebSource_out.pptx";
-const String filePath = u"../templates/video1.avi";
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-// Создаёт объект Presentation, представляющий файл презентации
-SharedPtr<Presentation> pres = MakeObject<Presentation>();
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-// Получает первый слайд
-SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
-// Добавляет видеокадр 
-System::SharedPtr<IVideoFrame> vf = slide->get_Shapes()->AddVideoFrame(10, 10, 427, 240,u"https://www.youtube.com/embed/Tj75Arhq5ho");
+auto webClient = MakeObject<System::Net::WebClient>();
 
-// Устанавливает режим воспроизведения и громкость видео
-vf->set_PlayMode(VideoPlayModePreset::Auto);
+String videoId = u"aqz-KE-bpKQ";
+auto videoUrl = String::Format(u"https://www.youtube.com/embed/{0}", videoId);
+auto videoFrame = slide->get_Shapes()->AddVideoFrame(10, 10, 427, 240, videoUrl);
+videoFrame->set_PlayMode(VideoPlayModePreset::Auto);
 
-//Сохраняет презентацию на диск
-pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
+auto thumbnailUrl = String::Format(u"https://img.youtube.com/vi/{0}/hqdefault.jpg", videoId);
+auto thumbnailData = webClient->DownloadData(thumbnailUrl);
+auto thumbnail = presentation->get_Images()->AddImage(thumbnailData);
+videoFrame->get_PictureFormat()->get_Picture()->set_Image(thumbnail);
+
+presentation->Save(u"online_video.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
+
+## **Воспроизведение видео в полноэкранном режиме**
+
+В учебной презентации вы можете воспроизводить демонстрацию программного обеспечения в полноэкранном режиме, чтобы аудитория могла видеть детали. [set_FullScreenMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_fullscreenmode/) принимает `true`, чтобы включить это поведение во время воспроизведения.
+
+В этом примере открывается презентация, находится первый [IVideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/) на первом слайде и включается полноэкранное воспроизведение. Входная презентация должна содержать как минимум один слайд с существующим видеокадром на первом слайде.
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IVideoFrame.h>
+#include <Export/SaveFormat.h>
+#include <system/enumerator_adapter.h>
+#include <system/object_ext.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"training.pptx");
+auto slide = presentation->get_Slide(0);
+
+for (auto&& shape : IterateOver(slide->get_Shapes()))
+{
+    if (ObjectExt::Is<IVideoFrame>(shape))
+    {
+        auto videoFrame = ExplicitCast<IVideoFrame>(shape);
+        videoFrame->set_FullScreenMode(true);
+        break;
+    }
+}
+
+presentation->Save(u"full_screen_video.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+Полноэкранное воспроизведение управляет тем, как отображается видео. Отдельно, [set_PlayMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playmode/) определяет, будет ли оно запускаться автоматически или по щелчку, а [set_PlayLoopMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playloopmode/) определяет, будет ли оно повторяться. Чтобы выбрать поведение запуска, установите режим воспроизведения в [VideoPlayModePreset::Auto or VideoPlayModePreset::OnClick](https://reference.aspose.com/slides/cpp/aspose.slides/videoplaymodepreset/). Пример сохраняет существующие настройки запуска и зацикливания.
+
+## **Перемотка видео после воспроизведения**
+
+В учебной презентации возврат демонстрационного видео в начало делает его готовым к повторному воспроизведению. Вызовите [set_RewindVideo](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_rewindvideo/) с `true`, чтобы вернуть видео в начало после завершения воспроизведения.
+
+В этом примере открывается презентация, находится первый [IVideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/) на первом слайде и включается перемотка. Отключается зацикливание, чтобы воспроизведение могло завершиться, и устанавливается запуск воспроизведения по щелчку. Входная презентация должна содержать как минимум один слайд с существующим видеокадром на первом слайде.
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IVideoFrame.h>
+#include <Export/SaveFormat.h>
+#include <system/enumerator_adapter.h>
+#include <system/object_ext.h>
+#include <DOM/VideoPlayModePreset.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"training.pptx");
+auto slide = presentation->get_Slide(0);
+
+for (auto&& shape : IterateOver(slide->get_Shapes()))
+{
+    if (ObjectExt::Is<IVideoFrame>(shape))
+    {
+        auto videoFrame = ExplicitCast<IVideoFrame>(shape);
+        videoFrame->set_RewindVideo(true);
+        videoFrame->set_PlayLoopMode(false);
+        videoFrame->set_PlayMode(VideoPlayModePreset::OnClick);
+        break;
+    }
+}
+
+presentation->Save(u"rewind_video.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+Перемотка возвращает видео в начало без повторного запуска. В отличие от этого, включение [set_PlayLoopMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playloopmode/) повторяет воспроизведение автоматически. Оставляйте зацикливание отключённым, когда нужно, чтобы видео завершилось и было готово к повторному воспроизведению. [set_PlayMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playmode/) независимо управляет автоматическим или щелчковым запуском; в этом примере используется [VideoPlayModePreset::OnClick](https://reference.aspose.com/slides/cpp/aspose.slides/videoplaymodepreset/), чтобы ведущий контролировал момент начала воспроизведения. Устанавливайте режим воспроизведения после настройки зацикливания, как показано в примере. Перемотка работает независимо от [set_FullScreenMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_fullscreenmode/).
 
 ## **Обрезка видеокадра**
 
-Aspose.Slides позволяет управлять тем, какая часть видео воспроизводится, задавая параметры trim‑from‑start и trim‑from‑end через методы [IVideoFrame::set_TrimFromStart](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ivideoframe/set_trimfromstart/) и [IVideoFrame::set_TrimFromEnd](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ivideoframe/set_trimfromend/). Оба значения указываются в миллисекундах и определяют, сколько времени пропускается в начале и в конце видео соответственно. Эти настройки изменяют параметры воспроизведения видео в презентации; они не обрезают и не меняют бинарные данные встроенного видео.
+Используйте [IVideoFrame::set_TrimFromStart](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/set_trimfromstart/) и [IVideoFrame::set_TrimFromEnd](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/set_trimfromend/), чтобы пропустить часть начала или конца видео во время воспроизведения. Оба значения указаны в миллисекундах. Обрезка изменяет настройки воспроизведения без изменения встроенных видеоданных.
 
-**Установить параметры обрезки**
+**Настройка обрезки**
 
-Чтобы создать видеокадр и задать параметры обрезки:
-
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/cpp/aspose.slides/presentation/).
-1. Добавьте объект [IVideo](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ivideo/) в презентацию.
-1. Добавьте объект [IVideoFrame](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ivideoframe/) на слайд.
-1. Задайте значения trim‑from‑start и trim‑from‑end через методы [IVideoFrame::set_TrimFromStart](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ivideoframe/set_trimfromstart/) и [IVideoFrame::set_TrimFromEnd](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ivideoframe/set_trimfromend/).
-1. Сохраните изменённую презентацию.
-
-Следующий пример кода пропускает первые 2,5 секунды и последнюю секунду встроенного видео при воспроизведении:
+В этом примере встраивается локальное видео и при воспроизведении пропускаются первые 2,5 секунды и последняя секунда. Используйте видео длительностью более 3,5 секунды, чтобы оставался воспроизводимый фрагмент.
 
 ```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IVideoCollection.h>
+#include <DOM/IVideoFrame.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
+
 auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
 auto videoData = File::ReadAllBytes(u"video.mp4");
 auto video = presentation->get_Videos()->AddVideo(videoData);
 
-auto slide = presentation->get_Slide(0);
 auto videoFrame = slide->get_Shapes()->AddVideoFrame(50, 50, 640, 360, video);
-
 videoFrame->set_TrimFromStart(2500.0f);
 videoFrame->set_TrimFromEnd(1000.0f);
 
@@ -131,27 +245,33 @@ presentation->Save(u"video_with_trim.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-**Чтение параметров обрезки**
+**Чтение настроек обрезки**
 
-Чтобы просмотреть существующие параметры обрезки, загрузите презентацию, найдите объект [IVideoFrame](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ivideoframe/) среди фигур на первом слайде и считайте значения через методы [IVideoFrame::get_TrimFromStart](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ivideoframe/get_trimfromstart/) и [IVideoFrame::get_TrimFromEnd](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ivideoframe/get_trimfromend/).
-
-Следующий пример кода находит первый видеокадр на первом слайде и выводит его параметры обрезки в миллисекундах:
+В этом примере выводятся значения обрезки первого видеокадра на первом слайде в миллисекундах. Презентация должна содержать как минимум один слайд. Если на этом слайде нет видеокадра, ничего не выводится. Предыдущий пример выдаёт значения 2500 и 1000.
 
 ```cpp
-auto presentation = MakeObject<Presentation>(u"video_with_trim.pptx");
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IVideoFrame.h>
+#include <system/enumerator_adapter.h>
+#include <system/object_ext.h>
+#include <system/console.h>
+#include <system/smart_ptr.h>
 
+using namespace Aspose::Slides;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"video_with_trim.pptx");
 auto slide = presentation->get_Slide(0);
-for (auto&& shape : slide->get_Shapes())
+
+for (auto&& shape : IterateOver(slide->get_Shapes()))
 {
     if (ObjectExt::Is<IVideoFrame>(shape))
     {
         auto videoFrame = ExplicitCast<IVideoFrame>(shape);
-        auto trimFromStart = videoFrame->get_TrimFromStart();
-        auto trimFromEnd = videoFrame->get_TrimFromEnd();
-
-        Console::WriteLine(u"Trim from start: {0} ms", trimFromStart);
-        Console::WriteLine(u"Trim from end: {0} ms", trimFromEnd);
-
+        Console::WriteLine(String::Format(u"Trim from start: {0} ms", videoFrame->get_TrimFromStart()));
+        Console::WriteLine(String::Format(u"Trim from end: {0} ms", videoFrame->get_TrimFromEnd()));
         break;
     }
 }
@@ -159,150 +279,187 @@ for (auto&& shape : slide->get_Shapes())
 presentation->Dispose();
 ```
 
-## **Управление субтитрами к видео**
+## **Управление субтитрами видео**
 
-Aspose.Slides позволяет управлять закрытыми субтитрами для видеокадров в презентациях PowerPoint. Субтитры хранятся в формате WebVTT и доступны через метод [IVideoFrame::get_CaptionTracks](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ivideoframe/get_captiontracks/).
+Aspose.Slides позволяет управлять закрытыми субтитрами для видеокадров в презентациях PowerPoint. Субтитры хранятся в формате WebVTT и доступны через метод [IVideoFrame::get_CaptionTracks](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/get_captiontracks/).
 
 **Добавление субтитров к видеокадру**
 
-Чтобы добавить субтитры к видеокадру:
-
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/cpp/aspose.slides/presentation/).
-1. Добавьте видео в презентацию.
-1. Добавьте объект [IVideoFrame](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ivideoframe/) на слайд.
-1. Используйте объект [ICaptionsCollection](https://reference.aspose.com/slides/ru/cpp/aspose.slides/icaptionscollection/), возвращаемый методом [get_CaptionTracks](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ivideoframe/get_captiontracks/), чтобы добавить дорожку субтитров в формате WebVTT.
-1. Сохраните изменённую презентацию.
-
-Следующий код показывает, как добавить субтитры к видеокадру:
+В этом примере встраивается локальное видео и добавляется дорожка субтитров WebVTT с меткой English. Метки времени субтитров должны соответствовать видео. Сохранённая презентация содержит как видео, так и его субтитры.
 
 ```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IVideoCollection.h>
+#include <DOM/IVideoFrame.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file.h>
+#include <DOM/ICaptionsCollection.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
+
 auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
 auto videoData = File::ReadAllBytes(u"video.mp4");
 auto video = presentation->get_Videos()->AddVideo(videoData);
 
-auto slide = presentation->get_Slide(0);
 auto videoFrame = slide->get_Shapes()->AddVideoFrame(0, 0, 100, 100, video);
-
-// Добавляет новую дорожку субтитров из файла WebVTT.
 videoFrame->get_CaptionTracks()->Add(u"English", u"track.vtt");
 
 presentation->Save(u"video_with_captions.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Интерфейс [ICaptionsCollection](https://reference.aspose.com/slides/ru/cpp/aspose.slides/icaptionscollection/) также предоставляет перегрузку, позволяющую добавлять субтитры из потока.
+Интерфейс [ICaptionsCollection](https://reference.aspose.com/slides/cpp/aspose.slides/icaptionscollection/) также предоставляет перегрузку, позволяющую добавить субтитры из потока.
 
 **Извлечение субтитров из видеокадра**
 
-Чтобы извлечь субтитры из видеокадра:
-
-1. Загрузите презентацию, содержащую видео.
-1. Найдите нужный объект [IVideoFrame](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ivideoframe/).
-1. Пройдитесь по дорожкам субтитров, возвращаемым методом [get_CaptionTracks](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ivideoframe/get_captiontracks/).
-1. Сохраните каждую дорожку субтитров в файл с расширением `.vtt`.
-
-Следующий код демонстрирует извлечение субтитров из видеокадра:
+В этом примере сохраняются все дорожки субтитров из видеокадров на первом слайде как отдельные файлы WebVTT. Последовательные номера позволяют различать файлы вывода. Консоль сообщает количество извлечённых дорожек. Презентация должна содержать как минимум один слайд.
 
 ```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IVideoFrame.h>
+#include <system/io/file.h>
+#include <system/enumerator_adapter.h>
+#include <system/object_ext.h>
+#include <system/console.h>
+#include <DOM/ICaptionsCollection.h>
+#include <DOM/ICaptions.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::IO;
+
 auto presentation = MakeObject<Presentation>(u"video_with_captions.pptx");
 auto slide = presentation->get_Slide(0);
 
-for (auto&& shape : slide->get_Shapes())
+auto trackCount = 0;
+for (auto&& shape : IterateOver(slide->get_Shapes()))
 {
     if (ObjectExt::Is<IVideoFrame>(shape))
     {
         auto videoFrame = ExplicitCast<IVideoFrame>(shape);
-        for (auto&& captionTrack : videoFrame->get_CaptionTracks())
+        for (auto&& captionTrack : IterateOver(videoFrame->get_CaptionTracks()))
         {
-            // Сохраняет дорожку субтитров в файл WebVTT.
-            auto filePath = captionTrack->get_CaptionId().ToString() + u".vtt";
-            File::WriteAllBytes(filePath, captionTrack->get_BinaryData());
+            trackCount++;
+            auto outputPath = String::Format(u"captions_{0}.vtt", trackCount);
+            File::WriteAllBytes(outputPath, captionTrack->get_BinaryData());
         }
     }
 }
 
+Console::WriteLine(String::Format(u"Caption tracks extracted: {0}", trackCount));
+
 presentation->Dispose();
 ```
 
-Каждый объект [ICaptions](https://reference.aspose.com/slides/ru/cpp/aspose.slides/icaptions/) раскрывает идентификатор субтитров, метку, бинарные данные и текст субтитров в виде строки UTF‑8.
+Каждый объект [ICaptions](https://reference.aspose.com/slides/cpp/aspose.slides/icaptions/) раскрывает идентификатор субтитров, метку, бинарные данные и текст субтитров как строку UTF-8.
 
 **Удаление субтитров из видеокадра**
 
-Чтобы удалить субтитры из видеокадра:
-
-1. Загрузите презентацию, содержащую видео.
-1. Получите нужный объект [IVideoFrame](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ivideoframe/).
-1. Удалите дорожки субтитров из коллекции, возвращаемой методом [get_CaptionTracks](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ivideoframe/get_captiontracks/).
-1. Сохраните изменённую презентацию.
-
-Следующий код показывает, как удалить все субтитры из видеокадра:
+В этом примере удаляются все субтитры из видеокадра, находящегося в первой позиции фигуры на первом слайде, и сохраняется результат. Предполагается, что слайд и фигура существуют и что фигура является видеокадром.
 
 ```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IVideoFrame.h>
+#include <Export/SaveFormat.h>
+#include <DOM/ICaptionsCollection.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 auto presentation = MakeObject<Presentation>(u"video_with_captions.pptx");
 auto slide = presentation->get_Slide(0);
-auto videoFrame = ExplicitCast<IVideoFrame>(slide->get_Shape(0));
 
-// Удаляет все субтитры из видеокадра.
+auto videoFrame = ExplicitCast<IVideoFrame>(slide->get_Shape(0));
 videoFrame->get_CaptionTracks()->Clear();
 
 presentation->Save(u"video_without_captions.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Если нужно удалить только одну дорожку субтитров, используйте методы [Remove](https://reference.aspose.com/slides/ru/cpp/aspose.slides/icaptionscollection/remove/) или [RemoveAt](https://reference.aspose.com/slides/ru/cpp/aspose.slides/icaptionscollection/removeat/) вместо [Clear](https://reference.aspose.com/slides/ru/cpp/aspose.slides/icaptionscollection/clear/).
+Если необходимо удалить только одну дорожку субтитров, используйте методы [Remove](https://reference.aspose.com/slides/cpp/aspose.slides/captionscollection/remove/) или [RemoveAt](https://reference.aspose.com/slides/cpp/aspose.slides/captionscollection/removeat/), вместо [Clear](https://reference.aspose.com/slides/cpp/aspose.slides/captionscollection/clear/).
 
 ## **Извлечение видео со слайда**
 
-Помимо добавления видео на слайды, Aspose.Slides позволяет извлекать видео, встроенные в презентации.
+Помимо добавления видео на слайды, Aspose.Slides позволяет извлекать встроенные в презентацию видео.
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/cpp/aspose.slides/presentation/) для загрузки презентации, содержащей видео. 
-2. Пройдитесь по всем объектам [ISlide](https://reference.aspose.com/slides/ru/cpp/aspose.slides/islide/).
-3. Пройдитесь по всем объектам [IShape](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ishape/) в поисках [VideoFrame](https://reference.aspose.com/slides/ru/cpp/aspose.slides/videoframe/). 
-4. Сохраните видео на диск.
+В этом примере извлекаются встроенные видео со всех слайдов в отдельные нумерованные бинарные файлы. Связанные видео пропускаются, так как они не содержат встроенных данных. Консоль выводит MIME‑тип каждого видео и общее количество. Вывод использует общее расширение `.bin`; при необходимости измените его в соответствие с указанным типом медиа.
 
-Этот C++‑код демонстрирует, как извлечь видео со слайда презентации:
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IVideoFrame.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/IVideo.h>
+#include <system/io/file.h>
+#include <system/enumerator_adapter.h>
+#include <system/object_ext.h>
+#include <system/console.h>
+#include <system/smart_ptr.h>
 
-```c++
-// Путь к директории документов.
-const System::String templatePath = u"../templates/Video.pptx";
-const System::String outPath = u"../out/Video_out";
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::IO;
 
-auto presentation = System::MakeObject<Presentation>(templatePath);
-for (auto&& slide : presentation->get_Slides())
+auto presentation = MakeObject<Presentation>(u"presentation_with_videos.pptx");
+
+auto videoCount = 0;
+for (auto&& slide : IterateOver(presentation->get_Slides()))
 {
-    for (auto&& shape : slide->get_Shapes())
+    for (auto&& shape : IterateOver(slide->get_Shapes()))
     {
-        if (System::ObjectExt::Is<VideoFrame>(shape))
+        if (ObjectExt::Is<IVideoFrame>(shape))
         {
-            System::SharedPtr<VideoFrame> vf = System::AsCast<VideoFrame>(shape);
-            System::String type = vf->get_EmbeddedVideo()->get_ContentType();
-            type = type.Remove(0, type.LastIndexOf('/') + 1);
-            auto buffer = vf->get_EmbeddedVideo()->get_BinaryData();
+            auto videoFrame = ExplicitCast<IVideoFrame>(shape);
+            auto video = videoFrame->get_EmbeddedVideo();
+            if (video == nullptr)
+            {
+                Console::WriteLine(u"Skipped a linked video: no embedded data is available.");
+                continue;
+            }
 
-            auto stream = System::MakeObject<System::IO::FileStream>(
-                outPath + type, System::IO::FileMode::Create, System::IO::FileAccess::Write,
-                System::IO::FileShare::Read);
-            stream->Write(buffer, 0, buffer->get_Length());
+            videoCount++;
+            auto outputPath = String::Format(u"extracted_video_{0}.bin", videoCount);
+            File::WriteAllBytes(outputPath, video->get_BinaryData());
+            Console::WriteLine(String::Format(u"Video {0}: {1}", videoCount, video->get_ContentType()));
         }
     }
 }
+
+Console::WriteLine(String::Format(u"Embedded videos extracted: {0}", videoCount));
+
+presentation->Dispose();
 ```
 
 ## **FAQ**
 
-**Какие параметры воспроизведения видео можно изменить для VideoFrame?**
+**Какие параметры воспроизведения видео можно изменить для видеокадра?**
 
-Вы можете управлять [режимом воспроизведения](https://reference.aspose.com/slides/ru/cpp/aspose.slides/videoframe/set_playmode/) (авто или по щелчку) и [циклическим воспроизведением](https://reference.aspose.com/slides/ru/cpp/aspose.slides/videoframe/set_playloopmode/). Эти возможности доступны через свойства объекта [VideoFrame](https://reference.aspose.com/slides/ru/cpp/aspose.slides/videoframe/).
+Вы можете управлять [режимом воспроизведения](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playmode/) (авто или по щелчку) и [зацикливанием](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playloopmode/). Эти параметры доступны через методы объекта [VideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/).
 
 **Влияет ли добавление видео на размер файла PPTX?**
 
-Да. При встраивании локального видео его бинарные данные включаются в документ, поэтому размер презентации растёт пропорционально размеру файла. При добавлении онлайн‑видео в документ встраиваются только ссылка и миниатюра, поэтому увеличение размера меньше.
+Да. При встраивании локального видео бинарные данные включаются в документ, поэтому размер презентации увеличивается пропорционально размеру файла. При ссылке на онлайн‑видео и добавлении миниатюры презентация сохраняет только ссылку и изображение превью, а не данные видео, поэтому увеличение размера обычно меньше.
 
-**Можно ли заменить видео в существующем VideoFrame, не меняя его положение и размер?**
+**Можно ли заменить видео в существующем видеокадре без изменения его положения и размеров?**
 
-Да. Вы можете заменить [видеоконтент](https://reference.aspose.com/slides/ru/cpp/aspose.slides/videoframe/set_embeddedvideo/) внутри кадра, сохранив геометрию фигуры; это обычный сценарий обновления медиа в уже существующей раскладке.
+Да. Вы можете заменить [видео контент](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_embeddedvideo/) внутри кадра, сохраняя геометрию фигуры; это распространённый сценарий обновления медиа в существующей раскладке.
 
 **Можно ли определить тип содержимого (MIME) встроенного видео?**
 
-Да. Встроенное видео имеет [тип содержимого](https://reference.aspose.com/slides/ru/cpp/aspose.slides/video/get_contenttype/), который можно прочитать и использовать, например, при сохранении на диск.
+Да. Встроенное видео имеет [тип содержимого](https://reference.aspose.com/slides/cpp/aspose.slides/video/get_contenttype/), который можно прочитать и использовать, например при сохранении на диск.

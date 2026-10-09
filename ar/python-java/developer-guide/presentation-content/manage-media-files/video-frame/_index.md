@@ -17,30 +17,21 @@ keywords:
 - عرض تقديمي
 - Python
 - Aspose.Slides
-description: "تعلم كيفية إضافة واستخراج إطارات الفيديو برمجيًا في شرائح PowerPoint وOpenDocument باستخدام Aspose.Slides للبايثون عبر جافا. دليل سريع خطوة بخطوة."
+description: "تعلم كيفية إضافة واستخراج إطارات الفيديو برمجياً في شرائح PowerPoint وOpenDocument باستخدام Aspose.Slides للغة بايثون عبر Java. دليل سريع خطوة بخطوة."
 ---
 ## **المقدمة**
 
-يمكن لفيديو موضعه بشكل جيد في عرض تقديمي أن يجعل رسالتك أكثر إقناعًا ويزيد من مستويات التفاعل مع جمهورك.
+يمكن للفيديوهات أن تساعد في شرح الأفكار وجذب الجمهور. تتيح لك Aspose.Slides for Python via Java إضافة إطارات فيديو إلى الشرائح، وضبط إعدادات التشغيل، وإدارة التسميات التوضيحية، واستخراج بيانات الفيديو المضمنة.
 
-يسمح لك PowerPoint بإضافة مقاطع الفيديو إلى شريحة في عرض تقديمي بطريقتين:
+يدعم PowerPoint مقاطع الفيديو المحلية والروابط إلى مقاطع الفيديو على الإنترنت، مثل مقاطع فيديو YouTube.
 
-* إضافة أو تضمين فيديو محلي (مخزن على جهازك)
-* إضافة فيديو عبر الإنترنت (من مصدر ويب مثل YouTube).
+لتمثيل بيانات الفيديو وإطارات الفيديو، توفر Aspose.Slides الفئة [Video](https://reference.aspose.com/slides/python-java/aspose.slides/video/) والفئة [VideoFrame](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/) وأنواع أخرى ذات صلة.
 
-لتتيح لك إضافة مقاطع الفيديو (كائنات الفيديو) إلى عرض تقديمي، توفر Aspose.Slides فئة [Video](https://reference.aspose.com/slides/ar/python-java/aspose.slides/video/) و[VideoFrame](https://reference.aspose.com/slides/ar/python-java/aspose.slides/videoframe/) وفئات أخرى ذات صلة.
+## **إنشاء إطار فيديو مضمّن**
 
-## **إنشاء إطارات فيديو مدمجة**
+إذا كان ملف الفيديو الذي تريد إضافته إلى شريحتك مخزنًا محليًا، يمكنك إنشاء إطار فيديو لتضمين الفيديو في العرض التقديمي.
 
-إذا كان ملف الفيديو الذي تريد إضافته إلى الشريحة مخزنًا محليًا، يمكنك إنشاء إطار فيديو لتضمين الفيديو في عرضك التقديمي.
-
-1. إنشاء كائن من فئة [Presentation](https://reference.aspose.com/slides/ar/python-java/aspose.slides/presentation/) .
-1. الحصول على مرجع إلى شريحة باستخدام فهرستها.
-1. إضافة كائن [Video](https://reference.aspose.com/slides/ar/python-java/aspose.slides/video/) وتمرير بيانات ملف الفيديو لتضمين الفيديو في العرض.
-1. إضافة كائن [VideoFrame](https://reference.aspose.com/slides/ar/python-java/aspose.slides/videoframe/) لإنشاء إطار للفيديو.
-1. حفظ العرض التقديمي المعدل.
-
-يظهر لك هذا الكود بلغة Python كيفية إضافة فيديو مخزن محليًا إلى عرض تقديمي:
+هذا المثال يضمّن فيديو محلي على الشريحة الأولى من عرض تقديمي موجود ويحفظ النتيجة. إحداثيات الإطار وأبعاده بالنقاط. يقرأ Python بايتات الفيديو من القرص، ويحول JPype تلك البايتات إلى مصفوفة بايتات Java قبل إضافة الفيديو إلى العرض التقديمي.
 
 ```python
 from pathlib import Path
@@ -53,18 +44,22 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import Presentation, SaveFormat
 
-presentation = Presentation("pres.pptx")
+presentation = Presentation("presentation.pptx")
 try:
-    video_data = Path("Wildlife.mp4").read_bytes()
+    slide = presentation.getSlides().get_Item(0)
+
+    video_data = Path("video.mp4").read_bytes()
     java_video_data = jpype.JArray(jpype.JByte)(video_data)
+
     video = presentation.getVideos().addVideo(java_video_data)
-    presentation.getSlides().get_Item(0).getShapes().addVideoFrame(10, 10, 150, 250, video)
-    presentation.save("pres-with-video.pptx", SaveFormat.Pptx)
+    slide.getShapes().addVideoFrame(10, 10, 150, 250, video)
+
+    presentation.save("embedded_video.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-بدلاً من ذلك، يمكنك إضافة فيديو بتمرير مسار ملفه مباشرة إلى طريقة [addVideoFrame](https://reference.aspose.com/slides/ar/python-java/aspose.slides/shapecollection/#addVideoFrame) :
+يمكنك أيضًا تمرير مسار الفيديو المحلي مباشرة إلى [addVideoFrame](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addVideoFrame). هذا المثال يضمّن الفيديو على الشريحة الأولى من عرض تقديمي جديد. يجب أن يظل الفيديو متاحًا حتى يتم حفظ العرض التقديمي.
 
 ```python
 import jpype
@@ -73,27 +68,24 @@ import asposeslides
 if not jpype.isJVMStarted():
     jpype.startJVM()
 
-from asposeslides.api import Presentation
+from asposeslides.api import Presentation, SaveFormat
 
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
-    video_frame = slide.getShapes().addVideoFrame(50, 150, 300, 150, "video1.avi")
+
+    slide.getShapes().addVideoFrame(50, 150, 300, 150, "video.avi")
+
+    presentation.save("video_from_path.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-## **إنشاء إطارات فيديو باستخدام فيديو من مصادر ويب**
+## **إنشاء إطار فيديو مع فيديو من مصدر ويب**
 
-يدعم Microsoft [PowerPoint 2013 والإصدارات الأحدث](https://support.microsoft.com/en-us/office/versions-of-powerpoint-that-support-online-videos-2a0e184d-af50-4da9-b530-e4355ac436a9?ui=en-us&rs=en-us&ad=us) مقاطع فيديو YouTube في العروض التقديمية. إذا كان الفيديو الذي تريد استخدامه متاحًا على الإنترنت (مثلًا على YouTube)، يمكنك إضافته إلى عرضك التقديمي عبر رابط الويب الخاص به.
+يدعم Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) مقاطع الفيديو عبر الإنترنت في العروض التقديمية. يمكنك إنشاء إطار فيديو يربط بفيديو عبر الإنترنت، مثل فيديو YouTube.
 
-1. إنشاء كائن من فئة [Presentation](https://reference.aspose.com/slides/ar/python-java/aspose.slides/presentation/) .
-1. الحصول على مرجع إلى شريحة باستخدام فهرستها.
-1. إضافة كائن [VideoFrame](https://reference.aspose.com/slides/ar/python-java/aspose.slides/videoframe/) وتمرير رابط الفيديو.
-1. تعيين صورة مصغرة لإطار الفيديو.
-1. حفظ العرض التقديمي.
-
-يظهر لك هذا الكود بلغة Python كيفية إضافة فيديو من الويب إلى شريحة في عرض PowerPoint:
+هذا المثال يضيف رابط فيديو YouTube وصورة مصغرة إلى الشريحة الأولى. استبدل معرف الفيديو لاستخدام فيديو آخر. طريقة [setPlayMode](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/#setPlayMode) تطلب التشغيل التلقائي. تنزيل الصورة المصغرة وتشغيل الفيديو يتطلب اتصالًا بالإنترنت. يجب أن يدعم عارض العرض التقديمي تشغيل الفيديو عبر الإنترنت أيضًا.
 
 ```python
 from urllib.request import urlopen
@@ -106,43 +98,98 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import Presentation, SaveFormat, VideoPlayModePreset
 
-video_id = "Tj75Arhq5ho"
 presentation = Presentation()
 try:
-    video_frame = presentation.getSlides().get_Item(0).getShapes().addVideoFrame(10, 10, 427, 240, "https://www.youtube.com/embed/" + video_id)
+    slide = presentation.getSlides().get_Item(0)
+
+    video_id = "aqz-KE-bpKQ"
+    video_url = "https://www.youtube.com/embed/" + video_id
+    video_frame = slide.getShapes().addVideoFrame(10, 10, 427, 240, video_url)
     video_frame.setPlayMode(VideoPlayModePreset.Auto)
 
-    # تحميل الصورة المصغرة.
-    thumbnail_uri = "https://img.youtube.com/vi/" + video_id + "/hqdefault.jpg"
-    try:
-        with urlopen(thumbnail_uri) as response:
-            thumbnail_data = response.read()
-        java_thumbnail_data = jpype.JArray(jpype.JByte)(thumbnail_data)
-        thumbnail = presentation.getImages().addImage(java_thumbnail_data)
-        video_frame.getPictureFormat().getPicture().setImage(thumbnail)
-    except OSError as error:
-        print("Could not load the thumbnail:", error)
+    thumbnail_url = "https://img.youtube.com/vi/" + video_id + "/hqdefault.jpg"
+    with urlopen(thumbnail_url) as response:
+        thumbnail_data = response.read()
+    java_thumbnail_data = jpype.JArray(jpype.JByte)(thumbnail_data)
+    thumbnail = presentation.getImages().addImage(java_thumbnail_data)
+    video_frame.getPictureFormat().getPicture().setImage(thumbnail)
 
-    presentation.save("out.pptx", SaveFormat.Pptx)
+    presentation.save("online_video.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-## **تقليم إطار فيديو**
+## **تشغيل فيديو بوضع ملء الشاشة**
 
-تتيح لك Aspose.Slides التحكم في الجزء الذي يتم تشغيله من الفيديو من خلال تعيين قيمتي trim-from-start و trim-from-end عبر [VideoFrame.setTrimFromStart](https://reference.aspose.com/slides/ar/python-java/aspose.slides/videoframe/#setTrimFromStart) و[VideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/ar/python-java/aspose.slides/videoframe/#setTrimFromEnd). تُحدد القيمتان بالميليثانية وتحدد مقدار الوقت المتخطى من بداية الفيديو ونهايته، على التوالي. تقوم هذه الإعدادات بتغيير إعدادات تشغيل الفيديو في العرض التقديمي؛ فهي لا تقص أو تعدل بيانات الفيديو الثنائية المضمنة.
+في عرض تقديمي تدريبي، يمكنك تشغيل توضيح البرمجيات في وضع ملء الشاشة حتى يتمكن الجمهور من رؤية التفاصيل. استدعِ [setFullScreenMode](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/#setFullScreenMode) مع `True` لتمكين هذا السلوك أثناء التشغيل.
 
-**ضبط إعدادات التقليم**
+هذا المثال يفتح عرضًا تقديميًا، يجد أول [VideoFrame](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/) على الشريحة الأولى، ويفعل تشغيل ملء الشاشة. يجب أن يحتوي عرض الإدخال على شريحة واحدة على الأقل تحتوي على إطار فيديو موجود على الشريحة الأولى.
 
-لإنشاء إطار فيديو وضبط إعدادات التقليم الخاصة به:
+```python
+import jpype
+import asposeslides
 
-1. إنشاء كائن من فئة [Presentation](https://reference.aspose.com/slides/ar/python-java/aspose.slides/presentation/) .
-1. إضافة كائن [Video](https://reference.aspose.com/slides/ar/python-java/aspose.slides/video/) إلى العرض.
-1. إضافة كائن [VideoFrame](https://reference.aspose.com/slides/ar/python-java/aspose.slides/videoframe/) إلى شريحة.
-1. تعيين قيمتي trim-from-start وtrim-from-end عبر [VideoFrame.setTrimFromStart](https://reference.aspose.com/slides/ar/python-java/aspose.slides/videoframe/#setTrimFromStart) و[VideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/ar/python-java/aspose.slides/videoframe/#setTrimFromEnd) .
-1. حفظ العرض التقديمي المعدل.
+if not jpype.isJVMStarted():
+    jpype.startJVM()
 
-يتخطى مثال الكود التالي الثانية الأولى 2.5 والثانية الأخيرة من الفيديو المدمج أثناء التشغيل:
+from asposeslides.api import Presentation, SaveFormat, VideoFrame
+
+presentation = Presentation("training.pptx")
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    for shape in slide.getShapes():
+        if isinstance(shape, VideoFrame):
+            shape.setFullScreenMode(True)
+            break
+
+    presentation.save("full_screen_video.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+يشرف تشغيل ملء الشاشة على طريقة عرض الفيديو. بشكل مستقل، تتحكم طريقة [setPlayMode](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/#setPlayMode) فيما إذا كان يبدأ تلقائيًا أو عند النقر، وتتحكم طريقة [setPlayLoopMode](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/#setPlayLoopMode) فيما إذا كان يعيد التشغيل. لاختيار سلوك البدء، اضبط وضع التشغيل إلى [VideoPlayModePreset.Auto أو VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/python-java/aspose.slides/videoplaymodepreset/). يحافظ المثال على إعدادات البدء والاحتفال الحالية.
+
+## **إرجاع الفيديو إلى البداية بعد التشغيل**
+
+في عرض تقديمي تدريبي، إعادة فيديو التوضيح إلى بدايته يجعله جاهزًا للمقدم لتشغيله مرة أخرى. استدعِ [setRewindVideo](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/#setRewindVideo) مع `True` لإرجاع الفيديو إلى بدايته بعد انتهاء التشغيل.
+
+هذا المثال يفتح عرضًا تقديميًا، يجد أول [VideoFrame](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/) على الشريحة الأولى، ويفعل الإرجاع. يعطل التكرار حتى يكتمل التشغيل ويضبط التشغيل للبدء عند النقر. يجب أن يحتوي عرض الإدخال على شريحة واحدة على الأقل تحتوي على إطار فيديو موجود على الشريحة الأولى.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import Presentation, SaveFormat, VideoFrame, VideoPlayModePreset
+
+presentation = Presentation("training.pptx")
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    for shape in slide.getShapes():
+        if isinstance(shape, VideoFrame):
+            shape.setRewindVideo(True)
+            shape.setPlayLoopMode(False)
+            shape.setPlayMode(VideoPlayModePreset.OnClick)
+            break
+
+    presentation.save("rewind_video.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+الإرجاع يعيد الفيديو إلى بدايته دون تشغيله مرة أخرى. وعلى العكس، استدعاء [setPlayLoopMode](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/#setPlayLoopMode) مع `True` يكرر التشغيل تلقائيًا. أبقِ التكرار معطلًا عندما تريد أن ينتهي الفيديو ويبقى جاهزًا لإعادة التشغيل. تتحكم طريقة [setPlayMode](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/#setPlayMode) بشكل مستقل في بدء التشغيل التلقائي أو عند النقر؛ يستخدم هذا المثال [VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/python-java/aspose.slides/videoplaymodepreset/) بحيث يتحكم المقدم في وقت بدء التشغيل. اضبط وضع التشغيل بعد ضبط إعداد التكرار كما هو موضح في المثال. يعمل الإرجاع بشكل مستقل عن [setFullScreenMode](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/#setFullScreenMode).
+
+## **قص إطار فيديو**
+
+استخدم [VideoFrame.setTrimFromStart](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/#setTrimFromStart) و[VideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/#setTrimFromEnd) لتخطي جزء من البداية أو النهاية أثناء تشغيل الفيديو. القيمتان بالملي ثانية. يغير القص إعدادات التشغيل دون تعديل بيانات الفيديو المضمّنة.
+
+**إعدادات القص**
+
+هذا المثال يضمّن فيديو محلي ويتخطى أول 2.5 ثانية وآخر ثانية أثناء التشغيل. استخدم فيديوًا أطول من 3.5 ثانية لتبقى شريحة قابلة للتشغيل.
 
 ```python
 from pathlib import Path
@@ -157,24 +204,25 @@ from asposeslides.api import Presentation, SaveFormat
 
 presentation = Presentation()
 try:
+    slide = presentation.getSlides().get_Item(0)
+
     video_data = Path("video.mp4").read_bytes()
     java_video_data = jpype.JArray(jpype.JByte)(video_data)
+
     video = presentation.getVideos().addVideo(java_video_data)
-    slide = presentation.getSlides().get_Item(0)
     video_frame = slide.getShapes().addVideoFrame(50, 50, 640, 360, video)
 
     video_frame.setTrimFromStart(2500.0)
     video_frame.setTrimFromEnd(1000.0)
+
     presentation.save("video_with_trim.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-**قراءة إعدادات التقليم**
+**قراءة إعدادات القص**
 
-لتفحص إعدادات التقليم الحالية، قم بتحميل عرض تقديمي، وابحث عن كائن [VideoFrame](https://reference.aspose.com/slides/ar/python-java/aspose.slides/videoframe/) بين الأشكال على الشريحة الأولى، ثم اقرأ القيم عبر [VideoFrame.getTrimFromStart](https://reference.aspose.com/slides/ar/python-java/aspose.slides/videoframe/#getTrimFromStart) و[VideoFrame.getTrimFromEnd](https://reference.aspose.com/slides/ar/python-java/aspose.slides/videoframe/#getTrimFromEnd) .
-
-يجد مثال الكود التالي أول إطار فيديو على الشريحة الأولى ويبلغ عن إعدادات التقليم الخاصة به بالميليثانية:
+هذا المثال يطبع قيم القص لأول إطار فيديو على الشريحة الأولى بالملي ثانية. يجب أن يحتوي العرض التقديمي على شريحة واحدة على الأقل. إذا لم تحتوي تلك الشريحة على إطار فيديو، لن يُطبع شيء. المثال السابق ينتج القيم 2500 و1000.
 
 ```python
 import jpype
@@ -188,6 +236,7 @@ from asposeslides.api import Presentation, VideoFrame
 presentation = Presentation("video_with_trim.pptx")
 try:
     slide = presentation.getSlides().get_Item(0)
+
     for shape in slide.getShapes():
         if isinstance(shape, VideoFrame):
             trim_from_start = shape.getTrimFromStart()
@@ -199,21 +248,13 @@ finally:
     presentation.dispose()
 ```
 
-## **إدارة تسميات الفيديو**
+## **إدارة تعليقات الفيديو**
 
-تتيح لك Aspose.Slides إدارة النصوص المغلقة لإطارات الفيديو في عروض PowerPoint التقديمية. يتم تخزين العناوين بتنسيق WebVTT وتُعرض عبر طريقة [VideoFrame.getCaptionTracks](https://reference.aspose.com/slides/ar/python-java/aspose.slides/videoframe/#getCaptionTracks) .
+تسمح لك Aspose.Slides بإدارة التعليقات المغلقة لإطارات الفيديو في عروض PowerPoint. تُحفظ التعليقات بتنسيق WebVTT وتُعرَض عبر طريقة [VideoFrame.getCaptionTracks](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/#getCaptionTracks).
 
-**إضافة تسميات إلى إطار فيديو**
+**إضافة تعليقات توضيحية إلى إطار فيديو**
 
-لإضافة تسميات إلى إطار فيديو:
-
-1. إنشاء كائن من فئة [Presentation](https://reference.aspose.com/slides/ar/python-java/aspose.slides/presentation/) .
-1. إضافة فيديو إلى العرض.
-1. إضافة كائن [VideoFrame](https://reference.aspose.com/slides/ar/python-java/aspose.slides/videoframe/) إلى شريحة.
-1. استخدام [CaptionsCollection](https://reference.aspose.com/slides/ar/python-java/aspose.slides/captionscollection/) التي تُرجعها [getCaptionTracks](https://reference.aspose.com/slides/ar/python-java/aspose.slides/videoframe/#getCaptionTracks) لإضافة مسار تسمية WebVTT.
-1. حفظ العرض التقديمي المعدل.
-
-يظهر لك الكود التالي كيفية إضافة تسميات إلى إطار فيديو:
+هذا المثال يضمّن فيديو محلي ويضيف مسار تعليق WebVTT معنون بـ English. يجب أن تتطابق طوابع الوقت للتعليق مع الفيديو. يتضمن العرض التقديمي المحفوظ كلًا من الفيديو وتعليقاته.
 
 ```python
 from pathlib import Path
@@ -221,38 +262,32 @@ from pathlib import Path
 import jpype
 import asposeslides
 
-if not jpype.isJVMStarted():
+if not jpime.isJVMStarted():
     jpype.startJVM()
 
 from asposeslides.api import Presentation, SaveFormat
 
 presentation = Presentation()
 try:
-    video_data = Path("video.mp4").read_bytes()
-    java_video_data = jpype.JArray(jpype.JByte)(video_data)
-    video = presentation.getVideos().addVideo(java_video_data)
     slide = presentation.getSlides().get_Item(0)
+
+    video_data = Path("video.mp4").read_bytes()
+    java_video_data = jpype.JArray(jpime.JByte)(video_data)
+
+    video = presentation.getVideos().addVideo(java_video_data)
     video_frame = slide.getShapes().addVideoFrame(0, 0, 100, 100, video)
 
-    # إضافة مسار توضيحات جديد من ملف WebVTT.
-    video_frame.getCaptionTracks().add("English", "track.vtt")
+    # أضف مسار توضيحات جديد من ملف WebVTT.
     presentation.save("video_with_captions.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-توفر فئة [CaptionsCollection](https://reference.aspose.com/slides/ar/python-java/aspose.slides/captionscollection/) أيضًا طريقة تتيح لك إضافة تسميات من تدفق.
+الفئة [CaptionsCollection](https://reference.aspose.com/slides/python-java/aspose.slides/captionscollection/) توفر أيضًا حملًا زائدًا يتيح لك إضافة تعليقات من تدفق بيانات.
 
-**استخراج التسميات من إطار فيديو**
+**استخراج التعليقات التوضيحية من إطار فيديو**
 
-لاستخراج التسميات من إطار فيديو:
-
-1. تحميل العرض التقديمي الذي يحتوي على الفيديو.
-1. العثور على كائن [VideoFrame](https://reference.aspose.com/slides/ar/python-java/aspose.slides/videoframe/) المستهدف.
-1. التكرار عبر مسارات التسميات في [CaptionsCollection](https://reference.aspose.com/slides/ar/python-java/aspose.slides/captionscollection/) .
-1. حفظ كل مسار تسمية إلى ملف `.vtt` .
-
-يظهر لك الكود التالي كيفية استخراج التسميات من إطار فيديو:
+هذا المثال يحفظ جميع مسارات التعليق من إطارات الفيديو على الشريحة الأولى كملفات WebVTT منفصلة. الأرقام المتسلسلة تحافظ على تمييز الملفات الناتجة. يُظهر وحدة التحكم عدد المسارات المستخرجة. يجب أن يحتوي العرض التقديمي على شريحة واحدة على الأقل.
 
 ```python
 from pathlib import Path
@@ -268,29 +303,26 @@ from asposeslides.api import Presentation, VideoFrame
 presentation = Presentation("video_with_captions.pptx")
 try:
     slide = presentation.getSlides().get_Item(0)
+
+    track_count = 0
     for shape in slide.getShapes():
         if isinstance(shape, VideoFrame):
             for caption_track in shape.getCaptionTracks():
-                # حفظ مسار التسمية إلى ملف WebVTT.
-                file_path = Path(str(caption_track.getCaptionId()) + ".vtt")
+                track_count += 1
+                output_path = Path(f"captions_{track_count}.vtt")
                 caption_data = bytes(caption_track.getBinaryData())
-                file_path.write_bytes(caption_data)
+                output_path.write_bytes(caption_data)
+
+    print(f"Caption tracks extracted: {track_count}")
 finally:
     presentation.dispose()
 ```
 
-كل كائن [Captions](https://reference.aspose.com/slides/ar/python-java/aspose.slides/captions/) يكشف عن معرف التسمية، التسمية، البيانات الثنائية، ونص التسمية كسلسلة UTF-8.
+كل كائن [Captions](https://reference.aspose.com/slides/python-java/aspose.slides/captions/) يُظهر معرف التعليق، التسمية، البيانات الثنائية، ونص التعليق كسلسلة UTF-8.
 
-**إزالة التسميات من إطار فيديو**
+**إزالة التعليقات التوضيحية من إطار فيديو**
 
-لإزالة التسميات من إطار فيديو:
-
-1. تحميل العرض التقديمي الذي يحتوي على الفيديو.
-1. الحصول على كائن [VideoFrame](https://reference.aspose.com/slides/ar/python-java/aspose.slides/videoframe/) المستهدف.
-1. إزالة مسارات التسميات من [CaptionsCollection](https://reference.aspose.com/slides/ar/python-java/aspose.slides/captionscollection/) .
-1. حفظ العرض التقديمي المعدل.
-
-يظهر لك الكود التالي كيفية إزالة جميع التسميات من إطار فيديو:
+هذا المثال يزيل جميع التعليقات من إطار الفيديو في أول موضع شكل على الشريحة الأولى ويحفظ النتيجة. يفترض وجود الشريحة والشكل وأن الشكل هو إطار فيديو.
 
 ```python
 import jpype
@@ -304,10 +336,12 @@ from asposeslides.api import Presentation, SaveFormat, VideoFrame
 presentation = Presentation("video_with_captions.pptx")
 try:
     slide = presentation.getSlides().get_Item(0)
+
     video_frame = slide.getShapes().get_Item(0)
     if isinstance(video_frame, VideoFrame):
-        # إزالة جميع التسميات من إطار الفيديو.
+        # إزالة جميع التعليقات التوضيحية من إطار الفيديو.
         video_frame.getCaptionTracks().clear()
+        
         presentation.save("video_without_captions.pptx", SaveFormat.Pptx)
     else:
         print("The shape is not a video frame.")
@@ -315,18 +349,13 @@ finally:
     presentation.dispose()
 ```
 
-إذا كنت بحاجة إلى إزالة مسار تسمية واحد فقط، استخدم طرق [remove](https://reference.aspose.com/slides/ar/python-java/aspose.slides/captionscollection/#remove) أو [removeAt](https://reference.aspose.com/slides/ar/python-java/aspose.slides/captionscollection/#removeAt) بدلاً من [clear](https://reference.aspose.com/slides/ar/python-java/aspose.slides/captionscollection/#clear) .
+إذا كنت تحتاج إلى إزالة مسار تعليق واحد فقط، استخدم طرق [remove](https://reference.aspose.com/slides/python-java/aspose.slides/captionscollection/#remove) أو [removeAt](https://reference.aspose.com/slides/python-java/aspose.slides/captionscollection/#removeAt) بدلًا من [clear](https://reference.aspose.com/slides/python-java/aspose.slides/captionscollection/#clear).
 
-## **استخراج الفيديو من الشرائح**
+## **استخراج فيديو من شريحة**
 
-بالإضافة إلى إضافة مقاطع الفيديو إلى الشرائح، تسمح لك Aspose.Slides باستخراج مقاطع الفيديو المضمنة في العروض التقديمية.
+إلى جانب إضافة الفيديوهات إلى الشرائح، تتيح لك Aspose.Slides استخراج الفيديوهات المضمّنة في العروض التقديمية.
 
-1. إنشاء كائن من فئة [Presentation](https://reference.aspose.com/slides/ar/python-java/aspose.slides/presentation/) لتحميل العرض التقديمي الذي يحتوي على الفيديو.
-2. التكرار عبر جميع كائنات [Slide](https://reference.aspose.com/slides/ar/python-java/aspose.slides/slide/) .
-3. التكرار عبر جميع كائنات [Shape](https://reference.aspose.com/slides/ar/python-java/aspose.slides/shape/) للعثور على [VideoFrame](https://reference.aspose.com/slides/ar/python-java/aspose.slides/videoframe/) .
-4. حفظ الفيديو إلى القرص.
-
-يظهر لك هذا الكود بلغة Python كيفية استخراج الفيديو على شريحة من العرض التقديمي:
+هذا المثال يستخرج الفيديوهات المضمّنة من كل شريحة إلى ملفات ثنائية رقمية منفصلة. تُهمل الفيديوهات المرتبطة لأنها لا تحتوي على بيانات مضمّنة. تُظهر وحدة التحكم نوع MIME لكل فيديو وإجمالي العدد. يستخدم الإخراج الامتداد العام `.bin`؛ غيّره بما يتطابق مع نوع الوسائط المُبلغ عنه عند الحاجة.
 
 ```python
 from pathlib import Path
@@ -339,37 +368,42 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import Presentation, VideoFrame
 
-presentation = Presentation("VideoSample.pptx")
+presentation = Presentation("presentation_with_videos.pptx")
 try:
+    video_count = 0
     for slide in presentation.getSlides():
         for shape in slide.getShapes():
             if isinstance(shape, VideoFrame):
                 video = shape.getEmbeddedVideo()
-                if video is not None:
-                    content_type = str(video.getContentType())
-                    file_extension = content_type.split("/", 1)[-1]
-                    video_data = bytes(video.getBinaryData())
-                    Path("testing2." + file_extension).write_bytes(video_data)
-                else:
-                    print("The video frame has no embedded video.")
+                if video is None:
+                    print("Skipped a linked video: no embedded data is available.")
+                    continue
+
+                video_count += 1
+                output_path = Path(f"extracted_video_{video_count}.bin")
+                video_data = bytes(video.getBinaryData())
+                output_path.write_bytes(video_data)
+                print(f"Video {video_count}: {video.getContentType()}")
+
+    print(f"Embedded videos extracted: {video_count}")
 finally:
     presentation.dispose()
 ```
 
-## **الأسئلة المتكررة**
+## **الأسئلة الشائعة**
 
-**ما هي معلمات تشغيل الفيديو التي يمكن تعديلها لإطار VideoFrame؟**
+**ما هي معلمات تشغيل الفيديو التي يمكن تغييرها لإطار الفيديو؟**
 
-يمكنك التحكم في [وضع التشغيل](https://reference.aspose.com/slides/ar/python-java/aspose.slides/videoframe/#setPlayMode) (تلقائي أو عند النقر) و[التكرار](https://reference.aspose.com/slides/ar/python-java/aspose.slides/videoframe/#setPlayLoopMode) . تتوفر هذه الخيارات عبر خصائص كائن [VideoFrame](https://reference.aspose.com/slides/ar/python-java/aspose.slides/videoframe/) .
+يمكنك التحكم في [playback mode](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/#setPlayMode) (تلقائي أو عند النقر) و[looping](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/#setPlayLoopMode). تتوفر هذه الخيارات عبر طرق كائن [VideoFrame](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/).
 
 **هل يؤثر إضافة فيديو على حجم ملف PPTX؟**
 
-نعم. عندما تقوم بتضمين فيديو محلي، تُضمّن البيانات الثنائية في المستند، وبالتالي ينمو حجم العرض التقديمي بنسبة حجم الملف. عندما تضيف فيديوًا عبر الإنترنت، يتم تضمين رابط وصورة مصغرة، لذا يكون زيادة الحجم أصغر.
+نعم. عندما تضمن فيديو محلي، تُضمّن البيانات الثنائية في المستند، وبالتالي يزداد حجم العرض التقديمي نسبةً لحجم الملف. عند ربط فيديو على الإنترنت وإضافة صورة مصغرة، يخزن العرض التقديمي الرابط وصورة المعاينة بدلاً من بيانات الفيديو، لذا يكون الزيادة عادةً أصغر.
 
-**هل يمكنني استبدال الفيديو في إطار VideoFrame موجود دون تغيير موقعه وحجمه؟**
+**هل يمكن استبدال الفيديو في إطار فيديو موجود دون تغيير موقعه وحجمه؟**
 
-نعم. يمكنك استبدال [محتوى الفيديو](https://reference.aspose.com/slides/ar/python-java/aspose.slides/videoframe/#setEmbeddedVideo) داخل الإطار مع حفظ هندسة الشكل؛ هذا سيناريو شائع لتحديث الوسائط في تخطيط موجود.
+نعم. يمكنك استبدال [video content](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/#setEmbeddedVideo) داخل الإطار مع الحفاظ على هندسة الشكل؛ هذا سيناريو شائع لتحديث الوسائط في تخطيط موجود.
 
-**هل يمكن تحديد نوع المحتوى (MIME) للفيديو المدمج؟**
+**هل يمكن تحديد نوع المحتوى (MIME) للفيديو المضمّن؟**
 
-نعم. يحتوي الفيديو المدمج على [نوع المحتوى](https://reference.aspose.com/slides/ar/python-java/aspose.slides/video/#getContentType) يمكنك قراءته واستخدامه، على سبيل المثال عند حفظه إلى القرص.
+نعم. يحتوي الفيديو المضمّن على [content type](https://reference.aspose.com/slides/python-java/aspose.slides/video/#getContentType) يمكنك قراءته واستخدامه، على سبيل المثال عند حفظه إلى القرص.

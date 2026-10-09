@@ -1,5 +1,5 @@
 ---
-title: Videókeretek kezelése Android prezentációkban
+title: Videókeretek kezelése bemutatókban Androidon
 linktitle: Videókeret
 type: docs
 weight: 10
@@ -14,168 +14,200 @@ keywords:
 - webes forrás
 - PowerPoint
 - OpenDocument
-- prezentáció
+- bemutató
 - Android
 - Java
 - Aspose.Slides
-description: "Tanulja meg, hogyan lehet programozottan videókereteket hozzáadni és kinyerni a PowerPoint és OpenDocument diákban az Aspose.Slides for Android segítségével Java nyelven. Gyors útmutató."
+description: "Tanulja meg programozott módon videókeretek hozzáadását és kinyerését PowerPoint és OpenDocument diákban az Aspose.Slides for Android Java használatával. Gyors útmutató."
 ---
 ## **Bevezetés**
 
-Egy jól elhelyezett videó egy prezentációban hatékonyabbá teheti az üzenetet, és növelheti a közönség elköteleződését.
+A videók segíthetnek az ötletek magyarázatában és a közönség bevonásában. Az Aspose.Slides for Android Java-n keresztül lehetővé teszi, hogy videókereteket adj hozzá diákhoz, módosítsd a lejátszási beállításokat, kezeld a feliratokat, és kinyerd a beágyazott videóadatokat.
 
-PowerPoint lehetővé teszi, hogy videókat adjunk hozzá egy diára a prezentációban két módon:
-* Helyi videó hozzáadása vagy beágyazása (a gépen tárolt)
-* Online videó hozzáadása (webes forrásból, például a YouTubeból).
+A PowerPoint támogatja a helyi videókat és az online videókra mutató hivatkozásokat, például a YouTube‑videókat.
 
-Az Aspose.Slides lehetővé teszi, hogy videókat (video objektumokat) adjunk a prezentációhoz, és biztosítja az [IVideo](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ivideo/) interfészt, a [IVideoFrame](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ivideoframe/) interfészt, valamint egyéb kapcsolódó típusokat.
+A videóadatok és videókeretek ábrázolásához az Aspose.Slides biztosítja a [IVideo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideo/) interfészt, a [IVideoFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/) interfészt és más kapcsolódó típusokat.
 
 ## **Beágyazott videókeret létrehozása**
 
-Ha a diára felvenni kívánt videófájl helyileg van tárolva, létrehozhat egy videókeretet a videó prezentációba történő beágyazásához.
+Ha a diára felvenni kívánt videofájl helyileg van tárolva, létrehozhatsz egy videókeretet a videó a bemutatóba történő beágyazásához.
 
-1. Hozzon létre egy példányt a [Presentation ](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/Presentation) osztályból.
-1. Szerezze meg egy dia referenciáját az indexe alapján.
-1. Adjon hozzá egy [IVideo](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ivideo/) objektumot, és adja át a videófájl útvonalát a videó prezentációba történő beágyazásához.
-1. Adjon hozzá egy [IVideoFrame](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ivideoframe/) objektumot a videó keret létrehozásához.
-1. Mentse el a módosított prezentációt.
-
-Ez a Java kód bemutatja, hogyan adjon hozzá egy helyileg tárolt videót a prezentációhoz:
+Ez a példa egy helyi videót ágyaz be egy meglévő bemutató első diájára, és elmenti az eredményt. A keret koordinátái és méretei pontban vannak megadva. A folyam (stream) nyitva marad a mentés befejezéséig, mert a [LoadingStreamBehavior.KeepLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/loadingstreambehavior/) zárolva tartja, amíg a bemutató használja.
 
 ```java
-// Létrehozza a Presentation osztályt
-Presentation pres = new Presentation("pres.pptx");
-try {
-    // Betölti a videót
-    FileInputStream fileStream = new FileInputStream("Wildlife.mp4");
-    
-    IVideo video = pres.getVideos().addVideo(fileStream, LoadingStreamBehavior.KeepLocked);
+import com.aspose.slides.*;
+import java.io.FileInputStream;
 
-    // Lekéri az első diát és hozzáad egy videókeretet
-    pres.getSlides().get_Item(0).getShapes().addVideoFrame(10, 10, 150, 250, video);
+Presentation presentation = new Presentation("presentation.pptx");
+try (FileInputStream videoStream = new FileInputStream("video.mp4")) {
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Mentse a prezentációt lemezre
-    pres.save("pres-with-video.pptx", SaveFormat.Pptx);
-} catch (IOException e) {
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
+    IVideo video = presentation.getVideos().addVideo(videoStream, LoadingStreamBehavior.KeepLocked);
+    slide.getShapes().addVideoFrame(10, 10, 150, 250, video);
 
-Alternatív megoldásként videót is hozzáadhat a fájl útvonalát közvetlenül a [addVideoFrame(float x, float y, float width, float height, IVideo video)](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ishapecollection/#addVideoFrame-float-float-float-float-com.aspose.slides.IVideo-) metódusnak átadva:
-
-``` java
-Presentation pres = new Presentation();
-try {
-	ISlide sld = pres.getSlides().get_Item(0);
-	IVideoFrame vf = sld.getShapes().addVideoFrame(50, 150, 300, 150, "video1.avi");
-} finally {
-	if (pres != null) pres.dispose();
-}
-```
-
-## **Webforrásból származó videóval rendelkező videókeret létrehozása**
-
-Az újabb Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) verziók támogatják az online videókat a prezentációkban. Ha a használandó videó online elérhető (például a YouTube-on), hozzáadhatja azt a prezentációhoz a webes hivatkozásán keresztül.
-
-1. Hozzon létre egy példányt a [Presentation ](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/Presentation) osztályból.
-1. Szerezze meg egy dia referenciáját az indexe alapján.
-1. Adjon hozzá egy [IVideo](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ivideo/) objektumot, és adja át a videó hivatkozását.
-1. Állítson be bélyegképet a videókerethez.
-1. Mentse el a prezentációt.
-
-Ez a Java kód bemutatja, hogyan adjon hozzá egy webes videót egy diára a PowerPoint prezentációban:
-
-```java
-// Létrehozza a Presentation objektumot, amely egy prezentációs fájlt képvisel
-Presentation pres = new Presentation();
-try {
-    addVideoFromYouTube(pres, "Tj75Arhq5ho");
-    pres.save("out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-```java
-private static void addVideoFromYouTube(Presentation pres, String videoID)
-{
-    // Videókeretet ad hozzá
-    IVideoFrame videoFrame = pres.getSlides().get_Item(0).getShapes().addVideoFrame(
-            10, 10, 427, 240, "https://www.youtube.com/embed/" + videoID);
-    videoFrame.setPlayMode(VideoPlayModePreset.Auto);
-
-    // Betölti a bélyegképet
-    String thumbnailUri = "http://img.youtube.com/vi/" + videoID + "/hqdefault.jpg";
-    URL url;
-
-    try {
-        url = new URL(thumbnailUri);
-        videoFrame.getPictureFormat().getPicture().setImage(pres.getImages().addImage(url.openStream()));
-    } catch (MalformedURLException e) {
-        e.printStackTrace();
-    } catch (IOException e) {
-        e.printStackTrace();
-    }
-}
-```
-
-## **Videókeret vágása**
-
-Az Aspose.Slides lehetővé teszi, hogy a videó lejátszott részét a [IVideoFrame.setTrimFromStart](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ivideoframe/#setTrimFromStart-float-) és a [IVideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ivideoframe/#setTrimFromEnd-float-) metódusokkal beállított trim-from-start és trim-from-end értékekkel szabályozza. Mindkét érték ezredmásodpercben van megadva, és meghatározza, mennyi időt hagyunk ki a videó elejéről illetve végéről. Ezek a beállítások a videó lejátszási paramétereit változtatják a prezentációban; a beágyazott videó bináris adatait nem vágják vagy módosítják.
-
-**Vágási beállítások megadása**
-
-A videókeret létrehozásához és vágási beállításainak megadásához:
-
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentation/) osztályból.
-1. Adjon hozzá egy [IVideo](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ivideo/) objektumot a prezentációhoz.
-1. Adjon hozzá egy [IVideoFrame](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ivideoframe/) objektumot egy diára.
-1. Állítsa be a trim-from-start és trim-from-end értékeket a [IVideoFrame.setTrimFromStart](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ivideoframe/#setTrimFromStart-float-) és a [IVideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ivideoframe/#setTrimFromEnd-float-) segítségével.
-1. Mentse el a módosított prezentációt.
-
-Az alábbi kódrészlet kihagyja az első 2,5 másodpercet és az utolsó másodpercet egy beágyazott videó lejátszása során:
-
-```java
-Presentation presentation = new Presentation();
-try {
-    FileInputStream videoStream = new FileInputStream("video.mp4");
-    try {
-        IVideo video = presentation.getVideos().addVideo(
-                videoStream, LoadingStreamBehavior.ReadStreamAndRelease);
-        ISlide slide = presentation.getSlides().get_Item(0);
-        IVideoFrame videoFrame = slide.getShapes().addVideoFrame(50, 50, 640, 360, video);
-
-        videoFrame.setTrimFromStart(2500f);
-        videoFrame.setTrimFromEnd(1000f);
-
-        presentation.save("video_with_trim.pptx", SaveFormat.Pptx);
-    } finally {
-        videoStream.close();
-    }
+    presentation.save("embedded_video.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-**Vágási beállítások olvasása**
-
-A meglévő vágási beállítások megtekintéséhez töltse be a prezentációt, keresse meg az első dián az [IVideoFrame](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ivideoframe/) objektumot, és olvassa ki az értékeket a [IVideoFrame.getTrimFromStart](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ivideoframe/#getTrimFromStart--) és a [IVideoFrame.getTrimFromEnd](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ivideoframe/#getTrimFromEnd--) metódusokkal.
-
-Az alábbi kódrészlet megtalálja az első videókeretet az első dián, és ezredmásodpercben jelzi a vágási beállításait:
+A helyi videó útvonalát közvetlenül is átadhatod a [addVideoFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addVideoFrame-float-float-float-float-java.lang.String-). Ez a példa a videót egy új bemutató első diájára ágyazza be. A videónak a mentés befejezéséig elérhetőnek kell maradnia.
 
 ```java
-Presentation presentation = new Presentation("video_with_trim.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
+    slide.getShapes().addVideoFrame(50, 150, 300, 150, "video.avi");
+
+    presentation.save("video_from_path.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Webes forrásból származó videóval rendelkező videókeret létrehozása**
+
+A Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) támogatja az online videókat a bemutatókban. Létrehozhatsz egy videókeretet, amely egy online videóra hivatkozik, például egy YouTube‑videóra.
+
+Ez a példa egy YouTube‑videó hivatkozást és miniatűr képet ad az első diához. Cseréld le a videó azonosítót, ha másik videót szeretnél használni. A [setPlayMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/#setPlayMode-int-) metódus automatikus lejátszást kér. A miniatűr letöltése és a videó lejátszása internetkapcsolatot igényel. A bemutató megjelenítőnek szintén támogatnia kell az online videó lejátszását.
+
+```java
+import com.aspose.slides.*;
+import java.io.InputStream;
+import java.net.URL;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    String videoId = "aqz-KE-bpKQ";
+    String videoUrl = "https://www.youtube.com/embed/" + videoId;
+    IVideoFrame videoFrame = slide.getShapes().addVideoFrame(10, 10, 427, 240, videoUrl);
+    videoFrame.setPlayMode(VideoPlayModePreset.Auto);
+
+    String thumbnailUrl = "https://img.youtube.com/vi/" + videoId + "/hqdefault.jpg";
+    URL thumbnailLocation = new URL(thumbnailUrl);
+    try (InputStream thumbnailStream = thumbnailLocation.openStream()) {
+        IPPImage thumbnail = presentation.getImages().addImage(thumbnailStream);
+        videoFrame.getPictureFormat().getPicture().setImage(thumbnail);
+    }
+
+    presentation.save("online_video.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Videó lejátszása teljes képernyő módban**
+
+Egy képzési bemutatóban lejátszhatod a szoftverbemutatót teljes képernyő módban, hogy a közönség lássa a részleteket. Hívd meg a [setFullScreenMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setFullScreenMode-boolean-) `true` értékkel a viselkedés engedélyezéséhez a lejátszás során.
+
+Ez a példa megnyit egy bemutatót, megtalálja az első [IVideoFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/) az első dián, és engedélyezi a teljes képernyős lejátszást. A bemeneti bemutatónak legalább egy diát kell tartalmaznia, amelyen már létezik videókeret az első dián.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("training.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
     for (IShape shape : slide.getShapes()) {
         if (shape instanceof IVideoFrame) {
             IVideoFrame videoFrame = (IVideoFrame) shape;
-            float trimFromStart = videoFrame.getTrimFromStart();
-            float trimFromEnd = videoFrame.getTrimFromEnd();
+            videoFrame.setFullScreenMode(true);
+            break;
+        }
+    }
 
-            System.out.println("Trim from start: " + trimFromStart + " ms");
-            System.out.println("Trim from end: " + trimFromEnd + " ms");
+    presentation.save("full_screen_video.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+A teljes képernyős lejátszás szabályozza, hogy a videó hogyan jelenik meg. Függetlenül, a [setPlayMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setPlayMode-int-) határozza meg, hogy automatikusan vagy kattintásra induljon, a [setPlayLoopMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setPlayLoopMode-boolean-) pedig szabályozza, hogy ismétlődjön-e. A kezdési viselkedés kiválasztásához állítsd a lejátszási módot a [VideoPlayModePreset.Auto vagy VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoplaymodepreset/) értékre. A példa megőrzi a meglévő kezdési és ismétlődési beállításokat.
+
+## **Videó visszatekerése lejátszás után**
+
+Egy képzési bemutatóban a demonstrációs videó elejére való visszatérés kész állapotba hozza a felvételt, hogy a prezentáló újra lejátszhassa. Hívd meg a [setRewindVideo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setRewindVideo-boolean-) `true` értékkel, hogy a lejátszás befejezése után a videó visszatérjen a kezdethez.
+
+Ez a példa megnyit egy bemutatót, megtalálja az első [IVideoFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/) az első dián, és engedélyezi a visszatekerést. Letiltja az ismétlést, hogy a lejátszás befejeződhessen, és a lejátszást kattintásra állítja be. A bemeneti bemutatónak legalább egy diát kell tartalmaznia, amelyen már létezik videókeret az első dián.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("training.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    for (IShape shape : slide.getShapes()) {
+        if (shape instanceof IVideoFrame) {
+            IVideoFrame videoFrame = (IVideoFrame) shape;
+            videoFrame.setRewindVideo(true);
+            videoFrame.setPlayLoopMode(false);
+            videoFrame.setPlayMode(VideoPlayModePreset.OnClick);
+            break;
+        }
+    }
+
+    presentation.save("rewind_video.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+A visszatekerés a videót a kezdetéhez viszi vissza anélkül, hogy újra elindulna. Ezzel szemben a [setPlayLoopMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setPlayLoopMode-boolean-) `true` értékkel való meghívása automatikusan ismétli a lejátszást. Tartsd letiltva az ismétlést, ha azt szeretnéd, hogy a videó befejeződjön és készen álljon az újrajátszásra. A [setPlayMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setPlayMode-int-) függetlenül szabályozza az automatikus vagy kattintásos indítást; ez a példa a [VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoplaymodepreset/) értéket használja, így a prezentáló dönti el, mikor indul a lejátszás. Állítsd be a lejátszási módot az ismétlési beállítás után, ahogyan a példában látható. A visszatekerés független a [setFullScreenMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setFullScreenMode-boolean-) működésétől.
+
+## **Videókeret vágása**
+
+Használd az [IVideoFrame.setTrimFromStart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/#setTrimFromStart-float-) és [IVideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/#setTrimFromEnd-float-) metódusokat, hogy a lejátszás során kihagyj egy részt a videó elejéről vagy végéről. Mindkét érték ezredmásodpercben van megadva. A vágás módosítja a lejátszási beállításokat anélkül, hogy a beágyazott videó adatát megváltoztatná.
+
+**Vágási beállítások megadása**
+
+Ez a példa egy helyi videót ágyaz be, és a lejátszás során kihagyja az első 2,5 másodpercet és az utolsó másodpercet. Használj 3,5 másodpercnél hosszabb videót, hogy lejátszható szegmens maradjon.
+
+```java
+import com.aspose.slides.*;
+import java.io.FileInputStream;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IVideo video;
+    try (FileInputStream videoStream = new FileInputStream("video.mp4")) {
+        video = presentation.getVideos().addVideo(videoStream, LoadingStreamBehavior.ReadStreamAndRelease);
+    }
+
+    IVideoFrame videoFrame = slide.getShapes().addVideoFrame(50, 50, 640, 360, video);
+    videoFrame.setTrimFromStart(2500f);
+    videoFrame.setTrimFromEnd(1000f);
+
+    presentation.save("video_with_trim.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+**Vágási beállítások kiolvasása**
+
+Ez a példa kiírja az első videókeret vágási értékeit az első dián ezredmásodpercben. A bemutatónak legalább egy diát kell tartalmaznia. Ha az adott diához nincs videókeret, semmi sem kerül kiírásra. Az előző példa 2500 és 1000 értékeket állított elő.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("video_with_trim.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    for (IShape shape : slide.getShapes()) {
+        if (shape instanceof IVideoFrame) {
+            IVideoFrame videoFrame = (IVideoFrame) shape;
+            System.out.println("Trim from start: " + videoFrame.getTrimFromStart() + " ms");
+            System.out.println("Trim from end: " + videoFrame.getTrimFromEnd() + " ms");
             break;
         }
     }
@@ -186,30 +218,26 @@ try {
 
 ## **Videó feliratok kezelése**
 
-Az Aspose.Slides lehetővé teszi, hogy a PowerPoint prezentációkban lévő videókeretekhez zárt feliratokat kezeljünk. A feliratok WebVTT formátumban vannak tárolva, és a [IVideoFrame.getCaptionTracks](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ivideoframe/#getCaptionTracks--) metóduson keresztül érhetők el.
+Az Aspose.Slides lehetővé teszi, hogy a PowerPoint bemutatók videókereteihez zárt feliratokat kezelj. A feliratok WebVTT formátumban tárolódnak, és a [IVideoFrame.getCaptionTracks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/#getCaptionTracks--) metóduson keresztül érhetők el.
 
 **Feliratok hozzáadása videókerethez**
 
-A feliratok hozzáadásához egy videókerethez:
-
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentation/) osztályból.
-1. Adjon hozzá egy videót a prezentációhoz.
-1. Adjon hozzá egy [IVideoFrame](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ivideoframe/) objektumot egy diára.
-1. Használja a [ICaptionsCollection](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/icaptionscollection/) objektumot, amelyet a [getCaptionTracks](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ivideoframe/#getCaptionTracks--) ad vissza, egy WebVTT feliratsp track hozzáadásához.
-1. Mentse el a módosított prezentációt.
-
-Az alábbi kód bemutatja, hogyan adjon feliratokat egy videókerethez:
+Ez a példa egy helyi videót ágyaz be, és hozzáad egy 'English' feliratsávot WebVTT formátumban. A felirat időbélyegeinek a videóval kell egyezniük. A mentett bemutató tartalmazza a videót és a feliratokat is.
 
 ```java
+import com.aspose.slides.*;
+import java.io.FileInputStream;
+
 Presentation presentation = new Presentation();
 try {
-    byte[] videoData = // "video.mp4";
-    IVideo video = presentation.getVideos().addVideo(videoData);
-
     ISlide slide = presentation.getSlides().get_Item(0);
-    IVideoFrame videoFrame = slide.getShapes().addVideoFrame(0, 0, 100, 100, video);
 
-    // Új feliratsáv hozzáadása egy WebVTT fájlból.
+    IVideo video;
+    try (FileInputStream videoStream = new FileInputStream("video.mp4")) {
+        video = presentation.getVideos().addVideo(videoStream, LoadingStreamBehavior.ReadStreamAndRelease);
+    }
+
+    IVideoFrame videoFrame = slide.getShapes().addVideoFrame(0, 0, 100, 100, video);
     videoFrame.getCaptionTracks().add("English", "track.vtt");
 
     presentation.save("video_with_captions.pptx", SaveFormat.Pptx);
@@ -218,59 +246,53 @@ try {
 }
 ```
 
-Az [ICaptionsCollection](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/icaptionscollection/) felület további túlterhelést biztosít, amely lehetővé teszi feliratok hozzáadását adatfolyamból.
+Az [ICaptionsCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icaptionscollection/) interfész egy túlterhelést is biztosít, amely lehetővé teszi feliratok hozzáadását egy folyam (stream) segítségével.
 
 **Feliratok kinyerése videókeretből**
 
-A feliratok kinyeréséhez egy videókeretből:
-
-1. Töltse be a videót tartalmazó prezentációt.
-1. Keresse meg a cél [IVideoFrame](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ivideoframe/) objektumot.
-1. Iteráljon a [getCaptionTracks](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ivideoframe/#getCaptionTracks--) által visszaadott feliratsp trackeken.
-1. Mentse el minden feliratsp tracket egy `.vtt` fájlba.
-
-Az alábbi kód bemutatja, hogyan kinyerje a feliratokat egy videókeretből:
+Ez a példa az első dián lévő videókeretek összes feliratsávját különálló WebVTT fájlokként menti. A sorozatszámok biztosítják, hogy a kimeneti fájlok egyediek legyenek. A konzol jelzi a kinyert sávok számát. A bemutatónak legalább egy diát kell tartalmaznia.
 
 ```java
+import com.aspose.slides.*;
+import java.io.FileOutputStream;
+
 Presentation presentation = new Presentation("video_with_captions.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
+    int trackCount = 0;
     for (IShape shape : slide.getShapes()) {
         if (shape instanceof IVideoFrame) {
             IVideoFrame videoFrame = (IVideoFrame) shape;
             for (ICaptions captionTrack : videoFrame.getCaptionTracks()) {
-                // Mentse a feliratsávot egy WebVTT fájlba.
-                FileOutputStream outputStream = new FileOutputStream(captionTrack.getCaptionId() + ".vtt");
-                outputStream.write(captionTrack.getBinaryData());
-                outputStream.close();
+                trackCount++;
+                try (FileOutputStream outputStream = new FileOutputStream("captions_" + trackCount + ".vtt")) {
+                    outputStream.write(captionTrack.getBinaryData());
+                }
             }
         }
     }
+
+    System.out.println("Caption tracks extracted: " + trackCount);
 } finally {
     presentation.dispose();
 }
 ```
 
-Minden [ICaptions](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/icaptions/) objektum tartalmazza a felirat azonosítóját, címkéjét, bináris adatait, valamint a felirat adatát UTF-8 karakterláncként.
+Minden [ICaptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icaptions/) objektum megjeleníti a felirat azonosítóját, címkéjét, bináris adatait, valamint a felirat szövegét UTF‑8 karakterláncként.
 
 **Feliratok eltávolítása videókeretből**
 
-A feliratok eltávolításához egy videókeretből:
-
-1. Töltse be a videót tartalmazó prezentációt.
-1. Szerezze meg a cél [IVideoFrame](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ivideoframe/) objektumot.
-1. Távolítsa el a feliratsp trackeket a [getCaptionTracks](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ivideoframe/#getCaptionTracks--) által visszaadott gyűjteményből.
-1. Mentse el a módosított prezentációt.
-
-Az alábbi kód bemutatja, hogyan távolítsa el az összes feliratot egy videókeretből:
+Ez a példa eltávolítja az összes feliratot az első dián az első alakzat pozíciójában lévő videókeretből, majd elmenti az eredményt. Feltételezi, hogy a dia és az alakzat létezik, és hogy az alakzat egy videókeret.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("video_with_captions.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
-    IVideoFrame videoFrame = (IVideoFrame) slide.getShapes().get_Item(0);
 
-    // Eltávolítja az összes feliratot a videókeretből.
+    IVideoFrame videoFrame = (IVideoFrame) slide.getShapes().get_Item(0);
     videoFrame.getCaptionTracks().clear();
 
     presentation.save("video_without_captions.pptx", SaveFormat.Pptx);
@@ -279,65 +301,60 @@ try {
 }
 ```
 
-Ha csak egy feliratsp tracket szeretne eltávolítani, használja a [remove](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/icaptionscollection/#remove-com.aspose.slides.ICaptions-) vagy a [removeAt](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/icaptionscollection/#removeAt-int-) metódust a [clear](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/icaptionscollection/#clear--) helyett.
+Ha csak egy feliratsávot szeretnél eltávolítani, használja a [remove](https://reference.aspose.com/slides/androidjava/com.aspose.slides/captionscollection/#remove-com.aspose.slides.ICaptions-) vagy a [removeAt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/captionscollection/#removeAt-int-) metódusokat a [clear](https://reference.aspose.com/slides/androidjava/com.aspose.slides/captionscollection/#clear--) helyett.
 
-## **Videó kinyerése diából**
+## **Videó kinyerése diákról**
 
-A videók diákhoz való hozzáadása mellett az Aspose.Slides lehetővé teszi a prezentációkba beágyazott videók kinyerését is.
+A videók diákhoz való hozzáadása mellett az Aspose.Slides lehetővé teszi a bemutatóba beágyazott videók kinyerését.
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/Presentation) osztályból a videót tartalmazó prezentáció betöltéséhez.
-2. Iteráljon végig az összes [ISlide](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/islide/) objektumon.
-3. Iteráljon végig az összes [IShape](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ishape/) objektumon, hogy megtalálja a [VideoFrame](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/videoframe/) elemet.
-4. Mentse el a videót lemezre.
-
-Ez a Java kód bemutatja, hogyan nyerje ki a videót egy prezentációs diáról:
+Ez a példa minden diáról kinyeri a beágyazott videókat, és külön‑számozott bináris fájlokba menti őket. A hivatkozott videók kihagyásra kerülnek, mert nincs beágyazott adatuk. A konzol kiírja minden videó MIME‑típusát és a teljes darabszámot. A kimenet a generikus `.bin` kiterjesztést használja; szükség esetén módosítható a jelentett médiatípusnak megfelelően.
 
 ```java
-// Létrehozza a Presentation objektumot, amely egy prezentációs fájlt képvisel 
-Presentation pres = new Presentation("VideoSample.pptx");
+import com.aspose.slides.*;
+import java.io.FileOutputStream;
+
+Presentation presentation = new Presentation("presentation_with_videos.pptx");
 try {
-    for (ISlide slide : pres.getSlides()) 
-    {
-        for (IShape shape : slide.getShapes()) 
-        {
-            if (shape instanceof VideoFrame) 
-            {
-                IVideoFrame vf = (IVideoFrame) shape;
-                String type = vf.getEmbeddedVideo().getContentType();
-                int ss = type.lastIndexOf('-');
-                byte[] buffer = vf.getEmbeddedVideo().getBinaryData();
+    int videoCount = 0;
+    for (ISlide slide : presentation.getSlides()) {
+        for (IShape shape : slide.getShapes()) {
+            if (shape instanceof IVideoFrame) {
+                IVideoFrame videoFrame = (IVideoFrame) shape;
+                IVideo video = videoFrame.getEmbeddedVideo();
+                if (video == null) {
+                    System.out.println("Skipped a linked video: no embedded data is available.");
+                    continue;
+                }
 
-                //Lekéri a fájlkiterjesztést
-                int charIndex = type.indexOf("/");
-                type = type.substring(charIndex + 1);
-
-                FileOutputStream fop = new FileOutputStream("testing2." + type);
-                fop.write(buffer);
-                fop.flush();
-                fop.close();
+                videoCount++;
+                try (FileOutputStream outputStream = new FileOutputStream("extracted_video_" + videoCount + ".bin")) {
+                    outputStream.write(video.getBinaryData());
+                }
+                System.out.println("Video " + videoCount + ": " + video.getContentType());
             }
         }
     }
-} catch (IOException e) {
+
+    System.out.println("Embedded videos extracted: " + videoCount);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **FAQ**
+## **GYIK**
 
-**Mely videolejátszási paraméterek módosíthatók egy VideoFrame esetén?**
+**Milyen videólejátszási paraméterek módosíthatók egy videókeretnél?**
 
-A [lejátszási módot](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/videoframe/#setPlayMode-int-) (automatikus vagy kattintásra) és a [hurok](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/videoframe/#setPlayLoopMode-boolean-) beállítását szabályozhatja. Ezek az opciók a [VideoFrame](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/videoframe/) objektum tulajdonságain keresztül érhetők el.
+A [lejátszási mód](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setPlayMode-int-) (automatikus vagy kattintásra) és az [ismétlés](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setPlayLoopMode-boolean-) szabályozható. Ezek a lehetőségek a [VideoFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/) objektum metódusain keresztül érhetők el.
 
-**A videó hozzáadása befolyásolja a PPTX fájl méretét?**
+**A videó hozzáadása befolyásolja a PPTX fájlméretet?**
 
-Igen. Ha helyi videót ágyaz be, a bináris adat a dokumentumba kerül, így a prezentáció mérete arányosan nő a fájlmérettel. Ha online videót ad hozzá, egy hivatkozás és egy bélyegkép kerül beágyazásra, így a méretnövekedés kisebb.
+Igen. Amikor egy helyi videót ágyazol be, a bináris adat a dokumentumba kerül, így a bemutató mérete arányosan nő a fájlmérettel. Ha egy online videóra hivatkozol, és miniatűrt adsz hozzá, a bemutató a hivatkozást és az előnézeti képet tárolja a videó adat helyett, így a méretnövekedés általában kisebb.
 
-**Lecserélhetem a videót egy meglévő VideoFrame-ben anélkül, hogy megváltoztatnám a pozícióját és méretét?**
+**Kicserélhetem a videót egy meglévő videókeretben anélkül, hogy megváltoztatnám a pozícióját és méretét?**
 
-Igen. A [video content](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/videoframe/#setEmbeddedVideo-com.aspose.slides.IVideo-) cseréjével a kereten belül megőrizheti a forma geometriai adatát; ez gyakori eset a média frissítésére egy meglévő elrendezésben.
+Igen. A kereten belül kicserélheted a [videótartalmat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setEmbeddedVideo-com.aspose.slides.IVideo-) anélkül, hogy megváltoztatnád az alakzat geometriáját; ez gyakori eset a médiák frissítésére egy meglévő elrendezésben.
 
-**Meg lehet határozni egy beágyazott videó tartalomtípusát (MIME)?**
+**Megállapítható a beágyazott videó tartalomtípusa (MIME)?**
 
-Igen. Egy beágyazott videónak van [content type](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/video/#getContentType--) attribútuma, amelyet olvashat és felhasználhat, például a lemezre mentéskor.
+Igen. Egy beágyazott videó rendelkezik [tartalomtípussal](https://reference.aspose.com/slides/androidjava/com.aspose.slides/video/#getContentType--), amelyet kiolvashatsz és felhasználhatsz, például a lemezre mentéskor.

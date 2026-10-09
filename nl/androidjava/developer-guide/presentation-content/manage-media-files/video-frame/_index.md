@@ -1,12 +1,12 @@
 ---
-title: Beheer video‑frames in presentaties op Android
+title: Video‑frames beheren in presentaties op Android
 linktitle: Video‑frame
 type: docs
 weight: 10
 url: /nl/androidjava/video-frame/
 keywords:
 - video toevoegen
-- video maken
+- video aanmaken
 - video insluiten
 - video extraheren
 - video ophalen
@@ -18,165 +18,196 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Leer hoe u video‑frames via code kunt toevoegen en extraheren in PowerPoint- en OpenDocument‑dia's met Aspose.Slides voor Android via Java. Snelle stapsgewijze handleiding."
+description: "Leer hoe u programmatic video‑frames kunt toevoegen en extraheren in PowerPoint- en OpenDocument‑dia's met Aspose.Slides voor Android via Java. Snelle stapsgewijze gids."
 ---
 ## **Inleiding**
 
-Een goed geplaatste video in een presentatie kan uw boodschap overtuigender maken en het betrokkenheidsniveau van uw publiek verhogen. 
+Video's kunnen helpen ideeën uit te leggen en een publiek te boeien. Aspose.Slides voor Android via Java stelt u in staat video‑frames toe te voegen aan dia's, afspeelinstellingen aan te passen, bijschriften te beheren en ingesloten video‑gegevens te extraheren.
 
-PowerPoint stelt u in staat om video's op twee manieren aan een dia in een presentatie toe te voegen:
+PowerPoint ondersteunt lokale video’s en koppelingen naar online video’s, zoals YouTube‑video’s.
 
-* Voeg een lokale video toe of embed deze (opgeslagen op uw computer)
-* Voeg een online video toe (van een webbron zoals YouTube).
+Om video‑gegevens en video‑frames weer te geven, biedt Aspose.Slides de [IVideo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideo/) interface, de [IVideoFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/) interface en andere relevante types.
 
-Om u in staat te stellen video's (video‑objecten) aan een presentatie toe te voegen, biedt Aspose.Slides de interface [IVideo](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ivideo/) , de interface [IVideoFrame](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ivideoframe/) , en andere relevante typen.
+## **Een ingebed video‑frame maken**
 
-## **Maak een ingebedde video‑frame**
+Als het videobestand dat u aan uw dia wilt toevoegen lokaal is opgeslagen, kunt u een video‑frame maken om de video in uw presentatie in te sluiten.
 
-Als het videobestand dat u aan uw dia wilt toevoegen lokaal is opgeslagen, kunt u een video‑frame maken om de video in uw presentatie in te sluiten. 
-
-1. Maak een instantie van de [Presentation ](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/Presentation)klasse.
-1. Haal de referentie van een dia op via de index. 
-1. Voeg een [IVideo](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ivideo/)‑object toe en geef het pad naar het videobestand door om de video in de presentatie in te sluiten.
-1. Voeg een [IVideoFrame](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ivideoframe/)‑object toe om een frame voor de video te maken.
-1. Sla de aangepaste presentatie op. 
-
-Deze Java‑code laat zien hoe u een lokaal opgeslagen video aan een presentatie toevoegt:
+Dit voorbeeld integreert een lokale video op de eerste dia van een bestaande presentatie en slaat het resultaat op. Frame‑coördinaten en afmetingen zijn in punten. De stream blijft open tot het opslaan voltooid is omdat [LoadingStreamBehavior.KeepLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/loadingstreambehavior/) deze vergrendeld houdt terwijl de presentatie hem gebruikt.
 
 ```java
-// Instantieert de Presentation-klasse
-Presentation pres = new Presentation("pres.pptx");
-try {
-    // Laadt de video
-    FileInputStream fileStream = new FileInputStream("Wildlife.mp4");
-    
-    IVideo video = pres.getVideos().addVideo(fileStream, LoadingStreamBehavior.KeepLocked);
+import com.aspose.slides.*;
+import java.io.FileInputStream;
 
-    // Haalt de eerste dia op en voegt een videoframe toe
-    pres.getSlides().get_Item(0).getShapes().addVideoFrame(10, 10, 150, 250, video);
+Presentation presentation = new Presentation("presentation.pptx");
+try (FileInputStream videoStream = new FileInputStream("video.mp4")) {
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Slaat de presentatie op naar schijf
-    pres.save("pres-with-video.pptx", SaveFormat.Pptx);
-} catch (IOException e) {
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
+    IVideo video = presentation.getVideos().addVideo(videoStream, LoadingStreamBehavior.KeepLocked);
+    slide.getShapes().addVideoFrame(10, 10, 150, 250, video);
 
-U kunt ook een video toevoegen door het bestandspad rechtstreeks door te geven aan de methode [addVideoFrame(float x, float y, float width, float height, IVideo video)](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ishapecollection/#addVideoFrame-float-float-float-float-com.aspose.slides.IVideo-) :
-
-``` java
-Presentation pres = new Presentation();
-try {
-	ISlide sld = pres.getSlides().get_Item(0);
-	IVideoFrame vf = sld.getShapes().addVideoFrame(50, 150, 300, 150, "video1.avi");
-} finally {
-	if (pres != null) pres.dispose();
-}
-```
-
-## **Maak een video‑frame met video van een webbron**
-
-Nieuwere versies van Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) ondersteunen online video’s in presentaties. Als de video die u wilt gebruiken online beschikbaar is (bijv. op YouTube), kunt u deze via de web‑link aan uw presentatie toevoegen.
-
-1. Maak een instantie van de [Presentation ](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/Presentation)klasse
-1. Haal de referentie van een dia op via de index. 
-1. Voeg een [IVideo](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ivideo/)‑object toe en geef de link naar de video door.
-1. Stel een miniatuurafbeelding in voor het video‑frame. 
-1. Sla de presentatie op. 
-
-Deze Java‑code laat zien hoe u een video van het internet aan een dia in een PowerPoint‑presentatie toevoegt:
-
-```java
-// Instantieert een Presentation-object dat een presentatiebestand vertegenwoordigt 
-Presentation pres = new Presentation();
-try {
-    addVideoFromYouTube(pres, "Tj75Arhq5ho");
-    pres.save("out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-```java
-private static void addVideoFromYouTube(Presentation pres, String videoID)
-{
-    // Voegt een videoFrame toe
-    IVideoFrame videoFrame = pres.getSlides().get_Item(0).getShapes().addVideoFrame(
-            10, 10, 427, 240, "https://www.youtube.com/embed/" + videoID);
-    videoFrame.setPlayMode(VideoPlayModePreset.Auto);
-
-    // Laadt thumbnail
-    String thumbnailUri = "http://img.youtube.com/vi/" + videoID + "/hqdefault.jpg";
-    URL url;
-
-    try {
-        url = new URL(thumbnailUri);
-        videoFrame.getPictureFormat().getPicture().setImage(pres.getImages().addImage(url.openStream()));
-    } catch (MalformedURLException e) {
-        e.printStackTrace();
-    } catch (IOException e) {
-        e.printStackTrace();
-    }
-}
-```
-
-## **Trimmen van een video‑frame**
-
-Aspose.Slides stelt u in staat om te bepalen welk deel van een video wordt afgespeeld door de waarden trim‑from‑start en trim‑from‑end in te stellen via [IVideoFrame.setTrimFromStart](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ivideoframe/#setTrimFromStart-float-) en [IVideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ivideoframe/#setTrimFromEnd-float-). Beide waarden worden opgegeven in milliseconden en geven aan hoeveel tijd vanaf het begin respectievelijk het einde van de video wordt overgeslagen. Deze instellingen wijzigen de afspeelinstellingen van de video in de presentatie; ze knippen of wijzigen de ingebedde videobinaire gegevens niet.
-
-**Instellen van trim‑instellingen**
-
-Om een video‑frame te maken en de trim‑instellingen in te stellen:
-
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/presentation/)‑klasse.
-1. Voeg een [IVideo](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ivideo/)‑object toe aan de presentatie.
-1. Voeg een [IVideoFrame](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ivideoframe/)‑object toe aan een dia.
-1. Stel de waarden trim‑from‑start en trim‑from‑end in via [IVideoFrame.setTrimFromStart](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ivideoframe/#setTrimFromStart-float-) en [IVideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ivideoframe/#setTrimFromEnd-float-).
-1. Sla de aangepaste presentatie op.
-
-Het volgende code‑voorbeeld slaat de eerste 2,5 seconde en de laatste seconde van een ingebedde video over tijdens het afspelen:
-
-```java
-Presentation presentation = new Presentation();
-try {
-    FileInputStream videoStream = new FileInputStream("video.mp4");
-    try {
-        IVideo video = presentation.getVideos().addVideo(
-                videoStream, LoadingStreamBehavior.ReadStreamAndRelease);
-        ISlide slide = presentation.getSlides().get_Item(0);
-        IVideoFrame videoFrame = slide.getShapes().addVideoFrame(50, 50, 640, 360, video);
-
-        videoFrame.setTrimFromStart(2500f);
-        videoFrame.setTrimFromEnd(1000f);
-
-        presentation.save("video_with_trim.pptx", SaveFormat.Pptx);
-    } finally {
-        videoStream.close();
-    }
+    presentation.save("embedded_video.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-**Lezen van trim‑instellingen**
-
-Om bestaande trim‑instellingen te inspecteren, laad een presentatie, zoek een [IVideoFrame](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ivideoframe/)‑object tussen de vormen op de eerste dia en lees de waarden uit via [IVideoFrame.getTrimFromStart](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ivideoframe/#getTrimFromStart--) en [IVideoFrame.getTrimFromEnd](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ivideoframe/#getTrimFromEnd--).
-
-Het volgende code‑voorbeeld vindt het eerste video‑frame op de eerste dia en rapporteert de trim‑instellingen in milliseconden:
+U kunt ook een lokaal video‑pad rechtstreeks doorgeven aan [addVideoFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addVideoFrame-float-float-float-float-java.lang.String-). Dit voorbeeld integreert de video op de eerste dia van een nieuwe presentatie. De video moet toegankelijk blijven totdat de presentatie is opgeslagen.
 
 ```java
-Presentation presentation = new Presentation("video_with_trim.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
+    slide.getShapes().addVideoFrame(50, 150, 300, 150, "video.avi");
+
+    presentation.save("video_from_path.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Video‑frame maken met video van een webbron**
+
+Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) ondersteunt online video’s in presentaties. U kunt een video‑frame maken dat naar een online video koppelt, zoals een YouTube‑video.
+
+Dit voorbeeld voegt een YouTube‑videokoppeling en miniatuur toe aan de eerste dia. Vervang de video‑identifier om een andere video te gebruiken. De methode [setPlayMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/#setPlayMode-int-) vraagt om automatische weergave. Het downloaden van de miniatuur en het afspelen van de video vereisen internettoegang. De presentatie‑viewer moet ook online video‑afspelen ondersteunen.
+
+```java
+import com.aspose.slides.*;
+import java.io.InputStream;
+import java.net.URL;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    String videoId = "aqz-KE-bpKQ";
+    String videoUrl = "https://www.youtube.com/embed/" + videoId;
+    IVideoFrame videoFrame = slide.getShapes().addVideoFrame(10, 10, 427, 240, videoUrl);
+    videoFrame.setPlayMode(VideoPlayModePreset.Auto);
+
+    String thumbnailUrl = "https://img.youtube.com/vi/" + videoId + "/hqdefault.jpg";
+    URL thumbnailLocation = new URL(thumbnailUrl);
+    try (InputStream thumbnailStream = thumbnailLocation.openStream()) {
+        IPPImage thumbnail = presentation.getImages().addImage(thumbnailStream);
+        videoFrame.getPictureFormat().getPicture().setImage(thumbnail);
+    }
+
+    presentation.save("online_video.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Een video afspelen in volledig scherm-modus**
+
+In een trainingspresentatie kunt u een software‑demonstratie in volledig scherm-modus afspelen zodat het publiek de details kan zien. Roep [setFullScreenMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setFullScreenMode-boolean-) aan met `true` om dit gedrag tijdens het afspelen in te schakelen.
+
+Dit voorbeeld opent een presentatie, vindt het eerste [IVideoFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/) op de eerste dia en schakelt volledig‑scherm‑afspelen in. De invoerpresentatie moet minstens één dia bevatten met een bestaand video‑frame op de eerste dia.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("training.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
     for (IShape shape : slide.getShapes()) {
         if (shape instanceof IVideoFrame) {
             IVideoFrame videoFrame = (IVideoFrame) shape;
-            float trimFromStart = videoFrame.getTrimFromStart();
-            float trimFromEnd = videoFrame.getTrimFromEnd();
+            videoFrame.setFullScreenMode(true);
+            break;
+        }
+    }
 
-            System.out.println("Trim from start: " + trimFromStart + " ms");
-            System.out.println("Trim from end: " + trimFromEnd + " ms");
+    presentation.save("full_screen_video.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Volledig‑scherm‑afspelen bepaalt hoe de video wordt weergegeven. Onafhankelijk daarvan bepaalt [setPlayMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setPlayMode-int-) of deze automatisch of bij klikken start, en [setPlayLoopMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setPlayLoopMode-boolean-) of deze wordt herhaald. Om het startgedrag te kiezen, stelt u de afspeelmodus in op [VideoPlayModePreset.Auto of VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoplaymodepreset/). Het voorbeeld behoudt de bestaande start‑ en loop‑instellingen.
+
+## **Een video terugspoelen na afspelen**
+
+In een trainingspresentatie maakt het terugzetten van een demonstratie‑video naar het begin deze opnieuw klaar voor de presentator. Roep [setRewindVideo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setRewindVideo-boolean-) aan met `true` om de video na afloop van het afspelen naar het begin te laten terugkeren.
+
+Dit voorbeeld opent een presentatie, vindt het eerste [IVideoFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/) op de eerste dia en schakelt terugspoelen in. Het schakelt looping uit zodat het afspelen kan eindigen en stelt de afspeelmodus in op starten bij klikken. De invoerpresentatie moet minstens één dia bevatten met een bestaand video‑frame op de eerste dia.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("training.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    for (IShape shape : slide.getShapes()) {
+        if (shape instanceof IVideoFrame) {
+            IVideoFrame videoFrame = (IVideoFrame) shape;
+            videoFrame.setRewindVideo(true);
+            videoFrame.setPlayLoopMode(false);
+            videoFrame.setPlayMode(VideoPlayModePreset.OnClick);
+            break;
+        }
+    }
+
+    presentation.save("rewind_video.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Terugspoelen zet de video terug naar het begin zonder deze opnieuw te starten. Daarentegen zorgt het aanroepen van [setPlayLoopMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setPlayLoopMode-boolean-) met `true` voor automatische herhaling van het afspelen. Houd looping uitgeschakeld wanneer u wilt dat de video eindigt en klaar blijft om opnieuw afgespeeld te worden. [setPlayMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setPlayMode-int-) bestuurt onafhankelijk automatisch of bij klikken starten; dit voorbeeld gebruikt [VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoplaymodepreset/) zodat de presentator bepaalt wanneer het afspelen start. Stel de afspeelmodus in na de loop‑instelling, zoals in het voorbeeld getoond. Terugspoelen werkt onafhankelijk van [setFullScreenMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setFullScreenMode-boolean-).
+
+## **Een video‑frame trimmen**
+
+Gebruik [IVideoFrame.setTrimFromStart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/#setTrimFromStart-float-) en [IVideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/#setTrimFromEnd-float-) om het begin of het einde van een video tijdens het afspelen over te slaan. Beide waarden zijn in milliseconden. Trimmen wijzigt de afspeelinstellingen zonder de ingesloten video‑gegevens te wijzigen.
+
+**Trim‑instellingen instellen**
+
+Dit voorbeeld integreert een lokale video en slaat de eerste 2,5 seconde en de laatste seconde over tijdens het afspelen. Gebruik een video langer dan 3,5 seconde zodat er een afspeelbaar segment overblijft.
+
+```java
+import com.aspose.slides.*;
+import java.io.FileInputStream;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IVideo video;
+    try (FileInputStream videoStream = new FileInputStream("video.mp4")) {
+        video = presentation.getVideos().addVideo(videoStream, LoadingStreamBehavior.ReadStreamAndRelease);
+    }
+
+    IVideoFrame videoFrame = slide.getShapes().addVideoFrame(50, 50, 640, 360, video);
+    videoFrame.setTrimFromStart(2500f);
+    videoFrame.setTrimFromEnd(1000f);
+
+    presentation.save("video_with_trim.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+**Trim‑instellingen lezen**
+
+Dit voorbeeld drukt de trim‑waarden van het eerste video‑frame op de eerste dia af in milliseconden. De presentatie moet minstens één dia bevatten. Als die dia geen video‑frame heeft, wordt er niets afgedrukt. Het voorgaande voorbeeld levert waarden van 2500 en 1000 op.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("video_with_trim.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    for (IShape shape : slide.getShapes()) {
+        if (shape instanceof IVideoFrame) {
+            IVideoFrame videoFrame = (IVideoFrame) shape;
+            System.out.println("Trim from start: " + videoFrame.getTrimFromStart() + " ms");
+            System.out.println("Trim from end: " + videoFrame.getTrimFromEnd() + " ms");
             break;
         }
     }
@@ -185,32 +216,28 @@ try {
 }
 ```
 
-## **Beheer van video‑onderschriften**
+## **Video‑bijschriften beheren**
 
-Aspose.Slides stelt u in staat om gesloten ondertitels voor video‑frames in PowerPoint‑presentaties te beheren. Ondertitels worden opgeslagen in WebVTT‑formaat en zijn toegankelijk via de methode [IVideoFrame.getCaptionTracks](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ivideoframe/#getCaptionTracks--).
+Aspose.Slides stelt u in staat gesloten bijschriften voor video‑frames in PowerPoint‑presentaties te beheren. Bijschriften worden opgeslagen in WebVTT‑formaat en toegankelijk gemaakt via de methode [IVideoFrame.getCaptionTracks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/#getCaptionTracks--).
 
-**Ondertitels toevoegen aan een video‑frame**
+**Bijschriften aan een video‑frame toevoegen**
 
-Om ondertitels aan een video‑frame toe te voegen:
-
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/presentation/)‑klasse.
-1. Voeg een video toe aan de presentatie.
-1. Voeg een [IVideoFrame](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ivideoframe/)‑object toe aan een dia.
-1. Gebruik de [ICaptionsCollection](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/icaptionscollection/) die wordt geretourneerd door [getCaptionTracks](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ivideoframe/#getCaptionTracks--) om een WebVTT‑ondertiteltrack toe te voegen.
-1. Sla de aangepaste presentatie op.
-
-De volgende code laat zien hoe u ondertitels aan een video‑frame toevoegt:
+Dit voorbeeld integreert een lokale video en voegt een WebVTT‑bijschrifttrack met het label English toe. De tijdstempels van het bijschrift moeten overeenkomen met de video. De opgeslagen presentatie bevat zowel de video als de bijschriften.
 
 ```java
+import com.aspose.slides.*;
+import java.io.FileInputStream;
+
 Presentation presentation = new Presentation();
 try {
-    byte[] videoData = // "video.mp4";
-    IVideo video = presentation.getVideos().addVideo(videoData);
-
     ISlide slide = presentation.getSlides().get_Item(0);
-    IVideoFrame videoFrame = slide.getShapes().addVideoFrame(0, 0, 100, 100, video);
 
-    // Voegt een nieuw ondertiteltrack toe vanaf een WebVTT-bestand.
+    IVideo video;
+    try (FileInputStream videoStream = new FileInputStream("video.mp4")) {
+        video = presentation.getVideos().addVideo(videoStream, LoadingStreamBehavior.ReadStreamAndRelease);
+    }
+
+    IVideoFrame videoFrame = slide.getShapes().addVideoFrame(0, 0, 100, 100, video);
     videoFrame.getCaptionTracks().add("English", "track.vtt");
 
     presentation.save("video_with_captions.pptx", SaveFormat.Pptx);
@@ -219,59 +246,53 @@ try {
 }
 ```
 
-De interface [ICaptionsCollection](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/icaptionscollection/) biedt ook een overload waarmee u ondertitels vanuit een stream kunt toevoegen.
+De interface [ICaptionsCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icaptionscollection/) biedt ook een overload waarmee u bijschriften vanuit een stream kunt toevoegen.
 
-**Ondertitels extraheren uit een video‑frame**
+**Bijschriften uit een video‑frame extraheren**
 
-Om ondertitels uit een video‑frame te extraheren:
-
-1. Laad de presentatie die de video bevat.
-1. Zoek het doel‑[IVideoFrame](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ivideoframe/)‑object.
-1. Loop door de ondertiteltracks die worden geretourneerd door [getCaptionTracks](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ivideoframe/#getCaptionTracks--).
-1. Sla elke ondertiteltrack op als een `.vtt`‑bestand.
-
-De volgende code laat zien hoe u ondertitels uit een video‑frame extrahert:
+Dit voorbeeld slaat alle bijschrift‑tracks van video‑frames op de eerste dia op als afzonderlijke WebVTT‑bestanden. Sequentiële nummers houden de uitvoerbestanden onderscheidend. De console meldt het aantal geëxtraheerde tracks. De presentatie moet minstens één dia bevatten.
 
 ```java
+import com.aspose.slides.*;
+import java.io.FileOutputStream;
+
 Presentation presentation = new Presentation("video_with_captions.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
+    int trackCount = 0;
     for (IShape shape : slide.getShapes()) {
         if (shape instanceof IVideoFrame) {
             IVideoFrame videoFrame = (IVideoFrame) shape;
             for (ICaptions captionTrack : videoFrame.getCaptionTracks()) {
-                // Slaat het ondertiteltrack op naar een WebVTT-bestand.
-                FileOutputStream outputStream = new FileOutputStream(captionTrack.getCaptionId() + ".vtt");
-                outputStream.write(captionTrack.getBinaryData());
-                outputStream.close();
+                trackCount++;
+                try (FileOutputStream outputStream = new FileOutputStream("captions_" + trackCount + ".vtt")) {
+                    outputStream.write(captionTrack.getBinaryData());
+                }
             }
         }
     }
+
+    System.out.println("Caption tracks extracted: " + trackCount);
 } finally {
     presentation.dispose();
 }
 ```
 
-Elk [ICaptions](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/icaptions/)‑object geeft de ondertitel‑identifier, label, binaire gegevens en ondertitelgegevens als een UTF‑8‑string weer.
+Elk [ICaptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icaptions/) object geeft de bijschrift‑identifier, label, binaire gegevens en de bijschrifttekst als een UTF‑8‑string weer.
 
-**Ondertitels verwijderen uit een video‑frame**
+**Bijschriften van een video‑frame verwijderen**
 
-Om ondertitels uit een video‑frame te verwijderen:
-
-1. Laad de presentatie die de video bevat.
-1. Haal het doel‑[IVideoFrame](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ivideoframe/)‑object op.
-1. Verwijder ondertiteltracks uit de collectie die wordt geretourneerd door [getCaptionTracks](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ivideoframe/#getCaptionTracks--).
-1. Sla de aangepaste presentatie op.
-
-De volgende code laat zien hoe u alle ondertitels uit een video‑frame verwijdert:
+Dit voorbeeld verwijdert alle bijschriften van het video‑frame op de eerste vormpositie op de eerste dia en slaat het resultaat op. Het gaat ervan uit dat de dia en vorm bestaan en dat de vorm een video‑frame is.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("video_with_captions.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
-    IVideoFrame videoFrame = (IVideoFrame) slide.getShapes().get_Item(0);
 
-    // Verwijdert alle ondertitels van het video‑frame.
+    IVideoFrame videoFrame = (IVideoFrame) slide.getShapes().get_Item(0);
     videoFrame.getCaptionTracks().clear();
 
     presentation.save("video_without_captions.pptx", SaveFormat.Pptx);
@@ -280,65 +301,60 @@ try {
 }
 ```
 
-Als u slechts één ondertiteltrack wilt verwijderen, gebruik dan de methoden [remove](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/icaptionscollection/#remove-com.aspose.slides.ICaptions-) of [removeAt](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/icaptionscollection/#removeAt-int-) in plaats van [clear](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/icaptionscollection/#clear--).
+Als u slechts één bijschrifttrack wilt verwijderen, gebruik dan de methoden [remove](https://reference.aspose.com/slides/androidjava/com.aspose.slides/captionscollection/#remove-com.aspose.slides.ICaptions-) of [removeAt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/captionscollection/#removeAt-int-) in plaats van [clear](https://reference.aspose.com/slides/androidjava/com.aspose.slides/captionscollection/#clear--).
 
-## **Video extraheren uit een dia**
+## **Video uit een dia extraheren**
 
-Naast het toevoegen van video's aan dia’s, stelt Aspose.Slides u in staat om video's die in presentaties zijn ingebed te extraheren.
+Naast het toevoegen van video’s aan dia’s, stelt Aspose.Slides u in staat video’s die in presentaties zijn ingesloten te extraheren.
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/Presentation)‑klasse om de presentatie te laden die de video bevat.
-2. Doorloop alle [ISlide](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/islide/)‑objecten.
-3. Doorloop alle [IShape](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ishape/)‑objecten om een [VideoFrame](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/videoframe/) te vinden.
-4. Sla de video op schijf.
-
-Deze Java‑code laat zien hoe u de video op een presentatiedia extrahereert:
+Dit voorbeeld extrahiert ingesloten video’s van elke dia naar afzonderlijke genummerde binaire bestanden. Gekoppelde video’s worden overgeslagen omdat ze geen ingesloten gegevens hebben. De console drukt het MIME‑type van elke video en het totale aantal af. De output gebruikt de generieke extensie `.bin`; pas deze aan om overeen te komen met het gemelde mediatype indien nodig.
 
 ```java
-// Instantieert een Presentation-object dat een presentatiebestand vertegenwoordigt 
-Presentation pres = new Presentation("VideoSample.pptx");
+import com.aspose.slides.*;
+import java.io.FileOutputStream;
+
+Presentation presentation = new Presentation("presentation_with_videos.pptx");
 try {
-    for (ISlide slide : pres.getSlides()) 
-    {
-        for (IShape shape : slide.getShapes()) 
-        {
-            if (shape instanceof VideoFrame) 
-            {
-                IVideoFrame vf = (IVideoFrame) shape;
-                String type = vf.getEmbeddedVideo().getContentType();
-                int ss = type.lastIndexOf('-');
-                byte[] buffer = vf.getEmbeddedVideo().getBinaryData();
+    int videoCount = 0;
+    for (ISlide slide : presentation.getSlides()) {
+        for (IShape shape : slide.getShapes()) {
+            if (shape instanceof IVideoFrame) {
+                IVideoFrame videoFrame = (IVideoFrame) shape;
+                IVideo video = videoFrame.getEmbeddedVideo();
+                if (video == null) {
+                    System.out.println("Skipped a linked video: no embedded data is available.");
+                    continue;
+                }
 
-                //Haalt de bestandsextensie op
-                int charIndex = type.indexOf("/");
-                type = type.substring(charIndex + 1);
-
-                FileOutputStream fop = new FileOutputStream("testing2." + type);
-                fop.write(buffer);
-                fop.flush();
-                fop.close();
+                videoCount++;
+                try (FileOutputStream outputStream = new FileOutputStream("extracted_video_" + videoCount + ".bin")) {
+                    outputStream.write(video.getBinaryData());
+                }
+                System.out.println("Video " + videoCount + ": " + video.getContentType());
             }
         }
     }
-} catch (IOException e) {
+
+    System.out.println("Embedded videos extracted: " + videoCount);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
 ## **FAQ**
 
-**Welke video‑afspeelparameters kunnen worden gewijzigd voor een VideoFrame?**
+**Welke afspeelparameters kunnen voor een video‑frame gewijzigd worden?**
 
-U kunt de [afspeelmodus](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/videoframe/#setPlayMode-int-) (automatisch of bij klik) en [herhalen](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/videoframe/#setPlayLoopMode-boolean-) regelen. Deze opties zijn beschikbaar via de eigenschappen van het [VideoFrame](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/videoframe/)‑object.
+U kunt de [playback‑modus](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setPlayMode-int-) (auto of bij klikken) en de [loop‑instelling](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setPlayLoopMode-boolean-) regelen. Deze opties zijn beschikbaar via de methoden van het object [VideoFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/).
 
 **Heeft het toevoegen van een video invloed op de grootte van het PPTX‑bestand?**
 
-Ja. Wanneer u een lokale video embed, worden de binaire gegevens in het document opgenomen, waardoor de presentatiesgrootte evenredig met de bestandsgrootte groeit. Wanneer u een online video toevoegt, worden een link en een miniatuurafbeelding ingesloten, waardoor de toename van de grootte kleiner is.
+Ja. Wanneer u een lokale video insluit, worden de binaire gegevens in het document opgenomen, waardoor de presentatiegrootte proportioneel toeneemt met de bestandsgrootte. Wanneer u naar een online video linkt en een miniatuur toevoegt, slaat de presentatie de koppeling en preview‑afbeelding op in plaats van de video‑gegevens, waardoor de grootte‑toename meestal kleiner is.
 
-**Kan ik de video in een bestaand VideoFrame vervangen zonder de positie en grootte te wijzigen?**
+**Kan ik de video in een bestaand video‑frame vervangen zonder de positie en grootte te wijzigen?**
 
-Ja. U kunt de [video‑inhoud](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/videoframe/#setEmbeddedVideo-com.aspose.slides.IVideo-) binnen het frame verwisselen terwijl u de geometrie van de vorm behoudt; dit is een veelvoorkomend scenario voor het bijwerken van media in een bestaande lay‑out.
+Ja. U kunt de [video‑inhoud](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setEmbeddedVideo-com.aspose.slides.IVideo-) binnen het frame verwisselen terwijl u de geometrie van de vorm behoudt; dit is een veelvoorkomend scenario voor het bijwerken van media in een bestaande lay-out.
 
-**Kan het contenttype (MIME) van een ingebedde video worden bepaald?**
+**Kan het content‑type (MIME) van een ingesloten video bepaald worden?**
 
-Ja. Een ingebedde video heeft een [content type](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/video/#getContentType--) dat u kunt lezen en gebruiken, bijvoorbeeld bij het opslaan op schijf.
+Ja. Een ingesloten video heeft een [content type](https://reference.aspose.com/slides/androidjava/com.aspose.slides/video/#getContentType--) dat u kunt uitlezen en gebruiken, bijvoorbeeld bij het opslaan naar schijf.

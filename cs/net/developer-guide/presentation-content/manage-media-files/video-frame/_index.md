@@ -1,6 +1,6 @@
 ---
-title: Spravovat video snímky v prezentacích v .NET
-linktitle: Video snímek
+title: Spravovat video rámečky v prezentacích v .NET
+linktitle: Video rámec
 type: docs
 weight: 10
 url: /cs/net/video-frame/
@@ -10,7 +10,7 @@ keywords:
 - vložit video
 - extrahovat video
 - získat video
-- video snímek
+- video rámec
 - webový zdroj
 - PowerPoint
 - OpenDocument
@@ -18,293 +18,314 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Naučte se programově přidávat a extrahovat video snímky v PowerPoint a OpenDocument snímcích pomocí Aspose.Slides pro .NET. Rychlý návod."
+description: "Naučte se programově přidávat a extrahovat video rámečky v slajdech PowerPoint a OpenDocument pomocí Aspose.Slides pro .NET. Rychlý návod krok za krokem."
 ---
 ## **Úvod**
 
-Dobře umístěné video v prezentaci může učinit vaši zprávu přesvědčivější a zvýšit úroveň zapojení publika.
+Videa mohou pomoci vysvětlit myšlenky a zapojit publikum. Aspose.Slides pro .NET vám umožňuje přidávat video rámečky do snímků, upravovat nastavení přehrávání, spravovat popisky a extrahovat vložená video data.
 
-PowerPoint vám umožňuje přidávat videa do snímku v prezentaci dvěma způsoby:
+PowerPoint podporuje lokální videa i odkazy na online videa, například videa z YouTube.
 
-* Přidat nebo vložit místní video (uložené ve vašem počítači)
-* Přidat online video (z webového zdroje, například YouTube).
+Pro reprezentaci video dat a video rámců poskytuje Aspose.Slides rozhraní [IVideo](https://reference.aspose.com/slides/net/aspose.slides/ivideo/) , rozhraní [IVideoFrame](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/) a další relevantní typy.
 
-Aby vám umožnil přidávat videa (video objekty) do prezentace, Aspose.Slides poskytuje rozhraní [IVideo](https://reference.aspose.com/slides/cs/net/aspose.slides/ivideo/) , rozhraní [IVideoFrame](https://reference.aspose.com/slides/cs/net/aspose.slides/ivideoframe/) a další související typy. 
+## **Vytvoření vloženého video rámce**
 
-## **Vytvořit vložený snímek videa**
+Pokud je video soubor, který chcete přidat do snímku, uložen lokálně, můžete vytvořit video rámec pro vložení videa do vaší prezentace.
 
-Pokud je video soubor, který chcete přidat na svůj snímek, uložen lokálně, můžete vytvořit snímek videa a vložit video do vaší prezentace. 
+Tento příklad vloží lokální video na první snímek existující prezentace a uloží výsledek. Souřadnice a rozměry rámce jsou v bodech. Proud zůstává otevřený až do dokončení ukládání, protože [LoadingStreamBehavior.KeepLocked](https://reference.aspose.com/slides/net/aspose.slides/loadingstreambehavior/) jej drží uzamčený, dokud jej prezentace používá.
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation) .
-1. Získejte referenci na snímek pomocí jeho indexu. 
-1. Přidejte objekt [IVideo](https://reference.aspose.com/slides/cs/net/aspose.slides/ivideo/) a předávejte cestu k video souboru, aby se video vložilo do prezentace. 
-1. Přidejte objekt [IVideoFrame](https://reference.aspose.com/slides/cs/net/aspose.slides/ivideoframe/) a vytvořte snímek pro video.  
-1. Uložte upravenou prezentaci. 
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-Tento C# kód ukazuje, jak přidat lokálně uložené video do prezentace:
+using var presentation = new Presentation("presentation.pptx");
+var slide = presentation.Slides[0];
 
-```c#
-// Vytvoří instanci třídy Presentation
-using (Presentation pres = new Presentation("pres.pptx"))
-{
-    // Načte video
-    using (FileStream fileStream = new FileStream("Wildlife.mp4", FileMode.Open, FileAccess.Read))
-    {
-        IVideo video = pres.Videos.AddVideo(fileStream, LoadingStreamBehavior.KeepLocked);
-        
-        // Získá první snímek a přidá video snímek
-        pres.Slides[0].Shapes.AddVideoFrame(10, 10, 150, 250, video);
-        
-        // Uloží prezentaci na disk
-        pres.Save("pres-with-video.pptx", SaveFormat.Pptx);
-    }
-}
-```
-Alternativně můžete video přidat předáním jeho cesty k souboru přímo metodě [AddVideoFrame](https://reference.aspose.com/slides/cs/net/aspose.slides/ishapecollection/addvideoframe/) :
+using var videoStream = File.OpenRead("video.mp4");
+var video = presentation.Videos.AddVideo(videoStream, LoadingStreamBehavior.KeepLocked);
+slide.Shapes.AddVideoFrame(10, 10, 150, 250, video);
 
-``` csharp
-using (Presentation pres = new Presentation())
-{
-    ISlide sld = pres.Slides[0];
-    IVideoFrame vf = sld.Shapes.AddVideoFrame(50, 150, 300, 150, "video1.avi");
-}
+presentation.Save("embedded_video.pptx", SaveFormat.Pptx);
 ```
 
+Můžete také předat cestu k lokálnímu videu přímo do [AddVideoFrame](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addvideoframe/). Tento příklad vloží video na první snímek nové prezentace. Video musí být přístupné až do uložení prezentace.
 
-## **Vytvořit snímek videa s videem z webového zdroje**
-Novější verze Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) podporují online videa v prezentacích. Pokud je video, které chcete použít, dostupné online (např. na YouTube), můžete jej do prezentace přidat pomocí jeho webového odkazu.
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation) .
-1. Získejte referenci na snímek pomocí jeho indexu. 
-1. Přidejte objekt [IVideo](https://reference.aspose.com/slides/cs/net/aspose.slides/ivideo/) a předávejte odkaz na video.
-1. Nastavte miniaturu pro snímek videa. 
-1. Uložte prezentaci. 
-
-Tento C# kód ukazuje, jak přidat video z webu na snímek v PowerPoint prezentaci:
-
-```c#
-public static void Run()
-{
-    // Vytvoří objekt Presentation, který představuje soubor prezentace 
-    using (Presentation pres = new Presentation())
-    {
-        AddVideoFromYouTube(pres, "Tj75Arhq5ho");
-        pres.Save("AddVideoFrameFromWebSource_out.pptx", SaveFormat.Pptx);
-    }
-}
-
-private static void AddVideoFromYouTube(Presentation pres, string videoId)
-{
-    // Přidá VideoFrame
-    IVideoFrame videoFrame = pres.Slides[0].Shapes.AddVideoFrame(10, 10, 427, 240, "https://www.youtube.com/embed/" + videoId);
-    videoFrame.PlayMode = VideoPlayModePreset.Auto;
-
-    // Načte miniaturu
-    using (WebClient client = new WebClient())
-    {
-        string thumbnailUri = "http://img.youtube.com/vi/" + videoId + "/hqdefault.jpg";
-        videoFrame.PictureFormat.Picture.Image = pres.Images.AddImage(client.DownloadData(thumbnailUri));
-    }
-}
-```
-
-## **Oříznout snímek videa**
-
-Aspose.Slides vám umožňuje řídit, která část videa se přehrává, nastavením hodnot trim-from-start a trim-from-end pomocí [IVideoFrame.TrimFromStart](https://reference.aspose.com/slides/cs/net/aspose.slides/ivideoframe/trimfromstart/) a [IVideoFrame.TrimFromEnd](https://reference.aspose.com/slides/cs/net/aspose.slides/ivideoframe/trimfromend/). Obě hodnoty jsou zadány v milisekundách a definují, kolik času se přeskočí od začátku a konce videa. Tato nastavení mění nastavení přehrávání videa v prezentaci; neprovádějí řezání ani jinou úpravu vložených binárních dat videa.
-
-**Nastavit nastavení ořezu**
-
-Pro vytvoření snímku videa a nastavení jeho ořezu:
-
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation/) .
-1. Přidejte objekt [IVideo](https://reference.aspose.com/slides/cs/net/aspose.slides/ivideo/) do prezentace.
-1. Přidejte objekt [IVideoFrame](https://reference.aspose.com/slides/cs/net/aspose.slides/ivideoframe/) na snímek.
-1. Nastavte hodnoty trim-from-start a trim-from-end pomocí [IVideoFrame.TrimFromStart](https://reference.aspose.com/slides/cs/net/aspose.slides/ivideoframe/trimfromstart/) a [IVideoFrame.TrimFromEnd](https://reference.aspose.com/slides/cs/net/aspose.slides/ivideoframe/trimfromend/) .
-1. Uložte upravenou prezentaci.
-
-Následující ukázka kódu přeskočí první 2,5 sekundy a poslední sekundu vloženého videa během přehrávání:
-
-```cs
 using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+slide.Shapes.AddVideoFrame(50, 150, 300, 150, "video.avi");
+
+presentation.Save("video_from_path.pptx", SaveFormat.Pptx);
+```
+
+## **Vytvoření video rámce s videem z webového zdroje**
+
+Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) podporuje online videa v prezentacích. Můžete vytvořit video rámec, který odkazuje na online video, například video z YouTube.
+
+Tento příklad přidá odkaz na YouTube video a náhledový obrázek na první snímek. Nahraďte identifikátor videa, abyste použili jiné video. Nastavení [PlayMode](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/playmode/) požaduje automatické přehrávání. Stažení náhledového obrázku a přehrání videa vyžaduje přístup k internetu. Prohlížeč prezentací musí také podporovat přehrávání online videí.
+
+```csharp
+using System.Net.Http;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+using var httpClient = new HttpClient();
+
+var videoId = "aqz-KE-bpKQ";
+var videoUrl = $"https://www.youtube.com/embed/{videoId}";
+var videoFrame = slide.Shapes.AddVideoFrame(10, 10, 427, 240, videoUrl);
+videoFrame.PlayMode = VideoPlayModePreset.Auto;
+
+var thumbnailUrl = $"https://img.youtube.com/vi/{videoId}/hqdefault.jpg";
+var thumbnailData = httpClient.GetByteArrayAsync(thumbnailUrl).GetAwaiter().GetResult();
+var thumbnail = presentation.Images.AddImage(thumbnailData);
+videoFrame.PictureFormat.Picture.Image = thumbnail;
+
+presentation.Save("online_video.pptx", SaveFormat.Pptx);
+```
+
+## **Přehrát video v režimu celé obrazovky**
+
+V tréninkové prezentaci můžete přehrát ukázku softwaru v režimu celé obrazovky, aby si publikum mohlo prohlédnout detaily. Nastavte [FullScreenMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/fullscreenmode/) na `true`, abyste povolili toto chování během přehrávání.
+
+Tento příklad otevře prezentaci, najde první [IVideoFrame](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/) na prvním snímku a povolí přehrávání v režimu celé obrazovky. Vstupní prezentace musí obsahovat alespoň jeden snímek s existujícím video rámcem na prvním snímku.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("training.pptx");
+var slide = presentation.Slides[0];
+
+foreach (var shape in slide.Shapes)
+{
+    if (shape is IVideoFrame videoFrame)
+    {
+        videoFrame.FullScreenMode = true;
+        break;
+    }
+}
+
+presentation.Save("full_screen_video.pptx", SaveFormat.Pptx);
+```
+
+Přehrávání v režimu celé obrazovky řídí, jak je video zobrazováno. Nezávisle na tom [PlayMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playmode/) určuje, zda se spustí automaticky nebo po kliknutí, a [PlayLoopMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playloopmode/) určuje, zda se opakuje. Pro výběr chování při startu nastavte režim přehrávání na [VideoPlayModePreset.Auto nebo VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/net/aspose.slides/videoplaymodepreset/). Příklad zachovává stávající nastavení startu a smyčky.
+
+## **Posun videa zpět po přehrání**
+
+V tréninkové prezentaci vrácení demonstračního videa na začátek připraví video pro další přehrání prezentátorem. Nastavte [RewindVideo](https://reference.aspose.com/slides/net/aspose.slides/videoframe/rewindvideo/) na `true`, aby se video po dokončení přehrávání vrátilo na začátek.
+
+Tento příklad otevře prezentaci, najde první [IVideoFrame](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/) na prvním snímku a povolí vrácení videa. Vypne smyčku, aby se přehrávání mohlo dokončit, a nastaví přehrávání na start po kliknutí. Vstupní prezentace musí obsahovat alespoň jeden snímek s existujícím video rámcem na prvním snímku.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("training.pptx");
+var slide = presentation.Slides[0];
+
+foreach (var shape in slide.Shapes)
+{
+    if (shape is IVideoFrame videoFrame)
+    {
+        videoFrame.RewindVideo = true;
+        videoFrame.PlayLoopMode = false;
+        videoFrame.PlayMode = VideoPlayModePreset.OnClick;
+        break;
+    }
+}
+
+presentation.Save("rewind_video.pptx", SaveFormat.Pptx);
+```
+
+Vrácení videa (rewind) přemístí video na jeho začátek, aniž by ho znovu spustilo. Naopak, povolením [PlayLoopMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playloopmode/) se přehrávání automaticky opakuje. Ponechejte smyčku vypnutou, když chcete, aby video skončilo a bylo připravené k opětovnému přehrání. [PlayMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playmode/) nezávisle řídí automatické nebo kliknutím spouštění; tento příklad používá [VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/net/aspose.slides/videoplaymodepreset/), takže prezentátor řídí, kdy přehrávání začne. Nastavte režim přehrávání po nastavení smyčky, jak je ukázáno v příkladu. Vrácení funguje nezávisle na [FullScreenMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/fullscreenmode/).
+
+## **Ořez video rámce**
+
+Použijte [IVideoFrame.TrimFromStart](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/trimfromstart/) a [IVideoFrame.TrimFromEnd](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/trimfromend/) k přeskočení části začátku nebo konce videa během přehrávání. Obě hodnoty jsou v milisekundách. Ořezávání mění nastavení přehrávání, aniž by upravovalo vložená video data.
+
+**Nastavit ořezová nastavení**
+
+Tento příklad vloží lokální video a během přehrávání přeskočí první 2,5 sekundy a poslední sekundu. Použijte video delší než 3,5 sekundy, aby zůstal přehratelný úsek.
+
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
 var videoData = File.ReadAllBytes("video.mp4");
 var video = presentation.Videos.AddVideo(videoData);
 
-var slide = presentation.Slides[0];
 var videoFrame = slide.Shapes.AddVideoFrame(50, 50, 640, 360, video);
-
 videoFrame.TrimFromStart = 2500f;
 videoFrame.TrimFromEnd = 1000f;
 
 presentation.Save("video_with_trim.pptx", SaveFormat.Pptx);
 ```
 
-**Přečíst nastavení ořezu**
+**Přečíst ořezová nastavení**
 
-Pro zjištění existujících nastavení ořezu načtěte prezentaci, najděte objekt [IVideoFrame](https://reference.aspose.com/slides/cs/net/aspose.slides/ivideoframe/) mezi tvary na prvním snímku a přečtěte hodnoty pomocí [IVideoFrame.TrimFromStart](https://reference.aspose.com/slides/cs/net/aspose.slides/ivideoframe/trimfromstart/) a [IVideoFrame.TrimFromEnd](https://reference.aspose.com/slides/cs/net/aspose.slides/ivideoframe/trimfromend/) .
+Tento příklad vypíše hodnoty ořezu prvního video rámce na prvním snímku v milisekundách. Prezentace musí obsahovat alespoň jeden snímek. Pokud tento snímek nemá video rámec, nic se nevyptí. Předchozí příklad generuje hodnoty 2500 a 1000.
 
-Následující ukázka kódu najde první snímek videa na prvním snímku a vypíše jeho nastavení ořezu v milisekundách:
+```csharp
+using System;
+using Aspose.Slides;
 
-```cs
 using var presentation = new Presentation("video_with_trim.pptx");
-
 var slide = presentation.Slides[0];
+
 foreach (var shape in slide.Shapes)
 {
     if (shape is IVideoFrame videoFrame)
     {
-        var trimFromStart = videoFrame.TrimFromStart;
-        var trimFromEnd = videoFrame.TrimFromEnd;
-
-        Console.WriteLine($"Trim from start: {trimFromStart} ms");
-        Console.WriteLine($"Trim from end: {trimFromEnd} ms");
-
+        Console.WriteLine($"Trim from start: {videoFrame.TrimFromStart} ms");
+        Console.WriteLine($"Trim from end: {videoFrame.TrimFromEnd} ms");
         break;
     }
 }
 ```
 
-## **Spravovat titulky videa**
+## **Správa titulků videa**
 
-Aspose.Slides vám umožňuje spravovat uzavřené titulky pro snímky videa v PowerPoint prezentacích. Titulky jsou uloženy ve formátu WebVTT a jsou přístupné prostřednictvím vlastnosti [IVideoFrame.CaptionTracks](https://reference.aspose.com/slides/cs/net/aspose.slides/ivideoframe/captiontracks/) .
+Aspose.Slides vám umožňuje spravovat uzavřené titulky pro video rámečky v PowerPoint prezentacích. Titulky jsou uloženy ve formátu WebVTT a jsou zpřístupněny prostřednictvím vlastnosti [IVideoFrame.CaptionTracks](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/captiontracks/) .
 
-**Přidat titulky do snímku videa**
+**Přidat titulky do video rámce**
 
-Pro přidání titulků do snímku videa:
+Tento příklad vloží lokální video a přidá WebVTT stopu titulků označenou English. Časové značky titulků by měly odpovídat videu. Uložená prezentace obsahuje jak video, tak jeho titulky.
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation/) .
-1. Přidejte video do prezentace.
-1. Přidejte objekt [IVideoFrame](https://reference.aspose.com/slides/cs/net/aspose.slides/ivideoframe/) na snímek.
-1. Použijte kolekci [CaptionTracks](https://reference.aspose.com/slides/cs/net/aspose.slides/ivideoframe/captiontracks/) k přidání WebVTT stopy titulků.
-1. Uložte upravenou prezentaci.
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-Následující kód ukazuje, jak přidat titulky do snímku videa:
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-```cs
-using (Presentation presentation = new Presentation())
-{
-    byte[] videoData = File.ReadAllBytes("video.mp4");
-    IVideo video = presentation.Videos.AddVideo(videoData);
+var videoData = File.ReadAllBytes("video.mp4");
+var video = presentation.Videos.AddVideo(videoData);
 
-    ISlide slide = presentation.Slides[0];
-    IVideoFrame videoFrame = slide.Shapes.AddVideoFrame(0, 0, 100, 100, video);
+var videoFrame = slide.Shapes.AddVideoFrame(0, 0, 100, 100, video);
+videoFrame.CaptionTracks.Add("English", "track.vtt");
 
-    // Přidá novou stopu titulků ze souboru WebVTT.
-    presentation.Save("video_with_captions.pptx", SaveFormat.Pptx);
-}
+presentation.Save("video_with_captions.pptx", SaveFormat.Pptx);
 ```
 
-Rozhraní [ICaptionsCollection](https://reference.aspose.com/slides/cs/net/aspose.slides/icaptionscollection/) také poskytuje přetížení, které umožňuje přidat titulky ze streamu.
+Rozhraní [ICaptionsCollection](https://reference.aspose.com/slides/net/aspose.slides/icaptionscollection/) také poskytuje přetížení, které vám umožní přidávat titulky ze streamu.
 
-**Extrahovat titulky ze snímku videa**
+**Extrahovat titulky z video rámce**
 
-Pro extrahování titulků ze snímku videa:
+Tento příklad uloží všechny stopy titulků z video rámců na prvním snímku jako samostatné WebVTT soubory. Pořadová čísla udržují výstupní soubory odlišné. Konzole vypíše počet extrahovaných stop. Prezentace musí obsahovat alespoň jeden snímek.
 
-1. Načtěte prezentaci, která obsahuje video.
-1. Najděte cílový objekt [IVideoFrame](https://reference.aspose.com/slides/cs/net/aspose.slides/ivideoframe/) .
-1. Procházejte kolekci [CaptionTracks](https://reference.aspose.com/slides/cs/net/aspose.slides/ivideoframe/captiontracks/) .
-1. Uložte každou stopu titulků do souboru `.vtt` .
+```csharp
+using System;
+using System.IO;
+using Aspose.Slides;
 
-Následující kód ukazuje, jak extrahovat titulky ze snímku videa:
+using var presentation = new Presentation("video_with_captions.pptx");
+var slide = presentation.Slides[0];
 
-```cs
-using (Presentation presentation = new Presentation("video_with_captions.pptx"))
+var trackCount = 0;
+foreach (var shape in slide.Shapes)
 {
-    ISlide slide = presentation.Slides[0];
-    foreach (IShape shape in slide.Shapes)
+    if (shape is IVideoFrame videoFrame)
+    {
+        foreach (var captionTrack in videoFrame.CaptionTracks)
+        {
+            trackCount++;
+            var outputPath = $"captions_{trackCount}.vtt";
+            File.WriteAllBytes(outputPath, captionTrack.BinaryData);
+        }
+    }
+}
+
+Console.WriteLine($"Caption tracks extracted: {trackCount}");
+```
+
+Každý objekt [ICaptions](https://reference.aspose.com/slides/net/aspose.slides/icaptions/) zpřístupňuje identifikátor titulků, popisek, binární data a text titulků jako řetězec UTF-8.
+
+**Odstranit titulky z video rámce**
+
+Tento příklad odstraní všechny titulky z video rámce na první pozici tvaru na prvním snímku a uloží výsledek. Předpokládá, že snímek a tvar existují a že tvar je video rámec.
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("video_with_captions.pptx");
+var slide = presentation.Slides[0];
+
+var videoFrame = (IVideoFrame) slide.Shapes[0];
+videoFrame.CaptionTracks.Clear();
+
+presentation.Save("video_without_captions.pptx", SaveFormat.Pptx);
+```
+
+Pokud potřebujete odstranit pouze jednu stopu titulků, použijte metody [Remove](https://reference.aspose.com/slides/net/aspose.slides/captionscollection/remove/) nebo [RemoveAt](https://reference.aspose.com/slides/net/aspose.slides/captionscollection/removeat/) místo [Clear](https://reference.aspose.com/slides/net/aspose.slides/captionscollection/clear/) .
+
+## **Extrahovat video ze snímku**
+
+Kromě přidávání videí do snímků umožňuje Aspose.Slides také extrahovat videa vložená v prezentacích.
+
+Tento příklad extrahuje vložená videa ze všech snímků do samostatných, očíslovaných binárních souborů. Odkazovaná videa jsou přeskočena, protože neobsahují vložená data. Konzole vypíše MIME typ každého videa a celkový počet. Výstup používá obecnou příponu `.bin`; při potřebe ji změňte tak, aby odpovídala hlášenému typu média.
+
+```csharp
+using System;
+using System.IO;
+using Aspose.Slides;
+
+using var presentation = new Presentation("presentation_with_videos.pptx");
+
+var videoCount = 0;
+foreach (var slide in presentation.Slides)
+{
+    foreach (var shape in slide.Shapes)
     {
         if (shape is IVideoFrame videoFrame)
         {
-            foreach (ICaptions captionTrack in videoFrame.CaptionTracks)
+            var video = videoFrame.EmbeddedVideo;
+            if (video == null)
             {
-                // Uloží stopu titulků do souboru WebVTT.
-                string filePath = $"{captionTrack.CaptionId}.vtt";
-                File.WriteAllBytes(filePath, captionTrack.BinaryData);
+                Console.WriteLine("Skipped a linked video: no embedded data is available.");
+                continue;
             }
+
+            videoCount++;
+            var outputPath = $"extracted_video_{videoCount}.bin";
+            File.WriteAllBytes(outputPath, video.BinaryData);
+            Console.WriteLine($"Video {videoCount}: {video.ContentType}");
         }
     }
 }
+
+Console.WriteLine($"Embedded videos extracted: {videoCount}");
 ```
 
-Každý objekt [ICaptions](https://reference.aspose.com/slides/cs/net/aspose.slides/icaptions/) vystavuje identifikátor titulků, popisek, binární data a text titulků jako řetězec UTF-8.
+## **Často kladené otázky**
 
-**Odstranit titulky ze snímku videa**
+**Které parametry přehrávání videa lze změnit pro video rámec?**
 
-Pro odstranění titulků ze snímku videa:
-
-1. Načtěte prezentaci, která obsahuje video.
-1. Získejte cílový objekt [IVideoFrame](https://reference.aspose.com/slides/cs/net/aspose.slides/ivideoframe/) .
-1. Odstraňte stopy titulků z kolekce [CaptionTracks](https://reference.aspose.com/slides/cs/net/aspose.slides/ivideoframe/captiontracks/) .
-1. Uložte upravenou prezentaci.
-
-Následující kód ukazuje, jak odstranit všechny titulky ze snímku videa:
-
-```cs
-using (Presentation presentation = new Presentation("video_with_captions.pptx"))
-{
-    ISlide slide = presentation.Slides[0];
-    IVideoFrame videoFrame = slide.Shapes[0] as IVideoFrame;
-
-    // Odebere všechny titulky ze snímku videa.
-    videoFrame.CaptionTracks.Clear();
-
-    presentation.Save("video_without_captions.pptx", SaveFormat.Pptx);
-}
-```
-
-Pokud potřebujete odstranit jen jednu stopu titulků, použijte metody [Remove](https://reference.aspose.com/slides/cs/net/aspose.slides/captionscollection/remove/) nebo [RemoveAt](https://reference.aspose.com/slides/cs/net/aspose.slides/captionscollection/removeat/) místo [Clear](https://reference.aspose.com/slides/cs/net/aspose.slides/captionscollection/clear/) .
-
-## **Extrahovat video ze snímku**
-Kromě přidávání videí do snímků Aspose.Slides umožňuje extrahovat videa vložená v prezentacích.
-
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation) pro načtení prezentace obsahující video. 
-2. Procházejte všechny objekty [ISlide](https://reference.aspose.com/slides/cs/net/aspose.slides/islide) .
-3. Procházejte všechny objekty [IShape](https://reference.aspose.com/slides/cs/net/aspose.slides/ishape) a najděte [VideoFrame](https://reference.aspose.com/slides/cs/net/aspose.slides/videoframe) . 
-4. Uložte video na disk.
-
-Tento C# kód ukazuje, jak extrahovat video na snímku prezentace:
-
-```c#
-// Vytvoří objekt Presentation, který představuje soubor prezentace 
-Presentation presentation = new Presentation("Video.pptx");
-
-// Prochází snímky
-foreach (ISlide slide in presentation.Slides)
-{
-    // Prochází tvary
-    foreach (IShape shape in presentation.Slides[0].Shapes)
-    {
-        // Uloží video na disk, jakmile je nalezen VideoFrame obsahující video
-        if (shape is VideoFrame)
-        {
-            IVideoFrame vf = shape as IVideoFrame;
-            String type = vf.EmbeddedVideo.ContentType;
-            int ss = type.LastIndexOf('/');
-            type = type.Remove(0, type.LastIndexOf('/') + 1);
-            Byte[] buffer = vf.EmbeddedVideo.BinaryData;
-            using (FileStream stream = new FileStream("NewVideo_out." + type, FileMode.Create, FileAccess.Write, FileShare.Read))
-            {                                                     
-                stream.Write(buffer, 0, buffer.Length);
-            }
-        }
-    }
-}
-```
-
-## **FAQ**
-
-**Které parametry přehrávání videa lze změnit pro VideoFrame?**
-
-Můžete ovládat [playback mode](https://reference.aspose.com/slides/cs/net/aspose.slides/videoframe/playmode/) (automatické nebo po kliknutí) a [looping](https://reference.aspose.com/slides/cs/net/aspose.slides/videoframe/playloopmode/). Tyto možnosti jsou k dispozici prostřednictvím vlastností objektu [VideoFrame](https://reference.aspose.com/slides/cs/net/aspose.slides/videoframe/) .
+Můžete ovládat [režim přehrávání](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playmode/) (automaticky nebo po kliknutí) a [opakování](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playloopmode/). Tyto možnosti jsou k dispozici prostřednictvím vlastností objektu [VideoFrame](https://reference.aspose.com/slides/net/aspose.slides/videoframe/) .
 
 **Ovlivňuje přidání videa velikost souboru PPTX?**
 
-Ano. Když vložíte místní video, binární data jsou zahrnuta v dokumentu, takže se velikost prezentace zvětší úměrně velikosti souboru. Když přidáte online video, jsou vloženy odkaz a miniatura, takže nárůst velikosti je menší.
+Ano. Když vložíte lokální video, binární data jsou zahrnuta do dokumentu, takže se velikost prezentace zvětšuje úměrně velikosti souboru. Když odkážete na online video a přidáte náhledový obrázek, prezentace uloží pouze odkaz a obrázek náhledu místo video dat, takže nárůst velikosti je obvykle menší.
 
-**Mohu nahradit video v existujícím VideoFrame, aniž bych změnil jeho pozici a velikost?**
+**Mohu nahradit video v existujícím video rámci bez změny jeho pozice a velikosti?**
 
-Ano. Můžete vyměnit [video content](https://reference.aspose.com/slides/cs/net/aspose.slides/videoframe/embeddedvideo/) v rámci snímku a přitom zachovat geometrii tvaru; jedná se o běžný scénář pro aktualizaci médií v existujícím rozvržení.
+Ano. Můžete vyměnit [video obsah](https://reference.aspose.com/slides/net/aspose.slides/videoframe/embeddedvideo/) uvnitř rámce při zachování geometrie tvaru; je to běžný scénář pro aktualizaci médií v existujícím rozložení.
 
 **Lze určit typ obsahu (MIME) vloženého videa?**
 
-Ano. Vložené video má [content type](https://reference.aspose.com/slides/cs/net/aspose.slides/video/contenttype/) , který můžete přečíst a použít, například při ukládání na disk.
+Ano. Vložené video má [typ obsahu](https://reference.aspose.com/slides/net/aspose.slides/video/contenttype/), který můžete přečíst a použít, například při ukládání na disk.

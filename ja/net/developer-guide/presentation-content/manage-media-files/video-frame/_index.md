@@ -1,16 +1,16 @@
 ---
-title: .NET でのプレゼンテーションにおける動画フレームの管理
-linktitle: 動画フレーム
+title: .NET でプレゼンテーションのビデオフレームを管理する
+linktitle: ビデオフレーム
 type: docs
 weight: 10
 url: /ja/net/video-frame/
 keywords:
-- 動画の追加
-- 動画の作成
-- 動画の埋め込み
-- 動画の抽出
-- 動画の取得
-- 動画フレーム
+- ビデオを追加
+- ビデオを作成
+- ビデオを埋め込む
+- ビデオを抽出
+- ビデオを取得
+- ビデオフレーム
 - Web ソース
 - PowerPoint
 - OpenDocument
@@ -18,294 +18,314 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides for .NET を使用して、PowerPoint および OpenDocument スライドに動画フレームをプログラムで追加および抽出する方法を学びます。高速ハウツーガイド。"
+description: "Aspose.Slides for .NET を使用して、PowerPoint および OpenDocument スライドでビデオフレームをプログラム的に追加および抽出する方法を学びます。高速ハウツーガイド。"
 ---
 ## **はじめに**
 
-プレゼンテーションに適切に配置された動画は、メッセージをより魅力的にし、聴衆とのエンゲージメントレベルを高めることができます。
+ビデオは、アイデアを説明し、オーディエンスを引き付けるのに役立ちます。Aspose.Slides for .NET を使用すると、スライドにビデオフレームを追加し、再生設定を調整し、キャプションを管理し、埋め込みビデオデータを抽出できます。
 
-PowerPoint では、プレゼンテーションのスライドに動画を追加する方法が2つあります。
+PowerPoint はローカルビデオと、YouTube ビデオなどのオンラインビデオへのリンクをサポートしています。
 
-* ローカル動画（マシンに保存されているもの）を追加または埋め込む
-* オンライン動画（YouTube などのウェブソース）を追加する
+ビデオデータとビデオフレームを表すために、Aspose.Slides は [IVideo](https://reference.aspose.com/slides/net/aspose.slides/ivideo/) インターフェイス、[IVideoFrame](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/) インターフェイス、その他の関連型を提供します。
 
-動画オブジェクトをプレゼンテーションに追加できるように、Aspose.Slides は [IVideo](https://reference.aspose.com/slides/ja/net/aspose.slides/ivideo/) インターフェイス、[IVideoFrame](https://reference.aspose.com/slides/ja/net/aspose.slides/ivideoframe/) インターフェイス、および関連する型を提供しています。
+## **埋め込みビデオフレームの作成**
 
-## **埋め込み動画フレームの作成**
+スライドに追加したいビデオファイルがローカルに保存されている場合、ビデオフレームを作成してプレゼンテーションにビデオを埋め込むことができます。
 
-スライドに追加したい動画ファイルがローカルに保存されている場合、プレゼンテーションに動画を埋め込む動画フレームを作成できます。
+この例は、既存のプレゼンテーションの最初のスライドにローカルビデオを埋め込み、結果を保存します。フレームの座標とサイズはポイント単位です。ストリームは、保存が完了するまで開いたままになります。これは、[LoadingStreamBehavior.KeepLocked](https://reference.aspose.com/slides/net/aspose.slides/loadingstreambehavior/) がプレゼンテーションが使用している間ロックされたままにするためです。
 
-1. [Presentation](https://reference.aspose.com/slides/ja/net/aspose.slides/presentation) クラスのインスタンスを作成します。
-1. インデックスを使用してスライドの参照を取得します。
-1. [IVideo](https://reference.aspose.com/slides/ja/net/aspose.slides/ivideo/) オブジェクトを追加し、動画ファイルのパスを渡してプレゼンテーションに埋め込みます。
-1. [IVideoFrame](https://reference.aspose.com/slides/ja/net/aspose.slides/ivideoframe/) オブジェクトを追加して動画用のフレームを作成します。  
-1. 変更したプレゼンテーションを保存します。
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-以下の C# コードは、ローカルに保存された動画をプレゼンテーションに追加する方法を示しています。
+using var presentation = new Presentation("presentation.pptx");
+var slide = presentation.Slides[0];
 
-```c#
-// Presentation クラスのインスタンスを作成します
-using (Presentation pres = new Presentation("pres.pptx"))
-{
-    // 動画を読み込みます
-    using (FileStream fileStream = new FileStream("Wildlife.mp4", FileMode.Open, FileAccess.Read))
-    {
-        IVideo video = pres.Videos.AddVideo(fileStream, LoadingStreamBehavior.KeepLocked);
-        
-        // 最初のスライドを取得し、ビデオフレームを追加します
-        pres.Slides[0].Shapes.AddVideoFrame(10, 10, 150, 250, video);
-        
-        // プレゼンテーションをディスクに保存します
-        pres.Save("pres-with-video.pptx", SaveFormat.Pptx);
-    }
-}
-```
-あるいは、[AddVideoFrame](https://reference.aspose.com/slides/ja/net/aspose.slides/ishapecollection/addvideoframe/) メソッドにファイルパスを直接渡すことで動画を追加することもできます。
+using var videoStream = File.OpenRead("video.mp4");
+var video = presentation.Videos.AddVideo(videoStream, LoadingStreamBehavior.KeepLocked);
+slide.Shapes.AddVideoFrame(10, 10, 150, 250, video);
 
-``` csharp
-using (Presentation pres = new Presentation())
-{
-    ISlide sld = pres.Slides[0];
-    IVideoFrame vf = sld.Shapes.AddVideoFrame(50, 150, 300, 150, "video1.avi");
-}
+presentation.Save("embedded_video.pptx", SaveFormat.Pptx);
 ```
 
-## **Web ソースからの動画フレームの作成**
-Microsoft の新しいバージョンの [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) は、プレゼンテーションでオンライン動画をサポートしています。使用したい動画がオンライン（例: YouTube）にある場合、そのウェブリンクを使用してプレゼンテーションに追加できます。
+ローカルビデオのパスを直接 [AddVideoFrame](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addvideoframe/) に渡すこともできます。この例は、新しいプレゼンテーションの最初のスライドにビデオを埋め込みます。ビデオはプレゼンテーションが保存されるまでアクセス可能である必要があります。
 
-1. [Presentation](https://reference.aspose.com/slides/ja/net/aspose.slides/presentation) クラスのインスタンスを作成します。
-1. インデックスを使用してスライドの参照を取得します。
-1. [IVideo](https://reference.aspose.com/slides/ja/net/aspose.slides/ivideo/) オブジェクトを追加し、動画へのリンクを渡します。
-1. 動画フレームのサムネイルを設定します。
-1. プレゼンテーションを保存します。
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-以下の C# コードは、ウェブ上の動画を PowerPoint のスライドに追加する方法を示しています。
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-```c#
-public static void Run()
-{
-    // プレゼンテーションファイルを表す Presentation オブジェクトをインスタンス化します
-    using (Presentation pres = new Presentation())
-    {
-        AddVideoFromYouTube(pres, "Tj75Arhq5ho");
-        pres.Save("AddVideoFrameFromWebSource_out.pptx", SaveFormat.Pptx);
-    }
-}
+slide.Shapes.AddVideoFrame(50, 150, 300, 150, "video.avi");
 
-private static void AddVideoFromYouTube(Presentation pres, string videoId)
-{
-    // VideoFrame を追加します
-    IVideoFrame videoFrame = pres.Slides[0].Shapes.AddVideoFrame(10, 10, 427, 240, "https://www.youtube.com/embed/" + videoId);
-    videoFrame.PlayMode = VideoPlayModePreset.Auto;
-
-    // サムネイルを読み込みます
-    using (WebClient client = new WebClient())
-    {
-        string thumbnailUri = "http://img.youtube.com/vi/" + videoId + "/hqdefault.jpg";
-        videoFrame.PictureFormat.Picture.Image = pres.Images.AddImage(client.DownloadData(thumbnailUri));
-    }
-}
+presentation.Save("video_from_path.pptx", SaveFormat.Pptx);
 ```
 
-## **動画フレームのトリミング**
+## **Web ソースからのビデオでビデオフレームを作成する**
 
-Aspose.Slides では、[IVideoFrame.TrimFromStart](https://reference.aspose.com/slides/ja/net/aspose.slides/ivideoframe/trimfromstart/) と [IVideoFrame.TrimFromEnd](https://reference.aspose.com/slides/ja/net/aspose.slides/ivideoframe/trimfromend/) を使用して、動画の開始位置と終了位置をミリ秒単位で設定することで、再生される部分を制御できます。これらの設定はプレゼンテーション内の動画再生設定を変更しますが、埋め込まれた動画のバイナリデータそのものをカットしたり変更したりはしません。
+Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) はプレゼンテーションでオンラインビデオをサポートしています。YouTube ビデオなど、オンラインビデオへのリンクを持つビデオフレームを作成できます。
+
+この例は、最初のスライドに YouTube ビデオのリンクとサムネイルを追加します。別のビデオを使用する場合は、ビデオ識別子を置き換えてください。[PlayMode](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/playmode/) 設定は自動再生を要求します。サムネイルのダウンロードとビデオの再生にはインターネット接続が必要です。プレゼンテーションビューアーもオンラインビデオの再生をサポートしている必要があります。
+
+```csharp
+using System.Net.Http;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+using var httpClient = new HttpClient();
+
+var videoId = "aqz-KE-bpKQ";
+var videoUrl = $"https://www.youtube.com/embed/{videoId}";
+var videoFrame = slide.Shapes.AddVideoFrame(10, 10, 427, 240, videoUrl);
+videoFrame.PlayMode = VideoPlayModePreset.Auto;
+
+var thumbnailUrl = $"https://img.youtube.com/vi/{videoId}/hqdefault.jpg";
+var thumbnailData = httpClient.GetByteArrayAsync(thumbnailUrl).GetAwaiter().GetResult();
+var thumbnail = presentation.Images.AddImage(thumbnailData);
+videoFrame.PictureFormat.Picture.Image = thumbnail;
+
+presentation.Save("online_video.pptx", SaveFormat.Pptx);
+```
+
+## **全画面モードでビデオを再生する**
+
+トレーニング用プレゼンテーションでは、ソフトウェアデモを全画面モードで再生し、オーディエンスに詳細を見せることができます。再生中にこの動作を有効にするには、[FullScreenMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/fullscreenmode/) を `true` に設定します。
+
+この例はプレゼンテーションを開き、最初のスライドで最初の [IVideoFrame](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/) を検索し、全画面再生を有効にします。入力プレゼンテーションには、最初のスライドに既存のビデオフレームが少なくとも1つ含まれている必要があります。
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("training.pptx");
+var slide = presentation.Slides[0];
+
+foreach (var shape in slide.Shapes)
+{
+    if (shape is IVideoFrame videoFrame)
+    {
+        videoFrame.FullScreenMode = true;
+        break;
+    }
+}
+
+presentation.Save("full_screen_video.pptx", SaveFormat.Pptx);
+```
+
+全画面再生はビデオの表示方法を制御します。別個に、[PlayMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playmode/) は自動開始かクリック開始かを制御し、[PlayLoopMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playloopmode/) は繰り返し再生するかを制御します。開始動作を選択するには、再生モードを [VideoPlayModePreset.Auto or VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/net/aspose.slides/videoplaymodepreset/) に設定します。この例は既存の開始設定とループ設定を保持します。
+
+## **再生後にビデオを巻き戻す**
+
+トレーニング用プレゼンテーションでは、デモビデオを最初に戻すことで、プレゼンターが再度再生できるようにします。再生が終了した後にビデオを最初に戻すには、[RewindVideo](https://reference.aspose.com/slides/net/aspose.slides/videoframe/rewindvideo/) を `true` に設定します。
+
+この例はプレゼンテーションを開き、最初のスライドで最初の [IVideoFrame](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/) を検索し、巻き戻しを有効にします。ループを無効にして再生が完了できるようにし、クリックで開始するように再生を設定します。入力プレゼンテーションには、最初のスライドに既存のビデオフレームが少なくとも1つ含まれている必要があります。
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("training.pptx");
+var slide = presentation.Slides[0];
+
+foreach (var shape in slide.Shapes)
+{
+    if (shape is IVideoFrame videoFrame)
+    {
+        videoFrame.RewindVideo = true;
+        videoFrame.PlayLoopMode = false;
+        videoFrame.PlayMode = VideoPlayModePreset.OnClick;
+        break;
+    }
+}
+
+presentation.Save("rewind_video.pptx", SaveFormat.Pptx);
+```
+
+巻き戻しはビデオを再び開始せずに最初に戻します。対照的に、[PlayLoopMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playloopmode/) を有効にすると再生が自動的に繰り返されます。ビデオを終了させ、再生待ちの状態にしたい場合はループを無効にしておいてください。[PlayMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playmode/) は自動開始またはクリック開始を個別に制御します。この例では [VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/net/aspose.slides/videoplaymodepreset/) を使用し、プレゼンターが再生開始時期を制御します。例に示すように、ループ設定の後に再生モードを設定します。巻き戻しは [FullScreenMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/fullscreenmode/) とは独立して機能します。
+
+## **ビデオフレームのトリミング**
+
+[IVideoFrame.TrimFromStart](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/trimfromstart/) と [IVideoFrame.TrimFromEnd](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/trimfromend/) を使用して、再生中にビデオの開始部または終了部をスキップできます。両方の値はミリ秒単位です。トリミングは埋め込みビデオデータを変更せずに再生設定を変更します。
 
 **トリム設定の設定**
 
-動画フレームを作成し、トリム設定を行う手順:
+この例はローカルビデオを埋め込み、再生時に最初の 2.5 秒と最後の 1 秒をスキップします。再生可能なセグメントが残るように、3.5 秒より長いビデオを使用してください。
 
-1. [Presentation](https://reference.aspose.com/slides/ja/net/aspose.slides/presentation/) クラスのインスタンスを作成します。
-1. プレゼンテーションに [IVideo](https://reference.aspose.com/slides/ja/net/aspose.slides/ivideo/) オブジェクトを追加します。
-1. スライドに [IVideoFrame](https://reference.aspose.com/slides/ja/net/aspose.slides/ivideoframe/) オブジェクトを追加します。
-1. [IVideoFrame.TrimFromStart](https://reference.aspose.com/slides/ja/net/aspose.slides/ivideoframe/trimfromstart/) と [IVideoFrame.TrimFromEnd](https://reference.aspose.com/slides/ja/net/aspose.slides/ivideoframe/trimfromend/) を使用して start と end の値を設定します。
-1. 変更したプレゼンテーションを保存します。
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-以下のコード例は、埋め込まれた動画の再生時に最初の 2.5 秒と最後の 1 秒をスキップする方法を示しています。
-
-```cs
 using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
 var videoData = File.ReadAllBytes("video.mp4");
 var video = presentation.Videos.AddVideo(videoData);
 
-var slide = presentation.Slides[0];
 var videoFrame = slide.Shapes.AddVideoFrame(50, 50, 640, 360, video);
-
 videoFrame.TrimFromStart = 2500f;
 videoFrame.TrimFromEnd = 1000f;
 
 presentation.Save("video_with_trim.pptx", SaveFormat.Pptx);
 ```
 
-**トリム設定の取得**
+**トリム設定の読み取り**
 
-既存のトリム設定を確認するには、プレゼンテーションを読み込み、最初のスライド上のシェイプの中から [IVideoFrame](https://reference.aspose.com/slides/ja/net/aspose.slides/ivideoframe/) オブジェクトを見つけ、[IVideoFrame.TrimFromStart](https://reference.aspose.com/slides/ja/net/aspose.slides/ivideoframe/trimfromstart/) と [IVideoFrame.TrimFromEnd](https://reference.aspose.com/slides/ja/net/aspose.slides/ivideoframe/trimfromend/) の値を取得します。
+この例は最初のスライド上の最初のビデオフレームのトリム値をミリ秒で出力します。プレゼンテーションには少なくとも1つのスライドが必要です。そのスライドにビデオフレームがない場合は何も出力されません。前の例は 2500 と 1000 の値を生成します。
 
-以下のコード例は、最初のスライド上の最初の動画フレームを取得し、ミリ秒単位のトリム設定をレポートします。
+```csharp
+using System;
+using Aspose.Slides;
 
-```cs
 using var presentation = new Presentation("video_with_trim.pptx");
-
 var slide = presentation.Slides[0];
+
 foreach (var shape in slide.Shapes)
 {
     if (shape is IVideoFrame videoFrame)
     {
-        var trimFromStart = videoFrame.TrimFromStart;
-        var trimFromEnd = videoFrame.TrimFromEnd;
-
-        Console.WriteLine($"Trim from start: {trimFromStart} ms");
-        Console.WriteLine($"Trim from end: {trimFromEnd} ms");
-
+        Console.WriteLine($"Trim from start: {videoFrame.TrimFromStart} ms");
+        Console.WriteLine($"Trim from end: {videoFrame.TrimFromEnd} ms");
         break;
     }
 }
 ```
 
-## **動画キャプションの管理**
+## **ビデオキャプションの管理**
 
-Aspose.Slides は、PowerPoint プレゼンテーションの動画フレームに対してクローズドキャプションを管理できる機能を提供します。キャプションは WebVTT 形式で格納され、[IVideoFrame.CaptionTracks](https://reference.aspose.com/slides/ja/net/aspose.slides/ivideoframe/captiontracks/) プロパティを介してアクセスできます。
+Aspose.Slides は PowerPoint プレゼンテーション内のビデオフレームのクローズドキャプションを管理できるようにします。キャプションは WebVTT 形式で保存され、[IVideoFrame.CaptionTracks](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/captiontracks/) プロパティで取得できます。
 
-**動画フレームにキャプションを追加する**
+**ビデオフレームへのキャプションの追加**
 
-動画フレームにキャプションを追加する手順:
+この例はローカルビデオを埋め込み、英語とラベル付けされた WebVTT キャプショントラックを追加します。キャプションのタイムスタンプはビデオと一致させる必要があります。保存されたプレゼンテーションにはビデオとキャプションの両方が含まれます。
 
-1. [Presentation](https://reference.aspose.com/slides/ja/net/aspose.slides/presentation/) クラスのインスタンスを作成します。
-1. プレゼンテーションに動画を追加します。
-1. スライドに [IVideoFrame](https://reference.aspose.com/slides/ja/net/aspose.slides/ivideoframe/) オブジェクトを追加します。
-1. [CaptionTracks](https://reference.aspose.com/slides/ja/net/aspose.slides/ivideoframe/captiontracks/) コレクションを使用して WebVTT キャプショントラックを追加します。
-1. 変更したプレゼンテーションを保存します。
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-以下のコードは、動画フレームにキャプションを追加する方法を示しています。
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-```cs
-using (Presentation presentation = new Presentation())
-{
-    byte[] videoData = File.ReadAllBytes("video.mp4");
-    IVideo video = presentation.Videos.AddVideo(videoData);
+var videoData = File.ReadAllBytes("video.mp4");
+var video = presentation.Videos.AddVideo(videoData);
 
-    ISlide slide = presentation.Slides[0];
-    IVideoFrame videoFrame = slide.Shapes.AddVideoFrame(0, 0, 100, 100, video);
+var videoFrame = slide.Shapes.AddVideoFrame(0, 0, 100, 100, video);
+videoFrame.CaptionTracks.Add("English", "track.vtt");
 
-    // WebVTT ファイルから新しいキャプショントラックを追加します。
-    videoFrame.CaptionTracks.Add("English", "track.vtt");
-
-    presentation.Save("video_with_captions.pptx", SaveFormat.Pptx);
-}
+presentation.Save("video_with_captions.pptx", SaveFormat.Pptx);
 ```
 
-[ICaptionsCollection](https://reference.aspose.com/slides/ja/net/aspose.slides/icaptionscollection/) インターフェイスは、ストリームからキャプションを追加できるオーバーロードも提供しています。
+[ICaptionsCollection](https://reference.aspose.com/slides/net/aspose.slides/icaptionscollection/) インターフェイスは、ストリームからキャプションを追加できるオーバーロードも提供します。
 
-**動画フレームからキャプションを抽出する**
+**ビデオフレームからのキャプションの抽出**
 
-動画フレームからキャプションを抽出する手順:
+この例は、最初のスライド上のビデオフレームからすべてのキャプショントラックを別々の WebVTT ファイルとして保存します。連番で出力ファイルを区別します。コンソールは抽出されたトラック数を報告します。プレゼンテーションには少なくとも1つのスライドが必要です。
 
-1. 動画を含むプレゼンテーションを読み込みます。
-1. 対象の [IVideoFrame](https://reference.aspose.com/slides/ja/net/aspose.slides/ivideoframe/) オブジェクトを見つけます。
-1. [CaptionTracks](https://reference.aspose.com/slides/ja/net/aspose.slides/ivideoframe/captiontracks/) コレクションを走査します。
-1. 各キャプショントラックを `.vtt` ファイルとして保存します。
+```csharp
+using System;
+using System.IO;
+using Aspose.Slides;
 
-以下のコードは、動画フレームからキャプションを抽出する方法を示しています。
+using var presentation = new Presentation("video_with_captions.pptx");
+var slide = presentation.Slides[0];
 
-```cs
-using (Presentation presentation = new Presentation("video_with_captions.pptx"))
+var trackCount = 0;
+foreach (var shape in slide.Shapes)
 {
-    ISlide slide = presentation.Slides[0];
-    foreach (IShape shape in slide.Shapes)
+    if (shape is IVideoFrame videoFrame)
     {
-        if (shape is IVideoFrame videoFrame)
+        foreach (var captionTrack in videoFrame.CaptionTracks)
         {
-            foreach (ICaptions captionTrack in videoFrame.CaptionTracks)
-            {
-                // キャプショントラックを WebVTT ファイルに保存します。
-                string filePath = $"{captionTrack.CaptionId}.vtt";
-                File.WriteAllBytes(filePath, captionTrack.BinaryData);
-            }
+            trackCount++;
+            var outputPath = $"captions_{trackCount}.vtt";
+            File.WriteAllBytes(outputPath, captionTrack.BinaryData);
         }
     }
 }
+
+Console.WriteLine($"Caption tracks extracted: {trackCount}");
 ```
 
-各 [ICaptions](https://reference.aspose.com/slides/ja/net/aspose.slides/icaptions/) オブジェクトは、キャプションの識別子、ラベル、バイナリデータ、および UTF-8 文字列としてのキャプションテキストを公開します。
+各 [ICaptions](https://reference.aspose.com/slides/net/aspose.slides/icaptions/) オブジェクトはキャプション識別子、ラベル、バイナリデータ、および UTF-8 文字列としてのキャプションテキストを公開します。
 
-**動画フレームからキャプションを削除する**
+**ビデオフレームからのキャプションの削除**
 
-動画フレームからキャプションを削除する手順:
+この例は、最初のスライドの最初のシェイプ位置にあるビデオフレームからすべてのキャプションを削除し、結果を保存します。スライドとシェイプが存在し、シェイプがビデオフレームであることを前提としています。
 
-1. 動画を含むプレゼンテーションを読み込みます。
-1. 対象の [IVideoFrame](https://reference.aspose.com/slides/ja/net/aspose.slides/ivideoframe/) オブジェクトを取得します。
-1. [CaptionTracks](https://reference.aspose.com/slides/ja/net/aspose.slides/ivideoframe/captiontracks/) コレクションからキャプショントラックを削除します。
-1. 変更したプレゼンテーションを保存します。
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-以下のコードは、動画フレームからすべてのキャプションを削除する方法を示しています。
+using var presentation = new Presentation("video_with_captions.pptx");
+var slide = presentation.Slides[0];
 
-```cs
-using (Presentation presentation = new Presentation("video_with_captions.pptx"))
+var videoFrame = (IVideoFrame) slide.Shapes[0];
+videoFrame.CaptionTracks.Clear();
+
+presentation.Save("video_without_captions.pptx", SaveFormat.Pptx);
+```
+
+1 つだけキャプショントラックを削除したい場合は、[Clear](https://reference.aspose.com/slides/net/aspose.slides/captionscollection/clear/) の代わりに [Remove](https://reference.aspose.com/slides/net/aspose.slides/captionscollection/remove/) または [RemoveAt](https://reference.aspose.com/slides/net/aspose.slides/captionscollection/removeat/) メソッドを使用してください。
+
+## **スライドからビデオを抽出する**
+
+スライドへのビデオ追加に加えて、Aspose.Slides はプレゼンテーションに埋め込まれたビデオを抽出することも可能です。
+
+この例は各スライドから埋め込みビデオを抽出し、個別の番号付きバイナリファイルに保存します。リンクされたビデオは埋め込みデータがないためスキップされます。コンソールは各ビデオの MIME タイプと総数を出力します。出力は汎用的な `.bin` 拡張子を使用します。必要に応じて、報告されたメディアタイプに合わせて変更してください。
+
+```csharp
+using System;
+using System.IO;
+using Aspose.Slides;
+
+using var presentation = new Presentation("presentation_with_videos.pptx");
+
+var videoCount = 0;
+foreach (var slide in presentation.Slides)
 {
-    ISlide slide = presentation.Slides[0];
-    IVideoFrame videoFrame = slide.Shapes[0] as IVideoFrame;
+    foreach (var shape in slide.Shapes)
+    {
+        if (shape is IVideoFrame videoFrame)
+        {
+            var video = videoFrame.EmbeddedVideo;
+            if (video == null)
+            {
+                Console.WriteLine("Skipped a linked video: no embedded data is available.");
+                continue;
+            }
 
-    // ビデオフレームからすべてのキャプションを削除します。
-    videoFrame.CaptionTracks.Clear();
-
-    presentation.Save("video_without_captions.pptx", SaveFormat.Pptx);
+            videoCount++;
+            var outputPath = $"extracted_video_{videoCount}.bin";
+            File.WriteAllBytes(outputPath, video.BinaryData);
+            Console.WriteLine($"Video {videoCount}: {video.ContentType}");
+        }
+    }
 }
-```
 
-1 つだけのキャプショントラックを削除したい場合は、[Clear](https://reference.aspose.com/slides/ja/net/aspose.slides/captionscollection/clear/) の代わりに [Remove](https://reference.aspose.com/slides/ja/net/aspose.slides/captionscollection/remove/) または [RemoveAt](https://reference.aspose.com/slides/ja/net/aspose.slides/captionscollection/removeat/) メソッドを使用してください。
-
-## **スライドから動画を抽出する**
-動画をスライドに追加するだけでなく、Aspose.Slides はプレゼンテーションに埋め込まれた動画を抽出することも可能です。
-
-1. 動画を含むプレゼンテーションを読み込むために [Presentation](https://reference.aspose.com/slides/ja/net/aspose.slides/presentation) クラスのインスタンスを作成します。
-2. すべての [ISlide](https://reference.aspose.com/slides/ja/net/aspose.slides/islide) オブジェクトを走査します。
-3. すべての [IShape](https://reference.aspose.com/slides/ja/net/aspose.slides/ishape) オブジェクトを走査し、[VideoFrame](https://reference.aspose.com/slides/ja/net/aspose.slides/videoframe) を見つけます。
-4. 動画をディスクに保存します。
-
-以下の C# コードは、プレゼンテーションのスライド上の動画を抽出する方法を示しています。
-
-```c#
- // プレゼンテーションファイルを表す Presentation オブジェクトをインスタンス化します 
- Presentation presentation = new Presentation("Video.pptx");
-
- // スライドを反復処理します
- foreach (ISlide slide in presentation.Slides)
- {
-     // シェイプを反復処理します
-     foreach (IShape shape in presentation.Slides[0].Shapes)
-     {
-         // 動画を含む VideoFrame が見つかったら、ディスクに動画を保存します
-         if (shape is VideoFrame)
-         {
-             IVideoFrame vf = shape as IVideoFrame;
-             String type = vf.EmbeddedVideo.ContentType;
-             int ss = type.LastIndexOf('/');
-             type = type.Remove(0, type.LastIndexOf('/') + 1);
-             Byte[] buffer = vf.EmbeddedVideo.BinaryData;
-             using (FileStream stream = new FileStream("NewVideo_out." + type, FileMode.Create, FileAccess.Write, FileShare.Read))
-             {                                                     
-                 stream.Write(buffer, 0, buffer.Length);
-             }
-         }
-     }
- }
+Console.WriteLine($"Embedded videos extracted: {videoCount}");
 ```
 
 ## **FAQ**
 
-**VideoFrame で変更できる動画再生パラメータは何ですか？**
+**ビデオフレームの再生パラメータで変更できるものは何ですか？**
 
-[playback mode](https://reference.aspose.com/slides/ja/net/aspose.slides/videoframe/playmode/)（自動またはクリック時）と [looping](https://reference.aspose.com/slides/ja/net/aspose.slides/videoframe/playloopmode/) を [VideoFrame](https://reference.aspose.com/slides/ja/net/aspose.slides/videoframe/) オブジェクトのプロパティで制御できます。
+再生モード（自動またはクリック）とループ設定を [playback mode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playmode/) と [looping](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playloopmode/) で制御できます。これらのオプションは [VideoFrame](https://reference.aspose.com/slides/net/aspose.slides/videoframe/) オブジェクトのプロパティで利用可能です。
 
-**動画を追加すると PPTX ファイルサイズは増加しますか？**
+**ビデオを追加すると PPTX ファイルサイズに影響がありますか？**
 
-はい。ローカル動画を埋め込むとバイナリデータがドキュメントに含まれるため、ファイルサイズに比例してプレゼンテーションのサイズが増加します。オンライン動画を追加する場合は、リンクとサムネイルが埋め込まれるだけなので、増加幅は小さくなります。
+はい。ローカルビデオを埋め込むと、バイナリデータがドキュメントに含まれるため、プレゼンテーションのサイズはファイルサイズに比例して大きくなります。オンラインビデオへのリンクとサムネイルを追加する場合、プレゼンテーションはビデオデータではなくリンクとプレビュー画像を保存するため、サイズ増加は通常小さくなります。
 
-**既存の VideoFrame の位置やサイズを変更せずに動画だけを差し替えられますか？**
+**既存のビデオフレームのビデオを位置やサイズを変更せずに置き換えることはできますか？**
 
-はい。フレーム内の [video content](https://reference.aspose.com/slides/ja/net/aspose.slides/videoframe/embeddedvideo/) を入れ替えることで、シェイプのジオメトリを保持したままメディアを更新できます。これは既存レイアウトでメディアを更新する一般的なシナリオです。
+はい。フレーム内の [video content](https://reference.aspose.com/slides/net/aspose.slides/videoframe/embeddedvideo/) を入れ替えても、シェイプの形状は保持できます。これは既存レイアウトのメディアを更新する一般的なシナリオです。
 
-**埋め込まれた動画のコンテンツタイプ（MIME）を取得できますか？**
+**埋め込みビデオのコンテンツタイプ（MIME）を判別できますか？**
 
-はい。埋め込まれた動画には [content type](https://reference.aspose.com/slides/ja/net/aspose.slides/video/contenttype/) があり、読み取ってディスクに保存する際などに利用できます。
+はい。埋め込みビデオには [content type](https://reference.aspose.com/slides/net/aspose.slides/video/contenttype/) があり、取得して使用できます。たとえばディスクに保存する際などに利用できます。

@@ -1,6 +1,6 @@
 ---
 title: C++ का उपयोग करके प्रस्तुतियों में वीडियो फ्रेम प्रबंधित करें
-linktitle: वीडियो फ्रेम
+linktitle: वीडियो फ़्रेम
 type: docs
 weight: 10
 url: /hi/cpp/video-frame/
@@ -9,7 +9,7 @@ keywords:
 - वीडियो बनाएं
 - वीडियो एम्बेड करें
 - वीडियो निकालें
-- वीडियो पुनः प्राप्त करें
+- वीडियो प्राप्त करें
 - वीडियो फ्रेम
 - वेब स्रोत
 - PowerPoint
@@ -17,112 +17,227 @@ keywords:
 - प्रस्तुति
 - C++
 - Aspose.Slides
-description: "Aspose.Slides for C++ का उपयोग करके PowerPoint और OpenDocument स्लाइड्स में प्रोग्रामेटिक रूप से वीडियो फ्रेम जोड़ने और निकालने के बारे में सीखें। त्वरित उपयोग मार्गदर्शिका।"
+description: "Aspose.Slides for C++ का उपयोग करके PowerPoint और OpenDocument स्लाइड्स में प्रोग्रामेटिक रूप से वीडियो फ्रेम जोड़ना और निकालना सीखें। तेज़ गाइड।"
 ---
 ## **परिचय**
 
-एक अच्छी तरह से स्थित वीडियो प्रस्तुति में आपके संदेश को अधिक आकर्षक बना सकता है और आपके दर्शकों की सहभागिता स्तर को बढ़ा सकता है।
+वीडियो विचारों को समझाने और दर्शकों को संलग्न करने में मदद कर सकते हैं। Aspose.Slides for C++ आपको स्लाइड्स में वीडियो फ्रेम जोड़ने, प्लेबैक सेटिंग्स को समायोजित करने, कैप्शन प्रबंधित करने, और एम्बेडेड वीडियो डेटा निकालने की अनुमति देता है।
 
-PowerPoint आपको प्रस्तुति में स्लाइड पर वीडियो जोड़ने के दो तरीके प्रदान करता है:
+PowerPoint स्थानीय वीडियो और ऑनलाइन वीडियो के लिंक, जैसे YouTube वीडियो, को समर्थित करता है।
 
-* स्थानीय वीडियो जोड़ें या एम्बेड करें (आपकी मशीन पर संग्रहीत)
-* ऑनलाइन वीडियो जोड़ें (YouTube जैसे वेब स्रोत से)
-
-आपको प्रस्तुति में वीडियो (वीडियो ऑब्जेक्ट) जोड़ने की अनुमति देने के लिए, Aspose.Slides [IVideo](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ivideo/) इंटरफ़ेस, [IVideoFrame](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ivideoframe/) इंटरफ़ेस, और अन्य प्रासंगिक प्रकार प्रदान करता है।
+वीडियो डेटा और वीडियो फ्रेम का प्रतिनिधित्व करने के लिए, Aspose.Slides [IVideo](https://reference.aspose.com/slides/cpp/aspose.slides/ivideo/) इंटरफ़ेस, [IVideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/) इंटरफ़ेस, और अन्य संबंधित प्रकार प्रदान करता है।
 
 ## **एक एम्बेडेड वीडियो फ्रेम बनाएं**
 
-यदि वह वीडियो फ़ाइल जिसे आप अपनी स्लाइड में जोड़ना चाहते हैं स्थानीय रूप से संग्रहीत है, तो आप अपनी प्रस्तुति में वीडियो एम्बेड करने के लिए एक वीडियो फ्रेम बना सकते हैं।
+यदि वह वीडियो फ़ाइल जिसे आप अपनी स्लाइड में जोड़ना चाहते हैं स्थानीय रूप से संग्रहीत है, तो आप वीडियो फ्रेम बनाकर वीडियो को प्रस्तुति में एम्बेड कर सकते हैं।
 
-1. [Presentation](https://reference.aspose.com/slides/hi/cpp/aspose.slides/presentation/) क्लास की एक instance बनाएं।
-1. स्लाइड का संदर्भ उसके इंडेक्स के माध्यम से प्राप्त करें।
-1. एक [IVideo](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ivideo/) ऑब्जेक्ट जोड़ें और वीडियो फ़ाइल पथ को पास करके प्रस्तुति के साथ वीडियो एम्बेड करें।
-1. एक [IVideoFrame](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ivideoframe/) ऑब्जेक्ट जोड़ें ताकि वीडियो के लिए एक फ्रेम बनाया जा सके।  
-1. संशोधित प्रस्तुति को सहेजें।
+यह उदाहरण मौजूदा प्रस्तुति की पहली स्लाइड पर एक स्थानीय वीडियो एम्बेड करता है और परिणाम सहेजता है। फ्रेम के निर्देशांक और आयाम पॉइंट्स में होते हैं। स्ट्रीम तब तक खुला रहता है जब तक सहेजना समाप्त नहीं हो जाता क्योंकि [LoadingStreamBehavior::KeepLocked](https://reference.aspose.com/slides/cpp/aspose.slides/loadingstreambehavior/) प्रस्तुति के उपयोग के दौरान इसे लॉक रखता है।
 
-यह C++ कोड दिखाता है कि स्थानीय रूप से संग्रहीत वीडियो को प्रस्तुति में कैसे जोड़ें:
+```cpp
+#include <system/io/file.h>
+#include <system/io/file_stream.h>
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IVideoCollection.h>
+#include <Export/SaveFormat.h>
+#include <LoadingStreamBehavior.h>
+#include <system/smart_ptr.h>
 
-```c++
-System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"pres.pptx");
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
 
-// Loads the video
-System::SharedPtr<System::IO::FileStream> fileStream = System::MakeObject<System::IO::FileStream>(u"Wildlife.mp4", System::IO::FileMode::Open, System::IO::FileAccess::Read);
-System::SharedPtr<IVideo> video = pres->get_Videos()->AddVideo(fileStream, LoadingStreamBehavior::KeepLocked);
+auto presentation = MakeObject<Presentation>(u"presentation.pptx");
+auto slide = presentation->get_Slide(0);
 
-// Gets the first slide and adds a videoframe
-pres->get_Slide(0)->get_Shapes()->AddVideoFrame(10.0f, 10.0f, 150.0f, 250.0f, video);
+auto videoStream = File::OpenRead(u"video.mp4");
+auto video = presentation->get_Videos()->AddVideo(videoStream, LoadingStreamBehavior::KeepLocked);
+slide->get_Shapes()->AddVideoFrame(10, 10, 150, 250, video);
 
-// Saves the presentation to disk
-pres->Save(u"pres-with-video.pptx", SaveFormat::Pptx);
+presentation->Save(u"embedded_video.pptx", SaveFormat::Pptx);
+
+presentation->Dispose();
+videoStream->Dispose();
 ```
 
-वैकल्पिक रूप से, आप वीडियो फ़ाइल पथ को सीधे [AddVideoFrame()](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ishapecollection/addvideoframe/) मेथड को पास करके वीडियो जोड़ सकते हैं:
+आप सीधे स्थानीय वीडियो पथ को [AddVideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addvideoframe/) में पास भी कर सकते हैं। यह उदाहरण नई प्रस्तुति की पहली स्लाइड पर वीडियो एम्बेड करता है। वीडियो को तब तक सुलभ रहना चाहिए जब तक प्रस्तुति सहेजी नहीं जाती।
 
-``` c++
-System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
 
-System::SharedPtr<ISlide> sld = pres->get_Slide(0);
-System::SharedPtr<IVideoFrame> vf = sld->get_Shapes()->AddVideoFrame(50.0f, 150.0f, 300.0f, 150.0f, u"video1.avi");
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+slide->get_Shapes()->AddVideoFrame(50, 150, 300, 150, u"video.avi");
+
+presentation->Save(u"video_from_path.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
-## **वेब स्रोत से वीडियो के साथ वीडियो फ्रेम बनाएं**
+## **वेब स्रोत से वीडियो के साथ एक वीडियो फ्रेम बनाएं**
 
-Microsoft PowerPoint के नए संस्करण ऑनलाइन वीडियो को प्रस्तुतियों में समर्थन देते हैं। यदि वह वीडियो जिसे आप उपयोग करना चाहते हैं ऑनलाइन उपलब्ध है (उदाहरण के लिए YouTube पर), तो आप उसके वेब लिंक के माध्यम से इसे अपनी प्रस्तुति में जोड़ सकते हैं।
+Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) प्रस्तुति में ऑनलाइन वीडियो को समर्थित करता है। आप एक वीडियो फ्रेम बना सकते हैं जो ऑनलाइन वीडियो, जैसे YouTube वीडियो, से लिंक करता है।
 
-1. [Presentation](https://reference.aspose.com/slides/hi/cpp/aspose.slides/presentation/) क्लास की एक instance बनाएं
-1. स्लाइड का संदर्भ उसके इंडेक्स के माध्यम से प्राप्त करें। 
-1. एक [IVideo](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ivideo/) ऑब्जेक्ट जोड़ें और वीडियो के लिंक को पास करें।
-1. वीडियो फ्रेम के लिए थंबनेल सेट करें। 
-1. प्रस्तुति को सहेजें। 
+यह उदाहरण पहली स्लाइड पर एक YouTube वीडियो लिंक और थंबनेल जोड़ता है। किसी अन्य वीडियो का उपयोग करने के लिए वीडियो पहचानकर्ता बदलें। [set_PlayMode](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/set_playmode/) विधि स्वचालित प्लेबैक का अनुरोध करती है। थंबनेल डाउनलोड करने और वीडियो चलाने के लिए इंटरनेट एक्सेस आवश्यक है। प्रस्तुति व्यूअर को भी ऑनलाइन वीडियो प्लेबैक का समर्थन करना चाहिए।
 
-यह C++ कोड दिखाता है कि वेब से वीडियो को PowerPoint प्रस्तुति की स्लाइड में कैसे जोड़ें:
+```cpp
+#include <net/web_client.h>
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IVideoFrame.h>
+#include <Export/SaveFormat.h>
+#include <DOM/VideoPlayModePreset.h>
+#include <DOM/IImageCollection.h>
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/ISlidesPicture.h>
+#include <system/smart_ptr.h>
 
-```c++
-// डॉक्यूमेंट्स डायरेक्टरी का पथ।
-const String outPath = u"../out/AddVideoFrameFromWebSource_out.pptx";
-const String filePath = u"../templates/video1.avi";
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-// एक Presentation ऑब्जेक्ट बनाता है जो प्रस्तुति फ़ाइल का प्रतिनिधित्व करता है
-SharedPtr<Presentation> pres = MakeObject<Presentation>();
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-// पहली स्लाइड तक पहुंचता है
-SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
-// एक Video Frame जोड़ता है 
-System::SharedPtr<IVideoFrame> vf = slide->get_Shapes()->AddVideoFrame(10, 10, 427, 240,u"https://www.youtube.com/embed/Tj75Arhq5ho");
+auto webClient = MakeObject<System::Net::WebClient>();
 
-// वीडियो का प्ले मोड और वॉल्यूम सेट करता है
-vf->set_PlayMode(VideoPlayModePreset::Auto);
+String videoId = u"aqz-KE-bpKQ";
+auto videoUrl = String::Format(u"https://www.youtube.com/embed/{0}", videoId);
+auto videoFrame = slide->get_Shapes()->AddVideoFrame(10, 10, 427, 240, videoUrl);
+videoFrame->set_PlayMode(VideoPlayModePreset::Auto);
 
-//प्रस्तुति को डिस्क पर सहेजता है
-pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
+auto thumbnailUrl = String::Format(u"https://img.youtube.com/vi/{0}/hqdefault.jpg", videoId);
+auto thumbnailData = webClient->DownloadData(thumbnailUrl);
+auto thumbnail = presentation->get_Images()->AddImage(thumbnailData);
+videoFrame->get_PictureFormat()->get_Picture()->set_Image(thumbnail);
+
+presentation->Save(u"online_video.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
+
+## **पूरे स्क्रीन मोड में वीडियो चलाएँ**
+
+एक प्रशिक्षण प्रस्तुति में, आप सॉफ़्टवेयर डेमॉन्स्ट्रेशन को पूरे स्क्रीन मोड में चला सकते हैं ताकि दर्शक विवरण देख सकें। [set_FullScreenMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_fullscreenmode/) प्लेबैक के दौरान इस व्यवहार को सक्षम करने के लिए `true` स्वीकार करता है।
+
+यह उदाहरण एक प्रस्तुति खोलता है, पहली स्लाइड पर पहला [IVideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/) खोजता है, और पूरे स्क्रीन प्लेबैक को सक्षम करता है। इनपुट प्रस्तुति में कम से कम एक स्लाइड होनी चाहिए जिसमें पहली स्लाइड पर मौज़ूद वीडियो फ्रेम हो।
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IVideoFrame.h>
+#include <Export/SaveFormat.h>
+#include <system/enumerator_adapter.h>
+#include <system/object_ext.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"training.pptx");
+auto slide = presentation->get_Slide(0);
+
+for (auto&& shape : IterateOver(slide->get_Shapes()))
+{
+    if (ObjectExt::Is<IVideoFrame>(shape))
+    {
+        auto videoFrame = ExplicitCast<IVideoFrame>(shape);
+        videoFrame->set_FullScreenMode(true);
+        break;
+    }
+}
+
+presentation->Save(u"full_screen_video.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+पूरा‑स्क्रीन प्लेबैक यह निर्धारित करता है कि वीडियो कैसे प्रदर्शित होता है। स्वतंत्र रूप से, [set_PlayMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playmode/) नियंत्रित करता है कि वह स्वचालित रूप से शुरू हो या क्लिक पर, और [set_PlayLoopMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playloopmode/) नियंत्रित करता है कि वह दोहराए। प्रारंभ व्यवहार चुनने के लिए, प्लेबैक मोड को [VideoPlayModePreset::Auto or VideoPlayModePreset::OnClick](https://reference.aspose.com/slides/cpp/aspose.slides/videoplaymodepreset/) पर सेट करें। उदाहरण मौजूदा प्रारंभ और लूप सेटिंग को बरकरार रखता है।
+
+## **प्लेबैक के बाद वीडियो को रीवाइंड करें**
+
+एक प्रशिक्षण प्रस्तुति में, डेमॉन्स्ट्रेशन वीडियो को उसकी शुरुआत में लौटाना प्रस्तुति देने वाले को इसे फिर से चलाने के लिए तैयार करता है। प्लेबैक समाप्त होने के बाद वीडियो को शुरुआत में लौटाने के लिए `true` के साथ [set_RewindVideo](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_rewindvideo/) को कॉल करें।
+
+यह उदाहरण एक प्रस्तुति खोलता है, पहली स्लाइड पर पहला [IVideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/) खोजता है, और रीवाइंडिंग सक्षम करता है। यह लूपिंग को निष्क्रिय करता है ताकि प्लेबैक समाप्त हो सके और क्लिक पर शुरू होने के लिए प्लेबैक सेट करता है। इनपुट प्रस्तुति में कम से कम एक स्लाइड होनी चाहिए जिसमें पहली स्लाइड पर मौज़ूद वीडियो फ्रेम हो।
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IVideoFrame.h>
+#include <Export/SaveFormat.h>
+#include <system/enumerator_adapter.h>
+#include <system/object_ext.h>
+#include <DOM/VideoPlayModePreset.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"training.pptx");
+auto slide = presentation->get_Slide(0);
+
+for (auto&& shape : IterateOver(slide->get_Shapes()))
+{
+    if (ObjectExt::Is<IVideoFrame>(shape))
+    {
+        auto videoFrame = ExplicitCast<IVideoFrame>(shape);
+        videoFrame->set_RewindVideo(true);
+        videoFrame->set_PlayLoopMode(false);
+        videoFrame->set_PlayMode(VideoPlayModePreset::OnClick);
+        break;
+    }
+}
+
+presentation->Save(u"rewind_video.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+रीवाइंडिंग वीडियो को उसकी शुरुआत में लौटाता है बिना उसे फिर से शुरू किए। इसके विपरीत, [set_PlayLoopMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playloopmode/) को सक्षम करने से प्लेबैक स्वचालित रूप से दोहराया जाता है। जब आप चाहते हैं कि वीडियो समाप्त हो और पुनः चलाने के लिए तैयार रहे, तो लूपिंग निष्क्रिय रखें। [set_PlayMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playmode/) स्वतंत्र रूप से स्वचालित या क्लिक‑पर स्टार्टअप को नियंत्रित करता है; यह उदाहरण [VideoPlayModePreset::OnClick](https://reference.aspose.com/slides/cpp/aspose.slides/videoplaymodepreset/) का उपयोग करता है ताकि प्रस्तुति देने वाला नियंत्रित कर सके कि प्लेबैक कब शुरू हो। लूप सेटिंग के बाद प्लेबैक मोड सेट करें, जैसा कि उदाहरण में दिखाया गया है। रीवाइंडिंग [set_FullScreenMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_fullscreenmode/) से स्वतंत्र रूप से काम करता है।
 
 ## **वीडियो फ्रेम को ट्रिम करें**
 
-Aspose.Slides आपको [IVideoFrame::set_TrimFromStart](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ivideoframe/set_trimfromstart/) और [IVideoFrame::set_TrimFromEnd](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ivideoframe/set_trimfromend/) के माध्यम से ट्रिम-फ़्रॉम-स्टार्ट और ट्रिम-फ़्रॉम-एंड मान सेट करके यह निर्धारित करने की अनुमति देता है कि वीडियो का कौन सा भाग चलाया जाएगा। दोनों मान मिलीसेकंड में निर्दिष्ट होते हैं और क्रमशः वीडियो की शुरुआत और अंत से स्किप किए जाने वाले समय को निर्धारित करते हैं। ये सेटिंग्स प्रस्तुति में वीडियो प्लेबैक सेटिंग्स को बदलती हैं; ये एम्बेडेड वीडियो के बाइनरी डेटा को काटती या संशोधित नहीं करतीं।
+प्लेबैक के दौरान वीडियो की शुरुआत या अंत के हिस्से को छोड़ने के लिए [IVideoFrame::set_TrimFromStart](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/set_trimfromstart/) और [IVideoFrame::set_TrimFromEnd](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/set_trimfromend/) का उपयोग करें। दोनों मूल्यों का इकाई मिलीसेकंड है। ट्रिमिंग एम्बेडेड वीडियो डेटा को बदले बिना प्लेबैक सेटिंग बदलता है।
 
-**ट्रिम सेटिंग्स सेट करें**
+**ट्रिम सेटिंग सेट करें**
 
-एक वीडियो फ्रेम बनाकर उसकी ट्रिम सेटिंग्स सेट करने के लिए:
-
-1. [Presentation](https://reference.aspose.com/slides/hi/cpp/aspose.slides/presentation/) क्लास की एक instance बनाएं।
-1. प्रस्तुति में एक [IVideo](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ivideo/) ऑब्जेक्ट जोड़ें।
-1. एक स्लाइड पर एक [IVideoFrame](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ivideoframe/) ऑब्जेक्ट जोड़ें।
-1. [IVideoFrame::set_TrimFromStart](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ivideoframe/set_trimfromstart/) और [IVideoFrame::set_TrimFromEnd](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ivideoframe/set_trimfromend/) के माध्यम से ट्रिम-फ़्रॉम-स्टार्ट और ट्रिम-फ़्रॉम-एंड मान सेट करें।
-1. संशोधित प्रस्तुति को सहेजें।
-
-निम्न कोड उदाहरण प्लेबैक के दौरान एम्बेडेड वीडियो के पहले 2.5 सेकंड और अंतिम एक सेकंड को छोड़ देता है:
+यह उदाहरण एक स्थानीय वीडियो एम्बेड करता है और प्लेबैक के दौरान पहले 2.5 सेकंड और अंतिम एक सेकंड को छोड़ता है। प्लेबैक योग्य भाग बनाए रखने के लिए वीडियो 3.5 सेकंड से लंबा होना चाहिए।
 
 ```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IVideoCollection.h>
+#include <DOM/IVideoFrame.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
+
 auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
 auto videoData = File::ReadAllBytes(u"video.mp4");
 auto video = presentation->get_Videos()->AddVideo(videoData);
 
-auto slide = presentation->get_Slide(0);
 auto videoFrame = slide->get_Shapes()->AddVideoFrame(50, 50, 640, 360, video);
-
 videoFrame->set_TrimFromStart(2500.0f);
 videoFrame->set_TrimFromEnd(1000.0f);
 
@@ -130,27 +245,33 @@ presentation->Save(u"video_with_trim.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-**ट्रिम सेटिंग्स पढ़ें**
+**ट्रिम सेटिंग पढ़ें**
 
-मौजूदा ट्रिम सेटिंग्स का निरीक्षण करने के लिए, एक प्रस्तुति लोड करें, पहली स्लाइड पर आकृतियों में से एक [IVideoFrame](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ivideoframe/) ऑब्जेक्ट खोजें, और मानों को [IVideoFrame::get_TrimFromStart](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ivideoframe/get_trimfromstart/) और [IVideoFrame::get_TrimFromEnd](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ivideoframe/get_trimfromend/) के माध्यम से पढ़ें।
-
-निम्न कोड उदाहरण पहली स्लाइड पर पहला वीडियो फ्रेम खोजता है और उसके ट्रिम सेटिंग्स को मिलीसेकंड में रिपोर्ट करता है:
+यह उदाहरण पहली स्लाइड पर पहले वीडियो फ्रेम के ट्रिम मानों को मिलीसेकंड में प्रिंट करता है। प्रस्तुति में कम से कम एक स्लाइड होनी चाहिए। यदि उस स्लाइड में कोई वीडियो फ्रेम नहीं है, तो कुछ भी प्रिंट नहीं होता। पिछले उदाहरण में मान 2500 और 1000 होते हैं।
 
 ```cpp
-auto presentation = MakeObject<Presentation>(u"video_with_trim.pptx");
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IVideoFrame.h>
+#include <system/enumerator_adapter.h>
+#include <system/object_ext.h>
+#include <system/console.h>
+#include <system/smart_ptr.h>
 
+using namespace Aspose::Slides;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"video_with_trim.pptx");
 auto slide = presentation->get_Slide(0);
-for (auto&& shape : slide->get_Shapes())
+
+for (auto&& shape : IterateOver(slide->get_Shapes()))
 {
     if (ObjectExt::Is<IVideoFrame>(shape))
     {
         auto videoFrame = ExplicitCast<IVideoFrame>(shape);
-        auto trimFromStart = videoFrame->get_TrimFromStart();
-        auto trimFromEnd = videoFrame->get_TrimFromEnd();
-
-        Console::WriteLine(u"Trim from start: {0} ms", trimFromStart);
-        Console::WriteLine(u"Trim from end: {0} ms", trimFromEnd);
-
+        Console::WriteLine(String::Format(u"Trim from start: {0} ms", videoFrame->get_TrimFromStart()));
+        Console::WriteLine(String::Format(u"Trim from end: {0} ms", videoFrame->get_TrimFromEnd()));
         break;
     }
 }
@@ -158,150 +279,187 @@ for (auto&& shape : slide->get_Shapes())
 presentation->Dispose();
 ```
 
-## **वीडियो कैप्शन प्रबंधन**
+## **वीडियो कैप्शन प्रबंधित करें**
 
-Aspose.Slides आपको PowerPoint प्रस्तुतियों में वीडियो फ्रेम के लिए क्लोज़्ड कैप्शन प्रबंधित करने की अनुमति देता है। कैप्शन WebVTT फ़ॉर्मेट में संग्रहीत होते हैं और [IVideoFrame::get_CaptionTracks](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ivideoframe/get_captiontracks/) मेथड के माध्यम से एक्सपोज़ किए जाते हैं।
+Aspose.Slides आपको PowerPoint प्रस्तुतियों में वीडियो फ्रेम के लिए क्लोज्ड कैप्शन प्रबंधित करने की अनुमति देता है। कैप्शन WebVTT फ़ॉर्मेट में संग्रहीत होते हैं और [IVideoFrame::get_CaptionTracks](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/get_captiontracks/) विधि के माध्यम से उजागर होते हैं।
 
 **वीडियो फ्रेम में कैप्शन जोड़ें**
 
-कैप्शन जोड़ने के लिए:
-
-1. [Presentation](https://reference.aspose.com/slides/hi/cpp/aspose.slides/presentation/) क्लास की एक instance बनाएं।
-1. प्रस्तुति में एक वीडियो जोड़ें।
-1. एक स्लाइड पर एक [IVideoFrame](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ivideoframe/) ऑब्जेक्ट जोड़ें।
-1. [get_CaptionTracks](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ivideoframe/get_captiontracks/) द्वारा लौटाए गए [ICaptionsCollection](https://reference.aspose.com/slides/hi/cpp/aspose.slides/icaptionscollection/) का उपयोग करके एक WebVTT कैप्शन ट्रैक जोड़ें।
-1. संशोधित प्रस्तुति को सहेजें।
-
-निम्न कोड दिखाता है कि वीडियो फ्रेम में कैप्शन कैसे जोड़ें:
+यह उदाहरण एक स्थानीय वीडियो एम्बेड करता है और "English" लेबल वाला WebVTT कैप्शन ट्रैक जोड़ता है। कैप्शन टाइमस्टैम्प वीडियो के साथ मेल खाने चाहिए। सहेजी गई प्रस्तुति में दोनों वीडियो और उसके कैप्शन शामिल होते हैं।
 
 ```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IVideoCollection.h>
+#include <DOM/IVideoFrame.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file.h>
+#include <DOM/ICaptionsCollection.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
+
 auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
 auto videoData = File::ReadAllBytes(u"video.mp4");
 auto video = presentation->get_Videos()->AddVideo(videoData);
 
-auto slide = presentation->get_Slide(0);
 auto videoFrame = slide->get_Shapes()->AddVideoFrame(0, 0, 100, 100, video);
-
-// WebVTT फ़ाइल से एक नया कैप्शन ट्रैक जोड़ता है।
 videoFrame->get_CaptionTracks()->Add(u"English", u"track.vtt");
 
 presentation->Save(u"video_with_captions.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-[ICaptionsCollection](https://reference.aspose.com/slides/hi/cpp/aspose.slides/icaptionscollection/) इंटरफ़ेस एक ओवरलोड भी प्रदान करता है जिससे आप स्ट्रिम से कैप्शन जोड़ सकते हैं।
+[ICaptionsCollection](https://reference.aspose.com/slides/cpp/aspose.slides/icaptionscollection/) इंटरफ़ेस एक अतिरिक्त ओवरलोड भी प्रदान करता है जो आपको स्ट्रीम से कैप्शन जोड़ने देता है।
 
 **वीडियो फ्रेम से कैप्शन निकालें**
 
-कैप्शन निकालने के लिए:
-
-1. उस प्रस्तुति को लोड करें जिसमें वीडियो है।
-1. लक्षित [IVideoFrame](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ivideoframe/) ऑब्जेक्ट खोजें।
-1. [get_CaptionTracks](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ivideoframe/get_captiontracks/) द्वारा लौटाए गए कैप्शन ट्रैकों पर इटरेट करें।
-1. प्रत्येक कैप्शन ट्रैक को `.vtt` फ़ाइल में सहेजें।
-
-निम्न कोड दिखाता है कि वीडियो फ्रेम से कैप्शन कैसे निकालें:
+यह उदाहरण पहली स्लाइड पर वीडियो फ्रेमों से सभी कैप्शन ट्रैक को अलग-अलग WebVTT फ़ाइलों के रूप में सहेजता है। क्रमिक संख्याएँ आउटपुट फ़ाइलों को अलग रखती हैं। कंसोल निकाले गए ट्रैक की संख्या रिपोर्ट करता है। प्रस्तुति में कम से कम एक स्लाइड होनी चाहिए।
 
 ```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IVideoFrame.h>
+#include <system/io/file.h>
+#include <system/enumerator_adapter.h>
+#include <system/object_ext.h>
+#include <system/console.h>
+#include <DOM/ICaptionsCollection.h>
+#include <DOM/ICaptions.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::IO;
+
 auto presentation = MakeObject<Presentation>(u"video_with_captions.pptx");
 auto slide = presentation->get_Slide(0);
 
-for (auto&& shape : slide->get_Shapes())
+auto trackCount = 0;
+for (auto&& shape : IterateOver(slide->get_Shapes()))
 {
     if (ObjectExt::Is<IVideoFrame>(shape))
     {
         auto videoFrame = ExplicitCast<IVideoFrame>(shape);
-        for (auto&& captionTrack : videoFrame->get_CaptionTracks())
+        for (auto&& captionTrack : IterateOver(videoFrame->get_CaptionTracks()))
         {
-            // कैप्शन ट्रैक को WebVTT फ़ाइल में सहेजता है।
-            auto filePath = captionTrack->get_CaptionId().ToString() + u".vtt";
-            File::WriteAllBytes(filePath, captionTrack->get_BinaryData());
+            trackCount++;
+            auto outputPath = String::Format(u"captions_{0}.vtt", trackCount);
+            File::WriteAllBytes(outputPath, captionTrack->get_BinaryData());
         }
     }
 }
 
+Console::WriteLine(String::Format(u"Caption tracks extracted: {0}", trackCount));
+
 presentation->Dispose();
 ```
 
-प्रत्येक [ICaptions](https://reference.aspose.com/slides/hi/cpp/aspose.slides/icaptions/) ऑब्जेक्ट कैप्शन पहचानकर्ता, लेबल, बाइनरी डेटा, और कैप्शन डेटा को UTF-8 स्ट्रिंग के रूप में एक्सपोज़ करता है।
+प्रत्येक [ICaptions](https://reference.aspose.com/slides/cpp/aspose.slides/icaptions/) ऑब्जेक्ट कैप्शन पहचानकर्ता, लेबल, बाइनरी डेटा, और UTF‑8 स्ट्रिंग के रूप में कैप्शन टेक्स्ट उजागर करता है।
 
 **वीडियो फ्रेम से कैप्शन हटाएँ**
 
-कैप्शन हटाने के लिए:
-
-1. उस प्रस्तुति को लोड करें जिसमें वीडियो है।
-1. लक्षित [IVideoFrame](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ivideoframe/) ऑब्जेक्ट प्राप्त करें।
-1. [get_CaptionTracks](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ivideoframe/get_captiontracks/) द्वारा लौटाए गए संग्रह से कैप्शन ट्रैक हटाएँ।
-1. संशोधित प्रस्तुति को सहेजें।
-
-निम्न कोड दिखाता है कि वीडियो फ्रेम से सभी कैप्शन कैसे हटाएँ:
+यह उदाहरण पहली स्लाइड पर पहले शपे स्थिति में वीडियो फ्रेम से सभी कैप्शन हटाता है और परिणाम सहेजता है। यह मानता है कि स्लाइड और शपे मौजूद हैं और शपे एक वीडियो फ्रेम है।
 
 ```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IVideoFrame.h>
+#include <Export/SaveFormat.h>
+#include <DOM/ICaptionsCollection.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 auto presentation = MakeObject<Presentation>(u"video_with_captions.pptx");
 auto slide = presentation->get_Slide(0);
-auto videoFrame = ExplicitCast<IVideoFrame>(slide->get_Shape(0));
 
-// वीडियो फ्रेम से सभी कैप्शन हटाता है।
+auto videoFrame = ExplicitCast<IVideoFrame>(slide->get_Shape(0));
 videoFrame->get_CaptionTracks()->Clear();
 
 presentation->Save(u"video_without_captions.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-यदि आपको केवल एक कैप्शन ट्रैक हटाना है, तो [Clear](https://reference.aspose.com/slides/hi/cpp/aspose.slides/icaptionscollection/clear/) के बजाय [Remove](https://reference.aspose.com/slides/hi/cpp/aspose.slides/icaptionscollection/remove/) या [RemoveAt](https://reference.aspose.com/slides/hi/cpp/aspose.slides/icaptionscollection/removeat/) मेथड का प्रयोग करें।
+यदि आपको केवल एक कैप्शन ट्रैक हटाना है, तो [Clear](https://reference.aspose.com/slides/cpp/aspose.slides/captionscollection/clear/) के बजाय [Remove](https://reference.aspose.com/slides/cpp/aspose.slides/captionscollection/remove/) या [RemoveAt](https://reference.aspose.com/slides/cpp/aspose.slides/captionscollection/removeat/) विधियों का उपयोग करें।
 
 ## **स्लाइड से वीडियो निकालें**
 
-वीडियो को स्लाइड में जोड़ने के अलावा, Aspose.Slides आपको प्रस्तुतियों में एम्बेडेड वीडियो को निकालने की भी अनुमति देता है।
+स्लाइड में वीडियो जोड़ने के अलावा, Aspose.Slides आपको प्रस्तुतियों में एम्बेडेड वीडियो को निकालने की सुविधा देता है।
 
-1. वीडियो वाली प्रस्तुति को लोड करने के लिए [Presentation](https://reference.aspose.com/slides/hi/cpp/aspose.slides/presentation/) क्लास की एक instance बनाएं। 
-2. सभी [ISlide](https://reference.aspose.com/slides/hi/cpp/aspose.slides/islide/) ऑब्जेक्ट्स पर इटरेट करें।
-3. सभी [IShape](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ishape/) ऑब्जेक्ट्स पर इटरेट करें ताकि एक [VideoFrame](https://reference.aspose.com/slides/hi/cpp/aspose.slides/videoframe/) मिले। 
-4. वीडियो को डिस्क पर सहेजें।
+यह उदाहरण प्रत्येक स्लाइड से एम्बेडेड वीडियो को अलग‑अलग क्रमबद्ध बाइनरी फ़ाइलों में निकालता है। लिंक्ड वीडियो को छोड़ दिया जाता है क्योंकि उनके पास एम्बेडेड डेटा नहीं होता। कंसोल प्रत्येक वीडियो का MIME प्रकार और कुल संख्या प्रिंट करता है। आउटपुट सामान्य `.bin` एक्सटेंशन का उपयोग करता है; आवश्यकता अनुसार रिपोर्ट किए गए मीडिया प्रकार के साथ मिलाने के लिए इसे बदलें।
 
-यह C++ कोड दिखाता है कि प्रस्तुति स्लाइड से वीडियो कैसे निकालें:
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IVideoFrame.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/IVideo.h>
+#include <system/io/file.h>
+#include <system/enumerator_adapter.h>
+#include <system/object_ext.h>
+#include <system/console.h>
+#include <system/smart_ptr.h>
 
-```c++
-// डॉक्यूमेंट्स डायरेक्टरी का पथ।
-const System::String templatePath = u"../templates/Video.pptx";
-const System::String outPath = u"../out/Video_out";
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::IO;
 
-auto presentation = System::MakeObject<Presentation>(templatePath);
-for (auto&& slide : presentation->get_Slides())
+auto presentation = MakeObject<Presentation>(u"presentation_with_videos.pptx");
+
+auto videoCount = 0;
+for (auto&& slide : IterateOver(presentation->get_Slides()))
 {
-    for (auto&& shape : slide->get_Shapes())
+    for (auto&& shape : IterateOver(slide->get_Shapes()))
     {
-        if (System::ObjectExt::Is<VideoFrame>(shape))
+        if (ObjectExt::Is<IVideoFrame>(shape))
         {
-            System::SharedPtr<VideoFrame> vf = System::AsCast<VideoFrame>(shape);
-            System::String type = vf->get_EmbeddedVideo()->get_ContentType();
-            type = type.Remove(0, type.LastIndexOf('/') + 1);
-            auto buffer = vf->get_EmbeddedVideo()->get_BinaryData();
+            auto videoFrame = ExplicitCast<IVideoFrame>(shape);
+            auto video = videoFrame->get_EmbeddedVideo();
+            if (video == nullptr)
+            {
+                Console::WriteLine(u"Skipped a linked video: no embedded data is available.");
+                continue;
+            }
 
-            auto stream = System::MakeObject<System::IO::FileStream>(
-                outPath + type, System::IO::FileMode::Create, System::IO::FileAccess::Write,
-                System::IO::FileShare::Read);
-            stream->Write(buffer, 0, buffer->get_Length());
+            videoCount++;
+            auto outputPath = String::Format(u"extracted_video_{0}.bin", videoCount);
+            File::WriteAllBytes(outputPath, video->get_BinaryData());
+            Console::WriteLine(String::Format(u"Video {0}: {1}", videoCount, video->get_ContentType()));
         }
     }
 }
+
+Console::WriteLine(String::Format(u"Embedded videos extracted: {0}", videoCount));
+
+presentation->Dispose();
 ```
 
 ## **अक्सर पूछे जाने वाले प्रश्न**
 
-**एक VideoFrame के लिए कौन-से वीडियो प्लेबैक पैरामीटर बदल सकते हैं?**
+**एक वीडियो फ्रेम के लिए कौन‑से वीडियो प्लेबैक पैरामीटर बदले जा सकते हैं?**
 
-आप प्लेबैक मोड (ऑटो या क्लिक पर) और लूपिंग को नियंत्रित कर सकते हैं। ये विकल्प [VideoFrame](https://reference.aspose.com/slides/hi/cpp/aspose.slides/videoframe/) ऑब्जेक्ट की प्रॉपर्टीज़ के माध्यम से उपलब्ध हैं।
+आप [playback mode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playmode/) (ऑटो या क्लिक पर) और [looping](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playloopmode/) नियंत्रित कर सकते हैं। ये विकल्प [VideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/) ऑब्जेक्ट की विधियों के माध्यम से उपलब्ध हैं।
 
-**क्या वीडियो जोड़ने से PPTX फ़ाइल आकार प्रभावित होता है?**
+**क्या वीडियो जोड़ने से PPTX फ़ाइल का आकार बढ़ता है?**
 
-हाँ। जब आप स्थानीय वीडियो एम्बेड करते हैं, तो बाइनरी डेटा दस्तावेज़ में शामिल हो जाता है, इसलिए प्रस्तुति का आकार फ़ाइल आकार के अनुपात में बढ़ता है। जब आप ऑनलाइन वीडियो जोड़ते हैं, तो एक लिंक और थंबनेल एम्बेड होते हैं, इसलिए आकार वृद्धि कम होती है।
+हां। जब आप स्थानीय वीडियो एम्बेड करते हैं, तो बाइनरी डेटा दस्तावेज़ में शामिल हो जाता है, इसलिए प्रस्तुति का आकार फ़ाइल आकार के अनुपात में बढ़ता है। जब आप ऑनलाइन वीडियो को लिंक करते हैं और थंबनेल जोड़ते हैं, तो प्रस्तुति लिंक और प्रीव्यू इमेज को संग्रहीत करती है, न कि वीडियो डेटा, इसलिए आकार वृद्धि आमतौर पर कम होती है।
 
-**क्या मैं मौजूदा VideoFrame में वीडियो को उसकी स्थिति और आकार बदले बिना बदल सकता हूँ?**
+**क्या मैं मौज़ूद वीडियो फ्रेम में वीडियो को उसकी स्थिति और आकार बदले बिना बदल सकता हूँ?**
 
-हाँ। आप फ्रेम के भीतर [video content](https://reference.aspose.com/slides/hi/cpp/aspose.slides/videoframe/set_embeddedvideo/) को बदल सकते हैं जबकि शैल की ज्यामिति को बरकरार रख सकते हैं; यह मौजूदा लेआउट में मीडिया अपडेट करने के लिए सामान्य परिदृश्य है।
+हां। आप फ्रेम के भीतर [video content](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_embeddedvideo/) को बदल सकते हैं जबकि शपे की ज्यामिति बरकरार रहती है; यह मौज़ूद लेआउट में मीडिया अपडेट करने का आम परिदृश्य है।
 
-**क्या एम्बेडेड वीडियो के कंटेंट टाइप (MIME) को निर्धारित किया जा सकता है?**
+**क्या एम्बेडेड वीडियो का कंटेंट टाइप (MIME) निर्धारित किया जा सकता है?**
 
-हाँ। एम्बेडेड वीडियो का एक [content type](https://reference.aspose.com/slides/hi/cpp/aspose.slides/video/get_contenttype/) होता है जिसे आप पढ़ और उपयोग कर सकते हैं, उदाहरण के लिए जब आप इसे डिस्क पर सहेजते हैं।
+हां। एम्बेडेड वीडियो का एक [content type](https://reference.aspose.com/slides/cpp/aspose.slides/video/get_contenttype/) होता है जिसे आप पढ़ और उपयोग कर सकते हैं, उदाहरण के लिये जब आप इसे डिस्क पर सहेजते हैं।

@@ -1,6 +1,6 @@
 ---
-title: प्रेज़ेंटेशन में जावास्क्रिप्ट का उपयोग करके वीडियो फ्रेम प्रबंधित करें
-linktitle: वीडियो फ्रेम
+title: Node.js का उपयोग करके प्रस्तुतियों में वीडियो फ़्रेम प्रबंधित करें
+linktitle: वीडियो फ़्रेम
 type: docs
 weight: 10
 url: /hi/nodejs-java/video-frame/
@@ -9,155 +9,45 @@ keywords:
 - वीडियो बनाएं
 - वीडियो एम्बेड करें
 - वीडियो निकालें
-- वीडियो पुनः प्राप्त करें
-- वीडियो फ्रेम
+- वीडियो प्राप्त करें
+- वीडियो फ़्रेम
 - वेब स्रोत
 - PowerPoint
 - OpenDocument
-- प्रेज़ेंटेशन
+- प्रस्तुति
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Aspose.Slides for Node.js का उपयोग करके जावा के माध्यम से PowerPoint और OpenDocument स्लाइड्स में प्रोग्रामेटिक रूप से वीडियो फ्रेम जोड़ना और निकालना सीखें। तेज़ कैसे‑करें मार्गदर्शिका।"
+description: "Aspose.Slides for Node.js via Java का उपयोग करके PowerPoint और OpenDocument स्लाइड्स में प्रोग्रामेटिक रूप से वीडियो फ़्रेम जोड़ने और निकालने के बारे में जानें। तेज़ मार्गदर्शिका।"
 ---
 ## **परिचय**
 
-प्रस्तुति में एक उचित रूप से रखा गया वीडियो आपके संदेश को अधिक आकर्षक बना सकता है और दर्शकों के साथ जुड़ाव स्तर को बढ़ा सकता है।
+वीडियो विचारों को समझाने और दर्शकों को जोड़ने में मदद कर सकते हैं। Aspose.Slides for Node.js via Java आपको स्लाइड्स में वीडियो फ़्रेम जोड़ने, प्लेबैक सेटिंग्स समायोजित करने, कैप्शन प्रबंधित करने और एम्बेडेड वीडियो डेटा निकालने की सुविधा देता है।
 
-PowerPoint आपको प्रस्तुति में स्लाइड पर वीडियो दो तरीकों से जोड़ने की अनुमति देता है:
-* स्थानीय वीडियो जोड़ें या एम्बेड करें (आपके मशीन पर संग्रहीत)
-* ऑनलाइन वीडियो जोड़ें (YouTube जैसे वेब स्रोत से)।
+PowerPoint स्थानीय वीडियो और ऑनलाइन वीडियो, जैसे YouTube वीडियो, के लिंक को सपोर्ट करता है।
 
-प्रस्तुति में वीडियो (video objects) जोड़ने के लिए, Aspose.Slides नीचे दिए गए [Video](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/video/) क्लास, [VideoFrame](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/videoframe/) क्लास और अन्य संबंधित प्रकार प्रदान करता है।
+To represent video data and video frames, Aspose.Slides provides the [Video](https://reference.aspose.com/slides/nodejs-java/aspose.slides/video/) class, [VideoFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/) class, and other relevant types.
 
-## **एम्बेडेड वीडियो फ्रेम बनाएँ**
+## **एक एम्बेडेड वीडियो फ़्रेम बनाएं**
 
-यदि आप जिस वीडियो फ़ाइल को अपनी स्लाइड में जोड़ना चाहते हैं वह स्थानीय रूप से संग्रहीत है, तो आप अपनी प्रस्तुति में वीडियो को एम्बेड करने के लिए एक वीडियो फ्रेम बना सकते हैं।
+यदि वह वीडियो फ़ाइल जिसे आप अपनी स्लाइड में जोड़ना चाहते हैं स्थानीय रूप से संग्रहीत है, तो आप एक वीडियो फ़्रेम बना सकते हैं ताकि वीडियो को अपनी प्रस्तुति में एम्बेड किया जा सके।
 
-1. एक [Presentation ](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/Presentation) क्लास का इंस्टैंस बनाएं।
-1. इंडेक्स के माध्यम से स्लाइड का संदर्भ प्राप्त करें।
-1. एक [Video](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/video/) ऑब्जेक्ट जोड़ें और वीडियो फ़ाइल पथ पास करके वीडियो को प्रस्तुति में एम्बेड करें।
-1. एक [VideoFrame](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/videoframe/) ऑब्जेक्ट जोड़ें ताकि वीडियो के लिए फ्रेम बनाया जा सके।
-1. संशोधित प्रस्तुति को सहेजें।
+यह उदाहरण मौजूदा प्रस्तुति की पहली स्लाइड पर एक स्थानीय वीडियो एम्बेड करता है और परिणाम को सहेजता है। फ़्रेम के निर्देशांक और आयाम पॉइंट्स में होते हैं। स्ट्रीम सहेजे जाने तक खुला रहता है क्योंकि [LoadingStreamBehavior.KeepLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/loadingstreambehavior/) इसे लॉक रखता है जब तक प्रस्तुति इसे उपयोग करती है।
 
 ```javascript
-// Presentation क्लास का इंस्टैंस बनाता है
-var pres = new aspose.slides.Presentation("pres.pptx");
-try {
-    // वीडियो लोड करता है
-    var fileStream = java.newInstanceSync("java.io.FileInputStream", "Wildlife.mp4");
-    var video = pres.getVideos().addVideo(fileStream, aspose.slides.LoadingStreamBehavior.KeepLocked);
-    // पहली स्लाइड प्राप्त करता है और एक वीडियोफ़्रेम जोड़ता है
-    pres.getSlides().get_Item(0).getShapes().addVideoFrame(10, 10, 150, 250, video);
-    // प्रेज़ेंटेशन को डिस्क पर सहेजता है
-    pres.save("pres-with-video.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
 
-वैकल्पिक रूप से, आप वीडियो को उसका फ़ाइल पथ सीधे [addVideoFrame(float x, float y, float width, float height, IVideo video)](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/shapecollection/#addVideoFrame-float-float-float-float-aspose.slides.IVideo-) मेथड में पास करके जोड़ सकते हैं:
-
-```javascript
-var pres = new aspose.slides.Presentation();
-try {
-    var sld = pres.getSlides().get_Item(0);
-    var vf = sld.getShapes().addVideoFrame(50, 150, 300, 150, "video1.avi");
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-
-## **वेब स्रोत से वीडियो के साथ वीडियो फ्रेम बनाएँ**
-
-Microsoft [PowerPoint 2013 and newer](https://support.microsoft.com/en-us/office/versions-of-powerpoint-that-support-online-videos-2a0e184d-af50-4da9-b530-e4355ac436a9?ui=en-us&rs=en-us&ad=us) YouTube वीडियो को प्रस्तुतियों में समर्थन देता है। यदि आप उपयोग करने वाला वीडियो ऑनलाइन (उदाहरण के लिए YouTube) उपलब्ध है, तो आप इसे अपने प्रस्तुति में उसके वेब लिंक के माध्यम से जोड़ सकते हैं।
-
-1. एक [Presentation ](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/Presentation) क्लास का इंस्टैंस बनाएं
-1. इंडेक्स के माध्यम से स्लाइड का संदर्भ प्राप्त करें।
-1. एक [Video](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/video/) ऑब्जेक्ट जोड़ें और वीडियो के लिंक को पास करें।
-1. वीडियो फ्रेम के लिए थंबनेल सेट करें।
-1. प्रस्तुति को सहेजें।
-
-```javascript
-// एक प्रस्तुति फ़ाइल का प्रतिनिधित्व करने वाला Presentation ऑब्जेक्ट बनाता है
-var pres = new aspose.slides.Presentation();
-try {
-    addVideoFromYouTube(pres, "Tj75Arhq5ho");
-    pres.save("out.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-
-```javascript
-async function addVideoFromYouTube(pres, videoID) {
-    let slide = pres.getSlides().get_Item(0);
-    let videoUrl = "https://www.youtube.com/embed/" + videoID;
-    let videoFrame = slide.getShapes().addVideoFrame(10, 10, 427, 240, videoUrl);
-    
-    videoFrame.setPlayMode(aspose.slides.VideoPlayModePreset.Auto);
-
-    let thumbnailUri = "http://img.youtube.com/vi/" + videoID + "/hqdefault.jpg";
-
-    try {
-        const imageStream = await getImageStream(thumbnailUri);
-        let image = pres.getImages().addImage(imageStream);
-        videoFrame.getPictureFormat().getPicture().setImage(image);
-    } catch (error) {
-        console.error("Error loading thumbnail:", error);
-    }
-}
-
-async function getImageStream(url) {
-    return new Promise((resolve, reject) => {
-        http.get(url, (response) => {
-            if (response.statusCode === 200) {
-                resolve(response);
-            } else {
-                reject(new Error(`Failed to load image: ${response.statusCode}`));
-            }
-        }).on('error', (e) => {
-            reject(e);
-        });
-    });
-}
-```
-
-## **वीडियो फ्रेम को ट्रिम करना**
-
-Aspose.Slides आपको [VideoFrame.setTrimFromStart](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/videoframe/settrimfromstart/) और [VideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/videoframe/settrimfromend/) के माध्यम से trim-from-start और trim-from-end मान सेट करके यह नियंत्रित करने की अनुमति देता है कि वीडियो का कौन सा भाग चलाया जाए। दोनों मान मिलिसेकंड में निर्दिष्ट किए जाते हैं और क्रमशः वीडियो की शुरुआत और अंत से कितना समय छोड़ना है, यह परिभाषित करते हैं। ये सेटिंग्स प्रस्तुति में वीडियो प्लेबैक सेटिंग्स को बदलती हैं; यह एम्बेडेड वीडियो बायनरी डेटा को काटती या संशोधित नहीं करतीं।
-
-**ट्रिम सेटिंग्स निर्धारित करें**
-
-एक वीडियो फ्रेम बनाकर उसकी ट्रिम सेटिंग्स निर्धारित करने के लिए:
-
-1. एक [Presentation](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/presentation/) क्लास का इंस्टैंस बनाएं।
-1. प्रस्तुति में एक [Video](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/video/) ऑब्जेक्ट जोड़ें।
-1. स्लाइड में एक [VideoFrame](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/videoframe/) ऑब्जेक्ट जोड़ें।
-1. [VideoFrame.setTrimFromStart](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/videoframe/settrimfromstart/) और [VideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/videoframe/settrimfromend/) के माध्यम से trim-from-start और trim-from-end मान सेट करें।
-1. संशोधित प्रस्तुति को सहेजें।
-
-```javascript
-const presentation = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
     const videoStream = java.newInstanceSync("java.io.FileInputStream", "video.mp4");
     try {
-        const video = presentation.getVideos().addVideo(
-            videoStream, aspose.slides.LoadingStreamBehavior.ReadStreamAndRelease);
         const slide = presentation.getSlides().get_Item(0);
-        const videoFrame = slide.getShapes().addVideoFrame(50, 50, 640, 360, video);
 
-        videoFrame.setTrimFromStart(2500);
-        videoFrame.setTrimFromEnd(1000);
+        const video = presentation.getVideos().addVideo(videoStream, aspose.slides.LoadingStreamBehavior.KeepLocked);
+        slide.getShapes().addVideoFrame(10, 10, 150, 250, video);
 
-        presentation.save("video_with_trim.pptx", aspose.slides.SaveFormat.Pptx);
+        presentation.save("embedded_video.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         videoStream.close();
     }
@@ -166,24 +56,171 @@ try {
 }
 ```
 
-**ट्रिम सेटिंग्स पढ़ें**
-
-मौजूदा ट्रिम सेटिंग्स को जांचने के लिए, प्रस्तुति लोड करें, पहले स्लाइड पर मौजूद शैप्स में से एक [VideoFrame](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/videoframe/) ऑब्जेक्ट खोजें, और [VideoFrame.getTrimFromStart](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/videoframe/gettrimfromstart/) तथा [VideoFrame.getTrimFromEnd](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/videoframe/gettrimfromend/) के माध्यम से मान पढ़ें।
+आप स्थानीय वीडियो पाथ को सीधे [addVideoFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/addvideoframe/) में पास भी कर सकते हैं। यह उदाहरण नई प्रस्तुति की पहली स्लाइड पर वीडियो एम्बेड करता है। वीडियो को तब तक सुलभ रहना चाहिए जब तक प्रस्तुति सहेजी नहीं जाती।
 
 ```javascript
-const presentation = new aspose.slides.Presentation("video_with_trim.pptx");
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation();
 try {
     const slide = presentation.getSlides().get_Item(0);
-    const shapeCount = slide.getShapes().size();
-    for (let shapeIndex = 0; shapeIndex < shapeCount; shapeIndex++) {
+
+    slide.getShapes().addVideoFrame(50, 150, 300, 150, "video.avi");
+
+    presentation.save("video_from_path.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **वेब स्रोत से वीडियो के साथ एक वीडियो फ़्रेम बनाएं**
+
+Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) प्रस्तुति में ऑनलाइन वीडियो को सपोर्ट करता है। आप एक वीडियो फ़्रेम बना सकते हैं जो ऑनलाइन वीडियो, जैसे YouTube वीडियो, से जुड़ा हो।
+
+यह उदाहरण पहली स्लाइड में एक YouTube वीडियो लिंक और थंबनेल जोड़ता है। अन्य वीडियो उपयोग करने के लिए वीडियो पहचानकर्ता बदलें। [setPlayMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setplaymode/) मेथड स्वचालित प्लेबैक के लिए अनुरोध करता है। थंबनेल डाउनलोड करने और वीडियो चलाने के लिए इंटरनेट एक्सेस आवश्यक है। प्रस्तुति दर्शक को भी ऑनलाइन वीडियो प्लेबैक को सपोर्ट करना चाहिए।
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const videoId = "aqz-KE-bpKQ";
+    const videoUrl = "https://www.youtube.com/embed/" + videoId;
+    const videoFrame = slide.getShapes().addVideoFrame(10, 10, 427, 240, videoUrl);
+    videoFrame.setPlayMode(aspose.slides.VideoPlayModePreset.Auto);
+
+    const thumbnailUrl = "https://img.youtube.com/vi/" + videoId + "/hqdefault.jpg";
+    const thumbnailLocation = java.newInstanceSync("java.net.URL", thumbnailUrl);
+    const thumbnailStream = thumbnailLocation.openStream();
+    try {
+        const thumbnail = presentation.getImages().addImage(thumbnailStream);
+        videoFrame.getPictureFormat().getPicture().setImage(thumbnail);
+    } finally {
+        thumbnailStream.close();
+    }
+
+    presentation.save("online_video.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **पूरा स्क्रीन मोड में वीडियो चलाएं**
+
+एक प्रशिक्षण प्रस्तुति में, आप सॉफ़्टवेयर डेमोंस्ट्रेशन को पूरा स्क्रीन मोड में चला सकते हैं ताकि दर्शकों को विवरण दिखे। प्लेबैक के दौरान इस व्यवहार को सक्षम करने के लिए [setFullScreenMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setfullscreenmode/) को `true` के साथ कॉल करें।
+
+यह उदाहरण एक प्रस्तुति खोलता है, पहली स्लाइड पर पहला [VideoFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/) खोजता है, और पूरा स्क्रीन प्लेबैक सक्षम करता है। इनपुट प्रस्तुति में कम से कम एक स्लाइड में पहली स्लाइड पर मौजूदा वीडियो फ़्रेम होना चाहिए।
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation("training.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    for (let shapeIndex = 0; shapeIndex < slide.getShapes().size(); shapeIndex++) {
         const shape = slide.getShapes().get_Item(shapeIndex);
         if (java.instanceOf(shape, "com.aspose.slides.VideoFrame")) {
             const videoFrame = shape;
-            const trimFromStart = videoFrame.getTrimFromStart();
-            const trimFromEnd = videoFrame.getTrimFromEnd();
+            videoFrame.setFullScreenMode(true);
+            break;
+        }
+    }
 
-            console.log("Trim from start: " + trimFromStart + " ms");
-            console.log("Trim from end: " + trimFromEnd + " ms");
+    presentation.save("full_screen_video.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+पूरा स्क्रीन प्लेबैक यह नियंत्रित करता है कि वीडियो कैसे प्रदर्शित हो। स्वतंत्र रूप से, [setPlayMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setplaymode/) यह निर्धारित करता है कि यह स्वतः शुरू हो या क्लिक पर, और [setPlayLoopMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setplayloopmode/) यह निर्धारित करता है कि यह दोहराए। शुरूआत व्यवहार चुनने के लिए, प्लेबैक मोड को [VideoPlayModePreset.Auto or VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoplaymodepreset/) पर सेट करें। उदाहरण मौजूदा शुरू और लूप सेटिंग्स को बरकरार रखता है।
+
+## **प्लेबैक के बाद वीडियो को रीवाइंड करें**
+
+एक प्रशिक्षण प्रस्तुति में, डेमोंस्ट्रेशन वीडियो को उसकी शुरुआत में लौटाना इसे प्रस्तुतकर्ता द्वारा फिर से चलाने के लिए तैयार करता है। प्लेबैक समाप्त होने के बाद वीडियो को शुरुआत में लौटाने के लिए [setRewindVideo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setrewindvideo/) को `true` के साथ कॉल करें।
+
+यह उदाहरण एक प्रस्तुति खोलता है, पहली स्लाइड पर पहला [VideoFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/) खोजता है, और रीवाइंडिंग सक्षम करता है। यह लूपिंग को निष्क्रिय करता है ताकि प्लेबैक समाप्त हो सके और प्लेबैक को क्लिक पर शुरू करने के लिए सेट करता है। इनपुट प्रस्तुति में कम से कम एक स्लाइड में पहली स्लाइड पर मौजूदा वीडियो फ़्रेम होना चाहिए।
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation("training.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    for (let shapeIndex = 0; shapeIndex < slide.getShapes().size(); shapeIndex++) {
+        const shape = slide.getShapes().get_Item(shapeIndex);
+        if (java.instanceOf(shape, "com.aspose.slides.VideoFrame")) {
+            const videoFrame = shape;
+            videoFrame.setRewindVideo(true);
+            videoFrame.setPlayLoopMode(false);
+            videoFrame.setPlayMode(aspose.slides.VideoPlayModePreset.OnClick);
+            break;
+        }
+    }
+
+    presentation.save("rewind_video.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+रीवाइंडिंग वीडियो को उसकी शुरुआत में ले जाता है बिना उसे फिर से शुरू किए। इसके विपरीत, [setPlayLoopMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setplayloopmode/) को `true` के साथ कॉल करने से प्लेबैक स्वचालित रूप से दोहराता है। जब आप चाहते हैं कि वीडियो समाप्त हो और पुनः प्ले करने के लिए तैयार रहे, तो लूपिंग को निष्क्रिय रखें। [setPlayMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setplaymode/) स्वतंत्र रूप से स्वचालित या क्लिक पर स्टार्टअप को नियंत्रित करता है; यह उदाहरण [VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoplaymodepreset/) का उपयोग करता है ताकि प्रस्तुतकर्ता तय कर सके कब प्लेबैक शुरू हो। जैसा कि उदाहरण में दिखाया गया है, लूप सेटिंग के बाद प्लेबैक मोड सेट करें। रीवाइंडिंग [setFullScreenMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setfullscreenmode/) से स्वतंत्र रूप से कार्य करता है।
+
+## **वीडियो फ़्रेम को ट्रिम करें**
+
+[VideoFrame.setTrimFromStart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/settrimfromstart/) और [VideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/settrimfromend/) का उपयोग करके प्लेबैक के दौरान वीडियो की शुरुआत या अंत के हिस्से को स्किप किया जा सकता है। दोनों मान मिलिसेकंड में होते हैं। ट्रिमिंग एम्बेडेड वीडियो डेटा को बदले बिना प्लेबैक सेटिंग्स बदलता है।
+
+**ट्रिम सेटिंग्स सेट करें**
+
+यह उदाहरण एक स्थानीय वीडियो एम्बेड करता है और प्लेबैक के दौरान पहले 2.5 सेकंड और अंतिम एक सेकंड को स्किप करता है। एक 3.5 सेकंड से अधिक लंबा वीडियो उपयोग करें ताकि एक चलाने योग्य भाग बचा रहे।
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+const fs = require("fs");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const videoBuffer = fs.readFileSync("video.mp4");
+    const videoData = java.newArray("byte", Array.from(videoBuffer));
+    const video = presentation.getVideos().addVideo(videoData);
+
+    const videoFrame = slide.getShapes().addVideoFrame(50, 50, 640, 360, video);
+    videoFrame.setTrimFromStart(2500);
+    videoFrame.setTrimFromEnd(1000);
+
+    presentation.save("video_with_trim.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+**ट्रिम सेटिंग्स पढ़ें**
+
+यह उदाहरण पहली स्लाइड पर पहले वीडियो फ़्रेम के ट्रिम मान को मिलिसेकंड में प्रिंट करता है। प्रस्तुति में कम से कम एक स्लाइड होनी चाहिए। यदि उस स्लाइड में कोई वीडियो फ़्रेम नहीं है, तो कुछ भी प्रिंट नहीं होगा। पूर्ववर्ती उदाहरण 2500 और 1000 मान उत्पन्न करता है।
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation("video_with_trim.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    for (let shapeIndex = 0; shapeIndex < slide.getShapes().size(); shapeIndex++) {
+        const shape = slide.getShapes().get_Item(shapeIndex);
+        if (java.instanceOf(shape, "com.aspose.slides.VideoFrame")) {
+            const videoFrame = shape;
+            console.log("Trim from start: " + videoFrame.getTrimFromStart() + " ms");
+            console.log("Trim from end: " + videoFrame.getTrimFromEnd() + " ms");
             break;
         }
     }
@@ -194,28 +231,26 @@ try {
 
 ## **वीडियो कैप्शन प्रबंधित करें**
 
-Aspose.Slides आपको PowerPoint प्रस्तुतियों में वीडियो फ्रेम के लिए बंद कैप्शन प्रबंधित करने की सुविधा देता है। कैप्शन WebVTT प्रारूप में संग्रहीत होते हैं और उन्हें [VideoFrame.getCaptionTracks](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/videoframe/#getCaptionTracks) मेथड के माध्यम से एक्सपोज़ किया जाता है।
+Aspose.Slides आपको PowerPoint प्रस्तुतियों में वीडियो फ़्रेम के लिए क्लोज़्ड कैप्शन प्रबंधित करने की अनुमति देता है। कैप्शन WebVTT फ़ॉर्मेट में संग्रहीत होते हैं और [VideoFrame.getCaptionTracks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/#getCaptionTracks) मेथड के माध्यम से एक्सपोज़ किए जाते हैं।
 
-**वीडियो फ्रेम में कैप्शन जोड़ें**
+**वीडियो फ़्रेम में कैप्शन जोड़ें**
 
-एक वीडियो फ्रेम में कैप्शन जोड़ने के लिए:
+यह उदाहरण एक स्थानीय वीडियो एम्बेड करता है और English लेबल वाला WebVTT कैप्शन ट्रैक जोड़ता है। कैप्शन टाइमस्टैंप वीडियो के अनुसार होने चाहिए। सहेजी गई प्रस्तुति में वीडियो और उसके कैप्शन दोनों शामिल होते हैं।
 
-1. एक [Presentation](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/presentation/) क्लास का इंस्टैंस बनाएं।
-1. प्रस्तुति में एक वीडियो जोड़ें।
-1. स्लाइड में एक [VideoFrame](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/videoframe/) ऑब्जेक्ट जोड़ें।
-1. एक WebVTT कैप्शन ट्रैक जोड़ने के लिए [CaptionsCollection](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/captionscollection/) कलेक्शन का उपयोग करें।
-1. संशोधित प्रस्तुति को सहेजें।
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+const fs = require("fs");
 
-```js
-let presentation = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation();
 try {
-    let videoStream = java.newInstanceSync("java.io.FileInputStream", "video.mp4");
-    let video = presentation.getVideos().addVideo(videoStream, aspose.slides.LoadingStreamBehavior.KeepLocked);
+    const slide = presentation.getSlides().get_Item(0);
 
-    let slide = presentation.getSlides().get_Item(0);
-    let videoFrame = slide.getShapes().addVideoFrame(0, 0, 100, 100, video);
+    const videoBuffer = fs.readFileSync("video.mp4");
+    const videoData = java.newArray("byte", Array.from(videoBuffer));
+    const video = presentation.getVideos().addVideo(videoData);
 
-    // WebVTT फ़ाइल से एक नया कैप्शन ट्रैक जोड़ता है।
+    const videoFrame = slide.getShapes().addVideoFrame(0, 0, 100, 100, video);
     videoFrame.getCaptionTracks().add("English", "track.vtt");
 
     presentation.save("video_with_captions.pptx", aspose.slides.SaveFormat.Pptx);
@@ -224,59 +259,56 @@ try {
 }
 ```
 
-[CaptionsCollection](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/captionscollection/) क्लास अतिरिक्त रूप से [addFromStream](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/captionscollection/#addFromStream) मेथड प्रदान करता है जिससे आप स्ट्रीम से कैप्शन जोड़ सकते हैं।
+[CaptionsCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captionscollection/) क्लास [addFromStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captionscollection/#addFromStream) मेथड भी प्रदान करता है जो स्ट्रीम से कैप्शन जोड़ने के लिए है।
 
-**वीडियो फ्रेम से कैप्शन निकालें**
+**वीडियो फ़्रेम से कैप्शन निकालें**
 
-एक वीडियो फ्रेम से कैप्शन निकालने के लिए:
+यह उदाहरण पहली स्लाइड पर वीडियो फ़्रेम से सभी कैप्शन ट्रैक को अलग-अलग WebVTT फ़ाइलों के रूप में सहेजता है। क्रमिक संख्या आउटपुट फ़ाइलों को अलग रखती है। कंसोल निकाले गए ट्रैकों की संख्या रिपोर्ट करता है। प्रस्तुति में कम से कम एक स्लाइड होना चाहिए।
 
-1. वह प्रस्तुति लोड करें जिसमें वीडियो शामिल है।
-1. लक्षित [VideoFrame](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/videoframe/) ऑब्जेक्ट खोजें।
-1. [CaptionsCollection](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/captionscollection/) कलेक्शन पर इटररेट करें।
-1. प्रत्येक कैप्शन ट्रैक को `.vtt` फ़ाइल में सहेजें।
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+const fs = require("fs");
 
-```js
-let presentation = new aspose.slides.Presentation("video_with_captions.pptx");
+const presentation = new aspose.slides.Presentation("video_with_captions.pptx");
 try {
-    let slide = presentation.getSlides().get_Item(0);
-    let shapeCount = slide.getShapes().size();
-    for (let shapeIndex = 0; shapeIndex < shapeCount; shapeIndex++) {
-        let shape = slide.getShapes().get_Item(shapeIndex);
+    const slide = presentation.getSlides().get_Item(0);
+
+    let trackCount = 0;
+    for (let shapeIndex = 0; shapeIndex < slide.getShapes().size(); shapeIndex++) {
+        const shape = slide.getShapes().get_Item(shapeIndex);
         if (java.instanceOf(shape, "com.aspose.slides.VideoFrame")) {
-            let videoFrame = shape;
-            let trackCount = videoFrame.getCaptionTracks().getCount();
-            for (let trackIndex = 0; trackIndex < trackCount; trackIndex++) {
-                let captionTrack = videoFrame.getCaptionTracks().get_Item(trackIndex);
-                // कैप्शन ट्रैक को WebVTT फ़ाइल में सहेजता है।
-                let filePath = captionTrack.getCaptionId() + ".vtt";
-                let captionData = Buffer.from(captionTrack.getBinaryData());
-                fs.writeFileSync(filePath, captionData);
+            const videoFrame = shape;
+            for (let trackIndex = 0; trackIndex < videoFrame.getCaptionTracks().getCount(); trackIndex++) {
+                const captionTrack = videoFrame.getCaptionTracks().get_Item(trackIndex);
+                trackCount++;
+                const outputPath = "captions_" + trackCount + ".vtt";
+                const outputData = Buffer.from(captionTrack.getBinaryData());
+                fs.writeFileSync(outputPath, outputData);
             }
         }
     }
+
+    console.log("Caption tracks extracted: " + trackCount);
 } finally {
     presentation.dispose();
 }
 ```
 
-प्रत्येक [Captions](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/captions/) ऑब्जेक्ट कैप्शन पहचानकर्ता, लेबल, बाइनरी डेटा और कैप्शन टेक्स्ट को UTF-8 स्ट्रिंग के रूप में उजागर करता है।
+प्रत्येक [Captions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captions/) ऑब्जेक्ट कैप्शन पहचानकर्ता, लेबल, बाइनरी डेटा, और कैप्शन टेक्स्ट को UTF-8 स्ट्रिंग के रूप में एक्सपोज़ करता है।
 
-**वीडियो फ्रेम से कैप्शन हटाएँ**
+**वीडियो फ़्रेम से कैप्शन हटाएँ**
 
-एक वीडियो फ्रेम से कैप्शन हटाने के लिए:
+यह उदाहरण पहली स्लाइड पर पहले शेप पोज़ीशन पर वीडियो फ़्रेम से सभी कैप्शन हटाता है और परिणाम सहेजता है। यह मानता है कि स्लाइड और शेप मौजूद हैं और शेप एक वीडियो फ़्रेम है।
 
-1. वह प्रस्तुति लोड करें जिसमें वीडियो शामिल है।
-1. लक्षित [VideoFrame](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/videoframe/) ऑब्जेक्ट प्राप्त करें।
-1. [CaptionsCollection](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/captionscollection/) कलेक्शन से कैप्शन ट्रैक हटाएँ।
-1. संशोधित प्रस्तुति को सहेजें।
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
 
-```js
-let presentation = new aspose.slides.Presentation("video_with_captions.pptx");
+const presentation = new aspose.slides.Presentation("video_with_captions.pptx");
 try {
-    let slide = presentation.getSlides().get_Item(0);
-    let videoFrame = slide.getShapes().get_Item(0); // प्रकार: com.aspose.slides.VideoFrame
+    const slide = presentation.getSlides().get_Item(0);
 
-    // वीडियो फ़्रेम से सभी कैप्शन हटाता है।
+    const videoFrame = slide.getShapes().get_Item(0);
     videoFrame.getCaptionTracks().clear();
 
     presentation.save("video_without_captions.pptx", aspose.slides.SaveFormat.Pptx);
@@ -285,61 +317,63 @@ try {
 }
 ```
 
-यदि आपको केवल किसी एक कैप्शन ट्रैक को हटाना है, तो आप [clear](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/captionscollection/#clear) की बजाय [remove](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/captionscollection/#remove) या [removeAt](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/captionscollection/#removeAt) मेथड का उपयोग कर सकते हैं।
+यदि आपको केवल एक कैप्शन ट्रैक हटाना है, तो [remove](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captionscollection/#remove) या [removeAt](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captionscollection/#removeAt) मेथड का उपयोग करें बजाय [clear](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captionscollection/#clear) के।
 
 ## **स्लाइड से वीडियो निकालें**
 
-स्लाइड में वीडियो जोड़ने के अतिरिक्त, Aspose.Slides आपको प्रस्तुतियों में एम्बेडेड वीडियो को निकालने की सुविधा भी देता है।
+स्लाइड में वीडियो जोड़ने के अलावा, Aspose.Slides आपको प्रस्तुतियों में एम्बेडेड वीडियो निकालने की सुविधा देता है।
 
-1. वीडियो वाली प्रस्तुति को लोड करने के लिए एक [Presentation](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/Presentation) क्लास का इंस्टैंस बनाएं।
-2. सभी [Slide](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/slide/) ऑब्जेक्ट्स पर इटररेट करें।
-3. सभी [Shape](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/shape/) ऑब्जेक्ट्स पर इटररेट करें ताकि एक [VideoFrame](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/videoframe/) मिल सके।
-4. वीडियो को डिस्क पर सहेजें।
+यह उदाहरण प्रत्येक स्लाइड से एम्बेडेड वीडियो निकालकर अलग-अलग क्रमांकित बाइनरी फ़ाइलों में सहेजता है। लिंक्ड वीडियो को स्किप किया जाता है क्योंकि उनमें एम्बेडेड डेटा नहीं होता। कंसोल प्रत्येक वीडियो के MIME प्रकार और कुल गिनती प्रिंट करता है। आउटपुट सामान्य `.bin` एक्सटेंशन का उपयोग करता है; आवश्यकता पड़ने पर इसे रिपोर्टेड मीडिया टाइप से मिलाने के लिए बदलें।
 
 ```javascript
-// एक प्रस्तुति फ़ाइल का प्रतिनिधित्व करने वाला Presentation ऑब्जेक्ट बनाता है
-var pres = new aspose.slides.Presentation("VideoSample.pptx");
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+const fs = require("fs");
+
+const presentation = new aspose.slides.Presentation("presentation_with_videos.pptx");
 try {
-    for (let i = 0; i < pres.getSlides().size(); i++) {
-        let slide = pres.getSlides().get_Item(i);
-        for (let j = 0; j < slide.getShapes().size(); j++) {
-            let shape = slide.getShapes().get_Item(j);
+    let videoCount = 0;
+    for (let slideIndex = 0; slideIndex < presentation.getSlides().size(); slideIndex++) {
+        const slide = presentation.getSlides().get_Item(slideIndex);
+        for (let shapeIndex = 0; shapeIndex < slide.getShapes().size(); shapeIndex++) {
+            const shape = slide.getShapes().get_Item(shapeIndex);
             if (java.instanceOf(shape, "com.aspose.slides.VideoFrame")) {
-                var vf = shape;
-                console.log(shape);
-                var type = vf.getEmbeddedVideo().getContentType();
-                var ss = type.lastIndexOf('-');
-                const buffer = Buffer.from(vf.getEmbeddedVideo().getBinaryData());
-                console.log(buffer);
-                // फ़ाइल एक्सटेंशन प्राप्त करता है
-                var charIndex = type.indexOf("/");
-                type = type.substring(charIndex + 1);
-                fs.writeFileSync("testing2." + type, buffer);
+                const videoFrame = shape;
+                const video = videoFrame.getEmbeddedVideo();
+                if (video == null) {
+                    console.log("Skipped a linked video: no embedded data is available.");
+                    continue;
+                }
+
+                videoCount++;
+                const outputPath = "extracted_video_" + videoCount + ".bin";
+                const outputData = Buffer.from(video.getBinaryData());
+                fs.writeFileSync(outputPath, outputData);
+                console.log("Video " + videoCount + ": " + video.getContentType());
             }
         }
     }
-} catch (e) {console.log(e);
+
+    console.log("Embedded videos extracted: " + videoCount);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
 ## **अक्सर पूछे जाने वाले प्रश्न**
 
-**वीडियो फ्रेम के लिए कौन से वीडियो प्लेबैक पैरामीटर बदले जा सकते हैं?**
+**एक वीडियो फ़्रेम के लिए कौन से वीडियो प्लेबैक पैरामीटर बदले जा सकते हैं?**
 
-आप [playback mode](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/videoframe/setplaymode/) (ऑटो या ऑन क्लिक) और [looping](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/videoframe/setplayloopmode/) को नियंत्रित कर सकते हैं। ये विकल्प [VideoFrame](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/videoframe/) ऑब्जेक्ट की प्रॉपर्टीज़ के माध्यम से उपलब्ध हैं।
+आप [playback mode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setplaymode/) (ऑटो या क्लिक पर) और [looping](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setplayloopmode/) को नियंत्रित कर सकते हैं। ये विकल्प [VideoFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/) ऑब्जेक्ट के मेथड्स के माध्यम से उपलब्ध हैं।
 
-**वीडियो जोड़ने से PPTX फ़ाइल आकार पर असर पड़ता है क्या?**
+**क्या वीडियो जोड़ने से PPTX फ़ाइल आकार प्रभावित होता है?**
 
-हां। जब आप एक स्थानीय वीडियो एम्बेड करते हैं, तो बाइनरी डेटा दस्तावेज़ में शामिल हो जाता है, इसलिए प्रस्तुति का आकार फ़ाइल के आकार के अनुपात में बढ़ता है। ऑनलाइन वीडियो जोड़ने पर केवल लिंक और थंबनेल एम्बेड होते हैं, इसलिए आकार वृद्धि छोटी रहती है।
+हां। जब आप एक स्थानीय वीडियो एम्बेड करते हैं, तो बाइनरी डेटा दस्तावेज़ में शामिल हो जाता है, इसलिए प्रस्तुति का आकार फ़ाइल आकार के अनुपात में बढ़ जाता है। जब आप ऑनलाइन वीडियो को लिंक करते हैं और थंबनेल जोड़ते हैं, तो प्रस्तुति लिंक और प्रीव्यू इमेज संग्रहीत करती है, न कि वीडियो डेटा, इसलिए आकार वृद्धि आमतौर पर कम होती है।
 
-**क्या मैं मौजूदा VideoFrame में वीडियो को उसकी स्थिति और आकार बदले बिना बदल सकता हूँ?**
+**क्या मैं मौजूदा वीडियो फ़्रेम में वीडियो को उसकी स्थिति और आकार बदले बिना बदल सकता हूँ?**
 
-हां। आप फ्रेम के भीतर [video content](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/videoframe/setembeddedvideo/) को बदल सकते हैं जबकि शैल की ज्योमेट्री को बरकरार रख सकते हैं; यह मौजूदा लेआउट में मीडिया को अपडेट करने की सामान्य स्थिति है।
+हां। आप फ़्रेम के भीतर [video content](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setembeddedvideo/) को बदल सकते हैं जबकि शेप की ज्योमेट्री को बना रखा जाता है; यह मौजूदा लेआउट में मीडिया अपडेट करने की एक सामान्य स्थिति है।
 
-**क्या एम्बेडेड वीडियो के कंटेंट टाइप (MIME) का पता लगाया जा सकता है?**
+**क्या एम्बेडेड वीडियो का कंटेंट टाइप (MIME) निर्धारित किया जा सकता है?**
 
-हां। एक एम्बेडेड वीडियो का [content type](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/video/getcontenttype/) होता है जिसे आप पढ़ सकते हैं और उपयोग कर सकते हैं, उदाहरण के लिए डिस्क पर सहेजते समय।
+हां। एक एम्बेडेड वीडियो का एक [content type](https://reference.aspose.com/slides/nodejs-java/aspose.slides/video/getcontenttype/) होता है जिसे आप पढ़ सकते हैं और उपयोग कर सकते हैं, उदाहरण के लिए जब आप इसे डिस्क पर सहेजते हैं।

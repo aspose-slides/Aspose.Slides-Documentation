@@ -1,5 +1,5 @@
 ---
-title: Gestion des cadres vidéo dans les présentations avec PHP
+title: Gérer les cadres vidéo dans les présentations avec PHP
 linktitle: Cadre vidéo
 type: docs
 weight: 10
@@ -11,129 +11,43 @@ keywords:
 - extraire vidéo
 - récupérer vidéo
 - cadre vidéo
-- source web
+- source Web
 - PowerPoint
 - OpenDocument
 - présentation
 - PHP
 - Aspose.Slides
-description: "Apprenez à ajouter et extraire des cadres vidéo programmétiquement dans les diapositives PowerPoint et OpenDocument en utilisant Aspose.Slides pour PHP via Java. Guide pratique rapide."
+description: "Apprenez à ajouter et extraire programmatiquement des cadres vidéo dans les diapositives PowerPoint et OpenDocument en utilisant Aspose.Slides pour PHP via Java. Guide pratique rapide."
 ---
 ## **Introduction**
 
-Une vidéo bien placée dans une présentation peut rendre votre message plus percutant et augmenter le niveau d'engagement de votre public. 
+Les vidéos peuvent aider à expliquer des idées et à captiver un public. Aspose.Slides pour PHP via Java vous permet d'ajouter des cadres vidéo aux diapositives, d'ajuster les paramètres de lecture, de gérer les légendes et d'extraire les données vidéo intégrées.
 
-PowerPoint vous permet d’ajouter des vidéos à une diapositive d’une présentation de deux manières :
+PowerPoint prend en charge les vidéos locales et les liens vers des vidéos en ligne, telles que les vidéos YouTube.
 
-* Ajouter ou incorporer une vidéo locale (stockée sur votre ordinateur)
-* Ajouter une vidéo en ligne (provenant d’une source web telle que YouTube).
+Pour représenter les données vidéo et les cadres vidéo, Aspose.Slides fournit la classe [Video](https://reference.aspose.com/slides/php-java/aspose.slides/video/) , la classe [VideoFrame](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/) et d'autres types pertinents.
 
-Pour vous permettre d’ajouter des vidéos (objets vidéo) à une présentation, Aspose.Slides fournit la classe [Video](https://reference.aspose.com/slides/fr/php-java/aspose.slides/video/) , la classe [VideoFrame](https://reference.aspose.com/slides/fr/php-java/aspose.slides/videoframe/) et d’autres types pertinents.
+## **Créer un cadre vidéo intégré**
 
-## **Créer des cadres vidéo intégrés**
+Si le fichier vidéo que vous souhaitez ajouter à votre diapositive est stocké localement, vous pouvez créer un cadre vidéo pour intégrer la vidéo dans votre présentation.
 
-Si le fichier vidéo que vous souhaitez ajouter à votre diapositive est stocké localement, vous pouvez créer un cadre vidéo pour intégrer la vidéo dans votre présentation. 
-
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/fr/php-java/aspose.slides/presentation/) .
-1. Obtenez la référence d’une diapositive via son indice. 
-1. Ajoutez un objet [Video](https://reference.aspose.com/slides/fr/php-java/aspose.slides/video/) et transmettez le chemin du fichier vidéo pour intégrer la vidéo à la présentation.
-1. Ajoutez un objet [VideoFrame](https://reference.aspose.com/slides/fr/php-java/aspose.slides/videoframe/) pour créer un cadre pour la vidéo.
-1. Enregistrez la présentation modifiée. 
-
-Ce code PHP montre comment ajouter une vidéo stockée localement à une présentation :
+Cet exemple intègre une vidéo locale sur la première diapositive d'une présentation existante et enregistre le résultat. Les coordonnées et dimensions du cadre sont en points. Le flux reste ouvert jusqu'à la fin de l'enregistrement car [LoadingStreamBehavior::KeepLocked](https://reference.aspose.com/slides/php-java/aspose.slides/loadingstreambehavior/) le maintient verrouillé tant que la présentation l'utilise.
 
 ```php
-  # Instancie la classe Presentation
-  $pres = new Presentation("pres.pptx");
-  try {
-    # Charge la vidéo
-    $fileStream = new Java("java.io.FileInputStream", "Wildlife.mp4");
-    $video = $pres->getVideos()->addVideo($fileStream, LoadingStreamBehavior->KeepLocked);
-    # Obtient la première diapositive et ajoute un videoframe
-    $pres->getSlides()->get_Item(0)->getShapes()->addVideoFrame(10, 10, 150, 250, $video);
-    # Enregistre la présentation sur le disque
-    $pres->save("pres-with-video.pptx", SaveFormat::Pptx);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
+use aspose\slides\LoadingStreamBehavior;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
 
-Alternativement, vous pouvez ajouter une vidéo en passant directement son chemin de fichier à la méthode [addVideoFrame(float x, float y, float width, float height, Video video)](https://reference.aspose.com/slides/fr/php-java/aspose.slides/shapecollection/addvideoframe/) :
-
-```php
-  $pres = new Presentation();
-  try {
-    $sld = $pres->getSlides()->get_Item(0);
-    $vf = $sld->getShapes()->addVideoFrame(50, 150, 300, 150, "video1.avi");
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-## **Créer des cadres vidéo à partir de sources Web**
-
-Microsoft [PowerPoint 2013 et versions ultérieures](https://support.microsoft.com/en-us/office/versions-of-powerpoint-that-support-online-videos-2a0e184d-af50-4da9-b530-e4355ac436a9?ui=en-us&rs=en-us&ad=us) prend en charge les vidéos YouTube dans les présentations. Si la vidéo que vous souhaitez utiliser est disponible en ligne (p. ex. sur YouTube), vous pouvez l’ajouter à votre présentation via son lien web. 
-
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/fr/php-java/aspose.slides/presentation/) 
-1. Obtenez la référence d’une diapositive via son indice. 
-1. Ajoutez un objet [Video](https://reference.aspose.com/slides/fr/php-java/aspose.slides/video/) et transmettez le lien vers la vidéo.
-1. Définissez une miniature pour le cadre vidéo. 
-1. Enregistrez la présentation. 
-
-Ce code PHP montre comment ajouter une vidéo depuis le web à une diapositive d’une présentation PowerPoint :
-
-```php
-  # Instancie un objet Presentation qui représente un fichier de présentation
-  $pres = new Presentation();
-  try {
-    addVideoFromYouTube($pres, "Tj75Arhq5ho");
-    $pres->save("out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-```php
-
-```
-
-## **Rogner un cadre vidéo**
-
-Aspose.Slides vous permet de contrôler quelle partie d’une vidéo est lue en définissant les valeurs trim‑from‑start et trim‑from‑end via [VideoFrame::setTrimFromStart](https://reference.aspose.com/slides/fr/php-java/aspose.slides/videoframe/#setTrimFromStart) et [VideoFrame::setTrimFromEnd](https://reference.aspose.com/slides/fr/php-java/aspose.slides/videoframe/#setTrimFromEnd). Les deux valeurs sont spécifiées en millisecondes et définissent la durée à ignorer au début et à la fin de la vidéo, respectivement. Ces paramètres modifient les réglages de lecture vidéo dans la présentation ; ils ne coupent ni ne modifient les données binaires de la vidéo incorporée.
-
-**Définir les paramètres de rognage**
-
-Pour créer un cadre vidéo et définir ses paramètres de rognage :
-
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/fr/php-java/aspose.slides/presentation/) .
-1. Ajoutez un objet [Video](https://reference.aspose.com/slides/fr/php-java/aspose.slides/video/) à la présentation.
-1. Ajoutez un objet [VideoFrame](https://reference.aspose.com/slides/fr/php-java/aspose.slides/videoframe/) à une diapositive.
-1. Définissez les valeurs trim‑from‑start et trim‑from‑end via [VideoFrame::setTrimFromStart](https://reference.aspose.com/slides/fr/php-java/aspose.slides/videoframe/#setTrimFromStart) et [VideoFrame::setTrimFromEnd](https://reference.aspose.com/slides/fr/php-java/aspose.slides/videoframe/#setTrimFromEnd) .
-1. Enregistrez la présentation modifiée.
-
-L’exemple de code suivant ignore les 2,5 premières secondes et la dernière seconde d’une vidéo intégrée lors de la lecture :
-
-```php
-$presentation = new Presentation();
+$presentation = new Presentation("presentation.pptx");
 $videoStream = null;
 try {
     $videoStream = new Java("java.io.FileInputStream", "video.mp4");
-    $video = $presentation->getVideos()->addVideo(
-        $videoStream, LoadingStreamBehavior::ReadStreamAndRelease);
     $slide = $presentation->getSlides()->get_Item(0);
-    $videoFrame = $slide->getShapes()->addVideoFrame(50, 50, 640, 360, $video);
 
-    $videoFrame->setTrimFromStart(2500);
-    $videoFrame->setTrimFromEnd(1000);
+    $video = $presentation->getVideos()->addVideo($videoStream, LoadingStreamBehavior::KeepLocked);
+    $slide->getShapes()->addVideoFrame(10, 10, 150, 250, $video);
 
-    $presentation->save("video_with_trim.pptx", SaveFormat::Pptx);
+    $presentation->save("embedded_video.pptx", SaveFormat::Pptx);
 } finally {
     if ($videoStream !== null) {
         $videoStream->close();
@@ -142,26 +56,176 @@ try {
 }
 ```
 
-**Lire les paramètres de rognage**
-
-Pour inspecter les paramètres de rognage existants, chargez une présentation, trouvez un objet [VideoFrame](https://reference.aspose.com/slides/fr/php-java/aspose.slides/videoframe/) parmi les formes de la première diapositive, et lisez les valeurs via [VideoFrame::getTrimFromStart](https://reference.aspose.com/slides/fr/php-java/aspose.slides/videoframe/#getTrimFromStart) et [VideoFrame::getTrimFromEnd](https://reference.aspose.com/slides/fr/php-java/aspose.slides/videoframe/#getTrimFromEnd) .
-
-L’exemple de code suivant trouve le premier cadre vidéo de la première diapositive et rapporte ses paramètres de rognage en millisecondes :
+Vous pouvez également passer un chemin de vidéo locale directement à [addVideoFrame](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#addVideoFrame). Cet exemple intègre la vidéo sur la première diapositive d'une nouvelle présentation. La vidéo doit rester accessible jusqu'à ce que la présentation soit enregistrée.
 
 ```php
-$presentation = new Presentation("video_with_trim.pptx");
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
 try {
     $slide = $presentation->getSlides()->get_Item(0);
+
+    $slide->getShapes()->addVideoFrame(50, 150, 300, 150, "video.avi");
+
+    $presentation->save("video_from_path.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+## **Créer un cadre vidéo avec une vidéo provenant d'une source Web**
+
+Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) prend en charge les vidéos en ligne dans les présentations. Vous pouvez créer un cadre vidéo qui pointe vers une vidéo en ligne, comme une vidéo YouTube.
+
+Cet exemple ajoute un lien vidéo YouTube et une miniature à la première diapositive. Remplacez l'identifiant vidéo pour utiliser une autre vidéo. La méthode [setPlayMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayMode) demande une lecture automatique. Le téléchargement de la miniature et la lecture de la vidéo nécessitent un accès à Internet. Le visualiseur de présentation doit également prendre en charge la lecture de vidéos en ligne.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\VideoPlayModePreset;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $videoId = "aqz-KE-bpKQ";
+    $videoUrl = "https://www.youtube.com/embed/" . $videoId;
+    $videoFrame = $slide->getShapes()->addVideoFrame(10, 10, 427, 240, $videoUrl);
+    $videoFrame->setPlayMode(VideoPlayModePreset::Auto);
+
+    $thumbnailUrl = "https://img.youtube.com/vi/" . $videoId . "/hqdefault.jpg";
+    $thumbnailLocation = new Java("java.net.URL", $thumbnailUrl);
+    $thumbnailStream = $thumbnailLocation->openStream();
+    try {
+        $thumbnail = $presentation->getImages()->addImage($thumbnailStream);
+        $videoFrame->getPictureFormat()->getPicture()->setImage($thumbnail);
+    } finally {
+        $thumbnailStream->close();
+    }
+
+    $presentation->save("online_video.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+## **Lire une vidéo en mode plein écran**
+
+Dans une présentation de formation, vous pouvez lire une démonstration logicielle en mode plein écran afin que le public voie les détails. Appelez [setFullScreenMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setFullScreenMode) avec `true` pour activer ce comportement pendant la lecture.
+
+Cet exemple ouvre une présentation, trouve le premier [VideoFrame](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/) sur la première diapositive et active la lecture en plein écran. La présentation d'entrée doit contenir au moins une diapositive avec un cadre vidéo existant sur la première diapositive.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("training.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
     $shapeCount = java_values($slide->getShapes()->size());
     for ($shapeIndex = 0; $shapeIndex < $shapeCount; $shapeIndex++) {
         $shape = $slide->getShapes()->get_Item($shapeIndex);
         if (java_instanceof($shape, new JavaClass("com.aspose.slides.VideoFrame"))) {
             $videoFrame = $shape;
-            $trimFromStart = java_values($videoFrame->getTrimFromStart());
-            $trimFromEnd = java_values($videoFrame->getTrimFromEnd());
+            $videoFrame->setFullScreenMode(true);
+            break;
+        }
+    }
 
-            echo "Trim from start: " . $trimFromStart . " ms\n";
-            echo "Trim from end: " . $trimFromEnd . " ms\n";
+    $presentation->save("full_screen_video.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+La lecture en plein écran contrôle l'affichage de la vidéo. Indépendamment, [setPlayMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayMode) détermine si la lecture démarre automatiquement ou au clic, et [setPlayLoopMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayLoopMode) détermine si elle se répète. Pour choisir le comportement de démarrage, définissez le mode de lecture sur [VideoPlayModePreset::Auto ou VideoPlayModePreset::OnClick](https://reference.aspose.com/slides/php-java/aspose.slides/videoplaymodepreset/). L'exemple conserve les paramètres de démarrage et de boucle existants.
+
+## **Rembobiner une vidéo après la lecture**
+
+Dans une présentation de formation, ramener une vidéo de démonstration au début la rend prête pour que le présentateur la relance. Appelez [setRewindVideo](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setRewindVideo) avec `true` pour ramener la vidéo au début après la fin de la lecture.
+
+Cet exemple ouvre une présentation, trouve le premier [VideoFrame](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/) sur la première diapositive et active le rembobinage. Il désactive la boucle afin que la lecture puisse se terminer et configure la lecture pour démarrer au clic. La présentation d'entrée doit contenir au moins une diapositive avec un cadre vidéo existant sur la première diapositive.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\VideoPlayModePreset;
+
+$presentation = new Presentation("training.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $shapeCount = java_values($slide->getShapes()->size());
+    for ($shapeIndex = 0; $shapeIndex < $shapeCount; $shapeIndex++) {
+        $shape = $slide->getShapes()->get_Item($shapeIndex);
+        if (java_instanceof($shape, new JavaClass("com.aspose.slides.VideoFrame"))) {
+            $videoFrame = $shape;
+            $videoFrame->setRewindVideo(true);
+            $videoFrame->setPlayLoopMode(false);
+            $videoFrame->setPlayMode(VideoPlayModePreset::OnClick);
+            break;
+        }
+    }
+
+    $presentation->save("rewind_video.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Le rembobinage ramène la vidéo au début sans la relancer. En revanche, appeler [setPlayLoopMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayLoopMode) avec `true` répète la lecture automatiquement. Gardez la boucle désactivée lorsque vous souhaitez que la vidéo se termine et reste prête pour une nouvelle lecture. [setPlayMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayMode) contrôle indépendamment le démarrage automatique ou au clic ; cet exemple utilise [VideoPlayModePreset::OnClick](https://reference.aspose.com/slides/php-java/aspose.slides/videoplaymodepreset/) afin que le présentateur contrôle le moment du démarrage. Définissez le mode de lecture après le paramètre de boucle, comme montré dans l'exemple. Le rembobinage fonctionne indépendamment de [setFullScreenMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setFullScreenMode).
+
+## **Rogner un cadre vidéo**
+
+Utilisez [VideoFrame::setTrimFromStart](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setTrimFromStart) et [VideoFrame::setTrimFromEnd](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setTrimFromEnd) pour ignorer une partie du début ou de la fin d’une vidéo pendant la lecture. Les deux valeurs sont en millisecondes. Le rognage modifie les paramètres de lecture sans modifier les données vidéo intégrées.
+
+**Définir les paramètres de rognage**
+
+Cet exemple intègre une vidéo locale et saute les 2,5 premières secondes ainsi que la dernière seconde pendant la lecture. Utilisez une vidéo de plus de 3,5 secondes afin qu’un segment lisible reste.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $videoFile = new Java("java.io.File", "video.mp4");
+    $videoPath = $videoFile->toPath();
+    $videoData = java("java.nio.file.Files")->readAllBytes($videoPath);
+    $video = $presentation->getVideos()->addVideo($videoData);
+
+    $videoFrame = $slide->getShapes()->addVideoFrame(50, 50, 640, 360, $video);
+    $videoFrame->setTrimFromStart(2500);
+    $videoFrame->setTrimFromEnd(1000);
+
+    $presentation->save("video_with_trim.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+**Lire les paramètres de rognage**
+
+Cet exemple affiche les valeurs de rognage du premier cadre vidéo sur la première diapositive en millisecondes. La présentation doit contenir au moins une diapositive. Si cette diapositive ne possède aucun cadre vidéo, rien n’est affiché. L’exemple précédent produit les valeurs 2500 et 1000.
+
+```php
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("video_with_trim.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $shapeCount = java_values($slide->getShapes()->size());
+    for ($shapeIndex = 0; $shapeIndex < $shapeCount; $shapeIndex++) {
+        $shape = $slide->getShapes()->get_Item($shapeIndex);
+        if (java_instanceof($shape, new JavaClass("com.aspose.slides.VideoFrame"))) {
+            $videoFrame = $shape;
+            echo "Trim from start: " . java_values($videoFrame->getTrimFromStart()) . " ms\n";
+            echo "Trim from end: " . java_values($videoFrame->getTrimFromEnd()) . " ms\n";
             break;
         }
     }
@@ -170,32 +234,28 @@ try {
 }
 ```
 
-## **Gérer les sous‑titres vidéo**
+## **Gérer les légendes vidéo**
 
-Aspose.Slides vous permet de gérer les sous‑titres fermés pour les cadres vidéo dans les présentations PowerPoint. Les sous‑titres sont stockés au format WebVTT et sont accessibles via la méthode [VideoFrame::getCaptionTracks](https://reference.aspose.com/slides/fr/php-java/aspose.slides/videoframe/#getCaptionTracks) .
+Aspose.Slides vous permet de gérer les sous‑titres fermés pour les cadres vidéo dans les présentations PowerPoint. Les sous‑titres sont enregistrés au format WebVTT et sont accessibles via la méthode [VideoFrame::getCaptionTracks](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#getCaptionTracks).
 
-**Ajouter des sous‑titres à un cadre vidéo**
+**Ajouter des légendes à un cadre vidéo**
 
-Pour ajouter des sous‑titres à un cadre vidéo :
-
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/fr/php-java/aspose.slides/presentation/) .
-1. Ajoutez une vidéo à la présentation.
-1. Ajoutez un objet [VideoFrame](https://reference.aspose.com/slides/fr/php-java/aspose.slides/videoframe/) à une diapositive.
-1. Utilisez la collection [CaptionsCollection](https://reference.aspose.com/slides/fr/php-java/aspose.slides/captionscollection/) renvoyée par [getCaptionTracks](https://reference.aspose.com/slides/fr/php-java/aspose.slides/videoframe/#getCaptionTracks) pour ajouter une piste de sous‑titres WebVTT.
-1. Enregistrez la présentation modifiée.
-
-Le code suivant montre comment ajouter des sous‑titres à un cadre vidéo :
+Cet exemple intègre une vidéo locale et ajoute une piste de légende WebVTT intitulée English. Les horodatages des légendes doivent correspondre à la vidéo. La présentation enregistrée inclut à la fois la vidéo et ses légendes.
 
 ```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
 $presentation = new Presentation();
 try {
-    $videoData = file_get_contents("video.mp4");
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $videoFile = new Java("java.io.File", "video.mp4");
+    $videoPath = $videoFile->toPath();
+    $videoData = java("java.nio.file.Files")->readAllBytes($videoPath);
     $video = $presentation->getVideos()->addVideo($videoData);
 
-    $slide = $presentation->getSlides()->get_Item(0);
     $videoFrame = $slide->getShapes()->addVideoFrame(0, 0, 100, 100, $video);
-
-    // Ajoute une nouvelle piste de sous‑titres à partir d'un fichier WebVTT.
     $videoFrame->getCaptionTracks()->add("English", "track.vtt");
 
     $presentation->save("video_with_captions.pptx", SaveFormat::Pptx);
@@ -204,62 +264,60 @@ try {
 }
 ```
 
-La classe [CaptionsCollection](https://reference.aspose.com/slides/fr/php-java/aspose.slides/captionscollection/) propose également une surcharge qui permet d’ajouter des sous‑titres depuis un flux.
+La classe [CaptionsCollection](https://reference.aspose.com/slides/php-java/aspose.slides/captionscollection/) fournit également une surcharge qui vous permet d’ajouter des légendes depuis un flux.
 
-**Extraire les sous‑titres d’un cadre vidéo**
+**Extraire les légendes d’un cadre vidéo**
 
-Pour extraire les sous‑titres d’un cadre vidéo :
-
-1. Chargez la présentation contenant la vidéo.
-1. Trouvez l’objet [VideoFrame](https://reference.aspose.com/slides/fr/php-java/aspose.slides/videoframe/) cible.
-1. Parcourez la collection [getCaptionTracks](https://reference.aspose.com/slides/fr/php-java/aspose.slides/videoframe/#getCaptionTracks) .
-1. Enregistrez chaque piste de sous‑titres dans un fichier `.vtt` .
-
-Le code suivant montre comment extraire les sous‑titres d’un cadre vidéo :
+Cet exemple enregistre toutes les pistes de légendes des cadres vidéo sur la première diapositive sous forme de fichiers WebVTT séparés. Des numéros séquentiels permettent de différencier les fichiers de sortie. La console indique le nombre de pistes extraites. La présentation doit contenir au moins une diapositive.
 
 ```php
+use aspose\slides\Presentation;
+
 $presentation = new Presentation("video_with_captions.pptx");
 try {
     $slide = $presentation->getSlides()->get_Item(0);
+
+    $trackCount = 0;
     $shapeCount = java_values($slide->getShapes()->size());
     for ($shapeIndex = 0; $shapeIndex < $shapeCount; $shapeIndex++) {
         $shape = $slide->getShapes()->get_Item($shapeIndex);
         if (java_instanceof($shape, new JavaClass("com.aspose.slides.VideoFrame"))) {
             $videoFrame = $shape;
-            $trackCount = java_values($videoFrame->getCaptionTracks()->getCount());
-            for ($trackIndex = 0; $trackIndex < $trackCount; $trackIndex++) {
+            $captionCount = java_values($videoFrame->getCaptionTracks()->getCount());
+            for ($trackIndex = 0; $trackIndex < $captionCount; $trackIndex++) {
                 $captionTrack = $videoFrame->getCaptionTracks()->get_Item($trackIndex);
-                // Enregistre la piste de sous‑titres dans un fichier WebVTT.
-                $filePath = $captionTrack->getCaptionId() . ".vtt";
-                file_put_contents($filePath, $captionTrack->getBinaryData());
+                $trackCount++;
+                $outputStream = new Java("java.io.FileOutputStream", "captions_" . $trackCount . ".vtt");
+                try {
+                    $outputStream->write($captionTrack->getBinaryData());
+                } finally {
+                    $outputStream->close();
+                }
             }
         }
     }
+
+    echo "Caption tracks extracted: " . $trackCount . "\n";
 } finally {
     $presentation->dispose();
 }
 ```
 
-Chaque objet [Captions](https://reference.aspose.com/slides/fr/php-java/aspose.slides/captions/) expose l’identifiant du sous‑titre, le libellé, les données binaires et le texte du sous‑titre sous forme de chaîne UTF‑8.
+Chaque objet [Captions](https://reference.aspose.com/slides/php-java/aspose.slides/captions/) expose l’identifiant de la légende, le libellé, les données binaires et le texte de la légende en tant que chaîne UTF‑8.
 
-**Supprimer les sous‑titres d’un cadre vidéo**
+**Supprimer les légendes d’un cadre vidéo**
 
-Pour supprimer les sous‑titres d’un cadre vidéo :
-
-1. Chargez la présentation contenant la vidéo.
-1. Récupérez l’objet [VideoFrame](https://reference.aspose.com/slides/fr/php-java/aspose.slides/videoframe/) cible.
-1. Retirez les pistes de sous‑titres de la collection [getCaptionTracks](https://reference.aspose.com/slides/fr/php-java/aspose.slides/videoframe/#getCaptionTracks) .
-1. Enregistrez la présentation modifiée.
-
-Le code suivant montre comment supprimer tous les sous‑titres d’un cadre vidéo :
+Cet exemple supprime toutes les légendes du cadre vidéo à la première position de forme sur la première diapositive et enregistre le résultat. Il suppose que la diapositive et la forme existent et que la forme est un cadre vidéo.
 
 ```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
 $presentation = new Presentation("video_with_captions.pptx");
 try {
     $slide = $presentation->getSlides()->get_Item(0);
-    $videoFrame = $slide->getShapes()->get_Item(0); // type : VideoFrame
 
-    // Supprime tous les sous-titres du cadre vidéo.
+    $videoFrame = $slide->getShapes()->get_Item(0);
     $videoFrame->getCaptionTracks()->clear();
 
     $presentation->save("video_without_captions.pptx", SaveFormat::Pptx);
@@ -268,62 +326,66 @@ try {
 }
 ```
 
-Si vous devez supprimer uniquement une piste de sous‑titre, utilisez les méthodes [remove](https://reference.aspose.com/slides/fr/php-java/aspose.slides/captionscollection/#remove) ou [removeAt](https://reference.aspose.com/slides/fr/php-java/aspose.slides/captionscollection/#removeAt) au lieu de [clear](https://reference.aspose.com/slides/fr/php-java/aspose.slides/captionscollection/#clear) .
+Si vous devez supprimer uniquement une piste de légende, utilisez les méthodes [remove](https://reference.aspose.com/slides/php-java/aspose.slides/captionscollection/#remove) ou [removeAt](https://reference.aspose.com/slides/php-java/aspose.slides/captionscollection/#removeAt) au lieu de [clear](https://reference.aspose.com/slides/php-java/aspose.slides/captionscollection/#clear).
 
-## **Extraire la vidéo des diapositives**
+## **Extraire la vidéo d’une diapositive**
 
-Outre l’ajout de vidéos aux diapositives, Aspose.Slides vous permet d’extraire les vidéos incorporées dans les présentations.
+En plus d’ajouter des vidéos aux diapositives, Aspose.Slides vous permet d’extraire les vidéos intégrées dans les présentations.
 
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/fr/php-java/aspose.slides/presentation/) pour charger la présentation contenant la vidéo.
-2. Parcourez tous les objets [Slide](https://reference.aspose.com/slides/fr/php-java/aspose.slides/slide/) .
-3. Parcourez tous les objets [Shape](https://reference.aspose.com/slides/fr/php-java/aspose.slides/shape/) afin de trouver un [VideoFrame](https://reference.aspose.com/slides/fr/php-java/aspose.slides/videoframe/) .
-4. Enregistrez la vidéo sur le disque.
-
-Ce code PHP montre comment extraire la vidéo d’une diapositive de présentation :
+Cet exemple extrait les vidéos intégrées de chaque diapositive dans des fichiers binaires séparés et numérotés. Les vidéos liées sont ignorées car elles ne contiennent pas de données intégrées. La console affiche le type MIME de chaque vidéo et le nombre total. La sortie utilise l’extension générique `.bin` ; modifiez‑la pour correspondre au type de média indiqué si nécessaire.
 
 ```php
-  # Instancie un objet Presentation qui représente un fichier de présentation
-  $pres = new Presentation("VideoSample.pptx");
-  try {
-    foreach($pres->getSlides() as $slide) {
-      foreach($slide->getShapes() as $shape) {
-        if (java_instanceof($shape, new JavaClass("com.aspose.slides.VideoFrame"))) {
-          $vf = $shape;
-          $type = $vf->getEmbeddedVideo()->getContentType();
-          $ss = $type->lastIndexOf('-');
-          $buffer = $vf->getEmbeddedVideo()->getBinaryData();
-          # Obtient l'extension du fichier
-          $charIndex = $type->indexOf("/");
-          $type = $type->substring($charIndex + 1);
-          $fop = new Java("java.io.FileOutputStream", "testing2." . $type);
-          $fop->write($buffer);
-          $fop->flush();
-          $fop->close();
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("presentation_with_videos.pptx");
+try {
+    $videoCount = 0;
+    $slideCount = java_values($presentation->getSlides()->size());
+    for ($slideIndex = 0; $slideIndex < $slideCount; $slideIndex++) {
+        $slide = $presentation->getSlides()->get_Item($slideIndex);
+        $shapeCount = java_values($slide->getShapes()->size());
+        for ($shapeIndex = 0; $shapeIndex < $shapeCount; $shapeIndex++) {
+            $shape = $slide->getShapes()->get_Item($shapeIndex);
+            if (java_instanceof($shape, new JavaClass("com.aspose.slides.VideoFrame"))) {
+                $videoFrame = $shape;
+                $video = $videoFrame->getEmbeddedVideo();
+                if (java_is_null($video)) {
+                    echo "Skipped a linked video: no embedded data is available.\n";
+                    continue;
+                }
+
+                $videoCount++;
+                $outputStream = new Java("java.io.FileOutputStream", "extracted_video_" . $videoCount . ".bin");
+                try {
+                    $outputStream->write($video->getBinaryData());
+                } finally {
+                    $outputStream->close();
+                }
+                echo "Video " . $videoCount . ": " . java_values($video->getContentType()) . "\n";
+            }
         }
-      }
     }
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    echo "Embedded videos extracted: " . $videoCount . "\n";
+} finally {
+    $presentation->dispose();
+}
 ```
 
 ## **FAQ**
 
-**Quels paramètres de lecture vidéo peuvent être modifiés pour un VideoFrame ?**
+**Quels paramètres de lecture vidéo peuvent être modifiés pour un cadre vidéo ?**
 
-Vous pouvez contrôler le [mode de lecture](https://reference.aspose.com/slides/fr/php-java/aspose.slides/videoframe/setplaymode/) (automatique ou au clic) et la [boucle de lecture](https://reference.aspose.com/slides/fr/php-java/aspose.slides/videoframe/setplayloopmode/). Ces options sont disponibles via les propriétés de l’objet [VideoFrame](https://reference.aspose.com/slides/fr/php-java/aspose.slides/videoframe/) .
+Vous pouvez contrôler le [mode de lecture](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayMode) (automatique ou au clic) et la [boucle](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayLoopMode). Ces options sont disponibles via les méthodes de l’objet [VideoFrame](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/).
 
 **L’ajout d’une vidéo affecte-t-il la taille du fichier PPTX ?**
 
-Oui. Lorsque vous intégrez une vidéo locale, les données binaires sont incluses dans le document, ce qui augmente la taille de la présentation proportionnellement à la taille du fichier. Lorsque vous ajoutez une vidéo en ligne, seul un lien et une miniature sont incorporés, ce qui entraîne une augmentation de taille moindre.
+Oui. Lorsque vous intégrez une vidéo locale, les données binaires sont incluses dans le document, ce qui augmente la taille de la présentation proportionnellement à la taille du fichier. Lorsque vous créez un lien vers une vidéo en ligne et ajoutez une miniature, la présentation stocke le lien et l’image d’aperçu plutôt que les données vidéo, de sorte que l’augmentation de taille est généralement moindre.
 
-**Puis‑je remplacer la vidéo d’un VideoFrame existant sans changer sa position et sa taille ?**
+**Puis‑je remplacer la vidéo dans un cadre vidéo existant sans modifier sa position et sa taille ?**
 
-Oui. Vous pouvez échanger le [contenu vidéo](https://reference.aspose.com/slides/fr/php-java/aspose.slides/videoframe/setembeddedvideo/) à l’intérieur du cadre tout en conservant la géométrie de la forme ; c’est un scénario courant pour mettre à jour des médias dans une mise en page existante.
+Oui. Vous pouvez permuter le [contenu vidéo](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setEmbeddedVideo) à l’intérieur du cadre tout en conservant la géométrie de la forme ; c’est un scénario courant pour mettre à jour les médias dans une mise en page existante.
 
-**Peut‑on déterminer le type de contenu (MIME) d’une vidéo incorporée ?**
+**Le type de contenu (MIME) d’une vidéo intégrée peut‑il être déterminé ?**
 
-Oui. Une vidéo incorporée possède un [type de contenu](https://reference.aspose.com/slides/fr/php-java/aspose.slides/video/getcontenttype/) que vous pouvez lire et utiliser, par exemple lors de l’enregistrement sur le disque.
+Oui. Une vidéo intégrée possède un [type de contenu](https://reference.aspose.com/slides/php-java/aspose.slides/video/#getContentType) que vous pouvez lire et utiliser, par exemple lors de son enregistrement sur disque.

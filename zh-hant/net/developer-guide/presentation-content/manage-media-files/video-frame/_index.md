@@ -18,147 +18,179 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "學習如何使用 Aspose.Slides for .NET，以程式方式在 PowerPoint 與 OpenDocument 投影片中新增與擷取影片框架。快速操作指南。"
+description: "學習使用 Aspose.Slides for .NET 於 PowerPoint 與 OpenDocument 投影片中，以程式方式新增與擷取影片框架。快速操作指南。"
 ---
 ## **簡介**
 
-在簡報中恰當放置的影片可以讓您的訊息更具說服力，並提升觀眾的參與度。 
+影片可以協助說明概念並吸引觀眾。Aspose.Slides for .NET 讓您能將影片框架加入投影片、調整播放設定、管理字幕，並擷取內嵌影片資料。
 
-PowerPoint 允許您以兩種方式將影片加入簡報中的投影片：
+PowerPoint 支援本機影片以及連結至線上影片，例如 YouTube 影片。
 
-* 加入或嵌入本機影片（儲存在您的電腦上）
-* 加入線上影片（來自如 YouTube 等網站來源）。
+為了表示影片資料和影片框架，Aspose.Slides 提供 [IVideo](https://reference.aspose.com/slides/net/aspose.slides/ivideo/) 介面、[IVideoFrame](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/) 介面，以及其他相關類型。
 
-為了讓您能在簡報中加入影片（影片物件），Aspose.Slides 提供了 [IVideo](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ivideo/) 介面、[IVideoFrame](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ivideoframe/) 介面以及其他相關型別。 
+## **建立內嵌影片框架**
 
-## **建立嵌入影片框架**
+如果您想加入投影片的影片檔案儲存在本機，您可以建立影片框架以將影片內嵌至簡報中。
 
-如果您想要加入投影片的影片檔案儲存在本機，您可以建立影片框架將影片嵌入簡報中。 
+此範例在現有簡報的第一張投影片上內嵌本機影片並儲存結果。框架的座標與尺寸以點 (point) 為單位。因為 [LoadingStreamBehavior.KeepLocked](https://reference.aspose.com/slides/net/aspose.slides/loadingstreambehavior/) 會在簡報使用時保持資料流鎖定，所以資料流會保持開啟，直至儲存完成。
 
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/presentation) 類別的實例。
-1. 透過索引取得投影片的參考。 
-1. 新增一個 [IVideo](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ivideo/) 物件，並傳入影片檔案路徑以將影片嵌入簡報。 
-1. 新增一個 [IVideoFrame](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ivideoframe/) 物件以建立影片框架。  
-1. 儲存修改後的簡報。 
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-以下 C# 程式碼示範如何將本機儲存的影片加入簡報：
+using var presentation = new Presentation("presentation.pptx");
+var slide = presentation.Slides[0];
 
-```c#
-// 實例化 Presentation 類別
-using (Presentation pres = new Presentation("pres.pptx"))
-{
-    // 載入影片
-    using (FileStream fileStream = new FileStream("Wildlife.mp4", FileMode.Open, FileAccess.Read))
-    {
-        IVideo video = pres.Videos.AddVideo(fileStream, LoadingStreamBehavior.KeepLocked);
-        
-        // 取得第一張投影片並新增影片框架
-        pres.Slides[0].Shapes.AddVideoFrame(10, 10, 150, 250, video);
-        
-        // 將簡報儲存至磁碟
-        pres.Save("pres-with-video.pptx", SaveFormat.Pptx);
-    }
-}
-```
-或者，您也可以直接將檔案路徑傳遞給 [AddVideoFrame](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ishapecollection/addvideoframe/) 方法以加入影片：
+using var videoStream = File.OpenRead("video.mp4");
+var video = presentation.Videos.AddVideo(videoStream, LoadingStreamBehavior.KeepLocked);
+slide.Shapes.AddVideoFrame(10, 10, 150, 250, video);
 
-``` csharp
-using (Presentation pres = new Presentation())
-{
-    ISlide sld = pres.Slides[0];
-    IVideoFrame vf = sld.Shapes.AddVideoFrame(50, 150, 300, 150, "video1.avi");
-}
+presentation.Save("embedded_video.pptx", SaveFormat.Pptx);
 ```
 
+您也可以直接將本機影片路徑傳遞給 [AddVideoFrame](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addvideoframe/)。此範例在新簡報的第一張投影片上內嵌影片。影片必須在簡報儲存之前保持可存取。
 
-## **使用來自網路來源的影片建立影片框架**
-較新版本的 Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) 支援在簡報中使用線上影片。如果您要使用的影片已在網路上提供（例如 YouTube），您可以透過其網路連結將其加入簡報。 
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/presentation) 類別的實例
-1. 透過索引取得投影片的參考。 
-1. 新增一個 [IVideo](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ivideo/) 物件，並傳入影片的連結。 
-1. 設定影片框架的縮圖。 
-1. 儲存簡報。 
-
-以下 C# 程式碼示範如何將來自網路的影片加入 PowerPoint 簡報的投影片中：
-
-```c#
-public static void Run()
-{
-    // 實例化一個代表簡報檔案的 Presentation 物件
-    using (Presentation pres = new Presentation())
-    {
-        AddVideoFromYouTube(pres, "Tj75Arhq5ho");
-        pres.Save("AddVideoFrameFromWebSource_out.pptx", SaveFormat.Pptx);
-    }
-}
-
-private static void AddVideoFromYouTube(Presentation pres, string videoId)
-{
-    // 新增影片框架
-    IVideoFrame videoFrame = pres.Slides[0].Shapes.AddVideoFrame(10, 10, 427, 240, "https://www.youtube.com/embed/" + videoId);
-    videoFrame.PlayMode = VideoPlayModePreset.Auto;
-
-    // 載入縮圖
-    using (WebClient client = new WebClient())
-    {
-        string thumbnailUri = "http://img.youtube.com/vi/" + videoId + "/hqdefault.jpg";
-        videoFrame.PictureFormat.Picture.Image = pres.Images.AddImage(client.DownloadData(thumbnailUri));
-    }
-}
-```
-
-## **修剪影片框架**
-
-Aspose.Slides 允許您透過設定 [IVideoFrame.TrimFromStart](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ivideoframe/trimfromstart/) 與 [IVideoFrame.TrimFromEnd](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ivideoframe/trimfromend/) 的值，來控制播放影片的哪一部分。這兩個值以毫秒為單位，分別定義從影片開始與結束處跳過的時間長度。這些設定會變更簡報中影片的播放設定；不會裁剪或以其他方式修改嵌入影片的二進位資料。
-
-**設定修剪參數**
-
-若要建立影片框架並設定其修剪參數：
-
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/presentation/) 類別的實例。
-1. 將 [IVideo](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ivideo/) 物件新增至簡報中。
-1. 在投影片上新增 [IVideoFrame](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ivideoframe/) 物件。
-1. 透過 [IVideoFrame.TrimFromStart](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ivideoframe/trimfromstart/) 與 [IVideoFrame.TrimFromEnd](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ivideoframe/trimfromend/) 設定 trim-from-start 與 trim-from-end 的值。
-1. 儲存已修改的簡報。
-
-以下程式碼範例在播放時跳過嵌入影片的前 2.5 秒和最後 1 秒：
-
-```cs
 using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+slide.Shapes.AddVideoFrame(50, 150, 300, 150, "video.avi");
+
+presentation.Save("video_from_path.pptx", SaveFormat.Pptx);
+```
+
+## **從網路來源建立影片框架**
+
+Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) 支援在簡報中使用線上影片。您可以建立一個連結至線上影片（例如 YouTube 影片）的影片框架。
+
+此範例在第一張投影片加入 YouTube 影片連結與縮圖。請更換影片識別碼以使用其他影片。[PlayMode](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/playmode/) 設定會請求自動播放。下載縮圖與播放影片均需網路連線。簡報檢視器亦必須支援線上影片播放。
+
+```csharp
+using System.Net.Http;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+using var httpClient = new HttpClient();
+
+var videoId = "aqz-KE-bpKQ";
+var videoUrl = $"https://www.youtube.com/embed/{videoId}";
+var videoFrame = slide.Shapes.AddVideoFrame(10, 10, 427, 240, videoUrl);
+videoFrame.PlayMode = VideoPlayModePreset.Auto;
+
+var thumbnailUrl = $"https://img.youtube.com/vi/{videoId}/hqdefault.jpg";
+var thumbnailData = httpClient.GetByteArrayAsync(thumbnailUrl).GetAwaiter().GetResult();
+var thumbnail = presentation.Images.AddImage(thumbnailData);
+videoFrame.PictureFormat.Picture.Image = thumbnail;
+
+presentation.Save("online_video.pptx", SaveFormat.Pptx);
+```
+
+## **全螢幕播放影片**
+
+在培訓簡報中，您可以以全螢幕模式播放軟體示範，讓觀眾看到細節。將 [FullScreenMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/fullscreenmode/) 設為 `true` 即可在播放期間啟用此行為。
+
+此範例開啟簡報，於第一張投影片上找尋第一個 [IVideoFrame](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/)，並啟用全螢幕播放。輸入的簡報必須至少在第一張投影片上包含一個現有的影片框架。
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("training.pptx");
+var slide = presentation.Slides[0];
+
+foreach (var shape in slide.Shapes)
+{
+    if (shape is IVideoFrame videoFrame)
+    {
+        videoFrame.FullScreenMode = true;
+        break;
+    }
+}
+
+presentation.Save("full_screen_video.pptx", SaveFormat.Pptx);
+```
+
+全螢幕播放決定影片的顯示方式。除此之外，[PlayMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playmode/) 控制是否自動或點擊開始播放，而 [PlayLoopMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playloopmode/) 控制是否重複播放。若要選擇開始行為，請將播放模式設為 [VideoPlayModePreset.Auto or VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/net/aspose.slides/videoplaymodepreset/)。此範例保留了既有的開始與迴圈設定。
+
+## **播放後倒回影片**
+
+在培訓簡報中，將示範影片倒回至開頭可讓簡報者再次播放。將 [RewindVideo](https://reference.aspose.com/slides/net/aspose.slides/videoframe/rewindvideo/) 設為 `true`，即可在播放結束後將影片返回起始點。
+
+此範例開啟簡報，於第一張投影片上找尋第一個 [IVideoFrame](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/)，並啟用倒回功能。它會停用迴圈以讓播放完成，並將播放設定為點擊開始。輸入的簡報必須至少在第一張投影片上包含一個現有的影片框架。
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("training.pptx");
+var slide = presentation.Slides[0];
+
+foreach (var shape in slide.Shapes)
+{
+    if (shape is IVideoFrame videoFrame)
+    {
+        videoFrame.RewindVideo = true;
+        videoFrame.PlayLoopMode = false;
+        videoFrame.PlayMode = VideoPlayModePreset.OnClick;
+        break;
+    }
+}
+
+presentation.Save("rewind_video.pptx", SaveFormat.Pptx);
+```
+
+倒回會將影片返回起始點，但不會重新開始播放。相較之下，啟用 [PlayLoopMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playloopmode/) 會自動重複播放。當您希望影片播放結束且保持可重新播放時，請保持迴圈停用。[PlayMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playmode/) 獨立控制自動或點擊啟動；此範例使用 [VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/net/aspose.slides/videoplaymodepreset/)，讓簡報者自行決定何時開始播放。請在設定迴圈之後再設定播放模式，如範例所示。倒回功能與 [FullScreenMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/fullscreenmode/) 獨立運作。
+
+## **裁剪影片框架**
+
+使用 [IVideoFrame.TrimFromStart](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/trimfromstart/) 與 [IVideoFrame.TrimFromEnd](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/trimfromend/) 可在播放時略過影片開頭或結尾的部分。兩個數值皆以毫秒為單位。裁剪會變更播放設定，但不會修改內嵌影片資料。
+
+**設定裁剪參數**
+
+此範例內嵌本機影片，並在播放時跳過前 2.5 秒與最後 1 秒。請使用長度超過 3.5 秒的影片，以保留可播放的片段。
+
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
 var videoData = File.ReadAllBytes("video.mp4");
 var video = presentation.Videos.AddVideo(videoData);
 
-var slide = presentation.Slides[0];
 var videoFrame = slide.Shapes.AddVideoFrame(50, 50, 640, 360, video);
-
 videoFrame.TrimFromStart = 2500f;
 videoFrame.TrimFromEnd = 1000f;
 
 presentation.Save("video_with_trim.pptx", SaveFormat.Pptx);
 ```
 
-**讀取修剪設定**
+**讀取裁剪參數**
 
-若要檢查現有的修剪設定，請載入簡報，於第一張投影片的圖形中找到 [IVideoFrame](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ivideoframe/) 物件，並透過 [IVideoFrame.TrimFromStart](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ivideoframe/trimfromstart/) 與 [IVideoFrame.TrimFromEnd](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ivideoframe/trimfromend/) 讀取其值。
+此範例以毫秒為單位列印第一張投影片上第一個影片框架的裁剪值。簡報必須至少包含一張投影片。如果該投影片沒有影片框架，則不會列印任何內容。前一個範例會產生 2500 與 1000 的值。
 
-以下程式碼範例會找出第一張投影片上的第一個影片框架，並以毫秒為單位回報其修剪設定：
+```csharp
+using System;
+using Aspose.Slides;
 
-```cs
 using var presentation = new Presentation("video_with_trim.pptx");
-
 var slide = presentation.Slides[0];
+
 foreach (var shape in slide.Shapes)
 {
     if (shape is IVideoFrame videoFrame)
     {
-        var trimFromStart = videoFrame.TrimFromStart;
-        var trimFromEnd = videoFrame.TrimFromEnd;
-
-        Console.WriteLine($"Trim from start: {trimFromStart} ms");
-        Console.WriteLine($"Trim from end: {trimFromEnd} ms");
-
+        Console.WriteLine($"Trim from start: {videoFrame.TrimFromStart} ms");
+        Console.WriteLine($"Trim from end: {videoFrame.TrimFromEnd} ms");
         break;
     }
 }
@@ -166,147 +198,134 @@ foreach (var shape in slide.Shapes)
 
 ## **管理影片字幕**
 
-Aspose.Slides 允許您在 PowerPoint 簡報的影片框架上管理隱藏式字幕。字幕以 WebVTT 格式儲存，並透過 [IVideoFrame.CaptionTracks](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ivideoframe/captiontracks/) 屬性公開。
+Aspose.Slides 允許您在 PowerPoint 簡報中管理影片框架的隱藏字幕。字幕以 WebVTT 格式儲存，並透過 [IVideoFrame.CaptionTracks](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/captiontracks/) 屬性取得。
 
-**為影片框架新增字幕**
+**為影片框架加入字幕**
 
-若要為影片框架新增字幕：
+此範例內嵌本機影片，並加入標記為 English 的 WebVTT 字幕軌。字幕時間戳必須與影片相符。儲存的簡報會同時包含影片與其字幕。
 
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/presentation/) 類別的實例。
-1. 將影片新增至簡報。
-1. 在投影片上新增 [IVideoFrame](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ivideoframe/) 物件。
-1. 使用 [CaptionTracks](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ivideoframe/captiontracks/) 集合新增 WebVTT 字幕軌。
-1. 儲存已修改的簡報。
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-以下程式碼示範如何為影片框架新增字幕：
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-```cs
-using (Presentation presentation = new Presentation())
-{
-    byte[] videoData = File.ReadAllBytes("video.mp4");
-    IVideo video = presentation.Videos.AddVideo(videoData);
+var videoData = File.ReadAllBytes("video.mp4");
+var video = presentation.Videos.AddVideo(videoData);
 
-    ISlide slide = presentation.Slides[0];
-    IVideoFrame videoFrame = slide.Shapes.AddVideoFrame(0, 0, 100, 100, video);
+var videoFrame = slide.Shapes.AddVideoFrame(0, 0, 100, 100, video);
+videoFrame.CaptionTracks.Add("English", "track.vtt");
 
-    // 從 WebVTT 檔案新增字幕軌道。
-    videoFrame.CaptionTracks.Add("English", "track.vtt");
-
-    presentation.Save("video_with_captions.pptx", SaveFormat.Pptx);
-}
+presentation.Save("video_with_captions.pptx", SaveFormat.Pptx);
 ```
 
-此外，[ICaptionsCollection](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/icaptionscollection/) 介面也提供一個載入方式，允許您從串流新增字幕。
+[ICaptionsCollection](https://reference.aspose.com/slides/net/aspose.slides/icaptionscollection/) 介面也提供一個重載，允許您從串流新增字幕。
 
 **從影片框架擷取字幕**
 
-若要從影片框架擷取字幕：
+此範例將第一張投影片上所有影片框架的字幕軌儲存為個別的 WebVTT 檔案。使用連續編號以保持輸出檔案的唯一性。主控台會回報擷取的軌道數量。簡報必須至少包含一張投影片。
 
-1. 載入包含影片的簡報。
-1. 找到目標的 [IVideoFrame](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ivideoframe/) 物件。
-1. 遍歷 [CaptionTracks](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ivideoframe/captiontracks/) 集合。
-1. 將每個字幕軌儲存為 `.vtt` 檔案。
+```csharp
+using System;
+using System.IO;
+using Aspose.Slides;
 
-以下程式碼示範如何從影片框架擷取字幕：
+using var presentation = new Presentation("video_with_captions.pptx");
+var slide = presentation.Slides[0];
 
-```cs
-using (Presentation presentation = new Presentation("video_with_captions.pptx"))
+var trackCount = 0;
+foreach (var shape in slide.Shapes)
 {
-    ISlide slide = presentation.Slides[0];
-    foreach (IShape shape in slide.Shapes)
+    if (shape is IVideoFrame videoFrame)
     {
-        if (shape is IVideoFrame videoFrame)
+        foreach (var captionTrack in videoFrame.CaptionTracks)
         {
-            foreach (ICaptions captionTrack in videoFrame.CaptionTracks)
-            {
-                // 將字幕軌道儲存為 WebVTT 檔案。
-                string filePath = $"{captionTrack.CaptionId}.vtt";
-                File.WriteAllBytes(filePath, captionTrack.BinaryData);
-            }
+            trackCount++;
+            var outputPath = $"captions_{trackCount}.vtt";
+            File.WriteAllBytes(outputPath, captionTrack.BinaryData);
         }
     }
 }
+
+Console.WriteLine($"Caption tracks extracted: {trackCount}");
 ```
 
-每個 [ICaptions](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/icaptions/) 物件會公開字幕的識別碼、標籤、二進位資料，以及以 UTF-8 字串表示的字幕文字。
+每個 [ICaptions](https://reference.aspose.com/slides/net/aspose.slides/icaptions/) 物件會公開字幕識別碼、標籤、二進位資料，以及以 UTF-8 字串表示的字幕文字。
 
 **從影片框架移除字幕**
 
-若要從影片框架移除字幕：
+此範例移除第一張投影片第一個形狀位置的影片框架上所有字幕，並儲存結果。它假設投影片與形狀皆存在且該形狀為影片框架。
 
-1. 載入包含影片的簡報。
-1. 取得目標的 [IVideoFrame](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ivideoframe/) 物件。
-1. 從 [CaptionTracks](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ivideoframe/captiontracks/) 集合中移除字幕軌。
-1. 儲存已修改的簡報。
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-以下程式碼示範如何從影片框架中移除所有字幕：
+using var presentation = new Presentation("video_with_captions.pptx");
+var slide = presentation.Slides[0];
 
-```cs
-using (Presentation presentation = new Presentation("video_with_captions.pptx"))
-{
-    ISlide slide = presentation.Slides[0];
-    IVideoFrame videoFrame = slide.Shapes[0] as IVideoFrame;
+var videoFrame = (IVideoFrame) slide.Shapes[0];
+videoFrame.CaptionTracks.Clear();
 
-    // 從影片框架中移除所有字幕。
-    videoFrame.CaptionTracks.Clear();
-
-    presentation.Save("video_without_captions.pptx", SaveFormat.Pptx);
-}
+presentation.Save("video_without_captions.pptx", SaveFormat.Pptx);
 ```
 
-如果您只需要移除單一字幕軌，請使用 [Remove](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/captionscollection/remove/) 或 [RemoveAt](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/captionscollection/removeat/) 方法，而不是 [Clear](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/captionscollection/clear/)。
+如果您只想移除單一字幕軌，請使用 [Remove](https://reference.aspose.com/slides/net/aspose.slides/captionscollection/remove/) 或 [RemoveAt](https://reference.aspose.com/slides/net/aspose.slides/captionscollection/removeat/) 方法，而不是 [Clear](https://reference.aspose.com/slides/net/aspose.slides/captionscollection/clear/)。
 
 ## **從投影片擷取影片**
-除了將影片加入投影片外，Aspose.Slides 亦允許您擷取嵌入於簡報中的影片。 
 
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/presentation) 類別的實例，以載入包含影片的簡報。 
-2. 遍歷所有 [ISlide](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/islide) 物件。
-3. 遍歷所有 [IShape](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ishape) 物件，以尋找 [VideoFrame](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/videoframe)。 
-4. 將影片儲存至磁碟。
+除了將影片加入投影片之外，Aspose.Slides 也允許您擷取簡報中內嵌的影片。
 
-以下 C# 程式碼示範如何從簡報投影片上擷取影片：
+此範例將每張投影片內嵌的影片擷取為單獨的編號二進位檔案。連結的影片會被略過，因為它們沒有內嵌資料。主控台會列印每支影片的 MIME 類型與總計數量。輸出使用通用的 `.bin` 副檔名；必要時請依回報的媒體類型更改副檔名。
 
-```c#
-// 實例化代表簡報檔案的 Presentation 物件 
-Presentation presentation = new Presentation("Video.pptx");
+```csharp
+using System;
+using System.IO;
+using Aspose.Slides;
 
-// 迭代投影片
-foreach (ISlide slide in presentation.Slides)
+using var presentation = new Presentation("presentation_with_videos.pptx");
+
+var videoCount = 0;
+foreach (var slide in presentation.Slides)
 {
-    // 迭代形狀
-    foreach (IShape shape in presentation.Slides[0].Shapes)
+    foreach (var shape in slide.Shapes)
     {
-        // 在找到包含影片的 VideoFrame 後，將影片儲存至磁碟
-        if (shape is VideoFrame)
+        if (shape is IVideoFrame videoFrame)
         {
-            IVideoFrame vf = shape as IVideoFrame;
-            String type = vf.EmbeddedVideo.ContentType;
-            int ss = type.LastIndexOf('/');
-            type = type.Remove(0, type.LastIndexOf('/') + 1);
-            Byte[] buffer = vf.EmbeddedVideo.BinaryData;
-            using (FileStream stream = new FileStream("NewVideo_out." + type, FileMode.Create, FileAccess.Write, FileShare.Read))
-            {                                                     
-                stream.Write(buffer, 0, buffer.Length);
+            var video = videoFrame.EmbeddedVideo;
+            if (video == null)
+            {
+                Console.WriteLine("Skipped a linked video: no embedded data is available.");
+                continue;
             }
+
+            videoCount++;
+            var outputPath = $"extracted_video_{videoCount}.bin";
+            File.WriteAllBytes(outputPath, video.BinaryData);
+            Console.WriteLine($"Video {videoCount}: {video.ContentType}");
         }
     }
 }
+
+Console.WriteLine($"Embedded videos extracted: {videoCount}");
 ```
 
-## **FAQ**
+## **常見問題**
 
-**可以變更 VideoFrame 的哪些影片播放參數？**
+**可以變更影片框架的哪些播放參數？**
 
-您可以透過 [playback mode](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/videoframe/playmode/)（自動或點擊播放）與 [looping](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/videoframe/playloopmode/) 來控制播放模式。這些選項可透過 [VideoFrame](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/videoframe/) 物件的屬性取得。
+您可以透過 [playback mode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playmode/)（自動或點擊）以及 [looping](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playloopmode/) 來控制。這些選項可透過 [VideoFrame](https://reference.aspose.com/slides/net/aspose.slides/videoframe/) 物件的屬性取得。
 
 **加入影片會影響 PPTX 檔案大小嗎？**
 
-會。當您嵌入本機影片時，二進位資料會被包含在文件中，導致簡報大小隨檔案大小成比例增加。當您加入線上影片時，僅嵌入連結與縮圖，尺寸增長較小。
+會的。當您內嵌本機影片時，二進位資料會被包含在文件中，簡報大小會隨檔案大小成比例增加。當您連結至線上影片並加入縮圖時，簡報僅儲存連結與預覽圖像，而不是影片資料，通常會造成較小的檔案增長。
 
-**我能在不變更位置與大小的情況下，取代現有 VideoFrame 中的影片嗎？**
+**我可以在不變更位置與大小的情況下取代現有影片框架中的影片嗎？**
 
-可以。您可以在保留形狀幾何的前提下，交換框架內的 [video content](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/videoframe/embeddedvideo/)，這在更新既有版面配置中的媒體時相當常見。
+會的。您可以在保留形狀幾何的前提下，交換框架內的 [video content](https://reference.aspose.com/slides/net/aspose.slides/videoframe/embeddedvideo/)，這是更新既有版面中媒體的常見情況。
 
-**能否判斷嵌入影片的內容類型（MIME）？**
+**能否判定內嵌影片的內容類型（MIME）？**
 
-可以。嵌入的影片具有可讀取的 [content type](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/video/contenttype/)，您可在例如儲存至磁碟時使用它。
+會的。內嵌影片具有可讀取的 [content type](https://reference.aspose.com/slides/net/aspose.slides/video/contenttype/)，您可以使用它，例如在儲存至磁碟時。

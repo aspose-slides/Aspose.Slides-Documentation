@@ -1,12 +1,12 @@
 ---
-title: Python을 사용해 프레젠테이션에서 비디오 프레임 관리
+title: Python을 사용한 프레젠테이션 비디오 프레임 관리
 linktitle: 비디오 프레임
 type: docs
 weight: 10
 url: /ko/python-java/video-frame/
 keywords:
 - 비디오 추가
-- 비디오 만들기
+- 비디오 생성
 - 비디오 삽입
 - 비디오 추출
 - 비디오 검색
@@ -17,27 +17,21 @@ keywords:
 - 프레젠테이션
 - Python
 - Aspose.Slides
-description: "Aspose.Slides for Python via Java를 사용하여 PowerPoint 및 OpenDocument 슬라이드에서 비디오 프레임을 프로그래밍 방식으로 추가하고 추출하는 방법을 배우세요. 빠른 실무 가이드."
+description: "Aspose.Slides for Python via Java을 사용하여 PowerPoint 및 OpenDocument 슬라이드에 비디오 프레임을 프로그래밍 방식으로 추가하고 추출하는 방법을 배웁니다. 빠른 실무 가이드."
 ---
 ## **소개**
 
-프레젠테이션에 적절히 배치된 비디오는 메시지를 더욱 설득력 있게 만들고 청중과의 참여도를 높일 수 있습니다.
+비디오는 아이디어를 설명하고 청중을 참여시키는 데 도움이 될 수 있습니다. Aspose.Slides for Python via Java을 사용하면 슬라이드에 비디오 프레임을 추가하고 재생 설정을 조정하며 캡션을 관리하고 삽입된 비디오 데이터를 추출할 수 있습니다.
 
-PowerPoint에서는 프레젠테이션의 슬라이드에 비디오를 추가하는 두 가지 방법을 제공합니다:
-* 로컬 비디오 추가 또는 삽입(내 컴퓨터에 저장된 비디오)
-* 온라인 비디오 추가(YouTube와 같은 웹 소스에서)
+PowerPoint는 로컬 비디오와 YouTube 비디오와 같은 온라인 비디오 링크를 지원합니다.
 
-프레젠테이션에 비디오(비디오 개체)를 추가할 수 있도록 Aspose.Slides는 [Video](https://reference.aspose.com/slides/ko/python-java/aspose.slides/video/) 클래스, [VideoFrame](https://reference.aspose.com/slides/ko/python-java/aspose.slides/videoframe/) 클래스 및 기타 관련 유형을 제공합니다.
+비디오 데이터와 비디오 프레임을 나타내기 위해 Aspose.Slides는 [Video](https://reference.aspose.com/slides/python-java/aspose.slides/video/) 클래스, [VideoFrame](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/) 클래스 및 기타 관련 유형을 제공합니다.
 
 ## **임베드된 비디오 프레임 만들기**
 
-슬라이드에 추가하려는 비디오 파일이 로컬에 저장되어 있는 경우, 비디오 프레임을 만들어 프레젠테이션에 비디오를 임베드할 수 있습니다.
+슬라이드에 추가하려는 비디오 파일이 로컬에 저장되어 있는 경우, 프레젠테이션에 비디오를 삽입하기 위한 비디오 프레임을 만들 수 있습니다.
 
-1. Presentation 클래스의 인스턴스를 생성합니다.
-1. 인덱스로 슬라이드에 대한 참조를 얻습니다.
-1. 비디오 파일 데이터를 전달하여 [Video](https://reference.aspose.com/slides/ko/python-java/aspose.slides/video/) 개체를 추가하고 프레젠테이션에 비디오를 임베드합니다.
-1. [VideoFrame](https://reference.aspose.com/slides/ko/python-java/aspose.slides/videoframe/) 개체를 추가하여 비디오 프레임을 생성합니다.
-1. 수정된 프레젠테이션을 저장합니다.
+이 예제는 기존 프레젠테이션의 첫 번째 슬라이드에 로컬 비디오를 삽입하고 결과를 저장합니다. 프레임 좌표와 크기는 포인트 단위입니다. Python은 디스크에서 비디오 바이트를 읽고 JPype는 이를 Java 바이트 배열로 변환한 후 비디오를 프레젠테이션에 추가합니다.
 
 ```python
 from pathlib import Path
@@ -50,18 +44,22 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import Presentation, SaveFormat
 
-presentation = Presentation("pres.pptx")
+presentation = Presentation("presentation.pptx")
 try:
-    video_data = Path("Wildlife.mp4").read_bytes()
+    slide = presentation.getSlides().get_Item(0)
+
+    video_data = Path("video.mp4").read_bytes()
     java_video_data = jpype.JArray(jpype.JByte)(video_data)
+
     video = presentation.getVideos().addVideo(java_video_data)
-    presentation.getSlides().get_Item(0).getShapes().addVideoFrame(10, 10, 150, 250, video)
-    presentation.save("pres-with-video.pptx", SaveFormat.Pptx)
+    slide.getShapes().addVideoFrame(10, 10, 150, 250, video)
+
+    presentation.save("embedded_video.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-또는 비디오 파일 경로를 직접 [addVideoFrame](https://reference.aspose.com/slides/ko/python-java/aspose.slides/shapecollection/#addVideoFrame) 메서드에 전달하여 비디오를 추가할 수 있습니다:
+또한 로컬 비디오 경로를 직접 [addVideoFrame](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addVideoFrame)에 전달할 수 있습니다. 이 예제는 새 프레젠테이션의 첫 번째 슬라이드에 비디오를 삽입합니다. 프레젠테이션이 저장될 때까지 비디오에 접근할 수 있어야 합니다.
 
 ```python
 import jpype
@@ -70,25 +68,24 @@ import asposeslides
 if not jpype.isJVMStarted():
     jpype.startJVM()
 
-from asposeslides.api import Presentation
+from asposeslides.api import Presentation, SaveFormat
 
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
-    video_frame = slide.getShapes().addVideoFrame(50, 150, 300, 150, "video1.avi")
+
+    slide.getShapes().addVideoFrame(50, 150, 300, 150, "video.avi")
+
+    presentation.save("video_from_path.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-## **웹 소스 비디오를 사용한 비디오 프레임 만들기**
+## **웹 소스 비디오로 비디오 프레임 만들기**
 
-Microsoft [PowerPoint 2013 및 이후 버전](https://support.microsoft.com/en-us/office/versions-of-powerpoint-that-support-online-videos-2a0e184d-af50-4da9-b530-e4355ac436a9?ui=en-us&rs=en-us&ad=us)은 프레젠테이션에서 YouTube 비디오를 지원합니다. 사용하려는 비디오가 온라인에 제공되는 경우(예: YouTube), 해당 웹 링크를 통해 프레젠테이션에 추가할 수 있습니다.
+Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) 은 프레젠테이션에서 온라인 비디오를 지원합니다. YouTube 비디오와 같은 온라인 비디오에 링크되는 비디오 프레임을 만들 수 있습니다.
 
-1. Presentation 클래스의 인스턴스를 생성합니다.
-1. 인덱스로 슬라이드에 대한 참조를 얻습니다.
-1. [VideoFrame](https://reference.aspose.com/slides/ko/python-java/aspose.slides/videoframe/) 개체를 추가하고 비디오 링크를 전달합니다.
-1. 비디오 프레임의 썸네일을 설정합니다.
-1. 프레젠테이션을 저장합니다.
+이 예제는 첫 번째 슬라이드에 YouTube 비디오 링크와 썸네일을 추가합니다. 다른 비디오를 사용하려면 비디오 식별자를 교체하십시오. [setPlayMode](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/#setPlayMode) 메서드는 자동 재생을 요청합니다. 썸네일을 다운로드하고 비디오를 재생하려면 인터넷 연결이 필요합니다. 프레젠테이션 뷰어도 온라인 비디오 재생을 지원해야 합니다.
 
 ```python
 from urllib.request import urlopen
@@ -101,41 +98,98 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import Presentation, SaveFormat, VideoPlayModePreset
 
-video_id = "Tj75Arhq5ho"
 presentation = Presentation()
 try:
-    video_frame = presentation.getSlides().get_Item(0).getShapes().addVideoFrame(10, 10, 427, 240, "https://www.youtube.com/embed/" + video_id)
+    slide = presentation.getSlides().get_Item(0)
+
+    video_id = "aqz-KE-bpKQ"
+    video_url = "https://www.youtube.com/embed/" + video_id
+    video_frame = slide.getShapes().addVideoFrame(10, 10, 427, 240, video_url)
     video_frame.setPlayMode(VideoPlayModePreset.Auto)
 
-    # 썸네일을 로드합니다.
-    thumbnail_uri = "https://img.youtube.com/vi/" + video_id + "/hqdefault.jpg"
-    try:
-        with urlopen(thumbnail_uri) as response:
-            thumbnail_data = response.read()
-        java_thumbnail_data = jpype.JArray(jpype.JByte)(thumbnail_data)
-        thumbnail = presentation.getImages().addImage(java_thumbnail_data)
-        video_frame.getPictureFormat().getPicture().setImage(thumbnail)
-    except OSError as error:
-        print("Could not load the thumbnail:", error)
+    thumbnail_url = "https://img.youtube.com/vi/" + video_id + "/hqdefault.jpg"
+    with urlopen(thumbnail_url) as response:
+        thumbnail_data = response.read()
+    java_thumbnail_data = jpype.JArray(jpype.JByte)(thumbnail_data)
+    thumbnail = presentation.getImages().addImage(java_thumbnail_data)
+    video_frame.getPictureFormat().getPicture().setImage(thumbnail)
 
-    presentation.save("out.pptx", SaveFormat.Pptx)
+    presentation.save("online_video.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-## **비디오 프레임 트리밍**
+## **전체 화면 모드에서 비디오 재생**
 
-Aspose.Slides에서는 [VideoFrame.setTrimFromStart](https://reference.aspose.com/slides/ko/python-java/aspose.slides/videoframe/#setTrimFromStart) 및 [VideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/ko/python-java/aspose.slides/videoframe/#setTrimFromEnd) 메서드를 통해 trim-from-start와 trim-from-end 값을 설정함으로써 재생되는 비디오 부분을 제어할 수 있습니다. 두 값은 밀리초 단위로 지정되며 각각 비디오 시작 부분과 끝 부분에서 건너뛸 시간을 정의합니다. 이러한 설정은 프레젠테이션의 비디오 재생 설정을 변경하지만 임베드된 비디오 바이너리 데이터를 잘라내거나 수정하지는 않습니다.
+교육 프레젠테이션에서는 소프트웨어 시연을 전체 화면 모드로 재생하여 청중이 세부 사항을 볼 수 있습니다. 재생 중에 이 동작을 활성화하려면 `True`와 함께 [setFullScreenMode](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/#setFullScreenMode) 을 호출합니다.
 
-**트림 설정 지정**
+이 예제는 프레젠테이션을 열고 첫 번째 슬라이드에서 첫 번째 [VideoFrame](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/) 을 찾아 전체 화면 재생을 활성화합니다. 입력 프레젠테이션에는 첫 번째 슬라이드에 기존 비디오 프레임이 최소 하나 포함되어 있어야 합니다.
 
-비디오 프레임을 만들고 트림 설정을 지정하려면:
+```python
+import jpype
+import asposeslides
 
-1. Presentation 클래스의 인스턴스를 생성합니다.
-1. [Video](https://reference.aspose.com/slides/ko/python-java/aspose.slides/video/) 개체를 프레젠테이션에 추가합니다.
-1. [VideoFrame](https://reference.aspose.com/slides/ko/python-java/aspose.slides/videoframe/) 개체를 슬라이드에 추가합니다.
-1. [VideoFrame.setTrimFromStart](https://reference.aspose.com/slides/ko/python-java/aspose.slides/videoframe/#setTrimFromStart) 및 [VideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/ko/python-java/aspose.slides/videoframe/#setTrimFromEnd) 메서드를 통해 trim-from-start와 trim-from-end 값을 설정합니다.
-1. 수정된 프레젠테이션을 저장합니다.
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import Presentation, SaveFormat, VideoFrame
+
+presentation = Presentation("training.pptx")
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    for shape in slide.getShapes():
+        if isinstance(shape, VideoFrame):
+            shape.setFullScreenMode(True)
+            break
+
+    presentation.save("full_screen_video.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+전체 화면 재생은 비디오가 표시되는 방식을 제어합니다. 별도로 [setPlayMode](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/#setPlayMode) 은 자동 시작 또는 클릭 시 시작을 제어하고, [setPlayLoopMode](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/#setPlayLoopMode) 은 반복 여부를 제어합니다. 시작 동작을 선택하려면 재생 모드를 [VideoPlayModePreset.Auto or VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/python-java/aspose.slides/videoplaymodepreset/) 으로 설정하십시오. 예제는 기존 시작 및 반복 설정을 유지합니다.
+
+## **재생 후 비디오 되감기**
+
+교육 프레젠테이션에서 시연 비디오를 처음으로 되돌리면 발표자가 다시 재생할 준비가 됩니다. 재생이 끝난 후 비디오를 처음으로 되돌리려면 `True`와 함께 [setRewindVideo](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/#setRewindVideo) 을 호출합니다.
+
+이 예제는 프레젠테이션을 열고 첫 번째 슬라이드에서 첫 번째 [VideoFrame](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/) 을 찾아 되감기를 활성화합니다. 반복을 비활성화하여 재생이 종료될 수 있게 하고, 재생을 클릭 시 시작하도록 설정합니다. 입력 프레젠테이션에는 첫 번째 슬라이드에 기존 비디오 프레임이 최소 하나 포함되어 있어야 합니다.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import Presentation, SaveFormat, VideoFrame, VideoPlayModePreset
+
+presentation = Presentation("training.pptx")
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    for shape in slide.getShapes():
+        if isinstance(shape, VideoFrame):
+            shape.setRewindVideo(True)
+            shape.setPlayLoopMode(False)
+            shape.setPlayMode(VideoPlayModePreset.OnClick)
+            break
+
+    presentation.save("rewind_video.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+되감기는 비디오를 다시 시작하지 않고 처음으로 되돌립니다. 반면에 `True`와 함께 [setPlayLoopMode](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/#setPlayLoopMode) 을 호출하면 재생이 자동으로 반복됩니다. 비디오가 종료되고 재생 준비 상태를 유지하려면 반복을 비활성화하십시오. [setPlayMode](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/#setPlayMode) 은 자동 또는 클릭 시 시작을 독립적으로 제어합니다; 이 예제는 발표자가 재생 시작 시점을 제어하도록 [VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/python-java/aspose.slides/videoplaymodepreset/) 을 사용합니다. 예제와 같이 루프 설정 후에 재생 모드를 설정합니다. 되감기는 [setFullScreenMode](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/#setFullScreenMode) 와는 독립적으로 작동합니다.
+
+## **비디오 프레임 잘라내기**
+
+재생 중에 비디오의 시작 부분이나 끝 부분을 건너뛰려면 [VideoFrame.setTrimFromStart](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/#setTrimFromStart) 과 [VideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/#setTrimFromEnd) 을 사용합니다. 두 값은 밀리초 단위입니다. 잘라내기는 삽입된 비디오 데이터를 변경하지 않고 재생 설정만 변경합니다.
+
+**Trim 설정 지정**
+
+이 예제는 로컬 비디오를 삽입하고 재생 중에 처음 2.5초와 마지막 1초를 건너뜁니다. 재생 가능한 구간이 남도록 3.5초보다 긴 비디오를 사용하십시오.
 
 ```python
 from pathlib import Path
@@ -150,22 +204,25 @@ from asposeslides.api import Presentation, SaveFormat
 
 presentation = Presentation()
 try:
+    slide = presentation.getSlides().get_Item(0)
+
     video_data = Path("video.mp4").read_bytes()
     java_video_data = jpype.JArray(jpype.JByte)(video_data)
+
     video = presentation.getVideos().addVideo(java_video_data)
-    slide = presentation.getSlides().get_Item(0)
     video_frame = slide.getShapes().addVideoFrame(50, 50, 640, 360, video)
 
     video_frame.setTrimFromStart(2500.0)
     video_frame.setTrimFromEnd(1000.0)
+
     presentation.save("video_with_trim.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-**트림 설정 읽기**
+**Trim 설정 읽기**
 
-기존 트림 설정을 확인하려면 프레젠테이션을 로드하고, 첫 번째 슬라이드의 도형 중에서 [VideoFrame](https://reference.aspose.com/slides/ko/python-java/aspose.slides/videoframe/) 개체를 찾아 [VideoFrame.getTrimFromStart](https://reference.aspose.com/slides/ko/python-java/aspose.slides/videoframe/#getTrimFromStart) 및 [VideoFrame.getTrimFromEnd](https://reference.aspose.com/slides/ko/python-java/aspose.slides/videoframe/#getTrimFromEnd) 메서드를 통해 값을 읽습니다.
+이 예제는 첫 번째 슬라이드에 있는 첫 번째 비디오 프레임의 잘라내기 값을 밀리초 단위로 출력합니다. 프레젠테이션에는 최소 한 개의 슬라이드가 있어야 합니다. 해당 슬라이드에 비디오 프레임이 없으면 아무 것도 출력되지 않습니다. 이전 예제는 2500 및 1000 값을 생성합니다.
 
 ```python
 import jpype
@@ -179,6 +236,7 @@ from asposeslides.api import Presentation, VideoFrame
 presentation = Presentation("video_with_trim.pptx")
 try:
     slide = presentation.getSlides().get_Item(0)
+
     for shape in slide.getShapes():
         if isinstance(shape, VideoFrame):
             trim_from_start = shape.getTrimFromStart()
@@ -192,22 +250,16 @@ finally:
 
 ## **비디오 캡션 관리**
 
-Aspose.Slides에서는 PowerPoint 프레젠테이션의 비디오 프레임에 대한 폐쇄 캡션을 관리할 수 있습니다. 캡션은 WebVTT 형식으로 저장되며 [VideoFrame.getCaptionTracks](https://reference.aspose.com/slides/ko/python-java/aspose.slides/videoframe/#getCaptionTracks) 메서드를 통해 노출됩니다.
+Aspose.Slides를 사용하면 PowerPoint 프레젠테이션의 비디오 프레임에 대한 폐쇄 캡션을 관리할 수 있습니다. 캡션은 WebVTT 형식으로 저장되며 [VideoFrame.getCaptionTracks](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/#getCaptionTracks) 메서드를 통해 노출됩니다.
 
 **비디오 프레임에 캡션 추가**
 
-비디오 프레임에 캡션을 추가하려면:
-
-1. Presentation 클래스의 인스턴스를 생성합니다.
-1. 프레젠테이션에 비디오를 추가합니다.
-1. [VideoFrame](https://reference.aspose.com/slides/ko/python-java/aspose.slides/videoframe/) 개체를 슬라이드에 추가합니다.
-1. [getCaptionTracks](https://reference.aspose.com/slides/ko/python-java/aspose.slides/videoframe/#getCaptionTracks) 로 반환된 [CaptionsCollection](https://reference.aspose.com/slides/ko/python-java/aspose.slides/captionscollection/) 을 사용하여 WebVTT 캡션 트랙을 추가합니다.
-1. 수정된 프레젠테이션을 저장합니다.
+이 예제는 로컬 비디오를 삽입하고 영어 라벨이 붙은 WebVTT 캡션 트랙을 추가합니다. 캡션 타임스탬프는 비디오와 일치해야 합니다. 저장된 프레젠테이션에는 비디오와 캡션이 모두 포함됩니다.
 
 ```python
 from pathlib import Path
 
-import jpype
+import jpase
 import asposeslides
 
 if not jpype.isJVMStarted():
@@ -217,29 +269,27 @@ from asposeslides.api import Presentation, SaveFormat
 
 presentation = Presentation()
 try:
+    slide = presentation.getSlides().get_Item(0)
+
     video_data = Path("video.mp4").read_bytes()
     java_video_data = jpype.JArray(jpype.JByte)(video_data)
+
     video = presentation.getVideos().addVideo(java_video_data)
-    slide = presentation.getSlides().get_Item(0)
     video_frame = slide.getShapes().addVideoFrame(0, 0, 100, 100, video)
 
     # WebVTT 파일에서 새 캡션 트랙을 추가합니다.
     video_frame.getCaptionTracks().add("English", "track.vtt")
+
     presentation.save("video_with_captions.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-[CaptionsCollection](https://reference.aspose.com/slides/ko/python-java/aspose.slides/captionscollection/) 클래스는 스트림에서 캡션을 추가할 수 있는 오버로드도 제공합니다.
+[CaptionsCollection](https://reference.aspose.com/slides/python-java/aspose.slides/captionscollection/) 클래스는 스트림에서 캡션을 추가할 수 있는 오버로드도 제공합니다.
 
 **비디오 프레임에서 캡션 추출**
 
-비디오 프레임에서 캡션을 추출하려면:
-
-1. 비디오가 포함된 프레젠테이션을 로드합니다.
-1. 대상 [VideoFrame](https://reference.aspose.com/slides/ko/python-java/aspose.slides/videoframe/) 개체를 찾습니다.
-1. [CaptionsCollection](https://reference.aspose.com/slides/ko/python-java/aspose.slides/captionscollection/) 에 있는 캡션 트랙을 반복합니다.
-1. 각 캡션 트랙을 `.vtt` 파일로 저장합니다.
+이 예제는 첫 번째 슬라이드의 비디오 프레임에서 모든 캡션 트랙을 별개의 WebVTT 파일로 저장합니다. 연속 번호로 출력 파일을 구분합니다. 콘솔은 추출된 트랙 수를 보고합니다. 프레젠테이션에는 최소 하나의 슬라이드가 포함되어 있어야 합니다.
 
 ```python
 from pathlib import Path
@@ -255,27 +305,26 @@ from asposeslides.api import Presentation, VideoFrame
 presentation = Presentation("video_with_captions.pptx")
 try:
     slide = presentation.getSlides().get_Item(0)
+
+    track_count = 0
     for shape in slide.getShapes():
         if isinstance(shape, VideoFrame):
             for caption_track in shape.getCaptionTracks():
-                # 캡션 트랙을 WebVTT 파일에 저장합니다.
-                file_path = Path(str(caption_track.getCaptionId()) + ".vtt")
+                track_count += 1
+                output_path = Path(f"captions_{track_count}.vtt")
                 caption_data = bytes(caption_track.getBinaryData())
-                file_path.write_bytes(caption_data)
+                output_path.write_bytes(caption_data)
+
+    print(f"Caption tracks extracted: {track_count}")
 finally:
     presentation.dispose()
 ```
 
-각 [Captions](https://reference.aspose.com/slides/ko/python-java/aspose.slides/captions/) 객체는 캡션 식별자, 레이블, 바이너리 데이터 및 UTF-8 문자열 형태의 캡션 텍스트를 노출합니다.
+각 [Captions](https://reference.aspose.com/slides/python-java/aspose.slides/captions/) 객체는 캡션 식별자, 라벨, 바이너리 데이터 및 UTF-8 문자열로 된 캡션 텍스트를 제공합니다.
 
 **비디오 프레임에서 캡션 제거**
 
-비디오 프레임에서 캡션을 제거하려면:
-
-1. 비디오가 포함된 프레젠테이션을 로드합니다.
-1. 대상 [VideoFrame](https://reference.aspose.com/slides/ko/python-java/aspose.slides/videoframe/) 개체를 가져옵니다.
-1. [CaptionsCollection](https://reference.aspose.com/slides/ko/python-java/aspose.slides/captionscollection/) 에서 캡션 트랙을 제거합니다.
-1. 수정된 프레젠테이션을 저장합니다.
+이 예제는 첫 번째 슬라이드의 첫 번째 도형 위치에 있는 비디오 프레임에서 모든 캡션을 제거하고 결과를 저장합니다. 슬라이드와 도형이 존재하며 도형이 비디오 프레임이라고 가정합니다.
 
 ```python
 import jpype
@@ -289,10 +338,12 @@ from asposeslides.api import Presentation, SaveFormat, VideoFrame
 presentation = Presentation("video_with_captions.pptx")
 try:
     slide = presentation.getSlides().get_Item(0)
+
     video_frame = slide.getShapes().get_Item(0)
     if isinstance(video_frame, VideoFrame):
         # 비디오 프레임에서 모든 캡션을 제거합니다.
         video_frame.getCaptionTracks().clear()
+        
         presentation.save("video_without_captions.pptx", SaveFormat.Pptx)
     else:
         print("The shape is not a video frame.")
@@ -300,16 +351,13 @@ finally:
     presentation.dispose()
 ```
 
-하나의 캡션 트랙만 제거해야 하는 경우 [clear](https://reference.aspose.com/slides/ko/python-java/aspose.slides/captionscollection/#clear) 대신 [remove](https://reference.aspose.com/slides/ko/python-java/aspose.slides/captionscollection/#remove) 또는 [removeAt](https://reference.aspose.com/slides/ko/python-java/aspose.slides/captionscollection/#removeAt) 메서드를 사용하십시오.
+하나의 캡션 트랙만 제거하려면 [clear](https://reference.aspose.com/slides/python-java/aspose.slides/captionscollection/#clear) 대신 [remove](https://reference.aspose.com/slides/python-java/aspose.slides/captionscollection/#remove) 또는 [removeAt](https://reference.aspose.com/slides/python-java/aspose.slides/captionscollection/#removeAt) 메서드를 사용하십시오.
 
 ## **슬라이드에서 비디오 추출**
 
-비디오를 슬라이드에 추가하는 것 외에도 Aspose.Slides에서는 프레젠테이션에 임베드된 비디오를 추출할 수 있습니다.
+슬라이드에 비디오를 추가하는 것 외에도 Aspose.Slides를 사용하면 프레젠테이션에 삽입된 비디오를 추출할 수 있습니다.
 
-1. 비디오가 포함된 프레젠테이션을 로드하기 위해 [Presentation](https://reference.aspose.com/slides/ko/python-java/aspose.slides/presentation/) 클래스의 인스턴스를 생성합니다.
-2. 모든 [Slide](https://reference.aspose.com/slides/ko/python-java/aspose.slides/slide/) 객체를 반복합니다.
-3. 모든 [Shape](https://reference.aspose.com/slides/ko/python-java/aspose.slides/shape/) 객체를 반복하여 [VideoFrame](https://reference.aspose.com/slides/ko/python-java/aspose.slides/videoframe/) 를 찾습니다.
-4. 비디오를 디스크에 저장합니다.
+이 예제는 각 슬라이드에서 삽입된 비디오를 별개의 번호가 매겨진 바이너리 파일로 추출합니다. 링크된 비디오는 삽입된 데이터가 없으므로 건너뜁니다. 콘솔은 각 비디오의 MIME 유형과 총 개수를 출력합니다. 출력은 일반적인 `.bin` 확장자를 사용하며, 필요에 따라 보고된 미디어 유형에 맞게 변경하십시오.
 
 ```python
 from pathlib import Path
@@ -322,37 +370,42 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import Presentation, VideoFrame
 
-presentation = Presentation("VideoSample.pptx")
+presentation = Presentation("presentation_with_videos.pptx")
 try:
+    video_count = 0
     for slide in presentation.getSlides():
         for shape in slide.getShapes():
             if isinstance(shape, VideoFrame):
                 video = shape.getEmbeddedVideo()
-                if video is not None:
-                    content_type = str(video.getContentType())
-                    file_extension = content_type.split("/", 1)[-1]
-                    video_data = bytes(video.getBinaryData())
-                    Path("testing2." + file_extension).write_bytes(video_data)
-                else:
-                    print("The video frame has no embedded video.")
+                if video is None:
+                    print("Skipped a linked video: no embedded data is available.")
+                    continue
+
+                video_count += 1
+                output_path = Path(f"extracted_video_{video_count}.bin")
+                video_data = bytes(video.getBinaryData())
+                output_path.write_bytes(video_data)
+                print(f"Video {video_count}: {video.getContentType()}")
+
+    print(f"Embedded videos extracted: {video_count}")
 finally:
     presentation.dispose()
 ```
 
 ## **FAQ**
 
-**VideoFrame에 대해 변경 가능한 비디오 재생 매개변수는 무엇입니까?**
+**비디오 프레임에 대해 변경할 수 있는 비디오 재생 매개변수는 무엇입니까?**
 
-[playback mode](https://reference.aspose.com/slides/ko/python-java/aspose.slides/videoframe/#setPlayMode) (자동 또는 클릭)와 [looping](https://reference.aspose.com/slides/ko/python-java/aspose.slides/videoframe/#setPlayLoopMode)을 제어할 수 있습니다. 이러한 옵션은 [VideoFrame](https://reference.aspose.com/slides/ko/python-java/aspose.slides/videoframe/) 개체의 속성을 통해 사용할 수 있습니다.
+[playback mode](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/#setPlayMode) (자동 또는 클릭) 및 [looping](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/#setPlayLoopMode) 을 제어할 수 있습니다. 이러한 옵션은 [VideoFrame](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/) 객체의 메서드를 통해 사용할 수 있습니다.
 
 **비디오를 추가하면 PPTX 파일 크기에 영향을 줍니까?**
 
-예. 로컬 비디오를 임베드하면 바이너리 데이터가 문서에 포함되어 파일 크기에 비례해 프레젠테이션 크기가 증가합니다. 온라인 비디오를 추가하면 링크와 썸네일만 임베드되므로 크기 증가가 훨씬 작습니다.
+예. 로컬 비디오를 삽입하면 바이너리 데이터가 문서에 포함되어 파일 크기에 비례해 프레젠테이션 크기가 증가합니다. 온라인 비디오에 링크하고 썸네일을 추가하면 비디오 데이터가 아니라 링크와 미리보기 이미지가 저장되므로 크기 증가가 일반적으로 더 작습니다.
 
-**위치와 크기를 변경하지 않고 기존 VideoFrame의 비디오를 교체할 수 있습니까?**
+**기존 비디오 프레임의 비디오를 위치와 크기를 변경하지 않고 교체할 수 있습니까?**
 
-예. 프레임 내에서 [video content](https://reference.aspose.com/slides/ko/python-java/aspose.slides/videoframe/#setEmbeddedVideo)를 교체하면 도형의 기하학적 속성을 유지하면서 미디어를 업데이트할 수 있는 일반적인 시나리오입니다.
+예. 프레임 내에서 [video content](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/#setEmbeddedVideo) 를 교체하면서 도형의 형상을 유지할 수 있습니다. 이는 기존 레이아웃에서 미디어를 업데이트하는 일반적인 시나리오입니다.
 
-**임베드된 비디오의 콘텐츠 유형(MIME)을 확인할 수 있습니까?**
+**삽입된 비디오의 콘텐츠 유형(MIME)을 확인할 수 있습니까?**
 
-예. 임베드된 비디오는 [content type](https://reference.aspose.com/slides/ko/python-java/aspose.slides/video/#getContentType)을 가지고 있으며, 이를 읽어 디스크에 저장할 때 활용할 수 있습니다.
+예. 삽입된 비디오는 [content type](https://reference.aspose.com/slides/python-java/aspose.slides/video/#getContentType) 을 가지고 있으며, 이를 읽어 디스크에 저장하는 등 사용할 수 있습니다.
