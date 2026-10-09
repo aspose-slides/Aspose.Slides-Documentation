@@ -1,5 +1,5 @@
 ---
-title: Tworzenie lub aktualizacja wykresów w prezentacjach PowerPoint w .NET
+title: Tworzenie lub aktualizacja wykresów w prezentacji PowerPoint w .NET
 linktitle: Tworzenie lub aktualizacja wykresów
 type: docs
 weight: 10
@@ -15,60 +15,58 @@ keywords:
 - wykres liniowy
 - wykres mapy drzewa
 - wykres giełdowy
-- wykres skrzynkowy i wąsowy
+- wykres pudełkowy i wąsowy
 - wykres lejkowy
-- wykres promieniowy
+- wykres sunburst
 - wykres histogramu
 - wykres radarowy
-- wykres wielokategorialny
+- wykres wielokategorii
 - PowerPoint
 - prezentacja
 - .NET
 - C#
 - Aspose.Slides
-description: "Twórz i dostosowuj wykresy w prezentacjach PowerPoint przy użyciu Aspose.Slides dla .NET. Dodawaj, formatuj i edytuj wykresy, korzystając z praktycznych przykładów kodu w C#."
+description: "Utwórz i dostosuj wykresy w prezentacjach PowerPoint przy użyciu Aspose.Slides dla .NET. Dodawaj, formatuj i edytuj wykresy za pomocą praktycznych przykładów kodu w C#."
 ---
 ## **Przegląd**
 
-Ten artykuł zawiera kompleksowy przewodnik, jak tworzyć i dostosowywać wykresy przy użyciu Aspose.Slides for .NET. Dowiesz się, jak programowo dodać wykres do slajdu, wypełnić go danymi oraz zastosować różne opcje formatowania, aby spełnić konkretne wymagania projektowe. W całym artykule szczegółowe przykłady kodu ilustrują każdy krok, od inicjalizacji prezentacji i obiektu wykresu po konfigurowanie serii, osi i legend. Postępując zgodnie z tym przewodnikiem, zdobędziesz solidne zrozumienie, jak integrować dynamiczne generowanie wykresów w aplikacjach .NET, usprawniając proces tworzenia prezentacji opartych na danych.
+Ten artykuł zawiera kompleksowy przewodnik, jak tworzyć i dostosowywać wykresy przy użyciu Aspose.Slides dla .NET. Nauczysz się, jak programowo dodać wykres do slajdu, wypełnić go danymi i zastosować różne opcje formatowania, aby spełnić konkretne wymagania projektowe. W całym artykule szczegółowe przykłady kodu ilustrują każdy krok, od inicjalizacji obiektu prezentacji i wykresu po konfigurowanie serii, osi i legend. Postępując zgodnie z tym przewodnikiem, zdobędziesz solidne zrozumienie, jak integrować dynamiczne generowanie wykresów w aplikacjach .NET, usprawniając proces tworzenia prezentacji opartych na danych.
 
-## **Tworzenie wykresu**
+## **Utworzenie wykresu**
 
-Wykresy pomagają szybko zwizualizować dane i uzyskać wnioski, które nie są od razu oczywiste w tabeli lub arkuszu kalkulacyjnym.
+Wykresy pomagają szybko wizualizować dane i uzyskać wgląd, który może nie być od razu oczywisty z tabeli lub arkusza kalkulacyjnego.
 
 **Dlaczego tworzyć wykresy?**
 
-Korzystając z wykresów, możesz:
+* agregować, kondensować lub podsumowywać duże ilości danych na jednym slajdzie prezentacji;
+* uwidaczniać wzorce i trendy w danych;
+* wywnioskować kierunek i dynamikę danych w czasie lub względem określonej jednostki miary;
+* wykrywać wartości odstające, aberracje, odchylenia, błędy i nielogiczne dane;
+* komunikować lub prezentować złożone dane.
 
-* zagregować, skondensować lub podsumować duże ilości danych na jednym slajdzie w prezentacji;
-* uwidocznić wzorce i trendy w danych;
-* wywnioskować kierunek i dynamikę danych w czasie lub w odniesieniu do określonej jednostki miary;
-* wykrywać odchylenia, anomalie, błędy i nielogiczne dane;
-* przekazywać lub prezentować skomplikowane informacje.
-
-W programie PowerPoint można tworzyć wykresy za pomocą funkcji *Wstaw*, która oferuje szablony do projektowania wielu typów wykresów. Korzystając z Aspose.Slides, możesz tworzyć zarówno standardowe wykresy (oparte na popularnych typach) jak i wykresy niestandardowe.
+W programie PowerPoint możesz tworzyć wykresy za pomocą funkcji *Wstaw* (Insert), która oferuje szablony do projektowania wielu rodzajów wykresów. Korzystając z Aspose.Slides, możesz tworzyć zarówno standardowe wykresy (oparte na popularnych typach) jak i wykresy niestandardowe.
 
 {{% alert color="info" %}} 
-Użyj wyliczenia [ChartType](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/charttype/) z przestrzeni nazw [Aspose.Slides.Charts](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/). Wartości w tym wyliczeniu odpowiadają różnym typom wykresów.
+Użyj wyliczenia [ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) w przestrzeni nazw [Aspose.Slides.Charts](https://reference.aspose.com/slides/net/aspose.slides.charts/). Wartości w tym wyliczeniu odpowiadają różnym typom wykresów.
 {{% /alert %}} 
 
-### **Tworzenie wykresów słupkowych grupowanych**
+### **Utworzenie wykresów kolumnowych grupowanych**
 
-W tej sekcji wyjaśniono, jak tworzyć wykresy słupkowe grupowane przy użyciu Aspose.Slides for .NET. Nauczysz się inicjalizować prezentację, dodać wykres i dostosować jego elementy, takie jak tytuł, dane, serie, kategorie i styl. Postępuj zgodnie z poniższymi krokami, aby zobaczyć, jak generowany jest standardowy wykres słupkowy grupowany:
+Ta sekcja wyjaśnia, jak tworzyć wykresy kolumnowe grupowane przy użyciu Aspose.Slides dla .NET. Nauczysz się inicjalizować prezentację, dodać wykres i dostosować jego elementy, takie jak tytuł, dane, serie, kategorie i stylizację. Postępuj zgodnie z poniższymi krokami, aby zobaczyć, jak generowany jest standardowy wykres kolumnowy grupowany:
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation).
-1. Pobierz odwołanie do slajdu, używając jego indeksu.
-1. Dodaj wykres z danymi i określ typ `ChartType.ClusteredColumn`.
-1. Dodaj tytuł wykresu.
+1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
+1. Uzyskaj referencję do slajdu, używając jego indeksu.
+1. Dodaj wykres z pewnymi danymi i określ typ `ChartType.ClusteredColumn`.
+1. Dodaj tytuł do wykresu.
 1. Uzyskaj dostęp do arkusza danych wykresu.
 1. Wyczyść wszystkie domyślne serie i kategorie.
 1. Dodaj nowe serie i kategorie.
-1. Dodaj nowe dane wykresu dla serii.
-1. Zastosuj kolor wypełnienia dla serii wykresu.
+1. Dodaj nowe dane wykresu dla serii wykresu.
+1. Zastosuj kolor wypełnienia do serii wykresu.
 1. Dodaj etykiety do serii wykresu.
 1. Zapisz zmodyfikowaną prezentację jako plik PPTX.
 
-Poniższy kod C# pokazuje, jak utworzyć wykres słupkowy grupowany:
+Ten kod C# demonstruje, jak utworzyć wykres kolumnowy grupowany:
 
 ```c#
 using System.Drawing;
@@ -76,78 +74,78 @@ using Aspose.Slides;
 using Aspose.Slides.Charts;
 using Aspose.Slides.Export;
 
-// Instantiate the Presentation class.
+// Utwórz instancję klasy Presentation.
 using (Presentation presentation = new Presentation())
 {
-    // Access the first slide.
+    // Uzyskaj dostęp do pierwszego slajdu.
     ISlide slide = presentation.Slides[0];
 
-    // Add a clustered column chart with its default data.
+    // Dodaj wykres kolumnowy grupowany z domyślnymi danymi.
     IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 300);
 
-    // Set the chart title.
+    // Ustaw tytuł wykresu.
     chart.ChartTitle.AddTextFrameForOverriding("Sample Title");
     chart.ChartTitle.TextFrameForOverriding.TextFrameFormat.CenterText = NullableBool.True;
     chart.ChartTitle.Height = 20;
     chart.HasTitle = true;
 
-    // Set the index of the chart data sheet.
+    // Ustaw indeks arkusza danych wykresu.
     int worksheetIndex = 0;
 
-    // Get the chart data workbook.
+    // Pobierz skoroszyt danych wykresu.
     IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
 
-    // Delete the default generated series and categories.
+    // Usuń domyślnie wygenerowane serie i kategorie.
     chart.ChartData.Series.Clear();
     chart.ChartData.Categories.Clear();
 
-    // Add new series.
+    // Dodaj nowe serie.
     chart.ChartData.Series.Add(workbook.GetCell(worksheetIndex, 0, 1, "Series 1"), chart.Type);
     chart.ChartData.Series.Add(workbook.GetCell(worksheetIndex, 0, 2, "Series 2"), chart.Type);
 
-    // Add new categories.
+    // Dodaj nowe kategorie.
     chart.ChartData.Categories.Add(workbook.GetCell(worksheetIndex, 1, 0, "Category 1"));
     chart.ChartData.Categories.Add(workbook.GetCell(worksheetIndex, 2, 0, "Category 2"));
     chart.ChartData.Categories.Add(workbook.GetCell(worksheetIndex, 3, 0, "Category 3"));
 
-    // Get the first chart series.
+    // Pobierz pierwszą serię wykresu.
     IChartSeries series = chart.ChartData.Series[0];
 
-    // Populate the series data.
+    // Wypełnij dane serii.
     series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 1, 1, 20));
     series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 2, 1, 50));
     series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 3, 1, 30));
 
-    // Set the fill color for the series.
+    // Ustaw kolor wypełnienia dla serii.
     series.Format.Fill.FillType = FillType.Solid;
     series.Format.Fill.SolidFillColor.Color = Color.Red;
 
-    // Get the second chart series.
+    // Pobierz drugą serię wykresu.
     series = chart.ChartData.Series[1];
 
-    // Populate the series data.
+    // Wypełnij dane serii.
     series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 1, 2, 30));
     series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 2, 2, 10));
     series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 3, 2, 60));
 
-    // Set the fill color for the series.
+    // Ustaw kolor wypełnienia dla serii.
     series.Format.Fill.FillType = FillType.Solid;
     series.Format.Fill.SolidFillColor.Color = Color.Green;
 
-    // Set the first label to show the category name.
+    // Ustaw pierwszą etykietę, aby pokazywała nazwę kategorii.
     IDataLabel label = series.DataPoints[0].Label;
     label.DataLabelFormat.ShowCategoryName = true;
 
     label = series.DataPoints[1].Label;
     label.DataLabelFormat.ShowSeriesName = true;
 
-    // Set the series to show the value for the third label.
+    // Ustaw serię, aby pokazywała wartość w trzeciej etykiecie.
     label = series.DataPoints[2].Label;
     label.DataLabelFormat.ShowValue = true;
     label.DataLabelFormat.ShowSeriesName = true;
     label.DataLabelFormat.Separator = "/";
 
-    // Save the presentation to disk as a PPTX file.
+    // Zapisz prezentację na dysku jako plik PPTX.
     presentation.Save("AsposeChart_out.pptx", SaveFormat.Pptx);
 }
 ```
@@ -156,9 +154,9 @@ Wynik:
 
 ![The Clustered Column chart](clustered_column_chart.png)
 
-### **Tworzenie wykresów punktowych**
+### **Utworzenie wykresów punktowych**
 
-Wykresy punktowe (znane także jako wykresy rozproszenia lub wykresy x‑y) są często używane do wykrywania wzorców lub demonstrowania korelacji pomiędzy dwiema zmiennymi.
+Wykresy punktowe (znane również jako wykresy rozrzutu lub wykresy x‑y) są często używane do sprawdzania wzorców lub demonstrowania korelacji pomiędzy dwiema zmiennymi.
 
 Użyj wykresu punktowego, gdy:
 
@@ -166,8 +164,6 @@ Użyj wykresu punktowego, gdy:
 * Masz dwie zmienne, które dobrze ze sobą współgrają.
 * Chcesz określić, czy dwie zmienne są ze sobą powiązane.
 * Masz zmienną niezależną, która ma wiele wartości dla zmiennej zależnej.
-
-Poniższy kod C# pokazuje, jak utworzyć wykres punktowy z różnymi seriami znaczników:
 
 ```c#
 using Aspose.Slides;
@@ -177,7 +173,7 @@ using Aspose.Slides.Export;
 // Utwórz instancję klasy Presentation.
 using (Presentation presentation = new Presentation())
 {
-    // Dostęp do pierwszego slajdu.
+    // Uzyskaj dostęp do pierwszego slajdu.
     ISlide slide = presentation.Slides[0];
 
     // Utwórz domyślny wykres punktowy.
@@ -231,7 +227,7 @@ using (Presentation presentation = new Presentation())
     series.Marker.Size = 10;
     series.Marker.Symbol = MarkerStyleType.Circle;
 
-    // Zapisz prezentację na dysk jako plik PPTX.
+    // Zapisz prezentację na dysku jako plik PPTX.
     presentation.Save("AsposeChart_out.pptx", SaveFormat.Pptx);
 }
 ```
@@ -240,24 +236,22 @@ Wynik:
 
 ![The Scatter chart](scatter_chart.png)
 
-### **Tworzenie wykresów kołowych**
+### **Utworzenie wykresów kołowych**
 
-Wykresy kołowe najlepiej służą do prezentacji stosunku części do całości w danych, zwłaszcza gdy dane zawierają etykiety kategoryczne z wartościami liczbowymi. Jeśli jednak Twoje dane zawierają wiele części lub etykiet, rozważ użycie wykresu słupkowego.
+Wykresy kołowe są najodpowiedniejsze do przedstawiania relacji część‑całość w danych, szczególnie gdy dane zawierają etykiety kategorialne z wartościami liczbowymi. Jednak jeśli Twoje dane zawierają wiele części lub etykiet, warto rozważyć użycie wykresu słupkowego.
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation).
-1. Pobierz odwołanie do slajdu, używając jego indeksu.
+1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
+1. Uzyskaj referencję do slajdu, używając jego indeksu.
 1. Dodaj wykres z domyślnymi danymi i określ typ `ChartType.Pie`.
-1. Uzyskaj dostęp do skoroszytu danych wykresu ([IChartDataWorkbook](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ichartdataworkbook/)).
+1. Uzyskaj dostęp do skoroszytu danych wykresu ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)).
 1. Wyczyść domyślne serie i kategorie.
 1. Dodaj nowe serie i kategorie.
-1. Dodaj nowe dane wykresu dla serii.
+1. Dodaj nowe dane wykresu dla serii wykresu.
 1. Dodaj nowe punkty do wykresu i zastosuj niestandardowe kolory do sektorów wykresu kołowego.
 1. Ustaw etykiety dla serii.
-1. Włącz linie poprowadzenia dla etykiet serii.
+1. Włącz linie prowadzące dla etykiet serii.
 1. Ustaw kąt obrotu wykresu kołowego.
 1. Zapisz zmodyfikowaną prezentację jako plik PPTX.
-
-Poniższy kod C# pokazuje, jak utworzyć wykres kołowy:
 
 ```c#
 using System.Drawing;
@@ -280,7 +274,7 @@ using (Presentation presentation = new Presentation())
     chart.ChartTitle.Height = 20;
     chart.HasTitle = true;
 
-    // Ustaw pierwszą serię, aby wyświetlała wartości.
+    // Ustaw pierwszą serię, aby pokazywała wartości.
     chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
 
     // Ustaw indeks arkusza danych wykresu.
@@ -289,7 +283,7 @@ using (Presentation presentation = new Presentation())
     // Pobierz skoroszyt danych wykresu.
     IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
 
-    // Usuń domyślne wygenerowane serie i kategorie.
+    // Usuń domyślnie wygenerowane serie i kategorie.
     chart.ChartData.Series.Clear();
     chart.ChartData.Categories.Clear();
 
@@ -342,7 +336,7 @@ using (Presentation presentation = new Presentation())
     point2.Format.Line.Style = LineStyle.ThinThin;
     point2.Format.Line.DashStyle = LineDashStyle.LargeDashDotDot;
 
-    // Utwórz własne etykiety dla każdej kategorii w nowej serii.
+    // Utwórz niestandardowe etykiety dla każdej kategorii w nowej serii.
     IDataLabel label1 = series.DataPoints[0].Label;
 
     label1.DataLabelFormat.ShowValue = true;
@@ -371,20 +365,18 @@ Wynik:
 
 ![The Pie chart](pie_chart.png)
 
-### **Tworzenie wykresów liniowych**
+### **Utworzenie wykresów liniowych**
 
-Wykresy liniowe (znane także jako wykresy liniowe) są najlepsze w sytuacjach, gdy chcesz pokazać zmiany wartości w czasie. Dzięki wykresowi liniowemu możesz jednocześnie porównać dużą ilość danych, śledzić zmiany i trendy w czasie, podkreślać anomalie w seriach danych i nie tylko.
+Wykresy liniowe (znane również jako wykresy liniowe) są najodpowiedniejsze w sytuacjach, gdy chcesz pokazać zmiany wartości w czasie. Korzystając z wykresu liniowego, możesz porównać dużą ilość danych jednocześnie, śledzić zmiany i trendy w czasie, podkreślać anomalie w seriach danych i wiele więcej.
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation).
-1. Pobierz odwołanie do slajdu, używając jego indeksu.
+1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
+1. Uzyskaj referencję do slajdu, używając jego indeksu.
 1. Dodaj wykres z domyślnymi danymi i określ typ `ChartType.Line`.
-1. Uzyskaj dostęp do skoroszytu danych wykresu ([IChartDataWorkbook](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ichartdataworkbook/)).
+1. Uzyskaj dostęp do skoroszytu danych wykresu ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)).
 1. Wyczyść domyślne serie i kategorie.
 1. Dodaj nowe serie i kategorie.
-1. Dodaj nowe dane wykresu dla serii.
+1. Dodaj nowe dane wykresu dla serii wykresu.
 1. Zapisz zmodyfikowaną prezentację jako plik PPTX.
-
-Poniższy kod C# pokazuje, jak utworzyć wykres liniowy:
 
 ```c#
 using Aspose.Slides;
@@ -399,7 +391,7 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-Domyślnie punkty na wykresie liniowym są łączone prostymi, ciągłymi liniami. Jeśli chcesz, aby punkty były łączone kreskami, możesz określić preferowany typ kreski w następujący sposób:
+Domyślnie punkty na wykresie liniowym są połączone prostymi ciągłymi liniami. Jeśli chcesz, aby punkty były łączone kreskami, możesz określić preferowany typ kreski w następujący sposób:
 
 ```c#
 using Aspose.Slides;
@@ -420,20 +412,18 @@ Wynik:
 
 ![The Line chart](line_chart.png)
 
-### **Tworzenie wykresów mapy drzewa**
+### **Utworzenie wykresów typu mapa drzewa**
 
-Wykresy mapy drzewa są najlepsze dla danych sprzedażowych, gdy chcesz pokazać względny rozmiar kategorii danych i szybko zwrócić uwagę na elementy, które wnoszą największy wkład w każdej kategorii.
+Wykresy typu mapa drzewa są najodpowiedniejsze dla danych sprzedażowych, gdy chcesz pokazać względny rozmiar kategorii danych i szybko zwrócić uwagę na elementy będące dużymi wkładami w każdej kategorii.
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation).
-1. Pobierz odwołanie do slajdu, używając jego indeksu.
+1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
+1. Uzyskaj referencję do slajdu, używając jego indeksu.
 1. Dodaj wykres z domyślnymi danymi i określ typ `ChartType.Treemap`.
-1. Uzyskaj dostęp do skoroszytu danych wykresu ([IChartDataWorkbook](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ichartdataworkbook/)).
+1. Uzyskaj dostęp do skoroszytu danych wykresu ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)).
 1. Wyczyść domyślne serie i kategorie.
 1. Dodaj nowe serie i kategorie.
-1. Dodaj nowe dane wykresu dla serii.
+1. Dodaj nowe dane wykresu dla serii wykresu.
 1. Zapisz zmodyfikowaną prezentację jako plik PPTX.
-
-Poniższy kod C# pokazuje, jak utworzyć wykres mapy drzewa:
 
 ```c#
 using Aspose.Slides;
@@ -494,21 +484,19 @@ Wynik:
 
 ![The Treemap chart](treemap_chart.png)
 
-### **Tworzenie wykresów giełdowych**
+### **Utworzenie wykresów giełdowych**
 
-Wykresy giełdowe służą do wyświetlania danych finansowych, takich jak ceny otwarcia, maksymalne, minimalne i zamknięcia, pomagając analizować trendy rynkowe i zmienność. Dostarczają istotnych informacji o wynikach akcji, wspierając inwestorów i analityków w podejmowaniu świadomych decyzji.
+Wykresy giełdowe służą do wyświetlania danych finansowych, takich jak ceny otwarcia, maksimum, minimum i zamknięcia, pomagając analizować trendy rynkowe i zmienność. Dostarczają kluczowych wglądów w wyniki akcji, wspierając inwestorów i analityków w podejmowaniu świadomych decyzji.
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation).
-1. Pobierz odwołanie do slajdu, używając jego indeksu.
+1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
+1. Uzyskaj referencję do slajdu, używając jego indeksu.
 1. Dodaj wykres z domyślnymi danymi i określ typ `ChartType.OpenHighLowClose`.
-1. Uzyskaj dostęp do skoroszytu danych wykresu ([IChartDataWorkbook](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ichartdataworkbook/)).
+1. Uzyskaj dostęp do skoroszytu danych wykresu ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)).
 1. Wyczyść domyślne serie i kategorie.
 1. Dodaj nowe serie i kategorie.
-1. Dodaj nowe dane wykresu dla serii.
+1. Dodaj nowe dane wykresu dla serii wykresu.
 1. Określ format HiLowLines.
 1. Zapisz zmodyfikowaną prezentację jako plik PPTX.
-
-Poniższy kod C# pokazuje, jak utworzyć wykres giełdowy:
 
 ```c#
 using Aspose.Slides;
@@ -568,20 +556,18 @@ Wynik:
 
 ![The Stock chart](stock_chart.png)
 
-### **Tworzenie wykresów skrzynkowych i wąsów**
+### **Utworzenie wykresów pudełkowych i wąsowych**
 
-Wykresy skrzynkowe i wąsów służą do wyświetlania rozkładu danych poprzez podsumowanie kluczowych miar statystycznych, takich jak mediana, kwartyle i potencjalne obserwacje odstające. Są szczególnie przydatne w analizie eksploracyjnej i badaniach statystycznych, umożliwiając szybkie zrozumienie zmienności danych i identyfikację anomalii.
+Wykresy pudełkowe i wąsowe służą do przedstawiania rozkładu danych poprzez podsumowanie kluczowych miar statystycznych, takich jak mediana, kwartyle i potencjalne wartości odstające. Są szczególnie przydatne w analizie eksploracyjnej danych i badaniach statystycznych, pozwalając szybko zrozumieć zmienność danych i zidentyfikować ewentualne anomalie.
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation).
-1. Pobierz odwołanie do slajdu, używając jego indeksu.
+1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
+1. Uzyskaj referencję do slajdu, używając jego indeksu.
 1. Dodaj wykres z domyślnymi danymi i określ typ `ChartType.BoxAndWhisker`.
-1. Uzyskaj dostęp do skoroszytu danych wykresu ([IChartDataWorkbook](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ichartdataworkbook/)).
+1. Uzyskaj dostęp do skoroszytu danych wykresu ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)).
 1. Wyczyść domyślne serie i kategorie.
 1. Dodaj nowe serie i kategorie.
-1. Dodaj nowe dane wykresu dla serii.
+1. Dodaj nowe dane wykresu dla serii wykresu.
 1. Zapisz zmodyfikowaną prezentację jako plik PPTX.
-
-Poniższy kod C# pokazuje, jak utworzyć wykres skrzynkowy i wąsowy:
 
 ```c#
 using Aspose.Slides;
@@ -623,16 +609,14 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-### **Tworzenie wykresów lejkowych**
+### **Utworzenie wykresów lejkowych**
 
-Wykresy lejkowe służą do wizualizacji procesów składających się z kolejnych etapów, w których objętość danych maleje w miarę przechodzenia z jednego kroku do następnego. Są szczególnie pomocne przy analizie wskaźników konwersji, identyfikacji wąskich gardeł oraz monitorowaniu efektywności procesów sprzedaży lub marketingu.
+Wykresy lejkowe służą do wizualizacji procesów składających się z kolejnych etapów, w których objętość danych maleje w miarę przechodzenia z jednego kroku do kolejnego. Są szczególnie przydatne do analizy wskaźników konwersji, identyfikacji wąskich gardeł i śledzenia efektywności procesów sprzedaży lub marketingu.
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation).
-1. Pobierz odwołanie do slajdu, używając jego indeksu.
+1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
+1. Uzyskaj referencję do slajdu, używając jego indeksu.
 1. Dodaj wykres z domyślnymi danymi i określ typ `ChartType.Funnel`.
 1. Zapisz zmodyfikowaną prezentację jako plik PPTX.
-
-Poniższy kod C# pokazuje, jak utworzyć wykres lejkowy:
 
 ```c#
 using Aspose.Slides;
@@ -672,16 +656,14 @@ Wynik:
 
 ![The Funnel chart](funnel_chart.png)
 
-### **Tworzenie wykresów promieniowych**
+### **Utworzenie wykresów Sunburst**
 
-Wykresy promieniowe służą do wizualizacji danych hierarchicznych, przedstawiając poziomy jako koncentryczne pierścienie. Pomagają zilustrować relacje część‑całość i są idealne do przedstawiania zagnieżdżonych kategorii i podkategorii w przejrzystym, kompaktowym formacie.
+Wykresy Sunburst służą do wizualizacji danych hierarchicznych, wyświetlając poziomy jako koncentryczne pierścienie. Pomagają zilustrować relacje część‑całość i są idealne do przedstawiania zagnieżdżonych kategorii i podkategorii w przejrzysty, zwarty sposób.
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation).
-1. Pobierz odwołanie do slajdu, używając jego indeksu.
+1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
+1. Uzyskaj referencję do slajdu, używając jego indeksu.
 1. Dodaj wykres z domyślnymi danymi i określ typ `ChartType.Sunburst`.
 1. Zapisz zmodyfikowaną prezentację jako plik PPTX.
-
-Poniższy kod C# pokazuje, jak utworzyć wykres promieniowy:
 
 ```c#
 using Aspose.Slides;
@@ -740,19 +722,17 @@ Wynik:
 
 ![The Sunburst chart](sunburst_chart.png)
 
-### **Tworzenie wykresów histogramu**
+### **Utworzenie wykresów histogramów**
 
-Histogramy służą do przedstawiania rozkładu danych liczbowych poprzez grupowanie wartości w przedziały (kosze). Są szczególnie użyteczne przy identyfikacji wzorców, takich jak częstotliwość, skośność i rozproszenie, oraz przy wykrywaniu wartości odstających w zestawie danych.
+Wykresy histogramu służą do przedstawiania rozkładu danych liczbowych poprzez grupowanie wartości w przedziały (koszyki). Są szczególnie przydatne do identyfikacji wzorców danych, takich jak częstotliwość, skośność i rozproszenie, oraz do wykrywania wartości odstających w zbiorze danych.
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation).
-1. Pobierz odwołanie do slajdu, używając jego indeksu.
-1. Dodaj wykres z danymi i określ typ `ChartType.Histogram`.
-1. Uzyskaj dostęp do skoroszytu danych wykresu ([IChartDataWorkbook](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ichartdataworkbook/)).
+1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
+1. Uzyskaj referencję do slajdu, używając jego indeksu.
+1. Dodaj wykres z pewnymi danymi i określ typ `ChartType.Histogram`.
+1. Uzyskaj dostęp do skoroszytu danych wykresu ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)).
 1. Wyczyść domyślne serie i kategorie.
 1. Dodaj nowe serie i kategorie.
 1. Zapisz zmodyfikowaną prezentację jako plik PPTX.
-
-Poniższy kod C# pokazuje, jak utworzyć wykres histogramu:
 
 ```c#
 using Aspose.Slides;
@@ -786,16 +766,14 @@ Wynik:
 
 ![The Histogram chart](histogram_chart.png)
 
-### **Tworzenie wykresów radarowych**
+### **Utworzenie wykresów radarowych**
 
-Wykresy radarowe służą do prezentacji danych wielowymiarowych w dwuwymiarowym formacie, umożliwiając jednoczesne porównanie kilku zmiennych. Są szczególnie przydatne do identyfikacji wzorców, mocnych i słabych stron w różnych miarach wydajności lub atrybutach.
+Wykresy radarowe służą do wyświetlania danych wielowymiarowych w dwuwymiarowym formacie, umożliwiając łatwe porównanie kilku zmiennych jednocześnie. Są szczególnie przydatne do identyfikacji wzorców, mocnych i słabych stron w wielu miarach wydajności lub atrybutach.
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation).
-1. Pobierz odwołanie do slajdu, używając jego indeksu.
-1. Dodaj wykres z danymi i określ typ `ChartType.Radar`.
+1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
+1. Uzyskaj referencję do slajdu, używając jego indeksu.
+1. Dodaj wykres z pewnymi danymi i określ typ `ChartType.Radar`.
 1. Zapisz zmodyfikowaną prezentację jako plik PPTX.
-
-Poniższy kod C# pokazuje, jak utworzyć wykres radarowy:
 
 ```c#
 using Aspose.Slides;
@@ -813,20 +791,18 @@ Wynik:
 
 ![The Radar chart](radar_chart.png)
 
-### **Tworzenie wykresów wielokategorialnych**
+### **Utworzenie wykresów wielokategorii**
 
-Wykresy wielokategorialne służą do prezentacji danych, które obejmują więcej niż jedną grupę kategorialną, umożliwiając porównanie wartości w wielu wymiarach jednocześnie. Są szczególnie przydatne, gdy trzeba analizować trendy i zależności w złożonych, wielowarstwowych zestawach danych.
+Wykresy wielokategorii służą do wyświetlania danych obejmujących więcej niż jedną grupę kategorialną, umożliwiając porównanie wartości w wielu wymiarach jednocześnie. Są szczególnie przydatne, gdy trzeba analizować trendy i zależności w złożonych, wielowarstwowych zestawach danych.
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation).
-1. Pobierz odwołanie do slajdu, używając jego indeksu.
+1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
+1. Uzyskaj referencję do slajdu, używając jego indeksu.
 1. Dodaj wykres z domyślnymi danymi i określ typ `ChartType.ClusteredColumn`.
-1. Uzyskaj dostęp do skoroszytu danych wykresu ([IChartDataWorkbook](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ichartdataworkbook/)).
+1. Uzyskaj dostęp do skoroszytu danych wykresu ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)).
 1. Wyczyść domyślne serie i kategorie.
 1. Dodaj nowe serie i kategorie.
-1. Dodaj nowe dane wykresu dla serii.
+1. Dodaj nowe dane wykresu dla serii wykresu.
 1. Zapisz zmodyfikowaną prezentację jako plik PPTX.
-
-Poniższy kod C# pokazuje, jak utworzyć wykres wielokategorialny:
 
 ```c#
 using Aspose.Slides;
@@ -874,7 +850,7 @@ using (Presentation presentation = new Presentation())
     series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, "D8", 70));
     series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, "D9", 80));
 
-    // Save the presentation with the chart.
+    // Zapisz prezentację z wykresem.
     presentation.Save("AsposeChart_out.pptx", SaveFormat.Pptx);
 }
 ```
@@ -883,11 +859,9 @@ Wynik:
 
 ![The multi category chart](multi_category_chart.png)
 
-### **Tworzenie wykresów mapowych**
+### **Utworzenie wykresów mapowych**
 
-Wykresy mapowe służą do wizualizacji danych geograficznych poprzez mapowanie informacji na konkretne lokalizacje, takie jak kraje, stany czy miasta. Są szczególnie przydatne przy analizie trendów regionalnych, danych demograficznych oraz rozkładów przestrzennych w sposób przejrzysty i atrakcyjny wizualnie.
-
-Poniższy kod C# pokazuje, jak utworzyć wykres mapowy:
+Wykresy mapowe służą do wizualizacji danych geograficznych poprzez mapowanie informacji na konkretne lokalizacje, takie jak kraje, stany lub miasta. Są szczególnie przydatne do analizy trendów regionalnych, danych demograficznych i rozmieszczenia przestrzennego w przejrzysty, atrakcyjny wizualnie sposób.
 
 ```c#
 using Aspose.Slides;
@@ -906,16 +880,14 @@ Wynik:
 ![The Map chart](map_chart.png)
 
 {{% alert color="info" %}} 
-Powyższy obrazek przedstawia zapisany plik prezentacji otwarty w programie PowerPoint. Aspose.Slides zapisuje wykres mapowy i jego dane poprawnie, ale sam nie rysuje wykresów mapowych: gdy slajd zawierający taki wykres jest renderowany do obrazu lub konwertowany na PDF lub SVG, obszar wykresu pozostaje pusty. Inne kształty na tym samym slajdzie nie są dotknięte.
+Obraz powyżej pokazuje zapisaną prezentację otwartą w programie PowerPoint. Aspose.Slides prawidłowo zapisuje wykres mapowy i jego dane, ale nie rysuje samych wykresów mapowych: gdy slajd zawierający taki wykres jest renderowany do obrazu lub konwertowany do PDF lub SVG, obszar wykresu pozostaje pusty. Inne kształty na tym samym slajdzie nie są dotknięte.
 {{% /alert %}} 
 
-### **Tworzenie wykresów kombinowanych**
+### **Utworzenie wykresów kombinowanych**
 
-Wykres kombinowany (lub wykres combo) łączy dwa lub więcej typów wykresów w jednym diagramie. Dzięki temu wykresowi możesz podkreślić, porównać lub zbadać różnice między dwoma lub większą liczbą zestawów danych, pomagając zidentyfikować zależności między nimi.
+Wykres kombinowany (lub combo) łączy dwa lub więcej typów wykresów w jednym diagramie. Ten wykres pozwala podkreślić, porównać lub zbadać różnice między dwoma lub więcej zestawami danych, pomagając zidentyfikować zależności między nimi.
 
 ![The combination chart](combination_chart.png)
-
-Poniższy kod C# pokazuje, jak utworzyć kombinowany wykres przedstawiony powyżej w prezentacji PowerPoint:
 
 ```c#
 using System.Drawing;
@@ -1073,17 +1045,15 @@ private static void SetAxisTitle(IAxis axis, string axisTitle)
 
 ## **Aktualizacja wykresów**
 
-Aspose.Slides for .NET umożliwia aktualizację wykresów PowerPoint poprzez modyfikację danych wykresu, formatowania i stylu. Funkcjonalność ta upraszcza utrzymywanie prezentacji w aktualnym stanie przy użyciu dynamicznej treści i zapewnia, że wykresy dokładnie odzwierciedlają bieżące dane oraz standardy wizualne.
+Aspose.Slides dla .NET umożliwia aktualizację wykresów PowerPoint poprzez modyfikację danych wykresu, formatowania i stylizacji. Ta funkcja upraszcza proces utrzymywania prezentacji w aktualnym stanie przy użyciu dynamicznej zawartości i zapewnia, że wykresy dokładnie odzwierciedlają bieżące dane oraz standardy wizualne.
 
-1. Zainicjuj klasę [Presentation](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation), reprezentującą prezentację zawierającą wykres.
-1. Pobierz odwołanie do slajdu, używając jego indeksu.
+1. Zainicjuj klasę [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
+1. Uzyskaj referencję do slajdu, używając jego indeksu.
 1. Przejrzyj wszystkie kształty, aby znaleźć wykres.
 1. Uzyskaj dostęp do arkusza danych wykresu.
 1. Zmodyfikuj serię danych wykresu, zmieniając wartości serii.
-1. Dodaj nową serię i wypełnij ją danymi.
+1. Dodaj nową serię i wypełnij jej dane.
 1. Zapisz zmodyfikowaną prezentację jako plik PPTX.
-
-Poniższy kod C# pokazuje, jak zaktualizować wykres:
 
 ```c#
 using Aspose.Slides;
@@ -1092,7 +1062,7 @@ using Aspose.Slides.Export;
 
 const string chartName = "My chart";
 
-// Utwórz instancję klasy Presentation, która reprezentuje plik PPTX.
+// Utwórz instancję klasy Presentation reprezentującej plik PPTX.
 using (Presentation presentation = new Presentation("ExistingChart.pptx"))
 {
     // Uzyskaj dostęp do pierwszego slajdu.
@@ -1116,7 +1086,7 @@ using (Presentation presentation = new Presentation("ExistingChart.pptx"))
             IChartSeries series = chart.ChartData.Series[0];
 
             // Zaktualizuj dane serii.
-            workbook.GetCell(worksheetIndex, 0, 1, "New_Series 1"); // Modyfikowanie nazwy serii.
+            workbook.GetCell(worksheetIndex, 0, 1, "New_Series 1"); // Modyfikacja nazwy serii.
             series.DataPoints[0].Value.Data = 90;
             series.DataPoints[1].Value.Data = 123;
             series.DataPoints[2].Value.Data = 44;
@@ -1125,7 +1095,7 @@ using (Presentation presentation = new Presentation("ExistingChart.pptx"))
             series = chart.ChartData.Series[1];
 
             // Zaktualizuj dane serii.
-            workbook.GetCell(worksheetIndex, 0, 2, "New_Series 2"); // Modyfikowanie nazwy serii.
+            workbook.GetCell(worksheetIndex, 0, 2, "New_Series 2"); // Modyfikacja nazwy serii.
             series.DataPoints[0].Value.Data = 23;
             series.DataPoints[1].Value.Data = 67;
             series.DataPoints[2].Value.Data = 99;
@@ -1147,17 +1117,17 @@ using (Presentation presentation = new Presentation("ExistingChart.pptx"))
 }
 ```
 
-## **Ustawienie zakresu danych dla wykresu**
+## **Ustaw zakres danych dla wykresu**
 
-Aspose.Slides for .NET zapewnia elastyczność definiowania konkretnego zakresu danych z arkusza jako źródła danych wykresu. Oznacza to, że możesz bezpośrednio mapować wybrany fragment arkusza na wykres, kontrolując, które komórki przyczyniają się do serii i kategorii wykresu. W rezultacie łatwo aktualizujesz i synchronizujesz wykresy ze zmianami danych w arkuszu, zapewniając, że prezentacje PowerPoint odzwierciedlają aktualne i dokładne informacje.
+Aby sprawdzić zakres już używany przez istniejący wykres, zobacz [Retrieve a Chart's Data Range](/slides/pl/net/chart-workbook/#retrieve-a-charts-data-range).
 
-1. Zainicjuj klasę [Presentation](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation), reprezentującą prezentację zawierającą wykres.
-1. Pobierz odwołanie do slajdu, używając jego indeksu.
+Aspose.Slides dla .NET zapewnia elastyczność definiowania konkretnego zakresu danych z arkusza jako źródła danych wykresu. Oznacza to, że możesz bezpośrednio mapować część arkusza na wykres, kontrolując które komórki przyczyniają się do serii i kategorii wykresu. Dzięki temu łatwo aktualizujesz i synchronizujesz wykresy z najnowszymi zmianami danych w arkuszu, zapewniając, że prezentacje PowerPoint odzwierciedlają aktualne i dokładne informacje.
+
+1. Zainicjuj klasę [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
+1. Uzyskaj referencję do slajdu, używając jego indeksu.
 1. Przejrzyj wszystkie kształty, aby znaleźć wykres.
 1. Uzyskaj dostęp do danych wykresu i ustaw zakres.
 1. Zapisz zmodyfikowaną prezentację jako plik PPTX.
-
-Poniższy kod C# pokazuje, jak ustawić zakres danych dla wykresu:
 
 ```c#
 using Aspose.Slides;
@@ -1186,9 +1156,7 @@ using (Presentation presentation = new Presentation("ExistingChart.pptx"))
 
 ## **Używanie domyślnych znaczników w wykresach**
 
-Kiedy używasz domyślnych znaczników w wykresach, każda seria wykresu automatycznie otrzymuje inny domyślny symbol znacznika.
-
-Poniższy kod C# pokazuje, jak automatycznie ustawić znacznik serii wykresu:
+Gdy używasz domyślnych znaczników w wykresach, każda seria wykresu automatycznie otrzymuje inny domyślny symbol znacznika.
 
 ```c#
 using Aspose.Slides;
@@ -1236,18 +1204,18 @@ using (Presentation presentation = new Presentation())
 
 ## **FAQ**
 
-**Jakie typy wykresów są obsługiwane przez Aspose.Slides for .NET?**
+**Jakie typy wykresów są obsługiwane przez Aspose.Slides dla .NET?**
 
-Aspose.Slides for .NET obsługuje szeroką gamę typów wykresów, w tym słupkowe, liniowe, kołowe, obszarowe, rozproszenia, histogramy, radarowe i wiele innych. Ta elastyczność pozwala wybrać najodpowiedniejszy typ wykresu do potrzeb wizualizacji danych.
+Aspose.Slides dla .NET obsługuje szeroką gamę typów wykresów, w tym słupkowe, liniowe, kołowe, obszarowe, punktowe, histogramy, radarowe i wiele innych. Ta elastyczność pozwala wybrać najbardziej odpowiedni typ wykresu do potrzeb wizualizacji danych.
 
 **Jak dodać nowy wykres do slajdu?**
 
-Aby dodać wykres, najpierw tworzysz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation), pobierasz żądany slajd przy użyciu jego indeksu, a następnie wywołujesz metodę dodającą wykres, podając typ wykresu oraz początkowe dane. Proces ten wstawia wykres bezpośrednio do prezentacji.
+Aby dodać wykres, najpierw tworzysz instancję klasy [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation), pobierasz żądany slajd przy użyciu jego indeksu, a następnie wywołujesz metodę dodającą wykres, określając typ wykresu i dane początkowe. Ten proces integruje wykres bezpośrednio w Twojej prezentacji.
 
-**Jak mogę zaktualizować dane wyświetlane w wykresie?**
+**Jak mogę zaktualizować dane wyświetlane na wykresie?**
 
-Możesz zaktualizować dane wykresu, uzyskując dostęp do jego skoroszytu danych ([IChartDataWorkbook](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ichartdataworkbook/)), usuwając domyślne serie i kategorie, a następnie dodając własne dane. Umożliwia to programowe odświeżenie wykresu, aby odzwierciedlał najnowsze informacje.
+Możesz zaktualizować dane wykresu, uzyskując dostęp do jego skoroszytu danych ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)), usuwając domyślne serie i kategorie, a następnie dodając własne dane. Pozwala to programowo odświeżyć wykres, aby odzwierciedlał najnowsze dane.
 
 **Czy można dostosować wygląd wykresu?**
 
-Tak, Aspose.Slides for .NET oferuje rozbudowane możliwości dostosowywania. Możesz modyfikować kolory, czcionki, etykiety, legendy i inne elementy formatowania, aby dopasować wygląd wykresu do określonych wymagań projektowych.
+Tak, Aspose.Slides dla .NET oferuje rozbudowane opcje personalizacji. Możesz modyfikować kolory, czcionki, etykiety, legendy i inne elementy formatowania, aby dostosować wygląd wykresu do konkretnych wymagań projektowych.

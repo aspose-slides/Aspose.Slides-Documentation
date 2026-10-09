@@ -1,40 +1,40 @@
 ---
-title: Python üzerinden Java ile Sunumlarda Grafik Kitaplıklarını Yönetme
-linktitle: Grafik Kitaplığı
+title: Python üzerinden Java ile Sunumlarda Grafik Çalışma Kitaplarını Yönetme
+linktitle: Grafik Çalışma Kitabı
 type: docs
 weight: 70
 url: /tr/python-java/chart-workbook/
 keywords:
-- grafik kitaplığı
+- grafik çalışma kitabı
 - grafik verisi
-- kitaplık hücresi
+- çalışma kitabı hücresi
 - veri etiketi
 - çalışma sayfası
 - veri kaynağı
-- dış kitaplık
-- dış veri
+- harici çalışma kitabı
+- harici veri
 - grafik önbelleği
-- kitaplık kurtarma
+- çalışma kitabı kurtarma
 - PowerPoint
 - sunum
 - Python
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Python via Java'ı keşfedin: PowerPoint ve OpenDocument formatlarında grafik kitaplıklarını zahmetsizce yönetin ve sunum verilerinizi sadeleştirin."
+description: "Aspose.Slides for Python via Java'ı keşfedin: PowerPoint ve OpenDocument formatlarında grafik çalışma kitaplarını zahmetsizce yöneterek sunum verilerinizi düzenleyin."
 ---
 ## **Genel Bakış**
 
-Bu makale Aspose.Slides'te grafik kitapçıklarıyla nasıl çalışılacağını açıklar. Kitaplık akışları aracılığıyla grafik verilerini okuma ve yazma, kitaplık hücrelerini grafik veri etiketleri olarak kullanma, çalışma sayfası koleksiyonlarına erişme ve grafik değerleri için veri kaynağı tipini belirtme konularını gösterir.
+Bu makale, Aspose.Slides'te grafik çalışma kitaplarıyla nasıl çalışılacağını açıklar. Çalışma kitabı akışları aracılığıyla grafik verilerini okuma ve yazma, çalışma kitabı hücrelerini grafik veri etiketleri olarak kullanma, çalışma sayfası koleksiyonlarına erişme ve grafik değerleri için veri kaynağı türünü belirleme konularını gösterir.
 
-Ayrıca dış kitaplıkların grafik veri kaynakları olarak kullanılması da ele alınır. Örnekler, dış bir kitaplık oluşturup atamayı, bir grafik ile ilişkilendirilmiş dış kitaplığın yolunu almayı ve kitaplık mevcut olduğunda grafik verisini düzenlemeyi gösterir.
+Ayrıca harici çalışma kitaplarının grafik veri kaynakları olarak kullanılmasını kapsar. Örnekler, harici bir çalışma kitabı oluşturma ve atama, bir grafikle ilişkilendirilmiş harici çalışma kitabının yolunu alma ve çalışma kitabı mevcut olduğunda grafik verilerini düzenleme işlemlerini gösterir.
 
-Eksik veri temsil eden kitaplık hücreleri için, boş bir hücre ile sıfır arasındaki farkı ve kullanılabilir görüntüleme modlarının bir çizgi grafik karşılaştırmasını görmek üzere [Boş Hücrelerin Görüntülenmesini Kontrol Et](/slides/tr/python-java/chart-series/) bölümüne bakın.
+Eksik veri temsil eden çalışma kitabı hücreleri için, boş bir hücre ile sıfır arasındaki farkı ve mevcut gösterim modlarının bir çizgi grafiği karşılaştırmasını görmek üzere [Boş Hücrelerin Görüntülenmesini Kontrol Et](/slides/tr/python-java/chart-series/) bölümüne bakın.
 
-## **Gizli Satır ve Sütunlardan Veri Dahil Etme**
+## **Gizli Satır ve Sütunlardan Veri Dahil Et**
 
-Gizli çalışma sayfası satır ve sütunlarından veri gösterilip gösterilmeyeceğini kontrol etmek için [Chart.setPlotVisibleCellsOnly](https://reference.aspose.com/slides/tr/python-java/aspose.slides/chart/#setPlotVisibleCellsOnly) yöntemini kullanın. Görünür hücreleri yalnızca çizmek için `True`, hem görünür hem de gizli hücreleri dahil etmek için `False` olarak ayarlayın. Bu ayar sadece grafiğin çizim davranışını kontrol eder; çalışma sayfası satır veya sütunlarını gizlemez veya göstermez.
+Gizli çalışma sayfası satır ve sütunlarından veri çizip çizilmeyeceğini kontrol etmek için **[Chart.setPlotVisibleCellsOnly](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#setPlotVisibleCellsOnly)** kullanın. Görünür hücreleri çizmek için `True`, hem görünür hem de gizli hücreleri dahil etmek için `False` olarak ayarlayın. Bu ayar grafik çizimini kontrol eder; çalışma sayfası satır veya sütunlarını gizlemez veya göstermez.
 
-[hidden-source-data.pptx](hidden-source-data.pptx) dosyasını indirin ve çalışma dizinine yerleştirin. İlk slaytı, ilk şekil olarak bir sütun grafik içerir. Gömülü çalışma sayfası `Sheet1`, `A1:C4` aralığını içerir. 3. satır ve C sütunu gizlidir, ancak hücreleri hâlâ değer içerir.
+[Örnek sunum](hidden-source-data.pptx) ilk slaytındaki ilk şekil olarak bir sütun grafik içerir. Gömülü çalışma sayfası, `Sheet1`, aşağıdaki kaynak aralığını, `A1:C4`, içerir. 3. satır ve C sütunu gizlidir, ancak hücreleri hâlâ değer içerir.
 
 | Çalışma sayfası satırı | A: Ay | B: Perakende | C: Toptan (gizli sütun) |
 | --- | --- | --- | --- |
@@ -42,9 +42,9 @@ Gizli çalışma sayfası satır ve sütunlarından veri gösterilip gösterilme
 | 3 (gizli satır) | Şubat | 40 | 60 |
 | 4 | Mart | 20 | 50 |
 
-Kaynak hücrelere [ChartData.getChartDataWorkbook](https://reference.aspose.com/slides/tr/python-java/aspose.slides/chartdata/#getChartDataWorkbook) ile erişin ve gizli durumlarını incelemek için [ChartDataCell.isHidden](https://reference.aspose.com/slides/tr/python-java/aspose.slides/chartdatacell/#isHidden) metodunu okuyun. Bu metod gizli durumunu değiştirmeden raporlar. Bu dosyada B2 görünür, B3 gizli satıra ait ve C2 gizli sütuna ait; örnek sırasıyla `False`, `True` ve `True` değerlerini yazdırır.
+Kaynak hücrelere **[ChartData.getChartDataWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getChartDataWorkbook)** ile erişin ve gizli durumlarını incelemek için **[ChartDataCell.isHidden](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatacell/#isHidden)** okuyun. Bu yöntem gizli durumu değiştirmeden rapor eder. Bu dosyada B2 görünür, B3 gizli satıra aittir ve C2 gizli sütuna aittir; örnek sırasıyla `False`, `True` ve `True` değerlerini yazdırır.
 
-Bu örnek için, çizim ayarını değiştirdikten sonra grafik verisini yenileyin: gömülü kitaplığı [readWorkbookStream](https://reference.aspose.com/slides/tr/python-java/aspose.slides/chartdata/#readWorkbookStream) ile tutun ve [writeWorkbookStream](https://reference.aspose.com/slides/tr/python-java/aspose.slides/chartdata/#writeWorkbookStream) ile yeniden yükleyin. Tüm hücreleri dahil ederken, gizli Şubat kategorisini de içerecek şekilde tam aralığı geri yüklemek için [setRange](https://reference.aspose.com/slides/tr/python-java/aspose.slides/chartdata/#setRange) kullanın. Sadece bayrağı değiştirmek, bu örnekta önbelleğe alınmış grafik verisini ve kategori etiketlerini yenilemek için yeterli değildir.
+Bu örnek için, çizim ayarını değiştirdikten sonra grafik verilerini yenileyin: gömülü çalışma kitabını **[readWorkbookStream](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#readWorkbookStream)** ile tutun ve **[writeWorkbookStream](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#writeWorkbookStream)** ile yeniden yükleyin. Tüm hücreleri dahil ederken, gizli Şubat kategorisini yeniden eklemek için **[setRange](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#setRange)** da kullanın. Bayrağı değiştirmek, bu örneğin önbelleğe alınmış grafik verilerini ve kategori etiketlerini yenilemek için yeterli değildir.
 
 ```python
 import jpype
@@ -71,10 +71,10 @@ try:
         for visible_only in (True, False):
             chart.setPlotVisibleCellsOnly(visible_only)
 
-            # Gömülü kitaplıktan grafik verisini yenile.
+            # Gömülü çalışma kitabından grafik verilerini yenile.
             chart.getChartData().writeWorkbookStream(workbook_data)
             if not visible_only:
-                # Gizli kategorileri dahil ederek tam kaynak aralığını geri yükle.
+                # Gizli kategoriler dahil olmak üzere tam kaynak aralığını geri yükle.
                 chart.getChartData().setRange("Sheet1!$A$1:$C$4")
 
             presentation.save(f"hidden_cells_{visible_only}.pptx", SaveFormat.Pptx)
@@ -84,19 +84,52 @@ finally:
     presentation.dispose()
 ```
 
-Örnek, yalnızca görünür Perakende değerlerini (10 ve 20) içeren `hidden_cells_True.pptx` ve tüm altı değeri içeren `hidden_cells_False.pptx` dosyalarını kaydeder. Aşağıdaki görseller iki çizim modunu gösterir. Satır 3 ve sütun C, her iki gömülü kitaplıkta da gizli kalır.
+Örnek, sunumu iki sürüm olarak kaydeder: yalnızca görünür Perakende değerleri (10 ve 20) içeren bir sürüm ve tüm altı değeri içeren bir sürüm. Aşağıdaki görseller iki çizim modunu gösterir. Satır 3 ve C sütunu her iki gömülü çalışma kitabında da gizli kalır.
 
 | Yalnızca görünür hücreler (`True`) | Tüm hücreler (`False`) |
 | --- | --- |
 | ![Yalnızca görünür hücreler: Ocak ve Mart için Perakende değerleri 10 ve 20.](hidden_cells_True.png) | ![Tüm hücreler: Ocak, Şubat ve Mart için Perakende ve Toptan değerleri.](hidden_cells_False.png) |
 
-Değer içeren bir gizli hücre, boş bir hücreden farklıdır. Eksik değerlerin nasıl görüntüleneceğini kontrol etmek için [Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/tr/python-java/aspose.slides/chart/#setDisplayBlanksAs) kullanılır; bu, gizli kaynak verisini eklemez veya çıkarmaz. Örnek için [Boş Hücrelerin Görüntülenmesini Kontrol Et](/slides/tr/python-java/chart-series/#control-the-display-of-empty-cells) bölümünü inceleyin.
+Değer içeren bir gizli hücre, boş bir hücreden farklıdır. Eksik değerlerin nasıl gösterileceğini **[Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#setDisplayBlanksAs)** kontrol eder; gizli kaynak verileri dahil etmez veya hariç tutmaz. Bir örnek için [Boş Hücrelerin Görüntülenmesini Kontrol Et](/slides/tr/python-java/chart-series/#control-the-display-of-empty-cells) bölümüne bakın.
 
-## **Kitaplıktan Grafik Verisini Okuma ve Yazma**
+## **Grafiğin Veri Aralığını Al**
 
-Aspose.Slides for Python via Java, [readWorkbookStream](https://reference.aspose.com/slides/tr/python-java/aspose.slides/chartdata/#readWorkbookStream) ve [writeWorkbookStream](https://reference.aspose.com/slides/tr/python-java/aspose.slides/chartdata/#writeWorkbookStream) yöntemlerini sunar; bu yöntemler, Aspose.Cells ile düzenlenen grafik verisini içeren kitaplıkları okumanıza ve yazmanıza olanak sağlar. **Not**: Grafik verisi aynı şekilde düzenlenmiş olmalı ya da kaynakla benzer bir yapıya sahip olmalıdır.
+Mevcut bir sunumda çalışma kitabı verilerini güncellemeden önce, her grafiğin hangi çalışma sayfası hücrelerini kullandığını belirlemek için kaynak aralıklarını inceleyin. **[ChartData.getRange](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getRange)** yöntemi mevcut veri aralığını, örneğin `Sheet1!$A$1:$D$5` biçiminde, çalışma sayfası nitelikli bir formül olarak döndürür. Burada `Sheet1` çalışma sayfası adıdır, `!` hücre aralığından ayırır ve `$A$1:$D$5` A1'den D5'e kadar (dahil) hücreleri gösterir. Dolar işaretleri mutlak satır ve sütun referanslarını belirtir.
 
-Bu örnek, ilk slaytının ilk şekli olarak bir grafik içermesi gereken `chart.pptx` dosyasını açar. Gömülü kitaplık bir byte dizisine okunur, mevcut seriler ve kategoriler temizlenir ve aynı kitaplık geri yazılır. Değişiklikler bellekte kalır; örnek sunumu kaydetmez.
+Yöntem, grafiği veya onun çalışma kitabını değiştirmeden mevcut aralığı okur. Grafik bir çalışma kitabını veri kaynağı olarak kullanmıyorsa, `InvalidOperationException` fırlatır. Daha fazla bilgi için **[ChartData API Referansı](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/)** bölümüne bakın.
+
+Bu örnek bir sunumu açar ve her slayttaki şekilleri doğrudan grafikler için kontrol eder. Her grafiğin adını ve kaynak aralığını yazdırır. Bir grafik çalışma kitabı kullanmıyorsa, bir mesaj yazdırır ve bir sonraki graphics devam eder.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import Chart, Presentation
+
+InvalidOperationException = jpype.JClass("com.aspose.slides.exceptions.InvalidOperationException")
+
+presentation = Presentation("presentation.pptx")
+try:
+    for slide in presentation.getSlides():
+        for shape in slide.getShapes():
+            if isinstance(shape, Chart):
+                try:
+                    data_range = shape.getChartData().getRange()
+                    print(f"{shape.getName()}: {data_range}")
+                except InvalidOperationException:
+                    print(f"{shape.getName()}: The chart does not use a workbook as its data source.")
+finally:
+    presentation.dispose()
+```
+
+## **Bir Çalışma Kitabından Grafik Verilerini Oku ve Yaz**
+
+Aspose.Slides for Python via Java, **[readWorkbookStream](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#readWorkbookStream)** ve **[writeWorkbookStream](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#writeWorkbookStream)** yöntemlerini sağlar; bu yöntemler, Aspose.Cells ile düzenlenmiş grafik verilerini içeren çalışma kitaplarını okumanıza ve yazmanıza olanak tanır. **Not**: grafik verileri aynı şekilde düzenlenmiş olmalı veya kaynağa benzer bir yapı taşımalıdır.
+
+Bu örnek, ilk slaytındaki ilk şekil olarak bir grafik içeren bir sunum kullanır. Gömülü çalışma kitabını bir bayt dizisine okur, mevcut serileri ve kategorileri temizler ve aynı çalışma kitabını geri yazar. Değişiklikler bellek içinde kalır; örnek sunumu kaydetmez.
 
 ```python
 import jpype
@@ -127,9 +160,9 @@ finally:
     presentation.dispose()
 ```
 
-### **Kitaplık Değişikliği Sonrası Grafik Düzenini Doğrulama**
+### **Çalışma Kitabı Değişikliği Sonrası Grafik Düzenini Doğrula**
 
-Gömülü bir kitaplığı değiştirilen bir kitaplıkla değiştirirken, grafik orijinal seri ve kategori koleksiyonlarını korur. Bu uyumsuzluk, [Chart.validateChartLayout](https://reference.aspose.com/slides/tr/python-java/aspose.slides/chart/#validateChartLayout) metodunun indeks dışı hatasıyla başarısız olmasına neden olabilir. Güncellenmiş kitaplığı grafiğe geri yazmadan önce mevcut serileri ve kategorileri temizleyin. Bu örnek, ilk slaytının ilk şekli olarak bir grafik içeren `chart.pptx` gerektirir. Yorum satırı, kitaplık düzenlemesinin nerede yapılacağını gösterir; çalıştırılabilir örnek orijinal kitaplığı geri yazar ve düzeni bellek içinde doğrular.
+Gömülü bir çalışma kitabını değiştirilmiş bir sürümle değiştirdiğinizde, grafik orijinal seri ve kategori koleksiyonlarını tutar. Bu uyumsuzluk, **[Chart.validateChartLayout](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#validateChartLayout)** yönteminin dizin dışı hatasıyla başarısız olmasına neden olabilir. Güncellenmiş çalışma kitabını grafiğe geri yazmadan önce mevcut serileri ve kategorileri temizleyin. Bu örnek, ilk slayttaki ilk şekil olarak bir grafik kullanır. Yorum, çalışma kitabı düzenlemesinin nereye geleceğini gösterir; çalıştırılabilir örnek orijinal çalışma kitabını geri yazar ve düzeni bellek içinde doğrular.
 
 ```python
 import jpype
@@ -150,7 +183,7 @@ try:
         chart_data = chart.getChartData()
         workbook_data = chart_data.readWorkbookStream()
 
-        # Kitaplık baytlarını burada, örneğin Aspose.Cells kullanarak, değiştirin.
+        # Burada çalışma kitabı baytlarını değiştirin, örneğin Aspose.Cells kullanarak.
 
         chart_data.getSeries().clear()
         chart_data.getCategories().clear()
@@ -163,20 +196,13 @@ finally:
     presentation.dispose()
 ```
 
-Koleksiyonları temizlemek, kitaplık geri yazılmadan önce eski veri referanslarını kaldırır. Güncellenmiş kitaplık için gerekli seri ve kategori eşlemelerini yeniden oluşturun ve ardından grafiği kullanın.
+Koleksiyonları temizlemek, çalışma kitabı geri yazılmadan önce eski veri referanslarını kaldırır. Güncellenmiş çalışma kitabı için gerekli serileri ve kategori eşlemelerini yeniden oluşturun ve grafiği kullanmadan önce bunu yapın.
 
-## **Bir Kitaplık Hücresini Grafik Veri Etiketi Olarak Ayarlama**
+## **Bir Çalışma Kitabı Hücresini Grafik Veri Etiketi Olarak Ayarla**
 
-Kitaplık hücrelerindeki metni grafik veri etiketi olarak kullanabilirsiniz. Aşağıdaki adımlar, bir balon grafiğindeki etiketleri veri kitaplığındaki hücrelere nasıl bağlayacağınızı gösterir.
+Çalışma kitabı hücrelerinden gelen metni grafik veri etiketi olarak kullanabilirsiniz.
 
-1. [Presentation](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.  
-2. Sıfır tabanlı indeksiyle ilk slayta erişin.  
-3. Varsayılan verilerle bir balon grafik ekleyin.  
-4. Grafik serisine erişin.  
-5. Kitaplık hücresini veri etiketi olarak ayarlayın.  
-6. Sunumu kaydedin.
-
-Bu örnek, en az bir slayt içeren `chart2.pptx` dosyasını açar ve varsayılan verilerle bir balon grafik ekler. İlk serideki ilk üç etiket için çalışma sayfası 0 üzerindeki A10:A12 hücrelerini kullanır, hücrelerden etiketleri etkinleştirir ve sonucu `resultchart.pptx` olarak kaydeder.
+Bu örnek, mevcut bir sunumun ilk slaydına varsayılan verileri olan bir balon grafik ekler. Çalışma sayfası 0 üzerindeki A10:A12 hücrelerini ilk serinin ilk üç etiketi olarak kullanır, hücrelerden gelen etiketleri etkinleştirir ve güncellenmiş sunumu kaydeder.
 
 ```python
 import jpype
@@ -206,9 +232,9 @@ finally:
     presentation.dispose()
 ```
 
-## **Çalışma Sayfalarını Yönetme**
+## **Çalışma Sayfalarını Yönet**
 
-[ChartDataWorkbook.getWorksheets](https://reference.aspose.com/slides/tr/python-java/aspose.slides/chartdataworkbook/#getWorksheets) yöntemi, bir grafik kitaplığındaki çalışma sayfalarına erişim sağlar. Bu örnek, varsayılan verilerle bir pasta grafik oluşturur ve her bir çalışma sayfası adını konsola yazdırır.
+**[ChartDataWorkbook.getWorksheets](https://reference.aspose.com/slides/python-java/aspose.slides/chartdataworkbook/#getWorksheets)** yöntemi, bir grafik çalışma kitabındaki çalışma sayfalarına erişim sağlar. Bu örnek, varsayılan verileri olan bir pasta grafik oluşturur ve her çalışma sayfasının adını konsola yazar.
 
 ```python
 import jpype
@@ -231,9 +257,9 @@ finally:
     presentation.dispose()
 ```
 
-## **Veri Kaynağı Tipini Belirtme**
+## **Veri Kaynağı Türünü Belirle**
 
-Bu örnek, varsayılan verilerle bir 3B sütun grafik oluşturur ve iki seri adını farklı veri kaynaklarıyla ayarlar. İlk ad bir dize sabiti kullanır; ikincisi çalışma sayfası 0 üzerindeki C1 hücresini kullanır. [DataSourceType](https://reference.aspose.com/slides/tr/python-java/aspose.slides/datasourcetype/) enum'ı, her ad için kaynağı seçer. Sonuç `pres.pptx` olarak kaydedilir.
+Bu örnek, varsayılan verileri olan bir 3D sütun grafik oluşturur ve iki seri adını farklı veri kaynakları kullanarak ayarlar. İlk ad bir dize sabiti; ikincisi çalışma sayfası 0 üzerindeki C1 hücresidir. **[DataSourceType](https://reference.aspose.com/slides/python-java/aspose.slides/datasourcetype/)** enumı, her adın kaynağını seçer. Örnek, güncellenmiş seri adlarıyla sunumu kaydeder.
 
 ```python
 import jpype
@@ -262,9 +288,9 @@ finally:
     presentation.dispose()
 ```
 
-## **Desteklenmeyen Gömülü Kitaplık Biçimlerini Algılama**
+## **Desteklenmeyen Gömülü Çalışma Kitabı Biçimlerini Tespit Et**
 
-Aspose.Slides, bazı grafiklerde gömülebilen Excel ikili kitaplık (.xlsb) biçimini desteklemez. [ChartData](https://reference.aspose.com/slides/tr/python-java/aspose.slides/chartdata/) üzerindeki [getEmbeddedWorkbookType](https://reference.aspose.com/slides/tr/python-java/aspose.slides/chartdata/#getEmbeddedWorkbookType) metodunu, [WorkbookType](https://reference.aspose.com/slides/tr/python-java/aspose.slides/workbooktype/) enum'ı ile birlikte kullanarak desteklenmeyen biçimleri algılayabilir ve bu grafikleri atlayabilirsiniz. Bu örnek, `sample.pptx` dosyasının ilk slaytındaki şekilleri inceler, grafik olmayan şekilleri atlar ve .xlsb gömülü kitaplığı olan her grafik için tanı mesajı yazdırır.
+Aspose.Slides, bazı grafiklerde gömülebilen Excel ikili çalışma kitabı (.xlsb) formatını desteklemez. **[ChartData](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/)** üzerindeki **[getEmbeddedWorkbookType](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getEmbeddedWorkbookType)** metodunu **[WorkbookType](https://reference.aspose.com/slides/python-java/aspose.slides/workbooktype/)** enumı ile birlikte kullanarak desteklenmeyen biçimleri tespit edebilir ve bu grafikleri atlayabilirsiniz. Bu örnek, mevcut bir sunumun ilk slaydındaki şekilleri inceler, grafik olmayan şekilleri atlar ve .xlsb gömülü bir çalışma kitabına sahip her grafik için tanı mesajı yazdırır.
 
 ```python
 import jpype
@@ -291,20 +317,20 @@ try:
         if is_internal_workbook and is_binary_macro:
             print("Skipping a chart with an unsupported .xlsb workbook.")
             continue
-        # Burada desteklenen grafik kitaplığı verilerini okuyun veya değiştirin.
+        # Desteklenen grafik çalışma kitabı verilerini burada okuyun veya değiştirin.
 finally:
     presentation.dispose()
 ```
 
-## **Dış Kitaplık**
+## **Harici Çalışma Kitabı**
 
-Aspose.Slides, dış kitaplıkları grafik veri kaynağı olarak kullanmayı destekler.
+Aspose.Slides, grafikler için veri kaynağı olarak harici çalışma kitaplarını kullanmayı destekler.
 
-### **Dış Kitaplık Oluşturma**
+### **Harici Bir Çalışma Kitabı Oluştur**
 
-Gömülü bir grafik kitaplığını bir dosyaya dışa aktarmak ve grafiği bu dış kitaplığa bağlamak için [readWorkbookStream](https://reference.aspose.com/slides/tr/python-java/aspose.slides/chartdata/#readWorkbookStream) ve [setExternalWorkbook](https://reference.aspose.com/slides/tr/python-java/aspose.slides/chartdata/#setExternalWorkbook) yöntemlerini kullanın.
+**[readWorkbookStream](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#readWorkbookStream)** ve **[setExternalWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#setExternalWorkbook)** kullanarak gömülü bir grafik çalışma kitabını bir dosyaya aktarabilir ve grafiği o harici çalışma kitabına bağlayabilirsiniz.
 
-Bu örnek, varsayılan verilerle bir pasta grafik oluşturur, kitaplığını `externalWorkbook1.xlsx` dosyasına yazar ve dosya yazımı tamamlandıktan sonra dosyayı grafik veri kaynağı olarak atar. Bağlantılı sunumu `externalWorkbook.pptx` olarak kaydeder.
+Bu örnek, varsayılan verileri olan bir pasta grafik oluşturur ve çalışma kitabını dışa aktarır. Dosya yazma tamamlandıktan sonra harici çalışma kitabını grafik veri kaynağı olarak atar, ardından bağlantılı sunumu kaydeder.
 
 ```python
 import jpype
@@ -332,13 +358,13 @@ finally:
     presentation.dispose()
 ```
 
-### **Dış Kitaplık Ayarlama**
+### **Harici Bir Çalışma Kitabı Ayarla**
 
-[setExternalWorkbook](https://reference.aspose.com/slides/tr/python-java/aspose.slides/chartdata/#setExternalWorkbook) metodunu kullanarak bir grafiğin veri kaynağı olarak dış bir kitaplığı atayabilirsiniz. Bu metod ayrıca dış kitaplığın yolunu (kitaplık taşındıysa) güncellemek için de kullanılabilir.
+**[setExternalWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#setExternalWorkbook)** yöntemi ile bir grafiğin veri kaynağı olarak harici bir çalışma kitabı atayabilirsiniz. Bu yöntem aynı zamanda harici çalışma kitabının yolunu güncellemek için de kullanılabilir (eğer dosya taşınmışsa).
 
-Uzak konumlardaki veya kaynaklardaki kitaplıklardaki verileri doğrudan düzenleyemezseniz de, bu kitaplıkları dış veri kaynağı olarak kullanabilirsiniz. Bir dış kitaplık için göreli bir yol sağlanırsa, otomatik olarak tam yola dönüştürülür.
+Uzak konumlardaki veya kaynaklardaki çalışma kitaplarındaki verileri düzenleyemezsiniz, ancak bu tür çalışma kitaplarını harici veri kaynağı olarak kullanabilirsiniz. Harici çalışma kitabı için göreceli bir yol sağlanırsa, otomatik olarak tam yola dönüştürülür.
 
-Bu örnek, çalışma dizininde `externalWorkbook.xlsx` dosyasının bulunmasını gerektirir. `Sheet1` adlı çalışma sayfası B1 hücresinde bir seri adı, A2:A4 aralığında kategori adları ve B2:B4 aralığında sayısal değerler içermelidir. Örnek bir pasta grafik oluşturur, kitaplığı bağlar ve [setRange](https://reference.aspose.com/slides/tr/python-java/aspose.slides/chartdata/#setRange) ile A1:B4 aralığını bir seri ve üç kategoriye eşler. Sonuç `Presentation_with_externalWorkbook.pptx` olarak kaydedilir.
+Bu örnek, `Sheet1` adlı çalışma sayfasında B1’de bir seri adı, A2:A4’te kategori adları ve B2:B4’te sayısal değerler bulunan bir harici çalışma kitabı kullanır. Pasta grafik oluşturur, çalışma kitabını bağlar ve **[setRange](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#setRange)** ile A1:B4 aralığını bir seri ve üç kategoriye eşler. Bağlantılı grafikli sunumu kaydeder.
 
 ```python
 import jpype
@@ -366,12 +392,12 @@ finally:
     presentation.dispose()
 ```
 
-[setExternalWorkbook](https://reference.aspose.com/slides/tr/python-java/aspose.slides/chartdata/#setExternalWorkbook) metodundaki `updateChartData` parametresi, kitaplığın yüklenip yüklenmeyeceğini kontrol eder.
+**[setExternalWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#setExternalWorkbook)** metodunun `updateChartData` parametresi, çalışma kitabının yüklenip yüklenmeyeceğini kontrol eder.
 
-* `updateChartData` `False` ise, yalnızca kitaplık yolu güncellenir. Grafik verisi hedef kitaplıktan yüklenmez veya güncellenmez, bu nedenle kitaplık mevcut olmayabilir.  
-* `updateChartData` `True` ise, grafik verisi hedef kitaplıktaki verilerle güncellenir.
+* `updateChartData` **False** olduğunda yalnızca çalışma kitabı yolu güncellenir. Grafik verisi hedef çalışma kitabından yüklenmez veya güncellenmez; bu nedenle çalışma kitabı mevcut olmayabilir.
+* `updateChartData` **True** olduğunda grafik verisi hedef çalışma kitabından güncellenir.
 
-Aşağıdaki örnek, `updateChartData` değeri `False` olarak ayarlanmış bir yer tutucu URL atar. Pasta grafiğinin varsayılan verileri korunur ve mevcut olmayan kitaplık yüklenmeden sunum kaydedilir.
+Aşağıdaki örnek, `updateChartData` **False** olarak ayarlanmış bir yer tutucu URL atar. Pasta grafiğinin varsayılan verilerini korur ve erişilemeyen çalışma kitabını yüklemeden sunumu kaydeder.
 
 ```python
 import jpype
@@ -395,17 +421,11 @@ finally:
     presentation.dispose()
 ```
 
-### **Bir Grafiğin Dış Veri Kaynağı Kitaplık Yolunu Alma**
+### **Bir Grafiğin Harici Veri Kaynağı Çalışma Kitabı Yolunu Al**
 
-Bir grafik ile ilişkili kitaplığı belirlemek için önce grafiğin dış veri kaynağı kullanıp kullanmadığını kontrol edin. Kullanıyorsa, aşağıdaki adımları izleyerek kitaplık yolunu alabilirsiniz.
+Bir grafiğe bağlı çalışma kitabını belirlemek için, grafiğin harici bir veri kaynağı kullanıp kullanmadığını kontrol edin ve çalışma kitabı yolunu alın.
 
-1. [Presentation](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.  
-2. Sıfır tabanlı indeksiyle ilk slayta erişin.  
-3. İlk şeklin bir grafik olduğundan emin olun.  
-4. Grafik veri kaynağı tipini okuyun.  
-5. Kaynak dış bir kitaplık ise, yolunu okuyun.
-
-Bu örnek, önceki örnekte oluşturulan `externalWorkbook.pptx` dosyasını açar ve ilk slaytındaki ilk şekli inceler. Eğer bu şekil dış bir kitaplığa bağlanmış bir grafik ise, [getExternalWorkbookPath](https://reference.aspose.com/slides/tr/python-java/aspose.slides/chartdata/#getExternalWorkbookPath) değerini konsola yazdırır. Ardından sunumun bir kopyasını `Result.pptx` olarak kaydeder.
+Bu örnek, bağlantılı bir harici çalışma kitabına sahip bir sunumun ilk slaydındaki ilk şekli inceler. Eğer şekil harici bir çalışma kitabına bağlı bir grafikse, **[getExternalWorkbookPath](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getExternalWorkbookPath)** değerini konsola yazdırır. Ardından sunumun bir kopyasını kaydeder.
 
 ```python
 import jpype
@@ -436,11 +456,11 @@ finally:
     presentation.dispose()
 ```
 
-### **Grafik Verisini Düzenleme**
+### **Grafik Verilerini Düzenle**
 
-Dış kitaplıklardaki verileri, iç kitaplıklardaki değişiklikleri yaptığınız gibi düzenleyebilirsiniz. Dış bir kitaplık yüklenemediğinde bir istisna fırlatılır.
+Harici çalışma kitaplarındaki verileri, iç çalışma kitaplarındaki gibi düzenleyebilirsiniz. Harici bir çalışma kitabı yüklenemediğinde bir istisna fırlatılır.
 
-Bu örnek, ilk slaytının ilk şekli olarak bir grafik içeren `presentation.pptx` ve erişilebilir bir dış kitaplık gerektirir. İlk serideki ilk veri noktasının hücre temelli değerini 100 olarak ayarlar ve sunumu `presentation_out.pptx` olarak kaydeder. Hücre değerlerini düzenlemek bağlı dış XLSX dosyasını da güncelleyebilir; bu yüzden orijinali korumak istiyorsanız bir kopya kullanın.
+Bu örnek, ilk slaydın ilk şekli olan ve erişilebilir bir harici çalışma kitabına bağlı bir grafiği kullanır. İlk serinin ilk veri noktasının hücre tabanlı değerini 100 olarak ayarlar ve güncellenmiş sunumu kaydeder. Hücre değerlerini düzenlemek, bağlı harici XLSX dosyasını güncelleyebilir; bu yüzden orijinali korumak istiyorsanız bir kopya kullanın.
 
 ```python
 import jpype
@@ -474,11 +494,11 @@ finally:
     presentation.dispose()
 ```
 
-### **Grafik Önbelleğinden Kitaplığı Geri Kazanma**
+### **Grafik Önbelleğinden Bir Çalışma Kitabını Kurtar**
 
-Bir grafik, eksik veya kullanılamayan bir dış kitaplık kullanıyorsa, Aspose.Slides sunumdaki önbelleğe alınan veriden grafik kitaplığını yeniden oluşturabilir. [LoadOptions](https://reference.aspose.com/slides/tr/python-java/aspose.slides/loadoptions/) oluşturun, [LoadOptions.setSpreadsheetOptions](https://reference.aspose.com/slides/tr/python-java/aspose.slides/loadoptions/#setSpreadsheetOptions) çağırın ve [SpreadsheetOptions.setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/tr/python-java/aspose.slides/spreadsheetoptions/#setRecoverWorkbookFromChartCache) özelliğini `True` olarak ayarlayın; ardından sunumu açın.
+Bir grafik, eksik veya erişilemeyen bir harici çalışma kitabı kullanıyorsa, Aspose.Slides sunum içinde önbellekteki verilerden grafik çalışma kitabını yeniden oluşturabilir. **[LoadOptions](https://reference.aspose.com/slides/python-java/aspose.slides/loadoptions/)** oluşturun, **[LoadOptions.setSpreadsheetOptions](https://reference.aspose.com/slides/python-java/aspose.slides/loadoptions/#setSpreadsheetOptions)** çağırın ve **[SpreadsheetOptions.setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/python-java/aspose.slides/spreadsheetoptions/#setRecoverWorkbookFromChartCache)** özelliğini `True` olarak ayarlayın; ardından sunumu açın.
 
-Aşağıdaki Python örneği, ilk slaydındaki ilk şekil bir grafik olan ve erişilemeyen bir dış kitaplığa başvuran `presentation.pptx` dosyasını açar ve geri kazanılan verileri [Chart.getChartData](https://reference.aspose.com/slides/tr/python-java/aspose.slides/chart/#getChartData) ve [ChartData.getChartDataWorkbook](https://reference.aspose.com/slides/tr/python-java/aspose.slides/chartdata/#getChartDataWorkbook) aracılığıyla erişir:
+Aşağıdaki Python örneği, ilk slaydın ilk şekli olan ve erişilemeyen bir harici çalışma kitabına başvuran bir grafiğin çalışma kitabı verilerini kurtarır. Kurtarılan verilere **[Chart.getChartData](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#getChartData)** ve **[ChartData.getChartDataWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getChartDataWorkbook)** aracılığıyla erişir:
 
 ```python
 import jpype
@@ -504,37 +524,37 @@ try:
         chart = slide.getShapes().get_Item(0)
         recovered_workbook = chart.getChartData().getChartDataWorkbook()
 
-        # Kurtarılan kitaplık verilerini burada okuyun veya değiştirin.
+        # Kurtarılan çalışma kitabı verilerini burada okuyun veya değiştirin.
     else:
         print("The first shape is not a chart.")
 finally:
     presentation.dispose()
 ```
 
-Dış kitaplık kullanılamazsa ve geri kazanma devre dışı bırakılmışsa, Aspose.Slides bir istisna fırlatır. Geri kazanmayı yalnızca önbellekteki grafik verisini kullanmak kabul edilebilir bir çözüm olduğunda etkinleştirin; çünkü önbellek, dış kitaplıkta sunum son güncellendiğinden sonra yapılan değişiklikleri içermeyebilir.
+Harici çalışma kitabı bulunamaz ve kurtarma devre dışı bırakılırsa, Aspose.Slides bir istisna fırlatır. Önbellekten gelen grafik verilerini kullanmak kabul edilebilir bir geri dönüşümse, kurtarmayı etkinleştirin; çünkü önbellek, sunum son güncellendiğinde harici çalışma kitabında yapılan değişiklikleri içermeyebilir.
 
 ## **SSS**
 
-**Belirli bir grafiğin dış mı yoksa gömülü bir kitaplığa mı bağlandığını nasıl öğrenebilirim?**
+**Belirli bir grafiğin harici mi yoksa gömülü bir çalışma kitabına mı bağlı olduğunu belirleyebilir miyim?**
 
-Evet. Bir grafiğin [veri kaynağı tipi](https://reference.aspose.com/slides/tr/python-java/aspose.slides/chartdata/#getDataSourceType) ve [dış bir kitaplığın yolu](https://reference.aspose.com/slides/tr/python-java/aspose.slides/chartdata/#getExternalWorkbookPath) vardır; kaynak dış bir kitaplık ise tam yolu okuyarak dış bir dosyanın kullanıldığını doğrulayabilirsiniz.
+Evet. Bir grafiğin **[veri kaynağı türü](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getDataSourceType)** ve **[harici çalışma kitabı yolu](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getExternalWorkbookPath)** vardır; kaynak harici bir çalışma kitabıysa, tam yolu okuyarak bir harici dosyanın kullanıldığını doğrulayabilirsiniz.
 
-**Dış kitaplıklar için göreli yollar destekleniyor mu ve nasıl depolanıyor?**
+**Harici çalışma kitapları için göreceli yollar destekleniyor mu, nasıl saklanıyor?**
 
-Evet. Göreli bir yol belirtirseniz, otomatik olarak mutlak yola dönüştürülür. Sunum, mutlak yolu PPTX dosyasında saklar; bu nedenle kitaplık taşındığında bağlantıyı güncellemeniz gerekebilir.
+Evet. Göreceli bir yol belirtirseniz, otomatik olarak mutlak yola dönüştürülür. Sunum, mutlak yolu PPTX dosyasında saklar; bu nedenle çalışma kitabını taşımak, bağlantının güncellenmesini gerektirebilir.
 
-**Ağ kaynakları/paylaşımları üzerindeki kitaplıkları kullanabilir miyim?**
+**Ağ kaynakları/paylaşımları üzerindeki çalışma kitaplarını kullanabilir miyim?**
 
-Evet, bu tür kitaplıklar dış veri kaynağı olarak kullanılabilir. Ancak, Aspose.Slides'tan uzaktaki kitaplıkları doğrudan düzenlemek desteklenmez; yalnızca kaynak olarak kullanılabilirler.
+Evet, bu tür çalışma kitapları harici veri kaynağı olarak kullanılabilir. Ancak, Aspose.Slides ile uzak çalışma kitaplarını doğrudan düzenlemek desteklenmez—yalnızca bir kaynak olarak kullanılabilirler.
 
-**Aspose.Slides, sunumu kaydederken dış XLSX dosyasını üzerine yazar mı?**
+**Sunumu kaydederken Aspose.Slides harici XLSX dosyasını üzerine yazar mı?**
 
-Sunum, dış dosyaya bir [bağlantı](https://reference.aspose.com/slides/tr/python-java/aspose.slides/chartdata/#getExternalWorkbookPath) saklar. Hücre temelli grafik verilerini düzenlemek aynı zamanda bağlı yerel XLSX dosyasını da güncelleyebilir. Orijinalini değiştirmemek gerekiyorsa bir kopya kullanın.
+Sunum, **[harici dosyaya bir bağlantı](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getExternalWorkbookPath)** saklar. Hücre tabanlı grafik verilerini düzenlemek, bağlı yerel XLSX dosyasını da güncelleyebilir. Orijinal dosyanın değişmemesi gerekiyorsa, çalışma kitabının bir kopyasını kullanın.
 
-**Dış dosya şifre korumalıysa ne yapmalıyım?**
+**Harici dosya şifre korumalıysa ne yapmalıyım?**
 
-Aspose.Slides, bağlantı sırasında şifre kabul etmez. Yaygın bir yaklaşım, önceden korumayı kaldırmak veya bir kopyasını (örneğin [Aspose.Cells](https://reference.aspose.com/cells/python-java/)) çözerek ona bağlamaktır.
+Aspose.Slides, bağlanırken şifre kabul etmez. Yaygın bir yaklaşım, önceden korumayı kaldırmak ya da bir kopyayı (örneğin **[Aspose.Cells](https://reference.aspose.com/cells/python-java/)** kullanarak) şifresiz olarak hazırlamak ve bu kopyaya bağlamaktır.
 
-**Birden fazla grafik aynı dış kitaplığa başvurabilir mi?**
+**Birden fazla grafik aynı harici çalışma kitabına başvurabilir mi?**
 
-Evet. Her grafik kendi bağlantısını saklar. Hepsi aynı dosyaya işaret ediyorsa, dosya güncellendiğinde bu değişiklik bir sonraki veri yüklemesinde tüm grafiklerde yansır.
+Evet. Her grafik kendi bağlantısını saklar. Hepsi aynı dosyaya işaret ediyorsa, dosyadaki bir güncelleme, veri bir sonraki yüklendiğinde tüm grafiklerde yansır.

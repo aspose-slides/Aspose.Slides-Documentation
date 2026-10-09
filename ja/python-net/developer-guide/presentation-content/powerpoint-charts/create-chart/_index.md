@@ -1,72 +1,68 @@
 ---
-title: Python で PowerPoint プレゼンテーションのチャートを作成または更新
+title: PythonでPowerPointプレゼンテーションのチャートを作成または更新
 linktitle: チャートの作成または更新
 type: docs
 weight: 10
 url: /ja/python-net/create-chart/
 keywords:
-  - チャートの追加
-  - チャートの作成
-  - チャートの編集
-  - チャートの変更
-  - チャートの更新
-  - 散布図
-  - 円グラフ
-  - 折れ線グラフ
-  - ツリーマップグラフ
-  - 株価チャート
-  - 箱ひげ図
-  - ファンネルチャート
-  - サンバーストチャート
-  - ヒストグラムチャート
-  - レーダーチャート
-  - マルチカテゴリチャート
-  - PowerPoint プレゼンテーション
-  - Python
-  - Aspose.Slides
-description: "Aspose.Slides for Python via .NET を使用して、PowerPoint および OpenDocument プレゼンテーションでチャートを作成およびカスタマイズする方法を学びます。プレゼンテーションにチャートを追加、書式設定、編集する方法を、Python の実用的なコード例とともに解説します。"
+- チャートの追加
+- チャートの作成
+- チャートの編集
+- チャートの変更
+- チャートの更新
+- 散布図チャート
+- 円グラフ
+- 折れ線グラフ
+- ツリーマップチャート
+- 株価チャート
+- 箱ひげ図チャート
+- ファンネルチャート
+- サンバーストチャート
+- ヒストグラムチャート
+- レーダーチャート
+- マルチカテゴリチャート
+- PowerPointプレゼンテーション
+- Python
+- Aspose.Slides
+description: "Aspose.Slides for Python via .NET を使用して、PowerPoint および OpenDocument プレゼンテーションでチャートを作成およびカスタマイズする方法を学びます。プレゼンテーション内でのチャートの追加、書式設定、編集を、Python の実用的なコード例とともに解説しています。"
 ---
 ## **概要**
 
-本記事では、Aspose.Slides for Python via .NET を使用してチャートを作成およびカスタマイズする方法を説明します。スライドにチャートを追加し、データを設定し、デザイン要件に合わせて書式設定する方法を学べます。コード例には、プレゼンテーションとチャートの作成、シリーズ・軸・凡例の設定、アプリケーションへのチャート生成の統合が含まれています。
+この記事では、Aspose.Slides for Python via .NET を使用してチャートを作成およびカスタマイズする方法を説明します。スライドにチャートを追加し、データを入力し、デザイン要件に合わせて書式設定する方法を学びます。コード例では、プレゼンテーションとチャートの作成、系列、軸、凡例の設定、そしてアプリケーションへのチャート生成の統合について扱っています。
 
 ## **チャートの作成**
 
-チャートは、データをすばやく可視化し、テーブルやスプレッドシートからはすぐに分からない洞察を得るのに役立ちます。
+チャートは、データをすばやく可視化し、表やスプレッドシートだけではすぐに分からない洞察を得るのに役立ちます。
 
 **チャートを作成する理由**
 
-チャートを使用すると、次のことができます。
+* プレゼンテーションの1枚のスライドに大量のデータを集約、凝縮、要約する  
+* データのパターンやトレンドを明らかにする  
+* 時間経過や特定の測定単位に対するデータの方向性や勢いを推測する  
+* 外れ値、異常、偏差、エラー、意味のないデータを検出する  
+* 複雑なデータを伝える、または提示する  
 
-* 大量のデータを 1 つのスライドに集約、要約、凝縮できる。
-* データのパターンやトレンドを明らかにできる。
-* 時間経過や特定の測定単位に対するデータの方向性や勢いを推測できる。
-* 外れ値、異常、偏差、エラー、意味不明なデータを検出できる。
-* 複雑なデータを効果的に伝達・提示できる。
-
-PowerPoint では、*Insert* 機能を使って多種多様なテンプレートからチャートを作成できます。Aspose.Slides を使用すれば、一般的なチャートタイプに基づく標準チャートと、独自のカスタムチャートの両方を作成できます。
+PowerPoint では、*挿入* 機能を使用してチャートを作成でき、さまざまなタイプのチャートを設計するためのテンプレートが提供されます。Aspose.Slides を使用すれば、一般的なチャートタイプに基づく標準チャートとカスタムチャートの両方を作成できます。
 
 {{% alert color="info" title="Note" %}}
-[ChartType](https://reference.aspose.com/slides/ja/python-net/aspose.slides.charts/charttype/) 列挙体は、[Aspose.Slides.Charts](https://reference.aspose.com/slides/ja/python-net/aspose.slides.charts/) 名前空間にあります。この列挙体の値は、さまざまなチャートタイプに対応しています。
+[ChartType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttype/) 列挙体は [Aspose.Slides.Charts](https://reference.aspose.com/slides/python-net/aspose.slides.charts/) 名前空間の下にあります。この列挙体の値はさまざまなチャートタイプに対応しています。
 {{% /alert %}}
 
-### **クラスター化縦棒グラフの作成**
+### **クラスター化列チャートの作成**
 
-このセクションでは、Aspose.Slides for Python via .NET を使用してクラスター化縦棒グラフを作成する方法を説明します。プレゼンテーションを初期化し、チャートを追加し、タイトル、データ、シリーズ、カテゴリ、スタイルなどの要素をカスタマイズする手順を学びます。以下の手順で標準的なクラスター化縦棒グラフが生成されます。
+このセクションでは、Aspose.Slides for Python via .NET を使用してクラスター化列チャートを作成する方法を説明します。プレゼンテーションの初期化、チャートの追加、タイトル、データ、系列、カテゴリ、スタイリングなどの要素のカスタマイズ方法を学びます。以下の手順に従って、標準的なクラスター化列チャートがどのように生成されるかを確認してください。
 
-1. [Presentation](https://reference.aspose.com/slides/ja/python-net/aspose.slides/presentation/) クラスのインスタンスを作成します。  
-1. インデックスでスライドへの参照を取得します。  
-1. データを含むチャートを追加し、`ChartType.CLUSTERED_COLUMN` を指定します。  
-1. チャートにタイトルを追加します。  
-1. チャートのデータ ワークシートにアクセスします。  
-1. 既定のシリーズとカテゴリをすべてクリアします。  
-1. 新しいシリーズとカテゴリを追加します。  
-1. チャートシリーズの新しいデータを追加します。  
-1. チャートシリーズに塗りつぶし色を適用します。  
-1. チャートシリーズにラベルを追加します。  
-1. 変更後のプレゼンテーションを PPTX ファイルとして保存します。
-
-この Python コードは、クラスター化縦棒グラフの作成方法を示しています。
+1. [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) クラスのインスタンスを作成します。  
+2. インデックスを使用してスライドへの参照を取得します。  
+3. データを含むチャートを追加し、`ChartType.CLUSTERED_COLUMN` タイプを指定します。  
+4. チャートにタイトルを追加します。  
+5. チャートのデータワークシートにアクセスします。  
+6. デフォルトの系列とカテゴリをすべてクリアします。  
+7. 新しい系列とカテゴリを追加します。  
+8. チャート系列の新しいデータを追加します。  
+9. チャート系列に塗りつぶしカラーを適用します。  
+10. チャート系列にラベルを追加します。  
+11. 変更したプレゼンテーションを PPTX ファイルとして保存します。
 
 ```py
 import aspose.slides.charts as charts
@@ -79,7 +75,7 @@ with slides.Presentation() as presentation:
     # 最初のスライドにアクセスします。
     slide = presentation.slides[0]
 
-    # デフォルト データでクラスター化縦棒グラフを追加します。
+    # デフォルト データでクラスター化列チャートを追加します。
     chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 20, 20, 500, 300)
 
     # チャートのタイトルを設定します。
@@ -94,11 +90,11 @@ with slides.Presentation() as presentation:
     # チャート データ ワークブックを取得します。
     workbook = chart.chart_data.chart_data_workbook
 
-    # デフォルトで生成されたシリーズとカテゴリを削除します。
+    # デフォルトで生成された系列とカテゴリを削除します。
     chart.chart_data.series.clear()
     chart.chart_data.categories.clear()
 
-    # 新しいシリーズを追加します。
+    # 新しい系列を追加します。
     chart.chart_data.series.add(workbook.get_cell(worksheet_index, 0, 1, "Series 1"), chart.type)
     chart.chart_data.series.add(workbook.get_cell(worksheet_index, 0, 2, "Series 2"), chart.type)
 
@@ -107,38 +103,38 @@ with slides.Presentation() as presentation:
     chart.chart_data.categories.add(workbook.get_cell(worksheet_index, 2, 0, "Category 2"))
     chart.chart_data.categories.add(workbook.get_cell(worksheet_index, 3, 0, "Category 3"))
 
-    # 最初のチャートシリーズを取得します。
+    # 最初のチャート系列を取得します。
     series = chart.chart_data.series[0]
 
-    # シリーズ データを入力します。
+    # 系列データを入力します。
     series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 1, 1, 20))
     series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 2, 1, 50))
     series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 3, 1, 30))
 
-    # シリーズの塗りつぶし色を設定します。
+    # 系列の塗りつぶし色を設定します。
     series.format.fill.fill_type = slides.FillType.SOLID
     series.format.fill.solid_fill_color.color = draw.Color.red
 
-    # 2 番目のチャートシリーズを取得します。
+    # 2 番目のチャート系列を取得します。
     series = chart.chart_data.series[1]
 
-    # シリーズ データを入力します。
+    # 系列データを入力します。
     series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 1, 2, 30))
     series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 2, 2, 10))
     series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 3, 2, 60))
 
-    # シリーズの塗りつぶし色を設定します。
+    # 系列の塗りつぶし色を設定します。
     series.format.fill.fill_type = slides.FillType.SOLID
     series.format.fill.solid_fill_color.color = draw.Color.green
 
-    # 最初のラベルにカテゴリ名を表示するよう設定します。
+    # 最初のラベルにカテゴリ名を表示します。
     label = series.data_points[0].label
     label.data_label_format.show_category_name = True
 
     label = series.data_points[1].label
     label.data_label_format.show_series_name = True
 
-    # 3 番目のラベルに値を表示するようシリーズを設定します。
+    # 系列の 3 番目のラベルに値を表示します。
     label = series.data_points[2].label
     label.data_label_format.show_value = True
     label.data_label_format.show_series_name = True
@@ -150,20 +146,18 @@ with slides.Presentation() as presentation:
 
 結果:
 
-![The clustered column chart](clustered_column_chart.png)
+![クラスター化列チャート](clustered_column_chart.png)
 
-### **散布図の作成**
+### **散布図チャートの作成**
 
-散布図（スキャッタープロットまたは x‑y グラフ）は、2 つの変数間のパターンや相関関係を確認する際に使用されます。
+散布図（散布プロットまたは x‑y グラフとも呼ばれます）は、2 つの変数間のパターンを確認したり相関関係を示したりするために使用されます。
 
-散布図を使用するシーン:
+散布図を使用すべき状況は次のとおりです。
 
-* 数値データがペアになっている場合。  
-* 2 つの変数が相関しやすい場合。  
-* 2 変数が関連しているかどうかを判定したい場合。  
-* 従属変数に対して複数の独立変数の値がある場合。
-
-この Python コードは、シリーズごとに異なるマーカーを使用した散布図の作成方法を示しています。
+* 数値データがペアで存在する場合。  
+* 相互に関連性の高い 2 つの変数がある場合。  
+* 2 変数が関連しているかどうかを判断したい場合。  
+* 従属変数に対して複数の値を持つ独立変数がある場合。
 
 ```py
 import aspose.slides.charts as charts
@@ -185,33 +179,33 @@ with slides.Presentation() as presentation:
     # チャート データ ワークブックを取得します。
     workbook = chart.chart_data.chart_data_workbook
 
-    # デフォルトのシリーズを削除します。
+    # デフォルト系列を削除します。
     chart.chart_data.series.clear()
 
-    # 新しいシリーズを追加します。
+    # 新しい系列を追加します。
     chart.chart_data.series.add(workbook.get_cell(worksheet_index, 1, 1, "Series 1"), chart.type)
     chart.chart_data.series.add(workbook.get_cell(worksheet_index, 1, 3, "Series 2"), chart.type)
 
-    # 最初のチャートシリーズを取得します。
+    # 最初のチャート系列を取得します。
     series = chart.chart_data.series[0]
 
-    # シリーズに新しいポイント (1:3) を追加します。
+    # 系列に新しいポイント (1:3) を追加します。
     series.data_points.add_data_point_for_scatter_series(workbook.get_cell(worksheet_index, 2, 1, 1), workbook.get_cell(worksheet_index, 2, 2, 3))
 
     # 新しいポイント (2:10) を追加します。
     series.data_points.add_data_point_for_scatter_series(workbook.get_cell(worksheet_index, 3, 1, 2), workbook.get_cell(worksheet_index, 3, 2, 10))
 
-    # シリーズのタイプを変更します。
+    # 系列のタイプを変更します。
     series.type = charts.ChartType.SCATTER_WITH_STRAIGHT_LINES_AND_MARKERS
 
-    # チャートシリーズのマーカーを変更します。
+    # チャート系列のマーカーを変更します。
     series.marker.size = 10
     series.marker.symbol = charts.MarkerStyleType.STAR
 
-    # 2 番目のチャートシリーズを取得します。
+    # 2 番目のチャート系列を取得します。
     series = chart.chart_data.series[1]
 
-    # チャートシリーズに新しいポイント (5:2) を追加します。
+    # チャート系列に新しいポイント (5:2) を追加します。
     series.data_points.add_data_point_for_scatter_series(workbook.get_cell(worksheet_index, 2, 3, 5), workbook.get_cell(worksheet_index, 2, 4, 2))
 
     # 新しいポイント (3:1) を追加します。
@@ -223,7 +217,7 @@ with slides.Presentation() as presentation:
     # 新しいポイント (5:1) を追加します。
     series.data_points.add_data_point_for_scatter_series(workbook.get_cell(worksheet_index, 5, 3, 5), workbook.get_cell(worksheet_index, 5, 4, 1))
 
-    # チャートシリーズのマーカーを変更します。
+    # チャート系列のマーカーを変更します。
     series.marker.size = 10
     series.marker.symbol = charts.MarkerStyleType.CIRCLE
 
@@ -232,26 +226,24 @@ with slides.Presentation() as presentation:
 
 結果:
 
-![The scatter chart](scatter_chart.png)
+![散布図](scatter_chart.png)
 
 ### **円グラフの作成**
 
-円グラフは、特にカテゴリ ラベルと数値が紐付くデータで、全体に対する割合を示すのに最適です。ただし、項目やラベルが多数ある場合は、棒グラフの使用を検討してください。
+円グラフは、データの全体に対する構成比を示すのに最適です。特に、カテゴリラベルと数値が対応する場合に有効です。ただし、構成要素やラベルが多数ある場合は、棒グラフの使用を検討してください。
 
-1. [Presentation](https://reference.aspose.com/slides/ja/python-net/aspose.slides/presentation/) クラスのインスタンスを作成します。  
-1. インデックスでスライドへの参照を取得します。  
-1. デフォルト データでチャートを追加し、`ChartType.PIE` を指定します。  
-1. チャートのデータ ワークブック（[ChartDataWorkbook](https://reference.aspose.com/slides/ja/python-net/aspose.slides.charts/chartdataworkbook/)）にアクセスします。  
-1. 既定のシリーズとカテゴリをクリアします。  
-1. 新しいシリーズとカテゴリを追加します。  
-1. チャートシリーズの新しいデータを追加します。  
-1. チャートのポイントを追加し、円グラフのセクターにカスタム 色を適用します。  
-1. シリーズのラベルを設定します。  
-1. ラベル用のリーダー 線を有効にします。  
-1. 円グラフの回転角度を設定します。  
-1. 変更後のプレゼンテーションを PPTX ファイルとして保存します。
-
-この Python コードは、円グラフの作成方法を示しています。
+1. [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) クラスのインスタンスを作成します。  
+2. インデックスを使用してスライドへの参照を取得します。  
+3. デフォルト データでチャートを追加し、`ChartType.PIE` タイプを指定します。  
+4. チャートのデータワークブック（[ChartDataWorkbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/)）にアクセスします。  
+5. デフォルトの系列とカテゴリをクリアします。  
+6. 新しい系列とカテゴリを追加します。  
+7. チャート系列の新しいデータを追加します。  
+8. チャートに新しいポイントを追加し、円グラフのセクタにカスタムカラーを適用します。  
+9. 系列のラベルを設定します。  
+10. 系列ラベルにリーダー線を有効にします。  
+11. 円グラフの回転角度を設定します。  
+12. 変更したプレゼンテーションを PPTX ファイルとして保存します。
 
 ```py
 import aspose.slides.charts as charts
@@ -279,7 +271,7 @@ with slides.Presentation() as presentation:
     # チャート データ ワークブックを取得します。
     workbook = chart.chart_data.chart_data_workbook
 
-    # デフォルトで生成されたシリーズとカテゴリを削除します。
+    # デフォルトで生成された系列とカテゴリを削除します。
     chart.chart_data.series.clear()
     chart.chart_data.categories.clear()
 
@@ -288,22 +280,22 @@ with slides.Presentation() as presentation:
     chart.chart_data.categories.add(workbook.get_cell(0, 2, 0, "2nd Qtr"))
     chart.chart_data.categories.add(workbook.get_cell(0, 3, 0, "3rd Qtr"))
 
-    # 新しいシリーズを追加します。
+    # 新しい系列を追加します。
     series = chart.chart_data.series.add(workbook.get_cell(0, 0, 1, "Series 1"), chart.type)
 
-    # シリーズ データを入力します。
+    # 系列データを入力します。
     series.data_points.add_data_point_for_pie_series(workbook.get_cell(worksheet_index, 1, 1, 20))
     series.data_points.add_data_point_for_pie_series(workbook.get_cell(worksheet_index, 2, 1, 50))
     series.data_points.add_data_point_for_pie_series(workbook.get_cell(worksheet_index, 3, 1, 30))
 
-    # セクターの色を設定します。
+    # セクタの色を設定します。
     chart.chart_data.series_groups[0].is_color_varied = True
 
     point = series.data_points[0]
     point.format.fill.fill_type = slides.FillType.SOLID
     point.format.fill.solid_fill_color.color = draw.Color.cyan
 
-    # セクターの枠線を設定します。
+    # セクタの境界線を設定します。
     point.format.line.fill_format.fill_type = slides.FillType.SOLID
     point.format.line.fill_format.solid_fill_color.color = draw.Color.gray
     point.format.line.width = 3.0
@@ -314,7 +306,7 @@ with slides.Presentation() as presentation:
     point1.format.fill.fill_type = slides.FillType.SOLID
     point1.format.fill.solid_fill_color.color = draw.Color.brown
 
-    # セクターの枠線を設定します。
+    # セクタの境界線を設定します。
     point1.format.line.fill_format.fill_type = slides.FillType.SOLID
     point1.format.line.fill_format.solid_fill_color.color = draw.Color.blue
     point1.format.line.width = 3.0
@@ -325,14 +317,14 @@ with slides.Presentation() as presentation:
     point2.format.fill.fill_type = slides.FillType.SOLID
     point2.format.fill.solid_fill_color.color = draw.Color.coral
 
-    # セクターの枠線を設定します。
+    # セクタの境界線を設定します。
     point2.format.line.fill_format.fill_type = slides.FillType.SOLID
     point2.format.line.fill_format.solid_fill_color.color = draw.Color.red
     point2.format.line.width = 2.0
     point2.format.line.style = slides.LineStyle.THIN_THIN
     point2.format.line.dash_style = slides.LineDashStyle.LARGE_DASH_DOT_DOT
 
-    # 新しいシリーズの各カテゴリにカスタムラベルを作成します。
+    # 新しい系列の各カテゴリにカスタムラベルを作成します。
     label1 = series.data_points[0].label
 
     label1.data_label_format.show_value = True
@@ -346,10 +338,10 @@ with slides.Presentation() as presentation:
     label3.data_label_format.show_series_name = True
     label3.data_label_format.show_percentage = True
 
-    # シリーズのラベルにリーダー ラインを表示するよう設定します。
+    # 系列にリーダー ラインを表示するよう設定します。
     series.labels.default_data_label_format.show_leader_lines = True
 
-    # 円グラフのセクターの回転角度を設定します。
+    # 円グラフのセクタの回転角度を設定します。
     chart.chart_data.series_groups[0].first_slice_angle = 180
 
     # プレゼンテーションを PPTX ファイルとしてディスクに保存します。
@@ -358,18 +350,16 @@ with slides.Presentation() as presentation:
 
 結果:
 
-![The pie chart](pie_chart.png)
+![円グラフ](pie_chart.png)
 
 ### **折れ線グラフの作成**
 
-折れ線グラフ（ライン グラフ）は、時間経過に伴う値の変化を示すのに適しています。折れ線グラフを使用すると、大量のデータを同時に比較し、トレンドを追跡し、データ系列の異常を強調表示できます。
+折れ線グラフ（折れ線プロットとも呼ばれます）は、時間経過に伴う値の変化を示したい場合に最適です。折れ線グラフを使用すると、膨大なデータを一度に比較し、時間経過による変化やトレンドを追跡し、データ系列の異常をハイライトすることなどが可能です。
 
-1. [Presentation](https://reference.aspose.com/slides/ja/python-net/aspose.slides/presentation/) クラスのインスタンスを作成します。  
-1. インデックスでスライドへの参照を取得します。  
-1. デフォルト データでチャートを追加し、`ChartType.LINE` を指定します。  
-1. 変更後のプレゼンテーションを PPTX ファイルとして保存します。
-
-この Python コードは、折れ線グラフの作成方法を示しています。
+1. [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) クラスのインスタンスを作成します。  
+2. インデックスを使用してスライドへの参照を取得します。  
+3. デフォルト データでチャートを追加し、`ChartType.LINE` タイプを指定します。  
+4. 変更したプレゼンテーションを PPTX ファイルとして保存します。
 
 ```python
 import aspose.slides as slides
@@ -380,7 +370,7 @@ with slides.Presentation() as presentation:
     presentation.save("LineChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-デフォルトでは、折れ線グラフのポイントは直線で結ばれます。ダッシュ線で結びたい場合は、次のようにダッシュ タイプを指定できます。
+デフォルトでは、折れ線グラフのポイントは直線で連結されます。ポイントを破線で結びたい場合は、以下のように希望の破線タイプを指定できます。
 
 ```python
 import aspose.slides as slides
@@ -396,22 +386,20 @@ with slides.Presentation() as presentation:
 
 結果:
 
-![The line chart](line_chart.png)
+![折れ線グラフ](line_chart.png)
 
-### **ツリーマップ グラフの作成**
+### **ツリーマップチャートの作成**
 
-ツリーマップ グラフは、売上データでカテゴリごとの相対的なサイズを示し、各カテゴリ内で大きな貢献度を持つ項目に注目させるのに最適です。
+ツリーマップチャートは、データカテゴリの相対的なサイズを示し、各カテゴリ内で大きく寄与する項目にすばやく注目させたい販売データに最適です。
 
-1. [Presentation](https://reference.aspose.com/slides/ja/python-net/aspose.slides/presentation/) クラスのインスタンスを作成します。  
-1. インデックスでスライドへの参照を取得します。  
-1. デフォルト データでチャートを追加し、`ChartType.TREEMAP` を指定します。  
-1. チャートのデータ ワークブック（[ChartDataWorkbook](https://reference.aspose.com/slides/ja/python-net/aspose.slides.charts/chartdataworkbook/)）にアクセスします。  
-1. 既定のシリーズとカテゴリをクリアします。  
-1. 新しいシリーズとカテゴリを追加します。  
-1. チャートシリーズの新しいデータを追加します。  
-1. 変更後のプレゼンテーションを PPTX ファイルとして保存します。
-
-この Python コードは、ツリーマップ グラフの作成方法を示しています。
+1. [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) クラスのインスタンスを作成します。  
+2. インデックスを使用してスライドへの参照を取得します。  
+3. デフォルト データでチャートを追加し、`ChartType.TREEMAP` タイプを指定します。  
+4. チャートのデータワークブック（[ChartDataWorkbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/)）にアクセスします。  
+5. デフォルトの系列とカテゴリをクリアします。  
+6. 新しい系列とカテゴリを追加します。  
+7. チャート系列の新しいデータを追加します。  
+8. 変更したプレゼンテーションを PPTX ファイルとして保存します。
 
 ```py
 import aspose.slides.charts as charts
@@ -468,23 +456,21 @@ with slides.Presentation() as presentation:
 
 結果:
 
-![The treemap chart](treemap_chart.png)
+![ツリーマップチャート](treemap_chart.png)
 
 ### **株価チャートの作成**
 
-株価チャートは、始値・高値・安値・終値などの金融データを表示し、市場トレンドや変動性の分析に役立ちます。投資家やアナリストが情報に基づいた意思決定を行うための重要なインサイトを提供します。
+株価チャートは、始値・高値・安値・終値といった金融データを表示し、市場のトレンドや変動性を分析するのに役立ちます。これらのチャートは、株式のパフォーマンスに関する重要な洞察を提供し、投資家やアナリストが情報に基づいた意思決定を行うのを支援します。
 
-1. [Presentation](https://reference.aspose.com/slides/ja/python-net/aspose.slides/presentation/) クラスのインスタンスを作成します。  
-1. インデックスでスライドへの参照を取得します。  
-1. デフォルト データでチャートを追加し、`ChartType.OPEN_HIGH_LOW_CLOSE` を指定します。  
-1. チャートのデータ ワークブック（[ChartDataWorkbook](https://reference.aspose.com/slides/ja/python-net/aspose.slides.charts/chartdataworkbook/)）にアクセスします。  
-1. 既定のシリーズとカテゴリをクリアします。  
-1. 新しいシリーズとカテゴリを追加します。  
-1. チャートシリーズの新しいデータを追加します。  
-1. 高低線の書式を指定します。  
-1. 変更後のプレゼンテーションを PPTX ファイルとして保存します。
-
-この Python コードは、株価チャートの作成方法を示しています。
+1. [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) クラスのインスタンスを作成します。  
+2. インデックスを使用してスライドへの参照を取得します。  
+3. デフォルト データでチャートを追加し、`ChartType.OPEN_HIGH_LOW_CLOSE` タイプを指定します。  
+4. チャートのデータワークブック（[ChartDataWorkbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/)）にアクセスします。  
+5. デフォルトの系列とカテゴリをクリアします。  
+6. 新しい系列とカテゴリを追加します。  
+7. チャート系列の新しいデータを追加します。  
+8. 高低線の書式を指定します。  
+9. 変更したプレゼンテーションを PPTX ファイルとして保存します。
 
 ```py
 import aspose.slides.charts as charts
@@ -540,22 +526,20 @@ with slides.Presentation() as presentation:
 
 結果:
 
-![The stock chart](stock_chart.png)
+![株価チャート](stock_chart.png)
 
 ### **箱ひげ図の作成**
 
-箱ひげ図は、中央値・四分位数・外れ値などの統計指標でデータ分布を要約し、データの変動性や異常を迅速に把握するのに適しています。探索的データ分析や統計的研究で広く利用されます。
+箱ひげ図は、データの分布を表示し、中央値、四分位数、外れ値などの主要な統計指標を要約します。探索的データ分析や統計研究で、データの変動性や異常を迅速に把握するのに役立ちます。
 
-1. [Presentation](https://reference.aspose.com/slides/ja/python-net/aspose.slides/presentation/) クラスのインスタンスを作成します。  
-1. インデックスでスライドへの参照を取得します。  
-1. デフォルト データでチャートを追加し、`ChartType.BOX_AND_WHISKER` を指定します。  
-1. チャートのデータ ワークブック（[ChartDataWorkbook](https://reference.aspose.com/slides/ja/python-net/aspose.slides.charts/chartdataworkbook/)）にアクセスします。  
-1. 既定のシリーズとカテゴリをクリアします。  
-1. 新しいシリーズとカテゴリを追加します。  
-1. チャートシリーズの新しいデータを追加します。  
-1. 変更後のプレゼンテーションを PPTX ファイルとして保存します。
-
-この Python コードは、箱ひげ図の作成方法を示しています。
+1. [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) クラスのインスタンスを作成します。  
+2. インデックスを使用してスライドへの参照を取得します。  
+3. デフォルト データでチャートを追加し、`ChartType.BOX_AND_WHISKER` タイプを指定します。  
+4. チャートのデータワークブック（[ChartDataWorkbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/)）にアクセスします。  
+5. デフォルトの系列とカテゴリをクリアします。  
+6. 新しい系列とカテゴリを追加します。  
+7. チャート系列の新しいデータを追加します。  
+8. 変更したプレゼンテーションを PPTX ファイルとして保存します。
 
 ```py
 import aspose.slides.charts as charts
@@ -595,16 +579,14 @@ with slides.Presentation() as presentation:
     presentation.save("BoxAndWhiskerChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **ファンネル チャートの作成**
+### **ファンネルチャートの作成**
 
-ファンネル チャートは、段階的にデータ量が減少していくプロセスを可視化し、コンバージョン率の分析やボトルネックの特定、販売やマーケティングの効率測定に役立ちます。
+ファンネルチャートは、プロセスの段階的な減少を視覚化する際に使用され、各ステップでデータ量がどれだけ減少するかを示します。コンバージョン率の分析、ボトルネックの特定、販売やマーケティングプロセスの効率追跡に特に有用です。
 
-1. [Presentation](https://reference.aspose.com/slides/ja/python-net/aspose.slides/presentation/) クラスのインスタンスを作成します。  
-1. インデックスでスライドへの参照を取得します。  
-1. デフォルト データでチャートを追加し、`ChartType.FUNNEL` を指定します。  
-1. 変更後のプレゼンテーションを PPTX ファイルとして保存します。
-
-この Python コードは、ファンネル チャートの作成方法を示しています。
+1. [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) クラスのインスタンスを作成します。  
+2. インデックスを使用してスライドへの参照を取得します。  
+3. デフォルト データでチャートを追加し、`ChartType.FUNNEL` タイプを指定します。  
+4. 変更したプレゼンテーションを PPTX ファイルとして保存します。
 
 ```py
 import aspose.slides.charts as charts
@@ -640,18 +622,16 @@ with slides.Presentation() as presentation:
 
 結果:
 
-![The funnel chart](funnel_chart.png)
+![ファンネルチャート](funnel_chart.png)
 
-### **サンバースト チャートの作成**
+### **サンバーストチャートの作成**
 
-サンバースト チャートは階層データを同心円状に表現し、全体に対する部分の関係をコンパクトに示します。入れ子構造のカテゴリやサブカテゴリを視覚的に把握するのに最適です。
+サンバーストチャートは階層データを同心円状のリングで表現し、部分と全体の関係を示します。複数レベルのカテゴリやサブカテゴリをコンパクトに表示するのに適しています。
 
-1. [Presentation](https://reference.aspose.com/slides/ja/python-net/aspose.slides/presentation/) クラスのインスタンスを作成します。  
-1. インデックスでスライドへの参照を取得します。  
-1. デフォルト データでチャートを追加し、`ChartType.SUNBURST` を指定します。  
-1. 変更後のプレゼンテーションを PPTX ファイルとして保存します。
-
-この Python コードは、サンバースト チャートの作成方法を示しています。
+1. [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) クラスのインスタンスを作成します。  
+2. インデックスを使用してスライドへの参照を取得します。  
+3. デフォルト データでチャートを追加し、`ChartType.SUNBURST` タイプを指定します。  
+4. 変更したプレゼンテーションを PPTX ファイルとして保存します。
 
 ```py
 import aspose.slides.charts as charts
@@ -706,21 +686,19 @@ with slides.Presentation() as presentation:
 
 結果:
 
-![The sunburst chart](sunburst_chart.png)
+![サンバーストチャート](sunburst_chart.png)
 
-### **ヒストグラム チャートの作成**
+### **ヒストグラムチャートの作成**
 
-ヒストグラムは数値データをビン（区間）に分けて分布を表現し、頻度・歪み・散布などのパターンや外れ値の検出に役立ちます。
+ヒストグラムチャートは、数値データを範囲（ビン）に分割して分布を示します。頻度、歪み、広がりなどのパターンや外れ値の検出に特に有用です。
 
-1. [Presentation](https://reference.aspose.com/slides/ja/python-net/aspose.slides/presentation/) クラスのインスタンスを作成します。  
-1. インデックスでスライドへの参照を取得します。  
-1. データを含むチャートを追加し、`ChartType.HISTOGRAM` を指定します。  
-1. チャートのデータ ワークブック（[ChartDataWorkbook](https://reference.aspose.com/slides/ja/python-net/aspose.slides.charts/chartdataworkbook/)）にアクセスします。  
-1. 既定のシリーズとカテゴリをクリアします。  
-1. 新しいシリーズを追加し、データ ポイントで埋めます。ヒストグラムにはカテゴリがなく、ビンは値から自動計算されます。  
-1. 変更後のプレゼンテーションを PPTX ファイルとして保存します。
-
-この Python コードは、ヒストグラム チャートの作成方法を示しています。
+1. [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) クラスのインスタンスを作成します。  
+2. インデックスを使用してスライドへの参照を取得します。  
+3. データを含むチャートを追加し、`ChartType.HISTOGRAM` タイプを指定します。  
+4. チャートのデータワークブック（[ChartDataWorkbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/)）にアクセスします。  
+5. デフォルトの系列とカテゴリをクリアします。  
+6. 新しい系列を追加し、データポイントで入力します。ヒストグラムにはカテゴリがなく、ビンは値から自動計算されます。  
+7. 変更したプレゼンテーションを PPTX ファイルとして保存します。
 
 ```py
 import aspose.slides.charts as charts
@@ -750,18 +728,16 @@ with slides.Presentation() as presentation:
 
 結果:
 
-![The histogram chart](histogram_chart.png)
+![ヒストグラムチャート](histogram_chart.png)
 
-### **レーダー チャートの作成**
+### **レーダーチャートの作成**
 
-レーダー チャートは多変量データを二次元で表現し、複数の変数を同時に比較できるため、パフォーマンス指標や属性間の強み・弱みを把握するのに適しています。
+レーダーチャートは、多変量データを二次元で表示し、複数変数を同時に比較できるようにします。パフォーマンス指標や属性のパターン、強み、弱みの把握に役立ちます。
 
-1. [Presentation](https://reference.aspose.com/slides/ja/python-net/aspose.slides/presentation/) クラスのインスタンスを作成します。  
-1. インデックスでスライドへの参照を取得します。  
-1. データを含むチャートを追加し、`ChartType.RADAR` を指定します。  
-1. 変更後のプレゼンテーションを PPTX ファイルとして保存します。
-
-この Python コードは、レーダー チャートの作成方法を示しています。
+1. [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) クラスのインスタンスを作成します。  
+2. インデックスを使用してスライドへの参照を取得します。  
+3. データを含むチャートを追加し、`ChartType.RADAR` タイプを指定します。  
+4. 変更したプレゼンテーションを PPTX ファイルとして保存します。
 
 ```python
 import aspose.slides as slides
@@ -773,22 +749,20 @@ with slides.Presentation() as presentation:
 
 結果:
 
-![The radar chart](radar_chart.png)
+![レーダーチャート](radar_chart.png)
 
-### **マルチカテゴリ チャートの作成**
+### **マルチカテゴリチャートの作成**
 
-マルチカテゴリ チャートは、複数のカテゴリ グループを同時に表示し、複数次元にわたる値の比較を可能にします。複雑で多層的なデータセットのトレンドや関係性を分析する際に便利です。
+マルチカテゴリチャートは、複数のカテゴリグループを同時に比較できるようにし、複雑な多層データセットのトレンドや関係性を分析する際に便利です。
 
-1. [Presentation](https://reference.aspose.com/slides/ja/python-net/aspose.slides/presentation/) クラスのインスタンスを作成します。  
-1. インデックスでスライドへの参照を取得します。  
-1. デフォルト データでチャートを追加し、`ChartType.CLUSTERED_COLUMN` を指定します。  
-1. チャートのデータ ワークブック（[ChartDataWorkbook](https://reference.aspose.com/slides/ja/python-net/aspose.slides.charts/chartdataworkbook/)）にアクセスします。  
-1. 既定のシリーズとカテゴリをクリアします。  
-1. 新しいシリーズとカテゴリを追加します。  
-1. チャートシリーズの新しいデータを追加します。  
-1. 変更後のプレゼンテーションを PPTX ファイルとして保存します。
-
-この Python コードは、マルチカテゴリ チャートの作成方法を示しています。
+1. [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) クラスのインスタンスを作成します。  
+2. インデックスを使用してスライドへの参照を取得します。  
+3. デフォルト データでチャートを追加し、`ChartType.CLUSTERED_COLUMN` タイプを指定します。  
+4. チャートのデータワークブック（[ChartDataWorkbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/)）にアクセスします。  
+5. デフォルトの系列とカテゴリをクリアします。  
+6. 新しい系列とカテゴリを追加します。  
+7. チャート系列の新しいデータを追加します。  
+8. 変更したプレゼンテーションを PPTX ファイルとして保存します。
 
 ```py
 import aspose.slides.charts as charts
@@ -823,7 +797,7 @@ with slides.Presentation() as presentation:
     category.grouping_levels.set_grouping_item(1, "Group4")
     category = chart.chart_data.categories.add(workbook.get_cell(0, "c9", "H"))
 
-    # シリーズを追加します。
+    # 系列を追加します。
     series = chart.chart_data.series.add(workbook.get_cell(0, "D1", "Series 1"), charts.ChartType.CLUSTERED_COLUMN)
 
     series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, "D2", 10))
@@ -835,19 +809,17 @@ with slides.Presentation() as presentation:
     series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, "D8", 70))
     series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, "D9", 80))
 
-    # チャートを含むプレゼンテーションを保存します。
+    # チャート付きでプレゼンテーションを保存します。
     presentation.save("MultiCategoryChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 結果:
 
-![The multi-category chart](multi_category_chart.png)
+![マルチカテゴリチャート](multi_category_chart.png)
 
-### **マップ チャートの作成**
+### **マップチャートの作成**
 
-マップ チャートは、国・州・都市などの特定の場所にデータをマッピングし、地域別トレンドや人口統計、空間分布を視覚的に分析するのに適しています。
-
-この Python コードは、マップ チャートの作成方法を示しています。
+マップチャートは、国・州・市などの特定の場所に情報をマッピングすることで地理データを可視化します。地域別のトレンドや人口統計、空間分布の分析に非常に有用です。
 
 ```python
 import aspose.slides as slides
@@ -859,15 +831,15 @@ with slides.Presentation() as presentation:
 
 結果:
 
-![The map chart](map_chart.png)
+![マップチャート](map_chart.png)
 
-### **複合チャートの作成**
+### **組み合わせチャートの作成**
 
-複合チャート（コンボ チャート）は、1 つのグラフ内に 2 種類以上のチャートタイプを組み合わせます。これにより、複数データセット間の関係や差異を強調・比較できます。
+組み合わせチャート（またはコンボチャート）は、1 つのグラフ内に 2 つ以上のチャートタイプを組み合わせます。このチャートを使用すると、複数のデータセット間の違いをハイライト、比較、検証でき、相関関係を把握しやすくなります。
 
-![The combination chart](combination_chart.png)
+![組み合わせチャート](combination_chart.png)
 
-以下の Python コードは、上図の複合チャートを PowerPoint プレゼンテーションに作成する方法を示しています。
+以下の Python コードは、上図の組み合わせチャートを PowerPoint プレゼンテーションで作成する方法を示しています。
 
 ```python
 import aspose.slides.charts as charts
@@ -904,7 +876,7 @@ def create_chart_with_first_series(slide):
     chart.legend.position = charts.LegendPositionType.BOTTOM
     chart.legend.text_format.portion_format.font_height = 12
 
-    # デフォルトで生成されたシリーズとカテゴリを削除します。
+    # デフォルトで生成された系列とカテゴリを削除します。
     chart.chart_data.series.clear()
     chart.chart_data.categories.clear()
 
@@ -917,7 +889,7 @@ def create_chart_with_first_series(slide):
     chart.chart_data.categories.add(workbook.get_cell(worksheet_index, 3, 0, "Category 3"))
     chart.chart_data.categories.add(workbook.get_cell(worksheet_index, 4, 0, "Category 4"))
 
-    # 最初のシリーズを追加します。
+    # 最初の系列を追加します。
     series_name_cell = workbook.get_cell(worksheet_index, 0, 1, "Series 1")
     series = chart.chart_data.series.add(series_name_cell, chart.type)
 
@@ -978,14 +950,14 @@ def set_primary_axes_format(chart):
 
     set_axis_title(vertical_axis, "Y Axis 1")
 
-    # 垂直軸の主要グリッド線の色を設定します。
+    # 垂直軸の主目盛線の色を設定します。
     major_grid_lines_format = vertical_axis.major_grid_lines_format.line.fill_format
     major_grid_lines_format.fill_type = slides.FillType.SOLID
     major_grid_lines_format.solid_fill_color.color = draw.Color.from_argb(217, 217, 217)
 
 
 def set_secondary_axes_format(chart):
-    # セカンダリ水平軸を設定します。
+    # 二次水平軸を設定します。
     secondary_horizontal_axis = chart.axes.secondary_horizontal_axis
     secondary_horizontal_axis.position = charts.AxisPositionType.BOTTOM
     secondary_horizontal_axis.cross_type = charts.CrossesType.MAXIMUM
@@ -993,7 +965,7 @@ def set_secondary_axes_format(chart):
     secondary_horizontal_axis.major_grid_lines_format.line.fill_format.fill_type = slides.FillType.NO_FILL
     secondary_horizontal_axis.minor_grid_lines_format.line.fill_format.fill_type = slides.FillType.NO_FILL
 
-    # セカンダリ垂直軸を設定します。
+    # 二次垂直軸を設定します。
     secondary_vertical_axis = chart.axes.secondary_vertical_axis
     secondary_vertical_axis.position = charts.AxisPositionType.RIGHT
     secondary_vertical_axis.text_format.portion_format.font_height = 12.0
@@ -1014,17 +986,15 @@ def set_axis_title(axis, axis_title):
 
 ## **チャートの更新**
 
-Aspose.Slides for Python via .NET を使用すれば、チャートのデータ、書式設定、スタイルを更新して PowerPoint プレゼンテーションを最新の状態に保つことができます。
+Aspose.Slides for Python via .NET は、チャートのデータ、書式設定、スタイリングを更新して PowerPoint プレゼンテーションを最新の状態に保つことができます。
 
-1. チャートを含むプレゼンテーションを開くために、[Presentation](https://reference.aspose.com/slides/ja/python-net/aspose.slides/presentation/) のインスタンスを作成します。  
-1. インデックスでスライドへの参照を取得します。  
-1. すべてのシェイプを走査してチャートを見つけます。  
-1. チャートのデータ ワークシートにアクセスします。  
-1. シリーズの値を変更してデータ シリーズを更新します。  
-1. 新しいシリーズを追加し、データを入力します。  
-1. 変更後のプレゼンテーションを PPTX ファイルとして保存します。
-
-この Python コードは、チャートの更新方法を示しています。
+1. [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) クラスのインスタンスを作成して、チャートが含まれるプレゼンテーションを開きます。  
+2. インデックスを使用してスライドへの参照を取得します。  
+3. すべてのシェイプを走査してチャートを見つけます。  
+4. チャートのデータワークシートにアクセスします。  
+5. 系列の値を変更してチャートデータ系列を修正します。  
+6. 新しい系列を追加し、そのデータを入力します。  
+7. 変更したプレゼンテーションを PPTX ファイルとして保存します。
 
 ```py
 import aspose.slides.charts as charts
@@ -1053,49 +1023,49 @@ with slides.Presentation("ExistingChart.pptx") as presentation:
             workbook.get_cell(worksheet_index, 1, 0, "Modified Category 1")
             workbook.get_cell(worksheet_index, 2, 0, "Modified Category 2")
 
-            # 最初のチャートシリーズを取得します。
+            # 最初のチャート系列を取得します。
             series = chart.chart_data.series[0]
 
-            # シリーズ データを更新します。
-            workbook.get_cell(worksheet_index, 0, 1, "New_Series1")  # シリーズ名を変更しています。
+            # 系列データを更新します。
+            workbook.get_cell(worksheet_index, 0, 1, "New_Series1")  # 系列名を変更しています。
             series.data_points[0].value.data = 90
             series.data_points[1].value.data = 123
             series.data_points[2].value.data = 44
 
-            # 2 番目のチャートシリーズを取得します。
+            # 2 番目のチャート系列を取得します。
             series = chart.chart_data.series[1]
 
-            # シリーズ データを更新します。
-            workbook.get_cell(worksheet_index, 0, 2, "New_Series2")  # シリーズ名を変更しています。
+            # 系列データを更新します。
+            workbook.get_cell(worksheet_index, 0, 2, "New_Series2")  # 系列名を変更しています。
             series.data_points[0].value.data = 23
             series.data_points[1].value.data = 67
             series.data_points[2].value.data = 99
 
-            # 新しいシリーズを追加します。
+            # 新しい系列を追加します。
             series = chart.chart_data.series.add(workbook.get_cell(worksheet_index, 0, 3, "Series 3"), chart.type)
 
-            # シリーズ データを入力します。
+            # 系列データを入力します。
             series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 1, 3, 20))
             series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 2, 3, 50))
             series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 3, 3, 30))
 
             chart.type = charts.ChartType.CLUSTERED_CYLINDER
 
-            # チャートを含むプレゼンテーションを保存します。
+            # チャート付きでプレゼンテーションを保存します。
             presentation.save("ModifiedChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **チャートのデータ範囲の設定**
 
-Aspose.Slides for Python via .NET では、特定のワークシート範囲をチャートのデータ ソースとして使用できます。これにより、どのセルがシリーズやカテゴリに使用されるかを制御し、ワークシートの変更をチャートに反映させることが可能です。
+[チャートのデータ範囲の取得](/slides/ja/python-net/chart-workbook/#retrieve-a-charts-data-range) を参照して、既存のチャートで使用されている範囲を確認してください。
 
-1. チャートを含むプレゼンテーションを開くために、[Presentation](https://reference.aspose.com/slides/ja/python-net/aspose.slides/presentation/) のインスタンスを作成します。  
-1. インデックスでスライドへの参照を取得します。  
-1. すべてのシェイプを走査してチャートを見つけます。  
-1. チャート データにアクセスし、範囲を設定します。  
-1. 変更後のプレゼンテーションを PPTX ファイルとして保存します。
+Aspose.Slides for Python via .NET は、特定のワークシート範囲をチャートのデータソースとして使用できます。これにより、どのセルが系列やカテゴリに供給されるかを制御でき、ワークシートの変更をチャートに反映させることができます。
 
-この Python コードは、チャートのデータ範囲を設定する方法を示しています。
+1. [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) クラスのインスタンスを作成して、チャートが含まれるプレゼンテーションを開きます。  
+2. インデックスを使用してスライドへの参照を取得します。  
+3. すべてのシェイプを走査してチャートを見つけます。  
+4. チャートデータをアクセスし、範囲を設定します。  
+5. 変更したプレゼンテーションを PPTX ファイルとして保存します。
 
 ```py
 import aspose.slides.charts as charts
@@ -1118,11 +1088,9 @@ with slides.Presentation("ExistingChart.pptx") as presentation:
     presentation.save("DataRange.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **チャートでデフォルト マーカーを使用する**
+## **チャートでデフォルトマーカーを使用する**
 
-デフォルトのマーカーを使用すると、各シリーズに自動的に異なるマーカー記号が割り当てられます。
-
-この Python コードは、シリーズのマーカーを自動設定する方法を示しています。
+チャートでデフォルトマーカーを使用すると、各系列に自動的に異なるマーカー記号が割り当てられます。
 
 ```py
 import aspose.slides.charts as charts
@@ -1154,7 +1122,7 @@ with slides.Presentation() as presentation:
 
     series2 = chart.chart_data.series.add(workbook.get_cell(0, 0, 2, "Series 2"), chart.type)
 
-    # シリーズ データを入力します。
+    # 系列データを入力します。
     series2.data_points.add_data_point_for_line_series(workbook.get_cell(0, 1, 2, 30))
     series2.data_points.add_data_point_for_line_series(workbook.get_cell(0, 2, 2, 10))
     series2.data_points.add_data_point_for_line_series(workbook.get_cell(0, 3, 2, 60))
@@ -1170,16 +1138,16 @@ with slides.Presentation() as presentation:
 
 **Aspose.Slides for Python via .NET がサポートするチャートタイプは何ですか？**
 
-Aspose.Slides for Python via .NET は、棒、折れ線、円、領域、散布図、ヒストグラム、レーダーなど、幅広いチャートタイプに対応しています。これにより、データ可視化のニーズに最適なチャートを選択できます。
+Aspose.Slides for Python via .NET は、棒、折れ線、円、エリア、散布、ヒストグラム、レーダーなど、幅広いチャートタイプをサポートしています。この柔軟性により、データ可視化の要件に最適なチャートタイプを選択できます。
 
 **スライドに新しいチャートを追加するにはどうすればよいですか？**
 
-まず、[Presentation](https://reference.aspose.com/slides/ja/python-net/aspose.slides/presentation/) クラスのインスタンスを作成し、インデックスで目的のスライドを取得します。その後、チャートを追加するメソッドを呼び出し、チャートタイプと初期データを指定します。これにより、チャートがプレゼンテーションに直接組み込まれます。
+新しいチャートを追加するには、まず [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) クラスのインスタンスを作成し、インデックスを使用して目的のスライドを取得し、チャート追加メソッドを呼び出してチャートタイプと初期データを指定します。このプロセスにより、チャートがプレゼンテーションに直接組み込まれます。
 
-**チャートに表示されるデータを更新するには？**
+**チャートに表示されているデータを更新するにはどうすればよいですか？**
 
-チャートのデータ ワークブック（[ChartDataWorkbook](https://reference.aspose.com/slides/ja/python-net/aspose.slides.charts/chartdataworkbook/)）にアクセスし、既定のシリーズとカテゴリをクリアしてからカスタム データを追加します。これにより、プログラムから最新データにリフレッシュできます。
+チャートのデータは、データワークブック（[ChartDataWorkbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/)）にアクセスし、デフォルトの系列とカテゴリをクリアしてから、カスタムデータを追加することで更新できます。これにより、最新データを反映するようにプログラムでチャートをリフレッシュできます。
 
-**チャートの外観をカスタマイズできますか？**
+**チャートの外観をカスタマイズすることは可能ですか？**
 
-はい。Aspose.Slides for Python via .NET は、色、フォント、ラベル、凡例など、書式設定要素を幅広くカスタマイズできる機能を提供しています。これにより、デザイン要件に合わせてチャートの見た目を自由に調整できます。
+はい、Aspose.Slides for Python via .NET は豊富なカスタマイズオプションを提供します。色、フォント、ラベル、凡例、その他の書式設定要素を変更して、チャートの外観を特定のデザイン要件に合わせることができます。

@@ -12,17 +12,17 @@ keywords:
 - επεξεργασία διαγράμματος
 - αλλαγή διαγράμματος
 - ενημέρωση διαγράμματος
-- διασκορπισμένο διάγραμμα
+- διάγραμμα διασποράς
 - διάγραμμα πίτας
-- γραμμικό διάγραμμα
-- διάγραμμα χάρτη δένδρου
-- διάγραμμα αποθεμάτων
-- διάγραμμα κουτιού‑καλαμιού
-- διάγραμμα χωνιού
-- διάγραμμα ηλιακής εκτύπωσης
-- ιστογράφημα
-- διάγραμμα ραντάρ
-- πολυκατηγοριοποιημένο διάγραμμα
+- διάγραμμα γραμμής
+- διάγραμμα χάρτη δέντρου
+- διάγραμμα μετοχών
+- διάγραμμα box and whisker
+- διάγραμμα funnel
+- διάγραμμα sunburst
+- διάγραμμα ιστόγραμματος
+- διάγραμμα radar
+- πολυκατηγορικό διάγραμμα
 - PowerPoint
 - παρουσίαση
 - C++
@@ -31,40 +31,44 @@ description: "Δημιουργήστε και προσαρμόστε διαγρ�
 ---
 ## **Επισκόπηση**
 
-Αυτό το άρθρο παρέχει έναν ολοκληρωμένο οδηγό για το πώς να δημιουργήσετε και να προσαρμόσετε διαγράμματα χρησιμοποιώντας το Aspose.Slides. Θα μάθετε πώς να προσθέτετε προγραμματιστικά ένα διάγραμμα σε μια διαφάνεια, να το γεμίζετε με δεδομένα και να εφαρμόζετε διάφορες επιλογές μορφοποίησης ώστε να ταιριάζει στις συγκεκριμένες απαιτήσεις του σχεδίου σας. Καθ' όλη τη διάρκεια του άρθρου, λεπτομερή παραδείγματα κώδικα απεικονίζουν κάθε βήμα, από την εκκίνηση της παρουσίασης και του αντικειμένου διαγράμματος μέχρι τη ρύθμιση των σειρών, αξόνων και υπομνημάτων. Ακολουθώντας αυτόν τον οδηγό, θα αποκτήσετε μια σταθερή κατανόηση του πώς να ενσωματώσετε τη δυναμική δημιουργία διαγραμμάτων στις εφαρμογές σας, βελτιστοποιώντας τη διαδικασία δημιουργίας παρουσιάσεων με βάση τα δεδομένα.
+Αυτό το άρθρο παρέχει έναν ολοκληρωμένο οδηγό για το πώς να δημιουργήσετε και να προσαρμόσετε διαγράμματα χρησιμοποιώντας το Aspose.Slides. Θα μάθετε πώς να προσθέτετε προγραμματιστικά ένα διάγραμμα σε μια διαφάνεια, να το γεμίζετε με δεδομένα και να εφαρμόζετε διάφορες επιλογές μορφοποίησης ώστε να ταιριάζει στις συγκεκριμένες απαιτήσεις σχεδίασής σας. Σε όλο το άρθρο, λεπτομερή παραδείγματα κώδικα εικονογραφούν κάθε βήμα, από την αρχικοποίηση της παρουσίασης και του αντικειμένου διαγράμματος μέχρι τη διαμόρφωση σειρών, αξόνων και υπομνήματα. Ακολουθώντας αυτόν τον οδηγό, θα αποκτήσετε μια σταθερή κατανόηση του πώς να ενσωματώνετε δυναμική δημιουργία διαγραμμάτων στις εφαρμογές σας, βελτιστοποιώντας τη διαδικασία δημιουργίας παρουσιάσεων με βάση τα δεδομένα.
 
 ## **Δημιουργία Διαγράμματος**
 
-Τα διαγράμματα βοηθούν τους ανθρώπους να οπτικοποιούν γρήγορα τα δεδομένα και να αποκτούν γνώσεις, που ίσως δεν είναι άμεσα προφανείς από έναν πίνακα ή ένα λογιστικό φύλλο.
+Τα διαγράμματα βοηθούν τους ανθρώπους να οπτικοποιήσουν γρήγορα τα δεδομένα και να εξάγουν συμπεράσματα, τα οποία μπορεί να μην είναι αμέσως προφανή από έναν πίνακα ή ένα φύλλο εργασίας. 
 
-**Γιατί να δημιουργήσετε διαγράμματα;**
+**Γιατί να Δημιουργήσετε Διαγράμματα;**
 
-* συγκεντρώνετε, συμπτύσσετε ή συνοψίζετε μεγάλες ποσότητες δεδομένων σε μία διαφάνεια μιας παρουσίασης  
-* αποκαλύπτετε μοτίβα και τάσεις στα δεδομένα  
-* συμπεραίνετε τη διεύθυνση και την ορμή των δεδομένων με την πάροδο του χρόνου ή σε σχέση με μια συγκεκριμένη μονάδα μέτρησης  
-* εντοπίζετε ακραίες τιμές, αποκλίσεις, σφάλματα, ασυναρτημένα δεδομένα κ.λπ.  
-* επικοινωνείτε ή παρουσιάζετε σύνθετα δεδομένα  
+Χρησιμοποιώντας διαγράμματα, μπορείτε να
 
-Στο PowerPoint, μπορείτε να δημιουργήσετε διαγράμματα μέσω της λειτουργίας εισαγωγής, η οποία παρέχει πρότυπα για τον σχεδιασμό πολλών τύπων διαγραμμάτων. Χρησιμοποιώντας το Aspose.Slides, μπορείτε να δημιουργήσετε κανονικά διαγράμματα (βασισμένα σε δημοφιλείς τύπους διαγραμμάτων) και προσαρμοσμένα διαγράμματα.
+* συμπτύξετε, συμπιέσετε ή συνοψίσετε μεγάλες ποσότητες δεδομένων σε μία διαφάνεια μιας παρουσίασης
+* αποκαλύψετε μοτίβα και τάσεις στα δεδομένα
+* καθορίσετε την κατεύθυνση και το ρυθμό των δεδομένων με την πάροδο του χρόνου ή σε σχέση με μια συγκεκριμένη μονάδα μέτρησης 
+* εντοπίσετε ακραίες τιμές, αποκλίσεις, σφάλματα, παράλογα δεδομένα κ.λπ. 
+* επικοινωνήσετε ή παρουσιάσετε πολύπλοκα δεδομένα
+
+Στο PowerPoint, μπορείτε να δημιουργήσετε διαγράμματα μέσω της λειτουργίας εισαγωγής, η οποία παρέχει πρότυπα για το σχεδιασμό πολλών τύπων διαγραμμάτων. Χρησιμοποιώντας το Aspose.Slides, μπορείτε να δημιουργήσετε κανονικά διαγράμματα (βάσει δημοφιλών τύπων) και προσαρμοσμένα διαγράμματα. 
 
 {{% alert color="info" %}} 
 
-Για να μπορείτε να δημιουργείτε διαγράμματα, το Aspose.Slides παρέχει την κλάση enum [ChartType](https://reference.aspose.com/slides/el/cpp/namespace/aspose.slides.charts#a23ba9ea390f5be4c8f5ab18baf4f8c05) στο χώρο ονομάτων [Aspose::Slides::Charts](https://reference.aspose.com/slides/el/cpp/namespace/aspose.slides.charts/). Οι τιμές σε αυτήν την κλάση enum αντιστοιχούν σε διάφορους τύπους διαγραμμάτων. 
+Για να σας επιτρέψει τη δημιουργία διαγραμμάτων, το Aspose.Slides παρέχει το enum class [ChartType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/) στο namespace [Aspose::Slides::Charts](https://reference.aspose.com/slides/cpp/namespace/aspose.slides.charts/). Οι τιμές αυτού του enum class αντιστοιχούν σε διαφορετικούς τύπους διαγραμμάτων.
 
 {{% /alert %}} 
 
 ### **Δημιουργία Κανονικών Διαγραμμάτων**
-1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.presentation) .
-2. Αποκτήστε την αναφορά μιας διαφάνειας μέσω του δείκτη της. 
-3. Προσθέστε ένα διάγραμμα με κάποια δεδομένα και καθορίστε τον προτιμώμενο τύπο διαγράμματος. 
-4. Προσθέστε έναν τίτλο για το διάγραμμα. 
-5. Πρόσβαση στο φύλλο εργασίας δεδομένων του διαγράμματος. 
-6. Καθαρίστε όλες τις προεπιλεγμένες σειρές και κατηγορίες. 
-7. Προσθέστε νέες σειρές και κατηγορίες. 
-8. Προσθέστε νέα δεδομένα διαγράμματος για τις σειρές του διαγράμματος. 
-9. Προσθέστε χρώμα γεμίσματος για τις σειρές του διαγράμματος. 
-10. Προσθέστε ετικέτες για τις σειρές του διαγράμματος. 
-11. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX. 
+1. Δημιουργήστε μια εμφάνιση της κλάσης [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
+1. Λάβετε την αναφορά μιας διαφάνειας μέσω του δείκτη της.
+1. Προσθέστε ένα διάγραμμα με μερικά δεδομένα και καθορίστε τον προτιμώμενο τύπο διαγράμματος. 
+1. Προσθέστε έναν τίτλο για το διάγραμμα. 
+1. Πρόσβαση στο φύλλο δεδομένων του διαγράμματος. 
+1. Καθαρίστε όλες τις προεπιλεγμένες σειρές και κατηγορίες. 
+1. Προσθέστε νέες σειρές και κατηγορίες. 
+1. Προσθέστε νέα δεδομένα διαγράμματος για τις σειρές του διαγράμματος. 
+1. Προσθέστε χρώμα γεμίσματος για τις σειρές του διαγράμματος. 
+1. Προσθέστε ετικέτες για τις σειρές του διαγράμματος. 
+1. Γράψτε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
+
+Αυτός ο κώδικας C++ δείχνει πώς να δημιουργήσετε ένα κανονικό διάγραμμα:
 
 ```c++
 #include <DOM/Chart/ChartType.h>
@@ -99,100 +103,103 @@ using namespace Aspose::Slides::Export;
 using namespace System;
 using namespace System::Drawing;
 
-// The path to the documents directory.
+// Η διαδρομή προς το φάκελο εγγράφων.
 	const String outPath = u"../out/NormalCharts_out.pptx";
 
-	//Instantiates a presentation class that represents a PPTX file
+	//Δημιουργεί μια κλάση παρουσίασης που αντιπροσωπεύει αρχείο PPTX
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
-	//Accesses first slide
+	//Πρόσβαση στην πρώτη διαφάνεια
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
-	// Adds a chart with default data
+	// Προσθέτει διάγραμμα με προεπιλεγμένα δεδομένα
 	SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::ClusteredColumn, 0, 0, 500, 500);
 
 
-	// Sets the index of chart data sheet
+	// Ορίζει το δείκτη του φύλλου δεδομένων διαγράμματος
 	int defaultWorksheetIndex = 0;
 
-	// Gets the chart data worksheet
+	// Λαμβάνει το φύλλο εργασίας δεδομένων του διαγράμματος
 	SharedPtr<IChartDataWorkbook> fact = chart->get_ChartData()->get_ChartDataWorkbook();
 
-	// Sets the chart Title
+	// Ορίζει τον τίτλο του διαγράμματος
 	chart->get_ChartTitle()->AddTextFrameForOverriding(u"Sample Title");
 	chart->get_ChartTitle()->get_TextFrameForOverriding()->get_TextFrameFormat()->set_CenterText ( NullableBool::True);
 	chart->get_ChartTitle()->set_Height(20);
 	chart->set_HasTitle( true);
 
-	// Deletes the default generated series and categories
+	// Διαγράφει τις προεπιλεγμένες παραγόμενες σειρές και κατηγορίες
 	chart->get_ChartData()->get_Series()->Clear();
 	chart->get_ChartData()->get_Categories()->Clear();
 	int s = chart->get_ChartData()->get_Series()->get_Count();
 	s = chart->get_ChartData()->get_Categories()->get_Count();
 
 
-	// Adds a new series
+	// Προσθέτει νέα σειρά
 	chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 0, 1, ObjectExt::Box<System::String>(u"Series 1")), chart->get_Type());
 	chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 0, 2, ObjectExt::Box<System::String>(u"Series 2")), chart->get_Type());
 
-	// Adds catrgories
+	// Προσθέτει κατηγορίες
 	chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, 1, 0, ObjectExt::Box<System::String>(u"Caetegoty 1")));
 	chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, 2, 0, ObjectExt::Box<System::String>(u"Caetegoty 2")));
 	chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, 3, 0, ObjectExt::Box<System::String>(u"Caetegoty 3")));
 
 	
-	// Takes the first chart series
+	// Παίρνει την πρώτη σειρά διαγράμματος
 	SharedPtr<IChartSeries> series = chart->get_ChartData()->get_Series()->idx_get(0);
 
-	// Populates the series data
+	// Γεμίζει τα δεδομένα της σειράς
 	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 1, 1, ObjectExt::Box<double>(20)));
 	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 2, 1, ObjectExt::Box<double>(50)));
 	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 3, 1, ObjectExt::Box<double>(30)));
 
-	// Sets the fill color for series
+	// Ορίζει το χρώμα γεμίσματος για τη σειρά
 	series->get_Format()->get_Fill()->set_FillType(FillType::Solid);
 	series->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
 
 
-	// Takes the second chart series
+	// Παίρνει τη δεύτερη σειρά διαγράμματος
 	 series = chart->get_ChartData()->get_Series()->idx_get(1);
 
-	// Populates the series data
+	// Γεμίζει τα δεδομένα της σειράς
 	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 1, 2, ObjectExt::Box<double>(30)));
 	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 2, 2, ObjectExt::Box<double>(10)));
 	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 3, 2, ObjectExt::Box<double>(60)));
 
-	// Sets the fill color for series
+	// Ορίζει το χρώμα γεμίσματος για τη σειρά
 	series->get_Format()->get_Fill()->set_FillType(FillType::Solid);
 	series->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Green());
 
 
-	// First label is set to show category name
+	// Η πρώτη ετικέτα ορίζεται να εμφανίζει το όνομα κατηγορίας
 	SharedPtr<IDataLabel> lbl = series->get_DataPoints()->idx_get(0)->get_Label();
 	lbl->get_DataLabelFormat()->set_ShowCategoryName(true);
 
 	lbl = series->get_DataPoints()->idx_get(1)->get_Label();
 	lbl->get_DataLabelFormat()->set_ShowSeriesName (true);
 
-	// Shows the value for third label
+	// Εμφανίζει την τιμή για την τρίτη ετικέτα
 	lbl = series->get_DataPoints()->idx_get(2)->get_Label();
 	lbl->get_DataLabelFormat()->set_ShowValue (true);
 	lbl->get_DataLabelFormat()->set_ShowSeriesName(true);
 	lbl->get_DataLabelFormat()->set_Separator (u"/");
 
-	// Saves the presentation
+	// Αποθηκεύει την παρουσίαση
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
+
 ```
 
-### **Δημιουργία Διασκορπισμένων Διαγραμμάτων**
-Τα διασκορπισμένα διαγράμματα (γνωστά επίσης ως διασκορπισμένα διαγράμματα ή γραφήματα x-y) χρησιμοποιούνται συχνά για την έλεγχο μοτίβων ή την απεικόνιση συσχετισμών μεταξύ δύο μεταβλητών. 
+### **Δημιουργία Διαγραμμάτων Διασποράς**
+Τα διαγράμματα διασποράς (γνωστά επίσης ως scatter plots ή γραφήματα x-y) χρησιμοποιούνται συχνά για τον έλεγχο μοτίβων ή την επίδειξη συσχετίσεων μεταξύ δύο μεταβλητών. 
 
-Μπορεί να θέλετε να χρησιμοποιήσετε ένα διασκορπισμένο διάγραμμα όταν  
+Μπορείτε να θέλετε να χρησιμοποιήσετε ένα διάγραμμα διασποράς όταν 
 
-* διαθέτετε ζευγαρωμένα αριθμητικά δεδομένα  
-* έχετε 2 μεταβλητές που ταιριάζουν καλά μεταξύ τους  
-* θέλετε να καθορίσετε εάν 2 μεταβλητές είναι σχετικές  
-* διαθέτετε ανεξάρτητη μεταβλητή που έχει πολλαπλές τιμές για μια εξαρτημένη μεταβλητή  
+* έχετε ζεύγη αριθμητικών δεδομένων
+* έχετε 2 μεταβλητές που ταιριάζουν καλά μαζί
+* θέλετε να καθορίσετε εάν 2 μεταβλητές σχετίζονται
+* έχετε μια ανεξάρτητη μεταβλητή που έχει πολλαπλές τιμές για μια εξαρτημένη μεταβλητή
+
+Αυτός ο κώδικας C++ δείχνει πώς να δημιουργήσετε διαγράμματα διασποράς με διαφορετικές σειρές σημείων: 
 
 ```c++
 #include <DOM/Chart/ChartType.h>
@@ -233,72 +240,72 @@ using namespace Aspose::Slides;
 using namespace Aspose::Slides::Charts;
 using namespace System;
 
-//	Διαδρομή προς τον φάκελο εγγράφων.
+// Η διαδρομή προς το φάκελο εγγράφων.
 	const String outPath = u"../out/ScatteredChart_out.pptx";
 
-	//Δημιουργία αντικειμένου παρουσίασης που αντιπροσωπεύει ένα αρχείο PPTX
+	//Δημιουργεί μια κλάση παρουσίασης που αντιπροσωπεύει αρχείο PPTX
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
 	//Πρόσβαση στην πρώτη διαφάνεια
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
-	// Προσθήκη διαγράμματος με προεπιλεγμένα δεδομένα
+	// Προσθέτει διάγραμμα με προεπιλεγμένα δεδομένα
 	SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::ScatterWithSmoothLines, 0, 0, 500, 500);
 
-	// Ορισμός του τίτλου του διαγράμματος
+	// Ορίζει τον τίτλο του διαγράμματος
 	chart->get_ChartTitle()->AddTextFrameForOverriding(u"Sample Title");
 	chart->get_ChartTitle()->get_TextFrameForOverriding()->get_TextFrameFormat()->set_CenterText(NullableBool::True);
 	chart->get_ChartTitle()->set_Height(20);
 	chart->set_HasTitle(true);
 
-	// Διαγραφή της προεπιλεγμένα δημιουργημένης σειράς 
+	// Διαγράφει τις προεπιλεγμένες παραγόμενες σειρές 
 	chart->get_ChartData()->get_Series()->Clear();
 	
-	// Ορισμός του  δείκτη για το φύλλο δεδομένων του διαγράμματος
+	// Ορίζει το δείκτη για το φύλλο δεδομένων διαγράμματος
 	int defaultWorksheetIndex = 0;
 
-	// Ανάκτηση του φύλλου εργασίας δεδομένων του διαγράμματος
+	// Λαμβάνει το φύλλο εργασίας δεδομένων του διαγράμματος
 	SharedPtr<IChartDataWorkbook> fact = chart->get_ChartData()->get_ChartDataWorkbook();
 
 
-	// Προσθήκη νέας σειράς
+	// Προσθέτει νέα σειρά
 	chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 1, 1, ObjectExt::Box<System::String>(u"Series 1")), chart->get_Type());
 	chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 1, 3, ObjectExt::Box<System::String>(u"Series 2")), chart->get_Type());
 
-	// Λήψη της πρώτης σειράς του διαγράμματος
+	// Παίρνει την πρώτη σειρά διαγράμματος
 	SharedPtr<IChartSeries> series = chart->get_ChartData()->get_Series()->idx_get(0);
 
-	// Προσθήκη νέου σημείου (1:3)
+	// Προσθέτει νέο σημείο (1:3)
 	series->get_DataPoints()->AddDataPointForScatterSeries(fact->GetCell(defaultWorksheetIndex, 2, 1, ObjectExt::Box<double>(1)), fact->GetCell(defaultWorksheetIndex, 2, 2, ObjectExt::Box<double>(3)));
 
-	// Προσθήκη νέου σημείου (2:10)
+	// Προσθέτει νέο σημείο (2:10)
 	series->get_DataPoints()->AddDataPointForScatterSeries(fact->GetCell(defaultWorksheetIndex, 3, 1, ObjectExt::Box<double>(2)), fact->GetCell(defaultWorksheetIndex, 3, 2, ObjectExt::Box<double>(10)));
 
-	// Επεξεργασία του τύπου σειράς
+	// Επεξεργάζεται τον τύπο της σειράς
 	series->set_Type (ChartType::ScatterWithStraightLinesAndMarkers);
 
-	// Αλλαγή του δείκτη σειράς διαγράμματος
+	// Αλλάζει το δείκτη της σειράς διαγράμματος
 	series->get_Marker()->set_Size  (10);
 	series->get_Marker()->set_Symbol(MarkerStyleType::Star);
 
 
 
-	// Λήψη της δεύτερης σειράς του διαγράμματος
+	// Παίρνει τη δεύτερη σειρά διαγράμματος
 	series  = chart->get_ChartData()->get_Series()->idx_get(1);
 
-	// Προσθήκη νέου σημείου (5:2)
+	// Προσθέτει νέο σημείο (5:2)
 	series->get_DataPoints()->AddDataPointForScatterSeries(fact->GetCell(defaultWorksheetIndex, 2, 3, ObjectExt::Box<double>(5)), fact->GetCell(defaultWorksheetIndex, 2, 4, ObjectExt::Box<double>(2)));
 
-	// Προσθήκη νέου σημείου (3:1)
+	// Προσθέτει νέο σημείο (3:1)
 	series->get_DataPoints()->AddDataPointForScatterSeries(fact->GetCell(defaultWorksheetIndex, 3, 3, ObjectExt::Box<double>(3)), fact->GetCell(defaultWorksheetIndex, 3, 4, ObjectExt::Box<double>(1)));
 
-	// Προσθήκη νέου σημείου (2:2)
+	// Προσθέτει νέο σημείο (2:2)
 	series->get_DataPoints()->AddDataPointForScatterSeries(fact->GetCell(defaultWorksheetIndex, 4, 3, ObjectExt::Box<double>(2)), fact->GetCell(defaultWorksheetIndex, 4, 4, ObjectExt::Box<double>(2)));
 
-	// Προσθήκη νέου σημείου (5:1)
+	// Προσθέτει νέο σημείο (5:1)
 	series->get_DataPoints()->AddDataPointForScatterSeries(fact->GetCell(defaultWorksheetIndex, 5, 3, ObjectExt::Box<double>(5)), fact->GetCell(defaultWorksheetIndex, 5, 4, ObjectExt::Box<double>(1)));
 
-	// Αλλαγή του δείκτη σειράς διαγράμματος
+	// Αλλαγή του δείκτη της σειράς διαγράμματος
 	series->get_Marker()->set_Size ( 10);
 	series->get_Marker()->set_Symbol(MarkerStyleType::Circle);
 
@@ -309,7 +316,7 @@ using namespace System;
 	SharedPtr<IChartDataPoint> point = series->get_DataPoints()->idx_get(0);
 	point->get_Format()->get_Fill()->set_FillType(FillType::Solid);
 	point->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Cyan());
-	// Ορισμός του περιγράμματος τομέα
+	// Ορίζει το περίγραμμα του τμήματος
 	point->get_Format()->get_Line()->get_FillFormat()->set_FillType(FillType::Solid);
 	point->get_Format()->get_Line()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Gray());
 	point->get_Format()->get_Line()->set_Width ( 3.0);
@@ -320,7 +327,7 @@ using namespace System;
 	point1->get_Format()->get_Fill()->set_FillType(FillType::Solid);
 	point1->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Brown());
 
-	// Ορισμός του περιγράμματος τομέα
+	// Ορίζει το περίγραμμα του τμήματος
 	point1->get_Format()->get_Line()->get_FillFormat()->set_FillType(FillType::Solid);
 	point1->get_Format()->get_Line()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Blue());
 	point1->get_Format()->get_Line()->set_Width (3.0);
@@ -332,7 +339,7 @@ using namespace System;
 	point2->get_Format()->get_Fill()->set_FillType(FillType::Solid);
 	point2->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Coral());
 
-	// Ορισμός του περιγράμματος τομέα
+	// Ορίζει το περίγραμμα του τμήματος
 	point2->get_Format()->get_Line()->get_FillFormat()->set_FillType(FillType::Solid);
 	point2->get_Format()->get_Line()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
 	point2->get_Format()->get_Line()->set_Width ( 2.0);
@@ -340,7 +347,7 @@ using namespace System;
 	point2->get_Format()->get_Line()->set_DashStyle(LineDashStyle::LargeDashDotDot);
 
 
-	// Δημιουργία προσαρμοσμένων ετικετών για κάθε κατηγορία της νέας σειράς
+	// Δημιουργεί τις προσαρμοσμένες ετικέτες για κάθε κατηγορία της νέας σειράς
 	SharedPtr<IDataLabel> lbl1 = series->get_DataPoints()->idx_get(0)->get_Label();
 
 	// lbl.ShowCategoryName = true;
@@ -357,10 +364,10 @@ using namespace System;
 	lbl3->get_DataLabelFormat()->set_ShowSeriesName(true);
 	lbl3->get_DataLabelFormat()->set_ShowPercentage(true);
 
-	// Εμφανίζει τις γραμμές επικεφαλισμού για το διάγραμμα
+	// Εμφανίζει τις γραμμές οδηγού για το Διάγραμμα
 	series->get_Labels()->get_DefaultDataLabelFormat()->set_ShowLeaderLines(true);
 
-	// Ορισμός γωνίας περιστροφής των τομέων του διαγράμματος πίτας
+	// Ορίζει τη γωνία περιστροφής για τα τμήματα του διαγράμματος πίτας
 	chart->get_ChartData()->get_SeriesGroups()->idx_get(0)->set_FirstSliceAngle(180);
 
 
@@ -368,21 +375,23 @@ using namespace System;
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-### **Δημιουργία Διαγραμμάτων Πίτας**
-Τα διαγράμματα πίτας χρησιμοποιούνται καλύτερα για να δείξουν τη σχέση μέρος‑προς‑ολό στο σύνολο των δεδομένων, ειδικά όταν τα δεδομένα περιέχουν κατηγορηματικές ετικέτες με αριθμητικές τιμές. Ωστόσο, εάν τα δεδομένα σας περιέχουν πολλά τμήματα ή ετικέτες, ίσως θελήσετε να εξετάσετε ένα ραβδόγραμμα αντίγ.
+### **Δημιουργία Πίτας**
+Τα διαγράμματα πίτας είναι ιδανικά για την εμφάνιση της σχέσης μέρος-σύνολο στα δεδομένα, ειδικά όταν τα δεδομένα περιέχουν κατηγορηματικές ετικέτες με αριθμητικές τιμές. Ωστόσο, αν τα δεδομένα σας περιέχουν πολλά τμήματα ή ετικέτες, ίσως θελήσετε να εξετάσετε τη χρήση γραφήματος στήλης ως εναλλακτική λύση. 
 
-1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.presentation) .  
-2. Αποκτήστε την αναφορά μιας διαφάνειας μέσω του δείκτη της.  
-3. Προσθέστε ένα διάγραμμα με προεπιλεγμένα δεδομένα μαζί με τον επιθυμητό τύπο (σε αυτήν την περίπτωση, `ChartType.Pie`).  
-4. Πρόσβαση στα δεδομένα του διαγράμματος μέσω IChartDataWorkbook.  
-5. Καθαρίστε τις προεπιλεγμένες σειρές και κατηγορίες.  
-6. Προσθέστε νέες σειρές και κατηγορίες.  
-7. Προσθέστε νέα δεδομένα διαγράμματος για τις σειρές του διαγράμματος.  
-8. Προσθέστε νέα σημεία για τα διαγράμματα και προσαρμοσμένα χρώματα για τα τμήματα του διαγράμματος πίτας.  
-9. Ορίστε ετικέτες για τις σειρές.  
-10. Ορίστε γραμμές οδηγούς για τις ετικέτες σειρών.  
-11. Ορίστε τη γωνία περιστροφής για τις διαφάνειες του διαγράμματος πίτας.  
-12. Αποθηκεύστε την τροποποιημένη παρουσίαση σε αρχείο PPTX  
+1. Δημιουργήστε μια εμφάνιση της κλάσης [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
+1. Λάβετε την αναφορά μιας διαφάνειας μέσω του δείκτη της.
+1. Προσθέστε ένα διάγραμμα με προεπιλεγμένα δεδομένα μαζί με τον επιθυμητό τύπο (σε αυτήν την περίπτωση, `ChartType.Pie`).
+1. Πρόσβαση στο IChartDataWorkbook του διαγράμματος. 
+1. Καθαρίστε τις προεπιλεγμένες σειρές και κατηγορίες. 
+1. Προσθέστε νέες σειρές και κατηγορίες. 
+1. Προσθέστε νέα δεδομένα διαγράμματος για τις σειρές. 
+1. Προσθέστε νέες σημεία για τα διαγράμματα και προσαρμόστε χρώματα για τα τμήματα της πίτας. 
+1. Ορίστε ετικέτες για τις σειρές. 
+1. Ορίστε γραμμές οδηγούς για τις ετικέτες των σειρών. 
+1. Ορίστε τη γωνία περιστροφής για τις διαφάνειες πίτας. 
+1. Γράψτε την τροποποιημένη παρουσίαση σε αρχείο PPTX
+
+Αυτός ο κώδικας C++ δείχνει πώς να δημιουργήσετε ένα διάγραμμα πίτας:
 
 ```c++
 #include <DOM/Chart/ChartType.h>
@@ -422,46 +431,46 @@ using namespace Aspose::Slides;
 using namespace Aspose::Slides::Charts;
 using namespace System;
 
-	// Διαδρομή προς τον φάκελο εγγράφων.
+	// Η διαδρομή προς το φάκελο εγγράφων.
 	const String outPath = u"../out/PieChart_out.pptx";
 
-	// Δημιουργεί μια κλάση Presentation που αντιπροσωπεύει ένα αρχείο PPTX.
+	//Δημιουργεί μια κλάση Presentation που αντιπροσωπεύει αρχείο PPTX
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
-	// Πρόσβαση στην πρώτη διαφάνεια.
+	//Πρόσβαση στην πρώτη διαφάνεια
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
-	// Προσθέτει ένα διάγραμμα με προεπιλεγμένα δεδομένα.
+	// Προσθέτει διάγραμμα με προεπιλεγμένα δεδομένα
 	SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::Pie, 0, 0, 500, 500);
 
-	// Ορίζει τον τίτλο του διαγράμματος.
+	// Ορίζει τον τίτλο του διαγράμματος
 	chart->get_ChartTitle()->AddTextFrameForOverriding(u"Sample Title");
 	chart->get_ChartTitle()->get_TextFrameForOverriding()->get_TextFrameFormat()->set_CenterText(NullableBool::True);
 	chart->get_ChartTitle()->set_Height(20);
 	chart->set_HasTitle(true);
 
-	// Διαγράφει τις προεπιλεγμένα δημιουργημένες σειρές και κατηγορίες.
+	// Διαγράφει τις προεπιλεγμένες παραγόμενες σειρές και κατηγορίες
 	chart->get_ChartData()->get_Series()->Clear();
 	chart->get_ChartData()->get_Categories()->Clear();
 
-	// Ορίζει το δείκτη του φύλλου δεδομένων του διαγράμματος.
+	// Ορίζει το δείκτη του φύλλου δεδομένων διαγράμματος
 	int defaultWorksheetIndex = 0;
 
-	// Αποκτά το φύλλο εργασίας δεδομένων του διαγράμματος.
+	// Λαμβάνει το φύλλο εργασίας δεδομένων του διαγράμματος
 	SharedPtr<IChartDataWorkbook> fact = chart->get_ChartData()->get_ChartDataWorkbook();
 
-	// Προσθέτει κατηγορίες.
+	// Προσθέτει κατηγορίες
 	chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, 1, 0, ObjectExt::Box<System::String>(u"First Qtr")));
 	chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, 2, 0, ObjectExt::Box<System::String>(u"2nd Qtr")));
 	chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, 3, 0, ObjectExt::Box<System::String>(u"3ed Qtr")));
 
-	// Προσθέτει μια νέα σειρά.
+	// Προσθέτει νέα σειρά
 	chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 0, 1, ObjectExt::Box<System::String>(u"Series 1")), chart->get_Type());
 	
-	// Αποκτά την πρώτη σειρά του διαγράμματος.
+	// Παίρνει την πρώτη σειρά διαγράμματος
 	SharedPtr<IChartSeries> series = chart->get_ChartData()->get_Series()->idx_get(0);
 
-	// Γεμίζει τα δεδομένα της σειράς.
+	// Γεμίζει τα δεδομένα της σειράς
 	series->get_DataPoints()->AddDataPointForPieSeries(fact->GetCell(defaultWorksheetIndex, 1, 1, ObjectExt::Box<double>(20)));
 	series->get_DataPoints()->AddDataPointForPieSeries(fact->GetCell(defaultWorksheetIndex, 2, 1, ObjectExt::Box<double>(50)));
 	series->get_DataPoints()->AddDataPointForPieSeries(fact->GetCell(defaultWorksheetIndex, 3, 1, ObjectExt::Box<double>(30)));
@@ -471,7 +480,7 @@ using namespace System;
 	SharedPtr<IChartDataPoint> point = series->get_DataPoints()->idx_get(0);
 	point->get_Format()->get_Fill()->set_FillType(FillType::Solid);
 	point->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Cyan());
-	// Ορίζει το περίγραμμα του τομέα.
+	// Ορίζει το περίγραμμα του τμήματος
 	point->get_Format()->get_Line()->get_FillFormat()->set_FillType(FillType::Solid);
 	point->get_Format()->get_Line()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Gray());
 	point->get_Format()->get_Line()->set_Width ( 3.0);
@@ -482,7 +491,7 @@ using namespace System;
 	point1->get_Format()->get_Fill()->set_FillType(FillType::Solid);
 	point1->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Brown());
 
-	// Ορίζει το περίγραμμα του τομέα.
+	// Ορίζει το περίγραμμα του τμήματος
 	point1->get_Format()->get_Line()->get_FillFormat()->set_FillType(FillType::Solid);
 	point1->get_Format()->get_Line()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Blue());
 	point1->get_Format()->get_Line()->set_Width (3.0);
@@ -494,7 +503,7 @@ using namespace System;
 	point2->get_Format()->get_Fill()->set_FillType(FillType::Solid);
 	point2->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Coral());
 
-	// Ορίζει το περίγραμμα του τομέα.
+	// Ορίζει το περίγραμμα του τμήματος
 	point2->get_Format()->get_Line()->get_FillFormat()->set_FillType(FillType::Solid);
 	point2->get_Format()->get_Line()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
 	point2->get_Format()->get_Line()->set_Width (2.0);
@@ -502,7 +511,7 @@ using namespace System;
 	point2->get_Format()->get_Line()->set_DashStyle(LineDashStyle::LargeDashDotDot);
 
 
-	// Δημιουργεί προσαρμοσμένες ετικέτες για κάθε κατηγορία της νέας σειράς.
+	// Δημιουργεί προσαρμοσμένες ετικέτες για κάθε κατηγορία της νέας σειράς
 	SharedPtr<IDataLabel> lbl1 = series->get_DataPoints()->idx_get(0)->get_Label();
 
 	// lbl.ShowCategoryName = true;
@@ -519,28 +528,31 @@ using namespace System;
 	lbl3->get_DataLabelFormat()->set_ShowSeriesName(true);
 	lbl3->get_DataLabelFormat()->set_ShowPercentage(true);
 
-	// Ορίζει τη σειρά να εμφανίζει γραμμές οδηγού για το διάγραμμα.
+	// Ορίζει τη σειρά να εμφανίζει γραμμές οδηγού για το διάγραμμα
 	series->get_Labels()->get_DefaultDataLabelFormat()->set_ShowLeaderLines ( true);
 
-	// Ορίζει τη γωνία περιστροφής των τομέων του διαγράμματος πίτας.
+	// Ορίζει τη γωνία περιστροφής για τα τμήματα του διαγράμματος πίτας
 	chart->get_ChartData()->get_SeriesGroups()->idx_get(0)->set_FirstSliceAngle ( 180);
 
 
-	// Αποθηκεύει την παρουσίαση.
+	// Αποθηκεύει την παρουσίαση
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
 ### **Δημιουργία Γραμμικών Διαγραμμάτων**
-Τα γραμμικά διαγράμματα (επίσης γνωστά ως γραμμικά γραφήματα) είναι ιδανικά για καταστάσεις όπου θέλετε να επιδείξετε μεταβολές στην τιμή με την πάροδο του χρόνου. Χρησιμοποιώντας ένα γραμμικό διάγραμμα, μπορείτε να συγκρίνετε πολλά δεδομένα ταυτόχρονα, να παρακολουθείτε αλλαγές και τάσεις στο χρόνο, να επισημαίνετε ανωμαλίες σε σειρές δεδομένων κ.λπ.
 
-1. Δημιουργήτε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.presentation) .  
-2. Αποκτήστε την αναφορά μιας διαφάνειας μέσω του δείκτη της.  
-3. Προσθέστε ένα διάγραμμα με προεπιλεγμένα δεδομένα μαζί με τον επιθυμητό τύπο (σε αυτήν την περίπτωση, `ChartType::Line`).  
-4. Πρόσβαση στα δεδομένα του διαγράμματος μέσω IChartDataWorkbook.  
-5. Καθαρίστε τις προεπιλεγμένες σειρές και κατηγορίες.  
-6. Προσθέστε νέες σειρές και κατηγορίες.  
-7. Προσθέστε νέα δεδομένα διαγράμματος για τις σειρές του διαγράμματος.  
-8. Αποθηκεύστε την τροποποιημένη παρουσίαση σε αρχείο PPTX  
+Τα γραμμικά διαγράμματα (γνωστά επίσης ως line graphs) είναι καλύτερα για καταστάσεις όπου θέλετε να παρουσιάσετε αλλαγές στην τιμή με την πάροδο του χρόνου. Χρησιμοποιώντας ένα γραμμικό διάγραμμα, μπορείτε να συγκρίνετε πολλά δεδομένα ταυτόχρονα, να παρακολουθείτε αλλαγές και τάσεις με το χρόνο, να επισημαίνετε ανωμαλίες σε σειρές δεδομένων κ.λπ.
+
+1. Δημιουργήστε μια εμφάνιση της κλάσης [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
+1. Λάβετε την αναφορά μιας διαφάνειας μέσω του δείκτη της.
+1. Προσθέστε ένα διάγραμμα με προεπιλεγμένα δεδομένα μαζί με τον επιθυμητό τύπο (σε αυτήν την περίπτωση, `ChartType::Line`).
+1. Πρόσβαση στο IChartDataWorkbook του διαγράμματος. 
+1. Καθαρίστε τις προεπιλεγμένες σειρές και κατηγορίες. 
+1. Προσθέστε νέες σειρές και κατηγορίες. 
+1. Προσθέστε νέα δεδομένα διαγράμματος για τις σειρές. 
+1. Γράψτε την τροποποιημένη παρουσίαση σε αρχείο PPTX
+
+Αυτός ο κώδικας C++ δείχνει πώς να δημιουργήσετε ένα γραμμικό διάγραμμα:
 
 ```c++
 #include <DOM/Chart/ChartType.h>
@@ -560,7 +572,7 @@ System::SharedPtr<IChart> lineChart = pres->get_Slides()->idx_get(0)->get_Shapes
 pres->Save(u"lineChart.pptx", SaveFormat::Pptx);
 ```
 
-Από προεπιλογή, τα σημεία σε ένα γραμμικό διάγραμμα ενώνται με συνεχείς ευθείες γραμμές. Εάν θέλετε τα σημεία να ενώνται με παύλες, μπορείτε να ορίσετε τον προτιμώμενο τύπο παύλας ως εξής:
+Από προεπιλογή, τα σημεία ενός γραμμικού διαγράμματος συνδέονται με ίσες συνεχείς γραμμές. Αν θέλετε τα σημεία να συνδέονται με παύλες, μπορείτε να ορίσετε τον προτιμώμενο τύπο παύλας με τον ακόλουθο τρόπο:
 
 ```c++
 #include <DOM/Chart/ChartType.h>
@@ -587,17 +599,20 @@ for (auto&& series : lineChart->get_ChartData()->get_Series())
 }
 ```
 
-### **Δημιουργία Διαγραμμάτων Χάρτη Δένδρου**
-Τα διαγράμματα χάρτη δένδρου είναι ιδανικά για δεδομένα πωλήσεων όταν θέλετε να δείξετε το σχετικό μέγεθος των κατηγοριών δεδομένων και (ταυτόχρονα) να τραβήξετε γρήγορα την προσοχή σε στοιχεία που συμβάλλουν σημαντικά σε κάθε κατηγορία.
+### **Δημιουργία Διαγραμμάτων Δέντρου (Tree Map)**
 
-1. Δημιουργήτε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.presentation) .  
-2. Αποκτήστε την αναφορά μιας διαφάνειας μέσω του δείκτη της.  
-3. Προσθέστε ένα διάγραμμα με προεπιλεγμένα δεδομένα μαζί με τον επιθυμητό τύπο (σε αυτήν την περίπτωση, `ChartType.TreeMap`).  
-4. Πρόσβαση στα δεδομένα του διαγράμματος μέσω IChartDataWorkbook.  
-5. Καθαρίστε τις προεπιλεγμένες σειρές και κατηγορίες.  
-6. Προσθέστε νέες σειρές και κατηγορίες.  
-7. Προσθέστε νέα δεδομένα διαγράμματος για τις σειρές του διαγράμματος.  
-8. Αποθηκεύστε την τροποποιημένη παρουσίαση σε αρχείο PPTX  
+Τα διαγράμματα δένδρου (Tree Map) είναι ιδανικά για δεδομένα πωλήσεων όταν θέλετε να δείξετε το σχετικό μέγεθος των κατηγοριών δεδομένων και (ταυτόχρονα) να τραβήξετε γρήγορα την προσοχή σε στοιχεία που συνεισφέρουν σημαντικά σε κάθε κατηγορία. 
+
+1. Δημιουργήστε μια εμφάνιση της κλάσης [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
+1. Λάβετε την αναφορά μιας διαφάνειας μέσω του δείκτη της.
+1. Προσθέστε ένα διάγραμμα με προεπιλεγμένα δεδομένα και τον επιθυμητό τύπο (σε αυτήν την περίπτωση, `ChartType.TreeMap`).
+1. Πρόσβαση στο IChartDataWorkbook του διαγράμματος. 
+1. Καθαρίστε τις προεπιλεγμένες σειρές και κατηγορίες. 
+1. Προσθέστε νέες σειρές και κατηγορίες. 
+1. Προσθέστε νέα δεδομένα διαγράμματος για τις σειρές. 
+1. Γράψτε την τροποποιημένη παρουσίαση σε αρχείο PPTX
+
+Αυτός ο κώδικας C++ δείχνει πώς να δημιουργήσετε ένα διάγραμμα Tree Map:
 
 ```c++
 #include <DOM/Chart/ChartType.h>
@@ -624,10 +639,10 @@ using namespace Aspose::Slides::Charts;
 using namespace Aspose::Slides::Export;
 using namespace System;
 
-// Διαδρομή προς τον φάκελο εγγράφων.
+// Η διαδρομή προς το φάκελο εγγράφων.
 	const String outPath = u"../out/TreemapChart_out.pptx";
 
-	//Δημιουργεί μια κλάση Presentation που αντιπροσωπεύει αρχείο PPTX.
+	// Δημιουργεί μια κλάση Presentation που αντιπροσωπεύει αρχείο PPTX
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
 	// Πρόσβαση στην πρώτη διαφάνεια
@@ -683,16 +698,18 @@ using namespace System;
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-### **Δημιουργία Διαγραμμάτων Stock**
-1. Δημιουργήτε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.presentation) .  
-2. Αποκτήστε την αναφορά μιας διαφάνειας μέσω του δείκτη της.  
-3. Προσθέστε ένα διάγραμμα με προεπιλεγμένα δεδομένα μαζί με τον επιθυμητό τύπο (ChartType.OpenHighLowClose).  
-4. Πρόσβαση στα δεδομένα του διαγράμματος μέσω IChartDataWorkbook.  
-5. Καθαρίστε τις προεπιλεγμένες σειρές και κατηγορίες.  
-6. Προσθέστε νέες σειρές και κατηγορίες.  
-7. Προσθέστε νέα δεδομένα διαγράμματος για τις σειρές του διαγράμματος.  
-8. Ορίστε μορφή HiLowLines.  
-9. Αποθηκεύστε την τροποποιημένη παρουσίαση σε αρχείο PPTX  
+### **Δημιουργία Χρηματοοικονομικών Διαγράμμάτων (Stock Charts)**
+1. Δημιουργήστε μια εμφάνιση της κλάσης [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
+1. Λάβετε την αναφορά μιας διαφάνειας μέσω του δείκτη της.
+1. Προσθέστε ένα διάγραμμα με προεπιλεγμένα δεδομένα και τον επιθυμητό τύπο (ChartType.OpenHighLowClose).
+1. Πρόσβαση στο IChartDataWorkbook του διαγράμματος. 
+1. Καθαρίστε τις προεπιλεγμένες σειρές και κατηγορίες. 
+1. Προσθέστε νέες σειρές και κατηγορίες. 
+1. Προσθέστε νέα δεδομένα διαγράμματος για τις σειρές. 
+1. Καθορίστε τη μορφή HiLowLines. 
+1. Γράψτε την τροποποιημένη παρουσίαση σε αρχείο PPTX
+
+Δείγμα κώδικα C++ για τη δημιουργία χρηματοοικονομικού διαγράμματος:
 
 ```c++
 #include <DOM/Chart/ChartType.h>
@@ -722,10 +739,10 @@ using namespace Aspose::Slides::Charts;
 using namespace Aspose::Slides::Export;
 using namespace System;
 
-	// Η διαδρομή προς τον φάκελο εγγράφων.
+	// Η διαδρομή προς το φάκελο εγγράφων.
 	const String outPath = u"../out/AddStockChart_out.pptx";
 
-	// Δημιουργεί μια κλάση Presentation που αντιπροσωπεύει αρχείο PPTX.
+	// Δημιουργεί μια κλάση Presentation που αντιπροσωπεύει αρχείο PPTX
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
 	// Πρόσβαση στην πρώτη διαφάνεια
@@ -735,14 +752,14 @@ using namespace System;
 	SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::OpenHighLowClose, 0, 0, 500, 500);
 
 
-	// Ορίζει το δείκτη του φύλλου δεδομένων του διαγράμματος
+	// Ορίζει το δείκτη για το φύλλο δεδομένων διαγράμματος
 	int defaultWorksheetIndex = 0;
 
-	// Αποκτά το φύλλο εργασίας δεδομένων του διαγράμματος
+	// Λαμβάνει το φύλλο εργασίας δεδομένων του διαγράμματος
 	SharedPtr<IChartDataWorkbook> fact = chart->get_ChartData()->get_ChartDataWorkbook();
 
 
-	// Διαγράφει τις προεπιλεγμένες δημιουργημένες σειρές και κατηγορίες
+	// Διαγράφει τις προεπιλεγμένες παραγόμενες σειρές και κατηγορίες
 	chart->get_ChartData()->get_Series()->Clear();
 	chart->get_ChartData()->get_Categories()->Clear();
 
@@ -758,7 +775,7 @@ using namespace System;
 	chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 0, 4, ObjectExt::Box<System::String>(u"Close")), chart->get_Type());
 
 
-	// Αποκτά την πρώτη σειρά του διαγράμματος
+	// Παίρνει την πρώτη σειρά διαγράμματος
 	SharedPtr<IChartSeries> series = chart->get_ChartData()->get_Series()->idx_get(0);
 	// Γεμίζει τα δεδομένα της πρώτης σειράς
 	series->get_DataPoints()->AddDataPointForStockSeries(fact->GetCell(defaultWorksheetIndex, 1, 1, ObjectExt::Box<double>(72)));
@@ -773,14 +790,14 @@ using namespace System;
 	series->get_DataPoints()->AddDataPointForStockSeries(fact->GetCell(defaultWorksheetIndex, 3, 2, ObjectExt::Box<double>(57)));
 
 	series = chart->get_ChartData()->get_Series()->idx_get(2);
-	// Γεμίζει τα δεδομένα της δεύτερης σειράς
+	// Γεμίζει τα δεδομένα της τρίτης σειράς
 	series->get_DataPoints()->AddDataPointForStockSeries(fact->GetCell(defaultWorksheetIndex, 1, 3, ObjectExt::Box<double>(12)));
 	series->get_DataPoints()->AddDataPointForStockSeries(fact->GetCell(defaultWorksheetIndex, 2, 3, ObjectExt::Box<double>(12)));
 	series->get_DataPoints()->AddDataPointForStockSeries(fact->GetCell(defaultWorksheetIndex, 3, 3, ObjectExt::Box<double>(13)));
 
 
 	series = chart->get_ChartData()->get_Series()->idx_get(3);
-	// Γεμίζει τα δεδομένα της δεύτερης σειράς
+	// Γεμίζει τα δεδομένα της τέταρτης σειράς
 	series->get_DataPoints()->AddDataPointForStockSeries(fact->GetCell(defaultWorksheetIndex, 1, 4, ObjectExt::Box<double>(25)));
 	series->get_DataPoints()->AddDataPointForStockSeries(fact->GetCell(defaultWorksheetIndex, 2, 4, ObjectExt::Box<double>(38)));
 	series->get_DataPoints()->AddDataPointForStockSeries(fact->GetCell(defaultWorksheetIndex, 3, 4, ObjectExt::Box<double>(50)));
@@ -801,14 +818,16 @@ using namespace System;
 ```
 
 ### **Δημιουργία Διαγραμμάτων Box and Whisker**
-1. Δημιουργήτε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.presentation) .  
-2. Αποκτήστε την αναφορά μιας διαφάνειας μέσω του δείκτη της.  
-3. Προσθέστε ένα διάγραμμα με προεπιλεγμένα δεδομένα μαζί με τον επιθυμητό τύπο (ChartType.BoxAndWhisker).  
-4. Πρόσβαση στα δεδομένα του διαγράμματος μέσω IChartDataWorkbook.  
-5. Καθαρίστε τις προεπιλεγμένες σειρές και κατηγορίες.  
-6. Προσθέστε νέες σειρές και κατηγορίες.  
-7. Προσθέστε νέα δεδομένα διαγράμματος για τις σειρές του διαγράμματος.  
-8. Αποθηκεύστε την τροποποιημένη παρουσίαση σε αρχείο PPTX  
+1. Δημιουργήστε μια εμφάνιση της κλάσης [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
+1. Λάβετε την αναφορά μιας διαφάνειας μέσω του δείκτη της.
+1. Προσθέστε ένα διάγραμμα με προεπιλεγμένα δεδομένα και τον επιθυμητό τύπο (ChartType.BoxAndWhisker).
+1. Πρόσβαση στο IChartDataWorkbook του διαγράμματος. 
+1. Καθαρίστε τις προεπιλεγμένες σειρές και κατηγορίες. 
+1. Προσθέστε νέες σειρές και κατηγορίες. 
+1. Προσθέστε νέα δεδομένα διαγράμματος για τις σειρές. 
+1. Γράψτε την τροποποιημένη παρουσίαση σε αρχείο PPTX
+
+Αυτός ο κώδικας C++ δείχνει πώς να δημιουργήσετε ένα διάγραμμα Box and Whisker:
 
 ```c++
 #include <DOM/Chart/ChartType.h>
@@ -834,7 +853,7 @@ using namespace System;
 	// Η διαδρομή προς το φάκελο εγγράφων.
 	const String outPath = u"../out/BoxAndWhisker_out.pptx";
 
-	// Δημιουργεί ένα αντικείμενο Presentation που αντιπροσωπεύει ένα αρχείο PPTX.
+	// Δημιουργεί μια κλάση Presentation που αντιπροσωπεύει αρχείο PPTX
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
 	// Πρόσβαση στην πρώτη διαφάνεια
@@ -876,17 +895,19 @@ using namespace System;
 ```
 
 ### **Δημιουργία Διαγραμμάτων Funnel**
-1. Δημιουργήτε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.presentation) .  
-2. Αποκτήστε την αναφορά μιας διαφάνειας μέσω του δείκτη της.  
-3. Προσθέστε ένα διάγραμμα με προεπιλεγμένα δεδομένα μαζί με τον επιθυμητό τύπο (ChartType.Funnel).  
-4. Αποθηκεύστε την τροποποιημένη παρουσίαση σε αρχείο PPTX  
+1. Δημιουργήστε μια εμφάνιση της κλάσης [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
+1. Λάβετε την αναφορά μιας διαφάνειας μέσω του δείκτη της.
+1. Προσθέστε ένα διάγραμμα με προεπιλεγμένα δεδομένα και τον επιθυμητό τύπο (ChartType.Funnel).
+1. Γράψτε την τροποποιημένη παρουσίαση σε αρχείο PPTX
+
+Αυτός ο κώδικας C++ δείχνει πώς να δημιουργήσετε ένα διάγραμμα Funnel:
 
 ```c++
 #include <DOM/Chart/ChartType.h>
 #include <DOM/Chart/IChartCategoryCollection.h>
 #include <DOM/Chart/IChartData.h>
 #include <DOM/Chart/IChartDataPointCollection.h>
-#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChatDataWorkbook.h>
 #include <DOM/Chart/IChartSeries.h>
 #include <DOM/Chart/IChartSeriesCollection.h>
 #include <DOM/IChart.h>
@@ -904,10 +925,10 @@ using namespace System;
 	// Η διαδρομή προς το φάκελο εγγράφων.
 	const String outPath = u"../out/FunnelChart_out.pptx";
 
-	//Δημιουργεί μια κλάση Presentation που αντιπροσωπεύει αρχείο PPTX
+	// Δημιουργεί μια κλάση Presentation που αντιπροσωπεύει αρχείο PPTX
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
-	//Πρόσβαση στην πρώτη διαφάνεια
+	// Πρόσβαση στην πρώτη διαφάνεια
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
 	System::SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::Funnel, 50, 50, 500, 400);
@@ -940,10 +961,12 @@ using namespace System;
 ```
 
 ### **Δημιουργία Διαγραμμάτων Sunburst**
-1. Δημιουργήτε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.presentation) .  
-2. Αποκτήστε την αναφορά μιας διαφάνειας μέσω του δείκτη της.  
-3. Προσθέστε ένα διάγραμμα με προεπιλεγμένα δεδομένα μαζί με τον επιθυμητό τύπο (σε αυτήν την περίπτωση, `ChartType.sunburst`).  
-4. Αποθηκεύστε την τροποποιημένη παρουσίαση σε αρχείο PPTX  
+1. Δημιουργήστε μια εμφάνιση της κλάσης [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
+1. Λάβετε την αναφορά μιας διαφάνειας μέσω του δείκτη της.
+1. Προσθέστε ένα διάγραμμα με προεπιλεγμένα δεδομένα και τον επιθυμητό τύπο (σε αυτήν την περίπτωση, `ChartType.sunburst`).
+1. Γράψτε την τροποποιημένη παρουσίαση σε αρχείο PPTX
+
+Αυτός ο κώδικας C++ δείχνει πώς να δημιουργήσετε ένα διάγραμμα Sunburst:
 
 ```c++
 #include <DOM/Chart/ChartType.h>
@@ -972,10 +995,10 @@ using namespace System;
 	// Η διαδρομή προς το φάκελο εγγράφων.
 	const String outPath = u"../out/SunburstChart_out.pptx";
 
-	// Δημιουργεί μια κλάση Presentation που αντιπροσωπεύει αρχείο PPTX
+	// Δημιουργεί μια κλάση Presentation που αντιπροσωπεύει αρχείο PPTX.
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
-	// Πρόσβαση στην πρώτη διαφάνεια
+	// Πρόσβαση στην πρώτη διαφάνεια.
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
 	System::SharedPtr<IChart> chart=slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::Sunburst, 50, 50, 500, 400);
@@ -1021,19 +1044,20 @@ using namespace System;
 	series->get_DataPoints()->AddDataPointForSunburstSeries(wb->GetCell(0, u"D7", System::ObjectExt::Box<int32_t>(4)));
 	series->get_DataPoints()->AddDataPointForSunburstSeries(wb->GetCell(0, u"D8", System::ObjectExt::Box<int32_t>(3)));
 
-	// Γράφει το αρχείο παρουσίασης στο δίσκο
+	// Αποθήκευση του αρχείου παρουσίασης στο δίσκο
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
-
 ```
 
-### **Δημιουργία Διαγραμμάτων Ιστόγραμμα**
-1. Δημιουργήτε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.presentation) .  
-2. Αποκτήστε την αναφορά μιας διαφάνειας μέσω του δείκτη της.  
-3. Προσθέστε ένα διάγραμμα με κάποια δεδομένα και καθορίστε τον προτιμώμενο τύπο διαγράμματος (`ChartType.Histogram` σε αυτήν την περίπτωση).  
-4. Πρόσβαση στα δεδομένα του διαγράμματος `IChartDataWorkbook`.  
-5. Καθαρίστε τις προεπιλεγμένες σειρές και κατηγορίες.  
-6. Προσθέστε νέες σειρές και κατηγορίες.  
-7. Αποθηκεύστε την τροποποιημένη παρουσίαση σε αρχείο PPTX.  
+### **Δημιουργία Διαγραμμάτων Ιστόγραμμα (Histogram)**
+1. Δημιουργήστε μια εμφάνιση της κλάσης [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
+1. Λάβετε την αναφορά μιας διαφάνειας μέσω του δείκτη της. 
+1. Προσθέστε ένα διάγραμμα με δεδομένα και καθορίστε τον προτιμώμενο τύπο (`ChartType.Histogram` σε αυτήν την περίπτωση).
+1. Πρόσβαση στο `IChartDataWorkbook`. 
+1. Καθαρίστε τις προεπιλεγμένες σειρές και κατηγορίες. 
+1. Προσθέστε νέες σειρές και κατηγορίες. 
+1. Γράψτε την τροποποιημένη παρουσίαση σε αρχείο PPTX.
+
+Αυτός ο κώδικας C++ δείχνει πώς να δημιουργήσετε ένα διάγραμμα Ιστόγραμμα:
 
 ```c++
 #include <DOM/Chart/AxisAggregationType.h>
@@ -1090,10 +1114,12 @@ using namespace System;
 ```
 
 ### **Δημιουργία Διαγραμμάτων Radar**
-1. Δημιουργήτε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.presentation) .  
-2. Αποκτήστε την αναφορά μιας διαφάνειας μέσω του δείκτη της.  
-3. Προσθέστε ένα διάγραμμα με κάποια δεδομένα και καθορίστε τον προτιμώμενο τύπο διαγράμματος (`ChartType.Radar` σε αυτήν την περίπτωση).  
-4. Αποθηκεύστε την τροποποιημένη παρουσίαση σε αρχείο PPTX  
+1. Δημιουργήστε μια εμφάνιση της κλάσης [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
+1. Λάβετε την αναφορά μιας διαφάνειας μέσω του δείκτη της. 
+1. Προσθέστε ένα διάγραμμα με δεδομένα και καθορίστε τον προτιμώμενο τύπο (`ChartType.Radar` σε αυτήν την περίπτωση).
+1. Γράψτε την τροποποιημένη παρουσίαση σε αρχείο PPTX
+
+Αυτός ο κώδικας C++ δείχνει πώς να δημιουργήσετε ένα διάγραμμα Radar:
 
 ```c++
 #include <DOM/Chart/ChartType.h>
@@ -1111,14 +1137,16 @@ presentation->Save(u"Radar-chart.pptx", Aspose::Slides::Export::SaveFormat::Pptx
 ```
 
 ### **Δημιουργία Πολυκατηγορικών Διαγραμμάτων**
-1. Δημιουργήτε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.presentation) .  
-2. Αποκτήστε την αναφορά μιας διαφάνειας μέσω του δείκτη της.  
-3. Προσθέστε ένα διάγραμμα με προεπιλεγμένα δεδομένα μαζί με τον επιθυμητό τύπο (ChartType.ClusteredColumn).  
-4. Πρόσβαση στα δεδομένα του διαγράμματος IChartDataWorkbook.  
-5. Καθαρίστε τις προεπιλεγμένες σειρές και κατηγορίες.  
-6. Προσθέστε νέες σειρές και κατηγορίες.  
-7. Προσθέστε νέα δεδομένα διαγράμματος για τις σειρές του διαγράμματος.  
-8. Αποθηκεύστε την τροποποιημένη παρουσίαση σε αρχείο PPTX.  
+1. Δημιουργήστε μια εμφάνιση της κλάσης [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
+1. Λάβετε την αναφορά μιας διαφάνειας μέσω του δείκτη της. 
+1. Προσθέστε ένα διάγραμμα με προεπιλεγμένα δεδομένα και τον επιθυμητό τύπο (ChartType.ClusteredColumn).
+1. Πρόσβαση στο IChartDataWorkbook. 
+1. Καθαρίστε τις προεπιλεγμένες σειρές και κατηγορίες. 
+1. Προσθέστε νέες σειρές και κατηγορίες. 
+1. Προσθέστε νέα δεδομένα διαγράμματος για τις σειρές. 
+1. Γράψτε την τροποποιημένη παρουσίαση σε αρχείο PPTX.
+
+Αυτός ο κώδικας C++ δείχνει πώς να δημιουργήσετε ένα πολυκατηγορικό διάγραμμα:
 
 ```c++
 #include <DOM/Chart/ChartType.h>
@@ -1155,10 +1183,10 @@ using namespace System;
 	// Προσθέτει διάγραμμα με προεπιλεγμένα δεδομένα.
 	SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::ClusteredColumn, 0, 0, 500, 500);
 
-	// Ορίζει το δείκτη του φύλλου δεδομένων του διαγράμματος.
+	// Ορίζει τον δείκτη για το φύλλο δεδομένων του διαγράμματος.
 	int defaultWorksheetIndex = 0;
 
-	// Αποκτά το φύλλο εργασίας δεδομένων του διαγράμματος.
+	// Λαμβάνει το φύλλο εργασίας δεδομένων του διαγράμματος.
 	SharedPtr<IChartDataWorkbook> fact = chart->get_ChartData()->get_ChartDataWorkbook();
 
 	// Καθαρίζει το βιβλίο εργασίας.
@@ -1186,7 +1214,7 @@ using namespace System;
 	category->get_GroupingLevels()->SetGroupingItem(1, ObjectExt::Box<System::String>(u"Group4"));
 	chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, u"c9", ObjectExt::Box<System::String>(u"H")));
 
-	// Προσθέτει μια νέα σειρά.
+	// Προσθέτει νέα σειρά.
 	SharedPtr<IChartSeries>  series = chart->get_ChartData()->get_Series()->Add(fact->GetCell(0, u"D1", ObjectExt::Box<System::String>(u"Series 1")),
 		ChartType::ClusteredColumn);
 
@@ -1204,7 +1232,9 @@ using namespace System;
 ```
 
 ### **Δημιουργία Διαγραμμάτων Χάρτη**
-Ένα διάγραμμα χάρτη είναι μια απεικόνιση μιας περιοχής που περιέχει δεδομένα. Τα διαγράμματα χάρτη είναι ιδανικά για σύγκριση δεδομένων ή τιμών μεταξύ γεωγραφικών περιοχών.
+Ένα διάγραμμα χάρτη είναι μια οπτικοποίηση μιας περιοχής που περιέχει δεδομένα. Τα διαγράμματα χάρτη είναι ιδανικά για σύγκριση δεδομένων ή τιμών μεταξύ γεωγραφικών περιοχών.
+
+Αυτός ο κώδικας C++ δείχνει πώς να δημιουργήσετε ένα διάγραμμα χάρτη:
 
 ```c++
 #include <DOM/Chart/ChartType.h>
@@ -1226,9 +1256,9 @@ pres->Save(u"mapChart.pptx", SaveFormat::Pptx);
 ### **Δημιουργία Συνδυαστικών Διαγραμμάτων**
 Ένα συνδυαστικό διάγραμμα (ή combo chart) συνδυάζει δύο ή περισσότερους τύπους διαγραμμάτων σε ένα μόνο γράφημα. Αυτό το διάγραμμα σας επιτρέπει να επισημάνετε, συγκρίνετε ή εξετάσετε διαφορές μεταξύ δύο ή περισσότερων συνόλων δεδομένων, βοηθώντας σας να εντοπίσετε σχέσεις μεταξύ τους.
 
-![Ο συνδυαστικός διάγραμμα](combination_chart.png)
+![The combination chart](combination_chart.png)
 
-Ο παρακάτω κώδικας C++ δείχνει πώς να δημιουργήσετε το παραπάνω συνδυαστικό διάγραμμα σε μια παρουσίαση PowerPoint:
+Ο παρακάτω κώδικας C++ δείχνει πώς να δημιουργήσετε το συνδυαστικό διάγραμμα που φαίνεται παραπάνω σε μια παρουσίαση PowerPoint:
 
 ```cpp
 #include <DOM/Chart/AxisPositionType.h>
@@ -1276,7 +1306,7 @@ static SharedPtr<IChart> CreateChartWithFirstSeries(SharedPtr<ISlide> slide)
 {
     auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 50, 50, 600, 400);
 
-    // Ορισμός τίτλου διαγράμματος.
+    // Ορίζει τον τίτλο του διαγράμματος.
     chart->set_HasTitle(true);
     chart->get_ChartTitle()->AddTextFrameForOverriding(u"Chart Title");
     chart->get_ChartTitle()->set_Overlay(false);
@@ -1285,24 +1315,24 @@ static SharedPtr<IChart> CreateChartWithFirstSeries(SharedPtr<ISlide> slide)
     titleFormat->set_FontBold(NullableBool::False);
     titleFormat->set_FontHeight(18.0);
 
-    // Ορισμός υπομνήματος διαγράμματος.
+    // Ορίζει το υπόμνημα του διαγράμματος.
     chart->get_Legend()->set_Position(LegendPositionType::Bottom);
     chart->get_Legend()->get_TextFormat()->get_PortionFormat()->set_FontHeight(12.0);
 
-    // Διαγραφή των προεπιλεγμένων δημιουργημένων σειρών και κατηγοριών.
+    // Διαγράφει τις προεπιλεγμένες παραγόμενες σειρές και κατηγορίες.
     chart->get_ChartData()->get_Series()->Clear();
     chart->get_ChartData()->get_Categories()->Clear();
 
     const int worksheetIndex = 0;
     auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
 
-    // Προσθήκη νέων κατηγοριών.
+    // Προσθέτει νέες κατηγορίες.
     chart->get_ChartData()->get_Categories()->Add(workbook->GetCell(worksheetIndex, 1, 0, ObjectExt::Box<String>(u"Category 1")));
     chart->get_ChartData()->get_Categories()->Add(workbook->GetCell(worksheetIndex, 2, 0, ObjectExt::Box<String>(u"Category 2")));
     chart->get_ChartData()->get_Categories()->Add(workbook->GetCell(worksheetIndex, 3, 0, ObjectExt::Box<String>(u"Category 3")));
     chart->get_ChartData()->get_Categories()->Add(workbook->GetCell(worksheetIndex, 4, 0, ObjectExt::Box<String>(u"Category 4")));
 
-    // Προσθήκη της πρώτης σειράς.
+    // Προσθέτει την πρώτη σειρά.
     auto seriesNameCell = workbook->GetCell(worksheetIndex, 0, 1, ObjectExt::Box<String>(u"Series 1"));
     auto series = chart->get_ChartData()->get_Series()->Add(seriesNameCell, chart->get_Type());
 
@@ -1362,21 +1392,21 @@ static void SetAxisTitle(SharedPtr<IAxis> axis, String axisTitle)
 
 static void SetPrimaryAxesFormat(SharedPtr<IChart> chart)
 {
-    // Ορισμός οριζόντιου άξονα.
+    // Ορίζει τον οριζόντιο άξονα.
     auto horizontalAxis = chart->get_Axes()->get_HorizontalAxis();
     horizontalAxis->get_TextFormat()->get_PortionFormat()->set_FontHeight(12.0);
     horizontalAxis->get_Format()->get_Line()->get_FillFormat()->set_FillType(FillType::NoFill);
 
     SetAxisTitle(horizontalAxis, u"X Axis");
 
-    // Ορισμός κατακόρυφου άξονα.
+    // Ορίζει τον κατακόρυφο άξονα.
     auto verticalAxis = chart->get_Axes()->get_VerticalAxis();
     verticalAxis->get_TextFormat()->get_PortionFormat()->set_FontHeight(12.0);
     verticalAxis->get_Format()->get_Line()->get_FillFormat()->set_FillType(FillType::NoFill);
 
     SetAxisTitle(verticalAxis, u"Y Axis 1");
 
-    // Ορισμός χρώματος κύριων γραμμών πλέγματος του κατακόρυφου άξονα.
+    // Ορίζει το χρώμα των κύριων γραμμών πλέγματος του κατακόρυφου άξονα.
     auto majorGridLinesFormat = verticalAxis->get_MajorGridLinesFormat()->get_Line()->get_FillFormat();
     majorGridLinesFormat->set_FillType(FillType::Solid);
     majorGridLinesFormat->get_SolidFillColor()->set_Color(Color::FromArgb(217, 217, 217));
@@ -1384,7 +1414,7 @@ static void SetPrimaryAxesFormat(SharedPtr<IChart> chart)
 
 static void SetSecondaryAxesFormat(SharedPtr<IChart> chart)
 {
-    // Ορισμός δευτερεύοντος οριζόντιου άξονα.
+    // Ορίζει τον δευτερεύοντα οριζόντιο άξονα.
     auto secondaryHorizontalAxis = chart->get_Axes()->get_SecondaryHorizontalAxis();
     secondaryHorizontalAxis->set_Position(AxisPositionType::Bottom);
     secondaryHorizontalAxis->set_CrossType(CrossesType::Maximum);
@@ -1392,7 +1422,7 @@ static void SetSecondaryAxesFormat(SharedPtr<IChart> chart)
     secondaryHorizontalAxis->get_MajorGridLinesFormat()->get_Line()->get_FillFormat()->set_FillType(FillType::NoFill);
     secondaryHorizontalAxis->get_MinorGridLinesFormat()->get_Line()->get_FillFormat()->set_FillType(FillType::NoFill);
 
-    // Ορισμός δευτερεύοντος κατακόρυφου άξονα.
+    // Ορίζει τον δευτερεύοντα κατακόρυφο άξονα.
     auto secondaryVerticalAxis = chart->get_Axes()->get_SecondaryVerticalAxis();
     secondaryVerticalAxis->set_Position(AxisPositionType::Right);
     secondaryVerticalAxis->get_TextFormat()->get_PortionFormat()->set_FontHeight(12.0);
@@ -1423,13 +1453,15 @@ static void CreateComboChart()
 
 ## **Ενημέρωση Διαγραμμάτων**
 
-1. Δημιουργήτε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.presentation) που αντιπροσωπεύει την παρουσίαση που περιέχει το διάγραμμα.  
-2. Αποκτήστε την αναφορά μιας διαφάνειας μέσω του δείκτη της.  
-3. Περιηγηθείτε σε όλα τα σχήματα για να εντοπίσετε το επιθυμητό διάγραμμα.  
-4. Πρόσβαση στο φύλλο εργασίας δεδομένων του διαγράμματος.  
-5. Τροποποιήστε τα δεδομένα των σειρών του διαγράμματος αλλάζοντας τις τιμές των σειρών.  
-6. Προσθέστε μια νέα σειρά και συμπληρώστε τα δεδομένα σε αυτήν.  
-7. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.  
+1. Δημιουργήστε μια εμφάνιση της κλάσης [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) που αντιπροσωπεύει την παρουσίαση που περιέχει το διάγραμμα.
+2. Λάβετε την αναφορά μιας διαφάνειας μέσω του δείκτη της.
+3. Περιηγηθείτε σε όλα τα σχήματα για να βρείτε το απαιτούμενο διάγραμμα.
+4. Πρόσβαση στο φύλλο δεδομένων του διαγράμματος.
+5. Τροποποιήστε τα δεδομένα των σειρών διαγράμματος αλλάζοντας τις τιμές των σειρών.
+6. Προσθέστε μια νέα σειρά και γεμίστε τα δεδομένα της.
+7. Γράψτε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
+
+Αυτός ο κώδικας C++ δείχνει πώς να ενημερώσετε ένα διάγραμμα:
 
 ```c++
 #include <DOM/Chart/ChartType.h>
@@ -1449,7 +1481,7 @@ static void CreateComboChart()
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Charts;
 
-// Δημιουργεί ένα αντικείμενο Presentation που αντιπροσωπεύει αρχείο PPTX
+// Δημιουργεί μια κλάση Presentation που αντιπροσωπεύει αρχείο PPTX
 System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"ExistingChart.pptx");
 
 // Πρόσβαση στην πρώτη διαφάνεια
@@ -1458,10 +1490,10 @@ System::SharedPtr<ISlide> sld = pres->get_Slides()->idx_get(0);
 // Προσθέτει διάγραμμα με προεπιλεγμένα δεδομένα
 System::SharedPtr<IChart> chart = System::ExplicitCast<Aspose::Slides::Charts::IChart>(sld->get_Shapes()->idx_get(0));
 
-// Ορίζει το δείκτη του φύλλου δεδομένων του διαγράμματος
+// Ορίζει το δείκτη για το φύλλο δεδομένων του διαγράμματος
 int32_t defaultWorksheetIndex = 0;
 
-// Αποκτά το φύλλο εργασίας δεδομένων του διαγράμματος
+// Λαμβάνει το φύλλο εργασίας δεδομένων του διαγράμματος
 System::SharedPtr<IChartDataWorkbook> fact = chart->get_ChartData()->get_ChartDataWorkbook();
 
 
@@ -1469,31 +1501,31 @@ System::SharedPtr<IChartDataWorkbook> fact = chart->get_ChartData()->get_ChartDa
 fact->GetCell(defaultWorksheetIndex, 1, 0, System::ObjectExt::Box<System::String>(u"Modified Category 1"));
 fact->GetCell(defaultWorksheetIndex, 2, 0, System::ObjectExt::Box<System::String>(u"Modified Category 2"));
 
-// Αποκτά την πρώτη σειρά του διαγράμματος
+// Παίρνει την πρώτη σειρά διαγράμματος
 System::SharedPtr<IChartSeries> series = chart->get_ChartData()->get_Series()->idx_get(0);
 
 // Ενημερώνει τα δεδομένα της σειράς
 fact->GetCell(defaultWorksheetIndex, 0, 1, System::ObjectExt::Box<System::String>(u"New_Series1"));
-// Τροποποίηση του ονόματος της σειράς
+// Τροποποίηση ονόματος σειράς
 series->get_DataPoints()->idx_get(0)->get_Value()->set_Data(System::ObjectExt::Box<int32_t>(90));
 series->get_DataPoints()->idx_get(1)->get_Value()->set_Data(System::ObjectExt::Box<int32_t>(123));
 series->get_DataPoints()->idx_get(2)->get_Value()->set_Data(System::ObjectExt::Box<int32_t>(44));
 
-// Αποκτά τη δεύτερη σειρά του διαγράμματος
+// Παίρνει τη δεύτερη σειρά διαγράμματος
 series = chart->get_ChartData()->get_Series()->idx_get(1);
 
-// Τώρα ενημερώνονται τα δεδομένα της σειράς
+// Τώρα ενημερώνει τα δεδομένα της σειράς
 fact->GetCell(defaultWorksheetIndex, 0, 2, System::ObjectExt::Box<System::String>(u"New_Series2"));
-// Τροποποίηση του ονόματος της σειράς
+// Τροποποίηση ονόματος σειράς
 series->get_DataPoints()->idx_get(0)->get_Value()->set_Data(System::ObjectExt::Box<int32_t>(23));
 series->get_DataPoints()->idx_get(1)->get_Value()->set_Data(System::ObjectExt::Box<int32_t>(67));
 series->get_DataPoints()->idx_get(2)->get_Value()->set_Data(System::ObjectExt::Box<int32_t>(99));
 
 
-// Τώρα, προσθήκη νέας σειράς
+// Τώρα, προσθέτει μια νέα σειρά
 chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 0, 3, System::ObjectExt::Box<System::String>(u"Series 3")), chart->get_Type());
 
-// Αποκτά την τρίτη σειρά του διαγράμματος
+// Παίρνει την τρίτη σειρά διαγράμματος
 series = chart->get_ChartData()->get_Series()->idx_get(2);
 
 // Τώρα γεμίζει τα δεδομένα της σειράς
@@ -1503,19 +1535,23 @@ series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorkshee
 
 chart->set_Type(Aspose::Slides::Charts::ChartType::ClusteredCylinder);
 
-// Αποθήκευση παρουσίασης με το διάγραμμα
+// Αποθηκεύει την παρουσίαση με το διάγραμμα
 pres->Save(u"AsposeChartModified_out.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-## **Ορισμός Περιοχής Δεδομένων για Διαγράμματα**
+## **Ορισμός Εύρους Δεδομένων για Διαγράμματα**
 
-1. Ανοίξτε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.presentation) που περιέχει το διάγραμμα.  
-2. Αποκτήστε την αναφορά μιας διαφάνειας μέσω του δείκτη της.  
-3. Περιηγηθείτε σε όλα τα σχήματα για να εντοπίσετε το επιθυμητό διάγραμμα.  
-4. Πρόσβαση στα δεδομένα του διαγράμματος και ορισμός της περιοχής.  
-5. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.  
+Για να ελέγξετε το εύρος που χρησιμοποιείται ήδη από ένα υπάρχον διάγραμμα, δείτε [Retrieve a Chart's Data Range](/slides/el/cpp/chart-workbook/#retrieve-a-charts-data-range).
 
-``` cpp
+1. Ανοίξτε μια εμφάνιση της κλάσης [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) που περιέχει το διάγραμμα.
+2. Λάβετε την αναφορά μιας διαφάνειας μέσω του δείκτη της.
+3. Περιηγηθείτε σε όλα τα σχήματα για να βρείτε το απαιτούμενο διάγραμμα.
+4. Πρόσβαση στα δεδομένα του διαγράμματος και ορισμός του εύρους.
+5. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
+
+Αυτός ο κώδικας C++ δείχνει πώς να ορίσετε το εύρος δεδομένων για ένα διάγραμμα:
+
+```cpp
 #include <DOM/Chart/IChartData.h>
 #include <DOM/IChart.h>
 #include <DOM/IShapeCollection.h>
@@ -1529,10 +1565,10 @@ using namespace Aspose::Slides::Charts;
 using namespace Aspose::Slides::Export;
 using namespace System;
 
-// Η διαδρομή προς το φάκελο εγγράφων.
+// Η διαδρομή προς τον φάκελο εγγράφων.
 String dataDir = u"../documents/";
 
-// Δημιουργεί ένα αντικείμενο Presentation που αντιπροσωπεύει αρχείο PPTX
+// Δημιουργεί μια κλάση Presentation που αντιπροσωπεύει αρχείο PPTX.
 auto presentation = System::MakeObject<Presentation>(dataDir + u"ExistingChart.pptx");
 
 // Πρόσβαση στην πρώτη διαφάνεια και προσθήκη διαγράμματος με προεπιλεγμένα δεδομένα
@@ -1543,7 +1579,9 @@ presentation->Save(dataDir + u"SetDataRange_out.pptx", SaveFormat::Pptx);
 ```
 
 ## **Χρήση Προεπιλεγμένων Δεικτών σε Διαγράμματα**
-Όταν χρησιμοποιείτε έναν προεπιλεγμένο δείκτη σε διαγράμματα, κάθε σειρά διαγράμματος λαμβάνει διαφορετικά προεπιλεγμένα σύμβολα δείκτη αυτόματα.
+Όταν χρησιμοποιείτε έναν προεπιλεγμένο δείκτη σε διαγράμματα, κάθε σειρά διαγράμματος λαμβάνει διαφορετικό προεπιλεγμένο σύμβολο δείκτη αυτόματα.
+
+Αυτός ο κώδικας C++ δείχνει πώς να ορίσετε αυτόματα έναν δείκτη σειράς διαγράμματος:
 
 ``` cpp
 #include <DOM/Chart/ChartType.h>
@@ -1593,10 +1631,10 @@ series->get_DataPoints()->AddDataPointForLineSeries(wb->GetCell(0, 4, 1, nullptr
 
 chart->get_ChartData()->get_Series()->Add(wb->GetCell(0, 0, 2, ObjectExt::Box<String>(u"Series 2")), chart->get_Type());
 
-// Λαμβάνει τη δεύτερη σειρά του διαγράμματος
+// Παίρνει τη δεύτερη σειρά διαγράμματος
 auto series2 = chart->get_ChartData()->get_Series()->idx_get(1);
 
-// Γεμίζει τα δεδομένα της σειράς
+// Populates the series data
 series2->get_DataPoints()->AddDataPointForLineSeries(wb->GetCell(0, 1, 2, ObjectExt::Box<int32_t>(30)));
 series2->get_DataPoints()->AddDataPointForLineSeries(wb->GetCell(0, 2, 2, ObjectExt::Box<int32_t>(10)));
 series2->get_DataPoints()->AddDataPointForLineSeries(wb->GetCell(0, 3, 2, ObjectExt::Box<int32_t>(60)));
@@ -1610,18 +1648,18 @@ pres->Save(dataDir + u"DefaultMarkersInChart.pptx", SaveFormat::Pptx);
 
 ## **Συχνές Ερωτήσεις**
 
-**Ποιους τύπους διαγραμμάτων υποστηρίζει το Aspose.Slides;**
+**Ποιοι τύποι διαγραμμάτων υποστηρίζονται από το Aspose.Slides;**
 
-Το Aspose.Slides υποστηρίζει ένα ευρύ φάσμα τύπων διαγραμμάτων, συμπεριλαμβανομένων των ραβδογράμματα, γραμμικά, πίτας, περιοχής, διασκορπισμένα, ιστόγραμμα, radar και πολλών άλλων. Αυτή η ευελιξία σας επιτρέπει να επιλέξετε τον πιο κατάλληλο τύπο διαγράμματος για τις ανάγκες οπτικοποίησης των δεδομένων σας.
+Το Aspose.Slides υποστηρίζει μια ευρεία γκάμα τύπων διαγραμμάτων, συμπεριλαμβανομένων των ράβδων, γραμμών, πίτας, περιοχής, διασποράς, ιστόγραμματος, radar και πολλών άλλων. Αυτή η ευελιξία σας επιτρέπει να επιλέξετε τον πιο κατάλληλο τύπο διαγράμματος για τις ανάγκες οπτικοποίησης των δεδομένων σας.
 
-**Πώς να προσθέσω ένα νέο διάγραμμα σε μια διαφάνεια;**
+**Πώς προσθέτω ένα νέο διάγραμμα σε μια διαφάνεια;**
 
-Για να προσθέσετε ένα διάγραμμα, πρώτα δημιουργείτε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/cpp/aspose.slides/presentation/) , ανακτάτε τη ζητούμενη διαφάνεια μέσω του δείκτη της και στη συνέχεια καλείτε τη μέθοδο προσθήκης διαγράμματος, καθορίζοντας τον τύπο διαγράμματος και τα αρχικά δεδομένα. Αυτή η διαδικασία ενσωματώνει το διάγραμμα απευθείας στην παρουσίασή σας.
+Για να προσθέσετε ένα διάγραμμα, πρώτα δημιουργείτε μια εμφάνιση της κλάσης [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) , ανακτάτε τη διαφάνεια που θέλετε μέσω του δείκτη της και, στη συνέχεια, καλείτε τη μέθοδο για προσθήκη διαγράμματος, καθορίζοντας τον τύπο διαγράμματος και τα αρχικά δεδομένα. Αυτή η διαδικασία ενσωματώνει το διάγραμμα απευθείας στην παρουσίασή σας.
 
 **Πώς μπορώ να ενημερώσω τα δεδομένα που εμφανίζονται σε ένα διάγραμμα;**
 
-Μπορείτε να ενημερώσετε τα δεδομένα ενός διαγράμματος προσπερνώντας το βιβλίο εργασίας δεδομένων του ([IChartDataWorkbook](https://reference.aspose.com/slides/el/cpp/aspose.slides.charts/ichartdataworkbook/)), καθαρίζοντας τυχόν προεπιλεγμένες σειρές και κατηγορίες και στη συνέχεια προσθέτοντας τα προσαρμοσμένα σας δεδομένα. Αυτό σας επιτρέπει να ανανεώνετε προγραμματισμένα το διάγραμμα ώστε να αντικατοπτρίζει τα νεότερα δεδομένα.
+Μπορείτε να ενημερώσετε τα δεδομένα ενός διαγράμματος πρόσβαση στο βιβλίο εργασιών δεδομένων του ([IChartDataWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/)), διαγράφοντας τυχόν προεπιλεγμένες σειρές και κατηγορίες και προσθέτοντας τα δικά σας προσαρμοσμένα δεδομένα. Αυτό σας επιτρέπει να ανανεώνετε προγραμματιστικά το διάγραμμα ώστε να αντικατοπτρίζει τα πιο πρόσφατα δεδομένα.
 
 **Μπορεί να προσαρμοστεί η εμφάνιση του διαγράμματος;**
 
-Ναι, το Aspose.Slides παρέχει εκτενείς επιλογές προσαρμογής. Μπορείτε να τροποποιήσετε χρώματα, γραμματοσειρές, ετικέτες, υπομνήματα και άλλα στοιχεία μορφοποίησης για να προσαρμόσετε την εμφάνιση του διαγράμματος σύμφωνα με τις συγκεκριμένες απαιτήσεις του σχεδίου σας.
+Ναι, το Aspose.Slides παρέχει εκτενείς επιλογές προσαρμογής. Μπορείτε να τροποποιήσετε χρώματα, γραμματοσειρές, ετικέτες, υπομνήματα και άλλα στοιχεία μορφοποίησης για να προσαρμόσετε την εμφάνιση του διαγράμματος στις ειδικές απαιτήσεις σχεδίασής σας.

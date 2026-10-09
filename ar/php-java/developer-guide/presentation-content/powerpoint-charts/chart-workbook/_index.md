@@ -8,32 +8,32 @@ keywords:
 - دفتر عمل المخطط
 - بيانات المخطط
 - خلية دفتر العمل
-- علامة البيانات
-- ورقة عمل
+- تسمية البيانات
+- ورقة العمل
 - مصدر البيانات
 - دفتر عمل خارجي
 - بيانات خارجية
-- ذاكرة مخزن المخطط
+- مخبئ المخطط
 - استعادة دفتر العمل
 - PowerPoint
 - عرض تقديمي
 - PHP
 - Aspose.Slides
-description: "اكتشف Aspose.Slides لـ PHP عبر Java: إدارة دفاتر عمل المخططات بسهولة في صيغ PowerPoint و OpenDocument لتبسيط بيانات العرض التقديمي الخاص بك."
+description: "اكتشف Aspose.Slides for PHP عبر Java: إدارة دفاتر عمل المخططات بسهولة في صيغ PowerPoint وOpenDocument لتبسيط بيانات عرضك التقديمي."
 ---
 ## **نظرة عامة**
 
-تشرح هذه المقالة كيفية العمل مع دفاتر عمل المخططات في Aspose.Slides. توضح كيفية قراءة وكتابة بيانات المخطط عبر تدفقات دفتر العمل، واستخدام خلايا دفتر العمل كعناوين بيانات المخطط، والوصول إلى مجموعات أوراق العمل، وتحديد نوع مصدر البيانات لقيم المخطط.
+توفر هذه المقالة شرحًا لكيفية العمل مع دفاتر عمل المخطط في Aspose.Slides. تُظهر كيفية قراءة وكتابة بيانات المخطط عبر تدفقات دفتر العمل، واستخدام خلايا دفتر العمل كعناوين بيانات المخطط، والوصول إلى مجموعات أوراق العمل، وتحديد نوع مصدر البيانات لقيم المخطط.
 
-كما يغطي العمل مع دفاتر العمل الخارجية كمصادر بيانات للمخططات. توضح الأمثلة كيفية إنشاء وتعيين دفتر عمل خارجي، واسترجاع مسار دفتر العمل الخارجي المرتبط بمخطط، وتعديل بيانات المخطط عندما يكون دفتر العمل متاحًا.
+كما تغطي العمل مع دفاتر عمل خارجية كمصادر بيانات للمخطط. تُظهر الأمثلة كيفية إنشاء وتعيين دفتر عمل خارجي، واسترجاع مسار دفتر العمل الخارجي المرتبط بمخطط، وتعديل بيانات المخطط عندما يكون دفتر العمل متاحًا.
 
-لخلايا دفتر العمل التي تمثل بيانات مفقودة، راجع [التحكم في عرض الخلايا الفارغة](/slides/ar/php-java/chart-series/) لمعرفة الفرق بين الخلية الفارغة والصفر، ومقارنة مخطط خطي لأوضاع العرض المتاحة.
+لخلايا دفتر العمل التي تمثل بيانات مفقودة، راجع [Control the Display of Empty Cells](/slides/ar/php-java/chart-series/) لمعرفة الفرق بين الخلية الفارغة والصفر، ومقارنة مخطط الخطوط لأوضاع العرض المتاحة.
 
 ## **تضمين البيانات من الصفوف والأعمدة المخفية**
 
-استخدم [Chart::setPlotVisibleCellsOnly](https://reference.aspose.com/slides/ar/php-java/aspose.slides/chart/setplotvisiblecellsonly/) للتحكم فيما إذا كان المخطط يرسم البيانات من الصفوف والأعمدة المخفية في ورقة العمل. اضبطه على `true` لرسم الخلايا المرئية فقط، أو `false` لتضمين كلٍ من الخلايا المرئية والمخفيّة. هذا الإعداد يتحكم في رسم المخطط؛ لا يقوم بإخفاء أو إظهار صفوف أو أعمدة ورقة العمل.
+استخدم [Chart::setPlotVisibleCellsOnly](https://reference.aspose.com/slides/php-java/aspose.slides/chart/setplotvisiblecellsonly/) للتحكم فيما إذا كان المخطط يرسم البيانات من صفوف وأعمدة ورقة العمل المخفية. اضبطه على `true` لرسم الخلايا المرئية فقط، أو `false` لتضمين كل من الخلايا المرئية والمخفية. هذا الإعداد يتحكم في رسم المخطط؛ لا يقوم بإخفاء أو إظهار صفوف أو أعمدة ورقة العمل.
 
-قم بتنزيل [hidden-source-data.pptx](hidden-source-data.pptx) وضعه في دليل العمل. يحتوي شريحته الأولى على مخطط عمودي كأول شكل. ورقة العمل المضمَّنة، `Sheet1`، تحتوي على النطاق المصدر التالي، `A1:C4`. الصف 3 والعمود C مخفيان، لكن خلاياهما لا زالت تحتوي على قيم.
+العرض التقديمي [sample presentation](hidden-source-data.pptx) يحتوي على مخطط عمودي كأول شكل في شريحته الأولى. ورقة العمل المدمجة، `Sheet1`، تحتوي على النطاق المصدر التالي، `A1:C4`. الصف 3 والعمود C مخفيان، لكن خلاياهما لا تزال تحتوي على قيم.
 
 | صف ورقة العمل | A: الشهر | B: التجزئة | C: الجملة (عمود مخفي) |
 | --- | --- | --- | --- |
@@ -41,9 +41,9 @@ description: "اكتشف Aspose.Slides لـ PHP عبر Java: إدارة دفات
 | 3 (صف مخفي) | فبراير | 40 | 60 |
 | 4 | مارس | 20 | 50 |
 
-الوصول إلى خلايا المصدر من خلال [ChartData::getChartDataWorkbook](https://reference.aspose.com/slides/ar/php-java/aspose.slides/chartdata/getchartdataworkbook/) وقراءة [ChartDataCell::isHidden](https://reference.aspose.com/slides/ar/php-java/aspose.slides/chartdatacell/ishidden/) للتحقق من حالة إخفائها. هذه الطريقة تُبلغ عن حالة الإخفاء دون تغييرها. في هذا الملف، B2 مرئية، B3 تنتمي إلى الصف المخفي، وC2 تنتمي إلى العمود المخفي؛ المثال يطبع `false`، `true`، و`true` على التوالي.
+الوصول إلى خلايا المصدر عبر [ChartData::getChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/getchartdataworkbook/) وقراءة [ChartDataCell::isHidden](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatacell/ishidden/) لفحص حالة إخفائها. تُظهر هذه الطريقة حالة الإخفاء دون تغييرها. في هذا الملف، B2 مرئي، B3 ينتمي إلى الصف المخفي، وC2 ينتمي إلى العمود المخفي؛ المثال يطبع `false`، `true`، و`true` على التوالي.
 
-في هذا المثال، قم بتحديث بيانات المخطط بعد تغيير إعداد الرسم: احتفظ بدفتر العمل المضمّن باستخدام [readWorkbookStream](https://reference.aspose.com/slides/ar/php-java/aspose.slides/chartdata/readworkbookstream/) وأعد تحميله باستخدام [writeWorkbookStream](https://reference.aspose.com/slides/ar/php-java/aspose.slides/chartdata/writeworkbookstream/). عند تضمين كل الخلايا، استخدم أيضًا [setRange](https://reference.aspose.com/slides/ar/php-java/aspose.slides/chartdata/setrange/) لاستعادة النطاق الكامل، بما في ذلك فئة فبراير المخفية. مجرد تغيير العلامة غير كافٍ لتحديث بيانات المخطط المخزنة مؤقتًا وتسميات الفئات في هذا العينة.
+في هذا المثال، قم بتحديث بيانات المخطط بعد تغيير إعداد الرسم: احتفظ بدفتر العمل المدمج باستخدام [readWorkbookStream](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/readworkbookstream/) وأعد تحميله باستخدام [writeWorkbookStream](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/writeworkbookstream/). عند تضمين كل الخلايا، استخدم أيضًا [setRange](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/setrange/) لاستعادة النطاق الكامل، بما في ذلك فئة فبراير المخفية. مجرد تغيير العلامة غير كافٍ لتحديث بيانات المخطط المخزنة مؤقتًا وعناوين الفئات في هذا المثال.
 
 ```php
 use aspose\slides\Presentation;
@@ -65,10 +65,10 @@ try {
         foreach ([true, false] as $visibleOnly) {
             $chart->setPlotVisibleCellsOnly($visibleOnly);
 
-            // تحديث بيانات المخطط من دفتر العمل المضمّن.
+            // تحديث بيانات المخطط من دفتر العمل المدمج.
             $chart->getChartData()->writeWorkbookStream($workbookData);
             if (!$visibleOnly) {
-                // استعادة النطاق المصدر الكامل، بما في ذلك الفئات المخفية.
+                // استعادة نطاق المصدر الكامل، بما في ذلك الفئات المخفية.
                 $chart->getChartData()->setRange('Sheet1!$A$1:$C$4');
             }
 
@@ -82,19 +82,58 @@ try {
 }
 ```
 
-يقوم المثال بحفظ `hidden_cells_true.pptx` بحيث يحتوي فقط على قيم التجزئة المرئية (10 و 20)، و`hidden_cells_false.pptx` مع جميع القيم الستة. توضح الصور أدناه وضعيتَي الرسم. يظل الصف 3 والعمود C مخفيين في كل من دفاتر العمل المضمّنة.
+يحفظ المثال إصداريْن من العرض التقديمي: أحدهما يحتوي فقط على قيم التجزئة المرئية (10 و20)، والآخر يحتوي على جميع القيم الست. توضح الصورتان أدناه وضعي الرسمين. يظل الصف 3 والعمود C مخفيين في كل من دفاتر العمل المدمجة.
 
 | الخلايا المرئية فقط (`true`) | كل الخلايا (`false`) |
 | --- | --- |
-| ![الخلايا المرئية فقط: قيم التجزئة 10 و 20 لشهر يناير ومارس.](hidden_cells_True.png) | ![كل الخلايا: قيم التجزئة والجملة لشهري يناير وفبراير ومارس.](hidden_cells_False.png) |
+| ![Only visible cells: Retail values 10 and 20 for January and March.](hidden_cells_True.png) | ![All cells: Retail and Wholesale values for January, February, and March.](hidden_cells_False.png) |
 
-خلية مخفية تحتوي على قيمة تختلف عن خلية فارغة. [Chart::setDisplayBlanksAs](https://reference.aspose.com/slides/ar/php-java/aspose.slides/chart/setdisplayblanksas/) يتحكم في كيفية عرض القيم المفقودة؛ لا يضيف أو يستثني بيانات المصدر المخفية. راجع [التحكم في عرض الخلايا الفارغة](/slides/ar/php-java/chart-series/#control-the-display-of-empty-cells) للحصول على مثال.
+الخلية المخفية التي تحتوي على قيمة تختلف عن الخلية الفارغة. يتحكم [Chart::setDisplayBlanksAs](https://reference.aspose.com/slides/php-java/aspose.slides/chart/setdisplayblanksas/) في كيفية عرض القيم المفقودة؛ لا يتضمن أو يستثني بيانات المصدر المخفية. راجع [Control the Display of Empty Cells](/slides/ar/php-java/chart-series/#control-the-display-of-empty-cells) لمثال.
+
+## **استخراج نطاق بيانات المخطط**
+
+قبل تحديث بيانات دفتر العمل في عرض تقديمي موجود، افحص نطاقات المصدر لتحديد خلايا ورقة العمل التي يستخدمها كل مخطط. تُعيد الطريقة [ChartData::getRange](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/getrange/) النطاق الحالي للبيانات كصيغة مؤهلة لورقة العمل، مثل `Sheet1!$A$1:$D$5`. هنا، `Sheet1` هو اسم ورقة العمل، `!` يفصلها عن نطاق الخلايا، و`$A$1:$D$5` يحدّد الخلايا من A1 إلى D5 شاملًا. تشير علامات الدولار إلى مراجع صف وعمود ثابتة.
+
+تقرأ الطريقة النطاق الحالي دون تغيير المخطط أو دفتر عمله. إذا لم يستخدم المخطط دفتر عمل كمصدر للبيانات، فإنها تُثير استثناء. لمزيد من المعلومات، راجع [ChartData API Reference](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/).
+
+يفتح هذا المثال عرضًا تقديميًا ويتحقق من الأشكال مباشرةً على كل شريحة للعثور على المخططات. يطبع اسم كل مخطط ونطاق المصدر الخاص به. إذا لم يستخدم المخطط دفتر عمل، يطبع رسالة ويستمر إلى المخطط التالي.
+
+```php
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("presentation.pptx");
+try {
+    $slideCount = java_values($presentation->getSlides()->size());
+    for ($slideIndex = 0; $slideIndex < $slideCount; $slideIndex++) {
+        $slide = $presentation->getSlides()->get_Item($slideIndex);
+        $shapeCount = java_values($slide->getShapes()->size());
+        for ($shapeIndex = 0; $shapeIndex < $shapeCount; $shapeIndex++) {
+            $shape = $slide->getShapes()->get_Item($shapeIndex);
+            if (java_instanceof($shape, new JavaClass("com.aspose.slides.IChart"))) {
+                $chart = $shape;
+                try {
+                    $range = $chart->getChartData()->getRange();
+                    echo $chart->getName() . ": " . $range, PHP_EOL;
+                } catch (JavaException $exception) {
+                    if (java_instanceof($exception, new JavaClass("com.aspose.slides.exceptions.InvalidOperationException"))) {
+                        echo $chart->getName() . ": The chart does not use a workbook as its data source.", PHP_EOL;
+                    } else {
+                        echo $chart->getName() . ": " . $exception->getMessage(), PHP_EOL;
+                    }
+                }
+            }
+        }
+    }
+} finally {
+    $presentation->dispose();
+}
+```
 
 ## **قراءة وكتابة بيانات المخطط من دفتر عمل**
 
-توفر Aspose.Slides for PHP عبر Java الطريقتين [readWorkbookStream](https://reference.aspose.com/slides/ar/php-java/aspose.slides/chartdata/readworkbookstream/) و [writeWorkbookStream](https://reference.aspose.com/slides/ar/php-java/aspose.slides/chartdata/writeworkbookstream/) اللتين تتيحان لك قراءة وكتابة دفاتر عمل بيانات المخططات (التي تحتوي على بيانات مخطط محررة باستخدام Aspose.Cells). **ملاحظة** أن بيانات المخطط يجب أن تكون مُنظمة بنفس الطريقة أو يجب أن يكون لها بنية مشابهة للمصدر.
+توفر Aspose.Slides for PHP via Java الطريقتين [readWorkbookStream](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/readworkbookstream/) و[writeWorkbookStream](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/writeworkbookstream/) اللتين تسمحان بقراءة وكتابة دفاتر عمل بيانات المخطط (التي تحتوي على بيانات مخطط تم تعديلها باستخدام Aspose.Cells). **ملاحظة** أن بيانات المخطط يجب أن تُنظَّم بنفس الطريقة أو أن تكون لها بنية مشابهة للمصدر.
 
-يفتح هذا المثال `chart.pptx`، الذي يجب أن يحتوي على مخطط كشكل أول في شريحته الأولى. يقرأ دفتر العمل المضمّن إلى مصفوفة بايت، يمسح السلاسل والفئات الحالية، ويكتب نفس دفتر العمل مرة أخرى. تظل التغييرات في الذاكرة؛ لا يحفظ المثال العرض التقديمي.
+يستخدم هذا المثال عرضًا تقديميًا يحتوي على مخطط كأول شكل في شريحته الأولى. يقرأ دفتر العمل المدمج إلى مصفوفة بايت، يمسح السلاسل والفئات الحالية، ثم يكتب نفس دفتر العمل مرة أخرى. تظل التغييرات في الذاكرة؛ لا يحفظ المثال العرض التقديمي.
 
 ```php
 use aspose\slides\Presentation;
@@ -121,9 +160,9 @@ try {
 }
 ```
 
-### **تحقق من تخطيط المخطط بعد تعديل دفتر العمل**
+### **التحقق من تخطيط المخطط بعد تعديل دفتر العمل**
 
-عند استبدال دفتر العمل المضمّن بآخر معدل، يحتفظ المخطط بمجموعات السلاسل والفئات الأصلية. هذا الاختلاف قد يتسبب في فشل [Chart::validateChartLayout](https://reference.aspose.com/slides/ar/php-java/aspose.slides/chart/validatechartlayout/) مع خطأ 'index-out-of-range'. امسح السلاسل والفئات الحالية قبل كتابة دفتر العمل المحدث مرة أخرى إلى المخطط. يتطلب هذا المثال وجود `chart.pptx` يحتوي على مخطط كشكل أول في شريحته الأولى. يوضح التعليق أين ستجرى عملية تحرير دفتر العمل؛ يكتب المثال القابل للتنفيذ دفتر العمل الأصلي مرة أخرى ويحقق من التخطيط في الذاكرة.
+عند استبدال دفتر عمل مدمج بآخر مُعدل، يحتفظ المخطط بسلسلة الفئات والمجموعات الأصلية. قد يتسبب هذا الاختلاف في فشل [Chart::validateChartLayout](https://reference.aspose.com/slides/php-java/aspose.slides/chart/validatechartlayout/) بخطأ “index-out-of-range”. امسح السلاسل والفئات الحالية قبل كتابة دفتر العمل المحدث إلى المخطط. يستخدم هذا المثال مخططًا هو الشكل الأول في الشريحة الأولى. تُظهر التعليقات المكان الذي سيجري فيه تحرير دفتر العمل؛ المثال القابل للتنفيذ يكتب دفتر العمل الأصلي مرة أخرى ويُحقق من التخطيط في الذاكرة.
 
 ```php
 use aspose\slides\Presentation;
@@ -153,20 +192,13 @@ try {
 }
 ```
 
-مسح المجموعات يزيل مراجع البيانات القديمة قبل كتابة دفتر العمل مرة أخرى. أعد بناء أي سلاسل وفئات مطلوبة للدفتر المحدث قبل استخدام المخطط.
+مسح التجميعات يزيل مراجع البيانات القديمة قبل كتابة دفتر العمل مرة أخرى. أعد بناء أي سلاسل أو تعيينات فئات مطلوبة لدفتر العمل المحدث قبل استخدام المخطط.
 
-## **تعيين خلية دفتر العمل كعلامة بيانات المخطط**
+## **تعيين خلية دفتر عمل كعنوان بيانات للمخطط**
 
-يمكنك استخدام النص من خلايا دفتر العمل كعناوين بيانات للمخطط. توضح الخطوات التالية كيفية ربط العناوين في مخطط الفقاعات بالخلايا في دفتر بياناته.
+يمكنك استخدام النص من خلايا دفتر العمل كعناوين بيانات للمخطط.
 
-1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentation/).
-2. الوصول إلى الشريحة الأولى باستخدام فهرسها الصفري.
-3. إضافة مخطط فقاعات ببيانات افتراضية.
-4. الوصول إلى سلاسل المخطط.
-5. تعيين خلية دفتر العمل كعلامة بيانات.
-6. حفظ العرض التقديمي.
-
-يفتح هذا المثال `chart2.pptx`، الذي يجب أن يحتوي على شريحة واحدة على الأقل، ويضيف مخطط فقاعات ببيانات افتراضية. يستخدم الخلايا A10:A12 في ورقة العمل 0 للعلامات الثلاث الأولى في السلسلة الأولى، يفعّل العلامات من الخلايا، ويحفظ النتيجة إلى `resultchart.pptx`.
+يضيف هذا المثال مخطط فقاعة ببيانات افتراضية إلى الشريحة الأولى من عرض تقديمي موجود. يستخدم الخلايا A10:A12 في ورقة العمل 0 للعلامات الثلاث الأولى في السلسلة الأولى، يفعّل العناوين من الخلايا، ويحفظ العرض التقديمي المحدث.
 
 ```php
 use aspose\slides\Presentation;
@@ -194,7 +226,7 @@ try {
 
 ## **إدارة أوراق العمل**
 
-توفر الطريقة [ChartDataWorkbook::getWorksheets](https://reference.aspose.com/slides/ar/php-java/aspose.slides/chartdataworkbook/getworksheets/) إمكانية الوصول إلى أوراق العمل في دفتر عمل المخطط. ينشئ هذا المثال مخططًا دائريًا ببيانات افتراضية ويطبع اسم كل ورقة عمل إلى وحدة التحكم.
+توفر الطريقة [ChartDataWorkbook::getWorksheets](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/getworksheets/) إمكانية الوصول إلى أوراق العمل في دفتر عمل المخطط. ينشئ هذا المثال مخططًا دائريًا ببيانات افتراضية ويطبع اسم كل ورقة عمل إلى وحدة التحكم.
 
 ```php
 use aspose\slides\Presentation;
@@ -217,7 +249,7 @@ try {
 
 ## **تحديد نوع مصدر البيانات**
 
-ينشئ هذا المثال مخطط عمودي ثلاثي الأبعاد ببيانات افتراضية ويعيّن اسمي سلسلة باستخدام مصادر بيانات مختلفة. الاسم الأول يستخدم نصًا حرفيًا؛ والثاني يستخدم الخلية C1 في ورقة العمل 0. تحدد تعداد [DataSourceType](https://reference.aspose.com/slides/ar/php-java/aspose.slides/datasourcetype/) المصدر لكل اسم. تُحفظ النتيجة إلى `pres.pptx`.
+ينشئ هذا المثال مخططًا عموديًا ثلاثي الأبعاد ببيانات افتراضية ويضبط اسمين للسلسلة باستخدام مصادر بيانات مختلفة. الاسم الأول يستخدم نصًا حرفيًا؛ الاسم الثاني يستخدم الخلية C1 في ورقة العمل 0. تحدد تعداد [DataSourceType](https://reference.aspose.com/slides/php-java/aspose.slides/datasourcetype/) المصدر لكل اسم. يحفظ المثال العرض التقديمي مع أسماء السلاسل المحدثة.
 
 ```php
 use aspose\slides\Presentation;
@@ -246,9 +278,9 @@ try {
 }
 ```
 
-## **اكتشاف صيغ دفاتر العمل المضمّنة غير المدعومة**
+## **اكتشاف صيغ دفاتر العمل المدمجة غير المدعومة**
 
-لا تدعم Aspose.Slides صيغ دفتر العمل الثنائي Excel (.xlsb) الذي يمكن تضمينه في بعض المخططات. يمكنك استخدام طريقة `getEmbeddedWorkbookType` على [ChartData](https://reference.aspose.com/slides/ar/php-java/aspose.slides/chartdata/) مع تعداد [WorkbookType](https://reference.aspose.com/slides/ar/php-java/aspose.slides/workbooktype/) لاكتشاف الصيغ غير المدعومة وتخطي تلك المخططات. يفحص هذا المثال الأشكال في الشريحة الأولى من `sample.pptx`، يتخطي الأشكال غير المخططات، ويطبع رسالة تشخيصية لكل مخطط يحتوي على دفتر عمل .xlsb مضمّن.
+لا تدعم Aspose.Slides صيغة دفتر العمل الثنائي Excel (.xlsb) التي يمكن أن تُدمج في بعض المخططات. يمكنك استخدام طريقة `getEmbeddedWorkbookType` على [ChartData](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/) مع تعداد [WorkbookType](https://reference.aspose.com/slides/php-java/aspose.slides/workbooktype/) لاكتشاف الصيغ غير المدعومة وتخطي تلك المخططات. يفحص هذا المثال الأشكال في الشريحة الأولى من عرض تقديمي موجود، يتخطى الأشكال غير المخططات، ويطبع رسالة تشخيصية لكل مخطط يحتوي على دفتر عمل .xlsb مدمج.
 
 ```php
 use aspose\slides\Presentation;
@@ -285,13 +317,13 @@ try {
 
 ## **دفتر عمل خارجي**
 
-تدعم Aspose.Slides استخدام دفاتر العمل الخارجية كمصدر بيانات للمخططات.
+تدعم Aspose.Slides استخدام دفاتر عمل خارجية كمصدر بيانات للمخططات.
 
 ### **إنشاء دفتر عمل خارجي**
 
-استخدم [readWorkbookStream](https://reference.aspose.com/slides/ar/php-java/aspose.slides/chartdata/readworkbookstream/) و[setExternalWorkbook](https://reference.aspose.com/slides/ar/php-java/aspose.slides/chartdata/setexternalworkbook/) لتصدير دفتر عمل المخطط المضمّن إلى ملف وربط المخطط بذلك الدفتر الخارجي.
+استخدم [readWorkbookStream](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/readworkbookstream/) و[setExternalWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/setexternalworkbook/) لتصدير دفتر عمل مخطط مدمج إلى ملف وربط المخطط بذلك الدفتر الخارجي.
 
-ينشئ هذا المثال مخططًا دائريًا ببيانات افتراضية، يكتب دفتر عمله إلى `externalWorkbook1.xlsx`، ويكمل كتابة الملف قبل تعيين الملف كمصدر بيانات للمخطط. يحفظ العرض التقديمي المرتبط إلى `externalWorkbook.pptx`.
+ينشئ هذا المثال مخططًا دائريًا ببيانات افتراضية ويصدِّر دفتر عمله. يُكمل كتابة الملف قبل تعيين دفتر العمل الخارجي كمصدر بيانات للمخطط، ثم يحفظ العرض التقديمي المرتبط.
 
 ```php
 use aspose\slides\Presentation;
@@ -313,6 +345,7 @@ try {
             $fileStream->close();
         }
         $chart->getChartData()->setExternalWorkbook($workbookPath->getAbsolutePath());
+        
         $presentation->save("externalWorkbook.pptx", SaveFormat::Pptx);
     } catch (JavaException $exception) {
         echo "Could not write the external workbook: " . $exception->getMessage(), PHP_EOL;
@@ -324,11 +357,11 @@ try {
 
 ### **تعيين دفتر عمل خارجي**
 
-باستخدام طريقة [setExternalWorkbook](https://reference.aspose.com/slides/ar/php-java/aspose.slides/chartdata/setexternalworkbook/)، يمكنك تعيين دفتر عمل خارجي لمخطط كمصدر بيانات له. يمكن أيضًا استخدام هذه الطريقة لتحديث مسار دفتر العمل الخارجي (إذا تم نقل الأخير).
+باستخدام طريقة [setExternalWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/setexternalworkbook/)، يمكنك تعيين دفتر عمل خارجي لمخطط كمصدر بيانات له. يمكن أيضًا استخدام هذه الطريقة لتحديث مسار دفتر العمل الخارجي (في حال تم نقل الملف).
 
-على الرغم من أنك لا تستطيع تعديل البيانات في دفاتر العمل المخزنة في المواقع أو الموارد البعيدة، إلا أنك لا تزال تستطيع استخدام تلك الدفاتر كمصدر بيانات خارجي. إذا تم توفير مسار نسبي لدفتر عمل خارجي، يتم تحويله تلقائيًا إلى مسار كامل.
+على الرغم من عدم إمكانية تحرير البيانات في دفاتر العمل المخزَّنة في مواقع أو موارد بعيدة، إلا أنه لا يزال بإمكانك استخدامها كمصدر بيانات خارجي. إذا تم توفير مسار نسبي لدفتر عمل خارجي، فإنه يُحوَّل تلقائيًا إلى مسار كامل.
 
-يتطلب هذا المثال وجود `externalWorkbook.xlsx` في دليل العمل. يجب أن تحتوي ورقة العمل المسماة `Sheet1` على اسم سلسلة في B1، أسماء فئات في A2:A4، وقيم رقمية في B2:B4. ينشئ المثال مخططًا دائريًا، يرتبط بالدفتر، ويستخدم [setRange](https://reference.aspose.com/slides/ar/php-java/aspose.slides/chartdata/setrange/) لتعيين النطاق A1:B4 إلى سلسلة واحدة وثلاث فئات. يحفظ النتيجة إلى `Presentation_with_externalWorkbook.pptx`.
+يستخدم هذا المثال دفتر عمل خارجي تحتوي ورقة عمله المسماة `Sheet1` على اسم سلسلة في B1، وأسماء فئات في A2:A4، وقيم رقمية في B2:B4. ينشئ مثالًا لمخطط دائري، يربط دفتر العمل، ويستخدم [setRange](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/setrange/) لتعيين النطاق A1:B4 إلى سلسلة واحدة وثلاث فئات. يحفظ العرض التقديمي مع المخطط المرتبط.
 
 ```php
 use aspose\slides\Presentation;
@@ -353,12 +386,12 @@ try {
 }
 ```
 
-معامل `updateChartData` في طريقة [setExternalWorkbook](https://reference.aspose.com/slides/ar/php-java/aspose.slides/chartdata/setexternalworkbook/) يتحكم فيما إذا كان يتم تحميل دفتر العمل.
+معامل `updateChartData` في طريقة [setExternalWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/setexternalworkbook/) يتحكم فيما إذا كان يتم تحميل دفتر العمل.
 
-* عندما يكون `updateChartData` `false`، يتم تحديث مسار دفتر العمل فقط. لا يتم تحميل بيانات المخطط أو تحديثها من دفتر العمل الهدف، لذلك يمكن أن يكون دفتر العمل غير متاح.
-* عندما يكون `updateChartData` `true`، يتم تحديث بيانات المخطط من دفتر العمل الهدف.
+* عندما يكون `updateChartData` `false`، يتم تحديث مسار دفتر العمل فقط. لا يتم تحميل أو تحديث بيانات المخطط من دفتر العمل الهدف، لذا يمكن أن يكون دفتر العمل غير متاح.
+* عندما يكون `updateChartData` `true`، تُحدَّث بيانات المخطط من دفتر العمل الهدف.
 
-المثال التالي يعيّن عنوان URL مؤقت مع ضبط `updateChartData` إلى `false`. يحتفظ ببيانات المخطط الدائرية الافتراضية ويحفظ العرض التقديمي دون تحميل دفتر العمل غير المتاح.
+يُظهر المثال التالي تعيين عنوان URL نائب مع `updateChartData` مضبوطًا على `false`. يحتفظ بالمخطط الدائري ببياناته الافتراضية ويحفظ العرض التقديمي دون تحميل دفتر العمل غير المتاح.
 
 ```php
 use aspose\slides\Presentation;
@@ -378,17 +411,11 @@ try {
 }
 ```
 
-### **الحصول على مسار دفتر العمل المصدر الخارجي لمخطط**
+### **الحصول على مسار دفتر عمل مصدر البيانات الخارجي لمخطط**
 
-لتحديد دفتر العمل المرتبط بمخطط، تحقق أولاً مما إذا كان المخطط يستخدم مصدر بيانات خارجي. إذا كان كذلك، يمكنك استرجاع مسار دفتر العمل عبر الخطوات التالية.
+لتحديد دفتر العمل المرتبط بمخطط، تحقق مما إذا كان المخطط يستخدم مصدر بيانات خارجي واسترجع مسار دفتر العمل.
 
-1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentation/).
-2. الوصول إلى الشريحة الأولى باستخدام فهرسها الصفري.
-3. التحقق من أن الشكل الأول هو مخطط.
-4. قراءة نوع مصدر بيانات المخطط.
-5. إذا كان المصدر دفتر عمل خارجي، قراءة مساره.
-
-يفتح هذا المثال `externalWorkbook.pptx`، الذي تم إنشاؤه في المثال السابق، ويتفحص الشكل الأول في الشريحة الأولى. إذا كان مخططًا مرتبطًا بدفتر عمل خارجي، يطبع المثال [getExternalWorkbookPath](https://reference.aspose.com/slides/ar/php-java/aspose.slides/chartdata/getexternalworkbookpath/) إلى وحدة التحكم. ثم يحفظ نسخة من العرض التقديمي إلى `Result.pptx`.
+يفحص هذا المثال الشكل الأول في الشريحة الأولى من عرض تقديمي يحتوي على دفتر عمل خارجي مرتبط. إذا كان مخططًا مرتبطًا بدفتر عمل خارجي، الطباعة إلى وحدة التحكم باستخدام [getExternalWorkbookPath](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/getexternalworkbookpath/). ثم يحفظ نسخة من العرض التقديمي.
 
 ```php
 use aspose\slides\Presentation;
@@ -420,9 +447,9 @@ try {
 
 ### **تحرير بيانات المخطط**
 
-يمكنك تحرير البيانات في دفاتر العمل الخارجية بنفس الطريقة التي تقوم بها بتعديل محتويات دفاتر العمل الداخلية. عندما لا يمكن تحميل دفتر عمل خارجي، يُرمى استثناء.
+يمكنك تحرير البيانات في دفاتر العمل الخارجية بنفس الطريقة التي تُجري بها تغييرات على محتويات دفاتر العمل الداخلية. عندما لا يمكن تحميل دفتر عمل خارجي، يتم إثارة استثناء.
 
-يتطلب هذا المثال وجود `presentation.pptx` مع مخطط كشكل أول في الشريحة الأولى ودفتر عمل خارجي متاح. يعيّن القيمة المدعومة بالخلية للنقطة البيانات الأولى في السلسلة الأولى إلى 100 ويحفظ العرض التقديمي إلى `presentation_out.pptx`. تعديل قيم الخلايا يمكن أن يحدث تحديثًا للملف XLSX الخارجي المرتبط، لذا استخدم نسخة إذا كنت بحاجة للحفاظ على دفتر العمل الأصلي.
+يستخدم هذا المثال مخططًا هو الشكل الأول في الشريحة الأولى ومرتبطًا بدفتر عمل خارجي يمكن الوصول إليه. يضبط قيمة الخلية لأول نقطة بيانات في السلسلة الأولى إلى 100 ويحفظ العرض التقديمي المحدث. يمكن لتحرير قيم الخلايا تحديث ملف XLSX الخارجي المرتبط، لذا استخدم نسخة إذا كنت بحاجة للحفاظ على دفتر العمل الأصلي.
 
 ```php
 use aspose\slides\Presentation;
@@ -455,11 +482,11 @@ try {
 }
 ```
 
-### **استعادة دفتر عمل من ذاكرة المخطط المؤقتة**
+### **استعادة دفتر عمل من ذاكرة مخبئ المخطط**
 
-إذا كان المخطط يستخدم دفتر عمل خارجي مفقود أو غير متاح، يمكن لـ Aspose.Slides إعادة بناء دفتر عمل المخطط من البيانات المخزنة مؤقتًا في العرض التقديمي. أنشئ [LoadOptions](https://reference.aspose.com/slides/ar/php-java/aspose.slides/loadoptions/)، استدعِ [LoadOptions::setSpreadsheetOptions](https://reference.aspose.com/slides/ar/php-java/aspose.slides/loadoptions/setspreadsheetoptions/)، واضبط [SpreadsheetOptions::setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/ar/php-java/aspose.slides/spreadsheetoptions/setrecoverworkbookfromchartcache/) إلى `true` قبل فتح العرض التقديمي.
+إذا كان المخطط يستخدم دفتر عمل خارجي مفقود أو غير متاح، يمكن لـ Aspose.Slides إعادة بناء دفتر عمل المخطط من البيانات المخزَّنة مؤقتًا في العرض التقديمي. أنشئ [LoadOptions](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/)، استدعِ [LoadOptions::setSpreadsheetOptions](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/setspreadsheetoptions/)، واضبط [SpreadsheetOptions::setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/php-java/aspose.slides/spreadsheetoptions/setrecoverworkbookfromchartcache/) على `true` قبل فتح العرض التقديمي.
 
-يفتح المثال التالي بلغة PHP `presentation.pptx`، حيث يجب أن يكون الشكل الأول في الشريحة الأولى مخططًا يشير إلى دفتر عمل خارجي غير متاح، ويصل إلى البيانات المستعادة عبر [Chart::getChartData](https://reference.aspose.com/slides/ar/php-java/aspose.slides/chart/getchartdata/) و[ChartData::getChartDataWorkbook](https://reference.aspose.com/slides/ar/php-java/aspose.slides/chartdata/getchartdataworkbook/):
+يسترد المثال التالي بلغة PHP بيانات دفتر العمل لمخطط هو الشكل الأول في الشريحة الأولى ويشير إلى دفتر عمل خارجي غير متاح. يصل إلى البيانات المستعادة عبر [Chart::getChartData](https://reference.aspose.com/slides/php-java/aspose.slides/chart/getchartdata/) و[ChartData::getChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/getchartdataworkbook/):
 
 ```php
 use aspose\slides\Presentation;
@@ -490,30 +517,30 @@ try {
 }
 ```
 
-إذا كان دفتر العمل الخارجي غير متاح وتم تعطيل الاستعادة، تُطلق Aspose.Slides استثناءً. قم بتمكين الاستعادة فقط عندما يكون استخدام البيانات المخزنة المؤقتًا خيارًا مقبولًا، لأن الذاكرة قد لا تحتوي على تغييرات تم إجراؤها على دفتر العمل الخارجي بعد آخر تحديث للعرض التقديمي.
+إذا كان دفتر العمل الخارجي غير متاح وتم تعطيل الاستعادة، تُثير Aspose.Slides استثناءً. فعّل الاستعادة فقط عندما تكون استخدام البيانات المخزَّنة مؤقتًا للمخطط خيارًا مقبولًا، لأن المخبئ قد لا يحتوي على التغييرات التي أُجريت على دفتر العمل الخارجي بعد آخر تحديث للعرض التقديمي.
 
-## **الأسئلة المتكررة**
+## **الأسئلة الشائعة**
 
-**هل يمكنني تحديد ما إذا كان مخطط معين مرتبطًا بدفتر عمل خارجي أم مضمّن؟**
+**هل يمكنني تحديد ما إذا كان مخطط معين مرتبطًا بدفتر عمل خارجي أم مدمج؟**
 
-نعم. يحتوي المخطط على [نوع مصدر البيانات](https://reference.aspose.com/slides/ar/php-java/aspose.slides/chartdata/getdatasourcetype/) و[مسار دفتر العمل الخارجي](https://reference.aspose.com/slides/ar/php-java/aspose.slides/chartdata/getexternalworkbookpath/)؛ إذا كان المصدر دفتر عمل خارجي، يمكنك قراءة المسار الكامل للتأكد من استخدام ملف خارجي.
+نعم. يمتلك المخطط [data source type](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/getdatasourcetype/) و[مسار إلى دفتر عمل خارجي](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/getexternalworkbookpath/)؛ إذا كان المصدر دفتر عمل خارجي، يمكنك قراءة المسار الكامل للتأكد من استخدام ملف خارجي.
 
-**هل يتم دعم المسارات النسبية لدفاتر العمل الخارجية، وكيف يتم تخزينها؟**
+**هل تُدعم المسارات النسبية إلى دفاتر العمل الخارجية، وكيف يتم تخزينها؟**
 
-نعم. إذا قمت بتحديد مسار نسبي، يتم تحويله تلقائيًا إلى مسار مطلق. يخزن العرض التقديمي المسار المطلق في ملف PPTX، لذلك قد يتطلب نقل دفتر العمل تحديث الرابط.
+نعم. إذا حددت مسارًا نسبيًا، يتحول تلقائيًا إلى مسار مطلق. يخزن العرض التقديمي المسار المطلق في ملف PPTX، لذا قد يتطلب نقل دفتر العمل تحديث الارتباط.
 
-**هل يمكنني استخدام دفاتر العمل الموجودة على موارد/مشاركات الشبكة؟**
+**هل يمكنني استخدام دفاتر عمل تقع على موارد/مشاركات شبكة؟**
 
-نعم، يمكن استخدام تلك الدفاتر كمصدر بيانات خارجي. ومع ذلك، لا يدعم Aspose.Slides تعديل الدفاتر البعيدة مباشرةً — يمكن استخدامها فقط كمصدر.
+نعم، يمكن استخدام مثل هذه الدفاتر كمصدر بيانات خارجي. ومع ذلك، لا يُدعم تحرير دفاتر العمل البعيدة مباشرةً من Aspose.Slides—يمكن استخدامها فقط كمصدر.
 
-**هل تقوم Aspose.Slides بالكتابة فوق ملف XLSX الخارجي عند حفظ العرض التقديمي؟**
+**هل تستبدل Aspose.Slides ملف XLSX الخارجي عند حفظ العرض التقديمي؟**
 
-يحفظ العرض التقديمي [رابط إلى الملف الخارجي](https://reference.aspose.com/slides/ar/php-java/aspose.slides/chartdata/getexternalworkbookpath/). يمكن أيضًا لتعديل بيانات المخطط المدعومة بالخلية تحديث ملف XLSX المحلي المرتبط. استخدم نسخة من دفتر العمل إذا كان يجب أن يبقى الأصلي دون تغيير.
+يخزن العرض التقديمي [link to the external file](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/getexternalworkbookpath/). يمكن لتحرير بيانات المخطط المرتبطة بخلية أيضًا تحديث ملف XLSX المحلي المرتبط. استخدم نسخة من دفتر العمل إذا كان يجب إبقاء الأصل دون تعديل.
 
 **ماذا أفعل إذا كان الملف الخارجي محميًا بكلمة مرور؟**
 
-لا تقبل Aspose.Slides كلمة مرور عند الربط. النهج الشائع هو إزالة الحماية مسبقًا أو إعداد نسخة غير مشفرة (على سبيل المثال، باستخدام [Aspose.Cells](https://reference.aspose.com/cells/java/)).
+لا تقبل Aspose.Slides كلمة مرور عند الربط. يُنصح عادةً بإزالة الحماية مسبقًا أو إعداد نسخة غير مشفرة (على سبيل المثال باستخدام [Aspose.Cells](https://reference.aspose.com/cells/java/)) والربط بتلك النسخة.
 
 **هل يمكن لعدة مخططات الإشارة إلى نفس دفتر العمل الخارجي؟**
 
-نعم. كل مخطط يخزن رابطه الخاص. إذا كانت جميعها تشير إلى نفس الملف، فإن تحديث ذلك الملف سيظهر في كل مخطط في المرة التالية التي يتم فيها تحميل البيانات.
+نعم. كل مخطط يخزن ارتباطه الخاص. إذا كانت جميعها تشير إلى نفس الملف، فإن تحديث ذلك الملف سيظهر في كل مخطط عند تحميل البيانات مرة أخرى.

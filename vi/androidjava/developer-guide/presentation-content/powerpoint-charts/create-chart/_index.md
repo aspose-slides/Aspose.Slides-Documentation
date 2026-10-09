@@ -1,5 +1,5 @@
 ---
-title: Tạo hoặc Cập nhật Biểu đồ PowerPoint trên Android
+title: Tạo hoặc Cập nhật Biểu đồ PowerPoint trong Bản trình bày trên Android
 linktitle: Tạo hoặc Cập nhật Biểu đồ
 type: docs
 weight: 10
@@ -8,79 +8,81 @@ keywords:
 - thêm biểu đồ
 - tạo biểu đồ
 - chỉnh sửa biểu đồ
-- đổi biểu đồ
+- thay đổi biểu đồ
 - cập nhật biểu đồ
 - biểu đồ phân tán
 - biểu đồ tròn
 - biểu đồ đường
 - biểu đồ cây
-- biểu đồ cổ phiếu
+- biểu đồ chứng khoán
 - biểu đồ hộp và râu
 - biểu đồ phễu
-- biểu đồ nắng
+- biểu đồ dạng vòng
 - biểu đồ histogram
 - biểu đồ radar
 - biểu đồ đa danh mục
 - PowerPoint
-- bài thuyết trình
+- bản trình bày
 - Android
 - Java
 - Aspose.Slides
-description: "Tạo và tùy chỉnh biểu đồ trong các bài thuyết trình PowerPoint bằng Aspose.Slides cho Android. Thêm, định dạng và chỉnh sửa biểu đồ với các ví dụ mã Java thực tế."
+description: "Tạo và tùy chỉnh biểu đồ trong bản trình bày PowerPoint bằng Aspose.Slides cho Android. Thêm, định dạng và chỉnh sửa biểu đồ với các ví dụ mã Java thực tế."
 ---
 ## **Tổng quan**
 
-Bài viết này cung cấp hướng dẫn toàn diện về cách tạo và tùy chỉnh biểu đồ bằng Aspose.Slides. Bạn sẽ học cách thêm một biểu đồ vào slide một cách lập trình, đưa dữ liệu vào, và áp dụng các tùy chọn định dạng khác nhau để đáp ứng yêu cầu thiết kế cụ thể của bạn. Trong suốt bài viết, các ví dụ mã chi tiết minh họa từng bước, từ khởi tạo presentation và đối tượng chart tới cấu hình series, trục và chú giải. Bằng cách làm theo hướng dẫn này, bạn sẽ nắm vững cách tích hợp việc tạo biểu đồ động vào ứng dụng của mình, giúp đơn giản hoá quá trình tạo các bài thuyết trình dựa trên dữ liệu.
+Bài viết này cung cấp hướng dẫn toàn diện về cách tạo và tùy chỉnh biểu đồ bằng Aspose.Slides. Bạn sẽ học cách lập trình thêm biểu đồ vào slide, đưa dữ liệu vào, và áp dụng các tùy chọn định dạng khác nhau để phù hợp với yêu cầu thiết kế cụ thể của bạn. Trong suốt bài viết, các ví dụ mã chi tiết minh họa từng bước, từ khởi tạo đối tượng presentation và chart cho tới cấu hình series, axes và legends. Bằng cách làm theo hướng dẫn này, bạn sẽ nắm vững cách tích hợp việc tạo biểu đồ động vào ứng dụng, tối ưu hóa quy trình tạo bản trình bày dựa trên dữ liệu.
 
 ## **Tạo biểu đồ**
 
-Biểu đồ giúp người xem nhanh chóng hình dung dữ liệu và rút ra những hiểu biết mà có thể không hiển nhiên khi chỉ xem bảng hoặc bảng tính.
+Biểu đồ giúp người dùng nhanh chóng hình dung dữ liệu và khai thác các insight mà có thể không ngay lập tức thấy được trong bảng hoặc bảng tính.
 
 **Tại sao nên tạo biểu đồ?**
 
-Sử dụng biểu đồ, bạn có thể:
+Bằng việc sử dụng biểu đồ, bạn có thể:
 
-* tổng hợp, nén hoặc tóm tắt lượng dữ liệu lớn trên một slide trong bản thuyết trình
-* khám phá các mẫu và xu hướng trong dữ liệu
-* suy ra hướng và động lực của dữ liệu theo thời gian hoặc theo một đơn vị đo lường cụ thể
-* phát hiện các điểm ngoại lệ, sai lệch, lỗi, dữ liệu vô nghĩa, v.v.
+* tổng hợp, cô đọng hoặc tóm tắt một lượng lớn dữ liệu trên một slide duy nhất trong bản trình bày
+* phát hiện các mô hình và xu hướng trong dữ liệu
+* suy ra hướng và xu hướng của dữ liệu theo thời gian hoặc so với một đơn vị đo lường cụ thể
+* phát hiện các giá trị ngoại lệ, sai lệch, lỗi, dữ liệu vô nghĩa, v.v.
 * truyền đạt hoặc trình bày dữ liệu phức tạp
 
-Trong PowerPoint, bạn có thể tạo biểu đồ thông qua chức năng *Insert*, cung cấp các mẫu để thiết kế nhiều loại biểu đồ. Sử dụng Aspose.Slides, bạn có thể tạo cả biểu đồ thông thường (dựa trên các loại biểu đồ phổ biến) và biểu đồ tùy chỉnh.
+Trong PowerPoint, bạn có thể tạo biểu đồ thông qua chức năng *Insert*, cung cấp các mẫu để thiết kế nhiều loại biểu đồ. Khi dùng Aspose.Slides, bạn có thể tạo cả biểu đồ thường (dựa trên các loại biểu đồ phổ biến) và biểu đồ tùy chỉnh.
 
-{{% alert color="info" title="Note" %}}
-Để tạo biểu đồ, sử dụng lớp [ChartType](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/charttype/). Các trường trong lớp này tương ứng với các loại biểu đồ khác nhau.
+{{% alert color="info" title="Lưu ý" %}}
+
+Để tạo biểu đồ, sử dụng lớp [ChartType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/). Các trường trong lớp này tương ứng với các loại biểu đồ khác nhau.
+
 {{% /alert %}}
 
-### **Tạo biểu đồ Cột Đối Xứng (Clustered Column)**
+### **Tạo biểu đồ Cột Nhóm (Clustered Column)**
 
-Phần này giải thích cách tạo biểu đồ cột đối xứng bằng Aspose.Slides. Bạn sẽ học cách khởi tạo một presentation, thêm một biểu đồ, và tùy chỉnh các thành phần như tiêu đề, dữ liệu, series, danh mục và kiểu dáng. Thực hiện các bước dưới đây để xem cách một biểu đồ cột đối xứng chuẩn được tạo ra:
+Phần này giải thích cách tạo biểu đồ cột nhóm bằng Aspose.Slides. Bạn sẽ học cách khởi tạo một presentation, thêm biểu đồ, và tùy chỉnh các yếu tố như tiêu đề, dữ liệu, series, categories và kiểu dáng. Thực hiện các bước dưới đây để xem cách một biểu đồ cột nhóm tiêu chuẩn được tạo ra:
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/presentation).
-1. Lấy tham chiếu tới một slide bằng chỉ mục của nó.
-1. Thêm một biểu đồ với một số dữ liệu và chỉ định kiểu `ChartType.ClusteredColumn`.
-1. Thêm tiêu đề cho biểu đồ.
-1. Truy cập worksheet dữ liệu của biểu đồ.
-1. Xóa tất cả series và danh mục mặc định.
-1. Thêm series và danh mục mới.
-1. Thêm dữ liệu biểu đồ mới cho series.
-1. Áp dụng màu tô cho series.
-1. Thêm nhãn cho series.
-1. Lưu presentation đã chỉnh sửa dưới dạng file PPTX.
+1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation) .
+2. Lấy tham chiếu tới một slide bằng chỉ mục của nó.
+3. Thêm một biểu đồ với một số dữ liệu và chỉ định kiểu `ChartType.ClusteredColumn` .
+4. Thêm tiêu đề cho biểu đồ.
+5. Truy cập worksheet dữ liệu của biểu đồ.
+6. Xóa tất cả các series và categories mặc định.
+7. Thêm series và categories mới.
+8. Thêm dữ liệu biểu đồ mới cho series.
+9. Áp dụng màu nền cho series.
+10. Thêm nhãn cho series.
+11. Lưu presentation đã chỉnh sửa dưới dạng tệp PPTX.
 
-Mã C# này minh họa cách tạo biểu đồ cột đối xứng:
+Mã C# dưới đây minh họa cách tạo biểu đồ cột nhóm:
 
 ```java
 import com.aspose.slides.*;
 import java.awt.Color;
 
-// Khởi tạo một lớp presentation đại diện cho tệp PPTX
+// Khởi tạo một lớp Presentation đại diện cho tệp PPTX
 Presentation pres = new Presentation();
 try {
     // Truy cập slide đầu tiên
     ISlide sld = pres.getSlides().get_Item(0);
     
-    // Thêm một biểu đồ với dữ liệu mặc định
+    // Thêm một biểu đồ với dữ liệu mặc định của nó
     IChart chart = sld.getShapes().addChart(ChartType.ClusteredColumn, 0, 0, 500, 500);
     
     // Đặt tiêu đề cho biểu đồ
@@ -89,13 +91,13 @@ try {
     chart.getChartTitle().setHeight(20);
     chart.setTitle(true);
     
-    // Đặt chỉ mục cho bảng dữ liệu biểu đồ
+    // Đặt chỉ mục cho sheet dữ liệu của biểu đồ
     int defaultWorksheetIndex = 0;
     
-    // Lấy WorkSheet dữ liệu biểu đồ
+    // Lấy WorkSheet dữ liệu của biểu đồ
     IChartDataWorkbook fact = chart.getChartData().getChartDataWorkbook();
     
-    // Xóa series và category được tạo mặc định
+    // Xóa các series và categories được tạo mặc định
     chart.getChartData().getSeries().clear();
     chart.getChartData().getCategories().clear();
     int s = chart.getChartData().getSeries().size();
@@ -105,7 +107,7 @@ try {
     chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 1, "Series 1"),chart.getType());
     chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 2, "Series 2"),chart.getType());
     
-    // Thêm category mới
+    // Thêm categories mới
     chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 1, 0, "Caetegoty 1"));
     chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 2, 0, "Caetegoty 2"));
     chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 3, 0, "Caetegoty 3"));
@@ -118,7 +120,7 @@ try {
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 50));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 30));
     
-    // Đặt màu tô cho series
+    // Đặt màu nền cho series
     series.getFormat().getFill().setFillType(FillType.Solid);
     series.getFormat().getFill().getSolidFillColor().setColor(Color.RED);
     
@@ -130,7 +132,7 @@ try {
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 2, 10));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 2, 60));
     
-    // Đặt màu tô cho series
+    // Đặt màu nền cho series
     series.getFormat().getFill().setFillType(FillType.Solid);
     series.getFormat().getFill().getSolidFillColor().setColor(Color.GREEN);
     
@@ -148,17 +150,18 @@ try {
     lbl.getDataLabelFormat().setShowSeriesName(true);
     lbl.getDataLabelFormat().setSeparator("/");
     
-    // Lưu presentation cùng biểu đồ
+    // Lưu presentation kèm biểu đồ
     pres.save("output.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-### **Tạo biểu đồ Scatter**
-Biểu đồ scatter (cũng được gọi là scatter plot hoặc đồ thị x-y) thường được dùng để kiểm tra các mẫu hoặc chứng minh mối tương quan giữa hai biến.
+### **Tạo biểu đồ Phân tán (Scatter)**
 
-Sử dụng biểu đồ scatter khi:
+Biểu đồ phân tán (còn gọi là scatter plot hoặc đồ thị x‑y) thường được dùng để kiểm tra các mẫu hoặc chứng minh mối tương quan giữa hai biến.
+
+Sử dụng biểu đồ phân tán khi:
 
 * bạn có dữ liệu số cặp đôi
 * bạn có hai biến phù hợp với nhau
@@ -166,14 +169,14 @@ Sử dụng biểu đồ scatter khi:
 * bạn có một biến độc lập có nhiều giá trị cho một biến phụ thuộc
 
 1. Thực hiện các bước trong [Create Clustered Column Charts](#create-clustered-column-charts).
-2. Ở bước thứ ba, thêm một biểu đồ với dữ liệu và chỉ định loại biểu đồ là một trong các lựa chọn sau:
-   1. [ChartType.ScatterWithMarkers](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/charttype/#ScatterWithMarkers) - _Biểu diễn một biểu đồ scatter._
-   2. [ChartType.ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - _Biểu diễn một biểu đồ scatter kết nối bằng đường cong, có đánh dấu dữ liệu._
-   3. [ChartType.ScatterWithSmoothLines](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/charttype/#ScatterWithSmoothLines) - _Biểu diễn một biểu đồ scatter kết nối bằng đường cong, không có đánh dấu dữ liệu._
-   4. [ChartType.ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _Biểu diễn một biểu đồ scatter kết nối bằng đường thẳng, có đánh dấu dữ liệu._
-   5. [ChartType.ScatterWithStraightLines](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/charttype/#ScatterWithStraightLines) - _Biểu diễn một biểu đồ scatter kết nối bằng đường thẳng, không có đánh dấu dữ liệu._
+2. Ở bước ba, thêm một biểu đồ với một số dữ liệu và chỉ định loại biểu đồ là một trong các lựa chọn sau:
+   1. [ChartType.ScatterWithMarkers](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/#ScatterWithMarkers) - _Biểu diễn một biểu đồ phân tán._
+   2. [ChartType.ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - _Biểu diễn một biểu đồ phân tán nối bằng đường cong, có đánh dấu dữ liệu._
+   3. [ChartType.ScatterWithSmoothLines](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/#ScatterWithSmoothLines) - _Biểu diễn một biểu đồ phân tán nối bằng đường cong, không có đánh dấu dữ liệu._
+   4. [ChartType.ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _Biểu diễn một biểu đồ phân tán nối bằng đường thẳng, có đánh dấu dữ liệu._
+   5. [ChartType.ScatterWithStraightLines](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/#ScatterWithStraightLines) - _Biểu diễn một biểu đồ phân tán nối bằng đường thẳng, không có đánh dấu dữ liệu._
 
-Mã Java này cho thấy cách tạo biểu đồ scatter với các dấu đánh dấu khác nhau cho mỗi series:
+Mã Java dưới đây cho thấy cách tạo biểu đồ phân tán với các marker khác nhau cho mỗi series:
 
 ```java
 import com.aspose.slides.*;
@@ -190,7 +193,7 @@ try {
     // Lấy chỉ mục worksheet dữ liệu biểu đồ mặc định
     int defaultWorksheetIndex = 0;
     
-    // Lấy worksheet dữ liệu biểu đồ
+    // Lấy worksheet dữ liệu của biểu đồ
     IChartDataWorkbook fact = chart.getChartData().getChartDataWorkbook();
     
     // Xóa series demo
@@ -209,7 +212,7 @@ try {
     // Thêm một điểm mới (2:10)
     series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 2), fact.getCell(defaultWorksheetIndex, 3, 2, 10));
     
-    // Thay đổi loại series
+    // Thay đổi kiểu series
     series.setType(ChartType.ScatterWithStraightLinesAndMarkers);
     
     // Thay đổi marker của series biểu đồ
@@ -243,22 +246,22 @@ try {
 
 ### **Tạo biểu đồ Tròn (Pie)**
 
-Biểu đồ tròn thích hợp nhất để hiển thị mối quan hệ phần‑với‑toàn trong dữ liệu, đặc biệt khi dữ liệu có nhãn phân loại kèm giá trị số. Tuy nhiên, nếu dữ liệu của bạn có nhiều phần hoặc nhãn, bạn có thể cân nhắc sử dụng biểu đồ cột thay thế.
+Biểu đồ tròn thích hợp để hiển thị mối quan hệ phần‑trong‑toàn của dữ liệu, đặc biệt khi dữ liệu có các nhãn phân loại kèm giá trị số. Tuy nhiên, nếu dữ liệu của bạn có quá nhiều phần hoặc nhãn, bạn có thể cân nhắc sử dụng biểu đồ cột thay thế.
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/presentation/).
+1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) .
 2. Lấy tham chiếu tới một slide bằng chỉ mục của nó.
-3. Thêm một biểu đồ với dữ liệu mặc định và chỉ định kiểu [ChartType.Pie](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/charttype/#Pie).
-4. Truy cập workbook dữ liệu biểu đồ [IChartDataWorkbook](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ichartdataworkbook/).
-5. Xóa series và danh mục mặc định.
-6. Thêm series và danh mục mới.
+3. Thêm một biểu đồ với dữ liệu mặc định và chỉ định loại [ChartType.Pie](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/#Pie) .
+4. Truy cập workbook dữ liệu biểu đồ [IChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/) .
+5. Xóa series và categories mặc định.
+6. Thêm series và categories mới.
 7. Thêm dữ liệu biểu đồ mới cho series.
-8. Thêm các điểm mới cho biểu đồ và áp dụng màu tùy chỉnh cho các phần của biểu đồ tròn.
+8. Thêm các điểm mới cho biểu đồ và áp dụng màu tùy chỉnh cho các sector của biểu đồ tròn.
 9. Đặt nhãn cho các series.
-10. Bật các đường dẫn (leader lines) cho nhãn series.
-11. Đặt góc quay cho các phần của biểu đồ tròn.
-12. Lưu presentation đã chỉnh sửa dưới dạng file PPTX.
+10. Bật leader lines cho nhãn series.
+11. Đặt góc quay cho các sector của biểu đồ tròn.
+12. Lưu presentation đã chỉnh sửa dưới dạng tệp PPTX.
 
-Mã Java này cho thấy cách tạo biểu đồ tròn:
+Mã Java dưới đây cho thấy cách tạo biểu đồ tròn:
 
 ```java
 import com.aspose.slides.*;
@@ -279,17 +282,17 @@ try {
     chart.getChartTitle().setHeight(20);
     chart.setTitle(true);
     
-    // Đặt chỉ mục cho bảng dữ liệu biểu đồ
+    // Đặt chỉ mục cho sheet dữ liệu của biểu đồ
     int defaultWorksheetIndex = 0;
     
-    // Lấy worksheet dữ liệu biểu đồ
+    // Lấy worksheet dữ liệu của biểu đồ
     IChartDataWorkbook fact = chart.getChartData().getChartDataWorkbook();
     
-    // Xóa series và category được tạo mặc định
+    // Xóa các series và categories được tạo mặc định
     chart.getChartData().getSeries().clear();
     chart.getChartData().getCategories().clear();
     
-    // Thêm các category mới
+    // Thêm categories mới
     chart.getChartData().getCategories().add(fact.getCell(0, 1, 0, "First Qtr"));
     chart.getChartData().getCategories().add(fact.getCell(0, 2, 0, "2nd Qtr"));
     chart.getChartData().getCategories().add(fact.getCell(0, 3, 0, "3rd Qtr"));
@@ -303,7 +306,7 @@ try {
     series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 30));
     
     // Không hoạt động trong phiên bản mới
-    // Thêm các điểm mới và thiết lập màu cho sector
+    // Thêm các điểm mới và đặt màu cho sector
     // series.IsColorVaried = true;
     chart.getChartData().getSeriesGroups().get_Item(0).setColorVaried(true);
     
@@ -355,13 +358,13 @@ try {
     lbl3.getDataLabelFormat().setShowSeriesName(true);
     lbl3.getDataLabelFormat().setShowPercentage(true);
     
-    // Hiển thị Đường dẫn cho biểu đồ
+    // Hiển thị Leader Lines cho biểu đồ
     series.getLabels().getDefaultDataLabelFormat().setShowLeaderLines(true);
     
-    // Đặt góc xoay cho các sector của biểu đồ tròn
+    // Đặt góc quay cho các sector của biểu đồ tròn
     chart.getChartData().getSeriesGroups().get_Item(0).setFirstSliceAngle(180);
     
-    // Lưu presentation cùng biểu đồ
+    // Lưu presentation kèm biểu đồ
     pres.save("PieChart_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
@@ -370,14 +373,14 @@ try {
 
 ### **Tạo biểu đồ Đường (Line)**
 
-Biểu đồ đường (cũng được gọi là line graph) thích hợp khi bạn muốn minh họa sự thay đổi giá trị theo thời gian. Sử dụng biểu đồ đường, bạn có thể so sánh lượng dữ liệu lớn cùng lúc, theo dõi sự thay đổi và xu hướng theo thời gian, nổi bật các bất thường trong series, và hơn thế nữa.
+Biểu đồ đường (còn gọi là line graph) thích hợp trong các trường hợp bạn muốn minh họa sự thay đổi giá trị theo thời gian. Sử dụng biểu đồ đường, bạn có thể so sánh một lượng lớn dữ liệu cùng lúc, theo dõi thay đổi và xu hướng theo thời gian, làm nổi bật các bất thường trong series, và nhiều hơn nữa.
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/presentation/).
+1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) .
 1. Lấy tham chiếu tới một slide bằng chỉ mục của nó.
-1. Thêm một biểu đồ với dữ liệu mặc định và chỉ định kiểu [ChartType.Line](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/charttype/#Line).
-1. Lưu presentation đã chỉnh sửa dưới dạng file PPTX.
+1. Thêm một biểu đồ với dữ liệu mặc định và chỉ định loại [ChartType.Line](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/#Line) .
+1. Lưu presentation đã chỉnh sửa dưới dạng tệp PPTX.
 
-Mã Java này cho thấy cách tạo biểu đồ đường:
+Mã Java dưới đây cho thấy cách tạo biểu đồ đường:
 
 ```java
 import com.aspose.slides.*;
@@ -392,7 +395,7 @@ try {
 }
 ```
 
-Mặc định, các điểm trên biểu đồ đường được nối bằng các đường thẳng liên tục. Nếu bạn muốn các điểm được nối bằng các dấu gạch nối, bạn có thể chỉ định kiểu gạch nối ưa thích như sau:
+Mặc định, các điểm trên biểu đồ đường được nối bằng các đường thẳng liên tục. Nếu bạn muốn các điểm được nối bằng các gạch đoạn, bạn có thể chỉ định kiểu gạch mong muốn như sau:
 
 ```java
 import com.aspose.slides.*;
@@ -412,18 +415,18 @@ try {
 
 ### **Tạo biểu đồ Cây (Tree Map)**
 
-Biểu đồ cây thích hợp cho dữ liệu bán hàng khi bạn muốn hiển thị kích thước tương đối của các danh mục dữ liệu và nhanh chóng thu hút sự chú ý đến các mục đóng góp lớn trong mỗi danh mục.
+Biểu đồ cây thích hợp cho dữ liệu bán hàng khi bạn muốn hiển thị kích thước tương đối của các danh mục dữ liệu và nhanh chóng thu hút sự chú ý đến các mục có đóng góp lớn trong mỗi danh mục.
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/presentation/).
+1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) .
 2. Lấy tham chiếu tới một slide bằng chỉ mục của nó.
-3. Thêm một biểu đồ với dữ liệu mặc định và chỉ định kiểu [ChartType.Treemap](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/charttype/#Treemap).
-4. Truy cập workbook dữ liệu biểu đồ [IChartDataWorkbook](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ichartdataworkbook/).
-5. Xóa series và danh mục mặc định.
-6. Thêm series và danh mục mới.
+3. Thêm một biểu đồ với dữ liệu mặc định và chỉ định loại [ChartType.Treemap](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/#Treemap) .
+4. Truy cập workbook dữ liệu biểu đồ [IChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/) .
+5. Xóa series và categories mặc định.
+6. Thêm series và categories mới.
 7. Thêm dữ liệu biểu đồ mới cho series.
-8. Lưu presentation đã chỉnh sửa dưới dạng file PPTX.
+8. Lưu presentation đã chỉnh sửa dưới dạng tệp PPTX.
 
-Mã Java này cho thấy cách tạo biểu đồ cây:
+Mã Java dưới đây cho thấy cách tạo biểu đồ cây:
 
 ```java
 import com.aspose.slides.*;
@@ -480,19 +483,19 @@ try {
 }
 ```
 
-### **Tạo biểu đồ Cổ Phiếu (Stock)**
+### **Tạo biểu đồ Chứng khoán (Stock)**
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/presentation/).
+1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) .
 2. Lấy tham chiếu tới một slide bằng chỉ mục của nó.
-3. Thêm một biểu đồ với dữ liệu mặc định và chỉ định kiểu [ChartType.OpenHighLowClose](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/charttype/#OpenHighLowClose).
-4. Truy cập workbook dữ liệu biểu đồ [IChartDataWorkbook](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ichartdataworkbook/).
-5. Xóa series và danh mục mặc định.
-6. Thêm series và danh mục mới.
+3. Thêm một biểu đồ với dữ liệu mặc định và chỉ định loại [ChartType.OpenHighLowClose](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/#OpenHighLowClose) .
+4. Truy cập workbook dữ liệu biểu đồ [IChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/) .
+5. Xóa series và categories mặc định.
+6. Thêm series và categories mới.
 7. Thêm dữ liệu biểu đồ mới cho series.
-8. Chỉ định định dạng các đường high‑low.
-9. Lưu presentation đã chỉnh sửa dưới dạng file PPTX.
+8. Chỉ định định dạng đường high‑low.
+9. Lưu presentation đã chỉnh sửa dưới dạng tệp PPTX.
 
-Mã Java này cho thấy cách tạo biểu đồ cổ phiếu:
+Mã Java dưới đây cho thấy cách tạo biểu đồ chứng khoán:
 
 ```java
 import com.aspose.slides.*;
@@ -550,18 +553,18 @@ try {
 }
 ```
 
-### **Tạo biểu đồ Hộp và Râu (Box and Whisker)**
+### **Tạo biểu đồ Box và Whisker**
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/presentation/).
+1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) .
 2. Lấy tham chiếu tới một slide bằng chỉ mục của nó.
-3. Thêm một biểu đồ với dữ liệu mặc định và chỉ định kiểu [ChartType.BoxAndWhisker](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/charttype/#BoxAndWhisker).
-4. Truy cập workbook dữ liệu biểu đồ [IChartDataWorkbook](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ichartdataworkbook/).
-5. Xóa series và danh mục mặc định.
-6. Thêm series và danh mục mới.
+3. Thêm một biểu đồ với dữ liệu mặc định và chỉ định loại [ChartType.BoxAndWhisker](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/#BoxAndWhisker) .
+4. Truy cập workbook dữ liệu biểu đồ [IChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/) .
+5. Xóa series và categories mặc định.
+6. Thêm series và categories mới.
 7. Thêm dữ liệu biểu đồ mới cho series.
-8. Lưu presentation đã chỉnh sửa dưới dạng file PPTX.
+8. Lưu presentation đã chỉnh sửa dưới dạng tệp PPTX.
 
-Mã Java này cho thấy cách tạo biểu đồ hộp và râu:
+Mã Java dưới đây cho thấy cách tạo biểu đồ Box và Whisker:
 
 ```java
 import com.aspose.slides.*;
@@ -605,12 +608,12 @@ try {
 
 ### **Tạo biểu đồ Phễu (Funnel)**
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/presentation/).
+1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) .
 2. Lấy tham chiếu tới một slide bằng chỉ mục của nó.
-3. Thêm một biểu đồ với dữ liệu mặc định và chỉ định kiểu [ChartType.Funnel](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/charttype/#Funnel).
-4. Lưu presentation đã chỉnh sửa dưới dạng file PPTX.
+3. Thêm một biểu đồ với dữ liệu mặc định và chỉ định loại [ChartType.Funnel](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/#Funnel) .
+4. Lưu presentation đã chỉnh sửa dưới dạng tệp PPTX.
 
-Mã Java này cho thấy cách tạo biểu đồ phễu:
+Mã Java dưới đây cho thấy cách tạo biểu đồ phễu:
 
 ```java
 import com.aspose.slides.*;
@@ -647,14 +650,14 @@ try {
 }
 ```
 
-### **Tạo biểu đồ Nắng (Sunburst)**
+### **Tạo biểu đồ Sunburst**
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/presentation/).
+1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) .
 2. Lấy tham chiếu tới một slide bằng chỉ mục của nó.
-3. Thêm một biểu đồ với dữ liệu mặc định và chỉ định kiểu [ChartType.Sunburst](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/charttype/#Sunburst).
-4. Lưu presentation đã chỉnh sửa dưới dạng file PPTX.
+3. Thêm một biểu đồ với dữ liệu mặc định và chỉ định loại [ChartType.Sunburst](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/#Sunburst) .
+4. Lưu presentation đã chỉnh sửa dưới dạng tệp PPTX.
 
-Mã Java này cho thấy cách tạo biểu đồ nắng:
+Mã Java dưới đây cho thấy cách tạo biểu đồ Sunburst:
 
 ```java
 import com.aspose.slides.*;
@@ -711,15 +714,15 @@ try {
 
 ### **Tạo biểu đồ Histogram**
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/presentation/).
+1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) .
 2. Lấy tham chiếu tới một slide bằng chỉ mục của nó.
-3. Thêm một biểu đồ với dữ liệu mặc định và chỉ định kiểu [ChartType.Histogram](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/charttype/#Histogram).
-4. Truy cập workbook dữ liệu biểu đồ [IChartDataWorkbook](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ichartdataworkbook/).
-5. Xóa series và danh mục mặc định.
-6. Thêm series và danh mục mới.
-7. Lưu presentation đã chỉnh sửa dưới dạng file PPTX.
+3. Thêm một biểu đồ với dữ liệu mặc định và chỉ định loại [ChartType.Histogram](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/#Histogram) .
+4. Truy cập workbook dữ liệu biểu đồ [IChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/) .
+5. Xóa series và categories mặc định.
+6. Thêm series và categories mới.
+7. Lưu presentation đã chỉnh sửa dưới dạng tệp PPTX.
 
-Mã Java này cho thấy cách tạo biểu đồ histogram:
+Mã Java dưới đây cho thấy cách tạo biểu đồ histogram:
 
 ```java
 import com.aspose.slides.*;
@@ -751,12 +754,12 @@ try {
 
 ### **Tạo biểu đồ Radar**
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/presentation/).
+1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) .
 2. Lấy tham chiếu tới một slide bằng chỉ mục của nó.
-3. Thêm một biểu đồ với một số dữ liệu và chỉ định loại biểu đồ ưa thích của bạn ([ChartType.Radar](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/charttype/#Radar) trong trường hợp này).
-4. Lưu presentation đã chỉnh sửa dưới dạng file PPTX.
+3. Thêm một biểu đồ với một số dữ liệu và chỉ định loại biểu đồ ưa thích của bạn ([ChartType.Radar](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/#Radar) trong trường hợp này).
+4. Lưu presentation đã chỉnh sửa dưới dạng tệp PPTX.
 
-Mã Java này cho thấy cách tạo biểu đồ radar:
+Mã Java dưới đây cho thấy cách tạo biểu đồ radar:
 
 ```java
 import com.aspose.slides.*;
@@ -770,18 +773,18 @@ try {
 }
 ```
 
-### **Tạo biểu đồ Đa‑Danh Mục (Multi-Category)**
+### **Tạo biểu đồ Đa‑danh mục (Multi‑Category)**
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/presentation/).
+1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) .
 2. Lấy tham chiếu tới một slide bằng chỉ mục của nó.
-3. Thêm một biểu đồ với dữ liệu mặc định và chỉ định kiểu [ChartType.ClusteredColumn](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/charttype/#ClusteredColumn).
-4. Truy cập workbook dữ liệu biểu đồ [IChartDataWorkbook](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ichartdataworkbook/).
-5. Xóa series và danh mục mặc định.
-6. Thêm series và danh mục mới.
+3. Thêm một biểu đồ với dữ liệu mặc định và chỉ định loại [ChartType.ClusteredColumn](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/#ClusteredColumn) .
+4. Truy cập workbook dữ liệu biểu đồ [IChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/) .
+5. Xóa series và categories mặc định.
+6. Thêm series và categories mới.
 7. Thêm dữ liệu biểu đồ mới cho series.
-8. Lưu presentation đã chỉnh sửa dưới dạng file PPTX.
+8. Lưu presentation đã chỉnh sửa dưới dạng tệp PPTX.
 
-Mã Java này cho thấy cách tạo biểu đồ đa‑danh mục:
+Mã Java dưới đây cho thấy cách tạo biểu đồ đa‑danh mục:
 
 ```java
 import com.aspose.slides.*;
@@ -825,18 +828,18 @@ try {
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, "D8", 70));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, "D9", 80));
     
-    // Lưu presentation cùng biểu đồ
+    // Lưu presentation kèm biểu đồ
     pres.save("AsposeChart_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-### **Tạo biểu đồ Bản Đồ (Map)**
+### **Tạo biểu đồ Bản đồ (Map)**
 
-Biểu đồ bản đồ trực quan hoá dữ liệu địa lý và giúp so sánh các giá trị giữa các vùng.
+Biểu đồ bản đồ hiển thị dữ liệu địa lý và giúp so sánh các giá trị giữa các vùng.
 
-Mã Java này cho thấy cách tạo biểu đồ bản đồ:
+Mã Java dưới đây cho thấy cách tạo biểu đồ bản đồ:
 
 ```java
 import com.aspose.slides.*;
@@ -850,13 +853,13 @@ try {
 }
 ```
 
-### **Tạo biểu đồ Kết Hợp (Combination)**
+### **Tạo biểu đồ Kết hợp (Combination)**
 
-Biểu đồ kết hợp (hoặc combo chart) kết hợp hai hoặc nhiều loại biểu đồ trong một đồ thị duy nhất. Biểu đồ này cho phép bạn làm nổi bật, so sánh hoặc xem xét sự khác nhau giữa hai hoặc nhiều bộ dữ liệu, giúp xác định mối quan hệ giữa chúng.
+Biểu đồ kết hợp (hay combo chart) kết hợp hai hoặc nhiều loại biểu đồ trong một đồ thị. Biểu đồ này cho phép bạn làm nổi bật, so sánh hoặc kiểm tra sự khác biệt giữa hai hoặc nhiều bộ dữ liệu, giúp xác định mối quan hệ giữa chúng.
 
-![Biểu đồ kết hợp](combination_chart.png)
+![The combination chart](combination_chart.png)
 
-Mã Java sau đây cho thấy cách tạo biểu đồ kết hợp như hình trên trong một PowerPoint presentation:
+Mã Java dưới đây cho thấy cách tạo biểu đồ kết hợp như trong hình trên trong một bản PowerPoint:
 
 ```java
 import com.aspose.slides.*;
@@ -896,14 +899,14 @@ static IChart createChartWithFirstSeries(ISlide slide) {
     chart.getLegend().setPosition(LegendPositionType.Bottom);
     chart.getLegend().getTextFormat().getPortionFormat().setFontHeight(12f);
 
-    // Xóa series và category được tạo mặc định.
+    // Xóa các series và categories được tạo mặc định.
     chart.getChartData().getSeries().clear();
     chart.getChartData().getCategories().clear();
 
     int worksheetIndex = 0;
     IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
 
-    // Thêm các category mới.
+    // Thêm các categories mới.
     chart.getChartData().getCategories().add(workbook.getCell(worksheetIndex, 1, 0, "Category 1"));
     chart.getChartData().getCategories().add(workbook.getCell(worksheetIndex, 2, 0, "Category 2"));
     chart.getChartData().getCategories().add(workbook.getCell(worksheetIndex, 3, 0, "Category 3"));
@@ -970,7 +973,7 @@ static void setPrimaryAxesFormat(IChart chart) {
 
     setAxisTitle(verticalAxis, "Y Axis 1");
 
-    // Đặt màu cho các đường lưới chính của trục dọc.
+    // Đặt màu cho các đường lưới chính theo trục dọc.
     ILineFillFormat majorGridLinesFormat = verticalAxis.getMajorGridLinesFormat().getLine().getFillFormat();
     majorGridLinesFormat.setFillType(FillType.Solid);
     majorGridLinesFormat.getSolidFillColor().setColor(new Color(217, 217, 217));
@@ -1008,15 +1011,15 @@ static void setAxisTitle(IAxis axis, String axisTitle) {
 
 ## **Cập nhật biểu đồ**
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/presentation/) đại diện cho presentation chứa biểu đồ bạn muốn cập nhật.
+1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) đại diện cho presentation chứa biểu đồ cần cập nhật.
 2. Lấy tham chiếu tới một slide bằng chỉ mục của nó.
 3. Duyệt qua tất cả các shape để tìm biểu đồ mong muốn.
 4. Truy cập worksheet dữ liệu của biểu đồ.
 5. Sửa đổi series dữ liệu của biểu đồ bằng cách thay đổi giá trị series.
 6. Thêm một series mới và điền dữ liệu cho nó.
-7. Lưu presentation đã chỉnh sửa dưới dạng file PPTX.
+7. Lưu presentation đã chỉnh sửa dưới dạng tệp PPTX.
 
-Mã Java này cho thấy cách cập nhật một biểu đồ:
+Mã Java dưới đây cho thấy cách cập nhật biểu đồ:
 
 ```java
 import com.aspose.slides.*;
@@ -1030,7 +1033,7 @@ try {
     // Lấy biểu đồ từ slide
     IChart chart = (IChart)sld.getShapes().get_Item(0);
 
-    // Đặt chỉ mục cho sheet dữ liệu biểu đồ
+    // Đặt chỉ mục của sheet dữ liệu biểu đồ
     int defaultWorksheetIndex = 0;
 
     // Lấy worksheet dữ liệu biểu đồ
@@ -1040,28 +1043,28 @@ try {
     fact.getCell(defaultWorksheetIndex, 1, 0, "Modified Category 1");
     fact.getCell(defaultWorksheetIndex, 2, 0, "Modified Category 2");
 
-    // Lấy series đầu tiên của biểu đồ
+    // Lấy series biểu đồ đầu tiên
     IChartSeries series = chart.getChartData().getSeries().get_Item(0);
 
     // Bây giờ cập nhật dữ liệu series
-    fact.getCell(defaultWorksheetIndex, 0, 1, "New_Series1"); // Chỉnh sửa tên series
+    fact.getCell(defaultWorksheetIndex, 0, 1, "New_Series1");// Sửa tên series
     series.getDataPoints().get_Item(0).getValue().setData(90);
     series.getDataPoints().get_Item(1).getValue().setData(123);
     series.getDataPoints().get_Item(2).getValue().setData(44);
 
-    // Lấy series thứ hai của biểu đồ
+    // Lấy series biểu đồ thứ hai
     series = chart.getChartData().getSeries().get_Item(1);
 
     // Bây giờ cập nhật dữ liệu series
-    fact.getCell(defaultWorksheetIndex, 0, 2, "New_Series2"); // Chỉnh sửa tên series
+    fact.getCell(defaultWorksheetIndex, 0, 2, "New_Series2");// Sửa tên series
     series.getDataPoints().get_Item(0).getValue().setData(23);
     series.getDataPoints().get_Item(1).getValue().setData(67);
     series.getDataPoints().get_Item(2).getValue().setData(99);
 
-    // Bây giờ, thêm một series mới
+    // Bây giờ, Thêm một series mới
     chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 3, "Series 3"), chart.getType());
 
-    // Lấy series thứ ba của biểu đồ
+    // Lấy series biểu đồ thứ ba
     series = chart.getChartData().getSeries().get_Item(2);
 
     // Bây giờ điền dữ liệu cho series
@@ -1071,7 +1074,7 @@ try {
 
     chart.setType(ChartType.ClusteredCylinder);
 
-    // Lưu bản trình bày cùng biểu đồ
+    // Lưu bản trình bày kèm biểu đồ
     pres.save("AsposeChartModified_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
@@ -1080,15 +1083,17 @@ try {
 
 ## **Đặt phạm vi dữ liệu cho biểu đồ**
 
-Để đặt phạm vi dữ liệu cho một biểu đồ, thực hiện các bước sau:
+Để xem phạm vi đã được biểu đồ hiện có sử dụng, xem [Retrieve a Chart's Data Range](/slides/vi/androidjava/chart-workbook/#retrieve-a-charts-data-range).
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/presentation/) đại diện cho presentation chứa biểu đồ.
+Để đặt phạm vi dữ liệu cho một biểu đồ, thực hiện như sau:
+
+1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) đại diện cho presentation chứa biểu đồ.
 2. Lấy tham chiếu tới một slide bằng chỉ mục của nó.
 3. Duyệt qua tất cả các shape để tìm biểu đồ mong muốn.
 4. Truy cập dữ liệu biểu đồ và đặt phạm vi.
-5. Lưu presentation đã chỉnh sửa dưới dạng file PPTX.
+5. Lưu presentation đã chỉnh sửa dưới dạng tệp PPTX.
 
-Mã Java này cho thấy cách đặt phạm vi dữ liệu cho một biểu đồ:
+Mã Java dưới đây cho thấy cách đặt phạm vi dữ liệu cho biểu đồ:
 
 ```java
 import com.aspose.slides.*;
@@ -1107,11 +1112,11 @@ try {
 }
 ```
 
-## **Sử dụng dấu đánh dấu mặc định trong biểu đồ**
+## **Sử dụng marker mặc định trong biểu đồ**
 
-Khi bạn sử dụng dấu đánh dấu mặc định trong biểu đồ, mỗi series sẽ tự động nhận một biểu tượng đánh dấu khác nhau.
+Khi bạn sử dụng marker mặc định trong biểu đồ, mỗi series sẽ tự động nhận một biểu tượng marker khác nhau.
 
-Mã Java này cho thấy cách tự động đặt dấu đánh dấu cho một series:
+Mã Java dưới đây cho thấy cách tự động đặt marker cho một series:
 
 ```java
 import com.aspose.slides.*;
@@ -1138,10 +1143,10 @@ try {
     series.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 4, 1, null));
 
     chart.getChartData().getSeries().add(fact.getCell(0, 0, 2, "Series 2"), chart.getType());
-    // Lấy series thứ hai của biểu đồ
+    //Lấy series biểu đồ thứ hai
     IChartSeries series2 = chart.getChartData().getSeries().get_Item(1);
 
-    // Bây giờ điền dữ liệu cho series
+    //Bây giờ đang điền dữ liệu cho series
     series2.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 1, 2, 30));
     series2.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 2, 2, 10));
     series2.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 3, 2, 60));
@@ -1160,16 +1165,16 @@ try {
 
 **Các loại biểu đồ nào được Aspose.Slides hỗ trợ?**
 
-Aspose.Slides hỗ trợ một loạt các [loại biểu đồ](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/charttype/), bao gồm biểu đồ cột, đường, tròn, khu vực, scatter, histogram, radar và nhiều loại khác. Sự linh hoạt này cho phép bạn chọn loại biểu đồ phù hợp nhất cho nhu cầu trực quan hoá dữ liệu của mình.
+Aspose.Slides hỗ trợ một loạt các [chart types](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/), bao gồm bar, line, pie, area, scatter, histogram, radar và nhiều loại khác. Sự linh hoạt này cho phép bạn chọn loại biểu đồ phù hợp nhất cho nhu cầu trực quan hoá dữ liệu.
 
 **Làm thế nào để thêm một biểu đồ mới vào slide?**
 
-Để thêm một biểu đồ, trước tiên bạn tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/presentation/), lấy slide mong muốn bằng chỉ mục, và sau đó gọi phương thức để thêm biểu đồ, chỉ định loại biểu đồ và dữ liệu ban đầu. Quy trình này tích hợp biểu đồ trực tiếp vào presentation của bạn.
+Để thêm một biểu đồ, trước tiên bạn tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) , lấy slide mong muốn bằng chỉ mục, sau đó gọi phương thức thêm biểu đồ, chỉ định loại biểu đồ và dữ liệu khởi tạo. Quá trình này tích hợp biểu đồ trực tiếp vào presentation của bạn.
 
-**Làm sao để cập nhật dữ liệu hiển thị trong biểu đồ?**
+**Làm sao tôi có thể cập nhật dữ liệu hiển thị trong một biểu đồ?**
 
-Bạn có thể cập nhật dữ liệu của biểu đồ bằng cách truy cập workbook dữ liệu của nó ([IChartDataWorkbook](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ichartdataworkbook/)), xóa bất kỳ series và danh mục mặc định nào, và sau đó thêm dữ liệu tùy chỉnh của bạn. Điều này cho phép bạn làm mới biểu đồ để phản ánh dữ liệu mới nhất.
+Bạn có thể cập nhật dữ liệu của biểu đồ bằng cách truy cập workbook dữ liệu của nó ([IChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/)), xóa mọi series và categories mặc định, sau đó thêm dữ liệu tùy chỉnh của bạn. Điều này cho phép bạn làm mới biểu đồ để phản ánh dữ liệu mới nhất.
 
 **Có thể tùy chỉnh giao diện của biểu đồ không?**
 
-Có, Aspose.Slides cung cấp các tùy chọn tùy chỉnh phong phú. Bạn có thể thay đổi màu sắc, phông chữ, nhãn, chú giải và các [phần tử định dạng](/slides/vi/androidjava/chart-entities/) khác để phù hợp biểu đồ với yêu cầu thiết kế cụ thể của mình.
+Có, Aspose.Slides cung cấp các tùy chọn tùy chỉnh phong phú. Bạn có thể thay đổi màu sắc, phông chữ, nhãn, legend và các [formatting elements](/slides/vi/androidjava/chart-entities/) khác để điều chỉnh giao diện biểu đồ theo yêu cầu thiết kế cụ thể của mình.

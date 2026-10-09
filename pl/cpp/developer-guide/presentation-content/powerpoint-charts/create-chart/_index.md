@@ -1,72 +1,72 @@
 ---
-title: Tworzenie lub aktualizacja wykresów w prezentacjach PowerPoint w C++
-linktitle: Tworzenie lub aktualizacja wykresów
+title: Utwórz lub zaktualizuj wykresy w prezentacji PowerPoint w C++
+linktitle: Utwórz lub zaktualizuj wykresy
 type: docs
 weight: 10
 url: /pl/cpp/create-chart/
 aliases:
   - /cpp/update-chart/
 keywords:
-  - dodaj wykres
-  - utwórz wykres
-  - edytuj wykres
-  - zmień wykres
-  - zaktualizuj wykres
-  - wykres rozproszony
-  - wykres kołowy
-  - wykres liniowy
-  - wykres mapy drzewa
-  - wykres giełdowy
-  - wykres pudełkowo-wąsowy
-  - wykres lejkowy
-  - wykres promieniowy
-  - wykres histogramu
-  - wykres radarowy
-  - wykres wielokategorialny
-  - PowerPoint
-  - prezentacja
-  - C++
-  - Aspose.Slides
-description: "Twórz i dostosowuj wykresy w prezentacjach PowerPoint przy użyciu Aspose.Slides dla C++. Dodawaj, formatuj i edytuj wykresy przy użyciu praktycznych przykładów kodu w C++."
+- dodaj wykres
+- utwórz wykres
+- edytuj wykres
+- zmień wykres
+- zaktualizuj wykres
+- wykres rozproszony
+- wykres kołowy
+- wykres liniowy
+- wykres mapy drzewa
+- wykres giełdowy
+- wykres pudełkowo‑wąsowy
+- wykres lejkowy
+- wykres promieniowy
+- wykres histogramu
+- wykres radarowy
+- wykres wielokategorialny
+- PowerPoint
+- prezentacja
+- C++
+- Aspose.Slides
+description: "Twórz i dostosowuj wykresy w prezentacjach PowerPoint przy użyciu Aspose.Slides dla C++. Dodawaj, formatuj i edytuj wykresy przy pomocy praktycznych przykładów kodu w C++."
 ---
 ## **Przegląd**
 
-Ten artykuł dostarcza kompleksowego przewodnika, jak tworzyć i dostosowywać wykresy przy użyciu Aspose.Slides. Nauczysz się, jak programowo dodać wykres do slajdu, wypełnić go danymi oraz zastosować różne opcje formatowania, aby spełnić określone wymagania projektowe. W całym artykule szczegółowe przykłady kodu ilustrują każdy krok, od inicjalizacji obiektu Presentation i wykresu po konfigurację serii, osi i legend. Postępując zgodnie z tym przewodnikiem, zdobędziesz solidną wiedzę na temat integracji dynamicznego generowania wykresów w aplikacjach, usprawniając proces tworzenia prezentacji opartych na danych.
+Ten artykuł zawiera kompleksowy przewodnik, jak tworzyć i dostosowywać wykresy przy użyciu Aspose.Slides. Dowiesz się, jak programowo dodać wykres do slajdu, wypełnić go danymi i zastosować różne opcje formatowania, aby spełnić konkretne wymagania projektowe. W całym artykule szczegółowe przykłady kodu ilustrują każdy krok, od inicjalizacji prezentacji i obiektu wykresu po konfigurowanie serii, osi i legend. Postępując wg tego przewodnika, zdobędziesz solidną wiedzę o integracji dynamicznego generowania wykresów w aplikacjach, upraszczając proces tworzenia prezentacji opartych na danych.
 
-## **Utworzenie wykresu**
+## **Utwórz wykres**
 
 Wykresy pomagają szybko wizualizować dane i uzyskać wnioski, które nie są od razu oczywiste z tabeli lub arkusza kalkulacyjnego. 
 
 **Dlaczego tworzyć wykresy?**
 
-Używając wykresów, możesz
+Korzystając z wykresów, możesz
 
-* agregować, kondensować lub podsumowywać duże ilości danych na jednym slajdzie prezentacji
-* uwidaczniać wzorce i trendy w danych
-* wyciągać wnioski o kierunku i dynamice danych w czasie lub w odniesieniu do określonej jednostki miary 
-* wykrywać odstające wartości, anomalie, odchylenia, błędy, niespójne dane itp. 
-* komunikować lub prezentować złożone dane
+* zagregować, skondensować lub podsumować duże ilości danych na jednym slajdzie prezentacji
+* ujawnić wzorce i trendy w danych
+* wywnioskować kierunek i dynamikę danych w czasie lub w odniesieniu do określonej jednostki miary 
+* wykrywać wartości odstające, aberracje, odchylenia, błędy, nielogiczne dane itp. 
+* przekazywać lub prezentować złożone dane
 
 W programie PowerPoint możesz tworzyć wykresy za pomocą funkcji wstawiania, która udostępnia szablony używane do projektowania wielu typów wykresów. Korzystając z Aspose.Slides, możesz tworzyć standardowe wykresy (oparte na popularnych typach) oraz wykresy niestandardowe. 
 
 {{% alert color="info" %}} 
-Aby umożliwić tworzenie wykresów, Aspose.Slides udostępnia enum class [ChartType](https://reference.aspose.com/slides/pl/cpp/namespace/aspose.slides.charts#a23ba9ea390f5be4c8f5ab18baf4f8c05) w przestrzeni nazw [Aspose::Slides::Charts](https://reference.aspose.com/slides/pl/cpp/namespace/aspose.slides.charts/). Wartości w tym enum class odpowiadają różnym typom wykresów. 
+Aby umożliwić tworzenie wykresów, Aspose.Slides udostępnia klasę wyliczeniową [ChartType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/) w przestrzeni nazw [Aspose::Slides::Charts](https://reference.aspose.com/slides/cpp/namespace/aspose.slides.charts/). Wartości w tej klasie wyliczeniowej odpowiadają różnym typom wykresów.
 {{% /alert %}} 
 
-### **Utworzenie standardowych wykresów**
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.presentation). 
-1. Uzyskaj referencję do slajdu poprzez jego indeks. 
+### **Utwórz zwykłe wykresy**
+1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
+1. Uzyskaj referencję do slajdu za pomocą jego indeksu.
 1. Dodaj wykres z danymi i określ preferowany typ wykresu. 
 1. Dodaj tytuł wykresu. 
-1. Uzyskaj dostęp do arkusza danych wykresu. 
-1. Wyczyść wszystkie domyślne serie i kategorie. 
-1. Dodaj nowe serie i kategorie. 
-1. Dodaj nowe dane wykresu dla serii. 
-1. Dodaj kolor wypełnienia dla serii wykresu. 
+1. Uzyskaj dostęp do arkusza danych wykresu.
+1. Wyczyść wszystkie domyślne serie i kategorie.
+1. Dodaj nowe serie i kategorie.
+1. Dodaj nowe dane wykresu dla serii wykresu.
+1. Dodaj kolor wypełnienia dla serii wykresu.
 1. Dodaj etykiety dla serii wykresu. 
-1. Zapisz zmodyfikowaną prezentację jako plik PPTX. 
+1. Zapisz zmodyfikowaną prezentację jako plik PPTX.
 
-Ten kod C++ pokazuje, jak utworzyć standardowy wykres:
+Ten kod C++ pokazuje, jak utworzyć zwykły wykres:
 
 ```c++
 #include <DOM/Chart/ChartType.h>
@@ -104,7 +104,7 @@ using namespace System::Drawing;
 // Ścieżka do katalogu dokumentów.
 	const String outPath = u"../out/NormalCharts_out.pptx";
 
-	// Tworzy instancję klasy prezentacji, która reprezentuje plik PPTX
+	// Tworzy instancję klasy prezentacji reprezentującej plik PPTX
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
 	// Uzyskuje dostęp do pierwszego slajdu
@@ -151,7 +151,7 @@ using namespace System::Drawing;
 	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 2, 1, ObjectExt::Box<double>(50)));
 	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 3, 1, ObjectExt::Box<double>(30)));
 
-	// Ustawia kolor wypełnienia dla serii
+	// Ustawia kolor wypełnienia serii
 	series->get_Format()->get_Fill()->set_FillType(FillType::Solid);
 	series->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
 
@@ -164,12 +164,12 @@ using namespace System::Drawing;
 	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 2, 2, ObjectExt::Box<double>(10)));
 	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 3, 2, ObjectExt::Box<double>(60)));
 
-	// Ustawia kolor wypełnienia dla serii
+	// Ustawia kolor wypełnienia serii
 	series->get_Format()->get_Fill()->set_FillType(FillType::Solid);
 	series->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Green());
 
 
-	// Pierwsza etykieta jest ustawiona, aby wyświetlać nazwę kategorii
+	// Pierwsza etykieta jest ustawiona na wyświetlanie nazwy kategorii
 	SharedPtr<IDataLabel> lbl = series->get_DataPoints()->idx_get(0)->get_Label();
 	lbl->get_DataLabelFormat()->set_ShowCategoryName(true);
 
@@ -186,17 +186,17 @@ using namespace System::Drawing;
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-### **Utworzenie wykresów rozproszonych**
-Wykresy rozproszone (znane również jako wykresy punktowe lub wykresy x-y) są często używane do sprawdzania wzorców lub wykazywania korelacji między dwiema zmiennymi. 
+### **Utwórz wykresy rozproszone**
+Wykresy rozproszone (znane także jako wykresy punktowe lub wykresy x‑y) są często używane do sprawdzania wzorców lub demonstrowania korelacji między dwoma zmiennymi. 
 
 Możesz chcieć użyć wykresu rozproszonego, gdy 
 
-* masz sparowane dane numeryczne
-* masz 2 zmienne, które dobrze ze sobą współgrają
-* chcesz określić, czy 2 zmienne są ze sobą powiązane
-* masz zmienną niezależną, która ma wiele wartości dla zmiennej zależnej 
+* masz sparowane dane liczbowe
+* masz dwie zmienne, które dobrze ze sobą współgrają
+* chcesz określić, czy dwie zmienne są ze sobą powiązane
+* masz zmienną niezależną, która posiada wiele wartości dla zmiennej zależnej
 
-Ten kod C++ pokazuje, jak utworzyć wykres rozproszony z różnymi znacznikami serii: 
+Ten kod C++ pokazuje, jak utworzyć wykresy rozproszone z różnymi seriami znaczników: 
 
 ```c++
 #include <DOM/Chart/ChartType.h>
@@ -237,72 +237,72 @@ using namespace Aspose::Slides;
 using namespace Aspose::Slides::Charts;
 using namespace System;
 
-// Ścieżka do katalogu dokumentów.
+//	Ścieżka do katalogu dokumentów.
 	const String outPath = u"../out/ScatteredChart_out.pptx";
 
-	// Tworzy instancję klasy prezentacji, która reprezentuje plik PPTX
+	//	Tworzy instancję klasy prezentacji reprezentującej plik PPTX
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
-	// Uzyskuje dostęp do pierwszego slajdu
+	//	Uzyskuje dostęp do pierwszego slajdu
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
-	// Dodaje wykres z domyślnymi danymi
+	//	Dodaje wykres z domyślnymi danymi
 	SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::ScatterWithSmoothLines, 0, 0, 500, 500);
 
-	// Ustawia tytuł wykresu
+	//	Ustawia tytuł wykresu
 	chart->get_ChartTitle()->AddTextFrameForOverriding(u"Sample Title");
 	chart->get_ChartTitle()->get_TextFrameForOverriding()->get_TextFrameFormat()->set_CenterText(NullableBool::True);
 	chart->get_ChartTitle()->set_Height(20);
 	chart->set_HasTitle(true);
 
-	// Usuwa domyślnie wygenerowaną serię 
+	//	Usuwa domyślnie wygenerowane serie 
 	chart->get_ChartData()->get_Series()->Clear();
 	
-	//  Ustawia indeks arkusza danych wykresu
+	//	Ustawia indeks arkusza danych wykresu
 	int defaultWorksheetIndex = 0;
 
-	// Pobiera arkusz danych wykresu
+	//	Pobiera arkusz danych wykresu
 	SharedPtr<IChartDataWorkbook> fact = chart->get_ChartData()->get_ChartDataWorkbook();
 
 
-	// Dodaje nową serię
+	//	Dodaje nową serię
 	chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 1, 1, ObjectExt::Box<System::String>(u"Series 1")), chart->get_Type());
 	chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 1, 3, ObjectExt::Box<System::String>(u"Series 2")), chart->get_Type());
 
-	// Pobiera pierwszą serię wykresu
+	//	Pobiera pierwszą serię wykresu
 	SharedPtr<IChartSeries> series = chart->get_ChartData()->get_Series()->idx_get(0);
 
-	// Dodaje nowy punkt (1:3)
+	//	Dodaje nowy punkt (1:3)
 	series->get_DataPoints()->AddDataPointForScatterSeries(fact->GetCell(defaultWorksheetIndex, 2, 1, ObjectExt::Box<double>(1)), fact->GetCell(defaultWorksheetIndex, 2, 2, ObjectExt::Box<double>(3)));
 
-	// Dodaje nowy punkt (2:10)
+	//	Dodaje nowy punkt (2:10)
 	series->get_DataPoints()->AddDataPointForScatterSeries(fact->GetCell(defaultWorksheetIndex, 3, 1, ObjectExt::Box<double>(2)), fact->GetCell(defaultWorksheetIndex, 3, 2, ObjectExt::Box<double>(10)));
 
-	// Edytuje typ serii
+	//	Edytuje typ serii
 	series->set_Type (ChartType::ScatterWithStraightLinesAndMarkers);
 
-	// Zmienia znacznik serii wykresu
+	//	Zmienia znacznik serii wykresu
 	series->get_Marker()->set_Size  (10);
 	series->get_Marker()->set_Symbol(MarkerStyleType::Star);
 
 
 
-	// Pobiera drugą serię wykresu
+	//	Pobiera drugą serię wykresu
 	series  = chart->get_ChartData()->get_Series()->idx_get(1);
 
-	// Dodaje nowy punkt (5:2)
+	//	Dodaje nowy punkt (5:2)
 	series->get_DataPoints()->AddDataPointForScatterSeries(fact->GetCell(defaultWorksheetIndex, 2, 3, ObjectExt::Box<double>(5)), fact->GetCell(defaultWorksheetIndex, 2, 4, ObjectExt::Box<double>(2)));
 
-	// Dodaje nowy punkt (3:1)
+	//	Dodaje nowy punkt (3:1)
 	series->get_DataPoints()->AddDataPointForScatterSeries(fact->GetCell(defaultWorksheetIndex, 3, 3, ObjectExt::Box<double>(3)), fact->GetCell(defaultWorksheetIndex, 3, 4, ObjectExt::Box<double>(1)));
 
-	// Dodaje nowy punkt (2:2)
+	//	Dodaje nowy punkt (2:2)
 	series->get_DataPoints()->AddDataPointForScatterSeries(fact->GetCell(defaultWorksheetIndex, 4, 3, ObjectExt::Box<double>(2)), fact->GetCell(defaultWorksheetIndex, 4, 4, ObjectExt::Box<double>(2)));
 
-	// Dodaje nowy punkt (5:1)
+	//	Dodaje nowy punkt (5:1)
 	series->get_DataPoints()->AddDataPointForScatterSeries(fact->GetCell(defaultWorksheetIndex, 5, 3, ObjectExt::Box<double>(5)), fact->GetCell(defaultWorksheetIndex, 5, 4, ObjectExt::Box<double>(1)));
 
-	// Zmienia znacznik serii wykresu
+	//	Zmienia znacznik serii wykresu
 	series->get_Marker()->set_Size ( 10);
 	series->get_Marker()->set_Symbol(MarkerStyleType::Circle);
 
@@ -313,7 +313,7 @@ using namespace System;
 	SharedPtr<IChartDataPoint> point = series->get_DataPoints()->idx_get(0);
 	point->get_Format()->get_Fill()->set_FillType(FillType::Solid);
 	point->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Cyan());
-	// Ustawia obramowanie sektora
+	//	Ustawia obramowanie sektora
 	point->get_Format()->get_Line()->get_FillFormat()->set_FillType(FillType::Solid);
 	point->get_Format()->get_Line()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Gray());
 	point->get_Format()->get_Line()->set_Width ( 3.0);
@@ -324,7 +324,7 @@ using namespace System;
 	point1->get_Format()->get_Fill()->set_FillType(FillType::Solid);
 	point1->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Brown());
 
-	// Ustawia obramowanie sektora
+	//	Ustawia obramowanie sektora
 	point1->get_Format()->get_Line()->get_FillFormat()->set_FillType(FillType::Solid);
 	point1->get_Format()->get_Line()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Blue());
 	point1->get_Format()->get_Line()->set_Width (3.0);
@@ -336,7 +336,7 @@ using namespace System;
 	point2->get_Format()->get_Fill()->set_FillType(FillType::Solid);
 	point2->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Coral());
 
-	// Ustawia obramowanie sektora
+	//	Ustawia obramowanie sektora
 	point2->get_Format()->get_Line()->get_FillFormat()->set_FillType(FillType::Solid);
 	point2->get_Format()->get_Line()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
 	point2->get_Format()->get_Line()->set_Width ( 2.0);
@@ -344,7 +344,7 @@ using namespace System;
 	point2->get_Format()->get_Line()->set_DashStyle(LineDashStyle::LargeDashDotDot);
 
 
-	// Tworzy niestandardowe etykiety dla każdej kategorii nowej serii
+	//	Tworzy niestandardowe etykiety dla każdej kategorii nowej serii
 	SharedPtr<IDataLabel> lbl1 = series->get_DataPoints()->idx_get(0)->get_Label();
 
 	// lbl.ShowCategoryName = true;
@@ -361,32 +361,32 @@ using namespace System;
 	lbl3->get_DataLabelFormat()->set_ShowSeriesName(true);
 	lbl3->get_DataLabelFormat()->set_ShowPercentage(true);
 
-	// Wyświetla linie prowadzące dla wykresu
+	//	Wyświetla linie prowadzące dla wykresu
 	series->get_Labels()->get_DefaultDataLabelFormat()->set_ShowLeaderLines(true);
 
-	// Ustawia kąt obrotu sektorów wykresu kołowego
+	//	Ustawia kąt obrotu sektorów wykresu kołowego
 	chart->get_ChartData()->get_SeriesGroups()->idx_get(0)->set_FirstSliceAngle(180);
 
 
-	// Zapisuje prezentację
+	//	Zapisuje prezentację
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-### **Utworzenie wykresów kołowych**
-Wykresy kołowe najlepiej nadają się do przedstawiania stosunku części do całości w danych, szczególnie gdy dane zawierają etykiety kategoryczne z wartościami liczbowymi. Jednak jeśli dane zawierają wiele części lub etykiet, warto rozważyć użycie wykresu słupkowego. 
+### **Utwórz wykresy kołowe**
+Wykresy kołowe najlepiej służą do pokazania relacji część‑całość w danych, szczególnie gdy dane zawierają etykiety kategorialne z wartościami liczbowymi. Jednakże, jeśli Twoje dane zawierają wiele części lub etykiet, warto rozważyć użycie wykresu słupkowego. 
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.presentation). 
-1. Uzyskaj referencję do slajdu poprzez jego indeks. 
-1. Dodaj wykres z domyślnymi danymi oraz żądanym typem (w tym przypadku `ChartType.Pie`). 
-1. Uzyskaj dostęp do danych wykresu IChartDataWorkbook. 
-1. Wyczyść domyślne serie i kategorie. 
-1. Dodaj nowe serie i kategorie. 
-1. Dodaj nowe dane wykresu dla serii. 
-1. Dodaj nowe punkty do wykresu i niestandardowe kolory dla sektorów wykresu kołowego. 
-1. Ustaw etykiety dla serii. 
-1. Ustaw linie prowadzące dla etykiet serii. 
-1. Ustaw kąt obrotu dla slajdów wykresu kołowego. 
-1. Zapisz zmodyfikowaną prezentację jako plik PPTX 
+1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
+1. Uzyskaj referencję do slajdu za pomocą jego indeksu.
+1. Dodaj wykres z domyślnymi danymi oraz wybranym typem (w tym przypadku `ChartType.Pie`).
+1. Uzyskaj dostęp do danych wykresu `IChartDataWorkbook`.
+1. Wyczyść domyślne serie i kategorie.
+1. Dodaj nowe serie i kategorie.
+1. Dodaj nowe dane wykresu dla serii wykresu.
+1. Dodaj nowe punkty dla wykresu i niestandardowe kolory dla sektorów wykresu kołowego.
+1. Ustaw etykiety dla serii.
+1. Ustaw linie prowadzące dla etykiet serii.
+1. Ustaw kąt obrotu dla slajdów wykresu kołowego.
+1. Zapisz zmodyfikowaną prezentację jako plik PPTX
 
 Ten kod C++ pokazuje, jak utworzyć wykres kołowy:
 
@@ -431,7 +431,7 @@ using namespace System;
 	// Ścieżka do katalogu dokumentów.
 	const String outPath = u"../out/PieChart_out.pptx";
 
-	//Instancja klasy Presentation, która reprezentuje plik PPTX
+	//Tworzy instancję klasy Presentation, która reprezentuje plik PPTX
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
 	//Uzyskuje dostęp do pierwszego slajdu
@@ -525,7 +525,7 @@ using namespace System;
 	lbl3->get_DataLabelFormat()->set_ShowSeriesName(true);
 	lbl3->get_DataLabelFormat()->set_ShowPercentage(true);
 
-	// Ustawia serię, aby wyświetlała linie prowadzące dla wykresu
+	// Ustawia serię, aby wyświetlała linie prowadzące na wykresie
 	series->get_Labels()->get_DefaultDataLabelFormat()->set_ShowLeaderLines ( true);
 
 	// Ustawia kąt obrotu sektorów wykresu kołowego
@@ -536,18 +536,18 @@ using namespace System;
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-### **Utworzenie wykresów liniowych**
+### **Utwórz wykresy liniowe**
 
-Wykresy liniowe (znane również jako wykresy liniowe) są najlepsze w sytuacjach, gdy chcesz pokazać zmiany wartości w czasie. Używając wykresu liniowego, możesz jednocześnie porównać wiele danych, śledzić zmiany i trendy w czasie, podkreślać anomalie w seriach danych itp.
+Wykresy liniowe (znane także jako wykresy liniowe) są najlepsze w sytuacjach, gdy chcesz przedstawić zmiany wartości w czasie. Korzystając z wykresu liniowego, możesz porównać wiele danych jednocześnie, śledzić zmiany i trendy w czasie, podkreślać anomalie w seriach danych itp.
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.presentation). 
-1. Uzyskaj referencję do slajdu poprzez jego indeks. 
-1. Dodaj wykres z domyślnymi danymi oraz żądanym typem (w tym przypadku `ChartType::Line`). 
-1. Uzyskaj dostęp do danych wykresu IChartDataWorkbook. 
-1. Wyczyść domyślne serie i kategorie. 
-1. Dodaj nowe serie i kategorie. 
-1. Dodaj nowe dane wykresu dla serii. 
-1. Zapisz zmodyfikowaną prezentację jako plik PPTX 
+1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
+1. Uzyskaj referencję do slajdu za pomocą jego indeksu.
+1. Dodaj wykres z domyślnymi danymi oraz wybranym typem (w tym przypadku `ChartType::Line`).
+1. Uzyskaj dostęp do danych wykresu `IChartDataWorkbook`.
+1. Wyczyść domyślne serie i kategorie.
+1. Dodaj nowe serie i kategorie.
+1. Dodaj nowe dane wykresu dla serii wykresu.
+1. Zapisz zmodyfikowaną prezentację jako plik PPTX
 
 Ten kod C++ pokazuje, jak utworzyć wykres liniowy:
 
@@ -569,7 +569,7 @@ System::SharedPtr<IChart> lineChart = pres->get_Slides()->idx_get(0)->get_Shapes
 pres->Save(u"lineChart.pptx", SaveFormat::Pptx);
 ```
 
-Domyślnie punkty na wykresie liniowym są połączone prostymi ciągłymi liniami. Jeśli chcesz, aby punkty były łączone kreskami, możesz określić preferowany typ kreski w następujący sposób:
+Domyślnie punkty na wykresie liniowym są połączone prostymi liniami ciągłymi. Jeśli chcesz, aby punkty były połączone kreskami, możesz określić preferowany typ kreski w ten sposób:
 
 ```c++
 #include <DOM/Chart/ChartType.h>
@@ -596,20 +596,20 @@ for (auto&& series : lineChart->get_ChartData()->get_Series())
 }
 ```
 
-### **Utworzenie wykresów mapy drzewa**
+### **Utwórz wykresy mapowe (Tree Map)**
 
-Tree map charts są najlepsze dla danych sprzedażowych, gdy chcesz pokazać względny rozmiar kategorii danych i jednocześnie szybko zwrócić uwagę na pozycje, które są dużymi wkładami w każdą kategorię. 
+Wykresy mapowe są najlepsze dla danych sprzedażowych, gdy chcesz pokazać względny rozmiar kategorii danych i jednocześnie szybko zwrócić uwagę na pozycje, które są dużymi wkładami w każdą kategorię. 
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.presentation). 
-1. Uzyskaj referencję do slajdu poprzez jego indeks. 
-1. Dodaj wykres z domyślnymi danymi oraz żądanym typem (w tym przypadku `ChartType.TreeMap`). 
-1. Uzyskaj dostęp do danych wykresu IChartDataWorkbook. 
-1. Wyczyść domyślne serie i kategorie. 
-1. Dodaj nowe serie i kategorie. 
-1. Dodaj nowe dane wykresu dla serii. 
-1. Zapisz zmodyfikowaną prezentację jako plik PPTX 
+1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
+1. Uzyskaj referencję do slajdu za pomocą jego indeksu.
+1. Dodaj wykres z domyślnymi danymi oraz wybranym typem (w tym przypadku `ChartType.TreeMap`).
+1. Uzyskaj dostęp do danych wykresu `IChartDataWorkbook`.
+1. Wyczyść domyślne serie i kategorie.
+1. Dodaj nowe serie i kategorie.
+1. Dodaj nowe dane wykresu dla serii wykresu.
+1. Zapisz zmodyfikowaną prezentację jako plik PPTX
 
-Ten kod C++ pokazuje, jak utworzyć wykres mapy drzewa:
+Ten kod C++ pokazuje, jak utworzyć wykres mapowy:
 
 ```c++
 #include <DOM/Chart/ChartType.h>
@@ -639,7 +639,7 @@ using namespace System;
 // Ścieżka do katalogu dokumentów.
 	const String outPath = u"../out/TreemapChart_out.pptx";
 
-	//Tworzy instancję klasy Presentation, która reprezentuje plik PPTX
+	// Tworzy instancję klasy Presentation, która reprezentuje plik PPTX
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
 	// Uzyskuje dostęp do pierwszego slajdu
@@ -695,19 +695,18 @@ using namespace System;
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-### **Utworzenie wykresów giełdowych**
+### **Utwórz wykresy giełdowe (Stock)**
+1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
+1. Uzyskaj referencję do slajdu za pomocą jego indeksu.
+1. Dodaj wykres z domyślnymi danymi oraz wybranym typem (`ChartType.OpenHighLowClose`).
+1. Uzyskaj dostęp do danych wykresu `IChartDataWorkbook`.
+1. Wyczyść domyślne serie i kategorie.
+1. Dodaj nowe serie i kategorie.
+1. Dodaj nowe dane wykresu dla serii wykresu.
+1. Określ format HiLowLines.
+1. Zapisz zmodyfikowaną prezentację jako plik PPTX
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.presentation). 
-1. Uzyskaj referencję do slajdu poprzez jego indeks. 
-1. Dodaj wykres z domyślnymi danymi oraz żądanym typem (ChartType.OpenHighLowClose). 
-1. Uzyskaj dostęp do danych wykresu IChartDataWorkbook. 
-1. Wyczyść domyślne serie i kategorie. 
-1. Dodaj nowe serie i kategorie. 
-1. Dodaj nowe dane wykresu dla serii. 
-1. Określ format HiLowLines. 
-1. Zapisz zmodyfikowaną prezentację jako plik PPTX 
-
-Przykładowy kod C++ używany do stworzenia wykresu giełdowego:
+Przykładowy kod C++ używany do utworzenia wykresu giełdowego:
 
 ```c++
 #include <DOM/Chart/ChartType.h>
@@ -740,10 +739,10 @@ using namespace System;
 	// Ścieżka do katalogu dokumentów.
 	const String outPath = u"../out/AddStockChart_out.pptx";
 
-	//Tworzy instancję klasy Presentation, która reprezentuje plik PPTX
+	// Tworzy instancję klasy Presentation, która reprezentuje plik PPTX
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
-	//Uzyskuje dostęp do pierwszego slajdu
+	// Uzyskuje dostęp do pierwszego slajdu
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
 	// Dodaje wykres z domyślnymi danymi
@@ -815,16 +814,15 @@ using namespace System;
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-### **Utworzenie wykresów pudełkowo-wąsowych**
-
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.presentation). 
-1. Uzyskaj referencję do slajdu poprzez jego indeks. 
-1. Dodaj wykres z domyślnymi danymi oraz żądanym typem (ChartType.BoxAndWhisker). 
-1. Uzyskaj dostęp do danych wykresu IChartDataWorkbook. 
-1. Wyczyść domyślne serie i kategorie. 
-1. Dodaj nowe serie i kategorie. 
-1. Dodaj nowe dane wykresu dla serii. 
-1. Zapisz zmodyfikowaną prezentację jako plik PPTX 
+### **Utwórz wykresy pudełkowo‑wąsowe (Box and Whisker)**
+1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
+1. Uzyskaj referencję do slajdu za pomocą jego indeksu.
+1. Dodaj wykres z domyślnymi danymi oraz wybranym typem (`ChartType.BoxAndWhisker`).
+1. Uzyskaj dostęp do danych wykresu `IChartDataWorkbook`.
+1. Wyczyść domyślne serie i kategorie.
+1. Dodaj nowe serie i kategorie.
+1. Dodaj nowe dane wykresu dla serii wykresu.
+1. Zapisz zmodyfikowaną prezentację jako plik PPTX
 
 Ten kod C++ pokazuje, jak utworzyć wykres pudełkowo‑wąsowy:
 
@@ -893,12 +891,11 @@ using namespace System;
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-### **Utworzenie wykresów lejkowych**
-
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.presentation). 
-1. Uzyskaj referencję do slajdu poprzez jego indeks. 
-1. Dodaj wykres z domyślnymi danymi oraz żądanym typem (ChartType.Funnel). 
-1. Zapisz zmodyfikowaną prezentację jako plik PPTX 
+### **Utwórz wykresy lejkowe (Funnel)**
+1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
+1. Uzyskaj referencję do slajdu za pomocą jego indeksu.
+1. Dodaj wykres z domyślnymi danymi oraz wybranym typem (`ChartType.Funnel`).
+1. Zapisz zmodyfikowaną prezentację jako plik PPTX
 
 Ten kod C++ pokazuje, jak utworzyć wykres lejkowy:
 
@@ -960,12 +957,11 @@ using namespace System;
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-### **Utworzenie wykresów promieniowych**
-
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.presentation). 
-1. Uzyskaj referencję do slajdu poprzez jego indeks. 
-1. Dodaj wykres z domyślnymi danymi oraz żądanym typem (w tym przypadku `ChartType.sunburst`). 
-1. Zapisz zmodyfikowaną prezentację jako plik PPTX 
+### **Utwórz wykresy promieniowe (Sunburst)**
+1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
+1. Uzyskaj referencję do slajdu za pomocą jego indeksu.
+1. Dodaj wykres z domyślnymi danymi oraz wybranym typem (w tym przypadku `ChartType.sunburst`).
+1. Zapisz zmodyfikowaną prezentację jako plik PPTX
 
 Ten kod C++ pokazuje, jak utworzyć wykres promieniowy:
 
@@ -1045,20 +1041,19 @@ using namespace System;
 	series->get_DataPoints()->AddDataPointForSunburstSeries(wb->GetCell(0, u"D7", System::ObjectExt::Box<int32_t>(4)));
 	series->get_DataPoints()->AddDataPointForSunburstSeries(wb->GetCell(0, u"D8", System::ObjectExt::Box<int32_t>(3)));
 
-	// Zapisuje plik prezentacji na dysk
+	// Zapisuje plik prezentacji na dysku
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 
 ```
 
-### **Utworzenie wykresów histogramu**
-
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.presentation). 
-1. Uzyskaj referencję do slajdu poprzez jego indeks. 
-1. Dodaj wykres z danymi i określ preferowany typ wykresu (`ChartType.Histogram` w tym przypadku). 
-1. Uzyskaj dostęp do danych wykresu `IChartDataWorkbook`. 
-1. Wyczyść domyślne serie i kategorie. 
-1. Dodaj nowe serie i kategorie. 
-1. Zapisz zmodyfikowaną prezentację jako plik PPTX. 
+### **Utwórz wykresy histogramu**
+1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
+1. Uzyskaj referencję do slajdu za pomocą jego indeksu. 
+1. Dodaj wykres z danymi i określ preferowany typ wykresu (`ChartType.Histogram` w tym przypadku).
+1. Uzyskaj dostęp do danych wykresu `IChartDataWorkbook`.
+1. Wyczyść domyślne serie i kategorie.
+1. Dodaj nowe serie i kategorie.
+1. Zapisz zmodyfikowaną prezentację jako plik PPTX.
 
 Ten kod C++ pokazuje, jak utworzyć wykres histogramu:
 
@@ -1088,10 +1083,10 @@ using namespace System;
 	// Ścieżka do katalogu dokumentów.
 	const String outPath = u"../out/HistogramChart_out.pptx";
 
-	// Tworzy instancję klasy Presentation, która reprezentuje plik PPTX
+	// Tworzy instancję klasy Presentation, która reprezentuje plik PPTX.
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
-	// Uzyskuje dostęp do pierwszego slajdu
+	// Uzyskuje dostęp do pierwszego slajdu.
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
 	System::SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::Histogram, 50, 50, 500, 400);
@@ -1112,16 +1107,15 @@ using namespace System;
 
 	chart->get_Axes()->get_HorizontalAxis()->set_AggregationType(Aspose::Slides::Charts::AxisAggregationType::Automatic);
 
-	// Zapisuje prezentację
+	// Zapisuje prezentację.
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-### **Utworzenie wykresów radarowych**
-
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.presentation). 
-1. Uzyskaj referencję do slajdu poprzez jego indeks. 
-1. Dodaj wykres z danymi i określ preferowany typ wykresu (`ChartType.Radar` w tym przypadku). 
-1. Zapisz zmodyfikowaną prezentację jako plik PPTX 
+### **Utwórz wykresy radarowe**
+1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
+1. Uzyskaj referencję do slajdu za pomocą jego indeksu. 
+1. Dodaj wykres z danymi i określ preferowany typ wykresu (`ChartType.Radar` w tym przypadku).
+1. Zapisz zmodyfikowaną prezentację jako plik PPTX
 
 Ten kod C++ pokazuje, jak utworzyć wykres radarowy:
 
@@ -1140,16 +1134,15 @@ presentation->get_Slides()->idx_get(0)->get_Shapes()->AddChart(Aspose::Slides::C
 presentation->Save(u"Radar-chart.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-### **Utworzenie wykresów wielokategorialnych**
-
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.presentation). 
-1. Uzyskaj referencję do slajdu poprzez jego indeks. 
-1. Dodaj wykres z domyślnymi danymi oraz żądanym typem (ChartType.ClusteredColumn). 
-1. Uzyskaj dostęp do danych wykresu IChartDataWorkbook. 
-1. Wyczyść domyślne serie i kategorie. 
-1. Dodaj nowe serie i kategorie. 
-1. Dodaj nowe dane wykresu dla serii. 
-1. Zapisz zmodyfikowaną prezentację jako plik PPTX. 
+### **Utwórz wykresy wielokategorialne**
+1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
+1. Uzyskaj referencję do slajdu za pomocą jego indeksu.
+1. Dodaj wykres z domyślnymi danymi oraz wybranym typem (`ChartType.ClusteredColumn`).
+1. Uzyskaj dostęp do danych wykresu `IChartDataWorkbook`.
+1. Wyczyść domyślne serie i kategorie.
+1. Dodaj nowe serie i kategorie.
+1. Dodaj nowe dane wykresu dla serii wykresu.
+1. Zapisz zmodyfikowaną prezentację jako plik PPTX.
 
 Ten kod C++ pokazuje, jak utworzyć wykres wielokategorialny:
 
@@ -1179,29 +1172,29 @@ using namespace System;
 	// Ścieżka do katalogu dokumentów.
 	const String outPath = u"../out/MultiCategoryChart_out.pptx";
 
-	//Tworzy instancję klasy Presentation, która reprezentuje plik PPTX
+	// Tworzy instancję klasy Presentation, która reprezentuje plik PPTX.
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
-	//Uzyskuje dostęp do pierwszego slajdu
+	// Uzyskuje dostęp do pierwszego slajdu.
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
-	// Dodaje wykres z domyślnymi danymi
+	// Dodaje wykres z domyślnymi danymi.
 	SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::ClusteredColumn, 0, 0, 500, 500);
 
-	// Ustawia indeks arkusza danych wykresu
+	// Ustawia indeks arkusza danych wykresu.
 	int defaultWorksheetIndex = 0;
 
-	// Pobiera arkusz danych wykresu
+	// Pobiera arkusz danych wykresu.
 	SharedPtr<IChartDataWorkbook> fact = chart->get_ChartData()->get_ChartDataWorkbook();
 
-	// Czyści skoroszyt
+	// Czyści skoroszyt.
 	fact->Clear(defaultWorksheetIndex);
 
 	chart->get_ChartData()->get_Series()->Clear();
 	chart->get_ChartData()->get_Categories()->Clear();
 
 
-	// Dodaje kategorie
+	// Dodaje kategorie.
 	SharedPtr<IChartCategory> category = chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, u"c2", ObjectExt::Box<System::String>(u"A")));
 	category->get_GroupingLevels()->SetGroupingItem(1, ObjectExt::Box<System::String>(u"Group1"));
 	chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, u"c3", ObjectExt::Box<System::String>(u"B")));
@@ -1219,7 +1212,7 @@ using namespace System;
 	category->get_GroupingLevels()->SetGroupingItem(1, ObjectExt::Box<System::String>(u"Group4"));
 	chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, u"c9", ObjectExt::Box<System::String>(u"H")));
 
-	// Dodaje nową serię
+	// Dodaje nową serię.
 	SharedPtr<IChartSeries>  series = chart->get_ChartData()->get_Series()->Add(fact->GetCell(0, u"D1", ObjectExt::Box<System::String>(u"Series 1")),
 		ChartType::ClusteredColumn);
 
@@ -1232,13 +1225,12 @@ using namespace System;
 	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, u"D8", ObjectExt::Box<double>(70)));
 	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, u"D9", ObjectExt::Box<double>(80)));
 
-	// Zapisuje prezentację
+	// Zapisuje prezentację.
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-### **Utworzenie wykresów mapowych**
-
-Wykres mapowy jest wizualizacją obszaru zawierającego dane. Wykresy mapowe są najlepsze do porównywania danych lub wartości w różnych regionach geograficznych.
+### **Utwórz wykresy mapowe**
+Wykres mapowy to wizualizacja obszaru zawierającego dane. Wykresy mapowe są najlepsze do porównywania danych lub wartości pomiędzy regionami geograficznymi.
 
 Ten kod C++ pokazuje, jak utworzyć wykres mapowy:
 
@@ -1259,13 +1251,12 @@ auto chart = slide->get_Shapes()->AddChart(ChartType::Map, 50.0f, 50.0f, 500.0f,
 pres->Save(u"mapChart.pptx", SaveFormat::Pptx);
 ```
 
-### **Utworzenie wykresów kombinowanych**
+### **Utwórz wykresy kombinowane**
+Wykres kombinowany (lub wykres combo) łączy dwa lub więcej typów wykresów w jednym wykresie. Ten wykres pozwala podkreślić, porównać lub przeanalizować różnice pomiędzy dwoma lub więcej zestawami danych, pomagając zidentyfikować zależności między nimi.
 
-Wykres kombinowany (lub wykres combo) łączy dwa lub więcej typów wykresów w jednym diagramie. Ten wykres pozwala podkreślić, porównać lub zbadać różnice między dwoma lub więcej zestawami danych, pomagając zidentyfikować zależności między nimi.
+![Wykres kombinowany](combination_chart.png)
 
-![The combination chart](combination_chart.png)
-
-Poniższy kod C++ pokazuje, jak utworzyć kombinowany wykres przedstawiony powyżej w prezentacji PowerPoint:
+Poniższy kod C++ pokazuje, jak stworzyć powyższy wykres kombinowany w prezentacji PowerPoint:
 
 ```cpp
 #include <DOM/Chart/AxisPositionType.h>
@@ -1458,15 +1449,15 @@ static void CreateComboChart()
 }
 ```
 
-## **Aktualizacja wykresów**
+## **Aktualizuj wykresy**
 
-1. Zainstaluj klasę [Presentation](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.presentation), która reprezentuje prezentację zawierającą wykres. 
-2. Uzyskaj referencję do slajdu poprzez jego indeks. 
-3. Przejdź przez wszystkie kształty, aby znaleźć żądany wykres. 
-4. Uzyskaj dostęp do arkusza danych wykresu. 
-5. Zmodyfikuj dane serii wykresu, zmieniając wartości serii. 
-6. Dodaj nową serię i wypełnij ją danymi. 
-7. Zapisz zmodyfikowaną prezentację jako plik PPTX. 
+1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) reprezentującej prezentację zawierającą wykres.
+2. Uzyskaj referencję do slajdu za pomocą jego indeksu.
+3. Przejdź przez wszystkie kształty, aby znaleźć żądany wykres.
+4. Uzyskaj dostęp do arkusza danych wykresu.
+5. Zmodyfikuj dane serii wykresu, zmieniając wartości serii.
+6. Dodaj nową serię i wypełnij ją danymi.
+7. Zapisz zmodyfikowaną prezentację jako plik PPTX.
 
 Ten kod C++ pokazuje, jak zaktualizować wykres:
 
@@ -1516,7 +1507,7 @@ fact->GetCell(defaultWorksheetIndex, 0, 1, System::ObjectExt::Box<System::String
 // Modyfikowanie nazwy serii
 series->get_DataPoints()->idx_get(0)->get_Value()->set_Data(System::ObjectExt::Box<int32_t>(90));
 series->get_DataPoints()->idx_get(1)->get_Value()->set_Data(System::ObjectExt::Box<int32_t>(123));
-series->get_DataPoints()->idx_get(2)->get_Value()->set_Data(System::ObjectExt::Box<int32_t>(44));
+series->get_DataPoints()->idx_get(2)->set_Value(System::ObjectExt::Box<int32_t>(44));
 
 // Pobiera drugą serię wykresu
 series = chart->get_ChartData()->get_Series()->idx_get(1);
@@ -1546,13 +1537,15 @@ chart->set_Type(Aspose::Slides::Charts::ChartType::ClusteredCylinder);
 pres->Save(u"AsposeChartModified_out.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-## **Ustawienie zakresu danych dla wykresów**
+## **Ustaw zakres danych dla wykresów**
 
-1. Otwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.presentation) zawierającą wykres. 
-2. Uzyskaj referencję do slajdu poprzez jego indeks. 
-3. Przejdź przez wszystkie kształty, aby znaleźć żądany wykres. 
-4. Uzyskaj dostęp do danych wykresu i ustaw zakres. 
-5. Zapisz zmodyfikowaną prezentację jako plik PPTX. 
+Aby sprawdzić zakres już używany przez istniejący wykres, zobacz [Retrieve a Chart's Data Range](/slides/pl/cpp/chart-workbook/#retrieve-a-charts-data-range).
+
+1. Otwórz instancję klasy [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) zawierającą wykres.
+2. Uzyskaj referencję do slajdu za pomocą jego indeksu.
+3. Przejdź przez wszystkie kształty, aby znaleźć żądany wykres.
+4. Uzyskaj dostęp do danych wykresu i ustaw zakres.
+5. Zapisz zmodyfikowaną prezentację jako plik PPTX.
 
 Ten kod C++ pokazuje, jak ustawić zakres danych dla wykresu:
 
@@ -1583,9 +1576,8 @@ chart->get_ChartData()->SetRange(u"Sheet1!A1:B4");
 presentation->Save(dataDir + u"SetDataRange_out.pptx", SaveFormat::Pptx);
 ```
 
-## **Użycie domyślnych znaczników w wykresach**
-
-Gdy używasz domyślnego znacznika w wykresach, każda seria wykresu automatycznie otrzymuje inny domyślny symbol znacznika.
+## **Używaj domyślnych znaczników w wykresach**
+Kiedy używasz domyślnego znacznika w wykresach, każda seria wykresu otrzymuje automatycznie inny domyślny symbol znacznika.
 
 Ten kod C++ pokazuje, jak automatycznie ustawić znacznik serii wykresu:
 
@@ -1656,16 +1648,16 @@ pres->Save(dataDir + u"DefaultMarkersInChart.pptx", SaveFormat::Pptx);
 
 **Jakie typy wykresów są obsługiwane przez Aspose.Slides?**
 
-Aspose.Slides obsługuje szeroką gamę typów wykresów, w tym słupkowe, liniowe, kołowe, powierzchniowe, punktowe, histogram, radar i wiele innych. Ta elastyczność pozwala wybrać najodpowiedniejszy typ wykresu do potrzeb wizualizacji danych.
+Aspose.Slides obsługuje szeroką gamę typów wykresów, w tym słupkowe, liniowe, kołowe, powierzchniowe, punktowe, histogramy, radarowe i wiele innych. Ta elastyczność pozwala wybrać najbardziej odpowiedni typ wykresu do potrzeb wizualizacji danych.
 
 **Jak dodać nowy wykres do slajdu?**
 
-Aby dodać wykres, najpierw tworzysz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/cpp/aspose.slides/presentation/), pobierasz żądany slajd przy użyciu jego indeksu, a następnie wywołujesz metodę dodania wykresu, określając typ wykresu i początkowe dane. Proces ten integruje wykres bezpośrednio w Twojej prezentacji.
+Aby dodać wykres, najpierw utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) , pobierz żądany slajd za pomocą jego indeksu, a następnie wywołaj metodę dodającą wykres, określając typ wykresu i początkowe dane. Proces ten integruje wykres bezpośrednio w prezentacji.
 
 **Jak mogę zaktualizować dane wyświetlane w wykresie?**
 
-Możesz zaktualizować dane wykresu, uzyskując dostęp do jego skoroszytu danych ([IChartDataWorkbook](https://reference.aspose.com/slides/pl/cpp/aspose.slides.charts/ichartdataworkbook/)), czyszcząc domyślne serie i kategorie, a następnie dodając własne dane. Umożliwia to programowe odświeżenie wykresu, aby odzwierciedlił najnowsze dane.
+Możesz zaktualizować dane wykresu, uzyskując dostęp do jego skoroszytu danych ([IChartDataWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/)), czyszcząc domyślne serie i kategorie, a następnie dodając własne dane. Pozwala to programowo odświeżyć wykres, aby odzwierciedlał najnowsze informacje.
 
 **Czy można dostosować wygląd wykresu?**
 
-Tak, Aspose.Slides oferuje rozbudowane opcje personalizacji. Możesz modyfikować kolory, czcionki, etykiety, legendy i inne elementy formatowania, aby dopasować wygląd wykresu do konkretnych wymagań projektowych.
+Tak, Aspose.Slides oferuje rozbudowane opcje dostosowywania. Możesz modyfikować kolory, czcionki, etykiety, legendy i inne elementy formatowania, aby dopasować wygląd wykresu do konkretnych wymagań projektowych.

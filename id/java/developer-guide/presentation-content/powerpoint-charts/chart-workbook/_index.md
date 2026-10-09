@@ -23,17 +23,17 @@ description: "Temukan Aspose.Slides untuk Java: kelola buku kerja grafik dengan 
 ---
 ## **Gambaran Umum**
 
-Artikel ini menjelaskan cara bekerja dengan buku kerja grafik di Aspose.Slides. Artikel ini menunjukkan cara membaca dan menulis data grafik melalui aliran buku kerja, menggunakan sel buku kerja sebagai label data grafik, mengakses koleksi lembar kerja, dan menentukan tipe sumber data untuk nilai grafik.
+Artikel ini menjelaskan cara bekerja dengan buku kerja grafik di Aspose.Slides. Artikel ini menunjukkan cara membaca dan menulis data grafik melalui aliran buku kerja, menggunakan sel buku kerja sebagai label data grafik, mengakses koleksi lembar kerja, dan menentukan jenis sumber data untuk nilai grafik.
 
-Artikel ini juga mencakup penggunaan buku kerja eksternal sebagai sumber data grafik. Contoh-contoh memperlihatkan cara membuat dan menetapkan buku kerja eksternal, mengambil jalur buku kerja eksternal yang terhubung ke sebuah grafik, serta mengedit data grafik ketika buku kerja tersedia.
+Artikel ini juga membahas penggunaan buku kerja eksternal sebagai sumber data grafik. Contoh-contoh menunjukkan cara membuat dan menetapkan buku kerja eksternal, mengambil jalur buku kerja eksternal yang ditautkan ke grafik, dan menyunting data grafik ketika buku kerja tersedia.
 
-Untuk sel buku kerja yang mewakili data yang hilang, lihat [Kontrol Tampilan Sel Kosong](/slides/id/java/chart-series/) untuk perbedaan antara sel kosong dan nol, serta perbandingan grafik garis dari mode tampilan yang tersedia.
+Untuk sel buku kerja yang mewakili data yang hilang, lihat [Kontrol Tampilan Sel Kosong](/slides/id/java/chart-series/) untuk perbedaan antara sel kosong dan nol, serta perbandingan diagram garis dari mode tampilan yang tersedia.
 
 ## **Sertakan Data dari Baris dan Kolom Tersembunyi**
 
-Gunakan [IChart.setPlotVisibleCellsOnly](https://reference.aspose.com/slides/id/java/com.aspose.slides/ichart/#setPlotVisibleCellsOnly-boolean-) untuk mengontrol apakah grafik memplot data dari baris dan kolom lembar kerja yang tersembunyi. Atur ke `true` untuk memplot hanya sel yang terlihat, atau `false` untuk menyertakan sel yang terlihat dan tersembunyi. Pengaturan ini mengontrol pemetaan grafik; ia tidak menyembunyikan atau menampilkan kembali baris atau kolom lembar kerja.
+Gunakan [IChart.setPlotVisibleCellsOnly](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#setPlotVisibleCellsOnly-boolean-) untuk mengontrol apakah grafik memplot data dari baris dan kolom lembar kerja yang tersembunyi. Atur ke `true` untuk memplot hanya sel yang terlihat, atau `false` untuk menyertakan sel yang terlihat dan tersembunyi. Pengaturan ini mengontrol pemetaan grafik; tidak menyembunyikan atau menampilkan kembali baris atau kolom lembar kerja.
 
-Unduh [hidden-source-data.pptx](hidden-source-data.pptx) dan letakkan di direktori kerja. Slide pertama berisi grafik kolom sebagai bentuk pertama. Lembar kerja yang disematkan, `Sheet1`, berisi rentang sumber berikut, `A1:C4`. Baris 3 dan kolom C tersembunyi, tetapi sel‑selnya tetap berisi nilai.
+[presentasi contoh](hidden-source-data.pptx) berisi diagram kolom sebagai bentuk pertama pada slide pertama. Lembar kerja yang tertanam, `Sheet1`, berisi rentang sumber berikut, `A1:C4`. Baris 3 dan kolom C tersembunyi, tetapi sel‑selnya tetap berisi nilai.
 
 | Baris lembar kerja | A: Bulan | B: Ritel | C: Grosir (kolom tersembunyi) |
 | --- | --- | --- | --- |
@@ -41,9 +41,9 @@ Unduh [hidden-source-data.pptx](hidden-source-data.pptx) dan letakkan di direkto
 | 3 (baris tersembunyi) | Februari | 40 | 60 |
 | 4 | Maret | 20 | 50 |
 
-Akses sel sumber melalui [IChartData.getChartDataWorkbook](https://reference.aspose.com/slides/id/java/com.aspose.slides/ichartdata/#getChartDataWorkbook--) dan baca [IChartDataCell.isHidden](https://reference.aspose.com/slides/id/java/com.aspose.slides/ichartdatacell/#isHidden--) untuk memeriksa status tersembunyi mereka. Metode ini melaporkan status tersembunyi tanpa mengubahnya. Pada file ini, B2 terlihat, B3 termasuk dalam baris tersembunyi, dan C2 termasuk dalam kolom tersembunyi; contoh mencetak `false`, `true`, dan `true` secara berurutan.
+Akses sel sumber melalui [IChartData.getChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#getChartDataWorkbook--) dan baca [IChartDataCell.isHidden](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatacell/#isHidden--) untuk memeriksa status tersembunyi mereka. Metode ini melaporkan status tersembunyi tanpa mengubahnya. Dalam file ini, B2 terlihat, B3 termasuk dalam baris tersembunyi, dan C2 termasuk dalam kolom tersembunyi; contoh mencetak `false`, `true`, dan `true` masing‑masing.
 
-Untuk contoh ini, segarkan data grafik setelah mengubah pengaturan pemetaan: pertahankan buku kerja yang disematkan dengan [readWorkbookStream](https://reference.aspose.com/slides/id/java/com.aspose.slides/ichartdata/#readWorkbookStream--) dan muat kembali dengan [writeWorkbookStream](https://reference.aspose.com/slides/id/java/com.aspose.slides/ichartdata/#writeWorkbookStream-byte:A-). Saat menyertakan semua sel, gunakan juga [setRange](https://reference.aspose.com/slides/id/java/com.aspose.slides/ichartdata/#setRange-java.lang.String-) untuk mengembalikan rentang lengkap, termasuk kategori Februari yang tersembunyi. Mengubah flag saja tidak cukup untuk menyegarkan data grafik dan label kategori yang di‑cache pada contoh ini.
+Untuk contoh ini, segarkan data grafik setelah mengubah pengaturan pemetaan: pertahankan buku kerja tertanam dengan [readWorkbookStream](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#readWorkbookStream--) dan muat ulang dengan [writeWorkbookStream](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#writeWorkbookStream-byte---). Saat menyertakan semua sel, juga gunakan [setRange](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#setRange-java.lang.String-) untuk mengembalikan rentang lengkap, termasuk kategori Februari yang tersembunyi. Mengubah flag saja tidak cukup untuk menyegarkan data grafik yang di‑cache dalam contoh ini dan label kategori.
 
 ```java
 import com.aspose.slides.*;
@@ -64,10 +64,10 @@ try {
         for (boolean visibleOnly : new boolean[] { true, false }) {
             chart.setPlotVisibleCellsOnly(visibleOnly);
 
-            // Segarkan data grafik dari buku kerja yang disematkan.
+            // Menyegarkan data grafik dari buku kerja yang tertanam.
             chart.getChartData().writeWorkbookStream(workbookData);
             if (!visibleOnly) {
-                // Pulihkan rentang sumber lengkap, termasuk kategori tersembunyi.
+                // Mengembalikan rentang sumber lengkap, termasuk kategori tersembunyi.
                 chart.getChartData().setRange("Sheet1!$A$1:$C$4");
             }
 
@@ -81,19 +81,51 @@ try {
 }
 ```
 
-Contoh menyimpan `hidden_cells_true.pptx` dengan hanya nilai Ritel yang terlihat (10 dan 20), dan `hidden_cells_false.pptx` dengan semua enam nilai. Gambar di bawah mengilustrasikan dua mode pemetaan. Baris 3 dan kolom C tetap tersembunyi pada kedua buku kerja yang disematkan.
+Contoh menyimpan dua versi presentasi: satu hanya dengan nilai Ritel yang terlihat (10 dan 20), dan satu lagi dengan semua enam nilai. Gambar di bawah menggambarkan dua mode pemetaan. Baris 3 dan kolom C tetap tersembunyi di kedua buku kerja tertanam.
 
-| Hanya sel yang terlihat (`true`) | Semua sel (`false`) |
+| Hanya sel terlihat (`true`) | Semua sel (`false`) |
 | --- | --- |
-| ![Only visible cells: Retail values 10 and 20 for January and March.](hidden_cells_True.png) | ![All cells: Retail and Wholesale values for January, February, and March.](hidden_cells_False.png) |
+| ![Hanya sel terlihat: nilai Ritel 10 dan 20 untuk Januari dan Maret.](hidden_cells_True.png) | ![Semua sel: nilai Ritel dan Grosir untuk Januari, Februari, dan Maret.](hidden_cells_False.png) |
 
-Sel tersembunyi yang berisi nilai berbeda dari sel kosong. [IChart.setDisplayBlanksAs](https://reference.aspose.com/slides/id/java/com.aspose.slides/ichart/#setDisplayBlanksAs-int-) mengontrol bagaimana nilai yang hilang ditampilkan; ia tidak memasukkan atau mengecualikan data sumber yang tersembunyi. Lihat [Kontrol Tampilan Sel Kosong](/slides/id/java/chart-series/#control-the-display-of-empty-cells) untuk contoh.
+Sel tersembunyi yang berisi nilai berbeda dari sel kosong. [IChart.setDisplayBlanksAs](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#setDisplayBlanksAs-int-) mengontrol bagaimana nilai yang hilang ditampilkan; tidak menyertakan atau mengecualikan data sumber yang tersembunyi. Lihat [Kontrol Tampilan Sel Kosong](/slides/id/java/chart-series/#control-the-display-of-empty-cells) untuk contoh.
+
+## **Ambil Rentang Data Grafik**
+
+Sebelum memperbarui data buku kerja dalam presentasi yang ada, periksa rentang sumber untuk mengidentifikasi sel lembar kerja mana yang digunakan tiap grafik. Metode [IChartData.getRange](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#getRange--) mengembalikan rentang data saat ini sebagai formula yang memenuhi lembar kerja, misalnya `Sheet1!$A$1:$D$5`. Di sini, `Sheet1` adalah nama lembar kerja, `!` memisahkannya dari rentang sel, dan `$A$1:$D$5` mengidentifikasi sel A1 sampai D5, inklusif. Tanda dolar menunjukkan referensi baris dan kolom absolut.
+
+Metode ini membaca rentang saat ini tanpa mengubah grafik atau buku kerjanya. Jika grafik tidak menggunakan buku kerja sebagai sumber data, metode akan melempar `InvalidOperationException`. Untuk informasi lebih lanjut, lihat [Referensi API ChartData](https://reference.aspose.com/slides/java/com.aspose.slides/chartdata/).
+
+Contoh ini membuka presentasi dan memeriksa bentuk‑bentuk langsung pada tiap slide untuk grafik. Ia mencetak nama tiap grafik dan rentang sumbernya. Jika grafik tidak menggunakan buku kerja, ia mencetak pesan dan melanjutkan ke grafik berikutnya.
+
+```java
+import com.aspose.slides.*;
+import com.aspose.slides.exceptions.InvalidOperationException;
+
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    for (ISlide slide : presentation.getSlides()) {
+        for (IShape shape : slide.getShapes()) {
+            if (shape instanceof IChart) {
+                IChart chart = (IChart) shape;
+                try {
+                    String range = chart.getChartData().getRange();
+                    System.out.println(chart.getName() + ": " + range);
+                } catch (InvalidOperationException exception) {
+                    System.out.println(chart.getName() + ": The chart does not use a workbook as its data source.");
+                }
+            }
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
 
 ## **Baca dan Tulis Data Grafik dari Buku Kerja**
 
-Aspose.Slides for Java menyediakan metode [readWorkbookStream](https://reference.aspose.com/slides/id/java/com.aspose.slides/ichartdata/#readWorkbookStream--) dan [writeWorkbookStream](https://reference.aspose.com/slides/id/java/com.aspose.slides/ichartdata/#writeWorkbookStream-byte:A-) yang memungkinkan Anda membaca dan menulis buku kerja data grafik (yang berisi data grafik yang diedit dengan Aspose.Cells). **Catatan** bahwa data grafik harus diatur dengan cara yang sama atau memiliki struktur serupa dengan sumbernya.
+Aspose.Slides for Java menyediakan metode [readWorkbookStream](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#readWorkbookStream--) dan [writeWorkbookStream](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#writeWorkbookStream-byte---) yang memungkinkan Anda membaca dan menulis buku kerja data grafik (yang berisi data grafik yang disunting dengan Aspose.Cells). **Catatan** bahwa data grafik harus diorganisir dengan cara yang sama atau harus memiliki struktur serupa dengan sumbernya.
 
-Contoh ini membuka `chart.pptx`, yang harus berisi sebuah grafik sebagai bentuk pertama pada slide pertama. Contoh membaca buku kerja yang disematkan ke dalam array byte, menghapus seri dan kategori yang ada, dan menulis kembali buku kerja yang sama. Perubahan tetap berada di memori; contoh tidak menyimpan presentasi.
+Contoh ini menggunakan presentasi dengan grafik sebagai bentuk pertama pada slide pertama. Ia membaca buku kerja tertanam ke dalam array byte, menghapus seri dan kategori yang ada, dan menulis kembali buku kerja yang sama. Perubahan tetap berada di memori; contoh tidak menyimpan presentasi.
 
 ```java
 import com.aspose.slides.*;
@@ -122,7 +154,7 @@ try {
 
 ### **Validasi Tata Letak Grafik Setelah Modifikasi Buku Kerja**
 
-Saat Anda mengganti buku kerja yang disematkan dengan yang sudah dimodifikasi, grafik tetap mempertahankan koleksi seri dan kategori aslinya. Ketidaksesuaian ini dapat menyebabkan [IChart.validateChartLayout](https://reference.aspose.com/slides/id/java/com.aspose.slides/ichart/#validateChartLayout--) gagal dengan kesalahan indeks di luar jangkauan. Hapus seri dan kategori yang ada sebelum menulis kembali buku kerja yang diperbarui ke grafik. Contoh ini memerlukan `chart.pptx` dengan grafik sebagai bentuk pertama pada slide pertama. Komentar menandai tempat pengeditan buku kerja akan terjadi; contoh yang dapat dijalankan menulis kembali buku kerja asli dan memvalidasi tata letak di memori.
+Saat Anda mengganti buku kerja tertanam dengan yang telah dimodifikasi, grafik tetap mempertahankan koleksi seri dan kategori aslinya. Ketidaksesuaian ini dapat menyebabkan [IChart.validateChartLayout](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#validateChartLayout--) gagal dengan kesalahan indeks di luar jangkauan. Hapus seri dan kategori yang ada sebelum menulis buku kerja yang diperbarui kembali ke grafik. Contoh ini menggunakan grafik yang menjadi bentuk pertama pada slide pertama. Komentar menandai tempat penyuntingan buku kerja; contoh yang dapat dijalankan menulis kembali buku kerja asli dan memvalidasi tata letak di memori.
 
 ```java
 import com.aspose.slides.*;
@@ -137,7 +169,7 @@ try {
         IChartData chartData = chart.getChartData();
         byte[] workbookData = chartData.readWorkbookStream();
 
-        // Ubah byte buku kerja di sini, misalnya, menggunakan Aspose.Cells.
+        // Modifikasi byte buku kerja di sini, misalnya menggunakan Aspose.Cells.
 
         chartData.getSeries().clear();
         chartData.getCategories().clear();
@@ -152,20 +184,13 @@ try {
 }
 ```
 
-Menghapus koleksi menghilangkan referensi data usang sebelum buku kerja ditulis kembali. Bangun kembali pemetaan seri dan kategori yang diperlukan untuk buku kerja yang diperbarui sebelum menggunakan grafik.
+Mengosongkan koleksi menghapus referensi data usang sebelum buku kerja ditulis kembali. Bangun kembali pemetaan seri dan kategori yang diperlukan untuk buku kerja yang diperbarui sebelum menggunakan grafik.
 
 ## **Tetapkan Sel Buku Kerja sebagai Label Data Grafik**
 
-Anda dapat menggunakan teks dari sel buku kerja sebagai label data grafik. Langkah‑langkah berikut menunjukkan cara menautkan label pada grafik gelembung ke sel‑sel di buku kerja datanya.
+Anda dapat menggunakan teks dari sel buku kerja sebagai label data grafik.
 
-1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/java/com.aspose.slides/presentation/).  
-2. Akses slide pertama dengan indeks nol‑berbasis.  
-3. Tambahkan grafik gelembung dengan data default.  
-4. Akses seri grafik.  
-5. Tetapkan sel buku kerja sebagai label data.  
-6. Simpan presentasi.
-
-Contoh ini membuka `chart2.pptx`, yang harus berisi setidaknya satu slide, dan menambahkan grafik gelembung dengan data default. Contoh menggunakan sel A10:A12 pada lembar kerja 0 untuk tiga label pertama pada seri pertama, mengaktifkan label dari sel, dan menyimpan hasil ke `resultchart.pptx`.
+Contoh ini menambahkan diagram gelembung dengan data default ke slide pertama dari presentasi yang ada. Ia menggunakan sel A10:A12 pada lembar kerja 0 untuk tiga label pertama pada seri pertama, mengaktifkan label dari sel, dan menyimpan presentasi yang diperbarui.
 
 ```java
 import com.aspose.slides.*;
@@ -191,7 +216,7 @@ try {
 
 ## **Kelola Lembar Kerja**
 
-Metode [IChartDataWorkbook.getWorksheets](https://reference.aspose.com/slides/id/java/com.aspose.slides/ichartdataworkbook/#getWorksheets--) memberikan akses ke lembar kerja dalam buku kerja grafik. Contoh ini membuat grafik pai dengan data default dan mencetak setiap nama lembar kerja ke konsol.
+Metode [IChartDataWorkbook.getWorksheets](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/#getWorksheets--) memberikan akses ke lembar kerja dalam buku kerja grafik. Contoh ini membuat diagram pai dengan data default dan mencetak setiap nama lembar kerja ke konsol.
 
 ```java
 import com.aspose.slides.*;
@@ -211,9 +236,9 @@ try {
 }
 ```
 
-## **Tentukan Tipe Sumber Data**
+## **Tentukan Jenis Sumber Data**
 
-Contoh ini membuat grafik kolom 3D dengan data default dan menetapkan dua nama seri menggunakan sumber data yang berbeda. Nama pertama menggunakan literal string; nama kedua menggunakan sel C1 pada lembar kerja 0. Enumerasi [DataSourceType](https://reference.aspose.com/slides/id/java/com.aspose.slides/datasourcetype/) memilih sumber untuk setiap nama. Hasil disimpan ke `pres.pptx`.
+Contoh ini membuat diagram kolom 3D dengan data default dan menetapkan dua nama seri menggunakan sumber data yang berbeda. Nama pertama menggunakan literal string; nama kedua menggunakan sel C1 pada lembar kerja 0. Enum [DataSourceType](https://reference.aspose.com/slides/java/com.aspose.slides/datasourcetype/) memilih sumber untuk tiap nama. Contoh menyimpan presentasi dengan nama seri yang diperbarui.
 
 ```java
 import com.aspose.slides.*;
@@ -241,7 +266,7 @@ try {
 
 ## **Deteksi Format Buku Kerja Tertanam yang Tidak Didukung**
 
-Aspose.Slides tidak mendukung format buku kerja Excel biner (.xlsb) yang dapat disematkan dalam beberapa grafik. Anda dapat menggunakan metode [getEmbeddedWorkbookType](https://reference.aspose.com/slides/id/java/com.aspose.slides/ichartdata/#getEmbeddedWorkbookType--) pada [IChartData](https://reference.aspose.com/slides/id/java/com.aspose.slides/ichartdata/) bersama dengan enumerasi [WorkbookType](https://reference.aspose.com/slides/id/java/com.aspose.slides/workbooktype/) untuk mendeteksi format yang tidak didukung dan melewatkan grafik‑grafik tersebut. Contoh ini memeriksa bentuk pada slide pertama `sample.pptx`, melewatkan bentuk yang bukan grafik, dan mencetak pesan diagnostik untuk setiap grafik dengan buku kerja .xlsb yang disematkan.
+Aspose.Slides tidak mendukung format buku kerja Excel biner (.xlsb) yang dapat tertanam dalam beberapa grafik. Anda dapat menggunakan metode [getEmbeddedWorkbookType](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#getEmbeddedWorkbookType--) pada [IChartData](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/) bersama dengan enum [WorkbookType](https://reference.aspose.com/slides/java/com.aspose.slides/workbooktype/) untuk mendeteksi format yang tidak didukung dan melewati grafik‑grafik tersebut. Contoh ini memeriksa bentuk pada slide pertama dari presentasi yang ada, melewati bentuk non‑grafik, dan mencetak pesan diagnostik untuk tiap grafik dengan buku kerja .xlsb yang tertanam.
 
 ```java
 import com.aspose.slides.*;
@@ -265,7 +290,7 @@ try {
             continue;
         }
 
-        // Baca atau ubah data buku kerja grafik yang didukung di sini.
+        // Baca atau modifikasi data buku kerja grafik yang didukung di sini.
     }
 } finally {
     presentation.dispose();
@@ -278,9 +303,9 @@ Aspose.Slides mendukung penggunaan buku kerja eksternal sebagai sumber data untu
 
 ### **Buat Buku Kerja Eksternal**
 
-Gunakan [readWorkbookStream](https://reference.aspose.com/slides/id/java/com.aspose.slides/ichartdata/#readWorkbookStream--) dan [setExternalWorkbook](https://reference.aspose.com/slides/id/java/com.aspose.slides/ichartdata/#setExternalWorkbook-java.lang.String-) untuk mengekspor buku kerja grafik yang disematkan ke file dan menautkan grafik ke buku kerja eksternal tersebut.
+Gunakan [readWorkbookStream](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#readWorkbookStream--) dan [setExternalWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#setExternalWorkbook-java.lang.String-) untuk mengekspor buku kerja grafik yang tertanam ke file dan menautkan grafik ke buku kerja eksternal tersebut.
 
-Contoh ini membuat grafik pai dengan data default, menulis buku kerjanya ke `externalWorkbook1.xlsx`, dan menyelesaikan penulisan file sebelum menetapkan file sebagai sumber data grafik. Contoh menyimpan presentasi yang ditautkan ke `externalWorkbook.pptx`.
+Contoh ini membuat diagram pai dengan data default dan mengekspor buku kerjanya. Ia menyelesaikan penulisan file sebelum menetapkan buku kerja eksternal sebagai sumber data grafik, lalu menyimpan presentasi yang tertaut.
 
 ```java
 import com.aspose.slides.*;
@@ -310,11 +335,11 @@ try {
 
 ### **Tetapkan Buku Kerja Eksternal**
 
-Dengan metode [setExternalWorkbook](https://reference.aspose.com/slides/id/java/com.aspose.slides/ichartdata/#setExternalWorkbook-java.lang.String-), Anda dapat menetapkan buku kerja eksternal ke sebuah grafik sebagai sumber datanya. Metode ini juga dapat digunakan untuk memperbarui jalur ke buku kerja eksternal (jika buku kerja tersebut dipindahkan).
+Dengan menggunakan metode [setExternalWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#setExternalWorkbook-java.lang.String-), Anda dapat menetapkan buku kerja eksternal ke grafik sebagai sumber datanya. Metode ini juga dapat digunakan untuk memperbarui jalur ke buku kerja eksternal (jika buku kerja tersebut telah dipindahkan).
 
-Meskipun Anda tidak dapat mengedit data dalam buku kerja yang disimpan di lokasi remote atau sumber daya, Anda masih dapat menggunakan buku kerja tersebut sebagai sumber data eksternal. Jika jalur relatif untuk buku kerja eksternal disediakan, jalur tersebut secara otomatis dikonversi menjadi jalur penuh.
+Meskipun Anda tidak dapat menyunting data dalam buku kerja yang disimpan di lokasi atau sumber daya remote, Anda tetap dapat menggunakan buku kerja tersebut sebagai sumber data eksternal. Jika jalur relatif untuk buku kerja eksternal diberikan, jalur tersebut secara otomatis diubah menjadi jalur lengkap.
 
-Contoh ini memerlukan `externalWorkbook.xlsx` di direktori kerja. Lembar kerja bernama `Sheet1` harus berisi nama seri di B1, nama kategori di A2:A4, dan nilai numerik di B2:B4. Contoh membuat grafik pai, menautkan buku kerja, dan menggunakan [setRange](https://reference.aspose.com/slides/id/java/com.aspose.slides/ichartdata/#setRange-java.lang.String-) untuk memetakan A1:B4 ke satu seri dan tiga kategori. Hasil disimpan ke `Presentation_with_externalWorkbook.pptx`.
+Contoh ini menggunakan buku kerja eksternal yang lembar kerjanya bernama `Sheet1` berisi nama seri di B1, nama kategori di A2:A4, dan nilai numerik di B2:B4. Contoh membuat diagram pai, menautkan buku kerja, dan menggunakan [setRange](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#setRange-java.lang.String-) untuk memetakan A1:B4 ke satu seri dan tiga kategori. Ia menyimpan presentasi dengan grafik yang tertaut.
 
 ```java
 import com.aspose.slides.*;
@@ -337,12 +362,12 @@ try {
 }
 ```
 
-Parameter `updateChartData` pada [setExternalWorkbook](https://reference.aspose.com/slides/id/java/com.aspose.slides/ichartdata/#setExternalWorkbook-java.lang.String-boolean-) mengontrol apakah buku kerja dimuat.
+Parameter `updateChartData` dari metode [setExternalWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#setExternalWorkbook-java.lang.String-boolean-) mengontrol apakah buku kerja dimuat.
 
-* Ketika `updateChartData` `false`, hanya jalur buku kerja yang diperbarui. Data grafik tidak dimuat atau diperbarui dari buku kerja target, sehingga buku kerja dapat tidak tersedia.  
-* Ketika `updateChartData` `true`, data grafik diperbarui dari buku kerja target.
+* Ketika `updateChartData` bernilai `false`, hanya jalur buku kerja yang diperbarui. Data grafik tidak dimuat atau diperbarui dari buku kerja target, sehingga buku kerja dapat tidak tersedia.
+* Ketika `updateChartData` bernilai `true`, data grafik diperbarui dari buku kerja target.
 
-Contoh berikut menetapkan URL placeholder dengan `updateChartData` `false`. Contoh mempertahankan data default grafik pai dan menyimpan presentasi tanpa memuat buku kerja yang tidak tersedia.
+Contoh berikut menetapkan URL placeholder dengan `updateChartData` disetel ke `false`. Ia mempertahankan data default diagram pai dan menyimpan presentasi tanpa memuat buku kerja yang tidak tersedia.
 
 ```java
 import com.aspose.slides.*;
@@ -362,15 +387,9 @@ try {
 
 ### **Dapatkan Jalur Buku Kerja Sumber Data Eksternal dari Grafik**
 
-Untuk mengidentifikasi buku kerja yang ditautkan ke sebuah grafik, pertama periksa apakah grafik menggunakan sumber data eksternal. Jika ya, Anda dapat mengambil jalur buku kerja dengan mengikuti langkah‑langkah berikut.
+Untuk mengidentifikasi buku kerja yang ditautkan ke grafik, periksa apakah grafik menggunakan sumber data eksternal dan ambil jalur bukunya.
 
-1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/java/com.aspose.slides/presentation/).  
-2. Akses slide pertama dengan indeks nol‑berbasis.  
-3. Periksa bahwa bentuk pertama adalah grafik.  
-4. Baca tipe sumber data grafik.  
-5. Jika sumbernya adalah buku kerja eksternal, baca jalurnya.
-
-Contoh ini membuka `externalWorkbook.pptx`, yang dibuat pada contoh sebelumnya, dan memeriksa bentuk pertama pada slide pertama. Jika bentuk tersebut adalah grafik yang ditautkan ke buku kerja eksternal, contoh mencetak [getExternalWorkbookPath](https://reference.aspose.com/slides/id/java/com.aspose.slides/ichartdata/#getExternalWorkbookPath--) ke konsol. Kemudian contoh menyimpan salinan presentasi ke `Result.pptx`.
+Contoh ini memeriksa bentuk pertama pada slide pertama dari presentasi dengan buku kerja eksternal yang tertaut. Jika itu adalah grafik yang ditautkan ke buku kerja eksternal, contoh mencetak [getExternalWorkbookPath](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#getExternalWorkbookPath--) ke konsol. Ia kemudian menyimpan salinan presentasi.
 
 ```java
 import com.aspose.slides.*;
@@ -397,11 +416,11 @@ try {
 }
 ```
 
-### **Edit Data Grafik**
+### **Sunting Data Grafik**
 
-Anda dapat mengedit data dalam buku kerja eksternal dengan cara yang sama seperti mengubah isi buku kerja internal. Ketika buku kerja eksternal tidak dapat dimuat, sebuah pengecualian akan dilempar.
+Anda dapat menyunting data dalam buku kerja eksternal dengan cara yang sama seperti mengubah isi buku kerja internal. Ketika buku kerja eksternal tidak dapat dimuat, sebuah pengecualian akan dilempar.
 
-Contoh ini memerlukan `presentation.pptx` dengan grafik sebagai bentuk pertama pada slide pertama dan buku kerja eksternal yang dapat diakses. Contoh menetapkan nilai sel untuk titik data pertama pada seri pertama menjadi 100 dan menyimpan presentasi ke `presentation_out.pptx`. Mengedit nilai sel dapat memperbarui file XLSX eksternal yang ditautkan, jadi gunakan salinan jika Anda perlu menjaga buku kerja asli tetap tidak berubah.
+Contoh ini menggunakan grafik yang menjadi bentuk pertama pada slide pertama dan ditautkan ke buku kerja eksternal yang dapat diakses. Ia menetapkan nilai sel pertama pada poin data pertama dalam seri pertama menjadi 100 dan menyimpan presentasi yang diperbarui. Menyunting nilai sel dapat memperbarui file XLSX eksternal yang tertaut, jadi gunakan salinan jika Anda perlu mempertahankan buku kerja asli.
 
 ```java
 import com.aspose.slides.*;
@@ -435,9 +454,9 @@ try {
 
 ### **Pulihkan Buku Kerja dari Cache Grafik**
 
-Jika sebuah grafik menggunakan buku kerja eksternal yang hilang atau tidak tersedia, Aspose.Slides dapat membangun kembali buku kerja grafik dari data yang di‑cache dalam presentasi. Buat [LoadOptions](https://reference.aspose.com/slides/id/java/com.aspose.slides/loadoptions/), panggil [LoadOptions.setSpreadsheetOptions](https://reference.aspose.com/slides/id/java/com.aspose.slides/loadoptions/#setSpreadsheetOptions-com.aspose.slides.ISpreadsheetOptions-), dan setel [ISpreadsheetOptions.setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/id/java/com.aspose.slides/ispreadsheetoptions/#setRecoverWorkbookFromChartCache-boolean-) ke `true` sebelum membuka presentasi.
+Jika grafik menggunakan buku kerja eksternal yang hilang atau tidak tersedia, Aspose.Slides dapat membangun kembali buku kerja grafik dari data yang di‑cache dalam presentasi. Buat [LoadOptions](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/), panggil [LoadOptions.setSpreadsheetOptions](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/#setSpreadsheetOptions-com.aspose.slides.ISpreadsheetOptions-), dan setel [ISpreadsheetOptions.setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/java/com.aspose.slides/ispreadsheetoptions/#setRecoverWorkbookFromChartCache-boolean-) ke `true` sebelum membuka presentasi.
 
-Contoh Java berikut membuka `presentation.pptx`, yang pada slide pertama harus berupa grafik yang merujuk ke buku kerja eksternal yang tidak tersedia, dan mengakses data yang dipulihkan melalui [IChart.getChartData](https://reference.aspose.com/slides/id/java/com.aspose.slides/ichart/#getChartData--) dan [IChartData.getChartDataWorkbook](https://reference.aspose.com/slides/id/java/com.aspose.slides/ichartdata/#getChartDataWorkbook--):
+Contoh Java berikut memulihkan data buku kerja untuk grafik yang menjadi bentuk pertama pada slide pertama dan merujuk ke buku kerja eksternal yang tidak tersedia. Ia mengakses data yang dipulihkan melalui [IChart.getChartData](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#getChartData--) dan [IChartData.getChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#getChartDataWorkbook--):
 
 ```java
 import com.aspose.slides.*;
@@ -457,7 +476,7 @@ try {
         IChart chart = (IChart) slide.getShapes().get_Item(0);
         IChartDataWorkbook recoveredWorkbook = chart.getChartData().getChartDataWorkbook();
 
-        // Baca atau ubah data buku kerja yang dipulihkan di sini.
+        // Baca atau modifikasi data buku kerja yang dipulihkan di sini.
     } else {
         System.out.println("The first shape is not a chart.");
     }
@@ -466,30 +485,30 @@ try {
 }
 ```
 
-Jika buku kerja eksternal tidak tersedia dan pemulihan dinonaktifkan, Aspose.Slides akan melempar pengecualian. Aktifkan pemulihan hanya ketika penggunaan data grafik yang di‑cache merupakan solusi yang dapat diterima, karena cache mungkin tidak berisi perubahan yang dibuat pada buku kerja eksternal setelah presentasi terakhir kali diperbarui.
+Jika buku kerja eksternal tidak tersedia dan pemulihan dinonaktifkan, Aspose.Slides akan melempar pengecualian. Aktifkan pemulihan hanya ketika penggunaan data grafik yang di‑cache merupakan solusi yang dapat diterima, karena cache mungkin tidak berisi perubahan yang dibuat pada buku kerja eksternal setelah presentasi terakhir diperbarui.
 
 ## **FAQ**
 
-**Apakah saya dapat menentukan apakah sebuah grafik tertentu terhubung ke buku kerja eksternal atau yang disematkan?**
+**Apakah saya dapat menentukan apakah grafik tertentu ditautkan ke buku kerja eksternal atau tertanam?**
 
-Ya. Sebuah grafik memiliki [tipe sumber data](https://reference.aspose.com/slides/id/java/com.aspose.slides/chartdata/#getDataSourceType--) dan [jalur ke buku kerja eksternal](https://reference.aspose.com/slides/id/java/com.aspose.slides/chartdata/#getExternalWorkbookPath--); jika sumbernya adalah buku kerja eksternal, Anda dapat membaca jalur lengkap untuk memastikan file eksternal sedang digunakan.
+Ya. Grafik memiliki [jenis sumber data](https://reference.aspose.com/slides/java/com.aspose.slides/chartdata/#getDataSourceType--) dan [jalur ke buku kerja eksternal](https://reference.aspose.com/slides/java/com.aspose.slides/chartdata/#getExternalWorkbookPath--); jika sumbernya adalah buku kerja eksternal, Anda dapat membaca jalur lengkap untuk memastikan file eksternal sedang digunakan.
 
-**Apakah jalur relatif ke buku kerja eksternal didukung, dan bagaimana mereka disimpan?**
+**Apakah jalur relatif ke buku kerja eksternal didukung, dan bagaimana cara penyimpanannya?**
 
-Ya. Jika Anda menentukan jalur relatif, jalur tersebut secara otomatis dikonversi menjadi jalur absolut. Presentasi menyimpan jalur absolut dalam file PPTX, sehingga memindahkan buku kerja mungkin memerlukan pembaruan tautan.
+Ya. Jika Anda menentukan jalur relatif, jalur tersebut secara otomatis diubah menjadi jalur absolut. Presentasi menyimpan jalur absolut dalam file PPTX, sehingga memindahkan buku kerja mungkin memerlukan pembaruan tautan.
 
-**Bisakah saya menggunakan buku kerja yang berada di sumber daya/berbagi jaringan?**
+**Apakah saya dapat menggunakan buku kerja yang berada di sumber daya/jaringan?**
 
-Ya, buku kerja tersebut dapat digunakan sebagai sumber data eksternal. Namun, pengeditan buku kerja remote secara langsung dari Aspose.Slides tidak didukung—mereka hanya dapat digunakan sebagai sumber.
+Ya, buku kerja tersebut dapat digunakan sebagai sumber data eksternal. Namun, penyuntingan buku kerja remote langsung dari Aspose.Slides tidak didukung—buku kerja tersebut hanya dapat digunakan sebagai sumber.
 
-**Apakah Aspose.Slides menimpa file XLSX eksternal saat menyimpan presentasi?**
+**Apakah Aspose.Slides menimpa XLSX eksternal saat menyimpan presentasi?**
 
-Presentasi menyimpan [tautan ke file eksternal](https://reference.aspose.com/slides/id/java/com.aspose.slides/chartdata/#getExternalWorkbookPath--). Mengedit data grafik yang didukung sel dapat juga memperbarui file XLSX lokal yang ditautkan. Gunakan salinan buku kerja jika yang asli harus tetap tidak berubah.
+Presentasi menyimpan [tautan ke file eksternal](https://reference.aspose.com/slides/java/com.aspose.slides/chartdata/#getExternalWorkbookPath--). Menyunting data grafik yang berbasis sel juga dapat memperbarui file XLSX lokal yang ditautkan. Gunakan salinan buku kerja jika yang asli harus tetap tidak berubah.
 
 **Apa yang harus saya lakukan jika file eksternal dilindungi kata sandi?**
 
-Aspose.Slides tidak menerima kata sandi saat menautkan. Pendekatan umum adalah menghapus proteksi sebelumnya atau menyiapkan salinan yang telah didekripsi (misalnya, menggunakan [Aspose.Cells](https://reference.aspose.com/cells/java/)) dan menautkan ke salinan tersebut.
+Aspose.Slides tidak menerima kata sandi saat menautkan. Pendekatan umum adalah menghapus perlindungan sebelumnya atau menyiapkan salinan yang telah didekripsi (misalnya, menggunakan [Aspose.Cells](https://reference.aspose.com/cells/java/)) dan menautkan ke salinan tersebut.
 
 **Dapatkah beberapa grafik merujuk ke buku kerja eksternal yang sama?**
 
-Ya. Setiap grafik menyimpan tautannya masing‑masing. Jika semuanya menunjuk ke file yang sama, memperbarui file tersebut akan tercermin di setiap grafik pada pemuatan data berikutnya.
+Ya. Setiap grafik menyimpan tautannya masing‑masing. Jika semuanya menunjuk ke file yang sama, memperbarui file tersebut akan tercermin pada setiap grafik pada saat data dimuat berikutnya.

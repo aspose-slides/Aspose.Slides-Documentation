@@ -1,5 +1,5 @@
 ---
-title: Erstellen oder Aktualisieren von PowerPoint-Diagrammen in PHP
+title: Erstellen oder Aktualisieren von PowerPoint-Präsentationsdiagrammen in PHP
 linktitle: Diagramme erstellen oder aktualisieren
 type: docs
 weight: 10
@@ -10,63 +10,59 @@ keywords:
 - Diagramm bearbeiten
 - Diagramm ändern
 - Diagramm aktualisieren
-- Scatter-Diagramm
+- Streudiagramm
 - Kreisdiagramm
 - Liniendiagramm
-- Baumkarten-Diagramm
+- Baumdiagramm
 - Börsendiagramm
-- Box‑und‑Whisker‑Diagramm
+- Box‑ und Whisker‑Diagramm
 - Trichterdiagramm
-- Sunburst-Diagramm
-- Histogramm-Diagramm
+- Sunburst‑Diagramm
+- Histogramm
 - Radar‑Diagramm
-- Mehrkategorien‑Diagramm
+- Mehrkategorie‑Diagramm
 - PowerPoint
 - Präsentation
 - PHP
 - Aspose.Slides
-description: "Erstellen und Anpassen von Diagrammen in PowerPoint-Präsentationen mit Aspose.Slides für PHP über Java. Diagramme hinzufügen, formatieren und bearbeiten mit praktischen Codebeispielen."
+description: "Erstellen und Anpassen von Diagrammen in PowerPoint‑Präsentationen mithilfe von Aspose.Slides für PHP via Java. Diagramme hinzufügen, formatieren und bearbeiten mit praktischen Code‑Beispielen."
 ---
 ## **Übersicht**
 
-Dieser Artikel bietet eine umfassende Anleitung zum Erstellen und Anpassen von Diagrammen mit Aspose.Slides. Sie lernen, wie Sie programmgesteuert ein Diagramm zu einer Folie hinzufügen, es mit Daten füllen und verschiedene Formatierungsoptionen anwenden, um Ihren spezifischen Designanforderungen zu entsprechen. Im gesamten Artikel veranschaulichen detaillierte Codebeispiele jeden Schritt, vom Initialisieren der Präsentation und des Diagrammobjekts bis hin zur Konfiguration von Reihen, Achsen und Legenden. Durch Befolgung dieser Anleitung erhalten Sie ein fundiertes Verständnis dafür, wie Sie die dynamische Diagrammerstellung in Ihre Anwendungen integrieren und den Prozess der Erstellung datengetriebener Präsentationen optimieren.
+Dieser Artikel bietet eine umfassende Anleitung zum Erstellen und Anpassen von Diagrammen mit Aspose.Slides. Sie lernen, wie Sie programmgesteuert ein Diagramm zu einer Folie hinzufügen, es mit Daten füllen und verschiedene Formatierungsoptionen anwenden, um Ihren spezifischen Designanforderungen zu entsprechen. Im gesamten Artikel illustrieren detaillierte Codebeispiele jeden Schritt, vom Initialisieren der Präsentation und des Diagrammobjekts bis hin zur Konfiguration von Serien, Achsen und Legenden. Durch Befolgen dieser Anleitung erhalten Sie ein fundiertes Verständnis dafür, wie Sie die dynamische Diagrammerstellung in Ihre Anwendungen integrieren und den Prozess der Erstellung datenbasierter Präsentationen optimieren.
 
 ## **Diagramm erstellen**
 
-Diagramme helfen, Daten schnell zu visualisieren und Einsichten zu gewinnen, die aus einer Tabelle oder einem Spreadsheet nicht sofort ersichtlich sind.
+Diagramme helfen Menschen, Daten schnell zu visualisieren und Erkenntnisse zu gewinnen, die aus einer Tabelle oder einem Tabellenblatt nicht sofort ersichtlich sind.
 
 **Warum Diagramme erstellen?**
 
-Mit Diagrammen können Sie:
+Durch Diagramme können Sie:
 
-* große Datenmengen auf einer einzelnen Folie einer Präsentation aggregieren, verdichten oder zusammenfassen
+* große Datenmengen auf einer einzelnen Folie in einer Präsentation aggregieren, komprimieren oder zusammenfassen
 * Muster und Trends in Daten aufzeigen
-* die Richtung und Dynamik von Daten über die Zeit oder bezogen auf eine bestimmte Einheit ableiten
-* Ausreißer, Anomalien, Abweichungen, Fehler, unsinnige Daten usw. erkennen
+* die Richtung und Dynamik von Daten im Zeitverlauf oder in Bezug auf eine bestimmte Einheit ableiten
+* Ausreißer, Aberrationen, Abweichungen, Fehler, unsinnige Daten usw. erkennen
 * komplexe Daten kommunizieren oder präsentieren
 
-In PowerPoint können Sie Diagramme über die *Einfügen*-Funktion erstellen, die Vorlagen für die Gestaltung vieler Diagrammtypen bereitstellt. Mit Aspose.Slides können Sie sowohl reguläre Diagramme (basierend auf gängigen Diagrammtypen) als auch benutzerdefinierte Diagramme erstellen.
+In PowerPoint können Sie Diagramme über die *Einfügen*-Funktion erstellen, die Vorlagen für die Gestaltung vieler Diagrammtypen bietet. Mit Aspose.Slides können Sie sowohl reguläre Diagramme (basierend auf gängigen Diagrammtypen) als auch benutzerdefinierte Diagramme erstellen.
 
-{{% alert color="info" title="Note" %}}
-
-Um Diagramme zu erstellen, verwenden Sie die [ChartType](https://reference.aspose.com/slides/de/php-java/aspose.slides/charttype/)‑Klasse. Die Felder in dieser Klasse entsprechen verschiedenen Diagrammtypen.
-
-{{% /alert %}}
+{{% alert color="info" title="Note" %}}Um Diagramme zu erstellen, verwenden Sie die [ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/) Klasse. Die Felder in dieser Klasse entsprechen verschiedenen Diagrammtypen.{{% /alert %}}
 
 ### **Gruppierte Säulendiagramme erstellen**
 
-Dieser Abschnitt erklärt, wie Sie gruppierte Säulendiagramme mit Aspose.Slides erstellen. Sie lernen, eine Präsentation zu initialisieren, ein Diagramm hinzuzufügen und dessen Elemente wie Titel, Daten, Reihen, Kategorien und Stil anzupassen. Folgen Sie den untenstehenden Schritten, um zu sehen, wie ein Standard‑Gruppiertes‑Säulendiagramm erzeugt wird:
+Dieser Abschnitt erklärt, wie Sie gruppierte Säulendiagramme mit Aspose.Slides erstellen. Sie lernen, eine Präsentation zu initialisieren, ein Diagramm hinzuzufügen und dessen Elemente wie Titel, Daten, Serien, Kategorien und Stil anzupassen. Folgen Sie den untenstehenden Schritten, um zu sehen, wie ein standardmäßiges gruppiertes Säulendiagramm erzeugt wird:
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/de/php-java/aspose.slides/presentation)‑Klasse.
-1. Holen Sie sich einen Verweis auf eine Folie über deren Index.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) Klasse.
+1. Holen Sie eine Referenz zu einer Folie über ihren Index.
 1. Fügen Sie ein Diagramm mit einigen Daten hinzu und geben Sie den Typ `ChartType::ClusteredColumn` an.
 1. Fügen Sie dem Diagramm einen Titel hinzu.
 1. Greifen Sie auf das Daten‑Arbeitsblatt des Diagramms zu.
-1. Löschen Sie alle Standard‑Reihen und -Kategorien.
+1. Löschen Sie alle Standardreihen und -kategorien.
 1. Fügen Sie neue Reihen und Kategorien hinzu.
-1. Fügen Sie neue Diagrammdaten für die Diagramm‑Reihen hinzu.
-1. Wenden Sie eine Füllfarbe auf die Diagramm‑Reihen an.
-1. Fügen Sie Beschriftungen zu den Diagramm‑Reihen hinzu.
+1. Fügen Sie neue Diagrammdaten für die Diagrammreihe hinzu.
+1. Wenden Sie eine Füllfarbe auf die Diagrammreihe an.
+1. Fügen Sie der Diagrammreihe Beschriftungen hinzu.
 1. Speichern Sie die geänderte Präsentation als PPTX‑Datei.
 
 Dieser C#‑Code demonstriert, wie ein gruppiertes Säulendiagramm erstellt wird:
@@ -88,9 +84,9 @@ Dieser C#‑Code demonstriert, wie ein gruppiertes Säulendiagramm erstellt wird
     $chart->getChartData()->getSeries()->get_Item(0)->getLabels()->getDefaultDataLabelFormat()->setShowValue(true);
     # Setzt den Index für das Diagrammdatenblatt
     $defaultWorksheetIndex = 0;
-    # Holt das Diagrammdaten-Arbeitsblatt
+    # Holt das Diagrammdaten‑Arbeitsblatt
     $fact = $chart->getChartData()->getChartDataWorkbook();
-    # Löscht die standardmäßig erzeugten Serien und Kategorien
+    # Löscht die standardmäßig generierten Serien und Kategorien
     $chart->getChartData()->getSeries()->clear();
     $chart->getChartData()->getCategories()->clear();
     $s = $chart->getChartData()->getSeries()->size();
@@ -104,7 +100,7 @@ Dieser C#‑Code demonstriert, wie ein gruppiertes Säulendiagramm erstellt wird
     $chart->getChartData()->getCategories()->add($fact->getCell($defaultWorksheetIndex, 3, 0, "Caetegoty 3"));
     # Nimmt die erste Diagrammserie
     $series = $chart->getChartData()->getSeries()->get_Item(0);
-    # Füllt jetzt die Seriendaten
+    # Füllt nun die Seriendaten
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 1, 1, 20));
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 2, 1, 50));
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 3, 1, 30));
@@ -113,25 +109,25 @@ Dieser C#‑Code demonstriert, wie ein gruppiertes Säulendiagramm erstellt wird
     $series->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
     # Nimmt die zweite Diagrammserie
     $series = $chart->getChartData()->getSeries()->get_Item(1);
-    # Füllt die Seriendaten
+    # Füllt Seriendaten
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 1, 2, 30));
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 2, 2, 10));
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 3, 2, 60));
     # Setzt die Füllfarbe für die Serie
     $series->getFormat()->getFill()->setFillType(FillType::Solid);
     $series->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->GREEN);
-    # Erstellt benutzerdefinierte Beschriftungen für jede Kategorie für die neue Serie
+    # Erstellt benutzerdefinierte Beschriftungen für jede Kategorie der neuen Serie
     # Setzt die erste Beschriftung, um den Kategorienamen anzuzeigen
     $lbl = $series->getDataPoints()->get_Item(0)->getLabel();
     $lbl->getDataLabelFormat()->setShowCategoryName(true);
     $lbl = $series->getDataPoints()->get_Item(1)->getLabel();
     $lbl->getDataLabelFormat()->setShowSeriesName(true);
-    # Zeigt den Wert für die dritte Beschriftung
+    # Zeigt den Wert für die dritte Beschriftung an
     $lbl = $series->getDataPoints()->get_Item(2)->getLabel();
     $lbl->getDataLabelFormat()->setShowValue(true);
     $lbl->getDataLabelFormat()->setShowSeriesName(true);
     $lbl->getDataLabelFormat()->setSeparator("/");
-    # Speichert die Präsentation mit dem Diagramm
+    # Speichert die Präsentation mit Diagramm
     $pres->save("output.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -140,26 +136,26 @@ Dieser C#‑Code demonstriert, wie ein gruppiertes Säulendiagramm erstellt wird
   }
 ```
 
-### **Scatter‑Diagramme erstellen**
+### **Streudiagramme erstellen**
 
-Scatter‑Diagramme (auch Streudiagramme oder x‑y‑Grafiken genannt) werden häufig verwendet, um Muster zu prüfen oder Korrelationen zwischen zwei Variablen zu zeigen.
+Streudiagramme (auch als Scatter‑Plots oder X‑Y‑Diagramme bezeichnet) werden häufig eingesetzt, um Muster zu prüfen oder Korrelationen zwischen zwei Variablen darzustellen.
 
-Verwenden Sie ein Scatter‑Diagramm, wenn:
+Verwenden Sie ein Streudiagramm, wenn:
 
 * Sie gepaarte numerische Daten haben
 * Sie zwei Variablen haben, die gut zusammenpassen
-* Sie bestimmen möchten, ob zwei Variablen miteinander verknüpft sind
-* Sie eine unabhängige Variable haben, die mehrere Werte für eine abhängige Variable besitzt
+* Sie feststellen möchten, ob zwei Variablen miteinander verbunden sind
+* Sie eine unabhängige Variable besitzen, die für eine abhängige Variable mehrere Werte hat
 
-1. Folgen Sie den Schritten unter [Create Clustered Column Charts](#create-clustered-column-charts).
+1. Folgen Sie den Schritten in [Create Clustered Column Charts](#create-clustered-column-charts).
 2. Für den dritten Schritt fügen Sie ein Diagramm mit einigen Daten hinzu und geben Ihren Diagrammtyp als einen der folgenden an:
-   1. [ChartType::ScatterWithMarkers](https://reference.aspose.com/slides/de/php-java/aspose.slides/charttype/#ScatterWithMarkers) - _Stellt ein Scatter‑Diagramm dar._
-   2. [ChartType::ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/de/php-java/aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - _Stellt ein Scatter‑Diagramm dar, das mit Kurven verbunden ist und Daten‑Marker enthält._
-   3. [ChartType::ScatterWithSmoothLines](https://reference.aspose.com/slides/de/php-java/aspose.slides/charttype/#ScatterWithSmoothLines) - _Stellt ein Scatter‑Diagramm dar, das mit Kurven verbunden ist, ohne Daten‑Marker._
-   4. [ChartType::ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/de/php-java/aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _Stellt ein Scatter‑Diagramm dar, das mit Geraden verbunden ist und Daten‑Marker enthält._
-   5. [ChartType::ScatterWithStraightLines](https://reference.aspose.com/slides/de/php-java/aspose.slides/charttype/#ScatterWithStraightLines) - _Stellt ein Scatter‑Diagramm dar, das mit Geraden verbunden ist, ohne Daten‑Marker._
+   1. [ChartType::ScatterWithMarkers](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#ScatterWithMarkers) - _Stellt ein Streudiagramm dar._
+   2. [ChartType::ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - _Stellt ein Streudiagramm dar, das durch Kurven verbunden ist, mit Datenmarkern._
+   3. [ChartType::ScatterWithSmoothLines](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#ScatterWithSmoothLines) - _Stellt ein Streudiagramm dar, das durch Kurven verbunden ist, ohne Datenmarker._
+   4. [ChartType::ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _Stellt ein Streudiagramm dar, das durch Linien verbunden ist, mit Datenmarkern._
+   5. [ChartType::ScatterWithStraightLines](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#ScatterWithStraightLines) - _Stellt ein Streudiagramm dar, das durch Linien verbunden ist, ohne Datenmarker._
 
-Dieser PHP‑Code zeigt, wie ein Scatter‑Diagramm mit unterschiedlichen Markern für jede Reihe erstellt wird:
+Dieser PHP‑Code zeigt, wie ein Streudiagramm mit unterschiedlichen Markern für jede Reihe erstellt wird:
 
 ```php
   # Instanziert eine Präsentationsklasse, die eine PPTX-Datei darstellt
@@ -169,11 +165,11 @@ Dieser PHP‑Code zeigt, wie ein Scatter‑Diagramm mit unterschiedlichen Marker
     $slide = $pres->getSlides()->get_Item(0);
     # Erstellt das Standarddiagramm
     $chart = $slide->getShapes()->addChart(ChartType::ScatterWithSmoothLines, 0, 0, 400, 400);
-    # Holt den Standard‑Diagrammdaten‑Arbeitsblatt‑Index
+    # Erhält den Index des Standarddiagramm‑Datenarbeitsblatts
     $defaultWorksheetIndex = 0;
-    # Holt das Diagrammdaten‑Arbeitsblatt
+    # Erhält das Diagrammdaten‑Arbeitsblatt
     $fact = $chart->getChartData()->getChartDataWorkbook();
-    # Löscht die Demo‑Serien
+    # Löscht die Demo‑Serie
     $chart->getChartData()->getSeries()->clear();
     # Fügt neue Serien hinzu
     $chart->getChartData()->getSeries()->add($fact->getCell($defaultWorksheetIndex, 1, 1, "Series 1"), $chart->getType());
@@ -186,7 +182,7 @@ Dieser PHP‑Code zeigt, wie ein Scatter‑Diagramm mit unterschiedlichen Marker
     $series->getDataPoints()->addDataPointForScatterSeries($fact->getCell($defaultWorksheetIndex, 3, 1, 2), $fact->getCell($defaultWorksheetIndex, 3, 2, 10));
     # Ändert den Seriotyp
     $series->setType(ChartType::ScatterWithStraightLinesAndMarkers);
-    # Ändert den Diagrammserien‑Marker
+    # Ändert den Marker der Diagrammserie
     $series->getMarker()->setSize(10);
     $series->getMarker()->setSymbol(MarkerStyleType::Star);
     # Nimmt die zweite Diagrammserie
@@ -199,7 +195,7 @@ Dieser PHP‑Code zeigt, wie ein Scatter‑Diagramm mit unterschiedlichen Marker
     $series->getDataPoints()->addDataPointForScatterSeries($fact->getCell($defaultWorksheetIndex, 4, 3, 2), $fact->getCell($defaultWorksheetIndex, 4, 4, 2));
     # Fügt einen neuen Punkt (5:1) hinzu
     $series->getDataPoints()->addDataPointForScatterSeries($fact->getCell($defaultWorksheetIndex, 5, 3, 5), $fact->getCell($defaultWorksheetIndex, 5, 4, 1));
-    # Ändert den Diagrammserien‑Marker
+    # Ändert den Marker der Diagrammserie
     $series->getMarker()->setSize(10);
     $series->getMarker()->setSymbol(MarkerStyleType::Circle);
     $pres->save("AsposeChart_out.pptx", SaveFormat::Pptx);
@@ -212,25 +208,25 @@ Dieser PHP‑Code zeigt, wie ein Scatter‑Diagramm mit unterschiedlichen Marker
 
 ### **Kreisdiagramme erstellen**
 
-Kreisdiagramme eignen sich am besten, um das Verhältnis von Teil zu Ganzem darzustellen, insbesondere wenn die Daten kategoriale Beschriftungen mit numerischen Werten enthalten. Enthält Ihr Datensatz jedoch viele Teile oder Beschriftungen, sollten Sie stattdessen ein Balkendiagramm in Betracht ziehen.
+Kreisdiagramme eignen sich am besten, um das Verhältnis von Teilen zum Ganzen darzustellen, insbesondere wenn die Daten kategoriale Beschriftungen mit numerischen Werten enthalten. Enthält Ihre Datenmenge jedoch viele Teile oder Beschriftungen, sollten Sie stattdessen ein Balkendiagramm in Betracht ziehen.
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/de/php-java/aspose.slides/presentation/)‑Klasse.
-2. Holen Sie sich einen Verweis auf eine Folie über deren Index.
-3. Fügen Sie ein Diagramm mit Standarddaten hinzu und geben Sie den Typ [ChartType::Pie](https://reference.aspose.com/slides/de/php-java/aspose.slides/charttype/#Pie) an.
-4. Greifen Sie auf das Diagramm‑Daten‑Workbook [ChartDataWorkbook](https://reference.aspose.com/slides/de/php-java/aspose.slides/chartdataworkbook/) zu.
-5. Löschen Sie die Standard‑Reihen und -Kategorien.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) Klasse.
+2. Holen Sie eine Referenz zu einer Folie über ihren Index.
+3. Fügen Sie ein Diagramm mit Standarddaten hinzu und geben Sie den Typ [ChartType::Pie](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#Pie) an.
+4. Greifen Sie auf das Diagramm‑Daten‑Workbook [ChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/) zu.
+5. Löschen Sie die Standardreihen und -kategorien.
 6. Fügen Sie neue Reihen und Kategorien hinzu.
-7. Fügen Sie neue Diagrammdaten für die Diagramm‑Reihen hinzu.
-8. Fügen Sie neue Punkte für das Diagramm hinzu und wenden Sie benutzerdefinierte Farben auf die Segmente des Kreisdiagramms an.
+7. Fügen Sie neue Diagrammdaten für die Diagrammreihe hinzu.
+8. Fügen Sie neue Punkte für das Diagramm hinzu und wenden Sie benutzerdefinierte Farben auf die Sektoren des Kreisdiagramms an.
 9. Setzen Sie Beschriftungen für die Reihen.
 10. Aktivieren Sie Führungs‑Linien für die Reihen‑Beschriftungen.
-11. Legen Sie den Rotationswinkel für die Segmente des Kreisdiagramms fest.
+11. Legen Sie den Rotationswinkel für die Kreissektoren fest.
 12. Speichern Sie die geänderte Präsentation als PPTX‑Datei.
 
 Dieser PHP‑Code zeigt, wie ein Kreisdiagramm erstellt wird:
 
 ```php
-  # Instanziiert eine Präsentationsklasse, die eine PPTX-Datei darstellt
+  # Instanziert eine Präsentationsklasse, die eine PPTX-Datei darstellt
   $pres = new Presentation();
   try {
     # Greift auf die erste Folie zu
@@ -246,9 +242,9 @@ Dieser PHP‑Code zeigt, wie ein Kreisdiagramm erstellt wird:
     $chart->getChartData()->getSeries()->get_Item(0)->getLabels()->getDefaultDataLabelFormat()->setShowValue(true);
     # Setzt den Index für das Diagrammdatenblatt
     $defaultWorksheetIndex = 0;
-    # Holt das Diagrammdaten‑Arbeitsblatt
+    # Erhält das Diagrammdaten‑Arbeitsblatt
     $fact = $chart->getChartData()->getChartDataWorkbook();
-    # Löscht die standardmäßig erzeugten Serien und Kategorien
+    # Löscht die standardmäßig generierten Serien und Kategorien
     $chart->getChartData()->getSeries()->clear();
     $chart->getChartData()->getCategories()->clear();
     # Fügt neue Kategorien hinzu
@@ -261,14 +257,14 @@ Dieser PHP‑Code zeigt, wie ein Kreisdiagramm erstellt wird:
     $series->getDataPoints()->addDataPointForPieSeries($fact->getCell($defaultWorksheetIndex, 1, 1, 20));
     $series->getDataPoints()->addDataPointForPieSeries($fact->getCell($defaultWorksheetIndex, 2, 1, 50));
     $series->getDataPoints()->addDataPointForPieSeries($fact->getCell($defaultWorksheetIndex, 3, 1, 30));
-    # Funktioniert in neuer Version nicht
-    # Adding new points and setting sector color
+    # Funktioniert in der neuen Version nicht
+    # Hinzufügen neuer Punkte und Festlegen der Sektor‑Farbe
     # series.IsColorVaried = true;
     $chart->getChartData()->getSeriesGroups()->get_Item(0)->setColorVaried(true);
     $point = $series->getDataPoints()->get_Item(0);
     $point->getFormat()->getFill()->setFillType(FillType::Solid);
     $point->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->CYAN);
-    # Setzt den Sektor‑Rand
+    # Setzt die Sektor‑Rand
     $point->getFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
     $point->getFormat()->getLine()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->GRAY);
     $point->getFormat()->getLine()->setWidth(3.0);
@@ -277,7 +273,7 @@ Dieser PHP‑Code zeigt, wie ein Kreisdiagramm erstellt wird:
     $point1 = $series->getDataPoints()->get_Item(1);
     $point1->getFormat()->getFill()->setFillType(FillType::Solid);
     $point1->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->ORANGE);
-    # Setzt den Sektor‑Rand
+    # Setzt die Sektor‑Rand
     $point1->getFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
     $point1->getFormat()->getLine()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
     $point1->getFormat()->getLine()->setWidth(3.0);
@@ -286,7 +282,7 @@ Dieser PHP‑Code zeigt, wie ein Kreisdiagramm erstellt wird:
     $point2 = $series->getDataPoints()->get_Item(2);
     $point2->getFormat()->getFill()->setFillType(FillType::Solid);
     $point2->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->YELLOW);
-    # Setzt den Sektor‑Rand
+    # Setzt die Sektor‑Rand
     $point2->getFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
     $point2->getFormat()->getLine()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
     $point2->getFormat()->getLine()->setWidth(2.0);
@@ -303,7 +299,7 @@ Dieser PHP‑Code zeigt, wie ein Kreisdiagramm erstellt wird:
     $lbl3 = $series->getDataPoints()->get_Item(2)->getLabel();
     $lbl3->getDataLabelFormat()->setShowSeriesName(true);
     $lbl3->getDataLabelFormat()->setShowPercentage(true);
-    # Zeigt Führungs­linien für das Diagramm an
+    # Zeigt Führungs‑Linien für das Diagramm an
     $series->getLabels()->getDefaultDataLabelFormat()->setShowLeaderLines(true);
     # Setzt den Rotationswinkel für die Sektoren des Kreisdiagramms
     $chart->getChartData()->getSeriesGroups()->get_Item(0)->setFirstSliceAngle(180);
@@ -318,15 +314,15 @@ Dieser PHP‑Code zeigt, wie ein Kreisdiagramm erstellt wird:
 
 ### **Liniendiagramme erstellen**
 
-Liniendiagramme (auch Liniendiagramme genannt) eignen sich am besten, wenn Sie Änderungen von Werten über die Zeit darstellen möchten. Mit einem Liniendiagramm können Sie viele Daten gleichzeitig vergleichen, Änderungen und Trends über die Zeit verfolgen, Anomalien in Datenreihen hervorheben und mehr.
+Liniendiagramme (auch als Liniendiagramme bezeichnet) eignen sich am besten, wenn Sie Änderungen von Werten über die Zeit hinweg demonstrieren möchten. Mit einem Liniendiagramm können Sie große Datenmengen gleichzeitig vergleichen, Änderungen und Trends im Zeitverlauf nachverfolgen, Anomalien in Datenreihen hervorheben und mehr.
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/de/php-java/aspose.slides/presentation/)‑Klasse.
-1. Holen Sie sich einen Verweis auf eine Folie über deren Index.
-1. Fügen Sie ein Diagramm mit Standarddaten hinzu und geben Sie den Typ [ChartType::Line](https://reference.aspose.com/slides/de/php-java/aspose.slides/charttype/#Line) an.
-1. Greifen Sie auf das Diagramm‑Daten‑Workbook ([ChartDataWorkbook](https://reference.aspose.com/slides/de/php-java/aspose.slides/chartdataworkbook/)) zu.
-1. Löschen Sie die Standard‑Reihen und -Kategorien.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) Klasse.
+1. Holen Sie eine Referenz zu einer Folie über ihren Index.
+1. Fügen Sie ein Diagramm mit Standarddaten hinzu und geben Sie den Typ [ChartType::Line](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#Line) an.
+1. Greifen Sie auf das Diagramm‑Daten‑Workbook ([ChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/)) zu.
+1. Löschen Sie die Standardreihen und -kategorien.
 1. Fügen Sie neue Reihen und Kategorien hinzu.
-1. Fügen Sie neue Diagrammdaten für die Diagramm‑Reihen hinzu.
+1. Fügen Sie neue Diagrammdaten für die Diagrammreihe hinzu.
 1. Speichern Sie die geänderte Präsentation als PPTX‑Datei.
 
 Dieser PHP‑Code zeigt, wie ein Liniendiagramm erstellt wird:
@@ -343,7 +339,7 @@ Dieser PHP‑Code zeigt, wie ein Liniendiagramm erstellt wird:
   }
 ```
 
-Standardmäßig werden die Punkte in einem Liniendiagramm durch gerade kontinuierliche Linien verbunden. Wenn Sie stattdessen gestrichelte Linien wünschen, können Sie Ihren bevorzugten Strichtyp wie folgt angeben:
+Standardmäßig werden Punkte in einem Liniendiagramm durch gerade, durchgehende Linien verbunden. Wenn Sie die Punkte stattdessen durch Striche verbinden möchten, können Sie den gewünschten Strichtyp wie folgt angeben:
 
 ```php
   $pres = new Presentation();
@@ -361,20 +357,20 @@ Standardmäßig werden die Punkte in einem Liniendiagramm durch gerade kontinuie
   }
 ```
 
-### **Baumkarten‑Diagramme erstellen**
+### **Baumdiagramme erstellen**
 
-Baumkarten‑Diagramme eignen sich am besten für Verkaufsdaten, wenn Sie die relative Größe von Datenkategorien zeigen und schnell auf Elemente aufmerksam machen möchten, die große Beiträge innerhalb jeder Kategorie leisten.
+Baumdiagramme eignen sich am besten für Verkaufsdaten, wenn Sie die relative Größe von Datenkategorien zeigen und schnell die großen Beitragszahler innerhalb jeder Kategorie hervorheben möchten.
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/de/php-java/aspose.slides/presentation/)‑Klasse.
-2. Holen Sie sich einen Verweis auf eine Folie über deren Index.
-3. Fügen Sie ein Diagramm mit Standarddaten hinzu und geben Sie den Typ [ChartType::Treemap](https://reference.aspose.com/slides/de/php-java/aspose.slides/charttype/#Treemap) an.
-4. Greifen Sie auf das Diagramm‑Daten‑Workbook [ChartDataWorkbook](https://reference.aspose.com/slides/de/php-java/aspose.slides/chartdataworkbook/) zu.
-5. Löschen Sie die Standard‑Reihen und -Kategorien.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) Klasse.
+2. Holen Sie eine Referenz zu einer Folie über ihren Index.
+3. Fügen Sie ein Diagramm mit Standarddaten hinzu und geben Sie den Typ [ChartType::Treemap](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#Treemap) an.
+4. Greifen Sie auf das Diagramm‑Daten‑Workbook [ChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/) zu.
+5. Löschen Sie die Standardreihen und -kategorien.
 6. Fügen Sie neue Reihen und Kategorien hinzu.
-7. Fügen Sie neue Diagrammdaten für die Diagramm‑Reihen hinzu.
+7. Fügen Sie neue Diagrammdaten für die Diagrammreihe hinzu.
 8. Speichern Sie die geänderte Präsentation als PPTX‑Datei.
 
-Dieser PHP‑Code zeigt, wie ein Baumkarten‑Diagramm erstellt wird:
+Dieser PHP‑Code zeigt, wie ein Baumdiagramm erstellt wird:
 
 ```php
   $pres = new Presentation();
@@ -421,14 +417,14 @@ Dieser PHP‑Code zeigt, wie ein Baumkarten‑Diagramm erstellt wird:
 
 ### **Börsendiagramme erstellen**
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/de/php-java/aspose.slides/presentation/)‑Klasse.
-2. Holen Sie sich einen Verweis auf eine Folie über deren Index.
-3. Fügen Sie ein Diagramm mit Standarddaten hinzu und geben Sie den Typ [ChartType::OpenHighLowClose](https://reference.aspose.com/slides/de/php-java/aspose.slides/charttype/#OpenHighLowClose) an.
-4. Greifen Sie auf das Diagramm‑Daten‑Workbook [ChartDataWorkbook](https://reference.aspose.com/slides/de/php-java/aspose.slides/chartdataworkbook/) zu.
-5. Löschen Sie die Standard‑Reihen und -Kategorien.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) Klasse.
+2. Holen Sie eine Referenz zu einer Folie über ihren Index.
+3. Fügen Sie ein Diagramm mit Standarddaten hinzu und geben Sie den Typ [ChartType::OpenHighLowClose](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#OpenHighLowClose) an.
+4. Greifen Sie auf das Diagramm‑Daten‑Workbook [ChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/) zu.
+5. Löschen Sie die Standardreihen und -kategorien.
 6. Fügen Sie neue Reihen und Kategorien hinzu.
-7. Fügen Sie neue Diagrammdaten für die Diagramm‑Reihen hinzu.
-8. Geben Sie das Format für die Hoch‑Niedrig‑Linien an.
+7. Fügen Sie neue Diagrammdaten für die Diagrammreihe hinzu.
+8. Geben Sie das Format für Hoch‑Niedrig‑Linien an.
 9. Speichern Sie die geänderte Präsentation als PPTX‑Datei.
 
 Dieser PHP‑Code zeigt, wie ein Börsendiagramm erstellt wird:
@@ -477,18 +473,18 @@ Dieser PHP‑Code zeigt, wie ein Börsendiagramm erstellt wird:
   }
 ```
 
-### **Box‑und‑Whisker‑Diagramme erstellen**
+### **Box‑ und Whisker‑Diagramme erstellen**
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/de/php-java/aspose.slides/presentation/)‑Klasse.
-2. Holen Sie sich einen Verweis auf eine Folie über deren Index.
-3. Fügen Sie ein Diagramm mit Standarddaten hinzu und geben Sie den Typ [ChartType::BoxAndWhisker](https://reference.aspose.com/slides/de/php-java/aspose.slides/charttype/#BoxAndWhisker) an.
-4. Greifen Sie auf das Diagramm‑Daten‑Workbook [ChartDataWorkbook](https://reference.aspose.com/slides/de/php-java/aspose.slides/chartdataworkbook/) zu.
-5. Löschen Sie die Standard‑Reihen und -Kategorien.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) Klasse.
+2. Holen Sie eine Referenz zu einer Folie über ihren Index.
+3. Fügen Sie ein Diagramm mit Standarddaten hinzu und geben Sie den Typ [ChartType::BoxAndWhisker](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#BoxAndWhisker) an.
+4. Greifen Sie auf das Diagramm‑Daten‑Workbook [ChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/) zu.
+5. Löschen Sie die Standardreihen und -kategorien.
 6. Fügen Sie neue Reihen und Kategorien hinzu.
-7. Fügen Sie neue Diagrammdaten für die Diagramm‑Reihen hinzu.
+7. Fügen Sie neue Diagrammdaten für die Diagrammreihe hinzu.
 8. Speichern Sie die geänderte Präsentation als PPTX‑Datei.
 
-Dieser PHP‑Code zeigt, wie ein Box‑und‑Whisker‑Diagramm erstellt wird:
+Dieser PHP‑Code zeigt, wie ein Box‑ und Whisker‑Diagramm erstellt wird:
 
 ```php
   $pres = new Presentation();
@@ -526,9 +522,9 @@ Dieser PHP‑Code zeigt, wie ein Box‑und‑Whisker‑Diagramm erstellt wird:
 
 ### **Trichter‑Diagramme erstellen**
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/de/php-java/aspose.slides/presentation/)‑Klasse.
-2. Holen Sie sich einen Verweis auf eine Folie über deren Index.
-3. Fügen Sie ein Diagramm mit Standarddaten hinzu und geben Sie den Typ [ChartType::Funnel](https://reference.aspose.com/slides/de/php-java/aspose.slides/charttype/#Funnel) an.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) Klasse.
+2. Holen Sie eine Referenz zu einer Folie über ihren Index.
+3. Fügen Sie ein Diagramm mit Standarddaten hinzu und geben Sie den Typ [ChartType::Funnel](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#Funnel) an.
 4. Speichern Sie die geänderte Präsentation als PPTX‑Datei.
 
 Dieser PHP‑Code zeigt, wie ein Trichter‑Diagramm erstellt wird:
@@ -562,14 +558,14 @@ Dieser PHP‑Code zeigt, wie ein Trichter‑Diagramm erstellt wird:
   }
 ```
 
-### **Sunburst‑Diagramme erstellen**
+### **Sonnenblumen‑Diagramme erstellen**
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/de/php-java/aspose.slides/presentation/)‑Klasse.
-2. Holen Sie sich einen Verweis auf eine Folie über deren Index.
-3. Fügen Sie ein Diagramm mit Standarddaten hinzu und geben Sie den Typ [ChartType::Sunburst](https://reference.aspose.com/slides/de/php-java/aspose.slides/charttype/#Sunburst) an.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) Klasse.
+2. Holen Sie eine Referenz zu einer Folie über ihren Index.
+3. Fügen Sie ein Diagramm mit Standarddaten hinzu und geben Sie den Typ [ChartType::Sunburst](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#Sunburst) an.
 4. Speichern Sie die geänderte Präsentation als PPTX‑Datei.
 
-Dieser PHP‑Code zeigt, wie ein Sunburst‑Diagramm erstellt wird:
+Dieser PHP‑Code zeigt, wie ein Sonnenblumen‑Diagramm erstellt wird:
 
 ```php
   $pres = new Presentation();
@@ -615,11 +611,11 @@ Dieser PHP‑Code zeigt, wie ein Sunburst‑Diagramm erstellt wird:
 
 ### **Histogramm‑Diagramme erstellen**
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/de/php-java/aspose.slides/presentation/)‑Klasse.
-2. Holen Sie sich einen Verweis auf eine Folie über deren Index.
-3. Fügen Sie ein Diagramm mit Standarddaten hinzu und geben Sie den Typ [ChartType::Histogram](https://reference.aspose.com/slides/de/php-java/aspose.slides/charttype/#Histogram) an.
-4. Greifen Sie auf das Diagramm‑Daten‑Workbook [ChartDataWorkbook](https://reference.aspose.com/slides/de/php-java/aspose.slides/chartdataworkbook/) zu.
-5. Löschen Sie die Standard‑Reihen und -Kategorien.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) Klasse.
+2. Holen Sie eine Referenz zu einer Folie über ihren Index.
+3. Fügen Sie ein Diagramm mit Standarddaten hinzu und geben Sie den Typ [ChartType::Histogram](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#Histogram) an.
+4. Greifen Sie auf das Diagramm‑Daten‑Workbook [ChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/) zu.
+5. Löschen Sie die Standardreihen und -kategorien.
 6. Fügen Sie neue Reihen und Kategorien hinzu.
 7. Speichern Sie die geänderte Präsentation als PPTX‑Datei.
 
@@ -644,9 +640,9 @@ Dieser PHP‑Code zeigt, wie ein Histogramm‑Diagramm erstellt wird:
 
 ### **Radar‑Diagramme erstellen**
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/de/php-java/aspose.slides/presentation/)‑Klasse.
-2. Holen Sie sich einen Verweis auf eine Folie über deren Index.
-3. Fügen Sie ein Diagramm mit einigen Daten hinzu und geben Sie Ihren bevorzugten Diagrammtyp ([ChartType::Radar](https://reference.aspose.com/slides/de/php-java/aspose.slides/charttype/#Radar) in diesem Fall) an.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) Klasse.
+2. Holen Sie eine Referenz zu einer Folie über ihren Index.
+3. Fügen Sie ein Diagramm mit einigen Daten hinzu und geben Sie Ihren bevorzugten Diagrammtyp ([ChartType::Radar](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#Radar) in diesem Fall) an.
 4. Speichern Sie die geänderte Präsentation als PPTX‑Datei.
 
 Dieser PHP‑Code zeigt, wie ein Radar‑Diagramm erstellt wird:
@@ -663,18 +659,18 @@ Dieser PHP‑Code zeigt, wie ein Radar‑Diagramm erstellt wird:
   }
 ```
 
-### **Mehrkategorien‑Diagramme erstellen**
+### **Mehrkategorie‑Diagramme erstellen**
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/de/php-java/aspose.slides/presentation/)‑Klasse.
-2. Holen Sie sich einen Verweis auf eine Folie über deren Index.
-3. Fügen Sie ein Diagramm mit Standarddaten hinzu und geben Sie den Typ [ChartType::ClusteredColumn](https://reference.aspose.com/slides/de/php-java/aspose.slides/charttype/#ClusteredColumn) an.
-4. Greifen Sie auf das Diagramm‑Daten‑Workbook [ChartDataWorkbook](https://reference.aspose.com/slides/de/php-java/aspose.slides/chartdataworkbook/) zu.
-5. Löschen Sie die Standard‑Reihen und -Kategorien.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) Klasse.
+2. Holen Sie eine Referenz zu einer Folie über ihren Index.
+3. Fügen Sie ein Diagramm mit Standarddaten hinzu und geben Sie den Typ [ChartType::ClusteredColumn](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#ClusteredColumn) an.
+4. Greifen Sie auf das Diagramm‑Daten‑Workbook [ChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/) zu.
+5. Löschen Sie die Standardreihen und -kategorien.
 6. Fügen Sie neue Reihen und Kategorien hinzu.
-7. Fügen Sie neue Diagrammdaten für die Diagramm‑Reihen hinzu.
+7. Fügen Sie neue Diagrammdaten für die Diagrammreihe hinzu.
 8. Speichern Sie die geänderte Präsentation als PPTX‑Datei.
 
-Dieser PHP‑Code zeigt, wie ein Mehrkategorien‑Diagramm erstellt wird:
+Dieser PHP‑Code zeigt, wie ein Mehrkategorie‑Diagramm erstellt wird:
 
 ```php
   $pres = new Presentation();
@@ -736,7 +732,7 @@ Dieser PHP‑Code zeigt, wie ein Karten‑Diagramm erstellt wird:
 
 ### **Kombinations‑Diagramme erstellen**
 
-Ein Kombinations‑Diagramm (oder Combo‑Diagramm) kombiniert zwei oder mehr Diagrammtypen in einem einzigen Diagramm. Dieses Diagramm ermöglicht es Ihnen, Unterschiede zwischen mehreren Datensätzen hervorzuheben, zu vergleichen oder zu untersuchen und Beziehungen zwischen ihnen zu erkennen.
+Ein Kombinations‑Diagramm (oder Combo‑Diagramm) kombiniert zwei oder mehr Diagrammtypen in einem einzigen Diagramm. Dieses Diagramm ermöglicht es Ihnen, Unterschiede zwischen zwei oder mehr Datensätzen hervorzuheben, zu vergleichen oder zu untersuchen und somit Beziehungen zwischen ihnen zu erkennen.
 
 ![Das Kombinationsdiagramm](combination_chart.png)
 
@@ -764,7 +760,7 @@ function createComboChart() {
 function createChartWithFirstSeries($slide) {
     $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 600, 400);
 
-    // Setze den Diagrammtitel.
+    // Diagrammtitel setzen.
     $chart->setTitle(true);
     $chart->getChartTitle()->addTextFrameForOverriding("Chart Title");
     $chart->getChartTitle()->setOverlay(false);
@@ -773,11 +769,11 @@ function createChartWithFirstSeries($slide) {
     $titleFormat->setFontBold(NullableBool::False);
     $titleFormat->setFontHeight(18);
     
-    // Setze die Diagrammlegende.
+    // Diagrammlegende setzen.
     $chart->getLegend()->setPosition(LegendPositionType::Bottom);
     $chart->getLegend()->getTextFormat()->getPortionFormat()->setFontHeight(12);
 
-    // Lösche die standardmäßig erzeugten Serien und Kategorien.
+    // Standardmäßig generierte Serien und Kategorien löschen.
     $chart->getChartData()->getSeries()->clear();
     $chart->getChartData()->getCategories()->clear();
 
@@ -837,28 +833,28 @@ function addThirdSeriesToChart($chart) {
 }
 
 function setPrimaryAxesFormat($chart) {
-    // Setze die horizontale Achse.
+    // Horizontale Achse setzen.
     $horizontalAxis = $chart->getAxes()->getHorizontalAxis();
     $horizontalAxis->getTextFormat()->getPortionFormat()->setFontHeight(12);
     $horizontalAxis->getFormat()->getLine()->getFillFormat()->setFillType(FillType::NoFill);
 
     setAxisTitle($horizontalAxis, "X Axis");
 
-    // Setze die vertikale Achse.
+    // Vertikale Achse setzen.
     $verticalAxis = $chart->getAxes()->getVerticalAxis();
     $verticalAxis->getTextFormat()->getPortionFormat()->setFontHeight(12);
     $verticalAxis->getFormat()->getLine()->getFillFormat()->setFillType(FillType::NoFill);
 
     setAxisTitle($verticalAxis, "Y Axis 1");
 
-    // Setze die Farbe der vertikalen Hauptgitterlinien.
+    // Farbe der vertikalen Hauptgitternetzlinien setzen.
     $majorGridLinesFormat = $verticalAxis->getMajorGridLinesFormat()->getLine()->getFillFormat();
     $majorGridLinesFormat->setFillType(FillType::Solid);
     $majorGridLinesFormat->getSolidFillColor()->setColor(new java("java.awt.Color", 217, 217, 217));
 }
 
 function setSecondaryAxesFormat($chart) {
-    // Setze die sekundäre horizontale Achse.
+    // Sekundäre horizontale Achse setzen.
     $secondaryHorizontalAxis = $chart->getAxes()->getSecondaryHorizontalAxis();
     $secondaryHorizontalAxis->setPosition(AxisPositionType::Bottom);
     $secondaryHorizontalAxis->setCrossType(CrossesType::Maximum);
@@ -866,7 +862,7 @@ function setSecondaryAxesFormat($chart) {
     $secondaryHorizontalAxis->getMajorGridLinesFormat()->getLine()->getFillFormat()->setFillType(FillType::NoFill);
     $secondaryHorizontalAxis->getMinorGridLinesFormat()->getLine()->getFillFormat()->setFillType(FillType::NoFill);
 
-    // Setze die sekundäre vertikale Achse.
+    // Sekundäre vertikale Achse setzen.
     $secondaryVerticalAxis = $chart->getAxes()->getSecondaryVerticalAxis();
     $secondaryVerticalAxis->setPosition(AxisPositionType::Right);
     $secondaryVerticalAxis->getTextFormat()->getPortionFormat()->setFontHeight(12);
@@ -889,11 +885,11 @@ function setAxisTitle($axis, $axisTitle) {
 
 ## **Diagramme aktualisieren**
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/de/php-java/aspose.slides/presentation/)‑Klasse, die die Präsentation mit dem zu aktualisierenden Diagramm darstellt.
-2. Holen Sie sich einen Verweis auf eine Folie über deren Index.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) Klasse, die die Präsentation mit dem zu aktualisierenden Diagramm darstellt.
+2. Holen Sie eine Referenz zu einer Folie über ihren Index.
 3. Durchlaufen Sie alle Formen, um das gewünschte Diagramm zu finden.
 4. Greifen Sie auf das Daten‑Arbeitsblatt des Diagramms zu.
-5. Ändern Sie die Diagrammdaten‑Reihen, indem Sie die Reihenwerte anpassen.
+5. Ändern Sie die Diagrammdatenreihen, indem Sie die Reihenwerte anpassen.
 6. Fügen Sie eine neue Reihe hinzu und füllen Sie deren Daten.
 7. Speichern Sie die geänderte Präsentation als PPTX‑Datei.
 
@@ -902,38 +898,38 @@ Dieser PHP‑Code zeigt, wie ein Diagramm aktualisiert wird:
 ```php
   $pres = new Presentation();
   try {
-    # Zugriff auf die erste Folie
+    # Erste Folie öffnen
     $sld = $pres->getSlides()->get_Item(0);
     # Diagramm mit Standarddaten holen
     $chart = $sld->getShapes()->get_Item(0);
-    # Index des Diagrammdatenblatts festlegen
+    # Index des Diagrammdatenblatts setzen
     $defaultWorksheetIndex = 0;
-    # Diagrammdaten-Arbeitsblatt abrufen
+    # Diagrammdaten‑Arbeitsblatt holen
     $fact = $chart->getChartData()->getChartDataWorkbook();
-    # Ändern des Diagramm‑Kategorienamens
+    # Diagramm‑Kategorienamen ändern
     $fact->getCell($defaultWorksheetIndex, 1, 0, "Modified Category 1");
     $fact->getCell($defaultWorksheetIndex, 2, 0, "Modified Category 2");
     # Erste Diagrammserie nehmen
     $series = $chart->getChartData()->getSeries()->get_Item(0);
-    # Jetzt werden die Seriendaten aktualisiert
-    $fact->getCell($defaultWorksheetIndex, 0, 1, "New_Series1");// Seriennamen ändern
+    # Jetzt Serie aktualisieren
+    $fact->getCell($defaultWorksheetIndex, 0, 1, "New_Series1");// Modifying series name
 
     $series->getDataPoints()->get_Item(0)->getValue()->setData(90);
     $series->getDataPoints()->get_Item(1)->getValue()->setData(123);
     $series->getDataPoints()->get_Item(2)->getValue()->setData(44);
     # Zweite Diagrammserie nehmen
     $series = $chart->getChartData()->getSeries()->get_Item(1);
-    # Jetzt werden die Seriendaten aktualisiert
-    $fact->getCell($defaultWorksheetIndex, 0, 2, "New_Series2");// Seriennamen ändern
+    # Jetzt Serie aktualisieren
+    $fact->getCell($defaultWorksheetIndex, 0, 2, "New_Series2");// Modifying series name
 
     $series->getDataPoints()->get_Item(0)->getValue()->setData(23);
     $series->getDataPoints()->get_Item(1)->getValue()->setData(67);
     $series->getDataPoints()->get_Item(2)->getValue()->setData(99);
-    # Jetzt eine neue Serie hinzufügen
+    # Jetzt neue Serie hinzufügen
     $chart->getChartData()->getSeries()->add($fact->getCell($defaultWorksheetIndex, 0, 3, "Series 3"), $chart->getType());
     # Dritte Diagrammserie nehmen
     $series = $chart->getChartData()->getSeries()->get_Item(2);
-    # Jetzt werden die Seriendaten befüllt
+    # Jetzt Seriendaten füllen
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 1, 3, 20));
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 2, 3, 50));
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 3, 3, 30));
@@ -949,10 +945,12 @@ Dieser PHP‑Code zeigt, wie ein Diagramm aktualisiert wird:
 
 ## **Datenbereich für ein Diagramm festlegen**
 
+Um den bereits von einem bestehenden Diagramm genutzten Bereich zu prüfen, siehe [Retrieve a Chart's Data Range](/slides/de/php-java/chart-workbook/#retrieve-a-charts-data-range).
+
 Um den Datenbereich für ein Diagramm festzulegen, gehen Sie wie folgt vor:
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/de/php-java/aspose.slides/presentation/)‑Klasse, die die Präsentation mit dem Diagramm darstellt.
-2. Holen Sie sich einen Verweis auf eine Folie über deren Index.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) Klasse, die die Präsentation mit dem Diagramm darstellt.
+2. Holen Sie eine Referenz zu einer Folie über ihren Index.
 3. Durchlaufen Sie alle Formen, um das gewünschte Diagramm zu finden.
 4. Greifen Sie auf die Diagrammdaten zu und setzen Sie den Bereich.
 5. Speichern Sie die geänderte Präsentation als PPTX‑Datei.
@@ -967,7 +965,7 @@ Dieser PHP‑Code zeigt, wie der Datenbereich für ein Diagramm festgelegt wird:
     $chart->getChartData()->setRange("Sheet1!A1:B4");
     $pres->save("SetDataRange_out.pptx", SaveFormat::Pptx);
   } finally {
-    if (!java_is_null($pres)) {
+    if (!java_is         null($pres)) {
       $pres->dispose();
     }
   }
@@ -975,7 +973,7 @@ Dieser PHP‑Code zeigt, wie der Datenbereich für ein Diagramm festgelegt wird:
 
 ## **Standard‑Marker in Diagrammen verwenden**
 
-Wenn Sie Standard‑Marker in Diagrammen verwenden, erhält jede Diagramm‑Reihe automatisch ein unterschiedliches Markersymbol.
+Wenn Sie Standard‑Marker in Diagrammen verwenden, erhält jede Diagrammreihe automatisch ein unterschiedliches Markersymbol.
 
 Dieser PHP‑Code zeigt, wie ein Diagramm‑Reihen‑Marker automatisch gesetzt wird:
 
@@ -1000,7 +998,7 @@ Dieser PHP‑Code zeigt, wie ein Diagramm‑Reihen‑Marker automatisch gesetzt 
     $chart->getChartData()->getSeries()->add($fact->getCell(0, 0, 2, "Series 2"), $chart->getType());
     # Zweite Diagrammserie nehmen
     $series2 = $chart->getChartData()->getSeries()->get_Item(1);
-    # Jetzt werden die Seriendaten befüllt
+    # Jetzt Seriendaten füllen
     $series2->getDataPoints()->addDataPointForLineSeries($fact->getCell(0, 1, 2, 30));
     $series2->getDataPoints()->addDataPointForLineSeries($fact->getCell(0, 2, 2, 10));
     $series2->getDataPoints()->addDataPointForLineSeries($fact->getCell(0, 3, 2, 60));
@@ -1019,16 +1017,16 @@ Dieser PHP‑Code zeigt, wie ein Diagramm‑Reihen‑Marker automatisch gesetzt 
 
 **Welche Diagrammtypen werden von Aspose.Slides unterstützt?**
 
-Aspose.Slides unterstützt eine breite Palette von [chart types](https://reference.aspose.com/slides/de/php-java/aspose.slides/charttype/), darunter Balken, Linien, Kreis, Flächen, Scatter, Histogramm, Radar und viele mehr. Diese Flexibilität erlaubt es Ihnen, den am besten geeigneten Diagrammtyp für Ihre Datenvisualisierung auszuwählen.
+Aspose.Slides unterstützt eine breite Palette von [Diagrammtypen](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/), darunter Balken-, Linien-, Kreis-, Flächen-, Streu‑, Histogramm‑, Radar‑ und viele weitere. Diese Flexibilität ermöglicht es Ihnen, den am besten geeigneten Diagrammtyp für Ihre Datenvisualisierung auszuwählen.
 
 **Wie füge ich ein neues Diagramm zu einer Folie hinzu?**
 
-Um ein Diagramm hinzuzufügen, erstellen Sie zuerst eine Instanz der [Presentation](https://reference.aspose.com/slides/de/php-java/aspose.slides/presentation/)‑Klasse, holen Sie die gewünschte Folie über deren Index und rufen dann die Methode zum Hinzufügen eines Diagramms auf, wobei Sie den Diagrammtyp und die Anfangsdaten angeben. Dieser Vorgang integriert das Diagramm direkt in Ihre Präsentation.
+Um ein Diagramm hinzuzufügen, erstellen Sie zunächst eine Instanz der [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) Klasse, rufen die gewünschte Folie über ihren Index ab und rufen dann die Methode zum Hinzufügen eines Diagramms auf, wobei Sie den Diagrammtyp und die Anfangsdaten angeben. Dieser Vorgang integriert das Diagramm direkt in Ihre Präsentation.
 
 **Wie kann ich die in einem Diagramm angezeigten Daten aktualisieren?**
 
-Sie können die Daten eines Diagramms aktualisieren, indem Sie auf das zugehörige Daten‑Workbook ([ChartDataWorkbook](https://reference.aspose.com/slides/de/php-java/aspose.slides/chartdataworkbook/)) zugreifen, alle Standard‑Reihen und -Kategorien löschen und anschließend Ihre eigenen Daten hinzufügen. Dadurch können Sie das Diagramm mit den neuesten Daten aktualisieren.
+Sie können die Daten eines Diagramms aktualisieren, indem Sie auf das zugehörige Daten‑Workbook ([ChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/)) zugreifen, vorhandene Standardreihen und -kategorien löschen und anschließend Ihre eigenen Daten hinzufügen. So können Sie das Diagramm auf die neuesten Daten aktualisieren.
 
 **Ist es möglich, das Aussehen des Diagramms anzupassen?**
 
-Ja, Aspose.Slides bietet umfangreiche Anpassungsoptionen. Sie können Farben, Schriftarten, Beschriftungen, Legenden und andere [formatting elements](/slides/de/php-java/chart-entities/) ändern, um das Erscheinungsbild des Diagramms an Ihre spezifischen Designanforderungen anzupassen.
+Ja, Aspose.Slides bietet umfangreiche Anpassungsoptionen. Sie können Farben, Schriftarten, Beschriftungen, Legenden und andere [Formatierungselemente](/slides/de/php-java/chart-entities/) ändern, um das Erscheinungsbild des Diagramms an Ihre spezifischen Designanforderungen anzupassen.

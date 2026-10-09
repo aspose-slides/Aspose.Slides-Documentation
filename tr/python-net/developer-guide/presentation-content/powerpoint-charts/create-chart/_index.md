@@ -1,5 +1,5 @@
 ---
-title: PowerPoint Sunum Grafiklerini Python'da Oluşturma veya Güncelleme
+title: Python'da PowerPoint Sunumu Grafiklerini Oluşturma veya Güncelleme
 linktitle: Grafik Oluşturma veya Güncelleme
 type: docs
 weight: 10
@@ -10,12 +10,12 @@ keywords:
 - grafik düzenle
 - grafik değiştir
 - grafik güncelle
-- dağılımlı grafik
+- dağıtılmış grafik
 - pasta grafik
 - çizgi grafik
-- ağaç haritası grafik
-- borsa grafik
-- kutu ve bıyık grafik
+- ağaç harita grafik
+- hisse senedi grafik
+- kutu ve çubuk grafik
 - huni grafik
 - güneş patlaması grafik
 - histogram grafik
@@ -24,148 +24,146 @@ keywords:
 - PowerPoint sunumu
 - Python
 - Aspose.Slides
-description: "Aspose.Slides for Python via .NET kullanarak PowerPoint ve OpenDocument sunumlarında grafik oluşturma ve özelleştirme nasıl yapılır öğrenin. Sunumlarda grafik ekleme, biçimlendirme ve düzenleme konularını, Python'da pratik kod örnekleriyle kapsar."
+description: "Aspose.Slides for Python via .NET kullanarak PowerPoint ve OpenDocument sunumlarında grafik oluşturmayı ve özelleştirmeyi öğrenin. Sunumlarda grafik ekleme, biçimlendirme ve düzenleme konularını, Python'da pratik kod örnekleriyle kapsar."
 ---
 ## **Genel Bakış**
 
-Bu makale, Aspose.Slides for Python via .NET kullanarak grafik oluşturma ve özelleştirme sürecini açıklar. Bir slayta grafik eklemeyi, verilerle doldurmayı ve tasarım gereksinimlerinize uygun biçimlendirmeyi öğreneceksiniz. Kod örnekleri, sunum ve grafik oluşturma, seriler, eksenler ve lejandları yapılandırma ve grafik üretimini uygulamalarınıza entegre etme konularını kapsar.
+Bu makale, Aspose.Slides for Python via .NET kullanarak grafik oluşturma ve özelleştirme konusunu açıklar. Bir slayta grafik eklemeyi, verileri doldurmayı ve tasarım gereksinimlerinize uyması için biçimlendirmeyi öğreneceksiniz. Kod örnekleri, sunum ve grafik oluşturma, seriler, eksenler ve açıklama kutularını yapılandırma ve grafik üretimini uygulamalarınıza entegre etme konularını kapsar.
 
 ## **Grafik Oluşturma**
 
-Grafikler, verileri hızlı bir şekilde görselleştirmenize ve bir tablo ya da elektronik tablodan hemen fark edilmeyen içgörüleri ortaya çıkarmanıza yardımcı olur.
+Grafikler, verileri hızlı bir şekilde görselleştirmenize ve tablo veya elektronik tablodan hemen anlaşılmayan içgörüler elde etmenize yardımcı olur.
 
 **Neden Grafik Oluşturmalısınız?**
 
-Grafikleri kullanarak:
+Grafikleri kullanarak şunları yapabilirsiniz:
 
-* tek bir slaytta büyük miktarda veriyi birleştirebilir, yoğunlaştırabilir veya özetleyebilirsiniz;
-* veri içindeki örüntü ve trendleri ortaya çıkarabilirsiniz;
-* zamana ya da belirli bir ölçüm birimine göre verinin yönünü ve ivmesini belirleyebilirsiniz;
-* aykırı değerleri, sapmaları, hataları ve mantıksız verileri tespit edebilirsiniz;
-* karmaşık verileri iletişim veya sunum amaçlı kullanabilirsiniz.
+* büyük miktarda veriyi tek bir slayda özetleyebilir;
+* veri içinde örüntüleri ve eğilimleri ortaya çıkarabilir;
+* zaman içinde veya belirli bir ölçüm birimine göre verinin yönünü ve ivmesini belirleyebilir;
+* aykırı değerleri, sapmaları, hataları ve mantıksız verileri tespit edebilir;
+* karmaşık verileri iletişim veya sunum amaçlı aktarabilirsiniz.
 
-PowerPoint’te *Ekle* işlevi aracılığıyla birçok grafik türü için şablonlar sunan grafikler oluşturabilirsiniz. Aspose.Slides ile hem yaygın grafik türlerine dayalı normal grafikler hem de özel grafikler oluşturabilirsiniz.
+PowerPoint'te *Ekle* işlevi aracılığıyla birçok grafik türü şablonu sunan grafikler oluşturabilirsiniz. Aspose.Slides ile hem popüler grafik türlerine dayalı düzenli grafikler hem de özel grafikler oluşturabilirsiniz.
 
 {{% alert color="info" title="Note" %}}
-
-[ChartType](https://reference.aspose.com/slides/tr/python-net/aspose.slides.charts/charttype/) numaralandırmasını [Aspose.Slides.Charts](https://reference.aspose.com/slides/tr/python-net/aspose.slides.charts/) ad alanı altında kullanın. Bu numaralandırmadaki değerler farklı grafik türlerine karşılık gelir.
-
+Kullanın [ChartType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttype/) enumını [Aspose.Slides.Charts](https://reference.aspose.com/slides/python-net/aspose.slides.charts/) ad alanı altında. Bu enumdaki değerler farklı grafik türlerine karşılık gelir.
 {{% /alert %}}
 
-### **Kümeleşmiş Sütun Grafikleri Oluşturma**
+### **Kümelenmiş Sütun Grafikleri Oluşturma**
 
-Bu bölüm, Aspose.Slides for Python via .NET kullanarak kümeleşmiş sütun grafikleri oluşturmayı açıklar. Bir sunum başlatmayı, bir grafik eklemeyi ve başlık, veri, seriler, kategoriler ve stil gibi öğelerini özelleştirmeyi öğreneceksiniz. Standart bir kümeleşmiş sütun grafiğinin nasıl oluşturulduğunu görmek için aşağıdaki adımları izleyin:
+Bu bölüm, Aspose.Slides for Python via .NET kullanarak kümelenmiş sütun grafiklerinin nasıl oluşturulacağını açıklar. Bir sunumu başlatmayı, bir grafik eklemeyi ve başlık, veri, seriler, kategoriler ve stil gibi öğeleri özelleştirmeyi öğreneceksiniz. Standart bir kümelenmiş sütun grafiğinin nasıl üretildiğini görmek için aşağıdaki adımları izleyin:
 
-1. [Presentation](https://reference.aspose.com/slides/tr/python-net/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
-1. İndeksini kullanarak bir slayta referans alın.
-1. Bazı veriyle bir grafik ekleyin ve `ChartType.CLUSTERED_COLUMN` tipini belirtin.
-1. Grafik için bir başlık ekleyin.
-1. Grafiğin veri çalışma sayfasına erişin.
-1. Varsayılan tüm serileri ve kategorileri temizleyin.
-1. Yeni seriler ve kategoriler ekleyin.
-1. Grafik serileri için yeni veri ekleyin.
-1. Grafik serisine bir dolgu rengi uygulayın.
-1. Grafik serisine etiketler ekleyin.
+1. [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.  
+1. Dizini kullanarak bir slayta referans alın.  
+1. Veri ile bir grafik ekleyin ve `ChartType.CLUSTERED_COLUMN` türünü belirtin.  
+1. Grafiğe bir başlık ekleyin.  
+1. Grafiğin veri çalışma sayfasına erişin.  
+1. Varsayılan tüm serileri ve kategorileri temizleyin.  
+1. Yeni seriler ve kategoriler ekleyin.  
+1. Grafik serileri için yeni veri ekleyin.  
+1. Grafik serilerine dolgu rengi uygulayın.  
+1. Grafik serilerine etiket ekleyin.  
 1. Değiştirilmiş sunumu PPTX dosyası olarak kaydedin.
 
-Bu Python kodu, bir kümeleşmiş sütun grafiğinin nasıl oluşturulacağını gösterir:
+Bu Python kodu, bir kümelenmiş sütun grafiği oluşturmayı gösterir:
 
 ```py
 import aspose.slides.charts as charts
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
-# PPTX dosyasını temsil eden Presentation sınıfını örnekleyin.
-with slides.Presentation() as presentation:
+    # PPTX dosyasını temsil eden Presentation sınıfını örnekleyin.
+    with slides.Presentation() as presentation:
 
-    # İlk slayta erişin.
-    slide = presentation.slides[0]
+        # İlk slayta erişin.
+        slide = presentation.slides[0]
 
-    # Varsayılan verileriyle bir kümeleşmiş sütun grafiği ekleyin.
-    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 20, 20, 500, 300)
+        # Varsayılan verileriyle bir kümelenmiş sütun grafiği ekleyin.
+        chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 20, 20, 500, 300)
 
-    # Grafik başlığını ayarlayın.
-    chart.chart_title.add_text_frame_for_overriding("Sample Title")
-    chart.chart_title.text_frame_for_overriding.text_frame_format.center_text = slides.NullableBool.TRUE
-    chart.chart_title.height = 20
-    chart.has_title = True
+        # Grafik başlığını ayarlayın.
+        chart.chart_title.add_text_frame_for_overriding("Sample Title")
+        chart.chart_title.text_frame_for_overriding.text_frame_format.center_text = slides.NullableBool.TRUE
+        chart.chart_title.height = 20
+        chart.has_title = True
 
-    # Grafik veri sayfasının indeksini ayarlayın.
-    worksheet_index = 0
+        # Grafik veri sayfasının indeksini ayarlayın.
+        worksheet_index = 0
 
-    # Grafik veri çalışma kitabını alın.
-    workbook = chart.chart_data.chart_data_workbook
+        # Grafik veri çalışma kitabını alın.
+        workbook = chart.chart_data.chart_data_workbook
 
-    # Varsayılan oluşturulan serileri ve kategorileri silin.
-    chart.chart_data.series.clear()
-    chart.chart_data.categories.clear()
+        # Varsayılan oluşturulan serileri ve kategorileri silin.
+        chart.chart_data.series.clear()
+        chart.chart_data.categories.clear()
 
-    # Yeni seriler ekleyin.
-    chart.chart_data.series.add(workbook.get_cell(worksheet_index, 0, 1, "Series 1"), chart.type)
-    chart.chart_data.series.add(workbook.get_cell(worksheet_index, 0, 2, "Series 2"), chart.type)
+        # Yeni seriler ekleyin.
+        chart.chart_data.series.add(workbook.get_cell(worksheet_index, 0, 1, "Series 1"), chart.type)
+        chart.chart_data.series.add(workbook.get_cell(worksheet_index, 0, 2, "Series 2"), chart.type)
 
-    # Yeni kategoriler ekleyin.
-    chart.chart_data.categories.add(workbook.get_cell(worksheet_index, 1, 0, "Category 1"))
-    chart.chart_data.categories.add(workbook.get_cell(worksheet_index, 2, 0, "Category 2"))
-    chart.chart_data.categories.add(workbook.get_cell(worksheet_index, 3, 0, "Category 3"))
+        # Yeni kategoriler ekleyin.
+        chart.chart_data.categories.add(workbook.get_cell(worksheet_index, 1, 0, "Category 1"))
+        chart.chart_data.categories.add(workbook.get_cell(worksheet_index, 2, 0, "Category 2"))
+        chart.chart_data.categories.add(workbook.get_cell(worksheet_index, 3, 0, "Category 3"))
 
-    # İlk grafik serisini alın.
-    series = chart.chart_data.series[0]
+        # İlk grafik serisini alın.
+        series = chart.chart_data.series[0]
 
-    # Seri verilerini doldurun.
-    series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 1, 1, 20))
-    series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 2, 1, 50))
-    series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 3, 1, 30))
+        # Seri verilerini doldurun.
+        series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 1, 1, 20))
+        series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 2, 1, 50))
+        series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 3, 1, 30))
 
-    # Seri için doldurma rengini ayarlayın.
-    series.format.fill.fill_type = slides.FillType.SOLID
-    series.format.fill.solid_fill_color.color = draw.Color.red
+        # Seri için dolgu rengini ayarlayın.
+        series.format.fill.fill_type = slides.FillType.SOLID
+        series.format.fill.solid_fill_color.color = draw.Color.red
 
-    # İkinci grafik serisini alın.
-    series = chart.chart_data.series[1]
+        # İkinci grafik serisini alın.
+        series = chart.chart_data.series[1]
 
-    # Seri verilerini doldurun.
-    series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 1, 2, 30))
-    series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 2, 2, 10))
-    series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 3, 2, 60))
+        # Seri verilerini doldurun.
+        series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 1, 2, 30))
+        series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 2, 2, 10))
+        series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 3, 2, 60))
 
-    # Seri için doldurma rengini ayarlayın.
-    series.format.fill.fill_type = slides.FillType.SOLID
-    series.format.fill.solid_fill_color.color = draw.Color.green
+        # Seri için dolgu rengini ayarlayın.
+        series.format.fill.fill_type = slides.FillType.SOLID
+        series.format.fill.solid_fill_color.color = draw.Color.green
 
-    # İlk etiketi kategori adını gösterecek şekilde ayarlayın.
-    label = series.data_points[0].label
-    label.data_label_format.show_category_name = True
+        # İlk etiketi kategori adını gösterecek şekilde ayarlayın.
+        label = series.data_points[0].label
+        label.data_label_format.show_category_name = True
 
-    label = series.data_points[1].label
-    label.data_label_format.show_series_name = True
+        label = series.data_points[1].label
+        label.data_label_format.show_series_name = True
 
-    # Seriyi üçüncü etiket için değeri gösterecek şekilde ayarlayın.
-    label = series.data_points[2].label
-    label.data_label_format.show_value = True
-    label.data_label_format.show_series_name = True
-    label.data_label_format.separator = "/"
-                
-    # Sunumu bir PPTX dosyası olarak diske kaydedin.
-    presentation.save("ClusteredColumnChart.pptx", slides.export.SaveFormat.PPTX)
+        # Seriyi üçüncü etiket için değeri gösterecek şekilde ayarlayın.
+        label = series.data_points[2].label
+        label.data_label_format.show_value = True
+        label.data_label_format.show_series_name = True
+        label.data_label_format.separator = "/"
+                    
+        # Sunumu bir PPTX dosyası olarak diske kaydedin.
+        presentation.save("ClusteredColumnChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 Sonuç:
 
-![The clustered column chart](clustered_column_chart.png)
+![Kümelenmiş sütun grafik](clustered_column_chart.png)
 
-### **Dağılım (Scatter) Grafikleri Oluşturma**
+### **Saçılım Grafikleri Oluşturma**
 
-Dağılım grafikleri (scatter plot veya x‑y grafiği olarak da bilinir), iki değişken arasındaki örüntüleri kontrol etmek veya korelasyonları göstermek için sıklıkla kullanılır.
+Saçılım grafikler (diğer adıyla saçılım grafiği veya x‑y grafiği), iki değişken arasındaki örüntüleri veya ilişkileri kontrol etmek için sıkça kullanılır.
 
-Aşağıdaki durumlarda bir dağılım grafiği kullanın:
+Bir saçılım grafiği şu durumlarda kullanılmalıdır:
 
-* Eşleştirilmiş sayısal verileriniz varsa.
-* Birbirini iyi tamamlayan iki değişkeniniz varsa.
-* İki değişkenin ilişkili olup olmadığını belirlemek istiyorsanız.
-* Bağımlı bir değişkenin birçok değer aldığı bağımsız bir değişkeniniz varsa.
+* Eşleştirilmiş sayısal verileriniz varsa.  
+* Birbirine iyi eşleşen iki değişkeniniz varsa.  
+* İki değişkenin ilişkili olup olmadığını belirlemek istiyorsanız.  
+* Bağımsız bir değişkenin, bağımlı değişken için birden çok değeri varsa.
 
-Bu Python kodu, her seri için farklı işaretçilerle bir dağılım grafiği oluşturmayı gösterir:
+Bu Python kodu, her seri için farklı işaretçiler kullanan bir saçılım grafiği oluşturmayı gösterir:
 
 ```py
 import aspose.slides.charts as charts
@@ -178,7 +176,7 @@ with slides.Presentation() as presentation:
     # İlk slayta erişin.
     slide = presentation.slides[0]
 
-    # Varsayılan dağılım (scatter) grafiğini oluşturun.
+    # Varsayılan saçılım grafiğini oluşturun.
     chart = slide.shapes.add_chart(charts.ChartType.SCATTER_WITH_SMOOTH_LINES, 20, 20, 500, 300)
 
     # Grafik veri sayfasının indeksini ayarlayın.
@@ -203,7 +201,7 @@ with slides.Presentation() as presentation:
     # Yeni bir nokta (2:10) ekleyin.
     series.data_points.add_data_point_for_scatter_series(workbook.get_cell(worksheet_index, 3, 1, 2), workbook.get_cell(worksheet_index, 3, 2, 10))
 
-    # Seri tipini değiştirin.
+    # Serinin türünü değiştirin.
     series.type = charts.ChartType.SCATTER_WITH_STRAIGHT_LINES_AND_MARKERS
 
     # Grafik serisi işaretçisini değiştirin.
@@ -234,26 +232,26 @@ with slides.Presentation() as presentation:
 
 Sonuç:
 
-![The scatter chart](scatter_chart.png)
+![Saçılım grafik](scatter_chart.png)
 
-### **Pasta (Pie) Grafikleri Oluşturma**
+### **Pasta Grafikleri Oluşturma**
 
-Pasta grafikler, özellikle sayısal değerlerle kategorik etiketler içeren verilerde, parça‑ve‑bütün ilişkisini göstermek için en uygunudur. Ancak verinizde çok sayıda parça ya da etiket varsa, çubuk grafik kullanmayı düşünebilirsiniz.
+Pasta grafikler, özellikle kategorik etiketleri sayısal değerlerle birlikte içeren verilerde, bütün‑parça ilişkisini göstermek için en uygunudur. Ancak veri çok fazla parça veya etiket içeriyorsa, çubuk grafik kullanmanız daha mantıklı olabilir.
 
-1. [Presentation](https://reference.aspose.com/slides/tr/python-net/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
-1. İndeksini kullanarak bir slayta referans alın.
-1. Varsayılan veriyle bir grafik ekleyin ve `ChartType.PIE` tipini belirtin.
-1. Grafiğin veri çalışma kitabına ([ChartDataWorkbook](https://reference.aspose.com/slides/tr/python-net/aspose.slides.charts/chartdataworkbook/)) erişin.
-1. Varsayılan serileri ve kategorileri temizleyin.
-1. Yeni seriler ve kategoriler ekleyin.
-1. Grafik serileri için yeni veri ekleyin.
-1. Pasta dilimlerine özel renkler uygulayın.
-1. Seriler için etiketler ayarlayın.
-1. Seri etiketleri için lider çizgileri etkinleştirin.
-1. Pasta grafiğinin dönüş açısını ayarlayın.
+1. [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.  
+1. Dizini kullanarak bir slayta referans alın.  
+1. Varsayılan veri ile bir grafik ekleyin ve `ChartType.PIE` türünü belirtin.  
+1. Grafiğin veri çalışma kitabına ([ChartDataWorkbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/)) erişin.  
+1. Varsayılan serileri ve kategorileri temizleyin.  
+1. Yeni seriler ve kategoriler ekleyin.  
+1. Grafik serileri için yeni veri ekleyin.  
+1. Pasta grafiğinin dilimlerine özel renkler uygulayın.  
+1. Seriler için etiketler ayarlayın.  
+1. Serilerin etiketleri için lider çizgileri etkinleştirin.  
+1. Pasta grafiğinin dönüş açısını ayarlayın.  
 1. Değiştirilmiş sunumu PPTX dosyası olarak kaydedin.
 
-Bu Python kodu, bir pasta grafiğinin nasıl oluşturulacağını gösterir:
+Bu Python kodu, bir pasta grafiği oluşturmayı gösterir:
 
 ```py
 import aspose.slides.charts as charts
@@ -348,10 +346,10 @@ with slides.Presentation() as presentation:
     label3.data_label_format.show_series_name = True
     label3.data_label_format.show_percentage = True
 
-    # Grafik için seri etiketlerinin lider çizgilerini gösterecek şekilde ayarlayın.
+    # Grafiğin serisinin açıklama çizgilerini göstermesini ayarlayın.
     series.labels.default_data_label_format.show_leader_lines = True
 
-    # Pasta grafik dilimlerinin dönüş açısını ayarlayın.
+    # Pasta grafik dilimlerinin döndürme açısını ayarlayın.
     chart.chart_data.series_groups[0].first_slice_angle = 180
 
     # Sunumu bir PPTX dosyası olarak diske kaydedin.
@@ -360,18 +358,18 @@ with slides.Presentation() as presentation:
 
 Sonuç:
 
-![The pie chart](pie_chart.png)
+![Pasta grafik](pie_chart.png)
 
-### **Çizgi (Line) Grafikleri Oluşturma**
+### **Çizgi Grafikleri Oluşturma**
 
-Çizgi grafikler (line graph), değerlerin zaman içindeki değişimini göstermek istediğiniz durumlarda en uygundur. Bir çizgi grafikle aynı anda büyük miktarda veriyi karşılaştırabilir, zaman içinde değişimleri ve trendleri izleyebilir, veri serilerindeki anormallikleri vurgulayabilirsiniz.
+Çizgi grafikler (diğer adıyla çizgi diyagramları), değerlerin zaman içinde nasıl değiştiğini göstermek istediğiniz durumlarda en uygunudur. Çizgi grafiği kullanarak aynı anda büyük miktarda veriyi karşılaştırabilir, zaman içindeki değişiklik ve eğilimleri izleyebilir, veri serilerindeki anormallikleri vurgulayabilirsiniz.
 
-1. [Presentation](https://reference.aspose.com/slides/tr/python-net/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
-1. İndeksini kullanarak bir slayta referans alın.
-1. Varsayılan veriyle bir grafik ekleyin ve `ChartType.LINE` tipini belirtin.
+1. [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.  
+1. Dizini kullanarak bir slayta referans alın.  
+1. Varsayılan veri ile bir grafik ekleyin ve `ChartType.LINE` türünü belirtin.  
 1. Değiştirilmiş sunumu PPTX dosyası olarak kaydedin.
 
-Bu Python kodu, bir çizgi grafiğinin nasıl oluşturulacağını gösterir:
+Bu Python kodu, bir çizgi grafiği oluşturmayı gösterir:
 
 ```python
 import aspose.slides as slides
@@ -382,7 +380,7 @@ with slides.Presentation() as presentation:
     presentation.save("LineChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Varsayılan olarak, bir çizgi grafiğindeki noktalar düz sürekli çizgilerle birleştirilir. Noktaların tireli bir çizgiyle birleştirilmesini istiyorsanız, tercih ettiğiniz tire tipini aşağıdaki gibi belirtebilirsiniz:
+Varsayılan olarak, bir çizgi grafiğindeki noktalar düz sürekli çizgilerle birleştirilir. Noktaların kesikli çizgilerle bağlanmasını isterseniz, tercih ettiğiniz tire tipini aşağıdaki gibi belirtebilirsiniz:
 
 ```python
 import aspose.slides as slides
@@ -398,22 +396,22 @@ with slides.Presentation() as presentation:
 
 Sonuç:
 
-![The line chart](line_chart.png)
+![Çizgi grafik](line_chart.png)
 
-### **Ağaç Haritası (Tree Map) Grafikleri Oluşturma**
+### **Ağaç Haritası Grafikleri Oluşturma**
 
-Ağaç haritası grafikleri, her kategori içinde büyük katkıda bulunan öğelere hızlıca dikkat çekmek istediğiniz satış verileri için en uygundur.
+Ağaç haritası grafikler, satış verilerini kategori boyutlarını göreceli olarak göstermek ve her kategori içinde büyük katkı sağlayan öğelere hızlıca dikkat çekmek istediğinizde en uygundur.
 
-1. [Presentation](https://reference.aspose.com/slides/tr/python-net/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
-1. İndeksini kullanarak bir slayta referans alın.
-1. Varsayılan veriyle bir grafik ekleyin ve `ChartType.TREEMAP` tipini belirtin.
-1. Grafiğin veri çalışma kitabına ([ChartDataWorkbook](https://reference.aspose.com/slides/tr/python-net/aspose.slides.charts/chartdataworkbook/)) erişin.
-1. Varsayılan serileri ve kategorileri temizleyin.
-1. Yeni seriler ve kategoriler ekleyin.
-1. Grafik serileri için yeni veri ekleyin.
+1. [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.  
+1. Dizini kullanarak bir slayta referans alın.  
+1. Varsayılan veri ile bir grafik ekleyin ve `ChartType.TREEMAP` türünü belirtin.  
+1. Grafiğin veri çalışma kitabına ([ChartDataWorkbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/)) erişin.  
+1. Varsayılan serileri ve kategorileri temizleyin.  
+1. Yeni seriler ve kategoriler ekleyin.  
+1. Grafik serileri için yeni veri ekleyin.  
 1. Değiştirilmiş sunumu PPTX dosyası olarak kaydedin.
 
-Bu Python kodu, bir ağaç haritası grafiğinin nasıl oluşturulacağını gösterir:
+Bu Python kodu, bir ağaç haritası grafiği oluşturmayı gösterir:
 
 ```py
 import aspose.slides.charts as charts
@@ -428,7 +426,7 @@ with slides.Presentation() as presentation:
     workbook = chart.chart_data.chart_data_workbook
     workbook.clear(0)
 
-    # Dal 1
+    # Şube 1
     leaf = chart.chart_data.categories.add(workbook.get_cell(0, "C1", "Leaf1"))
     leaf.grouping_levels.set_grouping_item(1, "Stem1")
     leaf.grouping_levels.set_grouping_item(2, "Branch1")
@@ -440,7 +438,7 @@ with slides.Presentation() as presentation:
 
     chart.chart_data.categories.add(workbook.get_cell(0, "C4", "Leaf4"))
 
-    # Dal 2
+    # Şube 2
     leaf = chart.chart_data.categories.add(workbook.get_cell(0, "C5", "Leaf5"))
     leaf.grouping_levels.set_grouping_item(1, "Stem3")
     leaf.grouping_levels.set_grouping_item(2, "Branch2")
@@ -470,23 +468,23 @@ with slides.Presentation() as presentation:
 
 Sonuç:
 
-![The treemap chart](treemap_chart.png)
+![Ağaç haritası grafik](treemap_chart.png)
 
-### **Borsa (Stock) Grafikleri Oluşturma**
+### **Hisse Senedi Grafikleri Oluşturma**
 
-Borsa grafikleri, açık, yüksek, düşük ve kapanış fiyatları gibi finansal verileri göstermek için kullanılır; piyasa trendlerini ve volatiliteyi analiz etmeye yardımcı olur. Bu grafikler, hisse performansı hakkında kritik içgörüler sağlayarak yatırımcı ve analistlerin bilinçli kararlar almasını destekler.
+Hisse senedi grafikleri, açılış, yüksek, düşük ve kapanış fiyatları gibi finansal verileri göstermek için kullanılır; piyasa eğilimleri ve volatiliteyi analiz etmenize yardımcı olur. Bu grafikler, hisse performansına dair temel içgörüler sağlayarak yatırımcıların ve analistlerin bilinçli kararlar almasını destekler.
 
-1. [Presentation](https://reference.aspose.com/slides/tr/python-net/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
-1. İndeksini kullanarak bir slayta referans alın.
-1. Varsayılan veriyle bir grafik ekleyin ve `ChartType.OPEN_HIGH_LOW_CLOSE` tipini belirtin.
-1. Grafiğin veri çalışma kitabına ([ChartDataWorkbook](https://reference.aspose.com/slides/tr/python-net/aspose.slides.charts/chartdataworkbook/)) erişin.
-1. Varsayılan serileri ve kategorileri temizleyin.
-1. Yeni seriler ve kategoriler ekleyin.
-1. Grafik serileri için yeni veri ekleyin.
-1. Yüksek‑düşük hatları biçimini belirtin.
+1. [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.  
+1. Dizini kullanarak bir slayta referans alın.  
+1. Varsayılan veri ile bir grafik ekleyin ve `ChartType.OPEN_HIGH_LOW_CLOSE` türünü belirtin.  
+1. Grafiğin veri çalışma kitabına ([ChartDataWorkbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/)) erişin.  
+1. Varsayılan serileri ve kategorileri temizleyin.  
+1. Yeni seriler ve kategoriler ekleyin.  
+1. Grafik serileri için yeni veri ekleyin.  
+1. Yüksek‑düşük çizgi biçimini belirleyin.  
 1. Değiştirilmiş sunumu PPTX dosyası olarak kaydedin.
 
-Bu Python kodu, bir borsa grafiğinin nasıl oluşturulacağını gösterir:
+Bu Python kodu, bir hisse senedi grafiği oluşturmayı gösterir:
 
 ```py
 import aspose.slides.charts as charts
@@ -542,22 +540,22 @@ with slides.Presentation() as presentation:
 
 Sonuç:
 
-![The stock chart](stock_chart.png)
+![Hisse senedi grafik](stock_chart.png)
 
-### **Kutu ve Bıyık (Box and Whisker) Grafikleri Oluşturma**
+### **Kutu ve Çubuk Grafikleri Oluşturma**
 
-Kutu ve bıyık grafikleri, medyan, çeyrekler ve olası aykırı değerler gibi temel istatistiksel ölçümleri özetleyerek veri dağılımını gösterir. Keşifsel veri analizi ve istatistiksel çalışmalarda veri değişkenliğini hızlıca anlamak ve anormallikleri tespit etmek için özellikle kullanışlıdır.
+Kutu ve çubuk grafikler, medyan, çeyrekler ve olası aykırı değerler gibi temel istatistiksel ölçümleri özetleyerek veri dağılımını gösterir. Keşifsel veri analizi ve istatistiksel çalışmalarda veri değişkenliğini hızlıca anlamak ve anormallikleri tespit etmek için özellikle faydalıdır.
 
-1. [Presentation](https://reference.aspose.com/slides/tr/python-net/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
-1. İndeksini kullanarak bir slayta referans alın.
-1. Varsayılan veriyle bir grafik ekleyin ve `ChartType.BOX_AND_WHISKER` tipini belirtin.
-1. Grafiğin veri çalışma kitabına ([ChartDataWorkbook](https://reference.aspose.com/slides/tr/python-net/aspose.slides.charts/chartdataworkbook/)) erişin.
-1. Varsayılan serileri ve kategorileri temizleyin.
-1. Yeni seriler ve kategoriler ekleyin.
-1. Grafik serileri için yeni veri ekleyin.
+1. [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.  
+1. Dizini kullanarak bir slayta referans alın.  
+1. Varsayılan veri ile bir grafik ekleyin ve `ChartType.BOX_AND_WHISKER` türünü belirtin.  
+1. Grafiğin veri çalışma kitabına ([ChartDataWorkbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/)) erişin.  
+1. Varsayılan serileri ve kategorileri temizleyin.  
+1. Yeni seriler ve kategoriler ekleyin.  
+1. Grafik serileri için yeni veri ekleyin.  
 1. Değiştirilmiş sunumu PPTX dosyası olarak kaydedin.
 
-Bu Python kodu, bir kutu ve bıyık grafiğinin nasıl oluşturulacağını gösterir:
+Bu Python kodu, bir kutu ve çubuk grafiği oluşturmayı gösterir:
 
 ```py
 import aspose.slides.charts as charts
@@ -597,16 +595,16 @@ with slides.Presentation() as presentation:
     presentation.save("BoxAndWhiskerChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **Huni (Funnel) Grafikleri Oluşturma**
+### **Huni Grafikleri Oluşturma**
 
-Huni grafikler, veri hacminin bir aşamadan diğerine ilerledikçe azaldığı sürecin görselleştirilmesinde kullanılır. Dönüşüm oranlarını analiz etmek, darboğazları belirlemek ve satış ya da pazarlama süreçlerinin verimliliğini takip etmek için özellikle yararlıdır.
+Huni grafikler, bir işlemdeki aşamaların sırasıyla azalan veri hacmini görselleştirir. Dönüşüm oranlarını analiz etmek, darboğazları tespit etmek ve satış ya da pazarlama süreçlerinin verimliliğini izlemek için özellikle yararlıdır.
 
-1. [Presentation](https://reference.aspose.com/slides/tr/python-net/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
-1. İndeksini kullanarak bir slayta referans alın.
-1. Varsayılan veriyle bir grafik ekleyin ve `ChartType.FUNNEL` tipini belirtin.
+1. [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.  
+1. Dizini kullanarak bir slayta referans alın.  
+1. Varsayılan veri ile bir grafik ekleyin ve `ChartType.FUNNEL` türünü belirtin.  
 1. Değiştirilmiş sunumu PPTX dosyası olarak kaydedin.
 
-Bu Python kodu, bir huni grafiğinin nasıl oluşturulacağını gösterir:
+Bu Python kodu, bir huni grafiği oluşturmayı gösterir:
 
 ```py
 import aspose.slides.charts as charts
@@ -642,18 +640,18 @@ with slides.Presentation() as presentation:
 
 Sonuç:
 
-![The funnel chart](funnel_chart.png)
+![Huni grafik](funnel_chart.png)
 
-### **Güneş Patlaması (Sunburst) Grafikleri Oluşturma**
+### **Güneş Patlaması Grafikleri Oluşturma**
 
-Güneş patlaması grafikleri, hiyerarşik verileri konsantrik halkalar halinde göstererek parça‑ve‑bütün ilişkilerini açıklamaya yardımcı olur. İç içe kategorileri ve alt kategorileri kompakt bir biçimde temsil etmek için idealdir.
+Güneş patlaması grafikler, hiyerarşik verileri konsantrik halkalar halinde gösterir. Parça‑bütün ilişkilerini açıklamaya yardımcı olur ve iç içe geçmiş kategorileri kompakt bir biçimde temsil etmek için idealdir.
 
-1. [Presentation](https://reference.aspose.com/slides/tr/python-net/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
-1. İndeksini kullanarak bir slayta referans alın.
-1. Varsayılan veriyle bir grafik ekleyin ve `ChartType.SUNBURST` tipini belirtin.
+1. [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.  
+1. Dizini kullanarak bir slayta referans alın.  
+1. Varsayılan veri ile bir grafik ekleyin ve `ChartType.SUNBURST` türünü belirtin.  
 1. Değiştirilmiş sunumu PPTX dosyası olarak kaydedin.
 
-Bu Python kodu, bir güneş patlaması grafiğinin nasıl oluşturulacağını gösterir:
+Bu Python kodu, bir güneş patlaması grafiği oluşturmayı gösterir:
 
 ```py
 import aspose.slides.charts as charts
@@ -668,7 +666,7 @@ with slides.Presentation() as presentation:
     workbook = chart.chart_data.chart_data_workbook
     workbook.clear(0)
 
-    # Dal 1
+    # Şube 1
     leaf = chart.chart_data.categories.add(workbook.get_cell(0, "C1", "Leaf1"))
     leaf.grouping_levels.set_grouping_item(1, "Stem1")
     leaf.grouping_levels.set_grouping_item(2, "Branch1")
@@ -680,7 +678,7 @@ with slides.Presentation() as presentation:
 
     chart.chart_data.categories.add(workbook.get_cell(0, "C4", "Leaf4"))
 
-    # Dal 2
+    # Şube 2
     leaf = chart.chart_data.categories.add(workbook.get_cell(0, "C5", "Leaf5"))
     leaf.grouping_levels.set_grouping_item(1, "Stem3")
     leaf.grouping_levels.set_grouping_item(2, "Branch2")
@@ -708,21 +706,21 @@ with slides.Presentation() as presentation:
 
 Sonuç:
 
-![The sunburst chart](sunburst_chart.png)
+![Güneş patlaması grafik](sunburst_chart.png)
 
 ### **Histogram Grafikleri Oluşturma**
 
-Histogramlar, sayısal verileri aralıklara (bin) bölerek dağılımını temsil eder. Veri frekansı, çarpıklık, yayılım gibi örüntüleri tanımlamak ve veri setinde aykırı değerleri tespit etmek için özellikle kullanışlıdır.
+Histogram grafikler, sayısal verilerin dağılımını aralıklar veya sınıflar hâlinde gösterir. Veri frekansı, çarpıklık ve yayılım gibi örüntüleri tanımlamak ve aykırı değerleri tespit etmek için özellikle faydalıdır.
 
-1. [Presentation](https://reference.aspose.com/slides/tr/python-net/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
-1. İndeksini kullanarak bir slayta referans alın.
-1. Bazı veriyle bir grafik ekleyin ve `ChartType.HISTOGRAM` tipini belirtin.
-1. Grafik veri çalışma kitabına ([ChartDataWorkbook](https://reference.aspose.com/slides/tr/python-net/aspose.slides.charts/chartdataworkbook/)) erişin.
-1. Varsayılan serileri ve kategorileri temizleyin.
-1. Yeni bir seri ekleyin ve veri noktalarıyla doldurun. Histogramın kategorisi yoktur; binler değerlerden hesaplanır.
+1. [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.  
+1. Dizini kullanarak bir slayta referans alın.  
+1. Veriyle bir grafik ekleyin ve `ChartType.HISTOGRAM` türünü belirtin.  
+1. Grafiğin veri çalışma kitabına ([ChartDataWorkbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/)) erişin.  
+1. Varsayılan serileri ve kategorileri temizleyin.  
+1. Yeni bir seri ekleyin ve veri noktalarıyla doldurun. Histogramların kategorisi yoktur; sınıflar değerlerden hesaplanır.  
 1. Değiştirilmiş sunumu PPTX dosyası olarak kaydedin.
 
-Bu Python kodu, bir histogram grafiğinin nasıl oluşturulacağını gösterir:
+Bu Python kodu, bir histogram grafiği oluşturmayı gösterir:
 
 ```py
 import aspose.slides.charts as charts
@@ -752,18 +750,18 @@ with slides.Presentation() as presentation:
 
 Sonuç:
 
-![The histogram chart](histogram_chart.png)
+![Histogram grafik](histogram_chart.png)
 
 ### **Radar Grafikleri Oluşturma**
 
-Radar grafikler, çok değişkenli verileri iki boyutlu bir formatta göstererek birden fazla değişkeni aynı anda karşılaştırmayı kolaylaştırır. Performans ölçütleri ya da özellikler arasında örüntü, güçlü yan ve zayıf yanları belirlemek için özellikle etkilidir.
+Radar grafikler, çok değişkenli verileri iki boyutlu bir formatta göstererek birden fazla değişkeni aynı anda karşılaştırmayı kolaylaştırır. Performans ölçütleri veya özellikler arasında örüntüleri, güçlü ve zayıf yönleri belirlemede özellikle yararlıdır.
 
-1. [Presentation](https://reference.aspose.com/slides/tr/python-net/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
-1. İndeksini kullanarak bir slayta referans alın.
-1. Bazı veriyle bir grafik ekleyin ve `ChartType.RADAR` tipini belirtin.
+1. [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.  
+1. Dizini kullanarak bir slayta referans alın.  
+1. Veriyle bir grafik ekleyin ve `ChartType.RADAR` türünü belirtin.  
 1. Değiştirilmiş sunumu PPTX dosyası olarak kaydedin.
 
-Bu Python kodu, bir radar grafiğinin nasıl oluşturulacağını gösterir:
+Bu Python kodu, bir radar grafiği oluşturmayı gösterir:
 
 ```python
 import aspose.slides as slides
@@ -775,22 +773,22 @@ with slides.Presentation() as presentation:
 
 Sonuç:
 
-![The radar chart](radar_chart.png)
+![Radar grafik](radar_chart.png)
 
 ### **Çok Kategorili Grafikler Oluşturma**
 
-Çok kategorili grafikler, birden fazla kategorik gruplamayı içeren verileri aynı anda birden çok boyutta karşılaştırmanıza olanak tanır. Karmaşık, çok katmanlı veri setlerindeki trendleri ve ilişkileri analiz ederken özellikle faydalıdır.
+Çok kategorili grafikler, birden fazla kategorik grubu içeren verileri aynı anda birden çok boyutta karşılaştırmanıza olanak tanır. Karmaşık, çok katmanlı veri setlerinde eğilim ve ilişkileri analiz ederken özellikle faydalıdır.
 
-1. [Presentation](https://reference.aspose.com/slides/tr/python-net/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
-1. İndeksini kullanarak bir slayta referans alın.
-1. Varsayılan veriyle bir grafik ekleyin ve `ChartType.CLUSTERED_COLUMN` tipini belirtin.
-1. Grafiğin veri çalışma kitabına ([ChartDataWorkbook](https://reference.aspose.com/slides/tr/python-net/aspose.slides.charts/chartdataworkbook/)) erişin.
-1. Varsayılan serileri ve kategorileri temizleyin.
-1. Yeni seriler ve kategoriler ekleyin.
-1. Grafik serileri için yeni veri ekleyin.
+1. [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.  
+1. Dizini kullanarak bir slayta referans alın.  
+1. Varsayılan veri ile bir grafik ekleyin ve `ChartType.CLUSTERED_COLUMN` türünü belirtin.  
+1. Grafiğin veri çalışma kitabına ([ChartDataWorkbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/)) erişin.  
+1. Varsayılan serileri ve kategorileri temizleyin.  
+1. Yeni seriler ve kategoriler ekleyin.  
+1. Grafik serileri için yeni veri ekleyin.  
 1. Değiştirilmiş sunumu PPTX dosyası olarak kaydedin.
 
-Bu Python kodu, çok kategorili bir grafiğin nasıl oluşturulacağını gösterir:
+Bu Python kodu, bir çok kategorili grafik oluşturmayı gösterir:
 
 ```py
 import aspose.slides.charts as charts
@@ -825,7 +823,7 @@ with slides.Presentation() as presentation:
     category.grouping_levels.set_grouping_item(1, "Group4")
     category = chart.chart_data.categories.add(workbook.get_cell(0, "c9", "H"))
 
-    # Bir seri ekleyin.
+    # Bir seri ekle.
     series = chart.chart_data.series.add(workbook.get_cell(0, "D1", "Series 1"), charts.ChartType.CLUSTERED_COLUMN)
 
     series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, "D2", 10))
@@ -837,19 +835,19 @@ with slides.Presentation() as presentation:
     series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, "D8", 70))
     series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, "D9", 80))
 
-    # Grafikli sunumu kaydedin.
+    # Grafikli sunumu kaydet.
     presentation.save("MultiCategoryChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 Sonuç:
 
-![The multi-category chart](multi_category_chart.png)
+![Çok kategorili grafik](multi_category_chart.png)
 
 ### **Harita Grafikleri Oluşturma**
 
-Harita grafikleri, ülkeler, eyaletler veya şehirler gibi belirli konumlara bilgi eşleştirerek coğrafi verileri görselleştirir. Bölgesel trendleri, demografik verileri ve mekânsal dağılımları net ve etkileyici bir biçimde analiz etmeye özellikle yararlıdır.
+Harita grafikler, ülkeler, eyaletler veya şehirler gibi belirli konumlara bilgi eşleyerek coğrafi verileri görselleştirir. Bölgesel eğilimleri, demografik verileri ve mekansal dağılımları net ve görsel açıdan çekici bir şekilde analiz etmeye yardımcı olur.
 
-Bu Python kodu, bir harita grafiğinin nasıl oluşturulacağını gösterir:
+Bu Python kodu, bir harita grafiği oluşturmayı gösterir:
 
 ```python
 import aspose.slides as slides
@@ -861,15 +859,15 @@ with slides.Presentation() as presentation:
 
 Sonuç:
 
-![The map chart](map_chart.png)
+![Harita grafik](map_chart.png)
 
 ### **Kombinasyon Grafikleri Oluşturma**
 
-Kombinasyon (combo) grafik, tek bir grafikte iki veya daha fazla grafik türünü birleştirir. Bu grafik, iki ya da daha fazla veri seti arasındaki farkları vurgulamanıza, karşılaştırmanıza veya incelemenize olanak tanır; böylece aralarındaki ilişkileri belirlemenize yardımcı olur.
+Kombinasyon (veya combo) grafiği, tek bir diyagramda iki veya daha fazla grafik türünü birleştirir. Bu grafik, birden fazla veri seti arasındaki farkları vurgulamanıza, karşılaştırmanıza veya incelemenize olanak tanır ve bunlar arasındaki ilişkileri belirlemenize yardımcı olur.
 
-![The combination chart](combination_chart.png)
+![Kombinasyon grafik](combination_chart.png)
 
-Yukarıdaki kombinasyon grafiğini bir PowerPoint sunumunda oluşturmak için aşağıdaki Python kodunu kullanın:
+Aşağıdaki Python kodu, yukarıdaki kombinasyon grafiğini bir PowerPoint sunumunda oluşturmayı gösterir:
 
 ```python
 import aspose.slides.charts as charts
@@ -892,7 +890,7 @@ def create_combo_chart():
 def create_chart_with_first_series(slide):
     chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 600, 400)
 
-    # Grafiğin başlığını ayarlayın.
+    # Grafik başlığını ayarla.
     chart.has_title = True
     chart.chart_title.add_text_frame_for_overriding("Chart Title")
     chart.chart_title.overlay = False
@@ -902,24 +900,24 @@ def create_chart_with_first_series(slide):
     title_format.font_bold = slides.NullableBool.FALSE
     title_format.font_height = 18
 
-    # Grafiğin lejandını ayarlayın.
+    # Grafik açıklama kutusunu ayarla.
     chart.legend.position = charts.LegendPositionType.BOTTOM
     chart.legend.text_format.portion_format.font_height = 12
 
-    # Varsayılan oluşturulan serileri ve kategorileri silin.
+    # Varsayılan oluşturulan serileri ve kategorileri sil.
     chart.chart_data.series.clear()
     chart.chart_data.categories.clear()
 
     worksheet_index = 0
     workbook = chart.chart_data.chart_data_workbook
 
-    # Yeni kategoriler ekleyin.
+    # Yeni kategoriler ekle.
     chart.chart_data.categories.add(workbook.get_cell(worksheet_index, 1, 0, "Category 1"))
     chart.chart_data.categories.add(workbook.get_cell(worksheet_index, 2, 0, "Category 2"))
     chart.chart_data.categories.add(workbook.get_cell(worksheet_index, 3, 0, "Category 3"))
     chart.chart_data.categories.add(workbook.get_cell(worksheet_index, 4, 0, "Category 4"))
 
-    # İlk seriyi ekleyin.
+    # İlk seriyi ekle.
     series_name_cell = workbook.get_cell(worksheet_index, 0, 1, "Series 1")
     series = chart.chart_data.series.add(series_name_cell, chart.type)
 
@@ -966,28 +964,28 @@ def add_third_series_to_chart(chart):
 
 
 def set_primary_axes_format(chart):
-    # Yatay ekseni ayarlayın.
+    # Yatay ekseni ayarla.
     horizontal_axis = chart.axes.horizontal_axis
     horizontal_axis.text_format.portion_format.font_height = 12.0
     horizontal_axis.format.line.fill_format.fill_type = slides.FillType.NO_FILL
 
     set_axis_title(horizontal_axis, "X Axis")
 
-    # Dikey ekseni ayarlayın.
+    # Dikey ekseni ayarla.
     vertical_axis = chart.axes.vertical_axis
     vertical_axis.text_format.portion_format.font_height = 12.0
     vertical_axis.format.line.fill_format.fill_type = slides.FillType.NO_FILL
 
     set_axis_title(vertical_axis, "Y Axis 1")
 
-    # Dikey ana ızgara çizgilerinin rengini ayarlayın.
+    # Dikey ana ızgara çizgileri rengini ayarla.
     major_grid_lines_format = vertical_axis.major_grid_lines_format.line.fill_format
     major_grid_lines_format.fill_type = slides.FillType.SOLID
     major_grid_lines_format.solid_fill_color.color = draw.Color.from_argb(217, 217, 217)
 
 
 def set_secondary_axes_format(chart):
-    # İkincil yatay ekseni ayarlayın.
+    # İkincil yatay ekseni ayarla.
     secondary_horizontal_axis = chart.axes.secondary_horizontal_axis
     secondary_horizontal_axis.position = charts.AxisPositionType.BOTTOM
     secondary_horizontal_axis.cross_type = charts.CrossesType.MAXIMUM
@@ -995,7 +993,7 @@ def set_secondary_axes_format(chart):
     secondary_horizontal_axis.major_grid_lines_format.line.fill_format.fill_type = slides.FillType.NO_FILL
     secondary_horizontal_axis.minor_grid_lines_format.line.fill_format.fill_type = slides.FillType.NO_FILL
 
-    # İkincil dikey ekseni ayarlayın.
+    # İkincil dikey ekseni ayarla.
     secondary_vertical_axis = chart.axes.secondary_vertical_axis
     secondary_vertical_axis.position = charts.AxisPositionType.RIGHT
     secondary_vertical_axis.text_format.portion_format.font_height = 12.0
@@ -1016,17 +1014,17 @@ def set_axis_title(axis, axis_title):
 
 ## **Grafikleri Güncelleme**
 
-Aspose.Slides for Python via .NET, grafik veri, biçimlendirme ve stilini güncelleyerek PowerPoint sunumlarınızı güncel tutmanızı sağlar.
+Aspose.Slides for Python via .NET, grafik verilerini, biçimlendirmesini ve stilini güncelleyerek PowerPoint sunumlarınızı güncel tutmanıza olanak tanır.
 
-1. Grafiği içeren sunumu açmak için bir [Presentation](https://reference.aspose.com/slides/tr/python-net/aspose.slides/presentation/) örneği oluşturun.
-1. İndeksini kullanarak bir slayta referans alın.
-1. Grafiği bulmak için tüm şekiller arasında dolaşın.
-1. Grafiğin veri çalışma sayfasına erişin.
-1. Seri değerlerini değiştirerek grafik veri serilerini düzenleyin.
-1. Yeni bir seri ekleyin ve verilerini doldurun.
+1. Grafiği içeren sunumu açmak için bir [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) örneği oluşturun.  
+1. Dizini kullanarak bir slayta referans alın.  
+1. Tüm şekilleri dolaşarak grafiği bulun.  
+1. Grafiğin veri çalışma sayfasına erişin.  
+1. Seri değerlerini değiştirerek grafik veri serilerini düzenleyin.  
+1. Yeni bir seri ekleyin ve verilerini doldurun.  
 1. Değiştirilmiş sunumu PPTX dosyası olarak kaydedin.
 
-Bu Python kodu, bir grafiğin nasıl güncelleneceğini gösterir:
+Bu Python kodu, bir grafiği güncellemeyi gösterir:
 
 ```py
 import aspose.slides.charts as charts
@@ -1089,15 +1087,17 @@ with slides.Presentation("ExistingChart.pptx") as presentation:
 
 ## **Bir Grafik İçin Veri Aralığını Ayarlama**
 
-Aspose.Slides for Python via .NET, bir grafiğin veri kaynağı olarak belirli bir çalışma sayfası aralığını kullanmanıza olanak tanır. Bu, grafiğin serileri ve kategorileri için hangi hücrelerin kullanılacağını kontrol eder ve çalışma sayfasındaki değişikliklerin grafiğe yansımasını sağlar.
+Mevcut bir grafiğin kullandığı aralığı incelemek için [Bir Grafiğin Veri Aralığını Al](/slides/tr/python-net/chart-workbook/#retrieve-a-charts-data-range) bölümüne bakın.
 
-1. Grafiği içeren sunumu açmak için bir [Presentation](https://reference.aspose.com/slides/tr/python-net/aspose.slides/presentation/) örneği oluşturun.
-1. İndeksini kullanarak bir slayta referans alın.
-1. Grafiği bulmak için tüm şekiller arasında dolaşın.
-1. Grafik verisine erişin ve aralığı ayarlayın.
+Aspose.Slides for Python via .NET, bir grafik için veri kaynağı olarak belirli bir çalışma sayfası aralığını kullanmanıza izin verir. Bu, hücrelerin grafik serileri ve kategorileri için hangi verileri sağlayacağını kontrol eder ve çalışma sayfasındaki değişiklikleri yansıtacak şekilde grafiği güncellemenizi sağlar.
+
+1. Grafiği içeren sunumu açmak için bir [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) örneği oluşturun.  
+1. Dizini kullanarak bir slayta referans alın.  
+1. Tüm şekilleri dolaşarak grafiği bulun.  
+1. Grafik verisine erişin ve aralığı ayarlayın.  
 1. Değiştirilmiş sunumu PPTX dosyası olarak kaydedin.
 
-Bu Python kodu, bir grafik için veri aralığının nasıl ayarlanacağını gösterir:
+Bu Python kodu, bir grafik için veri aralığını ayarlamayı gösterir:
 
 ```py
 import aspose.slides.charts as charts
@@ -1122,7 +1122,7 @@ with slides.Presentation("ExistingChart.pptx") as presentation:
 
 ## **Grafiklerde Varsayılan İşaretçileri Kullanma**
 
-Grafiklerde varsayılan işaretçileri kullandığınızda, her grafik serisine otomatik olarak farklı bir işaretçi sembolü atanır.
+Varsayılan işaretçileri kullandığınızda, her grafik serisi otomatik olarak farklı bir işaretçi sembolü alır.
 
 Bu Python kodu, bir grafik serisi işaretçisini otomatik olarak ayarlamayı gösterir:
 
@@ -1156,7 +1156,7 @@ with slides.Presentation() as presentation:
 
     series2 = chart.chart_data.series.add(workbook.get_cell(0, 0, 2, "Series 2"), chart.type)
 
-    # Serilerin verilerini doldurun.
+    # Serinin verilerini doldurun.
     series2.data_points.add_data_point_for_line_series(workbook.get_cell(0, 1, 2, 30))
     series2.data_points.add_data_point_for_line_series(workbook.get_cell(0, 2, 2, 10))
     series2.data_points.add_data_point_for_line_series(workbook.get_cell(0, 3, 2, 60))
@@ -1172,16 +1172,16 @@ with slides.Presentation() as presentation:
 
 **Aspose.Slides for Python via .NET hangi grafik türlerini destekliyor?**
 
-Aspose.Slides for Python via .NET, çubuk, çizgi, pasta, alan, dağılım, histogram, radar ve daha birçok grafik türünü destekler. Bu esneklik, veri görselleştirme ihtiyaçlarınıza en uygun grafik türünü seçmenize imkan tanır.
+Aspose.Slides for Python via .NET, çubuk, çizgi, pasta, alan, saçılım, histogram, radar ve daha birçok grafik türünü destekler. Bu esneklik, veri görselleştirme ihtiyaçlarınıza en uygun grafik türünü seçmenizi sağlar.
 
-**Yeni bir grafiği bir slayta nasıl eklerim?**
+**Bir slayta yeni bir grafik nasıl eklenir?**
 
-Yeni bir grafik eklemek için önce bir [Presentation](https://reference.aspose.com/slides/tr/python-net/aspose.slides/presentation/) örneği oluşturur, istediğiniz slayta indeks üzerinden erişir ve ardından grafik ekleme metodunu çağırarak grafik türünü ve başlangıç verilerini belirtirsiniz. Bu işlem, grafiği doğrudan sunumunuza entegre eder.
+Yeni bir grafik eklemek için önce bir [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) örneği oluşturur, istediğiniz slayta indeks üzerinden erişir ve ardından grafik türü ile başlangıç verilerini belirterek grafik ekleme metodunu çağırırsınız. Bu işlem, grafiği doğrudan sunumunuza entegre eder.
 
-**Grafikte gösterilen verileri nasıl güncellerim?**
+**Grafikte görüntülenen veriler nasıl güncellenir?**
 
-Grafiğin verilerini, veri çalışma kitabına ([ChartDataWorkbook](https://reference.aspose.com/slides/tr/python-net/aspose.slides.charts/chartdataworkbook/)) erişerek, varsayılan serileri ve kategorileri temizleyip kendi özel verilerinizi ekleyerek güncelleyebilirsiniz. Böylece grafiği programlı olarak en son verilere göre yenileyebilirsiniz.
+Bir grafiğin verilerini, veri çalışma kitabına ([ChartDataWorkbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/)) erişerek, varsayılan serileri ve kategorileri temizleyip kendi özel verilerinizi ekleyerek güncelleyebilirsiniz. Bu, grafiği programlı olarak en son verileri yansıtacak şekilde yenilemenizi sağlar.
 
-**Grafiğin görünümünü özelleştirmek mümkün mü?**
+**Grafiğin görünümü özelleştirilebilir mi?**
 
-Evet, Aspose.Slides for Python via .NET kapsamlı özelleştirme seçenekleri sunar. Renkler, yazı tipleri, etiketler, lejandlar ve diğer biçimlendirme öğelerini değiştirerek grafiğin görünümünü tasarım gereksinimlerinize göre şekillendirebilirsiniz.
+Evet, Aspose.Slides for Python via .NET geniş özelleştirme seçenekleri sunar. Renkleri, yazı tiplerini, etiketleri, açıklama kutularını ve diğer biçimlendirme öğelerini değiştirerek grafiğin görünümünü özel tasarım gereksinimlerinize göre ayarlayabilirsiniz.

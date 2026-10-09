@@ -1,40 +1,40 @@
 ---
-title: Gerenciar Pastas de Trabalho de Gráficos em Apresentações Usando Python via Java
-linktitle: Pasta de Trabalho de Gráfico
+title: Gerenciar Workbooks de Gráficos em Apresentações Usando Python via Java
+linktitle: Workbook de Gráfico
 type: docs
 weight: 70
 url: /pt/python-java/chart-workbook/
 keywords:
-- pasta de trabalho de gráfico
-- dados de gráfico
-- célula de pasta de trabalho
+- workbook de gráfico
+- dados do gráfico
+- célula de workbook
 - rótulo de dados
 - planilha
 - fonte de dados
-- pasta de trabalho externa
+- workbook externo
 - dados externos
 - cache de gráfico
-- recuperação de pasta de trabalho
+- recuperação de workbook
 - PowerPoint
 - apresentação
 - Python
 - Java
 - Aspose.Slides
-description: "Descubra o Aspose.Slides para Python via Java: gerencie facilmente pastas de trabalho de gráficos em formatos PowerPoint e OpenDocument para simplificar os dados da sua apresentação."
+description: "Descubra Aspose.Slides for Python via Java: gerencie facilmente workbooks de gráficos em formatos PowerPoint e OpenDocument para simplificar os dados da sua apresentação."
 ---
 ## **Visão geral**
 
-Este artigo explica como trabalhar com pastas de trabalho de gráfico no Aspose.Slides. Ele mostra como ler e gravar dados de gráfico por meio de fluxos de pastas de trabalho, usar células de pasta de trabalho como rótulos de dados de gráfico, acessar coleções de planilhas e especificar o tipo de origem de dados para os valores do gráfico.
+Este artigo explica como trabalhar com workbooks de gráficos no Aspose.Slides. Ele mostra como ler e gravar dados de gráficos por meio de fluxos de workbook, usar células de workbook como rótulos de dados do gráfico, acessar coleções de planilhas e especificar o tipo de fonte de dados para os valores do gráfico.
 
-Também aborda o trabalho com pastas de trabalho externas como fontes de dados de gráfico. Os exemplos demonstram como criar e atribuir uma pasta de trabalho externa, recuperar o caminho de uma pasta de trabalho externa vinculada a um gráfico e editar os dados do gráfico quando a pasta de trabalho está disponível.
+Também cobre o trabalho com workbooks externos como fontes de dados de gráficos. Os exemplos demonstram como criar e atribuir um workbook externo, recuperar o caminho de um workbook externo vinculado a um gráfico e editar os dados do gráfico quando o workbook está disponível.
 
-Para células de pasta de trabalho que representam dados ausentes, veja [Controlar a Exibição de Células Vazias](/slides/pt/python-java/chart-series/) para a diferença entre uma célula vazia e zero, e uma comparação em gráfico de linhas dos modos de exibição disponíveis.
+Para células de workbook que representam dados ausentes, veja [Controlar a Exibição de Células Vazias](/slides/pt/python-java/chart-series/) para a diferença entre uma célula vazia e zero, e uma comparação em gráfico de linhas dos modos de exibição disponíveis.
 
 ## **Incluir Dados de Linhas e Colunas Ocultas**
 
-Use [Chart.setPlotVisibleCellsOnly](https://reference.aspose.com/slides/pt/python-java/aspose.slides/chart/#setPlotVisibleCellsOnly) para controlar se um gráfico traça dados de linhas e colunas de planilha ocultas. Defina como `True` para traçar apenas células visíveis ou como `False` para incluir tanto células visíveis quanto ocultas. Essa configuração controla o traçado do gráfico; não oculta ou exibe linhas ou colunas da planilha.
+Use [Chart.setPlotVisibleCellsOnly](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#setPlotVisibleCellsOnly) para controlar se um gráfico plota dados de linhas e colunas de planilha ocultas. Defina como `True` para plotar apenas células visíveis, ou `False` para incluir tanto células visíveis quanto ocultas. Esta configuração controla a plotagem do gráfico; não oculta nem mostra linhas ou colunas da planilha.
 
-Baixe [hidden-source-data.pptx](hidden-source-data.pptx) e coloque-o no diretório de trabalho. Seu primeiro slide contém um gráfico de colunas como a primeira forma. A planilha incorporada, `Sheet1`, contém a faixa de origem `A1:C4`. A linha 3 e a coluna C estão ocultas, mas suas células ainda contêm valores.
+A [apresentação de exemplo](hidden-source-data.pptx) contém um gráfico de colunas como a primeira forma no seu primeiro slide. A planilha incorporada, `Sheet1`, contém o seguinte intervalo de origem, `A1:C4`. A linha 3 e a coluna C estão ocultas, mas suas células ainda contêm valores.
 
 | Linha da planilha | A: Mês | B: Varejo | C: Atacado (coluna oculta) |
 | --- | --- | --- | --- |
@@ -42,9 +42,9 @@ Baixe [hidden-source-data.pptx](hidden-source-data.pptx) e coloque-o no diretór
 | 3 (linha oculta) | Fevereiro | 40 | 60 |
 | 4 | Março | 20 | 50 |
 
-Acesse as células de origem através de [ChartData.getChartDataWorkbook](https://reference.aspose.com/slides/pt/python-java/aspose.slides/chartdata/#getChartDataWorkbook) e leia [ChartDataCell.isHidden](https://reference.aspose.com/slides/pt/python-java/aspose.slides/chartdatacell/#isHidden) para inspecionar seu status de ocultação. Esse método relata o status oculto sem alterá‑lo. Neste arquivo, B2 está visível, B3 pertence à linha oculta e C2 pertence à coluna oculta; o exemplo imprime `False`, `True` e `True`, respectivamente.
+Acesse as células de origem através de [ChartData.getChartDataWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getChartDataWorkbook) e leia [ChartDataCell.isHidden](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatacell/#isHidden) para inspecionar seu status de ocultação. Este método relata o status de ocultação sem alterá‑lo. Neste arquivo, B2 está visível, B3 pertence à linha oculta e C2 pertence à coluna oculta; o exemplo imprime `False`, `True` e `True`, respectivamente.
 
-Para este exemplo, atualize os dados do gráfico após mudar a configuração de traçado: retenha a pasta de trabalho incorporada com [readWorkbookStream](https://reference.aspose.com/slides/pt/python-java/aspose.slides/chartdata/#readWorkbookStream) e recarregue‑a com [writeWorkbookStream](https://reference.aspose.com/slides/pt/python-java/aspose.slides/chartdata/#writeWorkbookStream). Ao incluir todas as células, também use [setRange](https://reference.aspose.com/slides/pt/python-java/aspose.slides/chartdata/#setRange) para restaurar a faixa completa, incluindo a categoria de Fevereiro ocultada. Simplesmente mudar a bandeira não é suficiente para atualizar os dados de gráfico em cache e os rótulos de categoria deste exemplo.
+Para este exemplo, atualize os dados do gráfico após alterar a configuração de plotagem: retenha o workbook incorporado com [readWorkbookStream](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#readWorkbookStream) e recarregue‑o com [writeWorkbookStream](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#writeWorkbookStream). Ao incluir todas as células, use também [setRange](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#setRange) para restaurar o intervalo completo, incluindo a categoria de fevereiro ocultada. Simplesmente mudar a flag é insuficiente para atualizar os dados de gráfico em cache e os rótulos de categoria deste exemplo.
 
 ```python
 import jpype
@@ -71,10 +71,10 @@ try:
         for visible_only in (True, False):
             chart.setPlotVisibleCellsOnly(visible_only)
 
-            # Atualizar os dados do gráfico a partir da pasta de trabalho incorporada.
+            # Atualizar os dados do gráfico a partir do workbook incorporado.
             chart.getChartData().writeWorkbookStream(workbook_data)
             if not visible_only:
-                # Restaurar a faixa de origem completa, incluindo categorias ocultas.
+                # Restaurar o intervalo de origem completo, incluindo categorias ocultas.
                 chart.getChartData().setRange("Sheet1!$A$1:$C$4")
 
             presentation.save(f"hidden_cells_{visible_only}.pptx", SaveFormat.Pptx)
@@ -84,19 +84,52 @@ finally:
     presentation.dispose()
 ```
 
-O exemplo salva `hidden_cells_True.pptx` contendo apenas os valores de Varejo visíveis (10 e 20) e `hidden_cells_False.pptx` com todos os seis valores. As imagens abaixo ilustram os dois modos de traçado. A linha 3 e a coluna C permanecem ocultas em ambas as pastas de trabalho incorporadas.
+O exemplo salva duas versões da apresentação: uma com apenas os valores de Varejo visíveis (10 e 20) e outra com todos os seis valores. As imagens abaixo ilustram os dois modos de plotagem. A linha 3 e a coluna C permanecem ocultas em ambos os workbooks incorporados.
 
 | Apenas células visíveis (`True`) | Todas as células (`False`) |
 | --- | --- |
-| ![Apenas células visíveis: Valores de Varejo 10 e 20 para Janeiro e Março.](hidden_cells_True.png) | ![Todas as células: Valores de Varejo e Atacado para Janeiro, Fevereiro e Março.](hidden_cells_False.png) |
+| ![Apenas células visíveis: valores de Varejo 10 e 20 para Janeiro e Março.](hidden_cells_True.png) | ![Todas as células: valores de Varejo e Atacado para Janeiro, Fevereiro e Março.](hidden_cells_False.png) |
 
-Uma célula oculta contendo um valor difere de uma célula vazia. [Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/pt/python-java/aspose.slides/chart/#setDisplayBlanksAs) controla como valores ausentes são exibidos; não inclui ou exclui dados de origem ocultos. Veja [Controlar a Exibição de Células Vazias](/slides/pt/python-java/chart-series/#control-the-display-of-empty-cells) para um exemplo.
+Uma célula oculta que contém um valor é diferente de uma célula vazia. [Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#setDisplayBlanksAs) controla como valores ausentes são exibidos; não inclui nem exclui dados de origem ocultos. Veja [Controlar a Exibição de Células Vazias](/slides/pt/python-java/chart-series/#control-the-display-of-empty-cells) para um exemplo.
 
-## **Ler e Gravar Dados de Gráfico de uma Pasta de Trabalho**
+## **Recuperar o Intervalo de Dados de um Gráfico**
 
-Aspose.Slides for Python via Java fornece os métodos [readWorkbookStream](https://reference.aspose.com/slides/pt/python-java/aspose.slides/chartdata/#readWorkbookStream) e [writeWorkbookStream](https://reference.aspose.com/slides/pt/python-java/aspose.slides/chartdata/#writeWorkbookStream) que permitem ler e gravar pastas de trabalho de dados de gráfico (contendo dados de gráfico editados com Aspose.Cells). **Note** que os dados do gráfico precisam estar organizados da mesma forma ou ter uma estrutura semelhante à fonte.
+Antes de atualizar os dados do workbook em uma apresentação existente, inspecione os intervalos de origem para identificar quais células da planilha cada gráfico usa. O método [ChartData.getRange](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getRange) retorna o intervalo de dados atual como uma fórmula qualificada da planilha, como `Sheet1!$A$1:$D$5`. Aqui, `Sheet1` é o nome da planilha, `!` a separa do intervalo de células e `$A$1:$D$5` identifica as células A1 até D5, inclusive. Os sinais de dólar indicam referências absolutas de linha e coluna.
 
-Este exemplo abre `chart.pptx`, que deve conter um gráfico como a primeira forma no seu primeiro slide. Ele lê a pasta de trabalho incorporada para um array de bytes, limpa as séries e categorias existentes e grava a mesma pasta de trabalho de volta. As alterações permanecem em memória; o exemplo não salva a apresentação.
+O método lê o intervalo atual sem alterar o gráfico ou seu workbook. Se o gráfico não usar um workbook como fonte de dados, ele lança `InvalidOperationException`. Para mais informações, consulte a [ChartData API Reference](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/).
+
+Este exemplo abre uma apresentação e verifica as formas diretamente em cada slide para gráficos. Ele imprime o nome de cada gráfico e o intervalo de origem. Se um gráfico não usar um workbook, ele imprime uma mensagem e continua para o próximo gráfico.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import Chart, Presentation
+
+InvalidOperationException = jpype.JClass("com.aspose.slides.exceptions.InvalidOperationException")
+
+presentation = Presentation("presentation.pptx")
+try:
+    for slide in presentation.getSlides():
+        for shape in slide.getShapes():
+            if isinstance(shape, Chart):
+                try:
+                    data_range = shape.getChartData().getRange()
+                    print(f"{shape.getName()}: {data_range}")
+                except InvalidOperationException:
+                    print(f"{shape.getName()}: The chart does not use a workbook as its data source.")
+finally:
+    presentation.dispose()
+```
+
+## **Ler e Gravar Dados de Gráfico a partir de um Workbook**
+
+Aspose.Slides for Python via Java fornece os métodos [readWorkbookStream](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#readWorkbookStream) e [writeWorkbookStream](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#writeWorkbookStream) que permitem ler e gravar workbooks de dados de gráficos (contendo dados de gráfico editados com Aspose.Cells). **Note** que os dados do gráfico precisam estar organizados da mesma maneira ou possuir uma estrutura semelhante à da origem.
+
+Este exemplo usa uma apresentação com um gráfico como a primeira forma no seu primeiro slide. Ele lê o workbook incorporado em um array de bytes, limpa as séries e categorias existentes e grava o mesmo workbook de volta. As alterações permanecem na memória; o exemplo não salva a apresentação.
 
 ```python
 import jpype
@@ -127,9 +160,9 @@ finally:
     presentation.dispose()
 ```
 
-### **Validar Layout do Gráfico Após Modificação da Pasta de Trabalho**
+### **Validar o Layout do Gráfico Após Modificação do Workbook**
 
-Quando você substitui uma pasta de trabalho incorporada por uma modificada, o gráfico mantém suas coleções originais de séries e categorias. Essa incompatibilidade pode fazer com que [Chart.validateChartLayout](https://reference.aspose.com/slides/pt/python-java/aspose.slides/chart/#validateChartLayout) falhe com um erro de índice fora do intervalo. Limpe as séries e categorias existentes antes de gravar a pasta de trabalho atualizada de volta ao gráfico. Este exemplo requer `chart.pptx` com um gráfico como a primeira forma no seu primeiro slide. O comentário indica onde a edição da pasta de trabalho ocorreria; o exemplo executável grava a pasta de trabalho original de volta e valida o layout em memória.
+Quando você substitui um workbook incorporado por um modificado, o gráfico retém suas coleções originais de séries e categorias. Essa incompatibilidade pode fazer com que [Chart.validateChartLayout](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#validateChartLayout) falhe com um erro de índice fora do intervalo. Limpe as séries e categorias existentes antes de gravar o workbook atualizado de volta ao gráfico. Este exemplo usa um gráfico que é a primeira forma no primeiro slide. O comentário marca onde a edição do workbook ocorreria; o exemplo executável grava o workbook original de volta e valida o layout na memória.
 
 ```python
 import jpype
@@ -150,7 +183,7 @@ try:
         chart_data = chart.getChartData()
         workbook_data = chart_data.readWorkbookStream()
 
-        # Modifique os bytes da pasta de trabalho aqui, por exemplo, usando Aspose.Cells.
+        # Modifique os bytes do workbook aqui, por exemplo, usando Aspose.Cells.
 
         chart_data.getSeries().clear()
         chart_data.getCategories().clear()
@@ -163,20 +196,13 @@ finally:
     presentation.dispose()
 ```
 
-Limpar as coleções remove referências de dados obsoletas antes que a pasta de trabalho seja gravada de volta. Recrie quaisquer mapeamentos de séries e categorias necessários para a pasta de trabalho atualizada antes de usar o gráfico.
+Limpar as coleções remove referências de dados obsoletas antes que o workbook seja gravado de volta. Reconstrua quaisquer mapeamentos de séries e categorias necessários para o workbook atualizado antes de usar o gráfico.
 
-## **Definir uma Célula da Pasta de Trabalho como Rótulo de Dados do Gráfico**
+## **Definir uma Célula do Workbook como Rótulo de Dados do Gráfico**
 
-Você pode usar texto de células da pasta de trabalho como rótulos de dados do gráfico. Os passos a seguir mostram como vincular os rótulos em um gráfico de bolhas às células em sua pasta de trabalho de dados.
+Você pode usar texto de células do workbook como rótulos de dados do gráfico.
 
-1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/python-java/aspose.slides/presentation/).
-2. Acesse o primeiro slide pelo seu índice baseado em zero.
-3. Adicione um gráfico de bolhas com dados padrão.
-4. Acesse as séries do gráfico.
-5. Defina a célula da pasta de trabalho como um rótulo de dados.
-6. Salve a apresentação.
-
-Este exemplo abre `chart2.pptx`, que deve conter ao menos um slide, e adiciona um gráfico de bolhas com dados padrão. Ele usa as células A10:A12 na planilha 0 para os três primeiros rótulos da primeira série, habilita rótulos a partir de células e salva o resultado em `resultchart.pptx`.
+Este exemplo adiciona um gráfico de bolhas com dados padrão ao primeiro slide de uma apresentação existente. Ele usa as células A10:A12 na planilha 0 para os três primeiros rótulos da primeira série, habilita rótulos a partir de células e salva a apresentação atualizada.
 
 ```python
 import jpype
@@ -208,7 +234,7 @@ finally:
 
 ## **Gerenciar Planilhas**
 
-O método [ChartDataWorkbook.getWorksheets](https://reference.aspose.com/slides/pt/python-java/aspose.slides/chartdataworkbook/#getWorksheets) fornece acesso às planilhas em uma pasta de trabalho de gráfico. Este exemplo cria um gráfico de pizza com dados padrão e imprime cada nome de planilha no console.
+O método [ChartDataWorkbook.getWorksheets](https://reference.aspose.com/slides/python-java/aspose.slides/chartdataworkbook/#getWorksheets) fornece acesso às planilhas em um workbook de gráfico. Este exemplo cria um gráfico de pizza com dados padrão e imprime cada nome de planilha no console.
 
 ```python
 import jpype
@@ -231,9 +257,9 @@ finally:
     presentation.dispose()
 ```
 
-## **Especificar o Tipo de Origem de Dados**
+## **Especificar o Tipo de Fonte de Dados**
 
-Este exemplo cria um gráfico de colunas 3D com dados padrão e define dois nomes de série usando diferentes origens de dados. O primeiro nome usa um literal de string; o segundo usa a célula C1 na planilha 0. A enumeração [DataSourceType](https://reference.aspose.com/slides/pt/python-java/aspose.slides/datasourcetype/) seleciona a origem para cada nome. O resultado é salvo em `pres.pptx`.
+Este exemplo cria um gráfico de colunas 3D com dados padrão e define dois nomes de série usando fontes de dados diferentes. O primeiro nome usa um literal de string; o segundo usa a célula C1 na planilha 0. A enumeração [DataSourceType](https://reference.aspose.com/slides/python-java/aspose.slides/datasourcetype/) seleciona a fonte para cada nome. O exemplo salva a apresentação com os nomes de série atualizados.
 
 ```python
 import jpype
@@ -262,9 +288,9 @@ finally:
     presentation.dispose()
 ```
 
-## **Detectar Formatos de Pasta de Trabalho Incorporada Não Suportados**
+## **Detectar Formatos de Workbook Incorporado Não Compatíveis**
 
-Aspose.Slides não oferece suporte ao formato de pasta de trabalho Excel binária (.xlsb) que pode ser incorporado em alguns gráficos. Você pode usar o método [getEmbeddedWorkbookType](https://reference.aspose.com/slides/pt/python-java/aspose.slides/chartdata/#getEmbeddedWorkbookType) em [ChartData](https://reference.aspose.com/slides/pt/python-java/aspose.slides/chartdata/) junto com a enumeração [WorkbookType](https://reference.aspose.com/slides/pt/python-java/aspose.slides/workbooktype/) para detectar formatos não suportados e ignorar esses gráficos. Este exemplo inspeciona as formas no primeiro slide de `sample.pptx`, ignora formas que não sejam gráficos e imprime uma mensagem de diagnóstico para cada gráfico com uma pasta de trabalho .xlsb incorporada.
+Aspose.Slides não oferece suporte ao formato de workbook binário do Excel (.xlsb) que pode ser incorporado em alguns gráficos. Você pode usar o método [getEmbeddedWorkbookType](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getEmbeddedWorkbookType) em [ChartData](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/) junto com a enumeração [WorkbookType](https://reference.aspose.com/slides/python-java/aspose.slides/workbooktype/) para detectar formatos não suportados e pular esses gráficos. Este exemplo inspeciona as formas no primeiro slide de uma apresentação existente, ignora formas que não são gráficos e imprime uma mensagem diagnóstica para cada gráfico com um workbook .xlsb incorporado.
 
 ```python
 import jpype
@@ -291,20 +317,20 @@ try:
         if is_internal_workbook and is_binary_macro:
             print("Skipping a chart with an unsupported .xlsb workbook.")
             continue
-        # Leia ou modifique os dados da pasta de trabalho de gráfico suportados aqui.
+        # Leia ou modifique os dados do workbook de gráfico suportados aqui.
 finally:
     presentation.dispose()
 ```
 
-## **Pasta de Trabalho Externa**
+## **Workbook Externo**
 
-Aspose.Slides oferece suporte ao uso de pastas de trabalho externas como fonte de dados para gráficos.
+Aspose.Slides oferece suporte ao uso de workbooks externos como fonte de dados para gráficos.
 
-### **Criar uma Pasta de Trabalho Externa**
+### **Criar um Workbook Externo**
 
-Use [readWorkbookStream](https://reference.aspose.com/slides/pt/python-java/aspose.slides/chartdata/#readWorkbookStream) e [setExternalWorkbook](https://reference.aspose.com/slides/pt/python-java/aspose.slides/chartdata/#setExternalWorkbook) para exportar a pasta de trabalho de gráfico incorporada para um arquivo e vincular o gráfico a essa pasta de trabalho externa.
+Use [readWorkbookStream](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#readWorkbookStream) e [setExternalWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#setExternalWorkbook) para exportar um workbook de gráfico incorporado para um arquivo e vincular o gráfico a esse workbook externo.
 
-Este exemplo cria um gráfico de pizza com dados padrão, grava sua pasta de trabalho em `externalWorkbook1.xlsx` e completa a gravação do arquivo antes de atribuir o arquivo como fonte de dados do gráfico. Ele salva a apresentação vinculada em `externalWorkbook.pptx`.
+Este exemplo cria um gráfico de pizza com dados padrão e exporta seu workbook. Ele conclui a gravação do arquivo antes de atribuir o workbook externo como fonte de dados do gráfico, então salva a apresentação vinculada.
 
 ```python
 import jpype
@@ -332,13 +358,13 @@ finally:
     presentation.dispose()
 ```
 
-### **Definir uma Pasta de Trabalho Externa**
+### **Definir um Workbook Externo**
 
-Usando o método [setExternalWorkbook](https://reference.aspose.com/slides/pt/python-java/aspose.slides/chartdata/#setExternalWorkbook), você pode atribuir uma pasta de trabalho externa a um gráfico como sua fonte de dados. Esse método também pode ser usado para atualizar o caminho para a pasta de trabalho externa (se esta tiver sido movida).
+Usando o método [setExternalWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#setExternalWorkbook), você pode atribuir um workbook externo a um gráfico como sua fonte de dados. Este método também pode ser usado para atualizar o caminho para o workbook externo (se este último tiver sido movido).
 
-Embora você não possa editar os dados em pastas de trabalho armazenadas em locais remotos ou recursos, ainda pode usá‑las como fonte de dados externa. Se for fornecido um caminho relativo para uma pasta de trabalho externa, ele será convertido automaticamente para um caminho completo.
+Embora você não possa editar os dados em workbooks armazenados em locais remotos ou recursos, ainda pode usá‑los como fonte de dados externa. Se for fornecido um caminho relativo para um workbook externo, ele será convertido automaticamente para um caminho completo.
 
-Este exemplo requer `externalWorkbook.xlsx` no diretório de trabalho. Sua planilha chamada `Sheet1` deve conter um nome de série em B1, nomes de categoria em A2:A4 e valores numéricos em B2:B4. O exemplo cria um gráfico de pizza, vincula a pasta de trabalho e usa [setRange](https://reference.aspose.com/slides/pt/python-java/aspose.slides/chartdata/#setRange) para mapear A1:B4 para uma série e três categorias. Ele salva o resultado em `Presentation_with_externalWorkbook.pptx`.
+Este exemplo usa um workbook externo cuja planilha chamada `Sheet1` contém um nome de série em B1, nomes de categoria em A2:A4 e valores numéricos em B2:B4. O exemplo cria um gráfico de pizza, vincula o workbook e usa [setRange](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#setRange) para mapear A1:B4 para uma série e três categorias. Ele salva a apresentação com o gráfico vinculado.
 
 ```python
 import jpype
@@ -366,12 +392,12 @@ finally:
     presentation.dispose()
 ```
 
-O parâmetro `updateChartData` de [setExternalWorkbook](https://reference.aspose.com/slides/pt/python-java/aspose.slides/chartdata/#setExternalWorkbook) controla se a pasta de trabalho é carregada.
+O parâmetro `updateChartData` de [setExternalWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#setExternalWorkbook) controla se o workbook é carregado.
 
-* Quando `updateChartData` é `False`, somente o caminho da pasta de trabalho é atualizado. Os dados do gráfico não são carregados nem atualizados a partir da pasta de trabalho de destino, de modo que a pasta de trabalho pode estar indisponível.
-* Quando `updateChartData` é `True`, os dados do gráfico são atualizados a partir da pasta de trabalho de destino.
+* Quando `updateChartData` é `False`, apenas o caminho do workbook é atualizado. Os dados do gráfico não são carregados nem atualizados a partir do workbook de destino, portanto o workbook pode estar indisponível.
+* Quando `updateChartData` é `True`, os dados do gráfico são atualizados a partir do workbook de destino.
 
-O exemplo a seguir atribui uma URL de espaço reservado com `updateChartData` definido como `False`. Ele mantém os dados padrão do gráfico de pizza e salva a apresentação sem carregar a pasta de trabalho indisponível.
+O exemplo a seguir atribui uma URL de placeholder com `updateChartData` definido como `False`. Ele mantém os dados padrão do gráfico de pizza e salva a apresentação sem carregar o workbook indisponível.
 
 ```python
 import jpype
@@ -395,17 +421,11 @@ finally:
     presentation.dispose()
 ```
 
-### **Obter o Caminho da Pasta de Trabalho da Fonte de Dados Externa de um Gráfico**
+### **Obter o Caminho do Workbook de Fonte de Dados Externa de um Gráfico**
 
-Para identificar a pasta de trabalho vinculada a um gráfico, primeiro verifique se o gráfico usa uma fonte de dados externa. Se usar, você pode recuperar o caminho da pasta de trabalho seguindo estes passos.
+Para identificar o workbook vinculado a um gráfico, verifique se o gráfico usa uma fonte de dados externa e recupere seu caminho de workbook.
 
-1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/python-java/aspose.slides/presentation/).
-2. Acesse o primeiro slide pelo seu índice baseado em zero.
-3. Verifique se a primeira forma é um gráfico.
-4. Leia o tipo de origem de dados do gráfico.
-5. Se a origem for uma pasta de trabalho externa, leia seu caminho.
-
-Este exemplo abre `externalWorkbook.pptx`, criado no exemplo anterior, e inspeciona a primeira forma no primeiro slide. Se for um gráfico vinculado a uma pasta de trabalho externa, o exemplo imprime [getExternalWorkbookPath](https://reference.aspose.com/slides/pt/python-java/aspose.slides/chartdata/#getExternalWorkbookPath) no console. Em seguida, salva uma cópia da apresentação em `Result.pptx`.
+Este exemplo inspeciona a primeira forma no primeiro slide de uma apresentação com um workbook externo vinculado. Se for um gráfico vinculado a um workbook externo, o exemplo imprime [getExternalWorkbookPath](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getExternalWorkbookPath) no console. Em seguida, salva uma cópia da apresentação.
 
 ```python
 import jpype
@@ -438,9 +458,9 @@ finally:
 
 ### **Editar Dados do Gráfico**
 
-Você pode editar os dados em pastas de trabalho externas da mesma forma que faz alterações no conteúdo de pastas de trabalho internas. Quando uma pasta de trabalho externa não pode ser carregada, uma exceção é lançada.
+Você pode editar os dados em workbooks externos da mesma forma que faz alterações no conteúdo de workbooks internos. Quando um workbook externo não pode ser carregado, uma exceção é lançada.
 
-Este exemplo requer `presentation.pptx` com um gráfico como a primeira forma no primeiro slide e uma pasta de trabalho externa acessível. Ele define o valor da célula do primeiro ponto de dados da primeira série para 100 e salva a apresentação em `presentation_out.pptx`. A edição de valores de células pode atualizar o arquivo XLSX externo vinculado, portanto use uma cópia se precisar preservar a pasta de trabalho original.
+Este exemplo usa um gráfico que é a primeira forma no primeiro slide e está vinculado a um workbook externo acessível. Ele define o valor respaldado por célula do primeiro ponto de dados na primeira série para 100 e salva a apresentação atualizada. Editar valores de célula pode atualizar o arquivo XLSX externo vinculado, portanto use uma cópia se precisar preservar o workbook original.
 
 ```python
 import jpype
@@ -474,11 +494,11 @@ finally:
     presentation.dispose()
 ```
 
-### **Recuperar uma Pasta de Trabalho do Cache do Gráfico**
+### **Recuperar um Workbook a partir do Cache do Gráfico**
 
-Se um gráfico usar uma pasta de trabalho externa que esteja ausente ou indisponível, Aspose.Slides pode reconstruir a pasta de trabalho do gráfico a partir dos dados em cache na apresentação. Crie [LoadOptions](https://reference.aspose.com/slides/pt/python-java/aspose.slides/loadoptions/), chame [LoadOptions.setSpreadsheetOptions](https://reference.aspose.com/slides/pt/python-java/aspose.slides/loadoptions/#setSpreadsheetOptions) e defina [SpreadsheetOptions.setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/pt/python-java/aspose.slides/spreadsheetoptions/#setRecoverWorkbookFromChartCache) como `True` antes de abrir a apresentação.
+Se um gráfico usar um workbook externo que esteja ausente ou indisponível, Aspose.Slides pode reconstruir o workbook do gráfico a partir dos dados em cache na apresentação. Crie [LoadOptions](https://reference.aspose.com/slides/python-java/aspose.slides/loadoptions/), chame [LoadOptions.setSpreadsheetOptions](https://reference.aspose.com/slides/python-java/aspose.slides/loadoptions/#setSpreadsheetOptions) e defina [SpreadsheetOptions.setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/python-java/aspose.slides/spreadsheetoptions/#setRecoverWorkbookFromChartCache) como `True` antes de abrir a apresentação.
 
-O exemplo Python a seguir abre `presentation.pptx`, cujo primeiro shape no primeiro slide deve ser um gráfico que referencia uma pasta de trabalho externa indisponível, e acessa os dados recuperados através de [Chart.getChartData](https://reference.aspose.com/slides/pt/python-java/aspose.slides/chart/#getChartData) e [ChartData.getChartDataWorkbook](https://reference.aspose.com/slides/pt/python-java/aspose.slides/chartdata/#getChartDataWorkbook):
+O exemplo Python a seguir recupera dados de workbook para um gráfico que é a primeira forma no primeiro slide e faz referência a um workbook externo indisponível. Ele acessa os dados recuperados através de [Chart.getChartData](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#getChartData) e [ChartData.getChartDataWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getChartDataWorkbook):
 
 ```python
 import jpype
@@ -504,37 +524,37 @@ try:
         chart = slide.getShapes().get_Item(0)
         recovered_workbook = chart.getChartData().getChartDataWorkbook()
 
-        # Leia ou modifique os dados da pasta de trabalho recuperada aqui.
+        # Leia ou modifique os dados do workbook recuperado aqui.
     else:
         print("The first shape is not a chart.")
 finally:
     presentation.dispose()
 ```
 
-Se a pasta de trabalho externa estiver indisponível e a recuperação estiver desativada, Aspose.Slides lança uma exceção. Ative a recuperação apenas quando o uso dos dados de gráfico em cache for uma alternativa aceitável, pois o cache pode não conter alterações feitas na pasta de trabalho externa após a última atualização da apresentação.
+Se o workbook externo estiver indisponível e a recuperação estiver desativada, Aspose.Slides lançará uma exceção. Habilite a recuperação somente quando usar os dados de gráfico em cache for uma alternativa aceitável, pois o cache pode não conter alterações feitas no workbook externo após a última atualização da apresentação.
 
-## **Perguntas Frequentes**
+## **FAQ**
 
-**Posso determinar se um gráfico específico está vinculado a uma pasta de trabalho externa ou incorporada?**
+**Posso determinar se um gráfico específico está vinculado a um workbook externo ou incorporado?**
 
-Sim. Um gráfico possui um [tipo de origem de dados](https://reference.aspose.com/slides/pt/python-java/aspose.slides/chartdata/#getDataSourceType) e um [caminho para uma pasta de trabalho externa](https://reference.aspose.com/slides/pt/python-java/aspose.slides/chartdata/#getExternalWorkbookPath); se a origem for uma pasta de trabalho externa, você pode ler o caminho completo para garantir que um arquivo externo está sendo usado.
+Sim. Um gráfico possui um [data source type](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getDataSourceType) e um [path to an external workbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getExternalWorkbookPath); se a fonte for um workbook externo, você pode ler o caminho completo para garantir que um arquivo externo está sendo usado.
 
-**Caminhos relativos para pastas de trabalho externas são suportados e como são armazenados?**
+**Caminhos relativos para workbooks externos são suportados e como são armazenados?**
 
-Sim. Se você especificar um caminho relativo, ele é convertido automaticamente para um caminho absoluto. A apresentação armazena o caminho absoluto no arquivo PPTX, portanto mover a pasta de trabalho pode exigir a atualização do link.
+Sim. Se você especificar um caminho relativo, ele será convertido automaticamente para um caminho absoluto. A apresentação armazena o caminho absoluto no arquivo PPTX, portanto mover o workbook pode requerer a atualização do link.
 
-**Posso usar pastas de trabalho localizadas em recursos ou compartilhamentos de rede?**
+**Posso usar workbooks localizados em recursos/redes compartilhadas?**
 
-Sim, essas pastas de trabalho podem ser usadas como fonte de dados externa. No entanto, a edição direta de pastas de trabalho remotas a partir do Aspose.Slides não é suportada — elas podem ser usadas apenas como fonte.
+Sim, esses workbooks podem ser usados como fonte de dados externa. Contudo, a edição direta de workbooks remotos a partir do Aspose.Slides não é suportada — eles podem ser usados apenas como fonte.
 
 **O Aspose.Slides sobrescreve o XLSX externo ao salvar a apresentação?**
 
-A apresentação armazena um [link para o arquivo externo](https://reference.aspose.com/slides/pt/python-java/aspose.slides/chartdata/#getExternalWorkbookPath). Editar dados de gráfico baseados em células também pode atualizar o arquivo XLSX local vinculado. Use uma cópia da pasta de trabalho se o original precisar permanecer inalterado.
+A apresentação armazena um [link to the external file](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getExternalWorkbookPath). Editar dados de gráfico respaldados por célula também pode atualizar o arquivo XLSX local vinculado. Use uma cópia do workbook se o original precisar permanecer inalterado.
 
 **O que fazer se o arquivo externo estiver protegido por senha?**
 
-Aspose.Slides não aceita senha ao criar o vínculo. Uma abordagem comum é remover a proteção antecipadamente ou preparar uma cópia descriptografada (por exemplo, usando [Aspose.Cells](https://reference.aspose.com/cells/python-java/)) e vincular a essa cópia.
+Aspose.Slides não aceita senha ao vincular. Uma abordagem comum é remover a proteção previamente ou preparar uma cópia descriptografada (por exemplo, usando [Aspose.Cells](https://reference.aspose.com/cells/python-java/)) e vincular a essa cópia.
 
-**Vários gráficos podem referenciar a mesma pasta de trabalho externa?**
+**Vários gráficos podem referenciar o mesmo workbook externo?**
 
-Sim. Cada gráfico armazena seu próprio link. Se todos apontarem para o mesmo arquivo, a atualização desse arquivo será refletida em cada gráfico na próxima vez que os dados forem carregados.
+Sim. Cada gráfico armazena seu próprio link. Se todos apontarem para o mesmo arquivo, atualizar esse arquivo será refletido em cada gráfico na próxima vez que os dados forem carregados.

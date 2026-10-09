@@ -20,77 +20,77 @@ keywords:
 - सनबर्स्ट चार्ट
 - हिस्टोग्राम चार्ट
 - रेडार चार्ट
-- मल्टीकैटेगरी चार्ट
+- मल्टी‑कैटेगरी चार्ट
 - PowerPoint
-- प्रेजेंटेशन
+- प्रस्तुति
 - PHP
 - Aspose.Slides
-description: "Aspose.Slides for PHP via Java का उपयोग करके PowerPoint प्रेजेंटेशन में चार्ट बनाएं और अनुकूलित करें। व्यावहारिक कोड उदाहरणों के साथ चार्ट जोड़ें, फ़ॉर्मेट करें और संपादित करें।"
+description: "Aspose.Slides for PHP via Java का उपयोग करके PowerPoint प्रस्तुतियों में चार्ट बनाएं और अनुकूलित करें। व्यावहारिक कोड उदाहरणों के साथ चार्ट जोड़ें, फ़ॉर्मेट करें और संपादित करें।"
 ---
-## **अवलोकन**
+## **समग्र अवलोकन**
 
-यह लेख Aspose.Slides का उपयोग करके चार्ट बनाने और अनुकूलित करने के लिए एक व्यापक मार्गदर्शिका प्रदान करता है। आप सीखेंगे कि प्रोग्रामेटिक रूप से स्लाइड में चार्ट कैसे जोड़ें, उसे डेटा से भरें, और अपनी विशिष्ट डिज़ाइन आवश्यकताओं के अनुसार विभिन्न फ़ॉर्मेटिंग विकल्प लागू करें। पूरे लेख में विस्तृत कोड उदाहरण प्रत्येक चरण को दर्शाते हैं, प्रारंभिक प्रस्तुति और चार्ट ऑब्जेक्ट से लेकर सीरीज़, एक्सिस और लेजेंड को कॉन्फ़िगर करने तक। इस मार्गदर्शिका का पालन करके आप अपनी एप्लिकेशन में डायनमिक चार्ट जेनरेशन को एकीकृत करने की ठोस समझ प्राप्त करेंगे, जिससे डेटा-ड्रिवन प्रस्तुतियों का निर्माण सरल हो जाएगा।
+यह लेख Aspose.Slides का उपयोग करके चार्ट बनाने और अनुकूलित करने के लिए एक व्यापक मार्गदर्शिका प्रदान करता है। आप सीखेंगे कि प्रोग्रामmatically कैसे एक स्लाइड में चार्ट जोड़ें, उसे डेटा से भरें, और आपके विशिष्ट डिज़ाइन आवश्यकताओं के अनुरूप विभिन्न फ़ॉर्मेटिंग विकल्प लागू करें। पूरे लेख में विस्तृत कोड उदाहरण प्रत्येक चरण को दर्शाते हैं, प्रारंभिक प्रेजेंटेशन और चार्ट ऑब्जेक्ट से लेकर सीरीज़, एक्सिस और लेजेंड सेट करने तक। इस मार्गदर्शिका का पालन करके आप गतिशील चार्ट जेनरेशन को अपने अनुप्रयोगों में एकीकृत करने की ठोस समझ प्राप्त करेंगे, जिससे डेटा‑चालित प्रेजेंटेशन बनाना सरल हो जाएगा।
 
-## **चार्ट बनाएं**
+## **चार्ट बनाएँ**
 
-चार्ट लोगों को जल्दी से डेटा को विज़ुअलाइज़ करने और ऐसे अंतर्दृष्टि प्राप्त करने में मदद करते हैं जो किसी तालिका या स्प्रेडशीट से तुरंत स्पष्ट नहीं होते।
+चार्ट लोगों को डेटा को तेजी से विज़ुअलाइज़ करने और उन अंतर्दृष्टियों को प्राप्त करने में मदद करते हैं जो तालिका या स्प्रेडशीट से तुरंत स्पष्ट नहीं होतीं।
 
-**चार्ट क्यों बनाएं?**
+**चार्ट क्यों बनायें?**
 
 चार्ट का उपयोग करके आप:
 
-* एक ही स्लाइड में बड़ी मात्रा में डेटा को समेकित, संक्षिप्त या सारांशित कर सकते हैं
-* डेटा में पैटर्न और रुझान उजागर कर सकते हैं
+* एक ही स्लाइड में बड़ी मात्रा के डेटा को समेकित, संक्षिप्त या सारांशित कर सकते हैं
+* डेटा में पैटर्न और ट्रेंड दिखा सकते हैं
 * समय के साथ या किसी विशिष्ट माप इकाई के संबंध में डेटा की दिशा और गति निर्धारित कर सकते हैं
-* अपवाद, असामान्यताएँ, विचलन, त्रुटियाँ, बेतुके डेटा आदि की पहचान कर सकते हैं
-* जटिल डेटा को संवादित या प्रस्तुत कर सकते हैं
+* आउटलेयर, असामान्यताएँ, विचलन, त्रुटियाँ, बेतुका डेटा आदि को पहचान सकते हैं
+* जटिल डेटा को संप्रेषित या प्रस्तुत कर सकते हैं
 
-PowerPoint में आप *Insert* फ़ंक्शन के माध्यम से चार्ट बना सकते हैं, जो कई प्रकार के चार्ट डिज़ाइन करने के लिए टेम्प्लेट प्रदान करता है। Aspose.Slides का उपयोग करके आप सामान्य चार्ट (लोकप्रिय चार्ट प्रकारों पर आधारित) और कस्टम चार्ट दोनों बना सकते हैं।
+PowerPoint में, आप *Insert* फ़ंक्शन के माध्यम से कई प्रकार के चार्ट टेम्पलेट बना सकते हैं। Aspose.Slides का उपयोग करके आप सामान्य चार्ट (लोकप्रिय चार्ट प्रकारों पर आधारित) और कस्टम चार्ट दोनों बना सकते हैं।
 
 {{% alert color="info" title="Note" %}}
 
-चार्ट बनाने के लिए, [ChartType](https://reference.aspose.com/slides/hi/php-java/aspose.slides/charttype/) क्लास का उपयोग करें। इस क्लास के फ़ील्ड विभिन्न चार्ट प्रकारों से मेल खाते हैं।
+चार्ट बनाने के लिए, [ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/) क्लास का उपयोग करें। इस क्लास के फ़ील्ड विभिन्न चार्ट प्रकारों से मेल खाते हैं।
 
 {{% /alert %}}
 
 ### **क्लस्टर्ड कॉलम चार्ट बनाएं**
 
-यह अनुभाग Aspose.Slides का उपयोग करके क्लस्टर्ड कॉलम चार्ट बनाने की विधि बताता है। आप प्रस्तुति को प्रारंभ करना, चार्ट जोड़ना, और शीर्षक, डेटा, सीरीज़, श्रेणियाँ और स्टाइलिंग जैसे तत्वों को अनुकूलित करना सीखेंगे। नीचे दिए गए चरणों का पालन करके देखें कि एक मानक क्लस्टर्ड कॉलम चार्ट कैसे उत्पन्न होता है:
+यह अनुभाग Aspose.Slides का उपयोग करके क्लस्टर्ड कॉलम चार्ट बनाने की प्रक्रिया बताता है। आप प्रेजेंटेशन को इनिशियलाइज़ करना, चार्ट जोड़ना, और शीर्षक, डेटा, सीरीज़, श्रेणियाँ तथा स्टाइलिंग जैसे तत्वों को कस्टमाइज़ करना सीखेंगे। नीचे दिए गए चरणों का पालन करके देखें कि एक मानक क्लस्टर्ड कॉलम चार्ट कैसे उत्पन्न होता है:
 
-1. [Presentation](https://reference.aspose.com/slides/hi/php-java/aspose.slides/presentation) क्लास की एक इंस्टेंस बनाएं।
-1. उसके इंडेक्स से स्लाइड का संदर्भ प्राप्त करें।
+1. एक [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) क्लास का इंस्टांस बनाएं।
+1. उसके इंडेक्स से स्लाइड को रेफरेंस प्राप्त करें।
 1. कुछ डेटा के साथ एक चार्ट जोड़ें और `ChartType::ClusteredColumn` प्रकार निर्दिष्ट करें।
-1. चार्ट को एक शीर्षक जोड़ें।
+1. चार्ट में एक शीर्षक जोड़ें।
 1. चार्ट के डेटा वर्कशीट तक पहुँचें।
-1. सभी डिफ़ॉल्ट सीरीज़ और श्रेणियों को साफ़ करें।
+1. सभी डिफॉल्ट सीरीज़ और श्रेणियों को साफ़ करें।
 1. नई सीरीज़ और श्रेणियाँ जोड़ें।
-1. चार्ट सीरीज़ के लिए नया चार्ट डेटा जोड़ें।
+1. चार्ट सीरीज़ के लिए नया डेटा जोड़ें।
 1. चार्ट सीरीज़ पर एक फ़िल रंग लागू करें।
 1. चार्ट सीरीज़ के लिए लेबल जोड़ें।
-1. संशोधित प्रस्तुति को PPTX फ़ाइल के रूप में सहेजें।
+1. संशोधित प्रेजेंटेशन को PPTX फ़ाइल के रूप में सहेजें।
 
 यह C# कोड क्लस्टर्ड कॉलम चार्ट बनाने को दर्शाता है:
 
 ```php
-  # PPTX फ़ाइल का प्रतिनिधित्व करने वाली प्रस्तुति क्लास का उदाहरण बनाता है
+  # PPTX फ़ाइल का प्रतिनिधित्व करने वाली प्रस्तुति क्लास का इंस्टेंस बनाता है
   $pres = new Presentation();
   try {
-    # पहली स्लाइड तक पहुँचता है
+    # पहले स्लाइड तक पहुँचता है
     $sld = $pres->getSlides()->get_Item(0);
-    # डिफ़ॉल्ट डेटा के साथ एक चार्ट जोड़ता है
+    # चार्ट को उसके डिफ़ॉल्ट डेटा के साथ जोड़ता है
     $chart = $sld->getShapes()->addChart(ChartType::ClusteredColumn, 0, 0, 500, 500);
-    # चार्ट का शीर्षक सेट करता है
+    # चार्ट शीर्षक सेट करता है
     $chart->getChartTitle()->addTextFrameForOverriding("Sample Title");
     $chart->getChartTitle()->getTextFrameForOverriding()->getTextFrameFormat()->setCenterText(NullableBool::True);
     $chart->getChartTitle()->setHeight(20);
     $chart->hasTitle();
-    # पहले सीरीज़ को मान दिखाने के लिए सेट करता है
+    # पहली सीरीज़ को मान दिखाने के लिए सेट करता है
     $chart->getChartData()->getSeries()->get_Item(0)->getLabels()->getDefaultDataLabelFormat()->setShowValue(true);
     # चार्ट डेटा शीट के लिए इंडेक्स सेट करता है
     $defaultWorksheetIndex = 0;
     # चार्ट डेटा वर्कशीट प्राप्त करता है
     $fact = $chart->getChartData()->getChartDataWorkbook();
-    # डिफ़ॉल्ट रूप से उत्पन्न सीरीज़ और श्रेणियों को हटाता है
+    # डिफ़ॉल्ट जेनरेटेड सीरीज़ और श्रेणियों को हटाता है
     $chart->getChartData()->getSeries()->clear();
     $chart->getChartData()->getCategories()->clear();
     $s = $chart->getChartData()->getSeries()->size();
@@ -98,26 +98,26 @@ PowerPoint में आप *Insert* फ़ंक्शन के माध्�
     # नई सीरीज़ जोड़ता है
     $chart->getChartData()->getSeries()->add($fact->getCell($defaultWorksheetIndex, 0, 1, "Series 1"), $chart->getType());
     $chart->getChartData()->getSeries()->add($fact->getCell($defaultWorksheetIndex, 0, 2, "Series 2"), $chart->getType());
-    # नई श्रेणियाँ जोड़ता है
+    # नई श्रेणियां जोड़ता है
     $chart->getChartData()->getCategories()->add($fact->getCell($defaultWorksheetIndex, 1, 0, "Caetegoty 1"));
     $chart->getChartData()->getCategories()->add($fact->getCell($defaultWorksheetIndex, 2, 0, "Caetegoty 2"));
     $chart->getChartData()->getCategories()->add($fact->getCell($defaultWorksheetIndex, 3, 0, "Caetegoty 3"));
-    # पहली चार्ट सीरीज़ लेता है
+    # पहली चार्ट सीरीज़ लेते हैं
     $series = $chart->getChartData()->getSeries()->get_Item(0);
     # अब सीरीज़ डेटा को भरता है
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 1, 1, 20));
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 2, 1, 50));
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 3, 1, 30));
-    # सीरीज़ के लिए फ़िल रंग सेट करता है
+    # सीरीज़ के लिए फिल कलर सेट करता है
     $series->getFormat()->getFill()->setFillType(FillType::Solid);
     $series->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-    # दूसरी चार्ट सीरीज़ लेता है
+    # दूसरी चार्ट सीरीज़ लेते हैं
     $series = $chart->getChartData()->getSeries()->get_Item(1);
-    # सीरीज़ डेटा को भरता है
+    # सीरीज़ डेटा भरता है
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 1, 2, 30));
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 2, 2, 10));
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 3, 2, 60));
-    # सीरीज़ के लिए फ़िल रंग सेट करता है
+    # सीरीज़ के लिए फिल कलर सेट करता है
     $series->getFormat()->getFill()->setFillType(FillType::Solid);
     $series->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->GREEN);
     # नई सीरीज़ के लिए प्रत्येक श्रेणी के कस्टम लेबल बनाता है
@@ -131,7 +131,7 @@ PowerPoint में आप *Insert* फ़ंक्शन के माध्�
     $lbl->getDataLabelFormat()->setShowValue(true);
     $lbl->getDataLabelFormat()->setShowSeriesName(true);
     $lbl->getDataLabelFormat()->setSeparator("/");
-    # चार्ट के साथ प्रस्तुति सहेजता है
+    # चार्ट के साथ प्रस्तुति को सहेजता है
     $pres->save("output.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -141,30 +141,30 @@ PowerPoint में आप *Insert* फ़ंक्शन के माध्�
 ```
 
 ### **स्कैटर चार्ट बनाएं**
-स्कैटर चार्ट (जिसे स्कैटर प्लॉट या x‑y ग्राफ़ भी कहा जाता है) अक्सर दो चर के बीच पैटर्न या सहसंबंध जाँचने के लिए उपयोग किए जाते हैं।
+स्कैटर चार्ट (जिन्हें स्कैटर प्लॉट या x‑y ग्राफ भी कहा जाता है) अक्सर दो चर के बीच पैटर्न या सहसंबंध जाँचने के लिए उपयोग किए जाते हैं।
 
 स्कैटर चार्ट का उपयोग तब करें जब:
 
 * आपके पास युग्मित संख्यात्मक डेटा हो
-* दो चर एक साथ उचित रूप से मिलते हों
+* आपके पास दो ऐसे चर हों जो आपस में अच्छी तरह मेल खाते हों
 * आप यह निर्धारित करना चाहते हों कि दो चर संबंधित हैं या नहीं
-* आपके पास एक स्वतंत्र चर हो जिसके कई मान निर्भरशील चर के लिए हों
+* आपके पास एक स्वतंत्र चर हो जिसके कई मान किसी आश्रित चर के लिए हों
 
-1. [Create Clustered Column Charts](#create-clustered-column-charts) अनुभाग के चरणों का पालन करें।
-2. तीसरे चरण में, कुछ डेटा के साथ एक चार्ट जोड़ें और अपने चार्ट प्रकार को निम्नलिखित में से किसी एक के रूप में निर्दिष्ट करें:
-   1. [ChartType::ScatterWithMarkers](https://reference.aspose.com/slides/hi/php-java/aspose.slides/charttype/#ScatterWithMarkers) - _स्कैटर चार्ट का प्रतिनिधित्व करता है।_
-   2. [ChartType::ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/hi/php-java/aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - _वक्रों द्वारा जुड़ा स्कैटर चार्ट, डेटा मार्कर के साथ।_
-   3. [ChartType::ScatterWithSmoothLines](https://reference.aspose.com/slides/hi/php-java/aspose.slides/charttype/#ScatterWithSmoothLines) - _वक्रों द्वारा जुड़ा स्कैटर चार्ट, बिना डेटा मार्कर के।_
-   4. [ChartType::ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/hi/php-java/aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _रेखाओं द्वारा जुड़ा स्कैटर चार्ट, डेटा मार्कर के साथ।_
-   5. [ChartType::ScatterWithStraightLines](https://reference.aspose.com/slides/hi/php-java/aspose.slides/charttype/#ScatterWithStraightLines) - _रेखाओं द्वारा जुड़ा स्कैटर चार्ट, बिना डेटा मार्कर के।_
+1. [Create Clustered Column Charts](#create-clustered-column-charts) में वर्णित चरणों का पालन करें।
+2. तीसरे चरण में, अपने डेटा के साथ एक चार्ट जोड़ें और अपने चार्ट प्रकार को निम्नलिखित में से किसी एक के रूप में निर्दिष्ट करें:
+   1. [ChartType::ScatterWithMarkers](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#ScatterWithMarkers) - _स्कैटर चार्ट का प्रतिनिधित्व करता है।_
+   2. [ChartType::ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - _वक्रों द्वारा जुड़ा स्कैटर चार्ट, डेटा मार्कर के साथ।_
+   3. [ChartType::ScatterWithSmoothLines](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#ScatterWithSmoothLines) - _वक्रों द्वारा जुड़ा स्कैटर चार्ट, बिना डेटा मार्कर के।_
+   4. [ChartType::ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _रेखाओं द्वारा जुड़ा स्कैटर चार्ट, डेटा मार्कर के साथ।_
+   5. [ChartType::ScatterWithStraightLines](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#ScatterWithStraightLines) - _रेखाओं द्वारा जुड़ा स्कैटर चार्ट, बिना डेटा मार्कर के।_
 
-यह PHP कोड प्रत्येक सीरीज़ के लिए विभिन्न मार्कर के साथ स्कैटर चार्ट बनाने को दर्शाता है:
+यह PHP कोड विभिन्न मार्कर के साथ प्रत्येक सीरीज़ के लिए स्कैटर चार्ट बनाने को दर्शाता है:
 
 ```php
-  # PPTX फ़ाइल का प्रतिनिधित्व करने वाली प्रस्तुति क्लास का उदाहरण बनाता है
+  # PPTX फ़ाइल का प्रतिनिधित्व करने वाली प्रस्तुति क्लास का इंस्टेंस बनाता है
   $pres = new Presentation();
   try {
-    # पहली स्लाइड तक पहुँचता है
+    # पहले स्लाइड तक पहुँचता है
     $slide = $pres->getSlides()->get_Item(0);
     # डिफ़ॉल्ट चार्ट बनाता है
     $chart = $slide->getShapes()->addChart(ChartType::ScatterWithSmoothLines, 0, 0, 400, 400);
@@ -174,7 +174,7 @@ PowerPoint में आप *Insert* फ़ंक्शन के माध्�
     $fact = $chart->getChartData()->getChartDataWorkbook();
     # डेमो सीरीज़ को हटाता है
     $chart->getChartData()->getSeries()->clear();
-    # नई सीरीज़ जोड़ता है
+    # नयी सीरीज़ जोड़ता है
     $chart->getChartData()->getSeries()->add($fact->getCell($defaultWorksheetIndex, 1, 1, "Series 1"), $chart->getType());
     $chart->getChartData()->getSeries()->add($fact->getCell($defaultWorksheetIndex, 1, 3, "Series 2"), $chart->getType());
     # पहली चार्ट सीरीज़ लेता है
@@ -211,30 +211,30 @@ PowerPoint में आप *Insert* फ़ंक्शन के माध्�
 
 ### **पाई चार्ट बनाएं**
 
-पाई चार्ट डेटा में भाग‑से‑समग्र संबंध दिखाने के लिए सबसे उपयुक्त होते हैं, विशेष रूप से जब डेटा में वर्गीकृत लेबल के साथ संख्यात्मक मान हों। हालांकि, यदि आपके डेटा में कई भाग या लेबल हों, तो आप बार चार्ट का उपयोग करने पर विचार कर सकते हैं।
+पाई चार्ट डेटा में हिस्से‑से‑कुल संबंध दिखाने के लिए सबसे उपयुक्त होते हैं, विशेष रूप से जब डेटा में वर्गीकरण लेबल के साथ संख्यात्मक मान हों। हालांकि, यदि आपके डेटा में बहुत सारे हिस्से या लेबल हों, तो आप बार चार्ट का उपयोग करने पर विचार कर सकते हैं।
 
-1. [Presentation](https://reference.aspose.com/slides/hi/php-java/aspose.slides/presentation/) क्लास की एक इंस्टेंस बनाएं।
-2. उसके इंडेक्स से स्लाइड का संदर्भ प्राप्त करें।
-3. डिफ़ॉल्ट डेटा के साथ एक चार्ट जोड़ें और [ChartType::Pie](https://reference.aspose.com/slides/hi/php-java/aspose.slides/charttype/#Pie) प्रकार निर्दिष्ट करें।
-4. चार्ट डेटा वर्कबुक [ChartDataWorkbook](https://reference.aspose.com/slides/hi/php-java/aspose.slides/chartdataworkbook/) तक पहुँचें।
+1. एक [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) क्लास का इंस्टांस बनाएं।
+2. उसके इंडेक्स से स्लाइड को रेफ़रेंस प्राप्त करें।
+3. डिफ़ॉल्ट डेटा के साथ एक चार्ट जोड़ें और [ChartType::Pie](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#Pie) प्रकार निर्दिष्ट करें।
+4. चार्ट डेटा वर्कबुक [ChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/) तक पहुँचें।
 5. डिफ़ॉल्ट सीरीज़ और श्रेणियों को साफ़ करें।
 6. नई सीरीज़ और श्रेणियाँ जोड़ें।
 7. चार्ट सीरीज़ के लिए नया डेटा जोड़ें।
-8. चार्ट के लिए नए पॉइंट जोड़ें और पाई चार्ट के सेक्टरों के लिए कस्टम रंग लागू करें।
+8. पाई चार्ट के सेक्टरों के लिए कस्टम रंग लागू करें।
 9. सीरीज़ के लिए लेबल सेट करें।
 10. सीरीज़ लेबल के लिए लीडर लाइन्स सक्षम करें।
 11. पाई चार्ट सेक्टरों के लिए घूर्णन कोण सेट करें।
-12. संशोधित प्रस्तुति को PPTX फ़ाइल के रूप में सहेजें।
+12. संशोधित प्रेजेंटेशन को PPTX फ़ाइल के रूप में सहेजें।
 
 यह PHP कोड पाई चार्ट बनाने को दर्शाता है:
 
 ```php
-  # PPTX फ़ाइल का प्रतिनिधित्व करने वाली प्रस्तुति क्लास का उदाहरण बनाता है
+  # PPTX फ़ाइल का प्रतिनिधित्व करने वाली प्रस्तुति क्लास का इंस्टेंस बनाता है
   $pres = new Presentation();
   try {
-    # पहली स्लाइड तक पहुँचता है
+    # पहले स्लाइड तक पहुँचता है
     $slides = $pres->getSlides()->get_Item(0);
-    # डिफ़ॉल्ट डेटा के साथ एक चार्ट जोड़ता है
+    # डिफ़ॉल्ट डेटा के साथ चार्ट जोड़ता है
     $chart = $slides->getShapes()->addChart(ChartType::Pie, 100, 100, 400, 400);
     # चार्ट शीर्षक सेट करता है
     $chart->getChartTitle()->addTextFrameForOverriding("Sample Title");
@@ -247,7 +247,7 @@ PowerPoint में आप *Insert* फ़ंक्शन के माध्�
     $defaultWorksheetIndex = 0;
     # चार्ट डेटा वर्कशीट प्राप्त करता है
     $fact = $chart->getChartData()->getChartDataWorkbook();
-    # डिफ़ॉल्ट जेनरेट की गई सीरीज़ और श्रेणियों को हटाता है
+    # डिफ़ॉल्ट जेनरेटेड सीरीज़ और श्रेणियों को हटाता है
     $chart->getChartData()->getSeries()->clear();
     $chart->getChartData()->getCategories()->clear();
     # नई श्रेणियाँ जोड़ता है
@@ -260,8 +260,8 @@ PowerPoint में आप *Insert* फ़ंक्शन के माध्�
     $series->getDataPoints()->addDataPointForPieSeries($fact->getCell($defaultWorksheetIndex, 1, 1, 20));
     $series->getDataPoints()->addDataPointForPieSeries($fact->getCell($defaultWorksheetIndex, 2, 1, 50));
     $series->getDataPoints()->addDataPointForPieSeries($fact->getCell($defaultWorksheetIndex, 3, 1, 30));
-    # नई संस्करण में काम नहीं कर रहा है
-    # नई पॉइंट जोड़ रहा है और सेक्टर रंग सेट कर रहा है
+    # नए संस्करण में काम नहीं कर रहा
+    # नए बिंदु जोड़ना और सेक्टर रंग सेट करना
     # series.IsColorVaried = true;
     $chart->getChartData()->getSeriesGroups()->get_Item(0)->setColorVaried(true);
     $point = $series->getDataPoints()->get_Item(0);
@@ -291,7 +291,7 @@ PowerPoint में आप *Insert* फ़ंक्शन के माध्�
     $point2->getFormat()->getLine()->setWidth(2.0);
     $point2->getFormat()->getLine()->setStyle(LineStyle->ThinThin);
     $point2->getFormat()->getLine()->setDashStyle(LineDashStyle->LargeDashDotDot);
-    # नई सीरीज़ के लिए प्रत्येक श्रेणी के लिए कस्टम लेबल बनाता है
+    # नई सीरीज़ के लिए प्रत्येक श्रेणी के कस्टम लेबल बनाता है
     $lbl1 = $series->getDataPoints()->get_Item(0)->getLabel();
     # lbl.ShowCategoryName = true;
     $lbl1->getDataLabelFormat()->setShowValue(true);
@@ -304,9 +304,9 @@ PowerPoint में आप *Insert* फ़ंक्शन के माध्�
     $lbl3->getDataLabelFormat()->setShowPercentage(true);
     # चार्ट के लिए लीडर लाइन्स दिखाता है
     $series->getLabels()->getDefaultDataLabelFormat()->setShowLeaderLines(true);
-    # पाई चार्ट सेक्टरों के लिए घुमाव कोण सेट करता है
+    # पाई चार्ट सेक्टरों के लिए रोटेशन एंगल सेट करता है
     $chart->getChartData()->getSeriesGroups()->get_Item(0)->setFirstSliceAngle(180);
-    # चार्ट के साथ प्रस्तुति को सहेजता है
+    # चार्ट के साथ प्रस्तुति सहेजता है
     $pres->save("PieChart_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -317,16 +317,16 @@ PowerPoint में आप *Insert* फ़ंक्शन के माध्�
 
 ### **लाइन चार्ट बनाएं**
 
-लाइन चार्ट (जिसे लाइन ग्राफ़ भी कहा जाता है) उन स्थितियों में सबसे उपयुक्त होते हैं जहाँ आप समय के साथ मान में परिवर्तन दिखाना चाहते हैं। लाइन चार्ट का उपयोग करके आप बड़ी मात्रा में डेटा को एक साथ तुलना कर सकते हैं, समय के साथ बदलाव और रुझान को ट्रैक कर सकते हैं, डेटा सीरीज़ में विसंगतियों को उजागर कर सकते हैं, और अधिक।
+लाइन चार्ट (जिन्हें लाइन ग्राफ भी कहा जाता है) उन स्थितियों में सबसे उपयुक्त होते हैं जहाँ आप समय के साथ मान में बदलाव दिखाना चाहते हैं। लाइन चार्ट के माध्यम से आप बड़ी मात्रा के डेटा की तुलना, समय के साथ रुझान ट्रैक, डेटा सीरीज़ में विचलन उजागर आदि कर सकते हैं।
 
-1. [Presentation](https://reference.aspose.com/slides/hi/php-java/aspose.slides/presentation/) क्लास की एक इंस्टेंस बनाएं।
-1. उसके इंडेक्स से स्लाइड का संदर्भ प्राप्त करें।
-1. डिफ़ॉल्ट डेटा के साथ एक चार्ट जोड़ें और [ChartType::Line](https://reference.aspose.com/slides/hi/php-java/aspose.slides/charttype/#Line) प्रकार निर्दिष्ट करें।
-1. चार्ट डेटा वर्कबुक ([ChartDataWorkbook](https://reference.aspose.com/slides/hi/php-java/aspose.slides/chartdataworkbook/)) तक पहुँचें।
+1. एक [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) क्लास का इंस्टांस बनाएं।
+1. उसके इंडेक्स से स्लाइड को रेफ़रेंस प्राप्त करें।
+1. डिफ़ॉल्ट डेटा के साथ एक चार्ट जोड़ें और [ChartType::Line](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#Line) प्रकार निर्दिष्ट करें।
+1. चार्ट डेटा वर्कबुक ([ChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/)) तक पहुँचें।
 1. डिफ़ॉल्ट सीरीज़ और श्रेणियों को साफ़ करें।
 1. नई सीरीज़ और श्रेणियाँ जोड़ें।
 1. चार्ट सीरीज़ के लिए नया डेटा जोड़ें।
-1. संशोधित प्रस्तुति को PPTX फ़ाइल के रूप में सहेजें।
+1. संशोधित प्रेजेंटेशन को PPTX फ़ाइल के रूप में सहेजें।
 
 यह PHP कोड लाइन चार्ट बनाने को दर्शाता है:
 
@@ -342,7 +342,7 @@ PowerPoint में आप *Insert* फ़ंक्शन के माध्�
   }
 ```
 
-डिफ़ॉल्ट रूप से, लाइन चार्ट में पॉइंट्स को सीधी निरंतर रेखाओं से जोड़ा जाता है। यदि आप पॉइंट्स को डैश वाले रेखाओं से जोड़ना चाहते हैं, तो आप अपनी पसंदीदा डैश प्रकार को इस प्रकार निर्दिष्ट कर सकते हैं:
+डिफ़ॉल्ट रूप से, लाइन चार्ट पर पॉइंट्स को सीधी सतत लाइनों से जोड़ा जाता है। यदि आप पॉइंट्स को डैश द्वारा जोड़ना चाहते हैं, तो नीचे दिखाए अनुसार अपना पसंदीदा डैश प्रकार निर्दिष्ट करें:
 
 ```php
   $pres = new Presentation();
@@ -362,16 +362,16 @@ PowerPoint में आप *Insert* फ़ंक्शन के माध्�
 
 ### **ट्री मैप चार्ट बनाएं**
 
-ट्री मैप चार्ट उन स्थितियों में उपयोगी होते हैं जहाँ आप डेटा वर्गों के सापेक्ष आकार दिखाना चाहते हैं और प्रत्येक वर्ग के बड़े योगदानकर्ताओं पर जल्दी से ध्यान आकर्षित करना चाहते हैं।
+ट्री मैप चार्ट बिक्री डेटा में प्रत्येक श्रेणी के भीतर बड़े योगदानकर्ताओं को तेज़ी से उजागर करने और डेटा श्रेणियों के सापेक्ष आकार दिखाने के लिए उपयुक्त होते हैं।
 
-1. [Presentation](https://reference.aspose.com/slides/hi/php-java/aspose.slides/presentation/) क्लास की एक इंस्टेंस बनाएं।
-2. उसके इंडेक्स से स्लाइड का संदर्भ प्राप्त करें।
-3. डिफ़ॉल्ट डेटा के साथ एक चार्ट जोड़ें और [ChartType::Treemap](https://reference.aspose.com/slides/hi/php-java/aspose.slides/charttype/#Treemap) प्रकार निर्दिष्ट करें।
-4. चार्ट डेटा वर्कबुक [ChartDataWorkbook](https://reference.aspose.com/slides/hi/php-java/aspose.slides/chartdataworkbook/) तक पहुँचें।
+1. एक [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) क्लास का इंस्टांस बनाएं।
+2. उसके इंडेक्स से स्लाइड को रेफ़रेंस प्राप्त करें।
+3. डिफ़ॉल्ट डेटा के साथ एक चार्ट जोड़ें और [ChartType::Treemap](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#Treemap) प्रकार निर्दिष्ट करें।
+4. चार्ट डेटा वर्कबुक [ChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/) तक पहुँचें।
 5. डिफ़ॉल्ट सीरीज़ और श्रेणियों को साफ़ करें।
 6. नई सीरीज़ और श्रेणियाँ जोड़ें।
 7. चार्ट सीरीज़ के लिए नया डेटा जोड़ें।
-8. संशोधित प्रस्तुति को PPTX फ़ाइल के रूप में सहेजें।
+8. संशोधित प्रेजेंटेशन को PPTX फ़ाइल के रूप में सहेजें।
 
 यह PHP कोड ट्री मैप चार्ट बनाने को दर्शाता है:
 
@@ -420,15 +420,15 @@ PowerPoint में आप *Insert* फ़ंक्शन के माध्�
 
 ### **स्टॉक चार्ट बनाएं**
 
-1. [Presentation](https://reference.aspose.com/slides/hi/php-java/aspose.slides/presentation/) क्लास की एक इंस्टेंस बनाएं।
-2. उसके इंडेक्स से स्लाइड का संदर्भ प्राप्त करें।
-3. डिफ़ॉल्ट डेटा के साथ एक चार्ट जोड़ें और [ChartType::OpenHighLowClose](https://reference.aspose.com/slides/hi/php-java/aspose.slides/charttype/#OpenHighLowClose) प्रकार निर्दिष्ट करें।
-4. चार्ट डेटा वर्कबुक [ChartDataWorkbook](https://reference.aspose.com/slides/hi/php-java/aspose.slides/chartdataworkbook/) तक पहुँचें।
+1. एक [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) क्लास का इंस्टांस बनाएं।
+2. उसके इंडेक्स से स्लाइड को रेफ़रेंस प्राप्त करें।
+3. डिफ़ॉल्ट डेटा के साथ एक चार्ट जोड़ें और [ChartType::OpenHighLowClose](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#OpenHighLowClose) प्रकार निर्दिष्ट करें।
+4. चार्ट डेटा वर्कबुक [ChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/) तक पहुँचें।
 5. डिफ़ॉल्ट सीरीज़ और श्रेणियों को साफ़ करें।
 6. नई सीरीज़ और श्रेणियाँ जोड़ें।
 7. चार्ट सीरीज़ के लिए नया डेटा जोड़ें।
 8. हाई‑लो लाइन्स फ़ॉर्मेट निर्दिष्ट करें।
-9. संशोधित प्रस्तुति को PPTX फ़ाइल के रूप में सहेजें।
+9. संशोधित प्रेजेंटेशन को PPTX फ़ाइल के रूप में सहेजें।
 
 यह PHP कोड स्टॉक चार्ट बनाने को दर्शाता है:
 
@@ -476,18 +476,18 @@ PowerPoint में आप *Insert* फ़ंक्शन के माध्�
   }
 ```
 
-### **बॉक्स एंड व्हिस्कर चार्ट बनाएं**
+### **बॉक्स और व्हिस्कर चार्ट बनाएं**
 
-1. [Presentation](https://reference.aspose.com/slides/hi/php-java/aspose.slides/presentation/) क्लास की एक इंस्टेंस बनाएं।
-2. उसके इंडेक्स से स्लाइड का संदर्भ प्राप्त करें।
-3. डिफ़ॉल्ट डेटा के साथ एक चार्ट जोड़ें और [ChartType::BoxAndWhisker](https://reference.aspose.com/slides/hi/php-java/aspose.slides/charttype/#BoxAndWhisker) प्रकार निर्दिष्ट करें।
-4. चार्ट डेटा वर्कबुक [ChartDataWorkbook](https://reference.aspose.com/slides/hi/php-java/aspose.slides/chartdataworkbook/) तक पहुँचें।
+1. एक [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) क्लास का इंस्टांस बनाएं।
+2. उसके इंडेक्स से स्लाइड को रेफ़रेंस प्राप्त करें।
+3. डिफ़ॉल्ट डेटा के साथ एक चार्ट जोड़ें और [ChartType::BoxAndWhisker](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#BoxAndWhisker) प्रकार निर्दिष्ट करें।
+4. चार्ट डेटा वर्कबुक [ChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/) तक पहुँचें।
 5. डिफ़ॉल्ट सीरीज़ और श्रेणियों को साफ़ करें।
 6. नई सीरीज़ और श्रेणियाँ जोड़ें।
 7. चार्ट सीरीज़ के लिए नया डेटा जोड़ें।
-8. संशोधित प्रस्तुति को PPTX फ़ाइल के रूप में सहेजें।
+8. संशोधित प्रेजेंटेशन को PPTX फ़ाइल के रूप में सहेजें।
 
-यह PHP कोड बॉक्स एंड व्हिस्कर चार्ट बनाने को दर्शाता है:
+यह PHP कोड बॉक्स और व्हिस्कर चार्ट बनाने को दर्शाता है:
 
 ```php
   $pres = new Presentation();
@@ -525,10 +525,10 @@ PowerPoint में आप *Insert* फ़ंक्शन के माध्�
 
 ### **फ़नल चार्ट बनाएं**
 
-1. [Presentation](https://reference.aspose.com/slides/hi/php-java/aspose.slides/presentation/) क्लास की एक इंस्टेंस बनाएं।
-2. उसके इंडेक्स से स्लाइड का संदर्भ प्राप्त करें।
-3. डिफ़ॉल्ट डेटा के साथ एक चार्ट जोड़ें और [ChartType::Funnel](https://reference.aspose.com/slides/hi/php-java/aspose.slides/charttype/#Funnel) प्रकार निर्दिष्ट करें।
-4. संशोधित प्रस्तुति को PPTX फ़ाइल के रूप में सहेजें।
+1. एक [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) क्लास का इंस्टांस बनाएं।
+2. उसके इंडेक्स से स्लाइड को रेफ़रेंस प्राप्त करें।
+3. डिफ़ॉल्ट डेटा के साथ एक चार्ट जोड़ें और [ChartType::Funnel](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#Funnel) प्रकार निर्दिष्ट करें।
+4. संशोधित प्रेजेंटेशन को PPTX फ़ाइल के रूप में सहेजें।
 
 यह PHP कोड फ़नल चार्ट बनाने को दर्शाता है:
 
@@ -563,10 +563,10 @@ PowerPoint में आप *Insert* फ़ंक्शन के माध्�
 
 ### **सनबर्स्ट चार्ट बनाएं**
 
-1. [Presentation](https://reference.aspose.com/slides/hi/php-java/aspose.slides/presentation/) क्लास की एक इंस्टेंस बनाएं।
-2. उसके इंडेक्स से स्लाइड का संदर्भ प्राप्त करें।
-3. डिफ़ॉल्ट डेटा के साथ एक चार्ट जोड़ें और [ChartType::Sunburst](https://reference.aspose.com/slides/hi/php-java/aspose.slides/charttype/#Sunburst) प्रकार निर्दिष्ट करें।
-4. संशोधित प्रस्तुति को PPTX फ़ाइल के रूप में सहेजें।
+1. एक [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) क्लास का इंस्टांस बनाएं।
+2. उसके इंडेक्स से स्लाइड को रेफ़रेंस प्राप्त करें।
+3. डिफ़ॉल्ट डेटा के साथ एक चार्ट जोड़ें और [ChartType::Sunburst](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#Sunburst) प्रकार निर्दिष्ट करें।
+4. संशोधित प्रेजेंटेशन को PPTX फ़ाइल के रूप में सहेजें।
 
 यह PHP कोड सनबर्स्ट चार्ट बनाने को दर्शाता है:
 
@@ -614,13 +614,13 @@ PowerPoint में आप *Insert* फ़ंक्शन के माध्�
 
 ### **हिस्टोग्राम चार्ट बनाएं**
 
-1. [Presentation](https://reference.aspose.com/slides/hi/php-java/aspose.slides/presentation/) क्लास की एक इंस्टेंस बनाएं।
-2. उसके इंडेक्स से स्लाइड का संदर्भ प्राप्त करें।
-3. डिफ़ॉल्ट डेटा के साथ एक चार्ट जोड़ें और [ChartType::Histogram](https://reference.aspose.com/slides/hi/php-java/aspose.slides/charttype/#Histogram) प्रकार निर्दिष्ट करें।
-4. चार्ट डेटा वर्कबुक [ChartDataWorkbook](https://reference.aspose.com/slides/hi/php-java/aspose.slides/chartdataworkbook/) तक पहुँचें।
+1. एक [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) क्लास का इंस्टांस बनाएं।
+2. उसके इंडेक्स से स्लाइड को रेफ़रेंस प्राप्त करें।
+3. डिफ़ॉल्ट डेटा के साथ एक चार्ट जोड़ें और [ChartType::Histogram](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#Histogram) प्रकार निर्दिष्ट करें।
+4. चार्ट डेटा वर्कबुक [ChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/) तक पहुँचें।
 5. डिफ़ॉल्ट सीरीज़ और श्रेणियों को साफ़ करें।
 6. नई सीरीज़ और श्रेणियाँ जोड़ें।
-7. संशोधित प्रस्तुति को PPTX फ़ाइल के रूप में सहेजें।
+7. संशोधित प्रेजेंटेशन को PPTX फ़ाइल के रूप में सहेजें।
 
 यह PHP कोड हिस्टोग्राम चार्ट बनाने को दर्शाता है:
 
@@ -643,10 +643,10 @@ PowerPoint में आप *Insert* फ़ंक्शन के माध्�
 
 ### **रेडार चार्ट बनाएं**
 
-1. [Presentation](https://reference.aspose.com/slides/hi/php-java/aspose.slides/presentation/) क्लास की एक इंस्टेंस बनाएं।
-2. उसके इंडेक्स से स्लाइड का संदर्भ प्राप्त करें।
-3. कुछ डेटा के साथ एक चार्ट जोड़ें और अपनी पसंदीदा चार्ट प्रकार ([ChartType::Radar](https://reference.aspose.com/slides/hi/php-java/aspose.slides/charttype/#Radar) इस मामले में) निर्दिष्ट करें।
-4. संशोधित प्रस्तुति को PPTX फ़ाइल के रूप में सहेजें।
+1. एक [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) क्लास का इंस्टांस बनाएं।
+2. उसके इंडेक्स से स्लाइड को रेफ़रेंस प्राप्त करें।
+3. कुछ डेटा के साथ एक चार्ट जोड़ें और अपनी पसंदीदा चार्ट टाइप ([ChartType::Radar](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#Radar)) निर्दिष्ट करें।
+4. संशोधित प्रेजेंटेशन को PPTX फ़ाइल के रूप में सहेजें।
 
 यह PHP कोड रेडार चार्ट बनाने को दर्शाता है:
 
@@ -662,18 +662,18 @@ PowerPoint में आप *Insert* फ़ंक्शन के माध्�
   }
 ```
 
-### **मल्टी‑कैटेगरी चार्ट बनाएं**
+### **मल्टी‑कॅटेगरी चार्ट बनाएं**
 
-1. [Presentation](https://reference.aspose.com/slides/hi/php-java/aspose.slides/presentation/) क्लास की एक इंस्टेंस बनाएं।
-2. उसके इंडेक्स से स्लाइड का संदर्भ प्राप्त करें।
-3. डिफ़ॉल्ट डेटा के साथ एक चार्ट जोड़ें और [ChartType::ClusteredColumn](https://reference.aspose.com/slides/hi/php-java/aspose.slides/charttype/#ClusteredColumn) प्रकार निर्दिष्ट करें।
-4. चार्ट डेटा वर्कबुक [ChartDataWorkbook](https://reference.aspose.com/slides/hi/php-java/aspose.slides/chartdataworkbook/) तक पहुँचें।
+1. एक [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) क्लास का इंस्टांस बनाएं।
+2. उसके इंडेक्स से स्लाइड को रेफ़रेंस प्राप्त करें।
+3. डिफ़ॉल्ट डेटा के साथ एक चार्ट जोड़ें और [ChartType::ClusteredColumn](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#ClusteredColumn) प्रकार निर्दिष्ट करें।
+4. चार्ट डेटा वर्कबुक [ChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/) तक पहुँचें।
 5. डिफ़ॉल्ट सीरीज़ और श्रेणियों को साफ़ करें।
 6. नई सीरीज़ और श्रेणियाँ जोड़ें।
 7. चार्ट सीरीज़ के लिए नया डेटा जोड़ें।
-8. संशोधित प्रस्तुति को PPTX फ़ाइल के रूप में सहेजें।
+8. संशोधित प्रेजेंटेशन को PPTX फ़ाइल के रूप में सहेजें।
 
-यह PHP कोड मल्टी‑कैटेगरी चार्ट बनाने को दर्शाता है:
+यह PHP कोड मल्टी‑कॅटेगरी चार्ट बनाने को दर्शाता है:
 
 ```php
   $pres = new Presentation();
@@ -735,11 +735,11 @@ PowerPoint में आप *Insert* फ़ंक्शन के माध्�
 
 ### **कम्बिनेशन चार्ट बनाएं**
 
-कम्बिनेशन चार्ट (या कॉम्बो चार्ट) एक ही ग्राफ़ में दो या अधिक चार्ट प्रकारों को मिलाता है। यह चार्ट आपको दो या अधिक डेटा सेटों के बीच अंतर को उजागर, तुलना या निरीक्षण करने की अनुमति देता है, जिससे संबंधों की पहचान आसान हो जाती है।
+एक कॉम्बिनेशन चार्ट (या कॉम्बो चार्ट) एक ही ग्राफ़ में दो या अधिक चार्ट प्रकारों को मिलाता है। यह चार्ट आपको दो या अधिक डेटा सेट के बीच अंतर को उजागर, तुलना या जाँचने में मदद करता है, जिससे उनके बीच के संबंध स्पष्ट होते हैं।
 
-![The combination chart](combination_chart.png)
+![संयोजन चार्ट](combination_chart.png)
 
-नीचे दिया गया PHP कोड ऊपर दिखाए गए कॉम्बिनेशन चार्ट को PowerPoint प्रस्तुति में बनाने को दर्शाता है:
+निम्नलिखित PHP कोड ऊपर दिखाए गए संयोजन चार्ट को PowerPoint प्रेजेंटेशन में बनाने को दर्शाता है:
 
 ```php
 function createComboChart() {
@@ -776,7 +776,7 @@ function createChartWithFirstSeries($slide) {
     $chart->getLegend()->setPosition(LegendPositionType::Bottom);
     $chart->getLegend()->getTextFormat()->getPortionFormat()->setFontHeight(12);
 
-    // डिफ़ॉल्ट जेनरेट की गई सीरीज़ और श्रेणियों को हटाएँ।
+    // डिफ़ॉल्ट जेनरेटेड सीरीज़ और श्रेणियों को हटाएं।
     $chart->getChartData()->getSeries()->clear();
     $chart->getChartData()->getCategories()->clear();
 
@@ -836,28 +836,28 @@ function addThirdSeriesToChart($chart) {
 }
 
 function setPrimaryAxesFormat($chart) {
-    // क्षैतिज अक्ष सेट करें।
+    // क्षैतिज एक्सिस सेट करें।
     $horizontalAxis = $chart->getAxes()->getHorizontalAxis();
     $horizontalAxis->getTextFormat()->getPortionFormat()->setFontHeight(12);
     $horizontalAxis->getFormat()->getLine()->getFillFormat()->setFillType(FillType::NoFill);
 
     setAxisTitle($horizontalAxis, "X Axis");
 
-    // ऊर्ध्वाधर अक्ष सेट करें।
+    // लंबवत एक्सिस सेट करें।
     $verticalAxis = $chart->getAxes()->getVerticalAxis();
     $verticalAxis->getTextFormat()->getPortionFormat()->setFontHeight(12);
     $verticalAxis->getFormat()->getLine()->getFillFormat()->setFillType(FillType::NoFill);
 
     setAxisTitle($verticalAxis, "Y Axis 1");
 
-    // ऊर्ध्वाधर प्रमुख ग्रिडलाइन का रंग सेट करें।
+    // लंबवत प्रमुख ग्रिडलाइन रंग सेट करें।
     $majorGridLinesFormat = $verticalAxis->getMajorGridLinesFormat()->getLine()->getFillFormat();
     $majorGridLinesFormat->setFillType(FillType::Solid);
     $majorGridLinesFormat->getSolidFillColor()->setColor(new java("java.awt.Color", 217, 217, 217));
 }
 
 function setSecondaryAxesFormat($chart) {
-    // द्वितीयक क्षैतिज अक्ष सेट करें।
+    // द्वितीयक क्षैतिज एक्सिस सेट करें।
     $secondaryHorizontalAxis = $chart->getAxes()->getSecondaryHorizontalAxis();
     $secondaryHorizontalAxis->setPosition(AxisPositionType::Bottom);
     $secondaryHorizontalAxis->setCrossType(CrossesType::Maximum);
@@ -865,7 +865,7 @@ function setSecondaryAxesFormat($chart) {
     $secondaryHorizontalAxis->getMajorGridLinesFormat()->getLine()->getFillFormat()->setFillType(FillType::NoFill);
     $secondaryHorizontalAxis->getMinorGridLinesFormat()->getLine()->getFillFormat()->setFillType(FillType::NoFill);
 
-    // द्वितीयक ऊर्ध्वाधर अक्ष सेट करें।
+    // द्वितीयक लंबवत एक्सिस सेट करें।
     $secondaryVerticalAxis = $chart->getAxes()->getSecondaryVerticalAxis();
     $secondaryVerticalAxis->setPosition(AxisPositionType::Right);
     $secondaryVerticalAxis->getTextFormat()->getPortionFormat()->setFontHeight(12);
@@ -888,20 +888,20 @@ function setAxisTitle($axis, $axisTitle) {
 
 ## **चार्ट अपडेट करें**
 
-1. उस प्रस्तुति को प्रतिनिधित्व करने वाले [Presentation](https://reference.aspose.com/slides/hi/php-java/aspose.slides/presentation/) क्लास की एक इंस्टेंस बनाएं जिसमें वह चार्ट हो जिसे आप अपडेट करना चाहते हैं।
-2. उसके इंडेक्स से स्लाइड का संदर्भ प्राप्त करें।
-3. सभी शेप्स को पार करके इच्छित चार्ट खोजें।
+1. एक [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) क्लास का इंस्टांस बनाएं जो उस प्रेजेंटेशन का प्रतिनिधित्व करता है जिसमें वह चार्ट है जिसे आप अपडेट करना चाहते हैं।
+2. उसके इंडेक्स से स्लाइड को रेफ़रेंस प्राप्त करें।
+3. सभी शैप्स को ट्रैवर्स करके इच्छित चार्ट खोजें।
 4. चार्ट डेटा वर्कशीट तक पहुँचें।
-5. सीरीज़ मान बदलकर चार्ट डेटा सीरीज़ को संशोधित करें।
-6. नई सीरीज़ जोड़ें और उसके डेटा को भरें।
-7. संशोधित प्रस्तुति को PPTX फ़ाइल के रूप में सहेजें।
+5. सीरीज़ वैल्यू बदलकर चार्ट डेटा सीरीज़ को संशोधित करें।
+6. नया सीरीज़ जोड़ें और उसका डेटा भरें।
+7. संशोधित प्रेजेंटेशन को PPTX फ़ाइल के रूप में सहेजें।
 
 यह PHP कोड चार्ट को अपडेट करने को दर्शाता है:
 
 ```php
   $pres = new Presentation();
   try {
-    # पहली स्लाइड मार्कर तक पहुँचें
+    # पहले स्लाइड मार्कर तक पहुँचें
     $sld = $pres->getSlides()->get_Item(0);
     # डिफ़ॉल्ट डेटा के साथ चार्ट प्राप्त करें
     $chart = $sld->getShapes()->get_Item(0);
@@ -915,7 +915,7 @@ function setAxisTitle($axis, $axisTitle) {
     # पहली चार्ट सीरीज़ लें
     $series = $chart->getChartData()->getSeries()->get_Item(0);
     # अब सीरीज़ डेटा अपडेट कर रहे हैं
-    $fact->getCell($defaultWorksheetIndex, 0, 1, "New_Series1"); // सीरीज़ नाम संशोधित कर रहा है
+    $fact->getCell($defaultWorksheetIndex, 0, 1, "New_Series1");// सीरीज़ नाम संशोधित कर रहे हैं
 
     $series->getDataPoints()->get_Item(0)->getValue()->setData(90);
     $series->getDataPoints()->get_Item(1)->getValue()->setData(123);
@@ -923,7 +923,7 @@ function setAxisTitle($axis, $axisTitle) {
     # दूसरी चार्ट सीरीज़ लें
     $series = $chart->getChartData()->getSeries()->get_Item(1);
     # अब सीरीज़ डेटा अपडेट कर रहे हैं
-    $fact->getCell($defaultWorksheetIndex, 0, 2, "New_Series2"); // सीरीज़ नाम संशोधित कर रहा है
+    $fact->getCell($defaultWorksheetIndex, 0, 2, "New_Series2");// सीरीज़ नाम संशोधित कर रहे हैं
 
     $series->getDataPoints()->get_Item(0)->getValue()->setData(23);
     $series->getDataPoints()->get_Item(1)->getValue()->setData(67);
@@ -948,15 +948,17 @@ function setAxisTitle($axis, $axisTitle) {
 
 ## **चार्ट के लिए डेटा रेंज सेट करें**
 
-चार्ट की डेटा रेंज सेट करने के लिए यह करें:
+किसी मौजूदा चार्ट द्वारा पहले उपयोग किए गए रेंज को देखना है तो देखें [Retrieve a Chart's Data Range](/slides/hi/php-java/chart-workbook/#retrieve-a-charts-data-range)।
 
-1. उस प्रस्तुति को प्रतिनिधित्व करने वाले [Presentation](https://reference.aspose.com/slides/hi/php-java/aspose.slides/presentation/) क्लास की एक इंस्टेंस बनाएं जिसमें चार्ट हो।
-2. उसके इंडेक्स से स्लाइड का संदर्भ प्राप्त करें।
-3. सभी शेप्स को पार करके इच्छित चार्ट खोजें।
-4. चार्ट डेटा तक पहुँचें और रेंज सेट करें।
-5. संशोधित प्रस्तुति को PPTX फ़ाइल के रूप में सहेजें।
+चार्ट के लिए डेटा रेंज सेट करने के लिए इन चरणों का पालन करें:
 
-यह PHP कोड चार्ट की डेटा रेंज सेट करने को दर्शाता है:
+1. एक [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) क्लास का इंस्टांस बनाएं जो उस प्रेजेंटेशन का प्रतिनिधित्व करता है जिसमें वह चार्ट है।
+2. उसके इंडेक्स से स्लाइड को रेफ़रेंस प्राप्त करें।
+3. सभी शैप्स को ट्रैवर्स करके इच्छित चार्ट खोजें।
+4. डेटा तक पहुँचें और रेंज सेट करें।
+5. संशोधित प्रेजेंटेशन को PPTX फ़ाइल के रूप में सहेजें।
+
+यह PHP कोड चार्ट के लिए डेटा रेंज सेट करने को दर्शाता है:
 
 ```php
   $pres = new Presentation();
@@ -972,11 +974,11 @@ function setAxisTitle($axis, $axisTitle) {
   }
 ```
 
-## **चार्ट में डिफ़ॉल्ट मार्कर उपयोग करें**
+## **चार्ट में डिफ़ॉल्ट मार्कर्स का उपयोग करें**
 
-जब आप चार्ट में डिफ़ॉल्ट मार्कर का उपयोग करते हैं, तो प्रत्येक चार्ट सीरीज़ को स्वतः एक अलग मार्कर प्रतीक मिल जाता है।
+डिफ़ॉल्ट मार्कर्स का उपयोग करने पर प्रत्येक चार्ट सीरीज़ को स्वचालित रूप से एक अलग मार्कर सिंबल मिल जाता है।
 
-यह PHP कोड चार्ट सीरीज़ मार्कर को स्वचालित रूप से सेट करने को दर्शाता है:
+यह PHP कोड एक चार्ट सीरीज़ के मार्कर को स्वचालित रूप से सेट करने को दर्शाता है:
 
 ```php
   $pres = new Presentation();
@@ -1016,18 +1018,18 @@ function setAxisTitle($axis, $axisTitle) {
 
 ## **अक्सर पूछे जाने वाले प्रश्न**
 
-**Aspose.Slides कौन‑से चार्ट प्रकारों का समर्थन करता है?**
+**Aspose.Slides द्वारा समर्थित चार्ट प्रकार कौन‑से हैं?**
 
-Aspose.Slides विभिन्न [चार्ट प्रकारों](https://reference.aspose.com/slides/hi/php-java/aspose.slides/charttype/) का समर्थन करता है, जिसमें बार, लाइन, पाई, एरिया, स्कैटर, हिस्टोग्राम, रेडार और कई अन्य शामिल हैं। यह लचीलापन आपको डेटा विज़ुअलाइज़ेशन की आवश्यकताओं के अनुसार सबसे उपयुक्त चार्ट प्रकार चुनने की अनुमति देता है।
+Aspose.Slides व्यापक श्रेणी के [chart types](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/) का समर्थन करता है, जिसमें बार, लाइन, पाई, एरिया, स्कैटर, हिस्टोग्राम, रेडार आदि शामिल हैं। यह लचीलापन आपको अपने डेटा विज़ुअलाइज़ेशन आवश्यकताओं के लिए सबसे उपयुक्त चार्ट प्रकार चुनने की अनुमति देता है।
 
 **मैं स्लाइड में नया चार्ट कैसे जोड़ूं?**
 
-एक नया चार्ट जोड़ने के लिए, पहले [Presentation](https://reference.aspose.com/slides/hi/php-java/aspose.slides/presentation/) क्लास की एक इंस्टेंस बनाएं, इच्छित स्लाइड को उसके इंडेक्स से प्राप्त करें, और फिर चार्ट जोड़ने वाले मेथड को कॉल करें, जिसमें चार्ट प्रकार और प्रारंभिक डेटा निर्दिष्ट करें। यह प्रक्रिया चार्ट को सीधे आपकी प्रस्तुति में सम्मिलित करती है।
+चार्ट जोड़ने के लिए, सबसे पहले एक [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) क्लास का इंस्टांस बनाते हैं, उसके इंडेक्स से इच्छित स्लाइड प्राप्त करते हैं, और फिर चार्ट जोड़ने वाली मेथड को कॉल करते हैं, जिसमें चार्ट प्रकार और प्रारंभिक डेटा निर्दिष्ट किया जाता है। यह प्रक्रिया चार्ट को सीधे आपके प्रेजेंटेशन में एकीकृत कर देती है।
 
-**मैं चार्ट में दिखाए गए डेटा को कैसे अपडेट करूं?**
+**मैं चार्ट में प्रदर्शित डेटा को कैसे अपडेट करूं?**
 
-आप चार्ट के डेटा वर्कबुक ([ChartDataWorkbook](https://reference.aspose.com/slides/hi/php-java/aspose.slides/chartdataworkbook/)) तक पहुँचकर, डिफ़ॉल्ट सीरीज़ और श्रेणियों को साफ़ करके, और अपना कस्टम डेटा जोड़कर चार्ट के डेटा को अपडेट कर सकते हैं। इससे चार्ट नवीनतम डेटा को दर्शाने के लिए रीफ़्रेश हो जाता है।
+आप चार्ट का डेटा उसके डेटा वर्कबुक ([ChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/)) तक पहुँचकर, किसी भी डिफ़ॉल्ट सीरीज़ और श्रेणियों को साफ़ करके, और फिर अपना कस्टम डेटा जोड़कर अपडेट कर सकते हैं। इससे आप चार्ट को नवीनतम डेटा दर्शाने के लिए रिफ्रेश कर सकते हैं।
 
-**क्या चार्ट की उपस्थिति को अनुकूलित करना संभव है?**
+**क्या मैं चार्ट की उपस्थिति को अनुकूलित कर सकता हूँ?**
 
-हाँ, Aspose.Slides व्यापक अनुकूलन विकल्प प्रदान करता है। आप रंग, फ़ॉन्ट, लेबल, लेजेंड और अन्य [फ़ॉर्मेटिंग तत्वों](/slides/hi/php-java/chart-entities/) को संशोधित करके चार्ट की उपस्थिति को अपनी विशिष्ट डिज़ाइन आवश्यकताओं के अनुरूप बना सकते हैं।
+हाँ, Aspose.Slides व्यापक कस्टमाइज़ेशन विकल्प प्रदान करता है। आप रंग, फ़ॉन्ट, लेबल, लेजेंड और अन्य [formatting elements](/slides/hi/php-java/chart-entities/) को संशोधित करके चार्ट की उपस्थिति को अपने विशिष्ट डिज़ाइन आवश्यकताओं के अनुसार ढाल सकते हैं।

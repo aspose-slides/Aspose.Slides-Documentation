@@ -1,5 +1,5 @@
 ---
-title: สร้างหรืออัปเดตแผนภูมิการนำเสนอ PowerPoint ด้วย C++
+title: สร้างหรืออัปเดตแผนภูมิการนำเสนอ PowerPoint ใน C++
 linktitle: สร้างหรืออัปเดตแผนภูมิ
 type: docs
 weight: 10
@@ -10,59 +10,61 @@ keywords:
 - เพิ่มแผนภูมิ
 - สร้างแผนภูมิ
 - แก้ไขแผนภูมิ
-- เปลี่ยนแปลงแผนภูมิ
+- เปลี่ยนแผนภูมิ
 - อัปเดตแผนภูมิ
 - แผนภูมิกระจาย
-- แผนภูมิวงกลม
+- แผนภูมิวัฏจักร
 - แผนภูมิเส้น
-- แผนภูมิต้นไม้แผนที่
-- แผนภูมีหุ้น
-- แผนภูมิกล่องและเส้นคั่น
-- แผนภูมุน้ำพุ
-- แผนภูมิ Sunburst
+- แผนภูมิต้นไม้
+- แผนภูมิหุ้น
+- แผนภูมิกล่องและวิสเคอร์
+- แผนภูมิโฟนเนล
+- แผนภูมิกระจายรังสี
 - แผนภูมิฮิสโตแกรม
 - แผนภูมิเรดาร์
 - แผนภูมิหลายหมวดหมู่
 - PowerPoint
-- งานนำเสนอ
+- การนำเสนอ
 - C++
 - Aspose.Slides
-description: "สร้างและปรับแต่งแผนภูมิในงานนำเสนอ PowerPoint โดยใช้ Aspose.Slides สำหรับ C++ เพิ่ม, จัดรูปแบบและแก้ไขแผนภูมิด้วยตัวอย่างโค้ดที่ใช้งานได้จริงใน C++."
+description: "สร้างและปรับแต่งแผนภูมิในพรีเซนเทชัน PowerPoint ด้วย Aspose.Slides สำหรับ C++ เพิ่ม แก้ไข และจัดรูปแบบแผนภูมิโดยใช้ตัวอย่างโค้ดที่ใช้งานได้จริงใน C++."
 ---
 ## **ภาพรวม**
 
-บทความนี้เป็นคู่มือฉบับสมบูรณ์เกี่ยวกับวิธีการสร้างและปรับแต่งแผนภูมิด้วย Aspose.Slides คุณจะได้เรียนรู้วิธีการเพิ่มแผนภูมิลงในสไลด์แบบโปรแกรมมิ่ง, เติมข้อมูลให้กับแผนภูมิ, และใช้ตัวเลือกการจัดรูปแบบต่าง ๆ เพื่อตรงกับความต้องการออกแบบของคุณ ตลอดบทความ มีตัวอย่างโค้ดอย่างละเอียดแสดงแต่ละขั้นตอน ตั้งแต่การเริ่มต้น Presentation และอ็อบเจ็กต์แผนภูมิ ไปจนถึงการตั้งค่าซีรีส์, แกน, และคำอธิบาย ด้วยการทำตามคู่มือนี้ คุณจะเข้าใจอย่างชัดเจนว่าจะแทรกการสร้างแผนภูมิแบบไดนามิกเข้าไปในแอปพลิเคชันของคุณอย่างไร ทำให้กระบวนการสร้างงานนำเสนอที่ขับเคลื่อนด้วยข้อมูลเป็นเรื่องง่ายขึ้น
+บทความนี้ให้คำแนะนำอย่างครบถ้วนเกี่ยวกับการสร้างและปรับแต่งแผนภูมิด้วย Aspose.Slides คุณจะได้เรียนรู้วิธีการเพิ่มแผนภูมิลงในสไลด์แบบโปรแกรมมิ่ง เติมข้อมูลลงในแผนภูมิ และใช้ตัวเลือกการจัดรูปแบบต่าง ๆ เพื่อให้ตรงกับความต้องการออกแบบของคุณ ตลอดบทความจะมีตัวอย่างโค้ดที่ละเอียดอธิบายขั้นตอนแต่ละขั้น ตั้งแต่การกำหนดค่าเริ่มต้นของพรีเซนเทชันและอ็อบเจกต์แผนภูมิ ไปจนถึงการกำหนดค่า series, แกน, และ legend การทำตามคำแนะนำนี้จะช่วยให้คุณเข้าใจวิธีรวมการสร้างแผนภูมิดิงก์ไดนามิกเข้าสู่แอปพลิเคชันของคุณได้อย่างมั่นใจ ทำให้กระบวนการสร้างพรีเซนเทชันที่ขับเคลื่อนด้วยข้อมูลเป็นเรื่องง่ายขึ้น
 
 ## **สร้างแผนภูมิ**
 
-แผนภูมิช่วยให้ผู้ใช้มองเห็นข้อมูลได้อย่างรวดเร็วและได้ข้อสรุปที่อาจไม่ชัดเจนจากตารางหรือสเปรดชีต
+แผนภูมิช่วยให้ผู้คนมองเห็นข้อมูลและได้ข้อสรุปอย่างรวดเร็ว ซึ่งอาจไม่เห็นชัดจากตารางหรือสเปรดชีต
 
 **ทำไมต้องสร้างแผนภูมิ?**
 
-* รวบรวม, ยุบหรือสรุปข้อมูลจำนวนมากบนสไลด์เดียวในงานนำเสนอ
-* เปิดเผยรูปแบบและแนวโน้มในข้อมูล
-* สรุปทิศทางและความเคลื่อนไหวของข้อมูลตามเวลา หรืออิงตามหน่วยวัดเฉพาะ
-* ตรวจพบค่าผิดปกติ, ความบกพร่อง, ความเบี่ยงเบน, ข้อผิดพลาด, ข้อมูลที่ไม่มีเหตุผล ฯลฯ
+โดยใช้แผนภูมิคุณจะสามารถ
+
+* รวมรวม, ย่อหรือสรุปข้อมูลจำนวนมากลงบนสไลด์เดียวในพรีเซนเทชัน
+* เปิดเผยรูปแบบและแนวโน้มของข้อมูล
+* สรุปทิศทางและโมเมนตัมของข้อมูลตามเวลา หรือเทียบกับหน่วยวัดเฉพาะ
+* ตรวจจับค่าผิดปกติ, ความบิดเบือน, ความคลาดเคลื่อน, ข้อผิดพลาด, ข้อมูลที่ไม่มีเหตุผล ฯลฯ
 * สื่อสารหรือแสดงข้อมูลที่ซับซ้อน
 
-ใน PowerPoint คุณสามารถสร้างแผนภูมิได้ผ่านฟังก์ชันแทรก ซึ่งให้เทมเพลตสำหรับออกแบบแผนภูมิต่าง ๆ ด้วย Aspose.Slides คุณสามารถสร้างแผนภูมิปกติ (อิงตามประเภทแผนภูมิที่เป็นที่นิยม) และแผนภูมิที่กำหนดเองได้
+ใน PowerPoint คุณสามารถสร้างแผนภูมิได้ผ่านฟังก์ชันแทรก ซึ่งให้เทมเพลตสำหรับออกแบบแผนภูมิหลายประเภท ด้วย Aspose.Slides คุณสามารถสร้างแผนภูมิปกติ (จากประเภทแผนภูมิยอดนิยม) และแผนภูมิที่กำหนดเองได้
 
 {{% alert color="info" %}} 
-เพื่อให้คุณสร้างแผนภูมิได้ Aspose.Slides มีคลาส enum [ChartType](https://reference.aspose.com/slides/th/cpp/namespace/aspose.slides.charts#a23ba9ea390f5be4c8f5ab18baf4f8c05) ภายใต้ namespace [Aspose::Slides::Charts](https://reference.aspose.com/slides/th/cpp/namespace/aspose.slides.charts/) ค่าใน enum นี้สอดคล้องกับประเภทแผนภูมิต่าง ๆ 
+เพื่อให้คุณสามารถสร้างแผนภูมิได้, Aspose.Slides มีคลาส enum [ChartType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/) ภายใต้เนมสเปซ [Aspose::Slides::Charts](https://reference.aspose.com/slides/cpp/namespace/aspose.slides.charts/) ค่าต่าง ๆ ใน enum นี้สอดคล้องกับประเภทของแผนภูมิต่าง ๆ
 {{% /alert %}} 
 
 ### **สร้างแผนภูมิปกติ**
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/cpp/class/aspose.slides.presentation)  
-2. รับอ้างอิงสไลด์ผ่านดัชนีของมัน  
-3. เพิ่มแผนภูมิพร้อมข้อมูลบางส่วนและระบุประเภทแผนภูมิที่คุณต้องการ  
-4. เพิ่มชื่อเรื่องให้กับแผนภูมิ  
-5. เข้าถึง worksheet ของข้อมูลแผนภูมิ  
-6. ลบซีรีส์และหมวดหมู่เริ่มต้นทั้งหมด  
-7. เพิ่มซีรีส์และหมวดหมู่ใหม่  
-8. เพิ่มข้อมูลแผนภูมิใหม่สำหรับซีรีส์แผนภูมิ  
-9. เพิ่มสีเติมให้กับซีรีส์แผนภูมิ  
-10. เพิ่มป้ายกำกับให้กับซีรีส์แผนภูมิ  
-11. บันทึกการนำเสนอที่แก้ไขเป็นไฟล์ PPTX  
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation)  
+1. ดึงอ้างอิงของสไลด์ผ่านดัชนีของมัน  
+1. เพิ่มแผนภูมิพร้อมข้อมูลบางส่วนและระบุประเภทแผนภูมิที่ต้องการ  
+1. เพิ่มหัวข้อให้กับแผนภูมิ  
+1. เข้าถึงแผ่นงานข้อมูลของแผนภูมิ  
+1. ลบ series และ category เริ่มต้นทั้งหมด  
+1. เพิ่ม series และ category ใหม่  
+1. เพิ่มข้อมูลแผนภูมิใหม่สำหรับ series  
+1. เพิ่มสีเติมสำหรับ series  
+1. เพิ่มป้ายชื่อสำหรับ series  
+1. บันทึกพรีเซนเทชันที่แก้ไขเป็นไฟล์ PPTX  
 
 โค้ด C++ นี้แสดงวิธีสร้างแผนภูมิปกติ:
 
@@ -102,72 +104,72 @@ using namespace System::Drawing;
 // เส้นทางไปยังไดเรกทอรีเอกสาร.
 	const String outPath = u"../out/NormalCharts_out.pptx";
 
-	// สร้างอินสแตนซ์ของคลาส Presentation ที่เป็นไฟล์ PPTX
+	//สร้างอินสแตนซ์ของคลาสพรีเซนเทชันที่แทนไฟล์ PPTX
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
-	// เข้าถึงสไลด์แรก
+	//เข้าถึงสไลด์แรก
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
 	// เพิ่มแผนภูมิพร้อมข้อมูลเริ่มต้น
 	SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::ClusteredColumn, 0, 0, 500, 500);
 
 
-	// ตั้งดัชนีของแผนข้อมูลแผนภูมิ
+	// กำหนดดัชนีของแผ่นงานข้อมูลแผนภูมิ
 	int defaultWorksheetIndex = 0;
 
-	// รับ worksheet ของข้อมูลแผนภูมิ
+	// ดึงแผ่นงานข้อมูลของแผนภูมิ
 	SharedPtr<IChartDataWorkbook> fact = chart->get_ChartData()->get_ChartDataWorkbook();
 
-	// ตั้งชื่อแผนภูมิ
+	// ตั้งค่าชื่อเรื่องของแผนภูมิ
 	chart->get_ChartTitle()->AddTextFrameForOverriding(u"Sample Title");
 	chart->get_ChartTitle()->get_TextFrameForOverriding()->get_TextFrameFormat()->set_CenterText ( NullableBool::True);
 	chart->get_ChartTitle()->set_Height(20);
 	chart->set_HasTitle( true);
 
-	// ลบซีรีส์และหมวดหมู่เริ่มต้นที่สร้างโดยอัตโนมัติ
+	// ลบ series และ category ที่สร้างโดยค่าเริ่มต้น
 	chart->get_ChartData()->get_Series()->Clear();
 	chart->get_ChartData()->get_Categories()->Clear();
 	int s = chart->get_ChartData()->get_Series()->get_Count();
 	s = chart->get_ChartData()->get_Categories()->get_Count();
 
 
-	// เพิ่มซีรีส์ใหม่
+	// เพิ่ม series ใหม่
 	chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 0, 1, ObjectExt::Box<System::String>(u"Series 1")), chart->get_Type());
 	chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 0, 2, ObjectExt::Box<System::String>(u"Series 2")), chart->get_Type());
 
-	// เพิ่มหมวดหมู่
+	// เพิ่ม category
 	chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, 1, 0, ObjectExt::Box<System::String>(u"Caetegoty 1")));
 	chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, 2, 0, ObjectExt::Box<System::String>(u"Caetegoty 2")));
 	chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, 3, 0, ObjectExt::Box<System::String>(u"Caetegoty 3")));
 
 	
-	// ดึงซีรีส์แผนภูมิลำดับแรก
+	// ดึง series แผนภูมิแรก
 	SharedPtr<IChartSeries> series = chart->get_ChartData()->get_Series()->idx_get(0);
 
-	// เติมข้อมูลให้ซีรีส์
+	// เติมข้อมูลให้ series
 	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 1, 1, ObjectExt::Box<double>(20)));
 	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 2, 1, ObjectExt::Box<double>(50)));
 	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 3, 1, ObjectExt::Box<double>(30)));
 
-	// ตั้งค่าสีเติมให้ซีรีส์
+	// ตั้งค่าสีเติมสำหรับ series
 	series->get_Format()->get_Fill()->set_FillType(FillType::Solid);
 	series->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
 
 
-	// ดึงซีรีส์แผนภูมิที่สอง
+	// ดึง series แผนภูมิที่สอง
 	 series = chart->get_ChartData()->get_Series()->idx_get(1);
 
-	// เติมข้อมูลให้ซีรีส์
+	// เติมข้อมูลให้ series
 	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 1, 2, ObjectExt::Box<double>(30)));
 	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 2, 2, ObjectExt::Box<double>(10)));
 	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 3, 2, ObjectExt::Box<double>(60)));
 
-	// ตั้งค่าสีเติมให้ซีรีส์
+	// ตั้งค่าสีเติมสำหรับ series
 	series->get_Format()->get_Fill()->set_FillType(FillType::Solid);
 	series->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Green());
 
 
-	// ป้ายกำกับแรกตั้งค่าให้แสดงชื่อหมวดหมู่
+	// กำหนดให้ป้ายกำกับแรกแสดงชื่อหมวดหมู่
 	SharedPtr<IDataLabel> lbl = series->get_DataPoints()->idx_get(0)->get_Label();
 	lbl->get_DataLabelFormat()->set_ShowCategoryName(true);
 
@@ -180,22 +182,23 @@ using namespace System::Drawing;
 	lbl->get_DataLabelFormat()->set_ShowSeriesName(true);
 	lbl->get_DataLabelFormat()->set_Separator (u"/");
 
-	// Saves the presentation
+	// บันทึกพรีเซนเทชัน
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 
 ```
 
+
 ### **สร้างแผนภูมิกระจาย**
-แผนภูมิกระจาย (หรือที่เรียกว่า scatter plot หรือกราฟ x‑y) มักใช้เพื่อตรวจสอบรูปแบบหรือแสดงความสัมพันธ์ระหว่างสองตัวแปร
+แผนภูมิกระจาย (หรือที่เรียกว่า scatter plot, กราฟ x‑y) มักใช้เพื่อตรวจหารูปแบบหรือแสดงความสัมพันธ์ระหว่างสองตัวแปร  
 
 คุณอาจต้องการใช้แผนภูมิกระจายเมื่อ  
 
-* คุณมีข้อมูลเชิงตัวเลขแบบคู่  
-* คุณมีตัวแปรสองตัวที่จับคู่กันได้ดี  
-* คุณต้องการตรวจสอบว่าตัวแปรสองตัวนั้นสัมพันธ์กันหรือไม่  
-* คุณมีตัวแปรอิสระที่มีค่าหลายค่าสำหรับตัวแปรตาม  
+* มีข้อมูลตัวเลขเป็นคู่  
+* มี 2 ตัวแปรที่เกี่ยวข้องกันอย่างดี  
+* ต้องการตรวจสอบว่าตัวแปรสองตัวนี้สัมพันธ์กันหรือไม่  
+* มีตัวแปรอิสระที่มีค่าหลายค่าเพื่ออ้างอิงตัวแปรตาม  
 
-โค้ด C++ นี้แสดงวิธีสร้างแผนภูมิกระจายพร้อมชุดเครื่องหมายที่ต่างกัน:
+โค้ด C++ นี้แสดงวิธีสร้างแผนภูมิกระจายพร้อม series ของเครื่องหมายที่แตกต่างกัน:
 
 ```c++
 #include <DOM/Chart/ChartType.h>
@@ -239,36 +242,36 @@ using namespace System;
 // เส้นทางไปยังไดเรกทอรีเอกสาร.
 	const String outPath = u"../out/ScatteredChart_out.pptx";
 
-	// สร้างอินสแตนซ์ของคลาส Presentation ที่เป็นไฟล์ PPTX
+	//สร้างอินสแตนซ์ของคลาสพรีเซนเทชันที่แทนไฟล์ PPTX
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
-	// เข้าถึงสไลด์แรก
+	//เข้าถึงสไลด์แรก
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
 	// เพิ่มแผนภูมิพร้อมข้อมูลเริ่มต้น
 	SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::ScatterWithSmoothLines, 0, 0, 500, 500);
 
-	// ตั้งชื่อแผนภูมิ
+	// ตั้งค่าชื่อเรื่องของแผนภูมิ
 	chart->get_ChartTitle()->AddTextFrameForOverriding(u"Sample Title");
 	chart->get_ChartTitle()->get_TextFrameForOverriding()->get_TextFrameFormat()->set_CenterText(NullableBool::True);
 	chart->get_ChartTitle()->set_Height(20);
 	chart->set_HasTitle(true);
 
-	// ลบซีรีส์ที่สร้างโดยอัตโนมัติ
+	// ลบ series ที่สร้างโดยค่าเริ่มต้น 
 	chart->get_ChartData()->get_Series()->Clear();
 	
-	// ตั้งดัชนีสำหรับแผ่นข้อมูลแผนภูมิ
+	// ตั้งค่าดัชนีสำหรับแผ่นงานข้อมูลแผนภูมิ
 	int defaultWorksheetIndex = 0;
 
-	// รับ worksheet ของข้อมูลแผนภูมิ
+	// ดึงแผ่นงานข้อมูลของแผนภูมิ
 	SharedPtr<IChartDataWorkbook> fact = chart->get_ChartData()->get_ChartDataWorkbook();
 
 
-	// เพิ่มซีรีส์ใหม่
+	// เพิ่ม series ใหม่
 	chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 1, 1, ObjectExt::Box<System::String>(u"Series 1")), chart->get_Type());
 	chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 1, 3, ObjectExt::Box<System::String>(u"Series 2")), chart->get_Type());
 
-	// ดึงซีรีส์แผนภูมิลำดับแรก
+	// ดึง series แผนภูมิแรก
 	SharedPtr<IChartSeries> series = chart->get_ChartData()->get_Series()->idx_get(0);
 
 	// เพิ่มจุดใหม่ (1:3)
@@ -277,16 +280,16 @@ using namespace System;
 	// เพิ่มจุดใหม่ (2:10)
 	series->get_DataPoints()->AddDataPointForScatterSeries(fact->GetCell(defaultWorksheetIndex, 3, 1, ObjectExt::Box<double>(2)), fact->GetCell(defaultWorksheetIndex, 3, 2, ObjectExt::Box<double>(10)));
 
-	// แก้ไขประเภทของซีรีส์
+	// แก้ไขประเภท series
 	series->set_Type (ChartType::ScatterWithStraightLinesAndMarkers);
 
-	// เปลี่ยนเครื่องหมายของซีรีส์แผนภูมิ
+	// เปลี่ยนตัวทำเครื่องหมายของ series
 	series->get_Marker()->set_Size  (10);
 	series->get_Marker()->set_Symbol(MarkerStyleType::Star);
 
 
 
-	// ดึงซีรีส์แผนภูมิที่สอง
+	// ดึง series แผนภูมิที่สอง
 	series  = chart->get_ChartData()->get_Series()->idx_get(1);
 
 	// เพิ่มจุดใหม่ (5:2)
@@ -301,7 +304,7 @@ using namespace System;
 	// เพิ่มจุดใหม่ (5:1)
 	series->get_DataPoints()->AddDataPointForScatterSeries(fact->GetCell(defaultWorksheetIndex, 5, 3, ObjectExt::Box<double>(5)), fact->GetCell(defaultWorksheetIndex, 5, 4, ObjectExt::Box<double>(1)));
 
-	// เปลี่ยนเครื่องหมายของซีรีส์แผนภูมิ
+	// เปลี่ยนตัวทำเครื่องหมายของ series
 	series->get_Marker()->set_Size ( 10);
 	series->get_Marker()->set_Symbol(MarkerStyleType::Circle);
 
@@ -312,7 +315,7 @@ using namespace System;
 	SharedPtr<IChartDataPoint> point = series->get_DataPoints()->idx_get(0);
 	point->get_Format()->get_Fill()->set_FillType(FillType::Solid);
 	point->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Cyan());
-	// ตั้งขอบเขตของเซกเตอร์
+	// ตั้งค่าขอบเซ็กเตอร์
 	point->get_Format()->get_Line()->get_FillFormat()->set_FillType(FillType::Solid);
 	point->get_Format()->get_Line()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Gray());
 	point->get_Format()->get_Line()->set_Width ( 3.0);
@@ -323,7 +326,7 @@ using namespace System;
 	point1->get_Format()->get_Fill()->set_FillType(FillType::Solid);
 	point1->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Brown());
 
-	// ตั้งขอบเขตของเซกเตอร์
+	// ตั้งค่าขอบเซ็กเตอร์
 	point1->get_Format()->get_Line()->get_FillFormat()->set_FillType(FillType::Solid);
 	point1->get_Format()->get_Line()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Blue());
 	point1->get_Format()->get_Line()->set_Width (3.0);
@@ -335,7 +338,7 @@ using namespace System;
 	point2->get_Format()->get_Fill()->set_FillType(FillType::Solid);
 	point2->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Coral());
 
-	// ตั้งขอบเขตของเซกเตอร์
+	// ตั้งค่าขอบเซ็กเตอร์
 	point2->get_Format()->get_Line()->get_FillFormat()->set_FillType(FillType::Solid);
 	point2->get_Format()->get_Line()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
 	point2->get_Format()->get_Line()->set_Width ( 2.0);
@@ -343,7 +346,7 @@ using namespace System;
 	point2->get_Format()->get_Line()->set_DashStyle(LineDashStyle::LargeDashDotDot);
 
 
-	// สร้างป้ายกำกับแบบกำหนดเองสำหรับแต่ละหมวดหมู่ของซีรีส์ใหม่
+	// สร้างป้ายกำกับแบบกำหนดเองสำหรับแต่ละหมวดหมู่ของ series ใหม่
 	SharedPtr<IDataLabel> lbl1 = series->get_DataPoints()->idx_get(0)->get_Label();
 
 	// lbl.ShowCategoryName = true;
@@ -360,34 +363,34 @@ using namespace System;
 	lbl3->get_DataLabelFormat()->set_ShowSeriesName(true);
 	lbl3->get_DataLabelFormat()->set_ShowPercentage(true);
 
-	// แสดงเส้นนำสำหรับแผนภูมิ
+	// แสดงเส้นเชื่อมหัวของแผนภูมิ
 	series->get_Labels()->get_DefaultDataLabelFormat()->set_ShowLeaderLines(true);
 
-	// ตั้งมุมการหมุนของเซกเตอร์ในแผนภูมวงกลม
+	// ตั้งค่ามุมการหมุนของส่วนของแผนภูมิวัฏจักร
 	chart->get_ChartData()->get_SeriesGroups()->idx_get(0)->set_FirstSliceAngle(180);
 
 
-	// บันทึกการนำเสนอ
+	// บันทึกพรีเซนเทชัน
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
 ### **สร้างแผนภูมิวงกลม**
-แผนภูมิวงกลมเหมาะสำหรับแสดงความสัมพันธ์ส่วนต่อส่วนทั้งหมดในข้อมูล โดยเฉพาะเมื่อข้อมูลมีป้ายกำกับเชิงประเภทพร้อมค่าตัวเลข อย่างไรก็ตาม หากข้อมูลของคุณมีหลายส่วนหรือหลายป้ายกำกับ คุณอาจต้องพิจารณาใช้แผนภูมิบาร์แทน
+แผนภูมิวัฏจักร (pie chart) เหมาะสำหรับแสดงความสัมพันธ์ส่วนต่อส่วนของข้อมูล โดยเฉพาะเมื่อข้อมูลมีป้ายหมวดหมู่พร้อมค่าตัวเลข อย่างไรก็ตาม หากข้อมูลมีหลายส่วนหรือหลายป้ายอาจพิจารณาใช้แผนภูมิบาร์แทน  
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/cpp/class/aspose.slides.presentation)  
-2. รับอ้างอิงสไลด์ผ่านดัชนีของมัน  
-3. เพิ่มแผนภูมิพร้อมข้อมูลเริ่มต้นและระบุประเภทที่ต้องการ (ในที่นี้คือ `ChartType.Pie`)  
-4. เข้าถึงข้อมูลแผนภูมิ IChartDataWorkbook  
-5. ลบซีรีส์และหมวดหมู่เริ่มต้น  
-6. เพิ่มซีรีส์และหมวดหมู่ใหม่  
-7. เพิ่มข้อมูลแผนภูมิใหม่สำหรับซีรีส์แผนภูมิ  
-8. เพิ่มจุดใหม่สำหรับแผนภูมิและกำหนดสีกำกับส่วนของแผนภูมวงกลม  
-9. ตั้งค่าป้ายกำกับสำหรับซีรีส์  
-10. ตั้งค่า leader lines สำหรับป้ายกำกับซีรีส์  
-11. ตั้งค่ามุมการหมุนสำหรับสไลด์แผนภูมวงกลม  
-12. บันทึกการนำเสนอที่แก้ไขเป็นไฟล์ PPTX  
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation)  
+1. ดึงอ้างอิงของสไลด์ผ่านดัชนีของมัน  
+1. เพิ่มแผนภูมิพร้อมข้อมูลเริ่มต้นและระบุประเภทที่ต้องการ (ในกรณีนี้ `ChartType.Pie`)  
+1. เข้าถึงข้อมูลแผนภูมิ IChartDataWorkbook  
+1. ลบ series และ category เริ่มต้น  
+1. เพิ่ม series และ category ใหม่  
+1. เพิ่มข้อมูลแผนภูมิใหม่สำหรับ series  
+1. เพิ่มจุดใหม่สำหรับแผนภูมิและกำหนดสีกำหนดเองสำหรับส่วนของแผนภูมิวัฏจักร  
+1. ตั้งค่าป้ายชื่อสำหรับ series  
+1. ตั้งค่าเส้นเชื่อมสำหรับป้ายชื่อ series  
+1. ตั้งค่ามุมการหมุนสำหรับสไลด์แผนภูมิวัฏจักร  
+1. บันทึกพรีเซนเทชันที่แก้ไขเป็นไฟล์ PPTX  
 
-โค้ด C++ นี้แสดงวิธีสร้างแผนภูมวงกลม:
+โค้ด C++ นี้แสดงวิธีสร้างแผนภูมิวัฏจักร:
 
 ```c++
 #include <DOM/Chart/ChartType.h>
@@ -430,43 +433,43 @@ using namespace System;
 	// เส้นทางไปยังไดเรกทอรีเอกสาร.
 	const String outPath = u"../out/PieChart_out.pptx";
 
-	// สร้างอินสแตนซ์ของคลาส Presentation ที่เป็นไฟล์ PPTX
+	//สร้างอินสแตนซ์ของคลาส Presentation ที่แทนไฟล์ PPTX
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
-	// เข้าถึงสไลด์แรก
+	//เข้าถึงสไลด์แรก
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
-	// เพิ่มแผนภูมิพร้อมข้อมูลเริ่มต้น
+	// Adds a chart with default data
 	SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::Pie, 0, 0, 500, 500);
 
-	// ตั้งชื่อแผนภูมิ
+	// Sets the chart Title
 	chart->get_ChartTitle()->AddTextFrameForOverriding(u"Sample Title");
 	chart->get_ChartTitle()->get_TextFrameForOverriding()->get_TextFrameFormat()->set_CenterText(NullableBool::True);
 	chart->get_ChartTitle()->set_Height(20);
 	chart->set_HasTitle(true);
 
-	// ลบซีรีส์และหมวดหมู่ที่สร้างโดยอัตโนมัติ
+	// Deletes the default generated series and categories
 	chart->get_ChartData()->get_Series()->Clear();
 	chart->get_ChartData()->get_Categories()->Clear();
 
-	// ตั้งดัชนีของแผ่นข้อมูลแผนภูมิ
+	// Sets the index of chart data sheet
 	int defaultWorksheetIndex = 0;
 
-	// รับ worksheet ของข้อมูลแผนภูมิ
+	// Gets the chart data worksheet
 	SharedPtr<IChartDataWorkbook> fact = chart->get_ChartData()->get_ChartDataWorkbook();
 
-	// เพิ่มหมวดหมู่
+	// Adds Catrgories
 	chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, 1, 0, ObjectExt::Box<System::String>(u"First Qtr")));
 	chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, 2, 0, ObjectExt::Box<System::String>(u"2nd Qtr")));
 	chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, 3, 0, ObjectExt::Box<System::String>(u"3ed Qtr")));
 
-	// เพิ่มซีรีส์ใหม่
+	// Adds a new series
 	chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 0, 1, ObjectExt::Box<System::String>(u"Series 1")), chart->get_Type());
 	
-	// ดึงซีรีส์แผนภูมิลำดับแรก
+	// Takes the first chart series
 	SharedPtr<IChartSeries> series = chart->get_ChartData()->get_Series()->idx_get(0);
 
-	// เติมข้อมูลให้ซีรีส์
+	// Populates the series data
 	series->get_DataPoints()->AddDataPointForPieSeries(fact->GetCell(defaultWorksheetIndex, 1, 1, ObjectExt::Box<double>(20)));
 	series->get_DataPoints()->AddDataPointForPieSeries(fact->GetCell(defaultWorksheetIndex, 2, 1, ObjectExt::Box<double>(50)));
 	series->get_DataPoints()->AddDataPointForPieSeries(fact->GetCell(defaultWorksheetIndex, 3, 1, ObjectExt::Box<double>(30)));
@@ -476,7 +479,7 @@ using namespace System;
 	SharedPtr<IChartDataPoint> point = series->get_DataPoints()->idx_get(0);
 	point->get_Format()->get_Fill()->set_FillType(FillType::Solid);
 	point->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Cyan());
-	// ตั้งขอบเขตของเซกเตอร์
+	// Sets the Sector border
 	point->get_Format()->get_Line()->get_FillFormat()->set_FillType(FillType::Solid);
 	point->get_Format()->get_Line()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Gray());
 	point->get_Format()->get_Line()->set_Width ( 3.0);
@@ -487,7 +490,7 @@ using namespace System;
 	point1->get_Format()->get_Fill()->set_FillType(FillType::Solid);
 	point1->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Brown());
 
-	// ตั้งขอบเขตของเซกเตอร์
+	// Sets the Sector border
 	point1->get_Format()->get_Line()->get_FillFormat()->set_FillType(FillType::Solid);
 	point1->get_Format()->get_Line()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Blue());
 	point1->get_Format()->get_Line()->set_Width (3.0);
@@ -499,7 +502,7 @@ using namespace System;
 	point2->get_Format()->get_Fill()->set_FillType(FillType::Solid);
 	point2->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Coral());
 
-	// ตั้งขอบเขตของเซกเตอร์
+	// Sets the Sector border
 	point2->get_Format()->get_Line()->get_FillFormat()->set_FillType(FillType::Solid);
 	point2->get_Format()->get_Line()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
 	point2->get_Format()->get_Line()->set_Width (2.0);
@@ -507,7 +510,7 @@ using namespace System;
 	point2->get_Format()->get_Line()->set_DashStyle(LineDashStyle::LargeDashDotDot);
 
 
-	// สร้างป้ายกำกับแบบกำหนดเองสำหรับแต่ละหมวดหมู่ของซีรีส์ใหม่
+	// Creates custom labels for each of categories for new series
 	SharedPtr<IDataLabel> lbl1 = series->get_DataPoints()->idx_get(0)->get_Label();
 
 	// lbl.ShowCategoryName = true;
@@ -524,28 +527,28 @@ using namespace System;
 	lbl3->get_DataLabelFormat()->set_ShowSeriesName(true);
 	lbl3->get_DataLabelFormat()->set_ShowPercentage(true);
 
-	// ตั้งค่าให้ซีรีส์แสดงเส้นนำสำหรับแผนภูมิ
+	// Sets the series to show leader lines for the chart
 	series->get_Labels()->get_DefaultDataLabelFormat()->set_ShowLeaderLines ( true);
 
-	// ตั้งมุมการหมุนของเซกเตอร์ในแผนภูมวงกลม
+	// Sets the rotation angle for the pie chart sectors
 	chart->get_ChartData()->get_SeriesGroups()->idx_get(0)->set_FirstSliceAngle ( 180);
 
 
-	// บันทึกการนำเสนอ
+	// Saves the presentation
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
 ### **สร้างแผนภูมิเส้น**
-แผนภูมิเส้น (หรือที่เรียกว่า line graph) เหมาะสำหรับสถานการณ์ที่ต้องการแสดงการเปลี่ยนแปลงของค่าในช่วงเวลา ใช้แผนภูมิเส้นคุณสามารถเปรียบเทียบข้อมูลจำนวนมากพร้อมกัน, ติดตามการเปลี่ยนแปลงและแนวโน้มตามเวลา, เน้นความผิดปกติในซีรีส์ข้อมูล เป็นต้น
+แผนภูมิเส้น (line chart) เหมาะใช้เมื่อคุณต้องการแสดงการเปลี่ยนแปลงของค่าเมื่อเวลาผ่านไป โดยใช้แผนภูมิเส้นสามารถเปรียบเทียบข้อมูลหลายชุดพร้อมกัน ติดตามการเปลี่ยนแปลงและแนวโน้มตามเวลา เน้นความผิดปกติใน series ฯลฯ  
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/cpp/class/aspose.slides.presentation)  
-2. รับอ้างอิงสไลด์ผ่านดัชนีของมัน  
-3. เพิ่มแผนภูมิพร้อมข้อมูลเริ่มต้นและระบุประเภทที่ต้องการ (ในที่นี้คือ `ChartType::Line`)  
-4. เข้าถึงข้อมูลแผนภูมิ IChartDataWorkbook  
-5. ลบซีรีส์และหมวดหมู่เริ่มต้น  
-6. เพิ่มซีรีส์และหมวดหมู่ใหม่  
-7. เพิ่มข้อมูลแผนภูมิใหม่สำหรับซีรีส์แผนภูมิ  
-8. บันทึกการนำเสนอที่แก้ไขเป็นไฟล์ PPTX  
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation)  
+1. ดึงอ้างอิงของสไลด์ผ่านดัชนีของมัน  
+1. เพิ่มแผนภูมิพร้อมข้อมูลเริ่มต้นและระบุประเภทที่ต้องการ (ในกรณีนี้ `ChartType::Line`)  
+1. เข้าถึงข้อมูลแผนภูมิ IChartDataWorkbook  
+1. ลบ series และ category เริ่มต้น  
+1. เพิ่ม series และ category ใหม่  
+1. เพิ่มข้อมูลแผนภูมิใหม่สำหรับ series  
+1. บันทึกพรีเซนเทชันที่แก้ไขเป็นไฟล์ PPTX  
 
 โค้ด C++ นี้แสดงวิธีสร้างแผนภูมิเส้น:
 
@@ -567,7 +570,7 @@ System::SharedPtr<IChart> lineChart = pres->get_Slides()->idx_get(0)->get_Shapes
 pres->Save(u"lineChart.pptx", SaveFormat::Pptx);
 ```
 
-โดยค่าเริ่มต้น จุดบนแผนภูมิเส้นจะเชื่อมต่อด้วยเส้นตรงต่อเนื่อง หากต้องการให้จุดเชื่อมต่อด้วยเส้นประ คุณสามารถระบุประเภท dash ที่ต้องการได้ดังนี้:
+โดยค่าเริ่มต้น จุดบนแผนภูมิเส้นจะเชื่อมต่อด้วยเส้นตรงต่อเนื่อง หากต้องการให้เชื่อมด้วยเส้นประ สามารถกำหนดประเภท dash ที่ต้องการได้ดังนี้:
 
 ```c++
 #include <DOM/Chart/ChartType.h>
@@ -594,17 +597,17 @@ for (auto&& series : lineChart->get_ChartData()->get_Series())
 }
 ```
 
-### **สร้างแผนภูมิ Tree Map**
-แผนภูมิ Tree Map เหมาะสำหรับข้อมูลขายเมื่อคุณต้องการแสดงขนาดสัมพัทธ์ของหมวดหมู่ข้อมูลและในเวลาเดียวกันดึงความสนใจไปยังรายการที่เป็นตัวทำให้แต่ละหมวดหมู่มีขนาดใหญ่
+### **สร้างแผนภูมิต้นไม้ (Tree Map)**
+แผนภูมิ Tree Map เหมาะสำหรับข้อมูลการขายเมื่อคุณต้องการแสดงขนาดสัมพัทธ์ของหมวดหมู่ข้อมูลและในขณะเดียวกันดึงความสนใจไปยังรายการที่มีส่วนร่วมสูงในแต่ละหมวดหมู่  
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/cpp/class/aspose.slides.presentation)  
-2. รับอ้างอิงสไลด์ผ่านดัชนีของมัน  
-3. เพิ่มแผนภูมิพร้อมข้อมูลเริ่มต้นและระบุประเภทที่ต้องการ (ในที่นี้คือ `ChartType.TreeMap`)  
-4. เข้าถึงข้อมูลแผนภูมิ IChartDataWorkbook  
-5. ลบซีรีส์และหมวดหมู่เริ่มต้น  
-6. เพิ่มซีรีส์และหมวดหมู่ใหม่  
-7. เพิ่มข้อมูลแผนภูมิใหม่สำหรับซีรีส์แผนภูมิ  
-8. บันทึกการนำเสนอที่แก้ไขเป็นไฟล์ PPTX  
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation)  
+1. ดึงอ้างอิงของสไลด์ผ่านดัชนีของมัน  
+1. เพิ่มแผนภูมิพร้อมข้อมูลเริ่มต้นและระบุประเภทที่ต้องการ (ในกรณีนี้ `ChartType.TreeMap`)  
+1. เข้าถึงข้อมูลแผนภูมิ IChartDataWorkbook  
+1. ลบ series และ category เริ่มต้น  
+1. เพิ่ม series และ category ใหม่  
+1. เพิ่มข้อมูลแผนภูมิใหม่สำหรับ series  
+1. บันทึกพรีเซนเทชันที่แก้ไขเป็นไฟล์ PPTX  
 
 โค้ด C++ นี้แสดงวิธีสร้างแผนภูมิ Tree Map:
 
@@ -636,7 +639,7 @@ using namespace System;
 // เส้นทางไปยังไดเรกทอรีเอกสาร.
 	const String outPath = u"../out/TreemapChart_out.pptx";
 
-	//สร้างอินสแตนซ์ของคลาส Presentation ที่เป็นไฟล์ PPTX
+	//สร้างอินสแตนซ์ของคลาส Presentation ที่แทนไฟล์ PPTX
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
 	// เข้าถึงสไลด์แรก
@@ -688,22 +691,22 @@ using namespace System;
 
 	series->set_ParentLabelLayout(Aspose::Slides::Charts::ParentLabelLayoutType::Overlapping);
 
-	// บันทึกการนำเสนอ
+	// บันทึกพรีเซนเทชัน
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-### **สร้างแผนภูมิ Stock**
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/cpp/class/aspose.slides.presentation)  
-2. รับอ้างอิงสไลด์ผ่านดัชนีของมัน  
-3. เพิ่มแผนภูมิพร้อมข้อมูลเริ่มต้นและระบุประเภทที่ต้องการ (`ChartType.OpenHighLowClose`)  
-4. เข้าถึงข้อมูลแผนภูมิ IChartDataWorkbook  
-5. ลบซีรีส์และหมวดหมู่เริ่มต้น  
-6. เพิ่มซีรีส์และหมวดหมู่ใหม่  
-7. เพิ่มข้อมูลแผนภูมิใหม่สำหรับซีรีส์แผนภูมิ  
-8. ระบุรูปแบบ HiLowLines  
-9. บันทึกการนำเสนอที่แก้ไขเป็นไฟล์ PPTX  
+### **สร้างแผนภูมิหุ้น (Stock)**
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation)  
+1. ดึงอ้างอิงของสไลด์ผ่านดัชนีของมัน  
+1. เพิ่มแผนภูมิพร้อมข้อมูลเริ่มต้นและระบุประเภทที่ต้องการ (`ChartType.OpenHighLowClose`)  
+1. เข้าถึงข้อมูลแผนภูมิ IChartDataWorkbook  
+1. ลบ series และ category เริ่มต้น  
+1. เพิ่ม series และ category ใหม่  
+1. เพิ่มข้อมูลแผนภูมิใหม่สำหรับ series  
+1. กำหนดรูปแบบ HiLowLines  
+1. บันทึกพรีเซนเทชันที่แก้ไขเป็นไฟล์ PPTX  
 
-โค้ด C++ ตัวอย่างที่ใช้สร้างแผนภูมิ Stock:
+ตัวอย่างโค้ด C++ ที่ใช้สร้างแผนภูมิหุ้น:
 
 ```c++
 #include <DOM/Chart/ChartType.h>
@@ -736,67 +739,67 @@ using namespace System;
 	// เส้นทางไปยังไดเรกทอรีเอกสาร.
 	const String outPath = u"../out/AddStockChart_out.pptx";
 
-	//สร้างอินสแตนซ์ของคลาส Presentation ที่เป็นไฟล์ PPTX
+	// สร้างอินสแตนซ์ของคลาส Presentation ที่แทนไฟล์ PPTX
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
-	//เข้าถึงสไลด์แรก
+	// เข้าถึงสไลด์แรก
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
 	// เพิ่มแผนภูมิพร้อมข้อมูลเริ่มต้น
 	SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::OpenHighLowClose, 0, 0, 500, 500);
 
 
-	// ตั้งดัชนีสำหรับแผ่นข้อมูลแผนภูมิ
+	// ตั้งค่าดัชนีของแผ่นงานข้อมูลแผนภูมิ
 	int defaultWorksheetIndex = 0;
 
-	// รับ worksheet ของข้อมูลแผนภูมิ
+	// ดึงแผ่นงานข้อมูลของแผนภูมิ
 	SharedPtr<IChartDataWorkbook> fact = chart->get_ChartData()->get_ChartDataWorkbook();
 
 
-	// ลบซีรีส์และหมวดหมู่ที่สร้างโดยอัตโนมัติ
+	// ลบ series และ category ที่สร้างโดยค่าเริ่มต้น
 	chart->get_ChartData()->get_Series()->Clear();
 	chart->get_ChartData()->get_Categories()->Clear();
 
-	// เพิ่มหมวดหมู่
+	// เพิ่ม category
 	chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, 1, 0, ObjectExt::Box<System::String>(u"A")));
 	chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, 2, 0, ObjectExt::Box<System::String>(u"B")));
 	chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, 3, 0, ObjectExt::Box<System::String>(u"C")));
 
-	// เพิ่มซีรีส์ใหม่
+	// เพิ่ม series ใหม่
 	chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 0, 1, ObjectExt::Box<System::String>(u"Open")), chart->get_Type());
 	chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 0, 2, ObjectExt::Box<System::String>(u"High")), chart->get_Type());
 	chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 0, 3, ObjectExt::Box<System::String>(u"Low")), chart->get_Type());
 	chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 0, 4, ObjectExt::Box<System::String>(u"Close")), chart->get_Type());
 
 
-	// ดึงซีรีส์แผนภูมิลำดับแรก
+	// ดึง series แผนภูมิแรก
 	SharedPtr<IChartSeries> series = chart->get_ChartData()->get_Series()->idx_get(0);
-	// เติมข้อมูลให้ซีรีส์แรก
+	// เติมข้อมูลให้ series แรก
 	series->get_DataPoints()->AddDataPointForStockSeries(fact->GetCell(defaultWorksheetIndex, 1, 1, ObjectExt::Box<double>(72)));
 	series->get_DataPoints()->AddDataPointForStockSeries(fact->GetCell(defaultWorksheetIndex, 2, 1, ObjectExt::Box<double>(25)));
 	series->get_DataPoints()->AddDataPointForStockSeries(fact->GetCell(defaultWorksheetIndex, 3, 1, ObjectExt::Box<double>(38)));
 
 
 	series = chart->get_ChartData()->get_Series()->idx_get(1);
-	// เติมข้อมูลให้ซีรีส์ที่สอง
+	// เติมข้อมูลให้ series ที่สอง
 	series->get_DataPoints()->AddDataPointForStockSeries(fact->GetCell(defaultWorksheetIndex, 1, 2, ObjectExt::Box<double>(172)));
 	series->get_DataPoints()->AddDataPointForStockSeries(fact->GetCell(defaultWorksheetIndex, 2, 2, ObjectExt::Box<double>(57)));
 	series->get_DataPoints()->AddDataPointForStockSeries(fact->GetCell(defaultWorksheetIndex, 3, 2, ObjectExt::Box<double>(57)));
 
 	series = chart->get_ChartData()->get_Series()->idx_get(2);
-	// เติมข้อมูลให้ซีรีส์ที่สอง
+	// เติมข้อมูลให้ series ที่สอง
 	series->get_DataPoints()->AddDataPointForStockSeries(fact->GetCell(defaultWorksheetIndex, 1, 3, ObjectExt::Box<double>(12)));
 	series->get_DataPoints()->AddDataPointForStockSeries(fact->GetCell(defaultWorksheetIndex, 2, 3, ObjectExt::Box<double>(12)));
 	series->get_DataPoints()->AddDataPointForStockSeries(fact->GetCell(defaultWorksheetIndex, 3, 3, ObjectExt::Box<double>(13)));
 
 
 	series = chart->get_ChartData()->get_Series()->idx_get(3);
-	// เติมข้อมูลให้ซีรีส์ที่สอง
+	// เติมข้อมูลให้ series ที่สอง
 	series->get_DataPoints()->AddDataPointForStockSeries(fact->GetCell(defaultWorksheetIndex, 1, 4, ObjectExt::Box<double>(25)));
 	series->get_DataPoints()->AddDataPointForStockSeries(fact->GetCell(defaultWorksheetIndex, 2, 4, ObjectExt::Box<double>(38)));
 	series->get_DataPoints()->AddDataPointForStockSeries(fact->GetCell(defaultWorksheetIndex, 3, 4, ObjectExt::Box<double>(50)));
 
-	// ตั้งกลุ่มซีรีส์
+	// ตั้งค่ากลุ่ม series
 	chart->get_ChartData()->get_SeriesGroups()->idx_get(0)->get_UpDownBars()->set_HasUpDownBars (true);
 	chart->get_ChartData()->get_SeriesGroups()->idx_get(0)->get_HiLowLinesFormat()->get_Line()->get_FillFormat()->set_FillType(FillType::Solid);
 
@@ -807,19 +810,19 @@ using namespace System;
 		series->get_Format()->get_Line()->get_FillFormat()->set_FillType(FillType::NoFill);
 	}
 
-	// บันทึกการนำเสนอ
+	// บันทึกพรีเซนเทชัน
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
 ### **สร้างแผนภูมิ Box and Whisker**
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/cpp/class/aspose.slides.presentation)  
-2. รับอ้างอิงสไลด์ผ่านดัชนีของมัน  
-3. เพิ่มแผนภูมิพร้อมข้อมูลเริ่มต้นและระบุประเภทที่ต้องการ (`ChartType.BoxAndWhisker`)  
-4. เข้าถึงข้อมูลแผนภูมิ IChartDataWorkbook  
-5. ลบซีรีส์และหมวดหมู่เริ่มต้น  
-6. เพิ่มซีรีส์และหมวดหมู่ใหม่  
-7. เพิ่มข้อมูลแผนภูมิใหม่สำหรับซีรีส์แผนภูมิ  
-8. บันทึกการนำเสนอที่แก้ไขเป็นไฟล์ PPTX  
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation)  
+1. ดึงอ้างอิงของสไลด์ผ่านดัชนีของมัน  
+1. เพิ่มแผนภูมิพร้อมข้อมูลเริ่มต้นและระบุประเภทที่ต้องการ (`ChartType.BoxAndWhisker`)  
+1. เข้าถึงข้อมูลแผนภูมิ IChartDataWorkbook  
+1. ลบ series และ category เริ่มต้น  
+1. เพิ่ม series และ category ใหม่  
+1. เพิ่มข้อมูลแผนภูมิใหม่สำหรับ series  
+1. บันทึกพรีเซนเทชันที่แก้ไขเป็นไฟล์ PPTX  
 
 โค้ด C++ นี้แสดงวิธีสร้างแผนภูมิ Box and Whisker:
 
@@ -847,10 +850,10 @@ using namespace System;
 	// เส้นทางไปยังไดเรกทอรีเอกสาร.
 	const String outPath = u"../out/BoxAndWhisker_out.pptx";
 
-	//Instantiates a Presentation class that represents a PPTX file
+	// สร้างอินสแตนซ์ของคลาส Presentation ที่แทนไฟล์ PPTX
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
-	//Accesses the first slide
+	// เข้าถึงสไลด์แรก
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
 	System::SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::BoxAndWhisker, 50, 50, 500, 400);
@@ -884,15 +887,15 @@ using namespace System;
 	series->get_DataPoints()->AddDataPointForBoxAndWhiskerSeries(wb->GetCell(0, u"B6", System::ObjectExt::Box<int32_t>(16)));
 
 
-	// Saves the presentation
+	// บันทึกพรีเซนเทชัน
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
 ### **สร้างแผนภูมิ Funnel**
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/cpp/class/aspose.slides.presentation)  
-2. รับอ้างอิงสไลด์ผ่านดัชนีของมัน  
-3. เพิ่มแผนภูมิพร้อมข้อมูลเริ่มต้นและระบุประเภทที่ต้องการ (`ChartType.Funnel`)  
-4. บันทึกการนำเสนอที่แก้ไขเป็นไฟล์ PPTX  
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation)  
+1. ดึงอ้างอิงของสไลด์ผ่านดัชนีของมัน  
+1. เพิ่มแผนภูมิพร้อมข้อมูลเริ่มต้นและระบุประเภทที่ต้องการ (`ChartType.Funnel`)  
+1. บันทึกพรีเซนเทชันที่แก้ไขเป็นไฟล์ PPTX  
 
 โค้ด C++ นี้แสดงวิธีสร้างแผนภูมิ Funnel:
 
@@ -919,10 +922,10 @@ using namespace System;
 	// เส้นทางไปยังไดเรกทอรีเอกสาร.
 	const String outPath = u"../out/FunnelChart_out.pptx";
 
-	//สร้างอินสแตนซ์ของคลาส Presentation ที่เป็นไฟล์ PPTX
+	// สร้างอินสแตนซ์ของคลาส Presentation ที่แทนไฟล์ PPTX
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
-	//เข้าถึงสไลด์แรก
+	// เข้าถึงสไลด์แรก
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
 	System::SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::Funnel, 50, 50, 500, 400);
@@ -950,15 +953,15 @@ using namespace System;
 	series->get_DataPoints()->AddDataPointForFunnelSeries(wb->GetCell(0, u"B6", System::ObjectExt::Box<int32_t>(500)));
 
 
-	// บันทึกการนำเสนอ
+	// บันทึกพรีเซนเทชัน
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
 ### **สร้างแผนภูมิ Sunburst**
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/cpp/class/aspose.slides.presentation)  
-2. รับอ้างอิงสไลด์ผ่านดัชนีของมัน  
-3. เพิ่มแผนภูมิพร้อมข้อมูลเริ่มต้นและระบุประเภทที่ต้องการ (ในที่นี้คือ `ChartType.sunburst`)  
-4. บันทึกการนำเสนอที่แก้ไขเป็นไฟล์ PPTX  
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation)  
+1. ดึงอ้างอิงของสไลด์ผ่านดัชนีของมัน  
+1. เพิ่มแผนภูมิพร้อมข้อมูลเริ่มต้นและระบุประเภทที่ต้องการ (ในกรณีนี้ `ChartType.sunburst`)  
+1. บันทึกพรีเซนเทชันที่แก้ไขเป็นไฟล์ PPTX  
 
 โค้ด C++ นี้แสดงวิธีสร้างแผนภูมิ Sunburst:
 
@@ -989,7 +992,7 @@ using namespace System;
 	// เส้นทางไปยังไดเรกทอรีเอกสาร.
 	const String outPath = u"../out/SunburstChart_out.pptx";
 
-	// สร้างอินสแตนซ์ของคลาส Presentation ที่เป็นไฟล์ PPTX
+	// สร้างอินสแตนซ์ของคลาส Presentation ที่แทนไฟล์ PPTX
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
 	// เข้าถึงสไลด์แรก
@@ -1038,18 +1041,19 @@ using namespace System;
 	series->get_DataPoints()->AddDataPointForSunburstSeries(wb->GetCell(0, u"D7", System::ObjectExt::Box<int32_t>(4)));
 	series->get_DataPoints()->AddDataPointForSunburstSeries(wb->GetCell(0, u"D8", System::ObjectExt::Box<int32_t>(3)));
 
-	// บันทึกไฟล์การนำเสนอลงดิสก์
+	// เขียนไฟล์พรีเซนเทชันลงดิสก์
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
+
 ```
 
 ### **สร้างแผนภูมิ Histogram**
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/cpp/class/aspose.slides.presentation)  
-2. รับอ้างอิงสไลด์ผ่านดัชนีของมัน  
-3. เพิ่มแผนภูมิพร้อมข้อมูลบางส่วนและระบุประเภทที่ต้องการ (`ChartType.Histogram` ในที่นี้)  
-4. เข้าถึงข้อมูลแผนภูมิ `IChartDataWorkbook`  
-5. ลบซีรีส์และหมวดหมู่เริ่มต้น  
-6. เพิ่มซีรีส์และหมวดหมู่ใหม่  
-7. บันทึกการนำเสนอที่แก้ไขเป็นไฟล์ PPTX  
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation)  
+1. ดึงอ้างอิงของสไลด์ผ่านดัชนีของมัน  
+1. เพิ่มแผนภูมิพร้อมข้อมูลบางส่วนและระบุประเภทที่ต้องการ (`ChartType.Histogram`)  
+1. เข้าถึงข้อมูลแผนภูมิ `IChartDataWorkbook`  
+1. ลบ series และ category เริ่มต้น  
+1. เพิ่ม series และ category ใหม่  
+1. บันทึกพรีเซนเทชันที่แก้ไขเป็นไฟล์ PPTX  
 
 โค้ด C++ นี้แสดงวิธีสร้างแผนภูมิ Histogram:
 
@@ -1079,7 +1083,7 @@ using namespace System;
 	// เส้นทางไปยังไดเรกทอรีเอกสาร.
 	const String outPath = u"../out/HistogramChart_out.pptx";
 
-	// สร้างอินสแตนซ์ของคลาส Presentation ที่เป็นไฟล์ PPTX
+	// สร้างอินสแตนซ์ของคลาส Presentation ที่แทนไฟล์ PPTX
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
 	// เข้าถึงสไลด์แรก
@@ -1103,15 +1107,15 @@ using namespace System;
 
 	chart->get_Axes()->get_HorizontalAxis()->set_AggregationType(Aspose::Slides::Charts::AxisAggregationType::Automatic);
 
-	// บันทึกการนำเสนอ
+	// บันทึกพรีเซนเทชัน
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
 ### **สร้างแผนภูมิ Radar**
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/cpp/class/aspose.slides.presentation)  
-2. รับอ้างอิงสไลด์ผ่านดัชนีของมัน  
-3. เพิ่มแผนภูมิพร้อมข้อมูลบางส่วนและระบุประเภทที่ต้องการ (`ChartType.Radar` ในที่นี้)  
-4. บันทึกการนำเสนอที่แก้ไขเป็นไฟล์ PPTX  
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation)  
+1. ดึงอ้างอิงของสไลด์ผ่านดัชนีของมัน  
+1. เพิ่มแผนภูมิพร้อมข้อมูลบางส่วนและระบุประเภทที่ต้องการ (`ChartType.Radar`)  
+1. บันทึกพรีเซนเทชันที่แก้ไขเป็นไฟล์ PPTX  
 
 โค้ด C++ นี้แสดงวิธีสร้างแผนภูมิ Radar:
 
@@ -1131,102 +1135,34 @@ presentation->Save(u"Radar-chart.pptx", Aspose::Slides::Export::SaveFormat::Pptx
 ```
 
 ### **สร้างแผนภูมิหลายหมวดหมู่**
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/cpp/class/aspose.slides.presentation)  
-2. รับอ้างอิงสไลด์ผ่านดัชนีของมัน  
-3. เพิ่มแผนภูมิพร้อมข้อมูลเริ่มต้นและระบุประเภทที่ต้องการ (`ChartType.ClusteredColumn`)  
-4. เข้าถึงข้อมูลแผนภูมิ IChartDataWorkbook  
-5. ลบซีรีส์และหมวดหมู่เริ่มต้น  
-6. เพิ่มซีรีส์และหมวดหมู่ใหม่  
-7. เพิ่มข้อมูลแผนภูมิใหม่สำหรับซีรีส์แผนภูมิ  
-8. บันทึกการนำเสนอที่แก้ไขเป็นไฟล์ PPTX  
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation)  
+1. ดึงอ้างอิงของสไลด์ผ่านดัชนีของมัน  
+1. เพิ่มแผนภูมิพร้อมข้อมูลเริ่มต้นและระบุประเภทที่ต้องการ (`ChartType.ClusteredColumn`)  
+1. เข้าถึงข้อมูลแผนภูมิ IChartDataWorkbook  
+1. ลบ series และ category เริ่มต้น  
+1. เพิ่ม series และ category ใหม่  
+1. เพิ่มข้อมูลแผนภูมิใหม่สำหรับ series  
+1. บันทึกพรีเซนเทชันที่แก้ไขเป็นไฟล์ PPTX  
 
 โค้ด C++ นี้แสดงวิธีสร้างแผนภูมิหลายหมวดหมู่:
 
 ```c++
 #include <DOM/Chart/ChartType.h>
-#include <DOM/Chart/IChartCategory.h>
-#include <DOM/Chart/IChartCategoryCollection.h>
-#include <DOM/Chart/IChartCategoryLevelsManager.h>
-#include <DOM/Chart/IChartData.h>
-#include <DOM/Chart/IChartDataPointCollection.h>
-#include <DOM/Chart/IChartDataWorkbook.h>
-#include <DOM/Chart/IChartSeries.h>
-#include <DOM/Chart/IChartSeriesCollection.h>
-#include <DOM/IChart.h>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
 #include <DOM/ISlideCollection.h>
 #include <DOM/Presentation.h>
 #include <Export/SaveFormat.h>
-#include <system/object_ext.h>
-#include <system/string.h>
 using namespace Aspose::Slides;
-using namespace Aspose::Slides::Charts;
-using namespace Aspose::Slides::Export;
-using namespace System;
 
-	// เส้นทางไปยังไดเรกทอรีเอกสาร.
-	const String outPath = u"../out/MultiCategoryChart_out.pptx";
+System::SharedPtr<Presentation> presentation = System::MakeObject<Presentation>();
 
-	// สร้างอินสแตนซ์ของคลาส Presentation ที่เป็นไฟล์ PPTX
-	SharedPtr<Presentation> pres = MakeObject<Presentation>();
-
-	// เข้าถึงสไลด์แรก
-	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
-
-	// เพิ่มแผนภูมิพร้อมข้อมูลเริ่มต้น
-	SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::ClusteredColumn, 0, 0, 500, 500);
-
-	// ตั้งดัชนีสำหรับแผ่นข้อมูลแผนภูมิ
-	int defaultWorksheetIndex = 0;
-
-	// รับ worksheet ของข้อมูลแผนภูมิ
-	SharedPtr<IChartDataWorkbook> fact = chart->get_ChartData()->get_ChartDataWorkbook();
-
-	// ล้าง workbook
-	fact->Clear(defaultWorksheetIndex);
-
-	chart->get_ChartData()->get_Series()->Clear();
-	chart->get_ChartData()->get_Categories()->Clear();
-
-
-	// เพิ่มหมวดหมู่
-	SharedPtr<IChartCategory> category = chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, u"c2", ObjectExt::Box<System::String>(u"A")));
-	category->get_GroupingLevels()->SetGroupingItem(1, ObjectExt::Box<System::String>(u"Group1"));
-	chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, u"c3", ObjectExt::Box<System::String>(u"B")));
-	
-	category = chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, u"c4", ObjectExt::Box<System::String>(u"C")));
-	category->get_GroupingLevels()->SetGroupingItem(1, ObjectExt::Box<System::String>(u"Group2"));
-	chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, u"c5", ObjectExt::Box<System::String>(u"D")));
-
-	category = chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, u"c6", ObjectExt::Box<System::String>(u"E")));
-	category->get_GroupingLevels()->SetGroupingItem(1, ObjectExt::Box<System::String>(u"Group3"));
-	chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, u"c7", ObjectExt::Box<System::String>(u"F")));
-
-
-	category = chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, u"c8", ObjectExt::Box<System::String>(u"G")));
-	category->get_GroupingLevels()->SetGroupingItem(1, ObjectExt::Box<System::String>(u"Group4"));
-	chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, u"c9", ObjectExt::Box<System::String>(u"H")));
-
-	// เพิ่มซีรีส์ใหม่
-	SharedPtr<IChartSeries>  series = chart->get_ChartData()->get_Series()->Add(fact->GetCell(0, u"D1", ObjectExt::Box<System::String>(u"Series 1")),
-		ChartType::ClusteredColumn);
-
-	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, u"D2", ObjectExt::Box<double>(10)));
-	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, u"D3", ObjectExt::Box<double>(20)));
-	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, u"D4", ObjectExt::Box<double>(30)));
-	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, u"D5", ObjectExt::Box<double>(40)));
-	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, u"D6", ObjectExt::Box<double>(50)));
-	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, u"D7", ObjectExt::Box<double>(60)));
-	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, u"D8", ObjectExt::Box<double>(70)));
-	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, u"D9", ObjectExt::Box<double>(80)));
-
-	// บันทึกการนำเสนอ
-	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
+presentation->get_Slides()->idx_get(0)->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::Radar, 20.0f, 20.0f, 400.0f, 300.0f);
+presentation->Save(u"Radar-chart.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
 ### **สร้างแผนภูมิแผนที่**
-แผนภูมิแผนที่เป็นการแสดงภาพของพื้นที่ที่มีข้อมูล แผนภูมิแผนที่เหมาะสำหรับการเปรียบเทียบข้อมูลหรือค่าต่าง ๆ ระหว่างภูมิภาคทางภูมิศาสตร์
+แผนภูมิเผนที่เป็นการแสดงภาพข้อมูลบนพื้นที่ทางภูมิศาสตร์ เหมาะสำหรับเปรียบเทียบข้อมูลหรือค่าในแต่ละภูมิภาค  
 
 โค้ด C++ นี้แสดงวิธีสร้างแผนภูมิแผนที่:
 
@@ -1247,12 +1183,12 @@ auto chart = slide->get_Shapes()->AddChart(ChartType::Map, 50.0f, 50.0f, 500.0f,
 pres->Save(u"mapChart.pptx", SaveFormat::Pptx);
 ```
 
-### **สร้างแผนภูมิผสม**
-แผนภูมิผสม (หรือ combo chart) รวมประเภทแผนภูมิต่าง ๆ สองประเภทหรือมากกว่าบนกราฟเดียว แผนภูมินี้ช่วยให้คุณเน้น, เปรียบเทียบ หรือพิจารณาความแตกต่างระหว่างชุดข้อมูลหลายชุด, ทำให้สามารถระบุความสัมพันธ์ระหว่างข้อมูลได้ง่ายขึ้น
+### **สร้างแผนภูมิกลับ (Combination)**
+แผนภูมิกลับ (หรือ combo chart) รวมประเภทแผนภูมิสองประเภทขึ้นไปในกราฟเดียว ทำให้คุณสามารถไฮไลท์, เปรียบเทียบ หรือวิเคราะห์ความแตกต่างระหว่างชุดข้อมูลหลายชุดได้ ช่วยระบุความสัมพันธ์ระหว่างข้อมูลเหล่านั้น  
 
-![แผนภูมิผสม](combination_chart.png)
+![แผนภูมิรวม](combination_chart.png)
 
-โค้ด C++ ต่อไปนี้แสดงวิธีสร้างแผนภูมิผสมตามที่แสดงด้านบนใน PowerPoint presentation:
+โค้ด C++ ด้านล่างแสดงวิธีสร้างแผนภูมิกลับที่แสดงในภาพด้านบนในพรีเซนเทชัน PowerPoint:
 
 ```cpp
 #include <DOM/Chart/AxisPositionType.h>
@@ -1300,7 +1236,7 @@ static SharedPtr<IChart> CreateChartWithFirstSeries(SharedPtr<ISlide> slide)
 {
     auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 50, 50, 600, 400);
 
-    // ตั้งชื่อแผนภูมิ.
+    // ตั้งค่าชื่อแผนภูมิ.
     chart->set_HasTitle(true);
     chart->get_ChartTitle()->AddTextFrameForOverriding(u"Chart Title");
     chart->get_ChartTitle()->set_Overlay(false);
@@ -1309,24 +1245,24 @@ static SharedPtr<IChart> CreateChartWithFirstSeries(SharedPtr<ISlide> slide)
     titleFormat->set_FontBold(NullableBool::False);
     titleFormat->set_FontHeight(18.0);
 
-    // ตั้งค่าสัญลักษณ์อธิบายแผนภูมิ.
+    // ตั้งค่าตำนานของแผนภูมิ.
     chart->get_Legend()->set_Position(LegendPositionType::Bottom);
     chart->get_Legend()->get_TextFormat()->get_PortionFormat()->set_FontHeight(12.0);
 
-    // ลบซีรีส์และหมวดหมู่ที่สร้างโดยอัตโนมัติ.
+    // ลบ series และ category ที่สร้างโดยค่าเริ่มต้น.
     chart->get_ChartData()->get_Series()->Clear();
     chart->get_ChartData()->get_Categories()->Clear();
 
     const int worksheetIndex = 0;
     auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
 
-    // เพิ่มหมวดหมู่ใหม่.
+    // เพิ่ม category ใหม่.
     chart->get_ChartData()->get_Categories()->Add(workbook->GetCell(worksheetIndex, 1, 0, ObjectExt::Box<String>(u"Category 1")));
     chart->get_ChartData()->get_Categories()->Add(workbook->GetCell(worksheetIndex, 2, 0, ObjectExt::Box<String>(u"Category 2")));
     chart->get_ChartData()->get_Categories()->Add(workbook->GetCell(worksheetIndex, 3, 0, ObjectExt::Box<String>(u"Category 3")));
     chart->get_ChartData()->get_Categories()->Add(workbook->GetCell(worksheetIndex, 4, 0, ObjectExt::Box<String>(u"Category 4")));
 
-    // เพิ่มซีรีส์แรก.
+    // เพิ่ม series แรก.
     auto seriesNameCell = workbook->GetCell(worksheetIndex, 0, 1, ObjectExt::Box<String>(u"Series 1"));
     auto series = chart->get_ChartData()->get_Series()->Add(seriesNameCell, chart->get_Type());
 
@@ -1386,14 +1322,14 @@ static void SetAxisTitle(SharedPtr<IAxis> axis, String axisTitle)
 
 static void SetPrimaryAxesFormat(SharedPtr<IChart> chart)
 {
-    // ตั้งแกนนอน.
+    // ตั้งค่าแกนแนวนอน.
     auto horizontalAxis = chart->get_Axes()->get_HorizontalAxis();
     horizontalAxis->get_TextFormat()->get_PortionFormat()->set_FontHeight(12.0);
     horizontalAxis->get_Format()->get_Line()->get_FillFormat()->set_FillType(FillType::NoFill);
 
     SetAxisTitle(horizontalAxis, u"X Axis");
 
-    // ตั้งแกนตั้ง.
+    // ตั้งค่าแกนแนวตั้ง.
     auto verticalAxis = chart->get_Axes()->get_VerticalAxis();
     verticalAxis->get_TextFormat()->get_PortionFormat()->set_FontHeight(12.0);
     verticalAxis->get_Format()->get_Line()->get_FillFormat()->set_FillType(FillType::NoFill);
@@ -1408,7 +1344,7 @@ static void SetPrimaryAxesFormat(SharedPtr<IChart> chart)
 
 static void SetSecondaryAxesFormat(SharedPtr<IChart> chart)
 {
-    // ตั้งแกนนอนรอง.
+    // ตั้งค่าแกนแนวนอนรอง.
     auto secondaryHorizontalAxis = chart->get_Axes()->get_SecondaryHorizontalAxis();
     secondaryHorizontalAxis->set_Position(AxisPositionType::Bottom);
     secondaryHorizontalAxis->set_CrossType(CrossesType::Maximum);
@@ -1416,7 +1352,7 @@ static void SetSecondaryAxesFormat(SharedPtr<IChart> chart)
     secondaryHorizontalAxis->get_MajorGridLinesFormat()->get_Line()->get_FillFormat()->set_FillType(FillType::NoFill);
     secondaryHorizontalAxis->get_MinorGridLinesFormat()->get_Line()->get_FillFormat()->set_FillType(FillType::NoFill);
 
-    // ตั้งแกนตั้งรอง.
+    // ตั้งค่าแกนแนวตั้งรอง.
     auto secondaryVerticalAxis = chart->get_Axes()->get_SecondaryVerticalAxis();
     secondaryVerticalAxis->set_Position(AxisPositionType::Right);
     secondaryVerticalAxis->get_TextFormat()->get_PortionFormat()->set_FontHeight(12.0);
@@ -1447,13 +1383,13 @@ static void CreateComboChart()
 
 ## **อัปเดตแผนภูมิ**
 
-1. สร้างอ็อบเจ็กต์ [Presentation](https://reference.aspose.com/slides/th/cpp/class/aspose.slides.presentation) ที่เป็นตัวแทนของงานนำเสนอที่มีแผนภูมิ  
-2. รับอ้างอิงสไลด์ผ่านดัชนีของมัน  
-3. ท่องผ่านรูปทรงทั้งหมดเพื่อค้นหาแผนภูมิที่ต้องการ  
-4. เข้าถึง worksheet ของข้อมูลแผนภูมิ  
-5. แก้ไขข้อมูลซีรีส์ของแผนภูมิโดยเปลี่ยนค่าในซีรีส์  
-6. เพิ่มซีรีส์ใหม่และเติมข้อมูลลงในนั้น  
-7. บันทึกการนำเสนอที่แก้ไขเป็นไฟล์ PPTX  
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) ที่เป็นพรีเซนเทชันที่มีแผนภูมิอยู่  
+2. ดึงอ้างอิงของสไลด์ผ่านดัชนีของมัน  
+3. วนลูปผ่านทุก shape เพื่อค้นหาแผนภูมิที่ต้องการ  
+4. เข้าถึงแผ่นงานข้อมูลของแผนภูมิ  
+5. แก้ไขข้อมูล series ของแผนภูมิโดยเปลี่ยนค่าของ series  
+6. เพิ่ม series ใหม่และเติมข้อมูลในนั้น  
+7. บันทึกพรีเซนเทชันที่แก้ไขเป็นไฟล์ PPTX  
 
 โค้ด C++ นี้แสดงวิธีอัปเดตแผนภูมิ:
 
@@ -1475,75 +1411,77 @@ static void CreateComboChart()
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Charts;
 
-// สร้างอินสแตนซ์ของคลาส Presentation ที่เป็นไฟล์ PPTX
+// สร้างอินสแตนซ์ของคลาส Presentation ที่แทนไฟล์ PPTX
 System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"ExistingChart.pptx");
 
 // เข้าถึงสไลด์แรก
 System::SharedPtr<ISlide> sld = pres->get_Slides()->idx_get(0);
 
-// เพิ่มแผนภูมิกับข้อมูลเริ่มต้น
+// เพิ่มแผนภูมิด้วยข้อมูลเริ่มต้น
 System::SharedPtr<IChart> chart = System::ExplicitCast<Aspose::Slides::Charts::IChart>(sld->get_Shapes()->idx_get(0));
 
-// ตั้งดัชนีสำหรับแผ่นข้อมูลแผนภูมิ
+// ตั้งค่าดัชนีของแผ่นงานข้อมูลแผนภูมิ
 int32_t defaultWorksheetIndex = 0;
 
-// รับ worksheet ของข้อมูลแผนภูมิ
+// ดึงแผ่นงานข้อมูลของแผนภูมิ
 System::SharedPtr<IChartDataWorkbook> fact = chart->get_ChartData()->get_ChartDataWorkbook();
 
 
-// เปลี่ยนชื่อหมวดหมู่ของแผนภูมิ
+// เปลี่ยนชื่อ Category ของแผนภูมิ
 fact->GetCell(defaultWorksheetIndex, 1, 0, System::ObjectExt::Box<System::String>(u"Modified Category 1"));
 fact->GetCell(defaultWorksheetIndex, 2, 0, System::ObjectExt::Box<System::String>(u"Modified Category 2"));
 
-// ดึงซีรีส์แผนภูมิลำดับแรก
+// ดึง series แผนภูมิแรก
 System::SharedPtr<IChartSeries> series = chart->get_ChartData()->get_Series()->idx_get(0);
 
-// ปรับปรุงข้อมูลของซีรีส์
+// อัปเดตข้อมูล series
 fact->GetCell(defaultWorksheetIndex, 0, 1, System::ObjectExt::Box<System::String>(u"New_Series1"));
-// แก้ไขชื่อซีรีส์
+// แก้ไขชื่อ series
 series->get_DataPoints()->idx_get(0)->get_Value()->set_Data(System::ObjectExt::Box<int32_t>(90));
 series->get_DataPoints()->idx_get(1)->get_Value()->set_Data(System::ObjectExt::Box<int32_t>(123));
 series->get_DataPoints()->idx_get(2)->get_Value()->set_Data(System::ObjectExt::Box<int32_t>(44));
 
-// ดึงซีรีส์แผนภูมิลำดับที่สอง
+// ดึง series แผนภูมิที่สอง
 series = chart->get_ChartData()->get_Series()->idx_get(1);
 
-// กำลังอัปเดตข้อมูลของซีรีส์
+// กำลังอัปเดตข้อมูล series
 fact->GetCell(defaultWorksheetIndex, 0, 2, System::ObjectExt::Box<System::String>(u"New_Series2"));
-// แก้ไขชื่อซีรีส์
+// แก้ไขชื่อ series
 series->get_DataPoints()->idx_get(0)->get_Value()->set_Data(System::ObjectExt::Box<int32_t>(23));
 series->get_DataPoints()->idx_get(1)->get_Value()->set_Data(System::ObjectExt::Box<int32_t>(67));
 series->get_DataPoints()->idx_get(2)->get_Value()->set_Data(System::ObjectExt::Box<int32_t>(99));
 
 
-// ตอนนี้กำลังเพิ่มซีรีส์ใหม่
+// กำลังเพิ่ม series ใหม่
 chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 0, 3, System::ObjectExt::Box<System::String>(u"Series 3")), chart->get_Type());
 
-// ดึงซีรีส์แผนภูมอลำดับที่สาม
+// ดึง series แผนภูมิที่สาม
 series = chart->get_ChartData()->get_Series()->idx_get(2);
 
-// กำลังเติมข้อมูลให้ซีรีส์
+// กำลังเติมข้อมูลให้ series
 series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 1, 3, System::ObjectExt::Box<int32_t>(20)));
 series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 2, 3, System::ObjectExt::Box<int32_t>(50)));
 series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 3, 3, System::ObjectExt::Box<int32_t>(30)));
 
 chart->set_Type(Aspose::Slides::Charts::ChartType::ClusteredCylinder);
 
-// บันทึกงานนำเสนอพร้อมแผนภูมิ
+// บันทึกพรีเซนเทชันพร้อมแผนภูมิ
 pres->Save(u"AsposeChartModified_out.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-## **กำหนดช่วงข้อมูลสำหรับแผนภูมิ**
+## **ตั้งค่าช่วงข้อมูลสำหรับแผนภูมิ**
 
-1. เปิดอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/cpp/class/aspose.slides.presentation) ที่มีแผนภูมิอยู่  
-2. รับอ้างอิงสไลด์ผ่านดัชนีของมัน  
-3. ท่องผ่านรูปทรงทั้งหมดเพื่อค้นหาแผนภูมิที่ต้องการ  
-4. เข้าถึงข้อมูลแผนภูมิและตั้งค่าช่วงข้อมูล  
-5. บันทึกการนำเสนอที่แก้ไขเป็นไฟล์ PPTX  
+เพื่อดูช่วงข้อมูลที่ใช้โดยแผนภูมิที่มีอยู่แล้ว ให้ดูที่ [ดึงข้อมูลช่วงของแผนภูมิ](/slides/th/cpp/chart-workbook/#retrieve-a-charts-data-range)
 
-โค้ด C++ นี้แสดงวิธีกำหนดช่วงข้อมูลสำหรับแผนภูมิ:
+1. เปิดอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) ที่มีแผนภูมิอยู่  
+2. ดึงอ้างอิงของสไลด์ผ่านดัชนีของมัน  
+3. วนลูปผ่านทุก shape เพื่อค้นหาแผนภูมิที่ต้องการ  
+4. เข้าถึงข้อมูลแผนภูมิและกำหนดช่วงข้อมูล  
+5. บันทึกพรีเซนเทชันที่แก้ไขเป็นไฟล์ PPTX  
 
-```cpp
+โค้ด C++ นี้แสดงวิธีตั้งค่าช่วงข้อมูลสำหรับแผนภูมิ:
+
+``` cpp
 #include <DOM/Chart/IChartData.h>
 #include <DOM/IChart.h>
 #include <DOM/IShapeCollection.h>
@@ -1560,10 +1498,10 @@ using namespace System;
 // เส้นทางไปยังไดเรกทอรีเอกสาร.
 String dataDir = u"../documents/";
 
-// สร้างอินสแตนซ์ของคลาส Presentation ที่เป็นไฟล์ PPTX
+// สร้างอินสแตนซ์ของคลาส Presentation ที่แทนไฟล์ PPTX
 auto presentation = System::MakeObject<Presentation>(dataDir + u"ExistingChart.pptx");
 
-// เข้าถึงสไลด์แรกและเพิ่มแผนภูมิกับข้อมูลเริ่มต้น
+// เข้าถึง slideMarker แรกและเพิ่มแผนภูมิด้วยข้อมูลเริ่มต้น
 auto slide = presentation->get_Slides()->idx_get(0);
 auto chart = System::ExplicitCast<IChart>(slide->get_Shapes()->idx_get(0));
 chart->get_ChartData()->SetRange(u"Sheet1!A1:B4");
@@ -1571,9 +1509,9 @@ presentation->Save(dataDir + u"SetDataRange_out.pptx", SaveFormat::Pptx);
 ```
 
 ## **ใช้เครื่องหมายเริ่มต้นในแผนภูมิ**
-เมื่อคุณใช้เครื่องหมายเริ่มต้นในแผนภูมิแต่ละซีรีส์จะได้รับสัญลักษณ์เครื่องหมายเริ่มต้นที่แตกต่างกันโดยอัตโนมัติ
+เมื่อคุณใช้เครื่องหมายเริ่มต้นในแผนภูมิแต่ละ series จะได้รับสัญลักษณ์เครื่องหมายเริ่มต้นที่แตกต่างกันโดยอัตโนมัติ  
 
-โค้ด C++ นี้แสดงวิธีตั้งค่าเครื่องหมายซีรีส์ของแผนภูมิโดยอัตโนมัติ:
+โค้ด C++ นี้แสดงวิธีตั้งค่าเครื่องหมาย series ของแผนภูมิโดยอัตโนมัติ:
 
 ``` cpp
 #include <DOM/Chart/ChartType.h>
@@ -1623,10 +1561,10 @@ series->get_DataPoints()->AddDataPointForLineSeries(wb->GetCell(0, 4, 1, nullptr
 
 chart->get_ChartData()->get_Series()->Add(wb->GetCell(0, 0, 2, ObjectExt::Box<String>(u"Series 2")), chart->get_Type());
 
-// ดึงซีรีส์แผนภูมิที่สอง
+// ดึง series แผนภูมิที่สอง
 auto series2 = chart->get_ChartData()->get_Series()->idx_get(1);
 
-// เติมข้อมูลให้ซีรีส์
+// เติมข้อมูลให้ series
 series2->get_DataPoints()->AddDataPointForLineSeries(wb->GetCell(0, 1, 2, ObjectExt::Box<int32_t>(30)));
 series2->get_DataPoints()->AddDataPointForLineSeries(wb->GetCell(0, 2, 2, ObjectExt::Box<int32_t>(10)));
 series2->get_DataPoints()->AddDataPointForLineSeries(wb->GetCell(0, 3, 2, ObjectExt::Box<int32_t>(60)));
@@ -1640,18 +1578,18 @@ pres->Save(dataDir + u"DefaultMarkersInChart.pptx", SaveFormat::Pptx);
 
 ## **คำถามที่พบบ่อย**
 
-**แผนภูมิประเภทใดบ้างที่ Aspose.Slides รองรับ?**
+**ประเภทแผนภูมิที่ Aspose.Slides สนับสนุนมีอะไรบ้าง?**
 
-Aspose.Slides รองรับแผนภูมิมากมาย รวมถึงบาร์, เส้น, วงกลม, พื้นที่, กระจาย, histogram, radar และอื่น ๆ อีกหลายประเภท ความยืดหยุ่นนี้ทำให้คุณเลือกประเภทแผนภูมิที่เหมาะสมกับการแสดงผลข้อมูลของคุณได้
+Aspose.Slides รองรับแผนภูมิมากมาย ได้แก่ แผนภูมิบาร์, เส้น, วัฏจักร, พื้นที่, กระจาย, ฮิสโทแกรม, เรดาร์ และอื่น ๆ อีกหลายประเภท ความยืดหยุ่นนี้ทำให้คุณเลือกประเภทแผนภูมิที่เหมาะสมกับการแสดงผลข้อมูลของคุณได้
 
 **ฉันจะเพิ่มแผนภูมิใหม่ลงในสไลด์อย่างไร?**
 
-เพื่อเพิ่มแผนภูมิ คุณต้องสร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/cpp/aspose.slides/presentation/) แล้วเรียกดูสไลด์ที่ต้องการโดยใช้ดัชนี จากนั้นเรียกเมธอดเพื่อเพิ่มแผนภูมิ พร้อมระบุประเภทแผนภูมิและข้อมูลเริ่มต้น กระบวนการนี้จะทำให้แผนภูมิเชื่อมต่อโดยตรงกับงานนำเสนอของคุณ
+เพื่อเพิ่มแผนภูมิ คุณต้องสร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) จากนั้นดึงสไลด์ที่ต้องการโดยใช้ดัชนี และเรียกเมธอดเพิ่มแผนภูมิ โดยระบุประเภทแผนภูมิและข้อมูลเริ่มต้น กระบวนการนี้จะฝังแผนภูมิโดยตรงเข้าไปในพรีเซนเทชันของคุณ
 
-**ฉันจะอัปเดตข้อมูลที่แสดงในแผนภูมิได้อย่างไร?**
+**ฉันสามารถอัปเดตข้อมูลที่แสดงในแผนภูมิได้หรือไม่?**
 
-คุณสามารถอัปเดตข้อมูลของแผนภูมิได้โดยเข้าถึง workbook ของข้อมูล (`IChartDataWorkbook`), ลบซีรีส์และหมวดหมู่เริ่มต้นที่มีอยู่, แล้วเพิ่มข้อมูลของคุณเอง วิธีนี้ช่วยให้คุณรีเฟรชแผนภูมิโปรแกรมเมติกให้แสดงข้อมูลล่าสุดได้
+คุณสามารถอัปเดตข้อมูลของแผนภูมิได้โดยเข้าถึง workbook ของข้อมูลแผนภูมิ ([IChartDataWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/)) ลบ series และ category เริ่มต้นใด ๆ แล้วเพิ่มข้อมูลที่กำหนดเองของคุณ ซึ่งทำให้คุณรีเฟรชแผนภูมิเพื่อแสดงข้อมูลล่าสุดได้อย่างอัตโนมัติ
 
-**สามารถปรับแต่งรูปลักษณ์ของแผนภูมิได้หรือไม่?**
+**สามารถปรับแต่งรูปแบบของแผนภูมิได้หรือไม่?**
 
-ได้, Aspose.Slides มีตัวเลือกการปรับแต่งอย่างกว้างขวาง คุณสามารถแก้ไขสี, ฟอนต์, ป้ายกำกับ, คำอธิบายและองค์ประกอบการจัดรูปแบบอื่น ๆ เพื่อให้แผนภูมิตรงกับความต้องการออกแบบของคุณอย่างเฉพาะเจาะจง
+ได้, Aspose.Slides มีตัวเลือกการปรับแต่งที่หลากหลาย คุณสามารถแก้ไขสี, ฟอนต์, ป้ายชื่อ, คำอธิบาย, และองค์ประกอบการจัดรูปแบบอื่น ๆ เพื่อให้ลักษณะของแผนภูมิตรงตามความต้องการออกแบบของคุณ

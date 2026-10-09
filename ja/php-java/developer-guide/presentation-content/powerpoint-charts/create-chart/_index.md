@@ -25,52 +25,48 @@ keywords:
 - プレゼンテーション
 - PHP
 - Aspose.Slides
-description: "Aspose.Slides for PHP via Java を使用して PowerPoint プレゼンテーションのチャートを作成・カスタマイズします。実用的なコード例でチャートの追加、書式設定、編集が可能です。"
+description: "Aspose.Slides for PHP via Java を使用して PowerPoint プレゼンテーションのチャートを作成およびカスタマイズします。実用的なコード例とともに、チャートの追加、書式設定、編集が可能です。"
 ---
 ## **概要**
 
-この記事では、Aspose.Slides を使用してチャートを作成およびカスタマイズする方法について包括的なガイドを提供します。スライドにプログラムでチャートを追加し、データを設定し、特定のデザイン要件に合わせてさまざまな書式設定オプションを適用する方法を学びます。記事全体で、プレゼンテーションとチャート オブジェクトの初期化からシリーズ、軸、凡例の構成まで、各手順を示す詳細なコード例が示されています。このガイドに従うことで、動的なチャート生成をアプリケーションに統合し、データ主導のプレゼンテーション作成プロセスを効率化する方法を確実に理解できます。
+本記事は、Aspose.Slides を使用してチャートを作成およびカスタマイズするための包括的なガイドを提供します。スライドにプログラムでチャートを追加し、データを設定し、特定のデザイン要件に合わせてさまざまな書式オプションを適用する方法を学びます。記事全体で、プレゼンテーションとチャートオブジェクトの初期化からシリーズ、軸、凡例の構成まで、各ステップを示す詳細なコード例が示されています。このガイドに従うことで、アプリケーションに動的チャート生成を統合するための確固たる理解が得られ、データ駆動型プレゼンテーションの作成プロセスが効率化されます。
 
 ## **チャートの作成**
 
-チャートは、データを迅速に視覚化し、表やスプレッドシートからはすぐにはわからない洞察を得るのに役立ちます。
+チャートは、人々がデータをすばやく可視化し、表やスプレッドシートからはすぐに分からない洞察を得るのに役立ちます。
 
-**チャートを作成する理由**
+**なぜチャートを作成するのか？**
 
-チャートを使用すると、次のことが可能です。
+* プレゼンテーションの単一スライド上に大量のデータを集約、圧縮、または要約する  
+* データのパターンやトレンドを明らかにする  
+* 時間の経過や特定の測定単位に対するデータの方向性と勢いを推測する  
+* 外れ値、異常、偏差、エラー、意味のないデータなどを検出する  
+* 複雑なデータを伝達または提示する  
 
-* プレゼンテーションの 1 つのスライドに大量のデータを集約、要約、またはまとめる
-* データのパターンや傾向を明らかにする
-* 時間の経過や特定の測定単位に対するデータの方向性と勢いを推測する
-* 異常値、偏差、エラー、意味のないデータなどを発見する
-* 複雑なデータを伝達または提示する
-
-PowerPoint では、*挿入* 機能を使用して多数のチャート テンプレートからデザインできます。Aspose.Slides を使用すれば、一般的なチャート タイプに基づく通常のチャートとカスタム チャートの両方を作成できます。
+PowerPoint では、*挿入* 機能を使ってチャートを作成でき、多くの種類のチャートを設計するためのテンプレートが提供されています。Aspose.Slides を使用すると、一般的なチャートタイプに基づく標準チャートとカスタムチャートの両方を作成できます。
 
 {{% alert color="info" title="Note" %}}
-チャートを作成するには、[ChartType](https://reference.aspose.com/slides/ja/php-java/aspose.slides/charttype/) クラスを使用します。このクラスのフィールドはさまざまなチャート タイプに対応しています。
+チャートを作成するには、[ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/) クラスを使用します。このクラスのフィールドはさまざまなチャートタイプに対応しています。
 {{% /alert %}}
 
-### **クラスター化縦棒グラフの作成**
+### **クラスター縦棒チャートの作成**
 
-このセクションでは、Aspose.Slides を使用してクラスター化縦棒グラフを作成する方法を説明します。プレゼンテーションの初期化、チャートの追加、タイトル、データ、シリーズ、カテゴリ、スタイリングなどの要素のカスタマイズ方法を学びます。以下の手順に従って、標準的なクラスター化縦棒グラフがどのように生成されるかをご確認ください。
+このセクションでは、Aspose.Slides を使用してクラスター縦棒チャートを作成する方法を説明します。プレゼンテーションの初期化、チャートの追加、タイトル、データ、シリーズ、カテゴリ、スタイリングなどの要素のカスタマイズ方法を学びます。以下の手順に従って、標準的なクラスター縦棒チャートがどのように生成されるかをご確認ください：
 
-1. [Presentation](https://reference.aspose.com/slides/ja/php-java/aspose.slides/presentation) クラスのインスタンスを作成します。
+1. [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) クラスのインスタンスを作成します。
 1. インデックスを使用してスライドへの参照を取得します。
 1. データを含むチャートを追加し、`ChartType::ClusteredColumn` タイプを指定します。
 1. チャートにタイトルを追加します。
 1. チャートのデータ ワークシートにアクセスします。
-1. 既定のシリーズおよびカテゴリをすべてクリアします。
+1. 既定のシリーズとカテゴリをすべてクリアします。
 1. 新しいシリーズとカテゴリを追加します。
-1. チャート シリーズ用の新しいデータを追加します。
-1. チャート シリーズに塗りつぶし色を適用します。
-1. チャート シリーズにラベルを追加します。
-1. 変更されたプレゼンテーションを PPTX ファイルとして保存します。
-
-この C# コードは、クラスター化縦棒グラフの作成方法を示しています:
+1. チャートシリーズの新しいデータを追加します。
+1. チャートシリーズに塗りつぶし色を適用します。
+1. チャートシリーズにラベルを追加します。
+1. 変更したプレゼンテーションを PPTX ファイルとして保存します。
 
 ```php
-  # PPTX ファイルを表すプレゼンテーション クラスのインスタンスを作成します
+  # PPTX ファイルを表すプレゼンテーション クラスをインスタンス化します
   $pres = new Presentation();
   try {
     # 最初のスライドにアクセスします
@@ -82,43 +78,43 @@ PowerPoint では、*挿入* 機能を使用して多数のチャート テン�
     $chart->getChartTitle()->getTextFrameForOverriding()->getTextFrameFormat()->setCenterText(NullableBool::True);
     $chart->getChartTitle()->setHeight(20);
     $chart->hasTitle();
-    # 最初のシリーズに値を表示するよう設定します
+    # 最初の系列に値を表示するよう設定します
     $chart->getChartData()->getSeries()->get_Item(0)->getLabels()->getDefaultDataLabelFormat()->setShowValue(true);
     # チャート データ シートのインデックスを設定します
     $defaultWorksheetIndex = 0;
     # チャート データ ワークシートを取得します
     $fact = $chart->getChartData()->getChartDataWorkbook();
-    # デフォルトで生成されたシリーズとカテゴリを削除します
+    # デフォルトで生成された系列とカテゴリを削除します
     $chart->getChartData()->getSeries()->clear();
     $chart->getChartData()->getCategories()->clear();
     $s = $chart->getChartData()->getSeries()->size();
     $s = $chart->getChartData()->getCategories()->size();
-    # 新しいシリーズを追加します
+    # 新しい系列を追加します
     $chart->getChartData()->getSeries()->add($fact->getCell($defaultWorksheetIndex, 0, 1, "Series 1"), $chart->getType());
     $chart->getChartData()->getSeries()->add($fact->getCell($defaultWorksheetIndex, 0, 2, "Series 2"), $chart->getType());
     # 新しいカテゴリを追加します
     $chart->getChartData()->getCategories()->add($fact->getCell($defaultWorksheetIndex, 1, 0, "Caetegoty 1"));
     $chart->getChartData()->getCategories()->add($fact->getCell($defaultWorksheetIndex, 2, 0, "Caetegoty 2"));
     $chart->getChartData()->getCategories()->add($fact->getCell($defaultWorksheetIndex, 3, 0, "Caetegoty 3"));
-    # 最初のチャートシリーズを取得します
+    # 最初のチャート系列を取得します
     $series = $chart->getChartData()->getSeries()->get_Item(0);
-    # シリーズ データを設定します
+    # 系列データを今から設定します
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 1, 1, 20));
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 2, 1, 50));
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 3, 1, 30));
-    # シリーズの塗りつぶし色を設定します
+    # 系列の塗りつぶし色を設定します
     $series->getFormat()->getFill()->setFillType(FillType::Solid);
     $series->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-    # 2 番目のチャートシリーズを取得します
+    # 2 番目のチャート系列を取得します
     $series = $chart->getChartData()->getSeries()->get_Item(1);
-    # シリーズ データを設定します
+    # 系列データを設定します
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 1, 2, 30));
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 2, 2, 10));
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 3, 2, 60));
-    # シリーズの塗りつぶし色を設定します
+    # 系列の塗りつぶし色を設定します
     $series->getFormat()->getFill()->setFillType(FillType::Solid);
     $series->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->GREEN);
-    # 新しいシリーズの各カテゴリにカスタム ラベルを作成します
+    # 新しい系列の各カテゴリにカスタム ラベルを作成します
     # 最初のラベルにカテゴリ名を表示するよう設定します
     $lbl = $series->getDataPoints()->get_Item(0)->getLabel();
     $lbl->getDataLabelFormat()->setShowCategoryName(true);
@@ -129,7 +125,7 @@ PowerPoint では、*挿入* 機能を使用して多数のチャート テン�
     $lbl->getDataLabelFormat()->setShowValue(true);
     $lbl->getDataLabelFormat()->setShowSeriesName(true);
     $lbl->getDataLabelFormat()->setSeparator("/");
-    # チャート付きでプレゼンテーションを保存します
+    # チャート付きのプレゼンテーションを保存します
     $pres->save("output.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -140,64 +136,63 @@ PowerPoint では、*挿入* 機能を使用して多数のチャート テン�
 
 ### **散布図の作成**
 
-散布図（散布プロットまたは x‑y グラフとも呼ばれます）は、2 つの変数間のパターンや相関関係を確認する際に使用されます。
+散布図（散布プロットや x-y グラフとも呼ばれます）は、2 つの変数間のパターンを確認したり、相関関係を示したりする際に頻繁に使用されます。
 
-散布図を使用するシナリオ:
+散布図を使用するのは次の場合です：
 
-* ペアになった数値データがある場合
-* 2 つの変数が相互に適合する場合
+* 数値データがペアになっている場合
+* 相性の良い 2 つの変数がある場合
 * 2 つの変数が関連しているかどうかを判断したい場合
 * 従属変数に対して複数の値を持つ独立変数がある場合
 
-1. [クラスター化縦棒グラフの作成](#create-clustered-column-charts) の手順に従います。
-2. 3 番目の手順で、データを含むチャートを追加し、次のいずれかのチャート タイプを指定します:
-   1. [ChartType::ScatterWithMarkers](https://reference.aspose.com/slides/ja/php-java/aspose.slides/charttype/#ScatterWithMarkers) - _散布図を表します。_
-   2. [ChartType::ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/ja/php-java/aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - _曲線で結ばれ、データ マーカーを持つ散布図を表します。_
-   3. [ChartType::ScatterWithSmoothLines](https://reference.aspose.com/slides/ja/php-java/aspose.slides/charttype/#ScatterWithSmoothLines) - _曲線で結ばれ、データ マーカーのない散布図を表します。_
-   4. [ChartType::ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/ja/php-java/aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _直線で結ばれ、データ マーカーを持つ散布図を表します。_
-   5. [ChartType::ScatterWithStraightLines](https://reference.aspose.com/slides/ja/php-java/aspose.slides/charttype/#ScatterWithStraightLines) - _直線で結ばれ、データ マーカーのない散布図を表します。_
+1. [クラスター縦棒チャートの作成](#create-clustered-column-charts) の手順に従います。
+2. 3 番目の手順では、データを含むチャートを追加し、以下のいずれかのチャートタイプを指定します：
 
-この PHP コードは、各シリーズに異なるマーカーを使用した散布図の作成方法を示しています:
+   1. [ChartType::ScatterWithMarkers](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#ScatterWithMarkers) - _散布図を表します。_
+   2. [ChartType::ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - _曲線で接続された散布図で、データ マーカー付きです。_
+   3. [ChartType::ScatterWithSmoothLines](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#ScatterWithSmoothLines) - _曲線で接続された散布図で、データ マーカーなしです。_
+   4. [ChartType::ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _直線で接続された散布図で、データ マーカー付きです。_
+   5. [ChartType::ScatterWithStraightLines](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#ScatterWithStraightLines) - _直線で接続された散布図で、データ マーカーなしです。_
 
 ```php
-  # PPTX ファイルを表すプレゼンテーション クラスのインスタンスを作成します
+  # PPTX ファイルを表すプレゼンテーション クラスをインスタンス化します
   $pres = new Presentation();
   try {
     # 最初のスライドにアクセスします
     $slide = $pres->getSlides()->get_Item(0);
     # デフォルトのチャートを作成します
     $chart = $slide->getShapes()->addChart(ChartType::ScatterWithSmoothLines, 0, 0, 400, 400);
-    # デフォルトのチャート データ ワークシートのインデックスを取得します
+    # デフォルトのチャート データ ワークシート インデックスを取得します
     $defaultWorksheetIndex = 0;
     # チャート データ ワークシートを取得します
     $fact = $chart->getChartData()->getChartDataWorkbook();
-    # デモシリーズを削除します
+    # デモ系列を削除します
     $chart->getChartData()->getSeries()->clear();
-    # 新しいシリーズを追加します
+    # 新しい系列を追加します
     $chart->getChartData()->getSeries()->add($fact->getCell($defaultWorksheetIndex, 1, 1, "Series 1"), $chart->getType());
     $chart->getChartData()->getSeries()->add($fact->getCell($defaultWorksheetIndex, 1, 3, "Series 2"), $chart->getType());
-    # 最初のチャートシリーズを取得します
+    # 最初のチャート系列を取得します
     $series = $chart->getChartData()->getSeries()->get_Item(0);
-    # シリーズに新しい点 (1:3) を追加します
+    # 系列に新しいポイント (1:3) を追加します
     $series->getDataPoints()->addDataPointForScatterSeries($fact->getCell($defaultWorksheetIndex, 2, 1, 1), $fact->getCell($defaultWorksheetIndex, 2, 2, 3));
-    # 新しい点 (2:10) を追加します
+    # 新しいポイント (2:10) を追加します
     $series->getDataPoints()->addDataPointForScatterSeries($fact->getCell($defaultWorksheetIndex, 3, 1, 2), $fact->getCell($defaultWorksheetIndex, 3, 2, 10));
-    # シリーズのタイプを変更します
+    # 系列のタイプを変更します
     $series->setType(ChartType::ScatterWithStraightLinesAndMarkers);
-    # チャートシリーズのマーカーを変更します
+    # チャート 系列のマーカーを変更します
     $series->getMarker()->setSize(10);
     $series->getMarker()->setSymbol(MarkerStyleType::Star);
-    # 2 番目のチャートシリーズを取得します
+    # 2 番目のチャート系列を取得します
     $series = $chart->getChartData()->getSeries()->get_Item(1);
-    # そこに新しい点 (5:2) を追加します
+    # そこに新しいポイント (5:2) を追加します
     $series->getDataPoints()->addDataPointForScatterSeries($fact->getCell($defaultWorksheetIndex, 2, 3, 5), $fact->getCell($defaultWorksheetIndex, 2, 4, 2));
-    # 新しい点 (3:1) を追加します
+    # 新しいポイント (3:1) を追加します
     $series->getDataPoints()->addDataPointForScatterSeries($fact->getCell($defaultWorksheetIndex, 3, 3, 3), $fact->getCell($defaultWorksheetIndex, 3, 4, 1));
-    # 新しい点 (2:2) を追加します
+    # 新しいポイント (2:2) を追加します
     $series->getDataPoints()->addDataPointForScatterSeries($fact->getCell($defaultWorksheetIndex, 4, 3, 2), $fact->getCell($defaultWorksheetIndex, 4, 4, 2));
-    # 新しい点 (5:1) を追加します
+    # 新しいポイント (5:1) を追加します
     $series->getDataPoints()->addDataPointForScatterSeries($fact->getCell($defaultWorksheetIndex, 5, 3, 5), $fact->getCell($defaultWorksheetIndex, 5, 4, 1));
-    # チャートシリーズのマーカーを変更します
+    # チャート 系列のマーカーを変更します
     $series->getMarker()->setSize(10);
     $series->getMarker()->setSymbol(MarkerStyleType::Circle);
     $pres->save("AsposeChart_out.pptx", SaveFormat::Pptx);
@@ -210,25 +205,23 @@ PowerPoint では、*挿入* 機能を使用して多数のチャート テン�
 
 ### **円グラフの作成**
 
-円グラフは、特にカテゴリ ラベルと数値が含まれるデータにおいて、全体に対する各部分の比率を示すのに最適です。ただし、パーツやラベルが多数ある場合は、棒グラフの使用を検討してください。
+円グラフは、データの全体に対する部分の関係を示すのに最適で、特にカテゴリラベルと数値がある場合に有用です。ただし、データに多数の部分やラベルが含まれる場合は、棒グラフの使用を検討してください。
 
-1. [Presentation](https://reference.aspose.com/slides/ja/php-java/aspose.slides/presentation/) クラスのインスタンスを作成します。
+1. [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) クラスのインスタンスを作成します。
 2. インデックスを使用してスライドへの参照を取得します。
-3. デフォルト データを持つチャートを追加し、[ChartType::Pie](https://reference.aspose.com/slides/ja/php-java/aspose.slides/charttype/#Pie) タイプを指定します。
-4. チャート データ ワークブック [ChartDataWorkbook](https://reference.aspose.com/slides/ja/php-java/aspose.slides/chartdataworkbook/) にアクセスします。
+3. デフォルト データでチャートを追加し、[ChartType::Pie](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#Pie) タイプを指定します。
+4. チャート データ ワークブック [ChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/) にアクセスします。
 5. 既定のシリーズとカテゴリをクリアします。
 6. 新しいシリーズとカテゴリを追加します。
-7. チャート シリーズ用の新しいデータを追加します。
-8. 円グラフのセクタにカスタム カラーを適用しながら新しいポイントを追加します。
+7. チャートシリーズの新しいデータを追加します。
+8. チャートに新しいポイントを追加し、円グラフのセクターにカスタムカラーを適用します。
 9. シリーズのラベルを設定します。
-10. ラベルにリーダー ラインを有効にします。
-11. 円グラフセクタの回転角度を設定します。
-12. 変更されたプレゼンテーションを PPTX ファイルとして保存します。
-
-この PHP コードは、円グラフの作成方法を示しています:
+10. シリーズ ラベルにリーダーラインを有効にします。
+11. 円グラフのセクターの回転角度を設定します。
+12. 変更したプレゼンテーションを PPTX ファイルとして保存します。
 
 ```php
-  # PPTX ファイルを表すプレゼンテーション クラスのインスタンスを作成します
+  # PPTX ファイルを表すプレゼンテーション クラスをインスタンス化します
   $pres = new Presentation();
   try {
     # 最初のスライドにアクセスします
@@ -240,33 +233,33 @@ PowerPoint では、*挿入* 機能を使用して多数のチャート テン�
     $chart->getChartTitle()->getTextFrameForOverriding()->getTextFrameFormat()->setCenterText(NullableBool::True);
     $chart->getChartTitle()->setHeight(20);
     $chart->setTitle(true);
-    # 最初のシリーズに値を表示するよう設定します
+    # 最初の系列に値を表示するよう設定します
     $chart->getChartData()->getSeries()->get_Item(0)->getLabels()->getDefaultDataLabelFormat()->setShowValue(true);
     # チャート データ シートのインデックスを設定します
     $defaultWorksheetIndex = 0;
     # チャート データ ワークシートを取得します
     $fact = $chart->getChartData()->getChartDataWorkbook();
-    # デフォルトで生成されたシリーズとカテゴリを削除します
+    # デフォルトで生成された系列とカテゴリを削除します
     $chart->getChartData()->getSeries()->clear();
     $chart->getChartData()->getCategories()->clear();
     # 新しいカテゴリを追加します
     $chart->getChartData()->getCategories()->add($fact->getCell(0, 1, 0, "First Qtr"));
     $chart->getChartData()->getCategories()->add($fact->getCell(0, 2, 0, "2nd Qtr"));
     $chart->getChartData()->getCategories()->add($fact->getCell(0, 3, 0, "3rd Qtr"));
-    # 新しいシリーズを追加します
+    # 新しい系列を追加します
     $series = $chart->getChartData()->getSeries()->add($fact->getCell(0, 0, 1, "Series 1"), $chart->getType());
-    # シリーズ データを設定します
+    # 系列データを設定します
     $series->getDataPoints()->addDataPointForPieSeries($fact->getCell($defaultWorksheetIndex, 1, 1, 20));
     $series->getDataPoints()->addDataPointForPieSeries($fact->getCell($defaultWorksheetIndex, 2, 1, 50));
     $series->getDataPoints()->addDataPointForPieSeries($fact->getCell($defaultWorksheetIndex, 3, 1, 30));
-    # 新しいバージョンでは動作しません
-    # 新しいポイントを追加し、セクタの色を設定します
+    # 新バージョンでは機能しません
+    # 新しいポイントを追加し、セクターの色を設定します
     # series.IsColorVaried = true;
     $chart->getChartData()->getSeriesGroups()->get_Item(0)->setColorVaried(true);
     $point = $series->getDataPoints()->get_Item(0);
     $point->getFormat()->getFill()->setFillType(FillType::Solid);
     $point->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->CYAN);
-    # セクタの枠線を設定します
+    # セクターの境界線を設定します
     $point->getFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
     $point->getFormat()->getLine()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->GRAY);
     $point->getFormat()->getLine()->setWidth(3.0);
@@ -275,7 +268,7 @@ PowerPoint では、*挿入* 機能を使用して多数のチャート テン�
     $point1 = $series->getDataPoints()->get_Item(1);
     $point1->getFormat()->getFill()->setFillType(FillType::Solid);
     $point1->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->ORANGE);
-    # セクタの枠線を設定します
+    # セクターの境界線を設定します
     $point1->getFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
     $point1->getFormat()->getLine()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
     $point1->getFormat()->getLine()->setWidth(3.0);
@@ -284,13 +277,13 @@ PowerPoint では、*挿入* 機能を使用して多数のチャート テン�
     $point2 = $series->getDataPoints()->get_Item(2);
     $point2->getFormat()->getFill()->setFillType(FillType::Solid);
     $point2->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->YELLOW);
-    # セクタの枠線を設定します
+    # セクターの境界線を設定します
     $point2->getFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
     $point2->getFormat()->getLine()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
     $point2->getFormat()->getLine()->setWidth(2.0);
     $point2->getFormat()->getLine()->setStyle(LineStyle->ThinThin);
     $point2->getFormat()->getLine()->setDashStyle(LineDashStyle->LargeDashDotDot);
-    # 新しいシリーズの各カテゴリにカスタム ラベルを作成します
+    # 新しい系列の各カテゴリにカスタム ラベルを作成します
     $lbl1 = $series->getDataPoints()->get_Item(0)->getLabel();
     # lbl.ShowCategoryName = true;
     $lbl1->getDataLabelFormat()->setShowValue(true);
@@ -303,9 +296,9 @@ PowerPoint では、*挿入* 機能を使用して多数のチャート テン�
     $lbl3->getDataLabelFormat()->setShowPercentage(true);
     # チャートのリーダー ラインを表示します
     $series->getLabels()->getDefaultDataLabelFormat()->setShowLeaderLines(true);
-    # 円グラフ セクタの回転角度を設定します
+    # 円グラフのセクターの回転角度を設定します
     $chart->getChartData()->getSeriesGroups()->get_Item(0)->setFirstSliceAngle(180);
-    # チャート付きでプレゼンテーションを保存します
+    # チャート付きのプレゼンテーションを保存します
     $pres->save("PieChart_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -316,18 +309,16 @@ PowerPoint では、*挿入* 機能を使用して多数のチャート テン�
 
 ### **折れ線グラフの作成**
 
-折れ線グラフ（折れ線チャート）は、時間の経過に伴う値の変化を示すのに最適です。折れ線グラフを使用すると、大量のデータを一度に比較したり、時間経過による変化やトレンドを追跡したり、データ シリーズの異常を強調したりできます。
+折れ線グラフ（ライングラフとも呼ばれます）は、時間経過に伴う値の変化を示したい場合に最適です。折れ線グラフを使用すると、膨大なデータを一度に比較し、時間経過による変化やトレンドを追跡し、データ系列の異常を強調表示するなどが可能です。
 
-1. [Presentation](https://reference.aspose.com/slides/ja/php-java/aspose.slides/presentation/) クラスのインスタンスを作成します。
+1. [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) クラスのインスタンスを作成します。
 1. インデックスを使用してスライドへの参照を取得します。
-1. デフォルト データを持つチャートを追加し、[ChartType::Line](https://reference.aspose.com/slides/ja/php-java/aspose.slides/charttype/#Line) タイプを指定します。
-1. チャート データ ワークブック ([ChartDataWorkbook](https://reference.aspose.com/slides/ja/php-java/aspose.slides/chartdataworkbook/)) にアクセスします。
+1. デフォルト データでチャートを追加し、[ChartType::Line](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#Line) タイプを指定します。
+1. チャート データ ワークブック ([ChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/)) にアクセスします。
 1. 既定のシリーズとカテゴリをクリアします。
 1. 新しいシリーズとカテゴリを追加します。
-1. チャート シリーズ用の新しいデータを追加します。
-1. 変更されたプレゼンテーションを PPTX ファイルとして保存します。
-
-この PHP コードは、折れ線グラフの作成方法を示しています:
+1. チャートシリーズの新しいデータを追加します。
+1. 変更したプレゼンテーションを PPTX ファイルとして保存します。
 
 ```php
   $pres = new Presentation();
@@ -341,7 +332,7 @@ PowerPoint では、*挿入* 機能を使用して多数のチャート テン�
   }
 ```
 
-デフォルトでは、折れ線グラフのポイントは直線で連結されます。ポイントを破線で結びたい場合は、以下のように希望の破線タイプを指定できます:
+デフォルトでは、折れ線グラフのポイントは直線で連結されます。ポイントを破線で結びたい場合は、以下のように希望の破線タイプを指定できます：
 
 ```php
   $pres = new Presentation();
@@ -359,20 +350,18 @@ PowerPoint では、*挿入* 機能を使用して多数のチャート テン�
   }
 ```
 
-### **ツリーマップ グラフの作成**
+### **ツリーマップチャートの作成**
 
-ツリーマップ グラフは、売上データで各カテゴリ内の大きな貢献項目に注目しながら、データ カテゴリの相対的なサイズを示すのに最適です。
+ツリーマップチャートは、データカテゴリの相対的なサイズを示し、各カテゴリ内で大きく貢献している項目にすばやく注目させたい売上データに最適です。
 
-1. [Presentation](https://reference.aspose.com/slides/ja/php-java/aspose.slides/presentation/) クラスのインスタンスを作成します。
+1. [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) クラスのインスタンスを作成します。
 2. インデックスを使用してスライドへの参照を取得します。
-3. デフォルト データを持つチャートを追加し、[ChartType::Treemap](https://reference.aspose.com/slides/ja/php-java/aspose.slides/charttype/#Treemap) タイプを指定します。
-4. チャート データ ワークブック [ChartDataWorkbook](https://reference.aspose.com/slides/ja/php-java/aspose.slides/chartdataworkbook/) にアクセスします。
+3. デフォルト データでチャートを追加し、[ChartType::Treemap](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#Treemap) タイプを指定します。
+4. チャート データ ワークブック [ChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/) にアクセスします。
 5. 既定のシリーズとカテゴリをクリアします。
 6. 新しいシリーズとカテゴリを追加します。
-7. チャート シリーズ用の新しいデータを追加します。
-8. 変更されたプレゼンテーションを PPTX ファイルとして保存します。
-
-この PHP コードは、ツリーマップ グラフの作成方法を示しています:
+7. チャートシリーズの新しいデータを追加します。
+8. 変更したプレゼンテーションを PPTX ファイルとして保存します。
 
 ```php
   $pres = new Presentation();
@@ -417,19 +406,17 @@ PowerPoint では、*挿入* 機能を使用して多数のチャート テン�
   }
 ```
 
-### **株価グラフの作成**
+### **株価チャートの作成**
 
-1. [Presentation](https://reference.aspose.com/slides/ja/php-java/aspose.slides/presentation/) クラスのインスタンスを作成します。
+1. [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) クラスのインスタンスを作成します。
 2. インデックスを使用してスライドへの参照を取得します。
-3. デフォルト データを持つチャートを追加し、[ChartType::OpenHighLowClose](https://reference.aspose.com/slides/ja/php-java/aspose.slides/charttype/#OpenHighLowClose) タイプを指定します。
-4. チャート データ ワークブック [ChartDataWorkbook](https://reference.aspose.com/slides/ja/php-java/aspose.slides/chartdataworkbook/) にアクセスします。
+3. デフォルト データでチャートを追加し、[ChartType::OpenHighLowClose](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#OpenHighLowClose) タイプを指定します。
+4. チャート データ ワークブック [ChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/) にアクセスします。
 5. 既定のシリーズとカテゴリをクリアします。
 6. 新しいシリーズとカテゴリを追加します。
-7. チャート シリーズ用の新しいデータを追加します。
+7. チャートシリーズの新しいデータを追加します。
 8. 高低線の書式を指定します。
-9. 変更されたプレゼンテーションを PPTX ファイルとして保存します。
-
-この PHP コードは、株価グラフの作成方法を示しています:
+9. 変更したプレゼンテーションを PPTX ファイルとして保存します。
 
 ```php
   $pres = new Presentation();
@@ -477,16 +464,14 @@ PowerPoint では、*挿入* 機能を使用して多数のチャート テン�
 
 ### **箱ひげ図の作成**
 
-1. [Presentation](https://reference.aspose.com/slides/ja/php-java/aspose.slides/presentation/) クラスのインスタンスを作成します。
+1. [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) クラスのインスタンスを作成します。
 2. インデックスを使用してスライドへの参照を取得します。
-3. デフォルト データを持つチャートを追加し、[ChartType::BoxAndWhisker](https://reference.aspose.com/slides/ja/php-java/aspose.slides/charttype/#BoxAndWhisker) タイプを指定します。
-4. チャート データ ワークブック [ChartDataWorkbook](https://reference.aspose.com/slides/ja/php-java/aspose.slides/chartdataworkbook/) にアクセスします。
+3. デフォルト データでチャートを追加し、[ChartType::BoxAndWhisker](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#BoxAndWhisker) タイプを指定します。
+4. チャート データ ワークブック [ChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/) にアクセスします。
 5. 既定のシリーズとカテゴリをクリアします。
 6. 新しいシリーズとカテゴリを追加します。
-7. チャート シリーズ用の新しいデータを追加します。
-8. 変更されたプレゼンテーションを PPTX ファイルとして保存します。
-
-この PHP コードは、箱ひげ図の作成方法を示しています:
+7. チャートシリーズの新しいデータを追加します。
+8. 変更したプレゼンテーションを PPTX ファイルとして保存します。
 
 ```php
   $pres = new Presentation();
@@ -522,14 +507,12 @@ PowerPoint では、*挿入* 機能を使用して多数のチャート テン�
   }
 ```
 
-### **ファンネル グラフの作成**
+### **ファンネルチャートの作成**
 
-1. [Presentation](https://reference.aspose.com/slides/ja/php-java/aspose.slides/presentation/) クラスのインスタンスを作成します。
+1. [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) クラスのインスタンスを作成します。
 2. インデックスを使用してスライドへの参照を取得します。
-3. デフォルト データを持つチャートを追加し、[ChartType::Funnel](https://reference.aspose.com/slides/ja/php-java/aspose.slides/charttype/#Funnel) タイプを指定します。
-4. 変更されたプレゼンテーションを PPTX ファイルとして保存します。
-
-この PHP コードは、ファンネル グラフの作成方法を示しています:
+3. デフォルト データでチャートを追加し、[ChartType::Funnel](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#Funnel) タイプを指定します。
+4. 変更したプレゼンテーションを PPTX ファイルとして保存します。
 
 ```php
   $pres = new Presentation();
@@ -560,14 +543,12 @@ PowerPoint では、*挿入* 機能を使用して多数のチャート テン�
   }
 ```
 
-### **サンバースト グラフの作成**
+### **サンバーストチャートの作成**
 
-1. [Presentation](https://reference.aspose.com/slides/ja/php-java/aspose.slides/presentation/) クラスのインスタンスを作成します。
+1. [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) クラスのインスタンスを作成します。
 2. インデックスを使用してスライドへの参照を取得します。
-3. デフォルト データを持つチャートを追加し、[ChartType::Sunburst](https://reference.aspose.com/slides/ja/php-java/aspose.slides/charttype/#Sunburst) タイプを指定します。
-4. 変更されたプレゼンテーションを PPTX ファイルとして保存します。
-
-この PHP コードは、サンバースト グラフの作成方法を示しています:
+3. デフォルト データでチャートを追加し、[ChartType::Sunburst](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#Sunburst) タイプを指定します。
+4. 変更したプレゼンテーションを PPTX ファイルとして保存します。
 
 ```php
   $pres = new Presentation();
@@ -611,17 +592,15 @@ PowerPoint では、*挿入* 機能を使用して多数のチャート テン�
   }
 ```
 
-### **ヒストグラム グラフの作成**
+### **ヒストグラムチャートの作成**
 
-1. [Presentation](https://reference.aspose.com/slides/ja/php-java/aspose.slides/presentation/) クラスのインスタンスを作成します。
+1. [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) クラスのインスタンスを作成します。
 2. インデックスを使用してスライドへの参照を取得します。
-3. デフォルト データを持つチャートを追加し、[ChartType::Histogram](https://reference.aspose.com/slides/ja/php-java/aspose.slides/charttype/#Histogram) タイプを指定します。
-4. チャート データ ワークブック [ChartDataWorkbook](https://reference.aspose.com/slides/ja/php-java/aspose.slides/chartdataworkbook/) にアクセスします。
+3. デフォルト データでチャートを追加し、[ChartType::Histogram](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#Histogram) タイプを指定します。
+4. チャート データ ワークブック [ChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/) にアクセスします。
 5. 既定のシリーズとカテゴリをクリアします。
 6. 新しいシリーズとカテゴリを追加します。
-7. 変更されたプレゼンテーションを PPTX ファイルとして保存します。
-
-この PHP コードは、ヒストグラム グラフの作成方法を示しています:
+7. 変更したプレゼンテーションを PPTX ファイルとして保存します。
 
 ```php
   $pres = new Presentation();
@@ -640,14 +619,12 @@ PowerPoint では、*挿入* 機能を使用して多数のチャート テン�
   $chart->getAxes()->getHorizontalAxis()->setAggregationType(AxisAggregationType::Automatic);
 ```
 
-### **レーダー グラフの作成**
+### **レーダーチャートの作成**
 
-1. [Presentation](https://reference.aspose.com/slides/ja/php-java/aspose.slides/presentation/) クラスのインスタンスを作成します。
+1. [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) クラスのインスタンスを作成します。
 2. インデックスを使用してスライドへの参照を取得します。
-3. データを含むチャートを追加し、[ChartType::Radar](https://reference.aspose.com/slides/ja/php-java/aspose.slides/charttype/#Radar) タイプを指定します。
-4. 変更されたプレゼンテーションを PPTX ファイルとして保存します。
-
-この PHP コードは、レーダー グラフの作成方法を示しています:
+3. データを含むチャートを追加し、今回の場合は [ChartType::Radar](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#Radar) タイプを指定します。
+4. 変更したプレゼンテーションを PPTX ファイルとして保存します。
 
 ```php
   $pres = new Presentation();
@@ -661,18 +638,16 @@ PowerPoint では、*挿入* 機能を使用して多数のチャート テン�
   }
 ```
 
-### **マルチカテゴリ グラフの作成**
+### **マルチカテゴリチャートの作成**
 
-1. [Presentation](https://reference.aspose.com/slides/ja/php-java/aspose.slides/presentation/) クラスのインスタンスを作成します。
+1. [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) クラスのインスタンスを作成します。
 2. インデックスを使用してスライドへの参照を取得します。
-3. デフォルト データを持つチャートを追加し、[ChartType::ClusteredColumn](https://reference.aspose.com/slides/ja/php-java/aspose.slides/charttype/#ClusteredColumn) タイプを指定します。
-4. チャート データ ワークブック [ChartDataWorkbook](https://reference.aspose.com/slides/ja/php-java/aspose.slides/chartdataworkbook/) にアクセスします。
+3. デフォルト データでチャートを追加し、[ChartType::ClusteredColumn](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#ClusteredColumn) タイプを指定します。
+4. チャート データ ワークブック [ChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/) にアクセスします。
 5. 既定のシリーズとカテゴリをクリアします。
 6. 新しいシリーズとカテゴリを追加します。
-7. チャート シリーズ用の新しいデータを追加します。
-8. 変更されたプレゼンテーションを PPTX ファイルとして保存します。
-
-この PHP コードは、マルチカテゴリ グラフの作成方法を示しています:
+7. チャートシリーズの新しいデータを追加します。
+8. 変更したプレゼンテーションを PPTX ファイルとして保存します。
 
 ```php
   $pres = new Presentation();
@@ -695,7 +670,7 @@ PowerPoint では、*挿入* 機能を使用して多数のチャート テン�
     $category = $ch->getChartData()->getCategories()->add($fact->getCell(0, "c8", "G"));
     $category->getGroupingLevels()->setGroupingItem(1, "Group4");
     $category = $ch->getChartData()->getCategories()->add($fact->getCell(0, "c9", "H"));
-    # シリーズを追加
+    # 系列を追加
     $series = $ch->getChartData()->getSeries()->add($fact->getCell(0, "D1", "Series 1"), ChartType::ClusteredColumn);
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, "D2", 10));
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, "D3", 20));
@@ -705,7 +680,7 @@ PowerPoint では、*挿入* 機能を使用して多数のチャート テン�
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, "D7", 60));
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, "D8", 70));
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, "D9", 80));
-    # チャート付きでプレゼンテーションを保存
+    # チャート付きプレゼンテーションを保存
     $pres->save("AsposeChart_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -714,11 +689,9 @@ PowerPoint では、*挿入* 機能を使用して多数のチャート テン�
   }
 ```
 
-### **マップ グラフの作成**
+### **マップチャートの作成**
 
-マップ グラフは地理データを視覚化し、地域間の値を比較するのに役立ちます。
-
-この PHP コードは、マップ グラフの作成方法を示しています:
+マップチャートは地理データを可視化し、地域間の値を比較するのに役立ちます。
 
 ```php
   $pres = new Presentation();
@@ -732,13 +705,13 @@ PowerPoint では、*挿入* 機能を使用して多数のチャート テン�
   }
 ```
 
-### **複合グラフの作成**
+### **複合チャートの作成**
 
-複合グラフ（コンボ グラフ）は、単一のグラフ内に 2 つ以上のチャート タイプを組み合わせます。このグラフを使用すると、複数のデータセット間の違いを強調、比較、検証でき、両者の関係性を把握しやすくなります。
+複合チャート（コンボチャート）は、単一のグラフに 2 つ以上のチャートタイプを組み合わせたものです。このチャートを使用すると、2 つ以上のデータセット間の差異を強調、比較、または検証でき、相互の関係を把握するのに役立ちます。
 
 ![The combination chart](combination_chart.png)
 
-以下の PHP コードは、上記の複合グラフを PowerPoint プレゼンテーションに作成する方法を示しています:
+以下の PHP コードは、上記の複合チャートを PowerPoint プレゼンテーションで作成する方法を示しています：
 
 ```php
 function createComboChart() {
@@ -775,7 +748,7 @@ function createChartWithFirstSeries($slide) {
     $chart->getLegend()->setPosition(LegendPositionType::Bottom);
     $chart->getLegend()->getTextFormat()->getPortionFormat()->setFontHeight(12);
 
-    // デフォルトで生成されたシリーズとカテゴリを削除します。
+    // デフォルトで生成された系列とカテゴリを削除します。
     $chart->getChartData()->getSeries()->clear();
     $chart->getChartData()->getCategories()->clear();
 
@@ -788,7 +761,7 @@ function createChartWithFirstSeries($slide) {
     $chart->getChartData()->getCategories()->add($workbook->getCell($worksheetIndex, 3, 0, "Category 3"));
     $chart->getChartData()->getCategories()->add($workbook->getCell($worksheetIndex, 4, 0, "Category 4"));
 
-    // 最初のシリーズを追加します。
+    // 最初の系列を追加します。
     $seriesNameCell = $workbook->getCell($worksheetIndex, 0, 1, "Series 1");
     $series = $chart->getChartData()->getSeries()->add($seriesNameCell, $chart->getType());
 
@@ -849,14 +822,14 @@ function setPrimaryAxesFormat($chart) {
 
     setAxisTitle($verticalAxis, "Y Axis 1");
 
-    // 垂直軸の主要グリッドラインの色を設定します。
+    // 垂直軸の主目盛り線の色を設定します。
     $majorGridLinesFormat = $verticalAxis->getMajorGridLinesFormat()->getLine()->getFillFormat();
     $majorGridLinesFormat->setFillType(FillType::Solid);
     $majorGridLinesFormat->getSolidFillColor()->setColor(new java("java.awt.Color", 217, 217, 217));
 }
 
 function setSecondaryAxesFormat($chart) {
-    // 二次水平軸を設定します。
+    // 副水平軸を設定します。
     $secondaryHorizontalAxis = $chart->getAxes()->getSecondaryHorizontalAxis();
     $secondaryHorizontalAxis->setPosition(AxisPositionType::Bottom);
     $secondaryHorizontalAxis->setCrossType(CrossesType::Maximum);
@@ -864,7 +837,7 @@ function setSecondaryAxesFormat($chart) {
     $secondaryHorizontalAxis->getMajorGridLinesFormat()->getLine()->getFillFormat()->setFillType(FillType::NoFill);
     $secondaryHorizontalAxis->getMinorGridLinesFormat()->getLine()->getFillFormat()->setFillType(FillType::NoFill);
 
-    // 二次垂直軸を設定します。
+    // 副垂直軸を設定します。
     $secondaryVerticalAxis = $chart->getAxes()->getSecondaryVerticalAxis();
     $secondaryVerticalAxis->setPosition(AxisPositionType::Right);
     $secondaryVerticalAxis->getTextFormat()->getPortionFormat()->setFontHeight(12);
@@ -887,56 +860,54 @@ function setAxisTitle($axis, $axisTitle) {
 
 ## **チャートの更新**
 
-1. 更新対象のチャートを含むプレゼンテーションを表す [Presentation](https://reference.aspose.com/slides/ja/php-java/aspose.slides/presentation/) クラスのインスタンスを作成します。
+1. 更新対象のチャートを含むプレゼンテーションを表す [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) クラスのインスタンスを作成します。
 2. インデックスを使用してスライドへの参照を取得します。
 3. すべてのシェイプを走査して目的のチャートを見つけます。
 4. チャートのデータ ワークシートにアクセスします。
-5. シリーズ値を変更してチャート データ シリーズを修正します。
-6. 新しいシリーズを追加し、データを入力します。
-7. 変更されたプレゼンテーションを PPTX ファイルとして保存します。
-
-この PHP コードは、チャートの更新方法を示しています:
+5. シリーズの値を変更してチャート データ シリーズを修正します。
+6. 新しいシリーズを追加し、データを設定します。
+7. 変更したプレゼンテーションを PPTX ファイルとして保存します。
 
 ```php
   $pres = new Presentation();
   try {
-    # 最初のスライド マーカーにアクセス
+    # 最初のスライドにアクセスします
     $sld = $pres->getSlides()->get_Item(0);
-    # デフォルト データでチャートを取得
+    # デフォルト データでチャートを取得します
     $chart = $sld->getShapes()->get_Item(0);
-    # チャート データ シートのインデックスを設定
+    # チャート データ シートのインデックスを設定します
     $defaultWorksheetIndex = 0;
-    # チャート データ ワークシートを取得
+    # チャート データ ワークシートを取得します
     $fact = $chart->getChartData()->getChartDataWorkbook();
-    # チャートのカテゴリ名を変更
+    # チャートのカテゴリ名を変更します
     $fact->getCell($defaultWorksheetIndex, 1, 0, "Modified Category 1");
     $fact->getCell($defaultWorksheetIndex, 2, 0, "Modified Category 2");
-    # 最初のチャート シリーズを取得
+    # 最初のチャート系列を取得します
     $series = $chart->getChartData()->getSeries()->get_Item(0);
-    # シリーズ データを更新
-    $fact->getCell($defaultWorksheetIndex, 0, 1, "New_Series1");// シリーズ名を変更
+    # 系列データを更新します
+    $fact->getCell($defaultWorksheetIndex, 0, 1, "New_Series1");// 系列名を変更します
 
     $series->getDataPoints()->get_Item(0)->getValue()->setData(90);
     $series->getDataPoints()->get_Item(1)->getValue()->setData(123);
     $series->getDataPoints()->get_Item(2)->getValue()->setData(44);
-    # 2 番目のチャート シリーズを取得
+    # 2 番目のチャート系列を取得します
     $series = $chart->getChartData()->getSeries()->get_Item(1);
-    # シリーズ データを更新
-    $fact->getCell($defaultWorksheetIndex, 0, 2, "New_Series2");// シリーズ名を変更
+    # 系列データを更新します
+    $fact->getCell($defaultWorksheetIndex, 0, 2, "New_Series2");// 系列名を変更します
 
     $series->getDataPoints()->get_Item(0)->getValue()->setData(23);
     $series->getDataPoints()->get_Item(1)->getValue()->setData(67);
     $series->getDataPoints()->get_Item(2)->getValue()->setData(99);
-    # 新しいシリーズを追加
+    # 新しい系列を追加します
     $chart->getChartData()->getSeries()->add($fact->getCell($defaultWorksheetIndex, 0, 3, "Series 3"), $chart->getType());
-    # 3 番目のチャート シリーズを取得
+    # 3 番目のチャート系列を取得します
     $series = $chart->getChartData()->getSeries()->get_Item(2);
-    # シリーズ データを設定
+    # 系列データを設定します
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 1, 3, 20));
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 2, 3, 50));
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 3, 3, 30));
     $chart->setType(ChartType::ClusteredCylinder);
-    # チャート付きでプレゼンテーションを保存
+    # チャート付きプレゼンテーションを保存します
     $pres->save("AsposeChartModified_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -947,15 +918,15 @@ function setAxisTitle($axis, $axisTitle) {
 
 ## **チャートのデータ範囲の設定**
 
-チャートのデータ範囲を設定する手順:
+既存のチャートが使用している範囲を確認するには、[チャートのデータ範囲の取得](/slides/ja/php-java/chart-workbook/#retrieve-a-charts-data-range) を参照してください。
 
-1. 対象チャートを含むプレゼンテーションを表す [Presentation](https://reference.aspose.com/slides/ja/php-java/aspose.slides/presentation/) クラスのインスタンスを作成します。
+チャートのデータ範囲を設定するには、以下の手順を実行します：
+
+1. チャートを含むプレゼンテーションを表す [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) クラスのインスタンスを作成します。
 2. インデックスを使用してスライドへの参照を取得します。
 3. すべてのシェイプを走査して目的のチャートを見つけます。
 4. チャート データにアクセスし、範囲を設定します。
-5. 変更されたプレゼンテーションを PPTX ファイルとして保存します。
-
-この PHP コードは、チャートのデータ範囲を設定する方法を示しています:
+5. 変更したプレゼンテーションを PPTX ファイルとして保存します。
 
 ```php
   $pres = new Presentation();
@@ -971,11 +942,9 @@ function setAxisTitle($axis, $axisTitle) {
   }
 ```
 
-## **チャートでデフォルト マーカーを使用する**
+## **チャートでデフォルトマーカーを使用する**
 
-チャートでデフォルト マーカーを使用すると、各チャート シリーズに自動的に異なるマーカー記号が割り当てられます。
-
-この PHP コードは、チャート シリーズのマーカーを自動的に設定する方法を示しています:
+チャートでデフォルトマーカーを使用すると、各チャートシリーズに自動的に異なるマーカー記号が割り当てられます。
 
 ```php
   $pres = new Presentation();
@@ -996,9 +965,9 @@ function setAxisTitle($axis, $axisTitle) {
     $chart->getChartData()->getCategories()->add($fact->getCell(0, 4, 0, "C4"));
     $series->getDataPoints()->addDataPointForLineSeries($fact->getCell(0, 4, 1, null));
     $chart->getChartData()->getSeries()->add($fact->getCell(0, 0, 2, "Series 2"), $chart->getType());
-    # 2 番目のチャートシリーズを取得
+    # 2 番目のチャート系列を取得します
     $series2 = $chart->getChartData()->getSeries()->get_Item(1);
-    # 今、シリーズ データを設定
+    # 系列データを設定します
     $series2->getDataPoints()->addDataPointForLineSeries($fact->getCell(0, 1, 2, 30));
     $series2->getDataPoints()->addDataPointForLineSeries($fact->getCell(0, 2, 2, 10));
     $series2->getDataPoints()->addDataPointForLineSeries($fact->getCell(0, 3, 2, 60));
@@ -1015,18 +984,18 @@ function setAxisTitle($axis, $axisTitle) {
 
 ## **FAQ**
 
-**Aspose.Slides がサポートするチャート タイプは何ですか？**
+**Aspose.Slides がサポートするチャートタイプは何ですか？**
 
-Aspose.Slides は、バー、折れ線、円、エリア、散布図、ヒストグラム、レーダーなど、幅広い [chart types](https://reference.aspose.com/slides/ja/php-java/aspose.slides/charttype/) をサポートしています。この柔軟性により、データ可視化のニーズに最適なチャート タイプを選択できます。
+Aspose.Slides は、棒、折れ線、円、エリア、散布、ヒストグラム、レーダーなど、多種多様な[チャートタイプ](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/) をサポートしています。この柔軟性により、データ可視化のニーズに最適なチャートタイプを選択できます。
 
 **スライドに新しいチャートを追加するにはどうすればよいですか？**
 
-まず [Presentation](https://reference.aspose.com/slides/ja/php-java/aspose.slides/presentation/) クラスのインスタンスを作成し、インデックスで目的のスライドを取得します。その後、チャート タイプと初期データを指定してチャートを追加するメソッドを呼び出します。これにより、チャートがプレゼンテーションに直接組み込まれます。
+チャートを追加するには、まず [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) クラスのインスタンスを作成し、インデックスで目的のスライドを取得し、チャートを追加するメソッドを呼び出して、チャートタイプと初期データを指定します。このプロセスにより、チャートがプレゼンテーションに直接組み込まれます。
 
-**チャートに表示されるデータを更新するにはどうすればよいですか？**
+**チャートに表示されているデータを更新するにはどうすればよいですか？**
 
-チャートのデータ ワークブック ([ChartDataWorkbook](https://reference.aspose.com/slides/ja/php-java/aspose.slides/chartdataworkbook/)) にアクセスし、既定のシリーズとカテゴリをクリアしてから、カスタム データを追加します。これにより、最新のデータを反映するようにチャートをリフレッシュできます。
+チャートのデータは、データ ワークブック ([ChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/)) にアクセスし、既定のシリーズとカテゴリをクリアしてからカスタムデータを追加することで更新できます。これにより、チャートを最新のデータにリフレッシュできます。
 
-**チャートの外観をカスタマイズできますか？**
+**チャートの外観をカスタマイズすることは可能ですか？**
 
-はい。Aspose.Slides は豊富なカスタマイズ オプションを提供します。カラー、フォント、ラベル、凡例、その他の [formatting elements](/slides/ja/php-java/chart-entities/) を変更して、デザイン要件に合わせてチャートの外観を調整できます。
+はい、Aspose.Slides は豊富なカスタマイズオプションを提供します。色、フォント、ラベル、凡例、その他の[書式設定要素](/slides/ja/php-java/chart-entities/) を変更して、チャートの外観を特定のデザイン要件に合わせて調整できます。

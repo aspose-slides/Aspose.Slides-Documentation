@@ -1,50 +1,50 @@
 ---
-title: Zarządzanie zeszytami wykresów w prezentacjach w .NET
-linktitle: Zeszyt wykresu
+title: Zarządzanie skoroszytami wykresów w prezentacjach w .NET
+linktitle: Skoroszyt wykresu
 type: docs
 weight: 70
 url: /pl/net/chart-workbook/
 keywords:
-- zeszyt wykresu
+- skoroszyt wykresu
 - dane wykresu
-- komórka zeszytu
+- komórka skoroszytu
 - etykieta danych
 - arkusz
 - źródło danych
-- zewnętrzny zeszyt
+- zewnętrzny skoroszyt
 - zewnętrzne dane
 - pamięć podręczna wykresu
-- odzyskiwanie zeszytu
+- odzyskiwanie skoroszytu
 - PowerPoint
 - prezentacja
 - .NET
 - C#
 - Aspose.Slides
-description: "Odkryj Aspose.Slides dla .NET: łatwo zarządzaj zeszytami wykresów w formatach PowerPoint i OpenDocument, aby usprawnić dane swojej prezentacji."
+description: "Odkryj Aspose.Slides dla .NET: bezproblemowo zarządzaj skoroszytami wykresów w formatach PowerPoint i OpenDocument, aby usprawnić dane swojej prezentacji."
 ---
 ## **Przegląd**
 
-Ten artykuł wyjaśnia, jak pracować z zeszytami wykresów w Aspose.Slides. Pokazuje, jak odczytywać i zapisywać dane wykresu za pomocą strumieni zeszytów, używać komórek zeszytu jako etykiet danych wykresu, uzyskiwać dostęp do kolekcji arkuszy oraz określać typ źródła danych dla wartości wykresu.
+Ten artykuł wyjaśnia, jak pracować z skoroszytami wykresów w Aspose.Slides. Pokazuje, jak odczytywać i zapisywać dane wykresu przy użyciu strumieni skoroszytu, używać komórek skoroszytu jako etykiet danych wykresu, uzyskiwać dostęp do kolekcji arkuszy oraz określać typ źródła danych dla wartości wykresu.
 
-Omówiono także pracę z zewnętrznymi zeszytami jako źródłami danych wykresu. Przykłady pokazują, jak utworzyć i przypisać zewnętrzny zeszyt, odczytać ścieżkę zewnętrznego zeszytu powiązanego z wykresem oraz edytować dane wykresu, gdy zeszyt jest dostępny.
+Opisuje również pracę z zewnętrznymi skoroszytami jako źródłami danych wykresów. Przykłady pokazują, jak utworzyć i przypisać zewnętrzny skoroszyt, pobrać ścieżkę zewnętrznego skoroszytu powiązanego z wykresem oraz edytować dane wykresu, gdy skoroszyt jest dostępny.
 
-Aby dowiedzieć się, jak obsługiwać komórki zeszytu reprezentujące brakujące dane, zobacz [Kontrolowanie wyświetlania pustych komórek](/slides/pl/net/chart-series/) – różnice między pustą komórką a zerem oraz porównanie trybów wyświetlania w wykresie liniowym.
+Dla komórek skoroszytu reprezentujących brakujące dane, zobacz [Kontroluj sposób wyświetlania pustych komórek](/slides/pl/net/chart-series/) – różnica między pustą komórką a zerem oraz porównanie wykresu liniowego dostępnych trybów wyświetlania.
 
-## **Dołączanie danych z ukrytych wierszy i kolumn**
+## **Uwzględnianie danych z ukrytych wierszy i kolumn**
 
-Użyj [IChart.PlotVisibleCellsOnly](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ichart/plotvisiblecellsonly/) aby kontrolować, czy wykres rysuje dane z ukrytych wierszy i kolumn arkusza. Ustaw `true`, aby rysować tylko widoczne komórki, lub `false`, aby uwzględnić zarówno widoczne, jak i ukryte komórki. To ustawienie steruje rysowaniem wykresu; nie ukrywa ani nie odsłania wierszy czy kolumn arkusza.
+Użyj [IChart.PlotVisibleCellsOnly](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/plotvisiblecellsonly/) do kontrolowania, czy wykres rysuje dane z ukrytych wierszy i kolumn arkusza. Ustaw `true`, aby rysować tylko widoczne komórki, lub `false`, aby uwzględnić zarówno widoczne, jak i ukryte komórki. To ustawienie kontroluje rysowanie wykresu; nie ukrywa ani nie odsłania wierszy czy kolumn arkusza.
 
-Pobierz [hidden-source-data.pptx](hidden-source-data.pptx) i umieść go w katalogu roboczym. Na pierwszym slajdzie znajduje się wykres słupkowy jako pierwsza forma. Osadzony arkusz, `Sheet1`, zawiera następujący zakres źródłowy: `A1:C4`. Wiersz 3 i kolumna C są ukryte, ale ich komórki nadal zawierają wartości.
+[Przykładowa prezentacja](hidden-source-data.pptx) zawiera wykres kolumnowy jako pierwszy kształt na pierwszym slajdzie. Osadzony arkusz, `Sheet1`, zawiera następujący zakres źródłowy `A1:C4`. Wiersz 3 i kolumna C są ukryte, ale ich komórki nadal zawierają wartości.
 
-| Wiersz arkusza | A: Miesiąc | B: Detal | C: Hurt (ukryta kolumna) |
+| Wiersz arkusza | A: Miesiąc | B: Sprzedaż detaliczna | C: Hurt (ukryta kolumna) |
 | --- | --- | --- | --- |
 | 2 | Styczeń | 10 | 30 |
 | 3 (ukryty wiersz) | Luty | 40 | 60 |
 | 4 | Marzec | 20 | 50 |
 
-Uzyskaj dostęp do komórek źródłowych przez [IChartData.ChartDataWorkbook](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ichartdata/chartdataworkbook/) i odczytaj [IChartDataCell.IsHidden](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ichartdatacell/ishidden/), aby sprawdzić ich status ukrycia. Ta właściwość jest tylko do odczytu. W tym pliku B2 jest widoczny, B3 należy do ukrytego wiersza, a C2 do ukrytej kolumny; przykład wypisuje kolejno `False`, `True` i `True`.
+Uzyskaj dostęp do komórek źródłowych przez [IChartData.ChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/chartdataworkbook/) i odczytaj [IChartDataCell.IsHidden](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatacell/ishidden/), aby sprawdzić ich status ukrycia. Właściwość jest tylko do odczytu. W tym pliku B2 jest widoczny, B3 należy do ukrytego wiersza, a C2 do ukrytej kolumny; przykład wypisuje kolejno `False`, `True` i `True`.
 
-Dla tego przykładu odśwież dane wykresu po zmianie ustawienia rysowania: zachowaj osadzony zeszyt przy użyciu [ReadWorkbookStream](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ichartdata/readworkbookstream/) i załaduj go ponownie przy pomocy [WriteWorkbookStream](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ichartdata/writeworkbookstream/). Podczas uwzględniania wszystkich komórek użyj także [SetRange](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ichartdata/setrange/), aby przywrócić pełny zakres, w tym ukryty luty. Samo zmienienie flagi nie wystarczy do odświeżenia pamięci podręcznej danych wykresu i etykiet kategorii w tym przykładzie.
+W tym przykładzie odśwież dane wykresu po zmianie ustawienia rysowania: zachowaj osadzony skoroszyt przy użyciu [ReadWorkbookStream](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/readworkbookstream/) i wczytaj go ponownie przy pomocy [WriteWorkbookStream](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/writeworkbookstream/). Przy uwzględnianiu wszystkich komórek użyj także [SetRange](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/setrange/) do przywrócenia pełnego zakresu, w tym ukrytej kategorii „Luty”. Samo zmienienie flagi nie odświeża pamięci podręcznej danych wykresu i etykiet kategorii w tym przykładzie.
 
 ```csharp
 using System;
@@ -67,12 +67,12 @@ if (slide.Shapes[0] is IChart chart)
     {
         chart.PlotVisibleCellsOnly = visibleOnly;
 
-        // Odśwież dane wykresu z osadzonego zeszytu.
+        // Odśwież dane wykresu z osadzonego skoroszytu.
         workbookStream.Position = 0;
         chart.ChartData.WriteWorkbookStream(workbookStream);
         if (!visibleOnly)
         {
-            // Przywróć pełny zakres źródłowy, włącznie z ukrytymi kategoriami.
+            // Przywróć pełny zakres źródłowy, w tym ukryte kategorie.
             chart.ChartData.SetRange("Sheet1!$A$1:$C$4");
         }
 
@@ -85,19 +85,54 @@ else
 }
 ```
 
-Przykład zapisuje `hidden_cells_True.pptx` z tylko widocznymi wartościami Detalu (10 i 20) oraz `hidden_cells_False.pptx` ze wszystkimi sześcioma wartościami. Obrazy poniżej zostały wyrenderowane z zapisanych prezentacji po ich ponownym otwarciu; oba pliki zachowują ustawione wcześniej rysowanie. Wiersz 3 i kolumna C pozostają ukryte w obu osadzonych zeszytach.
+Przykład zapisuje dwie wersje prezentacji: jedną tylko z widocznymi wartościami detalicznymi (10 i 20), a drugą ze wszystkimi sześcioma wartościami. Poniższe obrazy zostały wygenerowane z zapisanych prezentacji po ich ponownym otwarciu; oba pliki zachowują ustawione ustawienie rysowania. Wiersz 3 i kolumna C pozostają ukryte w obu osadzonych skoroszytach.
 
 | Tylko widoczne komórki (`true`) | Wszystkie komórki (`false`) |
 | --- | --- |
-| ![Tylko widoczne komórki: wartości Detalu 10 i 20 dla stycznia i marca.](hidden_cells_True.png) | ![Wszystkie komórki: wartości Detalu i Hurtu dla stycznia, lutego i marca.](hidden_cells_False.png) |
+| ![Tylko widoczne komórki: wartości detaliczne 10 i 20 dla stycznia i marca.](hidden_cells_True.png) | ![Wszystkie komórki: wartości detaliczne i hurtowe dla stycznia, lutego i marca.](hidden_cells_False.png) |
 
-Ukryta komórka zawierająca wartość różni się od pustej komórki. [IChart.DisplayBlanksAs](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ichart/displayblanksas/) kontroluje, jak wyświetlane są brakujące wartości; nie obejmuje ani nie wyklucza ukrytych danych źródłowych. Zobacz [Kontrolowanie wyświetlania pustych komórek](/slides/pl/net/chart-series/#control-the-display-of-empty-cells) po przykład.
+Ukryta komórka zawierająca wartość różni się od pustej komórki. [IChart.DisplayBlanksAs](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/displayblanksas/) kontroluje, jak wyświetlane są brakujące wartości; nie dodaje ani nie usuwa ukrytych danych źródłowych. Zobacz [Kontroluj sposób wyświetlania pustych komórek](/slides/pl/net/chart-series/#control-the-display-of-empty-cells) po więcej informacji.
 
-## **Odczyt i zapis danych wykresu z zeszytu**
+## **Pobieranie zakresu danych wykresu**
 
-Aspose.Slides for .NET udostępnia metody [ReadWorkbookStream](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ichartdata/readworkbookstream/) i [WriteWorkbookStream](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ichartdata/writeworkbookstream/), które pozwalają odczytywać i zapisywać zeszyty danych wykresu (zawierające dane wykresu edytowane przy użyciu Aspose.Cells). **Uwaga**, dane wykresu muszą być zorganizowane w ten sam sposób lub mieć strukturę podobną do źródła.
+Przed aktualizacją danych skoroszytu w istniejącej prezentacji sprawdź zakresy źródłowe, aby określić, które komórki arkusza są używane przez każdy wykres. Metoda [IChartData.GetRange](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/getrange/) zwraca bieżący zakres danych jako formułę kwalifikowaną arkuszem, np. `Sheet1!$A$1:$D$5`. Tutaj `Sheet1` to nazwa arkusza, `!` oddziela ją od zakresu komórek, a `$A$1:$D$5` określa komórki od A1 do D5, włącznie. Znaki dolara oznaczają odwołania bezwzględne do wiersza i kolumny.
 
-Ten przykład otwiera `chart.pptx`, który musi zawierać wykres jako pierwszą formę na pierwszym slajdzie. Odczytuje osadzony zeszyt do strumienia, czyści istniejące serie i kategorie oraz zapisuje ten sam zeszyt z powrotem. Zmiany pozostają w pamięci; przykład nie zapisuje prezentacji.
+Metoda odczytuje bieżący zakres bez zmiany wykresu ani jego skoroszytu. Jeśli wykres nie używa skoroszytu jako źródła danych, zostanie zgłoszony [InvalidOperationException](https://learn.microsoft.com/en-us/dotnet/api/system.invalidoperationexception). Więcej informacji znajdziesz w [ChartData API Reference](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdata/).
+
+Ten przykład otwiera prezentację i sprawdza kształty bezpośrednio na każdym slajdzie pod kątem wykresów. Wypisuje nazwę każdego wykresu oraz jego zakres źródłowy. Jeśli wykres nie korzysta ze skoroszytu, wypisuje komunikat i przechodzi do kolejnego wykresu.
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+
+using var presentation = new Presentation("presentation.pptx");
+
+foreach (var slide in presentation.Slides)
+{
+    foreach (var shape in slide.Shapes)
+    {
+        if (shape is IChart chart)
+        {
+            try
+            {
+                var range = chart.ChartData.GetRange();
+                Console.WriteLine($"{chart.Name}: {range}");
+            }
+            catch (InvalidOperationException)
+            {
+                Console.WriteLine($"{chart.Name}: The chart does not use a workbook as its data source.");
+            }
+        }
+    }
+}
+```
+
+## **Odczyt i zapis danych wykresu z skoroszytu**
+
+Aspose.Slides for .NET udostępnia metody [ReadWorkbookStream](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/readworkbookstream/) i [WriteWorkbookStream](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/writeworkbookstream/), które umożliwiają odczyt i zapis skoroszytów danych wykresu (zawierających dane edytowane przy pomocy Aspose.Cells). **Uwaga**, że dane wykresu muszą być zorganizowane w ten sam sposób lub mieć strukturę podobną do źródła.
+
+Przykład używa prezentacji z wykresem jako pierwszym kształtem na pierwszym slajdzie. Odczytuje osadzony skoroszyt do strumienia, czyści istniejące serie i kategorie oraz zapisuje ten sam skoroszyt z powrotem. Zmiany pozostają w pamięci; przykład nie zapisuje prezentacji.
 
 ```csharp
 using System;
@@ -125,9 +160,9 @@ else
 }
 ```
 
-### **Walidacja układu wykresu po modyfikacji zeszytu**
+### **Walidacja układu wykresu po modyfikacji skoroszytu**
 
-Kiedy zastępujesz osadzony zeszyt zmodyfikowanym, wykres zachowuje swoje oryginalne kolekcje serii i kategorii. To niezgodność może spowodować błąd [IChart.ValidateChartLayout](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ichart/validatechartlayout/) z komunikatem „index out of range”. Wyczyść istniejące serie i kategorie przed zapisaniem zaktualizowanego zeszytu z powrotem do wykresu. Ten przykład wymaga `chart.pptx` z wykresem jako pierwszą formą na pierwszym slajdzie. Komentarz wskazuje miejsce, w którym odbywałaby się edycja zeszytu; działający przykład zapisuje oryginalny zeszyt z powrotem i waliduje układ w pamięci.
+Gdy zastąpisz osadzony skoroszyt zmodyfikowanym, wykres zachowuje oryginalne kolekcje serii i kategorii. Ten niespójność może spowodować niepowodzenie [IChart.ValidateChartLayout](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/validatechartlayout/) z błędem indeksu poza zakresem. Wyczyść istniejące serie i kategorie przed zapisaniem zmodyfikowanego skoroszytu z powrotem do wykresu. Przykład używa wykresu, który jest pierwszym kształtem na pierwszym slajdzie. Komentarz wskazuje miejsce, w którym można edytować skoroszyt; działający przykład zapisuje oryginalny skoroszyt z powrotem i waliduje układ w pamięci.
 
 ```csharp
 using System;
@@ -143,7 +178,7 @@ if (shapeCount > 0 && slide.Shapes[0] is IChart chart)
     var chartData = chart.ChartData;
     using var workbookStream = chartData.ReadWorkbookStream();
 
-    // Modyfikuj strumień zeszytu tutaj, na przykład używając Aspose.Cells.
+    // Modyfikuj strumień skoroszytu tutaj, na przykład przy użyciu Aspose.Cells.
 
     chartData.Series.Clear();
     chartData.Categories.Clear();
@@ -158,20 +193,13 @@ else
 }
 ```
 
-Czyszczenie kolekcji usuwa nieaktualne odniesienia danych przed zapisaniem zeszytu. Przed użyciem wykresu zbuduj wymagane mapowania serii i kategorii dla zaktualizowanego zeszytu.
+Czyszczenie kolekcji usuwa przestarzałe referencje danych przed zapisaniem skoroszytu. Zbuduj ponownie wymagane mapowania serii i kategorii dla zaktualizowanego skoroszytu przed użyciem wykresu.
 
-## **Ustawienie komórki zeszytu jako etykiety danych wykresu**
+## **Ustawienie komórki skoroszytu jako etykiety danych wykresu**
 
-Możesz używać tekstu z komórek zeszytu jako etykiet danych wykresu. Poniższe kroki pokazują, jak powiązać etykiety w wykresie bąbelkowym z komórkami jego zeszytu danych.
+Możesz używać tekstu z komórek skoroszytu jako etykiet danych wykresu.
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation/).
-2. Uzyskaj dostęp do pierwszego slajdu za pomocą indeksu zerowego.
-3. Dodaj wykres bąbelkowy z domyślnymi danymi.
-4. Uzyskaj dostęp do serii wykresu.
-5. Ustaw komórkę zeszytu jako etykietę danych.
-6. Zapisz prezentację.
-
-Ten przykład otwiera `chart2.pptx`, który musi zawierać co najmniej jeden slajd, i dodaje wykres bąbelkowy z domyślnymi danymi. Używa komórek A10:A12 w arkuszu 0 dla pierwszych trzech etykiet w pierwszej serii, włącza etykiety z komórek i zapisuje wynik do `resultchart.pptx`.
+Przykład dodaje wykres bąbelkowy z domyślnymi danymi do pierwszego slajdu istniejącej prezentacji. Używa komórek A10:A12 na arkuszu 0 jako pierwszych trzech etykiet w pierwszej serii, włącza etykiety z komórek i zapisuje zaktualizowaną prezentację.
 
 ```csharp
 using Aspose.Slides;
@@ -195,7 +223,7 @@ presentation.Save("resultchart.pptx", SaveFormat.Pptx);
 
 ## **Zarządzanie arkuszami**
 
-Właściwość [IChartDataWorkbook.Worksheets](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ichartdataworkbook/worksheets/) zapewnia dostęp do arkuszy w zeszycie wykresu. Ten przykład tworzy wykres kołowy z domyślnymi danymi i wypisuje nazwę każdego arkusza w konsoli.
+Właśćciość [IChartDataWorkbook.Worksheets](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/worksheets/) zapewnia dostęp do arkuszy w skoroszycie wykresu. Przykład tworzy wykres kołowy z domyślnymi danymi i wypisuje każdą nazwę arkusza w konsoli.
 
 ```csharp
 using System;
@@ -216,7 +244,7 @@ for (var i = 0; i < workbook.Worksheets.Count; i++)
 
 ## **Określenie typu źródła danych**
 
-Ten przykład tworzy wykres słupkowy 3D z domyślnymi danymi i ustawia dwie nazwy serii przy użyciu różnych źródeł danych. Pierwsza nazwa korzysta z literału łańcuchowego; druga używa komórki C1 w arkuszu 0. Wymiennik [DataSourceType](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/datasourcetype/) wybiera źródło dla każdej nazwy. Wynik zostaje zapisany do `pres.pptx`.
+Przykład tworzy wykres słupkowy 3D z domyślnymi danymi i ustawia dwie nazwy serii, korzystając z różnych źródeł danych. Pierwsza nazwa używa literału łańcucha znaków; druga korzysta z komórki C1 w arkuszu 0. Wyliczenie [DataSourceType](https://reference.aspose.com/slides/net/aspose.slides.charts/datasourcetype/) wybiera źródło dla każdej nazwy. Przykład zapisuje prezentację z zaktualizowanymi nazwami serii.
 
 ```csharp
 using Aspose.Slides;
@@ -240,9 +268,9 @@ cellName.Data = nameCell;
 presentation.Save("pres.pptx", SaveFormat.Pptx);
 ```
 
-## **Wykrywanie nieobsługiwanych formatów osadzonych zeszytów**
+## **Wykrywanie nieobsługiwanych formatów osadzonych skoroszytów**
 
-Aspose.Slides nie obsługuje formatu binarnego zeszytu Excel (.xlsb), który może być osadzony w niektórych wykresach. Możesz użyć właściwości [EmbeddedWorkbookType](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ichartdata/embeddedworkbooktype/) na obiekcie [IChartData](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ichartdata/) wraz z wymiennikiem [WorkbookType](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/workbooktype/) do wykrywania nieobsługiwanych formatów i pomijania takich wykresów. Ten przykład przegląda kształty na pierwszym slajdzie `sample.pptx`, pomija kształty niebędące wykresami i wypisuje komunikat diagnostyczny dla każdego wykresu z osadzonym zeszytem .xlsb.
+Aspose.Slides nie obsługuje binarnego formatu skoroszytu Excel (.xlsb), który może być osadzany w niektórych wykresach. Możesz używać właściwości [EmbeddedWorkbookType](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/embeddedworkbooktype/) na [IChartData](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/) razem z wyliczeniem [WorkbookType](https://reference.aspose.com/slides/net/aspose.slides.charts/workbooktype/), aby wykrywać nieobsługiwane formaty i pomijać takie wykresy. Przykład przegląda kształty na pierwszym slajdzie istniejącej prezentacji, pomija kształty niebędące wykresami i wypisuje komunikat diagnostyczny dla każdego wykresu z osadzonym skoroszytem .xlsb.
 
 ```csharp
 using System;
@@ -269,19 +297,19 @@ foreach (var shape in slide.Shapes)
         continue;
     }
 
-    // Odczytaj lub zmodyfikuj obsługiwane dane zeszytu wykresu tutaj.
+    // Odczytaj lub zmodyfikuj obsługiwane dane skoroszytu wykresu tutaj.
 }
 ```
 
-## **Zewnętrzny zeszyt**
+## **Zewnętrzny skoroszyt**
 
-Aspose.Slides obsługuje używanie zewnętrznych zeszytów jako źródła danych dla wykresów.
+Aspose.Slides obsługuje używanie zewnętrznych skoroszytów jako źródła danych dla wykresów.
 
-### **Utworzenie zewnętrznego zeszytu**
+### **Utworzenie zewnętrznego skoroszytu**
 
-Użyj [ReadWorkbookStream](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ichartdata/readworkbookstream/) i [SetExternalWorkbook](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ichartdata/setexternalworkbook/), aby wyeksportować osadzony zeszyt wykresu do pliku i powiązać wykres z tym zewnętrznym zeszytem.
+Użyj [ReadWorkbookStream](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/readworkbookstream/) i [SetExternalWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/setexternalworkbook/), aby wyeksportować osadzony skoroszyt wykresu do pliku i powiązać wykres z tym zewnętrznym skoroszytem.
 
-Ten przykład tworzy wykres kołowy z domyślnymi danymi, zapisuje jego zeszyt do `externalWorkbook1.xlsx` i zamyka strumień wyjściowy przed przypisaniem pliku jako źródła danych wykresu. Zapisuje połączoną prezentację do `externalWorkbook.pptx`.
+Przykład tworzy wykres kołowy z domyślnymi danymi i eksportuje jego skoroszyt. Zamknięcie strumienia wyjściowego następuje przed przypisaniem zewnętrznego skoroszytu jako źródła danych wykresu, po czym zapisuje powiązaną prezentację.
 
 ```csharp
 using System.IO;
@@ -305,13 +333,13 @@ chart.ChartData.SetExternalWorkbook(workbookPath);
 presentation.Save("externalWorkbook.pptx", SaveFormat.Pptx);
 ```
 
-### **Ustawienie zewnętrznego zeszytu**
+### **Ustawienie zewnętrznego skoroszytu**
 
-Za pomocą metody [SetExternalWorkbook](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ichartdata/setexternalworkbook/) możesz przypisać zewnętrzny zeszyt do wykresu jako jego źródło danych. Metoda może być również użyta do aktualizacji ścieżki do zewnętrznego zeszytu (jeżeli został on przeniesiony).
+Za pomocą metody [SetExternalWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/setexternalworkbook/) możesz przypisać zewnętrzny skoroszyt do wykresu jako jego źródło danych. Metodę można także użyć do aktualizacji ścieżki do zewnętrznego skoroszytu (jeśli został on przeniesiony).
 
-Chociaż nie możesz edytować danych w zeszytach przechowywanych w zdalnych lokalizacjach lub zasobach, możesz nadal używać takich zeszytów jako zewnętrznego źródła danych. Jeśli podana jest względna ścieżka do zewnętrznego zeszytu, zostaje ona automatycznie przekształcona w pełną ścieżkę.
+Choć nie możesz edytować danych w skoroszytach przechowywanych w zdalnych lokalizacjach lub zasobach, nadal możesz używać takich skoroszytów jako zewnętrznego źródła danych. Jeśli podano względną ścieżkę do zewnętrznego skoroszytu, zostanie ona automatycznie przekształcona w pełną ścieżkę.
 
-Ten przykład wymaga `externalWorkbook.xlsx` w katalogu roboczym. Jego arkusz o nazwie `Sheet1` musi zawierać nazwę serii w B1, nazwy kategorii w A2:A4 oraz wartości liczbowe w B2:B4. Przykład tworzy wykres kołowy, powiązuje zeszyt i używa [SetRange](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ichartdata/setrange/) do mapowania A1:B4 na jedną serię i trzy kategorie. Zapisuje wynik do `Presentation_with_externalWorkbook.pptx`.
+Przykład używa zewnętrznego skoroszytu, którego arkusz o nazwie `Sheet1` zawiera nazwę serii w B1, nazwy kategorii w A2:A4 oraz wartości liczbowe w B2:B4. Przykład tworzy wykres kołowy, łączy skoroszyt i używa [SetRange](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/setrange/) do mapowania A1:B4 na jedną serię i trzy kategorie. Zapisuje prezentację z powiązanym wykresem.
 
 ```csharp
 using System.IO;
@@ -332,12 +360,12 @@ chartData.SetRange("Sheet1!$A$1:$B$4");
 presentation.Save("Presentation_with_externalWorkbook.pptx", SaveFormat.Pptx);
 ```
 
-Parametr `updateChartData` metody [SetExternalWorkbook](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ichartdata/setexternalworkbook/) kontroluje, czy zeszyt jest ładowany.
+Parametr `updateChartData` metody [SetExternalWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/setexternalworkbook/) kontroluje, czy skoroszyt zostanie załadowany.
 
-* Gdy `updateChartData` jest `false`, aktualizowana jest tylko ścieżka do zeszytu. Dane wykresu nie są ładowane ani aktualizowane z docelowego zeszytu, więc zeszyt może być niedostępny.
-* Gdy `updateChartData` jest `true`, dane wykresu są aktualizowane z docelowego zeszytu.
+* Gdy `updateChartData` jest `false`, aktualizowana jest tylko ścieżka do skoroszytu. Dane wykresu nie są ładowane ani aktualizowane z docelowego skoroszytu, więc skoroszyt może być niedostępny.
+* Gdy `updateChartData` jest `true`, dane wykresu są aktualizowane z docelowego skoroszytu.
 
-Poniższy przykład przypisuje przykładowy adres URL z `updateChartData` ustawionym na `false`. Zachowuje domyślne dane wykresu kołowego i zapisuje prezentację bez ładowania niedostępnego zeszytu.
+Poniższy przykład przypisuje przykładowy URL z parametrem `updateChartData` ustawionym na `false`. Zachowuje domyślne dane wykresu kołowego i zapisuje prezentację bez ładowania niedostępnego skoroszytu.
 
 ```csharp
 using Aspose.Slides;
@@ -353,17 +381,11 @@ chart.ChartData.SetExternalWorkbook("https://example.com/unavailable-workbook.xl
 presentation.Save("SetExternalWorkbookWithUpdateChartData.pptx", SaveFormat.Pptx);
 ```
 
-### **Uzyskanie ścieżki zewnętrznego zeszytu danych wykresu**
+### **Uzyskanie ścieżki do skoroszytu źródłowego zewnętrznego wykresu**
 
-Aby zidentyfikować zeszyt powiązany z wykresem, najpierw sprawdź, czy wykres używa zewnętrznego źródła danych. Jeśli tak, możesz odczytać ścieżkę zeszytu, wykonując następujące kroki.
+Aby zidentyfikować skoroszyt podłączony do wykresu, sprawdź, czy wykres używa zewnętrznego źródła danych i pobierz jego ścieżkę.
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation/).
-2. Uzyskaj dostęp do pierwszego slajdu za pomocą indeksu zerowego.
-3. Sprawdź, czy pierwsza forma jest wykresem.
-4. Odczytaj typ źródła danych wykresu.
-5. Jeśli źródłem jest zewnętrzny zeszyt, odczytaj jego ścieżkę.
-
-Ten przykład otwiera `externalWorkbook.pptx`, utworzony w poprzednim przykładzie, i analizuje pierwszą formę na pierwszym slajdzie. Jeśli jest to wykres powiązany z zewnętrznym zeszytem, przykład wypisuje [ExternalWorkbookPath](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ichartdata/externalworkbookpath/) w konsoli. Następnie zapisuje kopię prezentacji do `Result.pptx`.
+Przykład przegląda pierwszy kształt na pierwszym slajdzie prezentacji z podłączonym zewnętrznym skoroszytem. Jeśli jest to wykres podłączony do zewnętrznego skoroszytu, przykład wypisuje [ExternalWorkbookPath](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/externalworkbookpath/) w konsoli. Następnie zapisuje kopię prezentacji.
 
 ```csharp
 using System;
@@ -397,9 +419,9 @@ presentation.Save("Result.pptx", SaveFormat.Pptx);
 
 ### **Edycja danych wykresu**
 
-Możesz edytować dane w zewnętrznych zeszytach tak samo, jak w wewnętrznych. Gdy zewnętrzny zeszyt nie może zostać załadowany, zostaje zgłoszony wyjątek.
+Możesz edytować dane w zewnętrznych skoroszytach w taki sam sposób, w jaki zmieniasz zawartość wewnętrznych skoroszytów. Gdy nie można załadować zewnętrznego skoroszytu, zostaje rzucony wyjątek.
 
-Ten przykład wymaga `presentation.pptx` z wykresem jako pierwszą formą na pierwszym slajdzie oraz dostępnego zewnętrznego zeszytu. Ustawia wartość komórkową pierwszego punktu danych w pierwszej serii na 100 i zapisuje prezentację do `presentation_out.pptx`. Edycja wartości komórek może aktualizować powiązany zewnętrzny plik XLSX, więc użyj kopii, jeśli musisz zachować oryginalny zeszyt.
+Przykład używa wykresu, który jest pierwszym kształtem na pierwszym slajdzie i jest podłączony do dostępnego zewnętrznego skoroszytu. Ustawia wartość pierwszego punktu danych w pierwszej serii na 100 i zapisuje zaktualizowaną prezentację. Edycja wartości komórek może zaktualizować podłączony zewnętrzny plik XLSX, więc używaj kopii, jeśli musisz zachować oryginalny skoroszyt.
 
 ```csharp
 using System;
@@ -438,11 +460,11 @@ else
 }
 ```
 
-### **Odzyskiwanie zeszytu z pamięci podręcznej wykresu**
+### **Odzyskanie skoroszytu z pamięci podręcznej wykresu**
 
-Jeśli wykres używa zewnętrznego zeszytu, który jest brakujący lub niedostępny, Aspose.Slides może odtworzyć zeszyt wykresu z danych zapisanych w pamięci podręcznej prezentacji. Utwórz [LoadOptions](https://reference.aspose.com/slides/pl/net/aspose.slides/loadoptions/), skonfiguruj jego [SpreadsheetOptions](https://reference.aspose.com/slides/pl/net/aspose.slides/loadoptions/spreadsheetoptions/), i ustaw [ISpreadsheetOptions.RecoverWorkbookFromChartCache](https://reference.aspose.com/slides/pl/net/aspose.slides/ispreadsheetoptions/recoverworkbookfromchartcache/) na `true` przed otwarciem prezentacji.
+Jeśli wykres używa zewnętrznego skoroszytu, który jest brakujący lub niedostępny, Aspose.Slides może odtworzyć skoroszyt wykresu z danych zapisanych w pamięci podręcznej prezentacji. Utwórz [LoadOptions](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/), skonfiguruj jego [SpreadsheetOptions](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/spreadsheetoptions/), i ustaw [ISpreadsheetOptions.RecoverWorkbookFromChartCache](https://reference.aspose.com/slides/net/aspose.slides/ispreadsheetoptions/recoverworkbookfromchartcache/) na `true` przed otwarciem prezentacji.
 
-Poniższy przykład C# otwiera `presentation.pptx`, którego pierwsza forma na pierwszym slajdzie musi być wykresem odwołującym się do niedostępnego zewnętrznego zeszytu, i uzyskuje odzyskane dane poprzez [IChart.ChartData](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ichart/chartdata/) oraz [IChartData.ChartDataWorkbook](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ichartdata/chartdataworkbook/):
+Poniższy przykład w C# odzyskuje dane skoroszytu dla wykresu, który jest pierwszym kształtem na pierwszym slajdzie i odwołuje się do niedostępnego zewnętrznego skoroszytu. Dostęp do odzyskanych danych uzyskuje przez [IChart.ChartData](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/chartdata/) oraz [IChartData.ChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/chartdataworkbook/):
 
 ```csharp
 using System;
@@ -466,7 +488,7 @@ if (shapeCount > 0 && slide.Shapes[0] is IChart chart)
 {
     var recoveredWorkbook = chart.ChartData.ChartDataWorkbook;
 
-    // Odczytaj lub zmodyfikuj tutaj odzyskane dane zeszytu.
+    // Odczytaj lub zmodyfikuj tutaj odzyskane dane skoroszytu.
 }
 else
 {
@@ -474,30 +496,30 @@ else
 }
 ```
 
-Jeśli zewnętrzny zeszyt jest niedostępny, a odzyskiwanie jest wyłączone, Aspose.Slides zgłasza [InvalidOperationException](https://learn.microsoft.com/en-us/dotnet/api/system.invalidoperationexception). Włączaj odzyskiwanie tylko wtedy, gdy użycie danych z pamięci podręcznej wykresu jest dopuszczalnym rozwiązaniem, ponieważ pamięć podręczna może nie zawierać zmian dokonanych w zewnętrznym zeszycie po ostatniej aktualizacji prezentacji.
+Jeśli zewnętrzny skoroszyt jest niedostępny i odzyskiwanie jest wyłączone, Aspose.Slides zgłasza [InvalidOperationException](https://learn.microsoft.com/en-us/dotnet/api/system.invalidoperationexception). Włącz odzyskiwanie tylko wtedy, gdy użycie danych z pamięci podręcznej wykresu jest akceptowalnym rozwiązaniem, ponieważ pamięć może nie zawierać zmian wprowadzonych w zewnętrznym skoroszycie po ostatniej aktualizacji prezentacji.
 
 ## **FAQ**
 
-**Czy mogę określić, czy konkretny wykres jest powiązany z zewnętrznym, czy osadzonym zeszytem?**
+**Czy mogę określić, czy konkretny wykres jest powiązany z zewnętrznym czy osadzonym skoroszytem?**
 
-Tak. Wykres ma [typ źródła danych](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/chartdata/datasourcetype/) oraz [ścieżkę do zewnętrznego zeszytu](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/chartdata/externalworkbookpath/); jeśli źródłem jest zewnętrzny zeszyt, możesz odczytać pełną ścieżkę, aby upewnić się, że używany jest plik zewnętrzny.
+Tak. Wykres posiada [typ źródła danych](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdata/datasourcetype/) oraz [ścieżkę do zewnętrznego skoroszytu](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdata/externalworkbookpath/); jeśli źródłem jest zewnętrzny skoroszyt, możesz odczytać pełną ścieżkę, aby upewnić się, że używany jest plik zewnętrzny.
 
-**Czy obsługiwane są względne ścieżki do zewnętrznych zeszytów i jak są one przechowywane?**
+**Czy obsługiwane są względne ścieżki do zewnętrznych skoroszytów i jak są przechowywane?**
 
-Tak. Jeśli podasz względną ścieżkę, zostaje ona automatycznie skonwertowana na ścieżkę bezwzględną. Prezentacja zapisuje ścieżkę bezwzględną w pliku PPTX, więc przeniesienie zeszytu może wymagać aktualizacji łącza.
+Tak. Jeśli podasz względną ścieżkę, zostaje ona automatycznie przekształcona w ścieżkę bezwzględną. Prezentacja zapisuje ścieżkę bezwzględną w pliku PPTX, więc przeniesienie skoroszytu może wymagać aktualizacji linku.
 
-**Czy mogę używać zeszytów znajdujących się w zasobach sieciowych/udostępnionych?**
+**Czy mogę używać skoroszytów znajdujących się na zasobach sieciowych/udziałach?**
 
-Tak, takie zeszyty mogą być używane jako zewnętrzne źródło danych. Jednak edycja zdalnych zeszytów bezpośrednio z Aspose.Slides nie jest obsługiwana — mogą być używane jedynie jako źródło.
+Tak, takie skoroszyty mogą być używane jako zewnętrzne źródło danych. Jednak edycja zdalnych skoroszytów bezpośrednio z Aspose.Slides nie jest obsługiwana – mogą być używane wyłącznie jako źródło.
 
 **Czy Aspose.Slides nadpisuje zewnętrzny plik XLSX przy zapisie prezentacji?**
 
-Prezentacja przechowuje [odnośnik do pliku zewnętrznego](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/chartdata/externalworkbookpath/). Edycja danych wykresu powiązanych z komórkami może również zaktualizować powiązany lokalny plik XLSX. Użyj kopii zeszytu, jeśli oryginał musi pozostać niezmieniony.
+Prezentacja przechowuje [link do pliku zewnętrznego](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdata/externalworkbookpath/). Edycja danych wykresu opartej na komórkach może również zaktualizować podłączony lokalny plik XLSX. Użyj kopii skoroszytu, jeśli oryginał musi pozostać niezmieniony.
 
-**Co zrobić, gdy zewnętrzny plik jest zabezpieczony hasłem?**
+**Co zrobić, jeśli plik zewnętrzny jest chroniony hasłem?**
 
-Aspose.Slides nie akceptuje hasła przy łączeniu. Typowym podejściem jest usunięcie ochrony wcześniej lub przygotowanie odszyfrowanej kopii (np. przy użyciu [Aspose.Cells](https://reference.aspose.com/cells/net/)) i podlinkowanie do tej kopii.
+Aspose.Slides nie przyjmuje hasła przy łączeniu. Typowe podejście to usunięcie ochrony wcześniej lub przygotowanie odszyfrowanej kopii (na przykład przy użyciu [Aspose.Cells](https://reference.aspose.com/cells/net/)) i podłączenie jej.
 
-**Czy wiele wykresów może odwoływać się do tego samego zewnętrznego zeszytu?**
+**Czy wiele wykresów może odwoływać się do tego samego zewnętrznego skoroszytu?**
 
-Tak. Każdy wykres przechowuje własny odnośnik. Jeśli wszystkie wskazują na ten sam plik, aktualizacja tego pliku zostanie odzwierciedlona w każdym wykresie przy następnym ładowaniu danych.
+Tak. Każdy wykres przechowuje własny link. Jeśli wszystkie wskazują na ten sam plik, aktualizacja tego pliku zostanie odzwierciedlona w każdym wykresie przy następnym ładowaniu danych.

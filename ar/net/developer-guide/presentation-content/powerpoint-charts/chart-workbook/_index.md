@@ -1,5 +1,5 @@
 ---
-title: إدارة دفاتر عمل المخططات في العروض التقديمية في .NET
+title: إدارة دفاتر عمل المخططات في العروض التقديمية بـ .NET
 linktitle: دفتر عمل المخطط
 type: docs
 weight: 70
@@ -8,33 +8,33 @@ keywords:
 - دفتر عمل المخطط
 - بيانات المخطط
 - خلية دفتر العمل
-- تسمية البيانات
+- ملصق البيانات
 - ورقة العمل
 - مصدر البيانات
 - دفتر عمل خارجي
 - بيانات خارجية
-- ذاكرة التخزين المؤقت للمخطط
+- مخبأ المخطط
 - استعادة دفتر العمل
 - PowerPoint
 - عرض تقديمي
 - .NET
 - C#
 - Aspose.Slides
-description: "اكتشف Aspose.Slides for .NET: إدارة دفاتر عمل المخططات بسهولة في صيغ PowerPoint و OpenDocument لتبسيط بيانات العرض التقديمي الخاص بك."
+description: "اكتشف Aspose.Slides لـ .NET: إدارة دفاتر عمل المخططات بسهولة في صيغ PowerPoint و OpenDocument لتبسيط بيانات عرضك التقديمي."
 ---
 ## **نظرة عامة**
 
-توضح هذه المقالة كيفية العمل مع دفاتر العمل الخاصة بالرسوم البيانية في Aspose.Slides. تظهر كيفية قراءة وكتابة بيانات الرسم البياني عبر تدفقات دفتر العمل، واستخدام خلايا دفتر العمل كعناوين بيانات الرسم البياني، والوصول إلى مجموعات أوراق العمل، وتحديد نوع مصدر البيانات لقيم الرسم البياني.
+توضح هذه المقالة كيفية العمل مع دفاتر عمل المخططات في Aspose.Slides. تعرض كيف يمكن قراءة وكتابة بيانات المخطط عبر تدفقات دفتر العمل، واستخدام خلايا دفتر العمل كملصقات بيانات المخطط، والوصول إلى مجموعات أوراق العمل، وتحديد نوع مصدر البيانات لقيم المخطط.
 
-كما تغطي العمل مع دفاتر العمل الخارجية كمصادر بيانات للرسوم البيانية. تظهر الأمثلة كيفية إنشاء وتعيين دفتر عمل خارجي، واسترجاع مسار دفتر العمل الخارجي المرتبط بالرسم البياني، وتعديل بيانات الرسم البياني عندما يكون دفتر العمل متاحًا.
+كما تغطي العمل مع دفاتر عمل خارجية كمصادر بيانات للمخططات. توضح الأمثلة كيفية إنشاء وتعيين دفتر عمل خارجي، استرداد مسار دفتر عمل خارجي مرتبط بمخطط، وتعديل بيانات المخطط عندما يكون دفتر العمل متاحًا.
 
-بالنسبة لخلايا دفتر العمل التي تمثل بيانات مفقودة، راجع [التحكم في عرض الخلايا الفارغة](/slides/ar/net/chart-series/) لمعرفة الفرق بين الخلية الفارغة والصفر، ومقارنة مخطط الخط لأوضاع العرض المتاحة.
+لخليا دفتر العمل التي تمثل بيانات مفقودة، انظر [التحكم في عرض الخلايا الفارغة](/slides/ar/net/chart-series/) للفرق بين الخلية الفارغة والصفر، ومقارنة مخطط خطية بين أوضاع العرض المتاحة.
 
 ## **تضمين البيانات من الصفوف والأعمدة المخفية**
 
-استخدم [IChart.PlotVisibleCellsOnly](https://reference.aspose.com/slides/ar/net/aspose.slides.charts/ichart/plotvisiblecellsonly/) للتحكم فيما إذا كان الرسم البياني يرسم البيانات من الصفوف والأعمدة المخفية في ورقة العمل. عينه `true` لت رسم الخلايا المرئية فقط، أو `false` لتضمين كل من الخلايا المرئية والمخفية. هذه الإعدادات تتحكم في رسم الرسم البياني؛ وليس لها علاقة بإخفاء أو إظهار صفوف أو أعمدة ورقة العمل.
+استخدم [IChart.PlotVisibleCellsOnly](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/plotvisiblecellsonly/) للتحكم فيما إذا كان المخطط يرسم البيانات من صفوف وأعمدة ورقة العمل المخفية. اضبطه على `true` لرسم الخلايا المرئية فقط، أو على `false` لتضمين كل من الخلايا المرئية والمخفية. هذه الإعدادات تتحكم في رسم المخطط؛ لا تقوم بإخفاء أو إظهار صفوف أو أعمدة ورقة العمل.
 
-قم بتنزيل [hidden-source-data.pptx](hidden-source-data.pptx) وضعه في دليل العمل. يحتوي الشريحة الأولى على مخطط عمودي كشكل أول. ورقة العمل المضمنة، `Sheet1`، تحتوي على النطاق المصدر التالي، `A1:C4`. الصف 3 والعمود C مخفيان، لكن خلاياهما لا تزال تحتوي على قيم.
+العرض التقديمي [العرض التقديمي النموذجي](hidden-source-data.pptx) يحتوي على مخطط عمودي كأول شكل في شريحته الأولى. ورقة العمل المدمجة، `Sheet1`، تحتوي على النطاق المصدر التالي، `A1:C4`. الصف 3 والعمود C مخفيان، لكن خلاياهما لا تزال تحتوي على قيم.
 
 | صف ورقة العمل | A: الشهر | B: التجزئة | C: الجملة (عمود مخفي) |
 | --- | --- | --- | --- |
@@ -42,9 +42,9 @@ description: "اكتشف Aspose.Slides for .NET: إدارة دفاتر عمل ا
 | 3 (صف مخفي) | فبراير | 40 | 60 |
 | 4 | مارس | 20 | 50 |
 
-الوصول إلى الخلايا المصدر عبر [IChartData.ChartDataWorkbook](https://reference.aspose.com/slides/ar/net/aspose.slides.charts/ichartdata/chartdataworkbook/) وقراءة [IChartDataCell.IsHidden](https://reference.aspose.com/slides/ar/net/aspose.slides.charts/ichartdatacell/ishidden/) لتفقد حالة الإخفاء. هذه الخاصية للقراءة فقط. في هذا الملف، B2 مرئي، B3 ينتمي إلى الصف المخفي، وC2 ينتمي إلى العمود المخفي؛ المثال يطبع `False`، `True`، و`True` على التوالي.
+الوصول إلى الخلايا المصدر عبر [IChartData.ChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/chartdataworkbook/) وقراءة [IChartDataCell.IsHidden](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatacell/ishidden/) لفحص حالة إخفائها. هذه الخاصية للقراءة فقط. في هذا الملف، B2 مرئية، B3 تنتمي إلى الصف المخفي، وC2 تنتمي إلى العمود المخفي؛ المثال يطبع `False`، `True`، و`True` على التوالي.
 
-للمثال هذا، حدّث بيانات الرسم البياني بعد تغيير إعداد الرسم: احتفظ بدفتر العمل المضمن باستخدام [ReadWorkbookStream](https://reference.aspose.com/slides/ar/net/aspose.slides.charts/ichartdata/readworkbookstream/) وأعد تحميله باستخدام [WriteWorkbookStream](https://reference.aspose.com/slides/ar/net/aspose.slides.charts/ichartdata/writeworkbookstream/). عند تضمين جميع الخلايا، استخدم أيضًا [SetRange](https://reference.aspose.com/slides/ar/net/aspose.slides.charts/ichartdata/setrange/) لاستعادة النطاق الكامل، بما في ذلك فئة فبراير المخفية. مجرد تغيير العلامة غير كافٍ لتحديث بيانات الرسم المخزنة مؤقتًا وتسميات الفئات في هذا المثال.
+لهذا المثال، قم بتحديث بيانات المخطط بعد تغيير إعداد الرسم: احتفظ بدفتر العمل المدمج باستخدام [ReadWorkbookStream](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/readworkbookstream/) وأعد تحميله باستخدام [WriteWorkbookStream](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/writeworkbookstream/). عند تضمين كل الخلايا، استخدم أيضًا [SetRange](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/setrange/) لاستعادة النطاق الكامل، بما في ذلك فئة فبراير المخفية. مجرد تغيير العلامة غير كافٍ لتحديث بيانات المخطط المخزنة مؤقتًا وعلامات الفئات في هذا المثال.
 
 ```csharp
 using System;
@@ -67,7 +67,7 @@ if (slide.Shapes[0] is IChart chart)
     {
         chart.PlotVisibleCellsOnly = visibleOnly;
 
-        // تجديد بيانات المخطط من دفتر العمل المضمن.
+        // تحديث بيانات المخطط من دفتر العمل المدمج.
         workbookStream.Position = 0;
         chart.ChartData.WriteWorkbookStream(workbookStream);
         if (!visibleOnly)
@@ -85,19 +85,54 @@ else
 }
 ```
 
-يحفظ المثال `hidden_cells_True.pptx` مع قيم التجزئة المرئية فقط (10 و 20)، و`hidden_cells_False.pptx` مع جميع القيم الستة. الصور أدناه تم عرضها من العروض التقديمية المحفوظة بعد إعادة فتحها؛ كلا الملفين يحافظان على إعداد الرسم المحدد. يبقى الصف 3 والعمود C مخفيين في كلا دفترَي العمل المضمنين.
+يقوم المثال بحفظ نسختين من العرض التقديمي: واحدة تحتوي فقط على قيم التجزئة المرئية (10 و 20)، وأخرى تحتوي على جميع القيم الستة. تم عرض الصور أدناه من العروض التقديمية المحفوظة بعد إعادة فتحها؛ كلا الملفين يحافظان على إعداد الرسم المعين. يظل الصف 3 والعمود C مخفيين في كلا دفترَي العمل المدمجين.
 
-| الخلايا المرئية فقط (`true`) | جميع الخلايا (`false`) |
+| الخلايا المرئية فقط (`true`) | كل الخلايا (`false`) |
 | --- | --- |
 | ![الخلايا المرئية فقط: قيم التجزئة 10 و 20 لشهري يناير ومارس.](hidden_cells_True.png) | ![جميع الخلايا: قيم التجزئة والجملة لشهري يناير وفبراير ومارس.](hidden_cells_False.png) |
 
-الخلية المخفية التي تحتوي على قيمة تختلف عن الخلية الفارغة. يتحكم [IChart.DisplayBlanksAs](https://reference.aspose.com/slides/ar/net/aspose.slides.charts/ichart/displayblanksas/) في كيفية عرض القيم المفقودة؛ ولا يضيف أو يستثني بيانات المصدر المخفية. راجع [التحكم في عرض الخلايا الفارغة](/slides/ar/net/chart-series/#control-the-display-of-empty-cells) للحصول على مثال.
+الخلية المخفية التي تحتوي على قيمة تختلف عن الخلية الفارغة. يتحكم [IChart.DisplayBlanksAs](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/displayblanksas/) في كيفية عرض القيم المفقودة؛ لا يتضمن أو يستثني البيانات المصدر المخفية. انظر [التحكم في عرض الخلايا الفارغة](/slides/ar/net/chart-series/#control-the-display-of-empty-cells) للحصول على مثال.
 
-## **قراءة وكتابة بيانات الرسم البياني من دفتر عمل**
+## **استرجاع نطاق بيانات المخطط**
 
-توفر Aspose.Slides for .NET طريقتي [ReadWorkbookStream](https://reference.aspose.com/slides/ar/net/aspose.slides.charts/ichartdata/readworkbookstream/) و[WriteWorkbookStream](https://reference.aspose.com/slides/ar/net/aspose.slides.charts/ichartdata/writeworkbookstream/) اللتين تسمحان بقراءة وكتابة دفاتر عمل بيانات الرسم البياني (التي تحتوي على بيانات تم تعديلها باستخدام Aspose.Cells). **ملاحظة** أن بيانات الرسم يجب أن تكون منظمة بنفس الطريقة أو أن يكون لها هيكل مشابه للمصدر.
+قبل تحديث بيانات دفتر العمل في عرض تقديمي موجود، افحص النطاقات المصدر لتحديد خلايا ورقة العمل التي يستخدمها كل مخطط. طريقة [IChartData.GetRange](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/getrange/) تُعيد النطاق البيانات الحالي كصيغة مؤهلة بورقة العمل، مثل `Sheet1!$A$1:$D$5`. هنا، `Sheet1` هو اسم ورقة العمل، `!` يفصلها عن نطاق الخلايا، و`$A$1:$D$5` يحدد الخلايا من A1 إلى D5 شاملًا. تشير علامات الدولار إلى مراجع صف وعمود مطلقة.
 
-يفتح هذا المثال `chart.pptx`، ويجب أن يحتوي على رسم بياني كشكل أول في شريحته الأولى. يقرأ دفتر العمل المضمن إلى تدفق، يمسح السلاسل والفئات الحالية، ثم يكتب دفتر العمل نفسه مرة أخرى. تبقى التغييرات في الذاكرة؛ لا يحفظ المثال العرض التقديمي.
+تقرا الطريقة النطاق الحالي دون تغيير المخطط أو دفتر عمله. إذا لم يستخدم المخطط دفتر عمل كمصدر للبيانات، فإنها تُطلق استثناء [InvalidOperationException](https://learn.microsoft.com/en-us/dotnet/api/system.invalidoperationexception). لمزيد من المعلومات، راجع [ChartData API Reference](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdata/).
+
+يفتح هذا المثال عرضًا تقديميًا ويفحص الأشكال مباشرة على كل شريحة للعثور على المخططات. يطبع اسم كل مخطط والنطاق المصدر. إذا لم يستخدم المخطط دفتر عمل، يطبع رسالة ويتابع إلى المخطط التالي.
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+
+using var presentation = new Presentation("presentation.pptx");
+
+foreach (var slide in presentation.Slides)
+{
+    foreach (var shape in slide.Shapes)
+    {
+        if (shape is IChart chart)
+        {
+            try
+            {
+                var range = chart.ChartData.GetRange();
+                Console.WriteLine($"{chart.Name}: {range}");
+            }
+            catch (InvalidOperationException)
+            {
+                Console.WriteLine($"{chart.Name}: The chart does not use a workbook as its data source.");
+            }
+        }
+    }
+}
+```
+
+## **قراءة وكتابة بيانات المخطط من دفتر عمل**
+
+توفر Aspose.Slides for .NET الطريقتين [ReadWorkbookStream](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/readworkbookstream/) و[WriteWorkbookStream](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/writeworkbookstream/) اللتين تتيحان لك قراءة وكتابة دفاتر عمل بيانات المخطط (التي تحتوي على بيانات مخطط تم تعديلها باستخدام Aspose.Cells). **ملاحظة** أن بيانات المخطط يجب تنظيمها بنفس الطريقة أو أن يكون لها هيكل مشابه للمصدر.
+
+يستخدم هذا المثال عرضًا تقديميًا يحتوي على مخطط كأول شكل في شريحته الأولى. يقرأ دفتر العمل المدمج إلى تدفق، يمسح السلاسل والفئات الحالية، ويعيد كتابة دفتر العمل نفسه. تظل التغييرات في الذاكرة؛ لا يحفظ المثال العرض التقديمي.
 
 ```csharp
 using System;
@@ -125,9 +160,9 @@ else
 }
 ```
 
-### **التحقق من تخطيط الرسم البياني بعد تعديل دفتر العمل**
+### **التحقق من تخطيط المخطط بعد تعديل دفتر العمل**
 
-عند استبدال دفتر عمل مضمّن بآخر معدل، يحتفظ الرسم البياني بسلسلاته ومجموعات فئاته الأصلية. يمكن لهذا الاختلاف أن يتسبب في فشل [IChart.ValidateChartLayout](https://reference.aspose.com/slides/ar/net/aspose.slides.charts/ichart/validatechartlayout/) مع خطأ “index-out-of-range”. امسح السلاسل والفئات الحالية قبل كتابة دفتر العمل المحدث إلى الرسم البياني. يتطلب هذا المثال وجود `chart.pptx` مع رسم بياني كشكل أول في شريحته الأولى. علامة التعليق توضح مكان تحرير دفتر العمل؛ يكتب المثال القالب الأصلي مرة أخرى ويُصادق على التخطيط في الذاكرة.
+عند استبدال دفتر عمل مدمج بآخر معدل، يحتفظ المخطط بمجموعات السلاسل والفئات الأصلية. قد يتسبب هذا الاختلاف في فشل [IChart.ValidateChartLayout](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/validatechartlayout/) مع خطأ مؤشر خارج النطاق. امسح السلاسل والفئات الحالية قبل كتابة دفتر العمل المحدّث إلى المخطط. يستخدم هذا المثال مخططًا هو أول شكل في الشريحة الأولى. تشير التعليقات إلى المكان الذي سيجري فيه تحرير دفتر العمل؛ المثال القابل للتنفيذ يكتب دفتر العمل الأصلي مرة أخرى ويُصادق على التخطيط في الذاكرة.
 
 ```csharp
 using System;
@@ -143,7 +178,7 @@ if (shapeCount > 0 && slide.Shapes[0] is IChart chart)
     var chartData = chart.ChartData;
     using var workbookStream = chartData.ReadWorkbookStream();
 
-    // قم بتعديل تدفق دفتر العمل هنا، على سبيل المثال باستخدام Aspose.Cells.
+    // تعديل تدفق دفتر العمل هنا، على سبيل المثال باستخدام Aspose.Cells.
 
     chartData.Series.Clear();
     chartData.Categories.Clear();
@@ -158,20 +193,13 @@ else
 }
 ```
 
-إزالة المجموعات تمسح إشارات البيانات القديمة قبل كتابة دفتر العمل مرة أخرى. أعد بناء أي سلاسل أو خرائط فئات مطلوبة لدفتر العمل المحدث قبل استخدام الرسم البياني.
+إزالة التجميعات تزيل مراجع البيانات القديمة قبل كتابة دفتر العمل مرة أخرى. أعد بناء أي سلاسل أو تعيينات فئات ضرورية للدفتر المحدث قبل استخدام المخطط.
 
-## **تعيين خلية دفتر العمل كعلامة بيانات للرسم البياني**
+## **تعيين خلية دفتر العمل كملصق بيانات المخطط**
 
-يمكنك استخدام النص من خلايا دفتر العمل كعلامات بيانات للرسم البياني. توضح الخطوات التالية كيفية ربط العلامات في مخطط الفقاعات بالخلايا في دفتر البيانات الخاص به.
+يمكنك استخدام النص من خلايا دفتر العمل كملصقات بيانات المخطط.
 
-1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation/) .
-2. الوصول إلى الشريحة الأولى باستخدام الفهرس صفر-الأساس.
-3. إضافة مخطط فقاعة بالبيانات الافتراضية.
-4. الوصول إلى سلسلة الرسم البياني.
-5. تعيين خلية دفتر العمل كعلامة بيانات.
-6. حفظ العرض التقديمي.
-
-يفتح هذا المثال `chart2.pptx`، ويجب أن يحتوي على شريحة واحدة على الأقل، ويضيف مخطط فقاعة بالبيانات الافتراضية. يستخدم الخلايا A10:A12 في ورقة العمل 0 للعلامات الثلاث الأولى في السلسلة الأولى، يُفعِّل العلامات من الخلايا، ويحفظ النتيجة إلى `resultchart.pptx`.
+يضيف هذا المثال مخطط فقاعات ببيانات افتراضية إلى الشريحة الأولى من عرض تقديمي موجود. يستخدم الخلايا A10:A12 في ورقة العمل 0 للملصقات الثلاث الأولى في السلسلة الأولى، يُفعّل الملصقات من الخلايا، ويحفظ العرض التقديمي المُحدّث.
 
 ```csharp
 using Aspose.Slides;
@@ -195,7 +223,7 @@ presentation.Save("resultchart.pptx", SaveFormat.Pptx);
 
 ## **إدارة أوراق العمل**
 
-توفر الخاصية [IChartDataWorkbook.Worksheets](https://reference.aspose.com/slides/ar/net/aspose.slides.charts/ichartdataworkbook/worksheets/) إمكانية الوصول إلى أوراق العمل في دفتر عمل الرسم البياني. ينشئ هذا المثال مخططًا دائريًا بالبيانات الافتراضية ويطبع اسم كل ورقة عمل إلى وحدة التحكم.
+توفر الخاصية [IChartDataWorkbook.Worksheets](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/worksheets/) الوصول إلى أوراق العمل في دفتر عمل المخطط. يخلق هذا المثال مخططًا دائريًا ببيانات افتراضية ويطبع اسم كل ورقة عمل إلى وحدة التحكم.
 
 ```csharp
 using System;
@@ -216,7 +244,7 @@ for (var i = 0; i < workbook.Worksheets.Count; i++)
 
 ## **تحديد نوع مصدر البيانات**
 
-ينشئ هذا المثال مخطط عمودي ثلاثي الأبعاد بالبيانات الافتراضية ويضبط اسمي سلسلتين باستخدام مصادر بيانات مختلفة. الاسم الأول يستخدم نصًا حرفيًا؛ الثاني يستخدم الخلية C1 في ورقة العمل 0. يحدِّد تعداد [DataSourceType](https://reference.aspose.com/slides/ar/net/aspose.slides.charts/datasourcetype/) المصدر لكل اسم. يتم حفظ النتيجة إلى `pres.pptx`.
+يخلق هذا المثال مخطط أعمدة ثلاثي الأبعاد ببيانات افتراضية ويضبط اسمي سلسلتين باستخدام مصادر بيانات مختلفة. يستخدم الاسم الأول حرفًا نصيًا؛ والاسم الثاني يستخدم الخلية C1 في ورقة العمل 0. يحدد تعداد [DataSourceType](https://reference.aspose.com/slides/net/aspose.slides.charts/datasourcetype/) المصدر لكل اسم. يحفظ المثال العرض التقديمي بأسماء السلاسل المحدّثة.
 
 ```csharp
 using Aspose.Slides;
@@ -240,9 +268,9 @@ cellName.Data = nameCell;
 presentation.Save("pres.pptx", SaveFormat.Pptx);
 ```
 
-## **اكتشاف صيغ دفاتر العمل المضمنة غير المدعومة**
+## **اكتشاف تنسيقات دفاتر العمل المدمجة غير المدعومة**
 
-لا تدعم Aspose.Slides صيغة دفتر عمل Excel الثنائي (.xlsb) التي يمكن تضمينها في بعض الرسوم البيانية. يمكنك استخدام الخاصية [EmbeddedWorkbookType](https://reference.aspose.com/slides/ar/net/aspose.slides.charts/ichartdata/embeddedworkbooktype/) على [IChartData](https://reference.aspose.com/slides/ar/net/aspose.slides.charts/ichartdata/) مع تعداد [WorkbookType](https://reference.aspose.com/slides/ar/net/aspose.slides.charts/workbooktype/) لتحديد الصيغ غير المدعومة وتخطي تلك الرسوم البيانية. يفحص هذا المثال الأشكال في الشريحة الأولى من `sample.pptx`، يتخطى الأشكال غير الرسومية، ويطبع رسالة تشخيصية لكل رسم بياني يحتوي على دفتر عمل .xlsb مضمّن.
+لا تدعم Aspose.Slides تنسيق دفتر عمل Excel الثنائي (.xlsb) الذي يمكن دمجه في بعض المخططات. يمكنك استخدام الخاصية [EmbeddedWorkbookType](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/embeddedworkbooktype/) على [IChartData](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/) مع تعداد [WorkbookType](https://reference.aspose.com/slides/net/aspose.slides.charts/workbooktype/) لاكتشاف الصيغ غير المدعومة وتجاوز تلك المخططات. يفحص هذا المثال الأشكال في الشريحة الأولى من عرض تقديمي موجود، يتجاوز الأشكال غير المخططات، ويطبع رسالة تشخيصية لكل مخطط يحتوي على دفتر عمل .xlsb مدمج.
 
 ```csharp
 using System;
@@ -269,19 +297,19 @@ foreach (var shape in slide.Shapes)
         continue;
     }
 
-    // قراءة أو تعديل بيانات دفتر العمل المدعومة للرسوم البيانية هنا.
+    // قراءة أو تعديل بيانات دفتر عمل المخطط المدعومة هنا.
 }
 ```
 
 ## **دفتر عمل خارجي**
 
-تدعم Aspose.Slides استخدام دفاتر عمل خارجية كمصدر بيانات للرسوم البيانية.
+يدعم Aspose.Slides استخدام دفاتر عمل خارجية كمصدر بيانات للمخططات.
 
 ### **إنشاء دفتر عمل خارجي**
 
-استخدم [ReadWorkbookStream](https://reference.aspose.com/slides/ar/net/aspose.slides.charts/ichartdata/readworkbookstream/) و[SetExternalWorkbook](https://reference.aspose.com/slides/ar/net/aspose.slides.charts/ichartdata/setexternalworkbook/) لتصدير دفتر عمل رسم بياني مضمّن إلى ملف وربط الرسم البياني بذلك الدفتر الخارجي.
+استخدم [ReadWorkbookStream](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/readworkbookstream/) و[SetExternalWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/setexternalworkbook/) لتصدير دفتر عمل مخطط مدمج إلى ملف وربط المخطط بذلك الدفتر الخارجي.
 
-ينشئ هذا المثال مخططًا دائريًا بالبيانات الافتراضية، يكتب دفتر عمله إلى `externalWorkbook1.xlsx`، ويغلق تدفق الإخراج قبل تعيين الملف كمصدر بيانات للرسم البياني. يحفظ العرض المرتبط إلى `externalWorkbook.pptx`.
+يخلق هذا المثال مخططًا دائريًا ببيانات افتراضية ويصدر دفتر عمله. يغلق تدفق الإخراج قبل تعيين دفتر العمل الخارجي كمصدر بيانات المخطط، ثم يحفظ العرض التقديمي المرتبط.
 
 ```csharp
 using System.IO;
@@ -307,11 +335,11 @@ presentation.Save("externalWorkbook.pptx", SaveFormat.Pptx);
 
 ### **تعيين دفتر عمل خارجي**
 
-باستخدام طريقة [SetExternalWorkbook](https://reference.aspose.com/slides/ar/net/aspose.slides.charts/ichartdata/setexternalworkbook/)، يمكنك تعيين دفتر عمل خارجي للرسم البياني كمصدر بيانات له. يمكن أيضًا استخدام هذه الطريقة لتحديث مسار دفتر العمل الخارجي (إذا تم نقل الملف).
+باستخدام طريقة [SetExternalWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/setexternalworkbook/) يمكنك تعيين دفتر عمل خارجي لمخطط كمصدر بيانات له. يمكن أيضًا استخدام هذه الطريقة لتحديث مسار دفتر العمل الخارجي (إذا تم نقل الأخير).
 
-في حين لا يمكنك تعديل البيانات في دفاتر العمل المخزنة في مواقع بعيدة أو موارد، لا يزال بإمكانك استخدام هذه الدفاتر كمصدر بيانات خارجي. إذا تم توفير مسار نسبي لدفتر عمل خارجي، يتم تحويله تلقائيًا إلى مسار كامل.
+على الرغم من عدم إمكانية تحرير البيانات في دفاتر العمل المخزنة في مواقع أو موارد بعيدة، يمكنك الاستمرار في استخدام مثل هذه الدفاتر كمصدر بيانات خارجي. إذا تم توفير مسار نسبي لدفتر عمل خارجي، يتم تحويله تلقائيًا إلى مسار كامل.
 
-يتطلب هذا المثال وجود `externalWorkbook.xlsx` في دليل العمل. يجب أن تحتوي ورقة العمل المسماة `Sheet1` على اسم سلسلة في B1، أسماء فئات في A2:A4، وقيم عددية في B2:B4. ينشئ المثال مخططًا دائريًا، يربط دفتر العمل، ويستخدم [SetRange](https://reference.aspose.com/slides/ar/net/aspose.slides.charts/ichartdata/setrange/) لتعيين A1:B4 كسلسلة واحدة وثلاث فئات. يحفظ النتيجة إلى `Presentation_with_externalWorkbook.pptx`.
+يستخدم هذا المثال دفتر عمل خارجي حيث تحتوي ورقة العمل المسماة `Sheet1` على اسم سلسلة في B1، أسماء فئات في A2:A4، وقيم عددية في B2:B4. يخلق المثال مخططًا دائريًا، يربط دفتر العمل، ويستخدم [SetRange](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/setrange/) لتعيين A1:B4 كسلسلة واحدة وثلاث فئات. يحفظ العرض التقديمي بالمخطط المرتبط.
 
 ```csharp
 using System.IO;
@@ -332,12 +360,12 @@ chartData.SetRange("Sheet1!$A$1:$B$4");
 presentation.Save("Presentation_with_externalWorkbook.pptx", SaveFormat.Pptx);
 ```
 
-معامل `updateChartData` في طريقة [SetExternalWorkbook](https://reference.aspose.com/slides/ar/net/aspose.slides.charts/ichartdata/setexternalworkbook/) يتحكم في ما إذا كان دفتر العمل يتم تحميله.
+معامل `updateChartData` في [SetExternalWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/setexternalworkbook/) يتحكم فيما إذا كان دفتر العمل يُحمَّل.
 
-* عندما تكون `updateChartData` `false`، يتم تحديث مسار دفتر العمل فقط. لا يتم تحميل أو تحديث بيانات الرسم البياني من دفتر العمل المستهدف، وبالتالي يمكن أن يكون دفتر العمل غير متاح.
-* عندما تكون `updateChartData` `true`، يتم تحديث بيانات الرسم البياني من دفتر العمل المستهدف.
+* عندما يكون `updateChartData` `false`، يتم فقط تحديث مسار دفتر العمل. لا تُحمَّل بيانات المخطط أو تُحدَّث من دفتر العمل الهدف، لذا يمكن أن يكون دفتر العمل غير متاح.
+* عندما يكون `updateChartData` `true`، تُحدَّث بيانات المخطط من دفتر العمل الهدف.
 
-يعرض المثال التالي تعيين عنوان URL كعنصر نائبي مع `updateChartData` مضبوطة على `false`. يحتفظ ببيانات الرسم البياني الافتراضية ويحفظ العرض دون تحميل دفتر العمل غير المتاح.
+المثال التالي يعين عنوان URL نائب مع `updateChartData` مضبوطًا على `false`. يحتفظ ببيانات المخطط الدائرية الافتراضية ويحفظ العرض التقديمي دون تحميل دفتر العمل غير المتاح.
 
 ```csharp
 using Aspose.Slides;
@@ -353,17 +381,11 @@ chart.ChartData.SetExternalWorkbook("https://example.com/unavailable-workbook.xl
 presentation.Save("SetExternalWorkbookWithUpdateChartData.pptx", SaveFormat.Pptx);
 ```
 
-### **الحصول على مسار دفتر عمل مصدر البيانات الخارجي للرسم البياني**
+### **الحصول على مسار دفتر العمل كمصدر بيانات خارجي للمخطط**
 
-لتحديد دفتر العمل المرتبط بالرسم البياني، تحقق أولاً ما إذا كان الرسم يستخدم مصدر بيانات خارجي. إذا كان كذلك، يمكنك استرداد مسار دفتر العمل باتباع الخطوات التالية.
+لتحديد دفتر العمل المرتبط بمخطط، تحقق مما إذا كان المخطط يستخدم مصدر بيانات خارجي واسترجع مسار دفتر العمل.
 
-1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation/) .
-2. الوصول إلى الشريحة الأولى باستخدام الفهرس صفر-الأساس.
-3. التحقق من أن الشكل الأول هو رسم بياني.
-4. قراءة نوع مصدر بيانات الرسم.
-5. إذا كان المصدر دفتر عمل خارجي، قراءة مساره.
-
-يفتح هذا المثال `externalWorkbook.pptx`، الذي تم إنشاؤه في المثال السابق، ويفحص الشكل الأول في الشريحة الأولى. إذا كان رسمًا بيانيًا مرتبطًا بدفتر عمل خارجي، يطبع [ExternalWorkbookPath](https://reference.aspose.com/slides/ar/net/aspose.slides.charts/ichartdata/externalworkbookpath/) إلى وحدة التحكم. ثم يحفظ نسخة من العرض إلى `Result.pptx`.
+يفحص هذا المثال الشكل الأول في الشريحة الأولى من عرض تقديمي يحتوي على دفتر عمل خارجي مرتبط. إذا كان مخططًا مرتبطًا بدفتر عمل خارجي، يطبع المثال [ExternalWorkbookPath](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/externalworkbookpath/) إلى وحدة التحكم. ثم يحفظ نسخة من العرض التقديمي.
 
 ```csharp
 using System;
@@ -395,11 +417,11 @@ else
 presentation.Save("Result.pptx", SaveFormat.Pptx);
 ```
 
-### **تحرير بيانات الرسم البياني**
+### **تحرير بيانات المخطط**
 
-يمكنك تحرير البيانات في دفاتر العمل الخارجية بنفس الطريقة التي تجري بها تغييرات على محتويات الدفاتر الداخلية. عندما لا يمكن تحميل دفتر عمل خارجي، يتم إلقاء استثناء.
+يمكنك تحرير البيانات في دفاتر العمل الخارجية بنفس الطريقة التي تجري بها تغييرات على محتويات دفاتر العمل الداخلية. عندما لا يمكن تحميل دفتر عمل خارجي، يتم طرح استثناء.
 
-يتطلب هذا المثال وجود `presentation.pptx` مع رسم بياني كشكل أول في الشريحة الأولى ودفتر عمل خارجي يمكن الوصول إليه. يضبط قيمة النقطة البيانات الأولى في السلسلة الأولى إلى 100 ويحفظ العرض إلى `presentation_out.pptx`. يمكن لتعديل قيم الخلايا تحديث ملف XLSX الخارجي المرتبط، لذا استخدم نسخة إذا كنت بحاجة إلى الحفاظ على دفتر العمل الأصلي.
+يستخدم هذا المثال مخططًا هو أول شكل في الشريحة الأولى ومربوطًا بدفتر عمل خارجي متاح. يضبط القيمة المدعومة بالخلية لأول نقطة بيانات في السلسلة الأولى إلى 100 ويحفظ العرض التقديمي المُحدَّث. يمكن لتحرير قيم الخلايا تحديث ملف XLSX الخارجي المرتبط، لذا استخدم نسخة إذا كنت تحتاج إلى الحفاظ على دفتر العمل الأصلي.
 
 ```csharp
 using System;
@@ -438,11 +460,11 @@ else
 }
 ```
 
-### **استعادة دفتر عمل من ذاكرة التخزين المؤقت للرسم البياني**
+### **استعادة دفتر عمل من ذاكرة مخبأ المخطط**
 
-إذا كان الرسم البياني يستخدم دفتر عمل خارجي مفقود أو غير متاح، يمكن لـ Aspose.Slides إعادة بناء دفتر عمل الرسم من البيانات المخزنة مؤقتًا في العرض. أنشئ [LoadOptions](https://reference.aspose.com/slides/ar/net/aspose.slides/loadoptions/)، اضبط [SpreadsheetOptions](https://reference.aspose.com/slides/ar/net/aspose.slides/loadoptions/spreadsheetoptions/)، واضبط [ISpreadsheetOptions.RecoverWorkbookFromChartCache](https://reference.aspose.com/slides/ar/net/aspose.slides/ispreadsheetoptions/recoverworkbookfromchartcache/) إلى `true` قبل فتح العرض.
+إذا كان المخطط يستخدم دفتر عمل خارجي مفقود أو غير متاح، يمكن لـ Aspose.Slides إعادة بناء دفتر عمل المخطط من البيانات المخزنة مؤقتًا في العرض التقديمي. أنشئ [LoadOptions](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/)، واضبط [SpreadsheetOptions](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/spreadsheetoptions/)، ثم عيّن [ISpreadsheetOptions.RecoverWorkbookFromChartCache](https://reference.aspose.com/slides/net/aspose.slides/ispreadsheetoptions/recoverworkbookfromchartcache/) إلى `true` قبل فتح العرض التقديمي.
 
-يفتح المثال التالي بلغة C# ملف `presentation.pptx`، ويجب أن يكون الشكل الأول في الشريحة الأولى رسمًا بيانيًا يشير إلى دفتر عمل خارجي غير متاح، ويصل إلى البيانات المستعادة عبر [IChart.ChartData](https://reference.aspose.com/slides/ar/net/aspose.slides.charts/ichart/chartdata/) و[IChartData.ChartDataWorkbook](https://reference.aspose.com/slides/ar/net/aspose.slides.charts/ichartdata/chartdataworkbook/):
+يعيد المثال التالي بلغة C# استعادة بيانات دفتر العمل لمخطط هو أول شكل في الشريحة الأولى ويشير إلى دفتر عمل خارجي غير متاح. يصل إلى البيانات المستعادة عبر [IChart.ChartData](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/chartdata/) و[IChartData.ChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/chartdataworkbook/):
 
 ```csharp
 using System;
@@ -474,30 +496,30 @@ else
 }
 ```
 
-إذا كان دفتر العمل الخارجي غير متاح وتم تعطيل الاستعادة، يرمي Aspose.Slides استثناءً من نوع [InvalidOperationException](https://learn.microsoft.com/en-us/dotnet/api/system.invalidoperationexception). فعل الاستعادة فقط عندما تكون استخدام البيانات المخزنة مؤقتًا خيارًا مقبولًا، لأن الذاكرة المؤقتة قد لا تحتوي على التغييرات التي أُجريت على دفتر العمل الخارجي بعد آخر تحديث للعرض.
+إذا كان دفتر العمل الخارجي غير متاح وتم تعطيل الاستعادة، تُطلق Aspose.Slides استثناءً من نوع [InvalidOperationException](https://learn.microsoft.com/en-us/dotnet/api/system.invalidoperationexception). فعّل الاستعادة فقط عندما يكون استخدام البيانات المخزنة مؤقتًا خيارًا مقبولًا، لأن المخبأ قد لا يحتوي على تغييرات تم إجراؤها على دفتر العمل الخارجي بعد آخر تحديث للعرض التقديمي.
 
-## **الأسئلة الشائعة**
+## **الأسئلة المتكررة**
 
-**هل يمكنني تحديد ما إذا كان رسم بياني معين مرتبط بدفتر عمل خارجي أو مضمّن؟**
+**هل يمكنني تحديد ما إذا كان مخطط معين مرتبطًا بدفتر عمل خارجي أم مدمج؟**
 
-نعم. يحتوي الرسم البياني على [نوع مصدر البيانات](https://reference.aspose.com/slides/ar/net/aspose.slides.charts/chartdata/datasourcetype/) و[مسار دفتر عمل خارجي](https://reference.aspose.com/slides/ar/net/aspose.slides.charts/chartdata/externalworkbookpath/); إذا كان المصدر دفتر عمل خارجي، يمكنك قراءة المسار الكامل للتأكد من استخدام ملف خارجي.
+نعم. يحتوي المخطط على [data source type](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdata/datasourcetype/) و[path to an external workbook](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdata/externalworkbookpath/)؛ إذا كان المصدر دفتر عمل خارجي، يمكنك قراءة المسار الكامل للتأكد من استخدام ملف خارجي.
 
 **هل تدعم المسارات النسبية لدفاتر العمل الخارجية، وكيف يتم تخزينها؟**
 
-نعم. إذا حددت مسارًا نسبيًا، يتم تحويله تلقائيًا إلى مسار مطلق. يخزن العرض المسار المطلق في ملف PPTX، لذا قد يتطلب نقل دفتر العمل تحديث الارتباط.
+نعم. إذا حددت مسارًا نسبيًا، يتم تحويله تلقائيًا إلى مسار مطلق. يخزن العرض التقديمي المسار المطلق في ملف PPTX، لذا قد يتطلب نقل دفتر العمل تحديث الرابط.
 
 **هل يمكنني استخدام دفاتر عمل موجودة على موارد/مشاركات شبكية؟**
 
-نعم، يمكن استخدام هذه الدفاتر كمصدر بيانات خارجي. ومع ذلك، لا يدعم Aspose.Slides تحرير دفاتر العمل البعيدة مباشرةً؛ يمكن استخدامها فقط كمصدر.
+نعم، يمكن استخدام such workbooks كمصدر بيانات خارجي. ومع ذلك، لا يدعم تحرير دفاتر العمل البعيدة مباشرة من Aspose.Slides—يمكن استخدامها فقط كمصدر.
 
-**هل تستبدل Aspose.Slides ملف XLSX الخارجي عند حفظ العرض؟**
+**هل تقوم Aspose.Slides بالكتابة فوق ملف XLSX الخارجي عند حفظ العرض التقديمي؟**
 
-يخزن العرض [ارتباطًا بالملف الخارجي](https://reference.aspose.com/slides/ar/net/aspose.slides.charts/chartdata/externalworkbookpath/). قد يؤدي تحرير بيانات الرسم المستندة إلى الخلايا أيضًا إلى تحديث ملف XLSX المحلي المرتبط. استخدم نسخة من دفتر العمل إذا كان الأصل يجب أن يبقى دون تغيير.
+يخزن العرض التقديمي [link to the external file](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdata/externalworkbookpath/). يمكن لتحرير بيانات المخطط المدعومة بالخلية أيضًا تحديث ملف XLSX المحلي المرتبط. استخدم نسخة من دفتر العمل إذا كان من الضروري إبقاء الأصلي دون تغيير.
 
 **ماذا أفعل إذا كان الملف الخارجي محميًا بكلمة مرور؟**
 
-لا تقبل Aspose.Slides كلمة مرور عند ربط الملف. يُنصح بإزالة الحماية مسبقًا أو إعداد نسخة غير مشفّرة (على سبيل المثال باستخدام [Aspose.Cells](https://reference.aspose.com/cells/net/)) وربط العرض بتلك النسخة.
+لا تقبل Aspose.Slides كلمة مرور عند الربط. يُعد حذف الحماية مسبقًا أو إعداد نسخة غير مشفرة (على سبيل المثال باستخدام [Aspose.Cells](https://reference.aspose.com/cells/net/)) وربط تلك النسخة نهجًا شائعًا.
 
-**هل يمكن لعدة رسومات بيانية الإشارة إلى نفس دفتر العمل الخارجي؟**
+**هل يمكن لعدة مخططات الإشارة إلى نفس دفتر العمل الخارجي؟**
 
-نعم. كل رسم بياني يخزن ارتباطه الخاص. إذا أشارت جميعها إلى نفس الملف، فسيتم عكس أي تحديث للملف في كل رسم بياني في المرة التالية التي يتم فيها تحميل البيانات.
+نعم. كل مخطط يخزن ارتباطه الخاص. إذا أشار الجميع إلى نفس الملف، سيعكس تحديث ذلك الملف في كل مخطط عند تحميل البيانات في المرة التالية.

@@ -1,5 +1,5 @@
 ---
-title: Vytvořit nebo aktualizovat grafy PowerPoint prezentací v Pythonu
+title: Vytvořit nebo aktualizovat grafy v prezentacích PowerPoint v Pythonu
 linktitle: Vytvořit nebo aktualizovat grafy
 type: docs
 weight: 10
@@ -13,11 +13,11 @@ keywords:
 - rozptýlený graf
 - koláčový graf
 - čárový graf
-- stromová mapa
+- graf stromové mapy
 - akciový graf
-- box-whisker graf
+- krabicový a vousový graf
 - trychtýřový graf
-- sunburst graf
+- sluneční diagram
 - histogramový graf
 - radarový graf
 - vícekategoriový graf
@@ -26,49 +26,47 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Vytvořte a přizpůsobte grafy v PowerPoint prezentacích pomocí Aspose.Slides pro Python přes Java. Přidejte, naformátujte a upravujte grafy s praktickými příklady kódu v Pythonu."
+description: "Vytvořte a přizpůsobte grafy v prezentacích PowerPoint pomocí Aspose.Slides pro Python přes Java. Přidejte, formátujte a upravujte grafy s praktickými ukázkami kódu v Pythonu."
 ---
 ## **Přehled**
 
-Tento článek poskytuje komplexní průvodce, jak vytvářet a přizpůsobovat grafy pomocí Aspose.Slides. Naučíte se, jak programově přidat graf do snímku, naplnit jej daty a použít různé možnosti formátování, aby odpovídal vašim konkrétním požadavkům na design. V celém článku podrobné příklady kódu ilustrují každý krok, od inicializace prezentace a objektu grafu až po konfiguraci řad, os a legend. Dodržením tohoto průvodce získáte solidní pochopení, jak integrovat dynamické generování grafů do aplikací a zjednodušit proces tvorby datově řízených prezentací.
+Tento článek poskytuje komplexní průvodce, jak pomocí Aspose.Slides vytvářet a přizpůsobovat grafy. Naučíte se, jak programově přidat graf do snímku, naplnit jej údaji a aplikovat různé možnosti formátování, aby odpovídaly vašim konkrétním požadavkům na design. V celém článku podrobné ukázky kódu ilustrují každý krok, od inicializace prezentace a objektu grafu až po konfiguraci sérií, os a legend. Dodržením tohoto průvodce získáte pevné pochopení toho, jak integrovat dynamické generování grafů do vašich aplikací, což zjednoduší proces vytváření datově řízených prezentací.
 
-## **Vytvoření grafu**
+## **Vytvořit graf**
 
-Grafy pomáhají lidem rychle vizualizovat data a získat postřehy, které nemusí být okamžitě zřejmé z tabulky nebo tabulkového listu.
+Grafy pomáhají lidem rychle vizualizovat data a získat poznatky, které nemusí být okamžitě zřejmé z tabulky či tabulkového procesoru.
 
 **Proč vytvářet grafy?**
 
-Pomocí grafů můžete:
-
-* agregovat, zhušťovat nebo shrnout velké množství dat na jediném snímku v prezentaci
-* odhalit vzory a trendy v datech
-* odvodit směr a dynamiku dat v čase nebo vzhledem k určité jednotce měření
-* zaznamenat odlehlé hodnoty, odchylky, chyby, nesmyslná data atd.
+* agregovat, zhutnit nebo shrnout velké množství dat na jednom snímku v prezentaci
+* odhalit vzorce a trendy v datech
+* odhadnout směr a dynamiku dat v čase nebo vzhledem ke konkrétní jednotce měření
+* identifikovat odlehlé hodnoty, odchylky, chyby, nesmyslná data apod.
 * komunikovat nebo prezentovat složitá data
 
-V PowerPointu můžete vytvářet grafy přes funkci *Insert*, která nabízí šablony pro návrh mnoha typů grafů. Pomocí Aspose.Slides můžete vytvářet jak běžné grafy (na základě populárních typů), tak vlastní grafy.
+V PowerPointu můžete vytvářet grafy pomocí funkce *Insert*, která poskytuje šablony pro navrhování mnoha typů grafů. Pomocí Aspose.Slides můžete vytvářet jak běžné grafy (založené na populárních typech grafů), tak i vlastní grafy.
 
-{{% alert color="info" title="Poznámka" %}}
-Pro vytvoření grafů použijte třídu [ChartType](https://reference.aspose.com/slides/cs/python-java/aspose.slides/charttype/). Pole v této třídě odpovídají různým typům grafů.
+{{% alert color="info" title="Note" %}}
+Pro vytvoření grafů použijte třídu [ChartType](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/). Pole v této třídě odpovídají různým typům grafů.
 {{% /alert %}}
 
-### **Vytvoření seskupených sloupcových grafů**
+### **Vytvořit seskupené sloupcové grafy**
 
-Tato sekce vysvětluje, jak vytvořit seskupené sloupcové grafy pomocí Aspose.Slides. Naučíte se inicializovat prezentaci, přidat graf a přizpůsobit jeho prvky, jako je název, data, řady, kategorie a stylování. Postupujte podle níže uvedených kroků a uvidíte, jak se vygeneruje standardní seskupený sloupcový graf:
+Tato sekce vysvětluje, jak pomocí Aspose.Slides vytvořit seskupené sloupcové grafy. Naučíte se inicializovat prezentaci, přidat graf a přizpůsobit jeho prvky, jako je nadpis, data, série, kategorie a stylování. Postupujte podle níže uvedených kroků a uvidíte, jak se generuje standardní seskupený sloupcový graf:
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation).
-1. Získejte odkaz na snímek podle jeho indexu.
-1. Přidejte graf s některými daty a určete typ `ChartType.ClusteredColumn`.
-1. Přidejte název grafu.
-1. Přistupte k datovému listu grafu.
-1. Vymažte všechny výchozí řady a kategorie.
-1. Přidejte nové řady a kategorie.
-1. Přidejte nová data grafu pro řady.
-1. Použijte výplňovou barvu na řady grafu.
-1. Přidejte popisky k řadám.
-1. Uložte upravenou prezentaci jako soubor PPTX.
+1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation).
+2. Získejte odkaz na snímek pomocí jeho indexu.
+3. Přidejte graf s některými daty a uveďte typ `ChartType.ClusteredColumn`.
+4. Přidejte nadpis k grafu.
+5. Přistupte k datovému listu grafu.
+6. Vymažte všechny výchozí série a kategorie.
+7. Přidejte nové série a kategorie.
+8. Přidejte nová data grafu pro sérii grafu.
+9. Aplikujte barvu výplně na sérii grafu.
+10. Přidejte štítky do série grafu.
+11. Uložte upravenou prezentaci jako soubor PPTX.
 
-Tento C# kód ukazuje, jak vytvořit seskupený sloupcový graf:
+Tento C# kód demonstruje, jak vytvořit seskupený sloupcový graf:
 
 ```python
 import jpype
@@ -99,14 +97,14 @@ try:
     # Nastaví index pro list dat grafu
     default_worksheet_index = 0
 
-    # Získá pracovní list dat grafu
+    # Získá list dat grafu
     workbook = chart.getChartData().getChartDataWorkbook()
 
-    # Odstraní výchozí generované řady a kategorie
+    # Smaže výchozí vygenerované série a kategorie
     chart.getChartData().getSeries().clear()
     chart.getChartData().getCategories().clear()
 
-    # Přidá nové řady
+    # Přidá nové série
     cell = workbook.getCell(default_worksheet_index, 0, 1, "Series 1")
     chart.getChartData().getSeries().add(cell,chart.getType())
     cell = workbook.getCell(default_worksheet_index, 0, 2, "Series 2")
@@ -120,10 +118,10 @@ try:
     cell = workbook.getCell(default_worksheet_index, 3, 0, "Category 3")
     chart.getChartData().getCategories().add(cell)
 
-    # Vezme první řadu grafu
+    # Vybere první sérii grafu
     series = chart.getChartData().getSeries().get_Item(0)
 
-    # Nyní naplní data řady
+    # Nyní naplní data serií
     cell = workbook.getCell(default_worksheet_index, 1, 1, 20)
     series.getDataPoints().addDataPointForBarSeries(cell)
     cell = workbook.getCell(default_worksheet_index, 2, 1, 50)
@@ -131,14 +129,14 @@ try:
     cell = workbook.getCell(default_worksheet_index, 3, 1, 30)
     series.getDataPoints().addDataPointForBarSeries(cell)
 
-    # Nastaví barvu výplně pro řadu
+    # Nastaví barvu výplně pro sérii
     series.getFormat().getFill().setFillType(FillType.Solid)
     series.getFormat().getFill().getSolidFillColor().setColor(Color.RED)
 
-    # Vezme druhou řadu grafu
+    # Vybere druhou sérii grafu
     series = chart.getChartData().getSeries().get_Item(1)
 
-    # Naplní data řady
+    # Naplní data serií
     cell = workbook.getCell(default_worksheet_index, 1, 2, 30)
     series.getDataPoints().addDataPointForBarSeries(cell)
     cell = workbook.getCell(default_worksheet_index, 2, 2, 10)
@@ -146,19 +144,19 @@ try:
     cell = workbook.getCell(default_worksheet_index, 3, 2, 60)
     series.getDataPoints().addDataPointForBarSeries(cell)
 
-    # Nastaví barvu výplně pro řadu
+    # Nastaví barvu výplně pro sérii
     series.getFormat().getFill().setFillType(FillType.Solid)
     series.getFormat().getFill().getSolidFillColor().setColor(Color.GREEN)
 
-    #Vytvoří vlastní popisky pro každou kategorii pro novou řadu
-    # Nastaví první popisek, aby zobrazoval název kategorie
+    #Vytvoří vlastní štítky pro každou kategorii pro novou sérii
+    # Nastaví první štítek, aby zobrazoval název kategorie
     label = series.getDataPoints().get_Item(0).getLabel()
     label.getDataLabelFormat().setShowCategoryName(True)
 
     label = series.getDataPoints().get_Item(1).getLabel()
     label.getDataLabelFormat().setShowSeriesName(True)
 
-    # Zobrazí hodnotu pro třetí popisek
+    # Zobrazí hodnotu pro třetí štítek
     label = series.getDataPoints().get_Item(2).getLabel()
     label.getDataLabelFormat().setShowValue(True)
     label.getDataLabelFormat().setShowSeriesName(True)
@@ -170,25 +168,26 @@ finally:
     presentation.dispose()
 ```
 
-### **Vytvoření rozptylových grafů**
-Rozptylové grafy (také známé jako scatter ploty nebo x‑y grafy) se často používají k vyhledání vzorů nebo demonstraci korelací mezi dvěma proměnnými.
+### **Vytvořit rozptýlené grafy**
 
-Použijte rozptylový graf, když:
+Rozptýlené grafy (také známé jako bodové grafy nebo x‑y grafy) se často používají k vyhledání vzorců nebo demonstraci korelací mezi dvěma proměnnými.
+
+Použijte rozptýlený graf, když:
 
 * máte spárovaná číselná data
-* máte dvě proměnné, které dobře spolu korespondují
-* chcete zjistit, zda jsou dvě proměnné navzájem související
-* máte nezávislou proměnnou s více hodnotami pro závislou proměnnou
+* máte dvě proměnné, které se dobře doplňují
+* chcete zjistit, zda jsou dvě proměnné vzájemně závislé
+* má nezávislá proměnná více hodnot pro závislou proměnnou
 
-1. Postupujte podle kroků v sekci [Create Clustered Column Charts](#create-clustered-column-charts).
-2. Ve třetím kroku přidejte graf s některými daty a určete typ grafu jako jeden z následujících:
-   1. [ChartType.ScatterWithMarkers](https://reference.aspose.com/slides/cs/python-java/aspose.slides/charttype/#ScatterWithMarkers) - _Representuje rozptylový graf s markery._
-   2. [ChartType.ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/cs/python-java/aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - _Representuje rozptylový graf spojený křivkami s markery._
-   3. [ChartType.ScatterWithSmoothLines](https://reference.aspose.com/slides/cs/python-java/aspose.slides/charttype/#ScatterWithSmoothLines) - _Representuje rozptylový graf spojený křivkami bez markerů._
-   4. [ChartType.ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/cs/python-java/aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _Representuje rozptylový graf spojený přímkami s markery._
-   5. [ChartType.ScatterWithStraightLines](https://reference.aspose.com/slides/cs/python-java/aspose.slides/charttype/#ScatterWithStraightLines) - _Representuje rozptylový graf spojený přímkami bez markerů._
+1. Postupujte podle kroků v [Vytvořit seskupené sloupcové grafy](#create-clustered-column-charts).
+2. Pro třetí krok přidejte graf s některými daty a uveďte typ grafu jako jeden z následujících:
+   1. [ChartType.ScatterWithMarkers](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/#ScatterWithMarkers) - _Zastupuje rozptýlený graf._
+   2. [ChartType.ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - _Zastupuje rozptýlený graf spojený křivkami s datovými značkami._
+   3. [ChartType.ScatterWithSmoothLines](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/#ScatterWithSmoothLines) - _Zastupuje rozptýlený graf spojený křivkami, bez datových značek._
+   4. [ChartType.ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _Zastupuje rozptýlený graf spojený čarami s datovými značkami._
+   5. [ChartType.ScatterWithStraightLines](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/#ScatterWithStraightLines) - _Zastupuje rozptýlený graf spojený čarami, bez datových značek._
 
-Tento Python kód ukazuje, jak vytvořit rozptylový graf s různými markery pro každou řadu:
+Tento Python kód ukazuje, jak vytvořit rozptýlený graf s různými značkami pro každou sérii:
 
 ```python
 import jpype
@@ -208,25 +207,25 @@ try:
     # Vytvoří výchozí graf
     chart = slide.getShapes().addChart(ChartType.ScatterWithSmoothLines, 0, 0, 400, 400)
 
-    # Získá index výchozího listu dat grafu
+    # Získá výchozí index listu dat grafu
     default_worksheet_index = 0
 
     # Získá list dat grafu
     workbook = chart.getChartData().getChartDataWorkbook()
 
-    # Odstraní demo řadu
+    # Smaže demonstrační sérii
     chart.getChartData().getSeries().clear()
 
-    # Přidá nové řady
+    # Přidá nové série
     cell = workbook.getCell(default_worksheet_index, 1, 1, "Series 1")
     chart.getChartData().getSeries().add(cell, chart.getType())
     cell = workbook.getCell(default_worksheet_index, 1, 3, "Series 2")
     chart.getChartData().getSeries().add(cell, chart.getType())
 
-    # Vezme první řadu grafu
+    # Vybere první sérii grafu
     series = chart.getChartData().getSeries().get_Item(0)
 
-    # Přidá nový bod (1:3) do řady
+    # Přidá nový bod (1:3) do série
     x_cell = workbook.getCell(default_worksheet_index, 2, 1, 1)
     y_cell = workbook.getCell(default_worksheet_index, 2, 2, 3)
     series.getDataPoints().addDataPointForScatterSeries(x_cell, y_cell)
@@ -236,14 +235,14 @@ try:
     y_cell = workbook.getCell(default_worksheet_index, 3, 2, 10)
     series.getDataPoints().addDataPointForScatterSeries(x_cell, y_cell)
 
-    # Změní typ řady
+    # Změní typ série
     series.setType(ChartType.ScatterWithStraightLinesAndMarkers)
 
-    # Změní označovač řady grafu
+    # Změní značku série grafu
     series.getMarker().setSize(10)
     series.getMarker().setSymbol(MarkerStyleType.Star)
 
-    # Vezme druhou řadu grafu
+    # Vybere druhou sérii grafu
     series = chart.getChartData().getSeries().get_Item(1)
 
     # Přidá nový bod (5:2) tam
@@ -266,7 +265,7 @@ try:
     y_cell = workbook.getCell(default_worksheet_index, 5, 4, 1)
     series.getDataPoints().addDataPointForScatterSeries(x_cell, y_cell)
 
-    # Změní označovač řady grafu
+    # Změní značku série grafu
     series.getMarker().setSize(10)
     series.getMarker().setSymbol(MarkerStyleType.Circle)
 
@@ -275,21 +274,21 @@ finally:
     presentation.dispose()
 ```
 
-### **Vytvoření koláčových grafů**
+### **Vytvořit koláčové grafy**
 
-Koláčové grafy jsou nejvhodnější pro zobrazení vztahu část‑celku v datech, zejména když data obsahují kategorie s číselnými hodnotami. Pokud však vaše data obsahují mnoho částí nebo štítků, zvažte místo toho sloupcový graf.
+Koláčové grafy jsou nejvhodnější pro zobrazení poměru část‑celku v datech, zejména když data obsahují kategoriální štítky s číselnými hodnotami. Pokud však data obsahují mnoho částí nebo štítků, může být vhodnější použít sloupcový graf.
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation/).
-2. Získejte odkaz na snímek podle jeho indexu.
-3. Přidejte graf s výchozími daty a určete typ [ChartType.Pie](https://reference.aspose.com/slides/cs/python-java/aspose.slides/charttype/#Pie).
-4. Přistupte k sešitu dat grafu [ChartDataWorkbook](https://reference.aspose.com/slides/cs/python-java/aspose.slides/chartdataworkbook/).
-5. Vymažte výchozí řady a kategorie.
-6. Přidejte nové řady a kategorie.
-7. Přidejte nová data grafu pro řady.
-8. Přidejte nové body pro graf a použijte vlastní barvy pro sektory koláčového grafu.
-9. Nastavte popisky pro řady.
-10. Povolení čar spojujících popisky řad.
-11. Nastavte úhlovou rotaci sektorů koláčového grafu.
+1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/).
+2. Získejte odkaz na snímek pomocí jeho indexu.
+3. Přidejte graf s výchozími daty a uveďte typ [ChartType.Pie](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/#Pie).
+4. Přistupte k sešitu dat grafu [ChartDataWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdataworkbook/).
+5. Vymažte výchozí série a kategorie.
+6. Přidejte nové série a kategorie.
+7. Přidejte nová data grafu pro sérii grafu.
+8. Přidejte nové body do grafu a aplikujte vlastní barvy na sektory koláčového grafu.
+9. Nastavte štítky pro sérii.
+10. Povolte čáry ukazatele pro štítky sérií.
+11. Nastavte úhel otočení pro sektory koláčového grafu.
 12. Uložte upravenou prezentaci jako soubor PPTX.
 
 Tento Python kód ukazuje, jak vytvořit koláčový graf:
@@ -299,13 +298,13 @@ import jpype
 import asposeslides
 
 if not jpype.isJVMStarted():
-    jpype.startJVM()
+    jpole.startJVM()
 
 from asposeslides.api import ChartType, FillType, LineDashStyle, LineStyle, NullableBool, Presentation, SaveFormat
 
 Color = jpype.JClass("java.awt.Color")
 
-    # Vytvoří instanci třídy prezentace, která představuje soubor PPTX.
+# Vytvoří instanci třídy prezentace, která představuje soubor PPTX.
 presentation = Presentation()
 try:
     # Přistupuje k prvnímu snímku
@@ -320,13 +319,13 @@ try:
     chart.getChartTitle().setHeight(20)
     chart.setTitle(True)
 
-    # Nastaví index listu dat grafu
+    # Nastaví index pro list dat grafu
     default_worksheet_index = 0
 
     # Získá list dat grafu
     workbook = chart.getChartData().getChartDataWorkbook()
 
-    # Odstraní výchozí vygenerované řady a kategorie
+    # Smaže výchozí vygenerované série a kategorie
     chart.getChartData().getSeries().clear()
     chart.getChartData().getCategories().clear()
 
@@ -338,11 +337,11 @@ try:
     cell = workbook.getCell(0, 3, 0, "3rd Qtr")
     chart.getChartData().getCategories().add(cell)
 
-    # Přidá nové řady
+    # Přidá nové série
     cell = workbook.getCell(0, 0, 1, "Series 1")
     series = chart.getChartData().getSeries().add(cell, chart.getType())
 
-    #Naplní data řady
+    #Naplní data serií
     cell = workbook.getCell(default_worksheet_index, 1, 1, 20)
     series.getDataPoints().addDataPointForPieSeries(cell)
     cell = workbook.getCell(default_worksheet_index, 2, 1, 50)
@@ -350,7 +349,7 @@ try:
     cell = workbook.getCell(default_worksheet_index, 3, 1, 30)
     series.getDataPoints().addDataPointForPieSeries(cell)
 
-    # Přidává nové body a nastavuje barvu sektoru
+    # Přidá nové body a nastaví barvu sektoru
     chart.getChartData().getSeriesGroups().get_Item(0).setColorVaried(True)
 
     point = series.getDataPoints().get_Item(0)
@@ -386,9 +385,8 @@ try:
     third_point.getFormat().getLine().setStyle(LineStyle.ThinThin)
     third_point.getFormat().getLine().setDashStyle(LineDashStyle.LargeDashDotDot)
 
-    # Vytvoří vlastní popisky pro každou kategorii pro novou řadu
+    # Vytvoří vlastní štítky pro každou kategorii pro novou sérii
     first_label = series.getDataPoints().get_Item(0).getLabel()
-
     first_label.getDataLabelFormat().setShowValue(True)
 
     second_label = series.getDataPoints().get_Item(1).getLabel()
@@ -400,10 +398,10 @@ try:
     third_label.getDataLabelFormat().setShowSeriesName(True)
     third_label.getDataLabelFormat().setShowPercentage(True)
 
-    # Zobrazí spojnice (leader lines) pro graf
+    # Zobrazí čáry ukazatele pro graf
     series.getLabels().getDefaultDataLabelFormat().setShowLeaderLines(True)
 
-    # Nastaví úhel otočení sektorů koláčového grafu
+    # Nastaví úhel otočení pro sektory koláčového grafu
     chart.getChartData().getSeriesGroups().get_Item(0).setFirstSliceAngle(180)
 
     # Uloží prezentaci s grafem
@@ -412,14 +410,15 @@ finally:
     presentation.dispose()
 ```
 
-### **Vytvoření čárových grafů**
 
-Čárové grafy (také známé jako line grafy) jsou nejvhodnější v situacích, kdy chcete ukázat změny hodnot v čase. Pomocí čárového grafu můžete najednou porovnávat velké množství dat, sledovat změny a trendy v průběhu času, zvýraznit anomálie v řadách a další.
+### **Vytvořit čárové grafy**
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation/).
-1. Získejte odkaz na snímek podle jeho indexu.
-1. Přidejte graf s výchozími daty a určete typ [ChartType.Line](https://reference.aspose.com/slides/cs/python-java/aspose.slides/charttype/#Line).
-1. Uložte upravenou prezentaci jako soubor PPTX.
+Čárové grafy (také známé jako lineární grafy) jsou nejvhodnější v situacích, kdy chcete demonstrovat změny hodnot v čase. Pomocí čárového grafu můžete najednou srovnat velké množství dat, sledovat změny a trendy v čase, zvýraznit anomálie v datových sériích a další.
+
+1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/).
+2. Získejte odkaz na snímek pomocí jeho indexu.
+3. Přidejte graf s výchozími daty a uveďte typ [ChartType.Line](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/#Line).
+4. Uložte upravenou prezentaci jako soubor PPTX.
 
 Tento Python kód ukazuje, jak vytvořit čárový graf:
 
@@ -441,7 +440,7 @@ finally:
     presentation.dispose()
 ```
 
-Ve výchozím nastavení jsou body na čárovém grafu spojeny přímými souvislými čarami. Pokud chcete, aby byly body spojeny čárkami, můžete určit požadovaný typ čáry následovně:
+Ve výchozím nastavení jsou body na čárovém grafu spojeny přímými souvislými čarami. Pokud chcete, aby byly body spojeny čárkovanými čarami, můžete specifikovat požadovaný typ čárky následovně:
 
 ```python
 import jpype
@@ -464,17 +463,17 @@ finally:
     presentation.dispose()
 ```
 
-### **Vytvoření stromových map**
+### **Vytvořit stromové mapy**
 
-Stromové mapy jsou nejvhodnější pro prodejní data, kdy chcete zobrazit relativní velikost kategorií a rychle upozornit na položky, které jsou v rámci každé kategorie velkými přispěvateli.
+Stromové mapy jsou nejvhodnější pro prodejní data, když chcete zobrazit relativní velikost kategorií dat a rychle upozornit na položky, které jsou v rámci každé kategorie významnými přispěvateli.
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation/).
-2. Získejte odkaz na snímek podle jeho indexu.
-3. Přidejte graf s výchozími daty a určete typ [ChartType.Treemap](https://reference.aspose.com/slides/cs/python-java/aspose.slides/charttype/#Treemap).
-4. Přistupte k sešitu dat grafu [ChartDataWorkbook](https://reference.aspose.com/slides/cs/python-java/aspose.slides/chartdataworkbook/).
-5. Vymažte výchozí řady a kategorie.
-6. Přidejte nové řady a kategorie.
-7. Přidejte nová data grafu pro řady.
+1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/).
+2. Získejte odkaz na snímek pomocí jeho indexu.
+3. Přidejte graf s výchozími daty a uveďte typ [ChartType.Treemap](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/#Treemap).
+4. Přistupte k sešitu dat grafu [ChartDataWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdataworkbook/).
+5. Vymažte výchozí série a kategorie.
+6. Přidejte nové série a kategorie.
+7. Přidejte nová data grafu pro sérii grafu.
 8. Uložte upravenou prezentaci jako soubor PPTX.
 
 Tento Python kód ukazuje, jak vytvořit stromovou mapu:
@@ -555,16 +554,16 @@ finally:
     presentation.dispose()
 ```
 
-### **Vytvoření akciových grafů**
+### **Vytvořit akciové grafy**
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation/).
-2. Získejte odkaz na snímek podle jeho indexu.
-3. Přidejte graf s výchozími daty a určete typ [ChartType.OpenHighLowClose](https://reference.aspose.com/slides/cs/python-java/aspose.slides/charttype/#OpenHighLowClose).
-4. Přistupte k sešitu dat grafu [ChartDataWorkbook](https://reference.aspose.com/slides/cs/python-java/aspose.slides/chartdataworkbook/).
-5. Vymažte výchozí řady a kategorie.
-6. Přidejte nové řady a kategorie.
-7. Přidejte nová data grafu pro řady.
-8. Určete formát vysokých a nízkých čar.
+1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/).
+2. Získejte odkaz na snímek pomocí jeho indexu.
+3. Přidejte graf s výchozími daty a uveďte typ [ChartType.OpenHighLowClose](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/#OpenHighLowClose).
+4. Přistupte k sešitu dat grafu [ChartDataWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdataworkbook/).
+5. Vymažte výchozí série a kategorie.
+6. Přidejte nové série a kategorie.
+7. Přidejte nová data grafu pro sérii grafu.
+8. Určete formát čar vysoká‑nízká.
 9. Uložte upravenou prezentaci jako soubor PPTX.
 
 Tento Python kód ukazuje, jak vytvořit akciový graf:
@@ -647,18 +646,18 @@ finally:
     presentation.dispose()
 ```
 
-### **Vytvoření box‑whisker grafů**
+### **Vytvořit krabicové a vousové grafy**
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation/).
-2. Získejte odkaz na snímek podle jeho indexu.
-3. Přidejte graf s výchozími daty a určete typ [ChartType.BoxAndWhisker](https://reference.aspose.com/slides/cs/python-java/aspose.slides/charttype/#BoxAndWhisker).
-4. Přistupte k sešitu dat grafu [ChartDataWorkbook](https://reference.aspose.com/slides/cs/python-java/aspose.slides/chartdataworkbook/).
-5. Vymažte výchozí řady a kategorie.
-6. Přidejte nové řady a kategorie.
-7. Přidejte nová data grafu pro řady.
+1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/).
+2. Získejte odkaz na snímek pomocí jeho indexu.
+3. Přidejte graf s výchozími daty a uveďte typ [ChartType.BoxAndWhisker](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/#BoxAndWhisker).
+4. Přistupte k sešitu dat grafu [ChartDataWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdataworkbook/).
+5. Vymažte výchozí série a kategorie.
+6. Přidejte nové série a kategorie.
+7. Přidejte nová data grafu pro sérii grafu.
 8. Uložte upravenou prezentaci jako soubor PPTX.
 
-Tento Python kód ukazuje, jak vytvořit box‑whisker graf:
+Tento Python kód ukazuje, jak vytvořit krabicový a vousový graf:
 
 ```python
 import jpype
@@ -717,11 +716,11 @@ finally:
     presentation.dispose()
 ```
 
-### **Vytvoření trychtýřových grafů**
+### **Vytvořit trychtýřové grafy**
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation/).
-2. Získejte odkaz na snímek podle jeho indexu.
-3. Přidejte graf s výchozími daty a určete typ [ChartType.Funnel](https://reference.aspose.com/slides/cs/python-java/aspose.slides/charttype/#Funnel).
+1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/).
+2. Získejte odkaz na snímek pomocí jeho indexu.
+3. Přidejte graf s výchozími daty a uveďte typ [ChartType.Funnel](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/#Funnel).
 4. Uložte upravenou prezentaci jako soubor PPTX.
 
 Tento Python kód ukazuje, jak vytvořit trychtýřový graf:
@@ -778,14 +777,14 @@ finally:
     presentation.dispose()
 ```
 
-### **Vytvoření sunburst grafů**
+### **Vytvořit sluneční diagramy**
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation/).
-2. Získejte odkaz na snímek podle jeho indexu.
-3. Přidejte graf s výchozími daty a určete typ [ChartType.Sunburst](https://reference.aspose.com/slides/cs/python-java/aspose.slides/charttype/#Sunburst).
+1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/).
+2. Získejte odkaz na snímek pomocí jeho indexu.
+3. Přidejte graf s výchozími daty a uveďte typ [ChartType.Sunburst](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/#Sunburst).
 4. Uložte upravenou prezentaci jako soubor PPTX.
 
-Tento Python kód ukazuje, jak vytvořit sunburst graf:
+Tento Python kód ukazuje, jak vytvořit sluneční diagram:
 
 ```python
 import jpype
@@ -861,14 +860,14 @@ finally:
     presentation.dispose()
 ```
 
-### **Vytvoření histogramových grafů**
+### **Vytvořit histogramové grafy**
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation/).
-2. Získejte odkaz na snímek podle jeho indexu.
-3. Přidejte graf s výchozími daty a určete typ [ChartType.Histogram](https://reference.aspose.com/slides/cs/python-java/aspose.slides/charttype/#Histogram).
-4. Přistupte k sešitu dat grafu [ChartDataWorkbook](https://reference.aspose.com/slides/cs/python-java/aspose.slides/chartdataworkbook/).
-5. Vymažte výchozí řady a kategorie.
-6. Přidejte nové řady a kategorie.
+1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/).
+2. Získejte odkaz na snímek pomocí jeho indexu.
+3. Přidejte graf s výchozími daty a uveďte typ [ChartType.Histogram](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/#Histogram).
+4. Přistupte k sešitu dat grafu [ChartDataWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdataworkbook/).
+5. Vymažte výchozí série a kategorie.
+6. Přidejte nové série a kategorie.
 7. Uložte upravenou prezentaci jako soubor PPTX.
 
 Tento Python kód ukazuje, jak vytvořit histogramový graf:
@@ -912,11 +911,11 @@ finally:
     presentation.dispose()
 ```
 
-### **Vytvoření radarových grafů**
+### **Vytvořit radarové grafy**
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation/).
-2. Získejte odkaz na snímek podle jeho indexu.
-3. Přidejte graf s některými daty a určete požadovaný typ grafu ([ChartType.Radar](https://reference.aspose.com/slides/cs/python-java/aspose.slides/charttype/#Radar) v tomto případě).
+1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/).
+2. Získejte odkaz na snímek pomocí jeho indexu.
+3. Přidejte graf s některými daty a uveďte svůj preferovaný typ grafu ([ChartType.Radar](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/#Radar) v tomto případě).
 4. Uložte upravenou prezentaci jako soubor PPTX.
 
 Tento Python kód ukazuje, jak vytvořit radarový graf:
@@ -938,15 +937,15 @@ finally:
     presentation.dispose()
 ```
 
-### **Vytvoření více kategoriových grafů**
+### **Vytvořit vícekategoriové grafy**
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation/).
-2. Získejte odkaz na snímek podle jeho indexu.
-3. Přidejte graf s výchozími daty a určete typ [ChartType.ClusteredColumn](https://reference.aspose.com/slides/cs/python-java/aspose.slides/charttype/#ClusteredColumn).
-4. Přistupte k sešitu dat grafu [ChartDataWorkbook](https://reference.aspose.com/slides/cs/python-java/aspose.slides/chartdataworkbook/).
-5. Vymažte výchozí řady a kategorie.
-6. Přidejte nové řady a kategorie.
-7. Přidejte nová data grafu pro řady.
+1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/).
+2. Získejte odkaz na snímek pomocí jeho indexu.
+3. Přidejte graf s výchozími daty a uveďte typ [ChartType.ClusteredColumn](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/#ClusteredColumn).
+4. Přistupte k sešitu dat grafu [ChartDataWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdataworkbook/).
+5. Vymažte výchozí série a kategorie.
+6. Přidejte nové série a kategorie.
+7. Přidejte nová data grafu pro sérii grafu.
 8. Uložte upravenou prezentaci jako soubor PPTX.
 
 Tento Python kód ukazuje, jak vytvořit vícekategoriový graf:
@@ -994,7 +993,7 @@ try:
     cell = workbook.getCell(0, "c9", "H")
     category = chart.getChartData().getCategories().add(cell)
 
-    # Přidání řady
+    # Přidání sérií
     cell = workbook.getCell(0, "D1", "Series 1")
     series = chart.getChartData().getSeries().add(cell, ChartType.ClusteredColumn)
 
@@ -1021,7 +1020,7 @@ finally:
     presentation.dispose()
 ```
 
-### **Vytvoření mapových grafů**
+### **Vytvořit mapové grafy**
 
 Mapové grafy vizualizují geografická data a pomáhají porovnávat hodnoty napříč regiony.
 
@@ -1044,11 +1043,11 @@ finally:
     presentation.dispose()
 ```
 
-### **Vytvoření kombinovaných grafů**
+### **Vytvořit kombinované grafy**
 
-Kombinovaný graf (nebo combo graf) spojuje dva nebo více typů grafů v jednom diagramu. Tento graf vám umožňuje zvýraznit, porovnat nebo zkoumat rozdíly mezi dvěma nebo více datovými sadami a pomáhá identifikovat vztahy mezi nimi.
+Kombinovaný graf (nebo combo graf) spojuje dva nebo více typů grafů v jednom diagramu. Tento graf vám umožní zvýraznit, porovnat nebo zkoumat rozdíly mezi dvěma nebo více datovými sadami, což pomáhá identifikovat vztahy mezi nimi.
 
-![The combination chart](combination_chart.png)
+![Kombinovaný graf](combination_chart.png)
 
 Následující Python kód ukazuje, jak vytvořit kombinovaný graf zobrazený výše v prezentaci PowerPoint:
 
@@ -1082,7 +1081,7 @@ def create_combo_chart():
 def create_chart_with_first_series(slide):
     chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400)
 
-    # Nastavte název grafu.
+    # Nastavit název grafu.
     chart.setTitle(True)
     chart.getChartTitle().addTextFrameForOverriding("Chart Title")
     chart.getChartTitle().setOverlay(False)
@@ -1091,18 +1090,18 @@ def create_chart_with_first_series(slide):
     title_format.setFontBold(NullableBool.False_)
     title_format.setFontHeight(18.0)
 
-    # Nastavte legendu grafu.
+    # Nastavit legendu grafu.
     chart.getLegend().setPosition(LegendPositionType.Bottom)
     chart.getLegend().getTextFormat().getPortionFormat().setFontHeight(12.0)
 
-    # Odstraňte výchozí vygenerované řady a kategorie.
+    # Odstranit výchozí vygenerované série a kategorie.
     chart.getChartData().getSeries().clear()
     chart.getChartData().getCategories().clear()
 
     worksheet_index = 0
     workbook = chart.getChartData().getChartDataWorkbook()
 
-    # Přidejte nové kategorie.
+    # Přidat nové kategorie.
     cell = workbook.getCell(worksheet_index, 1, 0, "Category 1")
     chart.getChartData().getCategories().add(cell)
     cell = workbook.getCell(worksheet_index, 2, 0, "Category 2")
@@ -1112,7 +1111,7 @@ def create_chart_with_first_series(slide):
     cell = workbook.getCell(worksheet_index, 4, 0, "Category 4")
     chart.getChartData().getCategories().add(cell)
 
-    # Přidejte první řadu.
+    # Přidat první sérii.
     series_name_cell = workbook.getCell(worksheet_index, 0, 1, "Series 1")
     series = chart.getChartData().getSeries().add(series_name_cell, chart.getType())
 
@@ -1168,28 +1167,28 @@ def add_third_series_to_chart(chart):
     series.setPlotOnSecondAxis(True)
 
 def set_primary_axes_format(chart):
-    # Nastavte vodorovnou osu.
+    # Nastavit vodorovnou osu.
     horizontal_axis = chart.getAxes().getHorizontalAxis()
     horizontal_axis.getTextFormat().getPortionFormat().setFontHeight(12.0)
     horizontal_axis.getFormat().getLine().getFillFormat().setFillType(FillType.NoFill)
 
     set_axis_title(horizontal_axis, "X Axis")
 
-    # Nastavte svislou osu.
+    # Nastavit svislou osu.
     vertical_axis = chart.getAxes().getVerticalAxis()
     vertical_axis.getTextFormat().getPortionFormat().setFontHeight(12.0)
     vertical_axis.getFormat().getLine().getFillFormat().setFillType(FillType.NoFill)
 
     set_axis_title(vertical_axis, "Y Axis 1")
 
-    # Nastavte barvu hlavních mřížkových čar svislé osy.
+    # Nastavit barvu hlavních mřížkových čar svislé osy.
     major_grid_lines_format = vertical_axis.getMajorGridLinesFormat().getLine().getFillFormat()
     major_grid_lines_format.setFillType(FillType.Solid)
     color = Color(217, 217, 217)
     major_grid_lines_format.getSolidFillColor().setColor(color)
 
 def set_secondary_axes_format(chart):
-    # Nastavte sekundární vodorovnou osu.
+    # Nastavit sekundární vodorovnou osu.
     secondary_horizontal_axis = chart.getAxes().getSecondaryHorizontalAxis()
     secondary_horizontal_axis.setPosition(AxisPositionType.Bottom)
     secondary_horizontal_axis.setCrossType(CrossesType.Maximum)
@@ -1197,7 +1196,7 @@ def set_secondary_axes_format(chart):
     secondary_horizontal_axis.getMajorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.NoFill)
     secondary_horizontal_axis.getMinorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.NoFill)
 
-    # Nastavte sekundární svislou osu.
+    # Nastavit sekundární svislou osu.
     secondary_vertical_axis = chart.getAxes().getSecondaryVerticalAxis()
     secondary_vertical_axis.setPosition(AxisPositionType.Right)
     secondary_vertical_axis.getTextFormat().getPortionFormat().setFontHeight(12.0)
@@ -1218,14 +1217,14 @@ def set_axis_title(axis, axis_title):
 create_combo_chart()
 ```
 
-## **Aktualizace grafů**
+## **Aktualizovat grafy**
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation/) představující prezentaci obsahující graf, který chcete aktualizovat.
-2. Získejte odkaz na snímek podle jeho indexu.
-3. Projděte všechny tvary, abyste našli požadovaný graf.
+1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) která představuje prezentaci obsahující graf, který chcete aktualizovat.
+2. Získejte odkaz na snímek pomocí jeho indexu.
+3. Projděte všechny tvary a najděte požadovaný graf.
 4. Přistupte k datovému listu grafu.
-5. Upravit řadu dat grafu změnou hodnot řady.
-6. Přidejte novou řadu a naplňte ji daty.
+5. Upravte sérii dat grafu změnou hodnot série.
+6. Přidejte novou sérii a naplňte její data.
 7. Uložte upravenou prezentaci jako soubor PPTX.
 
 Tento Python kód ukazuje, jak aktualizovat graf:
@@ -1248,42 +1247,42 @@ try:
     # Získá graf ze snímku
     chart = slide.getShapes().get_Item(0)
 
-    # Nastavení indexu listu dat grafu
+    # Nastavuje index listu dat grafu
     default_worksheet_index = 0
 
-    # Získání pracovního listu dat grafu
+    # Získává list dat grafu
     workbook = chart.getChartData().getChartDataWorkbook()
 
-    # Změna názvu kategorie grafu
+    # Mění název kategorie grafu
     workbook.getCell(default_worksheet_index, 1, 0, "Modified Category 1")
     workbook.getCell(default_worksheet_index, 2, 0, "Modified Category 2")
 
-    # Vezme první řadu grafu
+    # Vybere první sérii grafu
     series = chart.getChartData().getSeries().get_Item(0)
 
-    # Nyní aktualizuje data řady
-    workbook.getCell(default_worksheet_index, 0, 1, "New_Series1")# Upravení názvu řady
+    # Nyní aktualizuje data série
+    workbook.getCell(default_worksheet_index, 0, 1, "New_Series1")# Upravení názvu série
     series.getDataPoints().get_Item(0).getValue().setData(90)
     series.getDataPoints().get_Item(1).getValue().setData(123)
     series.getDataPoints().get_Item(2).getValue().setData(44)
 
-    # Vezme druhou řadu grafu
+    # Vybere druhou sérii grafu
     series = chart.getChartData().getSeries().get_Item(1)
 
-    # Nyní aktualizuje data řady
-    workbook.getCell(default_worksheet_index, 0, 2, "New_Series2")# Upravení názvu řady
+    # Nyní aktualizuje data série
+    workbook.getCell(default_worksheet_index, 0, 2, "New_Series2")# Upravení názvu série
     series.getDataPoints().get_Item(0).getValue().setData(23)
     series.getDataPoints().get_Item(1).getValue().setData(67)
     series.getDataPoints().get_Item(2).getValue().setData(99)
 
-    # Nyní přidává novou řadu
+    # Nyní přidává novou sérii
     cell = workbook.getCell(default_worksheet_index, 0, 3, "Series 3")
     chart.getChartData().getSeries().add(cell, chart.getType())
 
-    # Vezme třetí řadu grafu
+    # Vybere třetí sérii grafu
     series = chart.getChartData().getSeries().get_Item(2)
 
-    # Nyní naplňuje data řady
+    # Nyní naplňuje data série
     cell = workbook.getCell(default_worksheet_index, 1, 3, 20)
     series.getDataPoints().addDataPointForBarSeries(cell)
     cell = workbook.getCell(default_worksheet_index, 2, 3, 50)
@@ -1299,13 +1298,15 @@ finally:
     presentation.dispose()
 ```
 
-## **Nastavení rozsahu dat pro graf**
+## **Nastavit rozsah dat pro graf**
 
-Pro nastavení rozsahu dat pro graf postupujte takto:
+Chcete‑li zkontrolovat rozsah již použité existujícím grafem, podívejte se na [Získat rozsah dat grafu](/slides/cs/python-java/chart-workbook/#retrieve-a-charts-data-range).
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation/) představující prezentaci obsahující graf.
-2. Získejte odkaz na snímek podle jeho indexu.
-3. Projděte všechny tvary, abyste našli požadovaný graf.
+Chcete‑li nastavit rozsah dat pro graf, postupujte takto:
+
+1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) která představuje prezentaci obsahující graf.
+2. Získejte odkaz na snímek pomocí jeho indexu.
+3. Projděte všechny tvary a najděte požadovaný graf.
 4. Přistupte k datům grafu a nastavte rozsah.
 5. Uložte upravenou prezentaci jako soubor PPTX.
 
@@ -1333,11 +1334,11 @@ finally:
     presentation.dispose()
 ```
 
-## **Použití výchozích markerů v grafech**
+## **Použít výchozí značky v grafech**
 
-Když používáte výchozí markery v grafech, každá řada grafu automaticky získá odlišný symbol markeru.
+Když v grafech používáte výchozí značky, každá série grafu automaticky získá jiný symbol značky.
 
-Tento Python kód ukazuje, jak automaticky nastavit marker řady grafu:
+Tento Python kód ukazuje, jak automaticky nastavit značku série grafu:
 
 ```python
 import jpype
@@ -1380,10 +1381,10 @@ try:
 
     cell = workbook.getCell(0, 0, 2, "Series 2")
     chart.getChartData().getSeries().add(cell, chart.getType())
-    #Vezměte druhou řadu grafu
+    # Vyberte druhou sérii grafu
     second_series = chart.getChartData().getSeries().get_Item(1)
 
-    #Nyní naplňuji data řady
+    # Nyní naplňujete data série
     cell = workbook.getCell(0, 1, 2, 30)
     second_series.getDataPoints().addDataPointForLineSeries(cell)
     cell = workbook.getCell(0, 2, 2, 10)
@@ -1401,20 +1402,20 @@ finally:
     presentation.dispose()
 ```
 
-## **Často kladené otázky**
+## **FAQ**
 
-**Jaké typy grafů jsou podporovány v Aspose.Slides?**
+**Jaké typy grafů podporuje Aspose.Slides?**
 
-Aspose.Slides podporuje širokou škálu [chart types](https://reference.aspose.com/slides/cs/python-java/aspose.slides/charttype/), včetně sloupcových, čárových, koláčových, plošných, rozptylových, histogramových, radarových a mnoha dalších. Tato flexibilita vám umožňuje vybrat nejvhodnější typ grafu pro vaše potřeby vizualizace dat.
+Aspose.Slides podporuje širokou škálu [typů grafů](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/), včetně sloupcových, čárových, koláčových, plošných, rozptýlených, histogramových, radarových a mnoha dalších. Tato flexibilita vám umožňuje vybrat nejvhodnější typ grafu pro vaše potřeby vizualizace dat.
 
-**Jak přidám nový graf do snímku?**
+**Jak přidat nový graf do snímku?**
 
-Pro přidání grafu nejprve vytvoříte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation/), získáte požadovaný snímek podle jeho indexu a poté zavoláte metodu pro přidání grafu, přičemž určíte typ grafu a počáteční data. Tento proces integruje graf přímo do vaší prezentace.
+Chcete‑li přidat graf, nejprve vytvoříte instanci třídy [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/), získáte požadovaný snímek pomocí jeho indexu a poté zavoláte metodu pro přidání grafu, přičemž určíte typ grafu a počáteční data. Tento proces integruje graf přímo do vaší prezentace.
 
 **Jak mohu aktualizovat data zobrazovaná v grafu?**
 
-Data grafu můžete aktualizovat tak, že získáte přístup k jeho sešitu dat ([ChartDataWorkbook](https://reference.aspose.com/slides/cs/python-java/aspose.slides/chartdataworkbook/)), vymažete výchozí řady a kategorie a následně přidáte vlastní data. To vám umožní obnovit graf tak, aby odrážel nejnovější data.
+Data grafu můžete aktualizovat tak, že přistoupíte k jeho sešitu dat ([ChartDataWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdataworkbook/)), vymažete výchozí série a kategorie a poté přidáte vlastní data. To vám umožní obnovit graf tak, aby odrážel nejnovější data.
 
 **Je možné přizpůsobit vzhled grafu?**
 
-Ano, Aspose.Slides poskytuje rozsáhlé možnosti přizpůsobení. Můžete měnit barvy, písma, popisky, legendy a další [formatting elements](/slides/cs/python-java/chart-entities/), abyste přizpůsobili vzhled grafu vašim konkrétním požadavkům na design.
+Ano, Aspose.Slides poskytuje rozsáhlé možnosti přizpůsobení. Můžete upravit barvy, písma, štítky, legendy a další [formátovací prvky](/slides/cs/python-java/chart-entities/), abyste přizpůsobili vzhled grafu vašim konkrétním požadavkům na design.

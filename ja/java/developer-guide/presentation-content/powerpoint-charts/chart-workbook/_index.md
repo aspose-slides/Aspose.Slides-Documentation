@@ -11,39 +11,39 @@ keywords:
 - データ ラベル
 - ワークシート
 - データ ソース
-- 外部 ワークブック
-- 外部 データ
+- 外部ワークブック
+- 外部データ
 - チャート キャッシュ
-- ワークブック 復旧
+- ワークブック 復元
 - PowerPoint
 - プレゼンテーション
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Java を発見: PowerPoint と OpenDocument 形式でチャート ワークブックを簡単に管理し、プレゼンテーション データを効率化します。"
+description: "Aspose.Slides for Java を発見：PowerPoint および OpenDocument 形式でチャート ワークブックを簡単に管理し、プレゼンテーション データを効率化します。"
 ---
 ## **概要**
 
-本稿では、Aspose.Slides におけるチャート ワークブックの操作方法を説明します。ワークブック ストリームを介してチャート データを読み書きする方法、ワークブック セルをチャート データ ラベルとして使用する方法、ワークシート コレクションへのアクセス方法、およびチャート 値のデータ ソース タイプの指定方法を示します。
+この記事では、Aspose.Slides でチャート ワークブックを操作する方法を説明します。ワークブック ストリームを介してチャート データの読み取りと書き込みを行い、ワークブック セルをチャート データ ラベルとして使用し、ワークシート コレクションにアクセスし、チャート 値のデータ ソース タイプを指定する方法を示します。
 
-外部ワークブックをチャート データ ソースとして使用する方法もカバーします。例では、外部ワークブックの作成と割り当て、チャートにリンクされた外部ワークブックのパス取得、ワークブックが利用可能なときのチャート データの編集方法を示します。
+また、外部ワークブックをチャート データ ソースとして使用する方法も扱います。例では、外部ワークブックを作成して割り当てる方法、チャートにリンクされた外部ワークブックのパスを取得する方法、ワークブックが利用可能なときにチャート データを編集する方法を示します。
 
-ワークブック セルが欠損データを表す場合は、[Control the Display of Empty Cells](/slides/ja/java/chart-series/) を参照し、空セルとゼロの違い、および利用可能な表示モードの折れ線グラフ比較をご確認ください。
+欠損データを表すワークブック セルについては、空セルとゼロの違い、および利用可能な表示モードの折れ線グラフ比較については、[空セルの表示制御](/slides/ja/java/chart-series/) を参照してください。
 
-## **非表示の行と列からデータを含める**
+## **非表示行と列からデータを含める**
 
-[IChart.setPlotVisibleCellsOnly](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ichart/#setPlotVisibleCellsOnly-boolean-) を使用して、チャートが非表示のワークシート 行と列のデータをプロットするかどうかを制御します。`true` に設定すると表示セルのみをプロットし、`false` に設定すると表示セルと非表示セルの両方を含めます。この設定はチャートのプロットにのみ影響し、ワークシート 行や列の非表示/表示状態を変更するものではありません。
+[IChart.setPlotVisibleCellsOnly](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#setPlotVisibleCellsOnly-boolean-) を使用して、チャートが非表示のワークシート 行および列からデータをプロットするかどうかを制御します。`true` に設定すると表示セルのみをプロットし、`false` に設定すると表示セルと非表示セルの両方を含めます。この設定はチャートのプロット方法を制御するだけで、ワークシート 行や列を非表示または表示にするものではありません。
 
-[hidden-source-data.pptx](hidden-source-data.pptx) をダウンロードし、作業ディレクトリに配置してください。最初のスライドには最初のシェイプとして列グラフが含まれています。埋め込みワークシート `Sheet1` にはソース範囲 `A1:C4` があり、行 3 と列 C が非表示になっていますが、セルには値が残っています。
+[sample presentation](hidden-source-data.pptx) には、最初のスライドの最初のシェイプとして列グラフが含まれています。埋め込まれたワークシート `Sheet1` には、ソース範囲 `A1:C4` が含まれます。行 3 と列 C は非表示ですが、セルには値が保持されています。
 
-| ワークシート 行 | A: 月 | B: 小売 | C: 卸売（非表示列） |
+| ワークシート行 | A: 月 | B: 小売 | C: 卸売（非表示列） |
 | --- | --- | --- | --- |
-| 2 | 1月 | 10 | 30 |
-| 3 (非表示行) | 2月 | 40 | 60 |
-| 4 | 3月 | 20 | 50 |
+| 2 | January | 10 | 30 |
+| 3（非表示行） | February | 40 | 60 |
+| 4 | March | 20 | 50 |
 
-[IChartData.getChartDataWorkbook](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ichartdata/#getChartDataWorkbook--) でソースセルにアクセスし、[IChartDataCell.isHidden](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ichartdatacell/#isHidden--) で非表示ステータスを確認します。このメソッドはステータスを変更せずに返します。このサンプルでは B2 が表示、B3 が非表示行に属し、C2 が非表示列に属するため、それぞれ `false`、`true`、`true` が出力されます。
+[IChartData.getChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#getChartDataWorkbook--) でソース セルにアクセスし、[IChartDataCell.isHidden](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatacell/#isHidden--) で非表示ステータスを確認します。このメソッドはステータスを変更せずに報告します。このファイルでは B2 が表示され、B3 は非表示行に属し、C2 は非表示列に属します。例ではそれぞれ `false`、`true`、`true` が出力されます。
 
-この例では、プロット設定を変更した後にチャート データを更新します: 埋め込みワークブックを [readWorkbookStream](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ichartdata/#readWorkbookStream--) で取得し、[writeWorkbookStream](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ichartdata/#writeWorkbookStream-byte:A-) で再ロードします。すべてのセルを含める場合は、[setRange](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ichartdata/#setRange-java.lang.String-) を使用して非表示の February カテゴリを含む完全な範囲を復元してください。フラグだけを変更しても、このサンプルのキャッシュされたチャート データとカテゴリ ラベルは更新されません。
+この例では、プロット設定を変更した後にチャート データを更新します：埋め込みワークブックを [readWorkbookStream](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#readWorkbookStream--) で保持し、[writeWorkbookStream](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#writeWorkbookStream-byte---) で再読み込みします。すべてのセルを含める場合は、[setRange](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#setRange-java.lang.String-) も使用して、非表示の February カテゴリを含む完全な範囲を復元します。フラグを変更するだけでは、このサンプルのキャッシュされたチャート データやカテゴリ ラベルは更新されません。
 
 ```java
 import com.aspose.slides.*;
@@ -67,7 +67,7 @@ try {
             // 埋め込みワークブックからチャート データを更新します。
             chart.getChartData().writeWorkbookStream(workbookData);
             if (!visibleOnly) {
-                // 非表示のカテゴリを含む完全なソース範囲を復元します。
+                // 非表示カテゴリを含む完全なソース範囲を復元します。
                 chart.getChartData().setRange("Sheet1!$A$1:$C$4");
             }
 
@@ -81,19 +81,51 @@ try {
 }
 ```
 
-例では、表示される小売値 (10 と 20) のみを含む `hidden_cells_true.pptx` と、全 6 つの値を含む `hidden_cells_false.pptx` を保存します。下の画像は 2 つのプロット モードを示しています。行 3 と列 C は両方の埋め込みワークブックで非表示のままです。
+例はプレゼンテーションを 2 つのバージョンで保存します：表示セルのみ（小売値 10 と 20）だけを含むバージョンと、すべての 6 つの値を含むバージョンです。下の画像は 2 つのプロット モードを示しています。行 3 と列 C は両方の埋め込みワークブックで非表示のままです。
 
-| 表示されるセルのみ（`true`） | すべてのセル（`false`） |
+| 表示セルのみ (`true`) | すべてのセル (`false`) |
 | --- | --- |
-| ![表示されるセルのみ：1月と3月の小売値 10 と 20。](hidden_cells_True.png) | ![すべてのセル：1月、2月、3月の小売と卸売の値。](hidden_cells_False.png) |
+| ![表示セルのみ：1月と3月の小売値 10 と 20。](hidden_cells_True.png) | ![すべてのセル：1月、2月、3月の小売および卸売の値。](hidden_cells_False.png) |
 
-値を含む非表示セルは空セルとは異なります。[IChart.setDisplayBlanksAs](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ichart/#setDisplayBlanksAs-int-) は欠損値の表示方法を制御しますが、非表示ソース データの含有/除外は行いません。[Control the Display of Empty Cells](/slides/ja/java/chart-series/#control-the-display-of-empty-cells) を参照してください。
+値を含む非表示セルは空セルとは異なります。[IChart.setDisplayBlanksAs](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#setDisplayBlanksAs-int-) は欠損値の表示方法を制御しますが、非表示のソース データを含めたり除外したりはしません。例については、[空セルの表示制御](/slides/ja/java/chart-series/#control-the-display-of-empty-cells) を参照してください。
 
-## **ワークブックからチャート データを読み書きする**
+## **チャートのデータ範囲を取得する**
 
-Aspose.Slides for Java は、[readWorkbookStream](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ichartdata/#readWorkbookStream--) と [writeWorkbookStream](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ichartdata/#writeWorkbookStream-byte:A-) メソッドを提供し、チャート データ ワークブック（Aspose.Cells で編集されたチャート データを含む）を読み書きできます。**注意**: チャート データは同じ構造、またはソースと類似した構造で整理されている必要があります。
+既存のプレゼンテーションでワークブック データを更新する前に、ソース範囲を調べて各チャートが使用しているワークシート セルを特定します。[IChartData.getRange](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#getRange--) メソッドは、`Sheet1!$A$1:$D$5` のようなワークシート限定の数式として現在のデータ範囲を返します。ここで `Sheet1` はワークシート名、`!` はセル範囲から分離し、`$A$1:$D$5` が A1 から D5 まで（両端含む）を示します。ドル記号は絶対参照を示します。
 
-この例は `chart.pptx` を開きます。このプレゼンテーションは最初のスライドの最初のシェイプとしてチャートを含んでいる必要があります。埋め込みワークブックをバイト配列に読み取り、既存の系列とカテゴリをクリアし、同じワークブックを書き戻します。変更はメモリ内に残り、プレゼンテーションは保存されません。
+このメソッドはチャートやそのワークブックを変更せずに現在の範囲を読み取ります。チャートがワークブックをデータ ソースとして使用していない場合は `InvalidOperationException` がスローされます。詳細は [ChartData API Reference](https://reference.aspose.com/slides/java/com.aspose.slides/chartdata/) を参照してください。
+
+この例はプレゼンテーションを開き、各スライド上のシェイプを直接走査してチャートをチェックします。各チャートの名前とソース範囲を出力し、ワークブックを使用していないチャートはメッセージを出力して次のチャートに進みます。
+
+```java
+import com.aspose.slides.*;
+import com.aspose.slides.exceptions.InvalidOperationException;
+
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    for (ISlide slide : presentation.getSlides()) {
+        for (IShape shape : slide.getShapes()) {
+            if (shape instanceof IChart) {
+                IChart chart = (IChart) shape;
+                try {
+                    String range = chart.getChartData().getRange();
+                    System.out.println(chart.getName() + ": " + range);
+                } catch (InvalidOperationException exception) {
+                    System.out.println(chart.getName() + ": The chart does not use a workbook as its data source.");
+                }
+            }
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+## **ワークブックからチャートデータを読み書きする**
+
+Aspose.Slides for Java は、[readWorkbookStream](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#readWorkbookStream--) および [writeWorkbookStream](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#writeWorkbookStream-byte---) メソッドを提供し、チャート データ ワークブック（Aspose.Cells で編集されたチャート データを含む）を読み書きできます。**Note** チャート データは同じ構成であるか、ソースに似た構造である必要があります。
+
+この例は、最初のスライドの最初のシェイプとしてチャートを持つプレゼンテーションを使用します。埋め込まれたワークブックをバイト配列に読み取り、既存の系列とカテゴリをクリアし、同じワークブックを再度書き込みます。変更はメモリ内に残り、プレゼンテーションは保存されません。
 
 ```java
 import com.aspose.slides.*;
@@ -120,9 +152,9 @@ try {
 }
 ```
 
-### **ワークブック変更後のチャート レイアウトの検証**
+### **ワークブック変更後のチャートレイアウトの検証**
 
-埋め込みワークブックを修正済みのものに置き換えると、チャートは元の系列とカテゴリのコレクションを保持します。この不一致により [IChart.validateChartLayout](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ichart/#validateChartLayout--) がインデックス範囲外エラーで失敗することがあります。更新されたワークブックを書き戻す前に既存の系列とカテゴリをクリアしてください。この例は最初のスライドの最初のシェイプとしてチャートを含む `chart.pptx` が必要です。コメントはワークブック編集箇所を示しています。実行可能な例は元のワークブックを書き戻し、メモリ内でレイアウトを検証します。
+埋め込みワークブックを変更版に置き換えると、チャートは元の系列とカテゴリ コレクションを保持します。この不整合により [IChart.validateChartLayout](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#validateChartLayout--) がインデックス範囲外エラーで失敗することがあります。更新されたワークブックを書き込む前に既存の系列とカテゴリをクリアしてください。この例は最初のスライドの最初のシェイプとしてのチャートを使用します。コメントはワークブック 編集が行われる場所を示しています；実行可能な例は元のワークブックを書き戻し、メモリ内でレイアウトを検証します。
 
 ```java
 import com.aspose.slides.*;
@@ -137,7 +169,7 @@ try {
         IChartData chartData = chart.getChartData();
         byte[] workbookData = chartData.readWorkbookStream();
 
-        // ここでワークブック バイトを変更します。たとえば Aspose.Cells を使用します。
+        // ここでワークブックのバイトを変更します。たとえば Aspose.Cells を使用します。
 
         chartData.getSeries().clear();
         chartData.getCategories().clear();
@@ -152,20 +184,13 @@ try {
 }
 ```
 
-コレクションをクリアすることで、ワークブックを書き戻す前に古いデータ参照が除去されます。更新されたワークブックに対して必要な系列とカテゴリのマッピングを再構築してからチャートを使用してください。
+コレクションをクリアすると、ワークブックを書き戻す前に古いデータ参照が削除されます。更新されたワークブックを使用する前に、必要な系列およびカテゴリのマッピングを再構築してください。
 
-## **ワークブック セルをチャート データ ラベルとして設定する**
+## **ワークブックセルをチャートデータ ラベルとして設定する**
 
-ワークブック セルのテキストをチャート データ ラベルとして使用できます。以下の手順は、バブル チャートのラベルをデータ ワークブックのセルにリンクする方法を示します。
+ワークブック セルのテキストをチャート データ ラベルとして使用できます。
 
-1. [Presentation](https://reference.aspose.com/slides/ja/java/com.aspose.slides/presentation/) クラスのインスタンスを作成します。
-2. ゼロベースのインデックスで最初のスライドにアクセスします。
-3. デフォルト データでバブル チャートを追加します。
-4. チャート 系列にアクセスします。
-5. ワークブック セルをデータ ラベルとして設定します。
-6. プレゼンテーションを保存します。
-
-この例は `chart2.pptx` を開きます。このファイルは少なくとも 1 枚のスライドを含み、デフォルト データでバブル チャートを追加します。ワークシート 0 のセル A10:A12 を最初の系列の最初の 3 つのラベルとして使用し、セルからラベルを有効にして結果を `resultchart.pptx` に保存します。
+この例は、既存のプレゼンテーションの最初のスライドにデフォルト データのバブル チャートを追加します。ワークシート 0 のセル A10:A12 を最初の系列の最初の 3 つのラベルとして使用し、セルからのラベルを有効にして、更新されたプレゼンテーションを保存します。
 
 ```java
 import com.aspose.slides.*;
@@ -191,7 +216,7 @@ try {
 
 ## **ワークシートの管理**
 
-[IChartDataWorkbook.getWorksheets](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ichartdataworkbook/#getWorksheets--) メソッドは、チャート ワークブック内のワークシートへのアクセスを提供します。この例はデフォルト データで円グラフを作成し、各ワークシート名をコンソールに出力します。
+[IChartDataWorkbook.getWorksheets](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/#getWorksheets--) メソッドは、チャート ワークブック内のワークシートへのアクセスを提供します。この例はデフォルト データの円グラフを作成し、各ワークシート名をコンソールに出力します。
 
 ```java
 import com.aspose.slides.*;
@@ -213,7 +238,7 @@ try {
 
 ## **データ ソース タイプの指定**
 
-この例はデフォルト データで 3D 列グラフを作成し、異なるデータ ソースを使用して 2 つの系列名を設定します。最初の名前は文字列リテラル、2 番目の名前はワークシート 0 のセル C1 を使用します。[DataSourceType](https://reference.aspose.com/slides/ja/java/com.aspose.slides/datasourcetype/) 列挙体で各名前のソースを選択します。結果は `pres.pptx` に保存されます。
+この例はデフォルト データの 3D 列グラフを作成し、異なるデータ ソースを使用して 2 つの系列名を設定します。最初の名前は文字列リテラルを使用し、2 番目はワークシート 0 のセル C1 を使用します。[DataSourceType](https://reference.aspose.com/slides/java/com.aspose.slides/datasourcetype/) 列挙体で各名前のソースを選択します。例は更新された系列名でプレゼンテーションを保存します。
 
 ```java
 import com.aspose.slides.*;
@@ -241,7 +266,7 @@ try {
 
 ## **サポートされていない埋め込みワークブック形式の検出**
 
-Aspose.Slides は、一部のチャートに埋め込むことができる Excel バイナリ ワークブック（.xlsb）形式をサポートしていません。[IChartData](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ichartdata/) の [getEmbeddedWorkbookType](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ichartdata/#getEmbeddedWorkbookType--) メソッドと [WorkbookType](https://reference.aspose.com/slides/ja/java/com.aspose.slides/workbooktype/) 列挙体を組み合わせて、サポートされていない形式を検出し、該当チャートをスキップできます。この例は `sample.pptx` の最初のスライドのシェイプを調べ、チャートでないシェイプを除外し、埋め込み .xlsb ワークブックを持つ各チャートに診断メッセージを出力します。
+Aspose.Slides は、一部のチャートに埋め込むことができる Excel バイナリ ワークブック (.xlsb) 形式をサポートしていません。[IChartData](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/) の [getEmbeddedWorkbookType](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#getEmbeddedWorkbookType--) メソッドと [WorkbookType](https://reference.aspose.com/slides/java/com.aspose.slides/workbooktype/) 列挙体を組み合わせて、サポート外の形式を検出し、該当チャートをスキップできます。この例は既存のプレゼンテーションの最初のスライド上のシェイプを調べ、チャート以外のシェイプをスキップし、.xlsb 埋め込みワークブックを持つ各チャートに対して診断メッセージを出力します。
 
 ```java
 import com.aspose.slides.*;
@@ -265,7 +290,7 @@ try {
             continue;
         }
 
-        // ここでサポートされているチャート ワークブック データを読み取ったり変更したりします。
+        // サポートされているチャート ワークブック データをここで読み取りまたは変更します。
     }
 } finally {
     presentation.dispose();
@@ -274,13 +299,13 @@ try {
 
 ## **外部ワークブック**
 
-Aspose.Slides は、外部ワークブックをチャート のデータ ソースとして使用することをサポートします。
+Aspose.Slides は、外部ワークブックをチャートのデータ ソースとして使用することをサポートします。
 
 ### **外部ワークブックの作成**
 
-[readWorkbookStream](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ichartdata/#readWorkbookStream--) と [setExternalWorkbook](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ichartdata/#setExternalWorkbook-java.lang.String-) を使用して、埋め込みチャート ワークブックをファイルにエクスポートし、チャートをその外部ワークブックにリンクします。
+[readWorkbookStream](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#readWorkbookStream--) と [setExternalWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#setExternalWorkbook-java.lang.String-) を使用して、埋め込みチャート ワークブックをファイルへエクスポートし、チャートをその外部ワークブックにリンクします。
 
-この例はデフォルト データで円グラフを作成し、ワークブックを `externalWorkbook1.xlsx` に書き込み、ファイル書き込みが完了した後にそのファイルをチャート データ ソースとして割り当てます。リンクされたプレゼンテーションは `externalWorkbook.pptx` に保存されます。
+この例はデフォルト データの円グラフを作成し、ワークブックをエクスポートします。ファイル書き込みが完了した後に外部ワークブックをチャート データ ソースとして割り当て、リンクされたプレゼンテーションを保存します。
 
 ```java
 import com.aspose.slides.*;
@@ -310,11 +335,11 @@ try {
 
 ### **外部ワークブックの設定**
 
-[setExternalWorkbook](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ichartdata/#setExternalWorkbook-java.lang.String-) メソッドを使用して、外部ワークブックをチャートのデータ ソースとして割り当てることができます。このメソッドは、外部ワークブックへのパスを更新する際にも使用できます（ワークブックが移動された場合など）。
+[setExternalWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#setExternalWorkbook-java.lang.String-) メソッドを使用すると、外部ワークブックをチャートのデータ ソースとして割り当てることができます。このメソッドは、外部ワークブックのパスが変更された場合（ファイルが移動された場合）にも更新に使用できます。
 
-リモート場所やリソースに保存されたワークブックのデータを直接編集することはできませんが、外部データ ソースとして使用することは可能です。外部ワークブックの相対パスが指定された場合、フル パスに自動変換されます。
+リモート ロケーションやリソースに保存されたワークブックのデータを直接編集することはできませんが、外部データ ソースとして使用することは可能です。相対パスが指定された場合は、自動的にフル パスに変換されます。
 
-この例は作業ディレクトリに `externalWorkbook.xlsx` があることが前提です。シート `Sheet1` には B1 に系列名、A2:A4 にカテゴリ名、B2:B4 に数値が配置されている必要があります。例は円グラフを作成し、ワークブックをリンクし、[setRange](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ichartdata/#setRange-java.lang.String-) を使用して A1:B4 を 1 系列と 3 カテゴリにマッピングします。結果は `Presentation_with_externalWorkbook.pptx` に保存されます。
+この例は、`Sheet1` という名前のワークシートに B1 に系列名、A2:A4 にカテゴリ名、B2:B4 に数値を含む外部ワークブックを使用します。例は円グラフを作成し、ワークブックをリンクし、[setRange](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#setRange-java.lang.String-) を使用して A1:B4 を 1 系列と 3 カテゴリにマッピングします。リンクされたチャートとともにプレゼンテーションを保存します。
 
 ```java
 import com.aspose.slides.*;
@@ -337,12 +362,12 @@ try {
 }
 ```
 
-[setExternalWorkbook](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ichartdata/#setExternalWorkbook-java.lang.String-boolean-) の `updateChartData` パラメーターは、ワークブックをロードするかどうかを制御します。
+[setExternalWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#setExternalWorkbook-java.lang.String-boolean-) の `updateChartData` パラメータは、ワークブックを読み込むかどうかを制御します。
 
-* `updateChartData` が `false` の場合、ワークブック パスのみが更新されます。チャート データはターゲット ワークブックからロードまたは更新されないため、ワークブックが利用できなくても問題ありません。
-* `updateChartData` が `true` の場合、ターゲット ワークブックからチャート データが更新されます。
+* `updateChartData` が `false` の場合、パスだけが更新されます。チャート データはターゲット ワークブックから読み込まれないか更新されないため、ワークブックが利用できない状態でも動作します。
+* `updateChartData` が `true` の場合、チャート データはターゲット ワークブックから更新されます。
 
-以下の例はプレースホルダー URL を割り当て、`updateChartData` を `false` に設定しています。これにより円グラフのデフォルト データが保持され、利用できないワークブックをロードせずにプレゼンテーションが保存されます。
+以下の例では、`updateChartData` を `false` に設定したプレースホルダー URL を割り当てます。円グラフのデフォルト データは保持され、利用できないワークブックを読み込まずにプレゼンテーションが保存されます。
 
 ```java
 import com.aspose.slides.*;
@@ -360,17 +385,11 @@ try {
 }
 ```
 
-### **チャートの外部データ ソース ワークブック パスの取得**
+### **チャートの外部データ ソース ワークブック パスを取得する**
 
-チャートにリンクされたワークブックを特定するには、まずチャートが外部データ ソースを使用しているか確認します。使用している場合は、以下の手順でワークブック パスを取得できます。
+チャートにリンクされたワークブックを特定するには、チャートが外部データ ソースを使用しているか確認し、ワークブック パスを取得します。
 
-1. [Presentation](https://reference.aspose.com/slides/ja/java/com.aspose.slides/presentation/) クラスのインスタンスを作成します。
-2. ゼロベースのインデックスで最初のスライドにアクセスします。
-3. 最初のシェイプがチャートであることを確認します。
-4. チャート データ ソース タイプを読み取ります。
-5. ソースが外部ワークブックの場合、そのパスを読み取ります。
-
-この例は先ほど作成した `externalWorkbook.pptx` を開き、最初のスライドの最初のシェイプを調べます。シェイプが外部ワークブックにリンクされたチャートであれば、[getExternalWorkbookPath](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ichartdata/#getExternalWorkbookPath--) をコンソールに出力します。その後、プレゼンテーションのコピーを `Result.pptx` に保存します。
+この例は、外部ワークブックにリンクされたチャートがあるプレゼンテーションの最初のスライドの最初のシェイプを調べます。外部ワークブックにリンクされたチャートであれば、[getExternalWorkbookPath](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#getExternalWorkbookPath--) をコンソールに出力し、プレゼンテーションのコピーを保存します。
 
 ```java
 import com.aspose.slides.*;
@@ -397,11 +416,11 @@ try {
 }
 ```
 
-### **チャート データの編集**
+### **チャートデータの編集**
 
-外部ワークブックのデータは、内部ワークブックの内容を変更するのと同様の方法で編集できます。外部ワークブックをロードできない場合は例外がスローされます。
+外部ワークブックのデータは、内部ワークブックと同様に編集できます。外部ワークブックを読み込めない場合は例外がスローされます。
 
-この例は最初のスライドの最初のシェイプとしてチャートを含む `presentation.pptx` と、アクセス可能な外部ワークブックを前提としています。最初の系列の最初のデータ ポイントのセル参照値を 100 に設定し、プレゼンテーションを `presentation_out.pptx` に保存します。セル値の編集はリンクされた外部 XLSX ファイルを更新できるため、元のワークブックを保持したい場合はコピーを使用してください。
+この例は、最初のスライドの最初のシェイプとして存在し、アクセス可能な外部ワークブックにリンクされたチャートを使用します。最初の系列の最初のデータ ポイントのセル参照値を 100 に設定し、更新されたプレゼンテーションを保存します。セル値の編集はリンクされた外部 XLSX ファイルを更新できるため、元のワークブックを保持したい場合はコピーを使用してください。
 
 ```java
 import com.aspose.slides.*;
@@ -433,11 +452,11 @@ try {
 }
 ```
 
-### **チャート キャッシュからワークブックを復元する**
+### **チャートキャッシュからワークブックを復元する**
 
-チャートが外部ワークブックを参照していてそのワークブックが欠損または利用できない場合、Aspose.Slides はプレゼンテーションにキャッシュされたデータからチャート ワークブックを再構築できます。[LoadOptions](https://reference.aspose.com/slides/ja/java/com.aspose.slides/loadoptions/) を作成し、[LoadOptions.setSpreadsheetOptions](https://reference.aspose.com/slides/ja/java/com.aspose.slides/loadoptions/#setSpreadsheetOptions-com.aspose.slides.ISpreadsheetOptions-) を呼び出し、[ISpreadsheetOptions.setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ispreadsheetoptions/#setRecoverWorkbookFromChartCache-boolean-) を `true` に設定してからプレゼンテーションを開きます。
+チャートが存在しないか利用できない外部ワークブックを使用している場合、Aspose.Slides はプレゼンテーションにキャッシュされたデータからチャート ワークブックを再構築できます。[LoadOptions](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/) を作成し、[LoadOptions.setSpreadsheetOptions](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/#setSpreadsheetOptions-com.aspose.slides.ISpreadsheetOptions-) を呼び出し、[ISpreadsheetOptions.setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/java/com.aspose.slides/ispreadsheetoptions/#setRecoverWorkbookFromChartCache-boolean-) を `true` に設定してプレゼンテーションを開く前に設定します。
 
-以下の Java サンプルは `presentation.pptx` を開きます。このファイルの最初のスライドの最初のシェイプは、利用できない外部ワークブックを参照するチャートである必要があります。復元されたデータには [IChart.getChartData](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ichart/#getChartData--) と [IChartData.getChartDataWorkbook](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ichartdata/#getChartDataWorkbook--) を使用してアクセスします。
+以下の Java 例は、最初のスライドの最初のシェイプとして存在し、利用できない外部ワークブックを参照しているチャートのワークブック データを復元します。復元されたデータは [IChart.getChartData](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#getChartData--) と [IChartData.getChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#getChartDataWorkbook--) を介してアクセスできます。
 
 ```java
 import com.aspose.slides.*;
@@ -457,7 +476,7 @@ try {
         IChart chart = (IChart) slide.getShapes().get_Item(0);
         IChartDataWorkbook recoveredWorkbook = chart.getChartData().getChartDataWorkbook();
 
-        // ここで復元されたワークブック データを読み取ったり変更したりします。
+        // ここで復元されたワークブック データを読み取りまたは変更します。
     } else {
         System.out.println("The first shape is not a chart.");
     }
@@ -466,30 +485,30 @@ try {
 }
 ```
 
-外部ワークブックが利用できず復元が無効の場合、Aspose.Slides は例外をスローします。キャッシュされたチャート データの使用が許容できるフォールバックである場合にのみ復元を有効にしてください。キャッシュには外部ワークブックが最後に更新された後の変更が含まれていない可能性があります。
+外部ワークブックが利用できず、復元が無効になっている場合、Aspose.Slides は例外をスローします。キャッシュされたチャート データの使用が許容できるフォールバックである場合にのみ復元を有効にしてください。キャッシュには、プレゼンテーションが最後に更新された後に外部ワークブックで行われた変更が含まれていない可能性があります。
 
-## **よくある質問**
+## **FAQ**
 
-**特定のチャートが外部ワークブックにリンクされているか、埋め込みワークブックにリンクされているかを判断できますか？**
+**特定のチャートが外部ワークブックにリンクされているか、埋め込みワークブックにリンクされているかを判別できますか？**
 
-はい。チャートには [data source type](https://reference.aspose.com/slides/ja/java/com.aspose.slides/chartdata/#getDataSourceType--) と [path to an external workbook](https://reference.aspose.com/slides/ja/java/com.aspose.slides/chartdata/#getExternalWorkbookPath--) があり、ソースが外部ワークブックの場合はフル パスを読み取って外部ファイルが使用されていることを確認できます。
+はい。チャートには [data source type](https://reference.aspose.com/slides/java/com.aspose.slides/chartdata/#getDataSourceType--) と [path to an external workbook](https://reference.aspose.com/slides/java/com.aspose.slides/chartdata/#getExternalWorkbookPath--) があり、ソースが外部ワークブックの場合はフル パスを読み取って外部ファイルが使用されていることを確認できます。
 
-**外部ワークブックへの相対パスはサポートされていますか？ どのように保存されますか？**
+**外部ワークブックへの相対パスはサポートされますか？ また、どのように保存されますか？**
 
-はい。相対パスを指定すると自動的に絶対パスに変換されます。プレゼンテーションは PPTX ファイル内に絶対パスを保存するため、ワークブックを移動した場合はリンクの更新が必要になることがあります。
+はい。相対パスを指定すると、自動的に絶対パスに変換されます。プレゼンテーションは PPTX ファイル内に絶対パスを保存するため、ワークブックを移動した場合はリンクの更新が必要になることがあります。
 
 **ネットワーク リソース/共有上のワークブックを使用できますか？**
 
-はい、そのようなワークブックは外部データ ソースとして使用できます。ただし、Aspose.Slides からリモート ワークブックを直接編集することはサポートされていません。ソースとしてのみ使用可能です。
+はい、そのようなワークブックは外部データ ソースとして使用できます。ただし、Aspose.Slides からリモート ワークブックを直接編集することはサポートされていません。データ ソースとしてのみ使用できます。
 
-**プレゼンテーションを保存するとき、Aspose.Slides は外部 XLSX を上書きしますか？**
+**プレゼンテーションを保存すると、外部 XLSX が上書きされますか？**
 
-プレゼンテーションは [link to the external file](https://reference.aspose.com/slides/ja/java/com.aspose.slides/chartdata/#getExternalWorkbookPath--) を保存します。セル参照されたチャート データを編集すると、リンクされたローカル XLSX ファイルも更新される可能性があります。元のワークブックを変更したくない場合は、コピーを使用してください。
+プレゼンテーションは [link to the external file](https://reference.aspose.com/slides/java/com.aspose.slides/chartdata/#getExternalWorkbookPath--) を保存します。セル参照のチャート データを編集すると、リンクされたローカル XLSX ファイルも更新される可能性があります。元のワークブックを変更したくない場合は、コピーを使用してください。
 
-**外部ファイルがパスワード保護されている場合はどうすればよいですか？**
+**外部ファイルがパスワードで保護されている場合はどうすればよいですか？**
 
 Aspose.Slides はリンク時にパスワードを受け付けません。一般的な対策は、事前に保護を解除するか、[Aspose.Cells](https://reference.aspose.com/cells/java/) などで復号化したコピーを作成してそのコピーにリンクすることです。
 
 **複数のチャートが同じ外部ワークブックを参照できますか？**
 
-はい。各チャートは独自のリンクを保持します。すべてが同じファイルを指している場合、そのファイルを更新すると次回データがロードされるときに各チャートに反映されます。
+はい。各チャートは個別にリンクを保持します。すべてが同じファイルを指している場合、そのファイルを更新すると次回データが読み込まれるときにすべてのチャートに反映されます。

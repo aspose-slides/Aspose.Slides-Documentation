@@ -19,63 +19,63 @@ keywords:
 - نمودار قیفی
 - نمودار خورشیدی
 - نمودار هیستوگرام
-- نمودار رادار
+- نمودار راداری
 - نمودار چنددسته‌ای
 - PowerPoint
 - ارائه
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "نمودارها را در ارائه‌های PowerPoint با Aspose.Slides برای Node.js ایجاد و سفارشی‌سازی کنید. نمودارها را اضافه، قالب‌بندی و ویرایش کنید با مثال‌های کد عملی در JavaScript."
+description: "ایجاد و سفارشی‌سازی نمودارها در ارائه‌های PowerPoint با Aspose.Slides برای Node.js. افزودن، قالب‌بندی و ویرایش نمودارها با مثال‌های کد کاربردی در JavaScript."
 ---
-## **نمای کلی**
+## **بررسی کلی**
 
-این مقاله راهنمای جامعی برای ایجاد و سفارشی‌سازی نمودارها با Aspose.Slides ارائه می‌دهد. شما می‌توانید نحوه افزودن برنامه‌نویسی یک نمودار به اسلاید، پر کردن آن با داده‌ها و اعمال گزینه‌های قالب‌بندی مختلف برای مطابقت با نیازهای طراحی خاص خود را بیاموزید. در طول مقاله، مثال‌های کد دقیق هر گام را نشان می‌دهند، از مقداردهی اولیه به پرزنتیشن و شیء نمودار تا پیکربندی سری‌ها، محورها و لگندها. با دنبال کردن این راهنما، درک solidی از چگونگی ادغام تولید نمودار پویا در برنامه‌های خود به دست می‌آورید و فرآیند ایجاد ارائه‌های مبتنی بر داده را ساده می‌کنید.
+این مقاله راهنمای جامعی برای ایجاد و سفارشی‌سازی نمودارها با استفاده از Aspose.Slides ارائه می‌دهد. شما یاد خواهید گرفت چگونه به‌صورت برنامه‌نویسی یک نمودار را به اسلاید اضافه کنید، آن را با داده‌ها پر کنید و گزینه‌های قالب‌بندی مختلفی را اعمال کنید تا متناسب با نیازهای طراحی خاص شما باشد. در سراسر مقاله، مثال‌های کد جزئیات هر مرحله را نشان می‌دهند؛ از مقداردهی اولیهٔ ارائه و شیء نمودار تا پیکربندی سری‌ها، محورها و اف Legend‌ها. با دنبال کردن این راهنما، درک solidی از چگونگی ادغام تولید پویا نمودارها در برنامه‌های خود به‌دست خواهید آورد و فرایند ایجاد ارائه‌های مبتنی بر داده را بهینه می‌کنید.
 
-## **ایجاد نمودار**
+## **ایجاد یک نمودار**
 
-نمودارها به افراد کمک می‌کنند تا به سرعت داده‌ها را بصری‌سازی کنند و بینش‌هایی به دست آورند که ممکن است از یک جدول یا صفحه‌گسترده واضح نباشد.
+نمودارها به افراد کمک می‌کنند تا داده‌ها را به‌سرعت تجسم کنند و بینش‌هایی به‌دست آورند که ممکن است از یک جدول یا صفحه‌گسترده به‌وضوح دیده نشوند.
 
 **چرا نمودار ایجاد کنیم؟**
 
 با استفاده از نمودارها می‌توانید:
 
-* مقادیر بزرگ داده را در یک اسلاید جمع‌آوری، فشرده یا خلاصه کنید
-* الگوها و روندهای داده را افشا کنید
-* جهت و سرعت داده‌ها را در طول زمان یا نسبت به یک واحد اندازه‌گیری خاص استنتاج کنید
-* ناهنجاری‌ها، انحرافات، خطاها، داده‌های بی‌معنی و غیره را شناسایی کنید
-* داده‌های پیچیده را ارتباط یا ارائه دهید
+* مقدار زیادی داده را در یک اسلاید جمع‌بندی، فشرده یا خلاصه کنید
+* الگوها و روندهای داده را آشکار کنید
+* جهت و شتاب داده را بر اساس زمان یا واحد اندازه‌گیری خاصی استنتاج کنید
+* نقاط دورافتاده، انحرافات، خطاها، داده‌های نامعقول و غیره را شناسایی کنید
+* داده‌های پیچیده را ارتباط برقرار کنید یا ارائه دهید
 
-در PowerPoint می‌توانید نمودارها را از طریق عملکرد *Insert* ایجاد کنید که قالب‌های متنوعی برای طراحی انواع نمودارها فراهم می‌کند. با Aspose.Slides می‌توانید هم نمودارهای معمولی (بر پایه انواع نمودارهای محبوب) و هم نمودارهای سفارشی ایجاد کنید.
+در PowerPoint می‌توانید با استفاده از عملکرد *Insert* نمودارها را ایجاد کنید که الگوهایی برای طراحی انواع مختلف نمودارها فراهم می‌کند. با Aspose.Slides می‌توانید هر دو نوع نمودارهای عادی (بر مبنای انواع مشهور نمودار) و نمودارهای سفارشی را ایجاد کنید.
 
 {{% alert color="info" title="Note" %}}
-برای ایجاد نمودارها، از کلاس [ChartType](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/charttype/) استفاده کنید. فیلدهای این کلاس به انواع مختلف نمودارها مربوط می‌شوند.
+برای ایجاد نمودارها، از کلاس [ChartType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/) استفاده کنید. فیلدهای این کلاس به انواع مختلف نمودارها مربوط می‌شوند.
 {{% /alert %}}
 
-### **ایجاد نمودارهای ستونی خوشه‌ای**
+### **ایجاد نمودارهای ستون خوشه‌ای**
 
-این بخش نحوه ایجاد نمودارهای ستونی خوشه‌ای با Aspose.Slides را توضیح می‌دهد. شما یاد می‌گیرید که یک پرزنتیشن را مقداردهی اولیه کنید، یک نمودار اضافه کنید و عناصر آن مانند عنوان، داده‌ها، سری‌ها، دسته‌ها و استایل را سفارشی کنید. مراحل زیر را دنبال کنید تا نحوه تولید یک نمودار ستونی خوشه‌ای استاندارد را ببینید:
+این بخش نحوه ایجاد نمودارهای ستون خوشه‌ای را با Aspose.Slides توضیح می‌دهد. شما یاد خواهید گرفت چگونه یک ارائه را مقداردهی اولیه کنید، یک نمودار اضافه کنید و عناصر آن همچون عنوان، داده‌ها، سری‌ها، دسته‌ها و استایل را سفارشی کنید. قدم‌های زیر را دنبال کنید تا ببینید یک نمودار ستون خوشه‌ای استاندارد چگونه تولید می‌شود:
 
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/presentation) ایجاد کنید.
+1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation) ایجاد کنید.
 1. با استفاده از ایندکس، به یک اسلاید ارجاع بگیرید.
-1. یک نمودار با برخی داده‌ها اضافه کنید و نوع `ChartType.ClusteredColumn` را مشخص کنید.
-1. یک عنوان به نمودار اضافه کنید.
-1. به کاربرگ داده‌های نمودار دسترسی پیدا کنید.
+1. یک نمودار با داده‌هایی اضافه کنید و نوع `ChartType.ClusteredColumn` را مشخص کنید.
+1. عنوانی به نمودار اضافه کنید.
+1. به ورک‌شیت داده‌های نمودار دسترسی پیدا کنید.
 1. تمام سری‌ها و دسته‌های پیش‌فرض را پاک کنید.
 1. سری‌ها و دسته‌های جدید اضافه کنید.
 1. داده‌های جدید برای سری‌های نمودار اضافه کنید.
 1. رنگ پر را به سری‌های نمودار اعمال کنید.
 1. برچسب‌ها را به سری‌های نمودار اضافه کنید.
-1. پرزنتیشن تغییر یافته را به‌عنوان فایل PPTX ذخیره کنید.
+1. ارائهٔ اصلاح‌شده را به‌عنوان فایل PPTX ذخیره کنید.
 
-این کد C# نشان می‌دهد که چگونه یک نمودار ستونی خوشه‌ای ایجاد کنید:
+این کد JavaScript نحوه ایجاد یک نمودار ستون خوشه‌ای را نشان می‌دهد:
 
 ```javascript
 var aspose = aspose || {};
 aspose.slides = require("aspose.slides.via.java");
 const java = require("java");
 
-// یک شیٔ ارائه (Presentation) که نمایانگر فایل PPTX است ایجاد می‌کند
+// یک کلاس ارائه را نمونه‌سازی می‌کند که نمایانگر فایل PPTX است
 var pres = new aspose.slides.Presentation();
 try {
     // به اولین اسلاید دسترسی پیدا می‌کند
@@ -89,38 +89,38 @@ try {
     chart.getChartTitle().setHeight(20);
     // اولین سری را برای نمایش مقادیر تنظیم می‌کند
     chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowValue(true);
-    // شاخص کاربرگ داده‌های نمودار را تنظیم می‌کند
+    // ایندکس شیت داده‌های نمودار را تنظیم می‌کند
     var defaultWorksheetIndex = 0;
-    // کاربرگ داده‌های نمودار را دریافت می‌کند
+    // شیت کاری داده‌های نمودار را دریافت می‌کند
     var fact = chart.getChartData().getChartDataWorkbook();
     // سری‌ها و دسته‌های پیش‌فرض تولید شده را حذف می‌کند
     chart.getChartData().getSeries().clear();
     chart.getChartData().getCategories().clear();
     var s = chart.getChartData().getSeries().size();
     s = chart.getChartData().getCategories().size();
-    // سری‌های جدید را اضافه می‌کند
+    // سری‌های جدید اضافه می‌کند
     chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 1, "Series 1"), chart.getType());
     chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 2, "Series 2"), chart.getType());
-    // دسته‌های جدید را اضافه می‌کند
+    // دسته‌های جدید اضافه می‌کند
     chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 1, 0, "Caetegoty 1"));
     chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 2, 0, "Caetegoty 2"));
     chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 3, 0, "Caetegoty 3"));
-    // سری اول نمودار را می‌گیرد
+    // اولین سری نمودار را می‌گیرد
     var series = chart.getChartData().getSeries().get_Item(0);
-    // اکنون داده‌های سری را پر می‌کند
+    // حالا داده‌های سری را پر می‌کند
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 1, 20));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 50));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 30));
-    // رنگ پر کردن سری را تنظیم می‌کند
+    // رنگ پرکننده را برای سری تنظیم می‌کند
     series.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
     series.getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-    // سری دوم نمودار را می‌گیرد
+    // دومین سری نمودار را می‌گیرد
     series = chart.getChartData().getSeries().get_Item(1);
     // داده‌های سری را پر می‌کند
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 2, 30));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 2, 10));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 2, 60));
-    // رنگ پر کردن سری را تنظیم می‌کند
+    // رنگ پرکننده را برای سری تنظیم می‌کند
     series.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
     series.getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GREEN"));
     // برچسب‌های سفارشی برای هر دسته برای سری جدید ایجاد می‌کند
@@ -129,7 +129,7 @@ try {
     lbl.getDataLabelFormat().setShowCategoryName(true);
     lbl = series.getDataPoints().get_Item(1).getLabel();
     lbl.getDataLabelFormat().setShowSeriesName(true);
-    // مقدار را برای برچسب سوم نشان می‌دهد
+    // مقدار را برای سومین برچسب نمایش می‌دهد
     lbl = series.getDataPoints().get_Item(2).getLabel();
     lbl.getDataLabelFormat().setShowValue(true);
     lbl.getDataLabelFormat().setShowSeriesName(true);
@@ -143,41 +143,41 @@ try {
 }
 ```
 
-### **ایجاد نمودارهای پراکنده**
+### **ایجاد نمودارهای پراکندگی**
 
-نمودارهای پراکنده (که به عنوان scatter plot یا نمودار x‑y نیز شناخته می‌شوند) اغلب برای بررسی الگوها یا نشان دادن همبستگی بین دو متغیر استفاده می‌شوند.
+نمودارهای پراکندگی (که به عنوان scatter plot یا گراف x‑y نیز شناخته می‌شوند) اغلب برای بررسی الگوها یا نشان دادن همبستگی بین دو متغیر استفاده می‌شوند.
 
-از نمودار پراکنده زمانی استفاده کنید که:
+از نمودار پراکندگی زمانی استفاده کنید که:
 
 * داده‌های عددی جفت‌دار دارید
-* دو متغیر دارید که به‌خوبی با هم جفت می‌شوند
-* می‌خواهید تعیین کنید آیا دو متغیر مرتبط هستند یا نه
+* دو متغیر دارید که به‌خوبی با یکدیگر جفت می‌شوند
+* می‌خواهید تعیین کنید آیا دو متغیر مرتبط هستند یا خیر
 * یک متغیر مستقل دارید که برای یک متغیر وابسته مقادیر متعددی دارد
 
-1. مراحل موجود در [Create Clustered Column Charts](#create-clustered-column-charts) را دنبال کنید.
-2. برای مرحلهٔ سوم، یک نمودار با برخی داده‌ها اضافه کنید و نوع نمودار خود را به یکی از موارد زیر تنظیم کنید:
-   1. [ChartType.ScatterWithMarkers](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/charttype/#ScatterWithMarkers) - _نمودار پراکنده را نشان می‌دهد._
-   2. [ChartType.ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - _نمودار پراکنده متصل به‌وسیلهٔ منحنی‌ها با نشانگرهای داده._
-   3. [ChartType.ScatterWithSmoothLines](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/charttype/#ScatterWithSmoothLines) - _نمودار پراکنده متصل به‌وسیلهٔ منحنی‌ها بدون نشانگرهای داده._
-   4. [ChartType.ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _نمودار پراکنده متصل به‌وسیلهٔ خطوط مستقیم با نشانگرهای داده._
-   5. [ChartType.ScatterWithStraightLines](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/charttype/#ScatterWithStraightLines) - _نمودار پراکنده متصل به‌وسیلهٔ خطوط مستقیم بدون نشانگرهای داده._
+1. قدم‌های موجود در [Create Clustered Column Charts](#create-clustered-column-charts) را دنبال کنید.
+2. برای گام سوم، یک نمودار با داده‌هایی اضافه کنید و نوع نمودار خود را یکی از موارد زیر انتخاب کنید:
+   1. [ChartType.ScatterWithMarkers](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#ScatterWithMarkers) - _نمودار پراکندگی با نشانگرها._
+   2. [ChartType.ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - _نمودار پراکندگی که با منحنی‌ها متصل شده و دارای نشانگرهای داده است._
+   3. [ChartType.ScatterWithSmoothLines](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#ScatterWithSmoothLines) - _نمودار پراکندگی که با منحنی‌ها متصل شده و بدون نشانگرهای داده است._
+   4. [ChartType.ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _نمودار پراکندگی که با خطوط مستقیم متصل شده و دارای نشانگرهای داده است._
+   5. [ChartType.ScatterWithStraightLines](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#ScatterWithStraightLines) - _نمودار پراکندگی که با خطوط مستقیم متصل شده و بدون نشانگرهای داده است._
 
-این کد JavaScript نشان می‌دهد که چگونه یک نمودار پراکنده با نشانگرهای مختلف برای هر سری ایجاد کنید:
+این کد JavaScript نشان می‌دهد چگونه یک نمودار پراکندگی با نشانگرهای متفاوت برای هر سری ایجاد شود:
 
 ```javascript
 var aspose = aspose || {};
 aspose.slides = require("aspose.slides.via.java");
 
-// یک شیٔ ارائه (Presentation) که نمایانگر فایل PPTX است ایجاد می‌کند
+// یک کلاس ارائه را نمونه‌سازی می‌کند که نمایانگر فایل PPTX است
 var pres = new aspose.slides.Presentation();
 try {
-    // به اولین اسلاید دسترسی می‌یابد
+    // به اولین اسلاید دسترسی پیدا می‌کند
     var slide = pres.getSlides().get_Item(0);
     // نمودار پیش‌فرض را ایجاد می‌کند
     var chart = slide.getShapes().addChart(aspose.slides.ChartType.ScatterWithSmoothLines, 0, 0, 400, 400);
-    // شاخص کاربرگ داده‌های پیش‌فرض نمودار را دریافت می‌کند
+    // ایندکس شیت کاری داده‌های پیش‌فرض نمودار را دریافت می‌کند
     var defaultWorksheetIndex = 0;
-    // کاربرگ داده‌های نمودار را دریافت می‌کند
+    // شیت کاری داده‌های نمودار را دریافت می‌کند
     var fact = chart.getChartData().getChartDataWorkbook();
     // سری‌های نمایشی را حذف می‌کند
     chart.getChartData().getSeries().clear();
@@ -186,24 +186,24 @@ try {
     chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 1, 3, "Series 2"), chart.getType());
     // اولین سری نمودار را می‌گیرد
     var series = chart.getChartData().getSeries().get_Item(0);
-    // نقطه جدید (1:3) را به سری اضافه می‌کند
+    // یک نقطه جدید (1:3) به سری اضافه می‌کند
     series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 1), fact.getCell(defaultWorksheetIndex, 2, 2, 3));
-    // نقطه جدید (2:10) را اضافه می‌کند
+    // یک نقطه جدید (2:10) اضافه می‌کند
     series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 2), fact.getCell(defaultWorksheetIndex, 3, 2, 10));
     // نوع سری را تغییر می‌دهد
     series.setType(aspose.slides.ChartType.ScatterWithStraightLinesAndMarkers);
     // نشانگر سری نمودار را تغییر می‌دهد
     series.getMarker().setSize(10);
     series.getMarker().setSymbol(aspose.slides.MarkerStyleType.Star);
-    // سری دوم نمودار را می‌گیرد
+    // دومین سری نمودار را می‌گیرد
     series = chart.getChartData().getSeries().get_Item(1);
-    // نقطه جدید (5:2) را در آن اضافه می‌کند
+    // یک نقطه جدید (5:2) در آن اضافه می‌کند
     series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 2, 3, 5), fact.getCell(defaultWorksheetIndex, 2, 4, 2));
-    // نقطه جدید (3:1) را اضافه می‌کند
+    // یک نقطه جدید (3:1) اضافه می‌کند
     series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 3, 3, 3), fact.getCell(defaultWorksheetIndex, 3, 4, 1));
-    // نقطه جدید (2:2) را اضافه می‌کند
+    // یک نقطه جدید (2:2) اضافه می‌کند
     series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 4, 3, 2), fact.getCell(defaultWorksheetIndex, 4, 4, 2));
-    // نقطه جدید (5:1) را اضافه می‌کند
+    // یک نقطه جدید (5:1) اضافه می‌کند
     series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 5, 3, 5), fact.getCell(defaultWorksheetIndex, 5, 4, 1));
     // نشانگر سری نمودار را تغییر می‌دهد
     series.getMarker().setSize(10);
@@ -218,32 +218,32 @@ try {
 
 ### **ایجاد نمودارهای دایره‌ای**
 
-نمودارهای دایره‌ای بهترین استفاده را برای نشان دادن رابطهٔ بخش‑به‑کل در داده‌ها دارند، به‌ویژه زمانی که داده‌ها شامل برچسب‌های دسته‌ای با مقادیر عددی باشند. اما اگر داده‌های شما شامل بخش‌ها یا برچسب‌های زیادی باشد، ممکن است بهتر باشد به جای آن از نمودار میله‌ای استفاده کنید.
+نمودارهای دایره‌ای برای نشان دادن رابطهٔ بخش‑به‑کل در داده‌ها، به‌ویژه زمانی که داده‌ها دارای برچسب‌های دسته‌ای با مقادیر عددی هستند، بهترین گزینه‌اند. اما اگر داده‌های شما شامل بخش‌ها یا برچسب‌های بسیار زیاد باشد، ممکن است بهتر باشد به جای آن از نمودار میله‌ای استفاده کنید.
 
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/presentation/) ایجاد کنید.
+1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) ایجاد کنید.
 2. با استفاده از ایندکس، به یک اسلاید ارجاع بگیرید.
-3. یک نمودار با داده‌های پیش‌فرض اضافه کنید و نوع [ChartType.Pie](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/charttype/#Pie) را مشخص کنید.
-4. به کاربرگ داده‌های نمودار [ChartDataWorkbook](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/chartdataworkbook/) دسترسی پیدا کنید.
+3. یک نمودار با داده‌های پیش‌فرض اضافه کنید و نوع [ChartType.Pie](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#Pie) را مشخص کنید.
+4. به کتاب‌کار داده‌های نمودار [ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/) دسترسی پیدا کنید.
 5. سری‌ها و دسته‌های پیش‌فرض را پاک کنید.
 6. سری‌ها و دسته‌های جدید اضافه کنید.
 7. داده‌های جدید برای سری‌های نمودار اضافه کنید.
-8. نقاط جدید برای نمودار اضافه کنید و رنگ‌های سفارشی برای بخش‌های دایره‌ای اعمال کنید.
+8. نقاط جدید برای نمودار اضافه کنید و رنگ‌های سفارشی برای بخش‌های نمودار دایره‌ای اعمال کنید.
 9. برچسب‌ها را برای سری‌ها تنظیم کنید.
-10. خطوط رهبر (leader lines) را برای برچسب‌های سری فعال کنید.
-11. زاویهٔ چرخش برای بخش‌های دایره‌ای را تنظیم کنید.
-12. پرزنتیشن تغییر یافته را به‌عنوان فایل PPTX ذخیره کنید.
+10. خطوط راهنما را برای برچسب‌های سری فعال کنید.
+11. زاویهٔ چرخش بخش‌های نمودار دایره‌ای را تنظیم کنید.
+12. ارائهٔ اصلاح‌شده را به‌عنوان فایل PPTX ذخیره کنید.
 
-این کد JavaScript نشان می‌دهد که چگونه یک نمودار دایره‌ای ایجاد کنید:
+این کد JavaScript نشان می‌دهد چگونه یک نمودار دایره‌ای ایجاد شود:
 
 ```javascript
 var aspose = aspose || {};
 aspose.slides = require("aspose.slides.via.java");
 const java = require("java");
 
-// یک کلاس ارائه (Presentation) که نمایانگر فایل PPTX است ایجاد می‌کند
+// یک کلاس ارائه را نمونه‌سازی می‌کند که نمایانگر فایل PPTX است
 var pres = new aspose.slides.Presentation();
 try {
-    // به اولین اسلاید دسترسی می‌یابد
+    // به اولین اسلاید دسترسی پیدا می‌کند
     var slides = pres.getSlides().get_Item(0);
     // یک نمودار با داده‌های پیش‌فرض اضافه می‌کند
     var chart = slides.getShapes().addChart(aspose.slides.ChartType.Pie, 100, 100, 400, 400);
@@ -254,9 +254,9 @@ try {
     chart.setTitle(true);
     // اولین سری را برای نمایش مقادیر تنظیم می‌کند
     chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowValue(true);
-    // شاخص کاربرگ داده‌های نمودار را تنظیم می‌کند
+    // ایندکس شیت داده‌های نمودار را تنظیم می‌کند
     var defaultWorksheetIndex = 0;
-    // کاربرگ داده‌های نمودار را دریافت می‌کند
+    // شیت کاری داده‌های نمودار را دریافت می‌کند
     var fact = chart.getChartData().getChartDataWorkbook();
     // سری‌ها و دسته‌های پیش‌فرض تولید شده را حذف می‌کند
     chart.getChartData().getSeries().clear();
@@ -271,14 +271,14 @@ try {
     series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 1, 1, 20));
     series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 50));
     series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 30));
-    // در نسخهٔ جدید کار نمی‌کند
-    // افزودن نقاط جدید و تنظیم رنگ بخش
+    // در نسخه جدید کار نمی‌کند
+    // Adding new points and setting sector color
     // series.IsColorVaried = true;
     chart.getChartData().getSeriesGroups().get_Item(0).setColorVaried(true);
     var point = series.getDataPoints().get_Item(0);
     point.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
     point.getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "CYAN"));
-    // حد خطوط بخش را تنظیم می‌کند
+    // حد لبهٔ بخش را تنظیم می‌کند
     point.getFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     point.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GRAY"));
     point.getFormat().getLine().setWidth(3.0);
@@ -287,7 +287,7 @@ try {
     var point1 = series.getDataPoints().get_Item(1);
     point1.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
     point1.getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "ORANGE"));
-    // حد خطوط بخش را تنظیم می‌کند
+    // حد لبهٔ بخش را تنظیم می‌کند
     point1.getFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     point1.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
     point1.getFormat().getLine().setWidth(3.0);
@@ -296,13 +296,13 @@ try {
     var point2 = series.getDataPoints().get_Item(2);
     point2.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
     point2.getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "YELLOW"));
-    // حد خطوط بخش را تنظیم می‌کند
+    // حد لبهٔ بخش را تنظیم می‌کند
     point2.getFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     point2.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
     point2.getFormat().getLine().setWidth(2.0);
     point2.getFormat().getLine().setStyle(java.newByte(aspose.slides.LineStyle.ThinThin));
     point2.getFormat().getLine().setDashStyle(java.newByte(aspose.slides.LineDashStyle.LargeDashDotDot));
-    // برچسب‌های سفارشی برای هر دسته از سری جدید ایجاد می‌کند
+    // برچسب‌های سفارشی برای هر یک از دسته‌ها برای سری جدید ایجاد می‌کند
     var lbl1 = series.getDataPoints().get_Item(0).getLabel();
     // lbl.ShowCategoryName = true;
     lbl1.getDataLabelFormat().setShowValue(true);
@@ -313,11 +313,11 @@ try {
     var lbl3 = series.getDataPoints().get_Item(2).getLabel();
     lbl3.getDataLabelFormat().setShowSeriesName(true);
     lbl3.getDataLabelFormat().setShowPercentage(true);
-    // خطوط راهنما را برای نمودار نمایش می‌دهد
+    // خطوط راهنمای برچسب‌ها را برای نمودار نمایش می‌دهد
     series.getLabels().getDefaultDataLabelFormat().setShowLeaderLines(true);
     // زاویهٔ چرخش بخش‌های نمودار دایره‌ای را تنظیم می‌کند
     chart.getChartData().getSeriesGroups().get_Item(0).setFirstSliceAngle(180);
-    // ارائه را همراه با نمودار ذخیره می‌کند
+    // ارائه را همراه با یک نمودار ذخیره می‌کند
     pres.save("PieChart_out.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     if (pres != null) {
@@ -328,18 +328,18 @@ try {
 
 ### **ایجاد نمودارهای خطی**
 
-نمودارهای خطی (که به عنوان line graphs نیز شناخته می‌شوند) بهترین استفاده را در موقعیت‌هایی دارند که می‌خواهید تغییرات مقدار در طول زمان را نشان دهید. با استفاده از یک نمودار خطی می‌توانید مقدار زیادی داده را به‌طور همزمان مقایسه کنید، تغییرات و روندها را در طول زمان دنبال کنید، ناهنجاری‌ها را در سری‌های داده برجسته کنید و غیره.
+نمودارهای خطی (که به‌عنوان گراف خطی نیز شناخته می‌شوند) بهترین استفاده را در موقعیت‌هایی دارند که می‌خواهید تغییرات مقدار را در طول زمان نشان دهید. با استفاده از یک نمودار خطی می‌توانید حجم بالایی از داده‌ها را به‌طور همزمان مقایسه کنید، تغییرات و روندهای زمانی را پیگیری کنید، ناهنجاری‌های سری داده‌ها را برجسته کنید و موارد دیگر.
 
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/presentation/) ایجاد کنید.
+1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) ایجاد کنید.
 1. با استفاده از ایندکس، به یک اسلاید ارجاع بگیرید.
-1. یک نمودار با داده‌های پیش‌فرض اضافه کنید و نوع [ChartType.Line](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/charttype/#Line) را مشخص کنید.
-1. به کاربرگ داده‌های نمودار ([ChartDataWorkbook](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/chartdataworkbook/)) دسترسی پیدا کنید.
+1. یک نمودار با داده‌های پیش‌فرض اضافه کنید و نوع [ChartType.Line](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#Line) را مشخص کنید.
+1. به کتاب‌کار داده‌های نمودار ([ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/)) دسترسی پیدا کنید.
 1. سری‌ها و دسته‌های پیش‌فرض را پاک کنید.
 1. سری‌ها و دسته‌های جدید اضافه کنید.
 1. داده‌های جدید برای سری‌های نمودار اضافه کنید.
-1. پرزنتیشن تغییر یافته را به‌عنوان فایل PPTX ذخیره کنید.
+1. ارائهٔ اصلاح‌شده را به‌عنوان فایل PPTX ذخیره کنید.
 
-این کد JavaScript نشان می‌دهد که چگونه یک نمودار خطی ایجاد کنید:
+این کد JavaScript نشان می‌دهد چگونه یک نمودار خطی ایجاد شود:
 
 ```javascript
 var aspose = aspose || {};
@@ -356,7 +356,7 @@ try {
 }
 ```
 
-به‌صورت پیش‌فرض، نقاط یک نمودار خطی توسط خطوط پیوسته مستقیم به یکدیگر متصل می‌شوند. اگر می‌خواهید نقاط به‌جای خطوط پیوسته توسط خط تیره متصل شوند، می‌توانید نوع dash دلخواه خود را به‌صورت زیر مشخص کنید:
+به‌طور پیش‌فرض، نقاط در یک نمودار خطی با خطوط صاف و پیوسته به‌هم وصل می‌شوند. اگر می‌خواهید نقاط به‌جای خطوط صاف با خط‌چین‌ها متصل شوند، می‌توانید نوع خط‌چین مورد نظر خود را به‌صورت زیر مشخص کنید:
 
 ```javascript
 var aspose = aspose || {};
@@ -380,18 +380,18 @@ try {
 
 ### **ایجاد نمودارهای درختی (Tree Map)**
 
-نمودارهای درختی بهترین استفاده را برای داده‌های فروش دارند زمانی که می‌خواهید اندازه نسبی دسته‌های داده را نشان دهید و سریعاً به آیتم‌های بزرگ‌سهم در هر دسته توجه کنید.
+نمودارهای درختی بهترین استفاده را برای داده‌های فروش دارند وقتی می‌خواهید اندازه نسبی دسته‌های داده را نشان دهید و سریعاً به مواردی که سهم بزرگی در هر دسته دارند توجه کنید.
 
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/presentation/) ایجاد کنید.
+1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) ایجاد کنید.
 2. با استفاده از ایندکس، به یک اسلاید ارجاع بگیرید.
-3. یک نمودار با داده‌های پیش‌فرض اضافه کنید و نوع [ChartType.Treemap](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/charttype/#Treemap) را مشخص کنید.
-4. به کاربرگ داده‌های نمودار [ChartDataWorkbook](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/chartdataworkbook/) دسترسی پیدا کنید.
+3. یک نمودار با داده‌های پیش‌فرض اضافه کنید و نوع [ChartType.Treemap](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#Treemap) را مشخص کنید.
+4. به کتاب‌کار داده‌های نمودار [ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/) دسترسی پیدا کنید.
 5. سری‌ها و دسته‌های پیش‌فرض را پاک کنید.
 6. سری‌ها و دسته‌های جدید اضافه کنید.
 7. داده‌های جدید برای سری‌های نمودار اضافه کنید.
-8. پرزنتیشن تغییر یافته را به‌عنوان فایل PPTX ذخیره کنید.
+8. ارائهٔ اصلاح‌شده را به‌عنوان فایل PPTX ذخیره کنید.
 
-این کد JavaScript نشان می‌دهد که چگونه یک نمودار درختی ایجاد کنید:
+این کد JavaScript نشان می‌دهد چگونه یک نمودار درختی ایجاد شود:
 
 ```javascript
 var aspose = aspose || {};
@@ -441,17 +441,17 @@ try {
 
 ### **ایجاد نمودارهای سهام (Stock)**
 
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/presentation/) ایجاد کنید.
+1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) ایجاد کنید.
 2. با استفاده از ایندکس، به یک اسلاید ارجاع بگیرید.
-3. یک نمودار با داده‌های پیش‌فرض اضافه کنید و نوع [ChartType.OpenHighLowClose](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/charttype/#OpenHighLowClose) را مشخص کنید.
-4. به کاربرگ داده‌های نمودار [ChartDataWorkbook](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/chartdataworkbook/) دسترسی پیدا کنید.
+3. یک نمودار با داده‌های پیش‌فرض اضافه کنید و نوع [ChartType.OpenHighLowClose](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#OpenHighLowClose) را مشخص کنید.
+4. به کتاب‌کار داده‌های نمودار [ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/) دسترسی پیدا کنید.
 5. سری‌ها و دسته‌های پیش‌فرض را پاک کنید.
 6. سری‌ها و دسته‌های جدید اضافه کنید.
 7. داده‌های جدید برای سری‌های نمودار اضافه کنید.
-8. قالب خطوط بالا‑پایین (high‑low lines) را مشخص کنید.
-9. پرزنتیشن تغییر یافته را به‌عنوان فایل PPTX ذخیره کنید.
+8. قالب خطوط بالا‑پایین را تنظیم کنید.
+9. ارائهٔ اصلاح‌شده را به‌عنوان فایل PPTX ذخیره کنید.
 
-این کد JavaScript نشان می‌دهد که چگونه یک نمودار سهام ایجاد کنید:
+این کد JavaScript نشان می‌دهد چگونه یک نمودار سهام ایجاد شود:
 
 ```javascript
 var aspose = aspose || {};
@@ -505,16 +505,16 @@ try {
 
 ### **ایجاد نمودارهای جعبه‌ای و ویسکر (Box and Whisker)**
 
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/presentation/) ایجاد کنید.
+1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) ایجاد کنید.
 2. با استفاده از ایندکس، به یک اسلاید ارجاع بگیرید.
-3. یک نمودار با داده‌های پیش‌فرض اضافه کنید و نوع [ChartType.BoxAndWhisker](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/charttype/#BoxAndWhisker) را مشخص کنید.
-4. به کاربرگ داده‌های نمودار [ChartDataWorkbook](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/chartdataworkbook/) دسترسی پیدا کنید.
+3. یک نمودار با داده‌های پیش‌فرض اضافه کنید و نوع [ChartType.BoxAndWhisker](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#BoxAndWhisker) را مشخص کنید.
+4. به کتاب‌کار داده‌های نمودار [ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/) دسترسی پیدا کنید.
 5. سری‌ها و دسته‌های پیش‌فرض را پاک کنید.
 6. سری‌ها و دسته‌های جدید اضافه کنید.
 7. داده‌های جدید برای سری‌های نمودار اضافه کنید.
-8. پرزنتیشن تغییر یافته را به‌عنوان فایل PPTX ذخیره کنید.
+8. ارائهٔ اصلاح‌شده را به‌عنوان فایل PPTX ذخیره کنید.
 
-این کد JavaScript نشان می‌دهد که چگونه یک نمودار جعبه‌ای و ویسکر ایجاد کنید:
+این کد JavaScript نشان می‌دهد چگونه یک نمودار جعبه‌ای و ویسکر ایجاد شود:
 
 ```javascript
 var aspose = aspose || {};
@@ -555,12 +555,12 @@ try {
 
 ### **ایجاد نمودارهای قیفی (Funnel)**
 
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/presentation/) ایجاد کنید.
+1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) ایجاد کنید.
 2. با استفاده از ایندکس، به یک اسلاید ارجاع بگیرید.
-3. یک نمودار با داده‌های پیش‌فرض اضافه کنید و نوع [ChartType.Funnel](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/charttype/#Funnel) را مشخص کنید.
-4. پرزنتیشن تغییر یافته را به‌عنوان فایل PPTX ذخیره کنید.
+3. یک نمودار با داده‌های پیش‌فرض اضافه کنید و نوع [ChartType.Funnel](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#Funnel) را مشخص کنید.
+4. ارائهٔ اصلاح‌شده را به‌عنوان فایل PPTX ذخیره کنید.
 
-این کد JavaScript نشان می‌دهد که چگونه یک نمودار قیفی ایجاد کنید:
+این کد JavaScript نشان می‌دهد چگونه یک نمودار قیفی ایجاد شود:
 
 ```javascript
 var aspose = aspose || {};
@@ -596,12 +596,12 @@ try {
 
 ### **ایجاد نمودارهای خورشیدی (Sunburst)**
 
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/presentation/) ایجاد کنید.
+1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) ایجاد کنید.
 2. با استفاده از ایندکس، به یک اسلاید ارجاع بگیرید.
-3. یک نمودار با داده‌های پیش‌فرض اضافه کنید و نوع [ChartType.Sunburst](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/charttype/#Sunburst) را مشخص کنید.
-4. پرزنتیشن تغییر یافته را به‌عنوان فایل PPTX ذخیره کنید.
+3. یک نمودار با داده‌های پیش‌فرض اضافه کنید و نوع [ChartType.Sunburst](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#Sunburst) را مشخص کنید.
+4. ارائهٔ اصلاح‌شده را به‌عنوان فایل PPTX ذخیره کنید.
 
-این کد JavaScript نشان می‌دهد که چگونه یک نمودار خورشیدی ایجاد کنید:
+این کد JavaScript نشان می‌دهد چگونه یک نمودار خورشیدی ایجاد شود:
 
 ```javascript
 var aspose = aspose || {};
@@ -648,17 +648,17 @@ try {
 }
 ```
 
-### **ایجاد نمودارهای هیستوگرام (Histogram)**
+### **ایجاد نمودارهای هیستوگرام**
 
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/presentation/) ایجاد کنید.
+1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) ایجاد کنید.
 2. با استفاده از ایندکس، به یک اسلاید ارجاع بگیرید.
-3. یک نمودار با داده‌های پیش‌فرض اضافه کنید و نوع [ChartType.Histogram](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/charttype/#Histogram) را مشخص کنید.
-4. به کاربرگ داده‌های نمودار [ChartDataWorkbook](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/chartdataworkbook/) دسترسی پیدا کنید.
+3. یک نمودار با داده‌های پیش‌فرض اضافه کنید و نوع [ChartType.Histogram](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#Histogram) را مشخص کنید.
+4. به کتاب‌کار داده‌های نمودار [ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/) دسترسی پیدا کنید.
 5. سری‌ها و دسته‌های پیش‌فرض را پاک کنید.
 6. سری‌ها و دسته‌های جدید اضافه کنید.
-7. پرزنتیشن تغییر یافته را به‌عنوان فایل PPTX ذخیره کنید.
+7. ارائهٔ اصلاح‌شده را به‌عنوان فایل PPTX ذخیره کنید.
 
-این کد JavaScript نشان می‌دهد که چگونه یک نمودار هیستوگرام ایجاد کنید:
+این کد JavaScript نشان می‌دهد چگونه یک نمودار هیستوگرام ایجاد شود:
 
 ```javascript
 var aspose = aspose || {};
@@ -680,14 +680,14 @@ series.getDataPoints().addDataPointForHistogramSeries(wb.getCell(0, "A6", 16));
 chart.getAxes().getHorizontalAxis().setAggregationType(aspose.slides.AxisAggregationType.Automatic);
 ```
 
-### **ایجاد نمودارهای رادار (Radar)**
+### **ایجاد نمودارهای راداری**
 
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/presentation/) ایجاد کنید.
+1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) ایجاد کنید.
 2. با استفاده از ایندکس، به یک اسلاید ارجاع بگیرید.
-3. یک نمودار با برخی داده‌ها اضافه کنید و نوع دلخواه خود را (در اینجا [ChartType.Radar](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/charttype/#Radar)) مشخص کنید.
-4. پرزنتیشن تغییر یافته را به‌عنوان فایل PPTX ذخیره کنید.
+3. یک نمودار با داده‌هایی اضافه کنید و نوع موردنظر خود را (مثلاً [ChartType.Radar](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#Radar)) مشخص کنید.
+4. ارائهٔ اصلاح‌شده را به‌عنوان فایل PPTX ذخیره کنید.
 
-این کد JavaScript نشان می‌دهد که چگونه یک نمودار رادار ایجاد کنید:
+این کد JavaScript نشان می‌دهد چگونه یک نمودار راداری ایجاد شود:
 
 ```javascript
 var aspose = aspose || {};
@@ -704,18 +704,18 @@ try {
 }
 ```
 
-### **ایجاد نمودارهای چنددسته‌ای (Multi-Category)**
+### **ایجاد نمودارهای چنددسته‌ای**
 
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/presentation/) ایجاد کنید.
+1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) ایجاد کنید.
 2. با استفاده از ایندکس، به یک اسلاید ارجاع بگیرید.
-3. یک نمودار با داده‌های پیش‌فرض اضافه کنید و نوع [ChartType.ClusteredColumn](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/charttype/#ClusteredColumn) را مشخص کنید.
-4. به کاربرگ داده‌های نمودار [ChartDataWorkbook](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/chartdataworkbook/) دسترسی پیدا کنید.
+3. یک نمودار با داده‌های پیش‌فرض اضافه کنید و نوع [ChartType.ClusteredColumn](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#ClusteredColumn) را مشخص کنید.
+4. به کتاب‌کار داده‌های نمودار [ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/) دسترسی پیدا کنید.
 5. سری‌ها و دسته‌های پیش‌فرض را پاک کنید.
 6. سری‌ها و دسته‌های جدید اضافه کنید.
 7. داده‌های جدید برای سری‌های نمودار اضافه کنید.
-8. پرزنتیشن تغییر یافته را به‌عنوان فایل PPTX ذخیره کنید.
+8. ارائهٔ اصلاح‌شده را به‌عنوان فایل PPTX ذخیره کنید.
 
-این کد JavaScript نشان می‌دهد که چگونه یک نمودار چنددسته‌ای ایجاد کنید:
+این کد JavaScript نشان می‌دهد چگونه یک نمودار چنددسته‌ای ایجاد شود:
 
 ```javascript
 var aspose = aspose || {};
@@ -751,7 +751,7 @@ try {
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, "D7", 60));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, "D8", 70));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, "D9", 80));
-    // ذخیره ارائه با نمودار
+    // ذخیرهٔ ارائه با نمودار
     pres.save("AsposeChart_out.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     if (pres != null) {
@@ -760,11 +760,11 @@ try {
 }
 ```
 
-### **ایجاد نمودارهای نقشه (Map)**
+### **ایجاد نمودارهای نقشه‌ای**
 
-نمودارهای نقشه داده‌های جغرافیایی را به تصویر می‌کشند و به مقایسه مقادیر در مناطق مختلف کمک می‌کنند.
+نمودارهای نقشه‌ای داده‌های جغرافیایی را تجسم می‌کنند و به مقایسه مقادیر در بین مناطق مختلف کمک می‌نمایند.
 
-این کد JavaScript نشان می‌دهد که چگونه یک نمودار نقشه ایجاد کنید:
+این کد JavaScript نشان می‌دهد چگونه یک نمودار نقشه‌ای ایجاد شود:
 
 ```javascript
 var aspose = aspose || {};
@@ -781,13 +781,13 @@ try {
 }
 ```
 
-### **ایجاد نمودارهای ترکیبی (Combination)**
+### **ایجاد نمودارهای ترکیبی**
 
-یک نمودار ترکیبی (یا combo chart) دو یا چند نوع نمودار را در یک گراف ترکیب می‌کند. این نمودار به شما امکان می‌دهد تا تفاوت‌ها یا روابط بین دو یا چند مجموعه داده را برجسته، مقایسه یا بررسی کنید.
+یک نمودار ترکیبی (یا combo chart) دو یا چند نوع نمودار را در یک گراف ترکیب می‌کند. این نمودار به شما اجازه می‌دهد تا تفاوت‌ها بین دو یا بیشتر مجموعه داده را برجسته، مقایسه یا بررسی کنید و روابط بین آن‌ها را شناسایی نمایید.
 
 ![نمودار ترکیبی](combination_chart.png)
 
-کد JavaScript زیر نشان می‌دهد که چگونه نمودار ترکیبی نمایش داده شده در بالا را در یک ارائه PowerPoint ایجاد کنید:
+کد JavaScript زیر نشان می‌دهد چگونه نمودار ترکیبی نشان داده‌شده در بالا را در یک ارائهٔ PowerPoint ایجاد کنید:
 
 ```js
 var aspose = aspose || {};
@@ -815,7 +815,7 @@ function createComboChart() {
 function createChartWithFirstSeries(slide) {
     let chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 600, 400);
 
-    // عنوان نمودار را تنظیم می‌کند.
+    // تنظیم عنوان نمودار.
     chart.setTitle(true);
     chart.getChartTitle().addTextFrameForOverriding("Chart Title");
     chart.getChartTitle().setOverlay(false);
@@ -824,24 +824,24 @@ function createChartWithFirstSeries(slide) {
     titleFormat.setFontBold(java.newByte(aspose.slides.NullableBool.False));
     titleFormat.setFontHeight(18);
 
-    // لجند نمودار را تنظیم می‌کند.
+    // تنظیم لگند نمودار.
     chart.getLegend().setPosition(aspose.slides.LegendPositionType.Bottom);
     chart.getLegend().getTextFormat().getPortionFormat().setFontHeight(12);
 
-    // سری‌ها و دسته‌های پیش‌فرض تولید شده را حذف می‌کند.
+    // حذف سری‌ها و دسته‌های پیش‌فرض تولید شده.
     chart.getChartData().getSeries().clear();
     chart.getChartData().getCategories().clear();
 
     const worksheetIndex = 0;
     let workbook = chart.getChartData().getChartDataWorkbook();
 
-    // دسته‌های جدید را اضافه می‌کند.
+    // افزودن دسته‌های جدید.
     chart.getChartData().getCategories().add(workbook.getCell(worksheetIndex, 1, 0, "Category 1"));
     chart.getChartData().getCategories().add(workbook.getCell(worksheetIndex, 2, 0, "Category 2"));
     chart.getChartData().getCategories().add(workbook.getCell(worksheetIndex, 3, 0, "Category 3"));
     chart.getChartData().getCategories().add(workbook.getCell(worksheetIndex, 4, 0, "Category 4"));
 
-    // سری اول را اضافه می‌کند.
+    // افزودن سری اول.
     let seriesNameCell = workbook.getCell(worksheetIndex, 0, 1, "Series 1");
     let series = chart.getChartData().getSeries().add(seriesNameCell, chart.getType());
 
@@ -888,28 +888,28 @@ function addThirdSeriesToChart(chart) {
 }
 
 function setPrimaryAxesFormat(chart) {
-    // محور افقی را تنظیم می‌کند.
+    // تنظیم محور افقی.
     let horizontalAxis = chart.getAxes().getHorizontalAxis();
     horizontalAxis.getTextFormat().getPortionFormat().setFontHeight(12);
     horizontalAxis.getFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
 
     setAxisTitle(horizontalAxis, "X Axis");
 
-    // محور عمودی را تنظیم می‌کند.
+    // تنظیم محور عمودی.
     let verticalAxis = chart.getAxes().getVerticalAxis();
     verticalAxis.getTextFormat().getPortionFormat().setFontHeight(12);
     verticalAxis.getFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
 
     setAxisTitle(verticalAxis, "Y Axis 1");
 
-    // رنگ خطوط اصلی شبکه‌ی عمودی را تنظیم می‌کند.
+    // تنظیم رنگ خطوط شبکهٔ اصلی عمودی.
     let majorGridLinesFormat = verticalAxis.getMajorGridLinesFormat().getLine().getFillFormat();
     majorGridLinesFormat.setFillType(java.newByte(aspose.slides.FillType.Solid));
     majorGridLinesFormat.getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 217, 217, 217));
 }
 
 function setSecondaryAxesFormat(chart) {
-    // محور افقی ثانویه را تنظیم می‌کند.
+    // تنظیم محور افقی دوم.
     let secondaryHorizontalAxis = chart.getAxes().getSecondaryHorizontalAxis();
     secondaryHorizontalAxis.setPosition(aspose.slides.AxisPositionType.Bottom);
     secondaryHorizontalAxis.setCrossType(aspose.slides.CrossesType.Maximum);
@@ -917,7 +917,7 @@ function setSecondaryAxesFormat(chart) {
     secondaryHorizontalAxis.getMajorGridLinesFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
     secondaryHorizontalAxis.getMinorGridLinesFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
 
-    // محور عمودی ثانویه را تنظیم می‌کند.
+    // تنظیم محور عمودی دوم.
     let secondaryVerticalAxis = chart.getAxes().getSecondaryVerticalAxis();
     secondaryVerticalAxis.setPosition(aspose.slides.AxisPositionType.Right);
     secondaryVerticalAxis.getTextFormat().getPortionFormat().setFontHeight(12);
@@ -940,15 +940,15 @@ function setAxisTitle(axis, axisTitle) {
 
 ## **به‌روزرسانی نمودارها**
 
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/presentation/) ایجاد کنید که نمایانگر پرزنتیشنی است که نمودار مورد نظر برای به‌روزرسانی در آن موجود است.
+1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) که نمایانگر ارائهٔ حاوی نموداری است که می‌خواهید به‌روزرسانی کنید، ایجاد کنید.
 2. با استفاده از ایندکس، به یک اسلاید ارجاع بگیرید.
-3. تمام اشکال را مرور کنید تا نمودار مورد نظر را بیابید.
-4. به کاربرگ داده‌های نمودار دسترسی پیدا کنید.
-5. داده‌های سری نمودار را با تغییر مقدارهای سری تغییر دهید.
+3. تمام اشکال را مرور کنید تا نمودار مطلوب را پیدا کنید.
+4. به ورک‌شیت داده‌های نمودار دسترسی پیدا کنید.
+5. سری‌های دادهٔ نمودار را با تغییر مقادیر سری‌ها اصلاح کنید.
 6. یک سری جدید اضافه کنید و داده‌های آن را پر کنید.
-7. پرزنتیشن تغییر یافته را به‌عنوان فایل PPTX ذخیره کنید.
+7. ارائهٔ اصلاح‌شده را به‌عنوان فایل PPTX ذخیره کنید.
 
-این کد JavaScript نشان می‌دهد که چگونه یک نمودار را به‌روزرسانی کنید:
+این کد JavaScript نشان می‌دهد چگونه یک نمودار را به‌روزرسانی کنید:
 
 ```javascript
 var aspose = aspose || {};
@@ -960,32 +960,32 @@ try {
     var sld = pres.getSlides().get_Item(0);
     // دریافت نمودار با داده‌های پیش‌فرض
     var chart = sld.getShapes().get_Item(0);
-    // تنظیم شاخص شیت داده‌های نمودار
+    // تنظیم ایندکس شیت داده‌های نمودار
     var defaultWorksheetIndex = 0;
-    // دریافت کاربرگ داده‌های نمودار
+    // دریافت ورک‌شیت داده‌های نمودار
     var fact = chart.getChartData().getChartDataWorkbook();
     // تغییر نام دسته‌بندی نمودار
     fact.getCell(defaultWorksheetIndex, 1, 0, "Modified Category 1");
     fact.getCell(defaultWorksheetIndex, 2, 0, "Modified Category 2");
     // دریافت اولین سری نمودار
     var series = chart.getChartData().getSeries().get_Item(0);
-    // اکنون داده‌های سری را به‌روز می‌کند
-    fact.getCell(defaultWorksheetIndex, 0, 1, "New_Series1"); // اصلاح نام سری
+    // در حال به‌روزرسانی داده‌های سری
+    fact.getCell(defaultWorksheetIndex, 0, 1, "New_Series1"); // در حال تغییر نام سری
     series.getDataPoints().get_Item(0).getValue().setData(90);
     series.getDataPoints().get_Item(1).getValue().setData(123);
     series.getDataPoints().get_Item(2).getValue().setData(44);
-    // دریافت سری دوم نمودار
+    // دریافت دومین سری نمودار
     series = chart.getChartData().getSeries().get_Item(1);
-    // اکنون داده‌های سری را به‌روز می‌کند
-    fact.getCell(defaultWorksheetIndex, 0, 2, "New_Series2"); // اصلاح نام سری
+    // در حال به‌روزرسانی داده‌های سری
+    fact.getCell(defaultWorksheetIndex, 0, 2, "New_Series2"); // در حال تغییر نام سری
     series.getDataPoints().get_Item(0).getValue().setData(23);
     series.getDataPoints().get_Item(1).getValue().setData(67);
     series.getDataPoints().get_Item(2).getValue().setData(99);
-    // اکنون، افزودن یک سری جدید
+    // در حال اضافه کردن یک سری جدید
     chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 3, "Series 3"), chart.getType());
     // دریافت سومین سری نمودار
     series = chart.getChartData().getSeries().get_Item(2);
-    // اکنون داده‌های سری را پر می‌کند
+    // در حال پر کردن داده‌های سری
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 3, 20));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 3, 50));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 3, 30));
@@ -999,17 +999,19 @@ try {
 }
 ```
 
-## **تنظیم محدوده داده برای یک نمودار**
+## **تنظیم محدودهٔ داده برای یک نمودار**
 
-برای تنظیم محدوده داده برای یک نمودار، مراحل زیر را انجام دهید:
+برای بررسی محدوده‌ای که قبلاً توسط یک نمودار موجود استفاده شده است، به [Retrieve a Chart's Data Range](/slides/fa/nodejs-java/chart-workbook/#retrieve-a-charts-data-range) مراجعه کنید.
 
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/presentation/) ایجاد کنید که نمایانگر پرزنتیشنی است که نمودار در آن قرار دارد.
+برای تنظیم محدودهٔ داده برای یک نمودار، این کارها را انجام دهید:
+
+1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) که نمایانگر ارائهٔ حاوی نمودار است، ایجاد کنید.
 2. با استفاده از ایندکس، به یک اسلاید ارجاع بگیرید.
-3. تمام اشکال را مرور کنید تا نمودار مورد نظر را بیابید.
+3. تمام اشکال را مرور کنید تا نمودار مطلوب را پیدا کنید.
 4. به داده‌های نمودار دسترسی پیدا کنید و محدوده را تنظیم کنید.
-5. پرزنتیشن تغییر یافته را به‌عنوان فایل PPTX ذخیره کنید.
+5. ارائهٔ اصلاح‌شده را به‌عنوان فایل PPTX ذخیره کنید.
 
-این کد JavaScript نشان می‌دهد که چگونه محدوده داده برای یک نمودار تنظیم شود:
+این کد JavaScript نشان می‌دهد چگونه محدودهٔ دادهٔ یک نمودار را تنظیم کنید:
 
 ```javascript
 var aspose = aspose || {};
@@ -1030,9 +1032,9 @@ try {
 
 ## **استفاده از نشانگرهای پیش‌فرض در نمودارها**
 
-زمانی که از نشانگرهای پیش‌فرض در نمودارها استفاده می‌کنید، هر سری نمودار به‌صورت خودکار یک نماد نشانگر متفاوت دریافت می‌کند.
+وقتی از نشانگرهای پیش‌فرض در نمودارها استفاده می‌کنید، هر سری نمودار به‌صورت خودکار یک نماد نشانگر متفاوت دریافت می‌کند.
 
-این کد JavaScript نشان می‌دهد که چگونه نشانگر سری نمودار را به‌صورت خودکار تنظیم کنید:
+این کد JavaScript نشان می‌دهد چگونه نشانگر یک سری نمودار به‌صورت خودکار تنظیم شود:
 
 ```javascript
 var aspose = aspose || {};
@@ -1056,9 +1058,9 @@ try {
     chart.getChartData().getCategories().add(fact.getCell(0, 4, 0, "C4"));
     series.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 4, 1, null));
     chart.getChartData().getSeries().add(fact.getCell(0, 0, 2, "Series 2"), chart.getType());
-    // دریافت سری دوم نمودار
+    // دریافت دومین سری نمودار
     var series2 = chart.getChartData().getSeries().get_Item(1);
-    // اکنون داده‌های سری را پر می‌کند
+    // در حال پر کردن داده‌های سری
     series2.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 1, 2, 30));
     series2.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 2, 2, 10));
     series2.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 3, 2, 60));
@@ -1073,20 +1075,20 @@ try {
 }
 ```
 
-## **سوالات متداول**
+## **سؤال‌های متداول**
 
-**کدام نوع نمودارها توسط Aspose.Slides پشتیبانی می‌شوند؟**
+**کدام انواع نمودارها توسط Aspose.Slides پشتیبانی می‌شوند؟**
 
-Aspose.Slides مجموعه وسیعی از [chart types](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/charttype/) را پشتیبانی می‌کند، از جمله بار، خط، دایره، ناحیه، پراکنده، هیستوگرام، رادار و بسیاری دیگر. این انعطاف‌پذیری به شما امکان می‌دهد تا مناسب‌ترین نوع نمودار را برای نیازهای بصری‌سازی داده خود انتخاب کنید.
+Aspose.Slides طیف وسیعی از [chart types](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/) را پشتیبانی می‌کند، از جمله میله‌ای، خطی، دایره‌ای، مساحتی، پراکندگی، هیستوگرام، رادار و انواع دیگر. این انعطاف‌پذیری به شما اجازه می‌دهد تا مناسب‌ترین نوع نمودار را برای نیازهای تجسم دادهٔ خود انتخاب کنید.
 
 **چگونه یک نمودار جدید به اسلاید اضافه کنم؟**
 
-برای افزودن یک نمودار، ابتدا یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/presentation/) ایجاد کنید، اسلاید مورد نظر را با استفاده از ایندکس دریافت کنید و سپس متدی را فراخوانی کنید که نمودار را اضافه می‌کند، نوع نمودار و داده‌های اولیه را مشخص کنید. این فرآیند نمودار را به‌طور مستقیم در پرزنتیشن شما ادغام می‌کند.
+برای افزودن یک نمودار، ابتدا یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) ایجاد می‌کنید، اسلاید دلخواه را با ایندکس دریافت می‌کنید و سپس متد افزودن نمودار را فراخوانی می‌کنید و نوع نمودار و داده‌های اولیه را مشخص می‌نمایید. این فرآیند نمودار را مستقیماً در ارائهٔ شما ادغام می‌کند.
 
 **چگونه می‌توان داده‌های نمایش‌داده‌شده در یک نمودار را به‌روزرسانی کرد؟**
 
-می‌توانید داده‌های یک نمودار را با دسترسی به کاربرگ داده‌های آن ([ChartDataWorkbook](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/chartdataworkbook/))، پاک کردن سری‌ها و دسته‌های پیش‌فرض و سپس افزودن داده‌های سفارشی خود، به‌روزرسانی کنید. این امکان به شما اجازه می‌دهد تا نمودار را به‌صورت برنامه‌نویسی تازه‌سازی کنید و آخرین داده‌ها را نشان دهید.
+می‌توانید داده‌های یک نمودار را با دسترسی به کتاب‌کار داده‌های آن ([ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/))، پاک‌سازی سری‌ها و دسته‌های پیش‌فرض و سپس افزودن داده‌های سفارشی خود، به‌روز کنید. این امکان به‌صورت برنامه‌نویسی‌ای نمودار را برای بازتاب آخرین داده‌ها تازه می‌کند.
 
-**آیا امکان سفارشی‌سازی ظاهر نمودار وجود دارد؟**
+**آیا می‌توان ظاهر نمودار را سفارشی‌سازی کرد؟**
 
-بله، Aspose.Slides گزینه‌های سفارشی‌سازی گسترده‌ای ارائه می‌دهد. می‌توانید رنگ‌ها، قلم‌ها، برچسب‌ها، لگندها و سایر [formatting elements](/slides/fa/nodejs-java/chart-entities/) را تغییر دهید تا ظاهر نمودار را متناسب با الزامات طراحی خاص خود تنظیم کنید.
+بله، Aspose.Slides گزینه‌های سفارشی‌سازی گسترده‌ای ارائه می‌دهد. می‌توانید رنگ‌ها، قلم‌ها، برچسب‌ها، اف Legend‌ها و سایر [formatting elements](/slides/fa/nodejs-java/chart-entities/) را تغییر دهید تا ظاهر نمودار را مطابق با نیازهای طراحی خاص شما تنظیم کنید.

@@ -14,8 +14,8 @@ keywords:
 - 饼图
 - 折线图
 - 树形图
-- 股票图
-- 箱形图和胡须图
+- 股票图表
+- 箱线图
 - 漏斗图
 - 旭辉图
 - 直方图
@@ -24,146 +24,140 @@ keywords:
 - PowerPoint 演示文稿
 - Python
 - Aspose.Slides
-description: "了解如何使用 Aspose.Slides for Python via .NET 在 PowerPoint 和 OpenDocument 演示文稿中创建和自定义图表。内容涵盖在演示文稿中添加、格式化和编辑图表，并提供实用的 Python 代码示例。"
+description: "了解如何使用 Aspose.Slides for Python via .NET 在 PowerPoint 和 OpenDocument 演示文稿中创建和自定义图表。内容包括在演示文稿中添加、格式化和编辑图表，并提供实用的 Python 代码示例。"
 ---
 ## **概述**
 
-本文介绍如何使用 Aspose.Slides for Python via .NET 创建和自定义图表。您将学习如何向幻灯片添加图表、填充数据以及按照设计需求进行格式设置。代码示例涵盖创建演示文稿和图表、配置系列、坐标轴和图例，以及将图表生成集成到您的应用程序中。
+本文介绍如何使用 Aspose.Slides for Python via .NET 创建和自定义图表。您将学习如何向幻灯片添加图表、填充数据并进行格式设置以符合设计需求。代码示例涵盖创建演示文稿和图表、配置系列、坐标轴和图例，以及将图表生成集成到您的应用程序中。
 
 ## **创建图表**
 
-图表帮助人们快速可视化数据，并获取可能在表格或电子表格中不易察觉的洞见。
+图表帮助人们快速可视化数据，并获得可能在表格或电子表格中不易直接看到的洞察。
 
 **为什么要创建图表？**
 
-使用图表，您可以：
-
-* 在一张幻灯片上汇总、压缩或摘要大量数据；
-* 显示数据中的模式和趋势；
-* 推断数据随时间或相对于特定计量单位的方向和动量；
-* 发现离群值、异常、偏差、错误和不合理的数据；
+* 在单张幻灯片中汇总、压缩或总结大量数据；
+* 展示数据中的模式和趋势；
+* 推断数据随时间或相对于特定计量单位的方向和动向；
+* 发现异常值、偏差、错误和不合理的数据；
 * 传达或展示复杂数据。
 
-在 PowerPoint 中，您可以通过 *Insert* 功能创建图表，该功能提供了多种图表模板。使用 Aspose.Slides，您既可以创建基于常见图表类型的常规图表，也可以创建自定义图表。
+在 PowerPoint 中，您可以通过 *Insert* 功能创建图表，该功能提供了多种图表模板。使用 Aspose.Slides，您既可以创建常规图表（基于常见图表类型），也可以创建自定义图表。
 
 {{% alert color="info" title="Note" %}}
-使用 [ChartType](https://reference.aspose.com/slides/zh/python-net/aspose.slides.charts/charttype/) 枚举（位于 [Aspose.Slides.Charts](https://reference.aspose.com/slides/zh/python-net/aspose.slides.charts/) 命名空间）。此枚举的值对应不同的图表类型。
+使用位于 [Aspose.Slides.Charts](https://reference.aspose.com/slides/python-net/aspose.slides.charts/) 命名空间下的 [ChartType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttype/) 枚举。此枚举中的值对应不同的图表类型。
 {{% /alert %}}
 
 ### **创建簇状柱形图**
 
-本节说明如何使用 Aspose.Slides for Python via .NET 创建簇状柱形图。您将学习如何初始化演示文稿、添加图表以及自定义标题、数据、系列、类别和样式等元素。按照以下步骤查看标准簇状柱形图的生成过程：
+本节说明如何使用 Aspose.Slides for Python via .NET 创建簇状柱形图。您将学习初始化演示文稿、添加图表，并自定义标题、数据、系列、类别和样式等元素。按照以下步骤查看标准簇状柱形图的生成过程：
 
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/zh/python-net/aspose.slides/presentation/) 类的实例。
+1. 创建 [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) 类的实例。
 1. 使用索引获取幻灯片的引用。
-1. 添加一个包含数据的图表，并指定 `ChartType.CLUSTERED_COLUMN` 类型。
+1. 添加带有一些数据的图表，并指定 `ChartType.CLUSTERED_COLUMN` 类型。
 1. 为图表添加标题。
 1. 访问图表的数据工作表。
-1. 清除所有默认系列和类别。
+1. 清除所有默认的系列和类别。
 1. 添加新的系列和类别。
-1. 为图表系列添加新数据。
+1. 为图表系列添加新的图表数据。
 1. 为图表系列应用填充颜色。
 1. 为图表系列添加标签。
 1. 将修改后的演示文稿保存为 PPTX 文件。
-
-以下 Python 代码演示了如何创建簇状柱形图：
 
 ```py
 import aspose.slides.charts as charts
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
-    # 实例化表示 PPTX 文件的 Presentation 类。
-    with slides.Presentation() as presentation:
+# 实例化表示 PPTX 文件的 Presentation 类。
+with slides.Presentation() as presentation:
 
-        # 访问第一张幻灯片。
-        slide = presentation.slides[0]
+    # 访问第一张幻灯片。
+    slide = presentation.slides[0]
 
-        # 添加一个带默认数据的簇状柱形图。
-        chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 20, 20, 500, 300)
+    # 添加一个带有默认数据的簇状柱形图。
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 20, 20, 500, 300)
 
-        # 设置图表标题。
-        chart.chart_title.add_text_frame_for_overriding("Sample Title")
-        chart.chart_title.text_frame_for_overriding.text_frame_format.center_text = slides.NullableBool.TRUE
-        chart.chart_title.height = 20
-        chart.has_title = True
+    # 设置图表标题。
+    chart.chart_title.add_text_frame_for_overriding("Sample Title")
+    chart.chart_title.text_frame_for_overriding.text_frame_format.center_text = slides.NullableBool.TRUE
+    chart.chart_title.height = 20
+    chart.has_title = True
 
-        # 设置图表数据工作表的索引。
-        worksheet_index = 0
+    # 设置图表数据工作表的索引。
+    worksheet_index = 0
 
-        # 获取图表数据工作簿。
-        workbook = chart.chart_data.chart_data_workbook
+    # 获取图表数据工作簿。
+    workbook = chart.chart_data.chart_data_workbook
 
-        # 删除默认生成的系列和类别。
-        chart.chart_data.series.clear()
-        chart.chart_data.categories.clear()
+    # 删除默认生成的系列和类别。
+    chart.chart_data.series.clear()
+    chart.chart_data.categories.clear()
 
-        # 添加新系列。
-        chart.chart_data.series.add(workbook.get_cell(worksheet_index, 0, 1, "Series 1"), chart.type)
-        chart.chart_data.series.add(workbook.get_cell(worksheet_index, 0, 2, "Series 2"), chart.type)
+    # 添加新系列。
+    chart.chart_data.series.add(workbook.get_cell(worksheet_index, 0, 1, "Series 1"), chart.type)
+    chart.chart_data.series.add(workbook.get_cell(worksheet_index, 0, 2, "Series 2"), chart.type)
 
-        # 添加新类别。
-        chart.chart_data.categories.add(workbook.get_cell(worksheet_index, 1, 0, "Category 1"))
-        chart.chart_data.categories.add(workbook.get_cell(worksheet_index, 2, 0, "Category 2"))
-        chart.chart_data.categories.add(workbook.get_cell(worksheet_index, 3, 0, "Category 3"))
+    # 添加新类别。
+    chart.chart_data.categories.add(workbook.get_cell(worksheet_index, 1, 0, "Category 1"))
+    chart.chart_data.categories.add(workbook.get_cell(worksheet_index, 2, 0, "Category 2"))
+    chart.chart_data.categories.add(workbook.get_cell(worksheet_index, 3, 0, "Category 3"))
 
-        # 获取第一条图表系列。
-        series = chart.chart_data.series[0]
+    # 获取第一条图表系列。
+    series = chart.chart_data.series[0]
 
-        # 填充系列数据。
-        series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 1, 1, 20))
-        series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 2, 1, 50))
-        series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 3, 1, 30))
+    # 填充系列数据。
+    series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 1, 1, 20))
+    series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 2, 1, 50))
+    series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 3, 1, 30))
 
-        # 为系列设置填充颜色。
-        series.format.fill.fill_type = slides.FillType.SOLID
-        series.format.fill.solid_fill_color.color = draw.Color.red
+    # 设置系列的填充颜色。
+    series.format.fill.fill_type = slides.FillType.SOLID
+    series.format.fill.solid_fill_color.color = draw.Color.red
 
-        # 获取第二条图表系列。
-        series = chart.chart_data.series[1]
+    # 获取第二条图表系列。
+    series = chart.chart_data.series[1]
 
-        # 填充系列数据。
-        series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 1, 2, 30))
-        series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 2, 2, 10))
-        series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 3, 2, 60))
+    # 填充系列数据。
+    series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 1, 2, 30))
+    series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 2, 2, 10))
+    series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 3, 2, 60))
 
-        # 为系列设置填充颜色。
-        series.format.fill.fill_type = slides.FillType.SOLID
-        series.format.fill.solid_fill_color.color = draw.Color.green
+    # 设置系列的填充颜色。
+    series.format.fill.fill_type = slides.FillType.SOLID
+    series.format.fill.solid_fill_color.color = draw.Color.green
 
-        # 将第一个标签设置为显示类别名称。
-        label = series.data_points[0].label
-        label.data_label_format.show_category_name = True
+    # 设置第一个标签以显示类别名称。
+    label = series.data_points[0].label
+    label.data_label_format.show_category_name = True
 
-        label = series.data_points[1].label
-        label.data_label_format.show_series_name = True
+    label = series.data_points[1].label
+    label.data_label_format.show_series_name = True
 
-        # 将系列设置为在第三个标签上显示数值。
-        label = series.data_points[2].label
-        label.data_label_format.show_value = True
-        label.data_label_format.show_series_name = True
-        label.data_label_format.separator = "/"
+    # 设置系列以在第三个标签显示数值。
+    label = series.data_points[2].label
+    label.data_label_format.show_value = True
+    label.data_label_format.show_series_name = True
+    label.data_label_format.separator = "/"
                 
-        # 将演示文稿保存为 PPTX 文件到磁盘。
-        presentation.save("ClusteredColumnChart.pptx", slides.export.SaveFormat.PPTX)
+    # 将演示文稿保存为 PPTX 文件。
+    presentation.save("ClusteredColumnChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-效果如下：
+结果：
 
 ![簇状柱形图](clustered_column_chart.png)
 
 ### **创建散点图**
 
-散点图（又称散点图或 x‑y 图）常用于检查模式或展示两个变量之间的相关性。
+散点图（也称为散点图或 x‑y 图）常用于检查模式或展示两个变量之间的相关性。
 
 在以下情况下使用散点图：
 
-* 您拥有成对的数值数据；
-* 两个变量之间配对良好；
-* 您想确定两个变量是否相关；
-* 您有一个自变量对应多个因变量值。
-
-以下 Python 代码展示了如何为每个系列使用不同的标记创建散点图：
+* 您拥有成对的数值数据。
+* 您有两个相互配对的变量。
+* 您想确定这两个变量是否相关。
+* 您有一个自变量对应因变量的多个取值。
 
 ```py
 import aspose.slides.charts as charts
@@ -195,10 +189,10 @@ with slides.Presentation() as presentation:
     # 获取第一条图表系列。
     series = chart.chart_data.series[0]
 
-    # 向系列添加新点 (1:3)。
+    # 为系列添加新点 (1:3)。
     series.data_points.add_data_point_for_scatter_series(workbook.get_cell(worksheet_index, 2, 1, 1), workbook.get_cell(worksheet_index, 2, 2, 3))
 
-    # 向系列添加新点 (2:10)。
+    # 添加新点 (2:10)。
     series.data_points.add_data_point_for_scatter_series(workbook.get_cell(worksheet_index, 3, 1, 2), workbook.get_cell(worksheet_index, 3, 2, 10))
 
     # 更改系列类型。
@@ -211,16 +205,16 @@ with slides.Presentation() as presentation:
     # 获取第二条图表系列。
     series = chart.chart_data.series[1]
 
-    # 向图表系列添加新点 (5:2)。
+    # 为图表系列添加新点 (5:2)。
     series.data_points.add_data_point_for_scatter_series(workbook.get_cell(worksheet_index, 2, 3, 5), workbook.get_cell(worksheet_index, 2, 4, 2))
 
-    # 向图表系列添加新点 (3:1)。
+    # 添加新点 (3:1)。
     series.data_points.add_data_point_for_scatter_series(workbook.get_cell(worksheet_index, 3, 3, 3), workbook.get_cell(worksheet_index, 3, 4, 1))
 
-    # 向图表系列添加新点 (2:2)。
+    # 添加新点 (2:2)。
     series.data_points.add_data_point_for_scatter_series(workbook.get_cell(worksheet_index, 4, 3, 2), workbook.get_cell(worksheet_index, 4, 4, 2))
 
-    # 向图表系列添加新点 (5:1)。
+    # 添加新点 (5:1)。
     series.data_points.add_data_point_for_scatter_series(workbook.get_cell(worksheet_index, 5, 3, 5), workbook.get_cell(worksheet_index, 5, 4, 1))
 
     # 更改图表系列标记。
@@ -230,28 +224,26 @@ with slides.Presentation() as presentation:
     presentation.save("ScatterChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-效果如下：
+结果：
 
 ![散点图](scatter_chart.png)
 
 ### **创建饼图**
 
-饼图最适合用于展示数据的部分与整体关系，尤其是当数据包含带数值的分类标签时。然而，如果数据包含许多部分或标签，您可能需要考虑使用条形图。
+饼图最适合展示数据中部分与整体的关系，尤其是当数据包含带数值的分类标签时。但如果您的数据包含许多部分或标签，可能需要考虑使用条形图。
 
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/zh/python-net/aspose.slides/presentation/) 类的实例。
+1. 创建 [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) 类的实例。
 1. 使用索引获取幻灯片的引用。
-1. 添加一个默认数据的图表，并指定 `ChartType.PIE` 类型。
-1. 访问图表的数据工作簿（[ChartDataWorkbook](https://reference.aspose.com/slides/zh/python-net/aspose.slides.charts/chartdataworkbook/)）。
-1. 清除默认系列和类别。
+1. 添加默认数据的图表，并指定 `ChartType.PIE` 类型。
+1. 访问图表的数据工作簿（[ChartDataWorkbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/)）。
+1. 清除默认的系列和类别。
 1. 添加新的系列和类别。
-1. 为图表系列添加新数据。
-1. 为饼图的扇区添加新点并应用自定义颜色。
+1. 为图表系列添加新的图表数据。
+1. 为图表添加新点并为饼图的各扇区应用自定义颜色。
 1. 为系列设置标签。
-1. 为系列标签启用引线。
+1. 为系列标签启用引导线。
 1. 设置饼图的旋转角度。
 1. 将修改后的演示文稿保存为 PPTX 文件。
-
-以下 Python 代码演示了如何创建饼图：
 
 ```py
 import aspose.slides.charts as charts
@@ -264,7 +256,7 @@ with slides.Presentation() as presentation:
     # 访问第一张幻灯片。
     slide = presentation.slides[0]
 
-    # 添加一个带默认数据的图表。
+    # 添加一个带有默认数据的图表。
     chart = slide.shapes.add_chart(charts.ChartType.PIE, 20, 20, 500, 300)
 
     # 设置图表标题。
@@ -332,7 +324,7 @@ with slides.Presentation() as presentation:
     point2.format.line.style = slides.LineStyle.THIN_THIN
     point2.format.line.dash_style = slides.LineDashStyle.LARGE_DASH_DOT_DOT
 
-    # 为新系列中的每个类别创建自定义标签。
+    # 为新系列的每个类别创建自定义标签。
     label1 = series.data_points[0].label
 
     label1.data_label_format.show_value = True
@@ -346,30 +338,28 @@ with slides.Presentation() as presentation:
     label3.data_label_format.show_series_name = True
     label3.data_label_format.show_percentage = True
 
-    # 设置系列在图表中显示引线。
+    # 设置系列以显示图表的引导线。
     series.labels.default_data_label_format.show_leader_lines = True
 
     # 设置饼图扇区的旋转角度。
     chart.chart_data.series_groups[0].first_slice_angle = 180
 
-    # 将演示文稿保存为 PPTX 文件到磁盘。
+    # 将演示文稿保存为 PPTX 文件。
     presentation.save("PieChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-效果如下：
+结果：
 
 ![饼图](pie_chart.png)
 
 ### **创建折线图**
 
-折线图（又称折线图）最适合用于展示随时间变化的数值。使用折线图，您可以一次比较大量数据、跟踪随时间的变化和趋势、突出数据系列中的异常等。
+折线图（也称为折线图）最适合用于展示随时间变化的数值。在折线图中，您可以一次性比较大量数据、跟踪随时间的变化和趋势、突出显示数据序列中的异常等。
 
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/zh/python-net/aspose.slides/presentation/) 类的实例。
+1. 创建 [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) 类的实例。
 1. 使用索引获取幻灯片的引用。
-1. 添加一个默认数据的图表，并指定 `ChartType.LINE` 类型。
+1. 添加默认数据的图表，并指定 `ChartType.LINE` 类型。
 1. 将修改后的演示文稿保存为 PPTX 文件。
-
-以下 Python 代码演示了如何创建折线图：
 
 ```python
 import aspose.slides as slides
@@ -380,7 +370,7 @@ with slides.Presentation() as presentation:
     presentation.save("LineChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-默认情况下，折线图的点通过直线连续相连。如果希望点之间使用虚线相连，可按如下方式指定所需的虚线类型：
+默认情况下，折线图的点通过直线连续相连。如果希望点之间使用虚线相连，可以按如下方式指定首选的虚线类型：
 
 ```python
 import aspose.slides as slides
@@ -394,24 +384,22 @@ with slides.Presentation() as presentation:
     presentation.save("LineChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-效果如下：
+结果：
 
 ![折线图](line_chart.png)
 
 ### **创建树形图**
 
-树形图在展示销售数据时最为适用，能够显示数据类别的相对大小，并快速关注每个类别中贡献较大的项目。
+树形图最适合用于销售数据，以显示数据类别的相对大小，并快速关注每个类别中贡献较大的项目。
 
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/zh/python-net/aspose.slides/presentation/) 类的实例。
+1. 创建 [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) 类的实例。
 1. 使用索引获取幻灯片的引用。
-1. 添加一个默认数据的图表，并指定 `ChartType.TREEMAP` 类型。
-1. 访问图表的数据工作簿（[ChartDataWorkbook](https://reference.aspose.com/slides/zh/python-net/aspose.slides.charts/chartdataworkbook/)）。
-1. 清除默认系列和类别。
+1. 添加默认数据的图表，并指定 `ChartType.TREEMAP` 类型。
+1. 访问图表的数据工作簿（[ChartDataWorkbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/)）。
+1. 清除默认的系列和类别。
 1. 添加新的系列和类别。
-1. 为图表系列添加新数据。
+1. 为图表系列添加新的图表数据。
 1. 将修改后的演示文稿保存为 PPTX 文件。
-
-以下 Python 代码演示了如何创建树形图：
 
 ```py
 import aspose.slides.charts as charts
@@ -466,25 +454,23 @@ with slides.Presentation() as presentation:
     presentation.save("TreeMap.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-效果如下：
+结果：
 
 ![树形图](treemap_chart.png)
 
-### **创建股票图**
+### **创建股票图表**
 
-股票图用于显示开盘价、最高价、最低价和收盘价等金融数据，有助于分析市场趋势和波动性。它们提供了对股票表现的关键洞见，帮助投资者和分析师做出明智决策。
+股票图表用于显示开盘价、最高价、最低价和收盘价等金融数据，帮助分析市场趋势和波动性。它们提供对股票表现的关键洞察，帮助投资者和分析师做出明智决策。
 
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/zh/python-net/aspose.slides/presentation/) 类的实例。
+1. 创建 [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) 类的实例。
 1. 使用索引获取幻灯片的引用。
-1. 添加一个默认数据的图表，并指定 `ChartType.OPEN_HIGH_LOW_CLOSE` 类型。
-1. 访问图表的数据工作簿（[ChartDataWorkbook](https://reference.aspose.com/slides/zh/python-net/aspose.slides.charts/chartdataworkbook/)）。
-1. 清除默认系列和类别。
+1. 添加默认数据的图表，并指定 `ChartType.OPEN_HIGH_LOW_CLOSE` 类型。
+1. 访问图表的数据工作簿（[ChartDataWorkbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/)）。
+1. 清除默认的系列和类别。
 1. 添加新的系列和类别。
-1. 为图表系列添加新数据。
+1. 为图表系列添加新的图表数据。
 1. 指定高低线格式。
 1. 将修改后的演示文稿保存为 PPTX 文件。
-
-以下 Python 代码演示了如何创建股票图：
 
 ```py
 import aspose.slides.charts as charts
@@ -538,24 +524,22 @@ with slides.Presentation() as presentation:
     presentation.save("StockChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-效果如下：
+结果：
 
-![股票图](stock_chart.png)
+![股票图表](stock_chart.png)
 
-### **创建箱形图和胡须图**
+### **创建箱线图**
 
-箱形图和胡须图用于通过汇总关键统计量（如中位数、四分位数和潜在离群值）来显示数据分布。它们在探索性数据分析和统计研究中尤为有用，可快速了解数据变异性并识别异常。
+箱线图用于通过汇总关键统计量（如中位数、四分位数和潜在异常值）来显示数据的分布情况。它们在探索性数据分析和统计研究中特别有用，可快速了解数据的变异性并识别任何异常。
 
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/zh/python-net/aspose.slides/presentation/) 类的实例。
+1. 创建 [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) 类的实例。
 1. 使用索引获取幻灯片的引用。
-1. 添加一个默认数据的图表，并指定 `ChartType.BOX_AND_WHISKER` 类型。
-1. 访问图表的数据工作簿（[ChartDataWorkbook](https://reference.aspose.com/slides/zh/python-net/aspose.slides.charts/chartdataworkbook/)）。
-1. 清除默认系列和类别。
+1. 添加默认数据的图表，并指定 `ChartType.BOX_AND_WHISKER` 类型。
+1. 访问图表的数据工作簿（[ChartDataWorkbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/)）。
+1. 清除默认的系列和类别。
 1. 添加新的系列和类别。
-1. 为图表系列添加新数据。
+1. 为图表系列添加新的图表数据。
 1. 将修改后的演示文稿保存为 PPTX 文件。
-
-以下 Python 代码演示了如何创建箱形图和胡须图：
 
 ```py
 import aspose.slides.charts as charts
@@ -597,14 +581,12 @@ with slides.Presentation() as presentation:
 
 ### **创建漏斗图**
 
-漏斗图用于可视化涉及顺序阶段的流程，数据量随步骤推进而递减。它们在分析转化率、识别瓶颈以及跟踪销售或营销过程效率方面尤为有帮助。
+漏斗图用于可视化包含顺序阶段的过程，随着从一个步骤到下一个步骤的数据量递减。它们特别有助于分析转化率、识别瓶颈并跟踪销售或营销过程的效率。
 
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/zh/python-net/aspose.slides/presentation/) 类的实例。
+1. 创建 [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) 类的实例。
 1. 使用索引获取幻灯片的引用。
-1. 添加一个默认数据的图表，并指定 `ChartType.FUNNEL` 类型。
+1. 添加默认数据的图表，并指定 `ChartType.FUNNEL` 类型。
 1. 将修改后的演示文稿保存为 PPTX 文件。
-
-以下 Python 代码演示了如何创建漏斗图：
 
 ```py
 import aspose.slides.charts as charts
@@ -638,20 +620,18 @@ with slides.Presentation() as presentation:
     presentation.save("FunnelChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-效果如下：
+结果：
 
 ![漏斗图](funnel_chart.png)
 
 ### **创建旭辉图**
 
-旭辉图用于可视化层级数据，使用同心环显示各层级。它们有助于展示部分与整体的关系，非常适合以紧凑且清晰的方式呈现嵌套的类别和子类别。
+旭辉图用于可视化层级数据，将不同层级显示为同心环。它们帮助说明部分与整体的关系，特别适合以紧凑的方式呈现嵌套的类别和子类别。
 
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/zh/python-net/aspose.slides/presentation/) 类的实例。
+1. 创建 [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) 类的实例。
 1. 使用索引获取幻灯片的引用。
-1. 添加一个默认数据的图表，并指定 `ChartType.SUNBURST` 类型。
+1. 添加默认数据的图表，并指定 `ChartType.SUNBURST` 类型。
 1. 将修改后的演示文稿保存为 PPTX 文件。
-
-以下 Python 代码演示了如何创建旭辉图：
 
 ```py
 import aspose.slides.charts as charts
@@ -704,23 +684,21 @@ with slides.Presentation() as presentation:
     presentation.save("SunburstChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-效果如下：
+结果：
 
 ![旭辉图](sunburst_chart.png)
 
 ### **创建直方图**
 
-直方图用于通过将数值分组为区间或箱体来表示数值数据的分布。它们特别适合识别频率、偏度、离散程度以及数据集中的离群值。
+直方图用于通过将数值数据分组到区间或箱中来展示其分布情况。它们特别有助于识别频率、偏度、离散程度等模式，并检测数据集中的异常值。
 
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/zh/python-net/aspose.slides/presentation/) 类的实例。
+1. 创建 [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) 类的实例。
 1. 使用索引获取幻灯片的引用。
-1. 添加一个带有数据的图表，并指定 `ChartType.HISTOGRAM` 类型。
-1. 访问图表的数据工作簿（[ChartDataWorkbook](https://reference.aspose.com/slides/zh/python-net/aspose.slides.charts/chartdataworkbook/)）。
-1. 清除默认系列和类别。
-1. 添加新系列并填充数据点。直方图没有类别，箱体由数值计算得出。
+1. 添加带有一些数据的图表，并指定 `ChartType.HISTOGRAM` 类型。
+1. 访问图表的数据工作簿（[ChartDataWorkbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/)）。
+1. 清除默认的系列和类别。
+1. 添加新系列并用数据点填充。直方图没有类别；箱由值计算得出。
 1. 将修改后的演示文稿保存为 PPTX 文件。
-
-以下 Python 代码演示了如何创建直方图：
 
 ```py
 import aspose.slides.charts as charts
@@ -748,20 +726,18 @@ with slides.Presentation() as presentation:
     presentation.save("HistogramChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-效果如下：
+结果：
 
 ![直方图](histogram_chart.png)
 
 ### **创建雷达图**
 
-雷达图用于在二维平面上展示多变量数据，便于同时比较多个变量。它们特别适合识别多个绩效指标或属性之间的模式、优势和劣势。
+雷达图用于以二维格式展示多变量数据，使得可以同时比较多个变量。它们特别适用于识别多个绩效指标或属性之间的模式、优势和劣势。
 
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/zh/python-net/aspose.slides/presentation/) 类的实例。
+1. 创建 [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) 类的实例。
 1. 使用索引获取幻灯片的引用。
-1. 添加一个带有数据的图表，并指定 `ChartType.RADAR` 类型。
+1. 添加带有一些数据的图表，并指定 `ChartType.RADAR` 类型。
 1. 将修改后的演示文稿保存为 PPTX 文件。
-
-以下 Python 代码演示了如何创建雷达图：
 
 ```python
 import aspose.slides as slides
@@ -771,24 +747,22 @@ with slides.Presentation() as presentation:
     presentation.save("RadarChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-效果如下：
+结果：
 
 ![雷达图](radar_chart.png)
 
 ### **创建多类别图表**
 
-多类别图表用于显示涉及多个分类分组的数据，允许您在多个维度上同时比较数值。它们在分析复杂、层次化数据集的趋势和关系时非常有帮助。
+多类别图表用于展示涉及多个分类分组的数据，允许您在多个维度上同时比较数值。它们在需要分析复杂、多层次数据集的趋势和关系时特别有用。
 
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/zh/python-net/aspose.slides/presentation/) 类的实例。
+1. 创建 [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) 类的实例。
 1. 使用索引获取幻灯片的引用。
-1. 添加一个默认数据的图表，并指定 `ChartType.CLUSTERED_COLUMN` 类型。
-1. 访问图表的数据工作簿（[ChartDataWorkbook](https://reference.aspose.com/slides/zh/python-net/aspose.slides.charts/chartdataworkbook/)）。
-1. 清除默认系列和类别。
+1. 添加默认数据的图表，并指定 `ChartType.CLUSTERED_COLUMN` 类型。
+1. 访问图表的数据工作簿（[ChartDataWorkbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/)）。
+1. 清除默认的系列和类别。
 1. 添加新的系列和类别。
-1. 为图表系列添加新数据。
+1. 为图表系列添加新的图表数据。
 1. 将修改后的演示文稿保存为 PPTX 文件。
-
-以下 Python 代码演示了如何创建多类别图表：
 
 ```py
 import aspose.slides.charts as charts
@@ -823,7 +797,7 @@ with slides.Presentation() as presentation:
     category.grouping_levels.set_grouping_item(1, "Group4")
     category = chart.chart_data.categories.add(workbook.get_cell(0, "c9", "H"))
 
-    # 添加系列。
+    # 添加一个系列。
     series = chart.chart_data.series.add(workbook.get_cell(0, "D1", "Series 1"), charts.ChartType.CLUSTERED_COLUMN)
 
     series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, "D2", 10))
@@ -835,19 +809,17 @@ with slides.Presentation() as presentation:
     series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, "D8", 70))
     series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, "D9", 80))
 
-    # 保存带有图表的演示文稿。
+    # 保存包含图表的演示文稿。
     presentation.save("MultiCategoryChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-效果如下：
+结果：
 
 ![多类别图表](multi_category_chart.png)
 
 ### **创建地图图表**
 
-地图图表用于通过将信息映射到特定位置（如国家、州或城市）来可视化地理数据。它们在分析区域趋势、人口统计数据和空间分布时非常实用，能够以清晰且富有视觉吸引力的方式呈现。
-
-以下 Python 代码演示了如何创建地图图表：
+地图图表用于通过将信息映射到特定位置（如国家、省份或城市）来可视化地理数据。它们对分析区域趋势、人口统计数据和空间分布非常有帮助，且视觉效果清晰。
 
 ```python
 import aspose.slides as slides
@@ -857,17 +829,17 @@ with slides.Presentation() as presentation:
     presentation.save("mapChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-效果如下：
+结果：
 
 ![地图图表](map_chart.png)
 
 ### **创建组合图表**
 
-组合图（或称为 combo 图）在同一图表中组合两种或以上的图表类型。此图表可帮助您突出、比较或检查多个数据集之间的差异，从而识别它们之间的关联。
+组合图表（或称为混合图表）在同一坐标区中将两种或多种图表类型结合在一起。此图表可帮助您突出、比较或检查两个或多个数据集之间的差异，从而识别它们之间的关联。
 
 ![组合图表](combination_chart.png)
 
-以下 Python 代码演示了如何在 PowerPoint 演示文稿中创建上述组合图表：
+以下 Python 代码演示如何在 PowerPoint 演示文稿中创建上述组合图表：
 
 ```python
 import aspose.slides.charts as charts
@@ -900,7 +872,7 @@ def create_chart_with_first_series(slide):
     title_format.font_bold = slides.NullableBool.FALSE
     title_format.font_height = 18
 
-    # 设置图例。
+    # 设置图表图例。
     chart.legend.position = charts.LegendPositionType.BOTTOM
     chart.legend.text_format.portion_format.font_height = 12
 
@@ -1014,17 +986,15 @@ def set_axis_title(axis, axis_title):
 
 ## **更新图表**
 
-Aspose.Slides for Python via .NET 允许您更新图表数据、格式和样式，以保持 PowerPoint 演示文稿的最新状态。
+Aspose.Slides for Python via .NET 让您能够更新图表数据、格式和样式，以保持 PowerPoint 演示文稿的最新状态。
 
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/zh/python-net/aspose.slides/presentation/) 类的实例，以打开包含图表的演示文稿。
+1. 创建 [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) 类的实例以打开包含图表的演示文稿。
 1. 使用索引获取幻灯片的引用。
 1. 遍历所有形状以查找图表。
 1. 访问图表的数据工作表。
 1. 通过更改系列值来修改图表数据系列。
 1. 添加新系列并填充其数据。
 1. 将修改后的演示文稿保存为 PPTX 文件。
-
-以下 Python 代码演示了如何更新图表：
 
 ```py
 import aspose.slides.charts as charts
@@ -1081,21 +1051,21 @@ with slides.Presentation("ExistingChart.pptx") as presentation:
 
             chart.type = charts.ChartType.CLUSTERED_CYLINDER
 
-            # 保存带有图表的演示文稿。
+            # 保存包含图表的演示文稿。
             presentation.save("ModifiedChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **为图表设置数据范围**
 
-Aspose.Slides for Python via .NET 允许您使用特定工作表范围作为图表的数据源。这决定了哪些单元格为图表的系列和类别提供数据，并使您能够在工作表更改时更新图表。
+要检查现有图表已使用的范围，请参阅 [检索图表的数据范围](/slides/zh/python-net/chart-workbook/#retrieve-a-charts-data-range)。
 
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/zh/python-net/aspose.slides/presentation/) 类的实例，以打开包含图表的演示文稿。
+Aspose.Slides for Python via .NET 让您可以将特定工作表范围用作图表的数据源。此功能控制哪些单元格为图表的系列和类别提供数据，并允许您更新图表以反映工作表的更改。
+
+1. 创建 [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) 类的实例以打开包含图表的演示文稿。
 1. 使用索引获取幻灯片的引用。
 1. 遍历所有形状以查找图表。
 1. 访问图表数据并设置范围。
 1. 将修改后的演示文稿保存为 PPTX 文件。
-
-以下 Python 代码演示了如何为图表设置数据范围：
 
 ```py
 import aspose.slides.charts as charts
@@ -1120,9 +1090,7 @@ with slides.Presentation("ExistingChart.pptx") as presentation:
 
 ## **在图表中使用默认标记**
 
-在图表中使用默认标记时，每个图表系列会自动获得不同的标记符号。
-
-以下 Python 代码演示了如何自动为图表系列设置标记：
+使用默认标记时，每个图表系列会自动获得不同的标记符号。
 
 ```py
 import aspose.slides.charts as charts
@@ -1166,20 +1134,20 @@ with slides.Presentation() as presentation:
     presentation.save("DefaultMarkersInChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **常见问答**
+## **常见问题**
 
 **Aspose.Slides for Python via .NET 支持哪些图表类型？**
 
-Aspose.Slides for Python via .NET 支持包括条形图、折线图、饼图、面积图、散点图、直方图、雷达图等在内的广泛图表类型。此灵活性使您能够根据数据可视化需求选择最合适的图表类型。
+Aspose.Slides for Python via .NET 支持包括条形图、折线图、饼图、面积图、散点图、直方图、雷达图等在内的多种图表类型。这种灵活性让您能够根据数据可视化需求选择最合适的图表类型。
 
 **如何向幻灯片添加新图表？**
 
-要添加图表，首先创建一个 [Presentation](https://reference.aspose.com/slides/zh/python-net/aspose.slides/presentation/) 类的实例，使用索引检索所需幻灯片，然后调用添加图表的方法，指定图表类型和初始数据。此过程可直接将图表集成到您的演示文稿中。
+首先创建 [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) 类的实例，使用索引检索所需幻灯片，然后调用添加图表的方法，指定图表类型和初始数据。此过程可将图表直接嵌入您的演示文稿中。
 
 **如何更新图表中显示的数据？**
 
-您可以通过访问其数据工作簿（[ChartDataWorkbook](https://reference.aspose.com/slides/zh/python-net/aspose.slides.charts/chartdataworkbook/)），清除默认系列和类别，然后添加自定义数据来更新图表的数据。这使您能够以编程方式刷新图表，以反映最新的数据。
+通过访问图表的数据工作簿（[ChartDataWorkbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/)），清除默认的系列和类别，然后添加自定义数据，即可以编程方式刷新图表以反映最新数据。
 
 **是否可以自定义图表的外观？**
 
-是的，Aspose.Slides for Python via .NET 提供了丰富的自定义选项。您可以修改颜色、字体、标签、图例以及其他格式元素，以将图表外观调整为满足特定设计需求。
+是的，Aspose.Slides for Python via .NET 提供了丰富的自定义选项。您可以修改颜色、字体、标签、图例及其他格式元素，以便将图表的外观调整到特定的设计需求。

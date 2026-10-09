@@ -1,5 +1,5 @@
 ---
-title: PowerPoint prezentáció diagramok létrehozása vagy frissítése PHP-ban
+title: PowerPoint prezentáció diagramjainak létrehozása vagy frissítése PHP-ben
 linktitle: Diagramok létrehozása vagy frissítése
 type: docs
 weight: 10
@@ -10,14 +10,14 @@ keywords:
 - diagram szerkesztése
 - diagram módosítása
 - diagram frissítése
-- szórt diagram
-- tortadiagram
+- szórásdiagram
+- kördiagram
 - vonaldiagram
-- fa térképes diagram
+- fa térkép diagram
 - részvénydiagram
-- doboz‑ és bajuszdiagram
+- doboz és szárnydiagram
 - tölcsérdiagram
-- sugárdiagram
+- napcsillag diagram
 - hisztogram diagram
 - radar diagram
 - többkategóriás diagram
@@ -25,68 +25,64 @@ keywords:
 - prezentáció
 - PHP
 - Aspose.Slides
-description: "Diagramok létrehozása és testreszabása PowerPoint prezentációkban az Aspose.Slides for PHP via Java használatával. Diagramok hozzáadása, formázása és szerkesztése gyakorlati kódrészletekkel."
+description: "PowerPoint prezentációkban diagramok létrehozása és testreszabása az Aspose.Slides for PHP (Java) segítségével. Diagramok hozzáadása, formázása és szerkesztése gyakorlati kódrészletekkel."
 ---
 ## **Áttekintés**
 
-Ez a cikk átfogó útmutatót nyújt a diagramok létrehozásához és testreszabásához az Aspose.Slides segítségével. Megtanulja, hogyan adjon programozottan diagramot egy diára, hogyan töltse fel adatokka­l, és hogyan alkalmazzon különféle formázási beállításokat a konkrét tervezési követelményekhez. A cikk során részletes kódrészletek illusztrálják az egyes lépéseket, az előadás és a diagramobjektum inicializálásától a sorozatok, tengelyek és jelmagyarázatok konfigurálásáig. Az útmutató követésével alapos megértést szerez a dinamikus diagramgenerálás integrálásáról alkalmazásaiba, egyszerűsítve az adat‑vezérelt bemutatók létrehozásának folyamatát.
+Ez a cikk átfogó útmutatót nyújt a diagramok létrehozásáról és testreszabásáról az Aspose.Slides használatával. Megtanulhatja, hogyan adjon programozottan diagramot egy diára, töltse fel adatokkal, és alkalmazza a különböző formázási beállításokat, hogy megfeleljenek az Ön specifikus tervezési követelményeinek. A cikk során részletes kódrészletek illusztrálják az egyes lépéseket, a bemutató és a diagramobjektum inicializálásától a sorozatok, tengelyek és jelmagyarázatok konfigurálásáig. Az útmutató követésével szilárd megértést szerez a dinamikus diagramgenerálás integrálásáról alkalmazásaiban, egyszerűsítve az adatvezérelt prezentációk létrehozásának folyamatát.
 
 ## **Diagram létrehozása**
 
-A diagramok segítenek az embereknek gyorsan megjeleníteni az adatokat, és olyan betekintést nyerni, ami egy táblázatból vagy táblázatkezdőből nem feltétlenül látható.
+A diagramok segítik az embereket gyorsan megjeleníteni az adatokat és olyan betekintéseket nyerni, amelyek nem feltétlenül nyilvánvalóak egy táblázatból vagy munkafüzetből.
 
-**Miért hozunk létre diagramokat?**
+**Miért hozzunk létre diagramokat?**
 
-Diagramok használatával:
+* nagy mennyiségű adat összegyűjtése, tömörítése vagy összegzése egyetlen dián a prezentációban  
+* minták és trendek feltárása az adatokban  
+* az adatok időbeli vagy egy adott mérőegységhez viszonyított irányának és lendületének meghatározása  
+* kilógó értékek, rendellenességek, eltérések, hibák, értelmetlen adatok stb. felismerése  
+* összetett adatok közlése vagy bemutatása  
 
-* nagy mennyiségű adatot összefoglalhat vagy sűríthet egyetlen dián egy prezentációban
-* mintákat és trendeket tárhat fel az adatokban
-* meghatározhatja az adatok irányát és lendületét időben vagy egy adott mértékegységhez viszonyítva
-* felfedezhet kiugró értékeket, eltéréseket, hibákat, nonszensz adatokat stb.
-* bonyolult adatokat kommunikálhat vagy prezentálhat
+PowerPointban a diagramok létrehozhatók a *Insert* (Beszúrás) funkción keresztül, amely sablonokat biztosít számos diagramtípus megtervezéséhez. Az Aspose.Slides használatával mind szabványos diagramokat (népszerű diagramtípusok alapján), mind egyedi diagramokat hozhat létre.
 
-PowerPointban a *Insert* (Beszúrás) funkcióval hozhat létre diagramokat, amely számos diagramtípus sablonját kínálja. Az Aspose.Slides segítségével létrehozhat mind szabványos diagramokat (népszerű diagramtípusok alapján), mind egyedi diagramokat.
-
-{{% alert color="info" title="Megjegyzés" %}}
-Diagramok létrehozásához használja a [ChartType](https://reference.aspose.com/slides/hu/php-java/aspose.slides/charttype/) osztályt. Ennek az osztálynak a mezői a különböző diagramtípusoknak felelnek meg.
+{{% alert color="info" title="Note" %}}
+Diagramok létrehozásához használja a [ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/) osztályt. Ennek az osztálynak a mezői a különböző diagramtípusoknak felelnek meg.
 {{% /alert %}}
 
 ### **Csoportosított oszlopdiagramok létrehozása**
 
-Ez a rész bemutatja, hogyan hozhat létre csoportosított oszlopdiagramokat az Aspose.Slides használatával. Megtanulja, hogyan inicializáljon egy prezentációt, adjon hozzá diagramot, és testre szabja annak elemeit, például a címet, az adatokat, a sorozatokat, a kategóriákat és a stílusokat. Kövesse az alábbi lépéseket a szabványos csoportosított oszlopdiagram generálásához:
+Ez a szakasz bemutatja, hogyan hozhatók létre csoportosított oszlopdiagramok az Aspose.Slides segítségével. Megtanulja, hogyan inicializálja a prezentációt, adjon hozzá egy diagramot, és testre szabja elemeit, például a címet, az adatokat, a sorozatokat, a kategóriákat és a stílusokat. Kövesse az alábbi lépéseket, hogy lássa, hogyan generálódik egy szabványos csoportosított oszlopdiagram:
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation) osztályból.
-1. Szerezzen referenciát egy diára az indexe alapján.
-1. Adjon hozzá egy diagramot némi adattal, és adja meg a `ChartType::ClusteredColumn` típust.
-1. Adjon címet a diagramnak.
-1. Érje el a diagram adatlapját.
-1. Törölje az összes alapértelmezett sorozatot és kategóriát.
-1. Adjon hozzá új sorozatokat és kategóriákat.
-1. Adjon hozzá új diagramadatokat a sorozathoz.
-1. Alkalmazzon kitöltőszínt a diagram sorozatra.
-1. Adjon címkéket a diagram sorozathoz.
+1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) osztályból.  
+1. Szerezzen egy hivatkozást egy diára a indexe alapján.  
+1. Adjon hozzá egy diagramot némi adattal, és adja meg a `ChartType::ClusteredColumn` típust.  
+1. Adjon címet a diagramhoz.  
+1. Érje el a diagram adat munkalapját.  
+1. Törölje az összes alapértelmezett sorozatot és kategóriát.  
+1. Adjon hozzá új sorozatokat és kategóriákat.  
+1. Adjon hozzá új diagramadatokat a diagram sorozathoz.  
+1. Alkalmazzon kitöltőszínt a diagram sorozathoz.  
+1. Adjon címkéket a diagram sorozathoz.  
 1. Mentse a módosított prezentációt PPTX fájlként.
 
-Ez a C# kód bemutatja, hogyan hozhat létre egy csoportosított oszlopdiagramot:
-
 ```php
-  # Példányosít egy prezentáció osztályt, amely egy PPTX fájlt képvisel
+  # Egy PPTX fájlt képviselő prezentáció osztály példányosítása
   $pres = new Presentation();
   try {
-    # Eléri az első diát
+    # Az első diát eléri
     $sld = $pres->getSlides()->get_Item(0);
-    # Hozzáad egy diagramot az alapértelmezett adataival
+    # Diagramot ad hozzá az alapértelmezett adataival
     $chart = $sld->getShapes()->addChart(ChartType::ClusteredColumn, 0, 0, 500, 500);
     # Beállítja a diagram címét
     $chart->getChartTitle()->addTextFrameForOverriding("Sample Title");
     $chart->getChartTitle()->getTextFrameForOverriding()->getTextFrameFormat()->setCenterText(NullableBool::True);
     $chart->getChartTitle()->setHeight(20);
     $chart->hasTitle();
-    # Beállítja, hogy az első sorozat értékeket jelenítsen meg
+    # Beállítja, hogy az első sorozat értékeket mutasson
     $chart->getChartData()->getSeries()->get_Item(0)->getLabels()->getDefaultDataLabelFormat()->setShowValue(true);
-    # Beállítja a diagram adatlap indexét
+    # Beállítja a diagram adatlapjának indexét
     $defaultWorksheetIndex = 0;
-    # Lekéri a diagram adatlapját
+    # Lekéri a diagram adat munkalapját
     $fact = $chart->getChartData()->getChartDataWorkbook();
     # Törli az alapértelmezett generált sorozatokat és kategóriákat
     $chart->getChartData()->getSeries()->clear();
@@ -118,18 +114,18 @@ Ez a C# kód bemutatja, hogyan hozhat létre egy csoportosított oszlopdiagramot
     # Beállítja a sorozat kitöltőszínét
     $series->getFormat()->getFill()->setFillType(FillType::Solid);
     $series->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->GREEN);
-    # Egyéni címkéket hoz létre minden kategóriához az új sorozatban
+    # Egyéni címkéket hoz létre minden kategóriához az új sorozathoz
     # Beállítja, hogy az első címke a kategória nevét mutassa
     $lbl = $series->getDataPoints()->get_Item(0)->getLabel();
     $lbl->getDataLabelFormat()->setShowCategoryName(true);
     $lbl = $series->getDataPoints()->get_Item(1)->getLabel();
     $lbl->getDataLabelFormat()->setShowSeriesName(true);
-    # Megjeleníti az értéket a harmadik címkén
+    # A harmadik címke értékét mutatja
     $lbl = $series->getDataPoints()->get_Item(2)->getLabel();
     $lbl->getDataLabelFormat()->setShowValue(true);
     $lbl->getDataLabelFormat()->setShowSeriesName(true);
     $lbl->getDataLabelFormat()->setSeparator("/");
-    # Mentse a prezentációt a diagrammal
+    # Elmenti a diagramot tartalmazó prezentációt
     $pres->save("output.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -138,40 +134,38 @@ Ez a C# kód bemutatja, hogyan hozhat létre egy csoportosított oszlopdiagramot
   }
 ```
 
-### **Szórási diagramok létrehozása**
+### **Szórásdiagramok létrehozása**
 
-A szórási diagramok (más néven szóráspont-diagramok vagy x‑y grafikonok) gyakran használatosak minták keresésére vagy két változó közötti korrelációk bemutatására.
+A szórásdiagramok (más néven szórásábrák vagy x‑y grafikonok) gyakran használatosak minták keresésére vagy két változó közötti korrelációk bemutatására.
 
-Használjon szórási diagramot, ha:
+Használjon szórásdiagramot, ha:
 
-* párosított numerikus adatai vannak
-* két változó jól párosítható egymással
-* meg szeretné határozni, hogy a két változó összefügg-e
-* van egy független változó, amely több értéket vesz fel egy függő változóhoz
+* párosított numerikus adatokkal rendelkezik  
+* két változója jól párosítható egymással  
+* meg akarja határozni, hogy a két változó kapcsolatban áll-e  
+* független változója több értékkel rendelkezik egy függő változóra vonatkozóan  
 
-1. Kövesse a [Create Clustered Column Charts](#create-clustered-column-charts) lépéseit.
-2. A harmadik lépésnél adjon hozzá egy diagramot némi adattal, és válassza a diagram típusát az alábbiak közül:
-   1. [ChartType::ScatterWithMarkers](https://reference.aspose.com/slides/hu/php-java/aspose.slides/charttype/#ScatterWithMarkers) - _Szórási diagramot ábrázol._
-   2. [ChartType::ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/hu/php-java/aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - _Szórási diagram, amely görbékkel van összekötve, adatjelölőkkel._
-   3. [ChartType::ScatterWithSmoothLines](https://reference.aspose.com/slides/hu/php-java/aspose.slides/charttype/#ScatterWithSmoothLines) - _Szórási diagram, amely görbékkel van összekötve, adatjelölők nélkül._
-   4. [ChartType::ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/hu/php-java/aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _Szórási diagram, amely egyenes vonalakkal van összekötve, adatjelölőkkel._
-   5. [ChartType::ScatterWithStraightLines](https://reference.aspose.com/slides/hu/php-java/aspose.slides/charttype/#ScatterWithStraightLines) - _Szórási diagram, amely egyenes vonalakkal van összekötve, adatjelölők nélkül._
-
-Ez a PHP kód mutatja, hogyan hozhat létre szórási diagramot különböző jelölőkkel minden sorozathoz:
+1. Kövesse a lépéseket a [Csoportosított oszlopdiagramok létrehozása](#create-clustered-column-charts) részben.  
+2. A harmadik lépésnél adjon hozzá egy diagramot némi adattal, és adja meg a diagram típusát az alábbiak közül:
+   1. [ChartType::ScatterWithMarkers](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#ScatterWithMarkers) - _Egy szórásdiagramot ábrázol._  
+   2. [ChartType::ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - _Egy görbék által összekötött szórásdiagramot ábrázol adatjelölőkkel._  
+   3. [ChartType::ScatterWithSmoothLines](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#ScatterWithSmoothLines) - _Görbék által összekötött szórásdiagram, adatjelölők nélkül._  
+   4. [ChartType::ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _Egy egyenes vonalakkal összekötött szórásdiagram adatjelölőkkel._  
+   5. [ChartType::ScatterWithStraightLines](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#ScatterWithStraightLines) - _Egyenes vonalakkal összekötött szórásdiagram adatjelölők nélkül._
 
 ```php
-  # Példányosít egy prezentáció osztályt, amely egy PPTX fájlt képvisel
+  # Egy PPTX fájlt képviselő prezentáció osztály példányosítása
   $pres = new Presentation();
   try {
-    # Eléri az első diát
+    # Az első diát eléri
     $slide = $pres->getSlides()->get_Item(0);
     # Létrehozza az alapértelmezett diagramot
     $chart = $slide->getShapes()->addChart(ChartType::ScatterWithSmoothLines, 0, 0, 400, 400);
-    # Lekéri az alapértelmezett diagram adatlap indexét
+    # Lekéri az alapértelmezett diagram adat munkalap indexét
     $defaultWorksheetIndex = 0;
-    # Lekéri a diagram adatlapot
+    # Lekéri a diagram adat munkalapját
     $fact = $chart->getChartData()->getChartDataWorkbook();
-    # Törli a bemutató sorozatot
+    # Törli a demo sorozatot
     $chart->getChartData()->getSeries()->clear();
     # Új sorozatokat ad hozzá
     $chart->getChartData()->getSeries()->add($fact->getCell($defaultWorksheetIndex, 1, 1, "Series 1"), $chart->getType());
@@ -208,32 +202,30 @@ Ez a PHP kód mutatja, hogyan hozhat létre szórási diagramot különböző je
   }
 ```
 
-### **Tortadiagramok létrehozása**
+### **Kördiagramok létrehozása**
 
-A tortadiagramok leginkább a teljes adathalmaz részarányainak szemléltetésére alkalmasak, különösen, ha a adat kategóriákat numerikus értékekkel jelölik. Ha a adat sok részre vagy címkére oszlik, fontolja meg oszlopdiagram használatát.
+A kördiagramok leginkább a részek és az egész közötti viszony bemutatására alkalmasak, különösen akkor, ha az adatok kategóriákat tartalmaznak numerikus értékekkel. Ha azonban sok rész vagy címke van az adatokban, érdemes oszlopdiagramot alkalmazni.
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/) osztályból.
-2. Szerezzen referenciát egy diára az indexe alapján.
-3. Adjon hozzá egy diagramot alapértelmezett adatokkal, és adja meg a [ChartType::Pie](https://reference.aspose.com/slides/hu/php-java/aspose.slides/charttype/#Pie) típust.
-4. Érje el a diagram adatkönyvtárát a [ChartDataWorkbook](https://reference.aspose.com/slides/hu/php-java/aspose.slides/chartdataworkbook/) segítségével.
-5. Törölje az alapértelmezett sorozatokat és kategóriákat.
-6. Adjon hozzá új sorozatokat és kategóriákat.
-7. Adjon hozzá új diagramadatokat a sorozathoz.
-8. Adjon hozzá új pontokat a diagramhoz, és alkalmazzon egyedi színeket a torta szeletekre.
-9. Állítson be címkéket a sorozathoz.
-10. Engedélyezze a vezetővonalakat a sorozatcímkékhez.
-11. Állítsa be a forgásszöget a torta szeletekhez.
+1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) osztályból.  
+2. Szerezzen egy hivatkozást egy diára a indexe alapján.  
+3. Adjon hozzá egy diagramot alapértelmezett adatokkal, és adja meg a [ChartType::Pie](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#Pie) típust.  
+4. Érje el a diagram adatkönyvét a [ChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/) segítségével.  
+5. Törölje az alapértelmezett sorozatokat és kategóriákat.  
+6. Adjon hozzá új sorozatokat és kategóriákat.  
+7. Adjon hozzá új diagramadatokat a diagram sorozathoz.  
+8. Adjon hozzá új pontokat a diagramhoz, és alkalmazzon egyedi színeket a kördiagram szektoraira.  
+9. Állítsa be a sorozatok címkéit.  
+10. Engedélyezze a vezetővonalakat a sorozatcímkékhez.  
+11. Állítsa be a kördiagram szektorainak forgatási szögét.  
 12. Mentse a módosított prezentációt PPTX fájlként.
 
-Ez a PHP kód mutatja, hogyan hozhat létre egy tortadiagramot:
-
 ```php
-  # Példányosít egy prezentáció osztályt, amely egy PPTX fájlt képvisel
+  # Egy PPTX fájlt képviselő prezentáció osztály példányosítása
   $pres = new Presentation();
   try {
-    # Eléri az első diát
+    # Az első diát eléri
     $slides = $pres->getSlides()->get_Item(0);
-    # Hozzáad egy diagramot alapértelmezett adatokkal
+    # Diagramot ad hozzá alapértelmezett adatokkal
     $chart = $slides->getShapes()->addChart(ChartType::Pie, 100, 100, 400, 400);
     # Beállítja a diagram címét
     $chart->getChartTitle()->addTextFrameForOverriding("Sample Title");
@@ -244,7 +236,7 @@ Ez a PHP kód mutatja, hogyan hozhat létre egy tortadiagramot:
     $chart->getChartData()->getSeries()->get_Item(0)->getLabels()->getDefaultDataLabelFormat()->setShowValue(true);
     # Beállítja a diagram adatlap indexét
     $defaultWorksheetIndex = 0;
-    # Lekéri a diagram adatlapot
+    # Lekéri a diagram adat munkalapját
     $fact = $chart->getChartData()->getChartDataWorkbook();
     # Törli az alapértelmezett generált sorozatokat és kategóriákat
     $chart->getChartData()->getSeries()->clear();
@@ -290,7 +282,7 @@ Ez a PHP kód mutatja, hogyan hozhat létre egy tortadiagramot:
     $point2->getFormat()->getLine()->setWidth(2.0);
     $point2->getFormat()->getLine()->setStyle(LineStyle->ThinThin);
     $point2->getFormat()->getLine()->setDashStyle(LineDashStyle->LargeDashDotDot);
-    # Egyéni címkéket hoz létre minden kategóriához az új sorozatban
+    # Egyéni címkéket hoz létre minden kategóriához az új sorozathoz
     $lbl1 = $series->getDataPoints()->get_Item(0)->getLabel();
     # lbl.ShowCategoryName = true;
     $lbl1->getDataLabelFormat()->setShowValue(true);
@@ -301,11 +293,11 @@ Ez a PHP kód mutatja, hogyan hozhat létre egy tortadiagramot:
     $lbl3 = $series->getDataPoints()->get_Item(2)->getLabel();
     $lbl3->getDataLabelFormat()->setShowSeriesName(true);
     $lbl3->getDataLabelFormat()->setShowPercentage(true);
-    # Megjeleníti a vezetővonalakat a diagramhoz
+    # Megjeleníti a vezető vonalakat a diagramon
     $series->getLabels()->getDefaultDataLabelFormat()->setShowLeaderLines(true);
-    # Beállítja a forgásszöget a tortadiagram szektoraihoz
+    # Beállítja a kördiagram szektorok forgatási szögét
     $chart->getChartData()->getSeriesGroups()->get_Item(0)->setFirstSliceAngle(180);
-    # Mentse a prezentációt diagrammal
+    # Elmenti a diagramot tartalmazó prezentációt
     $pres->save("PieChart_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -316,18 +308,16 @@ Ez a PHP kód mutatja, hogyan hozhat létre egy tortadiagramot:
 
 ### **Vonaldiagramok létrehozása**
 
-A vonaldiagramok (más néven vonalgrafikonok) leginkább olyan helyzetekben használatosak, ahol az időbeli értékváltozást szeretné bemutatni. Egy vonaldiagram segítségével egyszerre összehasonlíthat nagy mennyiségű adatot, nyomon követheti az időbeli változásokat és trendeket, kiemelheti az anomáliákat az adat sorozatokban, és még sok mást.
+A vonaldiagramok (más néven vonalgrafikonok) leginkább olyan helyzetekben használatosak, ahol az értékek időbeli változását szeretné bemutatni. Egy vonaldiagram segítségével egyszerre nagy mennyiségű adatot hasonlíthat össze, nyomon követheti az időbeli változásokat és trendeket, kiemelhet anomáliákat az adatsorokban, és még sok mást.
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/) osztályból.
-1. Szerezzen referenciát egy diára az indexe alapján.
-1. Adjon hozzá egy diagramot alapértelmezett adatokkal, és adja meg a [ChartType::Line](https://reference.aspose.com/slides/hu/php-java/aspose.slides/charttype/#Line) típust.
-1. Érje el a diagram adatkönyvtárát a ([ChartDataWorkbook](https://reference.aspose.com/slides/hu/php-java/aspose.slides/chartdataworkbook/)) segítségével.
-1. Törölje az alapértelmezett sorozatokat és kategóriákat.
-1. Adjon hozzá új sorozatokat és kategóriákat.
-1. Adjon hozzá új diagramadatokat a sorozathoz.
+1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) osztályból.  
+1. Szerezzen egy hivatkozást egy diára a indexe alapján.  
+1. Adjon hozzá egy diagramot alapértelmezett adatokkal, és adja meg a [ChartType::Line](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#Line) típust.  
+1. Érje el a diagram adatkönyvét a ([ChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/)) segítségével.  
+1. Törölje az alapértelmezett sorozatokat és kategóriákat.  
+1. Adjon hozzá új sorozatokat és kategóriákat.  
+1. Adjon hozzá új diagramadatokat a diagram sorozathoz.  
 1. Mentse a módosított prezentációt PPTX fájlként.
-
-Ez a PHP kód mutatja, hogyan hozhat létre egy vonaldiagramot:
 
 ```php
   $pres = new Presentation();
@@ -341,7 +331,7 @@ Ez a PHP kód mutatja, hogyan hozhat létre egy vonaldiagramot:
   }
 ```
 
-Alapértelmezés szerint a vonaldiagram pontjai egyenes, folyamatos vonallal vannak összekötve. Ha szeretné, hogy a pontok vonala szaggatott legyen, a kívánt vonaltípust az alábbi módon adhatja meg:
+Alapértelmezetten a vonaldiagram pontjait egyenes, folytonos vonalak kötik össze. Ha a pontokat vonalvonalak helyett szaggatott vonallal szeretné összekötni, megadhatja a kívánt vonaltípust a következőképpen:
 
 ```php
   $pres = new Presentation();
@@ -359,20 +349,18 @@ Alapértelmezés szerint a vonaldiagram pontjai egyenes, folyamatos vonallal van
   }
 ```
 
-### **Fa térképes diagramok létrehozása**
+### **Fa térkép diagramok létrehozása**
 
-A fa térképes diagramok leginkább értékesítési adatok esetén használatosak, amikor a kategóriák relatív méretét akarja bemutatni, és gyorsan fel akarja hívni a figyelmet a nagy hozzájáruló elemekre az egyes kategóriákon belül.
+A fa térkép diagramok leginkább értékesítési adatok esetén hasznosak, amikor a kategóriák relatív méretét szeretné megjeleníteni, és gyorsan felhívni a figyelmet az egyes kategóriák nagy hozzájáruló elemeire.
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/) osztályból.
-2. Szerezzen referenciát egy diára az indexe alapján.
-3. Adjon hozzá egy diagramot alapértelmezett adatokkal, és adja meg a [ChartType::Treemap](https://reference.aspose.com/slides/hu/php-java/aspose.slides/charttype/#Treemap) típust.
-4. Érje el a diagram adatkönyvtárát a [ChartDataWorkbook](https://reference.aspose.com/slides/hu/php-java/aspose.slides/chartdataworkbook/) segítségével.
-5. Törölje az alapértelmezett sorozatokat és kategóriákat.
-6. Adjon hozzá új sorozatokat és kategóriákat.
-7. Adjon hozzá új diagramadatokat a sorozathoz.
+1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) osztályból.  
+2. Szerezzen egy hivatkozást egy diára a indexe alapján.  
+3. Adjon hozzá egy diagramot alapértelmezett adatokkal, és adja meg a [ChartType::Treemap](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#Treemap) típust.  
+4. Érje el a diagram adatkönyvét a [ChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/) segítségével.  
+5. Törölje az alapértelmezett sorozatokat és kategóriákat.  
+6. Adjon hozzá új sorozatokat és kategóriákat.  
+7. Adjon hozzá új diagramadatokat a diagram sorozathoz.  
 8. Mentse a módosított prezentációt PPTX fájlként.
-
-Ez a PHP kód mutatja, hogyan hozhat létre egy fa térképes diagramot:
 
 ```php
   $pres = new Presentation();
@@ -382,7 +370,7 @@ Ez a PHP kód mutatja, hogyan hozhat létre egy fa térképes diagramot:
     $chart->getChartData()->getSeries()->clear();
     $wb = $chart->getChartData()->getChartDataWorkbook();
     $wb->clear(0);
-    # ág 1
+    # 1. ág
     $leaf = $chart->getChartData()->getCategories()->add($wb->getCell(0, "C1", "Leaf1"));
     $leaf->getGroupingLevels()->setGroupingItem(1, "Stem1");
     $leaf->getGroupingLevels()->setGroupingItem(2, "Branch1");
@@ -390,7 +378,7 @@ Ez a PHP kód mutatja, hogyan hozhat létre egy fa térképes diagramot:
     $leaf = $chart->getChartData()->getCategories()->add($wb->getCell(0, "C3", "Leaf3"));
     $leaf->getGroupingLevels()->setGroupingItem(1, "Stem2");
     $chart->getChartData()->getCategories()->add($wb->getCell(0, "C4", "Leaf4"));
-    # ág 2
+    # 2. ág
     $leaf = $chart->getChartData()->getCategories()->add($wb->getCell(0, "C5", "Leaf5"));
     $leaf->getGroupingLevels()->setGroupingItem(1, "Stem3");
     $leaf->getGroupingLevels()->setGroupingItem(2, "Branch2");
@@ -419,17 +407,15 @@ Ez a PHP kód mutatja, hogyan hozhat létre egy fa térképes diagramot:
 
 ### **Részvénydiagramok létrehozása**
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/) osztályból.
-2. Szerezzen referenciát egy diára az indexe alapján.
-3. Adjon hozzá egy diagramot alapértelmezett adatokkal, és adja meg a [ChartType::OpenHighLowClose](https://reference.aspose.com/slides/hu/php-java/aspose.slides/charttype/#OpenHighLowClose) típust.
-4. Érje el a diagram adatkönyvtárát a [ChartDataWorkbook](https://reference.aspose.com/slides/hu/php-java/aspose.slides/chartdataworkbook/) segítségével.
-5. Törölje az alapértelmezett sorozatokat és kategóriákat.
-6. Adjon hozzá új sorozatokat és kategóriákat.
-7. Adjon hozzá új diagramadatokat a sorozathoz.
-8. Adja meg a magas‑alacsony vonalak formátumát.
+1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) osztályból.  
+2. Szerezzen egy hivatkozást egy diára a indexe alapján.  
+3. Adjon hozzá egy diagramot alapértelmezett adatokkal, és adja meg a [ChartType::OpenHighLowClose](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#OpenHighLowClose) típust.  
+4. Érje el a diagram adatkönyvét a [ChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/) segítségével.  
+5. Törölje az alapértelmezett sorozatokat és kategóriákat.  
+6. Adjon hozzá új sorozatokat és kategóriákat.  
+7. Adjon hozzá új diagramadatokat a diagram sorozathoz.  
+8. Határozza meg a magas‑alacsony vonalak formátumát.  
 9. Mentse a módosított prezentációt PPTX fájlként.
-
-Ez a PHP kód mutatja, hogyan hozhat létre egy részvénydiagramot:
 
 ```php
   $pres = new Presentation();
@@ -475,18 +461,16 @@ Ez a PHP kód mutatja, hogyan hozhat létre egy részvénydiagramot:
   }
 ```
 
-### **Doboz‑ és bajuszdiagramok létrehozása**
+### **Doboz‑ és szárnydiagramok létrehozása**
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/) osztályból.
-2. Szerezzen referenciát egy diára az indexe alapján.
-3. Adjon hozzá egy diagramot alapértelmezett adatokkal, és adja meg a [ChartType::BoxAndWhisker](https://reference.aspose.com/slides/hu/php-java/aspose.slides/charttype/#BoxAndWhisker) típust.
-4. Érje el a diagram adatkönyvtárát a [ChartDataWorkbook](https://reference.aspose.com/slides/hu/php-java/aspose.slides/chartdataworkbook/) segítségével.
-5. Törölje az alapértelmezett sorozatokat és kategóriákat.
-6. Adjon hozzá új sorozatokat és kategóriákat.
-7. Adjon hozzá új diagramadatokat a sorozathoz.
+1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) osztályból.  
+2. Szerezzen egy hivatkozást egy diára a indexe alapján.  
+3. Adjon hozzá egy diagramot alapértelmezett adatokkal, és adja meg a [ChartType::BoxAndWhisker](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#BoxAndWhisker) típust.  
+4. Érje el a diagram adatkönyvét a [ChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/) segítségével.  
+5. Törölje az alapértelmezett sorozatokat és kategóriákat.  
+6. Adjon hozzá új sorozatokat és kategóriákat.  
+7. Adjon hozzá új diagramadatokat a diagram sorozathoz.  
 8. Mentse a módosított prezentációt PPTX fájlként.
-
-Ez a PHP kód mutatja, hogyan hozhat létre egy doboz‑ és bajuszdiagramot:
 
 ```php
   $pres = new Presentation();
@@ -524,12 +508,10 @@ Ez a PHP kód mutatja, hogyan hozhat létre egy doboz‑ és bajuszdiagramot:
 
 ### **Tölcsérdiagramok létrehozása**
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/) osztályból.
-2. Szerezzen referenciát egy diára az indexe alapján.
-3. Adjon hozzá egy diagramot alapértelmezett adatokkal, és adja meg a [ChartType::Funnel](https://reference.aspose.com/slides/hu/php-java/aspose.slides/charttype/#Funnel) típust.
+1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) osztályból.  
+2. Szerezzen egy hivatkozást egy diára a indexe alapján.  
+3. Adjon hozzá egy diagramot alapértelmezett adatokkal, és adja meg a [ChartType::Funnel](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#Funnel) típust.  
 4. Mentse a módosított prezentációt PPTX fájlként.
-
-Ez a PHP kód mutatja, hogyan hozhat létre egy tölcsérdiagramot:
 
 ```php
   $pres = new Presentation();
@@ -560,14 +542,12 @@ Ez a PHP kód mutatja, hogyan hozhat létre egy tölcsérdiagramot:
   }
 ```
 
-### **Sugárdiagramok létrehozása**
+### **Napcsillag diagramok létrehozása**
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/) osztályból.
-2. Szerezzen referenciát egy diára az indexe alapján.
-3. Adjon hozzá egy diagramot alapértelmezett adatokkal, és adja meg a [ChartType::Sunburst](https://reference.aspose.com/slides/hu/php-java/aspose.slides/charttype/#Sunburst) típust.
+1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) osztályból.  
+2. Szerezzen egy hivatkozást egy diára a indexe alapján.  
+3. Adjon hozzá egy diagramot alapértelmezett adatokkal, és adja meg a [ChartType::Sunburst](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#Sunburst) típust.  
 4. Mentse a módosított prezentációt PPTX fájlként.
-
-Ez a PHP kód mutatja, hogyan hozhat létre egy sugárdiagramot:
 
 ```php
   $pres = new Presentation();
@@ -577,7 +557,7 @@ Ez a PHP kód mutatja, hogyan hozhat létre egy sugárdiagramot:
     $chart->getChartData()->getSeries()->clear();
     $wb = $chart->getChartData()->getChartDataWorkbook();
     $wb->clear(0);
-    # ág 1
+    # 1. ág
     $leaf = $chart->getChartData()->getCategories()->add($wb->getCell(0, "C1", "Leaf1"));
     $leaf->getGroupingLevels()->setGroupingItem(1, "Stem1");
     $leaf->getGroupingLevels()->setGroupingItem(2, "Branch1");
@@ -585,7 +565,7 @@ Ez a PHP kód mutatja, hogyan hozhat létre egy sugárdiagramot:
     $leaf = $chart->getChartData()->getCategories()->add($wb->getCell(0, "C3", "Leaf3"));
     $leaf->getGroupingLevels()->setGroupingItem(1, "Stem2");
     $chart->getChartData()->getCategories()->add($wb->getCell(0, "C4", "Leaf4"));
-    # ág 2
+    # 2. ág
     $leaf = $chart->getChartData()->getCategories()->add($wb->getCell(0, "C5", "Leaf5"));
     $leaf->getGroupingLevels()->setGroupingItem(1, "Stem3");
     $leaf->getGroupingLevels()->setGroupingItem(2, "Branch2");
@@ -613,15 +593,13 @@ Ez a PHP kód mutatja, hogyan hozhat létre egy sugárdiagramot:
 
 ### **Hisztogram diagramok létrehozása**
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/) osztályból.
-2. Szerezzen referenciát egy diára az indexe alapján.
-3. Adjon hozzá egy diagramot alapértelmezett adatokkal, és adja meg a [ChartType::Histogram](https://reference.aspose.com/slides/hu/php-java/aspose.slides/charttype/#Histogram) típust.
-4. Érje el a diagram adatkönyvtárát a [ChartDataWorkbook](https://reference.aspose.com/slides/hu/php-java/aspose.slides/chartdataworkbook/) segítségével.
-5. Törölje az alapértelmezett sorozatokat és kategóriákat.
-6. Adjon hozzá új sorozatokat és kategóriákat.
+1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) osztályból.  
+2. Szerezzen egy hivatkozást egy diára a indexe alapján.  
+3. Adjon hozzá egy diagramot alapértelmezett adatokkal, és adja meg a [ChartType::Histogram](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#Histogram) típust.  
+4. Érje el a diagram adatkönyvét a [ChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/) segítségével.  
+5. Törölje az alapértelmezett sorozatokat és kategóriákat.  
+6. Adjon hozzá új sorozatokat és kategóriákat.  
 7. Mentse a módosított prezentációt PPTX fájlként.
-
-Ez a PHP kód mutatja, hogyan hozhat létre egy hisztogram diagramot:
 
 ```php
   $pres = new Presentation();
@@ -642,12 +620,10 @@ Ez a PHP kód mutatja, hogyan hozhat létre egy hisztogram diagramot:
 
 ### **Radar diagramok létrehozása**
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/) osztályból.
-2. Szerezzen referenciát egy diára az indexe alapján.
-3. Adjon hozzá egy diagramot némi adattal, és válassza ki a kívánt diagram típust (ebben az esetben a [ChartType::Radar](https://reference.aspose.com/slides/hu/php-java/aspose.slides/charttype/#Radar) típust).
+1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) osztályból.  
+2. Szerezzen egy hivatkozást egy diára a indexe alapján.  
+3. Adjon hozzá egy diagramot némi adattal, és adja meg a kívánt diagramtípust ([ChartType::Radar](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#Radar) ebben az esetben).  
 4. Mentse a módosított prezentációt PPTX fájlként.
-
-Ez a PHP kód mutatja, hogyan hozhat létre egy radar diagramot:
 
 ```php
   $pres = new Presentation();
@@ -663,16 +639,14 @@ Ez a PHP kód mutatja, hogyan hozhat létre egy radar diagramot:
 
 ### **Többkategóriás diagramok létrehozása**
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/) osztályból.
-2. Szerezzen referenciát egy diára az indexe alapján.
-3. Adjon hozzá egy diagramot alapértelmezett adatokkal, és adja meg a [ChartType::ClusteredColumn](https://reference.aspose.com/slides/hu/php-java/aspose.slides/charttype/#ClusteredColumn) típust.
-4. Érje el a diagram adatkönyvtárát a [ChartDataWorkbook](https://reference.aspose.com/slides/hu/php-java/aspose.slides/chartdataworkbook/) segítségével.
-5. Törölje az alapértelmezett sorozatokat és kategóriákat.
-6. Adjon hozzá új sorozatokat és kategóriákat.
-7. Adjon hozzá új diagramadatokat a sorozathoz.
+1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) osztályból.  
+2. Szerezzen egy hivatkozást egy diára a indexe alapján.  
+3. Adjon hozzá egy diagramot alapértelmezett adatokkal, és adja meg a [ChartType::ClusteredColumn](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#ClusteredColumn) típust.  
+4. Érje el a diagram adatkönyvét a [ChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/) segítségével.  
+5. Törölje az alapértelmezett sorozatokat és kategóriákat.  
+6. Adjon hozzá új sorozatokat és kategóriákat.  
+7. Adjon hozzá új diagramadatokat a diagram sorozathoz.  
 8. Mentse a módosított prezentációt PPTX fájlként.
-
-Ez a PHP kód mutatja, hogyan hozhat létre egy többkategóriás diagramot:
 
 ```php
   $pres = new Presentation();
@@ -714,11 +688,9 @@ Ez a PHP kód mutatja, hogyan hozhat létre egy többkategóriás diagramot:
   }
 ```
 
-### **Térképi diagramok létrehozása**
+### **Térkép diagramok létrehozása**
 
-A térképi diagramok földrajzi adatokat jelenítenek meg, és segítenek az értékek régiók szerinti összehasonlításában.
-
-Ez a PHP kód mutatja, hogyan hozhat létre egy térképi diagramot:
+A térkép diagramok földrajzi adatokat jelenítenek meg, és segítenek összehasonlítani az értékeket régiók szerint.
 
 ```php
   $pres = new Presentation();
@@ -732,13 +704,13 @@ Ez a PHP kód mutatja, hogyan hozhat létre egy térképi diagramot:
   }
 ```
 
-### **Kombinált diagramok létrehozása**
+### **Kombinációs diagramok létrehozása**
 
-A kombinált diagram (vagy combo diagram) több diagramtípust egyesít egy grafikonban. Ez a diagram lehetővé teszi, hogy kiemelje, összehasonlítsa vagy vizsgálja a különböző adatkészletek közti eltéréseket, segítve a kapcsolatok felismerését.
+A kombinációs diagram (vagy combo diagram) két vagy több diagramtípust egyesít egyetlen grafikonban. Ez a diagram lehetővé teszi, hogy kiemelje, összehasonlítsa vagy megvizsgálja a két vagy több adatkészlet közötti különbségeket, segítve a köztük lévő kapcsolatok azonosítását.
 
-![The combination chart](combination_chart.png)
+![A kombinációs diagram](combination_chart.png)
 
-Az alábbi PHP kód mutatja, hogyan hozhatja létre a fenti kombinált diagramot egy PowerPoint prezentációban:
+Az alábbi PHP kód mutatja, hogyan hozható létre a fenti kombinációs diagram egy PowerPoint prezentációban:
 
 ```php
 function createComboChart() {
@@ -775,7 +747,7 @@ function createChartWithFirstSeries($slide) {
     $chart->getLegend()->setPosition(LegendPositionType::Bottom);
     $chart->getLegend()->getTextFormat()->getPortionFormat()->setFontHeight(12);
 
-    // Törli az alapértelmezett generált sorozatokat és kategóriákat.
+    // Törölje az alapértelmezett létrehozott sorozatokat és kategóriákat.
     $chart->getChartData()->getSeries()->clear();
     $chart->getChartData()->getCategories()->clear();
 
@@ -835,14 +807,14 @@ function addThirdSeriesToChart($chart) {
 }
 
 function setPrimaryAxesFormat($chart) {
-    // Állítsa be a vízszintes tengelyt.
+    // A vízszintes tengely beállítása.
     $horizontalAxis = $chart->getAxes()->getHorizontalAxis();
     $horizontalAxis->getTextFormat()->getPortionFormat()->setFontHeight(12);
     $horizontalAxis->getFormat()->getLine()->getFillFormat()->setFillType(FillType::NoFill);
 
     setAxisTitle($horizontalAxis, "X Axis");
 
-    // Állítsa be a függőleges tengelyt.
+    // A függőleges tengely beállítása.
     $verticalAxis = $chart->getAxes()->getVerticalAxis();
     $verticalAxis->getTextFormat()->getPortionFormat()->setFontHeight(12);
     $verticalAxis->getFormat()->getLine()->getFillFormat()->setFillType(FillType::NoFill);
@@ -856,7 +828,7 @@ function setPrimaryAxesFormat($chart) {
 }
 
 function setSecondaryAxesFormat($chart) {
-    // Másodlagos vízszintes tengely beállítása.
+    // A másodlagos vízszintes tengely beállítása.
     $secondaryHorizontalAxis = $chart->getAxes()->getSecondaryHorizontalAxis();
     $secondaryHorizontalAxis->setPosition(AxisPositionType::Bottom);
     $secondaryHorizontalAxis->setCrossType(CrossesType::Maximum);
@@ -864,7 +836,7 @@ function setSecondaryAxesFormat($chart) {
     $secondaryHorizontalAxis->getMajorGridLinesFormat()->getLine()->getFillFormat()->setFillType(FillType::NoFill);
     $secondaryHorizontalAxis->getMinorGridLinesFormat()->getLine()->getFillFormat()->setFillType(FillType::NoFill);
 
-    // Másodlagos függőleges tengely beállítása.
+    // A másodlagos függőleges tengely beállítása.
     $secondaryVerticalAxis = $chart->getAxes()->getSecondaryVerticalAxis();
     $secondaryVerticalAxis->setPosition(AxisPositionType::Right);
     $secondaryVerticalAxis->getTextFormat()->getPortionFormat()->setFontHeight(12);
@@ -887,56 +859,54 @@ function setAxisTitle($axis, $axisTitle) {
 
 ## **Diagramok frissítése**
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/) osztályból, amely a frissítendő diagramot tartalmazó prezentációt képviseli.
-2. Szerezzen referenciát egy diára az indexe alapján.
-3. Járja be az összes alakzatot, hogy megtalálja a kívánt diagramot.
-4. Érje el a diagram adatlapját.
-5. Módosítsa a diagram adatsorait a sorozatértékek megváltoztatásával.
-6. Adjon hozzá egy új sorozatot, és töltse fel az adatait.
+1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) osztályból, amely a frissíteni kívánt diagramot tartalmazó prezentációt képviseli.  
+2. Szerezzen egy hivatkozást egy diára a indexe alapján.  
+3. Járja be az összes alakzatot, hogy megtalálja a kívánt diagramot.  
+4. Érje el a diagram adat munkalapját.  
+5. Módosítsa a diagram adat sorozatát a sorozatértékek megváltoztatásával.  
+6. Adjon hozzá egy új sorozatot, és töltse fel az adatokat.  
 7. Mentse a módosított prezentációt PPTX fájlként.
-
-Ez a PHP kód mutatja, hogyan frissíthet egy diagramot:
 
 ```php
   $pres = new Presentation();
   try {
-    # Az első dia elérése
+    # Első dia lekérése
     $sld = $pres->getSlides()->get_Item(0);
-    # Lekéri a diagramot alapértelmezett adatokkal
+    # Diagram lekérése alapértelmezett adatokkal
     $chart = $sld->getShapes()->get_Item(0);
-    # Beállítja a diagram adatlap indexét
+    # A diagram adatlap indexének beállítása
     $defaultWorksheetIndex = 0;
-    # Lekéri a diagram adatlapot
+    # A diagram adat munkalapjának lekérése
     $fact = $chart->getChartData()->getChartDataWorkbook();
-    # Módosítja a diagram kategória nevét
+    # A diagram kategória nevének módosítása
     $fact->getCell($defaultWorksheetIndex, 1, 0, "Modified Category 1");
     $fact->getCell($defaultWorksheetIndex, 2, 0, "Modified Category 2");
-    # Az első diagram sorozatot veszi
+    # Az első diagram sorozat kivétele
     $series = $chart->getChartData()->getSeries()->get_Item(0);
-    # Most frissíti a sorozat adatait
-    $fact->getCell($defaultWorksheetIndex, 0, 1, "New_Series1"); // Sorozat nevének módosítása
+    # Most sorozat adatainak frissítése
+    $fact->getCell($defaultWorksheetIndex, 0, 1, "New_Series1");// Sorozat név módosítása
 
     $series->getDataPoints()->get_Item(0)->getValue()->setData(90);
     $series->getDataPoints()->get_Item(1)->getValue()->setData(123);
     $series->getDataPoints()->get_Item(2)->getValue()->setData(44);
-    # A második diagram sorozatot veszi
+    # A második diagram sorozat kivétele
     $series = $chart->getChartData()->getSeries()->get_Item(1);
-    # Most frissíti a sorozat adatait
-    $fact->getCell($defaultWorksheetIndex, 0, 2, "New_Series2"); // Sorozat nevének módosítása
+    # Most sorozat adatainak frissítése
+    $fact->getCell($defaultWorksheetIndex, 0, 2, "New_Series2");// Sorozat név módosítása
 
     $series->getDataPoints()->get_Item(0)->getValue()->setData(23);
     $series->getDataPoints()->get_Item(1)->getValue()->setData(67);
     $series->getDataPoints()->get_Item(2)->getValue()->setData(99);
-    # Most új sorozatot ad hozzá
+    # Most új sorozat hozzáadása
     $chart->getChartData()->getSeries()->add($fact->getCell($defaultWorksheetIndex, 0, 3, "Series 3"), $chart->getType());
-    # A harmadik diagram sorozatot veszi
+    # A harmadik diagram sorozat kivétele
     $series = $chart->getChartData()->getSeries()->get_Item(2);
-    # Most feltölti a sorozat adatait
+    # Most a sorozat adatainak feltöltése
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 1, 3, 20));
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 2, 3, 50));
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 3, 3, 30));
     $chart->setType(ChartType::ClusteredCylinder);
-    # Mentse a prezentációt diagrammal
+    # Prezentáció mentése diagrammal
     $pres->save("AsposeChartModified_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -947,15 +917,15 @@ Ez a PHP kód mutatja, hogyan frissíthet egy diagramot:
 
 ## **Adattartomány beállítása diagramhoz**
 
-A diagram adattartományának beállításához kövesse az alábbiakat:
+A már használt tartomány megtekintéséhez lásd a [Diagram adat tartományának lekérdezése](/slides/hu/php-java/chart-workbook/#retrieve-a-charts-data-range) oldalt.
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/) osztályból, amely a diagramot tartalmazó prezentációt képviseli.
-2. Szerezzen referenciát egy diára az indexe alapján.
-3. Járja be az összes alakzatot, hogy megtalálja a kívánt diagramot.
-4. Érje el a diagram adatokat, és állítsa be a tartományt.
+A diagram adattartományának beállításához tegye a következőt:
+
+1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) osztályból, amely a diagramot tartalmazó prezentációt képviseli.  
+2. Szerezzen egy hivatkozást egy diára a indexe alapján.  
+3. Járja be az összes alakzatot, hogy megtalálja a kívánt diagramot.  
+4. Érje el a diagram adatot, és állítsa be a tartományt.  
 5. Mentse a módosított prezentációt PPTX fájlként.
-
-Ez a PHP kód mutatja, hogyan állíthatja be a diagram adattartományát:
 
 ```php
   $pres = new Presentation();
@@ -973,9 +943,7 @@ Ez a PHP kód mutatja, hogyan állíthatja be a diagram adattartományát:
 
 ## **Alapértelmezett jelölők használata diagramokban**
 
-Alapértelmezett jelölők használata esetén minden diagram sorozat automatikusan különböző jelölőszimbólumot kap.
-
-Ez a PHP kód mutatja, hogyan állíthatja be automatikusan a diagram sorozat jelölőjét:
+Alapértelmezett jelölők használatakor a diagram sorozatai automatikusan különböző jelölőszimbólumot kapnak.
 
 ```php
   $pres = new Presentation();
@@ -996,9 +964,9 @@ Ez a PHP kód mutatja, hogyan állíthatja be automatikusan a diagram sorozat je
     $chart->getChartData()->getCategories()->add($fact->getCell(0, 4, 0, "C4"));
     $series->getDataPoints()->addDataPointForLineSeries($fact->getCell(0, 4, 1, null));
     $chart->getChartData()->getSeries()->add($fact->getCell(0, 0, 2, "Series 2"), $chart->getType());
-    # A második diagram sorozatot veszi
+    # A második diagram sorozat kivétele
     $series2 = $chart->getChartData()->getSeries()->get_Item(1);
-    # Most feltölti a sorozat adatait
+    # Most a sorozat adatainak feltöltése
     $series2->getDataPoints()->addDataPointForLineSeries($fact->getCell(0, 1, 2, 30));
     $series2->getDataPoints()->addDataPointForLineSeries($fact->getCell(0, 2, 2, 10));
     $series2->getDataPoints()->addDataPointForLineSeries($fact->getCell(0, 3, 2, 60));
@@ -1015,18 +983,18 @@ Ez a PHP kód mutatja, hogyan állíthatja be automatikusan a diagram sorozat je
 
 ## **GYIK**
 
-**Milyen diagramtípusok támogatottak az Aspose.Slides-ban?**
+**Milyen diagramtípusokat támogat az Aspose.Slides?**
 
-Az Aspose.Slides széles körű [diagramtípusokat](https://reference.aspose.com/slides/hu/php-java/aspose.slides/charttype/) támogat, többek között oszlop, vonal, torta, terület, szórás, hisztogram, radar és még sok mást. Ez a rugalmasság lehetővé teszi, hogy az adatvizualizációs igényeinek legmegfelelőbb diagramtípust válassza.
+Az Aspose.Slides sokféle [diagramtípust](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/) támogat, beleértve az oszlop-, vonal-, kör-, terület-, szórás-, hisztogram-, radar- és még sok más típust. Ez a rugalmasság lehetővé teszi, hogy az adatmegjelenítési igényeinek legmegfelelőbb diagramtípust válassza.
 
-**Hogyan adhatok új diagramot egy diához?**
+**Hogyan adhatok új diagramot egy diára?**
 
-Diagram hozzáadásához először hozza létre a [Presentation](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/) osztály egy példányát, szerezze meg a kívánt diát az indexe alapján, majd hívja meg a diagram hozzáadására szolgáló metódust, megadva a diagram típusát és a kezdeti adatokat. Ezzel a folyamattal a diagram közvetlenül a prezentációba kerül.
+Új diagram hozzáadásához először hozza létre a [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) osztály egy példányát, szerezze meg a kívánt diát az indexe alapján, majd hívja meg a diagram hozzáadására szolgáló metódust, megadva a diagram típusát és a kezdeti adatokat. Ez a folyamat közvetlenül integrálja a diagramot a prezentációba.
 
-**Hogyan frissíthetem a diagramon megjelenített adatokat?**
+**Hogyan frissíthetem egy diagram megjelenített adatait?**
 
-A diagram adatait a [ChartDataWorkbook](https://reference.aspose.com/slides/hu/php-java/aspose.slides/chartdataworkbook/) elérésével frissítheti: törölje az alapértelmezett sorozatokat és kategóriákat, majd adja hozzá saját egyedi adatait. Így a diagram naprakész adatokat fog megjeleníteni.
+Egy diagram adatait a diagram adatkönyvének ([ChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/)) elérésével, az alapértelmezett sorozatok és kategóriák törlésével, majd a saját egyedi adatainak hozzáadásával frissítheti. Így a diagram mindig a legújabb adatokat tükrözi.
 
-**Lehetőség van a diagram megjelenésének testreszabására?**
+**Lehetséges-e a diagram megjelenésének testreszabása?**
 
-Igen, az Aspose.Slides kiterjedt testreszabási lehetőségeket biztosít. Módosíthatja a színeket, betűtípusokat, címkéket, jelmagyarázatokat és más [formázási elemek](/slides/hu/php-java/chart-entities/) megjelenését, hogy a diagramot a konkrét tervezési követelményeknek megfelelően alakítsa.
+Igen, az Aspose.Slides kiterjedt testreszabási lehetőségeket biztosít. Módosíthatja a színeket, betűtípusokat, címkéket, jelmagyarázatokat és egyéb [formázási elemek](/slides/hu/php-java/chart-entities/) beállításait, hogy a diagram kinézetét az Ön tervezési igényeihez igazítsa.

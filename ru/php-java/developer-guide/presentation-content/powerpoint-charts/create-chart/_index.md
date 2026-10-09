@@ -1,6 +1,6 @@
 ---
-title: Создание или обновление диаграмм презентаций PowerPoint в PHP
-linktitle: Создание или обновление диаграмм
+title: Создать или обновить диаграммы презентаций PowerPoint в PHP
+linktitle: Создать или обновить диаграммы
 type: docs
 weight: 10
 url: /ru/php-java/create-chart/
@@ -13,11 +13,11 @@ keywords:
 - точечная диаграмма
 - круговая диаграмма
 - линейная диаграмма
-- деревовидная диаграмма
-- диаграмма акций
-- диаграмма ящик с усами
+- дерево-картовая диаграмма
+- биржевая диаграмма
+- ящичная диаграмма (box and whisker)
 - воронкообразная диаграмма
-- диаграмма Sunburst
+- лучевая диаграмма
 - гистограмма
 - радиальная диаграмма
 - многокатегориальная диаграмма
@@ -29,48 +29,48 @@ description: "Создавайте и настраивайте диаграмм�
 ---
 ## **Обзор**
 
-Эта статья предоставляет всестороннее руководство по созданию и настройке диаграмм с использованием Aspose.Slides. Вы узнаете, как программно добавить диаграмму на слайд, заполнить её данными и применить различные параметры форматирования, соответствующие вашим конкретным требованиям к дизайну. На протяжении статьи детальные примеры кода иллюстрируют каждый шаг, от инициализации презентации и объекта диаграммы до конфигурации рядов, осей и легенд. Следуя этому руководству, вы получите прочное понимание того, как интегрировать динамическую генерацию диаграмм в свои приложения, упростив процесс создания презентаций, основанных на данных.
+Эта статья предоставляет всестороннее руководство о том, как создавать и настраивать диаграммы с использованием Aspose.Slides. Вы узнаете, как программно добавить диаграмму на слайд, заполнить её данными и применить различные параметры форматирования, чтобы соответствовать вашим конкретным требованиям к дизайну. На протяжении всей статьи детальные примеры кода иллюстрируют каждый шаг, от инициализации презентации и объекта диаграммы до настройки рядов, осей и легенд. Следуя этому руководству, вы получите твердое понимание того, как интегрировать динамическое создание диаграмм в свои приложения, упрощая процесс создания презентаций, основанных на данных.
 
 ## **Создание диаграммы**
 
-Диаграммы помогают людям быстро визуализировать данные и получать инсайты, которые могут быть неочевидны из таблицы или электронной таблицы.
+Диаграммы помогают людям быстро визуализировать данные и получать инсайты, которые могут быть не сразу очевидны из таблицы или электронных таблиц.
 
 **Зачем создавать диаграммы?**
 
 Используя диаграммы, вы можете:
 
-* агрегировать, сжимать или обобщать большие объёмы данных на одном слайде презентации
+* агрегировать, упрощать или суммировать большие объёмы данных на одном слайде презентации
 * выявлять закономерности и тенденции в данных
 * определять направление и динамику данных во времени или относительно конкретной единицы измерения
-* выявлять выбросы, аномалии, отклонения, ошибки, бессмысленные данные и т.д.
-* коммуницировать или представлять сложные данные
+* обнаруживать выбросы, аномалии, отклонения, ошибки, бессмысленные данные и т.д.
+* передавать или представлять сложные данные
 
-В PowerPoint вы можете создавать диаграммы через функцию *Insert*, которая предоставляет шаблоны для создания множества типов диаграмм. С помощью Aspose.Slides вы можете создавать как обычные диаграммы (на основе популярных типов), так и пользовательские диаграммы.
+В PowerPoint вы можете создавать диаграммы через функцию *Insert*, которая предоставляет шаблоны для разработки различных типов диаграмм. Используя Aspose.Slides, вы можете создавать как обычные диаграммы (на основе популярных типов), так и пользовательские диаграммы.
 
 {{% alert color="info" title="Note" %}}
-Для создания диаграмм используйте класс [ChartType](https://reference.aspose.com/slides/ru/php-java/aspose.slides/charttype/). Поля этого класса соответствуют различным типам диаграмм.
+Для создания диаграмм используйте класс [ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/). Поля этого класса соответствуют различным типам диаграмм.
 {{% /alert %}}
 
 ### **Создание сгруппированных столбчатых диаграмм**
 
-В этом разделе объясняется, как создавать сгруппированные столбчатые диаграммы с помощью Aspose.Slides. Вы узнаете, как инициализировать презентацию, добавить диаграмму и настроить её элементы, такие как заголовок, данные, ряды, категории и стиль. Следуйте инструкциям ниже, чтобы увидеть, как генерируется стандартная сгруппированная столбчатая диаграмма:
+Этот раздел объясняет, как создавать сгруппированные столбчатые диаграммы с помощью Aspose.Slides. Вы научитесь инициализировать презентацию, добавлять диаграмму и настраивать её элементы, такие как заголовок, данные, ряды, категории и стиль. Выполните приведённые ниже шаги, чтобы увидеть, как генерируется стандартная сгруппированная столбчатая диаграмма:
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/php-java/aspose.slides/presentation).
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation).
 1. Получите ссылку на слайд, используя его индекс.
 1. Добавьте диаграмму с некоторыми данными и укажите тип `ChartType::ClusteredColumn`.
 1. Добавьте заголовок к диаграмме.
 1. Получите доступ к листу данных диаграммы.
-1. Очистите все серии и категории по умолчанию.
-1. Добавьте новые серии и категории.
-1. Добавьте новые данные диаграммы для серий.
-1. Примените цвет заполнения к сериям диаграммы.
-1. Добавьте подписи к сериям диаграммы.
-1. Сохраните изменённую презентацию как файл PPTX.
+1. Очистите все ряды и категории по умолчанию.
+1. Добавьте новые ряды и категории.
+1. Добавьте новые данные диаграммы для рядов.
+1. Примените цвет заливки к рядам диаграммы.
+1. Добавьте подписи к рядам диаграммы.
+1. Сохраните изменённую презентацию в файл PPTX.
 
-Этот код C# демонстрирует, как создать сгруппированную столбчатую диаграмму:
+Этот C# код демонстрирует создание сгруппированной столбчатой диаграммы:
 
 ```php
-  # Создаёт экземпляр класса презентации, представляющего файл PPTX
+  # Создаёт объект класса презентации, представляющий файл PPTX
   $pres = new Presentation();
   try {
     # Получает первый слайд
@@ -82,11 +82,11 @@ description: "Создавайте и настраивайте диаграмм�
     $chart->getChartTitle()->getTextFrameForOverriding()->getTextFrameFormat()->setCenterText(NullableBool::True);
     $chart->getChartTitle()->setHeight(20);
     $chart->hasTitle();
-    # Настраивает первый ряд для отображения значений
+    # Устанавливает отображение значений для первого ряда
     $chart->getChartData()->getSeries()->get_Item(0)->getLabels()->getDefaultDataLabelFormat()->setShowValue(true);
     # Устанавливает индекс листа данных диаграммы
     $defaultWorksheetIndex = 0;
-    # Получает рабочий лист данных диаграммы
+    # Получает лист данных диаграммы
     $fact = $chart->getChartData()->getChartDataWorkbook();
     # Удаляет автоматически сгенерированные ряды и категории
     $chart->getChartData()->getSeries()->clear();
@@ -140,27 +140,27 @@ description: "Создавайте и настраивайте диаграмм�
 
 ### **Создание точечных диаграмм**
 
-Точечные диаграммы (также известные как scatter plots или x‑y графики) часто используются для проверки закономерностей или демонстрации корреляций между двумя переменными.
+Точечные диаграммы (также известные как scatter plot или x‑y графики) часто используются для проверки закономерностей или демонстрации корреляций между двумя переменными.
 
 Используйте точечную диаграмму, когда:
 
 * у вас есть парные числовые данные
-* у вас есть две переменные, которые хорошо сочетаются
+* у вас есть две переменные, которые хорошо сочетаются друг с другом
 * вы хотите определить, связаны ли две переменные
 * у вас есть независимая переменная, имеющая несколько значений для зависимой переменной
 
-1. Следуйте инструкциям в [Create Clustered Column Charts](#create-clustered-column-charts).
-2. Для третьего шага добавьте диаграмму с некоторыми данными и укажите тип диаграммы как один из следующих:
-   1. [ChartType::ScatterWithMarkers](https://reference.aspose.com/slides/ru/php-java/aspose.slides/charttype/#ScatterWithMarkers) - _Представляет точечную диаграмму._
-   2. [ChartType::ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/ru/php-java/aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - _Представляет точечную диаграмму, соединённую кривыми, с маркерами данных._
-   3. [ChartType::ScatterWithSmoothLines](https://reference.aspose.com/slides/ru/php-java/aspose.slides/charttype/#ScatterWithSmoothLines) - _Представляет точечную диаграмму, соединённую кривыми, без маркеров данных._
-   4. [ChartType::ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/ru/php-java/aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _Представляет точечную диаграмму, соединённую линиями, с маркерами данных._
-   5. [ChartType::ScatterWithStraightLines](https://reference.aspose.com/slides/ru/php-java/aspose.slides/charttype/#ScatterWithStraightLines) - _Представляет точечную диаграмму, соединённую линиями, без маркеров данных._
+1. Выполните шаги из раздела [Создание сгруппированных столбчатых диаграмм](#создание-сгруппированных-столбчатых-диаграмм).
+2. На третьем шаге добавьте диаграмму с некоторыми данными и укажите тип диаграммы как один из следующих:
+   1. [ChartType::ScatterWithMarkers](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#ScatterWithMarkers) - _Представляет точечную диаграмму с маркерами._
+   2. [ChartType::ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - _Представляет точечную диаграмму, соединённую плавными линиями, с маркерами данных._
+   3. [ChartType::ScatterWithSmoothLines](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#ScatterWithSmoothLines) - _Представляет точечную диаграмму, соединённую плавными линиями, без маркеров данных._
+   4. [ChartType::ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _Представляет точечную диаграмму, соединённую прямыми линиями, с маркерами данных._
+   5. [ChartType::ScatterWithStraightLines](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#ScatterWithStraightLines) - _Представляет точечную диаграмму, соединённую прямыми линиями, без маркеров данных._
 
-Этот PHP‑код показывает, как создать точечную диаграмму с разными маркерами для каждой серии:
+Этот PHP код показывает, как создать точечную диаграмму с разными маркерами для каждого ряда:
 
 ```php
-  # Создаёт экземпляр класса презентации, представляющего файл PPTX
+  # Создаёт объект класса презентации, представляющий файл PPTX
   $pres = new Presentation();
   try {
     # Получает первый слайд
@@ -169,9 +169,9 @@ description: "Создавайте и настраивайте диаграмм�
     $chart = $slide->getShapes()->addChart(ChartType::ScatterWithSmoothLines, 0, 0, 400, 400);
     # Получает индекс листа данных диаграммы по умолчанию
     $defaultWorksheetIndex = 0;
-    # Получает рабочий лист данных диаграммы
+    # Получает лист данных диаграммы
     $fact = $chart->getChartData()->getChartDataWorkbook();
-    # Удаляет демонстрационные ряды
+    # Удаляет демонстрационный ряд
     $chart->getChartData()->getSeries()->clear();
     # Добавляет новые ряды
     $chart->getChartData()->getSeries()->add($fact->getCell($defaultWorksheetIndex, 1, 1, "Series 1"), $chart->getType());
@@ -210,25 +210,25 @@ description: "Создавайте и настраивайте диаграмм�
 
 ### **Создание круговых диаграмм**
 
-Круговые диаграммы лучше всего использовать для отображения соотношения части к целому в данных, особенно когда данные содержат категориальные метки с числовыми значениями. Однако если в ваших данных много частей или меток, имеет смысл использовать столбчатую диаграмму.
+Круговые диаграммы лучше всего использовать для отображения соотношения части к целому в данных, особенно когда данные содержат категориальные метки с числовыми значениями. Однако если ваш набор данных содержит много частей или меток, имеет смысл рассмотреть возможность использования столбчатой диаграммы вместо неё.
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/php-java/aspose.slides/presentation/).
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) .
 2. Получите ссылку на слайд, используя его индекс.
-3. Добавьте диаграмму с данными по умолчанию и укажите тип [ChartType::Pie](https://reference.aspose.com/slides/ru/php-java/aspose.slides/charttype/#Pie).
-4. Получите доступ к рабочей книге данных диаграммы [ChartDataWorkbook](https://reference.aspose.com/slides/ru/php-java/aspose.slides/chartdataworkbook/).
-5. Очистите серии и категории по умолчанию.
-6. Добавьте новые серии и категории.
-7. Добавьте новые данные диаграммы для серий.
-8. Добавьте новые точки в диаграмму и примените пользовательские цвета для секторов круговой диаграммы.
-9. Установите подписи для серий.
-10. Включите линии‑выноски для подписей серий.
-11. Установите угол поворота секторов круговой диаграммы.
-12. Сохраните изменённую презентацию как файл PPTX.
+3. Добавьте диаграмму с данными по умолчанию и укажите тип [ChartType::Pie](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#Pie) .
+4. Получите доступ к рабочей книге данных диаграммы [ChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/) .
+5. Очистите ряды и категории по умолчанию.
+6. Добавьте новые ряды и категории.
+7. Добавьте новые данные диаграммы для рядов.
+8. Добавьте новые точки для диаграммы и примените пользовательские цвета к секторам круговой диаграммы.
+9. Установите подписи для рядов.
+10. Включите линии‑выноски для подписей рядов.
+11. Установите угол вращения секторов круговой диаграммы.
+12. Сохраните изменённую презентацию в файл PPTX.
 
-Этот PHP‑код показывает, как создать круговую диаграмму:
+Этот PHP код показывает, как создать круговую диаграмму:
 
 ```php
-  # Создаёт экземпляр класса презентации, представляющего файл PPTX
+  # Создаёт объект класса презентации, представляющий файл PPTX
   $pres = new Presentation();
   try {
     # Получает первый слайд
@@ -240,27 +240,27 @@ description: "Создавайте и настраивайте диаграмм�
     $chart->getChartTitle()->getTextFrameForOverriding()->getTextFrameFormat()->setCenterText(NullableBool::True);
     $chart->getChartTitle()->setHeight(20);
     $chart->setTitle(true);
-    # Настраивает первый ряд для отображения значений
+    # Устанавливает отображение значений для первого ряда
     $chart->getChartData()->getSeries()->get_Item(0)->getLabels()->getDefaultDataLabelFormat()->setShowValue(true);
     # Устанавливает индекс листа данных диаграммы
     $defaultWorksheetIndex = 0;
-    # Получает рабочий лист данных диаграммы
+    # Получает лист данных диаграммы
     $fact = $chart->getChartData()->getChartDataWorkbook();
-    # Удаляет автоматически сгенерированные ряды и категории
+    # Удаляет автоматически сгенерированные ряд и категории
     $chart->getChartData()->getSeries()->clear();
     $chart->getChartData()->getCategories()->clear();
     # Добавляет новые категории
     $chart->getChartData()->getCategories()->add($fact->getCell(0, 1, 0, "First Qtr"));
     $chart->getChartData()->getCategories()->add($fact->getCell(0, 2, 0, "2nd Qtr"));
     $chart->getChartData()->getCategories()->add($fact->getCell(0, 3, 0, "3rd Qtr"));
-    # Добавляет новые ряды
+    # Добавляет новый ряд
     $series = $chart->getChartData()->getSeries()->add($fact->getCell(0, 0, 1, "Series 1"), $chart->getType());
     # Заполняет данные ряда
     $series->getDataPoints()->addDataPointForPieSeries($fact->getCell($defaultWorksheetIndex, 1, 1, 20));
     $series->getDataPoints()->addDataPointForPieSeries($fact->getCell($defaultWorksheetIndex, 2, 1, 50));
     $series->getDataPoints()->addDataPointForPieSeries($fact->getCell($defaultWorksheetIndex, 3, 1, 30));
     # Не работает в новой версии
-    # Добавление новых точек и установка цвета сектора
+    # Добавление новых точек и установка цвета секторов
     # series.IsColorVaried = true;
     $chart->getChartData()->getSeriesGroups()->get_Item(0)->setColorVaried(true);
     $point = $series->getDataPoints()->get_Item(0);
@@ -303,7 +303,7 @@ description: "Создавайте и настраивайте диаграмм�
     $lbl3->getDataLabelFormat()->setShowPercentage(true);
     # Отображает линии‑выноски для диаграммы
     $series->getLabels()->getDefaultDataLabelFormat()->setShowLeaderLines(true);
-    # Устанавливает угол поворота секторов круговой диаграммы
+    # Устанавливает угол вращения секторов круговой диаграммы
     $chart->getChartData()->getSeriesGroups()->get_Item(0)->setFirstSliceAngle(180);
     # Сохраняет презентацию с диаграммой
     $pres->save("PieChart_out.pptx", SaveFormat::Pptx);
@@ -316,18 +316,18 @@ description: "Создавайте и настраивайте диаграмм�
 
 ### **Создание линейных диаграмм**
 
-Линейные диаграммы (также известные как line graphs) лучше всего использовать в ситуациях, когда необходимо продемонстрировать изменения значения во времени. С помощью линейной диаграммы вы можете сравнивать большой объём данных одновременно, отслеживать изменения и тренды во времени, выделять аномалии в рядах данных и многое другое.
+Линейные диаграммы (также известные как line graphs) лучше всего использовать в ситуациях, когда нужно показать изменение значений во времени. С помощью линейной диаграммы вы можете сравнивать большой объём данных одновременно, отслеживать изменения и тенденции во времени, подчёркивать аномалии в рядах данных и многое другое.
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/php-java/aspose.slides/presentation/).
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) .
 1. Получите ссылку на слайд, используя его индекс.
-1. Добавьте диаграмму с данными по умолчанию и укажите тип [ChartType::Line](https://reference.aspose.com/slides/ru/php-java/aspose.slides/charttype/#Line).
-1. Получите доступ к рабочей книге данных диаграммы ([ChartDataWorkbook](https://reference.aspose.com/slides/ru/php-java/aspose.slides/chartdataworkbook/)).
-1. Очистите серии и категории по умолчанию.
-1. Добавьте новые серии и категории.
-1. Добавьте новые данные диаграммы для серий.
-1. Сохраните изменённую презентацию как файл PPTX.
+1. Добавьте диаграмму с данными по умолчанию и укажите тип [ChartType::Line](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#Line) .
+1. Получите доступ к рабочей книге данных диаграммы ([ChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/)) .
+1. Очистите ряды и категории по умолчанию.
+1. Добавьте новые ряды и категории.
+1. Добавьте новые данные диаграммы для рядов.
+1. Сохраните изменённую презентацию в файл PPTX.
 
-Этот PHP‑код показывает, как создать линейную диаграмму:
+Этот PHP код показывает, как создать линейную диаграмму:
 
 ```php
   $pres = new Presentation();
@@ -341,7 +341,7 @@ description: "Создавайте и настраивайте диаграмм�
   }
 ```
 
-По умолчанию точки на линейной диаграмме соединяются прямыми непрерывными линиями. Если вы хотите, чтобы точки соединялись пунктиром, можете указать предпочтительный тип пунктирной линии следующим образом:
+По умолчанию точки на линейной диаграмме соединяются сплошными прямыми линиями. Если вы хотите, чтобы точки соединялись пунктиром, укажите желаемый тип штриха следующим образом:
 
 ```php
   $pres = new Presentation();
@@ -359,20 +359,20 @@ description: "Создавайте и настраивайте диаграмм�
   }
 ```
 
-### **Создание диаграмм Tree Map**
+### **Создание деревообразных диаграмм**
 
-Диаграммы Tree Map лучше всего использовать для данных продаж, когда необходимо показать относительный размер категорий данных и быстро привлечь внимание к элементам, являющимся крупными вкладчиками в каждой категории.
+Дерево‑картовые диаграммы лучше всего использовать для данных о продажах, когда необходимо показать относительный размер категорий данных и быстро привлечь внимание к элементам, которые являются крупными вкладами в каждой категории.
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/php-java/aspose.slides/presentation/).
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) .
 2. Получите ссылку на слайд, используя его индекс.
-3. Добавьте диаграмму с данными по умолчанию и укажите тип [ChartType::Treemap](https://reference.aspose.com/slides/ru/php-java/aspose.slides/charttype/#Treemap).
-4. Получите доступ к рабочей книге данных диаграммы [ChartDataWorkbook](https://reference.aspose.com/slides/ru/php-java/aspose.slides/chartdataworkbook/).
-5. Очистите серии и категории по умолчанию.
-6. Добавьте новые серии и категории.
-7. Добавьте новые данные диаграммы для серий.
-8. Сохраните изменённую презентацию как файл PPTX.
+3. Добавьте диаграмму с данными по умолчанию и укажите тип [ChartType::Treemap](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#Treemap) .
+4. Получите доступ к рабочей книге данных диаграммы [ChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/) .
+5. Очистите ряды и категории по умолчанию.
+6. Добавьте новые ряды и категории.
+7. Добавьте новые данные диаграммы для рядов.
+8. Сохраните изменённую презентацию в файл PPTX.
 
-Этот PHP‑код показывает, как создать диаграмму Tree Map:
+Этот PHP код показывает, как создать дерево‑картовую диаграмму:
 
 ```php
   $pres = new Presentation();
@@ -417,19 +417,19 @@ description: "Создавайте и настраивайте диаграмм�
   }
 ```
 
-### **Создание Stock диаграмм**
+### **Создание биржевых диаграмм**
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/php-java/aspose.slides/presentation/).
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) .
 2. Получите ссылку на слайд, используя его индекс.
-3. Добавьте диаграмму с данными по умолчанию и укажите тип [ChartType::OpenHighLowClose](https://reference.aspose.com/slides/ru/php-java/aspose.slides/charttype/#OpenHighLowClose).
-4. Получите доступ к рабочей книге данных диаграммы [ChartDataWorkbook](https://reference.aspose.com/slides/ru/php-java/aspose.slides/chartdataworkbook/).
-5. Очистите серии и категории по умолчанию.
-6. Добавьте новые серии и категории.
-7. Добавьте новые данные диаграммы для серий.
+3. Добавьте диаграмму с данными по умолчанию и укажите тип [ChartType::OpenHighLowClose](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#OpenHighLowClose) .
+4. Получите доступ к рабочей книге данных диаграммы [ChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/) .
+5. Очистите ряды и категории по умолчанию.
+6. Добавьте новые ряды и категории.
+7. Добавьте новые данные диаграммы для рядов.
 8. Укажите формат линий high‑low.
-9. Сохраните изменённую презентацию как файл PPTX.
+9. Сохраните изменённую презентацию в файл PPTX.
 
-Этот PHP‑код показывает, как создать Stock диаграмму:
+Этот PHP код показывает, как создать биржевую диаграмму:
 
 ```php
   $pres = new Presentation();
@@ -475,18 +475,18 @@ description: "Создавайте и настраивайте диаграмм�
   }
 ```
 
-### **Создание диаграмм Box and Whisker**
+### **Создание диаграмм «Box and Whisker»**
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/php-java/aspose.slides/presentation/).
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) .
 2. Получите ссылку на слайд, используя его индекс.
-3. Добавьте диаграмму с данными по умолчанию и укажите тип [ChartType::BoxAndWhisker](https://reference.aspose.com/slides/ru/php-java/aspose.slides/charttype/#BoxAndWhisker).
-4. Получите доступ к рабочей книге данных диаграммы [ChartDataWorkbook](https://reference.aspose.com/slides/ru/php-java/aspose.slides/chartdataworkbook/).
-5. Очистите серии и категории по умолчанию.
-6. Добавьте новые серии и категории.
-7. Добавьте новые данные диаграммы для серий.
-8. Сохраните изменённую презентацию как файл PPTX.
+3. Добавьте диаграмму с данными по умолчанию и укажите тип [ChartType::BoxAndWhisker](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#BoxAndWhisker) .
+4. Получите доступ к рабочей книге данных диаграммы [ChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/) .
+5. Очистите ряды и категории по умолчанию.
+6. Добавьте новые ряды и категории.
+7. Добавьте новые данные диаграммы для рядов.
+8. Сохраните изменённую презентацию в файл PPTX.
 
-Этот PHP‑код показывает, как создать диаграмму Box and Whisker:
+Этот PHP код показывает, как создать диаграмму «Box and Whisker»:
 
 ```php
   $pres = new Presentation();
@@ -524,12 +524,12 @@ description: "Создавайте и настраивайте диаграмм�
 
 ### **Создание воронкообразных диаграмм**
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/php-java/aspose.slides/presentation/).
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) .
 2. Получите ссылку на слайд, используя его индекс.
-3. Добавьте диаграмму с данными по умолчанию и укажите тип [ChartType::Funnel](https://reference.aspose.com/slides/ru/php-java/aspose.slides/charttype/#Funnel).
-4. Сохраните изменённую презентацию как файл PPTX.
+3. Добавьте диаграмму с данными по умолчанию и укажите тип [ChartType::Funnel](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#Funnel) .
+4. Сохраните изменённую презентацию в файл PPTX.
 
-Этот PHP‑код показывает, как создать воронкообразную диаграмму:
+Этот PHP код показывает, как создать воронкообразную диаграмму:
 
 ```php
   $pres = new Presentation();
@@ -560,14 +560,14 @@ description: "Создавайте и настраивайте диаграмм�
   }
 ```
 
-### **Создание Sunburst диаграмм**
+### **Создание лучевых диаграмм**
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/php-java/aspose.slides/presentation/).
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) .
 2. Получите ссылку на слайд, используя его индекс.
-3. Добавьте диаграмму с данными по умолчанию и укажите тип [ChartType::Sunburst](https://reference.aspose.com/slides/ru/php-java/aspose.slides/charttype/#Sunburst).
-4. Сохраните изменённую презентацию как файл PPTX.
+3. Добавьте диаграмму с данными по умолчанию и укажите тип [ChartType::Sunburst](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#Sunburst) .
+4. Сохраните изменённую презентацию в файл PPTX.
 
-Этот PHP‑код показывает, как создать Sunburst диаграмму:
+Этот PHP код показывает, как создать лучевую диаграмму:
 
 ```php
   $pres = new Presentation();
@@ -613,15 +613,15 @@ description: "Создавайте и настраивайте диаграмм�
 
 ### **Создание гистограмм**
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/php-java/aspose.slides/presentation/).
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) .
 2. Получите ссылку на слайд, используя его индекс.
-3. Добавьте диаграмму с данными по умолчанию и укажите тип [ChartType::Histogram](https://reference.aspose.com/slides/ru/php-java/aspose.slides/charttype/#Histogram).
-4. Получите доступ к рабочей книге данных диаграммы [ChartDataWorkbook](https://reference.aspose.com/slides/ru/php-java/aspose.slides/chartdataworkbook/).
-5. Очистите серии и категории по умолчанию.
-6. Добавьте новые серии и категории.
-7. Сохраните изменённую презентацию как файл PPTX.
+3. Добавьте диаграмму с данными по умолчанию и укажите тип [ChartType::Histogram](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#Histogram) .
+4. Получите доступ к рабочей книге данных диаграммы [ChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/) .
+5. Очистите ряды и категории по умолчанию.
+6. Добавьте новые ряды и категории.
+7. Сохраните изменённую презентацию в файл PPTX.
 
-Этот PHP‑код показывает, как создать гистограмму:
+Этот PHP код показывает, как создать гистограмму:
 
 ```php
   $pres = new Presentation();
@@ -642,12 +642,12 @@ description: "Создавайте и настраивайте диаграмм�
 
 ### **Создание радиальных диаграмм**
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/php-java/aspose.slides/presentation/).
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) .
 2. Получите ссылку на слайд, используя его индекс.
-3. Добавьте диаграмму с некоторыми данными и укажите предпочтительный тип диаграммы ([ChartType::Radar](https://reference.aspose.com/slides/ru/php-java/aspose.slides/charttype/#Radar) в данном случае).
-4. Сохраните изменённую презентацию как файл PPTX.
+3. Добавьте диаграмму с некоторыми данными и укажите предпочтительный тип диаграммы ([ChartType::Radar](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#Radar) в данном случае).
+4. Сохраните изменённую презентацию в файл PPTX.
 
-Этот PHP‑код показывает, как создать радиальную диаграмму:
+Этот PHP код показывает, как создать радиальную диаграмму:
 
 ```php
   $pres = new Presentation();
@@ -661,18 +661,18 @@ description: "Создавайте и настраивайте диаграмм�
   }
 ```
 
-### **Создание многокатегорийных диаграмм**
+### **Создание многокатегориальных диаграмм**
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/php-java/aspose.slides/presentation/).
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) .
 2. Получите ссылку на слайд, используя его индекс.
-3. Добавьте диаграмму с данными по умолчанию и укажите тип [ChartType::ClusteredColumn](https://reference.aspose.com/slides/ru/php-java/aspose.slides/charttype/#ClusteredColumn).
-4. Получите доступ к рабочей книге данных диаграммы [ChartDataWorkbook](https://reference.aspose.com/slides/ru/php-java/aspose.slides/chartdataworkbook/).
-5. Очистите серии и категории по умолчанию.
-6. Добавьте новые серии и категории.
-7. Добавьте новые данные диаграммы для серий.
-8. Сохраните изменённую презентацию как файл PPTX.
+3. Добавьте диаграмму с данными по умолчанию и укажите тип [ChartType::ClusteredColumn](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#ClusteredColumn) .
+4. Получите доступ к рабочей книге данных диаграммы [ChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/) .
+5. Очистите ряды и категории по умолчанию.
+6. Добавьте новые ряды и категории.
+7. Добавьте новые данные диаграммы для рядов.
+8. Сохраните изменённую презентацию в файл PPTX.
 
-Этот PHP‑код показывает, как создать многокатегорийную диаграмму:
+Этот PHP код показывает, как создать многокатегориальную диаграмму:
 
 ```php
   $pres = new Presentation();
@@ -695,7 +695,7 @@ description: "Создавайте и настраивайте диаграмм�
     $category = $ch->getChartData()->getCategories()->add($fact->getCell(0, "c8", "G"));
     $category->getGroupingLevels()->setGroupingItem(1, "Group4");
     $category = $ch->getChartData()->getCategories()->add($fact->getCell(0, "c9", "H"));
-    # Добавление рядов
+    # Добавление ряда
     $series = $ch->getChartData()->getSeries()->add($fact->getCell(0, "D1", "Series 1"), ChartType::ClusteredColumn);
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, "D2", 10));
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, "D3", 20));
@@ -716,9 +716,9 @@ description: "Создавайте и настраивайте диаграмм�
 
 ### **Создание картографических диаграмм**
 
-Картографические диаграммы визуализируют географические данные и помогают сравнивать значения между регионами.
+Картографические диаграммы визуализируют географические данные и помогают сравнивать значения по регионам.
 
-Этот PHP‑код показывает, как создать картографическую диаграмму:
+Этот PHP код показывает, как создать картографическую диаграмму:
 
 ```php
   $pres = new Presentation();
@@ -734,11 +734,11 @@ description: "Создавайте и настраивайте диаграмм�
 
 ### **Создание комбинированных диаграмм**
 
-Комбинированная диаграмма (или combo chart) объединяет два или более типов диаграмм в одном графике. Эта диаграмма позволяет выделять, сравнивать или исследовать различия между двумя и более наборами данных, помогая выявлять взаимосвязи между ними.
+Комбинированная диаграмма (или combo chart) объединяет два или более типов диаграмм в одном графике. Такая диаграмма позволяет выделять, сравнивать или исследовать различия между двумя и более наборами данных, помогая выявлять взаимосвязи между ними.
 
-![The combination chart](combination_chart.png)
+![Комбинированная диаграмма](combination_chart.png)
 
-Следующий PHP‑код показывает, как создать отображённую выше комбинированную диаграмму в презентации PowerPoint:
+Следующий PHP код демонстрирует, как создать комбинированную диаграмму, показанную выше, в презентации PowerPoint:
 
 ```php
 function createComboChart() {
@@ -775,7 +775,7 @@ function createChartWithFirstSeries($slide) {
     $chart->getLegend()->setPosition(LegendPositionType::Bottom);
     $chart->getLegend()->getTextFormat()->getPortionFormat()->setFontHeight(12);
 
-    // Удалить автоматически сгенерированные ряды и категории.
+    // Удалить автоматически созданные ряды и категории.
     $chart->getChartData()->getSeries()->clear();
     $chart->getChartData()->getCategories()->clear();
 
@@ -887,15 +887,15 @@ function setAxisTitle($axis, $axisTitle) {
 
 ## **Обновление диаграмм**
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/php-java/aspose.slides/presentation/), представляющего презентацию, содержащую диаграмму, которую требуется обновить.
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) , представляющего презентацию, содержащую диаграмму, которую нужно обновить.
 2. Получите ссылку на слайд, используя его индекс.
 3. Пройдите по всем фигурам, чтобы найти нужную диаграмму.
 4. Получите доступ к листу данных диаграммы.
-5. Измените ряд данных диаграммы, изменив значения ряда.
+5. Измените ряд данных диаграммы, изменив значения рядов.
 6. Добавьте новый ряд и заполните его данными.
-7. Сохраните изменённую презентацию как файл PPTX.
+7. Сохраните изменённую презентацию в файл PPTX.
 
-Этот PHP‑код показывает, как обновить диаграмму:
+Этот PHP код показывает, как обновить диаграмму:
 
 ```php
   $pres = new Presentation();
@@ -913,7 +913,7 @@ function setAxisTitle($axis, $axisTitle) {
     $fact->getCell($defaultWorksheetIndex, 2, 0, "Modified Category 2");
     # Получить первый ряд диаграммы
     $series = $chart->getChartData()->getSeries()->get_Item(0);
-    # Сейчас обновляются данные ряда
+    # Сейчас обновляем данные ряда
     $fact->getCell($defaultWorksheetIndex, 0, 1, "New_Series1");// Изменение названия ряда
 
     $series->getDataPoints()->get_Item(0)->getValue()->setData(90);
@@ -921,7 +921,7 @@ function setAxisTitle($axis, $axisTitle) {
     $series->getDataPoints()->get_Item(2)->getValue()->setData(44);
     # Получить второй ряд диаграммы
     $series = $chart->getChartData()->getSeries()->get_Item(1);
-    # Сейчас обновляются данные ряда
+    # Сейчас обновляем данные ряда
     $fact->getCell($defaultWorksheetIndex, 0, 2, "New_Series2");// Изменение названия ряда
 
     $series->getDataPoints()->get_Item(0)->getValue()->setData(23);
@@ -947,15 +947,17 @@ function setAxisTitle($axis, $axisTitle) {
 
 ## **Установка диапазона данных для диаграммы**
 
+Чтобы просмотреть диапазон, уже используемый существующей диаграммой, см. [Retrieve a Chart's Data Range](/slides/ru/php-java/chart-workbook/#retrieve-a-charts-data-range).
+
 Чтобы установить диапазон данных для диаграммы, выполните следующее:
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/php-java/aspose.slides/presentation/), представляющего презентацию, содержащую диаграмму.
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) , представляющего презентацию, содержащую диаграмму.
 2. Получите ссылку на слайд, используя его индекс.
 3. Пройдите по всем фигурам, чтобы найти нужную диаграмму.
-4. Получите доступ к данным диаграммы и задайте диапазон.
-5. Сохраните изменённую презентацию как файл PPTX.
+4. Доступ к данным диаграммы и задайте диапазон.
+5. Сохраните изменённую презентацию в файл PPTX.
 
-Этот PHP‑код показывает, как установить диапазон данных для диаграммы:
+Этот PHP код показывает, как установить диапазон данных для диаграммы:
 
 ```php
   $pres = new Presentation();
@@ -971,11 +973,11 @@ function setAxisTitle($axis, $axisTitle) {
   }
 ```
 
-## **Использование стандартных маркеров в диаграммах**
+## **Использование маркеров по умолчанию в диаграммах**
 
-При использовании стандартных маркеров в диаграммах каждый ряд диаграммы автоматически получает отдельный символ маркера.
+При использовании маркеров по умолчанию в диаграммах каждый ряд диаграммы автоматически получает различный символ маркера.
 
-Этот PHP‑код показывает, как автоматически задать маркер ряда диаграммы:
+Этот PHP код показывает, как автоматически установить маркер для ряда диаграммы:
 
 ```php
   $pres = new Presentation();
@@ -996,7 +998,7 @@ function setAxisTitle($axis, $axisTitle) {
     $chart->getChartData()->getCategories()->add($fact->getCell(0, 4, 0, "C4"));
     $series->getDataPoints()->addDataPointForLineSeries($fact->getCell(0, 4, 1, null));
     $chart->getChartData()->getSeries()->add($fact->getCell(0, 0, 2, "Series 2"), $chart->getType());
-    # Взять второй ряд диаграммы
+    # Получить второй ряд диаграммы
     $series2 = $chart->getChartData()->getSeries()->get_Item(1);
     # Сейчас заполняем данные ряда
     $series2->getDataPoints()->addDataPointForLineSeries($fact->getCell(0, 1, 2, 30));
@@ -1017,16 +1019,16 @@ function setAxisTitle($axis, $axisTitle) {
 
 **Какие типы диаграмм поддерживает Aspose.Slides?**
 
-Aspose.Slides поддерживает широкий спектр [типов диаграмм](https://reference.aspose.com/slides/ru/php-java/aspose.slides/charttype/), включая столбчатые, линейные, круговые, областные, точечные, гистограммы, радиальные и многие другие. Эта гибкость позволяет выбрать наиболее подходящий тип диаграммы для ваших задач визуализации данных.
+Aspose.Slides поддерживает широкий спектр [типов диаграмм](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/), включая столбчатые, линейные, круговые, областные, точечные, гистограммы, радиальные и многие другие. Эта гибкость позволяет выбрать наиболее подходящий тип диаграммы для ваших потребностей в визуализации данных.
 
 **Как добавить новую диаграмму на слайд?**
 
-Чтобы добавить диаграмму, сначала создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/php-java/aspose.slides/presentation/), получите нужный слайд по его индексу, а затем вызовите метод добавления диаграммы, указав тип диаграммы и начальные данные. Этот процесс интегрирует диаграмму непосредственно в вашу презентацию.
+Чтобы добавить диаграмму, сначала создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) , получите нужный слайд по его индексу, а затем вызовите метод добавления диаграммы, указав тип диаграммы и начальные данные. Этот процесс интегрирует диаграмму непосредственно в вашу презентацию.
 
 **Как обновить данные, отображаемые в диаграмме?**
 
-Вы можете обновить данные диаграммы, получив доступ к её рабочей книге данных ([ChartDataWorkbook](https://reference.aspose.com/slides/ru/php-java/aspose.slides/chartdataworkbook/)), очистив любые серии и категории по умолчанию, а затем добавив свои собственные данные. Это позволяет обновить диаграмму, чтобы она отражала актуальные данные.
+Вы можете обновить данные диаграммы, получив доступ к её рабочей книге данных ([ChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/)), очистив любые ряды и категории по умолчанию и затем добавив свои пользовательские данные. Это позволяет обновить диаграмму, чтобы отразить актуальные данные.
 
 **Можно ли настроить внешний вид диаграммы?**
 
-Да, Aspose.Slides предоставляет обширные возможности настройки. Вы можете изменять цвета, шрифты, подписи, легенды и другие [элементы форматирования](/slides/ru/php-java/chart-entities/), чтобы адаптировать внешний вид диаграммы к вашим конкретным требованиям дизайна.
+Да, Aspose.Slides предоставляет широкие возможности настройки. Вы можете изменять цвета, шрифты, подписи, легенды и другие [элементы форматирования](/slides/ru/php-java/chart-entities/), чтобы адаптировать внешний вид диаграммы под ваши специфические требования к дизайну.

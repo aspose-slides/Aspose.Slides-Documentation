@@ -8,7 +8,7 @@ keywords:
 - рабочая книга диаграммы
 - данные диаграммы
 - ячейка рабочей книги
-- метка данных
+- подпись данных
 - лист
 - источник данных
 - внешняя рабочая книга
@@ -19,31 +19,31 @@ keywords:
 - презентация
 - C++
 - Aspose.Slides
-description: "Откройте Aspose.Slides for C++: без труда управляйте рабочими книгами диаграмм в форматах PowerPoint и OpenDocument, упрощая данные вашей презентации."
+description: "Откройте для себя Aspose.Slides для C++: без труда управляйте рабочими книгами диаграмм в форматах PowerPoint и OpenDocument, чтобы упростить данные вашей презентации."
 ---
 ## **Обзор**
 
-Эта статья объясняет, как работать с рабочими книгами диаграмм в Aspose.Slides. Она показывает, как читать и записывать данные диаграмм через потоки рабочих книг, использовать ячейки рабочей книги в качестве меток данных диаграммы, получать доступ к коллекциям листов и указывать тип источника данных для значений диаграммы.
+Эта статья объясняет, как работать с рабочими книгами диаграмм в Aspose.Slides. Она показывает, как считывать и записывать данные диаграммы через потоки рабочей книги, использовать ячейки рабочей книги в качестве подписей данных диаграммы, получать доступ к коллекциям листов и указывать тип источника данных для значений диаграммы.
 
-Она также охватывает работу с внешними рабочими книгами в качестве источников данных диаграмм. Примеры демонстрируют, как создать и назначить внешнюю рабочую книгу, получить путь к внешней рабочей книге, связанной с диаграммой, и редактировать данные диаграммы, когда рабочая книга доступна.
+Также рассматривается работа с внешними рабочими книгами в качестве источников данных диаграмм. Примеры демонстрируют, как создать и назначить внешнюю рабочую книгу, получить путь к внешней рабочей книге, связанной с диаграммой, и редактировать данные диаграммы, когда рабочая книга доступна.
 
-Для ячеек рабочей книги, представляющих отсутствующие данные, см. [Control the Display of Empty Cells](/slides/ru/cpp/chart-series/) для различий между пустой ячейкой и нулём, а также сравнение режимов отображения на линейной диаграмме.
+Для ячеек рабочей книги, представляющих отсутствующие данные, см. [Control the Display of Empty Cells](/slides/ru/cpp/chart-series/) для различий между пустой ячейкой и нулём, а также сравнение режимов отображения в линейных диаграммах.
 
 ## **Включать данные из скрытых строк и столбцов**
 
-Используйте [IChart::set_PlotVisibleCellsOnly](https://reference.aspose.com/slides/ru/cpp/aspose.slides.charts/ichart/set_plotvisiblecellsonly/) чтобы контролировать, будет ли диаграмма использовать данные из скрытых строк и столбцов листа. Установите значение `true`, чтобы использовать только видимые ячейки, или `false`, чтобы включить как видимые, так и скрытые ячейки. Эта настройка управляет построением диаграммы; она не скрывает и не отображает строки или столбцы листа.
+Используйте [IChart::set_PlotVisibleCellsOnly](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/set_plotvisiblecellsonly/) для управления тем, будет ли диаграмма отображать данные из скрытых строк и столбцов листа. Установите `true`, чтобы отображать только видимые ячейки, или `false`, чтобы включать как видимые, так и скрытые ячейки. Этот параметр управляет построением диаграммы; он не скрывает и не отображает строки или столбцы листа.
 
-Скачайте [hidden-source-data.pptx](hidden-source-data.pptx) и разместите его в рабочем каталоге. На первом слайде находится столбчатая диаграмма как первая фигура. Встроенный лист `Sheet1` содержит диапазон `A1:C4`. Строка 3 и столбец C скрыты, но их ячейки всё равно содержат значения.
+[Пример презентации](hidden-source-data.pptx) содержит столбчатую диаграмму как первую фигуру на первом слайде. Встроенный лист, `Sheet1`, содержит диапазон источника `A1:C4`. Строка 3 и столбец C скрыты, но их ячейки всё равно содержат значения.
 
-| Строка листа | A: Месяц | B: Розница | C: Опт (скрытый столбец) |
+| Строка листа | A: Месяц | B: Розничные продажи | C: Оптовые продажи (скрытый столбец) |
 | --- | --- | --- | --- |
 | 2 | Январь | 10 | 30 |
-| 3 (скрытая строка) | Февраль | 40 | 60 |
+| 3 (hidden row) | Февраль | 40 | 60 |
 | 4 | Март | 20 | 50 |
 
-Получайте доступ к исходным ячейкам через [IChartData::get_ChartDataWorkbook](https://reference.aspose.com/slides/ru/cpp/aspose.slides.charts/ichartdata/get_chartdataworkbook/) и читайте [IChartDataCell::get_IsHidden](https://reference.aspose.com/slides/ru/cpp/aspose.slides.charts/ichartdatacell/get_ishidden/) для проверки их скрытого статуса. Это свойство только для чтения. В этом файле B2 видима, B3 принадлежит скрытой строке, а C2 — скрытому столбцу; пример выводит `False`, `True` и `True` соответственно.
+Получайте доступ к исходным ячейкам через [IChartData::get_ChartDataWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/get_chartdataworkbook/) и считывайте [IChartDataCell::get_IsHidden](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatacell/get_ishidden/) для проверки их скрытого статуса. Это свойство только для чтения. В этом файле B2 видимая, B3 относится к скрытой строке, а C2 — к скрытому столбцу; пример выводит `False`, `True` и `True` соответственно.
 
-Для этого примера обновите данные диаграммы после изменения настройки построения: сохраните встроенную рабочую книгу с помощью [ReadWorkbookStream](https://reference.aspose.com/slides/ru/cpp/aspose.slides.charts/ichartdata/readworkbookstream/) и загрузите её заново с помощью [WriteWorkbookStream](https://reference.aspose.com/slides/ru/cpp/aspose.slides.charts/ichartdata/writeworkbookstream/). При включении всех ячеек также используйте [SetRange](https://reference.aspose.com/slides/ru/cpp/aspose.slides.charts/ichartdata/setrange/) для восстановления полного диапазона, включая скрытую категорию февраль. Простое изменение флага недостаточно для обновления кэшированных данных диаграммы и меток категорий в этом образце.
+Для этого примера обновите данные диаграммы после изменения параметра построения: сохраните встроенную рабочую книгу с помощью [ReadWorkbookStream](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/readworkbookstream/) и перезагрузите её с помощью [WriteWorkbookStream](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/writeworkbookstream/). При включении всех ячеек также используйте [SetRange](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/setrange/) для восстановления полного диапазона, включая скрытую категорию «Февраль». Просто изменение флага недостаточно для обновления кэшированных данных диаграммы и меток категорий в этом примере.
 
 ```cpp
 #include <DOM/Chart/IChartData.h>
@@ -65,6 +65,7 @@ using namespace System;
 
 auto presentation = MakeObject<Presentation>(u"hidden-source-data.pptx");
 auto slide = presentation->get_Slide(0);
+
 auto chart = slide->get_Shapes()->get_Count() > 0 ? AsCast<IChart>(slide->get_Shape(0)) : nullptr;
 if (chart != nullptr)
 {
@@ -97,19 +98,66 @@ else
 }
 ```
 
-Пример сохраняет `hidden_cells_True.pptx` только с видимыми значениями розницы (10 и 20) и `hidden_cells_False.pptx` со всеми шестью значениями. Ниже изображения, иллюстрирующие два режима построения. Строка 3 и столбец C остаются скрытыми в обеих встроенных рабочих книгах.
+Пример сохраняет две версии презентации: одну только с видимыми значениями розничных продаж (10 и 20), и другую со всеми шестью значениями. Ниже показаны два режима построения. Строка 3 и столбец C остаются скрытыми в обеих встроенных рабочих книгах.
 
 | Только видимые ячейки (`true`) | Все ячейки (`false`) |
 | --- | --- |
-| ![Только видимые ячейки: значения розницы 10 и 20 для Января и Марта.](hidden_cells_True.png) | ![Все ячейки: значения розницы и опта для Января, Февраля и Марта.](hidden_cells_False.png) |
+| ![Only visible cells: Retail values 10 and 20 for January and March.](hidden_cells_True.png) | ![All cells: Retail and Wholesale values for January, February, and March.](hidden_cells_False.png) |
 
-Скрытая ячейка, содержащая значение, отличается от пустой ячейки. [IChart::get_DisplayBlanksAs](https://reference.aspose.com/slides/ru/cpp/aspose.slides.charts/ichart/get_displayblanksas/) управляет тем, как отображаются отсутствующие значения; он не включает и не исключает скрытые исходные данные. См. [Control the Display of Empty Cells](/slides/ru/cpp/chart-series/#control-the-display-of-empty-cells) для примера.
+Скрытая ячейка, содержащая значение, отличается от пустой ячейки. [IChart::get_DisplayBlanksAs](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_displayblanksas/) управляет тем, как отображаются отсутствующие значения; он не включает и не исключает скрытые исходные данные. См. [Control the Display of Empty Cells](/slides/ru/cpp/chart-series/#control-the-display-of-empty-cells) для примера.
+
+## **Получить диапазон данных диаграммы**
+
+Прежде чем обновлять данные рабочей книги в существующей презентации, проверьте исходные диапазоны, чтобы определить, какие ячейки листа использует каждая диаграмма. Метод [IChartData::GetRange](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/getrange/) возвращает текущий диапазон данных в виде формулы, квалифицированной листом, например `Sheet1!$A$1:$D$5`. Здесь `Sheet1` — имя листа, `!` разделяет его от диапазона ячеек, а `$A$1:$D$5` указывает ячейки от A1 до D5 включительно. Знаки доллара означают абсолютные ссылки на строки и столбцы.
+
+Метод читает текущий диапазон без изменения диаграммы или её рабочей книги. Если диаграмма не использует рабочую книгу в качестве источника данных, он бросает [System::InvalidOperationException](https://reference.aspose.com/slides/cpp/system/details_invalidoperationexception/). Для получения дополнительной информации см. [ChartData API Reference](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdata/).
+
+В этом примере открывается презентация и проверяются фигуры на каждом слайде на предмет диаграмм. Выводится имя каждой диаграммы и её исходный диапазон. Если диаграмма не использует рабочую книгу, выводится сообщение и переходит к следующей диаграмме.
+
+```cpp
+#include <DOM/Chart/IChartData.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <system/enumerator_adapter.h>
+#include <system/exceptions.h>
+#include <system/object_ext.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"presentation.pptx");
+
+for (auto slide : IterateOver(presentation->get_Slides()))
+{
+    for (auto shape : IterateOver(slide->get_Shapes()))
+    {
+        auto chart = AsCast<IChart>(shape);
+        if (chart != nullptr)
+        {
+            try
+            {
+                auto range = chart->get_ChartData()->GetRange();
+                Console::WriteLine(u"{0}: {1}", chart->get_Name(), range);
+            }
+            catch (const InvalidOperationException&)
+            {
+                Console::WriteLine(u"{0}: The chart does not use a workbook as its data source.", chart->get_Name());
+            }
+        }
+    }
+}
+```
 
 ## **Чтение и запись данных диаграммы из рабочей книги**
 
-Aspose.Slides for C++ предоставляет методы [ReadWorkbookStream](https://reference.aspose.com/slides/ru/cpp/aspose.slides.charts/ichartdata/readworkbookstream/) и [WriteWorkbookStream](https://reference.aspose.com/slides/ru/cpp/aspose.slides.charts/ichartdata/writeworkbookstream/), позволяющие читать и записывать рабочие книги данных диаграмм (содержащие данные, отредактированные в Aspose.Cells). **Примечание**: данные диаграммы должны быть организованы аналогично или иметь структуру, похожую на исходную.
+Aspose.Slides для C++ предоставляет методы [ReadWorkbookStream](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/readworkbookstream/) и [WriteWorkbookStream](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/writeworkbookstream/), позволяющие считывать и записывать рабочие книги данных диаграмм (содержащие данные, отредактированные с помощью Aspose.Cells). **Примечание**: данные диаграммы должны быть организованы тем же способом или иметь структуру, похожую на исходную.
 
-Этот пример открывает `chart.pptx`, который должен содержать диаграмму как первую фигуру на первом слайде. Он читает встроенную рабочую книгу в поток, очищает существующие серии и категории и записывает ту же рабочую книгу обратно. Изменения остаются в памяти; пример не сохраняет презентацию.
+В этом примере используется презентация с диаграммой как первой фигурой на первом слайде. Встроенная рабочая книга считывается в поток, удаляются существующие серии и категории, а затем та же рабочая книга записывается обратно. Изменения остаются в памяти; пример не сохраняет презентацию.
 
 ```cpp
 #include <DOM/Chart/IChartCategoryCollection.h>
@@ -129,6 +177,7 @@ using namespace System;
 
 auto presentation = MakeObject<Presentation>(u"chart.pptx");
 auto slide = presentation->get_Slide(0);
+
 auto chart = slide->get_Shapes()->get_Count() > 0 ? AsCast<IChart>(slide->get_Shape(0)) : nullptr;
 if (chart != nullptr)
 {
@@ -147,9 +196,9 @@ else
 }
 ```
 
-### **Проверка разметки диаграммы после изменения рабочей книги**
+### **Проверка макета диаграммы после изменения рабочей книги**
 
-Когда вы заменяете встроенную рабочую книгу модифицированной, диаграмма сохраняет свои исходные коллекции серий и категорий. Это несоответствие может привести к ошибке [IChart::ValidateChartLayout](https://reference.aspose.com/slides/ru/cpp/aspose.slides.charts/ichart/validatechartlayout/) с сообщением о выходе индекса за пределы. Очистите существующие серии и категории перед записью обновлённой рабочей книги обратно в диаграмму. Для примера требуется `chart.pptx` с диаграммой как первой фигурой на первом слайде. Комментарий отмечает место, где будет происходить редактирование рабочей книги; исполняемый пример записывает оригинальную рабочую книгу обратно и проверяет разметку в памяти.
+При замене встроенной рабочей книги изменённой, диаграмма сохраняет свои исходные коллекции серий и категорий. Это несоответствие может вызвать ошибку индекса в [IChart::ValidateChartLayout](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/validatechartlayout/). Очистите существующие серии и категории перед записью обновлённой рабочей книги обратно в диаграмму. Пример использует диаграмму, которая является первой фигурой на первом слайде. Комментарий отмечает, где будет происходить редактирование рабочей книги; исполняемый пример записывает оригинальную рабочую книгу обратно и проверяет макет в памяти.
 
 ```cpp
 #include <DOM/Chart/IChartCategoryCollection.h>
@@ -169,6 +218,7 @@ using namespace System;
 
 auto presentation = MakeObject<Presentation>(u"chart.pptx");
 auto slide = presentation->get_Slide(0);
+
 auto chart = slide->get_Shapes()->get_Count() > 0 ? AsCast<IChart>(slide->get_Shape(0)) : nullptr;
 if (chart != nullptr)
 {
@@ -190,20 +240,13 @@ else
 }
 ```
 
-Очистка коллекций удаляет устаревшие ссылки на данные перед записью рабочей книги. Восстановите необходимые сопоставления серий и категорий для обновлённой рабочей книги перед использованием диаграммы.
+Очистка коллекций удаляет устаревшие ссылки перед записью рабочей книги. Восстановите необходимые отображения серий и категорий для обновлённой рабочей книги перед использованием диаграммы.
 
-## **Установить ячейку рабочей книги в качестве метки данных диаграммы**
+## **Установить ячейку рабочей книги в качестве подписи данных диаграммы**
 
-Вы можете использовать текст из ячеек рабочей книги в качестве меток данных диаграммы. Ниже показаны шаги, как связать метки пузырчатой диаграммы с ячейками её рабочей книги.
+Можно использовать текст из ячеек рабочей книги в качестве подписей данных диаграммы.
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/cpp/aspose.slides/presentation/) .
-2. Получите первый слайд по его нулевому индексу.
-3. Добавьте пузырчатую диаграмму с данными по умолчанию.
-4. Получите доступ к сериям диаграммы.
-5. Установите ячейку рабочей книги в качестве метки данных.
-6. Сохраните презентацию.
-
-Этот пример открывает `chart2.pptx`, который должен содержать хотя бы один слайд, и добавляет пузырчатую диаграмму с данными по умолчанию. Он использует ячейки A10:A12 на листе 0 для первых трёх меток в первой серии, включает метки из ячеек и сохраняет результат в `resultchart.pptx`.
+Этот пример добавляет пузырьковую диаграмму с данными по умолчанию на первый слайд существующей презентации. Он использует ячейки A10:A12 листа 0 для первых трёх подписей в первой серии, включает подписи из ячеек и сохраняет обновлённую презентацию.
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -246,7 +289,7 @@ presentation->Save(u"resultchart.pptx", Export::SaveFormat::Pptx);
 
 ## **Управление листами**
 
-Метод [IChartDataWorkbook::get_Worksheets](https://reference.aspose.com/slides/ru/cpp/aspose.slides.charts/ichartdataworkbook/get_worksheets/) предоставляет доступ к листам в рабочей книге диаграммы. Этот пример создаёт круговую диаграмму с данными по умолчанию и выводит каждое имя листа в консоль.
+Метод [IChartDataWorkbook::get_Worksheets](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/get_worksheets/) предоставляет доступ к листам в рабочей книге диаграммы. Этот пример создаёт круговую диаграмму с данными по умолчанию и выводит имя каждого листа в консоль.
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -279,7 +322,7 @@ for (auto i = 0; i < workbook->get_Worksheets()->get_Count(); i++)
 
 ## **Указание типа источника данных**
 
-Этот пример создаёт 3D столбчатую диаграмму с данными по умолчанию и задаёт имена двух серий, используя разные источники данных. Первое имя задаётся строковым литералом; второе — ячейкой C1 на листе 0. Перечисление [DataSourceType](https://reference.aspose.com/slides/ru/cpp/aspose.slides.charts/datasourcetype/) выбирает источник для каждого имени. Результат сохраняется в `pres.pptx`.
+Этот пример создаёт 3D столбчатую диаграмму с данными по умолчанию и задаёт два имени серий, используя разные источники данных. Первое имя задаётся строковым литералом; второе — ячейкой C1 листа 0. Перечисление [DataSourceType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/datasourcetype/) выбирает источник для каждого имени. Пример сохраняет презентацию с обновлёнными именами серий.
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -320,7 +363,7 @@ presentation->Save(u"pres.pptx", Export::SaveFormat::Pptx);
 
 ## **Обнаружение неподдерживаемых форматов встроенных рабочих книг**
 
-Aspose.Slides не поддерживает формат бинарной рабочей книги Excel (.xlsb), который может быть встроен в некоторые диаграммы. Вы можете использовать метод [get_EmbeddedWorkbookType](https://reference.aspose.com/slides/ru/cpp/aspose.slides.charts/ichartdata/get_embeddedworkbooktype/) на [IChartData](https://reference.aspose.com/slides/ru/cpp/aspose.slides.charts/ichartdata/) вместе с перечислением [WorkbookType](https://reference.aspose.com/slides/ru/cpp/aspose.slides.charts/workbooktype/) для обнаружения неподдерживаемых форматов и пропуска таких диаграмм. Этот пример проверяет фигуры на первом слайде `sample.pptx`, пропускает не‑диаграммные фигуры и выводит диагностическое сообщение для каждой диаграммы с встроенной рабочей книгой .xlsb.
+Aspose.Slides не поддерживает формат двоичной рабочей книги Excel (.xlsb), который может быть встроен в некоторые диаграммы. Вы можете использовать метод [get_EmbeddedWorkbookType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/get_embeddedworkbooktype/) на [IChartData](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/) совместно с перечислением [WorkbookType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/workbooktype/) для обнаружения неподдерживаемых форматов и пропуска соответствующих диаграмм. Этот пример проверяет фигуры на первом слайде существующей презентации, пропускает не‑диаграммные фигуры и выводит диагностическое сообщение для каждой диаграммы с встроенной рабочей книгой .xlsb.
 
 ```cpp
 #include <DOM/Chart/ChartDataSourceType.h>
@@ -369,9 +412,9 @@ Aspose.Slides поддерживает использование внешних
 
 ### **Создание внешней рабочей книги**
 
-Используйте [ReadWorkbookStream](https://reference.aspose.com/slides/ru/cpp/aspose.slides.charts/ichartdata/readworkbookstream/) и [SetExternalWorkbook](https://reference.aspose.com/slides/ru/cpp/aspose.slides.charts/ichartdata/setexternalworkbook/) для экспорта встроенной рабочей книги диаграммы в файл и связывания диаграммы с этой внешней рабочей книгой.
+Используйте [ReadWorkbookStream](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/readworkbookstream/) и [SetExternalWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/setexternalworkbook/) для экспорта встроенной рабочей книги диаграммы в файл и связывания диаграммы с этой внешней рабочей книгой.
 
-Этот пример создаёт круговую диаграмму с данными по умолчанию, записывает её рабочую книгу в `externalWorkbook1.xlsx` и закрывает выходной поток перед назначением файла в качестве источника данных диаграммы. Он сохраняет связанную презентацию в `externalWorkbook.pptx`.
+Этот пример создаёт круговую диаграмму с данными по умолчанию и экспортирует её рабочую книгу. Поток вывода закрывается перед назначением внешней рабочей книги в качестве источника данных диаграммы, после чего сохраняется связанная презентация.
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -401,16 +444,17 @@ workbookStream->CopyTo(fileStream);
 fileStream->Close();
 
 chart->get_ChartData()->SetExternalWorkbook(workbookPath);
+
 presentation->Save(u"externalWorkbook.pptx", Export::SaveFormat::Pptx);
 ```
 
-### **Установка внешней рабочей книги**
+### **Назначить внешнюю рабочую книгу**
 
-С помощью метода [SetExternalWorkbook](https://reference.aspose.com/slides/ru/cpp/aspose.slides.charts/ichartdata/setexternalworkbook/) вы можете назначить внешнюю рабочую книгу диаграмме в качестве её источника данных. Этот метод также может использоваться для обновления пути к внешней рабочей книге (если файл был перемещён).
+С помощью метода [SetExternalWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/setexternalworkbook/) можно назначить внешнюю рабочую книгу диаграмме в качестве её источника данных. Этот метод также может использоваться для обновления пути к внешней рабочей книге (если она была перемещена).
 
-Хотя вы не можете редактировать данные в рабочих книгах, хранящихся в удалённых ресурсах, их всё равно можно использовать в качестве внешнего источника данных. Если указан относительный путь к внешней рабочей книге, он автоматически преобразуется в абсолютный путь.
+Хотя редактировать данные в рабочих книгах, хранящихся в удалённых местах или ресурсах, нельзя, такие книги всё равно могут использоваться в качестве внешнего источника данных. Если указать относительный путь к внешней рабочей книге, он автоматически преобразуется в полный путь.
 
-Этот пример требует файл `externalWorkbook.xlsx` в рабочем каталоге. Его лист `Sheet1` должен содержать имя серии в B1, имена категорий в A2:A4 и числовые значения в B2:B4. Пример создаёт круговую диаграмму, связывает рабочую книгу и использует [SetRange](https://reference.aspose.com/slides/ru/cpp/aspose.slides.charts/ichartdata/setrange/) для сопоставления A1:B4 одной серии и трём категориям. Результат сохраняется в `Presentation_with_externalWorkbook.pptx`.
+В этом примере используется внешняя рабочая книга, лист `Sheet1` которой содержит имя серии в B1, имена категорий в A2:A4 и числовые значения в B2:B4. Пример создаёт круговую диаграмму, связывает рабочую книгу и использует [SetRange](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/setrange/) для сопоставления A1:B4 одной серии и трём категориям. Презентация сохраняется со связанной диаграммой.
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -439,12 +483,12 @@ chartData->SetRange(u"Sheet1!$A$1:$B$4");
 presentation->Save(u"Presentation_with_externalWorkbook.pptx", Export::SaveFormat::Pptx);
 ```
 
-Параметр `updateChartData` метода [SetExternalWorkbook](https://reference.aspose.com/slides/ru/cpp/aspose.slides.charts/ichartdata/setexternalworkbook/) контролирует, будет ли загружаться рабочая книга.
+Параметр `updateChartData` метода [SetExternalWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/setexternalworkbook/) определяет, будет ли загружена рабочая книга.
 
 * Когда `updateChartData` равно `false`, обновляется только путь к рабочей книге. Данные диаграммы не загружаются и не обновляются из целевой рабочей книги, поэтому рабочая книга может быть недоступна.
 * Когда `updateChartData` равно `true`, данные диаграммы обновляются из целевой рабочей книги.
 
-Следующий пример назначает фиктивный URL с параметром `updateChartData`, установленным в `false`. Он сохраняет диаграмму с данными по умолчанию и сохраняет презентацию без загрузки недоступной рабочей книги.
+Следующий пример назначает фиктивный URL с `updateChartData`, установленным в `false`. Диаграмма сохраняет данные по умолчанию и презентация сохраняется без загрузки недоступной рабочей книги.
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -470,15 +514,9 @@ presentation->Save(u"SetExternalWorkbookWithUpdateChartData.pptx", Export::SaveF
 
 ### **Получить путь к внешней рабочей книге источника данных диаграммы**
 
-Чтобы определить рабочую книгу, связанную с диаграммой, сначала проверьте, использует ли диаграмма внешний источник данных. Если да, вы можете получить путь к рабочей книге, выполнив следующие шаги.
+Чтобы определить, какая рабочая книга связана с диаграммой, проверьте, использует ли диаграмма внешний источник данных, и получите её путь.
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/cpp/aspose.slides/presentation/) .
-2. Получите первый слайд по его нулевому индексу.
-3. Проверьте, что первая фигура является диаграммой.
-4. Прочитайте тип источника данных диаграммы.
-5. Если источник — внешняя рабочая книга, прочитайте её путь.
-
-Этот пример открывает `externalWorkbook.pptx`, созданный в предыдущем примере, и проверяет первую фигуру на первом слайде. Если это диаграмма, связанная с внешней рабочей книгой, пример выводит [get_ExternalWorkbookPath](https://reference.aspose.com/slides/ru/cpp/aspose.slides.charts/ichartdata/get_externalworkbookpath/) в консоль. Затем он сохраняет копию презентации в `Result.pptx`.
+Этот пример проверяет первую фигуру на первом слайде презентации со связанной внешней рабочей книгой. Если это диаграмма, связанная с внешней книгой, пример выводит [get_ExternalWorkbookPath](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/get_externalworkbookpath/) в консоль. Затем сохраняется копия презентации.
 
 ```cpp
 #include <DOM/Chart/ChartDataSourceType.h>
@@ -497,6 +535,7 @@ using namespace System;
 
 auto presentation = MakeObject<Presentation>(u"externalWorkbook.pptx");
 auto slide = presentation->get_Slide(0);
+
 auto chart = slide->get_Shapes()->get_Count() > 0 ? AsCast<IChart>(slide->get_Shape(0)) : nullptr;
 if (chart != nullptr)
 {
@@ -518,11 +557,11 @@ else
 presentation->Save(u"Result.pptx", Export::SaveFormat::Pptx);
 ```
 
-### **Редактирование данных диаграммы**
+### **Редактировать данные диаграммы**
 
-Вы можете редактировать данные во внешних рабочих книгах так же, как вносите изменения в содержимое внутренних рабочих книг. Когда внешняя рабочая книга не может быть загружена, генерируется исключение.
+Можно редактировать данные во внешних рабочих книгах так же, как изменять содержимое внутренних книг. Если внешняя рабочая книга не может быть загружена, выбрасывается исключение.
 
-Этот пример требует файл `presentation.pptx` с диаграммой как первой фигурой на первом слайде и доступную внешнюю рабочую книгу. Он устанавливает значение первой точки данных первой серии, получаемое из ячейки, в 100 и сохраняет презентацию в `presentation_out.pptx`. Редактирование значений ячеек может обновлять связанный внешний файл XLSX, поэтому используйте копию, если необходимо сохранить оригинальную книгу.
+Этот пример использует диаграмму, являющуюся первой фигурой на первом слайде и связанную с доступной внешней рабочей книгой. Он задаёт значение первой точки данных первой серии равным 100 и сохраняет обновлённую презентацию. Редактирование значений ячеек может обновлять связанный внешний файл XLSX, поэтому используйте копию, если необходимо сохранить оригинальную рабочую книгу.
 
 ```cpp
 #include <DOM/Chart/IChartData.h>
@@ -547,6 +586,7 @@ using namespace System;
 
 auto presentation = MakeObject<Presentation>(u"presentation.pptx");
 auto slide = presentation->get_Slide(0);
+
 auto chart = slide->get_Shapes()->get_Count() > 0 ? AsCast<IChart>(slide->get_Shape(0)) : nullptr;
 if (chart != nullptr)
 {
@@ -577,9 +617,9 @@ else
 
 ### **Восстановление рабочей книги из кэша диаграммы**
 
-Если диаграмма использует внешнюю рабочую книгу, которая отсутствует или недоступна, Aspose.Slides может восстановить рабочую книгу диаграммы из кэшированных данных в презентации. Создайте [LoadOptions](https://reference.aspose.com/slides/ru/cpp/aspose.slides/loadoptions/), настройте его с помощью [set_SpreadsheetOptions](https://reference.aspose.com/slides/ru/cpp/aspose.slides/loadoptions/set_spreadsheetoptions/), и вызовите [ISpreadsheetOptions::set_RecoverWorkbookFromChartCache](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ispreadsheetoptions/set_recoverworkbookfromchartcache/) с параметром `true` перед открытием презентации.
+Если диаграмма использует внешнюю рабочую книгу, которой нет или она недоступна, Aspose.Slides может восстановить рабочую книгу диаграммы из кэшированных данных презентации. Создайте [LoadOptions](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/), настройте его с помощью [set_SpreadsheetOptions](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_spreadsheetoptions/), и вызовите [ISpreadsheetOptions::set_RecoverWorkbookFromChartCache](https://reference.aspose.com/slides/cpp/aspose.slides/ispreadsheetoptions/set_recoverworkbookfromchartcache/) со значением `true` перед открытием презентации.
 
-Следующий пример C++ открывает `presentation.pptx`, первая фигура на первом слайде которого должна быть диаграммой, ссылающейся на недоступную внешнюю рабочую книгу, и получает восстановленные данные через [IChart::get_ChartData](https://reference.aspose.com/slides/ru/cpp/aspose.slides.charts/ichart/get_chartdata/) и [IChartData::get_ChartDataWorkbook](https://reference.aspose.com/slides/ru/cpp/aspose.slides.charts/ichartdata/get_chartdataworkbook/) :
+Следующий пример на C++ восстанавливает данные рабочей книги для диаграммы, являющейся первой фигурой на первом слайде и ссылающейся на недоступную внешнюю рабочую книгу. Доступ к восстановленным данным осуществляется через [IChart::get_ChartData](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_chartdata/) и [IChartData::get_ChartDataWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/get_chartdataworkbook/):
 
 ```cpp
 #include <DOM/Chart/IChartData.h>
@@ -605,6 +645,7 @@ loadOptions->set_SpreadsheetOptions(spreadsheetOptions);
 
 auto presentation = MakeObject<Presentation>(u"presentation.pptx", loadOptions);
 auto slide = presentation->get_Slide(0);
+
 auto chart = slide->get_Shapes()->get_Count() > 0 ? AsCast<IChart>(slide->get_Shape(0)) : nullptr;
 if (chart != nullptr)
 {
@@ -618,30 +659,30 @@ else
 }
 ```
 
-Если внешняя рабочая книга недоступна и восстановление отключено, Aspose.Slides генерирует [System::InvalidOperationException](https://reference.aspose.com/slides/ru/cpp/system/details_invalidoperationexception/). Включайте восстановление только тогда, когда использование кэшированных данных диаграммы является приемлемой альтернативой, поскольку кэш может не содержать изменений, внесённых во внешнюю рабочую книгу после последнего обновления презентации.
+Если внешняя рабочая книга недоступна и восстановление отключено, Aspose.Slides бросает [System::InvalidOperationException](https://reference.aspose.com/slides/cpp/system/details_invalidoperationexception/). Включайте восстановление только тогда, когда использование кэшированных данных диаграммы является приемлемым вариантом, так как кэш может не содержать изменений, внесённых во внешнюю рабочую книгу после последнего обновления презентации.
 
-## **Часто задаваемые вопросы**
+## **FAQ**
 
 **Могу ли я определить, связана ли конкретная диаграмма с внешней или встроенной рабочей книгой?**
 
-Да. У диаграммы есть [тип источника данных](https://reference.aspose.com/slides/ru/cpp/aspose.slides.charts/chartdata/get_datasourcetype/) и [путь к внешней рабочей книге](https://reference.aspose.com/slides/ru/cpp/aspose.slides.charts/chartdata/get_externalworkbookpath/); если источник — внешняя рабочая книга, вы можете прочитать полный путь, чтобы убедиться, что используется внешний файл.
+Да. У диаграммы есть [data source type](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdata/get_datasourcetype/) и [path to an external workbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdata/get_externalworkbookpath/); если источник — внешняя рабочая книга, вы можете прочитать полный путь, чтобы убедиться, что используется внешний файл.
 
-**Поддерживаются ли относительные пути к внешним рабочим книгам и как они сохраняются?**
+**Поддерживаются ли относительные пути к внешним рабочим книгам и как они хранятся?**
 
-Да. Если указать относительный путь, он автоматически преобразуется в абсолютный. Презентация сохраняет абсолютный путь в файле PPTX, поэтому при перемещении рабочей книги может потребоваться обновить ссылку.
+Да. При указании относительного пути он автоматически преобразуется в абсолютный. Презентация сохраняет абсолютный путь в файле PPTX, поэтому при перемещении рабочей книги может потребоваться обновить ссылку.
 
-**Можно ли использовать рабочие книги, находящиеся на сетевых ресурсах/общих папках?**
+**Можно ли использовать рабочие книги, расположенные на сетевых ресурсах/общих папках?**
 
-Да, такие рабочие книги могут использоваться в качестве внешнего источника данных. Однако редактирование удалённых рабочих книг напрямую из Aspose.Slides не поддерживается — их можно только использовать как источник.
+Да, такие книги могут использоваться в качестве внешнего источника данных. Однако редактирование удалённых книг напрямую из Aspose.Slides не поддерживается — они могут быть только источником.
 
 **Перезаписывает ли Aspose.Slides внешний файл XLSX при сохранении презентации?**
 
-Презентация хранит [ссылку на внешний файл](https://reference.aspose.com/slides/ru/cpp/aspose.slides.charts/chartdata/get_externalworkbookpath/). Редактирование данных диаграммы, полученных из ячеек, также может обновлять связанный локальный файл XLSX. Используйте копию рабочей книги, если оригинал должен оставаться неизменным.
+Презентация сохраняет [link to the external file](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdata/get_externalworkbookpath/). Редактирование данных диаграммы, привязанных к ячейкам, также может обновлять связанный локальный файл XLSX. Используйте копию рабочей книги, если оригинал должен оставаться неизменным.
 
 **Что делать, если внешний файл защищён паролем?**
 
-Aspose.Slides не принимает пароль при связывании. Обычно пароль снимают заранее или подготавливают расшифрованную копию (например, с помощью [Aspose.Cells](https://reference.aspose.com/cells/cpp/)) и связывают её.
+Aspose.Slides не принимает пароль при связывании. Обычно рекомендуется снять защиту заранее или подготовить расшифрованную копию (например, с помощью [Aspose.Cells](https://reference.aspose.com/cells/cpp/)) и связать её.
 
 **Могут ли несколько диаграмм ссылаться на одну и ту же внешнюю рабочую книгу?**
 
-Да. Каждая диаграмма хранит свою собственную ссылку. Если все они указывают на один и тот же файл, обновление этого файла отразится в каждой диаграмме при следующей загрузке данных.
+Да. Каждая диаграмма хранит собственную ссылку. Если они указывают на один и тот же файл, обновление этого файла отразится во всех диаграммах при следующей загрузке данных.

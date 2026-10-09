@@ -1,148 +1,143 @@
 ---
-title: สร้างหรืออัปเดตแผนภูมิในงานนำเสนอ PowerPoint ด้วย Java
+title: สร้างหรืออัปเดตแผนภูมิการนำเสนอ PowerPoint ด้วย Java
 linktitle: สร้างหรืออัปเดตแผนภูมิ
 type: docs
 weight: 10
 url: /th/java/create-chart/
 keywords:
-  - เพิ่มแผนภูมิ
-  - สร้างแผนภูมิ
-  - แก้ไขแผนภูมิ
-  - เปลี่ยนแผนภูมิ
-  - อัปเดตแผนภูมิ
-  - แผนภูมิกระจาย
-  - แผนภูมิวงกลม
-  - แผนภูมิเส้น
-  - แผนภูมิต้นไม้
-  - แผนภูมิตลาดหุ้น
-  - แผนภูมิกล่องและหนวด
-  - แผนภูมุกระดก
-  - แผนภูมิดวงอาทิตย์
-  - แผนภูมิฮิสโตแกรม
-  - แผนภูมิโรเดอร์
-  - แผนภูมิหลายหมวดหมู่
-  - PowerPoint
-  - งานนำเสนอ
-  - Java
-  - Aspose.Slides
-description: "สร้างและปรับแต่งแผนภูมิในงานนำเสนอ PowerPoint ด้วย Aspose.Slides สำหรับ Java. เพิ่ม, กำหนดรูปแบบ, และแก้ไขแผนภูมิด้วยตัวอย่างโค้ดที่ใช้งานได้จริงใน Java."
+- เพิ่มแผนภูมิ
+- สร้างแผนภูมิ
+- แก้ไขแผนภูมิ
+- เปลี่ยนแผนภูมิ
+- อัปเดตแผนภูมิ
+- แผนภูมิกระจาย
+- แผนภูมิวงกลม
+- แผนภูมิเส้น
+- แผนภูมิต้นไม้
+- แผนภูมิสต็อก
+- แผนภูมิกล่องและวิสเซอร์
+- แผนภูมิกรวย
+- แผนภูมิดวงอาทิตย์
+- แผนภูมิฮิสโตแกรม
+- แผนภูมิดาวเรดาร์
+- แผนภูมิหลายหมวดหมู่
+- PowerPoint
+- การนำเสนอ
+- Java
+- Aspose.Slides
+description: "สร้างและปรับแต่งแผนภูมิในงานนำเสนอ PowerPoint ด้วย Aspose.Slides สำหรับ Java. เพิ่ม, จัดรูปแบบ, และแก้ไขแผนภูมิด้วยตัวอย่างโค้ดที่ใช้งานได้จริงใน Java."
 ---
 ## **ภาพรวม**
 
-บทความนี้ให้คำแนะนำครอบคลุมเกี่ยวกับวิธีการสร้างและปรับแต่งแผนภูมิด้วย Aspose.Slides คุณจะได้เรียนรู้วิธีการเพิ่มแผนภูมิลงในสไลด์อย่างโปรแกรมเมติก เติมข้อมูลลงในแผนภูมิ และใช้ตัวเลือกการฟอร์แมตต่าง ๆ เพื่อให้ตรงกับความต้องการออกแบบของคุณ ตลอดบทความจะมีตัวอย่างโค้ดอย่างละเอียดอธิบายแต่ละขั้นตอน ตั้งแต่การเริ่มต้น Presentation และอ็อบเจ็กต์แผนภูมิ ไปจนถึงการตั้งค่า Series, Axes, และ Legends การทำตามคู่มือนี้จะช่วยให้คุณเข้าใจวิธีการผสานการสร้างแผนภูมิแบบไดนามิกเข้าสู่แอปพลิเคชันของคุณ ทำให้กระบวนการสร้างงานนำเสนอที่ขับเคลื่อนด้วยข้อมูลเป็นเรื่องง่ายและรวดเร็ว
+บทความนี้ให้คำแนะนำอย่างครบถ้วนเกี่ยวกับวิธีสร้างและปรับแต่งแผนภูมิด้วย Aspose.Slides คุณจะได้เรียนรู้วิธีเพิ่มแผนภูมิลงในสไลด์โดยใช้โปรแกรม เติมข้อมูลให้แผนภูมิและใช้ตัวเลือกการจัดรูปแบบต่าง ๆ เพื่อให้ตรงกับข้อกำหนดการออกแบบของคุณ ตลอดบทความจะมีตัวอย่างโค้ดที่ละเอียดแสดงแต่ละขั้นตอน ตั้งแต่การเริ่มต้น Presentation และอ็อบเจ็กต์แผนภูมิ ไปจนถึงการกำหนดค่าซีรีส์ แกน และคำอธิบาย ด้วยการทำตามคำแนะนำนี้คุณจะเข้าใจอย่างลึกซึ้งว่าจะแทรกการสร้างแผนภูมิกระ动态เข้าสู่แอปพลิเคชันของคุณอย่างไร ทำให้ขั้นตอนการสร้างงานนำเสนอที่ขับเคลื่อนด้วยข้อมูลเป็นเรื่องง่ายขึ้น
 
 ## **สร้างแผนภูมิ**
 
-แผนภูมิช่วยให้คนมองเห็นข้อมูลและได้ข้อสรุปที่อาจไม่ชัดเจนจากตารางหรือสเปรดชีต
+แผนภูมิช่วยให้ผู้คนมองเห็นข้อมูลได้อย่างรวดเร็วและได้รับความเข้าใจที่อาจไม่ชัดเจนจากตารางหรือสเปรดชีต
 
 **ทำไมต้องสร้างแผนภูมิ?**
 
-โดยใช้แผนภูมิคุณสามารถ:
+* รวม, ลดรูป หรือสรุปข้อมูลปริมาณมากลงบนสไลด์เดียวในงานนำเสนอ  
+* เปิดเผยรูปแบบและแนวโน้มของข้อมูล  
+* สรุปทิศทางและแรงขับเคลื่อนของข้อมูลตามเวลา หรือเทียบกับหน่วยการวัดเฉพาะ  
+* ระบุตัวแปลค่าสุดขีด, ความผิดปกติ, การเบี่ยงเบน, ข้อผิดพลาด, ข้อมูลที่ไม่มีเหตุผล ฯลฯ  
+* สื่อสารหรือแสดงข้อมูลที่ซับซ้อน  
 
-* รวม, ย่อ, หรือสรุปข้อมูลจำนวนมากลงในสไลด์เดียวของงานนำเสนอ
-* เปิดเผยรูปแบบและแนวโน้มของข้อมูล
-* สรุปทิศทางและโมเมนตัมของข้อมูลตามช่วงเวลา หรือเทียบกับหน่วยวัดเฉพาะ
-* พบค่าผิดปกติ, ความเบี่ยงเบน, ข้อผิดพลาด, ข้อมูลที่ไม่มีความหมาย ฯลฯ
-* สื่อสารหรือแสดงข้อมูลซับซ้อน
+ใน PowerPoint คุณสามารถสร้างแผนภูมิได้ผ่านฟังก์ชัน *Insert* ซึ่งมีเทมเพลตสำหรับออกแบบแผนภูมิต่าง ๆ มากมาย ด้วย Aspose.Slides คุณสามารถสร้างแผนภูปกติ (อิงจากประเภทแผนภูมิที่นิยม) และแผนภูกิกำหนดเองได้
 
-ใน PowerPoint คุณสามารถสร้างแผนภูมิผ่านฟังก์ชัน *Insert* ซึ่งให้แม่แบบสำหรับออกแบบแผนภูมิมากมาย โดยใช้ Aspose.Slides คุณสามารถสร้างแผนภูมิปกติ (ตามประเภทแผนภูมิที่เป็นที่นิยม) และแผนภูมิที่กำหนดเองได้
-
-{{% alert color="info" title="หมายเหตุ" %}}
-เพื่อสร้างแผนภูมิ ให้ใช้คลาส [ChartType](https://reference.aspose.com/slides/th/java/com.aspose.slides/charttype/) ฟิลด์ในคลาสนี้สอดคล้องกับประเภทแผนภูมิต่าง ๆ
+{{% alert color="info" title="Note" %}}
+ในการสร้างแผนภูมิ ใช้คลาส [ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/) ฟิลด์ในคลาสนี้สอดคล้องกับประเภทแผนภูมิต่าง ๆ
 {{% /alert %}}
 
-### **สร้าง Clustered Column Charts**
+### **สร้างแผนภูมิคอลัมน์แบบกลุ่ม**
 
-ส่วนนี้อธิบายวิธีสร้าง clustered column charts ด้วย Aspose.Slides คุณจะได้เรียนรู้การเริ่มต้น Presentation, เพิ่มแผนภูมิ, และปรับแต่งองค์ประกอบต่าง ๆ เช่น ชื่อเรื่อง, ข้อมูล, Series, Categories, และสไตล์ ทำตามขั้นตอนด้านล่างเพื่อดูว่าการสร้าง clustered column chart มาตรฐานทำอย่างไร:
+ส่วนนี้อธิบายวิธีสร้างแผนภูมิคอลัมน์แบบกลุ่มด้วย Aspose.Slides คุณจะได้เรียนรู้การเริ่มต้นงานนำเสนอ เพิ่มแผนภูมิ และปรับแต่งองค์ประกอบต่าง ๆ เช่น ชื่อเรื่อง ข้อมูล ซีรีส์ หมวดหมู่ และสไตล์ ทำตามขั้นตอนด้านล่างเพื่อดูว่าการสร้างแผนภูมิคอลัมน์แบบกลุ่มมาตรฐานทำอย่างไร:
 
-1. สร้างอ็อบเจ็กต์ของคลาส [Presentation](https://reference.aspose.com/slides/th/java/com.aspose.slides/presentation)  
-1. รับอ้างอิงสไลด์โดยใช้ดัชนีของมัน  
-1. เพิ่มแผนภูมิพร้อมข้อมูลบางส่วนและกำหนดประเภท `ChartType.ClusteredColumn`  
-1. เพิ่มชื่อเรื่องให้กับแผนภูมิ  
-1. เข้าถึง worksheet ของข้อมูลแผนภูมิ  
-1. ล้าง Series และ Categories เริ่มต้นทั้งหมด  
-1. เพิ่ม Series และ Categories ใหม่  
-1. เพิ่มข้อมูลแผนภูมิใหม่สำหรับ Series  
-1. กำหนดสีเติมให้กับ Series  
-1. เพิ่ม label ให้กับ Series  
-1. บันทึก Presentation ที่แก้ไขเป็นไฟล์ PPTX  
-
-โค้ด C# นี้แสดงวิธีสร้าง clustered column chart:
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation)  
+2. รับอ้างอิงไปยังสไลด์โดยใช้ดัชนีของมัน  
+3. เพิ่มแผนภูมิกับข้อมูลบางส่วนและระบุประเภท `ChartType.ClusteredColumn`  
+4. เพิ่มชื่อเรื่องให้กับแผนภูมิ  
+5. เข้าถึงเวิร์กชีทข้อมูลของแผนภูมิ  
+6. ล้างซีรีส์และประเภทค่าเริ่มต้นทั้งหมด  
+7. เพิ่มซีรีส์และประเภทใหม่  
+8. เพิ่มข้อมูลแผนภูมิใหม่สำหรับซีรีส์แผนภูมิ  
+9. กำหนดสีเติมให้กับซีรีส์แผนภูมิ  
+10. เพิ่มป้ายกำกับให้กับซีรีส์แผนภูมิ  
+11. บันทึกงานนำเสนอที่แก้ไขเป็นไฟล์ PPTX  
 
 ```java
 import com.aspose.slides.*;
 import java.awt.Color;
 
-// สร้างอ็อบเจ็กต์ของคลาส Presentation ที่เป็นตัวแทนของไฟล์ PPTX
+// สร้างอินสแตนซ์ของคลาสการนำเสนอที่แสดงไฟล์ PPTX
 Presentation pres = new Presentation();
 try {
     // เข้าถึงสไลด์แรก
     ISlide sld = pres.getSlides().get_Item(0);
     
-    // เพิ่มแผนภูมิพร้อมข้อมูลค่าเริ่มต้น
+    // เพิ่มแผนภูมิพร้อมข้อมูลเริ่มต้น
     IChart chart = sld.getShapes().addChart(ChartType.ClusteredColumn, 0, 0, 500, 500);
     
-    // ตั้งค่าชื่อเรื่องของแผนภูมิ
+    // ตั้งค่าชื่อแผนภูมิ
     chart.getChartTitle().addTextFrameForOverriding("Sample Title");
     chart.getChartTitle().getTextFrameForOverriding().getTextFrameFormat().setCenterText(NullableBool.True);
     chart.getChartTitle().setHeight(20);
     chart.setTitle(true);
     
-    // ตั้งค่าดัชนีของแผ่นงานข้อมูลแผนภูมิ
+    // ตั้งดัชนีสำหรับแผ่นงานข้อมูลแผนภูมิ
     int defaultWorksheetIndex = 0;
     
-    // ดึง WorkSheet ของข้อมูลแผนภูมิ
+    // รับเวิร์กชีตข้อมูลแผนภูมิ
     IChartDataWorkbook fact = chart.getChartData().getChartDataWorkbook();
     
-    // ลบ Series และ Category ที่สร้างอัตโนมัติเริ่มต้น
+    // ลบซีรีส์และหมวดหมู่ที่สร้างโดยอัตโนมัติ
     chart.getChartData().getSeries().clear();
     chart.getChartData().getCategories().clear();
     int s = chart.getChartData().getSeries().size();
     s = chart.getChartData().getCategories().size();
     
-    // เพิ่ม Series ใหม่
+    // เพิ่มซีรีส์ใหม่
     chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 1, "Series 1"),chart.getType());
     chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 2, "Series 2"),chart.getType());
     
-    // เพิ่ม Category ใหม่
+    // เพิ่มหมวดหมู่ใหม่
     chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 1, 0, "Caetegoty 1"));
     chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 2, 0, "Caetegoty 2"));
     chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 3, 0, "Caetegoty 3"));
     
-    // รับ Series แรกของแผนภูมิ
+    // ดึงซีรีส์แรกของแผนภูมิ
     IChartSeries series = chart.getChartData().getSeries().get_Item(0);
     
-    // จากนี้เติมข้อมูลให้ Series
+    // ตอนนี้เติมข้อมูลให้ซีรีส์
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 1, 20));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 50));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 30));
     
-    // ตั้งค่าสีเติมสำหรับ Series
+    // ตั้งค่าสีเติมให้กับซีรีส์
     series.getFormat().getFill().setFillType(FillType.Solid);
     series.getFormat().getFill().getSolidFillColor().setColor(Color.RED);
     
-    // รับ Series ที่สองของแผนภูมิ
+    // ดึงซีรีส์ที่สองของแผนภูมิ
     series = chart.getChartData().getSeries().get_Item(1);
     
-    // เติมข้อมูลให้ Series
+    // เติมข้อมูลให้ซีรีส์
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 2, 30));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 2, 10));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 2, 60));
     
-    // ตั้งค่าสีเติมสำหรับ Series
+    // ตั้งค่าสีเติมให้กับซีรีส์
     series.getFormat().getFill().setFillType(FillType.Solid);
     series.getFormat().getFill().getSolidFillColor().setColor(Color.GREEN);
     
     //Create custom labels for each categories for the new series
-    // สร้างป้ายกำกับแบบกำหนดเองสำหรับแต่ละ Category ของ Series ใหม่
-    // ตั้งค่าป้ายกำกับแรกให้แสดงชื่อ Category
+    // ตั้งค่าป้ายกำกับแรกให้แสดงชื่อหมวดหมู่
     IDataLabel lbl = series.getDataPoints().get_Item(0).getLabel();
     lbl.getDataLabelFormat().setShowCategoryName(true);
     
     lbl = series.getDataPoints().get_Item(1).getLabel();
     lbl.getDataLabelFormat().setShowSeriesName(true);
     
-    // แสดงค่าบนป้ายกำกับที่สาม
+    // แสดงค่าสำหรับป้ายกำกับที่สาม
     lbl = series.getDataPoints().get_Item(2).getLabel();
     lbl.getDataLabelFormat().setShowValue(true);
     lbl.getDataLabelFormat().setShowSeriesName(true);
@@ -155,31 +150,29 @@ try {
 }
 ```
 
-### **สร้าง Scatter Charts**
+### **สร้างแผนภูมิแบบกระจาย**
 
-Scatter charts (หรือ scatter plots, x‑y graphs) มักใช้เพื่อตรวจสอบรูปแบบหรือแสดงความสัมพันธ์ระหว่างสองตัวแปร
+แผนภูมิกระจาย (หรือที่รู้จักกันว่า scatter plot หรือกราฟ x‑y) มักใช้เพื่อตรวจสอบรูปแบบหรือแสดงความสัมพันธ์ระหว่างตัวแปรสองตัว
 
-ใช้ scatter chart เมื่อ:
+ใช้แผนภูมิกระจายเมื่อ:
 
-* คุณมีข้อมูลตัวเลขเป็นคู่  
-* มีสองตัวแปรที่สัมพันธ์กันดี  
-* ต้องการตรวจสอบว่าตัวแปรสองตัวเกี่ยวข้องกันหรือไม่  
-* มีตัวแปรอิสระที่มีค่าหลายค่าสำหรับตัวแปรตาม
+* คุณมีข้อมูลตัวเลขที่จับคู่กัน  
+* คุณมีสองตัวแปรที่จับคู่กันได้ดี  
+* คุณต้องการตรวจสอบว่าตัวแปรสองตัวมีความสัมพันธ์หรือไม่  
+* คุณมีตัวแปรอิสระที่มีค่าหลายค่าสำหรับตัวแปรตาม  
 
-1. ทำตามขั้นตอนใน [Create Clustered Column Charts](#create-clustered-column-charts)  
-2. ในขั้นตอนที่สาม เพิ่มแผนภูมิพร้อมข้อมูลบางส่วนและกำหนดประเภทแผนภูมิเป็นหนึ่งในต่อไปนี้:  
-   1. [ChartType.ScatterWithMarkers](https://reference.aspose.com/slides/th/java/com.aspose.slides/charttype/#ScatterWithMarkers) - _Represents a scatter chart._  
-   2. [ChartType.ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/th/java/com.aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - _Represents a scatter chart connected by curves, with data markers._  
-   3. [ChartType.ScatterWithSmoothLines](https://reference.aspose.com/slides/th/java/com.aspose.slides/charttype/#ScatterWithSmoothLines) - _Represents a scatter chart connected by curves, without data markers._  
-   4. [ChartType.ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/th/java/com.aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _Represents a scatter chart connected by lines, with data markers._  
-   5. [ChartType.ScatterWithStraightLines](https://reference.aspose.com/slides/th/java/com.aspose.slides/charttype/#ScatterWithStraightLines) - _Represents a scatter chart connected by lines, without data markers._
-
-โค้ด Java นี้แสดงวิธีสร้าง scatter chart โดยมี marker แตกต่างกันสำหรับแต่ละ Series:
+1. [สร้างแผนภูมิคอลัมน์แบบกลุ่ม](#create-clustered-column-charts)  
+2. สำหรับขั้นตอนที่สาม ให้เพิ่มแผนภูมิกับข้อมูลบางส่วนและระบุประเภทแผนภูมิตามรายการต่อไปนี้:  
+   1. [ChartType.ScatterWithMarkers](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#ScatterWithMarkers) - _เป็นแผนภูมิกระจาย_  
+   2. [ChartType.ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - _เป็นแผนภูมิกระจายที่เชื่อมต่อด้วยเส้นโค้ง พร้อมตัวทำเครื่องหมายข้อมูล_  
+   3. [ChartType.ScatterWithSmoothLines](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#ScatterWithSmoothLines) - _เป็นแผนภูมิกระจายที่เชื่อมต่อด้วยเส้นโค้งโดยไม่มีตัวทำเครื่องหมายข้อมูล_  
+   4. [ChartType.ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _เป็นแผนภูมิกระจายที่เชื่อมต่อด้วยเส้นตรง พร้อมตัวทำเครื่องหมายข้อมูล_  
+   5. [ChartType.ScatterWithStraightLines](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#ScatterWithStraightLines) - _เป็นแผนภูมิกระจายที่เชื่อมต่อด้วยเส้นตรงโดยไม่มีตัวทำเครื่องหมายข้อมูล_
 
 ```java
 import com.aspose.slides.*;
 
-// สร้างอ็อบเจ็กต์ของคลาส Presentation ที่เป็นตัวแทนของไฟล์ PPTX
+// สร้างอินสแตนซ์ของคลาสการนำเสนอที่แสดงไฟล์ PPTX
 Presentation pres = new Presentation();
 try {
     // เข้าถึงสไลด์แรก
@@ -188,39 +181,39 @@ try {
     // สร้างแผนภูมิเริ่มต้น
     IChart chart = slide.getShapes().addChart(ChartType.ScatterWithSmoothLines, 0, 0, 400, 400);
     
-    // รับดัชนีของ Worksheet ข้อมูลแผนภูมิเริ่มต้น
+    // รับดัชนีของเวิร์กชีตข้อมูลแผนภูมิเบื้องต้น
     int defaultWorksheetIndex = 0;
     
-    // ดึง Worksheet ของข้อมูลแผนภูมิ
+    // รับเวิร์กชีตข้อมูลแผนภูมิ
     IChartDataWorkbook fact = chart.getChartData().getChartDataWorkbook();
     
-    // ลบ Series ตัวอย่าง
+    // ลบซีรีส์ตัวอย่าง
     chart.getChartData().getSeries().clear();
     
-    // เพิ่ม Series ใหม่
+    // เพิ่มซีรีส์ใหม่
     chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 1, 1, "Series 1"), chart.getType());
     chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 1, 3, "Series 2"), chart.getType());
     
-    // รับ Series แรกของแผนภูมิ
+    // ดึงซีรีส์แรกของแผนภูมิ
     IChartSeries series = chart.getChartData().getSeries().get_Item(0);
     
-    // เพิ่มจุดใหม่ (1:3) ลงใน Series
+    // เพิ่มจุดใหม่ (1:3) ให้กับซีรีส์
     series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 1), fact.getCell(defaultWorksheetIndex, 2, 2, 3));
     
     // เพิ่มจุดใหม่ (2:10)
     series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 2), fact.getCell(defaultWorksheetIndex, 3, 2, 10));
     
-    // เปลี่ยนประเภทของ Series
+    // เปลี่ยนประเภทซีรีส์
     series.setType(ChartType.ScatterWithStraightLinesAndMarkers);
     
-    // เปลี่ยนเครื่องหมายของ Series ในแผนภูมิ
+    // เปลี่ยนเครื่องหมายของซีรีส์แผนภูมิ
     series.getMarker().setSize(10);
     series.getMarker().setSymbol(MarkerStyleType.Star);
     
-    // รับ Series ที่สองของแผนภูมิ
+    // ดึงซีรีส์ที่สองของแผนภูมิ
     series = chart.getChartData().getSeries().get_Item(1);
     
-    // เพิ่มจุดใหม่ (5:2) ที่นั้น
+    // เพิ่มจุดใหม่ (5:2) ที่นั่น
     series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 2, 3, 5), fact.getCell(defaultWorksheetIndex, 2, 4, 2));
     
     // เพิ่มจุดใหม่ (3:1)
@@ -232,7 +225,7 @@ try {
     // เพิ่มจุดใหม่ (5:1)
     series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 5, 3, 5), fact.getCell(defaultWorksheetIndex, 5, 4, 1));
     
-    // เปลี่ยนเครื่องหมายของ Series ในแผนภูมิ
+    // เปลี่ยนเครื่องหมายของซีรีส์แผนภูมิ
     series.getMarker().setSize(10);
     series.getMarker().setSymbol(MarkerStyleType.Circle);
     
@@ -242,69 +235,67 @@ try {
 }
 ```
 
-### **สร้าง Pie Charts**
+### **สร้างแผนภูมิแบบวงกลม**
 
-Pie charts เหมาะที่สุดสำหรับแสดงความสัมพันธ์ส่วนต่อส่วนของข้อมูล โดยเฉพาะเมื่อข้อมูลมีป้ายกำกับประเภทพร้อมค่าตัวเลข อย่างไรก็ตาม หากข้อมูลของคุณมีส่วนหรือป้ายกำกับจำนวนมาก คุณอาจพิจารณาใช้ bar chart แทน
+แผนภูมิกลุ่มวงกลมเหมาะสำหรับแสดงความสัมพันธ์ส่วนต่อส่วนของข้อมูล โดยเฉพาะเมื่อข้อมูลมีป้ายกำกับแบบหมวดหมู่พร้อมค่าตัวเลข อย่างไรก็ตาม หากข้อมูลมีส่วนหรือป้ายกำกับจำนวนมากอาจพิจารณาใช้แผนภูมิกลุ่มแทน
 
-1. สร้างอ็อบเจ็กต์ของคลาส [Presentation](https://reference.aspose.com/slides/th/java/com.aspose.slides/presentation/)  
-2. รับอ้างอิงสไลด์โดยใช้ดัชนีของมัน  
-3. เพิ่มแผนภูมิด้วยข้อมูลเริ่มต้นและกำหนดประเภท [ChartType.Pie](https://reference.aspose.com/slides/th/java/com.aspose.slides/charttype/#Pie)  
-4. เข้าถึง workbook ของข้อมูลแผนภูมิ [IChartDataWorkbook](https://reference.aspose.com/slides/th/java/com.aspose.slides/ichartdataworkbook/)  
-5. ล้าง Series และ Categories เริ่มต้น  
-6. เพิ่ม Series และ Categories ใหม่  
-7. เพิ่มข้อมูลแผนภูมิใหม่สำหรับ Series  
-8. เพิ่มจุดใหม่ให้แผนภูมิและกำหนดสีกำหนดเองให้กับเซกเมนต์ของ pie chart  
-9. ตั้งค่า label สำหรับ Series  
-10. เปิดใช้ leader lines สำหรับ label ของ Series  
-11. ตั้งค่ามุมการหมุนของเซกเมนต์ pie chart  
-12. บันทึก Presentation ที่แก้ไขเป็นไฟล์ PPTX  
-
-โค้ด Java นี้แสดงวิธีสร้าง pie chart:
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/)  
+2. รับอ้างอิงไปยังสไลด์โดยใช้ดัชนีของมัน  
+3. เพิ่มแผนภูมิกับข้อมูลเริ่มต้นและระบุประเภท [ChartType.Pie](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#Pie)  
+4. เข้าถึงเวิร์กบุ๊กข้อมูลแผนภูมิ [IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/)  
+5. ล้างซีรีส์และประเภทเริ่มต้น  
+6. เพิ่มซีรีส์และประเภทใหม่  
+7. เพิ่มข้อมูลแผนภูมิใหม่สำหรับซีรีส์แผนภูมิ  
+8. เพิ่มจุดใหม่สำหรับแผนภูมิและกำหนดสีกำหนดเองสำหรับส่วนของแผนภูมิวงกลม  
+9. ตั้งค่าป้ายกำกับสำหรับซีรีส์  
+10. เปิดใช้งานเส้นเชื่อมต่อสำหรับป้ายกำกับซีรีส์  
+11. กำหนดมุมการหมุนสำหรับส่วนของแผนภูมิวงกลม  
+12. บันทึกงานนำเสนอที่แก้ไขเป็นไฟล์ PPTX  
 
 ```java
 import com.aspose.slides.*;
 import java.awt.Color;
 
-// สร้างอ็อบเจ็กต์ของคลาส Presentation ที่เป็นตัวแทนของไฟล์ PPTX
+// สร้างอินสแตนซ์ของคลาสการนำเสนอที่แสดงไฟล์ PPTX
 Presentation pres = new Presentation();
 try {
     // เข้าถึงสไลด์แรก
     ISlide slides = pres.getSlides().get_Item(0);
     
-    // เพิ่มแผนภูมิพร้อมข้อมูลค่าเริ่มต้น
+    // เพิ่มแผนภูมิพร้อมข้อมูลเริ่มต้น
     IChart chart = slides.getShapes().addChart(ChartType.Pie, 100, 100, 400, 400);
     
-    // ตั้งค่าชื่อเรื่องของแผนภูมิ
+    // ตั้งค่าชื่อแผนภูมิ
     chart.getChartTitle().addTextFrameForOverriding("Sample Title");
     chart.getChartTitle().getTextFrameForOverriding().getTextFrameFormat().setCenterText(NullableBool.True);
     chart.getChartTitle().setHeight(20);
     chart.setTitle(true);
     
-    // ตั้งค่าดัชนีของแผ่นงานข้อมูลแผนภูมิ
+    // ตั้งดัชนีสำหรับแผ่นงานข้อมูลแผนภูมิ
     int defaultWorksheetIndex = 0;
     
-    // ดึง Worksheet ของข้อมูลแผนภูมิ
+    // รับเวิร์กชีตข้อมูลแผนภูมิ
     IChartDataWorkbook fact = chart.getChartData().getChartDataWorkbook();
     
-    // ลบ Series และ Category ที่สร้างอัตโนมัติเริ่มต้น
+    // ลบซีรีส์และหมวดหมู่ที่สร้างโดยอัตโนมัติ
     chart.getChartData().getSeries().clear();
     chart.getChartData().getCategories().clear();
     
-    // เพิ่ม Category ใหม่
+    // เพิ่มหมวดหมู่ใหม่
     chart.getChartData().getCategories().add(fact.getCell(0, 1, 0, "First Qtr"));
     chart.getChartData().getCategories().add(fact.getCell(0, 2, 0, "2nd Qtr"));
     chart.getChartData().getCategories().add(fact.getCell(0, 3, 0, "3rd Qtr"));
     
-    // เพิ่ม Series ใหม่
+    // เพิ่มซีรีส์ใหม่
     IChartSeries series = chart.getChartData().getSeries().add(fact.getCell(0, 0, 1, "Series 1"), chart.getType());
     
-    // เติมข้อมูลให้ Series
+    // เติมข้อมูลให้ซีรีส์
     series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 1, 1, 20));
     series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 50));
     series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 30));
     
     // ไม่ทำงานในเวอร์ชันใหม่
-    // Adding new points and setting sector color
+    // เพิ่มจุดใหม่และตั้งค่าสีส่วน
     // series.IsColorVaried = true;
     chart.getChartData().getSeriesGroups().get_Item(0).setColorVaried(true);
     
@@ -312,7 +303,7 @@ try {
     point.getFormat().getFill().setFillType(FillType.Solid);
     point.getFormat().getFill().getSolidFillColor().setColor(Color.CYAN);
 	
-    // ตั้งค่าขอบของเซกเมนต์
+    // ตั้งค่าขอบส่วน
     point.getFormat().getLine().getFillFormat().setFillType(FillType.Solid);
     point.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.GRAY);
     point.getFormat().getLine().setWidth(3.0);
@@ -323,7 +314,7 @@ try {
     point1.getFormat().getFill().setFillType(FillType.Solid);
     point1.getFormat().getFill().getSolidFillColor().setColor(Color.ORANGE);
     
-    // ตั้งค่าขอบของเซกเมนต์
+    // ตั้งค่าขอบส่วน
     point1.getFormat().getLine().getFillFormat().setFillType(FillType.Solid);
     point1.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
     point1.getFormat().getLine().setWidth(3.0);
@@ -334,14 +325,14 @@ try {
     point2.getFormat().getFill().setFillType(FillType.Solid);
     point2.getFormat().getFill().getSolidFillColor().setColor(Color.YELLOW);
     
-    // ตั้งค่าขอบของเซกเมนต์
+    // ตั้งค่าขอบส่วน
     point2.getFormat().getLine().getFillFormat().setFillType(FillType.Solid);
     point2.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.RED);
     point2.getFormat().getLine().setWidth(2.0);
     point2.getFormat().getLine().setStyle(LineStyle.ThinThin);
     point2.getFormat().getLine().setDashStyle(LineDashStyle.LargeDashDotDot);
     
-    // สร้างป้ายกำกับแบบกำหนดเองสำหรับแต่ละ Category ของ Series ใหม่
+    // สร้างป้ายกำกับที่กำหนดเองสำหรับแต่ละหมวดหมู่ของซีรีส์ใหม่
     IDataLabel lbl1 = series.getDataPoints().get_Item(0).getLabel();
     
     // lbl.ShowCategoryName = true;
@@ -356,10 +347,10 @@ try {
     lbl3.getDataLabelFormat().setShowSeriesName(true);
     lbl3.getDataLabelFormat().setShowPercentage(true);
     
-    // แสดง Leader Lines สำหรับแผนภูมิ
+    // แสดงเส้นเชื่อมสำหรับแผนภูมิ
     series.getLabels().getDefaultDataLabelFormat().setShowLeaderLines(true);
     
-    // ตั้งค่ามุมการหมุนสำหรับเซกเมนต์ของ Pie Chart
+    // ตั้งค่ามุมการหมุนสำหรับส่วนของแผนภูมิกลวง
     chart.getChartData().getSeriesGroups().get_Item(0).setFirstSliceAngle(180);
     
     // บันทึกงานนำเสนอพร้อมแผนภูมิ
@@ -369,16 +360,14 @@ try {
 }
 ```
 
-### **สร้าง Line Charts**
+### **สร้างแผนภูมิเส้น**
 
-Line charts (หรือ line graphs) เหมาะสำหรับการแสดงการเปลี่ยนแปลงของค่าเมื่อเวลาเปลี่ยนไป ด้วย line chart คุณสามารถเปรียบเทียบข้อมูลจำนวนมากในคราวเดียว ติดตามการเปลี่ยนแปลงและแนวโน้มตามเวลา เน้นความผิดปกติใน Series ฯลฯ
+แผนภูมิเส้น (หรือที่รู้จักกันว่า line graph) เหมาะสำหรับแสดงการเปลี่ยนแปลงของค่าเมื่อเวลาผ่านไป ด้วยแผนภูมิเส้นคุณสามารถเปรียบเทียบข้อมูลจำนวนมากในคราวเดียว ติดตามการเปลี่ยนแปลงและแนวโน้มตามเวลา เน้นความผิดปกติในซีรีส์ข้อมูล ฯลฯ
 
-1. สร้างอ็อบเจ็กต์ของคลาส [Presentation](https://reference.aspose.com/slides/th/java/com.aspose.slides/presentation/)  
-1. รับอ้างอิงสไลด์โดยใช้ดัชนีของมัน  
-1. เพิ่มแผนภูมิด้วยข้อมูลเริ่มต้นและกำหนดประเภท [ChartType.Line](https://reference.aspose.com/slides/th/java/com.aspose.slides/charttype/#Line)  
-1. บันทึก Presentation ที่แก้ไขเป็นไฟล์ PPTX  
-
-โค้ด Java นี้แสดงวิธีสร้าง line chart:
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/)  
+1. รับอ้างอิงไปยังสไลด์โดยใช้ดัชนีของมัน  
+1. เพิ่มแผนภูมิกับข้อมูลเริ่มต้นและระบุประเภท [ChartType.Line](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#Line)  
+1. บันทึกงานนำเสนอที่แก้ไขเป็นไฟล์ PPTX  
 
 ```java
 import com.aspose.slides.*;
@@ -393,7 +382,7 @@ try {
 }
 ```
 
-โดยปกติ จุดบน line chart จะเชื่อมต่อด้วยเส้นตรงต่อเนื่อง หากต้องการให้จุดเชื่อมต่อด้วยเส้นประ ให้กำหนดประเภท dash ที่ต้องการดังนี้:
+โดยค่าเริ่มต้น จุดบนแผนภูมิเส้นจะเชื่อมต่อด้วยเส้นตรงต่อเนื่อง หากต้องการให้จุดเชื่อมต่อด้วยเส้นประสามารถกำหนดประเภทเส้นประที่ต้องการได้ดังนี้:
 
 ```java
 import com.aspose.slides.*;
@@ -413,20 +402,18 @@ try {
 }
 ```
 
-### **สร้าง Tree Map Charts**
+### **สร้างแผนภูมิต้นไม้**
 
-Tree map charts เหมาะสำหรับข้อมูลการขายเมื่อคุณต้องการแสดงขนาดสัมพัทธ์ของหมวดหมู่ข้อมูลและดึงความสนใจไปยังรายการที่เป็นผู้มีส่วนร่วมมากที่สุดในแต่ละหมวด
+แผนภูมิต้นไม้เหมาะสำหรับข้อมูลการขายเมื่อคุณต้องการแสดงขนาดเชิงสัมพัทธ์ของหมวดหมู่ข้อมูลและดึงความสนใจไปยังรายการที่เป็นผู้มีส่วนร่วมหลักในแต่ละหมวดหมู่
 
-1. สร้างอ็อบเจ็กต์ของคลาส [Presentation](https://reference.aspose.com/slides/th/java/com.aspose.slides/presentation/)  
-2. รับอ้างอิงสไลด์โดยใช้ดัชนีของมัน  
-3. เพิ่มแผนภูมิด้วยข้อมูลเริ่มต้นและกำหนดประเภท [ChartType.Treemap](https://reference.aspose.com/slides/th/java/com.aspose.slides/charttype/#Treemap)  
-4. เข้าถึง workbook ของข้อมูลแผนภูมิ [IChartDataWorkbook](https://reference.aspose.com/slides/th/java/com.aspose.slides/ichartdataworkbook/)  
-5. ล้าง Series และ Categories เริ่มต้น  
-6. เพิ่ม Series และ Categories ใหม่  
-7. เพิ่มข้อมูลแผนภูมิใหม่สำหรับ Series  
-8. บันทึก Presentation ที่แก้ไขเป็นไฟล์ PPTX  
-
-โค้ด Java นี้แสดงวิธีสร้าง tree map chart:
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/)  
+2. รับอ้างอิงไปยังสไลด์โดยใช้ดัชนีของมัน  
+3. เพิ่มแผนภูมิกับข้อมูลเริ่มต้นและระบุประเภท [ChartType.Treemap](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#Treemap)  
+4. เข้าถึงเวิร์กบุ๊กข้อมูลแผนภูมิ [IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/)  
+5. ล้างซีรีส์และประเภทเริ่มต้น  
+6. เพิ่มซีรีส์และประเภทใหม่  
+7. เพิ่มข้อมูลแผนภูมิใหม่สำหรับซีรีส์แผนภูมิ  
+8. บันทึกงานนำเสนอที่แก้ไขเป็นไฟล์ PPTX  
 
 ```java
 import com.aspose.slides.*;
@@ -483,19 +470,17 @@ try {
 }
 ```
 
-### **สร้าง Stock Charts**
+### **สร้างแผนภูมิสต็อก**
 
-1. สร้างอ็อบเจ็กต์ของคลาส [Presentation](https://reference.aspose.com/slides/th/java/com.aspose.slides/presentation/)  
-2. รับอ้างอิงสไลด์โดยใช้ดัชนีของมัน  
-3. เพิ่มแผนภูมิด้วยข้อมูลเริ่มต้นและกำหนดประเภท [ChartType.OpenHighLowClose](https://reference.aspose.com/slides/th/java/com.aspose.slides/charttype/#OpenHighLowClose)  
-4. เข้าถึง workbook ของข้อมูลแผนภูมิ [IChartDataWorkbook](https://reference.aspose.com/slides/th/java/com.aspose.slides/ichartdataworkbook/)  
-5. ล้าง Series และ Categories เริ่มต้น  
-6. เพิ่ม Series และ Categories ใหม่  
-7. เพิ่มข้อมูลแผนภูมิใหม่สำหรับ Series  
-8. กำหนดรูปแบบของเส้น high‑low  
-9. บันทึก Presentation ที่แก้ไขเป็นไฟล์ PPTX  
-
-โค้ด Java นี้แสดงวิธีสร้าง stock chart:
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/)  
+2. รับอ้างอิงไปยังสไลด์โดยใช้ดัชนีของมัน  
+3. เพิ่มแผนภูมิกับข้อมูลเริ่มต้นและระบุประเภท [ChartType.OpenHighLowClose](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#OpenHighLowClose)  
+4. เข้าถึงเวิร์กบุ๊กข้อมูลแผนภูมิ [IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/)  
+5. ล้างซีรีส์และประเภทเริ่มต้น  
+6. เพิ่มซีรีส์และประเภทใหม่  
+7. เพิ่มข้อมูลแผนภูมิใหม่สำหรับซีรีส์แผนภูมิ  
+8. กำหนดรูปแบบของเส้นสูง‑ต่ำ  
+9. บันทึกงานนำเสนอที่แก้ไขเป็นไฟล์ PPTX  
 
 ```java
 import com.aspose.slides.*;
@@ -553,18 +538,16 @@ try {
 }
 ```
 
-### **สร้าง Box and Whisker Charts**
+### **สร้างแผนภูมิ Box and Whisker**
 
-1. สร้างอ็อบเจ็กต์ของคลาส [Presentation](https://reference.aspose.com/slides/th/java/com.aspose.slides/presentation/)  
-2. รับอ้างอิงสไลด์โดยใช้ดัชนีของมัน  
-3. เพิ่มแผนภูมิด้วยข้อมูลเริ่มต้นและกำหนดประเภท [ChartType.BoxAndWhisker](https://reference.aspose.com/slides/th/java/com.aspose.slides/charttype/#BoxAndWhisker)  
-4. เข้าถึง workbook ของข้อมูลแผนภูมิ [IChartDataWorkbook](https://reference.aspose.com/slides/th/java/com.aspose.slides/ichartdataworkbook/)  
-5. ล้าง Series และ Categories เริ่มต้น  
-6. เพิ่ม Series และ Categories ใหม่  
-7. เพิ่มข้อมูลแผนภูมิใหม่สำหรับ Series  
-8. บันทึก Presentation ที่แก้ไขเป็นไฟล์ PPTX  
-
-โค้ด Java นี้แสดงวิธีสร้าง box and whisker chart:
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/)  
+2. รับอ้างอิงไปยังสไลด์โดยใช้ดัชนีของมัน  
+3. เพิ่มแผนภูมิกับข้อมูลเริ่มต้นและระบุประเภท [ChartType.BoxAndWhisker](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#BoxAndWhisker)  
+4. เข้าถึงเวิร์กบุ๊กข้อมูลแผนภูมิ [IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/)  
+5. ล้างซีรีส์และประเภทเริ่มต้น  
+6. เพิ่มซีรีส์และประเภทใหม่  
+7. เพิ่มข้อมูลแผนภูมิใหม่สำหรับซีรีส์แผนภูมิ  
+8. บันทึกงานนำเสนอที่แก้ไขเป็นไฟล์ PPTX  
 
 ```java
 import com.aspose.slides.*;
@@ -606,14 +589,12 @@ try {
 }
 ```
 
-### **สร้าง Funnel Charts**
+### **สร้างแผนภูมิ Funnel**
 
-1. สร้างอ็อบเจ็กต์ของคลาส [Presentation](https://reference.aspose.com/slides/th/java/com.aspose.slides/presentation/)  
-2. รับอ้างอิงสไลด์โดยใช้ดัชนีของมัน  
-3. เพิ่มแผนภูมิด้วยข้อมูลเริ่มต้นและกำหนดประเภท [ChartType.Funnel](https://reference.aspose.com/slides/th/java/com.aspose.slides/charttype/#Funnel)  
-4. บันทึก Presentation ที่แก้ไขเป็นไฟล์ PPTX  
-
-โค้ด Java นี้แสดงวิธีสร้าง funnel chart:
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/)  
+2. รับอ้างอิงไปยังสไลด์โดยใช้ดัชนีของมัน  
+3. เพิ่มแผนภูมิกับข้อมูลเริ่มต้นและระบุประเภท [ChartType.Funnel](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#Funnel)  
+4. บันทึกงานนำเสนอที่แก้ไขเป็นไฟล์ PPTX  
 
 ```java
 import com.aspose.slides.*;
@@ -650,14 +631,12 @@ try {
 }
 ```
 
-### **สร้าง Sunburst Charts**
+### **สร้างแผนภูมิ Sunburst**
 
-1. สร้างอ็อบเจ็กต์ของคลาส [Presentation](https://reference.aspose.com/slides/th/java/com.aspose.slides/presentation/)  
-2. รับอ้างอิงสไลด์โดยใช้ดัชนีของมัน  
-3. เพิ่มแผนภูมิด้วยข้อมูลเริ่มต้นและกำหนดประเภท [ChartType.Sunburst](https://reference.aspose.com/slides/th/java/com.aspose.slides/charttype/#Sunburst)  
-4. บันทึก Presentation ที่แก้ไขเป็นไฟล์ PPTX  
-
-โค้ด Java นี้แสดงวิธีสร้าง sunburst chart:
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/)  
+2. รับอ้างอิงไปยังสไลด์โดยใช้ดัชนีของมัน  
+3. เพิ่มแผนภูมิกับข้อมูลเริ่มต้นและระบุประเภท [ChartType.Sunburst](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#Sunburst)  
+4. บันทึกงานนำเสนอที่แก้ไขเป็นไฟล์ PPTX  
 
 ```java
 import com.aspose.slides.*;
@@ -712,17 +691,15 @@ try {
 }
 ```
 
-### **สร้าง Histogram Charts**
+### **สร้างแผนภูมิ Histogram**
 
-1. สร้างอ็อบเจ็กต์ของคลาส [Presentation](https://reference.aspose.com/slides/th/java/com.aspose.slides/presentation/)  
-2. รับอ้างอิงสไลด์โดยใช้ดัชนีของมัน  
-3. เพิ่มแผนภูมิด้วยข้อมูลเริ่มต้นและกำหนดประเภท [ChartType.Histogram](https://reference.aspose.com/slides/th/java/com.aspose.slides/charttype/#Histogram)  
-4. เข้าถึง workbook ของข้อมูลแผนภูมิ [IChartDataWorkbook](https://reference.aspose.com/slides/th/java/com.aspose.slides/ichartdataworkbook/)  
-5. ล้าง Series และ Categories เริ่มต้น  
-6. เพิ่ม Series และ Categories ใหม่  
-7. บันทึก Presentation ที่แก้ไขเป็นไฟล์ PPTX  
-
-โค้ด Java นี้แสดงวิธีสร้าง histogram chart:
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/)  
+2. รับอ้างอิงไปยังสไลด์โดยใช้ดัชนีของมัน  
+3. เพิ่มแผนภูมิกับข้อมูลเริ่มต้นและระบุประเภท [ChartType.Histogram](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#Histogram)  
+4. เข้าถึงเวิร์กบุ๊กข้อมูลแผนภูมิ [IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/)  
+5. ล้างซีรีส์และประเภทเริ่มต้น  
+6. เพิ่มซีรีส์และประเภทใหม่  
+7. บันทึกงานนำเสนอที่แก้ไขเป็นไฟล์ PPTX  
 
 ```java
 import com.aspose.slides.*;
@@ -752,14 +729,12 @@ try {
 }
 ```
 
-### **สร้าง Radar Charts**
+### **สร้างแผนภูมิ Radar**
 
-1. สร้างอ็อบเจ็กต์ของคลาส [Presentation](https://reference.aspose.com/slides/th/java/com.aspose.slides/presentation/)  
-2. รับอ้างอิงสไลด์โดยใช้ดัชนีของมัน  
-3. เพิ่มแผนภูมิด้วยข้อมูลบางส่วนและกำหนดประเภทแผนภูมิที่ต้องการ ([ChartType.Radar](https://reference.aspose.com/slides/th/java/com.aspose.slides/charttype/#Radar))  
-4. บันทึก Presentation ที่แก้ไขเป็นไฟล์ PPTX  
-
-โค้ด Java นี้แสดงวิธีสร้าง radar chart:
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/)  
+2. รับอ้างอิงไปยังสไลด์โดยใช้ดัชนีของมัน  
+3. เพิ่มแผนภูมิกับข้อมูลบางส่วนและระบุประเภทแผนภูมิที่ต้องการ ([ChartType.Radar](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#Radar))  
+4. บันทึกงานนำเสนอที่แก้ไขเป็นไฟล์ PPTX  
 
 ```java
 import com.aspose.slides.*;
@@ -773,18 +748,16 @@ try {
 }
 ```
 
-### **สร้าง Multi-Category Charts**
+### **สร้างแผนภูมิหลายประเภท**
 
-1. สร้างอ็อบเจ็กต์ของคลาส [Presentation](https://reference.aspose.com/slides/th/java/com.aspose.slides/presentation/)  
-2. รับอ้างอิงสไลด์โดยใช้ดัชนีของมัน  
-3. เพิ่มแผนภูมิด้วยข้อมูลเริ่มต้นและกำหนดประเภท [ChartType.ClusteredColumn](https://reference.aspose.com/slides/th/java/com.aspose.slides/charttype/#ClusteredColumn)  
-4. เข้าถึง workbook ของข้อมูลแผนภูมิ [IChartDataWorkbook](https://reference.aspose.com/slides/th/java/com.aspose.slides/ichartdataworkbook/)  
-5. ล้าง Series และ Categories เริ่มต้น  
-6. เพิ่ม Series และ Categories ใหม่  
-7. เพิ่มข้อมูลแผนภูมิใหม่สำหรับ Series  
-8. บันทึก Presentation ที่แก้ไขเป็นไฟล์ PPTX  
-
-โค้ด Java นี้แสดงวิธีสร้าง multicategory chart:
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/)  
+2. รับอ้างอิงไปยังสไลด์โดยใช้ดัชนีของมัน  
+3. เพิ่มแผนภูมิกับข้อมูลเริ่มต้นและระบุประเภท [ChartType.ClusteredColumn](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#ClusteredColumn)  
+4. เข้าถึงเวิร์กบุ๊กข้อมูลแผนภูมิ [IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/)  
+5. ล้างซีรีส์และประเภทเริ่มต้น  
+6. เพิ่มซีรีส์และประเภทใหม่  
+7. เพิ่มข้อมูลแผนภูมิใหม่สำหรับซีรีส์แผนภูมิ  
+8. บันทึกงานนำเสนอที่แก้ไขเป็นไฟล์ PPTX  
 
 ```java
 import com.aspose.slides.*;
@@ -815,7 +788,7 @@ try {
     category.getGroupingLevels().setGroupingItem(1, "Group4");
     category = ch.getChartData().getCategories().add(fact.getCell(0, "c9", "H"));
 
-    // เพิ่ม Series
+    // เพิ่มซีรีส์
     IChartSeries series = ch.getChartData().getSeries().add(fact.getCell(0, "D1", "Series 1"),
             ChartType.ClusteredColumn);
 
@@ -835,11 +808,9 @@ try {
 }
 ```
 
-### **สร้าง Map Charts**
+### **สร้างแผนภูมิแผนที่**
 
-Map charts แสดงข้อมูลเชิงภูมิศาสตร์และช่วยเปรียบเทียบค่าในแต่ละภูมิภาค
-
-โค้ด Java นี้แสดงวิธีสร้าง map chart:
+แผนภูมิเส้นแสดงข้อมูลเชิงพื้นที่และช่วยเปรียบเทียบค่าในแต่ละภูมิภาค
 
 ```java
 import com.aspose.slides.*;
@@ -853,13 +824,13 @@ try {
 }
 ```
 
-### **สร้าง Combination Charts**
+### **สร้างแผนภูมิผสม**
 
-Combination chart (หรือ combo chart) รวมสองประเภทแผนภูมิหรือมากกว่าลงในกราฟเดียว ช่วยให้คุณเน้น, เปรียบเทียบ หรือวิเคราะห์ความแตกต่างระหว่างชุดข้อมูลหลายชุด
+แผนภูมิกับหลายประเภท (หรือ combo chart) ผสานสองประเภทหรือมากกว่าของแผนภูมิในกราฟเดียว ทำให้คุณสามารถเน้น เปรียบเทียบ หรือวิเคราะห์ความแตกต่างระหว่างชุดข้อมูลหลายชุด ช่วยระบุความสัมพันธ์ระหว่างข้อมูลได้ง่ายขึ้น
 
 ![แผนภูมิผสม](combination_chart.png)
 
-โค้ด Java ต่อไปนี้แสดงวิธีสร้าง combination chart ตามที่แสดงด้านบนใน PowerPoint:
+โค้ด Java ด้านล่างแสดงวิธีสร้างแผนภูมิผสมที่แสดงในภาพด้านบนใน PowerPoint:
 
 ```java
 import com.aspose.slides.*;
@@ -886,7 +857,7 @@ static void createComboChart() {
 static IChart createChartWithFirstSeries(ISlide slide) {
     IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
 
-    // ตั้งค่าชื่อเรื่องของแผนภูมิ
+    // ตั้งค่าชื่อแผนภูมิ.
     chart.setTitle(true);
     chart.getChartTitle().addTextFrameForOverriding("Chart Title");
     chart.getChartTitle().setOverlay(false);
@@ -895,24 +866,24 @@ static IChart createChartWithFirstSeries(ISlide slide) {
     titleFormat.setFontBold(NullableBool.False);
     titleFormat.setFontHeight(18f);
 
-    // ตั้งค่าตัวบ่งชี้ของแผนภูมิ
+    // ตั้งค่าตัวอธิบายแผนภูมิ.
     chart.getLegend().setPosition(LegendPositionType.Bottom);
     chart.getLegend().getTextFormat().getPortionFormat().setFontHeight(12f);
 
-    // ลบ Series และ Category ที่สร้างโดยอัตโนมัติเริ่มต้น
+    // ลบซีรีส์และหมวดหมู่ที่สร้างโดยอัตโนมัติ.
     chart.getChartData().getSeries().clear();
     chart.getChartData().getCategories().clear();
 
     int worksheetIndex = 0;
     IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
 
-    // เพิ่ม Category ใหม่
+    // เพิ่มหมวดหมู่ใหม่.
     chart.getChartData().getCategories().add(workbook.getCell(worksheetIndex, 1, 0, "Category 1"));
     chart.getChartData().getCategories().add(workbook.getCell(worksheetIndex, 2, 0, "Category 2"));
     chart.getChartData().getCategories().add(workbook.getCell(worksheetIndex, 3, 0, "Category 3"));
     chart.getChartData().getCategories().add(workbook.getCell(worksheetIndex, 4, 0, "Category 4"));
 
-    // เพิ่ม Series แรก
+    // เพิ่มซีรีส์แรก.
     IChartDataCell seriesNameCell = workbook.getCell(worksheetIndex, 0, 1, "Series 1");
     IChartSeries series = chart.getChartData().getSeries().add(seriesNameCell, chart.getType());
 
@@ -959,28 +930,28 @@ static void addThirdSeriesToChart(IChart chart) {
 }
 
 static void setPrimaryAxesFormat(IChart chart) {
-    // ตั้งค่าแกนแนวนอน
+    // ตั้งค่าแกนนอน.
     IAxis horizontalAxis = chart.getAxes().getHorizontalAxis();
     horizontalAxis.getTextFormat().getPortionFormat().setFontHeight(12f);
     horizontalAxis.getFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
 
     setAxisTitle(horizontalAxis, "X Axis");
 
-    // ตั้งค่าแกนแนวตั้ง
+    // ตั้งค่าแกนตั้ง.
     IAxis verticalAxis = chart.getAxes().getVerticalAxis();
     verticalAxis.getTextFormat().getPortionFormat().setFontHeight(12f);
     verticalAxis.getFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
 
     setAxisTitle(verticalAxis, "Y Axis 1");
 
-    // ตั้งค่าสีของเส้นกริดหลักแนวตั้ง
+    // ตั้งค่าสีเส้นกริดหลักแนวตั้ง.
     ILineFillFormat majorGridLinesFormat = verticalAxis.getMajorGridLinesFormat().getLine().getFillFormat();
     majorGridLinesFormat.setFillType(FillType.Solid);
     majorGridLinesFormat.getSolidFillColor().setColor(new Color(217, 217, 217));
 }
 
 static void setSecondaryAxesFormat(IChart chart) {
-    // ตั้งค่าแกนแนวนอนรอง
+    // ตั้งค่าแกนนอนรอง.
     IAxis secondaryHorizontalAxis = chart.getAxes().getSecondaryHorizontalAxis();
     secondaryHorizontalAxis.setPosition(AxisPositionType.Bottom);
     secondaryHorizontalAxis.setCrossType(CrossesType.Maximum);
@@ -988,7 +959,7 @@ static void setSecondaryAxesFormat(IChart chart) {
     secondaryHorizontalAxis.getMajorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
     secondaryHorizontalAxis.getMinorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
 
-    // ตั้งค่าแกนแนวตั้งรอง
+    // ตั้งค่าแกนตั้งรอง.
     IAxis secondaryVerticalAxis = chart.getAxes().getSecondaryVerticalAxis();
     secondaryVerticalAxis.setPosition(AxisPositionType.Right);
     secondaryVerticalAxis.getTextFormat().getPortionFormat().setFontHeight(12f);
@@ -1011,70 +982,68 @@ static void setAxisTitle(IAxis axis, String axisTitle) {
 
 ## **อัปเดตแผนภูมิ**
 
-1. สร้างอ็อบเจ็กต์ของคลาส [Presentation](https://reference.aspose.com/slides/th/java/com.aspose.slides/presentation/) ที่เป็นตัวแทนของงานนำเสนอที่มีแผนภูมิที่ต้องการอัปเดต  
-2. รับอ้างอิงสไลด์โดยใช้ดัชนีของมัน  
-3. เดินทางผ่านรูปทรงทั้งหมดเพื่อหาตำแหน่งแผนภูมิที่ต้องการ  
-4. เข้าถึง worksheet ของข้อมูลแผนภูมิ  
-5. แก้ไข Series ของแผนภูมิโดยเปลี่ยนค่าของ Series  
-6. เพิ่ม Series ใหม่และเติมข้อมูลให้เต็ม  
-7. บันทึก Presentation ที่แก้ไขเป็นไฟล์ PPTX  
-
-โค้ด Java นี้แสดงวิธีอัปเดตแผนภูมิ:
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) ที่เป็นงานนำเสนอที่มีแผนภูมิที่ต้องการอัปเดต  
+2. รับอ้างอิงไปยังสไลด์โดยใช้ดัชนีของมัน  
+3. เรียกดูรูปร่างทั้งหมดเพื่อหาแผนภูมิที่ต้องการ  
+4. เข้าถึงเวิร์กชีทข้อมูลของแผนภูมิ  
+5. แก้ไขซีรีส์ข้อมูลของแผนภูมิโดยเปลี่ยนค่าซีรีส์  
+6. เพิ่มซีรีส์ใหม่และเติมข้อมูลของมัน  
+7. บันทึกงานนำเสนอที่แก้ไขเป็นไฟล์ PPTX  
 
 ```java
 import com.aspose.slides.*;
 
-// เปิดไฟล์งานนำเสนอที่มีแผนภูมิเพื่ออัปเดต
+// เปิดการนำเสนอที่มีแผนภูมิเพื่ออัปเดต
 Presentation pres = new Presentation("ExistingChart.pptx");
 try {
     // เข้าถึงสไลด์แรก
     ISlide sld = pres.getSlides().get_Item(0);
 
-    // ดึงแผนภูมิจากสไลด์
+    // รับแผนภูมิจากสไลด์
     IChart chart = (IChart)sld.getShapes().get_Item(0);
 
-    // ตั้งค่าดัชนีของชีตข้อมูลแผนภูมิ
+    // ตั้งดัชนีของแผ่นงานข้อมูลแผนภูมิ
     int defaultWorksheetIndex = 0;
 
-    // ดึง Worksheet ของข้อมูลแผนภูมิ
+    // รับเวิร์กชีตข้อมูลแผนภูมิ
     IChartDataWorkbook fact = chart.getChartData().getChartDataWorkbook();
 
-    // เปลี่ยนชื่อ Category ของแผนภูมิ
+    // เปลี่ยนชื่อหมวดหมู่ของแผนภูมิ
     fact.getCell(defaultWorksheetIndex, 1, 0, "Modified Category 1");
     fact.getCell(defaultWorksheetIndex, 2, 0, "Modified Category 2");
 
-    // รับ Series แรกของแผนภูมิ
+    // ดึงซีรีส์แรกของแผนภูมิ
     IChartSeries series = chart.getChartData().getSeries().get_Item(0);
 
-    // อัปเดตข้อมูล Series ตอนนี้
-    fact.getCell(defaultWorksheetIndex, 0, 1, "New_Series1");// แก้ไขชื่อ Series
+    // กำลังอัปเดตข้อมูลซีรีส์
+    fact.getCell(defaultWorksheetIndex, 0, 1, "New_Series1");// แก้ไขชื่อซีรีส์
     series.getDataPoints().get_Item(0).getValue().setData(90);
     series.getDataPoints().get_Item(1).getValue().setData(123);
     series.getDataPoints().get_Item(2).getValue().setData(44);
 
-    // รับ Series ที่สองของแผนภูมิ
+    // ดึงซีรีส์ที่สองของแผนภูมิ
     series = chart.getChartData().getSeries().get_Item(1);
 
-    // อัปเดตข้อมูล Series ตอนนี้
-    fact.getCell(defaultWorksheetIndex, 0, 2, "New_Series2");// แก้ไขชื่อ Series
+    // กำลังอัปเดตข้อมูลซีรีส์
+    fact.getCell(defaultWorksheetIndex, 0, 2, "New_Series2");// แก้ไขชื่อซีรีส์
     series.getDataPoints().get_Item(0).getValue().setData(23);
     series.getDataPoints().get_Item(1).getValue().setData(67);
     series.getDataPoints().get_Item(2).getValue().setData(99);
 
-    // กำลังเพิ่ม Series ใหม่
+    // ขณะนี้กำลังเพิ่มซีรีส์ใหม่
     chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 3, "Series 3"), chart.getType());
 
-    // รับ Series ที่ 3 ของแผนภูมิ
+    // ดึงซีรีส์ที่สามของแผนภูมิ
     series = chart.getChartData().getSeries().get_Item(2);
 
-    // กำลังเติมข้อมูลให้ Series
+    // กำลังเติมข้อมูลให้ซีรีส์
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 3, 20));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 3, 50));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 3, 30));
 
     chart.setType(ChartType.ClusteredCylinder);
 
-    // บันทึกงานนำเสนอพร้อมแผนภูมิ
+    // บันทึกการนำเสนอพร้อมแผนภูมิ
     pres.save("AsposeChartModified_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
@@ -1083,20 +1052,20 @@ try {
 
 ## **กำหนดช่วงข้อมูลสำหรับแผนภูมิ**
 
-เพื่อกำหนดช่วงข้อมูลสำหรับแผนภูมิ ทำตามขั้นตอนต่อไปนี้:
+เพื่อดูช่วงที่ใช้อยู่แล้วของแผนภูม existing ให้ดูที่ [ดึงช่วงข้อมูลของแผนภูมิ](/slides/th/java/chart-workbook/#retrieve-a-charts-data-range)
 
-1. สร้างอ็อบเจ็กต์ของคลาส [Presentation](https://reference.aspose.com/slides/th/java/com.aspose.slides/presentation/) ที่เป็นตัวแทนของงานนำเสนอที่มีแผนภูมิ  
-2. รับอ้างอิงสไลด์โดยใช้ดัชนีของมัน  
-3. เดินทางผ่านรูปทรงทั้งหมดเพื่อหาตำแหน่งแผนภูมิที่ต้องการ  
+เพื่อกำหนดช่วงข้อมูลสำหรับแผนภูมิทำตามขั้นตอนต่อไปนี้:
+
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) ที่เป็นงานนำเสนอที่มีแผนภูมิ  
+2. รับอ้างอิงไปยังสไลด์โดยใช้ดัชนีของมัน  
+3. เรียกดูรูปร่างทั้งหมดเพื่อหาแผนภูมิที่ต้องการ  
 4. เข้าถึงข้อมูลแผนภูมิและกำหนดช่วง  
-5. บันทึก Presentation ที่แก้ไขเป็นไฟล์ PPTX  
-
-โค้ด Java นี้แสดงวิธีกำหนดช่วงข้อมูลสำหรับแผนภูมิ:
+5. บันทึกงานนำเสนอที่แก้ไขเป็นไฟล์ PPTX  
 
 ```java
 import com.aspose.slides.*;
 
-// เปิดงานนำเสนอที่มีแผนภูมิ
+// เปิดการนำเสนอที่มีแผนภูมิ
 Presentation pres = new Presentation("ExistingChart.pptx");
 try {
     ISlide slide = pres.getSlides().get_Item(0);
@@ -1110,11 +1079,9 @@ try {
 }
 ```
 
-## **ใช้ Marker เริ่มต้นในแผนภูมิ**
+## **ใช้ตัวทำเครื่องหมายเริ่มต้นในแผนภูมิ**
 
-เมื่อใช้ marker เริ่มต้นในแผนภูมิแต่ละ Series จะได้รับสัญลักษณ์ marker ที่แตกต่างโดยอัตโนมัติ
-
-โค้ด Java นี้แสดงวิธีตั้งค่า marker สำหรับ Series โดยอัตโนมัติ:
+เมื่อใช้ตัวทำเครื่องหมายเริ่มต้นในแผนภูมิ แต่ละซีรีส์ของแผนภูมิจะได้รับสัญลักษณ์ marker ที่ต่างกันโดยอัตโนมัติ
 
 ```java
 import com.aspose.slides.*;
@@ -1141,10 +1108,10 @@ try {
     series.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 4, 1, null));
 
     chart.getChartData().getSeries().add(fact.getCell(0, 0, 2, "Series 2"), chart.getType());
-    //รับ Series ที่สองของแผนภูมิ
+    //ดึงซีรีส์ที่สองของแผนภูมิ
     IChartSeries series2 = chart.getChartData().getSeries().get_Item(1);
 
-    //กำลังเติมข้อมูลให้ Series
+    //กำลังเติมข้อมูลให้ซีรีส์
     series2.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 1, 2, 30));
     series2.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 2, 2, 10));
     series2.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 3, 2, 60));
@@ -1159,20 +1126,20 @@ try {
 }
 ```
 
-## **FAQ**
+## **คำถามที่พบบ่อย**
 
-**ประเภทแผนภูมิใดบ้างที่ Aspose.Slides รองรับ?**
+**แผนภูมิประเภทใดที่ Aspose.Slides รองรับ?**
 
-Aspose.Slides รองรับประเภทแผนภูมิหลากหลาย [chart types](https://reference.aspose.com/slides/th/java/com.aspose.slides/charttype/) ได้แก่ bar, line, pie, area, scatter, histogram, radar และอื่น ๆ อีกมาก ทำให้คุณเลือกประเภทที่เหมาะกับการแสดงผลข้อมูลของคุณได้
+Aspose.Slides รองรับ [ประเภทแผนภูมิ](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/) มากมาย รวมถึงแผนภูมิแบบแท่ง, เส้น, วงกลม, พื้นที่, กระจาย, histogram, radar และอื่น ๆ อีกหลายประเภท ความยืดหยุ่นนี้ทำให้คุณเลือกประเภทแผนภูมิที่เหมาะสมที่สุดสำหรับการแสดงผลข้อมูลของคุณ
 
-**ฉันเพิ่มแผนภูมิใหม่ลงในสไลด์อย่างไร?**
+**ฉันจะเพิ่มแผนภูมิใหม่ในสไลด์ได้อย่างไร?**
 
-เพื่อเพิ่มแผนภูมิ คุณต้องสร้างอ็อบเจ็กต์ของคลาส [Presentation](https://reference.aspose.com/slides/th/java/com.aspose.slides/presentation/) แล้วเรียกสไลด์ที่ต้องการโดยใช้ดัชนี และเรียกเมธอดเพื่อเพิ่มแผนภูมิ พร้อมกำหนดประเภทแผนภูมิและข้อมูลเริ่มต้น กระบวนการนี้จะฝังแผนภูมิโดยตรงลงในงานนำเสนอของคุณ
+เพื่อเพิ่มแผนภูมิ คุณต้องสร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) แล้วดึงสไลด์ที่ต้องการโดยใช้ดัชนี หลังจากนั้นเรียกเมธอดเพื่อเพิ่มแผนภูมิ โดยระบุประเภทแผนภูมิและข้อมูลเริ่มต้น กระบวนการนี้จะแทรกแผนภูมิลงในงานนำเสนอของคุณโดยตรง
 
 **ฉันจะอัปเดตข้อมูลที่แสดงในแผนภูมิได้อย่างไร?**
 
-คุณสามารถอัปเดตข้อมูลของแผนภูมิได้โดยเข้าถึง workbook ของข้อมูล ([IChartDataWorkbook](https://reference.aspose.com/slides/th/java/com.aspose.slides/ichartdataworkbook/)) ล้าง Series และ Categories เริ่มต้น แล้วเพิ่มข้อมูลที่กำหนดเองของคุณ ซึ่งจะทำให้แผนภูมิเงลียนข้อมูลล่าสุด
+คุณสามารถอัปเดตข้อมูลของแผนภูมิได้โดยเข้าถึงเวิร์กบุ๊กข้อมูลของมัน ([IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/)) ล้างซีรีส์และประเภทเริ่มต้นที่มีอยู่ แล้วเพิ่มข้อมูลที่กำหนดเองของคุณ ทำให้แผนภูมิแสดงข้อมูลล่าสุดได้ทันที
 
 **สามารถปรับแต่งลักษณะของแผนภูมิได้หรือไม่?**
 
-ได้, Aspose.Slides มีตัวเลือกการปรับแต่งมากมาย คุณสามารถแก้ไขสี, ฟอนต์, label, legend และองค์ประกอบ [formatting elements](/slides/th/java/chart-entities/) อื่น ๆ เพื่อให้แผนภูมิตรงกับความต้องการออกแบบของคุณ
+ได้ Aspose.Slides ให้ตัวเลือกการปรับแต่งที่หลากหลาย คุณสามารถแก้ไขสี, ฟอนต์, ป้ายกำกับ, คำอธิบาย และ [องค์ประกอบการจัดรูปแบบ](/slides/th/java/chart-entities/) อื่น ๆ เพื่อให้แผนภูมิมีลักษณะตามความต้องการของคุณได้.

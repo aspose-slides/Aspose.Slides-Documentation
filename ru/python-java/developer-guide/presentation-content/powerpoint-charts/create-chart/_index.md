@@ -1,6 +1,6 @@
 ---
-title: Создание или обновление диаграмм PowerPoint презентаций на Python
-linktitle: Создать или обновить диаграммы
+title: Создание или обновление диаграмм PowerPoint-презентаций в Python
+linktitle: Создание или обновление диаграмм
 type: docs
 weight: 10
 url: /ru/python-java/create-chart/
@@ -13,64 +13,62 @@ keywords:
 - точечная диаграмма
 - круговая диаграмма
 - линейная диаграмма
-- диаграмма Tree Map
-- фондовая диаграмма
-- ящичная диаграмма
+- древовидная диаграмма
+- диаграмма акций
+- диаграмма «коробка с усами»
 - воронкообразная диаграмма
-- диаграмма Sunburst
+- лучевая диаграмма
 - гистограмма
-- радарная диаграмма
-- мультикатегорийная диаграмма
+- радиальная диаграмма
+- многокатегорийная диаграмма
 - PowerPoint
 - презентация
 - Python
 - Java
 - Aspose.Slides
-description: "Создавайте и настраивайте диаграммы в презентациях PowerPoint с помощью Aspose.Slides для Python через Java. Добавляйте, форматируйте и редактируйте диаграммы с практическими примерами кода на Python."
+description: "Создавайте и настраивайте диаграммы в PowerPoint-презентациях с помощью Aspose.Slides для Python через Java. Добавляйте, форматируйте и редактируйте диаграммы с практическими примерами кода на Python."
 ---
 ## **Обзор**
 
-В этой статье представлено полное руководство по созданию и настройке диаграмм с помощью Aspose.Slides. Вы узнаете, как программно добавить диаграмму на слайд, заполнить её данными и применить различные параметры форматирования, соответствующие конкретным требованиям дизайна. На протяжении статьи детальные примеры кода иллюстрируют каждый шаг — от инициализации презентации и объекта диаграммы до настройки рядов, осей и легенд. Следуя этому руководству, вы получите прочное понимание того, как интегрировать динамическое создание диаграмм в свои приложения, упростив процесс создания презентаций, основанных на данных.
+Эта статья предоставляет комплексное руководство по созданию и настройке диаграмм с помощью Aspose.Slides. Вы узнаете, как программно добавить диаграмму на слайд, заполнить её данными и применить различные варианты форматирования, соответствующие вашим требованиям к дизайну. На протяжении всей статьи подробные примеры кода иллюстрируют каждый шаг, от инициализации презентации и объекта диаграммы до настройки рядов, осей и легенд. Следуя этому руководству, вы получите прочное понимание того, как интегрировать динамическое создание диаграмм в свои приложения, упростив процесс создания презентаций, основанных на данных.
 
 ## **Создание диаграммы**
 
-Диаграммы позволяют быстро визуализировать данные и получить инсайты, которые могут быть неочевидны в таблице или электронной таблице.
+Диаграммы помогают людям быстро визуализировать данные и получать идеи, которые могут быть неочевидными из таблицы или электронных таблиц.
 
-**Зачем создавать диаграммы?**
+**Почему создавать диаграммы?**
 
-Используя диаграммы, вы можете:
+С помощью диаграмм вы можете:
 
-* агрегировать, уплотнять или суммировать большие объёмы данных на одном слайде презентации
-* выявлять закономерности и тренды в данных
+* агрегировать, сжимать или суммировать большие объёмы данных на одном слайде презентации
+* выявлять шаблоны и тенденции в данных
 * определять направление и динамику данных во времени или относительно конкретной единицы измерения
-* обнаруживать выбросы, аномалии, отклонения, ошибки, бессмысленные данные и т.п.
-* передавать сложные данные в понятном виде
+* обнаруживать выбросы, аномалии, отклонения, ошибки, бессмысленные данные и т.д.
+* представлять сложные данные
 
-В PowerPoint диаграммы создаются через функцию *Insert*, которая предоставляет шаблоны для проектирования разных типов диаграмм. С помощью Aspose.Slides вы можете создавать как обычные диаграммы (на основе популярных типов), так и пользовательские диаграммы.
+В PowerPoint вы можете создавать диаграммы через функцию *Insert*, которая предоставляет шаблоны для создания множества типов диаграмм. С помощью Aspose.Slides вы можете создавать как обычные диаграммы (на основе популярных типов), так и пользовательские диаграммы.
 
 {{% alert color="info" title="Note" %}}
-
-Для создания диаграмм используйте класс [ChartType](https://reference.aspose.com/slides/ru/python-java/aspose.slides/charttype/). Поля этого класса соответствуют различным типам диаграмм.
-
+Для создания диаграмм используйте класс [ChartType](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/). Поля этого класса соответствуют различным типам диаграмм.
 {{% /alert %}}
 
 ### **Создание сгруппированных столбчатых диаграмм**
 
-В этом разделе объясняется, как создать сгруппированные столбчатые диаграммы с помощью Aspose.Slides. Вы научитесь инициализировать презентацию, добавить диаграмму и настроить её элементы, такие как заголовок, данные, ряды, категории и стили. Выполните следующие шаги, чтобы увидеть, как генерируется стандартная сгруппированная столбчатая диаграмма:
+В этом разделе объясняется, как создавать сгруппированные столбчатые диаграммы с помощью Aspose.Slides. Вы узнаете, как инициализировать презентацию, добавить диаграмму и настроить её элементы, такие как заголовок, данные, ряды, категории и стили. Следуйте приведённым ниже шагам, чтобы увидеть, как генерируется стандартная сгруппированная столбчатая диаграмма:
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/python-java/aspose.slides/presentation).
-1. Получите ссылку на слайд, указав его индекс.
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation) .
+1. Получите ссылку на слайд, используя его индекс.
 1. Добавьте диаграмму с некоторыми данными и укажите тип `ChartType.ClusteredColumn`.
 1. Добавьте заголовок к диаграмме.
 1. Получите доступ к листу данных диаграммы.
-1. Очистите все стандартные ряды и категории.
+1. Очистите все строки и категории по умолчанию.
 1. Добавьте новые ряды и категории.
 1. Добавьте новые данные диаграммы для рядов.
-1. Примените заливку к рядам диаграммы.
+1. Примените цвет заливки к рядам диаграммы.
 1. Добавьте подписи к рядам диаграммы.
-1. Сохраните изменённую презентацию в файл PPTX.
+1. Сохраните изменённую презентацию как файл PPTX.
 
-Пример кода на C# демонстрирует создание сгруппированной столбчатой диаграммы:
+Этот C# код демонстрирует, как создать сгруппированную столбчатую диаграмму:
 
 ```python
 import jpype
@@ -83,8 +81,8 @@ from asposeslides.api import ChartType, FillType, NullableBool, Presentation, Sa
 
 Color = jpype.JClass("java.awt.Color")
 
-# Создаёт экземпляр класса презентации, представляющего файл PPTX.
-presentation = Presentation()
+    # Создаёт объект класса презентации, представляющий файл PPTX.
+    presentation = Presentation()
 try:
     # Получает первый слайд
     slide = presentation.getSlides().get_Item(0)
@@ -101,14 +99,14 @@ try:
     # Устанавливает индекс листа данных диаграммы
     default_worksheet_index = 0
 
-    # Получает лист данных диаграммы
+    # Получает рабочий лист данных диаграммы
     workbook = chart.getChartData().getChartDataWorkbook()
 
-    # Удаляет автоматически сгенерированные серии и категории
+    # Удаляет автоматически сгенерированные ряды и категории
     chart.getChartData().getSeries().clear()
     chart.getChartData().getCategories().clear()
 
-    # Добавляет новые серии
+    # Добавляет новые ряды
     cell = workbook.getCell(default_worksheet_index, 0, 1, "Series 1")
     chart.getChartData().getSeries().add(cell,chart.getType())
     cell = workbook.getCell(default_worksheet_index, 0, 2, "Series 2")
@@ -122,10 +120,10 @@ try:
     cell = workbook.getCell(default_worksheet_index, 3, 0, "Category 3")
     chart.getChartData().getCategories().add(cell)
 
-    # Берёт первую серию диаграммы
+    # Берёт первый ряд диаграммы
     series = chart.getChartData().getSeries().get_Item(0)
 
-    # Теперь заполняет данные серии
+    # Сейчас заполняет данные ряда
     cell = workbook.getCell(default_worksheet_index, 1, 1, 20)
     series.getDataPoints().addDataPointForBarSeries(cell)
     cell = workbook.getCell(default_worksheet_index, 2, 1, 50)
@@ -133,14 +131,14 @@ try:
     cell = workbook.getCell(default_worksheet_index, 3, 1, 30)
     series.getDataPoints().addDataPointForBarSeries(cell)
 
-    # Устанавливает цвет заливки для серии
+    # Устанавливает цвет заливки для ряда
     series.getFormat().getFill().setFillType(FillType.Solid)
     series.getFormat().getFill().getSolidFillColor().setColor(Color.RED)
 
-    # Берёт вторую серию диаграммы
+    # Берёт второй ряд диаграммы
     series = chart.getChartData().getSeries().get_Item(1)
 
-    # Заполняет данные серии
+    # Заполняет данные ряда
     cell = workbook.getCell(default_worksheet_index, 1, 2, 30)
     series.getDataPoints().addDataPointForBarSeries(cell)
     cell = workbook.getCell(default_worksheet_index, 2, 2, 10)
@@ -148,11 +146,11 @@ try:
     cell = workbook.getCell(default_worksheet_index, 3, 2, 60)
     series.getDataPoints().addDataPointForBarSeries(cell)
 
-    # Устанавливает цвет заливки для серии
+    # Устанавливает цвет заливки для ряда
     series.getFormat().getFill().setFillType(FillType.Solid)
     series.getFormat().getFill().getSolidFillColor().setColor(Color.GREEN)
 
-    #Создаёт пользовательские подписи для каждой категории новой серии
+    #Создаёт пользовательские подписи для каждой категории нового ряда
     # Устанавливает первую подпись для отображения названия категории
     label = series.getDataPoints().get_Item(0).getLabel()
     label.getDataLabelFormat().setShowCategoryName(True)
@@ -166,14 +164,15 @@ try:
     label.getDataLabelFormat().setShowSeriesName(True)
     label.getDataLabelFormat().setSeparator("/")
 
-    # Saves the presentation with chart
+    # Сохраняет презентацию с диаграммой
     presentation.save("output.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
 ### **Создание точечных диаграмм**
-Точечные диаграммы (также известные как scatter plots или графики x‑y) часто используют для проверки закономерностей или демонстрации корреляций между двумя переменными.
+
+Точечные диаграммы (также известные как scatter plots или графики x‑y) часто используют для проверки шаблонов или демонстрации корреляций между двумя переменными.
 
 Используйте точечную диаграмму, когда:
 
@@ -182,15 +181,15 @@ finally:
 * вы хотите определить, связаны ли две переменные
 * у вас есть независимая переменная, имеющая несколько значений для зависимой переменной
 
-1. Выполните шаги из раздела [Create Clustered Column Charts](#create-clustered-column-charts).
-2. На третьем шаге добавьте диаграмму с данными и укажите тип диаграммы из следующих вариантов:
-   1. [ChartType.ScatterWithMarkers](https://reference.aspose.com/slides/ru/python-java/aspose.slides/charttype/#ScatterWithMarkers) - _Представляет точечную диаграмму с маркерами._
-   2. [ChartType.ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/ru/python-java/aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - _Представляет точечную диаграмму, соединённую кривыми, с маркерами данных._
-   3. [ChartType.ScatterWithSmoothLines](https://reference.aspose.com/slides/ru/python-java/aspose.slides/charttype/#ScatterWithSmoothLines) - _Представляет точечную диаграмму, соединённую кривыми, без маркеров данных._
-   4. [ChartType.ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/ru/python-java/aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _Представляет точечную диаграмму, соединённую прямыми линиями, с маркерами данных._
-   5. [ChartType.ScatterWithStraightLines](https://reference.aspose.com/slides/ru/python-java/aspose.slides/charttype/#ScatterWithStraightLines) - _Представляет точечную диаграмму, соединённую прямыми линиями, без маркеров данных._
+1. Следуйте шагам в разделе [Создание сгруппированных столбчатых диаграмм](#create-clustered-column-charts).
+2. Для третьего шага добавьте диаграмму с некоторыми данными и укажите тип диаграммы как один из следующих:
+   1. [ChartType.ScatterWithMarkers](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/#ScatterWithMarkers) - _Представляет точечную диаграмму с маркерами._
+   2. [ChartType.ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - _Представляет точечную диаграмму, соединённую кривыми, с маркерами данных._
+   3. [ChartType.ScatterWithSmoothLines](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/#ScatterWithSmoothLines) - _Представляет точечную диаграмму, соединённую кривыми, без маркеров данных._
+   4. [ChartType.ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _Представляет точечную диаграмму, соединённую линиями, с маркерами данных._
+   5. [ChartType.ScatterWithStraightLines](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/#ScatterWithStraightLines) - _Представляет точечную диаграмму, соединённую линиями, без маркеров данных._
 
-Пример кода на Python показывает, как создать точечную диаграмму с разными маркерами для каждого ряда:
+Этот Python код показывает, как создать точечную диаграмму с разными маркерами для каждого ряда:
 
 ```python
 import jpype
@@ -201,7 +200,7 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import ChartType, MarkerStyleType, Presentation, SaveFormat
 
-# Создаёт экземпляр класса презентации, представляющего файл PPTX.
+# Создаёт объект презентации, представляющий файл PPTX.
 presentation = Presentation()
 try:
     # Получает первый слайд
@@ -216,19 +215,19 @@ try:
     # Получает лист данных диаграммы
     workbook = chart.getChartData().getChartDataWorkbook()
 
-    # Удаляет демонстрационную серию
+    # Удаляет демонстрационные ряды
     chart.getChartData().getSeries().clear()
 
-    # Добавляет новые серии
+    # Добавляет новые ряды
     cell = workbook.getCell(default_worksheet_index, 1, 1, "Series 1")
     chart.getChartData().getSeries().add(cell, chart.getType())
     cell = workbook.getCell(default_worksheet_index, 1, 3, "Series 2")
     chart.getChartData().getSeries().add(cell, chart.getType())
 
-    # Берёт первую серию диаграммы
+    # Берёт первый ряд диаграммы
     series = chart.getChartData().getSeries().get_Item(0)
 
-    # Добавляет новую точку (1:3) в серию
+    # Добавляет новую точку (1:3) в ряд
     x_cell = workbook.getCell(default_worksheet_index, 2, 1, 1)
     y_cell = workbook.getCell(default_worksheet_index, 2, 2, 3)
     series.getDataPoints().addDataPointForScatterSeries(x_cell, y_cell)
@@ -238,14 +237,14 @@ try:
     y_cell = workbook.getCell(default_worksheet_index, 3, 2, 10)
     series.getDataPoints().addDataPointForScatterSeries(x_cell, y_cell)
 
-    # Изменяет тип серии
+    # Изменяет тип ряда
     series.setType(ChartType.ScatterWithStraightLinesAndMarkers)
 
-    # Изменяет маркер серии диаграммы
+    # Изменяет маркер ряда диаграммы
     series.getMarker().setSize(10)
     series.getMarker().setSymbol(MarkerStyleType.Star)
 
-    # Берёт вторую серию диаграммы
+    # Берёт второй ряд диаграммы
     series = chart.getChartData().getSeries().get_Item(1)
 
     # Добавляет новую точку (5:2) туда
@@ -268,7 +267,7 @@ try:
     y_cell = workbook.getCell(default_worksheet_index, 5, 4, 1)
     series.getDataPoints().addDataPointForScatterSeries(x_cell, y_cell)
 
-    # Изменяет маркер серии диаграммы
+    # Изменяет маркер ряда диаграммы
     series.getMarker().setSize(10)
     series.getMarker().setSymbol(MarkerStyleType.Circle)
 
@@ -279,22 +278,22 @@ finally:
 
 ### **Создание круговых диаграмм**
 
-Круговые диаграммы лучше использовать для отображения соотношения части к целому, особенно когда данные содержат категориальные метки с числовыми значениями. Однако если данных слишком много, стоит рассмотреть столбчатую диаграмму.
+Круговые диаграммы лучше всего использовать для отображения отношения части к целому в данных, особенно когда данные содержат категориальные метки с числовыми значениями. Однако, если ваши данные содержат много частей или меток, возможно, стоит рассмотреть использование гистограммы.
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/python-java/aspose.slides/presentation/).
-2. Получите ссылку на слайд, указав его индекс.
-3. Добавьте диаграмму с данными по умолчанию и укажите тип [ChartType.Pie](https://reference.aspose.com/slides/ru/python-java/aspose.slides/charttype/#Pie).
-4. Получите доступ к книге данных диаграммы [ChartDataWorkbook](https://reference.aspose.com/slides/ru/python-java/aspose.slides/chartdataworkbook/).
-5. Очистите стандартные ряды и категории.
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) .
+2. Получите ссылку на слайд, используя его индекс.
+3. Добавьте диаграмму с данными по умолчанию и укажите тип [ChartType.Pie](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/#Pie) .
+4. Получите доступ к рабочей книге данных диаграммы [ChartDataWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdataworkbook/) .
+5. Очистите ряды и категории по умолчанию.
 6. Добавьте новые ряды и категории.
 7. Добавьте новые данные диаграммы для рядов.
-8. Добавьте новые точки и примените пользовательские цвета к секторам круговой диаграммы.
+8. Добавьте новые точки для диаграммы и примените пользовательские цвета к секторам круговой диаграммы.
 9. Установите подписи для рядов.
 10. Включите линии‑выноски для подписей рядов.
-11. Задайте угол поворота секторов круговой диаграммы.
-12. Сохраните изменённую презентацию в файл PPTX.
+11. Установите угол вращения для секторов круговой диаграммы.
+12. Сохраните изменённую презентацию как файл PPTX.
 
-Пример кода на Python демонстрирует создание круговой диаграммы:
+Этот Python код показывает, как создать круговую диаграмму:
 
 ```python
 import jpype
@@ -307,123 +306,123 @@ from asposeslides.api import ChartType, FillType, LineDashStyle, LineStyle, Null
 
 Color = jpype.JClass("java.awt.Color")
 
-# Создаёт экземпляр класса презентации, представляющего файл PPTX.
-presentation = Presentation()
-try:
-    # Получает первый слайд
-    slide = presentation.getSlides().get_Item(0)
+    # Создаёт объект презентации, представляющий файл PPTX.
+    presentation = Presentation()
+    try:
+        # Получает первый слайд
+        slide = presentation.getSlides().get_Item(0)
 
-    # Добавляет диаграмму с данными по умолчанию
-    chart = slide.getShapes().addChart(ChartType.Pie, 100, 100, 400, 400)
+        # Добавляет диаграмму с данными по умолчанию
+        chart = slide.getShapes().addChart(ChartType.Pie, 100, 100, 400, 400)
 
-    # Устанавливает заголовок диаграммы
-    chart.getChartTitle().addTextFrameForOverriding("Sample Title")
-    chart.getChartTitle().getTextFrameForOverriding().getTextFrameFormat().setCenterText(NullableBool.True_)
-    chart.getChartTitle().setHeight(20)
-    chart.setTitle(True)
+        # Устанавливает заголовок диаграммы
+        chart.getChartTitle().addTextFrameForOverriding("Sample Title")
+        chart.getChartTitle().getTextFrameForOverriding().getTextFrameFormat().setCenterText(NullableBool.True_)
+        chart.getChartTitle().setHeight(20)
+        chart.setTitle(True)
 
-    # Устанавливает индекс листа данных диаграммы
-    default_worksheet_index = 0
+        # Устанавливает индекс листа данных диаграммы
+        default_worksheet_index = 0
 
-    # Получает лист данных диаграммы
-    workbook = chart.getChartData().getChartDataWorkbook()
+        # Получает лист данных диаграммы
+        workbook = chart.getChartData().getChartDataWorkbook()
 
-    # Удаляет автоматически сгенерированные серии и категории
-    chart.getChartData().getSeries().clear()
-    chart.getChartData().getCategories().clear()
+        # Удаляет автоматически сгенерированные ряды и категории
+        chart.getChartData().getSeries().clear()
+        chart.getChartData().getCategories().clear()
 
-    # Добавляет новые категории
-    cell = workbook.getCell(0, 1, 0, "First Qtr")
-    chart.getChartData().getCategories().add(cell)
-    cell = workbook.getCell(0, 2, 0, "2nd Qtr")
-    chart.getChartData().getCategories().add(cell)
-    cell = workbook.getCell(0, 3, 0, "3rd Qtr")
-    chart.getChartData().getCategories().add(cell)
+        # Добавляет новые категории
+        cell = workbook.getCell(0, 1, 0, "First Qtr")
+        chart.getChartData().getCategories().add(cell)
+        cell = workbook.getCell(0, 2, 0, "2nd Qtr")
+        chart.getChartData().getCategories().add(cell)
+        cell = workbook.getCell(0, 3, 0, "3rd Qtr")
+        chart.getChartData().getCategories().add(cell)
 
-    # Добавляет новые серии
-    cell = workbook.getCell(0, 0, 1, "Series 1")
-    series = chart.getChartData().getSeries().add(cell, chart.getType())
+        # Добавляет новые ряды
+        cell = workbook.getCell(0, 0, 1, "Series 1")
+        series = chart.getChartData().getSeries().add(cell, chart.getType())
 
-    #Заполняет данные серии
-    cell = workbook.getCell(default_worksheet_index, 1, 1, 20)
-    series.getDataPoints().addDataPointForPieSeries(cell)
-    cell = workbook.getCell(default_worksheet_index, 2, 1, 50)
-    series.getDataPoints().addDataPointForPieSeries(cell)
-    cell = workbook.getCell(default_worksheet_index, 3, 1, 30)
-    series.getDataPoints().addDataPointForPieSeries(cell)
+        #Заполняет данные ряда
+        cell = workbook.getCell(default_worksheet_index, 1, 1, 20)
+        series.getDataPoints().addDataPointForPieSeries(cell)
+        cell = workbook.getCell(default_worksheet_index, 2, 1, 50)
+        series.getDataPoints().addDataPointForPieSeries(cell)
+        cell = workbook.getCell(default_worksheet_index, 3, 1, 30)
+        series.getDataPoints().addDataPointForPieSeries(cell)
 
-    # Добавление новых точек и установка цвета сектора
-    chart.getChartData().getSeriesGroups().get_Item(0).setColorVaried(True)
+        # Добавляет новые точки и задаёт цвет сектора
+        chart.getChartData().getSeriesGroups().get_Item(0).setColorVaried(True)
 
-    point = series.getDataPoints().get_Item(0)
-    point.getFormat().getFill().setFillType(FillType.Solid)
-    point.getFormat().getFill().getSolidFillColor().setColor(Color.CYAN)
+        point = series.getDataPoints().get_Item(0)
+        point.getFormat().getFill().setFillType(FillType.Solid)
+        point.getFormat().getFill().getSolidFillColor().setColor(Color.CYAN)
 
-    # Устанавливает границу сектора
-    point.getFormat().getLine().getFillFormat().setFillType(FillType.Solid)
-    point.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.GRAY)
-    point.getFormat().getLine().setWidth(3.0)
-    point.getFormat().getLine().setStyle(LineStyle.ThinThick)
-    point.getFormat().getLine().setDashStyle(LineDashStyle.DashDot)
+        # Устанавливает границу сектора
+        point.getFormat().getLine().getFillFormat().setFillType(FillType.Solid)
+        point.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.GRAY)
+        point.getFormat().getLine().setWidth(3.0)
+        point.getFormat().getLine().setStyle(LineStyle.ThinThick)
+        point.getFormat().getLine().setDashStyle(LineDashStyle.DashDot)
 
-    second_point = series.getDataPoints().get_Item(1)
-    second_point.getFormat().getFill().setFillType(FillType.Solid)
-    second_point.getFormat().getFill().getSolidFillColor().setColor(Color.ORANGE)
+        second_point = series.getDataPoints().get_Item(1)
+        second_point.getFormat().getFill().setFillType(FillType.Solid)
+        second_point.getFormat().getFill().getSolidFillColor().setColor(Color.ORANGE)
 
-    # Устанавливает границу сектора
-    second_point.getFormat().getLine().getFillFormat().setFillType(FillType.Solid)
-    second_point.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.BLUE)
-    second_point.getFormat().getLine().setWidth(3.0)
-    second_point.getFormat().getLine().setStyle(LineStyle.Single)
-    second_point.getFormat().getLine().setDashStyle(LineDashStyle.LargeDashDot)
+        # Устанавливает границу сектора
+        second_point.getFormat().getLine().getFillFormat().setFillType(FillType.Solid)
+        second_point.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.BLUE)
+        second_point.getFormat().getLine().setWidth(3.0)
+        second_point.getFormat().getLine().setStyle(LineStyle.Single)
+        second_point.getFormat().getLine().setDashStyle(LineDashStyle.LargeDashDot)
 
-    third_point = series.getDataPoints().get_Item(2)
-    third_point.getFormat().getFill().setFillType(FillType.Solid)
-    third_point.getFormat().getFill().getSolidFillColor().setColor(Color.YELLOW)
+        third_point = series.getDataPoints().get_Item(2)
+        third_point.getFormat().getFill().setFillType(FillType.Solid)
+        third_point.getFormat().getFill().getSolidFillColor().setColor(Color.YELLOW)
 
-    # Устанавливает границу сектора
-    third_point.getFormat().getLine().getFillFormat().setFillType(FillType.Solid)
-    third_point.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.RED)
-    third_point.getFormat().getLine().setWidth(2.0)
-    third_point.getFormat().getLine().setStyle(LineStyle.ThinThin)
-    third_point.getFormat().getLine().setDashStyle(LineDashStyle.LargeDashDotDot)
+        # Устанавливает границу сектора
+        third_point.getFormat().getLine().getFillFormat().setFillType(FillType.Solid)
+        third_point.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.RED)
+        third_point.getFormat().getLine().setWidth(2.0)
+        third_point.getFormat().getLine().setStyle(LineStyle.ThinThin)
+        third_point.getFormat().getLine().setDashStyle(LineDashStyle.LargeDashDotDot)
 
-    # Создаёт пользовательские подписи для каждой категории новой серии
-    first_label = series.getDataPoints().get_Item(0).getLabel()
+        # Создаёт пользовательские подписи для каждой категории нового ряда
+        first_label = series.getDataPoints().get_Item(0).getLabel()
 
-    first_label.getDataLabelFormat().setShowValue(True)
+        first_label.getDataLabelFormat().setShowValue(True)
 
-    second_label = series.getDataPoints().get_Item(1).getLabel()
-    second_label.getDataLabelFormat().setShowValue(True)
-    second_label.getDataLabelFormat().setShowLegendKey(True)
-    second_label.getDataLabelFormat().setShowPercentage(True)
+        second_label = series.getDataPoints().get_Item(1).getLabel()
+        second_label.getDataLabelFormat().setShowValue(True)
+        second_label.getDataLabelFormat().setShowLegendKey(True)
+        second_label.getDataLabelFormat().setShowPercentage(True)
 
-    third_label = series.getDataPoints().get_Item(2).getLabel()
-    third_label.getDataLabelFormat().setShowSeriesName(True)
-    third_label.getDataLabelFormat().setShowPercentage(True)
+        third_label = series.getDataPoints().get_Item(2).getLabel()
+        third_label.getDataLabelFormat().setShowSeriesName(True)
+        third_label.getDataLabelFormat().setShowPercentage(True)
 
-    # Отображает линии‑выноски для диаграммы
-    series.getLabels().getDefaultDataLabelFormat().setShowLeaderLines(True)
+        # Показывает линии‑выноски для диаграммы
+        series.getLabels().getDefaultDataLabelFormat().setShowLeaderLines(True)
 
-    # Устанавливает угол поворота секторов круговой диаграммы
-    chart.getChartData().getSeriesGroups().get_Item(0).setFirstSliceAngle(180)
+        # Устанавливает угол поворота секторов круговой диаграммы
+        chart.getChartData().getSeriesGroups().get_Item(0).setFirstSliceAngle(180)
 
-    # Сохраняет презентацию с диаграммой
-    presentation.save("PieChart_out.pptx", SaveFormat.Pptx)
-finally:
-    presentation.dispose()
+        # Сохраняет презентацию с диаграммой
+        presentation.save("PieChart_out.pptx", SaveFormat.Pptx)
+    finally:
+        presentation.dispose()
 ```
 
 ### **Создание линейных диаграмм**
 
-Линейные диаграммы (также известные как line graphs) лучше использовать, когда нужно показать изменения значений во времени. С помощью линейной диаграммы можно сравнить большой объём данных, отслеживать изменения и тренды, выделять аномалии в рядах и многое другое.
+Линейные диаграммы (также известные как line graphs) лучше всего использовать в ситуациях, когда необходимо продемонстрировать изменения значения во времени. С помощью линейной диаграммы можно сравнивать большое количество данных одновременно, отслеживать изменения и тенденции во времени, выделять аномалии в рядах данных и многое другое.
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/python-java/aspose.slides/presentation/).
-1. Получите ссылку на слайд, указав его индекс.
-1. Добавьте диаграмму с данными по умолчанию и укажите тип [ChartType.Line](https://reference.aspose.com/slides/ru/python-java/aspose.slides/charttype/#Line).
-1. Сохраните изменённую презентацию в файл PPTX.
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) .
+1. Получите ссылку на слайд, используя его индекс.
+1. Добавьте диаграмму с данными по умолчанию и укажите тип [ChartType.Line](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/#Line) .
+1. Сохраните изменённую презентацию как файл PPTX.
 
-Пример кода на Python показывает создание линейной диаграммы:
+Этот Python код показывает, как создать линейную диаграмму:
 
 ```python
 import jpype
@@ -443,7 +442,7 @@ finally:
     presentation.dispose()
 ```
 
-По умолчанию точки линейной диаграммы соединяются сплошными прямыми линиями. Если хотите соединять их пунктиром, укажите нужный тип штриха следующим образом:
+По умолчанию точки на линейной диаграмме соединяются сплошными прямыми линиями. Если вы хотите, чтобы точки соединялись пунктиром, укажите желаемый тип штриха следующим образом:
 
 ```python
 import jpype
@@ -466,20 +465,20 @@ finally:
     presentation.dispose()
 ```
 
-### **Создание иерархических диаграмм (Tree Map)**
+### **Создание диаграмм “дерево” (Tree Map)**
 
-Иерархические диаграммы лучше всего подходят для данных о продажах, когда нужно показать относительный размер категорий и быстро привлечь внимание к крупным вкладам внутри каждой категории.
+Диаграммы Tree Map лучше всего использовать для данных о продажах, когда нужно отобразить относительный размер категорий данных и быстро привлечь внимание к элементам, являющимся крупными вкладчиками в каждой категории.
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/python-java/aspose.slides/presentation/).
-2. Получите ссылку на слайд, указав его индекс.
-3. Добавьте диаграмму с данными по умолчанию и укажите тип [ChartType.Treemap](https://reference.aspose.com/slides/ru/python-java/aspose.slides/charttype/#Treemap).
-4. Получите доступ к книге данных диаграммы [ChartDataWorkbook](https://reference.aspose.com/slides/ru/python-java/aspose.slides/chartdataworkbook/).
-5. Очистите стандартные ряды и категории.
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) .
+2. Получите ссылку на слайд, используя его индекс.
+3. Добавьте диаграмму с данными по умолчанию и укажите тип [ChartType.Treemap](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/#Treemap) .
+4. Получите доступ к рабочей книге данных диаграммы [ChartDataWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdataworkbook/) .
+5. Очистите ряды и категории по умолчанию.
 6. Добавьте новые ряды и категории.
 7. Добавьте новые данные диаграммы для рядов.
-8. Сохраните изменённую презентацию в файл PPTX.
+8. Сохраните изменённую презентацию как файл PPTX.
 
-Пример кода на Python показывает создание иерархической диаграммы:
+Этот Python код показывает, как создать диаграмму Tree Map:
 
 ```python
 import jpype
@@ -557,19 +556,19 @@ finally:
     presentation.dispose()
 ```
 
-### **Создание фондовых диаграмм**
+### **Создание диаграмм акций (Stock Charts)**
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/python-java/aspose.slides/presentation/).
-2. Получите ссылку на слайд, указав его индекс.
-3. Добавьте диаграмму с данными по умолчанию и укажите тип [ChartType.OpenHighLowClose](https://reference.aspose.com/slides/ru/python-java/aspose.slides/charttype/#OpenHighLowClose).
-4. Получите доступ к книге данных диаграммы [ChartDataWorkbook](https://reference.aspose.com/slides/ru/python-java/aspose.slides/chartdataworkbook/).
-5. Очистите стандартные ряды и категории.
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) .
+2. Получите ссылку на слайд, используя его индекс.
+3. Добавьте диаграмму с данными по умолчанию и укажите тип [ChartType.OpenHighLowClose](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/#OpenHighLowClose) .
+4. Получите доступ к рабочей книге данных диаграммы [ChartDataWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdataworkbook/) .
+5. Очистите ряды и категории по умолчанию.
 6. Добавьте новые ряды и категории.
 7. Добавьте новые данные диаграммы для рядов.
 8. Укажите формат линий high‑low.
-9. Сохраните изменённую презентацию в файл PPTX.
+9. Сохраните изменённую презентацию как файл PPTX.
 
-Пример кода на Python демонстрирует создание фондовой диаграммы:
+Этот Python код показывает, как создать диаграмму акций:
 
 ```python
 import jpype
@@ -649,18 +648,18 @@ finally:
     presentation.dispose()
 ```
 
-### **Создание диаграмм «box‑and‑whisker»**
+### **Создание диаграмм “коробка с усами” (Box and Whisker)**
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/python-java/aspose.slides/presentation/).
-2. Получите ссылку на слайд, указав его индекс.
-3. Добавьте диаграмму с данными по умолчанию и укажите тип [ChartType.BoxAndWhisker](https://reference.aspose.com/slides/ru/python-java/aspose.slides/charttype/#BoxAndWhisker).
-4. Получите доступ к книге данных диаграммы [ChartDataWorkbook](https://reference.aspose.com/slides/ru/python-java/aspose.slides/chartdataworkbook/).
-5. Очистите стандартные ряды и категории.
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) .
+2. Получите ссылку на слайд, используя его индекс.
+3. Добавьте диаграмму с данными по умолчанию и укажите тип [ChartType.BoxAndWhisker](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/#BoxAndWhisker) .
+4. Получите доступ к рабочей книге данных диаграммы [ChartDataWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdataworkbook/) .
+5. Очистите ряды и категории по умолчанию.
 6. Добавьте новые ряды и категории.
 7. Добавьте новые данные диаграммы для рядов.
-8. Сохраните изменённую презентацию в файл PPTX.
+8. Сохраните изменённую презентацию как файл PPTX.
 
-Пример кода на Python показывает создание диаграммы «box‑and‑whisker»:
+Этот Python код показывает, как создать диаграмму “коробка с усами”:
 
 ```python
 import jpype
@@ -719,14 +718,14 @@ finally:
     presentation.dispose()
 ```
 
-### **Создание воронкообразных диаграмм**
+### **Создание воронкообразных диаграмм (Funnel Charts)**
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/python-java/aspose.slides/presentation/).
-2. Получите ссылку на слайд, указав его индекс.
-3. Добавьте диаграмму с данными по умолчанию и укажите тип [ChartType.Funnel](https://reference.aspose.com/slides/ru/python-java/aspose.slides/charttype/#Funnel).
-4. Сохраните изменённую презентацию в файл PPTX.
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) .
+2. Получите ссылку на слайд, используя его индекс.
+3. Добавьте диаграмму с данными по умолчанию и укажите тип [ChartType.Funnel](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/#Funnel) .
+4. Сохраните изменённую презентацию как файл PPTX.
 
-Пример кода на Python демонстрирует создание воронкообразной диаграммы:
+Этот Python код показывает, как создать воронкообразную диаграмму:
 
 ```python
 import jpype
@@ -780,14 +779,14 @@ finally:
     presentation.dispose()
 ```
 
-### **Создание радиальных диаграмм (Sunburst)**
+### **Создание лучевых диаграмм (Sunburst Charts)**
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/python-java/aspose.slides/presentation/).
-2. Получите ссылку на слайд, указав его индекс.
-3. Добавьте диаграмму с данными по умолчанию и укажите тип [ChartType.Sunburst](https://reference.aspose.com/slides/ru/python-java/aspose.slides/charttype/#Sunburst).
-4. Сохраните изменённую презентацию в файл PPTX.
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) .
+2. Получите ссылку на слайд, используя его индекс.
+3. Добавьте диаграмму с данными по умолчанию и укажите тип [ChartType.Sunburst](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/#Sunburst) .
+4. Сохраните изменённую презентацию как файл PPTX.
 
-Пример кода на Python показывает создание радиальной (sunburst) диаграммы:
+Этот Python код показывает, как создать лучевую диаграмму:
 
 ```python
 import jpype
@@ -863,17 +862,17 @@ finally:
     presentation.dispose()
 ```
 
-### **Создание гистограмм**
+### **Создание гистограмм (Histogram Charts)**
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/python-java/aspose.slides/presentation/).
-2. Получите ссылку на слайд, указав его индекс.
-3. Добавьте диаграмму с данными по умолчанию и укажите тип [ChartType.Histogram](https://reference.aspose.com/slides/ru/python-java/aspose.slides/charttype/#Histogram).
-4. Получите доступ к книге данных диаграммы [ChartDataWorkbook](https://reference.aspose.com/slides/ru/python-java/aspose.slides/chartdataworkbook/).
-5. Очистите стандартные ряды и категории.
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) .
+2. Получите ссылку на слайд, используя его индекс.
+3. Добавьте диаграмму с данными по умолчанию и укажите тип [ChartType.Histogram](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/#Histogram) .
+4. Получите доступ к рабочей книге данных диаграммы [ChartDataWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdataworkbook/) .
+5. Очистите ряды и категории по умолчанию.
 6. Добавьте новые ряды и категории.
-7. Сохраните изменённую презентацию в файл PPTX.
+7. Сохраните изменённую презентацию как файл PPTX.
 
-Пример кода на Python демонстрирует создание гистограммы:
+Этот Python код показывает, как создать гистограммную диаграмму:
 
 ```python
 import jpype
@@ -914,14 +913,14 @@ finally:
     presentation.dispose()
 ```
 
-### **Создание радиальных (Radar) диаграмм**
+### **Создание радиальных диаграмм (Radar Charts)**
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/python-java/aspose.slides/presentation/).
-2. Получите ссылку на слайд, указав его индекс.
-3. Добавьте диаграмму с данными и укажите желаемый тип диаграммы ([ChartType.Radar](https://reference.aspose.com/slides/ru/python-java/aspose.slides/charttype/#Radar) в данном случае).
-4. Сохраните изменённую презентацию в файл PPTX.
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) .
+2. Получите ссылку на слайд, используя его индекс.
+3. Добавьте диаграмму с некоторыми данными и укажите предпочтительный тип диаграммы ([ChartType.Radar](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/#Radar) в данном случае).
+4. Сохраните изменённую презентацию как файл PPTX.
 
-Пример кода на Python показывает создание радиальной диаграммы:
+Этот Python код показывает, как создать радиальную диаграмму:
 
 ```python
 import jpype
@@ -935,23 +934,23 @@ from asposeslides.api import ChartType, Presentation, SaveFormat
 presentation = Presentation()
 try:
     presentation.getSlides().get_Item(0).getShapes().addChart(ChartType.Radar, 20, 20, 400, 300)
-    presentation.save("Radar-chart.pptx", SaveFormat.Pptx)
+    presentation.save("Radar-card.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-### **Создание мультикатегорийных диаграмм**
+### **Создание многокатегорийных диаграмм**
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/python-java/aspose.slides/presentation/).
-2. Получите ссылку на слайд, указав его индекс.
-3. Добавьте диаграмму с данными по умолчанию и укажите тип [ChartType.ClusteredColumn](https://reference.aspose.com/slides/ru/python-java/aspose.slides/charttype/#ClusteredColumn).
-4. Получите доступ к книге данных диаграммы [ChartDataWorkbook](https://reference.aspose.com/slides/ru/python-java/aspose.slides/chartdataworkbook/).
-5. Очистите стандартные ряды и категории.
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) .
+2. Получите ссылку на слайд, используя его индекс.
+3. Добавьте диаграмму с данными по умолчанию и укажите тип [ChartType.ClusteredColumn](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/#ClusteredColumn) .
+4. Получите доступ к рабочей книге данных диаграммы [ChartDataWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdataworkbook/) .
+5. Очистите ряды и категории по умолчанию.
 6. Добавьте новые ряды и категории.
 7. Добавьте новые данные диаграммы для рядов.
-8. Сохраните изменённую презентацию в файл PPTX.
+8. Сохраните изменённую презентацию как файл PPTX.
 
-Пример кода на Python показывает создание мультикатегорийной диаграммы:
+Этот Python код показывает, как создать многокатегорийную диаграмму:
 
 ```python
 import jpype
@@ -1023,11 +1022,11 @@ finally:
     presentation.dispose()
 ```
 
-### **Создание картографических диаграмм**
+### **Создание картографических диаграмм (Map Charts)**
 
 Картографические диаграммы визуализируют географические данные и помогают сравнивать значения по регионам.
 
-Пример кода на Python демонстрирует создание картографической диаграммы:
+Этот Python код показывает, как создать картографическую диаграмму:
 
 ```python
 import jpype
@@ -1048,11 +1047,11 @@ finally:
 
 ### **Создание комбинированных диаграмм**
 
-Комбинированная диаграмма (combo chart) объединяет два и более типа диаграмм в одном графике. Такая диаграмма позволяет выделять, сравнивать или анализировать различия между несколькими наборами данных, помогая выявлять их взаимосвязи.
+Комбинированная диаграмма (или combo chart) сочетает два или более типов диаграмм в одном графике. Такая диаграмма позволяет выделять, сравнивать или исследовать различия между двумя или более наборами данных, помогая определить взаимосвязи между ними.
 
-![The combination chart](combination_chart.png)
+![Комбинированный график](combination_chart.png)
 
-Следующий код на Python показывает, как создать показанную выше комбинированную диаграмму в презентации PowerPoint:
+Следующий Python код показывает, как создать комбинированную диаграмму, показанную выше, в презентации PowerPoint:
 
 ```python
 import jpype
@@ -1097,7 +1096,7 @@ def create_chart_with_first_series(slide):
     chart.getLegend().setPosition(LegendPositionType.Bottom)
     chart.getLegend().getTextFormat().getPortionFormat().setFontHeight(12.0)
 
-    # Удалить автоматически сгенерированные серии и категории.
+    # Удалить автоматически сгенерированные ряды и категории.
     chart.getChartData().getSeries().clear()
     chart.getChartData().getCategories().clear()
 
@@ -1114,7 +1113,7 @@ def create_chart_with_first_series(slide):
     cell = workbook.getCell(worksheet_index, 4, 0, "Category 4")
     chart.getChartData().getCategories().add(cell)
 
-    # Добавить первую серию.
+    # Добавить первый ряд.
     series_name_cell = workbook.getCell(worksheet_index, 0, 1, "Series 1")
     series = chart.getChartData().getSeries().add(series_name_cell, chart.getType())
 
@@ -1184,7 +1183,7 @@ def set_primary_axes_format(chart):
 
     set_axis_title(vertical_axis, "Y Axis 1")
 
-    # Установить цвет основных линий сетки вертикальной оси.
+    # Установить цвет основных линий сетки по вертикали.
     major_grid_lines_format = vertical_axis.getMajorGridLinesFormat().getLine().getFillFormat()
     major_grid_lines_format.setFillType(FillType.Solid)
     color = Color(217, 217, 217)
@@ -1222,15 +1221,15 @@ create_combo_chart()
 
 ## **Обновление диаграмм**
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/python-java/aspose.slides/presentation/) — это презентация, содержащая диаграмму, которую нужно обновить.
-2. Получите ссылку на слайд, указав его индекс.
-3. Пройдитесь по всем фигурам, чтобы найти нужную диаграмму.
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) , представляющего презентацию, содержащую диаграмму, которую нужно обновить.
+2. Получите ссылку на слайд, используя его индекс.
+3. Пройдитесь по всем фигуртам, чтобы найти нужную диаграмму.
 4. Получите доступ к листу данных диаграммы.
-5. Измените данные ряда, изменив значения.
+5. Измените ряд данных диаграммы, изменив значения ряда.
 6. Добавьте новый ряд и заполните его данными.
-7. Сохраните изменённую презентацию в файл PPTX.
+7. Сохраните изменённую презентацию как файл PPTX.
 
-Пример кода на Python демонстрирует обновление диаграммы:
+Этот Python код показывает, как обновить диаграмму:
 
 ```python
 import jpype
@@ -1244,48 +1243,48 @@ from asposeslides.api import ChartType, Presentation, SaveFormat
 # Открывает презентацию, содержащую диаграмму для обновления
 presentation = Presentation("ExistingChart.pptx")
 try:
-    # Получает первый слайд
+    # Получить первый слайд
     slide = presentation.getSlides().get_Item(0)
 
-    # Получает диаграмму со слайда
+    # Получить диаграмму со слайда
     chart = slide.getShapes().get_Item(0)
 
-    # Устанавливает индекс листа данных диаграммы
+    # Установка индекса листа данных диаграммы
     default_worksheet_index = 0
 
-    # Получает лист данных диаграммы
+    # Получение листа данных диаграммы
     workbook = chart.getChartData().getChartDataWorkbook()
 
-    # Изменяет название категории диаграммы
+    # Изменение названия категории диаграммы
     workbook.getCell(default_worksheet_index, 1, 0, "Modified Category 1")
     workbook.getCell(default_worksheet_index, 2, 0, "Modified Category 2")
 
-    # Берёт первую серию диаграммы
+    # Получить первый ряд диаграммы
     series = chart.getChartData().getSeries().get_Item(0)
 
-    # Теперь обновляем данные серии
-    workbook.getCell(default_worksheet_index, 0, 1, "New_Series1")# Изменение имени серии
+    # Теперь обновляем данные ряда
+    workbook.getCell(default_worksheet_index, 0, 1, "New_Series1")# Изменение названия ряда
     series.getDataPoints().get_Item(0).getValue().setData(90)
     series.getDataPoints().get_Item(1).getValue().setData(123)
     series.getDataPoints().get_Item(2).getValue().setData(44)
 
-    # Берёт вторую серию диаграммы
+    # Получить второй ряд диаграммы
     series = chart.getChartData().getSeries().get_Item(1)
 
-    # Теперь обновляем данные серии
-    workbook.getCell(default_worksheet_index, 0, 2, "New_Series2")# Изменение имени серии
+    # Теперь обновляем данные ряда
+    workbook.getCell(default_worksheet_index, 0, 2, "New_Series2")# Изменение названия ряда
     series.getDataPoints().get_Item(0).getValue().setData(23)
     series.getDataPoints().get_Item(1).getValue().setData(67)
     series.getDataPoints().get_Item(2).getValue().setData(99)
 
-    # Теперь добавляем новую серию
+    # Теперь добавляем новый ряд
     cell = workbook.getCell(default_worksheet_index, 0, 3, "Series 3")
     chart.getChartData().getSeries().add(cell, chart.getType())
 
-    # Берёт третью серию диаграммы
+    # Получить третий ряд диаграммы
     series = chart.getChartData().getSeries().get_Item(2)
 
-    # Теперь заполняем данные серии
+    # Теперь заполняем данные ряда
     cell = workbook.getCell(default_worksheet_index, 1, 3, 20)
     series.getDataPoints().addDataPointForBarSeries(cell)
     cell = workbook.getCell(default_worksheet_index, 2, 3, 50)
@@ -1295,7 +1294,7 @@ try:
 
     chart.setType(ChartType.ClusteredCylinder)
 
-    # Сохраняет презентацию с диаграммой
+    # Сохранить презентацию с диаграммой
     presentation.save("AsposeChartModified_out.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
@@ -1303,22 +1302,24 @@ finally:
 
 ## **Установка диапазона данных для диаграммы**
 
-Чтобы задать диапазон данных для диаграммы, выполните следующее:
+Чтобы просмотреть диапазон, уже используемый существующей диаграммой, см. [Получить диапазон данных диаграммы](/slides/ru/python-java/chart-workbook/#retrieve-a-charts-data-range).
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/python-java/aspose.slides/presentation/) — это презентация, содержащая диаграмму.
-2. Получите ссылку на слайд, указав его индекс.
-3. Пройдитесь по всем фигурам, чтобы найти нужную диаграмму.
-4. Получите доступ к данным диаграммы и задайте диапазон.
-5. Сохраните изменённую презентацию в файл PPTX.
+Чтобы установить диапазон данных для диаграммы, выполните следующее:
 
-Пример кода на Python показывает, как установить диапазон данных для диаграммы:
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) , представляющего презентацию, содержащую диаграмму.
+2. Получите ссылку на слайд, используя его индекс.
+3. Пройдитесь по всем фигуртам, чтобы найти нужную диаграмму.
+4. Доступ к данным диаграммы и задайте диапазон.
+5. Сохраните изменённую презентацию как файл PPTX.
+
+Этот Python код показывает, как установить диапазон данных для диаграммы:
 
 ```python
-import jpage
+import jpype
 import asposeslides
 
-if not jpage.isJVMStarted():
-    jpage.startJVM()
+if not jpype.isJVMStarted():
+    jpype.startJVM()
 
 from asposeslides.api import Presentation, SaveFormat
 
@@ -1337,9 +1338,9 @@ finally:
 
 ## **Использование стандартных маркеров в диаграммах**
 
-При использовании стандартных маркеров каждая серия диаграммы автоматически получает различный символ маркера.
+При использовании стандартных маркеров в диаграммах каждый ряд автоматически получает различный символ маркера.
 
-Пример кода на Python показывает автоматическую установку маркера для серии диаграммы:
+Этот Python код показывает, как автоматически задать маркер для ряда диаграммы:
 
 ```python
 import jpype
@@ -1382,10 +1383,10 @@ try:
 
     cell = workbook.getCell(0, 0, 2, "Series 2")
     chart.getChartData().getSeries().add(cell, chart.getType())
-    #Возьмите вторую серию диаграммы
+    # Возьмите второй ряд диаграммы
     second_series = chart.getChartData().getSeries().get_Item(1)
 
-    #Сейчас заполняем данные серии
+    # Теперь заполняем данные ряда
     cell = workbook.getCell(0, 1, 2, 30)
     second_series.getDataPoints().addDataPointForLineSeries(cell)
     cell = workbook.getCell(0, 2, 2, 10)
@@ -1403,20 +1404,20 @@ finally:
     presentation.dispose()
 ```
 
-## **FAQ**
+## **Часто задаваемые вопросы**
 
 **Какие типы диаграмм поддерживает Aspose.Slides?**
 
-Aspose.Slides поддерживает широкий спектр [типов диаграмм](https://reference.aspose.com/slides/ru/python-java/aspose.slides/charttype/), включая столбчатые, линейные, круговые, областные, точечные, гистограммы, радиальные и многие другие. Такая гибкость позволяет выбрать наиболее подходящий тип для визуализации ваших данных.
+Aspose.Slides поддерживает широкий спектр [chart types](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/), включая столбчатые, линейные, круговые, плотные, точечные, гистограммы, радиальные и многие другие. Эта гибкость позволяет выбрать наилучший тип диаграммы для ваших потребностей в визуализации данных.
 
 **Как добавить новую диаграмму на слайд?**
 
-Чтобы добавить диаграмму, сначала создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/python-java/aspose.slides/presentation/), получите нужный слайд по индексу, а затем вызовите метод добавления диаграммы, указав тип диаграммы и начальные данные. Этот процесс интегрирует диаграмму непосредственно в вашу презентацию.
+Чтобы добавить диаграмму, сначала создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) , получите нужный слайд по его индексу, а затем вызовите метод добавления диаграммы, указав тип диаграммы и начальные данные. Этот процесс интегрирует диаграмму непосредственно в вашу презентацию.
 
 **Как обновить данные, отображаемые в диаграмме?**
 
-Вы можете обновить данные диаграммы, получив доступ к её книге данных ([ChartDataWorkbook](https://reference.aspose.com/slides/ru/python-java/aspose.slides/chartdataworkbook/)), очистив стандартные ряды и категории, а затем добавив свои собственные данные. Это позволяет актуализировать диаграмму в соответствии с новыми данными.
+Вы можете обновить данные диаграммы, получив доступ к её рабочей книге данных ([ChartDataWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdataworkbook/)), очистив любые ряды и категории по умолчанию и затем добавив свои собственные данные. Это позволяет обновлять диаграмму, отражая актуальные данные.
 
-**Можно ли изменить внешний вид диаграммы?**
+**Можно ли настроить внешний вид диаграммы?**
 
-Да, Aspose.Slides предоставляет обширные возможности настройки. Вы можете изменять цвета, шрифты, подписи, легенды и другие [элементы форматирования](/slides/ru/python-java/chart-entities/), адаптируя внешний вид диаграммы под конкретные требования дизайна.
+Да, Aspose.Slides предоставляет обширные возможности настройки. Вы можете изменять цвета, шрифты, подписи, легенды и другие [элементы форматирования](/slides/ru/python-java/chart-entities/) для адаптации внешнего вида диаграммы к вашим специфическим требованиям дизайна.

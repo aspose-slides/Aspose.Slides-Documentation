@@ -14,58 +14,60 @@ keywords:
 - Kreisdiagramm
 - Liniendiagramm
 - Baumkarten-Diagramm
-- Aktienchart
-- Box‑Und‑Whisker‑Diagramm
+- Börsendiagramm
+- Box-und-Whisker-Diagramm
 - Trichterdiagramm
-- Sunburst‑Diagramm
-- Histogramm-Diagramm
-- Radar‑Diagramm
-- Mehrkategorie‑Diagramm
+- Sunburst-Diagramm
+- Histogramm
+- Radardiagramm
+- Mehrkategorien-Diagramm
 - PowerPoint
 - Präsentation
 - Java
 - Aspose.Slides
-description: "Erstellen und Anpassen von Diagrammen in PowerPoint-Präsentationen mit Aspose.Slides für Java. Diagramme hinzufügen, formatieren und bearbeiten mit praktischen Codebeispielen in Java."
+description: "Erstellen und anpassen von Diagrammen in PowerPoint-Präsentationen mit Aspose.Slides für Java. Diagramme hinzufügen, formatieren und bearbeiten mit praktischen Code-Beispielen in Java."
 ---
 ## **Übersicht**
 
-Dieser Artikel bietet eine umfassende Anleitung, wie man Diagramme mit Aspose.Slides erstellt und anpasst. Sie lernen, wie man programmgesteuert ein Diagramm zu einer Folie hinzufügt, es mit Daten befüllt und verschiedene Formatierungsoptionen anwendet, um Ihren spezifischen Designanforderungen zu entsprechen. Im gesamten Artikel veranschaulichen detaillierte Codebeispiele jeden Schritt, von der Initialisierung der Präsentation und des Diagrammobjekts bis zur Konfiguration von Serien, Achsen und Legenden. Wenn Sie dieser Anleitung folgen, erhalten Sie ein fundiertes Verständnis dafür, wie Sie die dynamische Diagrammerstellung in Ihre Anwendungen integrieren und den Prozess der Erstellung datenbasierter Präsentationen optimieren.
+Dieser Artikel bietet eine umfassende Anleitung zum Erstellen und Anpassen von Diagrammen mit Aspose.Slides. Sie lernen, wie Sie programmgesteuert ein Diagramm zu einer Folie hinzufügen, es mit Daten füllen und verschiedene Formatierungsoptionen anwenden, um Ihre spezifischen Designanforderungen zu erfüllen. Im gesamten Artikel veranschaulichen detaillierte Codebeispiele jeden Schritt, von der Initialisierung der Präsentation und des Diagrammobjekts bis zur Konfiguration von Serien, Achsen und Legenden. Durch Befolgen dieser Anleitung erhalten Sie ein solides Verständnis dafür, wie Sie die dynamische Diagrammerstellung in Ihre Anwendungen integrieren und den Prozess der Erstellung datengetriebener Präsentationen optimieren können.
 
 ## **Diagramm erstellen**
 
-Diagramme helfen, Daten schnell zu visualisieren und Erkenntnisse zu gewinnen, die aus einer Tabelle oder Kalkulationstabelle nicht sofort ersichtlich sind.
+Diagramme helfen dabei, Daten schnell zu visualisieren und Erkenntnisse zu gewinnen, die aus einer Tabelle oder einem Spreadsheet nicht sofort ersichtlich sind.
 
 **Warum Diagramme erstellen?**
 
-- große Datenmengen auf einer einzelnen Folie einer Präsentation aggregieren, verdichten oder zusammenfassen  
-- Muster und Trends in den Daten aufzeigen  
-- die Richtung und das Momentum der Daten im Zeitverlauf oder bezogen auf eine bestimmte Maßeinheit ableiten  
-- Ausreißer, Aberrationen, Abweichungen, Fehler, unsinnige Daten usw. erkennen  
-- komplexe Daten kommunizieren oder präsentieren  
+Mit Diagrammen können Sie:
 
-In PowerPoint können Sie Diagramme über die *Einfügen*-Funktion erstellen, die Vorlagen für die Gestaltung vieler Diagrammtypen bereitstellt. Mit Aspose.Slides können Sie sowohl reguläre Diagramme (basierend auf gängigen Diagrammtypen) als auch benutzerdefinierte Diagramme erstellen.
+* große Datenmengen auf einer einzigen Folie einer Präsentation aggregieren, komprimieren oder zusammenfassen
+* Muster und Trends in Daten aufzeigen
+* die Richtung und das Momentum von Daten über die Zeit oder in Bezug auf eine bestimmte Einheit ableiten
+* Ausreißer, Aberrationen, Abweichungen, Fehler, unsinnige Daten etc. erkennen
+* komplexe Daten kommunizieren oder präsentieren
+
+In PowerPoint können Sie Diagramme über die *Insert*-Funktion erstellen, die Vorlagen für die Gestaltung vieler Diagrammtypen bietet. Mit Aspose.Slides können Sie sowohl reguläre Diagramme (basierend auf gängigen Diagrammtypen) als auch benutzerdefinierte Diagramme erstellen.
 
 {{% alert color="info" title="Note" %}}
-Um Diagramme zu erstellen, verwenden Sie die Klasse [ChartType](https://reference.aspose.com/slides/de/java/com.aspose.slides/charttype/). Die Felder in dieser Klasse entsprechen verschiedenen Diagrammtypen.
+Um Diagramme zu erstellen, verwenden Sie die [ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/)‑Klasse. Die Felder dieser Klasse entsprechen verschiedenen Diagrammtypen.
 {{% /alert %}}
 
-### **Erstellen von gruppierten Säulendiagrammen**
+### **Clustered Column‑Diagramme erstellen**
 
-Dieser Abschnitt erklärt, wie man gruppierte Säulendiagramme mit Aspose.Slides erstellt. Sie lernen, eine Präsentation zu initialisieren, ein Diagramm hinzuzufügen und dessen Elemente wie Titel, Daten, Serien, Kategorien und Styling anzupassen. Folgen Sie den untenstehenden Schritten, um zu sehen, wie ein standardmäßiges gruppiertes Säulendiagramm erzeugt wird:
+In diesem Abschnitt wird erläutert, wie Sie mit Aspose.Slides gruppierte Säulendiagramme erstellen. Sie lernen, wie Sie eine Präsentation initialisieren, ein Diagramm hinzufügen und Elemente wie Titel, Daten, Serien, Kategorien und Stil anpassen. Folgen Sie den Schritten unten, um zu sehen, wie ein Standard‑Clustered‑Column‑Diagramm generiert wird:
 
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/de/java/com.aspose.slides/presentation).
-2. Holen Sie eine Referenz zu einer Folie über deren Index.
-3. Fügen Sie ein Diagramm mit einigen Daten hinzu und geben Sie den Typ `ChartType.ClusteredColumn` an.
-4. Fügen Sie dem Diagramm einen Titel hinzu.
-5. Greifen Sie auf das Datenarbeitsblatt des Diagramms zu.
-6. Löschen Sie alle Standardserien und -kategorien.
-7. Fügen Sie neue Serien und Kategorien hinzu.
-8. Fügen Sie neue Diagrammdaten für die Diagrammserien hinzu.
-9. Wenden Sie eine Füllfarbe auf die Diagrammserien an.
-10. Fügen Sie der Diagrammserie Beschriftungen hinzu.
-11. Speichern Sie die modifizierte Präsentation als PPTX-Datei.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation)‑Klasse.
+1. Holen Sie sich einen Verweis auf eine Folie über deren Index.
+1. Fügen Sie ein Diagramm mit einigen Daten hinzu und geben Sie den Typ `ChartType.ClusteredColumn` an.
+1. Fügen Sie dem Diagramm einen Titel hinzu.
+1. Greifen Sie auf das Daten‑Worksheet des Diagramms zu.
+1. Löschen Sie alle Standardserien und -kategorien.
+1. Fügen Sie neue Serien und Kategorien hinzu.
+1. Fügen Sie neue Diagrammdaten für die Diagrammserien hinzu.
+1. Wenden Sie eine Füllfarbe auf die Diagrammserien an.
+1. Fügen Sie Beschriftungen zu den Diagrammserien hinzu.
+1. Speichern Sie die geänderte Präsentation als PPTX‑Datei.
 
-This C# code demonstrates how to create a clustered column chart:
+Dieser C#‑Code demonstriert, wie ein gruppiertes Säulendiagramm erstellt wird:
 
 ```java
 import com.aspose.slides.*;
@@ -89,7 +91,7 @@ try {
     // Setzt den Index für das Diagrammdatenblatt
     int defaultWorksheetIndex = 0;
     
-    // Liest das Diagrammdaten-Arbeitsblatt
+    // Ruft das Diagrammdaten‑Worksheet ab
     IChartDataWorkbook fact = chart.getChartData().getChartDataWorkbook();
     
     // Löscht die standardmäßig erzeugten Serien und Kategorien
@@ -131,52 +133,52 @@ try {
     series.getFormat().getFill().setFillType(FillType.Solid);
     series.getFormat().getFill().getSolidFillColor().setColor(Color.GREEN);
     
-    //Erstellt benutzerdefinierte Beschriftungen für jede Kategorie der neuen Serie
-    // Setzt die erste Beschriftung, um den Kategorienamen anzuzeigen
+    //Erstelle benutzerdefinierte Beschriftungen für jede Kategorie für die neue Serie
+    // Setzt die erste Beschriftung, um den Kategoriennamen anzuzeigen
     IDataLabel lbl = series.getDataPoints().get_Item(0).getLabel();
     lbl.getDataLabelFormat().setShowCategoryName(true);
     
     lbl = series.getDataPoints().get_Item(1).getLabel();
     lbl.getDataLabelFormat().setShowSeriesName(true);
     
-    // Zeigt den Wert für die dritte Beschriftung
+    // Zeigt den Wert für die dritte Beschriftung an
     lbl = series.getDataPoints().get_Item(2).getLabel();
     lbl.getDataLabelFormat().setShowValue(true);
     lbl.getDataLabelFormat().setShowSeriesName(true);
     lbl.getDataLabelFormat().setSeparator("/");
     
-    // Speichert die Präsentation mit dem Diagramm
+    // Speichert die Präsentation mit Diagramm
     pres.save("output.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-### **Erstellen von Streudiagrammen**
+### **Scatter‑Diagramme erstellen**
 
-Streudiagramme (auch als Scatterplots oder x‑y‑Diagramme bezeichnet) werden häufig verwendet, um Muster zu prüfen oder Korrelationen zwischen zwei Variablen darzustellen.
+Scatter‑Diagramme (auch Streudiagramme oder X‑Y‑Grafiken genannt) werden häufig verwendet, um Muster zu prüfen oder Korrelationen zwischen zwei Variablen zu zeigen.
 
-Verwenden Sie ein Streudiagramm, wenn:
+Verwenden Sie ein Scatter‑Diagramm, wenn:
 
-- Sie über numerische Datenpaare verfügen  
-- Sie zwei gut zusammenpassende Variablen haben  
-- Sie feststellen möchten, ob zwei Variablen miteinander verbunden sind  
-- Sie eine unabhängige Variable besitzen, die mehrere Werte für eine abhängige Variable hat  
+* Sie gepaarte numerische Daten haben
+* Sie zwei Variablen haben, die gut zusammenpassen
+* Sie bestimmen wollen, ob zwei Variablen miteinander verbunden sind
+* Sie eine unabhängige Variable mit mehreren Werten für eine abhängige Variable besitzen
 
-1. Befolgen Sie die Schritte in [Erstellen von gruppierten Säulendiagrammen](#create-clustered-column-charts).  
-2. Für den dritten Schritt fügen Sie ein Diagramm mit einigen Daten hinzu und geben Ihren Diagrammtyp wie folgt an:  
-   1. [ChartType.ScatterWithMarkers](https://reference.aspose.com/slides/de/java/com.aspose.slides/charttype/#ScatterWithMarkers) - _Stellt ein Streudiagramm dar._  
-   2. [ChartType.ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/de/java/com.aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - _Stellt ein Streudiagramm dar, das durch Kurven verbunden ist und Datenmarker enthält._  
-   3. [ChartType.ScatterWithSmoothLines](https://reference.aspose.com/slides/de/java/com.aspose.slides/charttype/#ScatterWithSmoothLines) - _Stellt ein Streudiagramm dar, das durch Kurven verbunden ist, jedoch keine Datenmarker enthält._  
-   4. [ChartType.ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/de/java/com.aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _Stellt ein Streudiagramm dar, das durch Linien verbunden ist und Datenmarker enthält._  
-   5. [ChartType.ScatterWithStraightLines](https://reference.aspose.com/slides/de/java/com.aspose.slides/charttype/#ScatterWithStraightLines) - _Stellt ein Streudiagramm dar, das durch Linien verbunden ist, jedoch keine Datenmarker enthält._
+1. Folgen Sie den Schritten in [Create Clustered Column Charts](#create-clustered-column-charts).
+2. Für den dritten Schritt fügen Sie ein Diagramm mit einigen Daten hinzu und geben Ihren Diagrammtyp als einen der folgenden an:
+   1. [ChartType.ScatterWithMarkers](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#ScatterWithMarkers) - _Stellt ein Scatter‑Diagramm dar._
+   2. [ChartType.ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - _Stellt ein Scatter‑Diagramm dar, das durch Kurven verbunden ist, mit Datenmarkern._
+   3. [ChartType.ScatterWithSmoothLines](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#ScatterWithSmoothLines) - _Stellt ein Scatter‑Diagramm dar, das durch Kurven verbunden ist, ohne Datenmarker._
+   4. [ChartType.ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _Stellt ein Scatter‑Diagramm dar, das durch Linien verbunden ist, mit Datenmarkern._
+   5. [ChartType.ScatterWithStraightLines](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#ScatterWithStraightLines) - _Stellt ein Scatter‑Diagramm dar, das durch Linien verbunden ist, ohne Datenmarker._
 
-This Java code shows how to create a scatter chart with different markers for each series:
+Dieser Java‑Code zeigt, wie ein Scatter‑Diagramm mit unterschiedlichen Markern für jede Serie erstellt wird:
 
 ```java
 import com.aspose.slides.*;
 
-// Instanziert eine Präsentationsklasse, die eine PPTX-Datei darstellt
+// Instanziiert eine Präsentationsklasse, die eine PPTX-Datei darstellt
 Presentation pres = new Presentation();
 try {
     // Greift auf die erste Folie zu
@@ -185,13 +187,13 @@ try {
     // Erstellt das Standarddiagramm
     IChart chart = slide.getShapes().addChart(ChartType.ScatterWithSmoothLines, 0, 0, 400, 400);
     
-    // Ermittelt den Index des Standard‑Datenarbeitsblatts des Diagramms
+    // Holt den Index des Standard-Datenarbeitsblatts des Diagramms
     int defaultWorksheetIndex = 0;
     
-    // Ermittelt das Diagramm‑Datenarbeitsblatt
+    // Holt das Diagrammdaten-Arbeitsblatt
     IChartDataWorkbook fact = chart.getChartData().getChartDataWorkbook();
     
-    // Löscht die Demo‑Serie
+    // Löscht die Demo-Serien
     chart.getChartData().getSeries().clear();
     
     // Fügt neue Serien hinzu
@@ -207,10 +209,10 @@ try {
     // Fügt einen neuen Punkt (2:10) hinzu
     series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 2), fact.getCell(defaultWorksheetIndex, 3, 2, 10));
     
-    // Ändert den Seriotyp
+    // Ändert den Serientyp
     series.setType(ChartType.ScatterWithStraightLinesAndMarkers);
     
-    // Ändert den Diagrammserien‑Marker
+    // Ändert den Marker der Diagrammserie
     series.getMarker().setSize(10);
     series.getMarker().setSymbol(MarkerStyleType.Star);
     
@@ -229,7 +231,7 @@ try {
     // Fügt einen neuen Punkt (5:1) hinzu
     series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 5, 3, 5), fact.getCell(defaultWorksheetIndex, 5, 4, 1));
     
-    // Ändert den Diagrammserien‑Marker
+    // Ändert den Marker der Diagrammserie
     series.getMarker().setSize(10);
     series.getMarker().setSymbol(MarkerStyleType.Circle);
     
@@ -239,24 +241,24 @@ try {
 }
 ```
 
-### **Erstellen von Kreisdiagrammen**
+### **Kreisdiagramme erstellen**
 
-Kreisdiagramme eignen sich am besten, um das Verhältnis von Teil zu Ganzem in Daten darzustellen, besonders wenn die Daten kategoriale Beschriftungen mit numerischen Werten enthalten. Wenn Ihre Daten jedoch viele Teile oder Beschriftungen enthalten, sollten Sie stattdessen ein Balkendiagramm in Betracht ziehen.
+Kreisdiagramme eignen sich am besten, um das Verhältnis von Teil zu Ganzem darzustellen, insbesondere wenn die Daten kategoriale Beschriftungen mit numerischen Werten enthalten. Enthält Ihre Datenmenge jedoch viele Teile oder Beschriftungen, sollten Sie stattdessen ein Balkendiagramm in Betracht ziehen.
 
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/de/java/com.aspose.slides/presentation/).
-2. Holen Sie eine Referenz zu einer Folie über deren Index.
-3. Fügen Sie ein Diagramm mit Standarddaten hinzu und geben Sie den Typ [ChartType.Pie](https://reference.aspose.com/slides/de/java/com.aspose.slides/charttype/#Pie) an.
-4. Greifen Sie auf die Diagrammdaten‑Arbeitsmappe [IChartDataWorkbook](https://reference.aspose.com/slides/de/java/com.aspose.slides/ichartdataworkbook/) zu.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/)‑Klasse.
+2. Holen Sie sich einen Verweis auf eine Folie über deren Index.
+3. Fügen Sie ein Diagramm mit Standarddaten hinzu und geben Sie den Typ [ChartType.Pie](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#Pie) an.
+4. Greifen Sie auf das Diagramm‑Daten‑Workbook [IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/) zu.
 5. Löschen Sie die Standardserien und -kategorien.
 6. Fügen Sie neue Serien und Kategorien hinzu.
 7. Fügen Sie neue Diagrammdaten für die Diagrammserien hinzu.
-8. Fügen Sie neue Punkte zum Diagramm hinzu und wenden Sie benutzerdefinierte Farben für die Segmente des Kreisdiagramms an.
+8. Fügen Sie neue Punkte für das Diagramm hinzu und wenden Sie benutzerdefinierte Farben für die Sektoren des Kreisdiagramms an.
 9. Setzen Sie Beschriftungen für die Serien.
-10. Aktivieren Sie Führungslinien für die Serienbeschriftungen.
-11. Legen Sie den Rotationswinkel für die Segmente des Kreisdiagramms fest.
-12. Speichern Sie die modifizierte Präsentation als PPTX-Datei.
+10. Aktivieren Sie Leitlinien für die Serienbeschriftungen.
+11. Legen Sie den Rotationswinkel für die Sektoren des Kreisdiagramms fest.
+12. Speichern Sie die geänderte Präsentation als PPTX‑Datei.
 
-This Java code shows how to create a pie chart:
+Dieser Java‑Code zeigt, wie ein Kreisdiagramm erstellt wird:
 
 ```java
 import com.aspose.slides.*;
@@ -280,7 +282,7 @@ try {
     // Setzt den Index für das Diagrammdatenblatt
     int defaultWorksheetIndex = 0;
     
-    // Ermittelt das Diagrammdaten-Arbeitsblatt
+    // Holt das Diagrammdaten-Worksheet
     IChartDataWorkbook fact = chart.getChartData().getChartDataWorkbook();
     
     // Löscht die standardmäßig erzeugten Serien und Kategorien
@@ -295,21 +297,21 @@ try {
     // Fügt neue Serien hinzu
     IChartSeries series = chart.getChartData().getSeries().add(fact.getCell(0, 0, 1, "Series 1"), chart.getType());
     
-    // Befüllt die Seriendaten
+    //Füllt die Seriendaten
     series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 1, 1, 20));
     series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 50));
     series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 30));
     
     // Nicht funktionierend in neuer Version
-    // Adding new points and setting sector color
+    // Hinzufügen neuer Punkte und Festlegen der Sektorfarbe
     // series.IsColorVaried = true;
     chart.getChartData().getSeriesGroups().get_Item(0).setColorVaried(true);
     
     IChartDataPoint point = series.getDataPoints().get_Item(0);
     point.getFormat().getFill().setFillType(FillType.Solid);
     point.getFormat().getFill().getSolidFillColor().setColor(Color.CYAN);
-    
-    // Setzt den Sektorrand
+	
+    // Setzt den Sektorrahmen
     point.getFormat().getLine().getFillFormat().setFillType(FillType.Solid);
     point.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.GRAY);
     point.getFormat().getLine().setWidth(3.0);
@@ -320,7 +322,7 @@ try {
     point1.getFormat().getFill().setFillType(FillType.Solid);
     point1.getFormat().getFill().getSolidFillColor().setColor(Color.ORANGE);
     
-    // Setzt den Sektorrand
+    // Setzt den Sektorrahmen
     point1.getFormat().getLine().getFillFormat().setFillType(FillType.Solid);
     point1.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
     point1.getFormat().getLine().setWidth(3.0);
@@ -331,7 +333,7 @@ try {
     point2.getFormat().getFill().setFillType(FillType.Solid);
     point2.getFormat().getFill().getSolidFillColor().setColor(Color.YELLOW);
     
-    // Setzt den Sektorrand
+    // Setzt den Sektorrahmen
     point2.getFormat().getLine().getFillFormat().setFillType(FillType.Solid);
     point2.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.RED);
     point2.getFormat().getLine().setWidth(2.0);
@@ -353,10 +355,10 @@ try {
     lbl3.getDataLabelFormat().setShowSeriesName(true);
     lbl3.getDataLabelFormat().setShowPercentage(true);
     
-    // Zeigt Führungsleitungen für das Diagramm
+    // Zeigt Leitlinien für das Diagramm an
     series.getLabels().getDefaultDataLabelFormat().setShowLeaderLines(true);
     
-    // Setzt den Rotationswinkel für die Sektoren des Kreisdiagramms
+    // Setzt den Rotationswinkel für die Kreisdiagramm‑Sektoren
     chart.getChartData().getSeriesGroups().get_Item(0).setFirstSliceAngle(180);
     
     // Speichert die Präsentation mit einem Diagramm
@@ -366,16 +368,16 @@ try {
 }
 ```
 
-### **Erstellen von Liniendiagrammen**
+### **Liniendiagramme erstellen**
 
-Liniendiagramme (auch als Liniendiagramme bezeichnet) eignen sich am besten für Situationen, in denen Sie Wertänderungen im Zeitverlauf darstellen möchten. Mit einem Liniendiagramm können Sie eine große Menge an Daten gleichzeitig vergleichen, Änderungen und Trends im Zeitverlauf verfolgen, Anomalien in Datenserien hervorheben und vieles mehr.
+Liniendiagramme (auch Liniendiagramme genannt) eignen sich besonders, wenn Sie Änderungen von Werten über die Zeit demonstrieren möchten. Mit einem Liniendiagramm können Sie große Datenmengen gleichzeitig vergleichen, Änderungen und Trends über die Zeit verfolgen, Anomalien in Datenserien hervorheben und vieles mehr.
 
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/de/java/com.aspose.slides/presentation).
-2. Holen Sie eine Referenz zu einer Folie über deren Index.
-3. Fügen Sie ein Diagramm mit Standarddaten hinzu und geben Sie den Typ [ChartType.Line](https://reference.aspose.com/slides/de/java/com.aspose.slides/charttype/#Line) an.
-4. Speichern Sie die modifizierte Präsentation als PPTX-Datei.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/)‑Klasse.
+1. Holen Sie sich einen Verweis auf eine Folie über deren Index.
+1. Fügen Sie ein Diagramm mit Standarddaten hinzu und geben Sie den Typ [ChartType.Line](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#Line) an.
+1. Speichern Sie die geänderte Präsentation als PPTX‑Datei.
 
-This Java code shows how to create a line chart:
+Dieser Java‑Code zeigt, wie ein Liniendiagramm erstellt wird:
 
 ```java
 import com.aspose.slides.*;
@@ -390,7 +392,7 @@ try {
 }
 ```
 
-Standardmäßig werden die Punkte eines Liniendiagramms durch gerade kontinuierliche Linien verbunden. Wenn Sie die Punkte stattdessen durch Striche verbinden möchten, können Sie den gewünschten Strichtyp wie folgt angeben:
+Standardmäßig werden Punkte in einem Liniendiagramm durch gerade kontinuierliche Linien verbunden. Wenn Sie die Punkte stattdessen durch Striche verbinden möchten, können Sie den gewünschten Strichtyp wie folgt angeben:
 
 ```java
 import com.aspose.slides.*;
@@ -410,20 +412,20 @@ try {
 }
 ```
 
-### **Erstellen von Baumkarten**
+### **Tree‑Map‑Diagramme erstellen**
 
-Baumkarten sind besonders geeignet für Verkaufsdaten, wenn Sie die relative Größe von Datenkategorien anzeigen und schnell die großen Beitragsleistenden innerhalb jeder Kategorie hervorheben möchten.
+Tree‑Map‑Diagramme eignen sich besonders für Verkaufsdaten, wenn Sie die relative Größe von Datenkategorien zeigen und schnell auf große Beitragende innerhalb jeder Kategorie aufmerksam machen möchten.
 
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/de/java/com.aspose.slides/presentation).
-2. Holen Sie eine Referenz zu einer Folie über deren Index.
-3. Fügen Sie ein Diagramm mit Standarddaten hinzu und geben Sie den Typ [ChartType.Treemap](https://reference.aspose.com/slides/de/java/com.aspose.slides/charttype/#Treemap) an.
-4. Greifen Sie auf die Diagrammdaten‑Arbeitsmappe [IChartDataWorkbook](https://reference.aspose.com/slides/de/java/com.aspose.slides/ichartdataworkbook/) zu.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/)‑Klasse.
+2. Holen Sie sich einen Verweis auf eine Folie über deren Index.
+3. Fügen Sie ein Diagramm mit Standarddaten hinzu und geben Sie den Typ [ChartType.Treemap](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#Treemap) an.
+4. Greifen Sie auf das Diagramm‑Daten‑Workbook [IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/) zu.
 5. Löschen Sie die Standardserien und -kategorien.
 6. Fügen Sie neue Serien und Kategorien hinzu.
 7. Fügen Sie neue Diagrammdaten für die Diagrammserien hinzu.
-8. Speichern Sie die modifizierte Präsentation als PPTX-Datei.
+8. Speichern Sie die geänderte Präsentation als PPTX‑Datei.
 
-This Java code shows how to create a tree map chart:
+Dieser Java‑Code zeigt, wie ein Tree‑Map‑Diagramm erstellt wird:
 
 ```java
 import com.aspose.slides.*;
@@ -480,19 +482,19 @@ try {
 }
 ```
 
-### **Erstellen von Aktiencharts**
+### **Börsendiagramme erstellen**
 
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/de/java/com.aspose.slides/presentation).
-2. Holen Sie eine Referenz zu einer Folie über deren Index.
-3. Fügen Sie ein Diagramm mit Standarddaten hinzu und geben Sie den Typ [ChartType.OpenHighLowClose](https://reference.aspose.com/slides/de/java/com.aspose.slides/charttype/#OpenHighLowClose) an.
-4. Greifen Sie auf die Diagrammdaten‑Arbeitsmappe [IChartDataWorkbook](https://reference.aspose.com/slides/de/java/com.aspose.slides/ichartdataworkbook/) zu.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/)‑Klasse.
+2. Holen Sie sich einen Verweis auf eine Folie über deren Index.
+3. Fügen Sie ein Diagramm mit Standarddaten hinzu und geben Sie den Typ [ChartType.OpenHighLowClose](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#OpenHighLowClose) an.
+4. Greifen Sie auf das Diagramm‑Daten‑Workbook [IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/) zu.
 5. Löschen Sie die Standardserien und -kategorien.
 6. Fügen Sie neue Serien und Kategorien hinzu.
 7. Fügen Sie neue Diagrammdaten für die Diagrammserien hinzu.
-8. Geben Sie das Format der Hoch‑Niedrig‑Linien an.
-9. Speichern Sie die modifizierte Präsentation als PPTX-Datei.
+8. Definieren Sie das Format der Hoch‑Niedrig‑Linien.
+9. Speichern Sie die geänderte Präsentation als PPTX‑Datei.
 
-This Java code shows how to create a stock chart:
+Dieser Java‑Code zeigt, wie ein Börsendiagramm erstellt wird:
 
 ```java
 import com.aspose.slides.*;
@@ -550,18 +552,18 @@ try {
 }
 ```
 
-### **Erstellen von Box‑Und‑Whisker‑Diagrammen**
+### **Box‑und‑Whisker‑Diagramme erstellen**
 
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/de/java/com.aspose.slides/presentation).
-2. Holen Sie eine Referenz zu einer Folie über deren Index.
-3. Fügen Sie ein Diagramm mit Standarddaten hinzu und geben Sie den Typ [ChartType.BoxAndWhisker](https://reference.aspose.com/slides/de/java/com.aspose.slides/charttype/#BoxAndWhisker) an.
-4. Greifen Sie auf die Diagrammdaten‑Arbeitsmappe [IChartDataWorkbook](https://reference.aspose.com/slides/de/java/com.aspose.slides/ichartdataworkbook/) zu.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/)‑Klasse.
+2. Holen Sie sich einen Verweis auf eine Folie über deren Index.
+3. Fügen Sie ein Diagramm mit Standarddaten hinzu und geben Sie den Typ [ChartType.BoxAndWhisker](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#BoxAndWhisker) an.
+4. Greifen Sie auf das Diagramm‑Daten‑Workbook [IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/) zu.
 5. Löschen Sie die Standardserien und -kategorien.
 6. Fügen Sie neue Serien und Kategorien hinzu.
 7. Fügen Sie neue Diagrammdaten für die Diagrammserien hinzu.
-8. Speichern Sie die modifizierte Präsentation als PPTX-Datei.
+8. Speichern Sie die geänderte Präsentation als PPTX‑Datei.
 
-This Java code shows how to create a box and whisker chart:
+Dieser Java‑Code zeigt, wie ein Box‑und‑Whisker‑Diagramm erstellt wird:
 
 ```java
 import com.aspose.slides.*;
@@ -603,14 +605,14 @@ try {
 }
 ```
 
-### **Erstellen von Trichterdiagrammen**
+### **Trichter‑Diagramme erstellen**
 
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/de/java/com.aspose.slides/presentation).
-2. Holen Sie eine Referenz zu einer Folie über deren Index.
-3. Fügen Sie ein Diagramm mit Standarddaten hinzu und geben Sie den Typ [ChartType.Funnel](https://reference.aspose.com/slides/de/java/com.aspose.slides/charttype/#Funnel) an.
-4. Speichern Sie die modifizierte Präsentation als PPTX-Datei.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/)‑Klasse.
+2. Holen Sie sich einen Verweis auf eine Folie über deren Index.
+3. Fügen Sie ein Diagramm mit Standarddaten hinzu und geben Sie den Typ [ChartType.Funnel](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#Funnel) an.
+4. Speichern Sie die geänderte Präsentation als PPTX‑Datei.
 
-This Java code shows how to create a funnel chart:
+Dieser Java‑Code zeigt, wie ein Trichter‑Diagramm erstellt wird:
 
 ```java
 import com.aspose.slides.*;
@@ -647,14 +649,14 @@ try {
 }
 ```
 
-### **Erstellen von Sunburst‑Diagrammen**
+### **Sunburst‑Diagramme erstellen**
 
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/de/java/com.aspose.slides/presentation).
-2. Holen Sie eine Referenz zu einer Folie über deren Index.
-3. Fügen Sie ein Diagramm mit Standarddaten hinzu und geben Sie den Typ [ChartType.Sunburst](https://reference.aspose.com/slides/de/java/com.aspose.slides/charttype/#Sunburst) an.
-4. Speichern Sie die modifizierte Präsentation als PPTX-Datei.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/)‑Klasse.
+2. Holen Sie sich einen Verweis auf eine Folie über deren Index.
+3. Fügen Sie ein Diagramm mit Standarddaten hinzu und geben Sie den Typ [ChartType.Sunburst](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#Sunburst) an.
+4. Speichern Sie die geänderte Präsentation als PPTX‑Datei.
 
-This Java code shows how to create a sunburst chart:
+Dieser Java‑Code zeigt, wie ein Sunburst‑Diagramm erstellt wird:
 
 ```java
 import com.aspose.slides.*;
@@ -709,17 +711,17 @@ try {
 }
 ```
 
-### **Erstellen von Histogrammdiagrammen**
+### **Histogramm‑Diagramme erstellen**
 
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/de/java/com.aspose.slides/presentation).
-2. Holen Sie eine Referenz zu einer Folie über deren Index.
-3. Fügen Sie ein Diagramm mit Standarddaten hinzu und geben Sie den Typ [ChartType.Histogram](https://reference.aspose.com/slides/de/java/com.aspose.slides/charttype/#Histogram) an.
-4. Greifen Sie auf die Diagrammdaten‑Arbeitsmappe [IChartDataWorkbook](https://reference.aspose.com/slides/de/java/com.aspose.slides/ichartdataworkbook/) zu.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/)‑Klasse.
+2. Holen Sie sich einen Verweis auf eine Folie über deren Index.
+3. Fügen Sie ein Diagramm mit Standarddaten hinzu und geben Sie den Typ [ChartType.Histogram](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#Histogram) an.
+4. Greifen Sie auf das Diagramm‑Daten‑Workbook [IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/) zu.
 5. Löschen Sie die Standardserien und -kategorien.
 6. Fügen Sie neue Serien und Kategorien hinzu.
-7. Speichern Sie die modifizierte Präsentation als PPTX-Datei.
+7. Speichern Sie die geänderte Präsentation als PPTX‑Datei.
 
-This Java code shows how to create a histogram chart:
+Dieser Java‑Code zeigt, wie ein Histogramm‑Diagramm erstellt wird:
 
 ```java
 import com.aspose.slides.*;
@@ -749,14 +751,14 @@ try {
 }
 ```
 
-### **Erstellen von Radar‑Diagrammen**
+### **Radar‑Diagramme erstellen**
 
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/de/java/com.aspose.slides/presentation).
-2. Holen Sie eine Referenz zu einer Folie über deren Index.
-3. Fügen Sie ein Diagramm mit einigen Daten hinzu und geben Sie Ihren bevorzugten Diagrammtyp ([ChartType.Radar](https://reference.aspose.com/slides/de/java/com.aspose.slides/charttype/#Radar)) an.
-4. Speichern Sie die modifizierte Präsentation als PPTX-Datei.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/)‑Klasse.
+2. Holen Sie sich einen Verweis auf eine Folie über deren Index.
+3. Fügen Sie ein Diagramm mit einigen Daten hinzu und geben Sie Ihren bevorzugten Diagrammtyp ([ChartType.Radar](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#Radar)) an.
+4. Speichern Sie die geänderte Präsentation als PPTX‑Datei.
 
-This Java code shows how to create a radar chart:
+Dieser Java‑Code zeigt, wie ein Radar‑Diagramm erstellt wird:
 
 ```java
 import com.aspose.slides.*;
@@ -770,18 +772,18 @@ try {
 }
 ```
 
-### **Erstellen von Mehrkategorie‑Diagrammen**
+### **Mehrkategorie‑Diagramme erstellen**
 
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/de/java/com.aspose.slides/presentation).
-2. Holen Sie eine Referenz zu einer Folie über deren Index.
-3. Fügen Sie ein Diagramm mit Standarddaten hinzu und geben Sie den Typ [ChartType.ClusteredColumn](https://reference.aspose.com/slides/de/java/com.aspose.slides/charttype/#ClusteredColumn) an.
-4. Greifen Sie auf die Diagrammdaten‑Arbeitsmappe [IChartDataWorkbook](https://reference.aspose.com/slides/de/java/com.aspose.slides/ichartdataworkbook/) zu.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/)‑Klasse.
+2. Holen Sie sich einen Verweis auf eine Folie über deren Index.
+3. Fügen Sie ein Diagramm mit Standarddaten hinzu und geben Sie den Typ [ChartType.ClusteredColumn](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#ClusteredColumn) an.
+4. Greifen Sie auf das Diagramm‑Daten‑Workbook [IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/) zu.
 5. Löschen Sie die Standardserien und -kategorien.
 6. Fügen Sie neue Serien und Kategorien hinzu.
 7. Fügen Sie neue Diagrammdaten für die Diagrammserien hinzu.
-8. Speichern Sie die modifizierte Präsentation als PPTX-Datei.
+8. Speichern Sie die geänderte Präsentation als PPTX‑Datei.
 
-This Java code shows how to create a multicategory chart:
+Dieser Java‑Code zeigt, wie ein Mehrkategorie‑Diagramm erstellt wird:
 
 ```java
 import com.aspose.slides.*;
@@ -832,11 +834,11 @@ try {
 }
 ```
 
-### **Erstellen von Karten‑Diagrammen**
+### **Karten‑Diagramme erstellen**
 
 Karten‑Diagramme visualisieren geografische Daten und helfen, Werte über Regionen hinweg zu vergleichen.
 
-This Java code shows how to create a map chart:
+Dieser Java‑Code zeigt, wie ein Karten‑Diagramm erstellt wird:
 
 ```java
 import com.aspose.slides.*;
@@ -850,13 +852,13 @@ try {
 }
 ```
 
-### **Erstellen von Kombinationsdiagrammen**
+### **Kombinations‑Diagramme erstellen**
 
-Ein Kombinationsdiagramm (oder Combo‑Diagramm) kombiniert zwei oder mehr Diagrammtypen in einem einzigen Diagramm. Dieses Diagramm ermöglicht es Ihnen, Unterschiede zwischen zwei oder mehr Datensätzen hervorzuheben, zu vergleichen oder zu untersuchen und dadurch Beziehungen zwischen ihnen zu erkennen.
+Ein Kombinations‑Diagramm (oder Combo‑Diagramm) kombiniert zwei oder mehr Diagrammtypen in einem einzigen Diagramm. Dieses Diagramm ermöglicht es Ihnen, Unterschiede zwischen zwei oder mehr Datensätzen hervorzuheben, zu vergleichen oder zu untersuchen und so Beziehungen zwischen ihnen zu erkennen.
 
-![The combination chart](combination_chart.png)
+![Das Kombinationsdiagramm](combination_chart.png)
 
-Der folgende Java‑Code zeigt, wie das oben gezeigte Kombinationsdiagramm in einer PowerPoint‑Präsentation erstellt wird:
+Der folgende Java‑Code zeigt, wie das oben gezeigte Kombinations‑Diagramm in einer PowerPoint‑Präsentation erstellt wird:
 
 ```java
 import com.aspose.slides.*;
@@ -883,7 +885,7 @@ static void createComboChart() {
 static IChart createChartWithFirstSeries(ISlide slide) {
     IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
 
-    // Setzt den Diagrammtitel.
+    // Setze den Diagrammtitel.
     chart.setTitle(true);
     chart.getChartTitle().addTextFrameForOverriding("Chart Title");
     chart.getChartTitle().setOverlay(false);
@@ -892,24 +894,24 @@ static IChart createChartWithFirstSeries(ISlide slide) {
     titleFormat.setFontBold(NullableBool.False);
     titleFormat.setFontHeight(18f);
 
-    // Setzt die Diagrammlegende.
+    // Setze die Diagrammlegende.
     chart.getLegend().setPosition(LegendPositionType.Bottom);
     chart.getLegend().getTextFormat().getPortionFormat().setFontHeight(12f);
 
-    // Löscht die standardmäßig erzeugten Serien und Kategorien.
+    // Lösche die standardmäßig erzeugten Serien und Kategorien.
     chart.getChartData().getSeries().clear();
     chart.getChartData().getCategories().clear();
 
     int worksheetIndex = 0;
     IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
 
-    // Fügt neue Kategorien hinzu.
+    // Füge neue Kategorien hinzu.
     chart.getChartData().getCategories().add(workbook.getCell(worksheetIndex, 1, 0, "Category 1"));
     chart.getChartData().getCategories().add(workbook.getCell(worksheetIndex, 2, 0, "Category 2"));
     chart.getChartData().getCategories().add(workbook.getCell(worksheetIndex, 3, 0, "Category 3"));
     chart.getChartData().getCategories().add(workbook.getCell(worksheetIndex, 4, 0, "Category 4"));
 
-    // Fügt die erste Serie hinzu.
+    // Füge die erste Serie hinzu.
     IChartDataCell seriesNameCell = workbook.getCell(worksheetIndex, 0, 1, "Series 1");
     IChartSeries series = chart.getChartData().getSeries().add(seriesNameCell, chart.getType());
 
@@ -956,28 +958,28 @@ static void addThirdSeriesToChart(IChart chart) {
 }
 
 static void setPrimaryAxesFormat(IChart chart) {
-    // Setzt die horizontale Achse.
+    // Setze die horizontale Achse.
     IAxis horizontalAxis = chart.getAxes().getHorizontalAxis();
     horizontalAxis.getTextFormat().getPortionFormat().setFontHeight(12f);
     horizontalAxis.getFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
 
     setAxisTitle(horizontalAxis, "X Axis");
 
-    // Setzt die vertikale Achse.
+    // Setze die vertikale Achse.
     IAxis verticalAxis = chart.getAxes().getVerticalAxis();
     verticalAxis.getTextFormat().getPortionFormat().setFontHeight(12f);
     verticalAxis.getFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
 
     setAxisTitle(verticalAxis, "Y Axis 1");
 
-    // Setzt die Farbe der vertikalen Hauptgitternetzlinien.
+    // Setze die Farbe der vertikalen Hauptgitternetzlinien.
     ILineFillFormat majorGridLinesFormat = verticalAxis.getMajorGridLinesFormat().getLine().getFillFormat();
     majorGridLinesFormat.setFillType(FillType.Solid);
     majorGridLinesFormat.getSolidFillColor().setColor(new Color(217, 217, 217));
 }
 
 static void setSecondaryAxesFormat(IChart chart) {
-    // Setzt die sekundäre horizontale Achse.
+    // Setze die sekundäre horizontale Achse.
     IAxis secondaryHorizontalAxis = chart.getAxes().getSecondaryHorizontalAxis();
     secondaryHorizontalAxis.setPosition(AxisPositionType.Bottom);
     secondaryHorizontalAxis.setCrossType(CrossesType.Maximum);
@@ -985,7 +987,7 @@ static void setSecondaryAxesFormat(IChart chart) {
     secondaryHorizontalAxis.getMajorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
     secondaryHorizontalAxis.getMinorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
 
-    // Setzt die sekundäre vertikale Achse.
+    // Setze die sekundäre vertikale Achse.
     IAxis secondaryVerticalAxis = chart.getAxes().getSecondaryVerticalAxis();
     secondaryVerticalAxis.setPosition(AxisPositionType.Right);
     secondaryVerticalAxis.getTextFormat().getPortionFormat().setFontHeight(12f);
@@ -1008,15 +1010,15 @@ static void setAxisTitle(IAxis axis, String axisTitle) {
 
 ## **Diagramme aktualisieren**
 
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/de/java/com.aspose.slides/presentation/) , die die Präsentation enthält, deren Diagramm Sie aktualisieren möchten.
-2. Holen Sie eine Referenz zu einer Folie über deren Index.
-3. Durchlaufen Sie alle Formen, um das gewünschte Diagramm zu finden.
-4. Greifen Sie auf das Datenarbeitsblatt des Diagramms zu.
-5. Ändern Sie die Diagrammserien, indem Sie die Serienwerte anpassen.
-6. Fügen Sie eine neue Serie hinzu und befüllen Sie deren Daten.
-7. Speichern Sie die modifizierte Präsentation als PPTX-Datei.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/)‑Klasse, die die Präsentation mit dem zu aktualisierenden Diagramm darstellt.
+2. Holen Sie sich einen Verweis auf eine Folie über deren Index.
+3. Durchsuchen Sie alle Shapes, um das gewünschte Diagramm zu finden.
+4. Greifen Sie auf das Daten‑Worksheet des Diagramms zu.
+5. Ändern Sie die Diagrammdatenserie, indem Sie die Serienwerte anpassen.
+6. Fügen Sie eine neue Serie hinzu und füllen Sie deren Daten.
+7. Speichern Sie die geänderte Präsentation als PPTX‑Datei.
 
-This Java code shows how to update a chart:
+Dieser Java‑Code zeigt, wie ein Diagramm aktualisiert wird:
 
 ```java
 import com.aspose.slides.*;
@@ -1030,48 +1032,48 @@ try {
     // Holt das Diagramm von der Folie
     IChart chart = (IChart)sld.getShapes().get_Item(0);
 
-    // Setzt den Index des Diagrammdatenblatts
+    // Festlegen des Index des Diagrammdatenblatts
     int defaultWorksheetIndex = 0;
 
-    // Liest das Diagrammdaten‑Arbeitsblatt
+    // Abrufen des Diagrammdaten-Worksheet
     IChartDataWorkbook fact = chart.getChartData().getChartDataWorkbook();
 
-    // Ändert den Diagramm‑Kategorienamen
+    // Ändern des Diagramm-Kategorienamens
     fact.getCell(defaultWorksheetIndex, 1, 0, "Modified Category 1");
     fact.getCell(defaultWorksheetIndex, 2, 0, "Modified Category 2");
 
-    // Nimmt die erste Diagrammserie
+    // Nehme die erste Diagrammserie
     IChartSeries series = chart.getChartData().getSeries().get_Item(0);
 
-    // Aktualisiert jetzt die Seriendaten
-    fact.getCell(defaultWorksheetIndex, 0, 1, "New_Series1");// Seriennamen wird geändert
+    // Aktualisiere jetzt die Seriendaten
+    fact.getCell(defaultWorksheetIndex, 0, 1, "New_Series1"); // Seriennamen ändern
     series.getDataPoints().get_Item(0).getValue().setData(90);
     series.getDataPoints().get_Item(1).getValue().setData(123);
     series.getDataPoints().get_Item(2).getValue().setData(44);
 
-    // Nimmt die zweite Diagrammserie
+    // Nehme die zweite Diagrammserie
     series = chart.getChartData().getSeries().get_Item(1);
 
-    // Aktualisiert jetzt die Seriendaten
-    fact.getCell(defaultWorksheetIndex, 0, 2, "New_Series2");// Seriennamen wird geändert
+    // Aktualisiere jetzt die Seriendaten
+    fact.getCell(defaultWorksheetIndex, 0, 2, "New_Series2"); // Seriennamen ändern
     series.getDataPoints().get_Item(0).getValue().setData(23);
     series.getDataPoints().get_Item(1).getValue().setData(67);
     series.getDataPoints().get_Item(2).getValue().setData(99);
 
-    // Jetzt wird eine neue Serie hinzugefügt
+    // Jetzt eine neue Serie hinzufügen
     chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 3, "Series 3"), chart.getType());
 
-    // Nimmt die dritte Diagrammserie
+    // Nehme die dritte Diagrammserie
     series = chart.getChartData().getSeries().get_Item(2);
 
-    // Füllt jetzt die Seriendaten
+    // Jetzt die Seriendaten füllen
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 3, 20));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 3, 50));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 3, 30));
 
     chart.setType(ChartType.ClusteredCylinder);
 
-    // Speichert die Präsentation mit dem Diagramm
+    // Präsentation mit Diagramm speichern
     pres.save("AsposeChartModified_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
@@ -1080,13 +1082,17 @@ try {
 
 ## **Datenbereich für ein Diagramm festlegen**
 
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/de/java/com.aspose.slides/presentation/) , die die Präsentation enthält, deren Diagramm Sie bearbeiten möchten.
-2. Holen Sie eine Referenz zu einer Folie über deren Index.
-3. Durchlaufen Sie alle Formen, um das gewünschte Diagramm zu finden.
-4. Greifen Sie auf die Diagrammdaten zu und setzen Sie den Bereich.
-5. Speichern Sie die modifizierte Präsentation als PPTX-Datei.
+Um den bereits von einem bestehenden Diagramm genutzten Bereich zu prüfen, siehe [Retrieve a Chart's Data Range](/slides/de/java/chart-workbook/#retrieve-a-charts-data-range).
 
-This Java code shows how to set the data range for a chart:
+Um den Datenbereich für ein Diagramm festzulegen, gehen Sie folgendermaßen vor:
+
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/)‑Klasse, die die Präsentation mit dem Diagramm darstellt.
+2. Holen Sie sich einen Verweis auf eine Folie über deren Index.
+3. Durchsuchen Sie alle Shapes, um das gewünschte Diagramm zu finden.
+4. Greifen Sie auf die Diagrammdaten zu und setzen Sie den Bereich.
+5. Speichern Sie die geänderte Präsentation als PPTX‑Datei.
+
+Dieser Java‑Code zeigt, wie der Datenbereich für ein Diagramm festgelegt wird:
 
 ```java
 import com.aspose.slides.*;
@@ -1107,14 +1113,13 @@ try {
 
 ## **Standard‑Marker in Diagrammen verwenden**
 
-Wenn Sie Standard‑Marker in Diagrammen verwenden, erhält jede Diagrammserie automatisch ein anderes Markersymbol.
+Wenn Sie Standard‑Marker in Diagrammen verwenden, erhält jede Diagrammserie automatisch ein unterschiedliches Markersymbol.
 
-This Java code shows how to set a chart series marker automatically:
+Dieser Java‑Code zeigt, wie ein Diagramm‑Series‑Marker automatisch festgelegt wird:
 
 ```java
 import com.aspose.slides.*;
 
-// Öffnet die Präsentation, die das Diagramm enthält
 Presentation pres = new Presentation();
 try {
     ISlide slide = pres.getSlides().get_Item(0);
@@ -1137,10 +1142,10 @@ try {
     series.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 4, 1, null));
 
     chart.getChartData().getSeries().add(fact.getCell(0, 0, 2, "Series 2"), chart.getType());
-//Nimmt die zweite Diagrammserie
+    //Nehme die zweite Diagrammserie
     IChartSeries series2 = chart.getChartData().getSeries().get_Item(1);
 
-//Jetzt werden die Seriendaten befüllt
+    //Jetzt werden die Seriendaten gefüllt
     series2.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 1, 2, 30));
     series2.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 2, 2, 10));
     series2.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 3, 2, 60));
@@ -1159,16 +1164,16 @@ try {
 
 **Welche Diagrammtypen werden von Aspose.Slides unterstützt?**
 
-Aspose.Slides unterstützt eine breite Palette von [Diagrammtypen](https://reference.aspose.com/slides/de/java/com.aspose.slides/charttype/), einschließlich Balken, Linien, Kreis, Fläche, Streu, Histogramm, Radar und vielen mehr. Diese Flexibilität ermöglicht es Ihnen, den am besten geeigneten Diagrammtyp für Ihre Datenvisualisierungsanforderungen auszuwählen.
+Aspose.Slides unterstützt eine breite Palette von [chart types](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/), darunter Balken, Linien, Kreis, Fläche, Scatter, Histogramm, Radar und viele mehr. Diese Flexibilität ermöglicht es Ihnen, den für Ihre Datenvisualisierung am besten geeigneten Diagrammtyp zu wählen.
 
-**Wie füge ich einer Folie ein neues Diagramm hinzu?**
+**Wie füge ich ein neues Diagramm zu einer Folie hinzu?**
 
-Um ein Diagramm hinzuzufügen, erstellen Sie zunächst eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/de/java/com.aspose.slides/presentation/) , rufen die gewünschte Folie über deren Index ab und rufen dann die Methode zum Hinzufügen eines Diagramms auf, wobei Sie den Diagrammtyp und die Anfangsdaten angeben. Dieser Vorgang integriert das Diagramm direkt in Ihre Präsentation.
+Um ein Diagramm hinzuzufügen, erstellen Sie zunächst eine Instanz der [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/)‑Klasse, rufen die gewünschte Folie über deren Index ab und rufen anschließend die Methode zum Hinzufügen eines Diagramms auf, wobei Sie den Diagrammtyp und die Anfangsdaten angeben. Dieser Vorgang integriert das Diagramm direkt in Ihre Präsentation.
 
 **Wie kann ich die in einem Diagramm angezeigten Daten aktualisieren?**
 
-Sie können die Daten eines Diagramms aktualisieren, indem Sie auf dessen Datenarbeitsmappe ([IChartDataWorkbook](https://reference.aspose.com/slides/de/java/com.aspose.slides/ichartdataworkbook/)) zugreifen, alle Standardserien und -kategorien löschen und anschließend Ihre eigenen Daten hinzufügen. So können Sie das Diagramm aktualisieren, um die neuesten Daten widerzuspiegeln.
+Sie können die Daten eines Diagramms aktualisieren, indem Sie auf das zugehörige Daten‑Workbook ([IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/)) zugreifen, Standard‑Serien und -Kategorien löschen und anschließend Ihre eigenen Daten hinzufügen. So lässt sich das Diagramm mit den neuesten Daten erneut rendern.
 
 **Ist es möglich, das Aussehen des Diagramms anzupassen?**
 
-Ja, Aspose.Slides bietet umfangreiche Anpassungsoptionen. Sie können Farben, Schriftarten, Beschriftungen, Legenden und andere [Formatierungselemente](/slides/de/java/chart-entities/) ändern, um das Aussehen des Diagramms an Ihre spezifischen Designanforderungen anzupassen.
+Ja, Aspose.Slides bietet umfangreiche Anpassungsoptionen. Sie können Farben, Schriftarten, Beschriftungen, Legenden und andere [formatting elements](/slides/de/java/chart-entities/) ändern, um das Erscheinungsbild des Diagramms an Ihre spezifischen Designanforderungen anzupassen.
