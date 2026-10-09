@@ -1,5 +1,5 @@
 ---
-title: Declaration
+title: Artifact Classifier Change
 type: docs
 weight: 60
 url: /java/artifact-classifier-change/
