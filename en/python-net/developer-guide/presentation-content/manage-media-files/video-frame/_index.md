@@ -1,5 +1,5 @@
 ---
-title: Add Videos to Presentations in Python
+title: Manage Video Frames in Presentations in Python
 linktitle: Video Frame
 type: docs
 weight: 10
@@ -9,7 +9,7 @@ keywords:
 - create video
 - embed video
 - extract video
-- retrive video
+- retrieve video
 - video frame
 - web source
 - PowerPoint
@@ -22,112 +22,136 @@ description: "Learn to programmatically add and extract video frames in PowerPoi
 
 ## **Introduction**
 
-A well-placed video in a presentation can make your message more compelling and increase engagement levels with your audience. 
+Videos can help explain ideas and engage an audience. Aspose.Slides for Python via .NET lets you add video frames to slides, adjust playback settings, manage captions, and extract embedded video data.
 
-PowerPoint allows you to add videos to a slide in a presentation in two ways:
+PowerPoint supports local videos and links to online videos, such as YouTube videos.
 
-* Add or embed a local video (stored on your machine)
-* Add an online video (from a web source such as YouTube).
+To represent video data and video frames, Aspose.Slides provides the [Video](https://reference.aspose.com/slides/python-net/aspose.slides/video/) class, [VideoFrame](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/) class, and other relevant types.
 
-To allow you to add videos (video objects) to a presentation, Aspose.Slides provides the [Video](https://reference.aspose.com/slides/python-net/aspose.slides/video/) class, [VideoFrame](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/) class, and other relevant types. 
+## **Create an Embedded Video Frame**
 
-## **Create Embedded Video Frame**
+If the video file you want to add to your slide is stored locally, you can create a video frame to embed the video in your presentation.
 
-If the video file you want to add to your slide is stored locally, you can create a video frame to embed the video in your presentation. 
-
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
-1. Get a slide's reference through its index. 
-1. Add a [Video](https://reference.aspose.com/slides/python-net/aspose.slides/video/) object and pass the video file path to embed the video with the presentation. 
-1. Add a [VideoFrame](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/) object to create a frame for the video.  
-1. Save the modified presentation. 
-
-This Python code shows you how to add a video stored locally to a presentation:
+This example embeds a local video on the first slide of an existing presentation and saves the result. Frame coordinates and dimensions are in points. The stream stays open until saving finishes because [LoadingStreamBehavior.KEEP_LOCKED](https://reference.aspose.com/slides/python-net/aspose.slides/loadingstreambehavior/) keeps it locked while the presentation uses it.
 
 ```python
 import aspose.slides as slides
 
-with slides.Presentation("pres.pptx") as pres:
-    with open("Wildlife.mp4", "br") as fileStream:
-        video = pres.videos.add_video(fileStream, slides.LoadingStreamBehavior.KEEP_LOCKED)
+with slides.Presentation("presentation.pptx") as presentation:
+    slide = presentation.slides[0]
 
-        # Gets the first slide and adds a videoframe
-        pres.slides[0].shapes.add_video_frame(10, 10, 150, 250, video)
+    with open("video.mp4", "rb") as video_stream:
+        video = presentation.videos.add_video(video_stream, slides.LoadingStreamBehavior.KEEP_LOCKED)
+        slide.shapes.add_video_frame(10, 10, 150, 250, video)
 
-        # Saves the presentation to disk
-        pres.save("pres-with-video.pptx", slides.export.SaveFormat.PPTX)
+        presentation.save("embedded_video.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Alternatively, you can add a video by passing its file path directly to the `add_video_frame(x, y, width, height, fname)`  method:
-
-``` python
-import aspose.slides as slides
-
-with slides.Presentation() as pres:
-    sld = pres.slides[0]
-    vf = sld.shapes.add_video_frame(50, 150, 300, 150, "video1.avi")
-```
-
-
-## **Create Video Frame with Video from Web Source**
-
-Newer versions of Microsoft [PowerPoint](https://support.microsoft.com/en-us/office/insert-a-video-from-youtube-or-another-site-8340ec69-4cee-4fe1-ab96-4849154bc6db) support online videos in presentations. If the video you want to use is available online (e.g. on YouTube), you can add it to your presentation through its web link.
-
-1. Create an instance of [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class
-1. Get a slide's reference through its index. 
-1. Add a [VideoFrame](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/) object and pass the link to the video instead of a local file.
-1. Set a thumbnail for the video frame. 
-1. Save the presentation. 
-
-This Python code shows you how to add a video from the web to a slide in a PowerPoint presentation:
-
-```python
-import aspose.slides as slides
-from urllib.request import urlopen
-
-def add_video_from_youyube(pres, videoId):
-    # Adds a videoFrame
-    videoFrame = pres.slides[0].shapes.add_video_frame(10, 10, 427, 240, "https://www.youtube.com/embed/" + videoId)
-    videoFrame.play_mode = slides.VideoPlayModePreset.AUTO
-
-    # Loads thumbnail
-    thumbnail_uri = "http://img.youtube.com/vi/" + videoId + "/hqdefault.jpg"
-    f = urlopen(thumbnail_uri)
-    videoFrame.picture_format.picture.image = pres.images.add_image(f.read())
-
-
-with slides.Presentation() as pres:
-    add_video_from_youyube(pres, "jNQXAC9IVRw")
-    pres.save("AddVideoFrameFromWebSource_out.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **Trim a Video Frame**
-
-Aspose.Slides allows you to control which part of a video is played by setting the trim-from-start and trim-from-end values through [VideoFrame.trim_from_start](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/trim_from_start/) and [VideoFrame.trim_from_end](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/trim_from_end/). Both values are specified in milliseconds and define how much time is skipped from the beginning and end of the video, respectively. These settings change the video playback settings in the presentation; they do not cut or otherwise modify the embedded video binary data.
-
-**Set Trim Settings**
-
-To create a video frame and set its trim settings:
-
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
-1. Add a [Video](https://reference.aspose.com/slides/python-net/aspose.slides/video/) object to the presentation.
-1. Add a [VideoFrame](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/) object to a slide.
-1. Set the trim-from-start and trim-from-end values through [VideoFrame.trim_from_start](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/trim_from_start/) and [VideoFrame.trim_from_end](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/trim_from_end/).
-1. Save the modified presentation.
-
-The following code example skips the first 2.5 seconds and the last second of an embedded video during playback:
+You can also pass a local video path directly to [add_video_frame](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_video_frame/). This example embeds the video on the first slide of a new presentation. The video must remain accessible until the presentation is saved.
 
 ```python
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    slide.shapes.add_video_frame(50, 150, 300, 150, "video.avi")
+
+    presentation.save("video_from_path.pptx", slides.export.SaveFormat.PPTX)
+```
+
+## **Create a Video Frame with Video from a Web Source**
+
+Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) supports online videos in presentations. You can create a video frame that links to an online video, such as a YouTube video.
+
+This example adds a YouTube video link and thumbnail to the first slide. Replace the video identifier to use another video. The [play_mode](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/play_mode/) setting requests automatic playback. Downloading the thumbnail and playing the video require internet access. The presentation viewer must also support online video playback.
+
+```python
+from urllib.request import urlopen
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    video_id = "aqz-KE-bpKQ"
+    video_url = f"https://www.youtube.com/embed/{video_id}"
+    video_frame = slide.shapes.add_video_frame(10, 10, 427, 240, video_url)
+    video_frame.play_mode = slides.VideoPlayModePreset.AUTO
+
+    thumbnail_url = f"https://img.youtube.com/vi/{video_id}/hqdefault.jpg"
+    with urlopen(thumbnail_url) as response:
+        thumbnail_data = response.read()
+    thumbnail = presentation.images.add_image(thumbnail_data)
+    video_frame.picture_format.picture.image = thumbnail
+
+    presentation.save("online_video.pptx", slides.export.SaveFormat.PPTX)
+```
+
+## **Play a Video in Full-Screen Mode**
+
+In a training presentation, you can play a software demonstration in full-screen mode so the audience can see the details. Set [full_screen_mode](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/full_screen_mode/) to `True` to enable this behavior during playback.
+
+This example opens a presentation, finds the first [VideoFrame](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/) on the first slide, and enables full-screen playback. The input presentation must contain at least one slide with an existing video frame on the first slide.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("training.pptx") as presentation:
+    slide = presentation.slides[0]
+
+    for shape in slide.shapes:
+        if isinstance(shape, slides.VideoFrame):
+            shape.full_screen_mode = True
+            break
+
+    presentation.save("full_screen_video.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Full-screen playback controls how the video is displayed. Independently, [play_mode](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/play_mode/) controls whether it starts automatically or on click, and [play_loop_mode](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/play_loop_mode/) controls whether it repeats. To choose the start behavior, set the playback mode to [VideoPlayModePreset.AUTO or VideoPlayModePreset.ON_CLICK](https://reference.aspose.com/slides/python-net/aspose.slides/videoplaymodepreset/). The example preserves the existing start and loop settings.
+
+## **Rewind a Video After Playback**
+
+In a training presentation, returning a demonstration video to its beginning makes it ready for the presenter to play again. Set [rewind_video](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/rewind_video/) to `True` to return the video to the beginning after playback finishes.
+
+This example opens a presentation, finds the first [VideoFrame](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/) on the first slide, and enables rewinding. It disables looping so playback can finish and sets playback to start on click. The input presentation must contain at least one slide with an existing video frame on the first slide.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("training.pptx") as presentation:
+    slide = presentation.slides[0]
+
+    for shape in slide.shapes:
+        if isinstance(shape, slides.VideoFrame):
+            shape.rewind_video = True
+            shape.play_loop_mode = False
+            shape.play_mode = slides.VideoPlayModePreset.ON_CLICK
+            break
+
+    presentation.save("rewind_video.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Rewinding returns the video to its beginning without starting it again. In contrast, enabling [play_loop_mode](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/play_loop_mode/) repeats playback automatically. Keep looping disabled when you want the video to finish and remain ready to replay. [play_mode](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/play_mode/) independently controls automatic or on-click startup; this example uses [VideoPlayModePreset.ON_CLICK](https://reference.aspose.com/slides/python-net/aspose.slides/videoplaymodepreset/) so the presenter controls when playback starts. Set the playback mode after the loop setting, as shown in the example. Rewinding works independently of [full_screen_mode](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/full_screen_mode/).
+
+## **Trim a Video Frame**
+
+Use [VideoFrame.trim_from_start](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/trim_from_start/) and [VideoFrame.trim_from_end](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/trim_from_end/) to skip part of the beginning or end of a video during playback. Both values are in milliseconds. Trimming changes playback settings without modifying the embedded video data.
+
+**Set Trim Settings**
+
+This example embeds a local video and skips the first 2.5 seconds and the last second during playback. Use a video longer than 3.5 seconds so a playable segment remains.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
     with open("video.mp4", "rb") as video_stream:
         video_data = video_stream.read()
-
     video = presentation.videos.add_video(video_data)
 
-    slide = presentation.slides[0]
     video_frame = slide.shapes.add_video_frame(50, 50, 640, 360, video)
-
     video_frame.trim_from_start = 2500.0
     video_frame.trim_from_end = 1000.0
 
@@ -136,23 +160,18 @@ with slides.Presentation() as presentation:
 
 **Read Trim Settings**
 
-To inspect existing trim settings, load a presentation, find a [VideoFrame](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/) object among the shapes on the first slide, and read the values through [VideoFrame.trim_from_start](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/trim_from_start/) and [VideoFrame.trim_from_end](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/trim_from_end/).
-
-The following code example finds the first video frame on the first slide and reports its trim settings in milliseconds:
+This example prints the trim values of the first video frame on the first slide in milliseconds. The presentation must contain at least one slide. If that slide has no video frame, nothing is printed. The preceding example produces values of 2500 and 1000.
 
 ```python
 import aspose.slides as slides
 
 with slides.Presentation("video_with_trim.pptx") as presentation:
     slide = presentation.slides[0]
+
     for shape in slide.shapes:
         if isinstance(shape, slides.VideoFrame):
-            video_frame = shape
-            trim_from_start = video_frame.trim_from_start
-            trim_from_end = video_frame.trim_from_end
-
-            print(f"Trim from start: {trim_from_start} ms")
-            print(f"Trim from end: {trim_from_end} ms")
+            print(f"Trim from start: {shape.trim_from_start} ms")
+            print(f"Trim from end: {shape.trim_from_end} ms")
             break
 ```
 
@@ -162,29 +181,19 @@ Aspose.Slides allows you to manage closed captions for video frames in PowerPoin
 
 **Add Captions to a Video Frame**
 
-To add captions to a video frame:
+This example embeds a local video and adds a WebVTT caption track labeled English. The caption timestamps should match the video. The saved presentation includes both the video and its captions.
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
-1. Add a video to the presentation.
-1. Add a [VideoFrame](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/) object to a slide.
-1. Use the [CaptionsCollection](https://reference.aspose.com/slides/python-net/aspose.slides/captionscollection/) returned by [caption_tracks](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/caption_tracks/) to add a WebVTT caption track.
-1. Save the modified presentation.
-
-The following code shows you how to add captions to a video frame:
-
-```py
+```python
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
     with open("video.mp4", "rb") as video_stream:
         video_data = video_stream.read()
-
     video = presentation.videos.add_video(video_data)
 
-    slide = presentation.slides[0]
     video_frame = slide.shapes.add_video_frame(0, 0, 100, 100, video)
-
-    # Adds a new captions track from a WebVTT file.
     video_frame.caption_tracks.add("English", "track.vtt")
 
     presentation.save("video_with_captions.pptx", slides.export.SaveFormat.PPTX)
@@ -194,50 +203,39 @@ The [CaptionsCollection](https://reference.aspose.com/slides/python-net/aspose.s
 
 **Extract Captions from a Video Frame**
 
-To extract captions from a video frame:
+This example saves all caption tracks from video frames on the first slide as separate WebVTT files. Sequential numbers keep the output files distinct. The console reports the number of extracted tracks. The presentation must contain at least one slide.
 
-1. Load the presentation that contains the video.
-1. Find the target [VideoFrame](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/) object.
-1. Iterate through the [caption_tracks](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/caption_tracks/) collection.
-1. Save each caption track to a `.vtt` file.
-
-The following code shows you how to extract captions from a video frame:
-
-```py
+```python
 import aspose.slides as slides
 
 with slides.Presentation("video_with_captions.pptx") as presentation:
     slide = presentation.slides[0]
+
+    track_count = 0
     for shape in slide.shapes:
         if isinstance(shape, slides.VideoFrame):
             for caption_track in shape.caption_tracks:
-                # Saves the captions track to a WebVTT file.
-                file_path = f"{caption_track.caption_id}.vtt"
-                with open(file_path, "wb") as track_stream:
+                track_count += 1
+                output_path = f"captions_{track_count}.vtt"
+                with open(output_path, "wb") as track_stream:
                     track_stream.write(bytes(caption_track.binary_data))
+
+    print(f"Caption tracks extracted: {track_count}")
 ```
 
 Each [Captions](https://reference.aspose.com/slides/python-net/aspose.slides/captions/) object exposes the caption identifier, label, binary data, and caption text as a UTF-8 string.
 
 **Remove Captions from a Video Frame**
 
-To remove captions from a video frame:
+This example removes all captions from the video frame at the first shape position on the first slide and saves the result. It assumes that the slide and shape exist and that the shape is a video frame.
 
-1. Load the presentation that contains the video.
-1. Get the target [VideoFrame](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/) object.
-1. Remove caption tracks from the [CaptionsCollection](https://reference.aspose.com/slides/python-net/aspose.slides/captionscollection/).
-1. Save the modified presentation.
-
-The following code shows you how to remove all captions from a video frame:
-
-```py
+```python
 import aspose.slides as slides
 
 with slides.Presentation("video_with_captions.pptx") as presentation:
     slide = presentation.slides[0]
-    video_frame = slide.shapes[0]  # type: slides.VideoFrame
-
-    # Removes all captions from the video frame.
+    
+    video_frame = slide.shapes[0]
     video_frame.caption_tracks.clear()
 
     presentation.save("video_without_captions.pptx", slides.export.SaveFormat.PPTX)
@@ -245,41 +243,45 @@ with slides.Presentation("video_with_captions.pptx") as presentation:
 
 If you need to remove only one caption track, use the [remove](https://reference.aspose.com/slides/python-net/aspose.slides/captionscollection/remove/) or [remove_at](https://reference.aspose.com/slides/python-net/aspose.slides/captionscollection/remove_at/) methods instead of [clear](https://reference.aspose.com/slides/python-net/aspose.slides/captionscollection/clear/).
 
-## **Extract Video From Slide**
+## **Extract Video from a Slide**
 
 Besides adding videos to slides, Aspose.Slides allows you to extract videos embedded in presentations.
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class to load the presentation containing the video. 
-2. Iterate through all the [Slide](https://reference.aspose.com/slides/python-net/aspose.slides/slide/) objects.
-3. Iterate through all the [Shape](https://reference.aspose.com/slides/python-net/aspose.slides/shape/) objects to find a [VideoFrame](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/). 
-4. Save the video to disk.
-
-This Python code shows you how to extract the video on a presentation slide:
+This example extracts embedded videos from every slide into separate, numbered binary files. Linked videos are skipped because they have no embedded data. The console prints each video’s MIME type and the total count. Output uses the generic `.bin` extension; change it to match the reported media type when needed.
 
 ```python
 import aspose.slides as slides
 
-# Instantiates a Presentation object that represents a presentation file
-with slides.Presentation("Video.pptx") as presentation:
-    for shape in presentation.slides[0].shapes:
-        if type(shape) is slides.VideoFrame:
-            content_type = shape.embedded_video.content_type
-            buffer = shape.embedded_video.binary_data
-            with open("NewVideo_out." + content_type[content_type.rfind('/') + 1:], "wb") as stream:
-                stream.write(buffer)
+with slides.Presentation("presentation_with_videos.pptx") as presentation:
+    video_count = 0
+    for slide in presentation.slides:
+        for shape in slide.shapes:
+            if isinstance(shape, slides.VideoFrame):
+                video = shape.embedded_video
+                if video is None:
+                    print("Skipped a linked video: no embedded data is available.")
+                    continue
+
+                video_count += 1
+                output_path = f"extracted_video_{video_count}.bin"
+                with open(output_path, "wb") as video_stream:
+                    video_stream.write(bytes(video.binary_data))
+                print(f"Video {video_count}: {video.content_type}")
+
+    print(f"Embedded videos extracted: {video_count}")
 ```
 
 ## **FAQ**
 
-**Which video playback parameters can be changed for a VideoFrame?**
+**Which video playback parameters can be changed for a video frame?**
 
 You can control the [playback mode](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/play_mode/) (auto or on click) and [looping](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/play_loop_mode/). These options are available via the [VideoFrame](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/) object's properties.
 
 **Does adding a video affect the PPTX file size?**
 
-Yes. When you embed a local video, the binary data is included in the document, so the presentation size grows in proportion to the file size. When you add an online video, a link and a thumbnail are embedded, so the size increase is smaller.
+Yes. When you embed a local video, the binary data is included in the document, so the presentation size grows in proportion to the file size. When you link to an online video and add a thumbnail, the presentation stores the link and preview image rather than the video data, so the size increase is usually smaller.
 
-**Can I replace the video in an existing VideoFrame without changing its position and size?**
+**Can I replace the video in an existing video frame without changing its position and size?**
 
 Yes. You can swap the [video content](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/embedded_video/) within the frame while preserving the shape's geometry; this is a common scenario for updating media in an existing layout.
 

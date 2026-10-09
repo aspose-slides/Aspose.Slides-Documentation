@@ -211,8 +211,7 @@ if (!valid) {
         for (const [name, data] of entries) {
             const entry = java.newInstanceSync("java.util.zip.ZipEntry", name);
             archive.putNextEntry(entry);
-            const signedBytes = Array.from(data, value => value > 127 ? value - 256 : value);
-            const bytes = java.newArray("byte", signedBytes);
+            const bytes = java.newArray("byte", Array.from(data));
             archive.write(bytes);
             archive.closeEntry();
         }
