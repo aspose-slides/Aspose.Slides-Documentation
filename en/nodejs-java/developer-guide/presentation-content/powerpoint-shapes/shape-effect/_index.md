@@ -23,117 +23,179 @@ description: "Transform your PPT and PPTX files with advanced shape effects usin
 
 While effects in PowerPoint can be used to make a shape stand out, they differ from [fills](/slides/nodejs-java/shape-formatting/#gradient-fill) or outlines. Using PowerPoint effects, you can create convincing reflections on a shape, spread a shape's glow, etc.
 
-<img src="shape-effect.png" alt="shape-effect" style="zoom:50%;" />
+![Shape effect](shape-effect.png)
 
-* PowerPoint provides six effects that can be applied to shapes. You can apply one or more effects to a shape. 
+PowerPoint provides six effects that can be applied to shapes. You can apply one or more effects to a shape.
 
-* Some combinations of effects look better than others. For this reason, PowerPoint options under **Preset**. The Preset options are essentially a known good-looking combination of two or more effects. This way, by selecting a preset, you won't have to waste time testing or combining different effects to find a nice combination.
+Some combinations of effects look better than others. For this reason, PowerPoint provides options under **Preset**. The Preset options are combinations of two or more effects that are known to look good. This way, by selecting a preset, you won't have to waste time testing or combining different effects to find a nice combination.
 
-Aspose.Slides provides properties and methods under the [EffectFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/EffectFormat) class that allow you to apply the same effects to shapes in PowerPoint presentations.
+Aspose.Slides provides properties and methods under the [EffectFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/) class that allow you to apply the same effects to shapes in PowerPoint presentations.
 
-## **Apply Shadow Effect**
+## **Apply a Shadow Effect**
 
-This JavaScript code shows you how to apply the outer shadow effect ([getOuterShadowEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/EffectFormat#getOuterShadowEffect)) to a rectangle:
+Aspose.Slides for Node.js via Java supports outer and inner shadows for shapes. You can customize their color, direction, distance, and blur radius to match your presentation's design.
+
+### **Apply an Outer Shadow**
+
+Use an outer shadow to make a card or panel stand out against the slide background. The shadow extends beyond the shape's edges, creating the impression that the shape is raised above the slide. Adjust its color, direction, distance, and blur radius to match the lighting and styling of your template.
+
+This JavaScript code shows how to apply the [outer shadow effect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#getOuterShadowEffect) to a rectangle:
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
-var pres = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation();
 try {
-    var shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.RoundCornerRectangle, 20, 20, 200, 150);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.RoundCornerRectangle, 20, 20, 200, 100);
     shape.getEffectFormat().enableOuterShadowEffect();
-    shape.getEffectFormat().getOuterShadowEffect().getShadowColor().setColor(java.getStaticFieldValue("java.awt.Color", "DARK_GRAY"));
+    const color = java.newInstanceSync("java.awt.Color", 169, 169, 169);
+    shape.getEffectFormat().getOuterShadowEffect().getShadowColor().setColor(color);
     shape.getEffectFormat().getOuterShadowEffect().setDistance(10);
     shape.getEffectFormat().getOuterShadowEffect().setDirection(45);
-    pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("shadow_effect.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Apply Reflection Effect**
+![Shadow effect](shadow_effect.png)
 
-This JavaScript code shows you how to apply the reflection effect to a shape:
+### **Apply an Inner Shadow**
+
+When reproducing a template's visual styling, use an inner shadow to give a card or panel a recessed appearance. An outer shadow extends outside the shape and makes it appear raised, while an inner shadow shades the inside of its edges.
+
+Call [enableInnerShadowEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#enableInnerShadowEffect), then configure the shadow returned by [getInnerShadowEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#getInnerShadowEffect). Larger blur radius values produce softer edges.
+
+This JavaScript example creates a light blue card with a dark gray inner shadow and saves it as a PPTX file. The shadow direction is 225 degrees, its distance is 7 points, and its blur radius is 6 points:
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
-var pres = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation();
 try {
-    var shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.RoundCornerRectangle, 20, 20, 200, 150);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 20, 200, 100);
+    shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    const fillColor = java.newInstanceSync("java.awt.Color", 173, 216, 230);
+    shape.getFillFormat().getSolidFillColor().setColor(fillColor);
+    shape.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+
+    shape.getEffectFormat().enableInnerShadowEffect();
+    const shadow = shape.getEffectFormat().getInnerShadowEffect();
+    const color = java.newInstanceSync("java.awt.Color", 105, 105, 105);
+    shadow.getShadowColor().setColor(color);
+    shadow.setDirection(225);
+    shadow.setDistance(7);
+    shadow.setBlurRadius(6);
+
+    presentation.save("inner_shadow_effect.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+![Light blue rectangle with an inner shadow](inner_shadow_effect.png)
+
+To remove the inner shadow, call [disableInnerShadowEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#disableInnerShadowEffect) on the shape's effect format.
+
+## **Apply a Reflection Effect**
+
+To apply a reflection effect in Aspose.Slides for Node.js via Java, you can add a mirror-like reflection to shapes, adjusting parameters such as distance, transparency, and size. This effect enhances the aesthetic of your presentations by giving shapes a more polished and sophisticated look. It’s easy to implement with simple code, enabling quick application across multiple elements for a consistent design.
+
+This JavaScript code shows how to apply the [reflection effect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#getReflectionEffect) to a shape:
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.RoundCornerRectangle, 20, 20, 200, 100);
     shape.getEffectFormat().enableReflectionEffect();
     shape.getEffectFormat().getReflectionEffect().setRectangleAlign(java.newByte(aspose.slides.RectangleAlignment.Bottom));
     shape.getEffectFormat().getReflectionEffect().setDirection(90);
-    shape.getEffectFormat().getReflectionEffect().setDistance(55);
-    shape.getEffectFormat().getReflectionEffect().setBlurRadius(4);
-    pres.save("reflection.pptx", aspose.slides.SaveFormat.Pptx);
+    shape.getEffectFormat().getReflectionEffect().setDistance(40);
+    shape.getEffectFormat().getReflectionEffect().setBlurRadius(2);
+
+    presentation.save("reflection_effect.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Apply Glow Effect**
+![Reflection effect](reflection_effect.png)
 
-This JavaScript code shows you how to apply the glow effect to a shape:
+## **Apply a Glow Effect**
+
+To apply a glow effect to a shape in Aspose.Slides for Node.js via Java, you can add a soft, luminous aura around shapes, adjusting properties like color and size. This effect helps make shapes stand out and adds an attractive, eye-catching visual element to your presentation. It's easy to implement with minimal code, enhancing the overall look of your slides.
+
+This JavaScript code shows how to apply the [glow effect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#getGlowEffect) to a shape:
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
-var pres = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation();
 try {
-    var shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.RoundCornerRectangle, 20, 20, 200, 150);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.RoundCornerRectangle, 20, 20, 200, 100);
     shape.getEffectFormat().enableGlowEffect();
-    shape.getEffectFormat().getGlowEffect().getColor().setColor(java.getStaticFieldValue("java.awt.Color", "MAGENTA"));
+    const color = java.getStaticFieldValue("java.awt.Color", "MAGENTA");
+    shape.getEffectFormat().getGlowEffect().getColor().setColor(color);
     shape.getEffectFormat().getGlowEffect().setRadius(15);
-    pres.save("glow.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("glow_effect.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Apply Soft Edges Effect**
+![Glow effect](glow_effect.png)
 
-This JavaScript code shows you how to apply the soft edges to a shape:
+## **Apply a Soft Edges Effect**
+
+To apply a soft edges effect in Aspose.Slides for Node.js via Java, you can create a smooth, blurred transition around the edges of a shape. This effect adds a more subtle and refined look, perfect for designs that need a gentle, softer appearance. You can easily adjust parameters like radius to achieve the desired effect across various shapes in your presentation.
+
+This JavaScript code shows how to apply the [soft edges effect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#getSoftEdgeEffect) to a shape:
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 
-var pres = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation();
 try {
-    var shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.RoundCornerRectangle, 20, 20, 200, 150);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.RoundCornerRectangle, 20, 20, 200, 150);
     shape.getEffectFormat().enableSoftEdgeEffect();
-    shape.getEffectFormat().getSoftEdgeEffect().setRadius(15);
-    pres.save("softEdges.pptx", aspose.slides.SaveFormat.Pptx);
+    shape.getEffectFormat().getSoftEdgeEffect().setRadius(8);
+
+    presentation.save("soft_edges_effect.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
+
+![Soft edges effect](soft_edges_effect.png)
 
 ## **FAQ**
 
-### Can I apply multiple effects to the same shape?
+**Can I apply multiple effects to the same shape?**
 
 Yes, you can combine different effects, such as shadow, reflection, and glow, on a single shape to create a more dynamic appearance.
 
-### What shapes can I apply effects to?
+**What shapes can I apply effects to?**
 
 You can apply effects to various shapes, including autoshapes, charts, tables, pictures, SmartArt objects, OLE objects, and more.
 
-### Can I apply effects to grouped shapes?
+**Can I apply effects to grouped shapes?**
 
 Yes, you can apply effects to grouped shapes. The effect will apply to the entire group.

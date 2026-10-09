@@ -3,7 +3,7 @@ title: Apply Shape Effects in Presentations in .NET
 linktitle: Shape Effect
 type: docs
 weight: 30
-url: /net/shape-effect
+url: /net/shape-effect/
 keywords:
 - shape effect
 - shadow effect
@@ -23,7 +23,7 @@ description: "Transform your PPT and PPTX files with advanced shape effects usin
 
 While effects in PowerPoint can be used to make a shape stand out, they differ from [fills](/slides/net/shape-formatting/#gradient-fill) or outlines. Using PowerPoint effects, you can create convincing reflections on a shape, spread a shape's glow, etc.
 
-<img src="shape-effect.png" alt="shape-effect" style="zoom:50%;" />
+![Shape effect](shape-effect.png)
 
 PowerPoint provides six effects that can be applied to shapes. You can apply one or more effects to a shape.
 
@@ -33,7 +33,11 @@ Aspose.Slides provides properties and methods under the [EffectFormat](https://r
 
 ## **Apply a Shadow Effect**
 
-To apply a shadow effect to a shape in Aspose.Slides for .NET, you can easily adjust parameters like color, blur radius, and direction. This gives your shapes a more dynamic and professional appearance, adding depth and focus. By using simple code snippets, you can apply these effects across multiple shapes, enhancing the overall visual appeal of your presentations.
+Aspose.Slides for .NET supports outer and inner shadows for shapes. You can customize their color, direction, distance, and blur radius to match your presentation's design.
+
+### **Apply an Outer Shadow**
+
+Use an outer shadow to make a card or panel stand out against the slide background. The shadow extends beyond the shape's edges, creating the impression that the shape is raised above the slide. Adjust its color, direction, distance, and blur radius to match the lighting and styling of your template.
 
 This C# code shows how to apply the [outer shadow effect](https://reference.aspose.com/slides/net/aspose.slides/effectformat/outershadoweffect/) to a rectangle:
 
@@ -46,7 +50,6 @@ using var presentation = new Presentation();
 var slide = presentation.Slides[0];
 
 var shape = slide.Shapes.AddAutoShape(ShapeType.RoundCornerRectangle, 20, 20, 200, 100);
-
 shape.EffectFormat.EnableOuterShadowEffect();
 shape.EffectFormat.OuterShadowEffect.ShadowColor.Color = Color.DarkGray;
 shape.EffectFormat.OuterShadowEffect.Distance = 10;
@@ -56,6 +59,41 @@ presentation.Save("shadow_effect.pptx", SaveFormat.Pptx);
 ```
 
 ![Shadow effect](shadow_effect.png)
+
+### **Apply an Inner Shadow**
+
+When reproducing a template's visual styling, use an inner shadow to give a card or panel a recessed appearance. An outer shadow extends outside the shape and makes it appear raised, while an inner shadow shades the inside of its edges.
+
+Call [EnableInnerShadowEffect](https://reference.aspose.com/slides/net/aspose.slides/effectformat/enableinnershadoweffect/), then configure [InnerShadowEffect](https://reference.aspose.com/slides/net/aspose.slides/effectformat/innershadoweffect/). Larger values produce softer edges.
+
+This C# example creates a light blue card with a dark gray inner shadow and saves it as a PPTX file:
+
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 200, 100);
+shape.FillFormat.FillType = FillType.Solid;
+shape.FillFormat.SolidFillColor.Color = Color.LightBlue;
+shape.LineFormat.FillFormat.FillType = FillType.NoFill;
+
+shape.EffectFormat.EnableInnerShadowEffect();
+var shadow = shape.EffectFormat.InnerShadowEffect;
+shadow.ShadowColor.Color = Color.DimGray;
+shadow.Direction = 225;
+shadow.Distance = 7;
+shadow.BlurRadius = 6;
+
+presentation.Save("inner_shadow_effect.pptx", SaveFormat.Pptx);
+```
+
+![Light blue rectangle with an inner shadow](inner_shadow_effect.png)
+
+To remove the inner shadow, call [DisableInnerShadowEffect](https://reference.aspose.com/slides/net/aspose.slides/effectformat/disableinnershadoweffect/) on the shape's effect format.
 
 ## **Apply a Reflection Effect**
 
@@ -71,7 +109,6 @@ using var presentation = new Presentation();
 var slide = presentation.Slides[0];
 
 var shape = slide.Shapes.AddAutoShape(ShapeType.RoundCornerRectangle, 20, 20, 200, 100);
-
 shape.EffectFormat.EnableReflectionEffect();
 shape.EffectFormat.ReflectionEffect.RectangleAlign = RectangleAlignment.Bottom;
 shape.EffectFormat.ReflectionEffect.Direction = 90;
@@ -98,7 +135,6 @@ using var presentation = new Presentation();
 var slide = presentation.Slides[0];
 
 var shape = slide.Shapes.AddAutoShape(ShapeType.RoundCornerRectangle, 20, 20, 200, 100);
-
 shape.EffectFormat.EnableGlowEffect();
 shape.EffectFormat.GlowEffect.Color.Color = Color.Magenta;
 shape.EffectFormat.GlowEffect.Radius = 15;
@@ -122,7 +158,6 @@ using var presentation = new Presentation();
 var slide = presentation.Slides[0];
 
 var shape = slide.Shapes.AddAutoShape(ShapeType.RoundCornerRectangle, 20, 20, 200, 150);
-
 shape.EffectFormat.EnableSoftEdgeEffect();
 shape.EffectFormat.SoftEdgeEffect.Radius = 8;
 
@@ -133,14 +168,14 @@ presentation.Save("soft_edges_effect.pptx", SaveFormat.Pptx);
 
 ## **FAQ**
 
-### Can I apply multiple effects to the same shape?
+**Can I apply multiple effects to the same shape?**
 
 Yes, you can combine different effects, such as shadow, reflection, and glow, on a single shape to create a more dynamic appearance.
 
-### What shapes can I apply effects to?
+**What shapes can I apply effects to?**
 
 You can apply effects to various shapes, including autoshapes, charts, tables, pictures, SmartArt objects, OLE objects, and more.
 
-### Can I apply effects to grouped shapes?
+**Can I apply effects to grouped shapes?**
 
 Yes, you can apply effects to grouped shapes. The effect will apply to the entire group.
