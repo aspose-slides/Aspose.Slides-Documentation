@@ -54,13 +54,13 @@ Aspose hosts its Java libraries in its own [Maven repository](https://releases.a
        <dependency>
            <groupId>com.aspose</groupId>
            <artifactId>aspose-slides</artifactId>
-           <version>26.9</version>
-           <classifier>jdk16</classifier>
+           <version>26.10</version>
+           <classifier>jdk8</classifier>
        </dependency>
    </dependencies>
    ```
 
-The `jdk16` classifier is required: it selects the Java SE build of the library. Replace `26.9` with the latest version listed in the [repository](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/). The repository publishes a SHA-1 checksum file next to each JAR, which Maven checks when it downloads the library.
+The `jdk8` classifier is required: it selects the Java SE build of the library. Replace `26.10` with the latest version listed in the [repository](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/). The repository publishes a SHA-1 checksum file next to each JAR, which Maven checks when it downloads the library.
 
 ### **Check the Installation**
 
@@ -93,8 +93,8 @@ To check the setup with a new project:
            <dependency>
                <groupId>com.aspose</groupId>
                <artifactId>aspose-slides</artifactId>
-               <version>26.9</version>
-               <classifier>jdk16</classifier>
+               <version>26.10</version>
+               <classifier>jdk8</classifier>
            </dependency>
        </dependencies>
 
@@ -124,12 +124,12 @@ Maven downloads Aspose.Slides for Java, compiles the program, and runs it. The p
 
 ## **Use the JAR File without Maven**
 
-1. Download *aspose-slides-26.9-jdk16.jar* from the [version folder](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/26.9/) in the repository. For another version, open its folder in the [repository](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/) and download the file that ends in *-jdk16.jar*.
+1. Download *aspose-slides-26.9-jdk8.jar* from the [version folder](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/26.10/) in the repository. For another version, open its folder in the [repository](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/) and download the file that ends in *-jdk8.jar*.
 2. Save the first example in [Create Presentations](/slides/java/create-presentation/) as *HelloSlides.java* in the same folder as the JAR file.
 3. In that folder, run:
 
    ```bash
-   java -cp aspose-slides-26.9-jdk16.jar HelloSlides.java
+   java -cp aspose-slides-26.10-jdk8.jar HelloSlides.java
    ```
 
 The JDK compiles and runs the single source file, and the program saves *new_presentation.pptx* in the folder. In your own application, add the JAR file to the class path in your build tool or IDE.
