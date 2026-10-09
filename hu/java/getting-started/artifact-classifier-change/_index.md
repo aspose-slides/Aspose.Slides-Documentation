@@ -4,10 +4,10 @@ type: docs
 weight: 60
 url: /hu/java/artifact-classifier-change/
 keywords:
-- osztályozó Aspose.Slides
-- artefakt osztályozó
-- használja Aspose.Slides
-- Aspose.Slides telepítés
+- Aspose.Slides osztályozó
+- artifact osztályozó
+- Aspose.Slides használata
+- Aspose.Slides telepítése
 - Windows
 - Linux
 - macOS
@@ -18,36 +18,36 @@ keywords:
 - Aspose.Slides
 description: "Az Aspose.Slides for Java most a jdk8 osztályozót használja a jdk16 helyett. Ismerje meg, miért és hogyan frissítheti a függőségeit."
 ---
-## Az artefakt osztályozó változása `jdk16`-ról `jdk8`-ra
+## **Artifact osztályozó változtatás `jdk16`‑ról `jdk8`‑ra**
 
-A **26.10** verziótól kezdve megváltoztattuk a közzétett artefaktokban használt osztályozót **`jdk16`** (Java 6) helyett **`jdk8`** (Java 8) használatára.
+A **26.10**‑es verziótól kezdve a közzétett csomagok osztályozóját **`jdk16`**‑ról (**Java 6**) **`jdk8`**‑ra (**Java 8**) módosítottuk.
 
-### Mi változott
+### **Mi változott**
 
-| | Korábban | Most |
+| | Előtte | Utána |
 |---|---|---|
 | Osztályozó | `jdk16` | `jdk8` |
 | Minimális Java verzió | Java 1.6 | Java 8 |
 
-**Korábban:**
+**Előtte:**
 ```
 com.aspose:aspose-slides:26.10:jdk16
 ```
 
-**Most:**
+**Utána:**
 ```
 com.aspose:aspose-slides:26.10:jdk8
 ```
 
-### Miért hajtottuk végre ezt a változást
+### **Miért hajtottuk végre ezt a változtatást**
 
-Belső felülvizsgálat után úgy döntöttünk, hogy **eljárjuk a régebbi Java verziók támogatását**, amelyek már nem hoztak értéket, és aktívan akadályozták a karbantartást. A Java 8-at választottuk új, biztonságos kiindulási pontként minden felhasználó számára.
+Belső felülvizsgálat után úgy döntöttünk, hogy **lemondjuk a régebbi Java verziók támogatását**, amelyek már nem hoznak értéket, sőt a karbantartást is akadályozzák. A Java 8-at választottuk új, biztonságos alapvonalnak minden felhasználó számára.
 
-Ennek részeként frissítettük az osztályozót, hogy tükrözze a ténylegesen támogatott minimális verziót. Emellett egységesítettük a jelenlegi Oracle elnevezési konvencióval, ahol a terméket hivatalosan **JDK 8**‑ként nevezik (nem a régi `1.8` formátumként).
+Ennek részeként frissítettük az osztályozót, hogy tükrözze a ténylegesen támogatott minimális verziót. Emellett igazodtunk a jelenlegi Oracle elnevezési konvencióhoz, ahol a terméket hivatalosan **JDK 8**‑ként (nem a régi `1.8` formátumban) hívják.
 
-### Mit kell tennie
+### **Mit kell tennie**
 
-1. **Frissítse az osztályozót** a függőségdefiníciókban `jdk16`-ról `jdk8`-ra.
+1. **Frissítse az osztályozót** a függőségi deklarációiban `jdk16`‑ról `jdk8`‑ra.
 
    **Maven:**
    ```xml
@@ -64,24 +64,24 @@ Ennek részeként frissítettük az osztályozót, hogy tükrözze a ténylegese
    implementation 'com.aspose:aspose-slides:26.10:jdk8'
    ```
 
-2. **Ellenőrizze a futtatási környezetét**, hogy Java 8 vagy újabb legyen.
+2. **Ellenőrizze**, hogy a futtatókörnyezete Java 8 vagy újabb.
 
-3. **Frissítse az összes lock fájlt** vagy a függőségi cache-eket, amelyek a régi osztályozót rögzítik.
+3. **Frissítse** a zárolási fájlokat vagy a függőségi cache‑eket, amelyek az eredeti osztályozót rögzítik.
 
-### Migrációs megjegyzés: jdk16 és jdk8
+### **Migrációs megjegyzés: jdk16 és jdk8**
 
-A 26.10‑es verziótól kezdve a jdk16 és a jdk8 osztályozók is Java 8‑kompatibilis JAR-okat fognak biztosítani (a forrás-/célkompatibilitás Java 8-ra van beállítva).
+A 26.10‑es verziótól kezdve mind a jdk16, mind a jdk8 osztályozó Java 8‑kompatibilis JAR‑okat biztosít (a forrás‑/cél‑kompatibilitás Java 8‑ra van beállítva).
 
- - `jdk16` → továbbra is közzétett a visszafelé kompatibilitás érdekében (létező integrációk).
- - `jdk8` → bevezetve új, preferált **osztályozó**ként a Java 8 környezetekhez.
+ - `jdk16` → **folytatja** a közzétételt a visszafelé kompatibilitás érdekében (létező integrációk).
+ - `jdk8` → **új, előnyben részesített** osztályozó Java 8 környezetekhez.
 
-⚠️ Megjegyzés: Ez a kettős közzétételi fázis várhatóan 2027. március 31‑én ér véget. Ez után a jdk16 osztályozó megszűnik, és csak a jdk8 lesz támogatott.
+⚠️ **Megjegyzés:** Ez a kettős kiadási fázis 2027. martius 31‑ig tart. Ezt követően a jdk16 osztályozót megszüntetik, és csak a jdk8 lesz támogatott.
 
-### Kompatibilitási megjegyzések
+### **Kompatibilitási megjegyzések**
 
-- `jdk16` osztályozó **már nem kerül közzétételre** **2027. március 31.** után.
-- Ha továbbra is Java 1.6 támogatásra van szüksége, kérjük, maradjon a korábbi **fő** verzióvonalon, amíg át tud váltani.
+- A `jdk16` osztályozó **már nem lesz közzétéve** **2027. martius 31.** után.
+- Ha továbbra is Java 1.6 támogatásra van szüksége, maradjon a korábbi főverzió sorozatán, amíg át nem tud migrálni.
 
-### Segítségre van szüksége?
+### **Szüksége van segítségre?**
 
-Ha problémába ütközik a migráció során, kérjük, vegye fel a kapcsolatot az [Aspose support](https://forum.aspose.com/) csapatával a további segítségért.
+Ha a migráció során problémákba ütközik, kérjük, vegye fel a kapcsolatot az [Aspose támogatással](https://forum.aspose.com/) a további segítségért.

@@ -18,11 +18,11 @@ keywords:
 - Aspose.Slides
 description: "Aspose.Slides dla Javy teraz używa klasyfikatora jdk8 zamiast jdk16. Dowiedz się, dlaczego i jak zaktualizować swoje zależności."
 ---
-## Zmiana klasyfikatora artefaktu z `jdk16` na `jdk8`
+## **Zmiana klasyfikatora artefaktu z `jdk16` na `jdk8`**
 
 Od wersji **26.10** zmieniliśmy klasyfikator używany w naszych publikowanych artefaktach z **`jdk16`** (Java 6) na **`jdk8`** (Java 8).
 
-### Co się zmieniło
+### **Co się zmieniło**
 
 | | Przed | Po |
 |---|---|---|
@@ -39,13 +39,13 @@ com.aspose:aspose-slides:26.10:jdk16
 com.aspose:aspose-slides:26.10:jdk8
 ```
 
-### Dlaczego wprowadziliśmy tę zmianę
+### **Dlaczego wprowadziliśmy tę zmianę**
 
-Po wewnętrznym przeglądzie postanowiliśmy **zrezygnować z obsługi starszych wersji Java**, które nie przynosiły już wartości i aktywnie utrudniały utrzymanie. Java 8 została wybrana jako nowa, bezpieczna podstawa dla wszystkich odbiorców.
+Po wewnętrznym przeglądzie zdecydowaliśmy się **zrezygnować z obsługi starszych wersji Java**, które nie przynosiły już wartości i aktywnie utrudniały utrzymanie. Java 8 została wybrana jako nowa, bezpieczna podstawa dla wszystkich użytkowników.
 
-W ramach tego klasyfikator został zaktualizowany, aby odzwierciedlał rzeczywistą minimalną wspieraną wersję. Dostosowaliśmy się również do aktualnej konwencji nazewnictwa Oracle, w której produkt jest oficjalnie określany jako **JDK 8** (zamiast legacy formatu `1.8`).
+W ramach tego klasyfikator został zaktualizowany, aby odzwierciedlał rzeczywistą minimalną wspieraną wersję. Dodatkowo dostosowaliśmy się do aktualnej konwencji nazewnictwa Oracle, gdzie produkt jest oficjalnie określany jako **JDK 8** (zamiast starszego formatu `1.8`).
 
-### Co musisz zrobić
+### **Co musisz zrobić**
 
 1. **Zaktualizuj klasyfikator** w deklaracjach zależności z `jdk16` na `jdk8`.
 
@@ -64,24 +64,24 @@ W ramach tego klasyfikator został zaktualizowany, aby odzwierciedlał rzeczywis
    implementation 'com.aspose:aspose-slides:26.10:jdk8'
    ```
 
-2. **Zweryfikuj środowisko uruchomieniowe**, aby było Java 8 lub nowsze.
+2. **Sprawdź, czy środowisko uruchomieniowe** jest Java 8 lub wyższe.
 
-3. **Odśwież wszystkie pliki blokujące** lub pamięci podręczne zależności, które utrwalają stary klasyfikator.
+3. **Odśwież wszelkie pliki blokujące** lub pamięci podręczne zależności, które utrwalają stary klasyfikator.
 
-### Uwaga dotycząca migracji: jdk16 i jdk8
+### **Uwaga dotycząca migracji: jdk16 i jdk8**
 
-Od wersji 26.10​ oba klasyfikatory jdk16 i jdk8 będą dostarczać pliki JAR zgodne z Java 8 (zbudowane ze źródłową/ docelową kompatybilnością ustawioną na Java 8).
+Od wersji 26.10​ oba klasyfikatory jdk16 i jdk8 będą dostarczać JAR-y zgodne z Java 8 (zbudowane z ustawioną zgodnością źródła/docelową na Java 8).
 
-- `jdk16` → będzie kontynuowany w publikacji dla kompatybilności wstecznej (istniejące integracje).
-- `jdk8` → wprowadzony jako nowy preferowany klasyfikator dla środowisk Java 8.
+ - `jdk16` → będzie nadal publikowany w celu zachowania kompatybilności wstecznej (istniejące integracje).
+ - `jdk8` → wprowadzony jako nowy preferowany klasyfikator dla środowisk Java 8.
 
-⚠️ Uwaga: Ta faza podwójnej publikacji jest zaplanowana na zakończenie 31 marca 2027 r. Po tej dacie klasyfikator jdk16 zostanie wycofany, a jedynie jdk8 będzie wspierany.
+⚠️ Uwaga: Ta faza podwójnego publikowania jest planowana do zakończenia 31 marca 2027 r. Po tej dacie klasyfikator jdk16 zostanie wycofany, a jedynie jdk8 będzie wspierany.
 
-### Uwagi dotyczące kompatybilności
+### **Uwagi dotyczące kompatybilności**
 
-- Klasyfikator `jdk16` **nie jest już publikowany** po **31 marca 2027 r.**.
-- Jeśli nadal potrzebujesz wsparcia dla Java 1.6, pozostań na poprzedniej linii wersji głównej, aż będziesz w stanie przejść na migrację.
+- Klasyfikator `jdk16` **nie jest już publikowany** po **31 marca 2027**.
+- Jeśli nadal potrzebujesz wsparcia dla Java 1.6, pozostań przy poprzedniej linii wersji głównej, aż będziesz mógł przeprowadzić migrację.
 
-### Potrzebujesz pomocy?
+### **Potrzebujesz pomocy?**
 
-Jeśli napotkasz problemy podczas migracji, skontaktuj się z [wsparciem Aspose](https://forum.aspose.com/) w celu uzyskania dalszej pomocy.
+Jeśli napotkasz problemy podczas migracji, skontaktuj się z [pomocą Aspose](https://forum.aspose.com/) po dalszą pomoc.
