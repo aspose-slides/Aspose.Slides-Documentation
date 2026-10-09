@@ -1,10 +1,10 @@
 ---
-title: Διαχείριση Ετικετών Δεδομένων Διαγράμματος σε Παρουσιάσεις με Java
+title: Διαχείριση ετικετών δεδομένων γραφήματος σε παρουσιάσεις χρησιμοποιώντας Java
 linktitle: Ετικέτα Δεδομένων
 type: docs
 url: /el/java/chart-data-label/
 keywords:
-- διάγραμμα
+- γράφημα
 - ετικέτα δεδομένων
 - ακρίβεια δεδομένων
 - ποσοστό
@@ -14,15 +14,15 @@ keywords:
 - παρουσίαση
 - Java
 - Aspose.Slides
-description: "Μάθετε πώς να προσθέτετε και να μορφοποιείτε ετικέτες δεδομένων διαγράμματος σε παρουσιάσεις PowerPoint χρησιμοποιώντας το Aspose.Slides για Java, για πιο ελκυστικές διαφάνειες."
+description: "Μάθετε πώς να προσθέτετε και να μορφοποιείτε ετικέτες δεδομένων γραφήματος σε παρουσιάσεις PowerPoint χρησιμοποιώντας το Aspose.Slides for Java για πιο ελκυστικές διαφάνειες."
 ---
 ## **Εισαγωγή**
 
-Οι ετικέτες δεδομένων εμφανίζουν πληροφορίες σχετικά με τις σειρές διαγράμματος και τα μεμονωμένα σημεία δεδομένων, βοηθώντας τους αναγνώστες να εντοπίζουν τιμές και να κατανοούν το γράφημα. Αυτό το άρθρο εξηγεί πώς να μορφοποιείτε τιμές, να εμφανίζετε ποσοστά, να διαβάζετε το κείμενο της ετικέτας, να ελέγχετε τις ετικέτες πέρα από το μέγιστο του άξονα, να προσαρμόζετε την απόσταση των ετικετών του άξονα κατηγορίας και να τοποθετείτε τις ετικέτες του κυκλικού διαγράμματος.
+Οι ετικέτες δεδομένων εμφανίζουν πληροφορίες σχετικά με τις σειρές γραφήματος και μεμονωμένα σημεία δεδομένων, βοηθώντας τους αναγνώστες να αναγνωρίζουν τις τιμές και να κατανοούν το γράφημα. Αυτό το άρθρο εξηγεί πώς να μορφοποιείτε τις τιμές, να εμφανίζετε τα ποσοστά, να διαβάζετε το κείμενο της ετικέτας, να ελέγχετε τις ετικέτες πέραν του μέγιστου άξονα, να ρυθμίζετε το διάστημα ετικετών του άξονα κατηγορίας και να τοποθετείτε ετικέτες σε γράφημα πίτας.
 
-## **Ορισμός Ακρίβειας Δεδομένων στις Ετικέτες Δεδομένων Διαγράμματος**
+## **Ορισμός ακρίβειας δεδομένων στις ετικέτες δεδομένων του γραφήματος**
 
-Χρησιμοποιήστε [setNumberFormatOfValues](https://reference.aspose.com/slides/el/java/com.aspose.slides/ichartseries/#setNumberFormatOfValues-java.lang.String-) για να μορφοποιήσετε τις τιμές των σειρών. Αυτό το παράδειγμα δημιουργεί ένα γραμμικό διάγραμμα με προεπιλεγμένα δεδομένα, εμφανίζει τον πίνακα δεδομένων του και ενεργοποιεί τις ετικέτες τιμών για την πρώτη σειρά. Η μορφή `#,##0.00` εμφανίζει διαχωριστικό χιλιάδων και δύο δεκαδικά ψηφία χωρίς να αλλάζει τις υποκείμενες τιμές.
+Χρησιμοποιήστε [setNumberFormatOfValues](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#setNumberFormatOfValues-java.lang.String-) για να μορφοποιήσετε τις τιμές των σειρών. Αυτό το παράδειγμα δημιουργεί ένα γράφημα γραμμής με προεπιλεγμένα δεδομένα, εμφανίζει τον πίνακα δεδομένων του και ενεργοποιεί τις ετικέτες τιμών για την πρώτη σειρά. Η μορφή `#,##0.00` εμφανίζει διαχωριστικό χιλιάδων και δύο δεκαδικά ψηφία χωρίς να αλλάζει τις υποκείμενες τιμές.
 
 ```java
 import com.aspose.slides.*;
@@ -44,9 +44,9 @@ try {
 }
 ```
 
-## **Εμφάνιση Ποσοστών ως Ετικέτες**
+## **Εμφάνιση ποσοστού ως ετικέτες**
 
-Για ένα στοίβαγμα στήλης, υπολογίστε κάθε τιμή ως ποσοστό του συνολικού ποσού της κατηγορίας της και αντιστοιχίστε το κείμενο στο πλαίσιο κειμένου που επιστρέφεται από το [getTextFrameForOverriding](https://reference.aspose.com/slides/el/java/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--). Αυτό το παράδειγμα χρησιμοποιεί τα προεπιλεγμένα δεδομένα του διαγράμματος και εμφανίζει ποσοστά με δύο δεκαδικά ψηφία σε γραμματοσειρά 8 σημείων. Κατηγορίες με συνολικό άθροισμα μηδέν παραλείπονται για να αποφευχθεί η διαίρεση με το μηδέν. Υπολογίστε ξανά το προσαρμοσμένο κείμενο ετικέτας εάν τα δεδομένα του διαγράμματος αλλάξουν.
+Για ένα στοίβαγμα στήλης, υπολογίστε κάθε τιμή ως ποσοστό του συνόλου της κατηγορίας της και αντιστοιχίστε το κείμενο στο πλαίσιο κειμένου που επιστρέφει η μέθοδος [getTextFrameForOverriding](https://reference.aspose.com/slides/java/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--). Αυτό το παράδειγμα χρησιμοποιεί τα προεπιλεγμένα δεδομένα γραφήματος και εμφανίζει τα ποσοστά με δύο δεκαδικά ψηφία σε γραμματοσειρά 8 σημείων. Κατηγορίες με σύνολο μηδέν παραλείπονται για να αποφευχθεί διαίρεση με μηδέν. Επαναϋπολογίστε το προσαρμοσμένο κείμενο ετικέτας εάν τα δεδομένα του γραφήματος αλλάξουν.
 
 ```java
 import com.aspose.slides.*;
@@ -103,11 +103,11 @@ try {
 }
 ```
 
-## **Ορισμός Σημείου Ποσοστού με τις Ετικέτες Δεδομένων του Διαγράμματος**
+## **Ορισμός σημείου ποσοστού με τις ετικέτες δεδομένων του γραφήματος**
 
-Όταν οι τιμές αποθηκεύονται ως κλάσματα, χρησιμοποιήστε το [setNumberFormat](https://reference.aspose.com/slides/el/java/com.aspose.slides/idatalabelformat/#setNumberFormat-java.lang.String-) για να εμφανίσετε τα ποσοστά. Περάστε `false` στο [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/el/java/com.aspose.slides/idatalabelformat/#setNumberFormatLinkedToSource-boolean-) για να εφαρμόσετε τη μορφή της ετικέτας ανεξάρτητα από τα κελιά προέλευσης.
+Όταν οι τιμές αποθηκεύονται ως κλάσματα, χρησιμοποιήστε τη μέθοδο [setNumberFormat](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/#setNumberFormat-java.lang.String-) για να εμφανίζετε τα ποσοστά. Μεταβιβάστε `false` στη μέθοδο [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/#setNumberFormatLinkedToSource-boolean-) ώστε η μορφοποίηση ετικέτας να εφαρμόζεται ανεξάρτητα από τα κελιά πηγής.
 
-Αυτό το παράδειγμα δημιουργεί ένα στοίβαγμα στήλης 100% με κόκκινη και μπλε σειρά σε τέσσερις κατηγορίες. Κάθε ζεύγος τιμών αθροίζεται σε 1. Η μορφή ετικέτας `0.0%` εμφανίζει το 0.30 ως 30.0%, ενώ ο κατακόρυφος άξονας χρησιμοποιεί δύο δεκαδικά ψηφία. Και οι δύο σειρές χρησιμοποιούν λευκό κείμενο ετικέτας με μέγεθος 10 σημεία.
+Αυτό το παράδειγμα δημιουργεί ένα γράφημα στοίβαξης στήλης 100% με κόκκινη και μπλε σειρά σε τέσσερις κατηγορίες. Κάθε ζεύγος τιμών αθροίζεται στο 1. Η μορφή ετικέτας `0.0%` εμφανίζει το 0.30 ως 30.0%, ενώ ο κατακόρυφος άξονας χρησιμοποιεί δύο δεκαδικά ψηφία. Και οι δύο σειρές χρησιμοποιούν λευκό κείμενο ετικέτας 10 σημείων.
 
 ```java
 import com.aspose.slides.*;
@@ -162,9 +162,9 @@ try {
 }
 ```
 
-## **Ανάγνωση του Πραγματικού Κειμένου των Ετικετών Δεδομένων**
+## **Ανάγνωση του πραγματικού κειμένου των ετικετών δεδομένων**
 
-Χρησιμοποιήστε το [getActualLabelText](https://reference.aspose.com/slides/el/java/com.aspose.slides/idatalabel/#getActualLabelText--) για να ανακτήσετε το κείμενο που παράγεται από τις ρυθμίσεις μιας ετικέτας δεδομένων. Αυτό είναι χρήσιμο όταν εξάγετε ετικέτες για αναφορές, αναζητάτε περιεχόμενο παρουσίασης ή επαληθεύετε δημιουργημένα διαγράμματα. Στο παρακάτω παράδειγμα, η προεπιλεγμένη [μορφή ετικέτας δεδομένων](https://reference.aspose.com/slides/el/java/com.aspose.slides/idatalabelformat/) συνδυάζει το όνομα κάθε κατηγορίας, το όνομα της σειράς και την τιμή. Ένα σημείο μορφοποιεί την τιμή του ως ποσοστό, και ένα άλλο χρησιμοποιεί προσαρμοσμένο κείμενο από το [getTextFrameForOverriding](https://reference.aspose.com/slides/el/java/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--).
+Χρησιμοποιήστε τη μέθοδο [getActualLabelText](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabel/#getActualLabelText--) για να ανακτήσετε το κείμενο που προκύπτει από τις ρυθμίσεις μιας ετικέτας δεδομένων. Αυτό είναι χρήσιμο όταν εξάγετε ετικέτες για εκθέσεις, αναζητάτε περιεχόμενο παρουσίασης ή επαληθεύετε δημιουργημένα γραφήματα. Στο παρακάτω παράδειγμα, η προεπιλεγμένη [μορφή ετικέτας δεδομένων](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/) συνδυάζει το όνομα κάθε κατηγορίας, το όνομα της σειράς και την τιμή. Ένα σημείο μορφοποιεί την τιμή του ως ποσοστό, ενώ ένα άλλο χρησιμοποιεί προσαρμοσμένο κείμενο από τη μέθοδο [getTextFrameForOverriding](https://reference.aspose.com/slides/java/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--).
 
 ```java
 import com.aspose.slides.*;
@@ -224,15 +224,15 @@ try {
 }
 ```
 
-Ο αριθμός που αποθηκεύεται σε ένα σημείο δεδομένων παραμένει `0.75`, ακόμη και όταν η ετικέτα του εμφανίζει `75%` μαζί με τα ονόματα της κατηγορίας και της σειράς. Το προσαρμοσμένο κείμενο αντικαθιστά το παραγόμενο κείμενο ετικέτας. Το [getActualLabelText](https://reference.aspose.com/slides/el/java/com.aspose.slides/idatalabel/#getActualLabelText--) επιστρέφει τη τελική συμβολοσειρά ετικέτας και στις δύο περιπτώσεις. Ελέγξτε το [isVisible](https://reference.aspose.com/slides/el/java/com.aspose.slides/idatalabel/#isVisible--) ξεχωριστά, όπως φαίνεται παραπάνω, όταν θέλετε να εξάγετε μόνο τις ορατές ετικέτες.
+Ο αριθμός που αποθηκεύεται σε ένα σημείο δεδομένων παραμένει `0.75`, ακόμη και όταν η ετικέτα του εμφανίζει `75%` μαζί με τα ονόματα κατηγορίας και σειράς. Το προσαρμοσμένο κείμενο αντικαθιστά το παραγόμενο κείμενο ετικέτας. Η μέθοδος [getActualLabelText](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabel/#getActualLabelText--) επιστρέφει τη σειρά ετικέτας σε κάθε περίπτωση. Ελέγξτε ξεχωριστά τη μέθοδο [isVisible](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabel/#isVisible--) όπως φαίνεται πιο πάνω, όταν θέλετε να εξάγετε μόνο τις ορατές ετικέτες.
 
-## **Έλεγχος Ετικετών Δεδομένων Πέρα από το Μέγιστο του Άξονα**
+## **Έλεγχος ετικετών δεδομένων πέραν του μέγιστου άξονα**
 
-Όταν περιορίζετε το εύρος ενός άξονα χειροκίνητα, κάποια σημεία δεδομένων μπορεί να υπερβαίνουν το μέγιστό του. Χρησιμοποιήστε το [setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/el/java/com.aspose.slides/ichart/#setShowDataLabelsOverMaximum-boolean-) για να ελέγξετε αν οι ετικέτες δεδομένων τους εμφανίζονται. Αυτή η ρύθμιση αλλάζει την ορατότητα των ετικετών· δεν αλλάζει το εύρος του άξονα ή τις υποκείμενες τιμές των δεδομένων.
+Όταν περιορίζετε χειροκίνητα την περιοχή ενός άξονα, ορισμένα σημεία δεδομένων μπορεί να υπερβούν το μέγιστό του. Χρησιμοποιήστε τη μέθοδο [setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#setShowDataLabelsOverMaximum-boolean-) για να ελέγξετε αν οι ετικέτες τους εμφανίζονται. Αυτή η ρύθμιση αλλάζει την ορατότητα των ετικετών· δεν αλλάζει τη περιοχή του άξονα ή τις υποκείμενες τιμές δεδομένων.
 
-Το παρακάτω παράδειγμα δημιουργεί ένα 2Δσ συγκεντρωτικό στήλης με τιμές 60 και 120. Μεταβιβάζει `false` στο [setAutomaticMaxValue](https://reference.aspose.com/slides/el/java/com.aspose.slides/iaxis/#setAutomaticMaxValue-boolean-) και ορίζει το μέγιστο σε 100 με το [setMaxValue](https://reference.aspose.com/slides/el/java/com.aspose.slides/iaxis/#setMaxValue-double-) στον κατακόρυφο άξονα. Η πρώτη διαφάνεια επιτρέπει ετικέτες πέρα από το μέγιστο· ένα αντίγραφο αυτής της διαφάνειας τις απενεργοποιεί. Και οι δύο διαφάνειες αποθηκεύονται στο `DataLabelsOverMaximum.pptx`.
+Το παρακάτω παράδειγμα δημιουργεί ένα 2D συγκεντρωτικό γράφημα στήλης με τιμές 60 και 120. Μεταβιβάζει `false` στη μέθοδο [setAutomaticMaxValue](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setAutomaticMaxValue-boolean-) και ορίζει το μέγιστο στο 100 με τη μέθοδο [setMaxValue](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setMaxValue-double-) στον κατακόρυφο άξονα. Η πρώτη διαφάνεια επιτρέπει ετικέτες πέραν του μέγιστου· μια αντίγραφο της διαφάνειας τις απενεργοποιεί. Και οι δύο διαφάνειες αποθηκεύονται στο `DataLabelsOverMaximum.pptx`.
 
-Ενεργοποιήστε τις ετικέτες τιμών με το [setShowValue](https://reference.aspose.com/slides/el/java/com.aspose.slides/idatalabelformat/#setShowValue-boolean-). Η ρύθμιση σε επίπεδο διαγράμματος δεν ενεργοποιεί την εμφάνιση τιμής από μόνη της ή δεν παρακάμπτει την απενεργοποίηση εμφάνισης τιμής μιας μεμονωμένης ετικέτας. Αυτό το παράδειγμα ενεργοποιεί τις τιμές για ολόκληρη τη σειρά και χρησιμοποιεί το [setPosition](https://reference.aspose.com/slides/el/java/com.aspose.slides/idatalabelformat/#setPosition-int-) για να τοποθετήσει τις ετικέτες στο εξωτερικό άκρο κάθε στήλης.
+Ενεργοποιήστε τις ετικέτες τιμών με τη μέθοδο [setShowValue](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/#setShowValue-boolean-). Η ρύθμιση σε επίπεδο γραφήματος δεν ενεργοποιεί την εμφάνιση τιμών από μόνη της ή δεν υπερκαλύπτει την απενεργοποίηση εμφάνισης τιμής μιας μεμονωμένης ετικέτας. Αυτό το παράδειγμα ενεργοποιεί τις τιμές για ολόκληρη τη σειρά και χρησιμοποιεί τη μέθοδο [setPosition](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/#setPosition-int-) για να τοποθετήσει τις ετικέτες στο εξωτερικό άκρο κάθε στήλης.
 
 ```java
 import com.aspose.slides.*;
@@ -281,19 +281,19 @@ try {
 }
 ```
 
-Οι παρακάτω εικόνες δείχνουν τις αποθηκευμένες διαφάνειες όπως αποδίδονται από το Microsoft PowerPoint. Με `true`, η ετικέτα **120** είναι ορατή στο άνω όριο· με `false`, είναι κρυφή. Η ετικέτα **60** παραμένει ορατή, το μέγιστο του άξονα παραμένει **100**, και το δεύτερο σημείο δεδομένων παραμένει **120** και στις δύο περιπτώσεις.
+Οι ακόλουθες εικόνες δείχνουν τις αποθηκευμένες διαφάνειες όπως αποδίδονται από το Microsoft PowerPoint. Με `true`, η ετικέτα **120** είναι ορατή στο άνω όριο· με `false`, είναι κρυφή. Η ετικέτα **60** παραμένει ορατή, το μέγιστο του άξονα παραμένει **100**, και το δεύτερο σημείο δεδομένων παραμένει **120** και στις δύο περιπτώσεις.
 
 | setShowDataLabelsOverMaximum(true) | setShowDataLabelsOverMaximum(false) |
 | --- | --- |
 | ![Διάγραμμα PowerPoint που εμφανίζει την ετικέτα τιμής 120 με μέγιστο άξονα 100](data-labels-over-maximum-true.png) | ![Διάγραμμα PowerPoint που κρύβει την ετικέτα τιμής 120 με μέγιστο άξονα 100](data-labels-over-maximum-false.png) |
 
 {{% alert color="info" title="Chart Type" %}}
-Αυτό το παράδειγμα χρησιμοποιεί ένα 2Δσ διάγραμμα στηλών με άξονα τιμών. Τα διαγράμματα χωρίς άξονα τιμών, όπως τα κυκλικά και τα δακτυλιές (doughnut) διαγράμματα, δεν έχουν μέγιστο άξονα που να περιορίζεται με αυτόν τον τρόπο.
+Αυτό το παράδειγμα χρησιμοποιεί ένα 2D γράφημα στήλης με άξονα τιμών. Τα γραφήματα χωρίς άξονα τιμών, όπως τα γράφημα πίτας και δακτυλίου, δεν έχουν μέγιστο άξονα που μπορεί να περιοριστεί με αυτόν τον τρόπο.
 {{% /alert %}}
 
-## **Ορισμός Απόστασης Ετικέτας από Άξονα**
+## **Ορισμός απόστασης ετικέτας από άξονα**
 
-Χρησιμοποιήστε το [setLabelOffset](https://reference.aspose.com/slides/el/java/com.aspose.slides/iaxis/#setLabelOffset-int-) για να ελέγξετε την απόσταση μεταξύ των ετικετών του άξονα κατηγορίας και του άξονα. Η τιμή είναι ένα ποσοστό του μέγιστου μεγέθους γραμματοσειράς των ετικετών του άξονα. Αυτό το παράδειγμα δημιουργεί ένα συγκεντρωτικό διάγραμμα στηλών και ορίζει την απόσταση ετικέτας του οριζόντιου άξονα σε 500. Αυτή η ρύθμιση επηρεάζει τις ετικέτες του άξονα κατηγορίας παρά τις ετικέτες που συνδέονται με μεμονωμένα σημεία δεδομένων.
+Χρησιμοποιήστε τη μέθοδο [setLabelOffset](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setLabelOffset-int-) για να ελέγξετε την απόσταση μεταξύ των ετικετών του άξονα κατηγορίας και του άξονα. Η τιμή είναι ένα ποσοστό του μέγιστου μεγέθους γραμματοσειράς των ετικετών του άξονα. Αυτό το παράδειγμα δημιουργεί ένα συγκεντρωτικό γράφημα στήλης και ορίζει την απόκλιση ετικέτας του οριζόντιου άξονα σε 500. Αυτή η ρύθμιση επηρεάζει τις ετικέτες του άξονα κατηγορίας και όχι τις ετικέτες που συνδέονται με μεμονωμένα σημεία δεδομένων.
 
 ```java
 import com.aspose.slides.*;
@@ -311,11 +311,11 @@ try {
 }
 ```
 
-## **Προσαρμογή Θέσης Ετικέτας**
+## **Ρύθμιση τοποθέτησης ετικέτας**
 
-Σε ένα κυκλικό διάγραμμα, προσαρμόστε τις θέσεις των ετικετών δεδομένων για να βελτιώσετε την απόσταση και να δημιουργήσετε χώρο για γραμμές οδηγού.
+Σε ένα γράφημα πίτας, ρυθμίστε τις θέσεις των ετικετών δεδομένων ώστε να βελτιώσετε το διάστημα και να δημιουργήσετε χώρο για τις γραμμές οδηγού.
 
-Αυτό το παράδειγμα εμφανίζει την τιμή του πρώτου σημείου δεδομένων, τοποθετεί την ετικέτα του έξω από το τμήμα και προσαρμόζει τις οριζόντιες και κατακόρυφες μετατοπίσεις του χρησιμοποιώντας τα [setX](https://reference.aspose.com/slides/el/java/com.aspose.slides/ilayoutable/#setX-float-) και [setY](https://reference.aspose.com/slides/el/java/com.aspose.slides/ilayoutable/#setY-float-). Αυτές οι μετατοπίσεις είναι σχετικές με το πλάτος και το ύψος του διαγράμματος, αντίστοιχα.
+Αυτό το παράδειγμα εμφανίζει την τιμή του πρώτου σημείου δεδομένων, τοποθετεί την ετικέτα του έξω από το τμήμα και ρυθμίζει τις οριζόντιες και κατακόρυφες αποκλίσεις χρησιμοποιώντας τις μεθόδους [setX](https://reference.aspose.com/slides/java/com.aspose.slides/ilayoutable/#setX-float-) και [setY](https://reference.aspose.com/slides/java/com.aspose.slides/ilayoutable/#setY-float-). Αυτές οι αποκλίσεις είναι σχετικές με το πλάτος και το ύψος του γραφήματος, αντίστοιχα.
 
 ```java
 import com.aspose.slides.*;
@@ -339,18 +339,130 @@ try {
 }
 ```
 
-![Κυκλικό διάγραμμα με προσαρμοσμένη θέση ετικέτας δεδομένων](pie-chart-adjusted-label.png)
+![Γράφημα πίτας με προσαρμοσμένη θέση ετικέτας δεδομένων](pie-chart-adjusted-label.png)
 
-## **Συχνές Ερωτήσεις**
+## **Προσθήκη πολλαπλών γραμμών ετικετών δεδομένων πάνω από γράφημα στήλης**
 
-**Πώς μπορώ να αποτρέψω την επικάλυψη των ετικετών δεδομένων σε πυκνά διαγράμματα;**
+Αυτό το παράδειγμα δημιουργεί ένα γράφημα στήλης με δύο σειρές ετικετών δεδομένων πάνω από την περιοχή σχεδίασης. Η Σειρά A εμφανίζει τις ορατές στήλες, ενώ οι Σειρές B και C παρέχουν τις πρόσθετες ετικέτες. Οι στήλες τους κρύβονται αφαιρώντας τη γέμιση και το περίγραμμα. Η μέθοδος [ChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/java/com.aspose.slides/chartseriesgroup/) ευθυγραμμίζει και τις τρεις σειρές στα ίδια κέντρα κατηγορίας.
 
-Συνδυάστε αυτόματη τοποθέτηση ετικετών, γραμμές οδηγού και μειωμένο μέγεθος γραμματοσειράς· εάν χρειάζεται, κρύψτε ορισμένα πεδία (π.χ. την κατηγορία) ή εμφανίστε ετικέτες μόνο για ακραίες τιμές ή βασικά σημεία.
+Οι ρυθμίσεις του [ChartPlotArea](https://reference.aspose.com/slides/java/com.aspose.slides/chartplotarea/) διατηρούν χώρο για τις γραμμές ετικετών. Μετά το [Chart.validateChartLayout](https://reference.aspose.com/slides/java/com.aspose.slides/chart/) που υπολογίζει τις προεπιλεγμένες θέσεις, οι μέθοδοι [DataLabel.setX and DataLabel.setY](https://reference.aspose.com/slides/java/com.aspose.slides/datalabel/) διατηρούν την οριζόντια στοίχιση και εφαρμόζουν κατακόρυφες αποκλίσεις για να τακτοποιήσουν τις ετικέτες σε δύο σειρές. Οι αριθμοί παραμένουν ετικέτες δεδομένων συνδεδεμένες με τις τιμές των σειρών· μόνο οι επικεφαλίδες των σειρών είναι ξεχωριστά σχήματα κειμένου.
+
+```java
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 40, 40, 640, 200);
+    chart.setTitle(false);
+    chart.setLegend(false);
+    chart.getTextFormat().getPortionFormat().setFontHeight(12);
+
+    chart.getChartData().getSeries().clear();
+    chart.getChartData().getCategories().clear();
+
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.clear(0);
+
+    String[] categories = {"North", "South", "East", "West"};
+    String[] seriesNames = {"Series A", "Series B", "Series C"};
+    double[][] seriesValues = {
+            {35, 42, 28, 47},
+            {22, 31, 19, 26},
+            {12, 16, 14, 18}
+    };
+
+    for (int categoryIndex = 0; categoryIndex < categories.length; categoryIndex++) {
+        chart.getChartData().getCategories().add(
+                workbook.getCell(0, categoryIndex + 1, 0, categories[categoryIndex]));
+    }
+
+    for (int seriesIndex = 0; seriesIndex < seriesNames.length; seriesIndex++) {
+        IChartSeries series = chart.getChartData().getSeries().add(
+                workbook.getCell(0, 0, seriesIndex + 1, seriesNames[seriesIndex]),
+                ChartType.ClusteredColumn);
+
+        for (int categoryIndex = 0; categoryIndex < categories.length; categoryIndex++) {
+            series.getDataPoints().addDataPointForBarSeries(workbook.getCell(
+                    0, categoryIndex + 1, seriesIndex + 1,
+                    seriesValues[seriesIndex][categoryIndex]));
+        }
+
+        if (seriesIndex > 0) {
+            // Απόκρυψη των στηλών του B και C, αλλά διατήρηση των ετικετών δεδομένων τους.
+            series.getFormat().getFill().setFillType(FillType.NoFill);
+            series.getFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
+            series.getLabels().getDefaultDataLabelFormat().setShowValue(true);
+            series.getLabels().getDefaultDataLabelFormat()
+                    .getTextFormat().getPortionFormat().setFontHeight(12);
+            IFillFormat labelFill = series.getLabels().getDefaultDataLabelFormat()
+                    .getTextFormat().getPortionFormat().getFillFormat();
+            labelFill.setFillType(FillType.Solid);
+            labelFill.getSolidFillColor().setColor(java.awt.Color.BLACK);
+            series.getLabels().getDefaultDataLabelFormat().setPosition(
+                    LegendDataLabelPosition.InsideBase);
+        }
+    }
+
+    // Στοίχιση και των τριών σειρών με τα ίδια κέντρα κατηγοριών.
+    chart.getChartData().getSeries().get_Item(0)
+            .getParentSeriesGroup().setOverlap((byte) 100);
+
+    // Χρήση λιγότερων γραμμών πλέγματος για αυτό το συνοπτικό παράδειγμα.
+    chart.getAxes().getVerticalAxis().setAutomaticMajorUnit(false);
+    chart.getAxes().getVerticalAxis().setMajorUnit(10);
+
+    // Δέσμευση χώρου πάνω από το γράφημα για δύο σειρές ετικετών δεδομένων.
+    chart.getPlotArea().setLayoutTargetType(LayoutTargetType.Inner);
+    chart.getPlotArea().setX(0.15f);
+    chart.getPlotArea().setY(0.32f);
+    chart.getPlotArea().setWidth(0.80f);
+    chart.getPlotArea().setHeight(0.48f);
+    chart.validateChartLayout();
+
+    for (int seriesIndex = 1; seriesIndex < seriesNames.length; seriesIndex++) {
+        IChartSeries series = chart.getChartData().getSeries().get_Item(seriesIndex);
+        float rowTop = seriesIndex == 1 ? 0.15f : 0.03f;
+
+        for (int categoryIndex = 0; categoryIndex < categories.length; categoryIndex++) {
+            IDataLabel dataLabel = series.getDataPoints().get_Item(categoryIndex).getLabel();
+            // Διατήρηση της προεπιλεγμένης οριζόντιας θέσης. Το Y είναι μια μετατόπιση από
+            // τη προεπιλεγμένη θέση ετικέτας, εκφρασμένη ως κλάσμα του ύψους του γραφήματος.
+            dataLabel.setX(0);
+            dataLabel.setY(rowTop - dataLabel.getActualY() / chart.getHeight());
+        }
+
+        // Μόνο η επικεφαλίδα της σειράς είναι ξεχωριστό σχήμα κειμένου.
+        IAutoShape rowHeading = slide.getShapes().addAutoShape(
+                ShapeType.Rectangle, chart.getX(),
+                chart.getY() + rowTop * chart.getHeight(), 85, 18);
+        rowHeading.getFillFormat().setFillType(FillType.NoFill);
+        rowHeading.getLineFormat().getFillFormat().setFillType(FillType.NoFill);
+        rowHeading.addTextFrame(seriesNames[seriesIndex]);
+        rowHeading.getTextFrame().getTextFrameFormat().setMarginTop(0);
+        rowHeading.getTextFrame().getTextFrameFormat().setMarginBottom(0);
+        IPortionFormat headingFormat = rowHeading.getTextFrame().getParagraphs()
+                .get_Item(0).getPortions().get_Item(0).getPortionFormat();
+        headingFormat.setFontHeight(12);
+        headingFormat.getFillFormat().setFillType(FillType.Solid);
+        headingFormat.getFillFormat().getSolidFillColor().setColor(java.awt.Color.BLACK);
+    }
+
+    presentation.save("multiple-rows-of-labels.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Συχνές ερωτήσεις**
+
+**Πώς μπορώ να αποτρέψω την επικάλυψη των ετικετών δεδομένων σε πυκνά γραφήματα;**
+
+Συνδυάστε αυτόματη τοποθέτηση ετικετών, γραμμές οδηγού και μειωμένο μέγεθος γραμματοσειράς· εφόσον χρειάζεται, κρύψτε ορισμένα πεδία (π.χ. την κατηγορία) ή εμφανίστε ετικέτες μόνο για ακραίες τιμές ή σημαντικά σημεία.
 
 **Πώς μπορώ να απενεργοποιήσω τις ετικέτες μόνο για μηδενικές, αρνητικές ή κενές τιμές;**
 
-Φιλτράρετε τα σημεία δεδομένων πριν ενεργοποιήσετε τις ετικέτες και απενεργοποιήστε την εμφάνιση για τιμές 0, αρνητικές τιμές ή ελλιπείς τιμές σύμφωνα με έναν καθορισμένο κανόνα.
+Φιλτράρετε τα σημεία δεδομένων πριν ενεργοποιήσετε τις ετικέτες και απενεργοποιήστε την εμφάνιση για τιμές ίσες με 0, αρνητικές τιμές ή ελλιπείς τιμές σύμφωνα με έναν καθορισμένο κανόνα.
 
-**Πώς μπορώ να εξασφαλίσω συνεπή στυλ ετικέτας κατά την εξαγωγή σε PDF/εικόνες;**
+**Πώς μπορώ να εξασφαλίσω ένα συνεπές στυλ ετικετών κατά την εξαγωγή σε PDF/εικόνες;**
 
-Ορίστε ρητά την οικογένεια γραμματοσειράς και το μέγεθος και επαληθεύστε ότι η γραμματοσειρά είναι διαθέσιμη στο περιβάλλον απόδοσης ώστε να αποφύγετε την εναλλακτική επιλογή.
+Ορίστε ρητά την οικογένεια γραμματοσειράς και το μέγεθος και βεβαιωθείτε ότι η γραμματοσειρά είναι διαθέσιμη στο περιβάλλον απόδοσης για να αποφύγετε εναλλακτικές γραμματοσειρές.
