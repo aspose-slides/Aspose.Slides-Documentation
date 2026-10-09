@@ -134,17 +134,17 @@ public class CheckSetup {
 With JDK 11 or later, run the program in that folder with the command below. If your JAR file has a different name, change the name in the commands.
 
 ```bash
-java -cp aspose-slides-26.9-jdk16.jar CheckSetup.java
+java -cp aspose-slides-26.10-jdk8.jar CheckSetup.java
 ```
 
 With Java 8, or on a system that has only a JRE, compile the program with `javac` from a JDK and then run the compiled class. On Linux and macOS, run:
 
 ```bash
-javac -cp aspose-slides-26.9-jdk16.jar CheckSetup.java
-java -cp aspose-slides-26.9-jdk16.jar:. CheckSetup
+javac -cp aspose-slides-26.10-jdk8.jar CheckSetup.java
+java -cp aspose-slides-26.10-jdk8.jar:. CheckSetup
 ```
 
-On Windows, run the same `javac` command, and then run the class with a semicolon as the class path separator. Keep the quotes, so that PowerShell does not treat the semicolon as the end of the command: `java -cp "aspose-slides-26.9-jdk16.jar;." CheckSetup`.
+On Windows, run the same `javac` command, and then run the class with a semicolon as the class path separator. Keep the quotes, so that PowerShell does not treat the semicolon as the end of the command: `java -cp "aspose-slides-26.10-jdk8.jar;." CheckSetup`.
 
 The program adds a rectangle with text to the first slide and saves the presentation as *hello.pptx* with the [save](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#save-java.lang.String-int-) method. It then renders the slide with [getImage](https://reference.aspose.com/slides/java/com.aspose.slides/slide/#getImage-float-float-) and saves the result as *hello.png* with [IImage.save](https://reference.aspose.com/slides/java/com.aspose.slides/iimage/#save-java.lang.String-int-) in the [ImageFormat.Png](https://reference.aspose.com/slides/java/com.aspose.slides/imageformat/) format. The scale factors of 1 render one pixel per point, so the default 720 × 540 point slide becomes a 720 × 540 pixel image, with the text visible inside the rectangle. Without a license, both files also carry an evaluation watermark; see [Licensing](/slides/java/licensing/). If a requirement is missing, the program stops with one of the errors described in [Linux](#linux).
 

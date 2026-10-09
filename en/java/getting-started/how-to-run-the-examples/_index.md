@@ -82,8 +82,8 @@ After installed, just declares the **aspose.slides** coordinate in pom.xml. Add 
 <dependency>
     <groupId>com.aspose</groupId>
     <artifactId>aspose-slides</artifactId>
-    <version>25.12</version>
-    <classifier>jdk16</classifier>
+    <version>26.10</version>
+    <classifier>jdk8</classifier>
 </dependency>
 ```
 
