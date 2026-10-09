@@ -1,118 +1,242 @@
 ---
-title: Použití efektů tvarů v prezentacích pomocí C++
+title: Aplikace efektů tvarů v prezentacích pomocí C++
 linktitle: Efekt tvaru
 type: docs
 weight: 30
 url: /cs/cpp/shape-effect/
 keywords:
 - efekt tvaru
-- stínový efekt
-- odrazový efekt
-- zářivý efekt
-- efekt měkkých hran
+- efekt stínu
+- efekt odrazu
+- efekt záře
+- efekt měkkých okrajů
 - formát efektu
 - PowerPoint
 - prezentace
 - C++
 - Aspose.Slides
-description: "Transformujte své soubory PPT a PPTX s pokročilými efekty tvarů pomocí Aspose.Slides pro C++ — vytvořte působivé, profesionální snímky během několika sekund."
+description: "Transformujte své soubory PPT a PPTX pomocí pokročilých efektů tvarů v Aspose.Slides pro C++ — vytvořte působivé, profesionální snímky během několika sekund."
 ---
 ## **Úvod**
 
-Zatímco efekty v PowerPointu lze použít k tomu, aby tvar vynikl, liší se od [vyplnění](/slides/cs/cpp/shape-formatting/#gradient-fill) nebo obrysů. Pomocí efektů v PowerPointu můžete vytvořit přesvědčivé odrazy na tvaru, rozšířit záři tvaru atd.
+Zatímco efekty v PowerPointu lze použít k zvýraznění tvaru, liší se od [výplní](/slides/cs/cpp/shape-formatting/#gradient-fill) nebo obrysů. Pomocí efektů v PowerPointu můžete vytvořit přesvědčivé odrazy na tvaru, rozšířit záři tvaru atd.
 
-<img src="shape-effect.png" alt="shape-effect" style="zoom:50%;" />
+![Efekt tvaru](shape-effect.png)
 
-* PowerPoint poskytuje šest efektů, které lze aplikovat na tvary. Na tvar lze použít jeden nebo více efektů.  
+PowerPoint poskytuje šest efektů, které lze použít na tvary. Na tvar můžete použít jeden nebo více efektů.
 
-* Některé kombinace efektů vypadají lépe než jiné. Z tohoto důvodu jsou v PowerPointu možnosti pod **Preset**. Volby Preset jsou v podstatě osvědčené kombinace dvou nebo více efektů, které vypadají dobře. Tímto způsobem při výběru předvolby nebudete muset ztrácet čas testováním nebo kombinováním různých efektů, abyste našli vhodnou kombinaci.
+Některé kombinace efektů vypadají lépe než jiné. Z tohoto důvodu má PowerPoint možnosti pod **Preset**. Možnosti Preset jsou v podstatě kombinace dvou nebo více efektů, o nichž je známo, že vypadají dobře. Takto, výběrem předvolby, nebudete muset ztrácet čas testováním nebo kombinováním různých efektů k nalezení pěkné kombinace.
 
-Aspose.Slides poskytuje vlastnosti a metody ve třídě [EffectFormat](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.effect_format/) umožňující použít stejné efekty na tvary v prezentacích PowerPointu.
+Aspose.Slides poskytuje vlastnosti a metody ve třídě [EffectFormat](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/), které vám umožní použít stejné efekty na tvary v prezentacích PowerPoint.
 
-## **Použít stínový efekt**
+## **Použití stínového efektu**
 
-Tento C++ kód ukazuje, jak aplikovat vnější stínový efekt ([OuterShadowEffect](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.effect_format#aea1a48246d3240e29092498f648bc028)) na obdélník:
+Aspose.Slides for C++ podporuje vnější a vnitřní stíny pro tvary. Můžete přizpůsobit jejich barvu, směr, vzdálenost a poloměr rozostření tak, aby odpovídaly návrhu vaší prezentace.
 
-```c++
-auto pres = System::MakeObject<Presentation>();
-auto slide = pres->get_Slides()->idx_get(0);
-auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::RoundCornerRectangle, 20.0f, 20.0f, 200.0f, 150.0f);
+### **Použití vnějšího stínu**
 
+Použijte vnější stín, aby karta nebo panel vynikl na pozadí snímku. Stín přesahuje okraje tvaru a vytváří dojem, že tvar je nad snímkem. Přizpůsobte jeho barvu, směr, vzdálenost a poloměr rozostření tak, aby odpovídaly osvětlení a stylu vaší šablony.
+
+Tento C++ kód ukazuje, jak použít [vnější efekt stínu](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/get_outershadoweffect/) na obdélník:
+
+```cpp
+#include <DOM/Effects/IOuterShadow.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IEffectFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::Drawing;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::RoundCornerRectangle, 20.0f, 20.0f, 200.0f, 100.0f);
 auto effectFormat = shape->get_EffectFormat();
 effectFormat->EnableOuterShadowEffect();
 auto outerShadowEffect = effectFormat->get_OuterShadowEffect();
-outerShadowEffect->get_ShadowColor()->set_Color(System::Drawing::Color::get_DarkGray());
+outerShadowEffect->get_ShadowColor()->set_Color(Color::get_DarkGray());
 outerShadowEffect->set_Distance(10);
 outerShadowEffect->set_Direction(45.0f);
 
-pres->Save(u"output.pptx", SaveFormat::Pptx);
+presentation->Save(u"shadow_effect.pptx", SaveFormat::Pptx);
 ```
 
-## **Použít odrazový efekt**
+![Efekt stínu](shadow_effect.png)
 
-Tento C++ kód ukazuje, jak aplikovat odrazový efekt na tvar:
+### **Použití vnitřního stínu**
 
-```c++
-auto pres = System::MakeObject<Presentation>();
-auto slide = pres->get_Slides()->idx_get(0);
-auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::RoundCornerRectangle, 20.0f, 20.0f, 200.0f, 150.0f);
+Při reprodukci vizuálního stylu šablony použijte vnitřní stín, který kartě nebo panelu dodá zapuštěný vzhled. Vnější stín se rozprostírá mimo tvar a dává dojem, že je zvýšený, zatímco vnitřní stín ztmavuje vnitřní část jeho okrajů.
 
+Zavolejte [EnableInnerShadowEffect](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/enableinnershadoweffect/), poté nakonfigurujte [InnerShadowEffect](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/get_innershadoweffect/). Větší hodnoty poloměru rozostření vytvářejí měkčí hrany.
+
+Tento C++ příklad vytvoří světle modrou kartu s tmavě šedým vnitřním stínem a uloží ji jako soubor PPTX:
+
+```cpp
+#include <DOM/Effects/IInnerShadow.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IEffectFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/FillType.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::Drawing;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20.0f, 20.0f, 200.0f, 100.0f);
+shape->get_FillFormat()->set_FillType(FillType::Solid);
+shape->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_LightBlue());
+shape->get_LineFormat()->get_FillFormat()->set_FillType(FillType::NoFill);
+
+shape->get_EffectFormat()->EnableInnerShadowEffect();
+auto shadow = shape->get_EffectFormat()->get_InnerShadowEffect();
+shadow->get_ShadowColor()->set_Color(Color::get_DimGray());
+shadow->set_Direction(225);
+shadow->set_Distance(7);
+shadow->set_BlurRadius(6);
+
+presentation->Save(u"inner_shadow_effect.pptx", SaveFormat::Pptx);
+```
+
+![Světle modrý obdélník s vnitřním stínem](inner_shadow_effect.png)
+
+Pro odebrání vnitřního stínu zavolejte [DisableInnerShadowEffect](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/disableinnershadoweffect/) na formát efektu tvaru.
+
+## **Použití odrazového efektu**
+
+Chcete-li použít odrazový efekt v Aspose.Slides pro C++, můžete přidat zrcadlový odraz na tvary a upravit parametry jako vzdálenost, průhlednost a velikost. Tento efekt zvyšuje estetiku vašich prezentací tím, že tvary získají uhlazenější a sofistikovanější vzhled. Je snadné jej implementovat pomocí jednoduchého kódu, což umožňuje rychlé použití na více elementech pro jednotný design.
+
+Tento C++ kód ukazuje, jak použít [odrazový efekt](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/get_reflectioneffect/) na tvar:
+
+```cpp
+#include <DOM/Effects/IReflection.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IEffectFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/RectangleAlignment.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::RoundCornerRectangle, 20.0f, 20.0f, 200.0f, 100.0f);
 auto effectFormat = shape->get_EffectFormat();
 effectFormat->EnableReflectionEffect();
 auto reflectionEffect = effectFormat->get_ReflectionEffect();
 reflectionEffect->set_RectangleAlign(RectangleAlignment::Bottom);
 reflectionEffect->set_Direction(90.0f);
-reflectionEffect->set_Distance(55);
-reflectionEffect->set_BlurRadius(4);
+reflectionEffect->set_Distance(40);
+reflectionEffect->set_BlurRadius(2);
 
-pres->Save(u"reflection.pptx", SaveFormat::Pptx);
+presentation->Save(u"reflection_effect.pptx", SaveFormat::Pptx);
 ```
 
-## **Použít zářivý efekt**
+![Efekt odrazu](reflection_effect.png)
 
-Tento C++ kód ukazuje, jak aplikovat zářivý efekt na tvar:
+## **Použití efektu záře**
 
-```c++
-auto pres = System::MakeObject<Presentation>();
-auto slide = pres->get_Slides()->idx_get(0);
-auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::RoundCornerRectangle, 20.0f, 20.0f, 200.0f, 150.0f);
+Chcete-li použít efekt záře na tvar v Aspose.Slides pro C++, můžete přidat měkkou, zářivou auru kolem tvarů a upravit vlastnosti jako barvu a velikost. Tento efekt pomáhá zvýraznit tvary a přidává atraktivní, poutavý vizuální prvek do vaší prezentace. Je snadné jej implementovat s minimálním kódem, což vylepšuje celkový vzhled vašich snímků.
 
+Tento C++ kód ukazuje, jak použít [efekt záře](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/get_gloweffect/) na tvar:
+
+```cpp
+#include <DOM/Effects/IGlow.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IEffectFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::Drawing;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::RoundCornerRectangle, 20.0f, 20.0f, 200.0f, 100.0f);
 auto effectFormat = shape->get_EffectFormat();
 effectFormat->EnableGlowEffect();
 auto glowEffect = effectFormat->get_GlowEffect();
-glowEffect->get_Color()->set_Color(System::Drawing::Color::get_Magenta());
+glowEffect->get_Color()->set_Color(Color::get_Magenta());
 glowEffect->set_Radius(15);
 
-pres->Save(u"glow.pptx", SaveFormat::Pptx);
+presentation->Save(u"glow_effect.pptx", SaveFormat::Pptx);
 ```
 
-## **Použít efekt měkkých hran**
+![Efekt záře](glow_effect.png)
 
-Tento C++ kód ukazuje, jak aplikovat měkké hrany na tvar:
+## **Použití efektu měkkých okrajů**
 
-```c++
-auto pres = System::MakeObject<Presentation>();
-auto slide = pres->get_Slides()->idx_get(0);
+Chcete-li použít efekt měkkých okrajů v Aspose.Slides pro C++, můžete vytvořit plynulý, rozostřený přechod kolem okrajů tvaru. Tento efekt dodává jemnější a rafinovanější vzhled, ideální pro návrhy, které vyžadují jemný, měkčí vzhled. Parametry jako poloměr lze snadno upravit tak, aby se dosáhlo požadovaného efektu na různých tvarech ve vaší prezentaci.
+
+Tento C++ kód ukazuje, jak použít [měkké okraje](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/get_softedgeeffect/) na tvar:
+
+```cpp
+#include <DOM/Effects/ISoftEdge.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IEffectFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
 auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::RoundCornerRectangle, 20.0f, 20.0f, 200.0f, 150.0f);
-
 auto effectFormat = shape->get_EffectFormat();
 effectFormat->EnableSoftEdgeEffect();
 auto softEdgeEffect = effectFormat->get_SoftEdgeEffect();
-softEdgeEffect->set_Radius(15);
+softEdgeEffect->set_Radius(8);
 
-pres->Save(u"softEdges.pptx", SaveFormat::Pptx);
+presentation->Save(u"soft_edges_effect.pptx", SaveFormat::Pptx);
 ```
 
-## **Často kladené otázky**
+![Efekt měkkých okrajů](soft_edges_effect.png)
+
+## **FAQ**
 
 **Mohu použít více efektů na stejný tvar?**
 
-Ano, můžete kombinovat různé efekty, jako je stín, odraz a záře, na jediném tvaru a vytvořit tak dynamický vzhled.
+Ano, můžete kombinovat různé efekty, jako jsou stín, odraz a záře, na jednom tvaru a vytvořit tak dynamičtější vzhled.
 
-**Na jaké tvary mohu aplikovat efekty?**
+**Na jaké tvary mohu použít efekty?**
 
-Efekty lze použít na různé tvary, včetně automatických tvarů, grafů, tabulek, obrázků, objektů SmartArt, OLE objektů a dalších.
+Efekty můžete použít na různé tvary, včetně automatických tvarů, grafů, tabulek, obrázků, objektů SmartArt, OLE objektů a dalších.
 
-**Mohu aplikovat efekty na seskupené tvary?**
+**Mohu použít efekty na seskupené tvary?**
 
-Ano, efekty lze použít na seskupené tvary. Efekt bude aplikován na celou skupinu.
+Ano, můžete použít efekty na seskupené tvary. Efekt bude aplikován na celou skupinu.

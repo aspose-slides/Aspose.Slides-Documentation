@@ -1,13 +1,13 @@
 ---
-title: Použití efektů tvarů v prezentacích v .NET
+title: Aplikovat efekty tvarů v prezentacích v .NET
 linktitle: Efekt tvaru
 type: docs
 weight: 30
-url: /cs/net/shape-effect
+url: /cs/net/shape-effect/
 keywords:
 - efekt tvaru
-- stínový efekt
-- reflexní efekt
+- efekt stínu
+- efekt odrazu
 - efekt záře
 - efekt měkkých hran
 - formát efektu
@@ -16,32 +16,39 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Transformujte své soubory PPT a PPTX pomocí pokročilých efektů tvarů s Aspose.Slides pro .NET—vytvořte působivé, profesionální snímky během několika sekund."
+description: "Přetvořte své soubory PPT a PPTX pomocí pokročilých efektů tvarů pomocí Aspose.Slides pro .NET—vytvořte úchvatné, profesionální snímky během několika sekund."
 ---
 ## **Úvod**
 
-Zatímco efekty v PowerPointu lze použít k zvýraznění tvaru, liší se od [výplně](/slides/cs/net/shape-formatting/#gradient-fill) nebo obrysů. Pomocí efektů v PowerPointu můžete vytvořit přesvědčivé odrazy na tvaru, rozšířit záři tvaru atd.
+Zatímco efekty v PowerPointu lze použít k zvýraznění tvaru, liší se od [vyplnění](/slides/cs/net/shape-formatting/#gradient-fill) nebo obrysů. Pomocí efektů PowerPointu můžete vytvořit přesvědčivé odrazy na tvaru, rozšířit záři tvaru atd.
 
-<img src="shape-effect.png" alt="shape-effect" style="zoom:50%;" />
+![Efekt tvaru](shape-effect.png)
 
-PowerPoint poskytuje šest efektů, které lze použít na tvary. Můžete na tvar použít jeden nebo více efektů.
+PowerPoint poskytuje šest efektů, které lze použít na tvary. Můžete použít jeden nebo více efektů na jeden tvar.
 
-Některé kombinace efektů vypadají lépe než jiné. Z tohoto důvodu má PowerPoint možnosti pod **Preset**. Volby Preset jsou v podstatě známá dobře vypadající kombinace dvou nebo více efektů. Tímto způsobem, když vyberete předvolbu, nebudete muset ztrácet čas testováním nebo kombinováním různých efektů, abyste našli hezkou kombinaci.
+Některé kombinace efektů vypadají lépe než jiné. Z tohoto důvodu má PowerPoint možnosti pod **Preset**. Možnosti Preset jsou v podstatě osvědčená dobře vypadající kombinace dvou nebo více efektů. Tímto způsobem, když vyberete předvolbu, nebudete muset ztrácet čas testováním nebo kombinováním různých efektů, abyste našli hezkou kombinaci.
 
-Aspose.Slides poskytuje vlastnosti a metody pod třídou [EffectFormat], které vám umožní použít stejné efekty na tvary v prezentacích PowerPoint.
+Aspose.Slides poskytuje vlastnosti a metody ve třídě [EffectFormat](https://reference.aspose.com/slides/net/aspose.slides/effectformat/), které vám umožní aplikovat stejné efekty na tvary v prezentacích PowerPoint.
 
-## **Použít stínový efekt**
+## **Použít efekt stínu**
 
-Chcete-li na tvar v Aspose.Slides pro .NET aplikovat stínový efekt, můžete snadno upravit parametry jako barvu, poloměr rozostření a směr. To vašim tvarům dodá dynamičtější a profesionálnější vzhled, přidá hloubku a zaměření. Pomocí jednoduchých úryvků kódu můžete tyto efekty aplikovat na více tvarů, čímž zvýšíte celkovou vizuální atraktivitu vašich prezentací.
+Aspose.Slides pro .NET podporuje vnější a vnitřní stíny pro tvary. Můžete upravit jejich barvu, směr, vzdálenost a poloměr rozostření tak, aby odpovídaly designu vaší prezentace.
 
-Ukázkový C# kód ukazuje, jak aplikovat [vnější stínový efekt](https://reference.aspose.com/slides/cs/net/aspose.slides/effectformat/outershadoweffect/) na obdélník:
+### **Použít vnější stín**
+
+Použijte vnější stín, aby karta nebo panel vynikl na pozadí snímku. Stín se rozprostírá za okraji tvaru a vytváří dojem, že je tvar nadsnímkový. Upravit jeho barvu, směr, vzdálenost a poloměr rozostření tak, aby odpovídaly osvětlení a stylu vaší šablony.
+
+Tento kód C# ukazuje, jak použít [efekt vnějšího stínu](https://reference.aspose.com/slides/net/aspose.slides/effectformat/outershadoweffect/) na obdélník:
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
 
 var shape = slide.Shapes.AddAutoShape(ShapeType.RoundCornerRectangle, 20, 20, 200, 100);
-
 shape.EffectFormat.EnableOuterShadowEffect();
 shape.EffectFormat.OuterShadowEffect.ShadowColor.Color = Color.DarkGray;
 shape.EffectFormat.OuterShadowEffect.Distance = 10;
@@ -50,20 +57,57 @@ shape.EffectFormat.OuterShadowEffect.Direction = 45;
 presentation.Save("shadow_effect.pptx", SaveFormat.Pptx);
 ```
 
-![Stínový efekt](shadow_effect.png)
+![Efekt stínu](shadow_effect.png)
 
-## **Použít reflexní efekt**
+### **Použít vnitřní stín**
 
-Chcete-li v Aspose.Slides pro .NET použít reflexní efekt, můžete přidat zrcadlový odraz na tvary a upravit parametry jako vzdálenost, průhlednost a velikost. Tento efekt zvyšuje estetiku vašich prezentací tím, že tvarům dodá uhlazenější a sofistikovanější vzhled. Je snadné jej implementovat pomocí jednoduchého kódu, což umožňuje rychlé použití na více prvcích pro jednotný design.
+Při reprodukci vizuálního stylu šablony použijte vnitřní stín, aby karta nebo panel získaly zapuštěný vzhled. Vnější stín se rozprostírá mimo tvar a způsobuje, že vypadá zdviženě, zatímco vnitřní stín stíní vnitřní část jeho okrajů.
 
-Ukázkový C# kód ukazuje, jak aplikovat [reflexní efekt](https://reference.aspose.com/slides/cs/net/aspose.slides/effectformat/reflectioneffect/) na tvar:
+Zavolejte [EnableInnerShadowEffect](https://reference.aspose.com/slides/net/aspose.slides/effectformat/enableinnershadoweffect/), pak nakonfigurujte [InnerShadowEffect](https://reference.aspose.com/slides/net/aspose.slides/effectformat/innershadoweffect/). Větší hodnoty vytvářejí měkčí okraje.
+
+Tento příklad C# vytvoří světle modrou kartu s tmavě šedým vnitřním stínem a uloží ji jako soubor PPTX:
+
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 200, 100);
+shape.FillFormat.FillType = FillType.Solid;
+shape.FillFormat.SolidFillColor.Color = Color.LightBlue;
+shape.LineFormat.FillFormat.FillType = FillType.NoFill;
+
+shape.EffectFormat.EnableInnerShadowEffect();
+var shadow = shape.EffectFormat.InnerShadowEffect;
+shadow.ShadowColor.Color = Color.DimGray;
+shadow.Direction = 225;
+shadow.Distance = 7;
+shadow.BlurRadius = 6;
+
+presentation.Save("inner_shadow_effect.pptx", SaveFormat.Pptx);
+```
+
+![Světle modrý obdélník s vnitřním stínem](inner_shadow_effect.png)
+
+Pro odstranění vnitřního stínu zavolejte [DisableInnerShadowEffect](https://reference.aspose.com/slides/net/aspose.slides/effectformat/disableinnershadoweffect/) na formátu efektu tvaru.
+
+## **Použít efekt odrazu**
+
+Pro použití efektu odrazu v Aspose.Slides pro .NET můžete přidat do tvarů zrcadlový odraz a upravit parametry jako vzdálenost, průhlednost a velikost. Tento efekt zvyšuje estetiku vašich prezentací tím, že tvary získají hladší a sofistikovanější vzhled. Je snadno implementovatelný pomocí jednoduchého kódu, což umožňuje rychlé nasazení napříč více prvky pro jednotný design.
+
+Tento kód C# ukazuje, jak použít [efekt odrazu](https://reference.aspose.com/slides/net/aspose.slides/effectformat/reflectioneffect/) na tvar:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
 
 var shape = slide.Shapes.AddAutoShape(ShapeType.RoundCornerRectangle, 20, 20, 200, 100);
-
 shape.EffectFormat.EnableReflectionEffect();
 shape.EffectFormat.ReflectionEffect.RectangleAlign = RectangleAlignment.Bottom;
 shape.EffectFormat.ReflectionEffect.Direction = 90;
@@ -73,20 +117,23 @@ shape.EffectFormat.ReflectionEffect.BlurRadius = 2;
 presentation.Save("reflection_effect.pptx", SaveFormat.Pptx);
 ```
 
-![Reflexní efekt](reflection_effect.png)
+![Efekt odrazu](reflection_effect.png)
 
 ## **Použít efekt záře**
 
-Chcete-li na tvar v Aspose.Slides pro .NET aplikovat efekt záře, můžete přidat měkkou, svítivou aureolu kolem tvarů a upravit vlastnosti jako barvu a velikost. Tento efekt pomáhá tvarům vyniknout a přidává atraktivní, poutavý vizuální prvek vaší prezentaci. Je snadné jej implementovat s minimálním kódem, čímž se zlepší celkový vzhled vašich snímků.
+Pro použití efektu záře na tvar v Aspose.Slides pro .NET můžete přidat kolem tvarů měkkou, zářivou auru a upravit vlastnosti jako barvu a velikost. Tento efekt pomáhá tvarům vyniknout a přidává atraktivní, poutavý vizuální prvek do vaší prezentace. Je snadno implementovatelný s minimálním kódem, čímž zlepšuje celkový vzhled vašich snímků.
 
-Ukázkový C# kód ukazuje, jak aplikovat [efekt záře](https://reference.aspose.com/slides/cs/net/aspose.slides/effectformat/gloweffect/) na tvar:
+Tento kód C# ukazuje, jak použít [efekt záře](https://reference.aspose.com/slides/net/aspose.slides/effectformat/gloweffect/) na tvar:
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
 
 var shape = slide.Shapes.AddAutoShape(ShapeType.RoundCornerRectangle, 20, 20, 200, 100);
-
 shape.EffectFormat.EnableGlowEffect();
 shape.EffectFormat.GlowEffect.Color.Color = Color.Magenta;
 shape.EffectFormat.GlowEffect.Radius = 15;
@@ -98,16 +145,18 @@ presentation.Save("glow_effect.pptx", SaveFormat.Pptx);
 
 ## **Použít efekt měkkých hran**
 
-Chcete-li v Aspose.Slides pro .NET použít efekt měkkých hran, můžete vytvořit plynulý, rozmazaný přechod kolem okrajů tvaru. Tento efekt přidává jemnější a rafinovanější vzhled, ideální pro designy, které potřebují jemný, měkčí vzhled. Parametry, například poloměr, můžete snadno upravit, abyste dosáhli požadovaného efektu na různých tvarech ve své prezentaci.
+Pro použití efektu měkkých hran v Aspose.Slides pro .NET můžete vytvořit hladký, rozmazaný přechod kolem okrajů tvaru. Tento efekt přidává jemnější a rafinovanější vzhled, ideální pro návrhy, které vyžadují jemný, měkčí vzhled. Můžete snadno upravit parametry jako poloměr, abyste dosáhli požadovaného efektu u různých tvarů ve vaší prezentaci.
 
-Ukázkový C# kód ukazuje, jak aplikovat [měkké hrany](https://reference.aspose.com/slides/cs/net/aspose.slides/effectformat/softedgeeffect/) na tvar:
+Tento kód C# ukazuje, jak použít [měkké hrany](https://reference.aspose.com/slides/net/aspose.slides/effectformat/softedgeeffect/) na tvar:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
 
 var shape = slide.Shapes.AddAutoShape(ShapeType.RoundCornerRectangle, 20, 20, 200, 150);
-
 shape.EffectFormat.EnableSoftEdgeEffect();
 shape.EffectFormat.SoftEdgeEffect.Radius = 8;
 
@@ -116,15 +165,15 @@ presentation.Save("soft_edges_effect.pptx", SaveFormat.Pptx);
 
 ![Efekt měkkých hran](soft_edges_effect.png)
 
-## **FAQ**
+## **Často kladené otázky**
 
-**Mohu na stejný tvar aplikovat více efektů?**
+**Mohu na stejný tvar použít více efektů?**
 
-Ano, můžete kombinovat různé efekty, jako jsou stín, reflexe a záře, na jednom tvaru a vytvořit tak dynamičtější vzhled.
+Ano, můžete kombinovat různé efekty, jako stín, odraz a záři, na jednom tvaru a vytvořit tak dynamičtější vzhled.
 
 **Na jaké tvary mohu aplikovat efekty?**
 
-Můžete aplikovat efekty na různé tvary, včetně automatických tvarů, grafů, tabulek, obrázků, objektů SmartArt, OLE objektů a dalších.
+Efekty můžete použít na různé tvary, včetně automatických tvarů, grafů, tabulek, obrázků, objektů SmartArt, OLE objektů a dalších.
 
 **Mohu aplikovat efekty na seskupené tvary?**
 

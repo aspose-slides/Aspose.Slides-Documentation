@@ -1,5 +1,5 @@
 ---
-title: Örnekleri Nasıl Çalıştırılır
+title: Örnekleri Çalıştırma
 type: docs
 weight: 140
 url: /tr/java/how-to-run-the-examples/
@@ -12,50 +12,50 @@ keywords:
 - sunum
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Java örneklerini hızlıca çalıştırın: depoyu klonlayın, paketleri geri yükleyin, ardından PPT, PPTX ve ODP özelliklerini derleyip test edin."
+description: "Aspose.Slides for Java örneklerini hızlı bir şekilde çalıştırın: depoyu klonlayın, paketleri geri yükleyin, ardından PPT, PPTX ve ODP özelliklerini derleyin ve test edin."
 ---
-## **GitHub'tan Aspose.Slides'ı İndirin**
-Aspose.Slides for Java'nın tüm örnekleri [Github](https://github.com/aspose-slides/Aspose.Slides-for-Java) adresinde barındırılmaktadır. Depoyu favori Github istemcinizle klonlayabilir veya ZIP dosyasını [buradan](https://codeload.github.com/aspose-slides/Aspose.Slides-for-Java/zip/master) indirebilirsiniz.
+## **GitHub'dan Aspose.Slides'ı İndirin**
+Aspose.Slides for Java'nın tüm örnekleri [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-Java) üzerinden sunulmaktadır. Depoyu tercih ettiğiniz GitHub istemcisiyle klonlayabilir veya ZIP dosyasını [buradan](https://codeload.github.com/aspose-slides/Aspose.Slides-for-Java/zip/master) indirebilirsiniz.
 
 ZIP dosyasının içeriğini bilgisayarınızdaki herhangi bir klasöre çıkarın. Tüm örnekler **Examples** klasöründe bulunur.
 
 ![todo:image_alt_text](examples_directory.png)
 
-## **Örnekleri IDE'ye İçe Aktarın**
-Proje Maven yapı sistemini kullanır. Herhangi bir modern IDE projeyi ve bağımlılıklarını kolayca açabilir veya içe aktarabilir. Aşağıda popüler IDE'lerde örnekleri nasıl derleyip çalıştıracağınızı gösteriyoruz.
+## **Örnekleri IDE'ye Aktarın**
+Proje Maven derleme sistemini kullanır. Herhangi bir modern IDE projeyi ve bağımlılıklarını kolayca açabilir veya içe aktarabilir. Aşağıda popüler IDE'lerde örnekleri derleme ve çalıştırma adımlarını gösteriyoruz.
 
 ### **IntelliJ IDEA**
-**File** menüsüne tıklayın ve **Open** seçeneğini seçin. Proje klasörüne gidin ve **pom.xml** dosyasını seçin.
+**Dosya** menüsüne tıklayın ve **Aç** seçeneğini seçin. Proje klasörüne gidin ve **pom.xml** dosyasını seçin.
 
 ![todo:image_alt_text](idea_select_file_or_directory_to_import.png)
 
-Proje açılacak ve bağımlılıklar otomatik olarak indirilecektir. **Project** sekmesinden **src/main/java** klasöründeki örneklere göz atın. Bir örneği çalıştırmak için dosyaya sağ tıklayın ve "Run .." seçeneğini seçin; örnek yürütülecek ve çıktısı yerleşik konsol penceresinde gösterilecektir.
+Proje açılacak ve bağımlılıklar otomatik olarak indirilecektir. **Project** sekmesinden **src/main/java** klasöründeki örnekleri göz atın. Bir örneği çalıştırmak için dosyaya sağ tıklayın ve “Run ..” (Çalıştır ..) seçeneğini seçin; örnek yürütülür ve çıktı yerleşik konsol penceresinde gösterilir.
 
 ![todo:image_alt_text](idea_run_example.png)
 
 ### **Eclipse**
-**File** menüsüne tıklayın ve **Import** seçeneğini seçin. **Maven** - Existing Maven Projects seçeneğini işaretleyin.
+**Dosya** menüsüne tıklayın ve **Import** (İçe Aktar) seçeneğini seçin. **Maven** - Existing Maven Projects (Mevcut Maven Projeleri) öğesini seçin.
 
 ![todo:image_alt_text](eclipse_import.png)
 
-GitHub'tan klonladığınız veya indirdiğiniz klasöre gidin ve **pom.xml** dosyasını seçin. Proje açılacak ve bağımlılıklar otomatik olarak indirilecektir. **Package Explorer** sekmesinden **src/main/java** klasöründeki örneklere göz atın. Bir örneği çalıştırmak için dosyaya sağ tıklayın ve **Run As** - **Java Application** seçeneğini seçin; örnek yürütülecek ve çıktısı yerleşik konsol penceresinde gösterilecektir.
+GitHub'dan klonladığınız veya indirdiğiniz klasöre gidin ve **pom.xml** dosyasını seçin. Proje açılacak ve bağımlılıklar otomatik olarak indirilecektir. **Package Explorer** sekmesinden **src/main/java** klasöründeki örnekleri göz atın. Bir örneği çalıştırmak için dosyaya sağ tıklayın ve **Run As** - **Java Application** (Uygulama Olarak Çalıştır - Java Uygulaması) seçeneğini seçin; örnek yürütülür ve çıktı yerleşik konsol penceresinde gösterilir.
 
 ![todo:image_alt_text](eclipse_run_example.png)
 
 ### **NetBeans**
-**File** menüsüne tıklayın ve **Open Project** seçeneğini seçin. GitHub'tan klonladığınız veya indirdiğiniz klasöre gidin. **Examples** klasörünün simgesi Maven projesi olduğunu gösterir. **Examples** klasörünü seçip açın.
+**Dosya** menüsüne tıklayın ve **Open Project** (Projeyi Aç) seçeneğini seçin. GitHub'dan klonladığınız veya indirdiğiniz klasöre gidin. **Examples** klasörünün ikonu bir Maven projesi olduğunu gösterecektir. **Examples** klasörünü seçin ve açın.
 
 ![todo:image_alt_text](netbeans_openproject.png)
 
-Proje açılacak ve bağımlılıklar otomatik olarak indirilecektir. **Projects** sekmesinden **source packages** içinde örneklere göz atın. Bir örneği çalıştırmak için dosyaya sağ tıklayın ve **Run File** seçeneğini seçin; örnek yürütülecek ve çıktısı yerleşik konsol penceresinde gösterilecektir.
+Proje açılacak ve bağımlılıklar otomatik olarak indirilecektir. **Projects** sekmesinden **source packages** içinde örnekleri göz atın. Bir örneği çalıştırmak için dosyaya sağ tıklayın ve **Run File** (Dosyayı Çalıştır) seçeneğini seçin; örnek yürütülür ve çıktı yerleşik konsol penceresinde gösterilir.
 
 ![todo:image_alt_text](netbeans_run_example.png)
 
-## **Aspose.Slides Kütüphanesini Maven Yerel Depoya Ekle**
-**Aspose.Slides Examples** projesini IDE'ye ithal ettiğinizde Maven, [Aspose Maven Repository](https://releases.aspose.com/java/repo/com/aspose/) adresinden aspose.slides JAR dosyasını otomatik olarak indirir. İnternete erişiminiz yoksa JAR dosyasını yerel deponuza manuel olarak ekleyebilirsiniz.
+## **Aspose.Slides Kütüphanesini Maven Yerel Depoya Ekleyin**
+**Aspose.Slides Örnekleri** projesini IDE'ye içe aktardığınızda Maven, [Aspose Maven Repository](https://releases.aspose.com/java/repo/com/aspose/) adresinden aspose.slides JAR dosyasını otomatik olarak indirir. İnternete erişiminiz yoksa JAR dosyasını yerel deponuza manuel olarak ekleyebilirsiniz.
 
 ### **mvn install**
-[aspose.slides](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/) indirin, çıkarın ve aspose.slides‑version.jar dosyasını örneğin C sürücüsüne kopyalayın. Aşağıdaki komutu çalıştırın:
+[aspose.slides](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/) dosyasını indirin, içeriğini çıkarın ve aspose.slides‑version.jar dosyasını örneğin C sürücüsüne kopyalayın. Aşağıdaki komutu çalıştırın:
 
 ```
 mvn install:install-file
@@ -66,10 +66,10 @@ mvn install:install-file
     - Dpackaging=jar
 ```
 
-Şimdi **aspose.slides** jar dosyası Maven yerel deponuza kopyalanmış oldu.
+Artık **aspose.slides** JAR dosyası Maven yerel deponuza kopyalanmış olacaktır.
 
 ### **pom.xml**
-Kurulumun ardından **aspose.slides** koordinatını pom.xml dosyanıza ekleyin. **repositories** sekmesine aşağıdaki depoyu, **dependencies** sekmesine de bağımlılığı ekleyin.
+Kurulumdan sonra **aspose.slides** koordinatlarını pom.xml dosyanıza ekleyin. **repositories** bölümüne aşağıdaki depo satırını ve **dependencies** bölümüne bağımlılık satırını ekleyin.
 
 ``` xml
 <repository>
@@ -81,15 +81,15 @@ Kurulumun ardından **aspose.slides** koordinatını pom.xml dosyanıza ekleyin.
 <dependency>
     <groupId>com.aspose</groupId>
     <artifactId>aspose-slides</artifactId>
-    <version>25.12</version>
-    <classifier>jdk16</classifier>
+    <version>26.10</version>
+    <classifier>jdk8</classifier>
 </dependency>
 ```
 
 ### **Tamam**
-Projeyi derleyin, artık **aspose.slides** jar dosyası Maven yerel deponuzdan alınabilir.
+Projeyi derleyin; artık **aspose.slides** JAR dosyası Maven yerel deponuzdan alınabilecektir.
 
-## **Katkıda Bulunun**
-Bir örnek eklemek veya iyileştirmek isterseniz, projeye katkıda bulunmanızı öneririz. Bu depodaki tüm örnekler ve vitrini projeler açık kaynaklıdır ve kendi uygulamalarınızda özgürce kullanılabilir.
+## **Katkıda Bulunma**
+Bir örnek eklemek veya iyileştirmek istiyorsanız projeye katkıda bulunmanız teşvik edilir. Bu depodaki tüm örnekler ve gösterim projeleri açık kaynaklıdır ve kendi uygulamalarınızda özgürce kullanılabilir.
 
-Katkıda bulunmak için depoyu fork'layabilir, kaynak kodunu düzenleyebilir ve bir Pull Request gönderebilirsiniz. Değişiklikleri inceleyecek ve faydalı bulursak depoya ekleyeceğiz.
+Katkıda bulunmak için depoyu fork'layabilir, kaynak kodu düzenleyebilir ve bir Pull Request gönderebilirsiniz. Değişiklikleri inceleyecek ve faydalı bulunduğu takdirde depoya dahil edeceğiz.

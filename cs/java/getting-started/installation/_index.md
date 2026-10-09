@@ -6,7 +6,7 @@ url: /cs/java/installation/
 keywords:
 - instalovat Aspose.Slides
 - stáhnout Aspose.Slides
-- použít Aspose.Slides
+- používat Aspose.Slides
 - instalace Aspose.Slides
 - Windows
 - Linux
@@ -16,25 +16,25 @@ keywords:
 - prezentace
 - Java
 - Aspose.Slides
-description: "Instalujte Aspose.Slides pro Java z Maven repozitáře společnosti Aspose nebo jako soubor JAR, nastavte požadavky na Linux a ověřte instalaci pomocí prvního programu."
+description: "Nainstalujte Aspose.Slides pro Java z Maven repozitáře Aspose nebo jako soubor JAR, nastavte předpoklady pro Linux a ověřte instalaci pomocí prvního programu."
 ---
 ## **Přehled**
 
-Tento článek popisuje, jak přidat Aspose.Slides for Java do projektu. Aspose.Slides for Java je publikováno v Maven repozitáři společnosti Aspose, nikoli v Maven Central, takže Maven projekt musí deklarovat tento repozitář. Můžete také stáhnout soubor JAR a umístit jej ručně na classpath. Oba způsoby končí krátkým programem, který potvrzuje, že knihovna funguje.
+Tento článek vysvětluje, jak přidat Aspose.Slides for Java do projektu. Aspose.Slides for Java je publikován ve vlastní Maven repozitáři Aspose, nikoli v Maven Central, takže Maven projekt musí tento repozitář deklarovat. Můžete také stáhnout soubor JAR a přidat jej ručně do classpath. Obě cesty končí krátkým programem, který potvrzuje, že knihovna funguje.
 
 Aspose.Slides for Java nevyžaduje Microsoft PowerPoint. Programově generuje potřebné soubory prezentací. Pro zobrazení vygenerovaných prezentací však můžete potřebovat Microsoft PowerPoint nebo jiný prohlížeč prezentací.
 
 ## **Požadavky**
 
-- Java Development Kit (JDK). Projekt a příkazy v tomto článku vyžadují JDK 11 nebo novější. U JDK 11 program kontrolující instalaci vypíše varování začínající „WARNING: An illegal reflective access operation has occurred“; nemá vliv na výsledek a lze jej ignorovat.
+- Java Development Kit (JDK). Projekt a příkazy v tomto článku vyžadují JDK 11 nebo novější. V JDK 11 program, který kontroluje instalaci, vypíše varování začínající „WARNING: An illegal reflective access operation has occurred“; nemá vliv na výsledek a lze jej ignorovat.
 - [Apache Maven](https://maven.apache.org/install.html), pokud používáte Maven cestu.
-- V Linuxu knihovna fontconfig a alespoň jeden nainstalovaný font. Viz [Linux](#linux).
+- Na Linuxu knihovnu fontconfig a alespoň jedno nainstalované písmo. Viz [Linux](#linux).
 
 ## **Instalace z Maven repozitáře**
 
-Aspose hostuje své Java knihovny ve vlastním [Maven repozitáři](https://releases.aspose.com/java/repo/com/aspose/). Pro použití [Aspose.Slides for Java](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/) v Maven projektu přidejte dvě položky do souboru *pom.xml*.
+Aspose hostuje své Java knihovny ve svém vlastním [Maven repozitář](https://releases.aspose.com/java/repo/com/aspose/). Pro použití [Aspose.Slides for Java](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/) v Maven projektu přidejte dva záznamy do vašeho *pom.xml*.
 
-1. **Deklarujte Aspose Maven repozitář.**
+1. **Deklarujte Maven repozitář Aspose.**
 
    ```xml
    <repositories>
@@ -53,13 +53,13 @@ Aspose hostuje své Java knihovny ve vlastním [Maven repozitáři](https://rele
        <dependency>
            <groupId>com.aspose</groupId>
            <artifactId>aspose-slides</artifactId>
-           <version>26.9</version>
-           <classifier>jdk16</classifier>
+           <version>26.10</version>
+           <classifier>jdk8</classifier>
        </dependency>
    </dependencies>
    ```
 
-Classifikátor `jdk16` je vyžadován: vybírá build knihovny pro Java SE. Nahraďte `26.9` nejnovější verzí uvedenou v [repozitáři](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/). Repo publikují soubor SHA‑1 kontrolního součtu vedle každého JAR, který Maven zkontroluje při stažení knihovny.
+`jdk8` klasifikátor je vyžadován: vybírá Java SE sestavení knihovny. Nahraďte `26.10` nejnovější verzí uvedenou v [repozitáři](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/). Repoziář publikuje soubor SHA‑1 kontrolního součtu vedle každého JAR, který Maven ověří při stahování knihovny.
 
 ### **Zkontrolujte instalaci**
 
@@ -92,8 +92,8 @@ Pro kontrolu nastavení s novým projektem:
            <dependency>
                <groupId>com.aspose</groupId>
                <artifactId>aspose-slides</artifactId>
-               <version>26.9</version>
-               <classifier>jdk16</classifier>
+               <version>26.10</version>
+               <classifier>jdk8</classifier>
            </dependency>
        </dependencies>
 
@@ -109,9 +109,9 @@ Pro kontrolu nastavení s novým projektem:
    </project>
    ```
 
-   Kromě repozitáře a závislosti tento *pom.xml* nastavuje verzi Java, kterou se má kompilovat, určuje třídu, kterou spustí `mvn exec:java`, a upíná plugin kompilátoru, protože starší plugin používaný v některých Maven instalacích ignoruje nastavení `maven.compiler.release`.
+   Kromě repozitáře a závislosti tento *pom.xml* nastavuje verzi Javy pro kompilaci, názvu třídy, kterou spouští `mvn exec:java`, a upíná plugin kompilátoru, protože starší plugin, který některé instalace Maven používají ve výchozím nastavení, ignoruje nastavení `maven.compiler.release`.
 
-2. Uložte první příklad z [Create Presentations](/slides/cs/java/create-presentation/) jako *src/main/java/HelloSlides.java*.
+2. Uložte první příklad z [Vytvořit prezentace](/slides/cs/java/create-presentation/) jako *src/main/java/HelloSlides.java*.
 
 3. Ve složce projektu spusťte:
 
@@ -121,31 +121,31 @@ Pro kontrolu nastavení s novým projektem:
 
 Maven stáhne Aspose.Slides for Java, zkompiluje program a spustí jej. Program uloží *new_presentation.pptx* do složky projektu.
 
-## **Použijte soubor JAR bez Maven**
+## **Použití souboru JAR bez Maven**
 
-1. Stáhněte *aspose-slides-26.9-jdk16.jar* ze [složky verze](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/26.9/) v repozitáři. Pro jinou verzi otevřete její složku v [repozitáři](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/) a stáhněte soubor končící na *-jdk16.jar*.
-2. Uložte první příklad z [Create Presentations](/slides/cs/java/create-presentation/) jako *HelloSlides.java* do stejné složky, kde je soubor JAR.
+1. Stáhněte *aspose-slides-26.10-jdk8.jar* z [složky verze](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/26.10/) v repozitáři. Pro jinou verzi otevřete její složku v [repozitáři](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/) a stáhněte soubor končící na *-jdk8.jar*.
+
+2. Uložte první příklad z [Vytvořit prezentace](/slides/cs/java/create-presentation/) jako *HelloSlides.java* do stejné složky jako soubor JAR.
+
 3. V této složce spusťte:
 
    ```bash
-   java -cp aspose-slides-26.9-jdk16.jar HelloSlides.java
+   java -cp aspose-slides-26.10-jdk8.jar HelloSlides.java
    ```
 
-JDK zkompiluje a spustí jediný zdrojový soubor a program uloží *new_presentation.pptx* do složky. Ve vlastní aplikaci přidejte soubor JAR do classpath ve vašem build nástroji nebo IDE.
+JDK zkompiluje a spustí jediný zdrojový soubor a program uloží *new_presentation.pptx* do složky. Ve své aplikaci přidejte soubor JAR do classpath ve vašem nástroji pro sestavení nebo IDE.
 
 ## **Linux**
 
-Aspose.Slides for Java používá podporu fontů v Javě, která v Linuxu vyžaduje knihovnu fontconfig a alespoň jeden nainstalovaný font. Bez nich selže ukládání prezentace s chybou „Fontconfig head is null, check your fonts or fonts configuration“. Minimální serverové a kontejnerové obrazy mohou obojí postrádat; například oficiální Ubuntu kontejnerový obraz neobsahuje žádný z nich.
-
-Na Debianu a Ubuntu tento příkaz nainstaluje JDK, Maven, fontconfig a fonty DejaVu:
+Aspose.Slides for Java používá podporu písem Java, která na Linuxu vyžaduje knihovnu fontconfig a alespoň jedno nainstalované písmo. Bez nich ukládání prezentace selže s chybou „Fontconfig head is null, check your fonts or fonts configuration“. Minimální serverové a kontejnerové obrazy mohou obojí postrádat; např. oficiální Ubuntu kontejnerový obraz neobsahuje žádné.
 
 ```bash
-   sudo apt-get update && sudo apt-get install -y default-jdk maven fontconfig fonts-dejavu-core
+sudo apt-get update && sudo apt-get install -y default-jdk maven fontconfig fonts-dejavu-core
 ```
 
-Fonty použité ve vašich prezentacích, nebo vhodné náhrady, musí být také nainstalovány, aby se text správně vykreslil.
+Písma použité ve vašich prezentacích, nebo vhodné náhrady, musí být také nainstalována, aby se text správně vykresloval.
 
-## **FAQ**
+## **Často kladené otázky**
 
 ### Jak mohu ověřit, že je Aspose.Slides integrován správně?
 
@@ -153,8 +153,8 @@ Sestavte projekt, vytvořte prázdnou [Presentation](https://reference.aspose.co
 
 ### Jak mohu omezit spotřebu paměti při zpracování velkých prezentací?
 
-Zvyšte limity paměti JVM jen tolik, kolik je potřeba, a v `finally` bloku zavolejte [dispose](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#dispose--) na každou instanci [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/), aby se cache okamžitě uvolnila. Tím se zabrání chybám z nedostatku paměti a udržuje se předvídatelná celková spotřeba paměti během dávkových operací.
+Zvyšte limity paměti JVM jen na potřebnou úroveň a v `finally` bloku zavolejte [dispose](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#dispose--) na každé instanci [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/), aby se cache okamžitě uvolnila. Tím se předcházejí chybám nedostatku paměti a celková spotřeba paměti zůstává předvídatelná během dávkových operací.
 
-### Mohu vyloučit nechtěné exportní formáty a tím zmenšit výslednou velikost JAR?
+### Mohu vyloučit nechtěné exportní formáty a zmenšit tak konečnou velikost JAR?
 
-Aktuální vydání Aspose.Slides jsou distribuována jako jedna monolitická knihovna, takže konkrétní exportéry, jako PDF nebo SVG, nelze při sestavování vypnout.
+Aktuální verze Aspose.Slides jsou distribuovány jako jedna monolitická knihovna, takže není možné během sestavení zakázat konkrétní exportéry jako PDF nebo SVG.

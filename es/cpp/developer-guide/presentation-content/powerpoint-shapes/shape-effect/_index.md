@@ -1,5 +1,5 @@
 ---
-title: Aplicar efectos de forma en presentaciones usando C++
+title: Aplicar efectos de forma en presentaciones con C++
 linktitle: Efecto de forma
 type: docs
 weight: 30
@@ -7,7 +7,7 @@ url: /es/cpp/shape-effect/
 keywords:
 - efecto de forma
 - efecto de sombra
-- efecto de reflexión
+- efecto de reflejo
 - efecto de brillo
 - efecto de bordes suaves
 - formato de efecto
@@ -15,103 +15,225 @@ keywords:
 - presentación
 - C++
 - Aspose.Slides
-description: "Transforme sus archivos PPT y PPTX con efectos de forma avanzados usando Aspose.Slides para C++ — cree diapositivas impactantes y profesionales en segundos."
+description: "Transforma tus archivos PPT y PPTX con efectos de forma avanzados usando Aspose.Slides para C++ — crea diapositivas impactantes y profesionales en segundos."
 ---
+## **Introducción**
 
-Aunque los efectos en PowerPoint pueden usarse para resaltar una forma, difieren de los [rellenos](/slides/es/cpp/shape-formatting/#gradient-fill) o contornos. Con los efectos de PowerPoint, puedes crear reflejos convincentes en una forma, extender el brillo de una forma, etc.
+Mientras que los efectos en PowerPoint se pueden usar para que una forma destaque, difieren de [rellenos](/slides/es/cpp/shape-formatting/#gradient-fill) u contornos. Usando los efectos de PowerPoint, puedes crear reflexiones convincentes en una forma, difuminar el resplandor de una forma, etc.
 
-<img src="shape-effect.png" alt="shape-effect" style="zoom:50%;" />
+![Efecto de forma](shape-effect.png)
 
-* PowerPoint ofrece seis efectos que se pueden aplicar a formas. Puedes aplicar uno o más efectos a una forma. 
+PowerPoint ofrece seis efectos que se pueden aplicar a las formas. Puedes aplicar uno o más efectos a una forma.
 
-* Algunas combinaciones de efectos se ven mejor que otras. Por esta razón, PowerPoint ofrece opciones bajo **Preset**. Las opciones de Preset son esencialmente una combinación conocida y atractiva de dos o más efectos. De esta manera, al seleccionar un preset, no tendrás que perder tiempo probando o combinando diferentes efectos para encontrar una buena combinación.
+Algunas combinaciones de efectos se ven mejor que otras. Por esta razón, PowerPoint tiene opciones bajo **Preajuste**. Las opciones de Preajuste son esencialmente una combinación conocida por verse bien de dos o más efectos. De esta manera, al seleccionar un preajuste, no tendrás que perder tiempo probando o combinando diferentes efectos para encontrar una buena combinación.
 
-Aspose.Slides ofrece propiedades y métodos bajo la clase [EffectFormat](https://reference.aspose.com/slides/cpp/class/aspose.slides.effect_format/) que permiten aplicar los mismos efectos a formas en presentaciones de PowerPoint.
+Aspose.Slides ofrece propiedades y métodos bajo la clase [EffectFormat](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/) que te permiten aplicar los mismos efectos a las formas en presentaciones de PowerPoint.
 
 ## **Aplicar un efecto de sombra**
 
-Este código C++ muestra cómo aplicar el efecto de sombra externa ([OuterShadowEffect](https://reference.aspose.com/slides/cpp/class/aspose.slides.effect_format#aea1a48246d3240e29092498f648bc028)) a un rectángulo:
-```c++
-auto pres = System::MakeObject<Presentation>();
-auto slide = pres->get_Slides()->idx_get(0);
-auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::RoundCornerRectangle, 20.0f, 20.0f, 200.0f, 150.0f);
+Aspose.Slides para C++ admite sombras externas e internas para las formas. Puedes personalizar su color, dirección, distancia y radio de desenfoque para que coincidan con el diseño de tu presentación.
 
+### **Aplicar una sombra externa**
+
+Utiliza una sombra externa para hacer que una tarjeta o panel destaque sobre el fondo de la diapositiva. La sombra se extiende más allá de los bordes de la forma, creando la impresión de que la forma está elevada sobre la diapositiva. Ajusta su color, dirección, distancia y radio de desenfoque para que coincidan con la iluminación y el estilo de tu plantilla.
+
+Este código C++ muestra cómo aplicar el [outer shadow effect](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/get_outershadoweffect/) a un rectángulo:
+
+```cpp
+#include <DOM/Effects/IOuterShadow.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IEffectFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::Drawing;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::RoundCornerRectangle, 20.0f, 20.0f, 200.0f, 100.0f);
 auto effectFormat = shape->get_EffectFormat();
 effectFormat->EnableOuterShadowEffect();
 auto outerShadowEffect = effectFormat->get_OuterShadowEffect();
-outerShadowEffect->get_ShadowColor()->set_Color(System::Drawing::Color::get_DarkGray());
+outerShadowEffect->get_ShadowColor()->set_Color(Color::get_DarkGray());
 outerShadowEffect->set_Distance(10);
 outerShadowEffect->set_Direction(45.0f);
 
-pres->Save(u"output.pptx", SaveFormat::Pptx);
+presentation->Save(u"shadow_effect.pptx", SaveFormat::Pptx);
 ```
 
+![Efecto de sombra](shadow_effect.png)
 
-## **Aplicar un efecto de reflexión**
+### **Aplicar una sombra interna**
 
-Este código C++ muestra cómo aplicar el efecto de reflexión a una forma:
-```c++
-auto pres = System::MakeObject<Presentation>();
-auto slide = pres->get_Slides()->idx_get(0);
-auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::RoundCornerRectangle, 20.0f, 20.0f, 200.0f, 150.0f);
+Al reproducir el estilo visual de una plantilla, usa una sombra interna para dar a una tarjeta o panel una apariencia hundida. Una sombra externa se extiende fuera de la forma y hace que parezca elevada, mientras que una sombra interna sombreará el interior de sus bordes.
 
+Llama a [EnableInnerShadowEffect](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/enableinnershadoweffect/), luego configura [InnerShadowEffect](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/get_innershadoweffect/). Los valores mayores de radio de desenfoque producen bordes más suaves.
+
+Este ejemplo C++ crea una tarjeta azul clara con una sombra interna gris oscuro y lo guarda como archivo PPTX:
+
+```cpp
+#include <DOM/Effects/IInnerShadow.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IEffectFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/FillType.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::Drawing;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20.0f, 20.0f, 200.0f, 100.0f);
+shape->get_FillFormat()->set_FillType(FillType::Solid);
+shape->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_LightBlue());
+shape->get_LineFormat()->get_FillFormat()->set_FillType(FillType::NoFill);
+
+shape->get_EffectFormat()->EnableInnerShadowEffect();
+auto shadow = shape->get_EffectFormat()->get_InnerShadowEffect();
+shadow->get_ShadowColor()->set_Color(Color::get_DimGray());
+shadow->set_Direction(225);
+shadow->set_Distance(7);
+shadow->set_BlurRadius(6);
+
+presentation->Save(u"inner_shadow_effect.pptx", SaveFormat::Pptx);
+```
+
+![Rectángulo azul claro con sombra interna](inner_shadow_effect.png)
+
+Para eliminar la sombra interna, llama a [DisableInnerShadowEffect](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/disableinnershadoweffect/) en el formato de efectos de la forma.
+
+## **Aplicar un efecto de reflejo**
+
+Para aplicar un efecto de reflejo en Aspose.Slides para C++, puedes agregar una reflexión similar a un espejo a las formas, ajustando parámetros como distancia, transparencia y tamaño. Este efecto mejora la estética de tus presentaciones al dar a las formas un aspecto más pulido y sofisticado. Es fácil de implementar con código sencillo, permitiendo una aplicación rápida en varios elementos para un diseño coherente.
+
+Este código C++ muestra cómo aplicar el [reflection effect](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/get_reflectioneffect/) a una forma:
+
+```cpp
+#include <DOM/Effects/IReflection.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IEffectFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/RectangleAlignment.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::RoundCornerRectangle, 20.0f, 20.0f, 200.0f, 100.0f);
 auto effectFormat = shape->get_EffectFormat();
 effectFormat->EnableReflectionEffect();
 auto reflectionEffect = effectFormat->get_ReflectionEffect();
 reflectionEffect->set_RectangleAlign(RectangleAlignment::Bottom);
 reflectionEffect->set_Direction(90.0f);
-reflectionEffect->set_Distance(55);
-reflectionEffect->set_BlurRadius(4);
+reflectionEffect->set_Distance(40);
+reflectionEffect->set_BlurRadius(2);
 
-pres->Save(u"reflection.pptx", SaveFormat::Pptx);
+presentation->Save(u"reflection_effect.pptx", SaveFormat::Pptx);
 ```
 
+![Efecto de reflejo](reflection_effect.png)
 
 ## **Aplicar un efecto de brillo**
 
-Este código C++ muestra cómo aplicar el efecto de brillo a una forma:
-```c++
-auto pres = System::MakeObject<Presentation>();
-auto slide = pres->get_Slides()->idx_get(0);
-auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::RoundCornerRectangle, 20.0f, 20.0f, 200.0f, 150.0f);
+Para aplicar un efecto de brillo a una forma en Aspose.Slides para C++, puedes añadir un aura suave y luminosa alrededor de las formas, ajustando propiedades como el color y el tamaño. Este efecto ayuda a que las formas destaquen y añade un elemento visual atractivo y llamativo a tu presentación. Es fácil de implementar con código mínimo, mejorando el aspecto general de tus diapositivas.
 
+Este código C++ muestra cómo aplicar el [glow effect](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/get_gloweffect/) a una forma:
+
+```cpp
+#include <DOM/Effects/IGlow.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IEffectFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::Drawing;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::RoundCornerRectangle, 20.0f, 20.0f, 200.0f, 100.0f);
 auto effectFormat = shape->get_EffectFormat();
 effectFormat->EnableGlowEffect();
 auto glowEffect = effectFormat->get_GlowEffect();
-glowEffect->get_Color()->set_Color(System::Drawing::Color::get_Magenta());
+glowEffect->get_Color()->set_Color(Color::get_Magenta());
 glowEffect->set_Radius(15);
 
-pres->Save(u"glow.pptx", SaveFormat::Pptx);
+presentation->Save(u"glow_effect.pptx", SaveFormat::Pptx);
 ```
 
+![Efecto de brillo](glow_effect.png)
 
 ## **Aplicar un efecto de bordes suaves**
 
-Este código C++ muestra cómo aplicar los bordes suaves a una forma:
-```c++
-auto pres = System::MakeObject<Presentation>();
-auto slide = pres->get_Slides()->idx_get(0);
-auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::RoundCornerRectangle, 20.0f, 20.0f, 200.0f, 150.0f);
+Para aplicar un efecto de bordes suaves en Aspose.Slides para C++, puedes crear una transición suave y difuminada alrededor de los bordes de una forma. Este efecto añade un aspecto más sutil y refinado, perfecto para diseños que requieren una apariencia delicada y más suave. Puedes ajustar fácilmente parámetros como el radio para lograr el efecto deseado en varias formas de tu presentación.
 
+Este código C++ muestra cómo aplicar los [soft edges](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/get_softedgeeffect/) a una forma:
+
+```cpp
+#include <DOM/Effects/ISoftEdge.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IEffectFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::RoundCornerRectangle, 20.0f, 20.0f, 200.0f, 150.0f);
 auto effectFormat = shape->get_EffectFormat();
 effectFormat->EnableSoftEdgeEffect();
 auto softEdgeEffect = effectFormat->get_SoftEdgeEffect();
-softEdgeEffect->set_Radius(15);
+softEdgeEffect->set_Radius(8);
 
-pres->Save(u"softEdges.pptx", SaveFormat::Pptx);
+presentation->Save(u"soft_edges_effect.pptx", SaveFormat::Pptx);
 ```
 
+![Efecto de bordes suaves](soft_edges_effect.png)
 
 ## **Preguntas frecuentes**
 
-**¿Puedo aplicar varios efectos a la misma forma?**
+**¿Puedo aplicar varios efectos a la misma forma?**  
+Sí, puedes combinar diferentes efectos, como sombra, reflejo y brillo, en una sola forma para crear una apariencia más dinámica.
 
-Sí, puedes combinar diferentes efectos, como sombra, reflexión y brillo, en una sola forma para crear una apariencia más dinámica.
+**¿A qué formas puedo aplicar efectos?**  
+Puedes aplicar efectos a varias formas, incluidas autoshapes, gráficos, tablas, imágenes, objetos SmartArt, objetos OLE y más.
 
-**¿A qué formas puedo aplicar efectos?**
-
-Puedes aplicar efectos a diversas formas, incluidas autoshapes, gráficos, tablas, imágenes, objetos SmartArt, objetos OLE y más.
-
-**¿Puedo aplicar efectos a formas agrupadas?**
-
+**¿Puedo aplicar efectos a formas agrupadas?**  
 Sí, puedes aplicar efectos a formas agrupadas. El efecto se aplicará a todo el grupo.

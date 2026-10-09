@@ -9,112 +9,186 @@ keywords:
 - эффект тени
 - эффект отражения
 - эффект свечения
-- эффект мягких краев
+- эффект мягких краёв
 - формат эффекта
 - PowerPoint
 - презентация
 - Java
 - Aspose.Slides
-description: "Преобразуйте свои файлы PPT и PPTX с помощью передовых эффектов фигур, используя Aspose.Slides для Java — создайте яркие, профессиональные слайды за секунды."
+description: "Преобразуйте ваши файлы PPT и PPTX с помощью продвинутых эффектов фигур, используя Aspose.Slides для Java, — создавайте яркие, профессиональные слайды за считанные секунды."
 ---
+## **Введение**
 
-В то время как эффекты в PowerPoint можно использовать, чтобы выделить форму, они отличаются от [fills](/slides/ru/java/shape-formatting/#gradient-fill) или контуров. С помощью эффектов PowerPoint вы можете создавать убедительные отражения на форме, распространять светящееся свечение формы и т.д.
+В то время как эффекты в PowerPoint могут использоваться, чтобы выделить форму, они отличаются от [заливок](/slides/ru/java/shape-formatting/#gradient-fill) или контуров. С помощью эффектов PowerPoint можно создавать правдоподобные отражения формы, рассеивать её свечение и т.д.
 
-<img src="shape-effect.png" alt="shape-effect" style="zoom:50%;" />
+![Эффект формы](shape-effect.png)
 
-* PowerPoint предоставляет шесть эффектов, которые можно применять к формам. Вы можете применять один или несколько эффектов к форме. 
-* Некоторые комбинации эффектов выглядят лучше, чем другие. По этой причине в PowerPoint есть параметры **Preset**. Параметры Preset представляют собой известную хорошо выглядящую комбинацию двух и более эффектов. Таким образом, выбирая предустановку, вам не придётся тратить время на тестирование или комбинирование разных эффектов, чтобы найти хорошую комбинацию.
+PowerPoint предоставляет шесть эффектов, которые можно применять к формам. Вы можете применить один или несколько эффектов к форме.
 
-Aspose.Slides предоставляет свойства и методы класса [EffectFormat](https://reference.aspose.com/slides/java/com.aspose.slides/EffectFormat), которые позволяют применять те же эффекты к формам в презентациях PowerPoint.
+Некоторые комбинации эффектов выглядят лучше, чем другие. По этой причине PowerPoint предлагает варианты под **Preset**. Параметры Preset — это комбинации двух и более эффектов, которые, как известно, выглядят хорошо. Таким образом, выбирая предустановку, вам не придётся тратить время на тестирование или комбинирование разных эффектов в поисках хорошей комбинации.
 
-## **Применить эффект тени**
+Aspose.Slides предоставляет свойства и методы в классе [EffectFormat](https://reference.aspose.com/slides/java/com.aspose.slides/effectformat/), которые позволяют применять те же эффекты к формам в презентациях PowerPoint.
 
-Этот Java‑код показывает, как применить внешний эффект тени ([OuterShadowEffect](https://reference.aspose.com/slides/java/com.aspose.slides/EffectFormat#setOuterShadowEffect--)) к прямоугольнику:
+## **Применение эффекта тени**
+
+Aspose.Slides for Java поддерживает внешние и внутренние тени для форм. Вы можете настраивать их цвет, направление, расстояние и радиус размытия, чтобы они соответствовали дизайну вашей презентации.
+
+### **Применение внешней тени**
+
+Используйте внешнюю тень, чтобы выделить карточку или панель на фоне слайда. Тень выходит за границы формы, создавая ощущение, что форма поднята над слайдом. Настройте её цвет, направление, расстояние и радиус размытия, чтобы они соответствовали освещению и стилю вашего шаблона.
+
+Этот Java‑код демонстрирует, как применить [внешний эффект тени](https://reference.aspose.com/slides/java/com.aspose.slides/effectformat/#getOuterShadowEffect--) к прямоугольнику:
+
 ```java
-Presentation pres = new Presentation();
-try {
-    IShape shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.RoundCornerRectangle, 20, 20, 200, 150);
+import com.aspose.slides.*;
+import java.awt.Color;
 
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IShape shape = slide.getShapes().addAutoShape(ShapeType.RoundCornerRectangle, 20, 20, 200, 100);
     shape.getEffectFormat().enableOuterShadowEffect();
-    shape.getEffectFormat().getOuterShadowEffect().getShadowColor().setColor(Color.DARK_GRAY);
+    shape.getEffectFormat().getOuterShadowEffect().getShadowColor().setColor(new Color(169, 169, 169));
     shape.getEffectFormat().getOuterShadowEffect().setDistance(10);
     shape.getEffectFormat().getOuterShadowEffect().setDirection(45);
 
-    pres.save("output.pptx", SaveFormat.Pptx);
+    presentation.save("shadow_effect.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+![Эффект тени](shadow_effect.png)
 
-## **Применить эффект отражения**
+### **Применение внутренней тени**
 
-Этот Java‑код показывает, как применить эффект отражения к форме:
+При воспроизведении визуального стиля шаблона используйте внутреннюю тень, чтобы придать карточке или панели вогнутый вид. Внешняя тень располагается за пределами формы и делает её выглядящей поднятой, а внутренняя тень затемняет внутренние края.
+
+Вызовите [enableInnerShadowEffect](https://reference.aspose.com/slides/java/com.aspose.slides/effectformat/#enableInnerShadowEffect--), затем настройте тень, возвращаемую [getInnerShadowEffect](https://reference.aspose.com/slides/java/com.aspose.slides/effectformat/#getInnerShadowEffect--). Большие значения радиуса размытия дают более мягкие края.
+
+Этот Java‑пример создаёт светло‑голубую карточку с темно‑серой внутренней тенью и сохраняет её как файл PPTX. Направление тени — 225 градусов, расстояние — 7 пунктов, радиус размытия — 6 пунктов:
+
 ```java
-Presentation pres = new Presentation();
-try {
-    IShape shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.RoundCornerRectangle, 20, 20, 200, 150);
+import com.aspose.slides.*;
+import java.awt.Color;
 
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 200, 100);
+    shape.getFillFormat().setFillType(FillType.Solid);
+    shape.getFillFormat().getSolidFillColor().setColor(new Color(173, 216, 230));
+    shape.getLineFormat().getFillFormat().setFillType(FillType.NoFill);
+
+    shape.getEffectFormat().enableInnerShadowEffect();
+    IInnerShadow shadow = shape.getEffectFormat().getInnerShadowEffect();
+    shadow.getShadowColor().setColor(new Color(105, 105, 105));
+    shadow.setDirection(225);
+    shadow.setDistance(7);
+    shadow.setBlurRadius(6);
+
+    presentation.save("inner_shadow_effect.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+![Светло‑голубой прямоугольник с внутренней тенью](inner_shadow_effect.png)
+
+Чтобы удалить внутреннюю тень, вызовите [disableInnerShadowEffect](https://reference.aspose.com/slides/java/com.aspose.slides/effectformat/#disableInnerShadowEffect--) у формата эффекта формы.
+
+## **Применение эффекта отражения**
+
+Чтобы применить эффект отражения в Aspose.Slides for Java, вы можете добавить зеркальное отражение к формам, регулируя такие параметры, как расстояние, прозрачность и размер. Этот эффект улучшает эстетический вид ваших презентаций, придавая формам более отполированный и изящный вид. Реализовать его просто с помощью небольшого кода, позволяющего быстро применить эффект к нескольким элементам для единообразного дизайна.
+
+Этот Java‑код демонстрирует, как применить [эффект отражения](https://reference.aspose.com/slides/java/com.aspose.slides/effectformat/#getReflectionEffect--) к форме:
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IShape shape = slide.getShapes().addAutoShape(ShapeType.RoundCornerRectangle, 20, 20, 200, 100);
     shape.getEffectFormat().enableReflectionEffect();
     shape.getEffectFormat().getReflectionEffect().setRectangleAlign(RectangleAlignment.Bottom);
     shape.getEffectFormat().getReflectionEffect().setDirection(90);
-    shape.getEffectFormat().getReflectionEffect().setDistance(55);
-    shape.getEffectFormat().getReflectionEffect().setBlurRadius(4);
+    shape.getEffectFormat().getReflectionEffect().setDistance(40);
+    shape.getEffectFormat().getReflectionEffect().setBlurRadius(2);
 
-    pres.save("reflection.pptx", SaveFormat.Pptx);
+    presentation.save("reflection_effect.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+![Эффект отражения](reflection_effect.png)
 
-## **Применить эффект свечения**
+## **Применение эффекта свечения**
 
-Этот Java‑код показывает, как применить эффект свечения к форме:
+Чтобы применить эффект свечения к форме в Aspose.Slides for Java, вы можете добавить мягкое светящееся сияние вокруг формы, регулируя свойства, такие как цвет и размер. Этот эффект помогает форму выделить и добавляет привлекательный, бросающийся в глаза визуальный элемент в вашу презентацию. Его легко реализовать с минимальным объёмом кода, улучшая общий внешний вид слайдов.
+
+Этот Java‑код демонстрирует, как применить [эффект свечения](https://reference.aspose.com/slides/java/com.aspose.slides/effectformat/#getGlowEffect--) к форме:
+
 ```java
-Presentation pres = new Presentation();
-try {
-    IShape shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.RoundCornerRectangle, 20, 20, 200, 150);
+import com.aspose.slides.*;
+import java.awt.Color;
 
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IShape shape = slide.getShapes().addAutoShape(ShapeType.RoundCornerRectangle, 20, 20, 200, 100);
     shape.getEffectFormat().enableGlowEffect();
     shape.getEffectFormat().getGlowEffect().getColor().setColor(Color.MAGENTA);
     shape.getEffectFormat().getGlowEffect().setRadius(15);
 
-    pres.save("glow.pptx", SaveFormat.Pptx);
+    presentation.save("glow_effect.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+![Эффект свечения](glow_effect.png)
 
-## **Применить эффект мягких краёв**
+## **Применение эффекта мягких краёв**
 
-Этот Java‑код показывает, как применить мягкие края к форме:
+Чтобы применить эффект мягких краёв в Aspose.Slides for Java, вы можете создать плавный, размытый переход вокруг границ формы. Этот эффект придаёт более деликатный и изысканный вид, идеально подходящий для дизайнов, требующих нежного, мягкого оформления. Вы можете легко настроить такие параметры, как радиус, чтобы достичь нужного результата для различных форм в вашей презентации.
+
+Этот Java‑код демонстрирует, как применить [эффект мягких краёв](https://reference.aspose.com/slides/java/com.aspose.slides/effectformat/#getSoftEdgeEffect--) к форме:
+
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    IShape shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.RoundCornerRectangle, 20, 20, 200, 150);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
+    IShape shape = slide.getShapes().addAutoShape(ShapeType.RoundCornerRectangle, 20, 20, 200, 150);
     shape.getEffectFormat().enableSoftEdgeEffect();
-    shape.getEffectFormat().getSoftEdgeEffect().setRadius(15);
+    shape.getEffectFormat().getSoftEdgeEffect().setRadius(8);
 
-    pres.save("softEdges.pptx", SaveFormat.Pptx);
+    presentation.save("soft_edges_effect.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+![Эффект мягких краёв](soft_edges_effect.png)
 
 ## **FAQ**
 
-**Могу ли я применить несколько эффектов к одной форме?**
+**Можно ли применить несколько эффектов к одной и той же форме?**
 
-Да, вы можете комбинировать различные эффекты, такие как тень, отражение и свечения, на одной форме, чтобы создать более динамичный внешний вид.
+Да, вы можете комбинировать разные эффекты, такие как тень, отражение и свечение, на одной форме, чтобы создать более динамичный вид.
 
 **К каким формам можно применять эффекты?**
 
-Эффекты можно применять к различным формам, включая автофигуры, диаграммы, таблицы, изображения, объекты SmartArt, OLE‑объекты и т.д.
+Эффекты можно применять к различным формам, включая автофигуры, диаграммы, таблицы, изображения, объекты SmartArt, OLE‑объекты и др.
 
-**Могу ли я применять эффекты к сгруппированным формам?**
+**Можно ли применять эффекты к сгруппированным формам?**
 
-Да, вы можете применять эффекты к сгруппированным формам. Эффект будет применён ко всей группе.
+Да, эффекты можно применять к сгруппированным формам. Эффект будет применён ко всей группе.

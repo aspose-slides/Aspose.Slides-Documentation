@@ -4,9 +4,9 @@ type: docs
 weight: 70
 url: /tr/java/installation/
 keywords:
-- Aspose.Slides yükleme
-- Aspose.Slides indirme
-- Aspose.Slides kullanma
+- Aspose.Slides kur
+- Aspose.Slides indir
+- Aspose.Slides kullan
 - Aspose.Slides kurulumu
 - Windows
 - Linux
@@ -16,25 +16,25 @@ keywords:
 - sunum
 - Java
 - Aspose.Slides
-description: "Aspose'un Maven deposundan ya da JAR dosyası olarak Aspose.Slides for Java'ı kurun, Linux önkoşullarını ayarlayın ve ilk programla kurulumu kontrol edin."
+description: "Aspose.Slides for Java'ı Aspose'un Maven deposundan veya bir JAR dosyası olarak kurun, Linux önkoşullarını ayarlayın ve ilk programla kurulumu kontrol edin."
 ---
 ## **Genel Bakış**
 
-Bu makale, bir projeye Aspose.Slides for Java eklemenin nasıl yapılacağını açıklar. Aspose.Slides for Java, Aspose'un kendi Maven deposunda yayımlanır, Maven Central'da değildir; bu nedenle bir Maven projesi bu depoyu bildirmelidir. Ayrıca JAR dosyasını indirip sınıf yoluna manuel olarak ekleyebilirsiniz. Her iki yol da kütüphanenin çalıştığını doğrulayan kısa bir programla sonuçlanır.
+Bu makale, Aspose.Slides for Java'ı bir projeye nasıl ekleyeceğinizi açıklar. Aspose.Slides for Java, Aspose'un kendi Maven deposunda yayınlanır, Maven Central'da değildir, bu nedenle bir Maven projesi o depoyu bildirmelidir. Ayrıca JAR dosyasını indirip sınıf yoluna kendiniz ekleyebilirsiniz. Her iki yol da kütüphanenin çalıştığını doğrulayan kısa bir programla sona erer.
 
-Aspose.Slides for Java, Microsoft PowerPoint gerektirmez. Gerekli sunum dosyalarını programlı olarak oluşturur. Ancak oluşturulan sunumları görüntülemek için Microsoft PowerPoint veya başka bir sunum görüntüleyiciye ihtiyaç duyabilirsiniz.
+Aspose.Slides for Java, Microsoft PowerPoint gerektirmez. Gerekli sunum dosyalarını programlı olarak oluşturur. Ancak oluşturulan sunumları görüntülemek için Microsoft PowerPoint veya başka bir sunum görüntüleyici gerekebilir.
 
 ## **Önkoşullar**
 
-- Bir Java Development Kit (JDK). Bu makaledeki proje ve komutlar JDK 11 veya daha yenisini gerektirir. JDK 11'de, kurulum kontrol programı “WARNING: An illegal reflective access operation has occurred” ile başlayan bir uyarı verir; bu sonuçları etkilemez ve göz ardı edilebilir.
+- Bir Java Development Kit (JDK). Bu makaledeki proje ve komutlar JDK 11 veya daha yeni bir sürüm gerektirir. JDK 11'de, kurulumu kontrol eden program "WARNING: An illegal reflective access operation has occurred" ile başlayan bir uyarı verir; bu sonuçları etkilemez ve göz ardı edilebilir.
 - [Apache Maven](https://maven.apache.org/install.html), Maven yolunu kullanıyorsanız.
-- Linux'ta, fontconfig kütüphanesi ve en az bir yüklü font. Bkz. [Linux](#linux).
+- Linux'ta, fontconfig kütüphanesi ve en az bir yüklü font gerekir. Bkz. [Linux](#linux).
 
-## **Maven Deposu'ndan Kurulum**
+## **Maven Deposundan Kurulum**
 
 Aspose, Java kütüphanelerini kendi [Maven deposunda](https://releases.aspose.com/java/repo/com/aspose/) barındırır. Bir Maven projesinde [Aspose.Slides for Java](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/) kullanmak için *pom.xml* dosyanıza iki giriş ekleyin.
 
-1. **Aspose Maven deposunu bildiriniz.**
+1. **Aspose Maven deposunu bildir.**
 
    ```xml
    <repositories>
@@ -46,24 +46,24 @@ Aspose, Java kütüphanelerini kendi [Maven deposunda](https://releases.aspose.c
    </repositories>
    ```
 
-2. **Aspose.Slides for Java bağımlılığını ekleyiniz.**
+2. **Aspose.Slides for Java bağımlılığını ekle.**
 
    ```xml
    <dependencies>
        <dependency>
            <groupId>com.aspose</groupId>
            <artifactId>aspose-slides</artifactId>
-           <version>26.9</version>
-           <classifier>jdk16</classifier>
+           <version>26.10</version>
+           <classifier>jdk8</classifier>
        </dependency>
    </dependencies>
    ```
 
-`jdk16` sınıflandırıcısı gereklidir: kütüphanenin Java SE derlemesini seçer. `26.9` yerine [depolarda](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/) listelenen en yeni sürümü koyun. Depo, her JAR dosyasının yanında bir SHA-1 kontrol toplamı dosyası yayınlar; Maven indirme sırasında bunu doğrular.
+`jdk8` sınıflandırıcısı gereklidir: kütüphanenin Java SE sürümünü seçer. `26.10` yerine, [deposunda](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/) listelenen en yeni sürümü koyun. Depo, her JAR'ın yanında bir SHA-1 kontrol toplamı dosyası yayınlar; Maven, kütüphaneyi indirirken bu dosyayı kontrol eder.
 
 ### **Kurulumu Kontrol Et**
 
-Yeni bir proje ile kurulumu kontrol etmek için:
+Yeni bir projeyle kurulumu kontrol etmek için:
 
 1. Proje için bir klasör oluşturun ve bu *pom.xml* dosyasını içine kaydedin:
 
@@ -92,8 +92,8 @@ Yeni bir proje ile kurulumu kontrol etmek için:
            <dependency>
                <groupId>com.aspose</groupId>
                <artifactId>aspose-slides</artifactId>
-               <version>26.9</version>
-               <classifier>jdk16</classifier>
+               <version>26.10</version>
+               <classifier>jdk8</classifier>
            </dependency>
        </dependencies>
 
@@ -109,9 +109,9 @@ Yeni bir proje ile kurulumu kontrol etmek için:
    </project>
    ```
 
-   Depo ve bağımlılığın yanı sıra bu *pom.xml*, derleme için Java sürümünü ayarlar, `mvn exec:java` komutunun çalıştıracağı sınıfı belirtir ve derleyici eklentisini sabitleyerek bazı Maven kurulumlarının varsayılan olarak yoksaydığı `maven.compiler.release` ayarını etkinleştirir.
+   Depo ve bağımlılığın yanı sıra, bu *pom.xml* derleme için Java sürümünü ayarlar, `mvn exec:java` komutunun çalıştıracağı sınıfı adlandırır ve derleyici eklentisini sabitler; çünkü bazı Maven kurulumlarının varsayılan olarak kullandığı eski eklenti `maven.compiler.release` ayarını göz ardı eder.
 
-2. İlk örneği [Create Presentations](/slides/tr/java/create-presentation/) adresinden alın ve *src/main/java/HelloSlides.java* olarak kaydedin.
+2. İlk örneği [Sunumlar Oluştur](/slides/tr/java/create-presentation/) içinde *src/main/java/HelloSlides.java* olarak kaydedin.
 
 3. Proje klasöründe çalıştırın:
 
@@ -119,42 +119,44 @@ Yeni bir proje ile kurulumu kontrol etmek için:
    mvn compile exec:java
    ```
 
-Maven, Aspose.Slides for Java'ı indirir, programı derler ve çalıştırır. Program, proje klasöründe *new_presentation.pptx* dosyasını kaydeder.
+Maven, Aspose.Slides for Java'ı indirir, programı derler ve çalıştırır. Program, *new_presentation.pptx* dosyasını proje klasörüne kaydeder.
 
-## **Maven Olmadan JAR Dosyasını Kullanma**
+## **Maven Olmadan JAR Dosyasını Kullan**
 
-1. Depodaki [sürüm klasöründen](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/26.9/) *aspose-slides-26.9-jdk16.jar* dosyasını indirin. Başka bir sürüm için, [depo](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/) içindeki ilgili klasöre gidin ve *-jdk16.jar* ile biten dosyayı indirin.
-2. İlk örneği aynı klasörde *HelloSlides.java* olarak kaydedin.
+1. Depodaki [versiyon klasöründen](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/26.10/) *aspose-slides-26.10-jdk8.jar* dosyasını indirin. Başka bir sürüm için, [depo](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/) içinde ilgili klasörü açın ve *-jdk8.jar* ile biten dosyayı indirin.
+
+2. İlk örneği [Sunumlar Oluştur](/slides/tr/java/create-presentation/) içinde *HelloSlides.java* olarak JAR dosyasıyla aynı klasöre kaydedin.
+
 3. O klasörde çalıştırın:
 
    ```bash
-   java -cp aspose-slides-26.9-jdk16.jar HelloSlides.java
+   java -cp aspose-slides-26.10-jdk8.jar HelloSlides.java
    ```
 
-JDK tek kaynak dosyasını derler ve çalıştırır; program klasörde *new_presentation.pptx* dosyasını kaydeder. Kendi uygulamanızda, JAR dosyasını derleme aracınızın veya IDE'nizin sınıf yoluna ekleyin.
+JDK, tek kaynak dosyasını derleyip çalıştırır ve program *new_presentation.pptx* dosyasını klasöre kaydeder. Kendi uygulamanızda, JAR dosyasını derleme aracınızın ya da IDE'nizin sınıf yoluna ekleyin.
 
 ## **Linux**
 
-Aspose.Slides for Java, Linux'ta fontconfig kütüphanesini ve en az bir yüklü fontu gerektiren Java font desteğini kullanır. Bu bileşenler olmadan, “Fontconfig head is null, check your fonts or fonts configuration” hatasıyla sunum kaydedilemez. Minimal sunucu ve konteyner görüntüleri her ikisini de eksik bırakabilir; örneğin resmi Ubuntu konteyner görüntüsü hiçbirine sahip değildir.
+Aspose.Slides for Java, Java'nın font desteğini kullanır; Linux'ta bunun için fontconfig kütüphanesi ve en az bir yüklü font gerekir. Bunlar olmadan, sunum kaydedilirken "Fontconfig head is null, check your fonts or fonts configuration" hatası alınır. Minimal sunucu ve konteyner imajları her ikisini de eksik bulundurabilir; örneğin resmi Ubuntu konteyner imajı hiçbirine sahip değildir.
 
-Debian ve Ubuntu'da aşağıdaki komut bir JDK, Maven, fontconfig ve DejaVu fontlarını kurar:
+Debian ve Ubuntu üzerinde, bu komut bir JDK, Maven, fontconfig ve DejaVu fontlarını kurar:
 
 ```bash
 sudo apt-get update && sudo apt-get install -y default-jdk maven fontconfig fonts-dejavu-core
 ```
 
-Sunumlarınızda kullanılan fontlar veya uygun ikameler de metnin doğru görüntülenmesi için kurulmalıdır.
+Sunumlarınızda kullanılan fontların veya uygun alternatiflerin de metnin doğru görüntülenmesi için kurulmuş olması gerekir.
 
-## **FAQ**
+## **SSS**
 
-### Aspose.Slides'ın doğru bir şekilde entegre edildiğini nasıl doğrularım?
+### Aspose.Slides'ın doğru entegre edildiğini nasıl doğrulayabilirim?
 
-Projenizi derleyin, boş bir [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) nesnesi oluşturun ve yeni bir adla kaydedin. Dosya istisna fırlatmadan oluşturulursa, kütüphane başarıyla entegre edilmiştir.
+Projenizi derleyin, boş bir [Sunum](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) nesnesi oluşturun ve yeni bir adla kaydedin. Dosya istisna fırlatmadan oluşturulursa, kütüphane başarılı bir şekilde entegre edilmiştir.
 
-### Büyük sunumlar işlenirken bellek tüketimini nasıl sınırlayabilirim?
+### Büyük sunumları işlerken bellek tüketimini nasıl sınırlayabilirim?
 
-JVM bellek limitlerini yalnızca ihtiyaç duyulan seviyeye yükseltin ve her [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) örneğinde bir `finally` bloğu içinde [dispose](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#dispose--) metodunu çağırarak önbelleği hemen serbest bırakın. Bu, bellek yetersizliği hatalarını önler ve toplu işlemler sırasında genel bellek kullanımını öngörülebilir tutar.
+JVM bellek sınırlarını sadece ihtiyaç duyulan kadar yükseltin ve her bir [Sunum](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) örneğinde `finally` bloğu içinde [dispose](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#dispose--) metodunu çağırarak önbelleği hızlıca serbest bırakın. Bu, bellek yetersizliği hatalarını önler ve toplu işlemler sırasında toplam bellek kullanımının öngörülebilir kalmasını sağlar.
 
-### Gereksiz dışa aktarma formatlarını dışarı çıkararak final JAR boyutunu küçültebilir miyim?
+### İstenmeyen dışa aktarma formatlarını dışarı çıkararak son JAR boyutunu küçültebilir miyim?
 
-Mevcut Aspose.Slides sürümleri tek bir monolitik kütüphane olarak dağıtılır; bu yüzden derleme zamanında PDF veya SVG gibi belirli dışa aktarıcıları devre dışı bırakamazsınız.
+Mevcut Aspose.Slides sürümleri tek bir monolitik kütüphane olarak dağıtılır, bu nedenle derleme zamanında PDF veya SVG gibi belirli dışa aktarıcıları devre dışı bırakamazsınız.
