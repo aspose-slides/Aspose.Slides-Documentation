@@ -1,118 +1,242 @@
 ---
-title: اعمال افکت‌های شکل در ارائه‌ها با استفاده از C++
-linktitle: افکت شکل
+title: اعمال اثرهای شکل در ارائه‌ها با استفاده از C++
+linktitle: اثر شکل
 type: docs
 weight: 30
 url: /fa/cpp/shape-effect/
 keywords:
-- افکت شکل
-- افکت سایه
-- افکت انعکاس
-- افکت نوردهی
-- افکت لبه‌های نرم
-- قالب افکت
-- پاورپوینت
+- اثر شکل
+- اثر سایه
+- اثر بازتاب
+- اثر درخشش
+- اثر لبه‌های نرم
+- قالب اثر
+- PowerPoint
 - ارائه
 - C++
 - Aspose.Slides
-description: "فایل‌های PPT و PPTX خود را با استفاده از افکت‌های پیشرفته شکل با Aspose.Slides برای C++ — اسلایدهای چشم‌نواز و حرفه‌ای را در ثانیه‌ها ایجاد کنید."
+description: "فایل‌های PPT و PPTX خود را با استفاده از اثرهای پیشرفته شکل در Aspose.Slides برای C++ تبدیل کنید — اسلایدهای چشم‌گیر و حرفه‌ای را در چند ثانیه ایجاد کنید."
 ---
 ## **مقدمه**
 
-در حالی که افکت‌ها در پاورپوینت می‌توانند برای برجسته کردن یک شکل استفاده شوند، آن‌ها با [fills](/slides/fa/cpp/shape-formatting/#gradient-fill) یا خطوط بیرونی متفاوت هستند. با استفاده از افکت‌های پاورپوینت، می‌توانید انعکاس‌های قانع‌کننده‌ای روی یک شکل ایجاد کنید، نوردهی یک شکل را گسترش دهید، و غیره.
+در حالی که اثرات در PowerPoint می‌توانند برای برجسته کردن یک شکل استفاده شوند، آن‌ها با [پرکننده‌ها](/slides/fa/cpp/shape-formatting/#gradient-fill) یا خطوط پیرامونی متفاوت هستند. با استفاده از اثرات PowerPoint، می‌توانید بازتاب‌های قانع‌کننده‌ای روی یک شکل ایجاد کنید، نور درخشش شکل را پخش کنید و غیره.
 
-<img src="shape-effect.png" alt="shape-effect" style="zoom:50%;" />
+![اثر شکل](shape-effect.png)
 
-* پاورپوینت شش افکت ارائه می‌دهد که می‌توانند بر روی اشکال اعمال شوند. می‌توانید یک یا چند افکت را بر یک شکل اعمال کنید. 
+PowerPoint شش اثر را ارائه می‌دهد که می‌توان بر روی اشکال اعمال کرد. می‌توانید یک یا چند اثر را بر یک شکل اعمال کنید.
 
-* برخی ترکیبات افکت بهتر از سایرین به نظر می‌رسند. به همین دلیل، گزینه‌های پاورپوینت تحت **Preset**. گزینه‌های Preset در واقع ترکیبی شناخته‌شده و زیبا از دو یا چند افکت هستند. به این ترتیب، با انتخاب یک پیش‌تنظیم، نیازی به صرف زمان برای آزمایش یا ترکیب افکت‌های مختلف برای یافتن ترکیب مناسب نخواهید داشت.
+برخی ترکیب‌های اثر بهتر از سایرین به نظر می‌رسند. به همین دلیل، PowerPoint گزینه‌هایی تحت **Preset** دارد. گزینه‌های پیش‌تنظیم (Preset) در واقع ترکیبی شناخته‌شده از دو یا چند اثر هستند که ظاهر خوبی دارند. به این ترتیب، با انتخاب یک پیش‌تنظیم، نیازی به صرف زمان برای آزمون یا ترکیب اثرهای مختلف برای یافتن ترکیب مناسب نیست.
 
-Aspose.Slides ویژگی‌ها و متدهایی تحت کلاس [EffectFormat](https://reference.aspose.com/slides/fa/cpp/class/aspose.slides.effect_format/) ارائه می‌دهد که به شما امکان می‌دهد همان افکت‌ها را بر روی اشکال در ارائه‌های پاورپوینت اعمال کنید.
+Aspose.Slides ویژگی‌ها و متدهایی را تحت کلاس [EffectFormat](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/) فراهم می‌کند که به شما امکان می‌دهد همان اثرها را بر اشکال در ارائه‌های PowerPoint اعمال کنید.
 
-## **اعمال افکت سایه**
+## **اعمال یک اثر سایه**
 
-این کد C++ نشان می‌دهد چگونه افکت سایه خارجی ([OuterShadowEffect](https://reference.aspose.com/slides/fa/cpp/class/aspose.slides.effect_format#aea1a48246d3240e29092498f648bc028)) را بر روی یک مستطیل اعمال کنید:
+Aspose.Slides برای C++ از سایه‌های خارجی و داخلی برای اشکال پشتیبانی می‌کند. می‌توانید رنگ، جهت، فاصله و شعاع تاری آن‌ها را مطابق با طراحی ارائه خود سفارشی کنید.
 
-```c++
-auto pres = System::MakeObject<Presentation>();
-auto slide = pres->get_Slides()->idx_get(0);
-auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::RoundCornerRectangle, 20.0f, 20.0f, 200.0f, 150.0f);
+### **اعمال سایه بیرونی**
 
+از یک سایه بیرونی استفاده کنید تا کارت یا پنلی در مقابل پس‌زمینه اسلاید برجسته شود. سایه فراتر از لبه‌های شکل گسترش می‌یابد و این impression را ایجاد می‌کند که شکل بالای اسلاید قرار گرفته است. رنگ، جهت، فاصله و شعاع تاری آن را مطابق با نورپردازی و سبک قالب خود تنظیم کنید.
+
+این کد C++ نشان می‌دهد که چگونه [اثر سایه بیرونی](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/get_outershadoweffect/) را بر یک مستطیل اعمال کنید:
+
+```cpp
+#include <DOM/Effects/IOuterShadow.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IEffectFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::Drawing;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::RoundCornerRectangle, 20.0f, 20.0f, 200.0f, 100.0f);
 auto effectFormat = shape->get_EffectFormat();
 effectFormat->EnableOuterShadowEffect();
 auto outerShadowEffect = effectFormat->get_OuterShadowEffect();
-outerShadowEffect->get_ShadowColor()->set_Color(System::Drawing::Color::get_DarkGray());
+outerShadowEffect->get_ShadowColor()->set_Color(Color::get_DarkGray());
 outerShadowEffect->set_Distance(10);
 outerShadowEffect->set_Direction(45.0f);
 
-pres->Save(u"output.pptx", SaveFormat::Pptx);
+presentation->Save(u"shadow_effect.pptx", SaveFormat::Pptx);
 ```
 
-## **اعمال افکت انعکاس**
+![اثر سایه](shadow_effect.png)
 
-این کد C++ نشان می‌دهد چگونه افکت انعکاس را بر روی یک شکل اعمال کنید:
+### **اعمال سایه داخلی**
 
-```c++
-auto pres = System::MakeObject<Presentation>();
-auto slide = pres->get_Slides()->idx_get(0);
-auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::RoundCornerRectangle, 20.0f, 20.0f, 200.0f, 150.0f);
+هنگام بازتولید استایل بصری یک قالب، از یک سایه داخلی برای ایجاد ظاهر فرو رفته در کارت یا پنل استفاده کنید. سایه بیرونی خارج از شکل گسترش می‌یابد و آن را بالا می‌آورد، در حالی که سایه داخلی داخل لبه‌های شکل را سایه می‌اندازد.
 
+متد [EnableInnerShadowEffect](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/enableinnershadoweffect/) را فراخوانی کنید، سپس [InnerShadowEffect](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/get_innershadoweffect/) را پیکربندی کنید. مقادیر بزرگتر شعاع تاری لبه‌های نرم‌تری تولید می‌کنند.
+
+این مثال C++ یک کارت آبی روشن با سایه داخلی خاکستری تیره ایجاد می‌کند و آن را به صورت فایل PPTX ذخیره می‌نماید:
+
+```cpp
+#include <DOM/Effects/IInnerShadow.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IEffectFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/FillType.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::Drawing;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20.0f, 20.0f, 200.0f, 100.0f);
+shape->get_FillFormat()->set_FillType(FillType::Solid);
+shape->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_LightBlue());
+shape->get_LineFormat()->get_FillFormat()->set_FillType(FillType::NoFill);
+
+shape->get_EffectFormat()->EnableInnerShadowEffect();
+auto shadow = shape->get_EffectFormat()->get_InnerShadowEffect();
+shadow->get_ShadowColor()->set_Color(Color::get_DimGray());
+shadow->set_Direction(225);
+shadow->set_Distance(7);
+shadow->set_BlurRadius(6);
+
+presentation->Save(u"inner_shadow_effect.pptx", SaveFormat::Pptx);
+```
+
+![مستطیل آبی روشن با سایه داخلی](inner_shadow_effect.png)
+
+برای حذف سایه داخلی، متد [DisableInnerShadowEffect](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/disableinnershadoweffect/) را بر فرمت اثر شکل صدا بزنید.
+
+## **اعمال یک اثر بازتاب**
+
+برای اعمال یک اثر بازتاب در Aspose.Slides برای C++، می‌توانید بازتابی شبیه آینه را به اشکال اضافه کنید و پارامترهایی مانند فاصله، شفافیت و اندازه را تنظیم کنید. این اثر زیبایی ارائه‌های شما را با دادن ظاهری صیقلی و پرمحتوا به اشکال افزوده می‌کند. پیاده‌سازی آن با کد ساده آسان است و امکان اعمال سریع بر روی چندین عنصر برای داشتن طراحی یک‌دست را فراهم می‌کند.
+
+این کد C++ نشان می‌دهد که چگونه [اثر بازتاب](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/get_reflectioneffect/) را بر یک شکل اعمال کنید:
+
+```cpp
+#include <DOM/Effects/IReflection.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IEffectFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/RectangleAlignment.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::RoundCornerRectangle, 20.0f, 20.0f, 200.0f, 100.0f);
 auto effectFormat = shape->get_EffectFormat();
 effectFormat->EnableReflectionEffect();
 auto reflectionEffect = effectFormat->get_ReflectionEffect();
 reflectionEffect->set_RectangleAlign(RectangleAlignment::Bottom);
 reflectionEffect->set_Direction(90.0f);
-reflectionEffect->set_Distance(55);
-reflectionEffect->set_BlurRadius(4);
+reflectionEffect->set_Distance(40);
+reflectionEffect->set_BlurRadius(2);
 
-pres->Save(u"reflection.pptx", SaveFormat::Pptx);
+presentation->Save(u"reflection_effect.pptx", SaveFormat::Pptx);
 ```
 
-## **اعمال افکت نوردهی**
+![اثر بازتاب](reflection_effect.png)
 
-این کد C++ نشان می‌دهد چگونه افکت نوردهی را بر روی یک شکل اعمال کنید:
+## **اعلام یک اثر درخشش**
 
-```c++
-auto pres = System::MakeObject<Presentation>();
-auto slide = pres->get_Slides()->idx_get(0);
-auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::RoundCornerRectangle, 20.0f, 20.0f, 200.0f, 150.0f);
+برای اعمال یک اثر درخشش بر یک شکل در Aspose.Slides برای C++، می‌توانید هاله‌ای نرم و درخشان دور اشکال اضافه کنید و ویژگی‌هایی مانند رنگ و اندازه را تنظیم کنید. این اثر به برجسته شدن اشکال کمک کرده و یک عنصر بصری جذاب و چشم‌نواز به ارائه شما می‌افزاید. پیاده‌سازی آن با کد کمینه آسان است و ظاهر کلی اسلایدهای شما را بهبود می‌بخشد.
 
+این کد C++ نشان می‌دهد که چگونه [اثر درخشش](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/get_gloweffect/) را بر یک شکل اعمال کنید:
+
+```cpp
+#include <DOM/Effects/IGlow.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IEffectFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::Drawing;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::RoundCornerRectangle, 20.0f, 20.0f, 200.0f, 100.0f);
 auto effectFormat = shape->get_EffectFormat();
 effectFormat->EnableGlowEffect();
 auto glowEffect = effectFormat->get_GlowEffect();
-glowEffect->get_Color()->set_Color(System::Drawing::Color::get_Magenta());
+glowEffect->get_Color()->set_Color(Color::get_Magenta());
 glowEffect->set_Radius(15);
 
-pres->Save(u"glow.pptx", SaveFormat::Pptx);
+presentation->Save(u"glow_effect.pptx", SaveFormat::Pptx);
 ```
 
-## **اعمال افکت لبه‌های نرم**
+![اثر درخشش](glow_effect.png)
 
-این کد C++ نشان می‌دهد چگونه لبه‌های نرم را بر روی یک شکل اعمال کنید:
+## **اعمال یک اثر لبه‌های نرم**
 
-```c++
-auto pres = System::MakeObject<Presentation>();
-auto slide = pres->get_Slides()->idx_get(0);
+برای اعمال یک اثر لبه‌های نرم در Aspose.Slides برای C++، می‌توانید یک انتقال نرم و تاریک اطراف لبه‌های شکل ایجاد کنید. این اثر ظاهری ملایم‌تر و صیقلی‌تر می‌بخشد که برای طرح‌هایی که نیاز به ظاهر لطیف و نرم دارند ایده‌آل است. می‌توانید به راحتی پارامترهایی مانند شعاع را تنظیم کنید تا اثر مورد نظر را بر روی اشکال مختلف در ارائه خود به دست آورید.
+
+این کد C++ نشان می‌دهد که چگونه [لبه‌های نرم](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/get_softedgeeffect/) را بر یک شکل اعمال کنید:
+
+```cpp
+#include <DOM/Effects/ISoftEdge.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IEffectFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
 auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::RoundCornerRectangle, 20.0f, 20.0f, 200.0f, 150.0f);
-
 auto effectFormat = shape->get_EffectFormat();
 effectFormat->EnableSoftEdgeEffect();
 auto softEdgeEffect = effectFormat->get_SoftEdgeEffect();
-softEdgeEffect->set_Radius(15);
+softEdgeEffect->set_Radius(8);
 
-pres->Save(u"softEdges.pptx", SaveFormat::Pptx);
+presentation->Save(u"soft_edges_effect.pptx", SaveFormat::Pptx);
 ```
+
+![اثر لبه‌های نرم](soft_edges_effect.png)
 
 ## **سوالات متداول**
 
-**آیا می‌توانم چندین افکت را بر روی یک شکل اعمال کنم؟**
+**آیا می‌توانم چندین اثر را بر روی یک شکل اعمال کنم؟**
 
-بله، می‌توانید افکت‌های مختلفی مانند سایه، انعکاس و نوردهی را بر روی یک شکل ترکیب کنید تا ظاهر پویا‌تری ایجاد کنید.
+بله، می‌توانید اثرهای مختلفی مانند سایه، بازتاب و درخشش را بر یک شکل ترکیب کنید تا ظاهر دینامیک‌تری به دست آورید.
 
-**به کدام شکل‌ها می‌توانم افکت اعمال کنم؟**
+**کدام اشکال می‌توانم به آنها اثر اعمال کنم؟**
 
-می‌توانید افکت‌ها را بر روی اشکال مختلفی مانند اشکال خودکار، نمودارها، جدول‌ها، تصاویر، اشیای SmartArt، اشیای OLE و موارد دیگر اعمال کنید.
+می‌توانید اثرها را به انواع اشکال، از جمله اشکال خودکار، نمودارها، جدول‌ها، تصاویر، اشیای SmartArt، اشیای OLE و ... اعمال کنید.
 
-**آیا می‌توانم افکت‌ها را بر روی اشکال گروه‌بندی شده اعمال کنم؟**
+**آیا می‌توانم اثرها را به اشکال گروه‌بندی شده اعمال کنم؟**
 
-بله، می‌توانید افکت‌ها را بر روی اشکال گروه‌بندی شده اعمال کنید. افکت بر کل گروه اعمال خواهد شد.
+بله، می‌توانید اثرها را به اشکال گروه‌بندی شده اعمال کنید. اثر به کل گروه اعمال خواهد شد.

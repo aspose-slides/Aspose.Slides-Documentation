@@ -1,61 +1,61 @@
 ---
-title: "Πώς να Εκτελέσετε Παραδείγματα"
+title: Πώς να εκτελέσετε τα παραδείγματα
 type: docs
 weight: 140
 url: /el/java/how-to-run-the-examples/
 keywords:
-- "παραδείγματα"
-- "απαιτήσεις λογισμικού"
-- "GitHub"
-- "PowerPoint"
-- "OpenDocument"
-- "παρουσίαση"
-- "Java"
-- "Aspose.Slides"
-description: "Εκτελέστε γρήγορα τα παραδείγματα Aspose.Slides για Java: κλωνοποιήστε το αποθετήριο, επαναφέρετε τα πακέτα και στη συνέχεια δημιουργήστε και δοκιμάστε λειτουργίες για PPT, PPTX και ODP."
+- παραδείγματα
+- απαιτήσεις λογισμικού
+- GitHub
+- PowerPoint
+- OpenDocument
+- παρουσίαση
+- Java
+- Aspose.Slides
+description: "Εκτελέστε γρήγορα παραδείγματα Aspose.Slides για Java: κλωνοποιήστε το αποθετήριο, επαναφέρετε τα πακέτα, και στη συνέχεια δημιουργήστε και δοκιμάστε λειτουργίες για PPT, PPTX και ODP."
 ---
-## **Λήψη Aspose.Slides από το GitHub**
-Όλα τα παραδείγματα του Aspose.Slides για Java φιλοξενούνται στο [Github](https://github.com/aspose-slides/Aspose.Slides-for-Java). Μπορείτε είτε να κλωνοποιήσετε το αποθετήριο χρησιμοποιώντας τον αγαπημένο σας πελάτη Github, είτε να κατεβάσετε το αρχείο ZIP από [εδώ](https://codeload.github.com/aspose-slides/Aspose.Slides-for-Java/zip/master).
+## **Κάντε λήψη του Aspose.Slides από το GitHub**
+All examples of Aspose.Slides for Java are hosted on [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-Java). You can either clone the repository using your favorite Github client or download the ZIP file from [εδώ](https://codeload.github.com/aspose-slides/Aspose.Slides-for-Java/zip/master).
 
-Εξαγάγετε τα περιεχόμενα του αρχείου ZIP σε οποιονδήποτε φάκελο στον υπολογιστή σας. Όλα τα παραδείγματα βρίσκονται στο φάκελο **Examples**.
+Extract the contents of ZIP file to any folder on your computer. All examples are located in the **Examples** folder.
 
 ![todo:image_alt_text](examples_directory.png)
 
-## **Εισαγωγή Παραδειγμάτων στο IDE**
-Το έργο χρησιμοποιεί το σύστημα κατασκευής Maven. Οποιοδήποτε σύγχρονο IDE μπορεί εύκολα να ανοίξει ή να εισάγει το έργο και τις εξαρτήσεις του. Παρακάτω δείχνουμε πώς να χρησιμοποιήσετε δημοφιλή IDEs για να δημιουργήσετε και να εκτελέσετε τα παραδείγματα.
+## **Εισαγωγή παραδειγμάτων στο IDE**
+The project uses Maven build system. Any modern IDE can easily open or import the project and its dependencies. Below we show you how to use popular IDEs to build and run the examples.
 
 ### **IntelliJ IDEA**
-Κάντε κλικ στο μενού **File** και επιλέξτε **Open**. Περιηγηθείτε στον φάκελο του έργου και επιλέξτε το αρχείο **pom.xml**.
+Click on the **File** menu and choose **Open**. Browse to the project folder and select the **pom.xml** file.
 
 ![todo:image_alt_text](idea_select_file_or_directory_to_import.png)
 
-Θα ανοίξει το έργο και θα κατεβάσει αυτόματα τις εξαρτήσεις. Από την καρτέλα Project, περιηγηθείτε στα παραδείγματα στον φάκελο **src/main/java**. Για να εκτελέσετε ένα παράδειγμα, κάντε δεξί κλικ στο αρχείο και επιλέξτε "Run ..", το παράδειγμα θα εκτελεστεί και η έξοδος θα εμφανιστεί στο ενσωματωμένο παράθυρο εξόδου της κονσόλας.
+It will open the project and download the dependencies automatically. From the Project tab, browse the examples in **src/main/java** folder. To run an example, just right click on the file and choose "Run ..", the example will be executed and the output will be shown in the built in console output window.
 
 ![todo:image_alt_text](idea_run_example.png)
 
 ### **Eclipse**
-Κάντε κλικ στο μενού **File** και επιλέξτε **Import**. Επιλέξτε **Maven** - Existing Maven Projects.
+Click on **File** menu and choose **Import**. Select **Maven** - Existing Maven Projects.
 
 ![todo:image_alt_text](eclipse_import.png)
 
-Περιηγηθείτε στον φάκελο που κλωνοποιήσατε ή κατεβάσατε από το GitHub και επιλέξτε το αρχείο **pom.xml**. Θα ανοίξει το έργο και θα κατεβάσει αυτόματα τις εξαρτήσεις. Από την καρτέλα Package Explorer, περιηγηθείτε στα παραδείγματα στον φάκελο **src/main/java**. Για να εκτελέσετε ένα παράδειγμα, κάντε δεξί κλικ στο αρχείο και επιλέξτε **Run As** - **Java Application**, το παράδειγμα θα εκτελεστεί και η έξοδος θα εμφανιστεί στο ενσωματωμένο παράθυρο εξόδου της κονσόλας.
+Browse to the folder that you cloned or downloaded from GitHub and select **pom.xml** file. It will open the project and download the dependencies automatically. From the Package Explorer tab, browse the examples in **src/main/java** folder. To run an example, just right click on the file and choose **Run As** - **Java Application**, the example will be executed and the output will be shown in the built in console output window.
 
 ![todo:image_alt_text](eclipse_run_example.png)
 
 ### **NetBeans**
-Κάντε κλικ στο μενού **File** και επιλέξτε **Open Project**. Περιηγηθείτε στον φάκελο που κλωνοποιήσατε ή κατεβάσατε από το GitHub. Το εικονίδιο του φακέλου **Examples** θα δείξει ότι είναι έργο Maven. Επιλέξτε Examples και ανοίξτε το.
+Click on the **File** menu and choose **Open Project**. Browse to the folder that you cloned or downloaded from GitHub. The icon of **Examples** folder will show that its a Maven project. Select Examples and open it.
 
 ![todo:image_alt_text](netbeans_openproject.png)
 
-Θα ανοίξει το έργο και θα κατεβάσει αυτόματα τις εξαρτήσεις. Από την καρτέλα Projects, περιηγηθείτε στα παραδείγματα στα **source packages**. Για να εκτελέσετε ένα παράδειγμα, κάντε δεξί κλικ στο αρχείο και επιλέξτε **Run File**, το παράδειγμα θα εκτελεστεί και η έξοδος θα εμφανιστεί στο ενσωματωμένο παράθυρο εξόδου της κονσόλας.
+It will open the project and download the dependencies automatically. From the Projects tab, browse the examples in **source packages**. To run an example, just right click on the file and choose **Run File**, the example will be executed and the output will be shown in the built in console output window.
 
 ![todo:image_alt_text](netbeans_run_example.png)
 
 ## **Προσθήκη της βιβλιοθήκης Aspose.Slides στο τοπικό αποθετήριο Maven**
-Όταν εισάγετε το έργο **Aspose.Slides Examples** στο IDE, το Maven κατεβάζει αυτόματα το αρχείο JAR aspose.slides από το [Aspose Maven Repository](https://releases.aspose.com/java/repo/com/aspose/). Σε περίπτωση που δεν έχετε πρόσβαση στο διαδίκτυο, μπορείτε να προσθέσετε χειροκίνητα το JAR στο τοπικό σας αποθετήριο.
+When you import **Aspose.Slides Examples** project into IDE, Maven automatically downloads aspose.slides JAR file from [Aspose Maven Repository](https://releases.aspose.com/java/repo/com/aspose/). In case you do not have access to internet, you can manually add JAR in your local repository.
 
 ### **mvn install**
-Κατεβάστε το [aspose.slides](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/), εξαγάγετε το και αντιγράψτε το aspose.slides-version.jar κάπου αλλού, για παράδειγμα, στον δίσκο C. Εκτελέστε την παρακάτω εντολή:
+Download the [aspose.slides](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/), extract it and copy the aspose.slides-version.jar to somewhere else, for example, c drive. Issue following command:
 
 ```
 mvn install:install-file
@@ -66,10 +66,10 @@ mvn install:install-file
     - Dpackaging=jar
 ```
 
-Τώρα, το αρχείο JAR **aspose.slides** έχει αντιγραφεί στο τοπικό σας αποθετήριο Maven.
+Now, the **aspose.slides** jar is copied to your Maven local repository.
 
 ### **pom.xml**
-Μετά την εγκατάσταση, απλώς δηλώνει το συντελεστή **aspose.slides** στο pom.xml. Προσθέστε το παρακάτω αποθετήριο στην καρτέλα repositories και την εξάρτηση στην καρτέλα dependencies.
+After installed, just declares the **aspose.slides** coordinate in pom.xml. Add following repository in repositories tab and dependency in dependencies tab.
 
 ``` xml
 <repository>
@@ -81,15 +81,15 @@ mvn install:install-file
 <dependency>
     <groupId>com.aspose</groupId>
     <artifactId>aspose-slides</artifactId>
-    <version>25.12</version>
-    <classifier>jdk16</classifier>
+    <version>26.10</version>
+    <classifier>jdk8</classifier>
 </dependency>
 ```
 
-### **Ολοκληρώθηκε**
-Δομήστε το, τώρα το αρχείο JAR **aspose.slides** μπορεί να ληφθεί από το τοπικό σας αποθετήριο Maven.
+### **Done**
+Build it, now the **aspose.slides** jar is able to retrieve from your Maven local repository.
 
-## **Συνεισφέρετε**
-Αν θέλετε να προσθέσετε ή να βελτιώσετε ένα παράδειγμα, σας ενθαρρύνουμε να συνεισφέρετε στο έργο. Όλα τα παραδείγματα και τα έργα επίδειξης σε αυτό το αποθετήριο είναι ανοιχτού κώδικα και μπορούν να χρησιμοποιηθούν ελεύθερα στις δικές σας εφαρμογές.
+## **Contribute**
+If you like to add or improve an example, we encourage you to contribute to the project. All examples and showcase projects in this repository are open source and can be freely used in your own applications.
 
-Για να συνεισφέρετε, μπορείτε να κάνετε fork το αποθετήριο, να επεξεργαστείτε τον πηγαίο κώδικα και να υποβάλετε ένα Pull Request. Θα εξετάσουμε τις αλλαγές και θα τις συμπεριλάβουμε στο αποθετήριο εάν είναι χρήσιμες.
+To contribute, you can fork the repository, edit the source code and can submit a Pull Request. We will review the changes and include it in the repository if found helpful.

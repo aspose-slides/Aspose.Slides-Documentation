@@ -1,123 +1,195 @@
 ---
-title: ใช้เอฟเฟกต์รูปทรงในงานนำเสนอบน Android
-linktitle: เอฟเฟกต์รูปทรง
+title: ใช้เอฟเฟกต์รูปร่างในงานนำเสนอบน Android
+linktitle: เอฟเฟกต์รูปร่าง
 type: docs
 weight: 30
 url: /th/androidjava/shape-effect/
 keywords:
-- เอฟเฟกต์รูปทรง
+- เอฟเฟกต์รูปร่าง
 - เอฟเฟกต์เงา
 - เอฟเฟกต์การสะท้อน
 - เอฟเฟกต์เรืองแสง
-- เอฟเฟกต์ขอบนุ่ม
+- เอฟเฟกต์ขอบอ่อน
 - รูปแบบเอฟเฟกต์
 - PowerPoint
 - งานนำเสนอ
 - Android
 - Java
 - Aspose.Slides
-description: "แปลงไฟล์ PPT และ PPTX ของคุณด้วยเอฟเฟกต์รูปทรงขั้นสูงโดยใช้ Aspose.Slides สำหรับ Android ผ่าน Java—สร้างสไลด์ที่โดดเด่นและเป็นมืออาชีพในไม่กี่วินาที."
+description: "แปลงไฟล์ PPT และ PPTX ของคุณด้วยเอฟเฟกต์รูปร่างขั้นสูงโดยใช้ Aspose.Slides สำหรับ Android ผ่าน Java—สร้างสไลด์ที่โดดเด่นและเป็นมืออาชีพในไม่กี่วินาที"
 ---
 ## **บทนำ**
 
-ในขณะที่เอฟเฟกต์ใน PowerPoint สามารถใช้เพื่อทำให้รูปทรงโดดเด่นได้ แต่พวกมันจะแตกต่างจาก [การเติม](/slides/th/androidjava/shape-formatting/#gradient-fill) หรือ outlines. โดยใช้เอฟเฟกต์ของ PowerPoint คุณสามารถสร้างการสะท้อนที่น่าเชื่อถือบนรูปทรง กระจายแสงเรืองรอบรูปทรง ฯลฯ
+แม้ว่าเอฟเฟกต์ใน PowerPoint จะสามารถใช้ทำให้รูปร่างเด่นขึ้นได้ แต่ก็แตกต่างจาก [fills](/slides/th/androidjava/shape-formatting/#gradient-fill) หรือเส้นขอบ การใช้เอฟเฟกต์ใน PowerPoint คุณสามารถสร้างการสะท้อนที่เชื่อถือได้บนรูปร่าง กระจายแสงเรืองรอบรูปร่าง ฯลฯ
 
-<img src="shape-effect.png" alt="shape-effect" style="zoom:50%;" />
+![เอฟเฟกต์รูปร่าง](shape-effect.png)
 
-* PowerPoint มีเอฟเฟกต์หกประเภทที่สามารถนำไปใช้กับรูปทรงได้ คุณสามารถใช้หนึ่งหรือหลายเอฟเฟกต์กับรูปทรงหนึ่งรูปได้. 
+PowerPoint มีเอฟเฟกต์ทั้งหมดหกแบบที่สามารถใช้กับรูปร่างได้ คุณสามารถใช้หนึ่งหรือหลายเอฟเฟกต์กับรูปร่างได้
 
-* การผสมเอฟเฟกต์บางอย่างดูดีกว่าอื่น ๆ ด้วยเหตุนี้ ตัวเลือกของ PowerPoint ภายใต้ **Preset** ตัวเลือก Preset นั้นโดยพื้นฐานคือการผสมที่ดูดีของสองหรือมากกว่าหนึ่งเอฟเฟกต์ ด้วยวิธีนี้ การเลือก Preset จะทำให้คุณไม่ต้องเสียเวลาทดสอบหรือผสมเอฟเฟกต์ต่าง ๆ เพื่อค้นหาการผสมที่ดี.
+การผสมผสานเอฟเฟกต์บางแบบดูดีกว่าที่อื่น ด้วยเหตุนี้ PowerPoint จึงมีตัวเลือกภายใต้ **Preset** ตัวเลือก Preset เป็นการผสมผสานของสองหรือมากกว่าหนึ่งเอฟเฟกต์ที่รู้กันว่าดูดี วิธีนี้โดยการเลือก Preset คุณจะไม่ต้องเสียเวลาในการทดสอบหรือผสมผสานเอฟเฟกต์ต่าง ๆ เพื่อหาการผสมที่เหมาะสม
 
-Aspose.Slides มีคุณสมบัติและเมธอดภายใต้คลาส [EffectFormat](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/EffectFormat) ที่อนุญาตให้คุณใช้เอฟเฟกต์เดียวกันกับรูปทรงในงานนำเสนอ PowerPoint.
+Aspose.Slides มีคุณสมบัติและเมธอดภายใต้คลาส [EffectFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/effectformat/) ที่ช่วยให้คุณใช้เอฟเฟกต์เดียวกันกับรูปร่างในงานนำเสนอ PowerPoint
 
 ## **ใช้เอฟเฟกต์เงา**
 
-โค้ด Java นี้แสดงให้คุณเห็นวิธีการใช้เอฟเฟกต์เงานอก ([OuterShadowEffect](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/EffectFormat#setOuterShadowEffect--)) กับสี่เหลี่ยมผืนผ้า:
+Aspose.Slides for Android via Java รองรับเงานอกและเงาภายในสำหรับรูปร่าง คุณสามารถปรับสี ทิศทาง ระยะห่าง และรัศมีเบลอร์เพื่อให้ตรงกับการออกแบบงานนำเสนอของคุณ
+
+### **ใช้เงานอก**
+
+ใช้เงานอกเพื่อทำให้การ์ดหรือแผงเด้งออกจากพื้นหลังสไลด์ เงาจะยืดออกนอกขอบของรูปร่างสร้างความรู้สึกว่ารูปร่างลอยอยู่เหนือสไลด์ ปรับสี ทิศทาง ระยะห่าง และรัศมีเบลอร์ให้ตรงกับแสงและสไตล์ของเทมเพลตของคุณ
+
+โค้ด Java นี้แสดงวิธีใช้ [outer shadow effect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/effectformat/#getOuterShadowEffect--) กับสี่เหลี่ยมผืนผ้า:
 
 ```java
-Presentation pres = new Presentation();
-try {
-    IShape shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.RoundCornerRectangle, 20, 20, 200, 150);
+import com.aspose.slides.*;
+import android.graphics.Color;
 
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IShape shape = slide.getShapes().addAutoShape(ShapeType.RoundCornerRectangle, 20, 20, 200, 100);
     shape.getEffectFormat().enableOuterShadowEffect();
-    shape.getEffectFormat().getOuterShadowEffect().getShadowColor().setColor(Color.DARK_GRAY);
+    shape.getEffectFormat().getOuterShadowEffect().getShadowColor().setColor(Color.rgb(169, 169, 169));
     shape.getEffectFormat().getOuterShadowEffect().setDistance(10);
     shape.getEffectFormat().getOuterShadowEffect().setDirection(45);
 
-    pres.save("output.pptx", SaveFormat.Pptx);
+    presentation.save("shadow_effect.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **ใช้เอฟเฟกต์การสะท้อน**
+![เอฟเฟกต์เงา](shadow_effect.png)
 
-โค้ด Java นี้แสดงให้คุณเห็นวิธีการใช้เอฟเฟกต์การสะท้อนกับรูปทรง:
+### **ใช้เงาใน**
+
+เมื่อทำซ้ำลักษณะภาพของเทมเพลต ให้ใช้เงาในเพื่อให้การ์ดหรือแผงดูดิ่งลงด้านใน เงานอกจะยืดออกนอกขอบและทำให้ดูลอยขึ้น ส่วนเงาในจะทำให้ขอบภายในมืดลง
+
+เรียก [enableInnerShadowEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/effectformat/#enableInnerShadowEffect--) จากนั้นกำหนดค่าเงาที่ส่งกลับโดย [getInnerShadowEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/effectformat/#getInnerShadowEffect--) ค่ารัศมีเบลอร์ที่ใหญ่ขึ้นจะทำให้ขอบนุ่มขึ้น
+
+ตัวอย่าง Java นี้สร้างการ์ดสีฟ้าอ่อนกับเงาในสีเทาเข้มและบันทึกเป็นไฟล์ PPTX ทิศทางของเงาคือ 225 องศา ระยะห่าง 7 พอยท์ และรัศมีเบลอร์ 6 พอยท์:
 
 ```java
-Presentation pres = new Presentation();
-try {
-    IShape shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.RoundCornerRectangle, 20, 20, 200, 150);
+import com.aspose.slides.*;
+import android.graphics.Color;
 
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 200, 100);
+    shape.getFillFormat().setFillType(FillType.Solid);
+    shape.getFillFormat().getSolidFillColor().setColor(Color.rgb(173, 216, 230));
+    shape.getLineFormat().getFillFormat().setFillType(FillType.NoFill);
+
+    shape.getEffectFormat().enableInnerShadowEffect();
+    IInnerShadow shadow = shape.getEffectFormat().getInnerShadowEffect();
+    shadow.getShadowColor().setColor(Color.rgb(105, 105, 105));
+    shadow.setDirection(225);
+    shadow.setDistance(7);
+    shadow.setBlurRadius(6);
+
+    presentation.save("inner_shadow_effect.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+![สี่เหลี่ยมสีฟ้าอ่อนพร้อมเงาใน](inner_shadow_effect.png)
+
+เพื่อเอาเงาในออก ให้เรียก [disableInnerShadowEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/effectformat/#disableInnerShadowEffect--) บนรูปแบบเอฟเฟกต์ของรูปร่าง
+
+## **ใช้เอฟเฟ็กต์การสะท้อน**
+
+เพื่อใช้เอฟเฟ็กต์การสะท้อนใน Aspose.Slides for Android via Java คุณสามารถเพิ่มการสะท้อนคล้ายกระจกให้กับรูปร่าง ปรับพารามิเตอร์เช่น ระยะห่าง ความโปร่งแสง และขนาด เอฟเฟ็กต์นี้ช่วยเพิ่มความสวยงามของงานนำเสนอโดยทำให้รูปร่างดูเป็นมืออาชีพและหรูหรามากขึ้น ใช้งานได้ง่ายด้วยโค้ดไม่กี่บรรทัด ทำให้สามารถนำไปใช้กับหลายองค์ประกอบได้อย่างรวดเร็วเพื่อให้การออกแบบสอดคล้องกัน
+
+โค้ด Java นี้แสดงวิธีใช้ [reflection effect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/effectformat/#getReflectionEffect--) กับรูปร่าง:
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IShape shape = slide.getShapes().addAutoShape(ShapeType.RoundCornerRectangle, 20, 20, 200, 100);
     shape.getEffectFormat().enableReflectionEffect();
     shape.getEffectFormat().getReflectionEffect().setRectangleAlign(RectangleAlignment.Bottom);
     shape.getEffectFormat().getReflectionEffect().setDirection(90);
-    shape.getEffectFormat().getReflectionEffect().setDistance(55);
-    shape.getEffectFormat().getReflectionEffect().setBlurRadius(4);
+    shape.getEffectFormat().getReflectionEffect().setDistance(40);
+    shape.getEffectFormat().getReflectionEffect().setBlurRadius(2);
 
-    pres.save("reflection.pptx", SaveFormat.Pptx);
+    presentation.save("reflection_effect.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **ใช้เอฟเฟกต์เรืองแสง**
+![เอฟเฟ็กต์การสะท้อน](reflection_effect.png)
 
-โค้ด Java นี้แสดงให้คุณเห็นวิธีการใช้เอฟเฟกต์เรืองแสงกับรูปทรง:
+## **ใช้เอฟเฟ็กต์เรืองแสง**
+
+เพื่อใช้เอฟเฟ็กต์เรืองแสงกับรูปร่างใน Aspose.Slides for Android via Java คุณสามารถเพิ่มออร่านุ่มนวลรอบรูปร่าง ปรับคุณสมบัติเช่น สีและขนาด เอฟเฟ็กต์นี้ช่วยให้รูปร่างโดดเด่นและเพิ่มองค์ประกอบภาพที่ดึงดูดสายตาให้กับงานนำเสนอของคุณ ใช้งานง่ายด้วยโค้ดไม่กี่บรรทัด ทำให้สไลด์ของคุณดูสวยงามยิ่งขึ้น
+
+โค้ด Java นี้แสดงวิธีใช้ [glow effect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/effectformat/#getGlowEffect--) กับรูปร่าง:
 
 ```java
-Presentation pres = new Presentation();
-try {
-    IShape shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.RoundCornerRectangle, 20, 20, 200, 150);
+import com.aspose.slides.*;
+import android.graphics.Color;
 
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IShape shape = slide.getShapes().addAutoShape(ShapeType.RoundCornerRectangle, 20, 20, 200, 100);
     shape.getEffectFormat().enableGlowEffect();
     shape.getEffectFormat().getGlowEffect().getColor().setColor(Color.MAGENTA);
     shape.getEffectFormat().getGlowEffect().setRadius(15);
 
-    pres.save("glow.pptx", SaveFormat.Pptx);
+    presentation.save("glow_effect.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **ใช้เอฟเฟกต์ขอบนุ่ม**
+![เอฟเฟ็กต์เรืองแสง](glow_effect.png)
 
-โค้ด Java นี้แสดงให้คุณเห็นวิธีการใช้ขอบนุ่มกับรูปทรง:
+## **ใช้เอฟเฟ็กต์ขอบอ่อน**
+
+เพื่อใช้เอฟเฟ็กต์ขอบอ่อนใน Aspose.Slides for Android via Java คุณสามารถสร้างการเปลี่ยนแปลงรอบขอบของรูปร่างที่เรียบเนียนและเบลอ เอฟเฟ็กต์นี้เพิ่มลุคที่ละเอียดอ่อนและสบายตา เหมาะสำหรับการออกแบบที่ต้องการความนุ่มนวล คุณสามารถปรับพารามิเตอร์เช่น รัศมีเพื่อให้ได้ผลลัพธ์ตามต้องการบนรูปร่างต่าง ๆ ในงานนำเสนอของคุณ
+
+โค้ด Java นี้แสดงวิธีใช้ [soft edges effect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/effectformat/#getSoftEdgeEffect--) กับรูปร่าง:
 
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    IShape shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.RoundCornerRectangle, 20, 20, 200, 150);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
+    IShape shape = slide.getShapes().addAutoShape(ShapeType.RoundCornerRectangle, 20, 20, 200, 150);
     shape.getEffectFormat().enableSoftEdgeEffect();
-    shape.getEffectFormat().getSoftEdgeEffect().setRadius(15);
+    shape.getEffectFormat().getSoftEdgeEffect().setRadius(8);
 
-    pres.save("softEdges.pptx", SaveFormat.Pptx);
+    presentation.save("soft_edges_effect.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **FAQ**
+![เอฟเฟ็กต์ขอบอ่อน](soft_edges_effect.png)
 
-**ฉันสามารถใช้หลายเอฟเฟกต์กับรูปทรงเดียวกันได้หรือไม่?**
+## **คำถามที่พบบ่อย**
 
-ใช่ คุณสามารถผสมเอฟเฟกต์ต่าง ๆ เช่น เงา การสะท้อน และเรืองแสงบนรูปทรงเดียวเพื่อสร้างลักษณะที่ไดนามิกมากขึ้น
+**ฉันสามารถใช้หลายเอฟเฟ็กต์บนรูปร่างเดียวกันได้หรือไม่?**
 
-**ฉันสามารถใช้เอฟเฟกต์กับรูปทรงอะไรได้บ้าง?**
+ได้ คุณสามารถรวมเอฟเฟ็กต์ต่าง ๆ เช่น เงา การสะท้อน และเรืองแสง บนรูปร่างเดียวเพื่อสร้างลุคที่พลวัตมากขึ้น
 
-คุณสามารถใช้เอฟเฟกต์กับรูปทรงหลากหลาย รวมถึง autoshapes, แผนภูมิ, ตาราง, รูปภาพ, วัตถุ SmartArt, วัตถุ OLE และอื่น ๆ
+**ฉันสามารถใช้เอฟเฟ็กต์กับรูปแบบใดบ้าง?**
 
-**ฉันสามารถใช้เอฟเฟกต์กับรูปทรงที่จัดกลุ่มได้หรือไม่?**
+คุณสามารถใช้เอฟเฟ็กต์กับรูปแบบต่าง ๆ ได้แก่ รูปร่างอัตโนมัติ, แผนภูมิ, ตาราง, รูปภาพ, วัตถุ SmartArt, วัตถุ OLE และอื่น ๆ
 
-ได้ คุณสามารถใช้เอฟเฟกต์กับรูปทรงที่จัดกลุ่มได้ เอฟเฟกต์จะถูกนำไปใช้กับกลุ่มทั้งหมด.
+**ฉันสามารถใช้เอฟเฟ็กต์กับกลุ่มรูปร่างได้หรือไม่?**
+
+ได้ คุณสามารถใช้เอฟเฟ็กต์กับกลุ่มรูปร่างได้ เอฟเฟ็กต์จะถูกนำไปใช้กับกลุ่มทั้งหมดอย่างเดียวกัน

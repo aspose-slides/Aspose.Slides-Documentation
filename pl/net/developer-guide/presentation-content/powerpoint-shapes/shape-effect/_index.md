@@ -3,7 +3,7 @@ title: Zastosowanie efektów kształtów w prezentacjach w .NET
 linktitle: Efekt kształtu
 type: docs
 weight: 30
-url: /pl/net/shape-effect
+url: /pl/net/shape-effect/
 keywords:
 - efekt kształtu
 - efekt cienia
@@ -18,30 +18,37 @@ keywords:
 - Aspose.Slides
 description: "Przekształć swoje pliki PPT i PPTX za pomocą zaawansowanych efektów kształtów przy użyciu Aspose.Slides dla .NET — twórz efektowne, profesjonalne slajdy w kilka sekund."
 ---
-## **Wprowadzenie**
+## **Wstęp**
 
-Chociaż efekty w PowerPoint można wykorzystać, aby wyróżnić kształt, różnią się one od [wypełnień](/slides/pl/net/shape-formatting/#gradient-fill) lub konturów. Korzystając z efektów PowerPoint, możesz tworzyć przekonujące odbicia kształtu, rozpraszać poświatę kształtu itp.
+Podczas gdy efekty w programie PowerPoint mogą być używane do wyróżnienia kształtu, różnią się od [wypełnień](/slides/pl/net/shape-formatting/#gradient-fill) lub konturów. Korzystając z efektów PowerPoint, możesz tworzyć przekonujące odbicia na kształcie, rozprzestrzeniać poświatę kształtu itp.
 
-<img src="shape-effect.png" alt="efekt-kształtu" style="zoom:50%;" />
+![Efekt cienia](shape-effect.png)
 
 PowerPoint udostępnia sześć efektów, które można zastosować do kształtów. Możesz zastosować jeden lub więcej efektów do kształtu.
 
-Niektóre kombinacje efektów wyglądają lepiej niż inne. Z tego powodu PowerPoint posiada opcje w sekcji **Preset**. Opcje Preset to w zasadzie znane, dobrze wyglądające kombinacje dwóch lub więcej efektów. Dzięki wyborowi presetu nie musisz marnować czasu na testowanie lub łączenie różnych efektów, aby znaleźć dobrą kombinację.
+Niektóre kombinacje efektów wyglądają lepiej niż inne. Z tego powodu PowerPoint posiada opcje w sekcji **Preset**. Opcje Preset to w zasadzie znana, dobrze wyglądająca kombinacja dwóch lub więcej efektów. Dzięki temu, wybierając preset, nie musisz tracić czasu na testowanie lub łączenie różnych efektów w poszukiwaniu ładnej kombinacji.
 
-Aspose.Slides udostępnia właściwości i metody w klasie [EffectFormat](https://reference.aspose.com/slides/pl/net/aspose.slides/effectformat/), które umożliwiają zastosowanie tych samych efektów do kształtów w prezentacjach PowerPoint.
+Aspose.Slides udostępnia właściwości i metody w klasie [EffectFormat](https://reference.aspose.com/slides/net/aspose.slides/effectformat/), które pozwalają zastosować te same efekty do kształtów w prezentacjach PowerPoint.
 
 ## **Zastosowanie efektu cienia**
 
-Aby zastosować efekt cienia do kształtu w Aspose.Slides dla .NET, możesz łatwo dostosować parametry takie jak kolor, promień rozmycia i kierunek. Dzięki temu twoje kształty będą wyglądały bardziej dynamicznie i profesjonalnie, dodając głębi i uwagi. Korzystając z prostych fragmentów kodu, możesz zastosować te efekty do wielu kształtów, zwiększając ogólną atrakcyjność wizualną swoich prezentacji.
+Aspose.Slides dla .NET obsługuje zewnętrzne i wewnętrzne cienie dla kształtów. Możesz dostosować ich kolor, kierunek, odległość i promień rozmycia, aby pasowały do projektu Twojej prezentacji.
 
-Poniższy kod C# pokazuje, jak zastosować [efekt zewnętrznego cienia](https://reference.aspose.com/slides/pl/net/aspose.slides/effectformat/outershadoweffect/) do prostokąta:
+### **Zastosowanie zewnętrznego cienia**
+
+Użyj zewnętrznego cienia, aby karta lub panel wyróżniały się na tle slajdu. Cień wykracza poza krawędzie kształtu, tworząc wrażenie, że kształt jest uniesiony ponad slajd. Dostosuj jego kolor, kierunek, odległość i promień rozmycia, aby pasowały do oświetlenia i stylu Twojego szablonu.
+
+Ten kod C# pokazuje, jak zastosować [efekt zewnętrznego cienia](https://reference.aspose.com/slides/net/aspose.slides/effectformat/outershadoweffect/) do prostokąta:
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
 
 var shape = slide.Shapes.AddAutoShape(ShapeType.RoundCornerRectangle, 20, 20, 200, 100);
-
 shape.EffectFormat.EnableOuterShadowEffect();
 shape.EffectFormat.OuterShadowEffect.ShadowColor.Color = Color.DarkGray;
 shape.EffectFormat.OuterShadowEffect.Distance = 10;
@@ -52,18 +59,55 @@ presentation.Save("shadow_effect.pptx", SaveFormat.Pptx);
 
 ![Efekt cienia](shadow_effect.png)
 
+### **Zastosowanie wewnętrznego cienia**
+
+Podczas odtwarzania wizualnego stylu szablonu użyj wewnętrznego cienia, aby nadać karcie lub panelowi wklęsły wygląd. Zewnętrzny cień rozciąga się poza kształt i sprawia, że wydaje się podniesiony, natomiast wewnętrzny cień przyciemnia wnętrze jego krawędzi.
+
+Wywołaj [EnableInnerShadowEffect](https://reference.aspose.com/slides/net/aspose.slides/effectformat/enableinnershadoweffect/), a następnie skonfiguruj [InnerShadowEffect](https://reference.aspose.com/slides/net/aspose.slides/effectformat/innershadoweffect/). Większe wartości powodują miększe krawędzie.
+
+Ten przykład w C# tworzy jasno niebieską kartę z ciemnoszarym wewnętrznym cieniem i zapisuje ją jako plik PPTX:
+
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 200, 100);
+shape.FillFormat.FillType = FillType.Solid;
+shape.FillFormat.SolidFillColor.Color = Color.LightBlue;
+shape.LineFormat.FillFormat.FillType = FillType.NoFill;
+
+shape.EffectFormat.EnableInnerShadowEffect();
+var shadow = shape.EffectFormat.InnerShadowEffect;
+shadow.ShadowColor.Color = Color.DimGray;
+shadow.Direction = 225;
+shadow.Distance = 7;
+shadow.BlurRadius = 6;
+
+presentation.Save("inner_shadow_effect.pptx", SaveFormat.Pptx);
+```
+
+![Jasnoniebieski prostokąt z wewnętrznym cieniem](inner_shadow_effect.png)
+
+Aby usunąć wewnętrzny cień, wywołaj [DisableInnerShadowEffect](https://reference.aspose.com/slides/net/aspose.slides/effectformat/disableinnershadoweffect/) na formacie efektu kształtu.
+
 ## **Zastosowanie efektu odbicia**
 
-Aby zastosować efekt odbicia w Aspose.Slides dla .NET, możesz dodać lustrzane odbicie do kształtów, dostosowując parametry takie jak odległość, przezroczystość i rozmiar. Ten efekt podnosi estetykę twoich prezentacji, nadając kształtom bardziej wykończony i elegancki wygląd. Jest łatwy do wdrożenia przy użyciu prostego kodu, umożliwiając szybkie zastosowanie w wielu elementach dla spójnego projektu.
+Aby zastosować efekt odbicia w Aspose.Slides dla .NET, możesz dodać do kształtów odbicie w stylu lustra, dostosowując parametry takie jak odległość, przezroczystość i rozmiar. Ten efekt podnosi estetykę Twoich prezentacji, nadając kształtom bardziej dopracowany i wyrafinowany wygląd. Jest łatwy do wdrożenia przy użyciu prostego kodu, co umożliwia szybkie zastosowanie go w wielu elementach w celu uzyskania spójnego projektu.
 
-Poniższy kod C# pokazuje, jak zastosować [efekt odbicia](https://reference.aspose.com/slides/pl/net/aspose.slides/effectformat/reflectioneffect/) do kształtu:
+Ten kod C# pokazuje, jak zastosować [efekt odbicia](https://reference.aspose.com/slides/net/aspose.slides/effectformat/reflectioneffect/) do kształtu:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
 
 var shape = slide.Shapes.AddAutoShape(ShapeType.RoundCornerRectangle, 20, 20, 200, 100);
-
 shape.EffectFormat.EnableReflectionEffect();
 shape.EffectFormat.ReflectionEffect.RectangleAlign = RectangleAlignment.Bottom;
 shape.EffectFormat.ReflectionEffect.Direction = 90;
@@ -77,16 +121,19 @@ presentation.Save("reflection_effect.pptx", SaveFormat.Pptx);
 
 ## **Zastosowanie efektu poświaty**
 
-Aby zastosować efekt poświaty do kształtu w Aspose.Slides dla .NET, możesz dodać miękką, świetlną aurę wokół kształtów, dostosowując właściwości takie jak kolor i rozmiar. Ten efekt pomaga wyróżnić kształty i dodaje atrakcyjny, przyciągający uwagę element wizualny do twojej prezentacji. Jest łatwy do wdrożenia przy minimalnym kodzie, poprawiając ogólny wygląd slajdów.
+Aby zastosować efekt poświaty do kształtu w Aspose.Slides dla .NET, możesz dodać miękką, świetlistą aurę wokół kształtów, dostosowując właściwości takie jak kolor i rozmiar. Ten efekt pomaga wyróżnić kształty i dodaje atrakcyjny, przyciągający uwagę element wizualny do Twojej prezentacji. Jest łatwy do wdrożenia przy minimalnym kodzie, poprawiając ogólny wygląd Twoich slajdów.
 
-Poniższy kod C# pokazuje, jak zastosować [efekt poświaty](https://reference.aspose.com/slides/pl/net/aspose.slides/effectformat/gloweffect/) do kształtu:
+Ten kod C# pokazuje, jak zastosować [efekt poświaty](https://reference.aspose.com/slides/net/aspose.slides/effectformat/gloweffect/) do kształtu:
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
 
 var shape = slide.Shapes.AddAutoShape(ShapeType.RoundCornerRectangle, 20, 20, 200, 100);
-
 shape.EffectFormat.EnableGlowEffect();
 shape.EffectFormat.GlowEffect.Color.Color = Color.Magenta;
 shape.EffectFormat.GlowEffect.Radius = 15;
@@ -98,16 +145,18 @@ presentation.Save("glow_effect.pptx", SaveFormat.Pptx);
 
 ## **Zastosowanie efektu miękkich krawędzi**
 
-Aby zastosować efekt miękkich krawędzi w Aspose.Slides dla .NET, możesz stworzyć płynne, rozmyte przejście wokół krawędzi kształtu. Ten efekt dodaje subtelniejszy i bardziej wyrafinowany wygląd, idealny dla projektów wymagających delikatnego, łagodnego wyglądu. Możesz łatwo dostosować parametry takie jak promień, aby uzyskać pożądany efekt w różnych kształtach w swojej prezentacji.
+Aby zastosować efekt miękkich krawędzi w Aspose.Slides dla .NET, możesz stworzyć płynne, rozmyte przejście wokół krawędzi kształtu. Ten efekt dodaje subtelniejszy i bardziej wyrafinowany wygląd, idealny dla projektów, które wymagają delikatnego, łagodniejszego wyglądu. Możesz łatwo dostosować parametry takie jak promień, aby uzyskać pożądany efekt w różnych kształtach w swojej prezentacji.
 
-Poniższy kod C# pokazuje, jak zastosować [miękkie krawędzie](https://reference.aspose.com/slides/pl/net/aspose.slides/effectformat/softedgeeffect/) do kształtu:
+Ten kod C# pokazuje, jak zastosować [miękkie krawędzie](https://reference.aspose.com/slides/net/aspose.slides/effectformat/softedgeeffect/) do kształtu:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
 
 var shape = slide.Shapes.AddAutoShape(ShapeType.RoundCornerRectangle, 20, 20, 200, 150);
-
 shape.EffectFormat.EnableSoftEdgeEffect();
 shape.EffectFormat.SoftEdgeEffect.Radius = 8;
 
@@ -122,7 +171,7 @@ presentation.Save("soft_edges_effect.pptx", SaveFormat.Pptx);
 
 Tak, możesz łączyć różne efekty, takie jak cień, odbicie i poświata, na jednym kształcie, aby uzyskać bardziej dynamiczny wygląd.
 
-**Jakie kształty mogę poddać efektom?**
+**Do jakich kształtów mogę zastosować efekty?**
 
 Możesz zastosować efekty do różnych kształtów, w tym autokształtów, wykresów, tabel, obrazów, obiektów SmartArt, obiektów OLE i innych.
 

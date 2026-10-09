@@ -12,24 +12,24 @@ keywords:
 - apresentação
 - Java
 - Aspose.Slides
-description: "Execute rapidamente os exemplos do Aspose.Slides para Java: clone o repositório, restaure os pacotes e, em seguida, compile e teste recursos para PPT, PPTX e ODP."
+description: "Execute rapidamente os exemplos do Aspose.Slides for Java: clone o repositório, restaure os pacotes e, em seguida, compile e teste recursos para PPT, PPTX e ODP."
 ---
 ## **Baixar Aspose.Slides do GitHub**
-Todos os exemplos do Aspose.Slides para Java estão hospedados no [Github](https://github.com/aspose-slides/Aspose.Slides-for-Java). Você pode clonar o repositório usando seu cliente Github preferido ou baixar o arquivo ZIP de [aqui](https://codeload.github.com/aspose-slides/Aspose.Slides-for-Java/zip/master).
+Todos os exemplos do Aspose.Slides for Java estão hospedados no [Github](https://github.com/aspose-slides/Aspose.Slides-for-Java). Você pode clonar o repositório usando seu cliente favorito do Github ou baixar o arquivo ZIP de [aqui](https://codeload.github.com/aspose-slides/Aspose.Slides-for-Java/zip/master).
 
 Extraia o conteúdo do arquivo ZIP para qualquer pasta em seu computador. Todos os exemplos estão localizados na pasta **Examples**.
 
 ![todo:image_alt_text](examples_directory.png)
 
-## **Importar Exemplos para a IDE**
-O projeto usa o sistema de build Maven. Qualquer IDE moderna pode abrir ou importar o projeto e suas dependências facilmente. Abaixo mostramos como usar IDEs populares para compilar e executar os exemplos.
+## **Importar Exemplos na IDE**
+O projeto usa o sistema de construção Maven. Qualquer IDE moderna pode abrir ou importar facilmente o projeto e suas dependências. Abaixo mostramos como usar IDEs populares para compilar e executar os exemplos.
 
 ### **IntelliJ IDEA**
 Clique no menu **File** e escolha **Open**. Navegue até a pasta do projeto e selecione o arquivo **pom.xml**.
 
 ![todo:image_alt_text](idea_select_file_or_directory_to_import.png)
 
-Ele abrirá o projeto e baixará as dependências automaticamente. Na aba Project, navegue pelos exemplos na pasta **src/main/java**. Para executar um exemplo, basta clicar com o botão direito no arquivo e escolher "Run ..", o exemplo será executado e a saída será mostrada na janela de console integrada.
+Ele abrirá o projeto e baixará as dependências automaticamente. Na aba Project, navegue pelos exemplos na pasta **src/main/java**. Para executar um exemplo, basta clicar com o botão direito no arquivo e escolher "Run ..", o exemplo será executado e a saída será exibida na janela de console incorporada.
 
 ![todo:image_alt_text](idea_run_example.png)
 
@@ -38,7 +38,7 @@ Clique no menu **File** e escolha **Import**. Selecione **Maven** - Existing Mav
 
 ![todo:image_alt_text](eclipse_import.png)
 
-Navegue até a pasta que você clonou ou baixou do GitHub e selecione o arquivo **pom.xml**. Ele abrirá o projeto e baixará as dependências automaticamente. Na aba Package Explorer, navegue pelos exemplos na pasta **src/main/java**. Para executar um exemplo, basta clicar com o botão direito no arquivo e escolher **Run As** - **Java Application**, o exemplo será executado e a saída será mostrada na janela de console integrada.
+Navegue até a pasta que você clonou ou baixou do GitHub e selecione o arquivo **pom.xml**. Ele abrirá o projeto e baixará as dependências automaticamente. Na aba Package Explorer, navegue pelos exemplos na pasta **src/main/java**. Para executar um exemplo, basta clicar com o botão direito no arquivo e escolher **Run As** - **Java Application**, o exemplo será executado e a saída será exibida na janela de console incorporada.
 
 ![todo:image_alt_text](eclipse_run_example.png)
 
@@ -47,15 +47,15 @@ Clique no menu **File** e escolha **Open Project**. Navegue até a pasta que voc
 
 ![todo:image_alt_text](netbeans_openproject.png)
 
-Ele abrirá o projeto e baixará as dependências automaticamente. Na aba Projects, navegue pelos exemplos em **source packages**. Para executar um exemplo, basta clicar com o botão direito no arquivo e escolher **Run File**, o exemplo será executado e a saída será mostrada na janela de console integrada.
+Ele abrirá o projeto e baixará as dependências automaticamente. Na aba Projects, navegue pelos exemplos em **source packages**. Para executar um exemplo, basta clicar com o botão direito no arquivo e escolher **Run File**, o exemplo será executado e a saída será exibida na janela de console incorporada.
 
 ![todo:image_alt_text](netbeans_run_example.png)
 
-## **Adicionar a Biblioteca Aspose.Slides ao Repositório Local Maven**
-Quando você importa o projeto **Aspose.Slides Examples** para a IDE, o Maven baixa automaticamente o arquivo JAR aspose.slides do [Aspose Maven Repository](https://releases.aspose.com/java/repo/com/aspose/). Caso você não tenha acesso à internet, pode adicionar o JAR manualmente ao seu repositório local.
+## **Adicionar Biblioteca Aspose.Slides ao Repositório Local Maven**
+Ao importar o projeto **Aspose.Slides Examples** na IDE, o Maven baixa automaticamente o arquivo JAR aspose.slides do [Aspose Maven Repository](https://releases.aspose.com/java/repo/com/aspose/). Caso você não tenha acesso à internet, pode adicionar o JAR manualmente ao seu repositório local.
 
 ### **mvn install**
-Baixe o [aspose.slides](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/), extraia-o e copie o aspose.slides-version.jar para outro local, por exemplo, a unidade C. Execute o seguinte comando:
+Baixe o [aspose.slides](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/), extraia-o e copie o arquivo aspose.slides‑version.jar para outro local, por exemplo, a unidade C. Execute o seguinte comando:
 
 ```
 mvn install:install-file
@@ -66,10 +66,10 @@ mvn install:install-file
     - Dpackaging=jar
 ```
 
-Agora, o JAR **aspose.slides** foi copiado para o seu repositório local Maven.
+Agora, o JAR **aspose.slides** está copiado para o seu repositório local Maven.
 
 ### **pom.xml**
-Depois de instalado, basta declarar a coordenada **aspose.slides** no pom.xml. Adicione o repositório a seguir na aba repositories e a dependência na aba dependencies.
+Após a instalação, basta declarar a coordenada **aspose.slides** no pom.xml. Adicione o repositório a seguir na aba repositories e a dependência na aba dependencies.
 
 ``` xml
 <repository>
@@ -81,15 +81,15 @@ Depois de instalado, basta declarar a coordenada **aspose.slides** no pom.xml. A
 <dependency>
     <groupId>com.aspose</groupId>
     <artifactId>aspose-slides</artifactId>
-    <version>25.12</version>
-    <classifier>jdk16</classifier>
+    <version>26.10</version>
+    <classifier>jdk8</classifier>
 </dependency>
 ```
 
-### **Done**
-Compile-o, agora o JAR **aspose.slides** pode ser recuperado do seu repositório local Maven.
+### **Concluído**
+Compile o projeto, agora o JAR **aspose.slides** pode ser recuperado do seu repositório local Maven.
 
-## **Contribute**
-Se você quiser adicionar ou melhorar um exemplo, incentivamos que contribua com o projeto. Todos os exemplos e projetos de demonstração neste repositório são de código aberto e podem ser usados livremente em suas próprias aplicações.
+## **Contribuir**
+Se você deseja adicionar ou melhorar um exemplo, incentivamos a contribuição para o projeto. Todos os exemplos e projetos de demonstração neste repositório são código aberto e podem ser usados livremente em suas próprias aplicações.
 
-Para contribuir, você pode fazer fork do repositório, editar o código-fonte e enviar um Pull Request. Revisaremos as alterações e as incluiremos no repositório se forem úteis.
+Para contribuir, você pode fazer um fork do repositório, editar o código-fonte e enviar um Pull Request. Revisaremos as alterações e as incluiremos no repositório se forem úteis.
