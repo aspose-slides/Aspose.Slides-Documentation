@@ -1,11 +1,11 @@
 ---
-title: 聲明
+title: Artifact 分類器變更
 type: docs
 weight: 60
 url: /zh-hant/java/artifact-classifier-change/
 keywords:
 - 分類器 Aspose.Slides
-- 產物分類器
+- artifact 分類器
 - 使用 Aspose.Slides
 - Aspose.Slides 安裝
 - Windows
@@ -16,11 +16,11 @@ keywords:
 - 簡報
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Java 現在使用 jdk8 分類器取代 jdk16。了解原因以及如何更新您的相依項目。"
+description: "Aspose.Slides for Java 現在使用 jdk8 分類器取代 jdk16。了解原因及如何更新您的相依性。"
 ---
-## **從 `jdk16` 到 `jdk8` 的產物分類器變更**
+## **Artifact 分類器從 `jdk16` 變更為 `jdk8`**
 
-Starting with version **26.10**, we have changed the classifier used in our published artifacts from **`jdk16`** (Java 6) to **`jdk8`** (Java 8).
+從 **26.10** 版開始，我們將已發布 artifact 中使用的分類器從 **`jdk16`**（Java 6）變更為 **`jdk8`**（Java 8）。
 
 ### **變更內容**
 
@@ -29,27 +29,27 @@ Starting with version **26.10**, we have changed the classifier used in our publ
 | 分類器 | `jdk16` | `jdk8` |
 | 最低 Java 版本 | Java 1.6 | Java 8 |
 
-**Before:**
+**之前:**  
 ```
 com.aspose:aspose-slides:26.10:jdk16
 ```
 
-**After:**
+**之後:**  
 ```
 com.aspose:aspose-slides:26.10:jdk8
 ```
 
-### **為何我們進行此變更**
+### **為何做此變更**
 
-After internal review, we decided to **drop support for older Java versions** that were no longer providing value and were actively hindering maintenance. Java 8 was selected as the new, safe baseline for all consumers.
+經過內部審查後，我們決定**停止支援較舊的 Java 版本**，因為這些版本已不再提供價值且阻礙維護。Java 8 被選為所有使用者的新安全基礎版。
 
-As part of this, the classifier was updated to reflect the actual minimum supported version. We also aligned with the current Oracle naming convention, where the product is officially referred to as **JDK 8** (rather than the legacy `1.8` format).
+因此，我們更新了分類器以反映實際的最低支援版本。我們同時遵循目前 Oracle 的命名慣例，產品正式稱為 **JDK 8**（而非舊式的 `1.8` 格式）。
 
-### **您需要執行的操作**
+### **您需要執行的步驟**
 
-1. **Update the classifier** in your dependency declarations from `jdk16` to `jdk8`.
+1. **更新分類器**，在您的相依性聲明中將 `jdk16` 改為 `jdk8`。
 
-   **Maven:**
+   **Maven:**  
    ```xml
    <dependency>
      <groupId>com.aspose</groupId>
@@ -59,29 +59,29 @@ As part of this, the classifier was updated to reflect the actual minimum suppor
    </dependency>
    ```
 
-   **Gradle:**
+   **Gradle:**  
    ```groovy
    implementation 'com.aspose:aspose-slides:26.10:jdk8'
    ```
 
-2. **Verify your runtime environment** is Java 8 or higher.
+2. **驗證您的執行環境**為 Java 8 或更高版本。
 
-3. **Refresh any lock files** or dependency caches that pin the old classifier.
+3. **刷新所有鎖定檔案**或相依性快取，以解除舊分類器的固定。
 
 ### **遷移說明：jdk16 與 jdk8**
 
-Starting version 26.10, both the jdk16 and jdk8 classifiers will provide Java 8‑compatible JARs (built with source/target compatibility set to Java 8).
+自 26.10 版起，jdk16 與 jdk8 兩個分類器皆會提供相容 Java 8 的 JAR（以 Java 8 為 source/target 兼容性編譯）。
 
- - `jdk16` → continues to be published for backward compatibility (existing integrations).
- - `jdk8` → introduced as the new preferred classifier for Java 8 environments.
+- `jdk16` → 繼續發布以維持向下相容性（現有整合）。
+- `jdk8` → 作為 Java 8 環境的新首選分類器推出。
 
-⚠️ Note: This dual‑publishing phase is scheduled to end on March 31, 2027. After this date, the jdk16 classifier will be retired, and only jdk8 will be supported.
+⚠️ 注意：此雙重發布階段預計於 2027 年 3 月 31 日結束。此日期之後，jdk16 分類器將被淘汰，僅支援 jdk8。
 
 ### **相容性說明**
 
-- The `jdk16` classifier is **no longer published** after **March 31, 2027**.
-- If you still require Java 1.6 support, please remain on the previous major version line until you can migrate.
+- `jdk16` 分類器在 **2027 年 3 月 31 日**之後**不再發布**。
+- 如果您仍需支援 Java 1.6，請保持使用先前的主要版本系列，直至能夠遷移。
 
 ### **需要協助嗎？**
 
-If you encounter issues during migration, please contact [Aspose 支援](https://forum.aspose.com/) for further assistance.
+如果在遷移過程中遇到問題，請聯絡 [Aspose 支援](https://forum.aspose.com/) 以取得進一步協助。
