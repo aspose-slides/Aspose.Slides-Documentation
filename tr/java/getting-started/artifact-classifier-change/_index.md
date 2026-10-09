@@ -5,7 +5,7 @@ weight: 60
 url: /tr/java/artifact-classifier-change/
 keywords:
 - sınıflandırıcı Aspose.Slides
-- artefakt sınıflandırıcı
+- artefakt sınıflandırıcısı
 - Aspose.Slides kullan
 - Aspose.Slides kurulumu
 - Windows
@@ -16,15 +16,15 @@ keywords:
 - sunum
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Java artık jdk16 yerine jdk8 sınıflandırıcısını kullanıyor. Nedenini ve bağımlılıkları nasıl güncelleyeceğinizi öğrenin."
+description: "Aspose.Slides for Java artık jdk16 yerine jdk8 sınıflandırıcısını kullanıyor. Nedenini ve bağımlılıklarınızı nasıl güncelleyeceğinizi öğrenin."
 ---
-## Artefakt Sınıflandırıcı Değişikliği `jdk16`'dan `jdk8`'e
+## **Artefakt Sınıflandırması `jdk16`'dan `jdk8`'e Değiştirildi**
 
-**26.10** sürümünden itibaren, yayınladığımız artefaktlarda kullanılan sınıflandırıcıyı **`jdk16`** (Java 6) yerine **`jdk8`** (Java 8) olarak değiştirdik.
+**26.10** sürümünden itibaren, yayımladığımız artefaktlardaki sınıflandırıcıyı **`jdk16`** (Java 6) yerine **`jdk8`** (Java 8) olarak değiştirdik.
 
-### Neler değişti
+### **Ne değişti**
 
-| | Önce | Sonra |
+|   | Önce | Sonra |
 |---|---|---|
 | Sınıflandırıcı | `jdk16` | `jdk8` |
 | Minimum Java sürümü | Java 1.6 | Java 8 |
@@ -39,15 +39,15 @@ com.aspose:aspose-slides:26.10:jdk16
 com.aspose:aspose-slides:26.10:jdk8
 ```
 
-### Neden bu değişikliği yaptık
+### **Bu değişikliği yapma nedenimiz**
 
-İç incelemeden sonra, artık değer katmayan ve bakım sürecini aktif olarak engelleyen eski Java sürümlerine **desteği bırakmaya** karar verdik. Tüm kullanıcılar için yeni, güvenli bir temel olarak Java 8 seçildi.
+İç gözden geçirme sonrasında, artık değer katmayan ve bakım sürecini aktif olarak zorlaştıran eski Java sürümlerine **destek vermeyi bırakmaya** karar verdik. Java 8, tüm kullanıcılar için yeni, güvenli bir temel olarak seçildi.
 
-Bu kapsamda, sınıflandırıcı gerçek minimum desteklenen sürümü yansıtacak şekilde güncellendi. Ayrıca ürünün resmi olarak **JDK 8** (eski `1.8` biçimi yerine) olarak adlandırıldığı mevcut Oracle isimlendirme standardına da uyduk.
+Bu kapsamda, gerçek minimum desteklenen sürümü yansıtacak şekilde sınıflandırıcı güncellendi. Ayrıca, ürünün resmi olarak **JDK 8** olarak adlandırıldığı (eski `1.8` biçimi yerine) mevcut Oracle adlandırma konvansiyonu ile uyum sağlandı.
 
-### Yapmanız gerekenler
+### **Yapmanız gerekenler**
 
-1. **Sınıflandırıcıyı güncelleyin** bağımlılık bildirimlerinizde `jdk16` yerine `jdk8` olarak.
+1. Bağımlılık açıklamalarınızdaki sınıflandırıcıyı `jdk16` yerine `jdk8` olarak **güncelleyin**.
 
    **Maven:**
    ```xml
@@ -64,24 +64,24 @@ Bu kapsamda, sınıflandırıcı gerçek minimum desteklenen sürümü yansıtac
    implementation 'com.aspose:aspose-slides:26.10:jdk8'
    ```
 
-2. **Çalışma ortamınızın** Java 8 veya üzeri olduğunu doğrulayın.
+2. Çalışma ortamınızın Java 8 veya daha yüksek bir sürüm olduğundan **emin olun**.
 
-3. **Eski sınıflandırıcıyı kilitleyen** lock dosyalarını veya bağımlılık önbelleklerini yenileyin.
+3. Eski sınıflandırıcıyı kilitleyen **kilit dosyalarını** veya bağımlılık önbelleklerini **yenileyin**.
 
-### Geçiş Notu: jdk16 ve jdk8
+### **Geçiş Notu: jdk16 ve jdk8**
 
-26.10 sürümünden itibaren, hem jdk16 hem de jdk8 sınıflandırıcıları Java 8 uyumlu JAR'lar sağlayacak (kaynak/hedef uyumluluğu Java 8 olarak ayarlanmış olarak derlenmiş).
+**26.10** sürümünden itibaren, hem `jdk16` hem de `jdk8` sınıflandırıcıları Java 8 uyumlu JAR'lar sağlayacak (kaynak/hedef uyumluluğu Java 8 olarak ayarlanmış).
 
-- `jdk16` → geriye dönük uyumluluk (mevcut entegrasyonlar) için yayınlamaya devam edecek.
+- `jdk16` → geriye dönük uyumluluk (mevcut entegrasyonlar) için yayımlanmaya devam eder.  
 - `jdk8` → Java 8 ortamları için yeni tercih edilen sınıflandırıcı olarak tanıtıldı.
 
-⚠️ Not: Bu çift yayınlama aşamasının 31 Mart 2027'de sona ermesi planlanıyor. Bu tarihten sonra, jdk16 sınıflandırıcısı emekli edilecek ve yalnızca jdk8 desteklenecek.
+⚠️ Not: Bu çift yayımlama aşaması **31 Mart 2027**'de sona erecek. Bu tarihten sonra `jdk16` sınıflandırıcısı devre dışı bırakılacak ve yalnızca `jdk8` desteklenecek.
 
-### Uyumluluk notları
+### **Uyumluluk notları**
 
-- `jdk16` sınıflandırıcısı **31 Mart 2027** tarihinden sonra **artık yayınlanmamaktadır**.
+- `jdk16` sınıflandırıcısı **31 Mart 2027** tarihinden itibaren **daha fazla yayımlanmayacak**.  
 - Eğer hâlâ Java 1.6 desteğine ihtiyaç duyuyorsanız, geçiş yapana kadar önceki ana sürüm hattında kalın.
 
-### Yardıma mı ihtiyacınız var?
+### **Yardıma mı ihtiyacınız var?**
 
-Geçiş sırasında sorunlarla karşılaşırsanız, lütfen daha fazla yardım için [Aspose destek](https://forum.aspose.com/) ekibiyle iletişime geçin.
+Geçiş sırasında sorun yaşarsanız, lütfen [Aspose desteği](https://forum.aspose.com/) ile iletişime geçin.

@@ -1,13 +1,13 @@
 ---
-title: Verklaring
+title: Declaratie
 type: docs
 weight: 60
 url: /nl/java/artifact-classifier-change/
 keywords:
-- classificatie Aspose.Slides
-- artifact classificatie
+- classifier Aspose.Slides
+- artifact classifier
 - gebruik Aspose.Slides
-- Aspose.Slides installatie
+- installatie van Aspose.Slides
 - Windows
 - Linux
 - macOS
@@ -16,18 +16,18 @@ keywords:
 - presentatie
 - Java
 - Aspose.Slides
-description: "Aspose.Slides voor Java gebruikt nu de jdk8‑classifier in plaats van jdk16. Leer waarom en hoe u uw afhankelijkheden bijwerkt."
+description: "Aspose.Slides voor Java gebruikt nu de jdk8-classifier in plaats van jdk16. Leer waarom en hoe u uw afhankelijkheden kunt bijwerken."
 ---
-## Artifact‑classifierwijziging van `jdk16` naar `jdk8`
+## **Wijziging van Artifact Classifier van `jdk16` naar `jdk8`**
 
-Vanaf versie **26.10** hebben we de classifier die we in onze gepubliceerde artifacts gebruiken gewijzigd van **`jdk16`** (Java 6) naar **`jdk8`** (Java 8).
+Vanaf versie **26.10** hebben we de classifier die wordt gebruikt in onze gepubliceerde artefacten gewijzigd van **`jdk16`** (Java 6) naar **`jdk8`** (Java 8).
 
-### Wat is er gewijzigd
+### **Wat is veranderd**
 
 | | Voor | Na |
 |---|---|---|
-| Classificatie | `jdk16` | `jdk8` |
-| Minimale Java‑versie | Java 1.6 | Java 8 |
+| Classifier | `jdk16` | `jdk8` |
+| Minimum Java‑versie | Java 1.6 | Java 8 |
 
 **Voor:**
 ```
@@ -39,15 +39,15 @@ com.aspose:aspose-slides:26.10:jdk16
 com.aspose:aspose-slides:26.10:jdk8
 ```
 
-### Waarom we deze wijziging hebben aangebracht
+### **Waarom we deze wijziging hebben doorgevoerd**
 
-Na een interne beoordeling hebben we besloten om **ondersteuning voor oudere Java‑versies** te beëindigen, die geen waarde meer leverden en het onderhoud actief belemmerden. Java 8 is gekozen als de nieuwe, veilige basis voor alle gebruikers.
+Na intern onderzoek hebben we besloten om **ondersteuning voor oudere Java‑versies** te beëindigen, die geen waarde meer leverden en het onderhoud actief belemmerden. Java 8 werd gekozen als de nieuwe, veilige basislijn voor alle gebruikers.
 
-In dit kader is de classifier bijgewerkt om de feitelijke minimaal ondersteunde versie weer te geven. We hebben ons ook afgestemd op de huidige Oracle‑namingsconventie, waarbij het product officieel wordt aangeduid als **JDK 8** (in plaats van het verouderde `1.8`‑formaat).
+Als onderdeel hiervan werd de classifier bijgewerkt om de werkelijke minimum ondersteunde versie weer te geven. We hebben ook afgestemd op de huidige Oracle‑naamgeving, waarbij het product officieel wordt aangeduid als **JDK 8** (in plaats van het legacy `1.8`‑formaat).
 
-### Wat u moet doen
+### **Wat je moet doen**
 
-1. **Werk de classifier bij** in uw afhankelijkheidsverklaringen van `jdk16` naar `jdk8`.
+1. **Update de classifier** in je afhankelijkheidsdeclares van `jdk16` naar `jdk8`.
 
    **Maven:**
    ```xml
@@ -64,24 +64,24 @@ In dit kader is de classifier bijgewerkt om de feitelijke minimaal ondersteunde 
    implementation 'com.aspose:aspose-slides:26.10:jdk8'
    ```
 
-2. **Controleer of uw runtime‑omgeving** Java 8 of hoger is.
+2. **Controleer je runtime‑omgeving**; deze moet Java 8 of hoger zijn.
 
-3. **Ververs alle lock‑bestanden** of afhankelijkheids‑caches die de oude classifier vastzetten.
+3. **Vernieuw eventuele lock‑bestanden** of afhankelijkheids‑caches die de oude classifier vastzetten.
 
-### Migratienotitie: jdk16 en jdk8
+### **Migratienotitie: jdk16 en jdk8**
 
-Vanaf versie 26.10​ zullen zowel de jdk16‑ als de jdk8‑classifiers Java 8‑compatibele JAR‑bestanden leveren (gebouwd met bron‑/doel‑compatibiliteit ingesteld op Java 8).
+Vanaf versie 26.10 zullen zowel de jdk16- als de jdk8‑classifiers Java 8‑compatibele JAR‑bestanden leveren (gebouwd met source/target‑compatibiliteit ingesteld op Java 8).
 
 - `jdk16` → blijft gepubliceerd voor achterwaartse compatibiliteit (bestaande integraties).
-- `jdk8` → geïntroduceerd als de nieuwe voorkeur‑classifier voor Java 8‑omgevingen.
+- `jdk8` → geïntroduceerd als de nieuwe voorkeurs‑classifier voor Java 8‑omgevingen.
 
-⚠️ Opmerking: deze fase van dubbele publicatie eindigt op 31 maart 2027​. Na deze datum wordt de jdk16‑classifier uitgefaseerd en wordt alleen jdk8 ondersteund.
+⚠️ Opmerking: deze fase van dubbele publicatie loopt tot 31 maart 2027. Na deze datum wordt de jdk16‑classifier beëindigd en wordt alleen jdk8 ondersteund.
 
-### Compatibiliteitsopmerkingen
+### **Compatibiliteitsnotities**
 
-- De `jdk16`‑classifier wordt **niet meer gepubliceerd** na **31 maart 2027**.
-- Als u nog steeds Java 1.6‑ondersteuning nodig heeft, blijf dan op de vorige hoofdversielijn totdat u kunt migreren.
+- De `jdk16`‑classifier is **niet meer gepubliceerd** na **31 maart 2027**.
+- Als je nog Java 1.6‑ondersteuning nodig hebt, blijf dan op de vorige hoofdversielijn tot je kunt migreren.
 
-### Hulp nodig?
+### **Hulp nodig?**
 
-Als u problemen ondervindt tijdens de migratie, neem dan contact op met [Aspose‑ondersteuning](https://forum.aspose.com/) voor verdere hulp.
+Als je problemen ondervindt tijdens de migratie, neem dan contact op met [Aspose‑ondersteuning](https://forum.aspose.com/) voor verdere hulp.
